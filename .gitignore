@@ -1,0 +1,8 @@
+build/
+base/
+gensrc/
+.vscode/
+*.gba
+*.elf
+*.8bpp
+*.gbapal
