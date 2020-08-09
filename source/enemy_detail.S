@@ -1,7 +1,6 @@
 #include "offsets.h"
     .include "constants.inc"
     .include "macros.inc"
-    .include "macros/enemy_detail.inc"
     .text
 
     .thumb

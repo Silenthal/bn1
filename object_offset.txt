@@ -10,6 +10,7 @@ video 0x18FC
 enemy_detail 0x9DC4
 swi 0x9DF50
 demo 0x18968
+battle_rank 0x7d5b0
 enemy_drop 0x7d80e
 interrupt_handler 0x180000
 demo_asset 0x796FD4
