@@ -708,6 +708,14 @@ struct DmaTransferParams {
     enum DmaCntFlag control;
 };
 
+typedef enum Elementid {
+    EL_Elec=1,
+    EL_Fire=2,
+    EL_None=0,
+    EL_Water=3,
+    EL_Wood=4
+} Elementid;
+
 typedef struct EnemyDetail EnemyDetail, *PEnemyDetail;
 
 typedef struct Struct_8009DFD4_Sub Struct_8009DFD4_Sub, *PStruct_8009DFD4_Sub;
@@ -719,7 +727,7 @@ struct Struct_8009DFD4_Sub {
 
 struct EnemyDetail {
     ushort m_Hp;
-    byte m_b2;
+    enum Elementid m_element;
     byte b3;
     byte b4;
     byte m_b5;
