@@ -62,11 +62,15 @@ export LD			:= $(CC)
 
 .PHONY: $(BUILD) depend clean
 
+check: $(BUILD)
+	@$(SHA512SUM) $(BASEDIR)/$(BASE).gba | sed -e 's/$(BASEDIR)\/$(BASE)/$(TARGET)/' >| $(BUILD)/$(TARGET).checksum
+	@$(SHA512SUM) -c $(BUILD)/$(TARGET).checksum
+
+no-check: $(BUILD)
+
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
-	@$(SHA512SUM) $(BASEDIR)/$(BASE).gba | sed -e 's/$(BASEDIR)\/$(BASE)/$(TARGET)/' >| $(BUILD)/$(TARGET).checksum
-	@$(SHA512SUM) -c $(BUILD)/$(TARGET).checksum
 
 depend:
 	@[ -d $(BUILD) ] || mkdir -p $(BUILD)
@@ -121,13 +125,22 @@ $(S_OBJECTS): %.o: %.S
 	@echo $(notdir $<)
 	$(CC) $(INCLUDE) -D $(BASE_DEFINE)=\"$(BASE).gba\" -E $< | $(AS) $(ASINCLUDE) $(ASFLAGS) -o $@
 
+images/ui/charset.4bpp: %.4bpp: %.png
+	$(MAKE_TILES) -mh 2 $@ $<
+
+%.4bpp: %.png
+	$(MAKE_TILES) $@ $<
+
 %.8bpp: %.png
 	$(MAKE_TILES) $@ $<
 
-%.gbapal: %.png
-	$(MAKE_TILES) $@ $<
+%.gbapal: %.gbapal.bin
+	cp $< $(ASSETS)/$@
 
 %.gbapal: %.pal
+	$(MAKE_TILES) $@ $<
+
+%.gbapal: %.png
 	$(MAKE_TILES) $@ $<
 
 endif

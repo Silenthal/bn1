@@ -61,7 +61,7 @@ def make_tile_list(rows, bitdepth, width, height):
                         ix = t * 2
                         lo = rows[rowOffset + ix + 0] & 0xF
                         hi = rows[rowOffset + ix + 1] & 0xF
-                        tile.append(lo & (hi << 4))
+                        tile.append(lo | (hi << 4))
                     else:
                         tile.append(rows[rowOffset + t])
             tileList.append(tile)
@@ -92,13 +92,14 @@ def PngToGbaPal(inPath: Path, outPath: Path) -> None:
             oFile.write(bytearray(palbin))
 
 
-def PngTo8Bpp(inPath: Path, outPath: Path, mw: int, mh: int) -> None:
+def PngToBpp(inPath: Path, outPath: Path, mw: int, mh: int) -> None:
     pngData = parse_png(inPath)
     tileList = make_tile_list(pngData.rows, pngData.bitDepth, pngData.width, pngData.height)
     outTileList = make_meta_tile_list(tileList, mw, mh, pngData.width >> 3, pngData.height >> 3)
     with open(outPath, "wb") as oFile:
         for tile in outTileList:
             oFile.write(bytearray(tile))
+
 
 def main():
     def auto_int(x):
@@ -125,8 +126,8 @@ def main():
     if inEx == ".png":
         if outEx == ".gbapal":
             return PngToGbaPal(inPath, outPath)
-        elif outEx == ".8bpp":
-            return PngTo8Bpp(inPath, outPath, args.meta_tile_width, args.meta_tile_height)
+        elif outEx == ".8bpp" or outEx == ".4bpp":
+            return PngToBpp(inPath, outPath, args.meta_tile_width, args.meta_tile_height)
     else:
         exit(f"Unsupported conversion from {inEx} to {outEx}")
 
