@@ -128,6 +128,8 @@ def main():
             return PngToGbaPal(inPath, outPath)
         elif outEx == ".8bpp" or outEx == ".4bpp":
             return PngToBpp(inPath, outPath, args.meta_tile_width, args.meta_tile_height)
+        else:
+            exit(f"Unsupported conversion from {inEx} to {outEx}")
     else:
         exit(f"Unsupported conversion from {inEx} to {outEx}")
 

@@ -13,5 +13,6 @@ demo 0x18968
 battle_rank 0x7D5B0
 enemy_drop 0x7D80E
 interrupt_handler 0x180000
+screen_layout_intr 0x180178
 asset_ui 0x6132A8
 asset_demo 0x796FD4

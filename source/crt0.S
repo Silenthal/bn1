@@ -110,30 +110,30 @@ memcpy:
 irqStackPtr:        .word IWRAM_END - 0x60
 fiqStackPtr:        .word IWRAM_END - 0x4
 swiStackPointer:    .word IWRAM_END - 0x20
-systemStackPointer:    .word IWRAM_END - 0x200
-regWaitCnt:            .word REG_WAITCNT
-waitCntConfig:        .word 0x45B4
-iwCodeSrc:            .word 0x8180000
-iwCodeDest:            .word interruptHandlerStart
-iwCodeLen:            .word 0xE40
+systemStackPointer: .word IWRAM_END - 0x200
+regWaitCnt:         .word REG_WAITCNT
+waitCntConfig:      .word 0x45B4
+iwCodeSrc:          .word srcInterruptHandlerStart
+iwCodeDest:         .word interruptHandlerStart
+iwCodeLen:          .word 0xE40
     .pool
 
 srcInterruptVector:
-    .word 0x0300692d
-    .word 0x03006929
-    .word 0x03006929
-    .word 0x03006929
-    .word 0x03006929
-    .word 0x03006929
+    .word Handler_VBlank_far
+    .word dummy_6928_far
+    .word dummy_6928_far
+    .word dummy_6928_far
+    .word dummy_6928_far
+    .word dummy_6928_far
     .word 0x03007411
     .word 0x03007411
-    .word 0x03006929
-    .word 0x03006929
-    .word 0x03006929
-    .word 0x03006929
-    .word 0x03006929
-    .word 0x03006929
-    .word 0x03006929
+    .word dummy_6928_far
+    .word dummy_6928_far
+    .word dummy_6928_far
+    .word dummy_6928_far
+    .word dummy_6928_far
+    .word dummy_6928_far
+    .word dummy_6928_far
 
 
 thumb_func_start InitializeInterruptVectors

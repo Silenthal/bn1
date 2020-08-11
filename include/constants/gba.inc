@@ -21,3 +21,6 @@
     .set KEYCNT_BUTTON_ALL      , 0x03FF
     .set KEYCNT_IRQ_ENABLE      , 0x4000
     .set KEYCNT_IRQ_COND_ALL    , 0x8000
+
+    .set IWRAM_IntrCodeStart, IWRAM_START + 0x6800
+    .set ROM_IntrCodeStart, 0x8180000

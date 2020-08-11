@@ -104,14 +104,14 @@ afterBranch:
 
     .pool
 
-thumb_func_start handlerOther
-handlerOther:
+far_thumb_func_start dummy_6928
+dummy_6928:
     bx         lr
     .p2align 2,0
-thumb_func_end handlerOther
+thumb_func_end dummy_6928
 
-thumb_func_start handlerVBlank
-handlerVBlank:
+far_thumb_func_start Handler_VBlank
+Handler_VBlank:
     ldr        r0,=eFrameCounter
     ldr        r1,[r0]
     adds       r1,#0x1
@@ -122,20 +122,21 @@ handlerVBlank:
     bx         r0
     pop        { r0 }
     bx         r0
-thumb_func_end handlerVBlank
+thumb_func_end Handler_VBlank
 
-handlerVcount_1:
+far_thumb_func_start Handler_VCount
+Handler_VCount:
     push       { lr }
-    ldr        r0,mysteryAddr
+    ldr        r0,ptrSoundMain
     mov        lr,pc
     bx         r0
     pop        { r0 }
     bx         r0
-mysteryAddr:    .word 0x8000649
+thumb_func_end Handler_VCount
+ptrSoundMain:    .word Sound_Main
+.word 0x2006334  @ ???
 
 FUN_08180150:
-    str        r4,[r6,#0x30]
-    lsls       r0,r0,#0x8
     ldr        r0,=REG_VCOUNT
     ldrh       r0,[r0]
     lsrs       r0,r0,#0x3
