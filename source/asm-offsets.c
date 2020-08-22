@@ -50,6 +50,11 @@ int main(void)
     DECLARE("FadeSettings_m_isFadeActive"   , offsetof(struct FadeSettings, m_isFadeActive));
     DECLARE("FadeSettings_m_isFadeStarted"  , offsetof(struct FadeSettings, m_isFadeStarted));
 
+    // BlendSettings
+    DECLARE("BlendSettings_m_bldCnt_Target1", offsetof(struct BlendSettings, m_bldCnt_Target1));
+    DECLARE("BlendSettings_m_bldAlpha_EVA"  , offsetof(struct BlendSettings, m_bldAlpha_EVA));
+    DECLARE("BlendSettings_m_blendControl"  , offsetof(struct BlendSettings, m_blendControl));
+
     // DisplaySettings
     DECLARE("DisplaySettings_dispcnt"       , offsetof(struct DisplaySettings, dispcnt));
     DECLARE("DisplaySettings_bg0Cnt"        , offsetof(struct DisplaySettings, bg0Cnt));

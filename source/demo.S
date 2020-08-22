@@ -4,7 +4,6 @@
 
     .set Text_DisableDialogue, 0x8013644
     .set SetTextPointer, 0x80135e8
-    .set Fade_Request, 0x8004b00
     .set Screen_CopyLayoutRect, 0x8002230
     .set Screen_CopyEntry, 0x80021ac
     .set USHORT_ARRAY_0872b200, 0x872b200

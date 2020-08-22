@@ -1,3 +1,6 @@
+    .set FALSE, 0
+    .set TRUE, 1
+
     .set EWRAM_START, 0x02000000
     .set EWRAM_END,   EWRAM_START + 0x40000
     .set IWRAM_START, 0x03000000

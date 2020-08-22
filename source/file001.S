@@ -9,7 +9,6 @@
     .set FUN_08001950        ,0x8001950
     .set FUN_08000c0c        ,0x8000c0c
     .set FUN_080063b2        ,0x80063b2
-    .set FUN_08004b38        ,0x8004b38
     .set FUN_08013658        ,0x8013658
     .set FUN_0801996c        ,0x801996c
     .set FUN_08001bdc        ,0x8001bdc
@@ -58,7 +57,7 @@ LAB_08000290:
     bl         FUN_080063b2
     tst        r0,r0
     beq        LAB_080002e6
-    bl         FUN_08004b38
+    bl         Fade_Apply
 LAB_080002e6:
     bl         FUN_08013658
     bl         FUN_0801996c
