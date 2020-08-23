@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import argparse
-import struct
 import os
+import struct
 from pathlib import Path
 
 

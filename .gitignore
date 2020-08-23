@@ -1,8 +1,10 @@
 build/
 base/
 gensrc/
+__pycache__/
 .vscode/
 *.gba
 *.elf
+*.4bpp
 *.8bpp
 *.gbapal

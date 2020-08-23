@@ -79,6 +79,9 @@ SECTIONS {
 		eDmaParamListSize = 0x74d4;
 		eDmaParamList = 0x8010;
 		eRngState = 0x6cc0;
+		gBattleFolder = 0x4910;
+		gFolder = 0x1c0;
+		gBattleChipInventory = 0x4a0;
 		musicPlayerInfo_13 = 0xc520;
 		musicPlayerInfo_17 = 0xc560;
 		musicPlayerInfo_0D = 0xc5a0;

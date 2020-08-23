@@ -6,7 +6,7 @@ It uses the following ROM as a base:
 
 * Mega Man Battle Network (USA).gba  `md5: 9FF40CF640575211202B7BDA5487ABBB`
 
-Python 3 and devkitPro are required.
+Python 3 and devkitPro are required. To use some of the tools, the Python package `pypng` is required.
 
 To make, create a directory called `base`, place the ROM in the directory, and name it `base.gba`.
 

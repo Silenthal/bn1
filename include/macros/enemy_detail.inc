@@ -2,15 +2,63 @@
     .short \amt
     .endm
 
-    .macro element elem
-    .byte \elem
-    .endm
-
     .macro zenny amt
     .short 0x8000 | (\amt & 0x7FFF)
     .endm
 
-    .macro chip id code
-    .byte \id & 0xFF
-    .byte \code & 0xFF
+    .macro battlechip id, code
+    .byte CD_\id, CC_\code
+    .endm
+
+    .macro damage dmg
+    .short \dmg
+    .endm
+
+    .macro chip_icon index
+    .word tilesetChipIcons + \index * 128
+    .endm
+
+    .macro chip_art index
+    .word tilesetChipArt + \index * 32 * 8 * 7
+    .word paletteChipArt + \index * 32
+    .endm
+
+    .macro codes c1=None, c2=None, c3=None, c4=None, c5=None
+    .byte CC_\c1, CC_\c2, CC_\c3, CC_\c4, CC_\c5
+    .endm
+
+    .macro nocodes
+    .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
+    .endm
+
+    .macro element elem
+    .byte EL_\elem
+    .endm
+
+    .macro noelement
+    .byte EL_None
+    .endm
+
+    .macro family main, sub
+    .byte \main * 4, \sub
+    .endm
+
+    .macro nofamily
+    .byte 0xFF, 0
+    .endm
+
+    .macro rarity r
+    .byte \r
+    .endm
+
+    .macro norarity
+    .byte 0xFF
+    .endm
+
+    .macro library index
+    .byte \index
+    .endm
+
+    .macro nolibrary
+    .byte 0xFF
     .endm

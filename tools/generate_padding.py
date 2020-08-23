@@ -6,6 +6,7 @@ import subprocess
 from pathlib import Path
 from typing import Callable
 
+
 def create_object_list_with_pad(srcList, maxSize: int, assemble: Callable[[str, int, int], None]):
     outList = []
     for index in range(len(srcList)):

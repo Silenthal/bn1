@@ -128,6 +128,54 @@ $(S_OBJECTS): %.o: %.S
 images/ui/charset.4bpp: %.4bpp: %.png
 	$(MAKE_TILES) -mh 2 $@ $<
 
+images/battlechip/art/001.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0000000000000001 $@ $<
+
+images/battlechip/art/002.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0101011011010001 $@ $<
+
+images/battlechip/art/003.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0101011011010001 $@ $<
+
+images/battlechip/art/013.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0111111101101111 $@ $<
+
+images/battlechip/art/058.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0000010100000100 $@ $<
+
+images/battlechip/art/059.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0000010100000100 $@ $<
+
+images/battlechip/art/060.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0000010100000100 $@ $<
+
+images/battlechip/art/061.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0000010100000100 $@ $<
+
+images/battlechip/art/062.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0000010100000100 $@ $<
+
+images/battlechip/art/063.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0000010100000100 $@ $<
+
+images/battlechip/art/064.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0000010100000100 $@ $<
+
+images/battlechip/art/065.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0000010100000100 $@ $<
+
+images/battlechip/art/066.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0000010100000000 $@ $<
+
+images/battlechip/art/070.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0001000000000010 $@ $<
+
+images/battlechip/art/127.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 1111111000000000 $@ $<
+
+images/battlechip/art/149.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 1000000000001111 $@ $<
+
 %.4bpp: %.png
 	$(MAKE_TILES) $@ $<
 

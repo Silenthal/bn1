@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import argparse
 import os
-import png
 from pathlib import Path
 
 
@@ -45,7 +44,9 @@ def main():
                 files.add(tok[1].strip('",'))
     op = get_out_path(inPath, outDir)
     with open(op, "w") as outFile:
-        fileList = " ".join(files)
+        slist = list(files)
+        slist.sort()
+        fileList = " ".join(slist)
         outFile.write(f"{objName} {depName}: {srcName} {fileList}\n\n")
         outFile.write("\n")
 

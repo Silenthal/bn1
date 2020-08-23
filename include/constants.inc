@@ -2,3 +2,4 @@
     .include "constants/io.inc"
     .include "constants/register.inc"
     .include "constants/song.inc"
+    .include "constants/battlechip.inc"

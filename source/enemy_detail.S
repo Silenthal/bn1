@@ -21,7 +21,7 @@ thumb_func_end Enemy_GetEnemyDetail
 arrayEnemyDetails:
 _0: @ Megaman
     hp 100
-    element EL_None
+    element None
     .byte 0x32, 0x0, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -35,91 +35,91 @@ _0: @ Megaman
     zenny 0
 _1: @ Mettaur1
     hp 40
-    element EL_None
+    element None
     .byte 0x22, 0x4, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 60
     zenny 60
     zenny 80
-    chip CD_MetGuard CC_G
+    battlechip MetGuard G
     zenny 100
-    chip CD_MetGuard CC_A
+    battlechip MetGuard A
     zenny 150
-    chip CD_ShokWave CC_K
+    battlechip ShokWave K
     zenny 200
-    chip CD_ShokWave CC_C
+    battlechip ShokWave C
 _2: @ Mettaur2
     hp 60
-    element EL_None
+    element None
     .byte 0x22, 0x4, 0x1, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 110
     zenny 110
     zenny 130
     zenny 130
-    chip CD_MetGuard CC_G
-    chip CD_SoniWave CC_M
+    battlechip MetGuard G
+    battlechip SoniWave M
     zenny 200
-    chip CD_SoniWave CC_D
+    battlechip SoniWave D
     zenny 250
-    chip CD_SoniWave CC_C
+    battlechip SoniWave C
 _3: @ Mettaur3
     hp 100
-    element EL_None
+    element None
     .byte 0x22, 0x4, 0x1, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 160
     zenny 160
     zenny 180
-    chip CD_MetGuard CC_L
+    battlechip MetGuard L
     zenny 200
-    chip CD_DynaWave CC_M
+    battlechip DynaWave M
     zenny 250
-    chip CD_DynaWave CC_S
+    battlechip DynaWave S
     zenny 300
-    chip CD_DynaWave CC_C
+    battlechip DynaWave C
 _4: @ Canodumb1
     hp 50
-    element EL_None
+    element None
     .byte 0x36, 0x2, 0x10, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 60
     zenny 60
     zenny 80
     zenny 80
     zenny 100
-    chip CD_Cannon CC_A
+    battlechip Cannon A
     zenny 150
-    chip CD_Cannon CC_B
+    battlechip Cannon B
     zenny 200
-    chip CD_Cannon CC_D
+    battlechip Cannon D
 _5: @ Canodumb2
     hp 80
-    element EL_None
+    element None
     .byte 0x36, 0x2, 0x10, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 160
     zenny 160
     zenny 180
     zenny 180
     zenny 200
-    chip CD_HiCannon CC_F
+    battlechip HiCannon F
     zenny 250
-    chip CD_HiCannon CC_G
+    battlechip HiCannon G
     zenny 300
-    chip CD_HiCannon CC_H
+    battlechip HiCannon H
 _6: @ Canodumb3
     hp 100
-    element EL_None
+    element None
     .byte 0x36, 0x2, 0x10, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 160
     zenny 160
     zenny 180
     zenny 180
     zenny 200
-    chip CD_M_Cannon CC_K
+    battlechip M_Cannon K
     zenny 250
-    chip CD_M_Cannon CC_O
+    battlechip M_Cannon O
     zenny 300
-    chip CD_M_Cannon CC_M
+    battlechip M_Cannon M
 _7: @ Vulgear
     hp 80
-    element EL_Fire
+    element Fire
     .byte 0x32, 0x5, 0x14, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 110
     zenny 110
@@ -128,26 +128,26 @@ _7: @ Vulgear
     zenny 150
     zenny 150
     zenny 200
-    chip CD_FireTowr CC_F
-    chip CD_FireTowr CC_E
-    chip CD_FireTowr CC_M
+    battlechip FireTowr F
+    battlechip FireTowr E
+    battlechip FireTowr M
 _8: @ Vatgear
     hp 120
-    element EL_Water
+    element Water
     .byte 0x32, 0x5, 0x14, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 210
     zenny 210
     zenny 230
     zenny 230
     zenny 250
-    chip CD_AquaTowr CC_R
+    battlechip AquaTowr R
     zenny 300
-    chip CD_AquaTowr CC_H
+    battlechip AquaTowr H
     zenny 350
-    chip CD_AquaTowr CC_G
+    battlechip AquaTowr G
 _9: @ Vulgear_X
     hp 80
-    element EL_Fire
+    element Fire
     .byte 0x32, 0x5, 0x14, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 30
     zenny 30
@@ -155,97 +155,97 @@ _9: @ Vulgear_X
     zenny 50
     zenny 80
     zenny 80
-    chip CD_FireTowr CC_F
+    battlechip FireTowr F
     zenny 80
-    chip CD_FireTowr CC_J
+    battlechip FireTowr J
     zenny 100
 _10: @ Spooky1
     hp 50
-    element EL_None
+    element None
     .byte 0x3A, 0xA, 0x20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 110
     zenny 110
     zenny 130
-    chip CD_Recov10 CC_G
+    battlechip Recov10 G
     zenny 150
-    chip CD_Invis1 CC_I
+    battlechip Invis1 I
     zenny 200
-    chip CD_Invis1 CC_L
-    chip CD_Invis1 CC_J
+    battlechip Invis1 L
+    battlechip Invis1 J
     zenny 250
 _11: @ Spooky2
     hp 100
-    element EL_None
+    element None
     .byte 0x3A, 0xA, 0x20, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 210
     zenny 210
     zenny 230
     zenny 230
     zenny 250
-    chip CD_Invis2 CC_C
-    chip CD_Recov50 CC_A
-    chip CD_Invis2 CC_A
-    chip CD_Recov80 CC_A
-    chip CD_Invis2 CC_J
+    battlechip Invis2 C
+    battlechip Recov50 A
+    battlechip Invis2 A
+    battlechip Recov80 A
+    battlechip Invis2 J
 _12: @ Spooky3
     hp 120
-    element EL_None
+    element None
     .byte 0x3A, 0xA, 0x20, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
-    chip CD_Recov10 CC_C
-    chip CD_Recov10 CC_L
-    chip CD_Recov30 CC_C
-    chip CD_Recov50 CC_E
+    battlechip Recov10 C
+    battlechip Recov10 L
+    battlechip Recov30 C
+    battlechip Recov50 E
     zenny 400
-    chip CD_Recov80 CC_L
-    chip CD_Recov120 CC_L
-    chip CD_Recov150 CC_G
-    chip CD_Invis3 CC_N
-    chip CD_Recov200 CC_A
+    battlechip Recov80 L
+    battlechip Recov120 L
+    battlechip Recov150 G
+    battlechip Invis3 N
+    battlechip Recov200 A
 _13: @ Beetank1
     hp 80
-    element EL_None
+    element None
     .byte 0x2E, 0x9, 0x1F, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 110
     zenny 110
     zenny 130
     zenny 130
     zenny 150
-    chip CD_LilBomb CC_O
+    battlechip LilBomb O
     zenny 200
-    chip CD_LilBomb CC_B
+    battlechip LilBomb B
     zenny 250
-    chip CD_LilBomb CC_D
+    battlechip LilBomb D
 _14: @ Beetank2
     hp 120
-    element EL_None
+    element None
     .byte 0x2E, 0x9, 0x1F, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 210
     zenny 210
     zenny 230
     zenny 230
     zenny 250
-    chip CD_CrosBomb CC_H
+    battlechip CrosBomb H
     zenny 300
-    chip CD_CrosBomb CC_D
+    battlechip CrosBomb D
     zenny 350
-    chip CD_CrosBomb CC_B
+    battlechip CrosBomb B
 _15: @ Beetank3
     hp 150
-    element EL_None
+    element None
     .byte 0x2E, 0x9, 0x1F, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 360
     zenny 360
     zenny 380
     zenny 380
     zenny 400
-    chip CD_BigBomb CC_T
+    battlechip BigBomb T
     zenny 450
-    chip CD_BigBomb CC_O
+    battlechip BigBomb O
     zenny 500
-    chip CD_BigBomb CC_B
+    battlechip BigBomb B
 _16: @ Handy1
     hp 80
-    element EL_None
+    element None
     .byte 0x0, 0x1A, 0x29, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 110
     zenny 110
@@ -254,12 +254,12 @@ _16: @ Handy1
     zenny 150
     zenny 150
     zenny 200
-    chip CD_TimeBom1 CC_J
+    battlechip TimeBom1 J
     zenny 250
-    chip CD_TimeBom1 CC_L
+    battlechip TimeBom1 L
 _17: @ Handy2
     hp 200
-    element EL_None
+    element None
     .byte 0x0, 0x1A, 0x29, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 260
     zenny 260
@@ -268,82 +268,82 @@ _17: @ Handy2
     zenny 300
     zenny 300
     zenny 350
-    chip CD_TimeBom2 CC_J
+    battlechip TimeBom2 J
     zenny 400
-    chip CD_TimeBom2 CC_C
+    battlechip TimeBom2 C
 _18: @ Handy3
     hp 300
-    element EL_None
+    element None
     .byte 0x0, 0x1A, 0x29, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_TimeBom3 CC_O
+    battlechip TimeBom3 O
     zenny 550
-    chip CD_TimeBom3 CC_G
+    battlechip TimeBom3 G
     zenny 600
-    chip CD_TimeBom3 CC_B
+    battlechip TimeBom3 B
 _19: @ Flappy1
     hp 60
-    element EL_None
+    element None
     .byte 0x36, 0x12, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 110
     zenny 110
     zenny 130
     zenny 130
     zenny 150
-    chip CD_Quake1 CC_H
+    battlechip Quake1 H
     zenny 200
-    chip CD_Quake1 CC_A
-    chip CD_Quake1 CC_K
-    chip CD_Quake1 CC_Q
+    battlechip Quake1 A
+    battlechip Quake1 K
+    battlechip Quake1 Q
 _20: @ Flappy2
     hp 120
-    element EL_None
+    element None
     .byte 0x36, 0x12, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 160
     zenny 160
     zenny 180
     zenny 180
     zenny 200
-    chip CD_Quake2 CC_Q
+    battlechip Quake2 Q
     zenny 250
-    chip CD_Quake2 CC_C
+    battlechip Quake2 C
     zenny 300
-    chip CD_Quake2 CC_B
+    battlechip Quake2 B
 _21: @ Flappy3
     hp 150
-    element EL_None
+    element None
     .byte 0x36, 0x12, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 260
     zenny 260
     zenny 280
     zenny 280
     zenny 300
-    chip CD_Quake3 CC_Q
+    battlechip Quake3 Q
     zenny 350
-    chip CD_Quake3 CC_M
+    battlechip Quake3 M
     zenny 400
-    chip CD_Quake3 CC_D
+    battlechip Quake3 D
 _22: @ Floshell1
     hp 120
-    element EL_None
+    element None
     .byte 0x0, 0x18, 0x3F, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 460
-    chip CD_IronShld CC_T
+    battlechip IronShld T
     zenny 480
-    chip CD_IronShld CC_R
+    battlechip IronShld R
     zenny 500
-    chip CD_IronShld CC_O
+    battlechip IronShld O
     zenny 550
-    chip CD_IronShld CC_B
+    battlechip IronShld B
     zenny 600
-    chip CD_IronShld CC_A
+    battlechip IronShld A
 _23: @ Floshell2
     hp 200
-    element EL_None
+    element None
     .byte 0x0, 0x18, 0x3F, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 2000
     zenny 2000
@@ -357,7 +357,7 @@ _23: @ Floshell2
     zenny 2000
 _24: @ Floshell3
     hp 250
-    element EL_None
+    element None
     .byte 0x0, 0x18, 0x3F, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 3000
     zenny 3000
@@ -371,7 +371,7 @@ _24: @ Floshell3
     zenny 3000
 _25: @ HardHead1
     hp 60
-    element EL_None
+    element None
     .byte 0x36, 0xD, 0x25, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 160
     zenny 160
@@ -382,10 +382,10 @@ _25: @ HardHead1
     zenny 250
     zenny 250
     zenny 300
-    chip CD_Howitzer CC_H
+    battlechip Howitzer H
 _26: @ HardHead2
     hp 70
-    element EL_None
+    element None
     .byte 0x36, 0xD, 0x25, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 2000
     zenny 2000
@@ -399,7 +399,7 @@ _26: @ HardHead2
     zenny 2000
 _27: @ HardHead3
     hp 80
-    element EL_None
+    element None
     .byte 0x36, 0xD, 0x25, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 3000
     zenny 3000
@@ -413,63 +413,63 @@ _27: @ HardHead3
     zenny 3000
 _28: @ Swordy1
     hp 90
-    element EL_None
+    element None
     .byte 0x0, 0x10, 0x28, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 160
     zenny 160
     zenny 180
     zenny 180
     zenny 200
-    chip CD_LongSwrd CC_D
+    battlechip LongSwrd D
     zenny 250
-    chip CD_LongSwrd CC_S
+    battlechip LongSwrd S
     zenny 300
-    chip CD_WideSwrd CC_S
+    battlechip WideSwrd S
 _29: @ Swordy2
     hp 120
-    element EL_Fire
+    element Fire
     .byte 0x0, 0x10, 0x28, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 160
     zenny 160
     zenny 180
     zenny 180
     zenny 200
-    chip CD_Sword CC_K
+    battlechip Sword K
     zenny 250
-    chip CD_FireSwrd CC_B
+    battlechip FireSwrd B
     zenny 300
-    chip CD_FireSwrd CC_N
+    battlechip FireSwrd N
 _30: @ Swordy3
     hp 200
-    element EL_Water
+    element Water
     .byte 0x0, 0x10, 0x28, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 260
     zenny 260
     zenny 280
     zenny 280
     zenny 300
-    chip CD_Sword CC_L
-    chip CD_Sword CC_P
-    chip CD_AquaSwrd CC_P
+    battlechip Sword L
+    battlechip Sword P
+    battlechip AquaSwrd P
     zenny 400
-    chip CD_AquaSwrd CC_N
+    battlechip AquaSwrd N
 _31: @ Fishy1
     hp 80
-    element EL_None
+    element None
     .byte 0x36, 0xE, 0x26, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 60
     zenny 60
     zenny 80
     zenny 80
     zenny 100
-    chip CD_Dash CC_D
+    battlechip Dash D
     zenny 150
-    chip CD_Dash CC_B
+    battlechip Dash B
     zenny 200
-    chip CD_Dash CC_G
+    battlechip Dash G
 _32: @ Fishy2
     hp 150
-    element EL_Fire
+    element Fire
     .byte 0x36, 0xE, 0x26, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 360
     zenny 360
@@ -478,12 +478,12 @@ _32: @ Fishy2
     zenny 400
     zenny 400
     zenny 450
-    chip CD_BodyBurn CC_F
-    chip CD_BodyBurn CC_K
-    chip CD_BodyBurn CC_E
+    battlechip BodyBurn F
+    battlechip BodyBurn K
+    battlechip BodyBurn E
 _33: @ Fishy3
     hp 100
-    element EL_None
+    element None
     .byte 0x36, 0xE, 0x26, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -497,77 +497,77 @@ _33: @ Fishy3
     zenny 0
 _34: @ Piranha1
     hp 100
-    element EL_Water
+    element Water
     .byte 0x36, 0x13, 0x3B, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 210
     zenny 210
     zenny 230
     zenny 230
     zenny 250
-    chip CD_TriArrow CC_E
-    chip CD_TriArrow CC_D
-    chip CD_TriArrow CC_C
-    chip CD_TriArrow CC_B
-    chip CD_TriArrow CC_A
+    battlechip TriArrow E
+    battlechip TriArrow D
+    battlechip TriArrow C
+    battlechip TriArrow B
+    battlechip TriArrow A
 _35: @ Piranha2
     hp 150
-    element EL_Water
+    element Water
     .byte 0x36, 0x13, 0x3B, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 360
     zenny 360
     zenny 380
     zenny 380
     zenny 400
-    chip CD_TriSpear CC_F
-    chip CD_TriSpear CC_J
-    chip CD_TriSpear CC_G
-    chip CD_TriSpear CC_H
-    chip CD_TriSpear CC_I
+    battlechip TriSpear F
+    battlechip TriSpear J
+    battlechip TriSpear G
+    battlechip TriSpear H
+    battlechip TriSpear I
 _36: @ Piranha3
     hp 200
-    element EL_Water
+    element Water
     .byte 0x36, 0x13, 0x3B, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_TriLance CC_K
+    battlechip TriLance K
     zenny 550
-    chip CD_TriLance CC_L
-    chip CD_TriLance CC_N
-    chip CD_TriLance CC_O
+    battlechip TriLance L
+    battlechip TriLance N
+    battlechip TriLance O
 _37: @ AquaPuffy
     hp 100
-    element EL_Water
+    element Water
     .byte 0x3A, 0x11, 0x27, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 210
     zenny 210
     zenny 230
     zenny 230
     zenny 250
-    chip CD_Bubbler CC_P
+    battlechip Bubbler P
     zenny 300
-    chip CD_Bubbler CC_A
+    battlechip Bubbler A
     zenny 350
-    chip CD_Bubbler CC_S
+    battlechip Bubbler S
 _38: @ HeatPuffy
     hp 100
-    element EL_Fire
+    element Fire
     .byte 0x3A, 0x11, 0x27, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 210
     zenny 210
     zenny 230
     zenny 230
     zenny 250
-    chip CD_Heater CC_F
+    battlechip Heater F
     zenny 300
-    chip CD_Heater CC_G
+    battlechip Heater G
     zenny 350
-    chip CD_Heater CC_K
+    battlechip Heater K
 _39: @ 0x27
     hp 100
-    element EL_None
+    element None
     .byte 0x36, 0xE, 0x27, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -581,21 +581,21 @@ _39: @ 0x27
     zenny 0
 _40: @ ColdBear1
     hp 200
-    element EL_Water
+    element Water
     .byte 0x36, 0x1C, 0x3D, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_IceCube CC_A
-    chip CD_IceCube CC_M
-    chip CD_IceCube CC_C
+    battlechip IceCube A
+    battlechip IceCube M
+    battlechip IceCube C
     zenny 600
-    chip CD_IceCube CC_L
+    battlechip IceCube L
 _41: @ ColdBear2
     hp 250
-    element EL_Water
+    element Water
     .byte 0x36, 0x1C, 0x3D, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 2000
     zenny 2000
@@ -609,7 +609,7 @@ _41: @ ColdBear2
     zenny 2000
 _42: @ ColdBear3
     hp 300
-    element EL_Water
+    element Water
     .byte 0x36, 0x1C, 0x3D, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 2000
     zenny 2000
@@ -623,91 +623,91 @@ _42: @ ColdBear3
     zenny 2000
 _43: @ Cloudy1
     hp 120
-    element EL_Water
+    element Water
     .byte 0x36, 0x14, 0x3C, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 210
     zenny 210
     zenny 230
     zenny 230
     zenny 250
-    chip CD_Cloud CC_R
+    battlechip Cloud R
     zenny 300
-    chip CD_Cloud CC_O
+    battlechip Cloud O
     zenny 350
-    chip CD_Cloud CC_B
+    battlechip Cloud B
 _44: @ Cloudy2
     hp 140
-    element EL_Water
+    element Water
     .byte 0x36, 0x14, 0x3C, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Cloudier CC_I
+    battlechip Cloudier I
     zenny 550
-    chip CD_Cloudier CC_M
+    battlechip Cloudier M
     zenny 600
-    chip CD_Cloudier CC_P
+    battlechip Cloudier P
 _45: @ Cloudy3
     hp 160
-    element EL_Water
+    element Water
     .byte 0x36, 0x14, 0x3C, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Cloudest CC_O
+    battlechip Cloudest O
     zenny 550
-    chip CD_Cloudest CC_K
+    battlechip Cloudest K
     zenny 600
-    chip CD_Cloudest CC_C
+    battlechip Cloudest C
 _46: @ Ratty1
     hp 60
-    element EL_None
+    element None
     .byte 0x36, 0x20, 0x41, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 310
     zenny 310
     zenny 330
     zenny 330
     zenny 350
-    chip CD_Ratton1 CC_A
-    chip CD_Ratton1 CC_C
-    chip CD_Ratton1 CC_B
+    battlechip Ratton1 A
+    battlechip Ratton1 C
+    battlechip Ratton1 B
     zenny 450
-    chip CD_Ratton1 CC_D
+    battlechip Ratton1 D
 _47: @ Ratty2
     hp 80
-    element EL_None
+    element None
     .byte 0x36, 0x20, 0x41, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Ratton2 CC_F
-    chip CD_Ratton2 CC_G
-    chip CD_Ratton2 CC_H
+    battlechip Ratton2 F
+    battlechip Ratton2 G
+    battlechip Ratton2 H
     zenny 600
-    chip CD_Ratton2 CC_I
+    battlechip Ratton2 I
 _48: @ Ratty3
     hp 100
-    element EL_None
+    element None
     .byte 0x36, 0x20, 0x41, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 400
     zenny 400
     zenny 450
     zenny 450
     zenny 500
-    chip CD_Ratton3 CC_L
+    battlechip Ratton3 L
     zenny 500
-    chip CD_Ratton3 CC_N
+    battlechip Ratton3 N
     zenny 600
-    chip CD_Ratton3 CC_O
+    battlechip Ratton3 O
 _49: @ Miney1
     hp 100
-    element EL_None
+    element None
     .byte 0x3E, 0x27, 0x43, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 360
     zenny 360
@@ -716,40 +716,40 @@ _49: @ Miney1
     zenny 400
     zenny 400
     zenny 450
-    chip CD_Mine1 CC_G
-    chip CD_Mine1 CC_H
-    chip CD_Mine1 CC_M
+    battlechip Mine1 G
+    battlechip Mine1 H
+    battlechip Mine1 M
 _50: @ Miney2
     hp 120
-    element EL_None
+    element None
     .byte 0x3E, 0x27, 0x43, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Mine2 CC_C
+    battlechip Mine2 C
     zenny 550
-    chip CD_Mine2 CC_J
+    battlechip Mine2 J
     zenny 600
-    chip CD_Mine2 CC_L
+    battlechip Mine2 L
 _51: @ Miney3
     hp 140
-    element EL_None
+    element None
     .byte 0x3E, 0x27, 0x43, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Mine3 CC_T
+    battlechip Mine3 T
     zenny 550
-    chip CD_Mine3 CC_A
+    battlechip Mine3 A
     zenny 600
-    chip CD_Mine3 CC_B
+    battlechip Mine3 B
 _52: @ Ammonicule1
     hp 60
-    element EL_Water
+    element Water
     .byte 0x36, 0x28, 0x44, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 260
     zenny 260
@@ -758,12 +758,12 @@ _52: @ Ammonicule1
     zenny 300
     zenny 300
     zenny 350
-    chip CD_BblWrap1 CC_E
-    chip CD_BblWrap1 CC_G
-    chip CD_BblWrap1 CC_I
+    battlechip BblWrap1 E
+    battlechip BblWrap1 G
+    battlechip BblWrap1 I
 _53: @ Ammonicule2
     hp 90
-    element EL_Water
+    element Water
     .byte 0x36, 0x28, 0x44, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 400
     zenny 400
@@ -771,13 +771,13 @@ _53: @ Ammonicule2
     zenny 450
     zenny 500
     zenny 500
-    chip CD_BblWrap2 CC_D
-    chip CD_BblWrap2 CC_F
-    chip CD_BblWrap2 CC_H
-    chip CD_BblWrap2 CC_N
+    battlechip BblWrap2 D
+    battlechip BblWrap2 F
+    battlechip BblWrap2 H
+    battlechip BblWrap2 N
 _54: @ Ammonicule3
     hp 150
-    element EL_Water
+    element Water
     .byte 0x36, 0x28, 0x44, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
@@ -785,13 +785,13 @@ _54: @ Ammonicule3
     zenny 480
     zenny 500
     zenny 500
-    chip CD_BblWrap3 CC_Q
-    chip CD_BblWrap3 CC_L
-    chip CD_BblWrap3 CC_B
-    chip CD_BblWrap3 CC_R
+    battlechip BblWrap3 Q
+    battlechip BblWrap3 L
+    battlechip BblWrap3 B
+    battlechip BblWrap3 R
 _55: @ Jelly
     hp 120
-    element EL_Water
+    element Water
     .byte 0x36, 0x1F, 0x42, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 260
     zenny 260
@@ -801,11 +801,11 @@ _55: @ Jelly
     zenny 300
     zenny 350
     zenny 350
-    chip CD_Wave CC_I
-    chip CD_Wave CC_A
+    battlechip Wave I
+    battlechip Wave A
 _56: @ HeatJelly
     hp 150
-    element EL_Fire
+    element Fire
     .byte 0x36, 0x1F, 0x42, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 260
     zenny 260
@@ -815,11 +815,11 @@ _56: @ HeatJelly
     zenny 300
     zenny 350
     zenny 350
-    chip CD_RedWave CC_N
-    chip CD_RedWave CC_P
+    battlechip RedWave N
+    battlechip RedWave P
 _57: @ EarthJelly
     hp 200
-    element EL_Water
+    element Water
     .byte 0x36, 0x1F, 0x42, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
@@ -829,67 +829,67 @@ _57: @ EarthJelly
     zenny 500
     zenny 550
     zenny 550
-    chip CD_BigWave CC_H
-    chip CD_BigWave CC_Q
+    battlechip BigWave H
+    battlechip BigWave Q
 _58: @ Gaia1
     hp 150
-    element EL_None
+    element None
     .byte 0x48, 0x45, 0x4D, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 360
     zenny 360
     zenny 380
     zenny 380
     zenny 400
-    chip CD_IronBody CC_R
+    battlechip IronBody R
     zenny 500
-    chip CD_Gaia1 CC_D
-    chip CD_Gaia1 CC_C
-    chip CD_Gaia1 CC_T
+    battlechip Gaia1 D
+    battlechip Gaia1 C
+    battlechip Gaia1 T
 _59: @ Gaia2
     hp 200
-    element EL_None
+    element None
     .byte 0x48, 0x45, 0x4D, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_IronBody CC_Q
+    battlechip IronBody Q
     zenny 600
-    chip CD_Gaia2 CC_K
-    chip CD_Gaia2 CC_C
-    chip CD_Gaia2 CC_S
+    battlechip Gaia2 K
+    battlechip Gaia2 C
+    battlechip Gaia2 S
 _60: @ Gaia3
     hp 300
-    element EL_None
+    element None
     .byte 0x48, 0x45, 0x4D, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_IronBody CC_C
+    battlechip IronBody C
     zenny 600
-    chip CD_Gaia3 CC_M
-    chip CD_Gaia3 CC_C
-    chip CD_IronBody CC_C
+    battlechip Gaia3 M
+    battlechip Gaia3 C
+    battlechip IronBody C
 _61: @ Popper1
     hp 100
-    element EL_Wood
+    element Wood
     .byte 0x0, 0x21, 0x4C, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 360
     zenny 360
     zenny 380
     zenny 380
     zenny 400
-    chip CD_WoodTowr CC_K
+    battlechip WoodTowr K
     zenny 450
-    chip CD_WoodTowr CC_C
+    battlechip WoodTowr C
     zenny 500
-    chip CD_WoodTowr CC_B
+    battlechip WoodTowr B
 _62: @ Popper2
     hp 250
-    element EL_Wood
+    element Wood
     .byte 0x0, 0x21, 0x4C, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
@@ -899,11 +899,11 @@ _62: @ Popper2
     zenny 500
     zenny 550
     zenny 550
-    chip CD_LeafShld CC_Q
-    chip CD_LeafShld CC_C
+    battlechip LeafShld Q
+    battlechip LeafShld C
 _63: @ Popper3
     hp 120
-    element EL_Wood
+    element Wood
     .byte 0x0, 0x21, 0x4C, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
@@ -914,192 +914,192 @@ _63: @ Popper3
     zenny 550
     zenny 550
     zenny 600
-    chip CD_Dropdown CC_B
+    battlechip Dropdown B
 _64: @ Satella1
     hp 200
-    element EL_None
+    element None
     .byte 0x28, 0x47, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Lockon1 CC_I
+    battlechip Lockon1 I
     zenny 550
-    chip CD_Lockon1 CC_H
+    battlechip Lockon1 H
     zenny 600
-    chip CD_Lockon1 CC_D
+    battlechip Lockon1 D
 _65: @ Satella2
     hp 240
-    element EL_None
+    element None
     .byte 0x28, 0x47, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Lockon2 CC_H
+    battlechip Lockon2 H
     zenny 550
-    chip CD_Lockon2 CC_G
+    battlechip Lockon2 G
     zenny 600
-    chip CD_Lockon2 CC_E
+    battlechip Lockon2 E
 _66: @ Satella3
     hp 300
-    element EL_None
+    element None
     .byte 0x28, 0x47, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Lockon3 CC_N
+    battlechip Lockon3 N
     zenny 550
-    chip CD_Lockon3 CC_K
+    battlechip Lockon3 K
     zenny 600
-    chip CD_Lockon3 CC_D
+    battlechip Lockon3 D
 _67: @ Fanner1
     hp 100
-    element EL_None
+    element None
     .byte 0x40, 0x34, 0x5F, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 310
     zenny 310
     zenny 330
     zenny 330
     zenny 350
-    chip CD_Typhoon CC_G
+    battlechip Typhoon G
     zenny 400
-    chip CD_Typhoon CC_B
+    battlechip Typhoon B
     zenny 450
-    chip CD_Typhoon CC_A
+    battlechip Typhoon A
 _68: @ Fanner2
     hp 140
-    element EL_None
+    element None
     .byte 0x40, 0x34, 0x5F, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Huricane CC_G
+    battlechip Huricane G
     zenny 550
-    chip CD_Huricane CC_I
+    battlechip Huricane I
     zenny 600
-    chip CD_Huricane CC_J
+    battlechip Huricane J
 _69: @ Fanner3
     hp 180
-    element EL_None
+    element None
     .byte 0x40, 0x34, 0x5F, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Cyclone CC_G
+    battlechip Cyclone G
     zenny 550
-    chip CD_Cyclone CC_F
+    battlechip Cyclone F
     zenny 600
-    chip CD_Cyclone CC_H
+    battlechip Cyclone H
 _70: @ Remobit1
     hp 80
-    element EL_Elec
+    element Elec
     .byte 0x36, 0x2D, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 310
     zenny 310
     zenny 330
     zenny 330
     zenny 350
-    chip CD_Remobit1 CC_O
+    battlechip Remobit1 O
     zenny 400
-    chip CD_Remobit1 CC_A
+    battlechip Remobit1 A
     zenny 450
-    chip CD_Remobit1 CC_C
+    battlechip Remobit1 C
 _71: @ Remobit2
     hp 100
-    element EL_Elec
+    element Elec
     .byte 0x36, 0x2D, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 360
     zenny 360
     zenny 380
     zenny 380
     zenny 400
-    chip CD_Remobit2 CC_E
+    battlechip Remobit2 E
     zenny 450
-    chip CD_Remobit2 CC_I
+    battlechip Remobit2 I
     zenny 500
-    chip CD_Remobit2 CC_D
+    battlechip Remobit2 D
 _72: @ Remobit3
     hp 120
-    element EL_Elec
+    element Elec
     .byte 0x36, 0x2D, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Remobit3 CC_G
+    battlechip Remobit3 G
     zenny 550
-    chip CD_Remobit3 CC_P
+    battlechip Remobit3 P
     zenny 600
-    chip CD_Remobit3 CC_Q
+    battlechip Remobit3 Q
 _73: @ Billy
     hp 100
-    element EL_Elec
+    element Elec
     .byte 0x36, 0x2B, 0x49, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 310
     zenny 310
     zenny 330
     zenny 330
     zenny 350
-    chip CD_Thunder1 CC_S
+    battlechip Thunder1 S
     zenny 400
-    chip CD_Thunder1 CC_A
+    battlechip Thunder1 A
     zenny 450
-    chip CD_Thunder1 CC_G
+    battlechip Thunder1 G
 _74: @ Silly
     hp 150
-    element EL_Elec
+    element Elec
     .byte 0x36, 0x2B, 0x49, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Thunder2 CC_I
+    battlechip Thunder2 I
     zenny 550
-    chip CD_Thunder2 CC_F
+    battlechip Thunder2 F
     zenny 600
-    chip CD_Thunder2 CC_L
+    battlechip Thunder2 L
 _75: @ Killy
     hp 200
-    element EL_Elec
+    element Elec
     .byte 0x36, 0x2B, 0x49, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Thunder3 CC_F
+    battlechip Thunder3 F
     zenny 550
-    chip CD_Thunder3 CC_N
+    battlechip Thunder3 N
     zenny 600
-    chip CD_Thunder3 CC_D
+    battlechip Thunder3 D
 _76: @ Prog1
     hp 150
-    element EL_Elec
+    element Elec
     .byte 0x36, 0x2A, 0x4A, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 310
     zenny 310
     zenny 330
     zenny 330
     zenny 350
-    chip CD_RingZap1 CC_P
+    battlechip RingZap1 P
     zenny 400
-    chip CD_RingZap1 CC_N
+    battlechip RingZap1 N
     zenny 450
-    chip CD_RingZap1 CC_G
+    battlechip RingZap1 G
 _77: @ Prog2
     hp 200
-    element EL_Elec
+    element Elec
     .byte 0x36, 0x2A, 0x4A, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 310
     zenny 310
@@ -1108,12 +1108,12 @@ _77: @ Prog2
     zenny 350
     zenny 400
     zenny 400
-    chip CD_RingZap2 CC_L
-    chip CD_RingZap2 CC_J
-    chip CD_RingZap2 CC_C
+    battlechip RingZap2 L
+    battlechip RingZap2 J
+    battlechip RingZap2 C
 _78: @ Prog3
     hp 250
-    element EL_Elec
+    element Elec
     .byte 0x36, 0x2A, 0x4A, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 310
     zenny 310
@@ -1122,12 +1122,12 @@ _78: @ Prog3
     zenny 350
     zenny 400
     zenny 400
-    chip CD_RingZap3 CC_B
-    chip CD_RingZap3 CC_A
-    chip CD_RingZap3 CC_T
+    battlechip RingZap3 B
+    battlechip RingZap3 A
+    battlechip RingZap3 T
 _79: @ MegalianA
     hp 200
-    element EL_None
+    element None
     .byte 0x36, 0x2C, 0x53, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 360
     zenny 360
@@ -1136,12 +1136,12 @@ _79: @ MegalianA
     zenny 400
     zenny 400
     zenny 450
-    chip CD_AquaAura CC_L
-    chip CD_AquaAura CC_R
-    chip CD_AquaAura CC_S
+    battlechip AquaAura L
+    battlechip AquaAura R
+    battlechip AquaAura S
 _80: @ MegalianH
     hp 250
-    element EL_None
+    element None
     .byte 0x36, 0x2C, 0x53, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 560
     zenny 560
@@ -1151,11 +1151,11 @@ _80: @ MegalianH
     zenny 500
     zenny 550
     zenny 550
-    chip CD_FireAura CC_I
-    chip CD_FireAura CC_B
+    battlechip FireAura I
+    battlechip FireAura B
 _81: @ MegalianW
     hp 300
-    element EL_None
+    element None
     .byte 0x36, 0x2C, 0x53, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
@@ -1166,10 +1166,10 @@ _81: @ MegalianW
     zenny 550
     zenny 550
     zenny 600
-    chip CD_WoodAura CC_F
+    battlechip WoodAura F
 _82: @ CanDevil1
     hp 160
-    element EL_Fire
+    element Fire
     .byte 0x36, 0x35, 0x60, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 260
     zenny 260
@@ -1178,12 +1178,12 @@ _82: @ CanDevil1
     zenny 300
     zenny 350
     zenny 350
-    chip CD_Candle1 CC_P
-    chip CD_Candle1 CC_C
-    chip CD_Candle1 CC_S
+    battlechip Candle1 P
+    battlechip Candle1 C
+    battlechip Candle1 S
 _83: @ CanDevil2
     hp 200
-    element EL_Fire
+    element Fire
     .byte 0x36, 0x35, 0x60, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
@@ -1191,13 +1191,13 @@ _83: @ CanDevil2
     zenny 480
     zenny 500
     zenny 500
-    chip CD_Candle2 CC_B
-    chip CD_Candle2 CC_E
+    battlechip Candle2 B
+    battlechip Candle2 E
     zenny 600
-    chip CD_Candle2 CC_G
+    battlechip Candle2 G
 _84: @ CanDevil3
     hp 300
-    element EL_Fire
+    element Fire
     .byte 0x36, 0x35, 0x60, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
@@ -1205,27 +1205,27 @@ _84: @ CanDevil3
     zenny 480
     zenny 500
     zenny 500
-    chip CD_Candle3 CC_M
-    chip CD_Candle3 CC_H
+    battlechip Candle3 M
+    battlechip Candle3 H
     zenny 600
-    chip CD_Candle3 CC_A
+    battlechip Candle3 A
 _85: @ BigSnake1
     hp 200
-    element EL_Wood
+    element Wood
     .byte 0x2C, 0x43, 0x64, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Snakegg1 CC_E
+    battlechip Snakegg1 E
     zenny 550
-    chip CD_Snakegg1 CC_B
+    battlechip Snakegg1 B
     zenny 600
-    chip CD_Snakegg1 CC_M
+    battlechip Snakegg1 M
 _86: @ BigSnake2
     hp 250
-    element EL_Elec
+    element Elec
     .byte 0x2C, 0x43, 0x64, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
@@ -1234,12 +1234,12 @@ _86: @ BigSnake2
     zenny 500
     zenny 550
     zenny 550
-    chip CD_Snakegg2 CC_P
-    chip CD_Snakegg2 CC_C
-    chip CD_Snakegg2 CC_E
+    battlechip Snakegg2 P
+    battlechip Snakegg2 C
+    battlechip Snakegg2 E
 _87: @ BigSnake3
     hp 300
-    element EL_Fire
+    element Fire
     .byte 0x2C, 0x43, 0x64, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
@@ -1248,110 +1248,110 @@ _87: @ BigSnake3
     zenny 500
     zenny 550
     zenny 550
-    chip CD_Snakegg3 CC_C
-    chip CD_Snakegg3 CC_S
-    chip CD_Snakegg3 CC_A
+    battlechip Snakegg3 C
+    battlechip Snakegg3 S
+    battlechip Snakegg3 A
 _88: @ Mosqurito1
     hp 200
-    element EL_None
+    element None
     .byte 0x48, 0x37, 0x69, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 360
     zenny 360
     zenny 380
     zenny 380
     zenny 400
-    chip CD_Drain1 CC_O
+    battlechip Drain1 O
     zenny 450
-    chip CD_Drain1 CC_K
+    battlechip Drain1 K
     zenny 500
-    chip CD_Drain1 CC_A
+    battlechip Drain1 A
 _89: @ Mosqurito2
     hp 200
-    element EL_None
+    element None
     .byte 0x48, 0x37, 0x69, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Drain2 CC_T
+    battlechip Drain2 T
     zenny 550
-    chip CD_Drain2 CC_N
+    battlechip Drain2 N
     zenny 600
-    chip CD_Drain2 CC_A
+    battlechip Drain2 A
 _90: @ Mosqurito3
     hp 200
-    element EL_None
+    element None
     .byte 0x48, 0x37, 0x69, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Drain3 CC_Q
+    battlechip Drain3 Q
     zenny 550
-    chip CD_Drain3 CC_F
+    battlechip Drain3 F
     zenny 600
-    chip CD_Drain3 CC_A
+    battlechip Drain3 A
 _91: @ Poitton1
     hp 100
-    element EL_Wood
+    element Wood
     .byte 0x36, 0x41, 0x67, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 360
     zenny 360
     zenny 380
     zenny 380
     zenny 400
-    chip CD_Dynamyt1 CC_Q
+    battlechip Dynamyt1 Q
     zenny 450
-    chip CD_Dynamyt1 CC_O
+    battlechip Dynamyt1 O
     zenny 500
-    chip CD_Dynamyt1 CC_B
+    battlechip Dynamyt1 B
 _92: @ Poitton2
     hp 250
-    element EL_Wood
+    element Wood
     .byte 0x36, 0x41, 0x67, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Dynamyt2 CC_K
+    battlechip Dynamyt2 K
     zenny 550
-    chip CD_Dynamyt2 CC_C
+    battlechip Dynamyt2 C
     zenny 600
-    chip CD_Dynamyt2 CC_A
+    battlechip Dynamyt2 A
 _93: @ Poitton3
     hp 300
-    element EL_Wood
+    element Wood
     .byte 0x36, 0x41, 0x67, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 460
     zenny 460
     zenny 480
     zenny 480
     zenny 500
-    chip CD_Dynamyt3 CC_G
+    battlechip Dynamyt3 G
     zenny 550
-    chip CD_Dynamyt3 CC_K
+    battlechip Dynamyt3 K
     zenny 600
-    chip CD_Dynamyt3 CC_M
+    battlechip Dynamyt3 M
 _94: @ Mole
     hp 10
-    element EL_None
+    element None
     .byte 0x36, 0x52, 0x65, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
-    chip CD_Popup CC_N
-    chip CD_Popup CC_K
-    chip CD_Popup CC_H
-    chip CD_Popup CC_D
-    chip CD_Popup CC_C
-    chip CD_Popup CC_N
-    chip CD_Popup CC_K
-    chip CD_Popup CC_H
-    chip CD_Popup CC_D
-    chip CD_Popup CC_C
+    battlechip Popup N
+    battlechip Popup K
+    battlechip Popup H
+    battlechip Popup D
+    battlechip Popup C
+    battlechip Popup N
+    battlechip Popup K
+    battlechip Popup H
+    battlechip Popup D
+    battlechip Popup C
 _95: @ 0x5F
     hp 100
-    element EL_None
+    element None
     .byte 0x36, 0xE, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -1365,7 +1365,7 @@ _95: @ 0x5F
     zenny 0
 _96: @ GutsManV1
     hp 200
-    element EL_None
+    element None
     .byte 0x0, 0xC, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -1379,7 +1379,7 @@ _96: @ GutsManV1
     zenny 0
 _97: @ GutsManV2
     hp 400
-    element EL_None
+    element None
     .byte 0x0, 0xC, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -1393,21 +1393,21 @@ _97: @ GutsManV2
     zenny 0
 _98: @ GutsManV3
     hp 600
-    element EL_None
+    element None
     .byte 0x0, 0xC, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
-    chip CD_GutsPnch CC_M
-    chip CD_GutsPnch CC_B
-    chip CD_GutsMan CC_G
+    battlechip GutsPnch M
+    battlechip GutsPnch B
+    battlechip GutsMan G
     zenny 1500
-    chip CD_GutsMan2 CC_G
+    battlechip GutsMan2 G
     zenny 2000
-    chip CD_GutsMan3 CC_G
+    battlechip GutsMan3 G
 _99: @ ProtoManV1
     hp 500
-    element EL_None
+    element None
     .byte 0x36, 0x26, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 3000
     zenny 3000
@@ -1421,35 +1421,35 @@ _99: @ ProtoManV1
     zenny 3000
 _100: @ ProtoManV2
     hp 600
-    element EL_None
+    element None
     .byte 0x36, 0x26, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
-    chip CD_ProtoMan CC_B
-    chip CD_ProtoMan CC_B
-    chip CD_ProtoMan CC_B
-    chip CD_ProtoMan CC_B
-    chip CD_ProtoMan CC_B
-    chip CD_ProtoMan CC_B
-    chip CD_ProtoMan CC_B
-    chip CD_ProtoMan CC_B
-    chip CD_ProtoMan CC_B
-    chip CD_ProtoMan CC_B
+    battlechip ProtoMan B
+    battlechip ProtoMan B
+    battlechip ProtoMan B
+    battlechip ProtoMan B
+    battlechip ProtoMan B
+    battlechip ProtoMan B
+    battlechip ProtoMan B
+    battlechip ProtoMan B
+    battlechip ProtoMan B
+    battlechip ProtoMan B
 _101: @ ProtoManV3
     hp 700
-    element EL_None
+    element None
     .byte 0x36, 0x26, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_ProtoMan CC_B
+    battlechip ProtoMan B
     zenny 1500
-    chip CD_ProtoMn2 CC_B
+    battlechip ProtoMn2 B
     zenny 2000
-    chip CD_ProtoMn3 CC_B
+    battlechip ProtoMn3 B
 _102: @ WoodManV1
     hp 500
-    element EL_Wood
+    element Wood
     .byte 0x14, 0x1, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 2000
     zenny 2000
@@ -1463,35 +1463,35 @@ _102: @ WoodManV1
     zenny 2000
 _103: @ WoodManV2
     hp 600
-    element EL_Wood
+    element Wood
     .byte 0x14, 0x1, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
-    chip CD_WoodMan CC_W
-    chip CD_WoodMan CC_W
-    chip CD_WoodMan CC_W
-    chip CD_WoodMan CC_W
-    chip CD_WoodMan CC_W
-    chip CD_WoodMan CC_W
-    chip CD_WoodMan CC_W
-    chip CD_WoodMan CC_W
-    chip CD_WoodMan CC_W
-    chip CD_WoodMan CC_W
+    battlechip WoodMan W
+    battlechip WoodMan W
+    battlechip WoodMan W
+    battlechip WoodMan W
+    battlechip WoodMan W
+    battlechip WoodMan W
+    battlechip WoodMan W
+    battlechip WoodMan W
+    battlechip WoodMan W
+    battlechip WoodMan W
 _104: @ WoodManV3
     hp 700
-    element EL_Wood
+    element Wood
     .byte 0x14, 0x1, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_WoodMan CC_W
+    battlechip WoodMan W
     zenny 1500
-    chip CD_WoodMan2 CC_W
+    battlechip WoodMan2 W
     zenny 2000
-    chip CD_WoodMan3 CC_W
+    battlechip WoodMan3 W
 _105: @ FireManV1
     hp 300
-    element EL_Fire
+    element Fire
     .byte 0x0, 0x3, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 1000
     zenny 1000
@@ -1505,35 +1505,35 @@ _105: @ FireManV1
     zenny 1000
 _106: @ FireManV2
     hp 400
-    element EL_Fire
+    element Fire
     .byte 0x0, 0x3, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
-    chip CD_FireMan CC_F
-    chip CD_FireMan CC_F
-    chip CD_FireMan CC_F
-    chip CD_FireMan CC_F
-    chip CD_FireMan CC_F
-    chip CD_FireMan CC_F
-    chip CD_FireMan CC_F
-    chip CD_FireMan CC_F
-    chip CD_FireMan CC_F
-    chip CD_FireMan CC_F
+    battlechip FireMan F
+    battlechip FireMan F
+    battlechip FireMan F
+    battlechip FireMan F
+    battlechip FireMan F
+    battlechip FireMan F
+    battlechip FireMan F
+    battlechip FireMan F
+    battlechip FireMan F
+    battlechip FireMan F
 _107: @ FireManV3
     hp 500
-    element EL_Fire
+    element Fire
     .byte 0x0, 0x3, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_FireMan CC_F
+    battlechip FireMan F
     zenny 1500
-    chip CD_FireMan2 CC_F
+    battlechip FireMan2 F
     zenny 2000
-    chip CD_FireMan3 CC_F
+    battlechip FireMan3 F
 _108: @ NumberManV1
     hp 500
-    element EL_None
+    element None
     .byte 0x0, 0xF, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 1500
     zenny 1500
@@ -1547,35 +1547,35 @@ _108: @ NumberManV1
     zenny 1500
 _109: @ NumberManV2
     hp 600
-    element EL_None
+    element None
     .byte 0x0, 0xF, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
-    chip CD_NumbrMan CC_N
-    chip CD_NumbrMan CC_N
-    chip CD_NumbrMan CC_N
-    chip CD_NumbrMan CC_N
-    chip CD_NumbrMan CC_N
-    chip CD_NumbrMan CC_N
-    chip CD_NumbrMan CC_N
-    chip CD_NumbrMan CC_N
-    chip CD_NumbrMan CC_N
-    chip CD_NumbrMan CC_N
+    battlechip NumbrMan N
+    battlechip NumbrMan N
+    battlechip NumbrMan N
+    battlechip NumbrMan N
+    battlechip NumbrMan N
+    battlechip NumbrMan N
+    battlechip NumbrMan N
+    battlechip NumbrMan N
+    battlechip NumbrMan N
+    battlechip NumbrMan N
 _110: @ NumberManV3
     hp 700
-    element EL_None
+    element None
     .byte 0x0, 0xF, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_NumbrMan CC_N
+    battlechip NumbrMan N
     zenny 1500
-    chip CD_NumbrMn2 CC_N
+    battlechip NumbrMn2 N
     zenny 2000
-    chip CD_NumbrMn3 CC_N
+    battlechip NumbrMn3 N
 _111: @ StoneManV1
     hp 600
-    element EL_None
+    element None
     .byte 0x0, 0x15, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 2000
     zenny 2000
@@ -1589,35 +1589,35 @@ _111: @ StoneManV1
     zenny 2000
 _112: @ StoneManV2
     hp 700
-    element EL_None
+    element None
     .byte 0x36, 0x15, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
-    chip CD_StoneMan CC_S
-    chip CD_StoneMan CC_S
-    chip CD_StoneMan CC_S
-    chip CD_StoneMan CC_S
-    chip CD_StoneMan CC_S
-    chip CD_StoneMan CC_S
-    chip CD_StoneMan CC_S
-    chip CD_StoneMan CC_S
-    chip CD_StoneMan CC_S
-    chip CD_StoneMan CC_S
+    battlechip StoneMan S
+    battlechip StoneMan S
+    battlechip StoneMan S
+    battlechip StoneMan S
+    battlechip StoneMan S
+    battlechip StoneMan S
+    battlechip StoneMan S
+    battlechip StoneMan S
+    battlechip StoneMan S
+    battlechip StoneMan S
 _113: @ StoneManV3
     hp 800
-    element EL_None
+    element None
     .byte 0x36, 0x15, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_StoneMan CC_S
+    battlechip StoneMan S
     zenny 1500
-    chip CD_StoneMn2 CC_S
+    battlechip StoneMn2 S
     zenny 2000
-    chip CD_StoneMn3 CC_S
+    battlechip StoneMn3 S
 _114: @ IceManV1
     hp 500
-    element EL_Water
+    element Water
     .byte 0x30, 0x1B, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 2500
     zenny 2500
@@ -1631,35 +1631,35 @@ _114: @ IceManV1
     zenny 2500
 _115: @ IceManV2
     hp 600
-    element EL_Water
+    element Water
     .byte 0x30, 0x1B, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
-    chip CD_IceMan CC_I
-    chip CD_IceMan CC_I
-    chip CD_IceMan CC_I
-    chip CD_IceMan CC_I
-    chip CD_IceMan CC_I
-    chip CD_IceMan CC_I
-    chip CD_IceMan CC_I
-    chip CD_IceMan CC_I
-    chip CD_IceMan CC_I
-    chip CD_IceMan CC_I
+    battlechip IceMan I
+    battlechip IceMan I
+    battlechip IceMan I
+    battlechip IceMan I
+    battlechip IceMan I
+    battlechip IceMan I
+    battlechip IceMan I
+    battlechip IceMan I
+    battlechip IceMan I
+    battlechip IceMan I
 _116: @ IceManV3
     hp 700
-    element EL_Water
+    element Water
     .byte 0x30, 0x1B, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_IceMan CC_I
+    battlechip IceMan I
     zenny 1500
-    chip CD_IceMan2 CC_I
+    battlechip IceMan2 I
     zenny 2000
-    chip CD_IceMan3 CC_I
+    battlechip IceMan3 I
 _117: @ SkullManV1
     hp 600
-    element EL_None
+    element None
     .byte 0x40, 0x22, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 2500
     zenny 2500
@@ -1673,35 +1673,35 @@ _117: @ SkullManV1
     zenny 2500
 _118: @ SkullManV2
     hp 700
-    element EL_None
+    element None
     .byte 0x40, 0x22, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
-    chip CD_SkullMan CC_S
-    chip CD_SkullMan CC_S
-    chip CD_SkullMan CC_S
-    chip CD_SkullMan CC_S
-    chip CD_SkullMan CC_S
-    chip CD_SkullMan CC_S
-    chip CD_SkullMan CC_S
-    chip CD_SkullMan CC_S
-    chip CD_SkullMan CC_S
-    chip CD_SkullMan CC_S
+    battlechip SkullMan S
+    battlechip SkullMan S
+    battlechip SkullMan S
+    battlechip SkullMan S
+    battlechip SkullMan S
+    battlechip SkullMan S
+    battlechip SkullMan S
+    battlechip SkullMan S
+    battlechip SkullMan S
+    battlechip SkullMan S
 _119: @ SkullManV3
     hp 800
-    element EL_None
+    element None
     .byte 0x40, 0x22, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_SkullMan CC_S
+    battlechip SkullMan S
     zenny 1500
-    chip CD_SkullMn2 CC_S
+    battlechip SkullMn2 S
     zenny 2000
-    chip CD_SkullMn3 CC_S
+    battlechip SkullMn3 S
 _120: @ ColorManV1
     hp 600
-    element EL_None
+    element None
     .byte 0x0, 0x23, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 3000
     zenny 3000
@@ -1715,35 +1715,35 @@ _120: @ ColorManV1
     zenny 3000
 _121: @ ColorManV2
     hp 700
-    element EL_None
+    element None
     .byte 0x0, 0x23, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
 _122: @ ColorManV3
     hp 800
-    element EL_None
+    element None
     .byte 0x0, 0x23, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_ColorMan CC_C
+    battlechip ColorMan C
     zenny 1500
-    chip CD_ColorMn2 CC_C
+    battlechip ColorMn2 C
     zenny 2000
-    chip CD_ColorMn3 CC_C
+    battlechip ColorMn3 C
 _123: @ BombManV1
     hp 800
-    element EL_None
+    element None
     .byte 0x0, 0x2E, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 4000
     zenny 4000
@@ -1757,35 +1757,35 @@ _123: @ BombManV1
     zenny 4000
 _124: @ BombManV2
     hp 900
-    element EL_None
+    element None
     .byte 0x0, 0x2E, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
-    chip CD_BombMan CC_B
-    chip CD_BombMan CC_B
-    chip CD_BombMan CC_B
-    chip CD_BombMan CC_B
-    chip CD_BombMan CC_B
-    chip CD_BombMan CC_B
-    chip CD_BombMan CC_B
-    chip CD_BombMan CC_B
-    chip CD_BombMan CC_B
-    chip CD_BombMan CC_B
+    battlechip BombMan B
+    battlechip BombMan B
+    battlechip BombMan B
+    battlechip BombMan B
+    battlechip BombMan B
+    battlechip BombMan B
+    battlechip BombMan B
+    battlechip BombMan B
+    battlechip BombMan B
+    battlechip BombMan B
 _125: @ BombManV3
     hp 1000
-    element EL_None
+    element None
     .byte 0x0, 0x2E, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_BombMan CC_B
+    battlechip BombMan B
     zenny 1500
-    chip CD_BombMan2 CC_B
+    battlechip BombMan2 B
     zenny 2000
-    chip CD_BombMan3 CC_B
+    battlechip BombMan3 B
 _126: @ SharkManV1
     hp 700
-    element EL_Water
+    element Water
     .byte 0x40, 0x29, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 3000
     zenny 3000
@@ -1799,35 +1799,35 @@ _126: @ SharkManV1
     zenny 3000
 _127: @ SharkManV2
     hp 800
-    element EL_Water
+    element Water
     .byte 0x40, 0x29, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
 _128: @ SharkManV3
     hp 900
-    element EL_Water
+    element Water
     .byte 0x40, 0x29, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_SharkMan CC_S
+    battlechip SharkMan S
     zenny 1500
-    chip CD_SharkMn2 CC_S
+    battlechip SharkMn2 S
     zenny 2000
-    chip CD_SharkMn3 CC_S
+    battlechip SharkMn3 S
 _129: @ ElecManV1
     hp 600
-    element EL_Elec
+    element Elec
     .byte 0x4E, 0x25, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 3500
     zenny 3500
@@ -1841,119 +1841,119 @@ _129: @ ElecManV1
     zenny 3500
 _130: @ ElecManV2
     hp 700
-    element EL_Elec
+    element Elec
     .byte 0x4E, 0x25, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
-    chip CD_ElecMan CC_E
-    chip CD_ElecMan CC_E
-    chip CD_ElecMan CC_E
-    chip CD_ElecMan CC_E
-    chip CD_ElecMan CC_E
-    chip CD_ElecMan CC_E
-    chip CD_ElecMan CC_E
-    chip CD_ElecMan CC_E
-    chip CD_ElecMan CC_E
-    chip CD_ElecMan CC_E
+    battlechip ElecMan E
+    battlechip ElecMan E
+    battlechip ElecMan E
+    battlechip ElecMan E
+    battlechip ElecMan E
+    battlechip ElecMan E
+    battlechip ElecMan E
+    battlechip ElecMan E
+    battlechip ElecMan E
+    battlechip ElecMan E
 _131: @ ElecManV3
     hp 800
-    element EL_Elec
+    element Elec
     .byte 0x4E, 0x25, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_ElecMan CC_E
+    battlechip ElecMan E
     zenny 1500
-    chip CD_ElecMan2 CC_E
+    battlechip ElecMan2 E
     zenny 2000
-    chip CD_ElecMan3 CC_E
+    battlechip ElecMan3 E
 _132: @ PharaohManV1
     hp 800
-    element EL_None
+    element None
     .byte 0x0, 0x40, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
 _133: @ PharaohManV2
     hp 900
-    element EL_None
+    element None
     .byte 0x0, 0x40, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
-    chip CD_PharoMan CC_P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
+    battlechip PharoMan P
 _134: @ PharaohManV3
     hp 1000
-    element EL_None
+    element None
     .byte 0x0, 0x40, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 4000
     zenny 4000
     zenny 4000
     zenny 4000
     zenny 5000
-    chip CD_PharoMan CC_P
+    battlechip PharoMan P
     zenny 6000
-    chip CD_PharoMn2 CC_P
-    chip CD_Anubis CC_L
-    chip CD_PharoMn3 CC_P
+    battlechip PharoMn2 P
+    battlechip Anubis L
+    battlechip PharoMn3 P
 _135: @ ShadowManV1
     hp 800
-    element EL_None
+    element None
     .byte 0x0, 0x42, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
 _136: @ ShadowManV2
     hp 900
-    element EL_None
+    element None
     .byte 0x0, 0x42, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
-    chip CD_ShadoMan CC_S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
+    battlechip ShadoMan S
 _137: @ ShadowManV3
     hp 1000
-    element EL_None
+    element None
     .byte 0x0, 0x42, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 4000
     zenny 4000
     zenny 4000
     zenny 4000
     zenny 5000
-    chip CD_ShadoMan CC_S
+    battlechip ShadoMan S
     zenny 6000
-    chip CD_ShadoMn2 CC_S
-    chip CD_Muramasa CC_K
-    chip CD_ShadoMn3 CC_S
+    battlechip ShadoMn2 S
+    battlechip Muramasa K
+    battlechip ShadoMn3 S
 _138: @ 0x8A
     hp 100
-    element EL_None
+    element None
     .byte 0x36, 0xE, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -1967,7 +1967,7 @@ _138: @ 0x8A
     zenny 0
 _139: @ 0x8B
     hp 100
-    element EL_None
+    element None
     .byte 0x36, 0xE, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -1981,7 +1981,7 @@ _139: @ 0x8B
     zenny 0
 _140: @ 0x8C
     hp 100
-    element EL_None
+    element None
     .byte 0x36, 0xE, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -1995,7 +1995,7 @@ _140: @ 0x8C
     zenny 0
 _141: @ MagicManV1
     hp 700
-    element EL_None
+    element None
     .byte 0x0, 0x3F, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 5000
     zenny 5000
@@ -2009,49 +2009,49 @@ _141: @ MagicManV1
     zenny 5000
 _142: @ MagicManV2
     hp 800
-    element EL_None
+    element None
     .byte 0x0, 0x3F, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
-    chip CD_MagicMan CC_M
-    chip CD_MagicMan CC_M
-    chip CD_MagicMan CC_M
-    chip CD_MagicMan CC_M
-    chip CD_MagicMan CC_M
-    chip CD_MagicMan CC_M
-    chip CD_MagicMan CC_M
-    chip CD_MagicMan CC_M
-    chip CD_MagicMan CC_M
-    chip CD_MagicMan CC_M
+    battlechip MagicMan M
+    battlechip MagicMan M
+    battlechip MagicMan M
+    battlechip MagicMan M
+    battlechip MagicMan M
+    battlechip MagicMan M
+    battlechip MagicMan M
+    battlechip MagicMan M
+    battlechip MagicMan M
+    battlechip MagicMan M
 _143: @ MagicManV3
     hp 900
-    element EL_None
+    element None
     .byte 0x0, 0x3F, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_MagicMan CC_M
+    battlechip MagicMan M
     zenny 1500
-    chip CD_MagicMn2 CC_M
+    battlechip MagicMn2 M
     zenny 2000
-    chip CD_MagicMn3 CC_M
+    battlechip MagicMn3 M
 _144: @ Bass
     hp 1000
-    element EL_None
+    element None
     .byte 0x0, 0x46, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 8000
     zenny 8000
     zenny 9000
-    chip CD_LifeAura CC_H
+    battlechip LifeAura H
     zenny 10000
-    chip CD_LifeAura CC_K
+    battlechip LifeAura K
     zenny 11000
-    chip CD_LifeAura CC_M
+    battlechip LifeAura M
     zenny 12000
-    chip CD_LifeAura CC_P
+    battlechip LifeAura P
 _145: @ 0x91
     hp 100
-    element EL_None
+    element None
     .byte 0x36, 0xE, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -2065,7 +2065,7 @@ _145: @ 0x91
     zenny 0
 _146: @ 0x92
     hp 100
-    element EL_None
+    element None
     .byte 0x36, 0xE, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -2079,7 +2079,7 @@ _146: @ 0x92
     zenny 0
 _147: @ LifeVirus
     hp 1000
-    element EL_None
+    element None
     .byte 0x0, 0x39, 0x68, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -2093,7 +2093,7 @@ _147: @ LifeVirus
     zenny 0
 _148: @ BlueDummyV1
     hp 100
-    element EL_Water
+    element Water
     .byte 0x36, 0x24, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
     zenny 3000
     zenny 3000
@@ -2107,7 +2107,7 @@ _148: @ BlueDummyV1
     zenny 3000
 _149: @ RedDummyV1
     hp 100
-    element EL_Fire
+    element Fire
     .byte 0x36, 0x24, 0xFF, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0
     zenny 3000
     zenny 3000
@@ -2121,63 +2121,63 @@ _149: @ RedDummyV1
     zenny 3000
 _150: @ BlueDummyV2
     hp 100
-    element EL_Water
+    element Water
     .byte 0x36, 0x24, 0xFF, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
 _151: @ RedDummyV2
     hp 100
-    element EL_Fire
+    element Fire
     .byte 0x36, 0x24, 0xFF, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
-    chip CD_ColorMan CC_C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
+    battlechip ColorMan C
 _152: @ BlueDummyV3
     hp 100
-    element EL_Water
+    element Water
     .byte 0x36, 0x24, 0xFF, 0x0, 0x0, 0x4, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_ColorMan CC_C
+    battlechip ColorMan C
     zenny 1500
-    chip CD_ColorMn2 CC_C
+    battlechip ColorMn2 C
     zenny 2000
-    chip CD_ColorMn3 CC_C
+    battlechip ColorMn3 C
 _153: @ RedDummyV3
     hp 100
-    element EL_Fire
+    element Fire
     .byte 0x36, 0x24, 0xFF, 0x0, 0x0, 0x5, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_ColorMan CC_C
+    battlechip ColorMan C
     zenny 1500
-    chip CD_ColorMn2 CC_C
+    battlechip ColorMn2 C
     zenny 2000
-    chip CD_ColorMn3 CC_C
+    battlechip ColorMn3 C
 _154: @ InvElecMan
     hp 600
-    element EL_Elec
+    element Elec
     .byte 0x4E, 0x25, 0xFF, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0
     zenny 0
     zenny 0
@@ -2191,7 +2191,7 @@ _154: @ InvElecMan
     zenny 0
 _155: @ SharkManFinV1
     hp 0
-    element EL_Water
+    element Water
     .byte 0x40, 0x29, 0xFF, 0x0, 0x0, 0x80, 0x0, 0x0, 0x0
     zenny 3000
     zenny 3000
@@ -2205,7 +2205,7 @@ _155: @ SharkManFinV1
     zenny 3000
 _156: @ SharkManFinV2
     hp 0
-    element EL_Water
+    element Water
     .byte 0x40, 0x29, 0xFF, 0x0, 0x0, 0x80, 0x1, 0x0, 0x0
     zenny 3000
     zenny 3000
@@ -2219,59 +2219,59 @@ _156: @ SharkManFinV2
     zenny 3000
 _157: @ SharkManFinV3_0
     hp 0
-    element EL_Water
+    element Water
     .byte 0x40, 0x29, 0xFF, 0x0, 0x0, 0x81, 0x0, 0x0, 0x0
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
 _158: @ SharkManFinV3_1
     hp 0
-    element EL_Water
+    element Water
     .byte 0x40, 0x29, 0xFF, 0x0, 0x0, 0x81, 0x1, 0x0, 0x0
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
-    chip CD_SharkMan CC_S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
+    battlechip SharkMan S
 _159: @ SharkManFinV3_2
     hp 0
-    element EL_Water
+    element Water
     .byte 0x40, 0x29, 0xFF, 0x0, 0x0, 0x82, 0x0, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_SharkMan CC_S
+    battlechip SharkMan S
     zenny 1500
-    chip CD_SharkMn2 CC_S
+    battlechip SharkMn2 S
     zenny 2000
-    chip CD_SharkMn3 CC_S
+    battlechip SharkMn3 S
 _160: @ SharkManFinV3_3
     hp 0
-    element EL_Water
+    element Water
     .byte 0x40, 0x29, 0xFF, 0x0, 0x0, 0x82, 0x1, 0x0, 0x0
     zenny 500
     zenny 500
     zenny 500
     zenny 500
     zenny 1000
-    chip CD_SharkMan CC_S
+    battlechip SharkMan S
     zenny 1500
-    chip CD_SharkMn2 CC_S
+    battlechip SharkMn2 S
     zenny 2000
-    chip CD_SharkMn3 CC_S
+    battlechip SharkMn3 S
 
     .end

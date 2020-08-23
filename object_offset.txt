@@ -8,6 +8,7 @@ utility 0xA38
 rng 0x18B4
 video 0x18FC
 fade 0x4B00
+battlechip 0x7c44
 enemy_detail 0x9DC4
 swi 0x9DF50
 demo 0x18968
@@ -16,4 +17,6 @@ enemy_drop 0x7D80E
 interrupt_handler 0x180000
 screen_layout_intr 0x180178
 asset_ui 0x6132A8
+asset_chip 0x638634
+asset_battle 0x647afc
 asset_demo 0x796FD4
