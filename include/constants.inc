@@ -3,3 +3,4 @@
     .include "constants/register.inc"
     .include "constants/song.inc"
     .include "constants/battlechip.inc"
+    .include "constants/enemy.inc"

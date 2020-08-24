@@ -115,6 +115,8 @@ SECTIONS {
 		musicPlayerInfo_08 = 0xcc70;
 		musicPlayerInfo_03 = 0xccb0;
 		musicPlayerInfo_0B = 0xccf0;
+		gSpriteLzDetails = 0x9aa0;
+		gDstCompressedSpriteData = 0x3c000;
 	} > ewram
 
 	. = __iwram_start;

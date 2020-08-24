@@ -12,13 +12,6 @@ typedef unsigned short    ushort;
 typedef unsigned short    word;
 #define __WORDSIZE 32
 
-typedef struct div_t div_t, *Pdiv_t;
-
-struct div_t {
-    int quot;
-    int rem;
-};
-
 typedef struct _decompress_result _decompress_result, *P_decompress_result;
 
 struct _decompress_result {
@@ -377,6 +370,7 @@ struct Color {
     byte R:5;
     byte G:5;
     byte B:5;
+    byte fill:1;
 };
 
 struct Tile {
@@ -678,7 +672,6 @@ typedef enum DmaCntFlag {
 struct DmaChannel {
     void * srcAddress;
     void * dstAddress;
-    word wordCount;
     enum DmaCntFlag control;
 };
 
@@ -726,17 +719,14 @@ struct Struct_8009DFD4_Sub {
 };
 
 struct EnemyDetail {
-    ushort m_Hp;
+    ushort m_hp;
     enum Elementid m_element;
     byte b3;
     byte b4;
-    byte m_b5;
-    byte b6;
-    byte b7;
-    byte b8;
-    byte b9;
-    byte b10;
-    byte b11;
+    byte m_lzSpriteIndex;
+    byte _pad0;
+    byte _pad1;
+    int m_possibleVirusFamily;
     struct Struct_8009DFD4_Sub m_dropTable[5];
 };
 
@@ -905,6 +895,14 @@ typedef enum EnemyId {
     ED_WoodManV3=104
 } EnemyId;
 
+typedef struct EnemySpawn EnemySpawn, *PEnemySpawn;
+
+struct EnemySpawn {
+    enum EnemyId m_id;
+    byte m_x;
+    byte m_y;
+};
+
 typedef struct FadeSettings FadeSettings, *PFadeSettings;
 
 typedef enum FadeType {
@@ -936,10 +934,8 @@ struct FadeSettings {
 
 typedef struct FixedBattleSettings FixedBattleSettings, *PFixedBattleSettings;
 
-typedef struct Struct_EnemyPos Struct_EnemyPos, *PStruct_EnemyPos;
-
 struct FixedBattleSettings {
-    struct Struct_EnemyPos * m_enemyDetail;
+    struct EnemySpawn * m_enemyDetail;
     struct BattleChip * m_presetFolder;
     enum BackgroundId m_backgroundId;
     enum BattleType m_battleType;
@@ -950,13 +946,6 @@ struct FixedBattleSettings {
     int pos2;
     bool m_isEscapable;
     byte _pad19[3];
-};
-
-struct Struct_EnemyPos {
-    enum EnemyId m_enemyId;
-    byte m_x;
-    byte m_y;
-    byte unk;
 };
 
 typedef enum Flag_1C {
@@ -1588,7 +1577,7 @@ struct Struct_Unk0C {
     byte r0;
     byte r1;
     byte r2;
-    byte r3;
+    bool m_r3;
     ushort m_possibleBattleTime;
     ushort i0;
     int i1;
@@ -1607,7 +1596,7 @@ struct Struct_Unk0C {
     uint u0;
     uint m_bitField00;
     uint m_bitField0;
-    struct Struct_EnemyPos * m_enemyList;
+    struct EnemySpawn * m_enemyList;
     byte m_srcBattleHandIndexList[6];
     byte m_srcBattleHandCodeList[6];
 };
@@ -1650,7 +1639,7 @@ struct Struct_Unk08 {
     int ix0;
     int m_ix1;
     struct Struct_63F0 * m_i0;
-    struct Struct_EnemyPos * m_enemyList;
+    struct EnemySpawn * m_enemyList;
     struct BattleChip * m_chipFolder;
     int m_battleInitHideObject;
     int m_ix7_savedPosY;
@@ -1691,8 +1680,7 @@ struct MainMenu {
     byte m_state1;
     byte unk2;
     byte unk3;
-    byte m_timerCapcomLogo;
-    byte unk4;
+    ushort m_timerCapcomLogo;
     byte unk6;
     byte unk7;
     byte m_unk8_isSavePresent;
@@ -1965,8 +1953,12 @@ struct Struct_Unk14_Sized {
 struct Struct_20066B0 {
     byte m_b0;
     byte m_b1;
-    ushort u1;
-    int m_p1;
+    byte ub1;
+    byte ub2;
+    byte m_p1_possibleVirusFamily;
+    byte _p1;
+    byte _p2;
+    byte _p3;
     byte m_stateX;
     byte bx2;
     byte bx3;
@@ -2004,13 +1996,16 @@ struct Struct_20066B0 {
     int i16;
     int i17;
     int i18;
-    int i19;
+    byte ix19;
+    byte m_chipSubFamily;
+    byte ix21;
+    byte ix22;
     ushort is01;
-    ushort is02;
+    ushort m_chipFamily;
     int i21;
     int i22;
     int i23;
-    int i24;
+    void * m_i24;
     int i25;
     int i26;
     int i27;
@@ -2642,6 +2637,16 @@ struct SpriteList {
     int length;
 };
 
+typedef struct SpriteLzDetails SpriteLzDetails, *PSpriteLzDetails;
+
+struct SpriteLzDetails {
+    byte m_spriteCount;
+    byte _pad[3];
+    short m_indexList[8];
+    struct SpriteArchive_Header * m_spritePtrList[8];
+    void * m_next;
+};
+
 typedef struct Struct_13A0 Struct_13A0, *PStruct_13A0;
 
 struct Struct_13A0 {
@@ -2916,7 +2921,7 @@ struct Struct_EnemyPosHeader {
     byte m_unk1;
     byte field_0x2;
     byte field_0x3;
-    struct Struct_EnemyPos * m_enemyList;
+    struct EnemySpawn * m_enemyList;
 };
 
 typedef struct Struct_MoveRelated Struct_MoveRelated, *PStruct_MoveRelated;
