@@ -62,3 +62,30 @@
     .macro nolibrary
     .byte 0xFF
     .endm
+
+    .macro spawn enemyId, x, y
+    .byte ED_\enemyId
+    .byte \x
+    .byte \y
+    .byte 0
+    .endm
+
+    .macro spawn_end
+    spawn Invalid, 0, 0
+    .endm
+
+    .macro encounter threshold spawnlist
+    .byte \threshold
+    .byte 0
+    .byte 0
+    .byte 0
+    .word \spawnlist
+    .endm
+
+    .macro encounter_boss threshold spawnlist
+    .byte \threshold
+    .byte 1
+    .byte 0
+    .byte 0
+    .word \spawnlist
+    .endm

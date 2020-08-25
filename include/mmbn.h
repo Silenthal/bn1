@@ -709,26 +709,9 @@ typedef enum Elementid {
     EL_Wood=4
 } Elementid;
 
-typedef struct EnemyDetail EnemyDetail, *PEnemyDetail;
+typedef struct EncounterInfo EncounterInfo, *PEncounterInfo;
 
-typedef struct Struct_8009DFD4_Sub Struct_8009DFD4_Sub, *PStruct_8009DFD4_Sub;
-
-struct Struct_8009DFD4_Sub {
-    short r0;
-    short r1;
-};
-
-struct EnemyDetail {
-    ushort m_hp;
-    enum Elementid m_element;
-    byte b3;
-    byte b4;
-    byte m_lzSpriteIndex;
-    byte _pad0;
-    byte _pad1;
-    int m_possibleVirusFamily;
-    struct Struct_8009DFD4_Sub m_dropTable[5];
-};
+typedef struct EnemySpawn EnemySpawn, *PEnemySpawn;
 
 typedef enum EnemyId {
     ED_27=39,
@@ -895,12 +878,37 @@ typedef enum EnemyId {
     ED_WoodManV3=104
 } EnemyId;
 
-typedef struct EnemySpawn EnemySpawn, *PEnemySpawn;
-
 struct EnemySpawn {
     enum EnemyId m_id;
     byte m_x;
     byte m_y;
+};
+
+struct EncounterInfo {
+    byte m_threshold;
+    bool m_isBoss;
+    struct EnemySpawn * m_enemyList;
+};
+
+typedef struct EnemyDetail EnemyDetail, *PEnemyDetail;
+
+typedef struct Struct_8009DFD4_Sub Struct_8009DFD4_Sub, *PStruct_8009DFD4_Sub;
+
+struct Struct_8009DFD4_Sub {
+    short r0;
+    short r1;
+};
+
+struct EnemyDetail {
+    ushort m_hp;
+    enum Elementid m_element;
+    byte b3;
+    byte b4;
+    byte m_lzSpriteIndex;
+    byte _pad0;
+    byte _pad1;
+    int m_possibleVirusFamily;
+    struct Struct_8009DFD4_Sub m_dropTable[5];
 };
 
 typedef struct FadeSettings FadeSettings, *PFadeSettings;
@@ -2912,16 +2920,6 @@ typedef struct Struct_Enemy Struct_Enemy, *PStruct_Enemy;
 
 struct Struct_Enemy {
     byte data[176];
-};
-
-typedef struct Struct_EnemyPosHeader Struct_EnemyPosHeader, *PStruct_EnemyPosHeader;
-
-struct Struct_EnemyPosHeader {
-    byte m_threshold;
-    byte m_unk1;
-    byte field_0x2;
-    byte field_0x3;
-    struct EnemySpawn * m_enemyList;
 };
 
 typedef struct Struct_MoveRelated Struct_MoveRelated, *PStruct_MoveRelated;
