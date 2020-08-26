@@ -8,7 +8,6 @@
     .set m4aSongNumStart, 0x809cc2c
     .set MPlayFadeOut, 0x809cb70
     .set m4aMPlayAllStop, 0x809cd60
-    .set Flag_GetBase, 0x08010396
     .set m4aSongNumStop, 0x0809ccf8
 
     .text

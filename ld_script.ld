@@ -25,6 +25,9 @@ SECTIONS {
 	. = __ewram_start;
 	ewram (NOLOAD) : 
 	{
+		gFlagBase = 0;
+		gEmailCount = 0x200;
+		gEmailIndexes = 0x1FA0;
 		eBgPalette0 = 0x6CD0;
 		eBgPalette1 = 0x6CF0;
 		eBgPalette2 = 0x6D10;

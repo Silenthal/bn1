@@ -7,7 +7,6 @@
     .set FUN_08001b00        ,0x8001b00
     .set FUN_080027f4        ,0x80027f4
     .set FUN_08001950        ,0x8001950
-    .set FUN_08000c0c        ,0x8000c0c
     .set FUN_080063b2        ,0x80063b2
     .set FUN_08013658        ,0x8013658
     .set FUN_0801996c        ,0x801996c
@@ -46,7 +45,7 @@ LAB_08000290:
     ldrh       r1,[r0]
     adds       r1,#0x1
     strh       r1,[r0]
-    bl         FUN_08000c0c
+    bl         IncrementGameTimer
     ldr        r0,=_Fun_08000300
     mov        r7,r10
     ldr        r1,[r7]
