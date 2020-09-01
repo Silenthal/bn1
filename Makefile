@@ -35,6 +35,7 @@ ifneq ($(BUILD),$(notdir $(CURDIR)))
 export GEN_PAD			:= python3 $(CURDIR)/$(TOOLS)/generate_padding.py
 export MAKE_DEPEND  	:= python3 $(CURDIR)/$(TOOLS)/make_depend.py
 export MAKE_TILES		:= python3 $(CURDIR)/$(TOOLS)/make_tiles.py
+export BUILD_SCRIPT		:= python3 $(CURDIR)/$(TOOLS)/build_script.py
 
 export ASM_OFFSET_C		:= $(CURDIR)/source/asm-offsets.c
 export OUTPUT			:= $(CURDIR)/$(TARGET)
@@ -78,7 +79,7 @@ depend:
 
 clean:
 	@echo clean ...
-	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' \) -exec rm {} +
+	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.script' \) -exec rm {} +
 	@$(RM) -r $(BUILD) $(TARGET).gba $(TARGET).elf
 
 else
@@ -190,5 +191,8 @@ images/battlechip/art/149.gbapal: %.gbapal: %.png
 
 %.gbapal: %.png
 	$(MAKE_TILES) $@ $<
+
+%.script: %.txt
+	$(BUILD_SCRIPT) $@ $<
 
 endif

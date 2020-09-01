@@ -8,3 +8,4 @@ __pycache__/
 *.4bpp
 *.8bpp
 *.gbapal
+*.script

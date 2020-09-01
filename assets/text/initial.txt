@@ -1,0 +1,79 @@
+section_start(0)
+dialog_up()
+para("Lan,wake up!")
+jump(1)
+section_end()
+
+section_start(1)
+pic()
+dialog_up()
+para_static(".{delay}.{delay}.{delay}")
+jump(2)
+section_end()
+
+section_start(2)
+hidepic()
+dialog_up()
+para("""If you don't get
+up,you'll be late
+for school!""")
+jump(3)
+section_end()
+
+section_start(3)
+pic()
+dialog_up()
+para_static(".{delay}.{delay}.{delay}")
+jump(4)
+section_end()
+
+section_start(4)
+hidepic()
+dialog_up()
+para("""{key PET} NetNews!
+"WWW crime on
+the rise!\"""", 0)
+para("""It says the WWW plan
+to control the net
+might be starting!""")
+jump(5)
+section_end()
+
+section_start(5)
+pic()
+dialog_up()
+para("""Ungh...
+Sleep...""")
+jump(6)
+section_end()
+
+section_start(6)
+hidepic()
+dialog_up()
+para("""You've got mail from
+Dad,too! Look...""", 0)
+para("""\"Sorry I couldn't
+ get off work Sunday
+ I'll be home soon.\"""", 0)
+para("""\"Here's a present
+ for you"it says!""", 0)
+para_end("""There's some battle
+chip data attached!""")
+section_end()
+
+section_start(7)
+pic()
+dialog_up()
+para("""Yaaaawn{anim 1}...{delay}
+{anim 2}I was just having
+a great dream,too.""")
+jump(8)
+section_end()
+
+section_start(8)
+hidepic()
+dialog_up()
+para_end("""I'll expand the chip
+data,so check your
+{key PET} later,OK?""")
+section_end()
