@@ -5,14 +5,8 @@ import struct
 from pathlib import Path
 
 
-def isUi(args):
-    return args.ui_string > 0
-
-
-def get_text_offset_list(infile, args):
-    blockOffset = args.blockOffset
+def get_text_offset_list(infile, blockOffset):
     infile.seek(blockOffset)
-
     offTo1 = get_short(infile)
     offsetList = [blockOffset + offTo1]
     for _ in range((offTo1 >> 1) - 1):
@@ -253,7 +247,7 @@ charmap = {
     0xE5: "!",
     0xE6: "‼️",
     0xE7: "?",
-    0xE8: "\"",
+    0xE8: "\\\"",
     0xE9: "„",
     0xEA: "#",
     0xEB: "♭",
@@ -275,7 +269,7 @@ charmap = {
     0xFB: ".",
     0xFC: "・",
     0xFD: "/",
-    0xFE: "\\",
+    0xFE: "\\\\",
     0xFF: "_",
     0x100: "「",
     0x101: "」",
@@ -313,7 +307,7 @@ charmap = {
     0x121: "÷",
     0x122: "=",
     0x123: "※",
-    0x124: "[*]",
+    0x124: "*",
     0x125: "○",
     0x126: "⬤",
     0x127: "◉",
@@ -536,7 +530,7 @@ charmap = {
 }
 
 
-def arg_list(infile, count = 1, func = lambda inf, i: f"${get_byte(inf):02X}"):
+def arg_list(infile, count = 1, func = lambda inf, i: f"0x{get_byte(inf):02X}"):
     argList = []
     for i in range(count):
         arg = str(func(infile, i))
@@ -589,7 +583,7 @@ def key_item(bt):
         0x45: "AquaArmr",
         0x46: "WoodArmr"
     }
-    return f"{itemList[bt]}" if bt in itemList else f"${bt:02X}"
+    return f"{itemList[bt]}" if bt in itemList else f"0x{bt:02X}"
 
 
 def chip_id(bt):
@@ -597,7 +591,7 @@ def chip_id(bt):
         0x00: "Buster",
         0x01: "Cannon",
         0x02: "HiCannon",
-        0x03: "MーCannon",
+        0x03: "M-Cannon",
         0x04: "Sword",
         0x05: "WideSwrd",
         0x06: "LongSwrd",
@@ -650,8 +644,8 @@ def chip_id(bt):
         0x3D: "Lockon1",
         0x3E: "Lockon2",
         0x3F: "Lockon3",
-        0x40: "XーPanel1",
-        0x41: "XーPanel3",
+        0x40: "X-Panel1",
+        0x41: "X-Panel3",
         0x43: "Recov10",
         0x44: "Recov30",
         0x45: "Recov50",
@@ -771,34 +765,34 @@ def chip_id(bt):
         0xC5: "ElecMan2",
         0xC6: "ElecMan3",
         0xC7: "Bass",
-        0xCA: "ZーCanon1",
-        0xCB: "ZーCanon2",
-        0xCC: "ZーCanon3",
-        0xCD: "ZーSpread",
-        0xCE: "ZーRaton1",
-        0xCF: "ZーRaton2",
-        0xD0: "ZーRaton3",
-        0xD1: "ZーArrow",
-        0xD2: "ZーSpear",
-        0xD3: "ZーLance",
-        0xD4: "OーCanon1",
-        0xD5: "OーCanon2",
-        0xD6: "OーCanon3",
-        0xD7: "OーSpread",
-        0xD8: "OーRaton1",
-        0xD9: "OーRaton2",
-        0xDA: "OーRaton3",
-        0xDB: "OーArrow",
-        0xDC: "OーSpear",
-        0xDD: "OーLance",
-        0xDE: "BーBomb",
-        0xDF: "BーSword",
-        0xE0: "BーWave",
-        0xE1: "BーQuake",
-        0xE2: "SーBomb",
-        0xE3: "SーSword",
-        0xE4: "SーWave",
-        0xE5: "SーQuake",
+        0xCA: "Z-Canon1",
+        0xCB: "Z-Canon2",
+        0xCC: "Z-Canon3",
+        0xCD: "Z-Spread",
+        0xCE: "Z-Raton1",
+        0xCF: "Z-Raton2",
+        0xD0: "Z-Raton3",
+        0xD1: "Z-Arrow",
+        0xD2: "Z-Spear",
+        0xD3: "Z-Lance",
+        0xD4: "O-Canon1",
+        0xD5: "O-Canon2",
+        0xD6: "O-Canon3",
+        0xD7: "O-Spread",
+        0xD8: "O-Raton1",
+        0xD9: "O-Raton2",
+        0xDA: "O-Raton3",
+        0xDB: "O-Arrow",
+        0xDC: "O-Spear",
+        0xDD: "O-Lance",
+        0xDE: "B-Bomb",
+        0xDF: "B-Sword",
+        0xE0: "B-Wave",
+        0xE1: "B-Quake",
+        0xE2: "S-Bomb",
+        0xE3: "S-Sword",
+        0xE4: "S-Wave",
+        0xE5: "S-Quake",
         0xE6: "PwrCanon",
         0xE7: "HvyStamp",
         0xE8: "BgStrait",
@@ -814,27 +808,27 @@ def chip_id(bt):
         0xF5: "AquaArmr",
         0xF6: "WoodArmr"
     }
-    return idSet[bt] if bt in idSet else f"${bt:02X}"
+    return idSet[bt] if bt in idSet else f"0x{bt:02X}"
 
 
 def chip_code(bt):
-    return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[bt] if bt < 26 else f"${bt:02X}"
+    return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[bt] if bt < 26 else f"0x{bt:02X}"
 
 
 def get_item(infile):
-    return f"'{key_item(get_byte(infile))}'"
+    return f'"{key_item(get_byte(infile))}"'
 
 
 def get_chip_id(infile):
-    return f"'{chip_id(get_byte(infile))}'"
+    return f'"{chip_id(get_byte(infile))}"'
 
 
 def get_chip_code(infile):
-    return f"'{chip_code(get_byte(infile))}'"
+    return f'"{chip_code(get_byte(infile))}"'
 
 
 def get_chip(infile):
-    return f"'{chip_id(get_byte(infile))} {chip_code(get_byte(infile))}'"
+    return f'"{chip_id(get_byte(infile))} {chip_code(get_byte(infile))}"'
 
 
 def get_int(infile):
@@ -853,22 +847,22 @@ def get_byte(infile):
 def Com_E7(infile):
     delay = get_short(infile)
     if delay == 0:
-        textBuf = "[end]"
+        textBuf = "end()"
     else:
-        textBuf = f"[end({delay})]"
+        textBuf = f"end({delay})"
     return True, textBuf
 
 
 def Com_E8(infile):
-    return False, "\\n"
+    return False, "\n"
 
 
 def Com_E9(infile):
     delay = get_short(infile)
     if delay == 0:
-        textBuf = "[wait]"
+        textBuf = "wait()"
     else:
-        textBuf = f"[wait({delay})]"
+        textBuf = f"wait({delay})"
     return False, textBuf
 
 
@@ -877,64 +871,64 @@ def Com_EA(infile):
     isDone = False
     if command == 0:
         delay = get_short(infile)
-        textBuf = f"[break({delay})]"
+        textBuf = f"breaks({delay})"
     elif command == 1:
         delay = get_short(infile)
         if delay == 30:
-            textBuf = "[delay]"
+            textBuf = "delay()"
         else:
-            textBuf = f"[delay({delay})]"
+            textBuf = f"delay({delay})"
     else:
-        textBuf = f"[stop]"
+        textBuf = f"stop()"
         isDone = True
     return isDone, textBuf
 
 
 def Com_EB(infile):
-    return False, "[page]"
+    return False, "page()"
 
 
 def Com_EC(infile):
     command = get_byte(infile)
     if command == 0:
         delay = get_byte(infile)
-        textBuf = f"[setdelay({delay})]"
+        textBuf = f"set_delay({delay})"
     elif command == 1:
-        textBuf = "[skipon]"
+        textBuf = "skip_on()"
     else:
-        textBuf = "[skipoff]"
+        textBuf = "skip_off()"
     return False, textBuf
 
 
 def Com_ED(infile):
     command = get_byte(infile)
     if command == 1:
-        textBuf = "[hidepic]"
+        textBuf = "hidepic()"
     elif command == 2:
         pal = get_byte(infile)
-        textBuf = f"[picpal({pal})]"
+        textBuf = f"picpal({pal})"
     else:
         pic = get_byte(infile)
         pal = get_byte(infile)
         if pal == 0:
-            textBuf = f"[pic({pic})]"
+            textBuf = f"pic({pic})"
         else:
-            textBuf = f"[pic({pic}, {pal})]"
+            textBuf = f"pic({pic}, {pal})"
     return False, textBuf
 
 
 def Com_EE(infile):
     anim = get_byte(infile)
-    return False, f"[pic_anim({anim})]"
+    return False, f"anim({anim})"
 
 
 def Com_EF(infile):
     command = get_byte(infile)
     count = get_byte(infile)
     if command == 0:
-        textBuf = f"[pad({count})]"
+        textBuf = f"pad({count})"
     else:
-        textBuf = f"[col({count})]"
+        textBuf = f"col({count})"
     return False, textBuf
 
 
@@ -944,7 +938,7 @@ def Com_F0(infile):
     lt = (optpack >> 0x4) & 0xF
     dn = (optpack >> 0x8) & 0xF
     up = (optpack >> 0xC) & 0xF
-    return False, f"[option({up}, {dn}, {lt}, {rt})]"
+    return False, f"option({up}, {dn}, {lt}, {rt})"
 
 
 def Com_F1(infile):
@@ -953,40 +947,34 @@ def Com_F1(infile):
     defpick = opt & 0x3F
     isDisableB = (opt >> 6) & 1 != 0
     clearAfterPick = (opt >> 7) & 1 != 0
-    argList = []
-    for _ in range(comlen - 3):
-        argList.append(f"${get_byte(infile):02X}")
-    args = ", ".join(argList)
-    return False, f"[pick([{args}], {defpick}, {isDisableB}, {clearAfterPick})]"
+    return False, f"pick([{arg_list(infile, comlen - 3)}], {defpick}, {isDisableB}, {clearAfterPick})"
 
 
 def Com_F2(infile):
     command = get_byte(infile)
     isDone = False
     if command == 1:
-        textBuf = "[down]"
-        isDone = True
+        textBuf = "dialog_down()"
     elif command == 2:
-        textBuf = "[show]"
+        textBuf = "dialog_show()"
     elif command == 3:
-        textBuf = "[hide]"
+        textBuf = "dialog_hide()"
         isDone = True
     else:
-        textBuf = "[up]"
+        textBuf = "dialog_up()"
     return isDone, textBuf
 
 
 def Com_F3(infile):
     command = get_byte(infile) >> 2
     flagpack = get_short(infile)
-    off = flagpack >> 3
-    flag = flagpack & 7
+    flag = flagpack
     if command == 0:
-        textBuf = f"[setflag({off}, {flag})]"
+        textBuf = f"set_flag({flag})"
     elif command == 1:
-        textBuf = f"[clearflag({off}, {flag})]"
+        textBuf = f"clear_flag({flag})"
     else:
-        textBuf = f"[mail({off}, {flag})]"
+        textBuf = f"mail({flag})"
     return False, textBuf
 
 
@@ -995,31 +983,28 @@ def Com_F4(infile):
     if command == 0:
         def proc(inf, i):
             if i == 0:
-                flagpack = get_short(inf)
-                off = flagpack >> 3
-                flag = flagpack & 7
-                return f"{off}, {flag}"
+                return get_short(inf)
             else:
                 return arg_list(inf)
-        textBuf = f"[ifflag({arg_list(infile, 3, proc)})]"
+        textBuf = f"if_flag({arg_list(infile, 3, proc)})"
     elif command == 1:
-        textBuf = f"[ifstory({arg_list(infile, 4)})]"
+        textBuf = f"if_story({arg_list(infile, 4)})"
     elif command == 2:
-        textBuf = f"[ifshop({arg_list(infile, 3)})]"
+        textBuf = f"if_shop({arg_list(infile, 3)})"
     elif command == 3:
         def proc(inf, i):
             if i == 0:
                 return get_chip(infile)
             else:
                 return arg_list(inf)
-        textBuf = f"[ifchip({arg_list(infile, 3, proc)})]"
+        textBuf = f"if_chip({arg_list(infile, 3, proc)})"
     elif command == 4:
         def proc(inf, i):
             if i == 0 or i == 1:
                 return get_byte(inf)
             else:
                 return arg_list(inf)
-        textBuf = f"[iflevel({arg_list(infile, 4, proc)})]"
+        textBuf = f"if_level({arg_list(infile, 4, proc)})"
     elif command == 5:
         def proc(inf, i):
             if i == 0 or i == 1:
@@ -1027,36 +1012,39 @@ def Com_F4(infile):
                 return f"'{lv}'" if lv < 11 else "'S'"
             else:
                 return arg_list(inf)
-        textBuf = f"[ifbust({arg_list(infile, 4, proc)})]"
+        textBuf = f"if_bust({arg_list(infile, 4, proc)})"
     elif command == 6:
         def proc(inf, i):
             if i == 0 or i == 1:
                 return get_byte(inf)
             else:
                 return arg_list(inf)
-        textBuf = f"[iflibrary({arg_list(infile, 4, proc)})]"
+        textBuf = f"if_library({arg_list(infile, 4, proc)})"
     else:
-        textBuf = f"[_F4({command})]"
+        textBuf = f"_F4({command})"
     return False, textBuf
 
 
 def Com_F5(infile):
     command = get_byte(infile)
     if command == 0:
-        textBuf = "[input_off]"
+        textBuf = "input_off()"
     else:
-        textBuf = "[input_on]"
+        textBuf = "input_on()"
     return False, textBuf
 
 
 def Com_F6(infile):
     command = get_byte(infile)
     args = arg_list(infile, command + 1)
+    done = False
     if command == 0:
-        textBuf = f"[jump({args})]"
+        textBuf = f"jump({args})"
+        done = True
     else:
-        textBuf = f"[jump([{args}])]"
-    return True, textBuf
+        textBuf = f"jumprandom([{args}])"
+        done = False
+    return done, textBuf
 
 
 def Com_F7(infile):
@@ -1077,63 +1065,63 @@ def Com_F7(infile):
             return arg_list(infile)
     if command & 0x10 == 0:
         if command == 0x00:
-            textBuf = f"[additem({arg_list(infile, 5, proc_item)})]"
+            textBuf = f"add_item({arg_list(infile, 5, proc_item)})"
         elif command == 0x01:
-            textBuf = f"[subitem({arg_list(infile, 5, proc_item)})]"
+            textBuf = f"sub_item({arg_list(infile, 5, proc_item)})"
         elif command == 0x02:
-            textBuf = f"[setitem({arg_list(infile, 2, proc_item)})]"
+            textBuf = f"set_item({arg_list(infile, 2, proc_item)})"
         else:
-            textBuf = f"[checkitem({arg_list(infile, 5, proc_item)})]"
+            textBuf = f"check_item({arg_list(infile, 5, proc_item)})"
     else:
         if command == 0x10:
-            textBuf = f"[addchip({arg_list(infile, 5, proc_chip)})]"
+            textBuf = f"add_chip({arg_list(infile, 5, proc_chip)})"
         elif command == 0x11:
-            textBuf = f"[subchip({arg_list(infile, 5, proc_chip)})]"
+            textBuf = f"sub_chip({arg_list(infile, 5, proc_chip)})"
         elif command == 0x12:
-            textBuf = f"[setchip({arg_list(infile, 5, proc_chip)})]"
+            textBuf = f"set_chip({arg_list(infile, 5, proc_chip)})"
         elif command == 0x14:
-            textBuf = f"[checkchip({arg_list(infile, 5, proc_chip)})]"
+            textBuf = f"check_chip({arg_list(infile, 5, proc_chip)})"
         else:
-            textBuf = f"[checkchippack({arg_list(infile, 5, proc_chip)})]"
+            textBuf = f"check_chip_pack({arg_list(infile, 5, proc_chip)})"
     return False, textBuf
 
 
 def Com_F8(infile):
     command = get_byte(infile) >> 2
     if command == 0:
-        textBuf = f"[passcode({arg_list(infile, 2)})]"
+        textBuf = f"passcode({arg_list(infile, 2)})"
     elif command == 1:
-        textBuf = f"[passcode_pick({arg_list(infile, 4)})]"
+        textBuf = f"passcode_pick({arg_list(infile, 4)})"
     elif command == 2:
-        textBuf = f"[passcode_check({arg_list(infile, 7)})]"
+        textBuf = f"passcode_check({arg_list(infile, 7)})"
     elif command == 3:
-        textBuf = f"[passcode_hide]"
+        textBuf = f"passcode_hide()"
     elif command == 4:
-        textBuf = f"[passcode_shift({arg_list(infile, 4)})]"
+        textBuf = f"passcode_shift({arg_list(infile, 4)})"
     else:
-        textBuf = f"[_F8_{command}()]"
+        textBuf = f"_F8_{command}()"
     return False, textBuf
 
 
 def Com_F9(infile):
-    return False, f"[textpal({get_byte(infile)})]"
+    return False, f"textpal({get_byte(infile)})"
 
 
 def Com_FA(infile):
     command = get_byte(infile) >> 2
     if command == 0:
-        textBuf = "[pclock]"
+        textBuf = "pc_lock()"
     elif command == 1:
         anim = get_byte(infile)
-        textBuf = f"[pc({anim})]"
+        textBuf = f"pc_anim({anim})"
     elif command == 2:
-        textBuf = "[pcunlock]"
+        textBuf = "pc_unlock()"
     elif command == 3:
-        textBuf = "[pcwait]"
+        textBuf = "pc_wait()"
     elif command == 4:
-        textBuf = "[pcrestore]"
+        textBuf = "pc_restore()"
     else:
-        textBuf = f"[F4_{command}]"
+        textBuf = f"F4_{command}()"
     return False, textBuf
 
 
@@ -1146,44 +1134,44 @@ def Com_FB(infile):
         buf = (itempack >> 4) & 0xF
         arg = ""
         if itemtype > 2:
-            textBuf = f"[FB_0(${itemid:02X}, ${itempack:02X})]"
+            textBuf = f"FB_0(0x{itemid:02X}, 0x{itempack:02X})"
         else:
+            buf_pfx = ""
             if buf == 0:
                 if itemtype == 0:
-                    arg = "'" + key_item(itemid) + "'"
+                    arg = '"' + key_item(itemid) + '"'
                 elif itemtype == 1:
-                    arg = "'" + chip_id(itemid) + "'"
+                    arg = '"' + chip_id(itemid) + '"'
                 else:
-                    arg = "'" + chip_code(itemid) + "'"
+                    arg = '"' + chip_code(itemid) + '"'
             else:
-                arg = f"buf{buf - 1}"
+                arg = f"{buf}"
+                buf_pfx = "_buf"
             if itemtype == 0:
-                textBuf = f"[item({arg})]"
+                textBuf = f"key_item{buf_pfx}({arg})"
             elif itemtype == 1:
-                textBuf = f"[chip_id({arg})]"
+                textBuf = f"chip_id{buf_pfx}({arg})"
             else:
-                textBuf = f"[chip_code({arg})]"
+                textBuf = f"chip_code{buf_pfx}({arg})"
     elif command == 1:
         flags = get_byte(infile)
         minlen = flags & 0xF
         isPadZero = (flags & 0x40) != 0
         isPadLeft = (flags & 0x80) != 0
         item = get_item(infile)
-        textBuf = f"[item_amt({item}, {minlen}, {isPadZero}, {isPadLeft})]"
+        textBuf = f"item_amt({item}, {minlen}, {isPadZero}, {isPadLeft})"
     elif command == 3:
         flags = get_byte(infile)
         minlen = flags & 0xF
         isPadZero = (flags & 0x40) != 0
         isPadLeft = (flags & 0x80) != 0
         buf = get_byte(infile)
-        arg = ""
         if buf == 0:
-            arg = "zenny"
+            textBuf = f"zenny_amt({minlen}, {isPadZero}, {isPadLeft})"
         else:
-            arg = f"zenny:{buf}"
-        textBuf = f"[print({arg}, {minlen}, {isPadZero}, {isPadLeft})]"
+            textBuf = f"buffer({buf}, {minlen}, {isPadZero}, {isPadLeft})"
     else:
-        textBuf = f"[FB_{command}]"
+        textBuf = f"FB_{command}()"
     return False, textBuf
 
 
@@ -1191,22 +1179,22 @@ def Com_FC(infile):
     command = get_byte(infile) >> 2
     if command == 0:
         soundId = get_short(infile)
-        textBuf = f"[se(${soundId:02X})]"
+        textBuf = f"se(0x{soundId:02X})"
     elif command == 1:
         songId = get_short(infile)
-        textBuf = f"[song(${songId:02X})]"
+        textBuf = f"song(0x{songId:02X})"
     elif command == 2:
-        textBuf = "[text_se_on]"
+        textBuf = "text_se_on()"
     elif command == 3:
-        textBuf = "[text_se_off]"
+        textBuf = "text_se_off()"
     elif command == 4:
-        textBuf = "[all_sound_off]"
+        textBuf = "all_sound_off()"
     elif command == 5:
         playerId = get_byte(infile)
         speed = get_byte(infile)
-        textBuf = f"[song_fade({playerId}, {speed})]"
+        textBuf = f"song_fade({playerId}, {speed})"
     else:
-        textBuf = f"[FC_{command}]"
+        textBuf = f"FC_{command}()"
     return False, textBuf
 
 
@@ -1221,24 +1209,40 @@ def Com_FD(infile):
         for _ in range(count + 1):
             argList.append(str(get_int(infile)))
         zen = ", ".join(argList)
-        textBuf = f"[addzenny([{zen}], ${jump:02X})]"
+        textBuf = f"award_zenny([{zen}], 0x{jump:02X})"
     elif command == 1:
         count = get_byte(infile)
         getall = get_byte(infile)
         getnone = get_byte(infile)
         getsome = get_byte(infile)
-        chpL = ", ".join([f"{chip_id(get_byte(infile))} {chip_code(get_byte(infile))}" for _ in range(count + 1)])
+        chpL = ", ".join([f"\"{chip_id(get_byte(infile))} {chip_code(get_byte(infile))}\"" for _ in range(count + 1)])
         if getall == getnone == getsome == 0xFF:
-            textBuf = f"[addchip([{chpL}])]"
+            textBuf = f"award_chip([{chpL}])"
         else:
-            textBuf = f"[addchip([{chpL}], ${getall:02X}, ${getsome:02X}, ${getnone:02X})]"
+            textBuf = f"award_chip([{chpL}], 0x{getall:02X}, 0x{getsome:02X}, 0x{getnone:02X})"
     elif command == 2:
-        textBuf = "[battle]"
+        textBuf = "battle()"
     elif command == 3:
-        textBuf = f"[shop_open({get_byte(infile)})]"
+        textBuf = f"shop({get_byte(infile)})"
         isDone = True
+    elif command == 4:
+        bg = get_byte(infile)
+        mode = get_byte(infile)
+        folder = get_byte(infile)
+        shuffle = get_byte(infile)
+        flags = get_byte(infile)
+        noescape = get_byte(infile)
+        battleId = get_byte(infile)
+        textBuf = f"miniboss({bg}, {mode}, {folder}, {shuffle}, {flags}, {noescape}, {battleId})"
+        isDone = True
+    elif command == 5:
+        count = get_byte(infile)
+        ifless = get_byte(infile)
+        textBuf = f"trader({count}, 0x{ifless:02X})"
+    elif command == 6:
+        textBuf = "virus_machine()"
     else:
-        textBuf = f"[FD_{command}]"
+        textBuf = f"FD_{command}()"
     return isDone, textBuf
 
 
@@ -1246,7 +1250,7 @@ def Com_FE(infile):
     savegood = get_byte(infile)
     savebad = get_byte(infile)
     isDone = not (savegood == 0xFF and savebad == 0xFF)
-    return isDone, f"[save(${savegood:02X}, ${savebad:02X})]"
+    return isDone, f"save(0x{savegood:02X}, 0x{savebad:02X})"
 #endregion
 
 
@@ -1279,34 +1283,42 @@ def interpret(infile):
     ]
     textBuf = ""
     isDone = False
+    isText = False
     chr = get_byte(infile)
     if chr <= 0xE4:
         textBuf = charmap[chr]
+        isText = True
     elif chr == 0xE5:
         chr2 = get_byte(infile)
         textBuf = charmap[chr2 + 0xE5]
+        isText = True
     elif chr == 0xE6:
         chr2 = get_byte(infile)
         textBuf = charmap[chr2 + 0x1E5]
+        isText = True
     elif chr < 0xFF:
         isDone, textBuf = funcList[chr - 0xE7](infile)
+        isText = chr in [0xE8]
     else:
-        textBuf = f"[Com_{chr:02X}]"
-    return isDone, textBuf
+        textBuf = f"Com_{chr:02X}()"
+    return isDone, textBuf, isText
 
 
 def interpretUi(infile):
     textBuf = ""
     isDone = False
+    isText = True
     c = get_byte(infile)
     if c == 0xE5:
         c2 = get_byte(infile) + 0xE5
         textBuf = charmap[c2]
+        isText = True
     elif c == 0xE6:
         c2 = get_byte(infile) + 0x1E5
         textBuf = charmap[c2 % 0x200]
+        isText = True
     elif c == 0xE7:
-        textBuf = "[end]"
+        textBuf = "end()"
         isDone = True
     elif c == 0xE8:
         textBuf = "\\n"
@@ -1316,26 +1328,36 @@ def interpretUi(infile):
         textBuf = f"[Func2({bcdIndex}, 0x{commandNum:X})]"
     else:
         textBuf = charmap[c]
-    return isDone, textBuf
+    return isDone, textBuf, isText
 
 
-def engine1(infile, args):
-    output = ""
-    offsetlist = get_text_offset_list(infile, args)
+def engine1(infile, blockOffset, isUi):
+    offsetlist = get_text_offset_list(infile, blockOffset)
+    output = f"section_count(0x{len(offsetlist):X})\n\n"
     idx = 0
     for off in offsetlist:
         infile.seek(off)
         la = infile.peek()
         if la[0] != 0:
-            txbuf = ""
+            scriptBuf = ""
+            textBuf = ""
             while True:
-                interp = interpretUi(infile) if isUi(args) else interpret(infile)
-                txbuf += interp[1]
+                interp = interpretUi(infile) if isUi else interpret(infile)
+                if interp[2]:
+                    textBuf += interp[1]
+                else:
+                    if len(textBuf) > 0:
+                        scriptBuf += f"text(\"\"\"{textBuf}\"\"\")\n"
+                        textBuf = ""
+                    scriptBuf += interp[1] + "\n"
                 if interp[0]:
+                    if len(textBuf) > 0:
+                        scriptBuf += f"text(\"{textBuf}\")\n"
+                        textBuf = ""
                     break
-            output += f"<{idx:02X} | {off:X}>{txbuf}\n"
+            output += f"# {off:X}\nsection_start(0x{idx:02X})\n{scriptBuf}section_end()\n\n"
         idx += 1
-    return output
+    return output[:-1]
 
 
 def main():
@@ -1347,13 +1369,15 @@ def main():
     parser.add_argument('path', type=str, help='The path to the binary.')
     parser.add_argument('blockOffset', type=auto_int, help='The offset into the binary.')
     args = parser.parse_args()
+    isUi = args.ui_string > 0
+    blockOffset = args.blockOffset
     inPath = Path(args.path)
     if not inPath.exists():
         exit(f"Couldn't find file {args.path}")
     outPath = f"{args.blockOffset:08x}.txt"
     of = ""
     with open(inPath, mode='rb') as infile:
-        of = engine1(infile, args)
+        of = engine1(infile, blockOffset, isUi)
     with open(outPath, mode='w', encoding='utf-8') as outFile:
         outFile.write(of)
     os.startfile(outPath)

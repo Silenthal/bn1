@@ -1,0 +1,262 @@
+section_count(0xEB)
+
+# 6EB09E
+section_start(0x00)
+pic(16)
+dialog_up()
+anim(2)
+text("""You're in 5th grade
+right? Hurry up and
+get upstairs!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Where are the
+stairs? Right
+through that door.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6EB11E
+section_start(0x01)
+pic(34)
+dialog_up()
+anim(2)
+text("""That's the 1st
+grader's room!
+Don't go in there!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6EB169
+section_start(0x05)
+if_flag(184, 0x0C, 0xFF)
+pic(9)
+dialog_up()
+anim(2)
+text("""Now this one is
+locked!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6EB197
+section_start(0x06)
+dialog_up()
+text("""The door is locked!
+You must destroy the
+lock program!""")
+page()
+end(5)
+section_end()
+
+# 6EB1D7
+section_start(0x07)
+dialog_up()
+text("""The door is locked!
+You must destroy the
+lock program!""")
+page()
+end(5)
+section_end()
+
+# 6EB217
+section_start(0x08)
+dialog_up()
+text("""The door is locked!
+You must destroy the
+lock program!""")
+page()
+end(5)
+section_end()
+
+# 6EB257
+section_start(0x09)
+dialog_up()
+text("""The door isn't
+locked but something
+is holding it shut!""")
+page()
+end(5)
+section_end()
+
+# 6EB298
+section_start(0x0A)
+pic(2)
+dialog_up()
+anim(2)
+text("""If we don't do
+something,the WWW
+will take us over!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6EB2DE
+section_start(0x0B)
+pic(1)
+dialog_up()
+anim(2)
+text("""The WWW program is
+starting to work!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Lan! Please hurry!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6EB32F
+section_start(0x0C)
+pic(9)
+dialog_up()
+anim(2)
+text("""This one opened!""")
+anim(1)
+delay()
+text("""
+""")
+anim(2)
+text("""Hurry to the server!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6EB372
+section_start(0x0F)
+pic(16)
+dialog_up()
+anim(2)
+text("""The 1st graders are
+gone. Their classes
+are finished.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6EB3B9
+section_start(0x10)
+pic(10)
+dialog_up()
+anim(2)
+text("""See you tomorrow,
+Lan!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6EB3E7
+section_start(0x14)
+pic(17)
+dialog_up()
+anim(2)
+text("""Hurry up!!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6EB403
+section_start(0x15)
+pic(34)
+dialog_up()
+anim(2)
+text("""You don't have time
+to be playing with
+1st graders!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6EB448
+section_start(0x16)
+pic(17)
+dialog_up()
+anim(2)
+text("""What's wrong? Do
+you have a fever?""")
+anim(1)
+text("""
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x17, 0xFF], 0, False, True)
+anim(2)
+text("""Then you need to
+get to class!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6EB4B8
+section_start(0x17)
+pic(17)
+dialog_up()
+anim(2)
+text("""Well,you look
+pretty healthy to
+me!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6EB4ED
+section_start(0x18)
+pic(17)
+dialog_up()
+anim(2)
+text("""I can see you!""")
+anim(1)
+delay()
+text("""
+""")
+anim(2)
+text("""Hurry up and get
+to class!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6EB53A
+section_start(0x1E)
+pic(16)
+dialog_up()
+anim(2)
+text("""Let's go home!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6EB55A
+section_start(0x1F)
+dialog_up()
+text("""The door is locked.""")
+delay()
+text("""
+The 1st graders
+have gone home""")
+page()
+end()
+section_end()

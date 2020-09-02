@@ -78,8 +78,12 @@ depend:
 	@$(MAKE) depend --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 clean:
-	@echo clean ...
+	@echo cleaning up build files and assets ...
 	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.script' \) -exec rm {} +
+	@$(RM) -r $(BUILD) $(TARGET).gba $(TARGET).elf
+
+tidy:
+	@echo cleaning up non-asset build files ...
 	@$(RM) -r $(BUILD) $(TARGET).gba $(TARGET).elf
 
 else

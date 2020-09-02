@@ -1,0 +1,82 @@
+section_count(0xEB)
+
+# 6EB906
+section_start(0x00)
+set_flag(147)
+pic(34)
+dialog_up()
+anim(2)
+text("""Lan don't leave now!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6EB930
+section_start(0x01)
+if_flag(148, 0x02, 0xFF)
+set_flag(148)
+pic(34)
+dialog_up()
+anim(2)
+text("""That's the teacher's
+lounge! Your class
+is that way!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6EB982
+section_start(0x02)
+pic(34)
+dialog_up()
+anim(2)
+text("""Lan""")
+anim(1)
+text("""...""")
+delay()
+text("""
+""")
+anim(2)
+text("""Stop that!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6EB9AF
+section_start(0x03)
+pic(34)
+dialog_up()
+mail(3)
+mail(4)
+anim(2)
+text("""Lan!
+Check your mail
+again!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6EB9E6
+section_start(0x05)
+dialog_up()
+text("""You can't leave now!""")
+page()
+end(5)
+section_end()
+
+# 6EBA2A
+section_start(0x19)
+pic(16)
+dialog_up()
+anim(2)
+text("""There's not many
+people here now,cuz
+the school closed!""")
+anim(1)
+page()
+end()
+section_end()

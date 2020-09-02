@@ -1,0 +1,161 @@
+section_count(0xEB)
+
+# 6ED176
+section_start(0x00)
+dialog_up()
+text("""It's locked! You'll
+need to destroy
+the lock program.""")
+page()
+end(5)
+section_end()
+
+# 6ED1B7
+section_start(0x01)
+pic(34)
+dialog_up()
+anim(2)
+text("""Lan! Leave it to
+me! Is there any
+place to jack in?""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6ED1FD
+section_start(0x02)
+if_story(0x10, 0x1F, 0xFF, 0xDC)
+check_item("SchoolID", 1, 0x03, 0xFF, 0xFF)
+dialog_up()
+text("""A time recorder
+You need an
+ID card""")
+page()
+end(5)
+section_end()
+
+# 6ED235
+section_start(0x03)
+if_flag(192, 0xDC, 0xFF)
+dialog_up()
+text("""A time recorder.
+You need an
+ID card""")
+page()
+wait()
+text("""Lan used the
+ID card! It
+worked!!""")
+page()
+wait()
+pic(0)
+anim(2)
+text("""MegaMan! The server
+is just beyond the
+lock!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""But be careful!""")
+anim(1)
+page()
+wait()
+pic(34)
+anim(2)
+text("""OK!!""")
+anim(1)
+page()
+dialog_down()
+set_flag(192)
+end()
+section_end()
+
+# 6ED306
+section_start(0x0A)
+pic(3)
+dialog_up()
+anim(2)
+text("""You did pretty good
+today!""")
+anim(1)
+delay()
+text("""
+""")
+anim(2)
+text("""Keep it up!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6ED34C
+section_start(0x0E)
+pic(34)
+dialog_up()
+anim(2)
+text("""You shouldn't go
+into the office
+unless you need to!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6ED39C
+section_start(0x14)
+pic(34)
+dialog_up()
+anim(2)
+text("""You shouldn't go
+into the office
+unless you need to!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6ED3E4
+section_start(0x16)
+pic(19)
+dialog_up()
+anim(2)
+text("""What are you doing
+here!? Get to class!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Ooops... Getting mad
+makes me thirsty!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6ED45E
+section_start(0x1E)
+pic(34)
+dialog_up()
+anim(2)
+text("""You shouldn't go
+into the office
+unless you need to!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6ED61E
+section_start(0xDC)
+pic(34)
+dialog_up()
+anim(2)
+text("""It's a time
+recorder. We don't
+need to use that.""")
+anim(1)
+page()
+end(5)
+section_end()

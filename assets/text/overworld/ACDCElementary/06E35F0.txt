@@ -1,0 +1,2409 @@
+section_count(0xEC)
+
+# 6E37C8
+section_start(0x00)
+pic(9)
+dialog_up()
+anim(2)
+text("""Mornin' Lan!
+Dex was looking
+for you.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""He's too big to be
+in elementary school
+y'know? Scary...""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E3846
+section_start(0x01)
+pic(1)
+dialog_up()
+anim(2)
+text("""You wish to ask moi,
+Madame Yai herself,
+about """)
+key_item("PET")
+text("""?""")
+anim(1)
+page()
+wait()
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x0D, 0xFF], 0, False, True)
+text("""*sigh*
+""")
+anim(2)
+text("""Suit yourself.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E38C4
+section_start(0x02)
+pic(8)
+dialog_up()
+anim(2)
+text("""...and I was
+like \"for real?\"""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E38F7
+section_start(0x03)
+pic(10)
+dialog_up()
+anim(2)
+text("""Whoa! No way!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E3916
+section_start(0x04)
+pic(10)
+dialog_up()
+anim(2)
+text("""Man,yesterday our
+home oven started
+spitting fire!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E395A
+section_start(0x05)
+pic(9)
+dialog_up()
+anim(2)
+text("""Lan,you heard about
+the WWW's plan to 
+control the net,ya?""")
+anim(1)
+page()
+wait()
+option(0, 0, 1, 1)
+pad(2)
+text("""Yeah """)
+option(1, 1, 0, 0)
+pad(2)
+text("""Huh?""")
+pick([0xFF, 0x0E], 0, False, True)
+anim(2)
+text("""Talk about scary!
+I mean,what are we
+supposed to do?""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E3A02
+section_start(0x06)
+set_flag(207)
+pic(2)
+dialog_up()
+anim(2)
+text("""I been waitin' for
+you,LAN!
+I challenge you...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""to a NetBattle!
+Your wimpy \"Mega\"Man
+against my GutsMan!""")
+anim(1)
+page()
+wait()
+jump(0x08)
+section_end()
+
+# 6E3A91
+section_start(0x07)
+pic(1)
+dialog_up()
+anim(2)
+text("""Lan! You can't leave
+now! Class is about
+to start!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E3AD7
+section_start(0x08)
+set_flag(208)
+pic(1)
+anim(2)
+text("""I heard that!
+NetBattling isn't
+allowed,you know!""")
+anim(1)
+page()
+wait()
+jump(0x09)
+section_end()
+
+# 6E3B21
+section_start(0x09)
+pic(2)
+anim(2)
+text("""Awh stuff it! You
+sure got a big mouth
+for such a shrimp!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""We're not bothering
+anyone,are we,Lan?""")
+anim(1)
+page()
+wait()
+jump(0x0A)
+section_end()
+
+# 6E3B9F
+section_start(0x0A)
+pic(1)
+anim(2)
+text("""Well,I guess....""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Shrimp!""")
+anim(1)
+delay()
+text("""
+""")
+anim(2)
+text("""That's no way to
+talk to a lady!""")
+anim(1)
+page()
+wait()
+dialog_down()
+hidepic()
+jump(0x0B)
+section_end()
+
+# 6E3C04
+section_start(0x0B)
+dialog_up()
+all_sound_off()
+text_se_off()
+input_off()
+se(0x9E)
+text("""bing """)
+breaks(40)
+text("""bong """)
+breaks(40)
+text("""bing """)
+breaks(40)
+text("""bong""")
+breaks(60)
+input_on()
+text_se_on()
+dialog_down()
+jump(0x0C)
+section_end()
+
+# 6E3C3E
+section_start(0x0C)
+wait()
+pic(2)
+dialog_up()
+anim(2)
+text("""Aw man!
+Class is starting!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""After class,Lan!
+Be there!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E3C92
+section_start(0x0D)
+pic(1)
+dialog_up()
+anim(2)
+text("""Curiosity is a
+virtue! Okay,listen
+up good...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""\"""")
+key_item("PET")
+text("""\" is short for
+\"PErsonal Terminal\".""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""It's a portable link
+to the net,see?""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Kinda like a cellー
+phone that does a 
+whole lot more.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""You can send mail,
+use electronic money
+and read textbooks!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""The navi program
+inside helps if you
+have a problem.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""You have one on your
+""")
+key_item("PET")
+text(""",too. Wasn't
+it called MegaMan?""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E3E3C
+section_start(0x0E)
+pic(9)
+dialog_up()
+anim(2)
+text("""They say the WWW's
+making a virus to
+control the net!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Then they'll control
+everything! Schools,
+companies,the army!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Then everything'd
+have to be the way
+THEY want it.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""No way man! Not if
+I can help it!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E3F34
+section_start(0x0F)
+pic(9)
+dialog_up()
+anim(2)
+text("""When you get a new
+battlechip,you can't
+use it right away.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Select \"Folder\" on
+your menu and put it
+in a chip folder.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Better practice when
+you get home so you
+don't forget!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4005
+section_start(0x10)
+pic(1)
+dialog_up()
+anim(2)
+text("""You wish to hear
+about """)
+key_item("PET")
+text(""" from
+moi once more?""")
+anim(1)
+page()
+wait()
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x0D, 0xFF], 0, False, True)
+anim(2)
+text("""Humph! You should
+really try listening
+the first time!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E409C
+section_start(0x11)
+pic(8)
+dialog_up()
+anim(2)
+text("""What's the big deal?
+We've been friends
+since we were kids!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E40EB
+section_start(0x12)
+pic(10)
+dialog_up()
+anim(2)
+text("""You're always 
+hanging out with
+Lan! How suspicious!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4132
+section_start(0x13)
+pic(10)
+dialog_up()
+anim(2)
+text("""I hope our oven is
+fixed by now...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""If it blows
+up again""")
+anim(1)
+delay()
+text(""".""")
+delay()
+text(""".""")
+delay()
+text(""".""")
+delay()
+text("""
+*shiver*""")
+page()
+end(5)
+section_end()
+
+# 6E41A4
+section_start(0x14)
+pic(9)
+dialog_up()
+anim(2)
+text("""Lan,you and MegaMan
+are so good at virus
+busting!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""I gotta get me some
+more battlechips so
+I can get better...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""And then""")
+anim(1)
+text("""...""")
+delay()
+anim(2)
+text("""We
+can take down the
+WWW together!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E426E
+section_start(0x15)
+if_flag(206, 0x18, 0xFF)
+pic(2)
+dialog_up()
+anim(2)
+text("""Well,you got saved
+by the bell,but now
+it's time to fight!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""My GutsMan rocks!
+I got the latest
+version yesterday!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Let's do it!""")
+anim(1)
+text("""
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0xA1, 0xFF], 1, False, True)
+anim(2)
+text("""Peh! Figures you
+and MegaMan don't
+got the guts!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4366
+section_start(0x16)
+pic(2)
+dialog_up()
+anim(2)
+text("""Grr...you just got
+lucky! Today doesn't
+count,okay?""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E43B0
+section_start(0x17)
+pic(2)
+dialog_up()
+anim(2)
+text("""Yeah!
+Me and GutsMan rock!
+You know it!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Better luck next
+time,kiddo!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4410
+section_start(0x18)
+pic(2)
+dialog_up()
+anim(2)
+text("""Hmm? Back for
+more,Lan?""")
+anim(1)
+page()
+wait()
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0xA1, 0xFF], 1, False, True)
+anim(2)
+text("""Peh! Figures you
+and MegaMan don't
+got the guts!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E448C
+section_start(0x19)
+if_story(0x10, 0x17, 0x2B, 0xFF)
+if_story(0x20, 0x27, 0x5B, 0xFF)
+set_flag(43)
+set_flag(206)
+dialog_down()
+stop()
+section_end()
+
+# 6E44AC
+section_start(0x1C)
+dialog_up()
+text_se_off()
+input_off()
+se(0x9E)
+text("""bing """)
+breaks(40)
+text("""bong """)
+breaks(40)
+text("""bing """)
+breaks(40)
+text("""bong""")
+breaks(40)
+input_on()
+text_se_on()
+page()
+wait(5)
+jump(0x1D)
+section_end()
+
+# 6E44E6
+section_start(0x1D)
+pic(9)
+dialog_up()
+anim(2)
+text("""Hey! The teacher's
+coming!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4513
+section_start(0x1E)
+if_flag(158, 0x21, 0xFF)
+pic(2)
+dialog_up()
+anim(2)
+text("""Man,that weirdo's
+gonna be our new
+teacher? That blows!""")
+anim(1)
+page()
+wait(5)
+jump(0xA0)
+section_end()
+
+# 6E4567
+section_start(0x1F)
+pic(2)
+dialog_up()
+anim(2)
+text("""Grr...you just got
+lucky! Today doesn't
+count,okay?""")
+anim(1)
+page()
+dialog_down()
+set_flag(204)
+end()
+section_end()
+
+# 6E45B7
+section_start(0x20)
+pic(2)
+dialog_up()
+anim(2)
+text("""Yeah!
+Me and GutsMan rock!
+You know it!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Better luck next
+time,kiddo!""")
+anim(1)
+page()
+dialog_down()
+set_flag(204)
+end()
+section_end()
+
+# 6E461D
+section_start(0x21)
+pic(2)
+dialog_up()
+anim(2)
+text("""Hey! Lan!""")
+anim(1)
+delay()
+text("""
+""")
+anim(2)
+text("""What's going on?""")
+anim(1)
+page()
+set_flag(204)
+jump(0xA0)
+section_end()
+
+# 6E4657
+section_start(0x22)
+if_flag(154, 0x2E, 0xFF)
+pic(8)
+dialog_up()
+anim(2)
+text("""That Mr.Higsby is
+sure strange for a
+teacher.""")
+anim(1)
+page()
+dialog_down()
+set_flag(205)
+end()
+section_end()
+
+# 6E46A2
+section_start(0x23)
+if_flag(154, 0x2F, 0xFF)
+pic(1)
+dialog_up()
+anim(2)
+text("""I was virus busting
+and something really
+odd happened...""")
+anim(1)
+page()
+wait()
+option(0, 0, 1, 1)
+pad(2)
+text("""What? """)
+option(1, 1, 0, 0)
+pad(2)
+text("""Who cares?""")
+pick([0x24, 0xFF], 0, False, True)
+anim(2)
+text("""Fー""")
+anim(1)
+delay()
+anim(2)
+text("""Fine!""")
+anim(1)
+page()
+dialog_down()
+set_flag(206)
+end()
+section_end()
+
+# 6E4734
+section_start(0x24)
+pic(1)
+dialog_up()
+anim(2)
+text("""Well""")
+anim(1)
+text("""...""")
+delay()
+text("""
+""")
+anim(2)
+text("""I had selected 3
+cannons,see...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""The three chips all
+flashed,and changed
+into a rare chip!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""...I was a little
+scared at first,of
+course...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""The chip? Funny,it
+seemed to return to
+normal after that.""")
+anim(1)
+page()
+dialog_down()
+set_flag(206)
+end()
+section_end()
+
+# 6E4844
+section_start(0x25)
+if_flag(154, 0x30, 0xFF)
+pic(9)
+dialog_up()
+anim(2)
+text("""That teacher gives
+me the creeps...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""...but maybe I'll
+trade some chips
+with him anyway...""")
+anim(1)
+page()
+dialog_down()
+set_flag(207)
+end()
+section_end()
+
+# 6E48CA
+section_start(0x26)
+pic(9)
+dialog_up()
+anim(2)
+text("""A,""")
+anim(1)
+delay(10)
+anim(2)
+text("""B,""")
+anim(1)
+delay(10)
+anim(2)
+text("""C,""")
+anim(1)
+delay(10)
+text("""
+""")
+anim(2)
+text("""D,""")
+anim(1)
+delay(10)
+anim(2)
+text("""E,""")
+anim(1)
+delay(10)
+anim(2)
+text("""F,""")
+anim(1)
+delay(10)
+text("""
+""")
+anim(2)
+text("""G...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""H,""")
+anim(1)
+delay(10)
+anim(2)
+text("""I,""")
+anim(1)
+delay(10)
+anim(2)
+text("""J,""")
+anim(1)
+delay(10)
+text("""
+""")
+anim(2)
+text("""K,""")
+anim(1)
+delay(10)
+anim(2)
+text("""L,""")
+anim(1)
+delay(10)
+anim(2)
+text("""M,""")
+anim(1)
+delay(10)
+text("""
+""")
+anim(2)
+text("""N...""")
+anim(1)
+page()
+wait()
+text("""...""")
+delay()
+anim(2)
+text("""Sure is hard
+remembering these
+chip codes.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""But my brother said;""")
+anim(1)
+delay()
+text("""
+""")
+anim(2)
+text("""\"Remember the order
+and good will come.\"""")
+anim(1)
+page()
+dialog_down()
+set_flag(208)
+end()
+section_end()
+
+# 6E4A0C
+section_start(0x27)
+if_flag(154, 0x32, 0xFF)
+pic(9)
+dialog_up()
+anim(2)
+text("""LーLook,don't talk to
+me right now!
+""")
+anim(1)
+text("""*clickclickclick*""")
+page()
+wait()
+anim(2)
+text("""I'm working on
+yesterday's homeー
+work!""")
+anim(1)
+text("""*clickclick*""")
+page()
+dialog_down()
+set_flag(209)
+end()
+section_end()
+
+# 6E4AA0
+section_start(0x28)
+if_flag(154, 0x33, 0xFF)
+pic(10)
+dialog_up()
+anim(2)
+text("""Please,don't let
+today be the day
+the WWW takes over!""")
+anim(1)
+page()
+dialog_down()
+set_flag(210)
+end()
+section_end()
+
+# 6E4AF4
+section_start(0x29)
+pic(10)
+dialog_up()
+anim(2)
+text("""They used to write
+on blackboards with
+this \"chalk\" stuff.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""And then you had to
+wipe it with a big
+eraser! Yucky!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Now you just jack in
+your """)
+key_item("PET")
+text(""" and have
+the Navi erase it!""")
+anim(1)
+page()
+dialog_down()
+set_flag(211)
+end()
+section_end()
+
+# 6E4BC9
+section_start(0x2A)
+pic(8)
+dialog_up()
+anim(2)
+text("""Lan,class is about
+to start. Better not
+leave now!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4C0E
+section_start(0x2B)
+set_flag(43)
+set_flag(158)
+dialog_down()
+breaks(1)
+jump(0x2B)
+section_end()
+
+# 6E4C23
+section_start(0x2D)
+pic(2)
+dialog_up()
+anim(2)
+text("""Lan""")
+anim(1)
+delay()
+text(""".""")
+delay()
+text(""".""")
+delay()
+text(""".""")
+delay()
+text("""
+""")
+anim(2)
+text("""I know how you feel,
+really...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""But you better let
+me handle this one!""")
+anim(1)
+page()
+dialog_down()
+set_flag(155)
+end()
+section_end()
+
+# 6E4CA8
+section_start(0x2E)
+pic(8)
+dialog_up()
+anim(2)
+text("""This announcement
+must have played in
+other schools,too!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""That's what's making
+the crime rate go up
+everywhere!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4D32
+section_start(0x2F)
+pic(1)
+dialog_up()
+anim(2)
+text("""I can hear the
+announcement playing
+in the next room...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Somehow,they took
+over the entire
+school network!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""This""")
+anim(1)
+text("""...""")
+delay()
+anim(2)
+text("""This is
+a schoolーjacking!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4DEB
+section_start(0x30)
+if_flag(161, 0x49, 0xFF)
+pic(9)
+dialog_up()
+anim(2)
+text("""I looked at the
+screen,and now I
+feel all funny...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""I gotta really bad
+feeling 'bout this.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4E67
+section_start(0x31)
+pic(9)
+dialog_up()
+anim(2)
+text("""Nooo! It won't open!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4E8E
+section_start(0x32)
+if_flag(161, 0x4B, 0xFF)
+pic(9)
+dialog_up()
+anim(2)
+text("""Somebody stop this
+announcement!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4EC5
+section_start(0x33)
+if_flag(161, 0x4C, 0xFF)
+pic(10)
+dialog_up()
+anim(2)
+text("""Ahhh! Make it stop!
+Oh the humanity!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4F02
+section_start(0x34)
+pic(10)
+dialog_up()
+anim(2)
+text("""We're stuck in here
+for good,it looks
+like...""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4F44
+section_start(0x35)
+dialog_up()
+text("""You must use a lock
+program to open the
+electrical locks!""")
+page()
+end(5)
+section_end()
+
+# 6E4F92
+section_start(0x3C)
+if_flag(164, 0x46, 0xFF)
+pic(2)
+dialog_up()
+anim(2)
+text("""Arggh!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E4FAF
+section_start(0x3D)
+if_flag(164, 0x47, 0xFF)
+if_flag(216, 0x41, 0xFF)
+set_flag(216)
+pic(8)
+dialog_up()
+anim(2)
+text("""Don't be too hard on
+MegaMan,he's one of
+your friends,too.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""If you want,you can
+bring my Navi,Roll
+with you...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""I'm sure she can
+help out MegaMan.""")
+anim(1)
+page()
+wait(5)
+jump(0x3E)
+section_end()
+
+# 6E507C
+section_start(0x3E)
+hidepic()
+dialog_up()
+pc_lock()
+pc_anim(30)
+add_chip("Roll R", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("Roll")
+text(""" """)
+chip_code("R")
+text("""\"!""")
+anim(1)
+pc_wait()
+pc_unlock()
+page()
+wait()
+text("""(Put in your chip
+ folder to use Roll
+ during battle.)""")
+page()
+end(5)
+section_end()
+
+# 6E50F8
+section_start(0x3F)
+if_flag(164, 0x48, 0xFF)
+if_flag(216, 0x40, 0xFF)
+pic(1)
+dialog_up()
+anim(2)
+text("""You know,I think
+Mayl has something
+to say to you,Lan.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E514D
+section_start(0x40)
+if_flag(164, 0x48, 0xFF)
+if_flag(203, 0x42, 0xFF)
+pic(1)
+dialog_up()
+anim(2)
+text("""What!?
+Jack in quick!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E5181
+section_start(0x41)
+pic(8)
+dialog_up()
+anim(2)
+text("""Don't be too hard on
+MegaMan,he's one of
+your friends,too.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E51D0
+section_start(0x42)
+pic(1)
+dialog_up()
+anim(2)
+text("""What!?
+Didn't you jack in?""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E51FE
+section_start(0x43)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+anim(2)
+text("""Jack in!!""")
+delay(10)
+text("""
+MegaMan.EXE,""")
+delay(10)
+text("""
+transmit!""")
+anim(1)
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 6E5249
+section_start(0x46)
+pic(2)
+dialog_up()
+anim(2)
+text("""Good job with the
+locks,but leave the
+announcement to me!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E5294
+section_start(0x47)
+if_flag(196, 0x50, 0xFF)
+pic(8)
+dialog_up()
+anim(2)
+text("""Go,MegaMan!
+Oh,""")
+anim(1)
+delay()
+anim(2)
+text("""you too,Lan!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E52D2
+section_start(0x48)
+pic(1)
+dialog_up()
+anim(2)
+text("""First,we get OUT of
+here! I can't think
+with all this noise.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E5322
+section_start(0x49)
+pic(9)
+dialog_up()
+anim(2)
+text("""I'm starting to like
+this announcement.
+Is that bad?""")
+anim(1)
+page()
+wait()
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x4A, 0xFF], 0, False, True)
+pic(9)
+dialog_up()
+anim(2)
+text("""Ok,it's starting to
+make a lot of sense.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E53B9
+section_start(0x4A)
+pic(9)
+dialog_up()
+anim(2)
+text("""I thought so!""")
+anim(1)
+text(""" """)
+delay()
+anim(2)
+text("""But""")
+anim(1)
+delay()
+text(""".""")
+delay()
+text(""".""")
+delay()
+text(""".""")
+page()
+end(5)
+section_end()
+
+# 6E53F5
+section_start(0x4B)
+pic(9)
+dialog_up()
+anim(2)
+text("""I can't seem to
+stand up!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E5420
+section_start(0x4C)
+if_flag(196, 0x51, 0xFF)
+pic(10)
+dialog_up()
+anim(2)
+text("""Gotta get outta
+here!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E5452
+section_start(0x50)
+pic(8)
+dialog_up()
+anim(2)
+text("""Good luck,Lan!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E5472
+section_start(0x51)
+pic(10)
+dialog_up()
+anim(2)
+text("""Everyone escaped.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E549A
+section_start(0x55)
+pic(2)
+dialog_up()
+anim(2)
+text("""Quite the day
+today,huh?""")
+anim(1)
+page()
+wait(5)
+jump(0xA0)
+section_end()
+
+# 6E54C9
+section_start(0x57)
+pic(8)
+dialog_up()
+anim(2)
+text("""Lan,you have to go
+home and do your
+homework!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""...What?""")
+anim(1)
+delay()
+text("""
+""")
+anim(2)
+text("""You're going to go
+play? Geez...""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E554A
+section_start(0x58)
+pic(1)
+dialog_up()
+anim(2)
+text("""For your NetNavi,the
+net is like a kind
+of dungeon.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Inside,they fight 
+viruses and make
+links to new areas.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Netshops are good
+for getting Navi
+PowerUp programs.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E560D
+section_start(0x59)
+pic(9)
+dialog_up()
+anim(2)
+text("""It doesn't matter
+how powerful you are
+if you just miss!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""If you're not good
+at hitting,collect
+other Navi programs.""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Some Navis hit with
+every attackーthey do
+all the work for ya!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E56E2
+section_start(0x5A)
+pic(10)
+dialog_up()
+anim(2)
+text("""Phew...Good thing we
+avoided getting
+schoolーjacked!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E5729
+section_start(0x5B)
+set_flag(43)
+set_flag(147)
+dialog_down()
+stop()
+section_end()
+
+# 6E5739
+section_start(0x5C)
+pic(2)
+dialog_up()
+anim(2)
+text("""Grr...you just got
+lucky! Today doesn't
+count,okay?""")
+anim(1)
+page()
+dialog_down()
+end()
+section_end()
+
+# 6E5785
+section_start(0x5D)
+pic(2)
+dialog_up()
+anim(2)
+text("""Yeah!
+Me and GutsMan rock!
+You know it!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Better luck next
+time,kiddo!""")
+anim(1)
+page()
+dialog_down()
+end()
+section_end()
+
+# 6E57E9
+section_start(0x5F)
+pic(10)
+dialog_up()
+anim(2)
+text("""I been thinking""")
+anim(1)
+text("""...""")
+delay()
+text("""
+""")
+anim(2)
+text("""Everyone went home.
+Maybe I should,too.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E5849
+section_start(0x64)
+if_story(0x24, 0x24, 0x73, 0xFF)
+pic(2)
+dialog_up()
+anim(2)
+text("""I'm thirsty...""")
+anim(1)
+page()
+wait(5)
+jump(0xA0)
+section_end()
+
+# 6E5874
+section_start(0x65)
+if_story(0x24, 0x24, 0x74, 0xFF)
+pic(8)
+dialog_up()
+anim(2)
+text("""We can't use the
+bathrooms! Are they
+broken,or worse...?""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E58C9
+section_start(0x66)
+if_story(0x24, 0x24, 0x75, 0xFF)
+pic(1)
+dialog_up()
+anim(2)
+text("""Don't tell anyone I
+told you,but...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""A kid from B class
+is missing.""")
+anim(1)
+delay()
+text(""".""")
+delay()
+text(""".""")
+delay()
+text("""
+""")
+anim(2)
+text("""And I smell a rat!""")
+anim(1)
+page()
+wait(5)
+jump(0x67)
+section_end()
+
+# 6E5959
+section_start(0x67)
+set_flag(200)
+hidepic()
+dialog_up()
+text_se_off()
+input_off()
+se(0x9E)
+text("""bing """)
+breaks(40)
+text("""bong """)
+breaks(40)
+text("""bing """)
+breaks(40)
+text("""bong""")
+breaks(40)
+input_on()
+text_se_on()
+page()
+wait(5)
+jump(0x68)
+section_end()
+
+# 6E5999
+section_start(0x68)
+pic(1)
+dialog_up()
+anim(2)
+text("""It's a secret,okay?""")
+anim(1)
+page()
+text(""" """)
+dialog_down()
+set_flag(167)
+end()
+section_end()
+
+# 6E59C6
+section_start(0x69)
+if_story(0x24, 0x24, 0x76, 0xFF)
+pic(9)
+dialog_up()
+anim(2)
+text("""Mornin'""")
+anim(1)
+text("""...""")
+delay()
+text("""
+""")
+anim(2)
+text("""I need breakfast...
+What? You too,Lan?""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5A1F
+section_start(0x6A)
+if_story(0x24, 0x24, 0x77, 0xFF)
+pic(9)
+dialog_up()
+anim(2)
+text("""They say the chip
+shop's gonna open
+today!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""And the owner is""")
+anim(1)
+text("""...""")
+delay()
+text("""
+""")
+anim(2)
+text("""Mr. YOUーKNOWーWHO""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Where? Oh,near the
+park,I think.""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5AC5
+section_start(0x6B)
+if_story(0x24, 0x24, 0x7B, 0xFF)
+pic(9)
+dialog_up()
+anim(2)
+text("""Hungry""")
+anim(1)
+text("""...""")
+delay()
+anim(2)
+text("""Must
+conserve""")
+anim(1)
+text("""...""")
+delay()
+text("""
+""")
+anim(2)
+text("""energy...""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5B17
+section_start(0x6C)
+if_story(0x24, 0x24, 0x78, 0xFF)
+pic(10)
+dialog_up()
+anim(2)
+text("""I wonder why people
+always have to fight
+and have wars...""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5B69
+section_start(0x6D)
+if_story(0x24, 0x24, 0x79, 0xFF)
+pic(10)
+dialog_up()
+anim(2)
+text("""It's tough without
+water""")
+anim(1)
+text("""...""")
+delay()
+anim(2)
+text("""But,I'm
+tough! I'll make it!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5BD1
+section_start(0x73)
+pic(2)
+dialog_up()
+anim(2)
+text("""Ahh...Water...""")
+anim(1)
+page()
+wait(5)
+jump(0xA0)
+section_end()
+
+# 6E5BF8
+section_start(0x74)
+pic(8)
+dialog_up()
+anim(2)
+text("""I'm okay,now...
+But if we don't
+get water soon...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""I wonder what the
+source of the
+problem could be?""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5C7C
+section_start(0x75)
+pic(1)
+dialog_up()
+anim(2)
+text("""Don't tell anyone I
+told you,but...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""A kid from B class
+is missing,""")
+anim(1)
+delay()
+text(""",""")
+delay()
+text(""",""")
+delay()
+text("""
+""")
+anim(2)
+text("""And I smell a rat!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5D03
+section_start(0x76)
+pic(9)
+dialog_up()
+anim(2)
+text("""Let's go home""")
+anim(1)
+text("""...""")
+delay()
+text("""
+""")
+anim(2)
+text("""I need breakfast""")
+anim(1)
+delay()
+text("""
+""")
+anim(2)
+text("""Lan?""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5D4E
+section_start(0x77)
+pic(9)
+dialog_up()
+anim(2)
+text("""They say the chip
+shop's gonna open
+today!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""And the owner is""")
+anim(1)
+text("""...""")
+delay()
+text("""
+""")
+anim(2)
+text("""Mr. YOUーKNOWーWHO""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Where? Oh,near the
+park,I think.""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5DEE
+section_start(0x78)
+pic(10)
+dialog_up()
+anim(2)
+text("""They say you can get
+sick if you don't
+drink enough water.""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5E3A
+section_start(0x79)
+pic(10)
+dialog_up()
+anim(2)
+text("""Our parents can't
+help us this time,
+either...""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5E7D
+section_start(0x7A)
+pic(3)
+dialog_up()
+anim(2)
+text("""Keep this to
+yourself,but...""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Everything with
+water in it's been
+stolen!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""There's nothing to
+drink anywhere!
+We're in trouble...""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5F25
+section_start(0x7B)
+pic(9)
+dialog_up()
+anim(2)
+text("""Uhh""")
+anim(1)
+text("""...""")
+delay()
+anim(2)
+text("""Uhh...""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E5F97
+section_start(0xA0)
+pic(34)
+dialog_up()
+anim(2)
+text("""Should we challenge
+Dex to a Netbattle?""")
+anim(1)
+text("""
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0xA1, 0xA2], 1, False, True)
+end()
+section_end()
+
+# 6E5FE6
+section_start(0xA1)
+if_flag(43, 0xA3, 0xFF)
+pic(2)
+dialog_up()
+anim(2)
+text("""That's the spirit!
+Don't be a crybaby
+if ya lose,hear?""")
+anim(1)
+page()
+wait(5)
+jump(0x19)
+section_end()
+
+# 6E603A
+section_start(0xA2)
+if_story(0x10, 0x17, 0xA7, 0xFF)
+pic(2)
+dialog_up()
+anim(2)
+text("""Peh! Figures you
+and MegaMan don't
+got the guts!""")
+anim(1)
+page()
+dialog_down()
+end()
+section_end()
+
+# 6E6085
+section_start(0xA3)
+if_story(0x10, 0x17, 0xA8, 0xFF)
+pic(2)
+dialog_up()
+anim(2)
+text("""Uh,ya better wait
+till I can upgrade
+GutsMan!""")
+anim(1)
+text(""" """)
+delay()
+anim(2)
+text("""OK?""")
+anim(1)
+page()
+dialog_down()
+end()
+section_end()
+
+# 6E60D9
+section_start(0xA4)
+if_story(0x23, 0x57, 0xA6, 0xFF)
+pic(2)
+dialog_up()
+anim(2)
+text("""Grr...you just got
+lucky! Today doesn't
+count,okay?""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E6129
+section_start(0xA5)
+pic(2)
+dialog_up()
+anim(2)
+text("""Yeah!
+Me and GutsMan rock!
+You know it!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Better luck next
+time,kiddo!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E6189
+section_start(0xA6)
+pic(2)
+dialog_up()
+anim(2)
+text("""Hmph! Enjoy it while
+you can! You're
+going down""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""next time,Lan!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E61E3
+section_start(0xA7)
+pic(2)
+dialog_up()
+anim(2)
+text("""Peh! Figures you
+and MegaMan don't
+got the guts!""")
+anim(1)
+page()
+dialog_down()
+set_flag(204)
+end()
+section_end()
+
+# 6E622C
+section_start(0xA8)
+pic(2)
+dialog_up()
+anim(2)
+text("""Uh,ya better wait
+till I can upgrade
+GutsMan!""")
+anim(1)
+text(""" """)
+delay()
+anim(2)
+text("""OK?""")
+anim(1)
+page()
+dialog_down()
+set_flag(204)
+end()
+section_end()
+
+# 6E6282
+section_start(0xAB)
+pic(2)
+dialog_up()
+anim(2)
+text("""Go ahead and use me
+fer practice! See if
+I care""")
+anim(1)
+text("""...""")
+delay()
+anim(2)
+text("""hmph!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E62D6
+section_start(0xAC)
+pic(2)
+dialog_up()
+anim(2)
+text("""Guess you got more
+important things
+to do,huh?""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E6316
+section_start(0xAD)
+pic(2)
+dialog_up()
+anim(2)
+text("""Uh,ya better wait
+till I can upgrade
+GutsMan!""")
+anim(1)
+text(""" """)
+delay()
+anim(2)
+text("""OK?""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E6362
+section_start(0xAE)
+pic(2)
+dialog_up()
+anim(2)
+text("""You just got lucky,
+Lan! That one didn't
+count,OK?""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E63A9
+section_start(0xAF)
+pic(2)
+dialog_up()
+anim(2)
+text("""I knew I was the
+best in the school!
+Now I got proof!""")
+anim(1)
+page()
+end()
+section_end()
+
+# 6E6448
+section_start(0xDC)
+dialog_up()
+text("""The blackboard is
+covered with nicks
+and graffiti""")
+page()
+end(5)
+section_end()
+
+# 6E6481
+section_start(0xDD)
+dialog_up()
+text("""A cleanup schedule.
+I hope I don't get
+bathroom duty...""")
+page()
+end(5)
+section_end()
+
+# 6E64C5
+section_start(0xDE)
+dialog_up()
+text("""These books are all
+by Ms.Mari's
+favorite author""")
+page()
+wait()
+text("""\"Doctor Yasu's guide
+to Virus Busting\"...
+Looks interesting!""")
+page()
+end(5)
+section_end()
+
+# 6E6546
+section_start(0xDF)
+dialog_up()
+text("""A class notebook.
+Handwriting this bad
+must be Dex's""")
+page()
+end(5)
+section_end()
+
+# 6E6584
+section_start(0xE0)
+dialog_up()
+text("""There's nothing
+in here...""")
+page()
+wait()
+text("""Wait! There's weird
+bugs crawling out
+of the dirt!""")
+page()
+end(5)
+section_end()
+
+# 6E65E3
+section_start(0xE1)
+dialog_up()
+text("""The 5th graders are
+studying ants for
+science class""")
+page()
+end(5)
+section_end()
+
+# 6E661E
+section_start(0xE2)
+dialog_up()
+text("""Hmm...That frog in
+the cage is looking
+at me""")
+page()
+wait()
+text("""Gee,it's creepy.
+He's staring at me..
+I thought we were""")
+page()
+wait()
+text("""supposed to study
+him,not the other
+way around!""")
+page()
+end(5)
+section_end()
+
+# 6E66CB
+section_start(0xE3)
+dialog_up()
+text("""These look like
+the 5th graders'
+desks""")
+page()
+end(5)
+section_end()
+
+# 6E66FA
+section_start(0xE4)
+dialog_up()
+text("""Lan's desk.
+The drawer is full
+of junk""")
+page()
+end(5)
+section_end()
+
+# 6E672A
+section_start(0xE5)
+dialog_up()
+text("""Mayl's desk.
+Wow! It's so clean
+and organized""")
+page()
+end(5)
+section_end()
+
+# 6E6763
+section_start(0xE6)
+dialog_up()
+text("""Somebody carved
+graffiti into this
+desk...""")
+page()
+wait()
+text("""\"I LUV GUTSMAN\"""")
+page()
+end(5)
+section_end()
+
+# 6E67AD
+section_start(0xE7)
+dialog_up()
+text("""This desk seems
+a little big for
+little Yai""")
+page()
+end(5)
+section_end()
+
+# 6E67E0
+section_start(0xE8)
+dialog_up()
+text("""The teacher's desk.
+There's no chair""")
+page()
+end(5)
+section_end()
+
+# 6E680F
+section_start(0xE9)
+if_story(0x20, 0x5F, 0xEB, 0xFF)
+if_story(0x10, 0x1F, 0xFF, 0xDC)
+if_flag(155, 0xEA, 0xFF)
+if_flag(149, 0xFF, 0xDC)
+dialog_up()
+text("""A WWW reーeducation
+program is playing!
+Pretty scary stuff!""")
+page()
+end(5)
+section_end()
+
+# 6E686B
+section_start(0xEA)
+dialog_up()
+text("""A WWW reーeducation
+program is playing!
+Pretty scary stuff!""")
+page()
+wait()
+text("""Looks like you can
+jack in here!""")
+page()
+end(5)
+section_end()
+
+# 6E68D4
+section_start(0xEB)
+dialog_up()
+text("""The blackboard is
+covered with nicks
+and graffiti""")
+page()
+wait()
+text("""It looks like I can
+jack in here""")
+page()
+end(5)
+section_end()

@@ -8,27 +8,31 @@ from typing import List
 class Section:
     def __init__(self):
         self.buffer: io.BytesIO = io.BytesIO()
+        self.len = 0
 
 
     def size(self) -> int:
-        return self.buffer.getbuffer().nbytes
+        return 2 if self.len == 0 else self.len
 
 
     def emitByte(self, b: int) -> None:
         self.buffer.write(bytes([b & 0xFF]))
+        self.len += 1
 
 
     def emitShort(self, b: int) -> None:
         self.buffer.write(bytes([b & 0xFF, (b >> 8) & 0xFF]))
+        self.len += 2
 
 
     def emitInt(self, b: int) -> None:
         self.buffer.write(bytes([b & 0xFF, (b >> 8) & 0xFF, (b >> 16) & 0xFF, (b >> 24) & 0xFF]))
+        self.len += 4
 
 
     def getbuffer(self) -> bytes:
-        if self.size() == 0:
-            return b'\xFF\xFF'
+        if self.len == 0:
+            return bytes([0, 0])
         else:
             return self.buffer.getbuffer()
 
@@ -37,6 +41,12 @@ class Script:
     def __init__(self):
         self.current_section = 0
         self.sections: List[Section] = []
+
+
+    def setScriptCount(self, size: int):
+        if size > 0 and size > len(self.sections):
+            for _ in range(size - len(self.sections)):
+                self.sections.append(Section())
 
 
     def selectSection(self, sectionIndex: int) -> None:
@@ -60,22 +70,25 @@ class Script:
 
 
     def writeToFile(self, outPath: Path) -> None:
-        sbuf = io.BytesIO()
+        outBuffer = io.BytesIO()
         offset = len(self.sections) * 2
+        ind = 0
+        align = offset
         for section in self.sections:
-            sbuf.write(bytes([offset & 0xFF]))
-            sbuf.write(bytes([(offset >> 8) & 0xFF]))
-            offset = offset + section.size()
+            outBuffer.write(bytes([offset & 0xFF]))
+            outBuffer.write(bytes([(offset >> 8) & 0xFF]))
+            offset += section.size()
+            ind += 1
         for section in self.sections:
-            sbuf.write(section.getbuffer())
+            outBuffer.write(section.getbuffer())
+            align += section.size()
+        align = align % 4
         with open(outPath, "wb") as oFile:
-            buf = sbuf.getbuffer()
-            blen = len(buf) % 4
-            oFile.write(buf)
-            if blen != 0:
-                while blen < 4:
+            oFile.write(outBuffer.getbuffer())
+            if align != 0:
+                while align % 4 != 0:
                     oFile.write(bytes([0]))
-                    blen = blen + 1
+                    align += 1
 
 
 class Reader:
@@ -405,7 +418,7 @@ charmap_E5 = {
     "÷": 0x3C,
     "=": 0x3D,
     "※": 0x3E,
-    #"[*]": 0x3F,
+    "*": 0x3F,
     "○": 0x40,
     "⬤": 0x41,
     "◉": 0x42,
@@ -725,6 +738,11 @@ def bytes_key(itemid: str):
 
 
 #region Script control
+def section_count(count: int) -> None:
+    global curScript
+    curScript.setScriptCount(count)
+
+
 def section_start(section: int) -> None:
     global curScript
     curScript.selectSection(section)
@@ -773,6 +791,7 @@ def delay(amt: int = 30):
 
 def stop():
     delay_control(0xFF)
+    curScript.emitShort(0)
 
 
 def page():
@@ -859,12 +878,12 @@ def pick(optionList: List[int], default, isDisableB, isClearAfterPick):
     global curScript
     curScript.emitByte(0xF1)
     curScript.emitByte(len(optionList) + 3)
-    for opt in optionList:
-        curScript.emitByte(opt)
     flag_7 = (1 if isClearAfterPick else 0) << 7
     flag_6 = (1 if isDisableB else 0) << 6
     flag_other = default & 0x3F
     curScript.emitByte(flag_7 | flag_6 | flag_other)
+    for opt in optionList:
+        curScript.emitByte(opt)
 
 
 def dialog_control(com: int):
@@ -979,6 +998,7 @@ def if_library(lower: int, upper: int, inrange: int = 0xFF, outrange: int = 0xFF
 def input_control(com: int):
     global curScript
     curScript.emitByte(0xF5)
+    curScript.emitByte(com)
 
 
 def input_off():
@@ -989,17 +1009,21 @@ def input_on():
     input_control(1)
 
 
-def jump(index: int):
+def jump_control(sz: int):
     global curScript
     curScript.emitByte(0xF6)
-    curScript.emitByte(0)
+    curScript.emitByte(sz)
+
+
+def jump(index: int):
+    global curScript
+    jump_control(0)
     curScript.emitByte(index)
 
 
 def jumprandom(indexList: List[int]):
     global curScript
-    curScript.emitByte(0xF6)
-    curScript.emitByte(len(indexList))
+    jump_control(len(indexList) - 1)
     for bt in indexList:
         curScript.emitByte(bt)
 
@@ -1045,7 +1069,7 @@ def set_item(itemid: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsom
 
 def check_item(itemid: str, amt: int, ifeq: int = 0xFF, ifgt: int = 0xFF, iflt: int = 0xFF):
     global curScript
-    inv_control(3)
+    inv_control(4)
     bitem = bytes_key(itemid)
     curScript.emitByte(bitem[0])
     curScript.emitByte(amt)
@@ -1250,7 +1274,13 @@ def chip_code(chipcode: str):
     curScript.emitByte(2)
 
 
-def item_amt(itemid: str, minlen: int, isPadZero: bool, isPadLeft: bool):
+def chip(chipId: str, chipCode: str):
+    chip_id(chipId)
+    text(" ")
+    chip_code(chipCode)
+
+
+def item_amt(itemid: str, minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False):
     global curScript
     item_control(1)
     flag_7 = (1 if isPadLeft else 0) << 7
@@ -1261,7 +1291,7 @@ def item_amt(itemid: str, minlen: int, isPadZero: bool, isPadLeft: bool):
     curScript.emitByte(bkey[0])
 
 
-def chip_amt(chip: str, minlen: int, isPadZero: bool, isPadLeft: bool):
+def chip_amt(chip: str, minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False):
     global curScript
     item_control(2)
     flag_7 = (1 if isPadLeft else 0) << 7
@@ -1273,7 +1303,7 @@ def chip_amt(chip: str, minlen: int, isPadZero: bool, isPadLeft: bool):
     curScript.emitByte(bchip[1])
 
 
-def zenny_amt(minlen: int, isPadZero: bool, isPadLeft: bool):
+def zenny_amt(minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False):
     global curScript
     item_control(3)
     flag_7 = (1 if isPadLeft else 0) << 7
@@ -1283,7 +1313,7 @@ def zenny_amt(minlen: int, isPadZero: bool, isPadLeft: bool):
     curScript.emitByte(0)
 
 
-def buffer(buffer: int, minlen: int, isPadZero: bool, isPadLeft: bool):
+def buffer(buffer: int, minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False):
     global curScript
     item_control(3)
     flag_7 = (1 if isPadLeft else 0) << 7
@@ -1335,7 +1365,7 @@ def misc_control(com: int):
     curScript.emitByte(com << 2)
 
 
-def award_zenny(amtList: List[int], nextjump: int = 0xFF, unused1: int = 0, unused2: int = 0):
+def award_zenny(amtList: List[int], nextjump: int = 0xFF, unused1: int = 0xFF, unused2: int = 0xFF):
     global curScript
     misc_control(0)
     curScript.emitByte(len(amtList) - 1)
@@ -1369,6 +1399,29 @@ def shop(shopIndex: int):
     curScript.emitByte(shopIndex)
 
 
+def miniboss(bg: int, mode: int, folder: int, shuffle: int, flags: int, noescape: int, battleId: int):
+    global curScript
+    misc_control(4)
+    curScript.emitByte(bg)
+    curScript.emitByte(mode)
+    curScript.emitByte(folder)
+    curScript.emitByte(shuffle)
+    curScript.emitByte(flags)
+    curScript.emitByte(noescape)
+    curScript.emitByte(battleId)
+
+
+def trader(amt: int, ifless: int = 0xFF):
+    global curScript
+    misc_control(5)
+    curScript.emitByte(amt)
+    curScript.emitByte(ifless)
+
+
+def virus_machine(index):
+    misc_control(6)
+
+
 def save(savegood: int, savebad: int):
     global curScript
     curScript.emitByte(0xFE)
@@ -1379,7 +1432,7 @@ def save(savegood: int, savebad: int):
 def parse_command(reader: Reader):
     com = ""
     while not reader.isEmpty() and reader.peek() != "}":
-        com = com + reader.read()
+        com += reader.read()
     if reader.isEmpty():
         exit("Incomplete command")
     reader.read()
@@ -1395,6 +1448,15 @@ def parse_command(reader: Reader):
                 key_item(coms[1])
             else:
                 exit("Key item name required")
+        elif coms[0] == "chip":
+            if len(coms) > 2:
+                chip(coms[1], coms[2])
+            else:
+                exit("Chip ID and code required")
+        elif coms[0] == "chip_buf":
+            chip_id_buf(1)
+            text(" ")
+            chip_code_buf(2)
         elif coms[0] == "anim":
             if len(coms) > 1:
                 anim(int(coms[1], 0))
@@ -1409,6 +1471,8 @@ def parse_command(reader: Reader):
                 wait(int(coms[1], 0))
             else:
                 wait()
+        elif coms[0] == "buf":
+            buffer(1)
         elif coms[0] == "end":
             if len(coms) > 1:
                 end(int(coms[1], 0))
@@ -1435,6 +1499,10 @@ def text(*txtList):
                         curScript.emitByte(charmap_E5[char])
                     else:
                         curScript.emitByte(char)
+
+
+def text_talking(txt: str):
+    text(f"{{anim 2}}{txt}{{anim 1}}")
 
 
 def para(txt: str, wttm: int = 5):

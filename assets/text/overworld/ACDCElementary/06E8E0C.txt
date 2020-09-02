@@ -1,0 +1,454 @@
+section_count(0xEB)
+
+# 6E8FE2
+section_start(0x00)
+pic(19)
+dialog_up()
+anim(2)
+text("""Long live the WWW!
+Follow or be
+deleted!!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Everyone,all
+together!!""")
+anim(1)
+page()
+wait(5)
+jump(0x01)
+section_end()
+
+# 6E9043
+section_start(0x01)
+pic(11)
+dialog_up()
+anim(2)
+text("""Long live the WWW!""")
+anim(1)
+page()
+wait(5)
+jump(0x02)
+section_end()
+
+# 6E9069
+section_start(0x02)
+pic(18)
+dialog_up()
+anim(2)
+text("""Follow or be
+deleted!!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E9091
+section_start(0x03)
+pic(19)
+dialog_up()
+anim(2)
+text("""Who are you!?
+Go away!
+shoo! shoo!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E90C8
+section_start(0x04)
+dialog_up()
+text("""There's no response,
+eyes are glued to
+the screen.""")
+page()
+end(5)
+section_end()
+
+# 6E9105
+section_start(0x05)
+dialog_up()
+text("""There's no response,
+eyes are glued to
+the screen.""")
+page()
+end(5)
+section_end()
+
+# 6E9142
+section_start(0x06)
+dialog_up()
+text("""Something scary
+about those eyes.""")
+page()
+end(5)
+section_end()
+
+# 6E916C
+section_start(0x07)
+dialog_up()
+text("""There's no response,
+eyes are glued to
+the screen.""")
+page()
+end(5)
+section_end()
+
+# 6E91A9
+section_start(0x08)
+dialog_up()
+text("""There's no response,
+eyes are glued to
+the screen.""")
+page()
+end(5)
+section_end()
+
+# 6E91E6
+section_start(0x09)
+dialog_up()
+text("""Something scary
+about those eyes.""")
+page()
+end(5)
+section_end()
+
+# 6E9210
+section_start(0x0A)
+pic(18)
+dialog_up()
+anim(2)
+text("""What can we do?
+Everyone is acting
+weird!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E924B
+section_start(0x0B)
+pic(11)
+dialog_up()
+anim(2)
+text("""My head feels like
+it's going to split
+in two!!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E928D
+section_start(0x0C)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+anim(2)
+text("""Jack in!!""")
+delay(10)
+text("""
+MegaMan.EXE,""")
+delay(10)
+text("""
+transmit!""")
+anim(1)
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 6E9436
+section_start(0xBE)
+if_flag(1064, 0xC2, 0xFF)
+check_chip("Dash G", 1, 0xBF, 0xBF, 0xFF)
+pic(9)
+dialog_up()
+anim(2)
+text("""I love trading
+battle chips!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""I have some really
+rare ones!""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""I wonder where I
+can find a
+\"""")
+chip_id("Dash")
+text(""" """)
+chip_code("G")
+text("""\"!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E94CA
+section_start(0xBF)
+if_flag(1073, 0xC3, 0xFF)
+set_flag(1073)
+pic(9)
+dialog_up()
+anim(2)
+text("""Hey! Isn't that a
+""")
+chip_id("Dash")
+text(""" """)
+chip_code("G")
+text("""?""")
+anim(1)
+page()
+wait()
+anim(2)
+text("""Will you trade for a
+""")
+chip_id("Repair")
+text(""" """)
+chip_code("H")
+text("""?""")
+anim(1)
+page()
+wait()
+option(0, 0, 1, 1)
+pad(2)
+text("""Sure! """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No way!!
+""")
+pick([0xC0, 0xC1], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 6E9552
+section_start(0xC0)
+check_chip_pack("Dash G", 1, 0xFF, 0xFF, 0xC4)
+set_flag(1064)
+pic(9)
+dialog_up()
+anim(2)
+text("""Cool! Thanks!
+Here's your chip!""")
+anim(1)
+page()
+wait()
+hidepic()
+pc_lock()
+pc_anim(30)
+add_chip("Repair H", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Dash G", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("Repair")
+text(""" """)
+chip_code("H")
+text("""\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 6E95D4
+section_start(0xC1)
+pic(9)
+dialog_up()
+anim(2)
+text("""You can't get this
+chip anywhere else!
+You sure??""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E9619
+section_start(0xC2)
+pic(9)
+dialog_up()
+anim(2)
+text("""I'm so addicted to
+trading chips!""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E964C
+section_start(0xC3)
+pic(9)
+dialog_up()
+anim(2)
+text("""Will you trade your
+""")
+chip_id("Dash")
+text(""" """)
+chip_code("G")
+text(""" for
+a """)
+chip_id("Repair")
+text(""" """)
+chip_code("H")
+text("""?""")
+anim(1)
+page()
+wait()
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No!
+""")
+pick([0xC0, 0xC1], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 6E96A9
+section_start(0xC4)
+pic(9)
+dialog_up()
+anim(2)
+text("""You need to move a
+""")
+chip_id("Dash")
+text(""" """)
+chip_code("G")
+text("""
+out of your folder.""")
+anim(1)
+page()
+end(5)
+section_end()
+
+# 6E9718
+section_start(0xDC)
+dialog_up()
+text("""Somebody has written
+in a corner
+\"I love teacher\"""")
+page()
+wait()
+text("""You can jack in
+here""")
+page()
+end(5)
+section_end()
+
+# 6E976B
+section_start(0xDD)
+dialog_up()
+text("""There are picture
+books here""")
+page()
+wait()
+text("""Starts out \"Once
+upon a time...\"""")
+page()
+end(5)
+section_end()
+
+# 6E97B8
+section_start(0xDE)
+dialog_up()
+text("""These desks are much
+smaller than the 5th
+graders' desks""")
+page()
+end(5)
+section_end()
+
+# 6E97F9
+section_start(0xDF)
+dialog_up()
+text("""Even in a society
+run by computers,""")
+page()
+wait()
+text("""Don't forget the
+beauty of a flower""")
+page()
+end(5)
+section_end()
+
+# 6E984D
+section_start(0xE0)
+dialog_up()
+text("""Morning glories
+tend to creep up
+anything nearby""")
+page()
+end(5)
+section_end()
+
+# 6E9885
+section_start(0xE1)
+dialog_up()
+text("""You can't eat seeds
+from morning glories.
+Try sunflower seeds""")
+page()
+end(5)
+section_end()
+
+# 6E98CC
+section_start(0xE2)
+dialog_up()
+text("""This book doesn't
+have many pictures""")
+page()
+wait()
+text("""Books with lots of
+pictures are more
+fun,huh?""")
+page()
+end(5)
+section_end()
+
+# 6E992C
+section_start(0xE3)
+dialog_up()
+text("""This is a teacher's
+desk""")
+page()
+end(5)
+section_end()
+
+# 6E994D
+section_start(0xE4)
+if_story(0x20, 0x5F, 0xDC, 0xFF)
+if_story(0x10, 0x1F, 0xFF, 0xDC)
+if_flag(149, 0xFF, 0xDC)
+dialog_up()
+text("""A WWW reーeducation
+program is playing!
+Pretty scary stuff!""")
+page()
+wait()
+text("""Looks like you can
+jack in here!""")
+page()
+end(5)
+section_end()
+
+# 6E99C8
+section_start(0xE5)
+dialog_up()
+text("""A schedule for
+watering the
+morning glories""")
+page()
+end(5)
+section_end()

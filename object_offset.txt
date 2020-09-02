@@ -23,5 +23,6 @@ screen_layout_intr 0x180178
 asset_ui 0x6132A8
 asset_chip 0x638634
 asset_battle 0x647afc
+asset_dialog 0x6E35F0
 asset_text 0x72954C
 asset_demo 0x796FD4

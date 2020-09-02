@@ -4,6 +4,6 @@
     .text
 
 global_label textBlockInitialDialog
-	.incbin "text/initial.script"
+    .incbin "text/initial.script"
 
     .end
