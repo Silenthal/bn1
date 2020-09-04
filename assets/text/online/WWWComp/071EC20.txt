@@ -1,0 +1,84 @@
+section_count(0x7)
+
+# 0x00 @ 0x71EC2E
+section_start(0x00)
+pic(40)
+dialog_up()
+para_talk_end("""MegaMan{anim 1}.{delay}.{delay}.{delay}!
+{anim 2}I'm so glad to
+see you!""", 0)
+section_end()
+
+# 0x01 @ 0x71EC77
+section_start(0x01)
+pic(46)
+dialog_up()
+para_talk("""Hmph{anim 1}...{delay}
+{anim 2}No need for thanks.""", 0)
+para_talk_end("""I'm just keeping
+you around for
+entertainment value.""", 0)
+section_end()
+
+# 0x02 @ 0x71ECEC
+section_start(0x02)
+if_flag(1094, 0x03, 0xFF)
+pic(36)
+dialog_up()
+para_talk("""Be careful...""", 0)
+para_talk("""When you fight the
+top WWW Navi,your
+Navi's save feature""", 0)
+para_talk("""will be disabled!
+You may want to
+save here...""", 0)
+para_talk_end("""It's close{anim 1}...{delay}
+{anim 2}Very close...""", 0)
+section_end()
+
+# 0x03 @ 0x71EDC0
+section_start(0x03)
+pic(36)
+dialog_up()
+para_talk_end("""Yeah,I thought that
+your save feature
+would be destroyed..""", 0)
+section_end()
+
+# 0x05 @ 0x71EE0F
+section_start(0x05)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(848)
+pc_lock()
+pc_anim(50)
+award_zenny([2000, 2000], 0xFF)
+text("""MegaMan got 2000
+zennys!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x06 @ 0x71EE76
+section_start(0x06)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(849)
+pc_lock()
+pc_anim(50)
+add_chip("BigWave K", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("BigWave")
+text(""" """)
+chip_code("K")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()

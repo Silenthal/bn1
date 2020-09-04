@@ -1,0 +1,75 @@
+section_count(0x8)
+
+# 0x00 @ 0x720324
+section_start(0x00)
+dialog_up()
+para_general("""It looks like a
+connection to the
+net...""", 0)
+para_general_end("""But MegaMan doesn't
+have access!""", 0)
+section_end()
+
+# 0x01 @ 0x72037D
+section_start(0x01)
+set_flag(75)
+dialog_up()
+para_general("""MegaMan bookmarked
+Miyu's antique shop!""", 0)
+para_general_end("""You can now freely
+enter here!""", 0)
+section_end()
+
+# 0x05 @ 0x7203DB
+section_start(0x05)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(749)
+pc_lock()
+pc_anim(50)
+add_item("★Miyu", 1, 0xFF, 0xFF, 0xFF)
+para_general("""MegaMan got an item,
+\"{key ★Miyu}\"!""", 0)
+para_general("""(Use this item at
+ the access point to
+ the magnifying""", 0)
+text(""" glass for free
+ access between it
+ and the net)""")
+pc_wait()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x06 @ 0x7204B2
+section_start(0x06)
+check_chip("Barrier S", 1, 0x07, 0x07, 0xFF)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(750)
+pc_lock()
+pc_anim(50)
+add_chip("Barrier S", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Barrier")
+text(""" """)
+chip_code("S")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x07 @ 0x720528
+section_start(0x07)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+para_general_end("""However,he couldn't
+decode the data.""", 0)
+section_end()

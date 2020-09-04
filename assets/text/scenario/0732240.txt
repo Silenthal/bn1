@@ -1,0 +1,96 @@
+section_count(0xA)
+
+# 0x00 @ 0x732254
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Lan!? Phone for
+you!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73227E
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Who is it!?
+Hello?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x7322A6
+section_start(0x02)
+pic(8)
+dialog_up()
+para_talk("""Lan! It's me!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x7322C9
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Oh,it's you Mayl{anim 1}...{delay}
+{anim 2}Oh no!!!""")
+set_flag(165)
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73230C
+section_start(0x04)
+pic(8)
+dialog_up()
+para_talk("""Help!{anim 1}{delay} {anim 2}I'm stuck
+in a runaway bus!""", 0)
+para_talk("""All the lights are
+green and we keep
+speeding up!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x732385
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""Mayl! Calm down!
+Where are you?""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x7323BA
+section_start(0x06)
+pic(8)
+dialog_up()
+para_general("""{anim 2}Huh,um,hold on{anim 1}...{delay}""", 0)
+para_talk("""! We just passed
+Dentown Block3
+heading for Block4!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x732424
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk("""Gotcha!
+I'll be there ASAP!
+Don't panic!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x732464
+section_start(0x08)
+pic(34)
+dialog_up()
+para_talk("""Lan,we've got to
+turn the lights red
+to stop that bus!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x7324B0
+section_start(0x09)
+pic(0)
+dialog_up()
+para_talk_end("""I know! I know!""", 0)
+section_end()

@@ -1,0 +1,59 @@
+section_count(0x5)
+
+# 0x00 @ 0x72A35A
+section_start(0x00)
+pic(12)
+dialog_up()
+para_talk("""Lan,{anim 1}{delay}{anim 2}welcome home!""", 0)
+para_talk("""A man from NetSafety
+is checking our home
+control panel.""", 0)
+para_talk("""You heard,right?{anim 1}{delay}
+{anim 2}About the ovens
+exploding?""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72A407
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""That's the accident
+Mayl was talking
+about this morning.""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72A454
+section_start(0x02)
+pic(13)
+dialog_up()
+para_talk("""Hello.""", 0)
+para_talk("""We think a virus
+might be responsible
+for the accidents...""", 0)
+para_talk("""We're checking every
+home's control panel
+just to be safe.""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72A4F8
+section_start(0x03)
+pic(12)
+dialog_up()
+para_talk("""I'm glad it didn't
+happen to us!""", 0)
+para_talk("""Lan,{anim 1}{delay}{anim 2}go to your
+room so you won't
+get in the way.""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72A571
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk_end("""Let's get on
+the net!""")
+section_end()

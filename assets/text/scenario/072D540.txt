@@ -1,0 +1,71 @@
+section_count(0x8)
+
+# 0x00 @ 0x72D550
+section_start(0x00)
+dialog_up()
+para_general("""ーAfter Classー""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72D568
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Phew...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72D585
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""Rough day today,huh?{anim 1}{delay}
+{anim 2}Ah!!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72D5BD
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""What?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72D5D6
+section_start(0x04)
+pic(34)
+dialog_up()
+para_general("""{anim 2}Today,wasn't{anim 1}{delay}.{delay}.{delay}.""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72D609
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""Ah!
+The Metroline's
+opening today!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72D641
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk("""Hey,let's surprise
+your dad down at the
+SciLab!""", 0)
+para_talk("""And we can pick up
+that PowerUp program
+for me!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72D6BE
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk_end("""Good idea!""")
+section_end()

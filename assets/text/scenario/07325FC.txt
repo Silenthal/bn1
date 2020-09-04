@@ -1,0 +1,123 @@
+section_count(0xD)
+
+# 0x00 @ 0x732616
+section_start(0x00)
+dialog_up()
+para_general("""*beebeebeep*""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73262F
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Mayl!?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73264A
+section_start(0x02)
+pic(24)
+dialog_up()
+para_talk("""Sorry,charley!""", 0)
+para_talk("""So,you miss your
+girlfriend yet?""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x732697
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""So you were behind
+it all along!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x7326CB
+section_start(0x04)
+pic(24)
+dialog_up()
+para_talk("""Heheh!{anim 1}{delay}
+{anim 2}You better listen
+up,kiddo!""", 0)
+para_talk("""I forgot to mention
+the virus I put in
+the bus gas program!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x73274F
+section_start(0x05)
+pic(0)
+dialog_up()
+para_general("""!?""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x732762
+section_start(0x06)
+pic(24)
+dialog_up()
+para_talk("""It makes the gas go
+backwards & then...
+It's BOOM time!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x7327B2
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk("""What!?""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x7327CD
+section_start(0x08)
+pic(24)
+dialog_up()
+para_talk("""I should think the
+virus will activate
+any time now...""", 0)
+para_talk("""You better stop that
+bus quick,huh?
+Good luck! Hehheh!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x73285B
+section_start(0x09)
+hidepic()
+dialog_up()
+se(0xA0)
+para_general("""*click*""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x732875
+section_start(0x0A)
+pic(0)
+dialog_up()
+para_talk("""Grrr...That gal
+really ticks me off!""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x7328B0
+section_start(0x0B)
+pic(34)
+dialog_up()
+para_talk("""Lan,quick! We have
+to catch that bus!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x7328EB
+section_start(0x0C)
+pic(0)
+dialog_up()
+para_talk_end("""Let's get farther
+ahead of it this
+time!""", 0)
+section_end()

@@ -1,0 +1,17 @@
+section_count(0x2)
+
+# 0x00 @ 0x72CC10
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Lan! Thanks!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72CC31
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk_end("""Told ya I'd
+get you out!""")
+section_end()

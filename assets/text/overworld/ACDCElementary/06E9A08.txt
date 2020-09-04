@@ -1,14 +1,12 @@
 section_count(0xEB)
 
-# 6E9BFC
+# 0x0F @ 0x6E9BFC
 section_start(0x0F)
 if_flag(182, 0xDD, 0xFF)
 dialog_up()
-text("""The computer's
+para_general("""The computer's
 memory is full,so
-it has frozen up.""")
-page()
-wait()
+it has frozen up.""", 0)
 text("""Do you want to
 try to restart it?
 """)
@@ -26,7 +24,7 @@ set_flag(197)
 end(5)
 section_end()
 
-# 6E9C97
+# 0x10 @ 0x6E9C97
 section_start(0x10)
 dialog_up()
 text("""The computer is
@@ -37,96 +35,58 @@ set_flag(182)
 end(5)
 section_end()
 
-# 6E9CBC
+# 0x11 @ 0x6E9CBC
 section_start(0x11)
 input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-anim(2)
-text("""Jack in!!""")
-delay(10)
-text("""
-MegaMan.EXE,""")
-delay(10)
-text("""
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
 transmit!""")
-anim(1)
 breaks(30)
 input_on()
 end()
 section_end()
 
-# 6E9E5B
+# 0xBE @ 0x6E9E5B
 section_start(0xBE)
 if_flag(1057, 0xC4, 0xFF)
 if_flag(1074, 0xBF, 0xFF)
 set_flag(1074)
 pic(11)
 dialog_up()
-anim(2)
-text("""I know how to
+para_talk("""I know how to
 modify battle chips!
-Pretty cool,huh?""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""I'm modifying one
+Pretty cool,huh?""", 0)
+para_talk_end("""I'm modifying one
 now,so please don't
 disturb me.""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E9EEE
+# 0xBF @ 0x6E9EEE
 section_start(0xBF)
 if_flag(1075, 0xC1, 0xFF)
 pic(11)
 dialog_up()
-anim(2)
-text("""What do you want
-now!?""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Hey,wait I've got a
-good idea!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""There's some chips
+para_talk("""What do you want
+now!?""", 0)
+para_talk("""Hey,wait I've got a
+good idea!""", 0)
+para_talk("""There's some chips
 that I need some
-data from.""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""If you give me 30
+data from.""", 0)
+text("""{anim 2}If you give me 30
 """)
 chip_id("MetGuard")
 text(""" """)
 chip_code("A")
-text("""
-chips,""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""I'll give you an
+para_general("""
+chips,{anim 1}""", 0)
+para_talk("""I'll give you an
 original custom
-chip!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""What do you say?""")
-anim(1)
-page()
-wait()
+chip!""", 0)
+para_talk("""What do you say?""", 0)
 option(0, 0, 1, 1)
 pad(2)
 text("""Sure! """)
@@ -141,52 +101,36 @@ sub_chip("MetGuard A", 30, 0xFF, 0xFF, 0xFF)
 jump(0xC1)
 section_end()
 
-# 6EA028
+# 0xC0 @ 0x6EA028
 section_start(0xC0)
 pic(11)
 dialog_up()
-anim(2)
-text("""Ah,well.
+para_talk_end("""Ah,well.
 Suit yourself.""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6EA052
+# 0xC1 @ 0x6EA052
 section_start(0xC1)
 if_flag(1076, 0xC2, 0xFF)
 set_flag(1075)
 pic(11)
 dialog_up()
-anim(2)
-text("""Thanks! Now I can
+para_talk("""Thanks! Now I can
 make a new original
-chip!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""It will take some
+chip!""", 0)
+para_talk_end("""It will take some
 time,so come back
 later.""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6EA0CD
+# 0xC2 @ 0x6EA0CD
 section_start(0xC2)
 set_flag(1057)
 pic(11)
 dialog_up()
-anim(2)
-text("""I finished the chip!
+para_talk("""I finished the chip!
 I'm such a genius.
-Here you go!""")
-anim(1)
-page()
-wait()
+Here you go!""", 0)
 hidepic()
 pc_lock()
 pc_anim(30)
@@ -204,116 +148,80 @@ page()
 end(5)
 section_end()
 
-# 6EA154
+# 0xC3 @ 0x6EA154
 section_start(0xC3)
 pic(11)
 dialog_up()
-anim(2)
-text("""Sorry,I need 30
+text("""{anim 2}Sorry,I need 30
 """)
 chip_id("MetGuard")
 text(""" """)
 chip_code("A")
-text("""
-chips.""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Maybe you have some
-in your chip folder?""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""You can't trade
+para_general("""
+chips.{anim 1}""", 0)
+para_talk("""Maybe you have some
+in your chip folder?""", 0)
+para_talk("""You can't trade
 chips that are in
-your chip folder!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""All you have to do
+your chip folder!""", 0)
+para_talk("""All you have to do
 is take them out of
-your chip folder.""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""If you don't have 30
+your chip folder.""", 0)
+para_talk_end("""If you don't have 30
 chips yet,you'll
 have to go get more!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6EA27B
+# 0xC4 @ 0x6EA27B
 section_start(0xC4)
 pic(11)
 dialog_up()
-anim(2)
-text("""Wonder what I should
+para_talk_end("""Wonder what I should
 make next...""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6EA2DD
+# 0xDC @ 0x6EA2DD
 section_start(0xDC)
 dialog_up()
-text("""Prevention first!""")
-page()
-wait()
-text("""Perform a virus
+para_general("""Prevention first!""", 0)
+para_general_end("""Perform a virus
 check once a week!""")
-page()
-end(5)
 section_end()
 
-# 6EA31E
+# 0xDD @ 0x6EA31E
 section_start(0xDD)
 dialog_up()
-text("""The power is off""")
-page()
-end(5)
+para_general_end("""The power is off""")
 section_end()
 
-# 6EA336
+# 0xDE @ 0x6EA336
 section_start(0xDE)
 if_flag(694, 0xFF, 0xE1)
 dialog_up()
-text("""Nobody uses the AV
+para_general_end("""Nobody uses the AV
 room much,so the
 desks are very clean""")
-page()
-end(5)
 section_end()
 
-# 6EA37D
+# 0xDF @ 0x6EA37D
 section_start(0xDF)
 dialog_up()
-text("""There are cleaning
+para_general_end("""There are cleaning
 supplies in here.
 Smells pretty bad""")
-page()
-end(5)
 section_end()
 
-# 6EA3BC
+# 0xE0 @ 0x6EA3BC
 section_start(0xE0)
 if_story(0x15, 0x15, 0x0F, 0xFF)
 jump(0xDD)
 section_end()
 
-# 6EA3C7
+# 0xE1 @ 0x6EA3C7
 section_start(0xE1)
 dialog_up()
-text("""There's something
-on the table...""")
-page()
-wait()
+para_general("""There's something
+on the table...""", 0)
 set_flag(694)
 pc_anim(30)
 add_chip("Repair A", 1, 0xFF, 0xFF, 0xFF)
@@ -329,40 +237,30 @@ page()
 end(5)
 section_end()
 
-# 6EA42E
+# 0xE2 @ 0x6EA42E
 section_start(0xE2)
 if_story(0x10, 0x1F, 0xFF, 0xE3)
 if_flag(149, 0xFF, 0xE4)
 dialog_up()
-text("""A WWW reーeducation
+para_general("""A WWW reーeducation
 program is playing!
-Pretty scary stuff!""")
-page()
-wait()
-text("""Looks like you can
+Pretty scary stuff!""", 0)
+para_general_end("""Looks like you can
 jack in here!""")
-page()
-end(5)
 section_end()
 
-# 6EA4A3
+# 0xE3 @ 0x6EA4A3
 section_start(0xE3)
 dialog_up()
-text("""Nothing is being
-displayed""")
-page()
-wait()
-text("""Looks like you can
+para_general("""Nothing is being
+displayed""", 0)
+para_general_end("""Looks like you can
 jack in here""")
-page()
-end(5)
 section_end()
 
-# 6EA4E8
+# 0xE4 @ 0x6EA4E8
 section_start(0xE4)
 dialog_up()
-text("""Nothing is being
+para_general_end("""Nothing is being
 displayed""")
-page()
-end(5)
 section_end()

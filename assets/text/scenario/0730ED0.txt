@@ -1,0 +1,111 @@
+section_count(0xB)
+
+# 0x00 @ 0x730EE6
+section_start(0x00)
+pic(23)
+dialog_up()
+para_talk("""Really,
+I don't know how
+to thank you...""", 0)
+para_talk("""I'll do my best to
+keep the water clean
+from now on!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x730F64
+section_start(0x01)
+pic(9)
+dialog_up()
+para_general("""{anim 2}Dad! I..I..{anim 1}*sniff*""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x730F90
+section_start(0x02)
+pic(0)
+dialog_up()
+para_general("""・・・""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x730FA5
+section_start(0x03)
+pic(34)
+dialog_up()
+para_talk("""Ahh...family!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x730FC9
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk("""Yeah,you're right...""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x730FF5
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk("""Huh? I was expecting
+the usual sarcasm...
+You homesick,Lan?""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x731049
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""Me? Never!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x731068
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk("""Okay{anim 1}...{delay}
+{anim 2}Time is tight now,
+Lan!""", 0)
+para_talk("""This WWW plot is
+getting deeper and
+darker!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x7310DB
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk("""Yeah,and we have to
+show that Chaud what
+we can do!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x731123
+section_start(0x09)
+pic(34)
+dialog_up()
+para_talk_end("""That's the spirit!""", 0)
+section_end()
+
+# 0x0A @ 0x731147
+section_start(0x0A)
+dialog_up()
+para_general("""And so,Lan & MegaMan
+solved one mystery,
+but...""", 0)
+para_general("""The WWW was getting
+closer to total
+control of the net!""", 0)
+para_general("""And why was the WWW
+collecting the
+superprograms?""", 0)
+para_general_end("""It was up to them to
+stop the WWW & bring
+peace to the net!""", 0)
+section_end()

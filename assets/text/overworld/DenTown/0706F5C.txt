@@ -1,0 +1,173 @@
+section_count(0xEB)
+
+# 0x00 @ 0x707132
+section_start(0x00)
+if_story(0x40, 0x47, 0x23, 0xFF)
+if_story(0x34, 0x37, 0x0B, 0xFF)
+pic(20)
+dialog_up()
+para_talk("""The underground
+passages make it
+easy to cross the""", 0)
+para_talk_end("""street,but they're
+very tiring for us
+older folks...""", 0)
+section_end()
+
+# 0x01 @ 0x7071C1
+section_start(0x01)
+pic(18)
+dialog_up()
+para_talk_end("""Where's my mommy?""", 0)
+section_end()
+
+# 0x02 @ 0x7071E4
+section_start(0x02)
+if_story(0x34, 0x37, 0x0C, 0xFF)
+pic(10)
+dialog_up()
+para_talk("""If you get lost,
+just look at the
+signs on the bus""", 0)
+para_talk_end("""stops. That's what
+I always do!""", 0)
+section_end()
+
+# 0x03 @ 0x707257
+section_start(0x03)
+dialog_up()
+para_general_end("""A bus stop...{delay}
+It says \"Dentown,
+Block2\"""", 0)
+section_end()
+
+# 0x04 @ 0x707290
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk_end("""I don't think we're
+allowed to jack in
+to that,Lan.""", 0)
+section_end()
+
+# 0x0A @ 0x7072E1
+section_start(0x0A)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x0B @ 0x707328
+section_start(0x0B)
+pic(20)
+dialog_up()
+para_talk("""Oh,this is so
+terrible!""", 0)
+para_talk_end("""I hope that those
+people on the bus
+are safe!""", 0)
+section_end()
+
+# 0x0C @ 0x707387
+section_start(0x0C)
+pic(10)
+dialog_up()
+para_talk("""During the first
+accident,I almost
+got hit by a car!""", 0)
+para_talk_end("""I thought that I
+was gonna die!""", 0)
+section_end()
+
+# 0x23 @ 0x707421
+section_start(0x23)
+pic(20)
+dialog_up()
+para_talk("""The underground
+passages make it
+easy to cross the""", 0)
+para_talk_end("""street,but they're
+very tiring to us
+older folks...""", 0)
+section_end()
+
+# 0x24 @ 0x7074A3
+section_start(0x24)
+pic(18)
+dialog_up()
+para_talk_end("""Where's my mommy?""", 0)
+section_end()
+
+# 0x25 @ 0x7074C6
+section_start(0x25)
+if_story(0x53, 0x54, 0x28, 0xFF)
+pic(10)
+dialog_up()
+para_talk("""After a while you'll
+know what Block
+you're in""", 0)
+para_talk_end("""just by looking at
+the scenery.""", 0)
+section_end()
+
+# 0x28 @ 0x707538
+section_start(0x28)
+pic(10)
+dialog_up()
+para_talk("""How do I feel?""", 0)
+para_talk_end("""Oh,about the worst
+that I ever have...""", 0)
+section_end()
+
+# 0xDC @ 0x7076EF
+section_start(0xDC)
+dialog_up()
+para_general("""Antiques shop now
+open!""", 0)
+para_general_end("""Come discover the
+true beauty of
+antiques!""")
+section_end()
+
+# 0xDD @ 0x70773E
+section_start(0xDD)
+dialog_up()
+para_general("""A fast food
+restaurant""", 0)
+para_general_end("""Watching people eat
+is somehow
+embarrassing""")
+section_end()
+
+# 0xDE @ 0x70778B
+section_start(0xDE)
+dialog_up()
+para_general_end("""You can't jack in
+to this signal""")
+section_end()
+
+# 0xDF @ 0x7077B4
+section_start(0xDF)
+if_story(0x40, 0x5F, 0xE0, 0xFF)
+if_flag(152, 0xE0, 0xFF)
+dialog_up()
+para_general("""This signal has a
+jack in port""", 0)
+para_general_end("""You don't have any
+reason to jack in
+now,though""")
+section_end()
+
+# 0xE0 @ 0x70781B
+section_start(0xE0)
+dialog_up()
+para_general_end("""This signal has a
+jack in port""")
+section_end()

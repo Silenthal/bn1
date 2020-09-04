@@ -1,0 +1,74 @@
+section_count(0x9)
+
+# 0x00 @ 0x73C0FE
+section_start(0x00)
+pic(8)
+dialog_up()
+para_talk("""Lan!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73C116
+section_start(0x01)
+pic(7)
+dialog_up()
+para_talk("""Lan! Are you OK?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73C13B
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Hey guys!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x73C158
+section_start(0x03)
+pic(7)
+dialog_up()
+para_talk("""And the LifeVirus?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73C17E
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk_end("""History!""", 0)
+section_end()
+
+# 0x05 @ 0x73C197
+section_start(0x05)
+pic(8)
+dialog_up()
+para_talk("""Yippie!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x73C1B2
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""Where's everyone
+else?""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x73C1DD
+section_start(0x07)
+pic(7)
+dialog_up()
+para_talk("""They got away
+to safety!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x73C209
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk_end("""Great! Now,let's
+scram!!""", 0)
+section_end()

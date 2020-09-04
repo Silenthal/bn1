@@ -1,0 +1,49 @@
+section_count(0xA)
+
+# 0x00 @ 0x720B60
+section_start(0x00)
+pic(36)
+dialog_up()
+para_talk("""I'm the control
+program for this
+game machine.""", 0)
+para_talk_end("""Games keep getting
+better and better...
+Sure keeps me busy!""")
+section_end()
+
+# 0x01 @ 0x720BE7
+section_start(0x01)
+pic(36)
+dialog_up()
+para_talk("""When playing games,
+be sure to turn on
+the lights,and""", 0)
+para_talk("""don't sit too close
+to the TV!""", 0)
+para_talk_end("""When playing for a
+long time,be sure to
+rest every hour!""")
+section_end()
+
+# 0x02 @ 0x720C98
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(852)
+pc_lock()
+pc_anim(50)
+add_chip("CrossGun K", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("CrossGun")
+text(""" """)
+chip_code("K")
+text("""\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()

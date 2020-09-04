@@ -1,0 +1,48 @@
+section_count(0x5)
+
+# 0x00 @ 0x72F756
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""I think that was the
+virus causing the
+waterworks bug...""", 0)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72F7A4
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Pretty easy,huh?
+I'll send you a
+fireshot!""", 0)
+para_talk("""Melt the ice on
+the pump water
+supply program.""", 0)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72F81C
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk_end("""Roger!""", 0)
+section_end()
+
+# 0x03 @ 0x72F833
+section_start(0x03)
+pic(34)
+dialog_up()
+para_talk("""Okay,I'm done here!""", 0)
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72F85C
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk_end("""OK! Come back to
+town and we'll see
+how the water is.""", 0)
+section_end()

@@ -1,0 +1,117 @@
+section_count(0x18)
+
+# 0x00 @ 0x71F184
+section_start(0x00)
+dialog_up()
+para_general("""It looks like a
+connection to the
+net...""", 0)
+para_general_end("""But MegaMan doesn't
+have access!""", 0)
+section_end()
+
+# 0x01 @ 0x71F1DD
+section_start(0x01)
+set_flag(6)
+dialog_up()
+para_general("""MegaMan bookmarked
+Mayl's piano!""", 0)
+para_general_end("""You can now freely
+enter here!""", 0)
+section_end()
+
+# 0x05 @ 0x71F234
+section_start(0x05)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(651)
+pc_lock()
+pc_anim(50)
+add_item("★Mayl", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got;
+\"{key ★Mayl}\"!""")
+pc_wait()
+pc_unlock()
+page()
+wait()
+para_general("""(Use this item at
+ the access point to
+ the piano""", 0)
+para_general_end(""" for free access
+ between it and the
+ net)""")
+section_end()
+
+# 0x06 @ 0x71F2F8
+section_start(0x06)
+check_chip("Recov50 L", 1, 0x07, 0x07, 0xFF)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(652)
+pc_lock()
+pc_anim(50)
+add_chip("Recov50 L", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Recov50")
+text(""" """)
+chip_code("L")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x07 @ 0x71F36E
+section_start(0x07)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+para_general_end("""However,he couldn't
+decode the data.""", 0)
+section_end()
+
+# 0x14 @ 0x71F3E0
+section_start(0x14)
+if_flag(147, 0x17, 0xFF)
+check_item("Response", 1, 0x15, 0x15, 0xFF)
+pic(40)
+dialog_up()
+para_talk("""Hello,MegaMan!
+Did you answer our
+mail?""", 0)
+end()
+section_end()
+
+# 0x15 @ 0x71F42A
+section_start(0x15)
+if_flag(147, 0x17, 0xFF)
+pic(40)
+dialog_up()
+para_talk("""Oh,you brought the
+answer!""")
+jump(0x16)
+section_end()
+
+# 0x16 @ 0x71F45F
+section_start(0x16)
+hidepic()
+sub_item("Response", 1, 0xFF, 0xFF, 0xFF)
+dialog_up()
+para_general("""MegaMan gave Roll
+the {key Response}!""")
+jump(0x17)
+section_end()
+
+# 0x17 @ 0x71F48F
+section_start(0x17)
+set_flag(147)
+pic(40)
+dialog_up()
+para_talk_end("""I'll take this to
+Mayl!{anim 1}{delay}
+{anim 2}See you later!""", 0)
+section_end()

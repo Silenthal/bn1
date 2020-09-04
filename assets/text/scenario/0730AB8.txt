@@ -1,0 +1,163 @@
+section_count(0x11)
+
+# 0x00 @ 0x730ADA
+section_start(0x00)
+pic(45)
+dialog_up()
+para_talk("""Good job finding me!
+You're better than
+the rest...""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x730B25
+section_start(0x01)
+pic(46)
+dialog_up()
+para_talk("""Put down that Aqua
+program{anim 1}...{delay}{anim 2}or else!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x730B69
+section_start(0x02)
+pic(45)
+dialog_up()
+para_talk("""Now,now,we
+don't have time to
+play with you now.""", 0)
+para_talk("""But you will face
+me,ColorMan,soon
+enough!""", 0)
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x730BE5
+section_start(0x03)
+pic(24)
+dialog_up()
+para_talk("""Let's go!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x730C03
+section_start(0x04)
+pic(45)
+dialog_up()
+text_talking("""OK,Madd!{anim 1} {delay}{anim 2}Later!""")
+page()
+dialog_down()
+set_flag(207)
+end()
+section_end()
+
+# 0x05 @ 0x730C33
+section_start(0x05)
+pic(46)
+dialog_up()
+para_general_end("""・・・""", 0)
+section_end()
+
+# 0x06 @ 0x730C45
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk("""It's that Navi
+from before!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x730C75
+section_start(0x07)
+pic(46)
+dialog_up()
+para_talk("""Hmph! You nosy
+scoundrels again...!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x730CB0
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk("""Chaud!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x730CCA
+section_start(0x09)
+pic(7)
+dialog_up()
+para_talk("""Who are you,and how
+do you know my name?""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x730D07
+section_start(0x0A)
+pic(0)
+dialog_up()
+para_talk("""That can wait!{anim 1}{delay}
+{anim 2}Why were they after
+the Aquaprogram?""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x730D57
+section_start(0x0B)
+pic(7)
+dialog_up()
+para_talk("""Find out for
+yourself! ProtoMan,
+we're outta here!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x730DA0
+section_start(0x0C)
+pic(46)
+dialog_up()
+text_talking("""Sir!""")
+page()
+dialog_down()
+set_flag(208)
+end()
+section_end()
+
+# 0x0D @ 0x730DBB
+section_start(0x0D)
+pic(23)
+dialog_up()
+para_talk("""...We used that
+program to make good
+tasting water.""", 0)
+para_talk("""But somehow I don't
+think that's why
+the WWW wants it...""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x730E4A
+section_start(0x0E)
+pic(34)
+dialog_up()
+para_talk("""Lan?""")
+jump(0x0F)
+section_end()
+
+# 0x0F @ 0x730E62
+section_start(0x0F)
+pic(0)
+dialog_up()
+para_talk("""Hmm{anim 1}...{delay}{anim 2}I don't
+get it! Pull out,
+let's go see Froid!""")
+jump(0x10)
+section_end()
+
+# 0x10 @ 0x730EB8
+section_start(0x10)
+pic(34)
+dialog_up()
+para_talk_end("""Roger!""", 0)
+section_end()

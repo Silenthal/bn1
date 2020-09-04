@@ -1,0 +1,8 @@
+section_count(0x1)
+
+# 0x00 @ 0x732C72
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk_end("""Just one more!""", 0)
+section_end()

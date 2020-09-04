@@ -1,0 +1,70 @@
+section_count(0x7)
+
+# 0x00 @ 0x731D1E
+section_start(0x00)
+pic(19)
+dialog_up()
+text_talking("""We have to buy a
+fix program!""")
+wait(40)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x731D4E
+section_start(0x01)
+pic(16)
+dialog_up()
+text_talking("""It's only 1,000,000
+zenny this time!
+Cheap!""")
+wait(40)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x731D90
+section_start(0x02)
+pic(17)
+dialog_up()
+text_talking("""Let's hurry!""")
+wait(40)
+end()
+section_end()
+
+# 0x03 @ 0x731DB0
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Those WWW meanies!
+Kicking people when
+they're down!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x731DFA
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""I bet it's their
+virus bugging the
+traffic lights!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x731E41
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""I think so,too!
+Let's delete that
+traffic virus!""", 0)
+para_talk("""MegaMan!
+I'm jacking in!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x731EAB
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk_end("""OK!""", 0)
+section_end()

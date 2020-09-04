@@ -1,0 +1,18 @@
+section_count(0x2)
+
+# 0x00 @ 0x72F8A8
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Lan! We have to
+go check the water!""", 0)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72F8E0
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk_end("""Let's check out
+the school pond!""", 0)
+section_end()

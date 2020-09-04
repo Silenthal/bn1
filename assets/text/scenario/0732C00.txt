@@ -1,0 +1,17 @@
+section_count(0x2)
+
+# 0x00 @ 0x732C04
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""OK! Let's get
+the next one!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x732C35
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk_end("""Roger!""", 0)
+section_end()

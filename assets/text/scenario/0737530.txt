@@ -1,0 +1,85 @@
+section_count(0x8)
+
+# 0x00 @ 0x737540
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk_end("""LーLan...
+The PET battery...""", 0)
+section_end()
+
+# 0x01 @ 0x737571
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk_end("""MegaMan!
+I have to recharge
+quick!""", 0)
+section_end()
+
+# 0x02 @ 0x7375A5
+section_start(0x02)
+pic(27)
+dialog_up()
+para_talk("""Hooey! Looks like
+your battery's out
+again!""", 0)
+para_talk("""Thought you might be
+needing a recharge
+soon...heh heh...""", 0)
+para_talk("""I'm still a' fixing
+the control room...""", 0)
+para_talk("""So I can't stay
+long...""", 0)
+para_talk("""Sorry,kiddo...""", 0)
+para_talk_end("""...Huh? Ayee! How'd
+my generator get
+such a big crack!""", 0)
+section_end()
+
+# 0x03 @ 0x7376E0
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""MegaMan! MegaMan!!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x737708
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk_end("""Lan...
+I...I'm OK...{anim 1}{delay}
+{anim 2}Let's hurry...""", 0)
+section_end()
+
+# 0x05 @ 0x737751
+section_start(0x05)
+pic(27)
+dialog_up()
+para_talk("""What are you doing!?
+Recharge now or your
+Navi's a goner!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x7377A1
+section_start(0x06)
+pic(27)
+dialog_up()
+para_talk_end("""Ready?
+And...Go!!""", 0)
+section_end()
+
+# 0x07 @ 0x7377C8
+section_start(0x07)
+if_flag(209, 0x05, 0xFF)
+pic(27)
+dialog_up()
+para_talk("""You're going to have
+to hit that button
+quicker this time!""", 0)
+para_talk_end("""Ready?
+And...Go!!""", 0)
+section_end()

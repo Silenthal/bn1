@@ -1,0 +1,183 @@
+section_count(0xF)
+
+# 0x00 @ 0x734C72
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Lan!
+It looks like we can
+jack in here!!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x734CB0
+section_start(0x01)
+pic(0)
+dialog_up()
+input_off()
+set_delay(1)
+text_talking("""OK! Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+set_delay(2)
+page()
+wait(5)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x734D03
+section_start(0x02)
+pic(27)
+dialog_up()
+anim(2)
+set_flag(177)
+para_general("""Waaaait!!{anim 1}""", 0)
+para_talk("""You wanna delete
+your Navi!? Jacking
+in now is suicide!""", 0)
+para_talk("""If the power's out
+here,it's out on
+the Net,too!""", 0)
+para_talk("""If you jack in now,
+your {key PET}'s battery
+will run out quick!""", 0)
+para_talk("""And...{anim 1}{delay}{anim 2} If your {key PET}'s
+battery runs out
+while you're in...""", 0)
+para_talk("""The energy sent to
+your Navi is cut
+off completely...""", 0)
+para_talk("""and your Navi won't
+be able to heal
+by itself!""", 0)
+para_general("""...{delay}{anim 2}It'd just be a
+matter of time 'fore
+you got deleted!{anim 1}""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x734EFC
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""You serious!?""", 0)
+para_general(""".{delay}.{delay}.{delay}{anim 2}What should
+I do!?{anim 1}""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x734F4C
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""Lan,let's go!!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x734F71
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""What are you saying,
+MegaMan!?{anim 1}{delay}{anim 2} YーYou
+might get deleted!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x734FC7
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk("""All we have to do
+is defeat the WWW
+Navi and jack out!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x735011
+section_start(0x07)
+pic(0)
+dialog_up()
+para_general(""".{delay}.{delay}.{delay}{anim 2}No!
+It's too dangerous!{anim 1}""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x735050
+section_start(0x08)
+pic(34)
+dialog_up()
+para_talk("""Lan! If we don't go
+now,there's a chance
+that your mom...""", 0)
+para_talk("""...and all the other
+people stuck in here
+will die!""", 0)
+para_talk("""And.{anim 1}{delay}.{delay}.{delay}{anim 2} I think
+you're a good enough
+operator to do it!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x735135
+section_start(0x09)
+pic(0)
+dialog_up()
+para_general(""".{delay}.{delay}.{delay}{anim 2}Yeah,
+I won't let them
+delete you!{anim 1}{delay}""", 0)
+input_off()
+set_delay(1)
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+set_delay(2)
+page()
+end()
+section_end()
+
+# 0x0A @ 0x7351C3
+section_start(0x0A)
+pic(34)
+dialog_up()
+para_talk_end("""Whoa!!""", 0)
+section_end()
+
+# 0x0B @ 0x7351DB
+section_start(0x0B)
+pic(0)
+dialog_up()
+para_talk("""MegaMan!?""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x7351F9
+section_start(0x0C)
+pic(34)
+dialog_up()
+para_talk("""They've got some
+heavy protection
+on this thing!""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x73523E
+section_start(0x0D)
+pic(0)
+dialog_up()
+para_talk("""Can you get through?""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x735266
+section_start(0x0E)
+pic(34)
+dialog_up()
+para_talk_end("""No problem,just give
+me a second!{anim 1}{delay}
+{anim 2}There!{anim 1}{delay}{anim 2} Got it!""", 0)
+section_end()

@@ -1,0 +1,67 @@
+section_count(0x1A)
+
+# 0x00 @ 0x721120
+section_start(0x00)
+pic(41)
+dialog_up()
+para_talk("""Uwaahh! Don't scare
+me like that! I
+thought you were""", 0)
+para_talk("""a WWW virus!""", 0)
+para_talk("""Me? I'm the vending
+machine control
+program.""", 0)
+para_talk_end("""Now let me get back
+to work!""")
+section_end()
+
+# 0x01 @ 0x7211D8
+section_start(0x01)
+pic(36)
+dialog_up()
+para_talk_end("""We seem to be
+malfunctioning.
+We're under repair.""")
+section_end()
+
+# 0x02 @ 0x72121C
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(856)
+pc_lock()
+pc_anim(50)
+add_chip("Spreader J", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Spreader")
+text(""" """)
+chip_code("J")
+text("""\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x14 @ 0x7212AF
+section_start(0x14)
+pic(34)
+dialog_up()
+para_talk("""What are you
+doing there!?""")
+jump(0x15)
+section_end()
+
+# 0x15 @ 0x7212DE
+section_start(0x15)
+pic(49)
+dialog_up()
+para_talk("""Now that you've
+seen me here,I
+must delete you!""")
+set_flag(1080)
+miniboss(255, 0, 0, 0, 1, 1, 3)
+section_end()

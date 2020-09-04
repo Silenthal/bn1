@@ -1,0 +1,52 @@
+section_count(0xA)
+
+# 0x00 @ 0x7207F8
+section_start(0x00)
+pic(36)
+dialog_up()
+para_talk("""I am a dog house
+type security system
+program.""", 0)
+para_talk("""We've found that
+just the presence of
+a dog house reduces""", 0)
+para_talk("""the chances of a
+burglary.""", 0)
+para_talk_end("""I'm almost like the
+watch dog for this
+home.""")
+section_end()
+
+# 0x01 @ 0x7208D2
+section_start(0x01)
+pic(36)
+dialog_up()
+para_talk("""There are many other
+objects that you can
+jack in to!""", 0)
+para_talk_end("""Please try out any
+object that looks
+suspicious.""")
+section_end()
+
+# 0x02 @ 0x720951
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(850)
+pc_lock()
+pc_anim(50)
+add_chip("Shotgun K", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Shotgun")
+text(""" """)
+chip_code("K")
+text("""\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()

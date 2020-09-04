@@ -1,0 +1,264 @@
+section_count(0x32)
+
+# 0x00 @ 0x73DC7C
+section_start(0x00)
+pic(3)
+dialog_up()
+para_talk("""OK,now I'll tell you
+about support chips.""", 1)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73DCBB
+section_start(0x01)
+pic(3)
+dialog_up()
+para_talk("""Not all chips are
+weapons.""", 1)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73DCE9
+section_start(0x02)
+pic(3)
+dialog_up()
+para_talk("""For example,a Steal
+chip will increase
+the area that your""", 1)
+para_talk_end("""Navi is able to
+move around in...""", 1)
+section_end()
+
+# 0x03 @ 0x73DD5F
+section_start(0x03)
+pic(3)
+dialog_up()
+para_talk_end("""Another good
+question! Look here,
+please.""", 1)
+section_end()
+
+# 0x04 @ 0x73DD9B
+section_start(0x04)
+pic(3)
+dialog_up()
+para_talk("""Do you see the
+letter? That's this
+chip's code.""", 1)
+para_talk("""You can choose a
+different type of
+chip if it has""", 1)
+para_talk("""the same code type.""", 1)
+para_talk("""Please notice that
+Steal and Wide
+Sword have the""", 1)
+para_talk_end("""same code! They're
+both \"S\".""", 1)
+section_end()
+
+# 0x05 @ 0x73DE94
+section_start(0x05)
+pic(3)
+dialog_up()
+para_talk("""You can choose two
+chips at the same
+time,now.""", 1)
+para_talk("""They are shown here,
+in the order that
+you chose them.""", 1)
+para_talk_end("""This will help you
+plan your strategy.""", 1)
+section_end()
+
+# 0x06 @ 0x73DF43
+section_start(0x06)
+pic(3)
+dialog_up()
+para_talk("""Since you need to
+get close for a
+sword,""", 1)
+para_talk_end("""this would be a wise
+strategy.""", 1)
+section_end()
+
+# 0x07 @ 0x73DFA3
+section_start(0x07)
+pic(9)
+dialog_up()
+para_talk_end("""Ms.Mari! I thought
+that we can only
+choose chip copies!""", 1)
+section_end()
+
+# 0x0A @ 0x73DFF1
+section_start(0x0A)
+pic(3)
+dialog_up()
+para_talk_end("""OK,let's try that.
+Choose Steal and
+WideSword in order.""", 1)
+section_end()
+
+# 0x0B @ 0x73E03C
+section_start(0x0B)
+pic(3)
+dialog_up()
+para_talk_end("""Choose Steal first.
+Cancel with the
+B Button.""", 1)
+section_end()
+
+# 0x0C @ 0x73E07B
+section_start(0x0C)
+pic(3)
+dialog_up()
+para_talk_end("""Choose Steal first.
+Cancel with the
+B Button.""", 1)
+section_end()
+
+# 0x0D @ 0x73E0BA
+section_start(0x0D)
+pic(3)
+dialog_up()
+para_talk("""Choose Steal first.
+Cancel with
+the B Button""", 1)
+para_talk_end("""if you have chosen
+another chip.""", 1)
+section_end()
+
+# 0x0E @ 0x73E120
+section_start(0x0E)
+pic(3)
+dialog_up()
+para_talk_end("""You don't need to
+use that feature
+just yet...""", 1)
+section_end()
+
+# 0x0F @ 0x73E162
+section_start(0x0F)
+pic(3)
+dialog_up()
+para_talk_end("""Ooops! Wrong order!
+Cancel both with the
+B Button!""", 1)
+section_end()
+
+# 0x14 @ 0x73E1AF
+section_start(0x14)
+pic(3)
+dialog_up()
+para_talk_end("""OK! Next,choose the
+WideSword.""", 1)
+section_end()
+
+# 0x15 @ 0x73E1E0
+section_start(0x15)
+pic(3)
+dialog_up()
+para_talk("""Huh? That's not the
+WideSword!""", 1)
+para_talk_end("""That chip has a
+different code,so
+you can't use it.""", 1)
+section_end()
+
+# 0x16 @ 0x73E24F
+section_start(0x16)
+pic(3)
+dialog_up()
+para_talk("""Don't cancel.""", 1)
+para_talk_end("""Do like I said and
+choose the WideSword.""", 1)
+section_end()
+
+# 0x17 @ 0x73E29F
+section_start(0x17)
+pic(3)
+dialog_up()
+para_talk_end("""This time,let's send
+the WideSword data,
+too.""", 1)
+section_end()
+
+# 0x18 @ 0x73E2E0
+section_start(0x18)
+pic(3)
+dialog_up()
+para_talk_end("""You don't need to
+use that feature
+just yet...""", 1)
+section_end()
+
+# 0x1E @ 0x73E32C
+section_start(0x1E)
+pic(3)
+dialog_up()
+para_talk_end("""OK,let's send this
+data to the Navi!
+Choose \"OK\".""", 1)
+section_end()
+
+# 0x1F @ 0x73E373
+section_start(0x1F)
+pic(3)
+dialog_up()
+para_talk("""Don't worry,with
+this combination
+we're sure to win.""", 1)
+para_talk_end("""Don't cancel now!""", 1)
+section_end()
+
+# 0x20 @ 0x73E3D6
+section_start(0x20)
+pic(3)
+dialog_up()
+para_talk("""We've sent the data
+to the Navi!""", 1)
+para_talk_end("""Time to try out
+our strategy!""", 1)
+section_end()
+
+# 0x28 @ 0x73E43C
+section_start(0x28)
+pic(3)
+dialog_up()
+para_talk("""OK,let's review that
+strategy.""", 1)
+para_talk("""First,you'll use the
+A Button to use
+Steal.""", 1)
+para_talk("""Then,the virus's
+area will shrink
+right,and you""", 1)
+para_talk_end("""will have more room
+to move around!""", 1)
+section_end()
+
+# 0x29 @ 0x73E509
+section_start(0x29)
+pic(3)
+dialog_up()
+para_talk("""Move into the area
+that you took,and
+use the sword!""", 1)
+para_talk("""This is a powerful
+strategy!""", 1)
+para_talk("""However,be careful
+of the virus's
+attack when close!""", 1)
+para_talk_end("""Good luck,everyone!""", 1)
+section_end()
+
+# 0x2D @ 0x73E5D5
+section_start(0x2D)
+pic(3)
+dialog_up()
+para_talk("""OK,let's send some
+data to the Navi
+again.""", 1)
+para_talk_end("""Try it yourself this
+time!""", 1)
+section_end()

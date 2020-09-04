@@ -1,0 +1,269 @@
+section_count(0xE5)
+
+# 0x00 @ 0x70F452
+section_start(0x00)
+if_flag(115, 0x07, 0xFF)
+if_flag(224, 0x04, 0xFF)
+set_flag(224)
+dialog_up()
+para_general("""A selfーportrait of
+Wily.""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x70F486
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Hey,Lan! Check out
+all these
+footprints!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x70F4C4
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Hey,yeah!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x70F4E2
+section_start(0x03)
+pic(34)
+dialog_up()
+para_talk_end("""Let's check around
+here again...""", 0)
+section_end()
+
+# 0x04 @ 0x70F516
+section_start(0x04)
+set_flag(115)
+dialog_up()
+para_general("""...!!""", 0)
+para_general("""You notice that
+the picture swings
+back!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x70F55C
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk("""Lan!
+It's a secret door!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x70F58A
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk_end("""Cool! We can jack
+in here!""", 0)
+section_end()
+
+# 0x07 @ 0x70F5B6
+section_start(0x07)
+dialog_up()
+para_general("""A selfーportrait of
+Wily.""", 0)
+para_general("""Looking closely,
+you discover a jack
+in port in it!""", 0)
+para_general_end("""Looks like you can
+jack in here!""", 0)
+section_end()
+
+# 0x08 @ 0x70F635
+section_start(0x08)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x09 @ 0x70F67C
+section_start(0x09)
+pic(8)
+dialog_up()
+para_talk("""Good luck,Lan!
+I know you can
+do it!""", 0)
+para_talk_end("""You can do anything
+you set your mind
+to!""", 0)
+section_end()
+
+# 0x0A @ 0x70F6E5
+section_start(0x0A)
+pic(7)
+dialog_up()
+para_talk("""Hmph,you again{anim 1}...{delay}
+{anim 2}Why are you always
+in my way!?""")
+jump(0x14)
+section_end()
+
+# 0x0B @ 0x70F736
+section_start(0x0B)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! Through the
+secret door!
+Quick!""", 0)
+section_end()
+
+# 0x14 @ 0x70F77D
+section_start(0x14)
+pic(34)
+dialog_up()
+text_talking("""Lan,do you want to
+challenge Chaud?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x15, 0x17], 1, False, True)
+end()
+section_end()
+
+# 0x15 @ 0x70F7C9
+section_start(0x15)
+pic(7)
+dialog_up()
+para_talk("""So you want to see
+how the pros do it,
+huh? PROTOMAN!!""")
+jump(0x16)
+section_end()
+
+# 0x16 @ 0x70F816
+section_start(0x16)
+pic(46)
+dialog_up()
+para_talk("""You called?""")
+jump(0x1B)
+section_end()
+
+# 0x17 @ 0x70F835
+section_start(0x17)
+pic(7)
+dialog_up()
+para_talk_end("""Smart call on
+your part...""", 0)
+section_end()
+
+# 0x18 @ 0x70F862
+section_start(0x18)
+pic(7)
+dialog_up()
+para_talk_end("""I don't see any
+reason to battle
+with a kid like you.""", 0)
+section_end()
+
+# 0x19 @ 0x70F8A9
+section_start(0x19)
+pic(7)
+dialog_up()
+para_talk("""A Navi using genetic
+algorithms based on
+that of its owner...""", 0)
+para_talk_end("""Hmmmm...""", 0)
+section_end()
+
+# 0x1A @ 0x70F90C
+section_start(0x1A)
+pic(7)
+dialog_up()
+para_general_end("""{anim 2}See? I should be
+the one to go{anim 1}...{delay}?""", 0)
+section_end()
+
+# 0x1B @ 0x70F947
+section_start(0x1B)
+set_flag(99)
+dialog_down()
+stop()
+section_end()
+
+# 0xDD @ 0x70FAD5
+section_start(0xDD)
+dialog_up()
+para_general("""The screen is filled
+with data. It's the
+master control""", 0)
+para_general_end("""center for the WWW""")
+section_end()
+
+# 0xDE @ 0x70FB2C
+section_start(0xDE)
+dialog_up()
+para_general("""The plans for the
+WWW plot. All of
+their schemes are""", 0)
+para_general_end("""outlined in these
+documents""")
+section_end()
+
+# 0xDF @ 0x70FB88
+section_start(0xDF)
+dialog_up()
+para_general_end("""What could be
+plugged into this
+huge outlet?""")
+section_end()
+
+# 0xE0 @ 0x70FBBD
+section_start(0xE0)
+dialog_up()
+para_general_end("""This machine is
+making a high
+buzzing sound""")
+section_end()
+
+# 0xE1 @ 0x70FBF0
+section_start(0xE1)
+dialog_up()
+para_general_end("""This machine is
+making a high
+buzzing sound""")
+section_end()
+
+# 0xE2 @ 0x70FC23
+section_start(0xE2)
+dialog_up()
+para_general_end("""This machine is
+making a high
+buzzing sound""")
+section_end()
+
+# 0xE3 @ 0x70FC56
+section_start(0xE3)
+dialog_up()
+para_general_end("""This machine is
+making a high
+buzzing sound""")
+section_end()
+
+# 0xE4 @ 0x70FC89
+section_start(0xE4)
+dialog_up()
+para_general("""You're not sure
+what this machine
+is for...""", 0)
+para_general_end("""...nothing good,
+you assume""")
+section_end()

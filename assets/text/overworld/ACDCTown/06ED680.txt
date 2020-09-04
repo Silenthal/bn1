@@ -1,0 +1,1800 @@
+section_count(0xEB)
+
+# 0x00 @ 0x6ED856
+section_start(0x00)
+if_flag(202, 0x14, 0xFF)
+pic(14)
+dialog_up()
+if_flag(145, 0x01, 0xFF)
+para_talk("""Pardon me,laddy!""", 0)
+text("""{anim 2}Would you please ask
+me where we are?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Ask him """)
+option(1, 1, 0, 0)
+pad(2)
+text("""Don't ask""")
+pick([0x01, 0x02], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0x01 @ 0x6ED8D6
+section_start(0x01)
+set_flag(145)
+pic(14)
+dialog_up()
+para_talk_end("""This is ACDC Town,
+DenCity! See!
+I'm not senile yet!""")
+section_end()
+
+# 0x02 @ 0x6ED923
+section_start(0x02)
+pic(14)
+dialog_up()
+para_talk_end("""Young people today
+just have no respect
+for their elders...""")
+section_end()
+
+# 0x03 @ 0x6ED971
+section_start(0x03)
+if_flag(202, 0x15, 0xFF)
+pic(15)
+dialog_up()
+para_talk("""Yesterday my stove
+caught on fire!""", 0)
+para_talk_end("""I thought the whole
+house was going to
+burn down!""")
+section_end()
+
+# 0x05 @ 0x6ED9E6
+section_start(0x05)
+if_flag(202, 0x16, 0xFF)
+pic(19)
+dialog_up()
+para_talk("""The new Metroline
+station is almost
+finished!""", 0)
+para_talk_end("""The Metroline? It's
+the subway for
+DenCity!""")
+section_end()
+
+# 0x06 @ 0x6EDA60
+section_start(0x06)
+if_flag(202, 0x17, 0xFF)
+pic(19)
+dialog_up()
+para_talk("""It feels so nice
+to skip work and
+rest in the park.""", 0)
+para_talk_end("""Hard to believe that
+the WWW is plotting
+out there somewhere.""")
+section_end()
+
+# 0x07 @ 0x6EDAF0
+section_start(0x07)
+if_flag(202, 0x18, 0xFF)
+pic(9)
+dialog_up()
+para_talk("""When you delete
+viruses,if you fight
+well you will""", 0)
+para_talk("""sometimes get a chip
+after the fight.""", 0)
+para_talk_end("""What's fighting
+well? Hmmm,I know
+that speed is good..""")
+section_end()
+
+# 0x08 @ 0x6EDBAA
+section_start(0x08)
+if_flag(202, 0x19, 0xFF)
+set_flag(210)
+pic(11)
+dialog_up()
+para_talk_end("""Ready or not,here
+I come!!""")
+section_end()
+
+# 0x09 @ 0x6EDBE1
+section_start(0x09)
+if_flag(202, 0x1A, 0xFF)
+if_flag(210, 0xFF, 0x0A)
+pic(11)
+dialog_up()
+para_talk_end("""I'm not ready yet!""")
+section_end()
+
+# 0x0A @ 0x6EDC11
+section_start(0x0A)
+pic(11)
+dialog_up()
+para_talk_end("""Hmmm,wonder where
+would be a good
+place to hide?""")
+section_end()
+
+# 0x0B @ 0x6EDC53
+section_start(0x0B)
+if_flag(202, 0x1C, 0xFF)
+pic(10)
+dialog_up()
+para_talk("""I came to play with
+Mayl,but she's not
+home!""", 0)
+para_talk_end("""You're so lucky to
+live next door to
+her!""")
+section_end()
+
+# 0x0C @ 0x6EDCCB
+section_start(0x0C)
+pic(34)
+dialog_up()
+para_talk_end("""Lan? Class is over!{anim 1}
+.{delay}.{delay}.{delay}{anim 2}And you're still
+studying???""")
+section_end()
+
+# 0x0D @ 0x6EDD27
+section_start(0x0D)
+pic(34)
+dialog_up()
+para_talk_end("""Looks like Dex still
+isn't home. Let's
+come back later!""")
+section_end()
+
+# 0x0E @ 0x6EDD72
+section_start(0x0E)
+pic(10)
+dialog_up()
+para_talk_end("""Mayl still isn't
+home yet.""")
+section_end()
+
+# 0x0F @ 0x6EDD9E
+section_start(0x0F)
+if_flag(202, 0x1D, 0xFF)
+pic(9)
+dialog_up()
+para_talk("""There are a lot of
+places you can jack
+in...""", 0)
+para_talk_end("""Maybe here!?{anim 1}{delay}
+{anim 2}Jack in!!!{anim 1}
+{delay}.{delay}.{delay}. {anim 2}Nope""")
+section_end()
+
+# 0x10 @ 0x6EDE2B
+section_start(0x10)
+if_flag(202, 0x1E, 0xFF)
+pic(10)
+dialog_up()
+para_talk_end("""Yai sure does have
+a big house...""")
+section_end()
+
+# 0x11 @ 0x6EDE65
+section_start(0x11)
+pic(34)
+dialog_up()
+mail(2)
+mail(32)
+para_talk_end("""Lan! You've got
+mail!""")
+section_end()
+
+# 0x12 @ 0x6EDE95
+section_start(0x12)
+if_flag(202, 0x1F, 0xFF)
+pic(27)
+dialog_up()
+para_talk("""You can only keep
+30 chips in your
+folder.""", 0)
+para_talk("""The 5 chips that
+appear in the custom
+screen are random.""", 0)
+para_talk("""The data library is
+a reference of all
+the chips you know.""", 0)
+para_talk_end("""You can use it to
+review any chip 
+you've found so far.""", 0)
+section_end()
+
+# 0x13 @ 0x6EDF9B
+section_start(0x13)
+if_flag(202, 0x20, 0xFF)
+pic(20)
+dialog_up()
+para_talk("""Hmmm... Hmmm...
+I'm oraganizing my
+chip folder!""", 0)
+para_talk("""I wonder if it's
+better to use a lot
+of sameーcoded chips?""", 0)
+para_talk_end("""But I don't feel
+safe without some
+recovery chips,too.""", 0)
+section_end()
+
+# 0x14 @ 0x6EE06C
+section_start(0x14)
+pic(14)
+dialog_up()
+para_talk_end("""This is ACDC Town,
+DenCity!""")
+section_end()
+
+# 0x15 @ 0x6EE099
+section_start(0x15)
+pic(15)
+dialog_up()
+para_talk("""I heard that the
+burning ovens were
+a WWW plot!""", 0)
+para_talk_end("""I don't know much
+about machines,but
+that's scary!""")
+section_end()
+
+# 0x16 @ 0x6EE117
+section_start(0x16)
+pic(19)
+dialog_up()
+para_talk_end("""A man should always
+be moving forward!{anim 1}
+{delay}{anim 2}Unless escaping!""")
+section_end()
+
+# 0x17 @ 0x6EE168
+section_start(0x17)
+pic(19)
+dialog_up()
+para_talk_end("""The WWW is plotting
+to take over the
+Network!""")
+section_end()
+
+# 0x18 @ 0x6EE1A6
+section_start(0x18)
+pic(9)
+dialog_up()
+para_talk("""When the oven burned
+I tried to delete
+the virus...""", 0)
+para_talk("""But I messed up! My
+Navi got wiped,and
+the kitchen burnt up""", 0)
+para_talk_end("""What!? You were able
+to delete the virus?
+Wow!!""")
+section_end()
+
+# 0x19 @ 0x6EE26D
+section_start(0x19)
+set_flag(210)
+pic(11)
+dialog_up()
+para_talk_end("""Ready or not,here
+I come... (pant,
+pant)""")
+section_end()
+
+# 0x1A @ 0x6EE2B0
+section_start(0x1A)
+if_flag(210, 0xFF, 0x1B)
+pic(11)
+dialog_up()
+para_talk_end("""I'm still not 
+ready! (pant,
+pant)""")
+section_end()
+
+# 0x1B @ 0x6EE2ED
+section_start(0x1B)
+pic(11)
+dialog_up()
+para_talk_end("""I can't decide where
+to hide!""")
+section_end()
+
+# 0x1C @ 0x6EE31C
+section_start(0x1C)
+pic(10)
+dialog_up()
+para_talk_end("""Mayl is home now!{anim 1}{delay}
+{anim 2}I just finished
+playing with her!""")
+section_end()
+
+# 0x1D @ 0x6EE369
+section_start(0x1D)
+pic(9)
+dialog_up()
+para_talk("""There are 5 types of
+Canon...A,B,C,D,
+and E...""", 0)
+para_talk_end("""I wonder why they
+come in order like
+that{anim 1}...{delay} {anim 2}Hmmm...""")
+section_end()
+
+# 0x1E @ 0x6EE3FB
+section_start(0x1E)
+pic(10)
+dialog_up()
+para_talk("""I wish that I could
+have been born rich
+like Yai...""", 0)
+para_talk_end("""But I would want to
+keep the parents
+that I have!""")
+section_end()
+
+# 0x1F @ 0x6EE47B
+section_start(0x1F)
+pic(27)
+dialog_up()
+para_talk("""You can see how
+strong your Navi is
+in the menu.""", 0)
+para_talk("""You use that screen
+to improve your Navi
+with PowerUp""", 0)
+para_talk("""programs.
+If you don't power
+up your Navi,""", 0)
+para_talk_end("""you'll be sorry
+later on!""", 0)
+section_end()
+
+# 0x20 @ 0x6EE551
+section_start(0x20)
+pic(20)
+dialog_up()
+para_talk("""Swords have high
+power,but a
+short range.""", 0)
+para_talk_end("""But it feels so good
+to charge in and
+slice!""", 0)
+section_end()
+
+# 0x23 @ 0x6EE5C5
+section_start(0x23)
+pic(14)
+dialog_up()
+para_talk_end("""How many times do
+I have to tell you?
+This is ACDC Town!""")
+section_end()
+
+# 0x24 @ 0x6EE60F
+section_start(0x24)
+pic(11)
+dialog_up()
+para_talk_end("""I'll get you!!""")
+section_end()
+
+# 0x25 @ 0x6EE630
+section_start(0x25)
+pic(11)
+dialog_up()
+para_talk_end("""No way! I don't want
+to be \"it\"!""")
+section_end()
+
+# 0x26 @ 0x6EE665
+section_start(0x26)
+if_story(0x22, 0x22, 0x3C, 0xFF)
+pic(16)
+dialog_up()
+para_talk("""I'm going to ride
+the Metroline
+later today.""")
+para_talk("""It is opening day,
+after all.""", 0)
+if_flag(151, 0x32, 0xFF)
+end()
+section_end()
+
+# 0x27 @ 0x6EE6D9
+section_start(0x27)
+pic(20)
+dialog_up()
+para_talk("""If you only look at
+chip power,then your
+codes will get mixed""", 0)
+para_talk("""If you open the chip
+folder and press
+START,you can sort""", 0)
+para_talk_end("""your chips by code,
+which will help you
+out a lot.""")
+section_end()
+
+# 0x28 @ 0x6EE7A4
+section_start(0x28)
+pic(9)
+dialog_up()
+para_talk_end("""This house is
+deserted...""")
+section_end()
+
+# 0x29 @ 0x6EE7D0
+section_start(0x29)
+if_flag(33, 0x33, 0xFF)
+pic(19)
+dialog_up()
+para_talk_end("""The Metroline
+station is on that
+main road there.""")
+section_end()
+
+# 0x2D @ 0x6EE81E
+section_start(0x2D)
+pic(1)
+dialog_up()
+text("""{anim 2}So you want to know
+about {key PET}s,huh?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yeah! """)
+option(1, 1, 0, 0)
+pad(2)
+text("""Nah""")
+pick([0x2E, 0xFF], 0, False, True)
+para_talk("""Oooh,so you're more
+interested in me,
+huh?""", 0)
+para_talk("""I'm still only 8
+years old. I skipped
+a grade.""", 0)
+para_talk("""My family has some
+money,and I know
+a lot about {key PET}s.""", 0)
+para_talk_end("""...I'm not very good
+at gym class,though.""")
+section_end()
+
+# 0x2E @ 0x6EE952
+section_start(0x2E)
+pic(1)
+dialog_up()
+para_talk("""The NetNavi you have
+is determined by the
+{key PET} you have.""", 0)
+para_talk("""But nobody uses the
+default settings!
+You gotta customize!""", 0)
+para_talk("""If you install an
+emotion program you
+can chat with it,""", 0)
+para_talk("""or if you collect
+battle chips,you can
+become a NetBattler!""", 0)
+para_talk("""I meant to ask you
+about your {key PET}...
+Never seen that one""", 0)
+para_talk_end("""I guess that must
+be an old type. Must
+suck to be poor.""")
+section_end()
+
+# 0x2F @ 0x6EEAE9
+section_start(0x2F)
+pic(34)
+dialog_up()
+para_talk_end("""Lan??
+Yai is over there!""")
+section_end()
+
+# 0x32 @ 0x6EEB18
+section_start(0x32)
+pic(16)
+dialog_up()
+para_talk_end("""Huh!? A landslide?
+On opening day??""", 0)
+section_end()
+
+# 0x33 @ 0x6EEB50
+section_start(0x33)
+if_story(0x22, 0x22, 0x3D, 0xFF)
+pic(19)
+dialog_up()
+para_talk_end("""The Metroline runs
+by the main street,
+but it's shut down.""", 0)
+section_end()
+
+# 0x34 @ 0x6EEBA3
+section_start(0x34)
+pic(9)
+dialog_up()
+para_talk_end("""I just saw Mayl
+and Dex and them
+get back!""", 0)
+section_end()
+
+# 0x35 @ 0x6EEBDE
+section_start(0x35)
+pic(10)
+dialog_up()
+para_talk_end("""Wonder who I'll
+play with today...""", 0)
+section_end()
+
+# 0x37 @ 0x6EEC16
+section_start(0x37)
+pic(34)
+dialog_up()
+mail(5)
+para_talk_end("""Lan!!
+You've got mail!""", 0)
+section_end()
+
+# 0x3C @ 0x6EEC4C
+section_start(0x3C)
+pic(16)
+dialog_up()
+para_talk_end("""Looks like the
+landside was taken
+care of...""", 0)
+section_end()
+
+# 0x3D @ 0x6EEC8B
+section_start(0x3D)
+pic(19)
+dialog_up()
+para_talk_end("""The Metroline
+station runs by
+the main street.""", 0)
+section_end()
+
+# 0x3E @ 0x6EECCA
+section_start(0x3E)
+pic(34)
+dialog_up()
+mail(7)
+para_talk_end("""Lan!!
+You've got mail!""", 0)
+section_end()
+
+# 0x3F @ 0x6EECF8
+section_start(0x3F)
+pic(34)
+dialog_up()
+mail(6)
+para_talk_end("""Lan!!
+You've got mail!""", 0)
+section_end()
+
+# 0x46 @ 0x6EED32
+section_start(0x46)
+pic(25)
+dialog_up()
+para_talk("""Hmm...No water here,
+either...""", 0)
+para_talk_end("""Me? I'm a Waterworks
+employee. I'm
+investigating here.""", 0)
+section_end()
+
+# 0x47 @ 0x6EEDAA
+section_start(0x47)
+pic(14)
+dialog_up()
+para_talk_end("""Huh? Where'd that
+store come from?""", 0)
+section_end()
+
+# 0x48 @ 0x6EEDDF
+section_start(0x48)
+dialog_up()
+para_general_end("""...{delay}Mmmph,Mmmph""", 0)
+section_end()
+
+# 0x49 @ 0x6EEDFD
+section_start(0x49)
+if_story(0x26, 0x26, 0x52, 0xFF)
+if_story(0x27, 0x27, 0x52, 0xFF)
+pic(15)
+dialog_up()
+para_talk("""I took the Metroline
+to buy some water.""", 0)
+para_talk_end("""But I'm worried
+about my little
+child.""", 0)
+section_end()
+
+# 0x4A @ 0x6EEE71
+section_start(0x4A)
+pic(11)
+dialog_up()
+para_talk("""I'm going to the
+new chip shop! Have
+you been yet?""", 0)
+para_talk_end("""Huh? Am I thirsty?{anim 1}{delay}
+{anim 2}Well,I wasn't until
+you asked me!""", 0)
+section_end()
+
+# 0x50 @ 0x6EEF09
+section_start(0x50)
+pic(14)
+dialog_up()
+para_talk_end("""Urgh! If you go to
+the park,don't drink
+the water!""", 0)
+section_end()
+
+# 0x51 @ 0x6EEF4F
+section_start(0x51)
+dialog_up()
+para_general_end("""...{delay}Mmmph,Mmmph""", 0)
+section_end()
+
+# 0x52 @ 0x6EEF6D
+section_start(0x52)
+pic(15)
+dialog_up()
+para_talk("""I gave my kid some
+tap water,but it
+was polluted!""", 0)
+para_talk_end("""What did we do to
+deserve this!?""", 0)
+section_end()
+
+# 0x53 @ 0x6EEFDA
+section_start(0x53)
+pic(11)
+dialog_up()
+para_talk_end("""Mommy...My tummy
+hurts...""", 0)
+section_end()
+
+# 0x54 @ 0x6EF009
+section_start(0x54)
+pic(17)
+dialog_up()
+para_talk_end("""I heard that the
+water isn't safe
+to drink...""", 0)
+section_end()
+
+# 0x55 @ 0x6EF04A
+section_start(0x55)
+pic(20)
+dialog_up()
+para_talk_end("""Who could have
+done this?""", 0)
+section_end()
+
+# 0x5A @ 0x6EF07C
+section_start(0x5A)
+pic(9)
+dialog_up()
+para_talk_end("""Please!
+Stop my dad!""", 0)
+section_end()
+
+# 0x64 @ 0x6EF0B4
+section_start(0x64)
+if_story(0x40, 0x40, 0x78, 0xFF)
+if_flag(149, 0x6E, 0xFF)
+if_flag(147, 0x65, 0xFF)
+pic(9)
+dialog_up()
+para_talk_end("""Where are you going
+Lan?""", 0)
+section_end()
+
+# 0x65 @ 0x6EF0EF
+section_start(0x65)
+pic(9)
+dialog_up()
+para_talk_end("""Mayl?
+Nope,haven't seen
+her.""", 0)
+section_end()
+
+# 0x66 @ 0x6EF11F
+section_start(0x66)
+if_flag(149, 0x67, 0xFF)
+dialog_up()
+para_general("""You press the bell,
+but no one answers.""", 0)
+para_general_end("""You hear the sound
+of running water
+coming from inside.""", 0)
+section_end()
+
+# 0x67 @ 0x6EF192
+section_start(0x67)
+dialog_up()
+para_general_end("""You press the bell,
+but no one answers.""", 0)
+section_end()
+
+# 0x68 @ 0x6EF1C3
+section_start(0x68)
+if_story(0x40, 0x40, 0x79, 0xFF)
+pic(14)
+dialog_up()
+para_talk("""I see an aura of
+trouble about you!""", 0)
+para_talk_end("""Today a woman will
+cause you problems!""", 0)
+section_end()
+
+# 0x69 @ 0x6EF22C
+section_start(0x69)
+if_story(0x40, 0x40, 0x7A, 0xFF)
+pic(16)
+dialog_up()
+para_talk_end("""Too cool!
+I got a rare chip!""", 0)
+section_end()
+
+# 0x6A @ 0x6EF260
+section_start(0x6A)
+if_story(0x40, 0x40, 0x7B, 0xFF)
+pic(18)
+dialog_up()
+para_talk("""If,if the WWW starts
+a war,will we all
+die???""", 0)
+option(1, 1, 0, 0)
+pad(2)
+text("""There won't be war
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yeah,probably will""")
+pick([0x6B, 0xFF], 0, True, True)
+para_talk_end("""I,I'm scared{anim 1}.{delay}.{delay}.{delay}
+{anim 2}waaah! waaah!""", 0)
+section_end()
+
+# 0x6B @ 0x6EF31C
+section_start(0x6B)
+pic(18)
+dialog_up()
+para_talk_end("""Oh goodie! Please
+wipe out those bad,
+bad people!""", 0)
+section_end()
+
+# 0x6C @ 0x6EF360
+section_start(0x6C)
+if_story(0x40, 0x40, 0x7C, 0xFF)
+pic(20)
+dialog_up()
+para_talk_end("""Virus busting is
+what keeps me
+young!""", 0)
+section_end()
+
+# 0x6D @ 0x6EF39C
+section_start(0x6D)
+if_story(0x40, 0x40, 0x7D, 0xFF)
+pic(15)
+dialog_up()
+para_talk("""I heard that Mayl's
+parents go overseas
+a lot for work.""", 0)
+para_talk("""I'll bet she gets
+lonely all alone in
+that big house.""", 0)
+para_talk_end("""Why don't you help
+keep her company?""", 0)
+section_end()
+
+# 0x6E @ 0x6EF458
+section_start(0x6E)
+pic(9)
+dialog_up()
+para_talk_end("""Mayl left...""", 0)
+section_end()
+
+# 0x6F @ 0x6EF477
+section_start(0x6F)
+pic(34)
+dialog_up()
+mail(19)
+para_talk_end("""Lan!!
+You've got mail!""", 0)
+section_end()
+
+# 0x78 @ 0x6EF4B5
+section_start(0x78)
+pic(9)
+dialog_up()
+para_talk("""Even at a green
+light,be sure to
+look left and right!""", 0)
+para_talk_end("""How do you like
+my traffic safety
+poem?""", 0)
+section_end()
+
+# 0x79 @ 0x6EF52C
+section_start(0x79)
+pic(14)
+dialog_up()
+para_talk("""Automobiles??
+Bah!! Get rid of
+them all!""", 0)
+para_talk_end("""Young people these
+days don't use
+their legs enough!""", 0)
+section_end()
+
+# 0x7A @ 0x6EF5A7
+section_start(0x7A)
+pic(16)
+dialog_up()
+para_talk_end("""The WWW is taking
+advantage of our
+reliance on machines""", 0)
+section_end()
+
+# 0x7B @ 0x6EF5EE
+section_start(0x7B)
+pic(18)
+dialog_up()
+para_talk_end("""I don't want there
+to be a war!""", 0)
+section_end()
+
+# 0x7C @ 0x6EF61F
+section_start(0x7C)
+pic(20)
+dialog_up()
+para_talk_end("""Things sure are
+getting scary...
+Be careful now!""", 0)
+section_end()
+
+# 0x7D @ 0x6EF663
+section_start(0x7D)
+pic(15)
+dialog_up()
+para_talk_end("""What's going on
+with these stoves
+and signals and all?""", 0)
+section_end()
+
+# 0x7E @ 0x6EF6AB
+section_start(0x7E)
+pic(34)
+dialog_up()
+mail(18)
+mail(22)
+mail(29)
+para_talk_end("""Lan!!
+You've got mail!""", 0)
+section_end()
+
+# 0x82 @ 0x6EF6E7
+section_start(0x82)
+if_story(0x53, 0x54, 0xA5, 0xFF)
+pic(9)
+dialog_up()
+para_talk("""Lan,have you ever
+been to the SciLab?""", 0)
+para_talk_end("""I wonder if they're
+making any progress
+on the WWW problem.""", 0)
+section_end()
+
+# 0x83 @ 0x6EF769
+section_start(0x83)
+if_story(0x51, 0x52, 0x91, 0xFF)
+if_story(0x53, 0x54, 0xA6, 0xFF)
+if_flag(144, 0x84, 0xFF)
+pic(14)
+dialog_up()
+para_talk("""Oh,you again?""", 0)
+text_talking("""Ask me where we are!
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Ask him """)
+option(1, 1, 0, 0)
+pad(2)
+text("""Don't ask""")
+pick([0x84, 0x85], 0, False, True)
+end()
+section_end()
+
+# 0x84 @ 0x6EF7DA
+section_start(0x84)
+set_flag(144)
+pic(14)
+dialog_up()
+para_talk_end("""This is ACDC Town!
+See! I'm STILL not
+senile!""", 0)
+section_end()
+
+# 0x85 @ 0x6EF81F
+section_start(0x85)
+pic(14)
+dialog_up()
+para_talk_end("""You should pay more
+respect to your
+elders,young man!""", 0)
+section_end()
+
+# 0x86 @ 0x6EF866
+section_start(0x86)
+if_story(0x53, 0x54, 0xA7, 0xFF)
+pic(16)
+dialog_up()
+para_talk("""NetBattling is now
+more than just a
+hobby!""", 0)
+para_talk_end("""It's become an
+important skill just
+to live!""", 0)
+section_end()
+
+# 0x87 @ 0x6EF8DD
+section_start(0x87)
+if_story(0x53, 0x54, 0xA8, 0xFF)
+pic(18)
+dialog_up()
+para_talk("""My momma told me
+that the war is
+about to start!""", 0)
+para_talk_end("""I'm scared{anim 1}.{delay}.{delay}.{delay}
+{anim 2}Waaahh!! Waaahh!""", 0)
+section_end()
+
+# 0x89 @ 0x6EF963
+section_start(0x89)
+if_story(0x53, 0x54, 0xA9, 0xFF)
+pic(20)
+dialog_up()
+para_talk("""I heard that the WWW
+has all of the
+strongest programs.""", 0)
+para_general_end("""{anim 2}What can we do??
+{anim 1}*shiver*""", 0)
+section_end()
+
+# 0x8A @ 0x6EF9D6
+section_start(0x8A)
+if_story(0x53, 0x54, 0xAA, 0xFF)
+pic(15)
+dialog_up()
+para_talk("""That girl Yai sure
+knows a lot about
+{key PET}s""", 0)
+para_talk_end("""But her stories
+about the
+Undernet are best!""", 0)
+section_end()
+
+# 0x91 @ 0x6EFA57
+section_start(0x91)
+check_item("Pa'sMemo", 1, 0x97, 0x97, 0xFF)
+check_item("Lab_Memo", 1, 0x94, 0x94, 0xFF)
+pic(14)
+dialog_up()
+text_talking("""Ask me where we are!
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Ask him """)
+option(1, 1, 0, 0)
+pad(2)
+text("""Don't ask""")
+pick([0x92, 0x93], 0, False, True)
+end()
+section_end()
+
+# 0x92 @ 0x6EFAAD
+section_start(0x92)
+pic(14)
+dialog_up()
+para_talk_end("""This is ACDC Town!
+See! I'm STILL not
+senile!""", 0)
+section_end()
+
+# 0x93 @ 0x6EFAEE
+section_start(0x93)
+pic(14)
+dialog_up()
+para_talk_end("""You should pay more
+respect to your
+elders,young man!""", 0)
+section_end()
+
+# 0x94 @ 0x6EFB35
+section_start(0x94)
+check_item("YuriMemo", 1, 0x95, 0x95, 0xFF)
+pic(14)
+dialog_up()
+para_talk("""You think that I'm
+an exーmember of the
+WWW,huh?""", 0)
+para_general(""".{delay}.{delay}.{delay}{anim 2}Hmmph
+Lemme see that Navi
+you've got there.{anim 1}""", 0)
+para_talk("""Well,no point in
+pretending to be
+senile any more...""", 0)
+para_talk("""Yes ,I was a member
+at the beginning. As
+Wily's assistant!""", 0)
+para_talk("""Yes,I know how to
+release the Undernet
+lock,but...""", 0)
+para_general("""...{delay}{anim 2}first,there's one
+more exーWWW member
+you should see.{anim 1}""", 0)
+para_talk_end("""You must save her.
+A young beauty,she
+is!""", 0)
+section_end()
+
+# 0x95 @ 0x6EFD07
+section_start(0x95)
+if_flag(145, 0x96, 0xFF)
+set_flag(145)
+pic(14)
+dialog_up()
+para_talk("""You think that I'm
+an exーmember of the
+WWW,huh?""", 0)
+para_general(""".{delay}.{delay}.{delay}{anim 2}Hmmph
+Lemme see that Navi
+you've got there.{anim 1}""", 0)
+para_talk("""Well,no point in
+pretending to be
+senile any more...""", 0)
+para_talk("""Yes ,I was a member
+at the beginning. As
+Wily's assistant!""", 0)
+para_talk("""Yes,I know how to
+release the Undernet
+lock,but...""", 0)
+para_general("""...{delay}{anim 2}Lemme see that
+Navi of yours one
+more time.{anim 1}""")
+jump(0x98)
+section_end()
+
+# 0x96 @ 0x6EFEA0
+section_start(0x96)
+pic(14)
+dialog_up()
+para_talk("""There,I've powered
+it up a bit!""")
+jump(0x98)
+section_end()
+
+# 0x97 @ 0x6EFED5
+section_start(0x97)
+pic(14)
+dialog_up()
+para_talk("""I didn't like the
+way that Wily wants
+to run things.""", 0)
+para_talk("""That's what got
+me kicked out...""", 0)
+para_talk_end("""He used to be a
+good guy,though...""", 0)
+section_end()
+
+# 0x98 @ 0x6EFF75
+section_start(0x98)
+if_level(20, 24, 0x99, 0xFF)
+if_level(25, 29, 0x9A, 0xFF)
+if_level(30, 101, 0x9B, 0xFF)
+pic(14)
+dialog_up()
+para_general(""".{delay}.{delay}.""", 0)
+para_talk("""You need to power
+up your Navi some
+more...""", 0)
+para_talk("""The road ahead
+would be too rough
+for you now.""", 0)
+para_general_end(""".{delay}.{delay}.""", 0)
+section_end()
+
+# 0x99 @ 0x6F0020
+section_start(0x99)
+pic(14)
+dialog_up()
+para_general(""".{delay}.{delay}.""", 0)
+para_talk("""You need to power
+up your Navi a
+bit more...""", 0)
+para_talk("""The road ahead
+would still be too
+rough for you.""", 0)
+para_general_end(""".{delay}.{delay}.""", 0)
+section_end()
+
+# 0x9A @ 0x6F00BC
+section_start(0x9A)
+pic(14)
+dialog_up()
+para_general(""".{delay}.{delay}.""", 0)
+para_talk("""You need to power
+up your Navi just
+a tad more...""", 0)
+para_talk("""The road ahead
+would still be a
+little bit rough.""", 0)
+para_general_end(""".{delay}.{delay}.""", 0)
+section_end()
+
+# 0x9B @ 0x6F015E
+section_start(0x9B)
+pic(14)
+dialog_up()
+para_general(""".{delay}.{delay}.""", 0)
+para_talk("""Well,I guess that
+you may be strong
+enough now. Here!""")
+jump(0x9C)
+section_end()
+
+# 0x9C @ 0x6F01BB
+section_start(0x9C)
+hidepic()
+dialog_up()
+pc_lock()
+pc_anim(30)
+add_item("Pa'sMemo", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got;
+\"{key Pa'sMemo}\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+wait(5)
+jump(0x9D)
+section_end()
+
+# 0x9D @ 0x6F01EE
+section_start(0x9D)
+pic(14)
+dialog_up()
+para_talk("""Perhaps the one to
+stop the EndGame
+will be you,Lan,""", 0)
+para_talk_end("""and not a SciLab
+NetBattler!""", 0)
+section_end()
+
+# 0xA5 @ 0x6F0267
+section_start(0xA5)
+pic(9)
+dialog_up()
+para_talk_end("""Lan,please help us!{anim 1}{delay}
+{anim 2}I don't want to die
+in a war!!""", 0)
+section_end()
+
+# 0xA6 @ 0x6F02B6
+section_start(0xA6)
+pic(14)
+dialog_up()
+para_talk("""You must be brave!""", 0)
+para_talk_end("""Fight with no
+looking back!""", 0)
+section_end()
+
+# 0xA7 @ 0x6F02FD
+section_start(0xA7)
+pic(16)
+dialog_up()
+para_talk_end("""We can't have a war!
+I'm not even married
+yet!!""", 0)
+section_end()
+
+# 0xA8 @ 0x6F0341
+section_start(0xA8)
+pic(18)
+dialog_up()
+para_talk_end("""I'm afraid of war!{anim 1}{delay}
+{anim 2}Waaaah!! Waaaah!!""", 0)
+section_end()
+
+# 0xA9 @ 0x6F0383
+section_start(0xA9)
+pic(20)
+dialog_up()
+para_talk_end("""Grandpa! I'm comin
+up there to join
+ya!""", 0)
+section_end()
+
+# 0xAA @ 0x6F03BD
+section_start(0xAA)
+pic(15)
+dialog_up()
+para_talk("""Just the idea of
+viruses that can
+take out satellites!""", 0)
+para_talk_end("""Makes me shiver...""", 0)
+section_end()
+
+# 0xAB @ 0x6F0421
+section_start(0xAB)
+if_flag(255, 0xFF, 0xB9)
+pic(7)
+dialog_up()
+para_talk("""I,the great Chaud
+will take out the
+WWW!!""", 0)
+para_talk("""What am I doing
+here? That's a
+secret...""")
+jump(0xB0)
+section_end()
+
+# 0xAC @ 0x6F049B
+section_start(0xAC)
+pic(34)
+dialog_up()
+mail(25)
+para_talk_end("""Lan!!
+You've got mail!""", 0)
+section_end()
+
+# 0xAD @ 0x6F04C9
+section_start(0xAD)
+pic(34)
+dialog_up()
+mail(27)
+para_talk_end("""Lan!!
+You've got mail!""", 0)
+section_end()
+
+# 0xB0 @ 0x6F04FB
+section_start(0xB0)
+pic(34)
+dialog_up()
+text("""{anim 2}Lan,do you wish to
+NetBattle with Chaud?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0xB6, 0xB5], 1, False, True)
+end()
+section_end()
+
+# 0xB1 @ 0x6F054C
+section_start(0xB1)
+pic(7)
+dialog_up()
+para_talk_end("""Why should we
+fight? I don't
+see any reason...""", 0)
+section_end()
+
+# 0xB2 @ 0x6F058F
+section_start(0xB2)
+pic(7)
+dialog_up()
+para_talk_end("""I knew I shouldn't
+have gone easy on
+you...""", 0)
+section_end()
+
+# 0xB3 @ 0x6F05CE
+section_start(0xB3)
+pic(7)
+dialog_up()
+para_talk_end("""But I didn't make
+any mistakes! What's
+IN that Navi there??""", 0)
+section_end()
+
+# 0xB4 @ 0x6F061E
+section_start(0xB4)
+pic(7)
+dialog_up()
+para_talk_end("""Please stop wasting
+my time...""", 0)
+section_end()
+
+# 0xB5 @ 0x6F064F
+section_start(0xB5)
+pic(7)
+dialog_up()
+para_talk_end("""Good judgement on
+your part...""", 0)
+section_end()
+
+# 0xB6 @ 0x6F0680
+section_start(0xB6)
+pic(7)
+dialog_up()
+para_talk("""So you want to see
+how the pros do it,
+huh? PROTOMAN!!""")
+jump(0xB7)
+section_end()
+
+# 0xB7 @ 0x6F06CD
+section_start(0xB7)
+pic(46)
+dialog_up()
+para_talk("""You called?""")
+jump(0xB8)
+section_end()
+
+# 0xB8 @ 0x6F06EC
+section_start(0xB8)
+set_flag(99)
+dialog_down()
+stop()
+section_end()
+
+# 0xB9 @ 0x6F06F8
+section_start(0xB9)
+set_flag(255)
+pic(7)
+dialog_up()
+para_talk("""I shouldn't be 
+taking time from my
+busy schedule now,""", 0)
+para_talk("""...but it looks like
+you need to learn a
+lesson...""")
+jump(0xB0)
+section_end()
+
+# 0xBE @ 0x6F078F
+section_start(0xBE)
+if_flag(1056, 0xC2, 0xFF)
+pic(9)
+dialog_up()
+text("""{anim 2}Hey! You got a
+""")
+chip_id("FireTowr")
+text(""" """)
+chip_code("F")
+para_general("""? It makes
+this cool fire!{anim 1}""", 0)
+text("""{anim 2}If you have one,I'll
+trade you this
+""")
+chip_id("DynaWave")
+text(""" """)
+chip_code("R")
+para_general(""" for it!{anim 1}""", 0)
+option(0, 0, 1, 1)
+pad(2)
+text("""Trade """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No trade
+""")
+pick([0xC0, 0xBF], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0xBF @ 0x6F083E
+section_start(0xBF)
+pic(9)
+dialog_up()
+para_talk_end("""Tell me if you
+change your mind!""")
+section_end()
+
+# 0xC0 @ 0x6F086F
+section_start(0xC0)
+check_chip_pack("FireTowr F", 1, 0xFF, 0xFF, 0xC1)
+set_flag(1056)
+pic(9)
+dialog_up()
+para_talk("""Oh,too cool! I
+really wanted one
+of these!""", 0)
+para_talk("""Here you go!""", 0)
+hidepic()
+pc_lock()
+pc_anim(30)
+add_chip("DynaWave R", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("FireTowr F", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("DynaWave")
+text(""" """)
+chip_code("R")
+text("""\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0xC1 @ 0x6F0910
+section_start(0xC1)
+pic(9)
+dialog_up()
+text("""{anim 2}Heeey,you don't
+have a """)
+chip_id("FireTowr")
+text(""" """)
+chip_code("F")
+para_general("""!{anim 1}""", 0)
+para_talk("""Don't have one in
+your chip folder,
+either?""", 0)
+para_talk_end("""You can't trade a
+chip that's in
+your folder,ya know.""")
+section_end()
+
+# 0xC2 @ 0x6F09BB
+section_start(0xC2)
+pic(9)
+dialog_up()
+para_talk_end("""I'm still looking
+for new chips!""")
+section_end()
+
+# 0xC6 @ 0x6F09F3
+section_start(0xC6)
+if_flag(1059, 0xCA, 0xFF)
+pic(14)
+dialog_up()
+text("""{anim 2}I just looove
+""")
+chip_id("Escape")
+para_general("""! More'n
+anythin' else!{anim 1}""", 0)
+para_talk("""Whatcha say? Gimme
+one of each code,
+F H J L and N?""", 0)
+text("""{anim 2}Ifn's ya do,I'll
+give ya this here
+""")
+chip_id("KngtSwrd")
+text(""" """)
+chip_code("G")
+para_general(""" fer it!{anim 1}""", 0)
+option(0, 0, 1, 1)
+pad(2)
+text("""Trade """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No trade
+""")
+pick([0xC8, 0xC7], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0xC7 @ 0x6F0AD8
+section_start(0xC7)
+pic(14)
+dialog_up()
+para_talk_end("""You woooon't!?!?
+Why you little...
+Hey! Where you goin?""")
+section_end()
+
+# 0xC8 @ 0x6F0B29
+section_start(0xC8)
+check_chip_pack("Escape F", 1, 0xFF, 0xFF, 0xC9)
+check_chip_pack("Escape H", 1, 0xFF, 0xFF, 0xC9)
+check_chip_pack("Escape J", 1, 0xFF, 0xFF, 0xC9)
+check_chip_pack("Escape L", 1, 0xFF, 0xFF, 0xC9)
+check_chip_pack("Escape N", 1, 0xFF, 0xFF, 0xC9)
+set_flag(1059)
+pic(14)
+dialog_up()
+para_talk("""Oh,happy day,Oh
+happy day! I'm in
+heaven!""", 0)
+para_talk("""Now I can escape
+all day long! Here
+ya goes!""", 0)
+hidepic()
+pc_lock()
+pc_anim(30)
+add_chip("KngtSwrd G", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Escape F", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Escape H", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Escape J", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Escape L", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Escape N", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("KngtSwrd")
+text(""" """)
+chip_code("G")
+text("""\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0xC9 @ 0x6F0C2C
+section_start(0xC9)
+pic(14)
+dialog_up()
+text("""{anim 2}No! No! No! I want
+one each of """)
+chip_id("Escape")
+para_general("""
+F,H,J,L and N!{anim 1}""", 0)
+text("""{anim 2}You don't have them
+all yet! So no
+""")
+chip_id("KngtSwrd")
+text(""" """)
+chip_code("G")
+para_general(""" fer you!{anim 1}""", 0)
+para_talk("""I don't suppose you
+got em in yer chip
+folder,do ya?""", 0)
+para_talk("""You know of course
+that you can't
+trade chips""", 0)
+para_talk_end("""unless they're in
+yer backpack,not
+yer chip folder!!""")
+section_end()
+
+# 0xCA @ 0x6F0D6A
+section_start(0xCA)
+pic(14)
+dialog_up()
+para_talk_end("""Sometimes you gotta
+know when to run!
+Can't win em all!""")
+section_end()
+
+# 0xCB @ 0x6F0DB4
+section_start(0xCB)
+if_flag(1068, 0xCF, 0xFF)
+check_item("Dentures", 1, 0xCD, 0xCD, 0xFF)
+if_flag(1077, 0xCE, 0xFF)
+set_flag(1077)
+pic(14)
+dialog_up()
+para_talk("""Mmmph...Mmmph...
+I sheem to'uv
+lost mah denshurs!""", 0)
+para_talk("""Have ya sheen em?
+I losht them in
+the park shomewhere.""", 0)
+para_talk_end("""If ya find em,
+pleash bring em
+back!""")
+section_end()
+
+# 0xCC @ 0x6F0E82
+section_start(0xCC)
+clear_flag(1077)
+dialog_up()
+pc_anim(30)
+add_item("Dentures", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan found
+\"{key Dentures}\"!""")
+pc_wait()
+pc_anim(4)
+page()
+wait()
+para_general_end("""Hurry,and get them
+back to the old
+man!{anim 1}""")
+section_end()
+
+# 0xCD @ 0x6F0EE0
+section_start(0xCD)
+set_flag(1068)
+pic(14)
+dialog_up()
+para_talk("""Oh yesh! You found
+mah denshures!""", 0)
+para_talk("""*gulp* *smack*""", 0)
+para_talk("""Well,thankee kindly!
+Nows ah kin talk
+normal! Take this!""", 0)
+hidepic()
+pc_lock()
+pc_anim(30)
+add_chip("Recov80 G", 1, 0xFF, 0xFF, 0xFF)
+sub_item("Dentures", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("Recov80")
+text(""" """)
+chip_code("G")
+text("""\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0xCE @ 0x6F0FB7
+section_start(0xCE)
+pic(14)
+dialog_up()
+para_talk_end("""Ah can't shpeak well
+wishout mah denshurs""")
+section_end()
+
+# 0xCF @ 0x6F0FF1
+section_start(0xCF)
+pic(14)
+dialog_up()
+para_talk_end("""Be sure ta take
+care uh your teeth,
+boy!""")
+section_end()
+
+# 0xD2 @ 0x6F102F
+section_start(0xD2)
+if_flag(1070, 0xD5, 0xFF)
+if_flag(1083, 0xD4, 0xFF)
+if_flag(1082, 0xD3, 0xFF)
+set_flag(1082)
+pic(19)
+dialog_up()
+para_talk("""Oh,no! Oh,no!
+My money is gone
+from my bank!!""", 0)
+para_talk("""I'm sure that the
+thief came in via
+the Internet!""", 0)
+para_talk("""You can access my
+bank account via
+the net near the""", 0)
+para_talk("""Metroline. I think
+that it should
+still be close by.""", 0)
+para_talk_end("""Oh,what will I do,
+what will I do??""")
+section_end()
+
+# 0xD3 @ 0x6F116B
+section_start(0xD3)
+pic(19)
+dialog_up()
+para_talk("""What can I do?
+If I don't get that
+money,I can't pay""", 0)
+para_talk("""my employees...
+And then my company
+will be ruined!""", 0)
+para_talk("""What are the
+security companies
+doing about this??""", 0)
+para_talk("""I never should have
+made an account near
+the Metroline!""", 0)
+para_talk_end("""Oh,what to do...""")
+section_end()
+
+# 0xD4 @ 0x6F128A
+section_start(0xD4)
+set_flag(1070)
+pic(19)
+dialog_up()
+para_talk("""The money was back
+in my account! Thank
+you so much!""", 0)
+para_talk("""Please,take this as
+a reward! No,I
+insist! Take it!""", 0)
+hidepic()
+pc_lock()
+pc_anim(30)
+award_zenny([10000, 10000], 0xFF)
+text("""Lan got
+10,000 zenny!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0xD5 @ 0x6F134A
+section_start(0xD5)
+pic(19)
+dialog_up()
+para_talk_end("""You really saved me!
+Thank you so much!""")
+section_end()
+
+# 0xDC @ 0x6F138F
+section_start(0xDC)
+dialog_up()
+para_general_end("""Looks like a cool
+place to build a
+fort!""")
+section_end()
+
+# 0xDD @ 0x6F13C0
+section_start(0xDD)
+dialog_up()
+para_general_end("""Almost makes you
+want to go for
+a slide...""")
+section_end()
+
+# 0xDE @ 0x6F13F5
+section_start(0xDE)
+dialog_up()
+para_general_end("""A statue of a
+squirrel. How cute""")
+section_end()
+
+# 0xDF @ 0x6F141E
+section_start(0xDF)
+dialog_up()
+para_general_end("""No one is home""")
+section_end()
+
+# 0xE0 @ 0x6F1434
+section_start(0xE0)
+dialog_up()
+para_general_end("""No one has lived
+here for years""")
+section_end()
+
+# 0xE1 @ 0x6F145B
+section_start(0xE1)
+dialog_up()
+para_general("""A security system
+designed to look
+like a doghouse""", 0)
+para_general("""It will alert you
+of any intruders
+in the house""", 0)
+para_general_end("""Looks like you can
+jack in here""")
+section_end()
+
+# 0xE2 @ 0x6F14EB
+section_start(0xE2)
+dialog_up()
+para_general_end("""It says,\"Chip shop,
+opening soon!\"""")
+section_end()
+
+# 0xE3 @ 0x6F151A
+section_start(0xE3)
+dialog_up()
+para_general_end("""The entrance to
+what will be the
+new subway station""")
+section_end()

@@ -1,0 +1,118 @@
+section_count(0xD)
+
+# 0x00 @ 0x7307FE
+section_start(0x00)
+pic(44)
+dialog_up()
+para_talk("""I am sorry,Dr.Froid.""", 0)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x730828
+section_start(0x01)
+pic(23)
+dialog_up()
+para_general("""{anim 2}There was nothing
+we could do...And
+now my son...{anim 1}*sniff*""", 0)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73087B
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""No!{anim 1} {delay}{anim 2}IceMan,
+read this!""", 0)
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x7308AF
+section_start(0x03)
+hidepic()
+dialog_up()
+para_talk("""MegaMan gave IceMan
+the {key Message}!""", 0)
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x7308DE
+section_start(0x04)
+pic(44)
+dialog_up()
+para_talk("""What?
+...Dr.Froid,this
+mail...""", 0)
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x730918
+section_start(0x05)
+pic(23)
+dialog_up()
+para_talk("""Huh?
+This mail address is
+my son's...""", 0)
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x730955
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""Well?
+Your son is safe!
+Do you get it now?""", 0)
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x730995
+section_start(0x07)
+pic(23)
+dialog_up()
+para_talk("""Yes...but,after
+all I've done...""", 0)
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x7309D0
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk("""We have to get the
+net back up and
+running!""", 0)
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x730A0F
+section_start(0x09)
+pic(23)
+dialog_up()
+para_talk("""You...You're right,
+kid.
+...IceMan!""", 0)
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x730A4F
+section_start(0x0A)
+pic(44)
+dialog_up()
+para_talk_end("""Yessir!""", 0)
+section_end()
+
+# 0x0B @ 0x730A67
+section_start(0x0B)
+pic(23)
+dialog_up()
+para_talk_end("""That should fix the
+Dentown waterworks!""", 0)
+section_end()
+
+# 0x0C @ 0x730A9F
+section_start(0x0C)
+pic(0)
+dialog_up()
+para_talk_end("""Huh!?""")
+section_end()

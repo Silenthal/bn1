@@ -1,0 +1,157 @@
+section_count(0xF)
+
+# 0x00 @ 0x72D6FA
+section_start(0x00)
+pic(2)
+dialog_up()
+para_talk("""Hwaaa...""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72D718
+section_start(0x01)
+pic(0)
+dialog_up()
+para_general("""!?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72D72B
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""What's wrong
+with him? He looks
+a little pale...""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72D773
+section_start(0x03)
+pic(2)
+dialog_up()
+para_talk("""Ooooh....""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72D793
+section_start(0x04)
+pic(0)
+dialog_up()
+para_general("""???""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72D7A8
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk("""Is he okay?
+Maybe the shock...""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72D7DD
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""Don't tell me your
+not going to give
+me a link again!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72D827
+section_start(0x07)
+pic(2)
+dialog_up()
+para_general(""".{delay}.{delay}.{delay}{anim 2}I can't believe I
+lost to you! It must
+be fate!{anim 1}""", 0)
+para_general("""...{delay}{anim 2}But I always
+keep my promises!
+The link is yours!{anim 1}""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x72D8C3
+section_start(0x08)
+hidepic()
+dialog_up()
+pc_anim(30)
+se(0x85)
+text("""Lan got;
+\"{key /Dex}\"""")
+pc_wait()
+pc_anim(7)
+page()
+wait()
+para_general("""(Use this on the net
+ to expand the area
+ you can access!)""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x72D92F
+section_start(0x09)
+pic(0)
+dialog_up()
+para_talk("""Thanks,Dex!
+I owe you one!""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x72D95F
+section_start(0x0A)
+pic(2)
+dialog_up()
+para_talk("""Hey,wait!
+Use this,too!""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x72D98D
+section_start(0x0B)
+hidepic()
+dialog_up()
+pc_anim(30)
+se(0x85)
+text("""Lan got a chip for
+\"""")
+chip_id("GutsMan")
+text(""" """)
+chip_code("G")
+text("""\"!""")
+pc_wait()
+pc_anim(7)
+page()
+wait(5)
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x72D9C8
+section_start(0x0C)
+pic(2)
+dialog_up()
+para_talk("""You got talent,Lan!
+So{anim 1}{delay}.{delay}.{delay}.
+{anim 2}Go make me proud!""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x72DA1C
+section_start(0x0D)
+pic(34)
+dialog_up()
+para_talk("""I guess Dex wasn't
+so bad after all...""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x72DA59
+section_start(0x0E)
+pic(0)
+dialog_up()
+para_talk_end("""Yeah...
+Thanks,Dex!""")
+section_end()

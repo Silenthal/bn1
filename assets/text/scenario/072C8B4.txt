@@ -1,0 +1,31 @@
+section_count(0x3)
+
+# 0x00 @ 0x72C8BA
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""The net looks so
+different! The WWW
+must have done this!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72C907
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""We'll have to fix
+the net later{anim 1}...{delay}
+{anim 2}MegaMan!""", 0)
+para_talk("""First,let's find the
+program locking the
+doors!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72C98C
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk_end("""Roger!""")
+section_end()

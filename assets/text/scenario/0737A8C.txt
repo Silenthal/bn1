@@ -1,0 +1,70 @@
+section_count(0x7)
+
+# 0x00 @ 0x737A9A
+section_start(0x00)
+pic(48)
+dialog_up()
+para_general("""?{delay}
+{anim 2}How did U get
+in here?{anim 1}""", 0)
+para_talk("""And who R U?""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x737AE0
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""I am MegaMan!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x737B01
+section_start(0x02)
+pic(48)
+dialog_up()
+para_talk("""And what brings you
+to me,the great
+BombMan!?""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x737B44
+section_start(0x03)
+pic(34)
+dialog_up()
+para_talk("""I'm here to get the
+WWW's net address!""", 0)
+para_talk("""I know you've got
+it,so hand it over!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x737BB0
+section_start(0x04)
+pic(48)
+dialog_up()
+para_talk("""No,no,no.{anim 1}{delay}
+{anim 2}That won't do!
+It's deletion for U!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x737BFF
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""MegaMan,this guy
+isn't too bright.""", 0)
+para_talk("""I don't think we
+have a choice...
+Battle routine,set!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x737C7A
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk_end("""Execute!!""", 0)
+section_end()

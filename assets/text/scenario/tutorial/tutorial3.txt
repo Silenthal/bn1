@@ -1,0 +1,62 @@
+section_count(0x1A)
+
+# 0x00 @ 0x73E674
+section_start(0x00)
+pic(3)
+dialog_up()
+para_talk("""For our final lesson
+we'll talk about
+chip adding.""", 1)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73E6BB
+section_start(0x01)
+para_talk("""By using chip adding
+you can increase the
+number of chips that""", 1)
+para_talk("""you can use to make
+combinations for
+improved strategies.""", 1)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73E748
+section_start(0x02)
+para_talk_end("""Look at the screen.
+See the ADD button
+at the bottom right?""", 1)
+section_end()
+
+# 0x03 @ 0x73E78F
+section_start(0x03)
+pic(3)
+dialog_up()
+para_talk("""If you select this
+button without
+choosing any chips,""", 1)
+para_talk("""you will have to
+fight for one turn
+without chips,but""", 1)
+para_talk("""on your next turn
+you will be able to
+select from 10.""", 1)
+para_talk("""Do this twice,and
+you'll have 15 chips
+to choose from!""", 1)
+para_talk("""This should surely
+give you all the
+strategies you need.""", 1)
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x73E8E2
+section_start(0x0A)
+para_talk("""OK,a pop quiz!""", 1)
+para_talk("""For this test,you
+will need to use
+all the techniques""", 1)
+para_talk("""I've just taught you
+and delete a virus!""", 1)
+para_talk_end("""Good luck!""", 1)
+section_end()

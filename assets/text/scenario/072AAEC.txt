@@ -1,0 +1,53 @@
+section_count(0x6)
+
+# 0x00 @ 0x72AAF8
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""MegaMan!{anim 1}{delay}{anim 2} Answer me!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72AB28
+section_start(0x01)
+pic(34)
+dialog_up()
+text("""{anim 2}Uh,{anim 1}{delay}{anim 2}uhhh{anim 1}{delay}.{delay}.{delay}.{delay}{anim 2}""")
+set_flag(220)
+para_general("""Lan?{anim 1}""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72AB6E
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""You okay?""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72AB8B
+section_start(0x03)
+pic(34)
+dialog_up()
+para_talk("""Yeah! I'm all right!
+Thanks! {anim 1}{delay}{anim 2}Lan!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72ABCC
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk("""I got a lot on my
+hands here! Hurry
+up,MegaMan!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72AC11
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk_end("""Roger!""")
+section_end()

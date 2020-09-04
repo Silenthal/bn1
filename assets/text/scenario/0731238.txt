@@ -1,0 +1,192 @@
+section_count(0x13)
+
+# 0x00 @ 0x73125E
+section_start(0x00)
+pic(5)
+dialog_up()
+para_general("""{anim 2}Grrr{anim 1}{delay}.{delay}.{delay}.""", 0)
+para_talk("""All our plots in
+DenCity are failing
+recently!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7312BE
+section_start(0x01)
+pic(29)
+dialog_up()
+para_talk("""We're having some
+funding problems,
+too...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x731300
+section_start(0x02)
+pic(5)
+dialog_up()
+para_talk("""This will slow down
+the entire WWW plot
+to control the net!""", 0)
+para_talk("""What exactly is the
+problem!?""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x731376
+section_start(0x03)
+pic(13)
+dialog_up()
+para_general("""{anim 2}Apologies,
+Lord Wily!
+It's just{anim 1}{delay}.{delay}.{delay}.""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x7313BD
+section_start(0x04)
+pic(5)
+dialog_up()
+para_talk("""What!? Speak up!!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x7313E5
+section_start(0x05)
+pic(13)
+dialog_up()
+para_talk("""There's just this
+one Naviーoperator
+team....""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x731429
+section_start(0x06)
+pic(5)
+dialog_up()
+para_talk("""Hmph,an official
+NetBatttler,huh?""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x731460
+section_start(0x07)
+pic(24)
+dialog_up()
+para_talk("""No,it's just a boy
+by the name of Lan,
+but...""", 0)
+para_talk("""He's got this
+powerful Navi,
+\"MegaMan.EXE\".""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x7314DF
+section_start(0x08)
+pic(5)
+dialog_up()
+para_talk("""What are you saying?
+Our WWW Navis can
+handle anything!""", 0)
+para_talk("""No more excuses!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x731544
+section_start(0x09)
+pic(13)
+dialog_up()
+para_talk("""Yes,but...""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x731565
+section_start(0x0A)
+pic(5)
+dialog_up()
+para_talk("""Silence I said!
+Silence!""", 0)
+para_talk("""No more failures!
+Delete all that
+stand in your way!""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x7315D0
+section_start(0x0B)
+pic(24)
+dialog_up()
+para_general("""...{anim 2}Yessir.{anim 1}{delay}
+{anim 2}I have a plan.{anim 1}{delay}
+{anim 2}Leave it to me.{anim 1}""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x731622
+section_start(0x0C)
+pic(5)
+dialog_up()
+para_talk("""Then get to it!""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x731645
+section_start(0x0D)
+pic(29)
+dialog_up()
+para_talk("""We await your
+favorable report...""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x73167C
+section_start(0x0E)
+pic(5)
+dialog_up()
+para_talk_end("""I'm off!""", 0)
+section_end()
+
+# 0x0F @ 0x731696
+section_start(0x0F)
+pic(24)
+dialog_up()
+para_talk("""Why why why!?""", 0)
+para_talk("""Must we get every
+superprogram by
+ourselves?""", 0)
+para_talk("""We might not have
+gotten \"Wood\",but
+\"Fire\" and \"Aqua\"!""")
+jump(0x10)
+section_end()
+
+# 0x10 @ 0x731733
+section_start(0x10)
+pic(30)
+dialog_up()
+para_talk("""You're right!
+But,we mustn't speak
+of the LifeVirus!""", 0)
+para_talk("""It's so top secret
+we're not supposed
+to know about it!""")
+jump(0x11)
+section_end()
+
+# 0x11 @ 0x7317C1
+section_start(0x11)
+pic(24)
+dialog_up()
+para_talk_end("""I know,I know{anim 1}.{delay}
+{anim 2}Well!{anim 1} {delay}{anim 2}Back to work!""", 0)
+section_end()
+
+# 0x12 @ 0x731807
+section_start(0x12)
+pic(5)
+dialog_up()
+para_talk_end("""\"Lan\"...Hmm{anim 1}.{delay}
+{anim 2}I wonder...?""", 0)
+section_end()

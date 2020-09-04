@@ -1,0 +1,129 @@
+section_count(0xD)
+
+# 0x00 @ 0x738986
+section_start(0x00)
+dialog_up()
+se(0xAA)
+para_general("""*Brrring...*""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7389A6
+section_start(0x01)
+pic(28)
+dialog_up()
+para_talk("""Dr.Hikari speaking{anim 1}.{delay}
+{anim 2}Oh,hello honey! Yes,
+Lan was just here.""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x738A02
+section_start(0x02)
+pic(12)
+dialog_up()
+para_talk("""I'm worried{anim 1}...{delay}
+{anim 2}I think those two
+are in trouble...""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x738A56
+section_start(0x03)
+pic(28)
+dialog_up()
+para_talk("""Don't worry,I'll
+look out for them.""", 0)
+para_talk("""I'll never let what
+happened last time
+happen again...""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x738AD2
+section_start(0x04)
+pic(12)
+dialog_up()
+para_talk("""Honey{anim 1}...{delay}
+{anim 2}I'm sorry to have
+called you at work.""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x738B20
+section_start(0x05)
+pic(28)
+dialog_up()
+para_talk("""No,I'm sorry for
+not being at home
+more...""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x738B62
+section_start(0x06)
+pic(12)
+dialog_up()
+para_talk("""Hmm{anim 1}...{delay}
+{anim 2}That is true.""", 0)
+para_general("""...{delay}{anim 2}But,it's OK!
+I'll be fine by
+myself here!{anim 1}""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x738BD5
+section_start(0x07)
+pic(28)
+dialog_up()
+para_talk("""Good{anim 1}...{delay}{anim 2}I'm glad
+to hear that.""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x738C12
+section_start(0x08)
+pic(12)
+dialog_up()
+para_talk("""Bye!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x738C2A
+section_start(0x09)
+hidepic()
+dialog_up()
+para_general_end("""*bleep*{delay} *bleep*""", 0)
+section_end()
+
+# 0x0A @ 0x738C4B
+section_start(0x0A)
+pic(27)
+dialog_up()
+para_talk("""Dr.Hikari! I've got
+info on the virus in
+the WWW rocket!""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x738C9A
+section_start(0x0B)
+pic(28)
+dialog_up()
+para_general(""".{delay}.{delay}.{delay}{anim 2}It's the
+LifeVirus{anim 1}...{delay}
+{anim 2}I see...{anim 1}""", 0)
+para_talk("""Lan{anim 1}...{delay}{anim 2}and Hub don't
+have a chance...""", 0)
+para_talk("""...We've got to act
+fast! Can you help
+me?""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x738D5F
+section_start(0x0C)
+pic(27)
+dialog_up()
+para_talk_end("""Yessir!""", 0)
+section_end()

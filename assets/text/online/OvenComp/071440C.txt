@@ -1,0 +1,85 @@
+section_count(0xA)
+
+# 0x00 @ 0x714420
+section_start(0x00)
+if_flag(195, 0x01, 0xFF)
+set_flag(195)
+pic(36)
+dialog_up()
+para_talk("""Ahead is {delay 10}the
+oven control {delay 10}section.""", 0)
+para_talk("""Someone is {delay 10}at the
+master virus{delay 10} with
+their Navi.""", 0)
+para_talk("""It's far {delay 10}stronger
+than a {delay 10}normal virus!
+Be {delay 10}careful!""", 0)
+para_general_end("""Arghh...!""")
+section_end()
+
+# 0x01 @ 0x7144FF
+section_start(0x01)
+pic(36)
+dialog_up()
+para_talk_end("""I...{delay 10}can't...{delay 10}hold...{delay 10}
+on...{delay 10}much...{delay 10}longer..""")
+section_end()
+
+# 0x02 @ 0x71455D
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(642)
+pc_lock()
+pc_anim(50)
+add_chip("Shotgun Q", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Shotgun")
+text(""" """)
+chip_code("Q")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x03 @ 0x7145CB
+section_start(0x03)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(643)
+pc_lock()
+pc_anim(50)
+award_zenny([500, 500], 0xFF)
+text("""MegaMan got 500
+zennys!""")
+pc_wait()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x04 @ 0x714631
+section_start(0x04)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(644)
+pc_lock()
+pc_anim(50)
+add_chip("LilBomb T", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("LilBomb")
+text(""" """)
+chip_code("T")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end(5)
+section_end()

@@ -1,0 +1,470 @@
+section_count(0xEB)
+
+# 0x00 @ 0x70D43E
+section_start(0x00)
+pic(27)
+dialog_up()
+text_talking("""Please be quiet!
+I'm trying to open
+the control room!""")
+page()
+set_flag(176)
+end()
+section_end()
+
+# 0x01 @ 0x70D48A
+section_start(0x01)
+set_flag(223)
+if_flag(176, 0x02, 0xFF)
+pic(25)
+dialog_up()
+para_talk("""Argh,it won't work!""", 0)
+para_talk("""The lock to the
+power plant is
+computer controlled!""", 0)
+para_talk_end("""We'll never get it
+open until the
+program is fixed!""", 0)
+section_end()
+
+# 0x02 @ 0x70D533
+section_start(0x02)
+pic(25)
+dialog_up()
+para_talk("""Huh? It looks like
+the control room
+door is open now.""", 0)
+text_talking("""You go on. I'll
+get this door open.""")
+page()
+set_flag(175)
+end()
+section_end()
+
+# 0x05 @ 0x70D5B0
+section_start(0x05)
+pic(25)
+dialog_up()
+para_general_end("""{anim 2}The air...it's
+getting thinner...
+{anim 1}*gasp*""", 0)
+section_end()
+
+# 0x0A @ 0x70D5F9
+section_start(0x0A)
+if_story(0x53, 0x54, 0x0F, 0xFF)
+pic(25)
+dialog_up()
+para_talk("""The power plant is
+now back to normal.""", 0)
+para_talk("""There are some
+problems with the
+network,""", 0)
+para_talk_end("""but we're able to
+supply electricity
+with no problem.""", 0)
+section_end()
+
+# 0x0B @ 0x70D6A7
+section_start(0x0B)
+if_story(0x53, 0x54, 0x10, 0xFF)
+pic(27)
+dialog_up()
+para_talk_end("""Pretty scary when a
+whole building goes
+haywire!""", 0)
+section_end()
+
+# 0x0F @ 0x70D6F4
+section_start(0x0F)
+pic(25)
+dialog_up()
+para_talk_end("""And just when we
+had gotten the power
+plant fixed!!""", 0)
+section_end()
+
+# 0x10 @ 0x70D739
+section_start(0x10)
+pic(27)
+dialog_up()
+para_talk("""A malfuntioning
+building is pretty
+bad...""", 0)
+para_talk_end("""But a war is even
+worse!!""", 0)
+section_end()
+
+# 0xBE @ 0x70D8F2
+section_start(0xBE)
+if_flag(1072, 0xCC, 0xFF)
+pic(27)
+dialog_up()
+para_talk("""It's quiz time!
+It's quiz time!""", 0)
+para_talk("""Time to see if
+you've been paying
+attention!""", 0)
+para_talk("""Answer 10 of my
+questions and win
+a prize!""", 0)
+para_talk("""Wanna try?""", 0)
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0xC0, 0xBF], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0xBF @ 0x70D9C2
+section_start(0xBF)
+pic(27)
+dialog_up()
+para_talk_end("""Ah,no need to be
+ashamed that you're
+afraid of failure!""")
+section_end()
+
+# 0xC0 @ 0x70DA0C
+section_start(0xC0)
+pic(27)
+dialog_up()
+para_talk("""Question 1!""", 0)
+para_talk("""Who's Navi is
+called GutsMan?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""Dex
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Yai
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Mayl""")
+pick([0xC1, 0xCB, 0xCB], 0, True, True)
+page()
+end(5)
+section_end()
+
+# 0xC1 @ 0x70DA77
+section_start(0xC1)
+pic(27)
+dialog_up()
+anim(2)
+se(0xE7)
+para_general("""Correct!{anim 1}""", 0)
+para_talk("""Question 2!""", 0)
+para_talk("""Who's the summer
+school teacher in
+Dentown?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""Ms.Miyu
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Ms.Mari
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Ms.Yuri""")
+pick([0xCB, 0xCB, 0xC2], 0, True, True)
+page()
+end(5)
+section_end()
+
+# 0xC2 @ 0x70DB13
+section_start(0xC2)
+pic(27)
+dialog_up()
+anim(2)
+se(0xE7)
+para_general("""Correct!{anim 1}""", 0)
+para_talk("""Question 3!""", 0)
+para_talk("""Who owns the chip
+shop in ACDC Town?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""Bigsby
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Higsby
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Migsby""")
+pick([0xCB, 0xC3, 0xCB], 0, True, True)
+page()
+end(5)
+section_end()
+
+# 0xC3 @ 0x70DBA1
+section_start(0xC3)
+pic(27)
+dialog_up()
+anim(2)
+se(0xE7)
+para_general("""Correct!{anim 1}""", 0)
+para_talk("""Question 4!""", 0)
+para_talk("""How many chairs are
+in the school's
+AV room?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""6
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""8
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""9""")
+pick([0xCB, 0xCB, 0xC4], 0, True, True)
+page()
+end(5)
+section_end()
+
+# 0xC4 @ 0x70DC29
+section_start(0xC4)
+pic(27)
+dialog_up()
+anim(2)
+se(0xE7)
+para_general("""Correct!{anim 1}""", 0)
+para_talk("""Question 5!""", 0)
+para_talk("""What musical
+instrument is in
+Mayl's room?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""A piano
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""A violin
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""A pipe organ""")
+pick([0xC5, 0xCB, 0xCB], 0, True, True)
+page()
+end(5)
+section_end()
+
+# 0xC5 @ 0x70DCC7
+section_start(0xC5)
+pic(27)
+dialog_up()
+anim(2)
+se(0xE7)
+para_general("""Correct!{anim 1}""", 0)
+para_talk("""Question 6!""", 0)
+para_talk("""How old is Yai?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""6
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""8
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""12""")
+pick([0xCB, 0xC6, 0xCB], 0, True, True)
+page()
+end(5)
+section_end()
+
+# 0xC6 @ 0x70DD32
+section_start(0xC6)
+pic(27)
+dialog_up()
+anim(2)
+se(0xE7)
+para_general("""Correct!{anim 1}""", 0)
+para_talk("""Question 7!""", 0)
+para_talk("""What chip do you use
+to escape from a
+battle?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""JackOut
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Steal
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Escape""")
+pick([0xCB, 0xCB, 0xC7], 0, True, True)
+page()
+end(5)
+section_end()
+
+# 0xC7 @ 0x70DDC9
+section_start(0xC7)
+pic(27)
+dialog_up()
+anim(2)
+se(0xE7)
+para_general("""Correct!{anim 1}""", 0)
+para_talk("""Question 8!""", 0)
+para_talk("""The antique shop is
+on what Block of
+Dentown?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""Block2
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Block3
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Block4""")
+pick([0xC8, 0xCB, 0xCB], 0, True, True)
+page()
+end(5)
+section_end()
+
+# 0xC8 @ 0x70DE60
+section_start(0xC8)
+pic(27)
+dialog_up()
+anim(2)
+se(0xE7)
+para_general("""Correct!{anim 1}""", 0)
+para_talk("""Question 9!""", 0)
+para_talk("""What kind of toy
+is in Mayl's room?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""A game machine
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""A stuffed Lan
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""A stuffed animal""")
+pick([0xCB, 0xCB, 0xC9], 0, True, True)
+page()
+end(5)
+section_end()
+
+# 0xC9 @ 0x70DF07
+section_start(0xC9)
+pic(27)
+dialog_up()
+anim(2)
+se(0xE7)
+para_general("""Correct!{anim 1}""", 0)
+para_talk("""Question 10!""", 0)
+para_talk("""What are Ms.Mari's
+measurements?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""30,25,30
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""33,22,33
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""44,33,44""")
+pick([0xCB, 0xCA, 0xCB], 0, True, True)
+page()
+end(5)
+section_end()
+
+# 0xCA @ 0x70DFA0
+section_start(0xCA)
+set_flag(1072)
+pic(27)
+dialog_up()
+anim(2)
+se(0xE7)
+para_general("""Well,well! Very good
+young man!{anim 1}""", 0)
+para_talk("""And here is your
+prize!""", 0)
+hidepic()
+pc_lock()
+pc_anim(30)
+add_chip("Ratton3 M", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("Ratton3")
+text(""" """)
+chip_code("M")
+text("""\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0xCB @ 0x70E035
+section_start(0xCB)
+se(0x6C)
+pic(27)
+dialog_up()
+para_talk("""Yes,I knew that
+you would never pass
+my quiz!""", 0)
+para_talk_end("""Buwahahahahaha!""")
+section_end()
+
+# 0xCC @ 0x70E090
+section_start(0xCC)
+pic(27)
+dialog_up()
+para_talk_end("""Hmmm...I need to
+go out and look for
+some more questions!""")
+section_end()
+
+# 0xDC @ 0x70E0FB
+section_start(0xDC)
+dialog_up()
+para_general_end("""Securely locked.
+You push and pull to
+no avail""")
+section_end()
+
+# 0xDD @ 0x70E132
+section_start(0xDD)
+if_story(0x50, 0x5F, 0xDF, 0xFF)
+dialog_up()
+para_general("""Securely locked""", 0)
+para_general_end("""You'll need to
+unlock it from
+inside the network""")
+section_end()
+
+# 0xDE @ 0x70E184
+section_start(0xDE)
+dialog_up()
+para_general_end("""It's locked...""")
+section_end()
+
+# 0xDF @ 0x70E19E
+section_start(0xDF)
+dialog_up()
+para_general_end("""Only employees are
+allowed in here""")
+section_end()

@@ -1,0 +1,257 @@
+section_count(0x1B)
+
+# 0x00 @ 0x739A32
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Weird...
+I can't use my
+batteries here...""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x739A75
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""For real? Not after
+we made it so far...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x739AB4
+section_start(0x02)
+pic(8)
+dialog_up()
+para_talk("""Lan! I'm here
+at last!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x739AE0
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk_end("""Mayl? You,too?
+What's going on
+here?""", 0)
+section_end()
+
+# 0x04 @ 0x739B19
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""Roll!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x739B32
+section_start(0x05)
+pic(40)
+dialog_up()
+para_talk("""Hiya Mega!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x739B50
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""What are you all
+doing here?""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x739B80
+section_start(0x07)
+pic(8)
+dialog_up()
+para_talk("""I saw you near the
+school entrance...""", 0)
+para_talk("""And I told everyone,
+so we all came to
+help out!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x739BF5
+section_start(0x08)
+pic(0)
+dialog_up()
+para_general("""...{delay}
+{anim 2}Man,I was doing
+fine by myself...{anim 1}""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x739C38
+section_start(0x09)
+pic(8)
+dialog_up()
+para_talk("""Yeah,right!
+Is that any way to
+show gratitude?""", 0)
+para_talk("""Really!{anim 1}{delay}
+{anim 2}Roll,roll out!""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x739CA5
+section_start(0x0A)
+pic(40)
+dialog_up()
+text_talking("""Yep...""")
+page()
+set_flag(227)
+end()
+section_end()
+
+# 0x0B @ 0x739CC2
+section_start(0x0B)
+pic(34)
+dialog_up()
+para_talk_end("""Thanks,Roll!""", 0)
+section_end()
+
+# 0x0C @ 0x739CE0
+section_start(0x0C)
+pic(34)
+dialog_up()
+para_talk("""We did it!""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x739CFE
+section_start(0x0D)
+pic(40)
+dialog_up()
+para_talk_end("""You take care of
+yourself,Mega!""", 0)
+section_end()
+
+# 0x0E @ 0x739D2F
+section_start(0x0E)
+pic(34)
+dialog_up()
+para_talk("""Sure thing!
+Now Lan,thank Mayl.""")
+jump(0x0F)
+section_end()
+
+# 0x0F @ 0x739D64
+section_start(0x0F)
+pic(0)
+dialog_up()
+para_talk("""Humph.""", 0)
+para_talk("""Nobody asked her
+to{anim 1}...{delay} {anim 2}Mayl!""")
+jump(0x10)
+section_end()
+
+# 0x10 @ 0x739DAE
+section_start(0x10)
+pic(8)
+dialog_up()
+para_talk("""What now!?""")
+jump(0x11)
+section_end()
+
+# 0x11 @ 0x739DCD
+section_start(0x11)
+pic(0)
+dialog_up()
+para_talk("""Thanks{anim 1}...{delay}{anim 2}You really
+saved me. Thanks to
+all of you guys.""")
+jump(0x12)
+section_end()
+
+# 0x12 @ 0x739E25
+section_start(0x12)
+pic(8)
+dialog_up()
+para_talk("""Oohhh?""", 0)
+para_talk("""Lan{anim 1}.{delay}.{delay}.{delay}
+{anim 2}I was so worried...""", 0)
+para_general(""".{delay}.{delay}.*sniff*""", 0)
+para_talk("""...Sorry,I meant to
+be cheering you on
+not crying...""", 0)
+para_general("""*sniff*...{delay}
+{anim 2}Good luck,Lan!{anim 1}""")
+jump(0x13)
+section_end()
+
+# 0x13 @ 0x739F01
+section_start(0x13)
+pic(0)
+dialog_up()
+para_talk("""Mayl{anim 1}.{delay}.{delay}.{delay}
+{anim 2}Leave it to me!""")
+jump(0x14)
+section_end()
+
+# 0x14 @ 0x739F3F
+section_start(0x14)
+pic(34)
+dialog_up()
+para_talk("""I'm jacking out!""")
+jump(0x15)
+section_end()
+
+# 0x15 @ 0x739F64
+section_start(0x15)
+pic(51)
+dialog_up()
+anim(2)
+song(0x04)
+para_general_end("""Wait!{anim 1}""")
+section_end()
+
+# 0x16 @ 0x739F7E
+section_start(0x16)
+pic(29)
+dialog_up()
+para_talk("""Sorry to interrupt
+such a touching
+scene...""", 0)
+para_talk("""But this is as far
+as I can allow you
+to go!""")
+jump(0x17)
+section_end()
+
+# 0x17 @ 0x739FF4
+section_start(0x17)
+pic(0)
+dialog_up()
+para_talk("""Who are you!?""")
+jump(0x18)
+section_end()
+
+# 0x18 @ 0x73A016
+section_start(0x18)
+pic(29)
+dialog_up()
+para_talk("""I am Yahoot! Right
+hand man to Wily
+of the WWW!""")
+jump(0x19)
+section_end()
+
+# 0x19 @ 0x73A05A
+section_start(0x19)
+pic(51)
+dialog_up()
+para_talk("""And I am his Navi,
+MagicMan!""", 0)
+para_talk_end("""And for my next
+trick...""", 0)
+section_end()
+
+# 0x1A @ 0x73A0AB
+section_start(0x1A)
+pic(40)
+dialog_up()
+para_talk_end("""Rollflash!!!""", 0)
+section_end()

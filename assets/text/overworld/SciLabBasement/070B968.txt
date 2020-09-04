@@ -1,0 +1,523 @@
+section_count(0xEB)
+
+# 0x00 @ 0x70BB3E
+section_start(0x00)
+if_story(0x43, 0x43, 0x0D, 0xFF)
+if_story(0x41, 0x41, 0x07, 0xFF)
+pic(25)
+dialog_up()
+para_talk("""There was supposed
+to be a foreign
+scientist coming...""", 0)
+text_talking("""I wonder where he
+is?""")
+page()
+set_flag(161)
+end()
+section_end()
+
+# 0x01 @ 0x70BBB5
+section_start(0x01)
+if_story(0x43, 0x43, 0x0E, 0xFF)
+if_story(0x41, 0x41, 0x08, 0xFF)
+pic(26)
+dialog_up()
+para_talk("""Those PETs on
+display...""", 0)
+para_talk("""Are those really the
+latest thing in
+technology?""", 0)
+text_talking("""I heard that they're
+made from recycled
+plastic bottles...""")
+page()
+set_flag(162)
+end()
+section_end()
+
+# 0x02 @ 0x70BC6F
+section_start(0x02)
+if_story(0x43, 0x43, 0x0F, 0xFF)
+if_story(0x41, 0x41, 0x09, 0xFF)
+pic(27)
+dialog_up()
+para_talk("""I think that we have
+the best technology,
+but it's important""", 0)
+para_talk("""to keep abreast of
+the latest trends
+from overseas.""", 0)
+text_talking("""We'll fall behind if
+we don't watch out!""")
+page()
+set_flag(163)
+end()
+section_end()
+
+# 0x03 @ 0x70BD3C
+section_start(0x03)
+if_story(0x43, 0x43, 0x10, 0xFF)
+if_story(0x41, 0x41, 0x0A, 0xFF)
+pic(33)
+dialog_up()
+para_talk("""Hello,kid! What are
+you doing here?""", 0)
+text_talking("""Me? I'm a college
+student. This is
+a part time job.""")
+page()
+set_flag(164)
+end()
+section_end()
+
+# 0x04 @ 0x70BDC1
+section_start(0x04)
+if_story(0x43, 0x43, 0x11, 0xFF)
+if_story(0x41, 0x41, 0x0B, 0xFF)
+pic(27)
+dialog_up()
+para_talk("""Who's that hot thang
+in the dress? She's
+my type!!""", 0)
+para_talk("""What???
+It's your mother??""", 0)
+text("""*gulp*""")
+page()
+set_flag(165)
+end()
+section_end()
+
+# 0x05 @ 0x70BE4C
+section_start(0x05)
+pic(7)
+dialog_up()
+para_talk("""Well,you look like
+you're having fun...""", 0)
+text_talking("""Hmph...Enjoy it
+while you can...""")
+page()
+set_flag(166)
+end()
+section_end()
+
+# 0x06 @ 0x70BEBA
+section_start(0x06)
+if_story(0x43, 0x43, 0x13, 0xFF)
+if_story(0x41, 0x41, 0x0C, 0xFF)
+pic(32)
+dialog_up()
+text_talking("""Well,let's eat!""")
+page()
+set_flag(167)
+end()
+section_end()
+
+# 0x07 @ 0x70BEEC
+section_start(0x07)
+pic(25)
+dialog_up()
+para_talk_end("""I'm scared of the
+dark!!""", 0)
+section_end()
+
+# 0x08 @ 0x70BF17
+section_start(0x08)
+pic(26)
+dialog_up()
+para_talk_end("""Someone has to fix
+the power generator,{anim 1}{delay}
+{anim 2}or we'll all die!""", 0)
+section_end()
+
+# 0x09 @ 0x70BF6B
+section_start(0x09)
+pic(27)
+dialog_up()
+para_talk("""Hmmm,with this power
+outage,the elevators
+must have stopped.""", 0)
+para_talk_end("""The only way to the
+generator would be
+the trash chute.""", 0)
+section_end()
+
+# 0x0A @ 0x70BFFA
+section_start(0x0A)
+pic(33)
+dialog_up()
+para_talk_end("""Must{anim 1}...{delay}
+{anim 2}remain{anim 1}...{delay}
+{anim 2}calm.""", 0)
+section_end()
+
+# 0x0B @ 0x70C038
+section_start(0x0B)
+pic(27)
+dialog_up()
+para_talk("""The electricity
+management program
+is in the generator.""", 0)
+para_talk_end("""If the WWW took
+control of it...That
+would NOT be good.""", 0)
+section_end()
+
+# 0x0C @ 0x70C0C3
+section_start(0x0C)
+pic(32)
+dialog_up()
+para_talk_end("""Oh,dear!
+Oh,dear!""", 0)
+section_end()
+
+# 0x0D @ 0x70C0E8
+section_start(0x0D)
+pic(25)
+dialog_up()
+para_talk_end("""The lights!
+They're back!
+Thank goodness...""", 0)
+section_end()
+
+# 0x0E @ 0x70C129
+section_start(0x0E)
+pic(26)
+dialog_up()
+para_talk_end("""So we're safe now?""", 0)
+section_end()
+
+# 0x0F @ 0x70C14D
+section_start(0x0F)
+pic(27)
+dialog_up()
+para_talk_end("""So you're the one
+who saved us!
+Thank you!""", 0)
+section_end()
+
+# 0x10 @ 0x70C18A
+section_start(0x10)
+pic(33)
+dialog_up()
+para_talk_end("""I managed to stay
+calm the whole time.
+...Mostly!""", 0)
+section_end()
+
+# 0x11 @ 0x70C1D0
+section_start(0x11)
+pic(27)
+dialog_up()
+para_talk_end("""Oh,thank goodness
+we're safe...""", 0)
+section_end()
+
+# 0x12 @ 0x70C204
+section_start(0x12)
+set_flag(160)
+end()
+section_end()
+
+# 0x13 @ 0x70C20D
+section_start(0x13)
+set_flag(198)
+end()
+section_end()
+
+# 0x14 @ 0x70C216
+section_start(0x14)
+if_story(0x53, 0x54, 0x19, 0xFF)
+pic(33)
+dialog_up()
+para_talk_end("""I'm so bored...""", 0)
+section_end()
+
+# 0x15 @ 0x70C23F
+section_start(0x15)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! We need to get
+back to Mom! She'll
+be worried!""")
+section_end()
+
+# 0x19 @ 0x70C28C
+section_start(0x19)
+pic(33)
+dialog_up()
+para_talk("""If the EndGame were
+to start now...""", 0)
+para_talk_end("""Would I be trapped
+here again?""", 0)
+section_end()
+
+# 0x23 @ 0x70C2FB
+section_start(0x23)
+if_story(0x41, 0x42, 0x2D, 0xFF)
+if_story(0x43, 0x43, 0x37, 0xFF)
+pic(17)
+dialog_up()
+text_talking("""I just asked nicely,
+and they let me in!""")
+page()
+set_flag(168)
+end()
+section_end()
+
+# 0x24 @ 0x70C345
+section_start(0x24)
+if_story(0x41, 0x42, 0x2E, 0xFF)
+if_story(0x43, 0x43, 0x38, 0xFF)
+pic(19)
+dialog_up()
+text_talking("""I haven't been to
+a good party in
+years!""")
+page()
+set_flag(169)
+end()
+section_end()
+
+# 0x25 @ 0x70C38F
+section_start(0x25)
+if_story(0x41, 0x42, 0x2F, 0xFF)
+if_story(0x43, 0x43, 0x39, 0xFF)
+pic(15)
+dialog_up()
+para_talk("""What do you mean,
+what am I doing
+here?""", 0)
+text_talking("""I'm the chef!!""")
+page()
+set_flag(170)
+end()
+section_end()
+
+# 0x2D @ 0x70C3FF
+section_start(0x2D)
+pic(17)
+dialog_up()
+para_talk("""Now I wish that
+I hadn't come!""", 0)
+para_talk_end("""No such thing as a
+free lunch,I guess.""", 0)
+section_end()
+
+# 0x2E @ 0x70C45F
+section_start(0x2E)
+pic(19)
+dialog_up()
+para_talk("""I've never seen such
+largeーscale
+entertainment!""", 0)
+para_talk_end("""What?
+It's not just a
+show? Uh,oh...""", 0)
+section_end()
+
+# 0x2F @ 0x70C4D3
+section_start(0x2F)
+pic(15)
+dialog_up()
+para_talk_end("""Everyone,please
+remain calm! This is
+no time to panic!""", 0)
+section_end()
+
+# 0x37 @ 0x70C52A
+section_start(0x37)
+pic(17)
+dialog_up()
+para_talk_end("""Wow... Wish I
+hadn't come,now...
+Total bummer...""")
+section_end()
+
+# 0x38 @ 0x70C575
+section_start(0x38)
+pic(19)
+dialog_up()
+para_talk("""Well that was over
+fast...""", 0)
+para_talk_end("""You're sure it
+wasn't just a show?""")
+section_end()
+
+# 0x39 @ 0x70C5CF
+section_start(0x39)
+pic(15)
+dialog_up()
+para_talk_end("""Well,I'm glad that
+that's over...""")
+section_end()
+
+# 0xBE @ 0x70C70E
+section_start(0xBE)
+if_flag(1062, 0xC2, 0xFF)
+pic(16)
+dialog_up()
+para_talk("""My girlfriend said
+she wants cute
+chips...""", 0)
+text("""{anim 2}All I have is this
+""")
+chip_id("WoodAura")
+text(""" """)
+chip_code("C")
+para_general("""!{anim 1}""", 0)
+para_talk("""She'll get mad if
+I give her this!""", 0)
+para_talk("""I don't suppse you'd
+trade this chip for""", 0)
+text("""{anim 2}a """)
+chip_id("Invis2")
+text(""" """)
+chip_code("J")
+text(""",
+a """)
+chip_id("Cloudest")
+text(""" """)
+chip_code("K")
+text(""",
+and a """)
+chip_id("Ratton3")
+text(""" """)
+chip_code("L")
+para_general("""?{anim 1}""", 0)
+text_talking("""Please!
+""")
+option(1, 1, 0, 0)
+pad(2)
+text("""Sure!
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""No way!""")
+pick([0xC0, 0xBF], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0xBF @ 0x70C83B
+section_start(0xBF)
+pic(16)
+dialog_up()
+para_talk_end("""Awwww,where am I
+going to find those
+chips!?""")
+section_end()
+
+# 0xC0 @ 0x70C87A
+section_start(0xC0)
+check_chip_pack("Invis2 J", 1, 0xFF, 0xFF, 0xC1)
+check_chip_pack("Cloudest K", 1, 0xFF, 0xFF, 0xC1)
+check_chip_pack("Ratton3 L", 1, 0xFF, 0xFF, 0xC1)
+set_flag(1062)
+pic(16)
+dialog_up()
+para_talk("""Thanks so much!
+You've saved me!""", 0)
+para_talk("""Now my girlfriend
+cannot resist me!""", 0)
+hidepic()
+pc_lock()
+pc_anim(30)
+add_chip("WoodAura C", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Invis2 J", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Cloudest K", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Ratton3 L", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("WoodAura")
+text(""" """)
+chip_code("C")
+text("""\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0xC1 @ 0x70C948
+section_start(0xC1)
+pic(16)
+dialog_up()
+para_talk("""No,no! I have to
+give her""", 0)
+text("""{anim 2}a """)
+chip_id("Invis2")
+text(""" """)
+chip_code("J")
+text(""",
+a """)
+chip_id("Cloudest")
+text(""" """)
+chip_code("K")
+text(""",
+and a """)
+chip_id("Ratton3")
+text(""" """)
+chip_code("L")
+para_general("""!{anim 1}""", 0)
+para_talk("""Are you sure that
+you don't have those
+in your chip folder?""", 0)
+para_talk("""Remember,you have to
+have the chips in
+your backpack""", 0)
+para_talk_end("""before you can
+trade them!""")
+section_end()
+
+# 0xC2 @ 0x70CA4D
+section_start(0xC2)
+pic(16)
+dialog_up()
+para_talk_end("""I know my girlfriend
+is gonna love these
+chips! Thanks!""")
+section_end()
+
+# 0xDC @ 0x70CAC8
+section_start(0xDC)
+dialog_up()
+para_general_end("""The kitchen is
+through here.
+Smells wonderful!""")
+section_end()
+
+# 0xDD @ 0x70CB00
+section_start(0xDD)
+dialog_up()
+para_general_end("""Delicious looking
+food is laid out
+here""")
+section_end()
+
+# 0xDE @ 0x70CB2F
+section_start(0xDE)
+dialog_up()
+para_general("""A line of PETs made
+from recycled
+plastic bottles""", 0)
+para_general_end("""{anim 2}You wonder if you
+can jack in...""")
+section_end()
+
+# 0xDF @ 0x70CB91
+section_start(0xDF)
+dialog_up()
+para_general("""These plastic
+bottles will be
+recycled and""", 0)
+para_general_end("""remade as the new
+PETs""")
+section_end()
+
+# 0xE0 @ 0x70CBDD
+section_start(0xE0)
+dialog_up()
+para_general_end("""A cart used to take
+food to the tables""")
+section_end()

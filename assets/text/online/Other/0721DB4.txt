@@ -1,0 +1,43 @@
+section_count(0xA)
+
+# 0x00 @ 0x721DC8
+section_start(0x00)
+pic(36)
+dialog_up()
+para_talk("""Until recently,we
+were viruses working
+for the WWW!""", 0)
+para_talk("""We've reformed,
+though,and now we
+work as teachers!""", 0)
+para_talk_end("""Sure does feel a lot
+better doing this
+job!""")
+section_end()
+
+# 0x01 @ 0x721E80
+section_start(0x01)
+pic(36)
+dialog_up()
+para_talk_end("""We're working extra
+hard to make up for
+our crimes!""")
+section_end()
+
+# 0x02 @ 0x721EC5
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(864)
+pc_lock()
+pc_anim(50)
+add_item("PowerUP", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a
+PowerUp;\"{key PowerUP}\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()

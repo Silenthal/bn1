@@ -1,0 +1,134 @@
+section_count(0xC)
+
+# 0x00 @ 0x736520
+section_start(0x00)
+pic(46)
+dialog_up()
+para_talk("""How can this be!?
+A civilian Navi beat
+a NetBattler? Never!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x736572
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Don't get it?{anim 1}{delay}
+{anim 2}'Cause you're an
+official Navi,you""", 0)
+para_talk("""can carry your own
+battle chipsーーso you
+can fight alone!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x736603
+section_start(0x02)
+pic(46)
+dialog_up()
+para_talk("""That's right...
+And I've fought
+alone every time!""", 0)
+para_talk("""And I've never lost!
+Not once!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x736676
+section_start(0x03)
+pic(34)
+dialog_up()
+para_talk("""...'Cause I'm a
+civilian Navi,I
+can't fight alone.""", 0)
+para_talk("""That's why I've got
+Lan backing me up!""", 0)
+para_talk("""We've come this far
+together...{anim 1}{delay}{anim 2}Because
+we fight as a team!""", 0)
+para_talk("""The better friends
+you are with your
+operator...""", 0)
+para_talk("""The better you
+fight!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73679C
+section_start(0x04)
+pic(46)
+dialog_up()
+para_talk("""Friends?""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x7367B8
+section_start(0x05)
+pic(7)
+dialog_up()
+para_talk("""ProtoMan!
+Don't listen to
+their nonsense!""")
+para_talk("""Jack out,now!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x73680E
+section_start(0x06)
+pic(46)
+dialog_up()
+para_talk("""Wait,please,
+Lord Chaud!!""", 0)
+para_talk("""You're MegaMan...{anim 1}{delay}
+{anim 2}right? Just tell me
+one thing...""", 0)
+para_talk("""How do you see your
+operator,this \"Lan\"?
+Who is he to you?""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x7368CF
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk("""Why...{anim 1}{delay}
+{anim 2}He's my best friend!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x73690A
+section_start(0x08)
+pic(46)
+dialog_up()
+para_talk("""Friend...huh...{anim 1}{delay}
+{anim 2}I never thought
+of that...""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x736958
+section_start(0x09)
+pic(7)
+dialog_up()
+para_talk_end("""Let's go,ProtoMan!
+Jack out!!""", 0)
+section_end()
+
+# 0x0A @ 0x73698A
+section_start(0x0A)
+pic(34)
+dialog_up()
+para_talk("""Lan,we have to jack
+out too and get that
+power plant going!""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x7369DA
+section_start(0x0B)
+pic(0)
+dialog_up()
+para_talk_end("""OK!!""", 0)
+section_end()

@@ -1,0 +1,44 @@
+section_count(0x5)
+
+# 0x00 @ 0x73253E
+section_start(0x00)
+pic(0)
+dialog_up()
+text_talking("""Stop!""")
+wait(30)
+end()
+section_end()
+
+# 0x01 @ 0x732556
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Oh no,we're too
+late!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x732581
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""Lan!?""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x73259B
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""I know! I'm not
+giving up yet!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x7325CF
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk_end("""I'll jack out right
+away!""", 0)
+section_end()

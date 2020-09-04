@@ -1,21 +1,14 @@
 section_count(0xEB)
 
-# 6EC8B6
+# 0x00 @ 0x6EC8B6
 section_start(0x00)
 if_story(0x51, 0x52, 0x05, 0xFF)
 if_story(0x53, 0x54, 0x0F, 0xFF)
 pic(3)
 dialog_up()
-anim(2)
-text("""Hello there,Lan!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Did you know that
-I have a twin?""")
-anim(1)
-text("""
+para_talk("""Hello there,Lan!""", 0)
+text("""{anim 2}Did you know that
+I have a twin?{anim 1}
 """)
 option(0, 0, 1, 1)
 pad(2)
@@ -24,46 +17,27 @@ option(1, 1, 0, 0)
 pad(2)
 text("""Yes""")
 pick([0x01, 0xFF], 0, False, True)
-anim(2)
-text("""Oh,you did?""")
-anim(1)
-page()
-end()
+para_talk_end("""Oh,you did?""", 0)
 section_end()
 
-# 6EC936
+# 0x01 @ 0x6EC936
 section_start(0x01)
 pic(3)
 dialog_up()
-anim(2)
-text("""My twin sister's
-name is Yuri!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""She works in Dentown
-as a teacher!""")
-anim(1)
-page()
-end()
+para_talk("""My twin sister's
+name is Yuri!""", 0)
+para_talk_end("""She works in Dentown
+as a teacher!""", 0)
 section_end()
 
-# 6EC997
+# 0x05 @ 0x6EC997
 section_start(0x05)
-check_item("Lab Memo", 1, 0x07, 0x07, 0xFF)
+check_item("Lab_Memo", 1, 0x07, 0x07, 0xFF)
 pic(3)
 dialog_up()
-anim(2)
-text("""Hello there,Lan!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Did you know that
-I have a twin?""")
-anim(1)
-text("""
+para_talk("""Hello there,Lan!""", 0)
+text("""{anim 2}Did you know that
+I have a twin?{anim 1}
 """)
 option(0, 0, 1, 1)
 pad(2)
@@ -72,187 +46,129 @@ option(1, 1, 0, 0)
 pad(2)
 text("""Yes""")
 pick([0x06, 0xFF], 0, False, True)
-anim(2)
-text("""Oh,you did?""")
-anim(1)
-page()
-end()
+para_talk_end("""Oh,you did?""", 0)
 section_end()
 
-# 6ECA12
+# 0x06 @ 0x6ECA12
 section_start(0x06)
 pic(3)
 dialog_up()
-anim(2)
-text("""My twin sister's
-name is Yuri!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""She works in Dentown
-as a teacher!""")
-anim(1)
-page()
-end()
+para_talk("""My twin sister's
+name is Yuri!""", 0)
+para_talk_end("""She works in Dentown
+as a teacher!""", 0)
 section_end()
 
-# 6ECA6D
+# 0x07 @ 0x6ECA6D
 section_start(0x07)
 check_item("YuriMemo", 1, 0x08, 0x08, 0xFF)
 pic(3)
 dialog_up()
-anim(2)
-text("""Me? A former member
+para_talk("""Me? A former member
 of the WWW? You've
-got to be kidding!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""But I guess that I
+got to be kidding!""", 0)
+para_talk("""But I guess that I
 AM young and
-beautiful...""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Just kidding!
-Just kidding!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Maybe I should go
-take a rest...""")
-anim(1)
-page()
-end()
+beautiful...""", 0)
+para_talk("""Just kidding!
+Just kidding!""", 0)
+para_talk_end("""Maybe I should go
+take a rest...""", 0)
 section_end()
 
-# 6ECB48
+# 0x08 @ 0x6ECB48
 section_start(0x08)
 pic(3)
 dialog_up()
-anim(2)
-text("""I wasn't able to get
+para_talk_end("""I wasn't able to get
 in touch with Yuri
-for almost a year.""")
-anim(1)
-page()
-end()
+for almost a year.""", 0)
 section_end()
 
-# 6ECBA0
+# 0x0F @ 0x6ECBA0
 section_start(0x0F)
 pic(3)
 dialog_up()
-anim(2)
-text("""Yuri has gone off
+para_talk_end("""Yuri has gone off
 again! At a time
-like this!!""")
-anim(1)
-page()
-end()
+like this!!""", 0)
 section_end()
 
-# 6ECD79
+# 0xDC @ 0x6ECD79
 section_start(0xDC)
 dialog_up()
-text("""This is the server
+para_general_end("""This is the server
 for the school
 network""")
-page()
-end(5)
 section_end()
 
-# 6ECDAA
+# 0xDD @ 0x6ECDAA
 section_start(0xDD)
 dialog_up()
-text("""A graph of net
-crime rates""")
-page()
-wait()
-text("""Crime was falling,
+para_general("""A graph of net
+crime rates""", 0)
+para_general_end("""Crime was falling,
 but is now on the
 rise again""")
-page()
-end(5)
 section_end()
 
-# 6ECE00
+# 0xDE @ 0x6ECE00
 section_start(0xDE)
 dialog_up()
-text("""\"Net crime is on
+para_general_end("""\"Net crime is on
  the rise! Use
  precaution!\"""")
-page()
-end(5)
 section_end()
 
-# 6ECE39
+# 0xDF @ 0x6ECE39
 section_start(0xDF)
 dialog_up()
-text("""Ah,nothing like
+para_general_end("""Ah,nothing like
 the aroma of fresh
 coffee""")
-page()
-end(5)
 section_end()
 
-# 6ECE6B
+# 0xE0 @ 0x6ECE6B
 section_start(0xE0)
 dialog_up()
-text("""The class roll is
+para_general_end("""The class roll is
 listed here""")
-page()
-end(5)
 section_end()
 
-# 6ECE90
+# 0xE1 @ 0x6ECE90
 section_start(0xE1)
 dialog_up()
-text("""What a silly
+para_general_end("""What a silly
 looking doll...""")
-page()
-end(5)
 section_end()
 
-# 6ECEB7
+# 0xE2 @ 0x6ECEB7
 section_start(0xE2)
 dialog_up()
-text("""There are some very
+para_general_end("""There are some very
 difficult books
 lined up here""")
-page()
-end(5)
 section_end()
 
-# 6ECEF0
+# 0xE3 @ 0x6ECEF0
 section_start(0xE3)
 dialog_up()
-text("""The manual for the
+para_general_end("""The manual for the
 server. Looks pretty
 technical""")
-page()
-end(5)
 section_end()
 
-# 6ECF2A
+# 0xE4 @ 0x6ECF2A
 section_start(0xE4)
 dialog_up()
-text("""The door is locked
+para_general_end("""The door is locked
 and won't open""")
-page()
-end(5)
 section_end()
 
-# 6ECF54
+# 0xE5 @ 0x6ECF54
 section_start(0xE5)
 dialog_up()
-text("""It's probably not a
+para_general_end("""It's probably not a
 good idea to open
 a teacher's desk""")
-page()
-end(5)
 section_end()

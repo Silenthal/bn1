@@ -1,106 +1,81 @@
 section_count(0xEC)
 
-# 6E7460
+# 0x00 @ 0x6E7460
 section_start(0x00)
 if_flag(164, 0x10, 0xFF)
 pic(17)
 dialog_up()
-anim(2)
-text("""Good morning!
-This is the library""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""It's good to read,
+para_talk("""Good morning!
+This is the library""", 0)
+para_talk_end("""It's good to read,
 but shouldn't you
 be in class?""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E74D5
+# 0x01 @ 0x6E74D5
 section_start(0x01)
 if_story(0x13, 0x13, 0x0F, 0xFF)
 dialog_up()
-text("""Encyclopedias are
+para_general_end("""Encyclopedias are
 lined up on this
 shelf""")
-page()
-end(5)
 section_end()
 
-# 6E750B
+# 0x02 @ 0x6E750B
 section_start(0x02)
 dialog_up()
-text("""Photo and picture
+para_general_end("""Photo and picture
 books are on this
 shelf""")
-page()
-end(5)
 section_end()
 
-# 6E753C
+# 0x03 @ 0x6E753C
 section_start(0x03)
 dialog_up()
-text("""Reference books
+para_general_end("""Reference books
 are lined up on
 this shelf""")
-page()
-end(5)
 section_end()
 
-# 6E756E
+# 0x04 @ 0x6E756E
 section_start(0x04)
 dialog_up()
-text("""Reference books
+para_general_end("""Reference books
 are lined up on
 this shelf""")
-page()
-end(5)
 section_end()
 
-# 6E75A0
+# 0x05 @ 0x6E75A0
 section_start(0x05)
 dialog_up()
-text("""Story books
+para_general_end("""Story books
 are lined up on
 this shelf""")
-page()
-end(5)
 section_end()
 
-# 6E75CE
+# 0x06 @ 0x6E75CE
 section_start(0x06)
 dialog_up()
-text("""Story books
+para_general_end("""Story books
 are lined up on
 this shelf""")
-page()
-end(5)
 section_end()
 
-# 6E75FC
+# 0x07 @ 0x6E75FC
 section_start(0x07)
 if_flag(693, 0xFF, 0x08)
 dialog_up()
-key_item("PET")
-text(""" manuals
+para_general_end("""{key PET} manuals
 are lined up on
 this shelf""")
-page()
-end(5)
 section_end()
 
-# 6E7631
+# 0x08 @ 0x6E7631
 section_start(0x08)
 dialog_up()
-text("""Something is
+para_general("""Something is
 stuck between the
-books""")
-page()
-wait()
+books""", 0)
 set_flag(693)
 pc_anim(30)
 add_chip("Escape H", 1, 0xFF, 0xFF, 0xFF)
@@ -116,88 +91,55 @@ page()
 end(5)
 section_end()
 
-# 6E76A5
+# 0x0F @ 0x6E76A5
 section_start(0x0F)
 dialog_up()
-text("""Encyclopedias are
+para_general("""Encyclopedias are
 lined up on this
-shelf""")
-page()
-wait()
-text("""There are 30 volumes
+shelf""", 0)
+para_general_end("""There are 30 volumes
 of History of the
 World here""")
-page()
-end(5)
 section_end()
 
-# 6E770A
+# 0x10 @ 0x6E770A
 section_start(0x10)
 pic(17)
 dialog_up()
-anim(2)
-text("""No blackboard here,
+para_talk("""No blackboard here,
 but the speech
-program is on""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""the PC.""")
-anim(1)
-page()
-end(5)
+program is on""", 0)
+para_talk_end("""the PC.""")
 section_end()
 
-# 6E775B
+# 0x11 @ 0x6E775B
 section_start(0x11)
 pic(10)
 dialog_up()
-anim(2)
-text("""It's a good time to
+para_talk("""It's a good time to
 take one's mind off
-of things by""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""reading a good book.""")
-anim(1)
-page()
-end(5)
+of things by""", 0)
+para_talk_end("""reading a good book.""")
 section_end()
 
-# 6E77CC
+# 0x19 @ 0x6E77CC
 section_start(0x19)
 pic(17)
 dialog_up()
-anim(2)
-text("""Please be quiet in
+para_talk_end("""Please be quiet in
 the library. And
 don't run!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E780D
+# 0x1A @ 0x6E780D
 section_start(0x1A)
 pic(9)
 dialog_up()
-anim(2)
-text("""I just read that the
-""")
-key_item("PET")
-text(""" was invented by
+para_talk("""I just read that the
+{key PET} was invented by
 Dr.Hikari.""")
-anim(1)
-page()
-wait(5)
-anim(2)
-text("""Is that your dad?
-He's a scientist?""")
-anim(1)
-text("""
+text("""{anim 2}Is that your dad?
+He's a scientist?{anim 1}
 """)
 option(0, 0, 1, 1)
 pad(2)
@@ -206,11 +148,8 @@ option(1, 1, 0, 0)
 pad(2)
 text("""No""")
 pick([0x1B, 0xFF], 0, False, True)
-anim(2)
-text("""So the name is a
-coincidence?""")
-anim(1)
-text("""
+text("""{anim 2}So the name is a
+coincidence?{anim 1}
 """)
 option(0, 0, 1, 1)
 pad(2)
@@ -219,129 +158,93 @@ option(1, 1, 0, 0)
 pad(2)
 text("""No""")
 pick([0x1C, 0xFF], 0, False, True)
-anim(2)
-text("""Wow! This must be
+para_talk_end("""Wow! This must be
 your grandfather!
 How cool!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E7907
+# 0x1B @ 0x6E7907
 section_start(0x1B)
 pic(9)
 dialog_up()
-anim(2)
-text("""Huh? But this book
+para_talk_end("""Huh? But this book
 says that he was 45!
 Your dad's that old?""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E7957
+# 0x1C @ 0x6E7957
 section_start(0x1C)
 pic(9)
 dialog_up()
-anim(2)
-text("""That's strange... He
+para_talk_end("""That's strange... He
 looks a lot like you.
 Er,like your dad.""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E79AA
+# 0x1D @ 0x6E79AA
 section_start(0x1D)
 pic(10)
 dialog_up()
-anim(2)
-text("""There's nothing as
+para_talk_end("""There's nothing as
 moving as a good
 story.""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E79F0
+# 0x23 @ 0x6E79F0
 section_start(0x23)
 pic(17)
 dialog_up()
-anim(2)
-text("""Good morning!
+para_talk_end("""Good morning!
 Shouldn't you be
-in class?""")
-anim(1)
-page()
-end()
+in class?""", 0)
 section_end()
 
-# 6E7B9B
+# 0xDC @ 0x6E7B9B
 section_start(0xDC)
 dialog_up()
-text("""You can look up any
+para_general_end("""You can look up any
 book you want with
 this machine""")
-page()
-end(5)
 section_end()
 
-# 6E7BD6
+# 0xDD @ 0x6E7BD6
 section_start(0xDD)
 dialog_up()
-text("""Students who loaned
+para_general("""Students who loaned
 the most books are
-listed here""")
-page()
-wait()
-text("""Yai is number
+listed here""", 0)
+para_general_end("""Yai is number
 one by far""")
-page()
-end(5)
 section_end()
 
-# 6E7C2C
+# 0xDE @ 0x6E7C2C
 section_start(0xDE)
 dialog_up()
-text("""Be quiet in the
+para_general_end("""Be quiet in the
 library!""")
-page()
-end(5)
 section_end()
 
-# 6E7C4D
+# 0xDF @ 0x6E7C4D
 section_start(0xDF)
 dialog_up()
-text("""\"Virus Attack!\"""")
-page()
-wait()
-text("""by Rob Fatline
+para_general("""\"Virus Attack!\"""", 0)
+para_general_end("""by Rob Fatline
 from ElBooks!
 On loan now!""")
-page()
-end(5)
 section_end()
 
-# 6E7C98
+# 0xE1 @ 0x6E7C98
 section_start(0xE1)
 dialog_up()
-text("""This PC manages
+para_general_end("""This PC manages
 who borrowed what
 books""")
-page()
-end(5)
 section_end()
 
-# 6E7CC7
+# 0xE2 @ 0x6E7CC7
 section_start(0xE2)
 dialog_up()
-text("""Many small fish
+para_general_end("""Many small fish
 are swimming here.
 Very calming!""")
-page()
-end(5)
 section_end()

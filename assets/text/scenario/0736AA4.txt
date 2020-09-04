@@ -1,0 +1,89 @@
+section_count(0x8)
+
+# 0x00 @ 0x736AB4
+section_start(0x00)
+pic(32)
+dialog_up()
+para_talk("""Lan! Where were you?
+I...{anim 1}{delay}{anim 2}I was so
+worried!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x736AFF
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Sorry,Mom!
+But we're fine,see?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x736B35
+section_start(0x02)
+hidepic()
+dialog_up()
+set_flag(200)
+para_general("""*beebeebeep*""", 0)
+pic(34)
+para_talk("""Lan! You've got
+mail! It's from
+Dad!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x736B89
+section_start(0x03)
+pic(28, 1)
+dialog_up()
+para_general("""That was a long
+power out! Is
+everybody OK?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x736BC5
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk("""That's my dad,as
+clueless as ever...""", 0)
+para_talk("""\"Dear Dad,don't
+worry,MegaMan is
+looking after me!\"""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x736C42
+section_start(0x05)
+pic(32)
+dialog_up()
+para_talk("""Oh well...I guess
+the party's over.
+Shall we go home?""", 0)
+para_talk("""Lan? Do you want to
+stop for something
+to eat on the way?""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x736CD3
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""Yeah,now that you
+mention it,I haven't
+eaten since lunch!""", 0)
+para_talk("""I'm starving!!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x736D3C
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk("""I guess you need to
+recharge,too!""", 0)
+hidepic()
+para_general_end("""Hah hah hah!""", 0)
+section_end()

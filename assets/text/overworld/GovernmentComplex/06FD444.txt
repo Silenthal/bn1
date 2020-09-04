@@ -1,0 +1,791 @@
+section_count(0xEB)
+
+# 0x00 @ 0x6FD61A
+section_start(0x00)
+if_story(0x30, 0x37, 0x28, 0xFF)
+if_story(0x24, 0x24, 0x14, 0xFF)
+if_flag(224, 0x03, 0xFF)
+pic(26)
+dialog_up()
+para_talk("""Welcome to the
+SciLab!""", 0)
+para_talk("""Here we are using
+the power of science
+to improve our life.""", 0)
+text("""{anim 2}Can I help you?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x01, 0xFF], 0, False, True)
+para_talk_end("""Important research
+is going on,so
+please keep quiet.""", 0)
+section_end()
+
+# 0x01 @ 0x6FD701
+section_start(0x01)
+pic(26)
+dialog_up()
+para_talk("""You're Dr.Hikari's
+son? I think he's in
+his lab. Wanna go?""", 0)
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x02, 0xFF], 0, False, True)
+para_talk_end("""Let me know if
+you change your
+mind.""", 0)
+section_end()
+
+# 0x02 @ 0x6FD796
+section_start(0x02)
+pic(26)
+dialog_up()
+para_talk("""Then please use
+that elevator.""", 0)
+text_talking("""The elevator program
+will take you there
+automatically.""")
+set_flag(224)
+page()
+end()
+section_end()
+
+# 0x03 @ 0x6FD809
+section_start(0x03)
+pic(26)
+dialog_up()
+para_talk("""Welcome to the
+SciLab!""", 0)
+para_talk_end("""Here we are using
+the power of science
+to improve our life.""", 0)
+section_end()
+
+# 0x04 @ 0x6FD874
+section_start(0x04)
+pic(26)
+dialog_up()
+para_talk_end("""That elevator may
+only be used by
+staff members.""", 0)
+section_end()
+
+# 0x05 @ 0x6FD8B5
+section_start(0x05)
+check_item("SciLabID", 1, 0x17, 0x17, 0xFF)
+if_story(0x24, 0x24, 0x15, 0xFF)
+if_story(0x40, 0x40, 0x17, 0xFF)
+dialog_up()
+para_general_end("""The elevator doors
+opened!""", 0)
+section_end()
+
+# 0x06 @ 0x6FD8EB
+section_start(0x06)
+if_story(0x30, 0x37, 0x29, 0xFF)
+if_story(0x24, 0x24, 0x19, 0xFF)
+pic(25)
+dialog_up()
+para_talk("""We accept new
+inventions here...""", 0)
+para_talk_end("""...but not from
+small children.""", 0)
+section_end()
+
+# 0x07 @ 0x6FD955
+section_start(0x07)
+if_story(0x30, 0x37, 0x2A, 0xFF)
+if_story(0x24, 0x24, 0x1A, 0xFF)
+pic(26)
+dialog_up()
+para_talk("""Please pay your
+{key PET} bills here.""", 0)
+para_talk_end("""...however,children
+don't have to pay.""", 0)
+section_end()
+
+# 0x08 @ 0x6FD9C6
+section_start(0x08)
+if_story(0x30, 0x37, 0x2B, 0xFF)
+if_story(0x24, 0x24, 0x1B, 0xFF)
+if_story(0x25, 0x25, 0x23, 0xFF)
+if_story(0x26, 0x26, 0x23, 0xFF)
+if_story(0x27, 0x27, 0x23, 0xFF)
+pic(27)
+dialog_up()
+para_talk_end("""Hmmmm... Hmmmm...""", 0)
+section_end()
+
+# 0x09 @ 0x6FDA0B
+section_start(0x09)
+if_story(0x30, 0x37, 0x2C, 0xFF)
+if_story(0x24, 0x24, 0x1C, 0xFF)
+pic(27)
+dialog_up()
+para_talk_end("""I'm watching all
+these TVs looking
+for new ideas.""", 0)
+section_end()
+
+# 0x0A @ 0x6FDA5A
+section_start(0x0A)
+if_story(0x30, 0x37, 0x2D, 0xFF)
+if_story(0x24, 0x24, 0x1D, 0xFF)
+pic(27)
+dialog_up()
+para_talk("""The highest level
+research goes on in
+this building.""", 0)
+para_talk("""I'll tell you about
+my research into
+program morphing.""", 0)
+para_talk("""Sometimes when you
+send chip data,the
+chips will morph.""", 0)
+para_talk("""For example,3 codeー
+ordered Canon chips
+become a ZetaCannon!""", 0)
+para_talk_end("""This can also happen
+with several chips
+with the same code.""", 0)
+section_end()
+
+# 0x0B @ 0x6FDBB6
+section_start(0x0B)
+if_story(0x30, 0x37, 0x2E, 0xFF)
+if_story(0x24, 0x24, 0x1E, 0xFF)
+pic(25)
+dialog_up()
+para_talk("""Dr.Hikari was the
+person who invented
+the {key PET}.""", 0)
+para_talk_end("""His research is
+being carried on by
+his son.""", 0)
+section_end()
+
+# 0x0C @ 0x6FDC38
+section_start(0x0C)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,I don't think
+it will open.""", 0)
+section_end()
+
+# 0x14 @ 0x6FDC78
+section_start(0x14)
+pic(26)
+dialog_up()
+para_talk("""Welcome to the
+SciLab!""", 0)
+para_talk("""Here we are using
+the power of science
+to improve our life.""", 0)
+para_talk_end("""Please ask the
+Waterworks questions
+about the drought.""")
+section_end()
+
+# 0x15 @ 0x6FDD22
+section_start(0x15)
+check_item("SciLabID", 1, 0x17, 0xFF, 0xFF)
+if_flag(225, 0x16, 0xFF)
+pic(26)
+dialog_up()
+para_talk("""Hello again! I'll
+set the program
+for your dad's floor""", 0)
+set_flag(225)
+jump(0x16)
+section_end()
+
+# 0x16 @ 0x6FDD7F
+section_start(0x16)
+hidepic()
+dialog_up()
+para_general_end("""The elevator doors
+opened!""")
+section_end()
+
+# 0x17 @ 0x6FDDA4
+section_start(0x17)
+dialog_up()
+para_general("""An elevator switch.""", 0)
+para_general("""Lan used the
+{key SciLabID}!""", 0)
+para_general_end("""The elevator doors
+opened!""")
+section_end()
+
+# 0x18 @ 0x6FDDF6
+section_start(0x18)
+pic(34)
+dialog_up()
+para_talk_end("""OK! Let's get to
+Dad's lab!""")
+section_end()
+
+# 0x19 @ 0x6FDE25
+section_start(0x19)
+pic(25)
+dialog_up()
+para_talk("""We accept new
+inventions here...""", 0)
+para_talk("""...but not from
+small children.""", 0)
+para_talk_end("""Please ask the
+Waterworks questions
+about the drought.""")
+section_end()
+
+# 0x1A @ 0x6FDEC2
+section_start(0x1A)
+pic(26)
+dialog_up()
+para_talk("""Please pay your
+PET bills here.""", 0)
+para_talk("""...however,children
+don't have to pay.""", 0)
+para_talk_end("""Please ask the
+Waterworks questions
+about the drought.""")
+section_end()
+
+# 0x1B @ 0x6FDF65
+section_start(0x1B)
+pic(27)
+dialog_up()
+para_talk_end("""Hmmmm...Hmmmm...""")
+section_end()
+
+# 0x1C @ 0x6FDF8B
+section_start(0x1C)
+pic(27)
+dialog_up()
+para_talk_end("""I'm watching all
+these TVs looking
+for new ideas.""")
+section_end()
+
+# 0x1D @ 0x6FDFCE
+section_start(0x1D)
+pic(27)
+dialog_up()
+para_general_end("""...{anim 2}Argh!{anim 1}{delay}{anim 2} I can't
+get any work done
+with all this noise!{anim 1}""")
+section_end()
+
+# 0x1E @ 0x6FE023
+section_start(0x1E)
+pic(25)
+dialog_up()
+para_talk("""We keep the
+elevators locked to
+keep out intruders.""", 0)
+para_talk("""You need a SciLab ID
+in order to
+use them.""", 0)
+para_talk_end("""I only use these,but
+I guess the IDs
+work all elevators.""")
+section_end()
+
+# 0x23 @ 0x6FE0E4
+section_start(0x23)
+pic(27)
+dialog_up()
+para_talk_end("""The lobby is quiet,
+so I can concentrate
+here.""", 0)
+section_end()
+
+# 0x28 @ 0x6FE12C
+section_start(0x28)
+pic(26)
+dialog_up()
+para_talk("""Welcome to the
+SciLab!""", 0)
+para_talk_end("""Here we are using
+the power of science
+to improve our life.""", 0)
+section_end()
+
+# 0x29 @ 0x6FE197
+section_start(0x29)
+pic(25)
+dialog_up()
+para_talk("""We accept new
+inventions here...""", 0)
+para_talk_end("""...but not from
+small children.""", 0)
+section_end()
+
+# 0x2A @ 0x6FE1F5
+section_start(0x2A)
+pic(26)
+dialog_up()
+para_talk("""Please pay your
+PET bills here.""", 0)
+para_talk_end("""...however,children
+don't have to pay.""", 0)
+section_end()
+
+# 0x2B @ 0x6FE259
+section_start(0x2B)
+pic(27)
+dialog_up()
+para_talk_end("""Hmmmm...Hmmmm...""", 0)
+section_end()
+
+# 0x2C @ 0x6FE27F
+section_start(0x2C)
+pic(27)
+dialog_up()
+para_talk_end("""I'm watching all
+these TVs looking
+for new ideas.""", 0)
+section_end()
+
+# 0x2D @ 0x6FE2C2
+section_start(0x2D)
+pic(27)
+dialog_up()
+para_talk("""Now if I could
+just morph this idea
+with this invention.""", 0)
+para_talk_end("""Grrrr!!{anim 1}{delay}
+{anim 2}It won't work.""", 0)
+section_end()
+
+# 0x2E @ 0x6FE335
+section_start(0x2E)
+pic(25)
+dialog_up()
+para_talk("""Dr.Hikari was the
+person who invented
+the {key PET}.""", 0)
+para_talk_end("""His research is
+being carried on by
+his son.""", 0)
+section_end()
+
+# 0x38 @ 0x6FE3BD
+section_start(0x38)
+set_flag(151)
+end()
+section_end()
+
+# 0x39 @ 0x6FE3C6
+section_start(0x39)
+pic(27)
+dialog_up()
+para_talk_end("""Insert tab A into
+slot B...
+Hmmmm...""", 0)
+section_end()
+
+# 0x3A @ 0x6FE400
+section_start(0x3A)
+pic(25)
+dialog_up()
+para_talk("""The restaurant
+underground is
+surrounded by water.""", 0)
+para_talk("""I wonder if fish
+are swimming in it?""", 0)
+para_talk("""Underneath the
+restaurant is a
+power plant.""", 0)
+text_talking("""It supplies energy
+to all of DenCity!""")
+page()
+set_flag(155)
+end()
+section_end()
+
+# 0x3C @ 0x6FE4D8
+section_start(0x3C)
+pic(34)
+dialog_up()
+para_talk("""Lan! Dad will be
+here soon,so we
+should stick around.""", 0)
+para_talk_end("""Let's kill time by
+talking to the
+people around here.""", 0)
+section_end()
+
+# 0x3D @ 0x6FE55F
+section_start(0x3D)
+dialog_up()
+para_general("""An elevator switch.""", 0)
+para_general("""Lan used the
+{key SciLabID}!""", 0)
+para_general("""The elevator doors
+opened!
+Which floor?""", 0)
+if_story(0x41, 0x57, 0x3E, 0xFF)
+option(1, 1, 0, 0)
+pad(2)
+text("""Dad's lab
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Restaurant""")
+pick([0x49, 0x48], 0, True, True)
+end()
+section_end()
+
+# 0x3E @ 0x6FE5EE
+section_start(0x3E)
+option(2, 1, 0, 0)
+pad(2)
+text("""Dad's lab
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Restaurant
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Power plant""")
+pick([0x49, 0x48, 0x4A], 0, True, True)
+end()
+section_end()
+
+# 0x41 @ 0x6FE630
+section_start(0x41)
+if_story(0x53, 0x54, 0x5A, 0xFF)
+pic(26)
+dialog_up()
+para_talk("""Welcome to the
+SciLab!""", 0)
+para_talk_end("""Here we are using
+the power of science
+to improve our life.""", 0)
+section_end()
+
+# 0x42 @ 0x6FE6A1
+section_start(0x42)
+if_story(0x53, 0x54, 0x5B, 0xFF)
+pic(25)
+dialog_up()
+para_talk("""We accept new
+inventions here...""", 0)
+para_talk_end("""...but not from
+small children.""", 0)
+section_end()
+
+# 0x43 @ 0x6FE705
+section_start(0x43)
+if_story(0x53, 0x54, 0x5C, 0xFF)
+pic(26)
+dialog_up()
+para_talk("""Please pay your
+PET bills here.""", 0)
+para_talk_end("""...however,children
+don't have to pay.""", 0)
+section_end()
+
+# 0x44 @ 0x6FE76F
+section_start(0x44)
+if_story(0x51, 0x52, 0x50, 0xFF)
+if_story(0x53, 0x54, 0x60, 0xFF)
+pic(27)
+dialog_up()
+para_talk("""Hmmmm...Hmmmm...""", 0)
+para_talk_end("""All of this Hmmming
+isn't helping me
+at all!""", 0)
+section_end()
+
+# 0x45 @ 0x6FE7D7
+section_start(0x45)
+if_story(0x53, 0x54, 0x5D, 0xFF)
+pic(27)
+dialog_up()
+para_talk("""In order to get
+the address of the
+WWW server,""", 0)
+para_talk("""we first need to
+get into the
+Undernet.""", 0)
+para_talk_end("""At least,that's
+what we think.""", 0)
+section_end()
+
+# 0x46 @ 0x6FE875
+section_start(0x46)
+if_story(0x53, 0x54, 0x5E, 0xFF)
+set_flag(148)
+pic(27)
+dialog_up()
+para_talk("""Chaud?
+He went to Dentown.""", 0)
+para_talk("""He said that he
+heard that a WWW
+member is there!""", 0)
+para_talk("""His job? Well,he's
+supposed to find
+the WWW's address.""", 0)
+para_talk_end("""That's why he's
+looking for
+members,I guess.""", 0)
+section_end()
+
+# 0x47 @ 0x6FE960
+section_start(0x47)
+if_story(0x53, 0x54, 0x5F, 0xFF)
+pic(25)
+dialog_up()
+para_talk("""We at the SciLab
+are doing our best
+to find""", 0)
+para_talk_end("""the WWW server
+address so we can
+stop the war!""", 0)
+section_end()
+
+# 0x48 @ 0x6FE9D8
+section_start(0x48)
+set_flag(52)
+end()
+section_end()
+
+# 0x49 @ 0x6FE9E1
+section_start(0x49)
+set_flag(50)
+end()
+section_end()
+
+# 0x4A @ 0x6FE9EA
+section_start(0x4A)
+set_flag(51)
+end()
+section_end()
+
+# 0x50 @ 0x6FE9FD
+section_start(0x50)
+check_item("Lab_Memo", 1, 0x53, 0x53, 0xFF)
+if_flag(152, 0x51, 0xFF)
+pic(27)
+dialog_up()
+para_talk("""Hmmmm...Hmmmm...""", 0)
+para_talk_end("""All of this Hmmming
+isn't helping me
+at all!""", 0)
+section_end()
+
+# 0x51 @ 0x6FEA66
+section_start(0x51)
+pic(27)
+dialog_up()
+para_talk("""Hmmmm...Hmmmm...""", 0)
+para_talk("""Huh? Me? A WWW
+member?{anim 1}{delay}{anim 2} You
+must be joking""", 0)
+para_talk("""Huh? Higsby said
+what?{anim 1}{delay}{anim 2} I see.
+I get the picture.""", 0)
+para_talk("""Use this...It should
+clear things up...""")
+jump(0x52)
+section_end()
+
+# 0x52 @ 0x6FEB44
+section_start(0x52)
+hidepic()
+dialog_up()
+pc_lock()
+pc_anim(30)
+add_item("Lab_Memo", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got;
+\"{key Lab_Memo}\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+wait(5)
+jump(0x53)
+section_end()
+
+# 0x53 @ 0x6FEB77
+section_start(0x53)
+pic(27)
+dialog_up()
+para_talk("""Many people like
+Higs and myself
+quit the WWW.""", 0)
+para_talk("""There are 2 more
+locks to open to
+get to the server.""", 0)
+para_talk("""Find 2 more memos
+from others who
+have quit the WWW.""", 0)
+para_talk("""However,you'll have
+to be strong enough
+to defeat the WWW.""", 0)
+para_talk("""Even with the memos,
+approaching the
+server before you're""", 0)
+para_talk("""strong enough will
+just end up getting
+you in danger.""", 0)
+para_talk("""In DenCity,there
+are 2 more members.""", 0)
+para_talk_end("""A young beautiful
+lady,and an old man.""", 0)
+section_end()
+
+# 0x5A @ 0x6FED60
+section_start(0x5A)
+pic(26)
+dialog_up()
+para_talk("""We must do anything
+we can to stop this
+war!""", 0)
+para_talk_end("""This is the duty,{anim 1}{delay}
+{anim 2}of the SciLab!""", 0)
+section_end()
+
+# 0x5B @ 0x6FEDCF
+section_start(0x5B)
+pic(25)
+dialog_up()
+para_talk_end("""We need to think of
+a way to stop that
+military rocket!""", 0)
+section_end()
+
+# 0x5C @ 0x6FEE17
+section_start(0x5C)
+pic(26)
+dialog_up()
+para_talk_end("""I never thought that
+PETs and Navis would
+be used like this!""", 0)
+section_end()
+
+# 0x5D @ 0x6FEE64
+section_start(0x5D)
+pic(27)
+dialog_up()
+para_talk("""By cooperating with
+the Officials,we
+can handle this!""", 0)
+para_talk_end("""...or,at least,I
+hope we can...""", 0)
+section_end()
+
+# 0x5E @ 0x6FEEDA
+section_start(0x5E)
+pic(27)
+dialog_up()
+para_talk("""Chaud is now trying
+to find the location
+of the WWW labs.""", 0)
+para_talk_end("""He said he'd found a
+clue somewhere in
+ACDC Town!""", 0)
+section_end()
+
+# 0x5F @ 0x6FEF5F
+section_start(0x5F)
+pic(25)
+dialog_up()
+para_talk("""The SciLab is trying
+to find a way to
+stop the war.""", 0)
+para_talk_end("""To do this,we want
+any information
+about the WWW labs.""", 0)
+section_end()
+
+# 0x60 @ 0x6FEFE3
+section_start(0x60)
+pic(27)
+dialog_up()
+para_talk_end("""I can't get hold of
+Higsby...I hope that
+nothing happened.""", 0)
+section_end()
+
+# 0xDC @ 0x6FF128
+section_start(0xDC)
+dialog_up()
+para_general_end("""If you need an
+appointment,please
+write your name here""")
+section_end()
+
+# 0xDD @ 0x6FF167
+section_start(0xDD)
+if_story(0x24, 0x27, 0xE3, 0xFF)
+dialog_up()
+para_general_end("""There are many kinds
+of drinks inside""")
+section_end()
+
+# 0xDE @ 0x6FF19A
+section_start(0xDE)
+dialog_up()
+para_general_end("""A broken vending
+machine. You can
+jack in here""")
+section_end()
+
+# 0xDF @ 0x6FF1D1
+section_start(0xDF)
+dialog_up()
+para_general_end("""Only staff members
+are allowed in here""")
+section_end()
+
+# 0xE0 @ 0x6FF1FF
+section_start(0xE0)
+dialog_up()
+para_general("""A test pattern is
+shown,and it makes
+a beeping sound""", 0)
+para_general_end("""Watching this makes
+you a little sad""")
+section_end()
+
+# 0xE1 @ 0x6FF264
+section_start(0xE1)
+dialog_up()
+para_general_end("""Posters with no
+obvious meaning""")
+section_end()
+
+# 0xE2 @ 0x6FF28B
+section_start(0xE2)
+dialog_up()
+para_general_end("""Please only smoke
+in the smoking area""")
+section_end()
+
+# 0xE3 @ 0x6FF2B8
+section_start(0xE3)
+dialog_up()
+para_general_end("""Someone has bought
+all of the drinks""")
+section_end()
+
+# 0xE5 @ 0x6FF2E6
+section_start(0xE5)
+dialog_up()
+para_general_end("""This TV doesn't
+seem to have a
+jack in port""")
+section_end()

@@ -1,0 +1,35 @@
+section_count(0x3)
+
+# 0x00 @ 0x7352C2
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""MegaMan? You OK!?""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7352E9
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""I'm fine!""", 0)
+para_talk("""I've displayed the
+{key PET}'s remaining
+batteryーーtop right!""", 0)
+para_talk("""If the battery runs
+low,I can't heal
+after battle!""", 0)
+para_talk("""So let's get that
+WWW Navi before the
+{key PET}'s battery dies!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x7353CB
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk_end("""OK!
+On to the network
+power generator!""", 0)
+section_end()

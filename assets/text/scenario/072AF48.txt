@@ -1,0 +1,70 @@
+section_count(0x6)
+
+# 0x00 @ 0x72AF54
+section_start(0x00)
+pic(13)
+dialog_up()
+para_general("""!! {delay}{anim 2}How can a kid
+and his puny Navi
+delete FireMan!?{anim 1}""", 0)
+para_general(""".{delay}.{delay}.{delay}{anim 2}Hmph!
+At least I finished
+my mission...{anim 1}""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72AFE7
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""What do you mean?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72B00C
+section_start(0x02)
+pic(13)
+dialog_up()
+para_talk("""Hah! This is just
+the first step in
+the WWW's plan!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72B055
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""What!?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72B070
+section_start(0x04)
+pic(13)
+dialog_up()
+para_talk("""Hah! That's right!
+I found the program
+we need for our plan""", 0)
+para_talk("""inside the oven in 
+your house!""", 0)
+para_general("""...{anim 2}eh,{anim 1}{delay}{anim 2}I probably
+shouldn't have told
+you that...{anim 1}""", 0)
+para_talk("""But who cares! Soon
+war will start and
+you'll all be dead!""", 0)
+para_general("""...{anim 2}See ya!!{anim 1}""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72B18E
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""Wait! {anim 1}{delay}{anim 2}Program? War?
+What's he talking
+about?""", 0)
+para_general(""".{delay}.{delay}.{delay}""", 0)
+para_talk_end("""Phooey!""")
+section_end()

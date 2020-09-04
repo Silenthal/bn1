@@ -1,0 +1,90 @@
+section_count(0x9)
+
+# 0x00 @ 0x737F3A
+section_start(0x00)
+pic(29)
+dialog_up()
+para_talk("""Our address...
+It looks like the
+SciLab has got it.""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x737F84
+section_start(0x01)
+pic(5)
+dialog_up()
+para_general("""...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x737F99
+section_start(0x02)
+pic(29)
+dialog_up()
+para_talk("""Our secret lab will
+be discovered in
+no time!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x737FDA
+section_start(0x03)
+pic(5)
+dialog_up()
+para_talk("""...no matter!{anim 1}{delay}
+{anim 2}Hee,{delay 10}hee,{delay 10}hee{delay 10}...""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x738026
+section_start(0x04)
+pic(29)
+dialog_up()
+text("""?""")
+page()
+set_flag(162)
+end()
+section_end()
+
+# 0x05 @ 0x738038
+section_start(0x05)
+pic(5)
+dialog_up()
+para_talk("""Because...{anim 1}{delay}
+{anim 2}I've already made
+the LifeVirus!!""", 0)
+para_talk_end("""Now we can delete,
+DELETE,{anim 1}{delay}
+{anim 2}DELEEEEEEEEEETE!!!!""", 0)
+section_end()
+
+# 0x06 @ 0x7380C6
+section_start(0x06)
+pic(29)
+dialog_up()
+para_talk("""You mean...the
+EndGame is about
+to begin?""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x738106
+section_start(0x07)
+pic(5)
+dialog_up()
+para_talk("""Hah hah!{anim 1}{delay}{anim 2} Of course!{anim 1}{delay}
+{anim 2}The final battle
+at last!""", 0)
+para_talk("""Yahoot!{anim 1}{delay}
+{anim 2}Come with me!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x738180
+section_start(0x08)
+pic(29)
+dialog_up()
+para_talk_end("""As you command,
+so shall it be done!""", 0)
+section_end()

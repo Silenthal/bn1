@@ -1,0 +1,30 @@
+section_count(0xDD)
+
+# 0x00 @ 0x7108FA
+section_start(0x00)
+dialog_up()
+para_general("""Even more securely
+locked than the
+other doors so far""", 0)
+para_general_end("""...And no jack in
+port,either...""", 0)
+section_end()
+
+# 0x01 @ 0x710962
+section_start(0x01)
+mail(31)
+pic(34)
+dialog_up()
+para_talk_end("""Lan!
+You've got mail!""", 0)
+section_end()
+
+# 0xDC @ 0x710B42
+section_start(0xDC)
+dialog_up()
+para_general("""Even more securely
+locked than the
+other doors so far""", 0)
+para_general_end("""...And no jack in
+port,either...""")
+section_end()

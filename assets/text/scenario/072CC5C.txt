@@ -1,0 +1,115 @@
+section_count(0xC)
+
+# 0x00 @ 0x72CC74
+section_start(0x00)
+pic(38)
+dialog_up()
+para_talk("""I didn't think you'd
+make it this far!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72CCB0
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""We've got to stop
+the announcement
+program,quick!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72CCF7
+section_start(0x02)
+pic(38)
+dialog_up()
+para_general("""?{delay}{anim 2} But being a WWW
+slave is fun! Isn't
+it,Mr.Higsby?{anim 1}""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72CD47
+section_start(0x03)
+pic(6)
+dialog_up()
+para_talk("""Yes! With my new WWW
+salary I can buy
+lots of rare chips!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72CD95
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk("""I knew it! And you
+call yourself a
+teacher!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72CDD5
+section_start(0x05)
+pic(6)
+dialog_up()
+para_talk("""Heh{anim 1}...{delay}
+{anim 2}I did feel a little
+bad at first,huh.""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72CE21
+section_start(0x06)
+pic(38)
+dialog_up()
+para_talk("""Mr.Higsby!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72CE40
+section_start(0x07)
+pic(6)
+dialog_up()
+para_talk("""Yes! But then I knew
+I'd do anything for
+rare chips,huh!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x72CE8F
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk("""Who needs rare chips
+bought with the
+WWW's dirty money!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x72CEDB
+section_start(0x09)
+pic(6)
+dialog_up()
+para_talk("""Huh!{anim 1}...{delay}{anim 2}Silence!{anim 1}{delay}
+{anim 2}Now,you face me and
+NumberMan!""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x72CF33
+section_start(0x0A)
+pic(0)
+dialog_up()
+para_talk("""No problem!
+Let's go,MegaMan!
+Battle routine,set!!""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x72CF7F
+section_start(0x0B)
+pic(34)
+dialog_up()
+para_talk_end("""Execute!!""")
+section_end()

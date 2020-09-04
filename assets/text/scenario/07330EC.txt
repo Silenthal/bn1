@@ -1,0 +1,83 @@
+section_count(0x9)
+
+# 0x00 @ 0x7330FE
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk_end("""Roll! Where are you?{anim 1}{delay}
+{anim 2}Aaa!!""", 0)
+section_end()
+
+# 0x01 @ 0x733134
+section_start(0x01)
+pic(45)
+dialog_up()
+para_talk("""Now,now,I'll delete
+you soon enough...""", 0)
+para_talk("""Heheh!{anim 1}{delay}
+{anim 2}But first I'll watch
+you squirm a little!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x7331B6
+section_start(0x02)
+pic(40)
+dialog_up()
+para_talk_end("""Help! Heeeeelp!""", 0)
+section_end()
+
+# 0x03 @ 0x7331D7
+section_start(0x03)
+pic(34)
+dialog_up()
+para_talk_end("""Hey you! Get away
+from Roll!""", 0)
+section_end()
+
+# 0x04 @ 0x733205
+section_start(0x04)
+pic(40)
+dialog_up()
+para_talk("""MegaMan! Delete this
+guy,quick!{anim 1} {delay}{anim 2}Or else
+the bus will...""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x73325D
+section_start(0x05)
+pic(34)
+dialog_up()
+para_general("""{anim 2}Gotcha!{anim 1}{delay}""", 0)
+para_talk("""So you're ColorMan,
+huh? Let Roll go!
+I'm the one""", 0)
+para_talk_end("""you want!""", 0)
+section_end()
+
+# 0x06 @ 0x7332C9
+section_start(0x06)
+pic(45)
+dialog_up()
+para_talk("""Sure thing,I'll just
+delete you first,and
+delete her later!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x73331B
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk("""Let's go!
+Battle routine,set!!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x733351
+section_start(0x08)
+pic(34)
+dialog_up()
+para_talk_end("""Execute!!""", 0)
+section_end()

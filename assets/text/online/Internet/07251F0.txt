@@ -1,0 +1,332 @@
+section_count(0x42)
+
+# 0x00 @ 0x725274
+section_start(0x00)
+if_shop(0x04, 0xFF, 0x01)
+pic(49)
+dialog_up()
+text("""{anim 2}Pssst...Hey,kid...
+Wanna see my stash?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x02, 0xFF], 0, False, True)
+para_talk_end("""Then bug off!""", 0)
+section_end()
+
+# 0x01 @ 0x7252E1
+section_start(0x01)
+pic(49)
+dialog_up()
+para_talk_end("""I'm out of stuff!
+So scram!!""", 0)
+section_end()
+
+# 0x02 @ 0x725311
+section_start(0x02)
+shop(4)
+section_end()
+
+# 0x0A @ 0x725324
+section_start(0x0A)
+check_item("Lab_Memo", 1, 0x0B, 0x0B, 0xFF)
+dialog_up()
+para_general_end("""Entrance for
+WWW personnel
+ONLY!""", 0)
+section_end()
+
+# 0x0B @ 0x725354
+section_start(0x0B)
+dialog_up()
+para_general("""Entrance for
+WWW personnel
+ONLY!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x725380
+section_start(0x0C)
+pic(0)
+dialog_up()
+para_talk("""MegaMan! Try using
+that memo we got
+at the SciLab!""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x7253C7
+section_start(0x0D)
+pic(34)
+dialog_up()
+para_talk("""OK!!""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x7253E0
+section_start(0x0E)
+hidepic()
+dialog_up()
+para_general("""...MegaMan used the
+{key Lab_Memo}!""", 0)
+para_general("""He gained access!""")
+clear_flag(1041)
+set_flag(101)
+jump(0x0F)
+section_end()
+
+# 0x0F @ 0x725428
+section_start(0x0F)
+pic(0)
+dialog_up()
+para_talk_end("""Way to go!""", 0)
+section_end()
+
+# 0x10 @ 0x725443
+section_start(0x10)
+pic(49)
+dialog_up()
+para_talk("""Who are you!?
+You don't belong
+here!""", 0)
+para_talk_end("""Better get out
+unless you wanna be
+deleted!""", 0)
+section_end()
+
+# 0x11 @ 0x7254AF
+section_start(0x11)
+pic(49)
+dialog_up()
+para_talk("""Those WWW jerks
+went and encoded
+this area!""", 0)
+para_talk("""Only highーranking
+WWW dudes can get
+in! Sheesh...""", 0)
+para_talk_end("""They think they're
+so bad...""", 0)
+section_end()
+
+# 0x12 @ 0x725550
+section_start(0x12)
+pic(49)
+dialog_up()
+para_talk("""Those WWW jerks have
+set it up so that
+if you go""", 0)
+para_talk_end("""through there,you
+can't get back!
+Sheesh!""", 0)
+section_end()
+
+# 0x13 @ 0x7255C5
+section_start(0x13)
+pic(34)
+dialog_up()
+mail(16)
+para_talk("""Lan! I made it into
+the Undernet!""", 0)
+para_general_end("""...{delay}?{anim 2}
+Looks like you got
+some mail!{anim 1}""", 0)
+section_end()
+
+# 0x1E @ 0x725643
+section_start(0x1E)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(763)
+pc_lock()
+pc_anim(50)
+add_chip("Thunder1 H", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Thunder1")
+text(""" """)
+chip_code("H")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x1F @ 0x7256B1
+section_start(0x1F)
+check_item("WWW_PIN", 1, 0x20, 0x20, 0xFF)
+dialog_up()
+para_general("""\"{key WWW_PIN}\"
+needed to unlock!""", 0)
+para_general_end("""All others...{delay}
+BEGONE!""", 0)
+section_end()
+
+# 0x20 @ 0x7256FC
+section_start(0x20)
+dialog_up()
+para_general("""\"{key WWW_PIN}\"
+needed to unlock!""", 0)
+para_general("""MegaMan used the
+{key WWW_PIN}!""", 0)
+text("""MegaMan gained
+access!!""")
+page()
+set_flag(105)
+end()
+section_end()
+
+# 0x21 @ 0x72575B
+section_start(0x21)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(764)
+pc_lock()
+pc_anim(50)
+add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a
+PowerUp;\"{key HPmemory}\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x32 @ 0x7257E3
+section_start(0x32)
+dialog_up()
+set_flag(759)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x33, 0x34])
+page()
+end()
+section_end()
+
+# 0x33 @ 0x72581E
+section_start(0x33)
+dialog_up()
+award_chip(["IcePunch B", "IcePunch B", "IcePunch B", "IcePunch B", "IcePunch B", "TriArrow A", "TriArrow A", "TriArrow A", "IceCube M", "IceCube M", "IceCube M", "IcePunch M", "IcePunch M", "IcePunch M", "IcePunch M", "IcePunch M"])
+pc_lock()
+pc_anim(50)
+text("""MegaMan got a chip
+for \"""")
+chip_id_buf(1)
+text(""" """)
+chip_code_buf(2)
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x34 @ 0x72587B
+section_start(0x34)
+dialog_up()
+award_zenny([500, 500, 500, 500, 500, 500, 1000, 1000, 1000, 1000, 1000, 1500, 1500, 1500, 2000, 2000], 0xFF)
+pc_lock()
+pc_anim(50)
+text("""MegaMan got """)
+buffer(1, 0, False, False)
+text("""
+zennys!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x35 @ 0x7258EB
+section_start(0x35)
+dialog_up()
+para_general("""It was a virus
+in disguise!""", 0)
+battle()
+page()
+end()
+section_end()
+
+# 0x36 @ 0x725915
+section_start(0x36)
+dialog_up()
+set_flag(760)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x37, 0x38])
+page()
+end()
+section_end()
+
+# 0x37 @ 0x725950
+section_start(0x37)
+jump(0x33)
+section_end()
+
+# 0x38 @ 0x725955
+section_start(0x38)
+jump(0x34)
+section_end()
+
+# 0x39 @ 0x72595A
+section_start(0x39)
+jump(0x35)
+section_end()
+
+# 0x3A @ 0x72595F
+section_start(0x3A)
+dialog_up()
+set_flag(761)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x3B, 0x3C])
+page()
+end()
+section_end()
+
+# 0x3B @ 0x72599A
+section_start(0x3B)
+jump(0x33)
+section_end()
+
+# 0x3C @ 0x72599F
+section_start(0x3C)
+jump(0x34)
+section_end()
+
+# 0x3D @ 0x7259A4
+section_start(0x3D)
+jump(0x35)
+section_end()
+
+# 0x3E @ 0x7259A9
+section_start(0x3E)
+dialog_up()
+set_flag(762)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x3F, 0x40])
+page()
+end()
+section_end()
+
+# 0x3F @ 0x7259E4
+section_start(0x3F)
+jump(0x33)
+section_end()
+
+# 0x40 @ 0x7259E9
+section_start(0x40)
+jump(0x34)
+section_end()
+
+# 0x41 @ 0x7259EE
+section_start(0x41)
+jump(0x35)
+section_end()

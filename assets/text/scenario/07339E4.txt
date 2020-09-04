@@ -1,0 +1,106 @@
+section_count(0x8)
+
+# 0x00 @ 0x7339F4
+section_start(0x00)
+dialog_up()
+para_general(""".{delay}.{delay}.{delay}Many days passed
+since the traffic
+light incident.""", 0)
+para_general_end("""Until one
+afternoon.{delay}.{delay}.{delay}""", 0)
+section_end()
+
+# 0x01 @ 0x733A6A
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Man,I'm starving!
+I wonder what's for
+dinner tonight?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x733AB7
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""Huh?{anim 1} {delay}{anim 2}But Lan,
+you just ate lunch
+at school...""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x733B04
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Well I can't just
+recharge once a day
+like you,MegaMan!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x733B51
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""Okay,okay...""", 0)
+para_talk("""Hey,{anim 1}{delay}{anim 2}wait!{anim 1}{delay}
+{anim 2}We gotta get home!""", 0)
+para_talk("""\"The Bonne Bunch\" is
+about to start!""", 0)
+hidepic()
+set_flag(201)
+para_general("""*beebeebeep*""", 0)
+pic(34)
+para_talk("""Lan,you've got mail!
+{anim 1}...{delay}{anim 2}It's from
+your dad!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x733C39
+section_start(0x05)
+pic(28, 1)
+dialog_up()
+para_general("""Lan,how have you
+been? I'll be seeing
+you today!""", 0)
+para_general("""That is,you'll be
+coming to see me...""", 0)
+para_general("""There's a party
+tonight at the
+Government Complex.""", 0)
+para_general("""I'm inviting you and
+Mom to join me for
+dinner!""", 0)
+para_general("""Let's meet at 7 in
+front of the TV in
+the SciLab lobby.""", 0)
+para_general("""Say hi to Mom for
+me,and let her know
+about tonight! ーDad""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x733D93
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""All right! We get
+to see Dad!!""", 0)
+para_talk("""I'm gonna eat till
+I drop today!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x733DF1
+section_start(0x07)
+pic(34)
+dialog_up()
+para_general("""{anim 2}As if you were on a
+diet yesterday{anim 1}...{delay}""", 0)
+para_talk_end("""Okay,Lan!
+Let's go home and
+tell Mom!""", 0)
+section_end()

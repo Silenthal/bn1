@@ -1,0 +1,42 @@
+section_count(0xA)
+
+# 0x00 @ 0x7209E4
+section_start(0x00)
+pic(36)
+dialog_up()
+para_talk("""I'm the voice
+control program
+for this toy!""", 0)
+para_talk_end("""\"Please play with
+me!\"...Things like
+that...""")
+section_end()
+
+# 0x01 @ 0x720A5E
+section_start(0x01)
+pic(36)
+dialog_up()
+para_talk("""I wish that I could
+talk sometimes,
+too...""", 0)
+para_talk_end("""\"Put me down,NOW!\",
+things like that...""")
+section_end()
+
+# 0x02 @ 0x720AD3
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(851)
+pc_lock()
+pc_anim(50)
+add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a
+PowerUp;\"{key HPmemory}\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()

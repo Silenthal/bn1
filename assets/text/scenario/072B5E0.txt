@@ -1,0 +1,35 @@
+section_count(0x3)
+
+# 0x00 @ 0x72B5E6
+section_start(0x00)
+dialog_up()
+para_general_end("""Several days after
+the \"strange oven
+explosions\"...""", 10)
+section_end()
+
+# 0x01 @ 0x72B626
+section_start(0x01)
+dialog_up()
+text_se_off()
+text("""*clip*""")
+se(0xA3)
+text("""{delay} *clop*""")
+se(0xA3)
+text("""{delay}...
+*clip*""")
+se(0xA3)
+text("""{delay} *clop*""")
+se(0xA3)
+para_general_end("""...""", 10)
+section_end()
+
+# 0x02 @ 0x72B67B
+section_start(0x02)
+pic(6, 1)
+dialog_up()
+para_general("""...ACDC elementary,
+DenCity...{delay}This is
+the place!""", 0)
+para_general_end(""".{delay}.{delay}.{delay}*grin*""", 10)
+section_end()

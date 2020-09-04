@@ -1,0 +1,110 @@
+section_count(0xEB)
+
+# 0x0A @ 0x6F3FAE
+section_start(0x0A)
+if_story(0x40, 0x40, 0x1B, 0xFF)
+if_flag(152, 0x0B, 0xFF)
+set_flag(152)
+pic(8)
+dialog_up()
+para_talk_end("""Eeeek!{anim 1}{delay}
+{anim 2}I'm getting dressed!
+Out!! Out!!""", 0)
+section_end()
+
+# 0x0B @ 0x6F4004
+section_start(0x0B)
+pic(8)
+dialog_up()
+para_talk_end("""Stop peeking!{anim 1}{delay}
+{anim 2}You pervert!!""", 0)
+section_end()
+
+# 0x1B @ 0x6F4058
+section_start(0x1B)
+if_flag(144, 0x1E, 0xFF)
+set_flag(144)
+pic(8)
+dialog_up()
+para_talk("""Lan{anim 1}...{delay}
+{anim 2}Thank you for
+helping me.""", 0)
+para_talk("""I gave Yai's present
+to her. She loved it!""", 0)
+para_talk_end("""If you were going
+to see her,you'd
+better hurry!""", 0)
+section_end()
+
+# 0x1E @ 0x6F4112
+section_start(0x1E)
+pic(8)
+dialog_up()
+para_talk_end("""A party? How nice!{anim 1}
+...{delay}{anim 2}I wish I could
+go to one...""", 0)
+section_end()
+
+# 0x23 @ 0x6F416B
+section_start(0x23)
+if_story(0x40, 0x40, 0x1B, 0xFF)
+if_story(0x53, 0x53, 0x28, 0xFF)
+pic(8)
+dialog_up()
+para_talk("""I know that I'm
+not helping you
+directly,""", 0)
+para_talk("""...but I'm cheering
+for you from the
+sidelines!""", 0)
+para_talk_end("""Good luck!""", 0)
+section_end()
+
+# 0x28 @ 0x6F4209
+section_start(0x28)
+pic(8)
+dialog_up()
+para_talk("""Lan,shouldn't you
+leave this to the
+SciLab?""", 0)
+para_talk_end("""...But I know you
+won't...
+Be careful!!""", 0)
+section_end()
+
+# 0xDC @ 0x6F43E5
+section_start(0xDC)
+dialog_up()
+para_general_end("""This toy was popular
+last year. It has a
+jack in port""")
+section_end()
+
+# 0xDD @ 0x6F4423
+section_start(0xDD)
+dialog_up()
+para_general_end("""The power is off""")
+section_end()
+
+# 0xDE @ 0x6F443B
+section_start(0xDE)
+dialog_up()
+para_general_end("""There's nothing in
+this trash can""")
+section_end()
+
+# 0xDF @ 0x6F4465
+section_start(0xDF)
+dialog_up()
+para_general_end("""A big mirror.
+Mayl uses it every
+morning""")
+section_end()
+
+# 0xE0 @ 0x6F4496
+section_start(0xE0)
+dialog_up()
+para_general_end("""Mayl's bed is at
+the top of this
+ladder""")
+section_end()

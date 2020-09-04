@@ -1,223 +1,157 @@
 section_count(0xEB)
 
-# 6E8FE2
+# 0x00 @ 0x6E8FE2
 section_start(0x00)
 pic(19)
 dialog_up()
-anim(2)
-text("""Long live the WWW!
+para_talk("""Long live the WWW!
 Follow or be
-deleted!!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Everyone,all
+deleted!!""", 0)
+para_talk("""Everyone,all
 together!!""")
-anim(1)
-page()
-wait(5)
 jump(0x01)
 section_end()
 
-# 6E9043
+# 0x01 @ 0x6E9043
 section_start(0x01)
 pic(11)
 dialog_up()
-anim(2)
-text("""Long live the WWW!""")
-anim(1)
-page()
-wait(5)
+para_talk("""Long live the WWW!""")
 jump(0x02)
 section_end()
 
-# 6E9069
+# 0x02 @ 0x6E9069
 section_start(0x02)
 pic(18)
 dialog_up()
-anim(2)
-text("""Follow or be
+para_talk_end("""Follow or be
 deleted!!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E9091
+# 0x03 @ 0x6E9091
 section_start(0x03)
 pic(19)
 dialog_up()
-anim(2)
-text("""Who are you!?
+para_talk_end("""Who are you!?
 Go away!
 shoo! shoo!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E90C8
+# 0x04 @ 0x6E90C8
 section_start(0x04)
 dialog_up()
-text("""There's no response,
+para_general_end("""There's no response,
 eyes are glued to
 the screen.""")
-page()
-end(5)
 section_end()
 
-# 6E9105
+# 0x05 @ 0x6E9105
 section_start(0x05)
 dialog_up()
-text("""There's no response,
+para_general_end("""There's no response,
 eyes are glued to
 the screen.""")
-page()
-end(5)
 section_end()
 
-# 6E9142
+# 0x06 @ 0x6E9142
 section_start(0x06)
 dialog_up()
-text("""Something scary
+para_general_end("""Something scary
 about those eyes.""")
-page()
-end(5)
 section_end()
 
-# 6E916C
+# 0x07 @ 0x6E916C
 section_start(0x07)
 dialog_up()
-text("""There's no response,
+para_general_end("""There's no response,
 eyes are glued to
 the screen.""")
-page()
-end(5)
 section_end()
 
-# 6E91A9
+# 0x08 @ 0x6E91A9
 section_start(0x08)
 dialog_up()
-text("""There's no response,
+para_general_end("""There's no response,
 eyes are glued to
 the screen.""")
-page()
-end(5)
 section_end()
 
-# 6E91E6
+# 0x09 @ 0x6E91E6
 section_start(0x09)
 dialog_up()
-text("""Something scary
+para_general_end("""Something scary
 about those eyes.""")
-page()
-end(5)
 section_end()
 
-# 6E9210
+# 0x0A @ 0x6E9210
 section_start(0x0A)
 pic(18)
 dialog_up()
-anim(2)
-text("""What can we do?
+para_talk_end("""What can we do?
 Everyone is acting
 weird!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E924B
+# 0x0B @ 0x6E924B
 section_start(0x0B)
 pic(11)
 dialog_up()
-anim(2)
-text("""My head feels like
+para_talk_end("""My head feels like
 it's going to split
 in two!!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E928D
+# 0x0C @ 0x6E928D
 section_start(0x0C)
 input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-anim(2)
-text("""Jack in!!""")
-delay(10)
-text("""
-MegaMan.EXE,""")
-delay(10)
-text("""
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
 transmit!""")
-anim(1)
 breaks(30)
 input_on()
 end()
 section_end()
 
-# 6E9436
+# 0xBE @ 0x6E9436
 section_start(0xBE)
 if_flag(1064, 0xC2, 0xFF)
 check_chip("Dash G", 1, 0xBF, 0xBF, 0xFF)
 pic(9)
 dialog_up()
-anim(2)
-text("""I love trading
-battle chips!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""I have some really
-rare ones!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""I wonder where I
+para_talk("""I love trading
+battle chips!""", 0)
+para_talk("""I have some really
+rare ones!""", 0)
+text("""{anim 2}I wonder where I
 can find a
 \"""")
 chip_id("Dash")
 text(""" """)
 chip_code("G")
-text("""\"!""")
-anim(1)
-page()
-end(5)
+para_general_end("""\"!{anim 1}""")
 section_end()
 
-# 6E94CA
+# 0xBF @ 0x6E94CA
 section_start(0xBF)
 if_flag(1073, 0xC3, 0xFF)
 set_flag(1073)
 pic(9)
 dialog_up()
-anim(2)
-text("""Hey! Isn't that a
+text("""{anim 2}Hey! Isn't that a
 """)
 chip_id("Dash")
 text(""" """)
 chip_code("G")
-text("""?""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Will you trade for a
+para_general("""?{anim 1}""", 0)
+text("""{anim 2}Will you trade for a
 """)
 chip_id("Repair")
 text(""" """)
 chip_code("H")
-text("""?""")
-anim(1)
-page()
-wait()
+para_general("""?{anim 1}""", 0)
 option(0, 0, 1, 1)
 pad(2)
 text("""Sure! """)
@@ -230,18 +164,14 @@ page()
 end(5)
 section_end()
 
-# 6E9552
+# 0xC0 @ 0x6E9552
 section_start(0xC0)
 check_chip_pack("Dash G", 1, 0xFF, 0xFF, 0xC4)
 set_flag(1064)
 pic(9)
 dialog_up()
-anim(2)
-text("""Cool! Thanks!
-Here's your chip!""")
-anim(1)
-page()
-wait()
+para_talk("""Cool! Thanks!
+Here's your chip!""", 0)
 hidepic()
 pc_lock()
 pc_anim(30)
@@ -260,37 +190,28 @@ page()
 end(5)
 section_end()
 
-# 6E95D4
+# 0xC1 @ 0x6E95D4
 section_start(0xC1)
 pic(9)
 dialog_up()
-anim(2)
-text("""You can't get this
+para_talk_end("""You can't get this
 chip anywhere else!
 You sure??""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E9619
+# 0xC2 @ 0x6E9619
 section_start(0xC2)
 pic(9)
 dialog_up()
-anim(2)
-text("""I'm so addicted to
+para_talk_end("""I'm so addicted to
 trading chips!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E964C
+# 0xC3 @ 0x6E964C
 section_start(0xC3)
 pic(9)
 dialog_up()
-anim(2)
-text("""Will you trade your
+text("""{anim 2}Will you trade your
 """)
 chip_id("Dash")
 text(""" """)
@@ -300,10 +221,7 @@ a """)
 chip_id("Repair")
 text(""" """)
 chip_code("H")
-text("""?""")
-anim(1)
-page()
-wait()
+para_general("""?{anim 1}""", 0)
 option(0, 0, 1, 1)
 pad(2)
 text("""Yes """)
@@ -316,139 +234,105 @@ page()
 end(5)
 section_end()
 
-# 6E96A9
+# 0xC4 @ 0x6E96A9
 section_start(0xC4)
 pic(9)
 dialog_up()
-anim(2)
-text("""You need to move a
+text("""{anim 2}You need to move a
 """)
 chip_id("Dash")
 text(""" """)
 chip_code("G")
-text("""
-out of your folder.""")
-anim(1)
-page()
-end(5)
+para_general_end("""
+out of your folder.{anim 1}""")
 section_end()
 
-# 6E9718
+# 0xDC @ 0x6E9718
 section_start(0xDC)
 dialog_up()
-text("""Somebody has written
+para_general("""Somebody has written
 in a corner
-\"I love teacher\"""")
-page()
-wait()
-text("""You can jack in
+\"I love teacher\"""", 0)
+para_general_end("""You can jack in
 here""")
-page()
-end(5)
 section_end()
 
-# 6E976B
+# 0xDD @ 0x6E976B
 section_start(0xDD)
 dialog_up()
-text("""There are picture
-books here""")
-page()
-wait()
-text("""Starts out \"Once
+para_general("""There are picture
+books here""", 0)
+para_general_end("""Starts out \"Once
 upon a time...\"""")
-page()
-end(5)
 section_end()
 
-# 6E97B8
+# 0xDE @ 0x6E97B8
 section_start(0xDE)
 dialog_up()
-text("""These desks are much
+para_general_end("""These desks are much
 smaller than the 5th
 graders' desks""")
-page()
-end(5)
 section_end()
 
-# 6E97F9
+# 0xDF @ 0x6E97F9
 section_start(0xDF)
 dialog_up()
-text("""Even in a society
-run by computers,""")
-page()
-wait()
-text("""Don't forget the
+para_general("""Even in a society
+run by computers,""", 0)
+para_general_end("""Don't forget the
 beauty of a flower""")
-page()
-end(5)
 section_end()
 
-# 6E984D
+# 0xE0 @ 0x6E984D
 section_start(0xE0)
 dialog_up()
-text("""Morning glories
+para_general_end("""Morning glories
 tend to creep up
 anything nearby""")
-page()
-end(5)
 section_end()
 
-# 6E9885
+# 0xE1 @ 0x6E9885
 section_start(0xE1)
 dialog_up()
-text("""You can't eat seeds
+para_general_end("""You can't eat seeds
 from morning glories.
 Try sunflower seeds""")
-page()
-end(5)
 section_end()
 
-# 6E98CC
+# 0xE2 @ 0x6E98CC
 section_start(0xE2)
 dialog_up()
-text("""This book doesn't
-have many pictures""")
-page()
-wait()
-text("""Books with lots of
+para_general("""This book doesn't
+have many pictures""", 0)
+para_general_end("""Books with lots of
 pictures are more
 fun,huh?""")
-page()
-end(5)
 section_end()
 
-# 6E992C
+# 0xE3 @ 0x6E992C
 section_start(0xE3)
 dialog_up()
-text("""This is a teacher's
+para_general_end("""This is a teacher's
 desk""")
-page()
-end(5)
 section_end()
 
-# 6E994D
+# 0xE4 @ 0x6E994D
 section_start(0xE4)
 if_story(0x20, 0x5F, 0xDC, 0xFF)
 if_story(0x10, 0x1F, 0xFF, 0xDC)
 if_flag(149, 0xFF, 0xDC)
 dialog_up()
-text("""A WWW reーeducation
+para_general("""A WWW reーeducation
 program is playing!
-Pretty scary stuff!""")
-page()
-wait()
-text("""Looks like you can
+Pretty scary stuff!""", 0)
+para_general_end("""Looks like you can
 jack in here!""")
-page()
-end(5)
 section_end()
 
-# 6E99C8
+# 0xE5 @ 0x6E99C8
 section_start(0xE5)
 dialog_up()
-text("""A schedule for
+para_general_end("""A schedule for
 watering the
 morning glories""")
-page()
-end(5)
 section_end()

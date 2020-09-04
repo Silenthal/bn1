@@ -1,0 +1,47 @@
+section_count(0x4)
+
+# 0x00 @ 0x734148
+section_start(0x00)
+pic(7)
+dialog_up()
+para_general("""...{anim 2}You again?{anim 1}{delay}
+{anim 2}What are you doing
+in the SciLab?{anim 1}""", 0)
+para_talk("""This is no place for
+little boys to be
+playing games!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7341D5
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Just 'cause I'm a
+kid doesn't mean you
+can push me around!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x734226
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""Yeah! Yeah!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x734246
+section_start(0x03)
+pic(7)
+dialog_up()
+para_talk("""Hmph{anim 1}...{delay}{anim 2}Noisy
+little brats...""", 0)
+text_talking("""I don't have time to
+deal with you now...
+Later,brat.""")
+page()
+text(""" """)
+set_flag(153)
+end()
+section_end()

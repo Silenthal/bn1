@@ -1,0 +1,56 @@
+section_count(0x5)
+
+# 0x00 @ 0x7381C2
+section_start(0x00)
+pic(12)
+dialog_up()
+para_talk_end("""Lan!{anim 1} {delay}{anim 2}Look on TV!
+{anim 1}{delay}{anim 2}It's awful!""", 0)
+section_end()
+
+# 0x01 @ 0x738202
+section_start(0x01)
+pic(5)
+dialog_up()
+para_talk("""I am pleased to
+announce that the
+WWW master plan...""", 0)
+para_talk("""Is entering the
+final phase!""", 0)
+para_talk("""Our next targets are
+this country's
+military satellites!""", 0)
+para_talk("""We will be launching
+a hacking rocket
+from our WWW labs...""", 0)
+para_talk("""Once we have control{anim 1}
+{delay}...{anim 2}The EndGame
+begins!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x738337
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""Lan!
+We've got to get to
+the WWW labs!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x738373
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk_end("""Right on! Let's go!""", 0)
+section_end()
+
+# 0x04 @ 0x738399
+section_start(0x04)
+pic(12)
+dialog_up()
+para_talk_end("""Lan!?
+Where are you going
+at a time like this?""", 0)
+section_end()

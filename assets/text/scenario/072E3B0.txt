@@ -1,0 +1,45 @@
+section_count(0x5)
+
+# 0x00 @ 0x72E3BA
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""Hey,the pond!{anim 1}{delay}
+{anim 2}What if there's no
+water at school?""", 0)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72E40A
+section_start(0x01)
+pic(8)
+dialog_up()
+para_talk("""Oh no! I hope not!""", 0)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72E431
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Well,maybe it's just
+this neighborhood or
+something...""", 0)
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72E47F
+section_start(0x03)
+pic(8)
+dialog_up()
+para_talk_end("""I'm worried...
+I'm going to go
+check!""", 0)
+section_end()
+
+# 0x04 @ 0x72E4BA
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk_end("""So thirsty...""", 0)
+section_end()

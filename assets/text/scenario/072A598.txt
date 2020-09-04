@@ -1,0 +1,25 @@
+section_count(0x3)
+
+# 0x00 @ 0x72A59E
+section_start(0x00)
+pic(12)
+dialog_up()
+para_talk("""Eeek!!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72A5B9
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""That's your mom!{anim 1}{delay}
+{anim 2}What could be wrong?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72A5FC
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk_end("""Let's go!""")
+section_end()

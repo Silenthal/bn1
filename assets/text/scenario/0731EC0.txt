@@ -1,0 +1,26 @@
+section_count(0x3)
+
+# 0x00 @ 0x731EC6
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""Did it!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x731EE1
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Lan! Let's tell
+everyone we fixed
+the lights quick!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x731F2A
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk_end("""OK!""", 0)
+section_end()

@@ -1,0 +1,20 @@
+section_count(0x2)
+
+# 0x00 @ 0x738FF4
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""MegaMan! There's got
+to be a program
+locking this door!""", 0)
+para_talk("""Find it and delete
+it!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x739060
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk_end("""Roger!""", 0)
+section_end()

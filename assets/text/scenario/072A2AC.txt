@@ -1,0 +1,35 @@
+section_count(0x4)
+
+# 0x00 @ 0x72A2B4
+section_start(0x00)
+dialog_up()
+para_general("""ーAfter Classー""")
+dialog_down()
+breaks(5)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72A2D2
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Phew...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72A2EF
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""Wow,today just
+flew by,huh?{anim 1}{delay}
+{anim 2}Let's go home!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72A339
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk_end("""OK!""")
+section_end()

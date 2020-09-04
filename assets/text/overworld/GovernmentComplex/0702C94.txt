@@ -1,0 +1,161 @@
+section_count(0xEB)
+
+# 0x00 @ 0x702E6A
+section_start(0x00)
+if_story(0x30, 0x37, 0x0A, 0xFF)
+if_story(0x40, 0x43, 0x0A, 0xFF)
+if_story(0x50, 0x52, 0x14, 0xFF)
+if_story(0x53, 0x54, 0x1E, 0xFF)
+pic(25)
+dialog_up()
+para_talk("""This is the pump
+room.""", 0)
+para_talk("""We bring water in
+from that there.""", 0)
+para_talk_end("""But the suction
+program seems to
+be bugged.""")
+section_end()
+
+# 0x01 @ 0x702F08
+section_start(0x01)
+if_story(0x30, 0x37, 0x0B, 0xFF)
+if_story(0x40, 0x43, 0x0B, 0xFF)
+if_story(0x50, 0x52, 0x15, 0xFF)
+if_story(0x53, 0x54, 0x1F, 0xFF)
+pic(27)
+dialog_up()
+para_talk_end("""We've never had
+anything like this
+happen before!""")
+section_end()
+
+# 0x02 @ 0x702F63
+section_start(0x02)
+if_story(0x30, 0x37, 0x0C, 0xFF)
+if_story(0x40, 0x43, 0x0C, 0xFF)
+if_story(0x50, 0x52, 0x16, 0xFF)
+if_story(0x53, 0x54, 0x20, 0xFF)
+pic(25)
+dialog_up()
+para_talk("""I know how to fix
+machines...""", 0)
+para_talk_end("""but I don't know
+nothin' about
+computers!""")
+section_end()
+
+# 0x0A @ 0x702FED
+section_start(0x0A)
+pic(25)
+dialog_up()
+para_talk("""This is the pump
+room.""", 0)
+para_talk("""We bring water in
+from that pump.""", 0)
+para_talk_end("""Things are working
+great,now!""", 0)
+section_end()
+
+# 0x0B @ 0x703065
+section_start(0x0B)
+pic(27)
+dialog_up()
+para_talk("""I'm glad that it
+wasn't a research
+problem...""", 0)
+para_talk_end("""But that poor guy
+Dr.Froid...""", 0)
+section_end()
+
+# 0x0C @ 0x7030D0
+section_start(0x0C)
+pic(25)
+dialog_up()
+para_talk("""I'm pretty good at
+fixing machines...""", 0)
+para_talk("""But since that bug
+I've started
+studying computers.""", 0)
+para_talk_end("""Looks like it may
+be necessary
+to protect the water""", 0)
+section_end()
+
+# 0x14 @ 0x70318F
+section_start(0x14)
+pic(25)
+dialog_up()
+para_talk("""This is the pump
+room.""", 0)
+para_talk("""We bring water in
+from that pump.""", 0)
+para_talk_end("""Things are working
+great,now!""", 0)
+section_end()
+
+# 0x15 @ 0x703207
+section_start(0x15)
+pic(27)
+dialog_up()
+para_talk("""I'm glad that it
+wasn't a research
+problem...""", 0)
+para_talk_end("""But that poor guy
+Dr.Froid...""", 0)
+section_end()
+
+# 0x16 @ 0x703272
+section_start(0x16)
+pic(25)
+dialog_up()
+para_talk("""I'm pretty good at
+fixing machines...""", 0)
+para_talk("""But since that bug
+I've started
+studying computers.""", 0)
+para_talk_end("""Looks like it may
+be necessary
+to protect the water""", 0)
+section_end()
+
+# 0x1E @ 0x703331
+section_start(0x1E)
+pic(25)
+dialog_up()
+para_talk("""We can't rest until
+the WWW is
+destroyed!""", 0)
+para_general("""{anim 2}I'm sure that the
+scientists can do
+something! {anim 1}{delay}.{delay}.{delay}.""", 0)
+para_talk_end("""I think.""", 0)
+section_end()
+
+# 0x1F @ 0x7033C8
+section_start(0x1F)
+pic(27)
+dialog_up()
+para_talk("""We've started making
+stricter checks of
+the pumps.""", 0)
+para_talk_end("""That's about the
+best that I can do.""", 0)
+section_end()
+
+# 0x20 @ 0x70343A
+section_start(0x20)
+pic(25)
+dialog_up()
+para_talk("""I'm pretty good at
+fixing machines...""", 0)
+para_talk_end("""But I don't know
+nothin about war!""", 0)
+section_end()
+
+# 0xDC @ 0x703615
+section_start(0xDC)
+dialog_up()
+para_general_end("""The door is locked
+and won't open""")
+section_end()

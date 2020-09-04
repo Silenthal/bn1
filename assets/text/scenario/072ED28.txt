@@ -1,0 +1,82 @@
+section_count(0x8)
+
+# 0x00 @ 0x72ED38
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Well?
+Nobody'll come here
+will they?""", 0)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72ED72
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""And Dad is...
+right.""", 0)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72ED9D
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""Okay,
+let's hide out here
+a while,then.""", 0)
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72EDDB
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk_end("""OK!""", 0)
+section_end()
+
+# 0x04 @ 0x72EDEF
+section_start(0x04)
+hidepic()
+dialog_up()
+se(0x9F)
+input_off()
+text("""bing """)
+breaks(50)
+text("""bong """)
+breaks(50)
+text("""bing """)
+breaks(50)
+text("""bong""")
+breaks(50)
+input_on()
+page()
+wait()
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72EE27
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""OK! It's 12;00!""", 0)
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72EE4D
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk("""Today's Saturday,
+so everyone should
+be gone by now...""", 0)
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72EE9B
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk_end("""Let's go!""")
+section_end()

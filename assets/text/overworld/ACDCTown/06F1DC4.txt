@@ -1,0 +1,428 @@
+section_count(0xEB)
+
+# 0x00 @ 0x6F1F9A
+section_start(0x00)
+if_flag(150, 0x04, 0xFF)
+set_flag(150)
+pic(12)
+dialog_up()
+para_talk("""Good morning Lan!""")
+jump(0x02)
+section_end()
+
+# 0x01 @ 0x6F1FC9
+section_start(0x01)
+dialog_up()
+para_general("""Lan eats a hurried
+breakfast.
+.{delay}.{delay}.Yum!""", 0)
+para_general("""Lan found a chip
+under the plate!""", 0)
+set_flag(646)
+pc_lock()
+pc_anim(30)
+add_chip("Recov10 A", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("Recov10")
+text(""" """)
+chip_code("A")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x02 @ 0x6F2064
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Mornin',Mom!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x6F2086
+section_start(0x03)
+pic(12)
+dialog_up()
+para_talk_end("""Breakfast is on the
+table! You have time
+to eat?""")
+section_end()
+
+# 0x04 @ 0x6F20C8
+section_start(0x04)
+pic(12)
+dialog_up()
+para_talk_end("""No! I'll be late!""")
+section_end()
+
+# 0x05 @ 0x6F20EC
+section_start(0x05)
+pic(12)
+dialog_up()
+para_talk("""You're in the way!
+Why don't you go
+play in your room?""", 0)
+para_talk_end("""I'll call you when
+I've made you a
+snack!""")
+section_end()
+
+# 0x06 @ 0x6F216A
+section_start(0x06)
+pic(13)
+dialog_up()
+para_general("""{anim 2}If we just do this
+and this{anim 1}...{delay}""", 0)
+para_talk_end("""Hee hee!""")
+section_end()
+
+# 0x07 @ 0x6F21B0
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,we should find
+the lost program!""")
+section_end()
+
+# 0x0A @ 0x6F21EA
+section_start(0x0A)
+if_flag(155, 0x0F, 0xFF)
+set_flag(155)
+pic(12)
+dialog_up()
+para_talk("""Laaaannn!
+I was trying to make
+hotcakes,and look!""", 0)
+para_talk("""What should we do??""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x6F2258
+section_start(0x0B)
+pic(0)
+dialog_up()
+para_talk("""Huh??
+But it was just
+repaired!!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x6F228F
+section_start(0x0C)
+pic(12)
+dialog_up()
+para_talk("""The repairman said
+it was fixed!!
+But it's on fire!!""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x6F22DB
+section_start(0x0D)
+pic(0)
+dialog_up()
+para_talk("""MegaMan! Let's jack
+in!""", 0)
+para_talk("""Maybe it's a bug or
+a virus or
+something!""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x6F233B
+section_start(0x0E)
+pic(34)
+dialog_up()
+text_talking("""Leave it to me!""")
+set_flag(156)
+page()
+end(5)
+section_end()
+
+# 0x0F @ 0x6F235F
+section_start(0x0F)
+pic(12)
+dialog_up()
+para_talk("""What'll I do if I
+burn the house down?""", 0)
+para_talk_end("""Honey!
+I'm so sorry!""")
+section_end()
+
+# 0x10 @ 0x6F23B6
+section_start(0x10)
+pic(34)
+dialog_up()
+para_talk_end("""Lan!! This is no
+time to go play!""")
+section_end()
+
+# 0x11 @ 0x6F23EA
+section_start(0x11)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x14 @ 0x6F2435
+section_start(0x14)
+pic(12)
+dialog_up()
+para_talk_end("""Lan...Where's
+MegaMan? You can't
+contact him?""")
+section_end()
+
+# 0x15 @ 0x6F2479
+section_start(0x15)
+dialog_up()
+para_general_end("""Someone has locked
+the door!{anim 1}""")
+section_end()
+
+# 0x19 @ 0x6F24A6
+section_start(0x19)
+pic(12)
+dialog_up()
+para_talk("""Lan,you've saved us!""", 0)
+para_talk_end("""Your father will be
+so proud!""")
+section_end()
+
+# 0x1A @ 0x6F24F3
+section_start(0x1A)
+dialog_up()
+para_general_end("""Someone has locked
+the door!""")
+section_end()
+
+# 0x1E @ 0x6F251E
+section_start(0x1E)
+pic(12)
+dialog_up()
+para_general("""{anim 2}Your snack?{anim 1}{delay}
+{anim 2}It's there in the
+oven{anim 1}.{delay}.{delay}.""", 0)
+para_talk("""They were turning out
+so well,and now
+they're all burnt!""", 0)
+para_talk("""I've gotten tired
+from all this
+excitement...""", 0)
+para_talk_end("""Why don't you go out
+and play. Come back
+and rest later on!""")
+section_end()
+
+# 0x23 @ 0x6F2632
+section_start(0x23)
+if_story(0x22, 0x22, 0x28, 0xFF)
+if_story(0x23, 0x23, 0x2D, 0xFF)
+if_story(0x24, 0x24, 0x32, 0xFF)
+if_story(0x26, 0x26, 0x37, 0xFF)
+if_story(0x27, 0x27, 0x37, 0xFF)
+pic(12)
+dialog_up()
+para_talk_end("""It's such a nice
+day! Why don't you
+go out and play?""")
+section_end()
+
+# 0x28 @ 0x6F26A0
+section_start(0x28)
+pic(12)
+dialog_up()
+para_talk_end("""Why do you keep
+coming and going
+like that?""", 0)
+section_end()
+
+# 0x2D @ 0x6F26E4
+section_start(0x2D)
+pic(12)
+dialog_up()
+para_talk_end("""Sorry,hon{anim 1}...{delay}{anim 2}But
+what could have
+shut off the water?""", 0)
+section_end()
+
+# 0x32 @ 0x6F273C
+section_start(0x32)
+if_story(0x26, 0x27, 0x37, 0xFF)
+pic(12)
+dialog_up()
+para_talk("""Can't cook,can't
+clean...Guess I'll
+just watch TV...""", 0)
+para_talk_end("""Nice for a rest,
+but I hope this
+ends soon!""", 0)
+section_end()
+
+# 0x37 @ 0x6F27CD
+section_start(0x37)
+pic(12)
+dialog_up()
+para_talk_end("""Why the glum face?
+Water? No,I haven't
+had any. Why?""", 0)
+section_end()
+
+# 0x3C @ 0x6F281F
+section_start(0x3C)
+if_story(0x53, 0x53, 0x4B, 0xFF)
+if_story(0x50, 0x52, 0x46, 0xFF)
+if_story(0x40, 0x40, 0x41, 0xFF)
+pic(12)
+dialog_up()
+para_talk("""Why does your father
+even have to work on
+Sundays?""", 0)
+para_talk_end("""I guess he can't
+help it,but it would
+be nice to see him.""", 0)
+section_end()
+
+# 0x41 @ 0x6F28C0
+section_start(0x41)
+set_flag(148)
+end()
+section_end()
+
+# 0x46 @ 0x6F28D1
+section_start(0x46)
+pic(12)
+dialog_up()
+para_talk("""Your dad is never
+home!""", 0)
+para_talk("""I wonder what he's
+working on that
+could keep him?""", 0)
+para_talk_end("""I'm sure glad I have
+you to help me keep
+house!""", 0)
+section_end()
+
+# 0x4B @ 0x6F2976
+section_start(0x4B)
+pic(12)
+dialog_up()
+para_talk("""W,w,we have to try
+to protect our
+home!""", 0)
+para_talk_end("""Oh,honey,come home!""", 0)
+section_end()
+
+# 0xDC @ 0x6F2AEE
+section_start(0xDC)
+dialog_up()
+para_general_end("""A simple touch like
+this vase really
+cheers the place up""")
+section_end()
+
+# 0xDD @ 0x6F2B2E
+section_start(0xDD)
+if_story(0x04, 0x04, 0xE7, 0xFF)
+if_story(0x03, 0x05, 0xE6, 0xFF)
+if_story(0x23, 0x27, 0xE5, 0xFF)
+dialog_up()
+para_general_end("""Something in this
+pot smells really
+good! Yum!""")
+section_end()
+
+# 0xDE @ 0x6F2B78
+section_start(0xDE)
+if_story(0x04, 0x04, 0xE7, 0xFF)
+if_story(0x03, 0x05, 0xE6, 0xFF)
+dialog_up()
+para_general_end("""The refrigerator
+is filled with
+food""")
+section_end()
+
+# 0xDF @ 0x6F2BB0
+section_start(0xDF)
+if_story(0x04, 0x04, 0xE7, 0xFF)
+if_story(0x03, 0x05, 0xE6, 0xFF)
+if_story(0x06, 0x5F, 0xE0, 0xFF)
+dialog_up()
+para_general_end("""The pies that Mom
+makes in this oven
+are the best!""")
+section_end()
+
+# 0xE0 @ 0x6F2BFD
+section_start(0xE0)
+dialog_up()
+para_general_end("""You don't think it
+will catch fire
+again""")
+section_end()
+
+# 0xE1 @ 0x6F2C2E
+section_start(0xE1)
+dialog_up()
+para_general_end("""Mom loves to collect
+all of these plates""")
+section_end()
+
+# 0xE2 @ 0x6F2C5E
+section_start(0xE2)
+dialog_up()
+para_general_end("""This TV is too old
+to have a jack in
+port""")
+section_end()
+
+# 0xE3 @ 0x6F2C8F
+section_start(0xE3)
+dialog_up()
+para_general_end("""A very attractive
+stand. Chosen of
+course by Mom""")
+section_end()
+
+# 0xE4 @ 0x6F2CC8
+section_start(0xE4)
+dialog_up()
+para_general_end("""This panel controls
+all of the electric
+items in the house""")
+section_end()
+
+# 0xE5 @ 0x6F2D0A
+section_start(0xE5)
+dialog_up()
+para_general_end("""Can't wash dishes
+without water...""")
+section_end()
+
+# 0xE6 @ 0x6F2D38
+section_start(0xE6)
+if_story(0x04, 0x04, 0xE7, 0xFF)
+dialog_up()
+para_general("""The oven is on fire!""", 0)
+para_general_end("""Press the R Button
+to send MegaMan into
+this device!""")
+section_end()
+
+# 0xE7 @ 0x6F2D94
+section_start(0xE7)
+dialog_up()
+para_general_end("""The oven is on fire!
+Gotta put it out,
+fast!""")
+section_end()

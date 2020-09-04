@@ -1,0 +1,46 @@
+section_count(0x5)
+
+# 0x00 @ 0x72DD4A
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Lan! We did it!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72DD6E
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Right on! Let's
+get the security
+program running!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72DDB5
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk_end("""Leave it to me!""", 0)
+section_end()
+
+# 0x03 @ 0x72DDD5
+section_start(0x03)
+pic(34)
+dialog_up()
+para_talk("""This should let the
+Metroline open
+safely!""", 0)
+para_talk("""Let's hurry up and
+get that PowerUp
+program!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72DE49
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk_end("""OK!""")
+section_end()

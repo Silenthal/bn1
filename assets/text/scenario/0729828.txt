@@ -1,0 +1,133 @@
+section_count(0xF)
+
+# 0x00 @ 0x729846
+section_start(0x00)
+pic(8)
+dialog_up()
+para_talk("""Lan! You're late!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72986D
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Uhーoh{anim 1}...{delay}
+{anim 2}Mayl looks grumpy...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x7298AB
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""No one asked you
+to wait for me...""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x7298E3
+section_start(0x03)
+pic(8)
+dialog_up()
+para_talk("""Hm? Did you just
+say something?
+C'mon!{anim 1}{delay}{anim 2} Let's go!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x729934
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk("""Why do we always
+have to walk to
+school together?""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x729979
+section_start(0x05)
+pic(8)
+dialog_up()
+para_talk("""Silly! Because we've
+always got so much
+to talk about!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x7299C5
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk("""She means SHE's got
+a lot to talk about.
+You just listen...""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x729A18
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk_end("""Quiet!""")
+section_end()
+
+# 0x08 @ 0x729A2F
+section_start(0x08)
+input_off()
+breaks(160)
+pic(8)
+dialog_up()
+text_talking("""Have you heard about
+the oven accidents?""")
+wait(60)
+text_talking("""People's ovens have
+been spitting fire
+all of a sudden!""")
+breaks(60)
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x729AB1
+section_start(0x09)
+pic(0)
+dialog_up()
+text_talking("""Hmm...""")
+breaks(60)
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x729ACD
+section_start(0x0A)
+pic(8)
+dialog_up()
+text_talking("""I bet it's another
+WWW virus on the
+loose!""")
+breaks(60)
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x729B0C
+section_start(0x0B)
+pic(0)
+dialog_up()
+text_talking("""You're just
+imagining things...""")
+breaks(60)
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x729B42
+section_start(0x0C)
+pic(8)
+dialog_up()
+text("""{anim 2}Maybe{anim 1}...""")
+breaks(90)
+text("""
+{anim 2}Well,here we are!
+Let's get to class!{anim 1}""")
+input_on()
+end(60)
+section_end()

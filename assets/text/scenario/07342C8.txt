@@ -1,0 +1,62 @@
+section_count(0x5)
+
+# 0x00 @ 0x7342D2
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,it's Dad!{anim 1}{delay}
+{anim 2}Your dad's here!""", 0)
+section_end()
+
+# 0x01 @ 0x73430D
+section_start(0x01)
+pic(28)
+dialog_up()
+para_talk("""Lan,did you wait
+long? You're looking
+fit as a fiddle!""", 0)
+para_talk("""Where's Mom? Didn't
+she come with you?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73438C
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""She's coming! She
+just had to get
+dressed!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x7343CC
+section_start(0x03)
+pic(28)
+dialog_up()
+para_talk("""Hahaha! Well,that'll
+take a while,if I
+know your mother!""", 0)
+hidepic()
+text(""".{delay}.{delay}.""")
+page()
+text(""" """)
+set_flag(157)
+end()
+section_end()
+
+# 0x04 @ 0x734432
+section_start(0x04)
+pic(32)
+dialog_up()
+para_talk("""Sorry! Here I am!""", 0)
+para_talk("""Honey! How have you
+been? Are you keeping
+well?""", 0)
+para_general(""".{delay}.{delay}.{delay}
+{anim 2}Well,you seem good
+enough!{anim 1}""", 0)
+para_talk_end("""Let's go downstairs
+to the restaurant
+floor and eat!""", 0)
+section_end()

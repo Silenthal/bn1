@@ -1,0 +1,160 @@
+section_count(0xEB)
+
+# 0x0A @ 0x6F174E
+section_start(0x0A)
+pic(19)
+dialog_up()
+para_talk_end("""Don't dawdle!
+Get straight home!""")
+section_end()
+
+# 0x0B @ 0x6F1781
+section_start(0x0B)
+pic(10)
+dialog_up()
+para_talk_end("""I'm on feed duty.""")
+section_end()
+
+# 0x14 @ 0x6F17B4
+section_start(0x14)
+pic(11)
+dialog_up()
+para_talk_end("""Aaack! I'm late
+again!!""", 0)
+section_end()
+
+# 0x15 @ 0x6F17DF
+section_start(0x15)
+pic(34)
+dialog_up()
+para_talk_end("""Late again?
+What a surprise...""", 0)
+section_end()
+
+# 0x1A @ 0x6F1819
+section_start(0x1A)
+pic(9)
+dialog_up()
+para_talk_end("""These animals will
+die if they don't
+get some water!""", 0)
+section_end()
+
+# 0x1B @ 0x6F185F
+section_start(0x1B)
+pic(18)
+dialog_up()
+para_talk_end("""I wonder if the
+plants will all
+die...""", 0)
+section_end()
+
+# 0x1E @ 0x6F189C
+section_start(0x1E)
+pic(16)
+dialog_up()
+para_talk_end("""Wa...water!!""", 0)
+section_end()
+
+# 0x23 @ 0x6F18C5
+section_start(0x23)
+if_story(0x40, 0x40, 0x2E, 0xFF)
+if_story(0x50, 0x52, 0x32, 0xFF)
+if_story(0x53, 0x54, 0x37, 0xFF)
+pic(11)
+dialog_up()
+para_talk_end("""Even when school is
+out,we still have to
+feed the animals!""", 0)
+section_end()
+
+# 0x24 @ 0x6F1923
+section_start(0x24)
+if_story(0x50, 0x52, 0x33, 0xFF)
+if_story(0x53, 0x54, 0x38, 0xFF)
+pic(19)
+dialog_up()
+para_talk_end("""School's out.
+Shouldn't be many
+people here...""", 0)
+section_end()
+
+# 0x2E @ 0x6F1985
+section_start(0x2E)
+pic(11)
+dialog_up()
+para_talk("""These rabbits are so
+plump thanks to me!""", 0)
+para_talk("""I've been giving
+them leftovers from
+lunch!""", 0)
+para_talk_end("""Don't tell anyone,
+OK?""", 0)
+section_end()
+
+# 0x32 @ 0x6F1A1A
+section_start(0x32)
+pic(11)
+dialog_up()
+para_talk_end("""The animals are
+acting strange,like
+they're scared!""", 0)
+section_end()
+
+# 0x33 @ 0x6F1A60
+section_start(0x33)
+pic(19)
+dialog_up()
+para_talk("""Huh?
+School's out,son.""", 0)
+para_talk_end("""I think that Ms.
+Mari is the only
+teacher left here.""", 0)
+section_end()
+
+# 0x37 @ 0x6F1ACE
+section_start(0x37)
+pic(11)
+dialog_up()
+para_talk_end("""No way!
+I'm staying here
+with them!""", 0)
+section_end()
+
+# 0x38 @ 0x6F1B04
+section_start(0x38)
+pic(19)
+dialog_up()
+para_talk_end("""I could close up the
+school if Ms.Mari
+would just leave...""", 0)
+section_end()
+
+# 0xDC @ 0x6F1C98
+section_start(0xDC)
+dialog_up()
+para_general("""A teacher's car.
+The most popular
+type around""", 0)
+para_general_end("""There seems to be
+a jack in port for
+maintenance here""")
+section_end()
+
+# 0xDD @ 0x6F1D08
+section_start(0xDD)
+dialog_up()
+para_general("""A bronze statue of
+the principal""", 0)
+para_general_end("""It was a gift from a
+mysterious group at
+the school opening""")
+section_end()
+
+# 0xDE @ 0x6F1D6F
+section_start(0xDE)
+dialog_up()
+para_general_end("""A huge rabbit.
+What could cause it
+to grow so big?""")
+section_end()

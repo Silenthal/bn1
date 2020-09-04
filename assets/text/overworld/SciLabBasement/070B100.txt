@@ -1,0 +1,186 @@
+section_count(0xEB)
+
+# 0x00 @ 0x70B2D6
+section_start(0x00)
+if_story(0x50, 0x52, 0x0A, 0xFF)
+if_story(0x53, 0x54, 0x0F, 0xFF)
+pic(25)
+dialog_up()
+para_talk("""This is the
+restaurant floor""", 0)
+para_talk_end("""The party is farther
+in,that way.""", 0)
+section_end()
+
+# 0x01 @ 0x70B339
+section_start(0x01)
+if_story(0x41, 0x43, 0x06, 0xFF)
+dialog_up()
+para_general("""An elevator switch.""", 0)
+para_general("""Lan used the
+{key SciLabID}!""", 0)
+para_general("""The elevator doors
+opened!Which floor?
+""", 0)
+if_story(0x41, 0x57, 0x02, 0xFF)
+option(1, 1, 0, 0)
+pad(2)
+text("""SciLab lobby
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Dad's lab""")
+pick([0x10, 0x11], 0, True, True)
+end()
+section_end()
+
+# 0x02 @ 0x70B3D0
+section_start(0x02)
+option(2, 1, 0, 0)
+pad(2)
+text("""SciLab lobby
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Dad's lab
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Power plant""")
+pick([0x10, 0x11, 0x12], 0, True, True)
+end()
+section_end()
+
+# 0x04 @ 0x70B412
+section_start(0x04)
+if_story(0x41, 0x41, 0xE2, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,I think that
+you have to push
+that button.""", 0)
+section_end()
+
+# 0x05 @ 0x70B458
+section_start(0x05)
+pic(25)
+dialog_up()
+para_talk_end("""The elevators have
+all stopped! We're
+trapped!""", 0)
+section_end()
+
+# 0x06 @ 0x70B499
+section_start(0x06)
+dialog_up()
+para_general_end("""It doesn't work!""", 0)
+section_end()
+
+# 0x0A @ 0x70B4B9
+section_start(0x0A)
+pic(25)
+dialog_up()
+para_talk("""After the blackout,
+people have been
+avoiding this place!""", 0)
+para_talk_end("""How will we stay
+in business?""", 0)
+section_end()
+
+# 0x0F @ 0x70B532
+section_start(0x0F)
+pic(25)
+dialog_up()
+para_talk_end("""The restaurant??{anim 1}{delay}
+{anim 2}This isn't the
+time for that!""", 0)
+section_end()
+
+# 0x10 @ 0x70B57C
+section_start(0x10)
+set_flag(49)
+end()
+section_end()
+
+# 0x11 @ 0x70B585
+section_start(0x11)
+set_flag(50)
+end()
+section_end()
+
+# 0x12 @ 0x70B58E
+section_start(0x12)
+set_flag(51)
+end()
+section_end()
+
+# 0xDC @ 0x70B729
+section_start(0xDC)
+dialog_up()
+para_general("""Even though you're
+30 floors under
+ground,this area""", 0)
+para_general_end("""is still surrounded
+by water""")
+section_end()
+
+# 0xDD @ 0x70B786
+section_start(0xDD)
+dialog_up()
+para_general("""Garbage from the
+SciLab comes down
+this chute,and""", 0)
+para_general_end("""is burned in the
+power plant to
+create electricity""")
+section_end()
+
+# 0xDE @ 0x70B7F6
+section_start(0xDE)
+dialog_up()
+para_general_end("""All of the drinks
+in this machine look
+quite tasty""")
+section_end()
+
+# 0xDF @ 0x70B830
+section_start(0xDF)
+dialog_up()
+para_general("""An elevator switch.
+""", 0)
+para_general("""Lan used the
+{key SciLabID}!""", 0)
+para_general_end("""The elevator doors
+opened!""")
+section_end()
+
+# 0xE0 @ 0x70B883
+section_start(0xE0)
+dialog_up()
+para_general("""Which floor?""", 0)
+para_general_end("""SciLab lobby
+Dad's lab""")
+section_end()
+
+# 0xE1 @ 0x70B8B3
+section_start(0xE1)
+dialog_up()
+para_general_end("""It doesn't work!""")
+section_end()
+
+# 0xE2 @ 0x70B8CD
+section_start(0xE2)
+dialog_up()
+para_general_end("""There's no power!
+It won't move!""")
+section_end()
+
+# 0xE3 @ 0x70B8F9
+section_start(0xE3)
+pic(0)
+dialog_up()
+para_talk("""Looks like we can
+get to the power
+plant from here!""", 0)
+para_talk_end("""...Let's try it!""", 0)
+section_end()

@@ -1,0 +1,123 @@
+section_count(0xE)
+
+# 0x00 @ 0x7334A4
+section_start(0x00)
+pic(8)
+dialog_up()
+para_talk("""Laaan!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7334BE
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Geez,
+all the trouble I
+go through...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x7334FA
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk_end("""Now Lan,be nice!""", 0)
+section_end()
+
+# 0x03 @ 0x73351C
+section_start(0x03)
+pic(8)
+dialog_up()
+para_general("""{anim 2}No,Lan's right.{anim 1}{delay}
+{anim 2}Thank you,Lan{anim 1}{delay}.{delay}.{delay}.""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73356A
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk("""Hーhey!{anim 1}{delay} {anim 2}What's the
+big idea coming up
+close like that!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x7335BD
+section_start(0x05)
+pic(40)
+dialog_up()
+para_general("""*giggle*""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x7335D6
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk("""Oh Laaan...You're
+blushing!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x733609
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk("""SーShut up!{anim 1}{delay}
+{anim 2}I am not!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x73363A
+section_start(0x08)
+pic(8)
+dialog_up()
+para_talk("""Hee hee!""", 0)
+para_talk("""Well now,let's go
+get Yai's present!{anim 1}{delay}
+{anim 2}C'mon Lan! Let's go!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x7336A7
+section_start(0x09)
+pic(0)
+dialog_up()
+para_talk("""Now you're all happy
+and everything!
+What's going on!?""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x7336F5
+section_start(0x0A)
+pic(8)
+dialog_up()
+para_talk_end("""Well{anim 1}...{delay}{anim 2}It's a
+secret!""", 0)
+section_end()
+
+# 0x0B @ 0x733727
+section_start(0x0B)
+pic(40)
+dialog_up()
+para_talk("""He sure is dense...""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x733750
+section_start(0x0C)
+pic(34)
+dialog_up()
+para_talk("""You sure are dense...""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x73377B
+section_start(0x0D)
+pic(0)
+dialog_up()
+para_talk_end("""Hey! Wait up!""", 0)
+section_end()

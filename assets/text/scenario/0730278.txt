@@ -1,0 +1,213 @@
+section_count(0x16)
+
+# 0x00 @ 0x7302A4
+section_start(0x00)
+pic(46)
+dialog_up()
+para_talk("""You're late!
+It's all over...""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7302DA
+section_start(0x01)
+pic(7)
+dialog_up()
+para_talk("""Hey!
+I told you not to
+interfere!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x730310
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""What!?""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x73032B
+section_start(0x03)
+pic(44)
+dialog_up()
+para_talk("""Grr...""")
+set_flag(195)
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73034B
+section_start(0x04)
+pic(46)
+dialog_up()
+para_talk_end("""Hraa!""", 0)
+section_end()
+
+# 0x05 @ 0x730361
+section_start(0x05)
+pic(23)
+dialog_up()
+para_talk("""I have to protect
+my son...""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x730392
+section_start(0x06)
+pic(44)
+dialog_up()
+para_talk("""That's right!
+IceMan still has
+work to do!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x7303D2
+section_start(0x07)
+pic(46)
+dialog_up()
+para_talk("""Oh yeah? Well how
+about a taste of
+thi...""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x730412
+section_start(0x08)
+pic(34)
+dialog_up()
+para_talk("""Wait! These two
+aren't the real
+enemy!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x73044E
+section_start(0x09)
+pic(7)
+dialog_up()
+para_talk("""How can you say
+that...""", 0)
+para_talk("""After so many people
+have suffered 
+because of them!""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x7304B8
+section_start(0x0A)
+pic(46)
+dialog_up()
+para_general("""? {delay}{anim 2}Load Chaud,you
+have mail from HQ.{anim 1}""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x7304F5
+section_start(0x0B)
+pic(7)
+dialog_up()
+para_general("""! {delay}{anim 2}ProtoMan!
+It looks like we've
+been had!{anim 1}""", 0)
+para_talk("""They're a decoy!
+There's a WWW Aーrank
+operator somewhere!""", 0)
+para_talk("""WWW is after the
+\"Aquaprogram\" here!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x7305AD
+section_start(0x0C)
+pic(0)
+dialog_up()
+para_talk("""Aquaprogram?{anim 1}{delay}
+{anim 2}Isn't that one of
+the superprograms?""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x7305FC
+section_start(0x0D)
+pic(7)
+dialog_up()
+para_talk("""The WWW Navi must be
+here somewhere...
+Let's find them!""", 0)
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x73064B
+section_start(0x0E)
+pic(46)
+dialog_up()
+para_talk("""As you say,Load
+Chaud!""")
+set_flag(198)
+se(0x7C)
+jump(0x0F)
+section_end()
+
+# 0x0F @ 0x73067E
+section_start(0x0F)
+pic(44)
+dialog_up()
+para_talk("""WーWait!!!""")
+jump(0x10)
+section_end()
+
+# 0x10 @ 0x73069D
+section_start(0x10)
+pic(34)
+dialog_up()
+para_talk("""Now that he's gone,
+will you please
+listen to me?""")
+jump(0x11)
+section_end()
+
+# 0x11 @ 0x7306E4
+section_start(0x11)
+pic(44)
+dialog_up()
+text_talking("""Silence!""")
+set_flag(196)
+page()
+end()
+section_end()
+
+# 0x12 @ 0x730701
+section_start(0x12)
+pic(23)
+dialog_up()
+para_talk("""Yeah! If we break
+the WWW's orders,
+my son...""")
+jump(0x13)
+section_end()
+
+# 0x13 @ 0x730747
+section_start(0x13)
+pic(34)
+dialog_up()
+para_talk("""Lan!?""")
+jump(0x14)
+section_end()
+
+# 0x14 @ 0x730761
+section_start(0x14)
+pic(0)
+dialog_up()
+para_talk("""He's not listening!{anim 1}{delay}
+{anim 2}We have no choice{anim 1}...{delay}
+{anim 2}Battle routine,set!!""")
+jump(0x15)
+section_end()
+
+# 0x15 @ 0x7307C9
+section_start(0x15)
+pic(34)
+dialog_up()
+para_talk_end("""Execute!!""", 0)
+section_end()

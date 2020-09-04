@@ -1,0 +1,118 @@
+section_count(0xC)
+
+# 0x00 @ 0x72B218
+section_start(0x00)
+pic(12)
+dialog_up()
+para_general("""...{anim 2}Well,I'm glad the
+house didn't catch
+fire!{anim 1}{delay}{anim 2} Thank you,Lan!{anim 1}""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72B278
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Hey,Lan! Great
+work back there!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72B2AD
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Yeah{anim 1}...{delay}
+{anim 2}You,too,MegaMan!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72B2E6
+section_start(0x03)
+pic(34)
+dialog_up()
+para_general("""...{anim 2}You're worried,
+aren't you?{anim 1}{delay}
+{anim 2}About the WWW...{anim 1}""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72B33A
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk("""Yeah...{anim 1}{delay}
+{anim 2}There's just so much
+I don't understand.""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72B38B
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk("""Well,it was only
+the first time we
+fought them.""", 0)
+para_talk("""But,they'll never
+control the net!{anim 1}{delay}{anim 2} Not
+if I can help it!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72B41B
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""But MegaMan{anim 1}...{delay}
+{anim 2}What can we do?""", 0)
+para_talk("""We don't even know
+where they will
+strike next...""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72B495
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk("""We'll wait and get
+them when they
+come! C'mon,Lan!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x72B4DF
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk("""Okay,but first{anim 1}{delay}.{delay}.{delay}.{delay}
+{anim 2}Mom!{anim 1}{delay}{anim 2} I'm hungry!{anim 1}{delay}{anim 2} Can
+I have a snack?""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x72B554
+section_start(0x09)
+pic(34)
+dialog_up()
+para_talk("""You're hungry
+at a time like this?""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x72B58B
+section_start(0x0A)
+pic(0)
+dialog_up()
+para_talk_end("""Aw,c'mon,just a
+little byte...""", 0)
+section_end()
+
+# 0x0B @ 0x72B5BF
+section_start(0x0B)
+dialog_up()
+para_general_end("""
+ To be continued...""")
+section_end()

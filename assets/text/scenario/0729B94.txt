@@ -1,0 +1,138 @@
+section_count(0xE)
+
+# 0x00 @ 0x729BB0
+section_start(0x00)
+pic(3)
+dialog_up()
+para_talk("""Let's begin class,
+shall we?""", 0)
+para_talk("""First period is...
+\"Virus Busting\"{anim 1}{delay}
+{anim 2}Who's read NetNews?""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x729C2F
+section_start(0x01)
+pic(9)
+dialog_up()
+para_talk("""I did! It said
+WWW net crime is
+on the rise!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x729C70
+section_start(0x02)
+pic(3)
+dialog_up()
+para_talk("""Very good! And extra
+marks for checking
+your NetNews.""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x729CBA
+section_start(0x03)
+pic(34)
+dialog_up()
+para_general("""{anim 2}Course,{anim 1}{delay}{anim 2}you should
+know too,Lan{anim 1}...""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x729CFB
+section_start(0x04)
+pic(3)
+dialog_up()
+para_talk("""It's important that
+we all know how to
+fight viruses!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x729D45
+section_start(0x05)
+pic(2)
+dialog_up()
+para_talk("""Hah! I'd like to see
+a WWW virus take on
+me and GutsMan!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x729D93
+section_start(0x06)
+pic(1)
+dialog_up()
+para_talk("""Hrmph,{anim 1}{delay}
+{anim 2}Dex and his silly
+little \"GutsMan\"...""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x729DE0
+section_start(0x07)
+pic(2)
+dialog_up()
+para_talk("""Whad'you say!?""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x729E04
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk("""Relax! Why would
+the WWW bother with
+you anyway,Dex?""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x729E4E
+section_start(0x09)
+pic(2)
+dialog_up()
+para_talk("""Why,you!{anim 1} {delay}{anim 2}Lan!""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x729E79
+section_start(0x0A)
+pic(3)
+dialog_up()
+para_talk("""Quiet in the class!""", 0)
+para_talk("""Today we'll be using
+the common virus
+called a \"Mettool\".""", 0)
+para_talk("""Jack in your {key PET}
+so your NetNavi can
+access the net.""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x729F23
+section_start(0x0B)
+pic(34)
+dialog_up()
+para_talk("""Lan,she said to
+jack in! Press the
+R Button!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x729F65
+section_start(0x0C)
+pic(0)
+dialog_up()
+para_talk_end("""Yeah,yeah...""")
+section_end()
+
+# 0x0D @ 0x729F85
+section_start(0x0D)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,
+jack in with the
+R Button!""")
+section_end()

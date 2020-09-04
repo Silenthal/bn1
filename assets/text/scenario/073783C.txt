@@ -1,0 +1,63 @@
+section_count(0x5)
+
+# 0x00 @ 0x737846
+section_start(0x00)
+pic(5)
+dialog_up()
+text("""{anim 2}Hoo,{delay 10}hoo,{delay 10}hoo,{delay 10}
+""")
+clear_flag(147)
+para_general("""Waaah hah hah hah!{anim 1}""", 0)
+para_talk("""Wonderfulーーー
+Simply wonderful!!""", 0)
+para_talk("""I have them all!{delay 10}
+All of the superー
+programs are mine!""", 0)
+para_talk_end("""So super...{anim 1}{delay}
+{anim 2}Such programs!!""", 0)
+section_end()
+
+# 0x01 @ 0x737925
+section_start(0x01)
+pic(5)
+dialog_up()
+text("""{anim 2}By combining these 4
+programs,""")
+clear_flag(147)
+para_general("""I can make
+YOUーKNOWーWHAT!!!!{anim 1}""")
+set_flag(147)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73797F
+section_start(0x02)
+pic(5)
+dialog_up()
+para_general("""{anim 2}Ahh,hah hah...
+{anim 1}*phew*""", 0)
+para_talk("""And once I've made
+that...{anim 1}{delay}I{anim 2} can delete
+the world!""")
+clear_flag(147)
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x7379F7
+section_start(0x03)
+pic(5)
+dialog_up()
+para_talk("""No more annoying
+people with their
+annoying machines!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x737A40
+section_start(0x04)
+pic(5)
+dialog_up()
+para_talk_end("""And I will get my
+revenge against...{anim 1}{delay}
+{anim 2}Hikari!!!""", 0)
+section_end()

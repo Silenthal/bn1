@@ -1,0 +1,18 @@
+section_count(0x2)
+
+# 0x00 @ 0x7324D8
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""MegaMan,hurry!
+The bus'll be here
+anytime now!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73251D
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk_end("""Roger!""", 0)
+section_end()

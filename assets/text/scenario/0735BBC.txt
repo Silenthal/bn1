@@ -1,0 +1,20 @@
+section_count(0x2)
+
+# 0x00 @ 0x735BC0
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Lan! The door to the
+power room should be
+open now!""", 0)
+para_talk("""Quick! Go get that
+generator running!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x735C37
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk_end("""OK!""", 0)
+section_end()

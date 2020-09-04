@@ -1,0 +1,724 @@
+section_count(0xEB)
+
+# 0x00 @ 0x6F787A
+section_start(0x00)
+if_flag(149, 0x01, 0xFF)
+set_flag(149)
+pic(21)
+dialog_up()
+para_talk("""This is the ACDC
+Metroline station.""")
+para_talk("""Why do I look so
+glum on opening
+day,you ask?""")
+para_talk_end("""Looks like there was
+a landslide,and
+we can't run!""")
+section_end()
+
+# 0x01 @ 0x6F792C
+section_start(0x01)
+pic(21)
+dialog_up()
+para_talk_end("""What a terrible
+opening day...""")
+section_end()
+
+# 0x02 @ 0x6F795D
+section_start(0x02)
+pic(19)
+dialog_up()
+para_talk_end("""What's the problem
+here!?""")
+section_end()
+
+# 0x03 @ 0x6F7989
+section_start(0x03)
+pic(17)
+dialog_up()
+para_talk_end("""What do they mean,
+they don't know when
+the trains will run!""")
+section_end()
+
+# 0x04 @ 0x6F79D8
+section_start(0x04)
+if_flag(150, 0x06, 0xFF)
+set_flag(150)
+pic(21)
+dialog_up()
+text("""{anim 2}Did you hear about
+the landslide?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x05, 0xFF], 0, False, True)
+para_talk("""A landslide...
+And on opening day!""", 0)
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x6F7A59
+section_start(0x05)
+pic(21)
+dialog_up()
+para_talk("""Because of that,
+you can't buy
+tickets,yet.""")
+text("""{anim 2}Or did you want
+something else?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x07, 0xFF], 0, False, True)
+para_talk_end("""Then I'll get back
+to work...""")
+section_end()
+
+# 0x06 @ 0x6F7AFD
+section_start(0x06)
+pic(21)
+dialog_up()
+text("""{anim 2}Do you need
+something?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x07, 0xFF], 0, False, True)
+para_talk_end("""Then I'll get back
+to work...""")
+section_end()
+
+# 0x07 @ 0x6F7B61
+section_start(0x07)
+option(2, 1, 0, 0)
+pad(2)
+text("""What caused it?
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Where can I go?
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Never mind""")
+pick([0x08, 0x0A, 0x0B], 0, True, True)
+page()
+end()
+section_end()
+
+# 0x08 @ 0x6F7BAB
+section_start(0x08)
+pic(21)
+dialog_up()
+para_talk("""The whole train
+system is run by
+computer.""")
+para_talk("""When there's an
+accident,the safety
+program should stop""")
+para_talk("""the trains,but the
+program was hit
+with a virus!""")
+para_talk("""It doesn't look like
+anyone broke into
+the control room,""")
+para_talk("""So we think that
+someone got in
+through the net.""")
+text("""{anim 2}Do you want to hear
+that again?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x08, 0x09], 1, False, True)
+page()
+end()
+section_end()
+
+# 0x09 @ 0x6F7D1C
+section_start(0x09)
+if_flag(151, 0x0C, 0xFF)
+set_flag(151)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! Want me to
+check things out
+on the net?""")
+section_end()
+
+# 0x0A @ 0x6F7D64
+section_start(0x0A)
+pic(21)
+dialog_up()
+para_talk("""The line currently
+runs to the
+Government Complex.""", 0)
+para_talk("""The SciLab is there.""", 0)
+para_talk_end("""We also are planning
+service to Dentown.""")
+section_end()
+
+# 0x0B @ 0x6F7DF5
+section_start(0x0B)
+pic(21)
+dialog_up()
+para_talk_end("""Please,I'm very
+busy here.""")
+section_end()
+
+# 0x0C @ 0x6F7E22
+section_start(0x0C)
+end(5)
+section_end()
+
+# 0x0F @ 0x6F7E2B
+section_start(0x0F)
+if_story(0x24, 0x24, 0x1E, 0xFF)
+if_story(0x25, 0x25, 0x1E, 0xFF)
+if_story(0x26, 0x26, 0x23, 0xFF)
+if_story(0x27, 0x27, 0x23, 0xFF)
+if_story(0x40, 0x40, 0x31, 0xFF)
+pic(21)
+dialog_up()
+para_talk_end("""The safety program
+is fixed,and the
+trains are running!""", 0)
+section_end()
+
+# 0x10 @ 0x6F7E92
+section_start(0x10)
+if_story(0x24, 0x24, 0x1F, 0xFF)
+if_story(0x25, 0x25, 0x1F, 0xFF)
+if_story(0x26, 0x26, 0x1F, 0xFF)
+if_story(0x27, 0x27, 0x1F, 0xFF)
+if_story(0x40, 0x40, 0x32, 0xFF)
+pic(21)
+dialog_up()
+para_talk("""You can buy a
+ticket to where you
+want to go here.""", 0)
+para_talk("""We currently only
+have service to the
+Government Complex.""", 0)
+para_talk("""We will soon provide
+service to Dentown.""", 0)
+para_talk_end("""Tickets for
+elementary school
+students are free!""", 0)
+section_end()
+
+# 0x11 @ 0x6F7F9F
+section_start(0x11)
+if_story(0x30, 0x57, 0x16, 0xFF)
+if_flag(42, 0x13, 0xFF)
+dialog_up()
+text("""Where would you like
+a ticket to?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""GovmntCmplx """)
+option(1, 1, 0, 0)
+pad(2)
+text("""None""")
+pick([0x12, 0xFF], 0, False, True)
+end()
+section_end()
+
+# 0x12 @ 0x6F7FF6
+section_start(0x12)
+set_flag(42)
+add_item("GovtPass", 1, 0xFF, 0xFF, 0xFF)
+dialog_up()
+pc_anim(30)
+text("""Lan got;
+\"{key GovtPass}\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x13 @ 0x6F8027
+section_start(0x13)
+dialog_up()
+text("""Buy a different
+ticket?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x14, 0xFF], 0, False, True)
+end()
+section_end()
+
+# 0x14 @ 0x6F805E
+section_start(0x14)
+sub_item("GovtPass", 1, 0xFF, 0xFF, 0xFF)
+sub_item("TownPass", 1, 0xFF, 0xFF, 0xFF)
+clear_flag(42)
+dialog_up()
+para_general("""Lan returned his
+ticket!""", 0)
+jump(0x11)
+section_end()
+
+# 0x15 @ 0x6F8094
+section_start(0x15)
+sub_item("GovtPass", 1, 0xFF, 0xFF, 0xFF)
+dialog_up()
+para_general_end("""Lan used the
+{key GovtPass}""", 0)
+section_end()
+
+# 0x16 @ 0x6F80B4
+section_start(0x16)
+if_flag(42, 0x13, 0xFF)
+dialog_up()
+para_general("""Where to?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""GovmntCmplx
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Dentown
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""None""")
+pick([0x12, 0x17, 0xFF], 0, False, True)
+end()
+section_end()
+
+# 0x17 @ 0x6F80FF
+section_start(0x17)
+set_flag(42)
+add_item("TownPass", 1, 0xFF, 0xFF, 0xFF)
+dialog_up()
+pc_anim(30)
+text("""Lan got;
+\"{key TownPass}\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x18 @ 0x6F8130
+section_start(0x18)
+sub_item("TownPass", 1, 0xFF, 0xFF, 0xFF)
+dialog_up()
+para_general_end("""Lan used the
+{key TownPass}""", 0)
+section_end()
+
+# 0x19 @ 0x6F8150
+section_start(0x19)
+dialog_up()
+para_general_end("""The Metroline is
+not running,so you
+can't buy a ticket""", 0)
+section_end()
+
+# 0x1E @ 0x6F8198
+section_start(0x1E)
+pic(21)
+dialog_up()
+para_talk_end("""Sure is hot down
+here. Makes me even
+more thirsty.""")
+section_end()
+
+# 0x1F @ 0x6F81DC
+section_start(0x1F)
+pic(21)
+dialog_up()
+para_talk_end("""Buy the ticket to
+your destination
+here.""")
+section_end()
+
+# 0x20 @ 0x6F8215
+section_start(0x20)
+pic(34)
+dialog_up()
+mail(8)
+para_talk_end("""Lan!
+You've got mail!""", 0)
+section_end()
+
+# 0x23 @ 0x6F8245
+section_start(0x23)
+if_flag(171, 0x24, 0xFF)
+pic(21)
+dialog_up()
+para_talk_end("""Sure is hot down
+here. Makes me even
+more thirsty.""", 0)
+section_end()
+
+# 0x24 @ 0x6F828F
+section_start(0x24)
+pic(21)
+dialog_up()
+para_talk("""What? People are
+getting sick from
+the water?""", 0)
+para_talk_end("""Sure am glad that
+I didn't drink
+any! Whew...""", 0)
+section_end()
+
+# 0x25 @ 0x6F8308
+section_start(0x25)
+pic(34)
+dialog_up()
+mail(28)
+para_talk_end("""Lan!
+Check your mail
+again!""", 0)
+section_end()
+
+# 0x28 @ 0x6F833D
+section_start(0x28)
+pic(21)
+dialog_up()
+para_talk("""The Metroline is
+now running to
+Dentown.""", 0)
+para_talk_end("""No accidents today!
+Nosiree! Hope things
+stay like this!""", 0)
+section_end()
+
+# 0x29 @ 0x6F83B9
+section_start(0x29)
+pic(21)
+dialog_up()
+para_talk("""If you're going to
+Dentown,please
+buy a ticket.""", 0)
+para_talk_end("""The machines are
+over there.""", 0)
+section_end()
+
+# 0x2A @ 0x6F8420
+section_start(0x2A)
+if_flag(149, 0x2B, 0xFF)
+if_flag(147, 0xFF, 0x2B)
+pic(10)
+dialog_up()
+para_talk_end("""No,I haven't seen
+Mayl today.""", 0)
+section_end()
+
+# 0x2B @ 0x6F845C
+section_start(0x2B)
+pic(10)
+dialog_up()
+para_talk_end("""I'm going shopping
+in Dentown!""", 0)
+section_end()
+
+# 0x2C @ 0x6F848C
+section_start(0x2C)
+pic(34)
+dialog_up()
+mail(20)
+para_talk_end("""Lan!
+You've got mail!""", 0)
+section_end()
+
+# 0x31 @ 0x6F84C0
+section_start(0x31)
+pic(21)
+dialog_up()
+para_talk_end("""Thank you for
+riding the
+Metroline!""", 0)
+section_end()
+
+# 0x32 @ 0x6F84F4
+section_start(0x32)
+pic(21)
+dialog_up()
+para_talk_end("""As long as there's
+not a blackout,we
+should be fine.""", 0)
+section_end()
+
+# 0x37 @ 0x6F8543
+section_start(0x37)
+if_story(0x53, 0x53, 0x3C, 0xFF)
+if_story(0x54, 0x54, 0x41, 0xFF)
+pic(21)
+dialog_up()
+para_talk_end("""Thank you for
+using the ACDC
+Metroline station.""", 0)
+section_end()
+
+# 0x38 @ 0x6F858F
+section_start(0x38)
+if_story(0x53, 0x53, 0x3E, 0xFF)
+if_story(0x54, 0x54, 0x42, 0xFF)
+pic(21)
+dialog_up()
+para_talk("""Somebody stole a
+part of the
+Metroline tracks!""", 0)
+para_talk_end("""Now why would anyone
+do something like
+that??""", 0)
+section_end()
+
+# 0x3C @ 0x6F8617
+section_start(0x3C)
+check_item("WWW_Pass", 1, 0x3D, 0x3D, 0xFF)
+pic(21)
+dialog_up()
+para_talk("""I saw Higsby here
+the other day. He
+tried to use a pass""", 0)
+para_talk("""to some station
+called \"WWW Research
+Lab\".""", 0)
+para_talk_end("""I've never heard of
+a station named
+that...""", 0)
+section_end()
+
+# 0x3D @ 0x6F86D2
+section_start(0x3D)
+pic(21)
+dialog_up()
+para_talk_end("""A {key WWW_Pass}?
+You can't use
+that here...""", 0)
+section_end()
+
+# 0x3E @ 0x6F8709
+section_start(0x3E)
+check_item("WWW_Pass", 1, 0x3F, 0x3F, 0xFF)
+pic(21)
+dialog_up()
+para_talk("""The Metroline is
+still running...""", 0)
+para_talk_end("""I wish that I could
+get back to my
+family...""", 0)
+section_end()
+
+# 0x3F @ 0x6F877B
+section_start(0x3F)
+set_flag(165)
+pic(21)
+dialog_up()
+para_talk("""A conductor told
+me something
+interesting.""", 0)
+para_talk("""He said that he
+can sometimes hear
+another train,""", 0)
+para_talk("""even though no
+train is passing
+him!""", 0)
+para_talk_end("""Could there be
+another train line
+running nearby?""", 0)
+section_end()
+
+# 0x41 @ 0x6F885D
+section_start(0x41)
+pic(21)
+dialog_up()
+para_talk_end("""A {key WWW_Pass}?
+I've never even
+heard of that place.""", 0)
+section_end()
+
+# 0x42 @ 0x6F889C
+section_start(0x42)
+pic(21)
+dialog_up()
+para_talk_end("""So there was a
+secret train
+line...""", 0)
+section_end()
+
+# 0xBE @ 0x6F89C8
+section_start(0xBE)
+if_flag(1066, 0xC2, 0xFF)
+check_chip("Hammer M", 1, 0xBF, 0xBF, 0xFF)
+pic(10)
+dialog_up()
+para_talk("""I make new friends
+by collecting
+chips!""", 0)
+text("""{anim 2}Right now I'm
+looking for the chip
+""")
+chip_id("Hammer")
+text(""" """)
+chip_code("M")
+para_general_end(""".{anim 1}""")
+section_end()
+
+# 0xBF @ 0x6F8A45
+section_start(0xBF)
+if_flag(1084, 0xC3, 0xFF)
+set_flag(1084)
+pic(10)
+dialog_up()
+text("""{anim 2}I have a
+""")
+chip_id("X-Panel3")
+text(""" """)
+chip_code("S")
+para_general("""
+here...{anim 1}""", 0)
+text("""{anim 2}Would you trade
+that """)
+chip_id("Hammer")
+text(""" """)
+chip_code("M")
+para_general("""
+for it?{anim 1}""", 0)
+para_talk("""And also,please
+be my friend!""", 0)
+option(1, 1, 0, 0)
+pad(2)
+text("""Sure!
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""No way!""")
+pick([0xC0, 0xC1], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0xC0 @ 0x6F8AF6
+section_start(0xC0)
+check_chip_pack("Hammer M", 1, 0xFF, 0xFF, 0xC4)
+set_flag(1066)
+pic(10)
+dialog_up()
+para_talk("""Really!? Wonderful!
+Here,take this,my
+new friend!""", 0)
+hidepic()
+pc_lock()
+pc_anim(30)
+add_chip("X-Panel3 S", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Hammer M", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("X-Panel3")
+text(""" """)
+chip_code("S")
+text("""\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0xC1 @ 0x6F8B8C
+section_start(0xC1)
+pic(10)
+dialog_up()
+para_talk_end("""Yes,that's me...
+Always alone...""")
+section_end()
+
+# 0xC2 @ 0x6F8BC4
+section_start(0xC2)
+pic(10)
+dialog_up()
+para_talk_end("""I'm not good at
+making friends.
+Thank you!""")
+section_end()
+
+# 0xC3 @ 0x6F8C01
+section_start(0xC3)
+pic(10)
+dialog_up()
+text("""{anim 2}Will you trade your
+""")
+chip_id("Hammer")
+text(""" """)
+chip_code("M")
+text(""" for my
+""")
+chip_id("X-Panel3")
+text(""" """)
+chip_code("S")
+para_general("""?{anim 1}""", 0)
+para_talk("""...and be my friend?""", 0)
+option(1, 1, 0, 0)
+pad(2)
+text("""You bet!
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Uh,no""")
+pick([0xC0, 0xC1], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0xC4 @ 0x6F8C86
+section_start(0xC4)
+pic(10)
+dialog_up()
+para_talk("""Umm...
+You know...""", 0)
+para_talk("""Before you trade
+a chip...""", 0)
+para_talk_end("""You have to take it
+out of your folder.""")
+section_end()
+
+# 0xDC @ 0x6F8D31
+section_start(0xDC)
+dialog_up()
+para_general("""Please place used
+magazines and papers
+in this box""", 0)
+para_general_end("""Used paper is
+collected and
+recycled!""")
+section_end()
+
+# 0xDD @ 0x6F8D95
+section_start(0xDD)
+dialog_up()
+para_general_end("""Several posters are
+up here""")
+section_end()

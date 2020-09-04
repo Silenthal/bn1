@@ -1,0 +1,94 @@
+section_count(0xA)
+
+# 0x00 @ 0x73978C
+section_start(0x00)
+pic(2)
+dialog_up()
+para_talk("""Hold on!
+Don't forget about
+us!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7397C1
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Dex!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x7397D9
+section_start(0x02)
+pic(2)
+dialog_up()
+para_talk("""Leave the hard parts
+to me and GutsMan!{anim 1}{delay}
+{anim 2}We'll handle this!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x739831
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Hmm{anim 1}...{delay}
+{anim 2}You sure you can
+do it?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73986E
+section_start(0x04)
+pic(2)
+dialog_up()
+para_talk("""Trust me! You should
+save your strength
+for the last battle!""", 0)
+para_talk_end("""Yo! GutsMan!""", 0)
+section_end()
+
+# 0x05 @ 0x7398D2
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk("""Thanks,GutsMan!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x7398F6
+section_start(0x06)
+pic(50)
+dialog_up()
+para_talk_end("""Yeeehaaw!""", 0)
+section_end()
+
+# 0x07 @ 0x739910
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk("""Dex!You really came
+through!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x739941
+section_start(0x08)
+pic(2)
+dialog_up()
+para_talk("""Of course,silly!
+But it's not over
+yet!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x73997F
+section_start(0x09)
+pic(0)
+dialog_up()
+para_talk("""You're right!
+OK,I'm off!""", 0)
+para_general_end("""{anim 2}...But I wonder how
+you all knew to come
+here{anim 1}.{delay}.{delay}.{delay}?""", 0)
+section_end()

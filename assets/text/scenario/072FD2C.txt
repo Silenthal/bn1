@@ -1,0 +1,99 @@
+section_count(0xA)
+
+# 0x00 @ 0x72FD40
+section_start(0x00)
+dialog_up()
+set_flag(165)
+para_general("""*beep*""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72FD57
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Mail! Should I
+open it?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72FD83
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Please!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72FD9E
+section_start(0x03)
+pic(1, 1)
+dialog_up()
+para_general("""So? Are you looking
+for the kid who was
+kidnapped?""", 0)
+para_general("""...I forgot to
+mention his last name
+is \"Froid.\"""", 0)
+para_general("""And...it looks like
+the WWW is involved!
+So,good luck!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72FE5B
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""Lan,she said
+\"Froid.\"""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72FE87
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""That's the name of
+the guy at the water
+works!{anim 1}{delay} {anim 2}That means...""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72FEE3
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk("""The WWW took Froid's
+son and made him bug
+the water program!""", 0)
+para_talk("""Things are starting
+to make sense...""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72FF63
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk("""Yai...She could've
+told me sooner!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x72FF9D
+section_start(0x08)
+pic(34)
+dialog_up()
+para_talk("""If we save his son,
+maybe Dr.Froid will
+stop the bug?""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x72FFE8
+section_start(0x09)
+pic(0)
+dialog_up()
+para_talk_end("""Right! Good idea!""", 0)
+section_end()

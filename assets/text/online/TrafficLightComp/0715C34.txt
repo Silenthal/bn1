@@ -1,0 +1,71 @@
+section_count(0x7)
+
+# 0x00 @ 0x715C42
+section_start(0x00)
+if_story(0x34, 0x57, 0x02, 0xFF)
+if_flag(48, 0x01, 0xFF)
+if_flag(174, 0x02, 0xFF)
+dialog_up()
+para_general("""MegaMan pressed the
+color switch!""", 0)
+para_general_end("""However,the signal
+remained green!""", 0)
+section_end()
+
+# 0x01 @ 0x715CA6
+section_start(0x01)
+dialog_up()
+para_general("""MegaMan pressed the
+color switch!""", 0)
+para_general("""The signal turned
+red!""", 0)
+set_flag(169)
+end()
+section_end()
+
+# 0x02 @ 0x715CF2
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk_end("""MegaMan! You don't
+need to press the
+switch now!""", 0)
+section_end()
+
+# 0x05 @ 0x715D39
+section_start(0x05)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(722)
+pc_lock()
+pc_anim(50)
+award_zenny([800, 800], 0xFF)
+text("""MegaMan got 800
+zennys!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x06 @ 0x715D9F
+section_start(0x06)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(723)
+pc_lock()
+pc_anim(50)
+add_chip("Escape N", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Escape")
+text(""" """)
+chip_code("N")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()

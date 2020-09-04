@@ -1,0 +1,270 @@
+section_count(0xEB)
+
+# 0x01 @ 0x709140
+section_start(0x01)
+pic(34)
+dialog_up()
+text_talking("""Lan,challenge Miyu
+to a NetBattle?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x08, 0x06], 1, False, True)
+end()
+section_end()
+
+# 0x02 @ 0x70918B
+section_start(0x02)
+pic(31)
+dialog_up()
+para_talk_end("""You obviously lack
+spirit...""", 0)
+section_end()
+
+# 0x03 @ 0x7091BA
+section_start(0x03)
+pic(31)
+dialog_up()
+para_talk_end("""How could my spirits
+have failed me?""", 0)
+section_end()
+
+# 0x04 @ 0x7091EF
+section_start(0x04)
+check_item("/Miyu", 1, 0xFF, 0xFF, 0x0B)
+pic(31)
+dialog_up()
+para_talk_end("""Your spirits have
+beaten me again...""", 0)
+section_end()
+
+# 0x05 @ 0x70922D
+section_start(0x05)
+pic(31)
+dialog_up()
+para_general_end("""{anim 2}Remember,your body
+is but a shell{anim 1}.{delay}.{delay}.{delay}""", 0)
+section_end()
+
+# 0x06 @ 0x709271
+section_start(0x06)
+pic(31)
+dialog_up()
+para_talk_end("""If that is what your
+spirits tell you to
+do...""", 0)
+section_end()
+
+# 0x07 @ 0x7092B2
+section_start(0x07)
+set_flag(45)
+dialog_down()
+stop()
+section_end()
+
+# 0x08 @ 0x7092BE
+section_start(0x08)
+if_flag(45, 0x02, 0xFF)
+pic(31)
+dialog_up()
+para_talk("""Let the feast of
+souls begin!{anim 1}{delay}
+{anim 2}SkullMan,arise!""")
+jump(0x07)
+section_end()
+
+# 0x0A @ 0x709311
+section_start(0x0A)
+if_story(0x53, 0x54, 0x23, 0xFF)
+if_story(0x50, 0x52, 0x1E, 0xFF)
+if_story(0x40, 0x47, 0x1A, 0xFF)
+if_flag(151, 0x0F, 0xFF)
+set_flag(151)
+pic(31)
+dialog_up()
+para_talk("""My name is Miyu{anim 1}...{delay}
+{anim 2}Welcome to my store.""", 0)
+para_talk("""All of the antiques
+here have sprits...
+Can you feel them?""", 0)
+para_talk("""I can feel the
+bright burning""", 0)
+para_talk("""of the spirit
+contained in your
+Navi!""")
+jump(0x01)
+section_end()
+
+# 0x0B @ 0x70940C
+section_start(0x0B)
+pic(31)
+dialog_up()
+para_talk("""You have truly shown
+me the power of
+your spirit...""", 0)
+para_talk("""That Navi should do
+well in defeating
+the evil spirits""", 0)
+para_talk("""which surround us
+now...
+Here! Take this!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x7094C9
+section_start(0x0C)
+hidepic()
+dialog_up()
+pc_lock()
+pc_anim(30)
+add_item("/Miyu", 1, 0xFF, 0xFF, 0xFF)
+para_general("""Lan got;
+\"{key /Miyu}\"!""", 0)
+text("""(Use this on the net
+ to expand the area
+ you can access!)""")
+pc_wait()
+pc_anim(7)
+pc_unlock()
+page()
+wait(5)
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x70953E
+section_start(0x0D)
+pic(31)
+dialog_up()
+para_talk("""The spirits of your
+Navi and yourself
+shall grow together,""", 0)
+para_talk_end("""and become as one.""", 0)
+section_end()
+
+# 0x0F @ 0x7095A6
+section_start(0x0F)
+if_story(0x34, 0x34, 0x14, 0xFF)
+pic(31)
+dialog_up()
+para_talk("""I'm sorry,I'm not
+open for business
+yet.""")
+jump(0x01)
+section_end()
+
+# 0x10 @ 0x7095EB
+section_start(0x10)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x14 @ 0x709638
+section_start(0x14)
+pic(31)
+dialog_up()
+para_talk("""I can feel{anim 1}...{delay}
+{anim 2}an evil spirit in
+the runaway bus!""")
+jump(0x01)
+section_end()
+
+# 0x1A @ 0x709691
+section_start(0x1A)
+pic(31)
+dialog_up()
+para_talk("""That Navi you have!
+Its spirit shines""", 0)
+para_talk("""far brighter than
+that of any other
+I've seen!""", 0)
+para_talk("""The light...
+It's almost like...""")
+jump(0x01)
+section_end()
+
+# 0x1E @ 0x709737
+section_start(0x1E)
+pic(31)
+dialog_up()
+para_talk("""That Navi you have!
+Its spirit shines""", 0)
+para_talk("""far brighter than
+that of any other
+I've seen!""", 0)
+para_talk("""The light...
+It's almost like...""")
+jump(0x01)
+section_end()
+
+# 0x23 @ 0x7097DF
+section_start(0x23)
+pic(31)
+dialog_up()
+para_talk("""The glow of your
+Navi's spirit has
+grown greater still!""", 0)
+para_talk("""Could this be like
+the sudden burst of
+light""", 0)
+para_general("""{anim 2}before a candle
+burns out{anim 1}...?{delay}
+{anim 2}Or{anim 1}...{delay}""")
+jump(0x01)
+section_end()
+
+# 0xDC @ 0x709A0D
+section_start(0xDC)
+dialog_up()
+para_general("""A large vase...
+But not just a
+normal vase""", 0)
+para_general_end("""You can jack in
+here!""")
+section_end()
+
+# 0xDD @ 0x709A5C
+section_start(0xDD)
+dialog_up()
+para_general("""Decorated with
+scenes of rivers
+and mountains""", 0)
+para_general_end("""Looks very
+expensive""")
+section_end()
+
+# 0xDE @ 0x709AA9
+section_start(0xDE)
+dialog_up()
+para_general_end("""Trash to some,
+treasure to others""")
+section_end()
+
+# 0xDF @ 0x709AD3
+section_start(0xDF)
+dialog_up()
+para_general_end("""Only employees
+are allowed in the
+back""")
+section_end()
+
+# 0xE0 @ 0x709B01
+section_start(0xE0)
+dialog_up()
+para_general("""Not an antique,but
+very well used""", 0)
+para_general_end("""Looking carefully,
+you discover a jack
+in port""")
+section_end()

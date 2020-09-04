@@ -1,0 +1,21 @@
+section_count(0x2)
+
+# 0x00 @ 0x735C50
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""The generator...{anim 1}{delay}
+{anim 2}is working!?{anim 1}{delay}{anim 2} Then
+why's the power out?""", 0)
+para_talk("""MegaMan! Check out
+the power generator
+area again!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x735CED
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk_end("""Roger!!""", 0)
+section_end()

@@ -1,0 +1,110 @@
+section_count(0xC)
+
+# 0x00 @ 0x72EED0
+section_start(0x00)
+pic(24, 1)
+dialog_up()
+para_talk_end("""Hey!""", 0)
+section_end()
+
+# 0x01 @ 0x72EEE5
+section_start(0x01)
+pic(34)
+dialog_up()
+para_general("""*gulp!*""", 0)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72EEFE
+section_start(0x02)
+pic(0)
+dialog_up()
+para_general_end("""!!""", 0)
+section_end()
+
+# 0x03 @ 0x72EF0E
+section_start(0x03)
+pic(24)
+dialog_up()
+para_talk("""What do you think
+you're doing here?""", 0)
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72EF47
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""Uhーoh...""", 0)
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72EF65
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""Umm{anim 1}...{delay}
+{anim 2}I,uh,got lost...""", 0)
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72EF9F
+section_start(0x06)
+pic(24)
+dialog_up()
+para_talk("""I see. Well,you're
+not supposed to be
+in here.""", 0)
+para_talk("""So{anim 1}.{delay}.{delay}...{delay}{anim 2}Go home!
+Got it?""", 0)
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72F01A
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk("""YーYes!""", 0)
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x72F034
+section_start(0x08)
+pic(24)
+dialog_up()
+para_talk_end("""Good! Now go home
+like a good little
+boy.""", 0)
+section_end()
+
+# 0x09 @ 0x72F06F
+section_start(0x09)
+pic(0)
+dialog_up()
+para_talk("""Hmm...""", 0)
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x72F08B
+section_start(0x0A)
+pic(34)
+dialog_up()
+para_talk("""Well? We going home?""", 0)
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x72F0B4
+section_start(0x0B)
+pic(0)
+dialog_up()
+para_talk("""You kidding?
+Let's do it!""", 0)
+input_off()
+set_delay(1)
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()

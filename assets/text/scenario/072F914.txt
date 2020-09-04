@@ -1,0 +1,196 @@
+section_count(0x15)
+
+# 0x00 @ 0x72F93E
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""Well,there's water,
+but...""", 0)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72F971
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk_end("""It looks really
+nasty...""", 0)
+section_end()
+
+# 0x02 @ 0x72F99C
+section_start(0x02)
+pic(16)
+dialog_up()
+text_talking("""Waterrr{anim 1}{delay}
+{anim 2}Need water...""")
+end(30)
+section_end()
+
+# 0x03 @ 0x72F9CB
+section_start(0x03)
+pic(16)
+dialog_up()
+para_talk_end("""Water!!
+Must drink!""", 0)
+section_end()
+
+# 0x04 @ 0x72F9F1
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""Huh?""", 0)
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72FA09
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""That water's bad!""", 0)
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72FA2F
+section_start(0x06)
+pic(16)
+dialog_up()
+text_se_off()
+anim(2)
+se(0xA1)
+text("""gulp{anim 1}...{delay}""")
+se(0xA1)
+text_talking("""gulp{anim 1}...{delay}
+{anim 2}Uck!""")
+text_se_on()
+set_flag(175)
+page()
+wait()
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72FA7C
+section_start(0x07)
+set_flag(246)
+pic(0)
+dialog_up()
+para_talk("""Are you okay?""", 0)
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x72FAA1
+section_start(0x08)
+pic(16)
+dialog_up()
+para_general(""".{delay}.{delay}.""", 0)
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x72FABE
+section_start(0x09)
+pic(34)
+dialog_up()
+para_talk("""Lan!!""", 0)
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x72FAD8
+section_start(0x0A)
+hidepic()
+dialog_up()
+set_flag(249)
+para_general("""*beep*""", 0)
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x72FAF1
+section_start(0x0B)
+pic(7)
+dialog_up()
+para_talk("""You've done it now!""", 0)
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x72FB19
+section_start(0x0C)
+pic(0)
+dialog_up()
+para_talk("""Chaud!""", 0)
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x72FB33
+section_start(0x0D)
+pic(7)
+dialog_up()
+para_general("""{anim 2}People are drinking
+the polluted water
+everywhere{anim 1}...{delay}""", 0)
+para_talk("""The real problem was
+in the water
+filtering program!""", 0)
+para_talk("""This is all your
+fault!""", 0)
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x72FBDE
+section_start(0x0E)
+pic(0)
+dialog_up()
+para_talk("""Uhh...""", 0)
+jump(0x0F)
+section_end()
+
+# 0x0F @ 0x72FBFA
+section_start(0x0F)
+pic(7)
+dialog_up()
+para_talk("""Just stay out of
+my way,okay?""", 0)
+jump(0x10)
+section_end()
+
+# 0x10 @ 0x72FC2C
+section_start(0x10)
+hidepic()
+dialog_up()
+se(0xA0)
+para_general("""*click*...""", 0)
+jump(0x11)
+section_end()
+
+# 0x11 @ 0x72FC4C
+section_start(0x11)
+pic(34)
+dialog_up()
+para_talk("""Lan,I'm sorry.
+I made a mistake.""", 0)
+jump(0x12)
+section_end()
+
+# 0x12 @ 0x72FC83
+section_start(0x12)
+pic(0)
+dialog_up()
+para_talk("""It's not your fault,
+MegaMan. Let's go
+back!""", 0)
+jump(0x13)
+section_end()
+
+# 0x13 @ 0x72FCC7
+section_start(0x13)
+pic(34)
+dialog_up()
+para_talk("""What?""", 0)
+jump(0x14)
+section_end()
+
+# 0x14 @ 0x72FCE0
+section_start(0x14)
+pic(0)
+dialog_up()
+para_talk_end("""We can't give up
+now! Let's fix this
+problem for good!""", 0)
+section_end()

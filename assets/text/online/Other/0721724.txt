@@ -1,0 +1,62 @@
+section_count(0xA)
+
+# 0x00 @ 0x721738
+section_start(0x00)
+pic(36)
+dialog_up()
+para_talk("""Our job is to
+control the
+purified water.""", 0)
+para_talk_end("""Water is the source
+of life! Please
+don't waste it!""")
+section_end()
+
+# 0x01 @ 0x7217B0
+section_start(0x01)
+pic(36)
+dialog_up()
+para_talk_end("""We work hard so
+that you can
+drink clean water!""")
+section_end()
+
+# 0x02 @ 0x7217F0
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(859)
+pc_lock()
+pc_anim(50)
+add_chip("Recov200 L", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Recov200")
+text(""" """)
+chip_code("L")
+text("""\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x03 @ 0x721861
+section_start(0x03)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(860)
+pc_lock()
+pc_anim(50)
+award_zenny([3000, 3000], 0xFF)
+text("""MegaMan got 3000
+zennys!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()

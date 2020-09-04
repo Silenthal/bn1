@@ -1,0 +1,92 @@
+section_count(0x8)
+
+# 0x00 @ 0x715E20
+section_start(0x00)
+if_story(0x35, 0x57, 0x02, 0xFF)
+if_flag(48, 0x01, 0xFF)
+if_flag(175, 0x02, 0xFF)
+dialog_up()
+para_general("""MegaMan pressed the
+color switch!""", 0)
+para_general_end("""However,the signal
+remained green!""", 0)
+section_end()
+
+# 0x01 @ 0x715E84
+section_start(0x01)
+dialog_up()
+para_general("""MegaMan pressed the
+color switch!""", 0)
+para_general("""The signal turned
+red!""")
+set_flag(171)
+end()
+section_end()
+
+# 0x02 @ 0x715ED0
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk_end("""MegaMan! You don't
+need to press the
+switch now!""", 0)
+section_end()
+
+# 0x05 @ 0x715F17
+section_start(0x05)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(724)
+pc_lock()
+pc_anim(50)
+add_chip("Heater O", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Heater")
+text(""" """)
+chip_code("O")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x06 @ 0x715F85
+section_start(0x06)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(725)
+pc_lock()
+pc_anim(50)
+award_zenny([500, 500], 0xFF)
+text("""MegaMan got 500
+zennys!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x07 @ 0x715FEB
+section_start(0x07)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(726)
+pc_lock()
+pc_anim(50)
+add_chip("FireTowr T", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("FireTowr")
+text(""" """)
+chip_code("T")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()

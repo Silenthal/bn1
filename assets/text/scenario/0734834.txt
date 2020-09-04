@@ -1,0 +1,98 @@
+section_count(0x8)
+
+# 0x00 @ 0x734844
+section_start(0x00)
+dialog_up()
+para_general("""Everyone,thank you
+for waiting.{anim 1}""", 0)
+para_talk_end("""We'd like to welcome
+our speaker for the
+evening.""", 0)
+section_end()
+
+# 0x01 @ 0x7348AA
+section_start(0x01)
+pic(30)
+dialog_up()
+para_talk("""Ladies and gentlemen
+thank you for coming
+here this evening.""", 0)
+para_talk("""To our{anim 1}...{delay}
+{anim 2}WWW Party of Death!!""", 0)
+para_talk("""We'd like you to
+know that the WWW
+has just taken over""", 0)
+para_talk("""the underground
+power plant!""", 0)
+para_talk("""So,let's get the
+party started with
+a little...""", 0)
+para_talk("""No,a really big...
+blackout!!""", 0)
+anim(2)
+set_flag(173)
+para_general_end("""ElecMan! Zap to it!{anim 1}""", 0)
+section_end()
+
+# 0x02 @ 0x734A16
+section_start(0x02)
+pic(25)
+dialog_up()
+para_talk("""A powerout!?{anim 1}{delay}
+{anim 2}Oh no!{anim 1} {delay}{anim 2}The air
+vents have stopped!""", 0)
+para_general("""{anim 2}If we don't fix them
+the air will run out
+and...{anim 1}*gulp*""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x734AB0
+section_start(0x03)
+pic(30)
+dialog_up()
+para_talk_end("""Now,relax and enjoy
+your last breaths!
+Ahahahahahah!""", 0)
+section_end()
+
+# 0x04 @ 0x734AF7
+section_start(0x04)
+pic(27)
+dialog_up()
+para_talk("""No good! The power
+won't turn on!{anim 1}{delay}
+{anim 2}The generator...""", 0)
+para_talk("""Someone go check
+the power plant
+below us!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x734B7D
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk("""Lan,let's go!!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x734BA2
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk_end("""Easy for you to say!
+It's pitch black in
+here!""", 0)
+section_end()
+
+# 0x07 @ 0x734BE3
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk("""...Wait,my eyes are
+adjusting...I can
+see a little.""", 0)
+para_talk_end("""OK,MegaMan!
+Let's go!!""", 0)
+section_end()

@@ -1,0 +1,36 @@
+section_count(0x4)
+
+# 0x00 @ 0x72A620
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""MegaMan!?""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72A63E
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Yeah,{anim 1}{delay}{anim 2}the oven
+program's here,but
+something's wrong...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72A695
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Be careful! If a
+virus comes out,I'll
+send chip data!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72A6E1
+section_start(0x03)
+pic(34)
+dialog_up()
+para_talk_end("""Roger that!""")
+section_end()

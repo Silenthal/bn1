@@ -1,0 +1,78 @@
+section_count(0x9)
+
+# 0x00 @ 0x738E4E
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""Aak!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x738E66
+section_start(0x01)
+pic(6)
+dialog_up()
+para_talk("""Whooo!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x738E80
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""It's Ms.Yuri!
+And the old man!""", 0)
+para_talk("""Lan!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x738EC2
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk_end("""I see them!""", 0)
+section_end()
+
+# 0x04 @ 0x738EDE
+section_start(0x04)
+pic(6)
+dialog_up()
+para_talk("""Thankyouthankyou
+thankyou!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x738F0C
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""All you did was
+help me and now...""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x738F44
+section_start(0x06)
+pic(14)
+dialog_up()
+para_talk("""Heheh...not to worry
+at all! I'm used to
+hard times.""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x738F91
+section_start(0x07)
+pic(3, 2)
+dialog_up()
+para_talk("""Lan! You have to
+get up there,quick!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x738FCB
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk_end("""Roger! On my way!""", 0)
+section_end()

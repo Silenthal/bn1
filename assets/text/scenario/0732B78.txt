@@ -1,0 +1,20 @@
+section_count(0x2)
+
+# 0x00 @ 0x732B7C
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""MegaMan!
+Turn all the traffic
+lights to red!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x732BBD
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk_end("""Gotcha!
+We'll stop the bus
+at the intersection!""", 0)
+section_end()

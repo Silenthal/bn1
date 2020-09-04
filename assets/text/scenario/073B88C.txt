@@ -1,0 +1,161 @@
+section_count(0xB)
+
+# 0x00 @ 0x73B8A2
+section_start(0x00)
+pic(5)
+dialog_up()
+para_talk("""Ha,{delay 10}ha,{delay 10}ha,{delay 10}ha!!
+Once I press this
+button...""", 0)
+para_talk("""Bye bye world!""", 0)
+para_talk("""Dr.Hikari may have
+kicked me out of his
+little lab...""", 0)
+para_talk_end("""But now I get my
+revenge!!""", 0)
+section_end()
+
+# 0x01 @ 0x73B96B
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Wait! Wily!!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73B98D
+section_start(0x02)
+pic(5)
+dialog_up()
+para_talk("""Ahh{anim 1}...{delay}
+{anim 2}Hikari's little boy
+Lan,I presume?""", 0)
+para_talk("""Leave it to the
+Hikari's to bother
+me to the very end!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x73BA17
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""The EndGame is
+revenge against my
+family? Why!?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73BA5C
+section_start(0x04)
+pic(5)
+dialog_up()
+para_talk("""Hmm{anim 1}...{delay}{anim 2}Shall I
+tell you?""", 0)
+para_talk("""30 years ago,two
+famous scientists
+competed to be best!""", 0)
+para_talk("""...Me,and your
+grandfather,
+Dr.Hikari!""", 0)
+para_talk("""I made robots,and
+Hikari specialized
+in networks.""", 0)
+text_talking("""We were both lost
+in our research.
+Then,one day...""")
+set_flag(147)
+page()
+wait()
+para_talk("""In order to win an
+international
+competition,""", 0)
+para_talk("""our country had to
+pick one of our
+projects to fund.""", 0)
+para_talk("""After long debate...
+They cancelled my
+robot research!""", 0)
+para_talk("""I couldn't believe
+it! My research
+was vital! Vital!""", 0)
+para_talk("""I had no place to
+turn to,and so I
+left the lab.""", 0)
+para_general("""{anim 2}That's why I'm
+mad! If it wasn't
+for Hikari{anim 1}...{delay}!""", 0)
+para_talk("""So I made the WWW
+to get back at
+him!""", 0)
+para_talk("""He made this world
+what it is,and now
+I'll destroy it!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x73BD67
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""But he didn't cancel
+your research! It's
+not his fault!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x73BDB5
+section_start(0x06)
+pic(5)
+dialog_up()
+para_talk("""Hah! That's what
+he said,too!""", 0)
+para_talk("""You'll never
+understand how I
+feel! Never!""", 0)
+text("""{anim 2}Enough talking!
+""")
+clear_flag(147)
+para_general("""World,prepare for
+DELETION!!!!{anim 1}""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x73BE5E
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk_end("""Noooo!!""", 0)
+section_end()
+
+# 0x08 @ 0x73BE77
+section_start(0x08)
+set_flag(147)
+pic(5)
+dialog_up()
+para_talk("""Hahah!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x73BE95
+section_start(0x09)
+pic(0)
+dialog_up()
+para_talk_end("""Never! Not if
+MegaMan and I
+can help it!""", 0)
+section_end()
+
+# 0x0A @ 0x73BECF
+section_start(0x0A)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()

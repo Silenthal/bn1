@@ -1,0 +1,406 @@
+section_count(0xEB)
+
+# 0x00 @ 0x707A2E
+section_start(0x00)
+if_story(0x35, 0x36, 0x0C, 0xFF)
+pic(16)
+dialog_up()
+para_talk("""This is Block3 of
+Dentown.""", 0)
+para_talk_end("""Dentown is comprised
+of 4 Blocks and
+Central Dentown.""", 0)
+section_end()
+
+# 0x01 @ 0x707A9D
+section_start(0x01)
+pic(15)
+dialog_up()
+para_talk("""There are bus stops
+in Block 1ー4 of
+DenTown.""", 0)
+para_talk_end("""Hmm,I wonder why
+there's not one in
+Central Dentown?""", 0)
+section_end()
+
+# 0x02 @ 0x707B19
+section_start(0x02)
+if_story(0x35, 0x36, 0x0D, 0xFF)
+pic(11)
+dialog_up()
+para_talk_end("""Man,there's a lot
+of cars downtown...""", 0)
+section_end()
+
+# 0x03 @ 0x707B59
+section_start(0x03)
+dialog_up()
+para_general_end("""A bus stop...{delay}
+It says \"Dentown,
+Block3\"""", 0)
+section_end()
+
+# 0x04 @ 0x707B92
+section_start(0x04)
+mail(11)
+pic(34)
+dialog_up()
+para_talk_end("""Lan!
+You've got mail!""", 0)
+section_end()
+
+# 0x05 @ 0x707BBE
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk_end("""I don't think we're
+allowed to jack in
+to that,Lan.""", 0)
+section_end()
+
+# 0x0A @ 0x707C0D
+section_start(0x0A)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x0B @ 0x707C54
+section_start(0x0B)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! If you leave,
+Mayl could be
+killed!""", 0)
+section_end()
+
+# 0x0C @ 0x707C8F
+section_start(0x0C)
+pic(16)
+dialog_up()
+para_talk("""The bus is still
+running!!""", 0)
+para_talk_end("""Can't somebody
+stop it!?""", 0)
+section_end()
+
+# 0x0D @ 0x707CDE
+section_start(0x0D)
+pic(11)
+dialog_up()
+para_talk_end("""I get scared
+downtown...""", 0)
+section_end()
+
+# 0x19 @ 0x707D1F
+section_start(0x19)
+pic(16)
+dialog_up()
+para_talk_end("""This is Block3 of
+Dentown!""", 0)
+section_end()
+
+# 0x1A @ 0x707D4A
+section_start(0x1A)
+if_story(0x53, 0x54, 0x32, 0xFF)
+pic(15)
+dialog_up()
+para_talk("""Ever since that
+accident,it takes""", 0)
+para_talk_end("""some nerve to get
+on the bus!""", 0)
+section_end()
+
+# 0x1B @ 0x707DA8
+section_start(0x1B)
+pic(11)
+dialog_up()
+para_talk_end("""There sure are a
+lot of cars
+downtown!""", 0)
+section_end()
+
+# 0x1C @ 0x707DDF
+section_start(0x1C)
+pic(7)
+dialog_up()
+para_talk("""Go on,beat it!""")
+jump(0x24)
+section_end()
+
+# 0x24 @ 0x707E10
+section_start(0x24)
+pic(34)
+dialog_up()
+text_talking("""Lan,challenge Chaud
+to a NetBattle?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x2A, 0x29], 1, False, True)
+end()
+section_end()
+
+# 0x25 @ 0x707E5C
+section_start(0x25)
+pic(7)
+dialog_up()
+para_talk_end("""I don't see any
+reason to battle
+with a kid like you.""", 0)
+section_end()
+
+# 0x26 @ 0x707EA3
+section_start(0x26)
+pic(7)
+dialog_up()
+para_talk_end("""I guess I shouldn't
+have gone easy on
+you...""", 0)
+section_end()
+
+# 0x27 @ 0x707EE3
+section_start(0x27)
+if_flag(100, 0x26, 0xFF)
+pic(7)
+dialog_up()
+para_talk_end("""I didn't make any
+mistakes! What's IN
+that Navi there?""", 0)
+section_end()
+
+# 0x28 @ 0x707F33
+section_start(0x28)
+pic(7)
+dialog_up()
+para_talk_end("""Now,please stop
+wasting my time!""", 0)
+section_end()
+
+# 0x29 @ 0x707F65
+section_start(0x29)
+pic(7)
+dialog_up()
+para_talk_end("""Good call on your
+part,kid...""", 0)
+section_end()
+
+# 0x2A @ 0x707F96
+section_start(0x2A)
+if_flag(99, 0x25, 0xFF)
+pic(7)
+dialog_up()
+para_talk("""So you want to see
+how the pros do it,
+huh? PROTOMAN!!""")
+jump(0x2B)
+section_end()
+
+# 0x2B @ 0x707FE9
+section_start(0x2B)
+pic(46)
+dialog_up()
+para_talk("""You called?""")
+jump(0x2C)
+section_end()
+
+# 0x2C @ 0x708008
+section_start(0x2C)
+set_flag(99)
+dialog_down()
+stop()
+section_end()
+
+# 0x2D @ 0x708014
+section_start(0x2D)
+pic(7)
+dialog_up()
+para_talk("""I told you that I'm
+busy on a case!""", 0)
+para_talk("""Do I need to teach
+you to respect your
+elders?""")
+jump(0x24)
+section_end()
+
+# 0x32 @ 0x70808B
+section_start(0x32)
+pic(15)
+dialog_up()
+para_talk_end("""What are you doing
+out so late!? You
+should be at home!""", 0)
+section_end()
+
+# 0xBE @ 0x7081EB
+section_start(0xBE)
+if_flag(1061, 0xC2, 0xFF)
+pic(18)
+dialog_up()
+para_talk("""Oh,wow,dude... I
+just heard the most
+amaaazing rumor,dig?""", 0)
+para_talk("""But,like,I gotta
+have some chips to,
+like,try it out.""", 0)
+text("""{anim 2}So,like,dude,could
+you score me a
+""")
+chip_id("Shotgun")
+text(""" """)
+chip_code("K")
+para_general(""",{anim 1}""", 0)
+text("""{anim 2}a """)
+chip_id("CrossGun")
+text(""" """)
+chip_code("K")
+text(""",
+a """)
+chip_id("Spreader")
+text(""" """)
+chip_code("K")
+text(""",
+and a """)
+chip_id("M-Cannon")
+text(""" """)
+chip_code("K")
+para_general("""?{anim 1}""", 0)
+text("""{anim 2}If you do,I'll,
+like,give you this
+""")
+chip_id("Recov300")
+text(""" """)
+chip_code("C")
+para_general(""",OK?{anim 1}""", 0)
+para_talk("""Help me out,dude,
+I really need the
+stuff...""", 0)
+option(0, 0, 1, 1)
+pad(2)
+text("""Groovy """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No way!""")
+pick([0xC0, 0xBF], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0xBF @ 0x70838B
+section_start(0xBF)
+pic(18)
+dialog_up()
+para_talk_end("""Oh,wow,total
+bummer,dude...""")
+section_end()
+
+# 0xC0 @ 0x7083BC
+section_start(0xC0)
+check_chip_pack("Shotgun K", 1, 0xFF, 0xFF, 0xC1)
+check_chip_pack("CrossGun K", 1, 0xFF, 0xFF, 0xC1)
+check_chip_pack("Spreader K", 1, 0xFF, 0xFF, 0xC1)
+check_chip_pack("M-Cannon K", 1, 0xFF, 0xFF, 0xC1)
+set_flag(1061)
+pic(18)
+dialog_up()
+para_talk("""Oh,dude,how totally
+groovy!""", 0)
+hidepic()
+pc_lock()
+pc_anim(30)
+add_chip("Recov300 C", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Shotgun K", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("CrossGun K", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Spreader K", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("M-Cannon K", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("Recov300")
+text(""" """)
+chip_code("C")
+text("""\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0xC1 @ 0x708469
+section_start(0xC1)
+pic(18)
+dialog_up()
+para_talk("""But,dude,you don't
+have the stuff I
+need...""", 0)
+para_talk("""Wow,you didn't,like,
+space out and stash
+them in your folder?""", 0)
+para_talk("""You can't trade from
+your stash,dude.""", 0)
+para_talk("""Or,if you don't have
+the stuff then,like,
+that's a bummer...""", 0)
+para_talk_end("""Come back when you
+score the chips,
+OK?""")
+section_end()
+
+# 0xC2 @ 0x7085A1
+section_start(0xC2)
+pic(18)
+dialog_up()
+para_talk_end("""Total thanks,dude!""")
+section_end()
+
+# 0xDC @ 0x7085F7
+section_start(0xDC)
+dialog_up()
+para_general_end("""You can't jack in
+to this signal""")
+section_end()
+
+# 0xDD @ 0x708620
+section_start(0xDD)
+if_story(0x40, 0x5F, 0xE0, 0xFF)
+if_flag(152, 0xE0, 0xFF)
+dialog_up()
+para_general("""This signal has a
+jack in port""", 0)
+para_general_end("""You don't have any
+reason to jack in
+now,though""")
+section_end()
+
+# 0xDE @ 0x708687
+section_start(0xDE)
+dialog_up()
+para_general_end("""Currently under
+renovation""")
+section_end()
+
+# 0xDF @ 0x7086A9
+section_start(0xDF)
+dialog_up()
+para_general_end("""A building with no
+obvious purpose...""")
+section_end()
+
+# 0xE0 @ 0x7086D9
+section_start(0xE0)
+dialog_up()
+para_general_end("""You can jack in
+to this signal""")
+section_end()

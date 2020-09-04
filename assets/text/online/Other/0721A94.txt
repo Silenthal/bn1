@@ -1,0 +1,40 @@
+section_count(0xA)
+
+# 0x00 @ 0x721AA8
+section_start(0x00)
+pic(36)
+dialog_up()
+para_talk("""This {key PET} is made
+from recycled
+plastics!""", 0)
+para_talk_end("""At last,a {key PET} which
+is safe for the
+environment!""")
+section_end()
+
+# 0x01 @ 0x721B1D
+section_start(0x01)
+pic(36)
+dialog_up()
+para_talk_end("""We must be careful
+to recycle
+everything we can!""")
+section_end()
+
+# 0x02 @ 0x721B5E
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(862)
+pc_lock()
+pc_anim(50)
+add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a
+PowerUp;\"{key HPmemory}\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()

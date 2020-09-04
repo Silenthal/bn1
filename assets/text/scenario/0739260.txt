@@ -1,0 +1,79 @@
+section_count(0x9)
+
+# 0x00 @ 0x739272
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""MegaMan!
+Do your stuff!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73929E
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Hunh{anim 1}{delay}...? {anim 2}No good{anim 1}...{delay}
+{anim 2}This passcode is
+gonna take time...""")
+dialog_down()
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x739304
+section_start(0x02)
+pic(6)
+dialog_up()
+para_general("""{anim 2}Leave it to me!
+{anim 1}*snort*""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x739331
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Mr.Higsby!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x739350
+section_start(0x04)
+pic(6)
+dialog_up()
+para_talk_end("""Numbers are no
+problem for
+NumberMan!""", 0)
+section_end()
+
+# 0x05 @ 0x739386
+section_start(0x05)
+pic(38)
+dialog_up()
+para_talk("""Analyzing program{anim 1}.{delay}.{delay}.{delay}
+{anim 2}Passcode;9630""", 0)
+set_flag(221)
+para_talk_end("""Entering passcode...""", 0)
+section_end()
+
+# 0x06 @ 0x7393EF
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk_end("""Thanks,NumberMan!""", 0)
+section_end()
+
+# 0x07 @ 0x739412
+section_start(0x07)
+pic(6)
+dialog_up()
+para_talk("""Lan,get going!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x739435
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk_end("""I'm gone!""", 0)
+section_end()

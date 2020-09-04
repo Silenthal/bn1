@@ -1,0 +1,108 @@
+section_count(0xD)
+
+# 0x00 @ 0x73A0E6
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""We did it!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73A104
+section_start(0x01)
+pic(29)
+dialog_up()
+para_talk("""Errgh...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73A122
+section_start(0x02)
+pic(5)
+dialog_up()
+para_talk("""Yahoot! Not you,too!""", 0)
+text("""{anim 2}Here!""")
+song(0x04)
+para_general(""" Use this
+bit data from
+the LifeVirus!{anim 1}""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x73A185
+section_start(0x03)
+pic(29)
+dialog_up()
+para_general_end("""{anim 2}Phew{anim 1}...{delay}""", 0)
+section_end()
+
+# 0x04 @ 0x73A1A3
+section_start(0x04)
+pic(51)
+dialog_up()
+text_talking("""Life{anim 1}...{delay}{anim 2}Magic!""")
+end(10)
+section_end()
+
+# 0x05 @ 0x73A1CB
+section_start(0x05)
+pic(34)
+dialog_up()
+text_talking("""Huh?""")
+end(10)
+section_end()
+
+# 0x06 @ 0x73A1DF
+section_start(0x06)
+pic(51)
+dialog_up()
+para_talk("""Yahoot! I did it!
+You can say goodbye
+to MegaMan.EXE!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x73A22B
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk("""No...""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x73A246
+section_start(0x08)
+pic(29)
+dialog_up()
+para_talk_end("""MーMagicMan!
+Look out!""", 0)
+section_end()
+
+# 0x09 @ 0x73A26D
+section_start(0x09)
+pic(51)
+dialog_up()
+para_talk_end("""! LifeMaa....Ak!!""", 0)
+section_end()
+
+# 0x0A @ 0x73A295
+section_start(0x0A)
+pic(46)
+dialog_up()
+para_talk("""Grr{anim 1}...{delay}{anim 2}Too late?""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x73A2C3
+section_start(0x0B)
+pic(40)
+dialog_up()
+para_talk_end("""Mega!!""", 0)
+section_end()
+
+# 0x0C @ 0x73A2DB
+section_start(0x0C)
+pic(34)
+dialog_up()
+para_talk_end("""Unh!""", 0)
+section_end()

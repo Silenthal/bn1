@@ -1,0 +1,72 @@
+section_count(0x8)
+
+# 0x00 @ 0x72DE70
+section_start(0x00)
+dialog_up()
+para_general("""One month has passed
+since the \"Schoolー
+jacking\" incident.""", 0)
+para_general("""WWW net crime grows
+worse,and the damage
+more serious daily!""", 0)
+para_general_end("""Peace didn't last
+long in the town
+of ACDC...""", 0)
+section_end()
+
+# 0x01 @ 0x72DF2C
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Lan! It's morning!""", 0)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72DF54
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk_end("""Uh,uhh...""", 0)
+section_end()
+
+# 0x03 @ 0x72DF71
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""C'mon,it's Saturday!
+Lemme sleep!""", 0)
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72DFAA
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""Ah! You're right!""", 0)
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72DFD1
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""Told ya.""", 0)
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72DFED
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk("""...But remember you
+have weekend class
+this week?""", 0)
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72E035
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk_end("""Oh,man!""", 0)
+section_end()

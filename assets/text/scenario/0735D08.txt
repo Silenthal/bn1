@@ -1,0 +1,37 @@
+section_count(0x3)
+
+# 0x00 @ 0x735D0E
+section_start(0x00)
+pic(47)
+dialog_up()
+para_talk("""Who R U?
+A NetBattler?""", 0)
+para_talk("""Hrm...You did good
+coming this far,but
+you're too late...""", 0)
+para_talk("""I just finished
+downloading the
+electricity program!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x735DBF
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Electricity program?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x735DE7
+section_start(0x02)
+pic(47)
+dialog_up()
+para_general("""? {delay}{anim 2}You're not a
+NetBattler come to
+protect it?{anim 1}""", 0)
+para_general("""{anim 2}...No matter,{anim 1}{delay}
+{anim 2}All who stand in my
+way get.{anim 1}{delay}.{delay}.""", 0)
+para_talk_end("""Zapped!!""", 0)
+section_end()

@@ -1,0 +1,665 @@
+section_count(0x65)
+
+# 0x00 @ 0x72200A
+section_start(0x00)
+if_shop(0x01, 0xFF, 0x01)
+pic(41)
+dialog_up()
+text("""{anim 2}I'm a net merchant!
+Wanna' see my wares?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x02, 0xFF], 0, False, True)
+para_talk_end("""Please come again!""", 0)
+section_end()
+
+# 0x01 @ 0x72207A
+section_start(0x01)
+pic(41)
+dialog_up()
+para_talk_end("""I'm a net merchant!
+...but I'm currently
+out of stock.""", 0)
+section_end()
+
+# 0x02 @ 0x7220C7
+section_start(0x02)
+shop(1)
+section_end()
+
+# 0x0A @ 0x7220DA
+section_start(0x0A)
+check_item("★Mayl", 1, 0x0B, 0x0B, 0xFF)
+dialog_up()
+para_general("""It looks like a
+connection to
+another terminal.""", 0)
+para_general_end("""However,you don't
+know the address,so
+you can't open it.""", 0)
+section_end()
+
+# 0x0B @ 0x72215A
+section_start(0x0B)
+dialog_up()
+para_general("""It looks like a
+connection to
+another terminal.""", 0)
+para_general(""".{delay}.{delay}.{delay}MegaMan accessed
+{key ★Mayl}!""", 0)
+para_general("""It connects to the
+terminal!""", 0)
+clear_flag(1041)
+set_flag(6)
+end()
+section_end()
+
+# 0x0C @ 0x7221EB
+section_start(0x0C)
+check_item("★Yai", 1, 0x0D, 0xFF, 0xFF)
+dialog_up()
+para_general("""It looks like a
+connection to
+another terminal.""", 0)
+para_general_end("""However,you don't
+know the address,so
+you can't open it.""", 0)
+section_end()
+
+# 0x0D @ 0x72226B
+section_start(0x0D)
+dialog_up()
+para_general("""It looks like a
+connection to
+another terminal.""", 0)
+para_general(""".{delay}.{delay}.{delay}MegaMan accessed
+{key ★Yai}!""", 0)
+para_general("""It connects to the
+terminal!""", 0)
+clear_flag(1042)
+set_flag(7)
+end()
+section_end()
+
+# 0x0E @ 0x7222FC
+section_start(0x0E)
+check_item("★Dex", 1, 0x0F, 0xFF, 0xFF)
+dialog_up()
+para_general("""It looks like a
+connection to
+another terminal.""", 0)
+para_general_end("""However,you don't
+know the address,so
+you can't open it.""", 0)
+section_end()
+
+# 0x0F @ 0x72237C
+section_start(0x0F)
+dialog_up()
+para_general("""It looks like a
+connection to
+another terminal.""", 0)
+para_general(""".{delay}.{delay}.{delay}MegaMan accessed
+{key ★Dex}!""", 0)
+para_general("""It connects to the
+terminal!""", 0)
+clear_flag(1043)
+set_flag(8)
+end()
+section_end()
+
+# 0x12 @ 0x722411
+section_start(0x12)
+check_item("/Dex", 1, 0x13, 0xFF, 0xFF)
+set_flag(11)
+dialog_up()
+para_general("""It says,
+\"Dex's PC! Get out!
+ This means YOU!\"""", 0)
+para_general("""You don't have
+access rights.""")
+jump(0x14)
+section_end()
+
+# 0x13 @ 0x72247F
+section_start(0x13)
+dialog_up()
+para_general("""It says,
+\"Dex's PC! Get out!
+This means YOU!\"""", 0)
+para_general(""".{delay}.{delay}.{delay}MegaMan accessed
+{key /Dex}!""", 0)
+para_general("""MegaMan gained
+access!""", 0)
+pic(0)
+para_talk("""Cool! Now we can
+pass through!""", 0)
+para_talk("""Let's find out what
+caused the bug in
+the Metroline!""", 0)
+clear_flag(1045)
+set_flag(10)
+end()
+section_end()
+
+# 0x14 @ 0x722578
+section_start(0x14)
+pic(0)
+dialog_up()
+para_talk("""Look's like we'll
+have to get
+permission from""", 0)
+para_talk_end("""Dex before we can
+go through!""", 0)
+section_end()
+
+# 0x15 @ 0x7225DD
+section_start(0x15)
+pic(41)
+dialog_up()
+para_talk("""I heard that you
+deleted FireMan!
+Wow!!""", 0)
+para_talk("""But be careful!""", 0)
+para_talk("""There are sometimes
+copies of deleted
+Navis in the net!""", 0)
+para_talk_end("""Almost sounds like
+a ghost story,huh?""", 0)
+section_end()
+
+# 0x19 @ 0x7226A4
+section_start(0x19)
+check_item("IceBlock", 1, 0x1A, 0x1A, 0xFF)
+dialog_up()
+para_general_end("""It's burning bright.""", 0)
+section_end()
+
+# 0x1A @ 0x7226C9
+section_start(0x1A)
+dialog_up()
+text("""Use a {key IceBlock}?
+(""")
+item_amt("IceBlock", 0, False, False)
+text(""" remaining)
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x1B, 0xFF], 0, False, True)
+end()
+section_end()
+
+# 0x1B @ 0x722707
+section_start(0x1B)
+sub_item("IceBlock", 1, 0xFF, 0xFF, 0xFF)
+check_item("IceBlock", 0, 0x1C, 0xFF, 0xFF)
+dialog_up()
+text("""MegaMan used a
+{key IceBlock}!
+(""")
+item_amt("IceBlock", 0, False, False)
+para_general_end(""" remaining)""", 0)
+section_end()
+
+# 0x1C @ 0x722745
+section_start(0x1C)
+dialog_up()
+para_general_end("""MegaMan used his
+final {key IceBlock}!""", 0)
+section_end()
+
+# 0x23 @ 0x722776
+section_start(0x23)
+check_item("WWW_PIN", 1, 0x24, 0x24, 0xFF)
+dialog_up()
+para_general("""\"{key WWW_PIN}\"
+needed to unlock!""", 0)
+para_general("""All others...{delay}
+BEGONE!""", 0)
+pic(0)
+para_talk_end("""The {key WWW_PIN},huh?
+MegaMan,let's deal
+with that later!""", 0)
+section_end()
+
+# 0x24 @ 0x722803
+section_start(0x24)
+dialog_up()
+para_general("""\"{key WWW_PIN}\"
+needed to unlock!""", 0)
+para_general("""MegaMan used the
+{key WWW_PIN}!""", 0)
+text("""MegaMan gained
+access!!""")
+page()
+set_flag(38)
+end()
+section_end()
+
+# 0x25 @ 0x722862
+section_start(0x25)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(729)
+pc_lock()
+pc_anim(50)
+add_chip("TriLance M", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("TriLance")
+text(""" """)
+chip_code("M")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x32 @ 0x7228E8
+section_start(0x32)
+dialog_up()
+set_flag(657)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x33, 0x34])
+page()
+end()
+section_end()
+
+# 0x33 @ 0x722923
+section_start(0x33)
+dialog_up()
+award_chip(["MetGuard A", "MetGuard A", "MetGuard A", "MetGuard A", "MetGuard A", "MetGuard A", "X-Panel1 S", "X-Panel1 S", "X-Panel1 S", "X-Panel1 S", "Shotgun K", "Shotgun K", "Recov10 G", "Recov10 G", "Recov10 G", "Recov10 G"])
+pc_lock()
+pc_anim(50)
+text("""MegaMan got a chip
+for \"""")
+chip_id_buf(1)
+text(""" """)
+chip_code_buf(2)
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x34 @ 0x722980
+section_start(0x34)
+dialog_up()
+award_zenny([100, 100, 100, 200, 200, 200, 200, 200, 500, 500, 500, 500, 500, 1000, 1000, 1000], 0xFF)
+pc_lock()
+pc_anim(50)
+text("""MegaMan got """)
+buffer(1, 0, False, False)
+text("""
+zennys!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x35 @ 0x7229F0
+section_start(0x35)
+dialog_up()
+para_general("""It was a virus
+in disguise!""", 0)
+battle()
+page()
+end()
+section_end()
+
+# 0x36 @ 0x722A1A
+section_start(0x36)
+dialog_up()
+set_flag(658)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x37, 0x38])
+page()
+end()
+section_end()
+
+# 0x37 @ 0x722A55
+section_start(0x37)
+jump(0x33)
+section_end()
+
+# 0x38 @ 0x722A5A
+section_start(0x38)
+jump(0x34)
+section_end()
+
+# 0x39 @ 0x722A5F
+section_start(0x39)
+jump(0x35)
+section_end()
+
+# 0x3A @ 0x722A64
+section_start(0x3A)
+dialog_up()
+set_flag(659)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x3B, 0x3C])
+page()
+end()
+section_end()
+
+# 0x3B @ 0x722A9F
+section_start(0x3B)
+jump(0x33)
+section_end()
+
+# 0x3C @ 0x722AA4
+section_start(0x3C)
+jump(0x34)
+section_end()
+
+# 0x3D @ 0x722AA9
+section_start(0x3D)
+jump(0x35)
+section_end()
+
+# 0x3E @ 0x722AAE
+section_start(0x3E)
+dialog_up()
+set_flag(660)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x3F, 0x40])
+page()
+end()
+section_end()
+
+# 0x3F @ 0x722AE9
+section_start(0x3F)
+jump(0x33)
+section_end()
+
+# 0x40 @ 0x722AEE
+section_start(0x40)
+jump(0x34)
+section_end()
+
+# 0x41 @ 0x722AF3
+section_start(0x41)
+jump(0x35)
+section_end()
+
+# 0x42 @ 0x722AF8
+section_start(0x42)
+dialog_up()
+set_flag(661)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x43, 0x44])
+page()
+end()
+section_end()
+
+# 0x43 @ 0x722B33
+section_start(0x43)
+jump(0x33)
+section_end()
+
+# 0x44 @ 0x722B38
+section_start(0x44)
+jump(0x34)
+section_end()
+
+# 0x45 @ 0x722B3D
+section_start(0x45)
+jump(0x35)
+section_end()
+
+# 0x46 @ 0x722B42
+section_start(0x46)
+dialog_up()
+set_flag(662)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x47, 0x48])
+page()
+end()
+section_end()
+
+# 0x47 @ 0x722B7D
+section_start(0x47)
+jump(0x33)
+section_end()
+
+# 0x48 @ 0x722B82
+section_start(0x48)
+jump(0x34)
+section_end()
+
+# 0x49 @ 0x722B87
+section_start(0x49)
+jump(0x35)
+section_end()
+
+# 0x4A @ 0x722B8C
+section_start(0x4A)
+dialog_up()
+set_flag(663)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x4B, 0x4C])
+page()
+end()
+section_end()
+
+# 0x4B @ 0x722BC7
+section_start(0x4B)
+jump(0x33)
+section_end()
+
+# 0x4C @ 0x722BCC
+section_start(0x4C)
+jump(0x34)
+section_end()
+
+# 0x4D @ 0x722BD1
+section_start(0x4D)
+jump(0x35)
+section_end()
+
+# 0x4E @ 0x722BD6
+section_start(0x4E)
+dialog_up()
+set_flag(664)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x4F, 0x50])
+page()
+end()
+section_end()
+
+# 0x4F @ 0x722C11
+section_start(0x4F)
+jump(0x33)
+section_end()
+
+# 0x50 @ 0x722C16
+section_start(0x50)
+jump(0x34)
+section_end()
+
+# 0x51 @ 0x722C1B
+section_start(0x51)
+jump(0x35)
+section_end()
+
+# 0x5A @ 0x722C30
+section_start(0x5A)
+if_flag(225, 0x5D, 0xFF)
+set_flag(225)
+check_item("★Yai", 1, 0x64, 0x64, 0xFF)
+pic(39)
+dialog_up()
+para_talk("""Oh! MegaMan!""", 0)
+para_talk("""My name is Glyde.
+I'm Lan's classmate
+Yai's NetNavi.""", 0)
+para_talk("""One of Yai's
+programs has gotten
+lost!""", 0)
+para_talk("""I'm pretty sure that
+it's somewhere in
+the net around here.""", 0)
+para_talk("""I have some pressing
+chores to do,and
+must return now.""", 0)
+para_talk("""MegaMan,if you
+happen to find our
+program,could you""", 0)
+para_talk("""please come by our
+network? Here,please
+take this.""")
+jump(0x5B)
+section_end()
+
+# 0x5B @ 0x722DD3
+section_start(0x5B)
+hidepic()
+dialog_up()
+pc_lock()
+pc_anim(50)
+add_item("★Yai", 1, 0xFF, 0xFF, 0xFF)
+set_flag(653)
+text("""MegaMan got;
+\"{key ★Yai}\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+wait(5)
+jump(0x5C)
+section_end()
+
+# 0x5C @ 0x722E0E
+section_start(0x5C)
+pic(39)
+dialog_up()
+para_talk("""If you use that at
+the proper place on
+the net,""", 0)
+para_talk("""you will be able to
+access Yai's portrait
+network.""", 0)
+para_talk("""I'll be there.""", 0)
+para_talk_end("""Oh,and if you could
+keep this matter to
+yourself,thank you.""")
+section_end()
+
+# 0x5D @ 0x722EE8
+section_start(0x5D)
+pic(39)
+dialog_up()
+para_talk_end("""Thank you for
+helping me look for
+the lost program.""")
+section_end()
+
+# 0x5E @ 0x722F2C
+section_start(0x5E)
+if_flag(227, 0x62, 0xFF)
+pic(36)
+dialog_up()
+para_talk("""Waaah! Waaah!
+I can't find my
+way hoooome!!""", 0)
+para_talk("""Glyde!
+Come find me!""", 0)
+para_talk("""Waaah! Waaah!""", 0)
+if_flag(226, 0xFF, 0x5F)
+end(5)
+section_end()
+
+# 0x5F @ 0x722FB0
+section_start(0x5F)
+set_flag(226)
+pic(34)
+dialog_up()
+para_talk("""Lan! This must be
+the lost program!""")
+jump(0x60)
+section_end()
+
+# 0x60 @ 0x722FEC
+section_start(0x60)
+pic(0)
+dialog_up()
+para_talk("""You're right!
+MegaMan,go tell
+Glyde!""")
+jump(0x61)
+section_end()
+
+# 0x61 @ 0x723027
+section_start(0x61)
+pic(34)
+dialog_up()
+para_talk_end("""He's in Yai's
+portrait network,
+right? OK!""")
+section_end()
+
+# 0x62 @ 0x723066
+section_start(0x62)
+pic(36)
+dialog_up()
+para_talk("""Waaah! Waaah!""", 0)
+para_talk("""...Huh? Glyde is
+on his way?""", 0)
+para_general_end("""{anim 2}Thank you!
+{anim 1}*sniff*""")
+section_end()
+
+# 0x64 @ 0x7230CD
+section_start(0x64)
+pic(39)
+dialog_up()
+para_talk("""Oh! MegaMan!""", 0)
+para_talk("""My name is Glyde.
+I'm Lan's classmate
+Yai's NetNavi.""", 0)
+para_talk("""One of Yai's
+programs has gotten
+lost!""", 0)
+para_talk("""I'm pretty sure that
+it's somewhere in
+the net around here.""", 0)
+para_talk("""I have some pressing
+chores to do,and
+must return now.""", 0)
+para_talk("""MegaMan,if you
+happen to find our
+program,could you""", 0)
+para_talk("""please come by our
+network?""", 0)
+para_general("""If you use that
+{key ★Yai} at the
+proper place on the""", 0)
+para_talk("""net,you will be
+able to access Yai's
+portrait network,""", 0)
+para_talk("""I'll be there.""", 0)
+para_talk_end("""Oh,and if you could
+keep this matter to
+yourself,thank you.""")
+section_end()

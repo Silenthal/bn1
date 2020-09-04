@@ -1,0 +1,86 @@
+section_count(0x9)
+
+# 0x00 @ 0x72A82E
+section_start(0x00)
+pic(12)
+dialog_up()
+para_talk("""Eeeeek!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72A849
+section_start(0x01)
+set_flag(213)
+pic(0)
+dialog_up()
+para_talk_end("""! MegaMan,what's
+wrong!?{anim 1}{delay}
+{anim 2}MegaMan!?""")
+section_end()
+
+# 0x02 @ 0x72A88E
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Who's there!?""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72A8B1
+section_start(0x03)
+pic(13)
+dialog_up()
+para_talk("""Don't bother calling
+your Navi! He just
+went boom!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72A8F9
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk("""You!
+You're the panel
+repair man!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72A930
+section_start(0x05)
+pic(13)
+dialog_up()
+para_talk("""Hah! That was just a
+disguise! I work for
+the WWW,silly kid!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72A983
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""So all the other
+oven explosions...""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72A9BC
+section_start(0x07)
+pic(13)
+dialog_up()
+para_talk("""You're pretty smart.
+Me and my Navi do
+good work,huh?""", 0)
+para_talk_end("""Sorry,but you gotta
+join your Navi!
+You can't escape!""")
+section_end()
+
+# 0x08 @ 0x72AA46
+section_start(0x08)
+dialog_up()
+para_general("""Hah hah hah!""")
+dialog_down()
+jump(0x02)
+section_end()

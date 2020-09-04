@@ -1,0 +1,222 @@
+section_count(0x16)
+
+# 0x00 @ 0x72BE90
+section_start(0x00)
+pic(6)
+dialog_up()
+para_talk("""Weeeeel now,I'd like
+to begin the first
+class,huh.""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72BED9
+section_start(0x01)
+pic(8)
+dialog_up()
+para_talk("""Mr.Higsby,where's
+Ms.Mari?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72BF0B
+section_start(0x02)
+pic(6)
+dialog_up()
+para_talk("""Ms.Mari? She was
+sick and went to the
+nurse's office,huh.""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72BF5C
+section_start(0x03)
+pic(2)
+dialog_up()
+para_talk("""Wha..!?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72BF7A
+section_start(0x04)
+pic(6)
+dialog_up()
+para_talk("""Quiet,everyone!{anim 1}{delay}
+...{anim 2}first class will
+be study hall,huh.""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72BFD2
+section_start(0x05)
+pic(2)
+dialog_up()
+para_talk("""All right!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72BFF0
+section_start(0x06)
+pic(6)
+dialog_up()
+para_talk("""Don't rejoice
+just yet,huh!""", 0)
+para_talk("""I want you all to do
+math drills. I'll be
+checking them later!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72C06A
+section_start(0x07)
+pic(2)
+dialog_up()
+para_talk("""Shucks...""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x72C089
+section_start(0x08)
+pic(6)
+dialog_up()
+para_talk_end("""Now,jack in to the
+blackboard!{anim 1}{delay}
+{anim 2}Huh!""", 10)
+section_end()
+
+# 0x09 @ 0x72C0C7
+section_start(0x09)
+pic(6)
+dialog_up()
+text_talking("""All right everyone{anim 1}...{delay}
+{anim 2}Good luck!""")
+page()
+set_flag(152)
+end()
+section_end()
+
+# 0x0A @ 0x72C107
+section_start(0x0A)
+pic(0)
+dialog_up()
+para_talk_end("""Man,math is hard,
+especially in the
+morni...huh?""", 10)
+section_end()
+
+# 0x0B @ 0x72C14D
+section_start(0x0B)
+pic(1)
+dialog_up()
+para_talk("""Eeek!! What's
+that!?""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x72C179
+section_start(0x0C)
+pic(5, 1)
+dialog_up()
+para_general("""{anim 2}We will now announce
+{anim 1}.{delay}.{delay}.""", 0)
+para_talk("""The real goal of our
+plan{anim 1}...{delay}
+{anim 2}to control the net!""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x72C1F3
+section_start(0x0D)
+pic(34)
+dialog_up()
+para_talk("""Lan! This is a WWW
+reーeducation
+program!""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x72C230
+section_start(0x0E)
+pic(5, 1)
+dialog_up()
+para_talk("""The WWW's true plan
+is to start a war...
+the EndGame!""", 0)
+para_talk("""We will take control
+of the military net
+and all other nets! """, 0)
+para_talk("""The only cure for
+this rotten world
+is.{anim 1}{delay}.{delay}.{delay}{anim 2}deletion!!!""")
+jump(0x0F)
+section_end()
+
+# 0x0F @ 0x72C315
+section_start(0x0F)
+pic(9)
+dialog_up()
+para_talk("""Noooo!""")
+jump(0x10)
+section_end()
+
+# 0x10 @ 0x72C32F
+section_start(0x10)
+pic(8)
+dialog_up()
+para_talk("""Why? Why would
+they do that?""")
+jump(0x11)
+section_end()
+
+# 0x11 @ 0x72C360
+section_start(0x11)
+pic(5, 1)
+dialog_up()
+para_talk("""To reach our goals,
+The WWW is hiring
+new staff members!""", 0)
+para_talk("""We will begin a new
+instruction program,
+starting today!""", 0)
+para_talk("""Children! Study well
+and become good
+slaves to WWW!""")
+jump(0x12)
+section_end()
+
+# 0x12 @ 0x72C42C
+section_start(0x12)
+pic(2)
+dialog_up()
+para_talk("""What!?
+No way man,not me!""")
+jump(0x13)
+section_end()
+
+# 0x13 @ 0x72C45C
+section_start(0x13)
+pic(10)
+dialog_up()
+para_talk("""Oh no,I can't
+turn my terminal
+off!""")
+jump(0x14)
+section_end()
+
+# 0x14 @ 0x72C495
+section_start(0x14)
+pic(9)
+dialog_up()
+para_talk("""Heeeey!
+The door's locked!""")
+jump(0x15)
+section_end()
+
+# 0x15 @ 0x72C4C5
+section_start(0x15)
+pic(2)
+dialog_up()
+para_talk_end("""Everyone,be calm!
+Me and GutsMan will
+stop them!""")
+section_end()

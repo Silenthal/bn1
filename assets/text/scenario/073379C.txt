@@ -1,0 +1,92 @@
+section_count(0xA)
+
+# 0x00 @ 0x7337B0
+section_start(0x00)
+pic(24)
+dialog_up()
+para_talk("""...Please forgive
+me,sir!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7337E1
+section_start(0x01)
+pic(5)
+dialog_up()
+para_talk("""Fool!{anim 1}{delay}
+{anim 2}You have failed me
+again!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73381D
+section_start(0x02)
+pic(24)
+dialog_up()
+para_talk("""Please...""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x73383C
+section_start(0x03)
+pic(5)
+dialog_up()
+para_talk("""Sーsーsilence!!
+No more excuses!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x733870
+section_start(0x04)
+pic(24)
+dialog_up()
+para_talk("""Awhhh...""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x73388E
+section_start(0x05)
+pic(5)
+dialog_up()
+para_talk("""CーーーCーCーCount Zap!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x7338B4
+section_start(0x06)
+pic(30)
+dialog_up()
+para_talk("""Yes Lord Wily!!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x7338D8
+section_start(0x07)
+pic(5)
+dialog_up()
+para_talk("""Listen up!
+Enough with these
+twoーbit schemes!""", 0)
+para_talk("""Let's take this town
+down once and for
+all!""", 0)
+para_talk("""CーCーCount Zap! IーI'm
+counting on you!!!{anim 1}{delay}
+{anim 2}Understood!?""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x73399A
+section_start(0x08)
+pic(30)
+dialog_up()
+para_talk_end("""I hear and I obey
+Lord Wily!""", 0)
+section_end()
+
+# 0x09 @ 0x7339C7
+section_start(0x09)
+hidepic()
+dialog_up()
+para_general_end("""{delay}・{delay}・{delay}・""", 0)
+section_end()

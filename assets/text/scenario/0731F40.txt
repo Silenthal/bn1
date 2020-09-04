@@ -1,0 +1,87 @@
+section_count(0x8)
+
+# 0x00 @ 0x731F50
+section_start(0x00)
+pic(24)
+dialog_up()
+para_talk("""Why you{anim 1}.{delay}.{delay}.{delay}!
+{anim 2}Hey{anim 1}...{delay}{anim 2}It's you
+again!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x731FA5
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""You were at the
+Waterworks!""", 0)
+para_talk("""You're a WWW
+operator?!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x731FF6
+section_start(0x02)
+pic(24)
+dialog_up()
+para_talk("""That's right,
+You meddling kid!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x73202B
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Hey,you're the one
+who's meddling!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x732064
+section_start(0x04)
+pic(24)
+dialog_up()
+para_talk("""You don't know the
+trouble I've{anim 1}...{delay}
+{anim 2}Arrghh!""", 0)
+para_talk("""This time I'll break
+all the traffic
+signals for good!""", 0)
+para_talk("""Heh,heh!{delay}
+And I'll get you
+good,too!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x732123
+section_start(0x05)
+pic(0)
+dialog_up()
+para_general("""!?""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x732136
+section_start(0x06)
+pic(24)
+dialog_up()
+para_talk("""That's right! I've
+been looking at your
+personal files...""", 0)
+para_talk("""Ah,there's nothing
+sadder than losing
+the ones we love...""", 0)
+para_talk_end("""And I think you're
+gonna be REAL sad!""", 0)
+section_end()
+
+# 0x07 @ 0x7321FA
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk_end("""Lan{anim 1}...{delay}
+{anim 2}I got a bad feeling
+about this...""", 0)
+section_end()

@@ -2,6 +2,7 @@
 import argparse
 import os
 import struct
+import re
 from pathlib import Path
 
 
@@ -549,14 +550,14 @@ def key_item(bt):
         0x05: "Handle",
         0x06: "Message",
         0x07: "Response",
-        0x08: "WWW PIN",
+        0x08: "WWW_PIN",
         0x09: "BatteryA",
         0x0A: "BatteryB",
         0x0B: "BatteryC",
         0x0C: "BatteryD",
         0x0D: "BatteryE",
         0x0E: "Charger",
-        0x0F: "WWW Pass",
+        0x0F: "WWW_Pass",
         0x11: "Dentures",
         0x21: "★Mayl",
         0x22: "★Yai",
@@ -569,8 +570,8 @@ def key_item(bt):
         0x30: "/Dex",
         0x31: "/Sal",
         0x32: "/Miyu",
-        0x34: "Hig Memo",
-        0x35: "Lab Memo",
+        0x34: "Hig_Memo",
+        0x35: "Lab_Memo",
         0x36: "YuriMemo",
         0x37: "Pa'sMemo",
         0x3C: "ACDCPass",
@@ -583,7 +584,7 @@ def key_item(bt):
         0x45: "AquaArmr",
         0x46: "WoodArmr"
     }
-    return f"{itemList[bt]}" if bt in itemList else f"0x{bt:02X}"
+    return f'"{itemList[bt]}"' if bt in itemList else bt
 
 
 def chip_id(bt):
@@ -816,7 +817,7 @@ def chip_code(bt):
 
 
 def get_item(infile):
-    return f'"{key_item(get_byte(infile))}"'
+    return key_item(get_byte(infile))
 
 
 def get_chip_id(infile):
@@ -854,7 +855,7 @@ def Com_E7(infile):
 
 
 def Com_E8(infile):
-    return False, "\n"
+    return False, "\\n"
 
 
 def Com_E9(infile):
@@ -1069,7 +1070,7 @@ def Com_F7(infile):
         elif command == 0x01:
             textBuf = f"sub_item({arg_list(infile, 5, proc_item)})"
         elif command == 0x02:
-            textBuf = f"set_item({arg_list(infile, 2, proc_item)})"
+            textBuf = f"set_item({arg_list(infile, 5, proc_item)})"
         else:
             textBuf = f"check_item({arg_list(infile, 5, proc_item)})"
     else:
@@ -1139,7 +1140,7 @@ def Com_FB(infile):
             buf_pfx = ""
             if buf == 0:
                 if itemtype == 0:
-                    arg = '"' + key_item(itemid) + '"'
+                    arg = key_item(itemid)
                 elif itemtype == 1:
                     arg = '"' + chip_id(itemid) + '"'
                 else:
@@ -1249,8 +1250,7 @@ def Com_FD(infile):
 def Com_FE(infile):
     savegood = get_byte(infile)
     savebad = get_byte(infile)
-    isDone = not (savegood == 0xFF and savebad == 0xFF)
-    return isDone, f"save(0x{savegood:02X}, 0x{savebad:02X})"
+    return False, f"save(0x{savegood:02X}, 0x{savebad:02X})"
 #endregion
 
 
@@ -1331,11 +1331,136 @@ def interpretUi(infile):
     return isDone, textBuf, isText
 
 
+def runner(patterns, input):
+    temp = input
+    changed = False
+    for x in patterns:
+        while re.search(x[0], temp, re.MULTILINE):
+            temp = re.sub(x[0], x[1], temp, 1, re.MULTILINE)
+            changed = True
+    return changed, temp
+
+
+def processDelay(input: str):
+    patterns = [
+        [r'^delay\((.*)\)\ntext\("""', r'text("""{delay \1}'],
+        [r'^text\("""(.*)"""\)\ndelay\((.*)\)', r'text("""\1{delay \2}""")'],
+        [r'\{delay \}', r'{delay}']
+    ]
+    return runner(patterns, input)
+
+
+def processKey(input: str):
+    patterns = [
+        [r'^text\("""(.*)"""\)\nkey_item\("(.*)"\)', r'text("""\1{key \2}""")'],
+        [r'^key_item\("(.*)"\)\ntext\("""', r'text("""{key \1}']
+    ]
+    return runner(patterns, input)
+
+
+def processText(input: str):
+    patterns = [
+        [r'^text\("""(.*)"""\)\ntext\("""(.*)"""\)', r'text("""\1\2""")'],
+    ]
+    return runner(patterns, input)
+
+
+def processAnim(input: str):
+    patterns = [
+        [r'^anim\((.*)\)\ntext\("""', r'text("""{anim \1}'],
+        [r'^text\("""(.*)"""\)\nanim\((.*)\)', r'text("""\1{anim \2}""")'],
+        [r'\{anim \}', r'{anim}']
+    ]
+    return runner(patterns, input)
+
+
+def processAnim2(input: str):
+    patterns = [
+        [r'^text\("""\{anim 2\}(.*)\{anim 1\}"""\)', r'text_talking("""\1""")']
+    ]
+    return runner(patterns, input)
+
+
+def processParaTalk(input: str):
+    patterns = [
+        [r'^text_talking\("""(.*)"""\)\npage\(\)\nwait\((.*)\)', r'para_talk("""\1""", \2)'],
+        [r'^para_talk\("""(.*)""", \)', r'para_talk("""\1""", 0)'],
+        [r'^para_talk\("""(.*)""", 5\)', r'para_talk("""\1""")']
+    ]
+    return runner(patterns, input)
+
+def processGenWait(input: str):
+    patterns = [
+        [r'^text\("""(.*)"""\)\npage\(\)\nwait\((.*)\)', r'para_general("""\1""", \2)'],
+        [r'^para_general\("""(.*)""", \)', r'para_general("""\1""", 0)'],
+        [r'^para_general\("""(.*)""", 5\)', r'para_general("""\1""")']
+    ]
+    return runner(patterns, input)
+
+def processGenEnd(input: str):
+    patterns = [
+        [r'^text\("""(.*)"""\)\npage\(\)\nend\((.*)\)', r'para_general_end("""\1""", \2)'],
+        [r'^para_general_end\("""(.*)""", \)', r'para_general_end("""\1""", 0)'],
+        [r'^para_general_end\("""(.*)""", 5\)', r'para_general_end("""\1""")']
+    ]
+    return runner(patterns, input)
+
+def processEnd(input: str):
+    patterns = [
+        [r'^text_talking\("""(.*)"""\)\npage\(\)\nend\((.*)\)', r'para_talk_end("""\1""", \2)'],
+        [r'^para_talk_end\("""(.*)""", \)', r'para_talk_end("""\1""", 0)'],
+        [r'^para_talk_end\("""(.*)""", 5\)', r'para_talk_end("""\1""")']
+    ]
+    return runner(patterns, input)
+
+
+def process(input: str):
+    funcListTextTemplating = [
+        processText,
+        processDelay,
+        processKey,
+        processAnim
+    ]
+    funcListFunctionReplacing = [
+        processAnim2,
+        processParaTalk,
+        processEnd,
+        processGenWait,
+        processGenEnd
+    ]
+    temp = input
+    while True:
+        changed = False
+        for func in funcListTextTemplating:
+            tempChange, tempRes = func(temp)
+            changed |= tempChange
+            if tempChange:
+                temp = tempRes
+        if not changed:
+            break
+    while True:
+        changed = False
+        for func in funcListFunctionReplacing:
+            tempChange, tempRes = func(temp)
+            changed |= tempChange
+            if tempChange:
+                temp = tempRes
+        if not changed:
+            break
+    temp = re.sub(r"\\n", r"\n", temp, 0, re.MULTILINE)
+    return temp
+
+
 def engine1(infile, blockOffset, isUi):
     offsetlist = get_text_offset_list(infile, blockOffset)
     output = f"section_count(0x{len(offsetlist):X})\n\n"
-    idx = 0
-    for off in offsetlist:
+    for idx in range(len(offsetlist)):
+        off = offsetlist[idx]
+        isLimit = False
+        nextOff = 0
+        if idx < len(offsetlist) - 1:
+            isLimit = True
+            nextOff = offsetlist[idx + 1]
         infile.seek(off)
         la = infile.peek()
         if la[0] != 0:
@@ -1350,14 +1475,14 @@ def engine1(infile, blockOffset, isUi):
                         scriptBuf += f"text(\"\"\"{textBuf}\"\"\")\n"
                         textBuf = ""
                     scriptBuf += interp[1] + "\n"
-                if interp[0]:
+                if interp[0] or (isLimit and infile.tell() == nextOff - 2):
                     if len(textBuf) > 0:
                         scriptBuf += f"text(\"{textBuf}\")\n"
                         textBuf = ""
                     break
-            output += f"# {off:X}\nsection_start(0x{idx:02X})\n{scriptBuf}section_end()\n\n"
+            output += f"# 0x{idx:02X} @ 0x{off:X}\nsection_start(0x{idx:02X})\n{scriptBuf}section_end()\n\n"
         idx += 1
-    return output[:-1]
+    return process(output[:-1])
 
 
 def main():
@@ -1374,7 +1499,7 @@ def main():
     inPath = Path(args.path)
     if not inPath.exists():
         exit(f"Couldn't find file {args.path}")
-    outPath = f"{args.blockOffset:08x}.txt"
+    outPath = f"{blockOffset:07X}.txt"
     of = ""
     with open(inPath, mode='rb') as infile:
         of = engine1(infile, blockOffset, isUi)

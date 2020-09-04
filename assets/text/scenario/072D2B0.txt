@@ -1,0 +1,126 @@
+section_count(0xE)
+
+# 0x00 @ 0x72D2CC
+section_start(0x00)
+dialog_up()
+text_se_off()
+se(0xA5)
+text("""Bleep...{delay}""")
+se(0xA6)
+para_general("""Weeee!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72D2F7
+section_start(0x01)
+dialog_up()
+text_se_off()
+se(0xA5)
+para_general("""Bleep!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72D30F
+section_start(0x02)
+dialog_up()
+text_se_off()
+se(0xA7)
+para_general_end("""Weeeeeeeee!""")
+section_end()
+
+# 0x03 @ 0x72D329
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Mayl!
+How's it look?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72D353
+section_start(0x04)
+pic(8)
+dialog_up()
+para_talk("""Lan!
+The announcement
+program stopped!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72D38E
+section_start(0x05)
+pic(1)
+dialog_up()
+para_talk("""You did it!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72D3AD
+section_start(0x06)
+pic(2)
+dialog_up()
+para_talk("""Hey,not bad,Lan!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72D3D3
+section_start(0x07)
+pic(1)
+dialog_up()
+para_talk("""\"Not bad?\"
+You mean \"Great!\"""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x72D408
+section_start(0x08)
+pic(2)
+dialog_up()
+para_talk("""Yeah,well...""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x72D42B
+section_start(0x09)
+pic(0)
+dialog_up()
+para_talk("""You ain't seen
+nothing yet!{anim 1}{delay}
+{anim 2}MegaMan?""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x72D46D
+section_start(0x0A)
+pic(34)
+dialog_up()
+para_talk("""What?""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x72D486
+section_start(0x0B)
+pic(0)
+dialog_up()
+para_talk("""Good job!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x72D4A3
+section_start(0x0C)
+pic(34)
+dialog_up()
+para_talk("""Don't relax just yet
+Lan! You got English
+class coming up...""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x72D4F7
+section_start(0x0D)
+pic(0)
+dialog_up()
+para_general_end("""{anim 2}Awh,man{anim 1}...{delay}
+{anim 2}I fixed the server
+too soon{anim 1}...""")
+section_end()

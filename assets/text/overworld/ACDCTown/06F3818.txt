@@ -1,0 +1,81 @@
+section_count(0xEB)
+
+# 0x00 @ 0x6F39EE
+section_start(0x00)
+pic(8)
+dialog_up()
+para_talk_end("""Lan? What's up?
+Don't go peeking
+in my room,now!""")
+section_end()
+
+# 0x01 @ 0x6F3A34
+section_start(0x01)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x0F @ 0x6F3A95
+section_start(0x0F)
+if_story(0x26, 0x27, 0x14, 0xFF)
+pic(8)
+dialog_up()
+para_talk_end("""Looks like there's
+still no water...""", 0)
+section_end()
+
+# 0x14 @ 0x6F3ADB
+section_start(0x14)
+pic(8)
+dialog_up()
+para_talk_end("""Looks like this
+water isn't
+drinkable...""", 0)
+section_end()
+
+# 0xDC @ 0x6F3CA5
+section_start(0xDC)
+dialog_up()
+para_general_end("""Greenery really
+helps me to relax""")
+section_end()
+
+# 0xDD @ 0x6F3CCE
+section_start(0xDD)
+dialog_up()
+para_general_end("""That sofa looks
+mighty comfortable""")
+section_end()
+
+# 0xDE @ 0x6F3CF8
+section_start(0xDE)
+dialog_up()
+para_general_end("""Mayl's piano.
+Looks like you
+can jack in here""")
+section_end()
+
+# 0xDF @ 0x6F3D2F
+section_start(0xDF)
+dialog_up()
+para_general_end("""It would be rude
+to open someone
+else's refrigerator""")
+section_end()
+
+# 0xE0 @ 0x6F3D6C
+section_start(0xE0)
+dialog_up()
+para_general("""This type of
+control panel""", 0)
+para_general_end("""doesn't have a
+jack in port""")
+section_end()

@@ -1,0 +1,141 @@
+section_count(0xF)
+
+# 0x00 @ 0x72C526
+section_start(0x00)
+pic(2)
+dialog_up()
+para_talk("""Check it out!
+Me and GutsMan are
+the bomb!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72C565
+section_start(0x01)
+pic(1)
+dialog_up()
+para_talk("""Dex,I don't think
+you'll be able to do
+it alone...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72C5B0
+section_start(0x02)
+pic(2)
+dialog_up()
+para_talk("""Let's go,GutsMan!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72C5D7
+section_start(0x03)
+pic(1)
+dialog_up()
+para_talk("""Maybe you should
+let Lan...""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72C608
+section_start(0x04)
+pic(2)
+dialog_up()
+para_talk("""Quiet! I'm trying
+to concentrate!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72C63F
+section_start(0x05)
+pic(2)
+dialog_up()
+para_talk("""Jack in!
+GutsMan.EXE,Goooo!""", 0)
+set_flag(156)
+para_general("""...{delay}
+{anim 2}Here those viruses
+come! Hyaa! Hyaa!{anim 1}""", 0)
+para_talk("""Whoa! Hey!{anim 1}{delay}
+{anim 2}What the..hey!{anim 1}{delay}
+{anim 2}Ahh! Yipes!{anim 1}{delay}{anim 2} Help!""")
+set_flag(159)
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72C706
+section_start(0x06)
+hidepic()
+dialog_up()
+se(0xA9)
+para_general("""BLAAAAAM!!!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72C725
+section_start(0x07)
+pic(2)
+dialog_up()
+para_general(""".{delay}.{delay}.""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x72C742
+section_start(0x08)
+pic(1)
+dialog_up()
+para_talk("""They got him...""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x72C767
+section_start(0x09)
+pic(8)
+dialog_up()
+para_talk("""Dex,do you have
+a backup?""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x72C795
+section_start(0x0A)
+pic(2)
+dialog_up()
+para_general("""...{delay}{anim 2}Yeah{anim 1}...""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x72C7BC
+section_start(0x0B)
+pic(1)
+dialog_up()
+para_talk("""That's a relief.{anim 1}{delay}
+{anim 2}Okay,Lan! You're up!
+Show us your stuff!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x72C817
+section_start(0x0C)
+pic(8)
+dialog_up()
+para_talk("""Lan!! Please!""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x72C83A
+section_start(0x0D)
+pic(34)
+dialog_up()
+para_talk("""Let's do it,Lan!""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x72C860
+section_start(0x0E)
+pic(0)
+dialog_up()
+para_general_end("""...{anim 2}Okay,fine,fine{anim 1}...{delay}
+{anim 2}MegaMan!
+Let's go for it!{anim 1}""")
+section_end()

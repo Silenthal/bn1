@@ -1,0 +1,767 @@
+section_count(0xEB)
+
+# 0x00 @ 0x6FF4FA
+section_start(0x00)
+if_story(0x50, 0x51, 0x28, 0xFF)
+if_story(0x40, 0x43, 0x22, 0xFF)
+if_story(0x30, 0x37, 0x1E, 0xFF)
+if_story(0x24, 0x24, 0x0F, 0xFF)
+pic(26)
+dialog_up()
+para_talk("""I heard you were
+coming. You're
+Hikari's son,right?""", 0)
+para_talk_end("""He hasn't been here
+since morning,and he
+won't be back soon.""", 0)
+section_end()
+
+# 0x01 @ 0x6FF5A2
+section_start(0x01)
+if_story(0x30, 0x60, 0x08, 0xFF)
+if_flag(226, 0x08, 0xFF)
+if_flag(219, 0x04, 0xFF)
+if_flag(214, 0x08, 0xFF)
+set_flag(219)
+pic(34)
+dialog_up()
+para_talk("""Hey,this PC is
+still running!""", 0)
+para_talk("""Would it be OK to
+take a peek and try
+to find my program?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x6FF632
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Sure!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x6FF64D
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk_end("""Great! Go ahead and
+jack in... I'll go
+check it out!""", 0)
+section_end()
+
+# 0x05 @ 0x6FF697
+section_start(0x05)
+if_story(0x30, 0x47, 0x09, 0xFF)
+if_flag(219, 0x09, 0xFF)
+if_flag(214, 0x09, 0xFF)
+pic(34)
+dialog_up()
+text("""{anim 2}While we're in there,
+I'll get my program!{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""OK! """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No,don't""")
+pick([0x06, 0x07], 0, False, True)
+page()
+end()
+section_end()
+
+# 0x06 @ 0x6FF708
+section_start(0x06)
+set_flag(214)
+pic(34)
+dialog_up()
+para_talk_end("""OK! I'm ready!""", 0)
+section_end()
+
+# 0x07 @ 0x6FF72D
+section_start(0x07)
+set_flag(214)
+pic(34)
+dialog_up()
+para_talk_end("""Well,if I see it
+lemme know what to
+do. Let's go!""", 0)
+section_end()
+
+# 0x08 @ 0x6FF776
+section_start(0x08)
+dialog_up()
+para_general_end("""It's running.
+Looks like you can
+jack in.""", 0)
+section_end()
+
+# 0x09 @ 0x6FF7AA
+section_start(0x09)
+set_flag(214)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x0A @ 0x6FF7F5
+section_start(0x0A)
+dialog_up()
+para_general_end("""A lab smock...{delay}
+The ID says \"Dr.
+Hikari\".""", 0)
+section_end()
+
+# 0x0B @ 0x6FF830
+section_start(0x0B)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! I think you
+need to push the
+button.""", 0)
+section_end()
+
+# 0x0C @ 0x6FF86B
+section_start(0x0C)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x0D @ 0x6FF8B2
+section_start(0x0D)
+pic(34)
+dialog_up()
+para_talk("""We've come all this
+way! Why go back
+now?""", 0)
+para_talk_end("""Let's leave a
+message! I'll take
+it!""", 0)
+section_end()
+
+# 0x0F @ 0x6FF920
+section_start(0x0F)
+pic(26)
+dialog_up()
+para_talk_end("""Dr.Hikari isn't here
+today,either!""")
+section_end()
+
+# 0x10 @ 0x6FF956
+section_start(0x10)
+if_story(0x30, 0x60, 0x17, 0xFF)
+check_item("SciLabID", 1, 0x17, 0x17, 0xFF)
+if_flag(185, 0xFF, 0x0A)
+dialog_up()
+para_general("""A lab smock...{delay}
+The ID says \"Dr.
+Hikari\".""")
+jump(0x11)
+section_end()
+
+# 0x11 @ 0x6FF9A7
+section_start(0x11)
+pic(0)
+dialog_up()
+para_talk("""I know! I'll just
+borrow this for a
+bit.""")
+jump(0x12)
+section_end()
+
+# 0x12 @ 0x6FF9E5
+section_start(0x12)
+hidepic()
+dialog_up()
+para_general("""*snip,snip*""", 0)
+pc_anim(30)
+add_item("SciLabID", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got;
+\"{key SciLabID}\"!""")
+pc_wait()
+pc_anim(4)
+page()
+end(5)
+section_end()
+
+# 0x13 @ 0x6FFA24
+section_start(0x13)
+check_item("SciLabID", 1, 0xFF, 0xFF, 0x15)
+dialog_up()
+para_general("""An elevator switch.
+""", 0)
+para_general("""Lan used the
+{key SciLabID}!""", 0)
+para_general("""The elevator doors
+opened!""", 0)
+jump(0x14)
+section_end()
+
+# 0x14 @ 0x6FFA81
+section_start(0x14)
+pic(34)
+dialog_up()
+para_talk_end("""Let's go down to
+the lobby!""")
+section_end()
+
+# 0x15 @ 0x6FFAAE
+section_start(0x15)
+pic(26)
+dialog_up()
+para_talk("""I'll set it to
+go to the 1st floor.""")
+jump(0x16)
+section_end()
+
+# 0x16 @ 0x6FFAE6
+section_start(0x16)
+hidepic()
+dialog_up()
+para_general_end("""The elevator doors
+opened!""", 0)
+section_end()
+
+# 0x17 @ 0x6FFB0B
+section_start(0x17)
+dialog_up()
+para_general_end("""A lab smock...{delay}
+Seems to be missing
+its ID badge.""", 0)
+section_end()
+
+# 0x1E @ 0x6FFB57
+section_start(0x1E)
+pic(26)
+dialog_up()
+para_talk_end("""Dr.Hikari still
+isn't here!""", 0)
+section_end()
+
+# 0x22 @ 0x6FFB8B
+section_start(0x22)
+pic(26)
+dialog_up()
+para_talk("""Isn't there a party
+today?""", 0)
+para_talk_end("""Dr.Hikari?
+He isn't here now.""", 0)
+section_end()
+
+# 0x23 @ 0x6FFBE0
+section_start(0x23)
+dialog_up()
+para_general("""An elevator switch.""", 0)
+para_general("""Lan used the
+{key SciLabID}!""", 0)
+para_general("""The elevator doors
+opened!
+Which floor?""", 0)
+if_story(0x41, 0x57, 0x24, 0xFF)
+option(1, 1, 0, 0)
+pad(2)
+text("""SciLab lobby
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Restaurant""")
+pick([0x25, 0x26], 0, True, True)
+end()
+section_end()
+
+# 0x24 @ 0x6FFC71
+section_start(0x24)
+option(2, 1, 0, 0)
+pad(2)
+text("""SciLab lobby
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Restaurant
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Power plant""")
+pick([0x25, 0x26, 0x27], 0, True, True)
+end()
+section_end()
+
+# 0x25 @ 0x6FFCB1
+section_start(0x25)
+set_flag(49)
+end()
+section_end()
+
+# 0x26 @ 0x6FFCBA
+section_start(0x26)
+set_flag(52)
+end()
+section_end()
+
+# 0x27 @ 0x6FFCC3
+section_start(0x27)
+set_flag(51)
+end()
+section_end()
+
+# 0x28 @ 0x6FFCCC
+section_start(0x28)
+pic(26)
+dialog_up()
+para_talk("""Dr.Hikari still
+isn't in!""", 0)
+para_talk_end("""Oh,but he said that
+he'll be in later!""", 0)
+section_end()
+
+# 0x2D @ 0x6FFD31
+section_start(0x2D)
+if_story(0x53, 0x53, 0x4B, 0xFF)
+pic(26)
+dialog_up()
+para_talk_end("""Dr.Hikari is at his
+desk!""", 0)
+section_end()
+
+# 0x2E @ 0x6FFD62
+section_start(0x2E)
+if_story(0x54, 0x54, 0x50, 0xFF)
+if_flag(158, 0x44, 0xFF)
+if_flag(159, 0x41, 0xFF)
+set_flag(159)
+pic(28)
+dialog_up()
+para_talk("""Oh,Lan!""")
+jump(0x2F)
+section_end()
+
+# 0x2F @ 0x6FFD94
+section_start(0x2F)
+pic(0)
+dialog_up()
+para_talk("""Hey,Dad!
+You got a minute?""")
+jump(0x30)
+section_end()
+
+# 0x30 @ 0x6FFDC4
+section_start(0x30)
+pic(28)
+dialog_up()
+para_talk("""Of course!""")
+jump(0x31)
+section_end()
+
+# 0x31 @ 0x6FFDE2
+section_start(0x31)
+pic(0)
+dialog_up()
+para_talk("""Cool!""")
+jump(0x32)
+section_end()
+
+# 0x32 @ 0x6FFDFB
+section_start(0x32)
+pic(28)
+dialog_up()
+para_talk("""Haha,sorry I've been
+away so much...""", 0)
+para_talk("""So,how are you?{anim 1}{delay}
+{anim 2}Did you talk to
+Chaud?""")
+jump(0x33)
+section_end()
+
+# 0x33 @ 0x6FFE70
+section_start(0x33)
+pic(0)
+dialog_up()
+para_talk("""Talk to that jerk!?""")
+jump(0x34)
+section_end()
+
+# 0x34 @ 0x6FFE98
+section_start(0x34)
+pic(28)
+dialog_up()
+para_talk("""Hmmm,did you have a
+fight? He CAN be
+hard to deal with...""")
+jump(0x35)
+section_end()
+
+# 0x35 @ 0x6FFEE9
+section_start(0x35)
+pic(0)
+dialog_up()
+para_talk("""Well,anyway,check
+this out!""")
+jump(0x36)
+section_end()
+
+# 0x36 @ 0x6FFF1A
+section_start(0x36)
+hidepic()
+dialog_up()
+para_general("""Lan used the
+{key ★WWW}!""")
+jump(0x37)
+section_end()
+
+# 0x37 @ 0x6FFF3A
+section_start(0x37)
+pic(28)
+dialog_up()
+para_talk("""Lan!!
+Where did you get
+this??""")
+jump(0x38)
+section_end()
+
+# 0x38 @ 0x6FFF6F
+section_start(0x38)
+pic(0)
+dialog_up()
+para_talk("""I got it with
+MegaMan!""", 0)
+para_talk("""But we can't get
+through the network!""")
+jump(0x39)
+section_end()
+
+# 0x39 @ 0x6FFFC8
+section_start(0x39)
+pic(28)
+dialog_up()
+para_talk("""I see...""", 0)
+para_talk("""Well{anim 1}...{delay}{anim 2}With this,
+I'm sure we can find
+the WWW labs.""")
+jump(0x3A)
+section_end()
+
+# 0x3A @ 0x700030
+section_start(0x3A)
+pic(0)
+dialog_up()
+para_talk("""Are you sure?""")
+jump(0x3B)
+section_end()
+
+# 0x3B @ 0x700051
+section_start(0x3B)
+pic(28)
+dialog_up()
+para_talk("""Sure,should be no
+problem using our
+technology here.""", 0)
+para_talk("""This may help us
+stop the war!""", 0)
+para_talk("""Of course,I'll have
+to tell Chaud about
+this. That OK?""")
+jump(0x3C)
+section_end()
+
+# 0x3C @ 0x700103
+section_start(0x3C)
+pic(0)
+dialog_up()
+para_talk("""Um{anim 1}...{delay}{anim 2} I guess...
+Could you tell me
+the location,too?""")
+jump(0x3D)
+section_end()
+
+# 0x3D @ 0x70015A
+section_start(0x3D)
+pic(28)
+dialog_up()
+para_general(""".{delay}.{delay}.""", 0)
+para_talk("""No.""")
+jump(0x3E)
+section_end()
+
+# 0x3E @ 0x700183
+section_start(0x3E)
+pic(0)
+dialog_up()
+para_talk("""Why not!?""", 0)
+para_talk("""I'M the one who
+defeated the WWW!""", 0)
+para_talk("""And with the MegaMan
+program that YOU
+created!!""", 0)
+para_talk("""Please,let us help
+finish the job!""")
+jump(0x3F)
+section_end()
+
+# 0x3F @ 0x700231
+section_start(0x3F)
+pic(34)
+dialog_up()
+para_general("""{anim 2}Lan{anim 1}.{delay}.{delay}.{delay}""")
+jump(0x40)
+section_end()
+
+# 0x40 @ 0x700259
+section_start(0x40)
+pic(28)
+dialog_up()
+para_general("""...{delay}{anim 2}finish the job
+{anim 1}...{anim 2}OK,OK,I give in.{anim 1}{delay}
+{anim 2}But one condition!{anim 1}""")
+jump(0x41)
+section_end()
+
+# 0x41 @ 0x7002BE
+section_start(0x41)
+pic(28)
+dialog_up()
+para_talk("""The WWW's attacks
+will likely start
+coming even harder.""", 0)
+para_talk("""MegaMan could be
+deleted,and your
+actions could""", 0)
+para_talk("""trigger the war!
+Can you take that
+responsibility?""", 0)
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes! """)
+option(1, 1, 0, 0)
+pad(2)
+text("""Hmmm...""")
+pick([0x42, 0xFF], 0, False, True)
+para_talk("""You're right. And I
+couldn't put my
+son in such danger.""", 0)
+para_talk_end("""Maybe we should talk
+about this later...""", 0)
+section_end()
+
+# 0x42 @ 0x700412
+section_start(0x42)
+set_flag(158)
+pic(28)
+dialog_up()
+para_talk("""OK{anim 1}...{delay}{anim 2} I'll send you
+the location when we
+find it...""")
+jump(0x43)
+section_end()
+
+# 0x43 @ 0x70046B
+section_start(0x43)
+pic(0)
+dialog_up()
+para_talk("""Thanks,Dad!!""")
+jump(0x44)
+section_end()
+
+# 0x44 @ 0x70048D
+section_start(0x44)
+pic(28)
+dialog_up()
+para_talk("""I'll send you mail
+with the location.
+Go practice""", 0)
+para_talk_end("""NetBattling.""", 0)
+section_end()
+
+# 0x4B @ 0x7004F1
+section_start(0x4B)
+pic(26)
+dialog_up()
+para_talk_end("""Dr.Hikari sure is
+busy. He just went
+off again!""", 0)
+section_end()
+
+# 0x50 @ 0x70053B
+section_start(0x50)
+if_flag(170, 0x59, 0xFF)
+set_flag(170)
+pic(28)
+dialog_up()
+para_talk("""Glad you're still
+OK...Was there
+something you need?""")
+jump(0x51)
+section_end()
+
+# 0x51 @ 0x700591
+section_start(0x51)
+hidepic()
+dialog_up()
+para_general("""Lan showed his Dad
+the {key WWW_Pass}!""")
+jump(0x52)
+section_end()
+
+# 0x52 @ 0x7005BB
+section_start(0x52)
+pic(28)
+dialog_up()
+para_talk("""Hmmm...We had heard
+rumors of this
+secret Metroline...""")
+jump(0x53)
+section_end()
+
+# 0x53 @ 0x70060A
+section_start(0x53)
+pic(0)
+dialog_up()
+para_talk("""Dad,can you make
+this work again?""")
+jump(0x54)
+section_end()
+
+# 0x54 @ 0x700640
+section_start(0x54)
+pic(28)
+dialog_up()
+para_talk("""Sure,we just need
+to reset the
+expiration date...""")
+jump(0x55)
+section_end()
+
+# 0x55 @ 0x700688
+section_start(0x55)
+hidepic()
+dialog_up()
+se(0xDB)
+para_general("""*beep* *beep*
+*boop*!""")
+jump(0x56)
+section_end()
+
+# 0x56 @ 0x7006B5
+section_start(0x56)
+pic(28)
+dialog_up()
+para_talk("""Like I said,piece
+of cake!""")
+jump(0x57)
+section_end()
+
+# 0x57 @ 0x7006E4
+section_start(0x57)
+hidepic()
+dialog_up()
+pc_lock()
+pc_anim(30)
+se(0x85)
+text("""Lan got;
+\"{key WWW_Pass}\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+wait(5)
+jump(0x58)
+section_end()
+
+# 0x58 @ 0x700714
+section_start(0x58)
+pic(0)
+dialog_up()
+para_talk_end("""Wow! The expiration
+date is changed!
+Thanks,Dad!""", 0)
+section_end()
+
+# 0x59 @ 0x700758
+section_start(0x59)
+pic(28)
+dialog_up()
+para_talk_end("""Be careful,Lan!""", 0)
+section_end()
+
+# 0xDC @ 0x70087D
+section_start(0xDC)
+dialog_up()
+para_general_end("""Full of instant
+dinners""")
+section_end()
+
+# 0xDD @ 0x70089C
+section_start(0xDD)
+dialog_up()
+para_general_end("""It's password
+protected. You can't
+get in""")
+section_end()
+
+# 0xDE @ 0x7008D0
+section_start(0xDE)
+dialog_up()
+para_general_end("""This monitor is
+used for jack in
+tests""")
+section_end()
+
+# 0xDF @ 0x7008FE
+section_start(0xDF)
+dialog_up()
+para_general_end("""There are lots and
+lots of files here""")
+section_end()
+
+# 0xE0 @ 0x70092B
+section_start(0xE0)
+dialog_up()
+para_general_end("""Files that won't
+fit in the shelf
+are in here""")
+section_end()
+
+# 0xE1 @ 0x700961
+section_start(0xE1)
+dialog_up()
+para_general_end("""There's nothing
+inside""")
+section_end()
+
+# 0xE2 @ 0x700980
+section_start(0xE2)
+dialog_up()
+para_general_end("""A picture of a
+father,mother,and
+their children{anim 1}""")
+section_end()
+
+# 0xE3 @ 0x7009BB
+section_start(0xE3)
+dialog_up()
+para_general_end("""This is an ID
+card reader""")
+section_end()
+
+# 0xE4 @ 0x7009DC
+section_start(0xE4)
+dialog_up()
+para_general_end("""A newspaper.
+Probably belongs to
+the receptionist""")
+section_end()

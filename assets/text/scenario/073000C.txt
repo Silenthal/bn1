@@ -1,0 +1,127 @@
+section_count(0xD)
+
+# 0x00 @ 0x730026
+section_start(0x00)
+dialog_up()
+text_se_off()
+se(0xA2)
+para_general_end("""*gachak!*""", 0)
+section_end()
+
+# 0x01 @ 0x730040
+section_start(0x01)
+pic(9)
+dialog_up()
+para_talk("""Owwww...
+Oh! You're that
+Lan fellow!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73007D
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""You Froid?
+Are you okay?""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x7300AA
+section_start(0x03)
+pic(9)
+dialog_up()
+para_talk("""Thanks...We gotta
+stop my dad from
+helping the WWW!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x7300F4
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""We were right!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x730116
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""Got it! Leave it
+to me!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x730142
+section_start(0x06)
+pic(9)
+dialog_up()
+para_talk("""This is a program my
+dad uses at work. It
+might help...""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x730190
+section_start(0x07)
+hidepic()
+dialog_up()
+pc_anim(30)
+se(0x85)
+text("""Lan got the
+\"{key Handle}\"program!""")
+pc_wait()
+pc_anim(1)
+page()
+wait(5)
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x7301C6
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk("""Thanks!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x7301E1
+section_start(0x09)
+pic(9)
+dialog_up()
+para_talk("""Tell my dad I'm
+fine,okay?""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x730211
+section_start(0x0A)
+hidepic()
+dialog_up()
+pc_anim(30)
+se(0x85)
+text("""Lan got
+\"{key Message}\"!""")
+pc_wait()
+pc_anim(1)
+page()
+wait(5)
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x73023C
+section_start(0x0B)
+pic(0)
+dialog_up()
+para_talk("""Roger!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x730256
+section_start(0x0C)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,let's go!""", 0)
+section_end()

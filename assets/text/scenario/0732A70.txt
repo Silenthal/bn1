@@ -1,0 +1,18 @@
+section_count(0x2)
+
+# 0x00 @ 0x732A74
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Lan! Just a little
+more! We can stop it
+at the next light!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x732AC4
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk_end("""Right! I'm on it!""", 0)
+section_end()

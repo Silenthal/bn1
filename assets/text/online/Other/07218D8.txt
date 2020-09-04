@@ -1,0 +1,44 @@
+section_count(0xA)
+
+# 0x00 @ 0x7218EC
+section_start(0x00)
+pic(36)
+dialog_up()
+para_talk("""I'm a bit overworked
+lately...""", 0)
+para_talk("""I'm making stupid
+mistakes,like giving
+out the wrong drink!""", 0)
+para_talk_end("""Please,give me a
+vacation!""")
+section_end()
+
+# 0x01 @ 0x721988
+section_start(0x01)
+pic(41)
+dialog_up()
+para_talk("""Dem new fuzzy logic
+programs...Always
+complaining...!""", 0)
+para_talk_end("""Why,in MY day...
+(etc.,etc.)!
+...and we loved it!""")
+section_end()
+
+# 0x02 @ 0x721A1B
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(861)
+pc_lock()
+pc_anim(50)
+award_zenny([5000, 5000], 0xFF)
+text("""MegaMan got 5000
+zennys!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()

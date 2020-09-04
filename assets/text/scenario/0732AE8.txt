@@ -1,0 +1,26 @@
+section_count(0x2)
+
+# 0x00 @ 0x732AEC
+section_start(0x00)
+pic(34)
+dialog_up()
+text_talking("""We got past the bus!
+We'll make it this
+time!""")
+wait(40)
+end()
+section_end()
+
+# 0x01 @ 0x732B2E
+section_start(0x01)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+Transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()

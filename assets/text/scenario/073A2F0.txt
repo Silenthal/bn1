@@ -1,0 +1,373 @@
+section_count(0x1B)
+
+# 0x00 @ 0x73A326
+section_start(0x00)
+pic(0)
+dialog_up()
+para_general("""・{delay}・{delay}・""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73A343
+section_start(0x01)
+pic(8)
+dialog_up()
+para_talk("""Lan...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73A35F
+section_start(0x02)
+pic(7)
+dialog_up()
+para_talk_end("""Lan{anim 1}...{delay}
+{anim 2}Your father gave me
+this{anim 1}...{delay}{anim 2}here.""", 0)
+section_end()
+
+# 0x03 @ 0x73A3AD
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Hub.bat
+...
+What's this?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73A3DE
+section_start(0x04)
+hidepic()
+dialog_up()
+set_flag(238)
+para_general("""Emergency...
+Receiving call...""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x73A413
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""Hello?""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x73A42D
+section_start(0x06)
+pic(28)
+dialog_up()
+para_talk("""Lan?""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x73A445
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk("""Dad! MegaMan's...""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x73A46E
+section_start(0x08)
+pic(7)
+dialog_up()
+para_talk("""Dr.Hikari,I'm sorry,
+I was too late...""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x73A4AE
+section_start(0x09)
+pic(28)
+dialog_up()
+para_talk("""Lan,listen to me!{anim 1}{delay}
+{anim 2}You can still save
+MegaMan!""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x73A4F9
+section_start(0x0A)
+pic(0)
+dialog_up()
+para_talk("""But!{anim 1} {delay}{anim 2}He's not
+responding...""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x73A534
+section_start(0x0B)
+pic(28)
+dialog_up()
+para_talk("""Apply the Hub.bat
+to MegaMan,there may
+still be time...""", 0)
+para_talk("""But before you use
+Hub.bat,I have to
+tell you something.""", 0)
+para_talk("""It might make it...
+hard for you to use
+MegaMan...OK?""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x73A60A
+section_start(0x0C)
+pic(0)
+dialog_up()
+para_talk("""...I don't really
+understand what
+you mean...""", 0)
+para_talk("""But I'll do anything
+if it might save
+MegaMan!""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x73A689
+section_start(0x0D)
+pic(28)
+dialog_up()
+para_talk("""Then,listen...""", 0)
+anim(2)
+song(0x09)
+para_general("""About 10 years ago,
+I was working on a
+new kind of Navi.{anim 1}""", 0)
+para_talk("""A kind of Navi that
+could truly befriend
+its operator.""", 0)
+para_talk("""But a program is
+only a program.""", 0)
+para_talk("""Though I could make
+a Navi follow its
+operator's orders,""", 0)
+para_talk("""I couldn't make one
+think and act on
+its own.""", 0)
+para_talk("""So I started
+thinking...""", 0)
+para_talk("""Maybe if you had
+some connection with
+your Navi...""", 0)
+para_talk("""The Navi could
+respond to your
+emotions...""", 0)
+para_talk("""and thereby create
+its own emotions{anim 1}...{delay}
+{anim 2}So I tried.""", 0)
+para_talk("""Looking at human DNA
+I came to a
+conclusion.""", 0)
+para_talk("""If I made a Navi
+with DNA just like
+its operator's""", 0)
+para_talk("""it's basic values
+and emotions would
+be the same.""", 0)
+para_talk("""Operator and Navi
+would become a
+single entity!""", 0)
+para_talk("""Making an ultimate
+Navi!""", 0)
+para_talk("""But,it was tough
+making a program
+with DNA...""", 0)
+para_talk("""I could make about
+95% of the program,
+but no more...""", 0)
+para_talk("""I just couldn't
+figure out that last
+five percent!""", 0)
+para_talk("""My research came to
+a sudden stop...""", 0)
+para_talk("""It was around then
+that I had a son...""", 0)
+para_talk("""A cute baby boy{anim 1}...{delay}
+{anim 2}We named him \"Hub.\"""", 0)
+para_talk("""But our happiness
+didn't last long...""", 0)
+para_talk("""He had heart trouble
+and became too weak
+to live...""", 0)
+para_talk("""So I thought{anim 1}...{delay}
+{anim 2}Somehow,I will keep
+his memory alive.""", 0)
+para_talk("""Lan,Hub was your
+twin brother.""", 0)
+para_talk("""You were born from
+the same egg...your
+DNA is identical.""", 0)
+para_talk("""I could use Hub's
+DNA to make a NAVI
+for you...""", 0)
+para_talk("""Suddenly,I had the
+DNA solution I had
+been searching for!""", 0)
+para_talk("""The Navi I made{anim 1}...{delay}
+{anim 2}was MegaMan.EXE!""", 0)
+para_talk("""And the results
+proved that I was
+right!""", 0)
+para_talk("""MegaMan.EXE is a new
+generation of Navi.""", 0)
+para_talk("""As close to you as
+a brother...""", 0)
+para_talk("""But there was a
+danger...""", 0)
+para_talk("""If I made the DNA
+100% the same...""", 0)
+para_talk("""The Navi's internal
+and external state
+might synch with you""", 0)
+para_talk("""So damage to the
+Navi would damage
+you,too!""", 0)
+para_talk("""So I changed 
+MegaMan.EXE's DNA
+by 0.001%""", 0)
+para_talk("""If you use Hub.bat{anim 1},{delay}
+{anim 2}that 0.001% will
+disappear...""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x73AEB7
+section_start(0x0E)
+pic(0)
+dialog_up()
+para_general(""".{delay}.{delay}.{delay}{anim 2}You mean
+MegaMan will be born
+again...as my twin?{anim 1}""")
+jump(0x0F)
+section_end()
+
+# 0x0F @ 0x73AF11
+section_start(0x0F)
+pic(28)
+dialog_up()
+para_talk("""Correct.""")
+jump(0x10)
+section_end()
+
+# 0x10 @ 0x73AF2D
+section_start(0x10)
+pic(0)
+dialog_up()
+para_talk("""I was always sending
+MegaMan into such
+dangerous places...""", 0)
+para_talk("""Did MegaMan{anim 1}...{delay}
+{anim 2}I mean Hub,know the
+truth?""")
+jump(0x11)
+section_end()
+
+# 0x11 @ 0x73AFBB
+section_start(0x11)
+pic(28)
+dialog_up()
+para_talk("""I asked Hub to keep
+it a secret.""", 0)
+para_talk("""If you knew the
+truth,you'd be too
+scared to use him.""", 0)
+para_talk("""And a Navi that you
+can't use isn't a
+good Navi...""", 0)
+para_talk("""...So,what will you
+do?{anim 1}{delay} {anim 2}I'll let
+you decide.""")
+jump(0x12)
+section_end()
+
+# 0x12 @ 0x73B0B1
+section_start(0x12)
+pic(0)
+dialog_up()
+para_talk("""But,Hub{anim 1}...{delay}
+{anim 2}I'll lose
+MegaMan...""")
+jump(0x13)
+section_end()
+
+# 0x13 @ 0x73B0F3
+section_start(0x13)
+pic(28)
+dialog_up()
+para_talk("""Remember,if your DNA
+is 100% the same,
+you will be affected""", 0)
+para_talk("""by whatever affects
+your Navi.""", 0)
+para_talk("""And the reverse is
+true,too!""", 0)
+para_talk("""Lan,if you truly
+think you can beat
+the WWW...""", 0)
+para_talk("""I think Hub will
+sense that,and he'll
+come back to help!""")
+jump(0x14)
+section_end()
+
+# 0x14 @ 0x73B20E
+section_start(0x14)
+pic(0)
+dialog_up()
+para_general(""".{delay}.{delay}.""", 0)
+para_talk("""OK!
+I'll use Hub.bat!""")
+jump(0x15)
+section_end()
+
+# 0x15 @ 0x73B24C
+section_start(0x15)
+pic(28)
+dialog_up()
+para_general_end("""{anim 2}Lan{anim 1}...{delay}
+{anim 2}You're doing the
+right thing!{anim 1}{delay}""", 0)
+section_end()
+
+# 0x16 @ 0x73B291
+section_start(0x16)
+dialog_up()
+se(0xDB)
+para_general("""Applying Hub.bat
+to MegaMan.EXE...{anim 1}""")
+jump(0x17)
+section_end()
+
+# 0x17 @ 0x73B2C9
+section_start(0x17)
+pic(0)
+dialog_up()
+para_talk("""Hub! Come fight
+by my side!""")
+jump(0x18)
+section_end()
+
+# 0x18 @ 0x73B2F9
+section_start(0x18)
+dialog_up()
+para_general(""".{delay}.{delay}.""")
+jump(0x19)
+section_end()
+
+# 0x19 @ 0x73B312
+section_start(0x19)
+pic(0)
+dialog_up()
+para_general("""{anim 2}No reply{anim 1}...{delay}!""")
+jump(0x1A)
+section_end()
+
+# 0x1A @ 0x73B339
+section_start(0x1A)
+pic(46)
+dialog_up()
+para_talk_end("""Hmm?""", 0)
+section_end()

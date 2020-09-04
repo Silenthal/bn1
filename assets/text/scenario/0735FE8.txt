@@ -1,0 +1,48 @@
+section_count(0x5)
+
+# 0x00 @ 0x735FF2
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""OK! Let's stop that
+generator! That'll
+keep ElecMan from""", 0)
+para_talk_end("""healing! This isn't
+going to be easy...{anim 1}{delay}
+{anim 2}But here goes!""", 0)
+section_end()
+
+# 0x01 @ 0x73608A
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk_end("""Aaaaaaaaand{anim 1}{delay}
+{anim 2}stay down!!""", 0)
+section_end()
+
+# 0x02 @ 0x7360BB
+section_start(0x02)
+pic(47)
+dialog_up()
+para_talk("""WーWhat!?{anim 1}{delay}
+{anim 2}What have you done
+to the generator?""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x736106
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""MegaMan! Quick!
+Let's get him while
+we can!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x736148
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk_end("""Leave it to me!""", 0)
+section_end()

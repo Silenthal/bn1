@@ -1,0 +1,32 @@
+section_count(0x3)
+
+# 0x00 @ 0x72A706
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Uhーoh!
+You were right,Lan,
+it's a virus!""", 0)
+para_talk("""The data signature's
+the WWW's for sure!{anim 1}{delay}
+{anim 2}And it's tough!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72A793
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""It's just like
+Mayl was saying...""", 0)
+para_talk("""Let's go,MegaMan!
+Battle routine,set!!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72A7FF
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk_end("""Execute!!""")
+section_end()

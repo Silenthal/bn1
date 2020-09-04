@@ -1,0 +1,89 @@
+section_count(0xA)
+
+# 0x00 @ 0x73908C
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Argh!
+Not enough ice
+blocks...""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7390C1
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk_end("""I can see the lock
+program right there!""", 0)
+section_end()
+
+# 0x02 @ 0x7390F9
+section_start(0x02)
+pic(1)
+dialog_up()
+para_talk("""Leave it to us!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x73911C
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Yai!? What are
+you doing here?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x739150
+section_start(0x04)
+pic(1)
+dialog_up()
+para_talk("""I'll explain later!
+Glyde,to work!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x739189
+section_start(0x05)
+pic(39)
+dialog_up()
+text_talking("""Certainly,my lady!""")
+page()
+set_flag(179)
+end()
+section_end()
+
+# 0x06 @ 0x7391B1
+section_start(0x06)
+pic(39)
+dialog_up()
+para_talk("""The rest is up
+to you...""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x7391DF
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk_end("""Thanks!
+I owe you one!""", 0)
+section_end()
+
+# 0x08 @ 0x739207
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk("""You did it!
+Thanks,Yai!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x739234
+section_start(0x09)
+pic(1)
+dialog_up()
+para_talk_end("""Just helping out
+a friend!""", 0)
+section_end()

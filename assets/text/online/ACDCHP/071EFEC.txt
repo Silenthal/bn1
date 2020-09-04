@@ -1,0 +1,38 @@
+section_count(0x3)
+
+# 0x00 @ 0x71EFF2
+section_start(0x00)
+pic(34)
+dialog_up()
+mail(9)
+mail(10)
+para_talk_end("""Lan!
+You've got mail!""", 0)
+section_end()
+
+# 0x01 @ 0x71F022
+section_start(0x01)
+if_story(0x30, 0x54, 0x02, 0xFF)
+pic(36)
+dialog_up()
+para_talk("""This is the inside
+of your computer.""", 0)
+para_talk("""From here you can
+access the net,
+and other terminals.""", 0)
+para_talk_end("""You can jack out at
+any time by pressing
+the R Button.""", 0)
+section_end()
+
+# 0x02 @ 0x71F0DC
+section_start(0x02)
+pic(36)
+dialog_up()
+para_talk("""Heave,ho!
+Heave,ho!""", 0)
+para_talk("""I'm working as hard
+as I can!""", 0)
+para_talk_end("""Good to see you
+again,MegaMan!""", 0)
+section_end()

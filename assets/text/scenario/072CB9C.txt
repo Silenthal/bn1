@@ -1,0 +1,24 @@
+section_count(0x2)
+
+# 0x00 @ 0x72CBA0
+section_start(0x00)
+input_off()
+pic(6)
+dialog_up()
+text("""{anim 2}Sorry!
+{anim 1}*snort*""")
+breaks(30)
+end(5)
+section_end()
+
+# 0x01 @ 0x72CBC6
+section_start(0x01)
+input_off()
+pic(0)
+dialog_up()
+text_talking("""WーWait!!{anim 1}{delay}
+...{anim 2}Huh? What's
+going on?""")
+breaks(30)
+end(5)
+section_end()

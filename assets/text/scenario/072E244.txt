@@ -1,0 +1,67 @@
+section_count(0x7)
+
+# 0x00 @ 0x72E252
+section_start(0x00)
+pic(8)
+dialog_up()
+para_talk("""Hey! You're late!""", 0)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72E279
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk_end("""Sorrysorry!""", 0)
+section_end()
+
+# 0x02 @ 0x72E295
+section_start(0x02)
+input_off()
+pic(8)
+dialog_up()
+text_talking("""Lan{anim 1}...{delay}{anim 2}Did you
+have water this
+morning at home?""")
+breaks(70)
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72E2E4
+section_start(0x03)
+pic(0)
+dialog_up()
+text_talking("""What,you too?""")
+breaks(70)
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72E306
+section_start(0x04)
+pic(8)
+dialog_up()
+text_talking("""Yeah! I couldn't
+even wash my face
+this morning...yuck""")
+breaks(70)
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72E354
+section_start(0x05)
+pic(0)
+dialog_up()
+text_talking("""You can wash it when
+we get to school!""")
+breaks(70)
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72E38E
+section_start(0x06)
+pic(8)
+dialog_up()
+text_talking("""I hope so...""")
+input_on()
+end(70)
+section_end()

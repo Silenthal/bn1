@@ -1,0 +1,91 @@
+section_count(0x7)
+
+# 0x00 @ 0x736176
+section_start(0x00)
+pic(47)
+dialog_up()
+para_talk("""This...{anim 1}{delay}
+{anim 2}This can't be
+happening!""", 0)
+para_talk("""But I've already
+sent the program
+to Count Zap!""", 0)
+para_talk_end("""Now,we have all{anim 1}{delay}{anim 2} the
+pro{anim 1}{delay}{anim 2}grams!
+You're finished!""", 0)
+section_end()
+
+# 0x01 @ 0x736236
+section_start(0x01)
+pic(46)
+dialog_up()
+para_talk("""Darn...
+Too late...""", 0)
+para_talk("""It took to long to
+break the jack in
+protection...""", 0)
+pic(34)
+para_talk("""ProtoMan!?""", 0)
+pic(46)
+para_talk("""Humph...
+Not a shred of data
+left,either...""", 0)
+para_talk("""I was just about to
+get the WWW server
+location...""", 0)
+para_talk("""out of ElecMan's
+memory data.""", 0)
+para_talk("""If you amateurs
+Hadn't got in the
+way,our plan to lure""", 0)
+para_talk("""in the WWW with fake
+data would have 
+succeeded.""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x7363D2
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Fake data?
+Then this was all...""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x736408
+section_start(0x03)
+pic(7)
+dialog_up()
+para_talk("""ProtoMan,delete that
+Navi.They've caused
+us enough trouble.""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73645A
+section_start(0x04)
+pic(46)
+dialog_up()
+para_talk("""As you wish,
+Lord Chaud.""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x736487
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk("""This isn't the time!
+We have to get the
+power back up!""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x7364D3
+section_start(0x06)
+pic(46)
+dialog_up()
+para_talk_end("""Silence!{delay 10} Prepare
+for deletion!""", 0)
+section_end()

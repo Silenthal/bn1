@@ -1,0 +1,164 @@
+section_count(0x10)
+
+# 0x00 @ 0x73B370
+section_start(0x00)
+pic(34)
+dialog_up()
+para_general(""".{delay}.{delay}.{delay}{anim 2}LーLan...{anim 1}""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73B3A0
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Hub!{anim 1}{delay}
+{anim 2}It's me,Lan!
+Wake up!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73B3DA
+section_start(0x02)
+pic(34)
+dialog_up()
+para_general_end("""{anim 2}La{anim 1}..{delay}{anim 2}n...{anim 1}{delay}{anim 2}Uh.{anim 1}{delay}.{delay}.""", 0)
+section_end()
+
+# 0x03 @ 0x73B417
+section_start(0x03)
+pic(34)
+dialog_up()
+para_general("""?{delay}
+{anim 2}What happened to me?{anim 1}""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73B446
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk("""Hub! It's you!""")
+song(0x07)
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x73B46E
+section_start(0x05)
+set_flag(147)
+pic(34)
+dialog_up()
+para_talk("""Lan?
+You called me \"Hub\"?""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x73B4A2
+section_start(0x06)
+pic(28)
+dialog_up()
+para_talk("""Hub{anim 1}...{delay}{anim 2}I've told
+Lan everything.""", 0)
+para_talk("""We used Hub.bat to
+bring you back...""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x73B511
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk("""Dad{anim 1}...{delay}{anim 2}I see...""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x73B540
+section_start(0x08)
+pic(28)
+dialog_up()
+para_talk("""That light means
+your program is
+being rewritten.""", 0)
+para_talk("""When the light goes
+down,your power
+should be increased!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x73B5C7
+section_start(0x09)
+pic(34)
+dialog_up()
+para_general("""{anim 2}Yeah...
+I can feel the
+energy inside me!{anim 1}{delay}""", 0)
+para_talk("""Lan,I'm sorry for 
+not telling you the
+truth earlier.""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x73B64A
+section_start(0x0A)
+pic(0)
+dialog_up()
+para_talk("""Hub,I'm sorry for
+ordering you around
+all these years...""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x73B69A
+section_start(0x0B)
+pic(34)
+dialog_up()
+para_talk("""No problem{anim 1}...{delay}
+{anim 2}I always regretted
+not being able""", 0)
+para_talk("""to be with you in
+the real world. But
+being able to watch""", 0)
+para_talk("""you grow from inside
+here{anim 1}...{delay}
+{anim 2}made me happy.""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x73B768
+section_start(0x0C)
+pic(0)
+dialog_up()
+para_talk("""Hub{anim 1}...{delay}{anim 2}So,how
+do I operate you
+now,I wonder?""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x73B7B4
+section_start(0x0D)
+pic(34)
+dialog_up()
+para_talk("""Just be yourself!
+And I'll be myself,
+MegaMan!""", 0)
+para_talk("""Let's hurry!
+Lan,I'm counting
+on you!""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x73B82B
+section_start(0x0E)
+pic(0)
+dialog_up()
+para_talk("""...Right{anim 1}{delay}...{anim 2}OK!
+Let's go,MegaMan!""")
+jump(0x0F)
+section_end()
+
+# 0x0F @ 0x73B870
+section_start(0x0F)
+pic(34)
+dialog_up()
+para_talk_end("""Right on!""", 0)
+section_end()

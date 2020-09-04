@@ -1,0 +1,79 @@
+section_count(0x7)
+
+# 0x00 @ 0x733E6E
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""Hey,Mom!
+Dad's invited us
+to a party!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x733EAA
+section_start(0x01)
+pic(12)
+dialog_up()
+para_talk("""How wonderful!""", 0)
+para_talk("""How sweet of him to
+think of his family
+at such a busy time!""", 0)
+para_talk("""So,Lan,{anim 1}{delay}
+{anim 2}When and where are
+we supposed to meet?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x733F53
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""At 7,in front of the
+TV in the 1st floor
+lobby of the SciLab.""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x733FA5
+section_start(0x03)
+pic(12)
+dialog_up()
+text_talking("""OK!{anim 1} ...{delay}{anim 2}But wait!{anim 1}{delay}
+{anim 2}It's almost 7 now!
+We have to hurry!""")
+page()
+set_flag(150)
+end()
+section_end()
+
+# 0x04 @ 0x734006
+section_start(0x04)
+pic(0)
+dialog_up()
+para_talk("""Mom!!{anim 1}{delay}{anim 2} Since you
+always take so long,
+I'll go ahead,OK?""", 0)
+para_talk("""...Man,if I had to
+wait for her,I'd
+never get to eat...""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x7340A5
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk("""C'mon Lan{anim 1}...{delay}{anim 2}I know
+you just can't wait
+to see your dad...""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x734101
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk_end("""HーHey,stop saying
+that!{anim 1}{delay}
+{anim 2}Geez...""", 0)
+section_end()

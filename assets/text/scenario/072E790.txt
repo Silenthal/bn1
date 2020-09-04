@@ -1,0 +1,115 @@
+section_count(0xB)
+
+# 0x00 @ 0x72E7A6
+section_start(0x00)
+pic(7)
+dialog_up()
+para_talk("""Therefore,a check of
+the Waterworks and
+net is needed...""", 0)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72E7F5
+section_start(0x01)
+pic(26)
+dialog_up()
+para_talk("""You're an official
+netbattler,right?
+I understand.""", 0)
+para_talk("""If you could show
+me your ID card...""", 0)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72E86D
+section_start(0x02)
+pic(7)
+dialog_up()
+para_talk("""Here.""", 0)
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72E886
+section_start(0x03)
+pic(26)
+dialog_up()
+para_talk("""I see...""", 0)
+para_talk("""Insert your ID card
+to use the elevator.""", 0)
+para_talk("""The elevator will
+take you around the
+works automatically.""", 0)
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72E918
+section_start(0x04)
+pic(7)
+dialog_up()
+para_talk_end("""Thank you.""", 0)
+section_end()
+
+# 0x05 @ 0x72E933
+section_start(0x05)
+pic(7)
+dialog_up()
+text_talking("""? What's a kid like
+you doing here?
+You're in the way!""")
+set_flag(187)
+page()
+end()
+section_end()
+
+# 0x06 @ 0x72E982
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""What's his problem?""", 0)
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x72E9AA
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk("""You are a kid,you
+know!{anim 1}{delay}{anim 2} But wait,
+Did you hear that?""", 0)
+para_talk("""He's an official
+netbattler! They
+fight netcrime!""", 0)
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x72EA39
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk("""I've heard of them
+before.""", 0)
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x72EA68
+section_start(0x09)
+pic(34)
+dialog_up()
+para_talk("""They can netbattle
+anywhere they want!
+Isn't that cool?""", 0)
+para_talk("""I wonder what kind
+of NetNavis they
+use...""", 0)
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x72EAEA
+section_start(0x0A)
+pic(0)
+dialog_up()
+para_talk_end("""Who cares? Let's
+go check out the
+waterworks!""", 0)
+section_end()

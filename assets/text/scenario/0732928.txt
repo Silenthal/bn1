@@ -1,0 +1,27 @@
+section_count(0x3)
+
+# 0x00 @ 0x73292E
+section_start(0x00)
+pic(0)
+dialog_up()
+para_talk("""MegaMan! The bus
+is here again!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x732962
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Roger! The signal
+should change soon!
+We'll make it!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x7329AD
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk_end("""I hope so!""", 0)
+section_end()

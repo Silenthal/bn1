@@ -1,0 +1,336 @@
+section_count(0xEB)
+
+# 0x00 @ 0x6F2FAA
+section_start(0x00)
+dialog_up()
+set_flag(640)
+clear_flag(1040)
+pc_lock()
+pc_anim(30)
+add_item("PET", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got his
+\"{key PET}\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+wait()
+para_general("""Press START to see
+chip data and read
+mail""", 0)
+pc_lock()
+pc_anim(30)
+se(0x85)
+text("""Lan got an AI
+Navigation program,
+\"MegaMan.EXE\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+wait()
+dialog_down()
+hidepic()
+jump(0x02)
+section_end()
+
+# 0x01 @ 0x6F3061
+section_start(0x01)
+dialog_up()
+para_general_end("""Lan,don't forget
+your {key PET}!!""")
+section_end()
+
+# 0x02 @ 0x6F3089
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""Lan! Good morning!""", 0)
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x6F30B0
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Morning,MegaMan!""", 0)
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x6F30D5
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""If you need to talk
+to me,just push the
+L Button.""", 0)
+para_talk_end("""OK,let's get to
+school!""", 0)
+section_end()
+
+# 0x07 @ 0x6F313E
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk_end("""You want to jack
+in? Let's do that
+after school!""")
+section_end()
+
+# 0x08 @ 0x6F3181
+section_start(0x08)
+pic(34)
+dialog_up()
+mail(0)
+mail(1)
+para_talk_end("""Lan! Check your
+mail again!""")
+section_end()
+
+# 0x09 @ 0x6F31B6
+section_start(0x09)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x0C @ 0x6F3201
+section_start(0x0C)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,this is no time
+to jack in! Go see
+Mom!""")
+section_end()
+
+# 0x0F @ 0x6F3243
+section_start(0x0F)
+if_story(0x04, 0x04, 0xFF, 0xDC)
+if_flag(641, 0xDC, 0xFF)
+pic(0)
+dialog_up()
+para_talk("""Here it is!!""", 0)
+dialog_down()
+hidepic()
+jump(0x10)
+section_end()
+
+# 0x10 @ 0x6F3274
+section_start(0x10)
+dialog_up()
+set_flag(641)
+pc_anim(30)
+add_item("WaterGun", 5, 0xFF, 0xFF, 0xFF)
+text("""Lan got;
+\"{key WaterGun}\"!""")
+pc_wait()
+pc_anim(4)
+page()
+wait()
+dialog_down()
+jump(0x11)
+section_end()
+
+# 0x11 @ 0x6F32A8
+section_start(0x11)
+pic(0)
+dialog_up()
+para_talk_end("""OK! Let's go!""")
+section_end()
+
+# 0x12 @ 0x6F32C8
+section_start(0x12)
+dialog_up()
+para_general_end("""MegaMan isn't in
+the {key PET}...""")
+section_end()
+
+# 0x19 @ 0x6F32FC
+section_start(0x19)
+pic(34)
+dialog_up()
+text("""{anim 2}Turn in for the
+day?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x1A, 0xFF], 0, False, False)
+end(5)
+section_end()
+
+# 0x1A @ 0x6F3338
+section_start(0x1A)
+pic(34)
+dialog_up()
+wait()
+text("""{anim 2}Save the day's
+events in your {key PET}?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x1B, 0xFF], 0, False, True)
+wait(5)
+jump(0x1C)
+section_end()
+
+# 0x1B @ 0x6F338A
+section_start(0x1B)
+if_flag(1033, 0xFF, 0x21)
+pic(34)
+dialog_up()
+text("""A file exists.
+OK to overwrite?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0xFF, 0x1C], 0, False, True)
+save(0xFF, 0x1D)
+para_talk("""OK!{anim 1}
+...{delay}{anim 2}Saved!""")
+jump(0x1C)
+section_end()
+
+# 0x1C @ 0x6F33F9
+section_start(0x1C)
+pic(34)
+dialog_up()
+text_talking("""Good night,Lan!""")
+page()
+if_story(0x00, 0x0F, 0x1E, 0xFF)
+if_story(0x20, 0x2F, 0x1F, 0xFF)
+if_story(0x52, 0x52, 0x20, 0xFF)
+end(5)
+section_end()
+
+# 0x1D @ 0x6F342C
+section_start(0x1D)
+pic(34)
+dialog_up()
+text("""{anim 2}There was an error
+saving. Try again?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x1B, 0xFF], 0, False, True)
+wait(5)
+jump(0x1C)
+section_end()
+
+# 0x1E @ 0x6F347D
+section_start(0x1E)
+set_flag(0)
+end()
+section_end()
+
+# 0x1F @ 0x6F3486
+section_start(0x1F)
+set_flag(221)
+end()
+section_end()
+
+# 0x20 @ 0x6F348F
+section_start(0x20)
+set_flag(160)
+end()
+section_end()
+
+# 0x21 @ 0x6F3498
+section_start(0x21)
+pic(34)
+dialog_up()
+save(0xFF, 0x1D)
+para_talk("""OK!{anim 1}
+...{delay}{anim 2}Saved!""")
+jump(0x1C)
+section_end()
+
+# 0x4B @ 0x6F351A
+section_start(0x4B)
+pic(34)
+dialog_up()
+mail(30)
+mail(14)
+para_talk_end("""Lan!
+You've got mail!""", 0)
+section_end()
+
+# 0x5A @ 0x6F3566
+section_start(0x5A)
+pic(34)
+dialog_up()
+mail(17)
+para_talk_end("""Lan!
+You've got mail!""", 0)
+section_end()
+
+# 0xDC @ 0x6F3694
+section_start(0xDC)
+if_flag(641, 0xDD, 0xFF)
+dialog_up()
+para_general_end("""Lan's secret tools
+are hidden here""")
+section_end()
+
+# 0xDD @ 0x6F36C5
+section_start(0xDD)
+dialog_up()
+para_general_end("""Lots of things that
+Lan never uses,but
+can't throw away""")
+section_end()
+
+# 0xDE @ 0x6F3706
+section_start(0xDE)
+dialog_up()
+para_general("""Lan has hidden some
+test answers in this
+bookshelf""", 0)
+para_general_end("""Hope that Mom
+doesn't find it...""")
+section_end()
+
+# 0xDF @ 0x6F3768
+section_start(0xDF)
+if_flag(640, 0xE0, 0xFF)
+dialog_up()
+para_general_end("""That's not your
+{key PET}!!""")
+section_end()
+
+# 0xE0 @ 0x6F378F
+section_start(0xE0)
+dialog_up()
+para_general_end("""Your PC. If you jack
+in here,you can send
+MegaMan into the net""")
+section_end()
+
+# 0xE1 @ 0x6F37D7
+section_start(0xE1)
+dialog_up()
+para_general_end("""It's still a little
+early to go to bed""")
+section_end()

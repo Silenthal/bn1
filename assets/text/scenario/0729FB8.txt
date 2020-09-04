@@ -1,0 +1,77 @@
+section_count(0x23)
+
+# 0x00 @ 0x729FFE
+section_start(0x00)
+pic(3)
+dialog_up()
+para_talk("""It looks like
+everyone's Navi is
+online!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72A03B
+section_start(0x01)
+pic(42, 1)
+dialog_up()
+para_talk_end("""Okay,{delay 10}I'm releasing{delay 10}
+the \"Mettool\" {delay 10}data
+now. Everyone{delay 10} ready?""")
+section_end()
+
+# 0x05 @ 0x72A0A1
+section_start(0x05)
+pic(3)
+dialog_up()
+para_talk("""You lost?
+That won't do...""", 0)
+para_talk_end("""Let's do it again,
+from the beginning.""")
+section_end()
+
+# 0x0A @ 0x72A109
+section_start(0x0A)
+pic(3)
+dialog_up()
+para_talk_end("""Good job!!
+Let's go on to the
+next lesson!""")
+section_end()
+
+# 0x0F @ 0x72A14F
+section_start(0x0F)
+pic(3)
+dialog_up()
+para_talk("""You lost?
+That won't do...""", 0)
+para_talk_end("""Let's do it again,
+from the beginning.""")
+section_end()
+
+# 0x14 @ 0x72A1B7
+section_start(0x14)
+pic(3)
+dialog_up()
+para_talk_end("""Good job!!
+Let's go on to the
+next lesson!""")
+section_end()
+
+# 0x19 @ 0x72A1FD
+section_start(0x19)
+pic(3)
+dialog_up()
+para_talk("""You lost?
+That won't do...""", 0)
+para_talk_end("""Let's do it again,
+from the beginning.""")
+section_end()
+
+# 0x1E @ 0x72A265
+section_start(0x1E)
+pic(3)
+dialog_up()
+para_talk_end("""Good job!!!
+That's all for
+today's class!""")
+section_end()

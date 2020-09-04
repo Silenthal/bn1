@@ -1,0 +1,101 @@
+section_count(0xB)
+
+# 0x00 @ 0x737CAE
+section_start(0x00)
+pic(48)
+dialog_up()
+para_talk_end("""But...{anim 1}{delay}{anim 2}but
+BombMan is never
+defeated!""", 0)
+section_end()
+
+# 0x01 @ 0x737CEE
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""Lan,I've got the
+WWW's address!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x737D24
+section_start(0x02)
+pic(0)
+dialog_up()
+para_talk("""Then let's use it to
+break into the WWW's
+network!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x737D6C
+section_start(0x03)
+pic(48)
+dialog_up()
+para_talk("""Fool...{anim 1}{delay}{anim 2}They don't
+call me BombMan for
+nothing!""", 0)
+para_talk_end("""NetBomb program
+activated!""", 0)
+section_end()
+
+# 0x04 @ 0x737DDA
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""!?""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x737DF1
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk_end("""Uhoh! MegaMan!?""", 0)
+section_end()
+
+# 0x06 @ 0x737E13
+section_start(0x06)
+pic(0)
+dialog_up()
+para_talk("""You OK?""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x737E2E
+section_start(0x07)
+pic(34)
+dialog_up()
+para_talk("""Yeah...{anim 1}{delay}{anim 2}but...""", 0)
+para_talk("""Oh no!
+The net's been
+closed off!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x737E88
+section_start(0x08)
+pic(0)
+dialog_up()
+para_talk("""Darn!
+We were so close!""")
+jump(0x09)
+section_end()
+
+# 0x09 @ 0x737EB4
+section_start(0x09)
+pic(34)
+dialog_up()
+para_talk("""I'm sure we can use
+this address
+somehow!""")
+jump(0x0A)
+section_end()
+
+# 0x0A @ 0x737EF2
+section_start(0x0A)
+pic(0)
+dialog_up()
+para_talk_end("""You're right!
+Let's talk to Dad!""", 0)
+section_end()

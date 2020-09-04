@@ -1,0 +1,173 @@
+section_count(0x29)
+
+# 0x00 @ 0x71FB9E
+section_start(0x00)
+dialog_up()
+para_general("""It looks like a
+connection to the
+net...""", 0)
+para_general_end("""But MegaMan doesn't
+have access!""", 0)
+section_end()
+
+# 0x01 @ 0x71FBF7
+section_start(0x01)
+set_flag(74)
+dialog_up()
+para_general("""MegaMan bookmarked
+Dad's computer!""", 0)
+para_general_end("""You can now freely
+enter here!""", 0)
+section_end()
+
+# 0x04 @ 0x71FC4E
+section_start(0x04)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(690)
+pc_lock()
+pc_anim(50)
+add_item("★Dad", 1, 0xFF, 0xFF, 0xFF)
+para_general("""MegaMan got;
+\"{key ★Dad}\"!""", 0)
+para_general("""(Use this item at
+ the access point to
+ this computer""", 0)
+text(""" for free access
+ between it and the
+ net)""")
+pc_wait()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x05 @ 0x71FD16
+section_start(0x05)
+dialog_up()
+para_general("""This is a \"virus
+machine.\" You can
+use it for training.""", 0)
+para_general("""It will create a
+virus according to
+your Navi's power.""", 0)
+text("""Want to try some
+virus busting?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x06, 0xFF], 0, False, False)
+end(5)
+section_end()
+
+# 0x06 @ 0x71FDD0
+section_start(0x06)
+set_flag(1086)
+virus_machine()
+section_end()
+
+# 0x0A @ 0x71FDDE
+section_start(0x0A)
+if_story(0x23, 0x57, 0x28, 0xFF)
+if_flag(226, 0x12, 0xFF)
+pic(36)
+dialog_up()
+para_talk("""I am just a
+caretaker program,
+not your dad's Navi.""", 0)
+para_talk("""MegaMan's power up
+program? It's not
+here.""", 0)
+para_talk("""It must be in your
+father's {key PET}.""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x71FE94
+section_start(0x0B)
+pic(34)
+dialog_up()
+para_talk("""Lan! He said he
+doesn't have my
+power up program!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x71FEDB
+section_start(0x0C)
+pic(0)
+dialog_up()
+para_talk("""Ah,well...
+Let's just leave
+him a message.""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x71FF1E
+section_start(0x0D)
+hidepic()
+dialog_up()
+para_general("""*click*
+*click*
+*click*""")
+jump(0x0E)
+section_end()
+
+# 0x0E @ 0x71FF48
+section_start(0x0E)
+pic(0)
+dialog_up()
+para_talk("""OK,give this to him,
+MegaMan!""")
+jump(0x0F)
+section_end()
+
+# 0x0F @ 0x71FF7B
+section_start(0x0F)
+pic(34)
+dialog_up()
+para_talk("""OK!""")
+jump(0x10)
+section_end()
+
+# 0x10 @ 0x71FF92
+section_start(0x10)
+hidepic()
+dialog_up()
+para_general("""MegaMan gave Lan's
+mail to the
+caretaker program.""")
+jump(0x11)
+section_end()
+
+# 0x11 @ 0x71FFD2
+section_start(0x11)
+pic(34)
+dialog_up()
+para_talk("""OK! Give that to
+Lan's dad!""")
+jump(0x12)
+section_end()
+
+# 0x12 @ 0x720003
+section_start(0x12)
+set_flag(226)
+pic(36)
+dialog_up()
+para_talk_end("""I have the message
+for your father.""", 0)
+section_end()
+
+# 0x28 @ 0x720065
+section_start(0x28)
+pic(36)
+dialog_up()
+para_talk_end("""I am just a
+caretaker program,
+not your dad's Navi.""", 0)
+section_end()

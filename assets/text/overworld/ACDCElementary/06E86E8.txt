@@ -1,198 +1,144 @@
 section_count(0xEB)
 
-# 6E88BE
+# 0x00 @ 0x6E88BE
 section_start(0x00)
 pic(16)
 dialog_up()
-anim(2)
-text("""Oh,the children are
-scared,poor things.""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Someone must do
+para_talk("""Oh,the children are
+scared,poor things.""", 0)
+para_talk_end("""Someone must do
 something,but I 
 can't leave them!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E8935
+# 0x01 @ 0x6E8935
 section_start(0x01)
 pic(11)
 dialog_up()
-anim(2)
-text("""I'm scared!""")
-anim(1)
-page()
-end(5)
+para_talk_end("""I'm scared!""")
 section_end()
 
-# 6E8952
+# 0x02 @ 0x6E8952
 section_start(0x02)
 pic(18)
 dialog_up()
-anim(2)
-text("""I hate this noise!""")
-anim(1)
-page()
-end(5)
+para_talk_end("""I hate this noise!""")
 section_end()
 
-# 6E8975
+# 0x03 @ 0x6E8975
 section_start(0x03)
 pic(11)
 dialog_up()
-anim(2)
-text("""I'll have bad
+para_talk_end("""I'll have bad
 dreams,I'm sure!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6E89A7
+# 0x04 @ 0x6E89A7
 section_start(0x04)
 input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-anim(2)
-text("""Jack in!!""")
-delay(10)
-text("""
-MegaMan.EXE,""")
-delay(10)
-text("""
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
 transmit!""")
-anim(1)
 breaks(30)
 input_on()
 end()
 section_end()
 
-# 6E89EE
+# 0x05 @ 0x6E89EE
 section_start(0x05)
 pic(18)
 dialog_up()
-text("""*bawls*""")
-page()
-end()
+para_general_end("""*bawls*""", 0)
 section_end()
 
-# 6E8A03
+# 0x06 @ 0x6E8A03
 section_start(0x06)
 pic(11)
 dialog_up()
-text("""*cries*""")
-page()
-end()
+para_general_end("""*cries*""", 0)
 section_end()
 
-# 6E8BC2
+# 0xDC @ 0x6E8BC2
 section_start(0xDC)
 dialog_up()
-text("""It's always nice to
+para_general_end("""It's always nice to
 be greeted warmly!""")
-page()
-end(5)
 section_end()
 
-# 6E8BF2
+# 0xDD @ 0x6E8BF2
 section_start(0xDD)
 dialog_up()
-text("""A very old
-blackboard""")
-page()
-wait()
-text("""It's old,but you
+para_general("""A very old
+blackboard""", 0)
+para_general_end("""It's old,but you
 can still jack in
 to it""")
-page()
-end(5)
 section_end()
 
-# 6E8C3D
+# 0xDE @ 0x6E8C3D
 section_start(0xDE)
 dialog_up()
-text("""A statue created
+para_general_end("""A statue created
 by the first
 principal,they say""")
-page()
-end(5)
 section_end()
 
-# 6E8C76
+# 0xDF @ 0x6E8C76
 section_start(0xDF)
 dialog_up()
-text("""A class schedule.
+para_general_end("""A class schedule.
 1st graders only
 have 4 classes a day""")
-page()
-end(5)
 section_end()
 
-# 6E8CB6
+# 0xE0 @ 0x6E8CB6
 section_start(0xE0)
 dialog_up()
-text("""Some kind of larvae
+para_general_end("""Some kind of larvae
 are crawling inside""")
-page()
-end(5)
 section_end()
 
-# 6E8CE5
+# 0xE1 @ 0x6E8CE5
 section_start(0xE1)
 dialog_up()
-text("""Two of the guppies
+para_general_end("""Two of the guppies
 are floating bellyー
 up""")
-page()
-end(5)
 section_end()
 
-# 6E8D16
+# 0xE2 @ 0x6E8D16
 section_start(0xE2)
 dialog_up()
-text("""A diary of guppy
+para_general_end("""A diary of guppy
 raising""")
-page()
-end(5)
 section_end()
 
-# 6E8D36
+# 0xE3 @ 0x6E8D36
 section_start(0xE3)
 dialog_up()
-text("""A 1st grader's desk.
+para_general_end("""A 1st grader's desk.
 Wow,these are
 small!""")
-page()
-end(5)
 section_end()
 
-# 6E8D6B
+# 0xE4 @ 0x6E8D6B
 section_start(0xE4)
 dialog_up()
-text("""The teacher's desk""")
-page()
-end(5)
+para_general_end("""The teacher's desk""")
 section_end()
 
-# 6E8D86
+# 0xE5 @ 0x6E8D86
 section_start(0xE5)
 if_story(0x20, 0x5F, 0xDD, 0xFF)
 if_story(0x10, 0x1F, 0xFF, 0xDD)
 if_flag(149, 0xFF, 0xDD)
 dialog_up()
-text("""A WWW reーeducation
+para_general("""A WWW reーeducation
 program is playing!
-Pretty scary stuff!""")
-page()
-wait()
-text("""Looks like you can
+Pretty scary stuff!""", 0)
+para_general_end("""Looks like you can
 jack in here!""")
-page()
-end(5)
 section_end()

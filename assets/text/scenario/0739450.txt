@@ -1,0 +1,56 @@
+section_count(0x6)
+
+# 0x00 @ 0x73945C
+section_start(0x00)
+pic(5)
+dialog_up()
+para_talk("""Ahーhahーhahーhaaa!{anim 1}{delay}
+{anim 2}Now I load this into
+the rocket,and...""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7394B3
+section_start(0x01)
+pic(29)
+dialog_up()
+para_talk_end("""Report,sir! It seems
+that intruders are
+in the lab...""", 0)
+section_end()
+
+# 0x02 @ 0x7394FD
+section_start(0x02)
+pic(5)
+dialog_up()
+para_talk("""Grr{anim 1}...{delay}{anim 2}I won't be
+stopped now!{anim 1}{delay} {anim 2}Yahoot,
+deal with them!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x73955C
+section_start(0x03)
+pic(29)
+dialog_up()
+para_talk_end("""As you command,so
+shall it be done!""", 0)
+section_end()
+
+# 0x04 @ 0x739591
+section_start(0x04)
+pic(5)
+dialog_up()
+para_talk_end("""Just a little more,
+and the world will
+be{anim 1}...{delay}{anim 2}DELETED!""", 0)
+section_end()
+
+# 0x05 @ 0x7395E2
+section_start(0x05)
+pic(5)
+dialog_up()
+para_talk_end("""Ahahahahah!{anim 1}{delay}
+{anim 2}Say your prayers,
+Dr.Hikari!""", 0)
+section_end()

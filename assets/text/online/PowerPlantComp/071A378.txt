@@ -1,0 +1,1017 @@
+section_count(0xF8)
+
+# 0x00 @ 0x71A568
+section_start(0x00)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(714)
+pc_lock()
+pc_anim(50)
+award_zenny([1000, 1000], 0xFF)
+text("""MegaMan got 1000
+zennys!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x02 @ 0x71A5D4
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(716)
+pc_lock()
+pc_anim(50)
+award_zenny([500, 500], 0xFF)
+text("""MegaMan got 500
+zennys!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x6A @ 0x71A70B
+section_start(0x6A)
+pic(36)
+dialog_up()
+para_talk("""You can sometimes
+get by without using
+all the batteries.""", 0)
+para_talk("""Use the extras to
+find new...
+*beep*""", 0)
+para_talk_end("""Some,something is
+not right...
+*beep*""", 0)
+section_end()
+
+# 0x6B @ 0x71A7B9
+section_start(0x6B)
+pic(36)
+dialog_up()
+para_talk("""You've probably
+heard this already,
+but...""", 0)
+para_talk("""remember that the
+correct boxes will
+never be""", 0)
+para_talk_end("""adjacent to one
+another.""", 0)
+section_end()
+
+# 0x71 @ 0x71A858
+section_start(0x71)
+if_flag(715, 0x72, 0xFF)
+pic(36)
+dialog_up()
+para_talk("""You'll need to
+think hard before
+setting a battery.""", 0)
+para_talk("""These are the
+batteries that
+I control.""", 0)
+para_talk("""If they run out of
+power,I will
+recharge them.""", 0)
+hidepic()
+para_general("""MegaMan got
+several programs!""", 0)
+text("""\"{key BatteryA}\"
+\"{key BatteryB}\"
+\"{key BatteryC}\"""")
+set_flag(715)
+pc_lock()
+pc_anim(50)
+add_item("BatteryA", 1, 0xFF, 0xFF, 0xFF)
+add_item("BatteryB", 1, 0xFF, 0xFF, 0xFF)
+add_item("BatteryC", 1, 0xFF, 0xFF, 0xFF)
+add_item(80, 2, 0xFF, 0xFF, 0xFF)
+add_item(81, 2, 0xFF, 0xFF, 0xFF)
+add_item(82, 2, 0xFF, 0xFF, 0xFF)
+set_flag(216)
+set_flag(217)
+set_flag(218)
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x72 @ 0x71A993
+section_start(0x72)
+check_item("BatteryE", 1, 0xEB, 0xEB, 0xFF)
+check_item("BatteryD", 1, 0xEB, 0xEB, 0xFF)
+check_item("BatteryC", 1, 0xEB, 0xEB, 0xFF)
+check_item("BatteryB", 1, 0xEB, 0xEB, 0xFF)
+check_item("BatteryA", 1, 0xEB, 0xEB, 0xFF)
+pic(36)
+dialog_up()
+para_talk_end("""Here you go,
+some fresh
+batteries!""")
+section_end()
+
+# 0x7C @ 0x71A9FC
+section_start(0x7C)
+pic(52)
+dialog_up()
+para_talk("""You WWW scum!
+Take this!""")
+set_flag(204)
+miniboss(255, 0, 0, 0, 1, 1, 1)
+section_end()
+
+# 0x7D @ 0x71AA33
+section_start(0x7D)
+pic(52)
+dialog_up()
+para_talk("""I...malfunction...
+You...delete...me...""")
+set_flag(205)
+miniboss(255, 0, 0, 0, 1, 1, 1)
+section_end()
+
+# 0x7E @ 0x71AA86
+section_start(0x7E)
+pic(52)
+dialog_up()
+para_talk("""You lookin' at me?
+You lookin' at ME?""")
+set_flag(206)
+miniboss(255, 0, 0, 0, 1, 1, 2)
+section_end()
+
+# 0x7F @ 0x71AACC
+section_start(0x7F)
+pic(52)
+dialog_up()
+para_talk("""I will strike down
+upon thee with great
+vengance""", 0)
+para_talk("""and fuuurious anger!""")
+set_flag(207)
+miniboss(255, 0, 0, 0, 1, 1, 2)
+section_end()
+
+# 0x96 @ 0x71AB62
+section_start(0x96)
+dialog_up()
+para_general_end("""Insert batteries
+into the box.""")
+section_end()
+
+# 0x9A @ 0x71AB8F
+section_start(0x9A)
+clear_flag(211)
+dialog_up()
+text("""Throw the switch?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x9B, 0xFF], 0, False, True)
+end()
+section_end()
+
+# 0x9B @ 0x71ABC4
+section_start(0x9B)
+pic(34)
+dialog_up()
+text_talking("""Switch... ON!""")
+page()
+set_flag(211)
+stop()
+section_end()
+
+# 0x9E @ 0x71ABEE
+section_start(0x9E)
+hidepic()
+dialog_show()
+se(0xC5)
+para_general("""A bulb has been
+turned on!""", 0)
+para_general_end("""A path is
+revealed!""")
+section_end()
+
+# 0xA2 @ 0x71AC35
+section_start(0xA2)
+pic(34)
+dialog_show()
+para_talk_end("""Huh? Nothing
+happened!
+Wrong box,maybe?""")
+section_end()
+
+# 0xA6 @ 0x71AC76
+section_start(0xA6)
+dialog_up()
+text("""Remove the battery?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0xA7, 0xFF], 0, False, True)
+end()
+section_end()
+
+# 0xA7 @ 0x71ACA9
+section_start(0xA7)
+dialog_up()
+para_general("""You remove the
+battery.""", 0)
+se(0xC4)
+para_general_end("""It has been returned
+to your inventory.""")
+section_end()
+
+# 0xAB @ 0x71ACFF
+section_start(0xAB)
+dialog_up()
+para_general_end("""Insert batteries
+into the box.""")
+section_end()
+
+# 0xB3 @ 0x71AD34
+section_start(0xB3)
+pic(0)
+dialog_up()
+para_talk("""MegaMan,we don't
+need to play with
+that anymore!""", 0)
+para_talk_end("""Let's get going!""")
+section_end()
+
+# 0xB7 @ 0x71AD97
+section_start(0xB7)
+dialog_up()
+text("""Turn off the
+switch?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0xB8, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0xB8 @ 0x71ADCB
+section_start(0xB8)
+if_flag(221, 0xF7, 0xFF)
+dialog_up()
+para_general_end("""You turned off
+the switch.""")
+section_end()
+
+# 0xBC @ 0x71ADFA
+section_start(0xBC)
+dialog_up()
+para_general("""Warning!!""", 0)
+para_general("""Unpowered batteries
+detected!""", 0)
+para_general_end("""Switch disabled to
+prevent system
+damage!""")
+section_end()
+
+# 0xC0 @ 0x71AE63
+section_start(0xC0)
+dialog_up()
+para_general("""Warning!!""", 0)
+para_general_end("""Switch activated!
+Deactivate before
+touching boxes!""")
+section_end()
+
+# 0xC3 @ 0x71AEB3
+section_start(0xC3)
+end()
+section_end()
+
+# 0xC4 @ 0x71AEB8
+section_start(0xC4)
+clear_flag(211)
+dialog_up()
+text("""Put a battery
+in this box?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0xFF, 0xC3], 0, False, True)
+breaks(5)
+set_flag(211)
+stop()
+section_end()
+
+# 0xC8 @ 0x71AF05
+section_start(0xC8)
+pic(34)
+dialog_show()
+para_talk("""This battery is
+out!""", 0)
+para_talk_end("""Let's go get it
+recharged!""")
+section_end()
+
+# 0xC9 @ 0x71AF4E
+section_start(0xC9)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xCA @ 0x71AF90
+section_start(0xCA)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xCB @ 0x71AFD2
+section_start(0xCB)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xCC @ 0x71B037
+section_start(0xCC)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xCD @ 0x71B079
+section_start(0xCD)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xCE @ 0x71B0DE
+section_start(0xCE)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xCF @ 0x71B143
+section_start(0xCF)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xD0 @ 0x71B1CB
+section_start(0xD0)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xD1 @ 0x71B20D
+section_start(0xD1)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xD2 @ 0x71B272
+section_start(0xD2)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xD3 @ 0x71B2D7
+section_start(0xD3)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xD4 @ 0x71B35F
+section_start(0xD4)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xD5 @ 0x71B3C4
+section_start(0xD5)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xD6 @ 0x71B44C
+section_start(0xD6)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xD7 @ 0x71B4D4
+section_start(0xD7)
+dialog_show()
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteriesremaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"B\" batteriesremaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"C\" batteriesremaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"D\" batteriesremaining;""")
+item_amt(83, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xD8 @ 0x71B577
+section_start(0xD8)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xD9 @ 0x71B5B9
+section_start(0xD9)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xDA @ 0x71B61E
+section_start(0xDA)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"B\" batteriesremaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"E\" batteriesremaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xDB @ 0x71B681
+section_start(0xDB)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xDC @ 0x71B709
+section_start(0xDC)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xDD @ 0x71B76E
+section_start(0xDD)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteriesremaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"C\" batteriesremaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"E\" batteriesremaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xDE @ 0x71B7F3
+section_start(0xDE)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"B\" batteriesremaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"C\" batteriesremaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"E\" batteriesremaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xDF @ 0x71B878
+section_start(0xDF)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xE0 @ 0x71B923
+section_start(0xE0)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"D\" batteriesremaining;""")
+item_amt(83, 0, False, False)
+page()
+wait()
+text("""\"E\" batteriesremaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xE1 @ 0x71B986
+section_start(0xE1)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xE2 @ 0x71BA0E
+section_start(0xE2)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xE3 @ 0x71BA96
+section_start(0xE3)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xE4 @ 0x71BB41
+section_start(0xE4)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xE5 @ 0x71BBC9
+section_start(0xE5)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xE6 @ 0x71BC74
+section_start(0xE6)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xE7 @ 0x71BD1F
+section_start(0xE7)
+dialog_show()
+se(0xC3)
+para_general("""Battery installed.""", 0)
+text("""\"A\" batteries
+remaining;""")
+item_amt(80, 0, False, False)
+page()
+wait()
+text("""\"B\" batteries
+remaining;""")
+item_amt(81, 0, False, False)
+page()
+wait()
+text("""\"C\" batteries
+remaining;""")
+item_amt(82, 0, False, False)
+page()
+wait()
+text("""\"D\" batteries
+remaining;""")
+item_amt(83, 0, False, False)
+page()
+wait()
+text("""\"E\" batteries
+remaining;""")
+item_amt(84, 0, False, False)
+page()
+end(5)
+section_end()
+
+# 0xEB @ 0x71BDF3
+section_start(0xEB)
+pic(36)
+dialog_up()
+para_general("""{anim 2}Recharging!
+{anim 1}*zzzzppppt*""", 0)
+para_talk("""Recharged!""", 0)
+jump(0xEC)
+section_end()
+
+# 0xEC @ 0x71BE33
+section_start(0xEC)
+check_item("BatteryA", 1, 0xFF, 0xFF, 0xED)
+set_item(80, 2, 0xF6, 0x00, 0xED)
+section_end()
+
+# 0xED @ 0x71BE43
+section_start(0xED)
+check_item("BatteryB", 1, 0xFF, 0xFF, 0xEE)
+set_item(81, 2, 0xF6, 0x00, 0xEE)
+section_end()
+
+# 0xEE @ 0x71BE53
+section_start(0xEE)
+check_item("BatteryC", 1, 0xFF, 0xFF, 0xEF)
+set_item(82, 2, 0xF6, 0x00, 0xEF)
+section_end()
+
+# 0xEF @ 0x71BE63
+section_start(0xEF)
+check_item("BatteryD", 1, 0xFF, 0xFF, 0xF0)
+set_item(83, 2, 0xF6, 0x00, 0xF0)
+section_end()
+
+# 0xF0 @ 0x71BE73
+section_start(0xF0)
+check_item("BatteryE", 1, 0xFF, 0xFF, 0xF1)
+set_item(84, 2, 0xF6, 0x00, 0xF1)
+section_end()
+
+# 0xF1 @ 0x71BE83
+section_start(0xF1)
+para_talk_end("""Please come back
+if you need them
+recharged again!""")
+section_end()
+
+# 0xF2 @ 0x71BEC0
+section_start(0xF2)
+pic(34)
+dialog_up()
+para_talk("""Looks like the
+generator is back
+online.""", 0)
+para_talk_end("""The bulbs are lit
+even without
+batteries!""")
+section_end()
+
+# 0xF6 @ 0x71BF31
+section_start(0xF6)
+pic(34)
+dialog_up()
+para_talk("""The generator is
+back online,so
+we don't need""", 0)
+para_talk_end("""to use the
+batteries anymore.""")
+section_end()
+
+# 0xF7 @ 0x71BF96
+section_start(0xF7)
+clear_flag(221)
+dialog_up()
+para_general("""Improper input
+detected...""", 0)
+para_general_end("""Battery box
+rewired to new
+configuration""")
+section_end()

@@ -1,0 +1,44 @@
+section_count(0x5)
+
+# 0x00 @ 0x733376
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Are you okay?""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x733397
+section_start(0x01)
+pic(40)
+dialog_up()
+para_talk("""Uh..oww{anim 1}...{delay}{anim 2}I think so{anim 1}.{delay}
+{anim 2}Thanks,Mega!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x7333E4
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""Sure you don't have
+any errors?""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x733418
+section_start(0x03)
+pic(40)
+dialog_up()
+para_talk("""Yep,I'm fine,really!
+But what about Mayl?
+You better jack out!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x73346F
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk_end("""Right!""", 0)
+section_end()

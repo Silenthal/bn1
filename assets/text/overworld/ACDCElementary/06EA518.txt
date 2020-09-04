@@ -1,66 +1,37 @@
 section_count(0xEB)
 
-# 6EA6F8
+# 0x05 @ 0x6EA6F8
 section_start(0x05)
 pic(11)
 dialog_up()
-anim(2)
-text("""Me? I'm a 1st grader""")
-anim(1)
-delay()
-text("""
-""")
-anim(2)
-text("""Hope everyone is OK!""")
-anim(1)
-page()
-end(5)
+para_talk_end("""Me? I'm a 1st grader{anim 1}{delay}
+{anim 2}Hope everyone is OK!""")
 section_end()
 
-# 6EA74E
+# 0x0F @ 0x6EA74E
 section_start(0x0F)
 pic(17)
 dialog_up()
-anim(2)
-text("""You'd think that
+para_talk("""You'd think that
 being hungry is
-worse than thirst.""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""But you can die
+worse than thirst.""", 0)
+para_talk_end("""But you can die
 from lack of water!
 So be careful!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6EA92B
+# 0xBE @ 0x6EA92B
 section_start(0xBE)
 if_flag(1058, 0xC4, 0xFF)
 pic(10)
 dialog_up()
-anim(2)
-text("""Hey! I just heard
-something amazing!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""It's what they teach
+para_talk("""Hey! I just heard
+something amazing!""", 0)
+para_talk("""It's what they teach
 6th graders about
-virus busting!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Want to hear about
-it?""")
-anim(1)
-page()
-wait()
+virus busting!""", 0)
+para_talk("""Want to hear about
+it?""", 0)
 option(0, 0, 1, 1)
 pad(2)
 text("""Sure! """)
@@ -72,36 +43,23 @@ page()
 end(5)
 section_end()
 
-# 6EA9EB
+# 0xBF @ 0x6EA9EB
 section_start(0xBF)
 pic(10)
 dialog_up()
-anim(2)
-text("""Oh...""")
-anim(1)
-page()
-end(5)
+para_talk_end("""Oh...""")
 section_end()
 
-# 6EAA03
+# 0xC0 @ 0x6EAA03
 section_start(0xC0)
 pic(10)
 dialog_up()
-anim(2)
-text("""Well,it's pretty
+para_talk("""Well,it's pretty
 big stuff. I can't
-tell you for free!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""I'll tell you if
-you'll trade me...""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""3 """)
+tell you for free!""", 0)
+para_talk("""I'll tell you if
+you'll trade me...""", 0)
+text("""{anim 2}3 """)
 chip_id("Invis1")
 text(""" """)
 chip_code("I")
@@ -125,31 +83,23 @@ page()
 end(5)
 section_end()
 
-# 6EAACF
+# 0xC1 @ 0x6EAACF
 section_start(0xC1)
 pic(10)
 dialog_up()
-anim(2)
-text("""What? You won't
+para_talk_end("""What? You won't
 trade? Well,I won't
 tell you then!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6EAB17
+# 0xC2 @ 0x6EAB17
 section_start(0xC2)
 check_chip_pack("Invis1 I", 3, 0xFF, 0xFF, 0xC3)
 set_flag(1058)
 pic(10)
 dialog_up()
-anim(2)
-text("""Great! Thanks!
-Here you go!""")
-anim(1)
-page()
-wait()
+para_talk("""Great! Thanks!
+Here you go!""", 0)
 hidepic()
 pc_lock()
 pc_anim(30)
@@ -167,104 +117,64 @@ pc_unlock()
 page()
 wait()
 pic(10)
-anim(2)
-text("""OK,here is my
-information.""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""If you line up
+para_talk("""OK,here is my
+information.""", 0)
+para_talk("""If you line up
 chips in alphabetic
-order...""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Oh,yeah,3
+order...""", 0)
+text("""{anim 2}Oh,yeah,3
 """)
 chip_id("Cannon")
-text("""s
-in order... um...""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Anyway,they change
+para_general("""s
+in order... um...{anim 1}""", 0)
+para_talk_end("""Anyway,they change
 to something cool!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6EAC52
+# 0xC3 @ 0x6EAC52
 section_start(0xC3)
 pic(10)
 dialog_up()
-anim(2)
-text("""I said that I want
+text("""{anim 2}I said that I want
 3 """)
 chip_id("Invis1")
 text(""" """)
 chip_code("I")
-text("""s!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Do you maybe have
+para_general("""s!{anim 1}""", 0)
+para_talk("""Do you maybe have
 some in your chip
-folder?""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""You can't trade
+folder?""", 0)
+para_talk("""You can't trade
 chips that are in
-your chip folder!""")
-anim(1)
-page()
-wait()
-anim(2)
-text("""Anyway,you don't
+your chip folder!""", 0)
+para_talk_end("""Anyway,you don't
 have enough to trade
 so I can't tell you!""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6EAD3A
+# 0xC4 @ 0x6EAD3A
 section_start(0xC4)
 pic(10)
 dialog_up()
-anim(2)
-text("""Did you try out
+para_talk_end("""Did you try out
 the information
 that I gave you?""")
-anim(1)
-page()
-end(5)
 section_end()
 
-# 6EADA9
+# 0xDC @ 0x6EADA9
 section_start(0xDC)
 dialog_up()
-text("""The school nurse
+para_general_end("""The school nurse
 keeps her records
 in this PC""")
-page()
-end(5)
 section_end()
 
-# 6EADDE
+# 0xDD @ 0x6EADDE
 section_start(0xDD)
 if_flag(689, 0xDE, 0xFF)
 dialog_up()
-text("""You check the
-medicine cabinet""")
-page()
-wait()
+para_general("""You check the
+medicine cabinet""", 0)
 set_flag(689)
 pc_anim(30)
 add_chip("Recov50 G", 1, 0xFF, 0xFF, 0xFF)
@@ -280,21 +190,17 @@ page()
 end(5)
 section_end()
 
-# 6EAE44
+# 0xDE @ 0x6EAE44
 section_start(0xDE)
 dialog_up()
-text("""Looks like there's
+para_general_end("""Looks like there's
 nothing else""")
-page()
-end(5)
 section_end()
 
-# 6EAE6C
+# 0xDF @ 0x6EAE6C
 section_start(0xDF)
 dialog_up()
-text("""The bed is slightly
+para_general_end("""The bed is slightly
 warm,as if someone
 had been laying here""")
-page()
-end(5)
 section_end()

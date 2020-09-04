@@ -1,0 +1,117 @@
+section_count(0x10)
+
+# 0x00 @ 0x7158A4
+section_start(0x00)
+if_story(0x32, 0x32, 0x0A, 0xFF)
+pic(36)
+dialog_up()
+para_talk("""The WWW has bugged
+up our programs!""", 0)
+para_talk("""When this floor is
+red,pressing that
+switch should""", 0)
+para_talk_end("""make the signal turn
+red...I'm not sure
+what to do!""", 0)
+section_end()
+
+# 0x01 @ 0x715959
+section_start(0x01)
+if_flag(195, 0x02, 0xFF)
+set_flag(195)
+pic(52)
+dialog_up()
+para_talk("""I can't go on any
+longer{anim 1}...{delay}{anim 2}But before
+I am deleted,""", 0)
+para_talk("""I wanted to tell you
+something...""", 0)
+para_talk("""Different viruses
+appear depending on
+the floor color!""", 0)
+para_general_end("""*clank*""", 0)
+section_end()
+
+# 0x02 @ 0x715A2B
+section_start(0x02)
+pic(52)
+dialog_up()
+para_general_end("""...""", 0)
+section_end()
+
+# 0x03 @ 0x715A3D
+section_start(0x03)
+if_story(0x32, 0x57, 0x05, 0xFF)
+if_flag(48, 0x04, 0xFF)
+if_flag(174, 0x05, 0xFF)
+dialog_up()
+para_general("""MegaMan pressed the
+color switch!""", 0)
+para_general_end("""However,the signal
+remained green!""", 0)
+section_end()
+
+# 0x04 @ 0x715AA1
+section_start(0x04)
+dialog_up()
+para_general("""MegaMan pressed the
+color switch!""", 0)
+para_general("""The signal turned
+red!""")
+set_flag(167)
+end()
+section_end()
+
+# 0x05 @ 0x715AED
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk_end("""MegaMan! You don't
+need to press the
+switch now!""", 0)
+section_end()
+
+# 0x06 @ 0x715B30
+section_start(0x06)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(720)
+pc_lock()
+pc_anim(50)
+award_zenny([800, 800], 0xFF)
+text("""MegaMan got 800
+zennys!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x07 @ 0x715B96
+section_start(0x07)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(721)
+pc_lock()
+pc_anim(50)
+add_chip("Bubbler K", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Bubbler")
+text(""" """)
+chip_code("K")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x0A @ 0x715C08
+section_start(0x0A)
+pic(36)
+dialog_up()
+para_talk_end("""You're amazing!""", 0)
+section_end()

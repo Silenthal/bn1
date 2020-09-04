@@ -1,0 +1,65 @@
+section_count(0xA)
+
+# 0x00 @ 0x720D2C
+section_start(0x00)
+pic(36)
+dialog_up()
+para_talk("""Young people sure do
+spend a lot of time
+on the phone...""", 0)
+para_talk_end("""I guess there are
+some things that you
+can't say in person.""")
+section_end()
+
+# 0x01 @ 0x720DBC
+section_start(0x01)
+pic(36)
+dialog_up()
+para_talk("""Yai tends to be a
+bit tough,but she's
+really quite gentle.""", 0)
+para_talk_end("""I know...
+I hear all of her
+phone calls!""")
+section_end()
+
+# 0x02 @ 0x720E3D
+section_start(0x02)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(853)
+pc_lock()
+pc_anim(50)
+add_chip("Escape J", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Escape")
+text(""" """)
+chip_code("J")
+text("""\"!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0x03 @ 0x720EAE
+section_start(0x03)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(854)
+pc_lock()
+pc_anim(50)
+award_zenny([1000, 1000], 0xFF)
+text("""MegaMan got 1000
+zennys!""")
+pc_wait()
+pc_anim(4)
+pc_unlock()
+page()
+end(5)
+section_end()

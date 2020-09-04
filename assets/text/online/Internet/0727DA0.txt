@@ -1,0 +1,206 @@
+section_count(0x42)
+
+# 0x0A @ 0x727E38
+section_start(0x0A)
+dialog_up()
+para_general("""Well? Did you
+collect enough?.{delay}.{delay}.""", 0)
+text("""Hmmm...Looks like
+you have...
+You may pass.""")
+page()
+set_flag(129)
+se(0xE7)
+end()
+section_end()
+
+# 0x0B @ 0x727EAB
+section_start(0x0B)
+dialog_up()
+para_general("""Well? Did you
+collect enough?.{delay}.{delay}.""", 0)
+para_general_end("""Nope...{delay}
+Go get more!""", 0)
+section_end()
+
+# 0x14 @ 0x727F10
+section_start(0x14)
+pic(49)
+dialog_up()
+para_talk("""Here,the results
+are more important
+than the battle!""", 0)
+para_talk_end("""Gotta get as many
+as you can...""", 0)
+section_end()
+
+# 0x1E @ 0x727F92
+section_start(0x1E)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(811)
+pc_lock()
+pc_anim(50)
+award_zenny([8000, 8000], 0xFF)
+text("""MegaMan got 8000
+zennys!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x21 @ 0x727FFD
+section_start(0x21)
+dialog_up()
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+set_flag(812)
+pc_lock()
+pc_anim(50)
+add_chip("Recov150 A", 1, 0xFF, 0xFF, 0xFF)
+text("""MegaMan got a chip
+for \"""")
+chip_id("Recov150")
+text(""" """)
+chip_code("A")
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x32 @ 0x72808B
+section_start(0x32)
+dialog_up()
+set_flag(807)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x33, 0x34])
+page()
+end()
+section_end()
+
+# 0x33 @ 0x7280C6
+section_start(0x33)
+dialog_up()
+award_chip(["FtrSword L", "Sword B", "Sword B", "Sword B", "Sword B", "Sword B", "Sword K", "Sword K", "Sword K", "Sword K", "Sword K", "Sword L", "Sword L", "Sword L", "Sword L", "Sword L"])
+pc_lock()
+pc_anim(50)
+text("""MegaMan got a chip
+for \"""")
+chip_id_buf(1)
+text(""" """)
+chip_code_buf(2)
+text("""\"!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x34 @ 0x728123
+section_start(0x34)
+dialog_up()
+award_zenny([1000, 1000, 1000, 1000, 1000, 2000, 2000, 2000, 2000, 2000, 3000, 3000, 3000, 4000, 4000, 4000], 0xFF)
+pc_lock()
+pc_anim(50)
+text("""MegaMan got """)
+buffer(1, 0, False, False)
+text("""
+zennys!""")
+pc_wait()
+pc_unlock()
+page()
+end()
+section_end()
+
+# 0x35 @ 0x728193
+section_start(0x35)
+dialog_up()
+para_general("""It was a virus
+in disguise!""", 0)
+battle()
+page()
+end()
+section_end()
+
+# 0x36 @ 0x7281BD
+section_start(0x36)
+dialog_up()
+set_flag(808)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x37, 0x38])
+page()
+end()
+section_end()
+
+# 0x37 @ 0x7281F8
+section_start(0x37)
+jump(0x33)
+section_end()
+
+# 0x38 @ 0x7281FD
+section_start(0x38)
+jump(0x34)
+section_end()
+
+# 0x39 @ 0x728202
+section_start(0x39)
+jump(0x35)
+section_end()
+
+# 0x3A @ 0x728207
+section_start(0x3A)
+dialog_up()
+set_flag(809)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x3B, 0x3C])
+page()
+end()
+section_end()
+
+# 0x3B @ 0x728242
+section_start(0x3B)
+jump(0x33)
+section_end()
+
+# 0x3C @ 0x728247
+section_start(0x3C)
+jump(0x34)
+section_end()
+
+# 0x3D @ 0x72824C
+section_start(0x3D)
+jump(0x35)
+section_end()
+
+# 0x3E @ 0x728251
+section_start(0x3E)
+dialog_up()
+set_flag(810)
+para_general("""MegaMan accessed the
+mystery data...""", 0)
+jumprandom([0x3F, 0x40])
+page()
+end()
+section_end()
+
+# 0x3F @ 0x72828C
+section_start(0x3F)
+jump(0x33)
+section_end()
+
+# 0x40 @ 0x728291
+section_start(0x40)
+jump(0x34)
+section_end()
+
+# 0x41 @ 0x728296
+section_start(0x41)
+jump(0x35)
+section_end()

@@ -1,0 +1,45 @@
+section_count(0x5)
+
+# 0x00 @ 0x7383E6
+section_start(0x00)
+dialog_up()
+se(0xBF)
+para_general("""*Whoooosh*""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x738401
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""? What was that
+noise?""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x73842C
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""It came from below
+us! I wonder...""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x738465
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""The mystery
+Metroline!?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x738491
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk_end("""Maybe there's an
+entrance around
+here somewhere!""", 0)
+section_end()

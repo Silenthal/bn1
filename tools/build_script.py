@@ -2,7 +2,7 @@ import argparse
 import io
 import os
 from pathlib import Path
-from typing import List
+from typing import List, Union
 
 
 class Section:
@@ -448,14 +448,14 @@ key_item_map = {
     "Handle": 0x05,
     "Message": 0x06,
     "Response": 0x07,
-    "WWW PIN": 0x08,
+    "WWW_PIN": 0x08,
     "BatteryA": 0x09,
     "BatteryB": 0x0A,
     "BatteryC": 0x0B,
     "BatteryD": 0x0C,
     "BatteryE": 0x0D,
     "Charger": 0x0E,
-    "WWW Pass": 0x0F,
+    "WWW_Pass": 0x0F,
     "Dentures": 0x11,
     "★Mayl": 0x21,
     "★Yai": 0x22,
@@ -468,8 +468,8 @@ key_item_map = {
     "/Dex": 0x30,
     "/Sal": 0x31,
     "/Miyu": 0x32,
-    "Hig Memo": 0x34,
-    "Lab Memo": 0x35,
+    "Hig_Memo": 0x34,
+    "Lab_Memo": 0x35,
     "YuriMemo": 0x36,
     "Pa'sMemo": 0x37,
     "ACDCPass": 0x3C,
@@ -729,11 +729,16 @@ def bytes_chip_code(chipcode: str):
     return [charmap_basic[chipcode.upper()] - charmap_basic["A"]]
 
 
-def bytes_key(itemid: str):
+def bytes_key(itemid: Union[str, int]):
     global curScript
-    if itemid not in key_item_map:
+    if isinstance(itemid, int):
+        return [itemid]
+    elif isinstance(itemid, str):
+        if itemid not in key_item_map:
+            exit(f"Unrecognized item name {itemid}")
+        return [key_item_map[itemid]]
+    else:
         exit(f"Unrecognized item name {itemid}")
-    return [key_item_map[itemid]]
 #endregion
 
 
@@ -988,7 +993,7 @@ def if_bust(lower: int, upper: int, inrange: int = 0xFF, outrange: int = 0xFF):
 
 def if_library(lower: int, upper: int, inrange: int = 0xFF, outrange: int = 0xFF):
     global curScript
-    cond_control(4)
+    cond_control(6)
     curScript.emitByte(lower)
     curScript.emitByte(upper)
     curScript.emitByte(inrange)
@@ -1034,7 +1039,7 @@ def inv_control(com: int):
     curScript.emitByte(com)
 
 
-def add_item(itemid: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def add_item(itemid: Union[str, int], amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
     global curScript
     inv_control(0)
     bitem = bytes_key(itemid)
@@ -1045,7 +1050,7 @@ def add_item(itemid: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsom
     curScript.emitByte(ifsome)
 
 
-def sub_item(itemid: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def sub_item(itemid: Union[str, int], amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
     global curScript
     inv_control(1)
     bitem = bytes_key(itemid)
@@ -1056,7 +1061,7 @@ def sub_item(itemid: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsom
     curScript.emitByte(ifsome)
 
 
-def set_item(itemid: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def set_item(itemid: Union[str, int], amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
     global curScript
     inv_control(2)
     bitem = bytes_key(itemid)
@@ -1067,7 +1072,7 @@ def set_item(itemid: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsom
     curScript.emitByte(ifsome)
 
 
-def check_item(itemid: str, amt: int, ifeq: int = 0xFF, ifgt: int = 0xFF, iflt: int = 0xFF):
+def check_item(itemid: Union[str, int], amt: int, ifeq: int = 0xFF, ifgt: int = 0xFF, iflt: int = 0xFF):
     global curScript
     inv_control(4)
     bitem = bytes_key(itemid)
@@ -1250,7 +1255,7 @@ def chip_code_buf(index: int):
     curScript.emitByte(pack + 2)
 
 
-def key_item(itemid: str):
+def key_item(itemid: Union[str, int]):
     global curScript
     item_control(0)
     bkey = bytes_key(itemid)
@@ -1280,7 +1285,7 @@ def chip(chipId: str, chipCode: str):
     chip_code(chipCode)
 
 
-def item_amt(itemid: str, minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False):
+def item_amt(itemid: Union[str, int], minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False):
     global curScript
     item_control(1)
     flag_7 = (1 if isPadLeft else 0) << 7
@@ -1418,7 +1423,7 @@ def trader(amt: int, ifless: int = 0xFF):
     curScript.emitByte(ifless)
 
 
-def virus_machine(index):
+def virus_machine():
     misc_control(6)
 
 
@@ -1502,19 +1507,45 @@ def text(*txtList):
 
 
 def text_talking(txt: str):
-    text(f"{{anim 2}}{txt}{{anim 1}}")
+    anim(2)
+    text(txt)
+    anim(1)
 
 
-def para(txt: str, wttm: int = 5):
-    text(f"{{anim 2}}{txt}{{anim 1}}{{page}}{{wait {wttm}}}")
+def para_talk(txt: str, waitDelay: int = 5):
+    anim(2)
+    text(txt)
+    anim(1)
+    page()
+    wait(waitDelay)
 
 
-def para_end(txt: str, edtm: int = 5):
-    text(f"{{anim 2}}{txt}{{anim 1}}{{page}}{{end {edtm}}}")
+def para_talk_end(txt: str, endDelay: int = 5):
+    anim(2)
+    text(txt)
+    anim(1)
+    page()
+    end(endDelay)
 
 
-def para_static(txt: str, wttm: int = 5):
-    text(f"{{anim 0}}{txt}{{anim 0}}{{page}}{{wait {wttm}}}")
+def para_static(txt: str, waitDelay: int = 5):
+    anim(0)
+    text(txt)
+    anim(0)
+    page()
+    wait(waitDelay)
+
+
+def para_general(txt: str, waitDelay: int = 5):
+    text(txt)
+    page()
+    wait(waitDelay)
+
+
+def para_general_end(txt: str, endDelay: int = 5):
+    text(txt)
+    page()
+    end(endDelay)
 #endregion
 
 

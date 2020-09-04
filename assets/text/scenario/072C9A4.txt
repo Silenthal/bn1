@@ -1,0 +1,20 @@
+section_count(0x2)
+
+# 0x00 @ 0x72C9A8
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Right on! We did it!{anim 1}{delay}
+{anim 2}Lan,the doors should
+open now!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72C9FA
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk_end("""Thanks!
+I'll get everyone
+outside!""")
+section_end()

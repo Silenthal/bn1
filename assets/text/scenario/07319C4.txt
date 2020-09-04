@@ -1,0 +1,68 @@
+section_count(0x7)
+
+# 0x00 @ 0x7319D2
+section_start(0x00)
+pic(8)
+dialog_up()
+para_talk("""Sorry!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x7319EC
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""You're late!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x731A0D
+section_start(0x02)
+pic(8)
+dialog_up()
+para_talk("""Sorry,sorry!
+Don't look so mad!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x731A43
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk("""Hmph,you mean like
+you are every time
+I'm late?""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x731A88
+section_start(0x04)
+pic(8)
+dialog_up()
+para_talk("""Bygones!""", 0)
+para_talk("""Oh Lan,I have to
+bring something to
+my grandma's...""", 0)
+para_talk("""Sorry,but you can
+go ahead to Dentown!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x731B14
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""What?
+Why did I have to
+wait for you,then?""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x731B54
+section_start(0x06)
+pic(8)
+dialog_up()
+para_talk("""Sorry! I'll make
+it up to you!""", 0)
+para_talk_end("""Later!""", 0)
+section_end()

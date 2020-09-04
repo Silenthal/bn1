@@ -1,0 +1,142 @@
+section_count(0xE5)
+
+# 0x00 @ 0x70CDEA
+section_start(0x00)
+pic(25)
+dialog_up()
+para_talk_end("""Be careful!
+It's dark!""", 0)
+section_end()
+
+# 0x05 @ 0x70CE1B
+section_start(0x05)
+pic(25)
+dialog_up()
+para_general_end("""{anim 2}Getting{anim 1}...{delay}
+{anim 2}dizzy{anim 1}...{delay}
+*groan*""", 0)
+section_end()
+
+# 0x06 @ 0x70CE5A
+section_start(0x06)
+if_story(0x41, 0x43, 0xE0, 0xFF)
+dialog_up()
+para_general("""An elevator switch.""", 0)
+para_general("""Lan used the
+{key SciLabID}!""", 0)
+para_general("""The elevator doors
+opened!
+Which floor?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""SciLab lobby
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Dad's lab
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Restaurant""")
+pick([0x07, 0x08, 0x09], 0, True, True)
+end()
+section_end()
+
+# 0x07 @ 0x70CEFD
+section_start(0x07)
+set_flag(49)
+end()
+section_end()
+
+# 0x08 @ 0x70CF06
+section_start(0x08)
+set_flag(50)
+end()
+section_end()
+
+# 0x09 @ 0x70CF0F
+section_start(0x09)
+set_flag(52)
+end()
+section_end()
+
+# 0xDC @ 0x70D0BC
+section_start(0xDC)
+dialog_up()
+para_general_end("""Looks like it is
+impossible to climb
+back up the chute""", 0)
+section_end()
+
+# 0xDD @ 0x70D0FA
+section_start(0xDD)
+dialog_up()
+para_general_end("""A vending machine
+used by the power
+plant staff""", 0)
+section_end()
+
+# 0xDE @ 0x70D131
+section_start(0xDE)
+dialog_up()
+para_general_end("""It won't move with
+no power!""", 0)
+section_end()
+
+# 0xDF @ 0x70D157
+section_start(0xDF)
+if_story(0x41, 0x43, 0xDE, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! You gotta
+press that button!""", 0)
+section_end()
+
+# 0xE0 @ 0x70D190
+section_start(0xE0)
+dialog_up()
+para_general_end("""It doesn't work!""", 0)
+section_end()
+
+# 0xE1 @ 0x70D1AA
+section_start(0xE1)
+if_story(0x41, 0x43, 0xE0, 0xFF)
+dialog_up()
+para_general("""An elevator switch""", 0)
+para_general("""Lan used the
+{key SciLabID}!""", 0)
+para_general("""The elevator doors
+opened!
+Which floor?""", 0)
+option(2, 1, 0, 0)
+pad(2)
+text("""SciLab lobby
+""")
+option(0, 2, 1, 1)
+pad(2)
+text("""Dad's lab
+""")
+option(1, 0, 2, 2)
+pad(2)
+text("""Restaurant""")
+pick([0xE2, 0xE3, 0xE4], 0, True, True)
+end()
+section_end()
+
+# 0xE2 @ 0x70D24B
+section_start(0xE2)
+set_flag(49)
+end()
+section_end()
+
+# 0xE3 @ 0x70D254
+section_start(0xE3)
+set_flag(50)
+end()
+section_end()
+
+# 0xE4 @ 0x70D25D
+section_start(0xE4)
+set_flag(52)
+end()
+section_end()

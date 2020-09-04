@@ -1,0 +1,428 @@
+section_count(0xEB)
+
+# 0x00 @ 0x700BFA
+section_start(0x00)
+if_story(0x30, 0x37, 0x19, 0xFF)
+pic(25)
+dialog_up()
+para_talk_end("""Sure are a lot
+of kids here
+today...""")
+section_end()
+
+# 0x01 @ 0x700C37
+section_start(0x01)
+if_story(0x30, 0x37, 0x1A, 0xFF)
+pic(26)
+dialog_up()
+para_talk("""This area is for
+construction matters.""", 0)
+para_talk_end("""We don't know
+anything about the
+water shortage.""")
+section_end()
+
+# 0x02 @ 0x700CAE
+section_start(0x02)
+pic(27)
+dialog_up()
+para_talk_end("""The machinery is
+further inside.""")
+section_end()
+
+# 0x03 @ 0x700CDF
+section_start(0x03)
+if_story(0x30, 0x37, 0x1B, 0xFF)
+pic(27)
+dialog_up()
+para_talk_end("""This water cooler is
+also broken. There
+is no water inside.""")
+section_end()
+
+# 0x04 @ 0x700D32
+section_start(0x04)
+dialog_up()
+para_general("""An elevator switch.""", 0)
+para_general("""Lan used the
+{key SciLabID}!""", 0)
+para_general_end("""The elevator doors
+opened!""")
+section_end()
+
+# 0x05 @ 0x700D84
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk_end("""Let's go down
+to the lobby!""")
+section_end()
+
+# 0x07 @ 0x700DB3
+section_start(0x07)
+pic(0)
+dialog_up()
+para_talk_end("""Well,maybe not now.""", 0)
+section_end()
+
+# 0x08 @ 0x700DD8
+section_start(0x08)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x09 @ 0x700E1F
+section_start(0x09)
+pic(34)
+dialog_up()
+para_talk_end("""Lan? You gotta push
+that button!""", 0)
+section_end()
+
+# 0x0A @ 0x700E51
+section_start(0x0A)
+if_story(0x26, 0x26, 0x14, 0xFF)
+if_story(0x27, 0x27, 0x15, 0xFF)
+if_flag(179, 0x0E, 0xFF)
+pic(0)
+dialog_up()
+para_talk("""Hmmm...It's locked.""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x700E8E
+section_start(0x0B)
+pic(34)
+dialog_up()
+para_talk("""Hey{anim 1}...{anim 2}Do you hear
+someone typing?{anim 1}{delay}
+{anim 2}They're using a PC!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x700EE8
+section_start(0x0C)
+pic(0)
+dialog_up()
+para_talk("""We can't check out
+the network like
+this!""")
+jump(0x0D)
+section_end()
+
+# 0x0D @ 0x700F26
+section_start(0x0D)
+pic(34)
+dialog_up()
+para_talk_end("""Hurry up and find
+something we can 
+jack in to!""", 0)
+section_end()
+
+# 0x0E @ 0x700F66
+section_start(0x0E)
+dialog_up()
+para_general_end("""Someone has locked
+the door. You hear
+typing sounds.""", 0)
+section_end()
+
+# 0x14 @ 0x700FAE
+section_start(0x14)
+dialog_up()
+para_general_end("""It's still locked.
+Someone is still
+typing inside.""", 0)
+section_end()
+
+# 0x15 @ 0x700FEB
+section_start(0x15)
+if_flag(245, 0x14, 0xFF)
+set_flag(245)
+dialog_up()
+para_general("""It's still locked.
+Someone is still
+typing inside.""")
+jump(0x16)
+section_end()
+
+# 0x16 @ 0x701035
+section_start(0x16)
+pic(0)
+dialog_up()
+para_talk("""Dr.Froid! Dr.Froid!""", 0)
+para_talk("""We got your son!""", 0)
+para_general(""".{delay}.{delay}.""")
+para_talk("""He can't hear us!!""")
+jump(0x17)
+section_end()
+
+# 0x17 @ 0x7010A7
+section_start(0x17)
+pic(34)
+dialog_up()
+para_talk("""Lan! I'll go fix
+the water pump
+program!""")
+jump(0x18)
+section_end()
+
+# 0x18 @ 0x7010E5
+section_start(0x18)
+pic(0)
+dialog_up()
+para_talk_end("""I don't want to
+fight Froid,but I
+guess we have to.""", 0)
+section_end()
+
+# 0x19 @ 0x70112B
+section_start(0x19)
+pic(25)
+dialog_up()
+para_talk_end("""You again{anim 1}...{delay}
+{anim 2}Why do I keep
+seeing you around?""", 0)
+section_end()
+
+# 0x1A @ 0x701174
+section_start(0x1A)
+pic(26)
+dialog_up()
+para_talk("""This is the section
+where we plan sewage
+related""", 0)
+para_talk_end("""construction.""", 0)
+section_end()
+
+# 0x1B @ 0x7011CA
+section_start(0x1B)
+pic(27)
+dialog_up()
+para_talk("""There is more
+machinery""", 0)
+para_talk_end("""farther in.""", 0)
+section_end()
+
+# 0x23 @ 0x701213
+section_start(0x23)
+if_story(0x53, 0x54, 0x28, 0xFF)
+pic(25)
+dialog_up()
+para_talk_end("""The SciLab
+is the other way!
+Are you lost?""", 0)
+section_end()
+
+# 0x24 @ 0x701255
+section_start(0x24)
+if_story(0x53, 0x54, 0x29, 0xFF)
+pic(26)
+dialog_up()
+para_talk("""This is the section
+where we plan sewage
+related""", 0)
+para_talk_end("""construction.""", 0)
+section_end()
+
+# 0x28 @ 0x7012B7
+section_start(0x28)
+pic(25)
+dialog_up()
+para_talk_end("""I won't leave my
+post,even if there
+is a war!!""", 0)
+section_end()
+
+# 0x29 @ 0x7012F9
+section_start(0x29)
+pic(26)
+dialog_up()
+para_talk("""The mood here is
+getting worse every
+day...""", 0)
+para_talk_end("""I'm doing my best
+to keep on a smile.""", 0)
+section_end()
+
+# 0xBE @ 0x70148E
+section_start(0xBE)
+if_flag(1065, 0xC2, 0xFF)
+check_chip("Repair H", 1, 0xBF, 0xBF, 0xFF)
+pic(17)
+dialog_up()
+para_talk("""Don't you just love
+getting rare chips?""", 0)
+text("""{anim 2}When will I ever
+find a
+""")
+chip_id("Repair")
+text(""" """)
+chip_code("H")
+para_general_end("""?{anim 1}""")
+section_end()
+
+# 0xBF @ 0x701500
+section_start(0xBF)
+if_flag(1081, 0xC3, 0xFF)
+set_flag(1081)
+pic(17)
+dialog_up()
+text("""{anim 2}Hey! Is that a
+""")
+chip_id("Repair")
+text(""" """)
+chip_code("H")
+para_general("""??
+It WILL be mine...{anim 1}""", 0)
+text("""{anim 2}Please! Take this
+""")
+chip_id("Hammer")
+text(""" """)
+chip_code("M")
+para_general("""
+for it!{anim 1}""", 0)
+option(0, 0, 1, 1)
+pad(2)
+text("""You bet! """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No way!""")
+pick([0xC0, 0xC1], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0xC0 @ 0x7015A1
+section_start(0xC0)
+check_chip_pack("Repair H", 1, 0xFF, 0xFF, 0xC4)
+set_flag(1065)
+pic(17)
+dialog_up()
+para_talk("""Oh,you're the
+coolest! Here you
+go!""", 0)
+hidepic()
+pc_lock()
+pc_anim(30)
+add_chip("Hammer M", 1, 0xFF, 0xFF, 0xFF)
+sub_chip("Repair H", 1, 0xFF, 0xFF, 0xFF)
+text("""Lan got a chip for
+\"""")
+chip_id("Hammer")
+text(""" """)
+chip_code("M")
+text("""\"!""")
+pc_wait()
+pc_restore()
+pc_unlock()
+page()
+end(5)
+section_end()
+
+# 0xC1 @ 0x701627
+section_start(0xC1)
+pic(17)
+dialog_up()
+para_talk_end("""It WILL be mine...
+Oh,yes,it WILL be
+mine...""")
+section_end()
+
+# 0xC2 @ 0x70166B
+section_start(0xC2)
+pic(17)
+dialog_up()
+para_talk_end("""Oh,I'm so happy that
+I could just scream!
+Yeaaaaaahhhhh!!!""")
+section_end()
+
+# 0xC3 @ 0x7016BB
+section_start(0xC3)
+pic(17)
+dialog_up()
+text("""{anim 2}You you WILL trade
+that """)
+chip_id("Repair")
+text(""" """)
+chip_code("H")
+text("""
+for my """)
+chip_id("Hammer")
+text(""" """)
+chip_code("M")
+para_general("""?{anim 1}""", 0)
+option(0, 0, 1, 1)
+pad(2)
+text("""Sure """)
+option(1, 1, 0, 0)
+pad(2)
+text("""Nah""")
+pick([0xC0, 0xC1], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0xC4 @ 0x70171C
+section_start(0xC4)
+pic(17)
+dialog_up()
+text("""{anim 2}Hey,I don't suppose
+that """)
+chip_id("Repair")
+text(""" """)
+chip_code("H")
+para_general("""
+is in your folder?{anim 1}""", 0)
+para_talk_end("""You can't trade
+chips from your
+folder,you know.""")
+section_end()
+
+# 0xDC @ 0x7017CD
+section_start(0xDC)
+if_story(0x24, 0x27, 0xE0, 0xFF)
+dialog_up()
+para_general_end("""Every vending
+machine seems to
+have different sodas""")
+section_end()
+
+# 0xDD @ 0x70180E
+section_start(0xDD)
+dialog_up()
+para_general_end("""Only staff are
+allowed in here""")
+section_end()
+
+# 0xDE @ 0x701834
+section_start(0xDE)
+if_story(0x24, 0x24, 0xDF, 0xFF)
+dialog_up()
+para_general_end("""A water cooler.
+It has a jack in
+port""")
+section_end()
+
+# 0xDF @ 0x701868
+section_start(0xDF)
+dialog_up()
+para_general_end("""It's a water cooler.{delay}
+But with no water""", 0)
+section_end()
+
+# 0xE0 @ 0x70189C
+section_start(0xE0)
+dialog_up()
+para_general_end("""Someone has bought
+all of the drinks""", 0)
+section_end()

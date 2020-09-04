@@ -1,0 +1,151 @@
+section_count(0xEB)
+
+# 0x00 @ 0x7088EA
+section_start(0x00)
+pic(17)
+dialog_up()
+para_talk_end("""Have you seen my
+child? We got
+separated...""", 0)
+section_end()
+
+# 0x01 @ 0x708929
+section_start(0x01)
+pic(9)
+dialog_up()
+para_general_end("""{anim 2}Looks like I'll be
+in summer school
+this year...{anim 1}*sigh*""", 0)
+section_end()
+
+# 0x02 @ 0x708975
+section_start(0x02)
+if_story(0x33, 0x34, 0x0B, 0xFF)
+pic(19)
+dialog_up()
+para_talk("""Looks like the WWW
+is getting close to
+dominating the net!""", 0)
+para_talk_end("""Is this town safe??""", 0)
+section_end()
+
+# 0x03 @ 0x7089E3
+section_start(0x03)
+dialog_up()
+para_general_end("""A bus stop...{delay}
+It says \"Dentown,
+Block4\"""", 0)
+section_end()
+
+# 0x04 @ 0x708A1C
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk_end("""I don't think we're
+allowed to jack in
+to that,Lan.""", 0)
+section_end()
+
+# 0x0A @ 0x708A6D
+section_start(0x0A)
+input_off()
+set_delay(1)
+pic(0)
+dialog_up()
+text_talking("""Jack in!!{delay 10}
+MegaMan.EXE,{delay 10}
+transmit!""")
+breaks(30)
+input_on()
+end()
+section_end()
+
+# 0x0B @ 0x708AB4
+section_start(0x0B)
+pic(19)
+dialog_up()
+para_talk("""The bus passes by
+the signal on this
+corner.""", 0)
+para_talk("""See the bus stop
+there?""", 0)
+para_talk_end("""Pretty scary that
+the WWW is after
+this town,huh?""", 0)
+section_end()
+
+# 0x14 @ 0x708B5C
+section_start(0x14)
+pic(17)
+dialog_up()
+para_talk_end("""Have you seen my
+child? We got
+separated...""", 0)
+section_end()
+
+# 0x15 @ 0x708B9B
+section_start(0x15)
+if_story(0x53, 0x54, 0x19, 0xFF)
+pic(9)
+dialog_up()
+para_talk("""Our summer school
+teacher is normally
+really cheerful.""", 0)
+para_talk_end("""...Lately she seems
+to be a bit gloomy
+sometimes,though.""", 0)
+section_end()
+
+# 0x16 @ 0x708C2D
+section_start(0x16)
+pic(19)
+dialog_up()
+para_talk("""I heard that the
+WWW plot is getting
+into high gear.""", 0)
+para_talk_end("""I wonder if this
+town is safe?""", 0)
+section_end()
+
+# 0x19 @ 0x708C9D
+section_start(0x19)
+pic(9)
+dialog_up()
+para_talk("""I heard that summer
+school is closed!""", 0)
+para_talk_end("""The teacher,
+Ms.Yuri,has
+disappeared!""", 0)
+section_end()
+
+# 0xDC @ 0x708E88
+section_start(0xDC)
+dialog_up()
+para_general_end("""A summer school
+sign""")
+section_end()
+
+# 0xDD @ 0x708EA4
+section_start(0xDD)
+dialog_up()
+para_general_end("""You can't jack in
+to this signal""")
+section_end()
+
+# 0xDE @ 0x708ECD
+section_start(0xDE)
+if_story(0x40, 0x5F, 0xDF, 0xFF)
+if_flag(152, 0xDF, 0xFF)
+dialog_up()
+para_general("""This signal has a
+jack in port""", 0)
+para_general_end("""You don't need to
+jack in now,though""")
+section_end()
+
+# 0xDF @ 0x708F29
+section_start(0xDF)
+dialog_up()
+para_general_end("""This signal has a
+jack in port""")
+section_end()

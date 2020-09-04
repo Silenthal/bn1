@@ -1,0 +1,35 @@
+section_count(0x4)
+
+# 0x00 @ 0x7329D0
+section_start(0x00)
+pic(0)
+dialog_up()
+text_talking("""Too late again?""")
+wait(30)
+end()
+section_end()
+
+# 0x01 @ 0x7329F2
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Arrrggh!""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x732A0E
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk("""But the bus slowed
+down a little!
+Don't give up yet!""")
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x732A58
+section_start(0x03)
+pic(0)
+dialog_up()
+para_talk_end("""Right!""", 0)
+section_end()

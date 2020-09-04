@@ -1,0 +1,70 @@
+section_count(0x7)
+
+# 0x00 @ 0x72B6F2
+section_start(0x00)
+pic(0)
+set_delay(1)
+dialog_up()
+text_talking("""Man!
+How come nobody
+woke me up?""")
+wait(15)
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x72B729
+section_start(0x01)
+pic(34)
+dialog_up()
+text_talking("""I did a few times!
+You just didn't get
+up,Lan!""")
+wait(15)
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x72B76D
+section_start(0x02)
+pic(0)
+dialog_up()
+text_talking("""What time is it!?""")
+wait(15)
+jump(0x03)
+section_end()
+
+# 0x03 @ 0x72B792
+section_start(0x03)
+pic(34)
+dialog_up()
+text_talking("""You got 5 minutes!""")
+wait(15)
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x72B7B7
+section_start(0x04)
+pic(0)
+dialog_up()
+text_talking("""What about everyone
+else?""")
+wait(15)
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x72B7E3
+section_start(0x05)
+pic(34)
+dialog_up()
+text_talking("""Huhh{anim 1}... {delay 10}{anim 2}They're
+already at school!""")
+wait(15)
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x72B824
+section_start(0x06)
+pic(0)
+dialog_up()
+text_talking("""Duh!""")
+end(15)
+section_end()

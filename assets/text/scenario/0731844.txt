@@ -1,0 +1,76 @@
+section_count(0x9)
+
+# 0x00 @ 0x731856
+section_start(0x00)
+pic(34)
+dialog_up()
+para_talk("""Lan,I'm just
+about finished home
+page maintenance!""")
+jump(0x01)
+section_end()
+
+# 0x01 @ 0x73189E
+section_start(0x01)
+pic(0)
+dialog_up()
+para_talk("""Yeah...""")
+jump(0x02)
+section_end()
+
+# 0x02 @ 0x7318BB
+section_start(0x02)
+pic(34)
+dialog_up()
+para_talk_end("""I work and work
+and all you say
+is \"yeah\"?""", 0)
+section_end()
+
+# 0x03 @ 0x7318F8
+section_start(0x03)
+pic(40)
+dialog_up()
+para_talk("""Hiya Mega!""")
+jump(0x04)
+section_end()
+
+# 0x04 @ 0x731916
+section_start(0x04)
+pic(34)
+dialog_up()
+para_talk("""Heya Roll!""")
+jump(0x05)
+section_end()
+
+# 0x05 @ 0x731934
+section_start(0x05)
+pic(40)
+dialog_up()
+para_talk("""This is a letter
+from Mayl to Lan.""")
+jump(0x06)
+section_end()
+
+# 0x06 @ 0x73196A
+section_start(0x06)
+pic(34)
+dialog_up()
+para_talk("""OK,got it!""")
+jump(0x07)
+section_end()
+
+# 0x07 @ 0x731989
+section_start(0x07)
+pic(40)
+dialog_up()
+para_talk("""Later!""")
+jump(0x08)
+section_end()
+
+# 0x08 @ 0x7319A3
+section_start(0x08)
+pic(34)
+dialog_up()
+para_talk_end("""Later! Thanks!""", 0)
+section_end()
