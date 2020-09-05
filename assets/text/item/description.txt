@@ -1,0 +1,713 @@
+section_count(0x61)
+
+# 0x00 @ 0x6A01DA
+section_start(0x00)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Lan's terminal
+program MegaMan.EXE
+is installed.""")
+stop()
+section_end()
+
+# 0x01 @ 0x6A021C
+section_start(0x01)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Program for making
+ice inside the net.
+(charges left;""")
+item_amt("IceBlock", 0, False, False)
+text(""")""")
+stop()
+section_end()
+
+# 0x02 @ 0x6A0269
+section_start(0x02)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Warning; This water
+gun is not a toy!""")
+stop()
+section_end()
+
+# 0x03 @ 0x6A029F
+section_start(0x03)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""An ID/time card.
+All teachers at ACDC
+elementary carry it.""")
+stop()
+section_end()
+
+# 0x04 @ 0x6A02EB
+section_start(0x04)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""An ID card for the
+SciLab. This one's
+Dad's...I think.""")
+stop()
+section_end()
+
+# 0x05 @ 0x6A0337
+section_start(0x05)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Knob program for
+the faucet program
+on the net.""")
+stop()
+section_end()
+
+# 0x06 @ 0x6A0376
+section_start(0x06)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Message from Froid
+in 5th grade to his
+dad; \"I'm OK!\"""")
+stop()
+section_end()
+
+# 0x07 @ 0x6A03BF
+section_start(0x07)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Response to Mayl's
+mail;\"I'll go
+shopping with you!\"""")
+stop()
+section_end()
+
+# 0x08 @ 0x6A0408
+section_start(0x08)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Code known only to
+WWW's friends. Opens
+lock programs.""")
+stop()
+section_end()
+
+# 0x09 @ 0x6A0450
+section_start(0x09)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Battery program for
+lights on the net.
+(charges left;""")
+item_amt(80, 0, False, False)
+text(""")""")
+stop()
+section_end()
+
+# 0x0A @ 0x6A049D
+section_start(0x0A)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Battery program for
+lights on the net.
+(charges left;""")
+item_amt(81, 0, False, False)
+text(""")""")
+stop()
+section_end()
+
+# 0x0B @ 0x6A04EA
+section_start(0x0B)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Battery program for
+lights on the net.
+(charges left;""")
+item_amt(82, 0, False, False)
+text(""")""")
+stop()
+section_end()
+
+# 0x0C @ 0x6A0537
+section_start(0x0C)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Battery program for
+lights on the net.
+(charges left;""")
+item_amt(83, 0, False, False)
+text(""")""")
+stop()
+section_end()
+
+# 0x0D @ 0x6A0584
+section_start(0x0D)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Battery program for
+lights on the net.
+(charges left;""")
+item_amt(84, 0, False, False)
+text(""")""")
+stop()
+section_end()
+
+# 0x0E @ 0x6A05D1
+section_start(0x0E)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Handーmade generator
+for recharging {key PET}.
+Not very sturdy.""")
+stop()
+section_end()
+
+# 0x0F @ 0x6A061B
+section_start(0x0F)
+if_story(0x50, 0x5F, 0xFF, 0x46)
+if_flag(170, 0xFF, 0x46)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""A Metroline pass...
+but it doesn't work
+on normal lines.""")
+stop()
+section_end()
+
+# 0x10 @ 0x6A0673
+section_start(0x10)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x11 @ 0x6A0682
+section_start(0x11)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""False teeth for
+the elderly.""")
+stop()
+section_end()
+
+# 0x12 @ 0x6A06AE
+section_start(0x12)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x13 @ 0x6A06BD
+section_start(0x13)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x14 @ 0x6A06CC
+section_start(0x14)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x15 @ 0x6A06DB
+section_start(0x15)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x16 @ 0x6A06EA
+section_start(0x16)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x17 @ 0x6A06F9
+section_start(0x17)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x18 @ 0x6A0708
+section_start(0x18)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x19 @ 0x6A0717
+section_start(0x19)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x1A @ 0x6A0726
+section_start(0x1A)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x1B @ 0x6A0735
+section_start(0x1B)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x1C @ 0x6A0744
+section_start(0x1C)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x1D @ 0x6A0753
+section_start(0x1D)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x1E @ 0x6A0762
+section_start(0x1E)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x1F @ 0x6A0771
+section_start(0x1F)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x20 @ 0x6A0780
+section_start(0x20)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x21 @ 0x6A078F
+section_start(0x21)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""The net address of
+the piano in
+Mayl's house.""")
+stop()
+section_end()
+
+# 0x22 @ 0x6A07CD
+section_start(0x22)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""The net address of
+the portrait in
+Yai's house.""")
+stop()
+section_end()
+
+# 0x23 @ 0x6A080D
+section_start(0x23)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""The net address of
+the computer in
+Dex's house.""")
+stop()
+section_end()
+
+# 0x24 @ 0x6A084D
+section_start(0x24)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x25 @ 0x6A085C
+section_start(0x25)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""The net address of
+Dad's computer down
+at the SciLab.""")
+stop()
+section_end()
+
+# 0x26 @ 0x6A08A2
+section_start(0x26)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""The net address of
+the cash register at
+Sal's lunch stand.""")
+stop()
+section_end()
+
+# 0x27 @ 0x6A08ED
+section_start(0x27)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x28 @ 0x6A08FC
+section_start(0x28)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""The net address of
+the magnifying glass
+at Miyu's Antiques.""")
+stop()
+section_end()
+
+# 0x29 @ 0x6A0948
+section_start(0x29)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x2A @ 0x6A0957
+section_start(0x2A)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x2B @ 0x6A0966
+section_start(0x2B)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""The net address of
+Masa's fish stand.""")
+stop()
+section_end()
+
+# 0x2C @ 0x6A099C
+section_start(0x2C)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x2D @ 0x6A09AB
+section_start(0x2D)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""The net address of
+the WWW Labs.""")
+stop()
+section_end()
+
+# 0x2E @ 0x6A09DB
+section_start(0x2E)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x2F @ 0x6A09EA
+section_start(0x2F)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x30 @ 0x6A09F9
+section_start(0x30)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Pass for
+accessing Dex's
+net links.""")
+stop()
+section_end()
+
+# 0x31 @ 0x6A0A2D
+section_start(0x31)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Pass for
+accessing Sal's
+net links.""")
+stop()
+section_end()
+
+# 0x32 @ 0x6A0A61
+section_start(0x32)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Pass for
+accessing Miyu's
+net links.""")
+stop()
+section_end()
+
+# 0x33 @ 0x6A0A96
+section_start(0x33)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x34 @ 0x6A0AA5
+section_start(0x34)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Pass for
+accessing WWW's
+net links.(Cーlevel)""")
+stop()
+section_end()
+
+# 0x35 @ 0x6A0AE4
+section_start(0x35)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Pass for
+accessing WWW's
+net links.(Bーlevel)""")
+stop()
+section_end()
+
+# 0x36 @ 0x6A0B23
+section_start(0x36)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Pass for
+accessing WWW's
+net links.(Aーlevel)""")
+stop()
+section_end()
+
+# 0x37 @ 0x6A0B62
+section_start(0x37)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""Pass for
+accessing WWW's
+net links.(Sーlevel)""")
+stop()
+section_end()
+
+# 0x38 @ 0x6A0BA1
+section_start(0x38)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x39 @ 0x6A0BB0
+section_start(0x39)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x3A @ 0x6A0BBF
+section_start(0x3A)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x3B @ 0x6A0BCE
+section_start(0x3B)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x3C @ 0x6A0BDD
+section_start(0x3C)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""1 child ticket for
+ACDC station on
+the Metroline.""")
+stop()
+section_end()
+
+# 0x3D @ 0x6A0C1E
+section_start(0x3D)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""1 child ticket for
+Government station
+on the Metroline.""")
+stop()
+section_end()
+
+# 0x3E @ 0x6A0C65
+section_start(0x3E)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""1 child ticket for
+Dentown station
+on the Metroline.""")
+stop()
+section_end()
+
+# 0x3F @ 0x6A0CA9
+section_start(0x3F)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()
+
+# 0x46 @ 0x6A0CC4
+section_start(0x46)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+text("""A Metroline pass
+that doesn't work.
+...It's expired.""")
+stop()
+section_end()
+
+# 0x60 @ 0x6A0D40
+section_start(0x60)
+text_se_off()
+input_off()
+set_delay(0)
+dialog_show()
+stop()
+section_end()

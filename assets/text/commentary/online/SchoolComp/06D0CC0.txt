@@ -1,0 +1,29 @@
+section_count(0xF)
+
+# 0x00 @ 0x6D0CDE
+section_start(0x00)
+if_story(0x14, 0x15, 0x05, 0xFF)
+if_story(0x20, 0x57, 0x0A, 0xFF)
+dialog_up()
+para_general_end("""Test message""")
+section_end()
+
+# 0x05 @ 0x6D0D06
+section_start(0x05)
+pic(0)
+dialog_up()
+para_talk("""This is the 1st
+floor net!""", 0)
+para_talk_end("""The teacher's
+lounge server
+must be close!""", 0)
+section_end()
+
+# 0x0A @ 0x6D0D6D
+section_start(0x0A)
+pic(0)
+dialog_up()
+para_talk_end("""Looks like not
+much is going on
+here,huh?""", 0)
+section_end()

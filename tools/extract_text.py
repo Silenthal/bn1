@@ -5,6 +5,8 @@ import struct
 import re
 from pathlib import Path
 
+from common import auto_int, get_byte, get_int, get_short
+
 
 def get_text_offset_list(infile, blockOffset):
     infile.seek(blockOffset)
@@ -832,18 +834,6 @@ def get_chip(infile):
     return f'"{chip_id(get_byte(infile))} {chip_code(get_byte(infile))}"'
 
 
-def get_int(infile):
-    return struct.unpack("I", infile.read(4))[0]
-
-
-def get_short(infile):
-    return struct.unpack('H', infile.read(2))[0]
-
-
-def get_byte(infile):
-    return infile.read(1)[0]
-
-
 #region Commands
 def Com_E7(infile):
     delay = get_short(infile)
@@ -1284,21 +1274,21 @@ def interpret(infile):
     textBuf = ""
     isDone = False
     isText = False
-    chr = get_byte(infile)
-    if chr <= 0xE4:
-        textBuf = charmap[chr]
+    c = get_byte(infile)
+    if c <= 0xE4:
+        textBuf = charmap[c]
         isText = True
-    elif chr == 0xE5:
-        chr2 = get_byte(infile)
-        textBuf = charmap[chr2 + 0xE5]
+    elif c == 0xE5:
+        c2 = get_byte(infile)
+        textBuf = charmap[c2 + 0xE5]
         isText = True
-    elif chr == 0xE6:
-        chr2 = get_byte(infile)
-        textBuf = charmap[chr2 + 0x1E5]
+    elif c == 0xE6:
+        c2 = get_byte(infile)
+        textBuf = charmap[c2 + 0x1E5]
         isText = True
-    elif chr < 0xFF:
-        isDone, textBuf = funcList[chr - 0xE7](infile)
-        isText = chr in [0xE8]
+    elif c < 0xFF:
+        isDone, textBuf = funcList[c - 0xE7](infile)
+        isText = c in [0xE8]
     else:
         textBuf = f"Com_{chr:02X}()"
     return isDone, textBuf, isText
@@ -1309,13 +1299,16 @@ def interpretUi(infile):
     isDone = False
     isText = True
     c = get_byte(infile)
-    if c == 0xE5:
-        c2 = get_byte(infile) + 0xE5
-        textBuf = charmap[c2]
+    if c <= 0xE4:
+        textBuf = charmap[c]
+        isText = True
+    elif c == 0xE5:
+        c2 = get_byte(infile)
+        textBuf = charmap[c2 + 0xE5]
         isText = True
     elif c == 0xE6:
-        c2 = get_byte(infile) + 0x1E5
-        textBuf = charmap[c2 % 0x200]
+        c2 = get_byte(infile)
+        textBuf = charmap[c2 + 0x1E5]
         isText = True
     elif c == 0xE7:
         textBuf = "end()"
@@ -1327,7 +1320,7 @@ def interpretUi(infile):
         commandNum = get_byte(infile)
         textBuf = f"[Func2({bcdIndex}, 0x{commandNum:X})]"
     else:
-        textBuf = charmap[c]
+        textBuf = f"Com_{chr:02X}()"
     return isDone, textBuf, isText
 
 
@@ -1389,6 +1382,7 @@ def processParaTalk(input: str):
     ]
     return runner(patterns, input)
 
+
 def processGenWait(input: str):
     patterns = [
         [r'^text\("""(.*)"""\)\npage\(\)\nwait\((.*)\)', r'para_general("""\1""", \2)'],
@@ -1397,6 +1391,7 @@ def processGenWait(input: str):
     ]
     return runner(patterns, input)
 
+
 def processGenEnd(input: str):
     patterns = [
         [r'^text\("""(.*)"""\)\npage\(\)\nend\((.*)\)', r'para_general_end("""\1""", \2)'],
@@ -1404,6 +1399,7 @@ def processGenEnd(input: str):
         [r'^para_general_end\("""(.*)""", 5\)', r'para_general_end("""\1""")']
     ]
     return runner(patterns, input)
+
 
 def processEnd(input: str):
     patterns = [
@@ -1462,8 +1458,9 @@ def engine1(infile, blockOffset, isUi):
             isLimit = True
             nextOff = offsetlist[idx + 1]
         infile.seek(off)
-        la = infile.peek()
-        if la[0] != 0:
+        sh = get_short(infile)
+        infile.seek(off)
+        if sh != 0:
             scriptBuf = ""
             textBuf = ""
             while True:
@@ -1486,8 +1483,6 @@ def engine1(infile, blockOffset, isUi):
 
 
 def main():
-    def auto_int(x):
-        return int(x, 0)
     parser = argparse.ArgumentParser(description='Extract scripts from Mega Man Battle Network.')
     parser.add_argument('-ui', '--ui-string', action='count', default=0,
                         help='Use UI parsing rules.')

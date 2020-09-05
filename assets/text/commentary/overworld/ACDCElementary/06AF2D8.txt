@@ -1,0 +1,229 @@
+section_count(0xE6)
+
+# 0x00 @ 0x6AF4A4
+section_start(0x00)
+if_story(0x50, 0x50, 0xBE, 0xFF)
+if_story(0x51, 0x51, 0xC8, 0xFF)
+if_story(0x52, 0x52, 0xD2, 0xFF)
+if_story(0x53, 0x53, 0xD7, 0xFF)
+if_story(0x54, 0x54, 0xE1, 0xFF)
+dialog_up()
+page()
+end()
+section_end()
+
+# 0xBE @ 0x6AF644
+section_start(0xBE)
+if_flag(113, 0xBF, 0xFF)
+if_flag(148, 0xC0, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""You got some mail
+from Dad! What does
+it say?""", 0)
+section_end()
+
+# 0xBF @ 0x6AF68F
+section_start(0xBF)
+if_flag(148, 0xC0, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""What should we do
+about Chaud? Wanna
+go to the SciLab?""", 0)
+section_end()
+
+# 0xC0 @ 0x6AF6DD
+section_start(0xC0)
+if_flag(151, 0xC1, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Looks like Chaud
+went to Dentown on
+a mission.""", 0)
+section_end()
+
+# 0xC1 @ 0x6AF722
+section_start(0xC1)
+check_item("Hig_Memo", 1, 0xC2, 0xC2, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""An exーmember of the
+WWW... It must be
+that guy!""", 0)
+section_end()
+
+# 0xC2 @ 0x6AF76C
+section_start(0xC2)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! I'll go to
+Dentown via the net!""", 0)
+section_end()
+
+# 0xC8 @ 0x6AF7AD
+section_start(0xC8)
+if_flag(152, 0xC9, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""You've got mail
+from Higs! Looks
+like more info!""", 0)
+section_end()
+
+# 0xC9 @ 0x6AF7F6
+section_start(0xC9)
+check_item("Lab_Memo", 1, 0xCA, 0xCA, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,let's go look
+for Higs' former
+boss!""", 0)
+section_end()
+
+# 0xCA @ 0x6AF839
+section_start(0xCA)
+if_flag(153, 0xCB, 0xFF)
+pic(34)
+dialog_up()
+para_talk("""An exーmember of the
+WWW...? Let's start
+with the""", 0)
+para_talk_end("""young woman.""", 0)
+section_end()
+
+# 0xCB @ 0x6AF899
+section_start(0xCB)
+check_item("YuriMemo", 1, 0xCC, 0xCC, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,let's fill up
+our data library!""", 0)
+section_end()
+
+# 0xCC @ 0x6AF8D6
+section_start(0xCC)
+if_flag(145, 0xCD, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""The next exーmember
+of the WWW... should
+be \"an elderly man\"!""", 0)
+section_end()
+
+# 0xCD @ 0x6AF92E
+section_start(0xCD)
+check_item("Pa'sMemo", 1, 0xCE, 0xCE, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,help me raise
+my level!""", 0)
+section_end()
+
+# 0xCE @ 0x6AF962
+section_start(0xCE)
+pic(34)
+dialog_up()
+para_talk_end("""We're almost there!
+Let's break into the
+WWW's server!""", 0)
+section_end()
+
+# 0xD2 @ 0x6AF9B3
+section_start(0xD2)
+if_flag(159, 0xD3, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's talk to Dad
+about the WWW server
+address!""", 0)
+section_end()
+
+# 0xD3 @ 0x6AF9FA
+section_start(0xD3)
+if_flag(158, 0xD4, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's get Dad to
+tell us the location
+of the WWW lab!""", 0)
+section_end()
+
+# 0xD4 @ 0x6AFA47
+section_start(0xD4)
+pic(34)
+dialog_up()
+para_talk_end("""Now we just have to
+wait for Dad's mail.
+Wanna' head home?""", 0)
+section_end()
+
+# 0xD7 @ 0x6AFA99
+section_start(0xD7)
+if_flag(114, 0xD8, 0xFF)
+check_item("WWW_Pass", 1, 0xD9, 0xD9, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""It's mail from Dad!
+Must be the location
+of the WWW lab!""", 0)
+section_end()
+
+# 0xD8 @ 0x6AFAF1
+section_start(0xD8)
+check_item("WWW_Pass", 1, 0xD9, 0xD9, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Maybe we should ask
+that exーmember where
+the WWW lab is?""", 0)
+section_end()
+
+# 0xD9 @ 0x6AFB41
+section_start(0xD9)
+if_flag(165, 0xDA, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's ask if we can
+use that pass on
+the Metroline!""", 0)
+section_end()
+
+# 0xDA @ 0x6AFB8C
+section_start(0xDA)
+pic(34)
+dialog_up()
+para_talk_end("""A secret Metroline?
+Sounds suspicious!
+Let's check it out!""", 0)
+section_end()
+
+# 0xE1 @ 0x6AFBE6
+section_start(0xE1)
+if_flag(170, 0xE2, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's ask Dad about
+the expiration date
+on the pass!""", 0)
+section_end()
+
+# 0xE2 @ 0x6AFC32
+section_start(0xE2)
+if_flag(175, 0xE3, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's go!
+To the WWW labs!""", 0)
+section_end()
+
+# 0xE3 @ 0x6AFC65
+section_start(0xE3)
+pic(34)
+dialog_up()
+para_talk("""Wanna' improve our
+equipment? When
+you're done,""", 0)
+para_talk_end("""let's get going to
+the WWW labs!""", 0)
+section_end()

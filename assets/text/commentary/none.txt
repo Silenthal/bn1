@@ -1,0 +1,8 @@
+section_count(0x1)
+
+# 0x00 @ 0x6A0D52
+section_start(0x00)
+dialog_up()
+page()
+end(5)
+section_end()

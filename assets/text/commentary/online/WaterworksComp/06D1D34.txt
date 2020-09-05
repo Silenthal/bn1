@@ -1,0 +1,74 @@
+section_count(0x7E)
+
+# 0x00 @ 0x6D1E30
+section_start(0x00)
+if_story(0x25, 0x25, 0x6E, 0xFF)
+if_story(0x26, 0x26, 0x73, 0xFF)
+if_story(0x27, 0x27, 0x78, 0xFF)
+if_story(0x30, 0x57, 0x7D, 0xFF)
+dialog_up()
+para_general_end("""Test message""", 0)
+section_end()
+
+# 0x6E @ 0x6D1F36
+section_start(0x6E)
+pic(0)
+dialog_up()
+para_talk_end("""MegaMan! Go check
+the pump program!""", 0)
+section_end()
+
+# 0x73 @ 0x6D1F73
+section_start(0x73)
+if_flag(176, 0x75, 0xFF)
+if_flag(171, 0x74, 0xFF)
+pic(0)
+dialog_up()
+para_talk_end("""Let's get back to
+ACDC Town and check
+the water!""", 0)
+section_end()
+
+# 0x74 @ 0x6D1FC1
+section_start(0x74)
+end()
+section_end()
+
+# 0x75 @ 0x6D1FC6
+section_start(0x75)
+pic(0)
+dialog_up()
+para_talk_end("""I wonder if we
+should look for
+Froid's son first?""", 0)
+section_end()
+
+# 0x78 @ 0x6D200D
+section_start(0x78)
+if_flag(217, 0x79, 0xFF)
+pic(0)
+dialog_up()
+para_talk("""I don't want to
+fight Froid,but...""", 0)
+para_talk_end("""MegaMan! Go find the
+pump program!""", 0)
+section_end()
+
+# 0x79 @ 0x6D2076
+section_start(0x79)
+pic(0)
+dialog_up()
+para_talk("""I don't want to
+fight Froid,but...""", 0)
+para_talk_end("""MegaMan! Go find the
+pump program!""", 0)
+section_end()
+
+# 0x7D @ 0x6D20DF
+section_start(0x7D)
+pic(0)
+dialog_up()
+para_talk_end("""Looks like not
+much is going on
+here,huh?""", 0)
+section_end()

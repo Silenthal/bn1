@@ -11,7 +11,7 @@ bgupdate 0x1BB8
 sprite_lz 0x2828
 fade 0x4B00
 encounter 0x5504
-battlechip 0x7c44
+battlechip 0x7C44
 enemy_detail 0x9DC4
 flag 0x102DC
 swi 0x9DF50
@@ -22,6 +22,6 @@ interrupt_handler 0x180000
 screen_layout_intr 0x180178
 asset_ui 0x6132A8
 asset_chip 0x638634
-asset_battle 0x647afc
-asset_dialog 0x6E35F0
+asset_battle 0x647AFC
+asset_text 0x69D57C
 asset_demo 0x796FD4

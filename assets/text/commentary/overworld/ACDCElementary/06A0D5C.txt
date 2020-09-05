@@ -1,0 +1,1012 @@
+section_count(0xE6)
+
+# 0x00 @ 0x6A0F28
+section_start(0x00)
+if_story(0x00, 0x00, 0x01, 0xFF)
+if_story(0x01, 0x01, 0x05, 0xFF)
+if_story(0x02, 0x02, 0x0A, 0xFF)
+if_story(0x10, 0x10, 0x0F, 0xFF)
+if_story(0x11, 0x11, 0x14, 0xFF)
+if_story(0x12, 0x12, 0x19, 0xFF)
+if_story(0x13, 0x13, 0x3C, 0xFF)
+if_story(0x14, 0x14, 0x41, 0xFF)
+if_story(0x15, 0x15, 0x46, 0xFF)
+if_story(0x20, 0x20, 0x4B, 0xFF)
+if_story(0x21, 0x21, 0x50, 0xFF)
+if_story(0x22, 0x22, 0x55, 0xFF)
+if_story(0x23, 0x23, 0x64, 0xFF)
+if_story(0x24, 0x24, 0x69, 0xFF)
+if_story(0x25, 0x25, 0x6E, 0xFF)
+if_story(0x26, 0x26, 0x73, 0xFF)
+if_story(0x27, 0x27, 0x78, 0xFF)
+if_story(0x30, 0x37, 0x7D, 0xFF)
+if_story(0x40, 0x43, 0xA5, 0xFF)
+if_story(0x50, 0x50, 0xBE, 0xFF)
+if_story(0x51, 0x51, 0xC8, 0xFF)
+if_story(0x52, 0x52, 0xD2, 0xFF)
+if_story(0x53, 0x53, 0xD7, 0xFF)
+if_story(0x54, 0x54, 0xE1, 0xFF)
+dialog_up()
+page()
+end(5)
+section_end()
+
+# 0x01 @ 0x6A0FC0
+section_start(0x01)
+pic(34)
+dialog_up()
+para_talk("""We have some time
+before class starts.""", 0)
+para_talk_end("""Let's chat with
+everyone!""")
+section_end()
+
+# 0x05 @ 0x6A1020
+section_start(0x05)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,
+Jack in with the
+R Button!""")
+section_end()
+
+# 0x0A @ 0x6A1059
+section_start(0x0A)
+pic(34)
+dialog_up()
+para_talk("""I'm hungry! Let's
+have a snack when
+we get home.""")
+jump(0x0B)
+section_end()
+
+# 0x0B @ 0x6A10A0
+section_start(0x0B)
+pic(0)
+dialog_up()
+para_talk("""Hey! You don't eat!!""")
+jump(0x0C)
+section_end()
+
+# 0x0C @ 0x6A10CB
+section_start(0x0C)
+pic(34)
+dialog_up()
+para_talk_end("""Oh{anim 1}{delay}.{delay}.{delay}.
+{anim 2}Yeah...""")
+section_end()
+
+# 0x0F @ 0x6A1102
+section_start(0x0F)
+pic(34)
+dialog_up()
+para_talk("""We have some time
+before class starts.""", 0)
+para_talk_end("""Let's chat with
+everyone!""")
+section_end()
+
+# 0x14 @ 0x6A1164
+section_start(0x14)
+if_flag(155, 0x37, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Wha??{anim 1}{delay}
+{anim 2}Wanna leave this up
+to Dex?""")
+section_end()
+
+# 0x19 @ 0x6A11AE
+section_start(0x19)
+if_flag(201, 0xFF, 0x20)
+if_flag(164, 0x1F, 0xFF)
+pic(34)
+dialog_up()
+text("""{anim 2}Did you count the
+chairs in 5A?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x1A, 0xFF], 0, False, True)
+para_talk_end("""Call me again when
+you have!""")
+section_end()
+
+# 0x1A @ 0x6A1223
+section_start(0x1A)
+pic(34)
+dialog_up()
+para_talk("""OK,teach me
+the passcode!""", 0)
+dialog_down()
+passcode(0x00, 0x09)
+passcode_pick(0x1C, 0x1B, 0x1C, 0x1C)
+page()
+end(5)
+section_end()
+
+# 0x1B @ 0x6A125E
+section_start(0x1B)
+pic(34)
+dialog_up()
+text("""{anim 2}Huh? You can get the
+passcode,right?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x1A, 0xFF], 0, False, True)
+text_talking("""OK,call me again!""")
+passcode_hide()
+page()
+end(5)
+section_end()
+
+# 0x1C @ 0x6A12C6
+section_start(0x1C)
+pic(34)
+dialog_up()
+text("""{anim 2}You're sure,right?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x1D, 0x1A], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0x1D @ 0x6A1303
+section_start(0x1D)
+passcode_check(0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x1E)
+pic(34)
+dialog_up()
+para_talk("""OK! I'll give it
+a try!""", 0)
+text("""・・・{delay}
+{anim 2}""")
+se(0x6C)
+para_general("""Nope{anim 1}...{delay}
+{anim 2}Not working{anim 1}""", 0)
+text("""{anim 2}Try again?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x1A, 0xFF], 0, False, True)
+text_talking("""OK! Call me again!""")
+passcode_hide()
+page()
+end(5)
+section_end()
+
+# 0x1E @ 0x6A13B0
+section_start(0x1E)
+pic(34)
+dialog_up()
+para_talk("""OK! I'll give it
+a try!""", 0)
+text("""・・・{delay}
+{anim 2}""")
+se(0xE7)
+para_general("""Cool! It worked!
+We can get in!{anim 1}""", 0)
+text_talking("""Thanks,Lan!""")
+passcode_hide()
+page()
+dialog_down()
+set_flag(164)
+end()
+section_end()
+
+# 0x1F @ 0x6A1430
+section_start(0x1F)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! Let's do it!""")
+section_end()
+
+# 0x20 @ 0x6A1454
+section_start(0x20)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! Let's do it!""")
+section_end()
+
+# 0x23 @ 0x6A147C
+section_start(0x23)
+if_flag(212, 0xFF, 0x2A)
+if_flag(167, 0x29, 0xFF)
+pic(34)
+dialog_up()
+text("""{anim 2}Did you get the
+number of books?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x24, 0xFF], 0, False, True)
+para_talk_end("""Call me again when
+you find out!""")
+section_end()
+
+# 0x24 @ 0x6A14F6
+section_start(0x24)
+pic(34)
+dialog_up()
+para_talk("""OK,teach me
+the passcode!""", 0)
+dialog_down()
+passcode(0x00, 0x1E)
+passcode_pick(0x26, 0x25, 0x26, 0x26)
+page()
+end(5)
+section_end()
+
+# 0x25 @ 0x6A1531
+section_start(0x25)
+pic(34)
+dialog_up()
+text("""{anim 2}Huh? You can get the
+passcode,right?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x24, 0xFF], 0, False, True)
+text_talking("""OK,call me again!""")
+passcode_hide()
+page()
+end(5)
+section_end()
+
+# 0x26 @ 0x6A1599
+section_start(0x26)
+pic(34)
+dialog_up()
+text("""{anim 2}You're sure,right?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x27, 0x24], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0x27 @ 0x6A15D6
+section_start(0x27)
+passcode_check(0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x28)
+pic(34)
+dialog_up()
+para_talk("""OK! I'll give it
+a try!""", 0)
+text("""・・・{delay}
+{anim 2}""")
+se(0x6C)
+para_general("""Nope{anim 1}...{delay}
+{anim 2}Not working{anim 1}""", 0)
+text("""{anim 2}Try again?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x24, 0xFF], 0, False, True)
+text_talking("""OK! Call me again!""")
+passcode_hide()
+page()
+end(5)
+section_end()
+
+# 0x28 @ 0x6A1683
+section_start(0x28)
+pic(34)
+dialog_up()
+para_talk("""OK! I'll give it
+a try!""", 0)
+text("""・・・{delay}
+{anim 2}""")
+se(0xE7)
+para_general("""Cool! It worked!
+We can get in!{anim 1}""", 0)
+text_talking("""Thanks,Lan!""")
+passcode_hide()
+page()
+dialog_down()
+set_flag(167)
+end()
+section_end()
+
+# 0x29 @ 0x6A1703
+section_start(0x29)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! We haven't
+stopped the
+reeducation program!""")
+section_end()
+
+# 0x2A @ 0x6A1746
+section_start(0x2A)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! We haven't
+stopped the
+reeducation program!""")
+section_end()
+
+# 0x2D @ 0x6A178D
+section_start(0x2D)
+if_flag(213, 0xFF, 0x34)
+if_flag(173, 0x33, 0xFF)
+pic(34)
+dialog_up()
+text("""{anim 2}Did you count the
+doors in the school?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x2E, 0xFF], 0, False, True)
+para_talk_end("""Call me again when
+you find out!""")
+section_end()
+
+# 0x2E @ 0x6A180D
+section_start(0x2E)
+pic(34)
+dialog_up()
+para_talk("""OK,teach me
+the passcode!""", 0)
+dialog_down()
+passcode(0x00, 0x0F)
+passcode_pick(0x30, 0x2F, 0x30, 0x30)
+page()
+end(5)
+section_end()
+
+# 0x2F @ 0x6A1848
+section_start(0x2F)
+pic(34)
+dialog_up()
+text("""{anim 2}Huh? You can get the
+passcode,right?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x2E, 0xFF], 0, False, True)
+text_talking("""OK! Call me again!""")
+passcode_hide()
+page()
+end(5)
+section_end()
+
+# 0x30 @ 0x6A18B1
+section_start(0x30)
+pic(34)
+dialog_up()
+text("""{anim 2}You're sure,right?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x31, 0x2E], 0, False, True)
+page()
+end(5)
+section_end()
+
+# 0x31 @ 0x6A18EE
+section_start(0x31)
+passcode_check(0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x32)
+pic(34)
+dialog_up()
+para_talk("""OK! I'll give it
+a try!""", 0)
+text("""・・・{delay}
+{anim 2}""")
+se(0x6C)
+para_general("""Nope{anim 1}...{delay}
+{anim 2}Not working{anim 1}""", 0)
+text("""{anim 2}Try again?{anim 1}
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x2E, 0xFF], 0, False, True)
+text_talking("""OK! Call me again!""")
+passcode_hide()
+page()
+end(5)
+section_end()
+
+# 0x32 @ 0x6A199B
+section_start(0x32)
+pic(34)
+dialog_up()
+para_talk("""OK! I'll give it
+a try!""", 0)
+text("""・・・{delay}
+{anim 2}""")
+se(0xE7)
+para_general("""Cool! It worked!
+We can get in!{anim 1}""", 0)
+text_talking("""Thanks,Lan!""")
+passcode_hide()
+page()
+dialog_down()
+set_flag(173)
+end()
+section_end()
+
+# 0x33 @ 0x6A1A1B
+section_start(0x33)
+pic(34)
+dialog_up()
+para_talk_end("""Where's Ms.Mari?!{anim 1}{delay}
+{anim 2}Something isn't
+right here...!""")
+section_end()
+
+# 0x34 @ 0x6A1A6C
+section_start(0x34)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! We haven't
+stopped the
+reeducation program!""")
+section_end()
+
+# 0x37 @ 0x6A1AB3
+section_start(0x37)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! Let's do it!""", 0)
+section_end()
+
+# 0x3C @ 0x6A1ADF
+section_start(0x3C)
+if_flag(167, 0xFF, 0x23)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! We haven't
+stopped the
+reeducation program!""", 0)
+section_end()
+
+# 0x41 @ 0x6A1B30
+section_start(0x41)
+if_flag(180, 0xFF, 0x2D)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! We haven't
+stopped the
+reeducation program!""", 0)
+section_end()
+
+# 0x46 @ 0x6A1B81
+section_start(0x46)
+if_flag(183, 0x47, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""L{anim 1}...{delay}{anim 2}Lan{anim 1}...{delay}
+{anim 2}The{anim 1}...{delay}{anim 2}AV...room!""", 0)
+section_end()
+
+# 0x47 @ 0x6A1BD7
+section_start(0x47)
+if_flag(191, 0x48, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's stop the
+reeducation program!""", 0)
+section_end()
+
+# 0x48 @ 0x6A1C12
+section_start(0x48)
+pic(34)
+dialog_up()
+para_talk_end("""Let's stop the
+reeducation program!""", 0)
+section_end()
+
+# 0x4B @ 0x6A1C4B
+section_start(0x4B)
+pic(34)
+dialog_up()
+para_talk_end("""Man,what a rough
+day...""", 0)
+section_end()
+
+# 0x50 @ 0x6A1C7E
+section_start(0x50)
+pic(34)
+dialog_up()
+para_talk_end("""Now a Metroline
+accident? Weird
+day,huh?""", 0)
+section_end()
+
+# 0x55 @ 0x6A1CC1
+section_start(0x55)
+if_flag(250, 0x58, 0xFF)
+if_flag(226, 0x57, 0xFF)
+if_flag(215, 0x56, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's go see your
+Dad and get my
+power up program!""", 0)
+section_end()
+
+# 0x56 @ 0x6A1D17
+section_start(0x56)
+pic(34)
+dialog_up()
+para_talk("""Hmmm...I'll bet we
+would have found my
+power up program""", 0)
+para_talk_end("""if we had looked
+around your Dad's
+lab...""", 0)
+section_end()
+
+# 0x57 @ 0x6A1D97
+section_start(0x57)
+pic(34)
+dialog_up()
+para_talk_end("""Lan!
+You've got mail
+from your Dad!""", 0)
+section_end()
+
+# 0x58 @ 0x6A1DCD
+section_start(0x58)
+pic(34)
+dialog_up()
+para_talk_end("""Wanna head home?""", 0)
+section_end()
+
+# 0x64 @ 0x6A1E04
+section_start(0x64)
+pic(34)
+dialog_up()
+para_talk_end("""I wonder if the
+water is safe?
+Let's ask around!""", 0)
+section_end()
+
+# 0x69 @ 0x6A1E4F
+section_start(0x69)
+if_flag(190, 0x6C, 0xFF)
+if_flag(189, 0x6B, 0xFF)
+if_flag(185, 0x6A, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Wonder why there's
+no water? Let's
+check it out!""", 0)
+section_end()
+
+# 0x6A @ 0x6A1EA5
+section_start(0x6A)
+pic(34)
+dialog_up()
+para_talk_end("""You don't want to
+go back to the
+Waterworks?""", 0)
+section_end()
+
+# 0x6B @ 0x6A1EE3
+section_start(0x6B)
+end()
+section_end()
+
+# 0x6C @ 0x6A1EE8
+section_start(0x6C)
+pic(34)
+dialog_up()
+para_talk("""Let's hide,and try
+to get into the net
+when everyone""", 0)
+para_talk_end("""leaves.""", 0)
+section_end()
+
+# 0x6E @ 0x6A1F40
+section_start(0x6E)
+pic(34)
+dialog_up()
+para_talk_end("""You don't want to
+go back to the
+Waterworks?""", 0)
+section_end()
+
+# 0x73 @ 0x6A1F86
+section_start(0x73)
+if_flag(176, 0x75, 0xFF)
+if_flag(171, 0x74, 0xFF)
+end()
+section_end()
+
+# 0x74 @ 0x6A1F97
+section_start(0x74)
+pic(34)
+dialog_up()
+para_talk_end("""Let's go back to the
+Waterworks! I can
+fix this!""", 0)
+section_end()
+
+# 0x75 @ 0x6A1FDA
+section_start(0x75)
+pic(34)
+dialog_up()
+para_talk_end("""We need to find
+Froid's son!""", 0)
+section_end()
+
+# 0x78 @ 0x6A200C
+section_start(0x78)
+if_flag(217, 0x79, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's tell Froid
+about his son!""", 0)
+section_end()
+
+# 0x79 @ 0x6A2043
+section_start(0x79)
+pic(34)
+dialog_up()
+para_talk_end("""Let's go fix the
+water program!
+I can do it!""", 0)
+section_end()
+
+# 0x7D @ 0x6A2088
+section_start(0x7D)
+if_flag(202, 0x81, 0xFF)
+if_flag(523, 0x80, 0xFF)
+if_flag(149, 0x7F, 0xFF)
+if_flag(147, 0x7E, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's answer Mayl's
+mail!""", 0)
+section_end()
+
+# 0x7E @ 0x6A20CC
+section_start(0x7E)
+pic(34)
+dialog_up()
+para_talk_end("""We'll be in trouble
+if we're late again!""", 0)
+section_end()
+
+# 0x7F @ 0x6A2107
+section_start(0x7F)
+pic(34)
+dialog_up()
+para_talk_end("""Let's go to Dentown
+and wait for Mayl!""", 0)
+section_end()
+
+# 0x80 @ 0x6A213F
+section_start(0x80)
+pic(34)
+dialog_up()
+para_talk("""We won't be able to
+meet Mayl if we 
+don't get""", 0)
+para_talk_end("""to Dentown.""", 0)
+section_end()
+
+# 0x81 @ 0x6A2193
+section_start(0x81)
+pic(34)
+dialog_up()
+para_talk("""We won't be able to
+meet Mayl if we 
+don't get""", 0)
+para_talk_end("""to Dentown.""", 0)
+section_end()
+
+# 0xA5 @ 0x6A222D
+section_start(0xA5)
+if_flag(159, 0xA9, 0xFF)
+if_flag(156, 0xA8, 0xFF)
+if_flag(152, 0xA7, 0xFF)
+if_flag(149, 0xA6, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's hurry home
+and tell Mom!""", 0)
+section_end()
+
+# 0xA6 @ 0x6A2275
+section_start(0xA6)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! Let's hurry
+to the Government
+Complex!""", 0)
+section_end()
+
+# 0xA7 @ 0x6A22B3
+section_start(0xA7)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! Let's hurry
+to the Government
+Complex!""", 0)
+section_end()
+
+# 0xA8 @ 0x6A22F1
+section_start(0xA8)
+pic(34)
+dialog_up()
+para_talk_end("""Dad should be
+waiting for us!""", 0)
+section_end()
+
+# 0xA9 @ 0x6A231F
+section_start(0xA9)
+pic(34)
+dialog_up()
+para_talk_end("""Let's get back to
+the restaurant.
+Mom will be worried!""", 0)
+section_end()
+
+# 0xBE @ 0x6A2390
+section_start(0xBE)
+if_flag(113, 0xBF, 0xFF)
+if_flag(148, 0xC0, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""You got some mail
+from Dad! What does
+it say?""", 0)
+section_end()
+
+# 0xBF @ 0x6A23DB
+section_start(0xBF)
+if_flag(148, 0xC0, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""What should we do
+about Chaud? Wanna
+go to the SciLab?""", 0)
+section_end()
+
+# 0xC0 @ 0x6A2429
+section_start(0xC0)
+if_flag(151, 0xC1, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Looks like Chaud
+went to Dentown on
+a mission.""", 0)
+section_end()
+
+# 0xC1 @ 0x6A246E
+section_start(0xC1)
+check_item("Hig_Memo", 1, 0xC2, 0xC2, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""An exーmember of the
+WWW... It must be
+that guy!""", 0)
+section_end()
+
+# 0xC2 @ 0x6A24B8
+section_start(0xC2)
+pic(34)
+dialog_up()
+para_talk_end("""Lan! I'll go to
+Dentown via the net!""", 0)
+section_end()
+
+# 0xC8 @ 0x6A24F9
+section_start(0xC8)
+if_flag(152, 0xC9, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""You've got mail
+from Higs! Looks
+like more info!""", 0)
+section_end()
+
+# 0xC9 @ 0x6A2542
+section_start(0xC9)
+check_item("Lab_Memo", 1, 0xCA, 0xCA, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,let's go look
+for Higs' former
+boss!""", 0)
+section_end()
+
+# 0xCA @ 0x6A2585
+section_start(0xCA)
+if_flag(153, 0xCB, 0xFF)
+pic(34)
+dialog_up()
+para_talk("""An exーmember of the
+WWW...? Let's start
+with the""", 0)
+para_talk_end("""young woman.""", 0)
+section_end()
+
+# 0xCB @ 0x6A25E5
+section_start(0xCB)
+check_item("YuriMemo", 1, 0xCC, 0xCC, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,let's fill up
+our data library!""", 0)
+section_end()
+
+# 0xCC @ 0x6A2622
+section_start(0xCC)
+if_flag(145, 0xCD, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""The next exーmember
+of the WWW... should
+be \"an elderly man\"!""", 0)
+section_end()
+
+# 0xCD @ 0x6A267A
+section_start(0xCD)
+check_item("Pa'sMemo", 1, 0xCE, 0xCE, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Lan,help me raise
+my level!""", 0)
+section_end()
+
+# 0xCE @ 0x6A26AE
+section_start(0xCE)
+pic(34)
+dialog_up()
+para_talk_end("""We're almost there!
+Let's break into the
+WWW's server!""", 0)
+section_end()
+
+# 0xD2 @ 0x6A26FF
+section_start(0xD2)
+if_flag(159, 0xD3, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's talk to Dad
+about the WWW server
+address!""", 0)
+section_end()
+
+# 0xD3 @ 0x6A2746
+section_start(0xD3)
+if_flag(158, 0xD4, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's get Dad to
+tell us the location
+of the WWW lab!""", 0)
+section_end()
+
+# 0xD4 @ 0x6A2793
+section_start(0xD4)
+pic(34)
+dialog_up()
+para_talk_end("""Now we just have to
+wait for Dad's mail.
+Wanna' head home?""", 0)
+section_end()
+
+# 0xD7 @ 0x6A27E5
+section_start(0xD7)
+if_flag(114, 0xD8, 0xFF)
+check_item("WWW_Pass", 1, 0xD9, 0xD9, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""It's mail from Dad!
+Must be the location
+of the WWW lab!""", 0)
+section_end()
+
+# 0xD8 @ 0x6A283D
+section_start(0xD8)
+check_item("WWW_Pass", 1, 0xD9, 0xD9, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Maybe we should ask
+that exーmember where
+the WWW lab is?""", 0)
+section_end()
+
+# 0xD9 @ 0x6A288D
+section_start(0xD9)
+if_flag(165, 0xDA, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's ask if we can
+use that pass on
+the Metroline!""", 0)
+section_end()
+
+# 0xDA @ 0x6A28D8
+section_start(0xDA)
+pic(34)
+dialog_up()
+para_talk_end("""A secret Metroline?
+Sounds suspicious!
+Let's check it out!""", 0)
+section_end()
+
+# 0xE1 @ 0x6A2932
+section_start(0xE1)
+if_flag(170, 0xE2, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's ask Dad about
+the expiration date
+on the pass!""", 0)
+section_end()
+
+# 0xE2 @ 0x6A297E
+section_start(0xE2)
+if_flag(175, 0xE3, 0xFF)
+pic(34)
+dialog_up()
+para_talk_end("""Let's go!
+To the WWW labs!""", 0)
+section_end()
+
+# 0xE3 @ 0x6A29B1
+section_start(0xE3)
+pic(34)
+dialog_up()
+para_talk("""Wanna' improve our
+equipment? When
+you're done,""", 0)
+para_talk_end("""let's get going to
+the WWW labs!""", 0)
+section_end()
