@@ -86,7 +86,7 @@ thumb_func_start Demo_InitializeGame
 Demo_InitializeGame:
     push       { lr }
     push       { r5 }
-    bl         InitializeMainState
+    bl         Main_Init
     pop        { r5 }
     LoadStateTo r0, Main_manager
     mov        r1,#MS_State5_Initial

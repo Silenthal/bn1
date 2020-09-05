@@ -879,7 +879,7 @@ def option(up: int, down: int, left: int, right: int):
     curScript.emitByte(high)
 
 
-def pick(optionList: List[int], default, isDisableB, isClearAfterPick):
+def pick(optionList: List[int], default, isDisableB=False, isClearAfterPick=True):
     global curScript
     curScript.emitByte(0xF1)
     curScript.emitByte(len(optionList) + 3)

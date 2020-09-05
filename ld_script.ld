@@ -38,7 +38,7 @@ SECTIONS {
 		eMainState0x30           = 0x48B8;
 		gFillValue               = 0x48C0;
 		eMainState0x1C           = 0x48D0;
-		eMainState0x3C           = 0x4900;
+		gBlendSettings           = 0x4900;
 		gBattleFolder            = 0x4910;
 		eFrameWaitValueX         = 0x4930;
 		eFrameWaitValue          = 0x4934;
@@ -47,14 +47,14 @@ SECTIONS {
 		eMainState0x2C           = 0x4BB0;
 		eMainState0x4C           = 0x4BD0;
 		eMainState0x74           = 0x62E0;
-		eMainState0x48           = 0x6350;
+		gText                    = 0x6350;
 		eMainState0x50           = 0x64A0;
 		eMainState0x68           = 0x65D0;
-		eInputState              = 0x65F0;
-		eMainState0x70           = 0x6610;
+		gInput					 = 0x65F0;
+		gShop                    = 0x6610;
 		eMainState0x18           = 0x6CB0;
 		eMainState0x00           = 0x6CB8;
-		eRngState                = 0x6cc0;
+		eRngState                = 0x6CC0;
 		eBgPalette0              = 0x6CD0;
 		eBgPalette1              = 0x6CF0;
 		eBgPalette2              = 0x6D10;
@@ -79,9 +79,9 @@ SECTIONS {
 		eMainState0x28           = 0x70A0;
 		eMainState0x60           = 0x74C8;
 		eDmaParamListSize        = 0x74D4;
-		eMainState0x40           = 0x74D8;
-		eMainState0x10           = 0x7510;
-		eMainState0x34           = 0x7590;
+		gDemo                    = 0x74D8;
+		gDisplaySettings         = 0x7510;
+		gMainMenu                = 0x7590;
 		eMainState0x20           = 0x75F0;
 		eMainState0x54           = 0x7DE0;
 		eDmaParamList            = 0x8010;
@@ -90,7 +90,7 @@ SECTIONS {
 		gSpriteLzDetails         = 0x9AA0;
 		eMainState0x6C           = 0xACF0;
 		tempBg1Vofs              = 0xC190;
-		eMainState0x38           = 0xC1B0;
+		gWindowSettings          = 0xC1B0;
 		musicPlayerInfo_13       = 0xC520;
 		musicPlayerInfo_17       = 0xC560;
 		musicPlayerInfo_0D       = 0xC5A0;
@@ -130,7 +130,7 @@ SECTIONS {
 	. = __iwram_start;
 	iwram (NOLOAD) :
 	{
-		eMainState0x5C        = 0x0;
+		gScreens        = 0x0;
 		interruptVector       = 0x2000;
 		interruptVectorHblank = 0x2004;
 		interruptHandlerStart = 0x6800;

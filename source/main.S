@@ -1,16 +1,84 @@
+#include "offsets.h"
     .include "constants.inc"
     .include "macros.inc"
-
+    
+    .set FUN_08001950               , 0x8001950
+    .set FUN_08001d60               , 0x8001d60
+    .set FUN_08002484               , 0x8002484
+    .set FUN_080027f4               , 0x80027f4
+    .set FUN_080063b2               , 0x80063b2
+    .set FUN_08013658               , 0x8013658
+    .set FUN_0801996c               , 0x801996c
     .set InitHblankOtherHandlers    , 0x8001bc8
-    .set InitMainState_34            , 0x8010414
-    .set ClearMemAtOffsets            , 0x8010a5c
-    .set InitMainState0x58            , 0x8001d0c
-    .set InitMainStateVar0x18        , 0x8004c20
-    .set Sio_SetReady                , 0x809bdf0
+    .set InitMainState_34           , 0x8010414
+    .set ClearMemAtOffsets          , 0x8010a5c
+    .set InitMainState0x58          , 0x8001d0c
+    .set InitMainStateVar0x18       , 0x8004c20
+    .set Sio_SetReady               , 0x809bdf0
 
     .text
 
     .thumb
+
+thumb_func_start AgbMain
+AgbMain:
+    bl         Main_Init
+    LoadStateTo r0, Main_manager
+    movs       r1,#0x14
+    strb       r1,[r0]
+LAB_08000290:
+    bl         Main_SoftResetCheck
+    bl         Main_WaitFrames
+    bl         BgUpdate_CallPreLoopFunction
+    bl         Video_ApplySettings
+    ldr        r0,=0x3006ff5
+    mov        lr,pc
+    bx         r0
+    bl         FUN_08002484
+    bl         Video_QueueBgPalTransfer
+    bl         Dma_TransferListStartAll
+    bl         FUN_080027f4
+    bl         Video_BlitScreens
+    bl         Main_ReadInput
+    mov        r0,r10
+    ldr        r0,[r0,#0x50]
+    ldrh       r1,[r0]
+    add        r1,#0x1
+    strh       r1,[r0]
+    bl         IncrementGameTimer
+    ldr        r0,=jumpTableState
+    mov        r7,r10
+    ldr        r1,[r7]
+    ldrb       r1,[r1]
+    ldr        r0,[r0,r1]
+    mov        lr,pc
+    bx         r0
+    bl         FUN_080063b2
+    tst        r0,r0
+    beq        LAB_080002e6
+    bl         Fade_Apply
+LAB_080002e6:
+    bl         FUN_08013658
+    bl         FUN_0801996c
+    bl         BgUpdate_CallPostLoopFunction
+    bl         FUN_08001d60
+    b          LAB_08000290
+thumb_func_end AgbMain
+
+    .pool
+
+jumpTableState:
+    .word 0x8010424+1
+    .word 0x8004130+1
+    .word 0x8005864+1
+    .word 0x8017504+1
+    .word Demo_Main
+    .word 0x8018ca4+1
+    .word 0x8019808+1
+    .word 0x801e8ac+1
+    .word 0x801ff78+1
+    .word 0x80200f8+1
+    .word 0x80214a4+1
 
 @@ Waits for a certain amount of frames.
 @ void Main_WaitFrames(void)
@@ -30,9 +98,9 @@ Main_WaitFrames:
 thumb_func_end Main_WaitFrames
 
 @@ Reads the input.
-@ void ReadInput(void)
-thumb_func_start ReadInput
-ReadInput:
+@ void Main_ReadInput(void)
+thumb_func_start Main_ReadInput
+Main_ReadInput:
     mov        r7,r10
     ldr        r0,[r7,#0x4]
     ldrb       r7,[r0,#0x13]
@@ -89,7 +157,7 @@ ReadInput:
     and        r4,r5
     strh       r4,[r0,#0x2]
     mov        pc,lr
-thumb_func_end ReadInput
+thumb_func_end Main_ReadInput
 
 @@ Performs a soft reset check based on some conditions.
 @ void Main_SoftResetCheck(void)
@@ -123,7 +191,7 @@ Main_SoftResetCheck:
     @ Soft reset check (A + B + Start + Select)
     push       { r1 }
     bl         InitializeInterruptVectors
-    bl         0x80003F0 @ InitializeMainState
+    bl         0x80003F0 @ Main_Init
     pop        { r1 }
     mov        r4,#0xa
 .storeCounter:
@@ -136,9 +204,9 @@ Main_SoftResetCheck:
 thumb_func_end Main_SoftResetCheck
 
 @@ Initializes the main state used by the game.
-@ void InitializeMainState(void)
-thumb_func_start InitializeMainState
-InitializeMainState:
+@ void Main_Init(void)
+thumb_func_start Main_Init
+Main_Init:
     push       { lr }
     ldr        r0,PTR_MainState_08000468
     mov        r10,r0
@@ -155,7 +223,7 @@ InitializeMainState:
     bl         InitMainState_34
     bl         ClearMemAtOffsets
     bl         Dma_TransferListClear
-    bl         0x80018b4
+    bl         Rng_Init
     bl         0x8013560
     bl         0x8010bbc
     bl         0x8004020
@@ -177,17 +245,17 @@ InitializeMainState:
     mov        r7,r10
     ldr        r0,[r7,#0x0]
     mov        r1,#0x8
-    bl         0x8000a44 @ memset0_32
+    bl         memset0_32
     pop        { pc }
 
 PTR_MainState_08000468: .word MainState
 
 MainState:
     .word eMainState0x00
-    .word eInputState
+    .word gInput
     .word eMainState0x08
     .word eMainState0x0C
-    .word eMainState0x10
+    .word gDisplaySettings
     .word eMainState0x14
     .word eMainState0x18
     .word eMainState0x1C
@@ -196,26 +264,26 @@ MainState:
     .word eMainState0x28
     .word eMainState0x2C
     .word eMainState0x30
-    .word eMainState0x34
-    .word eMainState0x38
-    .word eMainState0x3C
-    .word eMainState0x40
+    .word gMainMenu
+    .word gWindowSettings
+    .word gBlendSettings
+    .word gDemo
     .word eMainState0x44
-    .word eMainState0x48
+    .word gText
     .word eMainState0x4C
     .word eMainState0x50
     .word eMainState0x54
     .word eMainState0x58
-    .word eMainState0x5C
+    .word gScreens
     .word eMainState0x60
     .word eMainState0x64
     .word eMainState0x68
     .word eMainState0x6C
-    .word eMainState0x70
+    .word gShop
     .word eMainState0x74
     .word eMainState0x78
     .word eMainState0x7C
-thumb_func_end InitializeMainState
+thumb_func_end Main_Init
 
 thumb_func_start waitForVBlank
 waitForVBlank:
@@ -239,3 +307,4 @@ frameWait:        .word eFrameWaitValue
 dispStat:        .word REG_DISPSTAT
 
     .end
+
