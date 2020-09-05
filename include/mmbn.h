@@ -1098,167 +1098,7 @@ struct GameOver {
     byte _pad1;
 };
 
-typedef struct header header, *Pheader;
-
-struct header {
-    byte logo[156];
-    char title[12];
-    char game_code[4];
-    char maker_code[2];
-    byte fixed;
-    byte main_unit_code;
-    byte device_type;
-    byte reserved[7];
-    byte version;
-    byte comp_check;
-    byte reserved_2[2];
-};
-
-typedef struct Input Input, *PInput;
-
-struct Input {
-    enum KeyInput curKeyState;
-    enum KeyInput toggleKeyState;
-    enum KeyInput heldKeyState;
-    enum KeyInput lastKeyState;
-    byte framesHeldA;
-    byte framesHeldB;
-    byte framesHeldSelect;
-    byte framesHeldStart;
-    byte framesHeldRight;
-    byte framesHeldLeft;
-    byte framesHeldUp;
-    byte framesHeldDown;
-    byte framesHeldR;
-    byte framesHeldL;
-    byte unused;
-    byte frameCounter;
-};
-
-typedef enum InstrumentType {
-    KeySplit=64,
-    KeySplit2=128,
-    PsgNoise=4,
-    PsgSquare1=1,
-    PsgSquare2=2,
-    PsgWave=3,
-    Sample=0,
-    SampleNonResampled=8
-} InstrumentType;
-
-typedef enum ItemId {
-    Item_AcdcPass=60,
-    Item_AquaArmr=69,
-    Item_Armor=66,
-    Item_BatteryA=9,
-    Item_BatteryB=10,
-    Item_BatteryC=11,
-    Item_BatteryD=12,
-    Item_BatteryE=13,
-    Item_Charger=14,
-    Item_Dentures=17,
-    Item_GovtPass=61,
-    Item_Handle=5,
-    Item_HeatArmr=68,
-    Item_HigMemo=52,
-    Item_HpMemory=64,
-    Item_IceBlock=1,
-    Item_KeyDad=37,
-    Item_KeyDex=35,
-    Item_KeyMasa=43,
-    Item_KeyMayl=33,
-    Item_KeyMiyu=40,
-    Item_KeySal=38,
-    Item_KeyWWW=45,
-    Item_KeyYai=34,
-    Item_LabMemo=53,
-    Item_Message=6,
-    Item_PET=0,
-    Item_PaMemo=55,
-    Item_PowerUp=65,
-    Item_Response=7,
-    Item_SchoolID=3,
-    Item_SciLabID=4,
-    Item_SlashDex=48,
-    Item_SlashMiyu=50,
-    Item_SlashSal=49,
-    Item_TownPass=62,
-    Item_WWWPass=15,
-    Item_WWWPin=8,
-    Item_WaterGun=2,
-    Item_WoodArmr=70,
-    Item_YuriMemo=54
-} ItemId;
-
-typedef struct Main Main, *PMain;
-
-typedef struct Manager Manager, *PManager;
-
-typedef struct Struct_Unk08 Struct_Unk08, *PStruct_Unk08;
-
-typedef struct Struct_Unk0C Struct_Unk0C, *PStruct_Unk0C;
-
-typedef struct Struct_Unk14_Sized Struct_Unk14_Sized, *PStruct_Unk14_Sized;
-
-typedef struct Struct_Unk1C_Battle_Sized Struct_Unk1C_Battle_Sized, *PStruct_Unk1C_Battle_Sized;
-
-typedef struct Struct_Unk20 Struct_Unk20, *PStruct_Unk20;
-
-typedef struct Struct_Unk24 Struct_Unk24, *PStruct_Unk24;
-
-typedef struct Struct_Unk28_Sized Struct_Unk28_Sized, *PStruct_Unk28_Sized;
-
-typedef struct Struct_Unk2C Struct_Unk2C, *PStruct_Unk2C;
-
-typedef struct Struct_Unk30 Struct_Unk30, *PStruct_Unk30;
-
-typedef struct MainMenu MainMenu, *PMainMenu;
-
-typedef struct WindowSettings WindowSettings, *PWindowSettings;
-
-typedef struct Struct_Unk44 Struct_Unk44, *PStruct_Unk44;
-
-typedef struct Text Text, *PText;
-
-typedef struct Struct_Unk4C Struct_Unk4C, *PStruct_Unk4C;
-
-typedef struct Struct_Unk50_TimerRelated Struct_Unk50_TimerRelated, *PStruct_Unk50_TimerRelated;
-
-typedef struct Struct_Unk54 Struct_Unk54, *PStruct_Unk54;
-
-typedef struct Struct_Unk58 Struct_Unk58, *PStruct_Unk58;
-
-typedef struct ScreenLayoutContainer ScreenLayoutContainer, *PScreenLayoutContainer;
-
-typedef struct Struct_Unk60 Struct_Unk60, *PStruct_Unk60;
-
-typedef struct Struct_Unk64_Sized Struct_Unk64_Sized, *PStruct_Unk64_Sized;
-
-typedef struct Struct_Unk68 Struct_Unk68, *PStruct_Unk68;
-
-typedef struct Struct_Unk6C Struct_Unk6C, *PStruct_Unk6C;
-
-typedef struct Shop Shop, *PShop;
-
-typedef struct Struct_Unk74 Struct_Unk74, *PStruct_Unk74;
-
-typedef struct Struct_Unk78 Struct_Unk78, *PStruct_Unk78;
-
-typedef struct Struct_Unk7C Struct_Unk7C, *PStruct_Unk7C;
-
-typedef enum Manager_State {
-    MS_State0=0,
-    MS_State1=4,
-    MS_State2=8,
-    MS_State3=12,
-    MS_State4_Demo=16,
-    MS_State5_Initial=20,
-    MS_State6=24,
-    MS_State7=28,
-    MS_State8_GameOver=32,
-    MS_State9=36,
-    MS_StateA=40
-} Manager_State;
+typedef struct GameState GameState, *PGameState;
 
 typedef enum SongId {
     SE_17=23,
@@ -1504,6 +1344,288 @@ typedef enum SongId {
 
 typedef struct Struct_63F0 Struct_63F0, *PStruct_63F0;
 
+struct GameState {
+    enum FuncState_08_0 m_state0;
+    byte b1;
+    byte b2;
+    byte b3;
+    enum AreaId m_currentArea;
+    byte m_currentSubArea;
+    byte m_possibleStoryFlag;
+    byte m_b7_fadeType;
+    byte b8;
+    byte m_Battle_IsTimePaused;
+    byte m_b10;
+    enum BackgroundId m_b11_backgroundId;
+    byte m_bx11;
+    byte m_bx12;
+    byte m_b14;
+    enum BattleType m_battleType;
+    byte m_b16_state;
+    bool m_isShuffleFolder;
+    byte m_b18_commentaryTextIndex;
+    byte m_b19_fadeStep;
+    byte m_b20_stat1_atk;
+    byte m_b21_stat2_spd;
+    byte m_b22_stat3_chg;
+    byte m_b23_possibleArmor;
+    enum SongId m_Song_CurrentSongId;
+    byte m_bustingRank;
+    byte m_b26;
+    byte m_b27;
+    ushort m_u0_hp0;
+    ushort m_u1_hp1;
+    int ix0;
+    int m_ix1;
+    struct Struct_63F0 * m_i0;
+    struct EnemySpawn * m_enemyList;
+    struct BattleChip * m_chipFolder;
+    int m_battleInitHideObject;
+    int m_ix7_savedPosY;
+    int m_ix8_savedPosX;
+    int m_ix9_savedPos0;
+    int m_ix10_savedDirection;
+    int ix11;
+    int ix12;
+    int ix13;
+    int ix14;
+    int ix15;
+    int ix16;
+    int ix17;
+    int ix18;
+    int ix19;
+    int ix20;
+    struct Struct_63F0 * ix21;
+    int m_zenny;
+};
+
+struct Struct_63F0 {
+    byte b0;
+    byte m_b1_state;
+    byte m_b2;
+    byte m_b3;
+    byte b4;
+    byte b5;
+    byte b6;
+    byte m_b7;
+    byte m_b8_state;
+    byte m_b9_state;
+    byte m_b10_state;
+    byte m_b11;
+    byte m_b12;
+    byte m_b13;
+    byte m_b14;
+    byte m_b15;
+    byte m_b16_direction; /* 0-7, 0= up, clockwise */
+    byte m_b17_direction2;
+    byte m_b18_isMoving;
+    byte m_b19_isMoving2;
+    byte m_b20_direction3;
+    byte m_b21_direction4;
+    byte b22;
+    byte m_b23;
+    int i0;
+    ushort m_s0;
+    ushort s1;
+    int i1;
+    int m_i2_posY;
+    int m_i3_posX;
+    int m_s2_pos0;
+    int m_i5_posY_2;
+    int m_i6_posX_2;
+    int m_i7;
+    int i8;
+    int m_i9_offsetY;
+    int m_i10_offsetX;
+    int m_i11;
+    int i12;
+    int i13;
+    int i14;
+    int m_i15_stepCounter;
+    int i16;
+    ushort m_s4_moveKeyFlags;
+    ushort m_s5;
+    int i17;
+    int i18;
+    int i19;
+    int i20;
+    int i21;
+    int i22;
+    int i23;
+    int i24;
+    int i25;
+    int i26;
+    int i27;
+    int i28;
+    int i29;
+    int i30;
+    int i31;
+    int i32;
+    int m_i33_possiblyPcAnimRelated;
+    int i34;
+    int i35;
+};
+
+typedef struct header header, *Pheader;
+
+struct header {
+    byte logo[156];
+    char title[12];
+    char game_code[4];
+    char maker_code[2];
+    byte fixed;
+    byte main_unit_code;
+    byte device_type;
+    byte reserved[7];
+    byte version;
+    byte comp_check;
+    byte reserved_2[2];
+};
+
+typedef struct Input Input, *PInput;
+
+struct Input {
+    enum KeyInput curKeyState;
+    enum KeyInput toggleKeyState;
+    enum KeyInput heldKeyState;
+    enum KeyInput lastKeyState;
+    byte framesHeldA;
+    byte framesHeldB;
+    byte framesHeldSelect;
+    byte framesHeldStart;
+    byte framesHeldRight;
+    byte framesHeldLeft;
+    byte framesHeldUp;
+    byte framesHeldDown;
+    byte framesHeldR;
+    byte framesHeldL;
+    byte unused;
+    byte frameCounter;
+};
+
+typedef enum InstrumentType {
+    KeySplit=64,
+    KeySplit2=128,
+    PsgNoise=4,
+    PsgSquare1=1,
+    PsgSquare2=2,
+    PsgWave=3,
+    Sample=0,
+    SampleNonResampled=8
+} InstrumentType;
+
+typedef enum ItemId {
+    Item_AcdcPass=60,
+    Item_AquaArmr=69,
+    Item_Armor=66,
+    Item_BatteryA=9,
+    Item_BatteryB=10,
+    Item_BatteryC=11,
+    Item_BatteryD=12,
+    Item_BatteryE=13,
+    Item_Charger=14,
+    Item_Dentures=17,
+    Item_GovtPass=61,
+    Item_Handle=5,
+    Item_HeatArmr=68,
+    Item_HigMemo=52,
+    Item_HpMemory=64,
+    Item_IceBlock=1,
+    Item_KeyDad=37,
+    Item_KeyDex=35,
+    Item_KeyMasa=43,
+    Item_KeyMayl=33,
+    Item_KeyMiyu=40,
+    Item_KeySal=38,
+    Item_KeyWWW=45,
+    Item_KeyYai=34,
+    Item_LabMemo=53,
+    Item_Message=6,
+    Item_PET=0,
+    Item_PaMemo=55,
+    Item_PowerUp=65,
+    Item_Response=7,
+    Item_SchoolID=3,
+    Item_SciLabID=4,
+    Item_SlashDex=48,
+    Item_SlashMiyu=50,
+    Item_SlashSal=49,
+    Item_TownPass=62,
+    Item_WWWPass=15,
+    Item_WWWPin=8,
+    Item_WaterGun=2,
+    Item_WoodArmr=70,
+    Item_YuriMemo=54
+} ItemId;
+
+typedef struct Main Main, *PMain;
+
+typedef struct Manager Manager, *PManager;
+
+typedef struct Struct_Unk0C Struct_Unk0C, *PStruct_Unk0C;
+
+typedef struct Struct_Unk14_Sized Struct_Unk14_Sized, *PStruct_Unk14_Sized;
+
+typedef struct Struct_Unk1C_Battle_Sized Struct_Unk1C_Battle_Sized, *PStruct_Unk1C_Battle_Sized;
+
+typedef struct Struct_Unk20 Struct_Unk20, *PStruct_Unk20;
+
+typedef struct Struct_Unk24 Struct_Unk24, *PStruct_Unk24;
+
+typedef struct Struct_Unk28_Sized Struct_Unk28_Sized, *PStruct_Unk28_Sized;
+
+typedef struct Struct_Unk2C Struct_Unk2C, *PStruct_Unk2C;
+
+typedef struct Struct_Unk30 Struct_Unk30, *PStruct_Unk30;
+
+typedef struct MainMenu MainMenu, *PMainMenu;
+
+typedef struct WindowSettings WindowSettings, *PWindowSettings;
+
+typedef struct Struct_Unk44 Struct_Unk44, *PStruct_Unk44;
+
+typedef struct Text Text, *PText;
+
+typedef struct Struct_Unk4C Struct_Unk4C, *PStruct_Unk4C;
+
+typedef struct Struct_Unk50_TimerRelated Struct_Unk50_TimerRelated, *PStruct_Unk50_TimerRelated;
+
+typedef struct Struct_Unk54 Struct_Unk54, *PStruct_Unk54;
+
+typedef struct Struct_Unk58 Struct_Unk58, *PStruct_Unk58;
+
+typedef struct ScreenLayoutContainer ScreenLayoutContainer, *PScreenLayoutContainer;
+
+typedef struct Struct_Unk60 Struct_Unk60, *PStruct_Unk60;
+
+typedef struct Struct_Unk64_Sized Struct_Unk64_Sized, *PStruct_Unk64_Sized;
+
+typedef struct Struct_Unk68 Struct_Unk68, *PStruct_Unk68;
+
+typedef struct Struct_Unk6C Struct_Unk6C, *PStruct_Unk6C;
+
+typedef struct Shop Shop, *PShop;
+
+typedef struct Struct_Unk74 Struct_Unk74, *PStruct_Unk74;
+
+typedef struct Struct_Unk78 Struct_Unk78, *PStruct_Unk78;
+
+typedef struct Struct_Unk7C Struct_Unk7C, *PStruct_Unk7C;
+
+typedef enum Manager_State {
+    MS_State0=0,
+    MS_State1=4,
+    MS_State2=8,
+    MS_State3=12,
+    MS_State4_Demo=16,
+    MS_State5_Initial=20,
+    MS_State6=24,
+    MS_State7=28,
+    MS_State8_GameOver=32,
+    MS_State9=36,
+    MS_StateA=40
+} Manager_State;
+
 typedef struct Struct_20066B0 Struct_20066B0, *PStruct_20066B0;
 
 typedef struct Struct_83BA4 Struct_83BA4, *PStruct_83BA4;
@@ -1613,61 +1735,6 @@ struct Struct_Unk50_TimerRelated {
     ushort frameCounter;
 };
 
-struct Struct_Unk08 {
-    enum FuncState_08_0 m_state0;
-    byte b1;
-    byte b2;
-    byte b3;
-    enum AreaId m_currentArea;
-    byte m_currentSubArea;
-    byte m_possibleStoryFlag;
-    byte m_b7_fadeType;
-    byte b8;
-    byte m_Battle_IsTimePaused;
-    byte m_b10;
-    enum BackgroundId m_b11_backgroundId;
-    byte m_bx11;
-    byte m_bx12;
-    byte m_b14;
-    enum BattleType m_battleType;
-    byte m_b16_state;
-    bool m_isShuffleFolder;
-    byte m_b18_commentaryTextIndex;
-    byte m_b19_fadeStep;
-    byte m_b20_stat1_atk;
-    byte m_b21_stat2_spd;
-    byte m_b22_stat3_chg;
-    byte m_b23_possibleArmor;
-    enum SongId m_Song_CurrentSongId;
-    byte m_bustingRank;
-    byte m_b26;
-    byte m_b27;
-    ushort m_u0_hp0;
-    ushort m_u1_hp1;
-    int ix0;
-    int m_ix1;
-    struct Struct_63F0 * m_i0;
-    struct EnemySpawn * m_enemyList;
-    struct BattleChip * m_chipFolder;
-    int m_battleInitHideObject;
-    int m_ix7_savedPosY;
-    int m_ix8_savedPosX;
-    int m_ix9_savedPos0;
-    int m_ix10_savedDirection;
-    int ix11;
-    int ix12;
-    int ix13;
-    int ix14;
-    int ix15;
-    int ix16;
-    int ix17;
-    int ix18;
-    int ix19;
-    int ix20;
-    struct Struct_63F0 * ix21;
-    int m_zenny;
-};
-
 struct Manager {
     enum Manager_State m_state0;
     byte b1;
@@ -1760,7 +1827,10 @@ struct Struct_Unk24 {
     byte b1;
     byte b2;
     byte b3;
-    int i1;
+    byte b4;
+    byte b5;
+    byte b6;
+    byte b7;
     int i2;
     int i3;
 };
@@ -2133,73 +2203,6 @@ struct Struct_Unk7C {
     byte b39;
 };
 
-struct Struct_63F0 {
-    byte b0;
-    byte m_b1_state;
-    byte m_b2;
-    byte m_b3;
-    byte b4;
-    byte b5;
-    byte b6;
-    byte m_b7;
-    byte m_b8_state;
-    byte m_b9_state;
-    byte m_b10_state;
-    byte m_b11;
-    byte m_b12;
-    byte m_b13;
-    byte m_b14;
-    byte m_b15;
-    byte m_b16_direction; /* 0-7, 0= up, clockwise */
-    byte m_b17_direction2;
-    byte m_b18_isMoving;
-    byte m_b19_isMoving2;
-    byte m_b20_direction3;
-    byte m_b21_direction4;
-    byte b22;
-    byte m_b23;
-    int i0;
-    ushort m_s0;
-    ushort s1;
-    int i1;
-    int m_i2_posY;
-    int m_i3_posX;
-    int m_s2_pos0;
-    int m_i5_posY_2;
-    int m_i6_posX_2;
-    int m_i7;
-    int i8;
-    int m_i9_offsetY;
-    int m_i10_offsetX;
-    int m_i11;
-    int i12;
-    int i13;
-    int i14;
-    int m_i15_stepCounter;
-    int i16;
-    ushort m_s4_moveKeyFlags;
-    ushort m_s5;
-    int i17;
-    int i18;
-    int i19;
-    int i20;
-    int i21;
-    int i22;
-    int i23;
-    int i24;
-    int i25;
-    int i26;
-    int i27;
-    int i28;
-    int i29;
-    int i30;
-    int i31;
-    int i32;
-    int m_i33_possiblyPcAnimRelated;
-    int i34;
-    int i35;
-};
-
 struct Struct_Unk78 {
     byte bxx0;
     byte m_bxx1;
@@ -2315,7 +2318,7 @@ struct Struct_Unk74 {
 struct Main {
     struct Manager * manager;
     struct Input * input;
-    struct Struct_Unk08 * unk_08;
+    struct GameState * game;
     struct Struct_Unk0C * unk_0C;
     struct DisplaySettings * displaySettings;
     struct Struct_Unk14_Sized * unk_14;

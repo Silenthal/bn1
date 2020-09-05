@@ -18,8 +18,8 @@ Battle_CalculateRank:
     @ Figure out which scoring to use based on the type of battle
     @ Virus busting uses different thresholds than boss busting
     mov        r1,#0x0
-    LoadStateTo r4, Main_unk_08, r4
-    ldrb       r0,[r4,#Struct_Unk08_m_battleType]
+    LoadStateTo r4, Main_game, r4
+    ldrb       r0,[r4,#GameState_m_battleType]
     cmp        r0,#BattleType_5_InvElecMan
     beq        LAB_0807d5ca
     cmp        r0,#BattleType_7_Boss

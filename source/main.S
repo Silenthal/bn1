@@ -253,7 +253,7 @@ PTR_MainState_08000468: .word MainState
 MainState:
     .word eMainState0x00
     .word gInput
-    .word eMainState0x08
+    .word gGameState
     .word eMainState0x0C
     .word gDisplaySettings
     .word eMainState0x14

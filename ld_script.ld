@@ -28,7 +28,7 @@ SECTIONS {
 		gFlagBase                = 0;
 		gFolder                  = 0x1C0;
 		gEmailCount              = 0x200;
-		eMainState0x08           = 0x210;
+		gGameState               = 0x210;
 		eMainState0x78           = 0x3D0;
 		gBattleChipInventory     = 0x4A0;
 		gEmailIndexes            = 0x1FA0;
