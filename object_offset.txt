@@ -15,6 +15,7 @@ battlechip 0x7C44
 enemy_detail 0x9DC4
 flag 0x102DC
 swi 0x9DF50
+text 0x13560
 demo 0x18968
 battle_rank 0x7D5B0
 enemy_drop 0x7D80E
@@ -25,3 +26,4 @@ asset_chip 0x638634
 asset_battle 0x647AFC
 asset_text 0x69D57C
 asset_demo 0x796FD4
+asset_7AC9B8 0x7AC9B8

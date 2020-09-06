@@ -274,7 +274,7 @@ MainState:
     .word eMainState0x50
     .word eMainState0x54
     .word eMainState0x58
-    .word gScreens
+    .word iwScreens
     .word eMainState0x60
     .word eMainState0x64
     .word eMainState0x68

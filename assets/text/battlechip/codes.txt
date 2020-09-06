@@ -1,0 +1,163 @@
+section_count(0x1B)
+
+# 0x00 @ 0x7AD17E
+section_start(0x00)
+text("""A""")
+end()
+section_end()
+
+# 0x01 @ 0x7AD184
+section_start(0x01)
+text("""B""")
+end()
+section_end()
+
+# 0x02 @ 0x7AD18A
+section_start(0x02)
+text("""C""")
+end()
+section_end()
+
+# 0x03 @ 0x7AD190
+section_start(0x03)
+text("""D""")
+end()
+section_end()
+
+# 0x04 @ 0x7AD196
+section_start(0x04)
+text("""E""")
+end()
+section_end()
+
+# 0x05 @ 0x7AD19C
+section_start(0x05)
+text("""F""")
+end()
+section_end()
+
+# 0x06 @ 0x7AD1A2
+section_start(0x06)
+text("""G""")
+end()
+section_end()
+
+# 0x07 @ 0x7AD1A8
+section_start(0x07)
+text("""H""")
+end()
+section_end()
+
+# 0x08 @ 0x7AD1AE
+section_start(0x08)
+text("""I""")
+end()
+section_end()
+
+# 0x09 @ 0x7AD1B4
+section_start(0x09)
+text("""J""")
+end()
+section_end()
+
+# 0x0A @ 0x7AD1BA
+section_start(0x0A)
+text("""K""")
+end()
+section_end()
+
+# 0x0B @ 0x7AD1C0
+section_start(0x0B)
+text("""L""")
+end()
+section_end()
+
+# 0x0C @ 0x7AD1C6
+section_start(0x0C)
+text("""M""")
+end()
+section_end()
+
+# 0x0D @ 0x7AD1CC
+section_start(0x0D)
+text("""N""")
+end()
+section_end()
+
+# 0x0E @ 0x7AD1D2
+section_start(0x0E)
+text("""O""")
+end()
+section_end()
+
+# 0x0F @ 0x7AD1D8
+section_start(0x0F)
+text("""P""")
+end()
+section_end()
+
+# 0x10 @ 0x7AD1DE
+section_start(0x10)
+text("""Q""")
+end()
+section_end()
+
+# 0x11 @ 0x7AD1E4
+section_start(0x11)
+text("""R""")
+end()
+section_end()
+
+# 0x12 @ 0x7AD1EA
+section_start(0x12)
+text("""S""")
+end()
+section_end()
+
+# 0x13 @ 0x7AD1F0
+section_start(0x13)
+text("""T""")
+end()
+section_end()
+
+# 0x14 @ 0x7AD1F6
+section_start(0x14)
+text("""U""")
+end()
+section_end()
+
+# 0x15 @ 0x7AD1FC
+section_start(0x15)
+text("""V""")
+end()
+section_end()
+
+# 0x16 @ 0x7AD202
+section_start(0x16)
+text("""W""")
+end()
+section_end()
+
+# 0x17 @ 0x7AD208
+section_start(0x17)
+text("""X""")
+end()
+section_end()
+
+# 0x18 @ 0x7AD20E
+section_start(0x18)
+text("""Y""")
+end()
+section_end()
+
+# 0x19 @ 0x7AD214
+section_start(0x19)
+text("""Z""")
+end()
+section_end()
+
+# 0x1A @ 0x7AD21A
+section_start(0x1A)
+text(""" """)
+end()
+section_end()

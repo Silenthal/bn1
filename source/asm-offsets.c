@@ -39,6 +39,24 @@ int main(void)
     DECLARE("Main_unk_78"                   , offsetof(struct Main, unk_78));
     DECLARE("Main_unk_7C"                   , offsetof(struct Main, unk_7C));
 
+    // Input
+    DECLARE("Input_curKeyState"      , offsetof(Input, curKeyState));
+    DECLARE("Input_toggleKeyState"   , offsetof(Input, toggleKeyState));
+    DECLARE("Input_heldKeyState"     , offsetof(Input, heldKeyState));
+    DECLARE("Input_lastKeyState"     , offsetof(Input, lastKeyState));
+    DECLARE("Input_framesHeldA"      , offsetof(Input, framesHeldA));
+    DECLARE("Input_framesHeldB"      , offsetof(Input, framesHeldB));
+    DECLARE("Input_framesHeldSelect" , offsetof(Input, framesHeldSelect));
+    DECLARE("Input_framesHeldStart"  , offsetof(Input, framesHeldStart));
+    DECLARE("Input_framesHeldRight"  , offsetof(Input, framesHeldRight));
+    DECLARE("Input_framesHeldLeft"   , offsetof(Input, framesHeldLeft));
+    DECLARE("Input_framesHeldUp"     , offsetof(Input, framesHeldUp));
+    DECLARE("Input_framesHeldDown"   , offsetof(Input, framesHeldDown));
+    DECLARE("Input_framesHeldR"      , offsetof(Input, framesHeldR));
+    DECLARE("Input_framesHeldL"      , offsetof(Input, framesHeldL));
+    DECLARE("Input_unused"           , offsetof(Input, unused));
+    DECLARE("Input_frameCounter"     , offsetof(Input, frameCounter));
+    
     // Manager
     DECLARE("Manager_m_state0"              , offsetof(struct Manager, m_state0));
     DECLARE("Manager_m_softResetDelayTimer" , offsetof(struct Manager, m_softResetDelayTimer));
@@ -211,6 +229,51 @@ int main(void)
     DECLARE("Struct_Unk20_s6"                       , offsetof(Struct_Unk20, s6));
     DECLARE("Struct_Unk20_s7"                       , offsetof(Struct_Unk20, s7));
     DECLARE("Struct_Unk20_s8"                       , offsetof(Struct_Unk20, s8));
+
+    // Text
+    DECLARE("Text_m_isWriteText"                   , offsetof(Text, m_isWriteText));
+    DECLARE("Text_m_textBlockIndex"                , offsetof(Text, m_textBlockIndex));
+    DECLARE("Text_m_textBufferOffset"              , offsetof(Text, m_textBufferOffset));
+    DECLARE("Text_m_scriptOptions"                 , offsetof(Text, m_scriptOptions));
+    DECLARE("Text_m_dialogDelayType"               , offsetof(Text, m_dialogDelayType));
+    DECLARE("Text_m_isScriptJump"                  , offsetof(Text, m_isScriptJump));
+    DECLARE("Text_m_counter1"                      , offsetof(Text, m_counter1));
+    DECLARE("Text_m_portraitPalIndex"              , offsetof(Text, m_portraitPalIndex));
+    DECLARE("Text_m_nextDelay"                     , offsetof(Text, m_nextDelay));
+    DECLARE("Text_m_commandParseDelay"             , offsetof(Text, m_commandParseDelay));
+    DECLARE("Text_m_nextAnimationIndex"            , offsetof(Text, m_nextAnimationIndex));
+    DECLARE("Text_m_currAnimationIndex"            , offsetof(Text, m_currAnimationIndex));
+    DECLARE("Text_m_dialogDelayCounter"            , offsetof(Text, m_dialogDelayCounter));
+    DECLARE("Text_m_textCol"                       , offsetof(Text, m_textCol));
+    DECLARE("Text_m_textRow"                       , offsetof(Text, m_textRow));
+    DECLARE("Text_m_layoutLineOffset"              , offsetof(Text, m_layoutLineOffset));
+    DECLARE("Text_m_scriptParseDelay"              , offsetof(Text, m_scriptParseDelay));
+    DECLARE("Text_m_dialogSkipDelay"               , offsetof(Text, m_dialogSkipDelay));
+    DECLARE("Text_m_charShade"                     , offsetof(Text, m_charShade));
+    DECLARE("Text_m_b14"                           , offsetof(Text, m_b14));
+    DECLARE("Text_m_b15_optionFlag"                , offsetof(Text, m_b15_optionFlag));
+    DECLARE("Text_m_b16"                           , offsetof(Text, m_b16));
+    DECLARE("Text_m_b17"                           , offsetof(Text, m_b17));
+    DECLARE("Text_m_curKeyState"                   , offsetof(Text, m_curKeyState));
+    DECLARE("Text_m_heldKeyState"                  , offsetof(Text, m_heldKeyState));
+    DECLARE("Text_m_toggleKeyState"                , offsetof(Text, m_toggleKeyState));
+    DECLARE("Text_m_dialogArrowAnimCycle"          , offsetof(Text, m_dialogArrowAnimCycle));
+    DECLARE("Text_m_arrowAnimFrame"                , offsetof(Text, m_arrowAnimFrame));
+    DECLARE("Text_m_commandTextPointer"            , offsetof(Text, m_commandTextPointer));
+    DECLARE("Text_m_textBlockPointer"              , offsetof(Text, m_textBlockPointer));
+    DECLARE("Text_m_layoutTextPointer"             , offsetof(Text, m_layoutTextPointer));
+    DECLARE("Text_m_dialogLayout"                  , offsetof(Text, m_dialogLayout));
+    DECLARE("Text_m_itemIdList"                    , offsetof(Text, m_itemIdList));
+    DECLARE("Text_m_textPointerAfterKeyPrint"      , offsetof(Text, m_textPointerAfterKeyPrint));
+    DECLARE("Text_m_otherTextPointerAfterKeyPrint" , offsetof(Text, m_otherTextPointerAfterKeyPrint));
+    DECLARE("Text_m_possibleBcdBuffer"             , offsetof(Text, m_possibleBcdBuffer));
+    DECLARE("Text_m_b18"                           , offsetof(Text, m_b18));
+    DECLARE("Text_b19"                             , offsetof(Text, b19));
+    DECLARE("Text_b20"                             , offsetof(Text, b20));
+    DECLARE("Text_b21"                             , offsetof(Text, b21));
+    DECLARE("Text_m_textBufIndex"                  , offsetof(Text, m_textBufIndex));
+    DECLARE("Text_m_otherTempTextBufIndex"         , offsetof(Text, m_otherTempTextBufIndex));
+    DECLARE("Text_m_portrait"                      , offsetof(Text, m_portrait));
 
     // SpriteLzDetails
     DECLARE("SpriteLzDetails_m_spriteCount"     , offsetof(struct SpriteLzDetails, m_spriteCount));

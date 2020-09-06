@@ -33,6 +33,7 @@ SECTIONS {
 		gBattleChipInventory     = 0x4A0;
 		gEmailIndexes            = 0x1FA0;
 		eMainState0x0C           = 0x3710;
+		gTextTileBuffer			 = 0x37E0;
 		tempBg1Hofs              = 0x46E0;
 		eMainState0x58           = 0x4710;
 		eMainState0x30           = 0x48B8;
@@ -48,6 +49,7 @@ SECTIONS {
 		eMainState0x4C           = 0x4BD0;
 		eMainState0x74           = 0x62E0;
 		gText                    = 0x6350;
+		gTextOptionFlags		 = 0x63E0;
 		eMainState0x50           = 0x64A0;
 		eMainState0x68           = 0x65D0;
 		gInput					 = 0x65F0;
@@ -83,7 +85,9 @@ SECTIONS {
 		gDisplaySettings         = 0x7510;
 		gMainMenu                = 0x7590;
 		eMainState0x20           = 0x75F0;
+		gTextBufferList			 = 0x76D0;
 		eMainState0x54           = 0x7DE0;
+		gLayoutDialogueText		 = 0x7E10;
 		eDmaParamList            = 0x8010;
 		eMainState0x44           = 0x9A50;
 		eMainState0x64           = 0x9A80;
@@ -130,7 +134,7 @@ SECTIONS {
 	. = __iwram_start;
 	iwram (NOLOAD) :
 	{
-		gScreens        = 0x0;
+		iwScreens             = 0x0;
 		interruptVector       = 0x2000;
 		interruptVectorHblank = 0x2004;
 		interruptHandlerStart = 0x6800;
@@ -157,6 +161,7 @@ SECTIONS {
 		BG_VRAM_BASE2 = 0x8000;
 		BG_VRAM_BASE3 = 0xC000;
 		BG_VRAM_SCREEN0 = 0xE000;
+		vTextTileStart = 0xC800;
 	} > vram
 
 	/DISCARD/ : {

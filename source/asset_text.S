@@ -312,9 +312,9 @@ global_label textDict_ACDC_Town_Area_7
     .incbin "text/dialogue/overworld/ACDCTown/06F44DC.script"
 global_label textDict_ACDC_Town_Area_9
     .incbin "text/dialogue/overworld/ACDCTown/06F5504.script"
-global_label textDict_ACDC_Town_Area_11
+global_label textDict_ACDC_Town_Area_B
     .incbin "text/dialogue/overworld/ACDCTown/06F6330.script"
-global_label textDict_ACDC_Town_Area_12
+global_label textDict_ACDC_Town_Area_C
     .incbin "text/dialogue/overworld/ACDCTown/06F76A4.script"
 
 @ Quirk: Blank script the same size as the one for area 12, but empty
@@ -377,9 +377,9 @@ global_label textDict_WWWBase_Area_2
     .incbin "text/dialogue/overworld/WWWBase/070FCE4.script"
 global_label textDict_WWWBase_Area_3
     .incbin "text/dialogue/overworld/WWWBase/070FD4C.script"
-global_label textDict_WWWBase_Area_4
+    @ Quirk: Script for area 4 included twice
     .incbin "text/dialogue/overworld/WWWBase/071047C.script"
-@ Quirk: Script for area 4 included twice
+global_label textDict_WWWBase_Area_4
     .incbin "text/dialogue/overworld/WWWBase/071047C.script"
 global_label textDict_WWWBase_Area_5
     .incbin "text/dialogue/overworld/WWWBase/0710740.script"

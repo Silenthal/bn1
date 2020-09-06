@@ -972,17 +972,6 @@ typedef enum Flag_400 {
     F400_Unescapable=8
 } Flag_400;
 
-typedef enum Flag_B3 {
-    Flag_B3_01_BreakLoop=1,
-    Flag_B3_02_ShowAvatar=2,
-    Flag_B3_04_Unskippable_Script=4,
-    Flag_B3_08=8,
-    Flag_B3_10_DrawArrow=16,
-    Flag_B3_20_PasscodeEntry=32,
-    Flag_B3_40=64,
-    Flag_B3_80_Skip_Text_Sound=128
-} Flag_B3;
-
 typedef enum Flag_B4 {
     B4_NoMiniAnim=1
 } Flag_B4;
@@ -2108,15 +2097,15 @@ struct Text {
     bool m_isWriteText;
     byte m_textBlockIndex;
     byte m_textBufferOffset;
-    byte m_b3;
+    byte m_scriptOptions;
     enum TextStateDelayType m_dialogDelayType;
-    byte m_b5_isScriptJump;
-    byte m_b6_counter1;
+    byte m_isScriptJump;
+    byte m_counter1;
     byte m_portraitPalIndex;
     byte m_nextDelay;
     byte m_commandParseDelay;
-    byte m_bA_nextAnimationIndex;
-    byte m_bB_currAnimationIndex;
+    byte m_nextAnimationIndex;
+    byte m_currAnimationIndex;
     ushort m_dialogDelayCounter;
     byte m_textCol;
     byte m_textRow;
@@ -2566,6 +2555,17 @@ typedef enum RelationFlag {
     RF_SameID=1
 } RelationFlag;
 
+typedef enum ScriptOption {
+    TS_08=8,
+    TS_40=64,
+    TS_BreakLoop=1,
+    TS_DrawArrow=16,
+    TS_PasscodeEntry=32,
+    TS_ShowPortrait=2,
+    TS_Skip_Text_Sound=128,
+    TS_Unskippable_Script=4
+} ScriptOption;
+
 typedef struct Song Song, *PSong;
 
 struct Song {
@@ -2977,13 +2977,13 @@ struct TextDst {
     byte * dstAddressVram;
 };
 
-typedef enum TextOptionFlags {
+typedef enum TextOption {
     TF_AllOptions=15,
     TF_ClearDialogBox=128,
     TF_DisableInput=64,
     TF_Flag_20=32,
     TF_Unused=16
-} TextOptionFlags;
+} TextOption;
 
 typedef struct Tile8 Tile8, *PTile8;
 

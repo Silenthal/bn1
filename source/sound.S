@@ -59,11 +59,14 @@ thumb_func_end Sound_Main
     .word 0x4425121c
     .word 0
 
+thumb_func_start Sound_VSync
 Sound_VSync:
     push       { lr }
     bl         m4aSoundVSync
     pop        { pc }
+thumb_func_end Sound_VSync
 
+thumb_func_start Sound_PlaySongImmediate
 Sound_PlaySongImmediate:
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
 LAB_0800066a:
@@ -74,8 +77,9 @@ LAB_0800066a:
     mov        r10,r1
 LAB_08000676:
     pop        { r1, r2, r3, r4, r5, r6, r7, pc }
+thumb_func_end Sound_PlaySongImmediate
 
-
+thumb_func_start Sound_ChangeSong
 Sound_ChangeSong:
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     mov        r7,r10
@@ -85,15 +89,18 @@ Sound_ChangeSong:
     beq        LAB_08000676
     strb       r0,[r7,#0x18]
     b          LAB_0800066a
+thumb_func_end Sound_ChangeSong
 
+thumb_func_start Sound_PlaySong
 Sound_PlaySong:
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     mov        r7,r10
     ldr        r7,[r7,#0x8]
     strb       r0,[r7,#0x18]
     b          LAB_0800066a
+thumb_func_end Sound_PlaySong
 
-
+non_word_aligned_thumb_func_start Song_FadeOut
 Song_FadeOut:
     push       { r5, lr }
     ldr        r7,PTR_musicPlayerList_080006a8
@@ -105,6 +112,7 @@ Song_FadeOut:
     pop        { r2 }
     mov        r10,r2
     pop        { r5, pc }
+thumb_func_end Song_FadeOut
 
 PTR_musicPlayerList_080006a8: .word musicPlayerList
 musicPlayerList:
@@ -141,6 +149,7 @@ musicPlayerList:
         .word musicPlayerInfo_1E
         .word musicPlayerInfo_1F
 
+thumb_func_start Sound_StopAllMusic
 Sound_StopAllMusic:
     push       { lr }
     mov        r1,r10
@@ -153,7 +162,9 @@ Sound_StopAllMusic:
     mov        r0,#0xff
     strb       r0,[r7,#0x18]
     pop        { pc }
+thumb_func_end Sound_StopAllMusic
 
+thumb_func_start Sound_AreaSongChange
 Sound_AreaSongChange:
     push       { lr }
     mov        r7,r10
@@ -205,6 +216,7 @@ LAB_080007a0:
     b          LAB_080007a6
 LAB_080007a6:
     pop        { pc }
+thumb_func_end Sound_AreaSongChange
 
 PTR_songTableRealWorld_080007a8:        .word songTableRealWorld
 PTR_songTableInternet_080007ac:         .word songTableInternet
@@ -543,6 +555,7 @@ songGroup_Internet:
     .byte T_Boundless_Network
     .byte T_Boundless_Network
 
+thumb_func_start Sound_StopSong
 Sound_StopSong:
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     mov        r1,r10
@@ -551,6 +564,7 @@ Sound_StopSong:
     pop        { r1 }
     mov        r10,r1
     pop        { r1, r2, r3, r4, r5, r6, r7, pc }
+thumb_func_end Sound_StopSong
 
 DAT_0800093c: .word 0x209
 DAT_08000940: .word 0x20B

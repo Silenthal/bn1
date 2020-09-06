@@ -4,3 +4,6 @@
     .include "constants/song.inc"
     .include "constants/battlechip.inc"
     .include "constants/enemy.inc"
+    .include "constants/area.inc"
+    .include "constants/text.inc"
+    .include "constants/key.inc"

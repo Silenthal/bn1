@@ -1,0 +1,157 @@
+section_count(0xC)
+
+# 0x00 @ 0x7ACC3C
+section_start(0x00)
+pic(41)
+dialog_up()
+text("""{anim 2}What will U buy?
+""")
+set_delay(0)
+text("""(R Btn;description)
+(B Btn;leave shop){anim 1}""")
+set_delay(1)
+set_flag(1030)
+stop()
+section_end()
+
+# 0x01 @ 0x7ACC94
+section_start(0x01)
+dialog_show()
+text("""You bought
+""")
+key_item_buf(1)
+text("""!""")
+set_flag(1030)
+stop()
+section_end()
+
+# 0x02 @ 0x7ACCB1
+section_start(0x02)
+pic(41)
+dialog_show()
+text_talking("""Bzzt! Not enough
+zenny...""")
+set_flag(1030)
+stop()
+section_end()
+
+# 0x03 @ 0x7ACCE2
+section_start(0x03)
+pic(41)
+dialog_show()
+text_talking("""Apologies...
+That is sold out...""")
+set_flag(1030)
+stop()
+section_end()
+
+# 0x04 @ 0x7ACD1C
+section_start(0x04)
+pic(41)
+dialog_show()
+text_talking("""Leave shop?
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x05, 0xFF], 0, False, True)
+set_flag(1029)
+stop()
+section_end()
+
+# 0x05 @ 0x7ACD54
+section_start(0x05)
+pic(41)
+dialog_show()
+text_talking("""Thank you! And use
+the menu to equip
+PowerUPs and armor!""")
+breaks(30)
+set_flag(1030)
+stop()
+section_end()
+
+# 0x06 @ 0x7ACDA6
+section_start(0x06)
+wait(34304)
+text("""z""")
+end()
+section_end()
+
+# 0x07 @ 0x7ACDAF
+section_start(0x07)
+pic(41)
+dialog_show()
+text("""{anim 2}What will U buy?
+""")
+set_delay(0)
+text("""(R Btn;description)
+(B Btn;leave shop){anim 1}""")
+set_delay(1)
+set_flag(1030)
+stop()
+section_end()
+
+# 0x08 @ 0x7ACE07
+section_start(0x08)
+dialog_show()
+text("""You bought
+""")
+chip_id_buf(1)
+text(""" """)
+chip_code_buf(2)
+text("""!""")
+set_flag(1030)
+stop()
+section_end()
+
+# 0x09 @ 0x7ACE29
+section_start(0x09)
+pic(41)
+dialog_show()
+text("""{anim 2}Bzzt! Purchase
+""")
+key_item_buf(1)
+text("""?
+{anim 1}""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x0B, 0xFF], 0, False, True)
+set_flag(1029)
+stop()
+section_end()
+
+# 0x0A @ 0x7ACE6B
+section_start(0x0A)
+pic(41)
+dialog_show()
+text("""{anim 2}Bzzt! Purchase
+""")
+chip_id_buf(1)
+text(""" """)
+chip_code_buf(2)
+text("""?
+{anim 1}""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x0B, 0xFF], 0, False, True)
+set_flag(1029)
+stop()
+section_end()
+
+# 0x0B @ 0x7ACEB2
+section_start(0x0B)
+set_flag(1030)
+stop()
+section_end()
