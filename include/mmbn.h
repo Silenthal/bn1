@@ -15,10 +15,9 @@ typedef unsigned short    word;
 typedef struct _decompress_result _decompress_result, *P_decompress_result;
 
 struct _decompress_result {
-    void * uVal1;
-    ushort uVal2;
-    byte bVal3;
-    byte bVal4;
+    void * m_segmentStart;
+    short m_segmentCount;
+    short m_gridIndex;
     byte bVal5;
     byte bVal6;
     uint unknown1;
@@ -67,15 +66,6 @@ struct _interruptHandler {
     void (* keypad)(void);
     void (* extirq)(void);
     void (* other)(void);
-};
-
-typedef struct _lz_header _lz_header, *P_lz_header;
-
-struct _lz_header {
-    int val_a;
-    int val_b;
-    int val_c;
-    int val_d;
 };
 
 typedef enum AreaId {
@@ -972,10 +962,6 @@ typedef enum Flag_400 {
     F400_Unescapable=8
 } Flag_400;
 
-typedef enum Flag_B4 {
-    B4_NoMiniAnim=1
-} Flag_B4;
-
 typedef enum FuncState_08_0 {
     FC08_0_State0=0,
     FC08_1_State1=2,
@@ -1020,7 +1006,7 @@ typedef enum FuncState_24 {
 
 typedef enum FuncState_28 {
     FS28_State0=0,
-    FS28_State1_JackInRelated=4,
+    FS28_State1=4,
     FS28_State2=8,
     FS28_State3=12,
     FS28_State4=16,
@@ -1340,7 +1326,7 @@ struct GameState {
     byte b3;
     enum AreaId m_currentArea;
     byte m_currentSubArea;
-    byte m_possibleStoryFlag;
+    byte m_storyFlag;
     byte m_b7_fadeType;
     byte b8;
     byte m_Battle_IsTimePaused;
@@ -1561,7 +1547,7 @@ typedef struct Struct_Unk20 Struct_Unk20, *PStruct_Unk20;
 
 typedef struct Struct_Unk24 Struct_Unk24, *PStruct_Unk24;
 
-typedef struct Struct_Unk28_Sized Struct_Unk28_Sized, *PStruct_Unk28_Sized;
+typedef struct Scene Scene, *PScene;
 
 typedef struct Struct_Unk2C Struct_Unk2C, *PStruct_Unk2C;
 
@@ -1627,6 +1613,10 @@ typedef enum TextStateDelayType {
 
 typedef struct Sprite Sprite, *PSprite;
 
+typedef enum SpriteFlag {
+    SF_NoMiniAnimation=1
+} SpriteFlag;
+
 typedef struct objectTileAttributes objectTileAttributes, *PobjectTileAttributes;
 
 struct Struct_Unk2C {
@@ -1650,10 +1640,7 @@ struct Struct_Unk2C {
     byte b17;
     byte m_b18;
     byte b19;
-    byte b20;
-    byte b21;
-    byte b22;
-    byte b23;
+    void * m_b20;
     byte b24;
     byte b25;
     byte b26;
@@ -1780,10 +1767,8 @@ struct Struct_Unk44 {
     byte m_b1;
     byte field_0x2;
     byte field_0x3;
-    byte field_0x4;
-    byte field_0x5;
-    byte field_0x6;
-    byte field_0x7;
+    short hx;
+    short hy;
     uint * m_p0;
     struct BattleChip * m_chipArr;
     int m_i0;
@@ -1822,28 +1807,6 @@ struct Struct_Unk24 {
     byte b7;
     int i2;
     int i3;
-};
-
-struct Struct_Unk28_Sized {
-    enum FuncState_28 m_state0;
-    byte b1;
-    byte b2;
-    byte b3;
-    byte m_counter0;
-    byte b5;
-    byte b6;
-    byte b7;
-    ushort m_dialogueSelector;
-    ushort flag1;
-    void * scenePointer;
-    struct Struct_83BA4 * i0;
-    int i1;
-    int i2;
-    int i3;
-    int i4;
-    int i5;
-    int i6;
-    int i7;
 };
 
 struct Struct_Unk68 {
@@ -1943,7 +1906,7 @@ struct Sprite {
     byte m_indexSubFrame;
     byte m_frameDelay;
     byte m_frameFlags;
-    enum Flag_B4 m_b4;
+    enum SpriteFlag m_spriteFlags;
     byte m_srcPalIndex;
     byte m_palIndexSubFrame;
     byte m_indexOamList;
@@ -1955,8 +1918,7 @@ struct Sprite {
     byte m_u3_affineRelated_Lo;
     byte m_u3_affineRelated_Hi;
     struct objectTileAttributes m_tileAttributes;
-    byte b9;
-    byte b10;
+    short _pad;
     byte * m_spriteStart;
     byte * m_curFrame;
     byte * m_curSubFrame;
@@ -2020,57 +1982,60 @@ struct Struct_Unk14_Sized {
 struct Struct_20066B0 {
     byte m_b0;
     byte m_b1;
-    byte ub1;
-    byte ub2;
+    byte m_ub1;
+    byte m_ub2;
     byte m_p1_possibleVirusFamily;
-    byte _p1;
-    byte _p2;
-    byte _p3;
+    byte m_p1;
+    byte m_p2;
+    byte m_p3;
     byte m_stateX;
-    byte bx2;
-    byte bx3;
-    byte bx4;
+    byte m_bx2;
+    byte m_bx3;
+    byte m_bx4;
     byte b0;
-    byte b1;
-    byte b2;
+    byte m_b01;
+    byte m_b2;
     byte b3;
-    byte b4;
-    byte b5;
+    byte m_direction;
+    byte m_b5;
     byte m_possibleEnemyNumber;
     byte m_possibleEnemyId;
-    byte b7;
-    byte b8;
-    byte b9;
-    byte b10;
-    byte b11;
-    byte b12;
-    byte b13;
-    byte b14;
-    int i5;
-    int i6;
-    int i7;
+    byte m_b7;
+    byte m_b8;
+    byte m_b9;
+    byte m_b10;
+    byte m_b11;
+    byte m_b12;
+    byte m_b13;
+    byte m_b14;
+    short m_is0;
+    short m_is1;
+    short m_is2;
+    short m_is3;
+    short m_is4;
+    short is5;
     int m_ix0;
     int m_ix1;
     int m_ix2;
-    int i8;
-    int i9;
-    int i10;
+    int m_i8;
+    int m_i9;
+    int m_i10;
     int i11;
-    int i12;
-    int i13;
-    int i14;
-    int i15;
-    int i16;
-    int i17;
-    int i18;
+    int m_i12;
+    int m_i13;
+    int m_i14;
+    int m_i15;
+    int m_i16;
+    int m_i17;
+    int m_i18;
     byte ix19;
     byte m_chipSubFamily;
     byte ix21;
     byte ix22;
     ushort is01;
     ushort m_chipFamily;
-    int i21;
-    int i22;
+    int m_i21;
+    int m_i22;
     int i23;
     void * m_i24;
     int i25;
@@ -2079,18 +2044,7 @@ struct Struct_20066B0 {
     int i28;
     int i29;
     int i30;
-    int i31;
-    int i32;
-    int i33;
-    int i34;
-    int i35;
-    int i36;
-    int i37;
-    int i38;
-    int i39;
-    int i40;
-    int i41;
-    int i42;
+    struct Sprite m_sprite;
 };
 
 struct Text {
@@ -2147,6 +2101,28 @@ struct Struct_Unk1C_Battle_Sized {
     byte m_possibleChipGaugeFull;
     int i2;
     byte m_buffer[32];
+};
+
+struct Scene {
+    enum FuncState_28 m_state0;
+    byte b1;
+    byte m_b2;
+    byte b3;
+    byte m_dialogueIndex;
+    byte m_areaDialogueIndex;
+    byte b6;
+    byte b7;
+    ushort m_delayCounter;
+    ushort flag1;
+    void * m_scenePointer;
+    struct Struct_83BA4 * i0;
+    struct Scene * m_i1;
+    int i2;
+    int i3;
+    int i4;
+    int i5;
+    int i6;
+    int i7;
 };
 
 struct Struct_Unk7C {
@@ -2315,7 +2291,7 @@ struct Main {
     struct Struct_Unk1C_Battle_Sized * unk_1C;
     struct Struct_Unk20 * unk_20;
     struct Struct_Unk24 * unk_24;
-    struct Struct_Unk28_Sized * unk_28;
+    struct Scene * unk_28;
     struct Struct_Unk2C * unk_2C;
     struct Struct_Unk30 * unk_30;
     struct MainMenu * mainMenu;
@@ -2345,6 +2321,15 @@ struct Struct_Unk54 {
     void * i0;
     byte b2;
     byte b3;
+};
+
+typedef struct MapDataHeader MapDataHeader, *PMapDataHeader;
+
+struct MapDataHeader {
+    int m_boundaryDataOffset;
+    int m_elevationDataOffset;
+    int m_coverDataOffset;
+    int m_eventDataOffset;
 };
 
 typedef enum MptFlag {
@@ -2753,7 +2738,7 @@ struct Struct_20070D0 {
 typedef struct Struct_2007200 Struct_2007200, *PStruct_2007200;
 
 struct Struct_2007200 {
-    uint u0;
+    uint m_possibleSpriteGraphicsPointer;
     uint u1;
 };
 
@@ -2813,6 +2798,23 @@ struct Struct_2007530 {
     byte b61;
     byte b62;
     byte b63;
+};
+
+typedef struct Struct_2008410 Struct_2008410, *PStruct_2008410;
+
+struct Struct_2008410 {
+    byte m_b0;
+    byte m_b1;
+    byte b2;
+    byte b3;
+    int m_i00;
+    int m_i01;
+    byte part1[28];
+    int m_i1;
+    int m_i2;
+    int m_i3;
+    byte part2[76];
+    struct Sprite m_sprite;
 };
 
 typedef struct Struct_3490 Struct_3490, *PStruct_3490;

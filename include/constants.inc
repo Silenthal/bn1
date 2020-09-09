@@ -7,3 +7,4 @@
     .include "constants/area.inc"
     .include "constants/text.inc"
     .include "constants/key.inc"
+    .include "constants/sprite.inc"

@@ -1711,12 +1711,12 @@ JT_Command_F5_InputControl:
     tst        r0,r0
     beq        LAB_080140d4
     @ F5 xx = Enable input reading
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     b          LAB_080140da
     @ F5 00 = Disable input reading
 LAB_080140d4:
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
 LAB_080140da:
     add        r4,#0x2
@@ -3085,7 +3085,7 @@ funcListLayoutMiscControl:
     .word       JT_Layout_FD_00_AwardZenny
     .word       JT_Layout_FD_04_AwardChip
     .word       JT_Layout_FD_08_StartBattle
-    .word       JT_Layout_FD_0C_StartShip
+    .word       JT_Layout_FD_0C_StartShop
     .word       JT_Layout_FD_10_StartMiniBoss
     .word       JT_Layout_FD_14_StartChipTrader
     .word       JT_Layout_FD_18_StartVirusMachineBattle
@@ -3116,11 +3116,11 @@ JT_Layout_FD_08_StartBattle:
     mov        pc,lr
 thumb_func_end JT_Layout_FD_08_StartBattle
 
-thumb_func_start JT_Layout_FD_0C_StartShip
-JT_Layout_FD_0C_StartShip:
+thumb_func_start JT_Layout_FD_0C_StartShop
+JT_Layout_FD_0C_StartShop:
     add        r4,#0x3
     mov        pc,lr
-thumb_func_end JT_Layout_FD_0C_StartShip
+thumb_func_end JT_Layout_FD_0C_StartShop
 
 thumb_func_start JT_Layout_FD_10_StartMiniBoss
 JT_Layout_FD_10_StartMiniBoss:

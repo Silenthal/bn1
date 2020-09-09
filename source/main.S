@@ -2,14 +2,10 @@
     .include "constants.inc"
     .include "macros.inc"
     
-    .set FUN_08001950               , 0x8001950
     .set FUN_08001d60               , 0x8001d60
-    .set FUN_08002484               , 0x8002484
     .set FUN_080027f4               , 0x80027f4
     .set FUN_080063b2               , 0x80063b2
-    .set FUN_08013658               , 0x8013658
     .set FUN_0801996c               , 0x801996c
-    .set InitHblankOtherHandlers    , 0x8001bc8
     .set InitMainState_34           , 0x8010414
     .set ClearMemAtOffsets          , 0x8010a5c
     .set InitMainState0x58          , 0x8001d0c
@@ -34,7 +30,7 @@ LAB_08000290:
     ldr        r0,=0x3006ff5
     mov        lr,pc
     bx         r0
-    bl         FUN_08002484
+    bl         Sprite_TransferPalettes
     bl         Video_QueueBgPalTransfer
     bl         Dma_TransferListStartAll
     bl         FUN_080027f4
@@ -58,7 +54,7 @@ LAB_08000290:
     beq        LAB_080002e6
     bl         Fade_Apply
 LAB_080002e6:
-    bl         FUN_08013658
+    bl         Text_Main
     bl         FUN_0801996c
     bl         BgUpdate_CallPostLoopFunction
     bl         FUN_08001d60
@@ -217,14 +213,14 @@ Main_Init:
     bl         Video_InitPaletteColor0
     bl         Video_ApplySettings
     bl         Sound_Init
-    bl         InitHblankOtherHandlers
+    bl         BgUpdate_Init
     bl         0x80018fc
     bl         0x800265c
     bl         InitMainState_34
     bl         ClearMemAtOffsets
     bl         Dma_TransferListClear
     bl         Rng_Init
-    bl         0x8013560
+    bl         Text_Init
     bl         0x8010bbc
     bl         0x8004020
     bl         0x800408c
