@@ -148,75 +148,8 @@ images/battlechip/chip_codes.4bpp: %.4bpp: %.png
 images/battlechip/results/numbers.4bpp: %.4bpp: %.png
 	$(MAKE_TILES) -n 44 $@ $<
 
-images/battlechip/results/result.gbapal: %.gbapal: %.pal
-	$(MAKE_TILES) -fill 01000000000000000100000000000000 $@ $<
-
-images/battlechip/art/001.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0000000000000001 $@ $<
-
-images/battlechip/art/002.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0101011011010001 $@ $<
-
-images/battlechip/art/003.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0101011011010001 $@ $<
-
-images/battlechip/art/013.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0111111101101111 $@ $<
-
-images/battlechip/art/058.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0000010100000100 $@ $<
-
-images/battlechip/art/059.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0000010100000100 $@ $<
-
-images/battlechip/art/060.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0000010100000100 $@ $<
-
-images/battlechip/art/061.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0000010100000100 $@ $<
-
-images/battlechip/art/062.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0000010100000100 $@ $<
-
-images/battlechip/art/063.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0000010100000100 $@ $<
-
-images/battlechip/art/064.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0000010100000100 $@ $<
-
-images/battlechip/art/065.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0000010100000100 $@ $<
-
-images/battlechip/art/066.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0000010100000000 $@ $<
-
-images/battlechip/art/070.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0001000000000010 $@ $<
-
-images/battlechip/art/127.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 1111111000000000 $@ $<
-
-images/battlechip/art/149.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 1000000000001111 $@ $<
-
-images/other/palette_0647A9C.gbapal: %.gbapal: %.pal
-	$(MAKE_TILES) -fill 0001100000000000 $@ $<
-
-images/other/palette_0647ABC.gbapal: %.gbapal: %.pal
-	$(MAKE_TILES) -fill 0001100000000000 $@ $<
-
-images/other/palette_0647ADC.gbapal: %.gbapal: %.pal
-	$(MAKE_TILES) -fill 0001100000000000 $@ $<
-
-images/battlechip/palette_69841C.gbapal: %.gbapal: %.pal
-	$(MAKE_TILES) -fill 0000000000000000 $@ $<
-
-images/battlechip/no_data_selected.gbapal: %.gbapal: %.png
-	$(MAKE_TILES) -fill 0100000000000111 $@ $<
-
 images/battle/custom_screen.4bpp: %.4bpp: %.png
 	$(MAKE_TILES) -n 39 $@ $<
-
 
 %.4bpp: %.png
 	$(MAKE_TILES) $@ $<

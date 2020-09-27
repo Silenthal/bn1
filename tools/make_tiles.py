@@ -33,6 +33,7 @@ def parse_png(pngPath: Path) -> PngData:
         exit(f"Image bit depth must be 4 or 8.")
     return PngData(width, height, rows, info)
 
+
 def parse_pal(palPath: Path):
     palList = []
     with open(palPath, "r") as pal:
@@ -45,7 +46,7 @@ def parse_pal(palPath: Path):
                 r = int(triple[0])
                 g = int(triple[1])
                 b = int(triple[2])
-                palList.append((r, g, b, 255))
+                palList.append((r, g, b, 0))
     return palList
 
 
@@ -64,24 +65,16 @@ def parse_rgbx(palPath: Path):
                 palList.append((r, g, b, x))
     return palList
 
-def make_palette_bin(pal, depth, fill):
+
+def make_palette_bin(pal, depth):
     palbin = []
-    fillArr = []
-    if fill:
-        fillArr = [int(x) for x in fill]
-    elif depth == 4:
-        fillArr = [0 for _ in range(len(pal))]
-    else:
-        fillArr = [0 if x == 0 else 1 for x in range(len(pal))]
     for i in range(len(pal)):
-        r, g, b, _ = pal[i]
+        r, g, b, x = pal[i]
         cr = (r >> 3) & 0x1F
         cg = (g >> 3) & 0x1F
         cb = (b >> 3) & 0x1F
-        ca = fillArr[i % len(fillArr)]
-        if not fill and depth == 8:
-            ca = 0 if r == g == b == 0 else 1
-        col = (ca << 15) | (cb << 10) | (cg << 5) | cr
+        cx = 0 if x > 1 else x
+        col = (cx << 15) | (cb << 10) | (cg << 5) | cr
         palbin.append(col & 0xFF)
         palbin.append((col >> 8) & 0xFF)
     return palbin
@@ -121,12 +114,12 @@ def make_meta_tile_list(tileList, metaWidth, metaHeight, tileCountX, tileCountY)
     return reorderedTileList
 
 
-def PngToGbaPal(inPath: Path, outPath: Path, fill: str) -> None:
+def PngToGbaPal(inPath: Path, outPath: Path) -> None:
     pngData = parse_png(inPath)
     if pngData.isGreyscale:
         exit(f'Image {inPath} is greyscale, and doesn\'t have a palette.')
     else:
-        palbin = make_palette_bin(pngData.info['palette'], pngData.bitDepth, fill)
+        palbin = make_palette_bin(pngData.info['palette'], pngData.bitDepth)
         if outPath.exists():
             os.remove(outPath)
         with open(outPath, "wb") as oFile:
@@ -146,9 +139,9 @@ def PngToBpp(inPath: Path, outPath: Path, mw: int, mh: int, n: int) -> None:
             oFile.write(bytearray(tile))
 
 
-def JascPalToGbaPal(inPath: Path, outPath: Path, fill: str) -> None:
+def JascPalToGbaPal(inPath: Path, outPath: Path) -> None:
     palData = parse_pal(inPath)
-    palbin = make_palette_bin(palData, len(palData), fill)
+    palbin = make_palette_bin(palData, len(palData))
     if outPath.exists():
         os.remove(outPath)
     with open(outPath, "wb") as oFile:
@@ -157,12 +150,12 @@ def JascPalToGbaPal(inPath: Path, outPath: Path, fill: str) -> None:
 
 def RgbxPalToGbaPal(inPath: Path, outPath: Path) -> None:
     palData = parse_rgbx(inPath)
-    fill = [x[3] for x in palData]
-    palbin = make_palette_bin(palData, len(palData), fill)
+    palbin = make_palette_bin(palData, len(palData))
     if outPath.exists():
         os.remove(outPath)
     with open(outPath, "wb") as oFile:
         oFile.write(bytearray(palbin))
+
 
 def main():
     def auto_int(x):
@@ -177,7 +170,6 @@ def main():
     parser.add_argument('-n', '--meta-tile-count', type=auto_int,
                     default=0,
                     help='The amount of meta tiles to pull.')
-    parser.add_argument('-fill', '--high-bit-fill', type=str, help='High bit fill pattern.')
     parser.add_argument('output', type=str, help='The output name.')
     parser.add_argument('input', type=str, help='The path to the input.')
     args = parser.parse_args()
@@ -192,14 +184,14 @@ def main():
     outEx = outEx.lower()
     if inEx == ".png":
         if outEx == ".gbapal":
-            return PngToGbaPal(inPath, outPath, args.high_bit_fill)
+            return PngToGbaPal(inPath, outPath)
         elif outEx == ".8bpp" or outEx == ".4bpp":
             return PngToBpp(inPath, outPath, args.meta_tile_width, args.meta_tile_height, args.meta_tile_count)
         else:
             exit(f"Unsupported conversion from {inEx} to {outEx}")
     elif inEx == ".pal":
         if outEx == ".gbapal":
-            return JascPalToGbaPal(inPath, outPath, args.high_bit_fill)
+            return JascPalToGbaPal(inPath, outPath)
         else:
             exit(f"Unsupported conversion from {inEx} to {outEx}")
     elif inEx == ".txt":

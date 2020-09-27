@@ -419,6 +419,6 @@ global_label paletteChipArt
     .incbin "images/battlechip/art/174.gbapal"
     .incbin "images/battlechip/art/175.gbapal"
     .incbin "images/battlechip/art/176.gbapal"
-    .incbin "images/battlechip/palette_69841C.gbapal"
+    .incbin "images/battlechip/palette_069841C.gbapal"
     .incbin "images/battlechip/no_data_selected.gbapal"
     .end

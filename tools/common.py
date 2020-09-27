@@ -1,9 +1,14 @@
 import io
 import struct
+from math import log10
 
 
 def auto_int(x: str) -> int:
     return int(x, 0)
+
+
+def len_int(val: int):
+    return int(log10(val)) + 1
 
 
 def get_int(inFile: io.FileIO) -> int:
