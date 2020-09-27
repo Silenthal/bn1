@@ -16,17 +16,29 @@ def main():
     inPath = Path(args.path)
     if not inPath.exists():
         exit(f"Couldn't find file {args.path}")
-    outPath = "data.pal"
+    palette = []
+    isHigh = False
     with open(inPath, mode='rb') as inFile:
-        with open(outPath, mode='w', encoding='utf-8') as outFile:
-            inFile.seek(args.offset)
+        inFile.seek(args.offset)
+        for _ in range(args.count):
+            col = get_short(inFile)
+            colR = ((col >>  0) & 0x1F) * 8
+            colG = ((col >>  5) & 0x1F) * 8
+            colB = ((col >> 10) & 0x1F) * 8
+            colX = ((col >> 15) &    1)
+            isHigh |= colX != 0
+            palette.append([str(colR), str(colG), str(colB), str(colX)])
+    outPath = f"palette_{args.offset:07X}." + ("txt" if isHigh else "pal")
+    with open(outPath, mode='w', encoding='utf-8') as outFile:
+        if isHigh:
+            outFile.write(f"RGBX {args.count}\n")
+        else:
             outFile.write(f"JASC-PAL\n0100\n{args.count}\n")
-            for _ in range(args.count):
-                col = get_short(inFile)
-                colR = (col & 0x1F) * 8
-                colG = ((col >> 5) & 0x1F) * 8
-                colB = ((col >> 10) & 0x1F) * 8
-                outFile.write(f"{colR} {colG} {colB}\n")
+        for pal in palette:
+            if isHigh:
+                outFile.write(" ".join(pal) + "\n")
+            else:
+                outFile.write(f"{pal[0]} {pal[1]} {pal[2]}\n")
 
 
 if __name__ == "__main__":

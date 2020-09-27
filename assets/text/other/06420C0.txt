@@ -1,0 +1,735 @@
+section_count(0x3E)
+
+# 0x00 @ 0x64213C
+section_start(0x00)
+dialog_up()
+text("""
+「{key PET}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x01, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x01 @ 0x642164
+section_start(0x01)
+dialog_up()
+add_item("PET", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key PET}」""")
+end()
+section_end()
+
+# 0x02 @ 0x64217A
+section_start(0x02)
+dialog_up()
+text("""
+「{key IceBlock}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x03, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x03 @ 0x6421A2
+section_start(0x03)
+dialog_up()
+add_item("IceBlock", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key IceBlock}」""")
+end()
+section_end()
+
+# 0x04 @ 0x6421B8
+section_start(0x04)
+dialog_up()
+text("""
+「{key WaterGun}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x05, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x05 @ 0x6421E0
+section_start(0x05)
+dialog_up()
+add_item("WaterGun", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key WaterGun}」""")
+end()
+section_end()
+
+# 0x06 @ 0x6421F6
+section_start(0x06)
+dialog_up()
+text("""
+「{key SchoolID}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x07, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x07 @ 0x64221E
+section_start(0x07)
+dialog_up()
+add_item("SchoolID", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key SchoolID}」""")
+end()
+section_end()
+
+# 0x08 @ 0x642234
+section_start(0x08)
+dialog_up()
+text("""
+「{key SciLabID}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x09, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x09 @ 0x64225C
+section_start(0x09)
+dialog_up()
+add_item("SciLabID", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key SciLabID}」""")
+end()
+section_end()
+
+# 0x0A @ 0x642272
+section_start(0x0A)
+dialog_up()
+text("""
+「{key Handle}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x0B, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x0B @ 0x64229A
+section_start(0x0B)
+dialog_up()
+add_item("Handle", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key Handle}」""")
+end()
+section_end()
+
+# 0x0C @ 0x6422B0
+section_start(0x0C)
+dialog_up()
+text("""
+「{key Message}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x0D, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x0D @ 0x6422D8
+section_start(0x0D)
+dialog_up()
+add_item("Message", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key Message}」""")
+end()
+section_end()
+
+# 0x0E @ 0x6422EE
+section_start(0x0E)
+dialog_up()
+text("""
+「{key Response}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x0F, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x0F @ 0x642316
+section_start(0x0F)
+dialog_up()
+add_item("Response", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key Response}」""")
+end()
+section_end()
+
+# 0x10 @ 0x64232C
+section_start(0x10)
+dialog_up()
+text("""
+「{key WWW_PIN}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x11, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x11 @ 0x642354
+section_start(0x11)
+dialog_up()
+add_item("WWW_PIN", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key WWW_PIN}」""")
+end()
+section_end()
+
+# 0x12 @ 0x64236A
+section_start(0x12)
+dialog_up()
+text("""
+「{key BatteryA}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x13, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x13 @ 0x642392
+section_start(0x13)
+dialog_up()
+add_item("BatteryA", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key BatteryA}」""")
+end()
+section_end()
+
+# 0x14 @ 0x6423A8
+section_start(0x14)
+dialog_up()
+text("""
+「{key BatteryB}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x15, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x15 @ 0x6423D0
+section_start(0x15)
+dialog_up()
+add_item("BatteryB", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key BatteryB}」""")
+end()
+section_end()
+
+# 0x16 @ 0x6423E6
+section_start(0x16)
+dialog_up()
+text("""
+「{key BatteryC}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x17, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x17 @ 0x64240E
+section_start(0x17)
+dialog_up()
+add_item("BatteryC", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key BatteryC}」""")
+end()
+section_end()
+
+# 0x18 @ 0x642424
+section_start(0x18)
+dialog_up()
+text("""
+「{key Charger}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x19, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x19 @ 0x64244C
+section_start(0x19)
+dialog_up()
+add_item("Charger", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key Charger}」""")
+end()
+section_end()
+
+# 0x1A @ 0x642462
+section_start(0x1A)
+dialog_up()
+text("""
+「{key WWW_Pass}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x1B, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x1B @ 0x64248A
+section_start(0x1B)
+dialog_up()
+add_item("WWW_Pass", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key WWW_Pass}」""")
+end()
+section_end()
+
+# 0x1C @ 0x6424A0
+section_start(0x1C)
+end()
+section_end()
+
+# 0x1D @ 0x6424A5
+section_start(0x1D)
+end()
+section_end()
+
+# 0x1E @ 0x6424AA
+section_start(0x1E)
+dialog_up()
+text("""
+「{key ★Mayl}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x1F, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x1F @ 0x6424D2
+section_start(0x1F)
+dialog_up()
+add_item("★Mayl", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key ★Mayl}」""")
+end()
+section_end()
+
+# 0x20 @ 0x6424E8
+section_start(0x20)
+dialog_up()
+text("""
+「{key ★Yai}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x21, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x21 @ 0x642510
+section_start(0x21)
+dialog_up()
+add_item("★Yai", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key ★Yai}」""")
+end()
+section_end()
+
+# 0x22 @ 0x642526
+section_start(0x22)
+dialog_up()
+text("""
+「{key ★Dex}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x23, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x23 @ 0x64254E
+section_start(0x23)
+dialog_up()
+add_item("★Dex", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key ★Dex}」""")
+end()
+section_end()
+
+# 0x24 @ 0x642564
+section_start(0x24)
+dialog_up()
+text("""
+「{key ★Dad}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x25, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x25 @ 0x64258C
+section_start(0x25)
+dialog_up()
+add_item("★Dad", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key ★Dad}」""")
+end()
+section_end()
+
+# 0x26 @ 0x6425A2
+section_start(0x26)
+dialog_up()
+text("""
+「{key ★Sal}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x27, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x27 @ 0x6425CA
+section_start(0x27)
+dialog_up()
+add_item("★Sal", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key ★Sal}」""")
+end()
+section_end()
+
+# 0x28 @ 0x6425E0
+section_start(0x28)
+dialog_up()
+text("""
+「{key ★Miyu}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x29, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x29 @ 0x642608
+section_start(0x29)
+dialog_up()
+add_item("★Miyu", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key ★Miyu}」""")
+end()
+section_end()
+
+# 0x2A @ 0x64261E
+section_start(0x2A)
+dialog_up()
+text("""
+「{key ★Masa}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x2B, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x2B @ 0x642646
+section_start(0x2B)
+dialog_up()
+add_item("★Masa", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key ★Masa}」""")
+end()
+section_end()
+
+# 0x2C @ 0x64265C
+section_start(0x2C)
+dialog_up()
+text("""
+「{key ★WWW}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x2D, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x2D @ 0x642684
+section_start(0x2D)
+dialog_up()
+add_item("★WWW", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key ★WWW}」""")
+end()
+section_end()
+
+# 0x2E @ 0x64269A
+section_start(0x2E)
+dialog_up()
+text("""
+「{key /Dex}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x2F, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x2F @ 0x6426C2
+section_start(0x2F)
+dialog_up()
+add_item("/Dex", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key /Dex}」""")
+end()
+section_end()
+
+# 0x30 @ 0x6426D8
+section_start(0x30)
+dialog_up()
+text("""
+「{key /Sal}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x31, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x31 @ 0x642700
+section_start(0x31)
+dialog_up()
+add_item("/Sal", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key /Sal}」""")
+end()
+section_end()
+
+# 0x32 @ 0x642716
+section_start(0x32)
+dialog_up()
+text("""
+「{key /Miyu}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x33, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x33 @ 0x64273E
+section_start(0x33)
+dialog_up()
+add_item("/Miyu", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key /Miyu}」""")
+end()
+section_end()
+
+# 0x34 @ 0x642754
+section_start(0x34)
+dialog_up()
+text("""
+「""")
+key_item(51)
+text("""」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x35, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x35 @ 0x64277C
+section_start(0x35)
+dialog_up()
+add_item(51, 1, 0xFF, 0xFF, 0xFF)
+text("""「""")
+key_item(51)
+text("""」""")
+end()
+section_end()
+
+# 0x36 @ 0x642792
+section_start(0x36)
+dialog_up()
+text("""
+「{key Hig_Memo}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x37, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x37 @ 0x6427BA
+section_start(0x37)
+dialog_up()
+add_item("Hig_Memo", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key Hig_Memo}」""")
+end()
+section_end()
+
+# 0x38 @ 0x6427D0
+section_start(0x38)
+dialog_up()
+text("""
+「{key Lab_Memo}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x39, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x39 @ 0x6427F8
+section_start(0x39)
+dialog_up()
+add_item("Lab_Memo", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key Lab_Memo}」""")
+end()
+section_end()
+
+# 0x3A @ 0x64280E
+section_start(0x3A)
+dialog_up()
+text("""
+「{key YuriMemo}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x3B, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x3B @ 0x642836
+section_start(0x3B)
+dialog_up()
+add_item("YuriMemo", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key YuriMemo}」""")
+end()
+section_end()
+
+# 0x3C @ 0x64284C
+section_start(0x3C)
+dialog_up()
+text("""
+「{key Pa_sMemo}」
+""")
+option(0, 0, 1, 1)
+pad(2)
+text("""Yes """)
+option(1, 1, 0, 0)
+pad(2)
+text("""No""")
+pick([0x3D, 0xFF], 0, False, True)
+end(5)
+section_end()
+
+# 0x3D @ 0x642874
+section_start(0x3D)
+dialog_up()
+add_item("Pa_sMemo", 1, 0xFF, 0xFF, 0xFF)
+text("""「{key Pa_sMemo}」""")
+end()
+section_end()

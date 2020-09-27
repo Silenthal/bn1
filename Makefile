@@ -133,6 +133,24 @@ $(S_OBJECTS): %.o: %.S
 images/ui/charset.4bpp: %.4bpp: %.png
 	$(MAKE_TILES) -mh 2 $@ $<
 
+images/battlechip/results/regular.4bpp: %.4bpp: %.png
+	$(MAKE_TILES) -n 115 $@ $<
+
+images/battlechip/results/mp_winner.4bpp: %.4bpp: %.png
+	$(MAKE_TILES) -n 139 $@ $<
+
+images/battlechip/results/mp_loser.4bpp: %.4bpp: %.png
+	$(MAKE_TILES) -n 135 $@ $<
+
+images/battlechip/chip_codes.4bpp: %.4bpp: %.png
+	$(MAKE_TILES) -mh 2 -n 26 $@ $<
+
+images/battlechip/results/numbers.4bpp: %.4bpp: %.png
+	$(MAKE_TILES) -n 44 $@ $<
+
+images/battlechip/results/result.gbapal: %.gbapal: %.pal
+	$(MAKE_TILES) -fill 01000000000000000100000000000000 $@ $<
+
 images/battlechip/art/001.gbapal: %.gbapal: %.png
 	$(MAKE_TILES) -fill 0000000000000001 $@ $<
 
@@ -181,10 +199,32 @@ images/battlechip/art/127.gbapal: %.gbapal: %.png
 images/battlechip/art/149.gbapal: %.gbapal: %.png
 	$(MAKE_TILES) -fill 1000000000001111 $@ $<
 
+images/other/palette_0647A9C.gbapal: %.gbapal: %.pal
+	$(MAKE_TILES) -fill 0001100000000000 $@ $<
+
+images/other/palette_0647ABC.gbapal: %.gbapal: %.pal
+	$(MAKE_TILES) -fill 0001100000000000 $@ $<
+
+images/other/palette_0647ADC.gbapal: %.gbapal: %.pal
+	$(MAKE_TILES) -fill 0001100000000000 $@ $<
+
+images/battlechip/palette_69841C.gbapal: %.gbapal: %.pal
+	$(MAKE_TILES) -fill 0000000000000000 $@ $<
+
+images/battlechip/no_data_selected.gbapal: %.gbapal: %.png
+	$(MAKE_TILES) -fill 0100000000000111 $@ $<
+
+images/battle/custom_screen.4bpp: %.4bpp: %.png
+	$(MAKE_TILES) -n 39 $@ $<
+
+
 %.4bpp: %.png
 	$(MAKE_TILES) $@ $<
 
 %.8bpp: %.png
+	$(MAKE_TILES) $@ $<
+
+%.gbapal: %.txt
 	$(MAKE_TILES) $@ $<
 
 %.gbapal: %.gbapal.bin

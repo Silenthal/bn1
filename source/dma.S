@@ -155,10 +155,10 @@ LAB_08000a12:
 thumb_func_end Dma_TransferListStartAll
 
 localDmaChannelList:    .word dmaChannelList
-dmaEnableMask:            .word DMA_ENABLE
+dmaEnableMask:          .word DMA_ENABLE
 dmaChannelStart:        .word REG_DMA0
-ptrDmaListSz0:            .word eDmaParamListSize
-ptrDmaListSz1:            .word eDmaParamListSize
-ptrDmaList:                .word eDmaParamList
+ptrDmaListSz0:          .word eDmaParamListSize
+ptrDmaListSz1:          .word eDmaParamListSize
+ptrDmaList:             .word eDmaParamList
     
     .end

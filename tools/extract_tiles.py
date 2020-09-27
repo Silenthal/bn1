@@ -3,7 +3,7 @@ import png
 import argparse
 import os
 import struct
-from math import ceil
+from math import ceil,log10
 from pathlib import Path
 
 
@@ -36,11 +36,15 @@ parser.add_argument('-po', '--palette-offset', type=auto_int,
                     help='The offset of the palette.')
 parser.add_argument('-pb', '--palette-bank', type=auto_int,
                     default=0,
-                    help=('The offset into a palette collection to use." \
-                         " The default is 0 - the first one found.'))
+                    help=('The offset into a palette collection to use.' \
+                         ' The default is 0 - the first one found.'))
 parser.add_argument('-w', '--width', type=auto_int,
                     default=16,
                     help='The width of the output image, in meta tiles.')
+parser.add_argument('-r', '--repeat', type=auto_int,
+                    default=1,
+                    help='Controls how many times to perform tile extraction ' \
+                    'using the same arguments on following offsets')
 parser.add_argument('--verbose', '-v',
                     action='count', default=0,
                     help='Print extra information about the output.')
@@ -189,6 +193,7 @@ v(f"Output image dimensions: "
 #                  metaPerOutput
 pixelCount = (pixelsPerMeta * metaPerOutput)
 
+outDataList = []
 outData = [[0 for x in range(pixelsPerOutputX)]
            for y in range(pixelsPerOutputY)]
 
@@ -213,63 +218,78 @@ with open(inPath, mode='rb') as inFile:
     inFile.seek(fileOffset)
     # For the following method...
     # Instead of...
-    offset = 0
-    while offset < pixelCount:
-        line = read_tile_row(inFile)
-        # Offset within the tile
-        totalPixels = offset
-        indexPixel = totalPixels % pixelsPerTile
-        indexPixelX = indexPixel % pixelsPerTileX
-        indexPixelY = indexPixel // pixelsPerTileX
+    for _ in range(args.repeat):
+        outData = [[0 for x in range(pixelsPerOutputX)] for y in range(pixelsPerOutputY)]
+        offset = 0
+        while offset < pixelCount:
+            line = read_tile_row(inFile)
+            # Offset within the tile
+            totalPixels = offset
+            indexPixel = totalPixels % pixelsPerTile
+            indexPixelX = indexPixel % pixelsPerTileX
+            indexPixelY = indexPixel // pixelsPerTileX
 
-        # Offset within the metatile
-        totalTiles = totalPixels // pixelsPerTile
-        indexTile = totalTiles % tilesPerMeta
-        indexTileX = indexTile % tilesPerMetaX
-        indexTileY = indexTile // tilesPerMetaX
+            # Offset within the metatile
+            totalTiles = totalPixels // pixelsPerTile
+            indexTile = totalTiles % tilesPerMeta
+            indexTileX = indexTile % tilesPerMetaX
+            indexTileY = indexTile // tilesPerMetaX
 
-        # Offset within the PNG
-        totalMetaTiles = totalTiles // tilesPerMeta
-        indexMetaTile = totalMetaTiles  # % metaPerOutput
-        indexMetaTileX = indexMetaTile % metaPerOutputX
-        indexMetaTileY = indexMetaTile // metaPerOutputX
+            # Offset within the PNG
+            totalMetaTiles = totalTiles // tilesPerMeta
+            indexMetaTile = totalMetaTiles  # % metaPerOutput
+            indexMetaTileX = indexMetaTile % metaPerOutputX
+            indexMetaTileY = indexMetaTile // metaPerOutputX
 
-        # Actual offsets
-        outOffsetY = (indexMetaTileY * pixelsPerMetaY) + \
-                     (indexTileY * pixelsPerTileY) + indexPixelY
-        outOffsetX = (indexMetaTileX * pixelsPerMetaX) + \
-                     (indexTileX * pixelsPerTileX) + indexPixelX
+            # Actual offsets
+            outOffsetY = (indexMetaTileY * pixelsPerMetaY) + \
+                        (indexTileY * pixelsPerTileY) + indexPixelY
+            outOffsetX = (indexMetaTileX * pixelsPerMetaX) + \
+                        (indexTileX * pixelsPerTileX) + indexPixelX
 
-        try:
-            for i in range(8):
-                outData[outOffsetY][outOffsetX + i] = line[i]
-        except IndexError:
-            print(f"Error when writing pixel data: out of range")
-            print(f"X offset calculation: "
-                  f"({indexMetaTileX} * {pixelsPerMetaX}) + "
-                  f"({indexTileX} * {pixelsPerTileX}) + "
-                  f"{indexPixelX}")
-            print(f"X = {outOffsetY}")
-            print(f"Y offset calculation: "
-                  f"({indexMetaTileY} * {pixelsPerMetaY}) + "
-                  f"({indexTileY} * {pixelsPerTileY}) + "
-                  f"{indexPixelY}")
-            print(f"Y = {outOffsetY}")
-            print(f"Binary offset: {offset}")
-            print(f"Pixel index: {totalPixels}")
-            print(f"Tile index: {totalTiles}")
-            print(f"Metatile index: {totalMetaTiles}")
-            print(f"Pixel position: {indexPixelX}, {indexPixelY}")
-            print(f"Tileile position: {indexTileX}, {indexTileY}")
-            print(f"Metatile position: {indexMetaTileX}, {indexMetaTileY}")
-            exit()
-        offset += pixelsPerTileX
+            try:
+                for i in range(8):
+                    outData[outOffsetY][outOffsetX + i] = line[i]
+            except IndexError:
+                print(f"Error when writing pixel data: out of range")
+                print(f"X offset calculation: "
+                    f"({indexMetaTileX} * {pixelsPerMetaX}) + "
+                    f"({indexTileX} * {pixelsPerTileX}) + "
+                    f"{indexPixelX}")
+                print(f"X = {outOffsetY}")
+                print(f"Y offset calculation: "
+                    f"({indexMetaTileY} * {pixelsPerMetaY}) + "
+                    f"({indexTileY} * {pixelsPerTileY}) + "
+                    f"{indexPixelY}")
+                print(f"Y = {outOffsetY}")
+                print(f"Binary offset: {offset}")
+                print(f"Pixel index: {totalPixels}")
+                print(f"Tile index: {totalTiles}")
+                print(f"Metatile index: {totalMetaTiles}")
+                print(f"Pixel position: {indexPixelX}, {indexPixelY}")
+                print(f"Tileile position: {indexTileX}, {indexTileY}")
+                print(f"Metatile position: {indexMetaTileX}, {indexMetaTileY}")
+                exit()
+            offset += pixelsPerTileX
+        outDataList.append(outData)
 
 
 w = png.Writer(pixelsPerOutputX, pixelsPerOutputY,
                bitdepth=get_bpp(), palette=palette)
-with open(outPath, mode='wb') as of:
-    w.write(of, outData)
 
 
-os.startfile(outPath)
+for outData in outDataList:
+    if len(outDataList) == 1:
+        with open(outPath, mode='wb') as of:
+            w.write(of, outDataList[0])
+    else:
+        padLen = int(log10(len(outDataList))) + 1
+        for i in range(len(outDataList)):
+            outPathParts = os.path.splitext(outPath)
+            suffix = f'{{0:0{padLen}}}'.format(i)
+            op = outPathParts[0] + "_" + suffix + outPathParts[1]
+            with open(op, mode='wb') as of:
+                w.write(of, outDataList[i])
+
+if len(outDataList) == 1:
+    os.startfile(outPath)

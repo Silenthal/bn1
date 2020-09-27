@@ -36,20 +36,33 @@ def parse_png(pngPath: Path) -> PngData:
 def parse_pal(palPath: Path):
     palList = []
     with open(palPath, "r") as pal:
-        magic1 = pal.readline()
-        magic2 = pal.readline()
+        magic1 = pal.readline().strip()
+        magic2 = pal.readline().strip()
         if magic1 == "JASC-PAL" and magic2 == "0100":
-            palCt = int(pal.readline)
+            palCt = int(pal.readline())
             for _ in range(palCt):
                 triple = pal.readline().split()
                 r = int(triple[0])
-                g = int(triple[0])
-                b = int(triple[0])
+                g = int(triple[1])
+                b = int(triple[2])
                 palList.append((r, g, b, 255))
     return palList
 
 
-
+def parse_rgbx(palPath: Path):
+    palList = []
+    with open(palPath, "r") as pal:
+        magic1 = pal.readline().strip().split()
+        if len(magic1) == 2 and magic1[0] == "RGBX":
+            palCt = int(magic1[1])
+            for _ in range(palCt):
+                group = pal.readline().split()
+                r = int(group[0])
+                g = int(group[1])
+                b = int(group[2])
+                x = int(group[3])
+                palList.append((r, g, b, x))
+    return palList
 
 def make_palette_bin(pal, depth, fill):
     palbin = []
@@ -120,10 +133,14 @@ def PngToGbaPal(inPath: Path, outPath: Path, fill: str) -> None:
             oFile.write(bytearray(palbin))
 
 
-def PngToBpp(inPath: Path, outPath: Path, mw: int, mh: int) -> None:
+def PngToBpp(inPath: Path, outPath: Path, mw: int, mh: int, n: int) -> None:
     pngData = parse_png(inPath)
     tileList = make_tile_list(pngData.rows, pngData.bitDepth, pngData.width, pngData.height)
     outTileList = make_meta_tile_list(tileList, mw, mh, pngData.width >> 3, pngData.height >> 3)
+    tilecap = n * mw * mh
+    tileCount = len(outTileList)
+    if tilecap > 0 and tilecap < tileCount:
+        outTileList = outTileList[0:tilecap]
     with open(outPath, "wb") as oFile:
         for tile in outTileList:
             oFile.write(bytearray(tile))
@@ -131,6 +148,16 @@ def PngToBpp(inPath: Path, outPath: Path, mw: int, mh: int) -> None:
 
 def JascPalToGbaPal(inPath: Path, outPath: Path, fill: str) -> None:
     palData = parse_pal(inPath)
+    palbin = make_palette_bin(palData, len(palData), fill)
+    if outPath.exists():
+        os.remove(outPath)
+    with open(outPath, "wb") as oFile:
+        oFile.write(bytearray(palbin))
+
+
+def RgbxPalToGbaPal(inPath: Path, outPath: Path) -> None:
+    palData = parse_rgbx(inPath)
+    fill = [x[3] for x in palData]
     palbin = make_palette_bin(palData, len(palData), fill)
     if outPath.exists():
         os.remove(outPath)
@@ -147,6 +174,9 @@ def main():
     parser.add_argument('-mh', '--meta-tile-height', type=auto_int,
                     default=1,
                     help='The height of the meta tile, in tiles.')
+    parser.add_argument('-n', '--meta-tile-count', type=auto_int,
+                    default=0,
+                    help='The amount of meta tiles to pull.')
     parser.add_argument('-fill', '--high-bit-fill', type=str, help='High bit fill pattern.')
     parser.add_argument('output', type=str, help='The output name.')
     parser.add_argument('input', type=str, help='The path to the input.')
@@ -164,12 +194,17 @@ def main():
         if outEx == ".gbapal":
             return PngToGbaPal(inPath, outPath, args.high_bit_fill)
         elif outEx == ".8bpp" or outEx == ".4bpp":
-            return PngToBpp(inPath, outPath, args.meta_tile_width, args.meta_tile_height)
+            return PngToBpp(inPath, outPath, args.meta_tile_width, args.meta_tile_height, args.meta_tile_count)
         else:
             exit(f"Unsupported conversion from {inEx} to {outEx}")
     elif inEx == ".pal":
         if outEx == ".gbapal":
             return JascPalToGbaPal(inPath, outPath, args.high_bit_fill)
+        else:
+            exit(f"Unsupported conversion from {inEx} to {outEx}")
+    elif inEx == ".txt":
+        if outEx == ".gbapal":
+            return RgbxPalToGbaPal(inPath, outPath)
         else:
             exit(f"Unsupported conversion from {inEx} to {outEx}")
     else:

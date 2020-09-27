@@ -2,7 +2,7 @@ section_count(0x42)
 
 # 0x0A @ 0x725F00
 section_start(0x0A)
-check_item("Pa'sMemo", 1, 0x0B, 0x0B, 0xFF)
+check_item("Pa_sMemo", 1, 0x0B, 0x0B, 0xFF)
 dialog_up()
 para_general_end("""Entrance for
 WWW personnel
@@ -41,7 +41,7 @@ section_start(0x0E)
 hidepic()
 dialog_up()
 para_general("""...MegaMan used the
-{key Pa'sMemo}!""", 0)
+{key Pa_sMemo}!""", 0)
 para_general("""He gained access!""")
 clear_flag(1041)
 set_flag(109)

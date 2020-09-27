@@ -596,7 +596,7 @@ section_end()
 
 # 0xCD @ 0x6A5373
 section_start(0xCD)
-check_item("Pa'sMemo", 1, 0xCE, 0xCE, 0xFF)
+check_item("Pa_sMemo", 1, 0xCE, 0xCE, 0xFF)
 pic(34)
 dialog_up()
 para_talk_end("""Lan,help me raise

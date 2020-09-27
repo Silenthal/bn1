@@ -29,7 +29,7 @@ charmap = {
     0x08: "7",
     0x09: "8",
     0x0A: "9",
-    0x0B: "[Lv.]",  # katakana ア
+    0x0B: "{lv}",  # katakana ア
     0x0C: "∥",  # katakana イ
     0x0D: "ウ",
     0x0E: "エ",
@@ -575,7 +575,7 @@ def key_item(bt):
         0x34: "Hig_Memo",
         0x35: "Lab_Memo",
         0x36: "YuriMemo",
-        0x37: "Pa'sMemo",
+        0x37: "Pa_sMemo",
         0x3C: "ACDCPass",
         0x3D: "GovtPass",
         0x3E: "TownPass",
@@ -1460,22 +1460,23 @@ def engine1(infile, blockOffset, isUi):
         infile.seek(off)
         sh = get_short(infile)
         infile.seek(off)
-        if sh != 0:
+        if (isLimit and infile.tell() < nextOff - 2) or sh != 0:
             scriptBuf = ""
             textBuf = ""
+            def emptyBuf():
+                nonlocal scriptBuf, textBuf
+                if len(textBuf) > 0:
+                    scriptBuf += f"text(\"\"\"{textBuf}\"\"\")\n"
+                    textBuf = ""
             while True:
                 interp = interpretUi(infile) if isUi else interpret(infile)
                 if interp[2]:
                     textBuf += interp[1]
                 else:
-                    if len(textBuf) > 0:
-                        scriptBuf += f"text(\"\"\"{textBuf}\"\"\")\n"
-                        textBuf = ""
+                    emptyBuf()
                     scriptBuf += interp[1] + "\n"
                 if interp[0] or (isLimit and infile.tell() == nextOff - 2):
-                    if len(textBuf) > 0:
-                        scriptBuf += f"text(\"{textBuf}\")\n"
-                        textBuf = ""
+                    emptyBuf()
                     break
             output += f"# 0x{idx:02X} @ 0x{off:X}\nsection_start(0x{idx:02X})\n{scriptBuf}section_end()\n\n"
         idx += 1

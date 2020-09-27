@@ -24,7 +24,8 @@ interrupt_handler 0x180000
 screen_layout_intr 0x180178
 asset_ui 0x6132A8
 asset_chip 0x638634
-asset_battle 0x647AFC
+asset_battle 0x640E54
 asset_text 0x69D57C
 asset_demo 0x796FD4
+asset_7A7084 0x7A7084
 asset_7AC9B8 0x7AC9B8

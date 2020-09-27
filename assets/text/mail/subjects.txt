@@ -1,0 +1,359 @@
+section_count(0x41)
+
+# 0x00 @ 0x7A7FCA
+section_start(0x00)
+text("""NetNews   WWW Crime!""")
+end()
+section_end()
+
+# 0x01 @ 0x7A7FE4
+section_start(0x01)
+text("""Dad       Sorry!""")
+end()
+section_end()
+
+# 0x02 @ 0x7A7FFA
+section_start(0x02)
+text("""Dad       PowerUp!""")
+end()
+section_end()
+
+# 0x03 @ 0x7A8012
+section_start(0x03)
+text("""NetNews   Student Crime""")
+end()
+section_end()
+
+# 0x04 @ 0x7A802E
+section_start(0x04)
+text("""Yai       Roll call""")
+end()
+section_end()
+
+# 0x05 @ 0x7A8046
+section_start(0x05)
+text("""Dex       A challenge!""")
+end()
+section_end()
+
+# 0x06 @ 0x7A8062
+section_start(0x06)
+text("""NetNews   No Water!""")
+end()
+section_end()
+
+# 0x07 @ 0x7A807B
+section_start(0x07)
+text("""Dad       Sorry Lan""")
+end()
+section_end()
+
+# 0x08 @ 0x7A8093
+section_start(0x08)
+text("""Yai       Kidnapped!""")
+end()
+section_end()
+
+# 0x09 @ 0x7A80AD
+section_start(0x09)
+text("""Mayl      Yai's present""")
+end()
+section_end()
+
+# 0x0A @ 0x7A80CA
+section_start(0x0A)
+text("""NetNews   New Metroline""")
+end()
+section_end()
+
+# 0x0B @ 0x7A80E6
+section_start(0x0B)
+text("""Mayl      Meeting place""")
+end()
+section_end()
+
+# 0x0C @ 0x7A8102
+section_start(0x0C)
+text("""Your WWW  Accidents?""")
+end()
+section_end()
+
+# 0x0D @ 0x7A811C
+section_start(0x0D)
+text("""Mayl      Whattodo!?""")
+end()
+section_end()
+
+# 0x0E @ 0x7A8137
+section_start(0x0E)
+text("""Dad       About Chaud""")
+end()
+section_end()
+
+# 0x0F @ 0x7A8151
+section_start(0x0F)
+text("""Mayl      Netaddress""")
+end()
+section_end()
+
+# 0x10 @ 0x7A816A
+section_start(0x10)
+text("""Higsby    Old friend""")
+end()
+section_end()
+
+# 0x11 @ 0x7A8183
+section_start(0x11)
+text("""Dad       Lab location""")
+end()
+section_end()
+
+# 0x12 @ 0x7A819E
+section_start(0x12)
+text("""Froid     For you...""")
+end()
+section_end()
+
+# 0x13 @ 0x7A81BA
+section_start(0x13)
+text("""Froid     Official ML""")
+end()
+section_end()
+
+# 0x14 @ 0x7A81D4
+section_start(0x14)
+text("""BattleML  Water virus""")
+end()
+section_end()
+
+# 0x15 @ 0x7A81EE
+section_start(0x15)
+text("""BattleML  Re;virus""")
+end()
+section_end()
+
+# 0x16 @ 0x7A8206
+section_start(0x16)
+text("""BattleML  Mystery op?""")
+end()
+section_end()
+
+# 0x17 @ 0x7A8221
+section_start(0x17)
+text("""BattleML  Advances""")
+end()
+section_end()
+
+# 0x18 @ 0x7A8238
+section_start(0x18)
+text("""BattleML  Aura virus?""")
+end()
+section_end()
+
+# 0x19 @ 0x7A8253
+section_start(0x19)
+text("""BattleML  Aura,cont.""")
+end()
+section_end()
+
+# 0x1A @ 0x7A826E
+section_start(0x1A)
+text("""BattleML  Re;Aura,cont.""")
+end()
+section_end()
+
+# 0x1B @ 0x7A828D
+section_start(0x1B)
+text("""BattleML  Rare chips!""")
+end()
+section_end()
+
+# 0x1C @ 0x7A82A8
+section_start(0x1C)
+text("""Yai       The truth!""")
+end()
+section_end()
+
+# 0x1D @ 0x7A82C2
+section_start(0x1D)
+text("""Dad       Dinner?""")
+end()
+section_end()
+
+# 0x1E @ 0x7A82D9
+section_start(0x1E)
+text("""Dad       R U OK?""")
+end()
+section_end()
+
+# 0x1F @ 0x7A82F0
+section_start(0x1F)
+text("""BattleML  The LifeVirus""")
+end()
+section_end()
+
+# 0x20 @ 0x7A830C
+section_start(0x20)
+text("""Ms.Mari   Class notes""")
+end()
+section_end()
+
+# 0x21 @ 0x7A8327
+section_start(0x21)
+end()
+section_end()
+
+# 0x22 @ 0x7A832C
+section_start(0x22)
+end()
+section_end()
+
+# 0x23 @ 0x7A8331
+section_start(0x23)
+end()
+section_end()
+
+# 0x24 @ 0x7A8336
+section_start(0x24)
+end()
+section_end()
+
+# 0x25 @ 0x7A833B
+section_start(0x25)
+end()
+section_end()
+
+# 0x26 @ 0x7A8340
+section_start(0x26)
+end()
+section_end()
+
+# 0x27 @ 0x7A8345
+section_start(0x27)
+end()
+section_end()
+
+# 0x28 @ 0x7A834A
+section_start(0x28)
+end()
+section_end()
+
+# 0x29 @ 0x7A834F
+section_start(0x29)
+end()
+section_end()
+
+# 0x2A @ 0x7A8354
+section_start(0x2A)
+end()
+section_end()
+
+# 0x2B @ 0x7A8359
+section_start(0x2B)
+end()
+section_end()
+
+# 0x2C @ 0x7A835E
+section_start(0x2C)
+end()
+section_end()
+
+# 0x2D @ 0x7A8363
+section_start(0x2D)
+end()
+section_end()
+
+# 0x2E @ 0x7A8368
+section_start(0x2E)
+end()
+section_end()
+
+# 0x2F @ 0x7A836D
+section_start(0x2F)
+end()
+section_end()
+
+# 0x30 @ 0x7A8372
+section_start(0x30)
+end()
+section_end()
+
+# 0x31 @ 0x7A8377
+section_start(0x31)
+end()
+section_end()
+
+# 0x32 @ 0x7A837C
+section_start(0x32)
+end()
+section_end()
+
+# 0x33 @ 0x7A8381
+section_start(0x33)
+end()
+section_end()
+
+# 0x34 @ 0x7A8386
+section_start(0x34)
+end()
+section_end()
+
+# 0x35 @ 0x7A838B
+section_start(0x35)
+end()
+section_end()
+
+# 0x36 @ 0x7A8390
+section_start(0x36)
+end()
+section_end()
+
+# 0x37 @ 0x7A8395
+section_start(0x37)
+end()
+section_end()
+
+# 0x38 @ 0x7A839A
+section_start(0x38)
+end()
+section_end()
+
+# 0x39 @ 0x7A839F
+section_start(0x39)
+end()
+section_end()
+
+# 0x3A @ 0x7A83A4
+section_start(0x3A)
+end()
+section_end()
+
+# 0x3B @ 0x7A83A9
+section_start(0x3B)
+end()
+section_end()
+
+# 0x3C @ 0x7A83AE
+section_start(0x3C)
+end()
+section_end()
+
+# 0x3D @ 0x7A83B3
+section_start(0x3D)
+end()
+section_end()
+
+# 0x3E @ 0x7A83B8
+section_start(0x3E)
+end()
+section_end()
+
+# 0x3F @ 0x7A83BD
+section_start(0x3F)
+end()
+section_end()
+
+# 0x40 @ 0x7A83C2
+section_start(0x40)
+end()
+section_end()

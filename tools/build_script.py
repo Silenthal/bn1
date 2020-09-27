@@ -471,7 +471,7 @@ key_item_map = {
     "Hig_Memo": 0x34,
     "Lab_Memo": 0x35,
     "YuriMemo": 0x36,
-    "Pa'sMemo": 0x37,
+    "Pa_sMemo": 0x37,
     "ACDCPass": 0x3C,
     "GovtPass": 0x3D,
     "TownPass": 0x3E,
@@ -761,6 +761,10 @@ def section_end():
 
 
 #region Commands
+def emit(bt: int):
+    global curScript
+    curScript.emitByte(bt)
+
 def end(delay: int = 0):
     global curScript
     curScript.emitByte(0xE7)
@@ -1483,6 +1487,8 @@ def parse_command(reader: Reader):
                 end(int(coms[1], 0))
             else:
                 end()
+        elif coms[0] == "lv":
+            emit(0xB)
         else:
             exit(f"Unrecognized command {coms[0]}")
 
