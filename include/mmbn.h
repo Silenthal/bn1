@@ -18,11 +18,12 @@ struct _decompress_result {
     void * m_segmentStart;
     short m_segmentCount;
     short m_gridIndex;
-    byte bVal5;
-    byte bVal6;
-    uint unknown1;
-    uint unknown2;
-    byte * unknown3;
+    short m_bVal5;
+    byte m_b0;
+    byte m_b1;
+    uint m_unknown1;
+    uint m_unknown2;
+    byte * m_unknown3;
 };
 
 typedef struct _dma_channel _dma_channel, *P_dma_channel;
@@ -424,7 +425,7 @@ struct LayoutEntry {
 };
 
 struct BattleChipSelect {
-    enum FuncState_BCS_00 m_offset0;
+    enum FuncState_BCS_00 m_state0;
     enum FuncState_BCS_01 m_state1;
     enum FuncState_BCS_02 m_state2;
     enum FuncState_BCS_03 m_state3;
@@ -462,6 +463,24 @@ struct BattleChipSelect {
     byte m_chipSelectionOrder[15];
     struct LayoutEntry m_layoutBuffer[300];
 };
+
+typedef enum BattleMessage {
+    BMsg_04=4,
+    BMsg_05=5,
+    BMsg_06=6,
+    BMsg_07=7,
+    BMsg_08=8,
+    BMsg_09=9,
+    BMsg_0A=10,
+    BMsg_0B=11,
+    BMsg_BattleStart=0,
+    BMsg_Busy=13,
+    BMsg_EnemyDeleted=1,
+    BMsg_MaxMode=12,
+    BMsg_MegaManDeleted=2,
+    BMsg_OK=14,
+    BMsg_ProgramAdvance=3
+} BattleMessage;
 
 typedef enum BattleResultType {
     BRT_MP_Loser=2,
@@ -1340,10 +1359,10 @@ struct GameState {
     bool m_isShuffleFolder;
     byte m_b18_commentaryTextIndex;
     byte m_b19_fadeStep;
-    byte m_b20_stat1_atk;
-    byte m_b21_stat2_spd;
-    byte m_b22_stat3_chg;
-    byte m_b23_possibleArmor;
+    byte m_statAttack;
+    byte m_statSpeed;
+    byte m_statCharge;
+    byte m_armor;
     enum SongId m_Song_CurrentSongId;
     byte m_bustingRank;
     byte m_b26;
@@ -1613,11 +1632,13 @@ typedef enum TextStateDelayType {
 
 typedef struct Sprite Sprite, *PSprite;
 
+typedef struct Struct_Unk4C_Sub Struct_Unk4C_Sub, *PStruct_Unk4C_Sub;
+
 typedef enum SpriteFlag {
     SF_NoMiniAnimation=1
 } SpriteFlag;
 
-typedef struct objectTileAttributes objectTileAttributes, *PobjectTileAttributes;
+typedef struct ObjectTileAttributes ObjectTileAttributes, *PObjectTileAttributes;
 
 struct Struct_Unk2C {
     byte m_b0;
@@ -1676,7 +1697,7 @@ struct Struct_Unk0C {
     byte b21;
     byte b22;
     byte m_multipleDeletionCount;
-    byte b24;
+    byte m_b24;
     byte m_srcBattleHandCount;
     byte m_sioOtherMpId;
     byte m_sioMultiplayerId;
@@ -1705,6 +1726,23 @@ struct Struct_Unk0C {
     struct EnemySpawn * m_enemyList;
     byte m_srcBattleHandIndexList[6];
     byte m_srcBattleHandCodeList[6];
+};
+
+struct Struct_Unk4C_Sub {
+    byte m_state0;
+    byte b1;
+    byte m_b2;
+    byte m_b3;
+    byte m_b4;
+    enum BattleMessage m_messageIndex;
+    byte m_b6;
+    byte m_b7;
+    byte m_b8;
+    byte b9;
+    byte bA;
+    byte bb;
+    short m_bC;
+    short m_bE;
 };
 
 struct Struct_Unk50_TimerRelated {
@@ -1745,21 +1783,7 @@ struct MainMenu {
 };
 
 struct Struct_Unk4C {
-    ushort u0;
-    byte m_chipIndex;
-    byte m_bx1;
-    byte m_b0;
-    byte m_textDstIndex;
-    byte b2;
-    byte b3;
-    byte b4;
-    byte b5;
-    byte b6;
-    byte b7;
-    byte b8;
-    byte b9;
-    byte b10;
-    byte b11;
+    struct Struct_Unk4C_Sub m_data[16];
 };
 
 struct Struct_Unk44 {
@@ -1773,7 +1797,7 @@ struct Struct_Unk44 {
     struct BattleChip * m_chipArr;
     int m_i0;
     int m_i1;
-    void * m_func0;
+    void * m_funcLayoutCopy;
     void * m_func1;
     void * m_func2;
     byte field_0x24;
@@ -1788,12 +1812,6 @@ struct Struct_Unk44 {
     byte field_0x2d;
     byte field_0x2e;
     byte field_0x2f;
-};
-
-struct objectTileAttributes {
-    ushort index:10;
-    ushort priority:2;
-    ushort paletteBank:4;
 };
 
 struct Struct_Unk24 {
@@ -1901,6 +1919,12 @@ struct ScreenLayoutContainer {
     struct LayoutEntry screen3[1024];
 };
 
+struct ObjectTileAttributes {
+    ushort index:10;
+    ushort priority:2;
+    ushort paletteBank:4;
+};
+
 struct Sprite {
     byte m_indexFrame;
     byte m_indexSubFrame;
@@ -1917,7 +1941,7 @@ struct Sprite {
     short m_u2;
     byte m_u3_affineRelated_Lo;
     byte m_u3_affineRelated_Hi;
-    struct objectTileAttributes m_tileAttributes;
+    struct ObjectTileAttributes m_tileAttributes;
     short _pad;
     byte * m_spriteStart;
     byte * m_curFrame;
@@ -2251,7 +2275,7 @@ struct Struct_Unk74 {
     byte Library_SubListOffset1;
     byte Library_ListOffset0;
     byte Library_ListOffset1;
-    byte bb00;
+    byte m_someCount;
     byte bb01;
     ushort m_FolderSubOffset0;
     ushort m_FolderSubOffset1;
@@ -2316,11 +2340,12 @@ struct Main {
 };
 
 struct Struct_Unk54 {
-    byte b0;
-    byte b1;
-    void * i0;
-    byte b2;
-    byte b3;
+    int m_state0;
+    byte m_b4;
+    byte m_b5_possibleAlteredGaugeSpeed;
+    byte m_b6;
+    byte b7;
+    short m_timer;
 };
 
 typedef struct MapDataHeader MapDataHeader, *PMapDataHeader;
@@ -2488,11 +2513,11 @@ struct MusicPlayerInfo {
     uint intp;
 };
 
-typedef struct oamAttributeNode oamAttributeNode, *PoamAttributeNode;
+typedef struct OamAttributeListNode OamAttributeListNode, *POamAttributeListNode;
 
-typedef struct objectXYAttributes objectXYAttributes, *PobjectXYAttributes;
+typedef struct ObjectXYAttributes ObjectXYAttributes, *PObjectXYAttributes;
 
-struct objectXYAttributes {
+struct ObjectXYAttributes {
     byte yCoord;
     bool isRotScale:1;
     int specialFlag:1;
@@ -2505,32 +2530,31 @@ struct objectXYAttributes {
     int objSize2:2;
 };
 
-struct oamAttributeNode {
-    struct objectXYAttributes xyDetails;
-    struct objectTileAttributes tileDetail;
+struct OamAttributeListNode {
+    struct ObjectXYAttributes m_xyDetails;
+    struct ObjectTileAttributes m_tileDetail;
     byte m_unused;
-    byte nextIndex;
+    byte m_nextIndex;
 };
 
-typedef struct objectAffineAttributes objectAffineAttributes, *PobjectAffineAttributes;
+typedef struct ObjectAffineAttributes ObjectAffineAttributes, *PObjectAffineAttributes;
 
-struct objectAffineAttributes {
-    short pa;
-    short pb;
-    short pc;
-    short pd;
+struct ObjectAffineAttributes {
+    short m_pa;
+    short m_pb;
+    short m_pc;
+    short m_pd;
     byte m_angle;
     byte m_scaleX;
     byte m_scaleY;
-    byte b3;
 };
 
-typedef struct objectControl objectControl, *PobjectControl;
+typedef struct ObjectControl ObjectControl, *PObjectControl;
 
-struct objectControl {
-    struct objectXYAttributes xyDetails;
-    struct objectTileAttributes tileDetails;
-    short affineDetails;
+struct ObjectControl {
+    struct ObjectXYAttributes m_xyDetails;
+    struct ObjectTileAttributes m_tileDetails;
+    short m_affineDetails;
 };
 
 typedef enum RelationFlag {
@@ -2642,6 +2666,10 @@ struct SpriteLzDetails {
     struct SpriteArchive_Header * m_spritePtrList[8];
     void * m_next;
 };
+
+typedef enum SpriteType {
+    D0_Desk=208
+} SpriteType;
 
 typedef struct Struct_13A0 Struct_13A0, *PStruct_13A0;
 
@@ -2938,8 +2966,8 @@ struct Struct_MoveRelated {
 typedef struct Struct_MysteryDictR7 Struct_MysteryDictR7, *PStruct_MysteryDictR7;
 
 struct Struct_MysteryDictR7 {
-    byte b0;
-    byte b1;
+    enum AreaId m_areaId;
+    byte m_subAreaId;
     byte b2;
     byte b3;
     int i2;

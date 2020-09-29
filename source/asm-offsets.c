@@ -109,10 +109,10 @@ int main(void)
     DECLARE("GameState_m_isShuffleFolder"         , offsetof(GameState, m_isShuffleFolder));
     DECLARE("GameState_m_b18_commentaryTextIndex" , offsetof(GameState, m_b18_commentaryTextIndex));
     DECLARE("GameState_m_b19_fadeStep"            , offsetof(GameState, m_b19_fadeStep));
-    DECLARE("GameState_m_b20_stat1_atk"           , offsetof(GameState, m_b20_stat1_atk));
-    DECLARE("GameState_m_b21_stat2_spd"           , offsetof(GameState, m_b21_stat2_spd));
-    DECLARE("GameState_m_b22_stat3_chg"           , offsetof(GameState, m_b22_stat3_chg));
-    DECLARE("GameState_m_b23_possibleArmor"       , offsetof(GameState, m_b23_possibleArmor));
+    DECLARE("GameState_m_statAttack"              , offsetof(GameState, m_statAttack));
+    DECLARE("GameState_m_statSpeed"               , offsetof(GameState, m_statSpeed));
+    DECLARE("GameState_m_statCharge"              , offsetof(GameState, m_statCharge));
+    DECLARE("GameState_m_armor"                   , offsetof(GameState, m_armor));
     DECLARE("GameState_m_Song_CurrentSongId"      , offsetof(GameState, m_Song_CurrentSongId));
     DECLARE("GameState_m_bustingRank"             , offsetof(GameState, m_bustingRank));
     DECLARE("GameState_m_b26"                     , offsetof(GameState, m_b26));
@@ -167,7 +167,7 @@ int main(void)
     DECLARE("Struct_Unk0C_b21"                                  , offsetof(Struct_Unk0C, b21));
     DECLARE("Struct_Unk0C_b22"                                  , offsetof(Struct_Unk0C, b22));
     DECLARE("Struct_Unk0C_m_multipleDeletionCount"              , offsetof(Struct_Unk0C, m_multipleDeletionCount));
-    DECLARE("Struct_Unk0C_b24"                                  , offsetof(Struct_Unk0C, b24));
+    DECLARE("Struct_Unk0C_m_b24"                                , offsetof(Struct_Unk0C, m_b24));
     DECLARE("Struct_Unk0C_m_srcBattleHandCount"                 , offsetof(Struct_Unk0C, m_srcBattleHandCount));
     DECLARE("Struct_Unk0C_m_sioOtherMpId"                       , offsetof(Struct_Unk0C, m_sioOtherMpId));
     DECLARE("Struct_Unk0C_m_sioMultiplayerId"                   , offsetof(Struct_Unk0C, m_sioMultiplayerId));
@@ -274,6 +274,12 @@ int main(void)
     DECLARE("Text_m_textBufIndex"                  , offsetof(Text, m_textBufIndex));
     DECLARE("Text_m_otherTempTextBufIndex"         , offsetof(Text, m_otherTempTextBufIndex));
     DECLARE("Text_m_portrait"                      , offsetof(Text, m_portrait));
+
+    //
+    DECLARE("OamAttributeListNode_m_xyDetails"     , offsetof(OamAttributeListNode, m_xyDetails));
+    DECLARE("OamAttributeListNode_m_tileDetail"    , offsetof(OamAttributeListNode, m_tileDetail));
+    DECLARE("OamAttributeListNode_m_unused"        , offsetof(OamAttributeListNode, m_unused));
+    DECLARE("OamAttributeListNode_m_nextIndex"     , offsetof(OamAttributeListNode, m_nextIndex));
 
     // Sprite
     DECLARE("Sprite_m_indexFrame"          , offsetof(Sprite, m_indexFrame));

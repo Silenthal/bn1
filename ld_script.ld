@@ -32,6 +32,7 @@ SECTIONS {
 		eMainState0x78           = 0x3D0;
 		gBattleChipInventory     = 0x4A0;
 		gEmailIndexes            = 0x1FA0;
+		gOamAttributeCount       = 0x6338;
 		eMainState0x0C           = 0x3710;
 		gTextTileBuffer          = 0x37E0;
 		tempBg1Hofs              = 0x46E0;
@@ -61,6 +62,7 @@ SECTIONS {
 		eObjPaletteD             = 0x4B40;
 		eObjPaletteE             = 0x4B60;
 		eObjPaletteF             = 0x4B80;
+		gSpriteAffineDataFlag    = 0x4BA4;
 		eMainState0x2C           = 0x4BB0;
 		eMainState0x4C           = 0x4BD0;
 		eMainState0x74           = 0x62E0;
@@ -90,6 +92,7 @@ SECTIONS {
 		eBgPaletteE              = 0x6E90;
 		eBgPaletteF              = 0x6EB0;
 		eMainState0x7C           = 0x6ED0;
+		gSpriteAffineDataList    = 0x6F00;
 		eFrameCounter            = 0x7080;
 		gFuncPtrBgUpdatePostLoop = 0x7090;
 		gFuncPtrBgUpdateHBlank   = 0x7094;
@@ -102,6 +105,7 @@ SECTIONS {
 		gMainMenu                = 0x7590;
 		eMainState0x20           = 0x75F0;
 		gTextBufferList          = 0x76D0;
+		gOamFreeObjectCount            = 0x7B50;
 		eMainState0x54           = 0x7DE0;
 		gLayoutDialogueText      = 0x7E10;
 		eDmaParamList            = 0x8010;
@@ -153,8 +157,14 @@ SECTIONS {
 		iwScreens             = 0x0;
 		interruptVector       = 0x2000;
 		interruptVectorHblank = 0x2004;
+		iwOamAttributeList    = 0x21E0;
 		interruptHandlerStart = 0x6800;
 		interruptHandlerEnd   = 0x7640;
+		iwSpriteContainerList = 0x47C0;
+		iwSpriteList0         = 0x47E0;
+		iwSpriteList1         = 0x4780;
+		iwSpriteList2         = 0x2040;
+		iwSpriteList3         = 0x45E0;
 	} > iwram
 
 	. = __text_start;
