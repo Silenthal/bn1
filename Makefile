@@ -36,8 +36,9 @@ export GEN_PAD			:= python3 $(CURDIR)/$(TOOLS)/generate_padding.py
 export MAKE_DEPEND  	:= python3 $(CURDIR)/$(TOOLS)/make_depend.py
 export MAKE_TILES		:= python3 $(CURDIR)/$(TOOLS)/make_tiles.py
 export BUILD_SCRIPT		:= python3 $(CURDIR)/$(TOOLS)/build_script.py
+export GEN_OFFSETS		:= python3 $(CURDIR)/$(TOOLS)/generate_offsets.py
 
-export ASM_OFFSET_C		:= $(CURDIR)/source/asm-offsets.c
+export MMBN_H			:= $(CURDIR)/include/mmbn.h
 export OUTPUT			:= $(CURDIR)/$(TARGET)
 export ASSETS			:= $(CURDIR)/assets
 export VPATH			:= $(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) $(ASSETS) $(BUILD)
@@ -46,7 +47,7 @@ export LAYOUT_FILE		:= $(CURDIR)/object_offset.txt
 export MAIN_LD_SCRIPT	:= $(CURDIR)/ld_script.ld
 
 
-CFILES				:= $(filter-out asm-offsets.c, $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c))))
+CFILES				:= $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
 SFILES				:= $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.S)))
 
 export C_OBJECTS	:= $(CFILES:.c=.o)
@@ -94,11 +95,14 @@ $(OUTPUT).elf: $(OFILES)
 
 depend: $(DFILES) offsets.h
 
-offsets.h: $(ASM_OFFSET_C)
-	@echo $(notdir $@)
+offsets.h: offsets.c
 	@$(CC) $(INCLUDE) $(CFLAGS) -S -o /dev/stdout $< | \
 	grep '__AS_DEFINE__' | \
 	sed 's/#//g' | sed 's/\t/ /g' | sed 's/__AS_DEFINE__/#define/g' > $@
+	@echo Offset file built
+
+offsets.c: $(MMBN_H)
+	@$(GEN_OFFSETS) -o $@ $<
 
 %.gba: %.elf
 	@$(OBJCOPY) -O binary $< $@
@@ -106,7 +110,7 @@ offsets.h: $(ASM_OFFSET_C)
 	@gbafix -p -t"$(TITLE)" -c$(CODE) -m$(MAKER) -r$(VERSION) $@
 
 %.elf:
-	@echo linking cartridge
+	@echo Linking cartridge
 	@cp -f $(LAYOUT_FILE) .
 	@cp -f $(MAIN_LD_SCRIPT) .
 	@$(GEN_PAD) "$(shell which $(AS)) $(ASINCLUDE) $(ASFLAGS)" $(LAYOUT_FILE) $(BASE).gba $(GEN_LD_SCRIPT)
