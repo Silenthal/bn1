@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set sinTable, 0x8004C34
-    .set cosTable, 0x8004CB4
-
     .text
 
 thumb_func_start Oam_InitTransferData
@@ -55,28 +52,38 @@ Oam_AddObject:
     ldr        r6,[r5,#0x0]
     cmp        r6,#0x80
     bge        LAB_08010ae4
+    @ Use r2 to select the list
     ldr        r4,PTR_iwSpriteContainerList_08010bec
     lsl        r7,r2,#0x3
     add        r4,r4,r7
+    @ Check that the list offset (r3) is valid to the specified list
     ldr        r7,[r4,#0x4]
     cmp        r3,r7
     bge        LAB_08010ae4
     cmp        r3,#0x0
     blt        LAB_08010ae4
+    @ Index into the selected sprite list...
     ldr        r4,[r4,#0x0]
     add        r4,r4,r3
+    @ Increment the object count...
     add        r7,r6,#0x1
     str        r7,[r5,#0x0]
+    @ Take the index that was at the location,
+    @ and store the new index, which is the old
+    @ object count (r6) in the sprite list
     ldrb       r7,[r4,#0x0]
     strb       r6,[r4,#0x0]
+    @ Then, index into the oam attribute linked list...
     lsl        r6,r6,#0x3
     ldr        r5,PTR_iwOamAttributeList_08010bf0
     add        r5,r5,r6
-    str        r0,[r5,#0x0]
-    strh       r1,[r5,#0x4]
-    strb       r7,[r5,#0x7]
+    @ And store the xy and tile attributes, and the old index
+    @ as the "next" node to go to
+    str        r0,[r5,#OamAttributeListNode_m_xyDetails]
+    strh       r1,[r5,#OamAttributeListNode_m_tileDetail]
+    strb       r7,[r5,#OamAttributeListNode_m_nextIndex]
     mov        r0,#0xff
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#OamAttributeListNode_m_unused]
 LAB_08010ae4:
     mov        pc,lr
 thumb_func_end Oam_AddObject

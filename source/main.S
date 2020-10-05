@@ -27,7 +27,7 @@ LAB_08000290:
     bl         Main_WaitFrames
     bl         BgUpdate_CallPreLoopFunction
     bl         Video_ApplySettings
-    ldr        r0,=0x3006ff5
+    ldr        r0,=Oam_TransferData_far
     mov        lr,pc
     bx         r0
     bl         Sprite_TransferPalettes

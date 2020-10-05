@@ -1,16 +1,14 @@
+#include "offsets.h"
     .include "constants.inc"
     .include "macros.inc"
-
-    .set sinTable, 0x8004C34
-    .set cosTable, 0x8004CB4
 
     .text
 
 far_thumb_func_start Oam_AddSprite
 Oam_AddSprite:
     push       { lr }
-    strb       r0,[r5,#0x7]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Sprite_m_indexOamList]
+    ldrb       r0,[r5,#Sprite_m_spriteFlags]
     mov        r1,#0x20
     tst        r0,r1
     bne        LAB_03006d76
@@ -20,22 +18,22 @@ Oam_AddSprite:
 LAB_03006d76:
     pop        { pc }
 LAB_03006d78:
-    ldr        r1,[r5,#0x20]
-    ldrb       r2,[r1,#0x0]
+    ldr        r1,[r5,#Sprite_m_curSubFrame]
+    ldrb       r2,[r1,#0x0] @ object list index
     lsl        r2,r2,#0x2
-    ldr        r0,[r5,#0x1c]
-    ldr        r0,[r0,#0xc]
-    ldr        r1,[r5,#0x18]
+    ldr        r0,[r5,#Sprite_m_curFrame]
+    ldr        r0,[r0,#0xc] @ object list ptr
+    ldr        r1,[r5,#Sprite_m_spriteStart]
     add        r1,r1,r0
     ldr        r2,[r1,r2]
     add        r2,r2,r1
-    ldr        r3,[r5,#0x28]
+    ldr        r3,[r5,#Sprite_m_i0]
     push       { r3 }
-    ldr        r4,[r5,#0x2c]
+    ldr        r4,[r5,#Sprite_m_b11]
     mvn        r4,r4
     and        r3,r4
-    str        r3,[r5,#0x28]
-    ldrb       r0,[r5,#0x4]
+    str        r3,[r5,#Sprite_m_i0]
+    ldrb       r0,[r5,#Sprite_m_spriteFlags]
     mov        r7,#0xff
     mov        r1,#0x4
     and        r1,r0
@@ -45,20 +43,20 @@ LAB_03006d78:
     and        r1,r0
     beq        advanceToNextObj
 LAB_03006da8:
-    ldrb       r3,[r2,#0x0]
+    ldrb       r3,[r2,#0x0] @ tile number
     cmp        r3,#0xff
     beq        exit
-    ldr        r3,[r5,#0x28]
+    ldr        r3,[r5,#Sprite_m_i0]
     lsl        r6,r3,#0x1
-    str        r6,[r5,#0x28]
+    str        r6,[r5,#Sprite_m_i0]
     cmp        r3,#0x0
     bge        advanceToNextObj
-    ldr        r6,[r5,#0x10]
+    ldr        r6,[r5,#Sprite_m_u2]
     bl         Oam_SpriteRotateFlipPos
     mov        r8,r1
     mov        r9,r0
     add        r3,r6,#0x0
-    mov        r0,#0xc
+    mov        r0,#Sprite_m_posX
     ldrsh      r0,[r5,r0]
     add        r0,r8
     mov        r4,#0x10
@@ -67,7 +65,7 @@ LAB_03006da8:
     and        r0,r4
     lsl        r0,r0,#0x10
     orr        r3,r0
-    ldrb       r4,[r2,#0x3]
+    ldrb       r4,[r2,#0x3] @ flag1
     mov        r0,#0xf0
     and        r0,r4
     lsl        r4,r4,#0x1e
@@ -92,9 +90,9 @@ LAB_03006dee:
     lsr        r1,r1,#0x1c
     lsl        r1,r1,#0xe
     orr        r3,r1
-    @ tile atrributes
-    ldrh       r1,[r5,#0x14]
-    ldrh       r0,[r5,#0x8]
+    @ tile attributes
+    ldrh       r1,[r5,#Sprite_m_tileAttributes]
+    ldrh       r0,[r5,#Sprite_m_dstTileOffset]
     ldrb       r4,[r2,#0x0]
     add        r4,r4,r0
     orr        r1,r4
@@ -122,7 +120,7 @@ advanceToNextObj:
     b          LAB_03006da8
 exit:
     pop        { r0 }
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Sprite_m_i0]
     pop        { pc }
 thumb_func_end Oam_AddSprite
 
@@ -135,7 +133,7 @@ Oam_SpriteRotateFlipPos:
     @ With a as an angle going counterclockwise:
     @ | x0 |  x  | Sx *  cos(a)  Sy * sin(a) |  =  | x1 |
     @ | y0 |     | Sx * -sin(a)  Sy * cos(a) |     | y1 |
-    ldrb       r4,[r5,#0x13]
+    ldrb       r4,[r5,#Sprite_m_u3_affineRelated_Hi]
     mov        r3,#0x3e
     and        r4,r3
     lsr        r4,r4,#0x1
@@ -307,21 +305,21 @@ LAB_03006f88:
 thumb_func_end Oam_SpriteRotateFlipPos
 
 objMidpointX:
-    .byte 0xFC,0xF8,0xF0,0xE0
-    .byte 0xF8,0xF0,0xF0,0xE0
-    .byte 0xFC,0xFC,0xF8,0xF0
-objMidpointY:
-    .byte 0xFC,0xF8,0xF0,0xE0
-    .byte 0xFC,0xFC,0xF8,0xF0
-    .byte 0xF8,0xF0,0xF0,0xE0
+    .byte -4,  -8, -16, -32
+    .byte -8, -16, -16, -32
+    .byte -4,  -4,  -8, -16
+ objMidpointY:
+    .byte -4,  -8, -16, -32
+    .byte -4,  -4,  -8, -16
+    .byte -8, -16, -16, -32
 objWidth:
-    .byte 0xF8,0xF0,0xE0,0xC0
-    .byte 0xF0,0xE0,0xE0,0xC0
-    .byte 0xF8,0xF8,0xF0,0xE0
+    .byte -8,  -16, -32, -64
+    .byte -16, -32, -32, -64
+    .byte -8,   -8, -16, -32
 objHeight:
-    .byte 0xF8,0xF0,0xE0,0xC0
-    .byte 0xF8,0xF8,0xF0,0xE0
-    .byte 0xF0,0xE0,0xE0,0xC0
+    .byte -8,  -16, -32, -64
+    .byte -8,   -8, -16, -32
+    .byte -16, -32, -32, -64
 
 PTR_Oam_AddObject_1_03006fbc:           .word Oam_AddObject + 1
 PTR_gSpriteAffineDataList_03006fc0:     .word gSpriteAffineDataList
@@ -338,8 +336,8 @@ PTR_objHeight_03006fe8:                 far_label objHeight
 PTR_objWidth_03006fec:                  far_label objWidth
 PTR_objHeight_03006ff0:                 far_label objHeight
 
-far_thumb_func_start Main_TransferOamData
-Main_TransferOamData:
+far_thumb_func_start Oam_TransferData
+Oam_TransferData:
     push       { lr }
     ldr        r0,ptrOamStart
     ldr        r2,ptrSpriteContainerListEnd
@@ -371,13 +369,13 @@ LAB_03007010:
     ldr        r7,PTR_iwOamAttributeList_030070c0
     add        r7,r7,r5
     @ Store the xyDetails and tileDetails at the index in iwOamAttributeList
-    ldr        r5,[r7,#0x0]
-    str        r5,[r0,#0x0]
-    ldrh       r5,[r7,#0x4]
-    strh       r5,[r0,#0x4]
+    ldr        r5,[r7,#OamAttributeListNode_m_xyDetails]
+    str        r5,[r0,#ObjectControl_m_xyDetails]
+    ldrh       r5,[r7,#OamAttributeListNode_m_tileDetail]
+    strh       r5,[r0,#ObjectControl_m_tileDetails]
     @ Move to the next OAM object
     add        r0,#0x8
-    ldrb       r5,[r7,#0x7]
+    ldrb       r5,[r7,#OamAttributeListNode_m_nextIndex]
     @ If the next index is 0xFF, go to the next entry in the sprite container list
     @ Otherwise, continue this block with the new index
     cmp        r5,#0xff
@@ -412,14 +410,14 @@ LAB_0300704c:
     mov        r2,#0
     mov        r3,#32
 LAB_03007054:
-    ldrh       r4,[r0,#0x0]
-    strh       r4,[r1,#0x6]
-    ldrh       r4,[r0,#0x2]
-    strh       r4,[r1,#0xE]
-    ldrh       r4,[r0,#0x4]
-    strh       r4,[r1,#0x16]
-    ldrh       r4,[r0,#0x6]
-    strh       r4,[r1,#0x1E]
+    ldrh       r4,[r0,#ObjectAffineAttributes_m_pa]
+    strh       r4,[r1,#ObjectControl_m_affineDetails]
+    ldrh       r4,[r0,#ObjectAffineAttributes_m_pb]
+    strh       r4,[r1,#ObjectControl_m_affineDetails + 0x8 * 1]
+    ldrh       r4,[r0,#ObjectAffineAttributes_m_pc]
+    strh       r4,[r1,#ObjectControl_m_affineDetails + 0x8 * 2]
+    ldrh       r4,[r0,#ObjectAffineAttributes_m_pd]
+    strh       r4,[r1,#ObjectControl_m_affineDetails + 0x8 * 3]
     add        r0,#0xc
     add        r1,#0x20
     add        r2,#0x1
@@ -444,7 +442,7 @@ LAB_03007076:
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end Main_TransferOamData
+thumb_func_end Oam_TransferData
 
 SpriteList_ARRAY_03007090:
     .word iwSpriteList0, 0x34
@@ -462,6 +460,5 @@ PTR_gSpriteAffineDataList_030070c8: .word gSpriteAffineDataList
 PTR_SpriteList_ARRAY_030070cc:      far_label SpriteList_ARRAY_03007090
 PTR_memset_32_1_030070d0:           .word memset_32+1
 PTR_gOamAttributeCount_030070d4:    .word gOamAttributeCount
-
 
     .end
