@@ -2,6 +2,7 @@
     .include "macros.inc"
 
     .text
+global_label tilesetBattleChipCodes
     .incbin "images/battle/codes/00.4bpp"
     .incbin "images/battle/codes/01.4bpp"
     .incbin "images/battle/codes/02.4bpp"
@@ -31,6 +32,7 @@
     .incbin "images/other/palette_06414D4.gbapal"
     .incbin "images/battlechip/icon/blank_light.4bpp"
     .incbin "images/battlechip/icon/blank_dark.4bpp"
+global_label tilesetBattleChipElements
     .incbin "images/battle/elements/null.4bpp"
     .incbin "images/battle/elements/elec.4bpp"
     .incbin "images/battle/elements/fire.4bpp"

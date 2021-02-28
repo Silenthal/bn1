@@ -68,7 +68,7 @@ SECTIONS {
 		eMainState0x74           = 0x62E0;
 		gText                    = 0x6350;
 		gTextOptionFlags         = 0x63E0;
-		eMainState0x50           = 0x64A0;
+		gFrameCounter           = 0x64A0;
 		eMainState0x68           = 0x65D0;
 		gInput                   = 0x65F0;
 		gShop                    = 0x6610;
@@ -105,7 +105,7 @@ SECTIONS {
 		gMainMenu                = 0x7590;
 		eMainState0x20           = 0x75F0;
 		gTextBufferList          = 0x76D0;
-		gOamFreeObjectCount            = 0x7B50;
+		gOamFreeObjectCount      = 0x7B50;
 		eMainState0x54           = 0x7DE0;
 		gLayoutDialogueText      = 0x7E10;
 		eDmaParamList            = 0x8010;
@@ -115,6 +115,7 @@ SECTIONS {
 		eMainState0x6C           = 0xACF0;
 		tempBg1Vofs              = 0xC190;
 		gWindowSettings          = 0xC1B0;
+		gBattleChipSelect        = 0xC270;
 		musicPlayerInfo_13       = 0xC520;
 		musicPlayerInfo_17       = 0xC560;
 		musicPlayerInfo_0D       = 0xC5A0;
