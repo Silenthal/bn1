@@ -2,7 +2,7 @@
     .set T_Home_Town,                           0x1
     .set T_In_The_Room,                         0x2
     .set T_Suspicious_Mood,                     0x3
-    .set T_Incidenct_Occurrence,                0x4
+    .set T_Incident_Occurrence,                0x4
     .set T_Transmission,                        0x5
     .set T_Fire_Field,                          0x6
     .set T_Running_Through_the_Cyber_World,     0x7
@@ -200,9 +200,9 @@
     .set SE_Battle_EncounterStart,              0xc7
     .set SE_Battle_CustomGaugeFull,             0xc8
     .set SE_WindWhoosh,                         0xc9
-    .set SE_CA,                                 0xca
-    .set SE_CB,                                 0xcb
-    .set SE_CC,                                 0xcc
+    .set SE_RewardSquareReveal,                 0xca
+    .set SE_RewardZenny,                        0xcb
+    .set SE_RewardBattleChip,                   0xcc
     .set SE_CD,                                 0xcd
     .set SE_CE,                                 0xce
     .set SE_CF,                                 0xcf

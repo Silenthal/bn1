@@ -8,3 +8,4 @@
     .include "constants/text.inc"
     .include "constants/key.inc"
     .include "constants/sprite.inc"
+    .include "constants/other.inc"

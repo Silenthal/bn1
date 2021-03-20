@@ -68,7 +68,7 @@ SECTIONS {
 		eMainState0x74           = 0x62E0;
 		gText                    = 0x6350;
 		gTextOptionFlags         = 0x63E0;
-		gFrameCounter           = 0x64A0;
+		gFrameCounter            = 0x64A0;
 		eMainState0x68           = 0x65D0;
 		gInput                   = 0x65F0;
 		gShop                    = 0x6610;
@@ -115,7 +115,7 @@ SECTIONS {
 		eMainState0x6C           = 0xACF0;
 		tempBg1Vofs              = 0xC190;
 		gWindowSettings          = 0xC1B0;
-		gBattleChipSelect        = 0xC270;
+		gCustomScreen            = 0xC270;
 		musicPlayerInfo_13       = 0xC520;
 		musicPlayerInfo_17       = 0xC560;
 		musicPlayerInfo_0D       = 0xC5A0;
@@ -155,17 +155,19 @@ SECTIONS {
 	. = __iwram_start;
 	iwram (NOLOAD) :
 	{
-		iwScreens             = 0x0;
-		interruptVector       = 0x2000;
-		interruptVectorHblank = 0x2004;
-		iwOamAttributeList    = 0x21E0;
-		interruptHandlerStart = 0x6800;
-		interruptHandlerEnd   = 0x7640;
-		iwSpriteContainerList = 0x47C0;
-		iwSpriteList0         = 0x47E0;
-		iwSpriteList1         = 0x4780;
-		iwSpriteList2         = 0x2040;
-		iwSpriteList3         = 0x45E0;
+		iwScreens				= 0x0;
+		interruptVector			= 0x2000;
+		interruptVectorHblank	= 0x2004;
+		iwOamAttributeList		= 0x21E0;
+		iwBufferUITextTile      = 0x25E0;
+		iwTilesetSelectedChips	= 0x2FA0;
+		interruptHandlerStart	= 0x6800;
+		interruptHandlerEnd		= 0x7640;
+		iwSpriteContainerList	= 0x47C0;
+		iwSpriteList0			= 0x47E0;
+		iwSpriteList1			= 0x4780;
+		iwSpriteList2			= 0x2040;
+		iwSpriteList3			= 0x45E0;
 	} > iwram
 
 	. = __text_start;
@@ -183,12 +185,13 @@ SECTIONS {
 	. = __vram_start;
 	vram (NOLOAD) :
 	{
-		BG_VRAM_BASE0 = 0;
-		BG_VRAM_BASE1 = 0x4000;
-		BG_VRAM_BASE2 = 0x8000;
-		BG_VRAM_BASE3 = 0xC000;
-		BG_VRAM_SCREEN0 = 0xE000;
-		vTextTileStart = 0xC800;
+		BG_VRAM_BASE0			= 0;
+		BG_VRAM_BASE1			= 0x4000;
+		BG_VRAM_BASE2			= 0x8000;
+		vtTilesetSelectedChips	= 0xAA80;
+		BG_VRAM_BASE3			= 0xC000;
+		BG_VRAM_SCREEN0			= 0xE000;
+		vTextTileStart			= 0xC800;
 	} > vram
 
 	/DISCARD/ : {

@@ -152,7 +152,7 @@ images/battlechip/chip_codes.4bpp: %.4bpp: %.png
 images/battlechip/results/numbers.4bpp: %.4bpp: %.png
 	$(MAKE_TILES) -n 44 $@ $<
 
-images/battle/custom_screen.4bpp: %.4bpp: %.png
+images/custom_screen/frame.4bpp: %.4bpp: %.png
 	$(MAKE_TILES) -n 39 $@ $<
 
 %.4bpp: %.png

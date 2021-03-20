@@ -29,8 +29,11 @@ global_label tilesetBattleChipCodes
     .incbin "images/battle/codes/23.4bpp"
     .incbin "images/battle/codes/24.4bpp"
     .incbin "images/battle/codes/25.4bpp"
+global_label Color_ARRAY_086414d4
     .incbin "images/other/palette_06414D4.gbapal"
+global_label tileNullChipIconLight
     .incbin "images/battlechip/icon/blank_light.4bpp"
+global_label tileNullChipIconDark
     .incbin "images/battlechip/icon/blank_dark.4bpp"
 global_label tilesetBattleChipElements
     .incbin "images/battle/elements/null.4bpp"
@@ -38,9 +41,13 @@ global_label tilesetBattleChipElements
     .incbin "images/battle/elements/fire.4bpp"
     .incbin "images/battle/elements/water.4bpp"
     .incbin "images/battle/elements/wood.4bpp"
-    .incbin "images/battle/custom_screen.4bpp"
-    .incbin "images/battle/custom_screen.gbapal"
-    .incbin "images/battle/custom_screen.tilemap"
+global_label tilesetCustomScreenBg_1
+    .incbin "images/custom_screen/frame.4bpp"
+global_label paletteCustomScreenBg_1
+    .incbin "images/custom_screen/frame.gbapal"
+global_label tilemapCustomScreenBg_1
+    .incbin "images/custom_screen/frame.tilemap"
+global_label textDict_BattleMessages
     .incbin "text/battle/messages.script"
     @ Quirk: Seems to be a script to instantly get items?
     .incbin "text/other/06420C0.script"
@@ -239,9 +246,12 @@ global_label tilesetChipArt
     .incbin "images/battlechip/art/176.4bpp"
 
     .incbin "images/battlechip/unused_zenny.4bpp"
-    .incbin "images/battlechip/no_data_selected.4bpp"
-    .incbin "images/battlechip/chip_data_transmission.4bpp"
-    .incbin "images/battlechip/additional_chip_data.4bpp"
+global_label tileSetNoDataSelected
+    .incbin "images/custom_screen/no_data_selected.4bpp"
+global_label tilesetChipDataTransmission
+    .incbin "images/custom_screen/chip_data_transmission.4bpp"
+global_label tilesetAdditionalChipData
+    .incbin "images/custom_screen/additional_chip_data.4bpp"
 
 global_label paletteChipArt
     .incbin "images/battlechip/art/000.gbapal"
@@ -422,5 +432,10 @@ global_label paletteChipArt
     .incbin "images/battlechip/art/175.gbapal"
     .incbin "images/battlechip/art/176.gbapal"
     .incbin "images/battlechip/palette_069841C.gbapal"
-    .incbin "images/battlechip/no_data_selected.gbapal"
+global_label paletteNoChipSelected
+    .incbin "images/custom_screen/no_data_selected.gbapal"
+global_label paletteChipDataTransmission
+    .incbin "images/custom_screen/chip_data_transmission.gbapal"
+global_label paletteAdditionalChipData
+    .incbin "images/custom_screen/additional_chip_data.gbapal"
     .end

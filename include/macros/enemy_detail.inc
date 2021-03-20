@@ -35,6 +35,14 @@
     .byte EL_\elem
     .endm
 
+    .macro routine rt
+    .byte \rt
+    .endm
+
+    .macro lzSprite index
+    .byte \index
+    .endm
+
     .macro noelement
     .byte EL_None
     .endm

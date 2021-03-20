@@ -1,0 +1,2230 @@
+#include "offsets.h"
+    .include "constants.inc"
+    .include "macros.inc"
+
+    .set AddObject, 0x8009810
+    .set Screen_CopyLayoutV, 0x80021E0
+    .set FUN_080029ec, 0x80029EC
+    .set tilesetCustomScreenBg_2, 0x863FE34
+    .set FUN_0805758a, 0x805758A
+    .set FUN_0805738e, 0x805738e
+    .set Text_CheckIfDialogActive, 0x8007240
+    .text
+
+    .thumb
+
+thumb_func_start CustomScreen_HandleInput
+CustomScreen_HandleInput:
+    push       { lr }
+    ldr        r5,PTR_gCustomScreen_08015928
+    mov        r0,#0x0
+    mov        r1,#0x0
+    ldrb       r2,[r5,#0x1a]
+    tst        r2,r2
+    beq        LAB_08015902
+    mov        r7,r10
+    ldr        r7,[r7,#0x4]
+    ldrh       r0,[r7,#0x2]
+    ldrh       r1,[r7,#0x4]
+LAB_08015902:
+    strh       r0,[r5,#0x38]
+    strh       r1,[r5,#0x3a]
+    ldrb       r0,[r5,#0x0]
+    ldr        r7,PTR_JT_R5_CustomScreen_15918_08015924
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    ldrb       r1,[r5,#0x1]
+    lsr        r1,r1,#0x2
+    pop        { pc }
+thumb_func_end CustomScreen_HandleInput
+    .align 2, 0
+
+JT_R5_CustomScreen_15918:
+    .word CustomScreen_Init
+    .word CustomScreen_Main
+    .word CustomScreen_TakeOrAddChips
+PTR_JT_R5_CustomScreen_15918_08015924:
+    .word JT_R5_CustomScreen_15918
+PTR_gCustomScreen_08015928:
+    .word gCustomScreen
+
+thumb_func_start CustomScreen_Init
+CustomScreen_Init:
+    push       { lr }
+    bl         FUN_0805758a
+    mov        r0,#0x4
+    strb       r0,[r5,#0x0]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#0xc]
+    strh       r0,[r5,#0x24]
+    strb       r0,[r5,#0xd]
+    strh       r0,[r5,#0x3c]
+    strh       r0,[r5,#0x3e]
+    strb       r0,[r5,#0xf]
+    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#0x10]
+    mov        r0,#0x6
+    add        r0,r0,r5
+    mov        r1,#0x5
+    mov        r2,#0xff
+    bl         memset
+    mov        r0,#0x40
+    add        r0,r0,r5
+    mov        r1,#0xf
+    mov        r2,#0x0
+    bl         memset
+    bl         CustomScreen_Main
+    mov        r0,#0x1
+    pop        { pc }
+thumb_func_end CustomScreen_Init
+
+thumb_func_start CustomScreen_Main
+CustomScreen_Main:
+    push       { lr }
+    ldr        r7,PTR_JT_R5_CustomScreen_15980_0801599c
+    ldrb       r0,[r5,#0x1]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    mov        r0,#0x1
+    pop        { pc }
+thumb_func_end CustomScreen_Main
+
+JT_R5_CustomScreen_15980:
+    .word CustomScreen_Open
+    .word CustomScreen_ChipSelectMain
+    .word CustomScreen_OkButtonMain
+    .word CustomScreen_AddButtonPressed
+    .word CustomScreen_Close
+    .word CustomScreen_ShowDescription
+    .word FUN_08015d5e
+PTR_JT_R5_CustomScreen_15980_0801599c:
+    .word JT_R5_CustomScreen_15980
+    .word gFrameCounter
+
+thumb_func_start CustomScreen_Open
+CustomScreen_Open:
+    push       { lr }
+    ldr        r7,PTR_JT_R5_BCS_159CC_080159d4
+    ldrb       r0,[r5,#0x2]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    bl         CustomScreen_GetChipFromPosition
+    bl         CustomScreen_GetChipDetailFromFolder
+    bl         CustomScreen_LoadChipDetail
+    bl         CustomScreen_LoadUILower
+    bl         CustomScreen_LoadSelectedChips
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        { pc }
+thumb_func_end CustomScreen_Open
+
+    .align 2, 0
+JT_R5_BCS_159CC:
+    .word CustomScreen_StartSlideOpen
+    .word CustomScreen_SlideOpen
+PTR_JT_R5_BCS_159CC_080159d4:
+    .word JT_R5_BCS_159CC
+
+thumb_func_start CustomScreen_StartSlideOpen
+CustomScreen_StartSlideOpen:
+    push       { lr }
+    mov        r0,#0x0
+    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#0x20]
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,#0xbe
+    bl         Sound_PlaySongImmediate
+    pop        { pc }
+thumb_func_end CustomScreen_StartSlideOpen
+
+thumb_func_start CustomScreen_SlideOpen
+CustomScreen_SlideOpen:
+    push       { lr }
+    mov        r7,r10
+    ldr        r7,[r7,#0x14]
+    ldr        r0,[r7,#0x30]
+    ldr        r1,DAT_08015a24
+    sub        r0,r0,r1
+    str        r0,[r7,#0x30]
+    ldrh       r0,[r5,#0x24]
+    sub        r0,#0x8
+    strh       r0,[r5,#0x24]
+    ldrh       r0,[r5,#0x20]
+    add        r0,#0x1
+    strh       r0,[r5,#0x20]
+    cmp        r0,#0xf
+    bne        LAB_08015a20
+    bl         CustomScreen_GetChipFromPosition
+    mov        r1,#0x4
+    cmp        r0,#0xff
+    bne        LAB_08015a1a
+    mov        r1,#0x1
+    strb       r1,[r5,#0xc]
+    mov        r1,#0x8
+LAB_08015a1a:
+    strb       r1,[r5,#0x1]
+    mov        r1,#0x0
+    strh       r1,[r5,#0x2]
+LAB_08015a20:
+    pop        { pc }
+thumb_func_end CustomScreen_SlideOpen
+    .align 2, 0
+DAT_08015a24: .word 0x10000
+
+thumb_func_start CustomScreen_ChipSelectMain
+CustomScreen_ChipSelectMain:
+    push       { lr }
+    bl         CustomScreen_CheckRToggle
+    tst        r0,r0
+    beq        LAB_08015a34
+    pop        { pc }
+LAB_08015a34:
+    bl         CustomScreen_CheckCursorMove
+    tst        r0,r0
+    beq        LAB_08015a46
+    mov        r0,#0x8
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strh       r0,[r5,#0x2]
+    b          LAB_08015abc
+LAB_08015a46:
+    ldrh       r0,[r5,#0x38]
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_08015a84
+    bl         CustomScreen_GetSelectedChipOffset
+    bl         CustomScreen_ValidateSelection
+    tst        r0,r0
+    beq        LAB_08015a84
+    ldrb       r2,[r5,#0xb]
+    mov        r3,#0x15
+    add        r3,r3,r2
+    strb       r1,[r5,r3]
+    bl         CustomScreen_GetSelectedChipOffset
+    ldrb       r1,[r5,#0xb]
+    mov        r2,#0x6
+    add        r2,r2,r1
+    strb       r0,[r5,r2]
+    add        r1,#0x1
+    strb       r1,[r5,#0xb]
+    mov        r2,#0x40
+    add        r2,r2,r0
+    strb       r1,[r5,r2]
+    mov        r0,#0x6a
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x1
+    strb       r0,[r5,#0x1b]
+    b          LAB_08015abc
+LAB_08015a84:
+    mov        r1,#0x2
+    tst        r0,r1
+    beq        LAB_08015aae
+    ldrb       r0,[r5,#0xb]
+    tst        r0,r0
+    beq        LAB_08015abc
+    sub        r0,#0x1
+    strb       r0,[r5,#0xb]
+    mov        r1,#0x6
+    add        r1,r1,r0
+    ldrb       r2,[r5,r1]
+    mov        r0,#0xff
+    strb       r0,[r5,r1]
+    mov        r0,#0x0
+    mov        r3,#0x40
+    add        r3,r3,r2
+    strb       r0,[r5,r3]
+    mov        r0,#0x6b
+    bl         Sound_PlaySongImmediate
+    b          LAB_08015abc
+LAB_08015aae:
+    mov        r1,#0x8
+    tst        r0,r1
+    beq        LAB_08015abc
+    mov        r0,#0x8
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strh       r0,[r5,#0x2]
+LAB_08015abc:
+    bl         CustomScreen_GetChipFromPosition
+    bl         CustomScreen_GetChipDetailFromFolder
+    bl         CustomScreen_LoadChipDetail
+    bl         CustomScreen_LoadChipSelectCursor
+    bl         dummy_167d0
+    bl         CustomScreen_LoadUILower
+    bl         CustomScreen_LoadSelectedChips
+    bl         CustomScreen_AnimateLogo
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        { pc }
+thumb_func_end CustomScreen_ChipSelectMain
+
+non_word_aligned_thumb_func_start CustomScreen_GetSelectedChipOffset
+CustomScreen_GetSelectedChipOffset:
+    ldrb       r0,[r5,#0x4]
+    ldrb       r1,[r5,#0x5]
+    mov        r2,#0x5
+    mul        r1,r2
+    add        r0,r0,r1
+    mov        pc,lr
+thumb_func_end CustomScreen_GetSelectedChipOffset
+
+non_word_aligned_thumb_func_start CustomScreen_GetChipSelectIndex
+CustomScreen_GetChipSelectIndex:
+    mov        r2,#0x5
+    mul        r1,r2
+    add        r0,r0,r1
+    mov        pc,lr
+thumb_func_end CustomScreen_GetChipSelectIndex
+
+non_word_aligned_thumb_func_start CustomScreen_OkButtonMain
+CustomScreen_OkButtonMain:
+    push       { lr }
+    ldrh       r0,[r5,#0x38]
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_08015b5a
+    mov        r0,#0x6d
+    bl         Sound_PlaySongImmediate
+    mov        r6,r10
+    ldr        r6,[r6,#0xc]
+    ldrb       r3,[r5,#0xb]
+    tst        r3,r3
+    beq        LAB_08015b4c
+    strb       r3,[r6,#0x11]
+    mov        r0,#0x0
+    strb       r0,[r6,#0x19]
+    mov        r0,r10
+    ldr        r0,[r0,#0xc]
+    add        r0,#0x78
+    mov        r1,#0x6
+    mov        r2,#0xff
+    bl         memset
+    mov        r6,r10
+    ldr        r6,[r6,#0xc]
+    add        r6,#0x78
+    mov        r4,#0x6
+    add        r4,r4,r5
+LAB_08015b2e:
+    ldrb       r0,[r4,#0x0]
+    bl         CustomScreen_GetChipDetailFromDeck
+    strb       r0,[r6,#0x0]
+    strb       r1,[r6,#0x6]
+    add        r6,#0x1
+    add        r4,#0x1
+    sub        r3,#0x1
+    bne        LAB_08015b2e
+    mov        r0,#0x0
+    bl         FUN_0805738e
+    mov        r0,#0x1
+    bl         FUN_0805738e
+LAB_08015b4c:
+    mov        r0,#0x10
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strh       r0,[r5,#0x2]
+    mov        r0,#0x0
+    strb       r0,[r5,#0xf]
+    pop        { pc }
+LAB_08015b5a:
+    ldrh       r0,[r5,#0x3a]
+    mov        r1,#0x22
+    tst        r0,r1
+    beq        LAB_08015b8c
+    mov        r0,#0x5
+LAB_08015b64:
+    sub        r0,#0x1
+    bmi        LAB_08015bda
+    push       { r0 }
+    ldrb       r1,[r5,#0x5]
+    bl         CustomScreen_GetChipSelectIndex
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r1,[r7,#0x10]
+    cmp        r0,r1
+    bmi        LAB_08015b7e
+    mov        r0,#0xff
+    b          LAB_08015b82
+LAB_08015b7e:
+    bl         CustomScreen_GetChipDetailFromDeck
+LAB_08015b82:
+    cmp        r0,#0xff
+    pop        { r0 }
+    beq        LAB_08015b64
+    strb       r0,[r5,#0x4]
+    b          LAB_08015bb0
+LAB_08015b8c:
+    mov        r1,#0x10
+    tst        r0,r1
+    beq        LAB_08015bc0
+    mov        r0,#0x1
+    neg        r0,r0
+LAB_08015b96:
+    add        r0,#0x1
+    cmp        r0,#0x5
+    beq        LAB_08015bda
+    push       { r0 }
+    ldrb       r1,[r5,#0x5]
+    bl         CustomScreen_GetChipSelectIndex
+    bl         CustomScreen_GetChipDetailFromDeck
+    cmp        r0,#0xff
+    pop        { r0 }
+    beq        LAB_08015b96
+    strb       r0,[r5,#0x4]
+LAB_08015bb0:
+    mov        r0,#0x4
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strh       r0,[r5,#0x2]
+    mov        r0,#0x69
+    bl         Sound_PlaySongImmediate
+    b          LAB_08015bda
+LAB_08015bc0:
+    mov        r1,#0x80
+    tst        r0,r1
+    beq        LAB_08015bda
+    ldrb       r0,[r5,#0xb]
+    tst        r0,r0
+    bne        LAB_08015bda
+    mov        r0,#0x69
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0xc
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strh       r0,[r5,#0x2]
+LAB_08015bda:
+    mov        r0,#0x0
+    ldrb       r1,[r5,#0xb]
+    tst        r1,r1
+    beq        LAB_08015be4
+    mov        r0,#0x1
+LAB_08015be4:
+    bl         CustomScreen_LoadAlternateArt
+    bl         CustomScreen_DrawCursorOkButton
+    bl         dummy_167d0
+    bl         CustomScreen_LoadUILower
+    bl         CustomScreen_LoadSelectedChips
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        { pc }
+thumb_func_end CustomScreen_OkButtonMain
+
+non_word_aligned_thumb_func_start CustomScreen_AddButtonPressed
+CustomScreen_AddButtonPressed:
+    push       { lr }
+    ldr        r7,PTR_PTR_CustomScreen_AddButtonMain_08015c24
+    ldrb       r0,[r5,#0x2]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    mov        r0,#0x2
+    bl         CustomScreen_LoadAlternateArt
+    bl         dummy_167d0
+    bl         CustomScreen_LoadUILower
+    bl         CustomScreen_LoadSelectedChips
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        { pc }
+thumb_func_end CustomScreen_AddButtonPressed
+
+    .align 2, 0
+PTR_PTR_CustomScreen_AddButtonMain_08015c24:
+    .word PTR_CustomScreen_AddButtonMain_08015c28
+PTR_CustomScreen_AddButtonMain_08015c28:
+    .word CustomScreen_AddButtonMain
+    .word CustomScreen_AddButtonWaitDialogue
+    .word FUN_08015cd2
+
+thumb_func_start CustomScreen_AddButtonMain
+CustomScreen_AddButtonMain:
+    push       { lr }
+    ldrh       r0,[r5,#0x38]
+    mov        r1,#0x40
+    tst        r0,r1
+    beq        LAB_08015c4e
+    mov        r0,#0x69
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x8
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strh       r0,[r5,#0x2]
+    b          LAB_08015cb2
+LAB_08015c4e:
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_08015cb2
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    bl         CustomScreen_GetDeckSize
+    ldrb       r1,[r7,#0x10]
+    cmp        r1,#0xf
+    bge        LAB_08015c66
+    cmp        r1,r0
+    blt        LAB_08015c78
+LAB_08015c66:
+    mov        r0,#0x8
+    strb       r0,[r5,#0x2]
+    ldr        r0,PTR_textDict_BattleMessages_08015d94
+    mov        r1,#0x1
+    push       { r5 }
+    bl         Text_LoadDialogue
+    pop        { r5 }
+    b          LAB_08015cb2
+LAB_08015c78:
+    mov        r0,#0x0
+    strb       r0,[r7,#0x19]
+    mov        r1,#0x1f
+    lsl        r1,r0
+    strh       r1,[r5,#0x3c]
+    mov        r0,#0x1
+    strb       r0,[r5,#0xd]
+    mov        r0,#0x3c
+    strh       r0,[r5,#0x20]
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,r10
+    ldr        r0,[r0,#0xc]
+    mov        r1,#0x0
+    strb       r1,[r0,#0x11]
+    add        r0,#0x78
+    mov        r1,#0x6
+    mov        r2,#0xff
+    bl         memset
+    mov        r0,#0x6a
+    bl         Sound_PlaySongImmediate
+    ldr        r0,PTR_textDict_BattleMessages_08015d94
+    mov        r1,#0x0
+    push       { r5 }
+    bl         Text_LoadDialogue
+    pop        { r5 }
+LAB_08015cb2:
+    bl         CustomScreen_DrawCursorAddButton
+    pop        { pc }
+thumb_func_end CustomScreen_AddButtonMain
+
+    .word textDict_BattleMessages
+
+thumb_func_start CustomScreen_AddButtonWaitDialogue
+CustomScreen_AddButtonWaitDialogue:
+    push       { lr }
+    bl         Text_CheckIfDialogActive
+    bne        LAB_08015cd0
+    mov        r0,#0x10
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strh       r0,[r5,#0x2]
+    mov        r0,#0x1
+    strb       r0,[r5,#0xf]
+LAB_08015cd0:
+    pop        { pc }
+thumb_func_end CustomScreen_AddButtonWaitDialogue
+
+non_word_aligned_thumb_func_start FUN_08015cd2
+FUN_08015cd2:
+    push       { lr }
+    bl         Text_CheckIfDialogActive
+    bne        LAB_08015cde
+    mov        r0,#0x0
+    strh       r0,[r5,#0x2]
+LAB_08015cde:
+    pop        { pc }
+thumb_func_end FUN_08015cd2
+
+thumb_func_start CustomScreen_Close
+CustomScreen_Close:
+    push       { lr }
+    ldr        r7,PTR_PTR_CustomScreen_CloseStart_1_08015cfc
+    ldrb       r0,[r5,#0x2]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        { pc }
+    thumb_func_end CustomScreen_Close
+
+    .align 2, 0
+PTR_CustomScreen_CloseStart_1_08015cf4:
+    .word CustomScreen_CloseStart
+    .word CustomScreen_SlideClosed
+PTR_PTR_CustomScreen_CloseStart_1_08015cfc:
+    .word PTR_CustomScreen_CloseStart_1_08015cf4
+
+thumb_func_start CustomScreen_CloseStart
+CustomScreen_CloseStart:
+    push       { lr }
+    mov        r0,#0x0
+    strh       r0,[r5,#0x20]
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    pop        { pc }
+thumb_func_end CustomScreen_CloseStart
+
+thumb_func_start CustomScreen_SlideClosed
+CustomScreen_SlideClosed:
+    push       { lr }
+    mov        r7,r10
+    ldr        r7,[r7,#0x14]
+    ldr        r0,[r7,#0x30]
+    ldr        r1,DAT_08015d30
+    add        r0,r0,r1
+    str        r0,[r7,#0x30]
+    ldrh       r0,[r5,#0x24]
+    add        r0,#0x8
+    strh       r0,[r5,#0x24]
+    ldrh       r0,[r5,#0x20]
+    add        r0,#0x1
+    strh       r0,[r5,#0x20]
+    cmp        r0,#0xf
+    bne        LAB_08015d2e
+    mov        r0,#0x8
+    strb       r0,[r5,#0x0]
+LAB_08015d2e:
+    pop        { pc }
+thumb_func_end CustomScreen_SlideClosed
+DAT_08015d30:
+    .word 0x10000
+
+thumb_func_start CustomScreen_ShowDescription
+CustomScreen_ShowDescription:
+    push       { lr }
+    bl         CustomScreen_CheckHideDescriptionKeyPress
+    tst        r0,r0
+    beq        LAB_08015d40
+    pop        { pc }
+LAB_08015d40:
+    bl         CustomScreen_GetChipFromPosition
+    bl         CustomScreen_GetChipDetailFromFolder
+    bl         CustomScreen_LoadChipDetail
+    bl         CustomScreen_GetChipFromPosition
+    bl         CustomScreen_GetChipDetailFromFolder
+    bl         CustomScreen_LoadChipDescription
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        { pc }
+thumb_func_end CustomScreen_ShowDescription
+
+non_word_aligned_thumb_func_start FUN_08015d5e
+FUN_08015d5e:
+    push       { lr }
+    ldr        r7,PTR_PTR_ARRAY_08015d7c
+    ldrb       r0,[r5,#0x2]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    pop        { pc }
+thumb_func_end FUN_08015d5e
+
+PTR_ARRAY_08015d6c:
+    .word FUN_08015d80
+    .word FUN_08015d98
+    .word FUN_08015dcc
+    .word FUN_08015e12
+PTR_PTR_ARRAY_08015d7c:
+    .word PTR_ARRAY_08015d6c
+
+thumb_func_start FUN_08015d80
+FUN_08015d80:
+    push       { lr }
+    ldr        r0,PTR_textDict_BattleMessages_08015d94
+    mov        r1,#0x1
+    push       { r5 }
+    bl         Text_LoadDialogue
+    pop        { r5 }
+    mov        r0,#0xc
+    strb       r0,[r5,#0x2]
+    pop        { pc }
+thumb_func_end FUN_08015d80
+PTR_textDict_BattleMessages_08015d94:
+    .word textDict_BattleMessages
+
+thumb_func_start FUN_08015d98
+FUN_08015d98:
+    push       { lr }
+    ldr        r0,PTR_gTextOptionFlags_08015dc8
+    ldr        r0,[r0,#0x0]
+    mov        r1,#0x80
+    tst        r0,r1
+    bne        LAB_08015dc4
+    mov        r1,#0xf
+    and        r0,r1
+    beq        LAB_08015db4
+    ldrb       r0,[r5,#0x14]
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strh       r0,[r5,#0x2]
+    pop        { pc }
+LAB_08015db4:
+    push       { r5 }
+    mov        r0,#0x4
+    mov        r1,#0x10
+    bl         Fade_Request
+    pop        { r5 }
+    mov        r0,#0x8
+    strb       r0,[r5,#0x2]
+LAB_08015dc4:
+    pop        { pc }
+thumb_func_end FUN_08015d98
+
+    .align 2, 0
+PTR_gTextOptionFlags_08015dc8:
+    .word gTextOptionFlags
+
+thumb_func_start FUN_08015dcc
+FUN_08015dcc:
+    push       { lr }
+    mov        r7,r10
+    ldr        r7,[r7,#0x18]
+    ldrb       r0,[r7,#0x3]
+    mov        r1,#0x1
+    cmp        r0,r1
+    beq        LAB_08015e10
+    push       { r5 }
+    mov        r0,#0xf
+    bl         FUN_080029ec
+    mov        r7,r10
+    ldr        r0,[r7,#0x8]
+    mov        r1,#0x0
+    ldrb       r2,[r0,#0x4]
+    ldrb       r3,[r0,#0xc]
+    cmp        r2,r3
+    bne        LAB_08015df2
+    mov        r1,#0x4
+LAB_08015df2:
+    strb       r1,[r0,#0x0]
+    ldrb       r1,[r0,#0x4]
+    strb       r1,[r0,#0xc]
+    ldrb       r1,[r0,#0x5]
+    strb       r1,[r0,#0xd]
+    ldr        r0,[r7,#0x0]
+    mov        r1,#0x4
+    strb       r1,[r0,#0x0]
+    ldr        r0,[r7,#0x10]
+    mov        r1,#0x40
+    strh       r1,[r0,#0x0]
+    mov        r0,#0x3
+    bl         Video_SetBgControl
+    pop        { r5 }
+LAB_08015e10:
+    pop        { pc }
+thumb_func_end FUN_08015dcc
+
+non_word_aligned_thumb_func_start FUN_08015e12
+FUN_08015e12:
+    push       { lr }
+    ldr        r0,PTR_gTextOptionFlags_08015e28
+    ldr        r0,[r0,#0x0]
+    mov        r1,#0x80
+    tst        r0,r1
+    bne        LAB_08015e26
+    ldrb       r0,[r5,#0x14]
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strh       r0,[r5,#0x2]
+LAB_08015e26:
+    pop        { pc }
+thumb_func_end FUN_08015e12
+PTR_gTextOptionFlags_08015e28:
+    .word gTextOptionFlags
+
+thumb_func_start CustomScreen_TakeOrAddChips
+CustomScreen_TakeOrAddChips:
+    push       { lr }
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r0,[r5,#0xf]
+    tst        r0,r0
+    bne        LAB_08015e48
+    ldrb       r1,[r5,#0xb]
+    tst        r1,r1
+    beq        LAB_08015e42
+    mov        r1,#0x5
+    strb       r1,[r7,#0x10]
+LAB_08015e42:
+    bl         CustomScreen_TakeSelectedChipsFromDeck
+    b          LAB_08015e54
+LAB_08015e48:
+    ldrb       r0,[r7,#0x10]
+    add        r0,#0x5
+    cmp        r0,#0x10
+    bmi        LAB_08015e52
+    mov        r0,#0xf
+LAB_08015e52:
+    strb       r0,[r7,#0x10]
+LAB_08015e54:
+    mov        r0,#0x0
+    pop        { pc }
+thumb_func_end CustomScreen_TakeOrAddChips
+
+thumb_func_start CustomScreen_LoadUIUpper
+CustomScreen_LoadUIUpper:
+    push       { lr }
+    ldr        r0,PTR_gCustomScreen_08015ee4
+    mov        r1,#0xaa
+    lsl        r1,r1,#0x2
+    mov        r2,#0x0
+    bl         memset
+    ldr        r7,PTR_gCustomScreen_08015ee4
+    mov        r0,#0x0
+    str        r0,[r7,#0x0]
+    mov        r0,#0x6
+    ldr        r7,PTR_DmaTransferDetail_ARRAY_08015ee0
+LAB_08015e70:
+    push       { r0, r7 }
+    ldr        r0,[r7,#0x0]
+    ldr        r1,[r7,#0x4]
+    ldr        r2,[r7,#0x8]
+    bl         Dma_TransferListAdd
+    pop        { r0, r7 }
+    add        r7,#0xc
+    sub        r0,#0x1
+    bne        LAB_08015e70
+    ldr        r0,PTR_tilemapCustomScreenUi_08015ee8
+    ldr        r7,PTR_gCustomScreen_08015ee4
+    mov        r3,#0x50
+    add        r1,r7,r3
+    mov        r2,#0x96
+    lsl        r2,r2,#0x2
+    bl         memcpy_32
+    pop        { pc }
+thumb_func_end CustomScreen_LoadUIUpper
+
+    .align 2, 0
+DmaTransferDetail_ARRAY_08015e98:
+    .word tilesetCustomScreenBg_1
+    .word 0x6009000
+    .word 0x138
+
+    .word paletteCustomScreenBg_1
+    .word eBgPaletteC
+    .word 8
+
+    .word tilesetCustomScreenBg_2
+    .word 0x6009e40
+    .word 0x288
+
+    .word 0x86385d4
+    .word eBgPaletteD
+    .word 0x10
+
+    .word Color_ARRAY_086414d4
+    .word eObjPaletteD
+    .word 8
+
+    .word 0x8638614
+    .word eObjPaletteC
+    .word 8
+PTR_DmaTransferDetail_ARRAY_08015ee0:
+    .word DmaTransferDetail_ARRAY_08015e98
+PTR_gCustomScreen_08015ee4:
+    .word gCustomScreen
+PTR_tilemapCustomScreenUi_08015ee8:
+    .word tilemapCustomScreenBg_1
+
+thumb_func_start CustomScreen_CopyTilemap
+CustomScreen_CopyTilemap:
+    push       { r5, lr }
+    mov        r7,#0x50
+    add        r7,r7,r5
+    mov        r6,#0xf
+    lsl        r6,r1,#0x4
+    sub        r6,r6,r1
+    add        r0,r0,r6
+    add        r0,r0,r0
+    add        r7,r7,r0
+    add        r5,r7,#0x0
+    mov        r1,#0x0
+LAB_08015f02:
+    mov        r0,#0x0
+LAB_08015f04:
+    ldrh       r6,[r2,#0x0]
+    strh       r6,[r7,#0x0]
+    add        r7,#0x2
+    add        r2,#0x2
+    add        r0,#0x1
+    cmp        r0,r3
+    bne        LAB_08015f04
+    add        r5,#0x1e
+    add        r7,r5,#0x0
+    add        r1,#0x1
+    cmp        r1,r4
+    bne        LAB_08015f02
+    pop        { r5, pc }
+thumb_func_end CustomScreen_CopyTilemap
+
+non_word_aligned_thumb_func_start CustomScreen_LoadChipDetail
+CustomScreen_LoadChipDetail:
+    push       { lr }
+    sub        sp,#0x70
+    mov        r6,sp
+    push       { r0, r6 }
+    push       { r5 }
+    add        r1,r0,#0x0
+    ldr        r0,PTR_textDict_BattleChip_Names_08015fd0
+    ldr        r2,PTR_DAT_08015fc0
+    ldr        r3,PTR_DAT_08015fc4
+    mov        r4,#0x8
+    mov        r5,#0x1
+    ldr        r6,PTR_tilesetDialogueText_08015fd4
+    mov        r7,#0x0
+    bl         Text_CopyCharTileUI
+    pop        { r5 }
+    mov        r0,#0x1
+    mov        r1,#0x1
+    ldr        r2,PTR_tilemapCustomScreenChipName_08015fd8
+    mov        r3,#0x8
+    mov        r4,#0x2
+    bl         CustomScreen_CopyTilemap
+    pop        { r0, r6 }
+    cmp        r0,#0xff
+    bne        LAB_08015f5a
+    add        r0,r6,#0x0
+    bl         CustomScreen_LoadBlankChipTilemap
+    b          LAB_08015fae
+LAB_08015f5a:
+    push       { r6 }
+    push       { r0 }
+    add        r0,r6,#0x0
+    bl         CustomScreen_LoadChipTilemap
+    pop        { r0 }
+    bl         BattleChip_GetChipData
+    add        r7,r0,#0x0
+    push       { r5, r7 }
+    ldr        r0,[r7,#0x14]
+    ldr        r1,PTR_DAT_08015fc8
+    mov        r2,#0x7
+    lsl        r2,r2,#0x6
+    bl         Dma_TransferListAdd
+    pop        { r5, r7 }
+    push       { r5, r7 }
+    ldr        r0,[r7,#0x18]
+    ldr        r1,PTR_eBgPaletteB_08015fcc
+    mov        r2,#0x8
+    bl         Dma_TransferListAdd
+    pop        { r5, r7 }
+    push       { r7 }
+    ldrb       r0,[r7,#0x5]
+    bl         CustomScreen_DrawChipElement
+    pop        { r7 }
+    push       { r7 }
+    ldrh       r0,[r7,#0xc]
+    bl         CustomScreen_LoadDamageTilemap
+    pop        { r7 }
+    bl         CustomScreen_GetChipFromPosition
+    bl         CustomScreen_GetChipDetailFromFolder
+    add        r0,r1,#0x0
+    bl         CustomScreen_DrawChipCode
+    pop        { r6 }
+LAB_08015fae:
+    mov        r0,#0x1
+    mov        r1,#0x3
+    add        r2,r6,#0x0
+    mov        r3,#0x8
+    mov        r4,#0x7
+    bl         CustomScreen_CopyTilemap
+    add        sp,#0x70
+    pop        { pc }
+thumb_func_end CustomScreen_LoadChipDetail
+PTR_DAT_08015fc0:
+    .word 0x3003220
+PTR_DAT_08015fc4:
+    .word 0x600ad00
+PTR_DAT_08015fc8:
+    .word 0x600af00
+PTR_eBgPaletteB_08015fcc:
+    .word eBgPaletteB
+PTR_textDict_BattleChip_Names_08015fd0:
+    .word textDict_BattleChip_Names
+PTR_tilesetDialogueText_08015fd4:
+    .word tilesetDialogueText
+PTR_tilemapCustomScreenChipName_08015fd8:
+    .word tilemapCustomScreenChipName
+tilemapCustomScreenChipName:
+    .incbin "images/custom_screen/chip_name.tilemap"
+
+thumb_func_start CustomScreen_LoadAlternateArt
+CustomScreen_LoadAlternateArt:
+    push       { lr }
+    sub        sp,#0x70
+    mov        r6,sp
+    ldr        r7,PTR_PTR_tileSetNoDataSelected_08016068
+    lsl        r0,r0,#0x3
+    add        r7,r7,r0
+    push       { r6 }
+    push       { r5, r7 }
+    ldr        r0,[r7,#0x0]
+    ldr        r1,PTR_DAT_08016060
+    mov        r2,#0x7
+    lsl        r2,r2,#0x6
+    bl         Dma_TransferListAdd
+    pop        { r5, r7 }
+    push       { r5, r7 }
+    ldr        r0,[r7,#0x4]
+    ldr        r1,PTR_eBgPaletteB_08016064
+    mov        r2,#0x8
+    bl         Dma_TransferListAdd
+    pop        { r5, r7 }
+    pop        { r6 }
+    add        r0,r6,#0x0
+    bl         CustomScreen_LoadChipTilemap
+    mov        r0,#0x1
+    mov        r1,#0x3
+    add        r2,r6,#0x0
+    mov        r3,#0x8
+    mov        r4,#0x7
+    bl         CustomScreen_CopyTilemap
+    mov        r0,#0x1
+    mov        r1,#0x1
+    ldr        r2,PTR_tilemapCustomScreenChipNameBlank_08016084
+    mov        r3,#0x8
+    mov        r4,#0x2
+    bl         CustomScreen_CopyTilemap
+    mov        r0,#0x1
+    mov        r1,#0xa
+    ldr        r2,PTR_tilemapChipSelectChipAttributes_08016088
+    mov        r3,#0x8
+    mov        r4,#0x2
+    bl         CustomScreen_CopyTilemap
+    add        sp,#0x70
+    pop        { pc }
+thumb_func_end CustomScreen_LoadAlternateArt
+
+    .align 2, 0
+PTR_DAT_08016060:
+    .word 0x600af00
+PTR_eBgPaletteB_08016064:
+    .word eBgPaletteB
+PTR_PTR_tileSetNoDataSelected_08016068:
+    .word PTR_tileSetNoDataSelected_0801606c
+PTR_tileSetNoDataSelected_0801606c:
+    .word tileSetNoDataSelected
+    .word paletteNoChipSelected
+    .word tilesetChipDataTransmission
+    .word paletteChipDataTransmission
+    .word tilesetAdditionalChipData
+    .word paletteAdditionalChipData
+PTR_tilemapCustomScreenChipNameBlank_08016084:
+    .word tilemapCustomScreenChipNameBlank
+PTR_tilemapChipSelectChipAttributes_08016088:
+    .word tilemapChipSelectChipAttributes
+tilemapCustomScreenChipNameBlank:
+    .incbin "images/custom_screen/chip_name_blank.tilemap"
+tilemapChipSelectChipAttributes:
+    .incbin "images/custom_screen/chip_attributes.tilemap"
+
+thumb_func_start CustomScreen_LoadChipDescription
+CustomScreen_LoadChipDescription:
+    push       { lr }
+    add        r1,r0,#0x0
+    ldr        r0,PTR_textDict_BattleChip_Descriptions_08016104
+    ldr        r2,PTR_iwBufferUITextTile_08016108
+    ldr        r3,PTR_DAT_0801610c
+    mov        r4,#0xa
+    push       { r5 }
+    mov        r5,#0x3
+    ldr        r6,PTR_tilesetDialogueText_08016110
+    mov        r7,#0x0
+    bl         Text_CopyCharTileUI
+    pop        { r5 }
+    mov        r0,#0x1
+    mov        r1,#0xd
+    ldr        r2,PTR_tilemapChipSelectDescription_08016114
+    mov        r3,#0xa
+    mov        r4,#0x6
+    bl         CustomScreen_CopyTilemap
+    mov        r0,#0xb
+    mov        r1,#0xe
+    ldr        r2,PTR_tilemapChipSelectDescriptionPadding_0801611c
+    mov        r3,#0x3
+    mov        r4,#0x5
+    bl         CustomScreen_CopyTilemap
+    pop        { pc }
+thumb_func_end CustomScreen_LoadChipDescription
+PTR_textDict_BattleChip_Descriptions_08016104:
+    .word textDict_BattleChip_Descriptions
+PTR_iwBufferUITextTile_08016108:
+    .word iwBufferUITextTile
+PTR_DAT_0801610c:
+    .word 0x600b600
+PTR_tilesetDialogueText_08016110:
+    .word tilesetDialogueText
+PTR_tilemapChipSelectDescription_08016114:
+    .word tilemapChipSelectDescription
+    .word TilemapEntry_ARRAY_08016198
+PTR_tilemapChipSelectDescriptionPadding_0801611c:
+    .word tilemapChipSelectDescriptionPadding 
+tilemapChipSelectDescription:
+    .incbin "images/custom_screen/chip_description.tilemap"
+TilemapEntry_ARRAY_08016198:
+    .incbin "images/custom_screen/00016198.tilemap"
+tilemapChipSelectDescriptionPadding:
+    .incbin "images/custom_screen/chip_description_padding.tilemap"
+
+thumb_func_start CustomScreen_LoadUILower
+CustomScreen_LoadUILower:
+    push       { lr }
+    bl         CustomScreen_LoadIcons
+    push       { r5 }
+    ldr        r0,PTR_iwBufferUITextTile_08016378
+    ldr        r1,PTR_DAT_08016204
+    ldr        r2,DAT_08016200
+    bl         Dma_TransferListAdd
+    pop        { r5 }
+    mov        r0,#0xb
+    mov        r1,#0xe
+    ldr        r2,PTR_tilemapChipSelectOk_0801620c
+    mov        r3,#0x3
+    mov        r4,#0x3
+    bl         CustomScreen_CopyTilemap
+    ldrb       r0,[r5,#0xb]
+    ldr        r2,PTR_tilemapChipSelectAddDisabled_08016214
+    tst        r0,r0
+    bne        LAB_080161f0
+    ldr        r2,PTR_tilemapChipSelectAddEnabled_08016210
+LAB_080161f0:
+    mov        r0,#0xb
+    mov        r1,#0x11
+    mov        r3,#0x3
+    mov        r4,#0x2
+    bl         CustomScreen_CopyTilemap
+    pop        { pc }
+thumb_func_end CustomScreen_LoadUILower
+    .align 2, 0
+DAT_08016200:
+    .word 0x1E0
+PTR_DAT_08016204:
+    .word 0x600b600
+    .word TilemapEntry_ARRAY_08016218
+PTR_tilemapChipSelectOk_0801620c:
+    .word tilemapChipSelectOk
+PTR_tilemapChipSelectAddEnabled_08016210:
+    .word tilemapChipSelectAddEnabled
+PTR_tilemapChipSelectAddDisabled_08016214:
+    .word tilemapChipSelectAddDisabled
+TilemapEntry_ARRAY_08016218:
+    .incbin "images/custom_screen/00016218.tilemap"
+tilemapChipSelectOk:
+    .incbin "images/custom_screen/ok_button.tilemap"
+tilemapChipSelectAddEnabled:
+    .incbin "images/custom_screen/add_button_enabled.tilemap"
+tilemapChipSelectAddDisabled:
+    .incbin "images/custom_screen/add_button_disabled.tilemap"
+    tilemap_entry 0x330, 0, 0xC
+non_word_aligned_thumb_func_start CustomScreen_LoadChipSelectIconTilemap
+CustomScreen_LoadChipSelectIconTilemap:
+    push       { lr }
+    sub        sp,#0x8
+    mov        r6,sp
+    add        r3,#0xc
+    lsl        r3,r3,#0xc
+    add        r2,r2,r3
+    strh       r2,[r6,#0x0]
+    add        r2,#0x1
+    strh       r2,[r6,#0x2]
+    add        r2,#0x1
+    strh       r2,[r6,#0x4]
+    add        r2,#0x1
+    strh       r2,[r6,#0x6]
+    add        r2,r6,#0x0
+    mov        r3,#0x2
+    mov        r4,#0x2
+    bl         CustomScreen_CopyTilemap
+    add        sp,#0x8
+    pop        { pc }
+thumb_func_end CustomScreen_LoadChipSelectIconTilemap
+
+non_word_aligned_thumb_func_start CustomScreen_LoadSelectedChipFrameTilemap
+CustomScreen_LoadSelectedChipFrameTilemap:
+    push       { lr }
+    sub        sp,#0x10
+    mov        r6,sp
+    push       { r0, r1, r2, r3 }
+    ldr        r0,PTR_tilemapChipSlotEmpty_080162b4
+    lsl        r1,r3,#0x4
+    add        r0,r0,r1
+    add        r1,r6,#0x0
+    mov        r2,#0x10
+    bl         memcpy_32
+    pop        { r0, r1, r2, r3 }
+    add        r3,#0xc
+    lsl        r3,r3,#0xc
+    add        r2,r2,r3
+    strh       r2,[r6,#0x2]
+    add        r2,#0x1
+    strh       r2,[r6,#0x4]
+    add        r2,#0x1
+    strh       r2,[r6,#0xa]
+    add        r2,#0x1
+    strh       r2,[r6,#0xc]
+    add        r2,r6,#0x0
+    mov        r3,#0x4
+    mov        r4,#0x2
+    bl         CustomScreen_CopyTilemap
+    add        sp,#0x10
+    pop        { pc }
+thumb_func_end CustomScreen_LoadSelectedChipFrameTilemap
+PTR_tilemapChipSlotEmpty_080162b4:
+    .word tilemapChipSlotEmpty
+tilemapChipSlotEmpty:
+    .incbin "images/custom_screen/chip_slot_empty.tilemap"
+tilemapChipSlotSelected:
+    .incbin "images/custom_screen/chip_slot_selected.tilemap"
+
+thumb_func_start CustomScreen_LoadIcons
+CustomScreen_LoadIcons:
+    push       { r5, lr }
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r7,[r7,#0x10]
+    mov        r4,#0x0
+LAB_080162e2:
+    mov        r3,#0x0
+LAB_080162e4:
+    push       { r3, r4 }
+    mov        r1,#0x5
+    mul        r1,r4
+    add        r1,r1,r3
+    push       { r1, r3, r4 }
+    sub        r7,#0x1
+    ldrh       r0,[r5,#0x3e]
+    mov        r2,#0x1
+    lsl        r2,r1
+    tst        r0,r2
+    beq        LAB_08016300
+    ldr        r0,PTR_tileNullChipIconLight_08016380
+    mov        r6,#0x0
+    b          LAB_08016328
+LAB_08016300:
+    ldr        r2,PTR_gBattleFolder_08016384
+    ldrb       r0,[r2,r1]
+    cmp        r0,#0xff
+    bne        LAB_0801630e
+    ldr        r0,PTR_tileNullChipIconDark_0801637c
+    mov        r6,#0x0
+    b          LAB_08016328
+LAB_0801630e:
+    tst        r7,r7
+    bpl        LAB_08016318
+    ldr        r0,PTR_tileNullChipIconDark_0801637c
+    mov        r6,#0x0
+    b          LAB_08016328
+LAB_08016318:
+    mov        r6,#0x1
+    push       { r1, r7 }
+    bl         CustomScreen_GetChipDetailFromFolder
+    bl         BattleChip_GetChipData
+    ldr        r0,[r0,#0x10]
+    pop        { r1, r7 }
+LAB_08016328:
+    ldr        r2,PTR_iwBufferUITextTile_08016378
+    lsl        r1,r1,#0x7
+    add        r1,r1,r2
+    ldr        r2,UINT_08016374
+    bl         SWI_CpuSet
+    pop        { r1, r3, r4 }
+    tst        r6,r6
+    beq        LAB_08016348
+    mov        r6,#0x1
+    mov        r2,#0x40
+    add        r2,r2,r1
+    ldrb       r0,[r5,r2]
+    tst        r0,r0
+    beq        LAB_08016348
+    mov        r6,#0x2
+LAB_08016348:
+    ldr        r2,DAT_08016370
+    lsl        r1,r1,#0x2
+    add        r2,r2,r1
+    add        r0,r3,r3
+    add        r0,#0x1
+    add        r1,r4,r4
+    add        r1,#0xd
+    add        r3,r6,#0x0
+    push       { r7 }
+    bl         CustomScreen_LoadChipSelectIconTilemap
+    pop        { r7 }
+    pop        { r3, r4 }
+    add        r3,#0x1
+    cmp        r3,#0x5
+    bmi        LAB_080162e4
+    add        r4,#0x1
+    cmp        r4,#0x3
+    bmi        LAB_080162e2
+    pop        { r5, pc }
+thumb_func_end CustomScreen_LoadIcons
+DAT_08016370:
+    .word 0x3B0
+UINT_08016374:
+    .word 0x4000020
+PTR_iwBufferUITextTile_08016378:
+    .word iwBufferUITextTile
+PTR_tileNullChipIconDark_0801637c:
+    .word tileNullChipIconDark
+PTR_tileNullChipIconLight_08016380:
+    .word tileNullChipIconLight
+PTR_gBattleFolder_08016384:
+    .word gBattleFolder
+
+thumb_func_start CustomScreen_LoadSelectedChips
+CustomScreen_LoadSelectedChips:
+    push       { r5, lr }
+    mov        r3,#0x0
+LAB_0801638c:
+    push       { r3 }
+    mov        r2,#0x6
+    add        r2,r2,r3
+    ldrb       r0,[r5,r2]
+    push       { r3 }
+    cmp        r0,#0xff
+    bne        LAB_080163a0
+    ldr        r0,PTR_tileNullChipIconLight_080163f8
+    mov        r6,#0x0
+    b          LAB_080163b4
+LAB_080163a0:
+    mov        r6,#0x1
+    ldr        r2,PTR_gBattleFolder_08016404
+    ldrb       r0,[r2,r0]
+    push       { r3 }
+    bl         CustomScreen_GetChipDetailFromFolder
+    bl         BattleChip_GetChipData
+    ldr        r0,[r0,#0x10]
+    pop        { r3 }
+LAB_080163b4:
+    ldr        r1,PTR_iwTilesetSelectedChips_080163f4
+    lsl        r3,r3,#0x7
+    add        r1,r1,r3
+    ldr        r2,CpuSetControl_080163f0
+    bl         SWI_CpuSet
+    pop        { r3 }
+    ldr        r2,DAT_080163ec
+    lsl        r1,r3,#0x2
+    add        r2,r2,r1
+    mov        r0,#0xb
+    add        r1,r3,r3
+    add        r1,#0x3
+    add        r3,r6,#0x0
+    bl         CustomScreen_LoadSelectedChipFrameTilemap
+    pop        { r3 }
+    add        r3,#0x1
+    cmp        r3,#0x5
+    bmi        LAB_0801638c
+    push       { r5 }
+    ldr        r0,PTR_iwTilesetSelectedChips_080163f4
+    ldr        r1,PTR_vtTilesetSelectedChips_08016400
+    ldr        r2,DAT_080163fc
+    bl         Dma_TransferListAdd
+    pop        { r5 }
+    pop        { r5, pc }
+thumb_func_end CustomScreen_LoadSelectedChips
+DAT_080163ec:                           .word 0x00000354
+CpuSetControl_080163f0:                 .word 0x4000020
+PTR_iwTilesetSelectedChips_080163f4:    .word iwTilesetSelectedChips
+PTR_tileNullChipIconLight_080163f8:     .word tileNullChipIconDark
+DAT_080163fc:                           .word 0x000000A0
+PTR_vtTilesetSelectedChips_08016400:    .word vtTilesetSelectedChips
+PTR_gBattleFolder_08016404:             .word gBattleFolder
+
+thumb_func_start CustomScreen_UpdateChipSelectPosition
+CustomScreen_UpdateChipSelectPosition:
+    push       { r5, lr }
+    mov        r7,r10
+    ldr        r7,[r7,#0x10]
+    mov        r1,#0x24
+    ldrsh      r0,[r5,r1]
+    strh       r0,[r7,#0x18]
+    neg        r1,r0
+    lsr        r1,r1,#0x3
+    add        r1,#0x1
+    mov        r2,#0x40
+    lsl        r2,r2,#0x8
+    mov        r0,#0x0
+LAB_08016420:
+    orr        r0,r2
+    lsr        r2,r2,#0x1
+    sub        r1,#0x1
+    bne        LAB_08016420
+    bl         CustomScreen_LoadChipLayout
+    pop        { r5, pc }
+thumb_func_end CustomScreen_UpdateChipSelectPosition
+    .align 2, 0
+unknown_16430:
+    .word 0x7FFFF
+
+thumb_func_start CustomScreen_LoadChipLayout
+CustomScreen_LoadChipLayout:
+    push       { lr }
+    sub        sp,#0x28
+    mov        r4,sp
+    mov        r7,#0x50
+    add        r7,r7,r5
+    mov        r2,#0x0
+LAB_08016440:
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_0801645c
+    mov        r3,#0x0
+    push       { r7 }
+LAB_0801644a:
+    add        r6,r3,r3
+    ldrh       r1,[r7,#0x0]
+    strh       r1,[r4,r6]
+    add        r7,#0x1e
+    add        r3,#0x1
+    cmp        r3,#0x14
+    bne        LAB_0801644a
+    pop        { r7 }
+    b          LAB_0801646a
+LAB_0801645c:
+    mov        r3,#0x0
+    mov        r1,#0x0
+LAB_08016460:
+    add        r6,r3,r3
+    strh       r1,[r4,r6]
+    add        r3,#0x1
+    cmp        r3,#0x14
+    bne        LAB_08016460
+LAB_0801646a:
+    push       { r0, r2, r4, r7 }
+    add        r0,r2,#0x0
+    add        r0,#0x11
+    mov        r1,#0x0
+    mov        r2,#0x3
+    add        r3,r4,#0x0
+    mov        r4,#0x14
+    bl         Screen_CopyLayoutV
+    pop        { r0, r2, r4, r7 }
+    lsr        r0,r0,#0x1
+    add        r7,#0x2
+    add        r2,#0x1
+    cmp        r2,#0xf
+    bne        LAB_08016440
+    add        sp,#0x28
+    pop        { pc }
+thumb_func_end CustomScreen_LoadChipLayout
+
+thumb_func_start CustomScreen_LoadChipSelectCursor
+CustomScreen_LoadChipSelectCursor:
+    push       { r5, lr }
+    ldrb       r0,[r5,#0x4]
+    lsl        r0,r0,#0x4
+    add        r0,#0x10
+    ldrb       r1,[r5,#0x5]
+    lsl        r1,r1,#0x4
+    add        r1,#0x70
+    mov        r3,#0x0
+    bl         CustomScreen_DrawCursor
+    bl         CustomScreen_GetSelectedChipOffset
+    mov        r1,#0x40
+    add        r1,r1,r0
+    ldrb       r1,[r5,r1]
+    tst        r1,r1
+    beq        LAB_080164bc
+    mov        r0,#0x68
+    sub        r1,#0x1
+    lsl        r1,r1,#0x4
+    add        r1,#0x20
+    mov        r3,#0x0
+    bl         CustomScreen_DrawCursor
+LAB_080164bc:
+    pop        { r5, pc }
+thumb_func_end CustomScreen_LoadChipSelectCursor
+
+non_word_aligned_thumb_func_start CustomScreen_DrawCursorOkButton
+CustomScreen_DrawCursorOkButton:
+    push       { r5, lr }
+    mov        r0,#0x58
+    mov        r1,#0x72
+    mov        r3,#0x1
+    bl         CustomScreen_DrawCursor
+    pop        { r5, pc }
+thumb_func_end CustomScreen_DrawCursorOkButton
+
+thumb_func_start CustomScreen_DrawCursorAddButton
+CustomScreen_DrawCursorAddButton:
+    push       { r5, lr }
+    mov        r0,#0x58
+    mov        r1,#0x8a
+    mov        r3,#0x2
+    bl         CustomScreen_DrawCursor
+    pop        { r5, pc }
+thumb_func_end CustomScreen_DrawCursorAddButton
+
+non_word_aligned_thumb_func_start CustomScreen_DrawCursor
+CustomScreen_DrawCursor:
+    push       { r5, lr }
+    cmp        r3,#0x3
+    beq        LAB_080164e6
+    ldrb       r4,[r5,#0x1a]
+    tst        r4,r4
+    beq        LAB_0801654a
+LAB_080164e6:
+    ldr        r7,PTR_PTR_CursorAttributes_08016554
+    lsl        r3,r3,#0x2
+    ldr        r7,[r7,r3]
+    ldr        r3,PTR_gFrameCounter_08016550
+    ldrh       r3,[r3,#0x0]
+    mov        r4,#0x8
+    tst        r4,r3
+    bne        LAB_080164f8
+    add        r7,#0x10
+LAB_080164f8:
+    mov        r4,#0x7
+    and        r4,r3
+    cmp        r4,#0x7
+    bne        LAB_0801650a
+    ldrb       r3,[r5,#0x10]
+    add        r3,#0x1
+    mov        r4,#0x3
+    and        r3,r4
+    strb       r3,[r5,#0x10]
+LAB_0801650a:
+    ldrb       r2,[r5,#0x10]
+    mov        r4,#0x0
+LAB_0801650e:
+    push       { r0, r1, r2, r4, r7 }
+    push       { r2 }
+    mov        r3,#0x0
+    ldrsb      r2,[r7,r3]
+    add        r0,r0,r2
+    mov        r2,#0xff
+    lsl        r2,r2,#0x1
+    add        r2,#0x1
+    and        r0,r2
+    ldrh       r3,[r7,#0x2]
+    orr        r0,r3
+    lsl        r0,r0,#0x10
+    mov        r3,#0x1
+    ldrsb      r2,[r7,r3]
+    add        r1,r1,r2
+    mov        r2,#0xff
+    and        r1,r2
+    orr        r0,r1
+    pop        { r2 }
+    ldr        r1,ObjectTileAttributes_0801654c
+    add        r1,r1,r2
+    mov        r2,#0x0
+    mov        r3,#0x0
+    bl         Oam_AddObject
+    pop        { r0, r1, r2, r4, r7 }
+    add        r7,#0x4
+    add        r4,#0x1
+    cmp        r4,#0x4
+    bne        LAB_0801650e
+LAB_0801654a:
+    pop        { r5, pc }
+thumb_func_end CustomScreen_DrawCursor
+ObjectTileAttributes_0801654c:
+    obj_attr_2 0x3A8, 0, 0xD
+    .align 2, 0
+PTR_gFrameCounter_08016550: .word gFrameCounter
+PTR_PTR_CursorAttributes_08016554: .word PTR_CursorAttributes_08016558
+PTR_CursorAttributes_08016558:
+    .word CursorAttributes_08016564
+    .word CursorAttributes_08016584
+    .word CursorAttributes_080165a4
+CursorAttributes_08016564:
+    cursor_attr -8, -8
+    cursor_attr  0, -8, FLIP_H
+    cursor_attr  0,  0, FLIP_HV
+    cursor_attr -8,  0, FLIP_V
+
+    cursor_attr -9, -9
+    cursor_attr  1, -9, FLIP_H
+    cursor_attr  1,  1, FLIP_HV
+    cursor_attr -9,  1, FLIP_V
+
+CursorAttributes_08016584:
+    cursor_attr  0,   0
+    cursor_attr  16,  0, FLIP_H
+    cursor_attr  16, 11, FLIP_HV
+    cursor_attr  0,  11, FLIP_V
+
+    cursor_attr  -1, -1
+    cursor_attr  17, -1, FLIP_H
+    cursor_attr  17, 12, FLIP_HV
+    cursor_attr  -1, 12, FLIP_V
+
+CursorAttributes_080165a4:
+    cursor_attr  0,   0
+    cursor_attr  16,  0, FLIP_H
+    cursor_attr  16,  5, FLIP_HV
+    cursor_attr  0,   5, FLIP_V
+
+    cursor_attr  -1, -1
+    cursor_attr  17, -1, FLIP_H
+    cursor_attr  17,  6, FLIP_HV
+    cursor_attr  -1,  6, FLIP_V
+
+
+
+@@ Checks for the cursor moving on the chip select screen.
+@ Out:
+@ r0: 1 if cursor is moved to a non-chip position (like OK)
+thumb_func_start CustomScreen_CheckCursorMove
+CustomScreen_CheckCursorMove:
+    push       { lr }
+    mov        r6,#0x0
+    ldrb       r2,[r5,#CustomScreen_m_chipX]
+    ldrb       r3,[r5,#CustomScreen_m_chipY]
+    ldrh       r0,[r5,#CustomScreen_heldKeyState]
+    mov        r1,#KEY_LEFT
+    tst        r0,r1
+    beq        .check_key_right
+    mov        r0,#SE_Battle_ChipSelectMoveCursor
+    bl         Sound_PlaySongImmediate
+    mov        r6,#0x1
+    tst        r2,r2
+    beq        .check_if_valid
+    sub        r2,#0x1
+    add        r6,#0x1
+    b          .check_if_valid
+.check_key_right:
+    mov        r1,#KEY_RIGHT
+    tst        r0,r1
+    beq        .check_key_up
+    mov        r0,#SE_Battle_ChipSelectMoveCursor
+    bl         Sound_PlaySongImmediate
+    add        r6,#0x1
+    cmp        r2,#0x4
+    beq        .check_if_valid
+    add        r2,#0x1
+    add        r6,#0x1
+    b          .check_if_valid
+.check_key_up:
+    mov        r1,#KEY_UP
+    tst        r0,r1
+    beq        .check_key_down
+    mov        r0,#SE_Battle_ChipSelectMoveCursor
+    bl         Sound_PlaySongImmediate
+    tst        r3,r3
+    beq        .check_if_valid
+    sub        r3,#0x1
+    b          .check_if_valid
+.check_key_down:
+    mov        r1,#KEY_DOWN
+    tst        r0,r1
+    beq        .check_if_valid
+    mov        r0,#SE_Battle_ChipSelectMoveCursor
+    bl         Sound_PlaySongImmediate
+    cmp        r3,#0x2
+    beq        .check_if_valid
+    add        r3,#0x1
+.check_if_valid:
+    mov        r1,#0x5
+    mul        r1,r3
+    add        r1,r1,r2
+    ldr        r4,=gBattleFolder
+    ldrb       r0,[r4,r1]
+    cmp        r0,#0xff
+    beq        .is_invalid_position
+    LoadStateTo r7, Main_unk_0C
+    ldrb       r0,[r7,#Struct_Unk0C_m_customScreenChipCount]
+    cmp        r1,r0
+    bpl        .is_invalid_position
+    cmp        r6,#0x1
+    beq        .cursor_moved_to_non_chip
+    strb       r2,[r5,#0x4]
+    strb       r3,[r5,#0x5]
+.valid_move:
+    mov        r0,#0x0
+    pop        { pc }
+.is_invalid_position:
+    tst        r6,r6
+    beq        .valid_move
+.cursor_moved_to_non_chip:
+    mov        r0,#0x1
+    pop        { pc }
+thumb_func_end CustomScreen_CheckCursorMove
+    .pool
+
+thumb_func_start CustomScreen_GetChipDetailFromFolder
+CustomScreen_GetChipDetailFromFolder:
+    push       { lr }
+    cmp        r0,#0xff
+    beq        LAB_08016668
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldr        r7,[r7,#0x30]
+    lsl        r0,r0,#0x1
+    add        r7,r7,r0
+    ldrb       r0,[r7,#0x0]
+    ldrb       r1,[r7,#0x1]
+LAB_08016668:
+    pop        { pc }
+thumb_func_end CustomScreen_GetChipDetailFromFolder
+
+non_word_aligned_thumb_func_start CustomScreen_GetChipDetailFromDeck
+CustomScreen_GetChipDetailFromDeck:
+    push       { lr }
+    ldr        r1,=gBattleFolder
+    ldrb       r0,[r1,r0]
+    bl         CustomScreen_GetChipDetailFromFolder
+    pop        { pc }
+thumb_func_end CustomScreen_GetChipDetailFromDeck
+    .pool
+
+thumb_func_start CustomScreen_GetChipFromPosition
+CustomScreen_GetChipFromPosition:
+    push       { lr }
+    ldr        r7,=gBattleFolder
+    ldrb       r0,[r5,#0x4]
+    ldrb       r1,[r5,#0x5]
+    mov        r2,#0x5
+    mul        r1,r2
+    add        r0,r0,r1
+    ldrb       r0,[r7,r0]
+    pop        { pc }
+thumb_func_end CustomScreen_GetChipFromPosition
+    .pool
+
+thumb_func_start CustomScreen_CheckRToggle
+CustomScreen_CheckRToggle:
+    push       { lr }
+    mov        r0,#0x0
+    ldrh       r2,[r5,#0x38]
+    mov        r1,#0x1
+    lsl        r1,r1,#0x8
+    tst        r2,r1
+    beq        LAB_080166ac
+    ldrb       r1,[r5,#0x1]
+    strb       r1,[r5,#0x13]
+    mov        r1,#0x14
+    strb       r1,[r5,#0x1]
+    mov        r0,#0x1
+LAB_080166ac:
+    pop        { pc }
+thumb_func_end CustomScreen_CheckRToggle
+
+non_word_aligned_thumb_func_start CustomScreen_CheckHideDescriptionKeyPress
+CustomScreen_CheckHideDescriptionKeyPress:
+    push       { lr }
+    mov        r0,#0x0
+    ldrh       r2,[r5,#0x38]
+    ldr        r1,=0x1F3
+    tst        r2,r1
+    beq        LAB_080166c0
+    ldrb       r1,[r5,#0x13]
+    strb       r1,[r5,#0x1]
+    mov        r0,#0x1
+LAB_080166c0:
+    pop        { pc }
+thumb_func_end CustomScreen_CheckHideDescriptionKeyPress
+    .pool
+
+thumb_func_start CustomScreen_LoadDamageTilemap
+CustomScreen_LoadDamageTilemap:
+    push       { lr }
+    sub        sp,#0x10
+    tst        r0,r0
+    beq        LAB_080166dc
+    mov        r1,#0x5
+    mov        r2,#0xa
+    mov        r3,#0x4
+    bl         CustomScreen_LoadNumberDamageTilemap
+    b          LAB_080166f4
+LAB_080166dc:
+    ldr        r0,TilemapEntry_080166f8
+    str        r0,[sp,#0x0]
+    str        r0,[sp,#0x4]
+    str        r0,[sp,#0x8]
+    str        r0,[sp,#0xc]
+    mov        r0,#0x5
+    mov        r1,#0xa
+    mov        r2,sp
+    mov        r3,#0x4
+    mov        r4,#0x2
+    bl         CustomScreen_CopyTilemap
+LAB_080166f4:
+    add        sp,#0x10
+    pop        { pc }
+thumb_func_end CustomScreen_LoadDamageTilemap
+TilemapEntry_080166f8:
+    tilemap_entry 0x314, 0, 0xC
+    tilemap_entry 0x314, 0, 0xC
+
+thumb_func_start CustomScreen_LoadNumberDamageTilemap
+CustomScreen_LoadNumberDamageTilemap:
+    push       { lr }
+    sub        sp,#0x10
+    mov        r8,sp
+    push       { r1, r2, r3 }
+    push       { r3 }
+    mov        r1,#0x8
+    mov        r2,r8
+    ldr        r3,TilemapEntry_08016760
+LAB_0801670c:
+    strh       r3,[r2,#0x0]
+    add        r2,#0x2
+    sub        r1,#0x1
+    bne        LAB_0801670c
+    push       { r5 }
+    bl         ConvertNumToBCD
+    pop        { r5 }
+    pop        { r3 }
+    mov        r6,r8
+    sub        r2,r3,#0x1
+    add        r2,r2,r2
+    add        r6,r6,r2
+    add        r4,r3,r3
+    push       { r0 }
+    bl         GetWidthOfBcdNumber
+    add        r3,r0,#0x0
+    pop        { r0 }
+    ldr        r7,tilemapDamageNumberStart
+LAB_08016734:
+    mov        r1,#0xf
+    and        r1,r0
+    add        r1,r1,r1
+    add        r1,r1,r7
+    strh       r1,[r6,#0x0]
+    add        r1,#0x1
+    strh       r1,[r6,r4]
+    lsr        r0,r0,#0x4
+    sub        r6,#0x2
+    sub        r3,#0x1
+    bne        LAB_08016734
+    pop        { r1, r2, r3 }
+    add        r0,r1,#0x0
+    add        r1,r2,#0x0
+    mov        r2,r8
+    mov        r4,#0x2
+    bl         CustomScreen_CopyTilemap
+    add        sp,#0x10
+    pop        { pc }
+thumb_func_end CustomScreen_LoadNumberDamageTilemap
+tilemapDamageNumberStart:
+    tilemap_entry 0x300, 0, 0xC
+    .align 2, 0
+TilemapEntry_08016760:
+    tilemap_entry 0x314, 0, 0xC
+
+thumb_func_start CustomScreen_DrawChipElement
+CustomScreen_DrawChipElement:
+    push       { lr }
+    push       { r5 }
+    lsl        r0,r0,#0x7
+    ldr        r1,PTR_tilesetBattleChipElements_08016790
+    add        r0,r0,r1
+    ldr        r1,PTR_DAT_0801678c
+    mov        r2,#0x20
+    bl         Dma_TransferListAdd
+    pop        { r5 }
+    mov        r0,#0x3
+    mov        r1,#0xa
+    ldr        r2,PTR_TilemapEntry_08016788
+    mov        r3,#0x2
+    mov        r4,#0x2
+    bl         CustomScreen_CopyTilemap
+    pop        { pc }
+thumb_func_end CustomScreen_DrawChipElement
+PTR_TilemapEntry_08016788: .word TilemapEntry_08016794
+PTR_DAT_0801678c: .word 0x600aa00
+PTR_tilesetBattleChipElements_08016790: .word tilesetBattleChipElements
+TilemapEntry_08016794:
+    tilemap_entry 0x350, 0, 0xC
+    tilemap_entry 0x351, 0, 0xC
+    tilemap_entry 0x352, 0, 0xC
+    tilemap_entry 0x353, 0, 0xC
+
+thumb_func_start CustomScreen_DrawChipCode
+CustomScreen_DrawChipCode:
+    push       { r5, lr }
+    push       { r5 }
+    lsl        r0,r0,#0x6
+    ldr        r1,PTR_tilesetBattleChipCodes_080167c0
+    add        r0,r0,r1
+    ldr        r1,PTR_DAT_080167c4
+    mov        r2,#0x10
+    bl         Dma_TransferListAdd
+    pop        { r5 }
+    mov        r0,#0x1
+    mov        r1,#0xa
+    ldr        r2,PTR_TilemapEntry_ARRAY_080167c8
+    mov        r3,#0x1
+    mov        r4,#0x2
+    bl         CustomScreen_CopyTilemap
+    pop        { r5, pc }
+thumb_func_end CustomScreen_DrawChipCode
+
+PTR_tilesetBattleChipCodes_080167c0:
+    .word tilesetBattleChipCodes
+PTR_DAT_080167c4:
+    .word 0x600a9c0
+PTR_TilemapEntry_ARRAY_080167c8:
+    .word TilemapEntry_ARRAY_080167cc
+TilemapEntry_ARRAY_080167cc:
+    tilemap_entry 0x34E, 0, 0xC
+    tilemap_entry 0x34F, 0, 0xC
+
+
+dummy_167d0:
+    push       { r5, lr }
+    pop        { r5, pc }
+
+
+FUN_080167d4:
+    ldrb       r0,[r5,#0x12]
+    add        r0,#0x1
+    strb       r0,[r5,#0x12]
+    mov        r1,#0xe
+    bl         SWI_Div
+    cmp        r0,#0x6
+    bmi        LAB_080167e8
+    mov        r0,#0x0
+    strb       r0,[r5,#0x12]
+LAB_080167e8:
+    ldr        r1,PTR_BYTE_ARRAY_08016840
+    ldrb       r0,[r1,r0]
+    cmp        r0,#0x2
+    beq        LAB_0801682e
+    push       { r0, r5 }
+    ldr        r0,DAT_08016834
+    mov        r1,#0x20
+    mov        r2,#0x56
+    mov        r3,#0xd
+    mov        r4,#0x0
+    mov        r5,#0x1
+    mov        r6,#0x0
+    bl         AddObject
+    ldr        r0,DAT_08016830
+    mov        r1,#0x0
+    mov        r2,#0x56
+    mov        r3,#0xd
+    mov        r4,#0x1
+    mov        r5,#0x1
+    mov        r6,#0x0
+    bl         AddObject
+    pop        { r0, r5 }
+    cmp        r0,#0x1
+    bne        LAB_0801682e
+    ldr        r0,DAT_08016838
+    mov        r1,#0x18
+    mov        r2,#0x56
+    mov        r3,#0xd
+    mov        r4,#0x0
+    mov        r5,#0x1
+    mov        r6,#0x0
+    bl         AddObject
+LAB_0801682e:
+    pop        { r5, pc }
+DAT_08016830: .word 0x3B4
+DAT_08016834: .word 0x3B8
+DAT_08016838: .word 0x3BA
+    .word 0x20064A0
+PTR_BYTE_ARRAY_08016840: .word BYTE_ARRAY_08016844
+
+BYTE_ARRAY_08016844:
+    .byte 0, 1, 0, 1, 0, 2
+
+
+non_word_aligned_thumb_func_start CustomScreen_LoadChipTilemap
+CustomScreen_LoadChipTilemap:
+    push       { lr }
+    ldr        r1,TilemapEntry_0801685c
+    mov        r2,#0x38
+LAB_08016850:
+    strh       r1,[r0,#0x0]
+    add        r1,#0x1
+    add        r0,#0x2
+    sub        r2,#0x1
+    bne        LAB_08016850
+    pop        { pc }
+thumb_func_end CustomScreen_LoadChipTilemap
+TilemapEntry_0801685c:
+    tilemap_entry 0x378, 0, 0xB
+
+thumb_func_start CustomScreen_LoadBlankChipTilemap
+CustomScreen_LoadBlankChipTilemap:
+    push       { lr }
+    ldr        r1,tilemapBlank
+    mov        r2,#0x38
+LAB_08016866:
+    strh       r1,[r0,#0x0]
+    add        r0,#0x2
+    sub        r2,#0x1
+    bne        LAB_08016866
+    pop        { pc }
+thumb_func_end CustomScreen_LoadBlankChipTilemap
+tilemapBlank:
+    tilemap_entry 0x315, 0x0, 0xC
+
+
+@@ Moves up chip IDs in a chip list to eliminate empty spaces.
+@@ In: 
+@@ r0: deckPtr: The pointer to the group to optimize.
+@@ r1: deckSz: The size of the group.
+thumb_func_start CustomScreen_NormalizeChipGroup
+CustomScreen_NormalizeChipGroup:
+    push       { r5, r6, lr }
+    add        r5,r0,r1
+    add        r6,r0,#0x0
+    add        r7,r0,#0x0
+LAB_0801687c:
+    ldrb       r2,[r6,#0x0]
+    cmp        r2,#0xff
+    beq        LAB_08016886
+    strb       r2,[r7,#0x0]
+    add        r7,#0x1
+LAB_08016886:
+    add        r6,#0x1
+    sub        r1,#0x1
+    bne        LAB_0801687c
+    mov        r1,#0xff
+LAB_0801688e:
+    cmp        r7,r5
+    beq        LAB_08016898
+    strb       r1,[r7,#0x0]
+    add        r7,#0x1
+    b          LAB_0801688e
+LAB_08016898:
+    pop        { r5, r6, pc }
+thumb_func_end CustomScreen_NormalizeChipGroup
+
+@@ Removes the selected battle chips from the active battle deck.
+non_word_aligned_thumb_func_start CustomScreen_TakeSelectedChipsFromDeck
+CustomScreen_TakeSelectedChipsFromDeck:
+    push       { lr }
+    mov        r6,#0x40
+    add        r6,r6,r5
+    ldr        r7,PTR_gBattleFolder_080168c0
+    mov        r4,#0x0
+LAB_080168a4:
+    ldrb       r0,[r6,r4]
+    tst        r0,r0
+    beq        LAB_080168ae
+    mov        r0,#0xff
+    strb       r0,[r7,r4]
+LAB_080168ae:
+    add        r4,#0x1
+    cmp        r4,#0xf
+    bmi        LAB_080168a4
+    ldr        r0,PTR_gBattleFolder_080168c0
+    @ 
+    mov        r1,#30
+    bl         CustomScreen_NormalizeChipGroup
+    pop        { pc }
+thumb_func_end CustomScreen_TakeSelectedChipsFromDeck
+    .align 2,0
+PTR_gBattleFolder_080168c0: .word gBattleFolder
+
+@@ Check if a given battle chip is allowed to be selected
+@ r0 - The ID of the chip.
+thumb_func_start CustomScreen_ValidateSelection
+CustomScreen_ValidateSelection:
+    push       { lr }
+    mov        r6,#0x3
+    @ First, check if there are any chips selected at all
+    @ If none, then chip can be selected, with "all flags"
+    ldrb       r1,[r5,#CustomScreen_m_selectedChipCount]
+    tst        r1,r1
+    beq        .acceptSelection
+    @ Check if chip selection is full - if so, then play the
+    @ "you can't select more chips" sound and return
+    @ false
+    cmp        r1,#0x5
+    beq        .rejectSelection
+    @ Based on the given chip folder ID in r0, look at
+    @ the corresponding area in the chip selection list
+    @ and see if it was selected already (has a value
+    @ greater than 0).
+    @ If it has an order (it was selected), then play the
+    @ rejection sound and return false.
+    mov        r2,#CustomScreen_m_chipSelectionOrder
+    add        r2,r2,r0
+    ldrb       r2,[r5,r2]
+    tst        r2,r2
+    bne        .rejectSelection
+    @ At this point, there are between 1 and 4 chips selected,
+    @ inclusive.
+    @ r1 - selected chip count
+    push       { r0 }
+    mov        r2,#CustomScreen_m_selectedChipIndices
+    add        r2,r2,r1
+    sub        r2,#0x1
+    @ Get the last chip folder ID selected, and get the details
+    @ about the chip.
+    ldrb       r0,[r5,r2]
+    bl         CustomScreen_GetChipDetailFromDeck
+    add        r2,r0,#0x0
+    add        r3,r1,#0x0
+    @ r2 - last chip ID
+    @ r3 - last chip code
+    pop        { r0 }
+    bl         CustomScreen_GetChipDetailFromDeck
+    @ r0 - curr chip ID
+    @ r1 - curr chip code
+    mov        r6,#0x0
+    @ If the last chip selected has the same chip ID
+    @ as the chip being checked, set the "same chip ID"
+    @ flag
+    cmp        r0,r2
+    bne        .checkChipCode
+    add        r6,#0x1
+    @ If the code of the last selected chip matches the code
+    @ of the chip being checked, set the "same code" flag
+.checkChipCode:
+    cmp        r1,r3
+    bne        .checkValidFlags
+    add        r6,#0x2
+    @ If no flags are set (both chips have different
+    @ IDs and different codes), then play the reject
+    @ sound and return false
+.checkValidFlags:
+    tst        r6,r6
+    beq        .rejectSelection
+    @ If there are no flags shared between the last chip
+    @ selected and the current chip, play reject sound
+    @ and return false.
+    @ This encodes the "rules" of the hand selection:
+    @ - There are two flags: Flag 1 = same ID, Flag 2 = same code 
+    @ - When a chip is selected, the corresponding flag that
+    @ shows its relationship with the prior selected chip
+    @ is saved.
+    @ - The next chip you select must share a relation flag
+    @ with the prior chip in some way.
+    @ - The first chip you select is "free" (flag 2 | flag 1)
+    @ - Selecting chips with the same ID and code after the
+    @ "free" chip will keep both flags.
+    @ - Picking a chip after a free chip that has only one
+    @ of the relation flags "locks" that property for
+    @ future chip selections. For example:
+    @ - Cannon A
+    @ - Cannon A
+    @ - Cannon B
+    @  ^ After this, the "same ID" flag is the most current,
+    @    and future chip selections for the same hand have
+    @    to match this relation flag.
+    ldrb       r1,[r5,#CustomScreen_m_selectedChipCount]
+    mov        r2,#CustomScreen_m_selectedChipConditions
+    add        r2,r2,r1
+    sub        r2,#0x1
+    ldrb       r0,[r5,r2]
+    and        r6,r0
+    bne        .acceptSelection
+.rejectSelection:
+    mov        r0,#0x6c
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x0
+    mov        r1,#0x0
+    pop        { pc }
+    @ Return true, along with the
+    @ appropriate relation flags
+.acceptSelection:
+    add        r1,r6,#0x0
+    mov        r0,#0x1
+    pop        { pc }
+thumb_func_end CustomScreen_ValidateSelection
+
+CustomScreen_EnableInput:
+    ldr        r7,PTR_gCustomScreen_08016930
+    mov        r0,#0x1
+    strb       r0,[r7,#0x1a]
+    mov        pc,lr
+
+    .align 2,0
+PTR_gCustomScreen_08016930: .word gCustomScreen
+
+CustomScreen_DisableInput:
+    ldr        r7,PTR_gCustomScreen_0801693c
+    mov        r0,#0x0
+    strb       r0,[r7,#0x1a]
+    mov        pc,lr
+PTR_gCustomScreen_0801693c: .word gCustomScreen
+
+thumb_func_start CustomScreen_AnimateLogo
+CustomScreen_AnimateLogo:
+    push       { lr }
+    ldrb       r0,[r5,#0x1b]
+    tst        r0,r0
+    bne        LAB_0801694e
+    mov        r0,#0x0
+    strb       r0,[r5,#0x1c]
+    pop        { pc }
+LAB_0801694e:
+    ldrb       r0,[r5,#0x1c]
+    add        r0,#0x1
+    cmp        r0,#0x0
+    cmp        r0,#0x10
+    bmi        LAB_0801695c
+    mov        r0,#0x0
+    strb       r0,[r5,#0x1b]
+LAB_0801695c:
+    strb       r0,[r5,#0x1c]
+    ldr        r7,PTR_framesLogoAnimation_080169cc
+    ldrb       r0,[r7,r0]
+    lsl        r0,r0,#0x2
+    ldr        r7,PTR_logoFrameList_080169c8
+    ldr        r2,[r7,r0]
+    mov        r0,#0xc
+    mov        r1,#0x0
+    mov        r3,#0x2
+    mov        r4,#0x3
+    bl         CustomScreen_CopyTilemap
+    pop        { pc }
+thumb_func_end CustomScreen_AnimateLogo
+
+framesLogoAnimation:
+    .byte 0, 1, 2, 3
+    .byte 3, 0, 0, 1
+    .byte 1, 1, 2, 2
+    .byte 2, 3, 3, 3
+
+    .align 2, 0
+tilemapCustomScreenLogoFrame0:
+    tilemap_entry 0x331, 0, 0xC
+    tilemap_entry 0x332, 0, 0xC
+    tilemap_entry 0x333, 0, 0xC
+    tilemap_entry 0x334, 0, 0xC
+    tilemap_entry 0x335, 0, 0xC
+    tilemap_entry 0x336, 0, 0xC
+tilemapCustomScreenLogoFrame1:
+    tilemap_entry 0x337, 0, 0xC
+    tilemap_entry 0x338, 0, 0xC
+    tilemap_entry 0x339, 0, 0xC
+    tilemap_entry 0x33A, 0, 0xC
+    tilemap_entry 0x33B, 0, 0xC
+    tilemap_entry 0x33C, 0, 0xC
+tilemapCustomScreenLogoFrame2:
+    tilemap_entry 0x332, 1, 0xC
+    tilemap_entry 0x331, 1, 0xC
+    tilemap_entry 0x334, 1, 0xC
+    tilemap_entry 0x333, 1, 0xC
+    tilemap_entry 0x336, 1, 0xC
+    tilemap_entry 0x335, 1, 0xC
+tilemapCustomScreenLogoFrame3:
+    tilemap_entry 0x33D, 0, 0xC
+    tilemap_entry 0x33E, 0, 0xC
+    tilemap_entry 0x33F, 0, 0xC
+    tilemap_entry 0x340, 0, 0xC
+    tilemap_entry 0x341, 0, 0xC
+    tilemap_entry 0x342, 0, 0xC
+logoFrameList:
+    .word tilemapCustomScreenLogoFrame0
+    .word tilemapCustomScreenLogoFrame1
+    .word tilemapCustomScreenLogoFrame2
+    .word tilemapCustomScreenLogoFrame3
+PTR_logoFrameList_080169c8: .word logoFrameList
+PTR_framesLogoAnimation_080169cc: .word framesLogoAnimation
+
+@@ Gets the amount of chips remaining in the deck.
+@ Out:
+@ r0: The amount of chips remaining in the deck. Can be between 0 and 30.
+thumb_func_start CustomScreen_GetDeckSize
+CustomScreen_GetDeckSize:
+    push       { r1, r7, lr }
+    mov        r0,#0x0
+    ldr        r7,PTR_gBattleFolder_080169e4
+LAB_080169d6:
+    ldrb       r1,[r7,r0]
+    cmp        r1,#0xff
+    beq        LAB_080169e2
+    add        r0,#0x1
+    cmp        r0,#0x1e
+    blt        LAB_080169d6
+LAB_080169e2:
+    pop        { r1, r7, pc }
+thumb_func_end CustomScreen_GetDeckSize
+PTR_gBattleFolder_080169e4: .word gBattleFolder
+
+    .end

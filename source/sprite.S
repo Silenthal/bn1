@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set FUN_08000d98, 0x8000D98
-    .set AddSpriteToOam, 0x3006d64 + 1
     .set listSpritePtr, 0x8012690
 
     .text
@@ -13,7 +12,7 @@
 thumb_func_start Sprite_AddSpriteToOam
 Sprite_AddSpriteToOam:
     push       { lr }
-    ldr        r1,=AddSpriteToOam
+    ldr        r1,=Oam_AddSprite_far
     mov        lr,pc
     bx         r1
     pop        { pc }
