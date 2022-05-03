@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 import argparse
 import os
-from pathlib import Path
-
 import png
+from pathlib import Path
 
 
 class PngData:

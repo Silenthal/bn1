@@ -16,6 +16,7 @@ battlechip 0x7C44
 enemy_detail 0x9DC4
 flag 0x102DC
 oam 0x10A5C
+asset_spritelist 0x12690
 swi 0x9DF50
 text 0x13560
 custom_screen 0x158EC
@@ -25,7 +26,9 @@ enemy_drop 0x7D80E
 interrupt_handler 0x180000
 oam_far 0x180564
 screen_layout_intr 0x180178
+asset_sprite 0x1E0020
 asset_ui 0x6132A8
+asset_portrait 0x61FF88
 asset_chip 0x638634
 asset_battle 0x640E54
 asset_text 0x69D57C

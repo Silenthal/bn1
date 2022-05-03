@@ -1,5 +1,7 @@
 import io
 import struct
+import os
+from pathlib import Path
 from math import log10
 
 
@@ -21,6 +23,10 @@ def get_short(inFile: io.FileIO) -> int:
 
 def get_byte(inFile: io.FileIO) -> int:
     return inFile.read(1)[0]
+
+
+def make_out_path(inPath: Path, outName: Path) -> Path:
+    return Path(os.path.join(os.path.dirname(inPath), os.path.basename(outName)))
 
 
 def enemy_id(bt):

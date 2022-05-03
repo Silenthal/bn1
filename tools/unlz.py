@@ -1,45 +1,10 @@
 #!/usr/bin/python3
 import argparse
 import io
-import struct
+import os
 from pathlib import Path
 
-
-def auto_int(x):
-    return int(x, 0)
-
-
-parser = argparse.ArgumentParser(description='Extract compressed archives.')
-parser.add_argument('-s', '--size', action='count', default=0,
-                        help='Print the compressed size.')
-parser.add_argument('path', type=str, help='The path to the binary.')
-parser.add_argument('offset', type=auto_int, help='The offset into the binary.')
-args = parser.parse_args()
-
-
-inPath = Path(args.path)
-if not inPath.exists():
-    exit(f"Couldn't find file {args.path}")
-
-
-outPath = f"{args.offset:08x}.bin"
-
-outBuffer = io.BytesIO()
-buffLen = 0x1000
-buff = [0 for x in range(buffLen)]
-buffOff = 0
-
-
-def get_int(inFile):
-    return struct.unpack("I", inFile.read(4))[0]
-
-
-def get_short(inFile):
-    return struct.unpack('H', inFile.read(2))[0]
-
-
-def get_byte(inFile):
-    return inFile.read(1)[0]
+from common import auto_int, get_byte, get_int
 
 
 def get_24(inFile):
@@ -52,6 +17,7 @@ def extract(inFile):
     bufferLen = 0x1000
     buffer = [0 for x in range(bufferLen)]
     bufferOffset = 0
+    get_byte(inFile) # magic
     size = get_24(inFile)
     if size == 0:
         size = get_int(inFile)
@@ -84,6 +50,7 @@ def extract(inFile):
             buffer[bufferOffset] = nx
             bufferOffset = (bufferOffset + 1) % bufferLen
     return outputBuffer
+
 
 def get_compressed_size(inFile):
     offStart = inFile.tell()
@@ -119,16 +86,33 @@ def get_uncompressed_size(inFile):
     inFile.seek(offStart)
     return size
 
-with open(inPath, mode='rb') as inFile:
-    inFile.seek(args.offset)
-    magic = get_byte(inFile)
-    if magic != 0x10:
-        print("Data at offset does not start with the magic value for a compressed archive (0x10)")
-        exit(1)
-    if args.size > 0:
-        print(f"Compressed size: {get_compressed_size(inFile)}")
-    else:
-        outBuffer = extract(inFile)
-        with open(outPath, "wb") as outFile:
-            # Copy the BytesIO stream to the output file
-            outFile.write(outBuffer.getbuffer())
+
+def main():
+    parser = argparse.ArgumentParser(description='Extract compressed archives.')
+    parser.add_argument('-s', '--size', action='count', default=0,
+                            help='Print the compressed size.')
+    parser.add_argument('path', type=str, help='The path to the binary.')
+    parser.add_argument('offset', type=auto_int, help='The offset into the binary.')
+    args = parser.parse_args()
+    inPath = Path(args.path)
+    if not inPath.exists():
+        exit(f"Couldn't find file {args.path}")
+    with open(inPath, mode='rb') as inFile:
+        inFile.seek(args.offset)
+        magic = get_byte(inFile)
+        if magic != 0x10:
+            print("Data at offset does not start with the magic value for a compressed archive (0x10)")
+            exit(1)
+        if args.size > 0:
+            print(f"Compressed size: {get_compressed_size(inFile)}")
+        else:
+            inFile.seek(-1, os.SEEK_CUR)
+            outBuffer = extract(inFile)
+            outPath = f"{args.offset:08x}.bin"
+            with open(outPath, "wb") as outFile:
+                # Copy the BytesIO stream to the output file
+                outFile.write(outBuffer.getbuffer())
+
+
+if __name__ == "__main__":
+    main()

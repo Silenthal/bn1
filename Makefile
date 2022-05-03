@@ -37,6 +37,7 @@ export MAKE_DEPEND  	:= python3 $(CURDIR)/$(TOOLS)/make_depend.py
 export MAKE_TILES		:= python3 $(CURDIR)/$(TOOLS)/make_tiles.py
 export BUILD_SCRIPT		:= python3 $(CURDIR)/$(TOOLS)/build_script.py
 export GEN_OFFSETS		:= python3 $(CURDIR)/$(TOOLS)/generate_offsets.py
+export LZ				:= python3 $(CURDIR)/$(TOOLS)/lz.py
 
 export MMBN_H			:= $(CURDIR)/include/mmbn.h
 export OUTPUT			:= $(CURDIR)/$(TARGET)
@@ -45,7 +46,6 @@ export VPATH			:= $(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) $(ASSETS) $(BUILD)
 export DEPSDIR			:= $(CURDIR)/$(BUILD)
 export LAYOUT_FILE		:= $(CURDIR)/object_offset.txt
 export MAIN_LD_SCRIPT	:= $(CURDIR)/ld_script.ld
-
 
 CFILES				:= $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
 SFILES				:= $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.S)))
@@ -80,7 +80,7 @@ depend:
 
 clean:
 	@echo cleaning up build files and assets ...
-	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.script' \) -exec rm {} +
+	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.script' -o -iname '*.sprite.lz' \) -exec rm {} +
 	@$(RM) -r $(BUILD) $(TARGET).gba $(TARGET).elf
 
 tidy:
@@ -175,5 +175,8 @@ images/custom_screen/frame.4bpp: %.4bpp: %.png
 
 %.script: %.txt
 	$(BUILD_SCRIPT) $@ $<
+
+%.sprite.lz: %.sprite
+	$(LZ) $@ $<
 
 endif

@@ -1,0 +1,399 @@
+    .include "constants.inc"
+    .include "macros.inc"
+
+    .text
+
+global_label sprite_battle_megaman
+    .incbin "images/sprites/1E0020.sprite"
+global_label sprite_battle_mettaur
+    .incbin "images/sprites/1EF5FC.sprite.lz"
+global_label sprite_battle_woodman
+    .incbin "images/sprites/1F0C38.sprite"
+global_label sprite_woodman
+    .incbin "images/sprites/1F7D90.sprite"
+global_label sprite_lan
+    .incbin "images/sprites/1F8298.sprite"
+global_label sprite_yai
+    .incbin "images/sprites/20BC70.sprite"
+global_label sprite_dex
+    .incbin "images/sprites/20EE08.sprite"
+global_label sprite_mari
+    .incbin "images/sprites/213EBC.sprite"
+global_label sprite_masa
+    .incbin "images/sprites/217818.sprite"
+global_label sprite_megaman
+    .incbin "images/sprites/217DF8.sprite"
+global_label sprite_higsby
+    .incbin "images/sprites/227474.sprite"
+global_label sprite_chaud
+    .incbin "images/sprites/22CF28.sprite"
+global_label sprite_mayl
+    .incbin "images/sprites/230DE0.sprite"
+global_label sprite_boy2
+    .incbin "images/sprites/234FB4.sprite"
+global_label sprite_boy1
+    .incbin "images/sprites/239144.sprite"
+global_label sprite_car
+    .incbin "images/sprites/23B4A8.sprite"
+global_label sprite_battle_canodumb
+    .incbin "images/sprites/23CB58.sprite.lz"
+global_label sprite_battle_fireman
+    .incbin "images/sprites/23D858.sprite"
+global_label sprite_lan_bed
+    .incbin "images/sprites/24C1D0.sprite.lz"
+global_label sprite_haruka
+    .incbin "images/sprites/24CFCC.sprite"
+global_label sprite_battle_vulgear
+    .incbin "images/sprites/25226C.sprite.lz"
+global_label sprite_match
+    .incbin "images/sprites/253DFC.sprite"
+global_label sprite_prog1
+    .incbin "images/sprites/255004.sprite"
+global_label sprite_fireman
+    .incbin "images/sprites/25685C.sprite"
+global_label sprite_oldman
+    .incbin "images/sprites/257978.sprite"
+global_label sprite_woman2
+    .incbin "images/sprites/25A1F4.sprite"
+global_label sprite_man2
+    .incbin "images/sprites/25ADB4.sprite"
+global_label sprite_woman1
+    .incbin "images/sprites/25E238.sprite"
+global_label sprite_girl1
+    .incbin "images/sprites/260308.sprite"
+global_label sprite_girl2
+    .incbin "images/sprites/261EB0.sprite"
+global_label sprite_man1
+    .incbin "images/sprites/2645F8.sprite"
+global_label sprite_battle_beetank
+    .incbin "images/sprites/266C28.sprite.lz"
+global_label sprite_battle_spooky
+    .incbin "images/sprites/2680E4.sprite.lz"
+global_label sprite_battle_flappy
+    .incbin "images/sprites/26A5AC.sprite"
+global_label sprite_battle_gutsman
+    .incbin "images/sprites/26EA74.sprite"
+global_label sprite_numberman
+    .incbin "images/sprites/2769A4.sprite"
+global_label sprite_battle_numberman
+    .incbin "images/sprites/279D18.sprite"
+global_label sprite_battle_hardhead
+    .incbin "images/sprites/280B9C.sprite.lz"
+global_label sprite_battle_fishy
+    .incbin "images/sprites/281A20.sprite.lz"
+global_label sprite_battle_puffy
+    .incbin "images/sprites/28256C.sprite.lz"
+global_label sprite_battle_swordy
+    .incbin "images/sprites/283128.sprite.lz"
+global_label sprite_battle_handy
+    .incbin "images/sprites/2846BC.sprite.lz"
+global_label sprite_battle_iceman
+    .incbin "images/sprites/285DA8.sprite"
+global_label sprite_ticketer
+    .incbin "images/sprites/2899DC.sprite"
+global_label sprite_battle_stoneman
+    .incbin "images/sprites/28A53C.sprite"
+global_label sprite_battle_piranha
+    .incbin "images/sprites/29ADD0.sprite.lz"
+global_label sprite_battle_cloudy
+    .incbin "images/sprites/29BFE8.sprite.lz"
+global_label sprite_official2
+    .incbin "images/sprites/29D8E8.sprite"
+global_label sprite_official3
+    .incbin "images/sprites/29E4E8.sprite"
+global_label sprite_battle_coldbear
+    .incbin "images/sprites/29F008.sprite.lz"
+global_label sprite_scientist
+    .incbin "images/sprites/29FFB0.sprite"
+global_label sprite_battle_floshell
+    .incbin "images/sprites/2A2110.sprite.lz"
+global_label sprite_official1
+    .incbin "images/sprites/2A2C3C.sprite"
+global_label sprite_protoman
+    .incbin "images/sprites/2A37FC.sprite"
+global_label sprite_oldwoman
+    .incbin "images/sprites/2A7EC0.sprite"
+global_label sprite_stoneman
+    .incbin "images/sprites/2A9D00.sprite"
+global_label sprite_battle_ratty
+    .incbin "images/sprites/2AA86C.sprite.lz"
+global_label sprite_battle_jelly
+    .incbin "images/sprites/2AB9DC.sprite.lz"
+global_label sprite_iceman
+    .incbin "images/sprites/2AC184.sprite"
+global_label sprite_battle_miney
+    .incbin "images/sprites/2AF868.sprite.lz"
+global_label sprite_navi
+    .incbin "images/sprites/2B0DF4.sprite"
+global_label sprite_battle_ammonicule
+    .incbin "images/sprites/2B13F4.sprite.lz"
+global_label sprite_battle_effect_bubble
+    .incbin "images/sprites/2B19E8.sprite"
+global_label sprite_battle_skullman
+    .incbin "images/sprites/2B244C.sprite"
+global_label sprite_madd
+    .incbin "images/sprites/2B8528.sprite"
+global_label sprite_battle_colorman
+    .incbin "images/sprites/2B9EE8.sprite"
+global_label sprite_battle_protoman
+    .incbin "images/sprites/2C00D8.sprite"
+global_label sprite_roll
+    .incbin "images/sprites/2C60B8.sprite"
+global_label sprite_colorman
+    .incbin "images/sprites/2CAEB4.sprite"
+global_label sprite_billy
+    .incbin "images/sprites/2CCBE4.sprite.lz"
+global_label sprite_battle_prog
+    .incbin "images/sprites/2CD91C.sprite.lz"
+global_label sprite_battle_remobit
+    .incbin "images/sprites/2CE3E4.sprite"
+global_label sprite_battle_popper
+    .incbin "images/sprites/2CF330.sprite.lz"
+global_label sprite_battle_gaia
+    .incbin "images/sprites/2CF8F8.sprite.lz"
+global_label sprite_wily
+    .incbin "images/sprites/2D0B18.sprite"
+global_label sprite_battle_magicman
+    .incbin "images/sprites/2D57EC.sprite"
+global_label sprite_zap
+    .incbin "images/sprites/2D7F34.sprite"
+global_label sprite_battle_satella
+    .incbin "images/sprites/2DAE9C.sprite"
+    .incbin "images/sprites/2DD514.sprite"
+global_label sprite_yuichiro
+    .incbin "images/sprites/2DD8BC.sprite"
+global_label sprite_battle_megalian_body
+    .incbin "images/sprites/2DF504.sprite.lz"
+global_label sprite_official4
+    .incbin "images/sprites/2E01A4.sprite"
+global_label sprite_waitress
+    .incbin "images/sprites/2E213C.sprite"
+global_label sprite_battle_elecman
+    .incbin "images/sprites/2E4244.sprite"
+global_label sprite_elecman
+    .incbin "images/sprites/2E7E78.sprite"
+global_label sprite_miyu_sit
+    .incbin "images/sprites/2EBF94.sprite"
+global_label sprite_battle_bombman
+    .incbin "images/sprites/2EC140.sprite"
+global_label sprite_glyde
+    .incbin "images/sprites/2F0854.sprite"
+global_label sprite_battle_fanner
+    .incbin "images/sprites/2F2B3C.sprite.lz"
+global_label sprite_battle_candevil
+    .incbin "images/sprites/2F3510.sprite.lz"
+global_label sprite_bombman
+    .incbin "images/sprites/2F4530.sprite"
+global_label sprite_battle_pharaohman
+    .incbin "images/sprites/2F5E30.sprite"
+global_label sprite_yahoot
+    .incbin "images/sprites/2F6458.sprite"
+global_label sprite_gutsman
+    .incbin "images/sprites/2F7F30.sprite"
+global_label sprite_battle_shadowman
+    .incbin "images/sprites/2F9888.sprite"
+global_label sprite_battle_roll
+    .incbin "images/sprites/2FD214.sprite"
+global_label sprite_battle_bigsnake_head
+    .incbin "images/sprites/300220.sprite.lz"
+global_label sprite_battle_mole
+    .incbin "images/sprites/300BA0.sprite.lz"
+global_label sprite_battle_poitton
+    .incbin "images/sprites/3019D4.sprite.lz"
+global_label sprite_magicman
+    .incbin "images/sprites/3024B8.sprite"
+global_label sprite_battle_lifevirus
+    .incbin "images/sprites/306804.sprite.lz"
+global_label sprite_sal
+    .incbin "images/sprites/30A9A4.sprite"
+global_label sprite_battle_mosqurito
+    .incbin "images/sprites/30AED4.sprite.lz"
+global_label sprite_battle_bass
+    .incbin "images/sprites/30B520.sprite"
+    .incbin "images/sprites/310600.sprite"
+    .incbin "images/sprites/311AC0.sprite"
+    .incbin "images/sprites/3125BC.sprite"
+    .incbin "images/sprites/31429C.sprite"
+    .incbin "images/sprites/314740.sprite"
+    .incbin "images/sprites/315C38.sprite"
+    .incbin "images/sprites/316960.sprite"
+    .incbin "images/sprites/3172A8.sprite"
+    .incbin "images/sprites/31D1AC.sprite"
+    .incbin "images/sprites/31E6A8.sprite"
+    .incbin "images/sprites/31F390.sprite"
+    .incbin "images/sprites/32069C.sprite"
+    .incbin "images/sprites/321244.sprite"
+    .incbin "images/sprites/322404.sprite"
+    .incbin "images/sprites/323CFC.sprite"
+    .incbin "images/sprites/327A38.sprite"
+    .incbin "images/sprites/329330.sprite"
+    .incbin "images/sprites/32BE88.sprite"
+    .incbin "images/sprites/32D8A0.sprite"
+    .incbin "images/sprites/32E3A8.sprite"
+    .incbin "images/sprites/32F4D0.sprite"
+    .incbin "images/sprites/332550.sprite"
+    .incbin "images/sprites/33EE04.sprite"
+    .incbin "images/sprites/33F9DC.sprite"
+    .incbin "images/sprites/340EEC.sprite"
+    .incbin "images/sprites/3419F8.sprite"
+    .incbin "images/sprites/3435E4.sprite"
+    .incbin "images/sprites/3456B0.sprite"
+    .incbin "images/sprites/345824.sprite"
+    .incbin "images/sprites/34723C.sprite"
+    .incbin "images/sprites/348B2C.sprite"
+    .incbin "images/sprites/349F04.sprite"
+    .incbin "images/sprites/34A59C.sprite"
+    .incbin "images/sprites/34C8B4.sprite"
+    .incbin "images/sprites/3558B8.sprite"
+    .incbin "images/sprites/357224.sprite"
+    .incbin "images/sprites/357304.sprite"
+    .incbin "images/sprites/3576AC.sprite"
+    .incbin "images/sprites/358164.sprite"
+    .incbin "images/sprites/3590FC.sprite"
+    .incbin "images/sprites/359CD4.sprite"
+    .incbin "images/sprites/35A7C8.sprite"
+    .incbin "images/sprites/35B75C.sprite"
+    .incbin "images/sprites/35C194.sprite"
+    .incbin "images/sprites/35C670.sprite"
+    .incbin "images/sprites/35D570.sprite"
+    .incbin "images/sprites/35E3FC.sprite"
+    .incbin "images/sprites/35ECEC.sprite"
+    .incbin "images/sprites/35FCAC.sprite"
+    .incbin "images/sprites/361EEC.sprite"
+    .incbin "images/sprites/3623DC.sprite"
+    .incbin "images/sprites/363360.sprite"
+    .incbin "images/sprites/36350C.sprite"
+    .incbin "images/sprites/3636AC.sprite"
+    .incbin "images/sprites/3644D0.sprite"
+    .incbin "images/sprites/365028.sprite"
+    .incbin "images/sprites/365D18.sprite"
+    .incbin "images/sprites/366D44.sprite"
+    .incbin "images/sprites/367570.sprite"
+    .incbin "images/sprites/3678E0.sprite"
+    .incbin "images/sprites/368270.sprite"
+    .incbin "images/sprites/3689A8.sprite"
+    .incbin "images/sprites/36A384.sprite"
+    .incbin "images/sprites/36AB8C.sprite"
+    .incbin "images/sprites/36B708.sprite"
+    .incbin "images/sprites/36BF78.sprite"
+    .incbin "images/sprites/36D100.sprite"
+    .incbin "images/sprites/36EBEC.sprite"
+    .incbin "images/sprites/36F350.sprite"
+    .incbin "images/sprites/36FDC4.sprite"
+    .incbin "images/sprites/370034.sprite"
+    .incbin "images/sprites/3714CC.sprite"
+    .incbin "images/sprites/3727D0.sprite"
+    .incbin "images/sprites/375958.sprite"
+    .incbin "images/sprites/375FB4.sprite"
+    .incbin "images/sprites/377988.sprite"
+    .incbin "images/sprites/377E50.sprite"
+    .incbin "images/sprites/378878.sprite"
+    .incbin "images/sprites/379330.sprite"
+    .incbin "images/sprites/379A40.sprite"
+    .incbin "images/sprites/37A980.sprite"
+    .incbin "images/sprites/37BD4C.sprite"
+    .incbin "images/sprites/37C080.sprite"
+    .incbin "images/sprites/37C85C.sprite"
+    .incbin "images/sprites/37CB30.sprite"
+    .incbin "images/sprites/37D894.sprite"
+    .incbin "images/sprites/37E034.sprite"
+    .incbin "images/sprites/37E0B4.sprite"
+    .incbin "images/sprites/37E4AC.sprite"
+    .incbin "images/sprites/37E898.sprite"
+    .incbin "images/sprites/380EC8.sprite"
+    .incbin "images/sprites/383518.sprite"
+    .incbin "images/sprites/383628.sprite"
+    .incbin "images/sprites/384E9C.sprite"
+    .incbin "images/sprites/3854C8.sprite"
+    .incbin "images/sprites/38629C.sprite"
+    .incbin "images/sprites/387870.sprite"
+    .incbin "images/sprites/388120.sprite"
+    .incbin "images/sprites/388678.sprite"
+    .incbin "images/sprites/389400.sprite.lz"
+    .incbin "images/sprites/3895A4.sprite.lz"
+    .incbin "images/sprites/389894.sprite.lz"
+    .incbin "images/sprites/389C78.sprite.lz"
+    .incbin "images/sprites/38A030.sprite"
+    .incbin "images/sprites/38AF2C.sprite"
+    .incbin "images/sprites/38B898.sprite.lz"
+    .incbin "images/sprites/38B9DC.sprite.lz"
+    .incbin "images/sprites/38BB98.sprite"
+    .incbin "images/sprites/38D5A0.sprite"
+    .incbin "images/sprites/38E5A0.sprite"
+    .incbin "images/sprites/38FC34.sprite"
+    .incbin "images/sprites/391344.sprite"
+    .incbin "images/sprites/3929F0.sprite"
+    .incbin "images/sprites/392B5C.sprite.lz"
+    .incbin "images/sprites/392FB0.sprite.lz"
+    .incbin "images/sprites/39316C.sprite.lz"
+    .incbin "images/sprites/393308.sprite.lz"
+    .incbin "images/sprites/393420.sprite.lz"
+    .incbin "images/sprites/393AD4.sprite"
+    .incbin "images/sprites/3963DC.sprite"
+    .incbin "images/sprites/397144.sprite.lz"
+    .incbin "images/sprites/397934.sprite.lz"
+    .incbin "images/sprites/397C90.sprite"
+    .incbin "images/sprites/398F70.sprite"
+    .incbin "images/sprites/39AB78.sprite.lz"
+    .incbin "images/sprites/39AD44.sprite.lz"
+    .incbin "images/sprites/39AE5C.sprite.lz"
+    .incbin "images/sprites/39AF64.sprite.lz"
+    .incbin "images/sprites/39B260.sprite.lz"
+    .incbin "images/sprites/39B8B4.sprite.lz"
+    .incbin "images/sprites/39BB88.sprite.lz"
+    .incbin "images/sprites/39BF24.sprite.lz"
+    .incbin "images/sprites/39C204.sprite.lz"
+    .incbin "images/sprites/39C2F4.sprite.lz"
+    .incbin "images/sprites/39C4FC.sprite.lz"
+    .incbin "images/sprites/39C734.sprite.lz"
+    .incbin "images/sprites/39C8AC.sprite.lz"
+    .incbin "images/sprites/39C9C0.sprite"
+    .incbin "images/sprites/39DC0C.sprite.lz"
+    .incbin "images/sprites/39DD0C.sprite.lz"
+    .incbin "images/sprites/39E0DC.sprite"
+    .incbin "images/sprites/39E5C0.sprite"
+    .incbin "images/sprites/39EB44.sprite"
+    .incbin "images/sprites/39F118.sprite"
+    .incbin "images/sprites/39F968.sprite"
+    .incbin "images/sprites/3A0284.sprite"
+    .incbin "images/sprites/3A04D0.sprite"
+    .incbin "images/sprites/3A1050.sprite.lz"
+    .incbin "images/sprites/3A1154.sprite"
+    .incbin "images/sprites/3A1608.sprite.lz"
+    .incbin "images/sprites/3A1870.sprite.lz"
+    .incbin "images/sprites/3A27A4.sprite.lz"
+    .incbin "images/sprites/3A2B00.sprite.lz"
+    .incbin "images/sprites/3A3C1C.sprite"
+    .incbin "images/sprites/3A3E40.sprite"
+    .incbin "images/sprites/3A49E0.sprite"
+    .incbin "images/sprites/3A50A4.sprite"
+    .incbin "images/sprites/3A5730.sprite"
+    .incbin "images/sprites/3A5EDC.sprite"
+    .incbin "images/sprites/3A61A8.sprite"
+    .incbin "images/sprites/3A6444.sprite.lz"
+    .incbin "images/sprites/3A698C.sprite.lz"
+global_label sprite_battle_sharkman_fin
+    .incbin "images/sprites/3A6D20.sprite"
+    .incbin "images/sprites/3AAFE4.sprite"
+    .incbin "images/sprites/3ABE70.sprite.lz"
+    .incbin "images/sprites/3AC31C.sprite"
+    .incbin "images/sprites/3AC778.sprite.lz"
+    .incbin "images/sprites/3AC8E8.sprite"
+    .incbin "images/sprites/3ACFE0.sprite"
+    .incbin "images/sprites/3AD428.sprite.lz"
+    .incbin "images/sprites/3AD644.sprite.lz"
+    .incbin "images/sprites/3AD838.sprite.lz"
+    .incbin "images/sprites/3ADA50.sprite.lz"
+    .incbin "images/sprites/3ADB44.sprite"
+    .incbin "images/sprites/3ADFD4.sprite.lz"
+    .incbin "images/sprites/3AE1DC.sprite.lz"
+    .incbin "images/sprites/3AE330.sprite.lz"
+    .incbin "images/sprites/3AE450.sprite.lz"
+    .incbin "images/sprites/3AE5D8.sprite.lz"
+    .incbin "images/sprites/3AE810.sprite.lz"
+    .incbin "images/sprites/3AE95C.sprite.lz"
+    .incbin "images/sprites/3AEC30.sprite.lz"
+    .incbin "images/sprites/3AF4E8.sprite.lz"
+    .incbin "images/sprites/3AFE10.sprite.lz"
+    .incbin "images/sprites/3B01B8.sprite.lz"
+    .end

@@ -18,8 +18,8 @@ Sprite_AddSpriteToOam:
     pop        { pc }
 thumb_func_end Sprite_AddSpriteToOam
 
-thumb_func_start FUN_08002344
-FUN_08002344:
+thumb_func_start Sprite_InitSpritePtrFrames
+Sprite_InitSpritePtrFrames:
     push       { r5, lr }
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -27,7 +27,7 @@ FUN_08002344:
     add        r5,r5,r7
     bl         Sprite_InitFrames
     pop        { r5, pc }
-thumb_func_end FUN_08002344
+thumb_func_end Sprite_InitSpritePtrFrames
 
 @@ Sets up frame data for a sprite
 thumb_func_start Sprite_InitFrames
@@ -164,8 +164,8 @@ delayPresent:
     pop        { pc }
 thumb_func_end Sprite_ProcessFrameDelay
 
-thumb_func_start FUN_08002420
-FUN_08002420:
+thumb_func_start Sprite_InitSpritePtr
+Sprite_InitSpritePtr:
     push       { r5, lr }
     ldrb       r2,[r5,#0x0]
     mov        r3,#0x8
@@ -197,7 +197,7 @@ LAB_08002452:
     pop        { r1 }
     strb       r1,[r5,#0x4]
     pop        { r5, pc }
-thumb_func_end FUN_08002420
+thumb_func_end Sprite_InitSpritePtr
 
 thumb_func_start Sprite_Init
 Sprite_Init:
