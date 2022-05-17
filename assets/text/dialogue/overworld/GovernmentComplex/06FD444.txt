@@ -14,12 +14,8 @@ the power of science
 to improve our life.""", 0)
 text("""{anim 2}Can I help you?{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x01, 0xFF], 0, False, True)
 para_talk_end("""Important research
 is going on,so
@@ -33,12 +29,8 @@ dialog_up()
 para_talk("""You're Dr.Hikari's
 son? I think he's in
 his lab. Wanna go?""", 0)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x02, 0xFF], 0, False, True)
 para_talk_end("""Let me know if
 you change your
@@ -363,8 +355,9 @@ dialog_up()
 para_talk("""Now if I could
 just morph this idea
 with this invention.""", 0)
-para_talk_end("""Grrrr!!{anim 1}{delay}
-{anim 2}It won't work.""", 0)
+text_talking("""Grrrr!!""")
+text("""{delay}\n""")
+para_talk_end("""It won't work.""", 0)
 section_end()
 
 # 0x2E @ 0x6FE335
@@ -435,30 +428,20 @@ para_general("""The elevator doors
 opened!
 Which floor?""", 0)
 if_story(0x41, 0x57, 0x3E, 0xFF)
-option(1, 1, 0, 0)
-pad(2)
-text("""Dad's lab
+text("""{c 1 1 0 0}Dad's lab
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Restaurant""")
+text("""{c 0 0 1 1}Restaurant""")
 pick([0x49, 0x48], 0, True, True)
 end()
 section_end()
 
 # 0x3E @ 0x6FE5EE
 section_start(0x3E)
-option(2, 1, 0, 0)
-pad(2)
-text("""Dad's lab
+text("""{c 2 1 0 0}Dad's lab
 """)
-option(0, 2, 1, 1)
-pad(2)
-text("""Restaurant
+text("""{c 0 2 1 1}Restaurant
 """)
-option(1, 0, 2, 2)
-pad(2)
-text("""Power plant""")
+text("""{c 1 0 2 2}Power plant""")
 pick([0x49, 0x48, 0x4A], 0, True, True)
 end()
 section_end()
@@ -606,8 +589,7 @@ section_end()
 section_start(0x52)
 hidepic()
 dialog_up()
-pc_lock()
-pc_anim(30)
+pc_anim_start(30)
 add_item("Lab_Memo", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got;
 \"{key Lab_Memo}\"!""")

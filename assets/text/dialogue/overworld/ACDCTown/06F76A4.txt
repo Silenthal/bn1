@@ -50,12 +50,8 @@ dialog_up()
 text("""{anim 2}Did you hear about
 the landslide?{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x05, 0xFF], 0, False, True)
 para_talk("""A landslide...
 And on opening day!""", 0)
@@ -72,12 +68,8 @@ tickets,yet.""")
 text("""{anim 2}Or did you want
 something else?{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x07, 0xFF], 0, False, True)
 para_talk_end("""Then I'll get back
 to work...""")
@@ -90,12 +82,8 @@ dialog_up()
 text("""{anim 2}Do you need
 something?{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x07, 0xFF], 0, False, True)
 para_talk_end("""Then I'll get back
 to work...""")
@@ -103,17 +91,11 @@ section_end()
 
 # 0x07 @ 0x6F7B61
 section_start(0x07)
-option(2, 1, 0, 0)
-pad(2)
-text("""What caused it?
+text("""{c 2 1 0 0}What caused it?
 """)
-option(0, 2, 1, 1)
-pad(2)
-text("""Where can I go?
+text("""{c 0 2 1 1}Where can I go?
 """)
-option(1, 0, 2, 2)
-pad(2)
-text("""Never mind""")
+text("""{c 1 0 2 2}Never mind""")
 pick([0x08, 0x0A, 0x0B], 0, True, True)
 page()
 end()
@@ -141,12 +123,8 @@ through the net.""")
 text("""{anim 2}Do you want to hear
 that again?{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x08, 0x09], 1, False, True)
 page()
 end()
@@ -232,12 +210,8 @@ dialog_up()
 text("""Where would you like
 a ticket to?
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""GovmntCmplx """)
-option(1, 1, 0, 0)
-pad(2)
-text("""None""")
+text("""{c 0 0 1 1}GovmntCmplx """)
+text("""{c 1 1 0 0}None""")
 pick([0x12, 0xFF], 0, False, True)
 end()
 section_end()
@@ -263,12 +237,8 @@ dialog_up()
 text("""Buy a different
 ticket?
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x14, 0xFF], 0, False, True)
 end()
 section_end()
@@ -297,17 +267,11 @@ section_start(0x16)
 if_flag(42, 0x13, 0xFF)
 dialog_up()
 para_general("""Where to?""", 0)
-option(2, 1, 0, 0)
-pad(2)
-text("""GovmntCmplx
+text("""{c 2 1 0 0}GovmntCmplx
 """)
-option(0, 2, 1, 1)
-pad(2)
-text("""Dentown
+text("""{c 0 2 1 1}Dentown
 """)
-option(1, 0, 2, 2)
-pad(2)
-text("""None""")
+text("""{c 1 0 2 2}None""")
 pick([0x12, 0x17, 0xFF], 0, False, True)
 end()
 section_end()
@@ -580,10 +544,7 @@ by collecting
 chips!""", 0)
 text("""{anim 2}Right now I'm
 looking for the chip
-""")
-chip_id("Hammer")
-text(""" """)
-chip_code("M")
+{chip Hammer M}""")
 para_general_end(""".{anim 1}""")
 section_end()
 
@@ -601,21 +562,14 @@ chip_code("S")
 para_general("""
 here...{anim 1}""", 0)
 text("""{anim 2}Would you trade
-that """)
-chip_id("Hammer")
-text(""" """)
-chip_code("M")
+that {chip Hammer M}""")
 para_general("""
 for it?{anim 1}""", 0)
 para_talk("""And also,please
 be my friend!""", 0)
-option(1, 1, 0, 0)
-pad(2)
-text("""Sure!
+text("""{c 1 1 0 0}Sure!
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""No way!""")
+text("""{c 0 0 1 1}No way!""")
 pick([0xC0, 0xC1], 0, False, True)
 page()
 end(5)
@@ -631,8 +585,7 @@ para_talk("""Really!? Wonderful!
 Here,take this,my
 new friend!""", 0)
 hidepic()
-pc_lock()
-pc_anim(30)
+pc_anim_start(30)
 add_chip("X-Panel3 S", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("Hammer M", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got a chip for
@@ -670,24 +623,16 @@ section_start(0xC3)
 pic(10)
 dialog_up()
 text("""{anim 2}Will you trade your
-""")
-chip_id("Hammer")
-text(""" """)
-chip_code("M")
-text(""" for my
+{chip Hammer M} for my
 """)
 chip_id("X-Panel3")
 text(""" """)
 chip_code("S")
 para_general("""?{anim 1}""", 0)
 para_talk("""...and be my friend?""", 0)
-option(1, 1, 0, 0)
-pad(2)
-text("""You bet!
+text("""{c 1 1 0 0}You bet!
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Uh,no""")
+text("""{c 0 0 1 1}Uh,no""")
 pick([0xC0, 0xC1], 0, False, True)
 page()
 end(5)

@@ -63,7 +63,7 @@ section_start(0x03)
 pic(0)
 dialog_up()
 para_talk("""You serious!?""", 0)
-para_general(""".{delay}.{delay}.{delay}{anim 2}What should
+para_general("""{...}{anim 2}What should
 I do!?{anim 1}""")
 jump(0x04)
 section_end()
@@ -100,7 +100,7 @@ section_end()
 section_start(0x07)
 pic(0)
 dialog_up()
-para_general(""".{delay}.{delay}.{delay}{anim 2}No!
+para_general("""{...}{anim 2}No!
 It's too dangerous!{anim 1}""")
 jump(0x08)
 section_end()
@@ -115,7 +115,7 @@ that your mom...""", 0)
 para_talk("""...and all the other
 people stuck in here
 will die!""", 0)
-para_talk("""And.{anim 1}{delay}.{delay}.{delay}{anim 2} I think
+para_talk("""And.{anim 1}{delay}{..}{anim 2} I think
 you're a good enough
 operator to do it!""")
 jump(0x09)
@@ -125,7 +125,7 @@ section_end()
 section_start(0x09)
 pic(0)
 dialog_up()
-para_general(""".{delay}.{delay}.{delay}{anim 2}Yeah,
+para_general("""{...}{anim 2}Yeah,
 I won't let them
 delete you!{anim 1}{delay}""", 0)
 input_off()

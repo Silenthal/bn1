@@ -15,6 +15,8 @@ section_start(0x01)
 set_flag(216)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan!{anim 1}{delay}{anim 2} Answer me,
+text_talking("""MegaMan!""")
+delay()
+para_talk_end(""" Answer me,
 MegaMan!""")
 section_end()

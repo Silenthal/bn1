@@ -19,12 +19,8 @@ dialog_up()
 para_talk("""You wish to ask moi,
 Madame Yai herself,
 about {key PET}?""", 0)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x0D, 0xFF], 0, False, True)
 para_general_end("""*sigh*
 {anim 2}Suit yourself.{anim 1}""")
@@ -61,12 +57,8 @@ dialog_up()
 para_talk("""Lan,you heard about
 the WWW's plan to 
 control the net,ya?""", 0)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yeah """)
-option(1, 1, 0, 0)
-pad(2)
-text("""Huh?""")
+text("""{c 0 0 1 1}Yeah """)
+text("""{c 1 1 0 0}Huh?""")
 pick([0xFF, 0x0E], 0, False, True)
 para_talk_end("""Talk about scary!
 I mean,what are we
@@ -225,12 +217,8 @@ dialog_up()
 para_talk("""You wish to hear
 about {key PET} from
 moi once more?""", 0)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x0D, 0xFF], 0, False, True)
 para_talk_end("""Humph! You should
 really try listening
@@ -262,7 +250,7 @@ dialog_up()
 para_talk("""I hope our oven is
 fixed by now...""", 0)
 para_general_end("""{anim 2}If it blows
-up again{anim 1}{delay}.{delay}.{delay}.{delay}
+up again{anim 1}{delay}{...}
 *shiver*""")
 section_end()
 
@@ -294,12 +282,8 @@ I got the latest
 version yesterday!""", 0)
 text("""{anim 2}Let's do it!{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0xA1, 0xFF], 1, False, True)
 para_talk_end("""Peh! Figures you
 and MegaMan don't
@@ -332,12 +316,8 @@ pic(2)
 dialog_up()
 para_talk("""Hmm? Back for
 more,Lan?""", 0)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0xA1, 0xFF], 1, False, True)
 para_talk_end("""Peh! Figures you
 and MegaMan don't
@@ -455,12 +435,8 @@ dialog_up()
 para_talk("""I was virus busting
 and something really
 odd happened...""", 0)
-option(0, 0, 1, 1)
-pad(2)
-text("""What? """)
-option(1, 1, 0, 0)
-pad(2)
-text("""Who cares?""")
+text("""{c 0 0 1 1}What? """)
+text("""{c 1 1 0 0}Who cares?""")
 pick([0x24, 0xFF], 0, False, True)
 text_talking("""Fー{anim 1}{delay}{anim 2}Fine!""")
 page()
@@ -601,7 +577,7 @@ section_end()
 section_start(0x2D)
 pic(2)
 dialog_up()
-para_talk("""Lan{anim 1}{delay}.{delay}.{delay}.{delay}
+para_talk("""Lan{anim 1}{delay}{...}
 {anim 2}I know how you feel,
 really...""", 0)
 text_talking("""But you better let
@@ -722,17 +698,11 @@ section_end()
 section_start(0x3E)
 hidepic()
 dialog_up()
-pc_lock()
-pc_anim(30)
+pc_anim_start(30)
 add_chip("Roll R", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got a chip for
-\"""")
-chip_id("Roll")
-text(""" """)
-chip_code("R")
-text("""\"!{anim 1}""")
-pc_wait()
-pc_unlock()
+\"{chip Roll R}\"!{anim 1}""")
+pc_anim_end()
 page()
 wait()
 para_general_end("""(Put in your chip
@@ -826,12 +796,8 @@ dialog_up()
 para_talk("""I'm starting to like
 this announcement.
 Is that bad?""", 0)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x4A, 0xFF], 0, False, True)
 pic(9)
 dialog_up()
@@ -843,7 +809,7 @@ section_end()
 section_start(0x4A)
 pic(9)
 dialog_up()
-para_general_end("""{anim 2}I thought so!{anim 1} {delay}{anim 2}But{anim 1}{delay}.{delay}.{delay}.""")
+para_general_end("""{anim 2}I thought so!{anim 1} {delay}{anim 2}But{anim 1}{delay}{..}.""")
 section_end()
 
 # 0x4B @ 0x6E53F5
@@ -1007,7 +973,7 @@ dialog_up()
 para_talk("""Don't tell anyone I
 told you,but...""", 0)
 para_talk("""A kid from B class
-is missing.{anim 1}{delay}.{delay}.{delay}
+is missing.{anim 1}{delay}{..}
 {anim 2}And I smell a rat!""")
 jump(0x67)
 section_end()
@@ -1200,12 +1166,8 @@ dialog_up()
 text("""{anim 2}Should we challenge
 Dex to a Netbattle?{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0xA1, 0xA2], 1, False, True)
 end()
 section_end()

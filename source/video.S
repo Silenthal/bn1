@@ -1,8 +1,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set tileSetKeyboardNumberChars, 0x086132a8
-    .set paletteKeyboardNumberChars, 0x0861baa8
     .text
 
     .thumb
@@ -333,7 +331,7 @@ PTR_gFillValue_08001b2c:                    .word gFillValue
 PTR_BG_VRAM_SCREEN0_08001b30:               .word BG_VRAM_SCREEN0
 INT_08001b34:                               .word 0x800
 DAT_08001b38:                               .word 0x85000000
-PTR_tileSetKeyboardNumberChars_08001b3c:    .word tileSetKeyboardNumberChars
+PTR_tileSetKeyboardNumberChars_08001b3c:    .word tilesetKeyboardNumberChars
 vram_off_c:                                 .word BG_VRAM_BASE3
 INT_08001b44:                               .word 0x200
 DmaCntFlag_08001b48:                        .word DMA_32BIT | DMA_ENABLE

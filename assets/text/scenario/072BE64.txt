@@ -118,7 +118,7 @@ section_start(0x0C)
 pic(5, 1)
 dialog_up()
 para_general("""{anim 2}We will now announce
-{anim 1}.{delay}.{delay}.""", 0)
+{anim 1}{..}.""", 0)
 para_talk("""The real goal of our
 plan{anim 1}...{delay}
 {anim 2}to control the net!""")
@@ -147,7 +147,7 @@ of the military net
 and all other nets! """, 0)
 para_talk("""The only cure for
 this rotten world
-is.{anim 1}{delay}.{delay}.{delay}{anim 2}deletion!!!""")
+is.{anim 1}{delay}{..}{anim 2}deletion!!!""")
 jump(0x0F)
 section_end()
 

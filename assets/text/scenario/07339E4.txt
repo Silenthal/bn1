@@ -3,11 +3,11 @@ section_count(0x8)
 # 0x00 @ 0x7339F4
 section_start(0x00)
 dialog_up()
-para_general(""".{delay}.{delay}.{delay}Many days passed
+para_general("""{...}Many days passed
 since the traffic
 light incident.""", 0)
 para_general_end("""Until one
-afternoon.{delay}.{delay}.{delay}""", 0)
+afternoon{...}""", 0)
 section_end()
 
 # 0x01 @ 0x733A6A

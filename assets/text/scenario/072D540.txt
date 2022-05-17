@@ -36,7 +36,7 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_general("""{anim 2}Today,wasn't{anim 1}{delay}.{delay}.{delay}.""")
+para_general("""{anim 2}Today,wasn't{anim 1}{delay}{..}.""")
 jump(0x05)
 section_end()
 

@@ -862,7 +862,7 @@ def pad_control(com: int):
     curScript.emitByte(com)
 
 
-def pad(count: int):
+def pad(count: int = 2):
     global curScript
     pad_control(0)
     curScript.emitByte(count)
@@ -1217,6 +1217,16 @@ def pc_anim(anim: int):
     curScript.emitByte(anim)
 
 
+def pc_anim_start(anim: int):
+    pc_lock()
+    pc_anim(anim)
+
+
+def pc_anim_end():
+    pc_wait()
+    pc_unlock()
+
+
 def pc_unlock():
     pc_control(2)
 
@@ -1439,6 +1449,7 @@ def save(savegood: int, savebad: int):
 
 
 def parse_command(reader: Reader):
+    global curScript
     com = ""
     while not reader.isEmpty() and reader.peek() != "}":
         com += reader.read()
@@ -1458,19 +1469,29 @@ def parse_command(reader: Reader):
             else:
                 exit("Key item name required")
         elif coms[0] == "chip":
-            if len(coms) > 2:
+            if len(coms) == 2:
+                chip_id(coms[1])
+            elif len(coms) > 2:
                 chip(coms[1], coms[2])
             else:
-                exit("Chip ID and code required")
+                exit("Chip ID or chip id with code required")
         elif coms[0] == "chip_buf":
             chip_id_buf(1)
             text(" ")
             chip_code_buf(2)
+        elif coms[0] == "key_item_buf":
+            key_item_buf(int(coms[1]))
         elif coms[0] == "anim":
             if len(coms) > 1:
                 anim(int(coms[1], 0))
             else:
                 exit("Animation index required")
+        elif coms[0] == "talk":
+            anim(2)
+        elif coms[0] == "idle":
+            anim(1)
+        elif coms[0] == "silent":
+            anim(0)
         elif coms[0] == "page":
             page()
             if len(coms) > 1:
@@ -1489,6 +1510,26 @@ def parse_command(reader: Reader):
                 end()
         elif coms[0] == "lv":
             emit(0xB)
+        elif coms[0] == "..":
+            for _ in range(2):
+                curScript.emitByte(0xE5)
+                curScript.emitByte(charmap_E5["."])
+                delay()
+        elif coms[0] == "...":
+            for _ in range(3):
+                curScript.emitByte(0xE5)
+                curScript.emitByte(charmap_E5["."])
+                delay()
+        elif coms[0] == "item_amt":
+            if coms[1].isnumeric():
+                item_amt(int(coms[1]))
+            else:
+                item_amt(coms[1])
+        elif coms[0] == "p":
+            pad()
+        elif coms[0] == "c":
+            option(int(coms[1]), int(coms[2]), int(coms[3]), int(coms[4]))
+            pad()
         else:
             exit(f"Unrecognized command {coms[0]}")
 

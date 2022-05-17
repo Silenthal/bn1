@@ -4,7 +4,9 @@ section_count(0xB)
 section_start(0x00)
 pic(48)
 dialog_up()
-para_talk_end("""But...{anim 1}{delay}{anim 2}but
+text_talking("""But...""")
+delay()
+para_talk_end("""but
 BombMan is never
 defeated!""", 0)
 section_end()

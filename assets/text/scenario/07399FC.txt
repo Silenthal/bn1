@@ -171,9 +171,9 @@ section_start(0x12)
 pic(8)
 dialog_up()
 para_talk("""Oohhh?""", 0)
-para_talk("""Lan{anim 1}.{delay}.{delay}.{delay}
+para_talk("""Lan{anim 1}{...}
 {anim 2}I was so worried...""", 0)
-para_general(""".{delay}.{delay}.*sniff*""", 0)
+para_general("""{..}.*sniff*""", 0)
 para_talk("""...Sorry,I meant to
 be cheering you on
 not crying...""", 0)
@@ -186,7 +186,7 @@ section_end()
 section_start(0x13)
 pic(0)
 dialog_up()
-para_talk("""Mayl{anim 1}.{delay}.{delay}.{delay}
+para_talk("""Mayl{anim 1}{...}
 {anim 2}Leave it to me!""")
 jump(0x14)
 section_end()

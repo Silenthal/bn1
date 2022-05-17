@@ -91,6 +91,6 @@ section_start(0x07)
 pic(0)
 dialog_up()
 para_general_end("""{anim 2}Gーgood luck,Dad!
-{anim 1}.{delay}.{delay}.{delay}{anim 2}So much for
+{anim 1}{...}{anim 2}So much for
 dinner together{anim 1}...""", 0)
 section_end()

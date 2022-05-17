@@ -10,7 +10,9 @@ happening!""", 0)
 para_talk("""But I've already
 sent the program
 to Count Zap!""", 0)
-para_talk_end("""Now,we have all{anim 1}{delay}{anim 2} the
+text_talking("""Now,we have all""")
+delay()
+para_talk_end(""" the
 pro{anim 1}{delay}{anim 2}grams!
 You're finished!""", 0)
 section_end()

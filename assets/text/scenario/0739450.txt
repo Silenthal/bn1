@@ -50,7 +50,8 @@ section_end()
 section_start(0x05)
 pic(5)
 dialog_up()
-para_talk_end("""Ahahahahah!{anim 1}{delay}
-{anim 2}Say your prayers,
+text_talking("""Ahahahahah!""")
+text("""{delay}\n""")
+para_talk_end("""Say your prayers,
 Dr.Hikari!""", 0)
 section_end()

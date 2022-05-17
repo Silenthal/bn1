@@ -10,12 +10,8 @@ para_talk("""Pardon me,laddy!""", 0)
 text("""{anim 2}Would you please ask
 me where we are?{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Ask him """)
-option(1, 1, 0, 0)
-pad(2)
-text("""Don't ask""")
+text("""{c 0 0 1 1}Ask him """)
+text("""{c 1 1 0 0}Don't ask""")
 pick([0x01, 0x02], 0, False, True)
 page()
 end(5)
@@ -139,7 +135,7 @@ section_start(0x0C)
 pic(34)
 dialog_up()
 para_talk_end("""Lan? Class is over!{anim 1}
-.{delay}.{delay}.{delay}{anim 2}And you're still
+{...}{anim 2}And you're still
 studying???""")
 section_end()
 
@@ -168,9 +164,10 @@ dialog_up()
 para_talk("""There are a lot of
 places you can jack
 in...""", 0)
-para_talk_end("""Maybe here!?{anim 1}{delay}
-{anim 2}Jack in!!!{anim 1}
-{delay}.{delay}.{delay}. {anim 2}Nope""")
+text_talking("""Maybe here!?""")
+text("""{delay}\n""")
+para_talk_end("""Jack in!!!{anim 1}
+{delay}{..}. {anim 2}Nope""")
 section_end()
 
 # 0x10 @ 0x6EDE2B
@@ -312,8 +309,9 @@ section_end()
 section_start(0x1C)
 pic(10)
 dialog_up()
-para_talk_end("""Mayl is home now!{anim 1}{delay}
-{anim 2}I just finished
+text_talking("""Mayl is home now!""")
+text("""{delay}\n""")
+para_talk_end("""I just finished
 playing with her!""")
 section_end()
 
@@ -448,12 +446,8 @@ dialog_up()
 text("""{anim 2}So you want to know
 about {key PET}s,huh?{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yeah! """)
-option(1, 1, 0, 0)
-pad(2)
-text("""Nah""")
+text("""{c 0 0 1 1}Yeah! """)
+text("""{c 1 1 0 0}Nah""")
 pick([0x2E, 0xFF], 0, False, True)
 para_talk("""Oooh,so you're more
 interested in me,
@@ -625,8 +619,9 @@ dialog_up()
 para_talk("""I'm going to the
 new chip shop! Have
 you been yet?""", 0)
-para_talk_end("""Huh? Am I thirsty?{anim 1}{delay}
-{anim 2}Well,I wasn't until
+text_talking("""Huh? Am I thirsty?""")
+text("""{delay}\n""")
+para_talk_end("""Well,I wasn't until
 you asked me!""", 0)
 section_end()
 
@@ -755,15 +750,11 @@ dialog_up()
 para_talk("""If,if the WWW starts
 a war,will we all
 die???""", 0)
-option(1, 1, 0, 0)
-pad(2)
-text("""There won't be war
+text("""{c 1 1 0 0}There won't be war
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yeah,probably will""")
+text("""{c 0 0 1 1}Yeah,probably will""")
 pick([0x6B, 0xFF], 0, True, True)
-para_talk_end("""I,I'm scared{anim 1}.{delay}.{delay}.{delay}
+para_talk_end("""I,I'm scared{anim 1}{...}
 {anim 2}waaah! waaah!""", 0)
 section_end()
 
@@ -909,12 +900,8 @@ dialog_up()
 para_talk("""Oh,you again?""", 0)
 text_talking("""Ask me where we are!
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Ask him """)
-option(1, 1, 0, 0)
-pad(2)
-text("""Don't ask""")
+text("""{c 0 0 1 1}Ask him """)
+text("""{c 1 1 0 0}Don't ask""")
 pick([0x84, 0x85], 0, False, True)
 end()
 section_end()
@@ -959,7 +946,7 @@ dialog_up()
 para_talk("""My momma told me
 that the war is
 about to start!""", 0)
-para_talk_end("""I'm scared{anim 1}.{delay}.{delay}.{delay}
+para_talk_end("""I'm scared{anim 1}{...}
 {anim 2}Waaahh!! Waaahh!""", 0)
 section_end()
 
@@ -996,12 +983,8 @@ pic(14)
 dialog_up()
 text_talking("""Ask me where we are!
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Ask him """)
-option(1, 1, 0, 0)
-pad(2)
-text("""Don't ask""")
+text("""{c 0 0 1 1}Ask him """)
+text("""{c 1 1 0 0}Don't ask""")
 pick([0x92, 0x93], 0, False, True)
 end()
 section_end()
@@ -1032,7 +1015,7 @@ dialog_up()
 para_talk("""You think that I'm
 an exーmember of the
 WWW,huh?""", 0)
-para_general(""".{delay}.{delay}.{delay}{anim 2}Hmmph
+para_general("""{...}{anim 2}Hmmph
 Lemme see that Navi
 you've got there.{anim 1}""", 0)
 para_talk("""Well,no point in
@@ -1061,7 +1044,7 @@ dialog_up()
 para_talk("""You think that I'm
 an exーmember of the
 WWW,huh?""", 0)
-para_general(""".{delay}.{delay}.{delay}{anim 2}Hmmph
+para_general("""{...}{anim 2}Hmmph
 Lemme see that Navi
 you've got there.{anim 1}""", 0)
 para_talk("""Well,no point in
@@ -1108,49 +1091,49 @@ if_level(25, 29, 0x9A, 0xFF)
 if_level(30, 101, 0x9B, 0xFF)
 pic(14)
 dialog_up()
-para_general(""".{delay}.{delay}.""", 0)
+para_general("""{..}.""", 0)
 para_talk("""You need to power
 up your Navi some
 more...""", 0)
 para_talk("""The road ahead
 would be too rough
 for you now.""", 0)
-para_general_end(""".{delay}.{delay}.""", 0)
+para_general_end("""{..}.""", 0)
 section_end()
 
 # 0x99 @ 0x6F0020
 section_start(0x99)
 pic(14)
 dialog_up()
-para_general(""".{delay}.{delay}.""", 0)
+para_general("""{..}.""", 0)
 para_talk("""You need to power
 up your Navi a
 bit more...""", 0)
 para_talk("""The road ahead
 would still be too
 rough for you.""", 0)
-para_general_end(""".{delay}.{delay}.""", 0)
+para_general_end("""{..}.""", 0)
 section_end()
 
 # 0x9A @ 0x6F00BC
 section_start(0x9A)
 pic(14)
 dialog_up()
-para_general(""".{delay}.{delay}.""", 0)
+para_general("""{..}.""", 0)
 para_talk("""You need to power
 up your Navi just
 a tad more...""", 0)
 para_talk("""The road ahead
 would still be a
 little bit rough.""", 0)
-para_general_end(""".{delay}.{delay}.""", 0)
+para_general_end("""{..}.""", 0)
 section_end()
 
 # 0x9B @ 0x6F015E
 section_start(0x9B)
 pic(14)
 dialog_up()
-para_general(""".{delay}.{delay}.""", 0)
+para_general("""{..}.""", 0)
 para_talk("""Well,I guess that
 you may be strong
 enough now. Here!""")
@@ -1161,8 +1144,7 @@ section_end()
 section_start(0x9C)
 hidepic()
 dialog_up()
-pc_lock()
-pc_anim(30)
+pc_anim_start(30)
 add_item("Pa_sMemo", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got;
 \"{key Pa_sMemo}\"!""")
@@ -1278,12 +1260,8 @@ dialog_up()
 text("""{anim 2}Lan,do you wish to
 NetBattle with Chaud?{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0xB6, 0xB5], 1, False, True)
 end()
 section_end()
@@ -1376,25 +1354,15 @@ if_flag(1056, 0xC2, 0xFF)
 pic(9)
 dialog_up()
 text("""{anim 2}Hey! You got a
-""")
-chip_id("FireTowr")
-text(""" """)
-chip_code("F")
+{chip FireTowr F}""")
 para_general("""? It makes
 this cool fire!{anim 1}""", 0)
 text("""{anim 2}If you have one,I'll
 trade you this
-""")
-chip_id("DynaWave")
-text(""" """)
-chip_code("R")
+{chip DynaWave R}""")
 para_general(""" for it!{anim 1}""", 0)
-option(0, 0, 1, 1)
-pad(2)
-text("""Trade """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No trade
+text("""{c 0 0 1 1}Trade """)
+text("""{c 1 1 0 0}No trade
 """)
 pick([0xC0, 0xBF], 0, False, True)
 page()
@@ -1420,16 +1388,11 @@ really wanted one
 of these!""", 0)
 para_talk("""Here you go!""", 0)
 hidepic()
-pc_lock()
-pc_anim(30)
+pc_anim_start(30)
 add_chip("DynaWave R", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("FireTowr F", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got a chip for
-\"""")
-chip_id("DynaWave")
-text(""" """)
-chip_code("R")
-text("""\"!""")
+\"{chip DynaWave R}\"!""")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -1441,12 +1404,8 @@ section_end()
 section_start(0xC1)
 pic(9)
 dialog_up()
-text("""{anim 2}Heeey,you don't
-have a """)
-chip_id("FireTowr")
-text(""" """)
-chip_code("F")
-para_general("""!{anim 1}""", 0)
+para_talk("""Heeey,you don't
+have a {chip FireTowr F}!""", 0)
 para_talk("""Don't have one in
 your chip folder,
 either?""", 0)
@@ -1478,17 +1437,10 @@ one of each code,
 F H J L and N?""", 0)
 text("""{anim 2}Ifn's ya do,I'll
 give ya this here
-""")
-chip_id("KngtSwrd")
-text(""" """)
-chip_code("G")
+{chip KngtSwrd G}""")
 para_general(""" fer it!{anim 1}""", 0)
-option(0, 0, 1, 1)
-pad(2)
-text("""Trade """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No trade
+text("""{c 0 0 1 1}Trade """)
+text("""{c 1 1 0 0}No trade
 """)
 pick([0xC8, 0xC7], 0, False, True)
 page()
@@ -1521,8 +1473,7 @@ para_talk("""Now I can escape
 all day long! Here
 ya goes!""", 0)
 hidepic()
-pc_lock()
-pc_anim(30)
+pc_anim_start(30)
 add_chip("KngtSwrd G", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("Escape F", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("Escape H", 1, 0xFF, 0xFF, 0xFF)
@@ -1530,11 +1481,7 @@ sub_chip("Escape J", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("Escape L", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("Escape N", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got a chip for
-\"""")
-chip_id("KngtSwrd")
-text(""" """)
-chip_code("G")
-text("""\"!""")
+\"{chip KngtSwrd G}\"!""")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -1553,10 +1500,7 @@ para_general("""
 F,H,J,L and N!{anim 1}""", 0)
 text("""{anim 2}You don't have them
 all yet! So no
-""")
-chip_id("KngtSwrd")
-text(""" """)
-chip_code("G")
+{chip KngtSwrd G}""")
 para_general(""" fer you!{anim 1}""", 0)
 para_talk("""I don't suppose you
 got em in yer chip
@@ -1626,16 +1570,11 @@ para_talk("""Well,thankee kindly!
 Nows ah kin talk
 normal! Take this!""", 0)
 hidepic()
-pc_lock()
-pc_anim(30)
+pc_anim_start(30)
 add_chip("Recov80 G", 1, 0xFF, 0xFF, 0xFF)
 sub_item("Dentures", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got a chip for
-\"""")
-chip_id("Recov80")
-text(""" """)
-chip_code("G")
-text("""\"!""")
+\"{chip Recov80 G}\"!""")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -1715,9 +1654,8 @@ para_talk("""Please,take this as
 a reward! No,I
 insist! Take it!""", 0)
 hidepic()
-pc_lock()
-pc_anim(30)
-award_zenny([10000, 10000], 0xFF)
+pc_anim_start(30)
+award_zenny([10000, 10000])
 text("""Lan got
 10,000 zenny!""")
 pc_wait()

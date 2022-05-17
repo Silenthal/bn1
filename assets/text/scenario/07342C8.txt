@@ -38,7 +38,7 @@ para_talk("""Hahaha! Well,that'll
 take a while,if I
 know your mother!""", 0)
 hidepic()
-text(""".{delay}.{delay}.""")
+text("""{..}.""")
 page()
 text(""" """)
 set_flag(157)
@@ -53,7 +53,7 @@ para_talk("""Sorry! Here I am!""", 0)
 para_talk("""Honey! How have you
 been? Are you keeping
 well?""", 0)
-para_general(""".{delay}.{delay}.{delay}
+para_general("""{...}
 {anim 2}Well,you seem good
 enough!{anim 1}""", 0)
 para_talk_end("""Let's go downstairs

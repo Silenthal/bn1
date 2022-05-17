@@ -4,8 +4,9 @@ section_count(0x9)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk_end("""Roll! Where are you?{anim 1}{delay}
-{anim 2}Aaa!!""", 0)
+text_talking("""Roll! Where are you?""")
+text("""{delay}\n""")
+para_talk_end("""Aaa!!""", 0)
 section_end()
 
 # 0x01 @ 0x733134

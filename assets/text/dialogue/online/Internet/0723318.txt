@@ -16,7 +16,7 @@ dialog_up()
 para_general("""It says,
 \"Sal's link required
  for access\"""", 0)
-para_general(""".{delay}.{delay}.{delay}MegaMan used
+para_general("""{...}MegaMan used
 {key /Sal}!""", 0)
 para_general("""MegaMan gained
 access!""", 0)
@@ -41,7 +41,7 @@ dialog_up()
 para_general("""It says,
 \"Miyu's link
 required for access\"""", 0)
-para_general(""".{delay}.{delay}.{delay}MegaMan used
+para_general("""{...}MegaMan used
 {key /Miyu}!""", 0)
 para_general("""MegaMan gained
 access!""", 0)
@@ -117,13 +117,11 @@ dialog_up()
 para_general("""MegaMan accessed the
 mystery data...""", 0)
 set_flag(730)
-pc_lock()
-pc_anim(50)
+pc_anim_start(50)
 add_item("PowerUP", 1, 0xFF, 0xFF, 0xFF)
 text("""MegaMan got a
 PowerUp;\"{key PowerUP}\"!""")
-pc_wait()
-pc_unlock()
+pc_anim_end()
 page()
 end()
 section_end()
@@ -158,13 +156,11 @@ dialog_up()
 para_general("""MegaMan accessed the
 mystery data...""", 0)
 set_flag(731)
-pc_lock()
-pc_anim(50)
+pc_anim_start(50)
 add_item("PowerUP", 1, 0xFF, 0xFF, 0xFF)
 text("""MegaMan got a
 PowerUp;\"{key PowerUP}\"!""")
-pc_wait()
-pc_unlock()
+pc_anim_end()
 page()
 end()
 section_end()
@@ -184,16 +180,14 @@ section_end()
 section_start(0x33)
 dialog_up()
 award_chip(["Cannon C", "Cannon C", "Cannon C", "Cannon C", "Cannon C", "Cannon C", "Cannon C", "MiniBomb P", "MiniBomb P", "MiniBomb P", "Recov30 G", "Recov30 G", "Recov30 G", "CrossGun K", "CrossGun K", "CrossGun K"])
-pc_lock()
-pc_anim(50)
+pc_anim_start(50)
 text("""MegaMan got a chip
 for \"""")
 chip_id_buf(1)
 text(""" """)
 chip_code_buf(2)
 text("""\"!""")
-pc_wait()
-pc_unlock()
+pc_anim_end()
 page()
 end()
 section_end()
@@ -201,15 +195,13 @@ section_end()
 # 0x34 @ 0x723AAB
 section_start(0x34)
 dialog_up()
-award_zenny([200, 200, 200, 200, 400, 400, 400, 400, 400, 400, 400, 800, 800, 800, 1500, 1500], 0xFF)
-pc_lock()
-pc_anim(50)
+award_zenny([200, 200, 200, 200, 400, 400, 400, 400, 400, 400, 400, 800, 800, 800, 1500, 1500])
+pc_anim_start(50)
 text("""MegaMan got """)
 buffer(1, 0, False, False)
 text("""
 zennys!""")
-pc_wait()
-pc_unlock()
+pc_anim_end()
 page()
 end()
 section_end()

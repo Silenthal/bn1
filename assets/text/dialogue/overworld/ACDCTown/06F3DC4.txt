@@ -7,8 +7,9 @@ if_flag(152, 0x0B, 0xFF)
 set_flag(152)
 pic(8)
 dialog_up()
-para_talk_end("""Eeeek!{anim 1}{delay}
-{anim 2}I'm getting dressed!
+text_talking("""Eeeek!""")
+text("""{delay}\n""")
+para_talk_end("""I'm getting dressed!
 Out!! Out!!""", 0)
 section_end()
 
@@ -16,8 +17,9 @@ section_end()
 section_start(0x0B)
 pic(8)
 dialog_up()
-para_talk_end("""Stop peeking!{anim 1}{delay}
-{anim 2}You pervert!!""", 0)
+text_talking("""Stop peeking!""")
+text("""{delay}\n""")
+para_talk_end("""You pervert!!""", 0)
 section_end()
 
 # 0x1B @ 0x6F4058

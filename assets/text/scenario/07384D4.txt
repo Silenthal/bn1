@@ -59,7 +59,7 @@ section_start(0x06)
 pic(8)
 dialog_up()
 para_general_end("""{anim 2}Lan? I wonder what
-he's doing{anim 1}.{delay}.{delay}.{delay}?""", 0)
+he's doing{anim 1}{...}?""", 0)
 section_end()
 
 # 0x07 @ 0x73864D
@@ -90,5 +90,5 @@ section_start(0x0A)
 pic(8)
 dialog_up()
 para_talk_end("""Hey,Lan! Wait up!{anim 1}{delay}
-.{delay}.{delay}.{delay}{anim 2}He's gone...""", 0)
+{...}{anim 2}He's gone...""", 0)
 section_end()

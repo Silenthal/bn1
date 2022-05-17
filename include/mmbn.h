@@ -2050,7 +2050,7 @@ struct Text {
     void * m_textPointerAfterKeyPrint;
     void * m_otherTextPointerAfterKeyPrint;
     byte m_possibleBcdBuffer[12];
-    byte m_b18;
+    byte m_tempPlayerDirection;
     byte b19;
     byte b20;
     byte b21;

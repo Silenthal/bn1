@@ -4,7 +4,7 @@ section_count(0x8)
 section_start(0x00)
 pic(24)
 dialog_up()
-para_talk("""Why you{anim 1}.{delay}.{delay}.{delay}!
+para_talk("""Why you{anim 1}{...}!
 {anim 2}Hey{anim 1}...{delay}{anim 2}It's you
 again!""")
 jump(0x01)

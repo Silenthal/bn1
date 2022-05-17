@@ -32,8 +32,7 @@ dialog_up()
 para_general("""MegaMan accessed the
 mystery data...""", 0)
 set_flag(855)
-pc_lock()
-pc_anim(50)
+pc_anim_start(50)
 add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
 text("""MegaMan got a
 PowerUp;\"{key HPmemory}\"!""")

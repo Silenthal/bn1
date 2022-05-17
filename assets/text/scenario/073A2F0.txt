@@ -238,7 +238,7 @@ section_end()
 section_start(0x0E)
 pic(0)
 dialog_up()
-para_general(""".{delay}.{delay}.{delay}{anim 2}You mean
+para_general("""{...}{anim 2}You mean
 MegaMan will be born
 again...as my twin?{anim 1}""")
 jump(0x0F)
@@ -317,7 +317,7 @@ section_end()
 section_start(0x14)
 pic(0)
 dialog_up()
-para_general(""".{delay}.{delay}.""", 0)
+para_general("""{..}.""", 0)
 para_talk("""OK!
 I'll use Hub.bat!""")
 jump(0x15)
@@ -353,7 +353,7 @@ section_end()
 # 0x18 @ 0x73B2F9
 section_start(0x18)
 dialog_up()
-para_general(""".{delay}.{delay}.""")
+para_general("""{..}.""")
 jump(0x19)
 section_end()
 

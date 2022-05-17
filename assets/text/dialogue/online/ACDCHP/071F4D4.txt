@@ -26,8 +26,7 @@ dialog_up()
 para_general("""MegaMan accessed the
 mystery data...""", 0)
 set_flag(653)
-pc_lock()
-pc_anim(50)
+pc_anim_start(50)
 add_item("★Yai", 1, 0xFF, 0xFF, 0xFF)
 para_general("""MegaMan got;
 \"{key ★Yai}\"!""", 0)
@@ -37,8 +36,7 @@ para_general("""(Use this item at
 text(""" for free access
  between it and the
  net)""")
-pc_wait()
-pc_unlock()
+pc_anim_end()
 page()
 end(5)
 section_end()
@@ -50,17 +48,11 @@ dialog_up()
 para_general("""MegaMan accessed the
 mystery data...""", 0)
 set_flag(654)
-pc_lock()
-pc_anim(50)
+pc_anim_start(50)
 add_chip("Recov30 L", 1, 0xFF, 0xFF, 0xFF)
 text("""MegaMan got a chip
-for \"""")
-chip_id("Recov30")
-text(""" """)
-chip_code("L")
-text("""\"!""")
-pc_wait()
-pc_unlock()
+for \"{chip Recov30 L}\"!""")
+pc_anim_end()
 page()
 end()
 section_end()
@@ -83,7 +75,7 @@ dialog_up()
 para_talk("""Ah,you've found our
 program!""", 0)
 para_talk("""Where is it?{anim 1}
-.{delay}.{delay}.{delay}
+{...}
 {anim 2}OK,got it!""", 0)
 para_talk("""Thank you! Please
 take this as a
@@ -95,15 +87,10 @@ section_end()
 section_start(0x10)
 hidepic()
 dialog_up()
-pc_lock()
-pc_anim(50)
+pc_anim_start(50)
 add_chip("Spreader I", 1, 0xFF, 0xFF, 0xFF)
 text("""MegaMan got a chip
-for \"""")
-chip_id("Spreader")
-text(""" """)
-chip_code("I")
-text("""\"!""")
+for \"{chip Spreader I}\"!""")
 pc_wait()
 pc_restore()
 pc_unlock()

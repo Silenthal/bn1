@@ -7,7 +7,7 @@ dialog_up()
 para_general("""!! {delay}{anim 2}How can a kid
 and his puny Navi
 delete FireMan!?{anim 1}""", 0)
-para_general(""".{delay}.{delay}.{delay}{anim 2}Hmph!
+para_general("""{...}{anim 2}Hmph!
 At least I finished
 my mission...{anim 1}""")
 jump(0x01)
@@ -65,6 +65,6 @@ dialog_up()
 para_talk("""Wait! {anim 1}{delay}{anim 2}Program? War?
 What's he talking
 about?""", 0)
-para_general(""".{delay}.{delay}.{delay}""", 0)
+para_general("""{...}""", 0)
 para_talk_end("""Phooey!""")
 section_end()

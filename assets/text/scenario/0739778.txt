@@ -90,5 +90,5 @@ para_talk("""You're right!
 OK,I'm off!""", 0)
 para_general_end("""{anim 2}...But I wonder how
 you all knew to come
-here{anim 1}.{delay}.{delay}.{delay}?""", 0)
+here{anim 1}{...}?""", 0)
 section_end()

@@ -128,7 +128,7 @@ the WWW is
 destroyed!""", 0)
 para_general("""{anim 2}I'm sure that the
 scientists can do
-something! {anim 1}{delay}.{delay}.{delay}.""", 0)
+something! {anim 1}{delay}{..}.""", 0)
 para_talk_end("""I think.""", 0)
 section_end()
 

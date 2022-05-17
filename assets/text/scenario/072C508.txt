@@ -76,7 +76,7 @@ section_end()
 section_start(0x07)
 pic(2)
 dialog_up()
-para_general(""".{delay}.{delay}.""")
+para_general("""{..}.""")
 jump(0x08)
 section_end()
 

@@ -20,9 +20,7 @@ set_delay(0)
 dialog_show()
 text("""Program for making
 ice inside the net.
-(charges left;""")
-item_amt("IceBlock", 0, False, False)
-text(""")""")
+(charges left;{item_amt IceBlock})""")
 stop()
 section_end()
 
@@ -117,9 +115,7 @@ set_delay(0)
 dialog_show()
 text("""Battery program for
 lights on the net.
-(charges left;""")
-item_amt(80, 0, False, False)
-text(""")""")
+(charges left;{item_amt 80})""")
 stop()
 section_end()
 
@@ -131,9 +127,7 @@ set_delay(0)
 dialog_show()
 text("""Battery program for
 lights on the net.
-(charges left;""")
-item_amt(81, 0, False, False)
-text(""")""")
+(charges left;{item_amt 81})""")
 stop()
 section_end()
 
@@ -145,9 +139,7 @@ set_delay(0)
 dialog_show()
 text("""Battery program for
 lights on the net.
-(charges left;""")
-item_amt(82, 0, False, False)
-text(""")""")
+(charges left;{item_amt 82})""")
 stop()
 section_end()
 
@@ -159,9 +151,7 @@ set_delay(0)
 dialog_show()
 text("""Battery program for
 lights on the net.
-(charges left;""")
-item_amt(83, 0, False, False)
-text(""")""")
+(charges left;{item_amt 83})""")
 stop()
 section_end()
 
@@ -173,9 +163,7 @@ set_delay(0)
 dialog_show()
 text("""Battery program for
 lights on the net.
-(charges left;""")
-item_amt(84, 0, False, False)
-text(""")""")
+(charges left;{item_amt 84})""")
 stop()
 section_end()
 

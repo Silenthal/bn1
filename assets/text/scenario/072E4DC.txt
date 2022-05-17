@@ -26,7 +26,7 @@ dialog_up()
 para_talk("""Now be quiet,we're
 going to talk about
 that in homeroom.""", 0)
-para_general(""".{delay}.{delay}.{delay}{anim 2}Class,you all
+para_general("""{...}{anim 2}Class,you all
 know that the town
 water has stopped.{anim 1}""", 0)
 jump(0x03)
@@ -99,5 +99,7 @@ section_end()
 section_start(0x0A)
 pic(2)
 dialog_up()
-para_talk_end("""Okaaaa{anim 1}{delay}{anim 2}y{anim 1}...!""", 0)
+text_talking("""Okaaaa""")
+delay()
+para_talk_end("""y{anim 1}...!""", 0)
 section_end()

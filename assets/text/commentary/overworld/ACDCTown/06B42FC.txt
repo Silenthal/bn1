@@ -76,7 +76,7 @@ if_flag(641, 0x12, 0xFF)
 if_flag(147, 0x11, 0xFF)
 set_flag(147)
 dialog_up()
-para_general(""".{delay}.{delay}.{delay}MegaMan isn't
+para_general("""{...}MegaMan isn't
 responding...""", 0)
 dialog_down()
 jump(0x10)
@@ -96,14 +96,15 @@ section_end()
 section_start(0x11)
 pic(0)
 dialog_up()
-para_talk_end("""I know!{anim 1}{delay}
-{anim 2}The tool box!""")
+text_talking("""I know!""")
+text("""{delay}\n""")
+para_talk_end("""The tool box!""")
 section_end()
 
 # 0x12 @ 0x6B472D
 section_start(0x12)
 dialog_up()
-para_general_end(""".{delay}.{delay}.{delay}MegaMan isn't
+para_general_end("""{...}MegaMan isn't
 responding...""", 0)
 section_end()
 

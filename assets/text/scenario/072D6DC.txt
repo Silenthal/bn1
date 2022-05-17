@@ -65,7 +65,7 @@ section_end()
 section_start(0x07)
 pic(2)
 dialog_up()
-para_general(""".{delay}.{delay}.{delay}{anim 2}I can't believe I
+para_general("""{...}{anim 2}I can't believe I
 lost to you! It must
 be fate!{anim 1}""", 0)
 para_general("""...{delay}{anim 2}But I always
@@ -117,11 +117,7 @@ dialog_up()
 pc_anim(30)
 se(0x85)
 text("""Lan got a chip for
-\"""")
-chip_id("GutsMan")
-text(""" """)
-chip_code("G")
-text("""\"!""")
+\"{chip GutsMan G}\"!""")
 pc_wait()
 pc_anim(7)
 page()
@@ -134,7 +130,7 @@ section_start(0x0C)
 pic(2)
 dialog_up()
 para_talk("""You got talent,Lan!
-So{anim 1}{delay}.{delay}.{delay}.
+So{anim 1}{delay}{..}.
 {anim 2}Go make me proud!""")
 jump(0x0D)
 section_end()

@@ -30,7 +30,7 @@ section_start(0x03)
 pic(8)
 dialog_up()
 para_general("""{anim 2}No,Lan's right.{anim 1}{delay}
-{anim 2}Thank you,Lan{anim 1}{delay}.{delay}.{delay}.""")
+{anim 2}Thank you,Lan{anim 1}{delay}{..}.""")
 jump(0x04)
 section_end()
 

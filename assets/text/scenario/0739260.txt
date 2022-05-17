@@ -50,7 +50,7 @@ section_end()
 section_start(0x05)
 pic(38)
 dialog_up()
-para_talk("""Analyzing program{anim 1}.{delay}.{delay}.{delay}
+para_talk("""Analyzing program{anim 1}{...}
 {anim 2}Passcode;9630""", 0)
 set_flag(221)
 para_talk_end("""Entering passcode...""", 0)

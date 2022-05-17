@@ -87,7 +87,7 @@ section_end()
 section_start(0x08)
 pic(0)
 dialog_up()
-para_talk("""Okay,but first{anim 1}{delay}.{delay}.{delay}.{delay}
+para_talk("""Okay,but first{anim 1}{delay}{...}
 {anim 2}Mom!{anim 1}{delay}{anim 2} I'm hungry!{anim 1}{delay}{anim 2} Can
 I have a snack?""")
 jump(0x09)

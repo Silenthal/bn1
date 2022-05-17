@@ -54,9 +54,10 @@ section_end()
 section_start(0x0A)
 pic(3)
 dialog_up()
-para_talk_end("""You did pretty good
-today!{anim 1}{delay}
-{anim 2}Keep it up!""")
+text_talking("""You did pretty good
+today!""")
+text("""{delay}\n""")
+para_talk_end("""Keep it up!""")
 section_end()
 
 # 0x0E @ 0x6ED34C

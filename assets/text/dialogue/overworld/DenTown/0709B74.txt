@@ -42,12 +42,8 @@ teacher as me!""", 0)
 text_talking("""By the way,are you
 a twin?
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x03, 0xFF], 0, False, True)
 para_talk("""That right? Well
 I'll tell you
@@ -93,13 +89,9 @@ dialog_up()
 para_talk("""Hey! You wanna'
 hear a secret about
 Mari?""", 0)
-option(1, 1, 0, 0)
-pad(2)
-text("""Sure!
+text("""{c 1 1 0 0}Sure!
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Uh,no!""")
+text("""{c 0 0 1 1}Uh,no!""")
 pick([0x1E, 0x1D], 0, False, True)
 end()
 section_end()
@@ -148,8 +140,8 @@ section_end()
 section_start(0x25)
 pic(3, 2)
 dialog_up()
-para_general(""".{delay}.{delay}.""")
-para_talk_end("""Boo!{anim 1}{delay}.{delay}.{delay}.
+para_general("""{..}.""")
+para_talk_end("""Boo!{anim 1}{delay}{..}.
 {anim 2}Hah!""", 0)
 section_end()
 
@@ -159,8 +151,8 @@ check_item("YuriMemo", 1, 0x2B, 0x2B, 0xFF)
 check_item("Lab_Memo", 1, 0x29, 0x29, 0xFF)
 pic(3, 2)
 dialog_up()
-para_general(""".{delay}.{delay}.""")
-para_talk_end("""Boo!{anim 1}{delay}.{delay}.{delay}.
+para_general("""{..}.""")
+para_talk_end("""Boo!{anim 1}{delay}{..}.
 {anim 2}Hah!""", 0)
 section_end()
 
@@ -176,7 +168,7 @@ Hah!""")
 para_talk("""Hmmm,lemme see that
 Navi of yours...
 Hah!""", 0)
-para_general(""".{delay}.{delay}.""", 0)
+para_general("""{..}.""", 0)
 para_talk("""I've been waiting
 for a NetBattler
 like you to appear""", 0)
@@ -222,7 +214,7 @@ if_library(50, 59, 0x2E, 0xFF)
 if_library(35, 49, 0x2D, 0xFF)
 pic(3, 2)
 dialog_up()
-para_general(""".{delay}.{delay}.""")
+para_general("""{..}.""")
 para_talk("""I'm sorry,you're
 going to need to
 gain some more""", 0)
@@ -237,7 +229,7 @@ section_end()
 section_start(0x2D)
 pic(3, 2)
 dialog_up()
-para_general(""".{delay}.{delay}.""", 0)
+para_general("""{..}.""", 0)
 para_talk("""I'm sorry,you're
 going to need to
 gain a little more""", 0)
@@ -252,7 +244,7 @@ section_end()
 section_start(0x2E)
 pic(3, 2)
 dialog_up()
-para_general(""".{delay}.{delay}.""", 0)
+para_general("""{..}.""", 0)
 para_talk("""I'm sorry,you're
 going to need to
 gain a tad more""", 0)
@@ -267,7 +259,7 @@ section_end()
 section_start(0x2F)
 pic(3, 2)
 dialog_up()
-para_general(""".{delay}.{delay}.""", 0)
+para_general("""{..}.""", 0)
 para_talk("""I suppose that
 you're ready,now...""", 0)
 para_talk("""Here's how to open
@@ -279,8 +271,7 @@ section_end()
 section_start(0x30)
 hidepic()
 dialog_up()
-pc_lock()
-pc_anim(30)
+pc_anim_start(30)
 add_item("YuriMemo", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got;
 \"{key YuriMemo}\"!""")
@@ -299,7 +290,9 @@ dialog_up()
 para_talk("""I have faith that
 you can stop the
 WWW... Hah!""", 0)
-para_talk_end("""...Ooops,{anim 1}{delay}{anim 2}looks
+text_talking("""...Ooops,""")
+delay()
+para_talk_end("""looks
 like that's become
 a habit...""", 0)
 section_end()
@@ -318,12 +311,8 @@ para_talk("""Answer 5 of my
 questions and win
 a prize!""", 0)
 para_talk("""Wanna try?""", 0)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0xC0, 0xBF], 0, False, True)
 page()
 end(5)
@@ -344,17 +333,11 @@ para_talk("""Question 1!""", 0)
 para_talk("""How many light
 bulbs in the power
 plant network?""", 0)
-option(2, 1, 0, 0)
-pad(2)
-text("""16
+text("""{c 2 1 0 0}16
 """)
-option(0, 2, 1, 1)
-pad(2)
-text("""17
+text("""{c 0 2 1 1}17
 """)
-option(1, 0, 2, 2)
-pad(2)
-text("""18""")
+text("""{c 1 0 2 2}18""")
 pick([0xC6, 0xC6, 0xC1], 0, True, True)
 page()
 end(5)
@@ -371,17 +354,11 @@ para_talk("""Question 2!""", 0)
 para_talk("""What's the name of
 the Navi that took
 over the Waterworks?""", 0)
-option(2, 1, 0, 0)
-pad(2)
-text("""GutsMan
+text("""{c 2 1 0 0}GutsMan
 """)
-option(0, 2, 1, 1)
-pad(2)
-text("""IceMan
+text("""{c 0 2 1 1}IceMan
 """)
-option(1, 0, 2, 2)
-pad(2)
-text("""StoneMan""")
+text("""{c 1 0 2 2}StoneMan""")
 pick([0xC6, 0xC2, 0xC6], 0, True, True)
 page()
 end(5)
@@ -398,17 +375,11 @@ para_talk("""Question 3!""", 0)
 para_talk("""What do you always
 say when you jack
 in?""", 0)
-option(2, 1, 0, 0)
-pad(2)
-text("""Transmission!
+text("""{c 2 1 0 0}Transmission!
 """)
-option(0, 2, 1, 1)
-pad(2)
-text("""Battle operation!
+text("""{c 0 2 1 1}Battle operation!
 """)
-option(1, 0, 2, 2)
-pad(2)
-text("""Transmit!""")
+text("""{c 1 0 2 2}Transmit!""")
 pick([0xC6, 0xC6, 0xC3], 0, True, True)
 page()
 end(5)
@@ -425,19 +396,11 @@ para_talk("""Question 4!""", 0)
 para_talk("""Which of these chips
 does 80 damage to
 your opponent?""", 0)
-option(2, 1, 0, 0)
-pad(2)
-chip_id("ShokWave")
-text("""
+text("""{c 2 1 0 0}{chip ShokWave}
 """)
-option(0, 2, 1, 1)
-pad(2)
-chip_id("Recov80")
-text("""
+text("""{c 0 2 1 1}{chip Recov80}
 """)
-option(1, 0, 2, 2)
-pad(2)
-chip_id("Sword")
+text("""{c 1 0 2 2}{chip Sword}""")
 pick([0xC6, 0xC6, 0xC4], 0, True, True)
 page()
 end(5)
@@ -454,19 +417,11 @@ para_talk("""Question 5!""", 0)
 para_talk("""Which of these chips
 increases your
 battle area?""", 0)
-option(2, 1, 0, 0)
-pad(2)
-chip_id("Steal")
-text("""
+text("""{c 2 1 0 0}{chip Steal}
 """)
-option(0, 2, 1, 1)
-pad(2)
-chip_id("Escape")
-text("""
+text("""{c 0 2 1 1}{chip Escape}
 """)
-option(1, 0, 2, 2)
-pad(2)
-chip_id("X-Panel1")
+text("""{c 1 0 2 2}{chip X-Panel1}""")
 pick([0xC5, 0xC6, 0xC6], 0, True, True)
 page()
 end(5)
@@ -485,15 +440,10 @@ questions correct,{anim 1}""", 0)
 para_talk("""here's your prize!
 Congratulations!""", 0)
 hidepic()
-pc_lock()
-pc_anim(30)
+pc_anim_start(30)
 add_chip("Ratton1 E", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got a chip for
-\"""")
-chip_id("Ratton1")
-text(""" """)
-chip_code("E")
-text("""\"!""")
+\"{chip Ratton1 E}\"!""")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -558,11 +508,7 @@ set_flag(742)
 pc_anim(30)
 add_chip("Barrier R", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got a chip for
-\"""")
-chip_id("Barrier")
-text(""" """)
-chip_code("R")
-text("""\"!""")
+\"{chip Barrier R}\"!""")
 pc_wait()
 pc_anim(4)
 page()

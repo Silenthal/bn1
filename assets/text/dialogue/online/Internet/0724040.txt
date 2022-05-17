@@ -8,12 +8,8 @@ dialog_up()
 text("""{anim 2}I'm a net merchant!
 Wanna' see my wares?{anim 1}
 """)
-option(0, 0, 1, 1)
-pad(2)
-text("""Yes """)
-option(1, 1, 0, 0)
-pad(2)
-text("""No""")
+text("""{c 0 0 1 1}Yes """)
+text("""{c 1 1 0 0}No""")
 pick([0x02, 0xFF], 0, False, True)
 para_talk_end("""Please come again!""", 0)
 section_end()
@@ -50,7 +46,7 @@ dialog_up()
 para_general("""It looks like a
 connection to
 another terminal.""", 0)
-para_general(""".{delay}.{delay}.{delay}MegaMan accessed
+para_general("""{...}MegaMan accessed
 {key ★Dad}!""", 0)
 para_general("""It connects to the
 terminal!""", 0)
@@ -77,7 +73,7 @@ dialog_up()
 para_general("""It looks like a
 connection to
 another terminal.""", 0)
-para_general(""".{delay}.{delay}.{delay}MegaMan accessed
+para_general("""{...}MegaMan accessed
 {key ★Sal}!""", 0)
 para_general("""It connects to the
 terminal!""", 0)
@@ -104,7 +100,7 @@ dialog_up()
 para_general("""It looks like a
 connection to
 another terminal""", 0)
-para_general(""".{delay}.{delay}.{delay}MegaMan accesed
+para_general("""{...}MegaMan accesed
 {key ★Masa}!""", 0)
 para_general("""It connects to the
 terminal!""", 0)
@@ -128,17 +124,11 @@ dialog_up()
 para_general("""MegaMan accessed the
 mystery data...""", 0)
 set_flag(747)
-pc_lock()
-pc_anim(50)
+pc_anim_start(50)
 add_chip("RockCube O", 1, 0xFF, 0xFF, 0xFF)
 text("""MegaMan got a chip
-for \"""")
-chip_id("RockCube")
-text(""" """)
-chip_code("O")
-text("""\"!""")
-pc_wait()
-pc_unlock()
+for \"{chip RockCube O}\"!""")
+pc_anim_end()
 page()
 end()
 section_end()
@@ -173,17 +163,11 @@ dialog_up()
 para_general("""MegaMan accessed the
 mystery data...""", 0)
 set_flag(748)
-pc_lock()
-pc_anim(50)
+pc_anim_start(50)
 add_chip("FtrSword B", 1, 0xFF, 0xFF, 0xFF)
 text("""MegaMan got a chip
-for \"""")
-chip_id("FtrSword")
-text(""" """)
-chip_code("B")
-text("""\"!""")
-pc_wait()
-pc_unlock()
+for \"{chip FtrSword B}\"!""")
+pc_anim_end()
 page()
 end()
 section_end()
@@ -203,16 +187,14 @@ section_end()
 section_start(0x33)
 dialog_up()
 award_chip(["Spreader H", "Spreader H", "Spreader H", "Spreader J", "Spreader J", "Spreader J", "ShokWave P", "ShokWave P", "ShokWave P", "ShokWave P", "ShokWave P", "Recov80 C", "Recov80 C", "Recov80 C", "Recov80 C", "Recov80 C"])
-pc_lock()
-pc_anim(50)
+pc_anim_start(50)
 text("""MegaMan got a chip
 for \"""")
 chip_id_buf(1)
 text(""" """)
 chip_code_buf(2)
 text("""\"!""")
-pc_wait()
-pc_unlock()
+pc_anim_end()
 page()
 end()
 section_end()
@@ -220,15 +202,13 @@ section_end()
 # 0x34 @ 0x72475C
 section_start(0x34)
 dialog_up()
-award_zenny([300, 300, 300, 300, 600, 600, 600, 600, 600, 1000, 1000, 1000, 1000, 2000, 2000, 2000], 0xFF)
-pc_lock()
-pc_anim(50)
+award_zenny([300, 300, 300, 300, 600, 600, 600, 600, 600, 1000, 1000, 1000, 1000, 2000, 2000, 2000])
+pc_anim_start(50)
 text("""MegaMan got """)
 buffer(1, 0, False, False)
 text("""
 zennys!""")
-pc_wait()
-pc_unlock()
+pc_anim_end()
 page()
 end()
 section_end()

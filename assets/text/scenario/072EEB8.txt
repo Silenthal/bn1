@@ -55,7 +55,7 @@ dialog_up()
 para_talk("""I see. Well,you're
 not supposed to be
 in here.""", 0)
-para_talk("""So{anim 1}.{delay}.{delay}...{delay}{anim 2}Go home!
+para_talk("""So{anim 1}{..}...{delay}{anim 2}Go home!
 Got it?""", 0)
 jump(0x07)
 section_end()

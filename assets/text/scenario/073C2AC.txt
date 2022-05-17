@@ -79,7 +79,7 @@ section_end()
 section_start(0x08)
 pic(28)
 dialog_up()
-para_general("""{anim 2}Honey{anim 1}.{delay}.{delay}.""")
+para_general("""{anim 2}Honey{anim 1}{..}.""")
 jump(0x09)
 section_end()
 
@@ -87,7 +87,7 @@ section_end()
 section_start(0x09)
 pic(12)
 dialog_up()
-para_general("""{anim 2}Honey{anim 1}.{delay}.{delay}.""")
+para_general("""{anim 2}Honey{anim 1}{..}.""")
 jump(0x0A)
 section_end()
 
@@ -407,7 +407,7 @@ section_start(0x28)
 pic(34)
 dialog_up()
 para_talk("""Oh,wait!{anim 1}{delay}{anim 2} Just one
-thing{anim 1}.{delay}.{delay}.
+thing{anim 1}{..}.
 {anim 2}From now on...""", 0)
 para_talk("""You're getting up by
 yourself in the
@@ -436,7 +436,7 @@ section_end()
 section_start(0x2B)
 hidepic()
 dialog_up()
-para_general(""".{delay}.{delay}.""", 0)
+para_general("""{..}.""", 0)
 para_general("""*ahoooga*
 *ahoooga*""")
 set_flag(164)

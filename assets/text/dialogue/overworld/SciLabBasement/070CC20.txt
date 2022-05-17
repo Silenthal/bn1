@@ -27,17 +27,11 @@ para_general("""Lan used the
 para_general("""The elevator doors
 opened!
 Which floor?""", 0)
-option(2, 1, 0, 0)
-pad(2)
-text("""SciLab lobby
+text("""{c 2 1 0 0}SciLab lobby
 """)
-option(0, 2, 1, 1)
-pad(2)
-text("""Dad's lab
+text("""{c 0 2 1 1}Dad's lab
 """)
-option(1, 0, 2, 2)
-pad(2)
-text("""Restaurant""")
+text("""{c 1 0 2 2}Restaurant""")
 pick([0x07, 0x08, 0x09], 0, True, True)
 end()
 section_end()
@@ -108,17 +102,11 @@ para_general("""Lan used the
 para_general("""The elevator doors
 opened!
 Which floor?""", 0)
-option(2, 1, 0, 0)
-pad(2)
-text("""SciLab lobby
+text("""{c 2 1 0 0}SciLab lobby
 """)
-option(0, 2, 1, 1)
-pad(2)
-text("""Dad's lab
+text("""{c 0 2 1 1}Dad's lab
 """)
-option(1, 0, 2, 2)
-pad(2)
-text("""Restaurant""")
+text("""{c 1 0 2 2}Restaurant""")
 pick([0xE2, 0xE3, 0xE4], 0, True, True)
 end()
 section_end()

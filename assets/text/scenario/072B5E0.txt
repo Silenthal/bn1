@@ -31,5 +31,5 @@ dialog_up()
 para_general("""...ACDC elementary,
 DenCity...{delay}This is
 the place!""", 0)
-para_general_end(""".{delay}.{delay}.{delay}*grin*""", 10)
+para_general_end("""{...}*grin*""", 10)
 section_end()

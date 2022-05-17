@@ -15,21 +15,15 @@ section_start(0x01)
 dialog_up()
 para_general("""Lan eats a hurried
 breakfast.
-.{delay}.{delay}.Yum!""", 0)
+{..}.Yum!""", 0)
 para_general("""Lan found a chip
 under the plate!""", 0)
 set_flag(646)
-pc_lock()
-pc_anim(30)
+pc_anim_start(30)
 add_chip("Recov10 A", 1, 0xFF, 0xFF, 0xFF)
 text("""Lan got a chip for
-\"""")
-chip_id("Recov10")
-text(""" """)
-chip_code("A")
-text("""\"!""")
-pc_wait()
-pc_unlock()
+\"{chip Recov10 A}\"!""")
+pc_anim_end()
 page()
 end(5)
 section_end()
@@ -212,7 +206,7 @@ pic(12)
 dialog_up()
 para_general("""{anim 2}Your snack?{anim 1}{delay}
 {anim 2}It's there in the
-oven{anim 1}.{delay}.{delay}.""", 0)
+oven{anim 1}{..}.""", 0)
 para_talk("""They were turning out
 so well,and now
 they're all burnt!""", 0)

@@ -449,7 +449,7 @@ section_end()
 section_start(0x58)
 pic(7)
 dialog_up()
-para_general(""".{delay}.{delay}.
+para_general("""{..}.
 {anim 2}Grrr!! Another false
 lead...{anim 1}""", 0)
 para_talk("""How will I get into
