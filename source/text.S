@@ -64,9 +64,9 @@ thumb_func_start Text_LoadAreaDialogue
 Text_LoadAreaDialogue:
     push       { lr }
     push       { r0 }
-    LoadStateTo r5, Main_game
-    ldrb       r0,[r5,#GameState_m_currentArea]
-    ldrb       r1,[r5,#GameState_m_currentSubArea]
+    LoadStateTo r5, Main_world
+    ldrb       r0,[r5,#World_m_currentArea]
+    ldrb       r1,[r5,#World_m_currentSubArea]
     cmp        r0,#0xf0
     bge        LAB_08013592
     cmp        r0,#0x80

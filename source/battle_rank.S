@@ -18,8 +18,8 @@ Battle_CalculateRank:
     @ Figure out which scoring to use based on the type of battle
     @ Virus busting uses different thresholds than boss busting
     mov        r1,#0x0
-    LoadStateTo r4, Main_game, r4
-    ldrb       r0,[r4,#GameState_m_battleType]
+    LoadStateTo r4, Main_world, r4
+    ldrb       r0,[r4,#World_m_battleType]
     cmp        r0,#BattleType_5_InvElecMan
     beq        LAB_0807d5ca
     cmp        r0,#BattleType_7_Boss
@@ -33,9 +33,9 @@ LAB_0807d5cc:
     str        r1,[sp,#0x8]
     @ Figure out the score for battle time
     @ First, get time and cap it at 9 minutes, 59.99 seconds
-    LoadStateTo r7, Main_unk_0C
+    LoadStateTo r7, Main_battle
     push       { r7 }
-    ldrh       r0,[r7,#Struct_Unk0C_m_possibleBattleTime]
+    ldrh       r0,[r7,#Battle_m_possibleBattleTime]
     bl         FrameTimeToBcdRealTime
     pop        { r7 }
     ldr        r1,maxTime
@@ -71,7 +71,7 @@ LAB_0807d600:
 LAB_0807d60a:
     ldrb       r0,[r6,r3]
     str        r3,[sp,#0x4]
-    ldrb       r2,[r7,#Struct_Unk0C_m_multipleDeletionCount]
+    ldrb       r2,[r7,#Battle_m_multipleDeletionCount]
     @ Calculate points for multiple deletion - double delete
     @ is +2, triple delete is +4
     ldr        r6,PTR_scoreMultipleDeletion_0807d670

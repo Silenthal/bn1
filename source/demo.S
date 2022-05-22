@@ -44,7 +44,7 @@ thumb_func_end Demo_Main
 JT_R5_DemoState_1897C:
     .word Demo_Init
     .word Demo_State1
-    .word Demo_Cleanup
+    .word Demo_Finish
 
 thumb_func_start Demo_Init
 Demo_Init:
@@ -97,20 +97,20 @@ JT_R5_DemoState_189D8:
     .word Demo_WaitForTimer
     .word Demo_CleanUp
 
-thumb_func_start Demo_Cleanup
-Demo_Cleanup:
+thumb_func_start Demo_Finish
+Demo_Finish:
     push       { lr }
     push       { r5 }
     bl         Main_Init
     pop        { r5 }
     LoadStateTo r0, Main_manager
-    mov        r1,#MS_State5_Initial
-    strb       r1,[r0,#Manager_m_state0]
+    mov        r1,#MS_Splash
+    strb       r1,[r0,#Manager_m_gameState]
     LoadStateTo r0, Main_displaySettings
     mov        r1,#DISPCNT_OMAP1D
     strh       r1,[r0,#DisplaySettings_dispcnt]
     pop        { pc }
-thumb_func_end Demo_Cleanup
+thumb_func_end Demo_Finish
 
 thumb_func_start Demo_SetToBeContinuedMessage
 Demo_SetToBeContinuedMessage:

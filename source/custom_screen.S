@@ -1618,8 +1618,8 @@ CustomScreen_CheckCursorMove:
     ldrb       r0,[r4,r1]
     cmp        r0,#0xff
     beq        .is_invalid_position
-    LoadStateTo r7, Main_unk_0C
-    ldrb       r0,[r7,#Struct_Unk0C_m_customScreenChipCount]
+    LoadStateTo r7, Main_battle
+    ldrb       r0,[r7,#Battle_m_customScreenChipCount]
     cmp        r1,r0
     bpl        .is_invalid_position
     cmp        r6,#0x1
