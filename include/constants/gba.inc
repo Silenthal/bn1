@@ -7,6 +7,7 @@
     .set IWRAM_END,   IWRAM_START + 0x8000
     .set OAM_BEGIN,   0x7000000
     .set OAM_END,     OAM_BEGIN + 0x400
+    .set SRAM_START,  0xE000000
 
     .set IRQ_STACK_TOP, IWRAM_END - 0x60
     .set FIQ_STACK_TOP, IWRAM_END - 0x4

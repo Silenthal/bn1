@@ -64,17 +64,17 @@ thumb_func_end AgbMain
     .pool
 
 jumpTableState:
-    .word 0x8010424+1
-    .word 0x8004130+1
-    .word 0x8005864+1
-    .word 0x8017504+1
+    .word MainMenu_Main
+    .word World_Main
+    .word Battle_Main
+    .word Transition_Main
     .word Demo_Main
-    .word 0x8018ca4+1
-    .word 0x8019808+1
-    .word 0x801e8ac+1
-    .word 0x801ff78+1
-    .word 0x80200f8+1
-    .word 0x80214a4+1
+    .word Splash_Main
+    .word Menu_Main
+    .word Shop_Main
+    .word GameOver_Main
+    .word ChipTrader_Main
+    .word Credits_Main
 
 @@ Waits for a certain amount of frames.
 @ void Main_WaitFrames(void)
@@ -249,8 +249,8 @@ PTR_MainState_08000468: .word MainState
 MainState:
     .word eMainState0x00
     .word gInput
-    .word gGameState
-    .word eMainState0x0C
+    .word gWorld
+    .word gBattle
     .word gDisplaySettings
     .word eMainState0x14
     .word eMainState0x18
@@ -259,7 +259,7 @@ MainState:
     .word eMainState0x24
     .word eMainState0x28
     .word eMainState0x2C
-    .word eMainState0x30
+    .word gTransition
     .word gMainMenu
     .word gWindowSettings
     .word gBlendSettings
@@ -276,7 +276,7 @@ MainState:
     .word eMainState0x68
     .word eMainState0x6C
     .word gShop
-    .word eMainState0x74
+    .word gMenu
     .word eMainState0x78
     .word eMainState0x7C
 thumb_func_end Main_Init

@@ -68,6 +68,7 @@ global_label Flag_Set200
 global_label Flag_Set100
     add        r0,#0x80
     add        r0,#0x80
+
 global_label Flag_SetBase
     ldr        r7,PTR_DAT_080103fc
     lsr        r1,r0,#0x3
@@ -98,6 +99,7 @@ global_label Flag_Clear280
     add        r0,#0x80
     add        r0,#0x80
     add        r0,#0x80
+
 global_label Flag_ClearBase
     ldr        r7,PTR_DAT_08010400
     lsr        r1,r0,#0x3
@@ -145,7 +147,7 @@ global_label Flag_GetBase
     and        r0,r1
     mov        pc,lr
         
-        .align 2, 0
+    .align 2, 0
 
 global_label Flag_Toggle420
     add        r0,#0x10

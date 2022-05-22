@@ -13,6 +13,21 @@
 
     .thumb
 
+thumb_func_start InitDemo
+InitDemo:
+    push       { lr }
+    mov        r7,r10
+    ldr        r5,[r7,#0x40]
+    push       { r0, r5 }
+    add        r0,r5,#0x0
+    mov        r1,#0x8
+    bl         memset0_32
+    pop        { r0, r5 }
+    strb       r0,[r5,#0x6]
+    pop        { pc }
+thumb_func_end InitDemo
+    .align 2, 0
+
 thumb_func_start Demo_Main
 Demo_Main:
     push       { lr }
@@ -27,12 +42,12 @@ thumb_func_end Demo_Main
 
     .align 2, 0
 JT_R5_DemoState_1897C:
-    .word Demo_FadeIn
+    .word Demo_Init
     .word Demo_State1
-    .word Demo_InitializeGame
+    .word Demo_Cleanup
 
-thumb_func_start Demo_FadeIn
-Demo_FadeIn:
+thumb_func_start Demo_Init
+Demo_Init:
     push       { lr }
     push       { r5 }
     bl         Text_DisableDialogue
@@ -60,7 +75,7 @@ LAB_080189c0:
     strb       r0,[r5,#Demo_m_state1]
 LAB_080189c4:
     pop        { pc }
-thumb_func_end Demo_FadeIn
+thumb_func_end Demo_Init
 
 thumb_func_start Demo_State1
 Demo_State1:
@@ -82,8 +97,8 @@ JT_R5_DemoState_189D8:
     .word Demo_WaitForTimer
     .word Demo_CleanUp
 
-thumb_func_start Demo_InitializeGame
-Demo_InitializeGame:
+thumb_func_start Demo_Cleanup
+Demo_Cleanup:
     push       { lr }
     push       { r5 }
     bl         Main_Init
@@ -95,7 +110,7 @@ Demo_InitializeGame:
     mov        r1,#DISPCNT_OMAP1D
     strh       r1,[r0,#DisplaySettings_dispcnt]
     pop        { pc }
-thumb_func_end Demo_InitializeGame
+thumb_func_end Demo_Cleanup
 
 thumb_func_start Demo_SetToBeContinuedMessage
 Demo_SetToBeContinuedMessage:
