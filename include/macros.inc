@@ -3,3 +3,4 @@
     .include "macros/label.inc"
     .include "macros/utility.inc"
     .include "macros/iwram_code.inc"
+    .include "macros/music.inc"

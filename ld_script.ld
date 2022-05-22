@@ -73,7 +73,7 @@ SECTIONS {
 		gInput                   = 0x65F0;
 		gShop                    = 0x6610;
 		eMainState0x18           = 0x6CB0;
-		eMainState0x00           = 0x6CB8;
+		gManager                 = 0x6CB8;
 		eRngState                = 0x6CC0;
 		eBgPalette0              = 0x6CD0;
 		eBgPalette1              = 0x6CF0;

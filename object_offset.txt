@@ -34,6 +34,7 @@ credits             0x21498
 battle_rank         0x7D5B0
 enemy_drop          0x7D80E
 swi                 0x9DF50
+sound_data          0xA111C
 interrupt_handler   0x180000
 oam_far             0x180564
 screen_layout_intr  0x180178

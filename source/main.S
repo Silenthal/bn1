@@ -20,9 +20,9 @@ thumb_func_start AgbMain
 AgbMain:
     bl         Main_Init
     LoadStateTo r0, Main_manager
-    movs       r1,#0x14
-    strb       r1,[r0]
-LAB_08000290:
+    movs       r1,#MS_Splash
+    strb       r1,[r0, #Manager_m_gameState]
+.mainLoop:
     bl         Main_SoftResetCheck
     bl         Main_WaitFrames
     bl         BgUpdate_CallPreLoopFunction
@@ -36,34 +36,32 @@ LAB_08000290:
     bl         FUN_080027f4
     bl         Video_BlitScreens
     bl         Main_ReadInput
-    mov        r0,r10
-    ldr        r0,[r0,#0x50]
-    ldrh       r1,[r0]
+    LoadStateTo r0, Main_frameCounter, r0
+    ldrh       r1,[r0,#FrameCounter_m_counter]
     add        r1,#0x1
-    strh       r1,[r0]
+    strh       r1,[r0,#FrameCounter_m_counter]
     bl         IncrementGameTimer
-    ldr        r0,=jumpTableState
-    mov        r7,r10
-    ldr        r1,[r7]
-    ldrb       r1,[r1]
+    ldr        r0,=jumpTableMain
+    LoadStateTo r1, Main_manager
+    ldrb       r1,[r1,#Manager_m_gameState]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     bl         FUN_080063b2
     tst        r0,r0
-    beq        LAB_080002e6
+    beq        1f
     bl         Fade_Apply
-LAB_080002e6:
+1:
     bl         Text_Main
     bl         FUN_0801996c
     bl         BgUpdate_CallPostLoopFunction
     bl         FUN_08001d60
-    b          LAB_08000290
+    b          .mainLoop
 thumb_func_end AgbMain
 
     .pool
 
-jumpTableState:
+jumpTableMain:
     .word MainMenu_Main
     .word World_Main
     .word Battle_Main
@@ -247,7 +245,7 @@ Main_Init:
 PTR_MainState_08000468: .word MainState
 
 MainState:
-    .word eMainState0x00
+    .word gManager
     .word gInput
     .word gWorld
     .word gBattle
