@@ -4,9 +4,8 @@ section_count(0xF)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk("""Lan!
-It looks like we can
-jack in here!!""")
+text("{a 2}Lan!\nIt looks like we can\njack in here!!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -16,9 +15,7 @@ pic(0)
 dialog_up()
 input_off()
 set_delay(1)
-text_talking("""OK! Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}OK! Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 set_delay(2)
@@ -33,28 +30,22 @@ pic(27)
 dialog_up()
 anim(2)
 set_flag(177)
-para_general("""Waaaait!!{anim 1}""", 0)
-para_talk("""You wanna delete
-your Navi!? Jacking
-in now is suicide!""", 0)
-para_talk("""If the power's out
-here,it's out on
-the Net,too!""", 0)
-para_talk("""If you jack in now,
-your {key PET}'s battery
-will run out quick!""", 0)
-para_talk("""And...{anim 1}{delay}{anim 2} If your {key PET}'s
-battery runs out
-while you're in...""", 0)
-para_talk("""The energy sent to
-your Navi is cut
-off completely...""", 0)
-para_talk("""and your Navi won't
-be able to heal
-by itself!""", 0)
-para_general("""...{delay}{anim 2}It'd just be a
-matter of time 'fore
-you got deleted!{anim 1}""")
+text("Waaaait!!{a 1}\p")
+wait(0)
+text("{a 2}You wanna delete\nyour Navi!? Jacking\nin now is suicide!{a 1}\p")
+wait(0)
+text("{a 2}If the power's out\nhere,it's out on\nthe Net,too!{a 1}\p")
+wait(0)
+text("{a 2}If you jack in now,\nyour {key PET}'s battery\nwill run out quick!{a 1}\p")
+wait(0)
+text("{a 2}And...{a 1}{d}{a 2} If your {key PET}'s\nbattery runs out\nwhile you're in...{a 1}\p")
+wait(0)
+text("{a 2}The energy sent to\nyour Navi is cut\noff completely...{a 1}\p")
+wait(0)
+text("{a 2}and your Navi won't\nbe able to heal\nby itself!{a 1}\p")
+wait(0)
+text("...{d}{a 2}It'd just be a\nmatter of time 'fore\nyou got deleted!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -62,9 +53,10 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""You serious!?""", 0)
-para_general("""{...}{anim 2}What should
-I do!?{anim 1}""")
+text("{a 2}You serious!?{a 1}\p")
+wait(0)
+text("{...}{a 2}What should\nI do!?{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -72,7 +64,8 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk("""Lan,let's go!!""")
+text("{a 2}Lan,let's go!!{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -80,9 +73,8 @@ section_end()
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk("""What are you saying,
-MegaMan!?{anim 1}{delay}{anim 2} YーYou
-might get deleted!""")
+text("{a 2}What are you saying,\nMegaMan!?{a 1}{d}{a 2} YーYou\nmight get deleted!{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -90,9 +82,8 @@ section_end()
 section_start(0x06)
 pic(34)
 dialog_up()
-para_talk("""All we have to do
-is defeat the WWW
-Navi and jack out!""")
+text("{a 2}All we have to do\nis defeat the WWW\nNavi and jack out!{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -100,8 +91,8 @@ section_end()
 section_start(0x07)
 pic(0)
 dialog_up()
-para_general("""{...}{anim 2}No!
-It's too dangerous!{anim 1}""")
+text("{...}{a 2}No!\nIt's too dangerous!{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -109,15 +100,12 @@ section_end()
 section_start(0x08)
 pic(34)
 dialog_up()
-para_talk("""Lan! If we don't go
-now,there's a chance
-that your mom...""", 0)
-para_talk("""...and all the other
-people stuck in here
-will die!""", 0)
-para_talk("""And.{anim 1}{delay}{..}{anim 2} I think
-you're a good enough
-operator to do it!""")
+text("{a 2}Lan! If we don't go\nnow,there's a chance\nthat your mom...{a 1}\p")
+wait(0)
+text("{a 2}...and all the other\npeople stuck in here\nwill die!{a 1}\p")
+wait(0)
+text("{a 2}And.{a 1}{d}{..}{a 2} I think\nyou're a good enough\noperator to do it!{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -125,14 +113,11 @@ section_end()
 section_start(0x09)
 pic(0)
 dialog_up()
-para_general("""{...}{anim 2}Yeah,
-I won't let them
-delete you!{anim 1}{delay}""", 0)
+text("{...}{a 2}Yeah,\nI won't let them\ndelete you!{a 1}{d}\p")
+wait(0)
 input_off()
 set_delay(1)
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 set_delay(2)
@@ -144,14 +129,16 @@ section_end()
 section_start(0x0A)
 pic(34)
 dialog_up()
-para_talk_end("""Whoa!!""", 0)
+text("{a 2}Whoa!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x7351DB
 section_start(0x0B)
 pic(0)
 dialog_up()
-para_talk("""MegaMan!?""")
+text("{a 2}MegaMan!?{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -159,9 +146,8 @@ section_end()
 section_start(0x0C)
 pic(34)
 dialog_up()
-para_talk("""They've got some
-heavy protection
-on this thing!""")
+text("{a 2}They've got some\nheavy protection\non this thing!{a 1}\p")
+wait(5)
 jump(0x0D)
 section_end()
 
@@ -169,7 +155,8 @@ section_end()
 section_start(0x0D)
 pic(0)
 dialog_up()
-para_talk("""Can you get through?""")
+text("{a 2}Can you get through?{a 1}\p")
+wait(5)
 jump(0x0E)
 section_end()
 
@@ -177,7 +164,6 @@ section_end()
 section_start(0x0E)
 pic(34)
 dialog_up()
-para_talk_end("""No problem,just give
-me a second!{anim 1}{delay}
-{anim 2}There!{anim 1}{delay}{anim 2} Got it!""", 0)
+text("{a 2}No problem,just give\nme a second!{a 1}{d}\n{a 2}There!{a 1}{d}{a 2} Got it!{a 1}\p")
+end(0)
 section_end()

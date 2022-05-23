@@ -2,16 +2,16 @@ section_count(0x5)
 
 # 0x00 @ 0x6DD57A
 section_start(0x00)
-if_story(0x00, 0x5F, 0x01, 0xFF)
+if_story(0x00, 0x5F, 0x01)
 dialog_up()
-para_general_end("""Test message""")
+text("Test message\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x6DD594
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk_end("""So this is where
-DenCity's water is
-controlled...""")
+text("{a 2}So this is where\nDenCity's water is\ncontrolled...{a 1}\p")
+end(5)
 section_end()

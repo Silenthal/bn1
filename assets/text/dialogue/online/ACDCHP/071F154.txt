@@ -3,55 +3,50 @@ section_count(0x18)
 # 0x00 @ 0x71F184
 section_start(0x00)
 dialog_up()
-para_general("""It looks like a
-connection to the
-net...""", 0)
-para_general_end("""But MegaMan doesn't
-have access!""", 0)
+text("It looks like a\nconnection to the\nnet...\p")
+wait(0)
+text("But MegaMan doesn't\nhave access!\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x71F1DD
 section_start(0x01)
 set_flag(6)
 dialog_up()
-para_general("""MegaMan bookmarked
-Mayl's piano!""", 0)
-para_general_end("""You can now freely
-enter here!""", 0)
+text("MegaMan bookmarked\nMayl's piano!\p")
+wait(0)
+text("You can now freely\nenter here!\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x71F234
 section_start(0x05)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(651)
 pc_anim_start(50)
-add_item("★Mayl", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got;
-\"{key ★Mayl}\"!""")
+add_item("★Mayl", 1)
+text("MegaMan got;\n\"{key ★Mayl}\"!")
 pc_anim_end()
 page()
 wait()
-para_general("""(Use this item at
- the access point to
- the piano""", 0)
-para_general_end(""" for free access
- between it and the
- net)""")
+text("(Use this item at\n the access point to\n the piano\p")
+wait(0)
+text(" for free access\n between it and the\n net)\p")
+end(5)
 section_end()
 
 # 0x06 @ 0x71F2F8
 section_start(0x06)
 check_chip("Recov50 L", 1, 0x07, 0x07, 0xFF)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(652)
 pc_anim_start(50)
 add_chip("Recov50 L", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Recov50 L}\"!""")
+text("MegaMan got a chip\nfor \"{chip Recov50 L}\"!")
 pc_anim_end()
 page()
 end()
@@ -60,10 +55,10 @@ section_end()
 # 0x07 @ 0x71F36E
 section_start(0x07)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
-para_general_end("""However,he couldn't
-decode the data.""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
+text("However,he couldn't\ndecode the data.\p")
+end(0)
 section_end()
 
 # 0x14 @ 0x71F3E0
@@ -72,9 +67,8 @@ if_flag(147, 0x17, 0xFF)
 check_item("Response", 1, 0x15, 0x15, 0xFF)
 pic(40)
 dialog_up()
-para_talk("""Hello,MegaMan!
-Did you answer our
-mail?""", 0)
+text("{a 2}Hello,MegaMan!\nDid you answer our\nmail?{a 1}\p")
+wait(0)
 end()
 section_end()
 
@@ -83,18 +77,18 @@ section_start(0x15)
 if_flag(147, 0x17, 0xFF)
 pic(40)
 dialog_up()
-para_talk("""Oh,you brought the
-answer!""")
+text("{a 2}Oh,you brought the\nanswer!{a 1}\p")
+wait(5)
 jump(0x16)
 section_end()
 
 # 0x16 @ 0x71F45F
 section_start(0x16)
 hidepic()
-sub_item("Response", 1, 0xFF, 0xFF, 0xFF)
+sub_item("Response", 1)
 dialog_up()
-para_general("""MegaMan gave Roll
-the {key Response}!""")
+text("MegaMan gave Roll\nthe {key Response}!\p")
+wait(5)
 jump(0x17)
 section_end()
 
@@ -103,7 +97,6 @@ section_start(0x17)
 set_flag(147)
 pic(40)
 dialog_up()
-para_talk_end("""I'll take this to
-Mayl!{anim 1}{delay}
-{anim 2}See you later!""", 0)
+text("{a 2}I'll take this to\nMayl!{a 1}{d}\n{a 2}See you later!{a 1}\p")
+end(0)
 section_end()

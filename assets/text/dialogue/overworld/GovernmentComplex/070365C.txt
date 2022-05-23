@@ -2,41 +2,39 @@ section_count(0xEB)
 
 # 0x00 @ 0x703832
 section_start(0x00)
-if_story(0x30, 0x43, 0x0A, 0xFF)
-if_story(0x50, 0x52, 0x14, 0xFF)
-if_story(0x53, 0x54, 0x19, 0xFF)
+if_story(0x30, 0x43, 0x0A)
+if_story(0x50, 0x52, 0x14)
+if_story(0x53, 0x54, 0x19)
 pic(26)
 dialog_up()
-para_talk("""This is the water
-filtering area.""", 0)
-para_talk("""Water from the pump
-room is cleaned
-here.""", 0)
-para_talk_end("""But no water is
-being pumped now.""")
+text("{a 2}This is the water\nfiltering area.{a 1}\p")
+wait(0)
+text("{a 2}Water from the pump\nroom is cleaned\nhere.{a 1}\p")
+wait(0)
+text("{a 2}But no water is\nbeing pumped now.{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x7038D2
 section_start(0x01)
 pic(7)
 dialog_up()
-para_general("""(...what's this?)""", 0)
+text("(...what's this?)\p")
+wait(0)
 set_flag(222)
-para_talk_end("""Wh... Who are you?
-I'm busy! Leave me
-alone!""")
+text("{a 2}Wh... Who are you?\nI'm busy! Leave me\nalone!{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x703935
 section_start(0x02)
-if_story(0x30, 0x43, 0x0B, 0xFF)
-if_story(0x50, 0x52, 0x15, 0xFF)
-if_story(0x53, 0x54, 0x1A, 0xFF)
+if_story(0x30, 0x43, 0x0B)
+if_story(0x50, 0x52, 0x15)
+if_story(0x53, 0x54, 0x1A)
 pic(25)
 dialog_up()
-para_talk_end("""The pump that broke
-isn't in my area,
-but I still...""")
+text("{a 2}The pump that broke\nisn't in my area,\nbut I still...{a 1}\p")
+end(5)
 section_end()
 
 # 0x03 @ 0x703990
@@ -48,72 +46,68 @@ section_end()
 section_start(0x0A)
 pic(26)
 dialog_up()
-para_talk("""This is the water
-filtering area.""", 0)
-para_talk("""Water from the pump
-room is cleaned
-here.""", 0)
-para_talk_end("""See it coming in
-there?""", 0)
+text("{a 2}This is the water\nfiltering area.{a 1}\p")
+wait(0)
+text("{a 2}Water from the pump\nroom is cleaned\nhere.{a 1}\p")
+wait(0)
+text("{a 2}See it coming in\nthere?{a 1}\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x703A26
 section_start(0x0B)
 pic(25)
 dialog_up()
-para_talk("""We've improved our
-maintenance routine!""", 0)
-para_talk_end("""No more problems
-now,I'm sure!""", 0)
+text("{a 2}We've improved our\nmaintenance routine!{a 1}\p")
+wait(0)
+text("{a 2}No more problems\nnow,I'm sure!{a 1}\p")
+end(0)
 section_end()
 
 # 0x14 @ 0x703A98
 section_start(0x14)
 pic(26)
 dialog_up()
-para_talk("""This is the water
-filtering area.""", 0)
-para_talk("""Water from the pump
-room is cleaned
-here.""", 0)
-para_talk_end("""See it coming in
-there?""", 0)
+text("{a 2}This is the water\nfiltering area.{a 1}\p")
+wait(0)
+text("{a 2}Water from the pump\nroom is cleaned\nhere.{a 1}\p")
+wait(0)
+text("{a 2}See it coming in\nthere?{a 1}\p")
+end(0)
 section_end()
 
 # 0x15 @ 0x703B1C
 section_start(0x15)
 pic(25)
 dialog_up()
-para_talk("""We've improved our
-maintenance routine!""", 0)
-para_talk_end("""No more problems
-now,I'm sure!""", 0)
+text("{a 2}We've improved our\nmaintenance routine!{a 1}\p")
+wait(0)
+text("{a 2}No more problems\nnow,I'm sure!{a 1}\p")
+end(0)
 section_end()
 
 # 0x19 @ 0x703B84
 section_start(0x19)
 pic(26)
 dialog_up()
-para_talk("""This is the water
-filtering area.""", 0)
-para_talk("""Water from the pump
-room is cleaned
-here.""", 0)
-para_talk_end("""It's our job to
-protect this water!""", 0)
+text("{a 2}This is the water\nfiltering area.{a 1}\p")
+wait(0)
+text("{a 2}Water from the pump\nroom is cleaned\nhere.{a 1}\p")
+wait(0)
+text("{a 2}It's our job to\nprotect this water!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1A @ 0x703C15
 section_start(0x1A)
 pic(25)
 dialog_up()
-para_talk("""We've improved our
-maintenance routine!""", 0)
-para_talk("""The WWW won't get
-us next time!""", 0)
-para_talk_end("""Now if someone
-would just get rid
-of them!""", 0)
+text("{a 2}We've improved our\nmaintenance routine!{a 1}\p")
+wait(0)
+text("{a 2}The WWW won't get\nus next time!{a 1}\p")
+wait(0)
+text("{a 2}Now if someone\nwould just get rid\nof them!{a 1}\p")
+end(0)
 section_end()
 
 # 0xBE @ 0x703DF0
@@ -121,25 +115,21 @@ section_start(0xBE)
 if_flag(1063, 0xC2, 0xFF)
 pic(19)
 dialog_up()
-para_talk("""I know that I don't
-look like one,but
-I'm a NetBattler!""", 0)
-para_talk("""There are a few
-chips that I'm
-looking for.""", 0)
-text("""{anim 2}\"{chip WoodMan3 W}\",
-\"{chip SkullMn3 S}\",
-\"{chip SharkMn3 S}""")
-para_general("""\",{anim 1}""", 0)
-para_talk("""\"{chip Dropdown B}\" and
-\"{chip IronBody C}\"""", 0)
-para_talk("""If you give me those
-chips,I'll give you
-a top secret one!""", 0)
-para_talk("""What do you say?""", 0)
-text("""{c 1 1 0 0}Trade
-""")
-text("""{c 0 0 1 1}No trade!""")
+text("{a 2}I know that I don't\nlook like one,but\nI'm a NetBattler!{a 1}\p")
+wait(0)
+text("{a 2}There are a few\nchips that I'm\nlooking for.{a 1}\p")
+wait(0)
+text("{a 2}\"{chip WoodMan3 W}\",\n\"{chip SkullMn3 S}\",\n\"{chip SharkMn3 S}")
+text("\",{a 1}\p")
+wait(0)
+text("{a 2}\"{chip Dropdown B}\" and\n\"{chip IronBody C}\"{a 1}\p")
+wait(0)
+text("{a 2}If you give me those\nchips,I'll give you\na top secret one!{a 1}\p")
+wait(0)
+text("{a 2}What do you say?{a 1}\p")
+wait(0)
+text("{c 1 1 0 0}Trade\n")
+text("{c 0 0 1 1}No trade!")
 pick([0xC0, 0xBF], 0, False, True)
 page()
 end(5)
@@ -149,10 +139,10 @@ section_end()
 section_start(0xBF)
 pic(19)
 dialog_up()
-para_talk("""Yeah,I guess a
-little kid wouldn't
-have chips""", 0)
-para_talk_end("""like that.""")
+text("{a 2}Yeah,I guess a\nlittle kid wouldn't\nhave chips{a 1}\p")
+wait(0)
+text("{a 2}like that.{a 1}\p")
+end(5)
 section_end()
 
 # 0xC0 @ 0x703FA9
@@ -165,12 +155,10 @@ check_chip_pack("IronBody C", 1, 0xFF, 0xFF, 0xC1)
 set_flag(1063)
 pic(19)
 dialog_up()
-para_talk("""Fantastic! Thanks!
-These will help with
-those nasty viruses!""", 0)
-para_talk("""OK... Now don't tell
-anyone that I gave
-you this!!""", 0)
+text("{a 2}Fantastic! Thanks!\nThese will help with\nthose nasty viruses!{a 1}\p")
+wait(0)
+text("{a 2}OK... Now don't tell\nanyone that I gave\nyou this!!{a 1}\p")
+wait(0)
 hidepic()
 pc_anim_start(30)
 add_chip("HeroSwrd B", 1, 0xFF, 0xFF, 0xFF)
@@ -179,8 +167,7 @@ sub_chip("SkullMn3 S", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("SharkMn3 S", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("Dropdown B", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("IronBody C", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip HeroSwrd B}\"!""")
+text("Lan got a chip for\n\"{chip HeroSwrd B}\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()
@@ -192,41 +179,35 @@ section_end()
 section_start(0xC1)
 pic(19)
 dialog_up()
-para_talk("""Sorry,this is a top
-secret chip. I can't
-give it away.""", 0)
-text("""{anim 2}\"{chip WoodMan3 W}\"
-\"{chip SkullMn3 S}\"
-\"{chip SharkMn3 S}""")
-para_general("""\"{anim 1}""", 0)
-text("""{anim 2}\"{chip Dropdown B}\"
-\"{chip IronBody C}""")
-para_general("""\"
-are what I need.{anim 1}""", 0)
-para_talk("""Sorry,kid...""", 0)
-para_talk("""By the way,they
-wouldn't be in your
-folder,would they?""", 0)
-para_talk("""You know that you
-can't trade chips
-from your folder.""", 0)
-para_talk_end("""If they aren't there
-either,well,maybe
-some other time.""")
+text("{a 2}Sorry,this is a top\nsecret chip. I can't\ngive it away.{a 1}\p")
+wait(0)
+text("{a 2}\"{chip WoodMan3 W}\"\n\"{chip SkullMn3 S}\"\n\"{chip SharkMn3 S}")
+text("\"{a 1}\p")
+wait(0)
+text("{a 2}\"{chip Dropdown B}\"\n\"{chip IronBody C}")
+text("\"\nare what I need.{a 1}\p")
+wait(0)
+text("{a 2}Sorry,kid...{a 1}\p")
+wait(0)
+text("{a 2}By the way,they\nwouldn't be in your\nfolder,would they?{a 1}\p")
+wait(0)
+text("{a 2}You know that you\ncan't trade chips\nfrom your folder.{a 1}\p")
+wait(0)
+text("{a 2}If they aren't there\neither,well,maybe\nsome other time.{a 1}\p")
+end(5)
 section_end()
 
 # 0xC2 @ 0x704254
 section_start(0xC2)
 pic(19)
 dialog_up()
-para_talk_end("""I still haven't
-gotten a chance to
-use those chips!""")
+text("{a 2}I still haven't\ngotten a chance to\nuse those chips!{a 1}\p")
+end(5)
 section_end()
 
 # 0xDC @ 0x7042CB
 section_start(0xDC)
 dialog_up()
-para_general_end("""The door is locked
-and won't open""")
+text("The door is locked\nand won't open\p")
+end(5)
 section_end()

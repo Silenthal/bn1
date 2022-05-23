@@ -98,11 +98,11 @@ class Reader:
         self.pos = 0
 
 
-    def isEmpty(self):
+    def isEmpty(self) -> bool:
         return self.pos >= len(self.buffer)
 
 
-    def read(self):
+    def read(self) -> str:
         if self.isEmpty():
             return ""
         else:
@@ -111,11 +111,26 @@ class Reader:
             return ch
 
 
-    def peek(self):
+    def seek(self, count: int) -> None:
+        self.pos += count
+        if self.pos < 0:
+            self.pos = 0
+        if self.pos > len(self.buffer):
+            self.pos = len(self.buffer)
+
+
+    def peek(self) -> str:
         if self.isEmpty():
             return ""
         else:
             return self.buffer[self.pos]
+
+
+    def left(self) -> int:
+        if self.isEmpty():
+            return 0
+        else:
+            return len(self.buffer) - self.pos
 
 
 curScript: Script = None
@@ -1459,7 +1474,7 @@ def parse_command(reader: Reader):
     reader.read()
     coms = com.split()
     if len(coms) > 0:
-        if coms[0] == "delay":
+        if coms[0] == "delay" or coms[0] == "d":
             if len(coms) > 1:
                 delay(int(coms[1], 0))
             else:
@@ -1482,21 +1497,11 @@ def parse_command(reader: Reader):
             chip_code_buf(2)
         elif coms[0] == "key_item_buf":
             key_item_buf(int(coms[1]))
-        elif coms[0] == "anim":
+        elif coms[0] == "anim" or coms[0] == "a":
             if len(coms) > 1:
                 anim(int(coms[1], 0))
             else:
                 exit("Animation index required")
-        elif coms[0] == "talk":
-            anim(2)
-        elif coms[0] == "idle":
-            anim(1)
-        elif coms[0] == "silent":
-            anim(0)
-        elif coms[0] == "page":
-            page()
-            if len(coms) > 1:
-                wait(int(coms[1], 0))
         elif coms[0] == "wait":
             if len(coms) > 1:
                 wait(int(coms[1], 0))
@@ -1531,6 +1536,14 @@ def parse_command(reader: Reader):
         elif coms[0] == "c":
             option(int(coms[1]), int(coms[2]), int(coms[3]), int(coms[4]))
             pad()
+        elif coms[0] == "col":
+            if len(coms) > 1:
+                if coms[1].isnumeric():
+                    col(int(coms[1]))
+                else:
+                    exit(f"Unrecognized column arg {coms[1]}")
+            else:
+                exit("Argument required for col")
         else:
             exit(f"Unrecognized command {coms[0]}")
 
@@ -1544,6 +1557,12 @@ def text(*txtList):
                 char = reader.read()
                 if char == "{":
                     parse_command(reader)
+                elif char == "\\":
+                    char += reader.read()
+                    if char == "\p":
+                        page()
+                    else:
+                        exit(f"Unrecognized command {char}")
                 else:
                     if char in charmap_basic:
                         curScript.emitByte(charmap_basic[char])
@@ -1554,46 +1573,6 @@ def text(*txtList):
                         curScript.emitByte(char)
 
 
-def text_talking(txt: str):
-    anim(2)
-    text(txt)
-    anim(1)
-
-
-def para_talk(txt: str, waitDelay: int = 5):
-    anim(2)
-    text(txt)
-    anim(1)
-    page()
-    wait(waitDelay)
-
-
-def para_talk_end(txt: str, endDelay: int = 5):
-    anim(2)
-    text(txt)
-    anim(1)
-    page()
-    end(endDelay)
-
-
-def para_static(txt: str, waitDelay: int = 5):
-    anim(0)
-    text(txt)
-    anim(0)
-    page()
-    wait(waitDelay)
-
-
-def para_general(txt: str, waitDelay: int = 5):
-    text(txt)
-    page()
-    wait(waitDelay)
-
-
-def para_general_end(txt: str, endDelay: int = 5):
-    text(txt)
-    page()
-    end(endDelay)
 #endregion
 
 

@@ -2,18 +2,17 @@ section_count(0xEB)
 
 # 0x00 @ 0x6F46B2
 section_start(0x00)
-if_story(0x50, 0x52, 0x41, 0xFF)
-if_story(0x53, 0x53, 0x46, 0xFF)
+if_story(0x50, 0x52, 0x41)
+if_story(0x53, 0x53, 0x46)
 if_flag(11, 0x04, 0xFF)
 pic(2)
 dialog_up()
-text("""{anim 2}So,you wanna try me,
-huh?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}So,you wanna try me,\nhuh?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x01, 0xFF], 1, False, True)
-para_talk_end("""Chicken!!""")
+text("{a 2}Chicken!!{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x6F4717
@@ -21,36 +20,34 @@ section_start(0x01)
 if_flag(68, 0x53, 0xFF)
 pic(2)
 dialog_up()
-text_talking("""Let's do it,dude!""")
-page()
+text("{a 2}Let's do it,dude!{a 1}\p")
 jump(0x05)
 section_end()
 
 # 0x02 @ 0x6F4741
 section_start(0x02)
-if_story(0x40, 0x40, 0x3A, 0xFF)
+if_story(0x40, 0x40, 0x3A)
 pic(2)
 dialog_up()
-para_talk_end("""Grr...you just got
-lucky! Today doesn't
-count,okay?""", 0)
+text("{a 2}Grr...you just got\nlucky! Today doesn't\ncount,okay?{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x6F4791
 section_start(0x03)
-if_story(0x40, 0x40, 0x3B, 0xFF)
+if_story(0x40, 0x40, 0x3B)
 pic(2)
 dialog_up()
-para_talk_end("""Heh... Whimp!""", 0)
+text("{a 2}Heh... Whimp!{a 1}\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x6F47B8
 section_start(0x04)
 pic(2)
 dialog_up()
-para_talk("""You want access to
-my links!?!?
-No way,dude!""")
+text("{a 2}You want access to\nmy links!?!?\nNo way,dude!{a 1}\p")
+wait(5)
 jump(0x50)
 section_end()
 
@@ -67,9 +64,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -79,24 +74,22 @@ section_end()
 section_start(0x07)
 pic(34)
 dialog_up()
-para_talk_end("""I don't think he'll
-tell us...Let's try
-again later...""", 0)
+text("{a 2}I don't think he'll\ntell us...Let's try\nagain later...{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x6F48AD
 section_start(0x0F)
-if_story(0x40, 0x40, 0x32, 0xFF)
+if_story(0x40, 0x40, 0x32)
 if_flag(11, 0x13, 0xFF)
 pic(2)
 dialog_up()
-text("""{anim 2}Heh! You wanna'
-NetBattle?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Heh! You wanna'\nNetBattle?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x10, 0xFF], 1, False, True)
-para_talk_end("""Chicken!!""")
+text("{a 2}Chicken!!{a 1}\p")
+end(5)
 section_end()
 
 # 0x10 @ 0x6F490D
@@ -105,8 +98,7 @@ if_flag(68, 0x53, 0xFF)
 if_flag(43, 0x53, 0xFF)
 pic(2)
 dialog_up()
-text_talking("""Let's do it,dude!""")
-page()
+text("{a 2}Let's do it,dude!{a 1}\p")
 jump(0x17)
 section_end()
 
@@ -114,16 +106,16 @@ section_end()
 section_start(0x11)
 pic(2)
 dialog_up()
-para_talk_end("""Grr...you just got
-lucky! Today doesn't
-count,okay?""")
+text("{a 2}Grr...you just got\nlucky! Today doesn't\ncount,okay?{a 1}\p")
+end(5)
 section_end()
 
 # 0x12 @ 0x6F4987
 section_start(0x12)
 pic(2)
 dialog_up()
-para_talk_end("""Heh... Whimp!""")
+text("{a 2}Heh... Whimp!{a 1}\p")
+end(5)
 section_end()
 
 # 0x13 @ 0x6F49A8
@@ -132,20 +124,15 @@ check_item("/Dex", 1, 0x16, 0xFF, 0xFF)
 check_chip("Recov50 L", 1, 0x14, 0x14, 0xFF)
 pic(2)
 dialog_up()
-para_talk("""You want access to
-my links!?!?
-No way,dude!""", 0)
-text("""...{delay}{anim 2}But!...
-Maybe I will for a
-{chip Recov50 L}""")
-para_general(""" chip!{anim 1}""", 0)
-para_talk("""GutsMan saw one in
-a jack in port at
-Mayl's house.""", 0)
-para_general("""{anim 2}Forgot the address
-of where it is,
-though...{anim 1}
-""", 0)
+text("{a 2}You want access to\nmy links!?!?\nNo way,dude!{a 1}\p")
+wait(0)
+text("...{d}{a 2}But!...\nMaybe I will for a\n{chip Recov50 L}")
+text(" chip!{a 1}\p")
+wait(0)
+text("{a 2}GutsMan saw one in\na jack in port at\nMayl's house.{a 1}\p")
+wait(0)
+text("{a 2}Forgot the address\nof where it is,\nthough...{a 1}\n\p")
+wait(0)
 if_flag(68, 0x18, 0xFF)
 jump(0x50)
 section_end()
@@ -155,15 +142,15 @@ section_start(0x14)
 check_item("/Dex", 1, 0x16, 0xFF, 0xFF)
 pic(2)
 dialog_up()
-para_talk("""Hey! You have a
-{chip Recov50 L}!!""", 0)
-para_talk("""If you give that
-to me,I'll NetBattle
-you for my link!""", 0)
-text("""{c 0 0 1 1}Sure """)
-text("""{c 1 1 0 0}No way""")
+text("{a 2}Hey! You have a\n{chip Recov50 L}!!{a 1}\p")
+wait(0)
+text("{a 2}If you give that\nto me,I'll NetBattle\nyou for my link!{a 1}\p")
+wait(0)
+text("{c 0 0 1 1}Sure ")
+text("{c 1 1 0 0}No way")
 pick([0x15, 0xFF], 1, False, True)
-para_talk_end("""Awww,come on!""", 0)
+text("{a 2}Awww,come on!{a 1}\p")
+end(0)
 section_end()
 
 # 0x15 @ 0x6F4B61
@@ -174,8 +161,8 @@ set_flag(146)
 set_flag(68)
 pic(2)
 dialog_up()
-para_talk("""Prepare to meet
-your maker!""")
+text("{a 2}Prepare to meet\nyour maker!{a 1}\p")
+wait(5)
 jump(0x17)
 section_end()
 
@@ -183,12 +170,10 @@ section_end()
 section_start(0x16)
 pic(2)
 dialog_up()
-para_talk("""Gotta' get GutsMan
-a version up to
-make him stronger...""", 0)
-para_talk_end("""Huh? NetBattle?
-Uh...Wait a little
-longer,OK?""", 0)
+text("{a 2}Gotta' get GutsMan\na version up to\nmake him stronger...{a 1}\p")
+wait(0)
+text("{a 2}Huh? NetBattle?\nUh...Wait a little\nlonger,OK?{a 1}\p")
+end(0)
 section_end()
 
 # 0x17 @ 0x6F4C29
@@ -207,28 +192,25 @@ section_end()
 section_start(0x19)
 hidepic()
 dialog_up()
-text("""You need to trade
-the {chip Recov50 L}""")
-para_general(""" with
-another chip.""", 0)
-para_general("""You can't fight
-without 30 chips
-in your folder!""", 0)
-para_general("""If you lose you
-would only have
-29 chips,which""", 0)
-para_general_end("""wouldn't be enough
-to fight with. There
-must always be 30!""", 0)
+text("You need to trade\nthe {chip Recov50 L}")
+text(" with\nanother chip.\p")
+wait(0)
+text("You can't fight\nwithout 30 chips\nin your folder!\p")
+wait(0)
+text("If you lose you\nwould only have\n29 chips,which\p")
+wait(0)
+text("wouldn't be enough\nto fight with. There\nmust always be 30!\p")
+end(0)
 section_end()
 
 # 0x23 @ 0x6F4D33
 section_start(0x23)
-if_story(0x26, 0x26, 0x28, 0xFF)
-if_story(0x27, 0x27, 0x28, 0xFF)
+if_story(0x26, 0x26, 0x28)
+if_story(0x27, 0x27, 0x28)
 pic(2)
 dialog_up()
-para_talk("""Wa...water!!""")
+text("{a 2}Wa...water!!{a 1}\p")
+wait(5)
 jump(0x50)
 section_end()
 
@@ -236,9 +218,8 @@ section_end()
 section_start(0x28)
 pic(2)
 dialog_up()
-para_talk("""I'm...too...thirsty.
-Lan...been...good...
-knowin'...you...""")
+text("{a 2}I'm...too...thirsty.\nLan...been...good...\nknowin'...you...{a 1}\p")
+wait(5)
 jump(0x50)
 section_end()
 
@@ -246,9 +227,8 @@ section_end()
 section_start(0x2D)
 pic(2)
 dialog_up()
-para_talk("""I thought that I
-was gonna die of
-thirst!""")
+text("{a 2}I thought that I\nwas gonna die of\nthirst!{a 1}\p")
+wait(5)
 jump(0x50)
 section_end()
 
@@ -257,17 +237,14 @@ section_start(0x32)
 if_flag(210, 0x35, 0xFF)
 pic(2)
 dialog_up()
-para_talk("""You're going to a
-party!? Geeze,I've
-never been to one...""", 0)
-para_talk("""I heard that the
-food at the Govm't
-complex is great!""", 0)
-para_talk("""Whactha' say we
-NetBattle!? If I win
-you take me along!""", 0)
-text("""{c 0 0 1 1}Sure """)
-text("""{c 1 1 0 0}No way""")
+text("{a 2}You're going to a\nparty!? Geeze,I've\nnever been to one...{a 1}\p")
+wait(0)
+text("{a 2}I heard that the\nfood at the Govm't\ncomplex is great!{a 1}\p")
+wait(0)
+text("{a 2}Whactha' say we\nNetBattle!? If I win\nyou take me along!{a 1}\p")
+wait(0)
+text("{c 0 0 1 1}Sure ")
+text("{c 1 1 0 0}No way")
 pick([0x34, 0x33], 1, False, True)
 end()
 section_end()
@@ -276,7 +253,8 @@ section_end()
 section_start(0x33)
 pic(2)
 dialog_up()
-para_talk_end("""How selfish!""", 0)
+text("{a 2}How selfish!{a 1}\p")
+end(0)
 section_end()
 
 # 0x34 @ 0x6F4F32
@@ -284,7 +262,8 @@ section_start(0x34)
 set_flag(210)
 pic(2)
 dialog_up()
-para_talk("""Party tiiiiime!""")
+text("{a 2}Party tiiiiime!{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -292,9 +271,8 @@ section_end()
 section_start(0x35)
 pic(2)
 dialog_up()
-para_talk("""Geeze,I really
-wanted to go to
-that party...""")
+text("{a 2}Geeze,I really\nwanted to go to\nthat party...{a 1}\p")
+wait(5)
 jump(0x50)
 section_end()
 
@@ -302,27 +280,24 @@ section_end()
 section_start(0x3A)
 pic(2)
 dialog_up()
-para_talk_end("""Geeze!!
-I really want to
-go to that party...""", 0)
+text("{a 2}Geeze!!\nI really want to\ngo to that party...{a 1}\p")
+end(0)
 section_end()
 
 # 0x3B @ 0x6F4FE5
 section_start(0x3B)
 pic(2)
 dialog_up()
-para_talk_end("""What!? It's staff
-only? Geeze,I really
-wanted to go...""", 0)
+text("{a 2}What!? It's staff\nonly? Geeze,I really\nwanted to go...{a 1}\p")
+end(0)
 section_end()
 
 # 0x41 @ 0x6F503D
 section_start(0x41)
 pic(2)
 dialog_up()
-para_talk("""Lan,why do you look
-so much older
-lately?""", 0)
+text("{a 2}Lan,why do you look\nso much older\nlately?{a 1}\p")
+wait(0)
 jump(0x50)
 section_end()
 
@@ -330,8 +305,8 @@ section_end()
 section_start(0x46)
 pic(2)
 dialog_up()
-para_talk("""Hey! Anything I
-can help you with?""")
+text("{a 2}Hey! Anything I\ncan help you with?{a 1}\p")
+wait(5)
 jump(0x50)
 section_end()
 
@@ -339,11 +314,9 @@ section_end()
 section_start(0x50)
 pic(34)
 dialog_up()
-text("""{anim 2}Lan,do you want
-to NetBattle Dex?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Lan,do you want\nto NetBattle Dex?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x51, 0x52], 1, False, True)
 end()
 section_end()
@@ -353,9 +326,7 @@ section_start(0x51)
 if_flag(43, 0x53, 0xFF)
 pic(2)
 dialog_up()
-text_talking("""Let's go!
-Get ready to lose!""")
-page()
+text("{a 2}Let's go!\nGet ready to lose!{a 1}\p")
 jump(0x17)
 section_end()
 
@@ -363,90 +334,82 @@ section_end()
 section_start(0x52)
 pic(2)
 dialog_up()
-para_talk_end("""Peh! Figures you
-and MegaMan don't
-got the guts!""", 0)
+text("{a 2}Peh! Figures you\nand MegaMan don't\ngot the guts!{a 1}\p")
+end(0)
 section_end()
 
 # 0x53 @ 0x6F518E
 section_start(0x53)
 pic(2)
 dialog_up()
-para_talk_end("""Err...Wait until I
-upgrade GutsMan,{anim 1}{delay}
-{anim 2}uhkay?""", 0)
+text("{a 2}Err...Wait until I\nupgrade GutsMan,{a 1}{d}\n{a 2}uhkay?{a 1}\p")
+end(0)
 section_end()
 
 # 0x54 @ 0x6F51D5
 section_start(0x54)
 pic(2)
 dialog_up()
-para_talk_end("""Grr...you just got
-lucky! Today doesn't
-count,okay?""", 0)
+text("{a 2}Grr...you just got\nlucky! Today doesn't\ncount,okay?{a 1}\p")
+end(0)
 section_end()
 
 # 0x55 @ 0x6F521F
 section_start(0x55)
 pic(2)
 dialog_up()
-para_talk("""Yeah!
-Me and GutsMan rock!
-You know it!""", 0)
-para_talk_end("""Better luck next
-time,kiddo!""", 0)
+text("{a 2}Yeah!\nMe and GutsMan rock!\nYou know it!{a 1}\p")
+wait(0)
+text("{a 2}Better luck next\ntime,kiddo!{a 1}\p")
+end(0)
 section_end()
 
 # 0x56 @ 0x6F527F
 section_start(0x56)
 pic(2)
 dialog_up()
-para_talk_end("""I'll get you next
-time!!""", 0)
+text("{a 2}I'll get you next\ntime!!{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x6F53B4
 section_start(0xDC)
 dialog_up()
-para_general_end("""Lots of comic books
-are lined up here.
-Some adult ones,too""")
+text("Lots of comic books\nare lined up here.\nSome adult ones,too\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x6F53F8
 section_start(0xDD)
 dialog_up()
-para_general_end("""If you open this
-door all the stuff
-inside will fall out""")
+text("If you open this\ndoor all the stuff\ninside will fall out\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x6F5438
 section_start(0xDE)
 dialog_up()
-para_general_end("""Mostly filled with
-old candy wrappers""")
+text("Mostly filled with\nold candy wrappers\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x6F5465
 section_start(0xDF)
 dialog_up()
-para_general_end("""You can see
-ACDC Town""")
+text("You can see\nACDC Town\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x6F5482
 section_start(0xE0)
 dialog_up()
-para_general_end("""The latest in game
-machines. You can
-jack in to it""")
+text("The latest in game\nmachines. You can\njack in to it\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x6F54BD
 section_start(0xE1)
 dialog_up()
-para_general_end("""The power is on,
-so you can jack in
-here!""")
+text("The power is on,\nso you can jack in\nhere!\p")
+end(5)
 section_end()

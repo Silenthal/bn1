@@ -4,33 +4,29 @@ section_count(0xA)
 section_start(0x00)
 pic(36)
 dialog_up()
-para_talk("""This {key PET} is made
-from recycled
-plastics!""", 0)
-para_talk_end("""At last,a {key PET} which
-is safe for the
-environment!""")
+text("{a 2}This {key PET} is made\nfrom recycled\nplastics!{a 1}\p")
+wait(0)
+text("{a 2}At last,a {key PET} which\nis safe for the\nenvironment!{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x721B1D
 section_start(0x01)
 pic(36)
 dialog_up()
-para_talk_end("""We must be careful
-to recycle
-everything we can!""")
+text("{a 2}We must be careful\nto recycle\neverything we can!{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x721B5E
 section_start(0x02)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(862)
 pc_anim_start(50)
-add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a
-PowerUp;\"{key HPmemory}\"!""")
+add_item("HPmemory", 1)
+text("MegaMan got a\nPowerUp;\"{key HPmemory}\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()

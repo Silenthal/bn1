@@ -4,44 +4,37 @@ section_count(0xA)
 section_start(0x00)
 pic(41)
 dialog_up()
-para_talk("""I am a test Navi.
-We develop new PETs
-here!""", 0)
-para_talk("""I heard that a new
-kind of Navi was
-developed here...""", 0)
-para_talk("""I'd love to meet it.
-I heard that it uses
-human...""", 0)
-para_talk_end("""Ooops!! I almost
-gave away some top
-secret information!""")
+text("{a 2}I am a test Navi.\nWe develop new PETs\nhere!{a 1}\p")
+wait(0)
+text("{a 2}I heard that a new\nkind of Navi was\ndeveloped here...{a 1}\p")
+wait(0)
+text("{a 2}I'd love to meet it.\nI heard that it uses\nhuman...{a 1}\p")
+wait(0)
+text("{a 2}Ooops!! I almost\ngave away some top\nsecret information!{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x7215FE
 section_start(0x01)
 pic(41)
 dialog_up()
-para_talk("""Dr.Hikari has given
-us emotions""", 0)
-para_talk("""We now laugh,and get
-mad,and worry like
-humans do.""", 0)
-para_talk_end("""Is that not the
-defining condition
-of humanity?""")
+text("{a 2}Dr.Hikari has given\nus emotions{a 1}\p")
+wait(0)
+text("{a 2}We now laugh,and get\nmad,and worry like\nhumans do.{a 1}\p")
+wait(0)
+text("{a 2}Is that not the\ndefining condition\nof humanity?{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x7216A3
 section_start(0x02)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(858)
 pc_anim_start(50)
 add_chip("HiCannon J", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip HiCannon J}\"!""")
+text("MegaMan got a chip\nfor \"{chip HiCannon J}\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()

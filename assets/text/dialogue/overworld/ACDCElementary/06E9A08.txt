@@ -4,17 +4,13 @@ section_count(0xEB)
 section_start(0x0F)
 if_flag(182, 0xDD, 0xFF)
 dialog_up()
-para_general("""The computer's
-memory is full,so
-it has frozen up.""", 0)
-text("""Do you want to
-try to restart it?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("The computer's\nmemory is full,so\nit has frozen up.\p")
+wait(0)
+text("Do you want to\ntry to restart it?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x10, 0xFF], 0, False, True)
-text("""You leave it alone.""")
-page()
+text("You leave it alone.\p")
 dialog_down()
 set_flag(197)
 end(5)
@@ -23,9 +19,7 @@ section_end()
 # 0x10 @ 0x6E9C97
 section_start(0x10)
 dialog_up()
-text("""The computer is
-fixed!""")
-page()
+text("The computer is\nfixed!\p")
 dialog_down()
 set_flag(182)
 end(5)
@@ -37,9 +31,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -52,12 +44,10 @@ if_flag(1074, 0xBF, 0xFF)
 set_flag(1074)
 pic(11)
 dialog_up()
-para_talk("""I know how to
-modify battle chips!
-Pretty cool,huh?""", 0)
-para_talk_end("""I'm modifying one
-now,so please don't
-disturb me.""")
+text("{a 2}I know how to\nmodify battle chips!\nPretty cool,huh?{a 1}\p")
+wait(0)
+text("{a 2}I'm modifying one\nnow,so please don't\ndisturb me.{a 1}\p")
+end(5)
 section_end()
 
 # 0xBF @ 0x6E9EEE
@@ -65,24 +55,21 @@ section_start(0xBF)
 if_flag(1075, 0xC1, 0xFF)
 pic(11)
 dialog_up()
-para_talk("""What do you want
-now!?""", 0)
-para_talk("""Hey,wait I've got a
-good idea!""", 0)
-para_talk("""There's some chips
-that I need some
-data from.""", 0)
-text("""{anim 2}If you give me 30
-{chip MetGuard A}""")
-para_general("""
-chips,{anim 1}""", 0)
-para_talk("""I'll give you an
-original custom
-chip!""", 0)
-para_talk("""What do you say?""", 0)
-text("""{c 0 0 1 1}Sure! """)
-text("""{c 1 1 0 0}No way!
-""")
+text("{a 2}What do you want\nnow!?{a 1}\p")
+wait(0)
+text("{a 2}Hey,wait I've got a\ngood idea!{a 1}\p")
+wait(0)
+text("{a 2}There's some chips\nthat I need some\ndata from.{a 1}\p")
+wait(0)
+text("{a 2}If you give me 30\n{chip MetGuard A}")
+text("\nchips,{a 1}\p")
+wait(0)
+text("{a 2}I'll give you an\noriginal custom\nchip!{a 1}\p")
+wait(0)
+text("{a 2}What do you say?{a 1}\p")
+wait(0)
+text("{c 0 0 1 1}Sure! ")
+text("{c 1 1 0 0}No way!\n")
 pick([0xFF, 0xC0], 0, False, True)
 wait(5)
 check_chip_pack("MetGuard A", 30, 0xFF, 0xFF, 0xC3)
@@ -94,8 +81,8 @@ section_end()
 section_start(0xC0)
 pic(11)
 dialog_up()
-para_talk_end("""Ah,well.
-Suit yourself.""")
+text("{a 2}Ah,well.\nSuit yourself.{a 1}\p")
+end(5)
 section_end()
 
 # 0xC1 @ 0x6EA052
@@ -104,12 +91,10 @@ if_flag(1076, 0xC2, 0xFF)
 set_flag(1075)
 pic(11)
 dialog_up()
-para_talk("""Thanks! Now I can
-make a new original
-chip!""", 0)
-para_talk_end("""It will take some
-time,so come back
-later.""")
+text("{a 2}Thanks! Now I can\nmake a new original\nchip!{a 1}\p")
+wait(0)
+text("{a 2}It will take some\ntime,so come back\nlater.{a 1}\p")
+end(5)
 section_end()
 
 # 0xC2 @ 0x6EA0CD
@@ -117,14 +102,12 @@ section_start(0xC2)
 set_flag(1057)
 pic(11)
 dialog_up()
-para_talk("""I finished the chip!
-I'm such a genius.
-Here you go!""", 0)
+text("{a 2}I finished the chip!\nI'm such a genius.\nHere you go!{a 1}\p")
+wait(0)
 hidepic()
 pc_anim_start(30)
 add_chip("BstrGard A", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip BstrGard A}\"!""")
+text("Lan got a chip for\n\"{chip BstrGard A}\"!")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -136,78 +119,73 @@ section_end()
 section_start(0xC3)
 pic(11)
 dialog_up()
-text("""{anim 2}Sorry,I need 30
-{chip MetGuard A}""")
-para_general("""
-chips.{anim 1}""", 0)
-para_talk("""Maybe you have some
-in your chip folder?""", 0)
-para_talk("""You can't trade
-chips that are in
-your chip folder!""", 0)
-para_talk("""All you have to do
-is take them out of
-your chip folder.""", 0)
-para_talk_end("""If you don't have 30
-chips yet,you'll
-have to go get more!""")
+text("{a 2}Sorry,I need 30\n{chip MetGuard A}")
+text("\nchips.{a 1}\p")
+wait(0)
+text("{a 2}Maybe you have some\nin your chip folder?{a 1}\p")
+wait(0)
+text("{a 2}You can't trade\nchips that are in\nyour chip folder!{a 1}\p")
+wait(0)
+text("{a 2}All you have to do\nis take them out of\nyour chip folder.{a 1}\p")
+wait(0)
+text("{a 2}If you don't have 30\nchips yet,you'll\nhave to go get more!{a 1}\p")
+end(5)
 section_end()
 
 # 0xC4 @ 0x6EA27B
 section_start(0xC4)
 pic(11)
 dialog_up()
-para_talk_end("""Wonder what I should
-make next...""")
+text("{a 2}Wonder what I should\nmake next...{a 1}\p")
+end(5)
 section_end()
 
 # 0xDC @ 0x6EA2DD
 section_start(0xDC)
 dialog_up()
-para_general("""Prevention first!""", 0)
-para_general_end("""Perform a virus
-check once a week!""")
+text("Prevention first!\p")
+wait(0)
+text("Perform a virus\ncheck once a week!\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x6EA31E
 section_start(0xDD)
 dialog_up()
-para_general_end("""The power is off""")
+text("The power is off\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x6EA336
 section_start(0xDE)
 if_flag(694, 0xFF, 0xE1)
 dialog_up()
-para_general_end("""Nobody uses the AV
-room much,so the
-desks are very clean""")
+text("Nobody uses the AV\nroom much,so the\ndesks are very clean\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x6EA37D
 section_start(0xDF)
 dialog_up()
-para_general_end("""There are cleaning
-supplies in here.
-Smells pretty bad""")
+text("There are cleaning\nsupplies in here.\nSmells pretty bad\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x6EA3BC
 section_start(0xE0)
-if_story(0x15, 0x15, 0x0F, 0xFF)
+if_story(0x15, 0x15, 0x0F)
 jump(0xDD)
 section_end()
 
 # 0xE1 @ 0x6EA3C7
 section_start(0xE1)
 dialog_up()
-para_general("""There's something
-on the table...""", 0)
+text("There's something\non the table...\p")
+wait(0)
 set_flag(694)
 pc_anim(30)
 add_chip("Repair A", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip Repair A}\"!""")
+text("Lan got a chip for\n\"{chip Repair A}\"!")
 pc_wait()
 pc_anim(4)
 page()
@@ -219,25 +197,24 @@ section_start(0xE2)
 if_story(0x10, 0x1F, 0xFF, 0xE3)
 if_flag(149, 0xFF, 0xE4)
 dialog_up()
-para_general("""A WWW reーeducation
-program is playing!
-Pretty scary stuff!""", 0)
-para_general_end("""Looks like you can
-jack in here!""")
+text("A WWW reーeducation\nprogram is playing!\nPretty scary stuff!\p")
+wait(0)
+text("Looks like you can\njack in here!\p")
+end(5)
 section_end()
 
 # 0xE3 @ 0x6EA4A3
 section_start(0xE3)
 dialog_up()
-para_general("""Nothing is being
-displayed""", 0)
-para_general_end("""Looks like you can
-jack in here""")
+text("Nothing is being\ndisplayed\p")
+wait(0)
+text("Looks like you can\njack in here\p")
+end(5)
 section_end()
 
 # 0xE4 @ 0x6EA4E8
 section_start(0xE4)
 dialog_up()
-para_general_end("""Nothing is being
-displayed""")
+text("Nothing is being\ndisplayed\p")
+end(5)
 section_end()

@@ -2,199 +2,199 @@ section_count(0x41)
 
 # 0x00 @ 0x7A7FCA
 section_start(0x00)
-text("""NetNews   WWW Crime!""")
+text("NetNews   WWW Crime!")
 end()
 section_end()
 
 # 0x01 @ 0x7A7FE4
 section_start(0x01)
-text("""Dad       Sorry!""")
+text("Dad       Sorry!")
 end()
 section_end()
 
 # 0x02 @ 0x7A7FFA
 section_start(0x02)
-text("""Dad       PowerUp!""")
+text("Dad       PowerUp!")
 end()
 section_end()
 
 # 0x03 @ 0x7A8012
 section_start(0x03)
-text("""NetNews   Student Crime""")
+text("NetNews   Student Crime")
 end()
 section_end()
 
 # 0x04 @ 0x7A802E
 section_start(0x04)
-text("""Yai       Roll call""")
+text("Yai       Roll call")
 end()
 section_end()
 
 # 0x05 @ 0x7A8046
 section_start(0x05)
-text("""Dex       A challenge!""")
+text("Dex       A challenge!")
 end()
 section_end()
 
 # 0x06 @ 0x7A8062
 section_start(0x06)
-text("""NetNews   No Water!""")
+text("NetNews   No Water!")
 end()
 section_end()
 
 # 0x07 @ 0x7A807B
 section_start(0x07)
-text("""Dad       Sorry Lan""")
+text("Dad       Sorry Lan")
 end()
 section_end()
 
 # 0x08 @ 0x7A8093
 section_start(0x08)
-text("""Yai       Kidnapped!""")
+text("Yai       Kidnapped!")
 end()
 section_end()
 
 # 0x09 @ 0x7A80AD
 section_start(0x09)
-text("""Mayl      Yai's present""")
+text("Mayl      Yai's present")
 end()
 section_end()
 
 # 0x0A @ 0x7A80CA
 section_start(0x0A)
-text("""NetNews   New Metroline""")
+text("NetNews   New Metroline")
 end()
 section_end()
 
 # 0x0B @ 0x7A80E6
 section_start(0x0B)
-text("""Mayl      Meeting place""")
+text("Mayl      Meeting place")
 end()
 section_end()
 
 # 0x0C @ 0x7A8102
 section_start(0x0C)
-text("""Your WWW  Accidents?""")
+text("Your WWW  Accidents?")
 end()
 section_end()
 
 # 0x0D @ 0x7A811C
 section_start(0x0D)
-text("""Mayl      Whattodo!?""")
+text("Mayl      Whattodo!?")
 end()
 section_end()
 
 # 0x0E @ 0x7A8137
 section_start(0x0E)
-text("""Dad       About Chaud""")
+text("Dad       About Chaud")
 end()
 section_end()
 
 # 0x0F @ 0x7A8151
 section_start(0x0F)
-text("""Mayl      Netaddress""")
+text("Mayl      Netaddress")
 end()
 section_end()
 
 # 0x10 @ 0x7A816A
 section_start(0x10)
-text("""Higsby    Old friend""")
+text("Higsby    Old friend")
 end()
 section_end()
 
 # 0x11 @ 0x7A8183
 section_start(0x11)
-text("""Dad       Lab location""")
+text("Dad       Lab location")
 end()
 section_end()
 
 # 0x12 @ 0x7A819E
 section_start(0x12)
-text("""Froid     For you...""")
+text("Froid     For you...")
 end()
 section_end()
 
 # 0x13 @ 0x7A81BA
 section_start(0x13)
-text("""Froid     Official ML""")
+text("Froid     Official ML")
 end()
 section_end()
 
 # 0x14 @ 0x7A81D4
 section_start(0x14)
-text("""BattleML  Water virus""")
+text("BattleML  Water virus")
 end()
 section_end()
 
 # 0x15 @ 0x7A81EE
 section_start(0x15)
-text("""BattleML  Re;virus""")
+text("BattleML  Re;virus")
 end()
 section_end()
 
 # 0x16 @ 0x7A8206
 section_start(0x16)
-text("""BattleML  Mystery op?""")
+text("BattleML  Mystery op?")
 end()
 section_end()
 
 # 0x17 @ 0x7A8221
 section_start(0x17)
-text("""BattleML  Advances""")
+text("BattleML  Advances")
 end()
 section_end()
 
 # 0x18 @ 0x7A8238
 section_start(0x18)
-text("""BattleML  Aura virus?""")
+text("BattleML  Aura virus?")
 end()
 section_end()
 
 # 0x19 @ 0x7A8253
 section_start(0x19)
-text("""BattleML  Aura,cont.""")
+text("BattleML  Aura,cont.")
 end()
 section_end()
 
 # 0x1A @ 0x7A826E
 section_start(0x1A)
-text("""BattleML  Re;Aura,cont.""")
+text("BattleML  Re;Aura,cont.")
 end()
 section_end()
 
 # 0x1B @ 0x7A828D
 section_start(0x1B)
-text("""BattleML  Rare chips!""")
+text("BattleML  Rare chips!")
 end()
 section_end()
 
 # 0x1C @ 0x7A82A8
 section_start(0x1C)
-text("""Yai       The truth!""")
+text("Yai       The truth!")
 end()
 section_end()
 
 # 0x1D @ 0x7A82C2
 section_start(0x1D)
-text("""Dad       Dinner?""")
+text("Dad       Dinner?")
 end()
 section_end()
 
 # 0x1E @ 0x7A82D9
 section_start(0x1E)
-text("""Dad       R U OK?""")
+text("Dad       R U OK?")
 end()
 section_end()
 
 # 0x1F @ 0x7A82F0
 section_start(0x1F)
-text("""BattleML  The LifeVirus""")
+text("BattleML  The LifeVirus")
 end()
 section_end()
 
 # 0x20 @ 0x7A830C
 section_start(0x20)
-text("""Ms.Mari   Class notes""")
+text("Ms.Mari   Class notes")
 end()
 section_end()
 

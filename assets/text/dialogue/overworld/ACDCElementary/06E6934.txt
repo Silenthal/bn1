@@ -4,37 +4,34 @@ section_count(0xEB)
 section_start(0x00)
 pic(9)
 dialog_up()
-para_talk("""What's up,Lan?""", 0)
-para_talk_end("""That announcment
-playing in your
-class,too?""")
+text("{a 2}What's up,Lan?{a 1}\p")
+wait(0)
+text("{a 2}That announcment\nplaying in your\nclass,too?{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x6E6B60
 section_start(0x01)
 pic(9)
 dialog_up()
-para_talk_end("""I tried to jack in
-to delete the virus,
-but it got me!""")
+text("{a 2}I tried to jack in\nto delete the virus,\nbut it got me!{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x6E6BA8
 section_start(0x02)
 pic(10)
 dialog_up()
-para_talk_end("""That announcement
-starts to make sense
-after a while...""")
+text("{a 2}That announcement\nstarts to make sense\nafter a while...{a 1}\p")
+end(5)
 section_end()
 
 # 0x03 @ 0x6E6BF2
 section_start(0x03)
 pic(10)
 dialog_up()
-para_talk_end("""I must say,there
-are many unique
-kids in your class!""")
+text("{a 2}I must say,there\nare many unique\nkids in your class!{a 1}\p")
+end(5)
 section_end()
 
 # 0x04 @ 0x6E6C38
@@ -43,9 +40,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -53,88 +48,84 @@ section_end()
 
 # 0x0A @ 0x6E6C89
 section_start(0x0A)
-if_story(0x24, 0x24, 0x0F, 0xFF)
+if_story(0x24, 0x24, 0x0F)
 pic(9)
 dialog_up()
-para_talk_end("""Everyone's left!""")
+text("{a 2}Everyone's left!{a 1}\p")
+end(5)
 section_end()
 
 # 0x0F @ 0x6E6CB9
 section_start(0x0F)
 pic(9)
 dialog_up()
-para_general("""{anim 2}Hey,Lan!{anim 1}{delay}""", 0)
-para_talk_end("""Everyone left! They
-went home so they
-won't get thirsty!""")
+text("{a 2}Hey,Lan!{a 1}{d}\p")
+wait(0)
+text("{a 2}Everyone left! They\nwent home so they\nwon't get thirsty!{a 1}\p")
+end(5)
 section_end()
 
 # 0x10 @ 0x6E6D1A
 section_start(0x10)
 pic(9)
 dialog_up()
-para_talk_end("""Where did he go?
-He won't answer his
-{key PET} or mail!""")
+text("{a 2}Where did he go?\nHe won't answer his\n{key PET} or mail!{a 1}\p")
+end(5)
 section_end()
 
 # 0x11 @ 0x6E6D5F
 section_start(0x11)
 pic(10)
 dialog_up()
-para_talk_end("""Don't talk to me!{anim 1}{delay}
-{anim 2}It makes me thirsty!""")
+text("{a 2}Don't talk to me!{a 1}{d}\n{a 2}It makes me thirsty!{a 1}\p")
+end(5)
 section_end()
 
 # 0x12 @ 0x6E6DA0
 section_start(0x12)
 pic(10)
 dialog_up()
-para_talk("""The lost boy's dad
-is busy at work!""", 0)
-para_talk_end("""He can't even take
-off a day like this!""")
+text("{a 2}The lost boy's dad\nis busy at work!{a 1}\p")
+wait(0)
+text("{a 2}He can't even take\noff a day like this!{a 1}\p")
+end(5)
 section_end()
 
 # 0xDC @ 0x6E6F98
 section_start(0xDC)
 dialog_up()
-para_general("""Old blackboards
-used to make a
-horrible noise""", 0)
-para_general_end("""when scratched.
-You can jack in
-to this board""")
+text("Old blackboards\nused to make a\nhorrible noise\p")
+wait(0)
+text("when scratched.\nYou can jack in\nto this board\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x6E6FFF
 section_start(0xDD)
 dialog_up()
-para_general_end("""Group 3 has
-cleaning duty""")
+text("Group 3 has\ncleaning duty\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x6E7020
 section_start(0xDE)
 dialog_up()
-para_general_end("""5th graders have
-classes all through
-6th period""")
+text("5th graders have\nclasses all through\n6th period\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x6E7057
 section_start(0xDF)
 if_flag(738, 0xE0, 0xFF)
 dialog_up()
-para_general("""There are many books
-here""", 0)
-para_general("""You found a chip
-among the books!""", 0)
+text("There are many books\nhere\p")
+wait(0)
+text("You found a chip\namong the books!\p")
+wait(0)
 set_flag(738)
 pc_anim(30)
 add_chip("Spreader J", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan found a chip for
-\"{chip Spreader J}\"!""")
+text("Lan found a chip for\n\"{chip Spreader J}\"!")
 pc_wait()
 pc_anim(4)
 page()
@@ -144,56 +135,53 @@ section_end()
 # 0xE0 @ 0x6E70E0
 section_start(0xE0)
 dialog_up()
-para_general_end("""Nothing else there""")
+text("Nothing else there\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x6E70FA
 section_start(0xE1)
 dialog_up()
-para_general_end("""Putting books near
-the window makes
-the covers fade""")
+text("Putting books near\nthe window makes\nthe covers fade\p")
+end(5)
 section_end()
 
 # 0xE2 @ 0x6E7135
 section_start(0xE2)
 dialog_up()
-para_general_end("""A lot of previous
-students have left
-graffiti here""")
+text("A lot of previous\nstudents have left\ngraffiti here\p")
+end(5)
 section_end()
 
 # 0xE3 @ 0x6E716F
 section_start(0xE3)
 dialog_up()
-para_general_end("""You can learn a
-lot about ants with
-an ant farm""")
+text("You can learn a\nlot about ants with\nan ant farm\p")
+end(5)
 section_end()
 
 # 0xE4 @ 0x6E71A6
 section_start(0xE4)
 dialog_up()
-para_general_end("""Hm,smells strange.
-Wonder what they're
-raising in there?""")
+text("Hm,smells strange.\nWonder what they're\nraising in there?\p")
+end(5)
 section_end()
 
 # 0xE5 @ 0x6E71EA
 section_start(0xE5)
 dialog_up()
-para_general_end("""The teacher's desk""")
+text("The teacher's desk\p")
+end(5)
 section_end()
 
 # 0xE6 @ 0x6E7205
 section_start(0xE6)
-if_story(0x20, 0x5F, 0xDC, 0xFF)
+if_story(0x20, 0x5F, 0xDC)
 if_story(0x10, 0x1F, 0xFF, 0xDC)
 if_flag(149, 0xFF, 0xDC)
 dialog_up()
-para_general("""A WWW reーeducation
-program is playing!
-Pretty scary stuff!""", 0)
-para_general_end("""Looks like you can
-jack in here!""")
+text("A WWW reーeducation\nprogram is playing!\nPretty scary stuff!\p")
+wait(0)
+text("Looks like you can\njack in here!\p")
+end(5)
 section_end()

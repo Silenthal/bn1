@@ -4,157 +4,146 @@ section_count(0xEB)
 section_start(0x0A)
 pic(19)
 dialog_up()
-para_talk_end("""Don't dawdle!
-Get straight home!""")
+text("{a 2}Don't dawdle!\nGet straight home!{a 1}\p")
+end(5)
 section_end()
 
 # 0x0B @ 0x6F1781
 section_start(0x0B)
 pic(10)
 dialog_up()
-para_talk_end("""I'm on feed duty.""")
+text("{a 2}I'm on feed duty.{a 1}\p")
+end(5)
 section_end()
 
 # 0x14 @ 0x6F17B4
 section_start(0x14)
 pic(11)
 dialog_up()
-para_talk_end("""Aaack! I'm late
-again!!""", 0)
+text("{a 2}Aaack! I'm late\nagain!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x15 @ 0x6F17DF
 section_start(0x15)
 pic(34)
 dialog_up()
-para_talk_end("""Late again?
-What a surprise...""", 0)
+text("{a 2}Late again?\nWhat a surprise...{a 1}\p")
+end(0)
 section_end()
 
 # 0x1A @ 0x6F1819
 section_start(0x1A)
 pic(9)
 dialog_up()
-para_talk_end("""These animals will
-die if they don't
-get some water!""", 0)
+text("{a 2}These animals will\ndie if they don't\nget some water!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1B @ 0x6F185F
 section_start(0x1B)
 pic(18)
 dialog_up()
-para_talk_end("""I wonder if the
-plants will all
-die...""", 0)
+text("{a 2}I wonder if the\nplants will all\ndie...{a 1}\p")
+end(0)
 section_end()
 
 # 0x1E @ 0x6F189C
 section_start(0x1E)
 pic(16)
 dialog_up()
-para_talk_end("""Wa...water!!""", 0)
+text("{a 2}Wa...water!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x23 @ 0x6F18C5
 section_start(0x23)
-if_story(0x40, 0x40, 0x2E, 0xFF)
-if_story(0x50, 0x52, 0x32, 0xFF)
-if_story(0x53, 0x54, 0x37, 0xFF)
+if_story(0x40, 0x40, 0x2E)
+if_story(0x50, 0x52, 0x32)
+if_story(0x53, 0x54, 0x37)
 pic(11)
 dialog_up()
-para_talk_end("""Even when school is
-out,we still have to
-feed the animals!""", 0)
+text("{a 2}Even when school is\nout,we still have to\nfeed the animals!{a 1}\p")
+end(0)
 section_end()
 
 # 0x24 @ 0x6F1923
 section_start(0x24)
-if_story(0x50, 0x52, 0x33, 0xFF)
-if_story(0x53, 0x54, 0x38, 0xFF)
+if_story(0x50, 0x52, 0x33)
+if_story(0x53, 0x54, 0x38)
 pic(19)
 dialog_up()
-para_talk_end("""School's out.
-Shouldn't be many
-people here...""", 0)
+text("{a 2}School's out.\nShouldn't be many\npeople here...{a 1}\p")
+end(0)
 section_end()
 
 # 0x2E @ 0x6F1985
 section_start(0x2E)
 pic(11)
 dialog_up()
-para_talk("""These rabbits are so
-plump thanks to me!""", 0)
-para_talk("""I've been giving
-them leftovers from
-lunch!""", 0)
-para_talk_end("""Don't tell anyone,
-OK?""", 0)
+text("{a 2}These rabbits are so\nplump thanks to me!{a 1}\p")
+wait(0)
+text("{a 2}I've been giving\nthem leftovers from\nlunch!{a 1}\p")
+wait(0)
+text("{a 2}Don't tell anyone,\nOK?{a 1}\p")
+end(0)
 section_end()
 
 # 0x32 @ 0x6F1A1A
 section_start(0x32)
 pic(11)
 dialog_up()
-para_talk_end("""The animals are
-acting strange,like
-they're scared!""", 0)
+text("{a 2}The animals are\nacting strange,like\nthey're scared!{a 1}\p")
+end(0)
 section_end()
 
 # 0x33 @ 0x6F1A60
 section_start(0x33)
 pic(19)
 dialog_up()
-para_talk("""Huh?
-School's out,son.""", 0)
-para_talk_end("""I think that Ms.
-Mari is the only
-teacher left here.""", 0)
+text("{a 2}Huh?\nSchool's out,son.{a 1}\p")
+wait(0)
+text("{a 2}I think that Ms.\nMari is the only\nteacher left here.{a 1}\p")
+end(0)
 section_end()
 
 # 0x37 @ 0x6F1ACE
 section_start(0x37)
 pic(11)
 dialog_up()
-para_talk_end("""No way!
-I'm staying here
-with them!""", 0)
+text("{a 2}No way!\nI'm staying here\nwith them!{a 1}\p")
+end(0)
 section_end()
 
 # 0x38 @ 0x6F1B04
 section_start(0x38)
 pic(19)
 dialog_up()
-para_talk_end("""I could close up the
-school if Ms.Mari
-would just leave...""", 0)
+text("{a 2}I could close up the\nschool if Ms.Mari\nwould just leave...{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x6F1C98
 section_start(0xDC)
 dialog_up()
-para_general("""A teacher's car.
-The most popular
-type around""", 0)
-para_general_end("""There seems to be
-a jack in port for
-maintenance here""")
+text("A teacher's car.\nThe most popular\ntype around\p")
+wait(0)
+text("There seems to be\na jack in port for\nmaintenance here\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x6F1D08
 section_start(0xDD)
 dialog_up()
-para_general("""A bronze statue of
-the principal""", 0)
-para_general_end("""It was a gift from a
-mysterious group at
-the school opening""")
+text("A bronze statue of\nthe principal\p")
+wait(0)
+text("It was a gift from a\nmysterious group at\nthe school opening\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x6F1D6F
 section_start(0xDE)
 dialog_up()
-para_general_end("""A huge rabbit.
-What could cause it
-to grow so big?""")
+text("A huge rabbit.\nWhat could cause it\nto grow so big?\p")
+end(5)
 section_end()

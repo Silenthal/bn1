@@ -6,35 +6,33 @@ if_flag(195, 0x01, 0xFF)
 set_flag(195)
 pic(36)
 dialog_up()
-para_talk("""Ahead is {delay 10}the
-oven control {delay 10}section.""", 0)
-para_talk("""Someone is {delay 10}at the
-master virus{delay 10} with
-their Navi.""", 0)
-para_talk("""It's far {delay 10}stronger
-than a {delay 10}normal virus!
-Be {delay 10}careful!""", 0)
-para_general_end("""Arghh...!""")
+text("{a 2}Ahead is {d 10}the\noven control {d 10}section.{a 1}\p")
+wait(0)
+text("{a 2}Someone is {d 10}at the\nmaster virus{d 10} with\ntheir Navi.{a 1}\p")
+wait(0)
+text("{a 2}It's far {d 10}stronger\nthan a {d 10}normal virus!\nBe {d 10}careful!{a 1}\p")
+wait(0)
+text("Arghh...!\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x7144FF
 section_start(0x01)
 pic(36)
 dialog_up()
-para_talk_end("""I...{delay 10}can't...{delay 10}hold...{delay 10}
-on...{delay 10}much...{delay 10}longer..""")
+text("{a 2}I...{d 10}can't...{d 10}hold...{d 10}\non...{d 10}much...{d 10}longer..{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x71455D
 section_start(0x02)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(642)
 pc_anim_start(50)
 add_chip("Shotgun Q", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Shotgun Q}\"!""")
+text("MegaMan got a chip\nfor \"{chip Shotgun Q}\"!")
 pc_anim_end()
 page()
 end(5)
@@ -43,13 +41,12 @@ section_end()
 # 0x03 @ 0x7145CB
 section_start(0x03)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(643)
 pc_anim_start(50)
 award_zenny([500, 500])
-text("""MegaMan got 500
-zennys!""")
+text("MegaMan got 500\nzennys!")
 pc_anim_end()
 page()
 end(5)
@@ -58,13 +55,12 @@ section_end()
 # 0x04 @ 0x714631
 section_start(0x04)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(644)
 pc_anim_start(50)
 add_chip("LilBomb T", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip LilBomb T}\"!""")
+text("MegaMan got a chip\nfor \"{chip LilBomb T}\"!")
 pc_anim_end()
 page()
 end(5)

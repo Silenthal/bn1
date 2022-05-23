@@ -2,9 +2,10 @@ section_count(0xE6)
 
 # 0x00 @ 0x6D5DB8
 section_start(0x00)
-if_story(0x54, 0x54, 0xE1, 0xFF)
+if_story(0x54, 0x54, 0xE1)
 dialog_up()
-para_general_end("""Test message""", 0)
+text("Test message\p")
+end(0)
 section_end()
 
 # 0xE1 @ 0x6D5F92
@@ -17,7 +18,6 @@ section_end()
 section_start(0xE3)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan! We've got
-to do what we can to
-help everyone!""", 0)
+text("{a 2}MegaMan! We've got\nto do what we can to\nhelp everyone!{a 1}\p")
+end(0)
 section_end()

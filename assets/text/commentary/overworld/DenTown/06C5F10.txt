@@ -2,13 +2,13 @@ section_count(0xE6)
 
 # 0x00 @ 0x6C60DC
 section_start(0x00)
-if_story(0x30, 0x31, 0x7D, 0xFF)
-if_story(0x40, 0x43, 0xA5, 0xFF)
-if_story(0x50, 0x50, 0xBE, 0xFF)
-if_story(0x51, 0x51, 0xC8, 0xFF)
-if_story(0x52, 0x52, 0xD2, 0xFF)
-if_story(0x53, 0x53, 0xD7, 0xFF)
-if_story(0x54, 0x54, 0xE1, 0xFF)
+if_story(0x30, 0x31, 0x7D)
+if_story(0x40, 0x43, 0xA5)
+if_story(0x50, 0x50, 0xBE)
+if_story(0x51, 0x51, 0xC8)
+if_story(0x52, 0x52, 0xD2)
+if_story(0x53, 0x53, 0xD7)
+if_story(0x54, 0x54, 0xE1)
 dialog_up()
 page()
 end()
@@ -22,42 +22,40 @@ if_flag(149, 0x7F, 0xFF)
 if_flag(147, 0x7E, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Let's answer Mayl's
-mail!""", 0)
+text("{a 2}Let's answer Mayl's\nmail!{a 1}\p")
+end(0)
 section_end()
 
 # 0x7E @ 0x6C624A
 section_start(0x7E)
 pic(34)
 dialog_up()
-para_talk_end("""We're supposed to
-meet her in front
-of ACDC station!""", 0)
+text("{a 2}We're supposed to\nmeet her in front\nof ACDC station!{a 1}\p")
+end(0)
 section_end()
 
 # 0x7F @ 0x6C6290
 section_start(0x7F)
 pic(34)
 dialog_up()
-para_talk_end("""Let's go outside!""", 0)
+text("{a 2}Let's go outside!{a 1}\p")
+end(0)
 section_end()
 
 # 0x80 @ 0x6C62B3
 section_start(0x80)
 pic(34)
 dialog_up()
-para_talk_end("""Where are you going?
-We've got to be
-somewhere,you know!""", 0)
+text("{a 2}Where are you going?\nWe've got to be\nsomewhere,you know!{a 1}\p")
+end(0)
 section_end()
 
 # 0x81 @ 0x6C62FF
 section_start(0x81)
 pic(34)
 dialog_up()
-para_talk_end("""Where are you going?
-We've got to be
-somewhere,you know!""", 0)
+text("{a 2}Where are you going?\nWe've got to be\nsomewhere,you know!{a 1}\p")
+end(0)
 section_end()
 
 # 0xA5 @ 0x6C6391
@@ -68,43 +66,40 @@ if_flag(152, 0xA7, 0xFF)
 if_flag(149, 0xA6, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Let's hurry home
-and tell Mom!""", 0)
+text("{a 2}Let's hurry home\nand tell Mom!{a 1}\p")
+end(0)
 section_end()
 
 # 0xA6 @ 0x6C63D9
 section_start(0xA6)
 pic(34)
 dialog_up()
-para_talk_end("""We're supposed to
-meet Dad in front
-of the SciLab TV!""", 0)
+text("{a 2}We're supposed to\nmeet Dad in front\nof the SciLab TV!{a 1}\p")
+end(0)
 section_end()
 
 # 0xA7 @ 0x6C6420
 section_start(0xA7)
 pic(34)
 dialog_up()
-para_talk_end("""We're supposed to
-meet Dad in front
-of the SciLab TV!""", 0)
+text("{a 2}We're supposed to\nmeet Dad in front\nof the SciLab TV!{a 1}\p")
+end(0)
 section_end()
 
 # 0xA8 @ 0x6C6467
 section_start(0xA8)
 pic(34)
 dialog_up()
-para_talk_end("""Dad should be
-waiting for us!""", 0)
+text("{a 2}Dad should be\nwaiting for us!{a 1}\p")
+end(0)
 section_end()
 
 # 0xA9 @ 0x6C6495
 section_start(0xA9)
 pic(34)
 dialog_up()
-para_talk_end("""Let's get back to
-the restaurant.
-Mom will be worried!""", 0)
+text("{a 2}Let's get back to\nthe restaurant.\nMom will be worried!{a 1}\p")
+end(0)
 section_end()
 
 # 0xBE @ 0x6C6506
@@ -113,9 +108,8 @@ if_flag(113, 0xBF, 0xFF)
 if_flag(148, 0xC0, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""You got some mail
-from Dad! What does
-it say?""", 0)
+text("{a 2}You got some mail\nfrom Dad! What does\nit say?{a 1}\p")
+end(0)
 section_end()
 
 # 0xBF @ 0x6C6551
@@ -123,9 +117,8 @@ section_start(0xBF)
 if_flag(148, 0xC0, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""What should we do
-about Chaud? Wanna
-go to the SciLab?""", 0)
+text("{a 2}What should we do\nabout Chaud? Wanna\ngo to the SciLab?{a 1}\p")
+end(0)
 section_end()
 
 # 0xC0 @ 0x6C659F
@@ -133,9 +126,8 @@ section_start(0xC0)
 if_flag(151, 0xC1, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""I wonder where in
-Dentown Chaud could
-be?""", 0)
+text("{a 2}I wonder where in\nDentown Chaud could\nbe?{a 1}\p")
+end(0)
 section_end()
 
 # 0xC1 @ 0x6C65DF
@@ -143,18 +135,16 @@ section_start(0xC1)
 check_item("Hig_Memo", 1, 0xC2, 0xC2, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""An exーmember of the
-WWW... It must be
-that guy!""", 0)
+text("{a 2}An exーmember of the\nWWW... It must be\nthat guy!{a 1}\p")
+end(0)
 section_end()
 
 # 0xC2 @ 0x6C6629
 section_start(0xC2)
 pic(34)
 dialog_up()
-para_talk_end("""Lan! I'll check
-out the net in
-this area!""", 0)
+text("{a 2}Lan! I'll check\nout the net in\nthis area!{a 1}\p")
+end(0)
 section_end()
 
 # 0xC8 @ 0x6C666F
@@ -162,9 +152,8 @@ section_start(0xC8)
 if_flag(152, 0xC9, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""You've got mail
-from Higs! Looks
-like more info!""", 0)
+text("{a 2}You've got mail\nfrom Higs! Looks\nlike more info!{a 1}\p")
+end(0)
 section_end()
 
 # 0xC9 @ 0x6C66B8
@@ -172,9 +161,8 @@ section_start(0xC9)
 check_item("Lab_Memo", 1, 0xCA, 0xCA, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,let's go look
-for Higs' former
-boss!""", 0)
+text("{a 2}Lan,let's go look\nfor Higs' former\nboss!{a 1}\p")
+end(0)
 section_end()
 
 # 0xCA @ 0x6C66FB
@@ -182,10 +170,10 @@ section_start(0xCA)
 if_flag(153, 0xCB, 0xFF)
 pic(34)
 dialog_up()
-para_talk("""An exーmember of the
-WWW...? Let's start
-with the""", 0)
-para_talk_end("""young woman.""", 0)
+text("{a 2}An exーmember of the\nWWW...? Let's start\nwith the{a 1}\p")
+wait(0)
+text("{a 2}young woman.{a 1}\p")
+end(0)
 section_end()
 
 # 0xCB @ 0x6C675B
@@ -193,8 +181,8 @@ section_start(0xCB)
 check_item("YuriMemo", 1, 0xCC, 0xCC, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,let's fill up
-our data library!""", 0)
+text("{a 2}Lan,let's fill up\nour data library!{a 1}\p")
+end(0)
 section_end()
 
 # 0xCC @ 0x6C6798
@@ -202,9 +190,8 @@ section_start(0xCC)
 if_flag(145, 0xCD, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""The next exーmember
-of the WWW... should
-be \"an elderly man\"!""", 0)
+text("{a 2}The next exーmember\nof the WWW... should\nbe \"an elderly man\"!{a 1}\p")
+end(0)
 section_end()
 
 # 0xCD @ 0x6C67F0
@@ -212,17 +199,16 @@ section_start(0xCD)
 check_item("Pa_sMemo", 1, 0xCE, 0xCE, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,help me raise
-my level!""", 0)
+text("{a 2}Lan,help me raise\nmy level!{a 1}\p")
+end(0)
 section_end()
 
 # 0xCE @ 0x6C6824
 section_start(0xCE)
 pic(34)
 dialog_up()
-para_talk_end("""We're almost there!
-Let's break into the
-WWW's server!""", 0)
+text("{a 2}We're almost there!\nLet's break into the\nWWW's server!{a 1}\p")
+end(0)
 section_end()
 
 # 0xD2 @ 0x6C6875
@@ -230,9 +216,8 @@ section_start(0xD2)
 if_flag(159, 0xD3, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Let's talk to Dad
-about the WWW server
-address!""", 0)
+text("{a 2}Let's talk to Dad\nabout the WWW server\naddress!{a 1}\p")
+end(0)
 section_end()
 
 # 0xD3 @ 0x6C68BC
@@ -240,18 +225,16 @@ section_start(0xD3)
 if_flag(158, 0xD4, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Let's get Dad to
-tell us the location
-of the WWW lab!""", 0)
+text("{a 2}Let's get Dad to\ntell us the location\nof the WWW lab!{a 1}\p")
+end(0)
 section_end()
 
 # 0xD4 @ 0x6C6909
 section_start(0xD4)
 pic(34)
 dialog_up()
-para_talk_end("""Now we just have to
-wait for Dad's mail.
-Wanna' head home?""", 0)
+text("{a 2}Now we just have to\nwait for Dad's mail.\nWanna' head home?{a 1}\p")
+end(0)
 section_end()
 
 # 0xD7 @ 0x6C695B
@@ -260,9 +243,8 @@ if_flag(114, 0xD8, 0xFF)
 check_item("WWW_Pass", 1, 0xD9, 0xD9, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""It's mail from Dad!
-Must be the location
-of the WWW lab!""", 0)
+text("{a 2}It's mail from Dad!\nMust be the location\nof the WWW lab!{a 1}\p")
+end(0)
 section_end()
 
 # 0xD8 @ 0x6C69B3
@@ -270,9 +252,8 @@ section_start(0xD8)
 check_item("WWW_Pass", 1, 0xD9, 0xD9, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Maybe we should ask
-that exーmember where
-the WWW lab is?""", 0)
+text("{a 2}Maybe we should ask\nthat exーmember where\nthe WWW lab is?{a 1}\p")
+end(0)
 section_end()
 
 # 0xD9 @ 0x6C6A03
@@ -280,19 +261,18 @@ section_start(0xD9)
 if_flag(165, 0xDA, 0xFF)
 pic(34)
 dialog_up()
-para_talk("""That pass,the
-Metroline...""", 0)
-para_talk_end("""Something smells
-fishy in ACDC Town!""", 0)
+text("{a 2}That pass,the\nMetroline...{a 1}\p")
+wait(0)
+text("{a 2}Something smells\nfishy in ACDC Town!{a 1}\p")
+end(0)
 section_end()
 
 # 0xDA @ 0x6C6A64
 section_start(0xDA)
 pic(34)
 dialog_up()
-para_talk_end("""I'll bet that the
-secret Metroline is
-somewhere in ACDC!""", 0)
+text("{a 2}I'll bet that the\nsecret Metroline is\nsomewhere in ACDC!{a 1}\p")
+end(0)
 section_end()
 
 # 0xE1 @ 0x6C6ABA
@@ -300,9 +280,8 @@ section_start(0xE1)
 if_flag(170, 0xE2, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Let's ask Dad about
-the expiration date
-on the pass!""", 0)
+text("{a 2}Let's ask Dad about\nthe expiration date\non the pass!{a 1}\p")
+end(0)
 section_end()
 
 # 0xE2 @ 0x6C6B06
@@ -310,17 +289,16 @@ section_start(0xE2)
 if_flag(175, 0xE3, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Let's go!
-To the WWW labs!""", 0)
+text("{a 2}Let's go!\nTo the WWW labs!{a 1}\p")
+end(0)
 section_end()
 
 # 0xE3 @ 0x6C6B39
 section_start(0xE3)
 pic(34)
 dialog_up()
-para_talk("""Wanna' improve our
-equipment? When
-you're done,""", 0)
-para_talk_end("""let's get going to
-the WWW labs!""", 0)
+text("{a 2}Wanna' improve our\nequipment? When\nyou're done,{a 1}\p")
+wait(0)
+text("{a 2}let's get going to\nthe WWW labs!{a 1}\p")
+end(0)
 section_end()

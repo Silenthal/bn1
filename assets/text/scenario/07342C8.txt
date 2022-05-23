@@ -4,19 +4,18 @@ section_count(0x5)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,it's Dad!{anim 1}{delay}
-{anim 2}Your dad's here!""", 0)
+text("{a 2}Lan,it's Dad!{a 1}{d}\n{a 2}Your dad's here!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x73430D
 section_start(0x01)
 pic(28)
 dialog_up()
-para_talk("""Lan,did you wait
-long? You're looking
-fit as a fiddle!""", 0)
-para_talk("""Where's Mom? Didn't
-she come with you?""")
+text("{a 2}Lan,did you wait\nlong? You're looking\nfit as a fiddle!{a 1}\p")
+wait(0)
+text("{a 2}Where's Mom? Didn't\nshe come with you?{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -24,9 +23,8 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk("""She's coming! She
-just had to get
-dressed!""")
+text("{a 2}She's coming! She\njust had to get\ndressed!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -34,13 +32,11 @@ section_end()
 section_start(0x03)
 pic(28)
 dialog_up()
-para_talk("""Hahaha! Well,that'll
-take a while,if I
-know your mother!""", 0)
+text("{a 2}Hahaha! Well,that'll\ntake a while,if I\nknow your mother!{a 1}\p")
+wait(0)
 hidepic()
-text("""{..}.""")
-page()
-text(""" """)
+text("{..}.\p")
+text(" ")
 set_flag(157)
 end()
 section_end()
@@ -49,14 +45,12 @@ section_end()
 section_start(0x04)
 pic(32)
 dialog_up()
-para_talk("""Sorry! Here I am!""", 0)
-para_talk("""Honey! How have you
-been? Are you keeping
-well?""", 0)
-para_general("""{...}
-{anim 2}Well,you seem good
-enough!{anim 1}""", 0)
-para_talk_end("""Let's go downstairs
-to the restaurant
-floor and eat!""", 0)
+text("{a 2}Sorry! Here I am!{a 1}\p")
+wait(0)
+text("{a 2}Honey! How have you\nbeen? Are you keeping\nwell?{a 1}\p")
+wait(0)
+text("{...}\n{a 2}Well,you seem good\nenough!{a 1}\p")
+wait(0)
+text("{a 2}Let's go downstairs\nto the restaurant\nfloor and eat!{a 1}\p")
+end(0)
 section_end()

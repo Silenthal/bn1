@@ -4,9 +4,8 @@ section_count(0x7)
 section_start(0x00)
 pic(0)
 dialog_up()
-para_talk("""Hey,Mom!
-Dad's invited us
-to a party!""")
+text("{a 2}Hey,Mom!\nDad's invited us\nto a party!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -14,13 +13,12 @@ section_end()
 section_start(0x01)
 pic(12)
 dialog_up()
-para_talk("""How wonderful!""", 0)
-para_talk("""How sweet of him to
-think of his family
-at such a busy time!""", 0)
-para_talk("""So,Lan,{anim 1}{delay}
-{anim 2}When and where are
-we supposed to meet?""")
+text("{a 2}How wonderful!{a 1}\p")
+wait(0)
+text("{a 2}How sweet of him to\nthink of his family\nat such a busy time!{a 1}\p")
+wait(0)
+text("{a 2}So,Lan,{a 1}{d}\n{a 2}When and where are\nwe supposed to meet?{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -28,9 +26,8 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk("""At 7,in front of the
-TV in the 1st floor
-lobby of the SciLab.""")
+text("{a 2}At 7,in front of the\nTV in the 1st floor\nlobby of the SciLab.{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -38,10 +35,7 @@ section_end()
 section_start(0x03)
 pic(12)
 dialog_up()
-text_talking("""OK!{anim 1} ...{delay}{anim 2}But wait!{anim 1}{delay}
-{anim 2}It's almost 7 now!
-We have to hurry!""")
-page()
+text("{a 2}OK!{a 1} ...{d}{a 2}But wait!{a 1}{d}\n{a 2}It's almost 7 now!\nWe have to hurry!{a 1}\p")
 set_flag(150)
 end()
 section_end()
@@ -50,12 +44,10 @@ section_end()
 section_start(0x04)
 pic(0)
 dialog_up()
-para_talk("""Mom!!{anim 1}{delay}{anim 2} Since you
-always take so long,
-I'll go ahead,OK?""", 0)
-para_talk("""...Man,if I had to
-wait for her,I'd
-never get to eat...""")
+text("{a 2}Mom!!{a 1}{d}{a 2} Since you\nalways take so long,\nI'll go ahead,OK?{a 1}\p")
+wait(0)
+text("{a 2}...Man,if I had to\nwait for her,I'd\nnever get to eat...{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -63,9 +55,8 @@ section_end()
 section_start(0x05)
 pic(34)
 dialog_up()
-para_talk("""C'mon Lan{anim 1}...{delay}{anim 2}I know
-you just can't wait
-to see your dad...""")
+text("{a 2}C'mon Lan{a 1}...{d}{a 2}I know\nyou just can't wait\nto see your dad...{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -73,7 +64,6 @@ section_end()
 section_start(0x06)
 pic(0)
 dialog_up()
-para_talk_end("""HーHey,stop saying
-that!{anim 1}{delay}
-{anim 2}Geez...""", 0)
+text("{a 2}HーHey,stop saying\nthat!{a 1}{d}\n{a 2}Geez...{a 1}\p")
+end(0)
 section_end()

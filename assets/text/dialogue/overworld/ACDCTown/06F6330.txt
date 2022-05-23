@@ -6,21 +6,20 @@ if_flag(39, 0x28, 0xFF)
 if_shop(0x00, 0xFF, 0x01)
 pic(6)
 dialog_up()
-text("""{anim 2}Yah wanna some chips
-huh?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Yah wanna some chips\nhuh?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x02, 0xFF], 0, False, True)
-para_talk_end("""Yah don't,huh?""")
+text("{a 2}Yah don't,huh?{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x6F6568
 section_start(0x01)
 pic(6)
 dialog_up()
-para_talk_end("""Da chips are sold
-out,huh.""")
+text("{a 2}Da chips are sold\nout,huh.{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x6F6594
@@ -32,9 +31,8 @@ section_end()
 section_start(0x05)
 pic(6)
 dialog_up()
-para_talk("""Dis is my auto
-chip sales machine,
-huh.""")
+text("{a 2}Dis is my auto\nchip sales machine,\nhuh.{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -44,21 +42,20 @@ if_shop(0x00, 0xFF, 0x07)
 clear_flag(166)
 pic(6)
 dialog_up()
-text("""{anim 2}Yah wanna buy some
-chips,huh?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Yah wanna buy some\nchips,huh?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x08, 0xFF], 0, False, True)
-para_talk_end("""Yah don't,huh?""")
+text("{a 2}Yah don't,huh?{a 1}\p")
+end(5)
 section_end()
 
 # 0x07 @ 0x6F663E
 section_start(0x07)
 pic(6)
 dialog_up()
-para_talk_end("""Da chips are sold
-out,huh.""")
+text("{a 2}Da chips are sold\nout,huh.{a 1}\p")
+end(5)
 section_end()
 
 # 0x08 @ 0x6F666A
@@ -69,16 +66,14 @@ section_end()
 
 # 0x0A @ 0x6F6675
 section_start(0x0A)
-if_story(0x53, 0x54, 0x10, 0xFF)
+if_story(0x53, 0x54, 0x10)
 pic(6)
 dialog_up()
-para_talk("""That machine got
-NumberMan data,huh?""", 0)
-text("""{anim 2}Yah wanna Netbattle
-it,huh?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}That machine got\nNumberMan data,huh?{a 1}\p")
+wait(0)
+text("{a 2}Yah wanna Netbattle\nit,huh?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0B, 0x0C], 1, False, True)
 end()
 section_end()
@@ -88,10 +83,7 @@ section_start(0x0B)
 if_flag(41, 0x0D, 0xFF)
 pic(6)
 dialog_up()
-text_talking("""Collecting rare
-chips ain't easy,
-huh!""")
-page()
+text("{a 2}Collecting rare\nchips ain't easy,\nhuh!{a 1}\p")
 set_flag(41)
 dialog_down()
 end()
@@ -101,104 +93,92 @@ section_end()
 section_start(0x0C)
 pic(6)
 dialog_up()
-para_talk_end("""Yah scared of my
-rare chips,huh?""", 0)
+text("{a 2}Yah scared of my\nrare chips,huh?{a 1}\p")
+end(0)
 section_end()
 
 # 0x0D @ 0x6F6764
 section_start(0x0D)
 pic(6)
 dialog_up()
-para_talk_end("""First yah gotta be a
-better Battler than
-you are now,huh.""", 0)
+text("{a 2}First yah gotta be a\nbetter Battler than\nyou are now,huh.{a 1}\p")
+end(0)
 section_end()
 
 # 0x0E @ 0x6F67AF
 section_start(0x0E)
 pic(6)
 dialog_up()
-para_talk_end("""Defeat is a result
-of lack of skill,not
-lack of chips,huh!""", 0)
+text("{a 2}Defeat is a result\nof lack of skill,not\nlack of chips,huh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x6F67FC
 section_start(0x0F)
 pic(6)
 dialog_up()
-para_talk_end("""Yah gotta use yah
-chips better,huh!{anim 1}{delay}
-{anim 2}Grok the chips,huh!""", 0)
+text("{a 2}Yah gotta use yah\nchips better,huh!{a 1}{d}\n{a 2}Grok the chips,huh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x6F684F
 section_start(0x10)
 dialog_up()
-para_general_end("""There's no response.
-Looks like the power
-is off.""", 0)
+text("There's no response.\nLooks like the power\nis off.\p")
+end(0)
 section_end()
 
 # 0x14 @ 0x6F6891
 section_start(0x14)
 dialog_up()
-para_general_end("""By putting in
-unneeded chips,you
-can get new ones.""")
+text("By putting in\nunneeded chips,you\ncan get new ones.\p")
+end(5)
 section_end()
 
 # 0x1E @ 0x6F68DF
 section_start(0x1E)
 dialog_up()
-para_general_end("""By putting in
-unneeded chips,you
-can get new ones.""")
+text("By putting in\nunneeded chips,you\ncan get new ones.\p")
+end(5)
 section_end()
 
 # 0x28 @ 0x6F692D
 section_start(0x28)
-if_story(0x26, 0x27, 0x2D, 0xFF)
-if_story(0x30, 0x37, 0x32, 0xFF)
-if_story(0x40, 0x47, 0x37, 0xFF)
-if_story(0x50, 0x57, 0x3C, 0xFF)
+if_story(0x26, 0x27, 0x2D)
+if_story(0x30, 0x37, 0x32)
+if_story(0x40, 0x47, 0x37)
+if_story(0x50, 0x57, 0x3C)
 pic(6)
 dialog_up()
-para_talk("""I'm sorry about
-the other day,huh.""", 0)
-para_talk_end("""I quit the WWW,huh!
-Please believe me,
-huh!""")
+text("{a 2}I'm sorry about\nthe other day,huh.{a 1}\p")
+wait(0)
+text("{a 2}I quit the WWW,huh!\nPlease believe me,\nhuh!{a 1}\p")
+end(5)
 section_end()
 
 # 0x29 @ 0x6F69B1
 section_start(0x29)
-if_story(0x26, 0x27, 0x2E, 0xFF)
-if_story(0x30, 0x37, 0x33, 0xFF)
-if_story(0x40, 0x47, 0x38, 0xFF)
-if_story(0x50, 0x57, 0x3D, 0xFF)
+if_story(0x26, 0x27, 0x2E)
+if_story(0x30, 0x37, 0x33)
+if_story(0x40, 0x47, 0x38)
+if_story(0x50, 0x57, 0x3D)
 pic(9)
 dialog_up()
-para_talk("""I keep finding these
-viruses that look
-like fish.""", 0)
-para_talk("""So I came to buy
-some electricity
-based chips.""", 0)
-para_talk_end("""Electricity based
-chips are strong
-against water!""")
+text("{a 2}I keep finding these\nviruses that look\nlike fish.{a 1}\p")
+wait(0)
+text("{a 2}So I came to buy\nsome electricity\nbased chips.{a 1}\p")
+wait(0)
+text("{a 2}Electricity based\nchips are strong\nagainst water!{a 1}\p")
+end(5)
 section_end()
 
 # 0x2A @ 0x6F6A7C
 section_start(0x2A)
 pic(10)
 dialog_up()
-text("""{anim 2}Want to know how
-to use the trader?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Want to know how\nto use the trader?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x2B, 0xFF], 0, False, True)
 end()
 section_end()
@@ -207,35 +187,28 @@ section_end()
 section_start(0x2B)
 pic(10)
 dialog_up()
-para_talk("""When you put chips
-in the chip trader
-you get 1 new one.""", 0)
-para_talk("""Sort of like a
-lottery.""", 0)
-para_talk("""The red one takes
-3 chips to get 1
-back.""", 0)
-para_talk("""The blue one needs
-10 chips,but gives
-more rares.""", 0)
-para_talk("""You can use either
-one,but don't lose
-all your chips!""", 0)
-para_talk("""And putting in good
-chips doesn't mean
-you get a good one.""", 0)
-para_talk_end("""The only thing that
-matters is how many
-chips,3 or 10.""", 0)
+text("{a 2}When you put chips\nin the chip trader\nyou get 1 new one.{a 1}\p")
+wait(0)
+text("{a 2}Sort of like a\nlottery.{a 1}\p")
+wait(0)
+text("{a 2}The red one takes\n3 chips to get 1\nback.{a 1}\p")
+wait(0)
+text("{a 2}The blue one needs\n10 chips,but gives\nmore rares.{a 1}\p")
+wait(0)
+text("{a 2}You can use either\none,but don't lose\nall your chips!{a 1}\p")
+wait(0)
+text("{a 2}And putting in good\nchips doesn't mean\nyou get a good one.{a 1}\p")
+wait(0)
+text("{a 2}The only thing that\nmatters is how many\nchips,3 or 10.{a 1}\p")
+end(0)
 section_end()
 
 # 0x2D @ 0x6F6C62
 section_start(0x2D)
 pic(6)
 dialog_up()
-para_talk_end("""Not many customers,
-huh. Not a good
-opening day,huh.""", 0)
+text("{a 2}Not many customers,\nhuh. Not a good\nopening day,huh.{a 1}\p")
+end(0)
 section_end()
 
 # 0x2E @ 0x6F6CAA
@@ -252,45 +225,40 @@ section_end()
 section_start(0x32)
 pic(6)
 dialog_up()
-para_talk_end("""I got some new chips
-huh! Please take a
-look,huh!""", 0)
+text("{a 2}I got some new chips\nhuh! Please take a\nlook,huh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x33 @ 0x6F6D04
 section_start(0x33)
 pic(9)
 dialog_up()
-para_talk("""I heard some rumors
-about program
-morphs!""", 0)
-para_talk("""Cannon,spread gun,
-ratton,triple
-arrow...""", 0)
-para_talk_end("""These chips will
-morph when lined up
-alphabetically!""", 0)
+text("{a 2}I heard some rumors\nabout program\nmorphs!{a 1}\p")
+wait(0)
+text("{a 2}Cannon,spread gun,\nratton,triple\narrow...{a 1}\p")
+wait(0)
+text("{a 2}These chips will\nmorph when lined up\nalphabetically!{a 1}\p")
+end(0)
 section_end()
 
 # 0x37 @ 0x6F6DB8
 section_start(0x37)
 pic(6)
 dialog_up()
-para_talk_end("""No new chips out
-now,huh...""", 0)
+text("{a 2}No new chips out\nnow,huh...{a 1}\p")
+end(0)
 section_end()
 
 # 0x38 @ 0x6F6DE7
 section_start(0x38)
 pic(9)
 dialog_up()
-para_talk("""I heard more about
-chip morphing! Use
-Shock,Sonic,and Dyna""", 0)
-para_talk("""Wave chips,and it'll
-morph into something
-called BetaWave!""", 0)
-para_talk_end("""I wanna try that!""", 0)
+text("{a 2}I heard more about\nchip morphing! Use\nShock,Sonic,and Dyna{a 1}\p")
+wait(0)
+text("{a 2}Wave chips,and it'll\nmorph into something\ncalled BetaWave!{a 1}\p")
+wait(0)
+text("{a 2}I wanna try that!{a 1}\p")
+end(0)
 section_end()
 
 # 0x3C @ 0x6F6E99
@@ -298,20 +266,20 @@ section_start(0x3C)
 if_flag(151, 0x3E, 0xFF)
 pic(6)
 dialog_up()
-para_talk_end("""I gotta some new
-chips,huh! Big sale
-now,huh!""", 0)
+text("{a 2}I gotta some new\nchips,huh! Big sale\nnow,huh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x3D @ 0x6F6EE0
 section_start(0x3D)
 pic(9)
 dialog_up()
-para_talk("""I found my own
-morph!""", 0)
-para_talk("""Use GutsPnch,Ice
-Punch,and Dash!""", 0)
-para_talk_end("""It's amazing!""", 0)
+text("{a 2}I found my own\nmorph!{a 1}\p")
+wait(0)
+text("{a 2}Use GutsPnch,Ice\nPunch,and Dash!{a 1}\p")
+wait(0)
+text("{a 2}It's amazing!{a 1}\p")
+end(0)
 section_end()
 
 # 0x3E @ 0x6F6F48
@@ -319,15 +287,14 @@ section_start(0x3E)
 check_item("Hig_Memo", 1, 0x46, 0x46, 0xFF)
 pic(6)
 dialog_up()
-para_talk("""Yah wanna inside
-the Undernet,huh???""", 0)
-para_general("""・{delay}・{delay}・""", 0)
-para_talk("""OK,huh! Thanks to
-you,I got out of
-the WWW,huh!""", 0)
-para_talk("""To thank you,I'll
-get you in to the
-Undernet,huh!""")
+text("{a 2}Yah wanna inside\nthe Undernet,huh???{a 1}\p")
+wait(0)
+text("・{d}・{d}・\p")
+wait(0)
+text("{a 2}OK,huh! Thanks to\nyou,I got out of\nthe WWW,huh!{a 1}\p")
+wait(0)
+text("{a 2}To thank you,I'll\nget you in to the\nUndernet,huh!{a 1}\p")
+wait(5)
 jump(0x3F)
 section_end()
 
@@ -335,8 +302,8 @@ section_end()
 section_start(0x3F)
 hidepic()
 dialog_up()
-para_general("""*clink**clank*...
-*beep!*""")
+text("*clink**clank*...\n*beep!*\p")
+wait(5)
 jump(0x40)
 section_end()
 
@@ -344,8 +311,8 @@ section_end()
 section_start(0x40)
 pic(6)
 dialog_up()
-para_talk("""I sent the codes
-to your PET,huh!""")
+text("{a 2}I sent the codes\nto your PET,huh!{a 1}\p")
+wait(5)
 jump(0x41)
 section_end()
 
@@ -354,9 +321,8 @@ section_start(0x41)
 hidepic()
 dialog_up()
 pc_anim_start(30)
-add_item("Hig_Memo", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got;
-\"{key Hig_Memo}\"!""")
+add_item("Hig_Memo", 1)
+text("Lan got;\n\"{key Hig_Memo}\"!")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -369,12 +335,10 @@ section_end()
 section_start(0x42)
 pic(6)
 dialog_up()
-para_talk("""Go towards Dentown
-in the net,huh. The
-access point's there""", 0)
-para_talk_end("""Use the code on that
-memo,huh. That'll get
-you in!{anim 1}{delay}...{anim 2}huh.""", 0)
+text("{a 2}Go towards Dentown\nin the net,huh. The\naccess point's there{a 1}\p")
+wait(0)
+text("{a 2}Use the code on that\nmemo,huh. That'll get\nyou in!{a 1}{d}...{a 2}huh.{a 1}\p")
+end(0)
 section_end()
 
 # 0x43 @ 0x6F714D
@@ -410,41 +374,35 @@ section_end()
 section_start(0x46)
 pic(6)
 dialog_up()
-para_talk("""There's an access
-point to Undernet
-in Dentown,huh.""", 0)
-para_talk("""Use the code on that
-memo,huh. That'll get
-you in!{anim 1}{delay}...{anim 2}huh.""", 0)
-para_talk_end("""Lan,please save the
-nice people of ACDC
-Town,huh!!""", 0)
+text("{a 2}There's an access\npoint to Undernet\nin Dentown,huh.{a 1}\p")
+wait(0)
+text("{a 2}Use the code on that\nmemo,huh. That'll get\nyou in!{a 1}{d}...{a 2}huh.{a 1}\p")
+wait(0)
+text("{a 2}Lan,please save the\nnice people of ACDC\nTown,huh!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x50 @ 0x6F7269
 section_start(0x50)
-if_story(0x50, 0x52, 0x3D, 0xFF)
+if_story(0x50, 0x52, 0x3D)
 pic(9)
 dialog_up()
-para_talk("""When I got here,
-Higsby was taken
-by some strange men!""", 0)
-para_talk("""They surrounded him,
-and then took off!""", 0)
-para_talk_end("""I saw him drop
-something in the
-struggle...""", 0)
+text("{a 2}When I got here,\nHigsby was taken\nby some strange men!{a 1}\p")
+wait(0)
+text("{a 2}They surrounded him,\nand then took off!{a 1}\p")
+wait(0)
+text("{a 2}I saw him drop\nsomething in the\nstruggle...{a 1}\p")
+end(0)
 section_end()
 
 # 0x51 @ 0x6F731E
 section_start(0x51)
 dialog_up()
-para_general("""...{delay}There's something
-by the register!""", 0)
+text("...{d}There's something\nby the register!\p")
+wait(0)
 pc_anim(30)
-add_item("WWW_Pass", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got;
-\"{key WWW_Pass}\"!""")
+add_item("WWW_Pass", 1)
+text("Lan got;\n\"{key WWW_Pass}\"!")
 pc_wait()
 pc_restore()
 page()
@@ -456,63 +414,61 @@ section_end()
 section_start(0x52)
 pic(34)
 dialog_up()
-para_talk("""A Metroline pass?""", 0)
-para_talk("""The WWW and the
-Metroline..Something
-fishy going on here!""", 0)
-para_talk("""The pass is expired.
-I'll bet Higsby was
-using it for""", 0)
-para_talk_end("""the WWW.""", 0)
+text("{a 2}A Metroline pass?{a 1}\p")
+wait(0)
+text("{a 2}The WWW and the\nMetroline..Something\nfishy going on here!{a 1}\p")
+wait(0)
+text("{a 2}The pass is expired.\nI'll bet Higsby was\nusing it for{a 1}\p")
+wait(0)
+text("{a 2}the WWW.{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x6F7545
 section_start(0xDC)
 dialog_up()
-para_general_end("""Jack in,and try
-out the chips
-you've won!""")
+text("Jack in,and try\nout the chips\nyou've won!\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x6F7579
 section_start(0xDD)
 dialog_up()
-para_general_end("""Looks pretty well
-locked up. There's
-lots of cash inside""")
+text("Looks pretty well\nlocked up. There's\nlots of cash inside\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x6F75BB
 section_start(0xDE)
 dialog_up()
-para_general_end("""Lots of chips are
-lined up inside""")
+text("Lots of chips are\nlined up inside\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x6F75E4
 section_start(0xDF)
 dialog_up()
-para_general_end("""An amazing array
-of chips. Makes you
-want to buy some""")
+text("An amazing array\nof chips. Makes you\nwant to buy some\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x6F7622
 section_start(0xE0)
 dialog_up()
-para_general_end("""What a cool poster!""")
+text("What a cool poster!\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x6F763E
 section_start(0xE1)
 dialog_up()
-para_general_end("""\"Employees only\"""")
+text("\"Employees only\"\p")
+end(5)
 section_end()
 
 # 0xE2 @ 0x6F7658
 section_start(0xE2)
 dialog_up()
-para_general_end("""The mascot Navi
-of Higsby's shop,
-\"NumberMan\"""")
+text("The mascot Navi\nof Higsby's shop,\n\"NumberMan\"\p")
+end(5)
 section_end()

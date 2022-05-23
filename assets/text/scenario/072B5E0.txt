@@ -3,33 +3,32 @@ section_count(0x3)
 # 0x00 @ 0x72B5E6
 section_start(0x00)
 dialog_up()
-para_general_end("""Several days after
-the \"strange oven
-explosions\"...""", 10)
+text("Several days after\nthe \"strange oven\nexplosions\"...\p")
+end(10)
 section_end()
 
 # 0x01 @ 0x72B626
 section_start(0x01)
 dialog_up()
 text_se_off()
-text("""*clip*""")
+text("*clip*")
 se(0xA3)
-text("""{delay} *clop*""")
+text("{d} *clop*")
 se(0xA3)
-text("""{delay}...
-*clip*""")
+text("{d}...\n*clip*")
 se(0xA3)
-text("""{delay} *clop*""")
+text("{d} *clop*")
 se(0xA3)
-para_general_end("""...""", 10)
+text("...\p")
+end(10)
 section_end()
 
 # 0x02 @ 0x72B67B
 section_start(0x02)
 pic(6, 1)
 dialog_up()
-para_general("""...ACDC elementary,
-DenCity...{delay}This is
-the place!""", 0)
-para_general_end("""{...}*grin*""", 10)
+text("...ACDC elementary,\nDenCity...{d}This is\nthe place!\p")
+wait(0)
+text("{...}*grin*\p")
+end(10)
 section_end()

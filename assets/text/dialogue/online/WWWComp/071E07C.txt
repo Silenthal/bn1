@@ -5,22 +5,19 @@ section_start(0x0A)
 if_flag(193, 0x0C, 0xFF)
 set_flag(193)
 dialog_up()
-para_general("""This door is
-passcode protected""", 0)
-para_general("""Door will not open
-without proper
-authorization""", 0)
-para_general("""Passcode hint;
-none""", 0)
+text("This door is\npasscode protected\p")
+wait(0)
+text("Door will not open\nwithout proper\nauthorization\p")
+wait(0)
+text("Passcode hint;\nnone\p")
+wait(0)
 pic(34)
-para_talk("""What? No hint{anim 1}...?{delay}
-{anim 2}Well,let's just try
-anything!""", 0)
+text("{a 2}What? No hint{a 1}...?{d}\n{a 2}Well,let's just try\nanything!{a 1}\p")
+wait(0)
 hidepic()
-text("""Input passcode?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Input passcode?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0B, 0xFF], 0, False, True)
 end(5)
 section_end()
@@ -36,17 +33,15 @@ section_end()
 # 0x0C @ 0x71E1EF
 section_start(0x0C)
 dialog_up()
-para_general("""This door is
-passcode protected""", 0)
-para_general("""Door will not open
-without proper
-authorization""", 0)
-para_general("""Passcode hint;
-none""", 0)
-text("""Input passcode?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("This door is\npasscode protected\p")
+wait(0)
+text("Door will not open\nwithout proper\nauthorization\p")
+wait(0)
+text("Passcode hint;\nnone\p")
+wait(0)
+text("Input passcode?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0B, 0xFF], 0, False, True)
 end(5)
 section_end()
@@ -54,11 +49,9 @@ section_end()
 # 0x0D @ 0x71E28C
 section_start(0x0D)
 dialog_up()
-text_talking("""Abort passcode
-input procedure?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Abort passcode\ninput procedure?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0xFF, 0x0B], 0, False, True)
 passcode_hide()
 end(5)
@@ -67,11 +60,9 @@ section_end()
 # 0x0E @ 0x71E2D1
 section_start(0x0E)
 dialog_up()
-text("""Finalize passcode
-input?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Finalize passcode\ninput?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0F, 0x0B], 0, False, True)
 page()
 end(5)
@@ -82,8 +73,8 @@ section_start(0x0F)
 passcode_check(0xFF, 0x10, 0x15, 0x16, 0x13, 0x14, 0x1E)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too low.
-Access denied""", 0)
+text("Passcode too low.\nAccess denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -92,8 +83,8 @@ section_end()
 section_start(0x10)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too high.
-Access denied""", 0)
+text("Passcode too high.\nAccess denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -102,10 +93,10 @@ section_end()
 section_start(0x13)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too high.
-Second digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too high.\nSecond digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -114,10 +105,10 @@ section_end()
 section_start(0x14)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too high.
-First digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too high.\nFirst digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -126,10 +117,10 @@ section_end()
 section_start(0x15)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too low.
-Second digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too low.\nSecond digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -138,10 +129,10 @@ section_end()
 section_start(0x16)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too low.
-First digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too low.\nFirst digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -149,10 +140,9 @@ section_end()
 # 0x17 @ 0x71E4F2
 section_start(0x17)
 dialog_up()
-text("""Reーinput?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Reーinput?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0B, 0xFF], 0, False, True)
 passcode_hide()
 end(5)
@@ -161,56 +151,48 @@ section_end()
 # 0x19 @ 0x71E51F
 section_start(0x19)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. First digit
-increased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. First digit\nincreased\p")
+wait(0)
 jump(0x0B)
 section_end()
 
 # 0x1A @ 0x71E595
 section_start(0x1A)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. First digit
-decreased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. First digit\ndecreased\p")
+wait(0)
 jump(0x0B)
 section_end()
 
 # 0x1B @ 0x71E60B
 section_start(0x1B)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. Second
-digit increased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. Second\ndigit increased\p")
+wait(0)
 jump(0x0B)
 section_end()
 
 # 0x1C @ 0x71E682
 section_start(0x1C)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. Second
-digit decreased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. Second\ndigit decreased\p")
+wait(0)
 jump(0x0B)
 section_end()
 
 # 0x1E @ 0x71E6FB
 section_start(0x1E)
 dialog_up()
-para_general("""Passcode accepted.
-Lock released""", 0)
+text("Passcode accepted.\nLock released\p")
+wait(0)
 jump(0x1F)
 section_end()
 
@@ -220,8 +202,7 @@ pic(34)
 dialog_up()
 anim(2)
 se(0xE7)
-text("""Way to go!!{anim 1}""")
-page()
+text("Way to go!!{a 1}\p")
 dialog_down()
 if_flag(197, 0x20, 0xFF)
 if_flag(199, 0x21, 0xFF)
@@ -295,13 +276,12 @@ section_end()
 # 0x28 @ 0x71E7EA
 section_start(0x28)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(841)
 pc_anim_start(50)
 add_chip("Huricane L", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Huricane L}\"!""")
+text("MegaMan got a chip\nfor \"{chip Huricane L}\"!")
 pc_anim_end()
 page()
 end()
@@ -310,13 +290,12 @@ section_end()
 # 0x29 @ 0x71E858
 section_start(0x29)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(842)
 pc_anim_start(50)
 award_zenny([8000, 8000])
-text("""MegaMan got 8000
-zennys!{anim 1}""")
+text("MegaMan got 8000\nzennys!{a 1}")
 pc_anim_end()
 page()
 end()
@@ -325,13 +304,12 @@ section_end()
 # 0x2A @ 0x71E8C1
 section_start(0x2A)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(843)
 pc_anim_start(50)
 add_chip("FtrSword P", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip FtrSword P}\"!""")
+text("MegaMan got a chip\nfor \"{chip FtrSword P}\"!")
 pc_anim_end()
 page()
 end()
@@ -341,9 +319,8 @@ section_end()
 section_start(0x2B)
 pic(38)
 dialog_up()
-para_talk("""Higsby has had a
-change of heart and
-is now doing his""", 0)
-para_talk_end("""best to help you...
-As am I...""", 0)
+text("{a 2}Higsby has had a\nchange of heart and\nis now doing his{a 1}\p")
+wait(0)
+text("{a 2}best to help you...\nAs am I...{a 1}\p")
+end(0)
 section_end()

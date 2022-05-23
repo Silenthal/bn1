@@ -4,12 +4,10 @@ section_count(0x2)
 section_start(0x00)
 pic(0)
 dialog_up()
-para_talk("""The generator...{anim 1}{delay}
-{anim 2}is working!?{anim 1}{delay}{anim 2} Then
-why's the power out?""", 0)
-para_talk("""MegaMan! Check out
-the power generator
-area again!""")
+text("{a 2}The generator...{a 1}{d}\n{a 2}is working!?{a 1}{d}{a 2} Then\nwhy's the power out?{a 1}\p")
+wait(0)
+text("{a 2}MegaMan! Check out\nthe power generator\narea again!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -17,5 +15,6 @@ section_end()
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk_end("""Roger!!""", 0)
+text("{a 2}Roger!!{a 1}\p")
+end(0)
 section_end()

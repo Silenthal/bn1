@@ -4,10 +4,10 @@ section_count(0x13)
 section_start(0x00)
 pic(5)
 dialog_up()
-para_general("""{anim 2}Grrr{anim 1}{delay}{..}.""", 0)
-para_talk("""All our plots in
-DenCity are failing
-recently!""")
+text("{a 2}Grrr{a 1}{d}{..}.\p")
+wait(0)
+text("{a 2}All our plots in\nDenCity are failing\nrecently!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -15,9 +15,8 @@ section_end()
 section_start(0x01)
 pic(29)
 dialog_up()
-para_talk("""We're having some
-funding problems,
-too...""")
+text("{a 2}We're having some\nfunding problems,\ntoo...{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -25,11 +24,10 @@ section_end()
 section_start(0x02)
 pic(5)
 dialog_up()
-para_talk("""This will slow down
-the entire WWW plot
-to control the net!""", 0)
-para_talk("""What exactly is the
-problem!?""")
+text("{a 2}This will slow down\nthe entire WWW plot\nto control the net!{a 1}\p")
+wait(0)
+text("{a 2}What exactly is the\nproblem!?{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -37,9 +35,8 @@ section_end()
 section_start(0x03)
 pic(13)
 dialog_up()
-para_general("""{anim 2}Apologies,
-Lord Wily!
-It's just{anim 1}{delay}{..}.""")
+text("{a 2}Apologies,\nLord Wily!\nIt's just{a 1}{d}{..}.\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -47,7 +44,8 @@ section_end()
 section_start(0x04)
 pic(5)
 dialog_up()
-para_talk("""What!? Speak up!!""")
+text("{a 2}What!? Speak up!!{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -55,9 +53,8 @@ section_end()
 section_start(0x05)
 pic(13)
 dialog_up()
-para_talk("""There's just this
-one Naviーoperator
-team....""")
+text("{a 2}There's just this\none Naviーoperator\nteam....{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -65,8 +62,8 @@ section_end()
 section_start(0x06)
 pic(5)
 dialog_up()
-para_talk("""Hmph,an official
-NetBatttler,huh?""")
+text("{a 2}Hmph,an official\nNetBatttler,huh?{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -74,12 +71,10 @@ section_end()
 section_start(0x07)
 pic(24)
 dialog_up()
-para_talk("""No,it's just a boy
-by the name of Lan,
-but...""", 0)
-para_talk("""He's got this
-powerful Navi,
-\"MegaMan.EXE\".""")
+text("{a 2}No,it's just a boy\nby the name of Lan,\nbut...{a 1}\p")
+wait(0)
+text("{a 2}He's got this\npowerful Navi,\n\"MegaMan.EXE\".{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -87,10 +82,10 @@ section_end()
 section_start(0x08)
 pic(5)
 dialog_up()
-para_talk("""What are you saying?
-Our WWW Navis can
-handle anything!""", 0)
-para_talk("""No more excuses!""")
+text("{a 2}What are you saying?\nOur WWW Navis can\nhandle anything!{a 1}\p")
+wait(0)
+text("{a 2}No more excuses!{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -98,7 +93,8 @@ section_end()
 section_start(0x09)
 pic(13)
 dialog_up()
-para_talk("""Yes,but...""")
+text("{a 2}Yes,but...{a 1}\p")
+wait(5)
 jump(0x0A)
 section_end()
 
@@ -106,11 +102,10 @@ section_end()
 section_start(0x0A)
 pic(5)
 dialog_up()
-para_talk("""Silence I said!
-Silence!""", 0)
-para_talk("""No more failures!
-Delete all that
-stand in your way!""")
+text("{a 2}Silence I said!\nSilence!{a 1}\p")
+wait(0)
+text("{a 2}No more failures!\nDelete all that\nstand in your way!{a 1}\p")
+wait(5)
 jump(0x0B)
 section_end()
 
@@ -118,9 +113,8 @@ section_end()
 section_start(0x0B)
 pic(24)
 dialog_up()
-para_general("""...{anim 2}Yessir.{anim 1}{delay}
-{anim 2}I have a plan.{anim 1}{delay}
-{anim 2}Leave it to me.{anim 1}""")
+text("...{a 2}Yessir.{a 1}{d}\n{a 2}I have a plan.{a 1}{d}\n{a 2}Leave it to me.{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -128,7 +122,8 @@ section_end()
 section_start(0x0C)
 pic(5)
 dialog_up()
-para_talk("""Then get to it!""")
+text("{a 2}Then get to it!{a 1}\p")
+wait(5)
 jump(0x0D)
 section_end()
 
@@ -136,8 +131,8 @@ section_end()
 section_start(0x0D)
 pic(29)
 dialog_up()
-para_talk("""We await your
-favorable report...""")
+text("{a 2}We await your\nfavorable report...{a 1}\p")
+wait(5)
 jump(0x0E)
 section_end()
 
@@ -145,20 +140,20 @@ section_end()
 section_start(0x0E)
 pic(5)
 dialog_up()
-para_talk_end("""I'm off!""", 0)
+text("{a 2}I'm off!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x731696
 section_start(0x0F)
 pic(24)
 dialog_up()
-para_talk("""Why why why!?""", 0)
-para_talk("""Must we get every
-superprogram by
-ourselves?""", 0)
-para_talk("""We might not have
-gotten \"Wood\",but
-\"Fire\" and \"Aqua\"!""")
+text("{a 2}Why why why!?{a 1}\p")
+wait(0)
+text("{a 2}Must we get every\nsuperprogram by\nourselves?{a 1}\p")
+wait(0)
+text("{a 2}We might not have\ngotten \"Wood\",but\n\"Fire\" and \"Aqua\"!{a 1}\p")
+wait(5)
 jump(0x10)
 section_end()
 
@@ -166,12 +161,10 @@ section_end()
 section_start(0x10)
 pic(30)
 dialog_up()
-para_talk("""You're right!
-But,we mustn't speak
-of the LifeVirus!""", 0)
-para_talk("""It's so top secret
-we're not supposed
-to know about it!""")
+text("{a 2}You're right!\nBut,we mustn't speak\nof the LifeVirus!{a 1}\p")
+wait(0)
+text("{a 2}It's so top secret\nwe're not supposed\nto know about it!{a 1}\p")
+wait(5)
 jump(0x11)
 section_end()
 
@@ -179,14 +172,14 @@ section_end()
 section_start(0x11)
 pic(24)
 dialog_up()
-para_talk_end("""I know,I know{anim 1}.{delay}
-{anim 2}Well!{anim 1} {delay}{anim 2}Back to work!""", 0)
+text("{a 2}I know,I know{a 1}.{d}\n{a 2}Well!{a 1} {d}{a 2}Back to work!{a 1}\p")
+end(0)
 section_end()
 
 # 0x12 @ 0x731807
 section_start(0x12)
 pic(5)
 dialog_up()
-para_talk_end("""\"Lan\"...Hmm{anim 1}.{delay}
-{anim 2}I wonder...?""", 0)
+text("{a 2}\"Lan\"...Hmm{a 1}.{d}\n{a 2}I wonder...?{a 1}\p")
+end(0)
 section_end()

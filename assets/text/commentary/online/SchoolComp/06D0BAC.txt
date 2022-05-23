@@ -2,11 +2,12 @@ section_count(0x10)
 
 # 0x00 @ 0x6D0BCC
 section_start(0x00)
-if_story(0x12, 0x12, 0x05, 0xFF)
-if_story(0x13, 0x15, 0x0A, 0xFF)
-if_story(0x20, 0x57, 0x0F, 0xFF)
+if_story(0x12, 0x12, 0x05)
+if_story(0x13, 0x15, 0x0A)
+if_story(0x20, 0x57, 0x0F)
 dialog_up()
-para_general_end("""Test message""")
+text("Test message\p")
+end(5)
 section_end()
 
 # 0x05 @ 0x6D0BFA
@@ -14,24 +15,22 @@ section_start(0x05)
 if_flag(170, 0x0A, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""Reset the door's
-lock program!""", 0)
+text("{a 2}Reset the door's\nlock program!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x6D0C38
 section_start(0x0A)
 pic(0)
 dialog_up()
-para_talk_end("""Do you know where
-the teacher's lounge
-server is?""", 0)
+text("{a 2}Do you know where\nthe teacher's lounge\nserver is?{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x6D0C83
 section_start(0x0F)
 pic(0)
 dialog_up()
-para_talk_end("""Looks like not
-much is going on
-here,huh?""", 0)
+text("{a 2}Looks like not\nmuch is going on\nhere,huh?{a 1}\p")
+end(0)
 section_end()

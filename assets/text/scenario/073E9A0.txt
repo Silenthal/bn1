@@ -4,11 +4,9 @@ section_count(0xA)
 section_start(0x00)
 pic(0)
 dialog_up()
-text("""{anim 2}MegaMan,you want
-to jack out?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}MegaMan,you want\nto jack out?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x01, 0xFF], 1, False, False)
 end(5)
 section_end()
@@ -16,35 +14,32 @@ section_end()
 # 0x01 @ 0x73E9FA
 section_start(0x01)
 wait(5)
-para_talk_end("""OK! Roger!""")
+text("{a 2}OK! Roger!{a 1}\p")
+end(5)
 section_end()
 
 # 0x05 @ 0x73EA19
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk_end("""Now that we got the
-Iceblock,let's go a
-litte farther!""")
+text("{a 2}Now that we got the\nIceblock,let's go a\nlitte farther!{a 1}\p")
+end(5)
 section_end()
 
 # 0x06 @ 0x73EA62
 section_start(0x06)
 pic(34)
 dialog_up()
-para_talk("""Lan...PET's battery
-is running low. You
-can only jack out""", 0)
-para_talk_end("""one more time,so
-beat the WWW virus
-first!""")
+text("{a 2}Lan...PET's battery\nis running low. You\ncan only jack out{a 1}\p")
+wait(0)
+text("{a 2}one more time,so\nbeat the WWW virus\nfirst!{a 1}\p")
+end(5)
 section_end()
 
 # 0x07 @ 0x73EAE4
 section_start(0x07)
 pic(34)
 dialog_up()
-para_talk_end("""This is no time to
-jack out! The
-rocket's launching!""", 0)
+text("{a 2}This is no time to\njack out! The\nrocket's launching!{a 1}\p")
+end(0)
 section_end()

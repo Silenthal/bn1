@@ -2,38 +2,38 @@ section_count(0xF)
 
 # 0x00 @ 0x6D0F92
 section_start(0x00)
-if_story(0x03, 0x03, 0x01, 0xFF)
-if_story(0x05, 0x05, 0x05, 0xFF)
-if_story(0x06, 0x57, 0x0A, 0xFF)
+if_story(0x03, 0x03, 0x01)
+if_story(0x05, 0x05, 0x05)
+if_story(0x06, 0x57, 0x0A)
 dialog_up()
-para_general_end("""Test message""")
+text("Test message\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x6D0FB8
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""The virus that's
-causing all this
-should be close!""", 0)
-para_talk_end("""MegaMan,go look for
-it!""")
+text("{a 2}The virus that's\ncausing all this\nshould be close!{a 1}\p")
+wait(0)
+text("{a 2}MegaMan,go look for\nit!{a 1}\p")
+end(5)
 section_end()
 
 # 0x05 @ 0x6D1023
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk("""Ouch!!
-Ouch!! Ouch!!""", 0)
-para_talk_end("""MegaMan!? Hurry!!""")
+text("{a 2}Ouch!!\nOuch!! Ouch!!{a 1}\p")
+wait(0)
+text("{a 2}MegaMan!? Hurry!!{a 1}\p")
+end(5)
 section_end()
 
 # 0x0A @ 0x6D1072
 section_start(0x0A)
 pic(0)
 dialog_up()
-para_talk_end("""Looks like not
-much is going on
-here,huh?""")
+text("{a 2}Looks like not\nmuch is going on\nhere,huh?{a 1}\p")
+end(5)
 section_end()

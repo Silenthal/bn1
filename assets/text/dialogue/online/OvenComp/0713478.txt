@@ -4,65 +4,56 @@ section_count(0x2E)
 section_start(0x00)
 pic(36)
 dialog_up()
-para_talk("""Help us!!{anim 1}{delay 10} {anim 2}The oven
-has been {anim 1}{delay 10}{anim 2}taken over
-by {anim 1}{delay 10}{anim 2}a virus!""", 0)
-para_talk("""Who are we? {anim 1}{delay 10}{anim 2}We're
-the oven {anim 1}{delay 10}{anim 2}control
-programs!""", 0)
-para_talk_end("""No,we're not{anim 1}{delay 10}
-{anim 2}viruses!""")
+text("{a 2}Help us!!{a 1}{d 10} {a 2}The oven\nhas been {a 1}{d 10}{a 2}taken over\nby {a 1}{d 10}{a 2}a virus!{a 1}\p")
+wait(0)
+text("{a 2}Who are we? {a 1}{d 10}{a 2}We're\nthe oven {a 1}{d 10}{a 2}control\nprograms!{a 1}\p")
+wait(0)
+text("{a 2}No,we're not{a 1}{d 10}\n{a 2}viruses!{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x7135A0
 section_start(0x01)
 pic(36)
 dialog_up()
-para_talk("""You can't {anim 1}{delay 10}{anim 2}see the
-viruses! {anim 1}{delay 10}{anim 2}They just
-suddenly attack!""", 0)
-para_talk_end("""Be {anim 1}{delay 10}{anim 2}careful!""")
+text("{a 2}You can't {a 1}{d 10}{a 2}see the\nviruses! {a 1}{d 10}{a 2}They just\nsuddenly attack!{a 1}\p")
+wait(0)
+text("{a 2}Be {a 1}{d 10}{a 2}careful!{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x713614
 section_start(0x02)
 pic(36)
 dialog_up()
-para_talk("""The program {anim 1}{delay 10}{anim 2}that's
-controlling the
-viruses {anim 1}{delay 10}{anim 2}is somewhere""", 0)
-para_talk("""in the oven control
-area. {anim 1}{delay 10}{anim 2}It's creating
-the fire!""", 0)
-para_talk("""If you delete him,{anim 1}
-{delay 10}{anim 2}it should stop the
-fire!""", 0)
-para_talk_end("""The oven control
-area {anim 1}{delay 10}{anim 2}is somewhere
-deep inside!""")
+text("{a 2}The program {a 1}{d 10}{a 2}that's\ncontrolling the\nviruses {a 1}{d 10}{a 2}is somewhere{a 1}\p")
+wait(0)
+text("{a 2}in the oven control\narea. {a 1}{d 10}{a 2}It's creating\nthe fire!{a 1}\p")
+wait(0)
+text("{a 2}If you delete him,{a 1}\n{d 10}{a 2}it should stop the\nfire!{a 1}\p")
+wait(0)
+text("{a 2}The oven control\narea {a 1}{d 10}{a 2}is somewhere\ndeep inside!{a 1}\p")
+end(5)
 section_end()
 
 # 0x03 @ 0x71372D
 section_start(0x03)
 pic(36)
 dialog_up()
-para_talk("""Because of the {anim 1}{delay 10}{anim 2}heat
-the oven network {anim 1}{delay 10}{anim 2}is
-broken up.""", 0)
-para_talk("""You can maybe {anim 1}{delay 10}{anim 2}put it
-out if you get {anim 1}{delay 10}{anim 2}the
-{key IceBlock} from the""", 0)
-para_talk_end("""thawing section {anim 1}{delay 10}{anim 2}of
-the network!""")
+text("{a 2}Because of the {a 1}{d 10}{a 2}heat\nthe oven network {a 1}{d 10}{a 2}is\nbroken up.{a 1}\p")
+wait(0)
+text("{a 2}You can maybe {a 1}{d 10}{a 2}put it\nout if you get {a 1}{d 10}{a 2}the\n{key IceBlock} from the{a 1}\p")
+wait(0)
+text("{a 2}thawing section {a 1}{d 10}{a 2}of\nthe network!{a 1}\p")
+end(5)
 section_end()
 
 # 0x04 @ 0x7137FD
 section_start(0x04)
 pic(36)
 dialog_up()
-para_talk_end("""This is the {anim 1}{delay 10}{anim 2}center
-of the oven {anim 1}{delay 10}{anim 2}network.
-We're being {anim 1}{delay 10}{anim 2}deleted!""")
+text("{a 2}This is the {a 1}{d 10}{a 2}center\nof the oven {a 1}{d 10}{a 2}network.\nWe're being {a 1}{d 10}{a 2}deleted!{a 1}\p")
+end(5)
 section_end()
 
 # 0x05 @ 0x713864
@@ -71,20 +62,19 @@ if_flag(194, 0x0E, 0xFF)
 set_flag(194)
 pic(36)
 dialog_up()
-para_talk("""We have almost {anim 1}{delay 10}{anim 2}no
-antiーvirus {anim 1}{delay 10}{anim 2}features""", 0)
-para_talk("""We're hoping that{anim 1}{delay 10}
-{anim 2}you can delete {anim 1}{delay 10}{anim 2}the
-viruses!""", 0)
-para_general_end("""*beep*""")
+text("{a 2}We have almost {a 1}{d 10}{a 2}no\nantiーvirus {a 1}{d 10}{a 2}features{a 1}\p")
+wait(0)
+text("{a 2}We're hoping that{a 1}{d 10}\n{a 2}you can delete {a 1}{d 10}{a 2}the\nviruses!{a 1}\p")
+wait(0)
+text("*beep*\p")
+end(5)
 section_end()
 
 # 0x06 @ 0x713906
 section_start(0x06)
 dialog_up()
-para_general_end("""There's no response.
-The program is no
-longer functioning.""")
+text("There's no response.\nThe program is no\nlonger functioning.\p")
+end(5)
 section_end()
 
 # 0x07 @ 0x71394B
@@ -94,17 +84,14 @@ set_flag(157)
 set_flag(192)
 pic(36)
 dialog_up()
-para_talk("""This is the {anim 1}{delay 10}{anim 2}thawing
-section.""", 0)
-para_talk("""If you use {anim 1}{delay 10}{anim 2}this
-{key IceBlock},you can{anim 1}{delay 10}
-{anim 2}extinguish 7 fires.""", 0)
-para_talk("""Please try to {anim 1}{delay 10}{anim 2}get
-into the oven
-control {anim 1}{delay 10}{anim 2}area!""", 0)
-para_talk("""Then,please {anim 1}{delay 10}{anim 2}delete
-the master virus {anim 1}{delay 10}{anim 2}to
-fix the oven!""", 0)
+text("{a 2}This is the {a 1}{d 10}{a 2}thawing\nsection.{a 1}\p")
+wait(0)
+text("{a 2}If you use {a 1}{d 10}{a 2}this\n{key IceBlock},you can{a 1}{d 10}\n{a 2}extinguish 7 fires.{a 1}\p")
+wait(0)
+text("{a 2}Please try to {a 1}{d 10}{a 2}get\ninto the oven\ncontrol {a 1}{d 10}{a 2}area!{a 1}\p")
+wait(0)
+text("{a 2}Then,please {a 1}{d 10}{a 2}delete\nthe master virus {a 1}{d 10}{a 2}to\nfix the oven!{a 1}\p")
+wait(0)
 dialog_down()
 hidepic()
 jump(0x08)
@@ -114,9 +101,8 @@ section_end()
 section_start(0x08)
 dialog_up()
 pc_anim_start(50)
-add_item("IceBlock", 7, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got the
-\"{key IceBlock}\"program!""")
+add_item("IceBlock", 7)
+text("MegaMan got the\n\"{key IceBlock}\"program!")
 pc_anim_end()
 page()
 wait()
@@ -128,17 +114,14 @@ section_end()
 section_start(0x09)
 pic(36)
 dialog_up()
-para_talk("""Examine a {anim 1}{delay 10}{anim 2}fire to
-use the {anim 1}{delay 10}{anim 2}{key IceBlock}.""", 0)
-para_talk("""If you use up {anim 1}{delay 10}{anim 2}the
-{key IceBlock},please come
-back {anim 1}{delay 10}{anim 2}for another.""", 0)
-para_talk("""However,it will {anim 1}{delay 10}{anim 2}take
-time to recompile,so
-the {anim 1}{delay 10}{anim 2}fires that you""", 0)
-para_talk_end("""extinguished will{anim 1}
-{delay 10}{anim 2}return{anim 1}...{delay 10}
-{anim 2}Good luck!""")
+text("{a 2}Examine a {a 1}{d 10}{a 2}fire to\nuse the {a 1}{d 10}{a 2}{key IceBlock}.{a 1}\p")
+wait(0)
+text("{a 2}If you use up {a 1}{d 10}{a 2}the\n{key IceBlock},please come\nback {a 1}{d 10}{a 2}for another.{a 1}\p")
+wait(0)
+text("{a 2}However,it will {a 1}{d 10}{a 2}take\ntime to recompile,so\nthe {a 1}{d 10}{a 2}fires that you{a 1}\p")
+wait(0)
+text("{a 2}extinguished will{a 1}\n{d 10}{a 2}return{a 1}...{d 10}\n{a 2}Good luck!{a 1}\p")
+end(5)
 section_end()
 
 # 0x0B @ 0x713BD9
@@ -146,50 +129,42 @@ section_start(0x0B)
 check_item("IceBlock", 1, 0xFF, 0xFF, 0x0C)
 pic(36)
 dialog_up()
-para_talk("""You still have some
-{key IceBlock} remaining""", 0)
-text_talking("""Do you want a new
-one?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}You still have some\n{key IceBlock} remaining{a 1}\p")
+wait(0)
+text("{a 2}Do you want a new\none?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0F, 0xFF], 0, False, True)
-para_talk_end("""Then good luck
-getting to the
-thaw section!""")
+text("{a 2}Then good luck\ngetting to the\nthaw section!{a 1}\p")
+end(5)
 section_end()
 
 # 0x0C @ 0x713C79
 section_start(0x0C)
 pic(36)
 dialog_up()
-para_talk("""It looks like you
-used up the
-{key IceBlock}""", 0)
-text_talking("""Do you want a new
-one?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}It looks like you\nused up the\n{key IceBlock}{a 1}\p")
+wait(0)
+text("{a 2}Do you want a new\none?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0F, 0xFF], 0, False, True)
-para_talk_end("""Really? Are you sure
-you can get to the
-thawing section?""")
+text("{a 2}Really? Are you sure\nyou can get to the\nthawing section?{a 1}\p")
+end(5)
 section_end()
 
 # 0x0D @ 0x713D20
 section_start(0x0D)
 dialog_up()
-para_general_end("""It's burning
-brightly.""")
+text("It's burning\nbrightly.\p")
+end(5)
 section_end()
 
 # 0x0E @ 0x713D40
 section_start(0x0E)
 dialog_up()
-para_general_end("""There's no response.
-The program is no
-longer functioning.""")
+text("There's no response.\nThe program is no\nlonger functioning.\p")
+end(5)
 section_end()
 
 # 0x0F @ 0x713D85
@@ -199,15 +174,13 @@ dialog_down()
 dialog_up()
 pc_anim_start(50)
 set_item("IceBlock", 7, 0x6B, 0x7D, 0x7F)
-text("""aMan got the
-\"{key IceBlock}\"program!""")
+text("aMan got the\n\"{key IceBlock}\"program!")
 pc_anim_end()
 page()
 wait()
-para_general("""Your remaining uses
-has returned to {item_amt IceBlock}!""", 0)
-text("""All of the flames
-have been refreshed!""")
+text("Your remaining uses\nhas returned to {item_amt IceBlock}!\p")
+wait(0)
+text("All of the flames\nhave been refreshed!")
 set_flag(221)
 page()
 end(5)
@@ -216,13 +189,12 @@ section_end()
 # 0x10 @ 0x713E1C
 section_start(0x10)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(647)
 pc_anim_start(50)
 add_chip("Shotgun Q", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Shotgun Q}\"!""")
+text("MegaMan got a chip\nfor \"{chip Shotgun Q}\"!")
 pc_anim_end()
 page()
 end(5)
@@ -231,13 +203,12 @@ section_end()
 # 0x11 @ 0x713E8A
 section_start(0x11)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(648)
 pc_anim_start(50)
 award_zenny([400, 400])
-text("""MegaMan got 400
-zennys!""")
+text("MegaMan got 400\nzennys!")
 pc_anim_end()
 page()
 end(5)
@@ -246,13 +217,12 @@ section_end()
 # 0x12 @ 0x713EF0
 section_start(0x12)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(649)
 pc_anim_start(50)
 add_chip("Steal A", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Steal A}\"!""")
+text("MegaMan got a chip\nfor \"{chip Steal A}\"!")
 pc_anim_end()
 page()
 end(5)
@@ -261,13 +231,12 @@ section_end()
 # 0x13 @ 0x713F5E
 section_start(0x13)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(650)
 pc_anim_start(50)
 add_chip("Sword B", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Sword B}\"!""")
+text("MegaMan got a chip\nfor \"{chip Sword B}\"!")
 pc_anim_end()
 page()
 end(5)
@@ -277,11 +246,9 @@ section_end()
 section_start(0x14)
 check_item("IceBlock", 1, 0xFF, 0xFF, 0x17)
 dialog_up()
-text("""Extinguish flame?
-({item_amt IceBlock} uses remaining)
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Extinguish flame?\n({item_amt IceBlock} uses remaining)\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x15, 0xFF], 0, False, True)
 end()
 section_end()
@@ -289,41 +256,38 @@ section_end()
 # 0x15 @ 0x71401C
 section_start(0x15)
 set_flag(219)
-sub_item("IceBlock", 1, 0xFF, 0xFF, 0xFF)
+sub_item("IceBlock", 1)
 check_item("IceBlock", 0, 0x16, 0xFF, 0xFF)
 dialog_up()
-text("""You have {item_amt IceBlock}""")
-para_general_end(""" uses
-of the {key IceBlock}
-remaining.""")
+text("You have {item_amt IceBlock}")
+text(" uses\nof the {key IceBlock}\nremaining.\p")
+end(5)
 section_end()
 
 # 0x16 @ 0x714060
 section_start(0x16)
 dialog_up()
-para_general_end("""You have no more
-uses of the
-{key IceBlock} remaining.""")
+text("You have no more\nuses of the\n{key IceBlock} remaining.\p")
+end(5)
 section_end()
 
 # 0x17 @ 0x714095
 section_start(0x17)
 if_flag(193, 0xFF, 0x0D)
 dialog_up()
-para_general_end("""You don't have the
-{key IceBlock}.""")
+text("You don't have the\n{key IceBlock}.\p")
+end(5)
 section_end()
 
 # 0x18 @ 0x7140BD
 section_start(0x18)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(645)
 pc_anim_start(50)
 award_zenny([200, 200])
-text("""MegaMan got 200
-zennys!""")
+text("MegaMan got 200\nzennys!")
 pc_anim_end()
 page()
 end(5)
@@ -333,21 +297,20 @@ section_end()
 section_start(0x1D)
 pic(36)
 dialog_up()
-para_talk("""This teleporter will
-take you to the oven
-control area.""", 0)
-para_talk_end("""Be careful!""")
+text("{a 2}This teleporter will\ntake you to the oven\ncontrol area.{a 1}\p")
+wait(0)
+text("{a 2}Be careful!{a 1}\p")
+end(5)
 section_end()
 
 # 0x1E @ 0x714187
 section_start(0x1E)
 pic(36)
 dialog_up()
-para_talk("""Thank you for saving
-us! There are still
-some viruses,but we""", 0)
-para_talk_end("""can handle things
-from here!""")
+text("{a 2}Thank you for saving\nus! There are still\nsome viruses,but we{a 1}\p")
+wait(0)
+text("{a 2}can handle things\nfrom here!{a 1}\p")
+end(5)
 section_end()
 
 # 0x1F @ 0x7141FA
@@ -361,21 +324,20 @@ section_start(0x20)
 check_item("IceBlock", 1, 0x29, 0x29, 0xFF)
 pic(36)
 dialog_up()
-text_talking("""By the way,do you
-need a {key IceBlock}?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}By the way,do you\nneed a {key IceBlock}?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x20, 0xFF], 0, False, True)
-para_talk_end("""Just tell me if
-you ever do!""")
+text("{a 2}Just tell me if\nyou ever do!{a 1}\p")
+end(5)
 section_end()
 
 # 0x21 @ 0x714270
 section_start(0x21)
 pic(36)
 dialog_up()
-para_talk("""Here you go!""", 0)
+text("{a 2}Here you go!{a 1}\p")
+wait(0)
 jump(0x21)
 section_end()
 
@@ -384,9 +346,8 @@ section_start(0x22)
 hidepic()
 dialog_up()
 pc_anim_start(50)
-add_item("IceBlock", 7, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got;
-\"{key IceBlock}\"!""")
+add_item("IceBlock", 7)
+text("MegaMan got;\n\"{key IceBlock}\"!")
 pc_anim_end()
 page()
 wait()
@@ -398,7 +359,8 @@ section_end()
 section_start(0x29)
 pic(36)
 dialog_up()
-para_talk("""Hello,MegaMan!""")
+text("{a 2}Hello,MegaMan!{a 1}\p")
+wait(5)
 jump(0x1F)
 section_end()
 
@@ -406,15 +368,14 @@ section_end()
 section_start(0x2A)
 pic(36)
 dialog_up()
-para_talk("""You still have some
-{key IceBlock} remaining.""", 0)
-text_talking("""Do you want a new
-one?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}You still have some\n{key IceBlock} remaining.{a 1}\p")
+wait(0)
+text("{a 2}Do you want a new\none?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x2A, 0xFF], 0, False, True)
-para_talk_end("""See you around!""", 0)
+text("{a 2}See you around!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2B @ 0x714375
@@ -424,13 +385,12 @@ dialog_down()
 dialog_up()
 pc_anim_start(50)
 set_item("IceBlock", 7, 0x6B, 0x7D, 0x7F)
-text("""aMan got the
-\"{key IceBlock}\"program!""")
+text("aMan got the\n\"{key IceBlock}\"program!")
 pc_anim_end()
 page()
 wait()
-para_general("""Your remaining uses
-has returned to {item_amt IceBlock}!""", 0)
-para_general_end("""All of the flames
-have been refreshed!""", 0)
+text("Your remaining uses\nhas returned to {item_amt IceBlock}!\p")
+wait(0)
+text("All of the flames\nhave been refreshed!\p")
+end(0)
 section_end()

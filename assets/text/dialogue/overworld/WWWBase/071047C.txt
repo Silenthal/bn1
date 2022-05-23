@@ -3,10 +3,10 @@ section_count(0x1A)
 # 0x00 @ 0x7104B0
 section_start(0x00)
 dialog_up()
-para_general("""It's securely locked""", 0)
-para_general_end("""There seems to be a
-jack in port here,
-though...""", 0)
+text("It's securely locked\p")
+wait(0)
+text("There seems to be a\njack in port here,\nthough...\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x710505
@@ -15,9 +15,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -27,9 +25,8 @@ section_end()
 section_start(0x02)
 pic(23)
 dialog_up()
-para_talk("""I know that you
-can do it! Please
-save us!""")
+text("{a 2}I know that you\ncan do it! Please\nsave us!{a 1}\p")
+wait(5)
 jump(0x0A)
 section_end()
 
@@ -37,11 +34,9 @@ section_end()
 section_start(0x0A)
 pic(34)
 dialog_up()
-text_talking("""Lan,do you want
-to challenge Froid?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Lan,do you want\nto challenge Froid?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0B, 0x0C], 1, False, True)
 end()
 section_end()
@@ -51,10 +46,7 @@ section_start(0x0B)
 if_flag(56, 0x0D, 0xFF)
 pic(23)
 dialog_up()
-text_talking("""I will win,with the
-help of my family's
-love...and IceMan!""")
-page()
+text("{a 2}I will win,with the\nhelp of my family's\nlove...and IceMan!{a 1}\p")
 set_flag(56)
 dialog_down()
 end()
@@ -64,33 +56,30 @@ section_end()
 section_start(0x0C)
 pic(23)
 dialog_up()
-para_talk_end("""I'll help you,
-any time!""", 0)
+text("{a 2}I'll help you,\nany time!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0D @ 0x71066C
 section_start(0x0D)
 pic(23)
 dialog_up()
-para_talk_end("""I want to upgrade
-IceMan,first...
-Try me later.""", 0)
+text("{a 2}I want to upgrade\nIceMan,first...\nTry me later.{a 1}\p")
+end(0)
 section_end()
 
 # 0x0E @ 0x7106B0
 section_start(0x0E)
 pic(23)
 dialog_up()
-para_talk_end("""Good job!
-Now go do the same
-to the WWW!""", 0)
+text("{a 2}Good job!\nNow go do the same\nto the WWW!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x7106EA
 section_start(0x0F)
 pic(23)
 dialog_up()
-para_talk_end("""Did you hold back?
-You should try your
-hardest!""", 0)
+text("{a 2}Did you hold back?\nYou should try your\nhardest!{a 1}\p")
+end(0)
 section_end()

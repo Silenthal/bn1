@@ -4,28 +4,26 @@ section_count(0x5)
 section_start(0x00)
 pic(5)
 dialog_up()
-text("""{anim 2}Hoo,{delay 10}hoo,{delay 10}hoo,{delay 10}
-""")
+text("{a 2}Hoo,{d 10}hoo,{d 10}hoo,{d 10}\n")
 clear_flag(147)
-para_general("""Waaah hah hah hah!{anim 1}""", 0)
-para_talk("""Wonderfulーーー
-Simply wonderful!!""", 0)
-para_talk("""I have them all!{delay 10}
-All of the superー
-programs are mine!""", 0)
-para_talk_end("""So super...{anim 1}{delay}
-{anim 2}Such programs!!""", 0)
+text("Waaah hah hah hah!{a 1}\p")
+wait(0)
+text("{a 2}Wonderfulーーー\nSimply wonderful!!{a 1}\p")
+wait(0)
+text("{a 2}I have them all!{d 10}\nAll of the superー\nprograms are mine!{a 1}\p")
+wait(0)
+text("{a 2}So super...{a 1}{d}\n{a 2}Such programs!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x737925
 section_start(0x01)
 pic(5)
 dialog_up()
-text("""{anim 2}By combining these 4
-programs,""")
+text("{a 2}By combining these 4\nprograms,")
 clear_flag(147)
-para_general("""I can make
-YOUーKNOWーWHAT!!!!{anim 1}""")
+text("I can make\nYOUーKNOWーWHAT!!!!{a 1}\p")
+wait(5)
 set_flag(147)
 jump(0x02)
 section_end()
@@ -34,11 +32,10 @@ section_end()
 section_start(0x02)
 pic(5)
 dialog_up()
-para_general("""{anim 2}Ahh,hah hah...
-{anim 1}*phew*""", 0)
-para_talk("""And once I've made
-that...{anim 1}{delay}I{anim 2} can delete
-the world!""")
+text("{a 2}Ahh,hah hah...\n{a 1}*phew*\p")
+wait(0)
+text("{a 2}And once I've made\nthat...{a 1}{d}I{a 2} can delete\nthe world!{a 1}\p")
+wait(5)
 clear_flag(147)
 jump(0x03)
 section_end()
@@ -47,9 +44,8 @@ section_end()
 section_start(0x03)
 pic(5)
 dialog_up()
-para_talk("""No more annoying
-people with their
-annoying machines!""")
+text("{a 2}No more annoying\npeople with their\nannoying machines!{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -57,7 +53,6 @@ section_end()
 section_start(0x04)
 pic(5)
 dialog_up()
-para_talk_end("""And I will get my
-revenge against...{anim 1}{delay}
-{anim 2}Hikari!!!""", 0)
+text("{a 2}And I will get my\nrevenge against...{a 1}{d}\n{a 2}Hikari!!!{a 1}\p")
+end(0)
 section_end()

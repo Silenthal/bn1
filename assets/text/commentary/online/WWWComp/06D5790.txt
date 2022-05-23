@@ -2,9 +2,10 @@ section_count(0xE6)
 
 # 0x00 @ 0x6D595C
 section_start(0x00)
-if_story(0x54, 0x54, 0xE1, 0xFF)
+if_story(0x54, 0x54, 0xE1)
 dialog_up()
-para_general_end("""Test message""", 0)
+text("Test message\p")
+end(0)
 section_end()
 
 # 0xE1 @ 0x6D5B36
@@ -18,18 +19,16 @@ section_start(0xE3)
 if_flag(225, 0xE4, 0xFF)
 pic(0)
 dialog_up()
-para_talk("""The program that's
-locking the door
-should be near!""", 1)
-para_talk_end("""Find it and
-delete it!""", 0)
+text("{a 2}The program that's\nlocking the door\nshould be near!{a 1}\p")
+wait(1)
+text("{a 2}Find it and\ndelete it!{a 1}\p")
+end(0)
 section_end()
 
 # 0xE4 @ 0x6D5BAD
 section_start(0xE4)
 pic(0)
 dialog_up()
-para_talk_end("""We don't need to
-do anything here
-anymore.""", 0)
+text("{a 2}We don't need to\ndo anything here\nanymore.{a 1}\p")
+end(0)
 section_end()

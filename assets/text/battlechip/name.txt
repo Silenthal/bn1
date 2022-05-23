@@ -2,1531 +2,1531 @@ section_count(0x100)
 
 # 0x00 @ 0x69D77C
 section_start(0x00)
-text("""Buster""")
+text("Buster")
 end()
 section_end()
 
 # 0x01 @ 0x69D787
 section_start(0x01)
-text("""Cannon""")
+text("Cannon")
 end()
 section_end()
 
 # 0x02 @ 0x69D792
 section_start(0x02)
-text("""HiCannon""")
+text("HiCannon")
 end()
 section_end()
 
 # 0x03 @ 0x69D79F
 section_start(0x03)
-text("""MーCannon""")
+text("MーCannon")
 end()
 section_end()
 
 # 0x04 @ 0x69D7AC
 section_start(0x04)
-text("""Sword""")
+text("Sword")
 end()
 section_end()
 
 # 0x05 @ 0x69D7B6
 section_start(0x05)
-text("""WideSwrd""")
+text("WideSwrd")
 end()
 section_end()
 
 # 0x06 @ 0x69D7C3
 section_start(0x06)
-text("""LongSwrd""")
+text("LongSwrd")
 end()
 section_end()
 
 # 0x07 @ 0x69D7D0
 section_start(0x07)
-text("""LilBomb""")
+text("LilBomb")
 end()
 section_end()
 
 # 0x08 @ 0x69D7DC
 section_start(0x08)
-text("""CrosBomb""")
+text("CrosBomb")
 end()
 section_end()
 
 # 0x09 @ 0x69D7E9
 section_start(0x09)
-text("""BigBomb""")
+text("BigBomb")
 end()
 section_end()
 
 # 0x0A @ 0x69D7F5
 section_start(0x0A)
-text("""Spreader""")
+text("Spreader")
 end()
 section_end()
 
 # 0x0B @ 0x69D802
 section_start(0x0B)
-text("""Bubbler""")
+text("Bubbler")
 end()
 section_end()
 
 # 0x0C @ 0x69D80E
 section_start(0x0C)
-text("""Heater""")
+text("Heater")
 end()
 section_end()
 
 # 0x0D @ 0x69D819
 section_start(0x0D)
-text("""MiniBomb""")
+text("MiniBomb")
 end()
 section_end()
 
 # 0x0E @ 0x69D826
 section_start(0x0E)
-text("""Shotgun""")
+text("Shotgun")
 end()
 section_end()
 
 # 0x0F @ 0x69D832
 section_start(0x0F)
-text("""CrossGun""")
+text("CrossGun")
 end()
 section_end()
 
 # 0x10 @ 0x69D83F
 section_start(0x10)
-text("""ShokWave""")
+text("ShokWave")
 end()
 section_end()
 
 # 0x11 @ 0x69D84C
 section_start(0x11)
-text("""SoniWave""")
+text("SoniWave")
 end()
 section_end()
 
 # 0x12 @ 0x69D859
 section_start(0x12)
-text("""DynaWave""")
+text("DynaWave")
 end()
 section_end()
 
 # 0x13 @ 0x69D866
 section_start(0x13)
-text("""FireTowr""")
+text("FireTowr")
 end()
 section_end()
 
 # 0x14 @ 0x69D873
 section_start(0x14)
-text("""AquaTowr""")
+text("AquaTowr")
 end()
 section_end()
 
 # 0x15 @ 0x69D880
 section_start(0x15)
-text("""WoodTowr""")
+text("WoodTowr")
 end()
 section_end()
 
 # 0x16 @ 0x69D88D
 section_start(0x16)
-text("""Quake1""")
+text("Quake1")
 end()
 section_end()
 
 # 0x17 @ 0x69D898
 section_start(0x17)
-text("""Quake2""")
+text("Quake2")
 end()
 section_end()
 
 # 0x18 @ 0x69D8A3
 section_start(0x18)
-text("""Quake3""")
+text("Quake3")
 end()
 section_end()
 
 # 0x19 @ 0x69D8AE
 section_start(0x19)
-text("""FireSwrd""")
+text("FireSwrd")
 end()
 section_end()
 
 # 0x1A @ 0x69D8BB
 section_start(0x1A)
-text("""ElecSwrd""")
+text("ElecSwrd")
 end()
 section_end()
 
 # 0x1B @ 0x69D8C8
 section_start(0x1B)
-text("""AquaSwrd""")
+text("AquaSwrd")
 end()
 section_end()
 
 # 0x1C @ 0x69D8D5
 section_start(0x1C)
-text("""GutsPnch""")
+text("GutsPnch")
 end()
 section_end()
 
 # 0x1D @ 0x69D8E2
 section_start(0x1D)
-text("""IcePunch""")
+text("IcePunch")
 end()
 section_end()
 
 # 0x1E @ 0x69D8EF
 section_start(0x1E)
-text("""FtrSword""")
+text("FtrSword")
 end()
 section_end()
 
 # 0x1F @ 0x69D8FC
 section_start(0x1F)
-text("""Dash""")
+text("Dash")
 end()
 section_end()
 
 # 0x20 @ 0x69D905
 section_start(0x20)
-text("""KngtSwrd""")
+text("KngtSwrd")
 end()
 section_end()
 
 # 0x21 @ 0x69D912
 section_start(0x21)
-text("""HeroSwrd""")
+text("HeroSwrd")
 end()
 section_end()
 
 # 0x22 @ 0x69D91F
 section_start(0x22)
-text("""MetGuard""")
+text("MetGuard")
 end()
 section_end()
 
 # 0x23 @ 0x69D92C
 section_start(0x23)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x24 @ 0x69D933
 section_start(0x24)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x25 @ 0x69D93A
 section_start(0x25)
-text("""TriArrow""")
+text("TriArrow")
 end()
 section_end()
 
 # 0x26 @ 0x69D947
 section_start(0x26)
-text("""TriSpear""")
+text("TriSpear")
 end()
 section_end()
 
 # 0x27 @ 0x69D954
 section_start(0x27)
-text("""TriLance""")
+text("TriLance")
 end()
 section_end()
 
 # 0x28 @ 0x69D961
 section_start(0x28)
-text("""Typhoon""")
+text("Typhoon")
 end()
 section_end()
 
 # 0x29 @ 0x69D96D
 section_start(0x29)
-text("""Huricane""")
+text("Huricane")
 end()
 section_end()
 
 # 0x2A @ 0x69D97A
 section_start(0x2A)
-text("""Cyclone""")
+text("Cyclone")
 end()
 section_end()
 
 # 0x2B @ 0x69D986
 section_start(0x2B)
-text("""Howitzer""")
+text("Howitzer")
 end()
 section_end()
 
 # 0x2C @ 0x69D993
 section_start(0x2C)
-text("""Thunder1""")
+text("Thunder1")
 end()
 section_end()
 
 # 0x2D @ 0x69D9A0
 section_start(0x2D)
-text("""Thunder2""")
+text("Thunder2")
 end()
 section_end()
 
 # 0x2E @ 0x69D9AD
 section_start(0x2E)
-text("""Thunder3""")
+text("Thunder3")
 end()
 section_end()
 
 # 0x2F @ 0x69D9BA
 section_start(0x2F)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x30 @ 0x69D9C1
 section_start(0x30)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x31 @ 0x69D9C8
 section_start(0x31)
-text("""Snakegg1""")
+text("Snakegg1")
 end()
 section_end()
 
 # 0x32 @ 0x69D9D5
 section_start(0x32)
-text("""Snakegg2""")
+text("Snakegg2")
 end()
 section_end()
 
 # 0x33 @ 0x69D9E2
 section_start(0x33)
-text("""Snakegg3""")
+text("Snakegg3")
 end()
 section_end()
 
 # 0x34 @ 0x69D9EF
 section_start(0x34)
-text("""Hammer""")
+text("Hammer")
 end()
 section_end()
 
 # 0x35 @ 0x69D9FA
 section_start(0x35)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x36 @ 0x69DA01
 section_start(0x36)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x37 @ 0x69DA08
 section_start(0x37)
-text("""BodyBurn""")
+text("BodyBurn")
 end()
 section_end()
 
 # 0x38 @ 0x69DA15
 section_start(0x38)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x39 @ 0x69DA1C
 section_start(0x39)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x3A @ 0x69DA23
 section_start(0x3A)
-text("""Ratton1""")
+text("Ratton1")
 end()
 section_end()
 
 # 0x3B @ 0x69DA2F
 section_start(0x3B)
-text("""Ratton2""")
+text("Ratton2")
 end()
 section_end()
 
 # 0x3C @ 0x69DA3B
 section_start(0x3C)
-text("""Ratton3""")
+text("Ratton3")
 end()
 section_end()
 
 # 0x3D @ 0x69DA47
 section_start(0x3D)
-text("""Lockon1""")
+text("Lockon1")
 end()
 section_end()
 
 # 0x3E @ 0x69DA53
 section_start(0x3E)
-text("""Lockon2""")
+text("Lockon2")
 end()
 section_end()
 
 # 0x3F @ 0x69DA5F
 section_start(0x3F)
-text("""Lockon3""")
+text("Lockon3")
 end()
 section_end()
 
 # 0x40 @ 0x69DA6B
 section_start(0x40)
-text("""XーPanel1""")
+text("XーPanel1")
 end()
 section_end()
 
 # 0x41 @ 0x69DA78
 section_start(0x41)
-text("""XーPanel3""")
+text("XーPanel3")
 end()
 section_end()
 
 # 0x42 @ 0x69DA85
 section_start(0x42)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x43 @ 0x69DA8C
 section_start(0x43)
-text("""Recov10""")
+text("Recov10")
 end()
 section_end()
 
 # 0x44 @ 0x69DA98
 section_start(0x44)
-text("""Recov30""")
+text("Recov30")
 end()
 section_end()
 
 # 0x45 @ 0x69DAA4
 section_start(0x45)
-text("""Recov50""")
+text("Recov50")
 end()
 section_end()
 
 # 0x46 @ 0x69DAB0
 section_start(0x46)
-text("""Recov80""")
+text("Recov80")
 end()
 section_end()
 
 # 0x47 @ 0x69DABC
 section_start(0x47)
-text("""Recov120""")
+text("Recov120")
 end()
 section_end()
 
 # 0x48 @ 0x69DAC9
 section_start(0x48)
-text("""Recov150""")
+text("Recov150")
 end()
 section_end()
 
 # 0x49 @ 0x69DAD6
 section_start(0x49)
-text("""Recov200""")
+text("Recov200")
 end()
 section_end()
 
 # 0x4A @ 0x69DAE3
 section_start(0x4A)
-text("""Recov300""")
+text("Recov300")
 end()
 section_end()
 
 # 0x4B @ 0x69DAF0
 section_start(0x4B)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x4C @ 0x69DAF7
 section_start(0x4C)
-text("""Steal""")
+text("Steal")
 end()
 section_end()
 
 # 0x4D @ 0x69DB01
 section_start(0x4D)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x4E @ 0x69DB08
 section_start(0x4E)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x4F @ 0x69DB0F
 section_start(0x4F)
-text("""Geddon1""")
+text("Geddon1")
 end()
 section_end()
 
 # 0x50 @ 0x69DB1B
 section_start(0x50)
-text("""Geddon2""")
+text("Geddon2")
 end()
 section_end()
 
 # 0x51 @ 0x69DB27
 section_start(0x51)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x52 @ 0x69DB2E
 section_start(0x52)
-text("""Escape""")
+text("Escape")
 end()
 section_end()
 
 # 0x53 @ 0x69DB39
 section_start(0x53)
-text("""Interupt""")
+text("Interupt")
 end()
 section_end()
 
 # 0x54 @ 0x69DB46
 section_start(0x54)
-text("""LifeAura""")
+text("LifeAura")
 end()
 section_end()
 
 # 0x55 @ 0x69DB53
 section_start(0x55)
-text("""AquaAura""")
+text("AquaAura")
 end()
 section_end()
 
 # 0x56 @ 0x69DB60
 section_start(0x56)
-text("""FireAura""")
+text("FireAura")
 end()
 section_end()
 
 # 0x57 @ 0x69DB6D
 section_start(0x57)
-text("""WoodAura""")
+text("WoodAura")
 end()
 section_end()
 
 # 0x58 @ 0x69DB7A
 section_start(0x58)
-text("""Repair""")
+text("Repair")
 end()
 section_end()
 
 # 0x59 @ 0x69DB85
 section_start(0x59)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x5A @ 0x69DB8C
 section_start(0x5A)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x5B @ 0x69DB93
 section_start(0x5B)
-text("""Cloud""")
+text("Cloud")
 end()
 section_end()
 
 # 0x5C @ 0x69DB9D
 section_start(0x5C)
-text("""Cloudier""")
+text("Cloudier")
 end()
 section_end()
 
 # 0x5D @ 0x69DBAA
 section_start(0x5D)
-text("""Cloudest""")
+text("Cloudest")
 end()
 section_end()
 
 # 0x5E @ 0x69DBB7
 section_start(0x5E)
-text("""IceCube""")
+text("IceCube")
 end()
 section_end()
 
 # 0x5F @ 0x69DBC3
 section_start(0x5F)
-text("""RockCube""")
+text("RockCube")
 end()
 section_end()
 
 # 0x60 @ 0x69DBD0
 section_start(0x60)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x61 @ 0x69DBD7
 section_start(0x61)
-text("""TimeBom1""")
+text("TimeBom1")
 end()
 section_end()
 
 # 0x62 @ 0x69DBE4
 section_start(0x62)
-text("""TimeBom2""")
+text("TimeBom2")
 end()
 section_end()
 
 # 0x63 @ 0x69DBF1
 section_start(0x63)
-text("""TimeBom3""")
+text("TimeBom3")
 end()
 section_end()
 
 # 0x64 @ 0x69DBFE
 section_start(0x64)
-text("""Invis1""")
+text("Invis1")
 end()
 section_end()
 
 # 0x65 @ 0x69DC09
 section_start(0x65)
-text("""Invis2""")
+text("Invis2")
 end()
 section_end()
 
 # 0x66 @ 0x69DC14
 section_start(0x66)
-text("""Invis3""")
+text("Invis3")
 end()
 section_end()
 
 # 0x67 @ 0x69DC1F
 section_start(0x67)
-text("""IronBody""")
+text("IronBody")
 end()
 section_end()
 
 # 0x68 @ 0x69DC2C
 section_start(0x68)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x69 @ 0x69DC33
 section_start(0x69)
-text("""Remobit1""")
+text("Remobit1")
 end()
 section_end()
 
 # 0x6A @ 0x69DC40
 section_start(0x6A)
-text("""Remobit2""")
+text("Remobit2")
 end()
 section_end()
 
 # 0x6B @ 0x69DC4D
 section_start(0x6B)
-text("""Remobit3""")
+text("Remobit3")
 end()
 section_end()
 
 # 0x6C @ 0x69DC5A
 section_start(0x6C)
-text("""BstrGard""")
+text("BstrGard")
 end()
 section_end()
 
 # 0x6D @ 0x69DC67
 section_start(0x6D)
-text("""BstrBomb""")
+text("BstrBomb")
 end()
 section_end()
 
 # 0x6E @ 0x69DC74
 section_start(0x6E)
-text("""BstrSwrd""")
+text("BstrSwrd")
 end()
 section_end()
 
 # 0x6F @ 0x69DC81
 section_start(0x6F)
-text("""BstrPnch""")
+text("BstrPnch")
 end()
 section_end()
 
 # 0x70 @ 0x69DC8E
 section_start(0x70)
-text("""RingZap1""")
+text("RingZap1")
 end()
 section_end()
 
 # 0x71 @ 0x69DC9B
 section_start(0x71)
-text("""RingZap2""")
+text("RingZap2")
 end()
 section_end()
 
 # 0x72 @ 0x69DCA8
 section_start(0x72)
-text("""RingZap3""")
+text("RingZap3")
 end()
 section_end()
 
 # 0x73 @ 0x69DCB5
 section_start(0x73)
-text("""Candle1""")
+text("Candle1")
 end()
 section_end()
 
 # 0x74 @ 0x69DCC1
 section_start(0x74)
-text("""Candle2""")
+text("Candle2")
 end()
 section_end()
 
 # 0x75 @ 0x69DCCD
 section_start(0x75)
-text("""Candle3""")
+text("Candle3")
 end()
 section_end()
 
 # 0x76 @ 0x69DCD9
 section_start(0x76)
-text("""SloGauge""")
+text("SloGauge")
 end()
 section_end()
 
 # 0x77 @ 0x69DCE6
 section_start(0x77)
-text("""FstGauge""")
+text("FstGauge")
 end()
 section_end()
 
 # 0x78 @ 0x69DCF3
 section_start(0x78)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x79 @ 0x69DCFA
 section_start(0x79)
-text("""Drain1""")
+text("Drain1")
 end()
 section_end()
 
 # 0x7A @ 0x69DD05
 section_start(0x7A)
-text("""Drain2""")
+text("Drain2")
 end()
 section_end()
 
 # 0x7B @ 0x69DD10
 section_start(0x7B)
-text("""Drain3""")
+text("Drain3")
 end()
 section_end()
 
 # 0x7C @ 0x69DD1B
 section_start(0x7C)
-text("""Mine1""")
+text("Mine1")
 end()
 section_end()
 
 # 0x7D @ 0x69DD25
 section_start(0x7D)
-text("""Mine2""")
+text("Mine2")
 end()
 section_end()
 
 # 0x7E @ 0x69DD2F
 section_start(0x7E)
-text("""Mine3""")
+text("Mine3")
 end()
 section_end()
 
 # 0x7F @ 0x69DD39
 section_start(0x7F)
-text("""Gaia1""")
+text("Gaia1")
 end()
 section_end()
 
 # 0x80 @ 0x69DD43
 section_start(0x80)
-text("""Gaia2""")
+text("Gaia2")
 end()
 section_end()
 
 # 0x81 @ 0x69DD4D
 section_start(0x81)
-text("""Gaia3""")
+text("Gaia3")
 end()
 section_end()
 
 # 0x82 @ 0x69DD57
 section_start(0x82)
-text("""BblWrap1""")
+text("BblWrap1")
 end()
 section_end()
 
 # 0x83 @ 0x69DD64
 section_start(0x83)
-text("""BblWrap2""")
+text("BblWrap2")
 end()
 section_end()
 
 # 0x84 @ 0x69DD71
 section_start(0x84)
-text("""BblWrap3""")
+text("BblWrap3")
 end()
 section_end()
 
 # 0x85 @ 0x69DD7E
 section_start(0x85)
-text("""Wave""")
+text("Wave")
 end()
 section_end()
 
 # 0x86 @ 0x69DD87
 section_start(0x86)
-text("""RedWave""")
+text("RedWave")
 end()
 section_end()
 
 # 0x87 @ 0x69DD93
 section_start(0x87)
-text("""BigWave""")
+text("BigWave")
 end()
 section_end()
 
 # 0x88 @ 0x69DD9F
 section_start(0x88)
-text("""Muramasa""")
+text("Muramasa")
 end()
 section_end()
 
 # 0x89 @ 0x69DDAC
 section_start(0x89)
-text("""Dropdown""")
+text("Dropdown")
 end()
 section_end()
 
 # 0x8A @ 0x69DDB9
 section_start(0x8A)
-text("""Popup""")
+text("Popup")
 end()
 section_end()
 
 # 0x8B @ 0x69DDC3
 section_start(0x8B)
-text("""Dynamyt1""")
+text("Dynamyt1")
 end()
 section_end()
 
 # 0x8C @ 0x69DDD0
 section_start(0x8C)
-text("""Dynamyt2""")
+text("Dynamyt2")
 end()
 section_end()
 
 # 0x8D @ 0x69DDDD
 section_start(0x8D)
-text("""Dynamyt3""")
+text("Dynamyt3")
 end()
 section_end()
 
 # 0x8E @ 0x69DDEA
 section_start(0x8E)
-text("""Anubis""")
+text("Anubis")
 end()
 section_end()
 
 # 0x8F @ 0x69DDF5
 section_start(0x8F)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x90 @ 0x69DDFC
 section_start(0x90)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x91 @ 0x69DE03
 section_start(0x91)
-text("""IronShld""")
+text("IronShld")
 end()
 section_end()
 
 # 0x92 @ 0x69DE10
 section_start(0x92)
-text("""LeafShld""")
+text("LeafShld")
 end()
 section_end()
 
 # 0x93 @ 0x69DE1D
 section_start(0x93)
-text("""Barrier""")
+text("Barrier")
 end()
 section_end()
 
 # 0x94 @ 0x69DE29
 section_start(0x94)
-text("""PharoMan""")
+text("PharoMan")
 end()
 section_end()
 
 # 0x95 @ 0x69DE36
 section_start(0x95)
-text("""PharoMn2""")
+text("PharoMn2")
 end()
 section_end()
 
 # 0x96 @ 0x69DE43
 section_start(0x96)
-text("""PharoMn3""")
+text("PharoMn3")
 end()
 section_end()
 
 # 0x97 @ 0x69DE50
 section_start(0x97)
-text("""ShadoMan""")
+text("ShadoMan")
 end()
 section_end()
 
 # 0x98 @ 0x69DE5D
 section_start(0x98)
-text("""ShadoMn2""")
+text("ShadoMn2")
 end()
 section_end()
 
 # 0x99 @ 0x69DE6A
 section_start(0x99)
-text("""ShadoMn3""")
+text("ShadoMn3")
 end()
 section_end()
 
 # 0x9A @ 0x69DE77
 section_start(0x9A)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x9B @ 0x69DE7E
 section_start(0x9B)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x9C @ 0x69DE85
 section_start(0x9C)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0x9D @ 0x69DE8C
 section_start(0x9D)
-text("""MagicMan""")
+text("MagicMan")
 end()
 section_end()
 
 # 0x9E @ 0x69DE99
 section_start(0x9E)
-text("""MagicMn2""")
+text("MagicMn2")
 end()
 section_end()
 
 # 0x9F @ 0x69DEA6
 section_start(0x9F)
-text("""MagicMn3""")
+text("MagicMn3")
 end()
 section_end()
 
 # 0xA0 @ 0x69DEB3
 section_start(0xA0)
-text("""Roll""")
+text("Roll")
 end()
 section_end()
 
 # 0xA1 @ 0x69DEBC
 section_start(0xA1)
-text("""Roll2""")
+text("Roll2")
 end()
 section_end()
 
 # 0xA2 @ 0x69DEC6
 section_start(0xA2)
-text("""Roll3""")
+text("Roll3")
 end()
 section_end()
 
 # 0xA3 @ 0x69DED0
 section_start(0xA3)
-text("""GutsMan""")
+text("GutsMan")
 end()
 section_end()
 
 # 0xA4 @ 0x69DEDC
 section_start(0xA4)
-text("""GutsMan2""")
+text("GutsMan2")
 end()
 section_end()
 
 # 0xA5 @ 0x69DEE9
 section_start(0xA5)
-text("""GutsMan3""")
+text("GutsMan3")
 end()
 section_end()
 
 # 0xA6 @ 0x69DEF6
 section_start(0xA6)
-text("""ProtoMan""")
+text("ProtoMan")
 end()
 section_end()
 
 # 0xA7 @ 0x69DF03
 section_start(0xA7)
-text("""ProtoMn2""")
+text("ProtoMn2")
 end()
 section_end()
 
 # 0xA8 @ 0x69DF10
 section_start(0xA8)
-text("""ProtoMn3""")
+text("ProtoMn3")
 end()
 section_end()
 
 # 0xA9 @ 0x69DF1D
 section_start(0xA9)
-text("""WoodMan""")
+text("WoodMan")
 end()
 section_end()
 
 # 0xAA @ 0x69DF29
 section_start(0xAA)
-text("""WoodMan2""")
+text("WoodMan2")
 end()
 section_end()
 
 # 0xAB @ 0x69DF36
 section_start(0xAB)
-text("""WoodMan3""")
+text("WoodMan3")
 end()
 section_end()
 
 # 0xAC @ 0x69DF43
 section_start(0xAC)
-text("""FireMan""")
+text("FireMan")
 end()
 section_end()
 
 # 0xAD @ 0x69DF4F
 section_start(0xAD)
-text("""FireMan2""")
+text("FireMan2")
 end()
 section_end()
 
 # 0xAE @ 0x69DF5C
 section_start(0xAE)
-text("""FireMan3""")
+text("FireMan3")
 end()
 section_end()
 
 # 0xAF @ 0x69DF69
 section_start(0xAF)
-text("""NumbrMan""")
+text("NumbrMan")
 end()
 section_end()
 
 # 0xB0 @ 0x69DF76
 section_start(0xB0)
-text("""NumbrMn2""")
+text("NumbrMn2")
 end()
 section_end()
 
 # 0xB1 @ 0x69DF83
 section_start(0xB1)
-text("""NumbrMn3""")
+text("NumbrMn3")
 end()
 section_end()
 
 # 0xB2 @ 0x69DF90
 section_start(0xB2)
-text("""StoneMan""")
+text("StoneMan")
 end()
 section_end()
 
 # 0xB3 @ 0x69DF9D
 section_start(0xB3)
-text("""StoneMn2""")
+text("StoneMn2")
 end()
 section_end()
 
 # 0xB4 @ 0x69DFAA
 section_start(0xB4)
-text("""StoneMn3""")
+text("StoneMn3")
 end()
 section_end()
 
 # 0xB5 @ 0x69DFB7
 section_start(0xB5)
-text("""IceMan""")
+text("IceMan")
 end()
 section_end()
 
 # 0xB6 @ 0x69DFC2
 section_start(0xB6)
-text("""IceMan2""")
+text("IceMan2")
 end()
 section_end()
 
 # 0xB7 @ 0x69DFCE
 section_start(0xB7)
-text("""IceMan3""")
+text("IceMan3")
 end()
 section_end()
 
 # 0xB8 @ 0x69DFDA
 section_start(0xB8)
-text("""SkullMan""")
+text("SkullMan")
 end()
 section_end()
 
 # 0xB9 @ 0x69DFE7
 section_start(0xB9)
-text("""SkullMn2""")
+text("SkullMn2")
 end()
 section_end()
 
 # 0xBA @ 0x69DFF4
 section_start(0xBA)
-text("""SkullMn3""")
+text("SkullMn3")
 end()
 section_end()
 
 # 0xBB @ 0x69E001
 section_start(0xBB)
-text("""ColorMan""")
+text("ColorMan")
 end()
 section_end()
 
 # 0xBC @ 0x69E00E
 section_start(0xBC)
-text("""ColorMn2""")
+text("ColorMn2")
 end()
 section_end()
 
 # 0xBD @ 0x69E01B
 section_start(0xBD)
-text("""ColorMn3""")
+text("ColorMn3")
 end()
 section_end()
 
 # 0xBE @ 0x69E028
 section_start(0xBE)
-text("""BombMan""")
+text("BombMan")
 end()
 section_end()
 
 # 0xBF @ 0x69E034
 section_start(0xBF)
-text("""BombMan2""")
+text("BombMan2")
 end()
 section_end()
 
 # 0xC0 @ 0x69E041
 section_start(0xC0)
-text("""BombMan3""")
+text("BombMan3")
 end()
 section_end()
 
 # 0xC1 @ 0x69E04E
 section_start(0xC1)
-text("""SharkMan""")
+text("SharkMan")
 end()
 section_end()
 
 # 0xC2 @ 0x69E05B
 section_start(0xC2)
-text("""SharkMn2""")
+text("SharkMn2")
 end()
 section_end()
 
 # 0xC3 @ 0x69E068
 section_start(0xC3)
-text("""SharkMn3""")
+text("SharkMn3")
 end()
 section_end()
 
 # 0xC4 @ 0x69E075
 section_start(0xC4)
-text("""ElecMan""")
+text("ElecMan")
 end()
 section_end()
 
 # 0xC5 @ 0x69E081
 section_start(0xC5)
-text("""ElecMan2""")
+text("ElecMan2")
 end()
 section_end()
 
 # 0xC6 @ 0x69E08E
 section_start(0xC6)
-text("""ElecMan3""")
+text("ElecMan3")
 end()
 section_end()
 
 # 0xC7 @ 0x69E09B
 section_start(0xC7)
-text("""Bass""")
+text("Bass")
 end()
 section_end()
 
 # 0xC8 @ 0x69E0A4
 section_start(0xC8)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xC9 @ 0x69E0AB
 section_start(0xC9)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xCA @ 0x69E0B2
 section_start(0xCA)
-text("""ZーCanon1""")
+text("ZーCanon1")
 end()
 section_end()
 
 # 0xCB @ 0x69E0BF
 section_start(0xCB)
-text("""ZーCanon2""")
+text("ZーCanon2")
 end()
 section_end()
 
 # 0xCC @ 0x69E0CC
 section_start(0xCC)
-text("""ZーCanon3""")
+text("ZーCanon3")
 end()
 section_end()
 
 # 0xCD @ 0x69E0D9
 section_start(0xCD)
-text("""ZーSpread""")
+text("ZーSpread")
 end()
 section_end()
 
 # 0xCE @ 0x69E0E6
 section_start(0xCE)
-text("""ZーRaton1""")
+text("ZーRaton1")
 end()
 section_end()
 
 # 0xCF @ 0x69E0F3
 section_start(0xCF)
-text("""ZーRaton2""")
+text("ZーRaton2")
 end()
 section_end()
 
 # 0xD0 @ 0x69E100
 section_start(0xD0)
-text("""ZーRaton3""")
+text("ZーRaton3")
 end()
 section_end()
 
 # 0xD1 @ 0x69E10D
 section_start(0xD1)
-text("""ZーArrow""")
+text("ZーArrow")
 end()
 section_end()
 
 # 0xD2 @ 0x69E119
 section_start(0xD2)
-text("""ZーSpear""")
+text("ZーSpear")
 end()
 section_end()
 
 # 0xD3 @ 0x69E125
 section_start(0xD3)
-text("""ZーLance""")
+text("ZーLance")
 end()
 section_end()
 
 # 0xD4 @ 0x69E131
 section_start(0xD4)
-text("""OーCanon1""")
+text("OーCanon1")
 end()
 section_end()
 
 # 0xD5 @ 0x69E13E
 section_start(0xD5)
-text("""OーCanon2""")
+text("OーCanon2")
 end()
 section_end()
 
 # 0xD6 @ 0x69E14B
 section_start(0xD6)
-text("""OーCanon3""")
+text("OーCanon3")
 end()
 section_end()
 
 # 0xD7 @ 0x69E158
 section_start(0xD7)
-text("""OーSpread""")
+text("OーSpread")
 end()
 section_end()
 
 # 0xD8 @ 0x69E165
 section_start(0xD8)
-text("""OーRaton1""")
+text("OーRaton1")
 end()
 section_end()
 
 # 0xD9 @ 0x69E172
 section_start(0xD9)
-text("""OーRaton2""")
+text("OーRaton2")
 end()
 section_end()
 
 # 0xDA @ 0x69E17F
 section_start(0xDA)
-text("""OーRaton3""")
+text("OーRaton3")
 end()
 section_end()
 
 # 0xDB @ 0x69E18C
 section_start(0xDB)
-text("""OーArrow""")
+text("OーArrow")
 end()
 section_end()
 
 # 0xDC @ 0x69E198
 section_start(0xDC)
-text("""OーSpear""")
+text("OーSpear")
 end()
 section_end()
 
 # 0xDD @ 0x69E1A4
 section_start(0xDD)
-text("""OーLance""")
+text("OーLance")
 end()
 section_end()
 
 # 0xDE @ 0x69E1B0
 section_start(0xDE)
-text("""BーBomb""")
+text("BーBomb")
 end()
 section_end()
 
 # 0xDF @ 0x69E1BB
 section_start(0xDF)
-text("""BーSword""")
+text("BーSword")
 end()
 section_end()
 
 # 0xE0 @ 0x69E1C7
 section_start(0xE0)
-text("""BーWave""")
+text("BーWave")
 end()
 section_end()
 
 # 0xE1 @ 0x69E1D2
 section_start(0xE1)
-text("""BーQuake""")
+text("BーQuake")
 end()
 section_end()
 
 # 0xE2 @ 0x69E1DE
 section_start(0xE2)
-text("""SーBomb""")
+text("SーBomb")
 end()
 section_end()
 
 # 0xE3 @ 0x69E1E9
 section_start(0xE3)
-text("""SーSword""")
+text("SーSword")
 end()
 section_end()
 
 # 0xE4 @ 0x69E1F5
 section_start(0xE4)
-text("""SーWave""")
+text("SーWave")
 end()
 section_end()
 
 # 0xE5 @ 0x69E200
 section_start(0xE5)
-text("""SーQuake""")
+text("SーQuake")
 end()
 section_end()
 
 # 0xE6 @ 0x69E20C
 section_start(0xE6)
-text("""PwrCanon""")
+text("PwrCanon")
 end()
 section_end()
 
 # 0xE7 @ 0x69E219
 section_start(0xE7)
-text("""HvyStamp""")
+text("HvyStamp")
 end()
 section_end()
 
 # 0xE8 @ 0x69E226
 section_start(0xE8)
-text("""BgStrait""")
+text("BgStrait")
 end()
 section_end()
 
 # 0xE9 @ 0x69E233
 section_start(0xE9)
-text("""BloodSuk""")
+text("BloodSuk")
 end()
 section_end()
 
 # 0xEA @ 0x69E240
 section_start(0xEA)
-text("""Storm""")
+text("Storm")
 end()
 section_end()
 
 # 0xEB @ 0x69E24A
 section_start(0xEB)
-text("""GtsShoot""")
+text("GtsShoot")
 end()
 section_end()
 
 # 0xEC @ 0x69E257
 section_start(0xEC)
-text("""LifeSavr""")
+text("LifeSavr")
 end()
 section_end()
 
 # 0xED @ 0x69E264
 section_start(0xED)
-text("""2xHero""")
+text("2xHero")
 end()
 section_end()
 
 # 0xEE @ 0x69E26F
 section_start(0xEE)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xEF @ 0x69E276
 section_start(0xEF)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xF0 @ 0x69E27D
 section_start(0xF0)
-text("""HPmemory""")
+text("HPmemory")
 end()
 section_end()
 
 # 0xF1 @ 0x69E28A
 section_start(0xF1)
-text("""PowerUP""")
+text("PowerUP")
 end()
 section_end()
 
 # 0xF2 @ 0x69E296
 section_start(0xF2)
-text("""PharTrap""")
+text("PharTrap")
 end()
 section_end()
 
 # 0xF3 @ 0x69E2A3
 section_start(0xF3)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xF4 @ 0x69E2AA
 section_start(0xF4)
-text("""HeatArmr""")
+text("HeatArmr")
 end()
 section_end()
 
 # 0xF5 @ 0x69E2B7
 section_start(0xF5)
-text("""AquaArmr""")
+text("AquaArmr")
 end()
 section_end()
 
 # 0xF6 @ 0x69E2C4
 section_start(0xF6)
-text("""WoodArmr""")
+text("WoodArmr")
 end()
 section_end()
 
 # 0xF7 @ 0x69E2D1
 section_start(0xF7)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xF8 @ 0x69E2D8
 section_start(0xF8)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xF9 @ 0x69E2DF
 section_start(0xF9)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xFA @ 0x69E2E6
 section_start(0xFA)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xFB @ 0x69E2ED
 section_start(0xFB)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xFC @ 0x69E2F4
 section_start(0xFC)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xFD @ 0x69E2FB
 section_start(0xFD)
-text("""XX""")
+text("XX")
 end()
 section_end()
 
 # 0xFE @ 0x69E302
 section_start(0xFE)
-text("""XX""")
+text("XX")
 end()
 section_end()
 

@@ -3,14 +3,12 @@ section_count(0x1F)
 # 0x00 @ 0x711BF2
 section_start(0x00)
 dialog_up()
-para_general("""This door is
-passcode protected""", 0)
-para_general("""Door will not open
-without proper
-authorization""", 0)
-para_general("""Hint; Number of
-doors in this
-school""")
+text("This door is\npasscode protected\p")
+wait(0)
+text("Door will not open\nwithout proper\nauthorization\p")
+wait(0)
+text("Hint; Number of\ndoors in this\nschool\p")
+wait(5)
 dialog_down()
 jump(0x01)
 section_end()
@@ -19,20 +17,19 @@ section_end()
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk_end("""Lan! Please go
-check!""")
+text("{a 2}Lan! Please go\ncheck!{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x711CA1
 section_start(0x02)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(684)
 pc_anim_start(50)
-add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a
-PowerUp;\"{key HPmemory}\"!""")
+add_item("HPmemory", 1)
+text("MegaMan got a\nPowerUp;\"{key HPmemory}\"!")
 pc_anim_end()
 page()
 end(5)
@@ -41,13 +38,12 @@ section_end()
 # 0x03 @ 0x711D09
 section_start(0x03)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(685)
 pc_anim_start(50)
 add_chip("Spreader H", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Spreader H}\"!""")
+text("MegaMan got a chip\nfor \"{chip Spreader H}\"!")
 pc_anim_end()
 page()
 end(5)
@@ -58,22 +54,19 @@ section_start(0x05)
 if_flag(162, 0x07, 0xFF)
 set_flag(162)
 dialog_up()
-para_general("""This door is
-passcode protected""", 0)
-para_general("""Door will not open
-without proper
-authorization""", 0)
-para_general("""Passcode hint;
-none""", 0)
+text("This door is\npasscode protected\p")
+wait(0)
+text("Door will not open\nwithout proper\nauthorization\p")
+wait(0)
+text("Passcode hint;\nnone\p")
+wait(0)
 pic(34)
-para_talk("""What? No hint{anim 1}...?{delay}
-{anim 2}Well,let's just try
-anything!""", 0)
+text("{a 2}What? No hint{a 1}...?{d}\n{a 2}Well,let's just try\nanything!{a 1}\p")
+wait(0)
 hidepic()
-text("""Input passcode?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Input passcode?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x06, 0xFF], 0, False, True)
 end(5)
 section_end()
@@ -89,17 +82,15 @@ section_end()
 # 0x07 @ 0x711E7E
 section_start(0x07)
 dialog_up()
-para_general("""This door is
-passcode protected""", 0)
-para_general("""Door will not open
-without proper
-authorization""", 0)
-para_general("""Passcode hint;
-none""", 0)
-text("""Input passcode?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("This door is\npasscode protected\p")
+wait(0)
+text("Door will not open\nwithout proper\nauthorization\p")
+wait(0)
+text("Passcode hint;\nnone\p")
+wait(0)
+text("Input passcode?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x06, 0xFF], 0, False, True)
 end(5)
 section_end()
@@ -107,11 +98,9 @@ section_end()
 # 0x08 @ 0x711F1B
 section_start(0x08)
 dialog_up()
-text("""Abort passcode
-input procedure?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Abort passcode\ninput procedure?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0xFF, 0x06], 0, False, True)
 passcode_hide()
 end(5)
@@ -120,11 +109,9 @@ section_end()
 # 0x09 @ 0x711F5C
 section_start(0x09)
 dialog_up()
-text("""Finalize passcode
-input?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Finalize passcode\ninput?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0A, 0x06], 0, False, True)
 page()
 end(5)
@@ -135,8 +122,8 @@ section_start(0x0A)
 passcode_check(0xFF, 0x0B, 0x10, 0x11, 0x0E, 0x0F, 0x19)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too low.
-Access denied""", 0)
+text("Passcode too low.\nAccess denied\p")
+wait(0)
 passcode_shift(0x14, 0x15, 0x16, 0x17)
 jump(0x12)
 section_end()
@@ -145,8 +132,8 @@ section_end()
 section_start(0x0B)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too high.
-Access denied""", 0)
+text("Passcode too high.\nAccess denied\p")
+wait(0)
 passcode_shift(0x14, 0x15, 0x16, 0x17)
 jump(0x12)
 section_end()
@@ -155,10 +142,10 @@ section_end()
 section_start(0x0E)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too high.
-Second digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too high.\nSecond digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x14, 0x15, 0x16, 0x17)
 jump(0x12)
 section_end()
@@ -167,10 +154,10 @@ section_end()
 section_start(0x0F)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too high.
-First digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too high.\nFirst digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x14, 0x15, 0x16, 0x17)
 jump(0x12)
 section_end()
@@ -179,10 +166,10 @@ section_end()
 section_start(0x10)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too low.
-Second digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too low.\nSecond digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x14, 0x15, 0x16, 0x17)
 jump(0x12)
 section_end()
@@ -191,10 +178,10 @@ section_end()
 section_start(0x11)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too low.
-First digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too low.\nFirst digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x14, 0x15, 0x16, 0x17)
 jump(0x12)
 section_end()
@@ -202,10 +189,9 @@ section_end()
 # 0x12 @ 0x71217D
 section_start(0x12)
 dialog_up()
-text("""Reーinput?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Reーinput?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x06, 0xFF], 0, False, True)
 passcode_hide()
 end(5)
@@ -214,56 +200,48 @@ section_end()
 # 0x14 @ 0x7121AA
 section_start(0x14)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. First digit
-increased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. First digit\nincreased\p")
+wait(0)
 jump(0x06)
 section_end()
 
 # 0x15 @ 0x712220
 section_start(0x15)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. First digit
-decreased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. First digit\ndecreased\p")
+wait(0)
 jump(0x06)
 section_end()
 
 # 0x16 @ 0x712296
 section_start(0x16)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. Second
-digit increased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. Second\ndigit increased\p")
+wait(0)
 jump(0x06)
 section_end()
 
 # 0x17 @ 0x71230D
 section_start(0x17)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. Second
-digit decreased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. Second\ndigit decreased\p")
+wait(0)
 jump(0x06)
 section_end()
 
 # 0x19 @ 0x712386
 section_start(0x19)
 dialog_up()
-para_general("""Passcode accepted.
-Lock released""", 0)
+text("Passcode accepted.\nLock released\p")
+wait(0)
 jump(0x1A)
 section_end()
 
@@ -273,8 +251,7 @@ pic(34)
 dialog_up()
 anim(2)
 se(0xE7)
-text("""Way to go!!{anim 1}""")
-page()
+text("Way to go!!{a 1}\p")
 dialog_down()
 if_flag(179, 0xFF, 0x1B)
 set_flag(170)
@@ -300,7 +277,6 @@ section_end()
 section_start(0x1E)
 pic(41)
 dialog_up()
-para_talk_end("""Did you know that
-you can jack in to
-any blackboard?""")
+text("{a 2}Did you know that\nyou can jack in to\nany blackboard?{a 1}\p")
+end(5)
 section_end()

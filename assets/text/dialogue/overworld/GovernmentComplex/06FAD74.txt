@@ -2,56 +2,51 @@ section_count(0xEB)
 
 # 0x00 @ 0x6FAF4A
 section_start(0x00)
-if_story(0x50, 0x52, 0x23, 0xFF)
-if_story(0x53, 0x54, 0x28, 0xFF)
-if_story(0x40, 0x47, 0x1F, 0xFF)
-if_story(0x30, 0x37, 0x19, 0xFF)
-if_story(0x24, 0x24, 0x0F, 0xFF)
-if_story(0x25, 0x25, 0x0F, 0xFF)
-if_story(0x26, 0x26, 0x14, 0xFF)
-if_story(0x27, 0x27, 0x14, 0xFF)
+if_story(0x50, 0x52, 0x23)
+if_story(0x53, 0x54, 0x28)
+if_story(0x40, 0x47, 0x1F)
+if_story(0x30, 0x37, 0x19)
+if_story(0x24, 0x24, 0x0F)
+if_story(0x25, 0x25, 0x0F)
+if_story(0x26, 0x26, 0x14)
+if_story(0x27, 0x27, 0x14)
 pic(21)
 dialog_up()
-para_talk_end("""This is the station
-for the Government
-Complex.""", 0)
+text("{a 2}This is the station\nfor the Government\nComplex.{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x6FAFBA
 section_start(0x01)
-if_story(0x24, 0x24, 0x10, 0xFF)
-if_story(0x25, 0x25, 0x10, 0xFF)
+if_story(0x24, 0x24, 0x10)
+if_story(0x25, 0x25, 0x10)
 pic(19)
 dialog_up()
-text("""{anim 2}Are you here for
-the tour?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Are you here for\nthe tour?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x02, 0xFF], 0, False, True)
-para_talk_end("""You should take
-it!""", 0)
+text("{a 2}You should take\nit!{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x6FB021
 section_start(0x02)
 pic(19)
 dialog_up()
-para_talk_end("""Yeah,not much
-reson for a child
-to come otherwise.""", 0)
+text("{a 2}Yeah,not much\nreson for a child\nto come otherwise.{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x6FB069
 section_start(0x05)
-if_story(0x30, 0x57, 0x0A, 0xFF)
+if_story(0x30, 0x57, 0x0A)
 if_flag(42, 0x07, 0xFF)
 dialog_up()
-para_general("""Where would you
-like to go?""", 0)
-text("""{c 1 1 0 0}ACDC Town
-""")
-text("""{c 0 0 1 1}None""")
+text("Where would you\nlike to go?\p")
+wait(0)
+text("{c 1 1 0 0}ACDC Town\n")
+text("{c 0 0 1 1}None")
 pick([0x06, 0xFF], 0, False, True)
 end()
 section_end()
@@ -59,11 +54,10 @@ section_end()
 # 0x06 @ 0x6FB0BB
 section_start(0x06)
 set_flag(42)
-add_item("ACDCPass", 1, 0xFF, 0xFF, 0xFF)
+add_item("ACDCPass", 1)
 dialog_up()
 pc_anim(30)
-text("""Lan got;
-\"{key ACDCPass}\"!""")
+text("Lan got;\n\"{key ACDCPass}\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()
@@ -74,11 +68,9 @@ section_end()
 # 0x07 @ 0x6FB0EC
 section_start(0x07)
 dialog_up()
-text("""Buy a different
-ticket?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Buy a different\nticket?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x08, 0xFF], 0, False, True)
 end()
 section_end()
@@ -86,34 +78,32 @@ section_end()
 # 0x08 @ 0x6FB123
 section_start(0x08)
 clear_flag(42)
-sub_item("ACDCPass", 1, 0xFF, 0xFF, 0xFF)
-sub_item("TownPass", 1, 0xFF, 0xFF, 0xFF)
+sub_item("ACDCPass", 1)
+sub_item("TownPass", 1)
 dialog_up()
-para_general("""Lan returned his
-ticket!""", 0)
+text("Lan returned his\nticket!\p")
+wait(0)
 jump(0x05)
 section_end()
 
 # 0x09 @ 0x6FB159
 section_start(0x09)
 set_flag(42)
-sub_item("ACDCPass", 1, 0xFF, 0xFF, 0xFF)
+sub_item("ACDCPass", 1)
 dialog_up()
-para_general_end("""Lan used the
-{key ACDCPass}!""", 0)
+text("Lan used the\n{key ACDCPass}!\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x6FB17F
 section_start(0x0A)
 if_flag(42, 0x07, 0xFF)
 dialog_up()
-para_general("""Where to?
-""", 0)
-text("""{c 2 1 0 0}ACDC Town
-""")
-text("""{c 0 2 1 1}Dentown
-""")
-text("""{c 1 0 2 2}None""")
+text("Where to?\n\p")
+wait(0)
+text("{c 2 1 0 0}ACDC Town\n")
+text("{c 0 2 1 1}Dentown\n")
+text("{c 1 0 2 2}None")
 pick([0x06, 0x0B, 0xFF], 0, False, True)
 end()
 section_end()
@@ -121,11 +111,10 @@ section_end()
 # 0x0B @ 0x6FB1C9
 section_start(0x0B)
 set_flag(42)
-add_item("TownPass", 1, 0xFF, 0xFF, 0xFF)
+add_item("TownPass", 1)
 dialog_up()
 pc_anim(30)
-text("""Lan got;
-\"{key TownPass}\"!""")
+text("Lan got;\n\"{key TownPass}\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()
@@ -135,38 +124,36 @@ section_end()
 
 # 0x0C @ 0x6FB1FA
 section_start(0x0C)
-sub_item("TownPass", 1, 0xFF, 0xFF, 0xFF)
+sub_item("TownPass", 1)
 dialog_up()
-para_general_end("""Lan used the
-{key TownPass}!""", 0)
+text("Lan used the\n{key TownPass}!\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x6FB220
 section_start(0x0F)
 pic(21)
 dialog_up()
-para_general("""*cough*{anim 2}This is the,
-{anim 1}*cough*{anim 2}Government{anim 1}...
-...*cough*...{anim 2}Argh!{anim 1}""", 0)
-para_general_end("""{anim 2}My throat is{anim 1}*cough*
-{anim 2}too dry to speak!
-{anim 1}*cough*""")
+text("*cough*{a 2}This is the,\n{a 1}*cough*{a 2}Government{a 1}...\n...*cough*...{a 2}Argh!{a 1}\p")
+wait(0)
+text("{a 2}My throat is{a 1}*cough*\n{a 2}too dry to speak!\n{a 1}*cough*\p")
+end(5)
 section_end()
 
 # 0x10 @ 0x6FB2C2
 section_start(0x10)
 pic(19)
 dialog_up()
-para_talk_end("""There aren't even
-any drinks for sale
-at the store!""")
+text("{a 2}There aren't even\nany drinks for sale\nat the store!{a 1}\p")
+end(5)
 section_end()
 
 # 0x14 @ 0x6FB30D
 section_start(0x14)
 pic(21)
 dialog_up()
-para_general("""...""")
+text("...\p")
+wait(5)
 jump(0x15)
 section_end()
 
@@ -174,43 +161,40 @@ section_end()
 section_start(0x15)
 pic(34)
 dialog_up()
-para_talk_end("""Looks like he
-can't talk...""", 0)
+text("{a 2}Looks like he\ncan't talk...{a 1}\p")
+end(0)
 section_end()
 
 # 0x19 @ 0x6FB357
 section_start(0x19)
 pic(21)
 dialog_up()
-para_talk("""This is the
-Metroline Govnmnt
-Complex station!""", 0)
-para_talk_end("""It's so nice to
-have my voice
-back!""", 0)
+text("{a 2}This is the\nMetroline Govnmnt\nComplex station!{a 1}\p")
+wait(0)
+text("{a 2}It's so nice to\nhave my voice\nback!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1F @ 0x6FB3CD
 section_start(0x1F)
 pic(21)
 dialog_up()
-para_talk("""She sells sea shells
-by the sea shore...""", 0)
-para_talk("""Peter Piper picked a
-peck of pickled
-peppers...""", 0)
-para_talk_end("""I'm exercising my
-throat so that I
-don't get thirsty!""", 0)
+text("{a 2}She sells sea shells\nby the sea shore...{a 1}\p")
+wait(0)
+text("{a 2}Peter Piper picked a\npeck of pickled\npeppers...{a 1}\p")
+wait(0)
+text("{a 2}I'm exercising my\nthroat so that I\ndon't get thirsty!{a 1}\p")
+end(0)
 section_end()
 
 # 0x23 @ 0x6FB488
 section_start(0x23)
 pic(21)
 dialog_up()
-para_talk("""Thiiis iiiis,the
-Metro Liiiine!!""", 0)
-para_talk_end("""I'm learning opera!""", 0)
+text("{a 2}Thiiis iiiis,the\nMetro Liiiine!!{a 1}\p")
+wait(0)
+text("{a 2}I'm learning opera!{a 1}\p")
+end(0)
 section_end()
 
 # 0x24 @ 0x6FB4D8
@@ -218,49 +202,44 @@ section_start(0x24)
 pic(34)
 dialog_up()
 mail(24)
-para_talk_end("""Lan!
-You've got mail!""", 0)
+text("{a 2}Lan!\nYou've got mail!{a 1}\p")
+end(0)
 section_end()
 
 # 0x28 @ 0x6FB50A
 section_start(0x28)
 pic(21)
 dialog_up()
-para_talk("""Even if war occurs,
-I'll stay here to
-guard this station!""", 0)
-para_talk_end("""I take being a
-station manager
-very seriously!""", 0)
+text("{a 2}Even if war occurs,\nI'll stay here to\nguard this station!{a 1}\p")
+wait(0)
+text("{a 2}I take being a\nstation manager\nvery seriously!{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x6FB6F3
 section_start(0xDC)
 dialog_up()
-para_general_end("""Lots of trash is
-thrown away here""")
+text("Lots of trash is\nthrown away here\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x6FB71C
 section_start(0xDD)
 dialog_up()
-para_general_end("""This escalator only
-goes down. You can't
-exit here""")
+text("This escalator only\ngoes down. You can't\nexit here\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x6FB758
 section_start(0xDE)
 dialog_up()
-para_general_end("""It's small,but has
-lots of stuff for
-sale""")
+text("It's small,but has\nlots of stuff for\nsale\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x6FB78B
 section_start(0xDF)
 dialog_up()
-para_general_end("""It says \"Welcome
-to the Government
-Complex station!""")
+text("It says \"Welcome\nto the Government\nComplex station!\p")
+end(5)
 section_end()

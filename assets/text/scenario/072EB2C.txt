@@ -4,9 +4,8 @@ section_count(0x7)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk("""Lan...
-Doesn't something
-seem wrong?""", 0)
+text("{a 2}Lan...\nDoesn't something\nseem wrong?{a 1}\p")
+wait(0)
 jump(0x01)
 section_end()
 
@@ -14,7 +13,8 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""What?""", 0)
+text("{a 2}What?{a 1}\p")
+wait(0)
 jump(0x02)
 section_end()
 
@@ -22,12 +22,10 @@ section_end()
 section_start(0x02)
 pic(34)
 dialog_up()
-para_talk("""I mean{anim 1}{delay}...{delay}{anim 2}why would
-a netbattler come to
-check out a bug?""", 0)
-para_talk("""And it's not just
-water that is
-missing,too!""", 0)
+text("{a 2}I mean{a 1}{d}...{d}{a 2}why would\na netbattler come to\ncheck out a bug?{a 1}\p")
+wait(0)
+text("{a 2}And it's not just\nwater that is\nmissing,too!{a 1}\p")
+wait(0)
 jump(0x03)
 section_end()
 
@@ -35,8 +33,8 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""This isn't going to
-be easy to fix...""", 0)
+text("{a 2}This isn't going to\nbe easy to fix...{a 1}\p")
+wait(0)
 jump(0x04)
 section_end()
 
@@ -44,10 +42,10 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk("""I'm afraid so...""", 0)
-para_talk("""Let's hide out and
-check the net once
-everyone leaves...""", 0)
+text("{a 2}I'm afraid so...{a 1}\p")
+wait(0)
+text("{a 2}Let's hide out and\ncheck the net once\neveryone leaves...{a 1}\p")
+wait(0)
 jump(0x05)
 section_end()
 
@@ -55,7 +53,8 @@ section_end()
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk("""...Right! Good idea!""", 0)
+text("{a 2}...Right! Good idea!{a 1}\p")
+wait(0)
 jump(0x06)
 section_end()
 
@@ -63,6 +62,6 @@ section_end()
 section_start(0x06)
 pic(34)
 dialog_up()
-para_talk_end("""Now,to find a place
-to hide...""")
+text("{a 2}Now,to find a place\nto hide...{a 1}\p")
+end(5)
 section_end()

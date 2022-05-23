@@ -4,9 +4,8 @@ section_count(0xC)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk("""Looks like everyone
-is still in
-homeroom...""")
+text("{a 2}Looks like everyone\nis still in\nhomeroom...{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -14,20 +13,23 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk_end("""(Sneak time!)""")
+text("{a 2}(Sneak time!){a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x72BB11
 section_start(0x02)
 dialog_up()
-para_general_end("""pitpat... {delay}pitpat...""", 30)
+text("pitpat... {d}pitpat...\p")
+end(30)
 section_end()
 
 # 0x03 @ 0x72BB36
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""(Yeah! I did it!)""")
+text("{a 2}(Yeah! I did it!){a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -35,11 +37,10 @@ section_end()
 section_start(0x04)
 pic(3)
 dialog_up()
-para_talk("""...So class,this
-is Mr.Higsby.""", 0)
-para_talk("""He'll be helping me
-teach class for the
-next two weeks.""")
+text("{a 2}...So class,this\nis Mr.Higsby.{a 1}\p")
+wait(0)
+text("{a 2}He'll be helping me\nteach class for the\nnext two weeks.{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -47,16 +48,14 @@ section_end()
 section_start(0x05)
 pic(6)
 dialog_up()
-para_talk("""Hello,I'm Mr.Higsby.
-I collect battle
-chips,it's my hobby!""", 0)
-para_talk("""I'm looking forward
-to trading with all
-of you!""", 0)
-para_talk("""Be sure to come to
-me if you've got
-any rare chips,okay?""", 0)
-para_general("""{anim 2}Heh,heh...{anim 1}*snort*""")
+text("{a 2}Hello,I'm Mr.Higsby.\nI collect battle\nchips,it's my hobby!{a 1}\p")
+wait(0)
+text("{a 2}I'm looking forward\nto trading with all\nof you!{a 1}\p")
+wait(0)
+text("{a 2}Be sure to come to\nme if you've got\nany rare chips,okay?{a 1}\p")
+wait(0)
+text("{a 2}Heh,heh...{a 1}*snort*\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -64,8 +63,8 @@ section_end()
 section_start(0x06)
 pic(1)
 dialog_up()
-para_talk("""...The new teacher's
-kinda...scary.""")
+text("{a 2}...The new teacher's\nkinda...scary.{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -73,8 +72,8 @@ section_end()
 section_start(0x07)
 pic(8)
 dialog_up()
-para_talk("""Not really scary...
-just sorta wierd.""")
+text("{a 2}Not really scary...\njust sorta wierd.{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -82,9 +81,8 @@ section_end()
 section_start(0x08)
 pic(0)
 dialog_up()
-para_talk("""I didn't think
-teachers had
-hobbies,too...""")
+text("{a 2}I didn't think\nteachers had\nhobbies,too...{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -92,9 +90,8 @@ section_end()
 section_start(0x09)
 pic(34)
 dialog_up()
-para_talk("""Well,they do say
-everyone's gotta
-have a hobby!""")
+text("{a 2}Well,they do say\neveryone's gotta\nhave a hobby!{a 1}\p")
+wait(5)
 hidepic()
 jump(0x0A)
 section_end()
@@ -102,8 +99,8 @@ section_end()
 # 0x0A @ 0x72BDC8
 section_start(0x0A)
 dialog_up()
-para_general("""*whisper*
-*giggle*""")
+text("*whisper*\n*giggle*\p")
+wait(5)
 jump(0x0B)
 section_end()
 
@@ -111,10 +108,8 @@ section_end()
 section_start(0x0B)
 pic(3)
 dialog_up()
-para_talk("""Everyone,let's give
-Mr.Higsby a warm
-welcome,okay?""", 0)
-para_talk_end("""Well now,
-that's all for
-homeroom today.""")
+text("{a 2}Everyone,let's give\nMr.Higsby a warm\nwelcome,okay?{a 1}\p")
+wait(0)
+text("{a 2}Well now,\nthat's all for\nhomeroom today.{a 1}\p")
+end(5)
 section_end()

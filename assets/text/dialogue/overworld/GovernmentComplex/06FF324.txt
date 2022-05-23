@@ -2,34 +2,31 @@ section_count(0xEB)
 
 # 0x00 @ 0x6FF4FA
 section_start(0x00)
-if_story(0x50, 0x51, 0x28, 0xFF)
-if_story(0x40, 0x43, 0x22, 0xFF)
-if_story(0x30, 0x37, 0x1E, 0xFF)
-if_story(0x24, 0x24, 0x0F, 0xFF)
+if_story(0x50, 0x51, 0x28)
+if_story(0x40, 0x43, 0x22)
+if_story(0x30, 0x37, 0x1E)
+if_story(0x24, 0x24, 0x0F)
 pic(26)
 dialog_up()
-para_talk("""I heard you were
-coming. You're
-Hikari's son,right?""", 0)
-para_talk_end("""He hasn't been here
-since morning,and he
-won't be back soon.""", 0)
+text("{a 2}I heard you were\ncoming. You're\nHikari's son,right?{a 1}\p")
+wait(0)
+text("{a 2}He hasn't been here\nsince morning,and he\nwon't be back soon.{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x6FF5A2
 section_start(0x01)
-if_story(0x30, 0x60, 0x08, 0xFF)
+if_story(0x30, 0x60, 0x08)
 if_flag(226, 0x08, 0xFF)
 if_flag(219, 0x04, 0xFF)
 if_flag(214, 0x08, 0xFF)
 set_flag(219)
 pic(34)
 dialog_up()
-para_talk("""Hey,this PC is
-still running!""", 0)
-para_talk("""Would it be OK to
-take a peek and try
-to find my program?""")
+text("{a 2}Hey,this PC is\nstill running!{a 1}\p")
+wait(0)
+text("{a 2}Would it be OK to\ntake a peek and try\nto find my program?{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -37,7 +34,8 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk("""Sure!""")
+text("{a 2}Sure!{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -45,23 +43,20 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk_end("""Great! Go ahead and
-jack in... I'll go
-check it out!""", 0)
+text("{a 2}Great! Go ahead and\njack in... I'll go\ncheck it out!{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x6FF697
 section_start(0x05)
-if_story(0x30, 0x47, 0x09, 0xFF)
+if_story(0x30, 0x47, 0x09)
 if_flag(219, 0x09, 0xFF)
 if_flag(214, 0x09, 0xFF)
 pic(34)
 dialog_up()
-text("""{anim 2}While we're in there,
-I'll get my program!{anim 1}
-""")
-text("""{c 0 0 1 1}OK! """)
-text("""{c 1 1 0 0}No,don't""")
+text("{a 2}While we're in there,\nI'll get my program!{a 1}\n")
+text("{c 0 0 1 1}OK! ")
+text("{c 1 1 0 0}No,don't")
 pick([0x06, 0x07], 0, False, True)
 page()
 end()
@@ -72,7 +67,8 @@ section_start(0x06)
 set_flag(214)
 pic(34)
 dialog_up()
-para_talk_end("""OK! I'm ready!""", 0)
+text("{a 2}OK! I'm ready!{a 1}\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x6FF72D
@@ -80,17 +76,15 @@ section_start(0x07)
 set_flag(214)
 pic(34)
 dialog_up()
-para_talk_end("""Well,if I see it
-lemme know what to
-do. Let's go!""", 0)
+text("{a 2}Well,if I see it\nlemme know what to\ndo. Let's go!{a 1}\p")
+end(0)
 section_end()
 
 # 0x08 @ 0x6FF776
 section_start(0x08)
 dialog_up()
-para_general_end("""It's running.
-Looks like you can
-jack in.""", 0)
+text("It's running.\nLooks like you can\njack in.\p")
+end(0)
 section_end()
 
 # 0x09 @ 0x6FF7AA
@@ -100,9 +94,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -111,18 +103,16 @@ section_end()
 # 0x0A @ 0x6FF7F5
 section_start(0x0A)
 dialog_up()
-para_general_end("""A lab smock...{delay}
-The ID says \"Dr.
-Hikari\".""", 0)
+text("A lab smock...{d}\nThe ID says \"Dr.\nHikari\".\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x6FF830
 section_start(0x0B)
 pic(34)
 dialog_up()
-para_talk_end("""Lan! I think you
-need to push the
-button.""", 0)
+text("{a 2}Lan! I think you\nneed to push the\nbutton.{a 1}\p")
+end(0)
 section_end()
 
 # 0x0C @ 0x6FF86B
@@ -131,9 +121,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -143,31 +131,28 @@ section_end()
 section_start(0x0D)
 pic(34)
 dialog_up()
-para_talk("""We've come all this
-way! Why go back
-now?""", 0)
-para_talk_end("""Let's leave a
-message! I'll take
-it!""", 0)
+text("{a 2}We've come all this\nway! Why go back\nnow?{a 1}\p")
+wait(0)
+text("{a 2}Let's leave a\nmessage! I'll take\nit!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x6FF920
 section_start(0x0F)
 pic(26)
 dialog_up()
-para_talk_end("""Dr.Hikari isn't here
-today,either!""")
+text("{a 2}Dr.Hikari isn't here\ntoday,either!{a 1}\p")
+end(5)
 section_end()
 
 # 0x10 @ 0x6FF956
 section_start(0x10)
-if_story(0x30, 0x60, 0x17, 0xFF)
+if_story(0x30, 0x60, 0x17)
 check_item("SciLabID", 1, 0x17, 0x17, 0xFF)
 if_flag(185, 0xFF, 0x0A)
 dialog_up()
-para_general("""A lab smock...{delay}
-The ID says \"Dr.
-Hikari\".""")
+text("A lab smock...{d}\nThe ID says \"Dr.\nHikari\".\p")
+wait(5)
 jump(0x11)
 section_end()
 
@@ -175,9 +160,8 @@ section_end()
 section_start(0x11)
 pic(0)
 dialog_up()
-para_talk("""I know! I'll just
-borrow this for a
-bit.""")
+text("{a 2}I know! I'll just\nborrow this for a\nbit.{a 1}\p")
+wait(5)
 jump(0x12)
 section_end()
 
@@ -185,11 +169,11 @@ section_end()
 section_start(0x12)
 hidepic()
 dialog_up()
-para_general("""*snip,snip*""", 0)
+text("*snip,snip*\p")
+wait(0)
 pc_anim(30)
-add_item("SciLabID", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got;
-\"{key SciLabID}\"!""")
+add_item("SciLabID", 1)
+text("Lan got;\n\"{key SciLabID}\"!")
 pc_wait()
 pc_anim(4)
 page()
@@ -200,12 +184,12 @@ section_end()
 section_start(0x13)
 check_item("SciLabID", 1, 0xFF, 0xFF, 0x15)
 dialog_up()
-para_general("""An elevator switch.
-""", 0)
-para_general("""Lan used the
-{key SciLabID}!""", 0)
-para_general("""The elevator doors
-opened!""", 0)
+text("An elevator switch.\n\p")
+wait(0)
+text("Lan used the\n{key SciLabID}!\p")
+wait(0)
+text("The elevator doors\nopened!\p")
+wait(0)
 jump(0x14)
 section_end()
 
@@ -213,16 +197,16 @@ section_end()
 section_start(0x14)
 pic(34)
 dialog_up()
-para_talk_end("""Let's go down to
-the lobby!""")
+text("{a 2}Let's go down to\nthe lobby!{a 1}\p")
+end(5)
 section_end()
 
 # 0x15 @ 0x6FFAAE
 section_start(0x15)
 pic(26)
 dialog_up()
-para_talk("""I'll set it to
-go to the 1st floor.""")
+text("{a 2}I'll set it to\ngo to the 1st floor.{a 1}\p")
+wait(5)
 jump(0x16)
 section_end()
 
@@ -230,60 +214,56 @@ section_end()
 section_start(0x16)
 hidepic()
 dialog_up()
-para_general_end("""The elevator doors
-opened!""", 0)
+text("The elevator doors\nopened!\p")
+end(0)
 section_end()
 
 # 0x17 @ 0x6FFB0B
 section_start(0x17)
 dialog_up()
-para_general_end("""A lab smock...{delay}
-Seems to be missing
-its ID badge.""", 0)
+text("A lab smock...{d}\nSeems to be missing\nits ID badge.\p")
+end(0)
 section_end()
 
 # 0x1E @ 0x6FFB57
 section_start(0x1E)
 pic(26)
 dialog_up()
-para_talk_end("""Dr.Hikari still
-isn't here!""", 0)
+text("{a 2}Dr.Hikari still\nisn't here!{a 1}\p")
+end(0)
 section_end()
 
 # 0x22 @ 0x6FFB8B
 section_start(0x22)
 pic(26)
 dialog_up()
-para_talk("""Isn't there a party
-today?""", 0)
-para_talk_end("""Dr.Hikari?
-He isn't here now.""", 0)
+text("{a 2}Isn't there a party\ntoday?{a 1}\p")
+wait(0)
+text("{a 2}Dr.Hikari?\nHe isn't here now.{a 1}\p")
+end(0)
 section_end()
 
 # 0x23 @ 0x6FFBE0
 section_start(0x23)
 dialog_up()
-para_general("""An elevator switch.""", 0)
-para_general("""Lan used the
-{key SciLabID}!""", 0)
-para_general("""The elevator doors
-opened!
-Which floor?""", 0)
-if_story(0x41, 0x57, 0x24, 0xFF)
-text("""{c 1 1 0 0}SciLab lobby
-""")
-text("""{c 0 0 1 1}Restaurant""")
+text("An elevator switch.\p")
+wait(0)
+text("Lan used the\n{key SciLabID}!\p")
+wait(0)
+text("The elevator doors\nopened!\nWhich floor?\p")
+wait(0)
+if_story(0x41, 0x57, 0x24)
+text("{c 1 1 0 0}SciLab lobby\n")
+text("{c 0 0 1 1}Restaurant")
 pick([0x25, 0x26], 0, True, True)
 end()
 section_end()
 
 # 0x24 @ 0x6FFC71
 section_start(0x24)
-text("""{c 2 1 0 0}SciLab lobby
-""")
-text("""{c 0 2 1 1}Restaurant
-""")
-text("""{c 1 0 2 2}Power plant""")
+text("{c 2 1 0 0}SciLab lobby\n")
+text("{c 0 2 1 1}Restaurant\n")
+text("{c 1 0 2 2}Power plant")
 pick([0x25, 0x26, 0x27], 0, True, True)
 end()
 section_end()
@@ -310,30 +290,31 @@ section_end()
 section_start(0x28)
 pic(26)
 dialog_up()
-para_talk("""Dr.Hikari still
-isn't in!""", 0)
-para_talk_end("""Oh,but he said that
-he'll be in later!""", 0)
+text("{a 2}Dr.Hikari still\nisn't in!{a 1}\p")
+wait(0)
+text("{a 2}Oh,but he said that\nhe'll be in later!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2D @ 0x6FFD31
 section_start(0x2D)
-if_story(0x53, 0x53, 0x4B, 0xFF)
+if_story(0x53, 0x53, 0x4B)
 pic(26)
 dialog_up()
-para_talk_end("""Dr.Hikari is at his
-desk!""", 0)
+text("{a 2}Dr.Hikari is at his\ndesk!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2E @ 0x6FFD62
 section_start(0x2E)
-if_story(0x54, 0x54, 0x50, 0xFF)
+if_story(0x54, 0x54, 0x50)
 if_flag(158, 0x44, 0xFF)
 if_flag(159, 0x41, 0xFF)
 set_flag(159)
 pic(28)
 dialog_up()
-para_talk("""Oh,Lan!""")
+text("{a 2}Oh,Lan!{a 1}\p")
+wait(5)
 jump(0x2F)
 section_end()
 
@@ -341,8 +322,8 @@ section_end()
 section_start(0x2F)
 pic(0)
 dialog_up()
-para_talk("""Hey,Dad!
-You got a minute?""")
+text("{a 2}Hey,Dad!\nYou got a minute?{a 1}\p")
+wait(5)
 jump(0x30)
 section_end()
 
@@ -350,7 +331,8 @@ section_end()
 section_start(0x30)
 pic(28)
 dialog_up()
-para_talk("""Of course!""")
+text("{a 2}Of course!{a 1}\p")
+wait(5)
 jump(0x31)
 section_end()
 
@@ -358,7 +340,8 @@ section_end()
 section_start(0x31)
 pic(0)
 dialog_up()
-para_talk("""Cool!""")
+text("{a 2}Cool!{a 1}\p")
+wait(5)
 jump(0x32)
 section_end()
 
@@ -366,11 +349,10 @@ section_end()
 section_start(0x32)
 pic(28)
 dialog_up()
-para_talk("""Haha,sorry I've been
-away so much...""", 0)
-para_talk("""So,how are you?{anim 1}{delay}
-{anim 2}Did you talk to
-Chaud?""")
+text("{a 2}Haha,sorry I've been\naway so much...{a 1}\p")
+wait(0)
+text("{a 2}So,how are you?{a 1}{d}\n{a 2}Did you talk to\nChaud?{a 1}\p")
+wait(5)
 jump(0x33)
 section_end()
 
@@ -378,7 +360,8 @@ section_end()
 section_start(0x33)
 pic(0)
 dialog_up()
-para_talk("""Talk to that jerk!?""")
+text("{a 2}Talk to that jerk!?{a 1}\p")
+wait(5)
 jump(0x34)
 section_end()
 
@@ -386,9 +369,8 @@ section_end()
 section_start(0x34)
 pic(28)
 dialog_up()
-para_talk("""Hmmm,did you have a
-fight? He CAN be
-hard to deal with...""")
+text("{a 2}Hmmm,did you have a\nfight? He CAN be\nhard to deal with...{a 1}\p")
+wait(5)
 jump(0x35)
 section_end()
 
@@ -396,8 +378,8 @@ section_end()
 section_start(0x35)
 pic(0)
 dialog_up()
-para_talk("""Well,anyway,check
-this out!""")
+text("{a 2}Well,anyway,check\nthis out!{a 1}\p")
+wait(5)
 jump(0x36)
 section_end()
 
@@ -405,8 +387,8 @@ section_end()
 section_start(0x36)
 hidepic()
 dialog_up()
-para_general("""Lan used the
-{key ★WWW}!""")
+text("Lan used the\n{key ★WWW}!\p")
+wait(5)
 jump(0x37)
 section_end()
 
@@ -414,9 +396,8 @@ section_end()
 section_start(0x37)
 pic(28)
 dialog_up()
-para_talk("""Lan!!
-Where did you get
-this??""")
+text("{a 2}Lan!!\nWhere did you get\nthis??{a 1}\p")
+wait(5)
 jump(0x38)
 section_end()
 
@@ -424,10 +405,10 @@ section_end()
 section_start(0x38)
 pic(0)
 dialog_up()
-para_talk("""I got it with
-MegaMan!""", 0)
-para_talk("""But we can't get
-through the network!""")
+text("{a 2}I got it with\nMegaMan!{a 1}\p")
+wait(0)
+text("{a 2}But we can't get\nthrough the network!{a 1}\p")
+wait(5)
 jump(0x39)
 section_end()
 
@@ -435,10 +416,10 @@ section_end()
 section_start(0x39)
 pic(28)
 dialog_up()
-para_talk("""I see...""", 0)
-para_talk("""Well{anim 1}...{delay}{anim 2}With this,
-I'm sure we can find
-the WWW labs.""")
+text("{a 2}I see...{a 1}\p")
+wait(0)
+text("{a 2}Well{a 1}...{d}{a 2}With this,\nI'm sure we can find\nthe WWW labs.{a 1}\p")
+wait(5)
 jump(0x3A)
 section_end()
 
@@ -446,7 +427,8 @@ section_end()
 section_start(0x3A)
 pic(0)
 dialog_up()
-para_talk("""Are you sure?""")
+text("{a 2}Are you sure?{a 1}\p")
+wait(5)
 jump(0x3B)
 section_end()
 
@@ -454,14 +436,12 @@ section_end()
 section_start(0x3B)
 pic(28)
 dialog_up()
-para_talk("""Sure,should be no
-problem using our
-technology here.""", 0)
-para_talk("""This may help us
-stop the war!""", 0)
-para_talk("""Of course,I'll have
-to tell Chaud about
-this. That OK?""")
+text("{a 2}Sure,should be no\nproblem using our\ntechnology here.{a 1}\p")
+wait(0)
+text("{a 2}This may help us\nstop the war!{a 1}\p")
+wait(0)
+text("{a 2}Of course,I'll have\nto tell Chaud about\nthis. That OK?{a 1}\p")
+wait(5)
 jump(0x3C)
 section_end()
 
@@ -469,9 +449,8 @@ section_end()
 section_start(0x3C)
 pic(0)
 dialog_up()
-para_talk("""Um{anim 1}...{delay}{anim 2} I guess...
-Could you tell me
-the location,too?""")
+text("{a 2}Um{a 1}...{d}{a 2} I guess...\nCould you tell me\nthe location,too?{a 1}\p")
+wait(5)
 jump(0x3D)
 section_end()
 
@@ -479,8 +458,10 @@ section_end()
 section_start(0x3D)
 pic(28)
 dialog_up()
-para_general("""{..}.""", 0)
-para_talk("""No.""")
+text("{..}.\p")
+wait(0)
+text("{a 2}No.{a 1}\p")
+wait(5)
 jump(0x3E)
 section_end()
 
@@ -488,14 +469,14 @@ section_end()
 section_start(0x3E)
 pic(0)
 dialog_up()
-para_talk("""Why not!?""", 0)
-para_talk("""I'M the one who
-defeated the WWW!""", 0)
-para_talk("""And with the MegaMan
-program that YOU
-created!!""", 0)
-para_talk("""Please,let us help
-finish the job!""")
+text("{a 2}Why not!?{a 1}\p")
+wait(0)
+text("{a 2}I'M the one who\ndefeated the WWW!{a 1}\p")
+wait(0)
+text("{a 2}And with the MegaMan\nprogram that YOU\ncreated!!{a 1}\p")
+wait(0)
+text("{a 2}Please,let us help\nfinish the job!{a 1}\p")
+wait(5)
 jump(0x3F)
 section_end()
 
@@ -503,7 +484,8 @@ section_end()
 section_start(0x3F)
 pic(34)
 dialog_up()
-para_general("""{anim 2}Lan{anim 1}{...}""")
+text("{a 2}Lan{a 1}{...}\p")
+wait(5)
 jump(0x40)
 section_end()
 
@@ -511,9 +493,8 @@ section_end()
 section_start(0x40)
 pic(28)
 dialog_up()
-para_general("""...{delay}{anim 2}finish the job
-{anim 1}...{anim 2}OK,OK,I give in.{anim 1}{delay}
-{anim 2}But one condition!{anim 1}""")
+text("...{d}{a 2}finish the job\n{a 1}...{a 2}OK,OK,I give in.{a 1}{d}\n{a 2}But one condition!{a 1}\p")
+wait(5)
 jump(0x41)
 section_end()
 
@@ -521,23 +502,19 @@ section_end()
 section_start(0x41)
 pic(28)
 dialog_up()
-para_talk("""The WWW's attacks
-will likely start
-coming even harder.""", 0)
-para_talk("""MegaMan could be
-deleted,and your
-actions could""", 0)
-para_talk("""trigger the war!
-Can you take that
-responsibility?""", 0)
-text("""{c 0 0 1 1}Yes! """)
-text("""{c 1 1 0 0}Hmmm...""")
+text("{a 2}The WWW's attacks\nwill likely start\ncoming even harder.{a 1}\p")
+wait(0)
+text("{a 2}MegaMan could be\ndeleted,and your\nactions could{a 1}\p")
+wait(0)
+text("{a 2}trigger the war!\nCan you take that\nresponsibility?{a 1}\p")
+wait(0)
+text("{c 0 0 1 1}Yes! ")
+text("{c 1 1 0 0}Hmmm...")
 pick([0x42, 0xFF], 0, False, True)
-para_talk("""You're right. And I
-couldn't put my
-son in such danger.""", 0)
-para_talk_end("""Maybe we should talk
-about this later...""", 0)
+text("{a 2}You're right. And I\ncouldn't put my\nson in such danger.{a 1}\p")
+wait(0)
+text("{a 2}Maybe we should talk\nabout this later...{a 1}\p")
+end(0)
 section_end()
 
 # 0x42 @ 0x700412
@@ -545,9 +522,8 @@ section_start(0x42)
 set_flag(158)
 pic(28)
 dialog_up()
-para_talk("""OK{anim 1}...{delay}{anim 2} I'll send you
-the location when we
-find it...""")
+text("{a 2}OK{a 1}...{d}{a 2} I'll send you\nthe location when we\nfind it...{a 1}\p")
+wait(5)
 jump(0x43)
 section_end()
 
@@ -555,7 +531,8 @@ section_end()
 section_start(0x43)
 pic(0)
 dialog_up()
-para_talk("""Thanks,Dad!!""")
+text("{a 2}Thanks,Dad!!{a 1}\p")
+wait(5)
 jump(0x44)
 section_end()
 
@@ -563,19 +540,18 @@ section_end()
 section_start(0x44)
 pic(28)
 dialog_up()
-para_talk("""I'll send you mail
-with the location.
-Go practice""", 0)
-para_talk_end("""NetBattling.""", 0)
+text("{a 2}I'll send you mail\nwith the location.\nGo practice{a 1}\p")
+wait(0)
+text("{a 2}NetBattling.{a 1}\p")
+end(0)
 section_end()
 
 # 0x4B @ 0x7004F1
 section_start(0x4B)
 pic(26)
 dialog_up()
-para_talk_end("""Dr.Hikari sure is
-busy. He just went
-off again!""", 0)
+text("{a 2}Dr.Hikari sure is\nbusy. He just went\noff again!{a 1}\p")
+end(0)
 section_end()
 
 # 0x50 @ 0x70053B
@@ -584,9 +560,8 @@ if_flag(170, 0x59, 0xFF)
 set_flag(170)
 pic(28)
 dialog_up()
-para_talk("""Glad you're still
-OK...Was there
-something you need?""")
+text("{a 2}Glad you're still\nOK...Was there\nsomething you need?{a 1}\p")
+wait(5)
 jump(0x51)
 section_end()
 
@@ -594,8 +569,8 @@ section_end()
 section_start(0x51)
 hidepic()
 dialog_up()
-para_general("""Lan showed his Dad
-the {key WWW_Pass}!""")
+text("Lan showed his Dad\nthe {key WWW_Pass}!\p")
+wait(5)
 jump(0x52)
 section_end()
 
@@ -603,9 +578,8 @@ section_end()
 section_start(0x52)
 pic(28)
 dialog_up()
-para_talk("""Hmmm...We had heard
-rumors of this
-secret Metroline...""")
+text("{a 2}Hmmm...We had heard\nrumors of this\nsecret Metroline...{a 1}\p")
+wait(5)
 jump(0x53)
 section_end()
 
@@ -613,8 +587,8 @@ section_end()
 section_start(0x53)
 pic(0)
 dialog_up()
-para_talk("""Dad,can you make
-this work again?""")
+text("{a 2}Dad,can you make\nthis work again?{a 1}\p")
+wait(5)
 jump(0x54)
 section_end()
 
@@ -622,9 +596,8 @@ section_end()
 section_start(0x54)
 pic(28)
 dialog_up()
-para_talk("""Sure,we just need
-to reset the
-expiration date...""")
+text("{a 2}Sure,we just need\nto reset the\nexpiration date...{a 1}\p")
+wait(5)
 jump(0x55)
 section_end()
 
@@ -633,8 +606,8 @@ section_start(0x55)
 hidepic()
 dialog_up()
 se(0xDB)
-para_general("""*beep* *beep*
-*boop*!""")
+text("*beep* *beep*\n*boop*!\p")
+wait(5)
 jump(0x56)
 section_end()
 
@@ -642,8 +615,8 @@ section_end()
 section_start(0x56)
 pic(28)
 dialog_up()
-para_talk("""Like I said,piece
-of cake!""")
+text("{a 2}Like I said,piece\nof cake!{a 1}\p")
+wait(5)
 jump(0x57)
 section_end()
 
@@ -653,8 +626,7 @@ hidepic()
 dialog_up()
 pc_anim_start(30)
 se(0x85)
-text("""Lan got;
-\"{key WWW_Pass}\"!""")
+text("Lan got;\n\"{key WWW_Pass}\"!")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -667,82 +639,77 @@ section_end()
 section_start(0x58)
 pic(0)
 dialog_up()
-para_talk_end("""Wow! The expiration
-date is changed!
-Thanks,Dad!""", 0)
+text("{a 2}Wow! The expiration\ndate is changed!\nThanks,Dad!{a 1}\p")
+end(0)
 section_end()
 
 # 0x59 @ 0x700758
 section_start(0x59)
 pic(28)
 dialog_up()
-para_talk_end("""Be careful,Lan!""", 0)
+text("{a 2}Be careful,Lan!{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x70087D
 section_start(0xDC)
 dialog_up()
-para_general_end("""Full of instant
-dinners""")
+text("Full of instant\ndinners\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x70089C
 section_start(0xDD)
 dialog_up()
-para_general_end("""It's password
-protected. You can't
-get in""")
+text("It's password\nprotected. You can't\nget in\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x7008D0
 section_start(0xDE)
 dialog_up()
-para_general_end("""This monitor is
-used for jack in
-tests""")
+text("This monitor is\nused for jack in\ntests\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x7008FE
 section_start(0xDF)
 dialog_up()
-para_general_end("""There are lots and
-lots of files here""")
+text("There are lots and\nlots of files here\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x70092B
 section_start(0xE0)
 dialog_up()
-para_general_end("""Files that won't
-fit in the shelf
-are in here""")
+text("Files that won't\nfit in the shelf\nare in here\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x700961
 section_start(0xE1)
 dialog_up()
-para_general_end("""There's nothing
-inside""")
+text("There's nothing\ninside\p")
+end(5)
 section_end()
 
 # 0xE2 @ 0x700980
 section_start(0xE2)
 dialog_up()
-para_general_end("""A picture of a
-father,mother,and
-their children{anim 1}""")
+text("A picture of a\nfather,mother,and\ntheir children{a 1}\p")
+end(5)
 section_end()
 
 # 0xE3 @ 0x7009BB
 section_start(0xE3)
 dialog_up()
-para_general_end("""This is an ID
-card reader""")
+text("This is an ID\ncard reader\p")
+end(5)
 section_end()
 
 # 0xE4 @ 0x7009DC
 section_start(0xE4)
 dialog_up()
-para_general_end("""A newspaper.
-Probably belongs to
-the receptionist""")
+text("A newspaper.\nProbably belongs to\nthe receptionist\p")
+end(5)
 section_end()

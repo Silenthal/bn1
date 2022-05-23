@@ -2,12 +2,13 @@ section_count(0xE6)
 
 # 0x00 @ 0x6E19F8
 section_start(0x00)
-if_story(0x51, 0x51, 0xC8, 0xFF)
-if_story(0x52, 0x52, 0xD2, 0xFF)
-if_story(0x53, 0x53, 0xD7, 0xFF)
-if_story(0x54, 0x54, 0xE1, 0xFF)
+if_story(0x51, 0x51, 0xC8)
+if_story(0x52, 0x52, 0xD2)
+if_story(0x53, 0x53, 0xD7)
+if_story(0x54, 0x54, 0xE1)
 dialog_up()
-para_general_end("""Test message""", 0)
+text("Test message\p")
+end(0)
 section_end()
 
 # 0xC8 @ 0x6E1BB2
@@ -15,8 +16,8 @@ section_start(0xC8)
 if_flag(152, 0xC9, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""Wonder what that
-mail's about?""", 0)
+text("{a 2}Wonder what that\nmail's about?{a 1}\p")
+end(0)
 section_end()
 
 # 0xC9 @ 0x6E1BE8
@@ -24,8 +25,8 @@ section_start(0xC9)
 check_item("Lab_Memo", 1, 0xCA, 0xCA, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""Let's go look for
-Higs' old boss!""", 0)
+text("{a 2}Let's go look for\nHigs' old boss!{a 1}\p")
+end(0)
 section_end()
 
 # 0xCA @ 0x6E1C23
@@ -33,10 +34,10 @@ section_start(0xCA)
 if_flag(153, 0xCB, 0xFF)
 pic(0)
 dialog_up()
-para_talk("""An exーmember of the
-WWW...? Let's start
-with the""", 0)
-para_talk_end("""young woman.""", 0)
+text("{a 2}An exーmember of the\nWWW...? Let's start\nwith the{a 1}\p")
+wait(0)
+text("{a 2}young woman.{a 1}\p")
+end(0)
 section_end()
 
 # 0xCB @ 0x6E1C83
@@ -44,8 +45,8 @@ section_start(0xCB)
 check_item("YuriMemo", 1, 0xCC, 0xCC, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""We need more battle
-chips...""", 0)
+text("{a 2}We need more battle\nchips...{a 1}\p")
+end(0)
 section_end()
 
 # 0xCC @ 0x6E1CB9
@@ -53,9 +54,8 @@ section_start(0xCC)
 if_flag(145, 0xCD, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""The next exーmember
-of the WWW... should
-be \"an elderly man\"!""", 0)
+text("{a 2}The next exーmember\nof the WWW... should\nbe \"an elderly man\"!{a 1}\p")
+end(0)
 section_end()
 
 # 0xCD @ 0x6E1D11
@@ -63,18 +63,16 @@ section_start(0xCD)
 check_item("Pa_sMemo", 1, 0xCE, 0xCE, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""I need to get more
-power up programs
-for MegaMan...""", 0)
+text("{a 2}I need to get more\npower up programs\nfor MegaMan...{a 1}\p")
+end(0)
 section_end()
 
 # 0xCE @ 0x6E1D5E
 section_start(0xCE)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan! Let's break
-into the WWW's
-server!""", 0)
+text("{a 2}MegaMan! Let's break\ninto the WWW's\nserver!{a 1}\p")
+end(0)
 section_end()
 
 # 0xD2 @ 0x6E1DA3
@@ -82,9 +80,8 @@ section_start(0xD2)
 if_flag(159, 0xD3, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""Let's ask Dad about
-the WWW server's
-address!""", 0)
+text("{a 2}Let's ask Dad about\nthe WWW server's\naddress!{a 1}\p")
+end(0)
 section_end()
 
 # 0xD3 @ 0x6E1DE9
@@ -92,16 +89,16 @@ section_start(0xD3)
 if_flag(158, 0xD4, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""We should go back
-to Dad's lab...""", 0)
+text("{a 2}We should go back\nto Dad's lab...{a 1}\p")
+end(0)
 section_end()
 
 # 0xD4 @ 0x6E1E24
 section_start(0xD4)
 pic(0)
 dialog_up()
-para_talk_end("""I hope Dad sends
-that mail soon...""", 0)
+text("{a 2}I hope Dad sends\nthat mail soon...{a 1}\p")
+end(0)
 section_end()
 
 # 0xD7 @ 0x6E1E5D
@@ -110,9 +107,8 @@ if_flag(114, 0xD8, 0xFF)
 check_item("WWW_Pass", 1, 0xD9, 0xD9, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""Oh,yeah! Dad's
-mail! I should read
-that...""", 0)
+text("{a 2}Oh,yeah! Dad's\nmail! I should read\nthat...{a 1}\p")
+end(0)
 section_end()
 
 # 0xD8 @ 0x6E1EAB
@@ -120,9 +116,8 @@ section_start(0xD8)
 check_item("WWW_Pass", 1, 0xD9, 0xD9, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""Maybe we should ask
-that person where
-the WWW lab is?""", 0)
+text("{a 2}Maybe we should ask\nthat person where\nthe WWW lab is?{a 1}\p")
+end(0)
 section_end()
 
 # 0xD9 @ 0x6E1EF8
@@ -130,18 +125,16 @@ section_start(0xD9)
 if_flag(165, 0xDA, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""Maybe I should ask
-about that pass at
-the station...""", 0)
+text("{a 2}Maybe I should ask\nabout that pass at\nthe station...{a 1}\p")
+end(0)
 section_end()
 
 # 0xDA @ 0x6E1F45
 section_start(0xDA)
 pic(0)
 dialog_up()
-para_talk_end("""I need to find the
-entrance to that
-secret Metroline...""", 0)
+text("{a 2}I need to find the\nentrance to that\nsecret Metroline...{a 1}\p")
+end(0)
 section_end()
 
 # 0xE1 @ 0x6E1F9B
@@ -149,9 +142,8 @@ section_start(0xE1)
 if_flag(170, 0xE2, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""Let's go to Dad and
-see if he can help
-with the pass!""", 0)
+text("{a 2}Let's go to Dad and\nsee if he can help\nwith the pass!{a 1}\p")
+end(0)
 section_end()
 
 # 0xE2 @ 0x6E1FE8
@@ -159,14 +151,14 @@ section_start(0xE2)
 if_flag(175, 0xE3, 0xFF)
 pic(0)
 dialog_up()
-para_talk_end("""And we're off!
-To the WWW lab!""", 0)
+text("{a 2}And we're off!\nTo the WWW lab!{a 1}\p")
+end(0)
 section_end()
 
 # 0xE3 @ 0x6E201F
 section_start(0xE3)
 pic(0)
 dialog_up()
-para_talk_end("""We need to get back
-to the WWW lab!""", 0)
+text("{a 2}We need to get back\nto the WWW lab!{a 1}\p")
+end(0)
 section_end()

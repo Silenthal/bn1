@@ -52,7 +52,7 @@ section_end()
 
 # 0x0A @ 0x7AABEE
 section_start(0x0A)
-text("""Planning""")
+text("Planning")
 end()
 section_end()
 
@@ -63,13 +63,13 @@ section_end()
 
 # 0x0C @ 0x7AAC00
 section_start(0x0C)
-text("""M.YASUMA""")
+text("M.YASUMA")
 end()
 section_end()
 
 # 0x0D @ 0x7AAC0E
 section_start(0x0D)
-text("""M.EGUCHI""")
+text("M.EGUCHI")
 end()
 section_end()
 
@@ -80,7 +80,7 @@ section_end()
 
 # 0x0F @ 0x7AAC21
 section_start(0x0F)
-text("""Scenario""")
+text("Scenario")
 end()
 section_end()
 
@@ -91,7 +91,7 @@ section_end()
 
 # 0x11 @ 0x7AAC33
 section_start(0x11)
-text("""S.KUROSAWA""")
+text("S.KUROSAWA")
 end()
 section_end()
 
@@ -112,13 +112,13 @@ section_end()
 
 # 0x15 @ 0x7AAC52
 section_start(0x15)
-text("""Character""")
+text("Character")
 end()
 section_end()
 
 # 0x16 @ 0x7AAC60
 section_start(0x16)
-text("""Design""")
+text("Design")
 end()
 section_end()
 
@@ -129,13 +129,13 @@ section_end()
 
 # 0x18 @ 0x7AAC70
 section_start(0x18)
-text("""H.KAJI""")
+text("H.KAJI")
 end()
 section_end()
 
 # 0x19 @ 0x7AAC7C
 section_start(0x19)
-text("""Y.ISHIHARA""")
+text("Y.ISHIHARA")
 end()
 section_end()
 
@@ -171,7 +171,7 @@ section_end()
 
 # 0x20 @ 0x7AACAA
 section_start(0x20)
-text("""Objects""")
+text("Objects")
 end()
 section_end()
 
@@ -182,13 +182,13 @@ section_end()
 
 # 0x22 @ 0x7AACBB
 section_start(0x22)
-text("""T.HASHINAGA""")
+text("T.HASHINAGA")
 end()
 section_end()
 
 # 0x23 @ 0x7AACCC
 section_start(0x23)
-text("""K.SATO""")
+text("K.SATO")
 end()
 section_end()
 
@@ -219,7 +219,7 @@ section_end()
 
 # 0x29 @ 0x7AACF1
 section_start(0x29)
-text("""Scrolling""")
+text("Scrolling")
 end()
 section_end()
 
@@ -230,19 +230,19 @@ section_end()
 
 # 0x2B @ 0x7AAD04
 section_start(0x2B)
-text("""M.KIJIMA""")
+text("M.KIJIMA")
 end()
 section_end()
 
 # 0x2C @ 0x7AAD12
 section_start(0x2C)
-text("""M.YOSHIOKA""")
+text("M.YOSHIOKA")
 end()
 section_end()
 
 # 0x2D @ 0x7AAD22
 section_start(0x2D)
-text("""M.NABESHIMA""")
+text("M.NABESHIMA")
 end()
 section_end()
 
@@ -273,7 +273,7 @@ section_end()
 
 # 0x33 @ 0x7AAD4C
 section_start(0x33)
-text("""Programming""")
+text("Programming")
 end()
 section_end()
 
@@ -284,25 +284,25 @@ section_end()
 
 # 0x35 @ 0x7AAD61
 section_start(0x35)
-text("""K.MATSUDA""")
+text("K.MATSUDA")
 end()
 section_end()
 
 # 0x36 @ 0x7AAD70
 section_start(0x36)
-text("""H.SHINGAKI""")
+text("H.SHINGAKI")
 end()
 section_end()
 
 # 0x37 @ 0x7AAD80
 section_start(0x37)
-text("""M.KATAOKA""")
+text("M.KATAOKA")
 end()
 section_end()
 
 # 0x38 @ 0x7AAD8F
 section_start(0x38)
-text("""M.SAKANO""")
+text("M.SAKANO")
 end()
 section_end()
 
@@ -323,7 +323,7 @@ section_end()
 
 # 0x3C @ 0x7AADAC
 section_start(0x3C)
-text("""Music""")
+text("Music")
 end()
 section_end()
 
@@ -334,7 +334,7 @@ section_end()
 
 # 0x3E @ 0x7AADBB
 section_start(0x3E)
-text("""A.KAIDA""")
+text("A.KAIDA")
 end()
 section_end()
 
@@ -345,13 +345,13 @@ section_end()
 
 # 0x40 @ 0x7AADCD
 section_start(0x40)
-text("""Sound""")
+text("Sound")
 end()
 section_end()
 
 # 0x41 @ 0x7AADD7
 section_start(0x41)
-text("""Effects""")
+text("Effects")
 end()
 section_end()
 
@@ -362,7 +362,7 @@ section_end()
 
 # 0x43 @ 0x7AADE8
 section_start(0x43)
-text("""S.AMAGISHI""")
+text("S.AMAGISHI")
 end()
 section_end()
 
@@ -383,13 +383,13 @@ section_end()
 
 # 0x47 @ 0x7AAE07
 section_start(0x47)
-text("""Official""")
+text("Official")
 end()
 section_end()
 
 # 0x48 @ 0x7AAE14
 section_start(0x48)
-text("""I∥ustrations""")
+text("I∥ustrations")
 end()
 section_end()
 
@@ -400,13 +400,13 @@ section_end()
 
 # 0x4A @ 0x7AAE2A
 section_start(0x4A)
-text("""S.KOMAKI""")
+text("S.KOMAKI")
 end()
 section_end()
 
 # 0x4B @ 0x7AAE38
 section_start(0x4B)
-text("""R.HIGURASHI""")
+text("R.HIGURASHI")
 end()
 section_end()
 
@@ -432,13 +432,13 @@ section_end()
 
 # 0x50 @ 0x7AAE5D
 section_start(0x50)
-text("""Manual""")
+text("Manual")
 end()
 section_end()
 
 # 0x51 @ 0x7AAE68
 section_start(0x51)
-text("""Design""")
+text("Design")
 end()
 section_end()
 
@@ -449,7 +449,7 @@ section_end()
 
 # 0x53 @ 0x7AAE78
 section_start(0x53)
-text("""A.IWASAKI""")
+text("A.IWASAKI")
 end()
 section_end()
 
@@ -460,7 +460,7 @@ section_end()
 
 # 0x55 @ 0x7AAE8C
 section_start(0x55)
-text("""QA Manager""")
+text("QA Manager")
 end()
 section_end()
 
@@ -471,7 +471,7 @@ section_end()
 
 # 0x57 @ 0x7AAEA0
 section_start(0x57)
-text("""K.KITAGAWA""")
+text("K.KITAGAWA")
 end()
 section_end()
 
@@ -492,13 +492,13 @@ section_end()
 
 # 0x5B @ 0x7AAEBF
 section_start(0x5B)
-text("""Special""")
+text("Special")
 end()
 section_end()
 
 # 0x5C @ 0x7AAECB
 section_start(0x5C)
-text("""Thanks!""")
+text("Thanks!")
 end()
 section_end()
 
@@ -509,19 +509,19 @@ section_end()
 
 # 0x5E @ 0x7AAEDD
 section_start(0x5E)
-text("""T.SHIRAIWA""")
+text("T.SHIRAIWA")
 end()
 section_end()
 
 # 0x5F @ 0x7AAEED
 section_start(0x5F)
-text("""A.SHIZUKU""")
+text("A.SHIZUKU")
 end()
 section_end()
 
 # 0x60 @ 0x7AAEFC
 section_start(0x60)
-text("""K.FUNAKOSHI""")
+text("K.FUNAKOSHI")
 end()
 section_end()
 
@@ -542,13 +542,13 @@ section_end()
 
 # 0x64 @ 0x7AAF1C
 section_start(0x64)
-text("""Special""")
+text("Special")
 end()
 section_end()
 
 # 0x65 @ 0x7AAF28
 section_start(0x65)
-text("""Thanks!""")
+text("Thanks!")
 end()
 section_end()
 
@@ -559,31 +559,31 @@ section_end()
 
 # 0x67 @ 0x7AAF3A
 section_start(0x67)
-text("""BOWNE GLOBAL""")
+text("BOWNE GLOBAL")
 end()
 section_end()
 
 # 0x68 @ 0x7AAF4B
 section_start(0x68)
-text("""SOLUTIONS""")
+text("SOLUTIONS")
 end()
 section_end()
 
 # 0x69 @ 0x7AAF59
 section_start(0x69)
-text("""T.MIZUKAMI""")
+text("T.MIZUKAMI")
 end()
 section_end()
 
 # 0x6A @ 0x7AAF69
 section_start(0x6A)
-text("""A.KAJIYA""")
+text("A.KAJIYA")
 end()
 section_end()
 
 # 0x6B @ 0x7AAF77
 section_start(0x6B)
-text("""Y.MASAKI""")
+text("Y.MASAKI")
 end()
 section_end()
 
@@ -599,13 +599,13 @@ section_end()
 
 # 0x6E @ 0x7AAF8F
 section_start(0x6E)
-text("""Special""")
+text("Special")
 end()
 section_end()
 
 # 0x6F @ 0x7AAF9B
 section_start(0x6F)
-text("""Thanks!""")
+text("Thanks!")
 end()
 section_end()
 
@@ -616,13 +616,13 @@ section_end()
 
 # 0x71 @ 0x7AAFAD
 section_start(0x71)
-text("""T.YAMAGUCHI""")
+text("T.YAMAGUCHI")
 end()
 section_end()
 
 # 0x72 @ 0x7AAFBE
 section_start(0x72)
-text("""Y.YASUDA""")
+text("Y.YASUDA")
 end()
 section_end()
 
@@ -633,13 +633,13 @@ section_end()
 
 # 0x74 @ 0x7AAFD1
 section_start(0x74)
-text("""GenAzea""")
+text("GenAzea")
 end()
 section_end()
 
 # 0x75 @ 0x7AAFDD
 section_start(0x75)
-text("""ERIK SUZUKI""")
+text("ERIK SUZUKI")
 end()
 section_end()
 
@@ -655,13 +655,13 @@ section_end()
 
 # 0x78 @ 0x7AAFF7
 section_start(0x78)
-text("""Special""")
+text("Special")
 end()
 section_end()
 
 # 0x79 @ 0x7AB003
 section_start(0x79)
-text("""Thanks!""")
+text("Thanks!")
 end()
 section_end()
 
@@ -672,13 +672,13 @@ section_end()
 
 # 0x7B @ 0x7AB015
 section_start(0x7B)
-text("""Everyone in""")
+text("Everyone in")
 end()
 section_end()
 
 # 0x7C @ 0x7AB025
 section_start(0x7C)
-text("""DevTeam2""")
+text("DevTeam2")
 end()
 section_end()
 
@@ -689,13 +689,13 @@ section_end()
 
 # 0x7E @ 0x7AB037
 section_start(0x7E)
-text("""All Capcom""")
+text("All Capcom")
 end()
 section_end()
 
 # 0x7F @ 0x7AB046
 section_start(0x7F)
-text("""Employees""")
+text("Employees")
 end()
 section_end()
 
@@ -721,7 +721,7 @@ section_end()
 
 # 0x84 @ 0x7AB068
 section_start(0x84)
-text("""Producer""")
+text("Producer")
 end()
 section_end()
 
@@ -732,7 +732,7 @@ section_end()
 
 # 0x86 @ 0x7AB07A
 section_start(0x86)
-text("""K.INAFUNE""")
+text("K.INAFUNE")
 end()
 section_end()
 
@@ -778,38 +778,38 @@ section_end()
 
 # 0x8F @ 0x7AB0B1
 section_start(0x8F)
-text("""Time   """)
+text("Time   ")
 wait(33280)
-text(""";""")
+text(";")
 wait(49665)
 end()
 section_end()
 
 # 0x90 @ 0x7AB0C5
 section_start(0x90)
-text("""Data Library""")
+text("Data Library")
 end()
 section_end()
 
 # 0x91 @ 0x7AB0D6
 section_start(0x91)
-text("""     """)
+text("     ")
 wait(33536)
-text("""/""")
+text("/")
 wait(33537)
 end()
 section_end()
 
 # 0x92 @ 0x7AB0E8
 section_start(0x92)
-text("""MEGAMAN {lv}""")
+text("MEGAMAN {lv}")
 wait(33536)
 end()
 section_end()
 
 # 0x93 @ 0x7AB0F9
 section_start(0x93)
-text("""  The End...""")
+text("  The End...")
 end()
 section_end()
 

@@ -2,23 +2,23 @@ section_count(0x8)
 
 # 0x00 @ 0x715E20
 section_start(0x00)
-if_story(0x35, 0x57, 0x02, 0xFF)
+if_story(0x35, 0x57, 0x02)
 if_flag(48, 0x01, 0xFF)
 if_flag(175, 0x02, 0xFF)
 dialog_up()
-para_general("""MegaMan pressed the
-color switch!""", 0)
-para_general_end("""However,the signal
-remained green!""", 0)
+text("MegaMan pressed the\ncolor switch!\p")
+wait(0)
+text("However,the signal\nremained green!\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x715E84
 section_start(0x01)
 dialog_up()
-para_general("""MegaMan pressed the
-color switch!""", 0)
-para_general("""The signal turned
-red!""")
+text("MegaMan pressed the\ncolor switch!\p")
+wait(0)
+text("The signal turned\nred!\p")
+wait(5)
 set_flag(171)
 end()
 section_end()
@@ -27,21 +27,19 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan! You don't
-need to press the
-switch now!""", 0)
+text("{a 2}MegaMan! You don't\nneed to press the\nswitch now!{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x715F17
 section_start(0x05)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(724)
 pc_anim_start(50)
 add_chip("Heater O", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Heater O}\"!""")
+text("MegaMan got a chip\nfor \"{chip Heater O}\"!")
 pc_anim_end()
 page()
 end()
@@ -50,13 +48,12 @@ section_end()
 # 0x06 @ 0x715F85
 section_start(0x06)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(725)
 pc_anim_start(50)
 award_zenny([500, 500])
-text("""MegaMan got 500
-zennys!""")
+text("MegaMan got 500\nzennys!")
 pc_anim_end()
 page()
 end()
@@ -65,13 +62,12 @@ section_end()
 # 0x07 @ 0x715FEB
 section_start(0x07)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(726)
 pc_anim_start(50)
 add_chip("FireTowr T", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip FireTowr T}\"!""")
+text("MegaMan got a chip\nfor \"{chip FireTowr T}\"!")
 pc_anim_end()
 page()
 end()

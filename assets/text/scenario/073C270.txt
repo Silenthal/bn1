@@ -4,6 +4,6 @@ section_count(0x1)
 section_start(0x00)
 pic(5)
 dialog_up()
-para_talk_end("""WWW{anim 1}{...}
-{anim 2}Forever!!!""", 0)
+text("{a 2}WWW{a 1}{...}\n{a 2}Forever!!!{a 1}\p")
+end(0)
 section_end()

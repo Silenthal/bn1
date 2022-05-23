@@ -4,7 +4,8 @@ section_count(0x5)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk("""Lan! We did it!""")
+text("{a 2}Lan! We did it!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -12,9 +13,8 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""Right on! Let's
-get the security
-program running!""")
+text("{a 2}Right on! Let's\nget the security\nprogram running!{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -22,19 +22,18 @@ section_end()
 section_start(0x02)
 pic(34)
 dialog_up()
-para_talk_end("""Leave it to me!""", 0)
+text("{a 2}Leave it to me!{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x72DDD5
 section_start(0x03)
 pic(34)
 dialog_up()
-para_talk("""This should let the
-Metroline open
-safely!""", 0)
-para_talk("""Let's hurry up and
-get that PowerUp
-program!""")
+text("{a 2}This should let the\nMetroline open\nsafely!{a 1}\p")
+wait(0)
+text("{a 2}Let's hurry up and\nget that PowerUp\nprogram!{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -42,5 +41,6 @@ section_end()
 section_start(0x04)
 pic(0)
 dialog_up()
-para_talk_end("""OK!""")
+text("{a 2}OK!{a 1}\p")
+end(5)
 section_end()

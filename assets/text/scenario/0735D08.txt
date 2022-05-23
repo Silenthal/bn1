@@ -4,14 +4,12 @@ section_count(0x3)
 section_start(0x00)
 pic(47)
 dialog_up()
-para_talk("""Who R U?
-A NetBattler?""", 0)
-para_talk("""Hrm...You did good
-coming this far,but
-you're too late...""", 0)
-para_talk("""I just finished
-downloading the
-electricity program!""")
+text("{a 2}Who R U?\nA NetBattler?{a 1}\p")
+wait(0)
+text("{a 2}Hrm...You did good\ncoming this far,but\nyou're too late...{a 1}\p")
+wait(0)
+text("{a 2}I just finished\ndownloading the\nelectricity program!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -19,7 +17,8 @@ section_end()
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk("""Electricity program?""")
+text("{a 2}Electricity program?{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -27,11 +26,10 @@ section_end()
 section_start(0x02)
 pic(47)
 dialog_up()
-para_general("""? {delay}{anim 2}You're not a
-NetBattler come to
-protect it?{anim 1}""", 0)
-para_general("""{anim 2}...No matter,{anim 1}{delay}
-{anim 2}All who stand in my
-way get.{anim 1}{delay}.{delay}.""", 0)
-para_talk_end("""Zapped!!""", 0)
+text("? {d}{a 2}You're not a\nNetBattler come to\nprotect it?{a 1}\p")
+wait(0)
+text("{a 2}...No matter,{a 1}{d}\n{a 2}All who stand in my\nway get.{a 1}{d}.{d}.\p")
+wait(0)
+text("{a 2}Zapped!!{a 1}\p")
+end(0)
 section_end()

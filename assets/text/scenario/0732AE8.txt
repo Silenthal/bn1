@@ -4,9 +4,7 @@ section_count(0x2)
 section_start(0x00)
 pic(34)
 dialog_up()
-text_talking("""We got past the bus!
-We'll make it this
-time!""")
+text("{a 2}We got past the bus!\nWe'll make it this\ntime!{a 1}")
 wait(40)
 end()
 section_end()
@@ -17,9 +15,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-Transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\nTransmit!{a 1}")
 breaks(30)
 input_on()
 end()

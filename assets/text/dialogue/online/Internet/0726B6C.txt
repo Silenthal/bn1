@@ -5,21 +5,20 @@ section_start(0x00)
 if_shop(0x05, 0xFF, 0x01)
 pic(49)
 dialog_up()
-text("""{anim 2}Pssst...Hey,kid...
-Wanna see my stash?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Pssst...Hey,kid...\nWanna see my stash?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x02, 0xFF], 0, False, True)
-para_talk_end("""Then bug off!""", 0)
+text("{a 2}Then bug off!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x726C5D
 section_start(0x01)
 pic(49)
 dialog_up()
-para_talk_end("""I'm out of stuff!
-So scram!!""", 0)
+text("{a 2}I'm out of stuff!\nSo scram!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x726C8D
@@ -30,12 +29,9 @@ section_end()
 # 0x0A @ 0x726CA0
 section_start(0x0A)
 dialog_up()
-para_general("""Checking your
-bravery level{delay}{..}.""", 0)
-text("""Bravery level,
-satisfactory.
-You may pass.""")
-page()
+text("Checking your\nbravery level{d}{..}.\p")
+wait(0)
+text("Bravery level,\nsatisfactory.\nYou may pass.\p")
 set_flag(120)
 se(0xE7)
 end()
@@ -44,22 +40,19 @@ section_end()
 # 0x0B @ 0x726D0E
 section_start(0x0B)
 dialog_up()
-para_general("""Checking your
-bravery level{delay}{..}.""", 0)
-para_general("""Bravery level,
-unsatisfactory.""")
+text("Checking your\nbravery level{d}{..}.\p")
+wait(0)
+text("Bravery level,\nunsatisfactory.\p")
+wait(5)
 jump(0x0F)
 section_end()
 
 # 0x0C @ 0x726D6A
 section_start(0x0C)
 dialog_up()
-para_general("""Checking your
-bravery level{delay}{..}.""", 0)
-text("""Bravery level,
-satisfactory.
-You may pass.""")
-page()
+text("Checking your\nbravery level{d}{..}.\p")
+wait(0)
+text("Bravery level,\nsatisfactory.\nYou may pass.\p")
 set_flag(123)
 se(0xE7)
 end()
@@ -68,36 +61,30 @@ section_end()
 # 0x0D @ 0x726DD8
 section_start(0x0D)
 dialog_up()
-para_general("""Checking your
-bravery level{delay}{..}.""", 0)
-para_general("""Bravery level,
-unsatisfactory.""")
+text("Checking your\nbravery level{d}{..}.\p")
+wait(0)
+text("Bravery level,\nunsatisfactory.\p")
+wait(5)
 jump(0x0F)
 section_end()
 
 # 0x0F @ 0x726E36
 section_start(0x0F)
 dialog_up()
-para_general("""Those without
-sufficient bravery
-may not pass.""", 0)
-text("""Would you like to
-start over?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Those without\nsufficient bravery\nmay not pass.\p")
+wait(0)
+text("Would you like to\nstart over?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x10, 0xFF], 0, False, True)
-para_general_end("""Very well...Come
-back again when
-you're braver!""", 0)
+text("Very well...Come\nback again when\nyou're braver!\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x726EDB
 section_start(0x10)
 dialog_up()
-text("""And now,back with
-you!!""")
-page()
+text("And now,back with\nyou!!\p")
 set_flag(1088)
 end()
 section_end()
@@ -106,34 +93,31 @@ section_end()
 section_start(0x14)
 pic(49)
 dialog_up()
-para_talk("""Being able to move
-on to areas from
-here depends on""", 0)
-para_talk("""how well you fight!""", 0)
-para_talk_end("""Best not to show
-your back to the
-enemy around here!""", 0)
+text("{a 2}Being able to move\non to areas from\nhere depends on{a 1}\p")
+wait(0)
+text("{a 2}how well you fight!{a 1}\p")
+wait(0)
+text("{a 2}Best not to show\nyour back to the\nenemy around here!{a 1}\p")
+end(0)
 section_end()
 
 # 0x15 @ 0x726FA3
 section_start(0x15)
 pic(49)
 dialog_up()
-para_talk_end("""You can't count on
-saving your data to
-get you through.""", 0)
+text("{a 2}You can't count on\nsaving your data to\nget you through.{a 1}\p")
+end(0)
 section_end()
 
 # 0x1E @ 0x726FFC
 section_start(0x1E)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(793)
 pc_anim_start(50)
 add_chip("WideSwrd S", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip WideSwrd S}\"!""")
+text("MegaMan got a chip\nfor \"{chip WideSwrd S}\"!")
 pc_anim_end()
 page()
 end()
@@ -143,22 +127,20 @@ section_end()
 section_start(0x1F)
 check_item("WWW_PIN", 1, 0x20, 0x20, 0xFF)
 dialog_up()
-para_general("""\"{key WWW_PIN}\"
-needed to unlock!""", 0)
-para_general_end("""All others...{delay}
-BEGONE!""", 0)
+text("\"{key WWW_PIN}\"\nneeded to unlock!\p")
+wait(0)
+text("All others...{d}\nBEGONE!\p")
+end(0)
 section_end()
 
 # 0x20 @ 0x7270B5
 section_start(0x20)
 dialog_up()
-para_general("""\"{key WWW_PIN}\"
-needed to unlock!""", 0)
-para_general("""MegaMan used the
-{key WWW_PIN}!""", 0)
-text("""MegaMan gained
-access!!""")
-page()
+text("\"{key WWW_PIN}\"\nneeded to unlock!\p")
+wait(0)
+text("MegaMan used the\n{key WWW_PIN}!\p")
+wait(0)
+text("MegaMan gained\naccess!!\p")
 set_flag(139)
 end()
 section_end()
@@ -166,13 +148,12 @@ section_end()
 # 0x21 @ 0x727114
 section_start(0x21)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(794)
 pc_anim_start(50)
-add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a
-PowerUp;\"{key HPmemory}\"!""")
+add_item("HPmemory", 1)
+text("MegaMan got a\nPowerUp;\"{key HPmemory}\"!")
 pc_anim_end()
 page()
 end()
@@ -182,8 +163,8 @@ section_end()
 section_start(0x32)
 dialog_up()
 set_flag(789)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x33, 0x34])
 page()
 end()
@@ -194,12 +175,9 @@ section_start(0x33)
 dialog_up()
 award_chip(["ElecSwrd S", "ElecSwrd S", "Ratton2 G", "Ratton2 G", "M-Cannon N", "M-Cannon N", "CrossGun F", "CrossGun F", "CrossGun F", "CrossGun F", "CrossGun F", "CrossGun F", "CrossGun F", "CrossGun F", "CrossGun F", "CrossGun F"])
 pc_anim_start(50)
-text("""MegaMan got a chip
-for \"""")
-chip_id_buf(1)
-text(""" """)
-chip_code_buf(2)
-text("""!\"""")
+text("MegaMan got a chip\nfor \"")
+text("{chip_buf}")
+text("!\"")
 pc_anim_end()
 page()
 end()
@@ -210,10 +188,9 @@ section_start(0x34)
 dialog_up()
 award_zenny([1000, 1000, 1000, 1000, 1500, 1500, 1500, 1500, 2000, 2000, 2000, 2000, 3000, 3000, 3000, 3000])
 pc_anim_start(50)
-text("""MegaMan got """)
+text("MegaMan got ")
 buffer(1, 0, False, False)
-text("""
-zennys!""")
+text("\nzennys!")
 pc_anim_end()
 page()
 end()
@@ -222,8 +199,8 @@ section_end()
 # 0x35 @ 0x7272A4
 section_start(0x35)
 dialog_up()
-para_general("""It was a virus
-in disguise!""", 0)
+text("It was a virus\nin disguise!\p")
+wait(0)
 battle()
 page()
 end()
@@ -233,8 +210,8 @@ section_end()
 section_start(0x36)
 dialog_up()
 set_flag(790)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x37, 0x38])
 page()
 end()
@@ -259,8 +236,8 @@ section_end()
 section_start(0x3A)
 dialog_up()
 set_flag(791)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x3B, 0x3C])
 page()
 end()
@@ -285,8 +262,8 @@ section_end()
 section_start(0x3E)
 dialog_up()
 set_flag(792)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x3F, 0x40])
 page()
 end()

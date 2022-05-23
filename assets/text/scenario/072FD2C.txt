@@ -4,7 +4,8 @@ section_count(0xA)
 section_start(0x00)
 dialog_up()
 set_flag(165)
-para_general("""*beep*""")
+text("*beep*\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -12,8 +13,8 @@ section_end()
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk("""Mail! Should I
-open it?""")
+text("{a 2}Mail! Should I\nopen it?{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -21,7 +22,8 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk("""Please!""")
+text("{a 2}Please!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -29,15 +31,12 @@ section_end()
 section_start(0x03)
 pic(1, 1)
 dialog_up()
-para_general("""So? Are you looking
-for the kid who was
-kidnapped?""", 0)
-para_general("""...I forgot to
-mention his last name
-is \"Froid.\"""", 0)
-para_general("""And...it looks like
-the WWW is involved!
-So,good luck!""")
+text("So? Are you looking\nfor the kid who was\nkidnapped?\p")
+wait(0)
+text("...I forgot to\nmention his last name\nis \"Froid.\"\p")
+wait(0)
+text("And...it looks like\nthe WWW is involved!\nSo,good luck!\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -45,8 +44,8 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk("""Lan,she said
-\"Froid.\"""")
+text("{a 2}Lan,she said\n\"Froid.\"{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -54,9 +53,8 @@ section_end()
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk("""That's the name of
-the guy at the water
-works!{anim 1}{delay} {anim 2}That means...""")
+text("{a 2}That's the name of\nthe guy at the water\nworks!{a 1}{d} {a 2}That means...{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -64,11 +62,10 @@ section_end()
 section_start(0x06)
 pic(34)
 dialog_up()
-para_talk("""The WWW took Froid's
-son and made him bug
-the water program!""", 0)
-para_talk("""Things are starting
-to make sense...""")
+text("{a 2}The WWW took Froid's\nson and made him bug\nthe water program!{a 1}\p")
+wait(0)
+text("{a 2}Things are starting\nto make sense...{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -76,8 +73,8 @@ section_end()
 section_start(0x07)
 pic(0)
 dialog_up()
-para_talk("""Yai...She could've
-told me sooner!""")
+text("{a 2}Yai...She could've\ntold me sooner!{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -85,9 +82,8 @@ section_end()
 section_start(0x08)
 pic(34)
 dialog_up()
-para_talk("""If we save his son,
-maybe Dr.Froid will
-stop the bug?""")
+text("{a 2}If we save his son,\nmaybe Dr.Froid will\nstop the bug?{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -95,5 +91,6 @@ section_end()
 section_start(0x09)
 pic(0)
 dialog_up()
-para_talk_end("""Right! Good idea!""", 0)
+text("{a 2}Right! Good idea!{a 1}\p")
+end(0)
 section_end()

@@ -5,21 +5,20 @@ section_start(0x00)
 if_shop(0x04, 0xFF, 0x01)
 pic(49)
 dialog_up()
-text("""{anim 2}Pssst...Hey,kid...
-Wanna see my stash?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Pssst...Hey,kid...\nWanna see my stash?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x02, 0xFF], 0, False, True)
-para_talk_end("""Then bug off!""", 0)
+text("{a 2}Then bug off!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x7252E1
 section_start(0x01)
 pic(49)
 dialog_up()
-para_talk_end("""I'm out of stuff!
-So scram!!""", 0)
+text("{a 2}I'm out of stuff!\nSo scram!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x725311
@@ -31,17 +30,15 @@ section_end()
 section_start(0x0A)
 check_item("Lab_Memo", 1, 0x0B, 0x0B, 0xFF)
 dialog_up()
-para_general_end("""Entrance for
-WWW personnel
-ONLY!""", 0)
+text("Entrance for\nWWW personnel\nONLY!\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x725354
 section_start(0x0B)
 dialog_up()
-para_general("""Entrance for
-WWW personnel
-ONLY!""")
+text("Entrance for\nWWW personnel\nONLY!\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -49,9 +46,8 @@ section_end()
 section_start(0x0C)
 pic(0)
 dialog_up()
-para_talk("""MegaMan! Try using
-that memo we got
-at the SciLab!""")
+text("{a 2}MegaMan! Try using\nthat memo we got\nat the SciLab!{a 1}\p")
+wait(5)
 jump(0x0D)
 section_end()
 
@@ -59,7 +55,8 @@ section_end()
 section_start(0x0D)
 pic(34)
 dialog_up()
-para_talk("""OK!!""")
+text("{a 2}OK!!{a 1}\p")
+wait(5)
 jump(0x0E)
 section_end()
 
@@ -67,9 +64,10 @@ section_end()
 section_start(0x0E)
 hidepic()
 dialog_up()
-para_general("""...MegaMan used the
-{key Lab_Memo}!""", 0)
-para_general("""He gained access!""")
+text("...MegaMan used the\n{key Lab_Memo}!\p")
+wait(0)
+text("He gained access!\p")
+wait(5)
 clear_flag(1041)
 set_flag(101)
 jump(0x0F)
@@ -79,45 +77,40 @@ section_end()
 section_start(0x0F)
 pic(0)
 dialog_up()
-para_talk_end("""Way to go!""", 0)
+text("{a 2}Way to go!{a 1}\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x725443
 section_start(0x10)
 pic(49)
 dialog_up()
-para_talk("""Who are you!?
-You don't belong
-here!""", 0)
-para_talk_end("""Better get out
-unless you wanna be
-deleted!""", 0)
+text("{a 2}Who are you!?\nYou don't belong\nhere!{a 1}\p")
+wait(0)
+text("{a 2}Better get out\nunless you wanna be\ndeleted!{a 1}\p")
+end(0)
 section_end()
 
 # 0x11 @ 0x7254AF
 section_start(0x11)
 pic(49)
 dialog_up()
-para_talk("""Those WWW jerks
-went and encoded
-this area!""", 0)
-para_talk("""Only highーranking
-WWW dudes can get
-in! Sheesh...""", 0)
-para_talk_end("""They think they're
-so bad...""", 0)
+text("{a 2}Those WWW jerks\nwent and encoded\nthis area!{a 1}\p")
+wait(0)
+text("{a 2}Only highーranking\nWWW dudes can get\nin! Sheesh...{a 1}\p")
+wait(0)
+text("{a 2}They think they're\nso bad...{a 1}\p")
+end(0)
 section_end()
 
 # 0x12 @ 0x725550
 section_start(0x12)
 pic(49)
 dialog_up()
-para_talk("""Those WWW jerks have
-set it up so that
-if you go""", 0)
-para_talk_end("""through there,you
-can't get back!
-Sheesh!""", 0)
+text("{a 2}Those WWW jerks have\nset it up so that\nif you go{a 1}\p")
+wait(0)
+text("{a 2}through there,you\ncan't get back!\nSheesh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x13 @ 0x7255C5
@@ -125,23 +118,21 @@ section_start(0x13)
 pic(34)
 dialog_up()
 mail(16)
-para_talk("""Lan! I made it into
-the Undernet!""", 0)
-para_general_end("""...{delay}?{anim 2}
-Looks like you got
-some mail!{anim 1}""", 0)
+text("{a 2}Lan! I made it into\nthe Undernet!{a 1}\p")
+wait(0)
+text("...{d}?{a 2}\nLooks like you got\nsome mail!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1E @ 0x725643
 section_start(0x1E)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(763)
 pc_anim_start(50)
 add_chip("Thunder1 H", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Thunder1 H}\"!""")
+text("MegaMan got a chip\nfor \"{chip Thunder1 H}\"!")
 pc_anim_end()
 page()
 end()
@@ -151,22 +142,20 @@ section_end()
 section_start(0x1F)
 check_item("WWW_PIN", 1, 0x20, 0x20, 0xFF)
 dialog_up()
-para_general("""\"{key WWW_PIN}\"
-needed to unlock!""", 0)
-para_general_end("""All others...{delay}
-BEGONE!""", 0)
+text("\"{key WWW_PIN}\"\nneeded to unlock!\p")
+wait(0)
+text("All others...{d}\nBEGONE!\p")
+end(0)
 section_end()
 
 # 0x20 @ 0x7256FC
 section_start(0x20)
 dialog_up()
-para_general("""\"{key WWW_PIN}\"
-needed to unlock!""", 0)
-para_general("""MegaMan used the
-{key WWW_PIN}!""", 0)
-text("""MegaMan gained
-access!!""")
-page()
+text("\"{key WWW_PIN}\"\nneeded to unlock!\p")
+wait(0)
+text("MegaMan used the\n{key WWW_PIN}!\p")
+wait(0)
+text("MegaMan gained\naccess!!\p")
 set_flag(105)
 end()
 section_end()
@@ -174,13 +163,12 @@ section_end()
 # 0x21 @ 0x72575B
 section_start(0x21)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(764)
 pc_anim_start(50)
-add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a
-PowerUp;\"{key HPmemory}\"!""")
+add_item("HPmemory", 1)
+text("MegaMan got a\nPowerUp;\"{key HPmemory}\"!")
 pc_anim_end()
 page()
 end()
@@ -190,8 +178,8 @@ section_end()
 section_start(0x32)
 dialog_up()
 set_flag(759)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x33, 0x34])
 page()
 end()
@@ -202,12 +190,9 @@ section_start(0x33)
 dialog_up()
 award_chip(["IcePunch B", "IcePunch B", "IcePunch B", "IcePunch B", "IcePunch B", "TriArrow A", "TriArrow A", "TriArrow A", "IceCube M", "IceCube M", "IceCube M", "IcePunch M", "IcePunch M", "IcePunch M", "IcePunch M", "IcePunch M"])
 pc_anim_start(50)
-text("""MegaMan got a chip
-for \"""")
-chip_id_buf(1)
-text(""" """)
-chip_code_buf(2)
-text("""\"!""")
+text("MegaMan got a chip\nfor \"")
+text("{chip_buf}")
+text("\"!")
 pc_anim_end()
 page()
 end()
@@ -218,10 +203,9 @@ section_start(0x34)
 dialog_up()
 award_zenny([500, 500, 500, 500, 500, 500, 1000, 1000, 1000, 1000, 1000, 1500, 1500, 1500, 2000, 2000])
 pc_anim_start(50)
-text("""MegaMan got """)
+text("MegaMan got ")
 buffer(1, 0, False, False)
-text("""
-zennys!""")
+text("\nzennys!")
 pc_anim_end()
 page()
 end()
@@ -230,8 +214,8 @@ section_end()
 # 0x35 @ 0x7258EB
 section_start(0x35)
 dialog_up()
-para_general("""It was a virus
-in disguise!""", 0)
+text("It was a virus\nin disguise!\p")
+wait(0)
 battle()
 page()
 end()
@@ -241,8 +225,8 @@ section_end()
 section_start(0x36)
 dialog_up()
 set_flag(760)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x37, 0x38])
 page()
 end()
@@ -267,8 +251,8 @@ section_end()
 section_start(0x3A)
 dialog_up()
 set_flag(761)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x3B, 0x3C])
 page()
 end()
@@ -293,8 +277,8 @@ section_end()
 section_start(0x3E)
 dialog_up()
 set_flag(762)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x3F, 0x40])
 page()
 end()

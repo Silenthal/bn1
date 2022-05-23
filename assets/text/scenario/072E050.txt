@@ -4,7 +4,8 @@ section_count(0x8)
 section_start(0x00)
 pic(12)
 dialog_up()
-para_talk("""Oh{anim 1}...{anim 2}Lan{anim 1}{delay}...{anim 2}Morning!""", 0)
+text("{a 2}Oh{a 1}...{a 2}Lan{a 1}{d}...{a 2}Morning!{a 1}\p")
+wait(0)
 jump(0x01)
 section_end()
 
@@ -12,9 +13,8 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""Morning,Mom!
-What's wrong?
-Not feeling well?""", 0)
+text("{a 2}Morning,Mom!\nWhat's wrong?\nNot feeling well?{a 1}\p")
+wait(0)
 jump(0x02)
 section_end()
 
@@ -22,9 +22,8 @@ section_end()
 section_start(0x02)
 pic(12)
 dialog_up()
-para_general("""{anim 2}No,it's just{anim 1}...{delay}
-{anim 2}The water's off,so 
-no breakfast{anim 1}...""", 0)
+text("{a 2}No,it's just{a 1}...{d}\n{a 2}The water's off,so \nno breakfast{a 1}...\p")
+wait(0)
 jump(0x03)
 section_end()
 
@@ -32,9 +31,8 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""What?
-But I'm hungry!
-And thirsty!""", 0)
+text("{a 2}What?\nBut I'm hungry!\nAnd thirsty!{a 1}\p")
+wait(0)
 jump(0x04)
 section_end()
 
@@ -42,9 +40,8 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk("""Well,there's not
-much your mom can
-do with no water...""", 0)
+text("{a 2}Well,there's not\nmuch your mom can\ndo with no water...{a 1}\p")
+wait(0)
 jump(0x05)
 section_end()
 
@@ -52,7 +49,8 @@ section_end()
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk("""Yeah,but...""", 0)
+text("{a 2}Yeah,but...{a 1}\p")
+wait(0)
 jump(0x06)
 section_end()
 
@@ -60,9 +58,8 @@ section_end()
 section_start(0x06)
 pic(34)
 dialog_up()
-para_talk("""Hey,you better get
-going or you'll be
-late!""", 0)
+text("{a 2}Hey,you better get\ngoing or you'll be\nlate!{a 1}\p")
+wait(0)
 jump(0x07)
 section_end()
 
@@ -70,5 +67,6 @@ section_end()
 section_start(0x07)
 pic(0)
 dialog_up()
-para_talk_end("""All right already!!""", 0)
+text("{a 2}All right already!!{a 1}\p")
+end(0)
 section_end()

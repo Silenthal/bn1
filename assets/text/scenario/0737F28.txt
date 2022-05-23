@@ -4,9 +4,8 @@ section_count(0x9)
 section_start(0x00)
 pic(29)
 dialog_up()
-para_talk("""Our address...
-It looks like the
-SciLab has got it.""")
+text("{a 2}Our address...\nIt looks like the\nSciLab has got it.{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -14,7 +13,8 @@ section_end()
 section_start(0x01)
 pic(5)
 dialog_up()
-para_general("""...""")
+text("...\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -22,9 +22,8 @@ section_end()
 section_start(0x02)
 pic(29)
 dialog_up()
-para_talk("""Our secret lab will
-be discovered in
-no time!""")
+text("{a 2}Our secret lab will\nbe discovered in\nno time!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -32,8 +31,8 @@ section_end()
 section_start(0x03)
 pic(5)
 dialog_up()
-para_talk("""...no matter!{anim 1}{delay}
-{anim 2}Hee,{delay 10}hee,{delay 10}hee{delay 10}...""")
+text("{a 2}...no matter!{a 1}{d}\n{a 2}Hee,{d 10}hee,{d 10}hee{d 10}...{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -41,8 +40,7 @@ section_end()
 section_start(0x04)
 pic(29)
 dialog_up()
-text("""?""")
-page()
+text("?\p")
 set_flag(162)
 end()
 section_end()
@@ -51,21 +49,18 @@ section_end()
 section_start(0x05)
 pic(5)
 dialog_up()
-para_talk("""Because...{anim 1}{delay}
-{anim 2}I've already made
-the LifeVirus!!""", 0)
-para_talk_end("""Now we can delete,
-DELETE,{anim 1}{delay}
-{anim 2}DELEEEEEEEEEETE!!!!""", 0)
+text("{a 2}Because...{a 1}{d}\n{a 2}I've already made\nthe LifeVirus!!{a 1}\p")
+wait(0)
+text("{a 2}Now we can delete,\nDELETE,{a 1}{d}\n{a 2}DELEEEEEEEEEETE!!!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x06 @ 0x7380C6
 section_start(0x06)
 pic(29)
 dialog_up()
-para_talk("""You mean...the
-EndGame is about
-to begin?""")
+text("{a 2}You mean...the\nEndGame is about\nto begin?{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -73,11 +68,10 @@ section_end()
 section_start(0x07)
 pic(5)
 dialog_up()
-para_talk("""Hah hah!{anim 1}{delay}{anim 2} Of course!{anim 1}{delay}
-{anim 2}The final battle
-at last!""", 0)
-para_talk("""Yahoot!{anim 1}{delay}
-{anim 2}Come with me!""")
+text("{a 2}Hah hah!{a 1}{d}{a 2} Of course!{a 1}{d}\n{a 2}The final battle\nat last!{a 1}\p")
+wait(0)
+text("{a 2}Yahoot!{a 1}{d}\n{a 2}Come with me!{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -85,6 +79,6 @@ section_end()
 section_start(0x08)
 pic(29)
 dialog_up()
-para_talk_end("""As you command,
-so shall it be done!""", 0)
+text("{a 2}As you command,\nso shall it be done!{a 1}\p")
+end(0)
 section_end()

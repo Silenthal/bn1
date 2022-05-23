@@ -4,8 +4,8 @@ section_count(0x8)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk("""Mayl isn't here
-yet,is she?""")
+text("{a 2}Mayl isn't here\nyet,is she?{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -13,25 +13,24 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk_end("""What could it be
-this time?""", 0)
+text("{a 2}What could it be\nthis time?{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x731C01
 section_start(0x02)
 pic(34)
 dialog_up()
-para_talk_end("""Wait,Lan{anim 1}...{delay}{anim 2}Does the
-traffic light look
-odd to you,too?""", 0)
+text("{a 2}Wait,Lan{a 1}...{d}{a 2}Does the\ntraffic light look\nodd to you,too?{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x731C55
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""Huh? It's green both
-ways!""")
+text("{a 2}Huh? It's green both\nways!{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -40,14 +39,16 @@ section_start(0x04)
 set_flag(201)
 pic(34)
 dialog_up()
-para_talk_end("""A!{anim 1}{delay} {anim 2}Watch out!""", 0)
+text("{a 2}A!{a 1}{d} {a 2}Watch out!{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x731CB0
 section_start(0x05)
 pic(19)
 dialog_up()
-para_talk("""An accident!""")
+text("{a 2}An accident!{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -55,12 +56,14 @@ section_end()
 section_start(0x06)
 pic(17)
 dialog_up()
-para_talk_end("""Oh no!?""", 0)
+text("{a 2}Oh no!?{a 1}\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x731CE9
 section_start(0x07)
 pic(15)
 dialog_up()
-para_talk_end("""Help! Somebody help!""", 0)
+text("{a 2}Help! Somebody help!{a 1}\p")
+end(0)
 section_end()

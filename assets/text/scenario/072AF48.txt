@@ -4,12 +4,10 @@ section_count(0x6)
 section_start(0x00)
 pic(13)
 dialog_up()
-para_general("""!! {delay}{anim 2}How can a kid
-and his puny Navi
-delete FireMan!?{anim 1}""", 0)
-para_general("""{...}{anim 2}Hmph!
-At least I finished
-my mission...{anim 1}""")
+text("!! {d}{a 2}How can a kid\nand his puny Navi\ndelete FireMan!?{a 1}\p")
+wait(0)
+text("{...}{a 2}Hmph!\nAt least I finished\nmy mission...{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -17,7 +15,8 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""What do you mean?""")
+text("{a 2}What do you mean?{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -25,9 +24,8 @@ section_end()
 section_start(0x02)
 pic(13)
 dialog_up()
-para_talk("""Hah! This is just
-the first step in
-the WWW's plan!""")
+text("{a 2}Hah! This is just\nthe first step in\nthe WWW's plan!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -35,7 +33,8 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""What!?""")
+text("{a 2}What!?{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -43,18 +42,16 @@ section_end()
 section_start(0x04)
 pic(13)
 dialog_up()
-para_talk("""Hah! That's right!
-I found the program
-we need for our plan""", 0)
-para_talk("""inside the oven in 
-your house!""", 0)
-para_general("""...{anim 2}eh,{anim 1}{delay}{anim 2}I probably
-shouldn't have told
-you that...{anim 1}""", 0)
-para_talk("""But who cares! Soon
-war will start and
-you'll all be dead!""", 0)
-para_general("""...{anim 2}See ya!!{anim 1}""")
+text("{a 2}Hah! That's right!\nI found the program\nwe need for our plan{a 1}\p")
+wait(0)
+text("{a 2}inside the oven in \nyour house!{a 1}\p")
+wait(0)
+text("...{a 2}eh,{a 1}{d}{a 2}I probably\nshouldn't have told\nyou that...{a 1}\p")
+wait(0)
+text("{a 2}But who cares! Soon\nwar will start and\nyou'll all be dead!{a 1}\p")
+wait(0)
+text("...{a 2}See ya!!{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -62,9 +59,10 @@ section_end()
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk("""Wait! {anim 1}{delay}{anim 2}Program? War?
-What's he talking
-about?""", 0)
-para_general("""{...}""", 0)
-para_talk_end("""Phooey!""")
+text("{a 2}Wait! {a 1}{d}{a 2}Program? War?\nWhat's he talking\nabout?{a 1}\p")
+wait(0)
+text("{...}\p")
+wait(0)
+text("{a 2}Phooey!{a 1}\p")
+end(5)
 section_end()

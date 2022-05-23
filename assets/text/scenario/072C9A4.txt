@@ -4,9 +4,8 @@ section_count(0x2)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk("""Right on! We did it!{anim 1}{delay}
-{anim 2}Lan,the doors should
-open now!""")
+text("{a 2}Right on! We did it!{a 1}{d}\n{a 2}Lan,the doors should\nopen now!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -14,7 +13,6 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk_end("""Thanks!
-I'll get everyone
-outside!""")
+text("{a 2}Thanks!\nI'll get everyone\noutside!{a 1}\p")
+end(5)
 section_end()

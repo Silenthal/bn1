@@ -4,8 +4,8 @@ section_count(0x6)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_general("""{anim 2}Lan...
-The LifeVirus{anim 1}{..}.""")
+text("{a 2}Lan...\nThe LifeVirus{a 1}{..}.\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -13,13 +13,12 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""If we can delete it,
-the WWW's plans will
-be foiled!""", 0)
-para_talk("""This is it...
-Our ultimate virus
-bashing...""", 0)
-para_talk("""Battle routine,set!!""")
+text("{a 2}If we can delete it,\nthe WWW's plans will\nbe foiled!{a 1}\p")
+wait(0)
+text("{a 2}This is it...\nOur ultimate virus\nbashing...{a 1}\p")
+wait(0)
+text("{a 2}Battle routine,set!!{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -27,5 +26,6 @@ section_end()
 section_start(0x02)
 pic(34)
 dialog_up()
-para_talk_end("""Execute!!""", 0)
+text("{a 2}Execute!!{a 1}\p")
+end(0)
 section_end()

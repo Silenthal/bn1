@@ -4,45 +4,37 @@ section_count(0x7)
 section_start(0x00)
 pic(47)
 dialog_up()
-para_talk("""This...{anim 1}{delay}
-{anim 2}This can't be
-happening!""", 0)
-para_talk("""But I've already
-sent the program
-to Count Zap!""", 0)
-text_talking("""Now,we have all""")
-delay()
-para_talk_end(""" the
-pro{anim 1}{delay}{anim 2}grams!
-You're finished!""", 0)
+text("{a 2}This...{a 1}{d}\n{a 2}This can't be\nhappening!{a 1}\p")
+wait(0)
+text("{a 2}But I've already\nsent the program\nto Count Zap!{a 1}\p")
+wait(0)
+text("{a 2}Now,we have all{a 1}{d}")
+text("{a 2} the\npro{a 1}{d}{a 2}grams!\nYou're finished!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x736236
 section_start(0x01)
 pic(46)
 dialog_up()
-para_talk("""Darn...
-Too late...""", 0)
-para_talk("""It took to long to
-break the jack in
-protection...""", 0)
+text("{a 2}Darn...\nToo late...{a 1}\p")
+wait(0)
+text("{a 2}It took to long to\nbreak the jack in\nprotection...{a 1}\p")
+wait(0)
 pic(34)
-para_talk("""ProtoMan!?""", 0)
+text("{a 2}ProtoMan!?{a 1}\p")
+wait(0)
 pic(46)
-para_talk("""Humph...
-Not a shred of data
-left,either...""", 0)
-para_talk("""I was just about to
-get the WWW server
-location...""", 0)
-para_talk("""out of ElecMan's
-memory data.""", 0)
-para_talk("""If you amateurs
-Hadn't got in the
-way,our plan to lure""", 0)
-para_talk("""in the WWW with fake
-data would have 
-succeeded.""")
+text("{a 2}Humph...\nNot a shred of data\nleft,either...{a 1}\p")
+wait(0)
+text("{a 2}I was just about to\nget the WWW server\nlocation...{a 1}\p")
+wait(0)
+text("{a 2}out of ElecMan's\nmemory data.{a 1}\p")
+wait(0)
+text("{a 2}If you amateurs\nHadn't got in the\nway,our plan to lure{a 1}\p")
+wait(0)
+text("{a 2}in the WWW with fake\ndata would have \nsucceeded.{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -50,8 +42,8 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk("""Fake data?
-Then this was all...""")
+text("{a 2}Fake data?\nThen this was all...{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -59,9 +51,8 @@ section_end()
 section_start(0x03)
 pic(7)
 dialog_up()
-para_talk("""ProtoMan,delete that
-Navi.They've caused
-us enough trouble.""")
+text("{a 2}ProtoMan,delete that\nNavi.They've caused\nus enough trouble.{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -69,8 +60,8 @@ section_end()
 section_start(0x04)
 pic(46)
 dialog_up()
-para_talk("""As you wish,
-Lord Chaud.""")
+text("{a 2}As you wish,\nLord Chaud.{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -78,9 +69,8 @@ section_end()
 section_start(0x05)
 pic(34)
 dialog_up()
-para_talk("""This isn't the time!
-We have to get the
-power back up!""")
+text("{a 2}This isn't the time!\nWe have to get the\npower back up!{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -88,6 +78,6 @@ section_end()
 section_start(0x06)
 pic(46)
 dialog_up()
-para_talk_end("""Silence!{delay 10} Prepare
-for deletion!""", 0)
+text("{a 2}Silence!{d 10} Prepare\nfor deletion!{a 1}\p")
+end(0)
 section_end()

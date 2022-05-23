@@ -4,26 +4,23 @@ section_count(0x37)
 section_start(0x00)
 pic(3)
 dialog_up()
-para_talk_end("""OK,let's have a
-demonstration on how
-to delete viruses.""", 1)
+text("{a 2}OK,let's have a\ndemonstration on how\nto delete viruses.{a 1}\p")
+end(1)
 section_end()
 
 # 0x05 @ 0x73D180
 section_start(0x05)
 pic(3)
 dialog_up()
-para_talk("""When fighting,you
-must first send chip
-data to your Navi.""", 1)
+text("{a 2}When fighting,you\nmust first send chip\ndata to your Navi.{a 1}\p")
+wait(1)
 jump(0x06)
 section_end()
 
 # 0x06 @ 0x73D1CE
 section_start(0x06)
-para_talk("""You choose the chips
-to send in this
-window.""", 1)
+text("{a 2}You choose the chips\nto send in this\nwindow.{a 1}\p")
+wait(1)
 jump(0x07)
 section_end()
 
@@ -31,244 +28,215 @@ section_end()
 section_start(0x07)
 pic(3)
 dialog_up()
-para_talk("""Chip icons are shown
-at the bottom of
-the setup window.""", 1)
-para_talk_end("""From here,you choose
-which chips you want
-to send to the Navi.""", 1)
+text("{a 2}Chip icons are shown\nat the bottom of\nthe setup window.{a 1}\p")
+wait(1)
+text("{a 2}From here,you choose\nwhich chips you want\nto send to the Navi.{a 1}\p")
+end(1)
 section_end()
 
 # 0x08 @ 0x73D298
 section_start(0x08)
 pic(3)
 dialog_up()
-para_talk("""This shows the chip
-data you have
-selected.""", 1)
-para_talk_end("""It shows the
-attack rating.""", 1)
+text("{a 2}This shows the chip\ndata you have\nselected.{a 1}\p")
+wait(1)
+text("{a 2}It shows the\nattack rating.{a 1}\p")
+end(1)
 section_end()
 
 # 0x09 @ 0x73D2F8
 section_start(0x09)
 pic(3)
 dialog_up()
-para_talk("""This is the virus's
-Hit Points (HP).""", 1)
-para_talk_end("""It shows how tough
-this virus is.""", 1)
+text("{a 2}This is the virus's\nHit Points (HP).{a 1}\p")
+wait(1)
+text("{a 2}It shows how tough\nthis virus is.{a 1}\p")
+end(1)
 section_end()
 
 # 0x0A @ 0x73D35A
 section_start(0x0A)
 pic(3)
 dialog_up()
-para_talk("""You can normally
-only send one chip
-at a time,but...""", 1)
-para_talk("""You can send
-multiple copies of
-the same chip,""", 1)
-para_talk("""such as two or three
-Cannons.""", 1)
-para_talk_end("""This will let you
-use more weapons,and
-fight much better!""", 1)
+text("{a 2}You can normally\nonly send one chip\nat a time,but...{a 1}\p")
+wait(1)
+text("{a 2}You can send\nmultiple copies of\nthe same chip,{a 1}\p")
+wait(1)
+text("{a 2}such as two or three\nCannons.{a 1}\p")
+wait(1)
+text("{a 2}This will let you\nuse more weapons,and\nfight much better!{a 1}\p")
+end(1)
 section_end()
 
 # 0x14 @ 0x73D454
 section_start(0x14)
 pic(3)
 dialog_up()
-para_talk("""OK,now we'll choose
-which chip data to
-send to the Navi.""", 1)
-para_talk("""Select with the
-A Button. Press the
-R Button to""", 1)
-para_talk_end("""see an explanation
-of a chip.""", 1)
+text("{a 2}OK,now we'll choose\nwhich chip data to\nsend to the Navi.{a 1}\p")
+wait(1)
+text("{a 2}Select with the\nA Button. Press the\nR Button to{a 1}\p")
+wait(1)
+text("{a 2}see an explanation\nof a chip.{a 1}\p")
+end(1)
 section_end()
 
 # 0x15 @ 0x73D4FD
 section_start(0x15)
 pic(3)
 dialog_up()
-para_talk("""You chose a Cannon,
-I see. That means
-you can choose""", 1)
-para_talk_end("""one more Cannon!""", 1)
+text("{a 2}You chose a Cannon,\nI see. That means\nyou can choose{a 1}\p")
+wait(1)
+text("{a 2}one more Cannon!{a 1}\p")
+end(1)
 section_end()
 
 # 0x16 @ 0x73D55C
 section_start(0x16)
 pic(3)
 dialog_up()
-para_talk_end("""You don't need to
-cancel!""", 1)
+text("{a 2}You don't need to\ncancel!{a 1}\p")
+end(1)
 section_end()
 
 # 0x17 @ 0x73D587
 section_start(0x17)
 pic(3)
 dialog_up()
-para_talk("""Well,it's possible
-to fight with just
-one cannon,""", 1)
-para_talk_end("""but since we can
-choose another,let's
-go ahead and do so.""", 1)
+text("{a 2}Well,it's possible\nto fight with just\none cannon,{a 1}\p")
+wait(1)
+text("{a 2}but since we can\nchoose another,let's\ngo ahead and do so.{a 1}\p")
+end(1)
 section_end()
 
 # 0x18 @ 0x73D60F
 section_start(0x18)
 pic(3)
 dialog_up()
-para_talk_end("""You don't need to
-use that feature
-just yet...""", 1)
+text("{a 2}You don't need to\nuse that feature\njust yet...{a 1}\p")
+end(1)
 section_end()
 
 # 0x19 @ 0x73D651
 section_start(0x19)
 pic(3)
 dialog_up()
-para_talk("""You haven't chosen
-any chips!""", 1)
-para_talk("""It's possible to
-fight with just your
-gun,""", 1)
-para_talk_end("""But let's choose
-some chips this time.""", 1)
+text("{a 2}You haven't chosen\nany chips!{a 1}\p")
+wait(1)
+text("{a 2}It's possible to\nfight with just your\ngun,{a 1}\p")
+wait(1)
+text("{a 2}But let's choose\nsome chips this time.{a 1}\p")
+end(1)
 section_end()
 
 # 0x1A @ 0x73D6E4
 section_start(0x1A)
 pic(3)
 dialog_up()
-para_talk_end("""You don't need to
-use that feature
-just yet...""", 1)
+text("{a 2}You don't need to\nuse that feature\njust yet...{a 1}\p")
+end(1)
 section_end()
 
 # 0x23 @ 0x73D736
 section_start(0x23)
 pic(3)
 dialog_up()
-para_talk_end("""OK,let's send this
-data to your Navi!
-Choose \"OK\".""", 1)
+text("{a 2}OK,let's send this\ndata to your Navi!\nChoose \"OK\".{a 1}\p")
+end(1)
 section_end()
 
 # 0x24 @ 0x73D77E
 section_start(0x24)
 pic(3)
 dialog_up()
-para_talk_end("""Don't worry,you can
-fight with this chip
-so let's press on.""", 1)
+text("{a 2}Don't worry,you can\nfight with this chip\nso let's press on.{a 1}\p")
+end(1)
 section_end()
 
 # 0x25 @ 0x73D7CD
 section_start(0x25)
 pic(3)
 dialog_up()
-para_talk_end("""We've sent the data.
-Now,it's time to
-fight the virus!""", 1)
+text("{a 2}We've sent the data.\nNow,it's time to\nfight the virus!{a 1}\p")
+end(1)
 section_end()
 
 # 0x28 @ 0x73D81C
 section_start(0x28)
 pic(3)
 dialog_up()
-para_talk("""Now,I'll explain how
-to fight as we
-actually do so.""", 1)
-para_talk("""You can move your
-Navi up,down,left,
-and right.""", 1)
-para_talk("""You shoot with the
-B Button.It's weak,
-but fast.""", 1)
+text("{a 2}Now,I'll explain how\nto fight as we\nactually do so.{a 1}\p")
+wait(1)
+text("{a 2}You can move your\nNavi up,down,left,\nand right.{a 1}\p")
+wait(1)
+text("{a 2}You shoot with the\nB Button.It's weak,\nbut fast.{a 1}\p")
+wait(1)
 jump(0x29)
 section_end()
 
 # 0x29 @ 0x73D8DC
 section_start(0x29)
-para_talk("""Your HP are shown at
-the top left. If you
-go down to 0 HP""", 1)
-para_talk_end("""your Navi is
-deleted,so be
-careful!""", 1)
+text("{a 2}Your HP are shown at\nthe top left. If you\ngo down to 0 HP{a 1}\p")
+wait(1)
+text("{a 2}your Navi is\ndeleted,so be\ncareful!{a 1}\p")
+end(1)
 section_end()
 
 # 0x2A @ 0x73D94D
 section_start(0x2A)
 pic(3)
 dialog_up()
-para_talk("""Above your Navi's
-head is the chip
-data you sent.""", 1)
-para_talk_end("""You can only use it
-once,so be careful!""", 1)
+text("{a 2}Above your Navi's\nhead is the chip\ndata you sent.{a 1}\p")
+wait(1)
+text("{a 2}You can only use it\nonce,so be careful!{a 1}\p")
+end(1)
 section_end()
 
 # 0x2B @ 0x73D9C1
 section_start(0x2B)
 pic(3)
 dialog_up()
-para_talk_end("""That's a good
-question!
-Everyone,look here.""", 1)
+text("{a 2}That's a good\nquestion!\nEveryone,look here.{a 1}\p")
+end(1)
 section_end()
 
 # 0x2C @ 0x73DA00
 section_start(0x2C)
 pic(3)
 dialog_up()
-para_talk("""This is your battle
-gauge. It slowly
-fills as you fight.""", 1)
-para_talk("""When it's full,press
-the L or R Button.
-You can then go""", 1)
-para_talk("""to the battle setup
-screen and choose
-new chips to send.""", 1)
-para_talk_end("""OK,let's try it!
-Good luck!""", 1)
+text("{a 2}This is your battle\ngauge. It slowly\nfills as you fight.{a 1}\p")
+wait(1)
+text("{a 2}When it's full,press\nthe L or R Button.\nYou can then go{a 1}\p")
+wait(1)
+text("{a 2}to the battle setup\nscreen and choose\nnew chips to send.{a 1}\p")
+wait(1)
+text("{a 2}OK,let's try it!\nGood luck!{a 1}\p")
+end(1)
 section_end()
 
 # 0x2D @ 0x73DAF4
 section_start(0x2D)
 pic(3)
 dialog_up()
-para_talk_end("""And that's the basic
-battle technique!
-Easy,right?""", 1)
+text("{a 2}And that's the basic\nbattle technique!\nEasy,right?{a 1}\p")
+end(1)
 section_end()
 
 # 0x2E @ 0x73DB3A
 section_start(0x2E)
 pic(9)
 dialog_up()
-para_talk("""Ms.Mari! What do
-you do if you've
-used your chips,""", 1)
-para_talk_end("""and the virus still
-isn't dead?""", 1)
+text("{a 2}Ms.Mari! What do\nyou do if you've\nused your chips,{a 1}\p")
+wait(1)
+text("{a 2}and the virus still\nisn't dead?{a 1}\p")
+end(1)
 section_end()
 
 # 0x32 @ 0x73DBAF
 section_start(0x32)
 pic(3)
 dialog_up()
-para_talk("""OK,let's send some
-data to the Navi
-again.""", 1)
-para_talk_end("""Try it yourself this
-time!""", 1)
+text("{a 2}OK,let's send some\ndata to the Navi\nagain.{a 1}\p")
+wait(1)
+text("{a 2}Try it yourself this\ntime!{a 1}\p")
+end(1)
 section_end()

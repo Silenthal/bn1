@@ -4,11 +4,9 @@ section_count(0xE1)
 section_start(0x00)
 pic(34)
 dialog_up()
-text_talking("""Want to head back
-to ACDC Town?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Want to head back\nto ACDC Town?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x01, 0xFF], 0, False, True)
 end()
 section_end()
@@ -18,16 +16,15 @@ section_start(0x01)
 clear_flag(1040)
 hidepic()
 dialog_up()
-para_general_end("""Lan returns to
-ACDC Town...""", 0)
+text("Lan returns to\nACDC Town...\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x70EB99
 section_start(0x02)
 dialog_up()
-para_general_end("""It's securely
-locked... You notice
-a jack in port{anim 1}""", 0)
+text("It's securely\nlocked... You notice\na jack in port{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x70EBD8
@@ -36,9 +33,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -48,53 +43,49 @@ section_end()
 section_start(0x04)
 pic(6)
 dialog_up()
-para_talk("""Wipe out the WWW,
-huh?""")
+text("{a 2}Wipe out the WWW,\nhuh?{a 1}\p")
+wait(5)
 jump(0x14)
 section_end()
 
 # 0x05 @ 0x70EC4A
 section_start(0x05)
 dialog_up()
-para_general_end("""It's securely
-locked... You notice
-a jack in port.{anim 1}""", 0)
+text("It's securely\nlocked... You notice\na jack in port.{a 1}\p")
+end(0)
 section_end()
 
 # 0x06 @ 0x70EC8B
 section_start(0x06)
 pic(2)
 dialog_up()
-para_talk("""Good luck,Lan!
-We're all counting
-on you!""")
+text("{a 2}Good luck,Lan!\nWe're all counting\non you!{a 1}\p")
+wait(5)
 jump(0x1E)
 section_end()
 
 # 0x0F @ 0x70ECDB
 section_start(0x0F)
 dialog_up()
-para_general_end("""It's securely
-locked... You notice
-a jack in port.""", 0)
+text("It's securely\nlocked... You notice\na jack in port.\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x70ED1A
 section_start(0x10)
 pic(2)
 dialog_up()
-para_talk_end("""Good luck!""", 0)
+text("{a 2}Good luck!{a 1}\p")
+end(0)
 section_end()
 
 # 0x14 @ 0x70ED3B
 section_start(0x14)
 pic(34)
 dialog_up()
-text_talking("""Lan,do you want
-to challenge Higs?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Lan,do you want\nto challenge Higs?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x15, 0x16], 1, False, True)
 end()
 section_end()
@@ -104,10 +95,7 @@ section_start(0x15)
 if_flag(41, 0x17, 0xFF)
 pic(6)
 dialog_up()
-text_talking("""Collecting rare
-chips ain't easy,
-huh!""")
-page()
+text("{a 2}Collecting rare\nchips ain't easy,\nhuh!{a 1}\p")
 set_flag(41)
 dialog_down()
 end()
@@ -117,48 +105,43 @@ section_end()
 section_start(0x16)
 pic(6)
 dialog_up()
-para_talk_end("""That's right,huh!
-You gotta hurry on,
-huh!""", 0)
+text("{a 2}That's right,huh!\nYou gotta hurry on,\nhuh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x17 @ 0x70EE0A
 section_start(0x17)
 pic(6)
 dialog_up()
-para_talk_end("""I'm practicing,huh!
-You gotta gimme
-some time,huh!""", 0)
+text("{a 2}I'm practicing,huh!\nYou gotta gimme\nsome time,huh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x18 @ 0x70EE51
 section_start(0x18)
 pic(6)
 dialog_up()
-para_talk_end("""Defeat is a result
-of lack of skill,not
-lack of chips,huh!""", 0)
+text("{a 2}Defeat is a result\nof lack of skill,not\nlack of chips,huh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x19 @ 0x70EE9E
 section_start(0x19)
 pic(6)
 dialog_up()
-para_talk("""Are you using the
-right chips,huh?""", 0)
-para_talk_end("""Think you should
-recheck that,huh?""", 0)
+text("{a 2}Are you using the\nright chips,huh?{a 1}\p")
+wait(0)
+text("{a 2}Think you should\nrecheck that,huh?{a 1}\p")
+end(0)
 section_end()
 
 # 0x1E @ 0x70EF06
 section_start(0x1E)
 pic(34)
 dialog_up()
-text_talking("""Lan,do you want to
-challenge Dex?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Lan,do you want to\nchallenge Dex?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x1F, 0x20], 1, False, True)
 end()
 section_end()
@@ -167,9 +150,8 @@ section_end()
 section_start(0x1F)
 pic(2)
 dialog_up()
-para_talk("""That's the spirit!
-Don't be a crybaby
-if ya lose,hear?""")
+text("{a 2}That's the spirit!\nDon't be a crybaby\nif ya lose,hear?{a 1}\p")
+wait(5)
 jump(0x24)
 section_end()
 
@@ -177,35 +159,32 @@ section_end()
 section_start(0x20)
 pic(2)
 dialog_up()
-para_talk_end("""I'll take you on
-anytime you're
-ready!""", 0)
+text("{a 2}I'll take you on\nanytime you're\nready!{a 1}\p")
+end(0)
 section_end()
 
 # 0x21 @ 0x70EFD7
 section_start(0x21)
 pic(2)
 dialog_up()
-para_talk_end("""Uh,ya better wait
-till I can upgrade
-GutsMan!{anim 1}{delay}{anim 2} OK?""", 0)
+text("{a 2}Uh,ya better wait\ntill I can upgrade\nGutsMan!{a 1}{d}{a 2} OK?{a 1}\p")
+end(0)
 section_end()
 
 # 0x22 @ 0x70F023
 section_start(0x22)
 pic(2)
 dialog_up()
-para_talk_end("""Hmph! Enjoy it while
-you can! You goin'
-down next time,Lan!""", 0)
+text("{a 2}Hmph! Enjoy it while\nyou can! You goin'\ndown next time,Lan!{a 1}\p")
+end(0)
 section_end()
 
 # 0x23 @ 0x70F073
 section_start(0x23)
 pic(2)
 dialog_up()
-para_talk_end("""Hey!?
-Are you OK??""", 0)
+text("{a 2}Hey!?\nAre you OK??{a 1}\p")
+end(0)
 section_end()
 
 # 0x24 @ 0x70F099
@@ -218,14 +197,13 @@ section_end()
 # 0xDC @ 0x70F213
 section_start(0xDC)
 dialog_up()
-para_general_end("""That liquid has GOT
-to be bad for the
-environment...""")
+text("That liquid has GOT\nto be bad for the\nenvironment...\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x70F252
 section_start(0xDD)
 dialog_up()
-para_general_end("""It's a skull...
-Very ominous...""")
+text("It's a skull...\nVery ominous...\p")
+end(5)
 section_end()

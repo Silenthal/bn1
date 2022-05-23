@@ -6,9 +6,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Lan's terminal
-program MegaMan.EXE
-is installed.""")
+text("Lan's terminal\nprogram MegaMan.EXE\nis installed.")
 stop()
 section_end()
 
@@ -18,9 +16,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Program for making
-ice inside the net.
-(charges left;{item_amt IceBlock})""")
+text("Program for making\nice inside the net.\n(charges left;{item_amt IceBlock})")
 stop()
 section_end()
 
@@ -30,8 +26,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Warning; This water
-gun is not a toy!""")
+text("Warning; This water\ngun is not a toy!")
 stop()
 section_end()
 
@@ -41,9 +36,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""An ID/time card.
-All teachers at ACDC
-elementary carry it.""")
+text("An ID/time card.\nAll teachers at ACDC\nelementary carry it.")
 stop()
 section_end()
 
@@ -53,9 +46,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""An ID card for the
-SciLab. This one's
-Dad's...I think.""")
+text("An ID card for the\nSciLab. This one's\nDad's...I think.")
 stop()
 section_end()
 
@@ -65,9 +56,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Knob program for
-the faucet program
-on the net.""")
+text("Knob program for\nthe faucet program\non the net.")
 stop()
 section_end()
 
@@ -77,9 +66,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Message from Froid
-in 5th grade to his
-dad; \"I'm OK!\"""")
+text("Message from Froid\nin 5th grade to his\ndad; \"I'm OK!\"")
 stop()
 section_end()
 
@@ -89,9 +76,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Response to Mayl's
-mail;\"I'll go
-shopping with you!\"""")
+text("Response to Mayl's\nmail;\"I'll go\nshopping with you!\"")
 stop()
 section_end()
 
@@ -101,9 +86,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Code known only to
-WWW's friends. Opens
-lock programs.""")
+text("Code known only to\nWWW's friends. Opens\nlock programs.")
 stop()
 section_end()
 
@@ -113,9 +96,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Battery program for
-lights on the net.
-(charges left;{item_amt 80})""")
+text("Battery program for\nlights on the net.\n(charges left;{item_amt 80})")
 stop()
 section_end()
 
@@ -125,9 +106,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Battery program for
-lights on the net.
-(charges left;{item_amt 81})""")
+text("Battery program for\nlights on the net.\n(charges left;{item_amt 81})")
 stop()
 section_end()
 
@@ -137,9 +116,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Battery program for
-lights on the net.
-(charges left;{item_amt 82})""")
+text("Battery program for\nlights on the net.\n(charges left;{item_amt 82})")
 stop()
 section_end()
 
@@ -149,9 +126,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Battery program for
-lights on the net.
-(charges left;{item_amt 83})""")
+text("Battery program for\nlights on the net.\n(charges left;{item_amt 83})")
 stop()
 section_end()
 
@@ -161,9 +136,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Battery program for
-lights on the net.
-(charges left;{item_amt 84})""")
+text("Battery program for\nlights on the net.\n(charges left;{item_amt 84})")
 stop()
 section_end()
 
@@ -173,9 +146,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Handーmade generator
-for recharging {key PET}.
-Not very sturdy.""")
+text("Handーmade generator\nfor recharging {key PET}.\nNot very sturdy.")
 stop()
 section_end()
 
@@ -187,9 +158,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""A Metroline pass...
-but it doesn't work
-on normal lines.""")
+text("A Metroline pass...\nbut it doesn't work\non normal lines.")
 stop()
 section_end()
 
@@ -208,8 +177,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""False teeth for
-the elderly.""")
+text("False teeth for\nthe elderly.")
 stop()
 section_end()
 
@@ -354,9 +322,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""The net address of
-the piano in
-Mayl's house.""")
+text("The net address of\nthe piano in\nMayl's house.")
 stop()
 section_end()
 
@@ -366,9 +332,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""The net address of
-the portrait in
-Yai's house.""")
+text("The net address of\nthe portrait in\nYai's house.")
 stop()
 section_end()
 
@@ -378,9 +342,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""The net address of
-the computer in
-Dex's house.""")
+text("The net address of\nthe computer in\nDex's house.")
 stop()
 section_end()
 
@@ -399,9 +361,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""The net address of
-Dad's computer down
-at the SciLab.""")
+text("The net address of\nDad's computer down\nat the SciLab.")
 stop()
 section_end()
 
@@ -411,9 +371,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""The net address of
-the cash register at
-Sal's lunch stand.""")
+text("The net address of\nthe cash register at\nSal's lunch stand.")
 stop()
 section_end()
 
@@ -432,9 +390,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""The net address of
-the magnifying glass
-at Miyu's Antiques.""")
+text("The net address of\nthe magnifying glass\nat Miyu's Antiques.")
 stop()
 section_end()
 
@@ -462,8 +418,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""The net address of
-Masa's fish stand.""")
+text("The net address of\nMasa's fish stand.")
 stop()
 section_end()
 
@@ -482,8 +437,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""The net address of
-the WWW Labs.""")
+text("The net address of\nthe WWW Labs.")
 stop()
 section_end()
 
@@ -511,9 +465,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Pass for
-accessing Dex's
-net links.""")
+text("Pass for\naccessing Dex's\nnet links.")
 stop()
 section_end()
 
@@ -523,9 +475,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Pass for
-accessing Sal's
-net links.""")
+text("Pass for\naccessing Sal's\nnet links.")
 stop()
 section_end()
 
@@ -535,9 +485,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Pass for
-accessing Miyu's
-net links.""")
+text("Pass for\naccessing Miyu's\nnet links.")
 stop()
 section_end()
 
@@ -556,9 +504,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Pass for
-accessing WWW's
-net links.(Cーlevel)""")
+text("Pass for\naccessing WWW's\nnet links.(Cーlevel)")
 stop()
 section_end()
 
@@ -568,9 +514,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Pass for
-accessing WWW's
-net links.(Bーlevel)""")
+text("Pass for\naccessing WWW's\nnet links.(Bーlevel)")
 stop()
 section_end()
 
@@ -580,9 +524,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Pass for
-accessing WWW's
-net links.(Aーlevel)""")
+text("Pass for\naccessing WWW's\nnet links.(Aーlevel)")
 stop()
 section_end()
 
@@ -592,9 +534,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""Pass for
-accessing WWW's
-net links.(Sーlevel)""")
+text("Pass for\naccessing WWW's\nnet links.(Sーlevel)")
 stop()
 section_end()
 
@@ -640,9 +580,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""1 child ticket for
-ACDC station on
-the Metroline.""")
+text("1 child ticket for\nACDC station on\nthe Metroline.")
 stop()
 section_end()
 
@@ -652,9 +590,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""1 child ticket for
-Government station
-on the Metroline.""")
+text("1 child ticket for\nGovernment station\non the Metroline.")
 stop()
 section_end()
 
@@ -664,9 +600,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""1 child ticket for
-Dentown station
-on the Metroline.""")
+text("1 child ticket for\nDentown station\non the Metroline.")
 stop()
 section_end()
 
@@ -685,9 +619,7 @@ text_se_off()
 input_off()
 set_delay(0)
 dialog_show()
-text("""A Metroline pass
-that doesn't work.
-...It's expired.""")
+text("A Metroline pass\nthat doesn't work.\n...It's expired.")
 stop()
 section_end()
 

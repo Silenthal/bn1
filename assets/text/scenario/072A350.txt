@@ -4,13 +4,12 @@ section_count(0x5)
 section_start(0x00)
 pic(12)
 dialog_up()
-para_talk("""Lan,{anim 1}{delay}{anim 2}welcome home!""", 0)
-para_talk("""A man from NetSafety
-is checking our home
-control panel.""", 0)
-para_talk("""You heard,right?{anim 1}{delay}
-{anim 2}About the ovens
-exploding?""")
+text("{a 2}Lan,{a 1}{d}{a 2}welcome home!{a 1}\p")
+wait(0)
+text("{a 2}A man from NetSafety\nis checking our home\ncontrol panel.{a 1}\p")
+wait(0)
+text("{a 2}You heard,right?{a 1}{d}\n{a 2}About the ovens\nexploding?{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -18,9 +17,8 @@ section_end()
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk("""That's the accident
-Mayl was talking
-about this morning.""")
+text("{a 2}That's the accident\nMayl was talking\nabout this morning.{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -28,13 +26,12 @@ section_end()
 section_start(0x02)
 pic(13)
 dialog_up()
-para_talk("""Hello.""", 0)
-para_talk("""We think a virus
-might be responsible
-for the accidents...""", 0)
-para_talk("""We're checking every
-home's control panel
-just to be safe.""")
+text("{a 2}Hello.{a 1}\p")
+wait(0)
+text("{a 2}We think a virus\nmight be responsible\nfor the accidents...{a 1}\p")
+wait(0)
+text("{a 2}We're checking every\nhome's control panel\njust to be safe.{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -42,11 +39,10 @@ section_end()
 section_start(0x03)
 pic(12)
 dialog_up()
-para_talk("""I'm glad it didn't
-happen to us!""", 0)
-para_talk("""Lan,{anim 1}{delay}{anim 2}go to your
-room so you won't
-get in the way.""")
+text("{a 2}I'm glad it didn't\nhappen to us!{a 1}\p")
+wait(0)
+text("{a 2}Lan,{a 1}{d}{a 2}go to your\nroom so you won't\nget in the way.{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -54,6 +50,6 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk_end("""Let's get on
-the net!""")
+text("{a 2}Let's get on\nthe net!{a 1}\p")
+end(5)
 section_end()

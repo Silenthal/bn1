@@ -3,14 +3,12 @@ section_count(0x14)
 # 0x00 @ 0x710BD4
 section_start(0x00)
 dialog_up()
-para_general("""This door is
-passcode protected.{anim 1}""", 0)
-para_general("""Door will not open
-without proper
-authorization.{anim 1}""", 0)
-para_general("""Passcode hint;
-Number of chairs in
-5A{anim 1}""")
+text("This door is\npasscode protected.{a 1}\p")
+wait(0)
+text("Door will not open\nwithout proper\nauthorization.{a 1}\p")
+wait(0)
+text("Passcode hint;\nNumber of chairs in\n5A{a 1}\p")
+wait(5)
 dialog_down()
 jump(0x01)
 section_end()
@@ -19,11 +17,10 @@ section_end()
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk("""We have to enter a
-passcode,huh...?""", 0)
-para_talk("""Lan! How many chairs
-are in the classroom
-for 5A?""")
+text("{a 2}We have to enter a\npasscode,huh...?{a 1}\p")
+wait(0)
+text("{a 2}Lan! How many chairs\nare in the classroom\nfor 5A?{a 1}\p")
+wait(5)
 dialog_down()
 jump(0x02)
 section_end()
@@ -32,8 +29,8 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk("""Hang on!
-I'll go check!""")
+text("{a 2}Hang on!\nI'll go check!{a 1}\p")
+wait(5)
 dialog_down()
 jump(0x03)
 section_end()
@@ -42,10 +39,10 @@ section_end()
 section_start(0x03)
 pic(34)
 dialog_up()
-para_talk("""When you find out,
-hit the L Button!""", 0)
-para_talk_end("""Then I'll input the
-passcode!""")
+text("{a 2}When you find out,\nhit the L Button!{a 1}\p")
+wait(0)
+text("{a 2}Then I'll input the\npasscode!{a 1}\p")
+end(5)
 section_end()
 
 # 0x05 @ 0x710D6D
@@ -53,14 +50,12 @@ section_start(0x05)
 if_flag(164, 0x0F, 0xFF)
 pic(41)
 dialog_up()
-para_talk("""Going down from
-here you'll see the
-door lock.""", 0)
-para_talk("""Normally you can
-get there easily,""", 0)
-para_talk_end("""but currently there
-are breaks in the
-network...""")
+text("{a 2}Going down from\nhere you'll see the\ndoor lock.{a 1}\p")
+wait(0)
+text("{a 2}Normally you can\nget there easily,{a 1}\p")
+wait(0)
+text("{a 2}but currently there\nare breaks in the\nnetwork...{a 1}\p")
+end(5)
 section_end()
 
 # 0x06 @ 0x710E19
@@ -68,14 +63,12 @@ section_start(0x06)
 if_flag(164, 0x10, 0xFF)
 pic(39)
 dialog_up()
-para_talk("""Thank you for your
-help the other day.""", 0)
-para_talk("""Someone had hacked
-into the server in
-the teacher's""", 0)
-para_talk_end("""lounge. If you're
-going that way,be
-careful of viruses!""")
+text("{a 2}Thank you for your\nhelp the other day.{a 1}\p")
+wait(0)
+text("{a 2}Someone had hacked\ninto the server in\nthe teacher's{a 1}\p")
+wait(0)
+text("{a 2}lounge. If you're\ngoing that way,be\ncareful of viruses!{a 1}\p")
+end(5)
 section_end()
 
 # 0x07 @ 0x710ED5
@@ -83,42 +76,40 @@ section_start(0x07)
 if_flag(164, 0x11, 0xFF)
 pic(41)
 dialog_up()
-para_talk("""Do you want to go
-to the lock?""", 0)
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Do you want to go\nto the lock?{a 1}\p")
+wait(0)
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x08, 0xFF], 0, False, True)
-para_talk_end("""Oh""")
+text("{a 2}Oh{a 1}\p")
+end(5)
 section_end()
 
 # 0x08 @ 0x710F2B
 section_start(0x08)
-para_talk_end("""Sometimes,the long
-way is the shortest.""")
+text("{a 2}Sometimes,the long\nway is the shortest.{a 1}\p")
+end(5)
 section_end()
 
 # 0x09 @ 0x710F5E
 section_start(0x09)
 pic(41)
 dialog_up()
-para_talk("""The virus that
-started the reー
-education program""", 0)
-para_talk_end("""wiped out most of
-the programs around
-here...""")
+text("{a 2}The virus that\nstarted the reー\neducation program{a 1}\p")
+wait(0)
+text("{a 2}wiped out most of\nthe programs around\nhere...{a 1}\p")
+end(5)
 section_end()
 
 # 0x0A @ 0x710FD6
 section_start(0x0A)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(681)
 pc_anim_start(50)
 add_chip("ShokWave L", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip ShokWave L}\"!""")
+text("MegaMan got a chip\nfor \"{chip ShokWave L}\"!")
 pc_anim_end()
 page()
 end(5)
@@ -128,47 +119,42 @@ section_end()
 section_start(0x0F)
 pic(41)
 dialog_up()
-para_talk_end("""You deactivated the
-lock program?
-Great!""")
+text("{a 2}You deactivated the\nlock program?\nGreat!{a 1}\p")
+end(5)
 section_end()
 
 # 0x10 @ 0x711086
 section_start(0x10)
 pic(39)
 dialog_up()
-para_talk_end("""Good luck making
-it to the teacher's
-lounge server!""")
+text("{a 2}Good luck making\nit to the teacher's\nlounge server!{a 1}\p")
+end(5)
 section_end()
 
 # 0x11 @ 0x7110CB
 section_start(0x11)
 pic(41)
 dialog_up()
-text("""{anim 2}Do you want to go
-to the lock?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Do you want to go\nto the lock?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x12, 0xFF], 0, False, True)
-para_talk_end("""Really?""")
+text("{a 2}Really?{a 1}\p")
+end(5)
 section_end()
 
 # 0x12 @ 0x71111E
 section_start(0x12)
-para_talk_end("""The long way was
-the right way,huh?""")
+text("{a 2}The long way was\nthe right way,huh?{a 1}\p")
+end(5)
 section_end()
 
 # 0x13 @ 0x71114D
 section_start(0x13)
 pic(41)
 dialog_up()
-para_talk("""The virus that
-started the reー
-education program""", 0)
-para_talk_end("""wiped out most of
-the programs around
-here...""")
+text("{a 2}The virus that\nstarted the reー\neducation program{a 1}\p")
+wait(0)
+text("{a 2}wiped out most of\nthe programs around\nhere...{a 1}\p")
+end(5)
 section_end()

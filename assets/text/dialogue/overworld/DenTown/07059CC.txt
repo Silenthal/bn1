@@ -4,12 +4,11 @@ section_count(0xEB)
 section_start(0x00)
 if_flag(42, 0x03, 0xFF)
 dialog_up()
-para_general("""Where to?""", 0)
-text("""{c 2 1 0 0}ACDC Town
-""")
-text("""{c 0 2 1 1}GovmntCmplx
-""")
-text("""{c 1 0 2 2}None""")
+text("Where to?\p")
+wait(0)
+text("{c 2 1 0 0}ACDC Town\n")
+text("{c 0 2 1 1}GovmntCmplx\n")
+text("{c 1 0 2 2}None")
 pick([0x01, 0x02, 0xFF], 0, False, True)
 end()
 section_end()
@@ -17,11 +16,10 @@ section_end()
 # 0x01 @ 0x705BEF
 section_start(0x01)
 set_flag(42)
-add_item("ACDCPass", 1, 0xFF, 0xFF, 0xFF)
+add_item("ACDCPass", 1)
 dialog_up()
 pc_anim(30)
-text("""Lan got;
-\"{key ACDCPass}\"!""")
+text("Lan got;\n\"{key ACDCPass}\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()
@@ -32,11 +30,10 @@ section_end()
 # 0x02 @ 0x705C20
 section_start(0x02)
 set_flag(42)
-add_item("GovtPass", 1, 0xFF, 0xFF, 0xFF)
+add_item("GovtPass", 1)
 dialog_up()
 pc_anim(30)
-text("""Lan got;
-\"{key GovtPass}\"!""")
+text("Lan got;\n\"{key GovtPass}\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()
@@ -47,11 +44,9 @@ section_end()
 # 0x03 @ 0x705C51
 section_start(0x03)
 dialog_up()
-text("""Buy a different
-ticket?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Buy a different\nticket?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x04, 0xFF], 0, False, True)
 end()
 section_end()
@@ -59,73 +54,69 @@ section_end()
 # 0x04 @ 0x705C88
 section_start(0x04)
 clear_flag(42)
-sub_item("ACDCPass", 1, 0xFF, 0xFF, 0xFF)
-sub_item("GovtPass", 1, 0xFF, 0xFF, 0xFF)
+sub_item("ACDCPass", 1)
+sub_item("GovtPass", 1)
 dialog_up()
-para_general("""Lan returned his
-ticket!""", 0)
+text("Lan returned his\nticket!\p")
+wait(0)
 jump(0x00)
 section_end()
 
 # 0x05 @ 0x705CBE
 section_start(0x05)
-sub_item("ACDCPass", 1, 0xFF, 0xFF, 0xFF)
+sub_item("ACDCPass", 1)
 dialog_up()
-para_general_end("""Lan used his
-{key ACDCPass}!""", 0)
+text("Lan used his\n{key ACDCPass}!\p")
+end(0)
 section_end()
 
 # 0x06 @ 0x705CE0
 section_start(0x06)
-sub_item("GovtPass", 1, 0xFF, 0xFF, 0xFF)
+sub_item("GovtPass", 1)
 dialog_up()
-para_general_end("""Lan used his
-{key GovtPass}!""", 0)
+text("Lan used his\n{key GovtPass}!\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x705D12
 section_start(0x0F)
-if_story(0x53, 0x54, 0x23, 0xFF)
-if_story(0x50, 0x52, 0x1E, 0xFF)
-if_story(0x40, 0x47, 0x1A, 0xFF)
+if_story(0x53, 0x54, 0x23)
+if_story(0x50, 0x52, 0x1E)
+if_story(0x40, 0x47, 0x1A)
 pic(21)
 dialog_up()
-para_talk_end("""This is Dentown
-station.""", 0)
+text("{a 2}This is Dentown\nstation.{a 1}\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x705D4D
 section_start(0x10)
-if_story(0x50, 0x53, 0x20, 0xFF)
-if_story(0x40, 0x47, 0x1B, 0xFF)
+if_story(0x50, 0x53, 0x20)
+if_story(0x40, 0x47, 0x1B)
 pic(10)
 dialog_up()
-para_talk_end("""I'm going shopping
-now! I've been
-waiting for so long!""", 0)
+text("{a 2}I'm going shopping\nnow! I've been\nwaiting for so long!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1A @ 0x705DB5
 section_start(0x1A)
 pic(21)
 dialog_up()
-para_talk("""This is Dentown
-station,the entrance
-to Dentown,the""", 0)
-para_talk_end("""city that never
-sleeps!""", 0)
+text("{a 2}This is Dentown\nstation,the entrance\nto Dentown,the{a 1}\p")
+wait(0)
+text("{a 2}city that never\nsleeps!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1B @ 0x705E1A
 section_start(0x1B)
 pic(10)
 dialog_up()
-para_talk("""The lights are on
-in this town 24
-hours a day,so""", 0)
-para_talk_end("""it's called the
-shining jewel of
-DenCity.""", 0)
+text("{a 2}The lights are on\nin this town 24\nhours a day,so{a 1}\p")
+wait(0)
+text("{a 2}it's called the\nshining jewel of\nDenCity.{a 1}\p")
+end(0)
 section_end()
 
 # 0x1E @ 0x705E92
@@ -133,82 +124,72 @@ section_start(0x1E)
 if_flag(148, 0x1F, 0xFF)
 pic(21)
 dialog_up()
-para_talk("""This is Dentown
-station,the entrance
-to Dentown,the""", 0)
-para_talk_end("""city that never
-sleeps!""", 0)
+text("{a 2}This is Dentown\nstation,the entrance\nto Dentown,the{a 1}\p")
+wait(0)
+text("{a 2}city that never\nsleeps!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1F @ 0x705EFD
 section_start(0x1F)
 pic(21)
 dialog_up()
-para_talk("""A young boy in red
-clothes? Why,yes,
-I just saw him""", 0)
-para_talk_end("""get off of the
-train!""", 0)
+text("{a 2}A young boy in red\nclothes? Why,yes,\nI just saw him{a 1}\p")
+wait(0)
+text("{a 2}get off of the\ntrain!{a 1}\p")
+end(0)
 section_end()
 
 # 0x20 @ 0x705F61
 section_start(0x20)
 pic(10)
 dialog_up()
-para_talk_end("""It's easy to forget
-about the war when
-you're shopping!""", 0)
+text("{a 2}It's easy to forget\nabout the war when\nyou're shopping!{a 1}\p")
+end(0)
 section_end()
 
 # 0x23 @ 0x705FAF
 section_start(0x23)
 pic(21)
 dialog_up()
-para_talk("""This is Dentown
-station,the entrance
-to Dentown,the""", 0)
-para_talk("""city that never
-sleeps!""", 0)
-para_talk("""But today it almost
-does seem to be
-sleeping...""", 0)
-para_talk_end("""Who would want
-to shop at times
-like this!""", 0)
+text("{a 2}This is Dentown\nstation,the entrance\nto Dentown,the{a 1}\p")
+wait(0)
+text("{a 2}city that never\nsleeps!{a 1}\p")
+wait(0)
+text("{a 2}But today it almost\ndoes seem to be\nsleeping...{a 1}\p")
+wait(0)
+text("{a 2}Who would want\nto shop at times\nlike this!{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x7061F1
 section_start(0xDC)
 dialog_up()
-para_general_end("""This escalator only
-goes down""")
+text("This escalator only\ngoes down\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x706216
 section_start(0xDD)
 dialog_up()
-para_general_end("""This shop has the
-best selection in
-Dentown station""")
+text("This shop has the\nbest selection in\nDentown station\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x706251
 section_start(0xDE)
 dialog_up()
-para_general("""The ultimate in
-horror! \"Attack of
-the Killer PETs\"!""", 0)
-para_general_end("""Now playing at the
-Dentown Theater!""")
+text("The ultimate in\nhorror! \"Attack of\nthe Killer PETs\"!\p")
+wait(0)
+text("Now playing at the\nDentown Theater!\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x7062B9
 section_start(0xDF)
 dialog_up()
-para_general("""A magazine recycling
-collection box.
-Putting a magazine""", 0)
-para_general_end("""in here instantly
-creates recycled
-paper""")
+text("A magazine recycling\ncollection box.\nPutting a magazine\p")
+wait(0)
+text("in here instantly\ncreates recycled\npaper\p")
+end(5)
 section_end()

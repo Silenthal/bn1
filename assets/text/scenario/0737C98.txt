@@ -4,19 +4,17 @@ section_count(0xB)
 section_start(0x00)
 pic(48)
 dialog_up()
-text_talking("""But...""")
-delay()
-para_talk_end("""but
-BombMan is never
-defeated!""", 0)
+text("{a 2}But...{a 1}{d}")
+text("{a 2}but\nBombMan is never\ndefeated!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x737CEE
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk("""Lan,I've got the
-WWW's address!""")
+text("{a 2}Lan,I've got the\nWWW's address!{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -24,9 +22,8 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk("""Then let's use it to
-break into the WWW's
-network!""")
+text("{a 2}Then let's use it to\nbreak into the WWW's\nnetwork!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -34,18 +31,18 @@ section_end()
 section_start(0x03)
 pic(48)
 dialog_up()
-para_talk("""Fool...{anim 1}{delay}{anim 2}They don't
-call me BombMan for
-nothing!""", 0)
-para_talk_end("""NetBomb program
-activated!""", 0)
+text("{a 2}Fool...{a 1}{d}{a 2}They don't\ncall me BombMan for\nnothing!{a 1}\p")
+wait(0)
+text("{a 2}NetBomb program\nactivated!{a 1}\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x737DDA
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk("""!?""")
+text("{a 2}!?{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -53,14 +50,16 @@ section_end()
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk_end("""Uhoh! MegaMan!?""", 0)
+text("{a 2}Uhoh! MegaMan!?{a 1}\p")
+end(0)
 section_end()
 
 # 0x06 @ 0x737E13
 section_start(0x06)
 pic(0)
 dialog_up()
-para_talk("""You OK?""")
+text("{a 2}You OK?{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -68,10 +67,10 @@ section_end()
 section_start(0x07)
 pic(34)
 dialog_up()
-para_talk("""Yeah...{anim 1}{delay}{anim 2}but...""", 0)
-para_talk("""Oh no!
-The net's been
-closed off!""")
+text("{a 2}Yeah...{a 1}{d}{a 2}but...{a 1}\p")
+wait(0)
+text("{a 2}Oh no!\nThe net's been\nclosed off!{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -79,8 +78,8 @@ section_end()
 section_start(0x08)
 pic(0)
 dialog_up()
-para_talk("""Darn!
-We were so close!""")
+text("{a 2}Darn!\nWe were so close!{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -88,9 +87,8 @@ section_end()
 section_start(0x09)
 pic(34)
 dialog_up()
-para_talk("""I'm sure we can use
-this address
-somehow!""")
+text("{a 2}I'm sure we can use\nthis address\nsomehow!{a 1}\p")
+wait(5)
 jump(0x0A)
 section_end()
 
@@ -98,6 +96,6 @@ section_end()
 section_start(0x0A)
 pic(0)
 dialog_up()
-para_talk_end("""You're right!
-Let's talk to Dad!""", 0)
+text("{a 2}You're right!\nLet's talk to Dad!{a 1}\p")
+end(0)
 section_end()

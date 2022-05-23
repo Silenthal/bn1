@@ -4,20 +4,18 @@ section_count(0x7)
 section_start(0x00)
 pic(40)
 dialog_up()
-para_talk_end("""MegaMan{anim 1}{...}!
-{anim 2}I'm so glad to
-see you!""", 0)
+text("{a 2}MegaMan{a 1}{...}!\n{a 2}I'm so glad to\nsee you!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x71EC77
 section_start(0x01)
 pic(46)
 dialog_up()
-para_talk("""Hmph{anim 1}...{delay}
-{anim 2}No need for thanks.""", 0)
-para_talk_end("""I'm just keeping
-you around for
-entertainment value.""", 0)
+text("{a 2}Hmph{a 1}...{d}\n{a 2}No need for thanks.{a 1}\p")
+wait(0)
+text("{a 2}I'm just keeping\nyou around for\nentertainment value.{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x71ECEC
@@ -25,36 +23,33 @@ section_start(0x02)
 if_flag(1094, 0x03, 0xFF)
 pic(36)
 dialog_up()
-para_talk("""Be careful...""", 0)
-para_talk("""When you fight the
-top WWW Navi,your
-Navi's save feature""", 0)
-para_talk("""will be disabled!
-You may want to
-save here...""", 0)
-para_talk_end("""It's close{anim 1}...{delay}
-{anim 2}Very close...""", 0)
+text("{a 2}Be careful...{a 1}\p")
+wait(0)
+text("{a 2}When you fight the\ntop WWW Navi,your\nNavi's save feature{a 1}\p")
+wait(0)
+text("{a 2}will be disabled!\nYou may want to\nsave here...{a 1}\p")
+wait(0)
+text("{a 2}It's close{a 1}...{d}\n{a 2}Very close...{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x71EDC0
 section_start(0x03)
 pic(36)
 dialog_up()
-para_talk_end("""Yeah,I thought that
-your save feature
-would be destroyed..""", 0)
+text("{a 2}Yeah,I thought that\nyour save feature\nwould be destroyed..{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x71EE0F
 section_start(0x05)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(848)
 pc_anim_start(50)
 award_zenny([2000, 2000])
-text("""MegaMan got 2000
-zennys!""")
+text("MegaMan got 2000\nzennys!")
 pc_anim_end()
 page()
 end()
@@ -63,13 +58,12 @@ section_end()
 # 0x06 @ 0x71EE76
 section_start(0x06)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(849)
 pc_anim_start(50)
 add_chip("BigWave K", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip BigWave K}\"!""")
+text("MegaMan got a chip\nfor \"{chip BigWave K}\"!")
 pc_anim_end()
 page()
 end()

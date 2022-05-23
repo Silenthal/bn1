@@ -4,39 +4,33 @@ section_count(0xA)
 section_start(0x00)
 pic(36)
 dialog_up()
-para_talk("""I'll bet you didn't
-think you could jack
-into this thing!""", 0)
-para_talk("""This vase is
-actually an air
-cleaner!""", 0)
-para_talk("""Antiques are easily
-damaged by humidity
-and pollutants.""", 0)
-para_talk_end("""We keep the air in
-this shop just right
-for the antiques!""")
+text("{a 2}I'll bet you didn't\nthink you could jack\ninto this thing!{a 1}\p")
+wait(0)
+text("{a 2}This vase is\nactually an air\ncleaner!{a 1}\p")
+wait(0)
+text("{a 2}Antiques are easily\ndamaged by humidity\nand pollutants.{a 1}\p")
+wait(0)
+text("{a 2}We keep the air in\nthis shop just right\nfor the antiques!{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x721CE8
 section_start(0x01)
 pic(36)
 dialog_up()
-para_talk_end("""Ooops! The humidity
-is rising! Gotta
-clear some moisture.""")
+text("{a 2}Ooops! The humidity\nis rising! Gotta\nclear some moisture.{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x721D34
 section_start(0x02)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(863)
 pc_anim_start(50)
 add_chip("Quake3 C", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Quake3 C}\"!""")
+text("MegaMan got a chip\nfor \"{chip Quake3 C}\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()

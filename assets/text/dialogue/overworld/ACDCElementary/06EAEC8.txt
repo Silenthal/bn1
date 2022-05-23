@@ -4,21 +4,18 @@ section_count(0xEB)
 section_start(0x00)
 pic(16)
 dialog_up()
-para_talk("""You're in 5th grade
-right? Hurry up and
-get upstairs!""", 0)
-para_talk_end("""Where are the
-stairs? Right
-through that door.""")
+text("{a 2}You're in 5th grade\nright? Hurry up and\nget upstairs!{a 1}\p")
+wait(0)
+text("{a 2}Where are the\nstairs? Right\nthrough that door.{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x6EB11E
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk_end("""That's the 1st
-grader's room!
-Don't go in there!""")
+text("{a 2}That's the 1st\ngrader's room!\nDon't go in there!{a 1}\p")
+end(5)
 section_end()
 
 # 0x05 @ 0x6EB169
@@ -26,146 +23,139 @@ section_start(0x05)
 if_flag(184, 0x0C, 0xFF)
 pic(9)
 dialog_up()
-para_talk_end("""Now this one is
-locked!""")
+text("{a 2}Now this one is\nlocked!{a 1}\p")
+end(5)
 section_end()
 
 # 0x06 @ 0x6EB197
 section_start(0x06)
 dialog_up()
-para_general_end("""The door is locked!
-You must destroy the
-lock program!""")
+text("The door is locked!\nYou must destroy the\nlock program!\p")
+end(5)
 section_end()
 
 # 0x07 @ 0x6EB1D7
 section_start(0x07)
 dialog_up()
-para_general_end("""The door is locked!
-You must destroy the
-lock program!""")
+text("The door is locked!\nYou must destroy the\nlock program!\p")
+end(5)
 section_end()
 
 # 0x08 @ 0x6EB217
 section_start(0x08)
 dialog_up()
-para_general_end("""The door is locked!
-You must destroy the
-lock program!""")
+text("The door is locked!\nYou must destroy the\nlock program!\p")
+end(5)
 section_end()
 
 # 0x09 @ 0x6EB257
 section_start(0x09)
 dialog_up()
-para_general_end("""The door isn't
-locked but something
-is holding it shut!""")
+text("The door isn't\nlocked but something\nis holding it shut!\p")
+end(5)
 section_end()
 
 # 0x0A @ 0x6EB298
 section_start(0x0A)
 pic(2)
 dialog_up()
-para_talk_end("""If we don't do
-something,the WWW
-will take us over!""")
+text("{a 2}If we don't do\nsomething,the WWW\nwill take us over!{a 1}\p")
+end(5)
 section_end()
 
 # 0x0B @ 0x6EB2DE
 section_start(0x0B)
 pic(1)
 dialog_up()
-para_talk("""The WWW program is
-starting to work!""", 0)
-para_talk_end("""Lan! Please hurry!""")
+text("{a 2}The WWW program is\nstarting to work!{a 1}\p")
+wait(0)
+text("{a 2}Lan! Please hurry!{a 1}\p")
+end(5)
 section_end()
 
 # 0x0C @ 0x6EB32F
 section_start(0x0C)
 pic(9)
 dialog_up()
-text_talking("""This one opened!""")
-text("""{delay}\n""")
-para_talk_end("""Hurry to the server!""", 0)
+text("{a 2}This one opened!{a 1}")
+text("{d}\n")
+text("{a 2}Hurry to the server!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x6EB372
 section_start(0x0F)
 pic(16)
 dialog_up()
-para_talk_end("""The 1st graders are
-gone. Their classes
-are finished.""")
+text("{a 2}The 1st graders are\ngone. Their classes\nare finished.{a 1}\p")
+end(5)
 section_end()
 
 # 0x10 @ 0x6EB3B9
 section_start(0x10)
 pic(10)
 dialog_up()
-para_talk_end("""See you tomorrow,
-Lan!""")
+text("{a 2}See you tomorrow,\nLan!{a 1}\p")
+end(5)
 section_end()
 
 # 0x14 @ 0x6EB3E7
 section_start(0x14)
 pic(17)
 dialog_up()
-para_talk_end("""Hurry up!!""", 0)
+text("{a 2}Hurry up!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x15 @ 0x6EB403
 section_start(0x15)
 pic(34)
 dialog_up()
-para_talk_end("""You don't have time
-to be playing with
-1st graders!""", 0)
+text("{a 2}You don't have time\nto be playing with\n1st graders!{a 1}\p")
+end(0)
 section_end()
 
 # 0x16 @ 0x6EB448
 section_start(0x16)
 pic(17)
 dialog_up()
-text("""{anim 2}What's wrong? Do
-you have a fever?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}What's wrong? Do\nyou have a fever?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x17, 0xFF], 0, False, True)
-para_talk_end("""Then you need to
-get to class!""", 0)
+text("{a 2}Then you need to\nget to class!{a 1}\p")
+end(0)
 section_end()
 
 # 0x17 @ 0x6EB4B8
 section_start(0x17)
 pic(17)
 dialog_up()
-para_talk_end("""Well,you look
-pretty healthy to
-me!""", 0)
+text("{a 2}Well,you look\npretty healthy to\nme!{a 1}\p")
+end(0)
 section_end()
 
 # 0x18 @ 0x6EB4ED
 section_start(0x18)
 pic(17)
 dialog_up()
-text_talking("""I can see you!""")
-text("""{delay}\n""")
-para_talk_end("""Hurry up and get
-to class!""", 0)
+text("{a 2}I can see you!{a 1}")
+text("{d}\n")
+text("{a 2}Hurry up and get\nto class!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1E @ 0x6EB53A
 section_start(0x1E)
 pic(16)
 dialog_up()
-para_talk_end("""Let's go home!""", 0)
+text("{a 2}Let's go home!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1F @ 0x6EB55A
 section_start(0x1F)
 dialog_up()
-para_general_end("""The door is locked.{delay}
-The 1st graders
-have gone home""", 0)
+text("The door is locked.{d}\nThe 1st graders\nhave gone home\p")
+end(0)
 section_end()

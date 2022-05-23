@@ -2,67 +2,61 @@ section_count(0xEB)
 
 # 0x00 @ 0x70E3B6
 section_start(0x00)
-if_story(0x43, 0x43, 0x05, 0xFF)
+if_story(0x43, 0x43, 0x05)
 pic(27)
 dialog_up()
-para_talk("""We normally control
-the power plant from
-this room...""", 0)
-para_talk_end("""But all of the
-computers are down!""", 0)
+text("{a 2}We normally control\nthe power plant from\nthis room...{a 1}\p")
+wait(0)
+text("{a 2}But all of the\ncomputers are down!{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x70E437
 section_start(0x05)
 pic(27)
 dialog_up()
-para_talk("""I'll stay here
-and try to manage
-the repairs.""", 0)
-para_talk_end("""Just call me if
-you need any help!""", 0)
+text("{a 2}I'll stay here\nand try to manage\nthe repairs.{a 1}\p")
+wait(0)
+text("{a 2}Just call me if\nyou need any help!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x70E4A9
 section_start(0x0A)
-if_story(0x53, 0x54, 0x0F, 0xFF)
+if_story(0x53, 0x54, 0x0F)
 pic(27)
 dialog_up()
-para_talk_end("""Network status,
-fully operational!""", 0)
+text("{a 2}Network status,\nfully operational!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x70E4E3
 section_start(0x0B)
-if_story(0x53, 0x54, 0x10, 0xFF)
+if_story(0x53, 0x54, 0x10)
 pic(27)
 dialog_up()
-para_talk("""The electricity
-management program
-was wiped,so we've""", 0)
-para_talk_end("""lost some power.
-Don't worry,we have
-enough to run...""", 0)
+text("{a 2}The electricity\nmanagement program\nwas wiped,so we've{a 1}\p")
+wait(0)
+text("{a 2}lost some power.\nDon't worry,we have\nenough to run...{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x70E579
 section_start(0x0F)
 pic(27)
 dialog_up()
-para_talk_end("""Network status,
-fully operational!""", 0)
+text("{a 2}Network status,\nfully operational!{a 1}\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x70E5AD
 section_start(0x10)
 pic(27)
 dialog_up()
-para_talk("""The electricity
-management program
-was wiped,so we've""", 0)
-para_talk_end("""lost some power.
-Don't worry,we have
-enough to run...""", 0)
+text("{a 2}The electricity\nmanagement program\nwas wiped,so we've{a 1}\p")
+wait(0)
+text("{a 2}lost some power.\nDon't worry,we have\nenough to run...{a 1}\p")
+end(0)
 section_end()
 
 # 0x11 @ 0x70E637
@@ -71,9 +65,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -82,37 +74,36 @@ section_end()
 # 0xDC @ 0x70E812
 section_start(0xDC)
 dialog_up()
-para_general_end("""The computer which
-controls the
-generator""")
+text("The computer which\ncontrols the\ngenerator\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x70E843
 section_start(0xDD)
 dialog_up()
-para_general_end("""Normally,the
-generator is run
-from here""")
+text("Normally,the\ngenerator is run\nfrom here\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x70E873
 section_start(0xDE)
 dialog_up()
-para_general_end("""This monitor has
-a jack in port for
-routine maintenance""")
+text("This monitor has\na jack in port for\nroutine maintenance\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x70E8B2
 section_start(0xDF)
 dialog_up()
-para_general("""Someone has written
-on the board...""", 0)
-para_general_end("""\"Party tonite!!\"""")
+text("Someone has written\non the board...\p")
+wait(0)
+text("\"Party tonite!!\"\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x70E8F8
 section_start(0xE0)
 dialog_up()
-para_general_end("""It's locked""")
+text("It's locked\p")
+end(5)
 section_end()

@@ -4,7 +4,8 @@ section_count(0x1A)
 section_start(0x00)
 pic(6)
 dialog_up()
-para_talk("""Let's go,huh!""")
+text("{a 2}Let's go,huh!{a 1}\p")
+wait(5)
 jump(0x14)
 section_end()
 
@@ -12,28 +13,27 @@ section_end()
 section_start(0x01)
 pic(14)
 dialog_up()
-para_talk_end("""Nah,I'm used to
-this! Don't worry
-about me!""", 0)
+text("{a 2}Nah,I'm used to\nthis! Don't worry\nabout me!{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x70FDE3
 section_start(0x02)
 pic(3, 2)
 dialog_up()
-para_talk("""Keep it up!""", 0)
-para_talk_end("""Don't let the WWW
-get the best of
-you!!""")
+text("{a 2}Keep it up!{a 1}\p")
+wait(0)
+text("{a 2}Don't let the WWW\nget the best of\nyou!!{a 1}\p")
+end(5)
 section_end()
 
 # 0x05 @ 0x70FE35
 section_start(0x05)
 dialog_up()
-para_general("""It's securely locked""", 0)
-para_general("""There seems to be a
-jack in port here,
-though...""")
+text("It's securely locked\p")
+wait(0)
+text("There seems to be a\njack in port here,\nthough...\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -41,9 +41,8 @@ section_end()
 section_start(0x06)
 pic(34)
 dialog_up()
-para_talk_end("""Lan!
-I'll disable the
-lock!""", 0)
+text("{a 2}Lan!\nI'll disable the\nlock!{a 1}\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x70FEBB
@@ -52,9 +51,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -65,9 +62,8 @@ section_start(0x08)
 check_chip("Roll3 R", 1, 0x0B, 0x0B, 0xFF)
 pic(1)
 dialog_up()
-para_talk("""Mayl told me to
-give this to
-you...""")
+text("{a 2}Mayl told me to\ngive this to\nyou...{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -77,8 +73,7 @@ hidepic()
 dialog_up()
 pc_anim_start(30)
 add_chip("Roll3 R", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip Roll3 R}\"!""")
+text("Lan got a chip for\n\"{chip Roll3 R}\"!")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -91,27 +86,25 @@ section_end()
 section_start(0x0A)
 pic(1)
 dialog_up()
-para_talk_end("""Don't lose it,
-now!""", 0)
+text("{a 2}Don't lose it,\nnow!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x70FFAB
 section_start(0x0B)
 pic(1)
 dialog_up()
-para_talk_end("""Don't forget that
-we're helping,too!""", 0)
+text("{a 2}Don't forget that\nwe're helping,too!{a 1}\p")
+end(0)
 section_end()
 
 # 0x14 @ 0x70FFF3
 section_start(0x14)
 pic(34)
 dialog_up()
-text_talking("""Lan,do you want
-to challenge Higs?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Lan,do you want\nto challenge Higs?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x15, 0x16], 1, False, True)
 end()
 section_end()
@@ -121,10 +114,7 @@ section_start(0x15)
 if_flag(41, 0x17, 0xFF)
 pic(6)
 dialog_up()
-text_talking("""Collecting rare
-chips ain't easy,
-huh!""")
-page()
+text("{a 2}Collecting rare\nchips ain't easy,\nhuh!{a 1}\p")
 set_flag(41)
 dialog_down()
 end()
@@ -134,35 +124,32 @@ section_end()
 section_start(0x16)
 pic(6)
 dialog_up()
-para_talk_end("""That's right,huh!
-You gotta hurry on,
-huh!""", 0)
+text("{a 2}That's right,huh!\nYou gotta hurry on,\nhuh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x17 @ 0x7100C2
 section_start(0x17)
 pic(6)
 dialog_up()
-para_talk_end("""I'm practicing,huh!
-You gotta gimme
-some time,huh!""", 0)
+text("{a 2}I'm practicing,huh!\nYou gotta gimme\nsome time,huh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x18 @ 0x710109
 section_start(0x18)
 pic(6)
 dialog_up()
-para_talk_end("""Defeat is a result
-of lack of skill,not
-lack of chips,huh!""", 0)
+text("{a 2}Defeat is a result\nof lack of skill,not\nlack of chips,huh!{a 1}\p")
+end(0)
 section_end()
 
 # 0x19 @ 0x710156
 section_start(0x19)
 pic(6)
 dialog_up()
-para_talk("""Are you using the
-right chips,huh?""", 0)
-para_talk_end("""Think you should
-recheck that,huh?""", 0)
+text("{a 2}Are you using the\nright chips,huh?{a 1}\p")
+wait(0)
+text("{a 2}Think you should\nrecheck that,huh?{a 1}\p")
+end(0)
 section_end()

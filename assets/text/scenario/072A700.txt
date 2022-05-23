@@ -4,12 +4,10 @@ section_count(0x3)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk("""Uhーoh!
-You were right,Lan,
-it's a virus!""", 0)
-para_talk("""The data signature's
-the WWW's for sure!{anim 1}{delay}
-{anim 2}And it's tough!""")
+text("{a 2}Uhーoh!\nYou were right,Lan,\nit's a virus!{a 1}\p")
+wait(0)
+text("{a 2}The data signature's\nthe WWW's for sure!{a 1}{d}\n{a 2}And it's tough!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -17,10 +15,10 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""It's just like
-Mayl was saying...""", 0)
-para_talk("""Let's go,MegaMan!
-Battle routine,set!!""")
+text("{a 2}It's just like\nMayl was saying...{a 1}\p")
+wait(0)
+text("{a 2}Let's go,MegaMan!\nBattle routine,set!!{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -28,5 +26,6 @@ section_end()
 section_start(0x02)
 pic(34)
 dialog_up()
-para_talk_end("""Execute!!""")
+text("{a 2}Execute!!{a 1}\p")
+end(5)
 section_end()

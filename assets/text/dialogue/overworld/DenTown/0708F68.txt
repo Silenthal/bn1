@@ -4,11 +4,9 @@ section_count(0xEB)
 section_start(0x01)
 pic(34)
 dialog_up()
-text_talking("""Lan,challenge Miyu
-to a NetBattle?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Lan,challenge Miyu\nto a NetBattle?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x08, 0x06], 1, False, True)
 end()
 section_end()
@@ -17,16 +15,16 @@ section_end()
 section_start(0x02)
 pic(31)
 dialog_up()
-para_talk_end("""You obviously lack
-spirit...""", 0)
+text("{a 2}You obviously lack\nspirit...{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x7091BA
 section_start(0x03)
 pic(31)
 dialog_up()
-para_talk_end("""How could my spirits
-have failed me?""", 0)
+text("{a 2}How could my spirits\nhave failed me?{a 1}\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x7091EF
@@ -34,25 +32,24 @@ section_start(0x04)
 check_item("/Miyu", 1, 0xFF, 0xFF, 0x0B)
 pic(31)
 dialog_up()
-para_talk_end("""Your spirits have
-beaten me again...""", 0)
+text("{a 2}Your spirits have\nbeaten me again...{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x70922D
 section_start(0x05)
 pic(31)
 dialog_up()
-para_general_end("""{anim 2}Remember,your body
-is but a shell{anim 1}{...}""", 0)
+text("{a 2}Remember,your body\nis but a shell{a 1}{...}\p")
+end(0)
 section_end()
 
 # 0x06 @ 0x709271
 section_start(0x06)
 pic(31)
 dialog_up()
-para_talk_end("""If that is what your
-spirits tell you to
-do...""", 0)
+text("{a 2}If that is what your\nspirits tell you to\ndo...{a 1}\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x7092B2
@@ -67,31 +64,28 @@ section_start(0x08)
 if_flag(45, 0x02, 0xFF)
 pic(31)
 dialog_up()
-para_talk("""Let the feast of
-souls begin!{anim 1}{delay}
-{anim 2}SkullMan,arise!""")
+text("{a 2}Let the feast of\nsouls begin!{a 1}{d}\n{a 2}SkullMan,arise!{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
 # 0x0A @ 0x709311
 section_start(0x0A)
-if_story(0x53, 0x54, 0x23, 0xFF)
-if_story(0x50, 0x52, 0x1E, 0xFF)
-if_story(0x40, 0x47, 0x1A, 0xFF)
+if_story(0x53, 0x54, 0x23)
+if_story(0x50, 0x52, 0x1E)
+if_story(0x40, 0x47, 0x1A)
 if_flag(151, 0x0F, 0xFF)
 set_flag(151)
 pic(31)
 dialog_up()
-para_talk("""My name is Miyu{anim 1}...{delay}
-{anim 2}Welcome to my store.""", 0)
-para_talk("""All of the antiques
-here have sprits...
-Can you feel them?""", 0)
-para_talk("""I can feel the
-bright burning""", 0)
-para_talk("""of the spirit
-contained in your
-Navi!""")
+text("{a 2}My name is Miyu{a 1}...{d}\n{a 2}Welcome to my store.{a 1}\p")
+wait(0)
+text("{a 2}All of the antiques\nhere have sprits...\nCan you feel them?{a 1}\p")
+wait(0)
+text("{a 2}I can feel the\nbright burning{a 1}\p")
+wait(0)
+text("{a 2}of the spirit\ncontained in your\nNavi!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -99,15 +93,12 @@ section_end()
 section_start(0x0B)
 pic(31)
 dialog_up()
-para_talk("""You have truly shown
-me the power of
-your spirit...""", 0)
-para_talk("""That Navi should do
-well in defeating
-the evil spirits""", 0)
-para_talk("""which surround us
-now...
-Here! Take this!""")
+text("{a 2}You have truly shown\nme the power of\nyour spirit...{a 1}\p")
+wait(0)
+text("{a 2}That Navi should do\nwell in defeating\nthe evil spirits{a 1}\p")
+wait(0)
+text("{a 2}which surround us\nnow...\nHere! Take this!{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -116,12 +107,10 @@ section_start(0x0C)
 hidepic()
 dialog_up()
 pc_anim_start(30)
-add_item("/Miyu", 1, 0xFF, 0xFF, 0xFF)
-para_general("""Lan got;
-\"{key /Miyu}\"!""", 0)
-text("""(Use this on the net
- to expand the area
- you can access!)""")
+add_item("/Miyu", 1)
+text("Lan got;\n\"{key /Miyu}\"!\p")
+wait(0)
+text("(Use this on the net\n to expand the area\n you can access!)")
 pc_wait()
 pc_anim(7)
 pc_unlock()
@@ -134,20 +123,19 @@ section_end()
 section_start(0x0D)
 pic(31)
 dialog_up()
-para_talk("""The spirits of your
-Navi and yourself
-shall grow together,""", 0)
-para_talk_end("""and become as one.""", 0)
+text("{a 2}The spirits of your\nNavi and yourself\nshall grow together,{a 1}\p")
+wait(0)
+text("{a 2}and become as one.{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x7095A6
 section_start(0x0F)
-if_story(0x34, 0x34, 0x14, 0xFF)
+if_story(0x34, 0x34, 0x14)
 pic(31)
 dialog_up()
-para_talk("""I'm sorry,I'm not
-open for business
-yet.""")
+text("{a 2}I'm sorry,I'm not\nopen for business\nyet.{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -157,9 +145,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -169,9 +155,8 @@ section_end()
 section_start(0x14)
 pic(31)
 dialog_up()
-para_talk("""I can feel{anim 1}...{delay}
-{anim 2}an evil spirit in
-the runaway bus!""")
+text("{a 2}I can feel{a 1}...{d}\n{a 2}an evil spirit in\nthe runaway bus!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -179,13 +164,12 @@ section_end()
 section_start(0x1A)
 pic(31)
 dialog_up()
-para_talk("""That Navi you have!
-Its spirit shines""", 0)
-para_talk("""far brighter than
-that of any other
-I've seen!""", 0)
-para_talk("""The light...
-It's almost like...""")
+text("{a 2}That Navi you have!\nIts spirit shines{a 1}\p")
+wait(0)
+text("{a 2}far brighter than\nthat of any other\nI've seen!{a 1}\p")
+wait(0)
+text("{a 2}The light...\nIt's almost like...{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -193,13 +177,12 @@ section_end()
 section_start(0x1E)
 pic(31)
 dialog_up()
-para_talk("""That Navi you have!
-Its spirit shines""", 0)
-para_talk("""far brighter than
-that of any other
-I've seen!""", 0)
-para_talk("""The light...
-It's almost like...""")
+text("{a 2}That Navi you have!\nIts spirit shines{a 1}\p")
+wait(0)
+text("{a 2}far brighter than\nthat of any other\nI've seen!{a 1}\p")
+wait(0)
+text("{a 2}The light...\nIt's almost like...{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -207,59 +190,52 @@ section_end()
 section_start(0x23)
 pic(31)
 dialog_up()
-para_talk("""The glow of your
-Navi's spirit has
-grown greater still!""", 0)
-para_talk("""Could this be like
-the sudden burst of
-light""", 0)
-para_general("""{anim 2}before a candle
-burns out{anim 1}...?{delay}
-{anim 2}Or{anim 1}...{delay}""")
+text("{a 2}The glow of your\nNavi's spirit has\ngrown greater still!{a 1}\p")
+wait(0)
+text("{a 2}Could this be like\nthe sudden burst of\nlight{a 1}\p")
+wait(0)
+text("{a 2}before a candle\nburns out{a 1}...?{d}\n{a 2}Or{a 1}...{d}\p")
+wait(5)
 jump(0x01)
 section_end()
 
 # 0xDC @ 0x709A0D
 section_start(0xDC)
 dialog_up()
-para_general("""A large vase...
-But not just a
-normal vase""", 0)
-para_general_end("""You can jack in
-here!""")
+text("A large vase...\nBut not just a\nnormal vase\p")
+wait(0)
+text("You can jack in\nhere!\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x709A5C
 section_start(0xDD)
 dialog_up()
-para_general("""Decorated with
-scenes of rivers
-and mountains""", 0)
-para_general_end("""Looks very
-expensive""")
+text("Decorated with\nscenes of rivers\nand mountains\p")
+wait(0)
+text("Looks very\nexpensive\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x709AA9
 section_start(0xDE)
 dialog_up()
-para_general_end("""Trash to some,
-treasure to others""")
+text("Trash to some,\ntreasure to others\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x709AD3
 section_start(0xDF)
 dialog_up()
-para_general_end("""Only employees
-are allowed in the
-back""")
+text("Only employees\nare allowed in the\nback\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x709B01
 section_start(0xE0)
 dialog_up()
-para_general("""Not an antique,but
-very well used""", 0)
-para_general_end("""Looking carefully,
-you discover a jack
-in port""")
+text("Not an antique,but\nvery well used\p")
+wait(0)
+text("Looking carefully,\nyou discover a jack\nin port\p")
+end(5)
 section_end()

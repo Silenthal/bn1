@@ -4,7 +4,8 @@ section_count(0x10)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_general("""{...}{anim 2}LーLan...{anim 1}""")
+text("{...}{a 2}LーLan...{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -12,9 +13,8 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""Hub!{anim 1}{delay}
-{anim 2}It's me,Lan!
-Wake up!""")
+text("{a 2}Hub!{a 1}{d}\n{a 2}It's me,Lan!\nWake up!{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -22,15 +22,16 @@ section_end()
 section_start(0x02)
 pic(34)
 dialog_up()
-para_general_end("""{anim 2}La{anim 1}..{delay}{anim 2}n...{anim 1}{delay}{anim 2}Uh.{anim 1}{delay}.{delay}.""", 0)
+text("{a 2}La{a 1}..{d}{a 2}n...{a 1}{d}{a 2}Uh.{a 1}{d}.{d}.\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x73B417
 section_start(0x03)
 pic(34)
 dialog_up()
-para_general("""?{delay}
-{anim 2}What happened to me?{anim 1}""")
+text("?{d}\n{a 2}What happened to me?{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -38,7 +39,8 @@ section_end()
 section_start(0x04)
 pic(0)
 dialog_up()
-para_talk("""Hub! It's you!""")
+text("{a 2}Hub! It's you!{a 1}\p")
+wait(5)
 song(0x07)
 jump(0x05)
 section_end()
@@ -48,8 +50,8 @@ section_start(0x05)
 set_flag(147)
 pic(34)
 dialog_up()
-para_talk("""Lan?
-You called me \"Hub\"?""")
+text("{a 2}Lan?\nYou called me \"Hub\"?{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -57,10 +59,10 @@ section_end()
 section_start(0x06)
 pic(28)
 dialog_up()
-para_talk("""Hub{anim 1}...{delay}{anim 2}I've told
-Lan everything.""", 0)
-para_talk("""We used Hub.bat to
-bring you back...""")
+text("{a 2}Hub{a 1}...{d}{a 2}I've told\nLan everything.{a 1}\p")
+wait(0)
+text("{a 2}We used Hub.bat to\nbring you back...{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -68,7 +70,8 @@ section_end()
 section_start(0x07)
 pic(34)
 dialog_up()
-para_talk("""Dad{anim 1}...{delay}{anim 2}I see...""")
+text("{a 2}Dad{a 1}...{d}{a 2}I see...{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -76,12 +79,10 @@ section_end()
 section_start(0x08)
 pic(28)
 dialog_up()
-para_talk("""That light means
-your program is
-being rewritten.""", 0)
-para_talk("""When the light goes
-down,your power
-should be increased!""")
+text("{a 2}That light means\nyour program is\nbeing rewritten.{a 1}\p")
+wait(0)
+text("{a 2}When the light goes\ndown,your power\nshould be increased!{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -89,12 +90,10 @@ section_end()
 section_start(0x09)
 pic(34)
 dialog_up()
-para_general("""{anim 2}Yeah...
-I can feel the
-energy inside me!{anim 1}{delay}""", 0)
-para_talk("""Lan,I'm sorry for 
-not telling you the
-truth earlier.""")
+text("{a 2}Yeah...\nI can feel the\nenergy inside me!{a 1}{d}\p")
+wait(0)
+text("{a 2}Lan,I'm sorry for \nnot telling you the\ntruth earlier.{a 1}\p")
+wait(5)
 jump(0x0A)
 section_end()
 
@@ -102,9 +101,8 @@ section_end()
 section_start(0x0A)
 pic(0)
 dialog_up()
-para_talk("""Hub,I'm sorry for
-ordering you around
-all these years...""")
+text("{a 2}Hub,I'm sorry for\nordering you around\nall these years...{a 1}\p")
+wait(5)
 jump(0x0B)
 section_end()
 
@@ -112,15 +110,12 @@ section_end()
 section_start(0x0B)
 pic(34)
 dialog_up()
-para_talk("""No problem{anim 1}...{delay}
-{anim 2}I always regretted
-not being able""", 0)
-para_talk("""to be with you in
-the real world. But
-being able to watch""", 0)
-para_talk("""you grow from inside
-here{anim 1}...{delay}
-{anim 2}made me happy.""")
+text("{a 2}No problem{a 1}...{d}\n{a 2}I always regretted\nnot being able{a 1}\p")
+wait(0)
+text("{a 2}to be with you in\nthe real world. But\nbeing able to watch{a 1}\p")
+wait(0)
+text("{a 2}you grow from inside\nhere{a 1}...{d}\n{a 2}made me happy.{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -128,9 +123,8 @@ section_end()
 section_start(0x0C)
 pic(0)
 dialog_up()
-para_talk("""Hub{anim 1}...{delay}{anim 2}So,how
-do I operate you
-now,I wonder?""")
+text("{a 2}Hub{a 1}...{d}{a 2}So,how\ndo I operate you\nnow,I wonder?{a 1}\p")
+wait(5)
 jump(0x0D)
 section_end()
 
@@ -138,12 +132,10 @@ section_end()
 section_start(0x0D)
 pic(34)
 dialog_up()
-para_talk("""Just be yourself!
-And I'll be myself,
-MegaMan!""", 0)
-para_talk("""Let's hurry!
-Lan,I'm counting
-on you!""")
+text("{a 2}Just be yourself!\nAnd I'll be myself,\nMegaMan!{a 1}\p")
+wait(0)
+text("{a 2}Let's hurry!\nLan,I'm counting\non you!{a 1}\p")
+wait(5)
 jump(0x0E)
 section_end()
 
@@ -151,8 +143,8 @@ section_end()
 section_start(0x0E)
 pic(0)
 dialog_up()
-para_talk("""...Right{anim 1}{delay}...{anim 2}OK!
-Let's go,MegaMan!""")
+text("{a 2}...Right{a 1}{d}...{a 2}OK!\nLet's go,MegaMan!{a 1}\p")
+wait(5)
 jump(0x0F)
 section_end()
 
@@ -160,5 +152,6 @@ section_end()
 section_start(0x0F)
 pic(34)
 dialog_up()
-para_talk_end("""Right on!""", 0)
+text("{a 2}Right on!{a 1}\p")
+end(0)
 section_end()

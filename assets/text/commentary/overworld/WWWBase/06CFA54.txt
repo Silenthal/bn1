@@ -2,9 +2,10 @@ section_count(0xE5)
 
 # 0x00 @ 0x6CFC1E
 section_start(0x00)
-if_story(0x54, 0x54, 0xE1, 0xFF)
+if_story(0x54, 0x54, 0xE1)
 dialog_up()
-para_general_end("""Test message""", 0)
+text("Test message\p")
+end(0)
 section_end()
 
 # 0xE1 @ 0x6CFDF8
@@ -17,9 +18,8 @@ section_start(0xE3)
 if_flag(115, 0xE4, 0xFF)
 pic(34)
 dialog_up()
-para_general_end("""{anim 2}A dead end?{anim 1}{delay}
-{anim 2}But something's odd
-about this room{anim 1}...""", 0)
+text("{a 2}A dead end?{a 1}{d}\n{a 2}But something's odd\nabout this room{a 1}...\p")
+end(0)
 section_end()
 
 # 0xE4 @ 0x6CFE57
@@ -27,7 +27,6 @@ section_start(0xE4)
 if_flag(232, 0xE5, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""I'll bet this room
-is connected to
-where the rocket is!""", 0)
+text("{a 2}I'll bet this room\nis connected to\nwhere the rocket is!{a 1}\p")
+end(0)
 section_end()

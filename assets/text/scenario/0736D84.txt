@@ -4,47 +4,40 @@ section_count(0xC)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk_end("""Uh,uhh...{anim 1}{delay}
-{anim 2}The PET's battery...{anim 1}{delay}
-{anim 2}Uh,Lan...""", 0)
+text("{a 2}Uh,uhh...{a 1}{d}\n{a 2}The PET's battery...{a 1}{d}\n{a 2}Uh,Lan...{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x736DF0
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan!! MegaMan!
-MegaMan! Megaaaa...!""", 0)
+text("{a 2}MegaMan!! MegaMan!\nMegaMan! Megaaaa...!{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x736E2F
 section_start(0x02)
 pic(27)
 dialog_up()
-para_talk("""Don't give up yet!
-I heard your voice
-in here,and I came""", 0)
-para_talk("""running in from the
-control room as fast
-as I could!""", 0)
-para_talk("""Here's a handー
-operated power
-generator I made!""", 0)
-para_talk("""Press your PET's
-B Btn.as fast as you
-can to recharge!""", 0)
-para_talk("""Problem is,you only
-have 20 seconds to
-push the button.""", 0)
-para_talk("""I'll count to 20,
-and you press the
-B Button,OK?""", 0)
-para_talk("""I'm busy repairing,
-so I have to leave
-soon.""", 0)
-para_talk("""But if you need me,
-I'll come running!""", 0)
-para_talk("""Ready to recharge?""")
+text("{a 2}Don't give up yet!\nI heard your voice\nin here,and I came{a 1}\p")
+wait(0)
+text("{a 2}running in from the\ncontrol room as fast\nas I could!{a 1}\p")
+wait(0)
+text("{a 2}Here's a handー\noperated power\ngenerator I made!{a 1}\p")
+wait(0)
+text("{a 2}Press your PET's\nB Btn.as fast as you\ncan to recharge!{a 1}\p")
+wait(0)
+text("{a 2}Problem is,you only\nhave 20 seconds to\npush the button.{a 1}\p")
+wait(0)
+text("{a 2}I'll count to 20,\nand you press the\nB Button,OK?{a 1}\p")
+wait(0)
+text("{a 2}I'm busy repairing,\nso I have to leave\nsoon.{a 1}\p")
+wait(0)
+text("{a 2}But if you need me,\nI'll come running!{a 1}\p")
+wait(0)
+text("{a 2}Ready to recharge?{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -52,7 +45,8 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk_end("""Thanks!!""", 0)
+text("{a 2}Thanks!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x73704E
@@ -60,15 +54,16 @@ section_start(0x04)
 if_flag(209, 0x0A, 0xFF)
 pic(27)
 dialog_up()
-para_talk_end("""Ready?
-And...GO!!""", 0)
+text("{a 2}Ready?\nAnd...GO!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x73707B
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk("""MegaMan! MegaMan!!""")
+text("{a 2}MegaMan! MegaMan!!{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -76,9 +71,8 @@ section_end()
 section_start(0x06)
 pic(34)
 dialog_up()
-para_talk("""Lan? Is that you!?
-I thought the {key PET}'s
-battery died...""")
+text("{a 2}Lan? Is that you!?\nI thought the {key PET}'s\nbattery died...{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -86,8 +80,8 @@ section_end()
 section_start(0x07)
 pic(0)
 dialog_up()
-para_talk("""Phew...{anim 1}{delay}
-{anim 2}MegaMan...{anim 1}{delay}{anim 2}I'm sorry.""")
+text("{a 2}Phew...{a 1}{d}\n{a 2}MegaMan...{a 1}{d}{a 2}I'm sorry.{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -95,12 +89,10 @@ section_end()
 section_start(0x08)
 pic(34)
 dialog_up()
-para_talk("""Hey,no sweat! All's
-well that ends well,
-huh?""", 0)
-para_talk("""Speaking of ends,
-let's get to that
-power plant!""")
+text("{a 2}Hey,no sweat! All's\nwell that ends well,\nhuh?{a 1}\p")
+wait(0)
+text("{a 2}Speaking of ends,\nlet's get to that\npower plant!{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -108,16 +100,16 @@ section_end()
 section_start(0x09)
 pic(0)
 dialog_up()
-para_talk_end("""Roger!!""", 0)
+text("{a 2}Roger!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x7371D4
 section_start(0x0A)
 pic(27)
 dialog_up()
-para_talk("""What are you doing!?
-Recharge now or your
-Navi's a goner!""")
+text("{a 2}What are you doing!?\nRecharge now or your\nNavi's a goner!{a 1}\p")
+wait(5)
 jump(0x0B)
 section_end()
 
@@ -125,6 +117,6 @@ section_end()
 section_start(0x0B)
 pic(27)
 dialog_up()
-para_talk_end("""Ready?
-And...Go!!""", 0)
+text("{a 2}Ready?\nAnd...Go!!{a 1}\p")
+end(0)
 section_end()

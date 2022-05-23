@@ -4,11 +4,10 @@ section_count(0x2)
 section_start(0x00)
 pic(0)
 dialog_up()
-para_talk("""MegaMan! There's got
-to be a program
-locking this door!""", 0)
-para_talk("""Find it and delete
-it!""")
+text("{a 2}MegaMan! There's got\nto be a program\nlocking this door!{a 1}\p")
+wait(0)
+text("{a 2}Find it and delete\nit!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -16,5 +15,6 @@ section_end()
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk_end("""Roger!""", 0)
+text("{a 2}Roger!{a 1}\p")
+end(0)
 section_end()

@@ -2,24 +2,25 @@ section_count(0xBC)
 
 # 0x00 @ 0x6CF424
 section_start(0x00)
-if_story(0x43, 0x43, 0xBB, 0xFF)
+if_story(0x43, 0x43, 0xBB)
 dialog_up()
-para_general_end("""Test message""", 0)
+text("Test message\p")
+end(0)
 section_end()
 
 # 0xB9 @ 0x6CF5AE
 section_start(0xB9)
 dialog_up()
-para_general_end("""There's no response""", 0)
+text("There's no response\p")
+end(0)
 section_end()
 
 # 0xBA @ 0x6CF5CA
 section_start(0xBA)
 pic(34)
 dialog_up()
-para_talk_end("""Lan! Hurry up and
-throw the 
-generator switch!""", 0)
+text("{a 2}Lan! Hurry up and\nthrow the \ngenerator switch!{a 1}\p")
+end(0)
 section_end()
 
 # 0xBB @ 0x6CF60A
@@ -28,7 +29,6 @@ if_flag(196, 0xBA, 0xFF)
 if_flag(189, 0xB9, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Huh? Is the
-generator running?
-Let's check it out!""", 0)
+text("{a 2}Huh? Is the\ngenerator running?\nLet's check it out!{a 1}\p")
+end(0)
 section_end()

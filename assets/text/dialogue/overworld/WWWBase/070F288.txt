@@ -6,8 +6,8 @@ if_flag(115, 0x07, 0xFF)
 if_flag(224, 0x04, 0xFF)
 set_flag(224)
 dialog_up()
-para_general("""A selfーportrait of
-Wily.""")
+text("A selfーportrait of\nWily.\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -15,9 +15,8 @@ section_end()
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk("""Hey,Lan! Check out
-all these
-footprints!""")
+text("{a 2}Hey,Lan! Check out\nall these\nfootprints!{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -25,7 +24,8 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk("""Hey,yeah!""")
+text("{a 2}Hey,yeah!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -33,18 +33,18 @@ section_end()
 section_start(0x03)
 pic(34)
 dialog_up()
-para_talk_end("""Let's check around
-here again...""", 0)
+text("{a 2}Let's check around\nhere again...{a 1}\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x70F516
 section_start(0x04)
 set_flag(115)
 dialog_up()
-para_general("""...!!""", 0)
-para_general("""You notice that
-the picture swings
-back!""")
+text("...!!\p")
+wait(0)
+text("You notice that\nthe picture swings\nback!\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -52,8 +52,8 @@ section_end()
 section_start(0x05)
 pic(34)
 dialog_up()
-para_talk("""Lan!
-It's a secret door!""")
+text("{a 2}Lan!\nIt's a secret door!{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -61,20 +61,19 @@ section_end()
 section_start(0x06)
 pic(0)
 dialog_up()
-para_talk_end("""Cool! We can jack
-in here!""", 0)
+text("{a 2}Cool! We can jack\nin here!{a 1}\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x70F5B6
 section_start(0x07)
 dialog_up()
-para_general("""A selfーportrait of
-Wily.""", 0)
-para_general("""Looking closely,
-you discover a jack
-in port in it!""", 0)
-para_general_end("""Looks like you can
-jack in here!""", 0)
+text("A selfーportrait of\nWily.\p")
+wait(0)
+text("Looking closely,\nyou discover a jack\nin port in it!\p")
+wait(0)
+text("Looks like you can\njack in here!\p")
+end(0)
 section_end()
 
 # 0x08 @ 0x70F635
@@ -83,9 +82,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -95,21 +92,18 @@ section_end()
 section_start(0x09)
 pic(8)
 dialog_up()
-para_talk("""Good luck,Lan!
-I know you can
-do it!""", 0)
-para_talk_end("""You can do anything
-you set your mind
-to!""", 0)
+text("{a 2}Good luck,Lan!\nI know you can\ndo it!{a 1}\p")
+wait(0)
+text("{a 2}You can do anything\nyou set your mind\nto!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x70F6E5
 section_start(0x0A)
 pic(7)
 dialog_up()
-para_talk("""Hmph,you again{anim 1}...{delay}
-{anim 2}Why are you always
-in my way!?""")
+text("{a 2}Hmph,you again{a 1}...{d}\n{a 2}Why are you always\nin my way!?{a 1}\p")
+wait(5)
 jump(0x14)
 section_end()
 
@@ -117,20 +111,17 @@ section_end()
 section_start(0x0B)
 pic(34)
 dialog_up()
-para_talk_end("""Lan! Through the
-secret door!
-Quick!""", 0)
+text("{a 2}Lan! Through the\nsecret door!\nQuick!{a 1}\p")
+end(0)
 section_end()
 
 # 0x14 @ 0x70F77D
 section_start(0x14)
 pic(34)
 dialog_up()
-text_talking("""Lan,do you want to
-challenge Chaud?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Lan,do you want to\nchallenge Chaud?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x15, 0x17], 1, False, True)
 end()
 section_end()
@@ -139,9 +130,8 @@ section_end()
 section_start(0x15)
 pic(7)
 dialog_up()
-para_talk("""So you want to see
-how the pros do it,
-huh? PROTOMAN!!""")
+text("{a 2}So you want to see\nhow the pros do it,\nhuh? PROTOMAN!!{a 1}\p")
+wait(5)
 jump(0x16)
 section_end()
 
@@ -149,7 +139,8 @@ section_end()
 section_start(0x16)
 pic(46)
 dialog_up()
-para_talk("""You called?""")
+text("{a 2}You called?{a 1}\p")
+wait(5)
 jump(0x1B)
 section_end()
 
@@ -157,35 +148,34 @@ section_end()
 section_start(0x17)
 pic(7)
 dialog_up()
-para_talk_end("""Smart call on
-your part...""", 0)
+text("{a 2}Smart call on\nyour part...{a 1}\p")
+end(0)
 section_end()
 
 # 0x18 @ 0x70F862
 section_start(0x18)
 pic(7)
 dialog_up()
-para_talk_end("""I don't see any
-reason to battle
-with a kid like you.""", 0)
+text("{a 2}I don't see any\nreason to battle\nwith a kid like you.{a 1}\p")
+end(0)
 section_end()
 
 # 0x19 @ 0x70F8A9
 section_start(0x19)
 pic(7)
 dialog_up()
-para_talk("""A Navi using genetic
-algorithms based on
-that of its owner...""", 0)
-para_talk_end("""Hmmmm...""", 0)
+text("{a 2}A Navi using genetic\nalgorithms based on\nthat of its owner...{a 1}\p")
+wait(0)
+text("{a 2}Hmmmm...{a 1}\p")
+end(0)
 section_end()
 
 # 0x1A @ 0x70F90C
 section_start(0x1A)
 pic(7)
 dialog_up()
-para_general_end("""{anim 2}See? I should be
-the one to go{anim 1}...{delay}?""", 0)
+text("{a 2}See? I should be\nthe one to go{a 1}...{d}?\p")
+end(0)
 section_end()
 
 # 0x1B @ 0x70F947
@@ -198,68 +188,61 @@ section_end()
 # 0xDD @ 0x70FAD5
 section_start(0xDD)
 dialog_up()
-para_general("""The screen is filled
-with data. It's the
-master control""", 0)
-para_general_end("""center for the WWW""")
+text("The screen is filled\nwith data. It's the\nmaster control\p")
+wait(0)
+text("center for the WWW\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x70FB2C
 section_start(0xDE)
 dialog_up()
-para_general("""The plans for the
-WWW plot. All of
-their schemes are""", 0)
-para_general_end("""outlined in these
-documents""")
+text("The plans for the\nWWW plot. All of\ntheir schemes are\p")
+wait(0)
+text("outlined in these\ndocuments\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x70FB88
 section_start(0xDF)
 dialog_up()
-para_general_end("""What could be
-plugged into this
-huge outlet?""")
+text("What could be\nplugged into this\nhuge outlet?\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x70FBBD
 section_start(0xE0)
 dialog_up()
-para_general_end("""This machine is
-making a high
-buzzing sound""")
+text("This machine is\nmaking a high\nbuzzing sound\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x70FBF0
 section_start(0xE1)
 dialog_up()
-para_general_end("""This machine is
-making a high
-buzzing sound""")
+text("This machine is\nmaking a high\nbuzzing sound\p")
+end(5)
 section_end()
 
 # 0xE2 @ 0x70FC23
 section_start(0xE2)
 dialog_up()
-para_general_end("""This machine is
-making a high
-buzzing sound""")
+text("This machine is\nmaking a high\nbuzzing sound\p")
+end(5)
 section_end()
 
 # 0xE3 @ 0x70FC56
 section_start(0xE3)
 dialog_up()
-para_general_end("""This machine is
-making a high
-buzzing sound""")
+text("This machine is\nmaking a high\nbuzzing sound\p")
+end(5)
 section_end()
 
 # 0xE4 @ 0x70FC89
 section_start(0xE4)
 dialog_up()
-para_general("""You're not sure
-what this machine
-is for...""", 0)
-para_general_end("""...nothing good,
-you assume""")
+text("You're not sure\nwhat this machine\nis for...\p")
+wait(0)
+text("...nothing good,\nyou assume\p")
+end(5)
 section_end()

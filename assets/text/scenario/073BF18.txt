@@ -4,24 +4,24 @@ section_count(0x6)
 section_start(0x00)
 pic(5)
 dialog_up()
-para_talk("""Mー{anim 1}{delay}{anim 2}Mー{anim 1}{delay}{anim 2}My{anim 1}{delay}
-{anim 2}LifeVirus!!!""", 0)
+text("{a 2}Mー{a 1}{d}{a 2}Mー{a 1}{d}{a 2}My{a 1}{d}\n{a 2}LifeVirus!!!{a 1}\p")
+wait(0)
 set_flag(249)
-para_talk("""What,{anim 1}{delay}{anim 2}what,{anim 1}{delay}{anim 2}What
-have you done!?!?""", 0)
-para_talk_end("""My baby! My WWW!!
-Nooooo!!!!""", 0)
+text("{a 2}What,{a 1}{d}{a 2}what,{a 1}{d}{a 2}What\nhave you done!?!?{a 1}\p")
+wait(0)
+text("{a 2}My baby! My WWW!!\nNooooo!!!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x73BFCF
 section_start(0x01)
 dialog_up()
-para_general("""Warning! Warning!""", 0)
-para_general("""Virus leak!
-All systems
-malfunctioning!""", 0)
-para_general("""Selfーdestruct
-sequence activated!""")
+text("Warning! Warning!\p")
+wait(0)
+text("Virus leak!\nAll systems\nmalfunctioning!\p")
+wait(0)
+text("Selfーdestruct\nsequence activated!\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -29,7 +29,8 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk("""Uhーoh!""")
+text("{a 2}Uhーoh!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -37,9 +38,8 @@ section_end()
 section_start(0x03)
 pic(5)
 dialog_up()
-para_talk("""BーBut!
-MーMy precious WWW
-laboratory!!""")
+text("{a 2}BーBut!\nMーMy precious WWW\nlaboratory!!{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -47,9 +47,8 @@ section_end()
 section_start(0x04)
 pic(0)
 dialog_up()
-para_talk("""Let's get out of
-here! MegaMan,
-Jack out!""")
+text("{a 2}Let's get out of\nhere! MegaMan,\nJack out!{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -57,5 +56,6 @@ section_end()
 section_start(0x05)
 pic(34)
 dialog_up()
-para_talk_end("""Roger!""", 0)
+text("{a 2}Roger!{a 1}\p")
+end(0)
 section_end()

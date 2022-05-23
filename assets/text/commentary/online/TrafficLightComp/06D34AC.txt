@@ -2,25 +2,25 @@ section_count(0xA6)
 
 # 0x00 @ 0x6D35F8
 section_start(0x00)
-if_story(0x35, 0x37, 0x9B, 0xFF)
-if_story(0x40, 0x57, 0xA5, 0xFF)
+if_story(0x35, 0x37, 0x9B)
+if_story(0x40, 0x57, 0xA5)
 dialog_up()
-para_general_end("""Test message""", 0)
+text("Test message\p")
+end(0)
 section_end()
 
 # 0x9B @ 0x6D374C
 section_start(0x9B)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan! Change all
-the signals to red!""", 0)
+text("{a 2}MegaMan! Change all\nthe signals to red!{a 1}\p")
+end(0)
 section_end()
 
 # 0xA5 @ 0x6D3797
 section_start(0xA5)
 pic(0)
 dialog_up()
-para_talk_end("""Looks like not
-much is going on
-here,huh?""", 0)
+text("{a 2}Looks like not\nmuch is going on\nhere,huh?{a 1}\p")
+end(0)
 section_end()

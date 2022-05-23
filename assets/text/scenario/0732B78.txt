@@ -4,9 +4,8 @@ section_count(0x2)
 section_start(0x00)
 pic(0)
 dialog_up()
-para_talk("""MegaMan!
-Turn all the traffic
-lights to red!""")
+text("{a 2}MegaMan!\nTurn all the traffic\nlights to red!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -14,7 +13,6 @@ section_end()
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk_end("""Gotcha!
-We'll stop the bus
-at the intersection!""", 0)
+text("{a 2}Gotcha!\nWe'll stop the bus\nat the intersection!{a 1}\p")
+end(0)
 section_end()

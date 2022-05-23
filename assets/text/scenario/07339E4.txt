@@ -3,20 +3,18 @@ section_count(0x8)
 # 0x00 @ 0x7339F4
 section_start(0x00)
 dialog_up()
-para_general("""{...}Many days passed
-since the traffic
-light incident.""", 0)
-para_general_end("""Until one
-afternoon{...}""", 0)
+text("{...}Many days passed\nsince the traffic\nlight incident.\p")
+wait(0)
+text("Until one\nafternoon{...}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x733A6A
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""Man,I'm starving!
-I wonder what's for
-dinner tonight?""")
+text("{a 2}Man,I'm starving!\nI wonder what's for\ndinner tonight?{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -24,9 +22,8 @@ section_end()
 section_start(0x02)
 pic(34)
 dialog_up()
-para_talk("""Huh?{anim 1} {delay}{anim 2}But Lan,
-you just ate lunch
-at school...""")
+text("{a 2}Huh?{a 1} {d}{a 2}But Lan,\nyou just ate lunch\nat school...{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -34,9 +31,8 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""Well I can't just
-recharge once a day
-like you,MegaMan!""")
+text("{a 2}Well I can't just\nrecharge once a day\nlike you,MegaMan!{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -44,18 +40,19 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk("""Okay,okay...""", 0)
-para_talk("""Hey,{anim 1}{delay}{anim 2}wait!{anim 1}{delay}
-{anim 2}We gotta get home!""", 0)
-para_talk("""\"The Bonne Bunch\" is
-about to start!""", 0)
+text("{a 2}Okay,okay...{a 1}\p")
+wait(0)
+text("{a 2}Hey,{a 1}{d}{a 2}wait!{a 1}{d}\n{a 2}We gotta get home!{a 1}\p")
+wait(0)
+text("{a 2}\"The Bonne Bunch\" is\nabout to start!{a 1}\p")
+wait(0)
 hidepic()
 set_flag(201)
-para_general("""*beebeebeep*""", 0)
+text("*beebeebeep*\p")
+wait(0)
 pic(34)
-para_talk("""Lan,you've got mail!
-{anim 1}...{delay}{anim 2}It's from
-your dad!""")
+text("{a 2}Lan,you've got mail!\n{a 1}...{d}{a 2}It's from\nyour dad!{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -63,23 +60,18 @@ section_end()
 section_start(0x05)
 pic(28, 1)
 dialog_up()
-para_general("""Lan,how have you
-been? I'll be seeing
-you today!""", 0)
-para_general("""That is,you'll be
-coming to see me...""", 0)
-para_general("""There's a party
-tonight at the
-Government Complex.""", 0)
-para_general("""I'm inviting you and
-Mom to join me for
-dinner!""", 0)
-para_general("""Let's meet at 7 in
-front of the TV in
-the SciLab lobby.""", 0)
-para_general("""Say hi to Mom for
-me,and let her know
-about tonight! ーDad""")
+text("Lan,how have you\nbeen? I'll be seeing\nyou today!\p")
+wait(0)
+text("That is,you'll be\ncoming to see me...\p")
+wait(0)
+text("There's a party\ntonight at the\nGovernment Complex.\p")
+wait(0)
+text("I'm inviting you and\nMom to join me for\ndinner!\p")
+wait(0)
+text("Let's meet at 7 in\nfront of the TV in\nthe SciLab lobby.\p")
+wait(0)
+text("Say hi to Mom for\nme,and let her know\nabout tonight! ーDad\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -87,10 +79,10 @@ section_end()
 section_start(0x06)
 pic(0)
 dialog_up()
-para_talk("""All right! We get
-to see Dad!!""", 0)
-para_talk("""I'm gonna eat till
-I drop today!""")
+text("{a 2}All right! We get\nto see Dad!!{a 1}\p")
+wait(0)
+text("{a 2}I'm gonna eat till\nI drop today!{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -98,9 +90,8 @@ section_end()
 section_start(0x07)
 pic(34)
 dialog_up()
-para_general("""{anim 2}As if you were on a
-diet yesterday{anim 1}...{delay}""", 0)
-para_talk_end("""Okay,Lan!
-Let's go home and
-tell Mom!""", 0)
+text("{a 2}As if you were on a\ndiet yesterday{a 1}...{d}\p")
+wait(0)
+text("{a 2}Okay,Lan!\nLet's go home and\ntell Mom!{a 1}\p")
+end(0)
 section_end()

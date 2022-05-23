@@ -4,46 +4,42 @@ section_count(0xEB)
 section_start(0x00)
 pic(17)
 dialog_up()
-para_talk_end("""Have you seen my
-child? We got
-separated...""", 0)
+text("{a 2}Have you seen my\nchild? We got\nseparated...{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x708929
 section_start(0x01)
 pic(9)
 dialog_up()
-para_general_end("""{anim 2}Looks like I'll be
-in summer school
-this year...{anim 1}*sigh*""", 0)
+text("{a 2}Looks like I'll be\nin summer school\nthis year...{a 1}*sigh*\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x708975
 section_start(0x02)
-if_story(0x33, 0x34, 0x0B, 0xFF)
+if_story(0x33, 0x34, 0x0B)
 pic(19)
 dialog_up()
-para_talk("""Looks like the WWW
-is getting close to
-dominating the net!""", 0)
-para_talk_end("""Is this town safe??""", 0)
+text("{a 2}Looks like the WWW\nis getting close to\ndominating the net!{a 1}\p")
+wait(0)
+text("{a 2}Is this town safe??{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x7089E3
 section_start(0x03)
 dialog_up()
-para_general_end("""A bus stop...{delay}
-It says \"Dentown,
-Block4\"""", 0)
+text("A bus stop...{d}\nIt says \"Dentown,\nBlock4\"\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x708A1C
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk_end("""I don't think we're
-allowed to jack in
-to that,Lan.""", 0)
+text("{a 2}I don't think we're\nallowed to jack in\nto that,Lan.{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x708A6D
@@ -52,9 +48,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -64,88 +58,81 @@ section_end()
 section_start(0x0B)
 pic(19)
 dialog_up()
-para_talk("""The bus passes by
-the signal on this
-corner.""", 0)
-para_talk("""See the bus stop
-there?""", 0)
-para_talk_end("""Pretty scary that
-the WWW is after
-this town,huh?""", 0)
+text("{a 2}The bus passes by\nthe signal on this\ncorner.{a 1}\p")
+wait(0)
+text("{a 2}See the bus stop\nthere?{a 1}\p")
+wait(0)
+text("{a 2}Pretty scary that\nthe WWW is after\nthis town,huh?{a 1}\p")
+end(0)
 section_end()
 
 # 0x14 @ 0x708B5C
 section_start(0x14)
 pic(17)
 dialog_up()
-para_talk_end("""Have you seen my
-child? We got
-separated...""", 0)
+text("{a 2}Have you seen my\nchild? We got\nseparated...{a 1}\p")
+end(0)
 section_end()
 
 # 0x15 @ 0x708B9B
 section_start(0x15)
-if_story(0x53, 0x54, 0x19, 0xFF)
+if_story(0x53, 0x54, 0x19)
 pic(9)
 dialog_up()
-para_talk("""Our summer school
-teacher is normally
-really cheerful.""", 0)
-para_talk_end("""...Lately she seems
-to be a bit gloomy
-sometimes,though.""", 0)
+text("{a 2}Our summer school\nteacher is normally\nreally cheerful.{a 1}\p")
+wait(0)
+text("{a 2}...Lately she seems\nto be a bit gloomy\nsometimes,though.{a 1}\p")
+end(0)
 section_end()
 
 # 0x16 @ 0x708C2D
 section_start(0x16)
 pic(19)
 dialog_up()
-para_talk("""I heard that the
-WWW plot is getting
-into high gear.""", 0)
-para_talk_end("""I wonder if this
-town is safe?""", 0)
+text("{a 2}I heard that the\nWWW plot is getting\ninto high gear.{a 1}\p")
+wait(0)
+text("{a 2}I wonder if this\ntown is safe?{a 1}\p")
+end(0)
 section_end()
 
 # 0x19 @ 0x708C9D
 section_start(0x19)
 pic(9)
 dialog_up()
-para_talk("""I heard that summer
-school is closed!""", 0)
-para_talk_end("""The teacher,
-Ms.Yuri,has
-disappeared!""", 0)
+text("{a 2}I heard that summer\nschool is closed!{a 1}\p")
+wait(0)
+text("{a 2}The teacher,\nMs.Yuri,has\ndisappeared!{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x708E88
 section_start(0xDC)
 dialog_up()
-para_general_end("""A summer school
-sign""")
+text("A summer school\nsign\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x708EA4
 section_start(0xDD)
 dialog_up()
-para_general_end("""You can't jack in
-to this signal""")
+text("You can't jack in\nto this signal\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x708ECD
 section_start(0xDE)
-if_story(0x40, 0x5F, 0xDF, 0xFF)
+if_story(0x40, 0x5F, 0xDF)
 if_flag(152, 0xDF, 0xFF)
 dialog_up()
-para_general("""This signal has a
-jack in port""", 0)
-para_general_end("""You don't need to
-jack in now,though""")
+text("This signal has a\njack in port\p")
+wait(0)
+text("You don't need to\njack in now,though\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x708F29
 section_start(0xDF)
 dialog_up()
-para_general_end("""This signal has a
-jack in port""")
+text("This signal has a\njack in port\p")
+end(5)
 section_end()

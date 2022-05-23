@@ -2,97 +2,90 @@ section_count(0xEB)
 
 # 0x00 @ 0x6F9356
 section_start(0x00)
-if_story(0x30, 0x37, 0x32, 0xFF)
-if_story(0x24, 0x24, 0x1E, 0xFF)
+if_story(0x30, 0x37, 0x32)
+if_story(0x24, 0x24, 0x1E)
 pic(19)
 dialog_up()
-para_talk("""This is the Govmnt
-Complex. Many
-offices are in that""", 0)
-para_talk_end("""building.""", 0)
+text("{a 2}This is the Govmnt\nComplex. Many\noffices are in that{a 1}\p")
+wait(0)
+text("{a 2}building.{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x6F93B9
 section_start(0x01)
-if_story(0x30, 0x37, 0x33, 0xFF)
-if_story(0x24, 0x24, 0x1F, 0xFF)
+if_story(0x30, 0x37, 0x33)
+if_story(0x24, 0x24, 0x1F)
 pic(26)
 dialog_up()
-text("""{anim 2}Can you see that
-lake?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Can you see that\nlake?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x02, 0xFF], 0, False, True)
-para_talk_end("""Be honest,now""", 0)
+text("{a 2}Be honest,now{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x6F9416
 section_start(0x02)
 pic(26)
 dialog_up()
-text("""{anim 2}And can you see
-that big pipe?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}And can you see\nthat big pipe?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x03, 0xFF], 0, False, True)
-para_talk_end("""Look closer""", 0)
+text("{a 2}Look closer{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x6F946C
 section_start(0x03)
 pic(26)
 dialog_up()
-para_talk_end("""The Waterworks
-takes in water from
-that pipe.""", 0)
+text("{a 2}The Waterworks\ntakes in water from\nthat pipe.{a 1}\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x6F94AA
 section_start(0x04)
-if_story(0x30, 0x37, 0x34, 0xFF)
-if_story(0x24, 0x24, 0x20, 0xFF)
+if_story(0x30, 0x37, 0x34)
+if_story(0x24, 0x24, 0x20)
 pic(27)
 dialog_up()
-para_talk("""Sword,WideSword,and
-LongSword chips are
-related.""", 0)
-para_talk_end("""Same with SmallBomb,
-CrossBomb,and
-BigBomb.""", 0)
+text("{a 2}Sword,WideSword,and\nLongSword chips are\nrelated.{a 1}\p")
+wait(0)
+text("{a 2}Same with SmallBomb,\nCrossBomb,and\nBigBomb.{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x6F952F
 section_start(0x05)
-if_story(0x30, 0x37, 0x35, 0xFF)
-if_story(0x24, 0x24, 0x21, 0xFF)
+if_story(0x30, 0x37, 0x35)
+if_story(0x24, 0x24, 0x21)
 pic(17)
 dialog_up()
-para_talk_end("""Just inside is the
-Waterworks. Further
-in is the SciLab.""", 0)
+text("{a 2}Just inside is the\nWaterworks. Further\nin is the SciLab.{a 1}\p")
+end(0)
 section_end()
 
 # 0x06 @ 0x6F9585
 section_start(0x06)
-if_story(0x30, 0x37, 0x36, 0xFF)
-if_story(0x24, 0x24, 0x22, 0xFF)
+if_story(0x30, 0x37, 0x36)
+if_story(0x24, 0x24, 0x22)
 pic(25)
 dialog_up()
-para_talk_end("""This is the best
-lunch in this area.""", 0)
+text("{a 2}This is the best\nlunch in this area.{a 1}\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x6F95C6
 section_start(0x07)
-if_story(0x30, 0x37, 0x37, 0xFF)
-if_story(0x24, 0x24, 0x23, 0xFF)
+if_story(0x30, 0x37, 0x37)
+if_story(0x24, 0x24, 0x23)
 pic(20)
 dialog_up()
-para_talk_end("""I came to file some
-papers,but I seem to
-be lost.""", 0)
+text("{a 2}I came to file some\npapers,but I seem to\nbe lost.{a 1}\p")
+end(0)
 section_end()
 
 # 0x08 @ 0x6F9615
@@ -106,7 +99,8 @@ section_start(0x09)
 pic(22)
 set_flag(1109)
 dialog_up()
-para_talk("""Here you go.""")
+text("{a 2}Here you go.{a 1}\p")
+wait(5)
 jump(0x0A)
 section_end()
 
@@ -114,9 +108,8 @@ section_end()
 section_start(0x0A)
 hidepic()
 dialog_up()
-para_general("""*munch,munch*...{delay}
-Lan ate a tasty and
-nutritious lunch.""")
+text("*munch,munch*...{d}\nLan ate a tasty and\nnutritious lunch.\p")
+wait(5)
 jump(0x0B)
 section_end()
 
@@ -124,17 +117,14 @@ section_end()
 section_start(0x0B)
 pic(22)
 dialog_up()
-para_talk("""Hmmm{anim 1}...{delay}{anim 2}I kinda like
-you...""", 0)
-para_talk("""My name is Sal.
-I work with the net
-to protect nature.""", 0)
-para_talk("""There's so many
-viruses about
-lately...""", 0)
-para_talk("""Would you like to
-practice NetBattling
-with me?""")
+text("{a 2}Hmmm{a 1}...{d}{a 2}I kinda like\nyou...{a 1}\p")
+wait(0)
+text("{a 2}My name is Sal.\nI work with the net\nto protect nature.{a 1}\p")
+wait(0)
+text("{a 2}There's so many\nviruses about\nlately...{a 1}\p")
+wait(0)
+text("{a 2}Would you like to\npractice NetBattling\nwith me?{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -142,11 +132,9 @@ section_end()
 section_start(0x0C)
 pic(34)
 dialog_up()
-text("""{anim 2}Lan,would you like
-to challenge Sal?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Lan,would you like\nto challenge Sal?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x1B, 0x19], 1, False, True)
 end()
 section_end()
@@ -156,11 +144,10 @@ section_start(0x0D)
 check_item("/Sal", 1, 0x10, 0xFF, 0xFF)
 pic(22)
 dialog_up()
-para_talk("""Ooops,looks like I
-lost...""", 0)
-para_talk("""I guess that I'm
-safe in giving this
-to you...""", 0)
+text("{a 2}Ooops,looks like I\nlost...{a 1}\p")
+wait(0)
+text("{a 2}I guess that I'm\nsafe in giving this\nto you...{a 1}\p")
+wait(0)
 jump(0x0E)
 section_end()
 
@@ -168,13 +155,11 @@ section_end()
 section_start(0x0E)
 hidepic()
 dialog_up()
-add_item("/Sal", 1, 0xFF, 0xFF, 0xFF)
+add_item("/Sal", 1)
 pc_anim_start(30)
-para_general("""Lan got
-\"{key /Sal}\"!""", 0)
-text("""(Use this on the net
- to expand the area
- you can access!)""")
+text("Lan got\n\"{key /Sal}\"!\p")
+wait(0)
+text("(Use this on the net\n to expand the area\n you can access!)")
 pc_wait()
 pc_anim(4)
 pc_unlock()
@@ -187,47 +172,45 @@ section_end()
 section_start(0x0F)
 pic(22)
 dialog_up()
-para_talk("""You can use that
-to get into the net
-around here.""", 0)
-para_talk("""There's a merchant
-selling armor. Why
-don't you visit him?""", 0)
-para_talk_end("""Please help me by
-protecting nature!""", 0)
+text("{a 2}You can use that\nto get into the net\naround here.{a 1}\p")
+wait(0)
+text("{a 2}There's a merchant\nselling armor. Why\ndon't you visit him?{a 1}\p")
+wait(0)
+text("{a 2}Please help me by\nprotecting nature!{a 1}\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x6F995F
 section_start(0x10)
 pic(22)
 dialog_up()
-para_talk_end("""Ooops,I lost again.
-Protect nature!""", 0)
+text("{a 2}Ooops,I lost again.\nProtect nature!{a 1}\p")
+end(0)
 section_end()
 
 # 0x11 @ 0x6F9995
 section_start(0x11)
 pic(22)
 dialog_up()
-para_talk_end("""You won't be able
-to help me protect
-nature like that!""", 0)
+text("{a 2}You won't be able\nto help me protect\nnature like that!{a 1}\p")
+end(0)
 section_end()
 
 # 0x12 @ 0x6F99DD
 section_start(0x12)
-if_story(0x50, 0x54, 0x5F, 0xFF)
-if_story(0x40, 0x43, 0x49, 0xFF)
-if_story(0x30, 0x37, 0x38, 0xFF)
-if_story(0x24, 0x24, 0x24, 0xFF)
-if_story(0x25, 0x25, 0x2D, 0xFF)
-if_story(0x26, 0x26, 0x2D, 0xFF)
-if_story(0x27, 0x27, 0x2D, 0xFF)
+if_story(0x50, 0x54, 0x5F)
+if_story(0x40, 0x43, 0x49)
+if_story(0x30, 0x37, 0x38)
+if_story(0x24, 0x24, 0x24)
+if_story(0x25, 0x25, 0x2D)
+if_story(0x26, 0x26, 0x2D)
+if_story(0x27, 0x27, 0x2D)
 pic(22)
 dialog_up()
-para_talk("""Would you like a
-natural lunch?""", 0)
-para_talk("""...Oh,it's you!""")
+text("{a 2}Would you like a\nnatural lunch?{a 1}\p")
+wait(0)
+text("{a 2}...Oh,it's you!{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -244,9 +227,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -257,38 +238,37 @@ section_start(0x15)
 pic(34)
 dialog_up()
 mail(15)
-para_talk_end("""Lan!
-You've got mail!""", 0)
+text("{a 2}Lan!\nYou've got mail!{a 1}\p")
+end(0)
 section_end()
 
 # 0x16 @ 0x6F9AD6
 section_start(0x16)
 pic(22)
 dialog_up()
-para_talk("""Would you like an
-allーnatural lunch?""", 0)
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Would you like an\nallーnatural lunch?{a 1}\p")
+wait(0)
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x09, 0xFF], 0, False, True)
-para_talk_end("""Please come again.""", 0)
+text("{a 2}Please come again.{a 1}\p")
+end(0)
 section_end()
 
 # 0x19 @ 0x6F9B41
 section_start(0x19)
 pic(22)
 dialog_up()
-para_talk_end("""At times we must
-fight in order to
-protect nature...""", 0)
+text("{a 2}At times we must\nfight in order to\nprotect nature...{a 1}\p")
+end(0)
 section_end()
 
 # 0x1A @ 0x6F9B88
 section_start(0x1A)
 pic(22)
 dialog_up()
-para_talk_end("""I'm sprouting a new
-WoodMan. He can't
-fight right now.""", 0)
+text("{a 2}I'm sprouting a new\nWoodMan. He can't\nfight right now.{a 1}\p")
+end(0)
 section_end()
 
 # 0x1B @ 0x6F9BD2
@@ -296,9 +276,8 @@ section_start(0x1B)
 if_flag(44, 0x1A, 0xFF)
 pic(22)
 dialog_up()
-para_talk("""I shall show you
-the power of nature!
-WoodMan,come forth!""")
+text("{a 2}I shall show you\nthe power of nature!\nWoodMan,come forth!{a 1}\p")
+wait(5)
 jump(0x13)
 section_end()
 
@@ -306,68 +285,62 @@ section_end()
 section_start(0x1E)
 pic(19)
 dialog_up()
-para_talk("""The nerve of these
-people! I came to
-file a complaint,""", 0)
-para_talk_end("""but all I get is 
-\"We're looking into
-it\"!!""")
+text("{a 2}The nerve of these\npeople! I came to\nfile a complaint,{a 1}\p")
+wait(0)
+text("{a 2}but all I get is \n\"We're looking into\nit\"!!{a 1}\p")
+end(5)
 section_end()
 
 # 0x1F @ 0x6F9CAB
 section_start(0x1F)
 pic(26)
 dialog_up()
-para_talk_end("""Looks like that pipe
-is clogged! No water
-is getting through.""")
+text("{a 2}Looks like that pipe\nis clogged! No water\nis getting through.{a 1}\p")
+end(5)
 section_end()
 
 # 0x20 @ 0x6F9CFA
 section_start(0x20)
 pic(27)
 dialog_up()
-para_talk("""Drink the river
-water? No,it's not
-as clean as it""", 0)
-para_talk_end("""looks.""")
+text("{a 2}Drink the river\nwater? No,it's not\nas clean as it{a 1}\p")
+wait(0)
+text("{a 2}looks.{a 1}\p")
+end(5)
 section_end()
 
 # 0x21 @ 0x6F9D4D
 section_start(0x21)
 pic(17)
 dialog_up()
-para_talk_end("""There's no water
-around here that
-we can drink.""")
+text("{a 2}There's no water\naround here that\nwe can drink.{a 1}\p")
+end(5)
 section_end()
 
 # 0x22 @ 0x6F9D8E
 section_start(0x22)
 pic(25)
 dialog_up()
-para_talk_end("""Not having anything
-to drink with lunch
-is very unpleasant""")
+text("{a 2}Not having anything\nto drink with lunch\nis very unpleasant{a 1}\p")
+end(5)
 section_end()
 
 # 0x23 @ 0x6F9DD8
 section_start(0x23)
 pic(20)
 dialog_up()
-para_talk("""I haven't had
-anything to drink
-all day!""", 0)
-para_talk_end("""I may faint...""")
+text("{a 2}I haven't had\nanything to drink\nall day!{a 1}\p")
+wait(0)
+text("{a 2}I may faint...{a 1}\p")
+end(5)
 section_end()
 
 # 0x24 @ 0x6F9E2B
 section_start(0x24)
 pic(22)
 dialog_up()
-para_talk("""I won't be able to
-make lunches
-tomorrow...""")
+text("{a 2}I won't be able to\nmake lunches\ntomorrow...{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -375,8 +348,8 @@ section_end()
 section_start(0x2D)
 pic(22)
 dialog_up()
-para_talk("""Where did everyone
-go??""")
+text("{a 2}Where did everyone\ngo??{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -384,63 +357,56 @@ section_end()
 section_start(0x32)
 pic(19)
 dialog_up()
-para_talk_end("""Now that the water
-is fixed,things are
-returning to normal.""", 0)
+text("{a 2}Now that the water\nis fixed,things are\nreturning to normal.{a 1}\p")
+end(0)
 section_end()
 
 # 0x33 @ 0x6F9EFE
 section_start(0x33)
 pic(26)
 dialog_up()
-para_talk_end("""That pipe is
-bringing in water
-again!""", 0)
+text("{a 2}That pipe is\nbringing in water\nagain!{a 1}\p")
+end(0)
 section_end()
 
 # 0x34 @ 0x6F9F34
 section_start(0x34)
 pic(27)
 dialog_up()
-para_talk_end("""Froid is crazy about
-his kid. That's why
-the WWW chose him.""", 0)
+text("{a 2}Froid is crazy about\nhis kid. That's why\nthe WWW chose him.{a 1}\p")
+end(0)
 section_end()
 
 # 0x35 @ 0x6F9F82
 section_start(0x35)
 pic(17)
 dialog_up()
-para_talk_end("""This crisis taught
-me how important
-water is!!""", 0)
+text("{a 2}This crisis taught\nme how important\nwater is!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x36 @ 0x6F9FC2
 section_start(0x36)
 pic(25)
 dialog_up()
-para_talk_end("""This is still the
-best place to have
-lunch!""", 0)
+text("{a 2}This is still the\nbest place to have\nlunch!{a 1}\p")
+end(0)
 section_end()
 
 # 0x37 @ 0x6F9FFE
 section_start(0x37)
 pic(20)
 dialog_up()
-para_talk_end("""This place is
-so easy to get
-lost in!""", 0)
+text("{a 2}This place is\nso easy to get\nlost in!{a 1}\p")
+end(0)
 section_end()
 
 # 0x38 @ 0x6FA034
 section_start(0x38)
 pic(22)
 dialog_up()
-para_talk("""Now that the water
-is back,I can make
-my lunches again!""")
+text("{a 2}Now that the water\nis back,I can make\nmy lunches again!{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -448,82 +414,83 @@ section_end()
 section_start(0x43)
 pic(19)
 dialog_up()
-para_talk("""Good luck,there,
-sonny!""", 0)
-para_talk("""Good luck with what?""", 0)
-para_talk_end("""Well,with
-everything!""", 0)
+text("{a 2}Good luck,there,\nsonny!{a 1}\p")
+wait(0)
+text("{a 2}Good luck with what?{a 1}\p")
+wait(0)
+text("{a 2}Well,with\neverything!{a 1}\p")
+end(0)
 section_end()
 
 # 0x44 @ 0x6FA0FA
 section_start(0x44)
 pic(26)
 dialog_up()
-para_talk("""Tonight there's a
-party for some
-overseas""", 0)
-para_talk_end("""researchers.""", 0)
+text("{a 2}Tonight there's a\nparty for some\noverseas{a 1}\p")
+wait(0)
+text("{a 2}researchers.{a 1}\p")
+end(0)
 section_end()
 
 # 0x45 @ 0x6FA149
 section_start(0x45)
 pic(27)
 dialog_up()
-para_talk_end("""Why,if it isn't
-Hikari's son! Will
-you be at the party?""", 0)
+text("{a 2}Why,if it isn't\nHikari's son! Will\nyou be at the party?{a 1}\p")
+end(0)
 section_end()
 
 # 0x46 @ 0x6FA195
 section_start(0x46)
 pic(17)
 dialog_up()
-para_talk("""A party? Tonight?
-I want to go!""", 0)
-para_talk("""Huh? Staff only?""", 0)
-para_talk_end("""What a waste of
-taxpayers' money!""", 0)
+text("{a 2}A party? Tonight?\nI want to go!{a 1}\p")
+wait(0)
+text("{a 2}Huh? Staff only?{a 1}\p")
+wait(0)
+text("{a 2}What a waste of\ntaxpayers' money!{a 1}\p")
+end(0)
 section_end()
 
 # 0x47 @ 0x6FA20C
 section_start(0x47)
 pic(25)
 dialog_up()
-para_talk("""Ah,the sun is so
-warm today!""", 0)
-para_talk_end("""Nothing like a
-little sunbathing
-while working!""", 0)
+text("{a 2}Ah,the sun is so\nwarm today!{a 1}\p")
+wait(0)
+text("{a 2}Nothing like a\nlittle sunbathing\nwhile working!{a 1}\p")
+end(0)
 section_end()
 
 # 0x48 @ 0x6FA272
 section_start(0x48)
 pic(20)
 dialog_up()
-para_general("""*snore*{...}
-{...}{anim 2} Huh!?{anim 1}""", 0)
-para_talk_end("""I fell asleep
-standing up!!""", 0)
+text("*snore*{...}\n{...}{a 2} Huh!?{a 1}\p")
+wait(0)
+text("{a 2}I fell asleep\nstanding up!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x49 @ 0x6FA2DD
 section_start(0x49)
 pic(22)
 dialog_up()
-para_talk("""Would you like an
-allーnatural lunch?""", 0)
-para_talk("""Oh,it's you!""")
+text("{a 2}Would you like an\nallーnatural lunch?{a 1}\p")
+wait(0)
+text("{a 2}Oh,it's you!{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
 # 0x4A @ 0x6FA32C
 section_start(0x4A)
-if_story(0x50, 0x52, 0x60, 0xFF)
-if_story(0x53, 0x57, 0x6F, 0xFF)
+if_story(0x50, 0x52, 0x60)
+if_story(0x53, 0x57, 0x6F)
 pic(4)
 dialog_up()
-para_talk("""Yo,boy! You like
-fish??""")
+text("{a 2}Yo,boy! You like\nfish??{a 1}\p")
+wait(5)
 jump(0x51)
 section_end()
 
@@ -532,8 +499,8 @@ section_start(0x4B)
 pic(34)
 dialog_up()
 mail(23)
-para_talk_end("""Lan!
-You've got mail!""", 0)
+text("{a 2}Lan!\nYou've got mail!{a 1}\p")
+end(0)
 section_end()
 
 # 0x50 @ 0x6FA39A
@@ -547,11 +514,9 @@ section_end()
 section_start(0x51)
 pic(34)
 dialog_up()
-text("""{anim 2}Challenge Masa to
-a NetBattle?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Challenge Masa to\na NetBattle?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x58, 0x52], 1, False, True)
 end()
 section_end()
@@ -560,25 +525,24 @@ section_end()
 section_start(0x52)
 pic(4)
 dialog_up()
-para_talk_end("""I'll take you on
-any time,boy!""", 0)
+text("{a 2}I'll take you on\nany time,boy!{a 1}\p")
+end(0)
 section_end()
 
 # 0x53 @ 0x6FA41D
 section_start(0x53)
 pic(4)
 dialog_up()
-para_talk_end("""Ah,I just remembered
-that I've got plans.
-Maybe next time!""", 0)
+text("{a 2}Ah,I just remembered\nthat I've got plans.\nMaybe next time!{a 1}\p")
+end(0)
 section_end()
 
 # 0x54 @ 0x6FA46B
 section_start(0x54)
 pic(4)
 dialog_up()
-para_talk_end("""Why,you... I'll get
-you next time!!""", 0)
+text("{a 2}Why,you... I'll get\nyou next time!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x55 @ 0x6FA4A5
@@ -586,18 +550,16 @@ section_start(0x55)
 if_flag(1107, 0xFF, 0x59)
 pic(4)
 dialog_up()
-para_talk_end("""Pretty good finger
-action there,boy!
-Not bad at all!""", 0)
+text("{a 2}Pretty good finger\naction there,boy!\nNot bad at all!{a 1}\p")
+end(0)
 section_end()
 
 # 0x56 @ 0x6FA4F2
 section_start(0x56)
 pic(4)
 dialog_up()
-para_talk_end("""Hah,hah,hah! Yer
-weaker than a
-guppy!""", 0)
+text("{a 2}Hah,hah,hah! Yer\nweaker than a\nguppy!{a 1}\p")
+end(0)
 section_end()
 
 # 0x57 @ 0x6FA52B
@@ -606,13 +568,12 @@ if_flag(1110, 0x4A, 0xFF)
 set_flag(1110)
 pic(4)
 dialog_up()
-para_talk("""I'm Masa,the fish
-dealer!""", 0)
-para_talk("""Eat lots of fish!
-It'll make ya
-smarter!""", 0)
-para_talk("""Lemme show ya!
-Let's NetBattle!""")
+text("{a 2}I'm Masa,the fish\ndealer!{a 1}\p")
+wait(0)
+text("{a 2}Eat lots of fish!\nIt'll make ya\nsmarter!{a 1}\p")
+wait(0)
+text("{a 2}Lemme show ya!\nLet's NetBattle!{a 1}\p")
+wait(5)
 jump(0x51)
 section_end()
 
@@ -621,8 +582,8 @@ section_start(0x58)
 if_flag(47, 0x53, 0xFF)
 pic(4)
 dialog_up()
-para_talk("""SharkMan!
-Rip 'im to shreds!!""")
+text("{a 2}SharkMan!\nRip 'im to shreds!!{a 1}\p")
+wait(5)
 jump(0x50)
 section_end()
 
@@ -631,18 +592,16 @@ section_start(0x59)
 pic(4)
 dialog_up()
 set_flag(1107)
-para_talk("""OK! OK!
-I give!""", 0)
-para_talk("""Yep,I'm gettin'
-old,I am...""", 0)
-para_talk("""Here! Take this!
-Power up that
-Navi of yours!""", 0)
+text("{a 2}OK! OK!\nI give!{a 1}\p")
+wait(0)
+text("{a 2}Yep,I'm gettin'\nold,I am...{a 1}\p")
+wait(0)
+text("{a 2}Here! Take this!\nPower up that\nNavi of yours!{a 1}\p")
+wait(0)
 hidepic()
 pc_anim_start(30)
-add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a PowerUp;
-\"{key HPmemory}\"!""")
+add_item("HPmemory", 1)
+text("Lan got a PowerUp;\n\"{key HPmemory}\"!")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -650,85 +609,78 @@ page()
 wait()
 pic(4)
 dialog_up()
-para_talk_end("""Now,off with you!
-And watch out for
-sharks in the net!""", 0)
+text("{a 2}Now,off with you!\nAnd watch out for\nsharks in the net!{a 1}\p")
+end(0)
 section_end()
 
 # 0x5A @ 0x6FA700
 section_start(0x5A)
-if_story(0x53, 0x54, 0x69, 0xFF)
+if_story(0x53, 0x54, 0x69)
 pic(19)
 dialog_up()
-para_talk("""Whoa! Another
-crisis!?""", 0)
-para_talk_end("""Good luck,
-captain!""", 0)
+text("{a 2}Whoa! Another\ncrisis!?{a 1}\p")
+wait(0)
+text("{a 2}Good luck,\ncaptain!{a 1}\p")
+end(0)
 section_end()
 
 # 0x5B @ 0x6FA74C
 section_start(0x5B)
-if_story(0x53, 0x54, 0x6A, 0xFF)
+if_story(0x53, 0x54, 0x6A)
 pic(26)
 dialog_up()
-para_talk_end("""Bad things keep
-happening around
-here,huh?""", 0)
+text("{a 2}Bad things keep\nhappening around\nhere,huh?{a 1}\p")
+end(0)
 section_end()
 
 # 0x5C @ 0x6FA78E
 section_start(0x5C)
-if_story(0x53, 0x54, 0x6B, 0xFF)
+if_story(0x53, 0x54, 0x6B)
 pic(27)
 dialog_up()
-para_talk_end("""Dr.Hikari is one of
-the best researchers
-I've ever known!""", 0)
+text("{a 2}Dr.Hikari is one of\nthe best researchers\nI've ever known!{a 1}\p")
+end(0)
 section_end()
 
 # 0x5D @ 0x6FA7E0
 section_start(0x5D)
-if_story(0x53, 0x54, 0x6C, 0xFF)
+if_story(0x53, 0x54, 0x6C)
 pic(17)
 dialog_up()
-para_talk_end("""Well,what a party
-that was!""", 0)
+text("{a 2}Well,what a party\nthat was!{a 1}\p")
+end(0)
 section_end()
 
 # 0x5E @ 0x6FA813
 section_start(0x5E)
-if_story(0x53, 0x54, 0x6D, 0xFF)
+if_story(0x53, 0x54, 0x6D)
 pic(25)
 dialog_up()
-para_talk("""The WWW plot is
-scary,but I can't
-fight on an empty""", 0)
-para_talk_end("""stomach! Oh,yeah,
-I'm not really
-fighting,I guess.""", 0)
+text("{a 2}The WWW plot is\nscary,but I can't\nfight on an empty{a 1}\p")
+wait(0)
+text("{a 2}stomach! Oh,yeah,\nI'm not really\nfighting,I guess.{a 1}\p")
+end(0)
 section_end()
 
 # 0x5F @ 0x6FA89E
 section_start(0x5F)
-if_story(0x53, 0x54, 0x6E, 0xFF)
+if_story(0x53, 0x54, 0x6E)
 pic(22)
 dialog_up()
-para_talk("""Nature is telling me
-that there will be
-a huge crisis soon!""")
+text("{a 2}Nature is telling me\nthat there will be\na huge crisis soon!{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
 # 0x60 @ 0x6FA8F3
 section_start(0x60)
-if_story(0x53, 0x54, 0x6F, 0xFF)
+if_story(0x53, 0x54, 0x6F)
 pic(4)
 dialog_up()
-para_talk("""You eatin' yer fish,
-boy!?""", 0)
-para_talk("""You can't fight if
-you don't get
-enough calcium!""")
+text("{a 2}You eatin' yer fish,\nboy!?{a 1}\p")
+wait(0)
+text("{a 2}You can't fight if\nyou don't get\nenough calcium!{a 1}\p")
+wait(5)
 jump(0x51)
 section_end()
 
@@ -736,56 +688,50 @@ section_end()
 section_start(0x69)
 pic(19)
 dialog_up()
-para_talk_end("""Little boy! Please
-do something about
-the WWW rocket!""", 0)
+text("{a 2}Little boy! Please\ndo something about\nthe WWW rocket!{a 1}\p")
+end(0)
 section_end()
 
 # 0x6A @ 0x6FA9BC
 section_start(0x6A)
 pic(26)
 dialog_up()
-para_talk_end("""This crisis goes far
-beyond just the
-Government Center!""", 0)
+text("{a 2}This crisis goes far\nbeyond just the\nGovernment Center!{a 1}\p")
+end(0)
 section_end()
 
 # 0x6B @ 0x6FAA04
 section_start(0x6B)
 pic(27)
 dialog_up()
-para_talk("""Hikari said that he
-has a secret weapon
-against the EndGame.""", 0)
-para_talk_end("""...but he said that
-he doesn't want to
-use it!""", 0)
+text("{a 2}Hikari said that he\nhas a secret weapon\nagainst the EndGame.{a 1}\p")
+wait(0)
+text("{a 2}...but he said that\nhe doesn't want to\nuse it!{a 1}\p")
+end(0)
 section_end()
 
 # 0x6C @ 0x6FAA8C
 section_start(0x6C)
 pic(17)
 dialog_up()
-para_talk_end("""I'm too young to
-die!!!""", 0)
+text("{a 2}I'm too young to\ndie!!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x6D @ 0x6FAAB7
 section_start(0x6D)
 pic(25)
 dialog_up()
-para_talk_end("""If I die,I won't be
-able to eat any more
-of these lunches!!""", 0)
+text("{a 2}If I die,I won't be\nable to eat any more\nof these lunches!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x6E @ 0x6FAB06
 section_start(0x6E)
 pic(22)
 dialog_up()
-para_talk("""Nature is crying...
-Nature is angry with
-us foolish humans...""")
+text("{a 2}Nature is crying...\nNature is angry with\nus foolish humans...{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -793,12 +739,10 @@ section_end()
 section_start(0x6F)
 pic(4)
 dialog_up()
-para_talk("""I've made it this
-far with this knife
-by my side...""", 0)
-para_talk("""You,boy! Battle on
-with that PET by
-your side!""")
+text("{a 2}I've made it this\nfar with this knife\nby my side...{a 1}\p")
+wait(0)
+text("{a 2}You,boy! Battle on\nwith that PET by\nyour side!{a 1}\p")
+wait(5)
 jump(0x51)
 section_end()
 
@@ -807,23 +751,22 @@ section_start(0x70)
 pic(34)
 dialog_up()
 mail(26)
-para_talk_end("""Lan!
-You've got mail!""", 0)
+text("{a 2}Lan!\nYou've got mail!{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x6FACE1
 section_start(0xDC)
 dialog_up()
-para_general_end("""The lunches smell
-great. You can jack
-in here""")
+text("The lunches smell\ngreat. You can jack\nin here\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x6FAD17
 section_start(0xDD)
 dialog_up()
-para_general("""Fresh fish are
-on display""", 0)
-para_general_end("""The cart has a
-jack in port""")
+text("Fresh fish are\non display\p")
+wait(0)
+text("The cart has a\njack in port\p")
+end(5)
 section_end()

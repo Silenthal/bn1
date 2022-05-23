@@ -4,25 +4,24 @@ section_count(0xEB)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk_end("""That room is class B
-Aren't you in
-class A?""")
+text("{a 2}That room is class B\nAren't you in\nclass A?{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x6E7F27
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk_end("""Lan!{anim 1}{delay} {anim 2}Homeroom
-has started already!
-Use the back door!""")
+text("{a 2}Lan!{a 1}{d} {a 2}Homeroom\nhas started already!\nUse the back door!{a 1}\p")
+end(5)
 section_end()
 
 # 0x05 @ 0x6E7F7D
 section_start(0x05)
 pic(9)
 dialog_up()
-para_general("""*rattle* *rattle*""")
+text("*rattle* *rattle*\p")
+wait(5)
 if_flag(195, 0xFF, 0x06)
 end()
 section_end()
@@ -32,73 +31,67 @@ section_start(0x06)
 set_flag(195)
 pic(9)
 dialog_up()
-para_talk_end("""We can't get to
-the first floor!""")
+text("{a 2}We can't get to\nthe first floor!{a 1}\p")
+end(5)
 section_end()
 
 # 0x07 @ 0x6E7FDD
 section_start(0x07)
 dialog_up()
-para_general_end("""Locked! It won't
-open until the lock
-program is deleted!""")
+text("Locked! It won't\nopen until the lock\nprogram is deleted!\p")
+end(5)
 section_end()
 
 # 0x0A @ 0x6E8024
 section_start(0x0A)
 pic(2)
 dialog_up()
-para_talk_end("""Huh? We can go
-downstairs now!
-You beat me again!""")
+text("{a 2}Huh? We can go\ndownstairs now!\nYou beat me again!{a 1}\p")
+end(5)
 section_end()
 
 # 0x0B @ 0x6E8068
 section_start(0x0B)
 pic(1)
 dialog_up()
-para_talk_end("""The teacher's lounge
-is across the hall.""")
+text("{a 2}The teacher's lounge\nis across the hall.{a 1}\p")
+end(5)
 section_end()
 
 # 0x0F @ 0x6E80A8
 section_start(0x0F)
 pic(9)
 dialog_up()
-para_talk_end("""I finally got out
-of the classroom!""")
+text("{a 2}I finally got out\nof the classroom!{a 1}\p")
+end(5)
 section_end()
 
 # 0x10 @ 0x6E80DC
 section_start(0x10)
 pic(9)
 dialog_up()
-para_talk_end("""Um{anim 1}...{delay}
-{anim 2}Which way were
-the stairs?""")
+text("{a 2}Um{a 1}...{d}\n{a 2}Which way were\nthe stairs?{a 1}\p")
+end(5)
 section_end()
 
 # 0x14 @ 0x6E811E
 section_start(0x14)
-if_story(0x24, 0x24, 0x28, 0xFF)
+if_story(0x24, 0x24, 0x28)
 pic(9)
 dialog_up()
-para_talk("""All bow before the
-WWW! Follow or be
-deleted!""")
-para_talk_end("""...Just kidding!
-Was that a good
-impression?""")
+text("{a 2}All bow before the\nWWW! Follow or be\ndeleted!{a 1}\p")
+wait(5)
+text("{a 2}...Just kidding!\nWas that a good\nimpression?{a 1}\p")
+end(5)
 section_end()
 
 # 0x15 @ 0x6E819C
 section_start(0x15)
-if_story(0x24, 0x24, 0x29, 0xFF)
+if_story(0x24, 0x24, 0x29)
 pic(10)
 dialog_up()
-para_talk("""I want to go shop in
-Dentown. I wonder if
-I can go by Metro?""", 0)
+text("{a 2}I want to go shop in\nDentown. I wonder if\nI can go by Metro?{a 1}\p")
+wait(0)
 if_flag(151, 0x19, 0xFF)
 end()
 section_end()
@@ -110,48 +103,43 @@ section_end()
 
 # 0x19 @ 0x6E8202
 section_start(0x19)
-if_story(0x22, 0x22, 0x16, 0xFF)
+if_story(0x22, 0x22, 0x16)
 pic(10)
 dialog_up()
-para_talk("""What? A landslide
-on the tracks?""")
-para_talk_end("""Ah,well. No trains
-today,I guess.""")
+text("{a 2}What? A landslide\non the tracks?{a 1}\p")
+wait(5)
+text("{a 2}Ah,well. No trains\ntoday,I guess.{a 1}\p")
+end(5)
 section_end()
 
 # 0x1E @ 0x6E826F
 section_start(0x1E)
 pic(9)
 dialog_up()
-text("""{anim 2}Lan,do you know
-where the toilet is?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Lan,do you know\nwhere the toilet is?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x1F, 0xFF], 0, False, True)
-para_talk("""It's near the stairs.
-You can't see it
-from here,though.""", 0)
-para_talk_end("""But there's no
-water,so you can't
-use it.""", 0)
+text("{a 2}It's near the stairs.\nYou can't see it\nfrom here,though.{a 1}\p")
+wait(0)
+text("{a 2}But there's no\nwater,so you can't\nuse it.{a 1}\p")
+end(0)
 section_end()
 
 # 0x1F @ 0x6E8333
 section_start(0x1F)
 pic(9)
 dialog_up()
-para_talk_end("""Of course you do.{anim 1}{delay}
-{anim 2}But you can't use it
-There's no water!""", 0)
+text("{a 2}Of course you do.{a 1}{d}\n{a 2}But you can't use it\nThere's no water!{a 1}\p")
+end(0)
 section_end()
 
 # 0x20 @ 0x6E8387
 section_start(0x20)
 if_flag(218, 0x21, 0xFF)
 dialog_up()
-para_general("""Good morning,
-teacher!""", 0)
+text("Good morning,\nteacher!\p")
+wait(0)
 set_flag(218)
 jump(0x21)
 section_end()
@@ -160,52 +148,47 @@ section_end()
 section_start(0x21)
 pic(34)
 dialog_up()
-para_talk_end("""Hey! Class B has
-already started
-homeroom!""", 0)
+text("{a 2}Hey! Class B has\nalready started\nhomeroom!{a 1}\p")
+end(0)
 section_end()
 
 # 0x28 @ 0x6E83FC
 section_start(0x28)
 pic(9)
 dialog_up()
-para_talk_end("""Nothing to do
-except clean up
-my chip folder.""", 0)
+text("{a 2}Nothing to do\nexcept clean up\nmy chip folder.{a 1}\p")
+end(0)
 section_end()
 
 # 0x29 @ 0x6E843A
 section_start(0x29)
 pic(10)
 dialog_up()
-para_talk_end("""It says on the net
-that there is no 
-water in DenCity!""", 0)
+text("{a 2}It says on the net\nthat there is no \nwater in DenCity!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2A @ 0x6E8481
 section_start(0x2A)
 dialog_up()
-para_general_end("""It says \"Closed due
-to school closing\"""", 0)
+text("It says \"Closed due\nto school closing\"\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x6E8613
 section_start(0xDC)
 if_flag(739, 0xDD, 0xFF)
 dialog_up()
-para_general("""Extra desks are here
-・{delay}・{delay}・{delay}you found
-a chip in a drawer!""", 0)
+text("Extra desks are here\n・{d}・{d}・{d}you found\na chip in a drawer!\p")
+wait(0)
 set_flag(739)
 pc_anim(30)
 add_chip("X-Panel1 B", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"""")
+text("Lan got a chip for\n\"")
 chip_id("X-Panel1")
-text(""" """)
+text(" ")
 chip_code("B")
-text("""\"!""")
+text("\"!")
 pc_wait()
 pc_anim(4)
 page()
@@ -215,6 +198,6 @@ section_end()
 # 0xDD @ 0x6E86A0
 section_start(0xDD)
 dialog_up()
-para_general_end("""Looks like there's
-nothing else there""")
+text("Looks like there's\nnothing else there\p")
+end(5)
 section_end()

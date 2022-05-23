@@ -2,89 +2,84 @@ section_count(0xEB)
 
 # 0x00 @ 0x70B2D6
 section_start(0x00)
-if_story(0x50, 0x52, 0x0A, 0xFF)
-if_story(0x53, 0x54, 0x0F, 0xFF)
+if_story(0x50, 0x52, 0x0A)
+if_story(0x53, 0x54, 0x0F)
 pic(25)
 dialog_up()
-para_talk("""This is the
-restaurant floor""", 0)
-para_talk_end("""The party is farther
-in,that way.""", 0)
+text("{a 2}This is the\nrestaurant floor{a 1}\p")
+wait(0)
+text("{a 2}The party is farther\nin,that way.{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x70B339
 section_start(0x01)
-if_story(0x41, 0x43, 0x06, 0xFF)
+if_story(0x41, 0x43, 0x06)
 dialog_up()
-para_general("""An elevator switch.""", 0)
-para_general("""Lan used the
-{key SciLabID}!""", 0)
-para_general("""The elevator doors
-opened!Which floor?
-""", 0)
-if_story(0x41, 0x57, 0x02, 0xFF)
-text("""{c 1 1 0 0}SciLab lobby
-""")
-text("""{c 0 0 1 1}Dad's lab""")
+text("An elevator switch.\p")
+wait(0)
+text("Lan used the\n{key SciLabID}!\p")
+wait(0)
+text("The elevator doors\nopened!Which floor?\n\p")
+wait(0)
+if_story(0x41, 0x57, 0x02)
+text("{c 1 1 0 0}SciLab lobby\n")
+text("{c 0 0 1 1}Dad's lab")
 pick([0x10, 0x11], 0, True, True)
 end()
 section_end()
 
 # 0x02 @ 0x70B3D0
 section_start(0x02)
-text("""{c 2 1 0 0}SciLab lobby
-""")
-text("""{c 0 2 1 1}Dad's lab
-""")
-text("""{c 1 0 2 2}Power plant""")
+text("{c 2 1 0 0}SciLab lobby\n")
+text("{c 0 2 1 1}Dad's lab\n")
+text("{c 1 0 2 2}Power plant")
 pick([0x10, 0x11, 0x12], 0, True, True)
 end()
 section_end()
 
 # 0x04 @ 0x70B412
 section_start(0x04)
-if_story(0x41, 0x41, 0xE2, 0xFF)
+if_story(0x41, 0x41, 0xE2)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,I think that
-you have to push
-that button.""", 0)
+text("{a 2}Lan,I think that\nyou have to push\nthat button.{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x70B458
 section_start(0x05)
 pic(25)
 dialog_up()
-para_talk_end("""The elevators have
-all stopped! We're
-trapped!""", 0)
+text("{a 2}The elevators have\nall stopped! We're\ntrapped!{a 1}\p")
+end(0)
 section_end()
 
 # 0x06 @ 0x70B499
 section_start(0x06)
 dialog_up()
-para_general_end("""It doesn't work!""", 0)
+text("It doesn't work!\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x70B4B9
 section_start(0x0A)
 pic(25)
 dialog_up()
-para_talk("""After the blackout,
-people have been
-avoiding this place!""", 0)
-para_talk_end("""How will we stay
-in business?""", 0)
+text("{a 2}After the blackout,\npeople have been\navoiding this place!{a 1}\p")
+wait(0)
+text("{a 2}How will we stay\nin business?{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x70B532
 section_start(0x0F)
 pic(25)
 dialog_up()
-text_talking("""The restaurant??""")
-text("""{delay}\n""")
-para_talk_end("""This isn't the
-time for that!""", 0)
+text("{a 2}The restaurant??{a 1}")
+text("{d}\n")
+text("{a 2}This isn't the\ntime for that!{a 1}\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x70B57C
@@ -108,70 +103,68 @@ section_end()
 # 0xDC @ 0x70B729
 section_start(0xDC)
 dialog_up()
-para_general("""Even though you're
-30 floors under
-ground,this area""", 0)
-para_general_end("""is still surrounded
-by water""")
+text("Even though you're\n30 floors under\nground,this area\p")
+wait(0)
+text("is still surrounded\nby water\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x70B786
 section_start(0xDD)
 dialog_up()
-para_general("""Garbage from the
-SciLab comes down
-this chute,and""", 0)
-para_general_end("""is burned in the
-power plant to
-create electricity""")
+text("Garbage from the\nSciLab comes down\nthis chute,and\p")
+wait(0)
+text("is burned in the\npower plant to\ncreate electricity\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x70B7F6
 section_start(0xDE)
 dialog_up()
-para_general_end("""All of the drinks
-in this machine look
-quite tasty""")
+text("All of the drinks\nin this machine look\nquite tasty\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x70B830
 section_start(0xDF)
 dialog_up()
-para_general("""An elevator switch.
-""", 0)
-para_general("""Lan used the
-{key SciLabID}!""", 0)
-para_general_end("""The elevator doors
-opened!""")
+text("An elevator switch.\n\p")
+wait(0)
+text("Lan used the\n{key SciLabID}!\p")
+wait(0)
+text("The elevator doors\nopened!\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x70B883
 section_start(0xE0)
 dialog_up()
-para_general("""Which floor?""", 0)
-para_general_end("""SciLab lobby
-Dad's lab""")
+text("Which floor?\p")
+wait(0)
+text("SciLab lobby\nDad's lab\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x70B8B3
 section_start(0xE1)
 dialog_up()
-para_general_end("""It doesn't work!""")
+text("It doesn't work!\p")
+end(5)
 section_end()
 
 # 0xE2 @ 0x70B8CD
 section_start(0xE2)
 dialog_up()
-para_general_end("""There's no power!
-It won't move!""")
+text("There's no power!\nIt won't move!\p")
+end(5)
 section_end()
 
 # 0xE3 @ 0x70B8F9
 section_start(0xE3)
 pic(0)
 dialog_up()
-para_talk("""Looks like we can
-get to the power
-plant from here!""", 0)
-para_talk_end("""...Let's try it!""", 0)
+text("{a 2}Looks like we can\nget to the power\nplant from here!{a 1}\p")
+wait(0)
+text("{a 2}...Let's try it!{a 1}\p")
+end(0)
 section_end()

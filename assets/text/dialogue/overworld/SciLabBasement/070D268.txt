@@ -4,10 +4,7 @@ section_count(0xEB)
 section_start(0x00)
 pic(27)
 dialog_up()
-text_talking("""Please be quiet!
-I'm trying to open
-the control room!""")
-page()
+text("{a 2}Please be quiet!\nI'm trying to open\nthe control room!{a 1}\p")
 set_flag(176)
 end()
 section_end()
@@ -18,25 +15,21 @@ set_flag(223)
 if_flag(176, 0x02, 0xFF)
 pic(25)
 dialog_up()
-para_talk("""Argh,it won't work!""", 0)
-para_talk("""The lock to the
-power plant is
-computer controlled!""", 0)
-para_talk_end("""We'll never get it
-open until the
-program is fixed!""", 0)
+text("{a 2}Argh,it won't work!{a 1}\p")
+wait(0)
+text("{a 2}The lock to the\npower plant is\ncomputer controlled!{a 1}\p")
+wait(0)
+text("{a 2}We'll never get it\nopen until the\nprogram is fixed!{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x70D533
 section_start(0x02)
 pic(25)
 dialog_up()
-para_talk("""Huh? It looks like
-the control room
-door is open now.""", 0)
-text_talking("""You go on. I'll
-get this door open.""")
-page()
+text("{a 2}Huh? It looks like\nthe control room\ndoor is open now.{a 1}\p")
+wait(0)
+text("{a 2}You go on. I'll\nget this door open.{a 1}\p")
 set_flag(175)
 end()
 section_end()
@@ -45,54 +38,48 @@ section_end()
 section_start(0x05)
 pic(25)
 dialog_up()
-para_general_end("""{anim 2}The air...it's
-getting thinner...
-{anim 1}*gasp*""", 0)
+text("{a 2}The air...it's\ngetting thinner...\n{a 1}*gasp*\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x70D5F9
 section_start(0x0A)
-if_story(0x53, 0x54, 0x0F, 0xFF)
+if_story(0x53, 0x54, 0x0F)
 pic(25)
 dialog_up()
-para_talk("""The power plant is
-now back to normal.""", 0)
-para_talk("""There are some
-problems with the
-network,""", 0)
-para_talk_end("""but we're able to
-supply electricity
-with no problem.""", 0)
+text("{a 2}The power plant is\nnow back to normal.{a 1}\p")
+wait(0)
+text("{a 2}There are some\nproblems with the\nnetwork,{a 1}\p")
+wait(0)
+text("{a 2}but we're able to\nsupply electricity\nwith no problem.{a 1}\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x70D6A7
 section_start(0x0B)
-if_story(0x53, 0x54, 0x10, 0xFF)
+if_story(0x53, 0x54, 0x10)
 pic(27)
 dialog_up()
-para_talk_end("""Pretty scary when a
-whole building goes
-haywire!""", 0)
+text("{a 2}Pretty scary when a\nwhole building goes\nhaywire!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x70D6F4
 section_start(0x0F)
 pic(25)
 dialog_up()
-para_talk_end("""And just when we
-had gotten the power
-plant fixed!!""", 0)
+text("{a 2}And just when we\nhad gotten the power\nplant fixed!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x70D739
 section_start(0x10)
 pic(27)
 dialog_up()
-para_talk("""A malfuntioning
-building is pretty
-bad...""", 0)
-para_talk_end("""But a war is even
-worse!!""", 0)
+text("{a 2}A malfuntioning\nbuilding is pretty\nbad...{a 1}\p")
+wait(0)
+text("{a 2}But a war is even\nworse!!{a 1}\p")
+end(0)
 section_end()
 
 # 0xBE @ 0x70D8F2
@@ -100,17 +87,16 @@ section_start(0xBE)
 if_flag(1072, 0xCC, 0xFF)
 pic(27)
 dialog_up()
-para_talk("""It's quiz time!
-It's quiz time!""", 0)
-para_talk("""Time to see if
-you've been paying
-attention!""", 0)
-para_talk("""Answer 10 of my
-questions and win
-a prize!""", 0)
-para_talk("""Wanna try?""", 0)
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}It's quiz time!\nIt's quiz time!{a 1}\p")
+wait(0)
+text("{a 2}Time to see if\nyou've been paying\nattention!{a 1}\p")
+wait(0)
+text("{a 2}Answer 10 of my\nquestions and win\na prize!{a 1}\p")
+wait(0)
+text("{a 2}Wanna try?{a 1}\p")
+wait(0)
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0xC0, 0xBF], 0, False, True)
 page()
 end(5)
@@ -120,23 +106,21 @@ section_end()
 section_start(0xBF)
 pic(27)
 dialog_up()
-para_talk_end("""Ah,no need to be
-ashamed that you're
-afraid of failure!""")
+text("{a 2}Ah,no need to be\nashamed that you're\nafraid of failure!{a 1}\p")
+end(5)
 section_end()
 
 # 0xC0 @ 0x70DA0C
 section_start(0xC0)
 pic(27)
 dialog_up()
-para_talk("""Question 1!""", 0)
-para_talk("""Who's Navi is
-called GutsMan?""", 0)
-text("""{c 2 1 0 0}Dex
-""")
-text("""{c 0 2 1 1}Yai
-""")
-text("""{c 1 0 2 2}Mayl""")
+text("{a 2}Question 1!{a 1}\p")
+wait(0)
+text("{a 2}Who's Navi is\ncalled GutsMan?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}Dex\n")
+text("{c 0 2 1 1}Yai\n")
+text("{c 1 0 2 2}Mayl")
 pick([0xC1, 0xCB, 0xCB], 0, True, True)
 page()
 end(5)
@@ -148,16 +132,15 @@ pic(27)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 2!""", 0)
-para_talk("""Who's the summer
-school teacher in
-Dentown?""", 0)
-text("""{c 2 1 0 0}Ms.Miyu
-""")
-text("""{c 0 2 1 1}Ms.Mari
-""")
-text("""{c 1 0 2 2}Ms.Yuri""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 2!{a 1}\p")
+wait(0)
+text("{a 2}Who's the summer\nschool teacher in\nDentown?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}Ms.Miyu\n")
+text("{c 0 2 1 1}Ms.Mari\n")
+text("{c 1 0 2 2}Ms.Yuri")
 pick([0xCB, 0xCB, 0xC2], 0, True, True)
 page()
 end(5)
@@ -169,15 +152,15 @@ pic(27)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 3!""", 0)
-para_talk("""Who owns the chip
-shop in ACDC Town?""", 0)
-text("""{c 2 1 0 0}Bigsby
-""")
-text("""{c 0 2 1 1}Higsby
-""")
-text("""{c 1 0 2 2}Migsby""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 3!{a 1}\p")
+wait(0)
+text("{a 2}Who owns the chip\nshop in ACDC Town?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}Bigsby\n")
+text("{c 0 2 1 1}Higsby\n")
+text("{c 1 0 2 2}Migsby")
 pick([0xCB, 0xC3, 0xCB], 0, True, True)
 page()
 end(5)
@@ -189,16 +172,15 @@ pic(27)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 4!""", 0)
-para_talk("""How many chairs are
-in the school's
-AV room?""", 0)
-text("""{c 2 1 0 0}6
-""")
-text("""{c 0 2 1 1}8
-""")
-text("""{c 1 0 2 2}9""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 4!{a 1}\p")
+wait(0)
+text("{a 2}How many chairs are\nin the school's\nAV room?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}6\n")
+text("{c 0 2 1 1}8\n")
+text("{c 1 0 2 2}9")
 pick([0xCB, 0xCB, 0xC4], 0, True, True)
 page()
 end(5)
@@ -210,16 +192,15 @@ pic(27)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 5!""", 0)
-para_talk("""What musical
-instrument is in
-Mayl's room?""", 0)
-text("""{c 2 1 0 0}A piano
-""")
-text("""{c 0 2 1 1}A violin
-""")
-text("""{c 1 0 2 2}A pipe organ""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 5!{a 1}\p")
+wait(0)
+text("{a 2}What musical\ninstrument is in\nMayl's room?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}A piano\n")
+text("{c 0 2 1 1}A violin\n")
+text("{c 1 0 2 2}A pipe organ")
 pick([0xC5, 0xCB, 0xCB], 0, True, True)
 page()
 end(5)
@@ -231,14 +212,15 @@ pic(27)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 6!""", 0)
-para_talk("""How old is Yai?""", 0)
-text("""{c 2 1 0 0}6
-""")
-text("""{c 0 2 1 1}8
-""")
-text("""{c 1 0 2 2}12""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 6!{a 1}\p")
+wait(0)
+text("{a 2}How old is Yai?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}6\n")
+text("{c 0 2 1 1}8\n")
+text("{c 1 0 2 2}12")
 pick([0xCB, 0xC6, 0xCB], 0, True, True)
 page()
 end(5)
@@ -250,16 +232,15 @@ pic(27)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 7!""", 0)
-para_talk("""What chip do you use
-to escape from a
-battle?""", 0)
-text("""{c 2 1 0 0}JackOut
-""")
-text("""{c 0 2 1 1}Steal
-""")
-text("""{c 1 0 2 2}Escape""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 7!{a 1}\p")
+wait(0)
+text("{a 2}What chip do you use\nto escape from a\nbattle?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}JackOut\n")
+text("{c 0 2 1 1}Steal\n")
+text("{c 1 0 2 2}Escape")
 pick([0xCB, 0xCB, 0xC7], 0, True, True)
 page()
 end(5)
@@ -271,16 +252,15 @@ pic(27)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 8!""", 0)
-para_talk("""The antique shop is
-on what Block of
-Dentown?""", 0)
-text("""{c 2 1 0 0}Block2
-""")
-text("""{c 0 2 1 1}Block3
-""")
-text("""{c 1 0 2 2}Block4""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 8!{a 1}\p")
+wait(0)
+text("{a 2}The antique shop is\non what Block of\nDentown?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}Block2\n")
+text("{c 0 2 1 1}Block3\n")
+text("{c 1 0 2 2}Block4")
 pick([0xC8, 0xCB, 0xCB], 0, True, True)
 page()
 end(5)
@@ -292,15 +272,15 @@ pic(27)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 9!""", 0)
-para_talk("""What kind of toy
-is in Mayl's room?""", 0)
-text("""{c 2 1 0 0}A game machine
-""")
-text("""{c 0 2 1 1}A stuffed Lan
-""")
-text("""{c 1 0 2 2}A stuffed animal""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 9!{a 1}\p")
+wait(0)
+text("{a 2}What kind of toy\nis in Mayl's room?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}A game machine\n")
+text("{c 0 2 1 1}A stuffed Lan\n")
+text("{c 1 0 2 2}A stuffed animal")
 pick([0xCB, 0xCB, 0xC9], 0, True, True)
 page()
 end(5)
@@ -312,15 +292,15 @@ pic(27)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 10!""", 0)
-para_talk("""What are Ms.Mari's
-measurements?""", 0)
-text("""{c 2 1 0 0}30,25,30
-""")
-text("""{c 0 2 1 1}33,22,33
-""")
-text("""{c 1 0 2 2}44,33,44""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 10!{a 1}\p")
+wait(0)
+text("{a 2}What are Ms.Mari's\nmeasurements?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}30,25,30\n")
+text("{c 0 2 1 1}33,22,33\n")
+text("{c 1 0 2 2}44,33,44")
 pick([0xCB, 0xCA, 0xCB], 0, True, True)
 page()
 end(5)
@@ -333,15 +313,14 @@ pic(27)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Well,well! Very good
-young man!{anim 1}""", 0)
-para_talk("""And here is your
-prize!""", 0)
+text("Well,well! Very good\nyoung man!{a 1}\p")
+wait(0)
+text("{a 2}And here is your\nprize!{a 1}\p")
+wait(0)
 hidepic()
 pc_anim_start(30)
 add_chip("Ratton3 M", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip Ratton3 M}\"!""")
+text("Lan got a chip for\n\"{chip Ratton3 M}\"!")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -354,48 +333,47 @@ section_start(0xCB)
 se(0x6C)
 pic(27)
 dialog_up()
-para_talk("""Yes,I knew that
-you would never pass
-my quiz!""", 0)
-para_talk_end("""Buwahahahahaha!""")
+text("{a 2}Yes,I knew that\nyou would never pass\nmy quiz!{a 1}\p")
+wait(0)
+text("{a 2}Buwahahahahaha!{a 1}\p")
+end(5)
 section_end()
 
 # 0xCC @ 0x70E090
 section_start(0xCC)
 pic(27)
 dialog_up()
-para_talk_end("""Hmmm...I need to
-go out and look for
-some more questions!""")
+text("{a 2}Hmmm...I need to\ngo out and look for\nsome more questions!{a 1}\p")
+end(5)
 section_end()
 
 # 0xDC @ 0x70E0FB
 section_start(0xDC)
 dialog_up()
-para_general_end("""Securely locked.
-You push and pull to
-no avail""")
+text("Securely locked.\nYou push and pull to\nno avail\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x70E132
 section_start(0xDD)
-if_story(0x50, 0x5F, 0xDF, 0xFF)
+if_story(0x50, 0x5F, 0xDF)
 dialog_up()
-para_general("""Securely locked""", 0)
-para_general_end("""You'll need to
-unlock it from
-inside the network""")
+text("Securely locked\p")
+wait(0)
+text("You'll need to\nunlock it from\ninside the network\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x70E184
 section_start(0xDE)
 dialog_up()
-para_general_end("""It's locked...""")
+text("It's locked...\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x70E19E
 section_start(0xDF)
 dialog_up()
-para_general_end("""Only employees are
-allowed in here""")
+text("Only employees are\nallowed in here\p")
+end(5)
 section_end()

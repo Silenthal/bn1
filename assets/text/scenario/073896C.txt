@@ -4,7 +4,8 @@ section_count(0xD)
 section_start(0x00)
 dialog_up()
 se(0xAA)
-para_general("""*Brrring...*""")
+text("*Brrring...*\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -12,9 +13,8 @@ section_end()
 section_start(0x01)
 pic(28)
 dialog_up()
-para_talk("""Dr.Hikari speaking{anim 1}.{delay}
-{anim 2}Oh,hello honey! Yes,
-Lan was just here.""")
+text("{a 2}Dr.Hikari speaking{a 1}.{d}\n{a 2}Oh,hello honey! Yes,\nLan was just here.{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -22,9 +22,8 @@ section_end()
 section_start(0x02)
 pic(12)
 dialog_up()
-para_talk("""I'm worried{anim 1}...{delay}
-{anim 2}I think those two
-are in trouble...""")
+text("{a 2}I'm worried{a 1}...{d}\n{a 2}I think those two\nare in trouble...{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -32,11 +31,10 @@ section_end()
 section_start(0x03)
 pic(28)
 dialog_up()
-para_talk("""Don't worry,I'll
-look out for them.""", 0)
-para_talk("""I'll never let what
-happened last time
-happen again...""")
+text("{a 2}Don't worry,I'll\nlook out for them.{a 1}\p")
+wait(0)
+text("{a 2}I'll never let what\nhappened last time\nhappen again...{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -44,9 +42,8 @@ section_end()
 section_start(0x04)
 pic(12)
 dialog_up()
-para_talk("""Honey{anim 1}...{delay}
-{anim 2}I'm sorry to have
-called you at work.""")
+text("{a 2}Honey{a 1}...{d}\n{a 2}I'm sorry to have\ncalled you at work.{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -54,9 +51,8 @@ section_end()
 section_start(0x05)
 pic(28)
 dialog_up()
-para_talk("""No,I'm sorry for
-not being at home
-more...""")
+text("{a 2}No,I'm sorry for\nnot being at home\nmore...{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -64,11 +60,10 @@ section_end()
 section_start(0x06)
 pic(12)
 dialog_up()
-para_talk("""Hmm{anim 1}...{delay}
-{anim 2}That is true.""", 0)
-para_general("""...{delay}{anim 2}But,it's OK!
-I'll be fine by
-myself here!{anim 1}""")
+text("{a 2}Hmm{a 1}...{d}\n{a 2}That is true.{a 1}\p")
+wait(0)
+text("...{d}{a 2}But,it's OK!\nI'll be fine by\nmyself here!{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -76,8 +71,8 @@ section_end()
 section_start(0x07)
 pic(28)
 dialog_up()
-para_talk("""Good{anim 1}...{delay}{anim 2}I'm glad
-to hear that.""")
+text("{a 2}Good{a 1}...{d}{a 2}I'm glad\nto hear that.{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -85,7 +80,8 @@ section_end()
 section_start(0x08)
 pic(12)
 dialog_up()
-para_talk("""Bye!""")
+text("{a 2}Bye!{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -93,16 +89,16 @@ section_end()
 section_start(0x09)
 hidepic()
 dialog_up()
-para_general_end("""*bleep*{delay} *bleep*""", 0)
+text("*bleep*{d} *bleep*\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x738C4B
 section_start(0x0A)
 pic(27)
 dialog_up()
-para_talk("""Dr.Hikari! I've got
-info on the virus in
-the WWW rocket!""")
+text("{a 2}Dr.Hikari! I've got\ninfo on the virus in\nthe WWW rocket!{a 1}\p")
+wait(5)
 jump(0x0B)
 section_end()
 
@@ -110,14 +106,12 @@ section_end()
 section_start(0x0B)
 pic(28)
 dialog_up()
-para_general("""{...}{anim 2}It's the
-LifeVirus{anim 1}...{delay}
-{anim 2}I see...{anim 1}""", 0)
-para_talk("""Lan{anim 1}...{delay}{anim 2}and Hub don't
-have a chance...""", 0)
-para_talk("""...We've got to act
-fast! Can you help
-me?""")
+text("{...}{a 2}It's the\nLifeVirus{a 1}...{d}\n{a 2}I see...{a 1}\p")
+wait(0)
+text("{a 2}Lan{a 1}...{d}{a 2}and Hub don't\nhave a chance...{a 1}\p")
+wait(0)
+text("{a 2}...We've got to act\nfast! Can you help\nme?{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -125,5 +119,6 @@ section_end()
 section_start(0x0C)
 pic(27)
 dialog_up()
-para_talk_end("""Yessir!""", 0)
+text("{a 2}Yessir!{a 1}\p")
+end(0)
 section_end()

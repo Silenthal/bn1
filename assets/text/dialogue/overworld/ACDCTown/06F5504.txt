@@ -4,47 +4,36 @@ section_count(0xEB)
 section_start(0x00)
 pic(1)
 dialog_up()
-text_talking("""You came to ask me
-about {key PET}s?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}You came to ask me\nabout {key PET}s?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x01, 0xFF], 0, False, True)
-para_talk("""OK,then I'll tell
-you about myself
-instead.""", 0)
-para_talk("""I'm still only 8
-years old. I skipped
-a grade.""", 0)
-para_talk("""My family has some
-money,and I know
-all about {key PET}s.""", 0)
-para_general_end("""...{anim 2}but I'm not real
-good at gym class.{anim 1}""")
+text("{a 2}OK,then I'll tell\nyou about myself\ninstead.{a 1}\p")
+wait(0)
+text("{a 2}I'm still only 8\nyears old. I skipped\na grade.{a 1}\p")
+wait(0)
+text("{a 2}My family has some\nmoney,and I know\nall about {key PET}s.{a 1}\p")
+wait(0)
+text("...{a 2}but I'm not real\ngood at gym class.{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x6F57FE
 section_start(0x01)
 pic(1)
 dialog_up()
-para_talk("""The NetNavi you have
-is determined by the
-{key PET} you have.""", 0)
-para_talk("""But nobody uses the
-default settings!
-You gotta customize!""", 0)
-para_talk("""If you install an
-emotion program you
-can chat with it,""", 0)
-para_talk("""or if you collect
-battle chips,you can
-become a NetBattler!""", 0)
-para_talk("""I meant to ask you
-about your {key PET}...
-Never seen that one.""", 0)
-para_talk_end("""I guess that must
-be an old type. Must
-suck to be poor.""")
+text("{a 2}The NetNavi you have\nis determined by the\n{key PET} you have.{a 1}\p")
+wait(0)
+text("{a 2}But nobody uses the\ndefault settings!\nYou gotta customize!{a 1}\p")
+wait(0)
+text("{a 2}If you install an\nemotion program you\ncan chat with it,{a 1}\p")
+wait(0)
+text("{a 2}or if you collect\nbattle chips,you can\nbecome a NetBattler!{a 1}\p")
+wait(0)
+text("{a 2}I meant to ask you\nabout your {key PET}...\nNever seen that one.{a 1}\p")
+wait(0)
+text("{a 2}I guess that must\nbe an old type. Must\nsuck to be poor.{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x6F5997
@@ -53,9 +42,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -63,24 +50,23 @@ section_end()
 
 # 0x0A @ 0x6F59EC
 section_start(0x0A)
-if_story(0x40, 0x40, 0x2A, 0xFF)
+if_story(0x40, 0x40, 0x2A)
 pic(1)
 dialog_up()
-para_talk("""I need to get back
-to studying...""", 0)
-para_talk_end("""I'm hoping to skip
-to Jr. High!""", 0)
+text("{a 2}I need to get back\nto studying...{a 1}\p")
+wait(0)
+text("{a 2}I'm hoping to skip\nto Jr. High!{a 1}\p")
+end(0)
 section_end()
 
 # 0x14 @ 0x6F5A62
 section_start(0x14)
-if_story(0x26, 0x26, 0x19, 0xFF)
-if_story(0x27, 0x27, 0x1E, 0xFF)
+if_story(0x26, 0x26, 0x19)
+if_story(0x27, 0x27, 0x1E)
 pic(1)
 dialog_up()
-para_talk_end("""Did you find the
-boy from B Class?
-Don't give up!""", 0)
+text("{a 2}Did you find the\nboy from B Class?\nDon't give up!{a 1}\p")
+end(0)
 section_end()
 
 # 0x19 @ 0x6F5ABA
@@ -88,55 +74,50 @@ section_start(0x19)
 if_flag(176, 0x1A, 0xFF)
 pic(1)
 dialog_up()
-para_talk_end("""Did you find the
-boy from B Class?
-Don't give up!""", 0)
+text("{a 2}Did you find the\nboy from B Class?\nDon't give up!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1A @ 0x6F5B04
 section_start(0x1A)
 pic(1)
 dialog_up()
-para_talk("""My family,has about
-10 cars...""", 0)
-text("""{anim 2}Want to hear the
-rest?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}My family,has about\n10 cars...{a 1}\p")
+wait(0)
+text("{a 2}Want to hear the\nrest?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x1B, 0xFF], 0, False, True)
-para_talk_end("""Never mind,then.""", 0)
+text("{a 2}Never mind,then.{a 1}\p")
+end(0)
 section_end()
 
 # 0x1B @ 0x6F5B83
 section_start(0x1B)
-para_talk("""One of them was
-stolen recently!""", 0)
-para_talk_end("""We just bought
-another one to
-replace it,though.""", 0)
+text("{a 2}One of them was\nstolen recently!{a 1}\p")
+wait(0)
+text("{a 2}We just bought\nanother one to\nreplace it,though.{a 1}\p")
+end(0)
 section_end()
 
 # 0x1E @ 0x6F5BEC
 section_start(0x1E)
 pic(1)
 dialog_up()
-para_talk_end("""Not bad. Not bad
-at all...""", 0)
+text("{a 2}Not bad. Not bad\nat all...{a 1}\p")
+end(0)
 section_end()
 
 # 0x23 @ 0x6F5C22
 section_start(0x23)
-if_story(0x50, 0x52, 0x32, 0xFF)
-if_story(0x53, 0x53, 0x3C, 0xFF)
+if_story(0x50, 0x52, 0x32)
+if_story(0x53, 0x53, 0x3C)
 pic(1)
 dialog_up()
-para_talk("""I'm collecting
-antiques! They're
-just so fashionable.""", 0)
-para_talk_end("""But I guess you
-wouldn't understand
-that...""", 0)
+text("{a 2}I'm collecting\nantiques! They're\njust so fashionable.{a 1}\p")
+wait(0)
+text("{a 2}But I guess you\nwouldn't understand\nthat...{a 1}\p")
+end(0)
 section_end()
 
 # 0x2A @ 0x6F5CBA
@@ -145,12 +126,10 @@ if_flag(145, 0x2D, 0xFF)
 set_flag(145)
 pic(1)
 dialog_up()
-para_talk("""Lan,thank you for
-the birthday
-present!""", 0)
-para_talk("""Please take this
-as a token of my
-thanks!""")
+text("{a 2}Lan,thank you for\nthe birthday\npresent!{a 1}\p")
+wait(0)
+text("{a 2}Please take this\nas a token of my\nthanks!{a 1}\p")
+wait(5)
 jump(0x2B)
 section_end()
 
@@ -160,8 +139,7 @@ hidepic()
 dialog_up()
 pc_anim_start(30)
 award_zenny([10000, 10000])
-text("""Lan got
-10,000 zenny!""")
+text("Lan got\n10,000 zenny!")
 pc_wait()
 pc_anim(4)
 pc_unlock()
@@ -173,19 +151,17 @@ section_end()
 section_start(0x2D)
 pic(1)
 dialog_up()
-para_talk_end("""A party? I go to
-so many of them...""", 0)
+text("{a 2}A party? I go to\nso many of them...{a 1}\p")
+end(0)
 section_end()
 
 # 0x32 @ 0x6F5DAE
 section_start(0x32)
 pic(1)
 dialog_up()
-text("""{anim 2}Lan,have you heard
-about the Undernet?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Lan,have you heard\nabout the Undernet?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x34, 0x33], 0, False, True)
 end()
 section_end()
@@ -194,28 +170,23 @@ section_end()
 section_start(0x33)
 pic(1)
 dialog_up()
-para_talk("""It's an underground
-network. Access is
-only for criminals.""", 0)
-para_talk("""There's no control,
-and it's full of
-strong viruses.""", 0)
-para_talk("""But there are some
-chips that you can
-only get there.""", 0)
-para_talk_end("""I'll bet that you
-can access the WWW
-server from there.""", 0)
+text("{a 2}It's an underground\nnetwork. Access is\nonly for criminals.{a 1}\p")
+wait(0)
+text("{a 2}There's no control,\nand it's full of\nstrong viruses.{a 1}\p")
+wait(0)
+text("{a 2}But there are some\nchips that you can\nonly get there.{a 1}\p")
+wait(0)
+text("{a 2}I'll bet that you\ncan access the WWW\nserver from there.{a 1}\p")
+end(0)
 section_end()
 
 # 0x34 @ 0x6F5F09
 section_start(0x34)
 pic(1)
 dialog_up()
-text("""{anim 2}You know everything?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}You know everything?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x35, 0x33], 0, False, True)
 end()
 section_end()
@@ -224,93 +195,88 @@ section_end()
 section_start(0x35)
 pic(1)
 dialog_up()
-para_general_end("""...{delay}{anim 2}Never mind,then.{anim 1}""", 0)
+text("...{d}{a 2}Never mind,then.{a 1}\p")
+end(0)
 section_end()
 
 # 0x3C @ 0x6F5F7D
 section_start(0x3C)
 pic(1)
 dialog_up()
-para_talk_end("""It's all up to
-you,now.""", 0)
+text("{a 2}It's all up to\nyou,now.{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x6F60E5
 section_start(0xDC)
 dialog_up()
-para_general_end("""Another popular
-toy. You can jack
-into some of these""")
+text("Another popular\ntoy. You can jack\ninto some of these\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x6F6122
 section_start(0xDD)
 dialog_up()
-para_general_end("""An antique cupboard
-filled with china""")
+text("An antique cupboard\nfilled with china\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x6F614F
 section_start(0xDE)
 dialog_up()
-para_general_end("""It's filled with
-small dolls""")
+text("It's filled with\nsmall dolls\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x6F6174
 section_start(0xDF)
 dialog_up()
-para_general_end("""A small desk made
-to Yai's size""")
+text("A small desk made\nto Yai's size\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x6F619C
 section_start(0xE0)
 dialog_up()
-para_general("""A beautiful
-telephone""", 0)
-para_general_end("""Looks like there's
-a jack in port""")
+text("A beautiful\ntelephone\p")
+wait(0)
+text("Looks like there's\na jack in port\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x6F61DF
 section_start(0xE1)
 dialog_up()
-para_general_end("""A very warmーlooking
-down blanket. Must
-feel great in winter""")
+text("A very warmーlooking\ndown blanket. Must\nfeel great in winter\p")
+end(5)
 section_end()
 
 # 0xE2 @ 0x6F6223
 section_start(0xE2)
 dialog_up()
-para_general_end("""A very strange,
-scary looking doll.
-Creepy!""")
+text("A very strange,\nscary looking doll.\nCreepy!\p")
+end(5)
 section_end()
 
 # 0xE3 @ 0x6F6259
 section_start(0xE3)
 dialog_up()
-para_general("""A portrait of Yai.
-Not in the best
-of taste""", 0)
-para_general_end("""There's a jack in
-port under the
-portrait""")
+text("A portrait of Yai.\nNot in the best\nof taste\p")
+wait(0)
+text("There's a jack in\nport under the\nportrait\p")
+end(5)
 section_end()
 
 # 0xE4 @ 0x6F62BB
 section_start(0xE4)
 dialog_up()
-para_general_end("""A gorgeous mirror.
-Yai gets ready in
-the morning here""")
+text("A gorgeous mirror.\nYai gets ready in\nthe morning here\p")
+end(5)
 section_end()
 
 # 0xE5 @ 0x6F62F9
 section_start(0xE5)
 dialog_up()
-para_general_end("""The head of some
-mysterious animal""")
+text("The head of some\nmysterious animal\p")
+end(5)
 section_end()

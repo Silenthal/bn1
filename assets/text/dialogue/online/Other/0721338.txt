@@ -4,38 +4,33 @@ section_count(0xA)
 section_start(0x00)
 pic(36)
 dialog_up()
-para_talk_end("""Today,I'm handling
-the channel
-switching features!""")
+text("{a 2}Today,I'm handling\nthe channel\nswitching features!{a 1}\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x721391
 section_start(0x01)
 pic(41)
 dialog_up()
-para_talk("""Have you ever
-noticed that 
-sometimes you press""", 0)
-para_talk("""the channel change
-button,and nothing
-happens?""", 0)
-para_talk("""That's because the
-channel switching
-program wasn't""", 0)
-para_talk_end("""paying attention
-to his job.""")
+text("{a 2}Have you ever\nnoticed that \nsometimes you press{a 1}\p")
+wait(0)
+text("{a 2}the channel change\nbutton,and nothing\nhappens?{a 1}\p")
+wait(0)
+text("{a 2}That's because the\nchannel switching\nprogram wasn't{a 1}\p")
+wait(0)
+text("{a 2}paying attention\nto his job.{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x72146A
 section_start(0x02)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(857)
 pc_anim_start(50)
 add_chip("Escape L", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Escape L}\"!""")
+text("MegaMan got a chip\nfor \"{chip Escape L}\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()

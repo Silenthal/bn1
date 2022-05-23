@@ -3,39 +3,35 @@ section_count(0x29)
 # 0x00 @ 0x71FB9E
 section_start(0x00)
 dialog_up()
-para_general("""It looks like a
-connection to the
-net...""", 0)
-para_general_end("""But MegaMan doesn't
-have access!""", 0)
+text("It looks like a\nconnection to the\nnet...\p")
+wait(0)
+text("But MegaMan doesn't\nhave access!\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x71FBF7
 section_start(0x01)
 set_flag(74)
 dialog_up()
-para_general("""MegaMan bookmarked
-Dad's computer!""", 0)
-para_general_end("""You can now freely
-enter here!""", 0)
+text("MegaMan bookmarked\nDad's computer!\p")
+wait(0)
+text("You can now freely\nenter here!\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x71FC4E
 section_start(0x04)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(690)
 pc_anim_start(50)
-add_item("★Dad", 1, 0xFF, 0xFF, 0xFF)
-para_general("""MegaMan got;
-\"{key ★Dad}\"!""", 0)
-para_general("""(Use this item at
- the access point to
- this computer""", 0)
-text(""" for free access
- between it and the
- net)""")
+add_item("★Dad", 1)
+text("MegaMan got;\n\"{key ★Dad}\"!\p")
+wait(0)
+text("(Use this item at\n the access point to\n this computer\p")
+wait(0)
+text(" for free access\n between it and the\n net)")
 pc_anim_end()
 page()
 end(5)
@@ -44,17 +40,13 @@ section_end()
 # 0x05 @ 0x71FD16
 section_start(0x05)
 dialog_up()
-para_general("""This is a \"virus
-machine.\" You can
-use it for training.""", 0)
-para_general("""It will create a
-virus according to
-your Navi's power.""", 0)
-text("""Want to try some
-virus busting?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("This is a \"virus\nmachine.\" You can\nuse it for training.\p")
+wait(0)
+text("It will create a\nvirus according to\nyour Navi's power.\p")
+wait(0)
+text("Want to try some\nvirus busting?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x06, 0xFF], 0, False, False)
 end(5)
 section_end()
@@ -67,18 +59,16 @@ section_end()
 
 # 0x0A @ 0x71FDDE
 section_start(0x0A)
-if_story(0x23, 0x57, 0x28, 0xFF)
+if_story(0x23, 0x57, 0x28)
 if_flag(226, 0x12, 0xFF)
 pic(36)
 dialog_up()
-para_talk("""I am just a
-caretaker program,
-not your dad's Navi.""", 0)
-para_talk("""MegaMan's power up
-program? It's not
-here.""", 0)
-para_talk("""It must be in your
-father's {key PET}.""")
+text("{a 2}I am just a\ncaretaker program,\nnot your dad's Navi.{a 1}\p")
+wait(0)
+text("{a 2}MegaMan's power up\nprogram? It's not\nhere.{a 1}\p")
+wait(0)
+text("{a 2}It must be in your\nfather's {key PET}.{a 1}\p")
+wait(5)
 jump(0x0B)
 section_end()
 
@@ -86,9 +76,8 @@ section_end()
 section_start(0x0B)
 pic(34)
 dialog_up()
-para_talk("""Lan! He said he
-doesn't have my
-power up program!""")
+text("{a 2}Lan! He said he\ndoesn't have my\npower up program!{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -96,9 +85,8 @@ section_end()
 section_start(0x0C)
 pic(0)
 dialog_up()
-para_talk("""Ah,well...
-Let's just leave
-him a message.""")
+text("{a 2}Ah,well...\nLet's just leave\nhim a message.{a 1}\p")
+wait(5)
 jump(0x0D)
 section_end()
 
@@ -106,9 +94,8 @@ section_end()
 section_start(0x0D)
 hidepic()
 dialog_up()
-para_general("""*click*
-*click*
-*click*""")
+text("*click*\n*click*\n*click*\p")
+wait(5)
 jump(0x0E)
 section_end()
 
@@ -116,8 +103,8 @@ section_end()
 section_start(0x0E)
 pic(0)
 dialog_up()
-para_talk("""OK,give this to him,
-MegaMan!""")
+text("{a 2}OK,give this to him,\nMegaMan!{a 1}\p")
+wait(5)
 jump(0x0F)
 section_end()
 
@@ -125,7 +112,8 @@ section_end()
 section_start(0x0F)
 pic(34)
 dialog_up()
-para_talk("""OK!""")
+text("{a 2}OK!{a 1}\p")
+wait(5)
 jump(0x10)
 section_end()
 
@@ -133,9 +121,8 @@ section_end()
 section_start(0x10)
 hidepic()
 dialog_up()
-para_general("""MegaMan gave Lan's
-mail to the
-caretaker program.""")
+text("MegaMan gave Lan's\nmail to the\ncaretaker program.\p")
+wait(5)
 jump(0x11)
 section_end()
 
@@ -143,8 +130,8 @@ section_end()
 section_start(0x11)
 pic(34)
 dialog_up()
-para_talk("""OK! Give that to
-Lan's dad!""")
+text("{a 2}OK! Give that to\nLan's dad!{a 1}\p")
+wait(5)
 jump(0x12)
 section_end()
 
@@ -153,15 +140,14 @@ section_start(0x12)
 set_flag(226)
 pic(36)
 dialog_up()
-para_talk_end("""I have the message
-for your father.""", 0)
+text("{a 2}I have the message\nfor your father.{a 1}\p")
+end(0)
 section_end()
 
 # 0x28 @ 0x720065
 section_start(0x28)
 pic(36)
 dialog_up()
-para_talk_end("""I am just a
-caretaker program,
-not your dad's Navi.""", 0)
+text("{a 2}I am just a\ncaretaker program,\nnot your dad's Navi.{a 1}\p")
+end(0)
 section_end()

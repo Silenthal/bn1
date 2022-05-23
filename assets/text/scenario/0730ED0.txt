@@ -4,12 +4,10 @@ section_count(0xB)
 section_start(0x00)
 pic(23)
 dialog_up()
-para_talk("""Really,
-I don't know how
-to thank you...""", 0)
-para_talk("""I'll do my best to
-keep the water clean
-from now on!""")
+text("{a 2}Really,\nI don't know how\nto thank you...{a 1}\p")
+wait(0)
+text("{a 2}I'll do my best to\nkeep the water clean\nfrom now on!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -17,7 +15,8 @@ section_end()
 section_start(0x01)
 pic(9)
 dialog_up()
-para_general("""{anim 2}Dad! I..I..{anim 1}*sniff*""")
+text("{a 2}Dad! I..I..{a 1}*sniff*\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -25,7 +24,8 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_general("""・・・""")
+text("・・・\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -33,7 +33,8 @@ section_end()
 section_start(0x03)
 pic(34)
 dialog_up()
-para_talk("""Ahh...family!""")
+text("{a 2}Ahh...family!{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -41,7 +42,8 @@ section_end()
 section_start(0x04)
 pic(0)
 dialog_up()
-para_talk("""Yeah,you're right...""")
+text("{a 2}Yeah,you're right...{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -49,9 +51,8 @@ section_end()
 section_start(0x05)
 pic(34)
 dialog_up()
-para_talk("""Huh? I was expecting
-the usual sarcasm...
-You homesick,Lan?""")
+text("{a 2}Huh? I was expecting\nthe usual sarcasm...\nYou homesick,Lan?{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -59,7 +60,8 @@ section_end()
 section_start(0x06)
 pic(0)
 dialog_up()
-para_talk("""Me? Never!""")
+text("{a 2}Me? Never!{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -67,12 +69,10 @@ section_end()
 section_start(0x07)
 pic(34)
 dialog_up()
-para_talk("""Okay{anim 1}...{delay}
-{anim 2}Time is tight now,
-Lan!""", 0)
-para_talk("""This WWW plot is
-getting deeper and
-darker!""")
+text("{a 2}Okay{a 1}...{d}\n{a 2}Time is tight now,\nLan!{a 1}\p")
+wait(0)
+text("{a 2}This WWW plot is\ngetting deeper and\ndarker!{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -80,9 +80,8 @@ section_end()
 section_start(0x08)
 pic(0)
 dialog_up()
-para_talk("""Yeah,and we have to
-show that Chaud what
-we can do!""")
+text("{a 2}Yeah,and we have to\nshow that Chaud what\nwe can do!{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -90,22 +89,19 @@ section_end()
 section_start(0x09)
 pic(34)
 dialog_up()
-para_talk_end("""That's the spirit!""", 0)
+text("{a 2}That's the spirit!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x731147
 section_start(0x0A)
 dialog_up()
-para_general("""And so,Lan & MegaMan
-solved one mystery,
-but...""", 0)
-para_general("""The WWW was getting
-closer to total
-control of the net!""", 0)
-para_general("""And why was the WWW
-collecting the
-superprograms?""", 0)
-para_general_end("""It was up to them to
-stop the WWW & bring
-peace to the net!""", 0)
+text("And so,Lan & MegaMan\nsolved one mystery,\nbut...\p")
+wait(0)
+text("The WWW was getting\ncloser to total\ncontrol of the net!\p")
+wait(0)
+text("And why was the WWW\ncollecting the\nsuperprograms?\p")
+wait(0)
+text("It was up to them to\nstop the WWW & bring\npeace to the net!\p")
+end(0)
 section_end()

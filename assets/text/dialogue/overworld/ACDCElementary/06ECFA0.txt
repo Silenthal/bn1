@@ -3,18 +3,16 @@ section_count(0xEB)
 # 0x00 @ 0x6ED176
 section_start(0x00)
 dialog_up()
-para_general_end("""It's locked! You'll
-need to destroy
-the lock program.""")
+text("It's locked! You'll\nneed to destroy\nthe lock program.\p")
+end(5)
 section_end()
 
 # 0x01 @ 0x6ED1B7
 section_start(0x01)
 pic(34)
 dialog_up()
-para_talk_end("""Lan! Leave it to
-me! Is there any
-place to jack in?""")
+text("{a 2}Lan! Leave it to\nme! Is there any\nplace to jack in?{a 1}\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x6ED1FD
@@ -22,29 +20,25 @@ section_start(0x02)
 if_story(0x10, 0x1F, 0xFF, 0xDC)
 check_item("SchoolID", 1, 0x03, 0xFF, 0xFF)
 dialog_up()
-para_general_end("""A time recorder
-You need an
-ID card""")
+text("A time recorder\nYou need an\nID card\p")
+end(5)
 section_end()
 
 # 0x03 @ 0x6ED235
 section_start(0x03)
 if_flag(192, 0xDC, 0xFF)
 dialog_up()
-para_general("""A time recorder.
-You need an
-ID card""", 0)
-para_general("""Lan used the
-ID card! It
-worked!!""", 0)
+text("A time recorder.\nYou need an\nID card\p")
+wait(0)
+text("Lan used the\nID card! It\nworked!!\p")
+wait(0)
 pic(0)
-para_talk("""MegaMan! The server
-is just beyond the
-lock!""", 0)
-para_talk("""But be careful!""", 0)
+text("{a 2}MegaMan! The server\nis just beyond the\nlock!{a 1}\p")
+wait(0)
+text("{a 2}But be careful!{a 1}\p")
+wait(0)
 pic(34)
-text_talking("""OK!!""")
-page()
+text("{a 2}OK!!{a 1}\p")
 dialog_down()
 set_flag(192)
 end()
@@ -54,54 +48,50 @@ section_end()
 section_start(0x0A)
 pic(3)
 dialog_up()
-text_talking("""You did pretty good
-today!""")
-text("""{delay}\n""")
-para_talk_end("""Keep it up!""")
+text("{a 2}You did pretty good\ntoday!{a 1}")
+text("{d}\n")
+text("{a 2}Keep it up!{a 1}\p")
+end(5)
 section_end()
 
 # 0x0E @ 0x6ED34C
 section_start(0x0E)
 pic(34)
 dialog_up()
-para_talk_end("""You shouldn't go
-into the office
-unless you need to!""")
+text("{a 2}You shouldn't go\ninto the office\nunless you need to!{a 1}\p")
+end(5)
 section_end()
 
 # 0x14 @ 0x6ED39C
 section_start(0x14)
 pic(34)
 dialog_up()
-para_talk_end("""You shouldn't go
-into the office
-unless you need to!""", 0)
+text("{a 2}You shouldn't go\ninto the office\nunless you need to!{a 1}\p")
+end(0)
 section_end()
 
 # 0x16 @ 0x6ED3E4
 section_start(0x16)
 pic(19)
 dialog_up()
-para_talk("""What are you doing
-here!? Get to class!""", 0)
-para_talk_end("""Ooops... Getting mad
-makes me thirsty!""", 0)
+text("{a 2}What are you doing\nhere!? Get to class!{a 1}\p")
+wait(0)
+text("{a 2}Ooops... Getting mad\nmakes me thirsty!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1E @ 0x6ED45E
 section_start(0x1E)
 pic(34)
 dialog_up()
-para_talk_end("""You shouldn't go
-into the office
-unless you need to!""", 0)
+text("{a 2}You shouldn't go\ninto the office\nunless you need to!{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x6ED61E
 section_start(0xDC)
 pic(34)
 dialog_up()
-para_talk_end("""It's a time
-recorder. We don't
-need to use that.""")
+text("{a 2}It's a time\nrecorder. We don't\nneed to use that.{a 1}\p")
+end(5)
 section_end()

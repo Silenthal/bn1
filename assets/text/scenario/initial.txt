@@ -1,79 +1,76 @@
 section_start(0)
 dialog_up()
-para_talk("Lan,wake up!")
+text("{a 2}Lan,wake up!{a 1}\p")
+wait(5)
 jump(1)
 section_end()
 
 section_start(1)
 pic()
 dialog_up()
-para_static("{...}")
+text("{a 0}{...}{a 0}\p")
+wait(5)
 jump(2)
 section_end()
 
 section_start(2)
 hidepic()
 dialog_up()
-para_talk("""If you don't get
-up,you'll be late
-for school!""")
+text("{a 2}If you don't get\nup,you'll be late\nfor school!{a 1}\p")
+wait(5)
 jump(3)
 section_end()
 
 section_start(3)
 pic()
 dialog_up()
-para_static("{...}")
+text("{a 0}{...}{a 0}\p")
+wait(5)
 jump(4)
 section_end()
 
 section_start(4)
 hidepic()
 dialog_up()
-para_talk("""{key PET} NetNews!
-"WWW crime on
-the rise!\"""", 0)
-para_talk("""It says the WWW plan
-to control the net
-might be starting!""")
+text("{a 2}{key PET} NetNews!\n\"WWW crime on\nthe rise!\"{a 1}\p")
+wait(0)
+text("{a 2}It says the WWW plan\nto control the net\nmight be starting!{a 1}\p")
+wait(5)
 jump(5)
 section_end()
 
 section_start(5)
 pic()
 dialog_up()
-para_talk("""Ungh...
-Sleep...""")
+text("{a 2}Ungh...\nSleep...{a 1}\p")
+wait(5)
 jump(6)
 section_end()
 
 section_start(6)
 hidepic()
 dialog_up()
-para_talk("""You've got mail from
-Dad,too! Look...""", 0)
-para_talk("""\"Sorry I couldn't
- get off work Sunday
- I'll be home soon.\"""", 0)
-para_talk("""\"Here's a present
- for you"it says!""", 0)
-para_talk_end("""There's some battle
-chip data attached!""")
+text("{a 2}You've got mail from\nDad,too! Look...{a 1}\p")
+wait(0)
+text("{a 2}\"Sorry I couldn't\n get off work Sunday\n I'll be home soon.\"{a 1}\p")
+wait(0)
+text("{a 2}\"Here's a present\n for you\"it says!{a 1}\p")
+wait(0)
+text("{a 2}There's some battle\nchip data attached!{a 1}\p")
+end(5)
 section_end()
 
 section_start(7)
 pic()
 dialog_up()
-para_talk("""Yaaaawn{anim 1}...{delay}
-{anim 2}I was just having
-a great dream,too.""")
+text("{a 2}Yaaaawn{a 1}...{d}\n{a 2}I was just having\na great dream,too.{a 1}\p")
+wait(5)
 jump(8)
 section_end()
 
 section_start(8)
 hidepic()
 dialog_up()
-para_talk_end("""I'll expand the chip
-data,so check your
-{key PET} later,OK?""")
+text("{a 2}I'll expand the chip\ndata,so check your\n{key PET} later,OK?{a 1}\p")
+end(5)
 section_end()

@@ -2,60 +2,56 @@ section_count(0xEB)
 
 # 0x00 @ 0x706512
 section_start(0x00)
-if_story(0x40, 0x47, 0x28, 0xFF)
-if_story(0x31, 0x31, 0x0E, 0xFF)
-if_story(0x32, 0x32, 0x19, 0xFF)
+if_story(0x40, 0x47, 0x28)
+if_story(0x31, 0x31, 0x0E)
+if_story(0x32, 0x32, 0x19)
 pic(11)
 dialog_up()
-para_talk_end("""This is Block1
-of Dentown!""", 0)
+text("{a 2}This is Block1\nof Dentown!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x70654F
 section_start(0x01)
-if_story(0x40, 0x47, 0x29, 0xFF)
-if_story(0x31, 0x31, 0x0F, 0xFF)
-if_story(0x32, 0x32, 0x1A, 0xFF)
+if_story(0x40, 0x47, 0x29)
+if_story(0x31, 0x31, 0x0F)
+if_story(0x32, 0x32, 0x1A)
 pic(20)
 dialog_up()
-para_talk("""I'm picking up some
-very bad vibrations!
-Something bad is""", 0)
-para_talk_end("""about to happen!""", 0)
+text("{a 2}I'm picking up some\nvery bad vibrations!\nSomething bad is{a 1}\p")
+wait(0)
+text("{a 2}about to happen!{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x7065C5
 section_start(0x02)
-if_story(0x40, 0x47, 0x2A, 0xFF)
-if_story(0x31, 0x31, 0x10, 0xFF)
-if_story(0x32, 0x32, 0x1B, 0xFF)
+if_story(0x40, 0x47, 0x2A)
+if_story(0x31, 0x31, 0x10)
+if_story(0x32, 0x32, 0x1B)
 pic(16)
 dialog_up()
-para_talk("""In this town,all
-cars run on an
-autopilot system.""", 0)
-para_talk("""The signals change
-according to traffic
-patterns,so drivers""", 0)
-para_talk_end("""just need to sit
-back and relax!""", 0)
+text("{a 2}In this town,all\ncars run on an\nautopilot system.{a 1}\p")
+wait(0)
+text("{a 2}The signals change\naccording to traffic\npatterns,so drivers{a 1}\p")
+wait(0)
+text("{a 2}just need to sit\nback and relax!{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x706687
 section_start(0x03)
 dialog_up()
-para_general_end("""A bus stop...{anim 1}{delay}
-{anim 2}It says \"Dentown,
-Block1\"""", 0)
+text("A bus stop...{a 1}{d}\n{a 2}It says \"Dentown,\nBlock1\"\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x7066C4
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk_end("""I don't think we're
-allowed to jack in
-to that,Lan.""", 0)
+text("{a 2}I don't think we're\nallowed to jack in\nto that,Lan.{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x706715
@@ -63,9 +59,8 @@ section_start(0x0A)
 mail(12)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,you've got
-mail! It's from...
-the WWW!!""", 0)
+text("{a 2}Lan,you've got\nmail! It's from...\nthe WWW!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x70675D
@@ -73,17 +68,16 @@ section_start(0x0B)
 if_flag(588, 0xFF, 0x0C)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,I wanna know
-what's in that mail
-from the WWW!""", 0)
+text("{a 2}Lan,I wanna know\nwhat's in that mail\nfrom the WWW!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0C @ 0x7067A8
 section_start(0x0C)
 pic(34)
 dialog_up()
-para_talk_end("""Lan! Hurry up and
-jack into a signal!""", 0)
+text("{a 2}Lan! Hurry up and\njack into a signal!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0D @ 0x7067DF
@@ -92,9 +86,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -104,170 +96,162 @@ section_end()
 section_start(0x0E)
 pic(11)
 dialog_up()
-para_talk_end("""I'm...{delay 10}
-so...{delay 10}
-scared...!""", 0)
+text("{a 2}I'm...{d 10}\nso...{d 10}\nscared...!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x706860
 section_start(0x0F)
 pic(20)
 dialog_up()
-para_talk_end("""Yep,things turned
-out just as I
-predicted!""", 0)
+text("{a 2}Yep,things turned\nout just as I\npredicted!{a 1}\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x70689C
 section_start(0x10)
 pic(16)
 dialog_up()
-para_talk("""If someone would
-jack in and delete
-the viruses,maybe""", 0)
-para_talk("""the signals could be
-changed back to red!""", 0)
-para_talk_end("""Me? Uh,no,I don't
-think so!""", 0)
+text("{a 2}If someone would\njack in and delete\nthe viruses,maybe{a 1}\p")
+wait(0)
+text("{a 2}the signals could be\nchanged back to red!{a 1}\p")
+wait(0)
+text("{a 2}Me? Uh,no,I don't\nthink so!{a 1}\p")
+end(0)
 section_end()
 
 # 0x19 @ 0x70694C
 section_start(0x19)
 pic(11)
 dialog_up()
-para_talk_end("""You're sure there
-won't be any more
-accidents?""", 0)
+text("{a 2}You're sure there\nwon't be any more\naccidents?{a 1}\p")
+end(0)
 section_end()
 
 # 0x1A @ 0x70698D
 section_start(0x1A)
 pic(20)
 dialog_up()
-para_talk_end("""Whew...{anim 1}{delay}
-{anim 2}That's a relief...""", 0)
+text("{a 2}Whew...{a 1}{d}\n{a 2}That's a relief...{a 1}\p")
+end(0)
 section_end()
 
 # 0x1B @ 0x7069C6
 section_start(0x1B)
 pic(16)
 dialog_up()
-para_talk_end("""Wow,you're brave!""", 0)
+text("{a 2}Wow,you're brave!{a 1}\p")
+end(0)
 section_end()
 
 # 0x28 @ 0x706A02
 section_start(0x28)
 pic(11)
 dialog_up()
-para_talk("""This is Block1 of
-Dentown!""", 0)
-para_talk_end("""The signals? They're
-all working now!""", 0)
+text("{a 2}This is Block1 of\nDentown!{a 1}\p")
+wait(0)
+text("{a 2}The signals? They're\nall working now!{a 1}\p")
+end(0)
 section_end()
 
 # 0x29 @ 0x706A5D
 section_start(0x29)
 pic(20)
 dialog_up()
-para_talk("""I get so scared just
-thinking about
-another accident...""", 0)
-para_talk_end("""I can't even cross
-the road!""", 0)
+text("{a 2}I get so scared just\nthinking about\nanother accident...{a 1}\p")
+wait(0)
+text("{a 2}I can't even cross\nthe road!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2A @ 0x706ACD
 section_start(0x2A)
 pic(16)
 dialog_up()
-para_talk("""I wonder which is
-safer?""", 0)
-para_talk_end("""Manual driving or
-autopilot driving?""", 0)
+text("{a 2}I wonder which is\nsafer?{a 1}\p")
+wait(0)
+text("{a 2}Manual driving or\nautopilot driving?{a 1}\p")
+end(0)
 section_end()
 
 # 0x2D @ 0x706B27
 section_start(0x2D)
 pic(11)
 dialog_up()
-para_talk("""This is Block1 of
-Dentown!""", 0)
-para_talk_end("""The signals? They're
-all working now!""", 0)
+text("{a 2}This is Block1 of\nDentown!{a 1}\p")
+wait(0)
+text("{a 2}The signals? They're\nall working now!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2E @ 0x706B82
 section_start(0x2E)
 pic(20)
 dialog_up()
-para_talk("""I get so scared just
-thinking about
-another accident...""", 0)
-para_talk_end("""I can't even cross
-the road!""", 0)
+text("{a 2}I get so scared just\nthinking about\nanother accident...{a 1}\p")
+wait(0)
+text("{a 2}I can't even cross\nthe road!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2F @ 0x706BF2
 section_start(0x2F)
-if_story(0x53, 0x54, 0x37, 0xFF)
+if_story(0x53, 0x54, 0x37)
 pic(16)
 dialog_up()
-para_talk("""I wonder which is
-safer?""", 0)
-para_talk_end("""Manual driving or
-autopilot driving?""", 0)
+text("{a 2}I wonder which is\nsafer?{a 1}\p")
+wait(0)
+text("{a 2}Manual driving or\nautopilot driving?{a 1}\p")
+end(0)
 section_end()
 
 # 0x37 @ 0x706C5C
 section_start(0x37)
 pic(16)
 dialog_up()
-para_talk("""I wonder which is
-safer?""", 0)
-para_talk("""Manual driving or
-autopilot driving?""", 0)
-para_talk_end("""They both seem
-pretty dangerous
-to me!""", 0)
+text("{a 2}I wonder which is\nsafer?{a 1}\p")
+wait(0)
+text("{a 2}Manual driving or\nautopilot driving?{a 1}\p")
+wait(0)
+text("{a 2}They both seem\npretty dangerous\nto me!{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x706E29
 section_start(0xDC)
 dialog_up()
-para_general_end("""It's a {key PET} repair
-shop. They are
-having a sale now""")
+text("It's a {key PET} repair\nshop. They are\nhaving a sale now\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x706E66
 section_start(0xDD)
 dialog_up()
-para_general_end("""Wonderful aromas
-are wafting from
-this bakery""")
+text("Wonderful aromas\nare wafting from\nthis bakery\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x706E9B
 section_start(0xDE)
 dialog_up()
-para_general_end("""You can't jack in
-to this signal""")
+text("You can't jack in\nto this signal\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x706EC4
 section_start(0xDF)
-if_story(0x40, 0x5F, 0xE0, 0xFF)
+if_story(0x40, 0x5F, 0xE0)
 if_flag(152, 0xE0, 0xFF)
 dialog_up()
-para_general("""This signal has a
-jack in port""", 0)
-para_general_end("""You don't need to
-jack in now,though""")
+text("This signal has a\njack in port\p")
+wait(0)
+text("You don't need to\njack in now,though\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x706F20
 section_start(0xE0)
 dialog_up()
-para_general_end("""This signal has a
-jack in port""")
+text("This signal has a\njack in port\p")
+end(5)
 section_end()

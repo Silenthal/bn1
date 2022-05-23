@@ -4,30 +4,28 @@ section_count(0x5)
 section_start(0x00)
 pic(0)
 dialog_up()
-para_talk("""OK! Let's stop that
-generator! That'll
-keep ElecMan from""", 0)
-para_talk_end("""healing! This isn't
-going to be easy...{anim 1}{delay}
-{anim 2}But here goes!""", 0)
+text("{a 2}OK! Let's stop that\ngenerator! That'll\nkeep ElecMan from{a 1}\p")
+wait(0)
+text("{a 2}healing! This isn't\ngoing to be easy...{a 1}{d}\n{a 2}But here goes!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x73608A
 section_start(0x01)
 pic(0)
 dialog_up()
-text_talking("""Aaaaaaaaand""")
-text("""{delay}\n""")
-para_talk_end("""stay down!!""", 0)
+text("{a 2}Aaaaaaaaand{a 1}")
+text("{d}\n")
+text("{a 2}stay down!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x7360BB
 section_start(0x02)
 pic(47)
 dialog_up()
-para_talk("""WーWhat!?{anim 1}{delay}
-{anim 2}What have you done
-to the generator?""")
+text("{a 2}WーWhat!?{a 1}{d}\n{a 2}What have you done\nto the generator?{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -35,9 +33,8 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""MegaMan! Quick!
-Let's get him while
-we can!""")
+text("{a 2}MegaMan! Quick!\nLet's get him while\nwe can!{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -45,5 +42,6 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk_end("""Leave it to me!""", 0)
+text("{a 2}Leave it to me!{a 1}\p")
+end(0)
 section_end()

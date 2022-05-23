@@ -5,7 +5,6 @@ section_start(0x00)
 pic(0)
 dialog_up()
 set_delay(1)
-text_talking("""Hurry! The place
-is gonna blow!""")
+text("{a 2}Hurry! The place\nis gonna blow!{a 1}")
 end(20)
 section_end()

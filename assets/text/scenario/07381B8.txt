@@ -4,28 +4,24 @@ section_count(0x5)
 section_start(0x00)
 pic(12)
 dialog_up()
-para_talk_end("""Lan!{anim 1} {delay}{anim 2}Look on TV!
-{anim 1}{delay}{anim 2}It's awful!""", 0)
+text("{a 2}Lan!{a 1} {d}{a 2}Look on TV!\n{a 1}{d}{a 2}It's awful!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x738202
 section_start(0x01)
 pic(5)
 dialog_up()
-para_talk("""I am pleased to
-announce that the
-WWW master plan...""", 0)
-para_talk("""Is entering the
-final phase!""", 0)
-para_talk("""Our next targets are
-this country's
-military satellites!""", 0)
-para_talk("""We will be launching
-a hacking rocket
-from our WWW labs...""", 0)
-para_talk("""Once we have control{anim 1}
-{delay}...{anim 2}The EndGame
-begins!""")
+text("{a 2}I am pleased to\nannounce that the\nWWW master plan...{a 1}\p")
+wait(0)
+text("{a 2}Is entering the\nfinal phase!{a 1}\p")
+wait(0)
+text("{a 2}Our next targets are\nthis country's\nmilitary satellites!{a 1}\p")
+wait(0)
+text("{a 2}We will be launching\na hacking rocket\nfrom our WWW labs...{a 1}\p")
+wait(0)
+text("{a 2}Once we have control{a 1}\n{d}...{a 2}The EndGame\nbegins!{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -33,9 +29,8 @@ section_end()
 section_start(0x02)
 pic(34)
 dialog_up()
-para_talk("""Lan!
-We've got to get to
-the WWW labs!""")
+text("{a 2}Lan!\nWe've got to get to\nthe WWW labs!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -43,14 +38,14 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk_end("""Right on! Let's go!""", 0)
+text("{a 2}Right on! Let's go!{a 1}\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x738399
 section_start(0x04)
 pic(12)
 dialog_up()
-para_talk_end("""Lan!?
-Where are you going
-at a time like this?""", 0)
+text("{a 2}Lan!?\nWhere are you going\nat a time like this?{a 1}\p")
+end(0)
 section_end()

@@ -3,13 +3,12 @@ section_count(0x1E)
 # 0x00 @ 0x7146E8
 section_start(0x00)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(695)
 pc_anim_start(50)
 add_chip("SoniWave J", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip SoniWave J}\"!""")
+text("MegaMan got a chip\nfor \"{chip SoniWave J}\"!")
 pc_anim_end()
 page()
 end(5)
@@ -18,22 +17,23 @@ section_end()
 # 0x05 @ 0x71475E
 section_start(0x05)
 dialog_up()
-para_general_end("""The water stops!""", 0)
+text("The water stops!\p")
+end(0)
 section_end()
 
 # 0x06 @ 0x714777
 section_start(0x06)
 dialog_up()
-para_general_end("""Water starts
-flowing!""", 0)
+text("Water starts\nflowing!\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x714795
 section_start(0x07)
 check_item("Handle", 1, 0x0A, 0x0A, 0xFF)
 dialog_up()
-para_general("""The handle is
-missing!""")
+text("The handle is\nmissing!\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -41,8 +41,8 @@ section_end()
 section_start(0x08)
 pic(34)
 dialog_up()
-para_talk("""Looks like it's
-broken...""")
+text("{a 2}Looks like it's\nbroken...{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -50,15 +50,15 @@ section_end()
 section_start(0x09)
 pic(0)
 dialog_up()
-para_talk_end("""Let's worry about
-this one later!""", 0)
+text("{a 2}Let's worry about\nthis one later!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x714821
 section_start(0x0A)
 dialog_up()
-para_general("""The handle is
-missing!""")
+text("The handle is\nmissing!\p")
+wait(5)
 jump(0x0B)
 section_end()
 
@@ -66,9 +66,8 @@ section_end()
 section_start(0x0B)
 pic(34)
 dialog_up()
-para_talk("""Lan! I'll bet we can
-use the handle we
-got from Froid!""", 0)
+text("{a 2}Lan! I'll bet we can\nuse the handle we\ngot from Froid!{a 1}\p")
+wait(0)
 jump(0x0C)
 section_end()
 
@@ -76,7 +75,8 @@ section_end()
 section_start(0x0C)
 pic(0)
 dialog_up()
-para_talk("""Hey,yeah!""")
+text("{a 2}Hey,yeah!{a 1}\p")
+wait(5)
 jump(0x0D)
 section_end()
 
@@ -84,10 +84,10 @@ section_end()
 section_start(0x0D)
 hidepic()
 dialog_up()
-sub_item("Handle", 1, 0xFF, 0xFF, 0xFF)
-para_general("""Lan used the
-{key Handle}!""", 0)
-text("""The handle fits!""")
+sub_item("Handle", 1)
+text("Lan used the\n{key Handle}!\p")
+wait(0)
+text("The handle fits!")
 set_flag(227)
 page()
 end()
@@ -96,15 +96,14 @@ section_end()
 # 0x0E @ 0x7148EA
 section_start(0x0E)
 dialog_up()
-para_general_end("""MegaMan turned the
-handle!""", 0)
+text("MegaMan turned the\nhandle!\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x71490D
 section_start(0x0F)
 pic(34)
 dialog_up()
-para_talk_end("""I don't think we
-need to do that now,
-Lan...""", 0)
+text("{a 2}I don't think we\nneed to do that now,\nLan...{a 1}\p")
+end(0)
 section_end()

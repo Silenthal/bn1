@@ -2,96 +2,85 @@ section_count(0xEB)
 
 # 0x00 @ 0x709D4A
 section_start(0x00)
-if_story(0x50, 0x53, 0x23, 0xFF)
-if_story(0x40, 0x47, 0x1A, 0xFF)
+if_story(0x50, 0x53, 0x23)
+if_story(0x40, 0x47, 0x1A)
 pic(9)
 dialog_up()
-para_talk("""Yeah,I hate summer
-school...But I keep
-coming back to""", 0)
-para_talk_end("""see that teacher!""", 0)
+text("{a 2}Yeah,I hate summer\nschool...But I keep\ncoming back to{a 1}\p")
+wait(0)
+text("{a 2}see that teacher!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x709DB9
 section_start(0x01)
-if_story(0x50, 0x53, 0x24, 0xFF)
-if_story(0x40, 0x47, 0x1B, 0xFF)
+if_story(0x50, 0x53, 0x24)
+if_story(0x40, 0x47, 0x1B)
 pic(10)
 dialog_up()
-para_talk("""She's always so
-cheerful...""", 0)
-para_talk_end("""I wish I could be
-that way...""", 0)
+text("{a 2}She's always so\ncheerful...{a 1}\p")
+wait(0)
+text("{a 2}I wish I could be\nthat way...{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x709E1C
 section_start(0x02)
-if_story(0x50, 0x50, 0x25, 0xFF)
-if_story(0x51, 0x53, 0x28, 0xFF)
-if_story(0x40, 0x47, 0x1C, 0xFF)
+if_story(0x50, 0x50, 0x25)
+if_story(0x51, 0x53, 0x28)
+if_story(0x40, 0x47, 0x1C)
 pic(3, 2)
 dialog_up()
-para_talk("""Hah!
-You thought that I
-was Mari,right?""", 0)
-para_talk("""Nope! I'm her twin
-sister,Yuri!""", 0)
-para_talk("""She only wishes she
-was as good a
-teacher as me!""", 0)
-text_talking("""By the way,are you
-a twin?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Hah!\nYou thought that I\nwas Mari,right?{a 1}\p")
+wait(0)
+text("{a 2}Nope! I'm her twin\nsister,Yuri!{a 1}\p")
+wait(0)
+text("{a 2}She only wishes she\nwas as good a\nteacher as me!{a 1}\p")
+wait(0)
+text("{a 2}By the way,are you\na twin?\n{a 1}")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x03, 0xFF], 0, False, True)
-para_talk("""That right? Well
-I'll tell you
-this...""", 0)
-para_talk_end("""We twins have a
-special bond!
-Hah!""", 0)
+text("{a 2}That right? Well\nI'll tell you\nthis...{a 1}\p")
+wait(0)
+text("{a 2}We twins have a\nspecial bond!\nHah!{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x709F63
 section_start(0x03)
 pic(3, 2)
 dialog_up()
-para_talk_end("""You sure?
-Mari never mentioned
-that...Hah!""", 0)
+text("{a 2}You sure?\nMari never mentioned\nthat...Hah!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1A @ 0x709FCE
 section_start(0x1A)
 pic(9)
 dialog_up()
-para_talk_end("""If Ms.Yuri is
-teaching it,I'll
-study it!""", 0)
+text("{a 2}If Ms.Yuri is\nteaching it,I'll\nstudy it!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1B @ 0x70A00A
 section_start(0x1B)
 pic(10)
 dialog_up()
-para_talk("""People have been
-telling me that I've
-become more""", 0)
-para_talk_end("""cheerful! It's all
-thanks to Ms.Yuri!""", 0)
+text("{a 2}People have been\ntelling me that I've\nbecome more{a 1}\p")
+wait(0)
+text("{a 2}cheerful! It's all\nthanks to Ms.Yuri!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1C @ 0x70A07D
 section_start(0x1C)
 pic(3, 2)
 dialog_up()
-para_talk("""Hey! You wanna'
-hear a secret about
-Mari?""", 0)
-text("""{c 1 1 0 0}Sure!
-""")
-text("""{c 0 0 1 1}Uh,no!""")
+text("{a 2}Hey! You wanna'\nhear a secret about\nMari?{a 1}\p")
+wait(0)
+text("{c 1 1 0 0}Sure!\n")
+text("{c 0 0 1 1}Uh,no!")
 pick([0x1E, 0x1D], 0, False, True)
 end()
 section_end()
@@ -100,49 +89,46 @@ section_end()
 section_start(0x1D)
 pic(3, 2)
 dialog_up()
-para_talk_end("""Come on...
-You know you do!""", 0)
+text("{a 2}Come on...\nYou know you do!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1E @ 0x70A10B
 section_start(0x1E)
 pic(3, 2)
 dialog_up()
-para_talk("""Her measurements are
-33,22,33!...What?
-you don't care?""", 0)
-para_talk_end("""Well,you will when
-you're a little
-older! Hah!""", 0)
+text("{a 2}Her measurements are\n33,22,33!...What?\nyou don't care?{a 1}\p")
+wait(0)
+text("{a 2}Well,you will when\nyou're a little\nolder! Hah!{a 1}\p")
+end(0)
 section_end()
 
 # 0x23 @ 0x70A19C
 section_start(0x23)
 pic(9)
 dialog_up()
-para_talk_end("""If Ms.Yuri is
-teaching it,I'll
-study it!""", 0)
+text("{a 2}If Ms.Yuri is\nteaching it,I'll\nstudy it!{a 1}\p")
+end(0)
 section_end()
 
 # 0x24 @ 0x70A1D8
 section_start(0x24)
 pic(10)
 dialog_up()
-para_talk("""People have been
-telling me that I've
-become more""", 0)
-para_talk_end("""cheerful! It's all
-thanks to Ms.Yuri!""", 0)
+text("{a 2}People have been\ntelling me that I've\nbecome more{a 1}\p")
+wait(0)
+text("{a 2}cheerful! It's all\nthanks to Ms.Yuri!{a 1}\p")
+end(0)
 section_end()
 
 # 0x25 @ 0x70A24B
 section_start(0x25)
 pic(3, 2)
 dialog_up()
-para_general("""{..}.""")
-para_talk_end("""Boo!{anim 1}{delay}{..}.
-{anim 2}Hah!""", 0)
+text("{..}.\p")
+wait(5)
+text("{a 2}Boo!{a 1}{d}{..}.\n{a 2}Hah!{a 1}\p")
+end(0)
 section_end()
 
 # 0x28 @ 0x70A292
@@ -151,9 +137,10 @@ check_item("YuriMemo", 1, 0x2B, 0x2B, 0xFF)
 check_item("Lab_Memo", 1, 0x29, 0x29, 0xFF)
 pic(3, 2)
 dialog_up()
-para_general("""{..}.""")
-para_talk_end("""Boo!{anim 1}{delay}{..}.
-{anim 2}Hah!""", 0)
+text("{..}.\p")
+wait(5)
+text("{a 2}Boo!{a 1}{d}{..}.\n{a 2}Hah!{a 1}\p")
+end(0)
 section_end()
 
 # 0x29 @ 0x70A2E3
@@ -162,25 +149,20 @@ if_flag(153, 0x2A, 0xFF)
 set_flag(153)
 pic(3, 2)
 dialog_up()
-para_talk("""Me? An exーmember
-of the WWW?
-Hah!""")
-para_talk("""Hmmm,lemme see that
-Navi of yours...
-Hah!""", 0)
-para_general("""{..}.""", 0)
-para_talk("""I've been waiting
-for a NetBattler
-like you to appear""", 0)
-para_talk("""I've been playing
-the fool to hide
-from the WWW...""", 0)
-para_talk("""Sure,I know how to
-undo some of the
-locks...""", 0)
-para_talk("""Hmmm...
-Lemme check your
-data library...""")
+text("{a 2}Me? An exーmember\nof the WWW?\nHah!{a 1}\p")
+wait(5)
+text("{a 2}Hmmm,lemme see that\nNavi of yours...\nHah!{a 1}\p")
+wait(0)
+text("{..}.\p")
+wait(0)
+text("{a 2}I've been waiting\nfor a NetBattler\nlike you to appear{a 1}\p")
+wait(0)
+text("{a 2}I've been playing\nthe fool to hide\nfrom the WWW...{a 1}\p")
+wait(0)
+text("{a 2}Sure,I know how to\nundo some of the\nlocks...{a 1}\p")
+wait(0)
+text("{a 2}Hmmm...\nLemme check your\ndata library...{a 1}\p")
+wait(5)
 jump(0x2C)
 section_end()
 
@@ -188,9 +170,8 @@ section_end()
 section_start(0x2A)
 pic(3, 2)
 dialog_up()
-para_talk("""Well? Have you
-filled up your data
-library more?""")
+text("{a 2}Well? Have you\nfilled up your data\nlibrary more?{a 1}\p")
+wait(5)
 jump(0x2C)
 section_end()
 
@@ -198,13 +179,12 @@ section_end()
 section_start(0x2B)
 pic(3, 2)
 dialog_up()
-para_talk("""The fact that I
-have a twin is one
-of the reasons that""", 0)
-para_talk("""I was able to become
-a WWW leader...""", 0)
-para_talk_end("""I'm not sure why
-that is,however...""", 0)
+text("{a 2}The fact that I\nhave a twin is one\nof the reasons that{a 1}\p")
+wait(0)
+text("{a 2}I was able to become\na WWW leader...{a 1}\p")
+wait(0)
+text("{a 2}I'm not sure why\nthat is,however...{a 1}\p")
+end(0)
 section_end()
 
 # 0x2C @ 0x70A540
@@ -214,56 +194,54 @@ if_library(50, 59, 0x2E, 0xFF)
 if_library(35, 49, 0x2D, 0xFF)
 pic(3, 2)
 dialog_up()
-para_general("""{..}.""")
-para_talk("""I'm sorry,you're
-going to need to
-gain some more""", 0)
-para_talk("""experience and fill
-out your library
-some more.""", 0)
-para_talk_end("""Come back when
-you've done so!""", 0)
+text("{..}.\p")
+wait(5)
+text("{a 2}I'm sorry,you're\ngoing to need to\ngain some more{a 1}\p")
+wait(0)
+text("{a 2}experience and fill\nout your library\nsome more.{a 1}\p")
+wait(0)
+text("{a 2}Come back when\nyou've done so!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2D @ 0x70A607
 section_start(0x2D)
 pic(3, 2)
 dialog_up()
-para_general("""{..}.""", 0)
-para_talk("""I'm sorry,you're
-going to need to
-gain a little more""", 0)
-para_talk("""experience and fill
-out your library
-some more.""", 0)
-para_talk_end("""Come back when
-you've done so!""", 0)
+text("{..}.\p")
+wait(0)
+text("{a 2}I'm sorry,you're\ngoing to need to\ngain a little more{a 1}\p")
+wait(0)
+text("{a 2}experience and fill\nout your library\nsome more.{a 1}\p")
+wait(0)
+text("{a 2}Come back when\nyou've done so!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2E @ 0x70A6C0
 section_start(0x2E)
 pic(3, 2)
 dialog_up()
-para_general("""{..}.""", 0)
-para_talk("""I'm sorry,you're
-going to need to
-gain a tad more""", 0)
-para_talk("""experience and fill
-out your library
-some more.""", 0)
-para_talk_end("""Come back when
-you've done so!""", 0)
+text("{..}.\p")
+wait(0)
+text("{a 2}I'm sorry,you're\ngoing to need to\ngain a tad more{a 1}\p")
+wait(0)
+text("{a 2}experience and fill\nout your library\nsome more.{a 1}\p")
+wait(0)
+text("{a 2}Come back when\nyou've done so!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2F @ 0x70A776
 section_start(0x2F)
 pic(3, 2)
 dialog_up()
-para_general("""{..}.""", 0)
-para_talk("""I suppose that
-you're ready,now...""", 0)
-para_talk("""Here's how to open
-the lock!""")
+text("{..}.\p")
+wait(0)
+text("{a 2}I suppose that\nyou're ready,now...{a 1}\p")
+wait(0)
+text("{a 2}Here's how to open\nthe lock!{a 1}\p")
+wait(5)
 jump(0x30)
 section_end()
 
@@ -272,9 +250,8 @@ section_start(0x30)
 hidepic()
 dialog_up()
 pc_anim_start(30)
-add_item("YuriMemo", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got;
-\"{key YuriMemo}\"!""")
+add_item("YuriMemo", 1)
+text("Lan got;\n\"{key YuriMemo}\"!")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -287,14 +264,10 @@ section_end()
 section_start(0x31)
 pic(3, 2)
 dialog_up()
-para_talk("""I have faith that
-you can stop the
-WWW... Hah!""", 0)
-text_talking("""...Ooops,""")
-delay()
-para_talk_end("""looks
-like that's become
-a habit...""", 0)
+text("{a 2}I have faith that\nyou can stop the\nWWW... Hah!{a 1}\p")
+wait(0)
+text("{a 2}...Ooops,{a 1}{d}{a 2}looks\nlike that's become\na habit...{a 1}\p")
+end(0)
 section_end()
 
 # 0xBE @ 0x70A9B9
@@ -302,17 +275,16 @@ section_start(0xBE)
 if_flag(1071, 0xC7, 0xFF)
 pic(11)
 dialog_up()
-para_talk("""It's quiz time!
-It's quiz time!""", 0)
-para_talk("""Time to see if
-you've been paying
-attention!""", 0)
-para_talk("""Answer 5 of my
-questions and win
-a prize!""", 0)
-para_talk("""Wanna try?""", 0)
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}It's quiz time!\nIt's quiz time!{a 1}\p")
+wait(0)
+text("{a 2}Time to see if\nyou've been paying\nattention!{a 1}\p")
+wait(0)
+text("{a 2}Answer 5 of my\nquestions and win\na prize!{a 1}\p")
+wait(0)
+text("{a 2}Wanna try?{a 1}\p")
+wait(0)
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0xC0, 0xBF], 0, False, True)
 page()
 end(5)
@@ -322,22 +294,21 @@ section_end()
 section_start(0xBF)
 pic(11)
 dialog_up()
-para_talk_end("""See ya!""")
+text("{a 2}See ya!{a 1}\p")
+end(5)
 section_end()
 
 # 0xC0 @ 0x70AAA0
 section_start(0xC0)
 pic(11)
 dialog_up()
-para_talk("""Question 1!""", 0)
-para_talk("""How many light
-bulbs in the power
-plant network?""", 0)
-text("""{c 2 1 0 0}16
-""")
-text("""{c 0 2 1 1}17
-""")
-text("""{c 1 0 2 2}18""")
+text("{a 2}Question 1!{a 1}\p")
+wait(0)
+text("{a 2}How many light\nbulbs in the power\nplant network?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}16\n")
+text("{c 0 2 1 1}17\n")
+text("{c 1 0 2 2}18")
 pick([0xC6, 0xC6, 0xC1], 0, True, True)
 page()
 end(5)
@@ -349,16 +320,15 @@ pic(11)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 2!""", 0)
-para_talk("""What's the name of
-the Navi that took
-over the Waterworks?""", 0)
-text("""{c 2 1 0 0}GutsMan
-""")
-text("""{c 0 2 1 1}IceMan
-""")
-text("""{c 1 0 2 2}StoneMan""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 2!{a 1}\p")
+wait(0)
+text("{a 2}What's the name of\nthe Navi that took\nover the Waterworks?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}GutsMan\n")
+text("{c 0 2 1 1}IceMan\n")
+text("{c 1 0 2 2}StoneMan")
 pick([0xC6, 0xC2, 0xC6], 0, True, True)
 page()
 end(5)
@@ -370,16 +340,15 @@ pic(11)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 3!""", 0)
-para_talk("""What do you always
-say when you jack
-in?""", 0)
-text("""{c 2 1 0 0}Transmission!
-""")
-text("""{c 0 2 1 1}Battle operation!
-""")
-text("""{c 1 0 2 2}Transmit!""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 3!{a 1}\p")
+wait(0)
+text("{a 2}What do you always\nsay when you jack\nin?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}Transmission!\n")
+text("{c 0 2 1 1}Battle operation!\n")
+text("{c 1 0 2 2}Transmit!")
 pick([0xC6, 0xC6, 0xC3], 0, True, True)
 page()
 end(5)
@@ -391,16 +360,15 @@ pic(11)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 4!""", 0)
-para_talk("""Which of these chips
-does 80 damage to
-your opponent?""", 0)
-text("""{c 2 1 0 0}{chip ShokWave}
-""")
-text("""{c 0 2 1 1}{chip Recov80}
-""")
-text("""{c 1 0 2 2}{chip Sword}""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 4!{a 1}\p")
+wait(0)
+text("{a 2}Which of these chips\ndoes 80 damage to\nyour opponent?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}{chip ShokWave}\n")
+text("{c 0 2 1 1}{chip Recov80}\n")
+text("{c 1 0 2 2}{chip Sword}")
 pick([0xC6, 0xC6, 0xC4], 0, True, True)
 page()
 end(5)
@@ -412,16 +380,15 @@ pic(11)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Correct!{anim 1}""", 0)
-para_talk("""Question 5!""", 0)
-para_talk("""Which of these chips
-increases your
-battle area?""", 0)
-text("""{c 2 1 0 0}{chip Steal}
-""")
-text("""{c 0 2 1 1}{chip Escape}
-""")
-text("""{c 1 0 2 2}{chip X-Panel1}""")
+text("Correct!{a 1}\p")
+wait(0)
+text("{a 2}Question 5!{a 1}\p")
+wait(0)
+text("{a 2}Which of these chips\nincreases your\nbattle area?{a 1}\p")
+wait(0)
+text("{c 2 1 0 0}{chip Steal}\n")
+text("{c 0 2 1 1}{chip Escape}\n")
+text("{c 1 0 2 2}{chip X-Panel1}")
 pick([0xC5, 0xC6, 0xC6], 0, True, True)
 page()
 end(5)
@@ -434,16 +401,14 @@ pic(11)
 dialog_up()
 anim(2)
 se(0xE7)
-para_general("""Very good! And for
-getting all of my
-questions correct,{anim 1}""", 0)
-para_talk("""here's your prize!
-Congratulations!""", 0)
+text("Very good! And for\ngetting all of my\nquestions correct,{a 1}\p")
+wait(0)
+text("{a 2}here's your prize!\nCongratulations!{a 1}\p")
+wait(0)
 hidepic()
 pc_anim_start(30)
 add_chip("Ratton1 E", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip Ratton1 E}\"!""")
+text("Lan got a chip for\n\"{chip Ratton1 E}\"!")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -456,59 +421,55 @@ section_start(0xC6)
 se(0x6C)
 pic(11)
 dialog_up()
-para_talk("""Ahh,too bad!
-And you were doing
-so well...""", 0)
-para_talk_end("""Please try again!""")
+text("{a 2}Ahh,too bad!\nAnd you were doing\nso well...{a 1}\p")
+wait(0)
+text("{a 2}Please try again!{a 1}\p")
+end(5)
 section_end()
 
 # 0xC7 @ 0x70AEAF
 section_start(0xC7)
 pic(11)
 dialog_up()
-para_talk("""I learned everything
-I know from the
-Quiz Master!""", 0)
-para_talk_end("""If you happen to see
-him,be sure to try
-his quiz!""")
+text("{a 2}I learned everything\nI know from the\nQuiz Master!{a 1}\p")
+wait(0)
+text("{a 2}If you happen to see\nhim,be sure to try\nhis quiz!{a 1}\p")
+end(5)
 section_end()
 
 # 0xDC @ 0x70AF54
 section_start(0xDC)
 dialog_up()
-para_general("""You're not sure if
-you can solve this
-math problem""", 0)
-para_general_end("""You can jack in
-to this black board""")
+text("You're not sure if\nyou can solve this\nmath problem\p")
+wait(0)
+text("You can jack in\nto this black board\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x70AFB6
 section_start(0xDD)
 dialog_up()
-para_general_end("""Unlike the desks at
-your school,this one
-has no graffiti""")
+text("Unlike the desks at\nyour school,this one\nhas no graffiti\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x70AFF7
 section_start(0xDE)
 dialog_up()
-para_general_end("""It's locked""")
+text("It's locked\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x70B00B
 section_start(0xDF)
 if_flag(742, 0xE0, 0xFF)
 dialog_up()
-para_general("""Something is shining
-in this locker...""", 0)
+text("Something is shining\nin this locker...\p")
+wait(0)
 set_flag(742)
 pc_anim(30)
 add_chip("Barrier R", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip Barrier R}\"!""")
+text("Lan got a chip for\n\"{chip Barrier R}\"!")
 pc_wait()
 pc_anim(4)
 page()
@@ -518,15 +479,15 @@ section_end()
 # 0xE0 @ 0x70B07C
 section_start(0xE0)
 dialog_up()
-para_general_end("""There's nothing else""")
+text("There's nothing else\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x70B099
 section_start(0xE1)
 dialog_up()
-para_general("""It's fun to look at
-the classroom from
-here""", 0)
-para_general_end("""Makes you feel like
-a teacher""")
+text("It's fun to look at\nthe classroom from\nhere\p")
+wait(0)
+text("Makes you feel like\na teacher\p")
+end(5)
 section_end()

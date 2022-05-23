@@ -3,13 +3,12 @@ section_count(0x29)
 # 0x00 @ 0x71121A
 section_start(0x00)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(682)
 pc_anim_start(50)
 award_zenny([800, 800])
-text("""MegaMan got 800
-zennys!""")
+text("MegaMan got 800\nzennys!")
 pc_anim_end()
 page()
 end(5)
@@ -18,13 +17,12 @@ section_end()
 # 0x01 @ 0x711280
 section_start(0x01)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(683)
 pc_anim_start(50)
 add_chip("HiCannon I", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip HiCannon I}\"!""")
+text("MegaMan got a chip\nfor \"{chip HiCannon I}\"!")
 pc_anim_end()
 page()
 end(5)
@@ -35,22 +33,19 @@ section_start(0x0A)
 if_flag(162, 0x0C, 0xFF)
 set_flag(162)
 dialog_up()
-para_general("""This door is
-passcode protected""", 0)
-para_general("""Door will not open
-without proper
-authorization""", 0)
-para_general("""Passcode hint;
-none""", 0)
+text("This door is\npasscode protected\p")
+wait(0)
+text("Door will not open\nwithout proper\nauthorization\p")
+wait(0)
+text("Passcode hint;\nnone\p")
+wait(0)
 pic(34)
-para_talk("""What? No hint{anim 1}...?{delay}
-{anim 2}Well,let's just try
-anything!""", 0)
+text("{a 2}What? No hint{a 1}...?{d}\n{a 2}Well,let's just try\nanything!{a 1}\p")
+wait(0)
 hidepic()
-text("""Input passcode?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Input passcode?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0B, 0xFF], 0, False, True)
 end(5)
 section_end()
@@ -66,17 +61,15 @@ section_end()
 # 0x0C @ 0x711403
 section_start(0x0C)
 dialog_up()
-para_general("""This door is
-passcode protected""", 0)
-para_general("""Door will not open
-without proper
-authorization""", 0)
-para_general("""Passcode hint;
-none""", 0)
-text("""Input passcode?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("This door is\npasscode protected\p")
+wait(0)
+text("Door will not open\nwithout proper\nauthorization\p")
+wait(0)
+text("Passcode hint;\nnone\p")
+wait(0)
+text("Input passcode?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0B, 0xFF], 0, False, True)
 end(5)
 section_end()
@@ -84,11 +77,9 @@ section_end()
 # 0x0D @ 0x7114A0
 section_start(0x0D)
 dialog_up()
-text("""Abort passcode
-input procedure?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Abort passcode\ninput procedure?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0xFF, 0x0B], 0, False, True)
 passcode_hide()
 end(5)
@@ -97,11 +88,9 @@ section_end()
 # 0x0E @ 0x7114E1
 section_start(0x0E)
 dialog_up()
-text("""Finalize passcode
-input?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Finalize passcode\ninput?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0F, 0x0B], 0, False, True)
 page()
 end(5)
@@ -112,8 +101,8 @@ section_start(0x0F)
 passcode_check(0xFF, 0x10, 0x15, 0x16, 0x13, 0x14, 0x1E)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too low.
-Access denied""", 0)
+text("Passcode too low.\nAccess denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -122,8 +111,8 @@ section_end()
 section_start(0x10)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too high.
-Access denied""", 0)
+text("Passcode too high.\nAccess denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -132,10 +121,10 @@ section_end()
 section_start(0x13)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too high.
-Second digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too high.\nSecond digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -144,10 +133,10 @@ section_end()
 section_start(0x14)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too high.
-First digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too high.\nFirst digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -156,10 +145,10 @@ section_end()
 section_start(0x15)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too low.
-Second digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too low.\nSecond digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -168,10 +157,10 @@ section_end()
 section_start(0x16)
 dialog_up()
 se(0x6C)
-para_general("""Passcode too low.
-First digit,
-verification failure""", 0)
-para_general("""Access denied""", 0)
+text("Passcode too low.\nFirst digit,\nverification failure\p")
+wait(0)
+text("Access denied\p")
+wait(0)
 passcode_shift(0x19, 0x1A, 0x1B, 0x1C)
 jump(0x17)
 section_end()
@@ -179,10 +168,9 @@ section_end()
 # 0x17 @ 0x711702
 section_start(0x17)
 dialog_up()
-text("""Reーinput?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Reーinput?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x0B, 0xFF], 0, False, True)
 passcode_hide()
 end(5)
@@ -191,56 +179,48 @@ section_end()
 # 0x19 @ 0x71172F
 section_start(0x19)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. First digit
-increased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. First digit\nincreased\p")
+wait(0)
 jump(0x0B)
 section_end()
 
 # 0x1A @ 0x7117A5
 section_start(0x1A)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. First digit
-decreased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. First digit\ndecreased\p")
+wait(0)
 jump(0x0B)
 section_end()
 
 # 0x1B @ 0x71181B
 section_start(0x1B)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. Second
-digit increased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. Second\ndigit increased\p")
+wait(0)
 jump(0x0B)
 section_end()
 
 # 0x1C @ 0x711892
 section_start(0x1C)
 dialog_up()
-para_general("""Maximum input
-procedure reached.
-Verification failure""", 0)
-para_general("""Passcode has been
-changed. Second
-digit decreased""", 0)
+text("Maximum input\nprocedure reached.\nVerification failure\p")
+wait(0)
+text("Passcode has been\nchanged. Second\ndigit decreased\p")
+wait(0)
 jump(0x0B)
 section_end()
 
 # 0x1E @ 0x71190B
 section_start(0x1E)
 dialog_up()
-para_general("""Passcode accepted.
-Lock released""", 0)
+text("Passcode accepted.\nLock released\p")
+wait(0)
 jump(0x1F)
 section_end()
 
@@ -250,8 +230,7 @@ pic(34)
 dialog_up()
 anim(2)
 se(0xE7)
-text("""Way to go!!{anim 1}""")
-page()
+text("Way to go!!{a 1}\p")
 dialog_down()
 if_flag(179, 0xFF, 0x20)
 set_flag(170)
@@ -276,13 +255,12 @@ section_end()
 # 0x23 @ 0x711986
 section_start(0x23)
 dialog_up()
-para_general("""Library data locked
-for data preservation""", 0)
-para_general("""Passcode required
-for entry""", 0)
-para_general("""Hint;Number of
-volumes of History
-of the World""")
+text("Library data locked\nfor data preservation\p")
+wait(0)
+text("Passcode required\nfor entry\p")
+wait(0)
+text("Hint;Number of\nvolumes of History\nof the World\p")
+wait(5)
 dialog_down()
 jump(0x24)
 section_end()
@@ -291,7 +269,8 @@ section_end()
 section_start(0x24)
 pic(34)
 dialog_up()
-para_talk("""Lan!!""")
+text("{a 2}Lan!!{a 1}\p")
+wait(5)
 dialog_down()
 jump(0x25)
 section_end()
@@ -300,12 +279,10 @@ section_end()
 section_start(0x25)
 pic(0)
 dialog_up()
-para_talk("""So I need to find
-out how many volumes
-of History of the""", 0)
-para_talk("""World there are,
-right?
-OK! Be right back!""")
+text("{a 2}So I need to find\nout how many volumes\nof History of the{a 1}\p")
+wait(0)
+text("{a 2}World there are,\nright?\nOK! Be right back!{a 1}\p")
+wait(5)
 dialog_down()
 jump(0x26)
 section_end()
@@ -314,22 +291,18 @@ section_end()
 section_start(0x26)
 pic(34)
 dialog_up()
-para_talk_end("""Call me with the
-L Button when you
-find out!""")
+text("{a 2}Call me with the\nL Button when you\nfind out!{a 1}\p")
+end(5)
 section_end()
 
 # 0x28 @ 0x711AEC
 section_start(0x28)
 pic(36)
 dialog_up()
-para_talk("""I control the{delay 10}
-library book {delay 10}loan
-data{delay 10}...""", 0)
-para_talk("""But,{delay 10}I have {delay 10}been
-badly damaged {delay 10}by the
-WWW{delay 10}...""", 0)
-para_talk_end("""Please! {delay 10}Repair the
-damage {delay 10}to the
-network!""")
+text("{a 2}I control the{d 10}\nlibrary book {d 10}loan\ndata{d 10}...{a 1}\p")
+wait(0)
+text("{a 2}But,{d 10}I have {d 10}been\nbadly damaged {d 10}by the\nWWW{d 10}...{a 1}\p")
+wait(0)
+text("{a 2}Please! {d 10}Repair the\ndamage {d 10}to the\nnetwork!{a 1}\p")
+end(5)
 section_end()

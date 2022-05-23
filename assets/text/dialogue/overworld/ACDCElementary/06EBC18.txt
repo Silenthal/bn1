@@ -6,8 +6,8 @@ check_item("SchoolID", 1, 0x06, 0xFF, 0xFF)
 if_flag(190, 0x03, 0xFF)
 pic(3)
 dialog_up()
-para_general("""{anim 2}Mmphh,mmph!{anim 1}
-(Help me!)""", 0)
+text("{a 2}Mmphh,mmph!{a 1}\n(Help me!)\p")
+wait(0)
 jump(0x01)
 section_end()
 
@@ -15,22 +15,20 @@ section_end()
 section_start(0x01)
 hidepic()
 dialog_up()
-text("""Help her?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("Help her?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x02, 0xFF], 0, False, True)
 pic(3)
 dialog_up()
-para_general_end("""{anim 2}Mmmmmph!! Mmmmmmph!!{anim 1}
-(Lan! Help me!!!)""")
+text("{a 2}Mmmmmph!! Mmmmmmph!!{a 1}\n(Lan! Help me!!!)\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x6EBE8F
 section_start(0x02)
 dialog_up()
-text("""Lan helps Ms.Mari""")
-page()
+text("Lan helps Ms.Mari\p")
 dialog_down()
 set_flag(190)
 end()
@@ -40,9 +38,8 @@ section_end()
 section_start(0x03)
 pic(3)
 dialog_up()
-para_talk("""Thank you!
-I can't believe that
-guy Higsby!""")
+text("{a 2}Thank you!\nI can't believe that\nguy Higsby!{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -51,9 +48,8 @@ section_start(0x04)
 if_flag(191, 0xFF, 0x07)
 pic(3)
 dialog_up()
-para_talk("""My ID card?
-Sure,as thanks for
-saving me!""")
+text("{a 2}My ID card?\nSure,as thanks for\nsaving me!{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -62,9 +58,8 @@ section_start(0x05)
 hidepic()
 dialog_up()
 pc_anim_start(30)
-add_item("SchoolID", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got;
-\"{key SchoolID}\"""")
+add_item("SchoolID", 1)
+text("Lan got;\n\"{key SchoolID}\"")
 pc_wait()
 pc_anim(4)
 pc_unlock()
@@ -77,8 +72,8 @@ section_end()
 section_start(0x06)
 pic(3)
 dialog_up()
-para_talk_end("""Please try to
-help everyone!""")
+text("{a 2}Please try to\nhelp everyone!{a 1}\p")
+end(5)
 section_end()
 
 # 0x07 @ 0x6EBF94
@@ -92,18 +87,16 @@ if_flag(1067, 0xC2, 0xFF)
 check_chip("X-Panel3 S", 1, 0xBF, 0xBF, 0xFF)
 pic(11)
 dialog_up()
-para_talk("""I'm the wandering
-chip collector!""", 0)
-para_talk("""I'll trade with
-anyone who has
-something I want.""", 0)
-text("""{anim 2}Hope I can find
-someone with a
-""")
+text("{a 2}I'm the wandering\nchip collector!{a 1}\p")
+wait(0)
+text("{a 2}I'll trade with\nanyone who has\nsomething I want.{a 1}\p")
+wait(0)
+text("{a 2}Hope I can find\nsomeone with a\n")
 chip_id("X-Panel3")
-text(""" """)
+text(" ")
 chip_code("S")
-para_general_end("""...{anim 1}""")
+text("...{a 1}\p")
+end(5)
 section_end()
 
 # 0xBF @ 0x6EC1B6
@@ -112,20 +105,17 @@ if_flag(1085, 0xC3, 0xFF)
 set_flag(1085)
 pic(11)
 dialog_up()
-para_talk("""Well,well,how
-lucky for me! Want
-to trade that chip?""", 0)
-text("""{anim 2}Whatcha' say? That
-""")
+text("{a 2}Well,well,how\nlucky for me! Want\nto trade that chip?{a 1}\p")
+wait(0)
+text("{a 2}Whatcha' say? That\n")
 chip_id("X-Panel3")
-text(""" """)
+text(" ")
 chip_code("S")
-text(""" for this
-{chip BstrBomb D}""")
-para_general("""?{anim 1}""", 0)
-text("""{c 1 1 0 0}Uh,sure
-""")
-text("""{c 0 0 1 1}No way!""")
+text(" for this\n{chip BstrBomb D}")
+text("?{a 1}\p")
+wait(0)
+text("{c 1 1 0 0}Uh,sure\n")
+text("{c 0 0 1 1}No way!")
 pick([0xC0, 0xC1], 0, False, True)
 page()
 end(5)
@@ -137,16 +127,15 @@ check_chip_pack("X-Panel3 S", 1, 0xFF, 0xFF, 0xC4)
 set_flag(1067)
 pic(11)
 dialog_up()
-para_talk("""Groovy! Another page
-in my album filled!""", 0)
-para_talk("""This is the one you
-wanted,right?""", 0)
+text("{a 2}Groovy! Another page\nin my album filled!{a 1}\p")
+wait(0)
+text("{a 2}This is the one you\nwanted,right?{a 1}\p")
+wait(0)
 hidepic()
 pc_anim_start(30)
 add_chip("BstrBomb D", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("X-Panel3 S", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip BstrBomb D}\"!""")
+text("Lan got a chip for\n\"{chip BstrBomb D}\"!")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -158,39 +147,35 @@ section_end()
 section_start(0xC1)
 pic(11)
 dialog_up()
-para_talk("""Wh,what? You refuse
-a trade with the
-wandering collector?""", 0)
-para_talk_end("""You'll beee sooorry!""")
+text("{a 2}Wh,what? You refuse\na trade with the\nwandering collector?{a 1}\p")
+wait(0)
+text("{a 2}You'll beee sooorry!{a 1}\p")
+end(5)
 section_end()
 
 # 0xC2 @ 0x6EC387
 section_start(0xC2)
 pic(11)
 dialog_up()
-para_talk_end("""...and having got my
-chip,I wander off
-into the sunset...""")
+text("{a 2}...and having got my\nchip,I wander off\ninto the sunset...{a 1}\p")
+end(5)
 section_end()
 
 # 0xC3 @ 0x6EC3D7
 section_start(0xC3)
 pic(11)
 dialog_up()
-para_talk("""I knew you'd come
-back! They always
-do...""", 0)
-text("""{anim 2}So you'll trade that
-""")
+text("{a 2}I knew you'd come\nback! They always\ndo...{a 1}\p")
+wait(0)
+text("{a 2}So you'll trade that\n")
 chip_id("X-Panel3")
-text(""" """)
+text(" ")
 chip_code("S")
-text(""" for this
-{chip BstrBomb D}""")
-para_general("""?{anim 1}""", 0)
-text("""{c 1 1 0 0}Sure
-""")
-text("""{c 0 0 1 1}Uhーuh""")
+text(" for this\n{chip BstrBomb D}")
+text("?{a 1}\p")
+wait(0)
+text("{c 1 1 0 0}Sure\n")
+text("{c 0 0 1 1}Uhーuh")
 pick([0xC0, 0xC1], 0, False, True)
 page()
 end(5)
@@ -200,49 +185,43 @@ section_end()
 section_start(0xC4)
 pic(11)
 dialog_up()
-para_talk("""Boy,you should
-know by now...""", 0)
-para_talk_end("""You can't trade a
-chip that's in 
-your folder!""")
+text("{a 2}Boy,you should\nknow by now...{a 1}\p")
+wait(0)
+text("{a 2}You can't trade a\nchip that's in \nyour folder!{a 1}\p")
+end(5)
 section_end()
 
 # 0xDC @ 0x6EC508
 section_start(0xDC)
 dialog_up()
-para_general_end("""A huge ball that's
-used on field day.
-It looks lonely here""")
+text("A huge ball that's\nused on field day.\nIt looks lonely here\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x6EC54C
 section_start(0xDD)
 dialog_up()
-para_general_end("""There is a lot of
-equipment used for
-gym classes here""")
+text("There is a lot of\nequipment used for\ngym classes here\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x6EC589
 section_start(0xDE)
 dialog_up()
-para_general_end("""Some old sports
-equipment. Smells
-pretty bad""")
+text("Some old sports\nequipment. Smells\npretty bad\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x6EC5BE
 section_start(0xDF)
 if_flag(740, 0xE0, 0xFF)
 dialog_up()
-para_general("""There's something
-shiny towards the
-back...""", 0)
+text("There's something\nshiny towards the\nback...\p")
+wait(0)
 set_flag(740)
 pc_anim(30)
-add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a PowerUp;
-\"{key HPmemory}\"!""")
+add_item("HPmemory", 1)
+text("Lan got a PowerUp;\n\"{key HPmemory}\"!")
 pc_wait()
 pc_anim(4)
 page()
@@ -252,27 +231,27 @@ section_end()
 # 0xE0 @ 0x6EC630
 section_start(0xE0)
 dialog_up()
-para_general_end("""There's nothing else
-interesting here""")
+text("There's nothing else\ninteresting here\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x6EC65E
 section_start(0xE1)
 dialog_up()
-para_general_end("""Filled with balls
-to the point of
-overflowing""")
+text("Filled with balls\nto the point of\noverflowing\p")
+end(5)
 section_end()
 
 # 0xE2 @ 0x6EC693
 section_start(0xE2)
 dialog_up()
-para_general_end("""A box full of
-toilet paper""")
+text("A box full of\ntoilet paper\p")
+end(5)
 section_end()
 
 # 0xE3 @ 0x6EC6B5
 section_start(0xE3)
 dialog_up()
-para_general_end("""A box of floor wax""")
+text("A box of floor wax\p")
+end(5)
 section_end()

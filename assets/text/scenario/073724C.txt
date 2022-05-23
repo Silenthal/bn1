@@ -4,46 +4,42 @@ section_count(0x8)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk_end("""LーLan...{anim 1}{delay}
-{anim 2}The PET battery...""", 0)
+text("{a 2}LーLan...{a 1}{d}\n{a 2}The PET battery...{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x737295
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan!
-I've got to recharge
-quick!""", 0)
+text("{a 2}MegaMan!\nI've got to recharge\nquick!{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x7372CC
 section_start(0x02)
 pic(27)
 dialog_up()
-para_talk("""Came quick as I
-could! Thought you
-might need my help!""", 0)
-para_talk("""Looks like my timing
-was perfect!
-Ye need a recharge!""", 0)
-para_talk("""I gotta go back to
-the control room
-once we're done...""", 0)
-para_talk("""But I'll be back
-if you need me!""", 0)
-para_talk("""So...huh?""", 0)
-para_talk_end("""Hmm,no good,no good.
-The generator's
-acting up again...""", 0)
+text("{a 2}Came quick as I\ncould! Thought you\nmight need my help!{a 1}\p")
+wait(0)
+text("{a 2}Looks like my timing\nwas perfect!\nYe need a recharge!{a 1}\p")
+wait(0)
+text("{a 2}I gotta go back to\nthe control room\nonce we're done...{a 1}\p")
+wait(0)
+text("{a 2}But I'll be back\nif you need me!{a 1}\p")
+wait(0)
+text("{a 2}So...huh?{a 1}\p")
+wait(0)
+text("{a 2}Hmm,no good,no good.\nThe generator's\nacting up again...{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x73741A
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""MegaMan!!
-You OK!?""")
+text("{a 2}MegaMan!!\nYou OK!?{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -51,18 +47,16 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk_end("""Lan!
-We have to try!
-Let's go!""", 0)
+text("{a 2}Lan!\nWe have to try!\nLet's go!{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x737475
 section_start(0x05)
 pic(27)
 dialog_up()
-para_talk("""What are you doing!?
-Recharge now or your
-Navi's a goner!""")
+text("{a 2}What are you doing!?\nRecharge now or your\nNavi's a goner!{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -70,8 +64,8 @@ section_end()
 section_start(0x06)
 pic(27)
 dialog_up()
-para_talk_end("""Ready?
-And...Go!!""", 0)
+text("{a 2}Ready?\nAnd...Go!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x7374EC
@@ -79,7 +73,6 @@ section_start(0x07)
 if_flag(209, 0x05, 0xFF)
 pic(27)
 dialog_up()
-para_talk_end("""Well,here goes
-nothing!
-Ready...Go!!""", 0)
+text("{a 2}Well,here goes\nnothing!\nReady...Go!!{a 1}\p")
+end(0)
 section_end()

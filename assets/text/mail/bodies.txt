@@ -3,11 +3,10 @@ section_count(0x4E)
 # 0x00 @ 0x7A8464
 section_start(0x00)
 dialog_show()
-para_general("""WWW crime on
-the rise!""", 0)
-para_general("""WWW's plan
-to control the net
-might be starting!""")
+text("WWW crime on\nthe rise!\p")
+wait(0)
+text("WWW's plan\nto control the net\nmight be starting!\p")
+wait(5)
 clear_flag(576)
 jump(0x40)
 section_end()
@@ -16,16 +15,15 @@ section_end()
 section_start(0x01)
 pic(28, 1)
 dialog_show()
-para_general("""Sorry I couldn't get
-off work Sunday.
-I'll be home soon.""", 0)
-para_general("""Here's a present for
-you. Use it well.""")
+text("Sorry I couldn't get\noff work Sunday.\nI'll be home soon.\p")
+wait(0)
+text("Here's a present for\nyou. Use it well.\p")
+wait(5)
 if_flag(577, 0xFF, 0x40)
 add_chip("CrossGun C", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip CrossGun C}""")
-para_general("""\"!""")
+text("Lan got a chip for\n\"{chip CrossGun C}")
+text("\"!\p")
+wait(5)
 clear_flag(577)
 jump(0x40)
 section_end()
@@ -34,22 +32,18 @@ section_end()
 section_start(0x02)
 pic(28, 1)
 dialog_show()
-para_general("""Lan,this is Dad.
-I've made a PowerUp
-program for MegaMan!""", 0)
-para_general("""It's a little big
-to send by mail...""", 0)
-para_general("""But don't worry,I'll
-bring it home soon.""", 0)
-para_general("""...You and MegaMan
-make a great team!
-Keep it up! ーDad""", 0)
-para_general("""PS;Don't forget that
-whenever you're in
-a pinch,you can""", 0)
-para_general("""Press {key PET}'s
-L Button to talk to
-MegaMan.""")
+text("Lan,this is Dad.\nI've made a PowerUp\nprogram for MegaMan!\p")
+wait(0)
+text("It's a little big\nto send by mail...\p")
+wait(0)
+text("But don't worry,I'll\nbring it home soon.\p")
+wait(0)
+text("...You and MegaMan\nmake a great team!\nKeep it up! ーDad\p")
+wait(0)
+text("PS;Don't forget that\nwhenever you're in\na pinch,you can\p")
+wait(0)
+text("Press {key PET}'s\nL Button to talk to\nMegaMan.\p")
+wait(5)
 clear_flag(578)
 jump(0x40)
 section_end()
@@ -57,12 +51,10 @@ section_end()
 # 0x03 @ 0x7A86C9
 section_start(0x03)
 dialog_show()
-para_general("""Student net crime is
-on the rise at
-schools everywhere!""", 0)
-para_general("""The reasons for this
-rise are as yet 
-unknown.""")
+text("Student net crime is\non the rise at\nschools everywhere!\p")
+wait(0)
+text("The reasons for this\nrise are as yet \nunknown.\p")
+wait(5)
 clear_flag(579)
 jump(0x40)
 section_end()
@@ -71,10 +63,10 @@ section_end()
 section_start(0x04)
 pic(1, 1)
 dialog_show()
-para_general("""Lan,R U late again?""", 0)
-para_general("""I called your name
-for you in home room
-so you owe me one!""")
+text("Lan,R U late again?\p")
+wait(0)
+text("I called your name\nfor you in home room\nso you owe me one!\p")
+wait(5)
 clear_flag(580)
 jump(0x40)
 section_end()
@@ -83,9 +75,8 @@ section_end()
 section_start(0x05)
 pic(2, 1)
 dialog_show()
-para_general("""My GutsMan is ready
-to take you on,if
-you're not CHICKEN!""")
+text("My GutsMan is ready\nto take you on,if\nyou're not CHICKEN!\p")
+wait(5)
 clear_flag(581)
 jump(0x40)
 section_end()
@@ -93,11 +84,10 @@ section_end()
 # 0x06 @ 0x7A87F9
 section_start(0x06)
 dialog_show()
-para_general("""Hard times get worse
-as people faint from
-lack of water.""", 0)
-para_general("""Remember,don't drink
-tainted water!""")
+text("Hard times get worse\nas people faint from\nlack of water.\p")
+wait(0)
+text("Remember,don't drink\ntainted water!\p")
+wait(5)
 clear_flag(582)
 jump(0x40)
 section_end()
@@ -107,27 +97,23 @@ section_start(0x07)
 pic(28, 1)
 dialog_show()
 set_flag(250)
-para_general("""Sorry I was busy
-when you came to
-visit.""", 0)
-para_general("""But I have some good
-news;I managed to
-compress the PowerUp""", 0)
-para_general("""program for MegaMan
-I was talking about!
-Enjoy! ーDad""")
+text("Sorry I was busy\nwhen you came to\nvisit.\p")
+wait(0)
+text("But I have some good\nnews;I managed to\ncompress the PowerUp\p")
+wait(0)
+text("program for MegaMan\nI was talking about!\nEnjoy! ーDad\p")
+wait(5)
 if_flag(583, 0xFF, 0x40)
-add_item("HPmemory", 1, 0xFF, 0xFF, 0xFF)
-para_general("""Lan got a PowerUp;
-\"{key HPmemory}\"!""", 0)
-add_item("PowerUP", 1, 0xFF, 0xFF, 0xFF)
-para_general("""Lan got a PowerUp;
-\"{key PowerUP}\"!""", 0)
-para_general("""Don't forget to use
-the menu to equip
-\"{key PowerUP}\"!""", 0)
-para_general("""PS;Always listen to
-your mom!""")
+add_item("HPmemory", 1)
+text("Lan got a PowerUp;\n\"{key HPmemory}\"!\p")
+wait(0)
+add_item("PowerUP", 1)
+text("Lan got a PowerUp;\n\"{key PowerUP}\"!\p")
+wait(0)
+text("Don't forget to use\nthe menu to equip\n\"{key PowerUP}\"!\p")
+wait(0)
+text("PS;Always listen to\nyour mom!\p")
+wait(5)
 clear_flag(583)
 jump(0x40)
 section_end()
@@ -136,19 +122,17 @@ section_end()
 section_start(0x08)
 pic(1, 1)
 dialog_show()
-para_general("""It turns out that
-missing kid from B
-Class was kidnapped!""", 0)
-para_general("""Lan,you have to help
-us look for him,OK?""", 0)
-para_general("""You better help,or
-I won't call your
-name in home room!""", 0)
-para_general("""Good luck! ーYai""", 0)
+text("It turns out that\nmissing kid from B\nClass was kidnapped!\p")
+wait(0)
+text("Lan,you have to help\nus look for him,OK?\p")
+wait(0)
+text("You better help,or\nI won't call your\nname in home room!\p")
+wait(0)
+text("Good luck! ーYai\p")
+wait(0)
 hidepic()
-para_general("""PS;{delay}
-Buy some water if
-you find any,please!""")
+text("PS;{d}\nBuy some water if\nyou find any,please!\p")
+wait(5)
 clear_flag(584)
 jump(0x40)
 section_end()
@@ -157,14 +141,14 @@ section_end()
 section_start(0x09)
 pic(8, 1)
 dialog_show()
-para_general("""Hey,Yai's birthday
-is coming up!""", 0)
-para_general("""Wanna come with me
-to buy a present?""", 0)
-para_general("""Meet in front of the
-Metroline station.""", 0)
-para_general("""OK?
-Write me back!""")
+text("Hey,Yai's birthday\nis coming up!\p")
+wait(0)
+text("Wanna come with me\nto buy a present?\p")
+wait(0)
+text("Meet in front of the\nMetroline station.\p")
+wait(0)
+text("OK?\nWrite me back!\p")
+wait(5)
 clear_flag(585)
 if_flag(71, 0x40, 0xFF)
 check_item("Response", 1, 0x40, 0x40, 0x46)
@@ -174,9 +158,8 @@ section_end()
 # 0x0A @ 0x7A8B8A
 section_start(0x0A)
 dialog_show()
-para_general("""New \"DentownーACDC\"
-Metroline opens
-today!""")
+text("New \"DentownーACDC\"\nMetroline opens\ntoday!\p")
+wait(5)
 clear_flag(586)
 jump(0x40)
 section_end()
@@ -185,24 +168,21 @@ section_end()
 section_start(0x0B)
 pic(8, 1)
 dialog_show()
-para_general("""I'm free now,
-so I'll take the bus
-to Dentown Block1.""", 0)
-para_general("""Oh yeah,you know Yai
-has been collecting
-antiques recently?""", 0)
-para_general("""I was wondering if
-you could look for a
-place to buy some?""", 0)
-para_general("""Sorry to ask so much
-Lan. Hey,I got this
-for you!""", 0)
+text("I'm free now,\nso I'll take the bus\nto Dentown Block1.\p")
+wait(0)
+text("Oh yeah,you know Yai\nhas been collecting\nantiques recently?\p")
+wait(0)
+text("I was wondering if\nyou could look for a\nplace to buy some?\p")
+wait(0)
+text("Sorry to ask so much\nLan. Hey,I got this\nfor you!\p")
+wait(0)
 if_flag(587, 0xFF, 0x40)
 add_chip("Roll2 R", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip Roll2 R}""")
-para_general("""\"!!""", 0)
-para_general("""Cーya later! ーMayl""")
+text("Lan got a chip for\n\"{chip Roll2 R}")
+text("\"!!\p")
+wait(0)
+text("Cーya later! ーMayl\p")
+wait(5)
 clear_flag(587)
 set_flag(202)
 jump(0x40)
@@ -212,21 +192,16 @@ section_end()
 section_start(0x0C)
 pic(24, 1)
 dialog_show()
-para_general("""It seems the Dentown
-autodrive system has
-malfunctioned...""", 0)
-para_general("""But we at WWW have
-created a program to
-solve the problem!""", 0)
-para_general("""Just install in your
-car computer and it
-will run like new!""", 0)
-para_general("""It's a little pricey
-at 1,000,000 zenny,
-but it's worth it!""", 0)
-para_general("""On sale at Dentown
-Central only while
-supplies last!""")
+text("It seems the Dentown\nautodrive system has\nmalfunctioned...\p")
+wait(0)
+text("But we at WWW have\ncreated a program to\nsolve the problem!\p")
+wait(0)
+text("Just install in your\ncar computer and it\nwill run like new!\p")
+wait(0)
+text("It's a little pricey\nat 1,000,000 zenny,\nbut it's worth it!\p")
+wait(0)
+text("On sale at Dentown\nCentral only while\nsupplies last!\p")
+wait(5)
 clear_flag(588)
 jump(0x40)
 section_end()
@@ -235,11 +210,10 @@ section_end()
 section_start(0x0D)
 pic(8, 1)
 dialog_show()
-para_general("""I heard the bus is
-going to blow up!
-For real!?""", 0)
-para_general("""Lan! Help!
-What should I do?""")
+text("I heard the bus is\ngoing to blow up!\nFor real!?\p")
+wait(0)
+text("Lan! Help!\nWhat should I do?\p")
+wait(5)
 clear_flag(589)
 jump(0x40)
 section_end()
@@ -249,19 +223,16 @@ section_start(0x0E)
 set_flag(113)
 pic(28, 1)
 dialog_show()
-para_general("""Dear Lan,""", 0)
-para_general("""You're friends with
-that Chaud boy,
-aren't you?""", 0)
-para_general("""I see him at the lab
-and recently he
-seems a little blue.""", 0)
-para_general("""Perhaps his work as
-a NetBattler isn't
-going well?""", 0)
-para_general("""Maybe you could try
-talking to him? 
-Thanks! ーDad""")
+text("Dear Lan,\p")
+wait(0)
+text("You're friends with\nthat Chaud boy,\naren't you?\p")
+wait(0)
+text("I see him at the lab\nand recently he\nseems a little blue.\p")
+wait(0)
+text("Perhaps his work as\na NetBattler isn't\ngoing well?\p")
+wait(0)
+text("Maybe you could try\ntalking to him? \nThanks! ーDad\p")
+wait(5)
 clear_flag(590)
 jump(0x40)
 section_end()
@@ -270,15 +241,14 @@ section_end()
 section_start(0x0F)
 pic(8, 1)
 dialog_show()
-para_general("""Lan,you don't know
-the netaddress for
-my home,right?""", 0)
-para_general("""I'll let you know,
-just in case...""", 0)
+text("Lan,you don't know\nthe netaddress for\nmy home,right?\p")
+wait(0)
+text("I'll let you know,\njust in case...\p")
+wait(0)
 check_item("★Mayl", 1, 0x41, 0x41, 0xFF)
-add_item("★Mayl", 1, 0xFF, 0xFF, 0xFF)
-para_general("""Lan got
-{key ★Mayl}!!""")
+add_item("★Mayl", 1)
+text("Lan got\n{key ★Mayl}!!\p")
+wait(5)
 clear_flag(591)
 jump(0x40)
 section_end()
@@ -288,21 +258,16 @@ section_start(0x10)
 set_flag(152)
 pic(6, 2)
 dialog_show()
-para_general("""Lan,the WWW server
-is hidden deep down
-inside the Undernet!""", 0)
-para_general("""There are 3 locks,
-each a higher level
-than the last,M'kay?""", 0)
-para_general("""Unfortunately,I
-don't have any idea
-how to open them.""", 0)
-para_general("""But one of my old
-WWW friends is at
-the SciLab now.""", 0)
-para_general("""He regrets having
-worked for WWW now,
-& he might help you!""")
+text("Lan,the WWW server\nis hidden deep down\ninside the Undernet!\p")
+wait(0)
+text("There are 3 locks,\neach a higher level\nthan the last,M'kay?\p")
+wait(0)
+text("Unfortunately,I\ndon't have any idea\nhow to open them.\p")
+wait(0)
+text("But one of my old\nWWW friends is at\nthe SciLab now.\p")
+wait(0)
+text("He regrets having\nworked for WWW now,\n& he might help you!\p")
+wait(5)
 clear_flag(592)
 jump(0x40)
 section_end()
@@ -312,18 +277,14 @@ section_start(0x11)
 set_flag(114)
 pic(28, 1)
 dialog_show()
-para_general("""I've found the site
-of the WWW lab deep
-in the mountains!""", 0)
-para_general("""But there's no roads
-or railways,and no
-airport either...""", 0)
-para_general("""And it would take to
-long to walk there,
-I'd reckon...""", 0)
-para_general("""But WWW agents are
-getting into DenCity
-somehow...""")
+text("I've found the site\nof the WWW lab deep\nin the mountains!\p")
+wait(0)
+text("But there's no roads\nor railways,and no\nairport either...\p")
+wait(0)
+text("And it would take to\nlong to walk there,\nI'd reckon...\p")
+wait(0)
+text("But WWW agents are\ngetting into DenCity\nsomehow...\p")
+wait(5)
 clear_flag(593)
 jump(0x40)
 section_end()
@@ -332,9 +293,8 @@ section_end()
 section_start(0x12)
 pic(23, 1)
 dialog_show()
-para_general("""I've got something
-for you. Drop by the
-Waterworks anytime!""")
+text("I've got something\nfor you. Drop by the\nWaterworks anytime!\p")
+wait(5)
 clear_flag(594)
 jump(0x40)
 section_end()
@@ -343,27 +303,20 @@ section_end()
 section_start(0x13)
 pic(23, 1)
 dialog_show()
-para_general("""Thanks for the help,
-I thought this
-might aid you;""", 0)
-para_general("""You know about the
-official NetBattlers
-right?""", 0)
-para_general("""Well,in order to
-share the tricks of
-the trade,""", 0)
-para_general("""they're using an ML
-(mailing list) to
-spread information.""", 0)
-para_general("""I know it's not
-allowed...{delay}But I
-talked to a friend.""", 0)
-para_general("""He got you on the
-list,so you should
-get the mail,too.""", 0)
-para_general("""It's useful for info
-about battlechips,
-viruses,& advances!""")
+text("Thanks for the help,\nI thought this\nmight aid you;\p")
+wait(0)
+text("You know about the\nofficial NetBattlers\nright?\p")
+wait(0)
+text("Well,in order to\nshare the tricks of\nthe trade,\p")
+wait(0)
+text("they're using an ML\n(mailing list) to\nspread information.\p")
+wait(0)
+text("I know it's not\nallowed...{d}But I\ntalked to a friend.\p")
+wait(0)
+text("He got you on the\nlist,so you should\nget the mail,too.\p")
+wait(0)
+text("It's useful for info\nabout battlechips,\nviruses,& advances!\p")
+wait(5)
 clear_flag(595)
 jump(0x40)
 section_end()
@@ -371,14 +324,12 @@ section_end()
 # 0x14 @ 0x7A94C5
 section_start(0x14)
 dialog_show()
-para_general("""NetBattlers;
-Greetings.""", 0)
-para_general("""Can the DenCity rep
-tell us about the
-Waterworks virus?""", 0)
-para_general("""WWW's viruses are
-getting worse,so
-be on your guard!""")
+text("NetBattlers;\nGreetings.\p")
+wait(0)
+text("Can the DenCity rep\ntell us about the\nWaterworks virus?\p")
+wait(0)
+text("WWW's viruses are\ngetting worse,so\nbe on your guard!\p")
+wait(5)
 clear_flag(596)
 jump(0x40)
 section_end()
@@ -387,18 +338,14 @@ section_end()
 section_start(0x15)
 pic(7, 1)
 dialog_show()
-para_general("""This is Chaud. The
-Waterworks incident
-used a NetNavi with""", 0)
-para_general("""ice attacks. I found
-out that ice power
-is Aquaーbased.""", 0)
-para_general("""And,there was a
-civilian NetNavi on
-the 'works server...""", 0)
-para_general("""an elementary school
-student's! Some
-kinda wannabe hero?""")
+text("This is Chaud. The\nWaterworks incident\nused a NetNavi with\p")
+wait(0)
+text("ice attacks. I found\nout that ice power\nis Aquaーbased.\p")
+wait(0)
+text("And,there was a\ncivilian NetNavi on\nthe 'works server...\p")
+wait(0)
+text("an elementary school\nstudent's! Some\nkinda wannabe hero?\p")
+wait(5)
 clear_flag(597)
 jump(0x40)
 section_end()
@@ -406,20 +353,16 @@ section_end()
 # 0x16 @ 0x7A966E
 section_start(0x16)
 dialog_show()
-para_general("""The DenCity autoー
-drive system's been
-hacked into!""", 0)
-para_general("""WWW is getting
-bolder day by day!""", 0)
-para_general("""I heard the operator
-who solved the prob
-wasn't a NetBattler!""", 0)
-para_general("""Hard to imagine a
-civilian handling
-such a highーlevel""", 0)
-para_general("""incident.
-Who is this mystery
-operator,anyway?""")
+text("The DenCity autoー\ndrive system's been\nhacked into!\p")
+wait(0)
+text("WWW is getting\nbolder day by day!\p")
+wait(0)
+text("I heard the operator\nwho solved the prob\nwasn't a NetBattler!\p")
+wait(0)
+text("Hard to imagine a\ncivilian handling\nsuch a highーlevel\p")
+wait(0)
+text("incident.\nWho is this mystery\noperator,anyway?\p")
+wait(5)
 clear_flag(598)
 jump(0x40)
 section_end()
@@ -427,24 +370,18 @@ section_end()
 # 0x17 @ 0x7A9788
 section_start(0x17)
 dialog_show()
-para_general("""Some program advance
-info;while you can
-advance most prog's""", 0)
-para_general("""by collecting chips
-in a series under 1
-code (like Bーbomb),""", 0)
-para_general("""some chips like Gaia
-won't advance even
-then!""", 0)
-para_general("""I have some new info
-that might solve
-this old problem.""", 0)
-para_general("""Seems U need 1 more
-chipーa trigger chipー
-to advance.""", 0)
-para_general("""There's about 4
-possible combos
-worth trying out!""")
+text("Some program advance\ninfo;while you can\nadvance most prog's\p")
+wait(0)
+text("by collecting chips\nin a series under 1\ncode (like Bーbomb),\p")
+wait(0)
+text("some chips like Gaia\nwon't advance even\nthen!\p")
+wait(0)
+text("I have some new info\nthat might solve\nthis old problem.\p")
+wait(0)
+text("Seems U need 1 more\nchipーa trigger chipー\nto advance.\p")
+wait(0)
+text("There's about 4\npossible combos\nworth trying out!\p")
+wait(5)
 clear_flag(599)
 jump(0x40)
 section_end()
@@ -452,23 +389,18 @@ section_end()
 # 0x18 @ 0x7A98F5
 section_start(0x18)
 dialog_show()
-para_general("""I ran into a virus
-with some kind of
-aura the other day.""", 0)
-para_general("""Damage less than the
-number it displays
-doesn't hurt it!""", 0)
-para_general("""It looks like you
-need real high power
-chips for this guy.""", 0)
-para_general("""When it attacks,part
-of it comes outside
-the aura...""", 0)
-para_general("""Maybe aiming for
-that with a buster
-would work?""", 0)
-para_general("""Everybody,watch out
-and good luck!""")
+text("I ran into a virus\nwith some kind of\naura the other day.\p")
+wait(0)
+text("Damage less than the\nnumber it displays\ndoesn't hurt it!\p")
+wait(0)
+text("It looks like you\nneed real high power\nchips for this guy.\p")
+wait(0)
+text("When it attacks,part\nof it comes outside\nthe aura...\p")
+wait(0)
+text("Maybe aiming for\nthat with a buster\nwould work?\p")
+wait(0)
+text("Everybody,watch out\nand good luck!\p")
+wait(5)
 clear_flag(600)
 jump(0x40)
 section_end()
@@ -476,17 +408,14 @@ section_end()
 # 0x19 @ 0x7A9A52
 section_start(0x19)
 dialog_show()
-para_general("""More information on
-the aura virus;""", 0)
-para_general("""Seems like the aura
-always uses a type
-of energy.""", 0)
-para_general("""The one I met was
-Fire so I hit it
-with AquaTower.""", 0)
-para_general("""This seems to be
-an effective way to
-fight them!""")
+text("More information on\nthe aura virus;\p")
+wait(0)
+text("Seems like the aura\nalways uses a type\nof energy.\p")
+wait(0)
+text("The one I met was\nFire so I hit it\nwith AquaTower.\p")
+wait(0)
+text("This seems to be\nan effective way to\nfight them!\p")
+wait(5)
 clear_flag(601)
 jump(0x40)
 section_end()
@@ -494,20 +423,16 @@ section_end()
 # 0x1A @ 0x7A9B27
 section_start(0x1A)
 dialog_show()
-para_general("""I met one of the
-aura viruses,too.""", 0)
-para_general("""Mine was Wood,
-and it ignored any
-damage less than 80!""", 0)
-para_general("""I used a FireSword
-to delete it but man
-are they tough...""", 0)
-para_general("""If they made an aura
-without an elemental
-affinity...""", 0)
-para_general("""It wouldn't have any
-weaknesses! A true
-\"Life Aura\"!""")
+text("I met one of the\naura viruses,too.\p")
+wait(0)
+text("Mine was Wood,\nand it ignored any\ndamage less than 80!\p")
+wait(0)
+text("I used a FireSword\nto delete it but man\nare they tough...\p")
+wait(0)
+text("If they made an aura\nwithout an elemental\naffinity...\p")
+wait(0)
+text("It wouldn't have any\nweaknesses! A true\n\"Life Aura\"!\p")
+wait(5)
 clear_flag(602)
 jump(0x40)
 section_end()
@@ -515,17 +440,14 @@ section_end()
 # 0x1B @ 0x7A9C4F
 section_start(0x1B)
 dialog_show()
-para_general("""Has anyone met that
-virus that looks
-like a bagworm?""", 0)
-para_general("""It's that one with
-the funny face.""", 0)
-para_general("""Word is that guy's
-carrying a pretty
-rare chip!""", 0)
-para_general("""You meet him a lot
-if you go deep in
-the net.""")
+text("Has anyone met that\nvirus that looks\nlike a bagworm?\p")
+wait(0)
+text("It's that one with\nthe funny face.\p")
+wait(0)
+text("Word is that guy's\ncarrying a pretty\nrare chip!\p")
+wait(0)
+text("You meet him a lot\nif you go deep in\nthe net.\p")
+wait(5)
 clear_flag(603)
 jump(0x40)
 section_end()
@@ -534,15 +456,12 @@ section_end()
 section_start(0x1C)
 pic(1, 1)
 dialog_show()
-para_general("""So? Are you looking
-for the kid who was
-kidnapped?""", 0)
-para_general("""...I forgot to
-mention his last name
-is \"Froid.\"""", 0)
-para_general("""And...it looks like
-the WWW is involved!
-So,good luck!""")
+text("So? Are you looking\nfor the kid who was\nkidnapped?\p")
+wait(0)
+text("...I forgot to\nmention his last name\nis \"Froid.\"\p")
+wait(0)
+text("And...it looks like\nthe WWW is involved!\nSo,good luck!\p")
+wait(5)
 clear_flag(604)
 jump(0x40)
 section_end()
@@ -551,23 +470,18 @@ section_end()
 section_start(0x1D)
 pic(28, 1)
 dialog_show()
-para_general("""Lan,how have you
-been? I'll be seeing
-you today!""", 0)
-para_general("""That is,you'll be
-coming to see me...""", 0)
-para_general("""There's a party
-tonight at the
-Government Complex.""", 0)
-para_general("""I'm inviting you and
-Mom to join me for
-dinner!""", 0)
-para_general("""Let's meet at 7 in
-front of the TV in
-the SciLab lobby.""", 0)
-para_general("""Say hi to Mom for
-me,and let her know
-about tonight! ーDad""")
+text("Lan,how have you\nbeen? I'll be seeing\nyou today!\p")
+wait(0)
+text("That is,you'll be\ncoming to see me...\p")
+wait(0)
+text("There's a party\ntonight at the\nGovernment Complex.\p")
+wait(0)
+text("I'm inviting you and\nMom to join me for\ndinner!\p")
+wait(0)
+text("Let's meet at 7 in\nfront of the TV in\nthe SciLab lobby.\p")
+wait(0)
+text("Say hi to Mom for\nme,and let her know\nabout tonight! ーDad\p")
+wait(5)
 clear_flag(605)
 jump(0x40)
 section_end()
@@ -576,9 +490,8 @@ section_end()
 section_start(0x1E)
 pic(28, 1)
 dialog_show()
-para_general("""That was a pretty
-long power out. Is
-everything OK?""")
+text("That was a pretty\nlong power out. Is\neverything OK?\p")
+wait(5)
 clear_flag(606)
 jump(0x40)
 section_end()
@@ -586,39 +499,28 @@ section_end()
 # 0x1F @ 0x7A9F89
 section_start(0x1F)
 dialog_show()
-para_general("""Did you all see the
-WWW broadcast?Things
-are getting sticky!""", 0)
-para_general("""I got some info on
-the LifeVirus from
-my lab connections.""", 0)
-para_general("""I thought all the
-NetBattlers should
-know about this.""", 0)
-para_general("""\"LifeVirus;ultimate
-virus made up of 4
-programs;""", 0)
-para_general("""Fire,Aqua,Elec,and
-Wood,possessing no
-elemental weakness.""", 0)
-para_general("""No effective combat
-strategies known...\"
-That's what it says!""", 0)
-para_general("""Honestly,I don't
-know how my NetNavi
-can fight it...""", 0)
-para_general("""I've got some other
-info here;apparently
-there's evidence""", 0)
-para_general("""that the LifeVirus
-defense program was
-copied by someone...""", 0)
-para_general("""Something to do with
-WWW or the EndGame?
-Who knows?""", 0)
-para_general("""All we can do is
-practice with our
-chips and wait...""")
+text("Did you all see the\nWWW broadcast?Things\nare getting sticky!\p")
+wait(0)
+text("I got some info on\nthe LifeVirus from\nmy lab connections.\p")
+wait(0)
+text("I thought all the\nNetBattlers should\nknow about this.\p")
+wait(0)
+text("\"LifeVirus;ultimate\nvirus made up of 4\nprograms;\p")
+wait(0)
+text("Fire,Aqua,Elec,and\nWood,possessing no\nelemental weakness.\p")
+wait(0)
+text("No effective combat\nstrategies known...\"\nThat's what it says!\p")
+wait(0)
+text("Honestly,I don't\nknow how my NetNavi\ncan fight it...\p")
+wait(0)
+text("I've got some other\ninfo here;apparently\nthere's evidence\p")
+wait(0)
+text("that the LifeVirus\ndefense program was\ncopied by someone...\p")
+wait(0)
+text("Something to do with\nWWW or the EndGame?\nWho knows?\p")
+wait(0)
+text("All we can do is\npractice with our\nchips and wait...\p")
+wait(5)
 clear_flag(607)
 jump(0x40)
 section_end()
@@ -627,21 +529,16 @@ section_end()
 section_start(0x20)
 pic(3, 1)
 dialog_show()
-para_general("""I forgot to mention
-something in class
-today;""", 0)
-para_general("""Chips don't run out
-when you use them,so
-use what you need.""", 0)
-para_general("""Also,press {key PET}'s
-R Btn.to call your
-NetNavi in the net.""", 0)
-para_general("""This useful trick
-is called 
-\"jacking out\".""", 0)
-para_general("""Sorry for forgetting
-and see you in class
-tomorrow! ーMari""")
+text("I forgot to mention\nsomething in class\ntoday;\p")
+wait(0)
+text("Chips don't run out\nwhen you use them,so\nuse what you need.\p")
+wait(0)
+text("Also,press {key PET}'s\nR Btn.to call your\nNetNavi in the net.\p")
+wait(0)
+text("This useful trick\nis called \n\"jacking out\".\p")
+wait(0)
+text("Sorry for forgetting\nand see you in class\ntomorrow! ーMari\p")
+wait(5)
 clear_flag(608)
 jump(0x40)
 section_end()
@@ -900,7 +797,7 @@ set_delay(0)
 pic(34)
 dialog_show()
 clear_flag(1029)
-text_talking("""Read which mail?""")
+text("{a 2}Read which mail?{a 1}")
 stop()
 section_end()
 
@@ -914,11 +811,9 @@ section_end()
 section_start(0x46)
 pic(34)
 dialog_up()
-text("""{anim 2}Respond
-to this mail?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Respond\nto this mail?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x48, 0x47], 0, False, True)
 section_end()
 
@@ -926,9 +821,8 @@ section_end()
 section_start(0x47)
 pic(34)
 dialog_up()
-para_talk("""Shouldn't you
-respond? I bet
-Mayl's waiting...""")
+text("{a 2}Shouldn't you\nrespond? I bet\nMayl's waiting...{a 1}\p")
+wait(5)
 jump(0x40)
 section_end()
 
@@ -936,17 +830,16 @@ section_end()
 section_start(0x48)
 pic(34)
 dialog_up()
-para_talk("""What will you
-tell her?""")
+text("{a 2}What will you\ntell her?{a 1}\p")
+wait(5)
 jump(0x49)
 section_end()
 
 # 0x49 @ 0x7AA5AE
 section_start(0x49)
 dialog_up()
-text("""{c 1 1 0 0}Let's go shopping!
-""")
-text("""{c 0 0 0 0}You go alone.""")
+text("{c 1 1 0 0}Let's go shopping!\n")
+text("{c 0 0 0 0}You go alone.")
 pick([0x4B, 0x4A], 0, True, True)
 section_end()
 
@@ -954,11 +847,10 @@ section_end()
 section_start(0x4A)
 pic(34)
 dialog_up()
-para_talk("""What?
-After she invited
-you and all...""", 0)
-para_talk("""...so,what's
-your response?""")
+text("{a 2}What?\nAfter she invited\nyou and all...{a 1}\p")
+wait(0)
+text("{a 2}...so,what's\nyour response?{a 1}\p")
+wait(5)
 jump(0x49)
 section_end()
 
@@ -966,9 +858,8 @@ section_end()
 section_start(0x4B)
 pic(34)
 dialog_up()
-para_talk("""Rightーon!
-Go ahead and
-write your mail.""")
+text("{a 2}Rightーon!\nGo ahead and\nwrite your mail.{a 1}\p")
+wait(5)
 jump(0x4C)
 section_end()
 
@@ -976,10 +867,10 @@ section_end()
 section_start(0x4C)
 hidepic()
 dialog_up()
-para_general("""{..}.""", 0)
-text("""Lan wrote;
-\"{key Response}\"!""")
-add_item("Response", 1, 0xFF, 0xFF, 0xFF)
+text("{..}.\p")
+wait(0)
+text("Lan wrote;\n\"{key Response}\"!")
+add_item("Response", 1)
 set_flag(71)
 page()
 wait(5)
@@ -990,7 +881,7 @@ section_end()
 section_start(0x4D)
 pic(34)
 dialog_up()
-para_talk("""I'll go give
-this to Roll.""")
+text("{a 2}I'll go give\nthis to Roll.{a 1}\p")
+wait(5)
 jump(0x40)
 section_end()

@@ -3,39 +3,35 @@ section_count(0xA)
 # 0x00 @ 0x71F8FC
 section_start(0x00)
 dialog_up()
-para_general("""It looks like a
-connection to the
-net...""", 0)
-para_general_end("""But MegaMan doesn't
-have access!""", 0)
+text("It looks like a\nconnection to the\nnet...\p")
+wait(0)
+text("But MegaMan doesn't\nhave access!\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x71F955
 section_start(0x01)
 set_flag(8)
 dialog_up()
-para_general("""MegaMan bookmarked
-Dex's computer!""", 0)
-para_general_end("""You can now freely
-enter here!""", 0)
+text("MegaMan bookmarked\nDex's computer!\p")
+wait(0)
+text("You can now freely\nenter here!\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x71F9AE
 section_start(0x05)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(655)
 pc_anim_start(50)
-add_item("★Dex", 1, 0xFF, 0xFF, 0xFF)
-para_general("""MegaMan got;
-\"{key ★Dex}\"!""", 0)
-para_general("""(Use this item at
- the access point to
- this computer""", 0)
-text(""" for free access
- between it and the
- net)""")
+add_item("★Dex", 1)
+text("MegaMan got;\n\"{key ★Dex}\"!\p")
+wait(0)
+text("(Use this item at\n the access point to\n this computer\p")
+wait(0)
+text(" for free access\n between it and the\n net)")
 pc_anim_end()
 page()
 end(5)
@@ -45,17 +41,16 @@ section_end()
 section_start(0x06)
 check_chip("X-Panel3 B", 1, 0x07, 0x07, 0xFF)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(656)
 pc_anim_start(50)
 add_chip("X-Panel3 B", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"""")
+text("MegaMan got a chip\nfor \"")
 chip_id("X-Panel3")
-text(""" """)
+text(" ")
 chip_code("B")
-text("""\"!""")
+text("\"!")
 pc_anim_end()
 page()
 end()
@@ -64,8 +59,8 @@ section_end()
 # 0x07 @ 0x71FAEC
 section_start(0x07)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
-para_general_end("""However,he couldn't
-decode the data.""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
+text("However,he couldn't\ndecode the data.\p")
+end(0)
 section_end()

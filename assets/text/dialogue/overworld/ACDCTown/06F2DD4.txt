@@ -6,22 +6,18 @@ dialog_up()
 set_flag(640)
 clear_flag(1040)
 pc_anim_start(30)
-add_item("PET", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got his
-\"{key PET}\"!""")
+add_item("PET", 1)
+text("Lan got his\n\"{key PET}\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()
 page()
 wait()
-para_general("""Press START to see
-chip data and read
-mail""", 0)
+text("Press START to see\nchip data and read\nmail\p")
+wait(0)
 pc_anim_start(30)
 se(0x85)
-text("""Lan got an AI
-Navigation program,
-\"MegaMan.EXE\"!""")
+text("Lan got an AI\nNavigation program,\n\"MegaMan.EXE\"!")
 pc_wait()
 pc_anim(4)
 pc_unlock()
@@ -35,15 +31,16 @@ section_end()
 # 0x01 @ 0x6F3061
 section_start(0x01)
 dialog_up()
-para_general_end("""Lan,don't forget
-your {key PET}!!""")
+text("Lan,don't forget\nyour {key PET}!!\p")
+end(5)
 section_end()
 
 # 0x02 @ 0x6F3089
 section_start(0x02)
 pic(34)
 dialog_up()
-para_talk("""Lan! Good morning!""", 0)
+text("{a 2}Lan! Good morning!{a 1}\p")
+wait(0)
 jump(0x03)
 section_end()
 
@@ -51,7 +48,8 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""Morning,MegaMan!""", 0)
+text("{a 2}Morning,MegaMan!{a 1}\p")
+wait(0)
 jump(0x04)
 section_end()
 
@@ -59,20 +57,18 @@ section_end()
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk("""If you need to talk
-to me,just push the
-L Button.""", 0)
-para_talk_end("""OK,let's get to
-school!""", 0)
+text("{a 2}If you need to talk\nto me,just push the\nL Button.{a 1}\p")
+wait(0)
+text("{a 2}OK,let's get to\nschool!{a 1}\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x6F313E
 section_start(0x07)
 pic(34)
 dialog_up()
-para_talk_end("""You want to jack
-in? Let's do that
-after school!""")
+text("{a 2}You want to jack\nin? Let's do that\nafter school!{a 1}\p")
+end(5)
 section_end()
 
 # 0x08 @ 0x6F3181
@@ -81,8 +77,8 @@ pic(34)
 dialog_up()
 mail(0)
 mail(1)
-para_talk_end("""Lan! Check your
-mail again!""")
+text("{a 2}Lan! Check your\nmail again!{a 1}\p")
+end(5)
 section_end()
 
 # 0x09 @ 0x6F31B6
@@ -91,9 +87,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -103,9 +97,8 @@ section_end()
 section_start(0x0C)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,this is no time
-to jack in! Go see
-Mom!""")
+text("{a 2}Lan,this is no time\nto jack in! Go see\nMom!{a 1}\p")
+end(5)
 section_end()
 
 # 0x0F @ 0x6F3243
@@ -114,7 +107,8 @@ if_story(0x04, 0x04, 0xFF, 0xDC)
 if_flag(641, 0xDC, 0xFF)
 pic(0)
 dialog_up()
-para_talk("""Here it is!!""", 0)
+text("{a 2}Here it is!!{a 1}\p")
+wait(0)
 dialog_down()
 hidepic()
 jump(0x10)
@@ -125,9 +119,8 @@ section_start(0x10)
 dialog_up()
 set_flag(641)
 pc_anim(30)
-add_item("WaterGun", 5, 0xFF, 0xFF, 0xFF)
-text("""Lan got;
-\"{key WaterGun}\"!""")
+add_item("WaterGun", 5)
+text("Lan got;\n\"{key WaterGun}\"!")
 pc_wait()
 pc_anim(4)
 page()
@@ -140,25 +133,24 @@ section_end()
 section_start(0x11)
 pic(0)
 dialog_up()
-para_talk_end("""OK! Let's go!""")
+text("{a 2}OK! Let's go!{a 1}\p")
+end(5)
 section_end()
 
 # 0x12 @ 0x6F32C8
 section_start(0x12)
 dialog_up()
-para_general_end("""MegaMan isn't in
-the {key PET}...""")
+text("MegaMan isn't in\nthe {key PET}...\p")
+end(5)
 section_end()
 
 # 0x19 @ 0x6F32FC
 section_start(0x19)
 pic(34)
 dialog_up()
-text("""{anim 2}Turn in for the
-day?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Turn in for the\nday?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x1A, 0xFF], 0, False, False)
 end(5)
 section_end()
@@ -168,11 +160,9 @@ section_start(0x1A)
 pic(34)
 dialog_up()
 wait()
-text("""{anim 2}Save the day's
-events in your {key PET}?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}Save the day's\nevents in your {key PET}?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x1B, 0xFF], 0, False, True)
 wait(5)
 jump(0x1C)
@@ -183,15 +173,13 @@ section_start(0x1B)
 if_flag(1033, 0xFF, 0x21)
 pic(34)
 dialog_up()
-text("""A file exists.
-OK to overwrite?
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("A file exists.\nOK to overwrite?\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0xFF, 0x1C], 0, False, True)
 save(0xFF, 0x1D)
-para_talk("""OK!{anim 1}
-...{delay}{anim 2}Saved!""")
+text("{a 2}OK!{a 1}\n...{d}{a 2}Saved!{a 1}\p")
+wait(5)
 jump(0x1C)
 section_end()
 
@@ -199,11 +187,10 @@ section_end()
 section_start(0x1C)
 pic(34)
 dialog_up()
-text_talking("""Good night,Lan!""")
-page()
-if_story(0x00, 0x0F, 0x1E, 0xFF)
-if_story(0x20, 0x2F, 0x1F, 0xFF)
-if_story(0x52, 0x52, 0x20, 0xFF)
+text("{a 2}Good night,Lan!{a 1}\p")
+if_story(0x00, 0x0F, 0x1E)
+if_story(0x20, 0x2F, 0x1F)
+if_story(0x52, 0x52, 0x20)
 end(5)
 section_end()
 
@@ -211,11 +198,9 @@ section_end()
 section_start(0x1D)
 pic(34)
 dialog_up()
-text("""{anim 2}There was an error
-saving. Try again?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}There was an error\nsaving. Try again?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x1B, 0xFF], 0, False, True)
 wait(5)
 jump(0x1C)
@@ -244,8 +229,8 @@ section_start(0x21)
 pic(34)
 dialog_up()
 save(0xFF, 0x1D)
-para_talk("""OK!{anim 1}
-...{delay}{anim 2}Saved!""")
+text("{a 2}OK!{a 1}\n...{d}{a 2}Saved!{a 1}\p")
+wait(5)
 jump(0x1C)
 section_end()
 
@@ -255,8 +240,8 @@ pic(34)
 dialog_up()
 mail(30)
 mail(14)
-para_talk_end("""Lan!
-You've got mail!""", 0)
+text("{a 2}Lan!\nYou've got mail!{a 1}\p")
+end(0)
 section_end()
 
 # 0x5A @ 0x6F3566
@@ -264,55 +249,52 @@ section_start(0x5A)
 pic(34)
 dialog_up()
 mail(17)
-para_talk_end("""Lan!
-You've got mail!""", 0)
+text("{a 2}Lan!\nYou've got mail!{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x6F3694
 section_start(0xDC)
 if_flag(641, 0xDD, 0xFF)
 dialog_up()
-para_general_end("""Lan's secret tools
-are hidden here""")
+text("Lan's secret tools\nare hidden here\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x6F36C5
 section_start(0xDD)
 dialog_up()
-para_general_end("""Lots of things that
-Lan never uses,but
-can't throw away""")
+text("Lots of things that\nLan never uses,but\ncan't throw away\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x6F3706
 section_start(0xDE)
 dialog_up()
-para_general("""Lan has hidden some
-test answers in this
-bookshelf""", 0)
-para_general_end("""Hope that Mom
-doesn't find it...""")
+text("Lan has hidden some\ntest answers in this\nbookshelf\p")
+wait(0)
+text("Hope that Mom\ndoesn't find it...\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x6F3768
 section_start(0xDF)
 if_flag(640, 0xE0, 0xFF)
 dialog_up()
-para_general_end("""That's not your
-{key PET}!!""")
+text("That's not your\n{key PET}!!\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x6F378F
 section_start(0xE0)
 dialog_up()
-para_general_end("""Your PC. If you jack
-in here,you can send
-MegaMan into the net""")
+text("Your PC. If you jack\nin here,you can send\nMegaMan into the net\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x6F37D7
 section_start(0xE1)
 dialog_up()
-para_general_end("""It's still a little
-early to go to bed""")
+text("It's still a little\nearly to go to bed\p")
+end(5)
 section_end()

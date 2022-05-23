@@ -4,9 +4,8 @@ section_count(0x16)
 section_start(0x00)
 pic(6)
 dialog_up()
-para_talk("""Weeeeel now,I'd like
-to begin the first
-class,huh.""")
+text("{a 2}Weeeeel now,I'd like\nto begin the first\nclass,huh.{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -14,8 +13,8 @@ section_end()
 section_start(0x01)
 pic(8)
 dialog_up()
-para_talk("""Mr.Higsby,where's
-Ms.Mari?""")
+text("{a 2}Mr.Higsby,where's\nMs.Mari?{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -23,9 +22,8 @@ section_end()
 section_start(0x02)
 pic(6)
 dialog_up()
-para_talk("""Ms.Mari? She was
-sick and went to the
-nurse's office,huh.""")
+text("{a 2}Ms.Mari? She was\nsick and went to the\nnurse's office,huh.{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -33,7 +31,8 @@ section_end()
 section_start(0x03)
 pic(2)
 dialog_up()
-para_talk("""Wha..!?""")
+text("{a 2}Wha..!?{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -41,9 +40,8 @@ section_end()
 section_start(0x04)
 pic(6)
 dialog_up()
-para_talk("""Quiet,everyone!{anim 1}{delay}
-...{anim 2}first class will
-be study hall,huh.""")
+text("{a 2}Quiet,everyone!{a 1}{d}\n...{a 2}first class will\nbe study hall,huh.{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -51,7 +49,8 @@ section_end()
 section_start(0x05)
 pic(2)
 dialog_up()
-para_talk("""All right!""")
+text("{a 2}All right!{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -59,11 +58,10 @@ section_end()
 section_start(0x06)
 pic(6)
 dialog_up()
-para_talk("""Don't rejoice
-just yet,huh!""", 0)
-para_talk("""I want you all to do
-math drills. I'll be
-checking them later!""")
+text("{a 2}Don't rejoice\njust yet,huh!{a 1}\p")
+wait(0)
+text("{a 2}I want you all to do\nmath drills. I'll be\nchecking them later!{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -71,7 +69,8 @@ section_end()
 section_start(0x07)
 pic(2)
 dialog_up()
-para_talk("""Shucks...""")
+text("{a 2}Shucks...{a 1}\p")
+wait(5)
 jump(0x08)
 section_end()
 
@@ -79,18 +78,15 @@ section_end()
 section_start(0x08)
 pic(6)
 dialog_up()
-para_talk_end("""Now,jack in to the
-blackboard!{anim 1}{delay}
-{anim 2}Huh!""", 10)
+text("{a 2}Now,jack in to the\nblackboard!{a 1}{d}\n{a 2}Huh!{a 1}\p")
+end(10)
 section_end()
 
 # 0x09 @ 0x72C0C7
 section_start(0x09)
 pic(6)
 dialog_up()
-text_talking("""All right everyone{anim 1}...{delay}
-{anim 2}Good luck!""")
-page()
+text("{a 2}All right everyone{a 1}...{d}\n{a 2}Good luck!{a 1}\p")
 set_flag(152)
 end()
 section_end()
@@ -99,17 +95,16 @@ section_end()
 section_start(0x0A)
 pic(0)
 dialog_up()
-para_talk_end("""Man,math is hard,
-especially in the
-morni...huh?""", 10)
+text("{a 2}Man,math is hard,\nespecially in the\nmorni...huh?{a 1}\p")
+end(10)
 section_end()
 
 # 0x0B @ 0x72C14D
 section_start(0x0B)
 pic(1)
 dialog_up()
-para_talk("""Eeek!! What's
-that!?""")
+text("{a 2}Eeek!! What's\nthat!?{a 1}\p")
+wait(5)
 jump(0x0C)
 section_end()
 
@@ -117,11 +112,10 @@ section_end()
 section_start(0x0C)
 pic(5, 1)
 dialog_up()
-para_general("""{anim 2}We will now announce
-{anim 1}{..}.""", 0)
-para_talk("""The real goal of our
-plan{anim 1}...{delay}
-{anim 2}to control the net!""")
+text("{a 2}We will now announce\n{a 1}{..}.\p")
+wait(0)
+text("{a 2}The real goal of our\nplan{a 1}...{d}\n{a 2}to control the net!{a 1}\p")
+wait(5)
 jump(0x0D)
 section_end()
 
@@ -129,9 +123,8 @@ section_end()
 section_start(0x0D)
 pic(34)
 dialog_up()
-para_talk("""Lan! This is a WWW
-reーeducation
-program!""")
+text("{a 2}Lan! This is a WWW\nreーeducation\nprogram!{a 1}\p")
+wait(5)
 jump(0x0E)
 section_end()
 
@@ -139,15 +132,12 @@ section_end()
 section_start(0x0E)
 pic(5, 1)
 dialog_up()
-para_talk("""The WWW's true plan
-is to start a war...
-the EndGame!""", 0)
-para_talk("""We will take control
-of the military net
-and all other nets! """, 0)
-para_talk("""The only cure for
-this rotten world
-is.{anim 1}{delay}{..}{anim 2}deletion!!!""")
+text("{a 2}The WWW's true plan\nis to start a war...\nthe EndGame!{a 1}\p")
+wait(0)
+text("{a 2}We will take control\nof the military net\nand all other nets! {a 1}\p")
+wait(0)
+text("{a 2}The only cure for\nthis rotten world\nis.{a 1}{d}{..}{a 2}deletion!!!{a 1}\p")
+wait(5)
 jump(0x0F)
 section_end()
 
@@ -155,7 +145,8 @@ section_end()
 section_start(0x0F)
 pic(9)
 dialog_up()
-para_talk("""Noooo!""")
+text("{a 2}Noooo!{a 1}\p")
+wait(5)
 jump(0x10)
 section_end()
 
@@ -163,8 +154,8 @@ section_end()
 section_start(0x10)
 pic(8)
 dialog_up()
-para_talk("""Why? Why would
-they do that?""")
+text("{a 2}Why? Why would\nthey do that?{a 1}\p")
+wait(5)
 jump(0x11)
 section_end()
 
@@ -172,15 +163,12 @@ section_end()
 section_start(0x11)
 pic(5, 1)
 dialog_up()
-para_talk("""To reach our goals,
-The WWW is hiring
-new staff members!""", 0)
-para_talk("""We will begin a new
-instruction program,
-starting today!""", 0)
-para_talk("""Children! Study well
-and become good
-slaves to WWW!""")
+text("{a 2}To reach our goals,\nThe WWW is hiring\nnew staff members!{a 1}\p")
+wait(0)
+text("{a 2}We will begin a new\ninstruction program,\nstarting today!{a 1}\p")
+wait(0)
+text("{a 2}Children! Study well\nand become good\nslaves to WWW!{a 1}\p")
+wait(5)
 jump(0x12)
 section_end()
 
@@ -188,8 +176,8 @@ section_end()
 section_start(0x12)
 pic(2)
 dialog_up()
-para_talk("""What!?
-No way man,not me!""")
+text("{a 2}What!?\nNo way man,not me!{a 1}\p")
+wait(5)
 jump(0x13)
 section_end()
 
@@ -197,9 +185,8 @@ section_end()
 section_start(0x13)
 pic(10)
 dialog_up()
-para_talk("""Oh no,I can't
-turn my terminal
-off!""")
+text("{a 2}Oh no,I can't\nturn my terminal\noff!{a 1}\p")
+wait(5)
 jump(0x14)
 section_end()
 
@@ -207,8 +194,8 @@ section_end()
 section_start(0x14)
 pic(9)
 dialog_up()
-para_talk("""Heeeey!
-The door's locked!""")
+text("{a 2}Heeeey!\nThe door's locked!{a 1}\p")
+wait(5)
 jump(0x15)
 section_end()
 
@@ -216,7 +203,6 @@ section_end()
 section_start(0x15)
 pic(2)
 dialog_up()
-para_talk_end("""Everyone,be calm!
-Me and GutsMan will
-stop them!""")
+text("{a 2}Everyone,be calm!\nMe and GutsMan will\nstop them!{a 1}\p")
+end(5)
 section_end()

@@ -4,8 +4,8 @@ section_count(0x32)
 section_start(0x00)
 pic(3)
 dialog_up()
-para_talk("""OK,now I'll tell you
-about support chips.""", 1)
+text("{a 2}OK,now I'll tell you\nabout support chips.{a 1}\p")
+wait(1)
 jump(0x01)
 section_end()
 
@@ -13,8 +13,8 @@ section_end()
 section_start(0x01)
 pic(3)
 dialog_up()
-para_talk("""Not all chips are
-weapons.""", 1)
+text("{a 2}Not all chips are\nweapons.{a 1}\p")
+wait(1)
 jump(0x02)
 section_end()
 
@@ -22,243 +22,222 @@ section_end()
 section_start(0x02)
 pic(3)
 dialog_up()
-para_talk("""For example,a Steal
-chip will increase
-the area that your""", 1)
-para_talk_end("""Navi is able to
-move around in...""", 1)
+text("{a 2}For example,a Steal\nchip will increase\nthe area that your{a 1}\p")
+wait(1)
+text("{a 2}Navi is able to\nmove around in...{a 1}\p")
+end(1)
 section_end()
 
 # 0x03 @ 0x73DD5F
 section_start(0x03)
 pic(3)
 dialog_up()
-para_talk_end("""Another good
-question! Look here,
-please.""", 1)
+text("{a 2}Another good\nquestion! Look here,\nplease.{a 1}\p")
+end(1)
 section_end()
 
 # 0x04 @ 0x73DD9B
 section_start(0x04)
 pic(3)
 dialog_up()
-para_talk("""Do you see the
-letter? That's this
-chip's code.""", 1)
-para_talk("""You can choose a
-different type of
-chip if it has""", 1)
-para_talk("""the same code type.""", 1)
-para_talk("""Please notice that
-Steal and Wide
-Sword have the""", 1)
-para_talk_end("""same code! They're
-both \"S\".""", 1)
+text("{a 2}Do you see the\nletter? That's this\nchip's code.{a 1}\p")
+wait(1)
+text("{a 2}You can choose a\ndifferent type of\nchip if it has{a 1}\p")
+wait(1)
+text("{a 2}the same code type.{a 1}\p")
+wait(1)
+text("{a 2}Please notice that\nSteal and Wide\nSword have the{a 1}\p")
+wait(1)
+text("{a 2}same code! They're\nboth \"S\".{a 1}\p")
+end(1)
 section_end()
 
 # 0x05 @ 0x73DE94
 section_start(0x05)
 pic(3)
 dialog_up()
-para_talk("""You can choose two
-chips at the same
-time,now.""", 1)
-para_talk("""They are shown here,
-in the order that
-you chose them.""", 1)
-para_talk_end("""This will help you
-plan your strategy.""", 1)
+text("{a 2}You can choose two\nchips at the same\ntime,now.{a 1}\p")
+wait(1)
+text("{a 2}They are shown here,\nin the order that\nyou chose them.{a 1}\p")
+wait(1)
+text("{a 2}This will help you\nplan your strategy.{a 1}\p")
+end(1)
 section_end()
 
 # 0x06 @ 0x73DF43
 section_start(0x06)
 pic(3)
 dialog_up()
-para_talk("""Since you need to
-get close for a
-sword,""", 1)
-para_talk_end("""this would be a wise
-strategy.""", 1)
+text("{a 2}Since you need to\nget close for a\nsword,{a 1}\p")
+wait(1)
+text("{a 2}this would be a wise\nstrategy.{a 1}\p")
+end(1)
 section_end()
 
 # 0x07 @ 0x73DFA3
 section_start(0x07)
 pic(9)
 dialog_up()
-para_talk_end("""Ms.Mari! I thought
-that we can only
-choose chip copies!""", 1)
+text("{a 2}Ms.Mari! I thought\nthat we can only\nchoose chip copies!{a 1}\p")
+end(1)
 section_end()
 
 # 0x0A @ 0x73DFF1
 section_start(0x0A)
 pic(3)
 dialog_up()
-para_talk_end("""OK,let's try that.
-Choose Steal and
-WideSword in order.""", 1)
+text("{a 2}OK,let's try that.\nChoose Steal and\nWideSword in order.{a 1}\p")
+end(1)
 section_end()
 
 # 0x0B @ 0x73E03C
 section_start(0x0B)
 pic(3)
 dialog_up()
-para_talk_end("""Choose Steal first.
-Cancel with the
-B Button.""", 1)
+text("{a 2}Choose Steal first.\nCancel with the\nB Button.{a 1}\p")
+end(1)
 section_end()
 
 # 0x0C @ 0x73E07B
 section_start(0x0C)
 pic(3)
 dialog_up()
-para_talk_end("""Choose Steal first.
-Cancel with the
-B Button.""", 1)
+text("{a 2}Choose Steal first.\nCancel with the\nB Button.{a 1}\p")
+end(1)
 section_end()
 
 # 0x0D @ 0x73E0BA
 section_start(0x0D)
 pic(3)
 dialog_up()
-para_talk("""Choose Steal first.
-Cancel with
-the B Button""", 1)
-para_talk_end("""if you have chosen
-another chip.""", 1)
+text("{a 2}Choose Steal first.\nCancel with\nthe B Button{a 1}\p")
+wait(1)
+text("{a 2}if you have chosen\nanother chip.{a 1}\p")
+end(1)
 section_end()
 
 # 0x0E @ 0x73E120
 section_start(0x0E)
 pic(3)
 dialog_up()
-para_talk_end("""You don't need to
-use that feature
-just yet...""", 1)
+text("{a 2}You don't need to\nuse that feature\njust yet...{a 1}\p")
+end(1)
 section_end()
 
 # 0x0F @ 0x73E162
 section_start(0x0F)
 pic(3)
 dialog_up()
-para_talk_end("""Ooops! Wrong order!
-Cancel both with the
-B Button!""", 1)
+text("{a 2}Ooops! Wrong order!\nCancel both with the\nB Button!{a 1}\p")
+end(1)
 section_end()
 
 # 0x14 @ 0x73E1AF
 section_start(0x14)
 pic(3)
 dialog_up()
-para_talk_end("""OK! Next,choose the
-WideSword.""", 1)
+text("{a 2}OK! Next,choose the\nWideSword.{a 1}\p")
+end(1)
 section_end()
 
 # 0x15 @ 0x73E1E0
 section_start(0x15)
 pic(3)
 dialog_up()
-para_talk("""Huh? That's not the
-WideSword!""", 1)
-para_talk_end("""That chip has a
-different code,so
-you can't use it.""", 1)
+text("{a 2}Huh? That's not the\nWideSword!{a 1}\p")
+wait(1)
+text("{a 2}That chip has a\ndifferent code,so\nyou can't use it.{a 1}\p")
+end(1)
 section_end()
 
 # 0x16 @ 0x73E24F
 section_start(0x16)
 pic(3)
 dialog_up()
-para_talk("""Don't cancel.""", 1)
-para_talk_end("""Do like I said and
-choose the WideSword.""", 1)
+text("{a 2}Don't cancel.{a 1}\p")
+wait(1)
+text("{a 2}Do like I said and\nchoose the WideSword.{a 1}\p")
+end(1)
 section_end()
 
 # 0x17 @ 0x73E29F
 section_start(0x17)
 pic(3)
 dialog_up()
-para_talk_end("""This time,let's send
-the WideSword data,
-too.""", 1)
+text("{a 2}This time,let's send\nthe WideSword data,\ntoo.{a 1}\p")
+end(1)
 section_end()
 
 # 0x18 @ 0x73E2E0
 section_start(0x18)
 pic(3)
 dialog_up()
-para_talk_end("""You don't need to
-use that feature
-just yet...""", 1)
+text("{a 2}You don't need to\nuse that feature\njust yet...{a 1}\p")
+end(1)
 section_end()
 
 # 0x1E @ 0x73E32C
 section_start(0x1E)
 pic(3)
 dialog_up()
-para_talk_end("""OK,let's send this
-data to the Navi!
-Choose \"OK\".""", 1)
+text("{a 2}OK,let's send this\ndata to the Navi!\nChoose \"OK\".{a 1}\p")
+end(1)
 section_end()
 
 # 0x1F @ 0x73E373
 section_start(0x1F)
 pic(3)
 dialog_up()
-para_talk("""Don't worry,with
-this combination
-we're sure to win.""", 1)
-para_talk_end("""Don't cancel now!""", 1)
+text("{a 2}Don't worry,with\nthis combination\nwe're sure to win.{a 1}\p")
+wait(1)
+text("{a 2}Don't cancel now!{a 1}\p")
+end(1)
 section_end()
 
 # 0x20 @ 0x73E3D6
 section_start(0x20)
 pic(3)
 dialog_up()
-para_talk("""We've sent the data
-to the Navi!""", 1)
-para_talk_end("""Time to try out
-our strategy!""", 1)
+text("{a 2}We've sent the data\nto the Navi!{a 1}\p")
+wait(1)
+text("{a 2}Time to try out\nour strategy!{a 1}\p")
+end(1)
 section_end()
 
 # 0x28 @ 0x73E43C
 section_start(0x28)
 pic(3)
 dialog_up()
-para_talk("""OK,let's review that
-strategy.""", 1)
-para_talk("""First,you'll use the
-A Button to use
-Steal.""", 1)
-para_talk("""Then,the virus's
-area will shrink
-right,and you""", 1)
-para_talk_end("""will have more room
-to move around!""", 1)
+text("{a 2}OK,let's review that\nstrategy.{a 1}\p")
+wait(1)
+text("{a 2}First,you'll use the\nA Button to use\nSteal.{a 1}\p")
+wait(1)
+text("{a 2}Then,the virus's\narea will shrink\nright,and you{a 1}\p")
+wait(1)
+text("{a 2}will have more room\nto move around!{a 1}\p")
+end(1)
 section_end()
 
 # 0x29 @ 0x73E509
 section_start(0x29)
 pic(3)
 dialog_up()
-para_talk("""Move into the area
-that you took,and
-use the sword!""", 1)
-para_talk("""This is a powerful
-strategy!""", 1)
-para_talk("""However,be careful
-of the virus's
-attack when close!""", 1)
-para_talk_end("""Good luck,everyone!""", 1)
+text("{a 2}Move into the area\nthat you took,and\nuse the sword!{a 1}\p")
+wait(1)
+text("{a 2}This is a powerful\nstrategy!{a 1}\p")
+wait(1)
+text("{a 2}However,be careful\nof the virus's\nattack when close!{a 1}\p")
+wait(1)
+text("{a 2}Good luck,everyone!{a 1}\p")
+end(1)
 section_end()
 
 # 0x2D @ 0x73E5D5
 section_start(0x2D)
 pic(3)
 dialog_up()
-para_talk("""OK,let's send some
-data to the Navi
-again.""", 1)
-para_talk_end("""Try it yourself this
-time!""", 1)
+text("{a 2}OK,let's send some\ndata to the Navi\nagain.{a 1}\p")
+wait(1)
+text("{a 2}Try it yourself this\ntime!{a 1}\p")
+end(1)
 section_end()

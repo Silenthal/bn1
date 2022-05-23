@@ -2,60 +2,53 @@ section_count(0xEB)
 
 # 0x00 @ 0x7044EA
 section_start(0x00)
-if_story(0x40, 0x47, 0x47, 0xFF)
-if_story(0x33, 0x37, 0x1E, 0xFF)
+if_story(0x40, 0x47, 0x47)
+if_story(0x33, 0x37, 0x1E)
 pic(9)
 dialog_up()
-para_talk("""This is Central
-DenCity,the
-middle of town.""", 0)
-para_talk("""To the North,South,
-East,and West are
-Blocks 1ー4.""", 0)
-para_talk_end("""You must pass
-through this Block
-to get to any other.""", 0)
+text("{a 2}This is Central\nDenCity,the\nmiddle of town.{a 1}\p")
+wait(0)
+text("{a 2}To the North,South,\nEast,and West are\nBlocks 1ー4.{a 1}\p")
+wait(0)
+text("{a 2}You must pass\nthrough this Block\nto get to any other.{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x7045AE
 section_start(0x01)
-if_story(0x40, 0x47, 0x48, 0xFF)
+if_story(0x40, 0x47, 0x48)
 pic(14)
 dialog_up()
-para_talk("""I'm on my way to
-the antique shop on
-Block2.""", 0)
-para_talk_end("""I'm tired from all
-this walking!
-˂wheeze˃""", 0)
+text("{a 2}I'm on my way to\nthe antique shop on\nBlock2.{a 1}\p")
+wait(0)
+text("{a 2}I'm tired from all\nthis walking!\n˂wheeze˃{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x704627
 section_start(0x02)
-if_story(0x40, 0x47, 0x49, 0xFF)
+if_story(0x40, 0x47, 0x49)
 pic(19)
 dialog_up()
-para_talk_end("""This is the business
-center of DenCity!""", 0)
+text("{a 2}This is the business\ncenter of DenCity!{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x704665
 section_start(0x03)
-if_story(0x40, 0x47, 0x4A, 0xFF)
+if_story(0x40, 0x47, 0x4A)
 pic(17)
 dialog_up()
-para_talk_end("""This is the most
-popular part of town
-for young people.""", 0)
+text("{a 2}This is the most\npopular part of town\nfor young people.{a 1}\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x7046B3
 section_start(0x04)
 pic(34)
 dialog_up()
-para_talk_end("""May not be a good
-idea to jack in
-there,Lan.""", 0)
+text("{a 2}May not be a good\nidea to jack in\nthere,Lan.{a 1}\p")
+end(0)
 section_end()
 
 # 0x05 @ 0x7046F1
@@ -63,21 +56,20 @@ section_start(0x05)
 pic(34)
 dialog_up()
 mail(21)
-para_talk_end("""Lan!
-You've got mail!""", 0)
+text("{a 2}Lan!\nYou've got mail!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x704725
 section_start(0x0A)
-if_story(0x33, 0x33, 0x1F, 0xFF)
-if_story(0x34, 0x34, 0x29, 0xFF)
-if_story(0x35, 0x35, 0x33, 0xFF)
-if_story(0x36, 0x37, 0x3C, 0xFF)
+if_story(0x33, 0x33, 0x1F)
+if_story(0x34, 0x34, 0x29)
+if_story(0x35, 0x35, 0x33)
+if_story(0x36, 0x37, 0x3C)
 pic(34)
 dialog_up()
-para_talk_end("""Lan! We've gotta
-stop everyone from
-buying that program!""", 0)
+text("{a 2}Lan! We've gotta\nstop everyone from\nbuying that program!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x704788
@@ -85,36 +77,33 @@ section_start(0x0B)
 if_flag(159, 0x0C, 0xFF)
 pic(34)
 dialog_up()
-para_talk_end("""Lan! We've gotta
-stop everyone from
-buying that program!""", 0)
+text("{a 2}Lan! We've gotta\nstop everyone from\nbuying that program!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0C @ 0x7047D9
 section_start(0x0C)
 pic(34)
 dialog_up()
-para_talk_end("""Hang on a sec,
-I want to check
-something out...""", 0)
+text("{a 2}Hang on a sec,\nI want to check\nsomething out...{a 1}\p")
+end(0)
 section_end()
 
 # 0x0D @ 0x70481C
 section_start(0x0D)
 pic(24)
 dialog_up()
-para_talk_end("""I'm busy here!
-Go away! Shoo!""", 0)
+text("{a 2}I'm busy here!\nGo away! Shoo!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0E @ 0x70484D
 section_start(0x0E)
-if_story(0x33, 0x37, 0x1E, 0xFF)
+if_story(0x33, 0x37, 0x1E)
 pic(9)
 dialog_up()
-para_talk_end("""There was an
-accident here just
-now!""", 0)
+text("{a 2}There was an\naccident here just\nnow!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x704888
@@ -123,9 +112,8 @@ if_flag(162, 0x11, 0xFF)
 set_flag(156)
 pic(14)
 dialog_up()
-para_talk("""Never mind the
-antiques,I want that
-program!""")
+text("{a 2}Never mind the\nantiques,I want that\nprogram!{a 1}\p")
+wait(5)
 jump(0x10)
 section_end()
 
@@ -133,8 +121,8 @@ section_end()
 section_start(0x10)
 pic(0)
 dialog_up()
-para_talk("""You're being duped
-by the WWW!""")
+text("{a 2}You're being duped\nby the WWW!{a 1}\p")
+wait(5)
 jump(0x11)
 section_end()
 
@@ -142,9 +130,8 @@ section_end()
 section_start(0x11)
 pic(14)
 dialog_up()
-para_talk("""What's that!?{anim 1}{delay}
-{anim 2}I see{anim 1}...!{delay}
-{anim 2}I'm leaving!""", 0)
+text("{a 2}What's that!?{a 1}{d}\n{a 2}I see{a 1}...!{d}\n{a 2}I'm leaving!{a 1}\p")
+wait(0)
 set_flag(162)
 end()
 section_end()
@@ -155,9 +142,8 @@ if_flag(163, 0x14, 0xFF)
 set_flag(157)
 pic(19)
 dialog_up()
-para_talk("""Give me my program!
-I just withdrew all
-my savings.""")
+text("{a 2}Give me my program!\nI just withdrew all\nmy savings.{a 1}\p")
+wait(5)
 jump(0x13)
 section_end()
 
@@ -165,9 +151,8 @@ section_end()
 section_start(0x13)
 pic(0)
 dialog_up()
-para_talk("""No! Don't!
-I'll fix the
-signals!""")
+text("{a 2}No! Don't!\nI'll fix the\nsignals!{a 1}\p")
+wait(5)
 jump(0x14)
 section_end()
 
@@ -175,9 +160,8 @@ section_end()
 section_start(0x14)
 pic(19)
 dialog_up()
-para_talk("""You will? Well,I
-guess I won't need
-that program,then!""", 0)
+text("{a 2}You will? Well,I\nguess I won't need\nthat program,then!{a 1}\p")
+wait(0)
 set_flag(163)
 end()
 section_end()
@@ -188,9 +172,8 @@ if_flag(164, 0x17, 0xFF)
 set_flag(158)
 pic(17)
 dialog_up()
-para_talk("""Sell it to me!
-I'll pay you double!
-Triple!""")
+text("{a 2}Sell it to me!\nI'll pay you double!\nTriple!{a 1}\p")
+wait(5)
 jump(0x16)
 section_end()
 
@@ -198,7 +181,8 @@ section_end()
 section_start(0x16)
 pic(0)
 dialog_up()
-para_talk("""Please,calm down!""")
+text("{a 2}Please,calm down!{a 1}\p")
+wait(5)
 jump(0x17)
 section_end()
 
@@ -206,9 +190,8 @@ section_end()
 section_start(0x17)
 pic(17)
 dialog_up()
-para_talk("""Hey,you're right!
-I don't even have
-a driver's license!""", 0)
+text("{a 2}Hey,you're right!\nI don't even have\na driver's license!{a 1}\p")
+wait(0)
 set_flag(164)
 end()
 section_end()
@@ -226,44 +209,40 @@ section_end()
 section_start(0x1E)
 pic(9)
 dialog_up()
-para_talk_end("""Where did everyone
-go? It's like a
-ghost town here!""", 0)
+text("{a 2}Where did everyone\ngo? It's like a\nghost town here!{a 1}\p")
+end(0)
 section_end()
 
 # 0x1F @ 0x704B67
 section_start(0x1F)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,we need to get
-to Block4 to meet
-Mayl!""", 0)
+text("{a 2}Lan,we need to get\nto Block4 to meet\nMayl!{a 1}\p")
+end(0)
 section_end()
 
 # 0x28 @ 0x704BB3
 section_start(0x28)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,if we go that
-way we won't get
-there in time!""", 0)
+text("{a 2}Lan,if we go that\nway we won't get\nthere in time!{a 1}\p")
+end(0)
 section_end()
 
 # 0x29 @ 0x704BF7
 section_start(0x29)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,we need to get
-in front of the bus
-to stop it in time!""", 0)
+text("{a 2}Lan,we need to get\nin front of the bus\nto stop it in time!{a 1}\p")
+end(0)
 section_end()
 
 # 0x2A @ 0x704C43
 section_start(0x2A)
 pic(34)
 dialog_up()
-para_talk_end("""Lan,we can't stop
-the bus from there!""", 0)
+text("{a 2}Lan,we can't stop\nthe bus from there!{a 1}\p")
+end(0)
 section_end()
 
 # 0x32 @ 0x704C89
@@ -271,36 +250,32 @@ section_start(0x32)
 mail(13)
 pic(34)
 dialog_up()
-para_talk_end("""Lan!
-You got mail from
-Mayl!""", 0)
+text("{a 2}Lan!\nYou got mail from\nMayl!{a 1}\p")
+end(0)
 section_end()
 
 # 0x33 @ 0x704CBB
 section_start(0x33)
 pic(34)
 dialog_up()
-para_talk_end("""The bus is slowing
-down! Let's get in
-front and stop it!""", 0)
+text("{a 2}The bus is slowing\ndown! Let's get in\nfront and stop it!{a 1}\p")
+end(0)
 section_end()
 
 # 0x3C @ 0x704D16
 section_start(0x3C)
 pic(34)
 dialog_up()
-para_talk_end("""We have to help
-Mayl! The bus is
-gonna explode!""", 0)
+text("{a 2}We have to help\nMayl! The bus is\ngonna explode!{a 1}\p")
+end(0)
 section_end()
 
 # 0x3D @ 0x704D57
 section_start(0x3D)
 pic(34)
 dialog_up()
-para_talk_end("""We have to help
-Mayl! The bus is
-gonna explode!""", 0)
+text("{a 2}We have to help\nMayl! The bus is\ngonna explode!{a 1}\p")
+end(0)
 section_end()
 
 # 0x41 @ 0x704D9E
@@ -309,9 +284,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()
@@ -321,117 +294,104 @@ section_end()
 section_start(0x47)
 pic(9)
 dialog_up()
-para_talk_end("""This is Central
-DenTown,the center
-of DenCity.""", 0)
+text("{a 2}This is Central\nDenTown,the center\nof DenCity.{a 1}\p")
+end(0)
 section_end()
 
 # 0x48 @ 0x704E2F
 section_start(0x48)
 pic(14)
 dialog_up()
-para_talk_end("""I love antiques. But
-I think that I spent
-a little too much...""", 0)
+text("{a 2}I love antiques. But\nI think that I spent\na little too much...{a 1}\p")
+end(0)
 section_end()
 
 # 0x49 @ 0x704E81
 section_start(0x49)
 pic(19)
 dialog_up()
-para_talk("""DenCity is famous
-for its electronics
-industry.""", 0)
-para_talk_end("""And DenTown is the
-center of it all!""", 0)
+text("{a 2}DenCity is famous\nfor its electronics\nindustry.{a 1}\p")
+wait(0)
+text("{a 2}And DenTown is the\ncenter of it all!{a 1}\p")
+end(0)
 section_end()
 
 # 0x4A @ 0x704EEE
 section_start(0x4A)
 pic(17)
 dialog_up()
-para_general("""{anim 2}I don't want a
-driver's license
-any more{anim 1}...""", 0)
-para_talk_end("""What if something
-like that happens
-again!?""", 0)
+text("{a 2}I don't want a\ndriver's license\nany more{a 1}...\p")
+wait(0)
+text("{a 2}What if something\nlike that happens\nagain!?{a 1}\p")
+end(0)
 section_end()
 
 # 0x50 @ 0x704F6D
 section_start(0x50)
 pic(9)
 dialog_up()
-para_talk_end("""This is Central
-Dentown,the center of
-DenCity.""", 0)
+text("{a 2}This is Central\nDentown,the center of\nDenCity.{a 1}\p")
+end(0)
 section_end()
 
 # 0x51 @ 0x704FAD
 section_start(0x51)
-if_story(0x51, 0x52, 0x69, 0xFF)
+if_story(0x51, 0x52, 0x69)
 pic(14)
 dialog_up()
-para_talk("""I'm not afraid of
-the EndGame,but will
-my antiques be safe?""", 0)
-para_talk_end("""Oh,and my children
-and grandchildren,of
-course...""", 0)
+text("{a 2}I'm not afraid of\nthe EndGame,but will\nmy antiques be safe?{a 1}\p")
+wait(0)
+text("{a 2}Oh,and my children\nand grandchildren,of\ncourse...{a 1}\p")
+end(0)
 section_end()
 
 # 0x52 @ 0x70503F
 section_start(0x52)
 pic(19)
 dialog_up()
-para_talk("""If the EndGame comes
-about,it will ruin
-our electronics...""", 0)
-para_talk_end("""How will people live
-without their PETs?""", 0)
+text("{a 2}If the EndGame comes\nabout,it will ruin\nour electronics...{a 1}\p")
+wait(0)
+text("{a 2}How will people live\nwithout their PETs?{a 1}\p")
+end(0)
 section_end()
 
 # 0x53 @ 0x7050BE
 section_start(0x53)
-if_story(0x53, 0x54, 0x6E, 0xFF)
+if_story(0x53, 0x54, 0x6E)
 if_flag(149, 0x55, 0xFF)
 if_flag(148, 0x54, 0xFF)
 pic(17)
 dialog_up()
-para_talk("""I decided not to
-get my driver's
-license...""", 0)
-para_talk_end("""Who needs one if
-the world is about
-to come to an end?""", 0)
+text("{a 2}I decided not to\nget my driver's\nlicense...{a 1}\p")
+wait(0)
+text("{a 2}Who needs one if\nthe world is about\nto come to an end?{a 1}\p")
+end(0)
 section_end()
 
 # 0x54 @ 0x70514E
 section_start(0x54)
 pic(17)
 dialog_up()
-para_talk_end("""You're calling me a
-WWW member??
-How rude!!""", 0)
+text("{a 2}You're calling me a\nWWW member??\nHow rude!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x55 @ 0x70518E
 section_start(0x55)
 pic(17)
 dialog_up()
-para_talk_end("""Nobody as cute as I
-am could ever be in
-the WWW...""", 0)
+text("{a 2}Nobody as cute as I\nam could ever be in\nthe WWW...{a 1}\p")
+end(0)
 section_end()
 
 # 0x56 @ 0x7051D3
 section_start(0x56)
 pic(7)
 dialog_up()
-para_talk("""If you're a WWW
-member,then you know
-about the Undernet!""", 0)
-para_talk("""Tell me,now!!""")
+text("{a 2}If you're a WWW\nmember,then you know\nabout the Undernet!{a 1}\p")
+wait(0)
+text("{a 2}Tell me,now!!{a 1}\p")
+wait(5)
 jump(0x57)
 section_end()
 
@@ -439,9 +399,8 @@ section_end()
 section_start(0x57)
 pic(17)
 dialog_up()
-para_talk("""I said I don't know
-anything about the
-WWW!!""")
+text("{a 2}I said I don't know\nanything about the\nWWW!!{a 1}\p")
+wait(5)
 jump(0x58)
 section_end()
 
@@ -449,11 +408,10 @@ section_end()
 section_start(0x58)
 pic(7)
 dialog_up()
-para_general("""{..}.
-{anim 2}Grrr!! Another false
-lead...{anim 1}""", 0)
-para_talk("""How will I get into
-the Undernet...?""")
+text("{..}.\n{a 2}Grrr!! Another false\nlead...{a 1}\p")
+wait(0)
+text("{a 2}How will I get into\nthe Undernet...?{a 1}\p")
+wait(5)
 jump(0x59)
 section_end()
 
@@ -462,9 +420,10 @@ section_start(0x59)
 set_flag(222)
 pic(7)
 dialog_up()
-para_talk("""Huh? You again?""", 0)
-para_talk("""I'm busy here!
-Leave me alone!""")
+text("{a 2}Huh? You again?{a 1}\p")
+wait(0)
+text("{a 2}I'm busy here!\nLeave me alone!{a 1}\p")
+wait(5)
 jump(0x5A)
 section_end()
 
@@ -472,10 +431,10 @@ section_end()
 section_start(0x5A)
 pic(0)
 dialog_up()
-para_talk("""What's your problem?""", 0)
-para_talk("""I heard you were
-having problems,so I
-just came to help!""")
+text("{a 2}What's your problem?{a 1}\p")
+wait(0)
+text("{a 2}I heard you were\nhaving problems,so I\njust came to help!{a 1}\p")
+wait(5)
 jump(0x5B)
 section_end()
 
@@ -483,9 +442,10 @@ section_end()
 section_start(0x5B)
 pic(7)
 dialog_up()
-para_talk("""Why would I ever
-need your help!?""", 0)
-para_talk("""Out of my way!""", 0)
+text("{a 2}Why would I ever\nneed your help!?{a 1}\p")
+wait(0)
+text("{a 2}Out of my way!{a 1}\p")
+wait(0)
 set_flag(150)
 end()
 section_end()
@@ -494,7 +454,8 @@ section_end()
 section_start(0x5C)
 pic(0)
 dialog_up()
-para_talk("""What a jerk...""")
+text("{a 2}What a jerk...{a 1}\p")
+wait(5)
 jump(0x5D)
 section_end()
 
@@ -502,7 +463,8 @@ section_end()
 section_start(0x5D)
 pic(34)
 dialog_up()
-para_talk("""Hey,Lan...""")
+text("{a 2}Hey,Lan...{a 1}\p")
+wait(5)
 jump(0x5E)
 section_end()
 
@@ -510,13 +472,12 @@ section_end()
 section_start(0x5E)
 pic(0)
 dialog_up()
-para_general("""{anim 2}Yeah...{anim 1}{delay}""", 0)
-para_talk("""I don't want to help
-Chaud,but we have to
-stop the EndGame!""", 0)
-para_talk("""MegaMan,let's try to
-find the WWW
-server's address!""")
+text("{a 2}Yeah...{a 1}{d}\p")
+wait(0)
+text("{a 2}I don't want to help\nChaud,but we have to\nstop the EndGame!{a 1}\p")
+wait(0)
+text("{a 2}MegaMan,let's try to\nfind the WWW\nserver's address!{a 1}\p")
+wait(5)
 jump(0x5F)
 section_end()
 
@@ -524,12 +485,10 @@ section_end()
 section_start(0x5F)
 pic(34)
 dialog_up()
-para_talk("""OK! First we'll need
-to get into the
-Undernet!""", 0)
-para_talk_end("""Chaud just said that
-any WWW member
-should know how...""", 0)
+text("{a 2}OK! First we'll need\nto get into the\nUndernet!{a 1}\p")
+wait(0)
+text("{a 2}Chaud just said that\nany WWW member\nshould know how...{a 1}\p")
+end(0)
 section_end()
 
 # 0x60 @ 0x705568
@@ -543,90 +502,82 @@ section_start(0x69)
 check_item("Lab_Memo", 1, 0x6A, 0x6A, 0xFF)
 pic(14)
 dialog_up()
-para_talk("""I'm not afraid of
-the EndGame,but will
-my antiques be safe?""", 0)
-para_talk_end("""Oh,and my children
-and grandchildren,of
-course...""", 0)
+text("{a 2}I'm not afraid of\nthe EndGame,but will\nmy antiques be safe?{a 1}\p")
+wait(0)
+text("{a 2}Oh,and my children\nand grandchildren,of\ncourse...{a 1}\p")
+end(0)
 section_end()
 
 # 0x6A @ 0x705614
 section_start(0x6A)
 pic(14)
 dialog_up()
-para_talk("""Me? A WWW member?
-You must be joking!""", 0)
-para_talk("""However,I did meet a
-man who knows a lot
-about them...""", 0)
-para_talk_end("""I think he said that
-he lives in ACDC
-Town...""", 0)
+text("{a 2}Me? A WWW member?\nYou must be joking!{a 1}\p")
+wait(0)
+text("{a 2}However,I did meet a\nman who knows a lot\nabout them...{a 1}\p")
+wait(0)
+text("{a 2}I think he said that\nhe lives in ACDC\nTown...{a 1}\p")
+end(0)
 section_end()
 
 # 0x6E @ 0x7056CC
 section_start(0x6E)
 pic(17)
 dialog_up()
-para_talk_end("""The EndGame?
-Is that that new
-PetBoy game?""", 0)
+text("{a 2}The EndGame?\nIs that that new\nPetBoy game?{a 1}\p")
+end(0)
 section_end()
 
 # 0xDC @ 0x7057E2
 section_start(0xDC)
 dialog_up()
-para_general_end("""A very large office
-building""")
+text("A very large office\nbuilding\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x705806
 section_start(0xDD)
 dialog_up()
-para_general("""The DenTown Movie
-Theater""", 0)
-para_general("""Now Showing...""", 0)
-para_general("""The ultimate in
-horror! \"Attack of
-the Killer PETs\"!""", 0)
-para_general_end("""Rom Cruze stars in,
-\"Upgrade Impossible
-3\"!!""")
+text("The DenTown Movie\nTheater\p")
+wait(0)
+text("Now Showing...\p")
+wait(0)
+text("The ultimate in\nhorror! \"Attack of\nthe Killer PETs\"!\p")
+wait(0)
+text("Rom Cruze stars in,\n\"Upgrade Impossible\n3\"!!\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x7058AD
 section_start(0xDE)
 dialog_up()
-para_general("""The most famous
-florist in DenCity""", 0)
-para_general_end("""Lots of beautiful
-flowers are on
-display""")
+text("The most famous\nflorist in DenCity\p")
+wait(0)
+text("Lots of beautiful\nflowers are on\ndisplay\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x705903
 section_start(0xDF)
 dialog_up()
-para_general_end("""You can't jack in
-to this signal""")
+text("You can't jack in\nto this signal\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x70592C
 section_start(0xE0)
-if_story(0x40, 0x5F, 0xE1, 0xFF)
+if_story(0x40, 0x5F, 0xE1)
 if_flag(152, 0xE1, 0xFF)
 dialog_up()
-para_general("""You can jack in to
-this signal""", 0)
-para_general_end("""But there doesn't
-seem to be any
-reason to now""")
+text("You can jack in to\nthis signal\p")
+wait(0)
+text("But there doesn't\nseem to be any\nreason to now\p")
+end(5)
 section_end()
 
 # 0xE1 @ 0x705991
 section_start(0xE1)
 dialog_up()
-para_general_end("""You can jack in to
-this signal""")
+text("You can jack in to\nthis signal\p")
+end(5)
 section_end()

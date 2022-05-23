@@ -4,12 +4,10 @@ section_count(0x8)
 section_start(0x00)
 pic(28)
 dialog_up()
-para_talk("""It's been a while
-since we've talked,
-Lan.""", 0)
-para_talk("""Actually,there's
-something I've been
-meaning to ask you.""")
+text("{a 2}It's been a while\nsince we've talked,\nLan.{a 1}\p")
+wait(0)
+text("{a 2}Actually,there's\nsomething I've been\nmeaning to ask you.{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -17,7 +15,8 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""Huh? What's that?""")
+text("{a 2}Huh? What's that?{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -25,8 +24,8 @@ section_end()
 section_start(0x02)
 pic(28)
 dialog_up()
-para_talk("""Well,it's about
-my research...""")
+text("{a 2}Well,it's about\nmy research...{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -34,9 +33,8 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""Sounds difficult!
-How would I know
-about that?""")
+text("{a 2}Sounds difficult!\nHow would I know\nabout that?{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -44,12 +42,12 @@ section_end()
 section_start(0x04)
 pic(28)
 dialog_up()
-para_talk("""Well,it's connected
-to you and MegaMan.""", 0)
-para_talk("""See,I made your PET.
-It's different from
-normal ones.""", 0)
-para_talk("""And MegaMan,too...""")
+text("{a 2}Well,it's connected\nto you and MegaMan.{a 1}\p")
+wait(0)
+text("{a 2}See,I made your PET.\nIt's different from\nnormal ones.{a 1}\p")
+wait(0)
+text("{a 2}And MegaMan,too...{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -58,19 +56,18 @@ section_start(0x05)
 hidepic()
 dialog_up()
 se(0x9F)
-text("""bing """)
+text("bing ")
 breaks(50)
-text("""bong """)
+text("bong ")
 breaks(50)
-text("""bing """)
+text("bing ")
 breaks(50)
-text("""bong""")
+text("bong")
 breaks(50)
-para_general("""
-Dr.Hikari,paging
-Dr.Hikari...""", 0)
-para_general("""Please report to the
-lab immediately.""")
+text("\nDr.Hikari,paging\nDr.Hikari...\p")
+wait(0)
+text("Please report to the\nlab immediately.\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -78,19 +75,16 @@ section_end()
 section_start(0x06)
 pic(28)
 dialog_up()
-para_talk("""Whoops!{anim 1}{delay}{anim 2} I'm sorry,
-it looks like I have
-to go!""", 0)
-para_talk_end("""Lan,we'll finish
-where we left off
-next time!""", 0)
+text("{a 2}Whoops!{a 1}{d}{a 2} I'm sorry,\nit looks like I have\nto go!{a 1}\p")
+wait(0)
+text("{a 2}Lan,we'll finish\nwhere we left off\nnext time!{a 1}\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x7347D9
 section_start(0x07)
 pic(0)
 dialog_up()
-para_general_end("""{anim 2}Gーgood luck,Dad!
-{anim 1}{...}{anim 2}So much for
-dinner together{anim 1}...""", 0)
+text("{a 2}Gーgood luck,Dad!\n{a 1}{...}{a 2}So much for\ndinner together{a 1}...\p")
+end(0)
 section_end()

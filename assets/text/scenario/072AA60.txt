@@ -4,9 +4,8 @@ section_count(0x2)
 section_start(0x00)
 pic(12)
 dialog_up()
-para_talk("""Thank heavens!
-The fire's gotten a
-little better,now.""")
+text("{a 2}Thank heavens!\nThe fire's gotten a\nlittle better,now.{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -15,8 +14,7 @@ section_start(0x01)
 set_flag(216)
 pic(0)
 dialog_up()
-text_talking("""MegaMan!""")
-delay()
-para_talk_end(""" Answer me,
-MegaMan!""")
+text("{a 2}MegaMan!{a 1}{d}")
+text("{a 2} Answer me,\nMegaMan!{a 1}\p")
+end(5)
 section_end()

@@ -5,22 +5,20 @@ section_start(0x00)
 if_shop(0x02, 0xFF, 0x01)
 pic(41)
 dialog_up()
-text("""{anim 2}I'm a net merchant!
-Wanna' see my wares?{anim 1}
-""")
-text("""{c 0 0 1 1}Yes """)
-text("""{c 1 1 0 0}No""")
+text("{a 2}I'm a net merchant!\nWanna' see my wares?{a 1}\n")
+text("{c 0 0 1 1}Yes ")
+text("{c 1 1 0 0}No")
 pick([0x02, 0xFF], 0, False, True)
-para_talk_end("""Please come again!""", 0)
+text("{a 2}Please come again!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x724134
 section_start(0x01)
 pic(41)
 dialog_up()
-para_talk_end("""I'm a net merchant!
-...but I'm currently
-out of stock.""", 0)
+text("{a 2}I'm a net merchant!\n...but I'm currently\nout of stock.{a 1}\p")
+end(0)
 section_end()
 
 # 0x02 @ 0x724181
@@ -32,24 +30,21 @@ section_end()
 section_start(0x0A)
 check_item("★Dad", 1, 0x0B, 0x0B, 0xFF)
 dialog_up()
-para_general("""It looks like a
-connection to
-another terminal.""", 0)
-para_general_end("""However,you don't
-know the address,so
-you can't open it.""", 0)
+text("It looks like a\nconnection to\nanother terminal.\p")
+wait(0)
+text("However,you don't\nknow the address,so\nyou can't open it.\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x724214
 section_start(0x0B)
 dialog_up()
-para_general("""It looks like a
-connection to
-another terminal.""", 0)
-para_general("""{...}MegaMan accessed
-{key ★Dad}!""", 0)
-para_general("""It connects to the
-terminal!""", 0)
+text("It looks like a\nconnection to\nanother terminal.\p")
+wait(0)
+text("{...}MegaMan accessed\n{key ★Dad}!\p")
+wait(0)
+text("It connects to the\nterminal!\p")
+wait(0)
 clear_flag(1040)
 set_flag(74)
 end()
@@ -59,24 +54,21 @@ section_end()
 section_start(0x0C)
 check_item("★Sal", 1, 0x0D, 0x0D, 0xFF)
 dialog_up()
-para_general("""It looks like a
-connection to
-another terminal.""", 0)
-para_general_end("""However,you don't
-know the address,so
-you can't open it.""", 0)
+text("It looks like a\nconnection to\nanother terminal.\p")
+wait(0)
+text("However,you don't\nknow the address,so\nyou can't open it.\p")
+end(0)
 section_end()
 
 # 0x0D @ 0x724325
 section_start(0x0D)
 dialog_up()
-para_general("""It looks like a
-connection to
-another terminal.""", 0)
-para_general("""{...}MegaMan accessed
-{key ★Sal}!""", 0)
-para_general("""It connects to the
-terminal!""", 0)
+text("It looks like a\nconnection to\nanother terminal.\p")
+wait(0)
+text("{...}MegaMan accessed\n{key ★Sal}!\p")
+wait(0)
+text("It connects to the\nterminal!\p")
+wait(0)
 clear_flag(1041)
 set_flag(72)
 end()
@@ -86,24 +78,21 @@ section_end()
 section_start(0x0E)
 check_item("★Masa", 1, 0x0F, 0x0F, 0xFF)
 dialog_up()
-para_general("""It looks like a
-connection to
-another terminal""", 0)
-para_general_end("""However,you don't
-know the address,so
-you can't open it""", 0)
+text("It looks like a\nconnection to\nanother terminal\p")
+wait(0)
+text("However,you don't\nknow the address,so\nyou can't open it\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x724432
 section_start(0x0F)
 dialog_up()
-para_general("""It looks like a
-connection to
-another terminal""", 0)
-para_general("""{...}MegaMan accesed
-{key ★Masa}!""", 0)
-para_general("""It connects to the
-terminal!""", 0)
+text("It looks like a\nconnection to\nanother terminal\p")
+wait(0)
+text("{...}MegaMan accesed\n{key ★Masa}!\p")
+wait(0)
+text("It connects to the\nterminal!\p")
+wait(0)
 clear_flag(1042)
 set_flag(73)
 end()
@@ -112,22 +101,21 @@ section_end()
 # 0x13 @ 0x7244C6
 section_start(0x13)
 dialog_up()
-para_general("""This is a bonus
-dungeon.""", 0)
-para_general_end("""Not accessible with
-demo ROMs.""", 0)
+text("This is a bonus\ndungeon.\p")
+wait(0)
+text("Not accessible with\ndemo ROMs.\p")
+end(0)
 section_end()
 
 # 0x14 @ 0x72450A
 section_start(0x14)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(747)
 pc_anim_start(50)
 add_chip("RockCube O", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip RockCube O}\"!""")
+text("MegaMan got a chip\nfor \"{chip RockCube O}\"!")
 pc_anim_end()
 page()
 end()
@@ -137,22 +125,20 @@ section_end()
 section_start(0x15)
 check_item("WWW_PIN", 1, 0x16, 0x16, 0xFF)
 dialog_up()
-para_general("""\"{key WWW_PIN}\"
-needed to unlock!""", 0)
-para_general_end("""All others...{delay}
-BEGONE!""", 0)
+text("\"{key WWW_PIN}\"\nneeded to unlock!\p")
+wait(0)
+text("All others...{d}\nBEGONE!\p")
+end(0)
 section_end()
 
 # 0x16 @ 0x7245C3
 section_start(0x16)
 dialog_up()
-para_general("""\"{key WWW_PIN}\"
-needed to unlock!""", 0)
-para_general("""MegaMan used the
-{key WWW_PIN}!""", 0)
-text("""MegaMan gained
-access!!""")
-page()
+text("\"{key WWW_PIN}\"\nneeded to unlock!\p")
+wait(0)
+text("MegaMan used the\n{key WWW_PIN}!\p")
+wait(0)
+text("MegaMan gained\naccess!!\p")
 set_flag(84)
 end()
 section_end()
@@ -160,13 +146,12 @@ section_end()
 # 0x17 @ 0x724622
 section_start(0x17)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(748)
 pc_anim_start(50)
 add_chip("FtrSword B", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip FtrSword B}\"!""")
+text("MegaMan got a chip\nfor \"{chip FtrSword B}\"!")
 pc_anim_end()
 page()
 end()
@@ -176,8 +161,8 @@ section_end()
 section_start(0x32)
 dialog_up()
 set_flag(743)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x33, 0x34])
 page()
 end()
@@ -188,12 +173,9 @@ section_start(0x33)
 dialog_up()
 award_chip(["Spreader H", "Spreader H", "Spreader H", "Spreader J", "Spreader J", "Spreader J", "ShokWave P", "ShokWave P", "ShokWave P", "ShokWave P", "ShokWave P", "Recov80 C", "Recov80 C", "Recov80 C", "Recov80 C", "Recov80 C"])
 pc_anim_start(50)
-text("""MegaMan got a chip
-for \"""")
-chip_id_buf(1)
-text(""" """)
-chip_code_buf(2)
-text("""\"!""")
+text("MegaMan got a chip\nfor \"")
+text("{chip_buf}")
+text("\"!")
 pc_anim_end()
 page()
 end()
@@ -204,10 +186,9 @@ section_start(0x34)
 dialog_up()
 award_zenny([300, 300, 300, 300, 600, 600, 600, 600, 600, 1000, 1000, 1000, 1000, 2000, 2000, 2000])
 pc_anim_start(50)
-text("""MegaMan got """)
+text("MegaMan got ")
 buffer(1, 0, False, False)
-text("""
-zennys!""")
+text("\nzennys!")
 pc_anim_end()
 page()
 end()
@@ -216,8 +197,8 @@ section_end()
 # 0x35 @ 0x7247CC
 section_start(0x35)
 dialog_up()
-para_general("""It was a virus
-in disguise!""", 0)
+text("It was a virus\nin disguise!\p")
+wait(0)
 battle()
 page()
 end()
@@ -227,8 +208,8 @@ section_end()
 section_start(0x36)
 dialog_up()
 set_flag(744)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x37, 0x38])
 page()
 end()
@@ -253,8 +234,8 @@ section_end()
 section_start(0x3A)
 dialog_up()
 set_flag(745)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x3B, 0x3C])
 page()
 end()
@@ -279,8 +260,8 @@ section_end()
 section_start(0x3E)
 dialog_up()
 set_flag(746)
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 jumprandom([0x3F, 0x40])
 page()
 end()

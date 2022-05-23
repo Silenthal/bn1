@@ -4,11 +4,10 @@ section_count(0x2)
 section_start(0x00)
 pic(34)
 dialog_up()
-para_talk("""Lan! The door to the
-power room should be
-open now!""", 0)
-para_talk("""Quick! Go get that
-generator running!""")
+text("{a 2}Lan! The door to the\npower room should be\nopen now!{a 1}\p")
+wait(0)
+text("{a 2}Quick! Go get that\ngenerator running!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -16,5 +15,6 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk_end("""OK!""", 0)
+text("{a 2}OK!{a 1}\p")
+end(0)
 section_end()

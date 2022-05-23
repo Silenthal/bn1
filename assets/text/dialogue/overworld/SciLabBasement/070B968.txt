@@ -2,87 +2,71 @@ section_count(0xEB)
 
 # 0x00 @ 0x70BB3E
 section_start(0x00)
-if_story(0x43, 0x43, 0x0D, 0xFF)
-if_story(0x41, 0x41, 0x07, 0xFF)
+if_story(0x43, 0x43, 0x0D)
+if_story(0x41, 0x41, 0x07)
 pic(25)
 dialog_up()
-para_talk("""There was supposed
-to be a foreign
-scientist coming...""", 0)
-text_talking("""I wonder where he
-is?""")
-page()
+text("{a 2}There was supposed\nto be a foreign\nscientist coming...{a 1}\p")
+wait(0)
+text("{a 2}I wonder where he\nis?{a 1}\p")
 set_flag(161)
 end()
 section_end()
 
 # 0x01 @ 0x70BBB5
 section_start(0x01)
-if_story(0x43, 0x43, 0x0E, 0xFF)
-if_story(0x41, 0x41, 0x08, 0xFF)
+if_story(0x43, 0x43, 0x0E)
+if_story(0x41, 0x41, 0x08)
 pic(26)
 dialog_up()
-para_talk("""Those PETs on
-display...""", 0)
-para_talk("""Are those really the
-latest thing in
-technology?""", 0)
-text_talking("""I heard that they're
-made from recycled
-plastic bottles...""")
-page()
+text("{a 2}Those PETs on\ndisplay...{a 1}\p")
+wait(0)
+text("{a 2}Are those really the\nlatest thing in\ntechnology?{a 1}\p")
+wait(0)
+text("{a 2}I heard that they're\nmade from recycled\nplastic bottles...{a 1}\p")
 set_flag(162)
 end()
 section_end()
 
 # 0x02 @ 0x70BC6F
 section_start(0x02)
-if_story(0x43, 0x43, 0x0F, 0xFF)
-if_story(0x41, 0x41, 0x09, 0xFF)
+if_story(0x43, 0x43, 0x0F)
+if_story(0x41, 0x41, 0x09)
 pic(27)
 dialog_up()
-para_talk("""I think that we have
-the best technology,
-but it's important""", 0)
-para_talk("""to keep abreast of
-the latest trends
-from overseas.""", 0)
-text_talking("""We'll fall behind if
-we don't watch out!""")
-page()
+text("{a 2}I think that we have\nthe best technology,\nbut it's important{a 1}\p")
+wait(0)
+text("{a 2}to keep abreast of\nthe latest trends\nfrom overseas.{a 1}\p")
+wait(0)
+text("{a 2}We'll fall behind if\nwe don't watch out!{a 1}\p")
 set_flag(163)
 end()
 section_end()
 
 # 0x03 @ 0x70BD3C
 section_start(0x03)
-if_story(0x43, 0x43, 0x10, 0xFF)
-if_story(0x41, 0x41, 0x0A, 0xFF)
+if_story(0x43, 0x43, 0x10)
+if_story(0x41, 0x41, 0x0A)
 pic(33)
 dialog_up()
-para_talk("""Hello,kid! What are
-you doing here?""", 0)
-text_talking("""Me? I'm a college
-student. This is
-a part time job.""")
-page()
+text("{a 2}Hello,kid! What are\nyou doing here?{a 1}\p")
+wait(0)
+text("{a 2}Me? I'm a college\nstudent. This is\na part time job.{a 1}\p")
 set_flag(164)
 end()
 section_end()
 
 # 0x04 @ 0x70BDC1
 section_start(0x04)
-if_story(0x43, 0x43, 0x11, 0xFF)
-if_story(0x41, 0x41, 0x0B, 0xFF)
+if_story(0x43, 0x43, 0x11)
+if_story(0x41, 0x41, 0x0B)
 pic(27)
 dialog_up()
-para_talk("""Who's that hot thang
-in the dress? She's
-my type!!""", 0)
-para_talk("""What???
-It's your mother??""", 0)
-text("""*gulp*""")
-page()
+text("{a 2}Who's that hot thang\nin the dress? She's\nmy type!!{a 1}\p")
+wait(0)
+text("{a 2}What???\nIt's your mother??{a 1}\p")
+wait(0)
+text("*gulp*\p")
 set_flag(165)
 end()
 section_end()
@@ -91,23 +75,20 @@ section_end()
 section_start(0x05)
 pic(7)
 dialog_up()
-para_talk("""Well,you look like
-you're having fun...""", 0)
-text_talking("""Hmph...Enjoy it
-while you can...""")
-page()
+text("{a 2}Well,you look like\nyou're having fun...{a 1}\p")
+wait(0)
+text("{a 2}Hmph...Enjoy it\nwhile you can...{a 1}\p")
 set_flag(166)
 end()
 section_end()
 
 # 0x06 @ 0x70BEBA
 section_start(0x06)
-if_story(0x43, 0x43, 0x13, 0xFF)
-if_story(0x41, 0x41, 0x0C, 0xFF)
+if_story(0x43, 0x43, 0x13)
+if_story(0x41, 0x41, 0x0C)
 pic(32)
 dialog_up()
-text_talking("""Well,let's eat!""")
-page()
+text("{a 2}Well,let's eat!{a 1}\p")
 set_flag(167)
 end()
 section_end()
@@ -116,100 +97,92 @@ section_end()
 section_start(0x07)
 pic(25)
 dialog_up()
-para_talk_end("""I'm scared of the
-dark!!""", 0)
+text("{a 2}I'm scared of the\ndark!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x08 @ 0x70BF17
 section_start(0x08)
 pic(26)
 dialog_up()
-para_talk_end("""Someone has to fix
-the power generator,{anim 1}{delay}
-{anim 2}or we'll all die!""", 0)
+text("{a 2}Someone has to fix\nthe power generator,{a 1}{d}\n{a 2}or we'll all die!{a 1}\p")
+end(0)
 section_end()
 
 # 0x09 @ 0x70BF6B
 section_start(0x09)
 pic(27)
 dialog_up()
-para_talk("""Hmmm,with this power
-outage,the elevators
-must have stopped.""", 0)
-para_talk_end("""The only way to the
-generator would be
-the trash chute.""", 0)
+text("{a 2}Hmmm,with this power\noutage,the elevators\nmust have stopped.{a 1}\p")
+wait(0)
+text("{a 2}The only way to the\ngenerator would be\nthe trash chute.{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x70BFFA
 section_start(0x0A)
 pic(33)
 dialog_up()
-para_talk_end("""Must{anim 1}...{delay}
-{anim 2}remain{anim 1}...{delay}
-{anim 2}calm.""", 0)
+text("{a 2}Must{a 1}...{d}\n{a 2}remain{a 1}...{d}\n{a 2}calm.{a 1}\p")
+end(0)
 section_end()
 
 # 0x0B @ 0x70C038
 section_start(0x0B)
 pic(27)
 dialog_up()
-para_talk("""The electricity
-management program
-is in the generator.""", 0)
-para_talk_end("""If the WWW took
-control of it...That
-would NOT be good.""", 0)
+text("{a 2}The electricity\nmanagement program\nis in the generator.{a 1}\p")
+wait(0)
+text("{a 2}If the WWW took\ncontrol of it...That\nwould NOT be good.{a 1}\p")
+end(0)
 section_end()
 
 # 0x0C @ 0x70C0C3
 section_start(0x0C)
 pic(32)
 dialog_up()
-para_talk_end("""Oh,dear!
-Oh,dear!""", 0)
+text("{a 2}Oh,dear!\nOh,dear!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0D @ 0x70C0E8
 section_start(0x0D)
 pic(25)
 dialog_up()
-para_talk_end("""The lights!
-They're back!
-Thank goodness...""", 0)
+text("{a 2}The lights!\nThey're back!\nThank goodness...{a 1}\p")
+end(0)
 section_end()
 
 # 0x0E @ 0x70C129
 section_start(0x0E)
 pic(26)
 dialog_up()
-para_talk_end("""So we're safe now?""", 0)
+text("{a 2}So we're safe now?{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x70C14D
 section_start(0x0F)
 pic(27)
 dialog_up()
-para_talk_end("""So you're the one
-who saved us!
-Thank you!""", 0)
+text("{a 2}So you're the one\nwho saved us!\nThank you!{a 1}\p")
+end(0)
 section_end()
 
 # 0x10 @ 0x70C18A
 section_start(0x10)
 pic(33)
 dialog_up()
-para_talk_end("""I managed to stay
-calm the whole time.
-...Mostly!""", 0)
+text("{a 2}I managed to stay\ncalm the whole time.\n...Mostly!{a 1}\p")
+end(0)
 section_end()
 
 # 0x11 @ 0x70C1D0
 section_start(0x11)
 pic(27)
 dialog_up()
-para_talk_end("""Oh,thank goodness
-we're safe...""", 0)
+text("{a 2}Oh,thank goodness\nwe're safe...{a 1}\p")
+end(0)
 section_end()
 
 # 0x12 @ 0x70C204
@@ -226,69 +199,62 @@ section_end()
 
 # 0x14 @ 0x70C216
 section_start(0x14)
-if_story(0x53, 0x54, 0x19, 0xFF)
+if_story(0x53, 0x54, 0x19)
 pic(33)
 dialog_up()
-para_talk_end("""I'm so bored...""", 0)
+text("{a 2}I'm so bored...{a 1}\p")
+end(0)
 section_end()
 
 # 0x15 @ 0x70C23F
 section_start(0x15)
 pic(34)
 dialog_up()
-para_talk_end("""Lan! We need to get
-back to Mom! She'll
-be worried!""")
+text("{a 2}Lan! We need to get\nback to Mom! She'll\nbe worried!{a 1}\p")
+end(5)
 section_end()
 
 # 0x19 @ 0x70C28C
 section_start(0x19)
 pic(33)
 dialog_up()
-para_talk("""If the EndGame were
-to start now...""", 0)
-para_talk_end("""Would I be trapped
-here again?""", 0)
+text("{a 2}If the EndGame were\nto start now...{a 1}\p")
+wait(0)
+text("{a 2}Would I be trapped\nhere again?{a 1}\p")
+end(0)
 section_end()
 
 # 0x23 @ 0x70C2FB
 section_start(0x23)
-if_story(0x41, 0x42, 0x2D, 0xFF)
-if_story(0x43, 0x43, 0x37, 0xFF)
+if_story(0x41, 0x42, 0x2D)
+if_story(0x43, 0x43, 0x37)
 pic(17)
 dialog_up()
-text_talking("""I just asked nicely,
-and they let me in!""")
-page()
+text("{a 2}I just asked nicely,\nand they let me in!{a 1}\p")
 set_flag(168)
 end()
 section_end()
 
 # 0x24 @ 0x70C345
 section_start(0x24)
-if_story(0x41, 0x42, 0x2E, 0xFF)
-if_story(0x43, 0x43, 0x38, 0xFF)
+if_story(0x41, 0x42, 0x2E)
+if_story(0x43, 0x43, 0x38)
 pic(19)
 dialog_up()
-text_talking("""I haven't been to
-a good party in
-years!""")
-page()
+text("{a 2}I haven't been to\na good party in\nyears!{a 1}\p")
 set_flag(169)
 end()
 section_end()
 
 # 0x25 @ 0x70C38F
 section_start(0x25)
-if_story(0x41, 0x42, 0x2F, 0xFF)
-if_story(0x43, 0x43, 0x39, 0xFF)
+if_story(0x41, 0x42, 0x2F)
+if_story(0x43, 0x43, 0x39)
 pic(15)
 dialog_up()
-para_talk("""What do you mean,
-what am I doing
-here?""", 0)
-text_talking("""I'm the chef!!""")
-page()
+text("{a 2}What do you mean,\nwhat am I doing\nhere?{a 1}\p")
+wait(0)
+text("{a 2}I'm the chef!!{a 1}\p")
 set_flag(170)
 end()
 section_end()
@@ -297,58 +263,54 @@ section_end()
 section_start(0x2D)
 pic(17)
 dialog_up()
-para_talk("""Now I wish that
-I hadn't come!""", 0)
-para_talk_end("""No such thing as a
-free lunch,I guess.""", 0)
+text("{a 2}Now I wish that\nI hadn't come!{a 1}\p")
+wait(0)
+text("{a 2}No such thing as a\nfree lunch,I guess.{a 1}\p")
+end(0)
 section_end()
 
 # 0x2E @ 0x70C45F
 section_start(0x2E)
 pic(19)
 dialog_up()
-para_talk("""I've never seen such
-largeーscale
-entertainment!""", 0)
-para_talk_end("""What?
-It's not just a
-show? Uh,oh...""", 0)
+text("{a 2}I've never seen such\nlargeーscale\nentertainment!{a 1}\p")
+wait(0)
+text("{a 2}What?\nIt's not just a\nshow? Uh,oh...{a 1}\p")
+end(0)
 section_end()
 
 # 0x2F @ 0x70C4D3
 section_start(0x2F)
 pic(15)
 dialog_up()
-para_talk_end("""Everyone,please
-remain calm! This is
-no time to panic!""", 0)
+text("{a 2}Everyone,please\nremain calm! This is\nno time to panic!{a 1}\p")
+end(0)
 section_end()
 
 # 0x37 @ 0x70C52A
 section_start(0x37)
 pic(17)
 dialog_up()
-para_talk_end("""Wow... Wish I
-hadn't come,now...
-Total bummer...""")
+text("{a 2}Wow... Wish I\nhadn't come,now...\nTotal bummer...{a 1}\p")
+end(5)
 section_end()
 
 # 0x38 @ 0x70C575
 section_start(0x38)
 pic(19)
 dialog_up()
-para_talk("""Well that was over
-fast...""", 0)
-para_talk_end("""You're sure it
-wasn't just a show?""")
+text("{a 2}Well that was over\nfast...{a 1}\p")
+wait(0)
+text("{a 2}You're sure it\nwasn't just a show?{a 1}\p")
+end(5)
 section_end()
 
 # 0x39 @ 0x70C5CF
 section_start(0x39)
 pic(15)
 dialog_up()
-para_talk_end("""Well,I'm glad that
-that's over...""")
+text("{a 2}Well,I'm glad that\nthat's over...{a 1}\p")
+end(5)
 section_end()
 
 # 0xBE @ 0x70C70E
@@ -356,24 +318,20 @@ section_start(0xBE)
 if_flag(1062, 0xC2, 0xFF)
 pic(16)
 dialog_up()
-para_talk("""My girlfriend said
-she wants cute
-chips...""", 0)
-para_talk("""All I have is this
-{chip WoodAura C}!""", 0)
-para_talk("""She'll get mad if
-I give her this!""", 0)
-para_talk("""I don't suppse you'd
-trade this chip for""", 0)
-text("""{anim 2}a {chip Invis2 J},
-a {chip Cloudest K},
-and a {chip Ratton3 L}""")
-para_general("""?{anim 1}""", 0)
-text_talking("""Please!
-""")
-text("""{c 1 1 0 0}Sure!
-""")
-text("""{c 0 0 1 1}No way!""")
+text("{a 2}My girlfriend said\nshe wants cute\nchips...{a 1}\p")
+wait(0)
+text("{a 2}All I have is this\n{chip WoodAura C}!{a 1}\p")
+wait(0)
+text("{a 2}She'll get mad if\nI give her this!{a 1}\p")
+wait(0)
+text("{a 2}I don't suppse you'd\ntrade this chip for{a 1}\p")
+wait(0)
+text("{a 2}a {chip Invis2 J},\na {chip Cloudest K},\nand a {chip Ratton3 L}")
+text("?{a 1}\p")
+wait(0)
+text("{a 2}Please!\n{a 1}")
+text("{c 1 1 0 0}Sure!\n")
+text("{c 0 0 1 1}No way!")
 pick([0xC0, 0xBF], 0, False, True)
 page()
 end(5)
@@ -383,9 +341,8 @@ section_end()
 section_start(0xBF)
 pic(16)
 dialog_up()
-para_talk_end("""Awwww,where am I
-going to find those
-chips!?""")
+text("{a 2}Awwww,where am I\ngoing to find those\nchips!?{a 1}\p")
+end(5)
 section_end()
 
 # 0xC0 @ 0x70C87A
@@ -396,18 +353,17 @@ check_chip_pack("Ratton3 L", 1, 0xFF, 0xFF, 0xC1)
 set_flag(1062)
 pic(16)
 dialog_up()
-para_talk("""Thanks so much!
-You've saved me!""", 0)
-para_talk("""Now my girlfriend
-cannot resist me!""", 0)
+text("{a 2}Thanks so much!\nYou've saved me!{a 1}\p")
+wait(0)
+text("{a 2}Now my girlfriend\ncannot resist me!{a 1}\p")
+wait(0)
 hidepic()
 pc_anim_start(30)
 add_chip("WoodAura C", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("Invis2 J", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("Cloudest K", 1, 0xFF, 0xFF, 0xFF)
 sub_chip("Ratton3 L", 1, 0xFF, 0xFF, 0xFF)
-text("""Lan got a chip for
-\"{chip WoodAura C}\"!""")
+text("Lan got a chip for\n\"{chip WoodAura C}\"!")
 pc_wait()
 pc_restore()
 pc_unlock()
@@ -419,70 +375,62 @@ section_end()
 section_start(0xC1)
 pic(16)
 dialog_up()
-para_talk("""No,no! I have to
-give her""", 0)
-text("""{anim 2}a {chip Invis2 J},
-a {chip Cloudest K},
-and a {chip Ratton3 L}""")
-para_general("""!{anim 1}""", 0)
-para_talk("""Are you sure that
-you don't have those
-in your chip folder?""", 0)
-para_talk("""Remember,you have to
-have the chips in
-your backpack""", 0)
-para_talk_end("""before you can
-trade them!""")
+text("{a 2}No,no! I have to\ngive her{a 1}\p")
+wait(0)
+text("{a 2}a {chip Invis2 J},\na {chip Cloudest K},\nand a {chip Ratton3 L}")
+text("!{a 1}\p")
+wait(0)
+text("{a 2}Are you sure that\nyou don't have those\nin your chip folder?{a 1}\p")
+wait(0)
+text("{a 2}Remember,you have to\nhave the chips in\nyour backpack{a 1}\p")
+wait(0)
+text("{a 2}before you can\ntrade them!{a 1}\p")
+end(5)
 section_end()
 
 # 0xC2 @ 0x70CA4D
 section_start(0xC2)
 pic(16)
 dialog_up()
-para_talk_end("""I know my girlfriend
-is gonna love these
-chips! Thanks!""")
+text("{a 2}I know my girlfriend\nis gonna love these\nchips! Thanks!{a 1}\p")
+end(5)
 section_end()
 
 # 0xDC @ 0x70CAC8
 section_start(0xDC)
 dialog_up()
-para_general_end("""The kitchen is
-through here.
-Smells wonderful!""")
+text("The kitchen is\nthrough here.\nSmells wonderful!\p")
+end(5)
 section_end()
 
 # 0xDD @ 0x70CB00
 section_start(0xDD)
 dialog_up()
-para_general_end("""Delicious looking
-food is laid out
-here""")
+text("Delicious looking\nfood is laid out\nhere\p")
+end(5)
 section_end()
 
 # 0xDE @ 0x70CB2F
 section_start(0xDE)
 dialog_up()
-para_general("""A line of PETs made
-from recycled
-plastic bottles""", 0)
-para_general_end("""{anim 2}You wonder if you
-can jack in...""")
+text("A line of PETs made\nfrom recycled\nplastic bottles\p")
+wait(0)
+text("{a 2}You wonder if you\ncan jack in...\p")
+end(5)
 section_end()
 
 # 0xDF @ 0x70CB91
 section_start(0xDF)
 dialog_up()
-para_general("""These plastic
-bottles will be
-recycled and""", 0)
-para_general_end("""remade as the new
-PETs""")
+text("These plastic\nbottles will be\nrecycled and\p")
+wait(0)
+text("remade as the new\nPETs\p")
+end(5)
 section_end()
 
 # 0xE0 @ 0x70CBDD
 section_start(0xE0)
 dialog_up()
-para_general_end("""A cart used to take
-food to the tables""")
+text("A cart used to take\nfood to the tables\p")
+end(5)
 section_end()

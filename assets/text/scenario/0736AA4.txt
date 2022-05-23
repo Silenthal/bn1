@@ -4,9 +4,8 @@ section_count(0x8)
 section_start(0x00)
 pic(32)
 dialog_up()
-para_talk("""Lan! Where were you?
-I...{anim 1}{delay}{anim 2}I was so
-worried!""")
+text("{a 2}Lan! Where were you?\nI...{a 1}{d}{a 2}I was so\nworried!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -14,8 +13,8 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""Sorry,Mom!
-But we're fine,see?""")
+text("{a 2}Sorry,Mom!\nBut we're fine,see?{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -24,11 +23,11 @@ section_start(0x02)
 hidepic()
 dialog_up()
 set_flag(200)
-para_general("""*beebeebeep*""", 0)
+text("*beebeebeep*\p")
+wait(0)
 pic(34)
-para_talk("""Lan! You've got
-mail! It's from
-Dad!""")
+text("{a 2}Lan! You've got\nmail! It's from\nDad!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -36,9 +35,8 @@ section_end()
 section_start(0x03)
 pic(28, 1)
 dialog_up()
-para_general("""That was a long
-power out! Is
-everybody OK?""")
+text("That was a long\npower out! Is\neverybody OK?\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -46,11 +44,10 @@ section_end()
 section_start(0x04)
 pic(0)
 dialog_up()
-para_talk("""That's my dad,as
-clueless as ever...""", 0)
-para_talk("""\"Dear Dad,don't
-worry,MegaMan is
-looking after me!\"""")
+text("{a 2}That's my dad,as\nclueless as ever...{a 1}\p")
+wait(0)
+text("{a 2}\"Dear Dad,don't\nworry,MegaMan is\nlooking after me!\"{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -58,12 +55,10 @@ section_end()
 section_start(0x05)
 pic(32)
 dialog_up()
-para_talk("""Oh well...I guess
-the party's over.
-Shall we go home?""", 0)
-para_talk("""Lan? Do you want to
-stop for something
-to eat on the way?""")
+text("{a 2}Oh well...I guess\nthe party's over.\nShall we go home?{a 1}\p")
+wait(0)
+text("{a 2}Lan? Do you want to\nstop for something\nto eat on the way?{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -71,10 +66,10 @@ section_end()
 section_start(0x06)
 pic(0)
 dialog_up()
-para_talk("""Yeah,now that you
-mention it,I haven't
-eaten since lunch!""", 0)
-para_talk("""I'm starving!!""")
+text("{a 2}Yeah,now that you\nmention it,I haven't\neaten since lunch!{a 1}\p")
+wait(0)
+text("{a 2}I'm starving!!{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -82,8 +77,9 @@ section_end()
 section_start(0x07)
 pic(34)
 dialog_up()
-para_talk("""I guess you need to
-recharge,too!""", 0)
+text("{a 2}I guess you need to\nrecharge,too!{a 1}\p")
+wait(0)
 hidepic()
-para_general_end("""Hah hah hah!""", 0)
+text("Hah hah hah!\p")
+end(0)
 section_end()

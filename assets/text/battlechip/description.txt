@@ -2,1873 +2,1536 @@ section_count(0x100)
 
 # 0x00 @ 0x69E510
 section_start(0x00)
-text("""Get closer
-to hit
-faster""")
+text("Get closer\nto hit\nfaster")
 end()
 section_end()
 
 # 0x01 @ 0x69E52D
 section_start(0x01)
-text("""A nice,big
-cannon!""")
+text("A nice,big\ncannon!")
 end()
 section_end()
 
 # 0x02 @ 0x69E546
 section_start(0x02)
-text("""A nice,big
-cannon!""")
+text("A nice,big\ncannon!")
 end()
 section_end()
 
 # 0x03 @ 0x69E55F
 section_start(0x03)
-text("""A nice,big
-cannon!""")
+text("A nice,big\ncannon!")
 end()
 section_end()
 
 # 0x04 @ 0x69E578
 section_start(0x04)
-text("""Cut down
-enemies!
-Range=1""")
+text("Cut down\nenemies!\nRange=1")
 end()
 section_end()
 
 # 0x05 @ 0x69E598
 section_start(0x05)
-text("""Cut down
-column!
-Range=1""")
+text("Cut down\ncolumn!\nRange=1")
 end()
 section_end()
 
 # 0x06 @ 0x69E5B7
 section_start(0x06)
-text("""Cut down
-enemies!
-Range=2""")
+text("Cut down\nenemies!\nRange=2")
 end()
 section_end()
 
 # 0x07 @ 0x69E5D7
 section_start(0x07)
-text("""Throw a
-bomb!
-Depth=3""")
+text("Throw a\nbomb!\nDepth=3")
 end()
 section_end()
 
 # 0x08 @ 0x69E5F3
 section_start(0x08)
-text("""Cross
-bomb
-Depth=3""")
+text("Cross\nbomb\nDepth=3")
 end()
 section_end()
 
 # 0x09 @ 0x69E60B
 section_start(0x09)
-text("""Bomb with
-a big boom
-Depth=3""")
+text("Bomb with\na big boom\nDepth=3")
 end()
 section_end()
 
 # 0x0A @ 0x69E62D
 section_start(0x0A)
-text("""Gun with
-a 1ーpanel
-blast""")
+text("Gun with\na 1ーpanel\nblast")
 end()
 section_end()
 
 # 0x0B @ 0x69E64A
 section_start(0x0B)
-text("""Bubbles w/
-a 1ーpanel
-blast""")
+text("Bubbles w/\na 1ーpanel\nblast")
 end()
 section_end()
 
 # 0x0C @ 0x69E66A
 section_start(0x0C)
-text("""Fire with
-a 1ーpanel
-blast""")
+text("Fire with\na 1ーpanel\nblast")
 end()
 section_end()
 
 # 0x0D @ 0x69E688
 section_start(0x0D)
-text("""Throw a
-bomb!
-Depth=3""")
+text("Throw a\nbomb!\nDepth=3")
 end()
 section_end()
 
 # 0x0E @ 0x69E6A4
 section_start(0x0E)
-text("""Hits enemy
-and keeps
-going 1pnl""")
+text("Hits enemy\nand keeps\ngoing 1pnl")
 end()
 section_end()
 
 # 0x0F @ 0x69E6C8
 section_start(0x0F)
-text("""4ーpanel
-diagonal
-blast""")
+text("4ーpanel\ndiagonal\nblast")
 end()
 section_end()
 
 # 0x10 @ 0x69E6E3
 section_start(0x10)
-text("""Piercing
-ground
-wave""")
+text("Piercing\nground\nwave")
 end()
 section_end()
 
 # 0x11 @ 0x69E6FC
 section_start(0x11)
-text("""Piercing
-ground
-wave""")
+text("Piercing\nground\nwave")
 end()
 section_end()
 
 # 0x12 @ 0x69E715
 section_start(0x12)
-text("""Piercing
-ground
-wave""")
+text("Piercing\nground\nwave")
 end()
 section_end()
 
 # 0x13 @ 0x69E72E
 section_start(0x13)
-text("""Fire that
-can move
-up & down""")
+text("Fire that\ncan move\nup & down")
 end()
 section_end()
 
 # 0x14 @ 0x69E750
 section_start(0x14)
-text("""Water that
-can move
-up & down""")
+text("Water that\ncan move\nup & down")
 end()
 section_end()
 
 # 0x15 @ 0x69E773
 section_start(0x15)
-text("""Log that
-can move
-up & down""")
+text("Log that\ncan move\nup & down")
 end()
 section_end()
 
 # 0x16 @ 0x69E794
 section_start(0x16)
-text("""Cracks a
-panel
-Depth=3""")
+text("Cracks a\npanel\nDepth=3")
 end()
 section_end()
 
 # 0x17 @ 0x69E7B0
 section_start(0x17)
-text("""Cracks a
-panel
-Depth=3""")
+text("Cracks a\npanel\nDepth=3")
 end()
 section_end()
 
 # 0x18 @ 0x69E7CC
 section_start(0x18)
-text("""Cracks a
-panel
-Depth=3""")
+text("Cracks a\npanel\nDepth=3")
 end()
 section_end()
 
 # 0x19 @ 0x69E7E8
 section_start(0x19)
-text("""Cuts down
-column
-Range=1""")
+text("Cuts down\ncolumn\nRange=1")
 end()
 section_end()
 
 # 0x1A @ 0x69E806
 section_start(0x1A)
-text("""Cuts down
-column
-Range=1""")
+text("Cuts down\ncolumn\nRange=1")
 end()
 section_end()
 
 # 0x1B @ 0x69E824
 section_start(0x1B)
-text("""Cuts down
-column
-Range=1""")
+text("Cuts down\ncolumn\nRange=1")
 end()
 section_end()
 
 # 0x1C @ 0x69E842
 section_start(0x1C)
-text("""Knocks
-stuff over
-Range=1""")
+text("Knocks\nstuff over\nRange=1")
 end()
 section_end()
 
 # 0x1D @ 0x69E861
 section_start(0x1D)
-text("""Knocks
-stuff over
-Range=1""")
+text("Knocks\nstuff over\nRange=1")
 end()
 section_end()
 
 # 0x1E @ 0x69E880
 section_start(0x1E)
-text("""Warrior's
-sword
-Range=3""")
+text("Warrior's\nsword\nRange=3")
 end()
 section_end()
 
 # 0x1F @ 0x69E89E
 section_start(0x1F)
-text("""Knock over
-all in
-your path!""")
+text("Knock over\nall in\nyour path!")
 end()
 section_end()
 
 # 0x20 @ 0x69E8C0
 section_start(0x20)
-text("""Knight's
-sword
-Range=3""")
+text("Knight's\nsword\nRange=3")
 end()
 section_end()
 
 # 0x21 @ 0x69E8DD
 section_start(0x21)
-text("""Legendary
-sword
-Range=3""")
+text("Legendary\nsword\nRange=3")
 end()
 section_end()
 
 # 0x22 @ 0x69E8FA
 section_start(0x22)
-text("""Hold A Btn
-for 3 sec
-defense!""")
+text("Hold A Btn\nfor 3 sec\ndefense!")
 end()
 section_end()
 
 # 0x23 @ 0x69E91D
 section_start(0x23)
-text("""ID 23""")
+text("ID 23")
 end()
 section_end()
 
 # 0x24 @ 0x69E927
 section_start(0x24)
-text("""ID 24""")
+text("ID 24")
 end()
 section_end()
 
 # 0x25 @ 0x69E931
 section_start(0x25)
-text("""Fires a
-3ーarrow
-burst""")
+text("Fires a\n3ーarrow\nburst")
 end()
 section_end()
 
 # 0x26 @ 0x69E94B
 section_start(0x26)
-text("""Fires a
-3ーspear
-burst""")
+text("Fires a\n3ーspear\nburst")
 end()
 section_end()
 
 # 0x27 @ 0x69E965
 section_start(0x27)
-text("""Fires a
-3ーlance
-burst""")
+text("Fires a\n3ーlance\nburst")
 end()
 section_end()
 
 # 0x28 @ 0x69E97F
 section_start(0x28)
-text("""Creates a
-twister w/
-3 hits""")
+text("Creates a\ntwister w/\n3 hits")
 end()
 section_end()
 
 # 0x29 @ 0x69E9A0
 section_start(0x29)
-text("""Creates a
-twister w/
-5 hits""")
+text("Creates a\ntwister w/\n5 hits")
 end()
 section_end()
 
 # 0x2A @ 0x69E9C1
 section_start(0x2A)
-text("""Creates a
-twister w/
-8 hits""")
+text("Creates a\ntwister w/\n8 hits")
 end()
 section_end()
 
 # 0x2B @ 0x69E9E2
 section_start(0x2B)
-text("""Breaks
-panels
-Depth=3""")
+text("Breaks\npanels\nDepth=3")
 end()
 section_end()
 
 # 0x2C @ 0x69E9FD
 section_start(0x2C)
-text("""A rolling
-lightning
-attack""")
+text("A rolling\nlightning\nattack")
 end()
 section_end()
 
 # 0x2D @ 0x69EA1C
 section_start(0x2D)
-text("""A rolling
-lightning
-attack""")
+text("A rolling\nlightning\nattack")
 end()
 section_end()
 
 # 0x2E @ 0x69EA3B
 section_start(0x2E)
-text("""A rolling
-lightning
-attack""")
+text("A rolling\nlightning\nattack")
 end()
 section_end()
 
 # 0x2F @ 0x69EA5A
 section_start(0x2F)
-text("""ID 2F""")
+text("ID 2F")
 end()
 section_end()
 
 # 0x30 @ 0x69EA64
 section_start(0x30)
-text("""ID 30""")
+text("ID 30")
 end()
 section_end()
 
 # 0x31 @ 0x69EA6E
 section_start(0x31)
-text("""Squirming
-snake
-attack!""")
+text("Squirming\nsnake\nattack!")
 end()
 section_end()
 
 # 0x32 @ 0x69EA8B
 section_start(0x32)
-text("""Shocking
-snake
-attack!""")
+text("Shocking\nsnake\nattack!")
 end()
 section_end()
 
 # 0x33 @ 0x69EAA7
 section_start(0x33)
-text("""Scorching
-snake
-attack!""")
+text("Scorching\nsnake\nattack!")
 end()
 section_end()
 
 # 0x34 @ 0x69EAC4
 section_start(0x34)
-text("""Breaks
-cubes
-Range=1""")
+text("Breaks\ncubes\nRange=1")
 end()
 section_end()
 
 # 0x35 @ 0x69EADE
 section_start(0x35)
-text("""ID 35""")
+text("ID 35")
 end()
 section_end()
 
 # 0x36 @ 0x69EAE8
 section_start(0x36)
-text("""ID 36""")
+text("ID 36")
 end()
 section_end()
 
 # 0x37 @ 0x69EAF2
 section_start(0x37)
-text("""Engulf all
-around you
-in flames!""")
+text("Engulf all\naround you\nin flames!")
 end()
 section_end()
 
 # 0x38 @ 0x69EB18
 section_start(0x38)
-text("""ID 38""")
+text("ID 38")
 end()
 section_end()
 
 # 0x39 @ 0x69EB22
 section_start(0x39)
-text("""ID 39""")
+text("ID 39")
 end()
 section_end()
 
 # 0x3A @ 0x69EB2C
 section_start(0x3A)
-text("""Missile
-that can
-turn once""")
+text("Missile\nthat can\nturn once")
 end()
 section_end()
 
 # 0x3B @ 0x69EB4B
 section_start(0x3B)
-text("""Missile
-that can
-turn once""")
+text("Missile\nthat can\nturn once")
 end()
 section_end()
 
 # 0x3C @ 0x69EB6A
 section_start(0x3C)
-text("""Missile
-that can
-turn once""")
+text("Missile\nthat can\nturn once")
 end()
 section_end()
 
 # 0x3D @ 0x69EB89
 section_start(0x3D)
-text("""Creates a
-lock on
-satellite!""")
+text("Creates a\nlock on\nsatellite!")
 end()
 section_end()
 
 # 0x3E @ 0x69EBAB
 section_start(0x3E)
-text("""Creates a
-lock on
-satellite!""")
+text("Creates a\nlock on\nsatellite!")
 end()
 section_end()
 
 # 0x3F @ 0x69EBCD
 section_start(0x3F)
-text("""Creates a
-lock on
-satellite!""")
+text("Creates a\nlock on\nsatellite!")
 end()
 section_end()
 
 # 0x40 @ 0x69EBEF
 section_start(0x40)
-text("""Erase 1
-panel
-Range=1""")
+text("Erase 1\npanel\nRange=1")
 end()
 section_end()
 
 # 0x41 @ 0x69EC0A
 section_start(0x41)
-text("""Erase
-column
-Range=1""")
+text("Erase\ncolumn\nRange=1")
 end()
 section_end()
 
 # 0x42 @ 0x69EC24
 section_start(0x42)
-text("""ID 42""")
+text("ID 42")
 end()
 section_end()
 
 # 0x43 @ 0x69EC2E
 section_start(0x43)
-text("""Recover
-10HP""")
+text("Recover\n10HP")
 end()
 section_end()
 
 # 0x44 @ 0x69EC3F
 section_start(0x44)
-text("""Recover
-30HP""")
+text("Recover\n30HP")
 end()
 section_end()
 
 # 0x45 @ 0x69EC50
 section_start(0x45)
-text("""Recover
-50HP""")
+text("Recover\n50HP")
 end()
 section_end()
 
 # 0x46 @ 0x69EC61
 section_start(0x46)
-text("""Recover
-80HP""")
+text("Recover\n80HP")
 end()
 section_end()
 
 # 0x47 @ 0x69EC72
 section_start(0x47)
-text("""Recover
-120HP""")
+text("Recover\n120HP")
 end()
 section_end()
 
 # 0x48 @ 0x69EC84
 section_start(0x48)
-text("""Recover
-150HP""")
+text("Recover\n150HP")
 end()
 section_end()
 
 # 0x49 @ 0x69EC96
 section_start(0x49)
-text("""Recover
-200HP""")
+text("Recover\n200HP")
 end()
 section_end()
 
 # 0x4A @ 0x69ECA8
 section_start(0x4A)
-text("""Recover
-300HP""")
+text("Recover\n300HP")
 end()
 section_end()
 
 # 0x4B @ 0x69ECBA
 section_start(0x4B)
-text("""ID 4B""")
+text("ID 4B")
 end()
 section_end()
 
 # 0x4C @ 0x69ECC4
 section_start(0x4C)
-text("""Steal left
-column of
-enemy area""")
+text("Steal left\ncolumn of\nenemy area")
 end()
 section_end()
 
 # 0x4D @ 0x69ECE8
 section_start(0x4D)
-text("""ID 4D""")
+text("ID 4D")
 end()
 section_end()
 
 # 0x4E @ 0x69ECF2
 section_start(0x4E)
-text("""ID 4E""")
+text("ID 4E")
 end()
 section_end()
 
 # 0x4F @ 0x69ECFC
 section_start(0x4F)
-text("""All panels
-become
-cracked!""")
+text("All panels\nbecome\ncracked!")
 end()
 section_end()
 
 # 0x50 @ 0x69ED1C
 section_start(0x50)
-text("""Erases
-all empty
-panels""")
+text("Erases\nall empty\npanels")
 end()
 section_end()
 
 # 0x51 @ 0x69ED38
 section_start(0x51)
-text("""ID 51""")
+text("ID 51")
 end()
 section_end()
 
 # 0x52 @ 0x69ED42
 section_start(0x52)
-text("""Escape
-from most
-enemies""")
+text("Escape\nfrom most\nenemies")
 end()
 section_end()
 
 # 0x53 @ 0x69ED5F
 section_start(0x53)
-text("""Destroy
-enemy chip
-data""")
+text("Destroy\nenemy chip\ndata")
 end()
 section_end()
 
 # 0x54 @ 0x69ED7B
 section_start(0x54)
-text("""Negate all
-attacks w/
-damage˂100""")
+text("Negate all\nattacks w/\ndamage˂100")
 end()
 section_end()
 
 # 0x55 @ 0x69EDA2
 section_start(0x55)
-text("""Null˂10dmg
-Weak vs.
-[Elec]""")
+text("Null˂10dmg\nWeak vs.\n[Elec]")
 end()
 section_end()
 
 # 0x56 @ 0x69EDC5
 section_start(0x56)
-text("""Null˂40dmg
-Weak vs.
-[Aqua]""")
+text("Null˂40dmg\nWeak vs.\n[Aqua]")
 end()
 section_end()
 
 # 0x57 @ 0x69EDE8
 section_start(0x57)
-text("""Null˂80dmg
-Weak vs.
-[Fire]""")
+text("Null˂80dmg\nWeak vs.\n[Fire]")
 end()
 section_end()
 
 # 0x58 @ 0x69EE0B
 section_start(0x58)
-text("""Repair
-panels in
-your area""")
+text("Repair\npanels in\nyour area")
 end()
 section_end()
 
 # 0x59 @ 0x69EE2A
 section_start(0x59)
-text("""ID 59""")
+text("ID 59")
 end()
 section_end()
 
 # 0x5A @ 0x69EE34
 section_start(0x5A)
-text("""ID 5A""")
+text("ID 5A")
 end()
 section_end()
 
 # 0x5B @ 0x69EE3E
 section_start(0x5B)
-text("""Rains up
-& down on
-1 column""")
+text("Rains up\n& down on\n1 column")
 end()
 section_end()
 
 # 0x5C @ 0x69EE5F
 section_start(0x5C)
-text("""Rains up
-& down on
-1 column""")
+text("Rains up\n& down on\n1 column")
 end()
 section_end()
 
 # 0x5D @ 0x69EE80
 section_start(0x5D)
-text("""Rains up
-& down on
-1 column""")
+text("Rains up\n& down on\n1 column")
 end()
 section_end()
 
 # 0x5E @ 0x69EEA1
 section_start(0x5E)
-text("""Creates an
-ice cube
-Range=1""")
+text("Creates an\nice cube\nRange=1")
 end()
 section_end()
 
 # 0x5F @ 0x69EEC2
 section_start(0x5F)
-text("""Creates 3
-rock cubes
-randomly""")
+text("Creates 3\nrock cubes\nrandomly")
 end()
 section_end()
 
 # 0x60 @ 0x69EEE4
 section_start(0x60)
-text("""ID 60""")
+text("ID 60")
 end()
 section_end()
 
 # 0x61 @ 0x69EEEE
 section_start(0x61)
-text("""Sets time
-bomb in
-enemy area""")
+text("Sets time\nbomb in\nenemy area")
 end()
 section_end()
 
 # 0x62 @ 0x69EF0F
 section_start(0x62)
-text("""Sets time
-bomb in
-enemy area""")
+text("Sets time\nbomb in\nenemy area")
 end()
 section_end()
 
 # 0x63 @ 0x69EF30
 section_start(0x63)
-text("""Sets time
-bomb in
-enemy area""")
+text("Sets time\nbomb in\nenemy area")
 end()
 section_end()
 
 # 0x64 @ 0x69EF51
 section_start(0x64)
-text("""Temporary
-immunity""")
+text("Temporary\nimmunity")
 end()
 section_end()
 
 # 0x65 @ 0x69EF68
 section_start(0x65)
-text("""Temporary
-immunity""")
+text("Temporary\nimmunity")
 end()
 section_end()
 
 # 0x66 @ 0x69EF7F
 section_start(0x66)
-text("""Temporary
-immunity""")
+text("Temporary\nimmunity")
 end()
 section_end()
 
 # 0x67 @ 0x69EF96
 section_start(0x67)
-text("""30 seconds
-stoneshape
-Defense UP""")
+text("30 seconds\nstoneshape\nDefense UP")
 end()
 section_end()
 
 # 0x68 @ 0x69EFBB
 section_start(0x68)
-text("""ID 68""")
+text("ID 68")
 end()
 section_end()
 
 # 0x69 @ 0x69EFC5
 section_start(0x69)
-text("""Remote
-control
-smasher!""")
+text("Remote\ncontrol\nsmasher!")
 end()
 section_end()
 
 # 0x6A @ 0x69EFE2
 section_start(0x6A)
-text("""Remote
-control
-smasher!""")
+text("Remote\ncontrol\nsmasher!")
 end()
 section_end()
 
 # 0x6B @ 0x69EFFF
 section_start(0x6B)
-text("""Remote
-control
-smasher!""")
+text("Remote\ncontrol\nsmasher!")
 end()
 section_end()
 
 # 0x6C @ 0x69F01C
 section_start(0x6C)
-text("""1ーturn of
-MetGuard
-w/ B Btn.""")
+text("1ーturn of\nMetGuard\nw/ B Btn.")
 end()
 section_end()
 
 # 0x6D @ 0x69F03F
 section_start(0x6D)
-text("""1ーturn of
-MiniBomb
-w/ B Btn.""")
+text("1ーturn of\nMiniBomb\nw/ B Btn.")
 end()
 section_end()
 
 # 0x6E @ 0x69F062
 section_start(0x6E)
-text("""1ーturn use
-of Sword
-with B Btn""")
+text("1ーturn use\nof Sword\nwith B Btn")
 end()
 section_end()
 
 # 0x6F @ 0x69F085
 section_start(0x6F)
-text("""1ーturn of
-GutsPnch
-with B Btn.""")
+text("1ーturn of\nGutsPnch\nwith B Btn.")
 end()
 section_end()
 
 # 0x70 @ 0x69F0A9
 section_start(0x70)
-text("""Lightning
-circles
-you once""")
+text("Lightning\ncircles\nyou once")
 end()
 section_end()
 
 # 0x71 @ 0x69F0C8
 section_start(0x71)
-text("""Lightning
-circles
-you twice""")
+text("Lightning\ncircles\nyou twice")
 end()
 section_end()
 
 # 0x72 @ 0x69F0E8
 section_start(0x72)
-text("""Lightning
-circles
-you thrice""")
+text("Lightning\ncircles\nyou thrice")
 end()
 section_end()
 
 # 0x73 @ 0x69F109
 section_start(0x73)
-text("""Set candle
-& recover
-some HP""")
+text("Set candle\n& recover\nsome HP")
 end()
 section_end()
 
 # 0x74 @ 0x69F12B
 section_start(0x74)
-text("""Set candle
-& recover
-some HP""")
+text("Set candle\n& recover\nsome HP")
 end()
 section_end()
 
 # 0x75 @ 0x69F14D
 section_start(0x75)
-text("""Set candle
-& recover
-some HP""")
+text("Set candle\n& recover\nsome HP")
 end()
 section_end()
 
 # 0x76 @ 0x69F16F
 section_start(0x76)
-text("""Slows down
-custom
-gauge""")
+text("Slows down\ncustom\ngauge")
 end()
 section_end()
 
 # 0x77 @ 0x69F18B
 section_start(0x77)
-text("""Speeds up
-custom
-gauge""")
+text("Speeds up\ncustom\ngauge")
 end()
 section_end()
 
 # 0x78 @ 0x69F1A6
 section_start(0x78)
-text("""ID 78""")
+text("ID 78")
 end()
 section_end()
 
 # 0x79 @ 0x69F1B0
 section_start(0x79)
-text("""Charge to
-drain HP
-from enemy""")
+text("Charge to\ndrain HP\nfrom enemy")
 end()
 section_end()
 
 # 0x7A @ 0x69F1D2
 section_start(0x7A)
-text("""Charge to
-drain HP
-from enemy""")
+text("Charge to\ndrain HP\nfrom enemy")
 end()
 section_end()
 
 # 0x7B @ 0x69F1F4
 section_start(0x7B)
-text("""Charge to
-drain HP
-from enemy""")
+text("Charge to\ndrain HP\nfrom enemy")
 end()
 section_end()
 
 # 0x7C @ 0x69F216
 section_start(0x7C)
-text("""Hides a
-mine in
-enemy area""")
+text("Hides a\nmine in\nenemy area")
 end()
 section_end()
 
 # 0x7D @ 0x69F235
 section_start(0x7D)
-text("""Hides a
-mine in
-enemy area""")
+text("Hides a\nmine in\nenemy area")
 end()
 section_end()
 
 # 0x7E @ 0x69F254
 section_start(0x7E)
-text("""Hides a
-mine in
-enemy area""")
+text("Hides a\nmine in\nenemy area")
 end()
 section_end()
 
 # 0x7F @ 0x69F273
 section_start(0x7F)
-text("""Rolling
-3ーcolumn
-explosion!""")
+text("Rolling\n3ーcolumn\nexplosion!")
 end()
 section_end()
 
 # 0x80 @ 0x69F294
 section_start(0x80)
-text("""Rolling
-3ーcolumn
-explosion!""")
+text("Rolling\n3ーcolumn\nexplosion!")
 end()
 section_end()
 
 # 0x81 @ 0x69F2B5
 section_start(0x81)
-text("""Rolling
-3ーcolumn
-explosion!""")
+text("Rolling\n3ーcolumn\nexplosion!")
 end()
 section_end()
 
 # 0x82 @ 0x69F2D6
 section_start(0x82)
-text("""Aqua wall
-Comes back
-if damaged""")
+text("Aqua wall\nComes back\nif damaged")
 end()
 section_end()
 
 # 0x83 @ 0x69F2FA
 section_start(0x83)
-text("""Aqua wall
-Comes back
-if damaged""")
+text("Aqua wall\nComes back\nif damaged")
 end()
 section_end()
 
 # 0x84 @ 0x69F31E
 section_start(0x84)
-text("""Aqua wall
-Comes back
-if damaged""")
+text("Aqua wall\nComes back\nif damaged")
 end()
 section_end()
 
 # 0x85 @ 0x69F342
 section_start(0x85)
-text("""3ーrow
-wave!
-[Aqua]""")
+text("3ーrow\nwave!\n[Aqua]")
 end()
 section_end()
 
 # 0x86 @ 0x69F35C
 section_start(0x86)
-text("""3ーrow
-lava wave!
-[Fire]""")
+text("3ーrow\nlava wave!\n[Fire]")
 end()
 section_end()
 
 # 0x87 @ 0x69F37B
 section_start(0x87)
-text("""3ーrow
-giant wave
-[Aqua]""")
+text("3ーrow\ngiant wave\n[Aqua]")
 end()
 section_end()
 
 # 0x88 @ 0x69F399
 section_start(0x88)
-text("""Do damage
-= to your
-HP loss""")
+text("Do damage\n= to your\nHP loss")
 end()
 section_end()
 
 # 0x89 @ 0x69F3BA
 section_start(0x89)
-text("""Invisible
-until you
-attack!""")
+text("Invisible\nuntil you\nattack!")
 end()
 section_end()
 
 # 0x8A @ 0x69F3DB
 section_start(0x8A)
-text("""Invisible
-when not
-attacking!""")
+text("Invisible\nwhen not\nattacking!")
 end()
 section_end()
 
 # 0x8B @ 0x69F3FE
 section_start(0x8B)
-text("""Looks
-right for
-enemy""")
+text("Looks\nright for\nenemy")
 end()
 section_end()
 
 # 0x8C @ 0x69F418
 section_start(0x8C)
-text("""Looks
-diagonally
-for enemy""")
+text("Looks\ndiagonally\nfor enemy")
 end()
 section_end()
 
 # 0x8D @ 0x69F437
 section_start(0x8D)
-text("""Looks up &
-down for
-enemy""")
+text("Looks up &\ndown for\nenemy")
 end()
 section_end()
 
 # 0x8E @ 0x69F456
 section_start(0x8E)
-text("""Set Anubis
-statue to
-reduce HP""")
+text("Set Anubis\nstatue to\nreduce HP")
 end()
 section_end()
 
 # 0x8F @ 0x69F479
 section_start(0x8F)
-text("""ID 8F""")
+text("ID 8F")
 end()
 section_end()
 
 # 0x90 @ 0x69F483
 section_start(0x90)
-text("""ID 90""")
+text("ID 90")
 end()
 section_end()
 
 # 0x91 @ 0x69F48D
 section_start(0x91)
-text("""Hold btn.
-to create
-shield!""")
+text("Hold btn.\nto create\nshield!")
 end()
 section_end()
 
 # 0x92 @ 0x69F4AF
 section_start(0x92)
-text("""Turns dmg
-from 1 hit
-into HP""")
+text("Turns dmg\nfrom 1 hit\ninto HP")
 end()
 section_end()
 
 # 0x93 @ 0x69F4D0
 section_start(0x93)
-text("""Nullify
-1 enemy
-attack""")
+text("Nullify\n1 enemy\nattack")
 end()
 section_end()
 
 # 0x94 @ 0x69F4EB
 section_start(0x94)
-text("""3ーrow
-coffin
-laser!""")
+text("3ーrow\ncoffin\nlaser!")
 end()
 section_end()
 
 # 0x95 @ 0x69F504
 section_start(0x95)
-text("""3ーrow
-coffin
-laser!""")
+text("3ーrow\ncoffin\nlaser!")
 end()
 section_end()
 
 # 0x96 @ 0x69F51D
 section_start(0x96)
-text("""3ーrow
-coffin
-laser!""")
+text("3ーrow\ncoffin\nlaser!")
 end()
 section_end()
 
 # 0x97 @ 0x69F536
 section_start(0x97)
-text("""Split into
-3 for star
-attack""")
+text("Split into\n3 for star\nattack")
 end()
 section_end()
 
 # 0x98 @ 0x69F557
 section_start(0x98)
-text("""Split into
-3 for star
-attack""")
+text("Split into\n3 for star\nattack")
 end()
 section_end()
 
 # 0x99 @ 0x69F578
 section_start(0x99)
-text("""Split into
-3 for star
-attack""")
+text("Split into\n3 for star\nattack")
 end()
 section_end()
 
 # 0x9A @ 0x69F599
 section_start(0x9A)
-text("""ID 9A""")
+text("ID 9A")
 end()
 section_end()
 
 # 0x9B @ 0x69F5A3
 section_start(0x9B)
-text("""ID 9B""")
+text("ID 9B")
 end()
 section_end()
 
 # 0x9C @ 0x69F5AD
 section_start(0x9C)
-text("""ID 9C""")
+text("ID 9C")
 end()
 section_end()
 
 # 0x9D @ 0x69F5B7
 section_start(0x9D)
-text("""Magic fire
-=instant
-delete!?""")
+text("Magic fire\n=instant\ndelete!?")
 end()
 section_end()
 
 # 0x9E @ 0x69F5DB
 section_start(0x9E)
-text("""Magic fire
-=instant
-delete!?""")
+text("Magic fire\n=instant\ndelete!?")
 end()
 section_end()
 
 # 0x9F @ 0x69F5FF
 section_start(0x9F)
-text("""Magic fire
-=instant
-delete!?""")
+text("Magic fire\n=instant\ndelete!?")
 end()
 section_end()
 
 # 0xA0 @ 0x69F623
 section_start(0xA0)
-text("""Hit enemy
-and heal
-some HP""")
+text("Hit enemy\nand heal\nsome HP")
 end()
 section_end()
 
 # 0xA1 @ 0x69F642
 section_start(0xA1)
-text("""Hit enemy
-and heal
-some HP""")
+text("Hit enemy\nand heal\nsome HP")
 end()
 section_end()
 
 # 0xA2 @ 0x69F661
 section_start(0xA2)
-text("""Hit enemy
-and heal
-some HP""")
+text("Hit enemy\nand heal\nsome HP")
 end()
 section_end()
 
 # 0xA3 @ 0x69F680
 section_start(0xA3)
-text("""Shock foe
-and crack
-enemy area""")
+text("Shock foe\nand crack\nenemy area")
 end()
 section_end()
 
 # 0xA4 @ 0x69F6A3
 section_start(0xA4)
-text("""Shock foe
-and crack
-enemy area""")
+text("Shock foe\nand crack\nenemy area")
 end()
 section_end()
 
 # 0xA5 @ 0x69F6C6
 section_start(0xA5)
-text("""Shock foe
-and crack
-enemy area""")
+text("Shock foe\nand crack\nenemy area")
 end()
 section_end()
 
 # 0xA6 @ 0x69F6E9
 section_start(0xA6)
-text("""Hit column
-w/ nearest
-enemy""")
+text("Hit column\nw/ nearest\nenemy")
 end()
 section_end()
 
 # 0xA7 @ 0x69F70A
 section_start(0xA7)
-text("""Hit column
-w/ nearest
-enemy""")
+text("Hit column\nw/ nearest\nenemy")
 end()
 section_end()
 
 # 0xA8 @ 0x69F72B
 section_start(0xA8)
-text("""Hit column
-w/ nearest
-enemy""")
+text("Hit column\nw/ nearest\nenemy")
 end()
 section_end()
 
 # 0xA9 @ 0x69F74C
 section_start(0xA9)
-text("""Skewer
-entire
-enemy area""")
+text("Skewer\nentire\nenemy area")
 end()
 section_end()
 
 # 0xAA @ 0x69F769
 section_start(0xAA)
-text("""Skewer
-entire
-enemy area""")
+text("Skewer\nentire\nenemy area")
 end()
 section_end()
 
 # 0xAB @ 0x69F786
 section_start(0xAB)
-text("""Skewer
-entire
-enemy area""")
+text("Skewer\nentire\nenemy area")
 end()
 section_end()
 
 # 0xAC @ 0x69F7A3
 section_start(0xAC)
-text("""1 row
-fire arm""")
+text("1 row\nfire arm")
 end()
 section_end()
 
 # 0xAD @ 0x69F7B6
 section_start(0xAD)
-text("""1 row
-fire arm""")
+text("1 row\nfire arm")
 end()
 section_end()
 
 # 0xAE @ 0x69F7C9
 section_start(0xAE)
-text("""1 row
-fire arm""")
+text("1 row\nfire arm")
 end()
 section_end()
 
 # 0xAF @ 0x69F7DC
 section_start(0xAF)
-text("""DieRollx10
-damage to
-enemy area""")
+text("DieRollx10\ndamage to\nenemy area")
 end()
 section_end()
 
 # 0xB0 @ 0x69F800
 section_start(0xB0)
-text("""DieRollx20
-damage to
-enemy area""")
+text("DieRollx20\ndamage to\nenemy area")
 end()
 section_end()
 
 # 0xB1 @ 0x69F824
 section_start(0xB1)
-text("""DieRollx30
-damage to
-enemy area""")
+text("DieRollx30\ndamage to\nenemy area")
 end()
 section_end()
 
 # 0xB2 @ 0x69F848
 section_start(0xB2)
-text("""Drops 3x3
-stones on
-enemy area""")
+text("Drops 3x3\nstones on\nenemy area")
 end()
 section_end()
 
 # 0xB3 @ 0x69F86B
 section_start(0xB3)
-text("""Drops 4x3
-stones on
-enemy area""")
+text("Drops 4x3\nstones on\nenemy area")
 end()
 section_end()
 
 # 0xB4 @ 0x69F88E
 section_start(0xB4)
-text("""Drops 5x3
-stones on
-enemy area""")
+text("Drops 5x3\nstones on\nenemy area")
 end()
 section_end()
 
 # 0xB5 @ 0x69F8B1
 section_start(0xB5)
-text("""Blizzard
-attack on
-enemy area""")
+text("Blizzard\nattack on\nenemy area")
 end()
 section_end()
 
 # 0xB6 @ 0x69F8D3
 section_start(0xB6)
-text("""Blizzard
-attack on
-enemy area""")
+text("Blizzard\nattack on\nenemy area")
 end()
 section_end()
 
 # 0xB7 @ 0x69F8F5
 section_start(0xB7)
-text("""Blizzard
-attack on
-enemy area""")
+text("Blizzard\nattack on\nenemy area")
 end()
 section_end()
 
 # 0xB8 @ 0x69F917
 section_start(0xB8)
-text("""Big skull
-attack on
-one enemy""")
+text("Big skull\nattack on\none enemy")
 end()
 section_end()
 
 # 0xB9 @ 0x69F939
 section_start(0xB9)
-text("""Big skull
-attack on
-one enemy""")
+text("Big skull\nattack on\none enemy")
 end()
 section_end()
 
 # 0xBA @ 0x69F95B
 section_start(0xBA)
-text("""Big skull
-attack on
-one enemy""")
+text("Big skull\nattack on\none enemy")
 end()
 section_end()
 
 # 0xBB @ 0x69F97D
 section_start(0xBB)
-text("""Towers of
-[Aqua] &
-[Fire]!""")
+text("Towers of\n[Aqua] &\n[Fire]!")
 end()
 section_end()
 
 # 0xBC @ 0x69F9A2
 section_start(0xBC)
-text("""Towers of
-[Aqua] &
-[Fire]!""")
+text("Towers of\n[Aqua] &\n[Fire]!")
 end()
 section_end()
 
 # 0xBD @ 0x69F9C7
 section_start(0xBD)
-text("""Towers of
-[Aqua] &
-[Fire]!""")
+text("Towers of\n[Aqua] &\n[Fire]!")
 end()
 section_end()
 
 # 0xBE @ 0x69F9EC
 section_start(0xBE)
-text("""Enemy area
-CrossBomb
-Depth=3""")
+text("Enemy area\nCrossBomb\nDepth=3")
 end()
 section_end()
 
 # 0xBF @ 0x69FA0E
 section_start(0xBF)
-text("""Enemy area
-CrossBomb
-Depth=3""")
+text("Enemy area\nCrossBomb\nDepth=3")
 end()
 section_end()
 
 # 0xC0 @ 0x69FA30
 section_start(0xC0)
-text("""Enemy area
-CrossBomb
-Depth=3""")
+text("Enemy area\nCrossBomb\nDepth=3")
 end()
 section_end()
 
 # 0xC1 @ 0x69FA52
 section_start(0xC1)
-text("""3ーrow
-shark fin
-attack""")
+text("3ーrow\nshark fin\nattack")
 end()
 section_end()
 
 # 0xC2 @ 0x69FA6D
 section_start(0xC2)
-text("""3ーrow
-shark fin
-attack""")
+text("3ーrow\nshark fin\nattack")
 end()
 section_end()
 
 # 0xC3 @ 0x69FA88
 section_start(0xC3)
-text("""3ーrow
-shark fin
-attack""")
+text("3ーrow\nshark fin\nattack")
 end()
 section_end()
 
 # 0xC4 @ 0x69FAA3
 section_start(0xC4)
-text("""Lightning
-hits enemy
-panel!""")
+text("Lightning\nhits enemy\npanel!")
 end()
 section_end()
 
 # 0xC5 @ 0x69FAC4
 section_start(0xC5)
-text("""Lightning
-hits enemy
-panel!""")
+text("Lightning\nhits enemy\npanel!")
 end()
 section_end()
 
 # 0xC6 @ 0x69FAE5
 section_start(0xC6)
-text("""Lightning
-hits enemy
-panel!""")
+text("Lightning\nhits enemy\npanel!")
 end()
 section_end()
 
 # 0xC7 @ 0x69FB06
 section_start(0xC7)
-text("""Explodes
-on entire
-area!""")
+text("Explodes\non entire\narea!")
 end()
 section_end()
 
 # 0xC8 @ 0x69FB24
 section_start(0xC8)
-text("""ID C8""")
+text("ID C8")
 end()
 section_end()
 
 # 0xC9 @ 0x69FB2E
 section_start(0xC9)
-text("""ID C9""")
+text("ID C9")
 end()
 section_end()
 
 # 0xCA @ 0x69FB38
 section_start(0xCA)
-text("""ID CA""")
+text("ID CA")
 end()
 section_end()
 
 # 0xCB @ 0x69FB42
 section_start(0xCB)
-text("""ID CB""")
+text("ID CB")
 end()
 section_end()
 
 # 0xCC @ 0x69FB4C
 section_start(0xCC)
-text("""ID CC""")
+text("ID CC")
 end()
 section_end()
 
 # 0xCD @ 0x69FB56
 section_start(0xCD)
-text("""ID CD""")
+text("ID CD")
 end()
 section_end()
 
 # 0xCE @ 0x69FB60
 section_start(0xCE)
-text("""ID CE""")
+text("ID CE")
 end()
 section_end()
 
 # 0xCF @ 0x69FB6A
 section_start(0xCF)
-text("""ID CF""")
+text("ID CF")
 end()
 section_end()
 
 # 0xD0 @ 0x69FB74
 section_start(0xD0)
-text("""ID D0""")
+text("ID D0")
 end()
 section_end()
 
 # 0xD1 @ 0x69FB7E
 section_start(0xD1)
-text("""ID D1""")
+text("ID D1")
 end()
 section_end()
 
 # 0xD2 @ 0x69FB88
 section_start(0xD2)
-text("""ID D2""")
+text("ID D2")
 end()
 section_end()
 
 # 0xD3 @ 0x69FB92
 section_start(0xD3)
-text("""ID D3""")
+text("ID D3")
 end()
 section_end()
 
 # 0xD4 @ 0x69FB9C
 section_start(0xD4)
-text("""ID D4""")
+text("ID D4")
 end()
 section_end()
 
 # 0xD5 @ 0x69FBA6
 section_start(0xD5)
-text("""ID D5""")
+text("ID D5")
 end()
 section_end()
 
 # 0xD6 @ 0x69FBB0
 section_start(0xD6)
-text("""ID D6""")
+text("ID D6")
 end()
 section_end()
 
 # 0xD7 @ 0x69FBBA
 section_start(0xD7)
-text("""ID D7""")
+text("ID D7")
 end()
 section_end()
 
 # 0xD8 @ 0x69FBC4
 section_start(0xD8)
-text("""ID D8""")
+text("ID D8")
 end()
 section_end()
 
 # 0xD9 @ 0x69FBCE
 section_start(0xD9)
-text("""ID D9""")
+text("ID D9")
 end()
 section_end()
 
 # 0xDA @ 0x69FBD8
 section_start(0xDA)
-text("""ID DA""")
+text("ID DA")
 end()
 section_end()
 
 # 0xDB @ 0x69FBE2
 section_start(0xDB)
-text("""ID DB""")
+text("ID DB")
 end()
 section_end()
 
 # 0xDC @ 0x69FBEC
 section_start(0xDC)
-text("""ID DC""")
+text("ID DC")
 end()
 section_end()
 
 # 0xDD @ 0x69FBF6
 section_start(0xDD)
-text("""ID DD""")
+text("ID DD")
 end()
 section_end()
 
 # 0xDE @ 0x69FC00
 section_start(0xDE)
-text("""ID DE""")
+text("ID DE")
 end()
 section_end()
 
 # 0xDF @ 0x69FC0A
 section_start(0xDF)
-text("""ID DF""")
+text("ID DF")
 end()
 section_end()
 
 # 0xE0 @ 0x69FC14
 section_start(0xE0)
-text("""ID E0""")
+text("ID E0")
 end()
 section_end()
 
 # 0xE1 @ 0x69FC1E
 section_start(0xE1)
-text("""ID E1""")
+text("ID E1")
 end()
 section_end()
 
 # 0xE2 @ 0x69FC28
 section_start(0xE2)
-text("""ID E2""")
+text("ID E2")
 end()
 section_end()
 
 # 0xE3 @ 0x69FC32
 section_start(0xE3)
-text("""ID E3""")
+text("ID E3")
 end()
 section_end()
 
 # 0xE4 @ 0x69FC3C
 section_start(0xE4)
-text("""ID E4""")
+text("ID E4")
 end()
 section_end()
 
 # 0xE5 @ 0x69FC46
 section_start(0xE5)
-text("""ID E5""")
+text("ID E5")
 end()
 section_end()
 
 # 0xE6 @ 0x69FC50
 section_start(0xE6)
-text("""ID E6""")
+text("ID E6")
 end()
 section_end()
 
 # 0xE7 @ 0x69FC5A
 section_start(0xE7)
-text("""ID E7""")
+text("ID E7")
 end()
 section_end()
 
 # 0xE8 @ 0x69FC64
 section_start(0xE8)
-text("""ID E8""")
+text("ID E8")
 end()
 section_end()
 
 # 0xE9 @ 0x69FC6E
 section_start(0xE9)
-text("""ID E9""")
+text("ID E9")
 end()
 section_end()
 
 # 0xEA @ 0x69FC78
 section_start(0xEA)
-text("""ID EA""")
+text("ID EA")
 end()
 section_end()
 
 # 0xEB @ 0x69FC82
 section_start(0xEB)
-text("""ID EB""")
+text("ID EB")
 end()
 section_end()
 
 # 0xEC @ 0x69FC8C
 section_start(0xEC)
-text("""ID EC""")
+text("ID EC")
 end()
 section_end()
 
 # 0xED @ 0x69FC96
 section_start(0xED)
-text("""ID ED""")
+text("ID ED")
 end()
 section_end()
 
 # 0xEE @ 0x69FCA0
 section_start(0xEE)
-text("""ID EE""")
+text("ID EE")
 end()
 section_end()
 
 # 0xEF @ 0x69FCAA
 section_start(0xEF)
-text("""ID EF""")
+text("ID EF")
 end()
 section_end()
 
 # 0xF0 @ 0x69FCB4
 section_start(0xF0)
-text("""ID F0""")
+text("ID F0")
 end()
 section_end()
 
 # 0xF1 @ 0x69FCBE
 section_start(0xF1)
-text("""ID F1""")
+text("ID F1")
 end()
 section_end()
 
 # 0xF2 @ 0x69FCC8
 section_start(0xF2)
-text("""ID F2""")
+text("ID F2")
 end()
 section_end()
 
 # 0xF3 @ 0x69FCD2
 section_start(0xF3)
-text("""ID F3""")
+text("ID F3")
 end()
 section_end()
 
 # 0xF4 @ 0x69FCDC
 section_start(0xF4)
-text("""ID F4""")
+text("ID F4")
 end()
 section_end()
 
 # 0xF5 @ 0x69FCE6
 section_start(0xF5)
-text("""ID F5""")
+text("ID F5")
 end()
 section_end()
 
 # 0xF6 @ 0x69FCF0
 section_start(0xF6)
-text("""ID F6""")
+text("ID F6")
 end()
 section_end()
 
 # 0xF7 @ 0x69FCFA
 section_start(0xF7)
-text("""ID F7""")
+text("ID F7")
 end()
 section_end()
 
 # 0xF8 @ 0x69FD04
 section_start(0xF8)
-text("""ID F8""")
+text("ID F8")
 end()
 section_end()
 
 # 0xF9 @ 0x69FD0E
 section_start(0xF9)
-text("""ID F9""")
+text("ID F9")
 end()
 section_end()
 
 # 0xFA @ 0x69FD18
 section_start(0xFA)
-text("""ID FA""")
+text("ID FA")
 end()
 section_end()
 
 # 0xFB @ 0x69FD22
 section_start(0xFB)
-text("""ID FB""")
+text("ID FB")
 end()
 section_end()
 
 # 0xFC @ 0x69FD2C
 section_start(0xFC)
-text("""ID FC""")
+text("ID FC")
 end()
 section_end()
 
 # 0xFD @ 0x69FD36
 section_start(0xFD)
-text("""ID FD""")
+text("ID FD")
 end()
 section_end()
 
 # 0xFE @ 0x69FD40
 section_start(0xFE)
-text("""ID FE""")
+text("ID FE")
 end()
 section_end()
 
 # 0xFF @ 0x69FD4A
 section_start(0xFF)
-text(""" """)
+text(" ")
 end()
 section_end()

@@ -4,22 +4,22 @@ section_count(0xB)
 section_start(0x00)
 pic(5)
 dialog_up()
-para_talk("""Ha,{delay 10}ha,{delay 10}ha,{delay 10}ha!!
-Once I press this
-button...""", 0)
-para_talk("""Bye bye world!""", 0)
-para_talk("""Dr.Hikari may have
-kicked me out of his
-little lab...""", 0)
-para_talk_end("""But now I get my
-revenge!!""", 0)
+text("{a 2}Ha,{d 10}ha,{d 10}ha,{d 10}ha!!\nOnce I press this\nbutton...{a 1}\p")
+wait(0)
+text("{a 2}Bye bye world!{a 1}\p")
+wait(0)
+text("{a 2}Dr.Hikari may have\nkicked me out of his\nlittle lab...{a 1}\p")
+wait(0)
+text("{a 2}But now I get my\nrevenge!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x73B96B
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""Wait! Wily!!""")
+text("{a 2}Wait! Wily!!{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -27,12 +27,10 @@ section_end()
 section_start(0x02)
 pic(5)
 dialog_up()
-para_talk("""Ahh{anim 1}...{delay}
-{anim 2}Hikari's little boy
-Lan,I presume?""", 0)
-para_talk("""Leave it to the
-Hikari's to bother
-me to the very end!""")
+text("{a 2}Ahh{a 1}...{d}\n{a 2}Hikari's little boy\nLan,I presume?{a 1}\p")
+wait(0)
+text("{a 2}Leave it to the\nHikari's to bother\nme to the very end!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -40,9 +38,8 @@ section_end()
 section_start(0x03)
 pic(0)
 dialog_up()
-para_talk("""The EndGame is
-revenge against my
-family? Why!?""")
+text("{a 2}The EndGame is\nrevenge against my\nfamily? Why!?{a 1}\p")
+wait(5)
 jump(0x04)
 section_end()
 
@@ -50,47 +47,34 @@ section_end()
 section_start(0x04)
 pic(5)
 dialog_up()
-para_talk("""Hmm{anim 1}...{delay}{anim 2}Shall I
-tell you?""", 0)
-para_talk("""30 years ago,two
-famous scientists
-competed to be best!""", 0)
-para_talk("""...Me,and your
-grandfather,
-Dr.Hikari!""", 0)
-para_talk("""I made robots,and
-Hikari specialized
-in networks.""", 0)
-text_talking("""We were both lost
-in our research.
-Then,one day...""")
+text("{a 2}Hmm{a 1}...{d}{a 2}Shall I\ntell you?{a 1}\p")
+wait(0)
+text("{a 2}30 years ago,two\nfamous scientists\ncompeted to be best!{a 1}\p")
+wait(0)
+text("{a 2}...Me,and your\ngrandfather,\nDr.Hikari!{a 1}\p")
+wait(0)
+text("{a 2}I made robots,and\nHikari specialized\nin networks.{a 1}\p")
+wait(0)
+text("{a 2}We were both lost\nin our research.\nThen,one day...{a 1}")
 set_flag(147)
 page()
 wait()
-para_talk("""In order to win an
-international
-competition,""", 0)
-para_talk("""our country had to
-pick one of our
-projects to fund.""", 0)
-para_talk("""After long debate...
-They cancelled my
-robot research!""", 0)
-para_talk("""I couldn't believe
-it! My research
-was vital! Vital!""", 0)
-para_talk("""I had no place to
-turn to,and so I
-left the lab.""", 0)
-para_general("""{anim 2}That's why I'm
-mad! If it wasn't
-for Hikari{anim 1}...{delay}!""", 0)
-para_talk("""So I made the WWW
-to get back at
-him!""", 0)
-para_talk("""He made this world
-what it is,and now
-I'll destroy it!""")
+text("{a 2}In order to win an\ninternational\ncompetition,{a 1}\p")
+wait(0)
+text("{a 2}our country had to\npick one of our\nprojects to fund.{a 1}\p")
+wait(0)
+text("{a 2}After long debate...\nThey cancelled my\nrobot research!{a 1}\p")
+wait(0)
+text("{a 2}I couldn't believe\nit! My research\nwas vital! Vital!{a 1}\p")
+wait(0)
+text("{a 2}I had no place to\nturn to,and so I\nleft the lab.{a 1}\p")
+wait(0)
+text("{a 2}That's why I'm\nmad! If it wasn't\nfor Hikari{a 1}...{d}!\p")
+wait(0)
+text("{a 2}So I made the WWW\nto get back at\nhim!{a 1}\p")
+wait(0)
+text("{a 2}He made this world\nwhat it is,and now\nI'll destroy it!{a 1}\p")
+wait(5)
 jump(0x05)
 section_end()
 
@@ -98,9 +82,8 @@ section_end()
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk("""But he didn't cancel
-your research! It's
-not his fault!""")
+text("{a 2}But he didn't cancel\nyour research! It's\nnot his fault!{a 1}\p")
+wait(5)
 jump(0x06)
 section_end()
 
@@ -108,16 +91,14 @@ section_end()
 section_start(0x06)
 pic(5)
 dialog_up()
-para_talk("""Hah! That's what
-he said,too!""", 0)
-para_talk("""You'll never
-understand how I
-feel! Never!""", 0)
-text("""{anim 2}Enough talking!
-""")
+text("{a 2}Hah! That's what\nhe said,too!{a 1}\p")
+wait(0)
+text("{a 2}You'll never\nunderstand how I\nfeel! Never!{a 1}\p")
+wait(0)
+text("{a 2}Enough talking!\n")
 clear_flag(147)
-para_general("""World,prepare for
-DELETION!!!!{anim 1}""")
+text("World,prepare for\nDELETION!!!!{a 1}\p")
+wait(5)
 jump(0x07)
 section_end()
 
@@ -125,7 +106,8 @@ section_end()
 section_start(0x07)
 pic(0)
 dialog_up()
-para_talk_end("""Noooo!!""", 0)
+text("{a 2}Noooo!!{a 1}\p")
+end(0)
 section_end()
 
 # 0x08 @ 0x73BE77
@@ -133,7 +115,8 @@ section_start(0x08)
 set_flag(147)
 pic(5)
 dialog_up()
-para_talk("""Hahah!""")
+text("{a 2}Hahah!{a 1}\p")
+wait(5)
 jump(0x09)
 section_end()
 
@@ -141,9 +124,8 @@ section_end()
 section_start(0x09)
 pic(0)
 dialog_up()
-para_talk_end("""Never! Not if
-MegaMan and I
-can help it!""", 0)
+text("{a 2}Never! Not if\nMegaMan and I\ncan help it!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x73BECF
@@ -152,9 +134,7 @@ input_off()
 set_delay(1)
 pic(0)
 dialog_up()
-text_talking("""Jack in!!{delay 10}
-MegaMan.EXE,{delay 10}
-transmit!""")
+text("{a 2}Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!{a 1}")
 breaks(30)
 input_on()
 end()

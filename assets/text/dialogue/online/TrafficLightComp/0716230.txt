@@ -2,23 +2,23 @@ section_count(0x12)
 
 # 0x00 @ 0x716254
 section_start(0x00)
-if_story(0x40, 0x57, 0x02, 0xFF)
+if_story(0x40, 0x57, 0x02)
 if_flag(181, 0x02, 0xFF)
 if_flag(48, 0x01, 0xFF)
 dialog_up()
-para_general("""MegaMan pressed the
-color switch!""", 0)
-para_general_end("""However,the signal
-remained green!""", 0)
+text("MegaMan pressed the\ncolor switch!\p")
+wait(0)
+text("However,the signal\nremained green!\p")
+end(0)
 section_end()
 
 # 0x01 @ 0x7162B8
 section_start(0x01)
 dialog_up()
-para_general("""MegaMan pressed the
-color switch!""", 0)
-para_general("""The signal turned
-red!""")
+text("MegaMan pressed the\ncolor switch!\p")
+wait(0)
+text("The signal turned\nred!\p")
+wait(5)
 set_flag(198)
 end()
 section_end()
@@ -27,31 +27,30 @@ section_end()
 section_start(0x02)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan! You don't
-need to press the
-switch now!""", 0)
+text("{a 2}MegaMan! You don't\nneed to press the\nswitch now!{a 1}\p")
+end(0)
 section_end()
 
 # 0x03 @ 0x716347
 section_start(0x03)
-if_story(0x40, 0x57, 0x05, 0xFF)
+if_story(0x40, 0x57, 0x05)
 if_flag(198, 0xFF, 0x0C)
 if_flag(182, 0x05, 0xFF)
 if_flag(48, 0x04, 0xFF)
 dialog_up()
-para_general("""MegaMan pressed the
-color switch!""", 0)
-para_general_end("""However,the signal
-remained green!""", 0)
+text("MegaMan pressed the\ncolor switch!\p")
+wait(0)
+text("However,the signal\nremained green!\p")
+end(0)
 section_end()
 
 # 0x04 @ 0x7163B1
 section_start(0x04)
 dialog_up()
-para_general("""MegaMan pressed the
-color switch!""", 0)
-para_general("""The signal turned
-red!""")
+text("MegaMan pressed the\ncolor switch!\p")
+wait(0)
+text("The signal turned\nred!\p")
+wait(5)
 set_flag(199)
 end()
 section_end()
@@ -60,32 +59,31 @@ section_end()
 section_start(0x05)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan! You don't
-need to press the
-switch now!""", 0)
+text("{a 2}MegaMan! You don't\nneed to press the\nswitch now!{a 1}\p")
+end(0)
 section_end()
 
 # 0x06 @ 0x716440
 section_start(0x06)
-if_story(0x40, 0x57, 0x08, 0xFF)
+if_story(0x40, 0x57, 0x08)
 if_flag(198, 0xFF, 0x0C)
 if_flag(199, 0xFF, 0x0C)
 if_flag(183, 0x08, 0xFF)
 if_flag(48, 0x07, 0xFF)
 dialog_up()
-para_general("""MegaMan pressed the
-color switch!""", 0)
-para_general_end("""However,the signal
-remained green!""", 0)
+text("MegaMan pressed the\ncolor switch!\p")
+wait(0)
+text("However,the signal\nremained green!\p")
+end(0)
 section_end()
 
 # 0x07 @ 0x7164B0
 section_start(0x07)
 dialog_up()
-para_general("""MegaMan pressed the
-color switch!""", 0)
-para_general("""The signal turned
-red!""")
+text("MegaMan pressed the\ncolor switch!\p")
+wait(0)
+text("The signal turned\nred!\p")
+wait(5)
 set_flag(200)
 end()
 section_end()
@@ -94,33 +92,32 @@ section_end()
 section_start(0x08)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan! You don't
-need to press the
-switch now!""", 0)
+text("{a 2}MegaMan! You don't\nneed to press the\nswitch now!{a 1}\p")
+end(0)
 section_end()
 
 # 0x09 @ 0x71653F
 section_start(0x09)
-if_story(0x40, 0x57, 0x0B, 0xFF)
+if_story(0x40, 0x57, 0x0B)
 if_flag(198, 0xFF, 0x0C)
 if_flag(199, 0xFF, 0x0C)
 if_flag(200, 0xFF, 0x0C)
 if_flag(186, 0x0B, 0xFF)
 if_flag(48, 0x0A, 0xFF)
 dialog_up()
-para_general("""MegaMan pressed the
-color switch!""", 0)
-para_general_end("""However,the signal
-remained green!""", 0)
+text("MegaMan pressed the\ncolor switch!\p")
+wait(0)
+text("However,the signal\nremained green!\p")
+end(0)
 section_end()
 
 # 0x0A @ 0x7165B5
 section_start(0x0A)
 dialog_up()
-para_general("""MegaMan pressed the
-color switch!""", 0)
-para_general("""The signal turned
-red!""")
+text("MegaMan pressed the\ncolor switch!\p")
+wait(0)
+text("The signal turned\nred!\p")
+wait(5)
 set_flag(173)
 end()
 section_end()
@@ -129,41 +126,37 @@ section_end()
 section_start(0x0B)
 pic(0)
 dialog_up()
-para_talk_end("""MegaMan! You don't
-need to press the
-switch now!""", 0)
+text("{a 2}MegaMan! You don't\nneed to press the\nswitch now!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0C @ 0x716644
 section_start(0x0C)
 pic(0)
 dialog_up()
-para_talk("""MegaMan,wasn't there
-another switch
-before that?""", 0)
-para_talk_end("""We need to do them
-in order!""", 0)
+text("{a 2}MegaMan,wasn't there\nanother switch\nbefore that?{a 1}\p")
+wait(0)
+text("{a 2}We need to do them\nin order!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0D @ 0x7166AC
 section_start(0x0D)
 pic(0)
 dialog_up()
-para_talk_end("""The bus is coming!
-We don't have time
-to jack out!""", 0)
+text("{a 2}The bus is coming!\nWe don't have time\nto jack out!{a 1}\p")
+end(0)
 section_end()
 
 # 0x0F @ 0x7166F3
 section_start(0x0F)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(733)
 pc_anim_start(50)
 add_chip("AquaTowr C", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip AquaTowr C}\"!""")
+text("MegaMan got a chip\nfor \"{chip AquaTowr C}\"!")
 pc_anim_end()
 page()
 end(5)
@@ -172,13 +165,12 @@ section_end()
 # 0x10 @ 0x716761
 section_start(0x10)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(734)
 pc_anim_start(50)
 award_zenny([2400, 2400])
-text("""MegaMan got 2400
-zennys!""")
+text("MegaMan got 2400\nzennys!")
 pc_anim_end()
 page()
 end(5)
@@ -187,13 +179,12 @@ section_end()
 # 0x11 @ 0x7167C8
 section_start(0x11)
 dialog_up()
-para_general("""MegaMan accessed the
-mystery data...""", 0)
+text("MegaMan accessed the\nmystery data...\p")
+wait(0)
 set_flag(735)
 pc_anim_start(50)
 add_chip("Recov80 G", 1, 0xFF, 0xFF, 0xFF)
-text("""MegaMan got a chip
-for \"{chip Recov80 G}\"!""")
+text("MegaMan got a chip\nfor \"{chip Recov80 G}\"!")
 pc_anim_end()
 page()
 end(5)

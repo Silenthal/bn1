@@ -4,12 +4,10 @@ section_count(0x4)
 section_start(0x00)
 pic(7)
 dialog_up()
-para_general("""...{anim 2}You again?{anim 1}{delay}
-{anim 2}What are you doing
-in the SciLab?{anim 1}""", 0)
-para_talk("""This is no place for
-little boys to be
-playing games!""")
+text("...{a 2}You again?{a 1}{d}\n{a 2}What are you doing\nin the SciLab?{a 1}\p")
+wait(0)
+text("{a 2}This is no place for\nlittle boys to be\nplaying games!{a 1}\p")
+wait(5)
 jump(0x01)
 section_end()
 
@@ -17,9 +15,8 @@ section_end()
 section_start(0x01)
 pic(0)
 dialog_up()
-para_talk("""Just 'cause I'm a
-kid doesn't mean you
-can push me around!""")
+text("{a 2}Just 'cause I'm a\nkid doesn't mean you\ncan push me around!{a 1}\p")
+wait(5)
 jump(0x02)
 section_end()
 
@@ -27,7 +24,8 @@ section_end()
 section_start(0x02)
 pic(34)
 dialog_up()
-para_talk("""Yeah! Yeah!""")
+text("{a 2}Yeah! Yeah!{a 1}\p")
+wait(5)
 jump(0x03)
 section_end()
 
@@ -35,13 +33,10 @@ section_end()
 section_start(0x03)
 pic(7)
 dialog_up()
-para_talk("""Hmph{anim 1}...{delay}{anim 2}Noisy
-little brats...""", 0)
-text_talking("""I don't have time to
-deal with you now...
-Later,brat.""")
-page()
-text(""" """)
+text("{a 2}Hmph{a 1}...{d}{a 2}Noisy\nlittle brats...{a 1}\p")
+wait(0)
+text("{a 2}I don't have time to\ndeal with you now...\nLater,brat.{a 1}\p")
+text(" ")
 set_flag(153)
 end()
 section_end()

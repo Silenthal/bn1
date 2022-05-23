@@ -9,3 +9,4 @@ __pycache__/
 *.8bpp
 *.gbapal
 *.script
+*.lz
