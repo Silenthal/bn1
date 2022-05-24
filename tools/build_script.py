@@ -1502,7 +1502,7 @@ def parse_command(reader: Reader):
                 anim(int(coms[1], 0))
             else:
                 exit("Animation index required")
-        elif coms[0] == "wait":
+        elif coms[0] == "wait" or coms[0] == "w":
             if len(coms) > 1:
                 wait(int(coms[1], 0))
             else:

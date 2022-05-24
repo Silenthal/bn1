@@ -778,10 +778,8 @@ section_end()
 
 # 0x8F @ 0x7AB0B1
 section_start(0x8F)
-text("Time   ")
-wait(33280)
-text(";")
-wait(49665)
+text("Time   {w 33280}")
+text(";{w 49665}")
 end()
 section_end()
 
@@ -793,17 +791,14 @@ section_end()
 
 # 0x91 @ 0x7AB0D6
 section_start(0x91)
-text("     ")
-wait(33536)
-text("/")
-wait(33537)
+text("     {w 33536}")
+text("/{w 33537}")
 end()
 section_end()
 
 # 0x92 @ 0x7AB0E8
 section_start(0x92)
-text("MEGAMAN {lv}")
-wait(33536)
+text("MEGAMAN {lv}{w 33536}")
 end()
 section_end()
 
