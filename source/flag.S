@@ -65,7 +65,10 @@ global_label Flag_Set240
 global_label Flag_Set200
     add        r0,#0x80
     add        r0,#0x80
-global_label Flag_Set100
+
+@ Sets flag indicating a particular chip has been obtained.
+@ Range *should* be from 1 (Cannon) to 199 (Bass).
+global_label Flag_SetLibrary
     add        r0,#0x80
     add        r0,#0x80
 
@@ -131,7 +134,7 @@ global_label Flag_Get240
 global_label Flag_Get200
     add        r0,#0x80
     add        r0,#0x80
-global_label Flag_Get100
+global_label Flag_GetLibrary
     add        r0,#0x80
     add        r0,#0x80
 

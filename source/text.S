@@ -19,24 +19,15 @@
     .set FUN_0801f974, 0x801f974
     .set Status_GetLevel, 0x801bf58
     .set Library_GetStandardChipCount, 0x801E814
-    .set Item_AddAmount, 0x8018C20
-    .set Item_SubtractAmount, 0x8018C5C
-    .set Item_SetAmount, 0x8018C54
-    .set Item_IsPresent, 0x8018C78
     .set Passcode_Init, 0x8018dec
     .set FUN_080190cc, 0x80190cc
     .set FUN_080190dc, 0x80190dc
-    .set Inventory_AddChip, 0x8009BA2
-    .set Inventory_SubtractChip, 0x8009BEC
-    .set Inventory_SetChip, 0x8009BD6
-    .set Inventory_GetChipCount, 0x8009C78
     .set Folder_GetChipCount, 0x801a640
     .set PlayerAnimation_Lock, 0x8056058
     .set PlayerAnimation_Get, 0x80560B4
     .set PlayerAnimation_Set, 0x8056074
     .set PlayerAnimation_Unlock, 0x8056064
     .set FUN_080025ec, 0x80025ec
-    .set Inventory_AddZenny, 0x8009c82
     .set Area_GetBackgroundId, 0x8004674
     .set FUN_08004a10, 0x8004a10
     .set Encounter_SetEnemyList, 0x80098cc
@@ -1780,89 +1771,96 @@ JT_Layout_F6_JumpTextBlock:
     mov        pc,lr
 thumb_func_end JT_Layout_F6_JumpTextBlock
 
+@ Handle general item commands
 thumb_func_start JT_Command_F7_ItemControl
 JT_Command_F7_ItemControl:
     push       { lr }
+    @ If following byte is >= 0x10, go to chip control instead
     ldrb       r0,[r4,#0x1]
     mov        r1,#0x10
     tst        r0,r1
-    beq        LAB_0801413e
+    beq        .checkCommand
     bl         JT_Command_F7_ChipControl
-LAB_0801413e:
+.checkCommand:
     cmp        r0,#0x0
-    beq        LAB_0801414c
+    beq        .checkGiveItem
     cmp        r0,#0x1
-    beq        LAB_08014164
+    beq        .checkTakeItem
     cmp        r0,#0x2
-    beq        LAB_08014176
-    b          LAB_0801418e
-    @ F7 00
-LAB_0801414c:
+    beq        .checkSetItem
+    b          .checkItemPresent
+.checkGiveItem:
+    @ F7 00 id am - Attempt to give [am] amount of [id] item
+    push       { r4, r5 }
+    mov        r0,#SE_MysteryDataItemGet
+    bl         Sound_PlaySongImmediate
+    ldrb       r0,[r4,#0x2]
+    ldrb       r1,[r4,#0x3]
+    bl         KeyItem_AddAmount
+    pop        { r4, r5 }
+    add        r0,#0x4
+    ldrb       r1,[r4,r0]
+    b          .jumpToNextScript
+.checkTakeItem:
+    @ F7 01 id am - Attempt to take [am] amount of [id] item
+    push       { r4, r5 }
+    ldrb       r0,[r4,#0x2]
+    ldrb       r1,[r4,#0x3]
+    bl         KeyItem_SubtractAmount
+    pop        { r4, r5 }
+    add        r0,#0x4
+    ldrb       r1,[r4,r0]
+    b          .jumpToNextScript
+.checkSetItem:
+    @ F7 02 id am - Attempt to set [am] amount of [id] item
     push       { r4, r5 }
     mov        r0,#0x85
     bl         Sound_PlaySongImmediate
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
-    bl         Item_AddAmount
-    pop        { r4, r5 }
-    add        r0,#0x4
-    ldrb       r1,[r4,r0]
-    b          LAB_080141ac
-    @ F7 01
-LAB_08014164:
-    push       { r4, r5 }
-    ldrb       r0,[r4,#0x2]
-    ldrb       r1,[r4,#0x3]
-    bl         Item_SubtractAmount
-    pop        { r4, r5 }
-    add        r0,#0x4
-    ldrb       r1,[r4,r0]
-    b          LAB_080141ac
-    @ F7 02
-LAB_08014176:
-    push       { r4, r5 }
-    mov        r0,#0x85
-    bl         Sound_PlaySongImmediate
-    ldrb       r0,[r4,#0x2]
-    ldrb       r1,[r4,#0x3]
-    bl         Item_SetAmount
+    bl         KeyItem_SetAmount
     pop        { r4, r5 }
     add        r4,#0x4
     mov        r0,#0x1
     pop        { pc }
-    @ F7 XX
-LAB_0801418e:
+.checkItemPresent:
+    @ F7 xx id am - - Attempt to check for [am] amount of [id] item
     push       { r4, r5 }
     ldrb       r0,[r4,#0x2]
-    bl         Item_IsPresent
+    bl         KeyItem_IsPresent
     pop        { r4, r5 }
     ldrb       r1,[r4,#0x3]
+    @ item present in exact amount = 0
     mov        r2,#0x0
     cmp        r0,r1
-    beq        LAB_080141a8
+    beq        .afterItemPresent
+    @ item has greater than specified = 1
     add        r2,#0x1
     cmp        r0,r1
-    bgt        LAB_080141a8
+    bgt        .afterItemPresent
+    @ item has less than specified = 2
     add        r2,#0x1
-LAB_080141a8:
+.afterItemPresent:
     add        r2,#0x4
     ldrb       r1,[r4,r2]
-LAB_080141ac:
+.jumpToNextScript:
+    @ Following 3 bytes determine where to jump next
+    @ First is for all items given, second is for none, third is for some
     cmp        r1,#0xff
-    beq        LAB_080141c8
-    ldr        r0,[r5,#0x24]
+    beq        .continueScript
+    ldr        r0,[r5,#Text_m_textBlockPointer]
     lsl        r1,r1,#0x1
     ldrh       r1,[r0,r1]
     add        r0,r0,r1
-    str        r0,[r5,#0x20]
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Text_m_commandTextPointer]
+    str        r0,[r5,#Text_m_layoutTextPointer]
     mov        r1,#0x0
-    str        r1,[r5,#0x58]
-    strb       r1,[r5,#0x2]
+    str        r1,[r5,#Text_m_textBufIndex]
+    strb       r1,[r5,#Text_m_textBufferOffset]
     add        r4,r0,#0x0
     mov        r0,#0x1
     pop        { pc }
-LAB_080141c8:
+.continueScript:
     add        r4,#0x7
     mov        r0,#0x1
     pop        { pc }
@@ -1874,9 +1872,9 @@ JT_Layout_F7_ItemControl:
     ldrb       r0,[r4,#0x1]
     mov        r1,#0x10
     tst        r0,r1
-    beq        LAB_080141de
+    beq        1f
     bl         JT_Layout_F7_1X_ChipControl
-LAB_080141de:
+1:
     ldrb       r0,[r4,#0x1]
     ldr        r1,=DAT_080141ec
     ldrb       r0,[r1,r0]
@@ -2088,24 +2086,24 @@ thumb_func_end JT_Layout_F8_PasscodeControl
 INT_ARRAY_0801434c:
     .word 4, 6, 9, 2, 6
 
+@ Handle chip bag actions
 thumb_func_start JT_Command_F7_ChipControl
 JT_Command_F7_ChipControl:
     sub        r0,#0x10
     cmp        r0,#0x0
-    beq        LAB_08014374
+    beq        .checkGiveChip
     cmp        r0,#0x1
-    beq        LAB_0801438e
+    beq        .checkTakeChip
     cmp        r0,#0x2
     beq        LAB_080143a2
     cmp        r0,#0x4
     beq        LAB_080143bc
     b          LAB_080143de
     @ F7 10 id cd ct al nn sm
-    @ Try and give ct chips id cc - go to al if all was given,
-    @ nn if none, and sm if some
-LAB_08014374:
+    @ Try and give ct chips id cc
+.checkGiveChip:
     push       { r4, r5 }
-    mov        r0,#0x85
+    mov        r0,#SE_MysteryDataItemGet
     bl         Sound_PlaySongImmediate
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
@@ -2116,7 +2114,7 @@ LAB_08014374:
     ldrb       r1,[r4,r0]
     b          LAB_0801440e
     @ F7 11 id cc ct
-LAB_0801438e:
+.checkTakeChip:
     push       { r4, r5 }
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
@@ -2465,7 +2463,7 @@ JT_Command_FB_04_PrintItemAmount:
     strb       r0,[r5,#0x5]
     push       { r4, r5 }
     ldrb       r0,[r4,#0x3]
-    bl         Item_IsPresent
+    bl         KeyItem_IsPresent
     pop        { r4, r5 }
     ldrb       r1,[r4,#0x2]
     add        r2,r5,#0x0

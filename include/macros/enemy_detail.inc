@@ -56,7 +56,7 @@
     .endm
 
     .macro rarity r
-    .byte \r
+    .byte \r -1
     .endm
 
     .macro norarity

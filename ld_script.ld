@@ -29,6 +29,7 @@ SECTIONS {
 		gFolder                  = 0x1C0;
 		gEmailCount              = 0x200;
 		gWorld                   = 0x210;
+		gKeyItemInventory		 = 0x2D0;
 		eMainState0x78           = 0x3D0;
 		gBattleChipInventory     = 0x4A0;
 		gEmailIndexes            = 0x1FA0;
@@ -152,6 +153,7 @@ SECTIONS {
 		musicPlayerInfo_08       = 0xCC70;
 		musicPlayerInfo_03       = 0xCCB0;
 		musicPlayerInfo_0B       = 0xCCF0;
+		gChipBag				 = 0x19000;
 		gDstCompressedSpriteData = 0x3C000;
 	} > ewram
 

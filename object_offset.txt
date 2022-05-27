@@ -15,6 +15,7 @@ fade                0x4B00
 encounter           0x5504
 battle              0x5864
 battlechip          0x7C44
+inventory           0x9BA0
 enemy_detail        0x9DC4
 flag                0x102DC
 main_menu           0x10414
@@ -24,6 +25,7 @@ text                0x13560
 custom_screen       0x158EC
 transition          0x174F4
 demo                0x18950
+key_item            0x18C0C
 splash              0x18C94
 menu                0x197C8
 shop                0x1E8AC

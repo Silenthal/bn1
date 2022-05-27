@@ -174,7 +174,7 @@ dataChipDetailList:
         nocodes
         element None
         family 1, 0
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 9999
@@ -185,7 +185,7 @@ dataChipDetailList:
         codes A, B, C, D, E
         element None
         family 2, 0
-        rarity 0
+        rarity 1
         library 1
         .byte 0x18, 0x0
         damage 40
@@ -196,7 +196,7 @@ dataChipDetailList:
         codes F, G, H, I, J
         element None
         family 2, 1
-        rarity 1
+        rarity 2
         library 2
         .byte 0x44, 0x0
         damage 80
@@ -207,7 +207,7 @@ dataChipDetailList:
         codes K, L, M, N, O
         element None
         family 2, 2
-        rarity 2
+        rarity 3
         library 3
         .byte 0x5D, 0x0
         damage 120
@@ -218,7 +218,7 @@ dataChipDetailList:
         codes B, K, L, P, S
         element None
         family 3, 0
-        rarity 0
+        rarity 1
         library 13
         .byte 0x9D, 0x0
         damage 80
@@ -229,7 +229,7 @@ dataChipDetailList:
         codes C, K, M, N, S
         element None
         family 3, 1
-        rarity 0
+        rarity 1
         library 14
         .byte 0xA9, 0x0
         damage 80
@@ -240,7 +240,7 @@ dataChipDetailList:
         codes D, E, N, O, S
         element None
         family 3, 2
-        rarity 1
+        rarity 2
         library 15
         .byte 0x59, 0x0
         damage 80
@@ -251,7 +251,7 @@ dataChipDetailList:
         codes B, D, G, O, T
         element None
         family 4, 0
-        rarity 0
+        rarity 1
         library 10
         .byte 0x55, 0x0
         damage 50
@@ -262,7 +262,7 @@ dataChipDetailList:
         codes B, D, H, J, L
         element None
         family 4, 1
-        rarity 1
+        rarity 2
         library 11
         .byte 0x1F, 0x0
         damage 70
@@ -273,7 +273,7 @@ dataChipDetailList:
         codes B, G, O, S, T
         element None
         family 4, 2
-        rarity 3
+        rarity 4
         library 12
         .byte 0xA, 0x0
         damage 90
@@ -284,7 +284,7 @@ dataChipDetailList:
         codes H, I, J, K, L
         element None
         family 5, 0
-        rarity 1
+        rarity 2
         library 6
         .byte 0x98, 0x0
         damage 30
@@ -295,7 +295,7 @@ dataChipDetailList:
         codes A, K, L, P, S
         element Water
         family 5, 1
-        rarity 0
+        rarity 1
         library 7
         .byte 0x14, 0x0
         damage 50
@@ -306,7 +306,7 @@ dataChipDetailList:
         codes C, F, G, K, O
         element Fire
         family 5, 2
-        rarity 1
+        rarity 2
         library 8
         .byte 0x42, 0x0
         damage 70
@@ -317,7 +317,7 @@ dataChipDetailList:
         codes C, E, J, L, P
         element None
         family 4, 3
-        rarity 0
+        rarity 1
         library 9
         .byte 0x62, 0x0
         damage 50
@@ -328,7 +328,7 @@ dataChipDetailList:
         codes K, M, N, Q, R
         element None
         family 5, 3
-        rarity 0
+        rarity 1
         library 4
         .byte 0x8F, 0x0
         damage 30
@@ -339,7 +339,7 @@ dataChipDetailList:
         codes C, E, F, J, K
         element None
         family 5, 4
-        rarity 0
+        rarity 1
         library 5
         .byte 0x20, 0x0
         damage 30
@@ -350,7 +350,7 @@ dataChipDetailList:
         codes C, K, L, N, P
         element None
         family 8, 0
-        rarity 0
+        rarity 1
         library 23
         .byte 0x8E, 0x0
         damage 60
@@ -361,7 +361,7 @@ dataChipDetailList:
         codes C, D, J, M, S
         element None
         family 8, 1
-        rarity 1
+        rarity 2
         library 24
         .byte 0x97, 0x0
         damage 80
@@ -372,7 +372,7 @@ dataChipDetailList:
         codes C, E, M, S, R
         element None
         family 8, 2
-        rarity 2
+        rarity 3
         library 25
         .byte 0x2A, 0x0
         damage 100
@@ -383,7 +383,7 @@ dataChipDetailList:
         codes E, F, L, M, T
         element Fire
         family 9, 0
-        rarity 1
+        rarity 2
         library 26
         .byte 0x35, 0x0
         damage 100
@@ -394,7 +394,7 @@ dataChipDetailList:
         codes A, C, G, H, R
         element Water
         family 9, 1
-        rarity 1
+        rarity 2
         library 27
         .byte 0x4, 0x0
         damage 120
@@ -405,7 +405,7 @@ dataChipDetailList:
         codes B, C, H, K, N
         element Wood
         family 9, 2
-        rarity 1
+        rarity 2
         library 28
         .byte 0xAE, 0x0
         damage 140
@@ -416,7 +416,7 @@ dataChipDetailList:
         codes A, E, H, K, Q
         element None
         family 4, 5
-        rarity 0
+        rarity 1
         library 29
         .byte 0x6E, 0x0
         damage 90
@@ -427,7 +427,7 @@ dataChipDetailList:
         codes B, C, I, K, Q
         element None
         family 4, 6
-        rarity 1
+        rarity 2
         library 30
         .byte 0x6F, 0x0
         damage 120
@@ -438,7 +438,7 @@ dataChipDetailList:
         codes C, D, H, M, Q
         element None
         family 4, 7
-        rarity 2
+        rarity 3
         library 31
         .byte 0x70, 0x0
         damage 150
@@ -449,7 +449,7 @@ dataChipDetailList:
         codes B, F, G, N, P
         element Fire
         family 3, 3
-        rarity 1
+        rarity 2
         library 19
         .byte 0x34, 0x0
         damage 100
@@ -460,7 +460,7 @@ dataChipDetailList:
         codes E, G, L, O, S
         element Elec
         family 3, 4
-        rarity 2
+        rarity 3
         library 21
         .byte 0x2E, 0x0
         damage 120
@@ -471,7 +471,7 @@ dataChipDetailList:
         codes A, M, N, O, P
         element Water
         family 3, 5
-        rarity 2
+        rarity 3
         library 20
         .byte 0x3, 0x0
         damage 150
@@ -482,7 +482,7 @@ dataChipDetailList:
         codes B, H, M, N, T
         element None
         family 9, 3
-        rarity 0
+        rarity 1
         library 32
         .byte 0x40, 0x0
         damage 60
@@ -493,7 +493,7 @@ dataChipDetailList:
         codes B, H, M, N, T
         element Water
         family 9, 4
-        rarity 1
+        rarity 2
         library 33
         .byte 0x4B, 0x0
         damage 80
@@ -504,7 +504,7 @@ dataChipDetailList:
         codes B, K, L, P, S
         element None
         family 3, 6
-        rarity 2
+        rarity 3
         library 16
         .byte 0x37, 0x0
         damage 100
@@ -515,7 +515,7 @@ dataChipDetailList:
         codes B, D, G, L, O
         element None
         family 19, 0
-        rarity 0
+        rarity 1
         library 34
         .byte 0x22, 0x0
         damage 50
@@ -526,7 +526,7 @@ dataChipDetailList:
         codes B, C, E, G, H
         element None
         family 3, 7
-        rarity 3
+        rarity 4
         library 17
         .byte 0x52, 0x0
         damage 150
@@ -537,7 +537,7 @@ dataChipDetailList:
         codes B, D, F, I, J
         element None
         family 3, 8
-        rarity 4
+        rarity 5
         library 18
         .byte 0x43, 0x0
         damage 200
@@ -548,7 +548,7 @@ dataChipDetailList:
         codes A, C, E, G, L
         element None
         family 6, 0
-        rarity 0
+        rarity 1
         library 67
         .byte 0x5E, 0x0
         damage 0
@@ -581,7 +581,7 @@ dataChipDetailList:
         codes A, B, C, D, E
         element None
         family 17, 0
-        rarity 0
+        rarity 1
         library 36
         .byte 0xA4, 0x0
         damage 40
@@ -592,7 +592,7 @@ dataChipDetailList:
         codes F, G, H, I, J
         element None
         family 17, 1
-        rarity 1
+        rarity 2
         library 37
         .byte 0xA6, 0x0
         damage 50
@@ -603,7 +603,7 @@ dataChipDetailList:
         codes K, L, M, N, O
         element None
         family 17, 2
-        rarity 3
+        rarity 4
         library 38
         .byte 0xA5, 0x0
         damage 60
@@ -614,7 +614,7 @@ dataChipDetailList:
         codes A, B, D, E, G
         element None
         family 28, 0
-        rarity 0
+        rarity 1
         library 54
         .byte 0xA7, 0x0
         damage 30
@@ -625,7 +625,7 @@ dataChipDetailList:
         codes G, I, J, K, L
         element None
         family 28, 1
-        rarity 1
+        rarity 2
         library 55
         .byte 0x46, 0x0
         damage 30
@@ -636,7 +636,7 @@ dataChipDetailList:
         codes E, F, G, H, I
         element None
         family 28, 2
-        rarity 2
+        rarity 3
         library 56
         .byte 0x21, 0x0
         damage 30
@@ -647,7 +647,7 @@ dataChipDetailList:
         codes A, C, G, H, O
         element None
         family 4, 4
-        rarity 3
+        rarity 4
         library 35
         .byte 0x45, 0x0
         damage 150
@@ -658,7 +658,7 @@ dataChipDetailList:
         codes A, E, G, H, S
         element Elec
         family 25, 0
-        rarity 0
+        rarity 1
         library 48
         .byte 0x9E, 0x0
         damage 90
@@ -669,7 +669,7 @@ dataChipDetailList:
         codes B, C, F, I, L
         element Elec
         family 25, 1
-        rarity 1
+        rarity 2
         library 49
         .byte 0x9F, 0x0
         damage 120
@@ -680,7 +680,7 @@ dataChipDetailList:
         codes D, F, G, K, N
         element Elec
         family 25, 2
-        rarity 2
+        rarity 3
         library 50
         .byte 0xA0, 0x0
         damage 150
@@ -713,7 +713,7 @@ dataChipDetailList:
         codes B, E, G, M, N
         element Wood
         family 13, 36
-        rarity 0
+        rarity 1
         library 57
         .byte 0x94, 0x0
         damage 130
@@ -724,7 +724,7 @@ dataChipDetailList:
         codes C, E, H, N, P
         element Elec
         family 13, 37
-        rarity 1
+        rarity 2
         library 58
         .byte 0x95, 0x0
         damage 140
@@ -735,7 +735,7 @@ dataChipDetailList:
         codes A, C, F, L, S
         element Fire
         family 13, 38
-        rarity 2
+        rarity 3
         library 59
         .byte 0x96, 0x0
         damage 150
@@ -746,7 +746,7 @@ dataChipDetailList:
         codes A, F, I, M, Q
         element None
         family 18, 0
-        rarity 1
+        rarity 2
         library 66
         .byte 0x41, 0x0
         damage 100
@@ -779,7 +779,7 @@ dataChipDetailList:
         codes E, F, K, M, N
         element Fire
         family 27, 0
-        rarity 3
+        rarity 4
         library 63
         .byte 0xC, 0x0
         damage 100
@@ -812,7 +812,7 @@ dataChipDetailList:
         codes A, B, C, D, E
         element None
         family 23, 3
-        rarity 0
+        rarity 1
         library 39
         .byte 0x71, 0x0
         damage 80
@@ -823,7 +823,7 @@ dataChipDetailList:
         codes F, G, H, I, J
         element None
         family 23, 4
-        rarity 1
+        rarity 2
         library 40
         .byte 0x72, 0x0
         damage 100
@@ -834,7 +834,7 @@ dataChipDetailList:
         codes K, L, M, N, O
         element None
         family 23, 5
-        rarity 2
+        rarity 3
         library 41
         .byte 0x73, 0x0
         damage 120
@@ -845,7 +845,7 @@ dataChipDetailList:
         codes C, D, H, I, L
         element None
         family 13, 42
-        rarity 0
+        rarity 1
         library 98
         .byte 0x56, 0x0
         damage 10
@@ -856,7 +856,7 @@ dataChipDetailList:
         codes B, E, G, H, M
         element None
         family 13, 43
-        rarity 1
+        rarity 2
         library 99
         .byte 0x57, 0x0
         damage 15
@@ -867,7 +867,7 @@ dataChipDetailList:
         codes A, D, K, N, O
         element None
         family 13, 44
-        rarity 2
+        rarity 3
         library 100
         .byte 0x58, 0x0
         damage 20
@@ -878,7 +878,7 @@ dataChipDetailList:
         codes B, D, G, L, S
         element None
         family 11, 0
-        rarity 1
+        rarity 2
         library 64
         .byte 0xAF, 0x0
         damage 0
@@ -889,7 +889,7 @@ dataChipDetailList:
         codes B, D, G, L, S
         element None
         family 11, 1
-        rarity 2
+        rarity 3
         library 65
         .byte 0xB0, 0x0
         damage 0
@@ -911,7 +911,7 @@ dataChipDetailList:
         codes A, C, E, G, L
         element None
         family 12, 0
-        rarity 0
+        rarity 1
         library 69
         .byte 0x74, 0x0
         damage 0
@@ -922,7 +922,7 @@ dataChipDetailList:
         codes A, C, E, G, L
         element None
         family 12, 1
-        rarity 0
+        rarity 1
         library 70
         .byte 0x78, 0x0
         damage 0
@@ -933,7 +933,7 @@ dataChipDetailList:
         codes A, C, E, G, L
         element None
         family 12, 2
-        rarity 0
+        rarity 1
         library 71
         .byte 0x7A, 0x0
         damage 0
@@ -944,7 +944,7 @@ dataChipDetailList:
         codes A, C, E, G, L
         element None
         family 12, 3
-        rarity 0
+        rarity 1
         library 72
         .byte 0x7B, 0x0
         damage 0
@@ -955,7 +955,7 @@ dataChipDetailList:
         codes A, C, E, G, L
         element None
         family 12, 4
-        rarity 1
+        rarity 2
         library 73
         .byte 0x75, 0x0
         damage 0
@@ -966,7 +966,7 @@ dataChipDetailList:
         codes A, C, E, G, L
         element None
         family 12, 5
-        rarity 1
+        rarity 2
         library 74
         .byte 0x76, 0x0
         damage 0
@@ -977,7 +977,7 @@ dataChipDetailList:
         codes A, C, E, G, L
         element None
         family 12, 6
-        rarity 2
+        rarity 3
         library 75
         .byte 0x77, 0x0
         damage 0
@@ -988,7 +988,7 @@ dataChipDetailList:
         codes A, C, E, G, L
         element None
         family 12, 7
-        rarity 3
+        rarity 4
         library 76
         .byte 0x79, 0x0
         damage 0
@@ -1010,7 +1010,7 @@ dataChipDetailList:
         codes A, E, L, P, S
         element None
         family 13, 0
-        rarity 2
+        rarity 3
         library 77
         .byte 0x99, 0x0
         damage 0
@@ -1043,7 +1043,7 @@ dataChipDetailList:
         codes F, H, J, L, N
         element None
         family 22, 0
-        rarity 2
+        rarity 3
         library 78
         .byte 0x3B, 0x0
         damage 0
@@ -1054,7 +1054,7 @@ dataChipDetailList:
         codes A, B, E, I, K
         element None
         family 22, 1
-        rarity 3
+        rarity 4
         library 79
         .byte 0x3C, 0x0
         damage 0
@@ -1076,7 +1076,7 @@ dataChipDetailList:
         codes F, H, J, L, N
         element None
         family 13, 1
-        rarity 2
+        rarity 3
         library 80
         .byte 0x2F, 0x0
         damage 0
@@ -1087,7 +1087,7 @@ dataChipDetailList:
         codes F, H, J, L, N
         element None
         family 13, 29
-        rarity 2
+        rarity 3
         library 81
         .byte 0x4C, 0x0
         damage 0
@@ -1098,7 +1098,7 @@ dataChipDetailList:
         codes A, H, K, M, P
         element None
         family 10, 4
-        rarity 4
+        rarity 5
         library 127
         .byte 0x54, 0x0
         damage 0
@@ -1109,7 +1109,7 @@ dataChipDetailList:
         codes D, E, L, R, S
         element Water
         family 10, 5
-        rarity 1
+        rarity 2
         library 124
         .byte 0x2, 0x0
         damage 0
@@ -1120,7 +1120,7 @@ dataChipDetailList:
         codes B, G, I, N, T
         element Fire
         family 10, 6
-        rarity 2
+        rarity 3
         library 125
         .byte 0x30, 0x0
         damage 0
@@ -1131,7 +1131,7 @@ dataChipDetailList:
         codes C, F, J, O, Q
         element Wood
         family 10, 7
-        rarity 3
+        rarity 4
         library 126
         .byte 0xAA, 0x0
         damage 0
@@ -1142,7 +1142,7 @@ dataChipDetailList:
         codes A, G, H, K, S
         element None
         family 13, 2
-        rarity 0
+        rarity 1
         library 82
         .byte 0x80, 0x0
         damage 0
@@ -1175,7 +1175,7 @@ dataChipDetailList:
         codes B, G, H, O, R
         element Water
         family 13, 16
-        rarity 0
+        rarity 1
         library 86
         .byte 0x19, 0x0
         damage 30
@@ -1186,7 +1186,7 @@ dataChipDetailList:
         codes A, D, I, M, P
         element Water
         family 13, 17
-        rarity 1
+        rarity 2
         library 87
         .byte 0x1B, 0x0
         damage 50
@@ -1197,7 +1197,7 @@ dataChipDetailList:
         codes C, F, J, K, O
         element Water
         family 13, 18
-        rarity 2
+        rarity 3
         library 88
         .byte 0x1A, 0x0
         damage 100
@@ -1208,7 +1208,7 @@ dataChipDetailList:
         codes A, C, I, L, M
         element Water
         family 13, 3
-        rarity 1
+        rarity 2
         library 105
         .byte 0x47, 0x0
         damage 0
@@ -1219,7 +1219,7 @@ dataChipDetailList:
         codes B, E, G, M, O
         element None
         family 13, 4
-        rarity 2
+        rarity 3
         library 106
         .byte 0x84, 0x0
         damage 0
@@ -1241,7 +1241,7 @@ dataChipDetailList:
         codes E, G, J, L, Q
         element None
         family 13, 5
-        rarity 1
+        rarity 2
         library 83
         .byte 0xA1, 0x0
         damage 80
@@ -1252,7 +1252,7 @@ dataChipDetailList:
         codes C, F, J, L, S
         element None
         family 13, 6
-        rarity 2
+        rarity 3
         library 84
         .byte 0xA2, 0x0
         damage 120
@@ -1263,7 +1263,7 @@ dataChipDetailList:
         codes A, B, G, O, P
         element None
         family 13, 7
-        rarity 3
+        rarity 4
         library 85
         .byte 0xA3, 0x0
         damage 160
@@ -1274,7 +1274,7 @@ dataChipDetailList:
         codes I, J, L, O, Q
         element None
         family 13, 8
-        rarity 1
+        rarity 2
         library 113
         .byte 0x4D, 0x0
         damage 0
@@ -1285,7 +1285,7 @@ dataChipDetailList:
         codes A, C, F, J, M
         element None
         family 13, 9
-        rarity 2
+        rarity 3
         library 114
         .byte 0x4E, 0x0
         damage 0
@@ -1296,7 +1296,7 @@ dataChipDetailList:
         codes B, D, H, K, N
         element None
         family 13, 10
-        rarity 3
+        rarity 4
         library 115
         .byte 0x4F, 0x0
         damage 0
@@ -1307,7 +1307,7 @@ dataChipDetailList:
         codes C, D, L, Q, R
         element None
         family 13, 20
-        rarity 1
+        rarity 2
         library 118
         .byte 0x50, 0x0
         damage 0
@@ -1329,7 +1329,7 @@ dataChipDetailList:
         codes A, C, F, N, O
         element Elec
         family 13, 26
-        rarity 0
+        rarity 1
         library 95
         .byte 0x7D, 0x0
         damage 80
@@ -1340,7 +1340,7 @@ dataChipDetailList:
         codes B, D, E, H, I
         element Elec
         family 13, 27
-        rarity 0
+        rarity 1
         library 96
         .byte 0x7E, 0x0
         damage 100
@@ -1351,7 +1351,7 @@ dataChipDetailList:
         codes G, J, K, P, Q
         element Elec
         family 13, 28
-        rarity 0
+        rarity 1
         library 97
         .byte 0x7F, 0x0
         damage 120
@@ -1362,7 +1362,7 @@ dataChipDetailList:
         codes A, G, K, N, R
         element None
         family 21, 0
-        rarity 2
+        rarity 3
         library 107
         .byte 0x11, 0x0
         damage 0
@@ -1373,7 +1373,7 @@ dataChipDetailList:
         codes D, H, J, O, T
         element None
         family 21, 1
-        rarity 3
+        rarity 4
         library 108
         .byte 0x10, 0x0
         damage 0
@@ -1384,7 +1384,7 @@ dataChipDetailList:
         codes B, E, L, P, S
         element None
         family 21, 2
-        rarity 3
+        rarity 4
         library 109
         .byte 0x13, 0x0
         damage 0
@@ -1395,7 +1395,7 @@ dataChipDetailList:
         codes C, F, I, M, Q
         element None
         family 21, 3
-        rarity 3
+        rarity 4
         library 110
         .byte 0x12, 0x0
         damage 0
@@ -1406,7 +1406,7 @@ dataChipDetailList:
         codes G, H, M, N, P
         element Elec
         family 26, 1
-        rarity 0
+        rarity 1
         library 51
         .byte 0x81, 0x0
         damage 100
@@ -1417,7 +1417,7 @@ dataChipDetailList:
         codes C, E, G, J, L
         element Elec
         family 26, 2
-        rarity 1
+        rarity 2
         library 52
         .byte 0x82, 0x0
         damage 100
@@ -1428,7 +1428,7 @@ dataChipDetailList:
         codes A, B, O, R, T
         element Elec
         family 26, 3
-        rarity 2
+        rarity 3
         library 53
         .byte 0x83, 0x0
         damage 100
@@ -1439,7 +1439,7 @@ dataChipDetailList:
         codes C, F, I, P, S
         element None
         family 13, 21
-        rarity 1
+        rarity 2
         library 101
         .byte 0x15, 0x0
         damage 0
@@ -1450,7 +1450,7 @@ dataChipDetailList:
         codes B, E, G, J, L
         element None
         family 13, 22
-        rarity 2
+        rarity 3
         library 102
         .byte 0x16, 0x0
         damage 0
@@ -1461,7 +1461,7 @@ dataChipDetailList:
         codes A, D, H, K, M
         element None
         family 13, 23
-        rarity 3
+        rarity 4
         library 103
         .byte 0x17, 0x0
         damage 0
@@ -1472,7 +1472,7 @@ dataChipDetailList:
         codes H, K, N, O, Q
         element None
         family 13, 24
-        rarity 1
+        rarity 2
         library 111
         .byte 0x93, 0x0
         damage 0
@@ -1483,7 +1483,7 @@ dataChipDetailList:
         codes A, C, E, L, N
         element None
         family 13, 25
-        rarity 1
+        rarity 2
         library 112
         .byte 0x36, 0x0
         damage 0
@@ -1505,7 +1505,7 @@ dataChipDetailList:
         codes A, B, D, K, O
         element None
         family 13, 33
-        rarity 1
+        rarity 2
         library 60
         .byte 0x23, 0x0
         damage 50
@@ -1516,7 +1516,7 @@ dataChipDetailList:
         codes A, C, H, N, T
         element None
         family 13, 34
-        rarity 1
+        rarity 2
         library 61
         .byte 0x24, 0x0
         damage 70
@@ -1527,7 +1527,7 @@ dataChipDetailList:
         codes A, E, F, L, Q
         element None
         family 13, 35
-        rarity 2
+        rarity 3
         library 62
         .byte 0x25, 0x0
         damage 90
@@ -1538,7 +1538,7 @@ dataChipDetailList:
         codes G, H, M, N, P
         element None
         family 13, 13
-        rarity 1
+        rarity 2
         library 89
         .byte 0x5F, 0x0
         damage 160
@@ -1549,7 +1549,7 @@ dataChipDetailList:
         codes C, E, G, J, L
         element None
         family 13, 14
-        rarity 2
+        rarity 3
         library 90
         .byte 0x60, 0x0
         damage 180
@@ -1560,7 +1560,7 @@ dataChipDetailList:
         codes A, B, O, R, T
         element None
         family 13, 15
-        rarity 3
+        rarity 4
         library 91
         .byte 0x61, 0x0
         damage 200
@@ -1571,7 +1571,7 @@ dataChipDetailList:
         codes C, D, L, O, T
         element None
         family 29, 0
-        rarity 2
+        rarity 3
         library 45
         .byte 0x38, 0x0
         damage 100
@@ -1582,7 +1582,7 @@ dataChipDetailList:
         codes C, F, K, P, S
         element None
         family 29, 1
-        rarity 3
+        rarity 4
         library 46
         .byte 0x39, 0x0
         damage 130
@@ -1593,7 +1593,7 @@ dataChipDetailList:
         codes C, G, M, R, T
         element None
         family 29, 2
-        rarity 4
+        rarity 5
         library 47
         .byte 0x3A, 0x0
         damage 160
@@ -1604,7 +1604,7 @@ dataChipDetailList:
         codes C, E, G, I, M
         element Water
         family 10, 1
-        rarity 1
+        rarity 2
         library 120
         .byte 0x7, 0x0
         damage 0
@@ -1615,7 +1615,7 @@ dataChipDetailList:
         codes D, F, H, K, N
         element Water
         family 10, 2
-        rarity 1
+        rarity 2
         library 121
         .byte 0x8, 0x0
         damage 0
@@ -1626,7 +1626,7 @@ dataChipDetailList:
         codes A, B, L, Q, R
         element Water
         family 10, 3
-        rarity 2
+        rarity 3
         library 122
         .byte 0x9, 0x0
         damage 0
@@ -1637,7 +1637,7 @@ dataChipDetailList:
         codes A, D, I, L, M
         element Water
         family 23, 0
-        rarity 2
+        rarity 3
         library 42
         .byte 0xA8, 0x0
         damage 80
@@ -1648,7 +1648,7 @@ dataChipDetailList:
         codes B, E, J, N, P
         element Fire
         family 23, 1
-        rarity 2
+        rarity 3
         library 43
         .byte 0x7C, 0x0
         damage 100
@@ -1659,7 +1659,7 @@ dataChipDetailList:
         codes C, H, K, L, Q
         element Water
         family 23, 2
-        rarity 3
+        rarity 4
         library 44
         .byte 0xB, 0x0
         damage 160
@@ -1670,7 +1670,7 @@ dataChipDetailList:
         codes C, E, G, J, K
         element None
         family 3, 9
-        rarity 4
+        rarity 5
         library 22
         .byte 0x63, 0x0
         damage 0
@@ -1681,7 +1681,7 @@ dataChipDetailList:
         codes A, B, O, R, T
         element None
         family 13, 11
-        rarity 4
+        rarity 5
         library 116
         .byte 0x26, 0x0
         damage 0
@@ -1692,7 +1692,7 @@ dataChipDetailList:
         codes C, D, H, K, N
         element None
         family 13, 12
-        rarity 4
+        rarity 5
         library 117
         .byte 0x6A, 0x0
         damage 0
@@ -1703,7 +1703,7 @@ dataChipDetailList:
         codes B, G, O, Q, S
         element None
         family 13, 39
-        rarity 2
+        rarity 3
         library 92
         .byte 0x27, 0x0
         damage 100
@@ -1714,7 +1714,7 @@ dataChipDetailList:
         codes A, C, K, M, N
         element None
         family 13, 40
-        rarity 2
+        rarity 3
         library 93
         .byte 0x28, 0x0
         damage 120
@@ -1725,7 +1725,7 @@ dataChipDetailList:
         codes G, K, M, O, P
         element None
         family 13, 41
-        rarity 2
+        rarity 3
         library 94
         .byte 0x29, 0x0
         damage 150
@@ -1736,7 +1736,7 @@ dataChipDetailList:
         codes C, L, N, Q, T
         element None
         family 13, 19
-        rarity 4
+        rarity 5
         library 104
         .byte 0x1, 0x0
         damage 0
@@ -1769,7 +1769,7 @@ dataChipDetailList:
         codes A, B, O, R, T
         element None
         family 24, 0
-        rarity 1
+        rarity 2
         library 68
         .byte 0x51, 0x0
         damage 0
@@ -1780,7 +1780,7 @@ dataChipDetailList:
         codes C, D, F, K, Q
         element Wood
         family 10, 8
-        rarity 2
+        rarity 3
         library 123
         .byte 0x53, 0x0
         damage 0
@@ -1791,7 +1791,7 @@ dataChipDetailList:
         codes D, F, M, R, S
         element None
         family 10, 0
-        rarity 1
+        rarity 2
         library 119
         .byte 0x5, 0x0
         damage 0
@@ -1802,7 +1802,7 @@ dataChipDetailList:
         codes P
         element None
         family 16, 36
-        rarity 4
+        rarity 5
         library 170
         .byte 0x67, 0x0
         damage 100
@@ -1813,7 +1813,7 @@ dataChipDetailList:
         codes P
         element None
         family 16, 37
-        rarity 4
+        rarity 5
         library 171
         .byte 0x68, 0x0
         damage 120
@@ -1824,7 +1824,7 @@ dataChipDetailList:
         codes P
         element None
         family 16, 38
-        rarity 4
+        rarity 5
         library 172
         .byte 0x69, 0x0
         damage 140
@@ -1835,7 +1835,7 @@ dataChipDetailList:
         codes S
         element None
         family 16, 39
-        rarity 4
+        rarity 5
         library 173
         .byte 0x88, 0x0
         damage 80
@@ -1846,7 +1846,7 @@ dataChipDetailList:
         codes S
         element None
         family 16, 40
-        rarity 4
+        rarity 5
         library 174
         .byte 0x89, 0x0
         damage 90
@@ -1857,7 +1857,7 @@ dataChipDetailList:
         codes S
         element None
         family 16, 41
-        rarity 4
+        rarity 5
         library 175
         .byte 0x8A, 0x0
         damage 100
@@ -1901,7 +1901,7 @@ dataChipDetailList:
         codes M
         element None
         family 16, 42
-        rarity 2
+        rarity 3
         library 158
         .byte 0x5A, 0x0
         damage 100
@@ -1912,7 +1912,7 @@ dataChipDetailList:
         codes M
         element None
         family 16, 43
-        rarity 3
+        rarity 4
         library 159
         .byte 0x5B, 0x0
         damage 120
@@ -1923,7 +1923,7 @@ dataChipDetailList:
         codes M
         element None
         family 16, 44
-        rarity 4
+        rarity 5
         library 160
         .byte 0x5C, 0x0
         damage 140
@@ -1934,7 +1934,7 @@ dataChipDetailList:
         codes R
         element None
         family 16, 21
-        rarity 2
+        rarity 3
         library 128
         .byte 0x85, 0x0
         damage 60
@@ -1945,7 +1945,7 @@ dataChipDetailList:
         codes R
         element None
         family 16, 22
-        rarity 3
+        rarity 4
         library 129
         .byte 0x86, 0x0
         damage 80
@@ -1956,7 +1956,7 @@ dataChipDetailList:
         codes R
         element None
         family 16, 23
-        rarity 4
+        rarity 5
         library 130
         .byte 0x87, 0x0
         damage 100
@@ -1967,7 +1967,7 @@ dataChipDetailList:
         codes G
         element None
         family 16, 9
-        rarity 2
+        rarity 3
         library 131
         .byte 0x3D, 0x0
         damage 40
@@ -1978,7 +1978,7 @@ dataChipDetailList:
         codes G
         element None
         family 16, 10
-        rarity 3
+        rarity 4
         library 132
         .byte 0x3E, 0x0
         damage 70
@@ -1989,7 +1989,7 @@ dataChipDetailList:
         codes G
         element None
         family 16, 11
-        rarity 4
+        rarity 5
         library 133
         .byte 0x3F, 0x0
         damage 100
@@ -2000,7 +2000,7 @@ dataChipDetailList:
         codes B
         element None
         family 16, 27
-        rarity 2
+        rarity 3
         library 134
         .byte 0x6B, 0x0
         damage 140
@@ -2011,7 +2011,7 @@ dataChipDetailList:
         codes B
         element None
         family 16, 28
-        rarity 3
+        rarity 4
         library 135
         .byte 0x6C, 0x0
         damage 160
@@ -2022,7 +2022,7 @@ dataChipDetailList:
         codes B
         element None
         family 16, 29
-        rarity 4
+        rarity 5
         library 136
         .byte 0x6D, 0x0
         damage 180
@@ -2033,7 +2033,7 @@ dataChipDetailList:
         codes W
         element Wood
         family 16, 0
-        rarity 2
+        rarity 3
         library 161
         .byte 0xAB, 0x0
         damage 60
@@ -2044,7 +2044,7 @@ dataChipDetailList:
         codes W
         element Wood
         family 16, 1
-        rarity 3
+        rarity 4
         library 162
         .byte 0xAC, 0x0
         damage 80
@@ -2055,7 +2055,7 @@ dataChipDetailList:
         codes W
         element Wood
         family 16, 2
-        rarity 4
+        rarity 5
         library 163
         .byte 0xAD, 0x0
         damage 100
@@ -2066,7 +2066,7 @@ dataChipDetailList:
         codes F
         element Fire
         family 16, 3
-        rarity 2
+        rarity 3
         library 137
         .byte 0x31, 0x0
         damage 100
@@ -2077,7 +2077,7 @@ dataChipDetailList:
         codes F
         element Fire
         family 16, 4
-        rarity 3
+        rarity 4
         library 138
         .byte 0x32, 0x0
         damage 120
@@ -2088,7 +2088,7 @@ dataChipDetailList:
         codes F
         element Fire
         family 16, 5
-        rarity 4
+        rarity 5
         library 139
         .byte 0x33, 0x0
         damage 150
@@ -2099,7 +2099,7 @@ dataChipDetailList:
         codes N
         element None
         family 16, 6
-        rarity 2
+        rarity 3
         library 140
         .byte 0x64, 0x0
         damage 0
@@ -2110,7 +2110,7 @@ dataChipDetailList:
         codes N
         element None
         family 16, 7
-        rarity 3
+        rarity 4
         library 141
         .byte 0x65, 0x0
         damage 0
@@ -2121,7 +2121,7 @@ dataChipDetailList:
         codes N
         element None
         family 16, 8
-        rarity 4
+        rarity 5
         library 142
         .byte 0x66, 0x0
         damage 0
@@ -2132,7 +2132,7 @@ dataChipDetailList:
         codes S
         element None
         family 16, 15
-        rarity 2
+        rarity 3
         library 143
         .byte 0x9A, 0x0
         damage 100
@@ -2143,7 +2143,7 @@ dataChipDetailList:
         codes S
         element None
         family 16, 16
-        rarity 3
+        rarity 4
         library 144
         .byte 0x9B, 0x0
         damage 100
@@ -2154,7 +2154,7 @@ dataChipDetailList:
         codes S
         element None
         family 16, 17
-        rarity 4
+        rarity 5
         library 145
         .byte 0x9C, 0x0
         damage 100
@@ -2165,7 +2165,7 @@ dataChipDetailList:
         codes I
         element Water
         family 16, 12
-        rarity 2
+        rarity 3
         library 146
         .byte 0x48, 0x0
         damage 60
@@ -2176,7 +2176,7 @@ dataChipDetailList:
         codes I
         element Water
         family 16, 13
-        rarity 3
+        rarity 4
         library 147
         .byte 0x49, 0x0
         damage 80
@@ -2187,7 +2187,7 @@ dataChipDetailList:
         codes I
         element Water
         family 16, 14
-        rarity 4
+        rarity 5
         library 148
         .byte 0x4A, 0x0
         damage 100
@@ -2198,7 +2198,7 @@ dataChipDetailList:
         codes S
         element None
         family 16, 18
-        rarity 2
+        rarity 3
         library 164
         .byte 0x90, 0x0
         damage 150
@@ -2209,7 +2209,7 @@ dataChipDetailList:
         codes S
         element None
         family 16, 19
-        rarity 3
+        rarity 4
         library 165
         .byte 0x91, 0x0
         damage 180
@@ -2220,7 +2220,7 @@ dataChipDetailList:
         codes S
         element None
         family 16, 20
-        rarity 4
+        rarity 5
         library 166
         .byte 0x92, 0x0
         damage 210
@@ -2231,7 +2231,7 @@ dataChipDetailList:
         codes C
         element None
         family 16, 24
-        rarity 2
+        rarity 3
         library 149
         .byte 0x1C, 0x0
         damage 90
@@ -2242,7 +2242,7 @@ dataChipDetailList:
         codes C
         element None
         family 16, 25
-        rarity 3
+        rarity 4
         library 150
         .byte 0x1D, 0x0
         damage 110
@@ -2253,7 +2253,7 @@ dataChipDetailList:
         codes C
         element None
         family 16, 26
-        rarity 4
+        rarity 5
         library 151
         .byte 0x1E, 0x0
         damage 130
@@ -2264,7 +2264,7 @@ dataChipDetailList:
         codes B
         element Fire
         family 16, 45
-        rarity 2
+        rarity 3
         library 155
         .byte 0xD, 0x0
         damage 120
@@ -2275,7 +2275,7 @@ dataChipDetailList:
         codes B
         element Fire
         family 16, 46
-        rarity 3
+        rarity 4
         library 156
         .byte 0xE, 0x0
         damage 140
@@ -2286,7 +2286,7 @@ dataChipDetailList:
         codes B
         element Fire
         family 16, 47
-        rarity 4
+        rarity 5
         library 157
         .byte 0xF, 0x0
         damage 160
@@ -2297,7 +2297,7 @@ dataChipDetailList:
         codes S
         element Water
         family 16, 30
-        rarity 2
+        rarity 3
         library 167
         .byte 0x8B, 0x0
         damage 90
@@ -2308,7 +2308,7 @@ dataChipDetailList:
         codes S
         element Water
         family 16, 31
-        rarity 3
+        rarity 4
         library 168
         .byte 0x8C, 0x0
         damage 110
@@ -2319,7 +2319,7 @@ dataChipDetailList:
         codes S
         element Water
         family 16, 32
-        rarity 4
+        rarity 5
         library 169
         .byte 0x8D, 0x0
         damage 130
@@ -2330,7 +2330,7 @@ dataChipDetailList:
         codes E
         element Elec
         family 16, 33
-        rarity 2
+        rarity 3
         library 152
         .byte 0x2B, 0x0
         damage 90
@@ -2341,7 +2341,7 @@ dataChipDetailList:
         codes E
         element Elec
         family 16, 34
-        rarity 3
+        rarity 4
         library 153
         .byte 0x2C, 0x0
         damage 120
@@ -2352,7 +2352,7 @@ dataChipDetailList:
         codes E
         element Elec
         family 16, 35
-        rarity 4
+        rarity 5
         library 154
         .byte 0x2D, 0x0
         damage 150
@@ -2363,7 +2363,7 @@ dataChipDetailList:
         codes F
         element None
         family 16, 48
-        rarity 4
+        rarity 5
         library 176
         .byte 0x6, 0x0
         damage 200
@@ -2396,7 +2396,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 0
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2407,7 +2407,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 1
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2418,7 +2418,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 2
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2429,7 +2429,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 3
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2440,7 +2440,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 4
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2451,7 +2451,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 5
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2462,7 +2462,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 6
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2473,7 +2473,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 7
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2484,7 +2484,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 8
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2495,7 +2495,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 9
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2506,7 +2506,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 10
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2517,7 +2517,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 11
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2528,7 +2528,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 12
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2539,7 +2539,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 13
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2550,7 +2550,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 14
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2561,7 +2561,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 15
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2572,7 +2572,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 16
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2583,7 +2583,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 17
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2594,7 +2594,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 18
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2605,7 +2605,7 @@ dataChipDetailList:
         nocodes
         element None
         family 15, 19
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2616,7 +2616,7 @@ dataChipDetailList:
         nocodes
         element None
         family 20, 0
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2627,7 +2627,7 @@ dataChipDetailList:
         nocodes
         element None
         family 20, 1
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2638,7 +2638,7 @@ dataChipDetailList:
         nocodes
         element None
         family 20, 2
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2649,7 +2649,7 @@ dataChipDetailList:
         nocodes
         element None
         family 20, 3
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2660,7 +2660,7 @@ dataChipDetailList:
         nocodes
         element None
         family 20, 4
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2671,7 +2671,7 @@ dataChipDetailList:
         nocodes
         element None
         family 20, 5
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2682,7 +2682,7 @@ dataChipDetailList:
         nocodes
         element None
         family 20, 6
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2693,7 +2693,7 @@ dataChipDetailList:
         nocodes
         element None
         family 20, 7
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2704,7 +2704,7 @@ dataChipDetailList:
         nocodes
         element None
         family 14, 0
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 200
@@ -2715,7 +2715,7 @@ dataChipDetailList:
         nocodes
         element None
         family 13, 47
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 400
@@ -2726,7 +2726,7 @@ dataChipDetailList:
         nocodes
         element None
         family 13, 30
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 250
@@ -2737,7 +2737,7 @@ dataChipDetailList:
         nocodes
         element None
         family 13, 48
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 200
@@ -2748,7 +2748,7 @@ dataChipDetailList:
         nocodes
         element None
         family 13, 32
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 200
@@ -2759,7 +2759,7 @@ dataChipDetailList:
         nocodes
         element None
         family 13, 31
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 500
@@ -2770,7 +2770,7 @@ dataChipDetailList:
         nocodes
         element None
         family 13, 45
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 0
@@ -2781,7 +2781,7 @@ dataChipDetailList:
         nocodes
         element None
         family 13, 46
-        rarity 0
+        rarity 1
         nolibrary
         .byte 0x0, 0x0
         damage 400
