@@ -5,6 +5,14 @@ from pathlib import Path
 from math import log10
 
 
+def is_int(x: str) -> int:
+    try:
+        int(x, 0)
+        return True
+    except ValueError:
+        return False
+
+
 def auto_int(x: str) -> int:
     return int(x, 0)
 

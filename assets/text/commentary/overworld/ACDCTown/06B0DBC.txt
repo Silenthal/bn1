@@ -288,7 +288,7 @@ section_end()
 
 # 0xC1 @ 0x6B18FA
 section_start(0xC1)
-check_item("Hig_Memo", 1, 0xC2, 0xC2, 0xFF)
+if_have_item("Hig_Memo", 0xC2)
 pic(34)
 dialog_up()
 text("{a 2}An exーmember of the\nWWW... It must be\nthat guy!{a 1}\p")
@@ -314,7 +314,7 @@ section_end()
 
 # 0xC9 @ 0x6B19CE
 section_start(0xC9)
-check_item("Lab_Memo", 1, 0xCA, 0xCA, 0xFF)
+if_have_item("Lab_Memo", 0xCA)
 pic(34)
 dialog_up()
 text("{a 2}Lan,let's go look\nfor Higs' former\nboss!{a 1}\p")
@@ -333,7 +333,7 @@ section_end()
 
 # 0xCB @ 0x6B1A71
 section_start(0xCB)
-check_item("YuriMemo", 1, 0xCC, 0xCC, 0xFF)
+if_have_item("YuriMemo", 0xCC)
 pic(34)
 dialog_up()
 text("{a 2}Lan,let's fill up\nour data library!{a 1}\p")
@@ -351,7 +351,7 @@ section_end()
 
 # 0xCD @ 0x6B1B06
 section_start(0xCD)
-check_item("Pa_sMemo", 1, 0xCE, 0xCE, 0xFF)
+if_have_item("Pa_sMemo", 0xCE)
 pic(34)
 dialog_up()
 text("{a 2}Lan,help me raise\nmy level!{a 1}\p")
@@ -395,7 +395,7 @@ section_end()
 # 0xD7 @ 0x6B1C71
 section_start(0xD7)
 if_flag(114, 0xD8, 0xFF)
-check_item("WWW_Pass", 1, 0xD9, 0xD9, 0xFF)
+if_have_item("WWW_Pass", 0xD9)
 pic(34)
 dialog_up()
 text("{a 2}It's mail from Dad!\nMust be the location\nof the WWW lab!{a 1}\p")
@@ -404,7 +404,7 @@ section_end()
 
 # 0xD8 @ 0x6B1CC9
 section_start(0xD8)
-check_item("WWW_Pass", 1, 0xD9, 0xD9, 0xFF)
+if_have_item("WWW_Pass", 0xD9)
 pic(34)
 dialog_up()
 text("{a 2}Maybe we should ask\nthat exーmember where\nthe WWW lab is?{a 1}\p")

@@ -119,7 +119,7 @@ section_end()
 
 # 0x13 @ 0x6F49A8
 section_start(0x13)
-check_item("/Dex", 1, 0x16, 0xFF, 0xFF)
+check_item("/Dex", eq=0x16)
 check_chip("Recov50 L", 1, 0x14, 0x14, 0xFF)
 pic(2)
 dialog_up()
@@ -134,7 +134,7 @@ section_end()
 
 # 0x14 @ 0x6F4AB8
 section_start(0x14)
-check_item("/Dex", 1, 0x16, 0xFF, 0xFF)
+check_item("/Dex", eq=0x16)
 pic(2)
 dialog_up()
 text("{a 2}Hey! You have a\n{chip Recov50 L}!!{a 1}\p{w 0}")

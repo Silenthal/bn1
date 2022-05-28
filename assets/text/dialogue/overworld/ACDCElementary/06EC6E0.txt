@@ -26,7 +26,7 @@ section_end()
 
 # 0x05 @ 0x6EC997
 section_start(0x05)
-check_item("Lab_Memo", 1, 0x07, 0x07, 0xFF)
+if_have_item("Lab_Memo", 0x07)
 pic(3)
 dialog_up()
 text("{a 2}Hello there,Lan!{a 1}\p{w 0}")
@@ -49,7 +49,7 @@ section_end()
 
 # 0x07 @ 0x6ECA6D
 section_start(0x07)
-check_item("YuriMemo", 1, 0x08, 0x08, 0xFF)
+if_have_item("YuriMemo", 0x08)
 pic(3)
 dialog_up()
 text("{a 2}Me? A former member\nof the WWW? You've\ngot to be kidding!{a 1}\p{w 0}")

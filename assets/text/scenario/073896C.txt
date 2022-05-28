@@ -3,8 +3,7 @@ section_count(0xD)
 # 0x00 @ 0x738986
 section_start(0x00)
 dialog_up()
-se(0xAA)
-text("*Brrring...*\p{w 5}")
+text("{se 0xAA}*Brrring...*\p{w 5}")
 jump(0x01)
 section_end()
 

@@ -2,9 +2,11 @@
 import argparse
 import io
 import os
+import shlex
 from pathlib import Path
 from typing import List, Union
 
+from common import is_int
 
 class Section:
     def __init__(self):
@@ -470,6 +472,11 @@ key_item_map = {
     "BatteryC": 0x0B,
     "BatteryD": 0x0C,
     "BatteryE": 0x0D,
+    "BattA_Ct": 0x50,
+    "BattB_Ct": 0x51,
+    "BattC_Ct": 0x52,
+    "BattD_Ct": 0x53,
+    "BattE_Ct": 0x54,
     "Charger": 0x0E,
     "WWW_Pass": 0x0F,
     "Dentures": 0x11,
@@ -958,12 +965,12 @@ def cond_control(com: int):
     curScript.emitByte(com << 2)
 
 
-def if_flag(flag: int, iftrue: int = 0xFF, iffalse: int = 0xFF):
+def if_flag(flag: int, eq: int = 0xFF, neq: int = 0xFF):
     global curScript
     cond_control(0)
     curScript.emitShort(flag)
-    curScript.emitByte(iftrue)
-    curScript.emitByte(iffalse)
+    curScript.emitByte(eq)
+    curScript.emitByte(neq)
 
 
 def if_story(lower: int, upper: int, inrange: int = 0xFF, outrange: int = 0xFF):
@@ -983,14 +990,14 @@ def if_shop(shop: int, instock: int = 0xFF, outstock: int = 0xFF):
     curScript.emitByte(outstock)
 
 
-def if_chip(chip: str, iftrue: int = 0xFF, iffalse: int = 0xFF):
+def if_chip(chip: str, eq: int = 0xFF, neq: int = 0xFF):
     global curScript
     cond_control(3)
     bchip = bytes_chip(chip)
     curScript.emitByte(bchip[0])
     curScript.emitByte(bchip[1])
-    curScript.emitByte(iftrue)
-    curScript.emitByte(iffalse)
+    curScript.emitByte(eq)
+    curScript.emitByte(neq)
 
 
 def if_level(lower: int, upper: int, inrange: int = 0xFF, outrange: int = 0xFF):
@@ -1059,7 +1066,7 @@ def inv_control(com: int):
     curScript.emitByte(com)
 
 
-def add_item(itemid: Union[str, int], amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def add_item(itemid: Union[str, int], amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
     global curScript
     inv_control(0)
     bitem = bytes_key(itemid)
@@ -1070,7 +1077,7 @@ def add_item(itemid: Union[str, int], amt: int, ifall: int = 0xFF, ifnone: int =
     curScript.emitByte(ifsome)
 
 
-def sub_item(itemid: Union[str, int], amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def sub_item(itemid: Union[str, int], amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
     global curScript
     inv_control(1)
     bitem = bytes_key(itemid)
@@ -1092,18 +1099,26 @@ def set_item(itemid: Union[str, int], amt: int, ifall: int = 0xFF, ifnone: int =
     curScript.emitByte(ifsome)
 
 
-def check_item(itemid: Union[str, int], amt: int, ifeq: int = 0xFF, ifgt: int = 0xFF, iflt: int = 0xFF):
+def check_item(itemid: Union[str, int], amt: int = 1, eq: int = 0xFF, gt: int = 0xFF, lt: int = 0xFF):
     global curScript
     inv_control(4)
     bitem = bytes_key(itemid)
     curScript.emitByte(bitem[0])
     curScript.emitByte(amt)
-    curScript.emitByte(ifeq)
-    curScript.emitByte(ifgt)
-    curScript.emitByte(iflt)
+    curScript.emitByte(eq)
+    curScript.emitByte(gt)
+    curScript.emitByte(lt)
 
 
-def add_chip(chip: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def if_have_item(itemid: Union[str, int], jump:int):
+    check_item(itemid, 1, jump, jump)
+
+
+def if_no_item(itemid: Union[str, int], jump:int):
+    check_item(itemid, 1, lt=jump)
+
+
+def add_chip(chip: str, amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
     global curScript
     inv_control(0x10)
     bchip = bytes_chip(chip)
@@ -1115,7 +1130,7 @@ def add_chip(chip: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome:
     curScript.emitByte(ifsome)
 
 
-def sub_chip(chip: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def sub_chip(chip: str, amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
     global curScript
     inv_control(0x11)
     bchip = bytes_chip(chip)
@@ -1151,16 +1166,19 @@ def check_chip(chip: str, amt: int, ifeq: int = 0xFF, ifgt: int = 0xFF, iflt: in
     curScript.emitByte(iflt)
 
 
-def check_chip_pack(chip: str, amt: int, ifeq: int = 0xFF, ifgt: int = 0xFF, iflt: int = 0xFF):
+def if_have_chip(chip: str, jump: int):
+    check_chip(chip, 1, jump, jump, 0xFF)
+
+def check_chip_pack(chip: str, amt: int = 1, eq: int = 0xFF, gt: int = 0xFF, lt: int = 0xFF):
     global curScript
     inv_control(0x15)
     bchip = bytes_chip(chip)
     curScript.emitByte(bchip[0])
     curScript.emitByte(bchip[1])
     curScript.emitByte(amt)
-    curScript.emitByte(ifeq)
-    curScript.emitByte(ifgt)
-    curScript.emitByte(iflt)
+    curScript.emitByte(eq)
+    curScript.emitByte(gt)
+    curScript.emitByte(lt)
 
 
 def passcode_control(com: int):
@@ -1472,11 +1490,11 @@ def parse_command(reader: Reader):
     if reader.isEmpty():
         exit("Incomplete command")
     reader.read()
-    coms = com.split()
+    coms = [int(s, 0) if is_int(s) else s for s in shlex.split(com)]
     if len(coms) > 0:
         if coms[0] == "delay" or coms[0] == "d":
             if len(coms) > 1:
-                delay(int(coms[1], 0))
+                delay(coms[1])
             else:
                 delay()
         elif coms[0] == "key":
@@ -1496,22 +1514,38 @@ def parse_command(reader: Reader):
             text(" ")
             chip_code_buf(2)
         elif coms[0] == "key_item_buf":
-            key_item_buf(int(coms[1]))
+            key_item_buf(coms[1])
         elif coms[0] == "anim" or coms[0] == "a":
             if len(coms) > 1:
-                anim(int(coms[1], 0))
+                anim(coms[1])
             else:
                 exit("Animation index required")
+        elif coms[0] == "add_chip":
+            if len(coms) == 1:
+                exit("Arguments required for add_chip")
+            add_chip(*coms[1:])
+        elif coms[0] == "sub_chip":
+            if len(coms) == 1:
+                exit("Arguments required for sub_chip")
+            sub_chip(*coms[1:])
+        elif coms[0] == "add_item":
+            if len(coms) == 1:
+                exit("Arguments required for add_item")
+            add_item(*coms[1:])
+        elif coms[0] == "sub_item":
+            if len(coms) == 1:
+                exit("Arguments required for sub_item")
+            sub_item(*coms[1:])
         elif coms[0] == "wait" or coms[0] == "w":
             if len(coms) > 1:
-                wait(int(coms[1], 0))
+                wait(coms[1])
             else:
                 wait()
         elif coms[0] == "buf":
             buffer(1)
         elif coms[0] == "end":
             if len(coms) > 1:
-                end(int(coms[1], 0))
+                end(coms[1])
             else:
                 end()
         elif coms[0] == "lv":
@@ -1527,23 +1561,21 @@ def parse_command(reader: Reader):
                 curScript.emitByte(charmap_E5["."])
                 delay()
         elif coms[0] == "item_amt":
-            if coms[1].isnumeric():
-                item_amt(int(coms[1]))
-            else:
-                item_amt(coms[1])
+            item_amt(coms[1])
         elif coms[0] == "p":
             pad()
         elif coms[0] == "c":
-            option(int(coms[1]), int(coms[2]), int(coms[3]), int(coms[4]))
+            option(*coms[1:])
             pad()
         elif coms[0] == "col":
             if len(coms) > 1:
-                if coms[1].isnumeric():
-                    col(int(coms[1]))
-                else:
-                    exit(f"Unrecognized column arg {coms[1]}")
+                col(coms[1])
             else:
                 exit("Argument required for col")
+        elif coms[0] == "se":
+            if len(coms) == 1:
+                exit("Argument required for se")
+            se(coms[1])
         else:
             exit(f"Unrecognized command {coms[0]}")
 

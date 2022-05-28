@@ -231,8 +231,7 @@ section_end()
 # 0x16 @ 0x73B291
 section_start(0x16)
 dialog_up()
-se(0xDB)
-text("Applying Hub.bat\nto MegaMan.EXE...{a 1}\p{w 5}")
+text("{se 0xDB}Applying Hub.bat\nto MegaMan.EXE...{a 1}\p{w 5}")
 jump(0x17)
 section_end()
 
