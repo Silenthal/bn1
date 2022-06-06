@@ -64,8 +64,7 @@ section_end()
 
 # 0x06 @ 0x7AD038
 section_start(0x06)
-wait(34304)
-text("z")
+text("{lpads0 6}z")
 end()
 section_end()
 

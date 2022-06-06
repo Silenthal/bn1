@@ -2,7 +2,7 @@ section_count(0x91)
 
 # 0x00 @ 0x7A71A6
 section_start(0x00)
-wait(33280)
+text("{lpads0 2}")
 end()
 section_end()
 
@@ -49,13 +49,13 @@ section_end()
 
 # 0x15 @ 0x7A72C4
 section_start(0x15)
-wait(33536)
+text("{lpads0 3}")
 end()
 section_end()
 
 # 0x16 @ 0x7A72CC
 section_start(0x16)
-wait(33792)
+text("{lpads0 4}")
 end()
 section_end()
 
@@ -292,7 +292,7 @@ section_end()
 
 # 0x60 @ 0x7A7828
 section_start(0x60)
-wait(34304)
+text("{lpads0 6}")
 end()
 section_end()
 
@@ -461,8 +461,7 @@ section_end()
 
 # 0x73 @ 0x7A7C37
 section_start(0x73)
-wait(33536)
-text("  {w 33537}")
+text("{lpads0 3}  {lpads1 3}")
 end()
 section_end()
 
@@ -555,28 +554,25 @@ section_end()
 
 # 0x7F @ 0x7A7DE4
 section_start(0x7F)
-text("  {w 49664}")
-text(";{w 49665}")
+text("  {lpadz0 2};{lpadz1 2}")
 end()
 section_end()
 
 # 0x80 @ 0x7A7DF3
 section_start(0x80)
-wait(33536)
-text("/175")
+text("{lpads0 3}/175")
 end()
 section_end()
 
 # 0x81 @ 0x7A7E00
 section_start(0x81)
-text(" {w 34304}")
+text(" {lpads0 6}")
 end()
 section_end()
 
 # 0x82 @ 0x7A7E09
 section_start(0x82)
-wait(34304)
-text("z")
+text("{lpads0 6}z")
 end()
 section_end()
 
@@ -600,8 +596,7 @@ section_end()
 
 # 0x84 @ 0x7A7EA1
 section_start(0x84)
-wait(33536)
-text("/176")
+text("{lpads0 3}/176")
 end()
 section_end()
 
@@ -624,24 +619,19 @@ section_end()
 
 # 0x8C @ 0x7A7F09
 section_start(0x8C)
-wait(33280)
-text(" い {w 33025}")
-text(" う {w 33282}")
+text("{lpads0 2} い {lpads1 1} う {lpads2 2}")
 end()
 section_end()
 
 # 0x8D @ 0x7A7F1D
 section_start(0x8D)
-wait(256)
-wait(257)
-text("え{w 258}")
-wait(259)
+text("{rpads0 1}{rpads1 1}え{rpads2 1}{rpads3 1}")
 end()
 section_end()
 
 # 0x8E @ 0x7A7F2F
 section_start(0x8E)
-wait(33024)
+text("{lpads0 1}")
 end()
 section_end()
 

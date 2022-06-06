@@ -451,7 +451,7 @@ charmap_E5 = {
     "▶": 0x4B,
     "◀": 0x4C,
     "☛": 0x4D,
-    "¼": 0xAB,
+    "¼": 0xAB
     #"[inf1]": 0xAC,
     #"[inf2]": 0xAD
 }
@@ -1567,6 +1567,33 @@ def parse_command(reader: Reader):
         elif coms[0] == "c":
             option(*coms[1:])
             pad()
+        elif len(coms[0]) == 6 and coms[0][1:4] == "pad":
+            if len(coms) != 2:
+                exit("Argument required for pad")
+            if not is_int(str(coms[1])):
+                exit("Number argument required for pad")
+            dr = coms[0][0]
+            pd = coms[0][4]
+            bf = coms[0][5]
+            sz = coms[1]
+            if (dr != 'l' and dr != 'r'):
+                exit("Unrecognized direction for pad")
+            if (pd != 's' and pd != 'z'):
+                exit("Unrecognized padding char for pad")
+            if not is_int(str(bf)):
+                exit("Buffer for pad function must be a number")
+            bf = int(bf)
+            if bf < 0 or bf > 3:
+                exit("Buffer for pad function required to be from 0 to 3")
+            if sz > 0x40:
+                exit("Pad amount needs to be less than 0x40")
+            if dr == 'l':
+                sz += 0x80
+            if pd == 'z':
+                sz += 0x40
+            curScript.emitByte(0xE9)
+            curScript.emitByte(bf)
+            curScript.emitByte(sz)
         elif coms[0] == "col":
             if len(coms) > 1:
                 col(coms[1])

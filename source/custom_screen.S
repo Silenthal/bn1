@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set AddObject, 0x8009810
-    .set Screen_CopyLayoutV, 0x80021E0
     .set FUN_080029ec, 0x80029EC
     .set tilesetCustomScreenBg_2, 0x863FE34
     .set FUN_0805758a, 0x805758A
@@ -1392,7 +1391,7 @@ LAB_0801646a:
     mov        r2,#0x3
     add        r3,r4,#0x0
     mov        r4,#0x14
-    bl         Screen_CopyLayoutV
+    bl         Screen_CopyTileMapV
     pop        { r0, r2, r4, r7 }
     lsr        r0,r0,#0x1
     add        r7,#0x2

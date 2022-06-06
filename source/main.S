@@ -252,7 +252,7 @@ MainState:
     .word gDisplaySettings
     .word eMainState0x14
     .word eMainState0x18
-    .word eMainState0x1C
+    .word gBattleUi
     .word eMainState0x20
     .word eMainState0x24
     .word eMainState0x28

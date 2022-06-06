@@ -81,6 +81,13 @@ LAB_08009c16:
     pop        { pc }
 
 
+@@ Gets the location of the amount of the battle chip specified, from the battle chip inventory.
+@@ In:
+@@ r0: chipID - The chip ID to check.
+@@ r1: chipCode - The chip code to check.
+@@
+@@ Out:
+@@ r0: chipCountLoc - The memory location containing the amount of the chip specified.
 non_word_aligned_thumb_func_start Inventory_GetChipCountLocation
 Inventory_GetChipCountLocation:
     push       { lr }
@@ -90,15 +97,15 @@ Inventory_GetChipCountLocation:
     pop        { r1, r2 }
     add        r0,#0x0
     mov        r3,#0x0
-LAB_08009c2a:
+1: @ Code checking loop
     ldrb       r4,[r0,r3]
     cmp        r1,r4
-    beq        LAB_08009c38
+    beq        2f
     add        r3,#0x1
     cmp        r3,#0x5
-    bmi        LAB_08009c2a
+    bmi        1b
     mov        r3,#0x0
-LAB_08009c38:
+2: @ Code found
     ldr        r7,PTR_gBattleChipInventory_08009c44
     lsl        r2,r2,#0x4
     add        r7,r7,r2
@@ -110,8 +117,16 @@ thumb_func_end Inventory_GetChipCountLocation
 PTR_gBattleChipInventory_08009c44:
     .word gBattleChipInventory
 
-thumb_func_start Inventory_GetChipCountLocFromOtherInv
-Inventory_GetChipCountLocFromOtherInv:
+
+@@ Gets the location of the amount of the battle chip specified, from the battle chip inventory.
+@@ In:
+@@ r0: chipID - The chip ID to check.
+@@ r1: chipCode - The chip code to check.
+@@
+@@ Out:
+@@ r0: chipCountLoc - The memory location containing the checksum for the specified chip.
+thumb_func_start Inventory_GetChipCountChecksum
+Inventory_GetChipCountChecksum:
     push       { lr }
     add        r2,r0,#0x0
     push       { r1, r2 }
@@ -119,15 +134,15 @@ Inventory_GetChipCountLocFromOtherInv:
     pop        { r1, r2 }
     add        r0,#0x0
     mov        r3,#0x0
-LAB_08009c58:
+1:
     ldrb       r4,[r0,r3]
     cmp        r1,r4
-    beq        LAB_08009c66
+    beq        2f
     add        r3,#0x1
     cmp        r3,#0x5
-    bmi        LAB_08009c58
+    bmi        1b
     mov        r3,#0x0
-LAB_08009c66:
+2:
     ldr        r7,PTR_gBattleChipInventory_08009c74
     lsl        r2,r2,#0x4
     add        r7,r7,r2
@@ -152,14 +167,14 @@ Inventory_AddZenny:
     ldr        r7,[r7,#0x8]
     ldr        r1,[r7,#0x74]
     add        r0,r0,r1
-    ldr        r1,DAT_08009c98
+    ldr        r1,maxZenny
     cmp        r0,r1
     ble        LAB_08009c94
     add        r0,r1,#0x0
 LAB_08009c94:
     str        r0,[r7,#0x74]
     pop        { pc }
-DAT_08009c98:
+maxZenny:
     .word 999999
 
 thumb_func_start Inventory_SubtractZenny

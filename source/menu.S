@@ -66,12 +66,12 @@ thumb_func_end Menu_Main
 PTR_JT_R5_74_19820_0801981c:
     .word JT_R5_74_19820
 JT_R5_74_19820:
-    .word 0x8019ea4+1
-    .word 0x801b404+1
-    .word 0x801b954+1
-    .word 0x801c168+1
-    .word 0x801c6f0+1
-    .word 0x801cc88+1
-    .word 0x801e4f4+1
+    .word 0x8019ea4+1 @ Menu_Folder_Main
+    .word 0x801b404+1 @ Menu_Library_Main
+    .word 0x801b954+1 @ Menu_MegaMan_Main
+    .word 0x801c168+1 @ Menu_Email_Main
+    .word 0x801c6f0+1 @ Menu_Item_Main
+    .word 0x801cc88+1 @ Menu_Network_Main
+    .word 0x801e4f4+1 @ Menu_Save_Main
 
     .end

@@ -4,8 +4,6 @@
 
     .set Text_DisableDialogue, 0x8013644
     .set SetTextPointer, 0x80135e8
-    .set Screen_CopyLayoutRect, 0x8002230
-    .set Screen_CopyEntry, 0x80021ac
     .set USHORT_ARRAY_0872b200, 0x872b200
     .set TextOption_IsFlagZero, 0x8013924
 
@@ -281,28 +279,28 @@ Layout_LoadThankYouMessageLayout:
     mov        r3,#0x1e
     mov        r4,#0x14
     mov        r5,#0x0
-    bl         Screen_CopyLayoutRect
+    bl         Screen_SetTileMapRect
     mov        r0,#0x0
     mov        r1,#0x0
     mov        r2,#0x2
     mov        r3,#0x1e
     mov        r4,#0x14
     mov        r5,#0x0
-    bl         Screen_CopyLayoutRect
+    bl         Screen_SetTileMapRect
     mov        r0,#0x0
     mov        r1,#0x0
     mov        r2,#0x3
     mov        r3,#0x1e
     mov        r4,#0x14
     mov        r5,#0x0
-    bl         Screen_CopyLayoutRect
+    bl         Screen_SetTileMapRect
     mov        r0,#0x0
     mov        r1,#0x0
     mov        r2,#0x1
     mov        r3,#0x1
 LAB_08018b66:
     push       { r0, r1, r2, r3 }
-    bl         Screen_CopyEntry
+    bl         Screen_CopyTileMapEntry
     pop        { r0, r1, r2, r3 }
     add        r3,#0x1
     add        r0,#0x1
@@ -318,7 +316,7 @@ LAB_08018b66:
     mov        r3,#0x1
 LAB_08018b86:
     push       { r0, r1, r2, r3 }
-    bl         Screen_CopyEntry
+    bl         Screen_CopyTileMapEntry
     pop        { r0, r1, r2, r3 }
     add        r3,#0x1
     add        r0,#0x1
@@ -334,7 +332,7 @@ LAB_08018b86:
     mov        r3,#0x1
 LAB_08018ba6:
     push       { r0, r1, r2, r3 }
-    bl         Screen_CopyEntry
+    bl         Screen_CopyTileMapEntry
     pop        { r0, r1, r2, r3 }
     add        r3,#0x1
     add        r0,#0x1

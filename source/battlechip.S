@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Inventory_AddChip, 0x8009ba2
-
     .text
 
     .thumb

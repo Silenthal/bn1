@@ -6,8 +6,8 @@
 
     .thumb
 
-far_thumb_func_start Screen_SafeCopyLayoutH
-Screen_SafeCopyLayoutH:
+far_thumb_func_start Screen_SafeCopyTileMapH
+Screen_SafeCopyTileMapH:
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -29,10 +29,10 @@ LAB_03006992:
     cmp        r4,#0x0
     bgt        LAB_03006988
     mov        pc,lr
-thumb_func_end Screen_SafeCopyLayoutH
+thumb_func_end Screen_SafeCopyTileMapH
 
-far_thumb_func_start Screen_SafeCopyLayoutV
-Screen_SafeCopyLayoutV:
+far_thumb_func_start Screen_SafeCopyTileMapV
+Screen_SafeCopyTileMapV:
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -54,10 +54,10 @@ LAB_030069ba:
     cmp        r4,#0x0
     bgt        LAB_030069b0
     mov        pc,lr
-thumb_func_end Screen_SafeCopyLayoutV
+thumb_func_end Screen_SafeCopyTileMapV
 
-far_thumb_func_start Screen_SafeCopyLayoutRect
-Screen_SafeCopyLayoutRect:
+far_thumb_func_start Screen_SafeCopyTileMapRect
+Screen_SafeCopyTileMapRect:
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -88,7 +88,7 @@ LAB_030069ec:
     cmp        r1,r5
     blt        LAB_030069d4
     mov        pc,lr
-thumb_func_end Screen_SafeCopyLayoutRect
+thumb_func_end Screen_SafeCopyTileMapRect
 
     .align 2, 0
 

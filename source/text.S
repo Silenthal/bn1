@@ -3757,4 +3757,7 @@ PTR_080151c0:
     .word       0
     .word       0
 
+layoutDialogBox:
+    .incbin "images/text/dialog_box.tilemap"
+
     .end

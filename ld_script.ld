@@ -40,7 +40,7 @@ SECTIONS {
 		eMainState0x58           = 0x4710;
 		gTransition              = 0x48B8;
 		gFillValue               = 0x48C0;
-		eMainState0x1C           = 0x48D0;
+		gBattleUi           	 = 0x48D0;
 		gBlendSettings           = 0x4900;
 		gBattleFolder            = 0x4910;
 		eFrameWaitValueX         = 0x4930;

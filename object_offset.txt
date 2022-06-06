@@ -8,6 +8,7 @@ utility             0xA38
 rng                 0x18B4
 video               0x18FC
 bgupdate            0x1BB8
+screen              0x21AC
 sprite              0x2338
 sprite_lz           0x2828
 world               0x4130
@@ -22,6 +23,7 @@ main_menu           0x10414
 oam                 0x10A5C
 asset_spritelist    0x12690
 text                0x13560
+battle_ui           0x153C8
 custom_screen       0x158EC
 transition          0x174F4
 demo                0x18950
@@ -39,7 +41,8 @@ swi                 0x9DF50
 sound_data          0xA111C
 interrupt_handler   0x180000
 oam_far             0x180564
-screen_layout_intr  0x180178
+text_far            0x1808D8
+screen_far          0x180178
 asset_sprite        0x1E0020
 asset_ui            0x6132A8
 asset_portrait      0x61FF88
@@ -47,5 +50,5 @@ asset_chip          0x638634
 asset_battle        0x640E54
 asset_text          0x69D57C
 asset_demo          0x796FD4
-asset_7A7084        0x7A7084
+asset_7A6604        0x7A6604
 asset_7AC9B8        0x7AC9B8

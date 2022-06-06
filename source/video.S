@@ -55,7 +55,7 @@ Video_BlitScreens:
     mov        r0,#0x8
     bl         Dma_WaitForEnd
     ldr        r0,PTR_gFillValue_08001b54
-    ldr        r1,UINT_08001b58
+    ldr        r1,tileMapBlankTile
     str        r1,[r0,#0x0]
     mov        r1,r10
     ldr        r1,[r1,#0x5c]
@@ -338,7 +338,9 @@ DmaCntFlag_08001b48:                        .word DMA_32BIT | DMA_ENABLE
 PTR_paletteKeyboardNumberChars_08001b4c:    .word paletteKeyboardNumberChars
 PTR_eBgPaletteF_08001b50:                   .word eBgPaletteF
 PTR_gFillValue_08001b54:                    .word gFillValue
-UINT_08001b58:                              .word 0x2000200
+tileMapBlankTile:
+    tilemap_entry 0x200, 0, 0
+    tilemap_entry 0x200, 0, 0
 PTR_gFillValue_08001b5c:                    .word gFillValue
 PTR_BgControl_ARRAY_08001b60:               .word BgControl_ARRAY_080019a8
 PTR_REG_DISPCNT_08001b64:                   .word REG_DISPCNT
