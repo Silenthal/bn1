@@ -18,8 +18,8 @@ Sprite_AddSpriteToOam:
     pop        { pc }
 thumb_func_end Sprite_AddSpriteToOam
 
-thumb_func_start Sprite_InitSpritePtrFrames
-Sprite_InitSpritePtrFrames:
+thumb_func_start SpritePtr_InitFrames
+SpritePtr_InitFrames:
     push       { r5, lr }
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -27,7 +27,7 @@ Sprite_InitSpritePtrFrames:
     add        r5,r5,r7
     bl         Sprite_InitFrames
     pop        { r5, pc }
-thumb_func_end Sprite_InitSpritePtrFrames
+thumb_func_end SpritePtr_InitFrames
 
 @@ Sets up frame data for a sprite
 thumb_func_start Sprite_InitFrames

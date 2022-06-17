@@ -3,7 +3,7 @@ global_label arrayEnemyDetails
 _0: @ Megaman
     hp 100
     element None
-    .byte 0x32
+    hp_pos 50
     routine 0x0
     lzSprite 0xFF
     .short 0 
@@ -21,7 +21,7 @@ _0: @ Megaman
 _1: @ Mettaur1
     hp 40
     element None
-    .byte 0x22
+    hp_pos 34
     routine 0x4
     lzSprite 0x1
     .short 0 
@@ -39,7 +39,7 @@ _1: @ Mettaur1
 _2: @ Mettaur2
     hp 60
     element None
-    .byte 0x22
+    hp_pos 34
     routine 0x4
     lzSprite 0x1
     .short 0 
@@ -57,7 +57,7 @@ _2: @ Mettaur2
 _3: @ Mettaur3
     hp 100
     element None
-    .byte 0x22
+    hp_pos 34
     routine 0x4
     lzSprite 0x1
     .short 0 
@@ -75,7 +75,7 @@ _3: @ Mettaur3
 _4: @ Canodumb1
     hp 50
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x2
     lzSprite 0x10
     .short 0 
@@ -93,7 +93,7 @@ _4: @ Canodumb1
 _5: @ Canodumb2
     hp 80
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x2
     lzSprite 0x10
     .short 0 
@@ -111,7 +111,7 @@ _5: @ Canodumb2
 _6: @ Canodumb3
     hp 100
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x2
     lzSprite 0x10
     .short 0 
@@ -129,7 +129,7 @@ _6: @ Canodumb3
 _7: @ Vulgear
     hp 80
     element Fire
-    .byte 0x32
+    hp_pos 50
     routine 0x5
     lzSprite 0x14
     .short 0 
@@ -147,7 +147,7 @@ _7: @ Vulgear
 _8: @ Vatgear
     hp 120
     element Water
-    .byte 0x32
+    hp_pos 50
     routine 0x5
     lzSprite 0x14
     .short 0 
@@ -165,7 +165,7 @@ _8: @ Vatgear
 _9: @ Vulgear_X
     hp 80
     element Fire
-    .byte 0x32
+    hp_pos 50
     routine 0x5
     lzSprite 0x14
     .short 0 
@@ -183,7 +183,7 @@ _9: @ Vulgear_X
 _10: @ Spooky1
     hp 50
     element None
-    .byte 0x3A
+    hp_pos 58
     routine 0xA
     lzSprite 0x20
     .short 0 
@@ -201,7 +201,7 @@ _10: @ Spooky1
 _11: @ Spooky2
     hp 100
     element None
-    .byte 0x3A
+    hp_pos 58
     routine 0xA
     lzSprite 0x20
     .short 0 
@@ -219,7 +219,7 @@ _11: @ Spooky2
 _12: @ Spooky3
     hp 120
     element None
-    .byte 0x3A
+    hp_pos 58
     routine 0xA
     lzSprite 0x20
     .short 0 
@@ -237,7 +237,7 @@ _12: @ Spooky3
 _13: @ Beetank1
     hp 80
     element None
-    .byte 0x2E
+    hp_pos 46
     routine 0x9
     lzSprite 0x1F
     .short 0 
@@ -255,7 +255,7 @@ _13: @ Beetank1
 _14: @ Beetank2
     hp 120
     element None
-    .byte 0x2E
+    hp_pos 46
     routine 0x9
     lzSprite 0x1F
     .short 0 
@@ -273,7 +273,7 @@ _14: @ Beetank2
 _15: @ Beetank3
     hp 150
     element None
-    .byte 0x2E
+    hp_pos 46
     routine 0x9
     lzSprite 0x1F
     .short 0 
@@ -291,7 +291,7 @@ _15: @ Beetank3
 _16: @ Handy1
     hp 80
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x1A
     lzSprite 0x29
     .short 0 
@@ -309,7 +309,7 @@ _16: @ Handy1
 _17: @ Handy2
     hp 200
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x1A
     lzSprite 0x29
     .short 0 
@@ -327,7 +327,7 @@ _17: @ Handy2
 _18: @ Handy3
     hp 300
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x1A
     lzSprite 0x29
     .short 0 
@@ -345,7 +345,7 @@ _18: @ Handy3
 _19: @ Flappy1
     hp 60
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x12
     lzSprite 0xFF
     .short 0 
@@ -363,7 +363,7 @@ _19: @ Flappy1
 _20: @ Flappy2
     hp 120
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x12
     lzSprite 0xFF
     .short 0 
@@ -381,7 +381,7 @@ _20: @ Flappy2
 _21: @ Flappy3
     hp 150
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x12
     lzSprite 0xFF
     .short 0 
@@ -399,7 +399,7 @@ _21: @ Flappy3
 _22: @ Floshell1
     hp 120
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x18
     lzSprite 0x3F
     .short 0 
@@ -417,7 +417,7 @@ _22: @ Floshell1
 _23: @ Floshell2
     hp 200
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x18
     lzSprite 0x3F
     .short 0 
@@ -435,7 +435,7 @@ _23: @ Floshell2
 _24: @ Floshell3
     hp 250
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x18
     lzSprite 0x3F
     .short 0 
@@ -453,7 +453,7 @@ _24: @ Floshell3
 _25: @ HardHead1
     hp 60
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xD
     lzSprite 0x25
     .short 0 
@@ -471,7 +471,7 @@ _25: @ HardHead1
 _26: @ HardHead2
     hp 70
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xD
     lzSprite 0x25
     .short 0 
@@ -489,7 +489,7 @@ _26: @ HardHead2
 _27: @ HardHead3
     hp 80
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xD
     lzSprite 0x25
     .short 0 
@@ -507,7 +507,7 @@ _27: @ HardHead3
 _28: @ Swordy1
     hp 90
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x10
     lzSprite 0x28
     .short 0 
@@ -525,7 +525,7 @@ _28: @ Swordy1
 _29: @ Swordy2
     hp 120
     element Fire
-    .byte 0x0
+    hp_pos 0
     routine 0x10
     lzSprite 0x28
     .short 0 
@@ -543,7 +543,7 @@ _29: @ Swordy2
 _30: @ Swordy3
     hp 200
     element Water
-    .byte 0x0
+    hp_pos 0
     routine 0x10
     lzSprite 0x28
     .short 0 
@@ -561,7 +561,7 @@ _30: @ Swordy3
 _31: @ Fishy1
     hp 80
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xE
     lzSprite 0x26
     .short 0 
@@ -579,7 +579,7 @@ _31: @ Fishy1
 _32: @ Fishy2
     hp 150
     element Fire
-    .byte 0x36
+    hp_pos 54
     routine 0xE
     lzSprite 0x26
     .short 0 
@@ -597,7 +597,7 @@ _32: @ Fishy2
 _33: @ Fishy3
     hp 100
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xE
     lzSprite 0x26
     .short 0 
@@ -615,7 +615,7 @@ _33: @ Fishy3
 _34: @ Piranha1
     hp 100
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x13
     lzSprite 0x3B
     .short 0 
@@ -633,7 +633,7 @@ _34: @ Piranha1
 _35: @ Piranha2
     hp 150
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x13
     lzSprite 0x3B
     .short 0 
@@ -651,7 +651,7 @@ _35: @ Piranha2
 _36: @ Piranha3
     hp 200
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x13
     lzSprite 0x3B
     .short 0 
@@ -669,7 +669,7 @@ _36: @ Piranha3
 _37: @ AquaPuffy
     hp 100
     element Water
-    .byte 0x3A
+    hp_pos 58
     routine 0x11
     lzSprite 0x27
     .short 0 
@@ -687,7 +687,7 @@ _37: @ AquaPuffy
 _38: @ HeatPuffy
     hp 100
     element Fire
-    .byte 0x3A
+    hp_pos 58
     routine 0x11
     lzSprite 0x27
     .short 0 
@@ -705,7 +705,7 @@ _38: @ HeatPuffy
 _39: @ 0x27
     hp 100
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xE
     lzSprite 0x27
     .short 0 
@@ -723,7 +723,7 @@ _39: @ 0x27
 _40: @ ColdBear1
     hp 200
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x1C
     lzSprite 0x3D
     .short 0 
@@ -741,7 +741,7 @@ _40: @ ColdBear1
 _41: @ ColdBear2
     hp 250
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x1C
     lzSprite 0x3D
     .short 0 
@@ -759,7 +759,7 @@ _41: @ ColdBear2
 _42: @ ColdBear3
     hp 300
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x1C
     lzSprite 0x3D
     .short 0 
@@ -777,7 +777,7 @@ _42: @ ColdBear3
 _43: @ Cloudy1
     hp 120
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x14
     lzSprite 0x3C
     .short 0 
@@ -795,7 +795,7 @@ _43: @ Cloudy1
 _44: @ Cloudy2
     hp 140
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x14
     lzSprite 0x3C
     .short 0 
@@ -813,7 +813,7 @@ _44: @ Cloudy2
 _45: @ Cloudy3
     hp 160
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x14
     lzSprite 0x3C
     .short 0 
@@ -831,7 +831,7 @@ _45: @ Cloudy3
 _46: @ Ratty1
     hp 60
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x20
     lzSprite 0x41
     .short 0 
@@ -849,7 +849,7 @@ _46: @ Ratty1
 _47: @ Ratty2
     hp 80
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x20
     lzSprite 0x41
     .short 0 
@@ -867,7 +867,7 @@ _47: @ Ratty2
 _48: @ Ratty3
     hp 100
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x20
     lzSprite 0x41
     .short 0 
@@ -885,7 +885,7 @@ _48: @ Ratty3
 _49: @ Miney1
     hp 100
     element None
-    .byte 0x3E
+    hp_pos 62
     routine 0x27
     lzSprite 0x43
     .short 0 
@@ -903,7 +903,7 @@ _49: @ Miney1
 _50: @ Miney2
     hp 120
     element None
-    .byte 0x3E
+    hp_pos 62
     routine 0x27
     lzSprite 0x43
     .short 0 
@@ -921,7 +921,7 @@ _50: @ Miney2
 _51: @ Miney3
     hp 140
     element None
-    .byte 0x3E
+    hp_pos 62
     routine 0x27
     lzSprite 0x43
     .short 0 
@@ -939,7 +939,7 @@ _51: @ Miney3
 _52: @ Ammonicule1
     hp 60
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x28
     lzSprite 0x44
     .short 0 
@@ -957,7 +957,7 @@ _52: @ Ammonicule1
 _53: @ Ammonicule2
     hp 90
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x28
     lzSprite 0x44
     .short 0 
@@ -975,7 +975,7 @@ _53: @ Ammonicule2
 _54: @ Ammonicule3
     hp 150
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x28
     lzSprite 0x44
     .short 0 
@@ -993,7 +993,7 @@ _54: @ Ammonicule3
 _55: @ Jelly
     hp 120
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x1F
     lzSprite 0x42
     .short 0 
@@ -1011,7 +1011,7 @@ _55: @ Jelly
 _56: @ HeatJelly
     hp 150
     element Fire
-    .byte 0x36
+    hp_pos 54
     routine 0x1F
     lzSprite 0x42
     .short 0 
@@ -1029,7 +1029,7 @@ _56: @ HeatJelly
 _57: @ EarthJelly
     hp 200
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x1F
     lzSprite 0x42
     .short 0 
@@ -1047,7 +1047,7 @@ _57: @ EarthJelly
 _58: @ Gaia1
     hp 150
     element None
-    .byte 0x48
+    hp_pos 72
     routine 0x45
     lzSprite 0x4D
     .short 0 
@@ -1065,7 +1065,7 @@ _58: @ Gaia1
 _59: @ Gaia2
     hp 200
     element None
-    .byte 0x48
+    hp_pos 72
     routine 0x45
     lzSprite 0x4D
     .short 0 
@@ -1083,7 +1083,7 @@ _59: @ Gaia2
 _60: @ Gaia3
     hp 300
     element None
-    .byte 0x48
+    hp_pos 72
     routine 0x45
     lzSprite 0x4D
     .short 0 
@@ -1101,7 +1101,7 @@ _60: @ Gaia3
 _61: @ Popper1
     hp 100
     element Wood
-    .byte 0x0
+    hp_pos 0
     routine 0x21
     lzSprite 0x4C
     .short 0 
@@ -1119,7 +1119,7 @@ _61: @ Popper1
 _62: @ Popper2
     hp 250
     element Wood
-    .byte 0x0
+    hp_pos 0
     routine 0x21
     lzSprite 0x4C
     .short 0 
@@ -1137,7 +1137,7 @@ _62: @ Popper2
 _63: @ Popper3
     hp 120
     element Wood
-    .byte 0x0
+    hp_pos 0
     routine 0x21
     lzSprite 0x4C
     .short 0 
@@ -1155,7 +1155,7 @@ _63: @ Popper3
 _64: @ Satella1
     hp 200
     element None
-    .byte 0x28
+    hp_pos 40
     routine 0x47
     lzSprite 0xFF
     .short 0 
@@ -1173,7 +1173,7 @@ _64: @ Satella1
 _65: @ Satella2
     hp 240
     element None
-    .byte 0x28
+    hp_pos 40
     routine 0x47
     lzSprite 0xFF
     .short 0 
@@ -1191,7 +1191,7 @@ _65: @ Satella2
 _66: @ Satella3
     hp 300
     element None
-    .byte 0x28
+    hp_pos 40
     routine 0x47
     lzSprite 0xFF
     .short 0 
@@ -1209,7 +1209,7 @@ _66: @ Satella3
 _67: @ Fanner1
     hp 100
     element None
-    .byte 0x40
+    hp_pos 64
     routine 0x34
     lzSprite 0x5F
     .short 0 
@@ -1227,7 +1227,7 @@ _67: @ Fanner1
 _68: @ Fanner2
     hp 140
     element None
-    .byte 0x40
+    hp_pos 64
     routine 0x34
     lzSprite 0x5F
     .short 0 
@@ -1245,7 +1245,7 @@ _68: @ Fanner2
 _69: @ Fanner3
     hp 180
     element None
-    .byte 0x40
+    hp_pos 64
     routine 0x34
     lzSprite 0x5F
     .short 0 
@@ -1263,7 +1263,7 @@ _69: @ Fanner3
 _70: @ Remobit1
     hp 80
     element Elec
-    .byte 0x36
+    hp_pos 54
     routine 0x2D
     lzSprite 0xFF
     .short 0 
@@ -1281,7 +1281,7 @@ _70: @ Remobit1
 _71: @ Remobit2
     hp 100
     element Elec
-    .byte 0x36
+    hp_pos 54
     routine 0x2D
     lzSprite 0xFF
     .short 0 
@@ -1299,7 +1299,7 @@ _71: @ Remobit2
 _72: @ Remobit3
     hp 120
     element Elec
-    .byte 0x36
+    hp_pos 54
     routine 0x2D
     lzSprite 0xFF
     .short 0 
@@ -1317,7 +1317,7 @@ _72: @ Remobit3
 _73: @ Billy
     hp 100
     element Elec
-    .byte 0x36
+    hp_pos 54
     routine 0x2B
     lzSprite 0x49
     .short 0 
@@ -1335,7 +1335,7 @@ _73: @ Billy
 _74: @ Silly
     hp 150
     element Elec
-    .byte 0x36
+    hp_pos 54
     routine 0x2B
     lzSprite 0x49
     .short 0 
@@ -1353,7 +1353,7 @@ _74: @ Silly
 _75: @ Killy
     hp 200
     element Elec
-    .byte 0x36
+    hp_pos 54
     routine 0x2B
     lzSprite 0x49
     .short 0 
@@ -1371,7 +1371,7 @@ _75: @ Killy
 _76: @ Prog1
     hp 150
     element Elec
-    .byte 0x36
+    hp_pos 54
     routine 0x2A
     lzSprite 0x4A
     .short 0 
@@ -1389,7 +1389,7 @@ _76: @ Prog1
 _77: @ Prog2
     hp 200
     element Elec
-    .byte 0x36
+    hp_pos 54
     routine 0x2A
     lzSprite 0x4A
     .short 0 
@@ -1407,7 +1407,7 @@ _77: @ Prog2
 _78: @ Prog3
     hp 250
     element Elec
-    .byte 0x36
+    hp_pos 54
     routine 0x2A
     lzSprite 0x4A
     .short 0 
@@ -1425,7 +1425,7 @@ _78: @ Prog3
 _79: @ MegalianA
     hp 200
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x2C
     lzSprite 0x53
     .short 0 
@@ -1443,7 +1443,7 @@ _79: @ MegalianA
 _80: @ MegalianH
     hp 250
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x2C
     lzSprite 0x53
     .short 0 
@@ -1461,7 +1461,7 @@ _80: @ MegalianH
 _81: @ MegalianW
     hp 300
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x2C
     lzSprite 0x53
     .short 0 
@@ -1479,7 +1479,7 @@ _81: @ MegalianW
 _82: @ CanDevil1
     hp 160
     element Fire
-    .byte 0x36
+    hp_pos 54
     routine 0x35
     lzSprite 0x60
     .short 0 
@@ -1497,7 +1497,7 @@ _82: @ CanDevil1
 _83: @ CanDevil2
     hp 200
     element Fire
-    .byte 0x36
+    hp_pos 54
     routine 0x35
     lzSprite 0x60
     .short 0 
@@ -1515,7 +1515,7 @@ _83: @ CanDevil2
 _84: @ CanDevil3
     hp 300
     element Fire
-    .byte 0x36
+    hp_pos 54
     routine 0x35
     lzSprite 0x60
     .short 0 
@@ -1533,7 +1533,7 @@ _84: @ CanDevil3
 _85: @ BigSnake1
     hp 200
     element Wood
-    .byte 0x2C
+    hp_pos 44
     routine 0x43
     lzSprite 0x64
     .short 0 
@@ -1551,7 +1551,7 @@ _85: @ BigSnake1
 _86: @ BigSnake2
     hp 250
     element Elec
-    .byte 0x2C
+    hp_pos 44
     routine 0x43
     lzSprite 0x64
     .short 0 
@@ -1569,7 +1569,7 @@ _86: @ BigSnake2
 _87: @ BigSnake3
     hp 300
     element Fire
-    .byte 0x2C
+    hp_pos 44
     routine 0x43
     lzSprite 0x64
     .short 0 
@@ -1587,7 +1587,7 @@ _87: @ BigSnake3
 _88: @ Mosqurito1
     hp 200
     element None
-    .byte 0x48
+    hp_pos 72
     routine 0x37
     lzSprite 0x69
     .short 0 
@@ -1605,7 +1605,7 @@ _88: @ Mosqurito1
 _89: @ Mosqurito2
     hp 200
     element None
-    .byte 0x48
+    hp_pos 72
     routine 0x37
     lzSprite 0x69
     .short 0 
@@ -1623,7 +1623,7 @@ _89: @ Mosqurito2
 _90: @ Mosqurito3
     hp 200
     element None
-    .byte 0x48
+    hp_pos 72
     routine 0x37
     lzSprite 0x69
     .short 0 
@@ -1641,7 +1641,7 @@ _90: @ Mosqurito3
 _91: @ Poitton1
     hp 100
     element Wood
-    .byte 0x36
+    hp_pos 54
     routine 0x41
     lzSprite 0x67
     .short 0 
@@ -1659,7 +1659,7 @@ _91: @ Poitton1
 _92: @ Poitton2
     hp 250
     element Wood
-    .byte 0x36
+    hp_pos 54
     routine 0x41
     lzSprite 0x67
     .short 0 
@@ -1677,7 +1677,7 @@ _92: @ Poitton2
 _93: @ Poitton3
     hp 300
     element Wood
-    .byte 0x36
+    hp_pos 54
     routine 0x41
     lzSprite 0x67
     .short 0 
@@ -1695,7 +1695,7 @@ _93: @ Poitton3
 _94: @ Mole
     hp 10
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x52
     lzSprite 0x65
     .short 0 
@@ -1713,7 +1713,7 @@ _94: @ Mole
 _95: @ 0x5F
     hp 100
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xE
     lzSprite 0xFF
     .short 0 
@@ -1731,7 +1731,7 @@ _95: @ 0x5F
 _96: @ GutsManV1
     hp 200
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0xC
     lzSprite 0xFF
     .short 0 
@@ -1749,7 +1749,7 @@ _96: @ GutsManV1
 _97: @ GutsManV2
     hp 400
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0xC
     lzSprite 0xFF
     .short 0 
@@ -1767,7 +1767,7 @@ _97: @ GutsManV2
 _98: @ GutsManV3
     hp 600
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0xC
     lzSprite 0xFF
     .short 0 
@@ -1785,7 +1785,7 @@ _98: @ GutsManV3
 _99: @ ProtoManV1
     hp 500
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x26
     lzSprite 0xFF
     .short 0 
@@ -1803,7 +1803,7 @@ _99: @ ProtoManV1
 _100: @ ProtoManV2
     hp 600
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x26
     lzSprite 0xFF
     .short 0 
@@ -1821,7 +1821,7 @@ _100: @ ProtoManV2
 _101: @ ProtoManV3
     hp 700
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x26
     lzSprite 0xFF
     .short 0 
@@ -1839,7 +1839,7 @@ _101: @ ProtoManV3
 _102: @ WoodManV1
     hp 500
     element Wood
-    .byte 0x14
+    hp_pos 20
     routine 0x1
     lzSprite 0xFF
     .short 0 
@@ -1857,7 +1857,7 @@ _102: @ WoodManV1
 _103: @ WoodManV2
     hp 600
     element Wood
-    .byte 0x14
+    hp_pos 20
     routine 0x1
     lzSprite 0xFF
     .short 0 
@@ -1875,7 +1875,7 @@ _103: @ WoodManV2
 _104: @ WoodManV3
     hp 700
     element Wood
-    .byte 0x14
+    hp_pos 20
     routine 0x1
     lzSprite 0xFF
     .short 0 
@@ -1893,7 +1893,7 @@ _104: @ WoodManV3
 _105: @ FireManV1
     hp 300
     element Fire
-    .byte 0x0
+    hp_pos 0
     routine 0x3
     lzSprite 0xFF
     .short 0 
@@ -1911,7 +1911,7 @@ _105: @ FireManV1
 _106: @ FireManV2
     hp 400
     element Fire
-    .byte 0x0
+    hp_pos 0
     routine 0x3
     lzSprite 0xFF
     .short 0 
@@ -1929,7 +1929,7 @@ _106: @ FireManV2
 _107: @ FireManV3
     hp 500
     element Fire
-    .byte 0x0
+    hp_pos 0
     routine 0x3
     lzSprite 0xFF
     .short 0 
@@ -1947,7 +1947,7 @@ _107: @ FireManV3
 _108: @ NumberManV1
     hp 500
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0xF
     lzSprite 0xFF
     .short 0 
@@ -1965,7 +1965,7 @@ _108: @ NumberManV1
 _109: @ NumberManV2
     hp 600
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0xF
     lzSprite 0xFF
     .short 0 
@@ -1983,7 +1983,7 @@ _109: @ NumberManV2
 _110: @ NumberManV3
     hp 700
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0xF
     lzSprite 0xFF
     .short 0 
@@ -2001,7 +2001,7 @@ _110: @ NumberManV3
 _111: @ StoneManV1
     hp 600
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x15
     lzSprite 0xFF
     .short 0 
@@ -2019,7 +2019,7 @@ _111: @ StoneManV1
 _112: @ StoneManV2
     hp 700
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x15
     lzSprite 0xFF
     .short 0 
@@ -2037,7 +2037,7 @@ _112: @ StoneManV2
 _113: @ StoneManV3
     hp 800
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0x15
     lzSprite 0xFF
     .short 0 
@@ -2055,7 +2055,7 @@ _113: @ StoneManV3
 _114: @ IceManV1
     hp 500
     element Water
-    .byte 0x30
+    hp_pos 48
     routine 0x1B
     lzSprite 0xFF
     .short 0 
@@ -2073,7 +2073,7 @@ _114: @ IceManV1
 _115: @ IceManV2
     hp 600
     element Water
-    .byte 0x30
+    hp_pos 48
     routine 0x1B
     lzSprite 0xFF
     .short 0 
@@ -2091,7 +2091,7 @@ _115: @ IceManV2
 _116: @ IceManV3
     hp 700
     element Water
-    .byte 0x30
+    hp_pos 48
     routine 0x1B
     lzSprite 0xFF
     .short 0 
@@ -2109,7 +2109,7 @@ _116: @ IceManV3
 _117: @ SkullManV1
     hp 600
     element None
-    .byte 0x40
+    hp_pos 64
     routine 0x22
     lzSprite 0xFF
     .short 0 
@@ -2127,7 +2127,7 @@ _117: @ SkullManV1
 _118: @ SkullManV2
     hp 700
     element None
-    .byte 0x40
+    hp_pos 64
     routine 0x22
     lzSprite 0xFF
     .short 0 
@@ -2145,7 +2145,7 @@ _118: @ SkullManV2
 _119: @ SkullManV3
     hp 800
     element None
-    .byte 0x40
+    hp_pos 64
     routine 0x22
     lzSprite 0xFF
     .short 0 
@@ -2163,7 +2163,7 @@ _119: @ SkullManV3
 _120: @ ColorManV1
     hp 600
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x23
     lzSprite 0xFF
     .short 0 
@@ -2181,7 +2181,7 @@ _120: @ ColorManV1
 _121: @ ColorManV2
     hp 700
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x23
     lzSprite 0xFF
     .short 0 
@@ -2199,7 +2199,7 @@ _121: @ ColorManV2
 _122: @ ColorManV3
     hp 800
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x23
     lzSprite 0xFF
     .short 0 
@@ -2217,7 +2217,7 @@ _122: @ ColorManV3
 _123: @ BombManV1
     hp 800
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x2E
     lzSprite 0xFF
     .short 0 
@@ -2235,7 +2235,7 @@ _123: @ BombManV1
 _124: @ BombManV2
     hp 900
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x2E
     lzSprite 0xFF
     .short 0 
@@ -2253,7 +2253,7 @@ _124: @ BombManV2
 _125: @ BombManV3
     hp 1000
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x2E
     lzSprite 0xFF
     .short 0 
@@ -2271,7 +2271,7 @@ _125: @ BombManV3
 _126: @ SharkManV1
     hp 700
     element Water
-    .byte 0x40
+    hp_pos 64
     routine 0x29
     lzSprite 0xFF
     .short 0 
@@ -2289,7 +2289,7 @@ _126: @ SharkManV1
 _127: @ SharkManV2
     hp 800
     element Water
-    .byte 0x40
+    hp_pos 64
     routine 0x29
     lzSprite 0xFF
     .short 0 
@@ -2307,7 +2307,7 @@ _127: @ SharkManV2
 _128: @ SharkManV3
     hp 900
     element Water
-    .byte 0x40
+    hp_pos 64
     routine 0x29
     lzSprite 0xFF
     .short 0 
@@ -2325,7 +2325,7 @@ _128: @ SharkManV3
 _129: @ ElecManV1
     hp 600
     element Elec
-    .byte 0x4E
+    hp_pos 78
     routine 0x25
     lzSprite 0xFF
     .short 0 
@@ -2343,7 +2343,7 @@ _129: @ ElecManV1
 _130: @ ElecManV2
     hp 700
     element Elec
-    .byte 0x4E
+    hp_pos 78
     routine 0x25
     lzSprite 0xFF
     .short 0 
@@ -2361,7 +2361,7 @@ _130: @ ElecManV2
 _131: @ ElecManV3
     hp 800
     element Elec
-    .byte 0x4E
+    hp_pos 78
     routine 0x25
     lzSprite 0xFF
     .short 0 
@@ -2379,7 +2379,7 @@ _131: @ ElecManV3
 _132: @ PharaohManV1
     hp 800
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x40
     lzSprite 0xFF
     .short 0 
@@ -2397,7 +2397,7 @@ _132: @ PharaohManV1
 _133: @ PharaohManV2
     hp 900
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x40
     lzSprite 0xFF
     .short 0 
@@ -2415,7 +2415,7 @@ _133: @ PharaohManV2
 _134: @ PharaohManV3
     hp 1000
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x40
     lzSprite 0xFF
     .short 0 
@@ -2433,7 +2433,7 @@ _134: @ PharaohManV3
 _135: @ ShadowManV1
     hp 800
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x42
     lzSprite 0xFF
     .short 0 
@@ -2451,7 +2451,7 @@ _135: @ ShadowManV1
 _136: @ ShadowManV2
     hp 900
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x42
     lzSprite 0xFF
     .short 0 
@@ -2469,7 +2469,7 @@ _136: @ ShadowManV2
 _137: @ ShadowManV3
     hp 1000
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x42
     lzSprite 0xFF
     .short 0 
@@ -2487,7 +2487,7 @@ _137: @ ShadowManV3
 _138: @ 0x8A
     hp 100
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xE
     lzSprite 0xFF
     .short 0 
@@ -2505,7 +2505,7 @@ _138: @ 0x8A
 _139: @ 0x8B
     hp 100
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xE
     lzSprite 0xFF
     .short 0 
@@ -2523,7 +2523,7 @@ _139: @ 0x8B
 _140: @ 0x8C
     hp 100
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xE
     lzSprite 0xFF
     .short 0 
@@ -2541,7 +2541,7 @@ _140: @ 0x8C
 _141: @ MagicManV1
     hp 700
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x3F
     lzSprite 0xFF
     .short 0 
@@ -2559,7 +2559,7 @@ _141: @ MagicManV1
 _142: @ MagicManV2
     hp 800
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x3F
     lzSprite 0xFF
     .short 0 
@@ -2577,7 +2577,7 @@ _142: @ MagicManV2
 _143: @ MagicManV3
     hp 900
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x3F
     lzSprite 0xFF
     .short 0 
@@ -2595,7 +2595,7 @@ _143: @ MagicManV3
 _144: @ Bass
     hp 1000
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x46
     lzSprite 0xFF
     .short 0 
@@ -2613,7 +2613,7 @@ _144: @ Bass
 _145: @ 0x91
     hp 100
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xE
     lzSprite 0xFF
     .short 0 
@@ -2631,7 +2631,7 @@ _145: @ 0x91
 _146: @ 0x92
     hp 100
     element None
-    .byte 0x36
+    hp_pos 54
     routine 0xE
     lzSprite 0xFF
     .short 0 
@@ -2649,7 +2649,7 @@ _146: @ 0x92
 _147: @ LifeVirus
     hp 1000
     element None
-    .byte 0x0
+    hp_pos 0
     routine 0x39
     lzSprite 0x68
     .short 0 
@@ -2667,7 +2667,7 @@ _147: @ LifeVirus
 _148: @ BlueDummyV1
     hp 100
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x24
     lzSprite 0xFF
     .short 0 
@@ -2685,7 +2685,7 @@ _148: @ BlueDummyV1
 _149: @ RedDummyV1
     hp 100
     element Fire
-    .byte 0x36
+    hp_pos 54
     routine 0x24
     lzSprite 0xFF
     .short 0 
@@ -2703,7 +2703,7 @@ _149: @ RedDummyV1
 _150: @ BlueDummyV2
     hp 100
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x24
     lzSprite 0xFF
     .short 0 
@@ -2721,7 +2721,7 @@ _150: @ BlueDummyV2
 _151: @ RedDummyV2
     hp 100
     element Fire
-    .byte 0x36
+    hp_pos 54
     routine 0x24
     lzSprite 0xFF
     .short 0 
@@ -2739,7 +2739,7 @@ _151: @ RedDummyV2
 _152: @ BlueDummyV3
     hp 100
     element Water
-    .byte 0x36
+    hp_pos 54
     routine 0x24
     lzSprite 0xFF
     .short 0 
@@ -2757,7 +2757,7 @@ _152: @ BlueDummyV3
 _153: @ RedDummyV3
     hp 100
     element Fire
-    .byte 0x36
+    hp_pos 54
     routine 0x24
     lzSprite 0xFF
     .short 0 
@@ -2775,7 +2775,7 @@ _153: @ RedDummyV3
 _154: @ InvElecMan
     hp 600
     element Elec
-    .byte 0x4E
+    hp_pos 78
     routine 0x25
     lzSprite 0xFF
     .short 0 
@@ -2793,7 +2793,7 @@ _154: @ InvElecMan
 _155: @ SharkManFinV1
     hp 0
     element Water
-    .byte 0x40
+    hp_pos 64
     routine 0x29
     lzSprite 0xFF
     .short 0 
@@ -2811,7 +2811,7 @@ _155: @ SharkManFinV1
 _156: @ SharkManFinV2
     hp 0
     element Water
-    .byte 0x40
+    hp_pos 64
     routine 0x29
     lzSprite 0xFF
     .short 0 
@@ -2829,7 +2829,7 @@ _156: @ SharkManFinV2
 _157: @ SharkManFinV3_0
     hp 0
     element Water
-    .byte 0x40
+    hp_pos 64
     routine 0x29
     lzSprite 0xFF
     .short 0 
@@ -2847,7 +2847,7 @@ _157: @ SharkManFinV3_0
 _158: @ SharkManFinV3_1
     hp 0
     element Water
-    .byte 0x40
+    hp_pos 64
     routine 0x29
     lzSprite 0xFF
     .short 0 
@@ -2865,7 +2865,7 @@ _158: @ SharkManFinV3_1
 _159: @ SharkManFinV3_2
     hp 0
     element Water
-    .byte 0x40
+    hp_pos 64
     routine 0x29
     lzSprite 0xFF
     .short 0 
@@ -2883,7 +2883,7 @@ _159: @ SharkManFinV3_2
 _160: @ SharkManFinV3_3
     hp 0
     element Water
-    .byte 0x40
+    hp_pos 64
     routine 0x29
     lzSprite 0xFF
     .short 0 

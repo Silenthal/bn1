@@ -133,6 +133,8 @@ Oam_SpriteRotateFlipPos:
     @ With a as an angle going counterclockwise:
     @ | x0 |  x  | Sx *  cos(a)  Sy * sin(a) |  =  | x1 |
     @ | y0 |     | Sx * -sin(a)  Sy * cos(a) |     | y1 |
+    @ With this formula, the rotation specified by a is clockwise, and the
+    @ operation performs scaling first, then rotation
     ldrb       r4,[r5,#Sprite_m_u3_affineRelated_Hi]
     mov        r3,#0x3e
     and        r4,r3

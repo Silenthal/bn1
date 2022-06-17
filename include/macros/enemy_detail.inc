@@ -47,6 +47,10 @@
     .byte EL_None
     .endm
 
+    .macro hp_pos ht
+    .byte \ht & 0xFF
+    .endm
+
     .macro family main, sub
     .byte \main * 4, \sub
     .endm

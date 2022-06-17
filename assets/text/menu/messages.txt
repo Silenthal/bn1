@@ -619,13 +619,13 @@ section_end()
 
 # 0x8C @ 0x7A7F09
 section_start(0x8C)
-text("{lpads0 2} い {lpads1 1} う {lpads2 2}")
+text_bold("{lpads0 2} × {lpads1 1} = {lpads2 2}")
 end()
 section_end()
 
 # 0x8D @ 0x7A7F1D
 section_start(0x8D)
-text("{rpads0 1}{rpads1 1}え{rpads2 1}{rpads3 1}")
+text_bold("{rpads0 1}{rpads1 1}:{rpads2 1}{rpads3 1}")
 end()
 section_end()
 

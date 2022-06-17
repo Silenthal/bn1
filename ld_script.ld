@@ -70,7 +70,7 @@ SECTIONS {
 		gText                    = 0x6350;
 		gTextOptionFlags         = 0x63E0;
 		gFrameCounter            = 0x64A0;
-		eMainState0x68           = 0x65D0;
+		gTextUi           		 = 0x65D0;
 		gInput                   = 0x65F0;
 		gShop                    = 0x6610;
 		eMainState0x18           = 0x6CB0;

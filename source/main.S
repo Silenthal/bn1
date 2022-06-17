@@ -271,7 +271,7 @@ MainState:
     .word iwScreens
     .word eMainState0x60
     .word eMainState0x64
-    .word eMainState0x68
+    .word gTextUi
     .word eMainState0x6C
     .word gShop
     .word gMenu
