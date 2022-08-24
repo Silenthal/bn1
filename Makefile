@@ -137,6 +137,9 @@ $(S_OBJECTS): %.o: %.S
 images/ui/charset.4bpp: %.4bpp: %.png
 	$(MAKE_TILES) -mh 2 $@ $<
 
+images/ui/charset_bold.4bpp: %.4bpp: %.png
+	$(MAKE_TILES) -mh 2 $@ $<
+
 images/battlechip/results/regular.4bpp: %.4bpp: %.png
 	$(MAKE_TILES) -n 115 $@ $<
 

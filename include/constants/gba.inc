@@ -1,13 +1,14 @@
     .set FALSE, 0
     .set TRUE, 1
 
-    .set EWRAM_START, 0x2000000
-    .set EWRAM_END,   EWRAM_START + 0x40000
-    .set IWRAM_START, 0x3000000
-    .set IWRAM_END,   IWRAM_START + 0x8000
-    .set OAM_BEGIN,   0x7000000
-    .set OAM_END,     OAM_BEGIN + 0x400
-    .set SRAM_START,  0xE000000
+    .set EWRAM_START,      0x2000000
+    .set EWRAM_END,        EWRAM_START + 0x40000
+    .set IWRAM_START,      0x3000000
+    .set IWRAM_END,        IWRAM_START + 0x8000
+    .set OAM_BEGIN,        0x7000000
+    .set OAM_END,          OAM_BEGIN + 0x400
+    .set OAM_OBJECT_LIMIT, 0x80
+    .set SRAM_START,       0xE000000
 
     .set IRQ_STACK_TOP, IWRAM_END - 0x60
     .set FIQ_STACK_TOP, IWRAM_END - 0x4

@@ -339,6 +339,7 @@ PTR_objWidth_03006fec:                  far_label objWidth
 PTR_objHeight_03006ff0:                 far_label objHeight
 
 far_thumb_func_start Oam_TransferData
+@@ Transfers object data to OAM memory.
 Oam_TransferData:
     push       { lr }
     ldr        r0,ptrOamStart
@@ -346,49 +347,48 @@ Oam_TransferData:
     ldr        r3,ptrOamEnd
     ldr        r6,ptrSpriteContainerListStart
     @ Go through sprite list, adding sprites to OAM
-LAB_03006ffe:
-    ldr        r1,[r6,#0x0]
-    ldr        r4,[r6,#0x4]
+.read_sprite_list_header:
+    ldr        r1,[r6,#SpriteList_header]
+    ldr        r4,[r6,#SpriteList_length]
     add        r4,r4,r1
     @ r1 = address of start of list
     @ r4 = address of end of list
-LAB_03007004:
-    @ Going backwards, obtain the index
-    @ Skip index if equal to -1
+.get_next_spritelist_entry:
+    @ Going backwards, obtain the next available object entry
     sub        r4,#0x1
     cmp        r1,r4
-    bgt        LAB_0300702c
+    bgt        .move_to_next_sprite_list
     ldrb       r5,[r4,#0x0]
     cmp        r5,#0xff
-    beq        LAB_03007004
+    beq        .get_next_spritelist_entry
     @ r0 = the current object
-LAB_03007010:
+.copy_current_object:
     @ Skip section if current object address is past OAM end
     cmp        r0,r3
-    bge        LAB_03007032
-    @ Using the index gotten earlier, index into the iwOamAttributeList
+    bge        .update_object_count
+    @ Using the index gotten earlier, index into the object attribute list to get details on the current object
     lsl        r5,r5,#0x3
     ldr        r7,PTR_iwOamAttributeList_030070c0
     add        r7,r7,r5
-    @ Store the xyDetails and tileDetails at the index in iwOamAttributeList
+    @ Copy xyDetails and tileDetails from the object to the location in OAM
     ldr        r5,[r7,#OamAttributeListNode_m_xyDetails]
     str        r5,[r0,#ObjectControl_m_xyDetails]
     ldrh       r5,[r7,#OamAttributeListNode_m_tileDetail]
     strh       r5,[r0,#ObjectControl_m_tileDetails]
-    @ Move to the next OAM object
+    @ Move to the next object index
     add        r0,#0x8
     ldrb       r5,[r7,#OamAttributeListNode_m_nextIndex]
     @ If the next index is 0xFF, go to the next entry in the sprite container list
     @ Otherwise, continue this block with the new index
     cmp        r5,#0xff
-    beq        LAB_03007004
-    b          LAB_03007010
-LAB_0300702c:
+    beq        .get_next_spritelist_entry
+    b          .copy_current_object
+.move_to_next_sprite_list:
     @ Move to the next list in the collection
     add        r6,#0x8
     cmp        r6,r2
-    blt        LAB_03006ffe
-LAB_03007032:
+    blt        .read_sprite_list_header
+.update_object_count:
     @ Store available object slots
     sub        r2,r3,r0
     lsr        r2,r2,#0x3
@@ -398,22 +398,22 @@ LAB_03007032:
     mov        r2,#0x0
     mov        r4,#0xc
     lsl        r4,r4,#0x8
-LAB_03007040:
+.clear_tail_oam:
     cmp        r0,r3
-    bge        LAB_0300704c
+    bge        .load_affine_data
     str        r2,[r0,#0x0]
     strh       r4,[r0,#0x4]
     add        r0,#0x8
-    b          LAB_03007040
+    b          .clear_tail_oam
     @ Transfer affine data
-LAB_0300704c:
+.load_affine_data:
     ldr        r0,PTR_gSpriteAffineDataList_030070c8
     ldr        r1,ptrOamStart
     mov        r2,#0
     mov        r3,#32
-LAB_03007054:
+.load_affine_data_main_loop:
     ldrh       r4,[r0,#ObjectAffineAttributes_m_pa]
-    strh       r4,[r1,#ObjectControl_m_affineDetails]
+    strh       r4,[r1,#ObjectControl_m_affineDetails + 0x8 * 0]
     ldrh       r4,[r0,#ObjectAffineAttributes_m_pb]
     strh       r4,[r1,#ObjectControl_m_affineDetails + 0x8 * 1]
     ldrh       r4,[r0,#ObjectAffineAttributes_m_pc]
@@ -424,13 +424,13 @@ LAB_03007054:
     add        r1,#0x20
     add        r2,#0x1
     cmp        r2,r3
-    blt        LAB_03007054
-    @ Clear all sprite lists
+    blt        .load_affine_data_main_loop
+    @ Initialize all sprite lists
     mov        r2,#0x0
     mvn        r2,r2
     ldr        r3,PTR_SpriteList_ARRAY_030070cc
     mov        r4,#0x4
-LAB_03007076:
+.clear_sprite_lists:
     ldr        r0,[r3,#0x0]
     ldr        r1,[r3,#0x4]
     ldr        r7,PTR_memset_32_1_030070d0
@@ -439,7 +439,7 @@ LAB_03007076:
     add        r3,#0x8
     sub        r4,#0x1
     cmp        r4,#0x0
-    bgt        LAB_03007076
+    bgt        .clear_sprite_lists
     ldr        r0,PTR_gOamAttributeCount_030070d4
     mov        r1,#0x0
     str        r1,[r0,#0x0]

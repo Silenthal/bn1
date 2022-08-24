@@ -457,6 +457,78 @@ charmap_E5 = {
 }
 
 
+charmap_bold = {
+    " ": 0x00,
+    "0": 0x01,
+    "1": 0x02,
+    "2": 0x03,
+    "3": 0x04,
+    "4": 0x05,
+    "5": 0x06,
+    "6": 0x07,
+    "7": 0x08,
+    "8": 0x09,
+    "9": 0x0A,
+    "ー": 0x5E,
+    "A": 0x5F,
+    "B": 0x60,
+    "C": 0x61,
+    "D": 0x62,
+    "E": 0x63,
+    "F": 0x64,
+    "G": 0x65,
+    "H": 0x66,
+    "I": 0x67,
+    "J": 0x68,
+    "K": 0x69,
+    "L": 0x6A,
+    "M": 0x6B,
+    "N": 0x6C,
+    "O": 0x6D,
+    "P": 0x6E,
+    "Q": 0x6F,
+    "R": 0x70,
+    "S": 0x71,
+    "T": 0x72,
+    "U": 0x73,
+    "V": 0x74,
+    "W": 0x75,
+    "X": 0x76,
+    "Y": 0x77,
+    "Z": 0x78,
+    "a": 0x79,
+    "b": 0x7A,
+    "c": 0x7B,
+    "d": 0x7C,
+    "e": 0x7D,
+    "f": 0x7E,
+    "g": 0x7F,
+    "h": 0x80,
+    "i": 0x81,
+    "j": 0x82,
+    "k": 0x83,
+    "l": 0x84,
+    "m": 0x85,
+    "n": 0x86,
+    "o": 0x87,
+    "p": 0x88,
+    "q": 0x89,
+    "r": 0x8A,
+    "s": 0x8B,
+    "t": 0x8C,
+    "u": 0x8D,
+    "v": 0x8E,
+    "w": 0x8F,
+    "x": 0x90,
+    "y": 0x91,
+    "z": 0x92,
+    ".": 0x93,
+    "×": 0x94,
+    "=": 0x95,
+    ":": 0x96
+}
+
+
 key_item_map = {
     "PET": 0x00,
     "IceBlock": 0x01,
@@ -1607,8 +1679,8 @@ def parse_command(reader: Reader):
             exit(f"Unrecognized command {coms[0]}")
 
 
-def text(*txtList):
-    global curScript, charmap_basic, charmap_E5
+def text_base(useBold: bool, *txtList):
+    global curScript, charmap_bold, charmap_basic, charmap_E5
     for txt in txtList:
         if txt and len(txt) > 0:
             reader = Reader(txt)
@@ -1623,13 +1695,23 @@ def text(*txtList):
                     else:
                         exit(f"Unrecognized command {char}")
                 else:
-                    if char in charmap_basic:
+                    if useBold and char in charmap_bold:
+                        curScript.emitByte(charmap_bold[char])
+                    elif not useBold and char in charmap_basic:
                         curScript.emitByte(charmap_basic[char])
                     elif char in charmap_E5:
                         curScript.emitByte(0xE5)
                         curScript.emitByte(charmap_E5[char])
                     else:
                         curScript.emitByte(char)
+
+
+def text(*txtList):
+    text_base(False, *txtList)
+
+
+def text_bold(*txtList):
+    text_base(True, *txtList)
 
 
 #endregion

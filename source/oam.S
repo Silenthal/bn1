@@ -50,20 +50,20 @@ Oam_AddObject:
     @ Check if the max amount of objects have been added
     ldr        r5,PTR_gOamAttributeCount_08010be8
     ldr        r6,[r5,#0x0]
-    cmp        r6,#0x80
-    bge        LAB_08010ae4
+    cmp        r6,#OAM_OBJECT_LIMIT
+    bge        .oam_add_object_end
     @ Use r2 to select the list
     ldr        r4,PTR_iwSpriteContainerList_08010bec
     lsl        r7,r2,#0x3
     add        r4,r4,r7
     @ Check that the list offset (r3) is valid to the specified list
-    ldr        r7,[r4,#0x4]
+    ldr        r7,[r4,#SpriteList_length]
     cmp        r3,r7
-    bge        LAB_08010ae4
+    bge        .oam_add_object_end
     cmp        r3,#0x0
-    blt        LAB_08010ae4
+    blt        .oam_add_object_end
     @ Index into the selected sprite list...
-    ldr        r4,[r4,#0x0]
+    ldr        r4,[r4,#SpriteList_header]
     add        r4,r4,r3
     @ Increment the object count...
     add        r7,r6,#0x1
@@ -84,7 +84,7 @@ Oam_AddObject:
     strb       r7,[r5,#OamAttributeListNode_m_nextIndex]
     mov        r0,#0xff
     strb       r0,[r5,#OamAttributeListNode_m_unused]
-LAB_08010ae4:
+.oam_add_object_end:
     mov        pc,lr
 thumb_func_end Oam_AddObject
 

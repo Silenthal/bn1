@@ -21,6 +21,7 @@ enemy_detail        0x9DC4
 flag                0x102DC
 main_menu           0x10414
 oam                 0x10A5C
+map                 0x11520
 asset_spritelist    0x12690
 text                0x13560
 battle_ui           0x153C8
@@ -44,7 +45,7 @@ oam_far             0x180564
 text_far            0x1808D8
 screen_far          0x180178
 asset_sprite        0x1E0020
-asset_ui            0x6132A8
+asset_ui            0x613268
 asset_portrait      0x61FF88
 asset_chip          0x638634
 asset_battle        0x640E54

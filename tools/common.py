@@ -29,6 +29,10 @@ def get_short(inFile: io.FileIO) -> int:
     return struct.unpack('H', inFile.read(2))[0]
 
 
+def get_sshort(inFile: io.FileIO) -> int:
+    return struct.unpack('h', inFile.read(2))[0]
+
+
 def get_byte(inFile: io.FileIO) -> int:
     return inFile.read(1)[0]
 
@@ -388,7 +392,7 @@ def chip_id(bt: int) -> str:
 
 
 def chip_code(id: int) -> str:
-    return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[id] if id < 26 and id >= 0 else "None"
+    return "ABCDEFGHIJKLMNOPQRSTUVWXYZ*"[id] if id < 27 and id >= 0 else "None"
 
 
 def element(id: int) -> str:
