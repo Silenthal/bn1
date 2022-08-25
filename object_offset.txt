@@ -23,6 +23,7 @@ main_menu           0x10414
 oam                 0x10A5C
 map                 0x11520
 asset_spritelist    0x12690
+asset_bgdata        0x12BF4
 text                0x13560
 battle_ui           0x153C8
 custom_screen       0x158EC

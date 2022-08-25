@@ -8,8 +8,6 @@
     .set InitMapCoverData, 0x8012314
     .set InitMapEventData, 0x80124c0
 
-    .set bgPropDir_Offline, 0x8013308
-    .set bgPropDir_Online, 0x8013320
     .set PTR_08013364, 0x8013364
     .set gDecompDest, 0x2033000
     .set gCurMapBoundaryData, 0x20070e0
