@@ -4,3 +4,4 @@
     .include "macros/utility.inc"
     .include "macros/iwram_code.inc"
     .include "macros/music.inc"
+    .include "macros/npc_ai.inc"

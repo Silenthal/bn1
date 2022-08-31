@@ -11,6 +11,8 @@ bgupdate            0x1BB8
 screen              0x21AC
 sprite              0x2338
 sprite_lz           0x2828
+entity_bounds       0x2B20
+sio                 0x2C4C
 world               0x4130
 fade                0x4B00
 encounter           0x5504
@@ -37,8 +39,10 @@ save                0x1FADC
 game_over           0x1FF64
 chip_trader         0x200D4
 credits             0x21498
+asset_npc_ai        0x28964
 battle_rank         0x7D5B0
 enemy_drop          0x7D80E
+npc                 0x82104
 swi                 0x9DF50
 sound_data          0xA111C
 interrupt_handler   0x180000

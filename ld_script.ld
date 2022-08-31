@@ -33,7 +33,7 @@ SECTIONS {
 		eMainState0x78           = 0x3D0;
 		gBattleChipInventory     = 0x4A0;
 		gEmailIndexes            = 0x1FA0;
-		gOamAttributeCount       = 0x6338;
+		gEntityBoundsList        = 0x3490;
 		gBattle                  = 0x3710;
 		gTextTileBuffer          = 0x37E0;
 		tempBg1Hofs              = 0x46E0;
@@ -67,6 +67,7 @@ SECTIONS {
 		eMainState0x2C           = 0x4BB0;
 		eMainState0x4C           = 0x4BD0;
 		gMenu           		 = 0x62E0;
+		gOamAttributeCount       = 0x6338;
 		gText                    = 0x6350;
 		gTextOptionFlags         = 0x63E0;
 		gFrameCounter            = 0x64A0;
@@ -101,6 +102,7 @@ SECTIONS {
 		eMainState0x28           = 0x70A0;
 		gCredits				 = 0x70D0;
 		eMainState0x60           = 0x74C8;
+		gEntityBoundsListCount   = 0x74D0;
 		eDmaParamListSize        = 0x74D4;
 		gDemo                    = 0x74D8;
 		gDisplaySettings         = 0x7510;
