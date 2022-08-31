@@ -8,9 +8,9 @@ PTR_DAT_08028964:
     .word DAT_08028999
     .word DAT_080289B1
     .word DAT_080289D7
-    .word DAT_080289ec
-    .word DAT_08028a11
-    .word DAT_08028a2b
+    .word DAT_080289EC
+    .word DAT_08028A11
+    .word DAT_08028A2B
     .word NPC_LIST_END
 
 
@@ -57,7 +57,7 @@ DAT_080289D7:
 1:  a_wait 1
     a_jump 1b
 
-DAT_80289EC:
+DAT_080289EC:
     a_init
     a_set_dialog 0x5
     a_set_sprite OSP_Chaud
@@ -72,7 +72,7 @@ DAT_80289EC:
     a_dir d_se, 8, 6
     a_jump 1b
 
-DAT_8028A11:
+DAT_08028A11:
     a_init
     ax_set_flag_64 4
     a_sprite_dir_off
@@ -84,7 +84,7 @@ DAT_8028A11:
 1:  a_wait 1
     a_jump 1b
 
-DAT_8028A2B:
+DAT_08028A2B:
     a_init
     ax_set_flag_64 4
     a_set_dialog 0x4

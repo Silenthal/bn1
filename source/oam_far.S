@@ -7,8 +7,8 @@
 far_thumb_func_start Oam_AddSprite
 Oam_AddSprite:
     push       { lr }
-    strb       r0,[r5,#Sprite_m_indexOamList]
-    ldrb       r0,[r5,#Sprite_m_spriteFlags]
+    strb       r0,[r5,#Sprite_indexOamList]
+    ldrb       r0,[r5,#Sprite_spriteFlags]
     mov        r1,#0x20
     tst        r0,r1
     bne        LAB_03006d76
@@ -18,22 +18,22 @@ Oam_AddSprite:
 LAB_03006d76:
     pop        { pc }
 LAB_03006d78:
-    ldr        r1,[r5,#Sprite_m_curSubFrame]
+    ldr        r1,[r5,#Sprite_curSubFrame]
     ldrb       r2,[r1,#0x0] @ object list index
     lsl        r2,r2,#0x2
-    ldr        r0,[r5,#Sprite_m_curFrame]
+    ldr        r0,[r5,#Sprite_curFrame]
     ldr        r0,[r0,#0xc] @ object list ptr
-    ldr        r1,[r5,#Sprite_m_spriteStart]
+    ldr        r1,[r5,#Sprite_spriteStart]
     add        r1,r1,r0
     ldr        r2,[r1,r2]
     add        r2,r2,r1
-    ldr        r3,[r5,#Sprite_m_i0]
+    ldr        r3,[r5,#Sprite_ix28_mask]
     push       { r3 }
-    ldr        r4,[r5,#Sprite_m_b11]
+    ldr        r4,[r5,#Sprite_ix2c_flag]
     mvn        r4,r4
     and        r3,r4
-    str        r3,[r5,#Sprite_m_i0]
-    ldrb       r0,[r5,#Sprite_m_spriteFlags]
+    str        r3,[r5,#Sprite_ix28_mask]
+    ldrb       r0,[r5,#Sprite_spriteFlags]
     mov        r7,#0xff
     mov        r1,#0x4
     and        r1,r0
@@ -46,17 +46,17 @@ LAB_03006da8:
     ldrb       r3,[r2,#0x0] @ tile number
     cmp        r3,#0xff
     beq        exit
-    ldr        r3,[r5,#Sprite_m_i0]
+    ldr        r3,[r5,#Sprite_ix28_mask]
     lsl        r6,r3,#0x1
-    str        r6,[r5,#Sprite_m_i0]
+    str        r6,[r5,#Sprite_ix28_mask]
     cmp        r3,#0x0
     bge        advanceToNextObj
-    ldr        r6,[r5,#Sprite_m_u2]
+    ldr        r6,[r5,#Sprite_bx10_lo]
     bl         Oam_SpriteRotateFlipPos
     mov        r8,r1
     mov        r9,r0
     add        r3,r6,#0x0
-    mov        r0,#Sprite_m_posX
+    mov        r0,#Sprite_screenX
     ldrsh      r0,[r5,r0]
     add        r0,r8
     mov        r4,#0x10
@@ -91,8 +91,8 @@ LAB_03006dee:
     lsl        r1,r1,#0xe
     orr        r3,r1
     @ tile attributes
-    ldrh       r1,[r5,#Sprite_m_tileAttributes]
-    ldrh       r0,[r5,#Sprite_m_dstTileOffset]
+    ldrh       r1,[r5,#Sprite_tileAttributes]
+    ldrh       r0,[r5,#Sprite_dstTileOffset]
     ldrb       r4,[r2,#0x0]
     add        r4,r4,r0
     orr        r1,r4
@@ -120,7 +120,7 @@ advanceToNextObj:
     b          LAB_03006da8
 exit:
     pop        { r0 }
-    str        r0,[r5,#Sprite_m_i0]
+    str        r0,[r5,#Sprite_ix28_mask]
     pop        { pc }
 thumb_func_end Oam_AddSprite
 
@@ -135,7 +135,7 @@ Oam_SpriteRotateFlipPos:
     @ | y0 |     | Sx * -sin(a)  Sy * cos(a) |     | y1 |
     @ With this formula, the rotation specified by a is clockwise, and the
     @ operation performs scaling first, then rotation
-    ldrb       r4,[r5,#Sprite_m_u3_affineRelated_Hi]
+    ldrb       r4,[r5,#Sprite_bx13_affineRelated_Hi]
     mov        r3,#0x3e
     and        r4,r3
     lsr        r4,r4,#0x1

@@ -1,16 +1,33 @@
 #ifndef MMBN_H
 #define MMBN_H
 
+typedef unsigned char   undefined;
+
 typedef unsigned char    bool;
 typedef unsigned char    byte;
 typedef unsigned int    dword;
+typedef long long    longlong;
 typedef unsigned long long    qword;
 typedef char    sbyte;
 typedef unsigned int    uint;
 typedef unsigned long    ulong;
+typedef unsigned long long    ulonglong;
+typedef unsigned char    undefined1;
+typedef unsigned short    undefined2;
+typedef unsigned int    undefined4;
+typedef unsigned long long    undefined5;
+typedef unsigned long long    undefined8;
 typedef unsigned short    ushort;
 typedef unsigned short    word;
 #define __WORDSIZE 32
+
+typedef short s16;
+
+typedef ushort u16;
+
+typedef ushort uint16_t;
+
+typedef uint uint32_t;
 
 typedef struct _dma_channel _dma_channel, *P_dma_channel;
 
@@ -57,39 +74,432 @@ struct _interruptHandler {
 
 typedef union _ix9 _ix9, *P_ix9;
 
-typedef struct Struct_200A9E0 Struct_200A9E0, *PStruct_200A9E0;
+typedef struct FieldObject FieldObject, *PFieldObject;
 
 typedef enum Flag_A9E0 {
+    F9_None=0,
     F9_1=1,
-    F9_4=2,
-    F9_2=4
+    F9_CanDoDamage=2,
+    F9_4=4,
+    F9_IsBigSquare=8
 } Flag_A9E0;
 
 typedef struct Position Position, *PPosition;
+
+typedef enum PanelFlag_A9E0 {
+    PFA_Ground=8,
+    PFA_EnemyControl=32,
+    PFA_Player=64,
+    PFA_Enemy=128,
+    PFA_Hit=512,
+    PFA_400=1024
+} PanelFlag_A9E0;
 
 struct Position {
     byte m_X;
     byte m_Y;
 };
 
-union _ix9 {
-    struct Struct_200A9E0 * m_ix9_a9E0;
-    byte m_data[4];
-};
-
-struct Struct_200A9E0 {
+struct FieldObject {
     enum Flag_A9E0 m_b0;
     byte m_idNum;
     struct Position m_cellPosCurr;
     struct Position m_cellPosLast;
-    byte m_b4;
-    byte m_routineType;
-    short m_s1_maybeDamage;
+    byte m_element;
+    byte m_routineType; /* Shares routine type with associated entity */
+    short m_damage;
     short pad;
-    int m_i0_panelRelated;
+    enum PanelFlag_A9E0 m_i0_panelRelated;
     int m_idFlag;
-    int m_i2;
+    int m_attackerFlags;
 };
+
+union _ix9 {
+    struct FieldObject * m_ix9_a9E0;
+    byte m_data[4];
+};
+
+typedef struct Actor Actor, *PActor;
+
+typedef struct EntityHeader EntityHeader, *PEntityHeader;
+
+typedef struct PositionXYZ PositionXYZ, *PPositionXYZ;
+
+typedef struct AttackCell AttackCell, *PAttackCell;
+
+typedef struct PlayerBattleState PlayerBattleState, *PPlayerBattleState;
+
+typedef struct BattleSpawnAnimation BattleSpawnAnimation, *PBattleSpawnAnimation;
+
+typedef struct Sprite Sprite, *PSprite;
+
+typedef enum GeneralEntityFlag {
+    GF_None=0,
+    GF_Active=1,
+    GF_CanLoadSprite=2,
+    GF_08_SpriteNotLoaded=8
+} GeneralEntityFlag;
+
+typedef enum EntityTag {
+    EF_None=0,
+    ET_PlayerLocation=128,
+    ET_AttackCell=130,
+    ET_Struct4CD0=131,
+    ET_Actor=145,
+    ET_NPC=148
+} EntityTag;
+
+typedef enum KeyInput {
+    KEY_NONE=0,
+    KEY_A=1,
+    KEY_B=2,
+    KEY_SELECT=4,
+    KEY_START=8,
+    KEY_RIGHT=16,
+    KEY_LEFT=32,
+    KEY_UP=64,
+    KEY_DOWN=128,
+    KEY_R=256,
+    KEY_L=512
+} KeyInput;
+
+typedef enum SpriteFlag {
+    SF_NoMiniAnimation=1,
+    SF_TilesetLoaded=2,
+    SF_4=4,
+    SF_8=8,
+    SF_10=16,
+    SF_20=32
+} SpriteFlag;
+
+typedef enum SpriteAffineFlag {
+    SAF_Enabled=3
+} SpriteAffineFlag;
+
+typedef struct ObjectTileAttributes ObjectTileAttributes, *PObjectTileAttributes;
+
+typedef struct SpriteFrame SpriteFrame, *PSpriteFrame;
+
+typedef struct SpriteSubFrame SpriteSubFrame, *PSpriteSubFrame;
+
+typedef struct SpriteTilesetHeader SpriteTilesetHeader, *PSpriteTilesetHeader;
+
+typedef struct Tile Tile, *PTile;
+
+struct SpriteFrame {
+    int m_tilesetOffset;
+    int m_palettes;
+    int m_subFrames;
+    int m_objectLists;
+    byte m_delay;
+    byte _pad0;
+    byte m_flags;
+    byte _pad1;
+};
+
+struct PlayerBattleState {
+    byte m_invulnerableTime;
+    byte m_chipsUsedCount;
+    byte m_moveCount;
+    byte m_hitsTaken;
+    byte m_bx04;
+    byte m_bx05;
+    byte m_lastChipElement;
+    byte m_bx07;
+    byte m_bx08;
+    byte m_statAttack;
+    byte m_statSpeed;
+    byte m_statCharge;
+    byte m_bx0c;
+    byte m_bx0d;
+    byte m_bx0e;
+    byte armor;
+    short m_busterChargeLevel;
+    short m_busterChargeDamage;
+    short m_busterChargeDelay;
+    short m_sx16;
+    short m_lastChipDamage;
+    short m_sx1a;
+    short m_sx1c;
+    enum KeyInput m_curKeyState;
+    enum KeyInput m_toggleKeyState;
+    short m_unk22;
+    enum KeyInput m_lastKeyState;
+    ushort hpCurrent;
+    ushort hpMax;
+    short m_damageTaken;
+    short m_sx2c;
+    short m_sx2e;
+    short m_sx30;
+    int field33_0x34;
+    int field34_0x38;
+    int field35_0x3c;
+    int field36_0x40;
+    struct FieldObject * m_ptrA9E0_1;
+    struct FieldObject * m_ptrA9E0_2;
+    byte field39_0x4c[8];
+    int field40_0x54;
+    int field41_0x58;
+    int m_ix5c;
+    int field43_0x60;
+    int field44_0x64;
+    short field45_0x68;
+    byte m_battleHandIndexList[6];
+};
+
+struct SpriteSubFrame {
+    byte m_objectListIndex;
+    byte m_delay;
+    byte m_flag;
+};
+
+struct EntityHeader {
+    enum GeneralEntityFlag entityFlags;
+    byte routineType;
+    enum EntityTag tag;
+    byte listIndex;
+};
+
+struct ObjectTileAttributes {
+    ushort index:10;
+    ushort priority:2;
+    ushort paletteBank:4;
+};
+
+struct Sprite {
+    byte indexFrame;
+    byte indexSubFrame;
+    byte frameDelay;
+    byte frameFlags;
+    enum SpriteFlag spriteFlags;
+    byte srcPalIndex;
+    byte palIndexSubFrame;
+    byte indexOamList;
+    short dstTileOffset;
+    short spriteNum;
+    short screenX;
+    byte bx0e_y1;
+    byte bx0f_y2;
+    byte bx10_lo;
+    enum SpriteAffineFlag bx11_flag;
+    byte bx12_affineRelated_Lo;
+    byte bx13_affineRelated_Hi;
+    struct ObjectTileAttributes tileAttributes;
+    short _pad;
+    byte * spriteStart;
+    struct SpriteFrame * curFrame;
+    struct SpriteSubFrame * curSubFrame;
+    struct SpriteTilesetHeader * curTilesetHeader;
+    int ix28_mask;
+    uint ix2c_flag;
+};
+
+struct BattleSpawnAnimation {
+    byte m_state0;
+    byte _pad0;
+    short m_timer0;
+    short s1;
+    short s2;
+};
+
+struct PositionXYZ {
+    int X;
+    int Y;
+    int Z;
+};
+
+struct Actor {
+    struct EntityHeader m_header;
+    byte m_virusFamily;
+    byte m_bx05;
+    byte m_bx06;
+    byte m_bx07;
+    byte m_routineState0;
+    byte m_routineState1;
+    byte m_routineState2;
+    byte m_bx0b;
+    byte m_bx0c_familyRelated;
+    byte m_bx0d;
+    byte m_bx0e;
+    byte field12_0xf;
+    byte m_direction;
+    byte m_bx11;
+    byte m_indexNumber;
+    byte m_enemyId;
+    byte m_currFrameIndex;
+    byte m_lastFrameIndex;
+    byte m_owner;
+    byte m_bx17;
+    struct Position m_cellPosCurr;
+    byte m_element;
+    byte m_delayCounter1;
+    ushort m_delayCounter2;
+    short m_routineCounter;
+    ushort m_hpCurrent;
+    ushort m_hpMax;
+    ushort m_damage;
+    short field29_0x26;
+    struct PositionXYZ posCurr;
+    struct PositionXYZ posLast;
+    int field32_0x40;
+    int m_ix44;
+    int m_ix48;
+    int m_ix4c;
+    struct PositionXYZ m_px50;
+    struct AttackCell * m_ix5c;
+    struct FieldObject * m_fieldObj_0;
+    struct FieldObject * m_fieldObj_1;
+    struct FieldObject * m_fieldObj_2;
+    struct FieldObject * m_fieldObj_3;
+    struct FieldObject * m_fieldObj_4;
+    struct PlayerBattleState * m_ix74;
+    int m_ix78;
+    int field45_0x7c;
+    struct BattleSpawnAnimation m_appearState;
+    int field47_0x88;
+    int field48_0x8c;
+    struct Sprite m_sprite;
+};
+
+struct Tile {
+    byte data[32];
+};
+
+struct AttackCell {
+    struct EntityHeader m_header;
+    byte m_bx04;
+    byte field2_0x5;
+    byte field3_0x6;
+    byte field4_0x7;
+    byte m_bx08_state0;
+    byte m_stateX;
+    byte field7_0xa;
+    byte field8_0xb;
+    int field9_0xc;
+    int field10_0x10;
+    byte m_currFrameIndex;
+    byte m_lastFrameIndex;
+    byte m_owner;
+    byte m_bx17;
+    struct Position m_cellPosCurr;
+    byte m_element;
+    byte field17_0x1b;
+    short m_sx1c;
+    short m_sx1e;
+    short m_hpCurrent;
+    short m_hpMax;
+    ushort m_damage;
+    ushort field23_0x26;
+    int m_spriteX;
+    int m_spriteY;
+    int m_hpPositionOffset;
+    byte field27_0x34[16];
+    int m_nextAttackOffset;
+    byte field29_0x48[4];
+    int field30_0x4c;
+    byte field31_0x50[16];
+    void * m_parentEntity;
+    struct FieldObject * m_i20_possibleFieldObject;
+    struct FieldObject * m_i21_attackFieldObject;
+    int field35_0x6c;
+    int field36_0x70;
+    int field37_0x74;
+    int field38_0x78;
+    int field39_0x7c;
+    struct Sprite m_sprite;
+};
+
+struct SpriteTilesetHeader {
+    int m_tilesetSize;
+    struct Tile m_tiles;
+};
+
+typedef struct ActorPlayer ActorPlayer, *PActorPlayer;
+
+typedef enum AttackButtonState {
+    On_Up=1,
+    On_Right=3,
+    On_Down=5,
+    On_Left=7,
+    On_Dpad=32,
+    Toggle_A=128,
+    Hold_B=512,
+    Toggle_B_Charge=576,
+    Toggle_B=2048
+} AttackButtonState;
+
+struct ActorPlayer {
+    struct EntityHeader m_header;
+    byte m_virusFamily;
+    byte m_p1;
+    byte m_p2;
+    byte m_p3;
+    byte m_routineState0;
+    byte m_routineState1;
+    byte m_routineState2;
+    byte m_bx4;
+    byte m_b00_familyRelated;
+    byte m_b01;
+    byte m_b2;
+    byte b3;
+    byte m_direction;
+    byte m_b5;
+    byte m_indexNumber;
+    byte m_enemyId;
+    byte m_currFrameIndex;
+    byte m_lastFrameIndex;
+    byte m_owner;
+    byte m_b10;
+    struct Position m_cellPosCurr;
+    byte m_element;
+    byte m_delayCounter1;
+    ushort m_delayCounter2;
+    short m_routineCounter;
+    ushort m_hpCurrent;
+    ushort m_hpMax;
+    ushort m_damage;
+    short is5;
+    struct PositionXYZ m_posCurr;
+    struct PositionXYZ m_posLast;
+    int i11;
+    int m_i12;
+    int m_i13;
+    int m_i14;
+    int m_i15;
+    int m_i16;
+    int m_i17;
+    struct AttackCell * m_i18;
+    undefined1 field40_0x60;
+    byte m_possibleChipSubfamily;
+    undefined1 field42_0x62;
+    undefined1 field43_0x63;
+    undefined1 field44_0x64;
+    undefined1 field45_0x65;
+    ushort m_possibleChipFamily;
+    undefined1 field47_0x68;
+    byte bx69;
+    undefined1 field49_0x6a;
+    undefined1 field50_0x6b;
+    ushort m_flag0;
+    ushort m_flag1;
+    enum AttackButtonState m_busterButtonState;
+    short i23_2;
+    struct PlayerBattleState * m_i24;
+    int m_i25;
+    int i26;
+    struct BattleSpawnAnimation m_appearState;
+    int i29;
+    int i30;
+    struct Sprite m_sprite;
+};
+
+typedef enum AllocParamEntityType {
+    APT_63F0=0,
+    APT_Actor=1,
+    APT_AttackCell=2,
+    APT_4CD0=3,
+    APT_13A0=4
+} AllocParamEntityType;
 
 typedef enum AreaId {
     Area_ACDC_Elementary=0,
@@ -124,271 +534,85 @@ typedef struct AreaProperties AreaProperties, *PAreaProperties;
 typedef enum PanelFlag {
     PF_Walkable=1,
     PF_EnemyTerritory=2,
-    PF_4=4
+    PF_Cracked=4
 } PanelFlag;
 
 struct AreaProperties {
     enum PanelFlag data[40];
 };
 
-typedef enum AttackButtonState {
-    On_Up=1,
-    On_Right=3,
-    On_Down=5,
-    On_Left=7,
-    On_Dpad=32,
-    Toggle_A=128,
-    Hold_B=512,
-    Toggle_B_Charge=576,
-    Toggle_B=2048
-} AttackButtonState;
+typedef struct AttackCellParams AttackCellParams, *PAttackCellParams;
 
-typedef struct AttackCell AttackCell, *PAttackCell;
-
-typedef struct Entity Entity, *PEntity;
-
-typedef struct Sprite Sprite, *PSprite;
-
-typedef struct Struct_Unk20 Struct_Unk20, *PStruct_Unk20;
-
-typedef struct Entity_AppearState Entity_AppearState, *PEntity_AppearState;
-
-typedef enum SpriteFlag {
-    SF_NoMiniAnimation=1,
-    SF_TilesetLoaded=2,
-    SF_4=4,
-    SF_8=8,
-    SF_10=16,
-    SF_20=32
-} SpriteFlag;
-
-typedef struct ObjectTileAttributes ObjectTileAttributes, *PObjectTileAttributes;
-
-typedef enum KeyInput {
-    KEY_NONE=0,
-    KEY_A=1,
-    KEY_B=2,
-    KEY_SELECT=4,
-    KEY_START=8,
-    KEY_RIGHT=16,
-    KEY_LEFT=32,
-    KEY_UP=64,
-    KEY_DOWN=128,
-    KEY_R=256,
-    KEY_L=512
-} KeyInput;
-
-struct Entity_AppearState {
-    byte m_state0;
-    byte _pad0;
-    short m_timer0;
-    short s1;
-    short s2;
-};
-
-struct ObjectTileAttributes {
-    ushort index:10;
-    ushort priority:2;
-    ushort paletteBank:4;
-};
-
-struct Sprite {
-    byte m_indexFrame;
-    byte m_indexSubFrame;
-    byte m_frameDelay;
-    byte m_frameFlags;
-    enum SpriteFlag m_spriteFlags;
-    byte m_srcPalIndex;
-    byte m_palIndexSubFrame;
-    byte m_indexOamList;
-    short m_dstTileOffset;
-    short m_u0;
-    short m_posX;
-    byte m_b7_lineOffRelated[2];
-    short m_u2;
-    byte m_u3_affineRelated_Lo;
-    byte m_u3_affineRelated_Hi;
-    struct ObjectTileAttributes m_tileAttributes;
-    short _pad;
-    byte * m_spriteStart;
-    byte * m_curFrame;
-    byte * m_curSubFrame;
-    void * m_curTilesetHeader;
-    int m_i0;
-    uint m_b11;
-};
-
-struct Entity {
-    byte m_b0;
-    byte m_routineType;
-    byte m_ub1;
-    byte m_ub2;
-    byte m_virusFamily;
-    byte m_p1;
-    byte m_p2;
-    byte m_p3;
-    byte m_routineState0;
-    byte m_routineState1;
-    byte m_routineState2;
-    byte m_bx4;
-    byte m_b00_familyRelated;
-    byte m_b01;
-    byte m_b2;
-    byte b3;
-    byte m_direction;
-    byte m_b5;
-    byte m_indexNumber;
-    byte m_enemyId;
-    byte m_b7;
-    byte m_b8;
-    byte m_b9_possiblePlayerId;
-    byte m_b10;
-    struct Position m_cellPosCurr;
-    byte m_b13;
-    byte m_delayCounter1;
-    ushort m_delayCounter2;
-    short m_routineCounter;
-    short m_hpCurrent;
-    short m_hpMax;
-    short m_is4_possibleDamage;
-    short is5;
-    int m_possibleSpriteX;
-    int m_possibleSpriteY;
-    int m_ix2;
-    short m_i8;
-    short m_possibleSpriteX_2;
-    short m_i9;
-    short m_possibleSpriteY_2;
-    int m_i10;
-    int i11;
-    int m_i12;
-    int m_i13;
-    int m_i14;
-    int m_i15;
-    int m_i16;
-    int m_i17;
-    struct AttackCell * m_i18;
-    struct Struct_200A9E0 * m_ix19_A9E0;
-    byte bx0;
-    byte bx1;
-    byte m_usedBattleChipType;
-    byte m_battleChipState;
-    short m_i21_1;
-    short m_i21_2;
-    struct AttackCell * m_i22_possibleAttack;
-    enum AttackButtonState m_busterButtonState;
-    short i23_2;
-    struct Struct_Unk20 * m_i24;
-    int m_i25;
-    int i26;
-    struct Entity_AppearState m_appearState;
-    int i29;
-    int i30;
-    struct Sprite m_sprite;
-};
-
-struct AttackCell {
-    byte m_b0;
-    byte m_routineType;
-    byte b2;
-    byte m_listIndex;
+struct AttackCellParams {
+    struct Position m_position;
     byte m_b00;
-    byte b01;
-    byte b02;
-    byte b06;
-    byte m_b01_state0;
-    byte m_stateX;
-    byte b03;
-    byte b04;
-    int data0;
-    int i0;
-    byte m_attackSpriteFrame;
-    byte i03;
-    byte m_owner;
-    byte i05;
-    byte m_cellX;
-    byte m_cellY;
-    byte m_element;
-    byte b10;
-    short m_s1;
-    short m_s2;
-    int i4;
-    ushort m_damage;
-    ushort us2;
-    int m_spriteX;
-    int m_spriteY;
-    int m_i3;
-    byte data1[16];
-    int m_nextAttackOffset;
-    byte data2[4];
-    int m_unkInt;
-    byte data3[16];
-    struct Entity * m_parentEntity;
-    struct Struct_200A9E0 * m_i20;
-    int i21;
-    int i22;
-    int i23;
-    int i24;
-    int i25;
-    int i26;
-    struct Sprite m_sprite;
+    byte m_hp;
 };
 
-struct Struct_Unk20 {
-    byte m_invulnerableTime;
-    byte m_chipsUsedCount;
-    byte m_moveCount;
-    byte m_hitsTaken;
-    byte m_b1;
-    byte m_b2;
-    byte m_lastChipElement;
-    byte m_ux1;
-    byte m_b3;
-    byte m_statAttack;
-    byte m_statSpeed;
-    byte m_statCharge;
-    byte m_b7;
-    byte m_b8;
-    byte m_b9;
-    byte m_b10_armor;
-    short m_busterChargeLevel;
-    short m_busterChargeDamage;
-    short m_busterChargeDelay;
-    short m_pb3;
-    short m_lastChipDamage;
-    short m_pb5;
-    short m_pb6;
-    enum KeyInput m_curKeyState;
-    enum KeyInput m_toggleKeyState;
-    short m_s4;
-    enum KeyInput m_lastKeyState;
-    ushort m_u2_hp0;
-    ushort m_u3_hp1;
-    short m_damageTaken;
-    short m_pb7;
-    short m_pb8;
-    short m_pb9;
-    int ixx0;
-    int ixx10;
-    int ixx11;
-    int ixx20;
-    struct Struct_200A9E0 * m_ptrA9E0_1;
-    struct Struct_200A9E0 * m_ptrA9E0_2;
-    byte padx1[8];
-    int ixx12;
-    int ixx13;
-    int m_ixx0;
-    int ixx1;
-    int ixx2;
-    short ixx3;
-    byte m_battleHandIndexList[6];
-    byte pad0[26];
-    short s4_opt2;
-    short s5;
-    short m_s6;
-    short m_s7;
-    short m_s8;
-    short s9;
+typedef struct BackgroundDataManager BackgroundDataManager, *PBackgroundDataManager;
+
+typedef struct BGArchive BGArchive, *PBGArchive;
+
+typedef struct BGTilemapArchive BGTilemapArchive, *PBGTilemapArchive;
+
+typedef struct BGPaletteArchive BGPaletteArchive, *PBGPaletteArchive;
+
+typedef struct BGTilesetArchive BGTilesetArchive, *PBGTilesetArchive;
+
+typedef struct Color Color, *PColor;
+
+typedef struct BGTilesetHeader BGTilesetHeader, *PBGTilesetHeader;
+
+struct BackgroundDataManager {
+    byte m_mapGridSizeX;
+    byte m_mapGridSizeY;
+    undefined field2_0x2;
+    byte field3_0x3;
+    short m_playerX;
+    short m_playerY;
+    struct BGArchive * m_archivePack;
+    struct BGTilemapArchive * m_data;
+    struct BGPaletteArchive * m_archive1;
+    struct BGTilesetArchive * m_archive0;
+    void * m_funcSingleCopy;
+    void * m_funcFullCopy;
+    void * m_funcSpecificCopy;
+};
+
+struct BGArchive {
+    struct BGTilesetArchive * m_tilesetData;
+    struct BGPaletteArchive * m_paletteData;
+    struct BGTilemapArchive * m_tilemapData;
+};
+
+struct Color {
+    byte R:5;
+    byte G:5;
+    byte B:5;
+    byte fill:1;
+};
+
+struct BGPaletteArchive {
+    int m_size;
+    struct Color m_data[1];
+};
+
+struct BGTilemapArchive {
+    byte m_mapSizeX;
+    byte m_mapSizeY;
+    int m_offsetBg1;
+    int m_offsetBg2;
+    int m_offsetBg3;
+};
+
+struct BGTilesetHeader {
+    int m_tilesetWordCount;
+    int m_offsetLzData;
+    int m_offsetVram;
+};
+
+struct BGTilesetArchive {
+    struct BGTilesetHeader m_vramData[3];
 };
 
 typedef enum BackgroundId {
@@ -413,6 +637,12 @@ typedef enum BackgroundId {
 } BackgroundId;
 
 typedef struct Battle Battle, *PBattle;
+
+typedef enum BattleState {
+    BS_EnemySpawned=1,
+    BS_InBattle=2,
+    BS_4=4
+} BattleState;
 
 typedef struct EnemySpawn EnemySpawn, *PEnemySpawn;
 
@@ -592,52 +822,52 @@ struct Battle {
     byte m_state1;
     byte m_state2;
     byte m_state3;
-    byte m_b4;
+    byte m_bx04;
     byte m_curEnemyCount;
-    byte m_b6;
-    byte m_b7;
-    byte m_b8;
-    byte m_bitField2;
-    byte m_b10;
+    byte m_playerSpritesSpawned;
+    byte m_enemySpritesSpawned;
+    byte m_bx08;
+    enum BattleState m_battleState;
+    byte m_bx0a;
     byte m_maxEnemyCount;
-    byte m_b12;
+    byte m_bx0c;
     byte m_randomCellSeed;
-    byte m_b14;
-    enum BackgroundId m_b15_backgroundId;
+    byte m_bx0e;
+    enum BackgroundId m_backgroundId;
     byte m_customScreenChipCount;
     byte m_customScreenSelectedChipCount;
     byte m_customGaugeSpeed;
-    byte m_b19;
-    byte m_b20;
-    byte b21;
-    byte b22;
+    bool m_isInputLocked;
+    byte m_bx14;
+    byte field21_0x15;
+    byte field22_0x16;
     byte m_multipleDeletionCount;
-    byte m_b24;
+    byte m_bx18;
     byte m_srcBattleHandCount;
     byte m_sioOtherMpId;
     byte m_sioMultiplayerId;
-    byte r0;
-    byte r1;
-    byte r2;
-    bool m_r3;
+    byte bx1c;
+    byte bx1d;
+    byte bx1e;
+    bool bx1f;
     ushort m_possibleBattleTime;
-    ushort i0;
-    int i1;
-    int i2;
-    ushort u1;
+    ushort m_ux22_counter;
+    short m_possibleLastEnemyCount;
+    int field35_0x28;
+    ushort field36_0x2c;
     ushort m_u2;
-    int i5;
-    int i6;
-    int i7;
-    ushort uu0;
+    short sx30_counter;
+    short field39_0x32;
+    int field40_0x34;
+    int field41_0x38;
+    ushort field42_0x3c;
     ushort m_customGaugeMeter;
-    struct Entity * m_entityPlayer1;
-    struct Entity * m_entityPlayer2;
-    int q1;
-    byte m_q2_enemyIdRelated[8];
-    struct Entity * m_enemyEntityList[4];
+    struct Actor * m_entityPlayer[2];
+    int field45_0x48;
+    byte m_enemyIdSpawnList[8];
+    struct Actor * m_enemyEntityList[4];
     byte m_enemyIdList[4];
-    uint u0;
+    uint field49_0x68;
     uint m_bitField00;
     uint m_bitField0;
     struct EnemySpawn * m_enemyList;
@@ -863,36 +1093,21 @@ struct BattleChip {
 
 typedef struct BattleChipData BattleChipData, *PBattleChipData;
 
-typedef struct Tile Tile, *PTile;
-
-typedef struct Color Color, *PColor;
-
 struct BattleChipData {
     byte m_chipCodes[5];
-    byte m_chipElementIndex;
+    byte m_elementIndex;
     byte m_possibleChipFamily;
     byte m_possibleChipSubfamily;
-    byte m_possibleChipRarity;
-    byte m_possibleChipLibraryIndex;
+    byte m_rarity;
+    byte m_libraryIndex;
     byte m_b22;
     byte b33;
-    ushort m_chipDamage;
+    ushort m_damage;
     byte b2;
     byte b3;
-    struct Tile * m_chipIcon;
-    struct Tile * m_chipTileset;
-    struct Color * m_chipPalette;
-};
-
-struct Color {
-    byte R:5;
-    byte G:5;
-    byte B:5;
-    byte fill:1;
-};
-
-struct Tile {
-    byte data[32];
+    struct Tile * m_icon;
+    struct Tile * m_tileset;
+    struct Color * m_palette;
 };
 
 typedef struct BattleChipInventorySlot BattleChipInventorySlot, *PBattleChipInventorySlot;
@@ -939,6 +1154,31 @@ typedef enum BattleType {
     BattleType_9=9
 } BattleType;
 
+typedef struct BattleUI BattleUI, *PBattleUI;
+
+struct BattleUI {
+    byte _unused[3];
+    byte m_b3;
+    byte m_uiFlag;
+    byte m_chipNameWidth;
+    byte m_fullChipGaugeAnimationTimer;
+    bool m_isCustomGaugeRising;
+    ushort m_hpDisplay;
+    ushort m_hpActual;
+    byte m_buffer[32];
+};
+
+typedef enum BattleUiState {
+    BUS_01=1,
+    BUS_02=2,
+    BUS_04=4,
+    BUS_08=8,
+    BUS_10=16,
+    BUS_20_DrawActiveChip=32,
+    BUS_40_BustingActive=64,
+    BUS_80_BattleActive=128
+} BattleUiState;
+
 typedef struct BgControl BgControl, *PBgControl;
 
 struct BgControl {
@@ -960,6 +1200,12 @@ typedef enum BgControlType {
     BGC_All_8bpp=5,
     BGC_All_Bg3_8bpp=6
 } BgControlType;
+
+typedef enum BGMoveControlType {
+    BMT_Offline=0,
+    BMT_Online=1,
+    BMT_Other=2
+} BGMoveControlType;
 
 typedef struct BlendSettings BlendSettings, *PBlendSettings;
 
@@ -984,45 +1230,172 @@ struct CellStatus {
 
 typedef struct CgbChannel CgbChannel, *PCgbChannel;
 
-struct CgbChannel {
-    byte sf;
-    byte ty;
+typedef struct MusicPlayerTrack MusicPlayerTrack, *PMusicPlayerTrack;
+
+typedef enum MptFlag {
+    MPT_FLAG_VOLSET=1,
+    MPT_FLAG_VOLCHG=3,
+    MPT_FLAG_PITSET=4,
+    MPT_FLAG_PITCHG=12,
+    MPT_FLAG_START=64,
+    MPT_FLAG_EXIST=128
+} MptFlag;
+
+typedef struct SoundChannel SoundChannel, *PSoundChannel;
+
+typedef struct ToneData ToneData, *PToneData;
+
+typedef struct WaveData WaveData, *PWaveData;
+
+typedef enum InstrumentType {
+    Sample=0,
+    PsgSquare1=1,
+    PsgSquare2=2,
+    PsgWave=3,
+    PsgNoise=4,
+    SampleNonResampled=8,
+    KeySplit=64,
+    KeySplit2=128
+} InstrumentType;
+
+struct SoundChannel {
+    byte status;
+    byte type;
     byte rightVolume;
     byte leftVolume;
-    byte at;
-    byte de;
-    byte su;
-    byte re;
-    byte ky;
-    byte ev;
-    byte eg;
-    byte ec;
+    byte attack;
+    byte delay;
+    byte sustain;
+    byte release;
+    byte key;
+    byte envelopeVolume;
+    byte envelopeVolumeRight;
+    byte envelopeVolumeLeft;
+    byte pseudoEchoVolume;
+    byte pseudoEchoLength;
+    byte dummy1;
+    byte dummy2;
+    byte gateTime;
+    byte midiKey;
+    byte velocity;
+    byte prpriority;
+    byte rhythmPan;
+    byte dummy3[3];
+    uint count;
+    uint fw;
+    uint frequency;
+    struct WaveData * wav;
+    byte * currentPointer;
+    struct MusicPlayerTrack * track;
+    struct SoundChannel * prevChannelPointer;
+    struct SoundChannel * nextChannelPointer;
+    uint dummy4;
+    ushort xpi;
+    ushort xpc;
+};
+
+struct ToneData {
+    enum InstrumentType type;
+    byte key;
+    byte length;
+    byte pan_sweep;
+    struct WaveData * wav;
+    byte attack;
+    byte decay;
+    byte sustain;
+    byte release;
+};
+
+struct MusicPlayerTrack {
+    enum MptFlag flags;
+    byte wait;
+    byte patternLevel;
+    byte repN;
+    byte gateTime;
+    byte key;
+    byte velocity;
+    byte runningStatus;
+    byte keyM;
+    byte pitM;
+    byte keyShift;
+    byte keyShiftX;
+    byte tune;
+    byte pitX;
+    byte bend;
+    byte bendRange;
+    byte volMR;
+    byte volML;
+    byte vol;
+    byte volX;
+    byte pan;
+    byte panX;
+    byte modM;
+    byte mod;
+    byte modT;
+    byte lfoSpeed;
+    byte lfoSpeecC;
+    byte lfoDelay;
+    byte lfoDelayC;
+    byte priority;
     byte echoVolume;
     byte echoLength;
-    byte d1;
-    byte d2;
-    byte gt;
-    byte mk;
-    byte ve;
-    byte pr;
-    byte rp;
-    byte d3[3];
-    byte d5;
-    byte sg;
+    struct SoundChannel * chan;
+    struct ToneData tone;
+    byte gap[10];
+    word unk_3A;
+    dword unk_3C;
+    byte * cmdPtr;
+    byte * patternStack[3];
+};
+
+struct CgbChannel {
+    byte statusFlags;
+    byte type;
+    byte rightVolume;
+    byte leftVolume;
+    byte attack;
+    byte decay;
+    byte sustain;
+    byte release;
+    byte key;
+    byte envelopeVolume;
+    byte envelopeGoal;
+    byte envelopeCounter;
+    byte pseudoEchoVolume;
+    byte pseudoEchoLength;
+    byte dummy1;
+    byte dummy2;
+    byte gateTime;
+    byte midiKey;
+    byte velocity;
+    byte priority;
+    byte rhythmPan;
+    byte dummy3[3];
+    byte dummy5;
+    byte sustainGoal;
     byte n4;
     byte pan;
     byte panMask;
-    byte mo;
-    byte le;
-    byte sw;
-    dword fr;
-    dword * wp;
-    dword cp;
-    dword tp;
-    dword pp;
-    dword np;
-    byte d4[4];
-    dword field37_0x3c;
+    byte modify;
+    byte length;
+    byte sweep;
+    int frequency;
+    int * wavePointer;
+    int * ccurrentPointer;
+    struct MusicPlayerTrack * track;
+    void * prevChannelPointer;
+    void * nextChannelPointer;
+    byte dummy4[4];
+    int unkPad;
+};
+
+struct WaveData {
+    word type;
+    word status;
+    qword freq;
+    qword loopStart;
+    qword size;
+    byte data[1];
 };
 
 typedef struct CharTile CharTile, *PCharTile;
@@ -1034,14 +1407,15 @@ struct CharTile {
 typedef struct ChipBagSlot ChipBagSlot, *PChipBagSlot;
 
 struct ChipBagSlot {
-    int i0;
-    int i1;
-    int i2;
-    int i3;
-    int i4;
-    int i5;
-    int i6;
-    int i7;
+    int m_checksum0; /* chipLibraryIndex << 0x10 | (chipLibraryIndex << 0x8) | chipCodeIndex */
+    int m_checksum3; /* (libraryIndex, then b22) << 10 | (chipLibraryIndex << 0x8) | chipCodeIndex */
+    int m_checksum1; /* chipCodeIndex << 0x10 | (chipLibraryIndex << 0x8) | chipCodeIndex */
+    int m_checksum4; /* damage << 0x10 | (chipLibraryIndex << 0x8) | chipCodeIndex */
+    int m_checksum5; /* elementIndex << 0x10 | (chipLibraryIndex << 0x8) | chipCodeIndex */
+    int m_checksum2; /* chipQty << 0x10 | (chipLibraryIndex << 0x8) | chipCodeIndex */
+    short m_chipId;
+    short m_chipCode;
+    int _pad;
 };
 
 typedef struct ChipTrader ChipTrader, *PChipTrader;
@@ -1115,14 +1489,14 @@ struct CpuSetControl {
 typedef struct Credits Credits, *PCredits;
 
 struct Credits {
-    byte m_b0;
+    byte m_mainState;
     byte m_b1;
-    byte b2;
+    byte m_b2_column;
     byte b3;
     short m_s0_counter;
     byte b6;
     byte b7;
-    byte b8;
+    byte m_b8_dictIndex;
     byte m_hourCounter;
     byte m_minuteCounter;
     byte bB;
@@ -1196,6 +1570,14 @@ struct CustomScreen {
     short m_s3;
     byte m_chipSelectionOrder[15];
     struct TilemapEntry m_layoutBuffer[300];
+};
+
+typedef struct DebugString DebugString, *PDebugString;
+
+struct DebugString {
+    byte X;
+    byte Y;
+    char str[1];
 };
 
 typedef struct Demo Demo, *PDemo;
@@ -1342,12 +1724,85 @@ struct Struct_8009DFD4_Sub {
 struct EnemyDetail {
     ushort m_hp;
     enum Elementid m_element;
-    byte b3;
+    byte m_hpPosition;
     byte m_routineType;
     byte m_lzSpriteIndex;
     short _pad;
     int m_virusFamily;
     struct Struct_8009DFD4_Sub m_dropTable[5];
+};
+
+typedef struct EntityAllocParams EntityAllocParams, *PEntityAllocParams;
+
+struct EntityAllocParams {
+    enum AllocParamEntityType m_entityFuncIndex;
+    byte m_param0;
+    byte field2_0x2;
+    byte field3_0x3;
+    int m_param1;
+    int m_param2;
+    int m_param3;
+    int m_param4;
+};
+
+typedef union EntityBehavior EntityBehavior, *PEntityBehavior;
+
+typedef struct PlayerChipState PlayerChipState, *PPlayerChipState;
+
+struct PlayerChipState {
+    byte b0;
+    byte b1;
+    byte m_usedBattleChipType;
+    byte m_battleChipState;
+};
+
+union EntityBehavior {
+    struct PlayerChipState playerChipState;
+    struct FieldObject * fieldEntity;
+};
+
+typedef struct EntityBounds EntityBounds, *PEntityBounds;
+
+struct EntityBounds {
+    short X;
+    short Y;
+    short Z;
+    byte m_deltaDist;
+    byte m_deltaZ;
+    uint _ux8;
+    uint m_idMask;
+    uint * m_paramPtr;
+};
+
+typedef enum EntityFlag {
+    EF_1=1,
+    EF_2=2
+} EntityFlag;
+
+typedef enum EntityFuncFlag {
+    GFF_None=0,
+    GFF_63F0=1,
+    GFF_Actor=2,
+    GFF_AttackCell=4,
+    GFF_4CD0=8,
+    GFF_NPC=16,
+    GFF_All=31
+} EntityFuncFlag;
+
+typedef union EntityUnion0 EntityUnion0, *PEntityUnion0;
+
+typedef struct PlayerSpec2 PlayerSpec2, *PPlayerSpec2;
+
+struct PlayerSpec2 {
+    byte b0;
+    byte b1;
+    byte b2;
+    byte b3;
+};
+
+union EntityUnion0 {
+    struct AttackCell * possibleAttackCell;
+    struct PlayerSpec2 possiblePlayerSpec;
 };
 
 typedef struct FadeSettings FadeSettings, *PFadeSettings;
@@ -1395,17 +1850,6 @@ struct FixedBattleSettings {
     byte _pad19[3];
 };
 
-typedef enum Flag_1C {
-    F1C_01=1,
-    F1C_02=2,
-    F1C_04=4,
-    F1C_08=8,
-    F1C_10=16,
-    F1C_20_DrawActiveChip=32,
-    F1C_40=64,
-    F1C_80=128
-} Flag_1C;
-
 typedef enum Flag_400 {
     F400_Unescapable=8,
     F400_SaveOk=9
@@ -1418,6 +1862,15 @@ struct FrameCounter {
     ushort _pad;
 };
 
+typedef enum FrameFlag {
+    FF_None=0,
+    FF_04=4,
+    FF_08=8,
+    FF_10=16,
+    FF_Loop=64,
+    FF_End=128
+} FrameFlag;
+
 typedef struct GameOver GameOver, *PGameOver;
 
 struct GameOver {
@@ -1426,6 +1879,35 @@ struct GameOver {
     ushort m_gameOverTimer;
     byte m_unused;
     byte _pad1;
+};
+
+typedef struct GameStats GameStats, *PGameStats;
+
+struct GameStats {
+    byte field0_0x0;
+    byte m_bxx1;
+    byte field2_0x2;
+    byte m_bxx3;
+    byte m_b0;
+    byte m_b1;
+    ushort field6_0x6;
+    ushort field7_0x8;
+    byte field8_0xa;
+    byte field9_0xb;
+    byte field10_0xc;
+    byte m_b5;
+    byte totalAwardedChips;
+    byte totalBattles8;
+    short totalStepCounter;
+    ushort totalBattles16;
+    ushort multiBattleTotal;
+    ushort multiBattleWins;
+    int gameTimer;
+    int inBattleTimer;
+    int checkSum;
+    int currStepCounter;
+    int lastStepCounter;
+    byte buildId[14];
 };
 
 typedef struct header header, *Pheader;
@@ -1464,17 +1946,6 @@ struct Input {
     byte unused;
     byte frameCounter;
 };
-
-typedef enum InstrumentType {
-    Sample=0,
-    PsgSquare1=1,
-    PsgSquare2=2,
-    PsgWave=3,
-    PsgNoise=4,
-    SampleNonResampled=8,
-    KeySplit=64,
-    KeySplit2=128
-} InstrumentType;
 
 typedef enum ItemId {
     Item_PET=0,
@@ -1528,8 +1999,6 @@ typedef struct World World, *PWorld;
 
 typedef struct Struct_Unk14_Sized Struct_Unk14_Sized, *PStruct_Unk14_Sized;
 
-typedef struct Struct_Unk1C_Battle_Sized Struct_Unk1C_Battle_Sized, *PStruct_Unk1C_Battle_Sized;
-
 typedef struct Struct_Unk24 Struct_Unk24, *PStruct_Unk24;
 
 typedef struct Scene Scene, *PScene;
@@ -1542,8 +2011,6 @@ typedef struct MainMenu MainMenu, *PMainMenu;
 
 typedef struct WindowSettings WindowSettings, *PWindowSettings;
 
-typedef struct Struct_Unk44_2009A50 Struct_Unk44_2009A50, *PStruct_Unk44_2009A50;
-
 typedef struct Text Text, *PText;
 
 typedef struct Struct_Unk4C Struct_Unk4C, *PStruct_Unk4C;
@@ -1552,21 +2019,19 @@ typedef struct Struct_Unk54 Struct_Unk54, *PStruct_Unk54;
 
 typedef struct Struct_Unk58 Struct_Unk58, *PStruct_Unk58;
 
-typedef struct ScreenLayoutContainer ScreenLayoutContainer, *PScreenLayoutContainer;
+typedef struct ScreenTilemapContainer ScreenTilemapContainer, *PScreenTilemapContainer;
 
-typedef struct Struct_Unk60 Struct_Unk60, *PStruct_Unk60;
+typedef struct PetStatusControl PetStatusControl, *PPetStatusControl;
 
 typedef struct Struct_Unk64_Sized Struct_Unk64_Sized, *PStruct_Unk64_Sized;
 
-typedef struct Struct_Unk68 Struct_Unk68, *PStruct_Unk68;
+typedef struct TextUI TextUI, *PTextUI;
 
 typedef struct Struct_Unk6C Struct_Unk6C, *PStruct_Unk6C;
 
 typedef struct Shop Shop, *PShop;
 
 typedef struct Menu Menu, *PMenu;
-
-typedef struct Struct_Unk78 Struct_Unk78, *PStruct_Unk78;
 
 typedef struct Struct_Unk7C Struct_Unk7C, *PStruct_Unk7C;
 
@@ -1583,6 +2048,47 @@ typedef enum Manager_State {
     MS_ChipTrader=36,
     MS_Credits=40
 } Manager_State;
+
+typedef enum StoryFlag {
+    FLAG_STORY_NEW_GAME=0,
+    FLAG_STORY_TUTORIAL_START=1,
+    FLAG_STORY_TUTORIAL_END=2,
+    FLAG_STORY_OVEN_FIRE=3,
+    FLAG_STORY_OVEN_EXPLODE=4,
+    FLAG_STORY_WATER_GUN=5,
+    FLAG_STORY_DELETE_FIREMAN=6,
+    FLAG_STORY_FIREMAN_BED=16,
+    FLAG_STORY_CLASS_TALK=17,
+    FLAG_STORY_DEX_TALK=18,
+    FLAG_STORY_DOOR_1_UNLOCK=19,
+    FLAG_STORY_DOOR_3_UNLOCK=20,
+    FLAG_STORY_MEGAMAN_CAPTURE=21,
+    FLAG_STORY_DELETE_NUMBERMAN=32,
+    FLAG_STORY_CONDUCTOR_TALK=33,
+    FLAG_STORY_DELETE_STONEMAN=34,
+    FLAG_STORY_DAD_POWERUP=35,
+    FLAG_STORY_SCHOOL_CANCEL=36,
+    FLAG_STORY_SCILAB_NIGHT=37,
+    FLAG_STORY_POLAR_BEAR=38,
+    FLAG_STORY_TRUNK_FIND=39,
+    FLAG_STORY_DELETE_ICEMAN=48,
+    FLAG_STORY_TRAFFIC_LIGHTS=49,
+    FLAG_STORY_LIGHT_1_FIX=50,
+    FLAG_STORY_EXPOSE_WWW=51,
+    FLAG_STORY_LIGHT_2_FIX=52,
+    FLAG_STORY_LIGHT_3_FIX=53,
+    FLAG_STORY_LIGHT_4_FIX=54,
+    FLAG_STORY_LIGHT_5_FIX=55,
+    FLAG_STORY_DELETE_COLORMAN=64,
+    FLAG_STORY_COUNT_ZAP=65,
+    FLAG_STORY_CONTROL_ROOM=66,
+    FLAG_STORY_BATTERIES_DONE=67,
+    FLAG_STORY_DELETE_PROTOMAN=80,
+    FLAG_STORY_DELETE_DOOR_VIRUS=81,
+    FLAG_STORY_DELETE_BOMBMAN=82,
+    FLAG_STORY_BOMBMAN_BED=83,
+    FLAG_STORY_FINAL=84
+} StoryFlag;
 
 typedef enum SongId {
     T_Theme_Of_Mega_Man_Battle_Network=0,
@@ -1826,7 +2332,7 @@ typedef enum SongId {
     T_NoSong=255
 } SongId;
 
-typedef struct Struct_63F0 Struct_63F0, *PStruct_63F0;
+typedef struct PlayerLocation PlayerLocation, *PPlayerLocation;
 
 typedef struct Struct_83BA4 Struct_83BA4, *PStruct_83BA4;
 
@@ -1846,50 +2352,34 @@ typedef enum MoveType {
 
 typedef struct MapOffsetStruct MapOffsetStruct, *PMapOffsetStruct;
 
-typedef struct MapOffset MapOffset, *PMapOffset;
-
 struct Struct_Unk2C {
     byte m_b0;
-    byte b1;
-    byte b2;
-    byte b3;
-    byte b4;
-    byte b5;
-    byte b6;
-    byte b7;
-    byte b8;
-    byte b9;
-    byte b10;
-    byte b11;
-    byte b12;
-    byte b13;
-    byte b14;
-    byte b15;
-    byte m_b16;
-    byte b17;
-    byte m_b18;
-    byte b19;
-    void * m_b20;
-    byte b24;
-    byte b25;
-    byte b26;
-    byte b27;
-    byte b28;
-    byte b29;
-    byte b30;
-    byte b31;
+    byte field1_0x1;
+    byte field2_0x2;
+    byte m_bx03_direction;
+    struct PositionXYZ m_bx04_pos;
+    int m_bx10;
+    void * m_bx14;
+    byte field7_0x18;
+    byte field8_0x19;
+    byte field9_0x1a;
+    byte field10_0x1b;
+    byte field11_0x1c;
+    byte field12_0x1d;
+    byte field13_0x1e;
+    byte field14_0x1f;
 };
 
 struct Struct_Unk4C_Sub {
     byte m_state0;
     byte b1;
-    byte m_b2;
+    byte m_battleChipIndex;
     byte m_b3;
-    byte m_b4;
+    bool m_isActive;
     enum BattleMessage m_messageIndex;
-    byte m_b6;
-    byte m_b7;
-    byte m_b8;
+    byte m_scaleIndex;
+    byte m_delay;
+    byte m_affineIndex;
     byte b9;
     byte bA;
     byte bb;
@@ -1897,74 +2387,128 @@ struct Struct_Unk4C_Sub {
     short m_bE;
 };
 
+struct ScreenTilemapContainer {
+    struct TilemapEntry screen0[1024];
+    struct TilemapEntry screen1[1024];
+    struct TilemapEntry screen2[1024];
+    struct TilemapEntry screen3[1024];
+};
+
 struct Manager {
     enum Manager_State m_gameState;
-    byte b1;
-    byte b2;
-    byte b3;
+    byte field1_0x1;
+    byte field2_0x2;
+    byte field3_0x3;
     byte m_softResetDelayTimer;
-    byte b5;
-    byte b6;
-    byte b7;
+    byte field5_0x5;
+    byte field6_0x6;
+    byte field7_0x7;
 };
 
 struct World {
-    enum FuncState m_state0;
-    byte b1;
-    byte b2;
-    byte b3;
+    byte m_state0;
+    byte field1_0x1;
+    byte field2_0x2;
+    byte field3_0x3;
     enum AreaId m_currentArea;
     byte m_currentSubArea;
-    byte m_storyFlag;
-    byte m_b7_fadeType;
-    byte b8;
+    enum StoryFlag m_storyFlag;
+    byte m_bx07_fadeType;
+    byte field8_0x8;
     byte m_Battle_IsTimePaused;
-    byte m_b10;
-    enum BackgroundId m_b11_backgroundId;
+    byte m_bx0a;
+    enum BackgroundId m_bx0b_backgroundId;
     byte m_lastArea;
     byte m_lastSubArea;
-    byte m_b14;
+    byte m_bx0e;
     enum BattleType m_battleType;
-    byte m_b16_state;
+    byte m_bx10_state;
     bool m_isShuffleFolder;
-    byte m_b18_commentaryTextIndex;
-    byte m_b19_fadeStep;
+    byte m_bx12_commentaryTextIndex;
+    byte m_bx13_fadeStep;
     byte m_statAttack;
     byte m_statSpeed;
     byte m_statCharge;
     byte m_armor;
     enum SongId m_Song_CurrentSongId;
     byte m_bustingRank;
-    byte m_b26;
-    byte m_b27;
-    ushort m_u0_hp0;
-    ushort m_u1_hp1;
-    int ix0;
-    int m_ix1;
-    struct Struct_63F0 * m_i0;
+    byte m_bx1a;
+    byte m_bx1b;
+    ushort hpCurrent;
+    ushort hpMax;
+    int field30_0x20;
+    int m_ix24;
+    struct PlayerLocation * playerLocation;
     struct EnemySpawn * m_enemyList;
     struct BattleChip * m_chipFolder;
-    int m_battleInitHideObject;
-    int m_ix7_savedPosY;
-    int m_ix8_savedPosX;
-    int m_ix9_savedPos0;
-    int m_ix10_savedDirection;
-    int ix11;
-    int ix12;
-    int ix13;
-    int ix14;
-    int ix15;
-    int ix16;
-    int ix17;
-    int ix18;
-    int ix19;
-    int ix20;
-    struct Struct_63F0 * ix21;
+    void * m_npcCommandList;
+    struct PositionXYZ savedPos;
+    int savedDirection;
+    struct PositionXYZ field38_0x48;
+    int field39_0x54;
+    int field40_0x58;
+    struct PositionXYZ field41_0x5c;
+    int field42_0x68;
+    int field43_0x6c;
+    void * m_updatingEntity;
     int m_zenny;
 };
 
 struct Struct_Unk6C {
     byte other[20];
+};
+
+struct MapOffsetStruct {
+    struct PositionXYZ posCurr;
+    struct PositionXYZ posLast;
+};
+
+struct PlayerLocation {
+    struct EntityHeader m_header;
+    byte b4;
+    byte b5;
+    byte b6;
+    byte m_b7;
+    byte m_b8_state;
+    byte m_stateMoveType;
+    byte m_stateMoveUpdate;
+    byte m_b11;
+    byte m_b12;
+    byte m_b13;
+    byte m_b14;
+    byte m_b15;
+    byte direction; /* 0-7, 0= up, clockwise */
+    byte m_b17_direction2;
+    enum MoveType moveType;
+    enum MoveType lastMoveType;
+    byte currDirMoveIndex; /* 8-F = walking, 10-17 = runnning */
+    byte lastDirMoveIndex;
+    byte b22;
+    byte m_b23;
+    int i0;
+    ushort m_s0;
+    ushort s1;
+    int i1;
+    struct MapOffsetStruct mapOffset;
+    int m_isMovementBlocked;
+    int m_deltaX;
+    int m_deltaY;
+    int m_i11;
+    int i12;
+    int i13;
+    int i14;
+    int m_stepCounter;
+    int i16;
+    ushort m_s4_moveKeyFlags;
+    ushort m_s5;
+    int i17;
+    int i18;
+    int i19;
+    int i20;
+    int i21;
+    int i22;
+    int i23;
+    struct Sprite m_sprite;
 };
 
 struct MainMenu {
@@ -1989,11 +2533,6 @@ struct Struct_Unk4C {
     struct Struct_Unk4C_Sub m_data[16];
 };
 
-struct MapOffset {
-    int m_posX;
-    int m_posY;
-};
-
 struct Struct_Unk24 {
     enum FuncState b0;
     byte b1;
@@ -2005,17 +2544,6 @@ struct Struct_Unk24 {
     byte b7;
     int i2;
     int i3;
-};
-
-struct Struct_Unk68 {
-    byte m_textWidth;
-    byte m_totalTextLength;
-    byte m_charShade;
-    byte pad;
-    uint m_possibleBcd;
-    uint m_ix1;
-    uint m_ix2;
-    uint x4;
 };
 
 struct Struct_83BA4 {
@@ -2041,40 +2569,21 @@ struct Struct_83BA4 {
     byte field19_0x13;
 };
 
-struct MapOffsetStruct {
-    struct MapOffset m_position;
-    int m_pos0;
-    struct MapOffset m_lastPosition;
-    int m_lastPos0;
-};
-
-struct Struct_Unk60 {
-    byte b0;
-    byte b1;
-    byte b2;
-    byte b3;
-    byte funcOffset;
-    byte b5;
-    byte b6;
-    byte b7;
-};
-
 struct Menu {
-    byte m_ib0;
-    byte m_ib1;
+    byte m_state0;
+    byte m_state1;
     byte ib2;
     byte ib3;
     byte m_chipid;
-    byte b1;
+    byte m_chipCode;
     byte b2;
     byte m_isShowChipDetail;
     struct BattleChipData * m_chipData;
-    byte Library_SubListOffset0;
+    byte m_libraryStandardChipCount;
     byte Library_SubListOffset1;
     byte Library_ListOffset0;
     byte Library_ListOffset1;
-    byte m_someCount;
-    byte bb01;
+    ushort totalChipCount;
     ushort m_FolderSubOffset0;
     ushort m_FolderSubOffset1;
     ushort m_FolderOffset0;
@@ -2084,7 +2593,7 @@ struct Menu {
     short m_sx5;
     ushort m_sx6;
     short m_sx7;
-    ushort m_st0;
+    ushort m_totalChipCount2;
     ushort m_st1;
     ushort m_ixx0;
     ushort m_ix1;
@@ -2108,11 +2617,15 @@ struct WindowSettings {
     uint winInOut;
 };
 
-struct ScreenLayoutContainer {
-    struct TilemapEntry screen0[1024];
-    struct TilemapEntry screen1[1024];
-    struct TilemapEntry screen2[1024];
-    struct TilemapEntry screen3[1024];
+struct PetStatusControl {
+    byte field0_0x0;
+    byte field1_0x1;
+    byte field2_0x2;
+    byte field3_0x3;
+    byte funcOffset;
+    byte petAnimCounter;
+    byte alertAnimCounter;
+    byte alertAudioCounter;
 };
 
 struct Struct_Unk64_Sized {
@@ -2143,56 +2656,24 @@ struct Struct_Unk64_Sized {
 };
 
 struct Struct_Unk14_Sized {
-    short u0;
-    byte m_bgMovementControl;
-    byte m_b1;
+    short field0_0x0;
+    enum BGMoveControlType m_bgMovementControl;
+    byte m_bx03;
     short m_playerPosX;
     short m_playerPosY;
     short m_lastPlayerPosX;
     short m_lastPlayerPosY;
     short m_ixs0;
     short ixs1;
-    int m_p1;
+    struct PositionXYZ * m_px10;
     int m_xLowerBound;
     int m_xUpperBound;
-    int m_i4;
-    int m_i5;
+    int m_yUpperBound;
+    int m_yLowerBound;
     int m_i6;
     int m_i7;
-    int m_i8_savedY;
-    int m_i9_savedX;
-    int m_i10;
-    uint m_xRelated0;
-    uint m_i3;
-    int m_i0;
-};
-
-struct Struct_Unk44_2009A50 {
-    byte m_mapGridSizeY;
-    byte m_mapGridSizeX;
-    byte field2_0x2;
-    byte field3_0x3;
-    short m_playerX;
-    short m_playerY;
-    uint * m_p0_structpackptr;
-    struct BattleChip * m_chipArr;
-    void * m_i0;
-    int m_i1_start;
-    void * m_funcLayoutCopy;
-    void * m_func1;
-    void * m_func2;
-    byte field13_0x24;
-    byte field14_0x25;
-    byte field15_0x26;
-    byte field16_0x27;
-    byte field17_0x28;
-    byte field18_0x29;
-    byte field19_0x2a;
-    byte field20_0x2b;
-    byte field21_0x2c;
-    byte field22_0x2d;
-    byte field23_0x2e;
-    byte field24_0x2f;
+    struct PositionXYZ m_posMapSaved;
+    struct PositionXYZ m_posMap;
 };
 
 struct Text {
@@ -2241,36 +2722,26 @@ struct Text {
     struct Sprite m_portrait;
 };
 
-struct Struct_Unk1C_Battle_Sized {
-    int i0;
-    byte m_flag0;
-    byte m_chipNameWidth;
-    byte b2;
-    byte m_possibleChipGaugeFull;
-    int i2;
-    byte m_buffer[32];
-};
-
 struct Scene {
     enum FuncState m_state0;
-    byte b1;
-    byte m_b2;
-    byte b3;
+    byte field1_0x1;
+    byte m_bx02;
+    byte field3_0x3;
     byte m_dialogueIndex;
     byte m_areaDialogueIndex;
-    byte b6;
-    byte b7;
+    byte field6_0x6;
+    byte field7_0x7;
     ushort m_delayCounter;
     ushort flag1;
     void * m_scenePointer;
-    struct Struct_83BA4 * i0;
-    struct Scene * m_i1;
-    int i2;
-    int i3;
-    int i4;
-    int i5;
-    int i6;
-    int i7;
+    struct Struct_83BA4 * m_px10;
+    struct Scene * m_px14;
+    void * m_px18;
+    struct Actor * m_px1c_actor;
+    int field15_0x20;
+    int field16_0x24;
+    int field17_0x28;
+    int field18_0x2c;
 };
 
 struct Struct_Unk7C {
@@ -2314,95 +2785,6 @@ struct Struct_Unk7C {
     byte b37;
     byte b38;
     byte b39;
-};
-
-struct Struct_63F0 {
-    byte b0;
-    byte m_b1_state;
-    byte m_b2;
-    byte m_b3;
-    byte b4;
-    byte b5;
-    byte b6;
-    byte m_b7;
-    byte m_b8_state;
-    byte m_stateMoveType;
-    byte m_stateMoveUpdate;
-    byte m_b11;
-    byte m_b12;
-    byte m_b13;
-    byte m_b14;
-    byte m_b15;
-    byte m_direction; /* 0-7, 0= up, clockwise */
-    byte m_b17_direction2;
-    enum MoveType m_moveType;
-    enum MoveType m_lastMoveType;
-    byte m_dirMovementIndex; /* 8-F = walking, 10-17 = runnning */
-    byte m_b21_direction4;
-    byte b22;
-    byte m_b23;
-    int i0;
-    ushort m_s0;
-    ushort s1;
-    int i1;
-    struct MapOffsetStruct m_mapOffset;
-    int i8;
-    int m_deltaX;
-    int m_deltaY;
-    int m_i11;
-    int i12;
-    int i13;
-    int i14;
-    int m_stepCounter;
-    int i16;
-    ushort m_s4_moveKeyFlags;
-    ushort m_s5;
-    int i17;
-    int i18;
-    int i19;
-    int i20;
-    int i21;
-    int i22;
-    int i23;
-    int i24;
-    int i25;
-    int i26;
-    int i27;
-    int i28;
-    int i29;
-    int i30;
-    int i31;
-    int i32;
-    int m_i33_possiblyPcAnimRelated;
-    int i34;
-    int i35;
-};
-
-struct Struct_Unk78 {
-    byte bxx0;
-    byte m_bxx1;
-    byte bxx2;
-    byte m_bxx3;
-    byte m_b0;
-    byte m_b1;
-    ushort ux0;
-    ushort ux1;
-    byte b2;
-    byte b3;
-    byte b4;
-    byte m_b5;
-    byte m_rewardChipsCount;
-    byte m_battleCount_8;
-    short m_s0_possibleTimeRelated;
-    ushort m_battleCount_16;
-    ushort m_counter0;
-    ushort m_s2;
-    int m_gameTimer;
-    int m_inBattleTimer;
-    int m_checkSum;
-    int m_currStepCounter;
-    int m_lastStepCounter;
-    byte m_buildId[14];
 };
 
 struct Shop {
@@ -2452,43 +2834,51 @@ struct Main {
     struct Input * input;
     struct World * world;
     struct Battle * battle;
-    struct DisplaySettings * displaySettings;
+    struct DisplaySettings * display;
     struct Struct_Unk14_Sized * unk_14;
-    struct FadeSettings * fadeSettings;
-    struct Struct_Unk1C_Battle_Sized * unk_1C;
-    struct Struct_Unk20 * unk_20;
+    struct FadeSettings * fade;
+    struct BattleUI * battleUi;
+    struct PlayerBattleState * playerBattleState;
     struct Struct_Unk24 * unk_24;
     struct Scene * scene;
     struct Struct_Unk2C * unk_2C;
     struct Transition * transition;
     struct MainMenu * mainMenu;
-    struct WindowSettings * windowSettings;
-    struct BlendSettings * blendSettings;
+    struct WindowSettings * window;
+    struct BlendSettings * blend;
     struct Demo * demo;
-    struct Struct_Unk44_2009A50 * unk_44;
+    struct BackgroundDataManager * bgMapLoader;
     struct Text * text;
     struct Struct_Unk4C * unk_4C;
     struct FrameCounter * frameCounter;
     struct Struct_Unk54 * unk_54;
     struct Struct_Unk58 * unk_58;
-    struct ScreenLayoutContainer * screens;
-    struct Struct_Unk60 * unk_60;
+    struct ScreenTilemapContainer * screens;
+    struct PetStatusControl * petStatusControl;
     struct Struct_Unk64_Sized * unk_64;
-    struct Struct_Unk68 * unk_68;
+    struct TextUI * unk_68;
     struct Struct_Unk6C * unk_6C;
     struct Shop * shop;
     struct Menu * menu;
-    struct Struct_Unk78 * unk_78;
+    struct GameStats * gameStats;
     struct Struct_Unk7C * unk_7C;
 };
 
 struct Struct_Unk54 {
     int m_state0;
-    byte m_b4;
+    byte m_b4_possibleId;
     byte m_b5_possibleAlteredGaugeSpeed;
     byte m_b6;
-    byte b7;
+    byte m_isDim;
     short m_timer;
+};
+
+struct TextUI {
+    byte m_textWidth;
+    byte m_totalTextLength;
+    byte m_charShade;
+    byte pad;
+    uint m_numberBuffer[4];
 };
 
 typedef struct MapDataHeader MapDataHeader, *PMapDataHeader;
@@ -2498,6 +2888,13 @@ struct MapDataHeader {
     int m_elevationDataOffset;
     int m_coverDataOffset;
     int m_eventDataOffset;
+};
+
+typedef struct MapOffset MapOffset, *PMapOffset;
+
+struct MapOffset {
+    int m_posX;
+    int m_posY;
 };
 
 typedef struct MapParameters MapParameters, *PMapParameters;
@@ -2531,6 +2928,13 @@ struct MapParameters {
     struct WallParameters * m_wallParam;
 };
 
+typedef struct MapWallSectionHeader MapWallSectionHeader, *PMapWallSectionHeader;
+
+struct MapWallSectionHeader {
+    int m_segmentCount;
+    struct WallSegment m_wallSegments[1];
+};
+
 typedef struct MapWallSegment MapWallSegment, *PMapWallSegment;
 
 struct MapWallSegment {
@@ -2549,20 +2953,9 @@ struct MovementOffset {
     int m_offsetY;
 };
 
-typedef enum MptFlag {
-    MPT_FLAG_VOLSET=1,
-    MPT_FLAG_VOLCHG=3,
-    MPT_FLAG_PITSET=4,
-    MPT_FLAG_PITCHG=12,
-    MPT_FLAG_START=64,
-    MPT_FLAG_EXIST=128
-} MptFlag;
-
 typedef struct MusicPlayer MusicPlayer, *PMusicPlayer;
 
 typedef struct MusicPlayerInfo MusicPlayerInfo, *PMusicPlayerInfo;
-
-typedef struct MusicPlayerTrack MusicPlayerTrack, *PMusicPlayerTrack;
 
 typedef struct SongHeader SongHeader, *PSongHeader;
 
@@ -2571,64 +2964,6 @@ typedef enum MusicPlayerStatus {
     MUSICPLAYER_STATUS_PAUSE=2147483648
 } MusicPlayerStatus;
 
-typedef struct ToneData ToneData, *PToneData;
-
-typedef struct SoundChannel SoundChannel, *PSoundChannel;
-
-struct ToneData {
-    enum InstrumentType type;
-    byte key;
-    byte unused;
-    byte panning;
-    int pointer;
-    byte attack;
-    byte decay;
-    byte sustain;
-    byte release;
-};
-
-struct MusicPlayerTrack {
-    enum MptFlag flags;
-    byte wait;
-    byte patternLevel;
-    byte repN;
-    byte gateTime;
-    byte key;
-    byte velocity;
-    byte runningStatus;
-    byte keyM;
-    byte pitM;
-    byte keyShift;
-    byte keyShiftX;
-    byte tune;
-    byte pitX;
-    byte bend;
-    byte bendRange;
-    byte volMR;
-    byte volML;
-    byte vol;
-    byte volX;
-    byte pan;
-    byte panX;
-    byte modM;
-    byte mod;
-    byte modT;
-    byte lfoSpeed;
-    byte lfoSpeecC;
-    byte lfoDelay;
-    byte lfoDelayC;
-    byte priority;
-    byte echoVolume;
-    byte echoLength;
-    struct SoundChannel * chan;
-    struct ToneData tone;
-    byte gap[10];
-    word unk_3A;
-    dword unk_3C;
-    byte * cmdPtr;
-    byte * patternStack[3];
-};
-
 struct SongHeader {
     byte trackCount;
     byte blockCount;
@@ -2636,42 +2971,6 @@ struct SongHeader {
     byte reverb;
     struct ToneData * tone;
     byte * part[1];
-};
-
-struct SoundChannel {
-    byte status;
-    byte type;
-    byte rightVolume;
-    byte leftVolume;
-    byte attack;
-    byte delay;
-    byte sustain;
-    byte release;
-    byte ky;
-    byte ev;
-    byte er;
-    byte el;
-    byte echoVolume;
-    byte echoLength;
-    byte d1;
-    byte d2;
-    byte gt;
-    byte mk;
-    byte ve;
-    byte pr;
-    byte rp;
-    byte d3[3];
-    uint ct;
-    uint fw;
-    uint freq;
-    void * wav;
-    uint cp;
-    void * track;
-    uint pp;
-    uint np;
-    uint d4;
-    ushort xpi;
-    ushort xpc;
 };
 
 struct MusicPlayer {
@@ -2703,6 +3002,65 @@ struct MusicPlayerInfo {
     uint ident;
     uint func;
     uint intp;
+};
+
+typedef struct NPC NPC, *PNPC;
+
+typedef struct PositionByteXYZ PositionByteXYZ, *PPositionByteXYZ;
+
+struct PositionByteXYZ {
+    byte m_X;
+    byte m_Y;
+    byte m_Z;
+};
+
+struct NPC {
+    struct EntityHeader m_header;
+    byte m_posIncrementCount;
+    byte m_stepsToTake;
+    undefined1 field3_0x6;
+    byte m_bx07_state;
+    byte m_bx08;
+    byte m_bx09_moveState;
+    byte m_bx0a_moveCalcState;
+    byte m_bx0b;
+    byte m_bx0c;
+    byte m_bx0d;
+    byte currDirection;
+    byte lastDirection;
+    byte m_npcIndex;
+    struct PositionByteXYZ posSub;
+    byte currFrameIndex;
+    byte lastFrameIndex;
+    byte m_bx16_paletteIndex;
+    byte m_bx17;
+    byte m_bx18_commandControl_1;
+    byte m_scriptStatus;
+    undefined1 field21_0x1a;
+    undefined1 field22_0x1b;
+    byte m_bx1b_areaDialogIndex;
+    byte m_bx1d;
+    byte m_bx1e;
+    byte m_bx1f;
+    short m_moveDeltaCount;
+    short field28_0x22;
+    struct PositionXYZ posCurr;
+    struct PositionXYZ posNext;
+    short currSpriteIndex;
+    short lastSpriteIndex;
+    struct PositionXYZ m_posDelta;
+    int m_npcIdFlag;
+    int m_currentCommand;
+    int m_ix54;
+    int m_movementFlags;
+    void * m_commandListStart;
+    int m_ix60_priority;
+    int m_ix64_flag;
+    int m_ix68;
+    int m_nextX;
+    int m_nextY;
+    byte data1[28];
+    struct Sprite sprite;
 };
 
 typedef struct OamAddObjectArgs OamAddObjectArgs, *POamAddObjectArgs;
@@ -2758,6 +3116,41 @@ struct ObjectControl {
     short m_affineDetails;
 };
 
+typedef struct ObjectEntryFlag0 ObjectEntryFlag0, *PObjectEntryFlag0;
+
+struct ObjectEntryFlag0 {
+    byte m_objSize:2;
+    bool m_isHFlip:1;
+    bool m_isVFlip:1;
+};
+
+typedef struct PlayerMpState PlayerMpState, *PPlayerMpState;
+
+struct PlayerMpState {
+    byte bx00;
+    byte m_possibleChipId;
+    enum KeyInput curKeys;
+    enum KeyInput toggledKeys;
+    enum KeyInput heldKeys;
+    enum KeyInput lastKeys;
+    short field6_0xa;
+    int packetCounter;
+};
+
+typedef struct PositionLong PositionLong, *PPositionLong;
+
+struct PositionLong {
+    int m_X;
+    int m_Y;
+};
+
+typedef struct PositionShort PositionShort, *PPositionShort;
+
+struct PositionShort {
+    short m_x;
+    short m_y;
+};
+
 typedef enum RelationFlag {
     RF_NoRelation=0,
     RF_SameID=1,
@@ -2775,6 +3168,14 @@ typedef enum ScriptOption {
     TS_40=64,
     TS_Skip_Text_Sound=128
 } ScriptOption;
+
+typedef struct SioControl SioControl, *PSioControl;
+
+struct SioControl {
+    byte SioCnt_Lo;
+    byte SioCnt_Hi;
+    ushort siomlt_send;
+};
 
 typedef struct Song Song, *PSong;
 
@@ -2802,17 +3203,24 @@ struct SoundInfo {
     int pcmFreq;
     int divFreq;
     struct CgbChannel * cgbChans;
-    uint func;
-    uint intp;
-    void * CgbSound;
-    void * CgbOscOff;
-    void * MidiKeyToCgbFreq;
-    uint MPlayJumpTable;
-    uint playnote;
-    uint ExtVolPit;
+    void (* MPlayMainHead)(struct MusicPlayerInfo *);
+    struct MusicPlayerInfo * musicPlayerHead;
+    void (* CgbSound)(void);
+    void (* CgbOscOff)(byte);
+    int (* MidiKeyToCgbFreq)(byte, byte, byte);
+    void (* MPlayJumpTable)(void);
+    void (* plynote)(struct MusicPlayerInfo *, struct MusicPlayerTrack *);
+    void (* ExtVolPit)(void);
     byte gap2[16];
     struct SoundChannel chans[12];
     byte pcmBuffer[3168];
+};
+
+typedef struct SpriteAnimParam SpriteAnimParam, *PSpriteAnimParam;
+
+struct SpriteAnimParam {
+    short m_spriteIndex;
+    short m_spriteFrame;
 };
 
 typedef struct SpriteArchive_AnimDataHeader SpriteArchive_AnimDataHeader, *PSpriteArchive_AnimDataHeader;
@@ -2840,6 +3248,7 @@ struct SpriteArchive_Header {
     byte magic0;
     byte magic1;
     byte m_numSprites;
+    byte data[1];
 };
 
 typedef struct SpriteHeader SpriteHeader, *PSpriteHeader;
@@ -2852,7 +3261,22 @@ struct SpriteHeader {
 };
 
 typedef enum SpriteIndex {
-    SX_Canodumb=16
+    SP_MegaMan=0,
+    SP_Mettaur=1,
+    SP_WoodMan=2,
+    SP_Canodumb=16,
+    SP_FireMan=17,
+    SP_Vulgear=20,
+    SP_Beetank=31,
+    SP_Spooky=32,
+    SP_GutsMan=34,
+    SP_HardHead=37,
+    SP_Fishy=38,
+    SP_Attack_Cannon=109,
+    SP_Effect_ShortExplosion=206,
+    SP_Effect_TallExplosion=218,
+    SP_Effect_SwordStrike=248,
+    SP_Effect_FireHit=249
 } SpriteIndex;
 
 typedef struct SpriteList SpriteList, *PSpriteList;
@@ -2872,31 +3296,25 @@ struct SpriteLzDetails {
     void * m_next;
 };
 
+typedef struct SpriteObjectEntry SpriteObjectEntry, *PSpriteObjectEntry;
+
+struct SpriteObjectEntry {
+    byte m_tileNumber;
+    sbyte m_x;
+    sbyte m_y;
+    byte m_flag0;
+    byte m_flag1;
+};
+
 typedef enum SpriteType {
     D0_Desk=208
 } SpriteType;
 
-typedef struct Struct_13A0 Struct_13A0, *PStruct_13A0;
+typedef struct SRFREturn SRFREturn, *PSRFREturn;
 
-struct Struct_13A0 {
-    byte b0;
-    byte b1;
-    byte b2;
-    byte b3;
-    int b4;
-    int ix0;
-    int ix1;
-    int ix2;
-    int ix3;
-    int ix4;
-    int ix5;
-    int ix6;
-    int ix7;
-    int ix8;
-    int ix9;
-    int ix10;
-    int ix11;
-    byte other[136];
+struct SRFREturn {
+    int newY;
+    int newX;
 };
 
 typedef struct Struct_2000000 Struct_2000000, *PStruct_2000000;
@@ -2951,7 +3369,7 @@ struct Struct_20062d0_Sized {
 typedef struct Struct_2007200 Struct_2007200, *PStruct_2007200;
 
 struct Struct_2007200 {
-    uint m_spriteTilesetPointer;
+    struct SpriteTilesetHeader * m_spriteTilesetPointer;
     uint u1;
 };
 
@@ -2973,37 +3391,21 @@ typedef struct Struct_2A3C_In Struct_2A3C_In, *PStruct_2A3C_In;
 
 struct Struct_2A3C_In {
     short _pad0;
-    short m_unknownX;
+    short m_posX;
     short _pad1;
-    short m_unknownY;
+    short m_posY;
     short _pad2;
-    short m_unknownEntityB3;
-};
-
-typedef struct Struct_3490 Struct_3490, *PStruct_3490;
-
-struct Struct_3490 {
-    short u0;
-    short u1;
-    short u2;
-    byte b0;
-    byte b1;
-    uint i2;
-    uint i3;
-    uint * i4;
+    short m_offsetY;
 };
 
 typedef struct Struct_4CD0 Struct_4CD0, *PStruct_4CD0;
 
 struct Struct_4CD0 {
-    byte m_b0;
-    byte m_routineType;
-    byte m_b2;
-    byte m_b3;
+    struct EntityHeader m_header;
     enum BattleResultType m_possibleBattleResultType;
     byte m_floatingNumWidth;
     bool m_isPrintFloatingNum;
-    byte b7;
+    byte field4_0x7;
     enum FuncState m_state0;
     enum FuncState m_state1;
     enum FuncState m_state2;
@@ -3012,49 +3414,41 @@ struct Struct_4CD0 {
     byte m_scoreRank;
     byte m_rewardChipId;
     byte m_rewardChipCode;
-    int i3;
-    int i4;
-    byte b8;
-    byte b9;
-    byte b10;
-    byte m_b11;
+    int field13_0x10;
+    byte m_currFrameIndex;
+    byte m_lastFrameIndex;
+    byte m_owner;
+    byte bx17;
+    byte field18_0x18;
+    byte field19_0x19;
+    byte field20_0x1a;
+    byte bx1b;
     ushort m_rewardRevealDelayCounter;
-    short i6_2;
-    int i7;
-    int i8;
+    short field23_0x1e;
+    int field24_0x20;
+    int field25_0x24;
     int m_possibleBg3X;
     int m_possibleBg3Y;
-    int m_i11;
-    int i12;
-    int i13;
-    int i14;
-    int i15;
-    int i16;
-    int i17;
-    int i18;
-    int i19;
-    int i20;
-    int i21;
-    int i22;
+    int ix30;
+    int field29_0x34;
+    int field30_0x38;
+    int field31_0x3c;
+    int field32_0x40;
+    int field33_0x44;
+    int field34_0x48;
+    int field35_0x4c;
+    int field36_0x50;
+    int field37_0x54;
+    int field38_0x58;
+    int field39_0x5c;
     int m_floatingNumRealValue;
     int m_floatingNumBcdValue;
     byte m_floatingNumBcdBytes[8];
     int m_unkX;
     int m_unkY;
-    struct Entity * m_entityPtr;
-    int i30;
-    int i31;
-    int i32;
-    int i33;
-    int i34;
-    int i35;
-    int i36;
-    int i37;
-    int i38;
-    int i39;
-    int i40;
-    int i41;
-    int i42;
+    struct Actor * m_entityPtr;
+    int field46_0x7c;
+    struct Sprite m_sprite;
 };
 
 typedef struct Struct_807091C Struct_807091C, *PStruct_807091C;
@@ -3062,21 +3456,33 @@ typedef struct Struct_807091C Struct_807091C, *PStruct_807091C;
 struct Struct_807091C {
     byte m_spriteIndex;
     byte m_frameIndex;
-    byte valC;
-    byte valD;
+    short valC;
 };
 
-typedef struct Struct_C1F0 Struct_C1F0, *PStruct_C1F0;
+typedef struct Struct_C1C0 Struct_C1C0, *PStruct_C1C0;
 
-struct Struct_C1F0 {
-    byte field0_0x0;
-    byte m_possibleChipId;
-    enum KeyInput m_curKeyState;
-    enum KeyInput m_toggleKeyState;
-    enum KeyInput m_heldKeyState;
-    enum KeyInput m_lastKeyState;
-    short field6_0xa;
-    int m_unkCounter;
+struct Struct_C1C0 {
+    byte bx00;
+    byte bx01;
+    byte m_attack;
+    byte gPossibleBustingRank;
+    byte gPossibleDropChipId;
+    byte gPossibleDropChipCode;
+    undefined2 field6_0x6;
+    undefined field7_0x8;
+    bool isAddSelect;
+    byte m_randomCellSeed;
+    byte m_armor;
+    int _pad;
+};
+
+typedef struct Struct_C1F0_Packet Struct_C1F0_Packet, *PStruct_C1F0_Packet;
+
+struct Struct_C1F0_Packet {
+    short id;
+    short checksum;
+    struct PlayerMpState playerInputInfo;
+    int field3_0x14;
 };
 
 typedef struct Struct_Enemy Struct_Enemy, *PStruct_Enemy;
@@ -3093,12 +3499,12 @@ struct Struct_MysteryDictR7 {
     byte b2;
     byte b3;
     int i2;
-    int i3;
-    int m_i4;
-    int m_i5;
-    void (* m_funcPtr1)(void);
-    void (* m_funcPtr2)(void);
-    void (* m_funcPtr3)(void);
+    void * npcCommandListList;
+    short * * spriteAreaList;
+    struct EntityAllocParams * m_entityAllocList;
+    void (* m_funcPreLoop)(void);
+    void (* m_funcHblank)(void);
+    void (* m_funcPostLoop)(void);
 };
 
 typedef struct Struct_Ret_23AC Struct_Ret_23AC, *PStruct_Ret_23AC;
@@ -3120,6 +3526,44 @@ struct Struct_UnknownBGHeader {
     byte b3;
     int i0;
     int m_i1;
+};
+
+typedef struct Struct_UnkSio Struct_UnkSio, *PStruct_UnkSio;
+
+typedef struct Struct_UnkSio_48 Struct_UnkSio_48, *PStruct_UnkSio_48;
+
+struct Struct_UnkSio_48 {
+    byte field0_0x0[72];
+};
+
+struct Struct_UnkSio {
+    byte activeFlag;
+    byte bx01;
+    byte bx02;
+    byte bx03_bitset;
+    int ix04;
+    undefined field5_0x8;
+    bool isMpError;
+    byte bx0a;
+    byte bx0b;
+    undefined field9_0xc;
+    undefined field10_0xd;
+    undefined field11_0xe;
+    undefined field12_0xf;
+    undefined field13_0x10;
+    undefined field14_0x11;
+    undefined field15_0x12;
+    undefined field16_0x13;
+    int ix14_counter;
+    int ix18[4];
+    struct Struct_C1F0_Packet * px28_buffer0;
+    struct Struct_C1F0_Packet * px2c_buffer1;
+    struct Struct_UnkSio_48 * ilx30[4];
+    struct Struct_UnkSio_48 * ilx40[4];
+    struct PlayerMpState * vlx50[4];
+    struct Struct_C1F0_Packet playerInput_A;
+    struct Struct_C1F0_Packet playerInput_B;
+    struct Struct_UnkSio_48 listx90[4];
 };
 
 typedef struct SubMenuChipBagSlot SubMenuChipBagSlot, *PSubMenuChipBagSlot;
@@ -3158,6 +3602,14 @@ typedef struct Tile8 Tile8, *PTile8;
 
 struct Tile8 {
     byte data[64];
+};
+
+typedef struct TilemapReturn TilemapReturn, *PTilemapReturn;
+
+struct TilemapReturn {
+    int m_t0;
+    int m_t1;
+    int m_t2;
 };
 
 typedef enum TimerControl {
@@ -3208,15 +3660,4 @@ typedef enum WaitDmaFlag {
     Dma3=8
 } WaitDmaFlag;
 
-typedef struct WaveData WaveData, *PWaveData;
-
-struct WaveData {
-    word type;
-    word status;
-    qword freq;
-    qword loopStart;
-    qword size;
-    byte data[1];
-};
-
-#endif // MMBN_H
+#endif

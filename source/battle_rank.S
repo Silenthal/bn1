@@ -79,9 +79,9 @@ LAB_0807d60a:
     add        r0,r0,r2
     @ Calculate points for hits taken - start off at +1
     @ and subtract 1 for every hit taken up to 4
-    LoadStateTo r7, Main_unk_20
+    LoadStateTo r7, Main_playerBattleState
     mov        r2,#0x1
-    ldrb       r1,[r7,#Struct_Unk20_m_hitsTaken]
+    ldrb       r1,[r7,#PlayerBattleState_m_hitsTaken]
     tst        r1,r1
     beq        LAB_0807d636
     mov        r2,#0x0
@@ -99,7 +99,7 @@ LAB_0807d636:
     @ Calculate points for steps taken - +1 for less than
     @ 3 steps
     mov        r2,#0x1
-    ldrb       r1,[r7,#Struct_Unk20_m_moveCount]
+    ldrb       r1,[r7,#PlayerBattleState_m_moveCount]
     cmp        r1,#0x3
     bmi        LAB_0807d642
     mov        r2,#0x0

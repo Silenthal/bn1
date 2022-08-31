@@ -51,7 +51,7 @@ Demo_Init:
     bl         Text_DisableDialogue
     mov        r0,#BGC_Standard
     bl         Video_SetBgControl
-    LoadStateTo r0, Main_displaySettings
+    LoadStateTo r0, Main_display
     ldr        r1,PTR_DAT_08018bc4
     strh       r1,[r0,#DisplaySettings_dispcnt]
     bl         Video_ClearAllTile0Maps
@@ -104,7 +104,7 @@ Demo_Finish:
     LoadStateTo r0, Main_manager
     mov        r1,#MS_Splash
     strb       r1,[r0,#Manager_m_gameState]
-    LoadStateTo r0, Main_displaySettings
+    LoadStateTo r0, Main_display
     mov        r1,#DISPCNT_OMAP1D
     strh       r1,[r0,#DisplaySettings_dispcnt]
     pop        { pc }
@@ -113,7 +113,7 @@ thumb_func_end Demo_Finish
 thumb_func_start Demo_SetToBeContinuedMessage
 Demo_SetToBeContinuedMessage:
     push       { lr }
-    LoadStateTo r0, Main_fadeSettings, r0
+    LoadStateTo r0, Main_fade, r0
     ldrb       r0,[r0,#FadeSettings_m_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
@@ -151,7 +151,7 @@ thumb_func_end Demo_FadeOutScreen
 thumb_func_start Demo_ApplyVideoSettings
 Demo_ApplyVideoSettings:
     push       { lr }
-    LoadStateTo r0, Main_fadeSettings, r0
+    LoadStateTo r0, Main_fade, r0
     ldrb       r0,[r0,#FadeSettings_m_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
@@ -160,7 +160,7 @@ Demo_ApplyVideoSettings:
     mov        r0,#BGC_Standard
     bl         Video_SetBgControl
     pop        { r5 }
-    LoadStateTo r0, Main_displaySettings
+    LoadStateTo r0, Main_display
     mov        r1,#DISPCNT_OMAP1D
     strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0

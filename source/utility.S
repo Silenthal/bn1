@@ -306,7 +306,7 @@ ptrTimeConsts:  .word timeConsts
 @@ Increments a timer, capping it at 99 hours and 59 minutes
 thumb_func_start IncrementGameTimer
 IncrementGameTimer:
-    LoadStateTo r7, Main_unk_78
+    LoadStateTo r7, Main_gameStats
     ldr        r0,[r7,#0x18]
     add        r0,#0x1
     @ 99 hours and 50 minutes = 5999 minutes
