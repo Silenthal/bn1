@@ -166,10 +166,10 @@ typedef enum KeyInput {
 typedef enum SpriteFlag {
     SF_NoMiniAnimation=1,
     SF_TilesetLoaded=2,
-    SF_4=4,
-    SF_8=8,
-    SF_10=16,
-    SF_20=32
+    SF_ZClip=4,
+    SF_NoZClip=8,
+    SF_MultipleParts=16,
+    SF_TilesNotInVram=32
 } SpriteFlag;
 
 typedef enum SpriteAffineFlag {
@@ -187,13 +187,13 @@ typedef struct SpriteTilesetHeader SpriteTilesetHeader, *PSpriteTilesetHeader;
 typedef struct Tile Tile, *PTile;
 
 struct SpriteFrame {
-    int m_tilesetOffset;
-    int m_palettes;
-    int m_subFrames;
-    int m_objectLists;
-    byte m_delay;
+    int tilesetOffset;
+    int palettes;
+    int subFrames;
+    int objectLists;
+    byte delay;
     byte _pad0;
-    byte m_flags;
+    byte flags;
     byte _pad1;
 };
 
@@ -248,9 +248,9 @@ struct PlayerBattleState {
 };
 
 struct SpriteSubFrame {
-    byte m_objectListIndex;
-    byte m_delay;
-    byte m_flag;
+    byte objectListIndex;
+    byte delay;
+    byte flag;
 };
 
 struct EntityHeader {
@@ -278,7 +278,7 @@ struct Sprite {
     short dstTileOffset;
     short spriteNum;
     short screenX;
-    byte bx0e_y1;
+    byte portraitScreenY;
     byte bx0f_y2;
     byte bx10_lo;
     enum SpriteAffineFlag bx11_flag;
@@ -290,8 +290,8 @@ struct Sprite {
     struct SpriteFrame * curFrame;
     struct SpriteSubFrame * curSubFrame;
     struct SpriteTilesetHeader * curTilesetHeader;
-    int ix28_mask;
-    uint ix2c_flag;
+    int objectDrawBitset;
+    uint objectExcludeFlags;
 };
 
 struct BattleSpawnAnimation {
@@ -3032,7 +3032,7 @@ struct NPC {
     struct PositionByteXYZ posSub;
     byte currFrameIndex;
     byte lastFrameIndex;
-    byte m_bx16_paletteIndex;
+    byte paletteIndex;
     byte m_bx17;
     byte m_bx18_commandControl_1;
     byte m_scriptStatus;
@@ -3055,8 +3055,8 @@ struct NPC {
     int m_movementFlags;
     void * m_commandListStart;
     int m_ix60_priority;
-    int m_ix64_flag;
-    int m_ix68;
+    int currObjExcludeFlags;
+    int lastObjExcludeFlags;
     int m_nextX;
     int m_nextY;
     byte data1[28];
@@ -3299,11 +3299,11 @@ struct SpriteLzDetails {
 typedef struct SpriteObjectEntry SpriteObjectEntry, *PSpriteObjectEntry;
 
 struct SpriteObjectEntry {
-    byte m_tileNumber;
-    sbyte m_x;
-    sbyte m_y;
-    byte m_flag0;
-    byte m_flag1;
+    byte tileNumber;
+    sbyte x;
+    sbyte y;
+    byte flag1;
+    byte flag2;
 };
 
 typedef enum SpriteType {

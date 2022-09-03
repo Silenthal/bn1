@@ -4,58 +4,69 @@
 
     .text
 
+@ In:
+@ r0: spriteListIndex - The index in which to insert the sprite
+@ r5: sprite - The sprite to add
 far_thumb_func_start Oam_AddSprite
 Oam_AddSprite:
     push       { lr }
     strb       r0,[r5,#Sprite_indexOamList]
     ldrb       r0,[r5,#Sprite_spriteFlags]
-    mov        r1,#0x20
+    mov        r1,#SF_TilesNotInVram
     tst        r0,r1
-    bne        LAB_03006d76
-    mov        r1,#0x2
+    bne        .returnIfNoTiles
+    mov        r1,#SF_TilesetLoaded
     tst        r0,r1
-    bne        LAB_03006d78
-LAB_03006d76:
+    bne        .spriteTilesetLoaded
+.returnIfNoTiles:
     pop        { pc }
-LAB_03006d78:
+.spriteTilesetLoaded:
     ldr        r1,[r5,#Sprite_curSubFrame]
-    ldrb       r2,[r1,#0x0] @ object list index
+    ldrb       r2,[r1,#SpriteSubFrame_objectListIndex]
     lsl        r2,r2,#0x2
+    @ r2 = list index of current sub frame, which is looked up in the current frame's object list
     ldr        r0,[r5,#Sprite_curFrame]
-    ldr        r0,[r0,#0xc] @ object list ptr
+    ldr        r0,[r0,#SpriteFrame_objectLists]
     ldr        r1,[r5,#Sprite_spriteStart]
     add        r1,r1,r0
+    @ r1 = object list of current frame
     ldr        r2,[r1,r2]
     add        r2,r2,r1
-    ldr        r3,[r5,#Sprite_ix28_mask]
+    @ r2 = object entry of the active sub frame of the current sprite frame
+    ldr        r3,[r5,#Sprite_objectDrawBitset]
     push       { r3 }
-    ldr        r4,[r5,#Sprite_ix2c_flag]
+    ldr        r4,[r5,#Sprite_objectExcludeFlags]
     mvn        r4,r4
     and        r3,r4
-    str        r3,[r5,#Sprite_ix28_mask]
+    str        r3,[r5,#Sprite_objectDrawBitset]
     ldrb       r0,[r5,#Sprite_spriteFlags]
     mov        r7,#0xff
     mov        r1,#0x4
     and        r1,r0
-    bne        LAB_03006da8
+    bne        .handleObject
     mov        r7,#0x0
-    mov        r1,#0x8
+    mov        r1,#SF_NoZClip
     and        r1,r0
-    beq        advanceToNextObj
-LAB_03006da8:
-    ldrb       r3,[r2,#0x0] @ tile number
+    beq        .advanceToNextObj
+.handleObject:
+    ldrb       r3,[r2,#SpriteObjectEntry_tileNumber]
     cmp        r3,#0xff
-    beq        exit
-    ldr        r3,[r5,#Sprite_ix28_mask]
+    beq        .exit
+    ldr        r3,[r5,#Sprite_objectDrawBitset]
     lsl        r6,r3,#0x1
-    str        r6,[r5,#Sprite_ix28_mask]
+    str        r6,[r5,#Sprite_objectDrawBitset]
+    @ bitset <<= 1; if bitset & 0x80000000 == 0 move to next object
     cmp        r3,#0x0
-    bge        advanceToNextObj
+    bge        .advanceToNextObj
     ldr        r6,[r5,#Sprite_bx10_lo]
+    @ if sprite flag & 4 != 0, r7 = 0xFF, else r7 = 0
     bl         Oam_SpriteRotateFlipPos
     mov        r8,r1
     mov        r9,r0
+    @ r8 = object X
+    @ r9 = object Y
     add        r3,r6,#0x0
+    @ r3 = r6, from sprite rotate func
     mov        r0,#Sprite_screenX
     ldrsh      r0,[r5,r0]
     add        r0,r8
@@ -65,65 +76,90 @@ LAB_03006da8:
     and        r0,r4
     lsl        r0,r0,#0x10
     orr        r3,r0
-    ldrb       r4,[r2,#0x3] @ flag1
+    @ r3 |= ((screenX + objectX) & 0x1FF) << 0x10
+    @ r3 [16:23] = x coord
+    ldrb       r4,[r2,#SpriteObjectEntry_flag1]
     mov        r0,#0xf0
     and        r0,r4
     lsl        r4,r4,#0x1e
     orr        r3,r4
+    @ r3 |= flag1 << 0x1E
+    @ r0 [30:31] = obj size
     lsl        r0,r0,#0x16
     eor        r3,r0
+    @ r3 ^= hvflags << 0x16
+    @ r3 [28] = ~hflip
+    @ r3 [29] = ~vflip
     cmp        r7,#0xff
-    bne        LAB_03006dec
-    mov        r0,#0xf
-    b          LAB_03006dee
-LAB_03006dec:
-    mov        r0,#0xe
-LAB_03006dee:
+    bne        .usePortraitY
+    mov        r0,#Sprite_bx0f_y2
+    b          .calculateScreenY
+.usePortraitY:
+    mov        r0,#Sprite_portraitScreenY
+.calculateScreenY:
     ldrb       r0,[r5,r0]
     add        r0,r9
     mov        r4,#0xff
     and        r0,r4
     orr        r3,r0
-    @ Object shape
-    ldrb       r4,[r2,#0x4]
+    @ r3 |= ([screen Y] + object Y) & 0xFF
+    @ r3 [0:7] = y coord 
+    ldrb       r4,[r2,#SpriteObjectEntry_flag2]
     lsl        r1,r4,#0x1c
     lsr        r1,r1,#0x1c
     lsl        r1,r1,#0xe
     orr        r3,r1
-    @ tile attributes
+    @ r3 |= flag2 & 0xF << 0xE
+    @ r3 [14:15] = obj shape
     ldrh       r1,[r5,#Sprite_tileAttributes]
     ldrh       r0,[r5,#Sprite_dstTileOffset]
-    ldrb       r4,[r2,#0x0]
+    ldrb       r4,[r2,#SpriteObjectEntry_tileNumber]
     add        r4,r4,r0
     orr        r1,r4
+    @ r1 = (dstTileOffset + tileNum) | tileAttrs
     mov        r8,r2
     mov        r9,r5
     add        r0,r3,#0x0
-    ldrb       r2,[r5,#0x7]
+    @ store object to r8, and sprite to r9, and [ObjectXYAttributes] to r0
+    ldrb       r2,[r5,#Sprite_indexOamList]
     cmp        r7,#0xff
     bne        LAB_03006e1a
     add        r2,#0x1
 LAB_03006e1a:
     mov        r12,r7
-    mov        r3,#0xa
+    mov        r3,#Sprite_spriteNum
     ldrsh      r3,[r5,r3]
     add        r3,#0x30
+    @ r0 = ObjectXYAttributes
+    @ r1 = ObjectTileAttributes
+    @ r2 = indexOamList + (r7 == 0xFF ? 1 : 0)
+    @ r3 = spriteNum + 0x30
     ldr        r7,PTR_Oam_AddObject_1_03006fbc
     mov        lr,pc
     bx         r7
     mov        r7,r12
     mov        r2,r8
     mov        r5,r9
-advanceToNextObj:
+    @ Restore r7, sprite, and object to previous values
+.advanceToNextObj:
     add        r2,#0x5
     mov        r7,#0x0
-    b          LAB_03006da8
-exit:
+    b          .handleObject
+.exit:
     pop        { r0 }
-    str        r0,[r5,#Sprite_ix28_mask]
+    str        r0,[r5,#Sprite_objectDrawBitset]
     pop        { pc }
 thumb_func_end Oam_AddSprite
 
+@ In:
+@ r2: curObject
+@ r5: sprite
+@ r6: param_r6
+@ r7: param_r7
+@
+@ Out:
+@ r0: newObjectY
+@ r1: newObjectX
 thumb_func_start Oam_SpriteRotateFlipPos
 Oam_SpriteRotateFlipPos:
     mov        r3,#0x3
@@ -139,6 +175,7 @@ Oam_SpriteRotateFlipPos:
     mov        r3,#0x3e
     and        r4,r3
     lsr        r4,r4,#0x1
+    @ r4 = 
     mov        r3,#0x20
     lsl        r3,r3,#0x18
     cmp        r7,#0xff
@@ -270,10 +307,12 @@ LAB_03006f42:
     ldrsb      r1,[r2,r1]
     mov        r0,#0x2
     ldrsb      r0,[r2,r0]
+    @ r1 = x, r0 = y
     ldrb       r3,[r5,#0x13]
     mov        r4,#0x10
     and        r3,r4
-    beq        LAB_03006f6a
+    beq        .checkY
+    @ if affineHigh & 0x10 != 0...
     neg        r1,r1
     ldr        r3,PTR_objWidth_03006fec
     ldrb       r4,[r2,#0x4]
@@ -285,11 +324,13 @@ LAB_03006f42:
     lsr        r4,r4,#0x1c
     ldrsb      r3,[r3,r4]
     add        r1,r1,r3
-LAB_03006f6a:
+    @ r1 = -x + objWidthArr[objShape * 4 + objSize]
+.checkY:
     ldrb       r3,[r5,#0x13]
     mov        r4,#0x20
     and        r3,r4
-    beq        LAB_03006f88
+    beq        .end
+    @ if affineHigh & 0x20 != 0...
     neg        r0,r0
     ldr        r3,PTR_objHeight_03006ff0
     ldrb       r4,[r2,#0x4]
@@ -301,7 +342,8 @@ LAB_03006f6a:
     lsr        r4,r4,#0x1c
     ldrsb      r3,[r3,r4]
     add        r0,r0,r3
-LAB_03006f88:
+    @ r0 = -y + objHeightArr[objShape * 4 + objSize]
+.end:
     mov        r7,r8
     mov        pc,lr
 thumb_func_end Oam_SpriteRotateFlipPos

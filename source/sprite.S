@@ -43,7 +43,7 @@ Sprite_InitFrames:
     @ Set up the pointer to the current sub animation frame using the sub frame index
     ldrb       r0,[r5,#Sprite_indexSubFrame]
     lsl        r0,r0,#0x2
-    ldr        r2,[r3,#SpriteFrame_m_subFrames]
+    ldr        r2,[r3,#SpriteFrame_subFrames]
     add        r1,r1,r2
     ldr        r2,[r1,r0]
     add        r1,r1,r2
@@ -51,18 +51,18 @@ Sprite_InitFrames:
     @ Set up the delay and frame flags depending on whether a frame animation
     @ or a sub frame animation is playing
     ldrb       r6,[r5,#Sprite_spriteFlags]
-    mov        r7,#SF_NoMiniAnim
+    mov        r7,#SF_NoMiniAnimation
     and        r6,r7
-    bne        LAB_08002382
-    ldrb       r2,[r1,#SpriteSubFrame_m_delay]
+    bne        .noMiniAnimation
+    ldrb       r2,[r1,#SpriteSubFrame_delay]
     strb       r2,[r5,#Sprite_frameDelay]
-    ldrb       r2,[r1,#SpriteSubFrame_m_flag]
+    ldrb       r2,[r1,#SpriteSubFrame_flag]
     strb       r2,[r5,#Sprite_frameFlags]
     b          LAB_0800238a
-LAB_08002382:
-    ldrb       r2,[r3,#SpriteFrame_m_delay]
+.noMiniAnimation:
+    ldrb       r2,[r3,#SpriteFrame_delay]
     strb       r2,[r5,#Sprite_frameDelay]
-    ldrb       r2,[r3,#SpriteFrame_m_flags]
+    ldrb       r2,[r3,#SpriteFrame_flags]
     strb       r2,[r5,#Sprite_frameFlags]
 LAB_0800238a:
     pop        { pc }
@@ -87,37 +87,37 @@ start:
     sub        r0,#0x1
     strb       r0,[r5,#Sprite_frameDelay]
     cmp        r0,#0x0
-    bge        delayPresent
+    bge        .delayPresent
     ldrb       r0,[r5,#Sprite_spriteFlags]
-    mov        r1,#SF_NoMiniAnim
+    mov        r1,#SF_NoMiniAnimation
     and        r0,r1
-    bne        processFrameDelay
+    bne        .processFrameDelay
     @ If delay is 0 and the delay type is sub frame delay:
     @ First, check if sub frame is an end frame
     ldr        r1,[r5,#Sprite_curSubFrame]
-    ldrb       r0,[r1,#SubFrame_m_flagOffset]
-    ldrb       r4,[r1,#SubFrame_m_delayOffset]
+    ldrb       r0,[r1,#SpriteSubFrame_flag]
+    ldrb       r4,[r1,#SpriteSubFrame_delay]
     mov        r2,#FF_EndFrame
     tst        r0,r2
-    bne        isEndFrame
+    bne        .isEndFrame
     @ If not an end frame, move to next sub frame and set up delay and flags
     add        r1,#0x3
     str        r1,[r5,#Sprite_curSubFrame]
-    ldrb       r2,[r1,#SubFrame_m_delayOffset]
+    ldrb       r2,[r1,#SpriteSubFrame_delay]
     strb       r2,[r5,#Sprite_frameDelay]
-    ldrb       r2,[r1,#SubFrame_m_flagOffset]
+    ldrb       r2,[r1,#SpriteSubFrame_flag]
     strb       r2,[r5,#Sprite_frameFlags]
-    b          goToStart
+    b          .goToStart
     @ If delay is 0 and delay is a frame delay...
-processFrameDelay:
+.processFrameDelay:
     @ If delay is 0 and the delay type is frame delay:
     @ First, check if frame is an end frame
     ldr        r3,[r5,#Sprite_curFrame]
-    ldrb       r0,[r3,#Frame_m_flagOffset]
-    ldrb       r4,[r3,#Frame_m_delayOffset]
+    ldrb       r0,[r3,#SpriteFrame_flags]
+    ldrb       r4,[r3,#SpriteFrame_delay]
     mov        r2,#FF_EndFrame
     tst        r0,r2
-    bne        isEndFrame
+    bne        .isEndFrame
     @ If not an end frame, move to next frame, and set up new sub frame, delay,
     @ and flags
     add        r3,#0x14
@@ -125,40 +125,43 @@ processFrameDelay:
     ldr        r1,[r5,#Sprite_spriteStart]
     ldrb       r0,[r5,#Sprite_indexSubFrame]
     lsl        r0,r0,#0x2
-    ldr        r2,[r3,#Frame_m_subAnimPtrOffset]
+    ldr        r2,[r3,#SpriteFrame_subFrames]
     add        r1,r1,r2
     ldr        r2,[r1,r0]
     add        r1,r1,r2
     str        r1,[r5,#Sprite_curSubFrame]
-    ldrb       r2,[r3,#Frame_m_delayOffset]
+    ldrb       r2,[r3,#SpriteFrame_delay]
     strb       r2,[r5,#Sprite_frameDelay]
-    ldrb       r2,[r3,#Frame_m_flagOffset]
+    ldrb       r2,[r3,#SpriteFrame_flags]
     strb       r2,[r5,#Sprite_frameFlags]
-goToStart:
+.goToStart:
     b          start
-isEndFrame:
+.isEndFrame:
+    @ If an end frame, check next if it's a loop frame
     mov        r2,#FF_LoopFrame
     tst        r0,r2
-    bne        frameFlagIsLoop
+    bne        .frameFlagIsLoop
+    @ If not a loop frame, set delay to 1 and go back to start
     mov        r4,#0x1
     strb       r4,[r5,#Sprite_frameDelay]
     b          start
-frameFlagIsLoop:
+.frameFlagIsLoop:
+    @ If loop frame reached, initialize frame data again
     bl         Sprite_InitFrames
     b          start
+.delayPresent:
     @ If there is still frame delay left, set the obj pal
     @ index to the one specified by the sub frame and return
-delayPresent:
     ldr        r1,[r5,#Sprite_curSubFrame]
-    ldrb       r2,[r1,#SubFrame_m_objListIndex]
+    ldrb       r2,[r1,#SpriteSubFrame_objectListIndex]
     lsl        r2,r2,#0x2
     ldr        r0,[r5,#Sprite_curFrame]
-    ldr        r0,[r0,#Frame_m_objListPtrOffset]
+    ldr        r0,[r0,#SpriteFrame_objectLists]
     ldr        r1,[r5,#Sprite_spriteStart]
     add        r1,r1,r0
     ldr        r2,[r1,r2]
     add        r2,r2,r1
-    ldrb       r4,[r2,#Object_m_flag2]
+    ldrb       r4,[r2,#SpriteObjectEntry_flag2]
     lsr        r4,r4,#0x4
     strb       r4,[r5,#Sprite_palIndexSubFrame]
     pop        { pc }

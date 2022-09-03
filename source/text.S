@@ -434,24 +434,24 @@ Text_SetDialogPortrait:
     ldr        r0,[r1,r0]
     bl         Sprite_Init
     pop        { r0, r1 }
-    strb       r1,[r5,#0x5]
+    strb       r1,[r5,#Sprite_srcPalIndex]
     mov        r1,#0x0
-    strb       r1,[r5,#0x1]
-    mov        r1,#0xa
-    strb       r1,[r5,#0x4]
+    strb       r1,[r5,#Sprite_indexSubFrame]
+    mov        r1,#SF_TilesetLoaded|SF_NoZClip
+    strb       r1,[r5,#Sprite_spriteFlags]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    strh       r0,[r5,#0x10]
-    strh       r0,[r5,#0x12]
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Sprite_spriteNum]
+    strh       r0,[r5,#Sprite_bx10_lo]
+    strh       r0,[r5,#Sprite_bx12_affineRelated_Lo]
+    strh       r0,[r5,#Sprite_tileAttributes]
     mov        r0,#0xe0
     strb       r0,[r5,#0x15]
     bl         Sprite_InitFrames
     ldr        r1,DAT_08013980
-    strh       r1,[r5,#0x8]
+    strh       r1,[r5,#Sprite_dstTileOffset]
     bl         Sprite_LoadPalette
     mov        r1,#0x22
-    strh       r1,[r5,#0xc]
+    strh       r1,[r5,#Sprite_screenX]
     pop        { r5, pc }
 thumb_func_end Text_SetDialogPortrait
 
@@ -460,7 +460,7 @@ Text_CheckPortraitLoad:
     push       { r5, lr }
     mov        r0,#TS_ShowPortrait
     bl         Text_CheckScriptOption
-    beq        LAB_080138ae
+    beq        .return
     ldrb       r1,[r5,#Text_m_nextAnimationIndex]
     ldrb       r2,[r5,#Text_m_currAnimationIndex]
     strb       r1,[r5,#Text_m_currAnimationIndex]
@@ -478,12 +478,12 @@ LAB_08013896:
     bl         Sprite_ProcessFrameDelay
     pop        { r0 }
     add        r0,#0x20
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Sprite_portraitScreenY]
     bl         Sprite_LoadPalette
     bl         Sprite_LoadTileset
     mov        r0,#0x0
     bl         LC_Sprite_AddSpriteToOam
-LAB_080138ae:
+.return:
     pop        { r5, pc }
 thumb_func_end Text_CheckPortraitLoad
 
