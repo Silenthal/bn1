@@ -25,7 +25,7 @@ def create_object_list_with_pad(srcList, maxSize: int, assemble: Callable[[str, 
         if following_offset < next_offset:
             pad_off = following_offset
             pad_len = next_offset - following_offset
-            pad_base = f"__pad__bin__{pad_off:X}_{pad_len:X}"
+            pad_base = f"__pad__bin__{pad_off:06X}_{pad_len:06X}"
             pad_obj = pad_base + ".o"
             if not Path(pad_obj).exists():
                 assemble(pad_obj, pad_off, pad_len)
