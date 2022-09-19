@@ -251,7 +251,7 @@ MainState:
     .word gBattle
     .word gDisplaySettings
     .word eMainState0x14
-    .word eMainState0x18
+    .word gFadeSettings
     .word gBattleUi
     .word eMainState0x20
     .word eMainState0x24

@@ -2,393 +2,223 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_080823de_StopScript, 0x80823DE
-    .set FUN_08082556_GetInt, 0x8082556
-    .set NPC_Free, 0x8003b60
-    .set FUN_0808254c_GetShort, 0x808254C
+    .set LC_SpritePtr_CalculateOcclusion, 0x8002538
+    .set SpriteFrame_LoadTileset, 0x3006A00 + 1
+    .set SpritePtr_FreeAffine, 0x800257C
 
-    .set SpritePtr_Flag_Set8, 0x8002770
-    .set SpritePtr_Flag_Set4Clear8, 0x8002630
-    .set SpritePtr_Flag_Clear4, 0x8002648
     .text
 
-    .thumb                            
+listHandlerNpc:
+    .word 0x08081d94 + 1 @ NPC_Handler
 
-thumb_func_start NPC_InterpretCommands
-NPC_InterpretCommands:
-    push       { lr }
-LAB_08082106:
-    ldrb       r0,[r5,#0x19]
-    tst        r0,r0
-    bne        LAB_0808211e
-    ldr        r6,[r5,#0x50]
-    ldrb       r0,[r6,#0x0]
-    lsl        r0,r0,#0x2
-    ldr        r7,PTR_PTR_NPC_Command_00_Stop_1_08082120
-    ldr        r7,[r7,r0]
-    mov        lr,pc
-    bx         r7
-    str        r6,[r5,#0x50]
-    b          LAB_08082106
-LAB_0808211e:
-    pop        { pc }
-thumb_func_end NPC_InterpretCommands
-PTR_PTR_NPC_Command_00_Stop_1_08082120: .word PTR_NPC_Command_00_Stop_1_08082124
-
-PTR_NPC_Command_00_Stop_1_08082124:
-    .word NPC_Command_00_Stop+1
-    .word 0
-    .word NPC_Command_02_Jump+1
-    .word NPC_Command_03_Destroy+1
-    .word NPC_Command_04_JumpIfFlag+1
-    .word NPC_Command_05_JumpIfNotFlag+1
-    .word NPC_Command_06_SetFlag+1
-    .word NPC_Command_07_ClearFlag+1
-    .word NPC_Command_08_Init+1
-    .word FUN_0808223c+1
-    .word FUN_08082244_0A+1
-    .word FUN_0808224c+1
-    .word NPC_Command_0C_SetPosition+1
-    .word FUN_0808226a+1
-    .word FUN_08082278+1
-    .word NPC_Command_0F_SetPalette+1
-    .word NPC_Command_10_Wait+1
-    .word FUN_080822a4+1
-    .word FUN_080822be+1
-    .word FUN_080822cc_13+1
-    .word NPC_Command_14_SetPositionFull+1
-    .word FUN_080822fc+1
-    .word NPC_Command_16_SetSpriteFrame+1
-    .word NPC_Command_17_SetSprite+1
-    .word NPC_Command_18_SetAreaDialogue+1
-    .word NPC_Command_19_SetPriority0+1
-    .word NPC_Command_1A_SetPriority1+1
-    .word NPC_Command_1B_SetPriority2+1
-    .word FUN_0808234a+1
-    .word FUN_08082358_1D+1
-    .word FUN_0808236c+1
-    .word FUN_08082384+1
-    .word FUN_08082390+1
-    .word FUN_0808239e+1
-    .word FUN_080823a8+1
-    .word FUN_080823b2+1
-    .word NPC_Command_24_SetSpriteLong+1
-
-
-NPC_Command_00_Stop:
-    push       { lr }
-    bl         FUN_080823de_StopScript
-    pop        { pc }
-
-NPC_Command_02_Jump:
-    push       { lr }
-    add        r0,r6,#0x1
-    bl         FUN_08082556_GetInt
-    add        r6,r0,#0x0
-    pop        { pc }
-
-NPC_Command_03_Destroy:
-    push       { lr }
-    mov        r0,#0x1
+thumb_func_start NPC_Alloc
+NPC_Alloc:
+    push       { r0, r1, r2, r3, r4, lr }
+    ldr        r0,PTR_gBitsetNPC_08003c68
+    ldr        r2,[r0,#0x0]
+    ldr        r1,DAT_08003c6c
+    ldr        r5,PTR_gEntityListNpc_08003c70
+    ldr        r3,PTR_gEmailIndexes_08003c74
+LAB_08003b24:
+    tst        r2,r1
+    beq        LAB_08003b32
+    lsr        r1,r1,#0x1
+    add        r5,#0xc0
+    cmp        r5,r3
+    bge        LAB_08003b5a
+    b          LAB_08003b24
+LAB_08003b32:
+    orr        r2,r1
+    str        r2,[r0,#0x0]
+    mov        r0,#0x4
+    add        r0,r0,r5
+    mov        r1,#0x46
+    lsl        r1,r1,#0x1
+    mov        r2,#0x7e
+    bl         memset
+    mov        r0,#0x9
     strb       r0,[r5,#0x0]
-    bl         NPC_Free
-    bl         FUN_080823de_StopScript
+    pop        { r0, r1, r2, r3, r4 }
+    strb       r0,[r5,#0x1]
+    str        r1,[r5,#0x24]
+    str        r2,[r5,#0x28]
+    str        r3,[r5,#0x2c]
+    str        r4,[r5,#0x4]
+    mov        r0,#0x0
+    str        r0,[r5,#0x8]
     pop        { pc }
+LAB_08003b5a:
+    mov        r5,#0x0
+    pop        { r0, r1, r2, r3, r4, pc }
+thumb_func_end NPC_Alloc
 
-NPC_Command_04_JumpIfFlag:
+thumb_func_start NPC_Free
+NPC_Free:
     push       { lr }
-    add        r0,r6,#0x1
-    bl         FUN_0808254c_GetShort
-    bl         Flag_GetBase
-    beq        LAB_080821f4
-    add        r0,r6,#0x3
-    bl         FUN_08082556_GetInt
-    add        r6,r0,#0x0
+    ldr        r0,DAT_08003c6c
+    ldrb       r1,[r5,#0x3]
+    lsr        r0,r1
+    ldr        r1,PTR_gBitsetNPC_08003c78
+    ldr        r2,[r1,#0x0]
+    bic        r2,r0
+    str        r2,[r1,#0x0]
+    mov        r1,#0x0
+    strb       r1,[r5,#0x0]
+    bl         SpritePtr_FreeAffine
     pop        { pc }
-LAB_080821f4:
-    add        r6,#0x7
-    pop        { pc }
+thumb_func_end NPC_Free
 
-NPC_Command_05_JumpIfNotFlag:
+thumb_func_start NPC_UpdateAll
+NPC_UpdateAll:
     push       { lr }
-    add        r0,r6,#0x1
-    bl         FUN_0808254c_GetShort
-    bl         Flag_GetBase
-    bne        LAB_08082210
-    add        r0,r6,#0x3
-    bl         FUN_08082556_GetInt
-    add        r6,r0,#0x0
-    pop        { pc }
-LAB_08082210:
-    add        r6,#0x7
-    pop        { pc }
-
-NPC_Command_06_SetFlag:
-    push       { lr }
-    add        r0,r6,#0x1
-    bl         FUN_0808254c_GetShort
-    bl         Flag_SetBase
-    add        r6,#0x3
-    pop        { pc }
-
-NPC_Command_07_ClearFlag:
-    push       { lr }
-    add        r0,r6,#0x1
-    bl         FUN_0808254c_GetShort
-    bl         Flag_ClearBase
-    add        r6,#0x3
-    pop        { pc }
-
-NPC_Command_08_Init:
-    mov        r0,#0x3
-    strb       r0,[r5,#0x0]
-    add        r6,#0x1
-    mov        pc,lr
-
-FUN_0808223c:
-    mov        r0,#0x1
-    strb       r0,[r5,#0x0]
-    add        r6,#0x1
-    mov        pc,lr
-
-FUN_08082244_0A:
-    ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0xc]
-    add        r6,#0x2
-    mov        pc,lr
-
-FUN_0808224c:
-    ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0xd]
-    add        r6,#0x2
-    mov        pc,lr
-
-NPC_Command_0C_SetPosition:
+    mov        r0,#0x4
+    bl         Flag_Get400
+    bne        LAB_08003bbc
+    ldr        r5,PTR_gEntityListNpc_08003c7c
+LAB_08003b88:
     mov        r1,#0x1
-    ldrsb      r0,[r6,r1]
-    strb       r0,[r5,#0x11]
-    mov        r1,#0x2
-    ldrsb      r0,[r6,r1]
-    strb       r0,[r5,#0x12]
-    mov        r1,#0x3
-    ldrsb      r0,[r6,r1]
-    strb       r0,[r5,#0x13]
-    add        r6,#0x4
-    mov        pc,lr
-
-FUN_0808226a:
-    mov        r0,#0x1
-    mvn        r0,r0
-    ldr        r1,[r5,#0x5c]
-    and        r1,r0
-    str        r1,[r5,#0x5c]
-    add        r6,#0x1
-    mov        pc,lr
-
-FUN_08082278:
-    mov        r0,#0x1
-    ldr        r1,[r5,#0x5c]
-    orr        r1,r0
-    str        r1,[r5,#0x5c]
-    add        r6,#0x1
-    mov        pc,lr
-
-NPC_Command_0F_SetPalette:
-    push       { lr }
-    ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0x16]
-    add        r6,#0x2
-    pop        { pc }
-
-NPC_Command_10_Wait:
-    push       { lr }
+    ldrb       r0,[r5,#0x0]
+    tst        r0,r1
+    beq        LAB_08003bae
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldrb       r1,[r7,#0x9]
+    tst        r1,r1
+    beq        LAB_08003ba0
+    mov        r1,#0x4
+    tst        r0,r1
+    beq        LAB_08003bae
+LAB_08003ba0:
+    str        r5,[r7,#0x70]
+    ldr        r0,PTR_PTR_NPC_Handler_1_08003c80
+    ldrb       r1,[r5,#0x1]
+    lsl        r1,r1,#0x2
+    ldr        r0,[r0,r1]
+    mov        lr,pc
+    bx         r0
+LAB_08003bae:
+    add        r5,#0xc0
+    ldr        r0,PTR_gEntityListNpc_08003c84
+    ldr        r1,DAT_08003c88
+    add        r0,r0,r1
+    cmp        r0,r5
+    beq        LAB_08003bbc
+    b          LAB_08003b88
+LAB_08003bbc:
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
-    mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldrb       r0,[r6,#0x1]
-    strh       r0,[r5,#0x20]
-    bl         FUN_080823de_StopScript
-    add        r6,#0x2
+    str        r0,[r7,#0x70]
     pop        { pc }
+thumb_func_end NPC_UpdateAll
 
-FUN_080822a4:
+thumb_func_start NPC_Init
+NPC_Init:
     push       { lr }
-    ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0x4]
-    ldrb       r0,[r6,#0x2]
-    strb       r0,[r5,#0x5]
+    ldr        r0,PTR_gFillValue_08003c8c
+    ldr        r1,PTR_gEntityListNpc_08003c90
+    ldr        r2,DAT_08003c94
+    mov        r3,#0x3
+    ldr        r4,DAT_08003c98
+    bl         Dma_SetDirect
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
-    mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    bl         FUN_080823de_StopScript
-    add        r6,#0x3
+    bl         Dma_WaitForEnd
+    mov        r0,#0x10
+    mov        r1,#0x0
+    ldr        r5,PTR_gEntityListNpc_08003c9c
+LAB_08003be4:
+    mov        r3,#0x94
+    strb       r3,[r5,#0x2]
+    strb       r1,[r5,#0x3]
+    add        r1,#0x1
+    add        r5,#0xc0
+    cmp        r1,r0
+    blt        LAB_08003be4
+    ldr        r0,PTR_gBitsetNPC_08003ca0
+    mov        r1,#0x0
+    str        r1,[r0,#0x0]
     pop        { pc }
+thumb_func_end NPC_Init
 
-FUN_080822be:
-    mov        r0,#0x2
-    mvn        r0,r0
-    ldr        r1,[r5,#0x5c]
-    and        r1,r0
-    str        r1,[r5,#0x5c]
-    add        r6,#0x1
-    mov        pc,lr
-
-FUN_080822cc_13:
-    mov        r0,#0x2
-    ldr        r1,[r5,#0x5c]
-    orr        r1,r0
-    str        r1,[r5,#0x5c]
-    add        r6,#0x1
-    mov        pc,lr
-
-NPC_Command_14_SetPositionFull:
+thumb_func_start NPC_LoadAll
+NPC_LoadAll:
     push       { lr }
-    add        r0,r6,#0x1
-    bl         FUN_0808254c_GetShort
-    lsl        r0,r0,#0x10
-    str        r0,[r5,#0x24]
-    add        r0,r6,#0x3
-    bl         FUN_0808254c_GetShort
-    lsl        r0,r0,#0x10
-    str        r0,[r5,#0x28]
-    add        r0,r6,#0x5
-    bl         FUN_0808254c_GetShort
-    lsl        r0,r0,#0x10
-    str        r0,[r5,#0x2c]
-    add        r6,#0x7
-    pop        { pc }
-
-FUN_080822fc:
-    push       { lr }
-    ldrb       r2,[r6,#0x1]
-    strb       r2,[r5,#0xe]
-    ldrb       r2,[r6,#0x2]
-    strb       r2,[r5,#0x4]
-    ldrb       r2,[r6,#0x3]
-    strb       r2,[r5,#0x5]
+    mov        r0,#0x10
+    mov        r1,#0x0
+    ldr        r5,PTR_gEntityListNpc_08003ca4
+LAB_08003c04:
+    ldrb       r2,[r5,#0x0]
+    mov        r3,#0x2
+    tst        r2,r3
+    beq        LAB_08003c2a
+    push       { r0, r1, r5 }
+    add        r0,r5,#0x0
+    add        r0,#0x24
+    bl         LC_SpritePtr_CalculateOcclusion
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
-    mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    bl         FUN_080823de_StopScript
-    add        r6,#0x4
-    pop        { pc }
-
-NPC_Command_16_SetSpriteFrame:
-    ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0x14]
-    add        r6,#0x2
-    mov        pc,lr
-
-NPC_Command_17_SetSprite:
-    ldrb       r0,[r6,#0x1]
-    strh       r0,[r5,#0x3c]
-    add        r6,#0x2
-    mov        pc,lr
-
-NPC_Command_18_SetAreaDialogue:
-    ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0x1c]
-    add        r6,#0x2
-    mov        pc,lr
-
-NPC_Command_19_SetPriority0:
-    mov        r0,#0x0
-    str        r0,[r5,#0x60]
-    add        r6,#0x1
-    mov        pc,lr
-
-NPC_Command_1A_SetPriority1:
-    mov        r0,#0x1
-    str        r0,[r5,#0x60]
-    add        r6,#0x1
-    mov        pc,lr
-
-NPC_Command_1B_SetPriority2:
+    ldr        r1,PTR_SpriteFrame_LoadTileset_1_08003ca8
+    mov        lr,pc
+    bx         r1
     mov        r0,#0x2
-    str        r0,[r5,#0x60]
-    add        r6,#0x1
+    add        r5,#0x90
+    bl         Sprite_AddSpriteToOam
+    pop        { r0, r1, r5 }
+    b          LAB_08003c44
+LAB_08003c2a:
+    add        r4,r5,#0x0
+    add        r4,#0x90
+    mov        r3,#0x0
+    str        r3,[r4,#0x24]
+    mov        r3,#0x1
+    tst        r2,r3
+    beq        LAB_08003c44
+    push       { r0, r1, r5 }
+    add        r0,r5,#0x0
+    add        r0,#0x24
+    bl         LC_SpritePtr_CalculateOcclusion
+    pop        { r0, r1, r5 }
+LAB_08003c44:
+    add        r1,#0x1
+    add        r5,#0xc0
+    cmp        r1,r0
+    blt        LAB_08003c04
+    pop        { pc }
+thumb_func_end NPC_LoadAll
+
+thumb_func_start NPC_UnloadAll
+NPC_UnloadAll:
+    mov        r0,#0x0
+    ldr        r5,PTR_gEntityListNpc_08003cac
+LAB_08003c54:
+    add        r1,r5,#0x0
+    add        r1,#0x90
+    mov        r2,#0x0
+    str        r2,[r1,#0x24]
+    add        r5,#0xc0
+    add        r0,#0x1
+    cmp        r0,#0x10
+    blt        LAB_08003c54
     mov        pc,lr
+thumb_func_end NPC_UnloadAll
 
-FUN_0808234a:
-    push       { lr }
-    add        r0,r6,#0x1
-    bl         FUN_08082556_GetInt
-    str        r0,[r5,#0x64]
-    add        r6,#0x5
-    pop        { pc }
-
-FUN_08082358_1D:
-    push       { lr }
-    ldrb       r0,[r6,#0x1]
-    mov        r1,#0x80
-    lsl        r1,r1,#0x18
-    lsr        r1,r0
-    ldr        r0,[r5,#0x64]
-    orr        r0,r1
-    str        r0,[r5,#0x64]
-    add        r6,#0x2
-    pop        { pc }
-
-FUN_0808236c:
-    push       { lr }
-    ldrb       r0,[r6,#0x1]
-    ldrb       r0,[r6,#0x1]
-    mov        r1,#0x80
-    lsl        r1,r1,#0x18
-    lsr        r1,r0
-    mvn        r1,r1
-    ldr        r0,[r5,#0x64]
-    and        r0,r1
-    str        r0,[r5,#0x64]
-    add        r6,#0x2
-    pop        { pc }
-
-FUN_08082384:
-    mov        r0,#0x4
-    ldr        r1,[r5,#0x5c]
-    orr        r1,r0
-    str        r1,[r5,#0x5c]
-    add        r6,#0x1
-    mov        pc,lr
-
-FUN_08082390:
-    mov        r0,#0x4
-    mvn        r0,r0
-    ldr        r1,[r5,#0x5c]
-    and        r1,r0
-    str        r1,[r5,#0x5c]
-    add        r6,#0x1
-    mov        pc,lr
-
-FUN_0808239e:
-    push       { lr }
-    bl         SpritePtr_Flag_Set8
-    add        r6,#0x1
-    pop        { pc }
-
-FUN_080823a8:
-    push       { lr }
-    bl         SpritePtr_Flag_Set4Clear8
-    add        r6,#0x1
-    pop        { pc }
-
-FUN_080823b2:
-    push       { lr }
-    bl         SpritePtr_Flag_Clear4
-    add        r6,#0x1
-    pop        { pc }
-
-NPC_Command_24_SetSpriteLong:
-    push       { lr }
-    add        r0,r6,#0x1
-    bl         FUN_0808254c_GetShort
-    strh       r0,[r5,#0x3c]
-    add        r6,#0x3
-    pop        { pc }
-
-    push       { lr }
+    .align 2, 0
+PTR_gBitsetNPC_08003c68:                .word gBitsetNPC
+DAT_08003c6c:                           .word 0x80000000
+PTR_gEntityListNpc_08003c70:            .word gEntityListNpc
+PTR_gEmailIndexes_08003c74:             .word gEmailIndexes
+PTR_gBitsetNPC_08003c78:                .word gBitsetNPC
+PTR_gEntityListNpc_08003c7c:            .word gEntityListNpc
+PTR_PTR_NPC_Handler_1_08003c80:         .word listHandlerNpc
+PTR_gEntityListNpc_08003c84:            .word gEntityListNpc
+DAT_08003c88:                           .word 0xC00
+PTR_gFillValue_08003c8c:                .word gFillValue
+PTR_gEntityListNpc_08003c90:            .word gEntityListNpc
+DAT_08003c94:                           .word 0x300
+DAT_08003c98:                           .word 0x85000000
+PTR_gEntityListNpc_08003c9c:            .word gEntityListNpc
+PTR_gBitsetNPC_08003ca0:                .word gBitsetNPC
+PTR_gEntityListNpc_08003ca4:            .word gEntityListNpc
+PTR_SpriteFrame_LoadTileset_1_08003ca8: .word SpriteFrame_LoadTileset
+PTR_gEntityListNpc_08003cac:            .word gEntityListNpc
 
 .end

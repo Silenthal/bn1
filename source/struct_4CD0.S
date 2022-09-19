@@ -1,0 +1,320 @@
+#include "offsets.h"
+    .include "constants.inc"
+    .include "macros.inc"
+
+    .set LC_SpritePtr_CalculateOcclusion, 0x8002538
+    .set SpriteFrame_LoadTileset, 0x3006A00 + 1
+    .set SpritePtr_FreeAffine, 0x800257C
+
+    .text
+
+listHandler4CD0:
+    .word 0x807b475 @ FUN_0807b474+1
+    .word 0x807b9ad @ FUN_0807b9ac+1
+    .word 0x807ba41 @ FUN_0807ba40+1
+    .word 0x807bbf1 @ dummy_7bbf0+1
+    .word 0x807bc01 @ FUN_0807bc00+1
+    .word 0x807bd65 @ FUN_0807bd64+1
+    .word 0x807bed5 @ FUN_0807bed4+1
+    .word 0x807bf01 @ FUN_0807bf00+1
+    .word 0x807bfc1 @ FUN_0807bfc0+1
+    .word 0x807c075 @ FUN_0807c074_CheckDrawFloatingChip+1
+    .word 0x807c1f1 @ FUN_0807c1f0+1
+    .word 0x807c265 @ FUN_0807c264+1
+    .word 0x807c311 @ FUN_0807c310+1
+    .word 0x807cc8d @ FUN_0807cc8c+1
+    .word 0x807cd61 @ FUN_0807cd60+1
+    .word 0x807ce31 @ FUN_0807ce30+1
+    .word 0x807dad9 @ FUN_0807dad8+1
+    .word 0x807dce5 @ FUN_0807dce4+1
+    .word 0x807de7d @ FUN_0807de7c+1
+    .word 0x807df25 @ FUN_0807df24+1
+    .word 0x807e011 @ FUN_0807e010+1
+    .word 0x807e1c5 @ FUN_0807e1c4+1
+    .word 0x807e31d @ FUN_0807e31c+1
+    .word 0x807e41b @ FUN_0807e41a+1
+    .word 0x807e509 @ FUN_0807e508+1
+    .word 0x807e5a9 @ FUN_0807e5a8+1
+    .word 0x807e655 @ FUN_0807e654+1
+    .word 0x807e6f5 @ FUN_0807e6f4+1
+    .word 0x807e8a5 @ FUN_0807e8a4+1
+    .word 0x807ea85 @ FUN_0807ea84+1
+    .word 0x807eb19 @ FUN_0807eb18+1
+    .word 0x807ebd9 @ FUN_0807ebd8+1
+    .word 0x807ee19 @ FUN_0807ee18+1
+    .word 0x807eec9 @ FUN_0807eec8+1
+    .word 0x807efd5 @ FUN_0807efd4+1
+    .word 0x807f0c1 @ FUN_0807f0c0+1
+    .word 0x807f179 @ FUN_0807f178+1
+    .word 0x807f22d @ FUN_0807f22c+1
+    .word 0x807f2f5 @ FUN_0807f2f4+1
+    .word 0x807f5f9 @ FUN_0807f5f8+1
+    .word 0x807f691 @ FUN_0807f690+1
+    .word 0x807f709 @ FUN_0807f708+1
+    .word 0x807f86d @ FUN_0807f86c+1
+    .word 0x807f9bd @ FUN_0807f9bc+1
+    .word 0x807faa1 @ FUN_0807faa0+1
+    .word 0x807fb41 @ FUN_0807fb40+1
+    .word 0x807fbc9 @ FUN_0807fbc8+1
+    .word 0x807fd1d @ FUN_0807fd1c+1
+    .word 0x807ff29 @ FUN_0807ff28+1
+    .word 0x807ffe9 @ FUN_0807ffe8+1
+    .word 0x8080095 @ FUN_08080094+1
+    .word 0x8080115 @ FUN_08080114+1
+    .word 0x80801b9 @ LAB_080801b8+1
+    .word 0x8080349 @ LAB_08080348+1
+    .word 0x8080639 @ FUN_08080638+1
+    .word 0x80807a1 @ LAB_080807a0+1
+    .word 0x8080885 @ LAB_08080884+1
+    .word 0x8080921 @ LAB_08080920+1
+    .word 0x80809b9 @ FUN_080809b8+1
+    .word 0x8080a71 @ FUN_08080a70+1
+    .word 0x8080bb5 @ FUN_08080bb4+1
+    .word 0x8080d09 @ FUN_08080d08+1
+    .word 0x8080e05 @ FUN_08080e04+1
+    .word 0x8080f35 @ FUN_08080f34+1
+    .word 0x808108d @ FUN_0808108c+1
+    .word 0x8081199 @ FUN_08081198+1
+    .word 0x8081241 @ FUN_08081240+1
+    .word 0x80813a1 @ FUN_080813a0+1
+    .word 0x8081529 @ FUN_08081528+1
+    .word 0x8081651 @ FUN_08081650+1
+    .word 0x8081721 @ FUN_08081720+1
+    .word 0x8081821 @ FUN_08081820+1
+    .word 0x80818c9 @ FUN_080818c8+1
+    .word 0x8081a11 @ FUN_08081a10+1
+    .word 0x8081b15 @ FUN_08081b14+1
+    .word 0x8081cc1 @ FUN_08081cc0+1
+
+thumb_func_start Struct4CD0_Alloc
+Struct4CD0_Alloc:
+    push       { r0, r1, r2, r3, r4, lr }
+    ldr        r0,PTR_gBitset4CD0_08003acc
+    ldr        r2,[r0,#0x0]
+    ldr        r1,DAT_08003ad0
+    ldr        r5,PTR_gEntityList4CD0_08003ad4
+    ldr        r3,PTR_Struct_20062d0_Sized_08003ad8
+LAB_08003968:
+    tst        r2,r1
+    beq        LAB_08003976
+    lsr        r1,r1,#0x1
+    add        r5,#0xb0
+    cmp        r5,r3
+    bge        LAB_0800399c
+    b          LAB_08003968
+LAB_08003976:
+    orr        r2,r1
+    str        r2,[r0,#0x0]
+    mov        r0,#0x4
+    add        r0,r0,r5
+    mov        r1,#0x7c
+    mov        r2,#0x0
+    bl         memset
+    mov        r0,#0x9
+    strb       r0,[r5,#0x0]
+    pop        { r0, r1, r2, r3, r4 }
+    strb       r0,[r5,#0x1]
+    str        r1,[r5,#0x28]
+    str        r2,[r5,#0x2c]
+    str        r3,[r5,#0x30]
+    str        r4,[r5,#0x4]
+    mov        r0,#0x0
+    str        r0,[r5,#0x8]
+    pop        { pc }
+LAB_0800399c:
+    mov        r5,#0x0
+    pop        { r0, r1, r2, r3, r4, pc }
+thumb_func_end Struct4CD0_Alloc
+
+thumb_func_start Struct4CD0_Free
+Struct4CD0_Free:
+    push       { lr }
+    ldr        r0,DAT_08003ad0
+    ldrb       r1,[r5,#0x3]
+    lsr        r0,r1
+    ldr        r1,PTR_gBitset4CD0_08003adc
+    ldr        r2,[r1,#0x0]
+    bic        r2,r0
+    str        r2,[r1,#0x0]
+    mov        r1,#0x0
+    strb       r1,[r5,#0x0]
+    bl         SpritePtr_FreeAffine
+    pop        { pc }
+thumb_func_end Struct4CD0_Free
+
+thumb_func_start Struct4CD0_UpdateAll
+Struct4CD0_UpdateAll:
+    push       { lr }
+    ldr        r5,PTR_gEntityList4CD0_08003ae0
+LAB_080039c0:
+    mov        r1,#0x1
+    ldrb       r0,[r5,#0x0]
+    tst        r0,r1
+    beq        LAB_080039f6
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldrb       r1,[r7,#0x9]
+    tst        r1,r1
+    beq        LAB_080039d8
+    mov        r1,#0x4
+    tst        r0,r1
+    beq        LAB_080039f6
+LAB_080039d8:
+    mov        r7,r10
+    ldr        r7,[r7,#0x54]
+    ldrb       r1,[r7,#0x7]
+    tst        r1,r1
+    beq        LAB_080039e8
+    mov        r1,#0x4
+    tst        r0,r1
+    beq        LAB_080039f6
+LAB_080039e8:
+    str        r5,[r7,#0x70]
+    ldr        r0,PTR_listHandler4CD0_08003ae4
+    ldrb       r1,[r5,#0x1]
+    lsl        r1,r1,#0x2
+    ldr        r0,[r0,r1]
+    mov        lr,pc
+    bx         r0
+LAB_080039f6:
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r1,[r7,#0x18]
+    tst        r1,r1
+    bne        LAB_08003a14
+    mov        r6,r10
+    ldr        r6,[r6,#0x54]
+    ldrb       r1,[r6,#0x7]
+    tst        r1,r1
+    beq        LAB_08003a14
+    ldr        r1,[r6,#0x10]
+    cmp        r1,r5
+    blt        LAB_08003a14
+    mov        r0,#0x0
+    strb       r0,[r6,#0x7]
+LAB_08003a14:
+    add        r5,#0xb0
+    ldr        r0,PTR_gEntityList4CD0_08003ae8
+    ldr        r1,INT_08003aec
+    add        r0,r0,r1
+    cmp        r0,r5
+    beq        LAB_08003a22
+    b          LAB_080039c0
+LAB_08003a22:
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    mov        r0,#0x0
+    str        r0,[r7,#0x70]
+    pop        { pc }
+thumb_func_end Struct4CD0_UpdateAll
+
+thumb_func_start Struct4CD0_Init
+Struct4CD0_Init:
+    push       { lr }
+    ldr        r0,PTR_gFillValue_08003af0
+    ldr        r1,PTR_gEntityList4CD0_08003af4
+    ldr        r2,DAT_08003af8
+    mov        r3,#0x3
+    ldr        r4,DAT_08003afc
+    bl         Dma_SetDirect
+    mov        r0,#0x8
+    bl         Dma_WaitForEnd
+    mov        r0,#0x20
+    mov        r1,#0x0
+    ldr        r5,PTR_gEntityList4CD0_08003b00
+LAB_08003a48:
+    mov        r3,#0x83
+    strb       r3,[r5,#0x2]
+    strb       r1,[r5,#0x3]
+    add        r1,#0x1
+    add        r5,#0xb0
+    cmp        r1,r0
+    blt        LAB_08003a48
+    ldr        r0,PTR_gBitset4CD0_08003b04
+    mov        r1,#0x0
+    str        r1,[r0,#0x0]
+    pop        { pc }
+thumb_func_end Struct4CD0_Init
+
+thumb_func_start Struct4CD0_LoadAll
+Struct4CD0_LoadAll:
+    push       { lr }
+    mov        r0,#0x20
+    mov        r1,#0x0
+    ldr        r5,PTR_gEntityList4CD0_08003b08
+LAB_08003a68:
+    ldrb       r2,[r5,#0x0]
+    mov        r3,#0x2
+    tst        r2,r3
+    beq        LAB_08003a8e
+    push       { r0, r1, r5 }
+    add        r0,r5,#0x0
+    add        r0,#0x28
+    bl         LC_SpritePtr_CalculateOcclusion
+    mov        r0,#0x3
+    ldr        r1,PTR_SpriteFrame_LoadTileset_1_08003b0c
+    mov        lr,pc
+    bx         r1
+    mov        r0,#0x2
+    add        r5,#0x80
+    bl         Sprite_AddSpriteToOam
+    pop        { r0, r1, r5 }
+    b          LAB_08003aa8
+LAB_08003a8e:
+    add        r4,r5,#0x0
+    add        r4,#0x80
+    mov        r3,#0x0
+    str        r3,[r4,#0x24]
+    mov        r3,#0x1
+    tst        r2,r3
+    beq        LAB_08003aa8
+    push       { r0, r1, r5 }
+    add        r0,r5,#0x0
+    add        r0,#0x28
+    bl         LC_SpritePtr_CalculateOcclusion
+    pop        { r0, r1, r5 }
+LAB_08003aa8:
+    add        r1,#0x1
+    add        r5,#0xb0
+    cmp        r1,r0
+    blt        LAB_08003a68
+    pop        { pc }
+thumb_func_end Struct4CD0_LoadAll
+
+thumb_func_start Struct4CD0_UnloadAll
+Struct4CD0_UnloadAll:
+    mov        r0,#0x0
+    ldr        r5,PTR_gEntityList4CD0_08003b10
+LAB_08003ab8:
+    add        r1,r5,#0x0
+    add        r1,#0x80
+    mov        r2,#0x0
+    str        r2,[r1,#0x24]
+    add        r5,#0xb0
+    add        r0,#0x1
+    cmp        r0,#0x20
+    blt        LAB_08003ab8
+    mov        pc,lr
+thumb_func_end Struct4CD0_UnloadAll
+
+    .align 2, 0
+PTR_gBitset4CD0_08003acc:               .word gBitset4CD0
+DAT_08003ad0:                           .word 0x80000000
+PTR_gEntityList4CD0_08003ad4:           .word gEntityList4CD0
+PTR_Struct_20062d0_Sized_08003ad8:      .word 0x20062d0
+PTR_gBitset4CD0_08003adc:               .word gBitset4CD0
+PTR_gEntityList4CD0_08003ae0:           .word gEntityList4CD0
+PTR_listHandler4CD0_08003ae4:           .word listHandler4CD0
+PTR_gEntityList4CD0_08003ae8:           .word gEntityList4CD0
+INT_08003aec:                           .word 0x1600
+PTR_gFillValue_08003af0:                .word gFillValue
+PTR_gEntityList4CD0_08003af4:           .word gEntityList4CD0
+DAT_08003af8:                           .word 0x580
+DAT_08003afc:                           .word 0x85000000
+PTR_gEntityList4CD0_08003b00:           .word gEntityList4CD0
+PTR_gBitset4CD0_08003b04:               .word gBitset4CD0
+PTR_gEntityList4CD0_08003b08:           .word gEntityList4CD0
+PTR_SpriteFrame_LoadTileset_1_08003b0c: .word SpriteFrame_LoadTileset
+PTR_gEntityList4CD0_08003b10:           .word gEntityList4CD0
+
+.end

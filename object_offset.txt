@@ -10,10 +10,16 @@ video               0x18FC
 bgupdate            0x1BB8
 bg_animation        0x1D0C
 screen              0x21AC
+asset_entity        0x22D4
 sprite              0x2338
 sprite_lz           0x2828
 entity_bounds       0x2B20
 sio                 0x2C4C
+player_location     0x3084
+actor               0x3200
+attack_cell         0x3504
+struct_4CD0         0x382C
+npc                 0x3B14
 world               0x4130
 fade                0x4B00
 encounter           0x5504
@@ -43,7 +49,7 @@ credits             0x21498
 asset_npc_ai        0x28964
 battle_rank         0x7D5B0
 enemy_drop          0x7D80E
-npc                 0x82104
+npc_command         0x82104
 swi                 0x9DF50
 sound_data          0xA111C
 interrupt_handler   0x180000
