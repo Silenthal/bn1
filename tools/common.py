@@ -21,19 +21,19 @@ def len_int(val: int):
     return int(log10(val)) + 1
 
 
-def get_int(inFile: io.FileIO) -> int:
+def get_int(inFile: io.IOBase) -> int:
     return struct.unpack("I", inFile.read(4))[0]
 
 
-def get_short(inFile: io.FileIO) -> int:
+def get_short(inFile: io.IOBase) -> int:
     return struct.unpack('H', inFile.read(2))[0]
 
 
-def get_sshort(inFile: io.FileIO) -> int:
+def get_sshort(inFile: io.IOBase) -> int:
     return struct.unpack('h', inFile.read(2))[0]
 
 
-def get_byte(inFile: io.FileIO) -> int:
+def get_byte(inFile: io.IOBase) -> int:
     return inFile.read(1)[0]
 
 

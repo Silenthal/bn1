@@ -16,7 +16,7 @@ def main():
     if not Path.exists(headFile):
         exit(f"File {headFile} not found")
     ast = parse_file(headFile, True)
-    declareList = []
+    declareList: list[str] = []
     for node in ast.ext:
         if isinstance(node, c_ast.Decl) and isinstance(node.type, c_ast.Struct):
             structNode: c_ast.Struct = node.type
