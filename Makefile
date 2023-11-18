@@ -38,6 +38,7 @@ export MAKE_TILES		:= python3 $(CURDIR)/$(TOOLS)/make_tiles.py
 export BUILD_SCRIPT		:= python3 $(CURDIR)/$(TOOLS)/build_script.py
 export GEN_OFFSETS		:= python3 $(CURDIR)/$(TOOLS)/generate_offsets.py
 export LZ				:= python3 $(CURDIR)/$(TOOLS)/lz.py
+export PROGRESS			:= python3 $(CURDIR)/$(TOOLS)/progress.py
 
 export MMBN_H			:= $(CURDIR)/include/mmbn.h
 export OUTPUT			:= $(CURDIR)/$(TARGET)
@@ -67,6 +68,7 @@ export LD			:= $(CC)
 check: $(BUILD)
 	@$(SHA512SUM) $(BASEDIR)/$(BASE).gba | sed -e 's/$(BASEDIR)\/$(BASE)/$(TARGET)/' >| $(BUILD)/$(TARGET).checksum
 	@$(SHA512SUM) -c $(BUILD)/$(TARGET).checksum
+	@$(PROGRESS) $(DEPSDIR)/$(TARGET).map
 
 no-check: $(BUILD)
 
