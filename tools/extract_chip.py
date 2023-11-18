@@ -1,14 +1,12 @@
 import argparse
-import io
-import os
-import struct
 from pathlib import Path
+from typing import BinaryIO
 
 import common
 from common import auto_int, get_byte, get_int, get_short
 
 
-def bytelist(inFile: io.FileIO, count: int) -> str:
+def bytelist(inFile: BinaryIO, count: int) -> str:
     if count > 0:
         b = inFile.read(count)
         return ".byte " + ", ".join([f"0x{x:X}" for x in b])
@@ -16,7 +14,7 @@ def bytelist(inFile: io.FileIO, count: int) -> str:
         return ""
 
 
-def codes(inFile: io.FileIO) -> str:
+def codes(inFile: BinaryIO) -> str:
     codeList = [common.chip_code(get_byte(inFile)) for _ in range(5)]
     while len(codeList) > 0 and codeList[-1] == "None":
         codeList.pop()
@@ -26,7 +24,7 @@ def codes(inFile: io.FileIO) -> str:
         return "codes " + ", ".join(codeList)
 
 
-def element(inFile: io.FileIO) -> str:
+def element(inFile: BinaryIO) -> str:
     elem = get_byte(inFile)
     if elem == 0:
         return "noelement"
@@ -34,7 +32,7 @@ def element(inFile: io.FileIO) -> str:
         return f"element {common.element(elem)}"
 
 
-def family(inFile: io.FileIO) -> str:
+def family(inFile: BinaryIO) -> str:
     fam = get_byte(inFile)
     sub = get_byte(inFile)
     if fam == 255 and sub == 0:
@@ -43,7 +41,7 @@ def family(inFile: io.FileIO) -> str:
         return f"family {fam >> 2}, {sub}"
 
 
-def rarity(inFile: io.FileIO) -> str:
+def rarity(inFile: BinaryIO) -> str:
     rarity = get_byte(inFile)
     if rarity == 255:
         return "norarity"
@@ -51,7 +49,7 @@ def rarity(inFile: io.FileIO) -> str:
         return f"rarity {rarity}"
 
 
-def library(inFile: io.FileIO) -> str:
+def library(inFile: BinaryIO) -> str:
     library = get_byte(inFile)
     if library == 255:
         return "nolibrary"

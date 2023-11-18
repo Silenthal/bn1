@@ -1,15 +1,13 @@
 #!/usr/bin/python3
 import argparse
-import io
-import os
-import struct
 from pathlib import Path
+from typing import BinaryIO
 
 import common
 from common import auto_int, get_byte, get_int, get_short
 
 
-def bytelist(inFile: io.FileIO, count: int) -> str:
+def bytelist(inFile: BinaryIO, count: int) -> str:
     if count > 0:
         b = inFile.read(count)
         return ".byte " + ", ".join([f"0x{x:X}" for x in b])
@@ -21,7 +19,7 @@ def reward(val):
     return f"zenny {val & 0x7FFF}" if val & 0x8000 != 0 else f"battlechip {common.chip_id(val & 0xFF)} {common.chip_code(val >> 8)}"
 
 
-def element(inFile: io.FileIO) -> str:
+def element(inFile: BinaryIO) -> str:
     elem = get_byte(inFile)
     if elem == 0:
         return "noelement"

@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-
-import pycparser
-from pycparser import c_parser, parse_file
+from pycparser import parse_file
 from pycparser.ast_transforms import c_ast
 
 def main():

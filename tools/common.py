@@ -1,8 +1,8 @@
-import io
 import struct
 import os
 from pathlib import Path
 from math import log10
+from typing import BinaryIO
 
 
 def is_int(x: str) -> int:
@@ -21,19 +21,19 @@ def len_int(val: int):
     return int(log10(val)) + 1
 
 
-def get_int(inFile: io.IOBase) -> int:
+def get_int(inFile: BinaryIO) -> int:
     return struct.unpack("I", inFile.read(4))[0]
 
 
-def get_short(inFile: io.IOBase) -> int:
+def get_short(inFile: BinaryIO) -> int:
     return struct.unpack('H', inFile.read(2))[0]
 
 
-def get_sshort(inFile: io.IOBase) -> int:
+def get_sshort(inFile: BinaryIO) -> int:
     return struct.unpack('h', inFile.read(2))[0]
 
 
-def get_byte(inFile: io.IOBase) -> int:
+def get_byte(inFile: BinaryIO) -> int:
     return inFile.read(1)[0]
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-from common import auto_int, make_out_path
+from common import make_out_path
 from typing import List
 
 

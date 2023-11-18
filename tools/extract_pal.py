@@ -1,9 +1,6 @@
 import argparse
-import io
-import os
-import struct
 from pathlib import Path
-from typing import List
+from typing import BinaryIO, List
 
 from common import auto_int, get_short, len_int
 
@@ -32,7 +29,7 @@ class GbaPal:
         return ret
 
 
-def get_pal(inFile: io.BytesIO, count: int):
+def get_pal(inFile: BinaryIO, count: int):
     palette = []
     isHigh = False
     for _ in range(count):

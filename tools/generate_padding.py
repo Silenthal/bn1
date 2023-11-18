@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 import argparse
-import io
-import os
 import subprocess
 from pathlib import Path
 from typing import Callable
@@ -45,7 +43,7 @@ def fill_layout_off_len(layDesc):
         fullpath = Path(nameObj)
         if fullpath.exists():
             pOd = subprocess.Popen(["objdump", "-h", fullpath], stdout=subprocess.PIPE)
-            pGp = subprocess.Popen(["grep", "\.text"], stdin=pOd.stdout, stdout=subprocess.PIPE)
+            pGp = subprocess.Popen(["grep", "\\.text"], stdin=pOd.stdout, stdout=subprocess.PIPE)
             pSd = subprocess.Popen(["sed", "-E", "s/ +/_/g"], stdin=pGp.stdout, stdout=subprocess.PIPE)
             pCt = subprocess.Popen(["cut", "-d", "_", "-f4"], stdin=pSd.stdout, stdout=subprocess.PIPE)
             size = int("0x" + pCt.communicate()[0].decode("utf-8"), 0)
@@ -59,7 +57,7 @@ def fill_layout_off_len(layDesc):
     return srcList
 
 
-def parse_layout_file(fileObjPos: io.IOBase):
+def parse_layout_file(fileObjPos: Path):
     layDesc = []
     maxSize = -1
     with open(fileObjPos, 'r') as layoutFile:
