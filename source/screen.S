@@ -4,6 +4,13 @@
 
     .text
 
+
+@@ Copies a single tilemap entry to the screen buffer.
+@@ In:
+@@ r0: x: The X coordinate of the target screen.
+@@ r1: y: The Y coordinate of the target screen.
+@@ r2: screen: The screen to draw to.
+@@ r3: entry: The tilemap entry.
 thumb_func_start Screen_CopyTileMapEntry
 Screen_CopyTileMapEntry:
     mov        r4,r10
@@ -18,6 +25,14 @@ Screen_CopyTileMapEntry:
     mov        pc,lr
 thumb_func_end Screen_CopyTileMapEntry
 
+
+@@ Copies a list of tilemap entries to the screen buffer in a horizontal line.
+@@ In:
+@@ r0: x: The X coordinate of the target screen.
+@@ r1: y: The Y coordinate of the target screen.
+@@ r2: screen: The screen to draw to.
+@@ r3: entryList: The list of tilemap entries.
+@@ r4: entryListSz: The size of the tilemap entry list.
 thumb_func_start Screen_CopyTileMapH
 Screen_CopyTileMapH:
     mov        r6,r10
@@ -39,6 +54,14 @@ LAB_080021d0:
     mov        pc,lr
 thumb_func_end Screen_CopyTileMapH
 
+
+@@ Copies a list of tilemap entries to the screen buffer in a vertical line.
+@@ In:
+@@ r0: x: The X coordinate of the target screen.
+@@ r1: y: The Y coordinate of the target screen.
+@@ r2: screen: The screen to draw to.
+@@ r3: entryList: The list of tilemap entries.
+@@ r4: entryListSz: The size of the tilemap entry list.
 thumb_func_start Screen_CopyTileMapV
 Screen_CopyTileMapV:
     mov        r6,r10
@@ -60,6 +83,15 @@ LAB_080021f0:
     mov        pc,lr
 thumb_func_end Screen_CopyTileMapV
 
+
+@@ Copies a list of tilemap entries to the screen buffer in a rectangle.
+@@ In:
+@@ r0: x: The X coordinate of the target screen.
+@@ r1: y: The Y coordinate of the target screen.
+@@ r2: screen: The screen to draw to.
+@@ r3: entryList: The list of tilemap entries.
+@@ r4: width: The width of the rectangle.
+@@ r5: height: The height of the rectangle.
 thumb_func_start Screen_CopyTileMapRect
 Screen_CopyTileMapRect:
     mov        r6,r10
@@ -89,6 +121,16 @@ LAB_08002214:
     mov        pc,lr
 thumb_func_end Screen_CopyTileMapRect
 
+
+@@ Sets all tilemap entries in a rectanglular area in a given screen buffer
+@@ to the given tilemap entry.
+@@ In:
+@@ r0: x: The X coordinate of the target screen.
+@@ r1: y: The Y coordinate of the target screen.
+@@ r2: screen: The screen to draw to.
+@@ r3: width: The width of the rectangle.
+@@ r4: height: The height of the rectangle.
+@@ r5: entry: The tilemap entry.
 thumb_func_start Screen_SetTileMapRect
 Screen_SetTileMapRect:
     mov        r6,r10
@@ -116,6 +158,15 @@ LAB_08002244:
     mov        pc,lr
 thumb_func_end Screen_SetTileMapRect
 
+
+@@ Copies a list of tilemap entries to the screen buffer in a horizontal line,
+@@ wrapping to the start of the screen line if overflow occurs.
+@@ In:
+@@ r0: x: The X coordinate of the target screen.
+@@ r1: y: The Y coordinate of the target screen.
+@@ r2: screen: The screen to draw to.
+@@ r3: entryList: The list of tilemap entries.
+@@ r4: entryListSz: The size of the tilemap entry list.
 thumb_func_start Screen_CopyTileMapHWrap
 Screen_CopyTileMapHWrap:
     mov        r6,r10
@@ -138,6 +189,15 @@ LAB_08002268:
     mov        pc,lr
 thumb_func_end Screen_CopyTileMapHWrap
 
+
+@@ Copies a list of tilemap entries to the screen buffer in a vertical line,
+@@ wrapping to the start of the screen line if overflow occurs.
+@@ In:
+@@ r0: x: The X coordinate of the target screen.
+@@ r1: y: The Y coordinate of the target screen.
+@@ r2: screen: The screen to draw to.
+@@ r3: entryList: The list of tilemap entries.
+@@ r4: entryListSz: The size of the tilemap entry list.
 thumb_func_start Screen_CopyTileMapVWrap
 Screen_CopyTileMapVWrap:
     mov        r6,r10
@@ -160,6 +220,14 @@ LAB_0800228c:
     mov        pc,lr
 thumb_func_end Screen_CopyTileMapVWrap
 
+
+@@ Copies a list of tilemap entries to the screen buffer in a horizontal line.
+@@ In:
+@@ r0: x: The X coordinate of the target screen. Bounded on [0, 31].
+@@ r1: y: The Y coordinate of the target screen.
+@@ r2: screen: The screen to draw to.
+@@ r3: entryList: The list of tilemap entries.
+@@ r4: entryListSz: The size of the tilemap entry list.
 thumb_func_start LC_Screen_SafeCopyTileMapH
 LC_Screen_SafeCopyTileMapH:
     push       { lr }
@@ -169,6 +237,14 @@ LC_Screen_SafeCopyTileMapH:
     pop        { pc }
 thumb_func_end LC_Screen_SafeCopyTileMapH
 
+
+@@ Copies a list of tilemap entries to the screen buffer in a vertical line.
+@@ In:
+@@ r0: x: The X coordinate of the target screen.
+@@ r1: y: The Y coordinate of the target screen. Bounded on [0, 31].
+@@ r2: screen: The screen to draw to.
+@@ r3: entryList: The list of tilemap entries.
+@@ r4: entryListSz: The size of the tilemap entry list.
 thumb_func_start LC_Screen_SafeCopyTileMapV
 LC_Screen_SafeCopyTileMapV:
     push       { lr }
@@ -178,6 +254,15 @@ LC_Screen_SafeCopyTileMapV:
     pop        { pc }
 thumb_func_end LC_Screen_SafeCopyTileMapV
 
+
+@@ Copies a list of tilemap entries to the screen buffer in a rectangle.
+@@ In:
+@@ r0: x: The X coordinate of the target screen. Bounded on [0, 31].
+@@ r1: y: The Y coordinate of the target screen. Bounded on [0, 31].
+@@ r2: screen: The screen to draw to.
+@@ r3: entryList: The list of tilemap entries.
+@@ r4: width: The width of the rectangle.
+@@ r5: height: The height of the rectangle.
 thumb_func_start LC_Screen_SafeCopyTileMapRect
 LC_Screen_SafeCopyTileMapRect:
     push       { lr }
