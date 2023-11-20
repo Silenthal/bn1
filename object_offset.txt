@@ -26,6 +26,7 @@ encounter           0x5504
 battle              0x5864
 battlechip          0x7C44
 inventory           0x9BA0
+battle_sprite_queue 0x9D68
 enemy_detail        0x9DC4
 flag                0x102DC
 main_menu           0x10414

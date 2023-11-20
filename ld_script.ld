@@ -48,7 +48,7 @@ SECTIONS {
 		gBlendSettings           	= 0x4900;
 		gBitset4CD0				 	= 0x4908;
 		gBattleFolder            	= 0x4910;
-		eFrameWaitValueX         	= 0x4930;
+		gBattleSpriteArgsArrayCount	= 0x4930;
 		eFrameWaitValue          	= 0x4934;
 		eMainState0x24           	= 0x4940;
 		eMainState0x14           	= 0x4950;
@@ -119,6 +119,7 @@ SECTIONS {
 		gMainMenu                	= 0x7590;
 		eMainState0x20           	= 0x75F0;
 		gTextBufferList          	= 0x76D0;
+		gBattleSpriteArgsArray		= 0x78D0;
 		gOamFreeObjectCount      	= 0x7B50;
 		eMainState0x54           	= 0x7DE0;
 		gLayoutDialogueText      	= 0x7E10;
