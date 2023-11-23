@@ -179,6 +179,7 @@ SECTIONS {
 		musicPlayerInfo_08       	= 0xCC70;
 		musicPlayerInfo_03       	= 0xCCB0;
 		musicPlayerInfo_0B       	= 0xCCF0;
+		gTempMemory					= 0x11000;
 		gChipBag				 	= 0x19000;
 		gDstCompressedSpriteData 	= 0x3C000;
 	} > ewram

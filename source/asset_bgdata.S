@@ -30,7 +30,7 @@ global_label bgDataDir_Online
     .word 0
     .word BGArchive_ARRAY_0801317c
 
-global_label PTR_ARRAY_08012c50
+global_label bgDataDir_Other
     .word BGArchive_ARRAY_0801323c
 
 BGArchive_ARRAY_08012c54:

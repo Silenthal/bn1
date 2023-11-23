@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set TMA_LoadTilemap_Fixed1Variable23, 0x801129c
-
     .text
 
 thumb_func_start InitBgAnimation
@@ -167,7 +165,7 @@ LAB_08001e0a:
     push       { r4, r7 }
     mov        r7,r10
     ldr        r5,[r7,#0x44]
-    bl         TMA_LoadTilemap_Fixed1Variable23
+    bl         BGDM_LoadTilemap_StaticBG1
     pop        { r4, r7 }
     mov        r0,#0x0
     strb       r0,[r7,#0x0]

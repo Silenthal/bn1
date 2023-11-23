@@ -31,6 +31,7 @@ enemy_detail        0x9DC4
 flag                0x102DC
 main_menu           0x10414
 oam                 0x10A5C
+bg_data_manager     0x10EAC
 map                 0x11520
 asset_spritelist    0x12690
 asset_bgdata        0x12BF4
