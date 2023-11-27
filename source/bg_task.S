@@ -4,22 +4,22 @@
 
     .text
 
-thumb_func_start InitBgAnimation
-InitBgAnimation:
+thumb_func_start InitBgTask
+InitBgTask:
     push       { lr }
     mov        r0,r10
     ldr        r0,[r0,#0x58]
     ldr        r1,=0x180
     bl         memset0_32
     pop        { pc }
-thumb_func_end InitBgAnimation
+thumb_func_end InitBgTask
 
     .align 2, 0
 
     .pool
 
-thumb_func_start BgAnimation_AddNew
-BgAnimation_AddNew:
+thumb_func_start BgTask_AddNew
+BgTask_AddNew:
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x58]
@@ -51,12 +51,12 @@ LAB_08001d46:
     mov        lr,pc
     bx         r6
     pop        { pc }
-thumb_func_end BgAnimation_AddNew
+thumb_func_end BgTask_AddNew
 
     .pool
 
-thumb_func_start BgAnimation_Update
-BgAnimation_Update:
+thumb_func_start BgTask_Update
+BgTask_Update:
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x58]
@@ -109,14 +109,14 @@ LAB_08001db4:
     strb       r1,[r7,#0x0]
 LAB_08001db8:
     pop        { pc }
-thumb_func_end BgAnimation_Update
+thumb_func_end BgTask_Update
 
     .align 2, 0
 
 funcListBgDataTransfer:
-    .word BgAnimation_TransferSimple
-    .word BgAnimation_TransferTransform
-    .word BgAnimation_TransferTilemap
+    .word BgTask_TransferDirect
+    .word BgTask_TransferTileset
+    .word BgTask_TransferTilemap
 INT_ARRAY_08001dc8:
     .word 8
     .word 8
@@ -124,8 +124,8 @@ INT_ARRAY_08001dc8:
 PTR_INT_ARRAY_08001dd4: .word INT_ARRAY_08001dc8
 PTR_funcListBgDataTransfer_08001dd8: .word funcListBgDataTransfer
 
-thumb_func_start BgAnimation_TransferSimple
-BgAnimation_TransferSimple:
+thumb_func_start BgTask_TransferDirect
+BgTask_TransferDirect:
     push       { lr }
     push       { r4, r7 }
     ldr        r0,[r0,#0x0]
@@ -134,10 +134,10 @@ BgAnimation_TransferSimple:
     bl         Dma_TransferListAdd
     pop        { r4, r7 }
     pop        { pc }
-thumb_func_end BgAnimation_TransferSimple
+thumb_func_end BgTask_TransferDirect
 
-thumb_func_start BgAnimation_TransferTilemap
-BgAnimation_TransferTilemap:
+thumb_func_start BgTask_TransferTilemap
+BgTask_TransferTilemap:
     push       { lr }
     mov        r5,r10
     ldr        r5,[r5,#0x44]
@@ -170,10 +170,10 @@ LAB_08001e0a:
     mov        r0,#0x0
     strb       r0,[r7,#0x0]
     pop        { pc }
-thumb_func_end BgAnimation_TransferTilemap
+thumb_func_end BgTask_TransferTilemap
 
-thumb_func_start BgAnimation_TransferTransform
-BgAnimation_TransferTransform:
+thumb_func_start BgTask_TransferTileset
+BgTask_TransferTileset:
     push       { r4, r7, lr }
     ldr        r6,[r0,#0x0]
     ldr        r5,PTR_PTR_gBgTileDataBuffer0_08001e84
@@ -214,7 +214,7 @@ LAB_08001e42:
     lsr        r2,r2,#0x2
     bl         Dma_TransferListAdd
     pop        { r4, r7, pc }
-thumb_func_end BgAnimation_TransferTransform
+thumb_func_end BgTask_TransferTileset
 
 PTR_funcListTileCopy_08001e80: .word funcListTileCopy
 PTR_PTR_gBgTileDataBuffer0_08001e84: .word bgTileBufferList

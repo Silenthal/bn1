@@ -7,8 +7,8 @@ dma                 0x944
 utility             0xA38
 rng                 0x18B4
 video               0x18FC
-bgupdate            0x1BB8
-bg_animation        0x1D0C
+bg_update           0x1BB8
+bg_task             0x1D0C
 screen              0x21AC
 asset_entity        0x22D4
 sprite              0x2338
@@ -49,6 +49,7 @@ game_over           0x1FF64
 chip_trader         0x200D4
 credits             0x21498
 asset_npc_ai        0x28964
+asset_bg_task_44030 0x44030
 battle_rank         0x7D5B0
 enemy_drop          0x7D80E
 npc_command         0x82104

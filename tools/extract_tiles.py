@@ -5,10 +5,14 @@ import os
 import struct
 from math import ceil,log10
 from pathlib import Path
+import sys
+
+from common import auto_int
 
 
-def auto_int(x):
-    return int(x, 0)
+def open_file(filename):
+    if sys.platform == "win32":
+        os.startfile(filename)
 
 
 parser = argparse.ArgumentParser(
@@ -292,4 +296,4 @@ for outData in outDataList:
                 w.write(of, outDataList[i])
 
 if len(outDataList) == 1:
-    os.startfile(outPath)
+    open_file(outPath)

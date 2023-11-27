@@ -6,7 +6,7 @@
     .short 0x\s\f
     .endm
 
-    .macro tilemap_entry tileIndex, flipFlags, paletteBank
+    .macro tilemap_entry tileIndex, flipFlags, paletteBank=0
     .short (\tileIndex & 0x3FF) | (\flipFlags & 0x3) << 10 | (\paletteBank & 0xF) << 12
     .endm
 
