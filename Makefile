@@ -16,7 +16,7 @@ MAKER				:= 08
 VERSION				:= 0
 
 BUILD				:= build
-SOURCES				:= source
+SOURCES				:= source sound/songs
 TOOLS				:= tools
 INCLUDES			:= include assets build
 BASEDIR				:= base

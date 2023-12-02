@@ -9,3 +9,4 @@
     .include "constants/key.inc"
     .include "constants/sprite.inc"
     .include "constants/other.inc"
+    .include "constants/music.inc"

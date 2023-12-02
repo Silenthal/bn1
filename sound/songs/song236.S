@@ -1,0 +1,26 @@
+#include "offsets.h"
+    .include "constants.inc"
+    .include "macros.inc"
+
+Track_081609D4:
+    .byte KEYSH, 0
+    .byte TEMPO, 75
+    .byte VOICE, 0
+    .byte VOL  , 127
+    .byte PAN  , 64
+    .byte    N32, Gs3, v127
+    .byte W32
+    .byte W03
+    .byte FINE
+
+    .align 2, 0
+
+global_label SongHeader_081609E4
+    .byte 1
+    .byte 0
+    .byte 64
+    .byte 0
+    .word 0x80A0E68
+    .word Track_081609D4
+
+    .end
