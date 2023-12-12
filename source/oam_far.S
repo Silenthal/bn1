@@ -1,4 +1,5 @@
 #include "offsets.h"
+#include "common.h"
     .include "constants.inc"
     .include "macros.inc"
 
@@ -384,10 +385,10 @@ far_thumb_func_start Oam_TransferData
 @@ Transfers object data to OAM memory.
 Oam_TransferData:
     push       { lr }
-    ldr        r0,ptrOamStart
-    ldr        r2,ptrSpriteContainerListEnd
-    ldr        r3,ptrOamEnd
-    ldr        r6,ptrSpriteContainerListStart
+    ldr        r0,=OAM_BEGIN
+    ldr        r2,=iwSpriteContainerList + 4 * 8
+    ldr        r3,=OAM_END
+    ldr        r6,=iwSpriteContainerList
     @ Go through sprite list, adding sprites to OAM
 .read_sprite_list_header:
     ldr        r1,[r6,#SpriteList_header]
@@ -410,7 +411,7 @@ Oam_TransferData:
     bge        .update_object_count
     @ Using the index gotten earlier, index into the object attribute list to get details on the current object
     lsl        r5,r5,#0x3
-    ldr        r7,PTR_iwOamAttributeList_030070c0
+    ldr        r7,=iwOamAttributeList
     add        r7,r7,r5
     @ Copy xyDetails and tileDetails from the object to the location in OAM
     ldr        r5,[r7,#OamAttributeListNode_m_xyDetails]
@@ -434,7 +435,7 @@ Oam_TransferData:
     @ Store available object slots
     sub        r2,r3,r0
     lsr        r2,r2,#0x3
-    ldr        r4,PTR_gOamFreeObjectCount_030070c4
+    ldr        r4,=gOamFreeObjectCount
     str        r2,[r4,#0x0]
     @ After all objects are written, clear the rest of OAM
     mov        r2,#0x0
@@ -449,8 +450,8 @@ Oam_TransferData:
     b          .clear_tail_oam
     @ Transfer affine data
 .load_affine_data:
-    ldr        r0,PTR_gSpriteAffineDataList_030070c8
-    ldr        r1,ptrOamStart
+    ldr        r0,=gSpriteAffineDataList
+    ldr        r1,=OAM_BEGIN
     mov        r2,#0
     mov        r3,#32
 .load_affine_data_main_loop:
@@ -470,19 +471,19 @@ Oam_TransferData:
     @ Initialize all sprite lists
     mov        r2,#0x0
     mvn        r2,r2
-    ldr        r3,PTR_SpriteList_ARRAY_030070cc
+    ldr        r3,=far(SpriteList_ARRAY_03007090)
     mov        r4,#0x4
 .clear_sprite_lists:
     ldr        r0,[r3,#0x0]
     ldr        r1,[r3,#0x4]
-    ldr        r7,PTR_memset_32_1_030070d0
+    ldr        r7,=memset_32
     mov        lr,pc
     bx         r7
     add        r3,#0x8
     sub        r4,#0x1
     cmp        r4,#0x0
     bgt        .clear_sprite_lists
-    ldr        r0,PTR_gOamAttributeCount_030070d4
+    ldr        r0,=gOamAttributeCount
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
@@ -494,15 +495,6 @@ SpriteList_ARRAY_03007090:
     .word iwSpriteList2, 0x1A0
     .word iwSpriteList3, 0x1A0
 
-ptrOamStart:                        .word OAM_BEGIN
-ptrSpriteContainerListEnd:          .word iwSpriteContainerList + 4 * 8
-ptrOamEnd:                          .word OAM_END
-ptrSpriteContainerListStart:        .word iwSpriteContainerList
-PTR_iwOamAttributeList_030070c0:    .word iwOamAttributeList
-PTR_gOamFreeObjectCount_030070c4:   .word gOamFreeObjectCount
-PTR_gSpriteAffineDataList_030070c8: .word gSpriteAffineDataList
-PTR_SpriteList_ARRAY_030070cc:      far_label SpriteList_ARRAY_03007090
-PTR_memset_32_1_030070d0:           .word memset_32+1
-PTR_gOamAttributeCount_030070d4:    .word gOamAttributeCount
+    .pool
 
     .end
