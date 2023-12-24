@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_080029ec, 0x80029ec
+    .set Entity_FreeAllMultiple, 0x80029ec
     .set tileSetCapcomLogo, 0x87afde8
     .set paletteCapcomLogo, 0x87b1128
     .set layoutCapcomLogo, 0x87b1148
@@ -160,7 +160,7 @@ FUN_08018d98:
     push       { lr }
     push       { r5 }
     mov        r0,#0x1f
-    bl         FUN_080029ec
+    bl         Entity_FreeAllMultiple
     pop        { r5 }
     mov        r7,r10
     ldr        r0,[r7,#0x0]

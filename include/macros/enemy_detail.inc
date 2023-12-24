@@ -41,6 +41,7 @@
 
     .macro lzSprite index
     .byte \index
+    .short 0
     .endm
 
     .macro noelement

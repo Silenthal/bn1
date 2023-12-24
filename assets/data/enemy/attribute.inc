@@ -6,7 +6,6 @@ _0: @ Megaman
     hp_pos 50
     routine 0x0
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -24,7 +23,6 @@ _1: @ Mettaur1
     hp_pos 34
     routine 0x4
     lzSprite 0x1
-    .short 0 
     .word 0
     zenny 60
     zenny 60
@@ -42,7 +40,6 @@ _2: @ Mettaur2
     hp_pos 34
     routine 0x4
     lzSprite 0x1
-    .short 0 
     .word 1
     zenny 110
     zenny 110
@@ -60,7 +57,6 @@ _3: @ Mettaur3
     hp_pos 34
     routine 0x4
     lzSprite 0x1
-    .short 0 
     .word 2
     zenny 160
     zenny 160
@@ -78,7 +74,6 @@ _4: @ Canodumb1
     hp_pos 54
     routine 0x2
     lzSprite 0x10
-    .short 0 
     .word 0
     zenny 60
     zenny 60
@@ -96,7 +91,6 @@ _5: @ Canodumb2
     hp_pos 54
     routine 0x2
     lzSprite 0x10
-    .short 0 
     .word 2
     zenny 160
     zenny 160
@@ -114,7 +108,6 @@ _6: @ Canodumb3
     hp_pos 54
     routine 0x2
     lzSprite 0x10
-    .short 0 
     .word 1
     zenny 160
     zenny 160
@@ -132,7 +125,6 @@ _7: @ Vulgear
     hp_pos 50
     routine 0x5
     lzSprite 0x14
-    .short 0 
     .word 0
     zenny 110
     zenny 110
@@ -150,7 +142,6 @@ _8: @ Vatgear
     hp_pos 50
     routine 0x5
     lzSprite 0x14
-    .short 0 
     .word 1
     zenny 210
     zenny 210
@@ -168,7 +159,6 @@ _9: @ Vulgear_X
     hp_pos 50
     routine 0x5
     lzSprite 0x14
-    .short 0 
     .word 0
     zenny 30
     zenny 30
@@ -186,7 +176,6 @@ _10: @ Spooky1
     hp_pos 58
     routine 0xA
     lzSprite 0x20
-    .short 0 
     .word 0
     zenny 110
     zenny 110
@@ -204,7 +193,6 @@ _11: @ Spooky2
     hp_pos 58
     routine 0xA
     lzSprite 0x20
-    .short 0 
     .word 1
     zenny 210
     zenny 210
@@ -222,7 +210,6 @@ _12: @ Spooky3
     hp_pos 58
     routine 0xA
     lzSprite 0x20
-    .short 0 
     .word 2
     battlechip Recov10 C
     battlechip Recov10 L
@@ -240,7 +227,6 @@ _13: @ Beetank1
     hp_pos 46
     routine 0x9
     lzSprite 0x1F
-    .short 0 
     .word 0
     zenny 110
     zenny 110
@@ -258,7 +244,6 @@ _14: @ Beetank2
     hp_pos 46
     routine 0x9
     lzSprite 0x1F
-    .short 0 
     .word 1
     zenny 210
     zenny 210
@@ -276,7 +261,6 @@ _15: @ Beetank3
     hp_pos 46
     routine 0x9
     lzSprite 0x1F
-    .short 0 
     .word 2
     zenny 360
     zenny 360
@@ -294,7 +278,6 @@ _16: @ Handy1
     hp_pos 0
     routine 0x1A
     lzSprite 0x29
-    .short 0 
     .word 0
     zenny 110
     zenny 110
@@ -312,7 +295,6 @@ _17: @ Handy2
     hp_pos 0
     routine 0x1A
     lzSprite 0x29
-    .short 0 
     .word 1
     zenny 260
     zenny 260
@@ -330,7 +312,6 @@ _18: @ Handy3
     hp_pos 0
     routine 0x1A
     lzSprite 0x29
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -348,7 +329,6 @@ _19: @ Flappy1
     hp_pos 54
     routine 0x12
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 110
     zenny 110
@@ -366,7 +346,6 @@ _20: @ Flappy2
     hp_pos 54
     routine 0x12
     lzSprite 0xFF
-    .short 0 
     .word 1
     zenny 160
     zenny 160
@@ -384,7 +363,6 @@ _21: @ Flappy3
     hp_pos 54
     routine 0x12
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 260
     zenny 260
@@ -402,7 +380,6 @@ _22: @ Floshell1
     hp_pos 0
     routine 0x18
     lzSprite 0x3F
-    .short 0 
     .word 0
     zenny 460
     battlechip IronShld T
@@ -420,7 +397,6 @@ _23: @ Floshell2
     hp_pos 0
     routine 0x18
     lzSprite 0x3F
-    .short 0 
     .word 1
     zenny 2000
     zenny 2000
@@ -438,7 +414,6 @@ _24: @ Floshell3
     hp_pos 0
     routine 0x18
     lzSprite 0x3F
-    .short 0 
     .word 2
     zenny 3000
     zenny 3000
@@ -456,7 +431,6 @@ _25: @ HardHead1
     hp_pos 54
     routine 0xD
     lzSprite 0x25
-    .short 0 
     .word 0
     zenny 160
     zenny 160
@@ -474,7 +448,6 @@ _26: @ HardHead2
     hp_pos 54
     routine 0xD
     lzSprite 0x25
-    .short 0 
     .word 1
     zenny 2000
     zenny 2000
@@ -492,7 +465,6 @@ _27: @ HardHead3
     hp_pos 54
     routine 0xD
     lzSprite 0x25
-    .short 0 
     .word 2
     zenny 3000
     zenny 3000
@@ -510,7 +482,6 @@ _28: @ Swordy1
     hp_pos 0
     routine 0x10
     lzSprite 0x28
-    .short 0 
     .word 0
     zenny 160
     zenny 160
@@ -528,7 +499,6 @@ _29: @ Swordy2
     hp_pos 0
     routine 0x10
     lzSprite 0x28
-    .short 0 
     .word 1
     zenny 160
     zenny 160
@@ -546,7 +516,6 @@ _30: @ Swordy3
     hp_pos 0
     routine 0x10
     lzSprite 0x28
-    .short 0 
     .word 2
     zenny 260
     zenny 260
@@ -564,7 +533,6 @@ _31: @ Fishy1
     hp_pos 54
     routine 0xE
     lzSprite 0x26
-    .short 0 
     .word 0
     zenny 60
     zenny 60
@@ -582,7 +550,6 @@ _32: @ Fishy2
     hp_pos 54
     routine 0xE
     lzSprite 0x26
-    .short 0 
     .word 1
     zenny 360
     zenny 360
@@ -600,7 +567,6 @@ _33: @ Fishy3
     hp_pos 54
     routine 0xE
     lzSprite 0x26
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -618,7 +584,6 @@ _34: @ Piranha1
     hp_pos 54
     routine 0x13
     lzSprite 0x3B
-    .short 0 
     .word 0
     zenny 210
     zenny 210
@@ -636,7 +601,6 @@ _35: @ Piranha2
     hp_pos 54
     routine 0x13
     lzSprite 0x3B
-    .short 0 
     .word 1
     zenny 360
     zenny 360
@@ -654,7 +618,6 @@ _36: @ Piranha3
     hp_pos 54
     routine 0x13
     lzSprite 0x3B
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -672,7 +635,6 @@ _37: @ AquaPuffy
     hp_pos 58
     routine 0x11
     lzSprite 0x27
-    .short 0 
     .word 0
     zenny 210
     zenny 210
@@ -690,7 +652,6 @@ _38: @ HeatPuffy
     hp_pos 58
     routine 0x11
     lzSprite 0x27
-    .short 0 
     .word 1
     zenny 210
     zenny 210
@@ -708,7 +669,6 @@ _39: @ 0x27
     hp_pos 54
     routine 0xE
     lzSprite 0x27
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -726,7 +686,6 @@ _40: @ ColdBear1
     hp_pos 54
     routine 0x1C
     lzSprite 0x3D
-    .short 0 
     .word 0
     zenny 460
     zenny 460
@@ -744,7 +703,6 @@ _41: @ ColdBear2
     hp_pos 54
     routine 0x1C
     lzSprite 0x3D
-    .short 0 
     .word 1
     zenny 2000
     zenny 2000
@@ -762,7 +720,6 @@ _42: @ ColdBear3
     hp_pos 54
     routine 0x1C
     lzSprite 0x3D
-    .short 0 
     .word 2
     zenny 2000
     zenny 2000
@@ -780,7 +737,6 @@ _43: @ Cloudy1
     hp_pos 54
     routine 0x14
     lzSprite 0x3C
-    .short 0 
     .word 0
     zenny 210
     zenny 210
@@ -798,7 +754,6 @@ _44: @ Cloudy2
     hp_pos 54
     routine 0x14
     lzSprite 0x3C
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -816,7 +771,6 @@ _45: @ Cloudy3
     hp_pos 54
     routine 0x14
     lzSprite 0x3C
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -834,7 +788,6 @@ _46: @ Ratty1
     hp_pos 54
     routine 0x20
     lzSprite 0x41
-    .short 0 
     .word 0
     zenny 310
     zenny 310
@@ -852,7 +805,6 @@ _47: @ Ratty2
     hp_pos 54
     routine 0x20
     lzSprite 0x41
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -870,7 +822,6 @@ _48: @ Ratty3
     hp_pos 54
     routine 0x20
     lzSprite 0x41
-    .short 0 
     .word 2
     zenny 400
     zenny 400
@@ -888,7 +839,6 @@ _49: @ Miney1
     hp_pos 62
     routine 0x27
     lzSprite 0x43
-    .short 0 
     .word 0
     zenny 360
     zenny 360
@@ -906,7 +856,6 @@ _50: @ Miney2
     hp_pos 62
     routine 0x27
     lzSprite 0x43
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -924,7 +873,6 @@ _51: @ Miney3
     hp_pos 62
     routine 0x27
     lzSprite 0x43
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -942,7 +890,6 @@ _52: @ Ammonicule1
     hp_pos 54
     routine 0x28
     lzSprite 0x44
-    .short 0 
     .word 0
     zenny 260
     zenny 260
@@ -960,7 +907,6 @@ _53: @ Ammonicule2
     hp_pos 54
     routine 0x28
     lzSprite 0x44
-    .short 0 
     .word 1
     zenny 400
     zenny 400
@@ -978,7 +924,6 @@ _54: @ Ammonicule3
     hp_pos 54
     routine 0x28
     lzSprite 0x44
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -996,7 +941,6 @@ _55: @ Jelly
     hp_pos 54
     routine 0x1F
     lzSprite 0x42
-    .short 0 
     .word 0
     zenny 260
     zenny 260
@@ -1014,7 +958,6 @@ _56: @ HeatJelly
     hp_pos 54
     routine 0x1F
     lzSprite 0x42
-    .short 0 
     .word 1
     zenny 260
     zenny 260
@@ -1032,7 +975,6 @@ _57: @ EarthJelly
     hp_pos 54
     routine 0x1F
     lzSprite 0x42
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1050,7 +992,6 @@ _58: @ Gaia1
     hp_pos 72
     routine 0x45
     lzSprite 0x4D
-    .short 0 
     .word 0
     zenny 360
     zenny 360
@@ -1068,7 +1009,6 @@ _59: @ Gaia2
     hp_pos 72
     routine 0x45
     lzSprite 0x4D
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -1086,7 +1026,6 @@ _60: @ Gaia3
     hp_pos 72
     routine 0x45
     lzSprite 0x4D
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1104,7 +1043,6 @@ _61: @ Popper1
     hp_pos 0
     routine 0x21
     lzSprite 0x4C
-    .short 0 
     .word 0
     zenny 360
     zenny 360
@@ -1122,7 +1060,6 @@ _62: @ Popper2
     hp_pos 0
     routine 0x21
     lzSprite 0x4C
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -1140,7 +1077,6 @@ _63: @ Popper3
     hp_pos 0
     routine 0x21
     lzSprite 0x4C
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1158,7 +1094,6 @@ _64: @ Satella1
     hp_pos 40
     routine 0x47
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 460
     zenny 460
@@ -1176,7 +1111,6 @@ _65: @ Satella2
     hp_pos 40
     routine 0x47
     lzSprite 0xFF
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -1194,7 +1128,6 @@ _66: @ Satella3
     hp_pos 40
     routine 0x47
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1212,7 +1145,6 @@ _67: @ Fanner1
     hp_pos 64
     routine 0x34
     lzSprite 0x5F
-    .short 0 
     .word 0
     zenny 310
     zenny 310
@@ -1230,7 +1162,6 @@ _68: @ Fanner2
     hp_pos 64
     routine 0x34
     lzSprite 0x5F
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -1248,7 +1179,6 @@ _69: @ Fanner3
     hp_pos 64
     routine 0x34
     lzSprite 0x5F
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1266,7 +1196,6 @@ _70: @ Remobit1
     hp_pos 54
     routine 0x2D
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 310
     zenny 310
@@ -1284,7 +1213,6 @@ _71: @ Remobit2
     hp_pos 54
     routine 0x2D
     lzSprite 0xFF
-    .short 0 
     .word 1
     zenny 360
     zenny 360
@@ -1302,7 +1230,6 @@ _72: @ Remobit3
     hp_pos 54
     routine 0x2D
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1320,7 +1247,6 @@ _73: @ Billy
     hp_pos 54
     routine 0x2B
     lzSprite 0x49
-    .short 0 
     .word 0
     zenny 310
     zenny 310
@@ -1338,7 +1264,6 @@ _74: @ Silly
     hp_pos 54
     routine 0x2B
     lzSprite 0x49
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -1356,7 +1281,6 @@ _75: @ Killy
     hp_pos 54
     routine 0x2B
     lzSprite 0x49
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1374,7 +1298,6 @@ _76: @ Prog1
     hp_pos 54
     routine 0x2A
     lzSprite 0x4A
-    .short 0 
     .word 0
     zenny 310
     zenny 310
@@ -1392,7 +1315,6 @@ _77: @ Prog2
     hp_pos 54
     routine 0x2A
     lzSprite 0x4A
-    .short 0 
     .word 1
     zenny 310
     zenny 310
@@ -1410,7 +1332,6 @@ _78: @ Prog3
     hp_pos 54
     routine 0x2A
     lzSprite 0x4A
-    .short 0 
     .word 2
     zenny 310
     zenny 310
@@ -1428,7 +1349,6 @@ _79: @ MegalianA
     hp_pos 54
     routine 0x2C
     lzSprite 0x53
-    .short 0 
     .word 0
     zenny 360
     zenny 360
@@ -1446,7 +1366,6 @@ _80: @ MegalianH
     hp_pos 54
     routine 0x2C
     lzSprite 0x53
-    .short 0 
     .word 1
     zenny 560
     zenny 560
@@ -1464,7 +1383,6 @@ _81: @ MegalianW
     hp_pos 54
     routine 0x2C
     lzSprite 0x53
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1482,7 +1400,6 @@ _82: @ CanDevil1
     hp_pos 54
     routine 0x35
     lzSprite 0x60
-    .short 0 
     .word 0
     zenny 260
     zenny 260
@@ -1500,7 +1417,6 @@ _83: @ CanDevil2
     hp_pos 54
     routine 0x35
     lzSprite 0x60
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -1518,7 +1434,6 @@ _84: @ CanDevil3
     hp_pos 54
     routine 0x35
     lzSprite 0x60
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1536,7 +1451,6 @@ _85: @ BigSnake1
     hp_pos 44
     routine 0x43
     lzSprite 0x64
-    .short 0 
     .word 0
     zenny 460
     zenny 460
@@ -1554,7 +1468,6 @@ _86: @ BigSnake2
     hp_pos 44
     routine 0x43
     lzSprite 0x64
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -1572,7 +1485,6 @@ _87: @ BigSnake3
     hp_pos 44
     routine 0x43
     lzSprite 0x64
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1590,7 +1502,6 @@ _88: @ Mosqurito1
     hp_pos 72
     routine 0x37
     lzSprite 0x69
-    .short 0 
     .word 0
     zenny 360
     zenny 360
@@ -1608,7 +1519,6 @@ _89: @ Mosqurito2
     hp_pos 72
     routine 0x37
     lzSprite 0x69
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -1626,7 +1536,6 @@ _90: @ Mosqurito3
     hp_pos 72
     routine 0x37
     lzSprite 0x69
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1644,7 +1553,6 @@ _91: @ Poitton1
     hp_pos 54
     routine 0x41
     lzSprite 0x67
-    .short 0 
     .word 0
     zenny 360
     zenny 360
@@ -1662,7 +1570,6 @@ _92: @ Poitton2
     hp_pos 54
     routine 0x41
     lzSprite 0x67
-    .short 0 
     .word 1
     zenny 460
     zenny 460
@@ -1680,7 +1587,6 @@ _93: @ Poitton3
     hp_pos 54
     routine 0x41
     lzSprite 0x67
-    .short 0 
     .word 2
     zenny 460
     zenny 460
@@ -1698,7 +1604,6 @@ _94: @ Mole
     hp_pos 54
     routine 0x52
     lzSprite 0x65
-    .short 0 
     .word 0
     battlechip Popup N
     battlechip Popup K
@@ -1716,7 +1621,6 @@ _95: @ 0x5F
     hp_pos 54
     routine 0xE
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -1734,7 +1638,6 @@ _96: @ GutsManV1
     hp_pos 0
     routine 0xC
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -1752,7 +1655,6 @@ _97: @ GutsManV2
     hp_pos 0
     routine 0xC
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -1770,7 +1672,6 @@ _98: @ GutsManV3
     hp_pos 0
     routine 0xC
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 500
     zenny 500
@@ -1788,7 +1689,6 @@ _99: @ ProtoManV1
     hp_pos 54
     routine 0x26
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 3000
     zenny 3000
@@ -1806,7 +1706,6 @@ _100: @ ProtoManV2
     hp_pos 54
     routine 0x26
     lzSprite 0xFF
-    .short 0 
     .word 1
     battlechip ProtoMan B
     battlechip ProtoMan B
@@ -1824,7 +1723,6 @@ _101: @ ProtoManV3
     hp_pos 54
     routine 0x26
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 500
     zenny 500
@@ -1842,7 +1740,6 @@ _102: @ WoodManV1
     hp_pos 20
     routine 0x1
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 2000
     zenny 2000
@@ -1860,7 +1757,6 @@ _103: @ WoodManV2
     hp_pos 20
     routine 0x1
     lzSprite 0xFF
-    .short 0 
     .word 0
     battlechip WoodMan W
     battlechip WoodMan W
@@ -1878,7 +1774,6 @@ _104: @ WoodManV3
     hp_pos 20
     routine 0x1
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 500
     zenny 500
@@ -1896,7 +1791,6 @@ _105: @ FireManV1
     hp_pos 0
     routine 0x3
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 1000
     zenny 1000
@@ -1914,7 +1808,6 @@ _106: @ FireManV2
     hp_pos 0
     routine 0x3
     lzSprite 0xFF
-    .short 0 
     .word 0
     battlechip FireMan F
     battlechip FireMan F
@@ -1932,7 +1825,6 @@ _107: @ FireManV3
     hp_pos 0
     routine 0x3
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 500
     zenny 500
@@ -1950,7 +1842,6 @@ _108: @ NumberManV1
     hp_pos 0
     routine 0xF
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 1500
     zenny 1500
@@ -1968,7 +1859,6 @@ _109: @ NumberManV2
     hp_pos 0
     routine 0xF
     lzSprite 0xFF
-    .short 0 
     .word 0
     battlechip NumbrMan N
     battlechip NumbrMan N
@@ -1986,7 +1876,6 @@ _110: @ NumberManV3
     hp_pos 0
     routine 0xF
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 500
     zenny 500
@@ -2004,7 +1893,6 @@ _111: @ StoneManV1
     hp_pos 0
     routine 0x15
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 2000
     zenny 2000
@@ -2022,7 +1910,6 @@ _112: @ StoneManV2
     hp_pos 54
     routine 0x15
     lzSprite 0xFF
-    .short 0 
     .word 0
     battlechip StoneMan S
     battlechip StoneMan S
@@ -2040,7 +1927,6 @@ _113: @ StoneManV3
     hp_pos 54
     routine 0x15
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 500
     zenny 500
@@ -2058,7 +1944,6 @@ _114: @ IceManV1
     hp_pos 48
     routine 0x1B
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 2500
     zenny 2500
@@ -2076,7 +1961,6 @@ _115: @ IceManV2
     hp_pos 48
     routine 0x1B
     lzSprite 0xFF
-    .short 0 
     .word 1
     battlechip IceMan I
     battlechip IceMan I
@@ -2094,7 +1978,6 @@ _116: @ IceManV3
     hp_pos 48
     routine 0x1B
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 500
     zenny 500
@@ -2112,7 +1995,6 @@ _117: @ SkullManV1
     hp_pos 64
     routine 0x22
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 2500
     zenny 2500
@@ -2130,7 +2012,6 @@ _118: @ SkullManV2
     hp_pos 64
     routine 0x22
     lzSprite 0xFF
-    .short 0 
     .word 1
     battlechip SkullMan S
     battlechip SkullMan S
@@ -2148,7 +2029,6 @@ _119: @ SkullManV3
     hp_pos 64
     routine 0x22
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 500
     zenny 500
@@ -2166,7 +2046,6 @@ _120: @ ColorManV1
     hp_pos 0
     routine 0x23
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 3000
     zenny 3000
@@ -2184,7 +2063,6 @@ _121: @ ColorManV2
     hp_pos 0
     routine 0x23
     lzSprite 0xFF
-    .short 0 
     .word 1
     battlechip ColorMan C
     battlechip ColorMan C
@@ -2202,7 +2080,6 @@ _122: @ ColorManV3
     hp_pos 0
     routine 0x23
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 500
     zenny 500
@@ -2220,7 +2097,6 @@ _123: @ BombManV1
     hp_pos 0
     routine 0x2E
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 4000
     zenny 4000
@@ -2238,7 +2114,6 @@ _124: @ BombManV2
     hp_pos 0
     routine 0x2E
     lzSprite 0xFF
-    .short 0 
     .word 1
     battlechip BombMan B
     battlechip BombMan B
@@ -2256,7 +2131,6 @@ _125: @ BombManV3
     hp_pos 0
     routine 0x2E
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 500
     zenny 500
@@ -2274,7 +2148,6 @@ _126: @ SharkManV1
     hp_pos 64
     routine 0x29
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 3000
     zenny 3000
@@ -2292,7 +2165,6 @@ _127: @ SharkManV2
     hp_pos 64
     routine 0x29
     lzSprite 0xFF
-    .short 0 
     .word 1
     battlechip SharkMan S
     battlechip SharkMan S
@@ -2310,7 +2182,6 @@ _128: @ SharkManV3
     hp_pos 64
     routine 0x29
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 500
     zenny 500
@@ -2328,7 +2199,6 @@ _129: @ ElecManV1
     hp_pos 78
     routine 0x25
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 3500
     zenny 3500
@@ -2346,7 +2216,6 @@ _130: @ ElecManV2
     hp_pos 78
     routine 0x25
     lzSprite 0xFF
-    .short 0 
     .word 1
     battlechip ElecMan E
     battlechip ElecMan E
@@ -2364,7 +2233,6 @@ _131: @ ElecManV3
     hp_pos 78
     routine 0x25
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 500
     zenny 500
@@ -2382,7 +2250,6 @@ _132: @ PharaohManV1
     hp_pos 0
     routine 0x40
     lzSprite 0xFF
-    .short 0 
     .word 0
     battlechip PharoMan P
     battlechip PharoMan P
@@ -2400,7 +2267,6 @@ _133: @ PharaohManV2
     hp_pos 0
     routine 0x40
     lzSprite 0xFF
-    .short 0 
     .word 1
     battlechip PharoMan P
     battlechip PharoMan P
@@ -2418,7 +2284,6 @@ _134: @ PharaohManV3
     hp_pos 0
     routine 0x40
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 4000
     zenny 4000
@@ -2436,7 +2301,6 @@ _135: @ ShadowManV1
     hp_pos 0
     routine 0x42
     lzSprite 0xFF
-    .short 0 
     .word 0
     battlechip ShadoMan S
     battlechip ShadoMan S
@@ -2454,7 +2318,6 @@ _136: @ ShadowManV2
     hp_pos 0
     routine 0x42
     lzSprite 0xFF
-    .short 0 
     .word 1
     battlechip ShadoMan S
     battlechip ShadoMan S
@@ -2472,7 +2335,6 @@ _137: @ ShadowManV3
     hp_pos 0
     routine 0x42
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 4000
     zenny 4000
@@ -2490,7 +2352,6 @@ _138: @ 0x8A
     hp_pos 54
     routine 0xE
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -2508,7 +2369,6 @@ _139: @ 0x8B
     hp_pos 54
     routine 0xE
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -2526,7 +2386,6 @@ _140: @ 0x8C
     hp_pos 54
     routine 0xE
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -2544,7 +2403,6 @@ _141: @ MagicManV1
     hp_pos 0
     routine 0x3F
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 5000
     zenny 5000
@@ -2562,7 +2420,6 @@ _142: @ MagicManV2
     hp_pos 0
     routine 0x3F
     lzSprite 0xFF
-    .short 0 
     .word 1
     battlechip MagicMan M
     battlechip MagicMan M
@@ -2580,7 +2437,6 @@ _143: @ MagicManV3
     hp_pos 0
     routine 0x3F
     lzSprite 0xFF
-    .short 0 
     .word 2
     zenny 500
     zenny 500
@@ -2598,7 +2454,6 @@ _144: @ Bass
     hp_pos 0
     routine 0x46
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 8000
     zenny 8000
@@ -2616,7 +2471,6 @@ _145: @ 0x91
     hp_pos 54
     routine 0xE
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -2634,7 +2488,6 @@ _146: @ 0x92
     hp_pos 54
     routine 0xE
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -2652,7 +2505,6 @@ _147: @ LifeVirus
     hp_pos 0
     routine 0x39
     lzSprite 0x68
-    .short 0 
     .word 0
     zenny 0
     zenny 0
@@ -2670,7 +2522,6 @@ _148: @ BlueDummyV1
     hp_pos 54
     routine 0x24
     lzSprite 0xFF
-    .short 0 
     .word 0
     zenny 3000
     zenny 3000
@@ -2688,7 +2539,6 @@ _149: @ RedDummyV1
     hp_pos 54
     routine 0x24
     lzSprite 0xFF
-    .short 0 
     .word 1
     zenny 3000
     zenny 3000
@@ -2706,7 +2556,6 @@ _150: @ BlueDummyV2
     hp_pos 54
     routine 0x24
     lzSprite 0xFF
-    .short 0 
     .word 2
     battlechip ColorMan C
     battlechip ColorMan C
@@ -2724,7 +2573,6 @@ _151: @ RedDummyV2
     hp_pos 54
     routine 0x24
     lzSprite 0xFF
-    .short 0 
     .word 3
     battlechip ColorMan C
     battlechip ColorMan C
@@ -2742,7 +2590,6 @@ _152: @ BlueDummyV3
     hp_pos 54
     routine 0x24
     lzSprite 0xFF
-    .short 0 
     .word 4
     zenny 500
     zenny 500
@@ -2760,7 +2607,6 @@ _153: @ RedDummyV3
     hp_pos 54
     routine 0x24
     lzSprite 0xFF
-    .short 0 
     .word 5
     zenny 500
     zenny 500
@@ -2778,7 +2624,6 @@ _154: @ InvElecMan
     hp_pos 78
     routine 0x25
     lzSprite 0xFF
-    .short 0 
     .word 3
     zenny 0
     zenny 0
@@ -2796,7 +2641,6 @@ _155: @ SharkManFinV1
     hp_pos 64
     routine 0x29
     lzSprite 0xFF
-    .short 0 
     .word 0x80
     zenny 3000
     zenny 3000
@@ -2814,7 +2658,6 @@ _156: @ SharkManFinV2
     hp_pos 64
     routine 0x29
     lzSprite 0xFF
-    .short 0 
     .word 0x180
     zenny 3000
     zenny 3000
@@ -2832,7 +2675,6 @@ _157: @ SharkManFinV3_0
     hp_pos 64
     routine 0x29
     lzSprite 0xFF
-    .short 0 
     .word 0x81
     battlechip SharkMan S
     battlechip SharkMan S
@@ -2850,7 +2692,6 @@ _158: @ SharkManFinV3_1
     hp_pos 64
     routine 0x29
     lzSprite 0xFF
-    .short 0 
     .word 0x181
     battlechip SharkMan S
     battlechip SharkMan S
@@ -2868,7 +2709,6 @@ _159: @ SharkManFinV3_2
     hp_pos 64
     routine 0x29
     lzSprite 0xFF
-    .short 0 
     .word 0x82
     zenny 500
     zenny 500
@@ -2886,7 +2726,6 @@ _160: @ SharkManFinV3_3
     hp_pos 64
     routine 0x29
     lzSprite 0xFF
-    .short 0 
     .word 0x182
     zenny 500
     zenny 500

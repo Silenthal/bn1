@@ -88,8 +88,8 @@ Oam_AddObject:
     mov        pc,lr
 thumb_func_end Oam_AddObject
 
-thumb_func_start GData_SetNextFlag
-GData_SetNextFlag:
+thumb_func_start Oam_AffineTransformAlloc
+Oam_AffineTransformAlloc:
     ldr        r3,PTR_gSpriteAffineDataFlag_08010bf4
     ldr        r1,[r3,#0x0]
     ldr        r2,DAT_08010bf8
@@ -109,10 +109,10 @@ LAB_08010afe:
 LAB_08010b04:
     mov        r0,#0xff
     mov        pc,lr
-thumb_func_end GData_SetNextFlag
+thumb_func_end Oam_AffineTransformAlloc
 
-thumb_func_start GData_ClearFlag
-GData_ClearFlag:
+thumb_func_start Oam_AffineTransformFree
+Oam_AffineTransformFree:
     ldr        r3,PTR_gSpriteAffineDataFlag_08010bfc
     ldr        r1,[r3,#0x0]
     ldr        r2,DAT_08010bf8
@@ -120,10 +120,10 @@ GData_ClearFlag:
     bic        r1,r2
     str        r1,[r3,#0x0]
     mov        pc,lr
-thumb_func_end GData_ClearFlag
+thumb_func_end Oam_AffineTransformFree
 
-thumb_func_start FUN_08010b18
-FUN_08010b18:
+thumb_func_start Oam_AffineTransformSetParams
+Oam_AffineTransformSetParams:
     push       { lr }
     push       { r0, r1, r2 }
     ldr        r0,PTR_gSpriteAffineDataList_08010c00
@@ -143,7 +143,7 @@ FUN_08010b18:
     lsl        r2,r2,#0x1
     pop        { r3 }
     add        r7,r3,#0x0
-    bl         FUN_08010ba0
+    bl         Inverse
     strb       r3,[r0,#0x9]
     add        r3,r7,#0x0
     ldr        r1,PTR_cosTable_08010c04
@@ -166,7 +166,7 @@ FUN_08010b18:
     strh       r4,[r0,#0x2]
     pop        { r3 }
     add        r7,r3,#0x0
-    bl         FUN_08010ba0
+    bl         Inverse
     strb       r3,[r0,#0xa]
     add        r3,r7,#0x0
     ldr        r1,PTR_cosTable_08010c0c
@@ -190,10 +190,11 @@ FUN_08010b18:
     lsr        r4,r4,#0x4
     strh       r4,[r0,#0x4]
     pop        { pc }
-thumb_func_end FUN_08010b18
+thumb_func_end Oam_AffineTransformSetParams
 
-thumb_func_start FUN_08010ba0
-FUN_08010ba0:
+@ For a fractional number from 0 to 1 (0x100), returns 1/num.
+thumb_func_start Inverse
+Inverse:
     push       { r1, r2 }
     ldr        r1,DAT_08010c14
     mov        r2,#0x0
@@ -209,7 +210,8 @@ LAB_08010bb4:
     add        r3,r2,#0x0
     pop        { r1, r2 }
     mov        pc,lr
-thumb_func_end FUN_08010ba0
+thumb_func_end Inverse
+
 
 thumb_func_start Oam_InitAffineData
 Oam_InitAffineData:

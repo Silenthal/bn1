@@ -2,14 +2,10 @@
     .include "constants.inc"
     .include "macros.inc"
     
-    .set FUN_08001d60               , 0x8001d60
-    .set FUN_080027f4               , 0x80027f4
-    .set FUN_080063b2               , 0x80063b2
-    .set FUN_0801996c               , 0x801996c
-    .set InitMainState_34           , 0x8010414
-    .set ClearMemAtOffsets          , 0x8010a5c
-    .set InitMainState0x58          , 0x8001d0c
-    .set InitMainStateVar0x18       , 0x8004c20
+    .set BgAnimation_Update         , 0x8001d60
+    .set IsBattleActive             , 0x80063b2
+    .set Screen_LoadChipDetail      , 0x801996c
+    .set InitBgAnimation            , 0x8001d0c
     .set Sio_SetReady               , 0x809bdf0
 
     .text
@@ -33,7 +29,7 @@ AgbMain:
     bl         Sprite_TransferPalettes
     bl         Video_QueueBgPalTransfer
     bl         Dma_TransferListStartAll
-    bl         FUN_080027f4
+    bl         SpriteTilesetDetail_Init
     bl         Video_BlitScreens
     bl         Main_ReadInput
     LoadStateTo r0, Main_frameCounter, r0
@@ -47,15 +43,15 @@ AgbMain:
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_080063b2
+    bl         IsBattleActive
     tst        r0,r0
     beq        1f
     bl         Fade_Apply
 1:
     bl         Text_Main
-    bl         FUN_0801996c
+    bl         Screen_LoadChipDetail
     bl         BgUpdate_CallPostLoopFunction
-    bl         FUN_08001d60
+    bl         BgAnimation_Update
     b          .mainLoop
 thumb_func_end AgbMain
 
@@ -214,8 +210,8 @@ Main_Init:
     bl         BgUpdate_Init
     bl         0x80018fc
     bl         0x800265c
-    bl         InitMainState_34
-    bl         ClearMemAtOffsets
+    bl         InitMainMenu
+    bl         Oam_InitTransferData
     bl         Dma_TransferListClear
     bl         Rng_Init
     bl         Text_Init
@@ -224,9 +220,9 @@ Main_Init:
     bl         0x800408c
     bl         0x801880c
     bl         0x801882c
-    bl         InitMainState0x58
+    bl         InitBgAnimation
     bl         Video_InitBlendSettings
-    bl         InitMainStateVar0x18
+    bl         InitFadeSettings
     mov        r0,r10
     push       { r0 }
     bl         Sio_SetReady

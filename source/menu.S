@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set FUN_080194c8, 0x80194c8
-    .set InitMainState0x58, 0x8001d0c
+    .set InitBgAnimation, 0x8001d0c
     
     .text
 
@@ -42,7 +42,7 @@ InitMenu:
     strh       r0,[r7,#0xc]
     push       { r5 }
     bl         BgUpdate_Init
-    bl         InitMainState0x58
+    bl         InitBgAnimation
     pop        { r5 }
     pop        { pc }
 thumb_func_end InitMenu

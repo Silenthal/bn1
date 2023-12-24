@@ -38,20 +38,23 @@ SECTIONS {
 		gBitsetActor			 	= 0x3484;
 		gEntityBoundsList        	= 0x3490;
 		gBattle                  	= 0x3710;
+		gAreaProperties				= 0x37A0;
 		gTextTileBuffer          	= 0x37E0;
 		tempBg1Hofs              	= 0x46E0;
+		gSpriteTilesetDetailCount	= 0x4704;
 		eMainState0x58           	= 0x4710;
 		gTransition              	= 0x48B8;
 		gBitsetAttackCell		 	= 0x4890;
 		gFillValue               	= 0x48C0;
 		gBattleUi           	 	= 0x48D0;
 		gBlendSettings           	= 0x4900;
-		gBitset4CD0				 	= 0x4908;
+		gBitsetDisplayObject		= 0x4908;
 		gBattleFolder            	= 0x4910;
 		gBattleSpriteArgsArrayCount	= 0x4930;
 		eFrameWaitValue          	= 0x4934;
 		eMainState0x24           	= 0x4940;
 		eMainState0x14           	= 0x4950;
+		gIsObjectXFlipped           = 0x4994;
 		eObjPalette0             	= 0x49A0;
 		eObjPalette1             	= 0x49C0;
 		eObjPalette2             	= 0x49E0;
@@ -71,7 +74,7 @@ SECTIONS {
 		gSpriteAffineDataFlag    	= 0x4BA4;
 		eMainState0x2C           	= 0x4BB0;
 		eMainState0x4C           	= 0x4BD0;
-		gEntityList4CD0          	= 0x4CD0;
+		gListDisplayObject          = 0x4CD0;
 		gMenu           		 	= 0x62E0;
 		gOamAttributeCount       	= 0x6338;
 		gText                    	= 0x6350;
@@ -110,6 +113,7 @@ SECTIONS {
 		gFuncPtrBgUpdatePreLoop  	= 0x7098;
 		eMainState0x28           	= 0x70A0;
 		gCredits				 	= 0x70D0;
+		gListSpriteTilesetDetail    = 0x7200;
 		eMainState0x60           	= 0x74C8;
 		gEntityBoundsListCount   	= 0x74D0;
 		eDmaParamListSize        	= 0x74D4;
@@ -121,6 +125,7 @@ SECTIONS {
 		gTextBufferList          	= 0x76D0;
 		gBattleSpriteArgsArray		= 0x78D0;
 		gOamFreeObjectCount      	= 0x7B50;
+		gPanelStatuses				= 0x7B60;
 		eMainState0x54           	= 0x7DE0;
 		gLayoutDialogueText      	= 0x7E10;
 		eDmaParamList            	= 0x8010;
@@ -129,6 +134,7 @@ SECTIONS {
 		eMainState0x44           	= 0x9A50;
 		eMainState0x64           	= 0x9A80;
 		gSpriteLzDetails         	= 0x9AA0;
+		gListFieldObject			= 0xA9E0;
 		eMainState0x6C           	= 0xACF0;
 		gBgTileDataBuffer0       	= 0xAD10;
 		gBgTileDataBuffer9       	= 0xAED0;
@@ -142,7 +148,10 @@ SECTIONS {
 		gBgTileDataBuffer7       	= 0xB8D0;
 		gBgTileDataBufferB       	= 0xB1B0;
 		gBgTileDataBuffer3       	= 0xBC10;
+		gSpritePalettesLoaded       = 0xC110;
+		gBitsetFieldObject			= 0xC114;
 		gGameOverState			 	= 0xC118;
+		gSpriteTilesetOffset0 		= 0xC120;
 		tempBg1Vofs              	= 0xC190;
 		gWindowSettings          	= 0xC1B0;
 		gCustomScreen            	= 0xC270;
@@ -224,6 +233,7 @@ SECTIONS {
 		BG_VRAM_BASE3			= 0xC000;
 		BG_VRAM_SCREEN0			= 0xE000;
 		vTextTileStart			= 0xC800;
+		OBJ_VRAM0				= 0x10000;
 	} > vram
 
 	/DISCARD/ : {

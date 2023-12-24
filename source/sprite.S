@@ -2,8 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08000d98, 0x8000D98
-    .set listSpritePtr, 0x8012690
+    .set IsDistanceClose, 0x8000D98
+    .set SpritePtr_CalculateOcclusion, 0x3006b61
 
     .text
 
@@ -236,4 +236,562 @@ thumb_func_end Sprite_TransferPalettes
 
     .align 2, 0
 
-    .end
+    .pool
+
+thumb_func_start SpritePtr_AffineTransformSetParams
+SpritePtr_AffineTransformSetParams:
+    push       {r5,lr}
+    push       {r0,r1,r2}
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r5,r5,r7
+    ldrb       r0,[r5,#0x11]
+    mov        r1,#0x3
+    tst        r0,r1
+    beq        LAB_080024cc
+    ldrb       r3,[r5,#0x13]
+    mov        r1,#0x3e
+    and        r3,r1
+    lsr        r3,r3,#0x1
+    pop        {r0,r1,r2}
+    bl         Oam_AffineTransformSetParams
+    pop        {r5,pc}
+LAB_080024cc:
+    pop        {r0,r1,r2}
+    pop        {r5,pc}
+thumb_func_end SpritePtr_AffineTransformSetParams
+
+thumb_func_start SpritePtr_SetBx11
+SpritePtr_SetBx11:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r1,[r7,#0x11]
+    mov        r0,#0xc
+    bic        r1,r0
+    mov        r0,#0x8
+    orr        r1,r0
+    strb       r1,[r7,#0x11]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetBx11
+
+thumb_func_start _SpritePtr_ClearBx11
+_SpritePtr_ClearBx11:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r1,[r7,#0x11]
+    mov        r0,#0xc
+    bic        r1,r0
+    strb       r1,[r7,#0x11]
+    mov        pc,lr
+thumb_func_end _SpritePtr_ClearBx11
+
+thumb_func_start SpritePtr_SetBlend
+SpritePtr_SetBlend:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r1,[r7,#0x11]
+    mov        r2,#0xc
+    bic        r1,r2
+    mov        r2,#0x4
+    orr        r1,r2
+    strb       r1,[r7,#0x11]
+    mov        r7,r10
+    ldr        r7,[r7,#0x3c]
+    ldrb       r1,[r7,#0x0]
+    mov        r2,#0xc0
+    bic        r1,r2
+    mov        r2,#0x0
+    orr        r1,r2
+    strb       r1,[r7,#0x0]
+    strb       r0,[r7,#0x2]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetBlend
+
+thumb_func_start SpritePtr_ClearBx11
+SpritePtr_ClearBx11:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r1,[r7,#0x11]
+    mov        r0,#0xc
+    bic        r1,r0
+    strb       r1,[r7,#0x11]
+    mov        pc,lr
+thumb_func_end SpritePtr_ClearBx11
+.align 2, 0
+
+
+thumb_func_start LC_SpritePtr_CalculateOcclusion
+LC_SpritePtr_CalculateOcclusion:
+    push       {lr}
+    ldr        r7,PTR_SpritePtr_CalculateOcclusion_1_080026f4
+    mov        lr,pc
+    bx         r7
+    pop        {pc}
+thumb_func_end LC_SpritePtr_CalculateOcclusion
+
+thumb_func_start SpritePtr_SetAffine
+SpritePtr_SetAffine:
+    push       {r5,lr}
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r5,r5,r7
+    ldrb       r0,[r5,#0x11]
+    mov        r1,#0x3
+    tst        r1,r0
+    bne        LAB_08002576
+    bl         Oam_AffineTransformAlloc
+    cmp        r0,#0xff
+    beq        LAB_08002576
+    ldrb       r2,[r5,#0x11]
+    mov        r1,#0x3
+    orr        r2,r1
+    strb       r2,[r5,#0x11]
+    ldrb       r3,[r5,#0x13]
+    mov        r1,#0x3e
+    bic        r3,r1
+    lsl        r0,r0,#0x1
+    orr        r3,r0
+    strb       r3,[r5,#0x13]
+    mov        r0,#0x1
+    pop        {r5,pc}
+LAB_08002576:
+    mov        r0,#0x0
+    pop        {r5,pc}
+thumb_func_end SpritePtr_SetAffine
+
+
+thumb_func_start SpritePtr_FreeAffine
+SpritePtr_FreeAffine:
+    push       {r5,lr}
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r5,r5,r7
+    ldrb       r0,[r5,#0x11]
+    mov        r1,#0x3
+    tst        r1,r0
+    bne        LAB_0800259e
+    ldrb       r0,[r5,#0x13]
+    add        r2,r0,#0x0
+    mov        r1,#0x3e
+    and        r0,r1
+    bic        r2,r1
+    strb       r2,[r5,#0x13]
+    bl         Oam_AffineTransformFree
+LAB_0800259e:
+    pop        {r5,pc}
+thumb_func_end SpritePtr_FreeAffine
+
+thumb_func_start SpritePtr_SetPaletteIndex
+SpritePtr_SetPaletteIndex:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    strb       r0,[r7,#0x5]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetPaletteIndex
+
+
+thumb_func_start SpritePtr_SetSubFrameIndex
+SpritePtr_SetSubFrameIndex:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    strb       r0,[r5,#0x1]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetSubFrameIndex
+    
+thumb_func_start SpritePtr_SetFrameIndex
+SpritePtr_SetFrameIndex:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    strb       r0,[r7,#0x0]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetFrameIndex
+
+
+thumb_func_start SpritePtr_SetFlashPalette
+SpritePtr_SetFlashPalette:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r0,[r7,#0x15]
+    mov        r1,#0xf0
+    orr        r0,r1
+    strb       r0,[r7,#0x15]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetFlashPalette
+
+
+thumb_func_start SpritePtr_ResetPalette
+SpritePtr_ResetPalette:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r0,[r7,#0x15]
+    mov        r1,#0xf0
+    bic        r0,r1
+    strb       r0,[r7,#0x15]
+    mov        pc,lr
+thumb_func_end SpritePtr_ResetPalette
+
+
+thumb_func_start SpritePtr_GetFrameStatus
+SpritePtr_GetFrameStatus:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r0,[r7,#0x3]
+    ldrb       r1,[r7,#0x2]
+    cmp        r1,#0x0
+    beq        LAB_08002600
+    mov        r1,#0xc0
+    bic        r0,r1
+LAB_08002600:
+    ldrb       r1,[r7,#0x0]
+    ldrb       r2,[r7,#0x1]
+    mov        pc,lr
+thumb_func_end SpritePtr_GetFrameStatus
+
+
+thumb_func_start SpritePtr_CheckIfMultipleParts
+SpritePtr_CheckIfMultipleParts:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r0,[r7,#0x4]
+    mov        r1,#0x10
+    and        r0,r1
+    mov        pc,lr
+thumb_func_end SpritePtr_CheckIfMultipleParts
+
+
+thumb_func_start SpritePtr_SetPriority
+SpritePtr_SetPriority:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    mov        r2,#0xc
+    ldrb       r1,[r7,#0x15]
+    bic        r1,r2
+    lsl        r0,r0,#0x2
+    orr        r1,r0
+    strb       r1,[r7,#0x15]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetPriority
+
+
+thumb_func_start SpritePtr_SetZClip
+SpritePtr_SetZClip:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r0,[r7,#0x4]
+    mov        r1,#0x4
+    orr        r0,r1
+    mov        r1,#0x8
+    bic        r0,r1
+    strb       r0,[r7,#0x4]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetZClip
+
+
+thumb_func_start SpritePtr_Flag_ClearZClip
+SpritePtr_Flag_ClearZClip:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r0,[r7,#0x4]
+    mov        r1,#0x4
+    bic        r0,r1
+    strb       r0,[r7,#0x4]
+    mov        pc,lr
+thumb_func_end SpritePtr_Flag_ClearZClip
+
+
+thumb_func_start Oam_Init
+Oam_Init:
+    push       {lr}
+    ldr        r0,PTR_gFillValue_080026f8
+    ldr        r1,PTR_OAM_080026fc
+    ldr        r2,INT_08002700
+    mov        r3,#0x3
+    ldr        r4,DmaCntFlag_08002704
+    bl         Dma_SetDirect
+    mov        r0,#0x8
+    bl         Dma_WaitForEnd
+    ldr        r0,PTR_gFillValue_08002708
+    ldr        r1,PTR_OBJ_VRAM0_0800270c
+    ldr        r2,INT_08002710
+    mov        r3,#0x3
+    ldr        r4,DmaCntFlag_08002704
+    bl         Dma_SetDirect
+    mov        r0,#0x8
+    bl         Dma_WaitForEnd
+    ldr        r0,PTR_paletteInitial_F0_08002714
+    ldr        r1,PTR_PAL_OBJ_08002718
+    mov        r2,#0x8
+    mov        r3,#0x3
+    ldr        r4,DmaCntFlag_0800271c
+    bl         Dma_SetDirect
+    mov        r0,#0x8
+    bl         Dma_WaitForEnd
+    bl         PlayerLocation_Init
+    bl         Actor_Init
+    bl         AttackCell_Init
+    bl         DisplayObject_Init
+    bl         NPC_Init
+    bl         SpriteTilesetDetail_Init
+    pop        {pc}
+thumb_func_end Oam_Init
+
+
+thumb_func_start FUN_080026b4
+FUN_080026b4:
+    ldr        r0,[r5,#0x1c]
+    ldr        r0,[r0,#0x0]
+    ldr        r1,[r5,#0x18]
+    add        r0,r0,r1
+    ldr        r0,[r0,#0x0]
+    lsr        r0,r0,#0x5
+    mov        pc,lr
+thumb_func_end FUN_080026b4
+    
+
+thumb_func_start FUN_080026c4
+FUN_080026c4:
+    ldrb       r0,[r5,#0x0]
+    tst        r0,r0
+    beq        LAB_080026ea
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    mov        r2,#0xc
+    ldrsh      r1,[r7,r2]
+    mov        r2,#0xe
+    ldrsb      r2,[r7,r2]
+    mov        r0,#0x10
+    lsl        r0,r0,#0x4
+    add        r0,#0xff
+    and        r1,r0
+    mov        r0,#0xff
+    and        r2,r0
+    mov        r0,#0x1
+    mov        pc,lr
+LAB_080026ea:
+    mov        r0,#0x0
+    mov        r1,#0x0
+    mov        r2,#0x0
+    mov        pc,lr
+thumb_func_end FUN_080026c4
+
+    .align 2, 0
+PTR_SpritePtr_CalculateOcclusion_1_080026f4: .word SpritePtr_CalculateOcclusion
+PTR_gFillValue_080026f8: .word gFillValue
+PTR_OAM_080026fc: .word OAM_BEGIN
+INT_08002700: .word 0x100
+DmaCntFlag_08002704: .word DMA_SRC_FIXED | DMA_32BIT | DMA_ENABLE
+PTR_gFillValue_08002708: .word gFillValue
+PTR_OBJ_VRAM0_0800270c: .word OBJ_VRAM0
+INT_08002710: .word 0x2000
+PTR_paletteInitial_F0_08002714: .word paletteInitial_F0
+PTR_PAL_OBJ_08002718: .word 0x50003E0
+DmaCntFlag_0800271c: .word DMA_32BIT | DMA_ENABLE
+
+
+thumb_func_start InitializeSpriteTilesetOffset
+InitializeSpriteTilesetOffset:
+    ldr        r0,PTR_gSpriteTilesetOffset0_0800280c
+    mov        r1,#0x1
+    str        r1,[r0,#0x0]
+    mov        pc,lr
+    mov r0, #0x0 @ TODO: part of below func maybe
+thumb_func_end InitializeSpriteTilesetOffset
+
+non_word_aligned_thumb_func_start SpritePtr_SetAffineRelated
+SpritePtr_SetAffineRelated:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldrb       r2,[r7,#0x13]
+    mov        r1,#0x30
+    bic        r2,r1
+    lsl        r0,r0,#0x4
+    orr        r2,r0
+    strb       r2,[r7,#0x13]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetAffineRelated
+
+thumb_func_start Sprite_LoadPalette
+Sprite_LoadPalette:
+    ldr        r0,[r5,#0x1c]
+    ldr        r0,[r0,#0x4]
+    add        r0,#0x4
+    ldr        r1,[r5,#0x18]
+    add        r0,r0,r1
+    ldrb       r1,[r5,#0x5]
+    lsl        r1,r1,#0x5
+    add        r0,r0,r1
+    ldrb       r1,[r5,#0x15]
+    lsr        r1,r1,#0x4
+    ldr        r3,PTR_eObjPalette0_08002810
+    lsl        r1,r1,#0x5
+    add        r3,r3,r1
+    mov        r6,#0x0
+LAB_0800275c:
+    ldr        r2,[r0,r6]
+    str        r2,[r3,r6]
+    add        r6,#0x4
+    cmp        r6,#0x20
+    blt        LAB_0800275c
+    mov        pc,lr
+thumb_func_end Sprite_LoadPalette
+
+
+thumb_func_start Sprite_PaletteInit
+Sprite_PaletteInit:
+    ldr        r0,PTR_gSpritePalettesLoaded_08002814
+    mov        r1,#0x0
+    str        r1,[r0,#0x0]
+    mov        pc,lr
+thumb_func_end Sprite_PaletteInit
+
+
+thumb_func_start SpritePtr_NoZClip
+SpritePtr_NoZClip:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    mov        r0,#0x8
+    ldrb       r1,[r7,#0x4]
+    orr        r1,r0
+    strb       r1,[r7,#0x4]
+    mov        pc,lr
+thumb_func_end SpritePtr_NoZClip
+
+
+thumb_func_start SpritePtr_SetObjectExcludeFlags
+SpritePtr_SetObjectExcludeFlags:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    str        r0,[r7,#0x2c]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetObjectExcludeFlags
+
+
+thumb_func_start SpritePtr_GetObjectExcludeFlags
+SpritePtr_GetObjectExcludeFlags:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    ldr        r0,[r7,#0x2c]
+    mov        pc,lr
+thumb_func_end SpritePtr_GetObjectExcludeFlags
+
+
+thumb_func_start SpritePtr_SetObjectExcludeFlag
+SpritePtr_SetObjectExcludeFlag:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    mov        r1,#0x80
+    lsl        r1,r1,#0x18
+    lsr        r1,r0
+    ldr        r0,[r7,#0x2c]
+    orr        r0,r1
+    str        r0,[r7,#0x2c]
+    mov        pc,lr
+thumb_func_end SpritePtr_SetObjectExcludeFlag
+
+
+thumb_func_start SpritePtr_ClearObjectExcludeFlag
+SpritePtr_ClearObjectExcludeFlag:
+    ldrb       r7,[r5,#0x2]
+    lsr        r7,r7,#0x4
+    lsl        r7,r7,#0x4
+    add        r7,r7,r5
+    mov        r1,#0x80
+    lsl        r1,r1,#0x18
+    lsr        r1,r0
+    ldr        r0,[r7,#0x2c]
+    bic        r0,r1
+    str        r0,[r7,#0x2c]
+    mov        pc,lr
+thumb_func_end SpritePtr_ClearObjectExcludeFlag
+
+
+thumb_func_start Sprite_LoadTileset
+Sprite_LoadTileset:
+    push       {r5,lr}
+    ldr        r2,[r5,#0x24]
+    ldr        r0,[r5,#0x1c]
+    ldr        r0,[r0,#0x0]
+    ldr        r1,[r5,#0x18]
+    add        r0,r0,r1
+    cmp        r0,r2
+    beq        LAB_080027f0
+    str        r0,[r5,#0x24]
+    ldr        r2,[r0,#0x0]
+    lsr        r2,r2,#0x2
+    add        r0,#0x4
+    ldr        r1,PTR_OBJ_VRAM0_08002818
+    ldrh       r3,[r5,#0x8]
+    lsl        r3,r3,#0x5
+    add        r1,r1,r3
+    bl         Dma_TransferListAdd
+LAB_080027f0:
+    pop        {r5,pc}
+thumb_func_end Sprite_LoadTileset
+
+thumb_func_start SpriteTilesetDetail_Init
+SpriteTilesetDetail_Init:
+    push       {lr}
+    ldr        r7,PTR_gSpriteTilesetDetailCount_0800281c
+    mov        r0,#0x0
+    str        r0,[r7,#0x0]
+    ldr        r0,PTR_gListSpriteTilesetDetail_08002820
+    ldr        r1,INT_08002824
+    mov        r2,#0x0
+    mvn        r2,r2
+    bl         memset_32
+    pop        {pc}
+thumb_func_end SpriteTilesetDetail_Init
+
+.align 2, 0
+PTR_gSpriteTilesetOffset0_0800280c: .word gSpriteTilesetOffset0
+PTR_eObjPalette0_08002810: .word eObjPalette0
+PTR_gSpritePalettesLoaded_08002814: .word gSpritePalettesLoaded
+PTR_OBJ_VRAM0_08002818: .word OBJ_VRAM0
+PTR_gSpriteTilesetDetailCount_0800281c: .word gSpriteTilesetDetailCount
+PTR_gListSpriteTilesetDetail_08002820: .word gListSpriteTilesetDetail
+INT_08002824: .word 0x2C8
+
+.end

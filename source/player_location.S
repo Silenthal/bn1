@@ -2,10 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set LC_SpritePtr_CalculateOcclusion, 0x8002538
     .set PlayerLocation_Handler, 0x8055440 + 1
     .set SpriteFrame_LoadTileset, 0x3006A00 + 1
-    .set SpritePtr_FreeAffine, 0x800257C
 
     .text
 

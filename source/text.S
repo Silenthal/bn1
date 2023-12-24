@@ -2,20 +2,11 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Sprite_Init, 0x8002460
-    .set Sprite_InitFrames, 0x8002354
-    .set Sprite_LoadPalette, 0x8002740
-    .set Sprite_ProcessFrameDelay, 0x800239d
-    .set Sprite_LoadTileset, 0x80027cc
     .set LC_Sprite_AddSpriteToOam, 0x8002338
     .set FUN_08018e4c, 0x8018e4c
-    .set tilesetArrowVert0, 0x861fc88
-    .set tilesetArrowVert1, 0x861fd08
-    .set tilesetArrowVert2, 0x861fd88
     .set tileArrow0, 0x861fe08
     .set tileArrow1, 0x861fe88
     .set tileArrow2, 0x861ff08
-    .set tilesetDialogueWindowBorder, 0x861fb68
     .set FUN_0801f974, 0x801f974
     .set Status_GetLevel, 0x801bf58
     .set Library_GetStandardChipCount, 0x801E814

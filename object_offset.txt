@@ -13,17 +13,20 @@ screen              0x21AC
 asset_entity        0x22D4
 sprite              0x2338
 sprite_lz           0x2828
+entity              0x29B8
 entity_bounds       0x2B20
 sio                 0x2C4C
+field               0x2C60
 player_location     0x3084
 actor               0x3200
 attack_cell         0x3504
-struct_4CD0         0x382C
+display_object      0x382C
 npc                 0x3B14
 world               0x4130
 fade                0x4B00
 encounter           0x5504
 battle              0x5864
+util_battle         0x6AA4
 battlechip          0x7C44
 inventory           0x9BA0
 battle_sprite_queue 0x9D68
@@ -50,6 +53,7 @@ chip_trader         0x200D4
 credits             0x21498
 asset_npc_ai        0x28964
 asset_bg_task_44030 0x44030
+routine_canodumb    0x59910
 battle_rank         0x7D5B0
 enemy_drop          0x7D80E
 npc_command         0x82104
@@ -221,6 +225,7 @@ interrupt_handler   0x180000
 oam_far             0x180564
 text_far            0x1808D8
 screen_far          0x180178
+asset_1E0000        0x1E0000
 asset_sprite        0x1E0020
 asset_ui            0x613268
 asset_portrait      0x61FF88

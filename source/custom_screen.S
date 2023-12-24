@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set AddObject, 0x8009810
-    .set FUN_080029ec, 0x80029EC
+    .set Entity_FreeAllMultiple, 0x80029EC
     .set tilesetCustomScreenBg_2, 0x863FE34
     .set FUN_0805758a, 0x805758A
     .set FUN_0805738e, 0x805738e
@@ -681,7 +681,7 @@ FUN_08015dcc:
     beq        LAB_08015e10
     push       { r5 }
     mov        r0,#0xf
-    bl         FUN_080029ec
+    bl         Entity_FreeAllMultiple
     mov        r7,r10
     ldr        r0,[r7,#0x8]
     mov        r1,#0x0
