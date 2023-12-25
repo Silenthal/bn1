@@ -31,7 +31,7 @@ listHandlerActor:
     .word 0x805f3b1  @ Routine_StoneMan+1
     .word 0x805f999  @ FUN_0805f998+1
     .word 0x805fb99  @ FUN_0805fb98+1
-    .word 0x805fd95  @ Routine_Floshell+1
+    .word 0x805fd95  @ Routine_Froshell+1
     .word 0x80603b5  @ FUN_080603b4+1
     .word 0x80605cd  @ Routine_Handy_Main+1
     .word 0x8060c15  @ Actor_IceMan+1

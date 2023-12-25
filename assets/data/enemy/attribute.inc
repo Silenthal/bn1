@@ -374,7 +374,7 @@ _21: @ Flappy3
     battlechip Quake3 M
     zenny 400
     battlechip Quake3 D
-_22: @ Floshell1
+_22: @ Froshell1
     hp 120
     element None
     hp_pos 0
@@ -391,7 +391,7 @@ _22: @ Floshell1
     battlechip IronShld B
     zenny 600
     battlechip IronShld A
-_23: @ Floshell2
+_23: @ Froshell2
     hp 200
     element None
     hp_pos 0
@@ -408,7 +408,7 @@ _23: @ Floshell2
     zenny 2000
     zenny 2000
     zenny 2000
-_24: @ Floshell3
+_24: @ Froshell3
     hp 250
     element None
     hp_pos 0

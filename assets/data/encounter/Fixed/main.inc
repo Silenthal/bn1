@@ -137,7 +137,7 @@ global_label EnemySpawn_0800b33c
     spawn_end
 
 global_label EnemySpawn_0800b344
-    spawn Floshell3, 5, 2
+    spawn Froshell3, 5, 2
     spawn HardHead3, 4, 3
     spawn HardHead3, 6, 1
     spawn_end
@@ -183,7 +183,7 @@ global_label EnemySpawn_0800b39c
 global_label EnemySpawn_0800b3a4
     spawn HardHead2, 4, 1
     spawn HardHead2, 4, 3
-    spawn Floshell2, 5, 2
+    spawn Froshell2, 5, 2
     spawn_end
 
 global_label EnemySpawn_0800b3b4

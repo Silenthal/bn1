@@ -24,7 +24,7 @@ EnemySpawn_0800d1f8:
     spawn_end
 
 EnemySpawn_0800d200:
-    spawn Floshell1, 6, 2
+    spawn Froshell1, 6, 2
     spawn_end
 
 EnemySpawn_0800d208:
@@ -35,7 +35,7 @@ EnemySpawn_0800d208:
 
 EnemySpawn_0800d218:
     spawn MegalianH, 4, 2
-    spawn Floshell1, 6, 1
+    spawn Froshell1, 6, 1
     spawn_end
 
 EnemySpawn_0800d224:
@@ -64,7 +64,7 @@ EnemySpawn_0800d254:
     spawn_end
 
 EnemySpawn_0800d260:
-    spawn Floshell1, 5, 2
+    spawn Froshell1, 5, 2
     spawn Handy1, 6, 3
     spawn Handy1, 6, 1
     spawn_end
@@ -77,7 +77,7 @@ EnemySpawn_0800d270:
 
 EnemySpawn_0800d280:
     spawn MegalianH, 5, 3
-    spawn Floshell1, 6, 1
+    spawn Froshell1, 6, 1
     spawn_end
 
 EnemySpawn_0800d28c:

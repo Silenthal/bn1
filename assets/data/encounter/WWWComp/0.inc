@@ -20,11 +20,11 @@ EnemySpawn_0800d0c8:
     spawn_end
 
 EnemySpawn_0800d0d0:
-    spawn Floshell1, 6, 2
+    spawn Froshell1, 6, 2
     spawn_end
 
 EnemySpawn_0800d0d8:
-    spawn Floshell1, 5, 2
+    spawn Froshell1, 5, 2
     spawn_end
 
 EnemySpawn_0800d0e0:
@@ -32,7 +32,7 @@ EnemySpawn_0800d0e0:
     spawn_end
 
 EnemySpawn_0800d0e8:
-    spawn Floshell1, 5, 3
+    spawn Froshell1, 5, 3
     spawn CanDevil2, 5, 1
     spawn_end
 
@@ -59,7 +59,7 @@ EnemySpawn_0800d11c:
     spawn_end
 
 EnemySpawn_0800d124:
-    spawn Floshell1, 5, 2
+    spawn Froshell1, 5, 2
     spawn Handy3, 6, 3
     spawn Handy3, 6, 1
     spawn_end
@@ -72,7 +72,7 @@ EnemySpawn_0800d134:
 
 EnemySpawn_0800d144:
     spawn Handy3, 5, 3
-    spawn Floshell1, 6, 1
+    spawn Froshell1, 6, 1
     spawn_end
 
 EnemySpawn_0800d150:

@@ -21,9 +21,9 @@
     .set ED_Flappy1, 19
     .set ED_Flappy2, 20
     .set ED_Flappy3, 21
-    .set ED_Floshell1, 22
-    .set ED_Floshell2, 23
-    .set ED_Floshell3, 24
+    .set ED_Froshell1, 22
+    .set ED_Froshell2, 23
+    .set ED_Froshell3, 24
     .set ED_HardHead1, 25
     .set ED_HardHead2, 26
     .set ED_HardHead3, 27

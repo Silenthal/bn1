@@ -41,5 +41,5 @@ EnemySpawn_0800d6d8:
     spawn_end
 
 EnemySpawn_0800d6e4:
-    spawn Floshell1, 5, 2
+    spawn Froshell1, 5, 2
     spawn_end

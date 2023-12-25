@@ -105,7 +105,7 @@ global_label sprite_battle_coldbear
     .incbin "images/sprites/29F008.sprite.lz"
 global_label sprite_scientist
     .incbin "images/sprites/29FFB0.sprite"
-global_label sprite_battle_floshell
+global_label sprite_battle_froshell
     .incbin "images/sprites/2A2110.sprite.lz"
 global_label sprite_official1
     .incbin "images/sprites/2A2C3C.sprite"
