@@ -137,7 +137,7 @@ LAB_080599f8:
     bx         r7
     bl         FUN_080562d6_HpDrainRelated
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_ClearFlag_4
+    bl         FieldObject_MarkAsChecked
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_08059a24

@@ -4,7 +4,6 @@
 
     .text
 
-.set FieldObject_ClearFlag_4, 0x800305e
 
 thumb_func_start FieldObject_Init
 FieldObject_Init:
@@ -131,7 +130,7 @@ FieldObject_CalcDamage:
 LAB_08002d24:
     tst        r0,r1
     beq        LAB_08002d9e
-    @ heck that cur object isn't the same as the target
+    @ Check that cur object isn't the same as the target
     ldr        r2,[r6,#0x10]
     tst        r0,r2
     bne        LAB_08002d9e
@@ -155,6 +154,8 @@ LAB_08002d3e:
     ldr        r2,[r7,#0xc]
     tst        r2,r3
     beq        LAB_08002d9e
+    @ Check that cur object is within 1 square of target if cur object is a
+    @ 3x3 attack
     mov        r2,#0x8
     ldrb       r3,[r7,#0x0]
     tst        r2,r3
@@ -170,18 +171,25 @@ LAB_08002d3e:
     beq        LAB_08002d9e
     b          LAB_08002d82
 LAB_08002d6c:
+    @ Check if cur object and target are on the same cell
     ldrh       r3,[r6,#0x0]
     ldrh       r2,[r7,#0x2]
     cmp        r2,r3
     beq        LAB_08002d82
+    @ If not on the same cell, check if object is marked "new" and
+    @ hasn't moved yet
     ldr        r3,[r6,#0x38]
     tst        r3,r3
     bne        LAB_08002d9e
+    @ If object is not new, check if cur object is on the same cell as the
+    @ target's prior cell position
     ldrh       r3,[r6,#0x0]
     ldrh       r2,[r7,#0x4]
     cmp        r2,r3
     bne        LAB_08002d9e
 LAB_08002d82:
+    @ Apply damage to the appropriate mem location, as well as the attacker's
+    @ flags
     ldrb       r2,[r7,#0x6]
     lsl        r2,r2,#0x2
     add        r2,#0x20
@@ -201,7 +209,7 @@ LAB_08002d9e:
     lsr        r0,r0,#0x1
     bne        LAB_08002d24
     ldr        r0,[r6,#0x34]
-    bl         FieldObject_ClearFlag_4
+    bl         FieldObject_MarkAsChecked
     ldr        r0,[r6,#0x18]
     ldr        r1,[r6,#0x1c]
     ldr        r2,[r6,#0x20]
@@ -514,6 +522,7 @@ PTR_areaPropertiesLeftPlayer_08002fec: .word areaPropertiesLeftPlayer
 PTR_areaPropertiesRightPlayer_08002ff0: .word areaPropertiesRightPlayer
 
 
+@@ Marks the field object as being able to deal damage
 non_word_aligned_thumb_func_start FieldObject_SetDamageFlag
 FieldObject_SetDamageFlag:
     ldrb       r1,[r0,#0x0]
@@ -524,6 +533,7 @@ FieldObject_SetDamageFlag:
 thumb_func_end FieldObject_SetDamageFlag
 
 
+@@ Marks the field object so that it can't deal damage
 non_word_aligned_thumb_func_start FieldObject_ClearDamageFlag
 FieldObject_ClearDamageFlag:
     ldrb       r1,[r0,#0x0]
@@ -605,14 +615,17 @@ FieldObject_UpdateCellPosition:
 thumb_func_end FieldObject_UpdateCellPosition
 
 
-non_word_aligned_thumb_func_start FieldObject_ClearFlag_4
-FieldObject_ClearFlag_4:
+@@ Clear the "new object" flag from the field object. The next time the damage
+@@ function is run, the object's previous cell position will also be checked
+@@ in case it moves.
+non_word_aligned_thumb_func_start FieldObject_MarkAsChecked
+FieldObject_MarkAsChecked:
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x4
     bic        r1,r2
     strb       r1,[r0,#0x0]
     mov        pc,lr
-thumb_func_end FieldObject_ClearFlag_4
+thumb_func_end FieldObject_MarkAsChecked
 
 
 non_word_aligned_thumb_func_start FieldObject_SetPanelFlag

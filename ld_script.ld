@@ -121,7 +121,7 @@ SECTIONS {
 		gDisplaySettings         	= 0x7510;
 		gChipTrader				 	= 0x7530;
 		gMainMenu                	= 0x7590;
-		eMainState0x20           	= 0x75F0;
+		gPlayerBattleStates         = 0x75F0;
 		gTextBufferList          	= 0x76D0;
 		gBattleSpriteArgsArray		= 0x78D0;
 		gOamFreeObjectCount      	= 0x7B50;
