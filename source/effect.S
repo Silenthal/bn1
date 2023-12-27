@@ -6,7 +6,7 @@
 
     .text
 
-listHandlerDisplayObject:
+listHandlerEffect:
     .word 0x807b475 @ DO_QuickEffect
     .word 0x807b9ad @ FUN_0807b9ac
     .word 0x807ba41 @ DO_BattleHP
@@ -84,13 +84,13 @@ listHandlerDisplayObject:
     .word 0x8081b15 @ FUN_08081b14
     .word 0x8081cc1 @ FUN_08081cc0
 
-thumb_func_start DisplayObject_Alloc
-DisplayObject_Alloc:
+thumb_func_start Effect_Alloc
+Effect_Alloc:
     push       { r0, r1, r2, r3, r4, lr }
-    ldr        r0,PTR_gBitsetDisplayObject_08003acc
+    ldr        r0,PTR_gBitsetEffect_08003acc
     ldr        r2,[r0,#0x0]
     ldr        r1,DAT_08003ad0
-    ldr        r5,PTR_gListDisplayObject_08003ad4
+    ldr        r5,PTR_gListEffect_08003ad4
     ldr        r3,PTR_Struct_20062d0_Sized_08003ad8
 LAB_08003968:
     tst        r2,r1
@@ -122,15 +122,15 @@ LAB_08003976:
 LAB_0800399c:
     mov        r5,#0x0
     pop        { r0, r1, r2, r3, r4, pc }
-thumb_func_end DisplayObject_Alloc
+thumb_func_end Effect_Alloc
 
-thumb_func_start DisplayObject_Free
-DisplayObject_Free:
+thumb_func_start Effect_Free
+Effect_Free:
     push       { lr }
     ldr        r0,DAT_08003ad0
     ldrb       r1,[r5,#0x3]
     lsr        r0,r1
-    ldr        r1,PTR_gBitsetDisplayObject_08003adc
+    ldr        r1,PTR_gBitsetEffect_08003adc
     ldr        r2,[r1,#0x0]
     bic        r2,r0
     str        r2,[r1,#0x0]
@@ -138,12 +138,12 @@ DisplayObject_Free:
     strb       r1,[r5,#0x0]
     bl         SpritePtr_FreeAffine
     pop        { pc }
-thumb_func_end DisplayObject_Free
+thumb_func_end Effect_Free
 
-thumb_func_start DisplayObject_UpdateAll
-DisplayObject_UpdateAll:
+thumb_func_start Effect_UpdateAll
+Effect_UpdateAll:
     push       { lr }
-    ldr        r5,PTR_gListDisplayObject_08003ae0
+    ldr        r5,PTR_gListEffect_08003ae0
 LAB_080039c0:
     mov        r1,#0x1
     ldrb       r0,[r5,#0x0]
@@ -168,7 +168,7 @@ LAB_080039d8:
     beq        LAB_080039f6
 LAB_080039e8:
     str        r5,[r7,#0x70]
-    ldr        r0,PTR_listHandlerDisplayObject_08003ae4
+    ldr        r0,PTR_listHandlerEffect_08003ae4
     ldrb       r1,[r5,#0x1]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
@@ -192,7 +192,7 @@ LAB_080039f6:
     strb       r0,[r6,#0x7]
 LAB_08003a14:
     add        r5,#0xb0
-    ldr        r0,PTR_gListDisplayObject_08003ae8
+    ldr        r0,PTR_gListEffect_08003ae8
     ldr        r1,INT_08003aec
     add        r0,r0,r1
     cmp        r0,r5
@@ -204,13 +204,13 @@ LAB_08003a22:
     mov        r0,#0x0
     str        r0,[r7,#0x70]
     pop        { pc }
-thumb_func_end DisplayObject_UpdateAll
+thumb_func_end Effect_UpdateAll
 
-thumb_func_start DisplayObject_Init
-DisplayObject_Init:
+thumb_func_start Effect_Init
+Effect_Init:
     push       { lr }
     ldr        r0,PTR_gFillValue_08003af0
-    ldr        r1,PTR_gListDisplayObject_08003af4
+    ldr        r1,PTR_gListEffect_08003af4
     ldr        r2,DAT_08003af8
     mov        r3,#0x3
     ldr        r4,DAT_08003afc
@@ -219,7 +219,7 @@ DisplayObject_Init:
     bl         Dma_WaitForEnd
     mov        r0,#0x20
     mov        r1,#0x0
-    ldr        r5,PTR_gListDisplayObject_08003b00
+    ldr        r5,PTR_gListEffect_08003b00
 LAB_08003a48:
     mov        r3,#0x83
     strb       r3,[r5,#0x2]
@@ -228,18 +228,18 @@ LAB_08003a48:
     add        r5,#0xb0
     cmp        r1,r0
     blt        LAB_08003a48
-    ldr        r0,PTR_gBitsetDisplayObject_08003b04
+    ldr        r0,PTR_gBitsetEffect_08003b04
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end DisplayObject_Init
+thumb_func_end Effect_Init
 
-thumb_func_start DisplayObject_LoadAll
-DisplayObject_LoadAll:
+thumb_func_start Effect_LoadAll
+Effect_LoadAll:
     push       { lr }
     mov        r0,#0x20
     mov        r1,#0x0
-    ldr        r5,PTR_gListDisplayObject_08003b08
+    ldr        r5,PTR_gListEffect_08003b08
 LAB_08003a68:
     ldrb       r2,[r5,#0x0]
     mov        r3,#0x2
@@ -277,12 +277,12 @@ LAB_08003aa8:
     cmp        r1,r0
     blt        LAB_08003a68
     pop        { pc }
-thumb_func_end DisplayObject_LoadAll
+thumb_func_end Effect_LoadAll
 
-thumb_func_start DisplayObject_UnloadAll
-DisplayObject_UnloadAll:
+thumb_func_start Effect_UnloadAll
+Effect_UnloadAll:
     mov        r0,#0x0
-    ldr        r5,PTR_gListDisplayObject_08003b10
+    ldr        r5,PTR_gListEffect_08003b10
 LAB_08003ab8:
     add        r1,r5,#0x0
     add        r1,#0x80
@@ -293,26 +293,26 @@ LAB_08003ab8:
     cmp        r0,#0x20
     blt        LAB_08003ab8
     mov        pc,lr
-thumb_func_end DisplayObject_UnloadAll
+thumb_func_end Effect_UnloadAll
 
     .align 2, 0
-PTR_gBitsetDisplayObject_08003acc:      .word gBitsetDisplayObject
+PTR_gBitsetEffect_08003acc:             .word gBitsetEffect
 DAT_08003ad0:                           .word 0x80000000
-PTR_gListDisplayObject_08003ad4:        .word gListDisplayObject
+PTR_gListEffect_08003ad4:               .word gListEffect
 PTR_Struct_20062d0_Sized_08003ad8:      .word 0x20062d0
-PTR_gBitsetDisplayObject_08003adc:      .word gBitsetDisplayObject
-PTR_gListDisplayObject_08003ae0:        .word gListDisplayObject
-PTR_listHandlerDisplayObject_08003ae4:  .word listHandlerDisplayObject
-PTR_gListDisplayObject_08003ae8:        .word gListDisplayObject
+PTR_gBitsetEffect_08003adc:             .word gBitsetEffect
+PTR_gListEffect_08003ae0:               .word gListEffect
+PTR_listHandlerEffect_08003ae4:         .word listHandlerEffect
+PTR_gListEffect_08003ae8:               .word gListEffect
 INT_08003aec:                           .word 0x1600
 PTR_gFillValue_08003af0:                .word gFillValue
-PTR_gListDisplayObject_08003af4:        .word gListDisplayObject
+PTR_gListEffect_08003af4:               .word gListEffect
 DAT_08003af8:                           .word 0x580
 DAT_08003afc:                           .word 0x85000000
-PTR_gListDisplayObject_08003b00:        .word gListDisplayObject
-PTR_gBitsetDisplayObject_08003b04:      .word gBitsetDisplayObject
-PTR_gListDisplayObject_08003b08:        .word gListDisplayObject
+PTR_gListEffect_08003b00:               .word gListEffect
+PTR_gBitsetEffect_08003b04:             .word gBitsetEffect
+PTR_gListEffect_08003b08:               .word gListEffect
 PTR_SpriteFrame_LoadTileset_1_08003b0c: .word SpriteFrame_LoadTileset
-PTR_gListDisplayObject_08003b10:        .word gListDisplayObject
+PTR_gListEffect_08003b10:               .word gListEffect
 
 .end

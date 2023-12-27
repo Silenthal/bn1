@@ -44,11 +44,11 @@ SECTIONS {
 		gSpriteTilesetDetailCount	= 0x4704;
 		eMainState0x58           	= 0x4710;
 		gTransition              	= 0x48B8;
-		gBitsetAttackCell		 	= 0x4890;
+		gBitsetAttack		 	    = 0x4890;
 		gFillValue               	= 0x48C0;
 		gBattleUi           	 	= 0x48D0;
 		gBlendSettings           	= 0x4900;
-		gBitsetDisplayObject		= 0x4908;
+		gBitsetEffect		        = 0x4908;
 		gBattleFolder            	= 0x4910;
 		gBattleSpriteArgsArrayCount	= 0x4930;
 		eFrameWaitValue          	= 0x4934;
@@ -74,7 +74,7 @@ SECTIONS {
 		gSpriteAffineDataFlag    	= 0x4BA4;
 		eMainState0x2C           	= 0x4BB0;
 		eMainState0x4C           	= 0x4BD0;
-		gListDisplayObject          = 0x4CD0;
+		gListEffect                 = 0x4CD0;
 		gMenu           		 	= 0x62E0;
 		gOamAttributeCount       	= 0x6338;
 		gText                    	= 0x6350;
@@ -129,7 +129,7 @@ SECTIONS {
 		eMainState0x54           	= 0x7DE0;
 		gLayoutDialogueText      	= 0x7E10;
 		eDmaParamList            	= 0x8010;
-		gEntityListAttackCell    	= 0x8410;
+		gEntityListAttack    	    = 0x8410;
 		gCurMapEventData         	= 0x9A10;
 		eMainState0x44           	= 0x9A50;
 		eMainState0x64           	= 0x9A80;

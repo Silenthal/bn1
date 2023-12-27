@@ -54,8 +54,8 @@ LAB_080058aa:
     bl         Sprite_PaletteInit
     bl         PlayerLocation_LoadAll
     bl         Actor_LoadAll
-    bl         AttackCell_LoadAll
-    bl         DisplayObject_LoadAll
+    bl         Attack_LoadAll
+    bl         Effect_LoadAll
     pop        { r5 }
     ldrb       r0,[r5,#0x1f]
     tst        r0,r0

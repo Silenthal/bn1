@@ -559,8 +559,8 @@ Oam_Init:
     bl         Dma_WaitForEnd
     bl         PlayerLocation_Init
     bl         Actor_Init
-    bl         AttackCell_Init
-    bl         DisplayObject_Init
+    bl         Attack_Init
+    bl         Effect_Init
     bl         NPC_Init
     bl         SpriteTilesetDetail_Init
     pop        {pc}

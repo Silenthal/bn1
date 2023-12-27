@@ -249,7 +249,7 @@ MainState:
     .word eMainState0x14
     .word gFadeSettings
     .word gBattleUi
-    .word eMainState0x20
+    .word gPlayerBattleStates
     .word eMainState0x24
     .word eMainState0x28
     .word eMainState0x2C

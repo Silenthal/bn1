@@ -21,7 +21,7 @@
 .set Entity_CompareToPlayerRow, 0x805aadc
 .set CanodumbTarget_Create, 0x8071B60
 .set Battle_RegisterVirusDelete, 0x8009B90
-.set DisplayObject_CreateVirusDeleteExplosion, 0x807ce16
+.set Effect_CreateVirusDeleteExplosion, 0x807ce16
 .set Battle_RemoveFromEnemyList, 0x8009b74
 .set FieldObject_Create, 0x8001068
 
@@ -456,7 +456,7 @@ R_Canodumb_2_0_StartAnimExplode:
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
-    bl         DisplayObject_CreateVirusDeleteExplosion
+    bl         Effect_CreateVirusDeleteExplosion
     add        r0,r5,#0x0
     pop        {r5}
     str        r0,[r5,#0x7c]

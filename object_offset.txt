@@ -19,8 +19,8 @@ sio                 0x2C4C
 field               0x2C60
 player_location     0x3084
 actor               0x3200
-attack_cell         0x3504
-display_object      0x382C
+attack              0x3504
+effect              0x382C
 npc                 0x3B14
 world               0x4130
 fade                0x4B00

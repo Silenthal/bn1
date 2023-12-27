@@ -125,7 +125,7 @@ typedef struct EntityHeader EntityHeader, *PEntityHeader;
 
 typedef struct PositionXYZ PositionXYZ, *PPositionXYZ;
 
-typedef struct AttackCell AttackCell, *PAttackCell;
+typedef struct Attack Attack, *PAttack;
 
 typedef struct PlayerBattleState PlayerBattleState, *PPlayerBattleState;
 
@@ -143,7 +143,7 @@ typedef enum GeneralEntityFlag {
 typedef enum EntityTag {
     EF_None=0,
     ET_PlayerLocation=128,
-    ET_AttackCell=130,
+    ET_Attack=130,
     ET_Struct4CD0=131,
     ET_Actor=145,
     ET_NPC=148
@@ -346,7 +346,7 @@ struct Actor {
     int m_ix48;
     int m_ix4c;
     struct PositionXYZ m_px50;
-    struct AttackCell * m_ix5c;
+    struct Attack * m_ix5c;
     struct FieldObject * m_fieldObj_0;
     struct FieldObject * m_fieldObj_1;
     struct FieldObject * m_fieldObj_2;
@@ -365,7 +365,7 @@ struct Tile {
     byte data[32];
 };
 
-struct AttackCell {
+struct Attack {
     struct EntityHeader m_header;
     byte m_bx04;
     byte field2_0x5;
@@ -468,7 +468,7 @@ struct ActorPlayer {
     int m_i15;
     int m_i16;
     int m_i17;
-    struct AttackCell * m_i18;
+    struct Attack * m_i18;
     undefined1 field40_0x60;
     byte m_possibleChipSubfamily;
     undefined1 field42_0x62;
@@ -496,7 +496,7 @@ struct ActorPlayer {
 typedef enum AllocParamEntityType {
     APT_63F0=0,
     APT_Actor=1,
-    APT_AttackCell=2,
+    APT_Attack=2,
     APT_4CD0=3,
     APT_13A0=4
 } AllocParamEntityType;
@@ -541,9 +541,9 @@ struct AreaProperties {
     enum PanelFlag data[40];
 };
 
-typedef struct AttackCellParams AttackCellParams, *PAttackCellParams;
+typedef struct AttackParams AttackParams, *PAttackParams;
 
-struct AttackCellParams {
+struct AttackParams {
     struct Position m_position;
     byte m_b00;
     byte m_hp;
@@ -1783,7 +1783,7 @@ typedef enum EntityFuncFlag {
     GFF_None=0,
     GFF_63F0=1,
     GFF_Actor=2,
-    GFF_AttackCell=4,
+    GFF_Attack=4,
     GFF_4CD0=8,
     GFF_NPC=16,
     GFF_All=31
@@ -1801,7 +1801,7 @@ struct PlayerSpec2 {
 };
 
 union EntityUnion0 {
-    struct AttackCell * possibleAttackCell;
+    struct Attack * possibleAttack;
     struct PlayerSpec2 possiblePlayerSpec;
 };
 

@@ -6,7 +6,7 @@
 
     .text
 
-listHandlerAttackCell:
+listHandlerAttack:
     .word 0x806f4b9 @ FUN_0806f4b8+1
     .word 0x806f5c5 @ FUN_0806f5c4+1
     .word 0x806f7f9 @ FUN_0806f7f8+1
@@ -100,13 +100,13 @@ listHandlerAttackCell:
     .word 0x807b239 @ FUN_0807b238+1
     .word 0x807b389 @ FUN_0807b388+1
 
-thumb_func_start AttackCell_Alloc
-AttackCell_Alloc:
+thumb_func_start Attack_Alloc
+Attack_Alloc:
     push       { r0, r1, r2, r3, r4, lr }
-    ldr        r0,PTR_gBitsetAttackCell_080037e4
+    ldr        r0,PTR_gBitsetAttack_080037e4
     ldr        r2,[r0,#0x0]
     ldr        r1,DAT_080037e8
-    ldr        r5,PTR_gEntityListAttackCell_080037ec
+    ldr        r5,PTR_gEntityListAttack_080037ec
     ldr        r3,PTR_gCurMapEventData_080037f0
 LAB_08003680:
     tst        r2,r1
@@ -138,15 +138,15 @@ LAB_0800368e:
 LAB_080036b4:
     mov        r5,#0x0
     pop        { r0, r1, r2, r3, r4, pc }
-thumb_func_end AttackCell_Alloc
+thumb_func_end Attack_Alloc
 
-thumb_func_start AttackCell_Free
-AttackCell_Free:
+thumb_func_start Attack_Free
+Attack_Free:
     push       { lr }
     ldr        r0,DAT_080037e8
     ldrb       r1,[r5,#0x3]
     lsr        r0,r1
-    ldr        r1,PTR_gBitsetAttackCell_080037f4
+    ldr        r1,PTR_gBitsetAttack_080037f4
     ldr        r2,[r1,#0x0]
     bic        r2,r0
     str        r2,[r1,#0x0]
@@ -154,12 +154,12 @@ AttackCell_Free:
     strb       r1,[r5,#0x0]
     bl         SpritePtr_FreeAffine
     pop        { pc }
-thumb_func_end AttackCell_Free
+thumb_func_end Attack_Free
 
-thumb_func_start AttackCell_UpdateAll
-AttackCell_UpdateAll:
+thumb_func_start Attack_UpdateAll
+Attack_UpdateAll:
     push       { lr }
-    ldr        r5,PTR_gEntityListAttackCell_080037f8
+    ldr        r5,PTR_gEntityListAttack_080037f8
 LAB_080036d8:
     mov        r1,#0x1
     ldrb       r0,[r5,#0x0]
@@ -184,7 +184,7 @@ LAB_080036f0:
     beq        LAB_0800370e
 LAB_08003700:
     str        r5,[r7,#0x70]
-    ldr        r0,PTR_listHandlerAttackCell_080037fc
+    ldr        r0,PTR_listHandlerAttack_080037fc
     ldrb       r1,[r5,#0x1]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
@@ -208,7 +208,7 @@ LAB_0800370e:
     strb       r0,[r6,#0x7]
 LAB_0800372c:
     add        r5,#0xb0
-    ldr        r0,PTR_gEntityListAttackCell_08003800
+    ldr        r0,PTR_gEntityListAttack_08003800
     ldr        r1,INT_08003804
     add        r0,r0,r1
     cmp        r0,r5
@@ -220,13 +220,13 @@ LAB_0800373a:
     mov        r0,#0x0
     str        r0,[r7,#0x70]
     pop        { pc }
-thumb_func_end AttackCell_UpdateAll
+thumb_func_end Attack_UpdateAll
 
-thumb_func_start AttackCell_Init
-AttackCell_Init:
+thumb_func_start Attack_Init
+Attack_Init:
     push       { lr }
     ldr        r0,PTR_gFillValue_08003808
-    ldr        r1,PTR_gEntityListAttackCell_0800380c
+    ldr        r1,PTR_gEntityListAttack_0800380c
     ldr        r2,DAT_08003810
     mov        r3,#0x3
     ldr        r4,DAT_08003814
@@ -235,7 +235,7 @@ AttackCell_Init:
     bl         Dma_WaitForEnd
     mov        r0,#0x20
     mov        r1,#0x0
-    ldr        r5,PTR_gEntityListAttackCell_08003818
+    ldr        r5,PTR_gEntityListAttack_08003818
 LAB_08003760:
     mov        r3,#0x82
     strb       r3,[r5,#0x2]
@@ -244,18 +244,18 @@ LAB_08003760:
     add        r5,#0xb0
     cmp        r1,r0
     blt        LAB_08003760
-    ldr        r0,PTR_gBitsetAttackCell_0800381c
+    ldr        r0,PTR_gBitsetAttack_0800381c
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end AttackCell_Init
+thumb_func_end Attack_Init
 
-thumb_func_start AttackCell_LoadAll
-AttackCell_LoadAll:
+thumb_func_start Attack_LoadAll
+Attack_LoadAll:
     push       { lr }
     mov        r0,#0x20
     mov        r1,#0x0
-    ldr        r5,PTR_gEntityListAttackCell_08003820
+    ldr        r5,PTR_gEntityListAttack_08003820
 LAB_08003780:
     ldrb       r2,[r5,#0x0]
     mov        r3,#0x2
@@ -293,12 +293,12 @@ LAB_080037c0:
     cmp        r1,r0
     blt        LAB_08003780
     pop        { pc }
-thumb_func_end AttackCell_LoadAll
+thumb_func_end Attack_LoadAll
 
-thumb_func_start AttackCell_UnloadAll
-AttackCell_UnloadAll:
+thumb_func_start Attack_UnloadAll
+Attack_UnloadAll:
     mov        r0,#0x20
-    ldr        r5,PTR_gEntityListAttackCell_08003828
+    ldr        r5,PTR_gEntityListAttack_08003828
 LAB_080037d0:
     add        r1,r5,#0x0
     add        r1,#0x80
@@ -309,26 +309,26 @@ LAB_080037d0:
     cmp        r0,#0x20
     blt        LAB_080037d0
     mov        pc,lr
-thumb_func_end AttackCell_UnloadAll
+thumb_func_end Attack_UnloadAll
 
     .align 2, 0
-PTR_gBitsetAttackCell_080037e4:         .word gBitsetAttackCell
+PTR_gBitsetAttack_080037e4:         .word gBitsetAttack
 DAT_080037e8:                           .word 0x80000000
-PTR_gEntityListAttackCell_080037ec:     .word gEntityListAttackCell
+PTR_gEntityListAttack_080037ec:     .word gEntityListAttack
 PTR_gCurMapEventData_080037f0:          .word gCurMapEventData
-PTR_gBitsetAttackCell_080037f4:         .word gBitsetAttackCell
-PTR_gEntityListAttackCell_080037f8:     .word gEntityListAttackCell
-PTR_listHandlerAttackCell_080037fc:     .word listHandlerAttackCell
-PTR_gEntityListAttackCell_08003800:     .word gEntityListAttackCell
+PTR_gBitsetAttack_080037f4:         .word gBitsetAttack
+PTR_gEntityListAttack_080037f8:     .word gEntityListAttack
+PTR_listHandlerAttack_080037fc:     .word listHandlerAttack
+PTR_gEntityListAttack_08003800:     .word gEntityListAttack
 INT_08003804:                           .word 0x1600
 PTR_gFillValue_08003808:                .word gFillValue
-PTR_gEntityListAttackCell_0800380c:     .word gEntityListAttackCell
+PTR_gEntityListAttack_0800380c:     .word gEntityListAttack
 DAT_08003810:                           .word 0x580
 DAT_08003814:                           .word 0x85000000
-PTR_gEntityListAttackCell_08003818:     .word gEntityListAttackCell
-PTR_gBitsetAttackCell_0800381c:         .word gBitsetAttackCell
-PTR_gEntityListAttackCell_08003820:     .word gEntityListAttackCell
+PTR_gEntityListAttack_08003818:     .word gEntityListAttack
+PTR_gBitsetAttack_0800381c:         .word gBitsetAttack
+PTR_gEntityListAttack_08003820:     .word gEntityListAttack
 PTR_SpriteFrame_LoadTileset_1_08003824: .word SpriteFrame_LoadTileset
-PTR_gEntityListAttackCell_08003828:     .word gEntityListAttackCell
+PTR_gEntityListAttack_08003828:     .word gEntityListAttack
 
 .end
