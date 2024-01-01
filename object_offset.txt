@@ -12,7 +12,6 @@ bg_task             0x1D0C
 screen              0x21AC
 asset_entity        0x22D4
 sprite              0x2338
-sprite_lz           0x2828
 entity              0x29B8
 entity_bounds       0x2B20
 sio                 0x2C4C
