@@ -143,7 +143,7 @@ Actor_Free:
     str        r2,[r1,#0x0]
     mov        r1,#0x0
     strb       r1,[r5,#0x0]
-    bl         SpritePtr_FreeAffine
+    bl         SpritePtr_AffineFree
     pop        { pc }
 thumb_func_end Actor_Free
 

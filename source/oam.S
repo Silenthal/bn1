@@ -122,6 +122,31 @@ Oam_AffineTransformFree:
     mov        pc,lr
 thumb_func_end Oam_AffineTransformFree
 
+
+
+@@ Sets params for rotation/scaling.
+@@ In:
+@@ r0: angle: The angle to rotate by.
+@@ r1: Sx: The inverse of the amount to scale X by, multiplied by 16.
+@@ r2: Sy: The inverse of the amount to scale Y by, multiplied by 16.
+@@ r3: index: The parameter index.
+@@ 
+@@ Notes:
+@@ Two entries are used per index. The one stored at index+16 has the 
+@@ inverse scaling matrix:
+@@ | Sx  0 |
+@@ |  0 Sy |
+@@ and the one stored at index has the inverse scale/rotate matrix:
+@@ | Sx  0 | * |  cos(a) sin(a) | = | Sx *  cos(a)  Sx * sin(a) |
+@@ |  0 Sy |   | -sin(a) cos(a) |   | Sy * -sin(a)  Sy * cos(a) |
+@@ The param at index also stores the actual scale factors, which are
+@@ 1/Sx and 1/Sy.
+@@
+@@ The scale is stored as above because the affine matrix P (pa, pb, pc, pd)
+@@ is a linear transformation from a point on the screen to the sprite. From
+@@ the sprite perspective, a scale is performed, then a rotate. From the
+@@ screen perspective, the same operation is an inverse rotate, then an
+@@ inverse scale.
 thumb_func_start Oam_AffineTransformSetParams
 Oam_AffineTransformSetParams:
     push       { lr }

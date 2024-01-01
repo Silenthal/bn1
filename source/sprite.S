@@ -9,6 +9,7 @@
 
     .thumb
 
+
 thumb_func_start Sprite_AddSpriteToOam
 Sprite_AddSpriteToOam:
     push       { lr }
@@ -17,6 +18,7 @@ Sprite_AddSpriteToOam:
     bx         r1
     pop        { pc }
 thumb_func_end Sprite_AddSpriteToOam
+
 
 thumb_func_start SpritePtr_InitFrames
 SpritePtr_InitFrames:
@@ -28,6 +30,7 @@ SpritePtr_InitFrames:
     bl         Sprite_InitFrames
     pop        { r5, pc }
 thumb_func_end SpritePtr_InitFrames
+
 
 @@ Sets up frame data for a sprite
 thumb_func_start Sprite_InitFrames
@@ -68,6 +71,7 @@ LAB_0800238a:
     pop        { pc }
 thumb_func_end Sprite_InitFrames
 
+
 thumb_func_start SpritePtr_ProcessFrameDelay
 SpritePtr_ProcessFrameDelay:
     push       { r5, lr }
@@ -78,6 +82,7 @@ SpritePtr_ProcessFrameDelay:
     bl         Sprite_ProcessFrameDelay
     pop        { r5, pc }
 thumb_func_end SpritePtr_ProcessFrameDelay
+
 
 thumb_func_start Sprite_ProcessFrameDelay
 Sprite_ProcessFrameDelay:
@@ -167,6 +172,7 @@ start:
     pop        { pc }
 thumb_func_end Sprite_ProcessFrameDelay
 
+
 thumb_func_start Sprite_InitSpritePtr
 Sprite_InitSpritePtr:
     push       { r5, lr }
@@ -202,6 +208,7 @@ LAB_08002452:
     pop        { r5, pc }
 thumb_func_end Sprite_InitSpritePtr
 
+
 thumb_func_start Sprite_Init
 Sprite_Init:
     add        r0,#0x4
@@ -224,6 +231,7 @@ Sprite_Init:
     mov        pc,lr
 thumb_func_end Sprite_Init
 
+
 thumb_func_start Sprite_TransferPalettes
 Sprite_TransferPalettes:
     push       { lr }
@@ -238,8 +246,9 @@ thumb_func_end Sprite_TransferPalettes
 
     .pool
 
-thumb_func_start SpritePtr_AffineTransformSetParams
-SpritePtr_AffineTransformSetParams:
+
+thumb_func_start SpritePtr_AffineSetParams
+SpritePtr_AffineSetParams:
     push       {r5,lr}
     push       {r0,r1,r2}
     ldrb       r7,[r5,#0x2]
@@ -260,10 +269,11 @@ SpritePtr_AffineTransformSetParams:
 LAB_080024cc:
     pop        {r0,r1,r2}
     pop        {r5,pc}
-thumb_func_end SpritePtr_AffineTransformSetParams
+thumb_func_end SpritePtr_AffineSetParams
 
-thumb_func_start SpritePtr_SetBx11
-SpritePtr_SetBx11:
+
+thumb_func_start SpritePtr_ObjModeWindow
+SpritePtr_ObjModeWindow:
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -275,10 +285,11 @@ SpritePtr_SetBx11:
     orr        r1,r0
     strb       r1,[r7,#0x11]
     mov        pc,lr
-thumb_func_end SpritePtr_SetBx11
+thumb_func_end SpritePtr_ObjModeWindow
 
-thumb_func_start _SpritePtr_ClearBx11
-_SpritePtr_ClearBx11:
+
+thumb_func_start _SpritePtr_ObjModeNormal
+_SpritePtr_ObjModeNormal:
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -288,10 +299,11 @@ _SpritePtr_ClearBx11:
     bic        r1,r0
     strb       r1,[r7,#0x11]
     mov        pc,lr
-thumb_func_end _SpritePtr_ClearBx11
+thumb_func_end _SpritePtr_ObjModeNormal
 
-thumb_func_start SpritePtr_SetBlend
-SpritePtr_SetBlend:
+
+thumb_func_start SpritePtr_ObjModeSemiTransparent
+SpritePtr_ObjModeSemiTransparent:
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -312,10 +324,11 @@ SpritePtr_SetBlend:
     strb       r1,[r7,#0x0]
     strb       r0,[r7,#0x2]
     mov        pc,lr
-thumb_func_end SpritePtr_SetBlend
+thumb_func_end SpritePtr_ObjModeSemiTransparent
 
-thumb_func_start SpritePtr_ClearBx11
-SpritePtr_ClearBx11:
+
+thumb_func_start SpritePtr_ObjModeNormal
+SpritePtr_ObjModeNormal:
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -325,7 +338,7 @@ SpritePtr_ClearBx11:
     bic        r1,r0
     strb       r1,[r7,#0x11]
     mov        pc,lr
-thumb_func_end SpritePtr_ClearBx11
+thumb_func_end SpritePtr_ObjModeNormal
 .align 2, 0
 
 
@@ -338,8 +351,9 @@ LC_SpritePtr_CalculateOcclusion:
     pop        {pc}
 thumb_func_end LC_SpritePtr_CalculateOcclusion
 
-thumb_func_start SpritePtr_SetAffine
-SpritePtr_SetAffine:
+
+thumb_func_start SpritePtr_AffineAlloc
+SpritePtr_AffineAlloc:
     push       {r5,lr}
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -367,11 +381,11 @@ SpritePtr_SetAffine:
 LAB_08002576:
     mov        r0,#0x0
     pop        {r5,pc}
-thumb_func_end SpritePtr_SetAffine
+thumb_func_end SpritePtr_AffineAlloc
 
 
-thumb_func_start SpritePtr_FreeAffine
-SpritePtr_FreeAffine:
+thumb_func_start SpritePtr_AffineFree
+SpritePtr_AffineFree:
     push       {r5,lr}
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -390,7 +404,8 @@ SpritePtr_FreeAffine:
     bl         Oam_AffineTransformFree
 LAB_0800259e:
     pop        {r5,pc}
-thumb_func_end SpritePtr_FreeAffine
+thumb_func_end SpritePtr_AffineFree
+
 
 thumb_func_start SpritePtr_SetPaletteIndex
 SpritePtr_SetPaletteIndex:
@@ -412,7 +427,8 @@ SpritePtr_SetSubFrameIndex:
     strb       r0,[r5,#0x1]
     mov        pc,lr
 thumb_func_end SpritePtr_SetSubFrameIndex
-    
+   
+
 thumb_func_start SpritePtr_SetFrameIndex
 SpritePtr_SetFrameIndex:
     ldrb       r7,[r5,#0x2]
@@ -630,8 +646,9 @@ InitializeSpriteTilesetOffset:
     mov r0, #0x0 @ TODO: part of below func maybe
 thumb_func_end InitializeSpriteTilesetOffset
 
-non_word_aligned_thumb_func_start SpritePtr_SetAffineRelated
-SpritePtr_SetAffineRelated:
+
+non_word_aligned_thumb_func_start SpritePtr_SetFlipType
+SpritePtr_SetFlipType:
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -643,7 +660,8 @@ SpritePtr_SetAffineRelated:
     orr        r2,r0
     strb       r2,[r7,#0x13]
     mov        pc,lr
-thumb_func_end SpritePtr_SetAffineRelated
+thumb_func_end SpritePtr_SetFlipType
+
 
 thumb_func_start Sprite_LoadPalette
 Sprite_LoadPalette:
@@ -770,6 +788,7 @@ Sprite_LoadTileset:
 LAB_080027f0:
     pop        {r5,pc}
 thumb_func_end Sprite_LoadTileset
+
 
 thumb_func_start SpriteTilesetDetail_Init
 SpriteTilesetDetail_Init:

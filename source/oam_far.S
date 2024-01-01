@@ -59,7 +59,7 @@ Oam_AddSprite:
     @ bitset <<= 1; if bitset & 0x80000000 == 0 move to next object
     cmp        r3,#0x0
     bge        .advanceToNextObj
-    ldr        r6,[r5,#Sprite_bx10_lo]
+    ldr        r6,[r5,#Sprite_xyattributes_0]
     @ if sprite flag & 4 != 0, r7 = 0xFF, else r7 = 0
     bl         Oam_SpriteRotateFlipPos
     mov        r8,r1
@@ -93,7 +93,7 @@ Oam_AddSprite:
     @ r3 [29] = ~vflip
     cmp        r7,#0xff
     bne        .usePortraitY
-    mov        r0,#Sprite_bx0f_y2
+    mov        r0,#Sprite_screenY
     b          .calculateScreenY
 .usePortraitY:
     mov        r0,#Sprite_portraitScreenY
@@ -112,7 +112,7 @@ Oam_AddSprite:
     orr        r3,r1
     @ r3 |= flag2 & 0xF << 0xE
     @ r3 [14:15] = obj shape
-    ldrh       r1,[r5,#Sprite_tileAttributes]
+    ldrh       r1,[r5,#Sprite_tileAttributes_0]
     ldrh       r0,[r5,#Sprite_dstTileOffset]
     ldrb       r4,[r2,#SpriteObjectEntry_tileNumber]
     add        r4,r4,r0
@@ -152,27 +152,24 @@ LAB_03006e1a:
     pop        { pc }
 thumb_func_end Oam_AddSprite
 
-@ In:
-@ r2: curObject
-@ r5: sprite
-@ r6: param_r6
-@ r7: param_r7
-@
-@ Out:
-@ r0: newObjectY
-@ r1: newObjectX
+@@ Alters a sprites's top-left XY coordinates according to its object
+@@ attributes
+@@ In:
+@@ r2: curObject
+@@ r5: sprite
+@@ r6: xyAttributes
+@@ r7: isAffine
+@@
+@@ Out:
+@@ r0: newObjectY
+@@ r1: newObjectX
 thumb_func_start Oam_SpriteRotateFlipPos
 Oam_SpriteRotateFlipPos:
     mov        r3,#0x3
     lsl        r3,r3,#0x8
     and        r3,r6
     beq        LAB_03006f42
-    @ With a as an angle going counterclockwise:
-    @ | x0 |  x  | Sx *  cos(a)  Sy * sin(a) |  =  | x1 |
-    @ | y0 |     | Sx * -sin(a)  Sy * cos(a) |     | y1 |
-    @ With this formula, the rotation specified by a is clockwise, and the
-    @ operation performs scaling first, then rotation
-    ldrb       r4,[r5,#Sprite_bx13_affineRelated_Hi]
+    ldrb       r4,[r5,#Sprite_xyAttributes_3]
     mov        r3,#0x3e
     and        r4,r3
     lsr        r4,r4,#0x1
@@ -303,17 +300,19 @@ LAB_03006e5c:
     mov        r7,r9
     mov        pc,lr
 LAB_03006f42:
+    @ For horizontal flip:
+    @ r1 = -x + objWidthArr[objShape * 4 + objSize]
+    @ For vertical flip:
+    @ r0 = -y + objHeightArr[objShape * 4 + objSize]
     mov        r8,r7
     mov        r1,#0x1
     ldrsb      r1,[r2,r1]
     mov        r0,#0x2
     ldrsb      r0,[r2,r0]
-    @ r1 = x, r0 = y
     ldrb       r3,[r5,#0x13]
     mov        r4,#0x10
     and        r3,r4
     beq        .checkY
-    @ if affineHigh & 0x10 != 0...
     neg        r1,r1
     ldr        r3,PTR_objWidth_03006fec
     ldrb       r4,[r2,#0x4]
@@ -325,13 +324,11 @@ LAB_03006f42:
     lsr        r4,r4,#0x1c
     ldrsb      r3,[r3,r4]
     add        r1,r1,r3
-    @ r1 = -x + objWidthArr[objShape * 4 + objSize]
 .checkY:
     ldrb       r3,[r5,#0x13]
     mov        r4,#0x20
     and        r3,r4
     beq        .end
-    @ if affineHigh & 0x20 != 0...
     neg        r0,r0
     ldr        r3,PTR_objHeight_03006ff0
     ldrb       r4,[r2,#0x4]
@@ -343,7 +340,6 @@ LAB_03006f42:
     lsr        r4,r4,#0x1c
     ldrsb      r3,[r3,r4]
     add        r0,r0,r3
-    @ r0 = -y + objHeightArr[objShape * 4 + objSize]
 .end:
     mov        r7,r8
     mov        pc,lr

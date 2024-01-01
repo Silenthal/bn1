@@ -432,9 +432,9 @@ Text_SetDialogPortrait:
     strb       r1,[r5,#Sprite_spriteFlags]
     mov        r0,#0x0
     strh       r0,[r5,#Sprite_spriteNum]
-    strh       r0,[r5,#Sprite_bx10_lo]
-    strh       r0,[r5,#Sprite_bx12_affineRelated_Lo]
-    strh       r0,[r5,#Sprite_tileAttributes]
+    strh       r0,[r5,#Sprite_xyattributes_0]
+    strh       r0,[r5,#Sprite_xyattributes_2]
+    strh       r0,[r5,#Sprite_tileAttributes_0]
     mov        r0,#0xe0
     strb       r0,[r5,#0x15]
     bl         Sprite_InitFrames
