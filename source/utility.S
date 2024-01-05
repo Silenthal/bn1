@@ -6,6 +6,8 @@
 
     .thumb
 
+.set Attack_SharpStrike_Create, 0x80719ac
+
 thumb_func_start memset0_16
 memset0_16:
     mov        r2,#0x0
@@ -388,5 +390,202 @@ thumb_func_end FUN_08000c80
 PTR_REG_VCOUNT_08000c90:    .word REG_VCOUNT
 PTR_DAT_08000c94:           .word 0x02006334
 DAT_08000c98:               .word 0x80000000
+
+
+@@ Converts a vector (dx, dy) to an angle.
+@@ Angles atart at 0 pointing up, and increment clockwise.
+@@ In:
+@@ r0: dy: The Y coordinate of the vector.
+@@ r1: dx: The X coordinate of the vector.
+thumb_func_start VectorToAngle
+VectorToAngle:
+    push       {lr}
+    mov        r2,r10
+    push       {r2}
+    add        r2,r1,#0x0
+    neg        r1,r0
+    neg        r0,r2
+    mov        r7,#0x0
+    tst        r0,r0
+    bpl        LAB_08000cb2
+    add        r7,#0x2
+    neg        r0,r0
+LAB_08000cb2:
+    tst        r1,r1
+    bpl        LAB_08000cba
+    add        r7,#0x1
+    neg        r1,r1
+LAB_08000cba:
+    sub        r2,r7,#0x1
+    cmp        r2,#0x1
+    bhi        LAB_08000cc6
+    add        r2,r0,#0x0
+    add        r0,r1,#0x0
+    add        r1,r2,#0x0
+LAB_08000cc6:
+    asr        r1,r1,#0x10
+    beq        LAB_08000d0c
+    bl         Divide
+    lsr        r0,r0,#0x8
+    mov        r10,r0
+    mov        r0,#0x0
+    mov        r8,r0
+    mov        r0,#0x40
+    mov        r9,r0
+LAB_08000cda:
+    mov        r2,r8
+    add        r2,r9
+    lsr        r2,r2,#0x1
+    bcs        LAB_08000cf6
+    lsl        r2,r2,#0x1
+    ldr        r3,PTR_SHORT_ARRAY_08000d10
+    ldrsh      r0,[r3,r2]
+    lsr        r2,r2,#0x1
+    cmp        r0,r10
+    bcs        LAB_08000cf2
+    mov        r8,r2
+    b          LAB_08000cda
+LAB_08000cf2:
+    mov        r9,r2
+    b          LAB_08000cda
+LAB_08000cf6:
+    mov        r0,r8
+LAB_08000cf8:
+    ldr        r1,PTR_DAT_08000d14
+    ldrb       r2,[r1,r7]
+    add        r0,r0,r2
+    ldr        r1,DAT_08000d18
+    sub        r0,r1,r0
+    mov        r1,#0xff
+    and        r0,r1
+    pop        {r2}
+    mov        r10,r2
+    pop        {pc}
+LAB_08000d0c:
+    mov        r0,#0x40
+    b          LAB_08000cf8
+thumb_func_end VectorToAngle
+
+PTR_SHORT_ARRAY_08000d10:   .word tanTable
+PTR_DAT_08000d14:           .word DAT_08000d1a
+DAT_08000d18:               .short 0x100
+DAT_08000d1a:               .byte 0x0, 0x40, 0xC0, 0x80
+
+
+thumb_func_start ActorFacingPlayerAngle
+ActorFacingPlayerAngle:
+    push       {r5,lr}
+    push       {r0}
+    ldr        r0,[r5,#0x2c]
+    ldr        r1,[r5,#0x28]
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldr        r7,[r7,#0x28]
+    ldr        r2,[r7,#0x28]
+    ldr        r3,[r7,#0x24]
+    sub        r0,r2,r0
+    sub        r1,r3,r1
+    bl         VectorToAngle
+    pop        {r1}
+    sub        r0,r0,r1
+    lsl        r0,r0,#0x18
+    asr        r0,r0,#0x18
+    pop        {r5,pc}
+thumb_func_end ActorFacingPlayerAngle
+
+
+thumb_func_start AngleToOffset
+AngleToOffset:
+    lsl        r0,r0,#0x1
+    ldr        r2,PTR_sinTable_08000d5c
+    ldrsh      r3,[r2,r0]
+    ldr        r2,PTR_cosTable_08000d60
+    ldrsh      r2,[r2,r0]
+    neg        r2,r2
+    mul        r3,r1
+    asr        r0,r3,#0x8
+    mul        r2,r1
+    asr        r1,r2,#0x8
+    mov        pc,lr
+thumb_func_end AngleToOffset
+
+    .align 2, 0
+PTR_sinTable_08000d5c: .word sinTable
+PTR_cosTable_08000d60: .word cosTable
+
+
+non_word_aligned_thumb_func_start UpdateSpriteFrameIndex
+UpdateSpriteFrameIndex:
+    push       {lr}
+    ldrb       r0,[r5,#0x14]
+    ldrb       r1,[r5,#0x15]
+    cmp        r0,r1
+    beq        LAB_08000d78
+    strb       r0,[r5,#0x15]
+    bl         SpritePtr_SetFrameIndex
+    bl         SpritePtr_InitFrames
+LAB_08000d78:
+    bl         SpritePtr_ProcessFrameDelay
+    pop        {pc}
+thumb_func_end UpdateSpriteFrameIndex
+
+
+non_word_aligned_thumb_func_start FUN_08000d7e
+FUN_08000d7e:
+    sub        r0,r0,r2
+    add        r0,r0,r4
+    lsl        r2,r4,#0x1
+    cmp        r0,r2
+    bcs        LAB_08000d94
+    sub        r1,r1,r3
+    add        r1,r1,r4
+    cmp        r1,r2
+    bcs        LAB_08000d94
+    mov        r0,#0x1
+    mov        pc,lr
+LAB_08000d94:
+    mov        r0,#0x0
+    mov        pc,lr
+thumb_func_end FUN_08000d7e
+
+
+non_word_aligned_thumb_func_start IsDistanceClose
+IsDistanceClose:
+    sub        r0,r0,r2
+    sub        r1,r1,r3
+    add        r2,r4,#0x0
+    mul        r4,r2
+    add        r2,r0,#0x0
+    mul        r0,r2
+    add        r2,r1,#0x0
+    mul        r1,r2
+    add        r0,r0,r1
+    cmp        r4,r0
+    bmi        LAB_08000db2
+    mov        r0,#0x1
+    mov        pc,lr
+LAB_08000db2:
+    mov        r0,#0x0
+    mov        pc,lr
+thumb_func_end IsDistanceClose
+
+
+non_word_aligned_thumb_func_start IsCloseToPlayer
+IsCloseToPlayer:
+    push       {lr}
+    ldr        r0,[r5,#0x28]
+    asr        r0,r0,#0xc
+    ldr        r1,[r5,#0x2c]
+    asr        r1,r1,#0xc
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldr        r7,[r7,#0x28]
+    ldr        r2,[r7,#0x24]
+    asr        r2,r2,#0xc
+    ldr        r3,[r7,#0x28]
+    asr        r3,r3,#0xc
+    bl         IsDistanceClose
+    pop        {pc}
+thumb_func_end IsCloseToPlayer
 
     .end

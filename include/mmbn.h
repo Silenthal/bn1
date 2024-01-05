@@ -534,8 +534,18 @@ typedef struct AreaProperties AreaProperties, *PAreaProperties;
 
 typedef enum PanelFlag {
     PF_Walkable=1,
-    PF_EnemyTerritory=2,
-    PF_Cracked=4
+    PF_OpponentTerritory=2,
+    PF_Cracked=4,
+    PF_Ground=8,
+    PF_PlayerOccupied=16,
+    PF_EnemyOccupied=32,
+    PF_Player=64,
+    PF_Enemy=128,
+    PF_Hit=512,
+    PF_Teleporting=1024,
+    PF_Solid=2048,
+    PF_28000=163840,
+    PF_Armor=262144
 } PanelFlag;
 
 struct AreaProperties {

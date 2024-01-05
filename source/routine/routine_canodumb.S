@@ -4,7 +4,6 @@
 
     .text
 
-.set UpdateSpriteFrameIndex, 0x8000D64
 .set Entity_SpriteCoordsToCell, 0x80097b8
 .set Entity_LoadEnemyHp, 0x8009b64
 .set AddEntityToSpawnIndexList, 0x8009852
@@ -23,7 +22,7 @@
 .set Battle_RegisterVirusDelete, 0x8009B90
 .set Effect_CreateVirusDeleteExplosion, 0x807ce16
 .set Battle_RemoveFromEnemyList, 0x8009b74
-.set FieldObject_Create, 0x8001068
+.set Field_CreateEntity, 0x8001068
 
 thumb_func_start Routine_Canodumb
 Routine_Canodumb:
@@ -77,7 +76,7 @@ R_Canodumb_0_Init:
     mov        r0,#0x9
     mov        r1,#0x60
     add        r1,r1,r5
-    bl         FieldObject_Create
+    bl         Field_CreateEntity
     ldr        r7,[r5,#0x60]
     mov        r1,#0x20
     strb       r1,[r7,#0x8]

@@ -126,7 +126,7 @@ SECTIONS {
 		gBattleSpriteArgsArray		= 0x78D0;
 		gOamFreeObjectCount      	= 0x7B50;
 		gPanelStatuses				= 0x7B60;
-		eMainState0x54           	= 0x7DE0;
+		gScreenDimChip           	= 0x7DE0;
 		gLayoutDialogueText      	= 0x7E10;
 		eDmaParamList            	= 0x8010;
 		gEntityListAttack    	    = 0x8410;

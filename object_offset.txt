@@ -5,6 +5,7 @@ unknown             0x510
 sound               0x610
 dma                 0x944
 utility             0xA38
+field               0xDD4
 rng                 0x18B4
 video               0x18FC
 bg_update           0x1BB8
@@ -15,7 +16,7 @@ sprite              0x2338
 entity              0x29B8
 entity_bounds       0x2B20
 sio                 0x2C4C
-field               0x2C60
+field_object        0x2C60
 player_location     0x3084
 actor               0x3200
 attack              0x3504
