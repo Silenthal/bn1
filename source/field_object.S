@@ -22,9 +22,9 @@ LAB_08002c6a:
     mov        pc,lr
 thumb_func_end FieldObject_Init
 PTR_gListFieldObject_08002c78:
-.word gListFieldObject
+    .word gListFieldObject
 PTR_gBitsetFieldObject_08002c7c:
-.word gBitsetFieldObject
+    .word gBitsetFieldObject
 
 
 thumb_func_start FieldObject_Alloc
@@ -298,12 +298,14 @@ LAB_08002e3a:
     mov        pc,lr
 thumb_func_end FieldObject_UpdateField
 USHORT_ARRAY_08002e42:
-    .short 0xFF70, 0xFF80, 0xFF90, 0xFFF0, 0x0, 0x10, 0x70, 0x80, 0x90
-PTR_USHORT_ARRAY_08002e54: .word USHORT_ARRAY_08002e42
-PTR_gPanelStatuses_08002e58: .word gPanelStatuses
-PTR_gAreaProperties_08002e5c: .word gAreaProperties
-PTR_gBitsetFieldObject_08002e60: .word gBitsetFieldObject
-PTR_gListFieldObject_08002e64: .word gListFieldObject
+    .short 0xFF70, 0xFF80, 0xFF90
+    .short 0xFFF0,    0x0, 0x10
+    .short   0x70,   0x80, 0x90
+PTR_USHORT_ARRAY_08002e54:          .word USHORT_ARRAY_08002e42
+PTR_gPanelStatuses_08002e58:        .word gPanelStatuses
+PTR_gAreaProperties_08002e5c:       .word gAreaProperties
+PTR_gBitsetFieldObject_08002e60:    .word gBitsetFieldObject
+PTR_gListFieldObject_08002e64:      .word gListFieldObject
 
 
 thumb_func_start Field_IsClose_LeftUpBoundary
@@ -335,7 +337,7 @@ Field_GetPanelFlags:
     ldr        r0,[r6,r0]
     mov        pc,lr
 thumb_func_end Field_GetPanelFlags
-PTR_gPanelStatuses_08002e8c: .word gPanelStatuses
+PTR_gPanelStatuses_08002e8c:    .word gPanelStatuses
 
 
 thumb_func_start FieldObject_GetIdFlag
@@ -388,7 +390,7 @@ dmgMultWood:
     .byte 0x10, 0x20, 0x10, 0x10, 0x10
     
     .align 2, 0
-PTR_dmgMultNone_08002ee8: .word dmgMultNone
+PTR_dmgMultNone_08002ee8:   .word dmgMultNone
 
 
 thumb_func_start Field_CalcDamageTaken
@@ -517,8 +519,8 @@ areaPropertiesRightPlayer:
 .byte 0, 3, 3, 3, 1, 1, 1, 0
 .byte 0, 0, 0, 0, 0, 0, 0, 0
 
-PTR_gAreaProperties_08002fe8: .word gAreaProperties
-PTR_areaPropertiesLeftPlayer_08002fec: .word areaPropertiesLeftPlayer
+PTR_gAreaProperties_08002fe8:           .word gAreaProperties
+PTR_areaPropertiesLeftPlayer_08002fec:  .word areaPropertiesLeftPlayer
 PTR_areaPropertiesRightPlayer_08002ff0: .word areaPropertiesRightPlayer
 
 
@@ -590,7 +592,7 @@ Field_SetPanelProperty:
     strb       r2,[r7,r0]
     mov        pc,lr
 thumb_func_end Field_SetPanelProperty
-PTR_gAreaProperties_08003040: .word gAreaProperties
+PTR_gAreaProperties_08003040:   .word gAreaProperties
 
     
 thumb_func_start Field_GetPanelProperty
@@ -602,7 +604,7 @@ Field_GetPanelProperty:
     mov        pc,lr
 thumb_func_end Field_GetPanelProperty
 .align 2, 0
-PTR_gAreaProperties_08003050: .word gAreaProperties
+PTR_gAreaProperties_08003050:   .word gAreaProperties
 
 
 thumb_func_start FieldObject_UpdateCellPosition
