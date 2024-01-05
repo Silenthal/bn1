@@ -143,7 +143,7 @@ LAB_08002d24:
     ldr        r3,[r7,#0xc]
     tst        r2,r3
     bne        LAB_08002d9e
-    @ Check that cur object is marked with "CanDoDamage" flag
+    @ Check that cur object is marked with "IsLive" flag
 LAB_08002d3e:
     mov        r2,#0x2
     ldrb       r3,[r7,#0x0]
@@ -226,8 +226,8 @@ PTR_gListFieldObject_08002dc0:
     .word gListFieldObject
 
 
-thumb_func_start FieldObject_InitAll
-FieldObject_InitAll:
+thumb_func_start FieldObject_UpdateField
+FieldObject_UpdateField:
     mov        r8,r0
     mov        r3,#0x28
     ldr        r6,PTR_gAreaProperties_08002e5c
@@ -296,7 +296,7 @@ LAB_08002e3a:
     lsr        r0,r0,#0x1
     bne        LAB_08002de4
     mov        pc,lr
-thumb_func_end FieldObject_InitAll
+thumb_func_end FieldObject_UpdateField
 USHORT_ARRAY_08002e42:
     .short 0xFF70, 0xFF80, 0xFF90, 0xFFF0, 0x0, 0x10, 0x70, 0x80, 0x90
 PTR_USHORT_ARRAY_08002e54: .word USHORT_ARRAY_08002e42
