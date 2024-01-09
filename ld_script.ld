@@ -31,7 +31,7 @@ SECTIONS {
 		gEmailCount              	= 0x200;
 		gWorld                   	= 0x210;
 		gKeyItemInventory		 	= 0x2D0;
-		eMainState0x78           	= 0x3D0;
+		eGameStats           		= 0x3D0;
 		gBattleChipInventory     	= 0x4A0;
 		gEntityListNpc			 	= 0x13A0;
 		gEmailIndexes            	= 0x1FA0;
@@ -196,7 +196,7 @@ SECTIONS {
 	. = __iwram_start;
 	iwram (NOLOAD) :
 	{
-		iwScreens				= 0x0;
+		gScreens				= 0x0;
 		interruptVector			= 0x2000;
 		interruptVectorHblank	= 0x2004;
 		iwOamAttributeList		= 0x21E0;

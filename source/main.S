@@ -264,14 +264,14 @@ MainState:
     .word gFrameCounter
     .word gScreenDimChip
     .word eMainState0x58
-    .word iwScreens
+    .word gScreens
     .word eMainState0x60
     .word eMainState0x64
     .word gTextUi
     .word eMainState0x6C
     .word gShop
     .word gMenu
-    .word eMainState0x78
+    .word eGameStats
     .word eMainState0x7C
 thumb_func_end Main_Init
 

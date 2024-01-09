@@ -11,8 +11,8 @@
 
     .text
 
-thumb_func_start InitBattleUi
-InitBattleUi:
+thumb_func_start BattleUi_Init
+BattleUi_Init:
     push       { lr }
     mov        r5,r10
     ldr        r5,[r5,#0x1c]
@@ -26,7 +26,7 @@ InitBattleUi:
     bl         Dma_TransferListAdd
     pop        { r5 }
     pop        { pc }
-thumb_func_end InitBattleUi
+thumb_func_end BattleUi_Init
 
 thumb_func_start BattleUi_Update
 BattleUi_Update:
