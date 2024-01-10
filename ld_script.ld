@@ -154,6 +154,7 @@ SECTIONS {
 		gSpriteTilesetOffset0 		= 0xC120;
 		tempBg1Vofs              	= 0xC190;
 		gWindowSettings          	= 0xC1B0;
+		gListMpState				= 0xC200;
 		gCustomScreen            	= 0xC270;
 		musicPlayerInfo_13       	= 0xC520;
 		musicPlayerInfo_17       	= 0xC560;
@@ -189,6 +190,7 @@ SECTIONS {
 		musicPlayerInfo_03       	= 0xCCB0;
 		musicPlayerInfo_0B       	= 0xCCF0;
 		gTempMemory					= 0x11000;
+		gSpriteDecompLocation1		= 0x16000;
 		gChipBag				 	= 0x19000;
 		gDstCompressedSpriteData 	= 0x3C000;
 	} > ewram
