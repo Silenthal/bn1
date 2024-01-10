@@ -8,8 +8,7 @@
 
     .thumb
 
-thumb_func_start Encounter_Init
-Encounter_Init:
+_ts Encounter_Init
     push       { lr }
     mov        r6,r10
     ldr        r6,[r6,#0x8]
@@ -24,10 +23,8 @@ Encounter_Init:
 LAB_0800551c:
     str        r0,[r5,#0x74]
     pop        { pc }
-thumb_func_end Encounter_Init
 
-thumb_func_start Encounter_GetRandomEncounter
-Encounter_GetRandomEncounter:
+_ts Encounter_GetRandomEncounter
     push       { lr }
     push       { r1 }
     ldr        r7,=encounterGroupsList
@@ -79,7 +76,6 @@ LAB_08005562:
     strb       r1,[r6,#0xf]
 LAB_0800557e:
     pop        { pc }
-thumb_func_end Encounter_GetRandomEncounter
 
 encounterGroupsIrl:
     .word encounterGroupSchoolComp

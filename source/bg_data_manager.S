@@ -10,8 +10,7 @@
 @@ r0: areaId: The ID of the overall area.
 @@ r1: areaaSubId: The ID of the current sub area.
 @ void BGDM_Init(AreaId areaId,byte areaSubId)
-thumb_func_start BGDM_Init
-BGDM_Init:
+_ts BGDM_Init
     push       {lr}
     mov        r5,r10
     ldr        r5,[r5,#0x44]
@@ -66,12 +65,10 @@ BGDM_Init:
     str        r2,[r5,#0x14]
     str        r1,[r5,#0xc]
     pop        {pc}
-thumb_func_end BGDM_Init
 
 
 @@ Loads tileset, tilemap, and palette data for the current map.
-thumb_func_start BGDM_Load
-BGDM_Load:
+_ts BGDM_Load
     push       {lr}
     mov        r7,r10
     ldr        r5,[r7,#0x44]
@@ -131,12 +128,10 @@ BGDM_Load:
     mov        lr,pc
     bx         r0
     pop        {pc}
-thumb_func_end BGDM_Load
 
 
 @@ Updates the drawn edges of the current map based on the player location.
-thumb_func_start BGDM_UpdateMapEdge
-BGDM_UpdateMapEdge:
+_ts BGDM_UpdateMapEdge
     push       {lr}
     mov        r7,r10
     ldr        r3,[r7,#0x14]
@@ -180,7 +175,6 @@ BGDM_UpdateMapEdge:
     bl         BGDM_UpdateMapEdgeDown
 LAB_08010fe4:
     pop        {pc}
-thumb_func_end BGDM_UpdateMapEdge
 
 
 @@ Fetches the tilemap entries from the tilemap archive at a given location.
@@ -191,8 +185,7 @@ thumb_func_end BGDM_UpdateMapEdge
 @@ r0: tilemapBG1: The tilemap entry for layer 1.
 @@ r1: tilemapBG2: The tilemap entry for layer 2.
 @@ r2: tilemapBG3: The tilemap entry for layer 3.
-thumb_func_start BGDM_GetTilemapEntriesFromArchive
-BGDM_GetTilemapEntriesFromArchive:
+_ts BGDM_GetTilemapEntriesFromArchive
     cmp        r0,#0x0
     bge        .checkMapBoundX
     b          .setCoordToZero
@@ -233,7 +226,6 @@ BGDM_GetTilemapEntriesFromArchive:
     mov        r0,#0x0
     mov        r1,#0x0
     b          .next
-thumb_func_end BGDM_GetTilemapEntriesFromArchive
 
 
 @@ Copies three tilemap entries to the BG1, BG2 and BG3 layer of the screen.
@@ -243,8 +235,7 @@ thumb_func_end BGDM_GetTilemapEntriesFromArchive
 @@ r2: tilemapBG3: The tilemap entry to copy for layer 3.
 @@ r3: x: The X coordinate to copy to.
 @@ r4: y: The Y coordinate to copy to.
-thumb_func_start BGDM_CopyTilemapEntry_BG123
-BGDM_CopyTilemapEntry_BG123:
+_ts BGDM_CopyTilemapEntry_BG123
     push       {r0,r1,r2}
     mov        r2,#0x1
 .loopCopy:
@@ -261,15 +252,13 @@ BGDM_CopyTilemapEntry_BG123:
     cmp        r2,#0x3
     ble        .loopCopy
     mov        pc,lr
-thumb_func_end BGDM_CopyTilemapEntry_BG123
 
 
 @@ Updates the left edge of the current map.
 @@ r0: px: the X coordinate of the player's tile.
 @@ r1: py: the Y coordinate of the player's tile.
 @@ r2: dist: The distance between the map's coordinate and the player's tile.
-thumb_func_start BGDM_UpdateMapEdgeLeft
-BGDM_UpdateMapEdgeLeft:
+_ts BGDM_UpdateMapEdgeLeft
     push       {lr}
     strh       r0,[r5,#0x4]
     cmp        r2,#0x5
@@ -317,15 +306,13 @@ LAB_08011060:
     bgt        LAB_0801105c
 LAB_080110a4:
     pop        {pc}
-thumb_func_end BGDM_UpdateMapEdgeLeft
 
 
 @@ Updates the right edge of the current map.
 @@ r0: px: the X coordinate of the player's tile.
 @@ r1: py: the Y coordinate of the player's tile.
 @@ r2: dist: The distance between the map's coordinate and the player's tile.
-thumb_func_start BGDM_UpdateMapEdgeRight
-BGDM_UpdateMapEdgeRight:
+_ts BGDM_UpdateMapEdgeRight
     push       {lr}
     strh       r0,[r5,#0x4]
     cmp        r2,#0x5
@@ -373,15 +360,13 @@ LAB_080110bc:
     bgt        LAB_080110b8
 LAB_08011100:
     pop        {pc}
-thumb_func_end BGDM_UpdateMapEdgeRight
 
 
 @@ Updates the upper edge of the current map.
 @@ r0: px: the X coordinate of the player's tile.
 @@ r1: py: the Y coordinate of the player's tile.
 @@ r2: dist: The distance between the map's coordinate and the player's tile.
-thumb_func_start BGDM_UpdateMapEdgeUp
-BGDM_UpdateMapEdgeUp:
+_ts BGDM_UpdateMapEdgeUp
     push       {lr}
     strh       r1,[r5,#0x6]
     cmp        r2,#0x5
@@ -429,15 +414,13 @@ LAB_08011118:
     bgt        LAB_08011114
 LAB_0801115c:
     pop        {pc}
-thumb_func_end BGDM_UpdateMapEdgeUp
 
 
 @@ Updates the lower edge of the current map.
 @@ r0: px: the X coordinate of the player's tile.
 @@ r1: py: the Y coordinate of the player's tile.
 @@ r2: dist: The distance between the map's coordinate and the player's tile.
-thumb_func_start BGDM_UpdateMapEdgeDown
-BGDM_UpdateMapEdgeDown:
+_ts BGDM_UpdateMapEdgeDown
     push       {lr}
     strh       r1,[r5,#0x6]
     cmp        r2,#0x5
@@ -485,7 +468,6 @@ LAB_08011174:
     bgt        LAB_08011170
 LAB_080111b8:
     pop        {pc}
-thumb_func_end BGDM_UpdateMapEdgeDown
 
 
 @@ Copies two tilemap entries to the BG2 and BG3 layer of the screen.
@@ -494,8 +476,7 @@ thumb_func_end BGDM_UpdateMapEdgeDown
 @@ r2: tilemapBG3: The tilemap entry to copy for layer 3.
 @@ r3: x: The X coordinate to copy to.
 @@ r4: y: The Y coordinate to copy to.
-thumb_func_start BGDM_CopyTilemapEntry_BG23
-BGDM_CopyTilemapEntry_BG23:
+_ts BGDM_CopyTilemapEntry_BG23
     push       {lr}
     push       {r2}
     push       {r1}
@@ -514,7 +495,6 @@ LAB_080111c4:
     cmp        r2,#0x3
     ble        LAB_080111c4
     pop        {pc}
-thumb_func_end BGDM_CopyTilemapEntry_BG23
 
 
 @@ Copies the given tilemap entry to the BG2 layer of the screen.
@@ -522,8 +502,7 @@ thumb_func_end BGDM_CopyTilemapEntry_BG23
 @@ r1: tilemapBG2: The tilemap entry to copy.
 @@ r3: x: The X coordinate to copy to.
 @@ r4: y: The Y coordinate to copy to.
-thumb_func_start BGDM_CopyTilemapEntry_BG2
-BGDM_CopyTilemapEntry_BG2:
+_ts BGDM_CopyTilemapEntry_BG2
     push       {lr}
     mov        r2,#0x2
     mov        r7,r10
@@ -535,12 +514,10 @@ BGDM_CopyTilemapEntry_BG2:
     lsl        r6,r4,#0x6
     strh       r1,[r7,r6]
     pop        {pc}
-thumb_func_end BGDM_CopyTilemapEntry_BG2
 
 
 @@ Copies the full surrounding tilemap to the BG1, BG2 and BG3 layer of the screen. 
-thumb_func_start BGDM_CopyTilemap
-BGDM_CopyTilemap:
+_ts BGDM_CopyTilemap
     push       {lr}
     mov        r7,r10
     ldr        r0,[r7,#0x14]
@@ -590,7 +567,6 @@ LAB_08011214:
     cmp        r1,#0x20
     blt        LAB_08011210
     pop        {pc}
-thumb_func_end BGDM_CopyTilemap
     .align 2, 0
 
 ptrBgDataOffline: .word bgDataDir_Offline
@@ -610,8 +586,7 @@ ptrLoadXY23_2: .word BGDM_LoadTilemapXY_StaticBG1
 
 
 @@ Copies the full surrounding tilemap to the BG1, BG2 and BG3 layer of the screen, keeping the BG1 layer static.
-thumb_func_start BGDM_LoadTilemap_StaticBG1
-BGDM_LoadTilemap_StaticBG1:
+_ts BGDM_LoadTilemap_StaticBG1
     push       {lr}
     mov        r7,r10
     ldr        r0,[r7,#0x14]
@@ -679,15 +654,13 @@ LAB_0801130a:
     cmp        r1,#0x20
     blt        LAB_0801130a
     pop        {pc}
-thumb_func_end BGDM_LoadTilemap_StaticBG1
 
 
 @@ Copies the surrounding tilemap at the given location to the BG1, BG2, and BG3 layer of the screen.
 @@ In:
 @@ r0: x: The X coordinate to copy to.
 @@ r1: y: The Y coordinate to copy to.
-thumb_func_start BGDM_LoadTilemapXY
-BGDM_LoadTilemapXY:
+_ts BGDM_LoadTilemapXY
     push       {r5,lr}
     mov        r8,r0
     mov        r9,r1
@@ -737,15 +710,13 @@ LAB_08011356:
     cmp        r4,#0x0
     bgt        LAB_0801134c
     pop        {r5,pc}
-thumb_func_end BGDM_LoadTilemapXY
 
 
 @@ Copies the surrounding tilemap at the given location to the BG1, BG2, and BG3 layer of the screen, keeping the BG1 layer static.
 @@ In:
 @@ r0: x: The X coordinate to copy to.
 @@ r1: y: The Y coordinate to copy to.
-thumb_func_start BGDM_LoadTilemapXY_StaticBG1
-BGDM_LoadTilemapXY_StaticBG1:
+_ts BGDM_LoadTilemapXY_StaticBG1
     push       {r5,lr}
     mov        r8,r0
     mov        r9,r1
@@ -795,6 +766,5 @@ LAB_080113b6:
     cmp        r4,#0x4
     bgt        LAB_080113ac
     pop        {r5,pc}
-thumb_func_end BGDM_LoadTilemapXY_StaticBG1
 
 .end

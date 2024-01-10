@@ -13,8 +13,7 @@
 
     .thumb
 
-thumb_func_start InitGameOver
-InitGameOver:
+_ts InitGameOver
     push       { lr }
     ldr        r5,PTR_gGameOverState_08020084
     push       { r0, r5 }
@@ -24,10 +23,8 @@ InitGameOver:
     pop        { r0, r5 }
     strb       r0,[r5,#0x6]
     pop        { pc }
-thumb_func_end InitGameOver
 
-thumb_func_start GameOver_Main
-GameOver_Main:
+_ts GameOver_Main
     push       { lr }
     ldr        r5,PTR_gGameOverState_08020088
     ldr        r0,PTR_jumpTableGameOver_0802008c
@@ -42,14 +39,12 @@ GameOver_Main:
     strh       r0,[r7,#0x10]
     strh       r0,[r7,#0x12]
     pop        { pc }
-thumb_func_end GameOver_Main
 jumpTableGameOver:
     .word GameOver_Init
     .word GameOver_DelayTillFadeOut
     .word GameOver_Finish
 
-thumb_func_start GameOver_Init
-GameOver_Init:
+_ts GameOver_Init
     push       { lr }
     push       { r5 }
     bl         Text_DisableDialogue
@@ -78,10 +73,8 @@ GameOver_Init:
     mov        r0,#0xb4
     strh       r0,[r5,#0x4]
     pop        { pc }
-thumb_func_end GameOver_Init
 
-thumb_func_start GameOver_DelayTillFadeOut
-GameOver_DelayTillFadeOut:
+_ts GameOver_DelayTillFadeOut
     push       { lr }
     ldrh       r0,[r5,#0x4]
     sub        r0,#0x1
@@ -97,10 +90,8 @@ GameOver_DelayTillFadeOut:
     strb       r0,[r5,#0x0]
 LAB_08020000:
     pop        { pc }
-thumb_func_end GameOver_DelayTillFadeOut
 
-thumb_func_start GameOver_Finish
-GameOver_Finish:
+_ts GameOver_Finish
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x18]
@@ -121,10 +112,8 @@ GameOver_Finish:
     strh       r1,[r0,#0x0]
 LAB_0802002a:
     pop        { pc }
-thumb_func_end GameOver_Finish
 
-thumb_func_start Screen_LoadGameOver
-Screen_LoadGameOver:
+_ts Screen_LoadGameOver
     push       { r5, lr }
     bl         Video_InitPaletteColor0
     bl         Video_ClearAllTile0Maps
@@ -160,7 +149,6 @@ Screen_LoadGameOver:
     ldr        r2,DAT_080200d0
     bl         Dma_TransferListAdd
     pop        { r5, pc }
-thumb_func_end Screen_LoadGameOver
 
 PTR_gGameOverState_08020084:
     .word gGameOverState

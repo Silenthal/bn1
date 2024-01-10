@@ -5,8 +5,7 @@
     .thumb
 
 
-thumb_func_start Entity_AllocList
-Entity_AllocList:
+_ts Entity_AllocList
     push       {lr}
     add        r7,r0,#0x0
     mov        r4,#0x0
@@ -35,11 +34,9 @@ LAB_080029e2:
 LAB_080029e6:
     add        r0,r4,#0x0
     pop        {pc}
-thumb_func_end Entity_AllocList
 
 
-thumb_func_start Entity_FreeAllMultiple
-Entity_FreeAllMultiple:
+_ts Entity_FreeAllMultiple
     push       {lr}
     ldr        r1,PTR_listEntityFree_08002b00
     ldr        r2,PTR_listEntityList_08002b04
@@ -86,7 +83,6 @@ LAB_08002a2e:
     b          LAB_080029f6
 LAB_08002a3a:
     pop        {pc}
-thumb_func_end Entity_FreeAllMultiple
 
 
 @@ Converts a set of center origin coordinates to top left
@@ -99,8 +95,7 @@ thumb_func_end Entity_FreeAllMultiple
 @@ r0: X: -120 to 136
 @@ r1: Y: -80 to 112
 @@ r2: isDraw: True if the given position is on screen
-thumb_func_start ConvertToObjectPosition
-ConvertToObjectPosition:
+_ts ConvertToObjectPosition
     push       {lr}
     mov        r3,r10
     ldr        r3,[r3,#0x14]
@@ -149,11 +144,9 @@ LAB_08002a90:
     mov        r1,#0x50
     mov        r2,#0x0
     pop        {pc}
-thumb_func_end ConvertToObjectPosition
 
 
-thumb_func_start FUN_08002a98
-FUN_08002a98:
+_ts FUN_08002a98
     push       {lr}
     mov        r3,r10
     ldr        r3,[r3,#0x14]
@@ -204,7 +197,6 @@ LAB_08002af2:
     mov        r1,#0x50
     mov        r2,#0x0
     pop        {pc}
-thumb_func_end FUN_08002a98
 
     .align 2, 0
 PTR_listEntityAlloc_08002afc:   .word listEntityAlloc

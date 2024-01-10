@@ -6,8 +6,7 @@
 
     .thumb
 
-thumb_func_start InitChipTraderFromScript
-InitChipTraderFromScript:
+_ts InitChipTraderFromScript
     push       { lr }
     push       { r0 }
     bl         InitChipTrader
@@ -19,19 +18,15 @@ InitChipTraderFromScript:
     ldrh       r0,[r7,#0x4]
     strh       r0,[r7,#0xc]
     pop        { pc }
-thumb_func_end InitChipTraderFromScript
 
-thumb_func_start InitChipTrader
-InitChipTrader:
+_ts InitChipTrader
     push       { lr }
     ldr        r0,PTR_gChipTrader_08020108
     mov        r1,#0x40
     bl         memset0_32
     pop        { pc }
-thumb_func_end InitChipTrader
 
-thumb_func_start ChipTrader_Main
-ChipTrader_Main:
+_ts ChipTrader_Main
     push       { lr }
     ldr        r5,PTR_gChipTrader_08020108
     ldr        r0,PTR_JT_R5_2007530_20110_0802010c
@@ -40,7 +35,6 @@ ChipTrader_Main:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end ChipTrader_Main
 
 PTR_gChipTrader_08020108:
     .word gChipTrader

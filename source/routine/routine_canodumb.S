@@ -24,8 +24,7 @@
 .set Battle_RemoveFromEnemyList, 0x8009b74
 .set Field_CreateEntity, 0x8001068
 
-thumb_func_start Routine_Canodumb
-Routine_Canodumb:
+_ts Routine_Canodumb
     push       {lr}
     ldrb       r0,[r5,#0x8]
     ldr        r7,PTR_PTR_R_Canodumb_0_Init
@@ -45,8 +44,7 @@ PTR_R_Canodumb_0_Init:
 PTR_PTR_R_Canodumb_0_Init:  
     .word PTR_R_Canodumb_0_Init
 
-thumb_func_start R_Canodumb_0_Init
-R_Canodumb_0_Init:
+_ts R_Canodumb_0_Init
     push       {lr}
     mov        r0,#0x1
     mov        r1,#0x10
@@ -83,10 +81,8 @@ R_Canodumb_0_Init:
     bl         Entity_LoadEnemyHp
     bl         AddEntityToSpawnIndexList
     pop        {pc}
-thumb_func_end R_Canodumb_0_Init
 
-thumb_func_start R_Canodumb_1_Main
-R_Canodumb_1_Main:
+_ts R_Canodumb_1_Main
     push       {lr}
     bl         Entity_SpriteCoordsToCell
     strb       r0,[r5,#0x18]
@@ -163,8 +159,7 @@ PTR_PTR_R_Canodumb_1_0_Spawn:
     .word PTR_R_Canodumb_1_0_Spawn
 DAT_08059a44: .word 0x28850
 
-thumb_func_start R_Canodumb_1_0_Spawn
-R_Canodumb_1_0_Spawn:
+_ts R_Canodumb_1_0_Spawn
     push       {lr}
     ldr        r7,PTR_PTR_R_Canodumb_1_0_0_ResetAnimState
     ldrb       r0,[r5,#0xa]
@@ -172,7 +167,6 @@ R_Canodumb_1_0_Spawn:
     mov        lr,pc
     bx         r7
     pop        {pc}
-thumb_func_end R_Canodumb_1_0_Spawn
     .align 2, 0
 PTR_R_Canodumb_1_0_0_ResetAnimState:
     .word R_Canodumb_1_0_0_ResetAnimState
@@ -181,8 +175,7 @@ PTR_R_Canodumb_1_0_0_ResetAnimState:
 PTR_PTR_R_Canodumb_1_0_0_ResetAnimState:
     .word PTR_R_Canodumb_1_0_0_ResetAnimState
 
-non_word_aligned_thumb_func_start R_Canodumb_1_0_0_ResetAnimState
-R_Canodumb_1_0_0_ResetAnimState:
+_nt R_Canodumb_1_0_0_ResetAnimState
     push       {lr}
     bl         Battle_PriorityQueueIsEntityNext
     tst        r0,r0
@@ -192,10 +185,8 @@ R_Canodumb_1_0_0_ResetAnimState:
     bl         ResetBattleSpawnAnimationState
 LAB_08059a7a:
     pop        {pc}
-thumb_func_end R_Canodumb_1_0_0_ResetAnimState
 
-non_word_aligned_thumb_func_start R_Canodumb_1_0_1_InitSpawn
-R_Canodumb_1_0_1_InitSpawn:
+_nt R_Canodumb_1_0_1_InitSpawn
     push       {lr}
     bl         BattleSpawnAnimation_Init
     tst        r0,r0
@@ -205,10 +196,8 @@ R_Canodumb_1_0_1_InitSpawn:
     bl         Battle_PriorityQueueRemove
 LAB_08059a8e:
     pop        {pc}
-thumb_func_end R_Canodumb_1_0_1_InitSpawn
 
-non_word_aligned_thumb_func_start R_Canodumb_1_0_2_WaitForBattleStart
-R_Canodumb_1_0_2_WaitForBattleStart:
+_nt R_Canodumb_1_0_2_WaitForBattleStart
     push       {lr}
     bl         GetBattleEntryState
     mov        r1,#0x8
@@ -220,10 +209,8 @@ R_Canodumb_1_0_2_WaitForBattleStart:
     strh       r0,[r5,#0xa]
 LAB_08059aa4:
     pop        {pc}
-thumb_func_end R_Canodumb_1_0_2_WaitForBattleStart
 
-non_word_aligned_thumb_func_start R_Canodumb_1_1_WaitForBattleStart
-R_Canodumb_1_1_WaitForBattleStart:
+_nt R_Canodumb_1_1_WaitForBattleStart
     push       {lr}
     ldrb       r0,[r5,#0xa]
     tst        r0,r0
@@ -248,10 +235,8 @@ LAB_08059ac0:
     strh       r0,[r5,#0xa]
 LAB_08059ad2:
     pop        {pc}
-thumb_func_end R_Canodumb_1_1_WaitForBattleStart
 
-non_word_aligned_thumb_func_start R_Canodumb_1_4_Observe
-R_Canodumb_1_4_Observe:
+_nt R_Canodumb_1_4_Observe
     push       {lr}
     ldrb       r0,[r5,#0xa]
     ldr        r7,PTR_PTR_R_Canodumb_1_4_0_CheckRow
@@ -268,15 +253,13 @@ R_Canodumb_1_4_Observe:
     strh       r1,[r5,#0xa]
 LAB_08059af2:
     pop        {pc}
-thumb_func_end R_Canodumb_1_4_Observe
 PTR_R_Canodumb_1_4_0_CheckRow:
     .word       R_Canodumb_1_4_0_CheckRow
     .word       R_Canodumb_1_4_1_CheckRow
 PTR_PTR_R_Canodumb_1_4_0_CheckRow:
     .word       PTR_R_Canodumb_1_4_0_CheckRow
 
-non_word_aligned_thumb_func_start R_Canodumb_1_4_0_CheckRow
-R_Canodumb_1_4_0_CheckRow:
+_nt R_Canodumb_1_4_0_CheckRow
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
@@ -284,10 +267,8 @@ R_Canodumb_1_4_0_CheckRow:
     strb       r0,[r5,#0xa]
     bl         R_Canodumb_1_4_1_CheckRow
     pop        {pc}
-thumb_func_end R_Canodumb_1_4_0_CheckRow
 
-non_word_aligned_thumb_func_start R_Canodumb_1_4_1_CheckRow
-R_Canodumb_1_4_1_CheckRow:
+_nt R_Canodumb_1_4_1_CheckRow
     push       {lr}
     bl         Entity_CompareToPlayerRow
     tst        r0,r0
@@ -298,10 +279,8 @@ R_Canodumb_1_4_1_CheckRow:
     strh       r0,[r5,#0xa]
 LAB_08059b22:
     pop        {pc}
-thumb_func_end R_Canodumb_1_4_1_CheckRow
 
-non_word_aligned_thumb_func_start R_Canodumb_1_5_Act
-R_Canodumb_1_5_Act:
+_nt R_Canodumb_1_5_Act
     push       {lr}
     ldrb       r0,[r5,#0xa]
     ldr        r7,PTR_PTR_R_Canodumb_1_5_0_Delay_1_08059b48
@@ -309,7 +288,6 @@ R_Canodumb_1_5_Act:
     mov        lr,pc
     bx         r7
     pop        {pc}
-thumb_func_end R_Canodumb_1_5_Act
     .align 2, 0
 PTR_R_Canodumb_1_5_0_Delay_1_08059b34:
     .word R_Canodumb_1_5_0_Delay
@@ -320,18 +298,15 @@ PTR_R_Canodumb_1_5_0_Delay_1_08059b34:
 PTR_PTR_R_Canodumb_1_5_0_Delay_1_08059b48:
     .word PTR_R_Canodumb_1_5_0_Delay_1_08059b34
 
-non_word_aligned_thumb_func_start R_Canodumb_1_5_0_Delay
-R_Canodumb_1_5_0_Delay:
+_nt R_Canodumb_1_5_0_Delay
     push       {lr}
     mov        r0,#0x20
     strh       r0,[r5,#0x1c]
     mov        r0,#0x4
     strb       r0,[r5,#0xa]
     pop        {pc}
-thumb_func_end R_Canodumb_1_5_0_Delay
 
-non_word_aligned_thumb_func_start R_Canodumb_1_5_1_CreateTarget
-R_Canodumb_1_5_1_CreateTarget:
+_nt R_Canodumb_1_5_1_CreateTarget
     push       {lr}
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -364,10 +339,8 @@ LAB_08059b88:
     strh       r0,[r5,#0xa]
 LAB_08059b90:
     pop        {pc}
-thumb_func_end R_Canodumb_1_5_1_CreateTarget
 
-non_word_aligned_thumb_func_start R_Canodumb_1_5_2_Attack
-R_Canodumb_1_5_2_Attack:
+_nt R_Canodumb_1_5_2_Attack
     push       {lr}
     ldr        r7,[r5,#0x6c]
     tst        r7,r7
@@ -392,10 +365,8 @@ LAB_08059bb6:
     strh       r0,[r5,#0xa]
 LAB_08059bbe:
     pop        {pc}
-thumb_func_end R_Canodumb_1_5_2_Attack
 
-non_word_aligned_thumb_func_start R_Canodumb_1_5_3_WaitForAnimEnd
-R_Canodumb_1_5_3_WaitForAnimEnd:
+_nt R_Canodumb_1_5_3_WaitForAnimEnd
     push       {lr}
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
@@ -407,11 +378,9 @@ R_Canodumb_1_5_3_WaitForAnimEnd:
     strb       r0,[r5,#0xa]
 LAB_08059bd4:
     pop        {pc}
-thumb_func_end R_Canodumb_1_5_3_WaitForAnimEnd
 
 
-non_word_aligned_thumb_func_start R_Canodumb_1_5_4_Recovery
-R_Canodumb_1_5_4_Recovery:
+_nt R_Canodumb_1_5_4_Recovery
     push       {lr}
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -423,11 +392,9 @@ R_Canodumb_1_5_4_Recovery:
     strh       r0,[r5,#0xa]
 LAB_08059be8:
     pop        {pc}
-thumb_func_end R_Canodumb_1_5_4_Recovery
 
 
-non_word_aligned_thumb_func_start R_Canodumb_2_Free
-R_Canodumb_2_Free:
+_nt R_Canodumb_2_Free
     push       {lr}
     ldr        r7,PTR_PTR_R_Canodumb_2_0_StartAnimExplode
     ldrb       r0,[r5,#0x9]
@@ -435,7 +402,6 @@ R_Canodumb_2_Free:
     mov        lr,pc
     bx         r7
     pop        {pc}
-thumb_func_end R_Canodumb_2_Free
 PTR_R_Canodumb_2_0_StartAnimExplode:
     .word R_Canodumb_2_0_StartAnimExplode
     .word R_Canodumb_2_1_Free
@@ -443,8 +409,7 @@ PTR_PTR_R_Canodumb_2_0_StartAnimExplode:
     .word PTR_R_Canodumb_2_0_StartAnimExplode
 
 
-non_word_aligned_thumb_func_start R_Canodumb_2_0_StartAnimExplode
-R_Canodumb_2_0_StartAnimExplode:
+_nt R_Canodumb_2_0_StartAnimExplode
     push       {lr}
     ldr        r0,[r5,#0x60]
     bl         FieldObject_Free
@@ -462,11 +427,9 @@ R_Canodumb_2_0_StartAnimExplode:
     mov        r0,#0x20
     strh       r0,[r5,#0x1c]
     pop        {pc}
-thumb_func_end R_Canodumb_2_0_StartAnimExplode
 
 
-non_word_aligned_thumb_func_start R_Canodumb_2_1_Free
-R_Canodumb_2_1_Free:
+_nt R_Canodumb_2_1_Free
     push       {lr}
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -476,11 +439,9 @@ R_Canodumb_2_1_Free:
     bl         Actor_Free
 LAB_08059c3e:
     pop        {pc}
-thumb_func_end R_Canodumb_2_1_Free
 
 
-thumb_func_start IsPanelWalkable
-IsPanelWalkable:
+_ts IsPanelWalkable
     push       {lr}
     sub        sp,#0x4
     bl         Field_GetPanelFlags
@@ -508,7 +469,6 @@ LAB_08059c6c:
     ldr        r3,[sp,#0x0]
     add        sp,#0x4
     pop        {pc}
-thumb_func_end IsPanelWalkable
 .align 2, 0
 
 .end

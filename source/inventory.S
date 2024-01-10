@@ -13,8 +13,7 @@
 @ Part of a prior function
     pop        { pc }
 
-non_word_aligned_thumb_func_start Inventory_AddChip
-Inventory_AddChip:
+_nt Inventory_AddChip
     push       { lr }
     push       { r0, r1, r2 }
     bl         Flag_SetLibrary
@@ -39,10 +38,8 @@ LAB_08009bc8:
     pop        { r3 }
     add        r0,r3,#0x0
     pop        { pc }
-thumb_func_end Inventory_AddChip
 
-non_word_aligned_thumb_func_start Inventory_SetChip
-Inventory_SetChip:
+_nt Inventory_SetChip
     push       { lr }
     push       { r2 }
     bl         Inventory_GetChipCountLocation
@@ -54,8 +51,7 @@ Inventory_SetChip:
 LAB_08009bea:
     pop        { pc }
 
-thumb_func_start Inventory_SubtractChip
-Inventory_SubtractChip:
+_ts Inventory_SubtractChip
     push       { lr }
     push       { r2 }
     bl         Inventory_GetChipCountLocation
@@ -88,8 +84,7 @@ LAB_08009c16:
 @@
 @@ Out:
 @@ r0: chipCountLoc - The memory location containing the amount of the chip specified.
-non_word_aligned_thumb_func_start Inventory_GetChipCountLocation
-Inventory_GetChipCountLocation:
+_nt Inventory_GetChipCountLocation
     push       { lr }
     add        r2,r0,#0x0
     push       { r1, r2 }
@@ -111,7 +106,6 @@ Inventory_GetChipCountLocation:
     add        r7,r7,r2
     add        r0,r7,r3
     pop        { pc }
-thumb_func_end Inventory_GetChipCountLocation
 
     .align 2, 0
 PTR_gBattleChipInventory_08009c44:
@@ -125,8 +119,7 @@ PTR_gBattleChipInventory_08009c44:
 @@
 @@ Out:
 @@ r0: chipCountLoc - The memory location containing the checksum for the specified chip.
-thumb_func_start Inventory_GetChipCountChecksum
-Inventory_GetChipCountChecksum:
+_ts Inventory_GetChipCountChecksum
     push       { lr }
     add        r2,r0,#0x0
     push       { r1, r2 }
@@ -153,15 +146,13 @@ Inventory_GetChipCountChecksum:
 PTR_gBattleChipInventory_08009c74:
     .word gBattleChipInventory
 
-thumb_func_start Inventory_GetChipCount
-Inventory_GetChipCount:
+_ts Inventory_GetChipCount
     push       { lr }
     bl         Inventory_GetChipCountLocation
     ldrb       r0,[r0,#0x0]
     pop        { pc }
 
-non_word_aligned_thumb_func_start Inventory_AddZenny
-Inventory_AddZenny:
+_nt Inventory_AddZenny
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x8]
@@ -177,8 +168,7 @@ LAB_08009c94:
 maxZenny:
     .word 999999
 
-thumb_func_start Inventory_SubtractZenny
-Inventory_SubtractZenny:
+_ts Inventory_SubtractZenny
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x8]
@@ -188,7 +178,6 @@ Inventory_SubtractZenny:
     mov        r1,#0x0
     str        r1,[r7,#0x74]
     pop        { pc }
-thumb_func_end Inventory_SubtractZenny
 
     @ Part of following function
     sub        r0,#0x1

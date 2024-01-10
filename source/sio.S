@@ -6,8 +6,7 @@
 
     .thumb
 
-thumb_func_start SIO_GetMultiplayerId
-SIO_GetMultiplayerId:
+_ts SIO_GetMultiplayerId
     push       { lr }
     ldr        r0,=REG_SIOCNT
     ldr        r0,[r0,#0x0]
@@ -15,6 +14,5 @@ SIO_GetMultiplayerId:
     and        r0,r1
     lsr        r0,r0,#0x4
     pop        { pc }
-thumb_func_end SIO_GetMultiplayerId
 
 .end

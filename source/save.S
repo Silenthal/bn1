@@ -6,8 +6,7 @@
 
     .thumb
 
-thumb_func_start Save_SaveGame
-Save_SaveGame:
+_ts Save_SaveGame
     push       { lr }
     bl         Save_CopyBuildId
     bl         Save_CalculateChecksum
@@ -30,17 +29,14 @@ Save_SaveGame:
     mov        r0,#0x1
 LAB_0801fb10:
     pop        { pc }
-thumb_func_end Save_SaveGame
 
-thumb_func_start Save_LoadGame
-Save_LoadGame:
+_ts Save_LoadGame
     push       { lr }
     ldr        r0,PTR_SRAM_0801fb28
     ldr        r1,PTR_DAT_0801fb24
     ldr        r2,saveLen
     bl         MemCpy_8_Sram
     pop        { pc }
-thumb_func_end Save_LoadGame
 
     .align 2, 0
 PTR_DAT_0801fb24:
@@ -50,8 +46,7 @@ PTR_SRAM_0801fb28:
 saveLen:
     .word 0x2308
 
-thumb_func_start Save_CalculateChecksum
-Save_CalculateChecksum:
+_ts Save_CalculateChecksum
     mov        r7,r10
     ldr        r7,[r7,#0x78]
     mov        r0,#0x0
@@ -68,8 +63,7 @@ LAB_0801fb3e:
     str        r0,[r7,#0x20]
     mov        pc,lr
 
-thumb_func_start Save_CopyBuildId
-Save_CopyBuildId:
+_ts Save_CopyBuildId
     push       { lr }
     ldr        r0,ptrRomBuildId
     mov        r1,r10
@@ -78,10 +72,8 @@ Save_CopyBuildId:
     mov        r2,#0x14
     bl         memcpy_8
     pop        { pc }
-thumb_func_end Save_CopyBuildId
 
-thumb_func_start Save_ChecksumCheck
-Save_ChecksumCheck:
+_ts Save_ChecksumCheck
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x78]
@@ -104,15 +96,13 @@ LAB_0801fb72:
 LAB_0801fb84:
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end Save_ChecksumCheck
 
 flagStart:
     .word EWRAM_START
 INT_0801fb8c:
     .word 0x2307
 
-thumb_func_start Save_CheckBuildId
-Save_CheckBuildId:
+_ts Save_CheckBuildId
     push       { lr }
     ldr        r0,ptrRomBuildId
     mov        r1,r10
@@ -131,7 +121,6 @@ LAB_0801fb9c:
 LAB_0801fbac:
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end Save_CheckBuildId
 
 ptrRomBuildId:
     .word romBuildId

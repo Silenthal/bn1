@@ -8,18 +8,15 @@
 
     .thumb
 
-thumb_func_start InitMainMenu
-InitMainMenu:
+_ts InitMainMenu
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x34]
     mov        r1,#0x10
     bl         memset0_32
     pop        { pc }
-thumb_func_end InitMainMenu
 
-thumb_func_start MainMenu_Main
-MainMenu_Main:
+_ts MainMenu_Main
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x34]
@@ -30,7 +27,6 @@ MainMenu_Main:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end MainMenu_Main
 
     .pool
 
@@ -42,8 +38,7 @@ jumpTableMainMenu:
     .ascii "\x00\x01RNO/%1d,%1d,%1d,%1d"
     .align 2,0
 
-thumb_func_start MainMenu_Init
-MainMenu_Init:
+_ts MainMenu_Init
     push       { lr }
     push       { r5 }
     mov        r0,#0x5
@@ -94,6 +89,5 @@ LAB_080104c8:
     strb       r0,[r5,#0x6]
     strb       r0,[r5,#0x7]
     pop        { pc }
-thumb_func_end MainMenu_Init
 
     .end

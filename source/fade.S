@@ -6,8 +6,7 @@
 
     .thumb
 
-thumb_func_start Fade_Request
-Fade_Request:
+_ts Fade_Request
     mov        r2,#0x1
     neg        r2,r2
     push       { lr }
@@ -34,10 +33,8 @@ Fade_Request:
     strh       r2,[r0,#BlendSettings_m_blendControl]
 LAB_08004b34:
     pop        { pc }
-thumb_func_end Fade_Request
 
-thumb_func_start Fade_Apply
-Fade_Apply:
+_ts Fade_Apply
     push       { lr }
     LoadStateTo r5, Main_fade, r5
     ldrb       r0,[r5,#FadeSettings_m_isApplyFadeFunc]
@@ -54,7 +51,6 @@ Fade_Apply:
     bx         r0
 LAB_08004b56:
     pop        { pc }
-thumb_func_end Fade_Apply
 
 fadeFuncList:
     .word 0
@@ -78,8 +74,7 @@ fadeFuncArgList:
     .byte 0xFE, 0xBE, 0xBE, 0xF7
     .byte 0xF7, 0x41, 0x41
 
-thumb_func_start Fade_FadeIn
-Fade_FadeIn:
+_ts Fade_FadeIn
     push       { lr }
     LoadStateTo r0, Main_blend, r0
     strb       r1,[r0,#BlendSettings_m_bldCnt_Target1]
@@ -101,13 +96,11 @@ LAB_08004bc6:
     strh       r2,[r0,#BlendSettings_m_blendControl]
     bl         Fade_Init
     pop        { pc }
-thumb_func_end Fade_FadeIn
 
 LAB_08004bce:
     pop {pc}
 
-thumb_func_start Fade_FadeOut
-Fade_FadeOut:
+_ts Fade_FadeOut
     push       { lr }
     LoadStateTo r0, Main_blend, r0
     strb       r1,[r0,#BlendSettings_m_bldCnt_Target1]
@@ -124,10 +117,8 @@ LAB_08004be8:
     mov        r0,#FALSE
     strb       r0,[r5,#FadeSettings_m_isFadeActive]
     pop        { pc }
-thumb_func_end Fade_FadeOut
 
-thumb_func_start Fade_FadeOutSlight
-Fade_FadeOutSlight:
+_ts Fade_FadeOutSlight
     push       { lr }
     LoadStateTo r0, Main_blend, r0
     strb       r1,[r0,#BlendSettings_m_bldCnt_Target1]
@@ -144,23 +135,18 @@ LAB_08004c08:
     mov        r0,#FALSE
     strb       r0,[r5,#FadeSettings_m_isFadeActive]
     pop        { pc }
-thumb_func_end Fade_FadeOutSlight
 
-thumb_func_start Fade_Init
-Fade_Init:
+_ts Fade_Init
     push       { lr }
     LoadStateTo r0, Main_fade, r0
     mov        r1,#0x8
     bl         memset0_32
     pop        { pc }
-thumb_func_end Fade_Init
 
-thumb_func_start InitFadeSettings
-InitFadeSettings:
+_ts InitFadeSettings
     push       { lr }
     bl         Fade_Init
     pop        { pc }
-thumb_func_end InitFadeSettings
 
     .pool
 

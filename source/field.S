@@ -8,8 +8,7 @@
 
 .set Attack_SharpStrike_Create, 0x80719ac
 
-non_word_aligned_thumb_func_start FUN_08000dd4
-FUN_08000dd4:
+_nt FUN_08000dd4
     push       {r5,lr}
     tst        r4,r4
     bne        LAB_08000e02
@@ -71,11 +70,9 @@ LAB_08000e30:
     lsr        r2,r2,#0x1
     add        r0,r0,r2
     pop        {r5,pc}
-thumb_func_end FUN_08000dd4
 
 
-non_word_aligned_thumb_func_start FUN_08000e4e
-FUN_08000e4e:
+_nt FUN_08000e4e
     push       {lr}
     ldr        r7,[r0,#0x0]
     sub        r1,r1,r7
@@ -105,21 +102,17 @@ LAB_08000e6a:
     add        r1,r0,#0x0
     pop        {r0,r2}
     pop        {pc}
-thumb_func_end FUN_08000e4e
 
 
-non_word_aligned_thumb_func_start Field_IsEntityCellPositionValid
-Field_IsEntityCellPositionValid:
+_nt Field_IsEntityCellPositionValid
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     bl         Field_IsCellPositionValid
     pop        {pc}
-thumb_func_end Field_IsEntityCellPositionValid
 
 
-non_word_aligned_thumb_func_start Field_IsCellPositionValid
-Field_IsCellPositionValid:
+_nt Field_IsCellPositionValid
     sub        r0,#0x1
     cmp        r0,#0x6
     bcs        LAB_08000ea8
@@ -131,11 +124,9 @@ Field_IsCellPositionValid:
 LAB_08000ea8:
     mov        r0,#0x0
     mov        pc,lr
-thumb_func_end Field_IsCellPositionValid
 
 
-non_word_aligned_thumb_func_start Field_Search
-Field_Search:
+_nt Field_Search
     push       {lr}
     add        r7,r0,#0x0
     add        r4,r1,#0x0
@@ -168,11 +159,9 @@ LAB_08000ed8:
     bne        LAB_08000eb8
     add        r1,r2,#0x0
     pop        {pc}
-thumb_func_end Field_Search
 
 
-non_word_aligned_thumb_func_start Field_SearchWithOwner
-Field_SearchWithOwner:
+_nt Field_SearchWithOwner
     push       {r5,lr}
     mov        r4,r10
     ldr        r4,[r4,#0xc]
@@ -218,7 +207,6 @@ LAB_08000f28:
     bne        LAB_08000f06
     add        r1,r6,#0x0
     pop        {r5,pc}
-thumb_func_end Field_SearchWithOwner
 
     .align 2, 0
 PTR_listStartX_08000f40: .word listStartX
@@ -227,8 +215,7 @@ listStartX:
     .byte 1, 1
 
 
-thumb_func_start Field_SearchExcludeFirstCol
-Field_SearchExcludeFirstCol:
+_ts Field_SearchExcludeFirstCol
     push       {r5,lr}
     mov        r4,r10
     ldr        r4,[r4,#0xc]
@@ -274,7 +261,6 @@ LAB_08000f88:
     bne        LAB_08000f66
     add        r1,r6,#0x0
     pop        {r5,pc}
-thumb_func_end Field_SearchExcludeFirstCol
 
     .align 2, 0
 PTR_BYTE_ARRAY_ARRAY_08000fa0:  .word BYTE_ARRAY_ARRAY_08000fa4
@@ -283,8 +269,7 @@ BYTE_ARRAY_ARRAY_08000fa4:
     .byte 2, 1
 
 
-thumb_func_start Field_GetFirstWalkableColumnFront
-Field_GetFirstWalkableColumnFront:
+_ts Field_GetFirstWalkableColumnFront
     push       {lr}
     lsl        r2,r0,#0x1
     mov        r4,r10
@@ -326,7 +311,6 @@ LAB_08000fda:
     bcc        LAB_08000fbc
 LAB_08000ff2:
     pop        {pc}
-thumb_func_end Field_GetFirstWalkableColumnFront
 
 PTR_listTerritoryFlag_08000ff4: .word listTerritoryFlag
 PTR_listOffsetX_1004_08000ff8:  .word listOffsetX_1004
@@ -340,8 +324,7 @@ listStartX_1006:
     .byte 1, 6
 
     
-thumb_func_start Field_GetFirstColumnFront
-Field_GetFirstColumnFront:
+_ts Field_GetFirstColumnFront
     push       {r5,lr}
     mov        r3,r10
     ldr        r3,[r3,#0xc]
@@ -382,7 +365,6 @@ LAB_08001036:
     mov        r0,#0x0
 LAB_08001050:
     pop        {r5,pc}
-thumb_func_end Field_GetFirstColumnFront
 
     .align 2, 0
 PTR_listOffsetX_105C_08001054:  .word listOffsetX_105C
@@ -393,17 +375,14 @@ listStartX_105E:
     .byte 1, 6
 
 
-thumb_func_start Field_IndexToCellXY
-Field_IndexToCellXY:
+_ts Field_IndexToCellXY
     lsr        r1,r0,#0x3
     mov        r2,#0x7
     and        r0,r2
     mov        pc,lr
-thumb_func_end Field_IndexToCellXY
 
 
-thumb_func_start Field_CreateEntity
-Field_CreateEntity:
+_ts Field_CreateEntity
     push       {lr}
     push       {r0,r1}
     bl         FieldObject_Alloc
@@ -431,11 +410,9 @@ Field_CreateEntity:
     ldrh       r1,[r5,#0x24]
     strh       r1,[r7,#0x8]
     pop        {pc}
-thumb_func_end Field_CreateEntity
 
 
-thumb_func_start Field_GetDamageOnEntity
-Field_GetDamageOnEntity:
+_ts Field_GetDamageOnEntity
     push       {lr}
     push       {r1}
     bl         Field_GetPanelFlagGroup
@@ -454,30 +431,24 @@ Field_GetDamageOnEntity:
     str        r1,[r6,#0x14]
     mov        r6,r8
     pop        {pc}
-thumb_func_end Field_GetDamageOnEntity
 
 
-thumb_func_start FieldObject_SetPanelFlags
-FieldObject_SetPanelFlags:
+_ts FieldObject_SetPanelFlags
     push       {r5,lr}
     push       {r1}
     bl         Field_GetPanelFlagGroup
     pop        {r7}
     str        r1,[r7,#0xc]
     pop        {r5,pc}
-thumb_func_end FieldObject_SetPanelFlags
 
 
-non_word_aligned_thumb_func_start Field_CreateSharpStrikeAttack
-Field_CreateSharpStrikeAttack:
+_nt Field_CreateSharpStrikeAttack
     push       {lr}
     bl         Attack_SharpStrike_Create
     pop        {pc}
-thumb_func_end Field_CreateSharpStrikeAttack
 
 
-non_word_aligned_thumb_func_start Field_GetPanelFlagGroup
-Field_GetPanelFlagGroup:
+_nt Field_GetPanelFlagGroup
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
     lsl        r0,r0,#0x3
@@ -485,7 +456,6 @@ Field_GetPanelFlagGroup:
     ldr        r7,PTR_PanelFlag_ARRAY_ARRAY_080010f0
     ldr        r1,[r7,r0]
     mov        pc,lr
-thumb_func_end Field_GetPanelFlagGroup
 
 PTR_PanelFlag_ARRAY_ARRAY_080010f0: .word PanelFlag_ARRAY_ARRAY_080010f4
 PanelFlag_ARRAY_ARRAY_080010f4:
@@ -651,11 +621,9 @@ _34: @ 52
 
 
 
-thumb_func_start Field_GetAttackDirectionOffset_MP
-Field_GetAttackDirectionOffset_MP:
+_ts Field_GetAttackDirectionOffset_MP
     ldrb       r0,[r5,#0x16]
-non_word_aligned_thumb_func_start Field_GetAttackDirectionOffset
-Field_GetAttackDirectionOffset:
+_nt Field_GetAttackDirectionOffset
     mov        r1,r10
     ldr        r1,[r1,#0xc]
     ldrb       r1,[r1,#0x1a]
@@ -664,12 +632,9 @@ Field_GetAttackDirectionOffset:
     sub        r0,#0x1
     neg        r0,r0
     mov        pc,lr
-thumb_func_end Field_GetAttackDirectionOffset
-thumb_func_end Field_GetAttackDirectionOffset_MP
 
 
-non_word_aligned_thumb_func_start Field_GetRandomXZPosOnTarget
-Field_GetRandomXZPosOnTarget:
+_nt Field_GetRandomXZPosOnTarget
     push       {lr}
     push       {r0,r1,r2,r3}
     bl         Rng_RandomUint
@@ -688,11 +653,9 @@ Field_GetRandomXZPosOnTarget:
     lsl        r7,r7,#0x10
     add        r3,r3,r7
     pop        {pc}
-thumb_func_end Field_GetRandomXZPosOnTarget
 
 
-thumb_func_start Field_FindEmptyOpponentWalkablePanelsFront
-Field_FindEmptyOpponentWalkablePanelsFront:
+_ts Field_FindEmptyOpponentWalkablePanelsFront
     push       {r7,lr}
     add        r3,r1,#0x0
     mov        r1,#0x1
@@ -725,10 +688,8 @@ LAB_08001306:
     bne        LAB_080012de
     add        r1,r6,#0x0
     pop        {r7,pc}
-thumb_func_end Field_FindEmptyOpponentWalkablePanelsFront
 
-thumb_func_start Field_GetFirstWalkableOpponentPanelFront
-Field_GetFirstWalkableOpponentPanelFront:
+_ts Field_GetFirstWalkableOpponentPanelFront
     push       {lr}
     add        r1,r0,#0x0
     mov        r0,#0x0
@@ -753,11 +714,9 @@ LAB_08001318:
 LAB_0800133a:
     add        r0,r6,#0x0
     pop        {pc}
-thumb_func_end Field_GetFirstWalkableOpponentPanelFront
 
 
-non_word_aligned_thumb_func_start Field_FindEmptyOpponentWalkableEdgeFront
-Field_FindEmptyOpponentWalkableEdgeFront:
+_nt Field_FindEmptyOpponentWalkableEdgeFront
     push       {r7,lr}
     add        r3,r1,#0x0
     mov        r1,#0x1
@@ -790,11 +749,9 @@ LAB_08001370:
     bne        LAB_08001348
     add        r1,r6,#0x0
     pop        {r7,pc}
-thumb_func_end Field_FindEmptyOpponentWalkableEdgeFront
 
 
-non_word_aligned_thumb_func_start Field_GetFirstWalkableOpponentPanelBack
-Field_GetFirstWalkableOpponentPanelBack:
+_nt Field_GetFirstWalkableOpponentPanelBack
     push       {lr}
     add        r1,r0,#0x0
     mov        r0,#0x7
@@ -819,11 +776,9 @@ LAB_08001382:
 LAB_080013a4:
     add        r0,r6,#0x0
     pop        {pc}
-thumb_func_end Field_GetFirstWalkableOpponentPanelBack
     
 
-thumb_func_start Field_FindFirstEdgeForward
-Field_FindFirstEdgeForward:
+_ts Field_FindFirstEdgeForward
     push       {lr}
     mov        r4,r10
     ldr        r4,[r4,#0xc]
@@ -855,11 +810,9 @@ LAB_080013da:
     bne        LAB_080013b6
     add        r0,r7,#0x0
     pop        {pc}
-thumb_func_end Field_FindFirstEdgeForward
 
 
-thumb_func_start Field_GetFirstInRowForward
-Field_GetFirstInRowForward:
+_ts Field_GetFirstInRowForward
     push       {r5,lr}
     mov        r6,r10
     ldr        r6,[r6,#0xc]
@@ -890,7 +843,6 @@ LAB_0800140e:
     mov        r0,#0x0
 LAB_0800141a:
     pop        {r5,pc}
-thumb_func_end Field_GetFirstInRowForward
 
     .align 2, 0
 PTR_listSearchDirection_0800141c:   .word listSearchDirection
@@ -898,8 +850,7 @@ listSearchDirection:
     .byte 6, -1
     .byte 1,  1
 
-thumb_func_start Field_OpponentFindInRowForward
-Field_OpponentFindInRowForward:
+_ts Field_OpponentFindInRowForward
     push       {lr}
     add        r6,r0,#0x0
     add        r7,r1,#0x0
@@ -925,11 +876,9 @@ LAB_0800144c:
     bne        LAB_08001430
     add        r1,r2,#0x0
     pop        {pc}
-thumb_func_end Field_OpponentFindInRowForward
 
 
-thumb_func_start FUN_08001454
-FUN_08001454:
+_ts FUN_08001454
     push       {r5,lr}
     lsl        r3,r0,#0x2
     push       {r3}
@@ -1007,7 +956,6 @@ LAB_080014d6:
     bl         Field_IndexToCellXY
     add        sp,#0x4
     pop        {r5,pc}
-thumb_func_end FUN_08001454
 
 .align 2, 0
 PTR_PanelFlag_ARRAY_080014f0:   .word PanelFlag_ARRAY_08001500
@@ -1028,8 +976,7 @@ PanelFlag_ARRAY_08001518:
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Teleporting | PF_Solid
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Teleporting | PF_Solid | PF_EnemyTerritory
 
-thumb_func_start Field_CrackPanel
-Field_CrackPanel:
+_ts Field_CrackPanel
     push       {lr}
     push       {r0,r1}
     bl         Field_GetPanelFlags
@@ -1065,13 +1012,11 @@ LAB_08001562:
 LAB_08001566:
     mov        r0,#0x0
     pop        {pc}
-thumb_func_end Field_CrackPanel
 
     .align 2, 0
 INT_0800156c: .word 0x2000C30
 
-thumb_func_start FUN_08001570
-FUN_08001570:
+_ts FUN_08001570
     push       {lr}
     ldr        r7,PTR_LAB_080015ac
     add        r7,r7,r0
@@ -1141,8 +1086,7 @@ LAB_080015e2:
     pop        {pc}
 
 
-non_word_aligned_thumb_func_start FUN_080015ec
-FUN_080015ec:
+_nt FUN_080015ec
     ldr        r2,PTR_DAT_08001614
     ldrb       r2,[r2,r0]
     mul        r2,r1
@@ -1151,7 +1095,6 @@ FUN_080015ec:
     ldr        r0,[r3,r0]
     add        r0,r0,r2
     mov        pc,lr
-thumb_func_end FUN_080015ec
 
     .align 2, 0
     
@@ -1168,8 +1111,7 @@ PTR_DAT_08001614:
     .byte 0xb0
     .byte 0xb0
 
-thumb_func_start FUN_08001618
-FUN_08001618:
+_ts FUN_08001618
     mov        r4,#0xc
     ldr        r2,PTR_PTR_gEntityListPlayerLocation_0800163c
     ldr        r3,[r2,r4]
@@ -1189,7 +1131,6 @@ LAB_08001628:
     ldr        r2,PTR_DAT_08001644
     ldrb       r0,[r2,r4]
     mov        pc,lr
-thumb_func_end FUN_08001618
 
     .align 2, 0
 PTR_PTR_gEntityListPlayerLocation_0800163c: .word PTR_gEntityListPlayerLocation_08001604

@@ -4,8 +4,7 @@
 
     .text
 
-thumb_func_start Oam_InitTransferData
-Oam_InitTransferData:
+_ts Oam_InitTransferData
     push       { lr }
     ldr        r0,PTR_srcSpriteContainerList_08010bd0
     ldr        r1,PTR_iwSpriteContainerList_08010bd4
@@ -30,7 +29,6 @@ LAB_08010a70:
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end Oam_InitTransferData
 
 srcSpriteContainerList:
     .word iwSpriteList0, 0x34
@@ -45,8 +43,7 @@ srcSpriteContainerList:
 @@ r1: tileDetails: Object attribute 2, dealing with an object's tile number, palette, and priority.
 @@ r2: listIndex: The index of the object list to add to.
 @@ r3: listOffset: The index within the specified list to add the object at.
-thumb_func_start Oam_AddObject
-Oam_AddObject:
+_ts Oam_AddObject
     @ Check if the max amount of objects have been added
     ldr        r5,PTR_gOamAttributeCount_08010be8
     ldr        r6,[r5,#0x0]
@@ -86,10 +83,8 @@ Oam_AddObject:
     strb       r0,[r5,#OamAttributeListNode_m_unused]
 .oam_add_object_end:
     mov        pc,lr
-thumb_func_end Oam_AddObject
 
-thumb_func_start Oam_AffineTransformAlloc
-Oam_AffineTransformAlloc:
+_ts Oam_AffineTransformAlloc
     ldr        r3,PTR_gSpriteAffineDataFlag_08010bf4
     ldr        r1,[r3,#0x0]
     ldr        r2,DAT_08010bf8
@@ -109,10 +104,8 @@ LAB_08010afe:
 LAB_08010b04:
     mov        r0,#0xff
     mov        pc,lr
-thumb_func_end Oam_AffineTransformAlloc
 
-thumb_func_start Oam_AffineTransformFree
-Oam_AffineTransformFree:
+_ts Oam_AffineTransformFree
     ldr        r3,PTR_gSpriteAffineDataFlag_08010bfc
     ldr        r1,[r3,#0x0]
     ldr        r2,DAT_08010bf8
@@ -120,7 +113,6 @@ Oam_AffineTransformFree:
     bic        r1,r2
     str        r1,[r3,#0x0]
     mov        pc,lr
-thumb_func_end Oam_AffineTransformFree
 
 
 
@@ -147,8 +139,7 @@ thumb_func_end Oam_AffineTransformFree
 @@ the sprite perspective, a scale is performed, then a rotate. From the
 @@ screen perspective, the same operation is an inverse rotate, then an
 @@ inverse scale.
-thumb_func_start Oam_AffineTransformSetParams
-Oam_AffineTransformSetParams:
+_ts Oam_AffineTransformSetParams
     push       { lr }
     push       { r0, r1, r2 }
     ldr        r0,PTR_gSpriteAffineDataList_08010c00
@@ -215,11 +206,9 @@ Oam_AffineTransformSetParams:
     lsr        r4,r4,#0x4
     strh       r4,[r0,#0x4]
     pop        { pc }
-thumb_func_end Oam_AffineTransformSetParams
 
 @ For a fractional number from 0 to 1 (0x100), returns 1/num.
-thumb_func_start Inverse
-Inverse:
+_ts Inverse
     push       { r1, r2 }
     ldr        r1,DAT_08010c14
     mov        r2,#0x0
@@ -235,11 +224,9 @@ LAB_08010bb4:
     add        r3,r2,#0x0
     pop        { r1, r2 }
     mov        pc,lr
-thumb_func_end Inverse
 
 
-thumb_func_start Oam_InitAffineData
-Oam_InitAffineData:
+_ts Oam_InitAffineData
     push       { lr }
     ldr        r0,PTR_gSpriteAffineDataFlag_08010c18
     mov        r1,#0x0
@@ -248,7 +235,6 @@ Oam_InitAffineData:
     ldr        r1,INT_08010c20
     bl         memset0_32
     pop        { pc }
-thumb_func_end Oam_InitAffineData
 
     .align 2, 0
 PTR_srcSpriteContainerList_08010bd0:    .word srcSpriteContainerList

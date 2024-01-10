@@ -91,8 +91,7 @@ listHandlerActor:
     .word 0x806ee6d  @ FUN_0806ee6c+1
     .word 0x806f059  @ Routine_Mole+1
 
-thumb_func_start Actor_Alloc
-Actor_Alloc:
+_ts Actor_Alloc
     push       { r0, r1, r2, r3, r4, lr }
     ldr        r0,PTR_gBitsetActor_080034bc
     ldr        r2,[r0,#0x0]
@@ -129,10 +128,8 @@ LAB_08003366:
 LAB_0800338c:
     mov        r5,#0x0
     pop        { r0, r1, r2, r3, r4, pc }
-thumb_func_end Actor_Alloc
 
-thumb_func_start Actor_Free
-Actor_Free:
+_ts Actor_Free
     push       { lr }
     ldr        r0,DAT_080034c0
     ldrb       r1,[r5,#0x3]
@@ -145,10 +142,8 @@ Actor_Free:
     strb       r1,[r5,#0x0]
     bl         SpritePtr_AffineFree
     pop        { pc }
-thumb_func_end Actor_Free
 
-thumb_func_start Actor_UpdateAll
-Actor_UpdateAll:
+_ts Actor_UpdateAll
     push       { lr }
     ldr        r5,PTR_gEntityListActor_080034d0
 LAB_080033b0:
@@ -211,10 +206,8 @@ LAB_08003412:
     mov        r0,#0x0
     str        r0,[r7,#0x70]
     pop        { pc }
-thumb_func_end Actor_UpdateAll
 
-thumb_func_start Actor_Init
-Actor_Init:
+_ts Actor_Init
     push       { lr }
     ldr        r0,PTR_gFillValue_080034e0
     ldr        r1,PTR_gEntityListActor_080034e4
@@ -239,10 +232,8 @@ LAB_08003438:
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end Actor_Init
 
-thumb_func_start Actor_LoadAll
-Actor_LoadAll:
+_ts Actor_LoadAll
     push       { lr }
     mov        r0,#0x8
     mov        r1,#0x0
@@ -284,10 +275,8 @@ LAB_08003498:
     cmp        r1,r0
     blt        LAB_08003458
     pop        { pc }
-thumb_func_end Actor_LoadAll
 
-thumb_func_start Actor_UnloadAll
-Actor_UnloadAll:
+_ts Actor_UnloadAll
     mov        r0,#0x0
     ldr        r5,PTR_gEntityListActor_08003500
 LAB_080034a8:
@@ -300,7 +289,6 @@ LAB_080034a8:
     cmp        r0,#0x8
     blt        LAB_080034a8
     mov        pc,lr
-thumb_func_end Actor_UnloadAll
 
     .align 2, 0
 

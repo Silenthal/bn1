@@ -6,8 +6,7 @@
 
     .thumb
 
-thumb_func_start Shop_Main
-Shop_Main:
+_ts Shop_Main
     push       { lr }
     ldr        r5,=gShop
     ldr        r7,=jumpTableShopMain
@@ -16,7 +15,6 @@ Shop_Main:
     mov        lr,pc
     bx         r7
     pop        { pc }
-thumb_func_end Shop_Main
 
     .pool
 

@@ -11,8 +11,7 @@
 
     .thumb
 
-thumb_func_start InitDemo
-InitDemo:
+_ts InitDemo
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x40]
@@ -23,11 +22,9 @@ InitDemo:
     pop        { r0, r5 }
     strb       r0,[r5,#0x6]
     pop        { pc }
-thumb_func_end InitDemo
     .align 2, 0
 
-thumb_func_start Demo_Main
-Demo_Main:
+_ts Demo_Main
     push       { lr }
     LoadStateTo r5, Main_demo
     ldr        r0,PTR_JT_R5_DemoState_1897C_08018bc0
@@ -36,7 +33,6 @@ Demo_Main:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end Demo_Main
 
     .align 2, 0
 JT_R5_DemoState_1897C:
@@ -44,8 +40,7 @@ JT_R5_DemoState_1897C:
     .word Demo_State1
     .word Demo_Finish
 
-thumb_func_start Demo_Init
-Demo_Init:
+_ts Demo_Init
     push       { lr }
     push       { r5 }
     bl         Text_DisableDialogue
@@ -73,10 +68,8 @@ LAB_080189c0:
     strb       r0,[r5,#Demo_m_state1]
 LAB_080189c4:
     pop        { pc }
-thumb_func_end Demo_Init
 
-thumb_func_start Demo_State1
-Demo_State1:
+_ts Demo_State1
     push       { lr }
     ldr        r0,PTR_JT_R5_DemoState_189D8_08018bc8
     ldrb       r1,[r5,#Demo_m_state1]
@@ -84,7 +77,6 @@ Demo_State1:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end Demo_State1
 
     .align 2, 0
 JT_R5_DemoState_189D8:
@@ -95,8 +87,7 @@ JT_R5_DemoState_189D8:
     .word Demo_WaitForTimer
     .word Demo_CleanUp
 
-thumb_func_start Demo_Finish
-Demo_Finish:
+_ts Demo_Finish
     push       { lr }
     push       { r5 }
     bl         Main_Init
@@ -108,10 +99,8 @@ Demo_Finish:
     mov        r1,#DISPCNT_OMAP1D
     strh       r1,[r0,#DisplaySettings_dispcnt]
     pop        { pc }
-thumb_func_end Demo_Finish
 
-thumb_func_start Demo_SetToBeContinuedMessage
-Demo_SetToBeContinuedMessage:
+_ts Demo_SetToBeContinuedMessage
     push       { lr }
     LoadStateTo r0, Main_fade, r0
     ldrb       r0,[r0,#FadeSettings_m_isFadeActive]
@@ -127,10 +116,8 @@ Demo_SetToBeContinuedMessage:
     strb       r0,[r5,#Demo_m_state1]
 LAB_08018a2a:
     pop        { pc }
-thumb_func_end Demo_SetToBeContinuedMessage
 
-thumb_func_start Demo_FadeOutScreen
-Demo_FadeOutScreen:
+_ts Demo_FadeOutScreen
     push       { lr }
     push       { r5 }
     mov        r0,#0x80
@@ -146,10 +133,8 @@ Demo_FadeOutScreen:
     strb       r0,[r5,#Demo_m_state1]
 LAB_08018a4a:
     pop        { pc }
-thumb_func_end Demo_FadeOutScreen
 
-thumb_func_start Demo_ApplyVideoSettings
-Demo_ApplyVideoSettings:
+_ts Demo_ApplyVideoSettings
     push       { lr }
     LoadStateTo r0, Main_fade, r0
     ldrb       r0,[r0,#FadeSettings_m_isFadeActive]
@@ -184,10 +169,8 @@ Demo_ApplyVideoSettings:
     strb       r0,[r5,#Demo_m_state1]
 LAB_08018a92:
     pop        { pc }
-thumb_func_end Demo_ApplyVideoSettings
 
-thumb_func_start Demo_ShowThankYouMessage
-Demo_ShowThankYouMessage:
+_ts Demo_ShowThankYouMessage
     push       { lr }
     push       { r5 }
     bl         Video_LoadThankYouMessage
@@ -208,10 +191,8 @@ Demo_ShowThankYouMessage:
     strb       r0,[r5,#0x1]
 LAB_08018abe:
     pop        { pc }
-thumb_func_end Demo_ShowThankYouMessage
 
-thumb_func_start Demo_WaitForTimer
-Demo_WaitForTimer:
+_ts Demo_WaitForTimer
     push       { lr }
     ldrh       r0,[r5,#0x4]
     sub        r0,#0x1
@@ -226,10 +207,8 @@ Demo_WaitForTimer:
     mov        r0,#0x14
     strb       r0,[r5,#0x1]
     pop        { pc }
-thumb_func_end Demo_WaitForTimer
 
-thumb_func_start Demo_CleanUp
-Demo_CleanUp:
+_ts Demo_CleanUp
     push       { lr }
     mov        r0,r10
     ldr        r0,[r0,#0x18]
@@ -244,10 +223,8 @@ Demo_CleanUp:
     strb       r0,[r5,#0x0]
 LAB_08018af8:
     pop        { pc }
-thumb_func_end Demo_CleanUp
 
-thumb_func_start Video_LoadThankYouMessage
-Video_LoadThankYouMessage:
+_ts Video_LoadThankYouMessage
     push       { lr }
     push       { r5 }
     ldr        r0,PTR_tileset8ThankYouMessage0_08018be4
@@ -268,10 +245,8 @@ Video_LoadThankYouMessage:
     bl         Dma_TransferListAdd
     pop        { r5 }
     pop        { pc }
-thumb_func_end Video_LoadThankYouMessage
 
-thumb_func_start Layout_LoadThankYouMessageLayout
-Layout_LoadThankYouMessageLayout:
+_ts Layout_LoadThankYouMessageLayout
     push       { lr }
     mov        r0,#0x0
     mov        r1,#0x0
@@ -343,7 +318,6 @@ LAB_08018ba6:
     cmp        r1,#0x4
     bne        LAB_08018ba6
     pop        { pc }
-thumb_func_end Layout_LoadThankYouMessageLayout
 
 PTR_JT_R5_DemoState_1897C_08018bc0:     .word JT_R5_DemoState_1897C
 PTR_DAT_08018bc4:                       .word 0x1140

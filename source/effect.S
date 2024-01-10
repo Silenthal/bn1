@@ -84,8 +84,7 @@ listHandlerEffect:
     .word 0x8081b15 @ FUN_08081b14
     .word 0x8081cc1 @ FUN_08081cc0
 
-thumb_func_start Effect_Alloc
-Effect_Alloc:
+_ts Effect_Alloc
     push       { r0, r1, r2, r3, r4, lr }
     ldr        r0,PTR_gBitsetEffect_08003acc
     ldr        r2,[r0,#0x0]
@@ -122,10 +121,8 @@ LAB_08003976:
 LAB_0800399c:
     mov        r5,#0x0
     pop        { r0, r1, r2, r3, r4, pc }
-thumb_func_end Effect_Alloc
 
-thumb_func_start Effect_Free
-Effect_Free:
+_ts Effect_Free
     push       { lr }
     ldr        r0,DAT_08003ad0
     ldrb       r1,[r5,#0x3]
@@ -138,10 +135,8 @@ Effect_Free:
     strb       r1,[r5,#0x0]
     bl         SpritePtr_AffineFree
     pop        { pc }
-thumb_func_end Effect_Free
 
-thumb_func_start Effect_UpdateAll
-Effect_UpdateAll:
+_ts Effect_UpdateAll
     push       { lr }
     ldr        r5,PTR_gListEffect_08003ae0
 LAB_080039c0:
@@ -204,10 +199,8 @@ LAB_08003a22:
     mov        r0,#0x0
     str        r0,[r7,#0x70]
     pop        { pc }
-thumb_func_end Effect_UpdateAll
 
-thumb_func_start Effect_Init
-Effect_Init:
+_ts Effect_Init
     push       { lr }
     ldr        r0,PTR_gFillValue_08003af0
     ldr        r1,PTR_gListEffect_08003af4
@@ -232,10 +225,8 @@ LAB_08003a48:
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end Effect_Init
 
-thumb_func_start Effect_LoadAll
-Effect_LoadAll:
+_ts Effect_LoadAll
     push       { lr }
     mov        r0,#0x20
     mov        r1,#0x0
@@ -277,10 +268,8 @@ LAB_08003aa8:
     cmp        r1,r0
     blt        LAB_08003a68
     pop        { pc }
-thumb_func_end Effect_LoadAll
 
-thumb_func_start Effect_UnloadAll
-Effect_UnloadAll:
+_ts Effect_UnloadAll
     mov        r0,#0x0
     ldr        r5,PTR_gListEffect_08003b10
 LAB_08003ab8:
@@ -293,7 +282,6 @@ LAB_08003ab8:
     cmp        r0,#0x20
     blt        LAB_08003ab8
     mov        pc,lr
-thumb_func_end Effect_UnloadAll
 
     .align 2, 0
 PTR_gBitsetEffect_08003acc:             .word gBitsetEffect

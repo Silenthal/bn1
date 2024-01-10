@@ -12,8 +12,7 @@
 @@ r3: channel: The channel to write to.
 @@ r4: control: The control settings of the channel.
 @ void SetDmaSettings(void *startAddress,void *endAddress,uint wordCount,int dmaChannel,uint control)
-thumb_func_start Dma_SetDirect
-Dma_SetDirect:
+_ts Dma_SetDirect
     lsl        r3,r3,#0x2
     ldr        r5,localDmaChannelList
     ldr        r5,[r5,r3]
@@ -35,14 +34,12 @@ dmaChannelList:
     .word REG_DMA1
     .word REG_DMA2
     .word REG_DMA3
-thumb_func_end Dma_SetDirect
 
 
 @@ Waits for any active DMA transfers to end.
 @@ r0: flags: The DMA registers to check. Bit 1 set checks DMA1, Bit 2 DMA2, and so on.
 @ void Dma_WaitForEnd(uint flags)
-thumb_func_start Dma_WaitForEnd
-Dma_WaitForEnd:
+_ts Dma_WaitForEnd
     ldr        r3,dmaChannelStart
 .checkDma0:
     mov        r1,#0x0
@@ -74,25 +71,21 @@ Dma_WaitForEnd:
     and        r1,r2
     bne        .checkDma0
     mov        pc,lr
-thumb_func_end Dma_WaitForEnd
 
 @@ Clears the list of pending DMA transfers.
 @ void Dma_TransferListClear (void)
-thumb_func_start Dma_TransferListClear
-Dma_TransferListClear:
+_ts Dma_TransferListClear
     ldr        r0,ptrDmaListSz0
     mov        r1,#0x0
     str        r1,[r0]
     mov        pc,lr
-thumb_func_end Dma_TransferListClear
 
 @@ Adds params for channel 3 DMA transfer to the transfer queue.
 @@ r0: startAddress: The address to read data from.
 @@ r1: endAddress: The address to write data to.
 @@ r2: wordCount: The amount of words being transferred.
 @ void Dma_TransferListAdd (void * start_address, void * end_address, uint32_t word_count)
-thumb_func_start Dma_TransferListAdd
-Dma_TransferListAdd:
+_ts Dma_TransferListAdd
     mov        r3,#0x0
     add        r7,r3,#0x0
     ldr        r3,ptrDmaListSz1
@@ -121,12 +114,10 @@ val4:
 pList:
     .word 0x84000000
     .word 0x85000000
-thumb_func_end Dma_TransferListAdd
 
 @@ Performs all queued DMA channel 3 transfers.
 @ void Dma_TransferListStartAll (void)
-thumb_func_start Dma_TransferListStartAll
-Dma_TransferListStartAll:
+_ts Dma_TransferListStartAll
     push       { lr }
     ldr        r0,=eDmaParamListSize
     ldr        r1,[r0]
@@ -152,7 +143,6 @@ LAB_080009ec:
 LAB_08000a12:
     bl         Dma_TransferListClear
     pop        { pc }
-thumb_func_end Dma_TransferListStartAll
 
 localDmaChannelList:    .word dmaChannelList
 dmaEnableMask:          .word DMA_ENABLE

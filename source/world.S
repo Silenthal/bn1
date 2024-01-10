@@ -6,8 +6,7 @@
 
     .thumb
 
-thumb_func_start World_Main
-World_Main:
+_ts World_Main
     push       { lr }
     ldr        r0,=jumpTableWorldMain
     mov        r7,r10
@@ -18,7 +17,6 @@ World_Main:
     bx         r0
     bl         Rng_RandomUint
     pop        { pc }
-thumb_func_end World_Main
 
     .pool
 

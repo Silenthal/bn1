@@ -12,8 +12,7 @@
 
     .thumb
 
-thumb_func_start AgbMain
-AgbMain:
+_ts AgbMain
     bl         Main_Init
     LoadStateTo r0, Main_manager
     movs       r1,#MS_Splash
@@ -53,7 +52,6 @@ AgbMain:
     bl         BgUpdate_CallPostLoopFunction
     bl         BgAnimation_Update
     b          .mainLoop
-thumb_func_end AgbMain
 
     .pool
 
@@ -72,8 +70,7 @@ jumpTableMain:
 
 @@ Waits for a certain amount of frames.
 @ void Main_WaitFrames(void)
-thumb_func_start Main_WaitFrames
-Main_WaitFrames:
+_ts Main_WaitFrames
     push       { lr }
 1:
     ldr        r0,frameCounter
@@ -85,12 +82,10 @@ Main_WaitFrames:
     mov        r1,#0x0
     strh       r1,[r0]
     pop        { pc }
-thumb_func_end Main_WaitFrames
 
 @@ Reads the input.
 @ void Main_ReadInput(void)
-thumb_func_start Main_ReadInput
-Main_ReadInput:
+_ts Main_ReadInput
     mov        r7,r10
     ldr        r0,[r7,#0x4]
     ldrb       r7,[r0,#0x13]
@@ -147,12 +142,10 @@ Main_ReadInput:
     and        r4,r5
     strh       r4,[r0,#0x2]
     mov        pc,lr
-thumb_func_end Main_ReadInput
 
 @@ Performs a soft reset check based on some conditions.
 @ void Main_SoftResetCheck(void)
-thumb_func_start Main_SoftResetCheck
-Main_SoftResetCheck:
+_ts Main_SoftResetCheck
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x18]
@@ -191,12 +184,10 @@ Main_SoftResetCheck:
 
     .word .+4
     .word 0x200ace0
-thumb_func_end Main_SoftResetCheck
 
 @@ Initializes the main state used by the game.
 @ void Main_Init(void)
-thumb_func_start Main_Init
-Main_Init:
+_ts Main_Init
     push       { lr }
     ldr        r0,PTR_MainState_08000468
     mov        r10,r0
@@ -273,10 +264,8 @@ MainState:
     .word gMenu
     .word eGameStats
     .word eMainState0x7C
-thumb_func_end Main_Init
 
-thumb_func_start waitForVBlank
-waitForVBlank:
+_ts waitForVBlank
     push       { lr }
     ldr        r0,dispStat
     mov        r2,#0x1
@@ -288,7 +277,6 @@ waitForVBlank:
 
     .byte 0
     .byte 0
-thumb_func_end waitForVBlank
 
 frameCounter:    .word eFrameCounter
 frameWait0:        .word eFrameWaitValue

@@ -48,8 +48,7 @@
 
     .thumb
 
-thumb_func_start Battle_Main
-Battle_Main:
+_ts Battle_Main
     push       { lr }
     mov        r5,r10
     ldr        r5,[r5,#0xc]
@@ -105,7 +104,6 @@ LAB_080058aa:
 LAB_080058e0:
     bl         AdvanceInBattleTimer
     pop        { pc }
-thumb_func_end Battle_Main
     .align 2, 0
 jumpTableBattleMain:
     .word Battle_0_Init
@@ -115,8 +113,7 @@ jumpTableBattleMain:
 
     .pool
 
-thumb_func_start Battle_0_Init
-Battle_0_Init:
+_ts Battle_0_Init
     push       {lr}
     ldrb       r0,[r5,#0x1]
     ldr        r7,=PTR_Battle_0_0_InitStats
@@ -124,7 +121,6 @@ Battle_0_Init:
     mov        lr,pc
     bx         r7
     pop        {pc}
-thumb_func_end Battle_0_Init
 
     .align 2, 0
 PTR_Battle_0_0_InitStats:
@@ -134,8 +130,7 @@ PTR_Battle_0_0_InitStats:
 
     .pool
 
-thumb_func_start Battle_0_0_InitStats
-Battle_0_0_InitStats:
+_ts Battle_0_0_InitStats
     push       {lr}
     mov        r7,r10
     ldr        r7,[r7,#0x8]
@@ -159,10 +154,8 @@ LAB_08005938:
 LAB_08005948:
     strb       r0,[r5,#0x1]
     pop        {pc}
-thumb_func_end Battle_0_0_InitStats
 
-thumb_func_start Battle_0_1_InitField
-Battle_0_1_InitField:
+_ts Battle_0_1_InitField
     push       {lr}
     bl         Battle_InitChipDeck
     bl         Encounter_Init
@@ -238,7 +231,6 @@ LAB_080059b4:
     bl         Sound_ChangeSong
     bl         Battle_IncreaseBattleCount
     pop        {pc}
-thumb_func_end Battle_0_1_InitField
 
 battleSongList:
     .byte T_Operation
@@ -266,8 +258,7 @@ TransferStruct_ARRAY_08005a10:
     .word 0x8
 PTR_gSpriteDecompLocation1_08005a28: .word gSpriteDecompLocation1
 
-thumb_func_start Battle_0_2_InitStatsMP
-Battle_0_2_InitStatsMP:
+_ts Battle_0_2_InitStatsMP
     push       {lr}
     ldrb       r0,[r5,#0x1e]
     cmp        r0,#0x1
@@ -312,8 +303,7 @@ LAB_08005a74:
 PTR_gIsObjectXFlipped_08005a78: .word gIsObjectXFlipped
 
 
-thumb_func_start Battle_1_Main
-Battle_1_Main:
+_ts Battle_1_Main
     push       {lr}
     ldrb       r0,[r5,#0x1f]
     tst        r0,r0
@@ -337,7 +327,6 @@ Battle_1_Main:
     pop        {r5}
 LAB_08005ab4:
     pop        {pc}
-thumb_func_end Battle_1_Main
 
     .align 2, 0
 JT_R5_0C_5AB8:
@@ -358,8 +347,7 @@ JT_R5_0C_5AB8:
     .word PlayerMpState_ARRAY_020075a0
 
 
-thumb_func_start Battle_2_BattleEnd
-Battle_2_BattleEnd:
+_ts Battle_2_BattleEnd
     push       {lr}
     bl         BattleSpriteQueue_Clear
     ldr        r7,=JT_R5_0C_5B1C
@@ -376,7 +364,6 @@ Battle_2_BattleEnd:
     bl         Sprite_PaletteInit
     pop        {r5}
     pop        {pc}
-thumb_func_end Battle_2_BattleEnd
 
     .align 2, 0
 JT_R5_0C_5B1C:

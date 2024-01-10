@@ -136,8 +136,7 @@ srcInterruptVector:
     .word dummy_6928_far
 
 
-thumb_func_start InitializeInterruptVectors
-InitializeInterruptVectors:
+_ts InitializeInterruptVectors
     movs       r0,#0x0
     ldr        r1,=srcInterruptVector
     ldr        r2,=interruptVector
@@ -150,7 +149,6 @@ InitializeInterruptVectors:
     cmp        r0,#0xF
     blt        1b
     bx         lr
-thumb_func_end InitializeInterruptVectors
     .align 2, 0
 
     .pool

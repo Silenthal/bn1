@@ -6,8 +6,7 @@
 
     .thumb
 
-thumb_func_start EntityBounds_InitList
-EntityBounds_InitList:
+_ts EntityBounds_InitList
     push       { lr }
     ldr        r0,=gEntityBoundsList
     mov        r1,#0x14
@@ -16,12 +15,10 @@ EntityBounds_InitList:
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end EntityBounds_InitList
 
     .pool
 
-thumb_func_start EntityBounds_AddToList
-EntityBounds_AddToList:
+_ts EntityBounds_AddToList
     push       { lr }
     mov        r7,#0x80
     lsl        r7,r7,#0x8
@@ -56,12 +53,10 @@ LAB_08002b62:
     add        r0,#0x1
     str        r0,[r7,#0x0]
     pop        { pc }
-thumb_func_end EntityBounds_AddToList
 
     .pool
 
-thumb_func_start EntityBounds_UpdateAll
-EntityBounds_UpdateAll:
+_ts EntityBounds_UpdateAll
     push       { lr }
     mov        r0,#0x0
 LAB_08002b8c:
@@ -116,12 +111,10 @@ LAB_08002bdc:
     pop        { r0 }
     add        r0,#0x1
     b          LAB_08002b8c
-thumb_func_end EntityBounds_UpdateAll
 
     .pool
 
-thumb_func_start EntityBounds_IsCollision
-EntityBounds_IsCollision:
+_ts EntityBounds_IsCollision
     push       { lr }
     mov        r6,#0x0
     ldrsh      r2,[r0,r6]
@@ -167,6 +160,5 @@ LAB_08002c3c:
 LAB_08002c48:
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end EntityBounds_IsCollision
 
 .end

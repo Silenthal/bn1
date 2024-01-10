@@ -5,8 +5,7 @@
     .text
 
     mov pc,lr
-non_word_aligned_thumb_func_start Battle_IncreaseBattleTime
-Battle_IncreaseBattleTime:
+_nt Battle_IncreaseBattleTime
     ldrh       r0,[r5,#0x20]
     add        r0,#0x1
     ldr        r1,=36000
@@ -16,13 +15,11 @@ Battle_IncreaseBattleTime:
 LAB_08006ab2:
     strh       r0,[r5,#0x20]
     mov        pc,lr
-thumb_func_end Battle_IncreaseBattleTime
 .align 2, 0
 .pool
 
 @@ Update the multiple delete count based on the delete buffer.
-thumb_func_start Battle_ProcessMultipleDelete
-Battle_ProcessMultipleDelete:
+_ts Battle_ProcessMultipleDelete
     @ Set the current count to the temp count if the temp count is greater
     ldrb       r0,[r5,#0x16]
     ldrb       r1,[r5,#0x17]

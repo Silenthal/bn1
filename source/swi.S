@@ -13,56 +13,45 @@
 @@ - [20:0] Block count
 @@ - [24] 0 = Copy, 1 = Fill with r0
 @@ - [26] 0 = 16bit, 1 = 32bit
-thumb_func_start SWI_CpuSet
-SWI_CpuSet:
+_ts SWI_CpuSet
     svc        0xb
     bx         lr
-thumb_func_end SWI_CpuSet
 
 @@ Divides r0 by r1.
 @@ Output:
 @@ r0: n/d
 @@ r1: n%d
 @@ r3: abs(n/d)
-thumb_func_start SWI_Div
-SWI_Div:
+_ts SWI_Div
     svc        0x6
     bx         lr
-thumb_func_end SWI_Div
 
 @@ Divides r0 by r1.
 @@ Output:
 @@ r0: n/d + n%d
 @@ r1: n%d
 @@ r3: abs(n/d)
-thumb_func_start SWI_DivMod
-SWI_DivMod:
+_ts SWI_DivMod
     svc        0x6
     add        r0,r1,#0x0
     bx         lr
-thumb_func_end SWI_DivMod
 
 @@ Decompresses data to WRAM using LZ77.
 @@ Input:
 @@ r0: src address
 @@ r1: dst address
-thumb_func_start SWI_LZ77UnCompWram
-SWI_LZ77UnCompWram:
+_ts SWI_LZ77UnCompWram
     svc        0x11
     bx         lr
-thumb_func_end SWI_LZ77UnCompWram
 
 @@ Returns the square root of r0.
 @@ Output:
 @@ r0: sqrt(r0)
-thumb_func_start SWI_Sqrt
-SWI_Sqrt:
+_ts SWI_Sqrt
     svc        0x8
     bx         lr
-thumb_func_end SWI_Sqrt
 
-thumb_func_start memcpy_8_sram_copy
-memcpy_8_sram_copy:
+_ts memcpy_8_sram_copy
     push       { r4, lr }
     add        r4,r0,#0x0
     sub        r3,r2,#0x1
@@ -82,10 +71,8 @@ memcpy_8_sram_copy:
     pop        { r4 }
     pop        { r0 }
     bx         r0
-thumb_func_end memcpy_8_sram_copy
 
-thumb_func_start MemCpy_8_Sram
-MemCpy_8_Sram:
+_ts MemCpy_8_Sram
     push       { r4, r5, r6, lr }
     sub        sp,#0x80
     add        r4,r0,#0x0
@@ -138,10 +125,8 @@ LAB_0809dfd4:
     pop        { r4, r5, r6 }
     pop        { r0 }
     bx         r0
-thumb_func_end MemCmp_8_Sram
 
-thumb_func_start MemCpySram
-MemCpySram:
+_ts MemCpySram
     push       { r4, r5, lr }
     add        r5,r0,#0x0
     add        r4,r1,#0x0
@@ -171,7 +156,6 @@ LAB_0809e020:
     pop        { r4, r5 }
     pop        { r0 }
     bx         r0
-thumb_func_end MemCpySram
 
     .align 2, 0
 PTR_REG_WAITCNT_0809e028:
@@ -179,8 +163,7 @@ PTR_REG_WAITCNT_0809e028:
 USHORT_0809e02c:
     .word     0x0000FFFC
 
-thumb_func_start memcmp_8
-memcmp_8:
+_ts memcmp_8
     push       { r4, r5, lr }
     add        r5,r0,#0x0
     add        r3,r1,#0x0
@@ -208,10 +191,8 @@ LAB_0809e058:
     pop        { r4, r5 }
     pop        { r1 }
     bx         r1
-thumb_func_end memcmp_8
 
-thumb_func_start MemCmp_8_Sram
-MemCmp_8_Sram:
+_ts MemCmp_8_Sram
     push       { r4, r5, r6, lr }
     sub        sp,#0xc0
     add        r4,r0,#0x0
@@ -264,7 +245,6 @@ LAB_0809e0a8:
     pop        { r4, r5, r6 }
     pop        { r1 }
     bx         r1
-thumb_func_end MemCmp_8_Sram
 
 FUN_0809e0c4:
     push       { r4, r5, r6, r7, lr }
@@ -335,8 +315,7 @@ Call_R3_9e108:
     bx         lr
     nop
 
-thumb_func_start div
-div:
+_ts div
     cmp        r1,#0x0
     beq        LAB_0809e1c0
     push       { r4 }
@@ -422,12 +401,9 @@ LAB_0809e1c0:
     bl         dummy_9e1cc
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end div
 
-thumb_func_start dummy_9e1cc
-dummy_9e1cc:
+_ts dummy_9e1cc
     mov        pc,lr
-thumb_func_end dummy_9e1cc
 
     .align 2,0
 

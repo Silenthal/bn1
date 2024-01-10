@@ -4,22 +4,19 @@
 
     .text
 
-thumb_func_start InitBgTask
-InitBgTask:
+_ts InitBgTask
     push       { lr }
     mov        r0,r10
     ldr        r0,[r0,#0x58]
     ldr        r1,=0x180
     bl         memset0_32
     pop        { pc }
-thumb_func_end InitBgTask
 
     .align 2, 0
 
     .pool
 
-thumb_func_start BgTask_AddNew
-BgTask_AddNew:
+_ts BgTask_AddNew
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x58]
@@ -51,12 +48,10 @@ LAB_08001d46:
     mov        lr,pc
     bx         r6
     pop        { pc }
-thumb_func_end BgTask_AddNew
 
     .pool
 
-thumb_func_start BgTask_Update
-BgTask_Update:
+_ts BgTask_Update
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x58]
@@ -109,7 +104,6 @@ LAB_08001db4:
     strb       r1,[r7,#0x0]
 LAB_08001db8:
     pop        { pc }
-thumb_func_end BgTask_Update
 
     .align 2, 0
 
@@ -124,8 +118,7 @@ INT_ARRAY_08001dc8:
 PTR_INT_ARRAY_08001dd4: .word INT_ARRAY_08001dc8
 PTR_funcListBgDataTransfer_08001dd8: .word funcListBgDataTransfer
 
-thumb_func_start BgTask_TransferDirect
-BgTask_TransferDirect:
+_ts BgTask_TransferDirect
     push       { lr }
     push       { r4, r7 }
     ldr        r0,[r0,#0x0]
@@ -134,10 +127,8 @@ BgTask_TransferDirect:
     bl         Dma_TransferListAdd
     pop        { r4, r7 }
     pop        { pc }
-thumb_func_end BgTask_TransferDirect
 
-thumb_func_start BgTask_TransferTilemap
-BgTask_TransferTilemap:
+_ts BgTask_TransferTilemap
     push       { lr }
     mov        r5,r10
     ldr        r5,[r5,#0x44]
@@ -170,10 +161,8 @@ LAB_08001e0a:
     mov        r0,#0x0
     strb       r0,[r7,#0x0]
     pop        { pc }
-thumb_func_end BgTask_TransferTilemap
 
-thumb_func_start BgTask_TransferTileset
-BgTask_TransferTileset:
+_ts BgTask_TransferTileset
     push       { r4, r7, lr }
     ldr        r6,[r0,#0x0]
     ldr        r5,PTR_PTR_gBgTileDataBuffer0_08001e84
@@ -214,7 +203,6 @@ LAB_08001e42:
     lsr        r2,r2,#0x2
     bl         Dma_TransferListAdd
     pop        { r4, r7, pc }
-thumb_func_end BgTask_TransferTileset
 
 PTR_funcListTileCopy_08001e80: .word funcListTileCopy
 PTR_PTR_gBgTileDataBuffer0_08001e84: .word bgTileBufferList
@@ -254,8 +242,7 @@ funcListTileCopy:
     .word CopyTile_VFlip
     .word CopyTile_HVFlip
 
-thumb_func_start CopyTile
-CopyTile:
+_ts CopyTile
     ldr        r0,[r4,#0x0]
     str        r0,[r5,#0x0]
     ldr        r0,[r4,#0x4]
@@ -273,10 +260,8 @@ CopyTile:
     ldr        r0,[r4,#0x1c]
     str        r0,[r5,#0x1c]
     mov        pc,lr
-thumb_func_end CopyTile
 
-thumb_func_start CopyTile_HFlip
-CopyTile_HFlip:
+_ts CopyTile_HFlip
     ldr        r2,DAT_080021a8
     mov        r9,r2
     ldr        r2,DAT_080021a4
@@ -425,10 +410,8 @@ CopyTile_HFlip:
     orr        r0,r3
     str        r0,[r5,#0x1c]
     mov        pc,lr
-thumb_func_end CopyTile_HFlip
 
-thumb_func_start CopyTile_VFlip
-CopyTile_VFlip:
+_ts CopyTile_VFlip
     ldr        r0,[r4,#0x0]
     str        r0,[r5,#0x1c]
     ldr        r0,[r4,#0x4]
@@ -446,10 +429,8 @@ CopyTile_VFlip:
     ldr        r0,[r4,#0x1c]
     str        r0,[r5,#0x0]
     mov        pc,lr
-thumb_func_end CopyTile_VFlip
 
-thumb_func_start CopyTile_HVFlip
-CopyTile_HVFlip:
+_ts CopyTile_HVFlip
     ldr        r2,DAT_080021a8
     mov        r9,r2
     ldr        r2,DAT_080021a4
@@ -598,7 +579,6 @@ CopyTile_HVFlip:
     orr        r0,r3
     str        r0,[r5,#0x0]
     mov        pc,lr
-thumb_func_end CopyTile_HVFlip
 
 DAT_080021a4: .word 0xFF00FF00
 DAT_080021a8: .word 0xF0F0F0F0

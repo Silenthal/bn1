@@ -14,8 +14,7 @@
 
     .thumb
 
-thumb_func_start NPC_InterpretCommands
-NPC_InterpretCommands:
+_ts NPC_InterpretCommands
     push       { lr }
 LAB_08082106:
     ldrb       r0,[r5,#0x19]
@@ -32,7 +31,6 @@ LAB_08082106:
     b          LAB_08082106
 LAB_0808211e:
     pop        { pc }
-thumb_func_end NPC_InterpretCommands
 PTR_PTR_NPC_Command_00_Stop_1_08082120: .word PTR_NPC_Command_00_Stop_1_08082124
 
 PTR_NPC_Command_00_Stop_1_08082124:

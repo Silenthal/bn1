@@ -100,8 +100,7 @@ listHandlerAttack:
     .word 0x807b239 @ FUN_0807b238+1
     .word 0x807b389 @ FUN_0807b388+1
 
-thumb_func_start Attack_Alloc
-Attack_Alloc:
+_ts Attack_Alloc
     push       { r0, r1, r2, r3, r4, lr }
     ldr        r0,PTR_gBitsetAttack_080037e4
     ldr        r2,[r0,#0x0]
@@ -138,10 +137,8 @@ LAB_0800368e:
 LAB_080036b4:
     mov        r5,#0x0
     pop        { r0, r1, r2, r3, r4, pc }
-thumb_func_end Attack_Alloc
 
-thumb_func_start Attack_Free
-Attack_Free:
+_ts Attack_Free
     push       { lr }
     ldr        r0,DAT_080037e8
     ldrb       r1,[r5,#0x3]
@@ -154,10 +151,8 @@ Attack_Free:
     strb       r1,[r5,#0x0]
     bl         SpritePtr_AffineFree
     pop        { pc }
-thumb_func_end Attack_Free
 
-thumb_func_start Attack_UpdateAll
-Attack_UpdateAll:
+_ts Attack_UpdateAll
     push       { lr }
     ldr        r5,PTR_gEntityListAttack_080037f8
 LAB_080036d8:
@@ -220,10 +215,8 @@ LAB_0800373a:
     mov        r0,#0x0
     str        r0,[r7,#0x70]
     pop        { pc }
-thumb_func_end Attack_UpdateAll
 
-thumb_func_start Attack_Init
-Attack_Init:
+_ts Attack_Init
     push       { lr }
     ldr        r0,PTR_gFillValue_08003808
     ldr        r1,PTR_gEntityListAttack_0800380c
@@ -248,10 +241,8 @@ LAB_08003760:
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end Attack_Init
 
-thumb_func_start Attack_LoadAll
-Attack_LoadAll:
+_ts Attack_LoadAll
     push       { lr }
     mov        r0,#0x20
     mov        r1,#0x0
@@ -293,10 +284,8 @@ LAB_080037c0:
     cmp        r1,r0
     blt        LAB_08003780
     pop        { pc }
-thumb_func_end Attack_LoadAll
 
-thumb_func_start Attack_UnloadAll
-Attack_UnloadAll:
+_ts Attack_UnloadAll
     mov        r0,#0x20
     ldr        r5,PTR_gEntityListAttack_08003828
 LAB_080037d0:
@@ -309,7 +298,6 @@ LAB_080037d0:
     cmp        r0,#0x20
     blt        LAB_080037d0
     mov        pc,lr
-thumb_func_end Attack_UnloadAll
 
     .align 2, 0
 PTR_gBitsetAttack_080037e4:         .word gBitsetAttack

@@ -6,8 +6,7 @@
 
     .thumb
 
-thumb_func_start Battle_InitChipDeck
-Battle_InitChipDeck:
+_ts Battle_InitChipDeck
     push       { r5, lr }
     mov        r0,#0x0
     ldr        r7,=gBattleFolder
@@ -27,7 +26,6 @@ LAB_08007c4a:
     bl         ArrayShuffle
 LAB_08007c66:
     pop        { r5, pc }
-thumb_func_end Battle_InitChipDeck
 
     .pool
 
@@ -155,14 +153,12 @@ BattleChip_ARRAY_08007ce4:
 
 INT_08007d5c: .word 0xF00
 
-thumb_func_start BattleChip_GetChipData
-BattleChip_GetChipData:
+_ts BattleChip_GetChipData
     mov        r1,#0x1c
     mul        r0,r1
     ldr        r1,=dataChipDetailList
     add        r0,r0,r1
     mov        pc,lr
-thumb_func_end BattleChip_GetChipData
 
     .align 2, 0
     .pool

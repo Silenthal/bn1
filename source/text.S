@@ -31,8 +31,7 @@
 
     .text
 
-thumb_func_start Text_Init
-Text_Init:
+_ts Text_Init
     push       { lr }
     LoadStateTo r0, Main_text, r0
     mov        r1,#0x8c
@@ -40,10 +39,8 @@ Text_Init:
     mov        r0,#(TF_ClearDialogBox|TF_DisableInput)
     bl         Text_DisableOption
     pop        { pc }
-thumb_func_end Text_Init
 
-thumb_func_start Text_LoadAreaDialogue
-Text_LoadAreaDialogue:
+_ts Text_LoadAreaDialogue
     push       { lr }
     push       { r0 }
     LoadStateTo r5, Main_world
@@ -72,10 +69,8 @@ LAB_08013596:
     pop        { r1 }
     bl         Text_LoadDialogue
     pop        { pc }
-thumb_func_end Text_LoadAreaDialogue
 
-thumb_func_start Text_LoadCommentaryDialogue
-Text_LoadCommentaryDialogue:
+_ts Text_LoadCommentaryDialogue
     push       { lr }
     cmp        r0,#0xff
     beq        LAB_080135e4
@@ -108,10 +103,8 @@ LAB_080135d2:
     bl         Text_LoadDialogue
 LAB_080135e4:
     pop        { pc }
-thumb_func_end Text_LoadCommentaryDialogue
 
-thumb_func_start Text_LoadDialogue
-Text_LoadDialogue:
+_ts Text_LoadDialogue
     push       { lr }
     LoadStateTo r5, Main_text, r5
     ldr        r2,[r5,#0x30]
@@ -155,10 +148,8 @@ Text_LoadDialogue:
     mov        r2,#0x48
     bl         Dma_TransferListAdd
     pop        { pc }
-thumb_func_end Text_LoadDialogue
 
-thumb_func_start Text_DisableDialogue
-Text_DisableDialogue:
+_ts Text_DisableDialogue
     push       { lr }
     LoadStateTo r5, Main_text, r5
     mov        r0,#FALSE
@@ -166,10 +157,8 @@ Text_DisableDialogue:
     mov        r0,#(TF_DisableInput|TF_ClearDialogBox)
     bl         Text_DisableOption
     pop        { pc }
-thumb_func_end Text_DisableDialogue
 
-thumb_func_start Text_Main
-Text_Main:
+_ts Text_Main
     push       { lr }
     LoadStateTo r5, Main_text, r5
     ldrb       r0,[r5,#Text_m_isWriteText]
@@ -350,10 +339,8 @@ layout_finish:
     bl         Text_CheckPortraitLoad
     bl         Text_CheckPasscodeEntryLoad
     pop        { pc }
-thumb_func_end Text_Main
 
-thumb_func_start Text_CopyCharTile
-Text_CopyCharTile:
+_ts Text_CopyCharTile
     ldr        r0,PTR_tilesetDialogueText_08013984
     lsl        r1,r1,#0x6
     add        r0,r0,r1
@@ -378,7 +365,6 @@ LAB_080137d8:
     add        r3,#0x1
     strb       r3,[r5,#Text_m_textBufferOffset]
     mov        pc,lr
-thumb_func_end Text_CopyCharTile
 
     .align 2, 0
 charShade:
@@ -388,8 +374,7 @@ charShade:
     .word 0x99999999
     .word 0xCCCCCCCC
 
-thumb_func_start Text_LoadCharTileLayout
-Text_LoadCharTileLayout:
+_ts Text_LoadCharTileLayout
     push       { lr }
     ldrb       r6,[r5,#Text_m_textCol]
     add        r0,r6,#0x1
@@ -413,10 +398,8 @@ Text_LoadCharTileLayout:
     add        r2,#0x40
     strh       r0,[r2,#0x0]
     pop        { pc }
-thumb_func_end Text_LoadCharTileLayout
 
-thumb_func_start Text_SetDialogPortrait
-Text_SetDialogPortrait:
+_ts Text_SetDialogPortrait
     push       { r5, lr }
     add        r5,#Text_m_portrait
     push       { r0, r1 }
@@ -444,10 +427,8 @@ Text_SetDialogPortrait:
     mov        r1,#0x22
     strh       r1,[r5,#Sprite_screenX]
     pop        { r5, pc }
-thumb_func_end Text_SetDialogPortrait
 
-thumb_func_start Text_CheckPortraitLoad
-Text_CheckPortraitLoad:
+_ts Text_CheckPortraitLoad
     push       { r5, lr }
     mov        r0,#TS_ShowPortrait
     bl         Text_CheckScriptOption
@@ -476,20 +457,16 @@ LAB_08013896:
     bl         LC_Sprite_AddSpriteToOam
 .return:
     pop        { r5, pc }
-thumb_func_end Text_CheckPortraitLoad
 
-thumb_func_start Text_LoadDialogBoxLayout
-Text_LoadDialogBoxLayout:
+_ts Text_LoadDialogBoxLayout
     push       { r5, lr }
     ldr        r0,PTR_layoutDialogBox_08013994
     ldr        r1,[r5,#Text_m_dialogLayout]
     ldr        r2,DAT_08013998
     bl         memcpy_32
     pop        { r5, pc }
-thumb_func_end Text_LoadDialogBoxLayout
 
-thumb_func_start Text_CheckPasscodeEntryLoad
-Text_CheckPasscodeEntryLoad:
+_ts Text_CheckPasscodeEntryLoad
     push       { r5, lr }
     mov        r0,#TS_PasscodeEntry
     bl         Text_CheckScriptOption
@@ -503,39 +480,31 @@ Text_CheckPasscodeEntryLoad:
     strb       r1,[r5,#Text_m_b17]
 LAB_080138dc:
     pop        { r5, pc }
-thumb_func_end Text_CheckPasscodeEntryLoad
 
-thumb_func_start Text_EnableScriptOption
-Text_EnableScriptOption:
+_ts Text_EnableScriptOption
     push       { r1 }
     ldrb       r1,[r5,#Text_m_scriptOptions]
     orr        r1,r0
     strb       r1,[r5,#Text_m_scriptOptions]
     pop        { r1 }
     mov        pc,lr
-thumb_func_end Text_EnableScriptOption
 
-thumb_func_start Text_DisableScriptOption
-Text_DisableScriptOption:
+_ts Text_DisableScriptOption
     push       { r1 }
     ldrb       r1,[r5,#Text_m_scriptOptions]
     bic        r1,r0
     strb       r1,[r5,#Text_m_scriptOptions]
     pop        { r1 }
     mov        pc,lr
-thumb_func_end Text_DisableScriptOption
 
-thumb_func_start Text_CheckScriptOption
-Text_CheckScriptOption:
+_ts Text_CheckScriptOption
     push       { r1 }
     ldrb       r1,[r5,#Text_m_scriptOptions]
     and        r0,r1
     pop        { r1 }
     mov        pc,lr
-thumb_func_end Text_CheckScriptOption
 
-thumb_func_start Text_EnableOption
-Text_EnableOption:
+_ts Text_EnableOption
     push       { r1, r2 }
     ldr        r1,PTR_gTextOptionFlags_0801399c
     ldr        r2,[r1,#0x0]
@@ -543,10 +512,8 @@ Text_EnableOption:
     str        r2,[r1,#0x0]
     pop        { r1, r2 }
     mov        pc,lr
-thumb_func_end Text_EnableOption
 
-thumb_func_start Text_DisableOption
-Text_DisableOption:
+_ts Text_DisableOption
     push       { r1, r2 }
     ldr        r1,PTR_gTextOptionFlags_080139a0
     ldr        r2,[r1,#0x0]
@@ -554,20 +521,16 @@ Text_DisableOption:
     str        r2,[r1,#0x0]
     pop        { r1, r2 }
     mov        pc,lr
-thumb_func_end Text_DisableOption
 
-thumb_func_start Text_CheckOption
-Text_CheckOption:
+_ts Text_CheckOption
     push       { r1 }
     ldr        r1,PTR_gTextOptionFlags_080139a4
     ldr        r1,[r1,#0x0]
     and        r0,r1
     pop        { r1 }
     mov        pc,lr
-thumb_func_end Text_CheckOption
 
-thumb_func_start TextOption_GetDefaultOption
-TextOption_GetDefaultOption:
+_ts TextOption_GetDefaultOption
     push       { r1 }
     ldr        r1,PTR_gTextOptionFlags_080139a8
     ldr        r1,[r1,#0x0]
@@ -575,17 +538,14 @@ TextOption_GetDefaultOption:
     and        r0,r1
     pop        { r1 }
     mov        pc,lr
-thumb_func_end TextOption_GetDefaultOption
 
-thumb_func_start Text_CopyCharTileUI
-Text_CopyCharTileUI:
+_ts Text_CopyCharTileUI
     push       { lr }
     push       { r0 }
     ldr        r0,PTR_Screen_WriteUIText_1_080139ac
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end Text_CopyCharTileUI
 
 PTR_textDictDir_Offline:                           .word textDictDir_Offline
 PTR_PTR_08013950:                           .word textDictDir_Online
@@ -664,8 +624,7 @@ JT_LayoutCommand:
     .word JT_Layout_FD_MiscControl
     .word JT_Layout_FE_Save
 
-thumb_func_start JT_Command_E7_End
-JT_Command_E7_End:
+_ts JT_Command_E7_End
     push       { lr }
     ldrb       r0,[r5,#Text_m_isScriptJump]
     tst        r0,r0
@@ -728,10 +687,8 @@ LAB_08013ac0:
     strb       r0,[r5,#Text_m_dialogDelayType]
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_E7_End
 
-thumb_func_start JT_Layout_E7_End
-JT_Layout_E7_End:
+_ts JT_Layout_E7_End
     ldrb       r0,[r5,#Text_m_counter1]
     tst        r0,r0
     beq        LAB_08013ade
@@ -742,17 +699,13 @@ JT_Layout_E7_End:
 LAB_08013ade:
     add        r4,#0x3
     mov        pc,lr
-thumb_func_end JT_Layout_E7_End
 
-thumb_func_start JT_Command_E8_NewLine
-JT_Command_E8_NewLine:
+_ts JT_Command_E8_NewLine
     add        r4,#0x1
     mov        r0,#0x1
     mov        pc,lr
-thumb_func_end JT_Command_E8_NewLine
 
-thumb_func_start JT_Layout_E8_NewLine
-JT_Layout_E8_NewLine:
+_ts JT_Layout_E8_NewLine
     mov        r0,#0
     strb       r0,[r5,#Text_m_textCol]
     ldrb       r0,[r5,#Text_m_textRow]
@@ -760,10 +713,8 @@ JT_Layout_E8_NewLine:
     strb       r0,[r5,#Text_m_textRow]
     add        r4,#1
     mov        pc,lr
-thumb_func_end JT_Layout_E8_NewLine
 
-thumb_func_start JT_Command_E9_Wait
-JT_Command_E9_Wait:
+_ts JT_Command_E9_Wait
     push       { lr }
     mov        r0,#TS_BreakLoop
     bl         Text_EnableScriptOption
@@ -801,16 +752,12 @@ LAB_08013b26:
     strb       r0,[r5,#Text_m_dialogSkipDelay]
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_E9_Wait
 
-thumb_func_start JT_Layout_E7_Wait
-JT_Layout_E7_Wait:
+_ts JT_Layout_E7_Wait
     add        r4,#0x3
     mov        pc,lr
-thumb_func_end JT_Layout_E7_Wait
 
-thumb_func_start JT_Command_EA_TextDelay
-JT_Command_EA_TextDelay:
+_ts JT_Command_EA_TextDelay
     push       { lr }
     ldrb       r1,[r4,#0x1]
     cmp        r1,#0xff
@@ -860,16 +807,12 @@ LAB_08013b8c:
     bl         Text_EnableScriptOption
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_EA_TextDelay
 
-thumb_func_start JT_Layout_E7_TextDelay
-JT_Layout_E7_TextDelay:
+_ts JT_Layout_E7_TextDelay
     add        r4,#0x4
     mov        pc,lr
-thumb_func_end JT_Layout_E7_TextDelay
 
-thumb_func_start JT_Command_EB_WaitForButtonPress
-JT_Command_EB_WaitForButtonPress:
+_ts JT_Command_EB_WaitForButtonPress
     push       { lr }
     mov        r0,#0x11
     bl         Text_EnableScriptOption
@@ -928,16 +871,12 @@ LAB_08013be8:
 LAB_08013bfa:
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_EB_WaitForButtonPress
 
-thumb_func_start JT_Layout_EB_WaitForButtonPress
-JT_Layout_EB_WaitForButtonPress:
+_ts JT_Layout_EB_WaitForButtonPress
     add        r4,#0x1
     mov        pc,lr
-thumb_func_end JT_Layout_EB_WaitForButtonPress
 
-thumb_func_start JT_Command_EC_ParseDelay
-JT_Command_EC_ParseDelay:
+_ts JT_Command_EC_ParseDelay
     push       { lr }
     ldrb       r0,[r4,#0x1]
     cmp        r0,#0x0
@@ -968,24 +907,20 @@ LAB_08013c2c:
     mov        r0,#0x1
     add        r4,#0x2
     pop        { pc }
-thumb_func_end JT_Command_EC_ParseDelay
 
-thumb_func_start JT_Layout_EC_ParseDelay
-JT_Layout_EC_ParseDelay:
+_ts JT_Layout_EC_ParseDelay
     ldr        r0,=DAT_08013c48
     ldrb       r1,[r4,#0x1]
     ldrb       r0,[r0,r1]
     add        r4,r4,r0
     mov        pc,lr
-thumb_func_end JT_Layout_EC_ParseDelay
 
     .align 2, 0
     .pool
 DAT_08013c48:
     .byte 3, 2, 2, 0
 
-thumb_func_start JT_Command_ED_PortraitControl
-JT_Command_ED_PortraitControl:
+_ts JT_Command_ED_PortraitControl
     push       { lr }
     ldrb       r0,[r4,#0x1]
     cmp        r0,#0x1
@@ -1020,23 +955,19 @@ LAB_08013c7c:
 LAB_08013c82:
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_ED_PortraitControl
 
-thumb_func_start JT_Layout_ED_PortraitControl
-JT_Layout_ED_PortraitControl:
+_ts JT_Layout_ED_PortraitControl
     ldr        r0,=DAT_08013c98
     ldrb       r1,[r4,#0x1]
     ldrb       r0,[r0,r1]
     add        r4,r4,r0
     mov        pc,lr
-thumb_func_end JT_Layout_ED_PortraitControl
 
     .align 2, 0
     .pool
 DAT_08013c98: .byte 4, 2, 3, 0
 
-thumb_func_start JT_Command_EE_PortraitAnimChange
-JT_Command_EE_PortraitAnimChange:
+_ts JT_Command_EE_PortraitAnimChange
     ldrb       r0,[r4,#0x1]
     strb       r0,[r5,#0xa]
     mov        r0,#0xff
@@ -1044,23 +975,17 @@ JT_Command_EE_PortraitAnimChange:
     mov        r0,#0x1
     add        r4,#0x2
     mov        pc,lr
-thumb_func_end JT_Command_EE_PortraitAnimChange
 
-thumb_func_start JT_Layout_EE_PortraitAnimChange
-JT_Layout_EE_PortraitAnimChange:
+_ts JT_Layout_EE_PortraitAnimChange
     add        r4,#0x2
     mov        pc,lr
-thumb_func_end JT_Layout_EE_PortraitAnimChange
 
-thumb_func_start JT_Command_EF_SetTextCol
-JT_Command_EF_SetTextCol:
+_ts JT_Command_EF_SetTextCol
     add        r4,#0x3
     mov        r0,#0x1
     mov        pc,lr
-thumb_func_end JT_Command_EF_SetTextCol
 
-thumb_func_start JT_Layout_EF_SetTextCol
-JT_Layout_EF_SetTextCol:
+_ts JT_Layout_EF_SetTextCol
     ldrb       r1,[r4,#0x1]
     cmp        r1,#0x0
     beq        LAB_08013cc0
@@ -1078,10 +1003,8 @@ LAB_08013cca:
     strb       r0,[r5,#0xe]
     add        r4,#0x3
     mov        pc,lr
-thumb_func_end JT_Layout_EF_SetTextCol
 
-thumb_func_start JT_Command_F0_CreateDialogueOption
-JT_Command_F0_CreateDialogueOption:
+_ts JT_Command_F0_CreateDialogueOption
     push       { lr }
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
@@ -1092,10 +1015,8 @@ JT_Command_F0_CreateDialogueOption:
     add        r4,#0x3
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F0_CreateDialogueOption
 
-thumb_func_start JT_Layout_F0_CreateDialogueOption
-JT_Layout_F0_CreateDialogueOption:
+_ts JT_Layout_F0_CreateDialogueOption
     push       { r3, lr }
     ldrb       r0,[r5,#0x14]
     ldrb       r1,[r5,#0x15]
@@ -1148,7 +1069,6 @@ LAB_08013d44:
     strb       r0,[r5,#0x14]
     add        r4,#0x3
     pop        { r3, pc }
-thumb_func_end JT_Layout_F0_CreateDialogueOption
 
     .align 2, 0
     .pool
@@ -1158,8 +1078,7 @@ KeyInput_ARRAY_08013d54:
     .short 0x20 @ KeyInput  KEY_LEFT
     .short 0x10 @ KeyInput  KEY_RIGHT
 
-thumb_func_start JT_Command_F1_HandleDialogueOptionSelect
-JT_Command_F1_HandleDialogueOptionSelect:
+_ts JT_Command_F1_HandleDialogueOptionSelect
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -1302,17 +1221,13 @@ LAB_08013e12:
     pop        { pc }
 LAB_08013e30:
     b          LAB_08013dae
-thumb_func_end JT_Command_F1_HandleDialogueOptionSelect
 
-thumb_func_start JT_Layout_F1_HandleDialogueOptionSelect
-JT_Layout_F1_HandleDialogueOptionSelect:
+_ts JT_Layout_F1_HandleDialogueOptionSelect
     ldrb       r0,[r4,#0x1]
     add        r4,r4,r0
     mov        pc,lr
-thumb_func_end JT_Layout_F1_HandleDialogueOptionSelect
 
-thumb_func_start JT_Command_F2_DialogueControl
-JT_Command_F2_DialogueControl:
+_ts JT_Command_F2_DialogueControl
     push       { lr }
     ldrb       r1,[r4,#0x1]
     cmp        r1,#0x0
@@ -1362,16 +1277,12 @@ LAB_08013e86:
     add        r4,#0x2
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F2_DialogueControl
 
-thumb_func_start JT_Layout_F2_DialogueControl
-JT_Layout_F2_DialogueControl:
+_ts JT_Layout_F2_DialogueControl
     add        r4,#0x2
     mov        pc,lr
-thumb_func_end JT_Layout_F2_DialogueControl
 
-thumb_func_start JT_Command_F3_FlagControl
-JT_Command_F3_FlagControl:
+_ts JT_Command_F3_FlagControl
     push       { lr }
     ldr        r1,=funcListFlagControl
     ldrb       r0,[r4,#0x1]
@@ -1387,7 +1298,6 @@ JT_Command_F3_FlagControl:
     add        r4,#0x4
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F3_FlagControl
 
     .align 2, 0
     .pool
@@ -1396,14 +1306,11 @@ funcListFlagControl:
     .word Flag_ClearBase+1
     .word Flag_SetEmail+1
 
-thumb_func_start JT_Layout_F3_FlagControl
-JT_Layout_F3_FlagControl:
+_ts JT_Layout_F3_FlagControl
     add        r4,#0x4
     mov        pc,lr
-thumb_func_end JT_Layout_F3_FlagControl
 
-thumb_func_start JT_Command_F4_JumpConditional
-JT_Command_F4_JumpConditional:
+_ts JT_Command_F4_JumpConditional
     push       { lr }
     ldr        r0,=funcListJumpConditional
     ldrb       r1,[r4,#0x1]
@@ -1411,7 +1318,6 @@ JT_Command_F4_JumpConditional:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end JT_Command_F4_JumpConditional
 
     .align 2, 0
     .pool
@@ -1424,8 +1330,7 @@ funcListJumpConditional:
     .word JT_Command_F4_14_JumpIfBustRank
     .word JT_Command_F4_18_JumpIfLibrary
 
-thumb_func_start JT_Command_F4_00_JumpIfFlag
-JT_Command_F4_00_JumpIfFlag:
+_ts JT_Command_F4_00_JumpIfFlag
     push       { lr }
     ldrb       r0,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
@@ -1456,10 +1361,8 @@ LAB_08013f2c:
     add        r4,#0x6
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F4_00_JumpIfFlag
 
-thumb_func_start JT_Command_F4_04_JumpIfStoryRange
-JT_Command_F4_04_JumpIfStoryRange:
+_ts JT_Command_F4_04_JumpIfStoryRange
     push       { lr }
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
@@ -1490,10 +1393,8 @@ LAB_08013f66:
     add        r4,#0x6
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F4_04_JumpIfStoryRange
 
-thumb_func_start JT_Command_F4_08_JumpIfShopStock
-JT_Command_F4_08_JumpIfShopStock:
+_ts JT_Command_F4_08_JumpIfShopStock
     push       { lr }
     ldrb       r0,[r4,#0x2]
     push       { r4, r5 }
@@ -1521,10 +1422,8 @@ LAB_08013f9a:
     add        r4,#0x5
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F4_08_JumpIfShopStock
 
-thumb_func_start JT_Command_F4_0C_JumpIfChip
-JT_Command_F4_0C_JumpIfChip:
+_ts JT_Command_F4_0C_JumpIfChip
     push       { lr }
     ldrb       r0,[r4,#0x2]
     ldrb       r6,[r4,#0x3]
@@ -1562,14 +1461,12 @@ LAB_08013fdc:
     add        r4,#0x6
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F4_0C_JumpIfChip
 
     .align 2, 0
 PTR_gFolder_08013fe4:
     .word       gFolder
 
-thumb_func_start JT_Command_F4_10_JumpIfLevel
-JT_Command_F4_10_JumpIfLevel:
+_ts JT_Command_F4_10_JumpIfLevel
     push       { lr }
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
@@ -1601,10 +1498,8 @@ LAB_0801401e:
     add        r4,#0x6
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F4_10_JumpIfLevel
 
-thumb_func_start JT_Command_F4_14_JumpIfBustRank
-JT_Command_F4_14_JumpIfBustRank:
+_ts JT_Command_F4_14_JumpIfBustRank
     push       { lr }
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
@@ -1635,10 +1530,8 @@ LAB_08014056:
     add        r4,#0x6
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F4_14_JumpIfBustRank
 
-thumb_func_start JT_Command_F4_18_JumpIfLibrary
-JT_Command_F4_18_JumpIfLibrary:
+_ts JT_Command_F4_18_JumpIfLibrary
     push       { lr }
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
@@ -1670,24 +1563,20 @@ LAB_08014092:
     add        r4,#0x6
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F4_18_JumpIfLibrary
 
-thumb_func_start JT_Layout_F4_JumpConditional
-JT_Layout_F4_JumpConditional:
+_ts JT_Layout_F4_JumpConditional
     ldr        r0,=INT_ARRAY_080140a8
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     add        r4,r4,r0
     mov        pc,lr
-thumb_func_end JT_Layout_F4_JumpConditional
 
     .align 2, 0
     .pool
 INT_ARRAY_080140a8:
     .word 6, 6, 5, 6, 6, 6, 6
 
-thumb_func_start JT_Command_F5_InputControl
-JT_Command_F5_InputControl:
+_ts JT_Command_F5_InputControl
     push       { lr }
     ldrb       r0,[r4,#0x1]
     tst        r0,r0
@@ -1704,16 +1593,12 @@ LAB_080140da:
     add        r4,#0x2
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F5_InputControl
 
-thumb_func_start JT_Layout_F5_InputControl
-JT_Layout_F5_InputControl:
+_ts JT_Layout_F5_InputControl
     add        r4,#0x2
     mov        pc,lr
-thumb_func_end JT_Layout_F5_InputControl
 
-thumb_func_start JT_Command_F6_JumpTextBlock
-JT_Command_F6_JumpTextBlock:
+_ts JT_Command_F6_JumpTextBlock
     push       { lr }
     ldrb       r0,[r4,#0x1]
     tst        r0,r0
@@ -1752,19 +1637,15 @@ LAB_08014122:
 LAB_08014124:
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F6_JumpTextBlock
 
-thumb_func_start JT_Layout_F6_JumpTextBlock
-JT_Layout_F6_JumpTextBlock:
+_ts JT_Layout_F6_JumpTextBlock
     ldrb       r0,[r4,#0x1]
     add        r0,#0x3
     add        r4,r4,r0
     mov        pc,lr
-thumb_func_end JT_Layout_F6_JumpTextBlock
 
 @ Handle general item commands
-thumb_func_start JT_Command_F7_ItemControl
-JT_Command_F7_ItemControl:
+_ts JT_Command_F7_ItemControl
     push       { lr }
     @ If following byte is >= 0x10, go to chip control instead
     ldrb       r0,[r4,#0x1]
@@ -1855,10 +1736,8 @@ JT_Command_F7_ItemControl:
     add        r4,#0x7
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F7_ItemControl
 
-thumb_func_start JT_Layout_F7_ItemControl
-JT_Layout_F7_ItemControl:
+_ts JT_Layout_F7_ItemControl
     push       { lr }
     ldrb       r0,[r4,#0x1]
     mov        r1,#0x10
@@ -1871,15 +1750,13 @@ JT_Layout_F7_ItemControl:
     ldrb       r0,[r1,r0]
     add        r4,r4,r0
     pop        { pc }
-thumb_func_end JT_Layout_F7_ItemControl
 
     .align 2, 0
     .pool
 DAT_080141ec:
     .byte 7, 7, 4, 7, 7, 0
 
-thumb_func_start JT_Command_F8_PasscodeControl
-JT_Command_F8_PasscodeControl:
+_ts JT_Command_F8_PasscodeControl
     push       { lr }
     ldr        r0,=funcListPasscodeControl
     ldrb       r1,[r4,#0x1]
@@ -1887,7 +1764,6 @@ JT_Command_F8_PasscodeControl:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end JT_Command_F8_PasscodeControl
 
     .align 2, 0
     .pool
@@ -1898,8 +1774,7 @@ funcListPasscodeControl:
     .word       JT_Command_F8_0C_PasscodeHide
     .word       JT_Command_F8_10_PasscodeShift
 
-thumb_func_start JT_Command_F8_00_PasscodeInit
-JT_Command_F8_00_PasscodeInit:
+_ts JT_Command_F8_00_PasscodeInit
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -1943,10 +1818,8 @@ LAB_08014266:
     add        r4,#0x4
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F8_00_PasscodeInit
 
-thumb_func_start JT_Command_F8_04_PasscodePick
-JT_Command_F8_04_PasscodePick:
+_ts JT_Command_F8_04_PasscodePick
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -1978,10 +1851,8 @@ LAB_080142ac:
 LAB_080142b2:
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_F8_04_PasscodePick
 
-thumb_func_start JT_Command_F8_08_PasscodeCheck
-JT_Command_F8_08_PasscodeCheck:
+_ts JT_Command_F8_08_PasscodeCheck
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -2006,16 +1877,12 @@ LAB_080142e2:
     add        r4,#0x9
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F8_08_PasscodeCheck
 
-thumb_func_start FUN_080142e8
-FUN_080142e8:
+_ts FUN_080142e8
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end FUN_080142e8
 
-thumb_func_start JT_Command_F8_10_PasscodeShift
-JT_Command_F8_10_PasscodeShift:
+_ts JT_Command_F8_10_PasscodeShift
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -2045,32 +1912,25 @@ LAB_08014322:
     add        r4,#0x6
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F8_10_PasscodeShift
 
-thumb_func_start FUN_08014328
-FUN_08014328:
+_ts FUN_08014328
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end FUN_08014328
 
-thumb_func_start JT_Command_F8_0C_PasscodeHide
-JT_Command_F8_0C_PasscodeHide:
+_ts JT_Command_F8_0C_PasscodeHide
     push       { lr }
     mov        r0,#0x20
     bl         Text_DisableScriptOption
     add        r4,#0x2
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F8_0C_PasscodeHide
 
-thumb_func_start JT_Layout_F8_PasscodeControl
-JT_Layout_F8_PasscodeControl:
+_ts JT_Layout_F8_PasscodeControl
     ldr        r0,=INT_ARRAY_0801434c
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     add        r4,r4,r0
     mov        pc,lr
-thumb_func_end JT_Layout_F8_PasscodeControl
 
     .align 2, 0
     .pool
@@ -2078,8 +1938,7 @@ INT_ARRAY_0801434c:
     .word 4, 6, 9, 2, 6
 
 @ Handle chip bag actions
-thumb_func_start JT_Command_F7_ChipControl
-JT_Command_F7_ChipControl:
+_ts JT_Command_F7_ChipControl
     sub        r0,#0x10
     cmp        r0,#0x0
     beq        .checkGiveChip
@@ -2191,10 +2050,8 @@ LAB_0801442a:
     add        r4,#0x8
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_F7_ChipControl
 
-thumb_func_start JT_Layout_F7_1X_ChipControl
-JT_Layout_F7_1X_ChipControl:
+_ts JT_Layout_F7_1X_ChipControl
     sub        r0,#0x10
     ldrb       r0,[r4,#0x1]
     sub        r0,#0x10
@@ -2202,31 +2059,25 @@ JT_Layout_F7_1X_ChipControl:
     ldrb       r0,[r1,r0]
     add        r4,r4,r0
     pop        { pc }
-thumb_func_end JT_Layout_F7_1X_ChipControl
 
     .align 2, 0
     .pool
 DAT_08014444:
     .byte 8, 8, 5, 8, 8, 8
 
-thumb_func_start JT_Command_F9_TextPalette
-JT_Command_F9_TextPalette:
+_ts JT_Command_F9_TextPalette
     ldrb       r0,[r4,#0x1]
     strb       r0,[r5,#0x13]
     add        r4,#0x2
     mov        r0,#0x1
     mov        pc,lr
-thumb_func_end JT_Command_F9_TextPalette
 
 
-thumb_func_start JT_Layout_F9_TextPalette
-JT_Layout_F9_TextPalette:
+_ts JT_Layout_F9_TextPalette
     add        r4,#0x2
     mov        pc,lr
-thumb_func_end JT_Layout_F9_TextPalette
 
-thumb_func_start JT_Command_FA_PlayerAnimControl
-JT_Command_FA_PlayerAnimControl:
+_ts JT_Command_FA_PlayerAnimControl
     push       { lr }
     ldr        r0,=funcListPlayerAnimControl
     ldrb       r1,[r4,#0x1]
@@ -2234,7 +2085,6 @@ JT_Command_FA_PlayerAnimControl:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end JT_Command_FA_PlayerAnimControl
 
     .align 2, 0
     .pool
@@ -2245,8 +2095,7 @@ funcListPlayerAnimControl:
     .word      JT_Command_FA_0C_WaitForPlayerAnim
     .word      JT_Command_FA_10_RestorePlayerAnim
 
-thumb_func_start JT_Command_FA_00_PlayerAnimLock
-JT_Command_FA_00_PlayerAnimLock:
+_ts JT_Command_FA_00_PlayerAnimLock
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -2273,11 +2122,9 @@ LAB_080144a0:
 LAB_080144b6:
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_FA_00_PlayerAnimLock
 
 
-thumb_func_start JT_Command_FA_04_PlayerAnimSet
-JT_Command_FA_04_PlayerAnimSet:
+_ts JT_Command_FA_04_PlayerAnimSet
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -2299,10 +2146,8 @@ LAB_080144dc:
     add        r4,#0x3
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_FA_04_PlayerAnimSet
 
-thumb_func_start JT_Command_FA_08_PlayerAnimUnlock
-JT_Command_FA_08_PlayerAnimUnlock:
+_ts JT_Command_FA_08_PlayerAnimUnlock
     push       { lr }
     push       { r4, r5 }
     bl         PlayerAnimation_Unlock
@@ -2310,10 +2155,8 @@ JT_Command_FA_08_PlayerAnimUnlock:
     add        r4,#0x2
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FA_08_PlayerAnimUnlock
 
-thumb_func_start JT_Command_FA_0C_WaitForPlayerAnim
-JT_Command_FA_0C_WaitForPlayerAnim:
+_ts JT_Command_FA_0C_WaitForPlayerAnim
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -2332,10 +2175,8 @@ LAB_08014518:
     add        r4,#0x2
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FA_0C_WaitForPlayerAnim
 
-thumb_func_start JT_Command_FA_10_RestorePlayerAnim
-JT_Command_FA_10_RestorePlayerAnim:
+_ts JT_Command_FA_10_RestorePlayerAnim
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -2355,24 +2196,20 @@ LAB_0801453c:
     add        r4,#0x2
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_FA_10_RestorePlayerAnim
 
-thumb_func_start JT_Layout_FA_PlayerAnimControl
-JT_Layout_FA_PlayerAnimControl:
+_ts JT_Layout_FA_PlayerAnimControl
     ldr        r0,=INT_ARRAY_08014558
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     add        r4,r4,r0
     mov        pc,lr
-thumb_func_end JT_Layout_FA_PlayerAnimControl
 
     .align 2, 0
     .pool
 INT_ARRAY_08014558:
     .word 2, 3, 2, 2, 2
 
-thumb_func_start JT_Command_FB_PrintControl
-JT_Command_FB_PrintControl:
+_ts JT_Command_FB_PrintControl
     push       { lr }
     ldr        r0,=funcListPrintControl
     ldrb       r1,[r4,#0x1]
@@ -2380,7 +2217,6 @@ JT_Command_FB_PrintControl:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end JT_Command_FB_PrintControl
 
     .align 2, 0
     .pool
@@ -2390,8 +2226,7 @@ funcListPrintControl:
     .word      JT_Command_FB_08_PrintChipAmount
     .word      JT_Command_FB_0C_PrintZennyBuffer
 
-thumb_func_start JT_Command_FB_00_PrintItemName
-JT_Command_FB_00_PrintItemName:
+_ts JT_Command_FB_00_PrintItemName
     push       { lr }
     ldrb       r0,[r5,#0x5]
     add        r0,#0x1
@@ -2437,7 +2272,6 @@ LAB_080145ac:
     add        r4,r0,#0x0
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FB_00_PrintItemName
     
     .align  2, 0
     .pool
@@ -2446,8 +2280,7 @@ PTR_textDict_Item_Names_080145f0:
     .word textDict_BattleChip_Names
     .word textDict_BattleChip_Codes
 
-thumb_func_start JT_Command_FB_04_PrintItemAmount
-JT_Command_FB_04_PrintItemAmount:
+_ts JT_Command_FB_04_PrintItemAmount
     push       { lr }
     ldrb       r0,[r5,#0x5]
     add        r0,#0x1
@@ -2468,10 +2301,8 @@ JT_Command_FB_04_PrintItemAmount:
     add        r4,r0,#0x0
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FB_04_PrintItemAmount
 
-thumb_func_start JT_Command_FB_08_PrintChipAmount
-JT_Command_FB_08_PrintChipAmount:
+_ts JT_Command_FB_08_PrintChipAmount
     push       { lr }
     ldrb       r0,[r5,#0x5]
     add        r0,#0x1
@@ -2493,10 +2324,8 @@ JT_Command_FB_08_PrintChipAmount:
     add        r4,r0,#0x0
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FB_08_PrintChipAmount
 
-thumb_func_start JT_Command_FB_0C_PrintZennyBuffer
-JT_Command_FB_0C_PrintZennyBuffer:
+_ts JT_Command_FB_0C_PrintZennyBuffer
     push       { lr }
     ldrb       r0,[r5,#0x5]
     add        r0,#0x1
@@ -2526,10 +2355,8 @@ LAB_08014676:
     add        r4,r0,#0x0
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FB_0C_PrintZennyBuffer
 
-thumb_func_start JT_Layout_FB_PrintControl
-JT_Layout_FB_PrintControl:
+_ts JT_Layout_FB_PrintControl
     push       { lr }
     ldr        r0,=funcListLayoutPrintControl
     ldrb       r1,[r4,#0x1]
@@ -2537,7 +2364,6 @@ JT_Layout_FB_PrintControl:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end JT_Layout_FB_PrintControl
 
     .align 2, 0
     .pool
@@ -2547,8 +2373,7 @@ funcListLayoutPrintControl:
     .word       JT_Layout_FB_XX_PrintMisc
     .word       JT_Layout_FB_XX_PrintMisc
 
-thumb_func_start JT_Layout_FB_00_PrintItemName
-JT_Layout_FB_00_PrintItemName:
+_ts JT_Layout_FB_00_PrintItemName
     push       { r3, lr }
     ldrb       r0,[r5,#0x6]
     add        r0,#0x1
@@ -2566,14 +2391,12 @@ JT_Layout_FB_00_PrintItemName:
     str        r4,[r5,#0x44]
     add        r4,r0,#0x0
     pop        { r3, pc }
-thumb_func_end JT_Layout_FB_00_PrintItemName
 
     .align 2, 0
 PTR_gTextBufferList_080146d8:
     .word       gTextBufferList
 
-thumb_func_start JT_Layout_FB_XX_PrintMisc
-JT_Layout_FB_XX_PrintMisc:
+_ts JT_Layout_FB_XX_PrintMisc
     ldrb       r0,[r5,#0x6]
     add        r0,#0x1
     strb       r0,[r5,#0x6]
@@ -2587,15 +2410,13 @@ JT_Layout_FB_XX_PrintMisc:
     str        r4,[r5,#0x44]
     add        r4,r0,#0x0
     mov        pc,lr
-thumb_func_end JT_Layout_FB_XX_PrintMisc
 
     .align 2, 0
     .pool
 DAT_080146fc:
     .byte 0xFF, 4, 5, 4
 
-thumb_func_start JT_Command_FC_SongControl
-JT_Command_FC_SongControl:
+_ts JT_Command_FC_SongControl
     push       { lr }
     ldr        r0,=funcListSongControl
     ldrb       r1,[r4,#0x1]
@@ -2603,7 +2424,6 @@ JT_Command_FC_SongControl:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end JT_Command_FC_SongControl
 
     .align 2, 0
     .pool
@@ -2615,8 +2435,7 @@ funcListSongControl:
     .word       JT_Command_FC_04_StopMusic
     .word       JT_Command_FC_05_SongFadeOut
 
-thumb_func_start JT_Command_FC_00_PlaySoundEffect
-JT_Command_FC_00_PlaySoundEffect:
+_ts JT_Command_FC_00_PlaySoundEffect
     push       { lr }
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
@@ -2626,10 +2445,8 @@ JT_Command_FC_00_PlaySoundEffect:
     add        r4,#0x4
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FC_00_PlaySoundEffect
 
-thumb_func_start JT_Command_FC_01_ChangeSong
-JT_Command_FC_01_ChangeSong:
+_ts JT_Command_FC_01_ChangeSong
     push       { lr }
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
@@ -2639,39 +2456,31 @@ JT_Command_FC_01_ChangeSong:
     add        r4,#0x4
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FC_01_ChangeSong
 
-thumb_func_start JT_Command_FC_02_DialogSoundOn
-JT_Command_FC_02_DialogSoundOn:
+_ts JT_Command_FC_02_DialogSoundOn
     push       { lr }
     mov        r0,#0x80
     bl         Text_DisableScriptOption
     add        r4,#0x2
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FC_02_DialogSoundOn
 
-thumb_func_start JT_Command_FC_03_DialogSoundOff
-JT_Command_FC_03_DialogSoundOff:
+_ts JT_Command_FC_03_DialogSoundOff
     push       { lr }
     mov        r0,#0x80
     bl         Text_EnableScriptOption
     add        r4,#0x2
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FC_03_DialogSoundOff
 
-thumb_func_start JT_Command_FC_04_StopMusic
-JT_Command_FC_04_StopMusic:
+_ts JT_Command_FC_04_StopMusic
     push       { lr }
     bl         Sound_StopAllMusic
     add        r4,#0x2
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FC_04_StopMusic
 
-thumb_func_start JT_Command_FC_05_SongFadeOut
-JT_Command_FC_05_SongFadeOut:
+_ts JT_Command_FC_05_SongFadeOut
     push       { lr }
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
@@ -2679,24 +2488,20 @@ JT_Command_FC_05_SongFadeOut:
     add        r4,#0x4
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FC_05_SongFadeOut
 
-thumb_func_start JT_Layout_FC_SongControl
-JT_Layout_FC_SongControl:
+_ts JT_Layout_FC_SongControl
     ldr        r0,=INT_ARRAY_080147a0
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     add        r4,r4,r0
     mov        pc,lr
-thumb_func_end JT_Layout_FC_SongControl
 
     .align 2, 0
     .pool
 INT_ARRAY_080147a0:
     .word 4, 4, 2, 2, 2, 4
 
-thumb_func_start JT_Command_FD_MiscControl
-JT_Command_FD_MiscControl:
+_ts JT_Command_FD_MiscControl
     push       { lr }
     ldr        r0,=funcListMiscControl
     ldrb       r1,[r4,#0x1]
@@ -2704,7 +2509,6 @@ JT_Command_FD_MiscControl:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end JT_Command_FD_MiscControl
 
     .align 2, 0
     .pool
@@ -2717,8 +2521,7 @@ funcListMiscControl:
     .word       JT_Command_FD_14_StartChipTrader
     .word       JT_Command_FD_18_StartVirusMachineBattle
 
-thumb_func_start JT_Command_FD_00_AwardZenny
-JT_Command_FD_00_AwardZenny:
+_ts JT_Command_FD_00_AwardZenny
     push       { lr }
     push       { r4, r5 }
     mov        r0,#0x85
@@ -2770,10 +2573,8 @@ LAB_08014844:
     add        r4,#0x6
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FD_00_AwardZenny
 
-thumb_func_start JT_Command_FD_04_AwardChip
-JT_Command_FD_04_AwardChip:
+_ts JT_Command_FD_04_AwardChip
     push       { lr }
     push       { r4, r5 }
     mov        r0,#0x85
@@ -2818,10 +2619,8 @@ LAB_080148a2:
     add        r4,#0x6
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FD_04_AwardChip
 
-thumb_func_start JT_Command_FD_08_StartBattle
-JT_Command_FD_08_StartBattle:
+_ts JT_Command_FD_08_StartBattle
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -2849,10 +2648,8 @@ LAB_080148c0:
 LAB_080148ea:
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_FD_08_StartBattle
 
-thumb_func_start JT_Command_FD_0C_StartShop
-JT_Command_FD_0C_StartShop:
+_ts JT_Command_FD_0C_StartShop
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -2870,10 +2667,8 @@ LAB_08014900:
 LAB_0801490e:
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_FD_0C_StartShop
 
-thumb_func_start JT_Command_FD_10_StartMiniBoss
-JT_Command_FD_10_StartMiniBoss:
+_ts JT_Command_FD_10_StartMiniBoss
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -2915,14 +2710,12 @@ LAB_08014942:
 LAB_0801496a:
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_FD_10_StartMiniBoss
 
     .align 2, 0
 PTR_PTR_EnemySpawn_08014970:
     .word       PTR_EnemySpawn_08014cf8
 
-thumb_func_start JT_Command_FD_14_StartChipTrader
-JT_Command_FD_14_StartChipTrader:
+_ts JT_Command_FD_14_StartChipTrader
     push       { lr }
     ldrb       r0,[r5,#0x4]
     cmp        r0,#0x0
@@ -2968,10 +2761,8 @@ LAB_080149ba:
 LAB_080149c8:
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_FD_14_StartChipTrader
 
-thumb_func_start JT_Command_FD_18_StartVirusMachineBattle
-JT_Command_FD_18_StartVirusMachineBattle:
+_ts JT_Command_FD_18_StartVirusMachineBattle
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -3016,7 +2807,6 @@ LAB_080149dc:
 LAB_08014a30:
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end JT_Command_FD_18_StartVirusMachineBattle
 
     .align 2, 0
 PTR_BYTE_ARRAY_08014a34:
@@ -3057,8 +2847,7 @@ AreaIdPack_ARRAY_08014a44:
     .byte Area_WWW_Comp, 4
     .byte Area_WWW_Comp, 5
 
-thumb_func_start JT_Layout_FD_MiscControl
-JT_Layout_FD_MiscControl:
+_ts JT_Layout_FD_MiscControl
     push       { lr }
     ldr        r0,=funcListLayoutMiscControl
     ldrb       r1,[r4,#0x1]
@@ -3066,7 +2855,6 @@ JT_Layout_FD_MiscControl:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end JT_Layout_FD_MiscControl
 
     .align 2, 0
     .pool
@@ -3079,58 +2867,43 @@ funcListLayoutMiscControl:
     .word       JT_Layout_FD_14_StartChipTrader
     .word       JT_Layout_FD_18_StartVirusMachineBattle
 
-thumb_func_start JT_Layout_FD_00_AwardZenny
-JT_Layout_FD_00_AwardZenny:
+_ts JT_Layout_FD_00_AwardZenny
     ldrb       r0,[r4,#0x2]
     add        r0,#0x1
     lsl        r0,r0,#0x2
     add        r4,r4,r0
     add        r4,#0x6
     mov        pc,lr
-thumb_func_end JT_Layout_FD_00_AwardZenny
 
-thumb_func_start JT_Layout_FD_04_AwardChip
-JT_Layout_FD_04_AwardChip:
+_ts JT_Layout_FD_04_AwardChip
     ldrb       r0,[r4,#0x2]
     add        r0,#0x1
     lsl        r0,r0,#0x1
     add        r4,r4,r0
     add        r4,#0x6
     mov        pc,lr
-thumb_func_end JT_Layout_FD_04_AwardChip
 
-thumb_func_start JT_Layout_FD_08_StartBattle
-JT_Layout_FD_08_StartBattle:
+_ts JT_Layout_FD_08_StartBattle
     add        r4,#0x2
     mov        pc,lr
-thumb_func_end JT_Layout_FD_08_StartBattle
 
-thumb_func_start JT_Layout_FD_0C_StartShop
-JT_Layout_FD_0C_StartShop:
+_ts JT_Layout_FD_0C_StartShop
     add        r4,#0x3
     mov        pc,lr
-thumb_func_end JT_Layout_FD_0C_StartShop
 
-thumb_func_start JT_Layout_FD_10_StartMiniBoss
-JT_Layout_FD_10_StartMiniBoss:
+_ts JT_Layout_FD_10_StartMiniBoss
     add        r4,#0x8
     mov        pc,lr
-thumb_func_end JT_Layout_FD_10_StartMiniBoss
 
-thumb_func_start JT_Layout_FD_14_StartChipTrader
-JT_Layout_FD_14_StartChipTrader:
+_ts JT_Layout_FD_14_StartChipTrader
     add        r4,#0x4
     mov        pc,lr
-thumb_func_end JT_Layout_FD_14_StartChipTrader
 
-thumb_func_start JT_Layout_FD_18_StartVirusMachineBattle
-JT_Layout_FD_18_StartVirusMachineBattle:
+_ts JT_Layout_FD_18_StartVirusMachineBattle
     add        r4,#0x2
     mov        pc,lr
-thumb_func_end JT_Layout_FD_18_StartVirusMachineBattle
 
-thumb_func_start JT_Command_FE_Save
-JT_Command_FE_Save:
+_ts JT_Command_FE_Save
     push       { lr }
     mov        r7,r10
     ldr        r6,[r7,#0x8]
@@ -3166,16 +2939,12 @@ LAB_08014b18:
     add        r4,#0x3
     mov        r0,#0x1
     pop        { pc }
-thumb_func_end JT_Command_FE_Save
 
-thumb_func_start JT_Layout_FE_Save
-JT_Layout_FE_Save:
+_ts JT_Layout_FE_Save
     add        r4,#0x3
     mov        pc,lr
-thumb_func_end JT_Layout_FE_Save
 
-thumb_func_start Text_LoadOptionSelectArrow
-Text_LoadOptionSelectArrow:
+_ts Text_LoadOptionSelectArrow
     push       { lr }
     ldrb       r0,[r5,#0x1e]
     ldr        r1,PTR_PTR_tilesetArrowVert0_08014cd
@@ -3213,7 +2982,6 @@ Text_LoadOptionSelectArrow:
 LAB_08014b6a:
     strb       r0,[r5,#0x1e]
     pop        { pc }
-thumb_func_end Text_LoadOptionSelectArrow
 
     .align 2, 0
 PTR_tilesetArrowVert0_08014b70:
@@ -3243,8 +3011,7 @@ LayoutEntry_08014bc0:
     .byte 0xC3, 0xF2
     .byte 0xC4, 0xF2
 
-thumb_func_start Text_LoadDialoguePromptArrow
-Text_LoadDialoguePromptArrow:
+_ts Text_LoadDialoguePromptArrow
     push       { lr }
     mov        r0,#0x10
     bl         Text_CheckScriptOption
@@ -3275,7 +3042,6 @@ LAB_08014c00:
     strb       r0,[r5,#0x1f]
 LAB_08014c02:
     pop        { pc }
-thumb_func_end Text_LoadDialoguePromptArrow
 
     .align 2, 0
 tileArrowAnimArray:
@@ -3305,8 +3071,7 @@ LayoutEntry_ARRAY_08014c54:
     .byte 0xC7, 0xF2
     .byte 0xC8, 0xF2
 
-thumb_func_start Text_WriteNumberToBcdBuffer
-Text_WriteNumberToBcdBuffer:
+_ts Text_WriteNumberToBcdBuffer
     push       { r4, r5, lr }
     push       { r1, r2 }
     bl         ConvertNumToBCD
@@ -3382,7 +3147,6 @@ LAB_08014cce:
     mov        r7,#0x0
     strb       r7,[r2,#0x2]
     pop        { r4, r5, pc }
-thumb_func_end Text_WriteNumberToBcdBuffer
 
     .align 2, 0
 PTR_PTR_tilesetArrowVert0_08014cd:  .word PTR_tilesetArrowVert0_08014b70

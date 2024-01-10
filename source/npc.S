@@ -9,8 +9,7 @@
 listHandlerNpc:
     .word 0x08081d94 + 1 @ NPC_Handler
 
-thumb_func_start NPC_Alloc
-NPC_Alloc:
+_ts NPC_Alloc
     push       { r0, r1, r2, r3, r4, lr }
     ldr        r0,PTR_gBitsetNPC_08003c68
     ldr        r2,[r0,#0x0]
@@ -48,10 +47,8 @@ LAB_08003b32:
 LAB_08003b5a:
     mov        r5,#0x0
     pop        { r0, r1, r2, r3, r4, pc }
-thumb_func_end NPC_Alloc
 
-thumb_func_start NPC_Free
-NPC_Free:
+_ts NPC_Free
     push       { lr }
     ldr        r0,DAT_08003c6c
     ldrb       r1,[r5,#0x3]
@@ -64,10 +61,8 @@ NPC_Free:
     strb       r1,[r5,#0x0]
     bl         SpritePtr_AffineFree
     pop        { pc }
-thumb_func_end NPC_Free
 
-thumb_func_start NPC_UpdateAll
-NPC_UpdateAll:
+_ts NPC_UpdateAll
     push       { lr }
     mov        r0,#0x4
     bl         Flag_Get400
@@ -108,10 +103,8 @@ LAB_08003bbc:
     mov        r0,#0x0
     str        r0,[r7,#0x70]
     pop        { pc }
-thumb_func_end NPC_UpdateAll
 
-thumb_func_start NPC_Init
-NPC_Init:
+_ts NPC_Init
     push       { lr }
     ldr        r0,PTR_gFillValue_08003c8c
     ldr        r1,PTR_gEntityListNpc_08003c90
@@ -136,10 +129,8 @@ LAB_08003be4:
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end NPC_Init
 
-thumb_func_start NPC_LoadAll
-NPC_LoadAll:
+_ts NPC_LoadAll
     push       { lr }
     mov        r0,#0x10
     mov        r1,#0x0
@@ -181,10 +172,8 @@ LAB_08003c44:
     cmp        r1,r0
     blt        LAB_08003c04
     pop        { pc }
-thumb_func_end NPC_LoadAll
 
-thumb_func_start NPC_UnloadAll
-NPC_UnloadAll:
+_ts NPC_UnloadAll
     mov        r0,#0x0
     ldr        r5,PTR_gEntityListNpc_08003cac
 LAB_08003c54:
@@ -197,7 +186,6 @@ LAB_08003c54:
     cmp        r0,#0x10
     blt        LAB_08003c54
     mov        pc,lr
-thumb_func_end NPC_UnloadAll
 
     .align 2, 0
 PTR_gBitsetNPC_08003c68:                .word gBitsetNPC

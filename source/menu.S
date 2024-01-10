@@ -9,17 +9,14 @@
 
     .thumb
 
-thumb_func_start InitMenu_0
-InitMenu_0:
+_ts InitMenu_0
     mov        r0,#0x0
     b          InitMenu
 
-non_word_aligned_thumb_func_start InitMenu_1
-InitMenu_1:
+_nt InitMenu_1
     mov        r0,#0x1
 
-non_word_aligned_thumb_func_start InitMenu
-InitMenu:
+_nt InitMenu
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x74]
@@ -45,12 +42,8 @@ InitMenu:
     bl         InitBgAnimation
     pop        { r5 }
     pop        { pc }
-thumb_func_end InitMenu
-thumb_func_end InitMenu_1
-thumb_func_end InitMenu_0
 
-thumb_func_start Menu_Main
-Menu_Main:
+_ts Menu_Main
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x74]
@@ -60,7 +53,6 @@ Menu_Main:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end Menu_Main
 
     .align 2, 0
 PTR_JT_R5_74_19820_0801981c:

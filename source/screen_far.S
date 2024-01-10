@@ -35,7 +35,6 @@ LAB_03006992:
     cmp        r4,#0x0
     bgt        LAB_03006988
     mov        pc,lr
-thumb_func_end Screen_SafeCopyTileMapH
 
 
 @@ Copies a list of tilemap entries to the screen buffer in a vertical line.
@@ -68,7 +67,6 @@ LAB_030069ba:
     cmp        r4,#0x0
     bgt        LAB_030069b0
     mov        pc,lr
-thumb_func_end Screen_SafeCopyTileMapV
 
 
 @@ Copies a list of tilemap entries to the screen buffer in a rectangle.
@@ -111,7 +109,6 @@ LAB_030069ec:
     cmp        r1,r5
     blt        LAB_030069d4
     mov        pc,lr
-thumb_func_end Screen_SafeCopyTileMapRect
 
     .align 2, 0
 

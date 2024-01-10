@@ -6,8 +6,7 @@
 
     .thumb
 
-thumb_func_start BgUpdate_Set
-BgUpdate_Set:
+_ts BgUpdate_Set
     push       { lr }
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cbc
     str        r0,[r5,#0x0]
@@ -16,10 +15,8 @@ BgUpdate_Set:
     ldr        r0,PTR_interruptVector_hblank_08001cc0
     str        r2,[r0,#0x0]
     pop        { pc }
-thumb_func_end BgUpdate_Set
 
-thumb_func_start BgUpdate_Init
-BgUpdate_Init:
+_ts BgUpdate_Init
     push       { lr }
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cc4
     ldr        r0,PTR_dummy_1cb8_1_08001cc8
@@ -30,30 +27,24 @@ BgUpdate_Init:
     str        r1,[r0,#0x0]
     str        r1,[r5,#0x4]
     pop        { pc }
-thumb_func_end BgUpdate_Init
 
-thumb_func_start BgUpdate_CallPostLoopFunction
-BgUpdate_CallPostLoopFunction:
+_ts BgUpdate_CallPostLoopFunction
     push       { lr }
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cd4
     ldr        r0,[r5,#0x0]
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end BgUpdate_CallPostLoopFunction
 
-thumb_func_start BgUpdate_CallPreLoopFunction
-BgUpdate_CallPreLoopFunction:
+_ts BgUpdate_CallPreLoopFunction
     push       { lr }
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cd8
     ldr        r0,[r5,#0x8]
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end BgUpdate_CallPreLoopFunction
 
-thumb_func_start FUN_08001bf4
-FUN_08001bf4:
+_ts FUN_08001bf4
     push       { lr }
     mov        r1,#0x0
 LAB_08001bf8:
@@ -82,10 +73,8 @@ LAB_08001bf8:
     strh       r2,[r0,#0x0]
     strh       r2,[r1,#0x0]
     pop        { pc }
-thumb_func_end FUN_08001bf4
 
-thumb_func_start FUN_08001c30
-FUN_08001c30:
+_ts FUN_08001c30
     mov        r0,#0x0
     ldr        r1,PTR_tempBg1Hofs_08001cec
     ldr        r2,PTR_tempBg1Vofs_08001cf0
@@ -98,15 +87,11 @@ LAB_08001c36:
     cmp        r0,#0x20
     blt        LAB_08001c36
     mov        pc,lr
-thumb_func_end FUN_08001c30
 
-thumb_func_start dummy_1c48
-dummy_1c48:
+_ts dummy_1c48
     mov        pc,lr
-thumb_func_end dummy_1c48
 
-thumb_func_start BgUpdate_MoveUpLeft
-BgUpdate_MoveUpLeft:
+_ts BgUpdate_MoveUpLeft
     ldr        r1,PTR_tempBg1Hofs_08001cf4
     ldr        r2,[r1,#0x0]
     sub        r2,#0x8
@@ -122,10 +107,8 @@ BgUpdate_MoveUpLeft:
     strh       r2,[r7,#0x10]
     strh       r3,[r7,#0x12]
     mov        pc,lr
-thumb_func_end BgUpdate_MoveUpLeft
 
-thumb_func_start BgUpdate_MoveUp
-BgUpdate_MoveUp:
+_ts BgUpdate_MoveUp
     ldr        r1,PTR_tempBg1Vofs_08001cfc
     ldr        r3,[r1,#0x0]
     sub        r3,#0x4
@@ -135,10 +118,8 @@ BgUpdate_MoveUp:
     ldr        r7,[r7,#0x10]
     strh       r3,[r7,#0x12]
     mov        pc,lr
-thumb_func_end BgUpdate_MoveUp
 
-thumb_func_start BgUpdate_MoveLeft
-BgUpdate_MoveLeft:
+_ts BgUpdate_MoveLeft
     ldr        r1,PTR_tempBg1Hofs_08001d00
     ldr        r2,[r1,#0x0]
     sub        r2,#0x8
@@ -148,10 +129,8 @@ BgUpdate_MoveLeft:
     ldr        r7,[r7,#0x10]
     strh       r2,[r7,#0x10]
     mov        pc,lr
-thumb_func_end BgUpdate_MoveLeft
 
-thumb_func_start BgUpdate_MoveRight
-BgUpdate_MoveRight:
+_ts BgUpdate_MoveRight
     ldr        r1,PTR_tempBg1Hofs_08001d04
     ldr        r2,[r1,#0x0]
     add        r2,#0x8
@@ -161,10 +140,8 @@ BgUpdate_MoveRight:
     ldr        r7,[r7,#0x10]
     strh       r2,[r7,#0x10]
     mov        pc,lr
-thumb_func_end BgUpdate_MoveRight
 
-thumb_func_start BgUpdate_MoveLeftSlow
-BgUpdate_MoveLeftSlow:
+_ts BgUpdate_MoveLeftSlow
     ldr        r1,PTR_tempBg1Hofs_08001d08
     ldr        r2,[r1,#0x0]
     sub        r2,#0x2
@@ -173,12 +150,9 @@ BgUpdate_MoveLeftSlow:
     ldr        r7,[r7,#0x10]
     strh       r2,[r7,#0x10]
     mov        pc,lr
-thumb_func_end BgUpdate_MoveLeftSlow
 
-thumb_func_start dummy_1cb8
-dummy_1cb8:
+_ts dummy_1cb8
     mov        pc,lr
-thumb_func_end dummy_1cb8
 
         .align 2, 0
 

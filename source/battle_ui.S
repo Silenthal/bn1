@@ -11,8 +11,7 @@
 
     .text
 
-thumb_func_start BattleUi_Init
-BattleUi_Init:
+_ts BattleUi_Init
     push       { lr }
     mov        r5,r10
     ldr        r5,[r5,#0x1c]
@@ -26,10 +25,8 @@ BattleUi_Init:
     bl         Dma_TransferListAdd
     pop        { r5 }
     pop        { pc }
-thumb_func_end BattleUi_Init
 
-thumb_func_start BattleUi_Update
-BattleUi_Update:
+_ts BattleUi_Update
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x1c]
@@ -47,10 +44,8 @@ BattleUi_Update:
     bl         BattleUi_CheckDrawCustomGauge
     bl         CheckDrawActiveChip
     pop        { pc }
-thumb_func_end BattleUi_Update
 
-thumb_func_start BattleUi_SetState
-BattleUi_SetState:
+_ts BattleUi_SetState
     push       { r1, r2, lr }
     mov        r2,r10
     ldr        r2,[r2,#0x1c]
@@ -58,10 +53,8 @@ BattleUi_SetState:
     orr        r1,r0
     strb       r1,[r2,#0x4]
     pop        { r1, r2, pc }
-thumb_func_end BattleUi_SetState
 
-thumb_func_start BattleUi_ClearState
-BattleUi_ClearState:
+_ts BattleUi_ClearState
     push       { r1, r2, lr }
     mov        r2,r10
     ldr        r2,[r2,#0x1c]
@@ -69,20 +62,16 @@ BattleUi_ClearState:
     bic        r1,r0
     strb       r1,[r2,#0x4]
     pop        { r1, r2, pc }
-thumb_func_end BattleUi_ClearState
 
-thumb_func_start BattleUi_CheckState
-BattleUi_CheckState:
+_ts BattleUi_CheckState
     push       { r1, r2, lr }
     mov        r2,r10
     ldr        r2,[r2,#0x1c]
     ldrb       r1,[r2,#0x4]
     and        r0,r1
     pop        { r1, r2, pc }
-thumb_func_end BattleUi_CheckState
 
-thumb_func_start BattleUi_CheckDrawPlayerHp
-BattleUi_CheckDrawPlayerHp:
+_ts BattleUi_CheckDrawPlayerHp
     push       { lr }
     mov        r3,r10
     ldr        r3,[r3,#0xc]
@@ -136,10 +125,8 @@ LAB_080154a0:
     pop        { r3 }
 LAB_080154aa:
     pop        { pc }
-thumb_func_end BattleUi_CheckDrawPlayerHp
 
-thumb_func_start DrawPlayerHp
-DrawPlayerHp:
+_ts DrawPlayerHp
     push       { r5, lr }
     bl         LoadHpTilemap
     mov        r2,#0xa0
@@ -207,10 +194,8 @@ LAB_08015502:
     mov        r5,#0x2
     bl         Screen_CopyTileMapRect
     pop        { r5, pc }
-thumb_func_end DrawPlayerHp
 
-thumb_func_start LoadHpTilemap
-LoadHpTilemap:
+_ts LoadHpTilemap
     push       { r5, lr }
     mov        r0,#0x0
     mov        r1,#0x0
@@ -220,7 +205,6 @@ LoadHpTilemap:
     mov        r5,#0x2
     bl         Screen_CopyTileMapRect
     pop        { r5, pc }
-thumb_func_end LoadHpTilemap
 
 TilemapEntry_ARRAY_08015548:
     tilemap_entry 0x219, 0, 0xA
@@ -236,8 +220,7 @@ TilemapEntry_ARRAY_08015548:
     tilemap_entry 0x218, 0, 0xA
     tilemap_entry 0x21A, 1, 0xA
 
-thumb_func_start BattleUi_InitHpDisplay
-BattleUi_InitHpDisplay:
+_ts BattleUi_InitHpDisplay
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x1c]
@@ -250,10 +233,8 @@ BattleUi_InitHpDisplay:
     strh       r1,[r5,#0x8]
     strh       r1,[r5,#0xa]
     pop        { pc }
-thumb_func_end BattleUi_InitHpDisplay
 
-thumb_func_start BattleUi_ClearHpDisplay
-BattleUi_ClearHpDisplay:
+_ts BattleUi_ClearHpDisplay
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x1c]
@@ -267,10 +248,8 @@ BattleUi_ClearHpDisplay:
     mov        r5,#0x0
     bl         Screen_SetTileMapRect
     pop        { pc }
-thumb_func_end BattleUi_ClearHpDisplay
 
-thumb_func_start BattleUi_WriteBcdToBuffer
-BattleUi_WriteBcdToBuffer:
+_ts BattleUi_WriteBcdToBuffer
     push       { r5, lr }
     cmp        r0,#0x0
     beq        LAB_080155d4
@@ -309,7 +288,6 @@ LAB_080155d4:
     strb       r4,[r1,#0x0]
     mov        r7,#0x1
     pop        { r5, pc }
-thumb_func_end BattleUi_WriteBcdToBuffer
 num1000:
     .word 0x3E8
 INT_080155e0:
@@ -343,8 +321,7 @@ PTR_TilemapEntry_ARRAY_08015618:
 PTR_num1000_0801561c:
     .word num1000
 
-thumb_func_start BattleUi_CheckDrawCustomGauge
-BattleUi_CheckDrawCustomGauge:
+_ts BattleUi_CheckDrawCustomGauge
     push       { r5, lr }
     mov        r0,#0x40
     bl         BattleUi_CheckState
@@ -353,10 +330,8 @@ BattleUi_CheckDrawCustomGauge:
     bl         DrawCustomGauge
 LAB_08015630:
     pop        { r5, pc }
-thumb_func_end BattleUi_CheckDrawCustomGauge
 
-thumb_func_start BattleUi_DrawFullCustomGauge
-BattleUi_DrawFullCustomGauge:
+_ts BattleUi_DrawFullCustomGauge
     push       { lr }
     mov        r5,r10
     ldr        r5,[r5,#0x1c]
@@ -368,10 +343,8 @@ BattleUi_DrawFullCustomGauge:
     bl         dummy_15678
     bl         BattleUi_LoadCustomMapTileMap
     pop        { pc }
-thumb_func_end BattleUi_DrawFullCustomGauge
 
-thumb_func_start BattleUi_LoadCustomGaugeTileMap
-BattleUi_LoadCustomGaugeTileMap:
+_ts BattleUi_LoadCustomGaugeTileMap
     push       { lr }
     mov        r5,r10
     ldr        r5,[r5,#0x1c]
@@ -387,16 +360,12 @@ BattleUi_LoadCustomGaugeTileMap:
     mov        r0,#0x40
     bl         BattleUi_ClearState
     pop        { pc }
-thumb_func_end BattleUi_LoadCustomGaugeTileMap
 
-thumb_func_start dummy_15678
-dummy_15678:
+_ts dummy_15678
     push       { r5, lr }
     pop        { r5, pc }
-thumb_func_end dummy_15678
 
-thumb_func_start DrawCustomGauge
-DrawCustomGauge:
+_ts DrawCustomGauge
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0xc]
@@ -469,7 +438,6 @@ LAB_080156e2:
     pop        { r5 }
 LAB_08015700:
     pop        { pc }
-thumb_func_end DrawCustomGauge
     .align 2, 0
 tilemapCustomGaugeFullOrange:
     tilemap_entry 0x22B, 0x0, 0xA
@@ -508,8 +476,7 @@ tilemapCustomGaugeFullWhite:
     tilemap_entry 0x223, 0x0, 0xA
 
 
-thumb_func_start BattleUi_LoadCustomMapTileMap
-BattleUi_LoadCustomMapTileMap:
+_ts BattleUi_LoadCustomMapTileMap
     push       { lr }
     push       { r5 }
     mov        r0,#0x6
@@ -521,7 +488,6 @@ BattleUi_LoadCustomMapTileMap:
     bl         Screen_CopyTileMapRect
     pop        { r5 }
     pop        { pc }
-thumb_func_end BattleUi_LoadCustomMapTileMap
 
 TilemapEntry_ARRAY_0801575c:
     tilemap_entry 0x229, 0x0, 0xA
@@ -572,8 +538,7 @@ PTR_tilemapCustomGaugeFullWhite_080157b0:
 PTR_TilemapEntry_ARRAY_080157b4:
     .word TilemapEntry_ARRAY_0801575c
 
-thumb_func_start CheckDrawActiveChip
-CheckDrawActiveChip:
+_ts CheckDrawActiveChip
     push       { lr }
     mov        r0,#0x20
     bl         BattleUi_CheckState
@@ -604,10 +569,8 @@ CheckDrawActiveChip:
     pop        { pc }
 LAB_080157fc:
     pop        { pc }
-thumb_func_end CheckDrawActiveChip
 
-thumb_func_start BattleUi_DrawActiveChip
-BattleUi_DrawActiveChip:
+_ts BattleUi_DrawActiveChip
     push       { lr }
     mov        r5,r10
     ldr        r5,[r5,#0x1c]
@@ -616,10 +579,8 @@ BattleUi_DrawActiveChip:
     bl         BattleUi_SetState
     bl         BattleUi_LoadActiveChipName
     pop        { pc }
-thumb_func_end BattleUi_DrawActiveChip
 
-thumb_func_start BattleUi_ClearActiveChip
-BattleUi_ClearActiveChip:
+_ts BattleUi_ClearActiveChip
     push       { lr }
     mov        r5,r10
     ldr        r5,[r5,#0x1c]
@@ -627,10 +588,8 @@ BattleUi_ClearActiveChip:
     mov        r0,#0x20
     bl         BattleUi_ClearState
     pop        { pc }
-thumb_func_end BattleUi_ClearActiveChip
 
-thumb_func_start BattleUi_InitActiveChipTileMap
-BattleUi_InitActiveChipTileMap:
+_ts BattleUi_InitActiveChipTileMap
     push       { r5, lr }
     mov        r0,#0x1
     mov        r1,#0x12
@@ -640,10 +599,8 @@ BattleUi_InitActiveChipTileMap:
     mov        r5,#0x0
     bl         Screen_SetTileMapRect
     pop        { r5, pc }
-thumb_func_end BattleUi_InitActiveChipTileMap
 
-thumb_func_start WriteActiveChipName
-WriteActiveChipName:
+_ts WriteActiveChipName
     push       { r5, lr }
     add        r1,r0,#0x0
     ldr        r0,PTR_textDict_BattleChip_Names_080158d4
@@ -655,10 +612,8 @@ WriteActiveChipName:
     mov        r7,#0x0
     bl         Text_CopyCharTileUI
     pop        { r5, pc }
-thumb_func_end WriteActiveChipName
 
-thumb_func_start BattleUi_LoadActiveChipName
-BattleUi_LoadActiveChipName:
+_ts BattleUi_LoadActiveChipName
     push       { r5, lr }
     mov        r0,#0x1
     mov        r1,#0x12
@@ -668,7 +623,6 @@ BattleUi_LoadActiveChipName:
     mov        r5,#0x2
     bl         Screen_CopyTileMapRect
     pop        { r5, pc }
-thumb_func_end BattleUi_LoadActiveChipName
 
 tilemapActiveChipName:
     tilemap_entry 0x250, 0x0, 0x9
@@ -688,8 +642,7 @@ tilemapActiveChipName:
     tilemap_entry 0x25D, 0x0, 0x9
     tilemap_entry 0x25F, 0x0, 0x9
 
-thumb_func_start BattleUi_LoadActiveChipDamageTileMap
-BattleUi_LoadActiveChipDamageTileMap:
+_ts BattleUi_LoadActiveChipDamageTileMap
     push       { r5, lr }
     push       { r0 }
     add        r0,r1,#0x0
@@ -725,7 +678,6 @@ LAB_080158a8:
     mov        r5,#0x2
     bl         Screen_CopyTileMapRect
     pop        { r5, pc }
-thumb_func_end BattleUi_LoadActiveChipDamageTileMap
 
 PTR_textDict_BattleChip_Names_080158d4:
     .word textDict_BattleChip_Names

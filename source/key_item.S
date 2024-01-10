@@ -7,8 +7,7 @@
 
     .thumb
 
-thumb_func_start InitKeyItem
-InitKeyItem:
+_ts InitKeyItem
     push       { lr }
     ldr        r0,PTR_gKeyItemInventory_08018c80
     mov        r1,#0x60
@@ -17,10 +16,8 @@ InitKeyItem:
     mov        r1,#0x1
     bl         KeyItem_AddAmount
     pop        { pc }
-thumb_func_end InitKeyItem
 
-thumb_func_start KeyItem_AddAmount
-KeyItem_AddAmount:
+_ts KeyItem_AddAmount
     ldr        r2,PTR_gKeyItemInventory_08018c84
     ldrb       r3,[r2,r0]
     cmp        r3,#0xff
@@ -42,8 +39,7 @@ LAB_08018c38:
     strb       r3,[r2,r0]
     mov        r0,#0x2
 
-non_word_aligned_thumb_func_start KeyItem_HpMemoryRecalculate
-KeyItem_HpMemoryRecalculate:
+_nt KeyItem_HpMemoryRecalculate
     add        r2,#0x40
     ldrb       r2,[r2,#0x0]
     mov        r3,#0x14
@@ -56,18 +52,13 @@ KeyItem_HpMemoryRecalculate:
     strh       r2,[r3,#0x1e]
     strh       r2,[r3,#0x1c]
     mov        pc,lr
-thumb_func_end KeyItem_HpMemoryRecalculate
-thumb_func_end KeyItem_AddAmount
 
-thumb_func_start KeyItem_SetAmount
-KeyItem_SetAmount:
+_ts KeyItem_SetAmount
     ldr        r2,PTR_gKeyItemInventory_08018c88
     strb       r1,[r2,r0]
     b          KeyItem_HpMemoryRecalculate
-thumb_func_end KeyItem_SetAmount
 
-thumb_func_start KeyItem_SubtractAmount
-KeyItem_SubtractAmount:
+_ts KeyItem_SubtractAmount
     ldr        r2,PTR_gKeyItemInventory_08018c8c
     ldrb       r3,[r2,r0]
     cmp        r3,#0x0
@@ -84,15 +75,12 @@ LAB_08018c70:
 LAB_08018c74:
     mov        r0,#0x2
     mov        pc,lr
-thumb_func_end KeyItem_SubtractAmount
 
-thumb_func_start KeyItem_IsPresent
-KeyItem_IsPresent:
+_ts KeyItem_IsPresent
     ldr        r1,PTR_gKeyItemInventory_08018c90
     ldrb       r0,[r1,r0]
     tst        r0,r0
     mov        pc,lr
-thumb_func_end KeyItem_IsPresent
 
 PTR_gKeyItemInventory_08018c80:
     .word gKeyItemInventory

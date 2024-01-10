@@ -10,8 +10,7 @@
 @@ r1: The amount of zenny, or the chip ID
 @@ r2: The chip code
 @ Enemy_GetDrop(byte enemyId, byte bustingLevel)
-non_word_aligned_thumb_func_start Enemy_GetDrop
-Enemy_GetDrop:
+_nt Enemy_GetDrop
     push       { lr }
     push       { r1 }
     bl         Enemy_GetEnemyDetail
@@ -62,7 +61,6 @@ LAB_0807d84c:
     mov        r0,#0x1
 LAB_0807d852:
     pop        { pc }
-thumb_func_end Enemy_GetDrop
 PTR_arrayBustingLevelToRollChance_0807d854:
     .word arrayBustingLevelToRollChance
 

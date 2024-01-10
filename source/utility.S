@@ -8,87 +8,68 @@
 
 .set Attack_SharpStrike_Create, 0x80719ac
 
-thumb_func_start memset0_16
-memset0_16:
+_ts memset0_16
     mov        r2,#0x0
 1:  sub        r1,#0x2
     strh       r2,[r0,r1]
     bne        1b
     mov        pc,lr
-thumb_func_end memset0_16
 
-thumb_func_start memset0_32
-memset0_32:
+_ts memset0_32
     mov        r2,#0x0
 1:  sub        r1,#0x4
     str        r2,[r0,r1]
     bne        1b
     mov        pc,lr
-thumb_func_end memset0_32
 
-thumb_func_start memcpy_16
-memcpy_16:
+_ts memcpy_16
 1:  sub        r2,#0x2
     ldrh       r3,[r0,r2]
     strh       r3,[r1,r2]
     bne        1b
     mov        pc,lr
-thumb_func_end memcpy_16
 
-thumb_func_start memset_16
-memset_16:
+_ts memset_16
 1:  sub        r1,#0x2
     strh       r2,[r0,r1]
     bne        1b
     mov        pc,lr
-thumb_func_end memset_16
 
-thumb_func_start memset_32
-memset_32:
+_ts memset_32
 1:  sub        r1,#0x4
     str        r2,[r0,r1]
     bne        1b
     mov        pc,lr
-thumb_func_end memset_32
 
-thumb_func_start memcpy_8
-memcpy_8:
+_ts memcpy_8
 1:  sub        r2,#0x1
     ldrb       r3,[r0,r2]
     strb       r3,[r1,r2]
     bne        1b
     mov        pc,lr
-thumb_func_end memcpy_8
 
-non_word_aligned_thumb_func_start memset
-memset:
+_nt memset
 1:  sub        r1,#0x1
     strb       r2,[r0,r1]
     bne        1b
     mov        pc,lr
-thumb_func_end memset
 
-thumb_func_start GetVcountPlusVal
-GetVcountPlusVal:
+_ts GetVcountPlusVal
     ldr        r0,PTR_REG_VCOUNT_08000c90
     ldrh       r0,[r0,#0x0]
     ldr        r1,PTR_DAT_08000c94
     ldr        r1,[r1,#0x0]
     add        r0,r0,r1
     mov        pc,lr
-thumb_func_end GetVcountPlusVal
 
-thumb_func_start memcpy_32
-memcpy_32:
+_ts memcpy_32
 1:  sub        r2,#0x4
     ldr        r3,[r0,r2]
     str        r3,[r1,r2]
     bne        1b
     mov        pc,lr
-thumb_func_end memcpy_32
 
-non_word_aligned_thumb_func_start Divide
-Divide:
+_nt Divide
     mov        r2,#0x0
     ldr        r3,DAT_08000c98
     mov        r4,#0x20
@@ -110,10 +91,8 @@ LAB_08000aac:
     lsr        r2,r2,#0x1
     add        r1,r2,#0x0
     mov        pc,lr
-thumb_func_end Divide
 
-thumb_func_start ConvertNumToBCD
-ConvertNumToBCD:
+_ts ConvertNumToBCD
     ldr        r1,DAT_08000b0c
     cmp        r0,r1
     bmi        LAB_08000ac6
@@ -140,7 +119,6 @@ LAB_08000adc:
     bne        LAB_08000acc
     add        r0,r2,#0x0
     mov        pc,lr
-thumb_func_end ConvertNumToBCD
 
     .align 2, 0
 powersOf10:
@@ -157,8 +135,7 @@ PTR_powersOf10_08000b08:    .word powersOf10
 DAT_08000b0c:               .word 0x05F5E0FF
 DAT_08000b10:               .word 0x99999999
 
-thumb_func_start GetWidthOfBcdNumber
-GetWidthOfBcdNumber:
+_ts GetWidthOfBcdNumber
     push       { lr }
     mov        r1,#0x1
     tst        r0,r0
@@ -173,15 +150,13 @@ LAB_08000b1e:
 LAB_08000b28:
     add        r0,r1,#0x0
     pop        { pc }
-thumb_func_end GetWidthOfBcdNumber
 
 @@ Shuffles a given array by randomly exchanging elements.
 @@ In:
 @@ r0: array
 @@ r1: arraySz
 @@ r2: shuffleCount
-thumb_func_start ArrayShuffle
-ArrayShuffle:
+_ts ArrayShuffle
     push       { r5, lr }
 .loop:
     push       { r0, r2 }
@@ -207,10 +182,8 @@ ArrayShuffle:
     sub        r2,#0x1
     bne        .loop
     pop        { r5, pc }
-thumb_func_end ArrayShuffle
 
-thumb_func_start GetRandomElementOfArray
-GetRandomElementOfArray:
+_ts GetRandomElementOfArray
     push       { lr }
     add        r7,r0,#0x0
     push       { r1, r7 }
@@ -219,10 +192,8 @@ GetRandomElementOfArray:
     bl         SWI_Div
     ldrb       r0,[r7,r1]
     pop        { pc }
-thumb_func_end GetRandomElementOfArray
 
-thumb_func_start ArraySort
-ArraySort:
+_ts ArraySort
     push       { lr }
     cmp        r1,#0x2
     bmi        LAB_08000b9c
@@ -246,12 +217,10 @@ LAB_08000b8e:
     bmi        LAB_08000b80
 LAB_08000b9c:
     pop        { pc }
-thumb_func_end ArraySort
 
 @@ Converts an input value which represents 1/60ths of a second to the same
 @@ value in the format hh:MM:ss.ff
-non_word_aligned_thumb_func_start FrameTimeToBcdRealTime
-FrameTimeToBcdRealTime:
+_nt FrameTimeToBcdRealTime
     push       { lr }
     @ return early if a time greater than 100 hours is passed
     ldr        r1,=21600000
@@ -290,7 +259,6 @@ FrameTimeToBcdRealTime:
     pop        { r2 }
     orr        r0,r2
     pop        { pc }
-thumb_func_end FrameTimeToBcdRealTime
 
     .align 2, 0
 timeConsts:
@@ -306,8 +274,7 @@ ptrTimeConsts:  .word timeConsts
     .pool
 
 @@ Increments a timer, capping it at 99 hours and 59 minutes
-thumb_func_start IncrementGameTimer
-IncrementGameTimer:
+_ts IncrementGameTimer
     LoadStateTo r7, Main_gameStats
     ldr        r0,[r7,#0x18]
     add        r0,#0x1
@@ -320,13 +287,11 @@ IncrementGameTimer:
 .setTime:
     str        r0,[r7,#0x18]
     mov        pc,lr
-thumb_func_end IncrementGameTimer
 
     .align 2, 0
     .pool
 
-thumb_func_start FUN_08000c24
-FUN_08000c24:
+_ts FUN_08000c24
     mov        r7,r10
     ldr        r7,[r7,#0x78]
     ldr        r2,=999
@@ -345,13 +310,11 @@ LAB_08000c34:
 LAB_08000c40:
     strh       r1,[r7,#0x14]
     mov        pc,lr
-thumb_func_end FUN_08000c24
 
     .align 2, 0
     .pool
 
-thumb_func_start FUN_08000c48
-FUN_08000c48:
+_ts FUN_08000c48
     push       { lr }
     sub        sp,#0x8
     ldr        r1,=216000
@@ -370,13 +333,11 @@ FUN_08000c48:
     ldr        r2,[sp,#0x4]
     add        sp,#0x8
     pop        { pc }
-thumb_func_end FUN_08000c48
 
     .align 2, 0
     .pool
 
-thumb_func_start FUN_08000c80
-FUN_08000c80:
+_ts FUN_08000c80
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x78]
@@ -384,7 +345,6 @@ FUN_08000c80:
     strb       r0,[r7,#0x1]
     strb       r0,[r7,#0x3]
     pop        { pc }
-thumb_func_end FUN_08000c80
 
     .align 2, 0
 PTR_REG_VCOUNT_08000c90:    .word REG_VCOUNT
@@ -397,8 +357,7 @@ DAT_08000c98:               .word 0x80000000
 @@ In:
 @@ r0: dy: The Y coordinate of the vector.
 @@ r1: dx: The X coordinate of the vector.
-thumb_func_start VectorToAngle
-VectorToAngle:
+_ts VectorToAngle
     push       {lr}
     mov        r2,r10
     push       {r2}
@@ -464,7 +423,6 @@ LAB_08000cf8:
 LAB_08000d0c:
     mov        r0,#0x40
     b          LAB_08000cf8
-thumb_func_end VectorToAngle
 
 PTR_SHORT_ARRAY_08000d10:   .word tanTable
 PTR_DAT_08000d14:           .word DAT_08000d1a
@@ -472,8 +430,7 @@ DAT_08000d18:               .short 0x100
 DAT_08000d1a:               .byte 0x0, 0x40, 0xC0, 0x80
 
 
-thumb_func_start ActorFacingPlayerAngle
-ActorFacingPlayerAngle:
+_ts ActorFacingPlayerAngle
     push       {r5,lr}
     push       {r0}
     ldr        r0,[r5,#0x2c]
@@ -491,11 +448,9 @@ ActorFacingPlayerAngle:
     lsl        r0,r0,#0x18
     asr        r0,r0,#0x18
     pop        {r5,pc}
-thumb_func_end ActorFacingPlayerAngle
 
 
-thumb_func_start AngleToOffset
-AngleToOffset:
+_ts AngleToOffset
     lsl        r0,r0,#0x1
     ldr        r2,PTR_sinTable_08000d5c
     ldrsh      r3,[r2,r0]
@@ -507,15 +462,13 @@ AngleToOffset:
     mul        r2,r1
     asr        r1,r2,#0x8
     mov        pc,lr
-thumb_func_end AngleToOffset
 
     .align 2, 0
 PTR_sinTable_08000d5c: .word sinTable
 PTR_cosTable_08000d60: .word cosTable
 
 
-non_word_aligned_thumb_func_start UpdateSpriteFrameIndex
-UpdateSpriteFrameIndex:
+_nt UpdateSpriteFrameIndex
     push       {lr}
     ldrb       r0,[r5,#0x14]
     ldrb       r1,[r5,#0x15]
@@ -527,11 +480,9 @@ UpdateSpriteFrameIndex:
 LAB_08000d78:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
-thumb_func_end UpdateSpriteFrameIndex
 
 
-non_word_aligned_thumb_func_start FUN_08000d7e
-FUN_08000d7e:
+_nt FUN_08000d7e
     sub        r0,r0,r2
     add        r0,r0,r4
     lsl        r2,r4,#0x1
@@ -546,11 +497,9 @@ FUN_08000d7e:
 LAB_08000d94:
     mov        r0,#0x0
     mov        pc,lr
-thumb_func_end FUN_08000d7e
 
 
-non_word_aligned_thumb_func_start IsDistanceClose
-IsDistanceClose:
+_nt IsDistanceClose
     sub        r0,r0,r2
     sub        r1,r1,r3
     add        r2,r4,#0x0
@@ -567,11 +516,9 @@ IsDistanceClose:
 LAB_08000db2:
     mov        r0,#0x0
     mov        pc,lr
-thumb_func_end IsDistanceClose
 
 
-non_word_aligned_thumb_func_start IsCloseToPlayer
-IsCloseToPlayer:
+_nt IsCloseToPlayer
     push       {lr}
     ldr        r0,[r5,#0x28]
     asr        r0,r0,#0xc
@@ -586,6 +533,5 @@ IsCloseToPlayer:
     asr        r3,r3,#0xc
     bl         IsDistanceClose
     pop        {pc}
-thumb_func_end IsCloseToPlayer
 
     .end

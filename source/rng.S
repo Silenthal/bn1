@@ -7,18 +7,15 @@
 
 @@ Initializes the RNG.
 @ void Rng_Init(void)
-thumb_func_start Rng_Init
-Rng_Init:
+_ts Rng_Init
     ldr        r0,rngInitSeed
     ldr        r7,eRngState_0
     str        r0,[r7,#0x0]
     mov        pc,lr
-thumb_func_end Rng_Init
 
 @@ Returns a random unsigned int.
 @ uint Rng_RandomUint(void)
-thumb_func_start Rng_RandomUint
-Rng_RandomUint:
+_ts Rng_RandomUint
     ldr        r7,eRngState_1
     ldr        r0,[r7,#0x0]
     ldr        r1,rngConstant
@@ -29,12 +26,10 @@ Rng_RandomUint:
     eor        r0,r1
     str        r0,[r7,#0x0]
     mov        pc,lr
-thumb_func_end Rng_RandomUint
 
 @@ Returns a random int.
 @ int Rng_RandomInt(void)
-thumb_func_start Rng_RandomInt
-Rng_RandomInt:
+_ts Rng_RandomInt
     ldr        r7,eRngState_2
     ldr        r0,[r7,#0x0]
     ldr        r1,rngConstant
@@ -46,7 +41,6 @@ Rng_RandomInt:
     str        r0,[r7,#0x0]
     lsr        r0,r0,#0x1
     mov        pc,lr
-thumb_func_end Rng_RandomInt
 
     .align 2, 0
 

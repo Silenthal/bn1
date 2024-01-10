@@ -5,8 +5,7 @@
     .text
 
 
-thumb_func_start FieldObject_Init
-FieldObject_Init:
+_ts FieldObject_Init
     mov        r0,#0x0
     ldr        r7,PTR_gBitsetFieldObject_08002c7c
     str        r0,[r7,#0x0]
@@ -20,15 +19,13 @@ LAB_08002c6a:
     cmp        r3,#0x20
     bmi        LAB_08002c6a
     mov        pc,lr
-thumb_func_end FieldObject_Init
 PTR_gListFieldObject_08002c78:
     .word gListFieldObject
 PTR_gBitsetFieldObject_08002c7c:
     .word gBitsetFieldObject
 
 
-thumb_func_start FieldObject_Alloc
-FieldObject_Alloc:
+_ts FieldObject_Alloc
     ldr        r7,PTR_gBitsetFieldObject_08002ccc
     ldr        r6,[r7,#0x0]
     mov        r1,#0x1
@@ -70,15 +67,13 @@ LAB_08002cae:
     strb       r2,[r0,#0x7]
 LAB_08002cc6:
     mov        pc,lr
-thumb_func_end FieldObject_Alloc
 PTR_FieldObject_ARRAY_08002cc8:
     .word gListFieldObject
 PTR_gBitsetFieldObject_08002ccc:
     .word gBitsetFieldObject
 
 
-thumb_func_start FieldObject_Free
-FieldObject_Free:
+_ts FieldObject_Free
     ldr        r7,PTR_gBitsetFieldObject_08002ce8
     ldr        r2,[r7,#0x0]
     ldrb       r3,[r0,#0x1]
@@ -91,13 +86,11 @@ FieldObject_Free:
     mov        r3,#0x0
     strb       r3,[r0,#0x0]
     mov        pc,lr
-thumb_func_end FieldObject_Free
 PTR_gBitsetFieldObject_08002ce8:
     .word gBitsetFieldObject
 
 
-thumb_func_start FieldObject_CalcDamage
-FieldObject_CalcDamage:
+_ts FieldObject_CalcDamage
     push       {lr}
     sub        sp,#0x3c
     str        r6,[sp,#0x34]
@@ -219,15 +212,13 @@ LAB_08002d9e:
     ldr        r6,[r6,#0x2c]
     add        sp,#0x3c
     pop        {pc}
-thumb_func_end FieldObject_CalcDamage
 PTR_gBitsetFieldObject_0800.bytec:
     .word gBitsetFieldObject
 PTR_gListFieldObject_08002dc0:
     .word gListFieldObject
 
 
-thumb_func_start FieldObject_UpdateField
-FieldObject_UpdateField:
+_ts FieldObject_UpdateField
     mov        r8,r0
     mov        r3,#0x28
     ldr        r6,PTR_gAreaProperties_08002e5c
@@ -296,7 +287,6 @@ LAB_08002e3a:
     lsr        r0,r0,#0x1
     bne        LAB_08002de4
     mov        pc,lr
-thumb_func_end FieldObject_UpdateField
 USHORT_ARRAY_08002e42:
     .short 0xFF70, 0xFF80, 0xFF90
     .short 0xFFF0,    0x0, 0x10
@@ -308,8 +298,7 @@ PTR_gBitsetFieldObject_08002e60:    .word gBitsetFieldObject
 PTR_gListFieldObject_08002e64:      .word gListFieldObject
 
 
-thumb_func_start Field_IsClose_LeftUpBoundary
-Field_IsClose_LeftUpBoundary:
+_ts Field_IsClose_LeftUpBoundary
     add        r0,#0x1
     sub        r0,r0,r2
     cmp        r0,#0x2
@@ -324,11 +313,9 @@ LAB_08002e7c:
     mov        r0,#0x0
 LAB_08002e7e:
     mov        pc,lr
-thumb_func_end Field_IsClose_LeftUpBoundary
 
 
-thumb_func_start Field_GetPanelFlags
-Field_GetPanelFlags:
+_ts Field_GetPanelFlags
     ldr        r6,PTR_gPanelStatuses_08002e8c
     lsl        r0,r0,#0x4
     lsl        r1,r1,#0x7
@@ -336,23 +323,19 @@ Field_GetPanelFlags:
     add        r0,r0,r1
     ldr        r0,[r6,r0]
     mov        pc,lr
-thumb_func_end Field_GetPanelFlags
 PTR_gPanelStatuses_08002e8c:    .word gPanelStatuses
 
 
-thumb_func_start FieldObject_GetIdFlag
-FieldObject_GetIdFlag:
+_ts FieldObject_GetIdFlag
     mov        r2,#0x80
     lsl        r2,r2,#0x18
     ldrb       r1,[r0,#0x1]
     lsr        r2,r1
     add        r0,r2,#0x0
     mov        pc,lr
-thumb_func_end FieldObject_GetIdFlag
 
 
-thumb_func_start Field_CalcDamageDealt
-Field_CalcDamageDealt:
+_ts Field_CalcDamageDealt
     mov        r8,r5
     ldr        r5,PTR_dmgMultNone_08002ee8
     add        r5,r5,r0
@@ -377,7 +360,6 @@ Field_CalcDamageDealt:
     add        r0,r0,r1
     mov        r5,r8
     mov        pc,lr
-thumb_func_end Field_CalcDamageDealt
 dmgMultNone:
     .byte 0x10, 0x10, 0x10, 0x10, 0x10
 dmgMultElec:
@@ -393,8 +375,7 @@ dmgMultWood:
 PTR_dmgMultNone_08002ee8:   .word dmgMultNone
 
 
-thumb_func_start Field_CalcDamageTaken
-Field_CalcDamageTaken:
+_ts Field_CalcDamageTaken
     mov        r8,r5
     ldr        r5,PTR_dmgEffectNone_08002f4c
     add        r5,r5,r0
@@ -435,7 +416,6 @@ LAB_08002f2c:
     add        r0,r0,r7
     mov        r5,r8
     mov        pc,lr
-thumb_func_end Field_CalcDamageTaken
 dmgEffectNone:
 .byte 0, 1, 1, 1, 1
 dmgEffectElec:
@@ -451,8 +431,7 @@ dmgEffectWood:
 PTR_dmgEffectNone_08002f4c: .word dmgEffectNone
 
 
-thumb_func_start Field_AddHp
-Field_AddHp:
+_ts Field_AddHp
     ldrh       r1,[r5,#0x20]
     tst        r1,r1
     beq        LAB_08002f62
@@ -465,11 +444,9 @@ LAB_08002f60:
     strh       r1,[r5,#0x20]
 LAB_08002f62:
     mov        pc,lr
-thumb_func_end Field_AddHp
 
 
-thumb_func_start Field_SubtractHP
-Field_SubtractHP:
+_ts Field_SubtractHP
     ldrh       r1,[r5,#0x20]
     sub        r1,r1,r0
     bpl        LAB_08002f6c
@@ -477,11 +454,9 @@ Field_SubtractHP:
 LAB_08002f6c:
     strh       r1,[r5,#0x20]
     mov        pc,lr
-thumb_func_end Field_SubtractHP
 
 
-thumb_func_start Field_InitializeAreaProperties
-Field_InitializeAreaProperties:
+_ts Field_InitializeAreaProperties
     ldr        r6,PTR_areaPropertiesLeftPlayer_08002fec
     mov        r7,r10
     ldr        r7,[r7,#0x8]
@@ -504,7 +479,6 @@ LAB_08002f8c:
     cmp        r0,#0x28
     bne        LAB_08002f8c
     mov        pc,lr
-thumb_func_end Field_InitializeAreaProperties
 areaPropertiesLeftPlayer:
 .byte 0, 0, 0, 0, 0, 0, 0, 0
 .byte 0, 1, 1, 1, 3, 3, 3, 0
@@ -525,51 +499,42 @@ PTR_areaPropertiesRightPlayer_08002ff0: .word areaPropertiesRightPlayer
 
 
 @@ Marks the field object as being able to deal damage
-non_word_aligned_thumb_func_start FieldObject_SetDamageFlag
-FieldObject_SetDamageFlag:
+_nt FieldObject_SetDamageFlag
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x2
     orr        r1,r2
     strb       r1,[r0,#0x0]
     mov        pc,lr
-thumb_func_end FieldObject_SetDamageFlag
 
 
 @@ Marks the field object so that it can't deal damage
-non_word_aligned_thumb_func_start FieldObject_ClearDamageFlag
-FieldObject_ClearDamageFlag:
+_nt FieldObject_ClearDamageFlag
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x2
     bic        r1,r2
     strb       r1,[r0,#0x0]
     mov        pc,lr
-thumb_func_end FieldObject_ClearDamageFlag
 
 
-non_word_aligned_thumb_func_start FieldObject_SetHitFlag
-FieldObject_SetHitFlag:
+_nt FieldObject_SetHitFlag
     ldr        r1,[r0,#0xc]
     mov        r2,#0x20
     lsl        r2,r2,#0x4
     orr        r1,r2
     str        r1,[r0,#0xc]
     mov        pc,lr
-thumb_func_end FieldObject_SetHitFlag
 
 
-non_word_aligned_thumb_func_start FieldObject_ClearHitFlag
-FieldObject_ClearHitFlag:
+_nt FieldObject_ClearHitFlag
     ldr        r1,[r0,#0xc]
     mov        r2,#0x20
     lsl        r2,r2,#0x4
     bic        r1,r2
     str        r1,[r0,#0xc]
     mov        pc,lr
-thumb_func_end FieldObject_ClearHitFlag
 
 
-thumb_func_start FieldObject_ClearHitAndDamageFlag
-FieldObject_ClearHitAndDamageFlag:
+_ts FieldObject_ClearHitAndDamageFlag
     push       {lr}
     ldr        r1,[r0,#0xc]
     mov        r2,#0x20
@@ -581,81 +546,66 @@ FieldObject_ClearHitAndDamageFlag:
     bl         FieldObject_ClearDamageFlag
 LAB_08003034:
     pop        {pc}
-thumb_func_end FieldObject_ClearHitAndDamageFlag
 
 
-non_word_aligned_thumb_func_start Field_SetPanelProperty
-Field_SetPanelProperty:
+_nt Field_SetPanelProperty
     ldr        r7,PTR_gAreaProperties_08003040
     lsl        r1,r1,#0x3
     add        r0,r0,r1
     strb       r2,[r7,r0]
     mov        pc,lr
-thumb_func_end Field_SetPanelProperty
 PTR_gAreaProperties_08003040:   .word gAreaProperties
 
     
-thumb_func_start Field_GetPanelProperty
-Field_GetPanelProperty:
+_ts Field_GetPanelProperty
     ldr        r7,PTR_gAreaProperties_08003050
     lsl        r1,r1,#0x3
     add        r0,r0,r1
     ldrb       r2,[r7,r0]
     mov        pc,lr
-thumb_func_end Field_GetPanelProperty
 .align 2, 0
 PTR_gAreaProperties_08003050:   .word gAreaProperties
 
 
-thumb_func_start FieldObject_UpdateCellPosition
-FieldObject_UpdateCellPosition:
+_ts FieldObject_UpdateCellPosition
     ldrh       r1,[r0,#0x2]
     strh       r1,[r0,#0x4]
     ldrh       r1,[r5,#0x18]
     strh       r1,[r0,#0x2]
     mov        pc,lr
-thumb_func_end FieldObject_UpdateCellPosition
 
 
 @@ Clear the "new object" flag from the field object. The next time the damage
 @@ function is run, the object's previous cell position will also be checked
 @@ in case it moves.
-non_word_aligned_thumb_func_start FieldObject_MarkAsChecked
-FieldObject_MarkAsChecked:
+_nt FieldObject_MarkAsChecked
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x4
     bic        r1,r2
     strb       r1,[r0,#0x0]
     mov        pc,lr
-thumb_func_end FieldObject_MarkAsChecked
 
 
-non_word_aligned_thumb_func_start FieldObject_SetPanelFlag
-FieldObject_SetPanelFlag:
+_nt FieldObject_SetPanelFlag
     ldr        r2,[r0,#0xc]
     orr        r2,r1
     str        r2,[r0,#0xc]
     mov        pc,lr
-thumb_func_end FieldObject_SetPanelFlag
 
 
-non_word_aligned_thumb_func_start FieldObject_ClearPanelFlag
-FieldObject_ClearPanelFlag:
+_nt FieldObject_ClearPanelFlag
     ldr        r2,[r0,#0xc]
     bic        r2,r1
     str        r2,[r0,#0xc]
     mov        pc,lr
-thumb_func_end FieldObject_ClearPanelFlag
 
 
-non_word_aligned_thumb_func_start FieldObject_MarkAsBigSquare
-FieldObject_MarkAsBigSquare:
+_nt FieldObject_MarkAsBigSquare
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x8
     orr        r1,r2
     strb       r1,[r0,#0x0]
     mov        pc,lr
-thumb_func_end FieldObject_MarkAsBigSquare
     .align 2, 0
 
 .end

@@ -12,19 +12,16 @@
     .thumb
 
 @ Not used - main menu is intialized elsewhere
-thumb_func_start InitMainMenu_2
-InitMainMenu_2:
+_ts InitMainMenu_2
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x34]
     mov        r1,#0x10
     bl         memset0_32
     pop        { pc }
-thumb_func_end InitMainMenu_2
     .align 2, 0
 
-thumb_func_start Splash_Main
-Splash_Main:
+_ts Splash_Main
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x34]
@@ -42,8 +39,7 @@ jumpTableSplashMain:
     .word FUN_08018d84
     .word FUN_08018d98
 
-thumb_func_start LoadCapcomLogo
-LoadCapcomLogo:
+_ts LoadCapcomLogo
     push       { lr }
     push       { r5 }
     mov        r0,#0x3
@@ -87,10 +83,8 @@ LoadCapcomLogo:
     mov        r0,#0x4
     strb       r0,[r5,#0x0]
     pop        { pc }
-thumb_func_end LoadCapcomLogo
 
-thumb_func_start FUN_08018d2c
-FUN_08018d2c:
+_ts FUN_08018d2c
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x10]
@@ -106,10 +100,8 @@ FUN_08018d2c:
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
     pop        { pc }
-thumb_func_end FUN_08018d2c
 
-thumb_func_start FUN_08018d4c
-FUN_08018d4c:
+_ts FUN_08018d4c
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x18]
@@ -138,10 +130,8 @@ LAB_08018d70:
     strb       r0,[r5,#0x0]
 LAB_08018d80:
     pop        { pc }
-thumb_func_end FUN_08018d4c
 
-thumb_func_start FUN_08018d84
-FUN_08018d84:
+_ts FUN_08018d84
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x18]
@@ -153,10 +143,8 @@ FUN_08018d84:
     strb       r0,[r5,#0x0]
 LAB_08018d96:
     pop        { pc }
-thumb_func_end FUN_08018d84
 
-thumb_func_start FUN_08018d98
-FUN_08018d98:
+_ts FUN_08018d98
     push       { lr }
     push       { r5 }
     mov        r0,#0x1f
@@ -174,7 +162,6 @@ FUN_08018d98:
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end FUN_08018d98
         
     .align 2, 0
 PTR_jumpTableSplashMain_08018dc0:

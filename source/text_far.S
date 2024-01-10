@@ -113,7 +113,6 @@ Screen_WriteUIText:
     bx         r3
     mov        r0,r9
     pop        { pc }
-thumb_func_end Screen_WriteUIText
 
 @@ Copies the tile data for a character of UI text
 @@ to the buffer.
@@ -156,7 +155,6 @@ Screen_CopyUITextTile:
     add        r4,#0x1
     add        r5,#0x1
     pop        { r0, r6, pc }
-thumb_func_end Screen_CopyUITextTile
 
     .align 2, 0
 
@@ -180,8 +178,7 @@ charShade:
 @@ r2: dstTextTileBuf + 0x40
 @@ r4: r4 + 1
 @@ r5: r5 + 1
-thumb_func_start Screen_PadUITextToEnd
-Screen_PadUITextToEnd:
+_ts Screen_PadUITextToEnd
     push       { lr }
     @ Fetch total text length into r1
     mov        r1,r10
@@ -200,7 +197,6 @@ Screen_PadUITextToEnd:
     @ Mark r3 as 0 to indicate the end of the text print
     mov        r3,#0x0
     pop        { pc }
-thumb_func_end Screen_PadUITextToEnd
 
 @@ Pads a block of UI text till a line break.
 @@ 
@@ -214,8 +210,7 @@ thumb_func_end Screen_PadUITextToEnd
 @@ r2: dstTextTileBuf + 0x40
 @@ r4: r4 + 1
 @@ r5: r5 + 1
-thumb_func_start Screen_PadUITextToLineEnd
-Screen_PadUITextToLineEnd:
+_ts Screen_PadUITextToLineEnd
     push       { lr }
     @ Fetch text width into r1
     mov        r1,r10
@@ -235,7 +230,6 @@ Screen_PadUITextToLineEnd:
     mov        r4,#0x0
     add        r0,#0x1
     pop        { pc }
-thumb_func_end Screen_PadUITextToLineEnd
 
 @@ Prints a stored number with a given minimum width.
 @@ 
@@ -251,8 +245,7 @@ thumb_func_end Screen_PadUITextToLineEnd
 @@ textPointer[2] = the width of the output.
 @@ - If <  0x80, pad right with space if (width - numberWidth)        < 0x40, otherwise 0
 @@ - If >= 0x80, pad left  with space if (width - 0x80 - numberWidth) < 0x40, otherwise 0
-thumb_func_start Screen_PrintFixedWidthNumber
-Screen_PrintFixedWidthNumber:
+_ts Screen_PrintFixedWidthNumber
     push       { r3, lr }
     push       { r0, r2, r4, r5, r6 }
     ldrb       r1,[r0,#0x1]
@@ -348,7 +341,6 @@ LAB_03007294:
     pop        { r0 }
     add        r0,#0x3
     pop        { r3, pc }
-thumb_func_end Screen_PrintFixedWidthNumber
 
     .align 2, 0
 

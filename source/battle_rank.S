@@ -11,8 +11,7 @@
 @@ r0: The rank, ranging from 1 to 11 (S) inclusive
 @@ r1: The busting time, as a BCD number
 @@ r2: The score given to the busting time
-thumb_func_start BattleResult_CalculateRank
-BattleResult_CalculateRank:
+_ts BattleResult_CalculateRank
     push       { lr }
     sub        sp,#0xc
     @ Figure out which scoring to use based on the type of battle
@@ -130,7 +129,6 @@ scoreMultipleDeletion:
 maxTime:
     time_msf 09 59 99
 
-thumb_func_end BattleResult_CalculateRank
 
 PTR_scoreVirusBustingTime_0807d668:     .word scoreVirusBustingTime
 PTR_scoreBossBustingTime_0807d66c:      .word scoreBossBustingTime

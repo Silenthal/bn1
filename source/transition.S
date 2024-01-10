@@ -14,8 +14,7 @@
 
     .thumb
 
-thumb_func_start InitTransition
-InitTransition:
+_ts InitTransition
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x30]
@@ -24,10 +23,8 @@ InitTransition:
     str        r0,[r5,#0x0]
     strb       r1,[r5,#0x3]
     pop        { pc }
-thumb_func_end InitTransition
 
-thumb_func_start Transition_Main
-Transition_Main:
+_ts Transition_Main
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x30]
@@ -46,7 +43,6 @@ LAB_08017518:
     mov        lr,pc
     bx         r0
     pop        { pc }
-thumb_func_end Transition_Main
 
 jumpTableJackIn:
     .word JackIn_Init+1

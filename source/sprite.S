@@ -12,18 +12,15 @@
     .thumb
 
 
-thumb_func_start Sprite_AddSpriteToOam
-Sprite_AddSpriteToOam:
+_ts Sprite_AddSpriteToOam
     push       { lr }
     ldr        r1,=Oam_AddSprite_far
     mov        lr,pc
     bx         r1
     pop        { pc }
-thumb_func_end Sprite_AddSpriteToOam
 
 
-thumb_func_start SpritePtr_InitFrames
-SpritePtr_InitFrames:
+_ts SpritePtr_InitFrames
     push       { r5, lr }
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -31,12 +28,10 @@ SpritePtr_InitFrames:
     add        r5,r5,r7
     bl         Sprite_InitFrames
     pop        { r5, pc }
-thumb_func_end SpritePtr_InitFrames
 
 
 @@ Sets up frame data for a sprite
-thumb_func_start Sprite_InitFrames
-Sprite_InitFrames:
+_ts Sprite_InitFrames
     push       { lr }
     @ Set up the pointer to the current animation frame using the frame index
     ldrb       r0,[r5,#Sprite_indexFrame]
@@ -71,11 +66,9 @@ Sprite_InitFrames:
     strb       r2,[r5,#Sprite_frameFlags]
 LAB_0800238a:
     pop        { pc }
-thumb_func_end Sprite_InitFrames
 
 
-thumb_func_start SpritePtr_ProcessFrameDelay
-SpritePtr_ProcessFrameDelay:
+_ts SpritePtr_ProcessFrameDelay
     push       { r5, lr }
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -83,11 +76,9 @@ SpritePtr_ProcessFrameDelay:
     add        r5,r5,r7
     bl         Sprite_ProcessFrameDelay
     pop        { r5, pc }
-thumb_func_end SpritePtr_ProcessFrameDelay
 
 
-thumb_func_start Sprite_ProcessFrameDelay
-Sprite_ProcessFrameDelay:
+_ts Sprite_ProcessFrameDelay
     push       { lr }
 start:
     ldrb       r0,[r5,#Sprite_frameDelay]
@@ -172,11 +163,9 @@ start:
     lsr        r4,r4,#0x4
     strb       r4,[r5,#Sprite_palIndexSubFrame]
     pop        { pc }
-thumb_func_end Sprite_ProcessFrameDelay
 
 
-thumb_func_start Sprite_InitSpritePtr
-Sprite_InitSpritePtr:
+_ts Sprite_InitSpritePtr
     push       { r5, lr }
     ldrb       r2,[r5,#0x0]
     mov        r3,#0x8
@@ -208,11 +197,9 @@ LAB_08002452:
     pop        { r1 }
     strb       r1,[r5,#0x4]
     pop        { r5, pc }
-thumb_func_end Sprite_InitSpritePtr
 
 
-thumb_func_start Sprite_Init
-Sprite_Init:
+_ts Sprite_Init
     add        r0,#0x4
     str        r0,[r5,#Sprite_spriteStart]
     mov        r0,#0x0
@@ -231,26 +218,22 @@ Sprite_Init:
     mov        r0,#0x8
     strb       r0,[r5,#0x15]
     mov        pc,lr
-thumb_func_end Sprite_Init
 
 
-thumb_func_start Sprite_TransferPalettes
-Sprite_TransferPalettes:
+_ts Sprite_TransferPalettes
     push       { lr }
     ldr        r0,=eObjPalette0
     ldr        r1,=PAL_OBJ
     mov        r2,#0x78
     bl         Dma_TransferListAdd
     pop        { pc }
-thumb_func_end Sprite_TransferPalettes
 
     .align 2, 0
 
     .pool
 
 
-thumb_func_start SpritePtr_AffineSetParams
-SpritePtr_AffineSetParams:
+_ts SpritePtr_AffineSetParams
     push       {r5,lr}
     push       {r0,r1,r2}
     ldrb       r7,[r5,#0x2]
@@ -271,11 +254,9 @@ SpritePtr_AffineSetParams:
 LAB_080024cc:
     pop        {r0,r1,r2}
     pop        {r5,pc}
-thumb_func_end SpritePtr_AffineSetParams
 
 
-thumb_func_start SpritePtr_ObjModeWindow
-SpritePtr_ObjModeWindow:
+_ts SpritePtr_ObjModeWindow
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -287,11 +268,9 @@ SpritePtr_ObjModeWindow:
     orr        r1,r0
     strb       r1,[r7,#0x11]
     mov        pc,lr
-thumb_func_end SpritePtr_ObjModeWindow
 
 
-thumb_func_start _SpritePtr_ObjModeNormal
-_SpritePtr_ObjModeNormal:
+_ts _SpritePtr_ObjModeNormal
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -301,11 +280,9 @@ _SpritePtr_ObjModeNormal:
     bic        r1,r0
     strb       r1,[r7,#0x11]
     mov        pc,lr
-thumb_func_end _SpritePtr_ObjModeNormal
 
 
-thumb_func_start SpritePtr_ObjModeSemiTransparent
-SpritePtr_ObjModeSemiTransparent:
+_ts SpritePtr_ObjModeSemiTransparent
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -326,11 +303,9 @@ SpritePtr_ObjModeSemiTransparent:
     strb       r1,[r7,#0x0]
     strb       r0,[r7,#0x2]
     mov        pc,lr
-thumb_func_end SpritePtr_ObjModeSemiTransparent
 
 
-thumb_func_start SpritePtr_ObjModeNormal
-SpritePtr_ObjModeNormal:
+_ts SpritePtr_ObjModeNormal
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -340,22 +315,18 @@ SpritePtr_ObjModeNormal:
     bic        r1,r0
     strb       r1,[r7,#0x11]
     mov        pc,lr
-thumb_func_end SpritePtr_ObjModeNormal
 .align 2, 0
 
 
-thumb_func_start LC_SpritePtr_CalculateOcclusion
-LC_SpritePtr_CalculateOcclusion:
+_ts LC_SpritePtr_CalculateOcclusion
     push       {lr}
     ldr        r7,PTR_SpritePtr_CalculateOcclusion_1_080026f4
     mov        lr,pc
     bx         r7
     pop        {pc}
-thumb_func_end LC_SpritePtr_CalculateOcclusion
 
 
-thumb_func_start SpritePtr_AffineAlloc
-SpritePtr_AffineAlloc:
+_ts SpritePtr_AffineAlloc
     push       {r5,lr}
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -383,11 +354,9 @@ SpritePtr_AffineAlloc:
 LAB_08002576:
     mov        r0,#0x0
     pop        {r5,pc}
-thumb_func_end SpritePtr_AffineAlloc
 
 
-thumb_func_start SpritePtr_AffineFree
-SpritePtr_AffineFree:
+_ts SpritePtr_AffineFree
     push       {r5,lr}
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -406,44 +375,36 @@ SpritePtr_AffineFree:
     bl         Oam_AffineTransformFree
 LAB_0800259e:
     pop        {r5,pc}
-thumb_func_end SpritePtr_AffineFree
 
 
-thumb_func_start SpritePtr_SetPaletteIndex
-SpritePtr_SetPaletteIndex:
+_ts SpritePtr_SetPaletteIndex
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
     add        r7,r7,r5
     strb       r0,[r7,#0x5]
     mov        pc,lr
-thumb_func_end SpritePtr_SetPaletteIndex
 
 
-thumb_func_start SpritePtr_SetSubFrameIndex
-SpritePtr_SetSubFrameIndex:
+_ts SpritePtr_SetSubFrameIndex
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
     add        r7,r7,r5
     strb       r0,[r5,#0x1]
     mov        pc,lr
-thumb_func_end SpritePtr_SetSubFrameIndex
    
 
-thumb_func_start SpritePtr_SetFrameIndex
-SpritePtr_SetFrameIndex:
+_ts SpritePtr_SetFrameIndex
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
     add        r7,r7,r5
     strb       r0,[r7,#0x0]
     mov        pc,lr
-thumb_func_end SpritePtr_SetFrameIndex
 
 
-thumb_func_start SpritePtr_SetFlashPalette
-SpritePtr_SetFlashPalette:
+_ts SpritePtr_SetFlashPalette
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -453,11 +414,9 @@ SpritePtr_SetFlashPalette:
     orr        r0,r1
     strb       r0,[r7,#0x15]
     mov        pc,lr
-thumb_func_end SpritePtr_SetFlashPalette
 
 
-thumb_func_start SpritePtr_ResetPalette
-SpritePtr_ResetPalette:
+_ts SpritePtr_ResetPalette
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -467,11 +426,9 @@ SpritePtr_ResetPalette:
     bic        r0,r1
     strb       r0,[r7,#0x15]
     mov        pc,lr
-thumb_func_end SpritePtr_ResetPalette
 
 
-thumb_func_start SpritePtr_GetFrameStatus
-SpritePtr_GetFrameStatus:
+_ts SpritePtr_GetFrameStatus
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -486,11 +443,9 @@ LAB_08002600:
     ldrb       r1,[r7,#0x0]
     ldrb       r2,[r7,#0x1]
     mov        pc,lr
-thumb_func_end SpritePtr_GetFrameStatus
 
 
-thumb_func_start SpritePtr_CheckIfMultipleParts
-SpritePtr_CheckIfMultipleParts:
+_ts SpritePtr_CheckIfMultipleParts
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -499,11 +454,9 @@ SpritePtr_CheckIfMultipleParts:
     mov        r1,#0x10
     and        r0,r1
     mov        pc,lr
-thumb_func_end SpritePtr_CheckIfMultipleParts
 
 
-thumb_func_start SpritePtr_SetPriority
-SpritePtr_SetPriority:
+_ts SpritePtr_SetPriority
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -515,11 +468,9 @@ SpritePtr_SetPriority:
     orr        r1,r0
     strb       r1,[r7,#0x15]
     mov        pc,lr
-thumb_func_end SpritePtr_SetPriority
 
 
-thumb_func_start SpritePtr_SetZClip
-SpritePtr_SetZClip:
+_ts SpritePtr_SetZClip
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -531,11 +482,9 @@ SpritePtr_SetZClip:
     bic        r0,r1
     strb       r0,[r7,#0x4]
     mov        pc,lr
-thumb_func_end SpritePtr_SetZClip
 
 
-thumb_func_start SpritePtr_Flag_ClearZClip
-SpritePtr_Flag_ClearZClip:
+_ts SpritePtr_Flag_ClearZClip
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -545,11 +494,9 @@ SpritePtr_Flag_ClearZClip:
     bic        r0,r1
     strb       r0,[r7,#0x4]
     mov        pc,lr
-thumb_func_end SpritePtr_Flag_ClearZClip
 
 
-thumb_func_start Oam_Init
-Oam_Init:
+_ts Oam_Init
     push       {lr}
     ldr        r0,PTR_gFillValue_080026f8
     ldr        r1,PTR_OAM_080026fc
@@ -582,11 +529,9 @@ Oam_Init:
     bl         NPC_Init
     bl         SpriteTilesetDetail_Init
     pop        {pc}
-thumb_func_end Oam_Init
 
 
-thumb_func_start FUN_080026b4
-FUN_080026b4:
+_ts FUN_080026b4
     ldr        r0,[r5,#0x1c]
     ldr        r0,[r0,#0x0]
     ldr        r1,[r5,#0x18]
@@ -594,11 +539,9 @@ FUN_080026b4:
     ldr        r0,[r0,#0x0]
     lsr        r0,r0,#0x5
     mov        pc,lr
-thumb_func_end FUN_080026b4
     
 
-thumb_func_start FUN_080026c4
-FUN_080026c4:
+_ts FUN_080026c4
     ldrb       r0,[r5,#0x0]
     tst        r0,r0
     beq        LAB_080026ea
@@ -623,7 +566,6 @@ LAB_080026ea:
     mov        r1,#0x0
     mov        r2,#0x0
     mov        pc,lr
-thumb_func_end FUN_080026c4
 
     .align 2, 0
 PTR_SpritePtr_CalculateOcclusion_1_080026f4: .word SpritePtr_CalculateOcclusion
@@ -639,18 +581,15 @@ PTR_PAL_OBJ_08002718: .word 0x50003E0
 DmaCntFlag_0800271c: .word DMA_32BIT | DMA_ENABLE
 
 
-thumb_func_start InitializeSpriteTilesetOffset
-InitializeSpriteTilesetOffset:
+_ts InitializeSpriteTilesetOffset
     ldr        r0,PTR_gSpriteTilesetOffset0_0800280c
     mov        r1,#0x1
     str        r1,[r0,#0x0]
     mov        pc,lr
     mov r0, #0x0 @ TODO: part of below func maybe
-thumb_func_end InitializeSpriteTilesetOffset
 
 
-non_word_aligned_thumb_func_start SpritePtr_SetFlipType
-SpritePtr_SetFlipType:
+_nt SpritePtr_SetFlipType
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -662,11 +601,9 @@ SpritePtr_SetFlipType:
     orr        r2,r0
     strb       r2,[r7,#0x13]
     mov        pc,lr
-thumb_func_end SpritePtr_SetFlipType
 
 
-thumb_func_start Sprite_LoadPalette
-Sprite_LoadPalette:
+_ts Sprite_LoadPalette
     ldr        r0,[r5,#0x1c]
     ldr        r0,[r0,#0x4]
     add        r0,#0x4
@@ -688,20 +625,16 @@ LAB_0800275c:
     cmp        r6,#0x20
     blt        LAB_0800275c
     mov        pc,lr
-thumb_func_end Sprite_LoadPalette
 
 
-thumb_func_start Sprite_PaletteInit
-Sprite_PaletteInit:
+_ts Sprite_PaletteInit
     ldr        r0,PTR_gSpritePalettesLoaded_08002814
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     mov        pc,lr
-thumb_func_end Sprite_PaletteInit
 
 
-thumb_func_start SpritePtr_NoZClip
-SpritePtr_NoZClip:
+_ts SpritePtr_NoZClip
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -711,33 +644,27 @@ SpritePtr_NoZClip:
     orr        r1,r0
     strb       r1,[r7,#0x4]
     mov        pc,lr
-thumb_func_end SpritePtr_NoZClip
 
 
-thumb_func_start SpritePtr_SetObjectExcludeFlags
-SpritePtr_SetObjectExcludeFlags:
+_ts SpritePtr_SetObjectExcludeFlags
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
     add        r7,r7,r5
     str        r0,[r7,#0x2c]
     mov        pc,lr
-thumb_func_end SpritePtr_SetObjectExcludeFlags
 
 
-thumb_func_start SpritePtr_GetObjectExcludeFlags
-SpritePtr_GetObjectExcludeFlags:
+_ts SpritePtr_GetObjectExcludeFlags
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
     add        r7,r7,r5
     ldr        r0,[r7,#0x2c]
     mov        pc,lr
-thumb_func_end SpritePtr_GetObjectExcludeFlags
 
 
-thumb_func_start SpritePtr_SetObjectExcludeFlag
-SpritePtr_SetObjectExcludeFlag:
+_ts SpritePtr_SetObjectExcludeFlag
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -749,11 +676,9 @@ SpritePtr_SetObjectExcludeFlag:
     orr        r0,r1
     str        r0,[r7,#0x2c]
     mov        pc,lr
-thumb_func_end SpritePtr_SetObjectExcludeFlag
 
 
-thumb_func_start SpritePtr_ClearObjectExcludeFlag
-SpritePtr_ClearObjectExcludeFlag:
+_ts SpritePtr_ClearObjectExcludeFlag
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -765,11 +690,9 @@ SpritePtr_ClearObjectExcludeFlag:
     bic        r0,r1
     str        r0,[r7,#0x2c]
     mov        pc,lr
-thumb_func_end SpritePtr_ClearObjectExcludeFlag
 
 
-thumb_func_start Sprite_LoadTileset
-Sprite_LoadTileset:
+_ts Sprite_LoadTileset
     push       {r5,lr}
     ldr        r2,[r5,#0x24]
     ldr        r0,[r5,#0x1c]
@@ -789,11 +712,9 @@ Sprite_LoadTileset:
     bl         Dma_TransferListAdd
 LAB_080027f0:
     pop        {r5,pc}
-thumb_func_end Sprite_LoadTileset
 
 
-thumb_func_start SpriteTilesetDetail_Init
-SpriteTilesetDetail_Init:
+_ts SpriteTilesetDetail_Init
     push       {lr}
     ldr        r7,PTR_gSpriteTilesetDetailCount_0800281c
     mov        r0,#0x0
@@ -804,7 +725,6 @@ SpriteTilesetDetail_Init:
     mvn        r2,r2
     bl         memset_32
     pop        {pc}
-thumb_func_end SpriteTilesetDetail_Init
 
 .align 2, 0
 PTR_gSpriteTilesetOffset0_0800280c: .word gSpriteTilesetOffset0
@@ -821,8 +741,7 @@ INT_08002824: .word 0x2C8
 @@ r0: ptrSpriteLzDest: A pointer to the location where decompressed sprites
 @@ will be placed.
 @ void SpriteLz_Init(void *ptrSpriteLzDest)
-thumb_func_start SpriteLz_Init
-SpriteLz_Init:
+_ts SpriteLz_Init
     push       { r5, lr }
     ldr        r5,PTR_gSpriteLzDetails_08002990
     push       { r0, r5 }
@@ -846,14 +765,12 @@ SpriteLz_Init:
     bl         memset
     pop        { r5 }
     pop        { r5, pc }
-thumb_func_end SpriteLz_Init
 
 @@ Decompresses a list of sprites.
 @@ In:
 @@ r0: spriteList: A pointer to the list of sprite indexes.
 @ bool SpriteLz_DecompressSpriteList(short *listSpriteIndices)
-thumb_func_start SpriteLz_DecompressSpriteList
-SpriteLz_DecompressSpriteList:
+_ts SpriteLz_DecompressSpriteList
     push       { lr }
     ldr        r5,PTR_gSpriteLzDetails_08002998
     ldr        r1,[r5,#SpriteLzDetails_m_next]
@@ -921,14 +838,12 @@ LAB_080028b8:
 LAB_080028bc:
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end SpriteLz_DecompressSpriteList
 
 @@ Retrieves a sprite.
 @@ In:
 @@ r1: spriteIndex: The index of the sprite to retrieve
 @ SpriteArchive_Header * SpriteLz_GetSprite(short index)
-thumb_func_start SpriteLz_GetSprite
-SpriteLz_GetSprite:
+_ts SpriteLz_GetSprite
     push       { r5, lr }
     ldr        r5,PTR_gSpriteLzDetails_080029a4
     mov        r2,#0x0
@@ -948,14 +863,12 @@ LAB_080028d8:
     blt        LAB_080028c6
     mov        r0,#0x0
     pop        { r5, pc }
-thumb_func_end SpriteLz_GetSprite
 
 @@ Decompresses a list of enemy sprites.
 @@ In:
 @@ r0: enemyPositionList: A pointer to the list of enemy spawns.
 @ bool SpriteLz_DecompressEnemyList(EnemySpawn *enemyPositionList)
-thumb_func_start SpriteLz_DecompressEnemyList
-SpriteLz_DecompressEnemyList:
+_ts SpriteLz_DecompressEnemyList
     push       { r5, lr }
     ldr        r5,PTR_gSpriteLzDetails_080029a8
     ldr        r1,[r5,#SpriteLzDetails_m_next]
@@ -1047,10 +960,8 @@ LAB_08002966:
 LAB_0800296a:
     mov        r0,#0x0
     pop        { r5, pc }
-thumb_func_end SpriteLz_DecompressEnemyList
 
-thumb_func_start dummy_2970
-dummy_2970:
+_ts dummy_2970
     push       { r5, lr }
     ldr        r5,PTR_gSpriteLzDetails_080029b0
     ldr        r1,[r5,#SpriteLzDetails_m_next]
@@ -1059,7 +970,6 @@ dummy_2970:
     @ next available decompressed sprite block to a dummy function
     bl         dummy_3cc4
     pop        { r5, pc }
-thumb_func_end dummy_2970
     .align 2, 0
 DAT_08002980:
     @ Format text for debugging?

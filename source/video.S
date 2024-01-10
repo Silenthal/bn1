@@ -5,8 +5,7 @@
 
     .thumb
 
-thumb_func_start Video_ClearAndLoadSmallNumbers
-Video_ClearAndLoadSmallNumbers:
+_ts Video_ClearAndLoadSmallNumbers
     push       { lr }
     ldr        r0,PTR_gFillValue_08001b2c
     ldr        r1,PTR_BG_VRAM_SCREEN0_08001b30
@@ -40,10 +39,8 @@ Video_ClearAndLoadSmallNumbers:
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end Video_ClearAndLoadSmallNumbers
 
-thumb_func_start Video_BlitScreens
-Video_BlitScreens:
+_ts Video_BlitScreens
     push       { lr }
     mov        r0,r10
     ldr        r0,[r0,#0x5c]
@@ -69,10 +66,8 @@ Video_BlitScreens:
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end Video_BlitScreens
 
-thumb_func_start Video_SetBgControl
-Video_SetBgControl:
+_ts Video_SetBgControl
     push       { lr }
     ldr        r1,PTR_BgControl_ARRAY_08001b60
     lsl        r0,r0,#0x3
@@ -87,7 +82,6 @@ Video_SetBgControl:
     ldr        r0,[r1,#0x0]
     str        r0,[r2,#0x0]
     pop        { pc }
-thumb_func_end Video_SetBgControl
 
 BgControl_ARRAY_080019a8:
     .short 0x3c08
@@ -119,8 +113,7 @@ BgControl_ARRAY_080019a8:
     .short 0x3e02
     .short 0x3f85
 
-thumb_func_start Video_ApplySettings
-Video_ApplySettings:
+_ts Video_ApplySettings
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x10]
@@ -174,7 +167,6 @@ Video_ApplySettings:
     ldrh       r2,[r5,#0x4]
     strh       r2,[r1,#0x0]
     pop        { pc }
-thumb_func_end Video_ApplySettings
 
 jumpTable:
     .word handlerNone
@@ -182,8 +174,7 @@ jumpTable:
     .word handlerBrightnessIncrease
     .word handlerBrightnessDecrease
 
-thumb_func_start handlerNone
-handlerNone:
+_ts handlerNone
     push       { lr }
     @ EVB = 1 - EVA
     ldrb       r1,[r5,#0x2]
@@ -200,10 +191,8 @@ handlerNone:
     mov        r1,#0x0
     strb       r1,[r5,#0x4]
     pop        { pc }
-thumb_func_end handlerNone
 
-thumb_func_start handlerAlphaBlend
-handlerAlphaBlend:
+_ts handlerAlphaBlend
     push       { lr }
     @ EVB = special val
     ldrh       r1,[r5,#0x6]
@@ -220,10 +209,8 @@ handlerAlphaBlend:
     mov        r1,#0x3e
     strb       r1,[r5,#0x1]
     pop        { pc }
-thumb_func_end handlerAlphaBlend
 
-thumb_func_start handlerBrightnessIncrease
-handlerBrightnessIncrease:
+_ts handlerBrightnessIncrease
     push       { lr }
     @ EVA = 0
     mov        r1,#0x0
@@ -239,10 +226,8 @@ handlerBrightnessIncrease:
     lsr        r1,r1,#0x4
     strb       r1,[r5,#0x4]
     pop        { pc }
-thumb_func_end handlerBrightnessIncrease
 
-thumb_func_start handlerBrightnessDecrease
-handlerBrightnessDecrease:
+_ts handlerBrightnessDecrease
     push       { lr }
     @ EVA = 0
     mov        r1,#0x0
@@ -258,10 +243,8 @@ handlerBrightnessDecrease:
     lsr        r1,r1,#0x4
     strb       r1,[r5,#0x4]
     pop        { pc }
-thumb_func_end handlerBrightnessDecrease
 
-thumb_func_start Video_ClearAllTile0Maps
-Video_ClearAllTile0Maps:
+_ts Video_ClearAllTile0Maps
     push       { lr }
     ldr        r0,vram_off_0
     mov        r1,#0x40
@@ -276,10 +259,8 @@ Video_ClearAllTile0Maps:
     mov        r1,#0x20
     bl         memset0_32
     pop        { pc }
-thumb_func_end Video_ClearAllTile0Maps
 
-thumb_func_start Video_InitPaletteColor0
-Video_InitPaletteColor0:
+_ts Video_InitPaletteColor0
     push       { lr }
     ldr        r0,PTR_eBgPalette0_08001ba8
     mov        r1,#0x2
@@ -288,30 +269,24 @@ Video_InitPaletteColor0:
     mov        r1,#0x2
     bl         memset0_16
     pop        { pc }
-thumb_func_end Video_InitPaletteColor0
 
-thumb_func_start Video_InitBlendSettings
-Video_InitBlendSettings:
+_ts Video_InitBlendSettings
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x3c]
     mov        r1,#0x8
     bl         memset0_32
     pop        { pc }
-thumb_func_end Video_InitBlendSettings
 
-thumb_func_start Video_QueueBgPalTransfer
-Video_QueueBgPalTransfer:
+_ts Video_QueueBgPalTransfer
     push       { lr }
     ldr        r0,PTR_eBgPalette0_08001bb0
     ldr        r1,PTR_PAL_BG_08001bac
     mov        r2,#0x80
     bl         Dma_TransferListAdd
     pop        { pc }
-thumb_func_end Video_QueueBgPalTransfer
 
-thumb_func_start Video_ClearScreenBuffersToValue
-Video_ClearScreenBuffersToValue:
+_ts Video_ClearScreenBuffersToValue
     push       { lr }
     ldr        r0,PTR_gFillValue_08001bb4
     mov        r1,r10
@@ -323,7 +298,6 @@ Video_ClearScreenBuffersToValue:
     mov        r0,#0x8
     bl         Dma_WaitForEnd
     pop        { pc }
-thumb_func_end Video_ClearScreenBuffersToValue
 
     .align 2, 0
 

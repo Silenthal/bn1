@@ -11,8 +11,7 @@
 @@ r1: y: The Y coordinate of the target screen.
 @@ r2: screen: The screen to draw to.
 @@ r3: entry: The tilemap entry.
-thumb_func_start Screen_CopyTileMapEntry
-Screen_CopyTileMapEntry:
+_ts Screen_CopyTileMapEntry
     mov        r4,r10
     ldr        r4,[r4,#0x5c]
     lsl        r2,r2,#0xb
@@ -23,7 +22,6 @@ Screen_CopyTileMapEntry:
     add        r4,r4,r1
     strh       r3,[r4,#0x0]
     mov        pc,lr
-thumb_func_end Screen_CopyTileMapEntry
 
 
 @@ Copies a list of tilemap entries to the screen buffer in a horizontal line.
@@ -33,8 +31,7 @@ thumb_func_end Screen_CopyTileMapEntry
 @@ r2: screen: The screen to draw to.
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
-thumb_func_start Screen_CopyTileMapH
-Screen_CopyTileMapH:
+_ts Screen_CopyTileMapH
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -52,7 +49,6 @@ LAB_080021d0:
     cmp        r4,#0x0
     bgt        LAB_080021d0
     mov        pc,lr
-thumb_func_end Screen_CopyTileMapH
 
 
 @@ Copies a list of tilemap entries to the screen buffer in a vertical line.
@@ -62,8 +58,7 @@ thumb_func_end Screen_CopyTileMapH
 @@ r2: screen: The screen to draw to.
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
-thumb_func_start Screen_CopyTileMapV
-Screen_CopyTileMapV:
+_ts Screen_CopyTileMapV
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -81,7 +76,6 @@ LAB_080021f0:
     cmp        r4,#0x0
     bgt        LAB_080021f0
     mov        pc,lr
-thumb_func_end Screen_CopyTileMapV
 
 
 @@ Copies a list of tilemap entries to the screen buffer in a rectangle.
@@ -92,8 +86,7 @@ thumb_func_end Screen_CopyTileMapV
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: width: The width of the rectangle.
 @@ r5: height: The height of the rectangle.
-thumb_func_start Screen_CopyTileMapRect
-Screen_CopyTileMapRect:
+_ts Screen_CopyTileMapRect
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -119,7 +112,6 @@ LAB_08002214:
     cmp        r5,#0x0
     bgt        LAB_08002214
     mov        pc,lr
-thumb_func_end Screen_CopyTileMapRect
 
 
 @@ Sets all tilemap entries in a rectanglular area in a given screen buffer
@@ -131,8 +123,7 @@ thumb_func_end Screen_CopyTileMapRect
 @@ r3: width: The width of the rectangle.
 @@ r4: height: The height of the rectangle.
 @@ r5: entry: The tilemap entry.
-thumb_func_start Screen_SetTileMapRect
-Screen_SetTileMapRect:
+_ts Screen_SetTileMapRect
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -156,7 +147,6 @@ LAB_08002244:
     cmp        r4,#0x0
     bgt        LAB_08002244
     mov        pc,lr
-thumb_func_end Screen_SetTileMapRect
 
 
 @@ Copies a list of tilemap entries to the screen buffer in a horizontal line,
@@ -167,8 +157,7 @@ thumb_func_end Screen_SetTileMapRect
 @@ r2: screen: The screen to draw to.
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
-thumb_func_start Screen_CopyTileMapHWrap
-Screen_CopyTileMapHWrap:
+_ts Screen_CopyTileMapHWrap
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -187,7 +176,6 @@ LAB_08002268:
     cmp        r4,#0x0
     bgt        LAB_08002268
     mov        pc,lr
-thumb_func_end Screen_CopyTileMapHWrap
 
 
 @@ Copies a list of tilemap entries to the screen buffer in a vertical line,
@@ -198,8 +186,7 @@ thumb_func_end Screen_CopyTileMapHWrap
 @@ r2: screen: The screen to draw to.
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
-thumb_func_start Screen_CopyTileMapVWrap
-Screen_CopyTileMapVWrap:
+_ts Screen_CopyTileMapVWrap
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -218,7 +205,6 @@ LAB_0800228c:
     cmp        r4,#0x0
     bgt        LAB_0800228c
     mov        pc,lr
-thumb_func_end Screen_CopyTileMapVWrap
 
 
 @@ Copies a list of tilemap entries to the screen buffer in a horizontal line.
@@ -228,14 +214,12 @@ thumb_func_end Screen_CopyTileMapVWrap
 @@ r2: screen: The screen to draw to.
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
-thumb_func_start LC_Screen_SafeCopyTileMapH
-LC_Screen_SafeCopyTileMapH:
+_ts LC_Screen_SafeCopyTileMapH
     push       { lr }
     ldr        r7,PTR_Screen_SafeCopyTileMapH_1_080022c8
     mov        lr,pc
     bx         r7
     pop        { pc }
-thumb_func_end LC_Screen_SafeCopyTileMapH
 
 
 @@ Copies a list of tilemap entries to the screen buffer in a vertical line.
@@ -245,14 +229,12 @@ thumb_func_end LC_Screen_SafeCopyTileMapH
 @@ r2: screen: The screen to draw to.
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
-thumb_func_start LC_Screen_SafeCopyTileMapV
-LC_Screen_SafeCopyTileMapV:
+_ts LC_Screen_SafeCopyTileMapV
     push       { lr }
     ldr        r7,PTR_Screen_SafeCopyTileMapV_1_080022cc
     mov        lr,pc
     bx         r7
     pop        { pc }
-thumb_func_end LC_Screen_SafeCopyTileMapV
 
 
 @@ Copies a list of tilemap entries to the screen buffer in a rectangle.
@@ -263,14 +245,12 @@ thumb_func_end LC_Screen_SafeCopyTileMapV
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: width: The width of the rectangle.
 @@ r5: height: The height of the rectangle.
-thumb_func_start LC_Screen_SafeCopyTileMapRect
-LC_Screen_SafeCopyTileMapRect:
+_ts LC_Screen_SafeCopyTileMapRect
     push       { lr }
     ldr        r7,PTR_Screen_SafeCopyTileMapRect_1_080022d0
     mov        lr,pc
     bx         r7
     pop        { pc }
-thumb_func_end LC_Screen_SafeCopyTileMapRect
 
     .align 2, 0
 PTR_Screen_SafeCopyTileMapH_1_080022c8:

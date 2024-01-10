@@ -108,7 +108,6 @@ far_thumb_func_start dummy_6928
 dummy_6928:
     bx         lr
     .p2align 2,0
-thumb_func_end dummy_6928
 
 far_thumb_func_start Handler_VBlank
 Handler_VBlank:
@@ -122,7 +121,6 @@ Handler_VBlank:
     bx         r0
     pop        { r0 }
     bx         r0
-thumb_func_end Handler_VBlank
 
 far_thumb_func_start Handler_VCount
 Handler_VCount:
@@ -132,7 +130,6 @@ Handler_VCount:
     bx         r0
     pop        { r0 }
     bx         r0
-thumb_func_end Handler_VCount
 ptrSoundMain:    .word Sound_Main
 .word 0x2006334  @ ???
 

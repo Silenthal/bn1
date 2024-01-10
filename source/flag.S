@@ -6,46 +6,38 @@
 
     .thumb
 
-thumb_func_start FUN_080102dc
-FUN_080102dc:
+_ts FUN_080102dc
     push       { lr }
     ldr        r0,PTR_DAT_080103f8
     mov        r1,#0x8c
     bl         memset0_32
     pop        { pc }
-thumb_func_end FUN_080102dc
 
-thumb_func_start FUN_080102e8
-FUN_080102e8:
+_ts FUN_080102e8
     push       { lr }
     ldr        r0,PTR_DAT_080102f4
     ldr        r1,DAT_080102f8
     bl         memset0_16
     pop        { pc }
-thumb_func_end FUN_080102e8
 PTR_DAT_080102f4:   .word 0x2000012
 DAT_080102f8:       .word 0xE
 
 
-thumb_func_start FUN_080102fc
-FUN_080102fc:
+_ts FUN_080102fc
     push       { lr }
     ldr        r0,PTR_DAT_08010308
     ldr        r1,DAT_0801030c
     bl         memset0_16
     pop        { pc }
-thumb_func_end FUN_080102fc
 PTR_DAT_08010308:       .word 0x2000082
 DAT_0801030c:           .word 2
 
-thumb_func_start FUN_08010310
-FUN_08010310:
+_ts FUN_08010310
     push       { lr }
     ldr        r0,PTR_DAT_0801031c
     ldr        r1,DAT_08010320
     bl         memset0_16
     pop        { pc }
-thumb_func_end FUN_08010310
 PTR_DAT_0801031c:   .word 0x2000070
 DAT_08010320:       .word 0x10
 

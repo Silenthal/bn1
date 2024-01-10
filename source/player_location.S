@@ -9,8 +9,7 @@
 
 PTR_PlayerLocation_Handler_1_08003084: .word PlayerLocation_Handler
 
-thumb_func_start PlayerLocation_Alloc
-PlayerLocation_Alloc:
+_ts PlayerLocation_Alloc
     push       { r0, r1, r2, r3, r4, lr }
     ldr        r0,PTR_gBitsetPlayerLocation_080031c0
     ldr        r2,[r0,#0x0]
@@ -42,10 +41,8 @@ LAB_080030a2:
 LAB_080030bc:
     mov        r5,#0x0
     pop        { r0, r1, r2, r3, r4, pc }
-thumb_func_end PlayerLocation_Alloc
 
-thumb_func_start PlayerLocation_Free
-PlayerLocation_Free:
+_ts PlayerLocation_Free
     push       { lr }
     ldr        r0,DAT_080031c4
     ldrb       r1,[r5,#0x3]
@@ -58,10 +55,8 @@ PlayerLocation_Free:
     strb       r1,[r5,#0x0]
     bl         SpritePtr_AffineFree
     pop        { pc }
-thumb_func_end PlayerLocation_Free
 
-thumb_func_start PlayerLocation_UpdateAll
-PlayerLocation_UpdateAll:
+_ts PlayerLocation_UpdateAll
     push       { lr }
     ldr        r5,PTR_gEntityListPlayerLocation_080031d4
 LAB_080030e0:
@@ -99,10 +94,8 @@ LAB_08003114:
     mov        r0,#0x0
     str        r0,[r7,#0x70]
     pop        { pc }
-thumb_func_end PlayerLocation_UpdateAll
 
-thumb_func_start PlayerLocation_Init
-PlayerLocation_Init:
+_ts PlayerLocation_Init
     push       { lr }
     ldr        r0,PTR_gFillValue_080031e0
     ldr        r1,PTR_gEntityListPlayerLocation_080031e4
@@ -127,10 +120,8 @@ LAB_0800313c:
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end PlayerLocation_Init
 
-thumb_func_start PlayerLocation_LoadAll
-PlayerLocation_LoadAll:
+_ts PlayerLocation_LoadAll
     push       { lr }
     mov        r0,#0x1
     mov        r1,#0x0
@@ -172,10 +163,8 @@ LAB_0800319c:
     cmp        r1,r0
     blt        LAB_0800315c
     pop        { pc }
-thumb_func_end PlayerLocation_LoadAll
 
-thumb_func_start PlayerLocation_UnloadAll
-PlayerLocation_UnloadAll:
+_ts PlayerLocation_UnloadAll
     mov        r0,#0x0
     ldr        r5,PTR_gEntityListPlayerLocation_080031fc
 LAB_080031ac:
@@ -188,7 +177,6 @@ LAB_080031ac:
     cmp        r0,#0x1
     blt        LAB_080031ac
     mov        pc,lr
-thumb_func_end PlayerLocation_UnloadAll
 
     .align 2, 0
 

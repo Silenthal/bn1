@@ -17,8 +17,7 @@
 
     .thumb
 
-thumb_func_start Map_LoadNPCList
-Map_LoadNPCList:
+_ts Map_LoadNPCList
     push       { lr }
     mov        r6,r10
     ldr        r6,[r6,#0x8]
@@ -43,10 +42,8 @@ LAB_0801153a:
     b          LAB_0801153a
 LAB_0801154e:
     pop        { pc }
-thumb_func_end Map_LoadNPCList
 
-thumb_func_start Map_CreateNPC
-Map_CreateNPC:
+_ts Map_CreateNPC
     push       { lr }
     push       { r0, r1 }
     mov        r0,#0x0
@@ -58,10 +55,8 @@ Map_CreateNPC:
     str        r0,[r5,#0x5c]
 LAB_08011564:
     pop        { pc }
-thumb_func_end Map_CreateNPC
 
-thumb_func_start Map_LoadBackgroundData
-Map_LoadBackgroundData:
+_ts Map_LoadBackgroundData
     push       { lr }
     cmp        r0,#0xf0
     bge        .greaterThanEqualToF0
@@ -102,10 +97,8 @@ Map_LoadBackgroundData:
     add        r0,r0,r7
     bl         InitMapEventData
     pop        { pc }
-thumb_func_end Map_LoadBackgroundData
 
-thumb_func_start InitMapBoundaryData
-InitMapBoundaryData:
+_ts InitMapBoundaryData
     ldr        r5,PTR_gCurMapBoundaryData_080118cc
     ldr        r1,[r0,#0x0]
     strh       r1,[r5,#0x4]
@@ -118,10 +111,8 @@ InitMapBoundaryData:
     ldrb       r0,[r1,#0x1]
     strb       r0,[r5,#0x9]
     mov        pc,lr
-thumb_func_end InitMapBoundaryData
 
-thumb_func_start GetWallSegmentByIndex
-GetWallSegmentByIndex:
+_ts GetWallSegmentByIndex
     push       { lr }
     ldrh       r2,[r5,#0x4]
     cmp        r2,#0x0
@@ -167,10 +158,8 @@ LAB_08011616:
 LAB_0801161c:
     mov        r2,#0x0
     pop        { pc }
-thumb_func_end GetWallSegmentByIndex
 
-thumb_func_start FUN_08011620
-FUN_08011620:
+_ts FUN_08011620
     push       { lr }
     ldr        r5,PTR_gCurMapBoundaryData_080118d0
     ldr        r2,PTR_PTR_080118d4
@@ -264,7 +253,6 @@ LAB_080116bc:
     str        r6,[r0,#0x8]
     mov        r0,#0x0
     pop        { pc }
-thumb_func_end FUN_08011620
 
     .align 2, 0
 regionCollisionBoundary:
@@ -296,8 +284,7 @@ regionCollisionBoundary:
     .ascii "PL\n%8x\n%8x\n%8x\x00"
     .align 2, 0
 
-thumb_func_start FUN_0801176c
-FUN_0801176c:
+_ts FUN_0801176c
     push       { lr }
     push       { r0, r5 }
     mov        r2,#0xe
@@ -432,10 +419,8 @@ LAB_08011852:
     ldrsh      r7,[r0,r2]
     bl         FUN_08011864
     pop        { pc }
-thumb_func_end FUN_0801176c
 
-thumb_func_start FUN_08011864
-FUN_08011864:
+_ts FUN_08011864
     push       { r0, r5, lr }
     push       { r4, r7 }
     asr        r4,r4,#0x3
@@ -480,7 +465,6 @@ FUN_08011864:
 LAB_080118b6:
     pop        { r4, r7 }
     pop        { r0, r5, pc }
-thumb_func_end FUN_08011864
 
     .align 2, 0
 lz_pointer_c:

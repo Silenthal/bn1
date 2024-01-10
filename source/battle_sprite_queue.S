@@ -65,6 +65,5 @@ global_label BattleSpriteQueue_Clear
 
     .pool
 
-thumb_func_end BattleSpriteQueue_Clear
 
     .end

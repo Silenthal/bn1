@@ -150,7 +150,6 @@ LAB_03006e1a:
     pop        { r0 }
     str        r0,[r5,#Sprite_objectDrawBitset]
     pop        { pc }
-thumb_func_end Oam_AddSprite
 
 @@ Alters a sprites's top-left XY coordinates according to its object
 @@ attributes
@@ -163,8 +162,7 @@ thumb_func_end Oam_AddSprite
 @@ Out:
 @@ r0: newObjectY
 @@ r1: newObjectX
-thumb_func_start Oam_SpriteRotateFlipPos
-Oam_SpriteRotateFlipPos:
+_ts Oam_SpriteRotateFlipPos
     mov        r3,#0x3
     lsl        r3,r3,#0x8
     and        r3,r6
@@ -343,7 +341,6 @@ LAB_03006f42:
 .end:
     mov        r7,r8
     mov        pc,lr
-thumb_func_end Oam_SpriteRotateFlipPos
 
 objMidpointX:
     .byte -4,  -8, -16, -32
@@ -483,7 +480,6 @@ Oam_TransferData:
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     pop        { pc }
-thumb_func_end Oam_TransferData
 
 SpriteList_ARRAY_03007090:
     .word iwSpriteList0, 0x34
