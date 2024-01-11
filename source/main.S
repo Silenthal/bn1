@@ -253,7 +253,7 @@ MainState:
     .word gText
     .word eMainState0x4C
     .word gFrameCounter
-    .word gScreenDimChip
+    .word gTimeStop
     .word eMainState0x58
     .word gScreens
     .word eMainState0x60

@@ -57,6 +57,7 @@ routine_canodumb    0x59910
 battle_rank         0x7D5B0
 enemy_drop          0x7D80E
 npc_command         0x82104
+timestop_util       0x982B8
 swi                 0x9DF50
 sound_data          0xA111C
 song023             0xA188C
