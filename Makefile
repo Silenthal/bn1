@@ -16,7 +16,7 @@ MAKER				:= 08
 VERSION				:= 0
 
 BUILD				:= build
-SOURCES				:= source source/routine source/battle source/battle/time_stop sound/songs
+SOURCES				:= source source/routine source/entity source/entity/effect source/battle source/battle/time_stop sound/songs
 TOOLS				:= tools
 INCLUDES			:= include assets build
 BASEDIR				:= base

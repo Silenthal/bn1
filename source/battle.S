@@ -31,7 +31,6 @@
     .set Text_CheckIfDialogActive, 0x8007240
     .set Effect_ProgramAdvance_Create, 0x807c79e
     .set FUN_080079c8, 0x80079c8
-    .set Effect_QuickEffect_Create, 0x807b5e8
     .set Battle_SetState_InBattle, 0x8006a6c
     .set PlayerMPState_Init, 0x8007b9c
     .set Battle_UnpauseTimer, 0x80069fa

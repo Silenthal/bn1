@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set TimeStop_HidePlayer, 0x80572d2
-    .set Effect_QuickEffect_Create, 0x807b5e8
     .set FUN_08057300, 0x8057300
     
     .text

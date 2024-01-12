@@ -54,6 +54,7 @@ credits             0x21498
 asset_npc_ai        0x28964
 asset_bg_task_44030 0x44030
 routine_canodumb    0x59910
+effect_quickeffect  0x7B474
 battle_rank         0x7D5B0
 enemy_drop          0x7D80E
 npc_command         0x82104
