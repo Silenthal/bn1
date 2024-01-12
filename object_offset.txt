@@ -26,6 +26,7 @@ world               0x4130
 fade                0x4B00
 encounter           0x5504
 battle              0x5864
+timestop            0x6A24
 util_battle         0x6AA4
 battlechip          0x7C44
 inventory           0x9BA0
@@ -59,6 +60,7 @@ battle_rank         0x7D5B0
 enemy_drop          0x7D80E
 npc_command         0x82104
 timestop_util       0x982B8
+timestop_recover    0x9832C
 swi                 0x9DF50
 sound_data          0xA111C
 song023             0xA188C
