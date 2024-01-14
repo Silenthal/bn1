@@ -10,9 +10,10 @@
     
     .text
 
+
 _ts TimeStop_Recover
     push       {lr}
-    ldr        r7,PTR_PTR_S_Recover_0_Init
+    ldr        r7,PTR_PTR_TS_Recover_0_Init
     ldrb       r0,[r5,#0x0]
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -20,16 +21,16 @@ _ts TimeStop_Recover
     pop        {pc}
 
 .align 2, 0
-PTR_PTR_S_Recover_0_Init:
-    .word PTR_S_Recover_0_Init
-PTR_S_Recover_0_Init:
-    .word S_Recover_0_Init
-    .word S_Recover_1_Main
-    .word S_Recover_2_FadeIn
-    .word S_Recover_3_Free
+PTR_PTR_TS_Recover_0_Init:
+    .word PTR_TS_Recover_0_Init
+PTR_TS_Recover_0_Init:
+    .word TS_Recover_0_Init
+    .word TS_Recover_1_Main
+    .word TS_Recover_2_FadeIn
+    .word TS_Recover_3_Free
 
 
-_ts S_Recover_0_Init
+_ts TS_Recover_0_Init
     push       {lr}
     mov        r0,#0x6
     mov        r1,#0x4
@@ -53,8 +54,7 @@ _ts S_Recover_0_Init
     pop        {pc}
 
 
-
-_ts S_Recover_1_Main
+_ts TS_Recover_1_Main
     push       {lr}
     push       {r5}
     ldrb       r0,[r5,#0x6]
@@ -117,7 +117,7 @@ listRecoverHPAmounts:
 .short  10, 30, 50, 80, 120, 150, 200, 300
 
 
-_ts S_Recover_2_FadeIn
+_ts TS_Recover_2_FadeIn
     push       {lr}
     ldrh       r0,[r5,#0x8]
     sub        r0,#0x1
@@ -134,8 +134,7 @@ LAB_0809841e:
     pop        {pc}
 
 
-
-_ts S_Recover_3_Free
+_ts TS_Recover_3_Free
     push       {lr}
     mov        r7,r10
     ldr        r0,[r7,#0x18]
@@ -149,6 +148,7 @@ _ts S_Recover_3_Free
     bl         TimeStop_Free
 LAB_0809843a:
     pop        {pc}
+
 
 _ts TimeStop_Recover_Create
     push       {r5,lr}

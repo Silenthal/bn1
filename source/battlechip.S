@@ -2386,7 +2386,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 201
         chip_art 0
-    _202: @ $CA
+    _202: @ Zeta Cannon 1
         nocodes
         element None
         family 15, 0
@@ -2397,7 +2397,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 202
         chip_art 0
-    _203: @ $CB
+    _203: @ Zeta Cannon 2
         nocodes
         element None
         family 15, 1
@@ -2408,7 +2408,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 203
         chip_art 0
-    _204: @ $CC
+    _204: @ Zeta Cannon 3
         nocodes
         element None
         family 15, 2
@@ -2419,7 +2419,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 204
         chip_art 0
-    _205: @ $CD
+    _205: @ Zeta Spread
         nocodes
         element None
         family 15, 3
@@ -2430,7 +2430,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 205
         chip_art 0
-    _206: @ $CE
+    _206: @ Zeta Ratton 1
         nocodes
         element None
         family 15, 4
@@ -2441,7 +2441,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 206
         chip_art 0
-    _207: @ $CF
+    _207: @ Zeta Ratton 2
         nocodes
         element None
         family 15, 5
@@ -2452,7 +2452,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 207
         chip_art 0
-    _208: @ $D0
+    _208: @ Zeta Ratton 3
         nocodes
         element None
         family 15, 6
@@ -2463,7 +2463,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 208
         chip_art 0
-    _209: @ $D1
+    _209: @ Zeta Arrow
         nocodes
         element None
         family 15, 7
@@ -2474,7 +2474,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 209
         chip_art 0
-    _210: @ $D2
+    _210: @ Zeta Spear
         nocodes
         element None
         family 15, 8
@@ -2485,7 +2485,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 210
         chip_art 0
-    _211: @ $D3
+    _211: @ Zeta Lance
         nocodes
         element None
         family 15, 9
@@ -2496,7 +2496,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 211
         chip_art 0
-    _212: @ $D4
+    _212: @ Omega Cannon 1
         nocodes
         element None
         family 15, 10
@@ -2507,7 +2507,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 212
         chip_art 0
-    _213: @ $D5
+    _213: @ Omega Cannon 2
         nocodes
         element None
         family 15, 11
@@ -2518,7 +2518,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 213
         chip_art 0
-    _214: @ $D6
+    _214: @ Omega Cannon 3
         nocodes
         element None
         family 15, 12
@@ -2529,7 +2529,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 214
         chip_art 0
-    _215: @ $D7
+    _215: @ Omega Spread
         nocodes
         element None
         family 15, 13
@@ -2540,7 +2540,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 215
         chip_art 0
-    _216: @ $D8
+    _216: @ Omega Ratton 1
         nocodes
         element None
         family 15, 14
@@ -2551,7 +2551,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 216
         chip_art 0
-    _217: @ $D9
+    _217: @ Omega Ratton 2
         nocodes
         element None
         family 15, 15
@@ -2562,7 +2562,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 217
         chip_art 0
-    _218: @ $DA
+    _218: @ Omega Ratton 3
         nocodes
         element None
         family 15, 16
@@ -2573,7 +2573,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 218
         chip_art 0
-    _219: @ $DB
+    _219: @ Omega Arrow
         nocodes
         element None
         family 15, 17
@@ -2584,7 +2584,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 219
         chip_art 0
-    _220: @ $DC
+    _220: @ Omega Spear
         nocodes
         element None
         family 15, 18
@@ -2595,7 +2595,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 220
         chip_art 0
-    _221: @ $DD
+    _221: @ Omega Lance
         nocodes
         element None
         family 15, 19
@@ -2606,7 +2606,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 221
         chip_art 0
-    _222: @ $DE
+    _222: @ Beta Bomb
         nocodes
         element None
         family 20, 0
@@ -2617,7 +2617,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 222
         chip_art 0
-    _223: @ $DF
+    _223: @ Beta Sword
         nocodes
         element None
         family 20, 1
@@ -2628,7 +2628,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 223
         chip_art 0
-    _224: @ $E0
+    _224: @ Beta Wave
         nocodes
         element None
         family 20, 2
@@ -2639,7 +2639,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 224
         chip_art 0
-    _225: @ $E1
+    _225: @ Beta Quake
         nocodes
         element None
         family 20, 3
@@ -2650,7 +2650,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 225
         chip_art 0
-    _226: @ $E2
+    _226: @ Sigma Bomb
         nocodes
         element None
         family 20, 4
@@ -2661,7 +2661,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 226
         chip_art 0
-    _227: @ $E3
+    _227: @ Sigma Sword
         nocodes
         element None
         family 20, 5
@@ -2672,7 +2672,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 227
         chip_art 0
-    _228: @ $E4
+    _228: @ Sigma Wave
         nocodes
         element None
         family 20, 6
@@ -2683,7 +2683,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 228
         chip_art 0
-    _229: @ $E5
+    _229: @ Sigma Quake
         nocodes
         element None
         family 20, 7
@@ -2694,7 +2694,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 229
         chip_art 0
-    _230: @ $E6
+    _230: @ Powered Cannon
         nocodes
         element None
         family 14, 0
@@ -2705,7 +2705,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 230
         chip_art 0
-    _231: @ $E7
+    _231: @ Heavy Stamp
         nocodes
         element None
         family 13, 47
@@ -2716,7 +2716,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 231
         chip_art 0
-    _232: @ $E8
+    _232: @ Big Straight
         nocodes
         element None
         family 13, 30
@@ -2727,7 +2727,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 232
         chip_art 0
-    _233: @ $E9
+    _233: @ Blood Suck
         nocodes
         element None
         family 13, 48
@@ -2738,7 +2738,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 233
         chip_art 0
-    _234: @ $EA
+    _234: @ Death Storm
         nocodes
         element None
         family 13, 32
@@ -2749,7 +2749,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 234
         chip_art 0
-    _235: @ $EB
+    _235: @ Guts Shoot
         nocodes
         element None
         family 13, 31
@@ -2760,7 +2760,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 235
         chip_art 0
-    _236: @ $EC
+    _236: @ Life Saver
         nocodes
         element None
         family 13, 45
@@ -2771,7 +2771,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 236
         chip_art 0
-    _237: @ $ED
+    _237: @ Double Hero
         nocodes
         element None
         family 13, 46
