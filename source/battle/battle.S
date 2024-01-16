@@ -3,9 +3,7 @@
     .include "macros.inc"
 
     .set FUN_08007828, 0x8007828
-    .set Battle_IsActive, 0x8007c2c
     .set Battle_SetFieldTilemap, 0x80064b0
-    .set AdvanceInBattleTimer, 0x8009cf8
     .set FUN_08007acc, 0x8007acc
     .set Battle_IsTimerPaused, 0x8006a04
     .set PlayerBattleState_InitStats, 0x80062B0
@@ -31,17 +29,13 @@
     .set Text_CheckIfDialogActive, 0x8007240
     .set Effect_ProgramAdvance_Create, 0x807c79e
     .set FUN_080079c8, 0x80079c8
-    .set Battle_SetState_InBattle, 0x8006a6c
     .set PlayerMPState_Init, 0x8007b9c
     .set Battle_UnpauseTimer, 0x80069fa
     .set Multiplayer_UpdateKeyState, 0x8007a08
     .set Battle_AreAllSpritesSpawned, 0x8006a0c
     .set Battle_PauseTimer, 0x80069f0
-    .set TimeStop_UpdateAll, 0x8006a52
     .set BattleMessage_Disable, 0x8017954
     .set Battle_CopyChipHandIcons, 0x807c160
-    .set Battle_IsInputLocked, 0x8009cee
-    .set GetToggledKeys, 0x8007c3e
 
     .text
 
@@ -101,7 +95,7 @@ LAB_080058aa:
     mov        r0,#0x0
     str        r0,[r5,#0x68]
 LAB_080058e0:
-    bl         AdvanceInBattleTimer
+    bl         Battle_AdvanceTimer
     pop        { pc }
     .align 2, 0
 jumpTableBattleMain:

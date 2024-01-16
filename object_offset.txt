@@ -27,10 +27,9 @@ fade                0x4B00
 encounter           0x5504
 battle              0x5864
 timestop            0x6A24
-util_battle         0x6AA4
-battlechip          0x7C44
-inventory           0x9BA0
-battle_sprite_queue 0x9D68
+battle_util         0x6A6C
+battle_regular      0x6BE8
+battle_util2        0x7C2C
 enemy_detail        0x9DC4
 flag                0x102DC
 main_menu           0x10414

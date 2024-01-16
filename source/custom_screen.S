@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set AddObject, 0x8009810
-    .set Entity_FreeAllMultiple, 0x80029EC
     .set tilesetCustomScreenBg_2, 0x863FE34
     .set FUN_0805758a, 0x805758A
     .set FUN_0805738e, 0x805738e
@@ -12,7 +10,7 @@
 
     .thumb
 
-_ts CustomScreen_HandleInput
+_ts CustomScreen_Main
     push       { lr }
     ldr        r5,PTR_gCustomScreen_08015928
     mov        r0,#0x0
@@ -38,15 +36,15 @@ LAB_08015902:
     .align 2, 0
 
 JT_R5_CustomScreen_15918:
-    .word CustomScreen_Init
-    .word CustomScreen_Main
-    .word CustomScreen_TakeOrAddChips
+    .word CustomScreen_0_Init
+    .word CustomScreen_1_Main
+    .word CustomScreen_2_TakeOrAddChips
 PTR_JT_R5_CustomScreen_15918_08015924:
     .word JT_R5_CustomScreen_15918
 PTR_gCustomScreen_08015928:
     .word gCustomScreen
 
-_ts CustomScreen_Init
+_ts CustomScreen_0_Init
     push       { lr }
     bl         FUN_0805758a
     mov        r0,#0x4
@@ -74,11 +72,11 @@ _ts CustomScreen_Init
     mov        r1,#0xf
     mov        r2,#0x0
     bl         memset
-    bl         CustomScreen_Main
+    bl         CustomScreen_1_Main
     mov        r0,#0x1
     pop        { pc }
 
-_ts CustomScreen_Main
+_ts CustomScreen_1_Main
     push       { lr }
     ldr        r7,PTR_JT_R5_CustomScreen_15980_0801599c
     ldrb       r0,[r5,#0x1]
@@ -682,7 +680,7 @@ LAB_08015e26:
 PTR_gTextOptionFlags_08015e28:
     .word gTextOptionFlags
 
-_ts CustomScreen_TakeOrAddChips
+_ts CustomScreen_2_TakeOrAddChips
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0xc]
@@ -1786,7 +1784,7 @@ LAB_080167e8:
     mov        r4,#0x0
     mov        r5,#0x1
     mov        r6,#0x0
-    bl         AddObject
+    bl         Battle_AddObject
     ldr        r0,DAT_08016830
     mov        r1,#0x0
     mov        r2,#0x56
@@ -1794,7 +1792,7 @@ LAB_080167e8:
     mov        r4,#0x1
     mov        r5,#0x1
     mov        r6,#0x0
-    bl         AddObject
+    bl         Battle_AddObject
     pop        { r0, r5 }
     cmp        r0,#0x1
     bne        LAB_0801682e
@@ -1805,7 +1803,7 @@ LAB_080167e8:
     mov        r4,#0x0
     mov        r5,#0x1
     mov        r6,#0x0
-    bl         AddObject
+    bl         Battle_AddObject
 LAB_0801682e:
     pop        { r5, pc }
 DAT_08016830: .word 0x3B4
@@ -2006,21 +2004,26 @@ _ts CustomScreen_ValidateSelection
     mov        r0,#0x1
     pop        { pc }
 
-CustomScreen_EnableInput:
-    ldr        r7,PTR_gCustomScreen_08016930
+
+_nt CustomScreen_EnableInput
+    ldr        r7,=gCustomScreen
     mov        r0,#0x1
     strb       r0,[r7,#0x1a]
     mov        pc,lr
 
     .align 2,0
-PTR_gCustomScreen_08016930: .word gCustomScreen
+    .pool
 
-CustomScreen_DisableInput:
-    ldr        r7,PTR_gCustomScreen_0801693c
+
+_nt CustomScreen_DisableInput
+    ldr        r7,=gCustomScreen
     mov        r0,#0x0
     strb       r0,[r7,#0x1a]
     mov        pc,lr
-PTR_gCustomScreen_0801693c: .word gCustomScreen
+
+    .align 2, 0
+    .pool
+
 
 _ts CustomScreen_AnimateLogo
     push       { lr }

@@ -5,24 +5,17 @@
     .text
 
 .set Entity_SpriteCoordsToCell, 0x80097b8
-.set Entity_LoadEnemyHp, 0x8009b64
-.set AddEntityToSpawnIndexList, 0x8009852
+.set Battle_LoadEnemyHp, 0x8009b64
 .set IsPanelWalkable, 0x8059c40
 .set Battle_DecreaseOpponentCount, 0x8009cc2
 .set SpritePtr_ResetPalette, 0x80025d8
 .set Battle_IsInputLocked, 0x8009cee
 .set FUN_080562d6_HpDrainRelated, 0x80562d6
-.set Battle_PriorityQueueIsEntityNext, 0x800983a
-.set ResetBattleSpawnAnimationState, 0x8009acc
-.set BattleSpawnAnimation_Init, 0x8009ad6
-.set Battle_PriorityQueueRemove, 0x800987a
-.set GetBattleEntryState, 0x80097b0
 .set Entity_CompareToPlayerRow, 0x805aadc
 .set CanodumbTarget_Create, 0x8071B60
 .set Battle_RegisterVirusDelete, 0x8009B90
 .set Effect_CreateVirusDeleteExplosion, 0x807ce16
 .set Battle_RemoveFromEnemyList, 0x8009b74
-.set Field_CreateEntity, 0x8001068
 
 _ts Routine_Canodumb
     push       {lr}
@@ -78,8 +71,8 @@ _ts R_Canodumb_0_Init
     ldr        r7,[r5,#0x60]
     mov        r1,#0x20
     strb       r1,[r7,#0x8]
-    bl         Entity_LoadEnemyHp
-    bl         AddEntityToSpawnIndexList
+    bl         Battle_LoadEnemyHp
+    bl         Battle_PriorityQueueEnqueue
     pop        {pc}
 
 _ts R_Canodumb_1_Main
@@ -188,7 +181,7 @@ LAB_08059a7a:
 
 _nt R_Canodumb_1_0_1_InitSpawn
     push       {lr}
-    bl         BattleSpawnAnimation_Init
+    bl         BattleSpawnAnimation_Main
     tst        r0,r0
     bne        LAB_08059a8e
     mov        r0,#0x8
@@ -199,7 +192,7 @@ LAB_08059a8e:
 
 _nt R_Canodumb_1_0_2_WaitForBattleStart
     push       {lr}
-    bl         GetBattleEntryState
+    bl         Battle_GetEntryState
     mov        r1,#0x8
     tst        r0,r1
     bne        LAB_08059aa4
@@ -225,7 +218,7 @@ _nt R_Canodumb_1_1_WaitForBattleStart
     mov        r0,#0x4
     strb       r0,[r5,#0xa]
 LAB_08059ac0:
-    bl         GetBattleEntryState
+    bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08059ad2
@@ -243,7 +236,7 @@ _nt R_Canodumb_1_4_Observe
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    bl         GetBattleEntryState
+    bl         Battle_GetEntryState
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08059af2

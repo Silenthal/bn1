@@ -6,6 +6,28 @@
 
     .thumb
 
+.set Inventory_SetChecksum, 0x801b0d4
+.set FUN_0801b0f0, 0x801b0f0
+
+_ts Battle_IsActive
+    push       {lr}
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    mov        r0,#0x1
+    ldrb       r1,[r7,#0xf]
+    cmp        r1,#0x8
+    blt        LAB_08007c3c
+    ldrb       r0,[r5,#0x1f]
+LAB_08007c3c:
+    pop        {pc}
+
+
+_nt GetToggledKeys
+    mvn        r2,r1
+    and        r2,r0
+    mov        pc,lr
+
+
 _ts Battle_InitChipDeck
     push       { r5, lr }
     mov        r0,#0x0
@@ -164,7 +186,7 @@ _ts BattleChip_GetChipData
     .pool
 
 dataChipDetailList:
-    _0: @ Buster
+    @ 0: Buster
         nocodes
         element None
         family 1, 0
@@ -175,7 +197,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 0
         chip_art 0
-    _1: @ Cannon
+    @ 1: Cannon
         codes A, B, C, D, E
         element None
         family 2, 0
@@ -186,7 +208,7 @@ dataChipDetailList:
         .byte 0x99, 0x1
         chip_icon 1
         chip_art 1
-    _2: @ HiCannon
+    @ 2: HiCannon
         codes F, G, H, I, J
         element None
         family 2, 1
@@ -197,7 +219,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 2
         chip_art 2
-    _3: @ M_Cannon
+    @ 3: M_Cannon
         codes K, L, M, N, O
         element None
         family 2, 2
@@ -208,7 +230,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 3
         chip_art 3
-    _4: @ Sword
+    @ 4: Sword
         codes B, K, L, P, S
         element None
         family 3, 0
@@ -219,7 +241,7 @@ dataChipDetailList:
         .byte 0x0, 0x1
         chip_icon 4
         chip_art 4
-    _5: @ WideSwrd
+    @ 5: WideSwrd
         codes C, K, M, N, S
         element None
         family 3, 1
@@ -230,7 +252,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 5
         chip_art 5
-    _6: @ LongSwrd
+    @ 6: LongSwrd
         codes D, E, N, O, S
         element None
         family 3, 2
@@ -241,7 +263,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 6
         chip_art 6
-    _7: @ LilBomb
+    @ 7: LilBomb
         codes B, D, G, O, T
         element None
         family 4, 0
@@ -252,7 +274,7 @@ dataChipDetailList:
         .byte 0x99, 0x1
         chip_icon 7
         chip_art 7
-    _8: @ CrosBomb
+    @ 8: CrosBomb
         codes B, D, H, J, L
         element None
         family 4, 1
@@ -263,7 +285,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 8
         chip_art 8
-    _9: @ BigBomb
+    @ 9: BigBomb
         codes B, G, O, S, T
         element None
         family 4, 2
@@ -274,7 +296,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 9
         chip_art 9
-    _10: @ Spreader
+    @ 10: Spreader
         codes H, I, J, K, L
         element None
         family 5, 0
@@ -285,7 +307,7 @@ dataChipDetailList:
         .byte 0x99, 0x1
         chip_icon 10
         chip_art 10
-    _11: @ Bubbler
+    @ 11: Bubbler
         codes A, K, L, P, S
         element Water
         family 5, 1
@@ -296,7 +318,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 11
         chip_art 11
-    _12: @ Heater
+    @ 12: Heater
         codes C, F, G, K, O
         element Fire
         family 5, 2
@@ -307,7 +329,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 12
         chip_art 12
-    _13: @ MiniBomb
+    @ 13: MiniBomb
         codes C, E, J, L, P
         element None
         family 4, 3
@@ -318,7 +340,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 13
         chip_art 13
-    _14: @ Shotgun
+    @ 14: Shotgun
         codes K, M, N, Q, R
         element None
         family 5, 3
@@ -329,7 +351,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 14
         chip_art 14
-    _15: @ CrossGun
+    @ 15: CrossGun
         codes C, E, F, J, K
         element None
         family 5, 4
@@ -340,7 +362,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 15
         chip_art 15
-    _16: @ ShokWave
+    @ 16: ShokWave
         codes C, K, L, N, P
         element None
         family 8, 0
@@ -351,7 +373,7 @@ dataChipDetailList:
         .byte 0x99, 0x1
         chip_icon 16
         chip_art 16
-    _17: @ SoniWave
+    @ 17: SoniWave
         codes C, D, J, M, S
         element None
         family 8, 1
@@ -362,7 +384,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 17
         chip_art 17
-    _18: @ DynaWave
+    @ 18: DynaWave
         codes C, E, M, S, R
         element None
         family 8, 2
@@ -373,7 +395,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 18
         chip_art 18
-    _19: @ FireTowr
+    @ 19: FireTowr
         codes E, F, L, M, T
         element Fire
         family 9, 0
@@ -384,7 +406,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 19
         chip_art 19
-    _20: @ AquaTowr
+    @ 20: AquaTowr
         codes A, C, G, H, R
         element Water
         family 9, 1
@@ -395,7 +417,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 20
         chip_art 20
-    _21: @ WoodTowr
+    @ 21: WoodTowr
         codes B, C, H, K, N
         element Wood
         family 9, 2
@@ -406,7 +428,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 21
         chip_art 21
-    _22: @ Quake1
+    @ 22: Quake1
         codes A, E, H, K, Q
         element None
         family 4, 5
@@ -417,7 +439,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 22
         chip_art 22
-    _23: @ Quake2
+    @ 23: Quake2
         codes B, C, I, K, Q
         element None
         family 4, 6
@@ -428,7 +450,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 23
         chip_art 23
-    _24: @ Quake3
+    @ 24: Quake3
         codes C, D, H, M, Q
         element None
         family 4, 7
@@ -439,7 +461,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 24
         chip_art 24
-    _25: @ FireSwrd
+    @ 25: FireSwrd
         codes B, F, G, N, P
         element Fire
         family 3, 3
@@ -450,7 +472,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 25
         chip_art 25
-    _26: @ ElecSwrd
+    @ 26: ElecSwrd
         codes E, G, L, O, S
         element Elec
         family 3, 4
@@ -461,7 +483,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 26
         chip_art 26
-    _27: @ AquaSwrd
+    @ 27: AquaSwrd
         codes A, M, N, O, P
         element Water
         family 3, 5
@@ -472,7 +494,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 27
         chip_art 27
-    _28: @ GutsPnch
+    @ 28: GutsPnch
         codes B, H, M, N, T
         element None
         family 9, 3
@@ -483,7 +505,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 28
         chip_art 28
-    _29: @ IcePunch
+    @ 29: IcePunch
         codes B, H, M, N, T
         element Water
         family 9, 4
@@ -494,7 +516,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 29
         chip_art 29
-    _30: @ FtrSword
+    @ 30: FtrSword
         codes B, K, L, P, S
         element None
         family 3, 6
@@ -505,7 +527,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 30
         chip_art 30
-    _31: @ Dash
+    @ 31: Dash
         codes B, D, G, L, O
         element None
         family 19, 0
@@ -516,7 +538,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 31
         chip_art 31
-    _32: @ KngtSwrd
+    @ 32: KngtSwrd
         codes B, C, E, G, H
         element None
         family 3, 7
@@ -527,7 +549,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 32
         chip_art 32
-    _33: @ HeroSwrd
+    @ 33: HeroSwrd
         codes B, D, F, I, J
         element None
         family 3, 8
@@ -538,7 +560,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 33
         chip_art 33
-    _34: @ MetGuard
+    @ 34: MetGuard
         codes A, C, E, G, L
         element None
         family 6, 0
@@ -549,7 +571,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 34
         chip_art 34
-    _35: @ $23
+    @ 35: $23
         nocodes
         element None
         nofamily
@@ -560,7 +582,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 35
         chip_art 0
-    _36: @ $24
+    @ 36: $24
         nocodes
         element None
         nofamily
@@ -571,7 +593,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 36
         chip_art 0
-    _37: @ TriArrow
+    @ 37: TriArrow
         codes A, B, C, D, E
         element None
         family 17, 0
@@ -582,7 +604,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 37
         chip_art 35
-    _38: @ TriSpear
+    @ 38: TriSpear
         codes F, G, H, I, J
         element None
         family 17, 1
@@ -593,7 +615,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 38
         chip_art 36
-    _39: @ TriLance
+    @ 39: TriLance
         codes K, L, M, N, O
         element None
         family 17, 2
@@ -604,7 +626,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 39
         chip_art 37
-    _40: @ Typhoon
+    @ 40: Typhoon
         codes A, B, D, E, G
         element None
         family 28, 0
@@ -615,7 +637,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 40
         chip_art 38
-    _41: @ Huricane
+    @ 41: Huricane
         codes G, I, J, K, L
         element None
         family 28, 1
@@ -626,7 +648,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 41
         chip_art 39
-    _42: @ Cyclone
+    @ 42: Cyclone
         codes E, F, G, H, I
         element None
         family 28, 2
@@ -637,7 +659,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 42
         chip_art 40
-    _43: @ Howitzer
+    @ 43: Howitzer
         codes A, C, G, H, O
         element None
         family 4, 4
@@ -648,7 +670,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 43
         chip_art 41
-    _44: @ Thunder1
+    @ 44: Thunder1
         codes A, E, G, H, S
         element Elec
         family 25, 0
@@ -659,7 +681,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 44
         chip_art 42
-    _45: @ Thunder2
+    @ 45: Thunder2
         codes B, C, F, I, L
         element Elec
         family 25, 1
@@ -670,7 +692,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 45
         chip_art 43
-    _46: @ Thunder3
+    @ 46: Thunder3
         codes D, F, G, K, N
         element Elec
         family 25, 2
@@ -681,7 +703,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 46
         chip_art 44
-    _47: @ $2F
+    @ 47: $2F
         nocodes
         element None
         nofamily
@@ -692,7 +714,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 47
         chip_art 0
-    _48: @ $30
+    @ 48: $30
         nocodes
         element None
         nofamily
@@ -703,7 +725,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 48
         chip_art 0
-    _49: @ Snakegg1
+    @ 49: Snakegg1
         codes B, E, G, M, N
         element Wood
         family 13, 36
@@ -714,7 +736,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 49
         chip_art 45
-    _50: @ Snakegg2
+    @ 50: Snakegg2
         codes C, E, H, N, P
         element Elec
         family 13, 37
@@ -725,7 +747,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 50
         chip_art 46
-    _51: @ Snakegg3
+    @ 51: Snakegg3
         codes A, C, F, L, S
         element Fire
         family 13, 38
@@ -736,7 +758,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 51
         chip_art 47
-    _52: @ Hammer
+    @ 52: Hammer
         codes A, F, I, M, Q
         element None
         family 18, 0
@@ -747,7 +769,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 52
         chip_art 48
-    _53: @ $35
+    @ 53: $35
         nocodes
         element None
         nofamily
@@ -758,7 +780,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 53
         chip_art 0
-    _54: @ $36
+    @ 54: $36
         nocodes
         element None
         nofamily
@@ -769,7 +791,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 54
         chip_art 0
-    _55: @ BodyBurn
+    @ 55: BodyBurn
         codes E, F, K, M, N
         element Fire
         family 27, 0
@@ -780,7 +802,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 55
         chip_art 49
-    _56: @ $38
+    @ 56: $38
         nocodes
         element None
         nofamily
@@ -791,7 +813,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 56
         chip_art 0
-    _57: @ $39
+    @ 57: $39
         nocodes
         element None
         nofamily
@@ -802,7 +824,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 57
         chip_art 0
-    _58: @ Ratton1
+    @ 58: Ratton1
         codes A, B, C, D, E
         element None
         family 23, 3
@@ -813,7 +835,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 58
         chip_art 50
-    _59: @ Ratton2
+    @ 59: Ratton2
         codes F, G, H, I, J
         element None
         family 23, 4
@@ -824,7 +846,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 59
         chip_art 51
-    _60: @ Ratton3
+    @ 60: Ratton3
         codes K, L, M, N, O
         element None
         family 23, 5
@@ -835,7 +857,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 60
         chip_art 52
-    _61: @ Lockon1
+    @ 61: Lockon1
         codes C, D, H, I, L
         element None
         family 13, 42
@@ -846,7 +868,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 61
         chip_art 53
-    _62: @ Lockon2
+    @ 62: Lockon2
         codes B, E, G, H, M
         element None
         family 13, 43
@@ -857,7 +879,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 62
         chip_art 54
-    _63: @ Lockon3
+    @ 63: Lockon3
         codes A, D, K, N, O
         element None
         family 13, 44
@@ -868,7 +890,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 63
         chip_art 55
-    _64: @ XーPanel1
+    @ 64: XーPanel1
         codes B, D, G, L, S
         element None
         family 11, 0
@@ -879,7 +901,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 64
         chip_art 56
-    _65: @ XーPanel3
+    @ 65: XーPanel3
         codes B, D, G, L, S
         element None
         family 11, 1
@@ -890,7 +912,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 65
         chip_art 57
-    _66: @ $42
+    @ 66: $42
         nocodes
         element None
         nofamily
@@ -901,7 +923,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 66
         chip_art 0
-    _67: @ Recov10
+    @ 67: Recov10
         codes A, C, E, G, L
         element None
         family 12, 0
@@ -912,7 +934,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 67
         chip_art 58
-    _68: @ Recov30
+    @ 68: Recov30
         codes A, C, E, G, L
         element None
         family 12, 1
@@ -923,7 +945,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 68
         chip_art 59
-    _69: @ Recov50
+    @ 69: Recov50
         codes A, C, E, G, L
         element None
         family 12, 2
@@ -934,7 +956,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 69
         chip_art 60
-    _70: @ Recov80
+    @ 70: Recov80
         codes A, C, E, G, L
         element None
         family 12, 3
@@ -945,7 +967,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 70
         chip_art 61
-    _71: @ Recov120
+    @ 71: Recov120
         codes A, C, E, G, L
         element None
         family 12, 4
@@ -956,7 +978,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 71
         chip_art 62
-    _72: @ Recov150
+    @ 72: Recov150
         codes A, C, E, G, L
         element None
         family 12, 5
@@ -967,7 +989,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 72
         chip_art 63
-    _73: @ Recov200
+    @ 73: Recov200
         codes A, C, E, G, L
         element None
         family 12, 6
@@ -978,7 +1000,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 73
         chip_art 64
-    _74: @ Recov300
+    @ 74: Recov300
         codes A, C, E, G, L
         element None
         family 12, 7
@@ -989,7 +1011,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 74
         chip_art 65
-    _75: @ $4B
+    @ 75: $4B
         nocodes
         element None
         nofamily
@@ -1000,7 +1022,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 75
         chip_art 0
-    _76: @ Steal
+    @ 76: Steal
         codes A, E, L, P, S
         element None
         family 13, 0
@@ -1011,7 +1033,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 76
         chip_art 66
-    _77: @ $4D
+    @ 77: $4D
         nocodes
         element None
         nofamily
@@ -1022,7 +1044,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 77
         chip_art 0
-    _78: @ $4E
+    @ 78: $4E
         nocodes
         element None
         nofamily
@@ -1033,7 +1055,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 78
         chip_art 0
-    _79: @ Geddon1
+    @ 79: Geddon1
         codes F, H, J, L, N
         element None
         family 22, 0
@@ -1044,7 +1066,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 79
         chip_art 67
-    _80: @ Geddon2
+    @ 80: Geddon2
         codes A, B, E, I, K
         element None
         family 22, 1
@@ -1055,7 +1077,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 80
         chip_art 68
-    _81: @ $51
+    @ 81: $51
         nocodes
         element None
         nofamily
@@ -1066,7 +1088,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 81
         chip_art 0
-    _82: @ Escape
+    @ 82: Escape
         codes F, H, J, L, N
         element None
         family 13, 1
@@ -1077,7 +1099,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 82
         chip_art 69
-    _83: @ Interupt
+    @ 83: Interupt
         codes F, H, J, L, N
         element None
         family 13, 29
@@ -1088,7 +1110,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 83
         chip_art 70
-    _84: @ LifeAura
+    @ 84: LifeAura
         codes A, H, K, M, P
         element None
         family 10, 4
@@ -1099,7 +1121,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 84
         chip_art 71
-    _85: @ AquaAura
+    @ 85: AquaAura
         codes D, E, L, R, S
         element Water
         family 10, 5
@@ -1110,7 +1132,7 @@ dataChipDetailList:
         .byte 0x0, 0x50
         chip_icon 85
         chip_art 72
-    _86: @ FireAura
+    @ 86: FireAura
         codes B, G, I, N, T
         element Fire
         family 10, 6
@@ -1121,7 +1143,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 86
         chip_art 73
-    _87: @ WoodAura
+    @ 87: WoodAura
         codes C, F, J, O, Q
         element Wood
         family 10, 7
@@ -1132,7 +1154,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 87
         chip_art 74
-    _88: @ Repair
+    @ 88: Repair
         codes A, G, H, K, S
         element None
         family 13, 2
@@ -1143,7 +1165,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 88
         chip_art 75
-    _89: @ $59
+    @ 89: $59
         nocodes
         element None
         nofamily
@@ -1154,7 +1176,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 89
         chip_art 0
-    _90: @ $5A
+    @ 90: $5A
         nocodes
         element None
         nofamily
@@ -1165,7 +1187,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 90
         chip_art 0
-    _91: @ Cloud
+    @ 91: Cloud
         codes B, G, H, O, R
         element Water
         family 13, 16
@@ -1176,7 +1198,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 91
         chip_art 76
-    _92: @ Cloudier
+    @ 92: Cloudier
         codes A, D, I, M, P
         element Water
         family 13, 17
@@ -1187,7 +1209,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 92
         chip_art 77
-    _93: @ Cloudest
+    @ 93: Cloudest
         codes C, F, J, K, O
         element Water
         family 13, 18
@@ -1198,7 +1220,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 93
         chip_art 78
-    _94: @ IceCube
+    @ 94: IceCube
         codes A, C, I, L, M
         element Water
         family 13, 3
@@ -1209,7 +1231,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 94
         chip_art 79
-    _95: @ RockCube
+    @ 95: RockCube
         codes B, E, G, M, O
         element None
         family 13, 4
@@ -1220,7 +1242,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 95
         chip_art 80
-    _96: @ $60
+    @ 96: $60
         nocodes
         element None
         nofamily
@@ -1231,7 +1253,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 96
         chip_art 0
-    _97: @ TimeBom1
+    @ 97: TimeBom1
         codes E, G, J, L, Q
         element None
         family 13, 5
@@ -1242,7 +1264,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 97
         chip_art 81
-    _98: @ TimeBom2
+    @ 98: TimeBom2
         codes C, F, J, L, S
         element None
         family 13, 6
@@ -1253,7 +1275,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 98
         chip_art 82
-    _99: @ TimeBom3
+    @ 99: TimeBom3
         codes A, B, G, O, P
         element None
         family 13, 7
@@ -1264,7 +1286,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 99
         chip_art 83
-    _100: @ Invis1
+    @ 100: Invis1
         codes I, J, L, O, Q
         element None
         family 13, 8
@@ -1275,7 +1297,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 100
         chip_art 84
-    _101: @ Invis2
+    @ 101: Invis2
         codes A, C, F, J, M
         element None
         family 13, 9
@@ -1286,7 +1308,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 101
         chip_art 85
-    _102: @ Invis3
+    @ 102: Invis3
         codes B, D, H, K, N
         element None
         family 13, 10
@@ -1297,7 +1319,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 102
         chip_art 86
-    _103: @ IronBody
+    @ 103: IronBody
         codes C, D, L, Q, R
         element None
         family 13, 20
@@ -1308,7 +1330,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 103
         chip_art 87
-    _104: @ $68
+    @ 104: $68
         nocodes
         element None
         nofamily
@@ -1319,7 +1341,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 104
         chip_art 0
-    _105: @ Remobit1
+    @ 105: Remobit1
         codes A, C, F, N, O
         element Elec
         family 13, 26
@@ -1330,7 +1352,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 105
         chip_art 88
-    _106: @ Remobit2
+    @ 106: Remobit2
         codes B, D, E, H, I
         element Elec
         family 13, 27
@@ -1341,7 +1363,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 106
         chip_art 89
-    _107: @ Remobit3
+    @ 107: Remobit3
         codes G, J, K, P, Q
         element Elec
         family 13, 28
@@ -1352,7 +1374,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 107
         chip_art 90
-    _108: @ BstrGard
+    @ 108: BstrGard
         codes A, G, K, N, R
         element None
         family 21, 0
@@ -1363,7 +1385,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 108
         chip_art 91
-    _109: @ BstrBomb
+    @ 109: BstrBomb
         codes D, H, J, O, T
         element None
         family 21, 1
@@ -1374,7 +1396,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 109
         chip_art 92
-    _110: @ BstrSwrd
+    @ 110: BstrSwrd
         codes B, E, L, P, S
         element None
         family 21, 2
@@ -1385,7 +1407,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 110
         chip_art 93
-    _111: @ BstrPnch
+    @ 111: BstrPnch
         codes C, F, I, M, Q
         element None
         family 21, 3
@@ -1396,7 +1418,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 111
         chip_art 94
-    _112: @ RingZap1
+    @ 112: RingZap1
         codes G, H, M, N, P
         element Elec
         family 26, 1
@@ -1407,7 +1429,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 112
         chip_art 95
-    _113: @ RingZap2
+    @ 113: RingZap2
         codes C, E, G, J, L
         element Elec
         family 26, 2
@@ -1418,7 +1440,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 113
         chip_art 96
-    _114: @ RingZap3
+    @ 114: RingZap3
         codes A, B, O, R, T
         element Elec
         family 26, 3
@@ -1429,7 +1451,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 114
         chip_art 97
-    _115: @ Candle1
+    @ 115: Candle1
         codes C, F, I, P, S
         element None
         family 13, 21
@@ -1440,7 +1462,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 115
         chip_art 98
-    _116: @ Candle2
+    @ 116: Candle2
         codes B, E, G, J, L
         element None
         family 13, 22
@@ -1451,7 +1473,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 116
         chip_art 99
-    _117: @ Candle3
+    @ 117: Candle3
         codes A, D, H, K, M
         element None
         family 13, 23
@@ -1462,7 +1484,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 117
         chip_art 100
-    _118: @ SloGauge
+    @ 118: SloGauge
         codes H, K, N, O, Q
         element None
         family 13, 24
@@ -1473,7 +1495,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 118
         chip_art 101
-    _119: @ FstGauge
+    @ 119: FstGauge
         codes A, C, E, L, N
         element None
         family 13, 25
@@ -1484,7 +1506,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 119
         chip_art 102
-    _120: @ $78
+    @ 120: $78
         nocodes
         element None
         nofamily
@@ -1495,7 +1517,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 120
         chip_art 0
-    _121: @ Drain1
+    @ 121: Drain1
         codes A, B, D, K, O
         element None
         family 13, 33
@@ -1506,7 +1528,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 121
         chip_art 103
-    _122: @ Drain2
+    @ 122: Drain2
         codes A, C, H, N, T
         element None
         family 13, 34
@@ -1517,7 +1539,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 122
         chip_art 104
-    _123: @ Drain3
+    @ 123: Drain3
         codes A, E, F, L, Q
         element None
         family 13, 35
@@ -1528,7 +1550,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 123
         chip_art 105
-    _124: @ Mine1
+    @ 124: Mine1
         codes G, H, M, N, P
         element None
         family 13, 13
@@ -1539,7 +1561,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 124
         chip_art 106
-    _125: @ Mine2
+    @ 125: Mine2
         codes C, E, G, J, L
         element None
         family 13, 14
@@ -1550,7 +1572,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 125
         chip_art 107
-    _126: @ Mine3
+    @ 126: Mine3
         codes A, B, O, R, T
         element None
         family 13, 15
@@ -1561,7 +1583,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 126
         chip_art 108
-    _127: @ Gaia1
+    @ 127: Gaia1
         codes C, D, L, O, T
         element None
         family 29, 0
@@ -1572,7 +1594,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 127
         chip_art 109
-    _128: @ Gaia2
+    @ 128: Gaia2
         codes C, F, K, P, S
         element None
         family 29, 1
@@ -1583,7 +1605,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 128
         chip_art 110
-    _129: @ Gaia3
+    @ 129: Gaia3
         codes C, G, M, R, T
         element None
         family 29, 2
@@ -1594,7 +1616,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 129
         chip_art 111
-    _130: @ BblWrap1
+    @ 130: BblWrap1
         codes C, E, G, I, M
         element Water
         family 10, 1
@@ -1605,7 +1627,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 130
         chip_art 112
-    _131: @ BblWrap2
+    @ 131: BblWrap2
         codes D, F, H, K, N
         element Water
         family 10, 2
@@ -1616,7 +1638,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 131
         chip_art 113
-    _132: @ BblWrap3
+    @ 132: BblWrap3
         codes A, B, L, Q, R
         element Water
         family 10, 3
@@ -1627,7 +1649,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 132
         chip_art 114
-    _133: @ Wave
+    @ 133: Wave
         codes A, D, I, L, M
         element Water
         family 23, 0
@@ -1638,7 +1660,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 133
         chip_art 115
-    _134: @ RedWave
+    @ 134: RedWave
         codes B, E, J, N, P
         element Fire
         family 23, 1
@@ -1649,7 +1671,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 134
         chip_art 116
-    _135: @ BigWave
+    @ 135: BigWave
         codes C, H, K, L, Q
         element Water
         family 23, 2
@@ -1660,7 +1682,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 135
         chip_art 117
-    _136: @ Muramasa
+    @ 136: Muramasa
         codes C, E, G, J, K
         element None
         family 3, 9
@@ -1671,7 +1693,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 136
         chip_art 118
-    _137: @ Dropdown
+    @ 137: Dropdown
         codes A, B, O, R, T
         element None
         family 13, 11
@@ -1682,7 +1704,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 137
         chip_art 119
-    _138: @ Popup
+    @ 138: Popup
         codes C, D, H, K, N
         element None
         family 13, 12
@@ -1693,7 +1715,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 138
         chip_art 120
-    _139: @ Dynamyt1
+    @ 139: Dynamyt1
         codes B, G, O, Q, S
         element None
         family 13, 39
@@ -1704,7 +1726,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 139
         chip_art 121
-    _140: @ Dynamyt2
+    @ 140: Dynamyt2
         codes A, C, K, M, N
         element None
         family 13, 40
@@ -1715,7 +1737,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 140
         chip_art 122
-    _141: @ Dynamyt3
+    @ 141: Dynamyt3
         codes G, K, M, O, P
         element None
         family 13, 41
@@ -1726,7 +1748,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 141
         chip_art 123
-    _142: @ Anubis
+    @ 142: Anubis
         codes C, L, N, Q, T
         element None
         family 13, 19
@@ -1737,7 +1759,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 142
         chip_art 124
-    _143: @ $8F
+    @ 143: $8F
         nocodes
         element None
         nofamily
@@ -1748,7 +1770,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 143
         chip_art 0
-    _144: @ $90
+    @ 144: $90
         nocodes
         element None
         family 8, 0
@@ -1759,7 +1781,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 144
         chip_art 0
-    _145: @ IronShld
+    @ 145: IronShld
         codes A, B, O, R, T
         element None
         family 24, 0
@@ -1770,7 +1792,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 145
         chip_art 125
-    _146: @ LeafShld
+    @ 146: LeafShld
         codes C, D, F, K, Q
         element Wood
         family 10, 8
@@ -1781,7 +1803,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 146
         chip_art 126
-    _147: @ Barrier
+    @ 147: Barrier
         codes D, F, M, R, S
         element None
         family 10, 0
@@ -1792,7 +1814,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 147
         chip_art 127
-    _148: @ PharoMan
+    @ 148: PharoMan
         codes P
         element None
         family 16, 36
@@ -1803,7 +1825,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 148
         chip_art 128
-    _149: @ PharoMn2
+    @ 149: PharoMn2
         codes P
         element None
         family 16, 37
@@ -1814,7 +1836,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 149
         chip_art 129
-    _150: @ PharoMn3
+    @ 150: PharoMn3
         codes P
         element None
         family 16, 38
@@ -1825,7 +1847,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 150
         chip_art 130
-    _151: @ ShadoMan
+    @ 151: ShadoMan
         codes S
         element None
         family 16, 39
@@ -1836,7 +1858,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 151
         chip_art 131
-    _152: @ ShadoMn2
+    @ 152: ShadoMn2
         codes S
         element None
         family 16, 40
@@ -1847,7 +1869,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 152
         chip_art 132
-    _153: @ ShadoMn3
+    @ 153: ShadoMn3
         codes S
         element None
         family 16, 41
@@ -1858,7 +1880,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 153
         chip_art 133
-    _154: @ $9A
+    @ 154: $9A
         nocodes
         element None
         nofamily
@@ -1869,7 +1891,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 154
         chip_art 0
-    _155: @ $9B
+    @ 155: $9B
         nocodes
         element None
         nofamily
@@ -1880,7 +1902,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 155
         chip_art 0
-    _156: @ $9C
+    @ 156: $9C
         nocodes
         element None
         nofamily
@@ -1891,7 +1913,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 156
         chip_art 0
-    _157: @ MagicMan
+    @ 157: MagicMan
         codes M
         element None
         family 16, 42
@@ -1902,7 +1924,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 157
         chip_art 134
-    _158: @ MagicMn2
+    @ 158: MagicMn2
         codes M
         element None
         family 16, 43
@@ -1913,7 +1935,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 158
         chip_art 135
-    _159: @ MagicMn3
+    @ 159: MagicMn3
         codes M
         element None
         family 16, 44
@@ -1924,7 +1946,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 159
         chip_art 136
-    _160: @ Roll
+    @ 160: Roll
         codes R
         element None
         family 16, 21
@@ -1935,7 +1957,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 160
         chip_art 137
-    _161: @ Roll2
+    @ 161: Roll2
         codes R
         element None
         family 16, 22
@@ -1946,7 +1968,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 161
         chip_art 138
-    _162: @ Roll3
+    @ 162: Roll3
         codes R
         element None
         family 16, 23
@@ -1957,7 +1979,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 162
         chip_art 139
-    _163: @ GutsMan
+    @ 163: GutsMan
         codes G
         element None
         family 16, 9
@@ -1968,7 +1990,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 163
         chip_art 140
-    _164: @ GutsMan2
+    @ 164: GutsMan2
         codes G
         element None
         family 16, 10
@@ -1979,7 +2001,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 164
         chip_art 141
-    _165: @ GutsMan3
+    @ 165: GutsMan3
         codes G
         element None
         family 16, 11
@@ -1990,7 +2012,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 165
         chip_art 142
-    _166: @ ProtoMan
+    @ 166: ProtoMan
         codes B
         element None
         family 16, 27
@@ -2001,7 +2023,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 166
         chip_art 143
-    _167: @ ProtoMn2
+    @ 167: ProtoMn2
         codes B
         element None
         family 16, 28
@@ -2012,7 +2034,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 167
         chip_art 144
-    _168: @ ProtoMn3
+    @ 168: ProtoMn3
         codes B
         element None
         family 16, 29
@@ -2023,7 +2045,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 168
         chip_art 145
-    _169: @ WoodMan
+    @ 169: WoodMan
         codes W
         element Wood
         family 16, 0
@@ -2034,7 +2056,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 169
         chip_art 146
-    _170: @ WoodMan2
+    @ 170: WoodMan2
         codes W
         element Wood
         family 16, 1
@@ -2045,7 +2067,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 170
         chip_art 147
-    _171: @ WoodMan3
+    @ 171: WoodMan3
         codes W
         element Wood
         family 16, 2
@@ -2056,7 +2078,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 171
         chip_art 148
-    _172: @ FireMan
+    @ 172: FireMan
         codes F
         element Fire
         family 16, 3
@@ -2067,7 +2089,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 172
         chip_art 149
-    _173: @ FireMan2
+    @ 173: FireMan2
         codes F
         element Fire
         family 16, 4
@@ -2078,7 +2100,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 173
         chip_art 150
-    _174: @ FireMan3
+    @ 174: FireMan3
         codes F
         element Fire
         family 16, 5
@@ -2089,7 +2111,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 174
         chip_art 151
-    _175: @ NumbrMan
+    @ 175: NumbrMan
         codes N
         element None
         family 16, 6
@@ -2100,7 +2122,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 175
         chip_art 152
-    _176: @ NumbrMn2
+    @ 176: NumbrMn2
         codes N
         element None
         family 16, 7
@@ -2111,7 +2133,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 176
         chip_art 153
-    _177: @ NumbrMn3
+    @ 177: NumbrMn3
         codes N
         element None
         family 16, 8
@@ -2122,7 +2144,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 177
         chip_art 154
-    _178: @ StoneMan
+    @ 178: StoneMan
         codes S
         element None
         family 16, 15
@@ -2133,7 +2155,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 178
         chip_art 155
-    _179: @ StoneMn2
+    @ 179: StoneMn2
         codes S
         element None
         family 16, 16
@@ -2144,7 +2166,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 179
         chip_art 156
-    _180: @ StoneMn3
+    @ 180: StoneMn3
         codes S
         element None
         family 16, 17
@@ -2155,7 +2177,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 180
         chip_art 157
-    _181: @ IceMan
+    @ 181: IceMan
         codes I
         element Water
         family 16, 12
@@ -2166,7 +2188,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 181
         chip_art 158
-    _182: @ IceMan2
+    @ 182: IceMan2
         codes I
         element Water
         family 16, 13
@@ -2177,7 +2199,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 182
         chip_art 159
-    _183: @ IceMan3
+    @ 183: IceMan3
         codes I
         element Water
         family 16, 14
@@ -2188,7 +2210,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 183
         chip_art 160
-    _184: @ SkullMan
+    @ 184: SkullMan
         codes S
         element None
         family 16, 18
@@ -2199,7 +2221,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 184
         chip_art 161
-    _185: @ SkullMn2
+    @ 185: SkullMn2
         codes S
         element None
         family 16, 19
@@ -2210,7 +2232,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 185
         chip_art 162
-    _186: @ SkullMn3
+    @ 186: SkullMn3
         codes S
         element None
         family 16, 20
@@ -2221,7 +2243,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 186
         chip_art 163
-    _187: @ ColorMan
+    @ 187: ColorMan
         codes C
         element None
         family 16, 24
@@ -2232,7 +2254,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 187
         chip_art 164
-    _188: @ ColorMn2
+    @ 188: ColorMn2
         codes C
         element None
         family 16, 25
@@ -2243,7 +2265,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 188
         chip_art 165
-    _189: @ ColorMn3
+    @ 189: ColorMn3
         codes C
         element None
         family 16, 26
@@ -2254,7 +2276,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 189
         chip_art 166
-    _190: @ BombMan
+    @ 190: BombMan
         codes B
         element Fire
         family 16, 45
@@ -2265,7 +2287,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 190
         chip_art 167
-    _191: @ BombMan2
+    @ 191: BombMan2
         codes B
         element Fire
         family 16, 46
@@ -2276,7 +2298,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 191
         chip_art 168
-    _192: @ BombMan3
+    @ 192: BombMan3
         codes B
         element Fire
         family 16, 47
@@ -2287,7 +2309,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 192
         chip_art 169
-    _193: @ SharkMan
+    @ 193: SharkMan
         codes S
         element Water
         family 16, 30
@@ -2298,7 +2320,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 193
         chip_art 170
-    _194: @ SharkMn2
+    @ 194: SharkMn2
         codes S
         element Water
         family 16, 31
@@ -2309,7 +2331,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 194
         chip_art 171
-    _195: @ SharkMn3
+    @ 195: SharkMn3
         codes S
         element Water
         family 16, 32
@@ -2320,7 +2342,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 195
         chip_art 172
-    _196: @ ElecMan
+    @ 196: ElecMan
         codes E
         element Elec
         family 16, 33
@@ -2331,7 +2353,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 196
         chip_art 173
-    _197: @ ElecMan2
+    @ 197: ElecMan2
         codes E
         element Elec
         family 16, 34
@@ -2342,7 +2364,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 197
         chip_art 174
-    _198: @ ElecMan3
+    @ 198: ElecMan3
         codes E
         element Elec
         family 16, 35
@@ -2353,7 +2375,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 198
         chip_art 175
-    _199: @ Bass
+    @ 199: Bass
         codes F
         element None
         family 16, 48
@@ -2364,7 +2386,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 199
         chip_art 176
-    _200: @ $C8
+    @ 200: $C8
         nocodes
         element None
         nofamily
@@ -2375,7 +2397,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 200
         chip_art 0
-    _201: @ $C9
+    @ 201: $C9
         nocodes
         element None
         nofamily
@@ -2386,7 +2408,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 201
         chip_art 0
-    _202: @ Zeta Cannon 1
+    @ 202: Zeta Cannon 1
         nocodes
         element None
         family 15, 0
@@ -2397,7 +2419,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 202
         chip_art 0
-    _203: @ Zeta Cannon 2
+    @ 203: Zeta Cannon 2
         nocodes
         element None
         family 15, 1
@@ -2408,7 +2430,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 203
         chip_art 0
-    _204: @ Zeta Cannon 3
+    @ 204: Zeta Cannon 3
         nocodes
         element None
         family 15, 2
@@ -2419,7 +2441,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 204
         chip_art 0
-    _205: @ Zeta Spread
+    @ 205: Zeta Spread
         nocodes
         element None
         family 15, 3
@@ -2430,7 +2452,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 205
         chip_art 0
-    _206: @ Zeta Ratton 1
+    @ 206: Zeta Ratton 1
         nocodes
         element None
         family 15, 4
@@ -2441,7 +2463,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 206
         chip_art 0
-    _207: @ Zeta Ratton 2
+    @ 207: Zeta Ratton 2
         nocodes
         element None
         family 15, 5
@@ -2452,7 +2474,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 207
         chip_art 0
-    _208: @ Zeta Ratton 3
+    @ 208: Zeta Ratton 3
         nocodes
         element None
         family 15, 6
@@ -2463,7 +2485,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 208
         chip_art 0
-    _209: @ Zeta Arrow
+    @ 209: Zeta Arrow
         nocodes
         element None
         family 15, 7
@@ -2474,7 +2496,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 209
         chip_art 0
-    _210: @ Zeta Spear
+    @ 210: Zeta Spear
         nocodes
         element None
         family 15, 8
@@ -2485,7 +2507,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 210
         chip_art 0
-    _211: @ Zeta Lance
+    @ 211: Zeta Lance
         nocodes
         element None
         family 15, 9
@@ -2496,7 +2518,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 211
         chip_art 0
-    _212: @ Omega Cannon 1
+    @ 212: Omega Cannon 1
         nocodes
         element None
         family 15, 10
@@ -2507,7 +2529,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 212
         chip_art 0
-    _213: @ Omega Cannon 2
+    @ 213: Omega Cannon 2
         nocodes
         element None
         family 15, 11
@@ -2518,7 +2540,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 213
         chip_art 0
-    _214: @ Omega Cannon 3
+    @ 214: Omega Cannon 3
         nocodes
         element None
         family 15, 12
@@ -2529,7 +2551,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 214
         chip_art 0
-    _215: @ Omega Spread
+    @ 215: Omega Spread
         nocodes
         element None
         family 15, 13
@@ -2540,7 +2562,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 215
         chip_art 0
-    _216: @ Omega Ratton 1
+    @ 216: Omega Ratton 1
         nocodes
         element None
         family 15, 14
@@ -2551,7 +2573,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 216
         chip_art 0
-    _217: @ Omega Ratton 2
+    @ 217: Omega Ratton 2
         nocodes
         element None
         family 15, 15
@@ -2562,7 +2584,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 217
         chip_art 0
-    _218: @ Omega Ratton 3
+    @ 218: Omega Ratton 3
         nocodes
         element None
         family 15, 16
@@ -2573,7 +2595,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 218
         chip_art 0
-    _219: @ Omega Arrow
+    @ 219: Omega Arrow
         nocodes
         element None
         family 15, 17
@@ -2584,7 +2606,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 219
         chip_art 0
-    _220: @ Omega Spear
+    @ 220: Omega Spear
         nocodes
         element None
         family 15, 18
@@ -2595,7 +2617,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 220
         chip_art 0
-    _221: @ Omega Lance
+    @ 221: Omega Lance
         nocodes
         element None
         family 15, 19
@@ -2606,7 +2628,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 221
         chip_art 0
-    _222: @ Beta Bomb
+    @ 222: Beta Bomb
         nocodes
         element None
         family 20, 0
@@ -2617,7 +2639,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 222
         chip_art 0
-    _223: @ Beta Sword
+    @ 223: Beta Sword
         nocodes
         element None
         family 20, 1
@@ -2628,7 +2650,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 223
         chip_art 0
-    _224: @ Beta Wave
+    @ 224: Beta Wave
         nocodes
         element None
         family 20, 2
@@ -2639,7 +2661,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 224
         chip_art 0
-    _225: @ Beta Quake
+    @ 225: Beta Quake
         nocodes
         element None
         family 20, 3
@@ -2650,7 +2672,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 225
         chip_art 0
-    _226: @ Sigma Bomb
+    @ 226: Sigma Bomb
         nocodes
         element None
         family 20, 4
@@ -2661,7 +2683,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 226
         chip_art 0
-    _227: @ Sigma Sword
+    @ 227: Sigma Sword
         nocodes
         element None
         family 20, 5
@@ -2672,7 +2694,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 227
         chip_art 0
-    _228: @ Sigma Wave
+    @ 228: Sigma Wave
         nocodes
         element None
         family 20, 6
@@ -2683,7 +2705,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 228
         chip_art 0
-    _229: @ Sigma Quake
+    @ 229: Sigma Quake
         nocodes
         element None
         family 20, 7
@@ -2694,7 +2716,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 229
         chip_art 0
-    _230: @ Powered Cannon
+    @ 230: Powered Cannon
         nocodes
         element None
         family 14, 0
@@ -2705,7 +2727,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 230
         chip_art 0
-    _231: @ Heavy Stamp
+    @ 231: Heavy Stamp
         nocodes
         element None
         family 13, 47
@@ -2716,7 +2738,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 231
         chip_art 0
-    _232: @ Big Straight
+    @ 232: Big Straight
         nocodes
         element None
         family 13, 30
@@ -2727,7 +2749,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 232
         chip_art 0
-    _233: @ Blood Suck
+    @ 233: Blood Suck
         nocodes
         element None
         family 13, 48
@@ -2738,7 +2760,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 233
         chip_art 0
-    _234: @ Death Storm
+    @ 234: Death Storm
         nocodes
         element None
         family 13, 32
@@ -2749,7 +2771,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 234
         chip_art 0
-    _235: @ Guts Shoot
+    @ 235: Guts Shoot
         nocodes
         element None
         family 13, 31
@@ -2760,7 +2782,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 235
         chip_art 0
-    _236: @ Life Saver
+    @ 236: Life Saver
         nocodes
         element None
         family 13, 45
@@ -2771,7 +2793,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 236
         chip_art 0
-    _237: @ Double Hero
+    @ 237: Double Hero
         nocodes
         element None
         family 13, 46
@@ -2782,7 +2804,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 237
         chip_art 0
-    _238: @ $EE
+    @ 238: $EE
         nocodes
         element None
         nofamily
@@ -2793,7 +2815,7 @@ dataChipDetailList:
         .byte 0xCC, 0x0
         chip_icon 238
         chip_art 0
-    _239: @ $EF
+    @ 239: $EF
         nocodes
         element None
         nofamily
@@ -2805,4 +2827,849 @@ dataChipDetailList:
         chip_icon 239
         chip_art 0
 
-    .end
+
+_ts Battle_GetEntryState
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r0,[r7,#0x8]
+    mov        pc,lr
+
+
+_ts Battle_EntitySpriteCoordsToCell
+    push       {lr}
+    ldr        r0,[r5,#0x28]
+    ldr        r1,[r5,#0x2c]
+    bl         Battle_SpriteCoordsToCell
+    pop        {pc}
+
+
+_ts Battle_SpriteCoordsToCell
+    push       {r5,lr}
+    mov        r8,r1
+    asr        r0,r0,#0x10
+    add        r0,#0xa0
+    mov        r1,#0x28
+    bl         SWI_Div
+    push       {r0}
+    mov        r0,r8
+    asr        r0,r0,#0x10
+    add        r0,#0x30
+    mov        r1,#0x18
+    bl         SWI_Div
+    add        r1,r0,#0x0
+    pop        {r0}
+    pop        {r5,pc}
+
+
+_nt Battle_CellCoordsToSprite
+    push       {lr}
+    mov        r2,#0x28
+    lsl        r0,r0,#0x18
+    asr        r0,r0,#0x18
+    mul        r0,r2
+    lsl        r0,r0,#0x10
+    mov        r2,#0x18
+    lsl        r1,r1,#0x18
+    asr        r1,r1,#0x18
+    mul        r1,r2
+    lsl        r1,r1,#0x10
+    ldr        r2,INT_08009808
+    add        r0,r0,r2
+    ldr        r2,INT_0800980c
+    add        r1,r1,r2
+    pop        {pc}
+
+    .align 2, 0
+INT_08009808: .word 0xFF740000
+INT_0800980c: .word 0xFFDC0000
+
+
+_nt Battle_AddObject
+    push       {r5,lr}
+    mov        r7,#0xff
+    and        r1,r7
+    lsl        r4,r4,#0xe
+    orr        r1,r4
+    and        r2,r7
+    lsl        r5,r5,#0xe
+    orr        r2,r5
+    lsl        r1,r1,#0x10
+    orr        r2,r1
+    lsl        r6,r6,#0xa
+    lsl        r3,r3,#0xc
+    orr        r3,r6
+    orr        r0,r3
+    add        r1,r0,#0x0
+    add        r0,r2,#0x0
+    mov        r2,#0x0
+    mov        r3,#0x0
+    bl         Oam_AddObject
+    pop        {r5,pc}
+
+
+_nt Battle_PriorityQueueIsEntityNext
+    push       {lr}
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    mov        r3,#0x4c
+    mov        r2,#0x0
+    ldrb       r0,[r7,r3]
+    ldrb       r1,[r5,#0x12]
+    cmp        r0,r1
+    bne        LAB_0800984e
+    mov        r2,#0x1
+LAB_0800984e:
+    add        r0,r2,#0x0
+    pop        {pc}
+
+
+_nt Battle_PriorityQueueEnqueue
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    mov        r0,#0x4c
+    add        r7,r7,r0
+    ldrb       r2,[r5,#0x12]
+    mov        r0,#0x0
+LAB_0800985e:
+    ldrb       r1,[r7,r0]
+    cmp        r1,r2
+    beq        LAB_08009872
+    cmp        r1,#0xff
+    bne        LAB_0800986c
+    strb       r2,[r7,r0]
+    b          LAB_08009876
+LAB_0800986c:
+    add        r0,#0x1
+    cmp        r0,#0x8
+    bne        LAB_0800985e
+LAB_08009872:
+    mov        r0,#0x0
+    mov        pc,lr
+LAB_08009876:
+    mov        r0,#0x1
+    mov        pc,lr
+
+
+_nt Battle_PriorityQueueRemove
+    push       {lr}
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    mov        r0,#0x4c
+    add        r7,r7,r0
+    ldrb       r2,[r5,#0x12]
+    mov        r0,#0x0
+LAB_08009888:
+    ldrb       r1,[r7,r0]
+    cmp        r2,r1
+    bne        LAB_08009892
+    mov        r1,#0xff
+    strb       r1,[r7,r0]
+LAB_08009892:
+    add        r0,#0x1
+    cmp        r0,#0x8
+    bne        LAB_08009888
+    bl         Battle_PriorityQueueMinimize
+    pop        {pc}
+
+
+_nt Battle_PriorityQueueMinimize
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    mov        r0,#0x4c
+    add        r7,r7,r0
+    add        r6,r7,#0x0
+    mov        r4,#0x8
+    add        r4,r4,r7
+    mov        r0,#0x0
+LAB_080098ae:
+    ldrb       r0,[r7,#0x0]
+    cmp        r0,#0xff
+    beq        LAB_080098b8
+    strb       r0,[r6,#0x0]
+    add        r6,#0x1
+LAB_080098b8:
+    add        r7,#0x1
+    cmp        r7,r4
+    bne        LAB_080098ae
+LAB_080098be:
+    cmp        r6,r4
+    beq        LAB_080098ca
+    mov        r0,#0xff
+    strb       r0,[r6,#0x0]
+    add        r6,#0x1
+    b          LAB_080098be
+LAB_080098ca:
+    mov        pc,lr
+
+
+_nt Battle_GetRandomEncounter
+    push       {lr}
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    str        r0,[r7,#0x2c]
+    pop        {pc}
+
+
+_nt Battle_IsRandomEncounter
+    push       {lr}
+    mov        r0,#0x0
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    mov        r6,r10
+    ldr        r6,[r6,#0x78]
+    ldrb       r3,[r7,#0x4]
+    cmp        r3,#0x80
+    bmi        LAB_0800992a
+    @ Only continue if the area is one that has random encounters
+    sub        r3,#0x80
+    ldr        r1,[r6,#0x24]
+    ldr        r2,[r6,#0x28]
+    sub        r1,r1,r2
+    cmp        r1,#0x40
+    bmi        LAB_0800992a
+    @ Only continue if at least 64 steps have been taken since the 
+    add        r1,r1,r2
+    str        r1,[r6,#0x28]
+    ldrb       r2,[r7,#0x5]
+    lsl        r3,r3,#0x4
+    add        r3,r3,r2
+    ldr        r4,PTR_tblAreaToEncounterSensitivity_08009930
+    ldrb       r2,[r4,r3]
+    ldr        r3,[r6,#0x24]
+    lsr        r3,r3,#0x6
+    cmp        r3,#0x11
+    bmi        LAB_0800990c
+    mov        r3,#0x10
+LAB_0800990c:
+    ldr        r4,PTR_tblStepUnitsToThresholds_0800992c
+    lsl        r3,r3,#0x3
+    add        r4,r4,r3
+    ldrb       r3,[r4,r2]
+    push       {r0,r3,r7}
+    bl         Rng_RandomUint
+    add        r2,r0,#0x0
+    pop        {r0,r3,r7}
+    mov        r1,#0x1f
+    and        r2,r1
+    cmp        r2,r3
+    bge        LAB_0800992a
+    mov        r0,#0x1
+    pop        {pc}
+LAB_0800992a:
+    pop        {pc}
+PTR_tblStepUnitsToThresholds_0800992c: .word tblStepUnitsToThresholds
+PTR_tblAreaToEncounterSensitivity_08009930: .word tblAreaToEncounterSensitivity
+tblStepUnitsToThresholds:
+    @ 0
+    .byte 0x0,  0x0,  0x0,  0x0
+    .byte 0x0,  0x0,  0x0,  0x0
+    @ 1
+    .byte 0x1,  0x0,  0x0,  0x0
+    .byte 0x0,  0x0,  0x0,  0x0
+    @ 2
+    .byte 0x2,  0x1,  0x0,  0x0
+    .byte 0x0,  0x0,  0x0,  0x0
+    @ 3
+    .byte 0x3,  0x2,  0x1,  0x0
+    .byte 0x0,  0x0,  0x0,  0x0
+    @ 4
+    .byte 0x4,  0x3,  0x2,  0x1
+    .byte 0x0,  0x0,  0x0,  0x0
+    @ 5
+    .byte 0x5,  0x4,  0x3,  0x2
+    .byte 0x1,  0x0,  0x0,  0x0
+    @ 6
+    .byte 0x6,  0x5,  0x4,  0x3
+    .byte 0x2,  0x1,  0x0,  0x0
+    @ 7
+    .byte 0x8,  0x6,  0x5,  0x4
+    .byte 0x3,  0x2,  0x0,  0x0
+    @ 8
+    .byte 0xA,  0x8,  0x6,  0x5
+    .byte 0x4,  0x3,  0x1,  0x0
+    @ 9
+    .byte 0xC,  0xA,  0x8,  0x6
+    .byte 0x5,  0x4,  0x2,  0x0
+    @ 10
+    .byte 0xE,  0xC,  0xA,  0x8
+    .byte 0x6,  0x5,  0x3,  0x0
+    @ 11
+    .byte 0x10, 0xE,  0xC,  0xA
+    .byte 0x8,  0x6,  0x4,  0x0
+    @ 12
+    .byte 0x12, 0x10, 0xE,  0xC
+    .byte 0xA,  0x8,  0x5,  0x0
+    @ 13
+    .byte 0x14, 0x12, 0x10, 0xE
+    .byte 0xC,  0xA,  0x6,  0x0
+    @ 14
+    .byte 0x1A, 0x14, 0x12, 0x10
+    .byte 0xE,  0xC,  0x8,  0x2
+    @ 15
+    .byte 0x1C, 0x1A, 0x14, 0x12
+    .byte 0x10, 0xE,  0xA,  0x6
+    @ 16
+    .byte 0x1C, 0x1C, 0x1A, 0x14
+    .byte 0x12, 0x10, 0xC,  0xC
+tblAreaToEncounterSensitivity:
+    @ 0
+    .byte 5,  5,  5,  5
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 1
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+
+    @ 2
+    .byte 5,  5,  5,  5
+    .byte 7,  5,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 3
+    .byte 6,  6,  6,  6
+    .byte 6,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 4
+    .byte 7,  7,  7,  7
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 5
+    .byte 3,  5,  5,  5
+    .byte 6,  4,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 6
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 7
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 8
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 9
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 10
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 11
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 12
+    .byte 5,  5,  5,  5
+    .byte 5,  5,  5,  5
+    .byte 5,  5,  5,  5
+    .byte 5,  3,  3,  3
+    @ 13
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 14
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 15
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    .byte 3,  3,  3,  3
+    @ 16
+    .byte 5,  6,  5,  5
+    .byte 5,  5,  5,  5
+    .byte 5,  5,  5,  5
+    .byte 5,  5,  5,  5
+
+
+_nt ResetBattleSpawnAnimationState
+    mov        r6,#0x80
+    add        r6,r6,r5
+    mov        r0,#0x0
+    strb       r0,[r6,#0x0]
+    mov        pc,lr
+
+
+_nt BattleSpawnAnimation_Main
+    push       {lr}
+    mov        r6,#0x80
+    add        r6,r6,r5
+    ldr        r7,=PTR_BattleSpawnAnimation_0_Init
+    ldrb       r0,[r6,#0x0]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    pop        {pc}
+PTR_BattleSpawnAnimation_0_Init:
+    .word BattleSpawnAnimation_0_Init
+    .word BattleSpawnAnimation_1_Main
+    .word BattleSpawnAnimation_2_Free
+
+    .pool
+
+
+_nt BattleSpawnAnimation_0_Init
+    push       {lr}
+    mov        r0,#0x3
+    strb       r0,[r5,#0x0]
+    mov        r0,#0x0
+    bl         SpritePtr_ObjModeSemiTransparent
+    mov        r0,#0x2
+    strh       r0,[r6,#0x2]
+    mov        r0,#0x0
+    strh       r0,[r6,#0x4]
+    mov        r0,#0x4
+    strb       r0,[r6,#0x0]
+    mov        r0,#0x92
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x1
+    pop        {pc}
+
+
+_nt BattleSpawnAnimation_1_Main
+    push       {lr}
+    ldrh       r0,[r6,#0x2]
+    sub        r0,#0x1
+    strh       r0,[r6,#0x2]
+    bne        LAB_08009b5a
+    mov        r0,#0x2
+    strh       r0,[r6,#0x2]
+    ldrh       r0,[r6,#0x4]
+    add        r0,#0x1
+    strh       r0,[r6,#0x4]
+    cmp        r0,#0x10
+    bne        LAB_08009b56
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r0,[r5,#0x16]
+    tst        r0,r0
+    bne        LAB_08009b44
+    ldrb       r0,[r7,#0x6]
+    add        r0,#0x1
+    strb       r0,[r7,#0x6]
+    b          LAB_08009b4a
+LAB_08009b44:
+    ldrb       r0,[r7,#0x7]
+    add        r0,#0x1
+    strb       r0,[r7,#0x7]
+LAB_08009b4a:
+    mov        r0,#0x8
+    strb       r0,[r6,#0x0]
+    bl         SpritePtr_ObjModeNormal
+    mov        r0,#0x1
+    pop        {pc}
+LAB_08009b56:
+    bl         SpritePtr_ObjModeSemiTransparent
+LAB_08009b5a:
+    mov        r0,#0x1
+    pop        {pc}
+
+
+_nt BattleSpawnAnimation_2_Free
+    push       {lr}
+    mov        r0,#0x0
+    pop        {pc}
+
+
+_nt Battle_LoadEnemyHp
+    push       {lr}
+    ldrb       r0,[r5,#0x13]
+    bl         Enemy_GetEnemyDetail
+    ldrh       r0,[r0,#0x0]
+    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#0x22]
+    pop        {pc}
+
+
+_nt Battle_RemoveFromEnemyList
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r0,[r5,#0x12]
+    cmp        r0,#0xff
+    beq        LAB_08009b8e
+    mov        r3,#0x54
+    lsl        r0,r0,#0x2
+    add        r0,r0,r3
+    mov        r1,#0x0
+    str        r1,[r7,r0]
+    ldrb       r0,[r7,#0x5]
+    sub        r0,#0x1
+    strb       r0,[r7,#0x5]
+LAB_08009b8e:
+    mov        pc,lr
+
+
+_nt Battle_RegisterVirusDelete
+    push       {lr}
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r0,[r7,#0x16]
+    add        r0,#0x1
+    strb       r0,[r7,#0x16]
+    mov        r0,#0xa
+    strb       r0,[r7,#0x15]
+    pop        {pc}
+
+
+_nt Inventory_AddChip
+    push       { lr }
+    push       { r0, r1, r2 }
+    bl         Flag_SetLibrary
+    pop        { r0, r1, r2 }
+    push       { r2 }
+    bl         Inventory_GetChipCountLocation
+    pop        { r2 }
+    mov        r3,#0x1
+    ldrb       r1,[r0,#0x0]
+    cmp        r1,#0x63
+    beq        LAB_08009bc8
+    mov        r3,#0x0
+    add        r1,r1,r2
+    cmp        r1,#0x63
+    ble        LAB_08009bc8
+    mov        r1,#0x63
+    mov        r3,#0x2
+LAB_08009bc8:
+    strb       r1,[r0,#0x0]
+    push       { r3 }
+    bl         Inventory_SetChecksum
+    pop        { r3 }
+    add        r0,r3,#0x0
+    pop        { pc }
+
+_nt Inventory_SetChip
+    push       { lr }
+    push       { r2 }
+    bl         Inventory_GetChipCountLocation
+    pop        { r2 }
+    str        r2,[r0,#0x0]
+    tst        r2,r2
+    bne        LAB_08009bea
+    bl         Inventory_SetChecksum
+LAB_08009bea:
+    pop        { pc }
+
+_ts Inventory_SubtractChip
+    push       { lr }
+    push       { r2 }
+    bl         Inventory_GetChipCountLocation
+    pop        { r2 }
+    mov        r3,#0x1
+    ldrb       r1,[r0,#0x0]
+    tst        r1,r1
+    beq        LAB_08009bc8
+    mov        r3,#0x0
+    sub        r1,r1,r2
+    bpl        LAB_08009c08
+    mov        r3,#0x2
+    add        r1,r1,r2
+LAB_08009c08:
+    strb       r1,[r0,#0x0]
+    tst        r1,r1
+    bne        LAB_08009c16
+    push       { r3 }
+    bl         FUN_0801b0f0
+    pop        { r3 }
+LAB_08009c16:
+    add        r0,r3,#0x0
+    pop        { pc }
+
+
+@@ Gets the location of the amount of the battle chip specified, from the battle chip inventory.
+@@ In:
+@@ r0: chipID - The chip ID to check.
+@@ r1: chipCode - The chip code to check.
+@@
+@@ Out:
+@@ r0: chipCountLoc - The memory location containing the amount of the chip specified.
+_nt Inventory_GetChipCountLocation
+    push       { lr }
+    add        r2,r0,#0x0
+    push       { r1, r2 }
+    bl         BattleChip_GetChipData
+    pop        { r1, r2 }
+    add        r0,#0x0
+    mov        r3,#0x0
+1: @ Code checking loop
+    ldrb       r4,[r0,r3]
+    cmp        r1,r4
+    beq        2f
+    add        r3,#0x1
+    cmp        r3,#0x5
+    bmi        1b
+    mov        r3,#0x0
+2: @ Code found
+    ldr        r7,=gBattleChipInventory
+    lsl        r2,r2,#0x4
+    add        r7,r7,r2
+    add        r0,r7,r3
+    pop        { pc }
+
+    .align 2, 0
+    .pool
+
+
+@@ Gets the location of the amount of the battle chip specified, from the battle chip inventory.
+@@ In:
+@@ r0: chipID - The chip ID to check.
+@@ r1: chipCode - The chip code to check.
+@@
+@@ Out:
+@@ r0: chipCountLoc - The memory location containing the checksum for the specified chip.
+_ts Inventory_GetChipCountChecksum
+    push       { lr }
+    add        r2,r0,#0x0
+    push       { r1, r2 }
+    bl         BattleChip_GetChipData
+    pop        { r1, r2 }
+    add        r0,#0x0
+    mov        r3,#0x0
+1:
+    ldrb       r4,[r0,r3]
+    cmp        r1,r4
+    beq        2f
+    add        r3,#0x1
+    cmp        r3,#0x5
+    bmi        1b
+    mov        r3,#0x0
+2:
+    ldr        r7,=gBattleChipInventory
+    lsl        r2,r2,#0x4
+    add        r7,r7,r2
+    lsl        r3,r3,#0x1
+    add        r3,#0x6
+    add        r0,r7,r3
+    pop        { pc }
+
+    .align 2, 0
+    .pool
+
+_ts Inventory_GetChipCount
+    push       { lr }
+    bl         Inventory_GetChipCountLocation
+    ldrb       r0,[r0,#0x0]
+    pop        { pc }
+
+_nt Inventory_AddZenny
+    push       { lr }
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldr        r1,[r7,#0x74]
+    add        r0,r0,r1
+    ldr        r1,=999999
+    cmp        r0,r1
+    ble        LAB_08009c94
+    add        r0,r1,#0x0
+LAB_08009c94:
+    str        r0,[r7,#0x74]
+    pop        { pc }
+
+    .align 2, 0
+    .pool
+
+_ts Inventory_SubtractZenny
+    push       { lr }
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldr        r1,[r7,#0x74]
+    sub        r1,r1,r0
+    bpl        LAB_08009c94
+    mov        r1,#0x0
+    str        r1,[r7,#0x74]
+    pop        { pc }
+
+
+_nt Battle_CheckCellPosOutOfBounds
+    sub        r0,#0x1
+    cmp        r0,#0x5
+    bhi        LAB_08009cbe
+    sub        r1,#0x1
+    cmp        r1,#0x2
+    bhi        LAB_08009cbe
+    mov        r0,#0x0
+    mov        pc,lr
+LAB_08009cbe:
+    mov        r0,#0x1
+    mov        pc,lr
+
+
+_nt Battle_DecreaseOpponentCount
+    ldrb       r0,[r5,#0x12]
+    cmp        r0,#0xff
+    beq        LAB_08009cec
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r0,[r5,#0x16]
+    tst        r0,r0
+    bne        LAB_08009ce0
+    ldrh       r0,[r7,#0x22]
+    sub        r0,#0x1
+    strh       r0,[r7,#0x22]
+    bne        LAB_08009cec
+    mov        r1,#0x1
+    strb       r1,[r7,#0x13]
+    b          LAB_08009cec
+LAB_08009ce0:
+    ldrh       r0,[r7,#0x24]
+    sub        r0,#0x1
+    strh       r0,[r7,#0x24]
+    bne        LAB_08009cec
+    mov        r1,#0x1
+    strb       r1,[r7,#0x13]
+LAB_08009cec:
+    mov        pc,lr
+
+
+_nt Battle_IsInputLocked
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r0,[r7,#0x13]
+    tst        r0,r0
+    mov        pc,lr
+
+
+_nt Battle_AdvanceTimer
+    push       {lr}
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldrb       r0,[r7,#0xf]
+    cmp        r0,#0x8
+    bge        LAB_08009d16
+    mov        r7,r10
+    ldr        r7,[r7,#0x78]
+    ldr        r0,[r7,#0x1c]
+    add        r0,#0x1
+    ldr        r1,DAT_08009d18
+    cmp        r0,r1
+    ble        LAB_08009d14
+    add        r0,r1,#0x0
+LAB_08009d14:
+    str        r0,[r7,#0x1c]
+LAB_08009d16:
+    pop        {pc}
+
+    .align 2, 0
+DAT_08009d18: .word 60 * 359999
+
+
+_nt Battle_IncreaseBattleCount
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldrb       r0,[r7,#0xf]
+    cmp        r0,#0x8
+    bge        LAB_08009d44
+    mov        r7,r10
+    ldr        r7,[r7,#0x78]
+    ldrh       r0,[r7,#0x12]
+    add        r0,#0x1
+    ldr        r1,DAT_08009d48
+    cmp        r0,r1
+    ble        LAB_08009d36
+    add        r0,r1,#0x0
+LAB_08009d36:
+    strh       r0,[r7,#0x12]
+    ldrb       r0,[r7,#0xf]
+    add        r0,#0x1
+    cmp        r0,#0xff
+    ble        LAB_08009d42
+    mov        r0,#0xff
+LAB_08009d42:
+    strb       r0,[r7,#0xf]
+LAB_08009d44:
+    mov        pc,lr
+
+    .align 2, 0
+DAT_08009d48: .word 0xFFFF
+
+
+_ts Battle_IncrementRewardChipCounter
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldrb       r0,[r7,#0xf]
+    cmp        r0,#0x8
+    bge        LAB_08009d66
+    mov        r7,r10
+    ldr        r7,[r7,#0x78]
+    ldrb       r0,[r7,#0xe]
+    add        r0,#0x1
+    cmp        r0,#0xff
+    ble        LAB_08009d64
+    mov        r0,#0xff
+LAB_08009d64:
+    strb       r0,[r7,#0xe]
+LAB_08009d66:
+    mov        pc,lr
+
+
+_ts BattleSpriteQueue_Add
+    ldr        r6,PTR_gBattleSpriteArgsArrayCount_08009d88
+    ldr        r4,[r6,#0x0]
+    ldr        r7,PTR_gBattleSpriteArgsArray_08009d84
+    lsl        r4,r4,#0x4
+    add        r7,r7,r4
+    str        r0,[r7,#0x0]
+    str        r1,[r7,#0x4]
+    str        r2,[r7,#0x8]
+    str        r3,[r7,#0xc]
+    lsr        r4,r4,#0x4
+    add        r4,#0x1
+    str        r4,[r6,#0x0]
+    mov        pc,lr
+
+    .align 2, 0
+
+PTR_gBattleSpriteArgsArray_08009d84:        .word gBattleSpriteArgsArray
+PTR_gBattleSpriteArgsArrayCount_08009d88:   .word gBattleSpriteArgsArrayCount
+
+
+_nt BattleSpriteQueue_TransferAll
+    push       {r5,lr}
+    ldr        r6,PTR_gBattleSpriteArgsArrayCount_08009db4
+    ldr        r6,[r6,#0x0]
+    ldr        r7,PTR_gBattleSpriteArgsArray_08009db0
+LAB_08009d94:
+    tst        r6,r6
+    beq        LAB_08009dae
+    sub        r6,#0x1
+    ldr        r0,[r7,#0x0]
+    ldr        r1,[r7,#0x4]
+    ldr        r2,[r7,#0x8]
+    ldr        r3,[r7,#0xc]
+    push       {r6,r7}
+    bl         Oam_AddObject
+    pop        {r6,r7}
+    add        r7,#0x10
+    b          LAB_08009d94
+LAB_08009dae:
+    pop        {r5,pc}
+
+    .align 2, 0
+PTR_gBattleSpriteArgsArray_08009db0:        .word gBattleSpriteArgsArray
+PTR_gBattleSpriteArgsArrayCount_08009db4:   .word gBattleSpriteArgsArrayCount
+
+_ts BattleSpriteQueue_Clear
+    mov        r0,#0x0
+    ldr        r7,=gBattleSpriteArgsArrayCount
+    str        r0,[r7,#0x0]
+    mov        pc,lr
+
+    .align 2, 0
+    .pool
