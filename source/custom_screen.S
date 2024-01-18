@@ -6,6 +6,9 @@
     .set FUN_0805758a, 0x805758A
     .set FUN_0805738e, 0x805738e
     .set Text_CheckIfDialogActive, 0x8007240
+    .set PrintDebugString, 0x8003cc4
+    .set Text_SetTextPointer_Tutorial1, 0x800722c
+    .set Text_SetTextPointer_Tutorial2, 0x8007658
     .text
 
     .thumb
@@ -76,9 +79,10 @@ _ts CustomScreen_0_Init
     mov        r0,#0x1
     pop        { pc }
 
+
 _ts CustomScreen_1_Main
     push       { lr }
-    ldr        r7,PTR_JT_R5_CustomScreen_15980_0801599c
+    ldr        r7,=JT_R5_CustomScreen_15980
     ldrb       r0,[r5,#0x1]
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -86,21 +90,24 @@ _ts CustomScreen_1_Main
     mov        r0,#0x1
     pop        { pc }
 
+
 JT_R5_CustomScreen_15980:
-    .word CustomScreen_Open
-    .word CustomScreen_ChipSelectMain
-    .word CustomScreen_OkButtonMain
-    .word CustomScreen_AddButtonPressed
-    .word CustomScreen_Close
-    .word CustomScreen_ShowDescription
-    .word FUN_08015d5e
-PTR_JT_R5_CustomScreen_15980_0801599c:
-    .word JT_R5_CustomScreen_15980
+    .word CustomScreen_1_0_Open
+    .word CustomScreen_1_1_ChipSelect
+    .word CustomScreen_1_2_Ok
+    .word CustomScreen_1_3_Add
+    .word CustomScreen_1_4_Close
+    .word CustomScreen_1_5_ShowDescription
+    .word CustomScreen_1_6_NoMoreData
+
+    .pool
+
     .word gFrameCounter
 
-_ts CustomScreen_Open
+
+_ts CustomScreen_1_0_Open
     push       { lr }
-    ldr        r7,PTR_JT_R5_BCS_159CC_080159d4
+    ldr        r7,=JT_R5_BCS_159CC
     ldrb       r0,[r5,#0x2]
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -117,8 +124,9 @@ _ts CustomScreen_Open
 JT_R5_BCS_159CC:
     .word CustomScreen_StartSlideOpen
     .word CustomScreen_SlideOpen
-PTR_JT_R5_BCS_159CC_080159d4:
-    .word JT_R5_BCS_159CC
+
+    .pool
+
 
 _ts CustomScreen_StartSlideOpen
     push       { lr }
@@ -131,12 +139,13 @@ _ts CustomScreen_StartSlideOpen
     bl         Sound_PlaySongImmediate
     pop        { pc }
 
+
 _ts CustomScreen_SlideOpen
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x14]
     ldr        r0,[r7,#0x30]
-    ldr        r1,DAT_08015a24
+    ldr        r1,=0x10000
     sub        r0,r0,r1
     str        r0,[r7,#0x30]
     ldrh       r0,[r5,#0x24]
@@ -160,10 +169,12 @@ LAB_08015a1a:
     strh       r1,[r5,#0x2]
 LAB_08015a20:
     pop        { pc }
+    
     .align 2, 0
-DAT_08015a24: .word 0x10000
+    .pool
 
-_ts CustomScreen_ChipSelectMain
+
+_ts CustomScreen_1_1_ChipSelect
     push       { lr }
     bl         CustomScreen_CheckRToggle
     tst        r0,r0
@@ -261,7 +272,7 @@ _nt CustomScreen_GetChipSelectIndex
     add        r0,r0,r1
     mov        pc,lr
 
-_nt CustomScreen_OkButtonMain
+_nt CustomScreen_1_2_Ok
     push       { lr }
     ldrh       r0,[r5,#0x38]
     mov        r1,#0x1
@@ -390,9 +401,9 @@ LAB_08015be4:
     bl         CustomScreen_UpdateChipSelectPosition
     pop        { pc }
 
-_nt CustomScreen_AddButtonPressed
+_nt CustomScreen_1_3_Add
     push       { lr }
-    ldr        r7,PTR_PTR_CustomScreen_AddButtonMain_08015c24
+    ldr        r7,PTR_PTR_CustomScreen_1_3_0_ShowMessage_08015c24
     ldrb       r0,[r5,#0x2]
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -406,14 +417,14 @@ _nt CustomScreen_AddButtonPressed
     pop        { pc }
 
     .align 2, 0
-PTR_PTR_CustomScreen_AddButtonMain_08015c24:
-    .word PTR_CustomScreen_AddButtonMain_08015c28
-PTR_CustomScreen_AddButtonMain_08015c28:
-    .word CustomScreen_AddButtonMain
-    .word CustomScreen_AddButtonWaitDialogue
-    .word FUN_08015cd2
+PTR_PTR_CustomScreen_1_3_0_ShowMessage_08015c24:
+    .word PTR_CustomScreen_1_3_0_ShowMessage_08015c28
+PTR_CustomScreen_1_3_0_ShowMessage_08015c28:
+    .word CustomScreen_1_3_0_ShowMessage
+    .word CustomScreen_1_3_1_Success
+    .word CustomScreen_1_3_2_NoMoreData
 
-_ts CustomScreen_AddButtonMain
+_ts CustomScreen_1_3_0_ShowMessage
     push       { lr }
     ldrh       r0,[r5,#0x38]
     mov        r1,#0x40
@@ -480,7 +491,7 @@ LAB_08015cb2:
 
     .word textDict_BattleMessages
 
-_ts CustomScreen_AddButtonWaitDialogue
+_ts CustomScreen_1_3_1_Success
     push       { lr }
     bl         Text_CheckIfDialogActive
     bne        LAB_08015cd0
@@ -493,7 +504,7 @@ _ts CustomScreen_AddButtonWaitDialogue
 LAB_08015cd0:
     pop        { pc }
 
-_nt FUN_08015cd2
+_nt CustomScreen_1_3_2_NoMoreData
     push       { lr }
     bl         Text_CheckIfDialogActive
     bne        LAB_08015cde
@@ -502,25 +513,24 @@ _nt FUN_08015cd2
 LAB_08015cde:
     pop        { pc }
 
-_ts CustomScreen_Close
+_ts CustomScreen_1_4_Close
     push       { lr }
-    ldr        r7,PTR_PTR_CustomScreen_CloseStart_1_08015cfc
+    ldr        r7,PTR_PTR_CustomScreen_1_4_0_CloseStart_1_08015cfc
     ldrb       r0,[r5,#0x2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     bl         CustomScreen_UpdateChipSelectPosition
     pop        { pc }
-    thumb_func_end CustomScreen_Close
 
     .align 2, 0
-PTR_CustomScreen_CloseStart_1_08015cf4:
-    .word CustomScreen_CloseStart
-    .word CustomScreen_SlideClosed
-PTR_PTR_CustomScreen_CloseStart_1_08015cfc:
-    .word PTR_CustomScreen_CloseStart_1_08015cf4
+PTR_CustomScreen_1_4_0_CloseStart_1_08015cf4:
+    .word CustomScreen_1_4_0_CloseStart
+    .word CustomScreen_1_4_1_SlideClosed
+PTR_PTR_CustomScreen_1_4_0_CloseStart_1_08015cfc:
+    .word PTR_CustomScreen_1_4_0_CloseStart_1_08015cf4
 
-_ts CustomScreen_CloseStart
+_ts CustomScreen_1_4_0_CloseStart
     push       { lr }
     mov        r0,#0x0
     strh       r0,[r5,#0x20]
@@ -528,7 +538,7 @@ _ts CustomScreen_CloseStart
     strb       r0,[r5,#0x2]
     pop        { pc }
 
-_ts CustomScreen_SlideClosed
+_ts CustomScreen_1_4_1_SlideClosed
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x14]
@@ -551,7 +561,7 @@ LAB_08015d2e:
 DAT_08015d30:
     .word 0x10000
 
-_ts CustomScreen_ShowDescription
+_ts CustomScreen_1_5_ShowDescription
     push       { lr }
     bl         CustomScreen_CheckHideDescriptionKeyPress
     tst        r0,r0
@@ -567,24 +577,25 @@ LAB_08015d40:
     bl         CustomScreen_UpdateChipSelectPosition
     pop        { pc }
 
-_nt FUN_08015d5e
+_nt CustomScreen_1_6_NoMoreData
     push       { lr }
-    ldr        r7,PTR_PTR_ARRAY_08015d7c
+    ldr        r7,=PTR_CustomScreen_1_6_0_ShowMessage
     ldrb       r0,[r5,#0x2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     pop        { pc }
 
-PTR_ARRAY_08015d6c:
-    .word FUN_08015d80
-    .word FUN_08015d98
-    .word FUN_08015dcc
-    .word FUN_08015e12
-PTR_PTR_ARRAY_08015d7c:
-    .word PTR_ARRAY_08015d6c
+    .align 2, 0
+PTR_CustomScreen_1_6_0_ShowMessage:
+    .word CustomScreen_1_6_0_ShowMessage
+    .word CustomScreen_1_6_1_FadeOut
+    .word CustomScreen_1_6_2_ExitBattle
+    .word CustomScreen_1_6_3_Return
 
-_ts FUN_08015d80
+    .pool
+
+_ts CustomScreen_1_6_0_ShowMessage
     push       { lr }
     ldr        r0,PTR_textDict_BattleMessages_08015d94
     mov        r1,#0x1
@@ -597,7 +608,7 @@ _ts FUN_08015d80
 PTR_textDict_BattleMessages_08015d94:
     .word textDict_BattleMessages
 
-_ts FUN_08015d98
+_ts CustomScreen_1_6_1_FadeOut
     push       { lr }
     ldr        r0,PTR_gTextOptionFlags_08015dc8
     ldr        r0,[r0,#0x0]
@@ -627,7 +638,7 @@ LAB_08015dc4:
 PTR_gTextOptionFlags_08015dc8:
     .word gTextOptionFlags
 
-_ts FUN_08015dcc
+_ts CustomScreen_1_6_2_ExitBattle
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x18]
@@ -664,7 +675,7 @@ LAB_08015df2:
 LAB_08015e10:
     pop        { pc }
 
-_nt FUN_08015e12
+_nt CustomScreen_1_6_3_Return
     push       { lr }
     ldr        r0,PTR_gTextOptionFlags_08015e28
     ldr        r0,[r0,#0x0]
@@ -2104,7 +2115,7 @@ PTR_framesLogoAnimation_080169cc: .word framesLogoAnimation
 _ts CustomScreen_GetDeckSize
     push       { r1, r7, lr }
     mov        r0,#0x0
-    ldr        r7,PTR_gBattleFolder_080169e4
+    ldr        r7,=gBattleFolder
 LAB_080169d6:
     ldrb       r1,[r7,r0]
     cmp        r1,#0xff
@@ -2114,6 +2125,1178 @@ LAB_080169d6:
     blt        LAB_080169d6
 LAB_080169e2:
     pop        { r1, r7, pc }
-PTR_gBattleFolder_080169e4: .word gBattleFolder
 
-    .end
+    .pool
+
+
+_nt CustomScreenT1_Main
+    push       {lr}
+    ldr        r5,PTR_gCustomScreen_08016a24
+    mov        r0,#0x0
+    mov        r1,#0x0
+    ldrb       r2,[r5,#0x1a]
+    tst        r2,r2
+    beq        LAB_080169fe
+    mov        r7,r10
+    ldr        r7,[r7,#0x4]
+    ldrh       r0,[r7,#0x2]
+    ldrh       r1,[r7,#0x4]
+LAB_080169fe:
+    strh       r0,[r5,#0x38]
+    strh       r1,[r5,#0x3a]
+    ldrb       r0,[r5,#0x0]
+    ldr        r7,PTR_PTR_CustomScreen_0_Init
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    ldrb       r1,[r5,#0x1]
+    lsr        r1,r1,#0x2
+    pop        {pc}
+
+    .align 2, 0
+PTR_CustomScreen_0_Init:
+    .word       CustomScreen_0_Init
+    .word       CustomScreenT1_1_Main
+    .word       CustomScreen_2_TakeOrAddChips
+PTR_PTR_CustomScreen_0_Init:
+    .word       PTR_CustomScreen_0_Init
+PTR_gCustomScreen_08016a24:
+    .word       gCustomScreen
+
+
+_nt CustomScreenT1_1_Main
+    push       {lr}
+    ldr        r7,=PTR_CustomScreen_1_0_Open_08016a38
+    ldrb       r0,[r5,#0x1]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    mov        r0,#0x1
+    pop        {pc}
+PTR_CustomScreen_1_0_Open_08016a38:
+    .word       CustomScreen_1_0_Open
+    .word       CustomScreenT1_1_1_ChipSelect
+    .word       CustomScreenT1_1_2_Ok
+    .word       CustomScreenT1_1_3_Add
+    .word       CustomScreen_1_4_Close
+    .word       CustomScreen_1_5_ShowDescription
+    .word       CustomScreen_1_6_NoMoreData
+
+    .pool
+    .word       gFrameCounter
+
+
+_nt CustomScreenT1_1_1_ChipSelect
+    push       {lr}
+    ldr        r7,=PTR_CustomScreenT1_1_1_0_CheckChips_08016a94
+    ldrb       r0,[r5,#0x2]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    bl         CustomScreen_GetChipFromPosition
+    bl         CustomScreen_GetChipDetailFromFolder
+    bl         CustomScreen_LoadChipDetail
+    bl         CustomScreen_LoadChipSelectCursor
+    bl         dummy_167d0
+    bl         CustomScreen_LoadUILower
+    bl         CustomScreen_LoadSelectedChips
+    bl         CustomScreen_AnimateLogo
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        {pc}
+
+    .align 2, 0
+    .pool
+
+PTR_CustomScreenT1_1_1_0_CheckChips_08016a94:
+    .word CustomScreenT1_1_1_0_CheckChips
+    .word CustomScreenT1_1_1_1_WaitDialog
+
+
+_nt CustomScreenT1_1_1_0_CheckChips
+    push       {lr}
+    bl         CustomScreen_CheckRToggle
+    tst        r0,r0
+    beq        LAB_08016aa8
+    pop        {pc}
+LAB_08016aa8:
+    bl         CustomScreen_CheckCursorMove
+    tst        r0,r0
+    beq        LAB_08016aba
+    mov        r0,#0x8
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+    b          dummy_16b84
+LAB_08016aba:
+    ldrh       r0,[r5,#0x38]
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_08016b34
+    bl         CustomScreen_GetSelectedChipOffset
+    bl         CustomScreen_ValidateSelection
+    tst        r0,r0
+    beq        LAB_08016b34
+    ldrb       r2,[r5,#0xb]
+    mov        r3,#0x15
+    add        r3,r3,r2
+    strb       r1,[r5,r3]
+    bl         CustomScreen_GetSelectedChipOffset
+    ldrb       r1,[r5,#0xb]
+    mov        r2,#0x6
+    add        r2,r2,r1
+    strb       r0,[r5,r2]
+    add        r1,#0x1
+    strb       r1,[r5,#0xb]
+    mov        r2,#0x40
+    add        r2,r2,r0
+    strb       r1,[r5,r2]
+    push       {r0}
+    mov        r0,#0x6a
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x1
+    strb       r0,[r5,#0x1b]
+    pop        {r0}
+    bl         CustomScreen_GetSelectedChipOffset
+    bl         CustomScreen_GetChipDetailFromFolder
+    cmp        r0,#0x1
+    beq        LAB_08016b16
+    mov        r0,#0x23
+    @ "OK, let's send the data - choose OK"
+    bl         Text_SetTextPointer_Tutorial1
+    mov        r0,#0x1
+    strb       r0,[r5,#0x3]
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    b          dummy_16b84
+LAB_08016b16:
+    ldrb       r1,[r5,#0x3]
+    tst        r1,r1
+    beq        LAB_08016b24
+    @ "OK, let's send the data - choose OK"
+    mov        r0,#0x23
+    mov        r1,#0x3
+    strb       r1,[r5,#0x3]
+    b          LAB_08016b2a
+    @ "You chose a Cannon. Pick another Cannon"
+LAB_08016b24:
+    mov        r0,#0x15
+    mov        r1,#0x2
+    strb       r1,[r5,#0x3]
+LAB_08016b2a:
+    bl         Text_SetTextPointer_Tutorial1
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    b          dummy_16b84
+LAB_08016b34:
+    mov        r1,#0x2
+    tst        r0,r1
+    beq        LAB_08016b76
+    ldrb       r1,[r5,#0x3]
+    tst        r1,r1
+    beq        LAB_08016b76
+    @ "Don't worry, don't cancel"
+    mov        r0,#0x24
+    cmp        r1,#0x2
+    bne        LAB_08016b48
+    @ "Don't need to cancel"
+    mov        r0,#0x16
+LAB_08016b48:
+    bl         Text_SetTextPointer_Tutorial1
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    b          dummy_16b84
+
+
+_nt CustomScreenT1_Cancel
+    ldrb       r0,[r5,#0xb]
+    tst        r0,r0
+    beq        dummy_16b84
+    sub        r0,#0x1
+    strb       r0,[r5,#0xb]
+    mov        r1,#0x6
+    add        r1,r1,r0
+    ldrb       r2,[r5,r1]
+    mov        r0,#0xff
+    strb       r0,[r5,r1]
+    mov        r0,#0x0
+    mov        r3,#0x40
+    add        r3,r3,r2
+    strb       r0,[r5,r3]
+    mov        r0,#0x6b
+    bl         Sound_PlaySongImmediate
+    b          dummy_16b84
+LAB_08016b76:
+    mov        r1,#0x8
+    tst        r0,r1
+    beq        dummy_16b84
+    mov        r0,#0x8
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+    
+
+_nt dummy_16b84
+    pop        {pc}
+
+
+_nt CustomScreenT1_1_1_1_WaitDialog
+    push       {lr}
+    bl         CustomScreen_DisableInput
+    bl         Text_CheckIfDialogActive
+    bne        LAB_08016b9a
+    bl         CustomScreen_EnableInput
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+LAB_08016b9a:
+    pop        {pc}
+
+
+_nt CustomScreenT1_1_2_Ok
+    push       {lr}
+    ldr        r7,=PTR_CustomScreenT1_1_2_0_CheckChips
+    ldrb       r0,[r5,#0x2]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    mov        r0,#0x0
+    ldrb       r1,[r5,#0xb]
+    tst        r1,r1
+    beq        LAB_08016bb2
+    mov        r0,#0x1
+LAB_08016bb2:
+    bl         CustomScreen_LoadAlternateArt
+    bl         CustomScreen_DrawCursorOkButton
+    bl         dummy_167d0
+    bl         CustomScreen_LoadUILower
+    bl         CustomScreen_LoadSelectedChips
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        {pc}
+
+    .align 2, 0
+    .pool
+PTR_CustomScreenT1_1_2_0_CheckChips:
+    .word       CustomScreenT1_1_2_0_CheckChips
+    .word       CustomScreenT1_1_2_1_Fail
+    .word       CustomScreenT1_1_2_2_Success
+
+
+_nt CustomScreenT1_1_2_0_CheckChips
+    push       {lr}
+    ldrh       r0,[r5,#0x38]
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_08016c4e
+    mov        r0,#0x6d
+    bl         Sound_PlaySongImmediate
+    ldrb       r3,[r5,#0xb]
+    tst        r3,r3
+    bne        LAB_08016bf6
+    @ "Choose the cannons"
+    mov        r0,#0x19
+    b          LAB_08016c02
+LAB_08016bf6:
+    ldrb       r3,[r5,#0x3]
+    cmp        r3,#0x1
+    beq        LAB_08016c0c
+    cmp        r3,#0x2
+    bne        LAB_08016c0c
+    @ "Choose another cannon"
+    mov        r0,#0x17
+LAB_08016c02:
+    bl         Text_SetTextPointer_Tutorial1
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    pop        {pc}
+LAB_08016c0c:
+    mov        r0,r10
+    ldr        r0,[r0,#0xc]
+    add        r0,#0x78
+    mov        r1,#0x6
+    mov        r2,#0xff
+    bl         memset
+    mov        r6,r10
+    ldr        r6,[r6,#0xc]
+    ldrb       r3,[r5,#0xb]
+    strb       r3,[r6,#0x11]
+    tst        r3,r3
+    beq        LAB_08016c3e
+    add        r6,#0x78
+    mov        r4,#0x6
+    add        r4,r4,r5
+LAB_08016c2c:
+    ldrb       r0,[r4,#0x0]
+    bl         CustomScreen_GetChipDetailFromDeck
+    strb       r0,[r6,#0x0]
+    strb       r1,[r6,#0x6]
+    add        r6,#0x1
+    add        r4,#0x1
+    sub        r3,#0x1
+    bne        LAB_08016c2c
+LAB_08016c3e:
+    mov        r0,#0x25
+    @ "We've sent the data - time to fight the virus"
+    bl         Text_SetTextPointer_Tutorial1
+    mov        r0,#0x8
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x0
+    strb       r0,[r5,#0xf]
+    pop        {pc}
+LAB_08016c4e:
+    ldrh       r0,[r5,#0x3a]
+    mov        r1,#0x22
+    tst        r0,r1
+    beq        LAB_08016c86
+    mov        r0,#0x5
+LAB_08016c58:
+    sub        r0,#0x1
+    bmi        LAB_08016cd4
+    push       {r0}
+    ldrb       r1,[r5,#0x5]
+    bl         CustomScreen_GetChipSelectIndex
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r1,[r7,#0x10]
+    cmp        r0,r1
+    bmi        LAB_08016c72
+    mov        r0,#0xff
+    b          LAB_08016c76
+LAB_08016c72:
+    bl         CustomScreen_GetChipDetailFromDeck
+LAB_08016c76:
+    cmp        r0,#0xff
+    pop        {r0}
+    beq        LAB_08016c58
+    strb       r0,[r5,#0x4]
+    mov        r0,#0x69
+    bl         Sound_PlaySongImmediate
+    b          LAB_08016caa
+LAB_08016c86:
+    mov        r1,#0x10
+    tst        r0,r1
+    beq        LAB_08016cba
+    mov        r0,#0x1
+    neg        r0,r0
+LAB_08016c90:
+    add        r0,#0x1
+    cmp        r0,#0x5
+    beq        LAB_08016cd4
+    push       {r0}
+    ldrb       r1,[r5,#0x5]
+    bl         CustomScreen_GetChipSelectIndex
+    bl         CustomScreen_GetChipDetailFromDeck
+    cmp        r0,#0xff
+    pop        {r0}
+    beq        LAB_08016c90
+    strb       r0,[r5,#0x4]
+LAB_08016caa:
+    mov        r0,#0x4
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x69
+    bl         Sound_PlaySongImmediate
+    b          LAB_08016cd4
+LAB_08016cba:
+    mov        r1,#0x80
+    tst        r0,r1
+    beq        LAB_08016cd4
+    ldrb       r0,[r5,#0xb]
+    tst        r0,r0
+    bne        LAB_08016cd4
+    mov        r0,#0x69
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0xc
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+LAB_08016cd4:
+    mov        r0,#0x0
+    ldrb       r1,[r5,#0xb]
+    tst        r1,r1
+    beq        LAB_08016cde
+    mov        r0,#0x1
+LAB_08016cde:
+    pop        {pc}
+
+
+_nt CustomScreenT1_1_2_1_Fail
+    push       {lr}
+    bl         CustomScreen_DisableInput
+    bl         Text_CheckIfDialogActive
+    bne        LAB_08016cf4
+    bl         CustomScreen_EnableInput
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+LAB_08016cf4:
+    mov        r0,#0x0
+    pop        {pc}
+   
+   
+_nt CustomScreenT1_1_2_2_Success
+    push       {lr}
+    bl         CustomScreen_DisableInput
+    bl         Text_CheckIfDialogActive
+    bne        LAB_08016d10
+    bl         CustomScreen_EnableInput
+    mov        r0,#0x10
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+LAB_08016d10:
+    mov        r0,#0x0
+    pop        {pc}
+    
+    
+_nt CustomScreenT1_1_3_Add
+    push       {lr}
+    ldr        r7,=PTR_CustomScreenT1_1_3_0_ShowMessage_08016d40
+    ldrb       r0,[r5,#0x2]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    mov        r0,#0x2
+    bl         CustomScreen_LoadAlternateArt
+    bl         CustomScreen_DrawCursorAddButton
+    bl         dummy_167d0
+    bl         CustomScreen_LoadUILower
+    bl         CustomScreen_LoadSelectedChips
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        {pc}
+    
+    .align 2, 0
+    .pool
+PTR_CustomScreenT1_1_3_0_ShowMessage_08016d40:
+    .word       CustomScreenT1_1_3_0_ShowMessage
+    .word       CustomButtonT1_1_3_1_Return
+   
+   
+_nt CustomScreenT1_1_3_0_ShowMessage
+    push       {lr}
+    ldrh       r0,[r5,#0x38]
+    mov        r1,#0x40
+    tst        r0,r1
+    beq        LAB_08016d5c
+    mov        r0,#0x8
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+    b          LAB_08016d74
+LAB_08016d5c:
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_08016d74
+    @ "Don't need to use this yet"
+    mov        r0,#0x1a
+    ldrb       r1,[r5,#0x3]
+    cmp        r1,#0x2
+    bne        LAB_08016d6c
+    @ "Don't need to use this yet"
+    mov        r0,#0x18
+LAB_08016d6c:
+    bl         Text_SetTextPointer_Tutorial1
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+LAB_08016d74:
+    pop        {pc}
+    
+    
+_nt CustomButtonT1_1_3_1_Return
+    push       {lr}
+    bl         CustomScreen_DisableInput
+    bl         Text_CheckIfDialogActive
+    bne        LAB_08016d8a
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+    bl         CustomScreen_EnableInput
+LAB_08016d8a:
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_Main
+    push       {lr}
+    ldr        r5,PTR_gCustomScreen_08016dd4
+    mov        r0,#0x0
+    mov        r1,#0x0
+    ldrb       r2,[r5,#0x1a]
+    tst        r2,r2
+    beq        LAB_08016da2
+    mov        r7,r10
+    ldr        r7,[r7,#0x4]
+    ldrh       r0,[r7,#0x2]
+    ldrh       r1,[r7,#0x4]
+LAB_08016da2:
+    strh       r0,[r5,#0x38]
+    strh       r1,[r5,#0x3a]
+    ldrb       r0,[r5,#0x0]
+    ldr        r7,PTR_PTR_CustomScreen_0_Init_08016dd0
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    ldrb       r1,[r5,#0x1]
+    lsr        r1,r1,#0x2
+    push       {r0,r1,r5}
+    ldr        r0,PTR_DAT_08016dd8
+    ldrb       r1,[r5,#0x3]
+    bl         PrintDebugString
+    pop        {r0,r1,r5}
+    pop        {pc}
+
+    .align 2, 0
+PTR_CustomScreen_0_Init_08016dc4:
+    .word       CustomScreen_0_Init
+    .word       CustomScreenT2_1_Main
+    .word       CustomScreen_2_TakeOrAddChips
+PTR_PTR_CustomScreen_0_Init_08016dd0:
+    .word       PTR_CustomScreen_0_Init_08016dc4
+PTR_gCustomScreen_08016dd4:
+    .word       gCustomScreen
+PTR_DAT_08016dd8:
+    .word       DAT_08016ddc
+DAT_08016ddc:
+    .byte 0, 0x13
+    .asciz "%D"
+    .align 2, 0
+   
+   
+_nt CustomScreenT2_1_Main
+    push       {lr}
+    ldr        r7,=PTR_CustomScreen_1_0_Open_08016df4
+    ldrb       r0,[r5,#0x1]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    mov        r0,#0x1
+    pop        {pc}
+PTR_CustomScreen_1_0_Open_08016df4:
+    .word       CustomScreen_1_0_Open
+    .word       CustomScreenT2_1_1_ChipSelect
+    .word       CustomScreenT2_1_2_Ok
+    .word       CustomScreenT2_1_3_Add
+    .word       CustomScreen_1_4_Close
+    .word       CustomScreen_1_5_ShowDescription
+    .word       CustomScreen_1_6_NoMoreData
+
+    .pool
+    .word       gFrameCounter
+
+
+_nt CustomScreenT2_1_1_ChipSelect
+    push       {lr}
+    ldr        r7,=PTR_CustomScreenT2_1_1_0_CheckChips_08016e50
+    ldrb       r0,[r5,#0x2]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    bl         CustomScreen_GetChipFromPosition
+    bl         CustomScreen_GetChipDetailFromFolder
+    bl         CustomScreen_LoadChipDetail
+    bl         CustomScreen_LoadChipSelectCursor
+    bl         dummy_167d0
+    bl         CustomScreen_LoadUILower
+    bl         CustomScreen_LoadSelectedChips
+    bl         CustomScreen_AnimateLogo
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        {pc}
+
+    .align 2, 0
+    .pool
+PTR_CustomScreenT2_1_1_0_CheckChips_08016e50:
+    .word       CustomScreenT2_1_1_0_CheckChips
+    .word       CustomScreenT2_1_1_1_WaitDialog
+    
+    
+_nt CustomScreenT2_1_1_0_CheckChips
+    push       {lr}
+    bl         CustomScreen_CheckRToggle
+    tst        r0,r0
+    beq        LAB_08016e64
+    pop        {pc}
+LAB_08016e64:
+    bl         CustomScreen_CheckCursorMove
+    tst        r0,r0
+    beq        LAB_08016e76
+    mov        r0,#0x8
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+    b          LAB_08016f16
+LAB_08016e76:
+    ldrh       r0,[r5,#0x38]
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_08016ed6
+    bl         CustomScreen_GetSelectedChipOffset
+    bl         CustomScreen_ValidateSelection
+    tst        r0,r0
+    beq        LAB_08016ec4
+    ldrb       r2,[r5,#0xb]
+    mov        r3,#0x15
+    add        r3,r3,r2
+    strb       r1,[r5,r3]
+    bl         CustomScreen_GetSelectedChipOffset
+    ldrb       r1,[r5,#0xb]
+    mov        r2,#0x6
+    add        r2,r2,r1
+    strb       r0,[r5,r2]
+    add        r1,#0x1
+    strb       r1,[r5,#0xb]
+    mov        r2,#0x40
+    add        r2,r2,r0
+    strb       r1,[r5,r2]
+    push       {r0}
+    mov        r0,#0x6a
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x1
+    strb       r0,[r5,#0x1b]
+    pop        {r0}
+    bl         CustomScreen_GetSelectedChipOffset
+    bl         CustomScreen_GetChipDetailFromFolder
+    bl         CustomScreenT2_VerifySelection
+    b          LAB_08016f16
+LAB_08016ec4:
+    ldrb       r1,[r5,#0x3]
+    cmp        r1,#0x2
+    bne        LAB_08016ed6
+    mov        r0,#0x15
+    @ "That's not WideSwrd"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    b          LAB_08016f16
+LAB_08016ed6:
+    mov        r1,#0x2
+    tst        r0,r1
+    beq        LAB_08016f08
+    bl         CustomScreenT2_CheckCancel
+    tst        r0,r0
+    bne        LAB_08016f16
+    ldrb       r0,[r5,#0xb]
+    tst        r0,r0
+    beq        LAB_08016f16
+    sub        r0,#0x1
+    strb       r0,[r5,#0xb]
+    mov        r1,#0x6
+    add        r1,r1,r0
+    ldrb       r2,[r5,r1]
+    mov        r0,#0xff
+    strb       r0,[r5,r1]
+    mov        r0,#0x0
+    mov        r3,#0x40
+    add        r3,r3,r2
+    strb       r0,[r5,r3]
+    mov        r0,#0x6b
+    bl         Sound_PlaySongImmediate
+    b          LAB_08016f16
+LAB_08016f08:
+    mov        r1,#0x8
+    tst        r0,r1
+    beq        LAB_08016f16
+    mov        r0,#0x8
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+LAB_08016f16:
+    pop        {pc}
+   
+   
+_nt CustomScreenT2_1_1_1_WaitDialog
+    push       {lr}
+    bl         CustomScreen_DisableInput
+    bl         Text_CheckIfDialogActive
+    bne        LAB_08016f2c
+    bl         CustomScreen_EnableInput
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+LAB_08016f2c:
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_2_Ok
+    push       {lr}
+    ldr        r7,=PTR_CustomScreenT2_1_2_0_CheckChips_08016f64
+    ldrb       r0,[r5,#0x2]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    mov        r0,#0x0
+    ldrb       r1,[r5,#0xb]
+    tst        r1,r1
+    beq        LAB_08016f44
+    mov        r0,#0x1
+LAB_08016f44:
+    bl         CustomScreen_LoadAlternateArt
+    bl         CustomScreen_DrawCursorOkButton
+    bl         dummy_167d0
+    bl         CustomScreen_LoadUILower
+    bl         CustomScreen_LoadSelectedChips
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        {pc}
+
+    .align 2, 0
+    .pool
+PTR_CustomScreenT2_1_2_0_CheckChips_08016f64:
+    .word       CustomScreenT2_1_2_0_CheckChips
+    .word       CustomScreenT2_1_2_1_Fail
+    .word       CustomScreenT2_1_2_2_Success
+
+_nt CustomScreenT2_1_2_0_CheckChips
+    push       {lr}
+    ldrh       r0,[r5,#0x38]
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_08016fca
+    mov        r0,#0x6d
+    bl         Sound_PlaySongImmediate
+    bl         CustomScreenT2_OkButtonPressCheck
+    tst        r0,r0
+    bne        LAB_0801704a
+    mov        r0,r10
+    ldr        r0,[r0,#0xc]
+    add        r0,#0x78
+    mov        r1,#0x6
+    mov        r2,#0xff
+    bl         memset
+    mov        r6,r10
+    ldr        r6,[r6,#0xc]
+    ldrb       r3,[r5,#0xb]
+    strb       r3,[r6,#0x11]
+    tst        r3,r3
+    beq        LAB_08016fba
+    add        r6,#0x78
+    mov        r4,#0x6
+    add        r4,r4,r5
+LAB_08016fa8:
+    ldrb       r0,[r4,#0x0]
+    bl         CustomScreen_GetChipDetailFromDeck
+    strb       r0,[r6,#0x0]
+    strb       r1,[r6,#0x6]
+    add        r6,#0x1
+    add        r4,#0x1
+    sub        r3,#0x1
+    bne        LAB_08016fa8
+LAB_08016fba:
+    mov        r0,#0x20
+    @ "We've sent the data. Time to test our strategy"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x8
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x0
+    strb       r0,[r5,#0xf]
+    pop        {pc}
+LAB_08016fca:
+    ldrh       r0,[r5,#0x3a]
+    mov        r1,#0x22
+    tst        r0,r1
+    beq        LAB_08016ffc
+    mov        r0,#0x5
+LAB_08016fd4:
+    sub        r0,#0x1
+    bmi        LAB_0801704a
+    push       {r0}
+    ldrb       r1,[r5,#0x5]
+    bl         CustomScreen_GetChipSelectIndex
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r1,[r7,#0x10]
+    cmp        r0,r1
+    bmi        LAB_08016fee
+    mov        r0,#0xff
+    b          LAB_08016ff2
+LAB_08016fee:
+    bl         CustomScreen_GetChipDetailFromDeck
+LAB_08016ff2:
+    cmp        r0,#0xff
+    pop        {r0}
+    beq        LAB_08016fd4
+    strb       r0,[r5,#0x4]
+    b          LAB_08017020
+LAB_08016ffc:
+    mov        r1,#0x10
+    tst        r0,r1
+    beq        LAB_08017030
+    mov        r0,#0x1
+    neg        r0,r0
+LAB_08017006:
+    add        r0,#0x1
+    cmp        r0,#0x5
+    beq        LAB_0801704a
+    push       {r0}
+    ldrb       r1,[r5,#0x5]
+    bl         CustomScreen_GetChipSelectIndex
+    bl         CustomScreen_GetChipDetailFromDeck
+    cmp        r0,#0xff
+    pop        {r0}
+    beq        LAB_08017006
+    strb       r0,[r5,#0x4]
+LAB_08017020:
+    mov        r0,#0x69
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x4
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+    b          LAB_0801704a
+LAB_08017030:
+    mov        r1,#0x80
+    tst        r0,r1
+    beq        LAB_0801704a
+    ldrb       r0,[r5,#0xb]
+    tst        r0,r0
+    bne        LAB_0801704a
+    mov        r0,#0x69
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0xc
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+LAB_0801704a:
+    mov        r0,#0x0
+    ldrb       r1,[r5,#0xb]
+    tst        r1,r1
+    beq        LAB_08017054
+    mov        r0,#0x1
+LAB_08017054:
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_2_1_Fail
+    push       {lr}
+    bl         CustomScreen_DisableInput
+    bl         Text_CheckIfDialogActive
+    bne        LAB_0801706a
+    bl         CustomScreen_EnableInput
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+LAB_0801706a:
+    mov        r0,#0x0
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_2_2_Success
+    push       {lr}
+    bl         CustomScreen_DisableInput
+    bl         Text_CheckIfDialogActive
+    bne        LAB_08017086
+    bl         CustomScreen_EnableInput
+    mov        r0,#0x10
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+LAB_08017086:
+    mov        r0,#0x0
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_3_Add
+    push       {lr}
+    ldr        r7,=PTR_CustomScreenT2_1_3_0_ShowMessage_080170b8
+    ldrb       r0,[r5,#0x2]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    mov        r0,#0x2
+    bl         CustomScreen_LoadAlternateArt
+    bl         CustomScreen_DrawCursorAddButton
+    bl         dummy_167d0
+    bl         CustomScreen_LoadUILower
+    bl         CustomScreen_LoadSelectedChips
+    bl         CustomScreen_UpdateChipSelectPosition
+    pop        {pc}
+
+    .align 2, 0
+    .pool
+PTR_CustomScreenT2_1_3_0_ShowMessage_080170b8:
+    .word       CustomScreenT2_1_3_0_ShowMessage
+    .word       CustomScreenT2_1_3_1_Next
+    
+    
+_nt CustomScreenT2_1_3_0_ShowMessage
+    push       {lr}
+    ldrh       r0,[r5,#0x38]
+    mov        r1,#0x40
+    tst        r0,r1
+    beq        LAB_080170d4
+    mov        r0,#0x8
+    strb       r0,[r5,#0x1]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+    b          LAB_080170ec
+LAB_080170d4:
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_080170ec
+    @ "Don't need to use this yet."
+    mov        r0,#0xe
+    ldrb       r1,[r5,#0x3]
+    cmp        r1,#0x2
+    bne        LAB_080170e4
+    @ "Don't need to use this yet."
+    mov        r0,#0x18
+LAB_080170e4:
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+LAB_080170ec:
+    pop        {pc}
+   
+   
+_nt CustomScreenT2_1_3_1_Next
+    push       {lr}
+    bl         CustomScreen_DisableInput
+    bl         Text_CheckIfDialogActive
+    bne        LAB_08017102
+    mov        r0,#0x0
+    strb       r0,[r5,#0x2]
+    bl         CustomScreen_EnableInput
+LAB_08017102:
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_VerifySelection
+    push       {r0,lr}
+    ldr        r7,=PTR_CustomScreenT2_1_1_0_0_CheckIfStealSelected
+    ldrb       r1,[r5,#0x3]
+    lsl        r1,r1,#0x2
+    ldr        r7,[r7,r1]
+    mov        lr,pc
+    bx         r7
+    pop        {r0,pc}
+
+    .align 2, 0
+PTR_CustomScreenT2_1_1_0_0_CheckIfStealSelected:
+    .word       CustomScreenT2_1_1_0_0_CheckIfStealSelected
+    .word       dummy_1715a
+    .word       CustomScreenT2_1_1_0_1_PromptPressOk
+    .word       CustomScreenT2_1_1_0_2_Next
+    .pool
+    
+    
+_nt CustomScreenT2_1_1_0_0_CheckIfStealSelected
+    push       {lr}
+    cmp        r0,#0x4c
+    bne        LAB_0801713a
+    mov        r0,#0x14
+    @ Chose Steal first -> "OK - Choose WideSword next"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x2
+    strb       r0,[r5,#0x3]
+    b          LAB_08017154
+LAB_0801713a:
+    cmp        r0,#0x5
+    bne        LAB_0801714a
+    mov        r0,#0xb
+    @ Chose WideSwrd first -> "Choose Steal first"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x3
+    strb       r0,[r5,#0x3]
+    b          LAB_08017154
+LAB_0801714a:
+    mov        r0,#0xc
+    @ Chose any other chip first -> "Choose Steal first"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x1
+    strb       r0,[r5,#0x3]
+LAB_08017154:
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    pop        {pc}
+    
+    
+_nt dummy_1715a
+    push       {lr}
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_1_0_1_PromptPressOk
+    push       {lr}
+    mov        r0,#0x1e
+    @ "OK, let's send data to the navi - choose OK"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x5
+    strb       r0,[r5,#0x3]
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_1_0_2_Next
+    push       {lr}
+    mov        r0,#0x4
+    strb       r0,[r5,#0x3]
+    pop        {pc}
+    
+    
+_nt dummy_17178
+    push       {lr}
+    pop        {pc}
+   
+   
+_nt dummy_1717c
+    push       {lr}
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_CheckCancel
+    push       {lr}
+    ldr        r7,=PTR_CustomScreenT2_1_1_0_0_Next_08017190
+    ldrb       r1,[r5,#0x3]
+    lsl        r1,r1,#0x2
+    ldr        r7,[r7,r1]
+    mov        lr,pc
+    bx         r7
+    pop        {pc}
+
+    .align 2, 0
+PTR_CustomScreenT2_1_1_0_0_Next_08017190:
+    .word       CustomScreenT2_1_1_0_0_Next
+    .word       CustomScreenT2_1_1_0_1_Next
+    .word       CustomScreenT2_1_1_0_2_DontCancel
+    .word       CustomScreenT2_1_1_0_3_Next
+    .word       CustomScreenT2_1_1_0_4_Next
+    .word       CustomScreenT2_1_1_0_5_DontCancel
+    .pool
+    .align 2, 0
+    
+    
+_nt CustomScreenT2_1_1_0_0_Next
+    push       {lr}
+    mov        r0,#0x0
+    strb       r0,[r5,#0x3]
+    mov        r0,#0x0
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_1_0_1_Next
+    push       {lr}
+    mov        r0,#0x0
+    strb       r0,[r5,#0x3]
+    mov        r0,#0x0
+    mov        r0,#0x0
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_1_0_2_DontCancel
+    push       {lr}
+    mov        r0,#0x16
+    @ "Don't cancel - select WideSwrd"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x1
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_1_0_3_Next
+    push       {lr}
+    mov        r0,#0x0
+    strb       r0,[r5,#0x3]
+    mov        r0,#0x0
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_1_0_4_Next
+    push       {lr}
+    mov        r0,#0x3
+    strb       r0,[r5,#0x3]
+    mov        r0,#0x0
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_1_0_5_DontCancel
+    push       {lr}
+    mov        r0,#0x1f
+    @ "Don't worry - don't cancel now"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x1
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_OkButtonPressCheck
+    push       {lr}
+    ldr        r7,=PTR_CustomScreenT2_1_2_0_0_ChooseStealFirst
+    ldrb       r1,[r5,#0x3]
+    lsl        r1,r1,#0x2
+    ldr        r7,[r7,r1]
+    mov        lr,pc
+    bx         r7
+    pop        {pc}
+
+    .align 2, 0
+PTR_CustomScreenT2_1_2_0_0_ChooseStealFirst:
+    .word       CustomScreenT2_1_2_0_0_ChooseStealFirst
+    .word       CustomScreenT2_1_2_0_1_ChooseStealFirst
+    .word       CustomScreenT2_1_2_0_2_SelectWideSwrd
+    .word       CustomScreenT2_1_2_0_3_ChooseStealFirst
+    .word       CustomScreenT2_1_2_0_4_WrongOrder
+    .word       CustomScreenT2_1_2_0_5_DontCancelNow
+    .pool
+    
+    
+_nt CustomScreenT2_1_2_0_0_ChooseStealFirst
+    push       {lr}
+    mov        r0,#0xd
+    @ "Choose Steal first"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x1
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_2_0_1_ChooseStealFirst
+    push       {lr}
+    mov        r0,#0xd
+    @ "Choose Steal first"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x1
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_2_0_2_SelectWideSwrd
+    push       {lr}
+    mov        r0,#0x17
+    @ "Send WideSwrd data too"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x1
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_2_0_3_ChooseStealFirst
+    push       {lr}
+    mov        r0,#0xd
+    @ "Choose Steal first"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x1
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_2_0_4_WrongOrder
+    push       {lr}
+    mov        r0,#0xf
+    @ "Wrong order"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x1
+    pop        {pc}
+    
+    
+_nt CustomScreenT2_1_2_0_5_DontCancelNow
+    push       {lr}
+    mov        r0,#0x1f
+    @ "Don't cancel now"
+    bl         Text_SetTextPointer_Tutorial2
+    mov        r0,#0x4
+    strb       r0,[r5,#0x2]
+    mov        r0,#0x0
+    pop        {pc}
+
+.end

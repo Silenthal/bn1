@@ -116,7 +116,7 @@ _ts FieldObject_CalcDamage
     str        r1,[r6,#0x38]
     mov        r0,#0x80
     lsl        r0,r0,#0x18
-    ldr        r1,PTR_gBitsetFieldObject_0800.bytec
+    ldr        r1,PTR_gBitsetFieldObject
     ldr        r1,[r1,#0x0]
     ldr        r7,PTR_gListFieldObject_08002dc0
     @ Check for active object
@@ -212,7 +212,7 @@ LAB_08002d9e:
     ldr        r6,[r6,#0x2c]
     add        sp,#0x3c
     pop        {pc}
-PTR_gBitsetFieldObject_0800.bytec:
+PTR_gBitsetFieldObject:
     .word gBitsetFieldObject
 PTR_gListFieldObject_08002dc0:
     .word gListFieldObject
@@ -534,7 +534,7 @@ _nt FieldObject_ClearHitFlag
     mov        pc,lr
 
 
-_ts FieldObject_ClearHitAndDamageFlag
+_ts FieldObject_DisableIfHitFlagSet
     push       {lr}
     ldr        r1,[r0,#0xc]
     mov        r2,#0x20
