@@ -206,5 +206,5 @@ PTR_listFlagSet_08002b08:       .word listFlagSet
 PTR_INT_08002b0c:               .word INT_08002324
 DAT_08002b10:                   .word 0x80000000
 PTR_gIsObjectXFlipped_08002b14: .word gIsObjectXFlipped
-DAT_08002b18:                   .word 0xFFFFFFE0
-DAT_08002b1c:                   .word 0x110
+DAT_08002b18:                   .word -32
+DAT_08002b1c:                   .word 272

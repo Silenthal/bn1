@@ -39,6 +39,7 @@ export BUILD_SCRIPT		:= python3 $(CURDIR)/$(TOOLS)/build_script.py
 export GEN_OFFSETS		:= python3 $(CURDIR)/$(TOOLS)/generate_offsets.py
 export LZ				:= python3 $(CURDIR)/$(TOOLS)/lz.py
 export PROGRESS			:= python3 $(CURDIR)/$(TOOLS)/progress.py
+export PARSE_FIXED		:= python3 $(CURDIR)/$(TOOLS)/parse_fixed.py
 
 export MMBN_H			:= $(CURDIR)/include/mmbn.h
 export OUTPUT			:= $(CURDIR)/$(TARGET)
@@ -134,7 +135,7 @@ $(C_OBJECTS): %.o: %.c
 
 $(S_OBJECTS): %.o: %.S
 	@echo $(notdir $<)
-	$(CC) $(INCLUDE) -D $(BASE_DEFINE)=\"$(BASE).gba\" -E $< | $(AS) $(ASINCLUDE) $(ASFLAGS) -o $@
+	$(CC) $(INCLUDE) -D $(BASE_DEFINE)=\"$(BASE).gba\" -E $< | $(PARSE_FIXED) | $(AS) $(ASINCLUDE) $(ASFLAGS) -o $@
 
 images/ui/charset.4bpp: %.4bpp: %.png
 	$(MAKE_TILES) -mh 2 $@ $<

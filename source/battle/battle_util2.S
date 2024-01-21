@@ -2880,8 +2880,8 @@ _nt Battle_CellCoordsToSprite
     pop        {pc}
 
     .align 2, 0
-INT_08009808: .word 0xFF740000
-INT_0800980c: .word 0xFFDC0000
+INT_08009808: .word f(-140)
+INT_0800980c: .word f(-36)
 
 
 _nt Battle_AddObject
