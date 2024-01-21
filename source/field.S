@@ -459,163 +459,163 @@ _nt Field_GetPanelFlagGroup
 
 PTR_PanelFlag_ARRAY_ARRAY_080010f0: .word PanelFlag_ARRAY_ARRAY_080010f4
 PanelFlag_ARRAY_ARRAY_080010f4:
-_00: @ 0
+    @ 0 | 0x00
     .word 0x0
     .word 0x0
-_01: @ 1
+    @ 1 | 0x01
     .word PF_Player
     .word PF_Enemy
-_02: @ 2
+    @ 2 | 0x02
     .word PF_EnemyOccupied | PF_Solid
     .word PF_PlayerOccupied | PF_Solid
-_03: @ 3
+    @ 3 | 0x03
     .word PF_Ground | PF_Player
     .word PF_Ground | PF_Enemy
-_04: @ 4
+    @ 4 | 0x04
     .word PF_Player
     .word PF_Ground | PF_Enemy
-_05: @ 5
+    @ 5 | 0x05
     .word PF_EnemyOccupied | PF_Solid | 0x8000
     .word PF_PlayerOccupied | PF_Solid | 0x8100
-_06: @ 6
+    @ 6 | 0x06
     .word 0x100
     .word 0x100
-_07: @ 7
+    @ 7 | 0x07
     .word PF_Enemy | PF_Solid | 0x8000
     .word PF_Player | PF_Solid | 0x8000
-_08: @ 8
+    @ 8 | 0x08
     .word PF_Ground | 0x100
     .word PF_Ground | 0x100
-_09: @ 9
+    @ 9 | 0x09
     .word PF_PlayerOccupied | PF_ActorPlayer
     .word PF_EnemyOccupied | PF_ActorEnemy
-_0A: @ 10
+    @ 10 | 0x0A
     .word PF_EnemyOccupied | PF_Enemy | PF_Solid | PF_Apple | 0x8000
     .word PF_PlayerOccupied | PF_Player | PF_Solid | PF_Apple | 0x8000
-_0B: @ 11
+    @ 11 | 0x0B
     .word PF_Ground | PF_PlayerOccupied | PF_ActorPlayer
     .word PF_Ground | PF_EnemyOccupied | PF_ActorEnemy
-_0C: @ 12
+    @ 12 | 0x0C
     .word PF_PlayerOccupied | PF_Armor | PF_ActorPlayer
     .word PF_EnemyOccupied | PF_Armor | PF_ActorEnemy
-_0D: @ 13
+    @ 13 | 0x0D
     .word PF_PlayerOccupied
     .word PF_EnemyOccupied
-_0E: @ 14
+    @ 14 | 0x0E
     .word PF_PlayerOccupied | PF_ActorPlayer | 0x1000000
     .word PF_EnemyOccupied | PF_ActorEnemy | 0x1000000
-_0F: @ 15
+    @ 15 | 0x0F
     .word PF_Teleporting
     .word PF_Teleporting
-_10: @ 16
+    @ 16 | 0x10
     .word PF_Solid | 0x8000
     .word PF_Solid | 0x8000
-_11: @ 17
-    .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Player | PF_Enemy | PF_Solid | 0xC000
-    .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Player | PF_Enemy | PF_Solid | 0xC000
-_12: @ 18
+    @ 17 | 0x11
+    .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Player | PF_Enemy | PF_Solid | PF_Break | 0x8000
+    .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Player | PF_Enemy | PF_Solid | PF_Break | 0x8000
+    @ 18 | 0x12
     .word PF_Player | 0x1000
     .word PF_Enemy | 0x2000
-_13: @ 19
+    @ 19 | 0x13
     .word PF_EnemyOccupied | PF_Solid
     .word PF_PlayerOccupied | PF_Solid
-_14: @ 20
+    @ 20 | 0x14
     .word PF_Ground | PF_Player | 0x1000
     .word PF_Ground | PF_Enemy | 0x2000
-_15: @ 21
+    @ 21 | 0x15
     .word PF_Player | 0x10000
     .word PF_Enemy | 0x10000
-_16: @ 22
-    .word PF_Player | 0x200000
-    .word PF_Enemy | 0x200000
-_17: @ 23
-    .word PF_Ground | PF_Player | 0x200000
-    .word PF_Ground | PF_Enemy | 0x200000
-_18: @ 24
-    .word PF_Player | 0x4000
-    .word PF_Enemy | 0x4000
-_19: @ 25
+    @ 22 | 0x16
+    .word PF_Player | PF_Freeze
+    .word PF_Enemy | PF_Freeze
+    @ 23 | 0x17
+    .word PF_Ground | PF_Player | PF_Freeze
+    .word PF_Ground | PF_Enemy | PF_Freeze
+    @ 24 | 0x18
+    .word PF_Player | PF_Break
+    .word PF_Enemy | PF_Break
+    @ 25 | 0x19
     .word PF_PlayerOccupied | PF_Player
     .word PF_EnemyOccupied | PF_Enemy
-_1A: @ 26
+    @ 26 | 0x1A
     .word PF_Ground | PF_PlayerOccupied | PF_Player
     .word PF_Ground | PF_EnemyOccupied | PF_Enemy
-_1B: @ 27
+    @ 27 | 0x1B
     .word PF_PlayerOccupied | PF_Player
     .word PF_Ground | PF_EnemyOccupied | PF_Enemy
-_1C: @ 28
+    @ 28 | 0x1C
     .word PF_PlayerOccupied | PF_Player | PF_Teleporting
     .word PF_EnemyOccupied | PF_Enemy | PF_Teleporting
-_1D: @ 29
+    @ 29 | 0x1D
     .word PF_PlayerOccupied | PF_Player | PF_Armor
     .word PF_EnemyOccupied | PF_Enemy | PF_Armor
-_1E: @ 30
+    @ 30 | 0x1E
     .word PF_Player | 0x8000
     .word PF_Enemy | 0x8000
-_1F: @ 31
+    @ 31 | 0x1F
     .word PF_Ground | PF_Player | 0x8000
     .word PF_Ground | PF_Enemy | 0x8000
-_20: @ 32
+    @ 32 | 0x20
     .word PF_Player | 0x8000
     .word PF_Ground | PF_Enemy | 0x8000
-_21: @ 33
+    @ 33 | 0x21
     .word PF_PlayerOccupied | 0x8000
     .word PF_EnemyOccupied | 0x8000
-_22: @ 34
+    @ 34 | 0x22
     .word PF_Ground | PF_PlayerOccupied | 0x8000
     .word PF_Ground | PF_EnemyOccupied | 0x8000
-_23: @ 35
+    @ 35 | 0x23
     .word PF_Player | 0x9000
     .word PF_Enemy | 0xA000
-_24: @ 36
+    @ 36 | 0x24
     .word PF_Ground | PF_Player | 0x9000
     .word PF_Ground | PF_Enemy | 0xA000
-_25: @ 37
+    @ 37 | 0x25
     .word PF_PlayerOccupied | 0x404000
     .word PF_EnemyOccupied | 0x404000
-_26: @ 38
+    @ 38 | 0x26
     .word PF_EnemyOccupied | PF_Enemy
     .word PF_PlayerOccupied | PF_Player
-_27: @ 39
+    @ 39 | 0x27
     .word PF_Ground
     .word PF_Ground
-_28: @ 40
+    @ 40 | 0x28
     .word PF_Player | PF_Enemy
     .word PF_Player | PF_Enemy
-_29: @ 41
+    @ 41 | 0x29
     .word PF_Ground | PF_Player | PF_Enemy
     .word PF_Ground | PF_Player | PF_Enemy
-_2A: @ 42
+    @ 42 | 0x2A
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Solid
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Solid
-_2B: @ 43
+    @ 43 | 0x2B
     .word PF_Player | PF_Enemy | 0x4000000
     .word PF_Player | PF_Enemy | 0x4000000
-_2C: @ 44
+    @ 44 | 0x2C
     .word PF_Player | 0x800000
     .word PF_Enemy | 0x800000
-_2D: @ 45
+    @ 45 | 0x2D
     .word PF_Ground | PF_Player | 0x800000
     .word PF_Ground | PF_Enemy | 0x800000
-_2E: @ 46
+    @ 46 | 0x2E
     .word PF_Player | 0x800000
     .word PF_Ground | PF_Enemy | 0x800000
-_2F: @ 47
+    @ 47 | 0x2F
     .word PF_PlayerOccupied | 0x800000
     .word PF_EnemyOccupied | 0x800000
-_30: @ 48
+    @ 48 | 0x30
     .word PF_PlayerOccupied | PF_Player | 0x800000
     .word PF_EnemyOccupied | PF_Enemy | 0x800000
-_31: @ 49
+    @ 49 | 0x31
     .word PF_EnemyOccupied | PF_Enemy | PF_Solid | 0x1008000
     .word PF_PlayerOccupied | PF_Player | PF_Solid | 0x1008000
-_32: @ 50
+    @ 50 | 0x32
     .word 0x2000000
     .word 0x2000000
-_33: @ 51
-    .word PF_Enemy | 0xC000
-    .word PF_Player | 0xC000
-_34: @ 52
+    @ 51 | 0x33
+    .word PF_Enemy | PF_Break | 0x8000
+    .word PF_Player | PF_Break | 0x8000
+    @ 52 | 0x34
     .word PF_EnemyOccupied | PF_Teleporting | PF_Solid | 0x2000000
     .word PF_PlayerOccupied | PF_Teleporting | PF_Solid | 0x2000000
 
@@ -878,7 +878,7 @@ LAB_0800144c:
     pop        {pc}
 
 
-_ts FUN_08001454
+_ts Field_FindEmptyEnemyPanelForward
     push       {r5,lr}
     lsl        r3,r0,#0x2
     push       {r3}

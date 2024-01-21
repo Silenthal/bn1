@@ -1,6 +1,6 @@
 global_label arrayEnemyDetails
 
-_0: @ Megaman
+    @ 0 | Megaman
     hp 100
     element None
     hp_pos 50
@@ -17,7 +17,7 @@ _0: @ Megaman
     zenny 0
     zenny 0
     zenny 0
-_1: @ Mettaur1
+    @ 1 | Mettaur1
     hp 40
     element None
     hp_pos 34
@@ -34,7 +34,7 @@ _1: @ Mettaur1
     battlechip ShokWave K
     zenny 200
     battlechip ShokWave C
-_2: @ Mettaur2
+    @ 2 | Mettaur2
     hp 60
     element None
     hp_pos 34
@@ -51,7 +51,7 @@ _2: @ Mettaur2
     battlechip SoniWave D
     zenny 250
     battlechip SoniWave C
-_3: @ Mettaur3
+    @ 3 | Mettaur3
     hp 100
     element None
     hp_pos 34
@@ -68,7 +68,7 @@ _3: @ Mettaur3
     battlechip DynaWave S
     zenny 300
     battlechip DynaWave C
-_4: @ Canodumb1
+    @ 4 | Canodumb1
     hp 50
     element None
     hp_pos 54
@@ -85,7 +85,7 @@ _4: @ Canodumb1
     battlechip Cannon B
     zenny 200
     battlechip Cannon D
-_5: @ Canodumb2
+    @ 5 | Canodumb2
     hp 80
     element None
     hp_pos 54
@@ -102,7 +102,7 @@ _5: @ Canodumb2
     battlechip HiCannon G
     zenny 300
     battlechip HiCannon H
-_6: @ Canodumb3
+    @ 6 | Canodumb3
     hp 100
     element None
     hp_pos 54
@@ -119,7 +119,7 @@ _6: @ Canodumb3
     battlechip M_Cannon O
     zenny 300
     battlechip M_Cannon M
-_7: @ Vulgear
+    @ 7 | Vulgear
     hp 80
     element Fire
     hp_pos 50
@@ -136,7 +136,7 @@ _7: @ Vulgear
     battlechip FireTowr F
     battlechip FireTowr E
     battlechip FireTowr M
-_8: @ Vatgear
+    @ 8 | Vatgear
     hp 120
     element Water
     hp_pos 50
@@ -153,7 +153,7 @@ _8: @ Vatgear
     battlechip AquaTowr H
     zenny 350
     battlechip AquaTowr G
-_9: @ Vulgear_X
+    @ 9 | Vulgear_X
     hp 80
     element Fire
     hp_pos 50
@@ -170,7 +170,7 @@ _9: @ Vulgear_X
     zenny 80
     battlechip FireTowr J
     zenny 100
-_10: @ Spooky1
+    @ 10 | Spooky1
     hp 50
     element None
     hp_pos 58
@@ -187,7 +187,7 @@ _10: @ Spooky1
     battlechip Invis1 L
     battlechip Invis1 J
     zenny 250
-_11: @ Spooky2
+    @ 11 | Spooky2
     hp 100
     element None
     hp_pos 58
@@ -204,7 +204,7 @@ _11: @ Spooky2
     battlechip Invis2 A
     battlechip Recov80 A
     battlechip Invis2 J
-_12: @ Spooky3
+    @ 12 | Spooky3
     hp 120
     element None
     hp_pos 58
@@ -221,7 +221,7 @@ _12: @ Spooky3
     battlechip Recov150 G
     battlechip Invis3 N
     battlechip Recov200 A
-_13: @ Beetank1
+    @ 13 | Beetank1
     hp 80
     element None
     hp_pos 46
@@ -238,7 +238,7 @@ _13: @ Beetank1
     battlechip LilBomb B
     zenny 250
     battlechip LilBomb D
-_14: @ Beetank2
+    @ 14 | Beetank2
     hp 120
     element None
     hp_pos 46
@@ -255,7 +255,7 @@ _14: @ Beetank2
     battlechip CrosBomb D
     zenny 350
     battlechip CrosBomb B
-_15: @ Beetank3
+    @ 15 | Beetank3
     hp 150
     element None
     hp_pos 46
@@ -272,7 +272,7 @@ _15: @ Beetank3
     battlechip BigBomb O
     zenny 500
     battlechip BigBomb B
-_16: @ Handy1
+    @ 16 | Handy1
     hp 80
     element None
     hp_pos 0
@@ -289,7 +289,7 @@ _16: @ Handy1
     battlechip TimeBom1 J
     zenny 250
     battlechip TimeBom1 L
-_17: @ Handy2
+    @ 17 | Handy2
     hp 200
     element None
     hp_pos 0
@@ -306,7 +306,7 @@ _17: @ Handy2
     battlechip TimeBom2 J
     zenny 400
     battlechip TimeBom2 C
-_18: @ Handy3
+    @ 18 | Handy3
     hp 300
     element None
     hp_pos 0
@@ -323,7 +323,7 @@ _18: @ Handy3
     battlechip TimeBom3 G
     zenny 600
     battlechip TimeBom3 B
-_19: @ Flappy1
+    @ 19 | Flappy1
     hp 60
     element None
     hp_pos 54
@@ -340,7 +340,7 @@ _19: @ Flappy1
     battlechip Quake1 A
     battlechip Quake1 K
     battlechip Quake1 Q
-_20: @ Flappy2
+    @ 20 | Flappy2
     hp 120
     element None
     hp_pos 54
@@ -357,7 +357,7 @@ _20: @ Flappy2
     battlechip Quake2 C
     zenny 300
     battlechip Quake2 B
-_21: @ Flappy3
+    @ 21 | Flappy3
     hp 150
     element None
     hp_pos 54
@@ -374,7 +374,7 @@ _21: @ Flappy3
     battlechip Quake3 M
     zenny 400
     battlechip Quake3 D
-_22: @ Froshell1
+    @ 22 | Froshell1
     hp 120
     element None
     hp_pos 0
@@ -391,7 +391,7 @@ _22: @ Froshell1
     battlechip IronShld B
     zenny 600
     battlechip IronShld A
-_23: @ Froshell2
+    @ 23 | Froshell2
     hp 200
     element None
     hp_pos 0
@@ -408,7 +408,7 @@ _23: @ Froshell2
     zenny 2000
     zenny 2000
     zenny 2000
-_24: @ Froshell3
+    @ 24 | Froshell3
     hp 250
     element None
     hp_pos 0
@@ -425,7 +425,7 @@ _24: @ Froshell3
     zenny 3000
     zenny 3000
     zenny 3000
-_25: @ HardHead1
+    @ 25 | HardHead1
     hp 60
     element None
     hp_pos 54
@@ -442,7 +442,7 @@ _25: @ HardHead1
     zenny 250
     zenny 300
     battlechip Howitzer H
-_26: @ HardHead2
+    @ 26 | HardHead2
     hp 70
     element None
     hp_pos 54
@@ -459,7 +459,7 @@ _26: @ HardHead2
     zenny 2000
     zenny 2000
     zenny 2000
-_27: @ HardHead3
+    @ 27 | HardHead3
     hp 80
     element None
     hp_pos 54
@@ -476,7 +476,7 @@ _27: @ HardHead3
     zenny 3000
     zenny 3000
     zenny 3000
-_28: @ Swordy1
+    @ 28 | Swordy1
     hp 90
     element None
     hp_pos 0
@@ -493,7 +493,7 @@ _28: @ Swordy1
     battlechip LongSwrd S
     zenny 300
     battlechip WideSwrd S
-_29: @ Swordy2
+    @ 29 | Swordy2
     hp 120
     element Fire
     hp_pos 0
@@ -510,7 +510,7 @@ _29: @ Swordy2
     battlechip FireSwrd B
     zenny 300
     battlechip FireSwrd N
-_30: @ Swordy3
+    @ 30 | Swordy3
     hp 200
     element Water
     hp_pos 0
@@ -527,7 +527,7 @@ _30: @ Swordy3
     battlechip AquaSwrd P
     zenny 400
     battlechip AquaSwrd N
-_31: @ Fishy1
+    @ 31 | Fishy1
     hp 80
     element None
     hp_pos 54
@@ -544,7 +544,7 @@ _31: @ Fishy1
     battlechip Dash B
     zenny 200
     battlechip Dash G
-_32: @ Fishy2
+    @ 32 | Fishy2
     hp 150
     element Fire
     hp_pos 54
@@ -561,7 +561,7 @@ _32: @ Fishy2
     battlechip BodyBurn F
     battlechip BodyBurn K
     battlechip BodyBurn E
-_33: @ Fishy3
+    @ 33 | Fishy3
     hp 100
     element None
     hp_pos 54
@@ -578,7 +578,7 @@ _33: @ Fishy3
     zenny 0
     zenny 0
     zenny 0
-_34: @ Piranha1
+    @ 34 | Piranha1
     hp 100
     element Water
     hp_pos 54
@@ -595,7 +595,7 @@ _34: @ Piranha1
     battlechip TriArrow C
     battlechip TriArrow B
     battlechip TriArrow A
-_35: @ Piranha2
+    @ 35 | Piranha2
     hp 150
     element Water
     hp_pos 54
@@ -612,7 +612,7 @@ _35: @ Piranha2
     battlechip TriSpear G
     battlechip TriSpear H
     battlechip TriSpear I
-_36: @ Piranha3
+    @ 36 | Piranha3
     hp 200
     element Water
     hp_pos 54
@@ -629,7 +629,7 @@ _36: @ Piranha3
     battlechip TriLance L
     battlechip TriLance N
     battlechip TriLance O
-_37: @ AquaPuffy
+    @ 37 | AquaPuffy
     hp 100
     element Water
     hp_pos 58
@@ -646,7 +646,7 @@ _37: @ AquaPuffy
     battlechip Bubbler A
     zenny 350
     battlechip Bubbler S
-_38: @ HeatPuffy
+    @ 38 | HeatPuffy
     hp 100
     element Fire
     hp_pos 58
@@ -663,7 +663,7 @@ _38: @ HeatPuffy
     battlechip Heater G
     zenny 350
     battlechip Heater K
-_39: @ 0x27
+    @ 39 | 0x27
     hp 100
     element None
     hp_pos 54
@@ -680,7 +680,7 @@ _39: @ 0x27
     zenny 0
     zenny 0
     zenny 0
-_40: @ ColdBear1
+    @ 40 | ColdBear1
     hp 200
     element Water
     hp_pos 54
@@ -697,7 +697,7 @@ _40: @ ColdBear1
     battlechip IceCube C
     zenny 600
     battlechip IceCube L
-_41: @ ColdBear2
+    @ 41 | ColdBear2
     hp 250
     element Water
     hp_pos 54
@@ -714,7 +714,7 @@ _41: @ ColdBear2
     zenny 2000
     zenny 2000
     zenny 2000
-_42: @ ColdBear3
+    @ 42 | ColdBear3
     hp 300
     element Water
     hp_pos 54
@@ -731,7 +731,7 @@ _42: @ ColdBear3
     zenny 2000
     zenny 2000
     zenny 2000
-_43: @ Cloudy1
+    @ 43 | Cloudy1
     hp 120
     element Water
     hp_pos 54
@@ -748,7 +748,7 @@ _43: @ Cloudy1
     battlechip Cloud O
     zenny 350
     battlechip Cloud B
-_44: @ Cloudy2
+    @ 44 | Cloudy2
     hp 140
     element Water
     hp_pos 54
@@ -765,7 +765,7 @@ _44: @ Cloudy2
     battlechip Cloudier M
     zenny 600
     battlechip Cloudier P
-_45: @ Cloudy3
+    @ 45 | Cloudy3
     hp 160
     element Water
     hp_pos 54
@@ -782,7 +782,7 @@ _45: @ Cloudy3
     battlechip Cloudest K
     zenny 600
     battlechip Cloudest C
-_46: @ Ratty1
+    @ 46 | Ratty1
     hp 60
     element None
     hp_pos 54
@@ -799,7 +799,7 @@ _46: @ Ratty1
     battlechip Ratton1 B
     zenny 450
     battlechip Ratton1 D
-_47: @ Ratty2
+    @ 47 | Ratty2
     hp 80
     element None
     hp_pos 54
@@ -816,7 +816,7 @@ _47: @ Ratty2
     battlechip Ratton2 H
     zenny 600
     battlechip Ratton2 I
-_48: @ Ratty3
+    @ 48 | Ratty3
     hp 100
     element None
     hp_pos 54
@@ -833,7 +833,7 @@ _48: @ Ratty3
     battlechip Ratton3 N
     zenny 600
     battlechip Ratton3 O
-_49: @ Miney1
+    @ 49 | Miney1
     hp 100
     element None
     hp_pos 62
@@ -850,7 +850,7 @@ _49: @ Miney1
     battlechip Mine1 G
     battlechip Mine1 H
     battlechip Mine1 M
-_50: @ Miney2
+    @ 50 | Miney2
     hp 120
     element None
     hp_pos 62
@@ -867,7 +867,7 @@ _50: @ Miney2
     battlechip Mine2 J
     zenny 600
     battlechip Mine2 L
-_51: @ Miney3
+    @ 51 | Miney3
     hp 140
     element None
     hp_pos 62
@@ -884,7 +884,7 @@ _51: @ Miney3
     battlechip Mine3 A
     zenny 600
     battlechip Mine3 B
-_52: @ Ammonicule1
+    @ 52 | Ammonicule1
     hp 60
     element Water
     hp_pos 54
@@ -901,7 +901,7 @@ _52: @ Ammonicule1
     battlechip BblWrap1 E
     battlechip BblWrap1 G
     battlechip BblWrap1 I
-_53: @ Ammonicule2
+    @ 53 | Ammonicule2
     hp 90
     element Water
     hp_pos 54
@@ -918,7 +918,7 @@ _53: @ Ammonicule2
     battlechip BblWrap2 F
     battlechip BblWrap2 H
     battlechip BblWrap2 N
-_54: @ Ammonicule3
+    @ 54 | Ammonicule3
     hp 150
     element Water
     hp_pos 54
@@ -935,7 +935,7 @@ _54: @ Ammonicule3
     battlechip BblWrap3 L
     battlechip BblWrap3 B
     battlechip BblWrap3 R
-_55: @ Jelly
+    @ 55 | Jelly
     hp 120
     element Water
     hp_pos 54
@@ -952,7 +952,7 @@ _55: @ Jelly
     zenny 350
     battlechip Wave I
     battlechip Wave A
-_56: @ HeatJelly
+    @ 56 | HeatJelly
     hp 150
     element Fire
     hp_pos 54
@@ -969,7 +969,7 @@ _56: @ HeatJelly
     zenny 350
     battlechip RedWave N
     battlechip RedWave P
-_57: @ EarthJelly
+    @ 57 | EarthJelly
     hp 200
     element Water
     hp_pos 54
@@ -986,7 +986,7 @@ _57: @ EarthJelly
     zenny 550
     battlechip BigWave H
     battlechip BigWave Q
-_58: @ Gaia1
+    @ 58 | Gaia1
     hp 150
     element None
     hp_pos 72
@@ -1003,7 +1003,7 @@ _58: @ Gaia1
     battlechip Gaia1 D
     battlechip Gaia1 C
     battlechip Gaia1 T
-_59: @ Gaia2
+    @ 59 | Gaia2
     hp 200
     element None
     hp_pos 72
@@ -1020,7 +1020,7 @@ _59: @ Gaia2
     battlechip Gaia2 K
     battlechip Gaia2 C
     battlechip Gaia2 S
-_60: @ Gaia3
+    @ 60 | Gaia3
     hp 300
     element None
     hp_pos 72
@@ -1037,7 +1037,7 @@ _60: @ Gaia3
     battlechip Gaia3 M
     battlechip Gaia3 C
     battlechip IronBody C
-_61: @ Popper1
+    @ 61 | Popper1
     hp 100
     element Wood
     hp_pos 0
@@ -1054,7 +1054,7 @@ _61: @ Popper1
     battlechip WoodTowr C
     zenny 500
     battlechip WoodTowr B
-_62: @ Popper2
+    @ 62 | Popper2
     hp 250
     element Wood
     hp_pos 0
@@ -1071,7 +1071,7 @@ _62: @ Popper2
     zenny 550
     battlechip LeafShld Q
     battlechip LeafShld C
-_63: @ Popper3
+    @ 63 | Popper3
     hp 120
     element Wood
     hp_pos 0
@@ -1088,7 +1088,7 @@ _63: @ Popper3
     zenny 550
     zenny 600
     battlechip Dropdown B
-_64: @ Satella1
+    @ 64 | Satella1
     hp 200
     element None
     hp_pos 40
@@ -1105,7 +1105,7 @@ _64: @ Satella1
     battlechip Lockon1 H
     zenny 600
     battlechip Lockon1 D
-_65: @ Satella2
+    @ 65 | Satella2
     hp 240
     element None
     hp_pos 40
@@ -1122,7 +1122,7 @@ _65: @ Satella2
     battlechip Lockon2 G
     zenny 600
     battlechip Lockon2 E
-_66: @ Satella3
+    @ 66 | Satella3
     hp 300
     element None
     hp_pos 40
@@ -1139,7 +1139,7 @@ _66: @ Satella3
     battlechip Lockon3 K
     zenny 600
     battlechip Lockon3 D
-_67: @ Fanner1
+    @ 67 | Fanner1
     hp 100
     element None
     hp_pos 64
@@ -1156,7 +1156,7 @@ _67: @ Fanner1
     battlechip Typhoon B
     zenny 450
     battlechip Typhoon A
-_68: @ Fanner2
+    @ 68 | Fanner2
     hp 140
     element None
     hp_pos 64
@@ -1173,7 +1173,7 @@ _68: @ Fanner2
     battlechip Huricane I
     zenny 600
     battlechip Huricane J
-_69: @ Fanner3
+    @ 69 | Fanner3
     hp 180
     element None
     hp_pos 64
@@ -1190,7 +1190,7 @@ _69: @ Fanner3
     battlechip Cyclone F
     zenny 600
     battlechip Cyclone H
-_70: @ Remobit1
+    @ 70 | Remobit1
     hp 80
     element Elec
     hp_pos 54
@@ -1207,7 +1207,7 @@ _70: @ Remobit1
     battlechip Remobit1 A
     zenny 450
     battlechip Remobit1 C
-_71: @ Remobit2
+    @ 71 | Remobit2
     hp 100
     element Elec
     hp_pos 54
@@ -1224,7 +1224,7 @@ _71: @ Remobit2
     battlechip Remobit2 I
     zenny 500
     battlechip Remobit2 D
-_72: @ Remobit3
+    @ 72 | Remobit3
     hp 120
     element Elec
     hp_pos 54
@@ -1241,7 +1241,7 @@ _72: @ Remobit3
     battlechip Remobit3 P
     zenny 600
     battlechip Remobit3 Q
-_73: @ Billy
+    @ 73 | Billy
     hp 100
     element Elec
     hp_pos 54
@@ -1258,7 +1258,7 @@ _73: @ Billy
     battlechip Thunder1 A
     zenny 450
     battlechip Thunder1 G
-_74: @ Silly
+    @ 74 | Silly
     hp 150
     element Elec
     hp_pos 54
@@ -1275,7 +1275,7 @@ _74: @ Silly
     battlechip Thunder2 F
     zenny 600
     battlechip Thunder2 L
-_75: @ Killy
+    @ 75 | Killy
     hp 200
     element Elec
     hp_pos 54
@@ -1292,7 +1292,7 @@ _75: @ Killy
     battlechip Thunder3 N
     zenny 600
     battlechip Thunder3 D
-_76: @ Prog1
+    @ 76 | Prog1
     hp 150
     element Elec
     hp_pos 54
@@ -1309,7 +1309,7 @@ _76: @ Prog1
     battlechip RingZap1 N
     zenny 450
     battlechip RingZap1 G
-_77: @ Prog2
+    @ 77 | Prog2
     hp 200
     element Elec
     hp_pos 54
@@ -1326,7 +1326,7 @@ _77: @ Prog2
     battlechip RingZap2 L
     battlechip RingZap2 J
     battlechip RingZap2 C
-_78: @ Prog3
+    @ 78 | Prog3
     hp 250
     element Elec
     hp_pos 54
@@ -1343,7 +1343,7 @@ _78: @ Prog3
     battlechip RingZap3 B
     battlechip RingZap3 A
     battlechip RingZap3 T
-_79: @ MegalianA
+    @ 79 | MegalianA
     hp 200
     element None
     hp_pos 54
@@ -1360,7 +1360,7 @@ _79: @ MegalianA
     battlechip AquaAura L
     battlechip AquaAura R
     battlechip AquaAura S
-_80: @ MegalianH
+    @ 80 | MegalianH
     hp 250
     element None
     hp_pos 54
@@ -1377,7 +1377,7 @@ _80: @ MegalianH
     zenny 550
     battlechip FireAura I
     battlechip FireAura B
-_81: @ MegalianW
+    @ 81 | MegalianW
     hp 300
     element None
     hp_pos 54
@@ -1394,7 +1394,7 @@ _81: @ MegalianW
     zenny 550
     zenny 600
     battlechip WoodAura F
-_82: @ CanDevil1
+    @ 82 | CanDevil1
     hp 160
     element Fire
     hp_pos 54
@@ -1411,7 +1411,7 @@ _82: @ CanDevil1
     battlechip Candle1 P
     battlechip Candle1 C
     battlechip Candle1 S
-_83: @ CanDevil2
+    @ 83 | CanDevil2
     hp 200
     element Fire
     hp_pos 54
@@ -1428,7 +1428,7 @@ _83: @ CanDevil2
     battlechip Candle2 E
     zenny 600
     battlechip Candle2 G
-_84: @ CanDevil3
+    @ 84 | CanDevil3
     hp 300
     element Fire
     hp_pos 54
@@ -1445,7 +1445,7 @@ _84: @ CanDevil3
     battlechip Candle3 H
     zenny 600
     battlechip Candle3 A
-_85: @ BigSnake1
+    @ 85 | BigSnake1
     hp 200
     element Wood
     hp_pos 44
@@ -1462,7 +1462,7 @@ _85: @ BigSnake1
     battlechip Snakegg1 B
     zenny 600
     battlechip Snakegg1 M
-_86: @ BigSnake2
+    @ 86 | BigSnake2
     hp 250
     element Elec
     hp_pos 44
@@ -1479,7 +1479,7 @@ _86: @ BigSnake2
     battlechip Snakegg2 P
     battlechip Snakegg2 C
     battlechip Snakegg2 E
-_87: @ BigSnake3
+    @ 87 | BigSnake3
     hp 300
     element Fire
     hp_pos 44
@@ -1496,7 +1496,7 @@ _87: @ BigSnake3
     battlechip Snakegg3 C
     battlechip Snakegg3 S
     battlechip Snakegg3 A
-_88: @ Mosqurito1
+    @ 88 | Mosqurito1
     hp 200
     element None
     hp_pos 72
@@ -1513,7 +1513,7 @@ _88: @ Mosqurito1
     battlechip Drain1 K
     zenny 500
     battlechip Drain1 A
-_89: @ Mosqurito2
+    @ 89 | Mosqurito2
     hp 200
     element None
     hp_pos 72
@@ -1530,7 +1530,7 @@ _89: @ Mosqurito2
     battlechip Drain2 N
     zenny 600
     battlechip Drain2 A
-_90: @ Mosqurito3
+    @ 90 | Mosqurito3
     hp 200
     element None
     hp_pos 72
@@ -1547,7 +1547,7 @@ _90: @ Mosqurito3
     battlechip Drain3 F
     zenny 600
     battlechip Drain3 A
-_91: @ Poitton1
+    @ 91 | Poitton1
     hp 100
     element Wood
     hp_pos 54
@@ -1564,7 +1564,7 @@ _91: @ Poitton1
     battlechip Dynamyt1 O
     zenny 500
     battlechip Dynamyt1 B
-_92: @ Poitton2
+    @ 92 | Poitton2
     hp 250
     element Wood
     hp_pos 54
@@ -1581,7 +1581,7 @@ _92: @ Poitton2
     battlechip Dynamyt2 C
     zenny 600
     battlechip Dynamyt2 A
-_93: @ Poitton3
+    @ 93 | Poitton3
     hp 300
     element Wood
     hp_pos 54
@@ -1598,7 +1598,7 @@ _93: @ Poitton3
     battlechip Dynamyt3 K
     zenny 600
     battlechip Dynamyt3 M
-_94: @ Mole
+    @ 94 | Mole
     hp 10
     element None
     hp_pos 54
@@ -1615,7 +1615,7 @@ _94: @ Mole
     battlechip Popup H
     battlechip Popup D
     battlechip Popup C
-_95: @ 0x5F
+    @ 95 | 0x5F
     hp 100
     element None
     hp_pos 54
@@ -1632,7 +1632,7 @@ _95: @ 0x5F
     zenny 0
     zenny 0
     zenny 0
-_96: @ GutsManV1
+    @ 96 | GutsManV1
     hp 200
     element None
     hp_pos 0
@@ -1649,7 +1649,7 @@ _96: @ GutsManV1
     zenny 0
     zenny 0
     zenny 0
-_97: @ GutsManV2
+    @ 97 | GutsManV2
     hp 400
     element None
     hp_pos 0
@@ -1666,7 +1666,7 @@ _97: @ GutsManV2
     zenny 0
     zenny 0
     zenny 0
-_98: @ GutsManV3
+    @ 98 | GutsManV3
     hp 600
     element None
     hp_pos 0
@@ -1683,7 +1683,7 @@ _98: @ GutsManV3
     battlechip GutsMan2 G
     zenny 2000
     battlechip GutsMan3 G
-_99: @ ProtoManV1
+    @ 99 | ProtoManV1
     hp 500
     element None
     hp_pos 54
@@ -1700,7 +1700,7 @@ _99: @ ProtoManV1
     zenny 3000
     zenny 3000
     zenny 3000
-_100: @ ProtoManV2
+    @ 100 | ProtoManV2
     hp 600
     element None
     hp_pos 54
@@ -1717,7 +1717,7 @@ _100: @ ProtoManV2
     battlechip ProtoMan B
     battlechip ProtoMan B
     battlechip ProtoMan B
-_101: @ ProtoManV3
+    @ 101 | ProtoManV3
     hp 700
     element None
     hp_pos 54
@@ -1734,7 +1734,7 @@ _101: @ ProtoManV3
     battlechip ProtoMn2 B
     zenny 2000
     battlechip ProtoMn3 B
-_102: @ WoodManV1
+    @ 102 | WoodManV1
     hp 500
     element Wood
     hp_pos 20
@@ -1751,7 +1751,7 @@ _102: @ WoodManV1
     zenny 2000
     zenny 2000
     zenny 2000
-_103: @ WoodManV2
+    @ 103 | WoodManV2
     hp 600
     element Wood
     hp_pos 20
@@ -1768,7 +1768,7 @@ _103: @ WoodManV2
     battlechip WoodMan W
     battlechip WoodMan W
     battlechip WoodMan W
-_104: @ WoodManV3
+    @ 104 | WoodManV3
     hp 700
     element Wood
     hp_pos 20
@@ -1785,7 +1785,7 @@ _104: @ WoodManV3
     battlechip WoodMan2 W
     zenny 2000
     battlechip WoodMan3 W
-_105: @ FireManV1
+    @ 105 | FireManV1
     hp 300
     element Fire
     hp_pos 0
@@ -1802,7 +1802,7 @@ _105: @ FireManV1
     zenny 1000
     zenny 1000
     zenny 1000
-_106: @ FireManV2
+    @ 106 | FireManV2
     hp 400
     element Fire
     hp_pos 0
@@ -1819,7 +1819,7 @@ _106: @ FireManV2
     battlechip FireMan F
     battlechip FireMan F
     battlechip FireMan F
-_107: @ FireManV3
+    @ 107 | FireManV3
     hp 500
     element Fire
     hp_pos 0
@@ -1836,7 +1836,7 @@ _107: @ FireManV3
     battlechip FireMan2 F
     zenny 2000
     battlechip FireMan3 F
-_108: @ NumberManV1
+    @ 108 | NumberManV1
     hp 500
     element None
     hp_pos 0
@@ -1853,7 +1853,7 @@ _108: @ NumberManV1
     zenny 1500
     zenny 1500
     zenny 1500
-_109: @ NumberManV2
+    @ 109 | NumberManV2
     hp 600
     element None
     hp_pos 0
@@ -1870,7 +1870,7 @@ _109: @ NumberManV2
     battlechip NumbrMan N
     battlechip NumbrMan N
     battlechip NumbrMan N
-_110: @ NumberManV3
+    @ 110 | NumberManV3
     hp 700
     element None
     hp_pos 0
@@ -1887,7 +1887,7 @@ _110: @ NumberManV3
     battlechip NumbrMn2 N
     zenny 2000
     battlechip NumbrMn3 N
-_111: @ StoneManV1
+    @ 111 | StoneManV1
     hp 600
     element None
     hp_pos 0
@@ -1904,7 +1904,7 @@ _111: @ StoneManV1
     zenny 2000
     zenny 2000
     zenny 2000
-_112: @ StoneManV2
+    @ 112 | StoneManV2
     hp 700
     element None
     hp_pos 54
@@ -1921,7 +1921,7 @@ _112: @ StoneManV2
     battlechip StoneMan S
     battlechip StoneMan S
     battlechip StoneMan S
-_113: @ StoneManV3
+    @ 113 | StoneManV3
     hp 800
     element None
     hp_pos 54
@@ -1938,7 +1938,7 @@ _113: @ StoneManV3
     battlechip StoneMn2 S
     zenny 2000
     battlechip StoneMn3 S
-_114: @ IceManV1
+    @ 114 | IceManV1
     hp 500
     element Water
     hp_pos 48
@@ -1955,7 +1955,7 @@ _114: @ IceManV1
     zenny 2500
     zenny 2500
     zenny 2500
-_115: @ IceManV2
+    @ 115 | IceManV2
     hp 600
     element Water
     hp_pos 48
@@ -1972,7 +1972,7 @@ _115: @ IceManV2
     battlechip IceMan I
     battlechip IceMan I
     battlechip IceMan I
-_116: @ IceManV3
+    @ 116 | IceManV3
     hp 700
     element Water
     hp_pos 48
@@ -1989,7 +1989,7 @@ _116: @ IceManV3
     battlechip IceMan2 I
     zenny 2000
     battlechip IceMan3 I
-_117: @ SkullManV1
+    @ 117 | SkullManV1
     hp 600
     element None
     hp_pos 64
@@ -2006,7 +2006,7 @@ _117: @ SkullManV1
     zenny 2500
     zenny 2500
     zenny 2500
-_118: @ SkullManV2
+    @ 118 | SkullManV2
     hp 700
     element None
     hp_pos 64
@@ -2023,7 +2023,7 @@ _118: @ SkullManV2
     battlechip SkullMan S
     battlechip SkullMan S
     battlechip SkullMan S
-_119: @ SkullManV3
+    @ 119 | SkullManV3
     hp 800
     element None
     hp_pos 64
@@ -2040,7 +2040,7 @@ _119: @ SkullManV3
     battlechip SkullMn2 S
     zenny 2000
     battlechip SkullMn3 S
-_120: @ ColorManV1
+    @ 120 | ColorManV1
     hp 600
     element None
     hp_pos 0
@@ -2057,7 +2057,7 @@ _120: @ ColorManV1
     zenny 3000
     zenny 3000
     zenny 3000
-_121: @ ColorManV2
+    @ 121 | ColorManV2
     hp 700
     element None
     hp_pos 0
@@ -2074,7 +2074,7 @@ _121: @ ColorManV2
     battlechip ColorMan C
     battlechip ColorMan C
     battlechip ColorMan C
-_122: @ ColorManV3
+    @ 122 | ColorManV3
     hp 800
     element None
     hp_pos 0
@@ -2091,7 +2091,7 @@ _122: @ ColorManV3
     battlechip ColorMn2 C
     zenny 2000
     battlechip ColorMn3 C
-_123: @ BombManV1
+    @ 123 | BombManV1
     hp 800
     element None
     hp_pos 0
@@ -2108,7 +2108,7 @@ _123: @ BombManV1
     zenny 4000
     zenny 4000
     zenny 4000
-_124: @ BombManV2
+    @ 124 | BombManV2
     hp 900
     element None
     hp_pos 0
@@ -2125,7 +2125,7 @@ _124: @ BombManV2
     battlechip BombMan B
     battlechip BombMan B
     battlechip BombMan B
-_125: @ BombManV3
+    @ 125 | BombManV3
     hp 1000
     element None
     hp_pos 0
@@ -2142,7 +2142,7 @@ _125: @ BombManV3
     battlechip BombMan2 B
     zenny 2000
     battlechip BombMan3 B
-_126: @ SharkManV1
+    @ 126 | SharkManV1
     hp 700
     element Water
     hp_pos 64
@@ -2159,7 +2159,7 @@ _126: @ SharkManV1
     zenny 3000
     zenny 3000
     zenny 3000
-_127: @ SharkManV2
+    @ 127 | SharkManV2
     hp 800
     element Water
     hp_pos 64
@@ -2176,7 +2176,7 @@ _127: @ SharkManV2
     battlechip SharkMan S
     battlechip SharkMan S
     battlechip SharkMan S
-_128: @ SharkManV3
+    @ 128 | SharkManV3
     hp 900
     element Water
     hp_pos 64
@@ -2193,7 +2193,7 @@ _128: @ SharkManV3
     battlechip SharkMn2 S
     zenny 2000
     battlechip SharkMn3 S
-_129: @ ElecManV1
+    @ 129 | ElecManV1
     hp 600
     element Elec
     hp_pos 78
@@ -2210,7 +2210,7 @@ _129: @ ElecManV1
     zenny 3500
     zenny 3500
     zenny 3500
-_130: @ ElecManV2
+    @ 130 | ElecManV2
     hp 700
     element Elec
     hp_pos 78
@@ -2227,7 +2227,7 @@ _130: @ ElecManV2
     battlechip ElecMan E
     battlechip ElecMan E
     battlechip ElecMan E
-_131: @ ElecManV3
+    @ 131 | ElecManV3
     hp 800
     element Elec
     hp_pos 78
@@ -2244,7 +2244,7 @@ _131: @ ElecManV3
     battlechip ElecMan2 E
     zenny 2000
     battlechip ElecMan3 E
-_132: @ PharaohManV1
+    @ 132 | PharaohManV1
     hp 800
     element None
     hp_pos 0
@@ -2261,7 +2261,7 @@ _132: @ PharaohManV1
     battlechip PharoMan P
     battlechip PharoMan P
     battlechip PharoMan P
-_133: @ PharaohManV2
+    @ 133 | PharaohManV2
     hp 900
     element None
     hp_pos 0
@@ -2278,7 +2278,7 @@ _133: @ PharaohManV2
     battlechip PharoMan P
     battlechip PharoMan P
     battlechip PharoMan P
-_134: @ PharaohManV3
+    @ 134 | PharaohManV3
     hp 1000
     element None
     hp_pos 0
@@ -2295,7 +2295,7 @@ _134: @ PharaohManV3
     battlechip PharoMn2 P
     battlechip Anubis L
     battlechip PharoMn3 P
-_135: @ ShadowManV1
+    @ 135 | ShadowManV1
     hp 800
     element None
     hp_pos 0
@@ -2312,7 +2312,7 @@ _135: @ ShadowManV1
     battlechip ShadoMan S
     battlechip ShadoMan S
     battlechip ShadoMan S
-_136: @ ShadowManV2
+    @ 136 | ShadowManV2
     hp 900
     element None
     hp_pos 0
@@ -2329,7 +2329,7 @@ _136: @ ShadowManV2
     battlechip ShadoMan S
     battlechip ShadoMan S
     battlechip ShadoMan S
-_137: @ ShadowManV3
+    @ 137 | ShadowManV3
     hp 1000
     element None
     hp_pos 0
@@ -2346,7 +2346,7 @@ _137: @ ShadowManV3
     battlechip ShadoMn2 S
     battlechip Muramasa K
     battlechip ShadoMn3 S
-_138: @ 0x8A
+    @ 138 | 0x8A
     hp 100
     element None
     hp_pos 54
@@ -2363,7 +2363,7 @@ _138: @ 0x8A
     zenny 0
     zenny 0
     zenny 0
-_139: @ 0x8B
+    @ 139 | 0x8B
     hp 100
     element None
     hp_pos 54
@@ -2380,7 +2380,7 @@ _139: @ 0x8B
     zenny 0
     zenny 0
     zenny 0
-_140: @ 0x8C
+    @ 140 | 0x8C
     hp 100
     element None
     hp_pos 54
@@ -2397,7 +2397,7 @@ _140: @ 0x8C
     zenny 0
     zenny 0
     zenny 0
-_141: @ MagicManV1
+    @ 141 | MagicManV1
     hp 700
     element None
     hp_pos 0
@@ -2414,7 +2414,7 @@ _141: @ MagicManV1
     zenny 5000
     zenny 5000
     zenny 5000
-_142: @ MagicManV2
+    @ 142 | MagicManV2
     hp 800
     element None
     hp_pos 0
@@ -2431,7 +2431,7 @@ _142: @ MagicManV2
     battlechip MagicMan M
     battlechip MagicMan M
     battlechip MagicMan M
-_143: @ MagicManV3
+    @ 143 | MagicManV3
     hp 900
     element None
     hp_pos 0
@@ -2448,7 +2448,7 @@ _143: @ MagicManV3
     battlechip MagicMn2 M
     zenny 2000
     battlechip MagicMn3 M
-_144: @ Bass
+    @ 144 | Bass
     hp 1000
     element None
     hp_pos 0
@@ -2465,7 +2465,7 @@ _144: @ Bass
     battlechip LifeAura M
     zenny 12000
     battlechip LifeAura P
-_145: @ 0x91
+    @ 145 | 0x91
     hp 100
     element None
     hp_pos 54
@@ -2482,7 +2482,7 @@ _145: @ 0x91
     zenny 0
     zenny 0
     zenny 0
-_146: @ 0x92
+    @ 146 | 0x92
     hp 100
     element None
     hp_pos 54
@@ -2499,7 +2499,7 @@ _146: @ 0x92
     zenny 0
     zenny 0
     zenny 0
-_147: @ LifeVirus
+    @ 147 | LifeVirus
     hp 1000
     element None
     hp_pos 0
@@ -2516,7 +2516,7 @@ _147: @ LifeVirus
     zenny 0
     zenny 0
     zenny 0
-_148: @ BlueDummyV1
+    @ 148 | BlueDummyV1
     hp 100
     element Water
     hp_pos 54
@@ -2533,7 +2533,7 @@ _148: @ BlueDummyV1
     zenny 3000
     zenny 3000
     zenny 3000
-_149: @ RedDummyV1
+    @ 149 | RedDummyV1
     hp 100
     element Fire
     hp_pos 54
@@ -2550,7 +2550,7 @@ _149: @ RedDummyV1
     zenny 3000
     zenny 3000
     zenny 3000
-_150: @ BlueDummyV2
+    @ 150 | BlueDummyV2
     hp 100
     element Water
     hp_pos 54
@@ -2567,7 +2567,7 @@ _150: @ BlueDummyV2
     battlechip ColorMan C
     battlechip ColorMan C
     battlechip ColorMan C
-_151: @ RedDummyV2
+    @ 151 | RedDummyV2
     hp 100
     element Fire
     hp_pos 54
@@ -2584,7 +2584,7 @@ _151: @ RedDummyV2
     battlechip ColorMan C
     battlechip ColorMan C
     battlechip ColorMan C
-_152: @ BlueDummyV3
+    @ 152 | BlueDummyV3
     hp 100
     element Water
     hp_pos 54
@@ -2601,7 +2601,7 @@ _152: @ BlueDummyV3
     battlechip ColorMn2 C
     zenny 2000
     battlechip ColorMn3 C
-_153: @ RedDummyV3
+    @ 153 | RedDummyV3
     hp 100
     element Fire
     hp_pos 54
@@ -2618,7 +2618,7 @@ _153: @ RedDummyV3
     battlechip ColorMn2 C
     zenny 2000
     battlechip ColorMn3 C
-_154: @ InvElecMan
+    @ 154 | InvElecMan
     hp 600
     element Elec
     hp_pos 78
@@ -2635,7 +2635,7 @@ _154: @ InvElecMan
     zenny 0
     zenny 0
     zenny 0
-_155: @ SharkManFinV1
+    @ 155 | SharkManFinV1
     hp 0
     element Water
     hp_pos 64
@@ -2652,7 +2652,7 @@ _155: @ SharkManFinV1
     zenny 3000
     zenny 3000
     zenny 3000
-_156: @ SharkManFinV2
+    @ 156 | SharkManFinV2
     hp 0
     element Water
     hp_pos 64
@@ -2669,7 +2669,7 @@ _156: @ SharkManFinV2
     zenny 3000
     zenny 3000
     zenny 3000
-_157: @ SharkManFinV3_0
+    @ 157 | SharkManFinV3_0
     hp 0
     element Water
     hp_pos 64
@@ -2686,7 +2686,7 @@ _157: @ SharkManFinV3_0
     battlechip SharkMan S
     battlechip SharkMan S
     battlechip SharkMan S
-_158: @ SharkManFinV3_1
+    @ 158 | SharkManFinV3_1
     hp 0
     element Water
     hp_pos 64
@@ -2703,7 +2703,7 @@ _158: @ SharkManFinV3_1
     battlechip SharkMan S
     battlechip SharkMan S
     battlechip SharkMan S
-_159: @ SharkManFinV3_2
+    @ 159 | SharkManFinV3_2
     hp 0
     element Water
     hp_pos 64
@@ -2720,7 +2720,7 @@ _159: @ SharkManFinV3_2
     battlechip SharkMn2 S
     zenny 2000
     battlechip SharkMn3 S
-_160: @ SharkManFinV3_3
+    @ 160 | SharkManFinV3_3
     hp 0
     element Water
     hp_pos 64
