@@ -2873,15 +2873,14 @@ _nt Battle_CellCoordsToSprite
     asr        r1,r1,#0x18
     mul        r1,r2
     lsl        r1,r1,#0x10
-    ldr        r2,INT_08009808
+    ldr        r2,=f(-140)
     add        r0,r0,r2
-    ldr        r2,INT_0800980c
+    ldr        r2,=f(-36)
     add        r1,r1,r2
     pop        {pc}
 
     .align 2, 0
-INT_08009808: .word f(-140)
-INT_0800980c: .word f(-36)
+    .pool
 
 
 _nt Battle_AddObject

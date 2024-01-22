@@ -4,10 +4,10 @@
 
     .text
 
-.set listTimeStopHandler, 0x80063e0
+.set listScreenDimHandler, 0x80063e0
 
-_ts TimeStop_Alloc
-    ldr        r7,=gTimeStop
+_ts ScreenDim_Alloc
+    ldr        r7,=gScreenDim
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     strb       r2,[r7,#0x6]
@@ -28,7 +28,7 @@ _ts TimeStop_Alloc
     .pool
 
 
-_ts TimeStop_Free
+_ts ScreenDim_Free
     mov        r7,r10
     ldr        r7,[r7,#0xc]
     mov        r0,#0x0
@@ -36,17 +36,17 @@ _ts TimeStop_Free
     mov        pc,lr
 
 
-_nt TimeStop_UpdateAll
+_nt ScreenDim_UpdateAll
     push       {r5,lr}
-    ldr        r5,PTR_gTimeStop_08006a68
+    ldr        r5,PTR_gScreenDim_08006a68
     ldrb       r0,[r5,#0x4]
     lsl        r0,r0,#0x2
-    ldr        r7,PTR_listTimeStopHandler_08006a64
+    ldr        r7,PTR_listScreenDimHandler_08006a64
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     pop        {r5,pc}
-PTR_listTimeStopHandler_08006a64:
-    .word listTimeStopHandler
-PTR_gTimeStop_08006a68:
-    .word gTimeStop
+PTR_listScreenDimHandler_08006a64:
+    .word listScreenDimHandler
+PTR_gScreenDim_08006a68:
+    .word gScreenDim

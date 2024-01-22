@@ -21,7 +21,7 @@
     .set BattleMessage_Load, 0x8017884
     .set BattleMessage_Main, 0x80178ec
     .set Sio_SetReady, 0x809bdf0
-    .set DisableTimeStop, 0x8005768
+    .set DisableScreenDim, 0x8005768
     .set Main_StartGameOver, 0x8004a40
     .set Battle_SetPostBattleHP, 0x800638C
     .set Effect_BattleResult_Create, 0x807d688
@@ -548,7 +548,7 @@ LAB_08005c58:
     mov        r0,#0xf
     bl         Entity_FreeAllMultiple
     pop        {r5}
-    bl         DisableTimeStop
+    bl         DisableScreenDim
     mov        r7,r10
     ldr        r0,[r7,#0x8]
     ldrb       r1,[r0,#0x10]
@@ -769,7 +769,7 @@ PTR_BattleR_2_0_CheckProgramAdvance:
     .word BattleR_2_2_BattleStart
     .word BattleR_2_3_CheckBattleState
     .word BattleR_2_4_CheckUnPause
-    .word BattleR_2_5_TimeStop
+    .word BattleR_2_5_ScreenDim
     .word BattleR_2_6_End
     .word BattleR_2_7_MaxMode
 
@@ -1143,12 +1143,12 @@ tsPauseHide:
     tilemap_entry 0, 0, 0
 
 
-_nt BattleR_2_5_TimeStop
+_nt BattleR_2_5_ScreenDim
     push       {lr}
     bl         Battle_IsActive
     tst        r0,r0
     beq        LAB_080060b4
-    bl         TimeStop_UpdateAll
+    bl         ScreenDim_UpdateAll
     ldrb       r0,[r5,#0x18]
     tst        r0,r0
     bne        LAB_080060b4

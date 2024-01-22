@@ -26,7 +26,7 @@ world               0x4130
 fade                0x4B00
 encounter           0x5504
 battle              0x5864
-timestop            0x6A24
+screendim           0x6A24
 battle_util         0x6A6C
 battle_regular      0x6BE8
 battle_util2        0x7C2C
@@ -58,8 +58,8 @@ effect_quickeffect  0x7B474
 battle_rank         0x7D5B0
 enemy_drop          0x7D80E
 npc_command         0x82104
-timestop_util       0x982B8
-timestop_recover    0x9832C
+screendim_util      0x982B8
+screendim_recover   0x9832C
 swi                 0x9DF50
 sound_data          0xA111C
 song023             0xA188C

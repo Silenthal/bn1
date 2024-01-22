@@ -2,15 +2,15 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set TimeStop_HidePlayer, 0x80572d2
+    .set ScreenDim_HidePlayer, 0x80572d2
     .set FUN_08057300, 0x8057300
     
     .text
 
-_nt TimeStop_WarpPlayerOut
+_nt ScreenDim_WarpPlayerOut
     push       {r5,lr}
     ldrb       r0,[r5,#0x6]
-    bl         TimeStop_HidePlayer
+    bl         ScreenDim_HidePlayer
     mov        r7,r10
     ldr        r7,[r7,#0xc]
     ldrb       r0,[r5,#0x6]
@@ -39,7 +39,7 @@ LAB_080982f0:
     pop        {r5,pc}
 
 
-_nt TimeStop_WarpPlayerIn
+_nt ScreenDim_WarpPlayerIn
     push       {r5,lr}
     ldrb       r0,[r5,#0x6]
     bl         FUN_08057300

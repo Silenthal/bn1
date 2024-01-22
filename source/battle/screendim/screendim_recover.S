@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set TimeStop_HidePlayer, 0x80572d2
+    .set ScreenDim_HidePlayer, 0x80572d2
     .set FUN_08057300, 0x8057300
     .set BattleMessage_Load, 0x8017884
     .set BattleMessage_Main, 0x80178ec
@@ -11,7 +11,7 @@
     .text
 
 
-_ts TimeStop_Recover
+_ts ScreenDim_Recover
     push       {lr}
     ldr        r7,PTR_PTR_TS_Recover_0_Init
     ldrb       r0,[r5,#0x0]
@@ -145,17 +145,17 @@ _ts TS_Recover_3_Free
     push       {r5}
     bl         BattleUi_DrawActiveChip
     pop        {r5}
-    bl         TimeStop_Free
+    bl         ScreenDim_Free
 LAB_0809843a:
     pop        {pc}
 
 
-_ts TimeStop_Recover_Create
+_ts ScreenDim_Recover_Create
     push       {r5,lr}
     push       {r0}
     mov        r0,#0x0
     ldrb       r2,[r5,#0x16]
-    bl         TimeStop_Alloc
+    bl         ScreenDim_Alloc
     pop        {r0}
     mov        r7,r10
     ldr        r7,[r7,#0x54]
