@@ -175,6 +175,7 @@ def evalAST(head) -> float:
 def main():
     temp = ""
     stack = []
+    level = 0
     while True:
         ch = sys.stdin.read(1)
         if ch == '':
@@ -188,12 +189,13 @@ def main():
                 temp += ch
                 stack.append(temp)
                 temp = ""
+                level += 1
             else:
                 temp += ch
         elif ch == ')':
             if stack.count == 0:
                 temp += ch
-            elif stack[-1] == 'f(':
+            elif level > 0 and stack[-1] == 'f(':
                 stack.pop()
                 tokens = tokenize(temp)
                 ast = parseExpr(tokens)
@@ -201,6 +203,7 @@ def main():
                 fixed = int(val * 65536) & 0xFFFFFFFF
                 stack.append(f"0x{fixed:X}")
                 temp = ""
+                level -= 1
             else:
                 temp += ch
         else:
