@@ -541,21 +541,25 @@ typedef enum PanelFlag {
     PF_EnemyOccupied=32,
     PF_Player=64,
     PF_Enemy=128,
+    PF_100=256,
     PF_Hit=512,
     PF_Teleporting=1024,
     PF_Solid=2048,
-    PF_1000=4096,
-    PF_2000=8192,
+    PF_PlayerPush=4096,
+    PF_EnemyPush=8192,
     PF_Break=16384,
-    PF_8000=32768,
-    PF_10000=65536,
+    PF_FieldBlock=32768,
+    PF_DieBombExplosion=65536,
     PF_Apple=131072,
     PF_Armor=262144,
     PF_ActorPlayer=524288,
     PF_ActorEnemy=1048576,
     PF_Freeze=2097152,
+    PF_Chaser=4194304,
     PF_Numb=8388608,
-    PF_2000000=33554432
+    PF_Drain=16777216,
+    PF_Sealed=33554432,
+    PF_Trap=67108864
 } PanelFlag;
 
 struct AreaProperties {

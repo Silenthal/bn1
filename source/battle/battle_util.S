@@ -129,7 +129,7 @@ PTR_gPanelStatuses_08006b28: .word gPanelStatuses
 PTR_gAreaProperties_08006b2c: .word gAreaProperties
 DAT_08006b30: .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Solid
 DAT_08006b34: .word PF_PlayerOccupied | PF_EnemyOccupied
-UINT_08006b38: .word PF_Teleporting | 0x2000000
+UINT_08006b38: .word PF_Teleporting | PF_Sealed
 
 
 _ts Battle_CheckPanelRestore
