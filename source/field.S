@@ -323,7 +323,7 @@ listOffsetX_1004:
 listStartX_1006:
     .byte 1, 6
 
-    
+
 _ts Field_GetFirstColumnFront
     push       {r5,lr}
     mov        r3,r10
@@ -775,7 +775,7 @@ LAB_08001382:
 LAB_080013a4:
     add        r0,r6,#0x0
     pop        {pc}
-    
+
 
 _ts Field_FindFirstEdgeForward
     push       {lr}
@@ -1096,7 +1096,7 @@ _nt FUN_080015ec
     mov        pc,lr
 
     .align 2, 0
-    
+
     .word PTR_gEntityListPlayerLocation_08001604
     .word PTR_DAT_08001614
 PTR_gEntityListPlayerLocation_08001604:
@@ -1140,5 +1140,364 @@ DAT_08001648:
     .byte 1
     .byte 2
     .byte 3
+
+
+_nt Battle_SetBattleFlag
+    mov        r1,#0x1
+    lsl        r1,r0
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldr        r0,[r7,#0x68]
+    orr        r0,r1
+    str        r0,[r7,#0x68]
+    mov        pc,lr
+
+
+_nt Battle_GetBattleFlagCurrent
+    mov        r1,#0x1
+    lsl        r1,r0
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldr        r0,[r7,#0x68]
+    ldr        r2,[r7,#0x6c]
+    orr        r0,r2
+    and        r0,r1
+    mov        pc,lr
+
+
+_nt Battle_GetBattleFlagMulti
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldr        r1,[r7,#0x68]
+    ldr        r2,[r7,#0x6c]
+    orr        r1,r2
+    and        r0,r1
+    mov        pc,lr
+
+
+_nt Battle_GetBattleFlag
+    mov        r1,#0x1
+    lsl        r1,r0
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldr        r0,[r7,#0x6c]
+    and        r0,r1
+    mov        pc,lr
+
+
+_nt Field_CreateStrikeEffect
+    push       {r5,lr}
+    push       {r0}
+    ldrb       r0,[r5,#0x18]
+    ldrb       r1,[r5,#0x19]
+    push       {r3}
+    bl         Field_GetPanelFlags
+    pop        {r3}
+    ldr        r1,DAT_080016d0
+    tst        r0,r1
+    pop        {r0}
+    bne        LAB_080016b0
+    add        r4,r0,#0x0
+    ldrb       r0,[r5,#0x1a]
+    tst        r0,r0
+    beq        LAB_080016b2
+    mov        r4,#0x19
+    add        r4,r4,r0
+    b          LAB_080016b2
+LAB_080016b0:
+    mov        r4,#0x2
+LAB_080016b2:
+    mov        r7,#0x0
+    tst        r4,r4
+    beq        LAB_080016cc
+    ldr        r1,[r5,#0x28]
+    ldr        r2,[r5,#0x2c]
+    mov        r0,#0xf
+    push       {r4,r7}
+    bl         Field_GetRandomXZPosOnTarget
+    pop        {r4,r7}
+    bl         Effect_QuickEffect_Create
+    add        r7,r5,#0x0
+LAB_080016cc:
+    pop        {r5,pc}
+
+    .align 2, 0
+DAT_080016d0:
+    .word 0x40000
+
+
+@@ Creates an effect based on the property of the target.
+@@ if armored, create an effect of the attack bouncing
+@@ off.
+_nt Field_CreateBusterEffect
+    push       {r5,lr}
+    push       {r0}
+    ldrb       r0,[r5,#0x18]
+    ldrb       r1,[r5,#0x19]
+    push       {r3}
+    bl         Field_GetPanelFlags
+    pop        {r3}
+    ldr        r1,DAT_08001710
+    tst        r0,r1
+    pop        {r0}
+    bne        LAB_080016f6
+    mov        r7,#0x0
+    tst        r0,r0
+    beq        LAB_0800170c
+    add        r4,r0,#0x0
+    b          LAB_080016f8
+LAB_080016f6:
+    mov        r4,#0x2
+LAB_080016f8:
+    ldr        r1,[r5,#0x28]
+    ldr        r2,[r5,#0x2c]
+    mov        r0,#0xf
+    push       {r4,r7}
+    bl         Field_GetRandomXZPosOnTarget
+    pop        {r4,r7}
+    bl         Effect_QuickEffect_Create
+    add        r7,r5,#0x0
+LAB_0800170c:
+    pop        {r5,pc}
+
+    .align 2, 0
+DAT_08001710:
+    .word 0x40000
+
+
+_nt R_Actor_CheckPush
+    push       {r2,r7,lr}
+    ldr        r7,PTR_INT_08001758
+    mov        r1,#0x10
+    lsl        r1,r1,#0x8
+    tst        r0,r1
+    beq        LAB_08001722
+    add        r7,#0x4
+LAB_08001722:
+    mov        r1,#0x20
+    lsl        r1,r1,#0x8
+    tst        r0,r1
+    beq        LAB_0800172c
+    add        r7,#0x8
+LAB_0800172c:
+    ldr        r1,[r7,#0x0]
+    mov        r2,r10
+    ldr        r2,[r2,#0xc]
+    ldrb       r2,[r2,#0x1a]
+    tst        r2,r2
+    beq        LAB_0800173a
+    neg        r1,r1
+LAB_0800173a:
+    push       {r1}
+    ldrb       r0,[r5,#0x18]
+    add        r0,r0,r1
+    sub        r0,#0x1
+    cmp        r0,#0x6
+    bcs        LAB_08001750
+    pop        {r1}
+    mov        r0,#0x4
+    mul        r0,r1
+    lsl        r0,r0,#0x10
+    pop        {r2,r7,pc}
+LAB_08001750:
+    pop        {r0}
+    mov        r0,#0x0
+    mov        r1,#0x0
+    pop        {r2,r7,pc}
+PTR_INT_08001758:
+    .word INT_0800175c
+INT_0800175c:
+    .word 0
+    .word 1
+    .word -1
+    .word 0
+
+
+_nt Field_RepairPanel
+    push       {lr}
+    push       {r0,r1}
+    bl         Field_GetPanelProperty
+    pop        {r0,r1}
+    mov        r3,#0x1
+    orr        r2,r3
+    mov        r3,#0x4
+    mvn        r3,r3
+    and        r2,r3
+    bl         Field_SetPanelProperty
+    pop        {pc}
+
+
+_nt R_Actor_ClearCurrentAttack
+    push       {lr}
+    ldr        r0,[r5,#0x5c]
+    tst        r0,r0
+    beq        LAB_0800179c
+    push       {r5}
+    add        r5,r0,#0x0
+    bl         Attack_Free
+    pop        {r5}
+    mov        r0,#0x0
+    str        r0,[r5,#0x5c]
+LAB_0800179c:
+    pop        {pc}
+
+
+_nt Battle_GetBattleFlagBuffer
+    add        r0,#0x1c
+    mov        r1,#0x1
+    lsl        r1,r0
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldr        r0,[r7,#0x68]
+    tst        r0,r1
+    mov        pc,lr
+
+
+_nt Battle_GetPlayer
+    lsl        r0,r0,#0x2
+    add        r0,#0x40
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldr        r7,[r7,r0]
+    mov        pc,lr
+
+
+_nt Battle_FindFirstEnemyPanel
+    push       {lr}
+    bl         Field_GetAttackDirectionOffset_MP
+    add        r2,r0,#0x0
+    ldrb       r3,[r5,#0x16]
+    lsl        r3,r3,#0x2
+    ldr        r7,PTR_PanelFlag_ARRAY_080017f8
+    ldr        r3,[r7,r3]
+    ldrb       r0,[r5,#0x18]
+    add        r0,r0,r2
+LAB_080017ce:
+    mov        r1,#0x3
+    push       {r0,r1,r2,r3}
+    bl         Field_IsCellPositionValid
+    tst        r0,r0
+    pop        {r0,r1,r2,r3}
+    beq        LAB_080017f2
+LAB_080017dc:
+    push       {r0,r1,r2,r3}
+    bl         Field_GetPanelFlags
+    add        r6,r0,#0x0
+    pop        {r0,r1,r2,r3}
+    tst        r6,r3
+    bne        LAB_080017f6
+    sub        r1,#0x1
+    bpl        LAB_080017dc
+    add        r0,r0,r2
+    b          LAB_080017ce
+LAB_080017f2:
+    mov        r0,#0x0
+    ldrb       r1,[r5,#0x19]
+LAB_080017f6:
+    pop        {pc}
+PTR_PanelFlag_ARRAY_080017f8:
+    .word PanelFlag_ARRAY_080017fc
+PanelFlag_ARRAY_080017fc:
+    .word PF_ActorEnemy
+    .word PF_ActorPlayer
+
+
+_nt Battle_FindOpponentInSameColumn
+    push       {lr}
+    bl         Field_GetAttackDirectionOffset_MP
+    neg        r2,r0
+    ldrb       r3,[r5,#0x16]
+    lsl        r3,r3,#0x2
+    ldr        r7,PTR_PanelFlag_ARRAY_0800183c
+    ldr        r3,[r7,r3]
+    ldrb       r0,[r5,#0x18]
+    mov        r1,#0x3
+    push       {r0,r1,r2,r3}
+    bl         Field_IsCellPositionValid
+    tst        r0,r0
+    pop        {r0,r1,r2,r3}
+    beq        LAB_08001836
+LAB_08001824:
+    push       {r0,r1,r2,r3}
+    bl         Field_GetPanelFlags
+    add        r6,r0,#0x0
+    pop        {r0,r1,r2,r3}
+    tst        r6,r3
+    bne        LAB_0800183a
+    sub        r1,#0x1
+    bpl        LAB_08001824
+LAB_08001836:
+    mov        r0,#0x0
+    ldrb       r1,[r5,#0x19]
+LAB_0800183a:
+    pop        {pc}
+PTR_PanelFlag_ARRAY_0800183c:
+    .word PanelFlag_ARRAY_080017fc
+
+
+_nt Battle_FindOpponentPanelsForward
+    push       {lr}
+    push       {r0}
+    bl         Field_GetAttackDirectionOffset_MP
+    add        r2,r0,#0x0
+    pop        {r0}
+    ldrb       r3,[r5,#0x16]
+    lsl        r3,r3,#0x2
+    ldr        r7,PTR_PanelFlag_ARRAY_0800188c
+    ldr        r3,[r7,r3]
+    add        r7,r0,#0x0
+    mov        r4,#0x0
+    ldrb       r0,[r5,#0x18]
+    add        r0,r0,r2
+LAB_0800185c:
+    mov        r1,#0x3
+    push       {r0,r1,r2,r3,r4,r7}
+    bl         Field_IsCellPositionValid
+    tst        r0,r0
+    pop        {r0,r1,r2,r3,r4,r7}
+    beq        LAB_08001888
+LAB_0800186a:
+    push       {r0,r1,r2,r3,r4,r7}
+    bl         Field_GetPanelFlags
+    add        r6,r0,#0x0
+    pop        {r0,r1,r2,r3,r4,r7}
+    tst        r6,r3
+    beq        LAB_08001880
+    lsl        r6,r1,#0x3
+    add        r6,r6,r0
+    strb       r6,[r7,r4]
+    add        r4,#0x4
+LAB_08001880:
+    sub        r1,#0x1
+    bpl        LAB_0800186a
+    add        r0,r0,r2
+    b          LAB_0800185c
+LAB_08001888:
+    add        r0,r4,#0x0
+    pop        {pc}
+PTR_PanelFlag_ARRAY_0800188c:
+    .word PanelFlag_ARRAY_08001890
+PanelFlag_ARRAY_08001890:
+    .word PF_ActorEnemy
+    .word PF_ActorPlayer
+
+
+_nt Battle_IsOnscreenX
+    mov        r2,#0x2a
+    ldrsh      r1,[r5,r2]
+    add        r2,r1,r0
+    add        r2,#0x78
+    sub        r3,r1,r0
+    add        r3,#0x78
+    mov        r0,#0x1
+    cmp        r2,#0xef
+    bls        LAB_080018b0
+    cmp        r3,#0xef
+    bls        LAB_080018b0
+    mov        r0,#0x0
+LAB_080018b0:
+    mov        pc,lr
+
+    .align 2, 0
 
     .end
