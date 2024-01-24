@@ -88,12 +88,12 @@ LAB_08002a3a:
 @@ Converts a set of center origin coordinates to top left
 @@ origin coordinates.                                              
 @@ In:
-@@ stack[0]: relative X
-@@ stack[1]: relative Y
-@@ stack[2]: relative Y offset
+@@ stack[0]: relative X (-120 to 136)
+@@ stack[1]: relative Y (-80 to 112)
+@@ stack[2]: relative Z
 @@ Out:
-@@ r0: X: -120 to 136
-@@ r1: Y: -80 to 112
+@@ r0: X: -32 to 271 (160 if offscreen)
+@@ r1: Y: -32 to 223 (80 if offscreen)
 @@ r2: isDraw: True if the given position is on screen
 _ts ConvertToObjectPosition
     push       {lr}
@@ -105,8 +105,8 @@ _ts ConvertToObjectPosition
     asr        r4,r4,#0x10
     sub        r1,r1,r4
     ldr        r6,PTR_gIsObjectXFlipped_08002b14
-        ldrb       r6,[r6,#0x0]
-        tst        r6,r6
+    ldrb       r6,[r6,#0x0]
+    tst        r6,r6
     beq        LAB_08002a56
     neg        r1,r1
 LAB_08002a56:
@@ -116,7 +116,7 @@ LAB_08002a56:
     ldr        r4,[r3,#0x3c]
     asr        r4,r4,#0x10
     sub        r6,r6,r4
-    add        r6,#0x50
+    add        r6,#80
     mov        r2,#0xa
     ldrsh      r4,[r0,r2]
     ldr        r2,[r3,#0x40]
@@ -137,12 +137,12 @@ LAB_08002a56:
     bge        LAB_08002a90
     add        r0,r1,#0x0
     add        r1,r6,#0x0
-    mov        r2,#0x1
+    mov        r2,#1
     pop        {pc}
 LAB_08002a90:
-    mov        r0,#0xa0
-    mov        r1,#0x50
-    mov        r2,#0x0
+    mov        r0,#160
+    mov        r1,#80
+    mov        r2,#0
     pop        {pc}
 
 
@@ -206,5 +206,5 @@ PTR_listFlagSet_08002b08:       .word listFlagSet
 PTR_INT_08002b0c:               .word INT_08002324
 DAT_08002b10:                   .word 0x80000000
 PTR_gIsObjectXFlipped_08002b14: .word gIsObjectXFlipped
-DAT_08002b18:                   .word -32
-DAT_08002b1c:                   .word 272
+DAT_08002b18:                   .word   0 - 32
+DAT_08002b1c:                   .word 240 + 32
