@@ -11,4 +11,10 @@ global_label textDict_BattleChip_Codes
     .incbin "text/battlechip/codes.script"
     .incbin "text/shop/stock_description.script"
 
+global_label tilesetCapcomLogo
+    .incbin "images/splash/capcom_logo.4bpp"
+global_label paletteCapcomLogo
+    .incbin "images/splash/capcom_logo.gbapal"
+global_label tilemapCapcomLogo
+    .incbin "images/splash/capcom_logo.bin"
     .end

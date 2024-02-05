@@ -2,15 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Entity_FreeAllMultiple, 0x80029ec
-    .set tileSetCapcomLogo, 0x87afde8
-    .set paletteCapcomLogo, 0x87b1128
-    .set layoutCapcomLogo, 0x87b1148
-
-    .text
-
-    .thumb
-
 @ Not used - main menu is intialized elsewhere
 _ts InitMainMenu_2
     push       { lr }
@@ -25,21 +16,22 @@ _ts Splash_Main
     push       { lr }
     mov        r7,r10
     ldr        r5,[r7,#0x34]
-    ldr        r0,PTR_jumpTableSplashMain_08018dc0
+    ldr        r0,=jumpTableSplashMain
     ldrb       r1,[r5,#0x0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     pop        { pc }
-        .align 2, 0
-jumpTableSplashMain:
-    .word LoadCapcomLogo
-    .word FUN_08018d2c
-    .word FUN_08018d4c
-    .word FUN_08018d84
-    .word FUN_08018d98
 
-_ts LoadCapcomLogo
+    .align 2, 0
+jumpTableSplashMain:
+    .word Splash_0_LoadCapcomLogo
+    .word Splash_1_FadeIn
+    .word Splash_2_Wait
+    .word Splash_3_FadeOut
+    .word Splash_4_End
+
+_ts Splash_0_LoadCapcomLogo
     push       { lr }
     push       { r5 }
     mov        r0,#0x3
@@ -58,23 +50,21 @@ _ts LoadCapcomLogo
     strh       r1,[r0,#0x18]
     strh       r1,[r0,#0x1a]
     bl         Video_ClearAllTile0Maps
-    ldr        r0,PTR_tileSetCapcomLogo_08018dc4
-    ldr        r1,PTR_DAT_08018dc8
-
-    ldr        r2,DAT_08018dcc
+    ldr        r0,=tilesetCapcomLogo
+    ldr        r1,=0x6000020
+    ldr        r2,=0x4D0
     bl         Dma_TransferListAdd
-    ldr        r0,PTR_paletteCapcomLogo_08018dd0
-    ldr        r1,PTR_eBgPalette0_08018dd4
-
+    ldr        r0,=paletteCapcomLogo
+    ldr        r1,=eBgPalette0
     mov        r2,#0x78
     bl         Dma_TransferListAdd
     bl         Video_ClearScreenBuffersToValue
-    ldr        r0,PTR_layoutCapcomLogo_08018dd8
+    ldr        r0,=tilemapCapcomLogo
     mov        r1,r10
     ldr        r1,[r1,#0x5c]
-    ldr        r2,DAT_08018ddc
+    ldr        r2,=0x800
     add        r1,r1,r2
-    ldr        r2,DAT_08018de0
+    ldr        r2,=0x140
     bl         Dma_TransferListAdd
     mov        r0,#0x4
     mov        r1,#0xff
@@ -84,11 +74,11 @@ _ts LoadCapcomLogo
     strb       r0,[r5,#0x0]
     pop        { pc }
 
-_ts FUN_08018d2c
+_ts Splash_1_FadeIn
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x10]
-    ldr        r1,PTR_DAT_08018de4
+    ldr        r1,=0x1f40
     strh       r1,[r0,#0x0]
     push       { r5 }
     mov        r0,#0x3
@@ -101,7 +91,7 @@ _ts FUN_08018d2c
     strb       r0,[r5,#0x0]
     pop        { pc }
 
-_ts FUN_08018d4c
+_ts Splash_2_Wait
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x18]
@@ -112,7 +102,7 @@ _ts FUN_08018d4c
     mov        r7,r10
     ldr        r0,[r7,#0x4]
     ldrh       r0,[r0,#0x0]
-    ldr        r1,DAT_08018de8
+    ldr        r1,=0x3FF
     and        r1,r0
     bne        LAB_08018d70
     ldrb       r0,[r5,#0x4]
@@ -131,7 +121,7 @@ LAB_08018d70:
 LAB_08018d80:
     pop        { pc }
 
-_ts FUN_08018d84
+_ts Splash_3_FadeOut
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x18]
@@ -144,7 +134,7 @@ _ts FUN_08018d84
 LAB_08018d96:
     pop        { pc }
 
-_ts FUN_08018d98
+_ts Splash_4_End
     push       { lr }
     push       { r5 }
     mov        r0,#0x1f
@@ -162,29 +152,5 @@ _ts FUN_08018d98
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     pop        { pc }
-        
-    .align 2, 0
-PTR_jumpTableSplashMain_08018dc0:
-    .word       jumpTableSplashMain
-PTR_tileSetCapcomLogo_08018dc4:
-    .word       tileSetCapcomLogo
-PTR_DAT_08018dc8:
-    .word       0x6000020
-DAT_08018dcc:
-    .word 0x4D0
-PTR_paletteCapcomLogo_08018dd0:
-    .word       paletteCapcomLogo
-PTR_eBgPalette0_08018dd4:
-    .word       eBgPalette0
-PTR_layoutCapcomLogo_08018dd8:
-    .word       layoutCapcomLogo
-DAT_08018ddc:
-    .word 0x800
-DAT_08018de0:
-    .word 0x140
-PTR_DAT_08018de4:
-    .word       0x1f40
-DAT_08018de8:
-    .word 0x3FF
 
     .end

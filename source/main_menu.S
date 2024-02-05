@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Screen_LoadMainMenu, 0x0801093C
+    .set MainMenu_LoadTitleScreen, 0x0801093C
 
     .text
 
@@ -56,7 +56,7 @@ _ts MainMenu_Init
     strh       r1,[r0,#0x16]
     strh       r1,[r0,#0x18]
     strh       r1,[r0,#0x1a]
-    bl         Screen_LoadMainMenu
+    bl         MainMenu_LoadTitleScreen
     mov        r0,#FT_FadeOutToBlack
     mov        r1,#0xff
     bl         Fade_Request

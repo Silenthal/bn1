@@ -137,6 +137,9 @@ $(S_OBJECTS): %.o: %.S
 	@echo $(notdir $<)
 	$(CC) $(INCLUDE) -D $(BASE_DEFINE)=\"$(BASE).gba\" -E $< | $(PARSE_FIXED) | $(AS) $(ASINCLUDE) $(ASFLAGS) -o $@
 
+images/splash/capcom_logo.4bpp: %.4bpp: %.png
+	$(MAKE_TILES) -n 154 $@ $<
+
 images/ui/charset.4bpp: %.4bpp: %.png
 	$(MAKE_TILES) -mh 2 $@ $<
 

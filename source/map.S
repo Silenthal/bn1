@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Entity_FreeAllMultiple, 0x80029ec
     .set NPC_Alloc, 0x8003b18
     .set InitMapElevationData, 0x80120f0
     .set InitMapCoverData, 0x8012314
