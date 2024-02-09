@@ -2,6 +2,7 @@
 import argparse
 import os
 import png
+import json
 from pathlib import Path
 
 
@@ -125,7 +126,10 @@ def PngToGbaPal(inPath: Path, outPath: Path) -> None:
             oFile.write(bytearray(palbin))
 
 
-def PngToBpp(inPath: Path, outPath: Path, mw: int, mh: int, n: int) -> None:
+def PngToBpp(inPath: Path, outPath: Path, inConfig) -> None:
+    mw = int(inConfig["metaWidth"] if "metaWidth" in inConfig else "1")
+    mh = int(inConfig["metaHeight"] if "metaHeight" in inConfig else "1")
+    n = int(inConfig["tileCount"] if "tileCount" in inConfig else "0")
     pngData = parse_png(inPath)
     tileList = make_tile_list(pngData.rows, pngData.bitDepth, pngData.width, pngData.height)
     outTileList = make_meta_tile_list(tileList, mw, mh, pngData.width >> 3, pngData.height >> 3)
@@ -173,8 +177,21 @@ def main():
     parser.add_argument('input', type=str, help='The path to the input.')
     args = parser.parse_args()
     inPath = Path(args.input)
+    inName, _ = os.path.splitext(inPath)
+    inConfigPath = Path(inName + ".json")
+    print(f"Opening {inConfigPath}")
+    inConfig = {
+        "tileCount": args.meta_tile_count,
+        "metaWidth": args.meta_tile_width,
+        "metaHeight": args.meta_tile_height
+    }
     if not inPath.exists():
         exit(f"Could not find file {inPath}")
+    if inConfigPath.exists():
+        with open(inConfigPath, 'r') as inJson:
+            inConfig = json.load(inJson)
+            print("Config loaded")
+            print(inConfig)
     outPath = make_out_path(inPath, Path(args.output))
     # Check the conversion
     _, inEx = os.path.splitext(inPath)
@@ -185,7 +202,7 @@ def main():
         if outEx == ".gbapal":
             return PngToGbaPal(inPath, outPath)
         elif outEx == ".8bpp" or outEx == ".4bpp":
-            return PngToBpp(inPath, outPath, args.meta_tile_width, args.meta_tile_height, args.meta_tile_count)
+            return PngToBpp(inPath, outPath, inConfig)
         else:
             exit(f"Unsupported conversion from {inEx} to {outEx}")
     elif inEx == ".pal":

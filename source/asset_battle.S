@@ -2,6 +2,8 @@
     .include "macros.inc"
 
     .text
+global_label tilesetBattleMiscellaneous
+    .incbin "images/battle/miscellaneous.4bpp"
 global_label tilesetBattleChipCodes
     .incbin "images/battle/codes/00.4bpp"
     .incbin "images/battle/codes/01.4bpp"

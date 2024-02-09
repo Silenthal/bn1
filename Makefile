@@ -137,33 +137,6 @@ $(S_OBJECTS): %.o: %.S
 	@echo $(notdir $<)
 	$(CC) $(INCLUDE) -D $(BASE_DEFINE)=\"$(BASE).gba\" -E $< | $(PARSE_FIXED) | $(AS) $(ASINCLUDE) $(ASFLAGS) -o $@
 
-images/splash/capcom_logo.4bpp: %.4bpp: %.png
-	$(MAKE_TILES) -n 154 $@ $<
-
-images/ui/charset.4bpp: %.4bpp: %.png
-	$(MAKE_TILES) -mh 2 $@ $<
-
-images/ui/charset_bold.4bpp: %.4bpp: %.png
-	$(MAKE_TILES) -mh 2 $@ $<
-
-images/battlechip/results/regular.4bpp: %.4bpp: %.png
-	$(MAKE_TILES) -n 115 $@ $<
-
-images/battlechip/results/mp_winner.4bpp: %.4bpp: %.png
-	$(MAKE_TILES) -n 139 $@ $<
-
-images/battlechip/results/mp_loser.4bpp: %.4bpp: %.png
-	$(MAKE_TILES) -n 135 $@ $<
-
-images/battlechip/chip_codes.4bpp: %.4bpp: %.png
-	$(MAKE_TILES) -mh 2 -n 26 $@ $<
-
-images/battlechip/results/numbers.4bpp: %.4bpp: %.png
-	$(MAKE_TILES) -n 44 $@ $<
-
-images/custom_screen/frame.4bpp: %.4bpp: %.png
-	$(MAKE_TILES) -n 39 $@ $<
-
 %.4bpp: %.png
 	$(MAKE_TILES) $@ $<
 
