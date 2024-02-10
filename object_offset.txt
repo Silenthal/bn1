@@ -45,6 +45,7 @@ transition          0x174F4
 demo                0x18950
 key_item            0x18C0C
 splash              0x18C94
+passcode            0x18DEC
 menu                0x197C8
 shop                0x1E8AC
 save                0x1FADC
