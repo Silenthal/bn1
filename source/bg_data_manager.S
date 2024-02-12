@@ -15,7 +15,7 @@ _ts BGDM_Init
     mov        r5,r10
     ldr        r5,[r5,#0x44]
     cmp        r0,#0xf0
-    bge        .initOtherMap
+    bge        .initBattleMap
     cmp        r0,#0x80
     bge        .initOnlineMap
     ldr        r3,ptrBgDataOffline
@@ -36,8 +36,8 @@ _ts BGDM_Init
     ldr        r4,ptrLoadXY23
     str        r4,[r5,#0x20]
     b          .rest
-.initOtherMap:
-    ldr        r3,ptrBgDataOther
+.initBattleMap:
+    ldr        r3,ptrBgDataBattle
     sub        r0,#0xf0
     ldr        r4,ptrTmCopy1x
     str        r4,[r5,#0x18]
@@ -577,7 +577,7 @@ ptrBgDataOnline: .word bgDataDir_Online
 ptrTmCopy2x: .word BGDM_CopyTilemapEntry_BG23
 ptrLoad23_1: .word BGDM_LoadTilemap_StaticBG1
 ptrLoadXY23: .word BGDM_LoadTilemapXY_StaticBG1
-ptrBgDataOther: .word bgDataDir_Other
+ptrBgDataBattle: .word bgDataDir_Battle
 ptrTmCopy1x: .word BGDM_CopyTilemapEntry_BG2
 ptrLoad23_2: .word BGDM_LoadTilemap_StaticBG1
 ptrLoadXY23_2: .word BGDM_LoadTilemapXY_StaticBG1
