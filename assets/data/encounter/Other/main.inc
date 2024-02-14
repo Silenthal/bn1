@@ -1,18 +1,18 @@
 global_label encounterGroupOther
 
-.word encounterList_0800db10
-.word encounterList_0800dba8
-.word encounterList_0800dc3c
-.word encounterList_0800dcd4
-.word encounterList_0800dd6c
-.word encounterList_0800de0c
-.word encounterList_0800de9c
-.word encounterList_0800df30
-.word encounterList_0800dfcc
-.word encounterList_0800e074
-.word encounterList_0800e104
-.word encounterList_0800e198
-.word encounterList_0800e230
+.word encounterList_0800db10 @ Doghouse
+.word encounterList_0800dba8 @ Servbot
+.word encounterList_0800dc3c @ New Game Machine
+.word encounterList_0800dcd4 @ Telephone
+.word encounterList_0800dd6c @ Car
+.word encounterList_0800de0c @ Vending Machine Waterworks
+.word encounterList_0800de9c @ Lobby TV
+.word encounterList_0800df30 @ Large Monitor
+.word encounterList_0800dfcc @ COntrol Equipment
+.word encounterList_0800e074 @ Vending Machine Scilab
+.word encounterList_0800e104 @ Recycled PET
+.word encounterList_0800e198 @ Big Vase
+.word encounterList_0800e230 @ Blackboard
 
 encounterList_0800db10: .include "data/encounter/Other/0.inc"
 encounterList_0800dba8: .include "data/encounter/Other/1.inc"

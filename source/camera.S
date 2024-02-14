@@ -318,6 +318,9 @@ _ts Camera_UpdateOverworldPos
     pop        {pc}
 
 
+@@ Update background offset registers to match the camera's position.
+@@ If online, update only BG2 and BG3.
+@@ If in battle, update only BG2.
 _ts Camera_UpdateDisplay
     mov        r7,r10
     ldr        r5,[r7,#0x14]

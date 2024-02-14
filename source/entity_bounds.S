@@ -114,8 +114,18 @@ LAB_08002bdc:
 
     .pool
 
+
+@@ Return whether two targets collide with each other.
+@@ In:
+@@ r0: targetA: The first target.
+@@ r1: targetB: The second target.
+@@
+@@ Out:
+@@ r0: isCollide: True if the two targets collide.
 _ts EntityBounds_IsCollision
     push       { lr }
+    @ First, check that the distance between the two is less than their
+    @ combined radiuses.
     mov        r6,#0x0
     ldrsh      r2,[r0,r6]
     ldrsh      r3,[r1,r6]
@@ -139,6 +149,8 @@ _ts EntityBounds_IsCollision
     mov        r0,#0x0
     pop        { pc }
 LAB_08002c26:
+    @ Then, compare their height and elevation, and return true if they
+    @ intersect.
     mov        r6,#0x4
     ldrsh      r2,[r0,r6]
     ldrsh      r3,[r1,r6]

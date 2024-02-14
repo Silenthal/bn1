@@ -69,7 +69,7 @@ def compress(src: List[int], srcSize: int):
                 return dest[:destPos]
 
 def main():
-    parser = argparse.ArgumentParser(description='Extract compressed archives.')
+    parser = argparse.ArgumentParser(description='Compress files.')
     parser.add_argument('output', type=str, help='The output name.')
     parser.add_argument('input', type=str, help='The path to the input.')
     args = parser.parse_args()
