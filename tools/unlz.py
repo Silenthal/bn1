@@ -54,24 +54,7 @@ def extract(inFile):
 
 def get_compressed_size(inFile):
     offStart = inFile.tell()
-    size = get_24(inFile)
-    if size == 0:
-        size = get_int(inFile)
-    curSize = 0
-    flags = 0
-    mask = 1
-    while curSize < size:
-        if mask == 1:
-            flags = get_byte(inFile)
-            mask = 0x80
-        else:
-            mask = mask >> 1
-        b1 = (get_byte(inFile) >> 4) + 3
-        if (flags & mask) > 0:
-            get_byte(inFile)
-        else:
-            b1 = 1
-        curSize = curSize + b1
+    _ = extract(inFile)
     offEnd = inFile.tell()
     inFile.seek(offStart)
     return offEnd - offStart + 1

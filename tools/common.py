@@ -37,6 +37,26 @@ def get_byte(inFile: BinaryIO) -> int:
     return inFile.read(1)[0]
 
 
+def write_int(outFile: BinaryIO, val: int) -> None:
+    writeVal = struct.pack("I", val & 0xFFFFFFFF)
+    outFile.write(writeVal)
+
+
+def write_short(outFile: BinaryIO, val: int) -> None:
+    writeVal = struct.pack("H", val & 0xFFFF)
+    outFile.write(writeVal)
+
+
+def write_sshort(outFile: BinaryIO, val: int) -> None:
+    writeVal = struct.pack("h", val & 0xFFFF)
+    outFile.write(writeVal)
+
+
+def write_byte(outFile: BinaryIO, val: int) -> None:
+    writeVal = struct.pack("B", val & 0xFF)
+    outFile.write(writeVal)
+
+
 def make_out_path(inPath: Path, outName: Path) -> Path:
     return Path(os.path.join(os.path.dirname(inPath), os.path.basename(outName)))
 

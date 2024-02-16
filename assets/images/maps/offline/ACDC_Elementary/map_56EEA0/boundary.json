@@ -1,0 +1,430 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0x5E6",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x5E7",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5E8",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5E9",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5EA",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5EB",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5EC",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5ED",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5EE",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5EF",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5F0",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5F1",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5F2",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5F3",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5F4",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5F5",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5F6",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5F7",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5F8",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5F9",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5FA",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5FB",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5FC",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5FD",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5FE",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5FF",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x600",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x601",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x602",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x603",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x604",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x605",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x622",
+            "parameterIndex": 3
+        },
+        {
+            "gridIndex": "0x641",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x642",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x65C",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x65D",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x65E",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x67E",
+            "parameterIndex": 4
+        },
+        {
+            "gridIndex": "0x698",
+            "parameterIndex": 3
+        },
+        {
+            "gridIndex": "0x6BA",
+            "parameterIndex": 4
+        },
+        {
+            "gridIndex": "0x6D4",
+            "parameterIndex": 3
+        },
+        {
+            "gridIndex": "0x6F6",
+            "parameterIndex": 4
+        },
+        {
+            "gridIndex": "0x710",
+            "parameterIndex": 3
+        },
+        {
+            "gridIndex": "0x732",
+            "parameterIndex": 4
+        },
+        {
+            "gridIndex": "0x74C",
+            "parameterIndex": 5
+        },
+        {
+            "gridIndex": "0x74D",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x74E",
+            "parameterIndex": 5
+        },
+        {
+            "gridIndex": "0x76E",
+            "parameterIndex": 4
+        },
+        {
+            "gridIndex": "0x78A",
+            "parameterIndex": 3
+        },
+        {
+            "gridIndex": "0x7A9",
+            "parameterIndex": 7
+        },
+        {
+            "gridIndex": "0x7AA",
+            "parameterIndex": 7
+        },
+        {
+            "gridIndex": "0x7C6",
+            "parameterIndex": 5
+        },
+        {
+            "gridIndex": "0x7C7",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7C8",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7C9",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7CA",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7CB",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7CC",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7CD",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7CE",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7CF",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7D0",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7D1",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7D2",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7D3",
+            "parameterIndex": 5
+        },
+        {
+            "gridIndex": "0x7D9",
+            "parameterIndex": 7
+        },
+        {
+            "gridIndex": "0x7DA",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7DB",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7DC",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7DD",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7DE",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7DF",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7E0",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7E1",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7E2",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7E3",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7E4",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x7E5",
+            "parameterIndex": 7
+        },
+        {
+            "gridIndex": "0x80F",
+            "parameterIndex": 3
+        },
+        {
+            "gridIndex": "0x815",
+            "parameterIndex": 4
+        },
+        {
+            "gridIndex": "0x84B",
+            "parameterIndex": 3
+        },
+        {
+            "gridIndex": "0x851",
+            "parameterIndex": 4
+        },
+        {
+            "gridIndex": "0x887",
+            "parameterIndex": 3
+        },
+        {
+            "gridIndex": "0x88D",
+            "parameterIndex": 4
+        },
+        {
+            "gridIndex": "0x8C3",
+            "parameterIndex": 3
+        },
+        {
+            "gridIndex": "0x8C9",
+            "parameterIndex": 4
+        },
+        {
+            "gridIndex": "0x8FF",
+            "parameterIndex": 5
+        },
+        {
+            "gridIndex": "0x900",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x901",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x902",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x903",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x904",
+            "parameterIndex": 6
+        },
+        {
+            "gridIndex": "0x905",
+            "parameterIndex": 7
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 8,
+            "id": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 4,
+            "id": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 7,
+            "id": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 2,
+            "id": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 1,
+            "id": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 6,
+            "id": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 3,
+            "id": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 5,
+            "id": 0
+        }
+    ]
+}

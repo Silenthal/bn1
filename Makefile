@@ -40,6 +40,7 @@ export GEN_OFFSETS		:= python3 $(CURDIR)/$(TOOLS)/generate_offsets.py
 export LZ				:= python3 $(CURDIR)/$(TOOLS)/lz.py
 export PROGRESS			:= python3 $(CURDIR)/$(TOOLS)/progress.py
 export PARSE_FIXED		:= python3 $(CURDIR)/$(TOOLS)/parse_fixed.py
+export BUILD_MAPS		:= python3 $(CURDIR)/$(TOOLS)/build_maps.py
 
 export MMBN_H			:= $(CURDIR)/include/mmbn.h
 export OUTPUT			:= $(CURDIR)/$(TARGET)
@@ -74,6 +75,7 @@ check: $(BUILD)
 no-check: $(BUILD)
 
 $(BUILD):
+	$(BUILD_MAPS) $(ASSETS)/images/maps/
 	@[ -d $@ ] || mkdir -p $@
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
@@ -83,7 +85,7 @@ depend:
 
 clean:
 	@echo cleaning up build files and assets ...
-	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.script' -o -iname '*.sprite.lz' \) -exec rm {} +
+	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.script' -o -iname '*.sprite.lz' -o -iname '*.scb' -o -iname '*.scbin' \) -exec rm {} +
 	@$(RM) -r $(BUILD) $(TARGET).gba $(TARGET).elf
 
 tidy:

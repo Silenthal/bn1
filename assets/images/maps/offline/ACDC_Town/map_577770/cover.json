@@ -1,0 +1,60 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0xC1F",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC20",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC21",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC22",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC23",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC24",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC25",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC26",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC27",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC28",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC29",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC2A",
+            "parameterIndex": 0
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 17,
+            "attribute": 0
+        }
+    ]
+}

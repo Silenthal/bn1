@@ -1,0 +1,100 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0x621",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x641",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x65D",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x67D",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x699",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x6B9",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x6D5",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x6F5",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x711",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x731",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x74D",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x76D",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x789",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x7A9",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x8C4",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x8C5",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x8C6",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x8C7",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x8C8",
+            "parameterIndex": 2
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 17,
+            "exitIndex": 1
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 17,
+            "exitIndex": 2
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 17,
+            "exitIndex": 0
+        }
+    ]
+}

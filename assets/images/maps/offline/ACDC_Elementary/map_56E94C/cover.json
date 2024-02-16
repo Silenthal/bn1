@@ -1,0 +1,114 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0x1DB2",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1DB3",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1DB4",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1E51",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1E52",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1E53",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1E54",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1E55",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1EF1",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1EF2",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1EF3",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1EF4",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1EF5",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1F91",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1F92",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1F93",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1F94",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1F95",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2030",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x2031",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2032",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2033",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2034",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2035",
+            "parameterIndex": 0
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 17,
+            "attribute": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 11,
+            "attribute": 0
+        }
+    ]
+}

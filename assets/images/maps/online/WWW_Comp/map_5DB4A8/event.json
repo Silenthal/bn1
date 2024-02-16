@@ -1,0 +1,44 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0x24E1",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x24E2",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x24E3",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x24E4",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2597",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2598",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2599",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x259A",
+            "parameterIndex": 0
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 17,
+            "flagIndex": 0
+        }
+    ]
+}

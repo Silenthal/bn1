@@ -1,0 +1,120 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0x2D6",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2D6",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x2D7",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x2D8",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x2D9",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x324",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x324",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x325",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x326",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x327",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x372",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x372",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x373",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x374",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x375",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x3C0",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x3C0",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x3C1",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x3C2",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x3C3",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x103E",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x108C",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x10DA",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x1128",
+            "parameterIndex": 2
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 64,
+            "shape": 1,
+            "exitIndex": 1
+        },
+        {
+            "z": 64,
+            "height": 8,
+            "shape": 17,
+            "jackInIndex": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 1,
+            "exitIndex": 0
+        }
+    ]
+}

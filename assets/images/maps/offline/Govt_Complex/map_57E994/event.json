@@ -1,0 +1,100 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0x1CA6",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1D3E",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1D80",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x1D81",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x1DD6",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1E18",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x1E19",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x1E6E",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1EB0",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x1EB1",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x1F06",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1F48",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x1F49",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x1F9E",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1FE0",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x1FE1",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x2036",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x20CE",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2166",
+            "parameterIndex": 0
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 1,
+            "exitIndex": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 4,
+            "textIndex": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 17,
+            "textIndex": 0
+        }
+    ]
+}

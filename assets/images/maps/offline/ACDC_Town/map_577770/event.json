@@ -1,0 +1,38 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0xC24",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xC25",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0xE8B",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0xE8C",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0xE8D",
+            "parameterIndex": 1
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 17,
+            "flagIndex": 0
+        },
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 4,
+            "exitIndex": 0
+        }
+    ]
+}

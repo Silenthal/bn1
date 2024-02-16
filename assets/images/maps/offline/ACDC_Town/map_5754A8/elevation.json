@@ -1,0 +1,60 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0x5DE",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x5DF",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x5E0",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x61C",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x61D",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x61E",
+            "parameterIndex": 2
+        },
+        {
+            "gridIndex": "0x65A",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x65B",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x65C",
+            "parameterIndex": 2
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 19,
+            "attribute": 0
+        },
+        {
+            "z": 0,
+            "height": 16,
+            "shape": 19,
+            "attribute": 0
+        },
+        {
+            "z": 0,
+            "height": 24,
+            "shape": 19,
+            "attribute": 0
+        }
+    ]
+}

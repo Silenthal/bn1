@@ -8,8 +8,7 @@ from typing import List
 def compress(src: List[int], srcSize: int):
     buffLen = 0x1000
     minDistance = 2
-    srcLast = (srcSize >> 3) + 1
-    worstCaseDestSize = 4 + srcSize + srcLast
+    worstCaseDestSize = 4 + srcSize + (srcSize + 7) // 8
 
     worstCaseDestSize = (worstCaseDestSize + 3) & ~3
 
@@ -53,7 +52,7 @@ def compress(src: List[int], srcSize: int):
                 srcPos += bestBlockSize
                 bestBlockSize -= 3
                 bestBlockDistance -= 1
-                disp = bestBlockDistance & 0xFFF
+                disp = bestBlockDistance
                 dest[destPos + 0] = (bestBlockSize << 4) | (disp >> 8)
                 dest[destPos + 1] = disp & 0xFF
                 destPos += 2

@@ -1,0 +1,102 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0x1437",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1438",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x14E5",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x14E6",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1593",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1594",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1641",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x1642",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x16EF",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x16F0",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x179D",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x179E",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x184B",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x184C",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x18F9",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x18FA",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2373",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x2421",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x24CF",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x257D",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x262B",
+            "parameterIndex": 1
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 17,
+            "flagIndex": 0
+        },
+        {
+            "z": 64,
+            "height": 8,
+            "shape": 1,
+            "exitIndex": 0
+        }
+    ]
+}

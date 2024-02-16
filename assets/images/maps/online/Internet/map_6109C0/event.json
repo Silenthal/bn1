@@ -1,0 +1,86 @@
+{
+    "segments": [
+        {
+            "gridIndex": "0x24E7",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x25AF",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2677",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x273F",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x2807",
+            "parameterIndex": 0
+        },
+        {
+            "gridIndex": "0x53F5",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x53F6",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x53F7",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x53F8",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x53F9",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x53FA",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x54BD",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x54BE",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x54BF",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x54C0",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x54C1",
+            "parameterIndex": 1
+        },
+        {
+            "gridIndex": "0x54C2",
+            "parameterIndex": 1
+        }
+    ],
+    "parameters": [
+        {
+            "z": 0,
+            "height": 8,
+            "shape": 1,
+            "exitIndex": 0
+        },
+        {
+            "z": 64,
+            "height": 8,
+            "shape": 17,
+            "flagIndex": 0
+        }
+    ]
+}

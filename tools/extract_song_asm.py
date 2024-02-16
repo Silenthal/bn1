@@ -1,11 +1,7 @@
 #!/usr/bin/python3
 import argparse
-import io
-from math import sqrt
 from pathlib import Path
 import struct
-from enum import IntEnum
-import traceback
 from typing import BinaryIO, List
 
 
