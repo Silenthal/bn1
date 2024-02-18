@@ -186,7 +186,6 @@ def main():
                 dirBase = outFolder / offset
                 if dirBase.exists():
                     dirList.append(dirBase)
-    print(f"Collected {len(dirList)} paths")
     with Pool(16) as pool:
         pool.map(process, dirList)
 

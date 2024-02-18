@@ -29,7 +29,7 @@ class GbaPal:
         return ret
 
 
-def get_pal(inFile: BinaryIO, count: int):
+def get_pal(inFile: BinaryIO, count: int) -> GbaPal:
     palette = []
     isHigh = False
     for _ in range(count):
