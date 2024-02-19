@@ -1,19 +1,22 @@
 #!/usr/bin/python3
 import argparse
 import os
+from typing import List, Tuple
 import png
 import json
 from pathlib import Path
 
+from common import auto_int
+
 
 class PngData:
-    def __init__(self, width, height, rows, info):
-        self.width = width
-        self.height = height
+    def __init__(self, width: int, height: int, rows, info):
+        self.width: int = width
+        self.height: int = height
         self.rows = rows
-        self.isGreyscale = info['greyscale']
-        self.palette = info['palette']
-        self.bitDepth = info['bitdepth']
+        self.isGreyscale = info["greyscale"]
+        self.palette = info["palette"]
+        self.bitDepth: int = info["bitdepth"]
         self.info = info
 
 
@@ -28,14 +31,14 @@ def parse_png(pngPath: Path) -> PngData:
         exit(f"Image {pngPath} has a width or height of 0 and cannot be read.")
     if width % 8 != 0 or height % 8 != 0:
         exit(f"Image {pngPath} dimensions are not multiples of 8")
-    bitDepth = info['bitdepth']
+    bitDepth = info["bitdepth"]
     if bitDepth not in [4, 8]:
-        exit(f"Image bit depth must be 4 or 8.")
+        exit("Image bit depth must be 4 or 8.")
     return PngData(width, height, rows, info)
 
 
-def parse_pal(palPath: Path):
-    palList = []
+def parse_pal(palPath: Path) -> List[Tuple[int, int, int, int]]:
+    palList: List[Tuple[int, int, int, int]] = []
     with open(palPath, "r") as pal:
         magic1 = pal.readline().strip()
         magic2 = pal.readline().strip()
@@ -43,14 +46,14 @@ def parse_pal(palPath: Path):
             palCt = int(pal.readline())
             for _ in range(palCt):
                 triple = pal.readline().split()
-                r = int(triple[0])
-                g = int(triple[1])
-                b = int(triple[2])
+                r = int(triple[0]) & 0xFF
+                g = int(triple[1]) & 0xFF
+                b = int(triple[2]) & 0xFF
                 palList.append((r, g, b, 0))
     return palList
 
 
-def parse_rgbx(palPath: Path):
+def parse_rgbx(palPath: Path) -> List[Tuple[int, int, int, int]]:
     palList = []
     with open(palPath, "r") as pal:
         magic1 = pal.readline().strip().split()
@@ -66,8 +69,8 @@ def parse_rgbx(palPath: Path):
     return palList
 
 
-def make_palette_bin(pal, depth):
-    palbin = []
+def make_palette_bin(pal, depth: int = 4) -> List[int]:
+    palbin: List[int] = []
     for i in range(len(pal)):
         r, g, b, x = pal[i]
         cr = (r >> 3) & 0x1F
@@ -80,14 +83,14 @@ def make_palette_bin(pal, depth):
     return palbin
 
 
-def make_tile_list(rows, bitdepth, width, height):
+def make_tile_list(rows, bitdepth: int, width: int, height: int) -> List[List[int]]:
     tileCountX = width >> 3
     tileCountY = height >> 3
-    tileList = []
+    tileList: List[List[int]] = []
     for tj in range(tileCountY):
         for ti in range(tileCountX):
             offset = (tj * 8 * tileCountX + ti) * 8
-            tile = []
+            tile: List[int] = []
             for tileRowIndex in range(8):
                 rowOffset = offset + (tileRowIndex * width)
                 for t in range(bitdepth):
@@ -102,8 +105,14 @@ def make_tile_list(rows, bitdepth, width, height):
     return tileList
 
 
-def make_meta_tile_list(tileList, metaWidth, metaHeight, tileCountX, tileCountY):
-    reorderedTileList = []
+def make_meta_tile_list(
+    tileList: List[List[int]],
+    metaWidth: int,
+    metaHeight: int,
+    tileCountX: int,
+    tileCountY: int,
+) -> List[List[int]]:
+    reorderedTileList: List[List[int]] = []
     for mj in range(tileCountY // metaHeight):
         for mi in range(tileCountX // metaWidth):
             tileOffBase = (mj * metaHeight * tileCountX) + (mi * metaWidth)
@@ -117,9 +126,9 @@ def make_meta_tile_list(tileList, metaWidth, metaHeight, tileCountX, tileCountY)
 def PngToGbaPal(inPath: Path, outPath: Path) -> None:
     pngData = parse_png(inPath)
     if pngData.isGreyscale:
-        exit(f'Image {inPath} is greyscale, and doesn\'t have a palette.')
+        exit(f"Image {inPath} is greyscale, and doesn't have a palette.")
     else:
-        palbin = make_palette_bin(pngData.info['palette'], pngData.bitDepth)
+        palbin = make_palette_bin(pngData.info["palette"], pngData.bitDepth)
         if outPath.exists():
             os.remove(outPath)
         with open(outPath, "wb") as oFile:
@@ -131,8 +140,12 @@ def PngToBpp(inPath: Path, outPath: Path, inConfig) -> None:
     mh = int(inConfig["metaHeight"] if "metaHeight" in inConfig else "1")
     n = int(inConfig["tileCount"] if "tileCount" in inConfig else "0")
     pngData = parse_png(inPath)
-    tileList = make_tile_list(pngData.rows, pngData.bitDepth, pngData.width, pngData.height)
-    outTileList = make_meta_tile_list(tileList, mw, mh, pngData.width >> 3, pngData.height >> 3)
+    tileList = make_tile_list(
+        pngData.rows, pngData.bitDepth, pngData.width, pngData.height
+    )
+    outTileList = make_meta_tile_list(
+        tileList, mw, mh, pngData.width >> 3, pngData.height >> 3
+    )
     tilecap = n * mw * mh
     tileCount = len(outTileList)
     if tilecap > 0 and tilecap < tileCount:
@@ -161,25 +174,16 @@ def RgbxPalToGbaPal(inPath: Path, outPath: Path) -> None:
 
 
 def main():
-    def auto_int(x):
-        return int(x, 0)
-    parser = argparse.ArgumentParser(description='Processes graphics files.')
-    parser.add_argument('-mw', '--meta-tile-width', type=auto_int,
-                    default=1,
-                    help='The width of the meta tile, in tiles.')
-    parser.add_argument('-mh', '--meta-tile-height', type=auto_int,
-                    default=1,
-                    help='The height of the meta tile, in tiles.')
-    parser.add_argument('-n', '--meta-tile-count', type=auto_int,
-                    default=0,
-                    help='The amount of meta tiles to pull.')
-    parser.add_argument('output', type=str, help='The output name.')
-    parser.add_argument('input', type=str, help='The path to the input.')
+    parser = argparse.ArgumentParser(description="Processes graphics files.")
+    parser.add_argument("-mw", "--meta-tile-width", type=auto_int, default=1, help="The width of the meta tile, in tiles.")
+    parser.add_argument("-mh", "--meta-tile-height", type=auto_int, default=1, help="The height of the meta tile, in tiles.")
+    parser.add_argument("-n", "--meta-tile-count", type=auto_int, default=0, help="The amount of meta tiles to pull.")
+    parser.add_argument("output", type=str, help="The output name.")
+    parser.add_argument("input", type=str, help="The path to the input.")
     args = parser.parse_args()
     inPath = Path(args.input)
     inName, _ = os.path.splitext(inPath)
     inConfigPath = Path(inName + ".json")
-    print(f"Opening {inConfigPath}")
     inConfig = {
         "tileCount": args.meta_tile_count,
         "metaWidth": args.meta_tile_width,
@@ -188,10 +192,8 @@ def main():
     if not inPath.exists():
         exit(f"Could not find file {inPath}")
     if inConfigPath.exists():
-        with open(inConfigPath, 'r') as inJson:
+        with open(inConfigPath, "r") as inJson:
             inConfig = json.load(inJson)
-            print("Config loaded")
-            print(inConfig)
     outPath = make_out_path(inPath, Path(args.output))
     # Check the conversion
     _, inEx = os.path.splitext(inPath)

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from io import BufferedReader
-from typing import List, Literal, Tuple
+import json
+from typing import List, Literal, Tuple, BinaryIO
 import png
 import argparse
 import os
@@ -8,6 +8,7 @@ from math import ceil, log10
 from pathlib import Path
 import sys
 from common import auto_int, get_short
+from extract_pal import GbaPal
 
 
 def open_file(filename):
@@ -18,9 +19,6 @@ def open_file(filename):
 class TileReader:
     def __init__(self) -> None:
         self.readType = 0
-        self.readBytes = 0
-        self.readWords = 0
-        self.readTiles = 0
         self.readCount = 256
         self.metaTileWidth = 1
         self.metaTileHeight = 1
@@ -101,7 +99,7 @@ class TileReader:
     def getBytesPerRow(self) -> int:
         return self.bitDepth
 
-    def readTileRow(self, file: BufferedReader) -> List[int]:
+    def readTileRow(self, file: BinaryIO) -> List[int]:
         tileRow: List[int] = []
         bitDepth = self.getBitDepth()
         bpr = self.getBytesPerRow()
@@ -113,8 +111,8 @@ class TileReader:
             tileRow = list(byteList)
         else:
             for pack in byteList:
-                for _ in range(8 // bitDepth):
-                    pixel = (pack >> bitDepth) & mask
+                for i in range(8 // bitDepth):
+                    pixel = (pack >> (i * bitDepth)) & mask
                     tileRow.append(pixel)
         return tileRow
 
@@ -147,20 +145,29 @@ class TileReader:
         return pixelsPerOutputX, pixelsPerOutputY
 
     def setDefaultPalette(self):
-        bd = self.bitDepth
-        colCount = 1 << bd
-        scale = 256 // colCount
+        colorCount = 1 << self.bitDepth
+        scale = 256 // colorCount
         # 1 (2) -> i * 256 (256 /1)
         # 2 (4) -> i * 64 (256 / 4)
         # 4 (16) -> i * 8 (256 / 16)
         # 8 (256) -> i * 1 (256 / 256)
         pal = [
             (i * scale, i * scale, i * scale, 0 if i == 0 else 255)
-            for i in range(colCount)
+            for i in range(colorCount)
         ]
         self.palette = pal
 
-    def readPaletteFromFile(self, inFile: BufferedReader, paletteOffset: int, paletteSize: int = 0):
+    def setPaletteFromGbaPal(self, gbaPal: GbaPal):
+        self.palette = []
+        for colR, colG, colB, _ in gbaPal.palette:
+            self.palette.append((colR, colG, colB, 0xFF))
+        cap = 1 << self.bitDepth
+        if len(self.palette) > cap:
+            self.palette = self.palette[:cap]
+
+    def readPaletteFromFile(
+        self, inFile: BinaryIO, paletteOffset: int, paletteSize: int = 0
+    ):
         bd = self.bitDepth
         colCount = 1 << bd
         if paletteSize > 0:
@@ -173,9 +180,12 @@ class TileReader:
             colG = ((col >> 5) & 0x1F) * 8
             colB = ((col >> 10) & 0x1F) * 8
             pal.append((colR, colG, colB, 0xFF))
+        cap = 1 << self.bitDepth
+        if len(pal) > cap:
+            pal = pal[:cap]
         self.palette = pal
 
-    def readImageData(self, inFile: BufferedReader) -> List[List[int]]:
+    def readImageData(self, inFile: BinaryIO) -> List[List[int]]:
         ppt = self.getPixelsPerTile()
         tpm = self.getTilesPerMeta()
         mpo = self.getMetaPerOutput()
@@ -259,7 +269,7 @@ class TileReader:
             offset += ppt[0]
         return outData
 
-    def writePng(self, inFile: BufferedReader, outPath: Path, repeat: int = 1):
+    def writePng(self, inFile: BinaryIO, outPath: Path, repeat: int = 1):
         outDataList = []
         for _ in range(repeat):
             outDataList.append(self.readImageData(inFile))
@@ -270,9 +280,15 @@ class TileReader:
             ppo[0], ppo[1], bitdepth=self.getBitDepth(), palette=self.getPalette()
         )
 
+        tc = self.getMetaTileCount()
+        isWriteConfig = tc % self.metaWidth != 0
+
         if len(outDataList) == 1:
             with open(outPath, mode="wb") as of:
                 w.write(of, outDataList[0])
+            if isWriteConfig:
+                with open(outPath.with_suffix(".json"), "w") as outJson:
+                    outJson.write(json.dumps({"tileCount": tc}, indent=4))
             open_file(outPath)
         else:
             padLen = int(log10(len(outDataList))) + 1
@@ -283,6 +299,9 @@ class TileReader:
                 op = outPath.with_name(base + "_" + suffix + ex)
                 with open(op, mode="wb") as of:
                     w.write(of, outDataList[i])
+                if isWriteConfig:
+                    with open(op.with_suffix(".json"), "w") as outJson:
+                        outJson.write(json.dumps({"tileCount": tc}, indent=4))
 
 
 def main():

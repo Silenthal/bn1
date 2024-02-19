@@ -17,7 +17,7 @@ def extract(inFile):
     bufferLen = 0x1000
     buffer = [0 for x in range(bufferLen)]
     bufferOffset = 0
-    get_byte(inFile) # magic
+    get_byte(inFile)  # magic
     size = get_24(inFile)
     if size == 0:
         size = get_int(inFile)
@@ -49,6 +49,7 @@ def extract(inFile):
             outputBuffer.write(bytes([nx]))
             buffer[bufferOffset] = nx
             bufferOffset = (bufferOffset + 1) % bufferLen
+    outputBuffer.seek(0)
     return outputBuffer
 
 
@@ -71,25 +72,28 @@ def get_uncompressed_size(inFile):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Extract compressed archives.')
-    parser.add_argument('-s', '--size', action='count', default=0,
-                            help='Print the compressed size.')
-    parser.add_argument('path', type=str, help='The path to the binary.')
-    parser.add_argument('offset', type=auto_int, help='The offset into the binary.')
+    parser = argparse.ArgumentParser(description="Extract compressed archives.")
+    parser.add_argument(
+        "-s", "--size", action="count", default=0, help="Print the compressed size."
+    )
+    parser.add_argument("path", type=str, help="The path to the binary.")
+    parser.add_argument("offset", type=auto_int, help="The offset into the binary.")
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
         exit(f"Couldn't find file {args.path}")
-    with open(inPath, mode='rb') as inFile:
+    with open(inPath, mode="rb") as inFile:
         inFile.seek(args.offset)
         magic = get_byte(inFile)
+        inFile.seek(-1, os.SEEK_CUR)
         if magic != 0x10:
-            print("Data at offset does not start with the magic value for a compressed archive (0x10)")
+            print(
+                "Data at offset does not start with the magic value for a compressed archive (0x10)"
+            )
             exit(1)
         if args.size > 0:
             print(f"Compressed size: {get_compressed_size(inFile)}")
         else:
-            inFile.seek(-1, os.SEEK_CUR)
             outBuffer = extract(inFile)
             outPath = f"{args.offset:08x}.bin"
             with open(outPath, "wb") as outFile:
