@@ -75,7 +75,7 @@ check: $(BUILD)
 no-check: $(BUILD)
 
 $(BUILD):
-	$(BUILD_MAPS) $(ASSETS)/images/maps/
+	$(BUILD_MAPS) $(ASSETS)/data/maps/
 	@[ -d $@ ] || mkdir -p $@
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
