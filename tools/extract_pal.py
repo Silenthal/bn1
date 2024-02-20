@@ -7,19 +7,19 @@ from common import auto_int, get_short, len_int
 
 class GbaPal:
     def __init__(self, isHigh: bool = False, palette: List[List[int]] = []):
-        self.hasHighBits = isHigh
-        self.palette = palette
+        self.hasHighBits: bool = isHigh
+        self.palette: List[List[int]] = palette
 
     def load(self, inFile: BinaryIO, count: int):
         self.palette = []
-        self.isHigh = False
+        self.hasHighBits = False
         for _ in range(count):
             col = get_short(inFile)
             colR = ((col >> 0) & 0x1F) * 8
             colG = ((col >> 5) & 0x1F) * 8
             colB = ((col >> 10) & 0x1F) * 8
             colX = (col >> 15) & 1
-            self.isHigh |= colX != 0
+            self.hasHighBits |= colX != 0
             self.palette.append([colR, colG, colB, colX])
 
     def get_ext(self):

@@ -1,0 +1,29 @@
+{
+    "width": 46,
+    "height": 36,
+    "palette": "palette.pal",
+    "tileset": [
+        {
+            "file": "BG1.png"
+        },
+        {
+            "file": "BG2.png",
+            "offset": 480
+        },
+        {
+            "file": "BG3.png",
+            "offset": 16384
+        }
+    ],
+    "tilemap": [
+        {
+            "file": "BG1.bin"
+        },
+        {
+            "file": "BG2.bin"
+        },
+        {
+            "file": "BG3.bin"
+        }
+    ]
+}

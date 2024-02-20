@@ -6,6 +6,7 @@ import io
 import os
 from pathlib import Path
 from common import auto_int, get_short, get_int, write_int
+from map_common import getMapConfig, writeMapConfig
 from unlz import extract
 import json
 from typing import List, Tuple
@@ -19,13 +20,16 @@ class MapType(Enum):
 
 
 class WallSegment:
-    def __init__(self, isAltSeg: bool = False, index: int = 0, param: int = 0, param2: int = 0) -> None:
+    def __init__(
+        self, isAltSeg: bool = False, index: int = 0, param: int = 0, param2: int = 0
+    ) -> None:
         self.gridIndex = f"0x{index:X}"
         if isAltSeg:
             self.param1 = param
             self.param2 = param2
         else:
             self.parameterIndex = param
+
     def toJson(self) -> str:
         return json.dumps(self, default=lambda o: o.__dict__, indent=4)
 
@@ -73,11 +77,12 @@ class WallParameter:
                 else:
                     self.attribute = attr
             elif attr >= 0xF0:
-                self.textIndex = attr - 0xF0 
+                self.textIndex = attr - 0xF0
             else:
                 self.attribute = attr
         else:
             self.attribute = attr
+
     def toJson(self) -> str:
         return json.dumps(self, default=lambda o: o.__dict__, indent=4)
 
@@ -85,13 +90,13 @@ class WallParameter:
 class MapData:
     def __init__(self) -> None:
         pass
-    
+
     def addSegmentSection(self):
         self.segments: List[WallSegment] = []
-    
+
     def addParameterSection(self):
         self.parameters: List[WallParameter] = []
-    
+
     def addMapType(self, mapType: int = 1):
         self.mapType: int = mapType
 
@@ -109,7 +114,9 @@ class MapData:
         return json.dumps(self, default=lambda o: o.__dict__, indent=4)
 
 
-def readMapData(mapType: MapType, outBuffer: BytesIO, offset: int, assumedSize: int) -> Tuple[int, MapData]:
+def readMapData(
+    mapType: MapType, outBuffer: BytesIO, offset: int, assumedSize: int
+) -> Tuple[int, MapData]:
     outBuffer.seek(offset)
     start = outBuffer.tell()
     segCount = get_int(outBuffer)
@@ -143,13 +150,13 @@ def readMapData(mapType: MapType, outBuffer: BytesIO, offset: int, assumedSize: 
                 mapData.addSegment(WallSegment(altSeg, index, param1, param2))
             else:
                 mapData.addSegment(WallSegment(altSeg, index, (param1 - paramOff) >> 2))
-        get_short(outBuffer) # null wall segment
+        get_short(outBuffer)  # null wall segment
         assumedSize -= 2
         if altSeg:
-            get_int(outBuffer) # continued null wall segment
+            get_int(outBuffer)  # continued null wall segment
             assumedSize -= 4
         else:
-            get_short(outBuffer) # pointer to param end
+            get_short(outBuffer)  # pointer to param end
             assumedSize -= 2
         if assumedSize > 0:
             mapData.addParameterSection()
@@ -166,7 +173,9 @@ def readMapData(mapType: MapType, outBuffer: BytesIO, offset: int, assumedSize: 
     return (size, mapData)
 
 
-def unpackMap(inFile: BufferedReader, offset: int, dirName: Path, dumpRawMapData: bool = False):
+def unpackMap(
+    inFile: BufferedReader, offset: int, dirName: Path, dumpRawMapData: bool = False
+):
     outBound = dirName / "boundary.json"
     outElevation = dirName / "elevation.json"
     outCover = dirName / "cover.json"
@@ -184,26 +193,38 @@ def unpackMap(inFile: BufferedReader, offset: int, dirName: Path, dumpRawMapData
     outBuffer.seek(cur)
     if dumpRawMapData:
         outBin = dirName / "mapdata_extracted.scbin"
-        with open(outBin, 'wb') as outBin:
+        with open(outBin, "wb") as outBin:
             write_int(outBin, offsetBoundary)
             write_int(outBin, offsetElevation)
             write_int(outBin, offsetCover)
             write_int(outBin, offsetEvent)
             outBin.write(outBuffer.getbuffer())
-    sizeBoundary, boundaryData = readMapData(MapType.BOUNDARY, outBuffer, offsetBoundary, offsetElevation - offsetBoundary)
-    sizeElevation, elevationData = readMapData(MapType.ELEVATION, outBuffer, offsetElevation, offsetCover - offsetElevation)
-    sizeCover, coverData = readMapData(MapType.COVER, outBuffer, offsetCover, offsetEvent - offsetCover)
-    sizeEvent, eventData = readMapData(MapType.EVENT, outBuffer, offsetEvent, offsetEnd - offsetEvent)
+    sizeBoundary, boundaryData = readMapData(
+        MapType.BOUNDARY, outBuffer, offsetBoundary, offsetElevation - offsetBoundary
+    )
+    sizeElevation, elevationData = readMapData(
+        MapType.ELEVATION, outBuffer, offsetElevation, offsetCover - offsetElevation
+    )
+    sizeCover, coverData = readMapData(
+        MapType.COVER, outBuffer, offsetCover, offsetEvent - offsetCover
+    )
+    sizeEvent, eventData = readMapData(
+        MapType.EVENT, outBuffer, offsetEvent, offsetEnd - offsetEvent
+    )
     files = [
         [sizeBoundary, outBound, boundaryData],
         [sizeElevation, outElevation, elevationData],
         [sizeCover, outCover, coverData],
-        [sizeEvent, outEvent, eventData]
+        [sizeEvent, outEvent, eventData],
     ]
+    config = getMapConfig(dirName)
+    config["scb"] = {}
     for size, path, data in files:
         if size > 0:
             with open(path, "w") as outBF:
                 outBF.write(data.toJson())
+            config["scb"][path.stem] = path.name
+    writeMapConfig(dirName, config)
 
 
 def unpack_all(inPath):
@@ -356,28 +377,37 @@ def unpack_all(inPath):
             ]
         }
     }
+    sortList = []
     for loc in mapDict.keys():
         locationDir = Path.cwd() / loc
         for area in mapDict[loc].keys():
             outFolder = locationDir / area
             for offset in mapDict[loc][area]:
-                dirBase = outFolder / Path(f"map_{offset:X}")
+                if offset == 0x5E41F8:
+                    dirBase = outFolder / "Generic"
+                else:
+                    dirBase = outFolder / f"map_{offset:X}"
                 unpackMap(inPath, offset, dirBase)
+                sortList.append([offset, dirBase.with_suffix(".scb")])
+    sortList.sort(key=lambda x: x[0])
+    with open("sortlist_scb.txt", "w") as outSort:
+        for off, name in sortList:
+            outSort.write(f'    .incbin "{name}" @ 0x{off:X}\n')
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Extracts maps.')
-    parser.add_argument('path', type=str, help='The path to the binary.')
-    parser.add_argument('offset', type=auto_int, help='The offset to the map.')
+    parser = argparse.ArgumentParser(description="Extracts maps.")
+    parser.add_argument("path", type=str, help="The path to the binary.")
+    parser.add_argument("offset", type=auto_int, help="The offset to the map.")
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
         exit(f"Couldn't find file {args.path}")
+    with open(inPath, "rb") as inFile:
+        unpack_all(inFile)
     # with open(inPath, 'rb') as inFile:
-    #     unpack_all(inFile)
-    with open(inPath, 'rb') as inFile:
-        unpackMap(inFile, args.offset, Path.cwd() / f"map_{args.offset:X}")
+    #     unpackMap(inFile, args.offset, Path.cwd() / f"map_{args.offset:X}")
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()

@@ -1,0 +1,21 @@
+{
+    "width": 140,
+    "height": 94,
+    "palette": "palette.txt",
+    "tilemap": [
+        {
+            "file": "BG1.bin"
+        },
+        {
+            "file": "BG2.bin"
+        },
+        {
+            "file": "BG3.bin"
+        }
+    ],
+    "scb": {
+        "boundary": "boundary.json",
+        "cover": "cover.json",
+        "event": "event.json"
+    }
+}

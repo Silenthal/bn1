@@ -1,0 +1,19 @@
+{
+    "width": 168,
+    "height": 126,
+    "tilemap": [
+        {
+            "file": "BG1.bin"
+        },
+        {
+            "file": "BG2.bin"
+        },
+        {
+            "file": "BG3.bin"
+        }
+    ],
+    "scb": {
+        "boundary": "boundary.json",
+        "event": "event.json"
+    }
+}

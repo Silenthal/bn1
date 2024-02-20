@@ -269,7 +269,7 @@ class TileReader:
             offset += ppt[0]
         return outData
 
-    def writePng(self, inFile: BinaryIO, outPath: Path, repeat: int = 1):
+    def writePng(self, inFile: BinaryIO, outPath: Path, repeat: int = 1, isNoConfig: bool = False) -> int:
         outDataList = []
         for _ in range(repeat):
             outDataList.append(self.readImageData(inFile))
@@ -282,6 +282,8 @@ class TileReader:
 
         tc = self.getMetaTileCount()
         isWriteConfig = tc % self.metaWidth != 0
+        if isNoConfig:
+            isWriteConfig = False
 
         if len(outDataList) == 1:
             with open(outPath, mode="wb") as of:
@@ -302,6 +304,7 @@ class TileReader:
                 if isWriteConfig:
                     with open(op.with_suffix(".json"), "w") as outJson:
                         outJson.write(json.dumps({"tileCount": tc}, indent=4))
+        return tc
 
 
 def main():

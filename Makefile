@@ -86,6 +86,7 @@ depend:
 clean:
 	@echo cleaning up build files and assets ...
 	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.script' -o -iname '*.sprite.lz' -o -iname '*.scb' -o -iname '*.scbin' \) -exec rm {} +
+	@find . \( -iname '*.palettez' -o -iname '*.tilesetz' -o -iname '*.tilemapz' \) -exec rm {} +
 	@$(RM) -r $(BUILD) $(TARGET).gba $(TARGET).elf
 
 tidy:

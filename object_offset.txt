@@ -232,7 +232,6 @@ text_far            0x1808D8
 screen_far          0x180178
 asset_1E0000        0x1E0000
 asset_sprite        0x1E0020
-asset_mapdata       0x56A038
 asset_ui            0x613268
 asset_portrait      0x61FF88
 asset_battle        0x634634

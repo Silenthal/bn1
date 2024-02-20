@@ -1,0 +1,38 @@
+{
+    "width": 62,
+    "height": 44,
+    "palette": "palette.pal",
+    "tileset": [
+        {
+            "file": "BG1.png",
+            "tileCount": 209
+        },
+        {
+            "file": "BG2.png",
+            "tileCount": 481,
+            "offset": 6688
+        },
+        {
+            "file": "BG3.png",
+            "tileCount": 184,
+            "offset": 22080
+        }
+    ],
+    "tilemap": [
+        {
+            "file": "BG1.bin"
+        },
+        {
+            "file": "BG2.bin"
+        },
+        {
+            "file": "BG3.bin"
+        }
+    ],
+    "scb": {
+        "boundary": "boundary.json",
+        "elevation": "elevation.json",
+        "cover": "cover.json",
+        "event": "event.json"
+    }
+}
