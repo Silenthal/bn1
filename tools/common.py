@@ -26,11 +26,11 @@ def get_int(inFile: BinaryIO) -> int:
 
 
 def get_short(inFile: BinaryIO) -> int:
-    return struct.unpack('H', inFile.read(2))[0]
+    return struct.unpack("H", inFile.read(2))[0]
 
 
 def get_sshort(inFile: BinaryIO) -> int:
-    return struct.unpack('h', inFile.read(2))[0]
+    return struct.unpack("h", inFile.read(2))[0]
 
 
 def get_byte(inFile: BinaryIO) -> int:
@@ -223,7 +223,7 @@ def enemy_id(bt):
         "SharkManFinV3_0",
         "SharkManFinV3_1",
         "SharkManFinV3_2",
-        "SharkManFinV3_3"
+        "SharkManFinV3_3",
     ]
     return idList[bt] if bt < len(idList) and bt >= 0 else f"{bt:02X}"
 
@@ -406,7 +406,7 @@ def chip_id(bt: int) -> str:
         0xC4: "ElecMan",
         0xC5: "ElecMan2",
         0xC6: "ElecMan3",
-        0xC7: "Bass"
+        0xC7: "Bass",
     }
     return chipIdDict[bt] if bt in chipIdDict else f"{bt:02X}"
 
@@ -416,11 +416,5 @@ def chip_code(id: int) -> str:
 
 
 def element(id: int) -> str:
-    elemList = [
-        "None",
-        "Elec",  
-        "Fire",
-        "Water",
-        "Wood"
-    ]
+    elemList = ["None", "Elec", "Fire", "Water", "Wood"]
     return elemList[id] if id < len(elemList) and id >= 0 else "None"

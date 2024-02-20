@@ -13,7 +13,7 @@ def compress(src: List[int], srcSize: int):
     worstCaseDestSize = (worstCaseDestSize + 3) & ~3
 
     dest = [0 for _ in range(worstCaseDestSize)]
-    
+
     dest[0] = 0x10
     dest[1] = srcSize & 0xFF
     dest[2] = (srcSize >> 8) & 0xFF
@@ -35,7 +35,11 @@ def compress(src: List[int], srcSize: int):
                 blockStart = srcPos - blockDistance
                 blockSize = 0
 
-                while blockSize < 18 and srcPos + blockSize < srcSize and src[blockStart + blockSize] == src[srcPos + blockSize]:
+                while (
+                    blockSize < 18
+                    and srcPos + blockSize < srcSize
+                    and src[blockStart + blockSize] == src[srcPos + blockSize]
+                ):
                     blockSize += 1
 
                 if blockSize > bestBlockSize:
@@ -48,7 +52,7 @@ def compress(src: List[int], srcSize: int):
                 blockDistance += 1
 
             if bestBlockSize >= 3:
-                dest[flagsOff] |= (0x80 >> i)
+                dest[flagsOff] |= 0x80 >> i
                 srcPos += bestBlockSize
                 bestBlockSize -= 3
                 bestBlockDistance -= 1
@@ -67,20 +71,22 @@ def compress(src: List[int], srcSize: int):
                     destPos += remainder
                 return dest[:destPos]
 
+
 def main():
-    parser = argparse.ArgumentParser(description='Compress files.')
-    parser.add_argument('output', type=str, help='The output name.')
-    parser.add_argument('input', type=str, help='The path to the input.')
+    parser = argparse.ArgumentParser(description="Compress files.")
+    parser.add_argument("output", type=str, help="The output name.")
+    parser.add_argument("input", type=str, help="The path to the input.")
     args = parser.parse_args()
     inPath = Path(args.input)
     if not inPath.exists():
         exit(f"Couldn't find file {args.input}")
     outPath = make_out_path(inPath, Path(args.output))
-    with open(inPath, mode='rb') as inFile:
+    with open(inPath, mode="rb") as inFile:
         src = [byte for byte in bytearray(inFile.read())]
     result = compress(src, len(src))
-    with open(outPath, mode='wb+') as outFile:
+    with open(outPath, mode="wb+") as outFile:
         outFile.write(bytes(result))
+
 
 if __name__ == "__main__":
     main()

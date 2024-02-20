@@ -16,7 +16,11 @@ def bytelist(inFile: BinaryIO, count: int) -> str:
 
 
 def reward(val):
-    return f"zenny {val & 0x7FFF}" if val & 0x8000 != 0 else f"battlechip {common.chip_id(val & 0xFF)} {common.chip_code(val >> 8)}"
+    return (
+        f"zenny {val & 0x7FFF}"
+        if val & 0x8000 != 0
+        else f"battlechip {common.chip_id(val & 0xFF)} {common.chip_code(val >> 8)}"
+    )
 
 
 def element(inFile: BinaryIO) -> str:
@@ -28,18 +32,34 @@ def element(inFile: BinaryIO) -> str:
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Extract enemy data from Mega Man Battle Network.')
-    parser.add_argument('-eo', '--enemy-offset', type=auto_int, default=0x9DD4, help='The offset to start reading from.')
-    parser.add_argument('-n', '--count', type=auto_int, default=161, help='The amount of enemy data to extract.')
-    parser.add_argument('-o', '--output', type=str, default="", help='The output file name.')
-    parser.add_argument('path', type=str, help='The path to the game.')
+    parser = argparse.ArgumentParser(
+        description="Extract enemy data from Mega Man Battle Network."
+    )
+    parser.add_argument(
+        "-eo",
+        "--enemy-offset",
+        type=auto_int,
+        default=0x9DD4,
+        help="The offset to start reading from.",
+    )
+    parser.add_argument(
+        "-n",
+        "--count",
+        type=auto_int,
+        default=161,
+        help="The amount of enemy data to extract.",
+    )
+    parser.add_argument(
+        "-o", "--output", type=str, default="", help="The output file name."
+    )
+    parser.add_argument("path", type=str, help="The path to the game.")
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
         exit(f"Couldn't find file {args.path}")
-    outPath = f"enemy_data.txt" if args.output == "" else args.output
-    with open(inPath, mode='rb') as inFile:
-        with open(outPath, mode='w', encoding='utf-8') as outFile:
+    outPath = "enemy_data.txt" if args.output == "" else args.output
+    with open(inPath, mode="rb") as inFile:
+        with open(outPath, mode="w", encoding="utf-8") as outFile:
             inFile.seek(args.enemy_offset)
             for i in range(args.count):
                 outFile.write(f"    _{i}: @ {common.enemy_id(i)}\n")

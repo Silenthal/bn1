@@ -58,19 +58,41 @@ def library(inFile: BinaryIO) -> str:
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Extract chip data from Mega Man Battle Network.')
-    parser.add_argument('-co', '--chip-offset', type=auto_int, default=0x7D70, help='The offset to start reading from.')
-    parser.add_argument('-cao', '--chip-art-offset', type=auto_int, default=0x647AFC, help='The offset to the start of the chip art.')
-    parser.add_argument('-n', '--count', type=auto_int, default=240, help='The amount of chip data to extract.')
-    parser.add_argument('-o', '--output', type=str, default="", help='The output file name.')
-    parser.add_argument('path', type=str, help='The path to the game.')
+    parser = argparse.ArgumentParser(
+        description="Extract chip data from Mega Man Battle Network."
+    )
+    parser.add_argument(
+        "-co",
+        "--chip-offset",
+        type=auto_int,
+        default=0x7D70,
+        help="The offset to start reading from.",
+    )
+    parser.add_argument(
+        "-cao",
+        "--chip-art-offset",
+        type=auto_int,
+        default=0x647AFC,
+        help="The offset to the start of the chip art.",
+    )
+    parser.add_argument(
+        "-n",
+        "--count",
+        type=auto_int,
+        default=240,
+        help="The amount of chip data to extract.",
+    )
+    parser.add_argument(
+        "-o", "--output", type=str, default="", help="The output file name."
+    )
+    parser.add_argument("path", type=str, help="The path to the game.")
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
         exit(f"Couldn't find file {args.path}")
-    outPath = f"chip_data.txt" if args.output == "" else args.output
-    with open(inPath, mode='rb') as inFile:
-        with open(outPath, mode='w', encoding='utf-8') as outFile:
+    outPath = "chip_data.txt" if args.output == "" else args.output
+    with open(inPath, mode="rb") as inFile:
+        with open(outPath, mode="w", encoding="utf-8") as outFile:
             inFile.seek(args.chip_offset)
             for i in range(args.count):
                 outFile.write(f"    _{i}: @ {common.chip_id(i)}\n")
@@ -85,7 +107,7 @@ def main():
                 _ = get_int(inFile)
                 outFile.write(f"        chip_icon {i}\n")
                 chip_off = get_int(inFile) - 0x8000000
-                chip_index = (chip_off - args.chip_art_offset) // (8 *7 * 32)
+                chip_index = (chip_off - args.chip_art_offset) // (8 * 7 * 32)
                 _ = get_int(inFile)
                 outFile.write(f"        chip_art {chip_index}\n")
 

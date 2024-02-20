@@ -8,30 +8,28 @@ from typing import List, Union
 
 from common import is_int
 
+
 class Section:
     def __init__(self):
         self.buffer: io.BytesIO = io.BytesIO()
         self.len = 0
 
-
     def size(self) -> int:
         return 2 if self.len == 0 else self.len
-
 
     def emitByte(self, b: int) -> None:
         self.buffer.write(bytes([b & 0xFF]))
         self.len += 1
 
-
     def emitShort(self, b: int) -> None:
         self.buffer.write(bytes([b & 0xFF, (b >> 8) & 0xFF]))
         self.len += 2
 
-
     def emitInt(self, b: int) -> None:
-        self.buffer.write(bytes([b & 0xFF, (b >> 8) & 0xFF, (b >> 16) & 0xFF, (b >> 24) & 0xFF]))
+        self.buffer.write(
+            bytes([b & 0xFF, (b >> 8) & 0xFF, (b >> 16) & 0xFF, (b >> 24) & 0xFF])
+        )
         self.len += 4
-
 
     def getbuffer(self) -> bytes:
         if self.len == 0:
@@ -45,32 +43,26 @@ class Script:
         self.current_section = 0
         self.sections: List[Section] = []
 
-
     def setScriptCount(self, size: int):
         if size > 0 and size > len(self.sections):
             for _ in range(size - len(self.sections)):
                 self.sections.append(Section())
 
-
     def selectSection(self, sectionIndex: int) -> None:
         self.current_section = sectionIndex
-        if (self.current_section < 0):
+        if self.current_section < 0:
             self.current_section = 0
         while len(self.sections) < self.current_section + 1:
             self.sections.append(Section())
 
-
     def emitByte(self, b: int) -> None:
         self.sections[self.current_section].emitByte(b)
-
 
     def emitShort(self, b: int) -> None:
         self.sections[self.current_section].emitShort(b)
 
-
     def emitInt(self, b: int) -> None:
         self.sections[self.current_section].emitInt(b)
-
 
     def writeToFile(self, outPath: Path) -> None:
         outBuffer = io.BytesIO()
@@ -99,10 +91,8 @@ class Reader:
         self.buffer = string
         self.pos = 0
 
-
     def isEmpty(self) -> bool:
         return self.pos >= len(self.buffer)
-
 
     def read(self) -> str:
         if self.isEmpty():
@@ -112,7 +102,6 @@ class Reader:
             self.pos = self.pos + 1
             return ch
 
-
     def seek(self, count: int) -> None:
         self.pos += count
         if self.pos < 0:
@@ -120,13 +109,11 @@ class Reader:
         if self.pos > len(self.buffer):
             self.pos = len(self.buffer)
 
-
     def peek(self) -> str:
         if self.isEmpty():
             return ""
         else:
             return self.buffer[self.pos]
-
 
     def left(self) -> int:
         if self.isEmpty():
@@ -137,7 +124,7 @@ class Reader:
 
 curScript: Script = None
 
-#region
+# region
 charmap_basic = {
     " ": 0x00,
     "0": 0x01,
@@ -150,7 +137,7 @@ charmap_basic = {
     "7": 0x08,
     "8": 0x09,
     "9": 0x0A,
-    #"[Lv.]": 0x0B,
+    # "[Lv.]": 0x0B,
     "∥": 0x0C,
     "ウ": 0x0D,
     "エ": 0x0E,
@@ -368,7 +355,7 @@ charmap_basic = {
     "ゃ": 0xE2,
     "ゅ": 0xE3,
     "ょ": 0xE4,
-    "\n": 0xE8
+    "\n": 0xE8,
 }
 
 
@@ -376,7 +363,7 @@ charmap_E5 = {
     "!": 0x00,
     "‼️": 0x01,
     "?": 0x02,
-    "\"": 0x03,
+    '"': 0x03,
     "„": 0x04,
     "#": 0x05,
     "♭": 0x06,
@@ -423,14 +410,14 @@ charmap_E5 = {
     "℃": 0x2F,
     "♂︎": 0x30,
     "♀︎": 0x31,
-    #"_": 0x32,
+    # "_": 0x32,
     "|": 0x33,
     "‾": 0x34,
     ":": 0x35,
     ";": 0x36,
     "…": 0x37,
     "¥": 0x38,
-    #"[+]": 0x39,
+    # "[+]": 0x39,
     "−": 0x3A,
     "×": 0x3B,
     "÷": 0x3C,
@@ -451,9 +438,9 @@ charmap_E5 = {
     "▶": 0x4B,
     "◀": 0x4C,
     "☛": 0x4D,
-    "¼": 0xAB
-    #"[inf1]": 0xAC,
-    #"[inf2]": 0xAD
+    "¼": 0xAB,
+    # "[inf1]": 0xAC,
+    # "[inf2]": 0xAD
 }
 
 
@@ -525,7 +512,7 @@ charmap_bold = {
     ".": 0x93,
     "×": 0x94,
     "=": 0x95,
-    ":": 0x96
+    ":": 0x96,
 }
 
 
@@ -575,7 +562,7 @@ key_item_map = {
     "Armor": 0x42,
     "HeatArmr": 0x44,
     "AquaArmr": 0x45,
-    "WoodArmr": 0x46
+    "WoodArmr": 0x46,
 }
 
 
@@ -798,7 +785,7 @@ chip_id_map = {
     "PharTrap": 0xF2,
     "HeatArmr": 0xF4,
     "AquaArmr": 0xF5,
-    "WoodArmr": 0xF6
+    "WoodArmr": 0xF6,
 }
 
 
@@ -806,21 +793,21 @@ def bytes_chip(chip: str):
     global curScript
     chips = chip.split()
     if len(chips) != 2 or chips[0] not in chip_id_map or not chips[1].isalpha():
-        exit(f"Unrecognized chip \"{chip}\"")
+        exit(f'Unrecognized chip "{chip}"')
     return [chip_id_map[chips[0]], charmap_basic[chips[1].upper()] - charmap_basic["A"]]
 
 
 def bytes_chip_id(chipid: str):
     global curScript
     if chipid not in chip_id_map:
-        exit(f"Unrecognized chip ID \"{chipid}\"")
+        exit(f'Unrecognized chip ID "{chipid}"')
     return [chip_id_map[chipid]]
 
 
 def bytes_chip_code(chipcode: str):
     global curScript
     if not chipcode.isalpha():
-        exit(f"Unrecognized chip code \"{chipcode}\"")
+        exit(f'Unrecognized chip code "{chipcode}"')
     return [charmap_basic[chipcode.upper()] - charmap_basic["A"]]
 
 
@@ -834,10 +821,12 @@ def bytes_key(itemid: Union[str, int]):
         return [key_item_map[itemid]]
     else:
         exit(f"Unrecognized item name {itemid}")
-#endregion
 
 
-#region Script control
+# endregion
+
+
+# region Script control
 def section_count(count: int) -> None:
     global curScript
     curScript.setScriptCount(count)
@@ -852,13 +841,16 @@ def section_end():
     global curScript
     curScript.emitByte(0)
     curScript.emitByte(0)
-#endregion
 
 
-#region Commands
+# endregion
+
+
+# region Commands
 def emit(bt: int):
     global curScript
     curScript.emitByte(bt)
+
 
 def end(delay: int = 0):
     global curScript
@@ -1138,7 +1130,13 @@ def inv_control(com: int):
     curScript.emitByte(com)
 
 
-def add_item(itemid: Union[str, int], amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def add_item(
+    itemid: Union[str, int],
+    amt: int = 1,
+    ifall: int = 0xFF,
+    ifnone: int = 0xFF,
+    ifsome: int = 0xFF,
+):
     global curScript
     inv_control(0)
     bitem = bytes_key(itemid)
@@ -1149,7 +1147,13 @@ def add_item(itemid: Union[str, int], amt: int = 1, ifall: int = 0xFF, ifnone: i
     curScript.emitByte(ifsome)
 
 
-def sub_item(itemid: Union[str, int], amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def sub_item(
+    itemid: Union[str, int],
+    amt: int = 1,
+    ifall: int = 0xFF,
+    ifnone: int = 0xFF,
+    ifsome: int = 0xFF,
+):
     global curScript
     inv_control(1)
     bitem = bytes_key(itemid)
@@ -1160,7 +1164,13 @@ def sub_item(itemid: Union[str, int], amt: int = 1, ifall: int = 0xFF, ifnone: i
     curScript.emitByte(ifsome)
 
 
-def set_item(itemid: Union[str, int], amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def set_item(
+    itemid: Union[str, int],
+    amt: int,
+    ifall: int = 0xFF,
+    ifnone: int = 0xFF,
+    ifsome: int = 0xFF,
+):
     global curScript
     inv_control(2)
     bitem = bytes_key(itemid)
@@ -1171,7 +1181,13 @@ def set_item(itemid: Union[str, int], amt: int, ifall: int = 0xFF, ifnone: int =
     curScript.emitByte(ifsome)
 
 
-def check_item(itemid: Union[str, int], amt: int = 1, eq: int = 0xFF, gt: int = 0xFF, lt: int = 0xFF):
+def check_item(
+    itemid: Union[str, int],
+    amt: int = 1,
+    eq: int = 0xFF,
+    gt: int = 0xFF,
+    lt: int = 0xFF,
+):
     global curScript
     inv_control(4)
     bitem = bytes_key(itemid)
@@ -1182,15 +1198,17 @@ def check_item(itemid: Union[str, int], amt: int = 1, eq: int = 0xFF, gt: int = 
     curScript.emitByte(lt)
 
 
-def if_have_item(itemid: Union[str, int], jump:int):
+def if_have_item(itemid: Union[str, int], jump: int):
     check_item(itemid, 1, jump, jump)
 
 
-def if_no_item(itemid: Union[str, int], jump:int):
+def if_no_item(itemid: Union[str, int], jump: int):
     check_item(itemid, 1, lt=jump)
 
 
-def add_chip(chip: str, amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def add_chip(
+    chip: str, amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF
+):
     global curScript
     inv_control(0x10)
     bchip = bytes_chip(chip)
@@ -1202,7 +1220,9 @@ def add_chip(chip: str, amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifs
     curScript.emitByte(ifsome)
 
 
-def sub_chip(chip: str, amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def sub_chip(
+    chip: str, amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF
+):
     global curScript
     inv_control(0x11)
     bchip = bytes_chip(chip)
@@ -1214,7 +1234,9 @@ def sub_chip(chip: str, amt: int = 1, ifall: int = 0xFF, ifnone: int = 0xFF, ifs
     curScript.emitByte(ifsome)
 
 
-def set_chip(chip: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def set_chip(
+    chip: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF
+):
     global curScript
     inv_control(0x12)
     bchip = bytes_chip(chip)
@@ -1226,7 +1248,9 @@ def set_chip(chip: str, amt: int, ifall: int = 0xFF, ifnone: int = 0xFF, ifsome:
     curScript.emitByte(ifsome)
 
 
-def check_chip(chip: str, amt: int, ifeq: int = 0xFF, ifgt: int = 0xFF, iflt: int = 0xFF):
+def check_chip(
+    chip: str, amt: int, ifeq: int = 0xFF, ifgt: int = 0xFF, iflt: int = 0xFF
+):
     global curScript
     inv_control(0x14)
     bchip = bytes_chip(chip)
@@ -1241,7 +1265,10 @@ def check_chip(chip: str, amt: int, ifeq: int = 0xFF, ifgt: int = 0xFF, iflt: in
 def if_have_chip(chip: str, jump: int):
     check_chip(chip, 1, jump, jump, 0xFF)
 
-def check_chip_pack(chip: str, amt: int = 1, eq: int = 0xFF, gt: int = 0xFF, lt: int = 0xFF):
+
+def check_chip_pack(
+    chip: str, amt: int = 1, eq: int = 0xFF, gt: int = 0xFF, lt: int = 0xFF
+):
     global curScript
     inv_control(0x15)
     bchip = bytes_chip(chip)
@@ -1275,7 +1302,15 @@ def passcode_pick(ifconfirm: int, ifabort: int, unused1: int = 0, unused2: int =
     curScript.emitByte(unused2)
 
 
-def passcode_check(bothlow: int, bothhigh: int, secondlow: int, firstlow: int, secondhigh: int, firsthigh: int, ifcorrect: int):
+def passcode_check(
+    bothlow: int,
+    bothhigh: int,
+    secondlow: int,
+    firstlow: int,
+    secondhigh: int,
+    firsthigh: int,
+    ifcorrect: int,
+):
     global curScript
     passcode_control(2)
     curScript.emitByte(bothlow)
@@ -1405,7 +1440,12 @@ def chip(chipId: str, chipCode: str):
     chip_code(chipCode)
 
 
-def item_amt(itemid: Union[str, int], minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False):
+def item_amt(
+    itemid: Union[str, int],
+    minlen: int = 0,
+    isPadZero: bool = False,
+    isPadLeft: bool = False,
+):
     global curScript
     item_control(1)
     flag_7 = (1 if isPadLeft else 0) << 7
@@ -1416,7 +1456,9 @@ def item_amt(itemid: Union[str, int], minlen: int = 0, isPadZero: bool = False, 
     curScript.emitByte(bkey[0])
 
 
-def chip_amt(chip: str, minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False):
+def chip_amt(
+    chip: str, minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False
+):
     global curScript
     item_control(2)
     flag_7 = (1 if isPadLeft else 0) << 7
@@ -1438,7 +1480,9 @@ def zenny_amt(minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False)
     curScript.emitByte(0)
 
 
-def buffer(buffer: int, minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False):
+def buffer(
+    buffer: int, minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False
+):
     global curScript
     item_control(3)
     flag_7 = (1 if isPadLeft else 0) << 7
@@ -1458,6 +1502,7 @@ def se(songid: int):
     global curScript
     sound_control(0)
     curScript.emitShort(songid)
+
 
 def song(songid: int):
     global curScript
@@ -1490,7 +1535,9 @@ def misc_control(com: int):
     curScript.emitByte(com << 2)
 
 
-def award_zenny(amtList: List[int], nextjump: int = 0xFF, unused1: int = 0xFF, unused2: int = 0xFF):
+def award_zenny(
+    amtList: List[int], nextjump: int = 0xFF, unused1: int = 0xFF, unused2: int = 0xFF
+):
     global curScript
     misc_control(0)
     curScript.emitByte(len(amtList) - 1)
@@ -1501,7 +1548,9 @@ def award_zenny(amtList: List[int], nextjump: int = 0xFF, unused1: int = 0xFF, u
         curScript.emitInt(amt)
 
 
-def award_chip(chipList: List[str], ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF):
+def award_chip(
+    chipList: List[str], ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF
+):
     global curScript
     misc_control(1)
     curScript.emitByte(len(chipList) - 1)
@@ -1524,7 +1573,15 @@ def shop(shopIndex: int):
     curScript.emitByte(shopIndex)
 
 
-def miniboss(bg: int, mode: int, folder: int, shuffle: int, flags: int, noescape: int, battleId: int):
+def miniboss(
+    bg: int,
+    mode: int,
+    folder: int,
+    shuffle: int,
+    flags: int,
+    noescape: int,
+    battleId: int,
+):
     global curScript
     misc_control(4)
     curScript.emitByte(bg)
@@ -1648,9 +1705,9 @@ def parse_command(reader: Reader):
             pd = coms[0][4]
             bf = coms[0][5]
             sz = coms[1]
-            if (dr != 'l' and dr != 'r'):
+            if dr != "l" and dr != "r":
                 exit("Unrecognized direction for pad")
-            if (pd != 's' and pd != 'z'):
+            if pd != "s" and pd != "z":
                 exit("Unrecognized padding char for pad")
             if not is_int(str(bf)):
                 exit("Buffer for pad function must be a number")
@@ -1659,9 +1716,9 @@ def parse_command(reader: Reader):
                 exit("Buffer for pad function required to be from 0 to 3")
             if sz > 0x40:
                 exit("Pad amount needs to be less than 0x40")
-            if dr == 'l':
+            if dr == "l":
                 sz += 0x80
-            if pd == 'z':
+            if pd == "z":
                 sz += 0x40
             curScript.emitByte(0xE9)
             curScript.emitByte(bf)
@@ -1714,7 +1771,7 @@ def text_bold(*txtList):
     text_base(True, *txtList)
 
 
-#endregion
+# endregion
 
 
 def make_out_path(inPath: Path, outName: Path) -> Path:
@@ -1723,9 +1780,11 @@ def make_out_path(inPath: Path, outName: Path) -> Path:
 
 def main():
     global curScript
-    parser = argparse.ArgumentParser(description='Builds Mega Man Battle Network text scripts.')
-    parser.add_argument('output', type=str, help='The output directory.')
-    parser.add_argument('input', type=str, help='The input file.')
+    parser = argparse.ArgumentParser(
+        description="Builds Mega Man Battle Network text scripts."
+    )
+    parser.add_argument("output", type=str, help="The output directory.")
+    parser.add_argument("input", type=str, help="The input file.")
     args = parser.parse_args()
     inPath = Path(args.input)
     outPath = make_out_path(inPath, Path(args.output))
@@ -1737,5 +1796,5 @@ def main():
     curScript.writeToFile(outPath)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()

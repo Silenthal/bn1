@@ -28,22 +28,22 @@ class TokenStream:
         self.list = tokenList
         self.index = 0
         self.len = len(tokenList)
-    
+
     def is_empty(self) -> bool:
         return self.index >= self.len
-    
+
     def read(self) -> Token:
         if self.is_empty():
             return Token(TokenType.UNKNOWN)
         ret = self.list[self.index]
         self.index += 1
         return ret
-    
+
     def peek(self) -> Token:
         if self.is_empty():
             return Token(TokenType.UNKNOWN)
         return self.list[self.index]
-    
+
     def peek_type(self) -> TokenType:
         if self.is_empty():
             return TokenType.UNKNOWN
@@ -76,7 +76,7 @@ class BinaryNode(Node):
 
 def expect(tokenList: TokenStream, type: TokenType) -> Token:
     if tokenList.peek_type() == type:
-            return tokenList.read()
+        return tokenList.read()
     else:
         raise Exception("Unable to parse expression")
 
@@ -84,7 +84,7 @@ def expect(tokenList: TokenStream, type: TokenType) -> Token:
 def tokenize(string: str) -> TokenStream:
     temp = ""
     fStack: List[Token] = []
-    op = ['+', '-', '*', '/', '(', ')']
+    op = ["+", "-", "*", "/", "(", ")"]
     for ch in string:
         if ch.isspace():
             if temp:
@@ -94,15 +94,15 @@ def tokenize(string: str) -> TokenStream:
         if ch in op and temp:
             fStack.append(Token(TokenType.NUMBER, float(temp)))
             temp = ""
-        if ch == '+':
+        if ch == "+":
             fStack.append(Token(TokenType.PLUS))
         elif ch == "-":
             fStack.append(Token(TokenType.MINUS))
-        elif ch == '*':
+        elif ch == "*":
             fStack.append(Token(TokenType.MULTIPLY))
-        elif ch == '/':
+        elif ch == "/":
             fStack.append(Token(TokenType.DIVIDE))
-        elif ch == '(':
+        elif ch == "(":
             fStack.append(Token(TokenType.LPAREN))
         elif ch == ")":
             fStack.append(Token(TokenType.RPAREN))
@@ -115,17 +115,17 @@ def tokenize(string: str) -> TokenStream:
 
 def parseExpr(tokenList: TokenStream) -> Node:
     left = parseTerm(tokenList)
-    op = { TokenType.PLUS, TokenType.MINUS}
+    op = {TokenType.PLUS, TokenType.MINUS}
     while tokenList.peek_type() in op:
         token = tokenList.read()
         right = parseTerm(tokenList)
         left = BinaryNode(token.type, left, right)
     return left
-            
+
 
 def parseTerm(tokenList: TokenStream) -> Node:
     left = parseFactor(tokenList)
-    op = { TokenType.MULTIPLY, TokenType.DIVIDE}
+    op = {TokenType.MULTIPLY, TokenType.DIVIDE}
     while tokenList.peek_type() in op:
         token = tokenList.read()
         right = parseFactor(tokenList)
@@ -178,24 +178,24 @@ def main():
     level = 0
     while True:
         ch = sys.stdin.read(1)
-        if ch == '':
+        if ch == "":
             break
-        elif ch == 'f':
+        elif ch == "f":
             if temp != "":
                 stack.append(temp)
             temp = ch
-        elif ch == '(':
-            if temp == 'f':
+        elif ch == "(":
+            if temp == "f":
                 temp += ch
                 stack.append(temp)
                 temp = ""
                 level += 1
             else:
                 temp += ch
-        elif ch == ')':
+        elif ch == ")":
             if stack.count == 0:
                 temp += ch
-            elif level > 0 and stack[-1] == 'f(':
+            elif level > 0 and stack[-1] == "f(":
                 stack.pop()
                 tokens = tokenize(temp)
                 ast = parseExpr(tokens)
@@ -213,5 +213,5 @@ def main():
     sys.stdout.write(final)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()

@@ -269,7 +269,9 @@ class TileReader:
             offset += ppt[0]
         return outData
 
-    def writePng(self, inFile: BinaryIO, outPath: Path, repeat: int = 1, isNoConfig: bool = False) -> int:
+    def writePng(
+        self, inFile: BinaryIO, outPath: Path, repeat: int = 1, isNoConfig: bool = False
+    ) -> int:
         outDataList = []
         for _ in range(repeat):
             outDataList.append(self.readImageData(inFile))

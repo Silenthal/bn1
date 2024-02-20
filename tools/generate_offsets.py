@@ -4,10 +4,13 @@ from pathlib import Path
 from pycparser import parse_file
 from pycparser.ast_transforms import c_ast
 
+
 def main():
-    parser = argparse.ArgumentParser(description='Creates a source file containing offsets for structs and enum values.')
-    parser.add_argument('-o', '--output', type=str, help='The path to the output file.')
-    parser.add_argument('header', type=str, help='The path to the header file.')
+    parser = argparse.ArgumentParser(
+        description="Creates a source file containing offsets for structs and enum values."
+    )
+    parser.add_argument("-o", "--output", type=str, help="The path to the output file.")
+    parser.add_argument("header", type=str, help="The path to the header file.")
     args = parser.parse_args()
     outFile: Path = Path(args.output)
     headFile: Path = Path(args.header)
@@ -20,13 +23,17 @@ def main():
             structNode: c_ast.Struct = node.type
             for member in structNode.decls:
                 if not member.bitsize:
-                    declareList.append(f'    DECLARE("{structNode.name}_{member.name}", offsetof({structNode.name}, {member.name}));')
+                    declareList.append(
+                        f'    DECLARE("{structNode.name}_{member.name}", offsetof({structNode.name}, {member.name}));'
+                    )
         elif isinstance(node, c_ast.Typedef) and isinstance(node.type.type, c_ast.Enum):
             enumNode: c_ast.Enum = node.type.type
             for member in enumNode.values:
-                declareList.append(f'    DECLARE("{member.name}", {member.value.value});')
+                declareList.append(
+                    f'    DECLARE("{member.name}", {member.value.value});'
+                )
     declares = "\n".join(declareList)
-    template = f'''#include <stddef.h>
+    template = f"""#include <stddef.h>
 #include "mmbn.h"
 
 #define DECLARE(SYM,VAL) __asm("__AS_DEFINE__ " SYM "\t%0" : : "n" ((unsigned long)(VAL)))
@@ -35,7 +42,7 @@ int main(void)
 {{
 {declares}
 }}
-'''
+"""
     with open(outFile, "w") as output:
         output.write(template)
 

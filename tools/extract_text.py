@@ -250,7 +250,7 @@ charmap = {
     0xE5: "!",
     0xE6: "‼️",
     0xE7: "?",
-    0xE8: "\\\"",
+    0xE8: '\\"',
     0xE9: "„",
     0xEA: "#",
     0xEB: "♭",
@@ -529,11 +529,11 @@ charmap = {
     0x1FC: "\\x01FC",
     0x1FD: "\\x01FD",
     0x1FE: "\\x01FE",
-    0x1FF: "\\x01FF"
+    0x1FF: "\\x01FF",
 }
 
 
-def arg_list(infile, count = 1, func = lambda inf, i: f"0x{get_byte(inf):02X}"):
+def arg_list(infile, count=1, func=lambda inf, i: f"0x{get_byte(inf):02X}"):
     argList = []
     for i in range(count):
         arg = str(func(infile, i))
@@ -584,7 +584,7 @@ def key_item(bt):
         0x42: "Armor",
         0x44: "HeatArmr",
         0x45: "AquaArmr",
-        0x46: "WoodArmr"
+        0x46: "WoodArmr",
     }
     return f'"{itemList[bt]}"' if bt in itemList else bt
 
@@ -809,7 +809,7 @@ def chip_id(bt):
         0xF2: "PharTrap",
         0xF4: "HeatArmr",
         0xF5: "AquaArmr",
-        0xF6: "WoodArmr"
+        0xF6: "WoodArmr",
     }
     return idSet[bt] if bt in idSet else f"0x{bt:02X}"
 
@@ -834,7 +834,7 @@ def get_chip(infile):
     return f'"{chip_id(get_byte(infile))} {chip_code(get_byte(infile))}"'
 
 
-#region Commands
+# region Commands
 def Com_E7(infile):
     delay = get_short(infile)
     if delay == 0:
@@ -938,7 +938,10 @@ def Com_F1(infile):
     defpick = opt & 0x3F
     isDisableB = (opt >> 6) & 1 != 0
     clearAfterPick = (opt >> 7) & 1 != 0
-    return False, f"pick([{arg_list(infile, comlen - 3)}], {defpick}, {isDisableB}, {clearAfterPick})"
+    return (
+        False,
+        f"pick([{arg_list(infile, comlen - 3)}], {defpick}, {isDisableB}, {clearAfterPick})",
+    )
 
 
 def Com_F2(infile):
@@ -972,44 +975,54 @@ def Com_F3(infile):
 def Com_F4(infile):
     command = get_byte(infile) >> 2
     if command == 0:
+
         def proc(inf, i):
             if i == 0:
                 return get_short(inf)
             else:
                 return arg_list(inf)
+
         textBuf = f"if_flag({arg_list(infile, 3, proc)})"
     elif command == 1:
         textBuf = f"if_story({arg_list(infile, 4)})"
     elif command == 2:
         textBuf = f"if_shop({arg_list(infile, 3)})"
     elif command == 3:
+
         def proc(inf, i):
             if i == 0:
                 return get_chip(infile)
             else:
                 return arg_list(inf)
+
         textBuf = f"if_chip({arg_list(infile, 3, proc)})"
     elif command == 4:
+
         def proc(inf, i):
             if i == 0 or i == 1:
                 return get_byte(inf)
             else:
                 return arg_list(inf)
+
         textBuf = f"if_level({arg_list(infile, 4, proc)})"
     elif command == 5:
+
         def proc(inf, i):
             if i == 0 or i == 1:
                 lv = get_byte(inf)
                 return f"'{lv}'" if lv < 11 else "'S'"
             else:
                 return arg_list(inf)
+
         textBuf = f"if_bust({arg_list(infile, 4, proc)})"
     elif command == 6:
+
         def proc(inf, i):
             if i == 0 or i == 1:
                 return get_byte(inf)
             else:
                 return arg_list(inf)
+
         textBuf = f"if_library({arg_list(infile, 4, proc)})"
     else:
         textBuf = f"_F4({command})"
@@ -1040,6 +1053,7 @@ def Com_F6(infile):
 
 def Com_F7(infile):
     command = get_byte(infile)
+
     def proc_item(inf, i):
         if i == 0:
             return get_item(infile)
@@ -1047,6 +1061,7 @@ def Com_F7(infile):
             return get_byte(infile)
         else:
             return arg_list(infile)
+
     def proc_chip(inf, i):
         if i == 0:
             return get_chip(infile)
@@ -1054,6 +1069,7 @@ def Com_F7(infile):
             return get_byte(infile)
         else:
             return arg_list(infile)
+
     if command & 0x10 == 0:
         if command == 0x00:
             textBuf = f"add_item({arg_list(infile, 5, proc_item)})"
@@ -1206,7 +1222,12 @@ def Com_FD(infile):
         getall = get_byte(infile)
         getnone = get_byte(infile)
         getsome = get_byte(infile)
-        chpL = ", ".join([f"\"{chip_id(get_byte(infile))} {chip_code(get_byte(infile))}\"" for _ in range(count + 1)])
+        chpL = ", ".join(
+            [
+                f'"{chip_id(get_byte(infile))} {chip_code(get_byte(infile))}"'
+                for _ in range(count + 1)
+            ]
+        )
         if getall == getnone == getsome == 0xFF:
             textBuf = f"award_chip([{chpL}])"
         else:
@@ -1241,7 +1262,9 @@ def Com_FE(infile):
     savegood = get_byte(infile)
     savebad = get_byte(infile)
     return False, f"save(0x{savegood:02X}, 0x{savebad:02X})"
-#endregion
+
+
+# endregion
 
 
 def interpret(infile):
@@ -1269,7 +1292,7 @@ def interpret(infile):
         Com_FB,
         Com_FC,
         Com_FD,
-        Com_FE
+        Com_FE,
     ]
     textBuf = ""
     isDone = False
@@ -1338,7 +1361,7 @@ def processDelay(input: str):
     patterns = [
         [r'^delay\((.*)\)\ntext\("""', r'text("""{delay \1}'],
         [r'^text\("""(.*)"""\)\ndelay\((.*)\)', r'text("""\1{delay \2}""")'],
-        [r'\{delay \}', r'{delay}']
+        [r"\{delay \}", r"{delay}"],
     ]
     return runner(patterns, input)
 
@@ -1346,7 +1369,7 @@ def processDelay(input: str):
 def processKey(input: str):
     patterns = [
         [r'^text\("""(.*)"""\)\nkey_item\("(.*)"\)', r'text("""\1{key \2}""")'],
-        [r'^key_item\("(.*)"\)\ntext\("""', r'text("""{key \1}']
+        [r'^key_item\("(.*)"\)\ntext\("""', r'text("""{key \1}'],
     ]
     return runner(patterns, input)
 
@@ -1362,23 +1385,24 @@ def processAnim(input: str):
     patterns = [
         [r'^anim\((.*)\)\ntext\("""', r'text("""{anim \1}'],
         [r'^text\("""(.*)"""\)\nanim\((.*)\)', r'text("""\1{anim \2}""")'],
-        [r'\{anim \}', r'{anim}']
+        [r"\{anim \}", r"{anim}"],
     ]
     return runner(patterns, input)
 
 
 def processAnim2(input: str):
-    patterns = [
-        [r'^text\("""\{anim 2\}(.*)\{anim 1\}"""\)', r'text_talking("""\1""")']
-    ]
+    patterns = [[r'^text\("""\{anim 2\}(.*)\{anim 1\}"""\)', r'text_talking("""\1""")']]
     return runner(patterns, input)
 
 
 def processParaTalk(input: str):
     patterns = [
-        [r'^text_talking\("""(.*)"""\)\npage\(\)\nwait\((.*)\)', r'para_talk("""\1""", \2)'],
+        [
+            r'^text_talking\("""(.*)"""\)\npage\(\)\nwait\((.*)\)',
+            r'para_talk("""\1""", \2)',
+        ],
         [r'^para_talk\("""(.*)""", \)', r'para_talk("""\1""", 0)'],
-        [r'^para_talk\("""(.*)""", 5\)', r'para_talk("""\1""")']
+        [r'^para_talk\("""(.*)""", 5\)', r'para_talk("""\1""")'],
     ]
     return runner(patterns, input)
 
@@ -1387,42 +1411,43 @@ def processGenWait(input: str):
     patterns = [
         [r'^text\("""(.*)"""\)\npage\(\)\nwait\((.*)\)', r'para_general("""\1""", \2)'],
         [r'^para_general\("""(.*)""", \)', r'para_general("""\1""", 0)'],
-        [r'^para_general\("""(.*)""", 5\)', r'para_general("""\1""")']
+        [r'^para_general\("""(.*)""", 5\)', r'para_general("""\1""")'],
     ]
     return runner(patterns, input)
 
 
 def processGenEnd(input: str):
     patterns = [
-        [r'^text\("""(.*)"""\)\npage\(\)\nend\((.*)\)', r'para_general_end("""\1""", \2)'],
+        [
+            r'^text\("""(.*)"""\)\npage\(\)\nend\((.*)\)',
+            r'para_general_end("""\1""", \2)',
+        ],
         [r'^para_general_end\("""(.*)""", \)', r'para_general_end("""\1""", 0)'],
-        [r'^para_general_end\("""(.*)""", 5\)', r'para_general_end("""\1""")']
+        [r'^para_general_end\("""(.*)""", 5\)', r'para_general_end("""\1""")'],
     ]
     return runner(patterns, input)
 
 
 def processEnd(input: str):
     patterns = [
-        [r'^text_talking\("""(.*)"""\)\npage\(\)\nend\((.*)\)', r'para_talk_end("""\1""", \2)'],
+        [
+            r'^text_talking\("""(.*)"""\)\npage\(\)\nend\((.*)\)',
+            r'para_talk_end("""\1""", \2)',
+        ],
         [r'^para_talk_end\("""(.*)""", \)', r'para_talk_end("""\1""", 0)'],
-        [r'^para_talk_end\("""(.*)""", 5\)', r'para_talk_end("""\1""")']
+        [r'^para_talk_end\("""(.*)""", 5\)', r'para_talk_end("""\1""")'],
     ]
     return runner(patterns, input)
 
 
 def process(input: str):
-    funcListTextTemplating = [
-        processText,
-        processDelay,
-        processKey,
-        processAnim
-    ]
+    funcListTextTemplating = [processText, processDelay, processKey, processAnim]
     funcListFunctionReplacing = [
         processAnim2,
         processParaTalk,
         processEnd,
         processGenWait,
-        processGenEnd
+        processGenEnd,
     ]
     temp = input
     while True:
@@ -1463,11 +1488,13 @@ def engine1(infile, blockOffset, isUi):
         if (isLimit and infile.tell() < nextOff - 2) or sh != 0:
             scriptBuf = ""
             textBuf = ""
+
             def emptyBuf():
                 nonlocal scriptBuf, textBuf
                 if len(textBuf) > 0:
-                    scriptBuf += f"text(\"\"\"{textBuf}\"\"\")\n"
+                    scriptBuf += f'text("""{textBuf}""")\n'
                     textBuf = ""
+
             while True:
                 interp = interpretUi(infile) if isUi else interpret(infile)
                 if interp[2]:
@@ -1484,11 +1511,16 @@ def engine1(infile, blockOffset, isUi):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Extract scripts from Mega Man Battle Network.')
-    parser.add_argument('-ui', '--ui-string', action='count', default=0,
-                        help='Use UI parsing rules.')
-    parser.add_argument('path', type=str, help='The path to the binary.')
-    parser.add_argument('blockOffset', type=auto_int, help='The offset into the binary.')
+    parser = argparse.ArgumentParser(
+        description="Extract scripts from Mega Man Battle Network."
+    )
+    parser.add_argument(
+        "-ui", "--ui-string", action="count", default=0, help="Use UI parsing rules."
+    )
+    parser.add_argument("path", type=str, help="The path to the binary.")
+    parser.add_argument(
+        "blockOffset", type=auto_int, help="The offset into the binary."
+    )
     args = parser.parse_args()
     isUi = args.ui_string > 0
     blockOffset = args.blockOffset
@@ -1497,9 +1529,9 @@ def main():
         exit(f"Couldn't find file {args.path}")
     outPath = f"{blockOffset:07X}.txt"
     of = ""
-    with open(inPath, mode='rb') as infile:
+    with open(inPath, mode="rb") as infile:
         of = engine1(infile, blockOffset, isUi)
-    with open(outPath, mode='w', encoding='utf-8') as outFile:
+    with open(outPath, mode="w", encoding="utf-8") as outFile:
         outFile.write(of)
     os.startfile(outPath)
 

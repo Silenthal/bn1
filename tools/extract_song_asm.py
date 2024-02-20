@@ -22,7 +22,7 @@ class SongHeader:
     def valid(self) -> bool:
         if self.track_count == 0:
             return False
-        if (self.track_count < 1 or self.track_count > 16):
+        if self.track_count < 1 or self.track_count > 16:
             return False
         return True
 
@@ -35,11 +35,11 @@ class ParseResult:
         self.is_ref_label: bool = is_ref_label
 
 
-file_header = '''#include "offsets.h"
+file_header = """#include "offsets.h"
     .include "constants.inc"
     .include "macros.inc"
 
-'''
+"""
 
 
 def to_n(n: int) -> str:
@@ -91,12 +91,12 @@ def to_n(n: int) -> str:
         "N88",
         "N90",
         "N92",
-        "N96"
+        "N96",
     ]
     if n >= 0xD0 and n <= 0xFF:
         return list_n[n - 0xD0]
     else:
-        return f"0x{n:X}" 
+        return f"0x{n:X}"
 
 
 def to_note(note: int) -> str:
@@ -228,7 +228,7 @@ def to_note(note: int) -> str:
         "En8",
         "Fn8",
         "Fs8",
-        "Gn8"
+        "Gn8",
     ]
     if note < len(list_note):
         return list_note[note]
@@ -290,9 +290,9 @@ def to_wait(wait: int) -> str:
         "W88",
         "W90",
         "W92",
-        "W96"
+        "W96",
     ]
-    
+
     if wait >= 0x80 and wait <= 0xB0:
         return list_wait[wait - 0x80]
     else:
@@ -339,10 +339,7 @@ def get_note_param(inFile: BinaryIO) -> ParseResult:
 
 
 def parse(inFile) -> ParseResult:
-    dict_no_arg = {
-        0xB1: "FINE",
-        0xB4: "PEND"
-    }
+    dict_no_arg = {0xB1: "FINE", 0xB4: "PEND"}
     dict_single_arg = {
         0xBA: "PRIO ",
         0xBB: "TEMPO",
@@ -356,19 +353,18 @@ def parse(inFile) -> ParseResult:
         0xC3: "LFODL",
         0xC4: "MOD  ",
         0xC5: "MODT ",
-        0xC8: "TUNE "
+        0xC8: "TUNE ",
     }
-    dict_ext = {
-        0x08: "xIECV",
-        0x09: "xIECL"
-    }
+    dict_ext = {0x08: "xIECV", 0x09: "xIECL"}
     addr = cur_offset_to_pointer(inFile)
     command = get_byte(inFile)
-    
+
     if command < 0x80:
         vel = get_byte(inFile)
         if vel < 0x80:
-            return ParseResult(2, addr, f"    .byte    {to_note(command)}, {to_vel(vel)}\n")
+            return ParseResult(
+                2, addr, f"    .byte    {to_note(command)}, {to_vel(vel)}\n"
+            )
         else:
             inFile.seek(-1, 1)
             return ParseResult(1, addr, f"    .byte    {to_note(command)}\n")
@@ -376,10 +372,14 @@ def parse(inFile) -> ParseResult:
         return ParseResult(1, addr, f"    .byte {to_wait(command)}\n")
     if command == 0xB2:
         addr = get_int(inFile)
-        return ParseResult(5, addr, f"    .byte GOTO\n    .word LABEL_{addr:08X}\n", True)
+        return ParseResult(
+            5, addr, f"    .byte GOTO\n    .word LABEL_{addr:08X}\n", True
+        )
     if command == 0xB3:
         addr = get_int(inFile)
-        return ParseResult(5, addr, f"    .byte PATT\n    .word LABEL_{addr:08X}\n", True)
+        return ParseResult(
+            5, addr, f"    .byte PATT\n    .word LABEL_{addr:08X}\n", True
+        )
     if command in dict_no_arg:
         return ParseResult(1, addr, f"    .byte {dict_no_arg[command]}\n")
     if command in dict_single_arg:
@@ -392,10 +392,16 @@ def parse(inFile) -> ParseResult:
             ex2 = get_byte(inFile)
             arg2 = get_byte(inFile)
             if ex2 in dict_ext:
-                return ParseResult(5, addr, f"    .byte XCMD , {dict_ext[ex1]}, {arg1}, {dict_ext[ex2]}, {arg2}\n")
+                return ParseResult(
+                    5,
+                    addr,
+                    f"    .byte XCMD , {dict_ext[ex1]}, {arg1}, {dict_ext[ex2]}, {arg2}\n",
+                )
             else:
                 inFile.seek(-2, 1)
-                return ParseResult(3, addr, f"    .byte XCMD , {dict_ext[ex1]}, {arg1}\n")
+                return ParseResult(
+                    3, addr, f"    .byte XCMD , {dict_ext[ex1]}, {arg1}\n"
+                )
         else:
             inFile.seek(-2, 1)
             return ParseResult(1, addr, f"    .byte 0x{command:02X}\n")
@@ -407,13 +413,15 @@ def parse(inFile) -> ParseResult:
         return ParseResult(rest.size + 1, addr, f"    .byte TIE{rest.text}\n")
     if command >= 0xD0 and command <= 0xFF:
         rest = get_note_param(inFile)
-        return ParseResult(1 + rest.size, addr, f"    .byte    {to_n(command)}{rest.text}\n")
+        return ParseResult(
+            1 + rest.size, addr, f"    .byte    {to_n(command)}{rest.text}\n"
+        )
     return ParseResult(1, addr, f"    .byte 0x{command:02X}\n")
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Extract songs.')
-    parser.add_argument('inPath', type=str, help='The path to the game.')
+    parser = argparse.ArgumentParser(description="Extract songs.")
+    parser.add_argument("inPath", type=str, help="The path to the game.")
     args = parser.parse_args()
     inPath = Path(args.inPath)
     if not inPath.exists():
@@ -432,7 +440,7 @@ def main():
 
         for i in range(len(song_offset_list)):
             song_offset = song_offset_list[i]
-            if not song_offset in song_set:
+            if song_offset not in song_set:
                 song_set.add(song_offset)
                 inFile.seek(song_offset)
                 fileName = f"song{i:03}"
@@ -443,13 +451,17 @@ def main():
                     if head.track_count == 0:
                         offsets_file_dict[song_offset] = fileName
                         outSong.write(file_header)
-                        outSong.write(f"global_label se_dummy_{song_offset:08X}\n    .word 0\n\n    .end\n")
+                        outSong.write(
+                            f"global_label se_dummy_{song_offset:08X}\n    .word 0\n\n    .end\n"
+                        )
                     else:
                         offsets_file_dict[head.track_ptr[0]] = fileName
                         inFile.seek(head.track_ptr[0])
                         outSong.write(file_header)
                         for track_idx in range(len(head.track_ptr)):
-                            outSong.write(f"Track_{offset_to_pointer(head.track_ptr[track_idx]):08X}:\n")
+                            outSong.write(
+                                f"Track_{offset_to_pointer(head.track_ptr[track_idx]):08X}:\n"
+                            )
                             cur_off = cur_offset_to_pointer(inFile)
                             preproc_list: List[ParseResult] = []
                             labels_set = set()
@@ -464,7 +476,10 @@ def main():
                                     if c == 0xB1:
                                         break
                             else:
-                                count = head.track_ptr[track_idx + 1] - head.track_ptr[track_idx]
+                                count = (
+                                    head.track_ptr[track_idx + 1]
+                                    - head.track_ptr[track_idx]
+                                )
                                 cur = 0
                                 while True:
                                     c = get_byte(inFile)
@@ -476,7 +491,7 @@ def main():
                                     cur += pr.size
                                     if cur >= count:
                                         break
-                            
+
                             for line in preproc_list:
                                 if cur_off in labels_set:
                                     outSong.write(f"LABEL_{cur_off:08X}:\n")
@@ -484,20 +499,26 @@ def main():
                                 cur_off += line.size
 
                             outSong.write("\n")
-                        outSong.write(f"    .align 2, 0\n\n")
-                        outSong.write(f"global_label SongHeader_{offset_to_pointer(song_offset):08X}\n")
+                        outSong.write("    .align 2, 0\n\n")
+                        outSong.write(
+                            f"global_label SongHeader_{offset_to_pointer(song_offset):08X}\n"
+                        )
                         outSong.write(f"    .byte {head.track_count}\n")
                         outSong.write(f"    .byte {head.block_count}\n")
                         outSong.write(f"    .byte {head.priority}\n")
                         outSong.write(f"    .byte {head.reverb_raw}\n")
-                        outSong.write(f"    .word 0x{offset_to_pointer(head.tone_data_off):X}\n")
+                        outSong.write(
+                            f"    .word 0x{offset_to_pointer(head.tone_data_off):X}\n"
+                        )
                         for ptr in head.track_ptr:
-                            outSong.write(f"    .word Track_{offset_to_pointer(ptr):08X}\n")
-                        outSong.write('\n    .end\n')
+                            outSong.write(
+                                f"    .word Track_{offset_to_pointer(ptr):08X}\n"
+                            )
+                        outSong.write("\n    .end\n")
     # with open("offset_temp.txt", "w") as outOffsetFile:
     #     for off in sorted(offsets_file_dict.keys()):
     #         outOffsetFile.write(f"{offsets_file_dict[off]}             0x{off:X}\n")
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()

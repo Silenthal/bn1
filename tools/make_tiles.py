@@ -175,9 +175,27 @@ def RgbxPalToGbaPal(inPath: Path, outPath: Path) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Processes graphics files.")
-    parser.add_argument("-mw", "--meta-tile-width", type=auto_int, default=1, help="The width of the meta tile, in tiles.")
-    parser.add_argument("-mh", "--meta-tile-height", type=auto_int, default=1, help="The height of the meta tile, in tiles.")
-    parser.add_argument("-n", "--meta-tile-count", type=auto_int, default=0, help="The amount of meta tiles to pull.")
+    parser.add_argument(
+        "-mw",
+        "--meta-tile-width",
+        type=auto_int,
+        default=1,
+        help="The width of the meta tile, in tiles.",
+    )
+    parser.add_argument(
+        "-mh",
+        "--meta-tile-height",
+        type=auto_int,
+        default=1,
+        help="The height of the meta tile, in tiles.",
+    )
+    parser.add_argument(
+        "-n",
+        "--meta-tile-count",
+        type=auto_int,
+        default=0,
+        help="The amount of meta tiles to pull.",
+    )
     parser.add_argument("output", type=str, help="The output name.")
     parser.add_argument("input", type=str, help="The path to the input.")
     args = parser.parse_args()
@@ -187,7 +205,7 @@ def main():
     inConfig = {
         "tileCount": args.meta_tile_count,
         "metaWidth": args.meta_tile_width,
-        "metaHeight": args.meta_tile_height
+        "metaHeight": args.meta_tile_height,
     }
     if not inPath.exists():
         exit(f"Could not find file {inPath}")

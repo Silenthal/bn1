@@ -24,9 +24,9 @@ def get_out_path(inPath, outDir):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Creates dependencies.')
-    parser.add_argument('outdir', type=str, help='The output directory.')
-    parser.add_argument('input', type=str, help='The input file.')
+    parser = argparse.ArgumentParser(description="Creates dependencies.")
+    parser.add_argument("outdir", type=str, help="The output directory.")
+    parser.add_argument("input", type=str, help="The input file.")
     args = parser.parse_args()
     inPath = Path(args.input)
     outDir = Path(args.outdir)
