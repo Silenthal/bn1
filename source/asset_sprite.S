@@ -402,10 +402,10 @@ global_label sprite_battle_sharkman_fin
     .incbin "data/maps/offline/ACDC_Elementary/map_56A038.tilemapz" @ 0x3B33D4
     .incbin "data/maps/offline/ACDC_Elementary/map_56AAD4.tilemapz" @ 0x3B4054
     .incbin "data/maps/offline/ACDC_Elementary/map_56B55C.palettez" @ 0x3B4CF4
-    .incbin "data/maps/offline/ACDC_Elementary/map_56B55C.tilesetz" @ 0x3B4E98 <- check
+    .incbin "data/maps/offline/ACDC_Elementary/map_56B55C.tilesetz" @ 0x3B4E98
     .incbin "data/maps/offline/ACDC_Elementary/map_56B55C.tilemapz" @ 0x3B7980
     .incbin "data/maps/offline/ACDC_Elementary/map_56C38C.tilesetz" @ 0x3B9148
-    .incbin "data/maps/offline/ACDC_Elementary/map_56C38C.palettez" @ 0x3BBEC0 <- check
+    .incbin "data/maps/offline/ACDC_Elementary/map_56C38C.palettez" @ 0x3BBEC0
     .incbin "data/maps/offline/ACDC_Elementary/map_56C38C.tilemapz" @ 0x3BC064
     .incbin "data/maps/offline/ACDC_Elementary/map_56C880.palettez" @ 0x3BF0B4
     .incbin "data/maps/offline/ACDC_Elementary/map_56C880.tilemapz" @ 0x3BF258

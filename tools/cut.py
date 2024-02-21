@@ -2,9 +2,7 @@
 import argparse
 from pathlib import Path
 
-
-def auto_int(x):
-    return int(x, 0)
+from common import auto_int
 
 
 parser = argparse.ArgumentParser(description="Extract binary data.")

@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-import struct
 from typing import BinaryIO, List
+
+from common import get_byte, get_int
 
 
 class SongHeader:
@@ -297,18 +298,6 @@ def to_wait(wait: int) -> str:
         return list_wait[wait - 0x80]
     else:
         return f"0x{wait:X}"
-
-
-def auto_int(x: str) -> int:
-    return int(x, 0)
-
-
-def get_int(inFile: BinaryIO) -> int:
-    return struct.unpack("I", inFile.read(4))[0]
-
-
-def get_byte(inFile: BinaryIO) -> int:
-    return inFile.read(1)[0]
 
 
 def get_offset_from_pointer(inFile: BinaryIO) -> int:
