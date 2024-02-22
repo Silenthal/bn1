@@ -1,7 +1,3 @@
-#include "offsets.h"
-    .include "constants.inc"
-    .include "macros.inc"
-
 Track_080B1238:
     .byte KEYSH, 0
     .byte TEMPO, 75
@@ -27,5 +23,3 @@ global_label SongHeader_080B1250
     .byte 0
     .word 0x80A07B4
     .word Track_080B1238
-
-    .end

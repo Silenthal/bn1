@@ -1,7 +1,3 @@
-#include "offsets.h"
-    .include "constants.inc"
-    .include "macros.inc"
-
 Track_080A8E18:
     .byte KEYSH, 0
 LABEL_080A8E1A:
@@ -1341,5 +1337,3 @@ global_label SongHeader_080A9680
     .word Track_080A9259
     .word Track_080A93A4
     .word Track_080A94D3
-
-    .end
