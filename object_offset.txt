@@ -69,10 +69,6 @@ oam_far             0x180564
 text_far            0x1808D8
 screen_far          0x180178
 asset_1E0000        0x1E0000
-asset_sprite        0x1E0020
-asset_ui            0x613268
-asset_portrait      0x61FF88
-asset_battle        0x634634
 asset_text          0x69D57C
 asset_demo          0x796FD4
 asset_7A6604        0x7A6604
