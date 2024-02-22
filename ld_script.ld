@@ -120,6 +120,7 @@ SECTIONS {
 		gDemo                    	= 0x74D8;
 		gDisplaySettings         	= 0x7510;
 		gChipTrader				 	= 0x7530;
+		gPlayerFixedAnimationState  = 0x7570;
 		gMainMenu                	= 0x7590;
 		gPlayerBattleStates         = 0x75F0;
 		gTextBufferList          	= 0x76D0;

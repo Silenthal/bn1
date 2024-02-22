@@ -51,7 +51,7 @@ LAB_08007c66:
 
     .pool
 
-Inventory_InitDefaultChipFolder:
+_ts Inventory_InitDefaultChipFolder
     push       { lr }
     ldr        r0,PTR_folderSrcInitialFolder_08007c9c
     ldr        r1,PTR_gFolder_08007ca0

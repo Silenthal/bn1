@@ -22,7 +22,8 @@ actor               0x3200
 attack              0x3504
 effect              0x382C
 npc                 0x3B14
-world               0x4130
+debug               0x3CB0
+world               0x4020
 fade                0x4B00
 encounter           0x5504
 battle              0x5864
