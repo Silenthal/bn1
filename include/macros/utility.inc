@@ -23,3 +23,18 @@
     .macro CpuSetControl wordCount, isSrcFixed, is32bit
     .word (\wordCount & 0x1FFFFF) | (\isSrcFixed & 1) << 24 | (\is32bit & 1) << 26
     .endm
+
+    .macro pos_xyz x, y, z
+    .word \x
+    .word \y
+    .word \z
+    .endm
+
+    .macro MapEntrance mapId, dir, x, y, z
+    .short \mapId
+    .byte 0
+    .byte \dir
+    .word \x
+    .word \y
+    .word \z
+    .endm

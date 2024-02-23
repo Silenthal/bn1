@@ -79,7 +79,7 @@ PTR_folderSrcInitialFolder_08007c9c:    .word folderSrcInitialFolder
 PTR_gFolder_08007ca0:                   .word gFolder
 PTR_gBattleChipInventory_08007ca4:      .word gBattleChipInventory
 
-folderSrcInitialFolder:
+global_label folderSrcInitialFolder
     battlechip Cannon A
     battlechip Cannon A
     battlechip Cannon B

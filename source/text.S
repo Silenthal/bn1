@@ -2,11 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set LC_Sprite_AddSpriteToOam, 0x8002338
     .set FUN_08018e4c, 0x8018e4c
-    .set tileArrow0, 0x861fe08
-    .set tileArrow1, 0x861fe88
-    .set tileArrow2, 0x861ff08
     .set FUN_0801f974, 0x801f974
     .set Status_GetLevel, 0x801bf58
     .set Library_GetStandardChipCount, 0x801E814
@@ -18,11 +14,9 @@
     .set PlayerAnimation_Get, 0x80560B4
     .set PlayerAnimation_Set, 0x8056074
     .set PlayerAnimation_Unlock, 0x8056064
-    .set FUN_080025ec, 0x80025ec
     .set Area_GetBackgroundId, 0x8004674
     .set FUN_08004a10, 0x8004a10
     .set Encounter_SetEnemyList, 0x80098cc
-    .set Battle_SetBattleParams, 0x8004610
     .set PTR_EnemySpawn_08014cf8, 0x8014cf8
     .set FUN_08004a74, 0x8004a74
     .set Save_SaveGame, 0x801fADC
@@ -454,7 +448,7 @@ LAB_08013896:
     bl         Sprite_LoadPalette
     bl         Sprite_LoadTileset
     mov        r0,#0x0
-    bl         LC_Sprite_AddSpriteToOam
+    bl         Sprite_AddSpriteToOam
 .return:
     pop        { r5, pc }
 
@@ -2164,7 +2158,7 @@ _ts JT_Command_FA_0C_WaitForPlayerAnim
     mov        r0,r10
     ldr        r0,[r0,#0x8]
     ldr        r5,[r0,#0x28]
-    bl         FUN_080025ec
+    bl         SpritePtr_GetFrameStatus
     pop        { r4, r5 }
     mov        r1,#0x80
     and        r1,r0
@@ -2635,7 +2629,7 @@ LAB_080148c0:
     mov        r2,#0x0
     mov        r4,#0x1
     mov        r6,#0x0
-    bl         Battle_SetBattleParams
+    bl         World_SetBattleParams
     mov        r0,#0x2
     mov        r1,#0x8
     bl         Fade_Request
@@ -2697,7 +2691,7 @@ LAB_08014942:
     ldrb       r3,[r4,#0x5]
     ldrb       r6,[r4,#0x7]
     ldrb       r4,[r4,#0x6]
-    bl         Battle_SetBattleParams
+    bl         World_SetBattleParams
     mov        r0,#0x2
     mov        r1,#0x8
     bl         Fade_Request
@@ -2794,7 +2788,7 @@ LAB_080149dc:
     mov        r2,#0x0
     mov        r4,#0x1
     mov        r6,#0x0
-    bl         Battle_SetBattleParams
+    bl         World_SetBattleParams
     mov        r0,#0x2
     mov        r1,#0x8
     bl         Fade_Request
@@ -3045,26 +3039,26 @@ LAB_08014c02:
 
     .align 2, 0
 tileArrowAnimArray:
-    .word tileArrow0
-    .word tileArrow0
-    .word tileArrow0
-    .word tileArrow0
-    .word tileArrow0
-    .word tileArrow0
-    .word tileArrow0
-    .word tileArrow0
-    .word tileArrow1
-    .word tileArrow1
-    .word tileArrow1
-    .word tileArrow2
-    .word tileArrow2
-    .word tileArrow2
-    .word tileArrow2
-    .word tileArrow2
-    .word tileArrow2
-    .word tileArrow1
-    .word tileArrow1
-    .word tileArrow1
+    .word tilesetArrowHori0
+    .word tilesetArrowHori0
+    .word tilesetArrowHori0
+    .word tilesetArrowHori0
+    .word tilesetArrowHori0
+    .word tilesetArrowHori0
+    .word tilesetArrowHori0
+    .word tilesetArrowHori0
+    .word tilesetArrowHori1
+    .word tilesetArrowHori1
+    .word tilesetArrowHori1
+    .word tilesetArrowHori2
+    .word tilesetArrowHori2
+    .word tilesetArrowHori2
+    .word tilesetArrowHori2
+    .word tilesetArrowHori2
+    .word tilesetArrowHori2
+    .word tilesetArrowHori1
+    .word tilesetArrowHori1
+    .word tilesetArrowHori1
 LayoutEntry_ARRAY_08014c54:
     .byte 0xC5, 0xF2
     .byte 0xC6, 0xF2
