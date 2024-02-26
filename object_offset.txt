@@ -25,7 +25,7 @@ npc                 0x3B14
 debug               0x3CB0
 world               0x4020
 fade                0x4B00
-encounter           0x5504
+battle_init         0x4F34
 battle              0x5864
 screendim           0x6A24
 battle_util         0x6A6C

@@ -2781,7 +2781,7 @@ LAB_080149dc:
     add        r7,r7,r1
     ldrb       r0,[r7,#0x0]
     ldrb       r1,[r7,#0x1]
-    bl         Encounter_GetRandomEncounter
+    bl         Battle_GetRandomAreaEnemySpawnList
     bl         Encounter_SetEnemyList
     bl         Area_GetBackgroundId
     mov        r1,#0x0

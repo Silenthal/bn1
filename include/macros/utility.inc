@@ -30,6 +30,11 @@
     .word \z
     .endm
 
+    .macro cell_pos x, y
+    .byte \x
+    .byte \y
+    .endm
+
     .macro MapEntrance mapId, dir, x, y, z
     .short \mapId
     .byte 0

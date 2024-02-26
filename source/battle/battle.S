@@ -151,7 +151,7 @@ LAB_08005948:
 _ts Battle_0_1_InitField
     push       {lr}
     bl         Battle_InitChipDeck
-    bl         Encounter_Init
+    bl         Battle_InitEnemyList
     bl         Battle_InitBackground
     mov        r7,r10
     ldr        r7,[r7,#0x8]
