@@ -1,24 +1,24 @@
 global_label encounterGroupSchoolComp
 
-.word encounterList_0800b430 @ School Comp 1
-.word encounterList_0800b580 @ School Comp 2
-.word encounterList_0800b6d4 @ School Comp 3
-.word encounterList_0800b828 @ School Comp 4
-.word encounterList_0800b984 @ School Comp 5
-.word encounterList_0800b984
-.word encounterList_0800b984
-.word encounterList_0800b984
-.word encounterList_0800b984
-.word encounterList_0800b984
-.word encounterList_0800b984
-.word encounterList_0800b984
-.word encounterList_0800b984
-.word encounterList_0800b984
-.word encounterList_0800b984
-.word encounterList_0800b984
+.word encounterList_School_Comp_1
+.word encounterList_School_Comp_2
+.word encounterList_School_Comp_3
+.word encounterList_School_Comp_4
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
+.word encounterList_School_Comp_5
 
-encounterList_0800b430: .include "data/encounter/SchoolComp/0.inc"
-encounterList_0800b580: .include "data/encounter/SchoolComp/1.inc"
-encounterList_0800b6d4: .include "data/encounter/SchoolComp/2.inc"
-encounterList_0800b828: .include "data/encounter/SchoolComp/3.inc"
-encounterList_0800b984: .include "data/encounter/SchoolComp/4.inc"
+encounterList_School_Comp_1: .include "data/encounter/SchoolComp/School_Comp_1.inc"
+encounterList_School_Comp_2: .include "data/encounter/SchoolComp/School_Comp_2.inc"
+encounterList_School_Comp_3: .include "data/encounter/SchoolComp/School_Comp_3.inc"
+encounterList_School_Comp_4: .include "data/encounter/SchoolComp/School_Comp_4.inc"
+encounterList_School_Comp_5: .include "data/encounter/SchoolComp/School_Comp_5.inc"

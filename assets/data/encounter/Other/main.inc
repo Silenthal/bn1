@@ -1,29 +1,29 @@
 global_label encounterGroupOther
 
-.word encounterList_0800db10 @ Doghouse
-.word encounterList_0800dba8 @ Servbot
-.word encounterList_0800dc3c @ New Game Machine
-.word encounterList_0800dcd4 @ Telephone
-.word encounterList_0800dd6c @ Car
-.word encounterList_0800de0c @ Vending Machine Waterworks
-.word encounterList_0800de9c @ Lobby TV
-.word encounterList_0800df30 @ Large Monitor
-.word encounterList_0800dfcc @ COntrol Equipment
-.word encounterList_0800e074 @ Vending Machine Scilab
-.word encounterList_0800e104 @ Recycled PET
-.word encounterList_0800e198 @ Big Vase
-.word encounterList_0800e230 @ Blackboard
+.word encounterList_Doghouse_Comp
+.word encounterList_Servbot_Comp
+.word encounterList_New_Game_Machine_Comp
+.word encounterList_Telephone_Comp
+.word encounterList_Car_Comp
+.word encounterList_Waterworks_Vending_Machine_Comp
+.word encounterList_TV_Comp
+.word encounterList_Large_Monitor_Comp
+.word encounterList_Control_Equipment_Comp
+.word encounterList_SciLab_Vending_Machine_Comp
+.word encounterList_Recycled_PET_Comp
+.word encounterList_Big_Vase_Comp
+.word encounterList_Blackboard_Comp
 
-encounterList_0800db10: .include "data/encounter/Other/0.inc"
-encounterList_0800dba8: .include "data/encounter/Other/1.inc"
-encounterList_0800dc3c: .include "data/encounter/Other/2.inc"
-encounterList_0800dcd4: .include "data/encounter/Other/3.inc"
-encounterList_0800dd6c: .include "data/encounter/Other/4.inc"
-encounterList_0800de0c: .include "data/encounter/Other/5.inc"
-encounterList_0800de9c: .include "data/encounter/Other/6.inc"
-encounterList_0800df30: .include "data/encounter/Other/7.inc"
-encounterList_0800dfcc: .include "data/encounter/Other/8.inc"
-encounterList_0800e074: .include "data/encounter/Other/9.inc"
-encounterList_0800e104: .include "data/encounter/Other/10.inc"
-encounterList_0800e198: .include "data/encounter/Other/11.inc"
-encounterList_0800e230: .include "data/encounter/Other/12.inc"
+encounterList_Doghouse_Comp:                    .include "data/encounter/Other/Doghouse_Comp.inc"
+encounterList_Servbot_Comp:                     .include "data/encounter/Other/Servbot_Comp.inc"
+encounterList_New_Game_Machine_Comp:            .include "data/encounter/Other/New_Game_Machine_Comp.inc"
+encounterList_Telephone_Comp:                   .include "data/encounter/Other/Telephone_Comp.inc"
+encounterList_Car_Comp:                         .include "data/encounter/Other/Car_Comp.inc"
+encounterList_Waterworks_Vending_Machine_Comp:  .include "data/encounter/Other/Waterworks_Vending_Machine_Comp.inc"
+encounterList_TV_Comp:                          .include "data/encounter/Other/TV_Comp.inc"
+encounterList_Large_Monitor_Comp:               .include "data/encounter/Other/Large_Monitor_Comp.inc"
+encounterList_Control_Equipment_Comp:           .include "data/encounter/Other/Control_Equipment_Comp.inc"
+encounterList_SciLab_Vending_Machine_Comp:      .include "data/encounter/Other/SciLab_Vending_Machine_Comp.inc"
+encounterList_Recycled_PET_Comp:                .include "data/encounter/Other/Recycled_PET_Comp.inc"
+encounterList_Big_Vase_Comp:                    .include "data/encounter/Other/Big_Vase_Comp.inc"
+encounterList_Blackboard_Comp:                  .include "data/encounter/Other/Blackboard_Comp.inc"

@@ -1,15 +1,15 @@
 global_label encounterGroupWWWComp
 
-.word encounterList_0800d048 @ WWW Comp 1
-.word encounterList_0800d170 @ WWW Comp 2
-.word encounterList_0800d2ac @ WWW Comp 3
-.word encounterList_0800d3e8 @ WWW Comp 4
-.word encounterList_0800d528 @ WWW Comp 5
-.word encounterList_0800d658 @ Rocket Comp
+.word encounterList_WWW_Comp_1
+.word encounterList_WWW_Comp_2
+.word encounterList_WWW_Comp_3
+.word encounterList_WWW_Comp_4
+.word encounterList_WWW_Comp_5
+.word encounterList_Rocket_Comp
 
-encounterList_0800d048: .include "data/encounter/WWWComp/0.inc"
-encounterList_0800d170: .include "data/encounter/WWWComp/1.inc"
-encounterList_0800d2ac: .include "data/encounter/WWWComp/2.inc"
-encounterList_0800d3e8: .include "data/encounter/WWWComp/3.inc"
-encounterList_0800d528: .include "data/encounter/WWWComp/4.inc"
-encounterList_0800d658: .include "data/encounter/WWWComp/5.inc"
+encounterList_WWW_Comp_1: .include "data/encounter/WWWComp/WWW_Comp_1.inc"
+encounterList_WWW_Comp_2: .include "data/encounter/WWWComp/WWW_Comp_2.inc"
+encounterList_WWW_Comp_3: .include "data/encounter/WWWComp/WWW_Comp_3.inc"
+encounterList_WWW_Comp_4: .include "data/encounter/WWWComp/WWW_Comp_4.inc"
+encounterList_WWW_Comp_5: .include "data/encounter/WWWComp/WWW_Comp_5.inc"
+encounterList_Rocket_Comp: .include "data/encounter/WWWComp/Rocket_Comp.inc"

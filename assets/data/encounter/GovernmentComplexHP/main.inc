@@ -1,6 +1,6 @@
 global_label encounterGroupGovtComplexHP
 
-.word encounterList_0800d8ec @ Yuichiro's PC
-.word encounterList_0800d8ec @ Lunch Cart
+.word encounterList_Yuichiro_PC @ Yuichiro's PC
+.word encounterList_Yuichiro_PC @ Lunch Cart
 
-encounterList_0800d8ec: .include "data/encounter/GovernmentComplexHP/0.inc"
+encounterList_Yuichiro_PC: .include "data/encounter/GovernmentComplexHP/Yuichiro_PC.inc"

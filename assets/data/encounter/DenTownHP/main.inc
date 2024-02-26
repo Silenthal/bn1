@@ -1,5 +1,5 @@
 global_label encounterGroupDenTownHP
 
-.word encounterList_0800d994 @ Antique Comp
+.word encounterList_Antique_Comp
 
-encounterList_0800d994: .include "data/encounter/DenTownHP/0.inc"
+encounterList_Antique_Comp: .include "data/encounter/DenTownHP/Antique_Comp.inc"

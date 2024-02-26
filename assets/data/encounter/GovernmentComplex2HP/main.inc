@@ -1,5 +1,5 @@
 global_label encounterGroupGovtComplex2HP
 
-.word encounterList_0800da34 @ Fish Cart
+.word encounterList_Fish_Stand_Comp
 
-encounterList_0800da34: .include "data/encounter/GovernmentComplex2HP/0.inc"
+encounterList_Fish_Stand_Comp: .include "data/encounter/GovernmentComplex2HP/Fish_Stand_Comp.inc"
