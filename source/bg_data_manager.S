@@ -569,15 +569,15 @@ LAB_08011214:
     pop        {pc}
     .align 2, 0
 
-ptrBgDataOffline: .word bgDataDir_Offline
+ptrBgDataOffline: .word BGData_Offline
 ptrTmCopy3x: .word BGDM_CopyTilemapEntry_BG123
 ptrLoad123: .word BGDM_CopyTilemap
 ptrLoadXY123: .word BGDM_LoadTilemapXY
-ptrBgDataOnline: .word bgDataDir_Online
+ptrBgDataOnline: .word BGData_Online
 ptrTmCopy2x: .word BGDM_CopyTilemapEntry_BG23
 ptrLoad23_1: .word BGDM_LoadTilemap_StaticBG1
 ptrLoadXY23: .word BGDM_LoadTilemapXY_StaticBG1
-ptrBgDataBattle: .word bgDataDir_Battle
+ptrBgDataBattle: .word BGData_Battle
 ptrTmCopy1x: .word BGDM_CopyTilemapEntry_BG2
 ptrLoad23_2: .word BGDM_LoadTilemap_StaticBG1
 ptrLoadXY23_2: .word BGDM_LoadTilemapXY_StaticBG1

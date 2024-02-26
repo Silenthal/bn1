@@ -6,7 +6,6 @@
     .set InitMapCoverData, 0x8012314
     .set InitMapEventData, 0x80124c0
 
-    .set PTR_08013364, 0x8013364
     .set gDecompDest, 0x2033000
     .set gCurMapBoundaryData, 0x20070e0
     .set PTR_0200c230, 0x200c230
@@ -466,11 +465,11 @@ LAB_080118b6:
 
     .align 2, 0
 lz_pointer_c:
-    .word bgPropDir_Offline
+    .word MapData_Offline
 lz_pointer_b:
-    .word bgPropDir_Online
+    .word MapData_Online
 lz_pointer_a:
-    .word PTR_08013364
+    .word MapData_Battle
 PTR_gDecompDest_080118c8:
     .word gDecompDest
 PTR_gCurMapBoundaryData_080118cc:
