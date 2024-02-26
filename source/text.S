@@ -14,11 +14,8 @@
     .set PlayerAnimation_Get, 0x80560B4
     .set PlayerAnimation_Set, 0x8056074
     .set PlayerAnimation_Unlock, 0x8056064
-    .set Area_GetBackgroundId, 0x8004674
-    .set FUN_08004a10, 0x8004a10
     .set Encounter_SetEnemyList, 0x80098cc
     .set PTR_EnemySpawn_08014cf8, 0x8014cf8
-    .set FUN_08004a74, 0x8004a74
     .set Save_SaveGame, 0x801fADC
     .set DAT_0600d820, 0x600d820
     .set DAT_0600d8a0, 0x600d8a0
@@ -2624,7 +2621,7 @@ _ts JT_Command_FD_08_StartBattle
     b          LAB_080148ea
 LAB_080148c0:
     push       { r4, r5 }
-    bl         Area_GetBackgroundId
+    bl         World_GetBackgroundId
     mov        r1,#0x0
     mov        r2,#0x0
     mov        r4,#0x1
@@ -2654,7 +2651,7 @@ _ts JT_Command_FD_0C_StartShop
 LAB_08014900:
     push       { r4, r5 }
     ldrb       r0,[r4,#0x2]
-    bl         FUN_08004a10
+    bl         World_StartShop
     pop        { r4, r5 }
     mov        r0,#0x1
     strb       r0,[r5,#0x4]
@@ -2682,7 +2679,7 @@ LAB_08014924:
     cmp        r0,#0xff
     bne        LAB_08014942
     push       { r4, r5 }
-    bl         Area_GetBackgroundId
+    bl         World_GetBackgroundId
     pop        { r4, r5 }
 LAB_08014942:
     push       { r4, r5 }
@@ -2720,7 +2717,7 @@ _ts JT_Command_FD_14_StartChipTrader
 LAB_08014984:
     push       { r4, r5 }
     ldrb       r0,[r4,#0x2]
-    bl         FUN_08004a74
+    bl         World_StartChipTrader
     pop        { r4, r5 }
     bne        LAB_0801499c
     mov        r0,#0x1
@@ -2783,7 +2780,7 @@ LAB_080149dc:
     ldrb       r1,[r7,#0x1]
     bl         Battle_GetRandomAreaEnemySpawnList
     bl         Encounter_SetEnemyList
-    bl         Area_GetBackgroundId
+    bl         World_GetBackgroundId
     mov        r1,#0x0
     mov        r2,#0x0
     mov        r4,#0x1

@@ -8,7 +8,6 @@
 .set Battle_LoadEnemyHp, 0x8009b64
 .set IsPanelWalkable, 0x8059c40
 .set Battle_DecreaseOpponentCount, 0x8009cc2
-.set SpritePtr_ResetPalette, 0x80025d8
 .set Battle_IsInputLocked, 0x8009cee
 .set FUN_080562d6_HpDrainRelated, 0x80562d6
 .set Entity_CompareToPlayerRow, 0x805aadc

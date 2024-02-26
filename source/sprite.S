@@ -2,9 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set IsDistanceClose, 0x8000D98
     .set SpritePtr_CalculateOcclusion, 0x3006b61
-    .set dummy_3cc4, 0x8003CC4
     .set listSpritePtr, 0x8012690
 
     .text
@@ -968,7 +966,7 @@ _ts dummy_2970
     ldr        r0,PTR_DAT_080029b4
     @ Passing the address of format text at 0x2980, and the pointer to the
     @ next available decompressed sprite block to a dummy function
-    bl         dummy_3cc4
+    bl         PrintDebugString
     pop        { r5, pc }
     .align 2, 0
 DAT_08002980:

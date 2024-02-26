@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Battle_GetInternetSpawnListIndex, 0x80055e8
     .set Attack_Cube_Create_MP, 0x80738b8
     .set Sio_SetReady, 0x809bdf0
     .set BgTask_0803ed68, 0x803ed68

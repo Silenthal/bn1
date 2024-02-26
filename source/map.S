@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set NPC_Alloc, 0x8003b18
     .set InitMapElevationData, 0x80120f0
     .set InitMapCoverData, 0x8012314
     .set InitMapEventData, 0x80124c0

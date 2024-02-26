@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set FUN_080194c8, 0x80194c8
-    .set InitBgAnimation, 0x8001d0c
     
     .text
 
@@ -39,7 +38,7 @@ _nt InitMenu
     strh       r0,[r7,#0xc]
     push       { r5 }
     bl         BgUpdate_Init
-    bl         InitBgAnimation
+    bl         InitBgTask
     pop        { r5 }
     pop        { pc }
 

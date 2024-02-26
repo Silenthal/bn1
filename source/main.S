@@ -1,11 +1,8 @@
 #include "offsets.h"
     .include "constants.inc"
     .include "macros.inc"
-    
-    .set BgAnimation_Update         , 0x8001d60
-    .set IsBattleActive             , 0x80063b2
+
     .set Screen_LoadChipDetail      , 0x801996c
-    .set InitBgAnimation            , 0x8001d0c
     .set Sio_SetReady               , 0x809bdf0
 
     .text
@@ -42,7 +39,7 @@ _ts AgbMain
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         IsBattleActive
+    bl         Battle_IsBattleActive
     tst        r0,r0
     beq        1f
     bl         Fade_Apply
@@ -50,7 +47,7 @@ _ts AgbMain
     bl         Text_Main
     bl         Screen_LoadChipDetail
     bl         BgUpdate_CallPostLoopFunction
-    bl         BgAnimation_Update
+    bl         BgTask_Update
     b          .mainLoop
 
     .pool
@@ -211,7 +208,7 @@ _ts Main_Init
     bl         0x800408c
     bl         0x801880c
     bl         0x801882c
-    bl         InitBgAnimation
+    bl         InitBgTask
     bl         Video_InitBlendSettings
     bl         InitFadeSettings
     mov        r0,r10

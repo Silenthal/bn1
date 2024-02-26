@@ -3,7 +3,6 @@
     .include "macros.inc"
 
 
-.set Battle_InitPlayer, 0x800504c
 .set Battle_AreAllSpritesSpawned, 0x8006a0c
 .set Battle_DrawEnemyHP, 0x807bbcc
 .set Battle_DrawPlayerHand, 0x807c152

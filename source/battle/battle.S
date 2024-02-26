@@ -13,7 +13,6 @@
     .set tilesetBattleMiscellaneous, 0x8640854
     .set Battle_IncreaseBattleCount, 0x8009d1c
     .set FUN_08056234, 0x8056234
-    .set Battle_InitBackground, 0x8004f34
     .set FUN_08007994, 0x8007994
     .set possibleBgMove, 0x8010c98
     .set Struct_C1C0_0200c1c0, 0x200c1c0
@@ -21,8 +20,6 @@
     .set BattleMessage_Load, 0x8017884
     .set BattleMessage_Main, 0x80178ec
     .set Sio_SetReady, 0x809bdf0
-    .set DisableScreenDim, 0x8005768
-    .set Main_StartGameOver, 0x8004a40
     .set Battle_SetPostBattleHP, 0x800638C
     .set Effect_BattleResult_Create, 0x807d688
     .set PlayerMPState_Free, 0x8007c00
@@ -564,7 +561,7 @@ LAB_08005c58:
     b          LAB_08005c96
 LAB_08005c8c:
     push       {r5,r7}
-    bl         Main_StartGameOver
+    bl         World_StartGameOver
     pop        {r5,r7}
     b          LAB_08005cd2
 LAB_08005c96:

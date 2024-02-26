@@ -6,7 +6,6 @@
     .set FUN_0805758a, 0x805758A
     .set FUN_0805738e, 0x805738e
     .set Text_CheckIfDialogActive, 0x8007240
-    .set PrintDebugString, 0x8003cc4
     .set Text_SetTextPointer_Tutorial1, 0x800722c
     .set Text_SetTextPointer_Tutorial2, 0x8007658
     .text

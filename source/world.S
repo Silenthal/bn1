@@ -6,7 +6,6 @@
 
     .set Flag_SetPlayerActive, 0x8056044
     .set InitStartMenuState, 0x80191c8
-    .set DisableScreenDim, 0x8005768
     .set Inventory_InitChecksum, 0x801b0bc
     .set Inventory_InitChecksumIndex, 0x801b108
     .set FUN_0801f6c4, 0x801f6c4
@@ -26,7 +25,6 @@
     .set SetupMapFlags, 0x8018554
     .set Scene_MarkForUnloading, 0x8018820
     .set Event_HandleMapEvents, 0x80185b0
-    .set Battle_Init, 0x80051f4
     .set StartMenu_Main, 0x8019224
     .set Scene_GetActiveScene, 0x801883c
     .set FUN_080521cc, 0x80521cc

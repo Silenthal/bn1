@@ -4,12 +4,8 @@
 
     .set FUN_080823de_StopScript, 0x80823DE
     .set FUN_08082556_GetInt, 0x8082556
-    .set NPC_Free, 0x8003b60
     .set FUN_0808254c_GetShort, 0x808254C
 
-    .set SpritePtr_Flag_Set8, 0x8002770
-    .set SpritePtr_Flag_Set4Clear8, 0x8002630
-    .set SpritePtr_Flag_Clear4, 0x8002648
     .text
 
     .thumb
@@ -363,19 +359,19 @@ FUN_08082390:
 
 FUN_0808239e:
     push       { lr }
-    bl         SpritePtr_Flag_Set8
+    bl         SpritePtr_NoZClip
     add        r6,#0x1
     pop        { pc }
 
 FUN_080823a8:
     push       { lr }
-    bl         SpritePtr_Flag_Set4Clear8
+    bl         SpritePtr_SetZClip
     add        r6,#0x1
     pop        { pc }
 
 FUN_080823b2:
     push       { lr }
-    bl         SpritePtr_Flag_Clear4
+    bl         SpritePtr_Flag_ClearZClip
     add        r6,#0x1
     pop        { pc }
 
