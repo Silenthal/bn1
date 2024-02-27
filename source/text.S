@@ -41,7 +41,7 @@ _ts Text_LoadAreaDialogue
     bge        LAB_08013592
     cmp        r0,#0x80
     bge        LAB_0801358c
-    ldr        r3,PTR_textDictDir_Offline
+    ldr        r3,PTR_DialogueData_Offline
     b          LAB_08013596
 LAB_0801358c:
     ldr        r3,PTR_PTR_08013950
@@ -538,22 +538,22 @@ _ts Text_CopyCharTileUI
     bx         r0
     pop        { pc }
 
-PTR_textDictDir_Offline:                           .word textDictDir_Offline
-PTR_PTR_08013950:                           .word textDictDir_Online
-PTR_PTR_PTR_08013954:                       .word PTR_PTR_08014d68
-PTR_PTR_08013958:                           .word textDictDir_Commentary_Offline
-PTR_PTR_0801395c:                           .word textDictDir_Commentary_Online
-PTR_PTR_PTR_08013960:                       .word PTR_PTR_08014fc4
+PTR_DialogueData_Offline:                   .word DialogueData_Offline
+PTR_PTR_08013950:                           .word DialogueData_Online
+PTR_PTR_PTR_08013954:                       .word DialogueData_Battle
+PTR_PTR_08013958:                           .word CommentaryData_Offline
+PTR_PTR_0801395c:                           .word CommentaryData_Online
+PTR_PTR_PTR_08013960:                       .word CommentaryData_Battle
 PTR_gLayoutDialogueText_08013964:           .word gLayoutDialogueText
 PTR_tilesetDialogueWindowBorder_08013968:   .word tilesetDialogueWindowBorder
 PTR_DAT_0801396c:                           .word 0x600d700
 PTR_JT_Command_08013970:                    .word JT_Command
 PTR_JT_LayoutCommand_08013974:              .word JT_LayoutCommand
-PTR_gTextTileBuffer_08013978:                .word gTextTileBuffer
-dstvTextTileStart:                           .word vTextTileStart
+PTR_gTextTileBuffer_08013978:               .word gTextTileBuffer
+dstvTextTileStart:                          .word vTextTileStart
 DAT_08013980:                               .word 0x3C0
 PTR_tilesetDialogueText_08013984:           .word tilesetDialogueText
-PTR_gTextTileBuffer_08013988:                .word gTextTileBuffer
+PTR_gTextTileBuffer_08013988:               .word gTextTileBuffer
 PTR_charShade_0801398c:                     .word charShade
 PTR_tilesetListPortraits_08013990:          .word 0x8012b20 @ tilesetListPortraits
 PTR_layoutDialogBox_08013994:               .word 0x80151c8 @ layoutDialogBox
@@ -2222,7 +2222,7 @@ _ts JT_Command_FB_00_PrintItemName
     ldrb       r0,[r5,#0x5]
     add        r0,#0x1
     strb       r0,[r5,#0x5]
-    ldr        r0,=PTR_textDict_Item_Names_080145f0
+    ldr        r0,=PTR_DialogueData_Item_Names_080145f0
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
     lsr        r3,r2,#0x4
@@ -2266,10 +2266,10 @@ LAB_080145ac:
     
     .align  2, 0
     .pool
-PTR_textDict_Item_Names_080145f0:
-    .word textDict_Item_Names
-    .word textDict_BattleChip_Names
-    .word textDict_BattleChip_Codes
+PTR_DialogueData_Item_Names_080145f0:
+    .word DialogueData_Item_Names
+    .word TextData_BattleChip_Names
+    .word TextData_BattleChip_Codes
 
 _ts JT_Command_FB_04_PrintItemAmount
     push       { lr }
@@ -3155,353 +3155,7 @@ PTR_EnemySpawn_08014cf8:
     .word EnemySpawn_0800b3a4
     .word EnemySpawn_0800b3b4
 
-textDictDir_Offline:
-    .word       textDictBlock_ACDCElementary
-    .word       textDictBlock_ACDCTown
-    .word       textDictBlock_GovtComplex
-    .word       textDictBlock_DenTown
-    .word       textDictBlock_SciLabBasement
-    .word       textDictBlock_WWWBase
-textDictDir_Online:
-    .word       textDictBlock_SchoolComp
-    .word       textDictBlock_OvenComp
-    .word       textDictBlock_WaterworksComp
-    .word       textDictBlock_TrafficLightComp
-    .word       textDictBlock_PowerPlantComp
-    .word       textDictBlock_WWWComp
-    .word       0
-    .word       0
-    .word       textDictBlock_ACDCHP
-    .word       textDictBlock_GovtComplexHP
-    .word       textDictBlock_DenTownHP
-    .word       textDictBlock_GovtComplex2HP
-    .word       textDictBlock_OtherComp
-    .word       0
-    .word       0
-    .word       0
-    .word       textDictBlock_Internet
-PTR_PTR_08014d68:
-    .word       PTR_08014f60
-textDictBlock_ACDCElementary:
-    .word       textDict_ACDC_Elementary_Area_0
-    .word       textDict_ACDC_Elementary_Area_1
-    .word       textDict_ACDC_Elementary_Area_2
-    .word       textDict_ACDC_Elementary_Area_3
-    .word       0
-    .word       textDict_ACDC_Elementary_Area_5
-    .word       textDict_ACDC_Elementary_Area_6
-    .word       textDict_ACDC_Elementary_Area_7
-    .word       textDict_ACDC_Elementary_Area_8
-    .word       textDict_ACDC_Elementary_Area_9
-    .word       0
-    .word       textDict_ACDC_Elementary_Area_B
-    .word       textDict_ACDC_Elementary_Area_C
-    .word       textDict_ACDC_Elementary_Area_D
-    .word       textDict_ACDC_Elementary_Area_E
-textDictBlock_ACDCTown:
-    .word       textDict_ACDC_Town_Area_0
-    .word       textDict_ACDC_Town_Area_1
-    .word       textDict_ACDC_Town_Area_2
-    .word       textDict_ACDC_Town_Area_3
-    .word       0
-    .word       textDict_ACDC_Town_Area_5
-    .word       textDict_ACDC_Town_Area_6
-    .word       textDict_ACDC_Town_Area_7
-    .word       0
-    .word       textDict_ACDC_Town_Area_9
-    .word       0
-    .word       textDict_ACDC_Town_Area_B
-    .word       textDict_ACDC_Town_Area_C
-textDictBlock_GovtComplex:
-    .word       textDict_GovernmentComplex_Area_0
-    .word       textDict_GovernmentComplex_Area_1
-    .word       textDict_GovernmentComplex_Area_2
-    .word       textDict_GovernmentComplex_Area_3
-    .word       0
-    .word       textDict_GovernmentComplex_Area_5
-    .word       textDict_GovernmentComplex_Area_6
-    .word       textDict_GovernmentComplex_Area_7
-    .word       0
-    .word       textDict_GovernmentComplex_Area_9
-    .word       0
-    .word       textDict_GovernmentComplex_Area_B
-textDictBlock_DenTown:
-    .word       textDict_DenTown_Area_0
-    .word       textDict_DenTown_Area_1
-    .word       textDict_DenTown_Area_2
-    .word       textDict_DenTown_Area_3
-    .word       textDict_DenTown_Area_4
-    .word       textDict_DenTown_Area_5
-    .word       textDict_DenTown_Area_6
-    .word       textDict_DenTown_Area_7
-textDictBlock_SciLabBasement:
-    .word       textDict_SciLabBasement_Area_0
-    .word       textDict_SciLabBasement_Area_1
-    .word       textDict_SciLabBasement_Area_2
-    .word       textDict_SciLabBasement_Area_3
-    .word       textDict_SciLabBasement_Area_4
-    .word       textDict_SciLabBasement_Area_5
-textDictBlock_WWWBase:
-    .word       textDict_WWWBase_Area_0
-    .word       textDict_WWWBase_Area_1
-    .word       textDict_WWWBase_Area_2
-    .word       textDict_WWWBase_Area_3
-    .word       textDict_WWWBase_Area_4
-    .word       textDict_WWWBase_Area_5
-textDictBlock_SchoolComp:
-    .word       textDict_SchoolComp_Area_0
-    .word       textDict_SchoolComp_Area_1
-    .word       textDict_SchoolComp_Area_2
-    .word       textDict_SchoolComp_Area_3
-    .word       textDict_SchoolComp_Area_4
-textDictBlock_OvenComp:
-    .word       textDict_OvenComp_Area_0
-    .word       textDict_OvenComp_Area_1
-textDictBlock_WaterworksComp:
-    .word       textDict_WaterworksComp_Area_0
-    .word       textDict_WaterworksComp_Area_1
-    .word       textDict_WaterworksComp_Area_2
-    .word       textDict_WaterworksComp_Area_3
-    .word       textDict_WaterworksComp_Area_4
-    .word       textDict_WaterworksComp_Area_5
-textDictBlock_TrafficLightComp:
-    .word       textDict_TrafficLightComp_Area_0
-    .word       textDict_TrafficLightComp_Area_1
-    .word       textDict_TrafficLightComp_Area_2
-    .word       textDict_TrafficLightComp_Area_3
-    .word       textDict_TrafficLightComp_Area_4
-textDictBlock_PowerPlantComp:
-    .word       textDict_PowerPlantComp_Area_0
-    .word       textDict_PowerPlantComp_Area_1
-    .word       textDict_PowerPlantComp_Area_2
-    .word       textDict_PowerPlantComp_Area_3
-textDictBlock_WWWComp:
-    .word       textDict_WWWComp_Area_0
-    .word       textDict_WWWComp_Area_1
-    .word       textDict_WWWComp_Area_2
-    .word       textDict_WWWComp_Area_3
-    .word       textDict_WWWComp_Area_4
-    .word       textDict_WWWComp_Area_5
-textDictBlock_ACDCHP:
-    .word       textDict_ACDCHP_Area_0
-    .word       textDict_ACDCHP_Area_1
-    .word       textDict_ACDCHP_Area_2
-    .word       textDict_ACDCHP_Area_3
-textDictBlock_GovtComplexHP:
-    .word       textDict_GovernmentComplexHP_Area_0
-    .word       textDict_GovernmentComplexHP_Area_1
-textDictBlock_DenTownHP:
-    .word       textDict_DenTownHP_Area_0
-textDictBlock_GovtComplex2HP:
-    .word       textDict_GovernmentComplex2HP_Area_0
-textDictBlock_OtherComp:
-    .word       textDict_Other_Area_0
-    .word       textDict_Other_Area_1
-    .word       textDict_Other_Area_2
-    .word       textDict_Other_Area_3
-    .word       textDict_Other_Area_4
-    .word       textDict_Other_Area_5
-    .word       textDict_Other_Area_6
-    .word       textDict_Other_Area_7
-    .word       textDict_Other_Area_8
-    .word       textDict_Other_Area_9
-    .word       textDict_Other_Area_A
-    .word       textDict_Other_Area_B
-    .word       textDict_Other_Area_C
-textDictBlock_Internet:
-    .word       textDict_Internet_Area_0
-    .word       textDict_Internet_Area_1
-    .word       textDict_Internet_Area_2
-    .word       textDict_Internet_Area_3
-    .word       textDict_Internet_Area_4
-    .word       textDict_Internet_Area_5
-    .word       textDict_Internet_Area_6
-    .word       textDict_Internet_Area_7
-    .word       textDict_Internet_Area_8
-    .word       textDict_Internet_Area_9
-    .word       textDict_Internet_Area_A
-    .word       textDict_Internet_Area_B
-    .word       textDict_Internet_Area_C
-    .word       textDict_Internet_Area_D
-    .word       textDict_Internet_Area_E
-    .word       textDict_Internet_Area_F
-PTR_08014f60:
-    .word       0
-    .word       0
-textDictDir_Commentary_Offline:
-    .word       textDictBlock_Commentary_ACDC_Elementary
-    .word       textDictBlock_Commentary_ACDC_Town
-    .word       textDictBlock_Commentary_GovernmentComplex
-    .word       textDictBlock_Commentary_DenTown
-    .word       textDictBlock_Commentary_SciLabBasement
-    .word       textDictBlock_Commentary_WWWBase
-textDictDir_Commentary_Online:
-    .word       textDictBlock_Commentary_SchoolComp
-    .word       textDictBlock_Commentary_OvenComp
-    .word       textDictBlock_Commentary_WaterworksComp
-    .word       textDictBlock_Commentary_TrafficLightComp
-    .word       textDictBlock_Commentary_PowerPlantComp
-    .word       textDictBlock_Commentary_WWWComp
-    .word       0
-    .word       0
-    .word       textDictBlock_Commentary_ACDCHP
-    .word       textDictBlock_Commentary_GovernmentComplexHP
-    .word       textDictBlock_Commentary_DenTownHP
-    .word       textDictBlock_Commentary_GovernmentComplex2HP
-    .word       textDictBlock_Commentary_Other
-    .word       0
-    .word       0
-    .word       0
-    .word       textDictBlock_Commentary_Internet
-PTR_PTR_08014fc4:
-    .word       PTR_080151c0
-textDictBlock_Commentary_ACDC_Elementary:
-    .word       textDict_Commentary_ACDC_Elementary_Area_0
-    .word       textDict_Commentary_ACDC_Elementary_Area_1
-    .word       textDict_Commentary_ACDC_Elementary_Area_2
-    .word       textDict_Commentary_ACDC_Elementary_Area_3
-    .word       textDict_Commentary_None
-    .word       textDict_Commentary_ACDC_Elementary_Area_5
-    .word       textDict_Commentary_ACDC_Elementary_Area_6
-    .word       textDict_Commentary_ACDC_Elementary_Area_7
-    .word       textDict_Commentary_ACDC_Elementary_Area_8
-    .word       textDict_Commentary_ACDC_Elementary_Area_9
-    .word       textDict_Commentary_None
-    .word       textDict_Commentary_ACDC_Elementary_Area_B
-    .word       textDict_Commentary_ACDC_Elementary_Area_C
-    .word       textDict_Commentary_ACDC_Elementary_Area_D
-    .word       textDict_Commentary_ACDC_Elementary_Area_E
-textDictBlock_Commentary_ACDC_Town:
-    .word       textDict_Commentary_ACDC_Town_Area_0
-    .word       textDict_Commentary_ACDC_Town_Area_1
-    .word       textDict_Commentary_ACDC_Town_Area_2
-    .word       textDict_Commentary_ACDC_Town_Area_3
-    .word       textDict_Commentary_None
-    .word       textDict_Commentary_ACDC_Town_Area_5
-    .word       textDict_Commentary_ACDC_Town_Area_6
-    .word       textDict_Commentary_ACDC_Town_Area_7
-    .word       textDict_Commentary_None
-    .word       textDict_Commentary_ACDC_Town_Area_9
-    .word       textDict_Commentary_None
-    .word       textDict_Commentary_ACDC_Town_Area_B
-    .word       textDict_Commentary_ACDC_Town_Area_C
-    .word       textDict_Commentary_ACDC_Town_Area_D
-textDictBlock_Commentary_GovernmentComplex:
-    .word       textDict_Commentary_GovernmentComplex_Area_0
-    .word       textDict_Commentary_GovernmentComplex_Area_1
-    .word       textDict_Commentary_GovernmentComplex_Area_2
-    .word       textDict_Commentary_GovernmentComplex_Area_3
-    .word       textDict_Commentary_GovernmentComplex_Area_4
-    .word       textDict_Commentary_GovernmentComplex_Area_5
-    .word       textDict_Commentary_GovernmentComplex_Area_6
-    .word       textDict_Commentary_GovernmentComplex_Area_7
-    .word       textDict_Commentary_None
-    .word       textDict_Commentary_GovernmentComplex_Area_9
-    .word       textDict_Commentary_None
-    .word       textDict_Commentary_GovernmentComplex_Area_B
-textDictBlock_Commentary_DenTown:
-    .word       textDict_Commentary_DenTown_Area_0
-    .word       textDict_Commentary_DenTown_Area_1
-    .word       textDict_Commentary_DenTown_Area_2
-    .word       textDict_Commentary_DenTown_Area_3
-    .word       textDict_Commentary_DenTown_Area_4
-    .word       textDict_Commentary_DenTown_Area_5
-    .word       textDict_Commentary_DenTown_Area_6
-    .word       textDict_Commentary_DenTown_Area_7
-textDictBlock_Commentary_SciLabBasement:
-    .word       textDict_Commentary_SciLabBasement_Area_0
-    .word       textDict_Commentary_SciLabBasement_Area_1
-    .word       textDict_Commentary_SciLabBasement_Area_2
-    .word       textDict_Commentary_SciLabBasement_Area_3
-    .word       textDict_Commentary_SciLabBasement_Area_4
-    .word       textDict_Commentary_SciLabBasement_Area_5
-textDictBlock_Commentary_WWWBase:
-    .word       textDict_Commentary_WWWBase_Area_0
-    .word       textDict_Commentary_WWWBase_Area_1
-    .word       textDict_Commentary_None
-    .word       textDict_Commentary_WWWBase_Area_3
-    .word       textDict_Commentary_WWWBase_Area_4
-    .word       textDict_Commentary_WWWBase_Area_5
-textDictBlock_Commentary_SchoolComp:
-    .word       textDict_Commentary_SchoolComp_Area_0
-    .word       textDict_Commentary_SchoolComp_Area_1
-    .word       textDict_Commentary_SchoolComp_Area_2
-    .word       textDict_Commentary_SchoolComp_Area_3
-    .word       textDict_Commentary_SchoolComp_Area_4
-textDictBlock_Commentary_OvenComp:
-    .word       textDict_Commentary_OvenComp_Area_0
-    .word       textDict_Commentary_OvenComp_Area_1
-textDictBlock_Commentary_WaterworksComp:
-    .word       textDict_Commentary_WaterworksComp_Area_0
-    .word       textDict_Commentary_WaterworksComp_Area_1
-    .word       textDict_Commentary_WaterworksComp_Area_2
-    .word       textDict_Commentary_WaterworksComp_Area_3
-    .word       textDict_Commentary_WaterworksComp_Area_4
-    .word       textDict_Commentary_WaterworksComp_Area_5
-textDictBlock_Commentary_TrafficLightComp:
-    .word       textDict_Commentary_TrafficLightComp_Area_0
-    .word       textDict_Commentary_TrafficLightComp_Area_1
-    .word       textDict_Commentary_TrafficLightComp_Area_2
-    .word       textDict_Commentary_TrafficLightComp_Area_3
-    .word       textDict_Commentary_TrafficLightComp_Area_4
-textDictBlock_Commentary_PowerPlantComp:
-    .word       textDict_Commentary_PowerPlantComp_Area_0
-    .word       textDict_Commentary_PowerPlantComp_Area_1
-    .word       textDict_Commentary_PowerPlantComp_Area_2
-    .word       textDict_Commentary_PowerPlantComp_Area_3
-textDictBlock_Commentary_WWWComp:
-    .word       textDict_Commentary_WWWComp_Area_0
-    .word       textDict_Commentary_WWWComp_Area_1
-    .word       textDict_Commentary_WWWComp_Area_2
-    .word       textDict_Commentary_WWWComp_Area_3
-    .word       textDict_Commentary_WWWComp_Area_4
-    .word       textDict_Commentary_WWWComp_Area_5
-textDictBlock_Commentary_ACDCHP:
-    .word       textDict_Commentary_ACDCHP_Area_0
-    .word       textDict_Commentary_ACDCHP_Area_1
-    .word       textDict_Commentary_ACDCHP_Area_2
-    .word       textDict_Commentary_ACDCHP_Area_3
-textDictBlock_Commentary_GovernmentComplexHP:
-    .word       textDict_Commentary_GovernmentComplexHP_Area_0
-    .word       textDict_Commentary_GovernmentComplexHP_Area_1
-textDictBlock_Commentary_DenTownHP:
-    .word       textDict_Commentary_DenTownHP_Area_0
-textDictBlock_Commentary_GovernmentComplex2HP:
-    .word       textDict_Commentary_GovernmentComplex2HP_Area_0
-textDictBlock_Commentary_Other:
-    .word       textDict_Commentary_Other_Area_0
-    .word       textDict_Commentary_Other_Area_1
-    .word       textDict_Commentary_Other_Area_2
-    .word       textDict_Commentary_Other_Area_3
-    .word       textDict_Commentary_Other_Area_4
-    .word       textDict_Commentary_Other_Area_5
-    .word       textDict_Commentary_Other_Area_6
-    .word       textDict_Commentary_Other_Area_7
-    .word       textDict_Commentary_Other_Area_8
-    .word       textDict_Commentary_Other_Area_9
-    .word       textDict_Commentary_Other_Area_A
-    .word       textDict_Commentary_Other_Area_B
-    .word       textDict_Commentary_Other_Area_C
-textDictBlock_Commentary_Internet:
-    .word       textDict_Commentary_Internet_Area_0
-    .word       textDict_Commentary_Internet_Area_1
-    .word       textDict_Commentary_Internet_Area_2
-    .word       textDict_Commentary_Internet_Area_3
-    .word       textDict_Commentary_Internet_Area_4
-    .word       textDict_Commentary_Internet_Area_5
-    .word       textDict_Commentary_Internet_Area_6
-    .word       textDict_Commentary_Internet_Area_7
-    .word       textDict_Commentary_Internet_Area_8
-    .word       textDict_Commentary_Internet_Area_9
-    .word       textDict_Commentary_Internet_Area_A
-    .word       textDict_Commentary_Internet_Area_B
-    .word       textDict_Commentary_Internet_Area_C
-    .word       textDict_Commentary_Internet_Area_D
-    .word       textDict_Commentary_Internet_Area_E
-    .word       textDict_Commentary_Internet_Area_F
-PTR_080151c0:
-    .word       0
-    .word       0
+    .include "data/maps/text_data.inc"
 
 layoutDialogBox:
     .incbin "images/text/dialog_box.tilemap"

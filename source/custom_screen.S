@@ -451,7 +451,7 @@ LAB_08015c4e:
 LAB_08015c66:
     mov        r0,#0x8
     strb       r0,[r5,#0x2]
-    ldr        r0,PTR_textDict_BattleMessages_08015d94
+    ldr        r0,PTR_TextData_BattleMessages_08015d94
     mov        r1,#0x1
     push       { r5 }
     bl         Text_LoadDialogue
@@ -479,7 +479,7 @@ LAB_08015c78:
     bl         memset
     mov        r0,#0x6a
     bl         Sound_PlaySongImmediate
-    ldr        r0,PTR_textDict_BattleMessages_08015d94
+    ldr        r0,PTR_TextData_BattleMessages_08015d94
     mov        r1,#0x0
     push       { r5 }
     bl         Text_LoadDialogue
@@ -488,7 +488,7 @@ LAB_08015cb2:
     bl         CustomScreen_DrawCursorAddButton
     pop        { pc }
 
-    .word textDict_BattleMessages
+    .word TextData_BattleMessages
 
 _ts CustomScreen_1_3_1_Success
     push       { lr }
@@ -596,7 +596,7 @@ PTR_CustomScreen_1_6_0_ShowMessage:
 
 _ts CustomScreen_1_6_0_ShowMessage
     push       { lr }
-    ldr        r0,PTR_textDict_BattleMessages_08015d94
+    ldr        r0,PTR_TextData_BattleMessages_08015d94
     mov        r1,#0x1
     push       { r5 }
     bl         Text_LoadDialogue
@@ -604,8 +604,8 @@ _ts CustomScreen_1_6_0_ShowMessage
     mov        r0,#0xc
     strb       r0,[r5,#0x2]
     pop        { pc }
-PTR_textDict_BattleMessages_08015d94:
-    .word textDict_BattleMessages
+PTR_TextData_BattleMessages_08015d94:
+    .word TextData_BattleMessages
 
 _ts CustomScreen_1_6_1_FadeOut
     push       { lr }
@@ -816,7 +816,7 @@ _nt CustomScreen_LoadChipDetail
     push       { r0, r6 }
     push       { r5 }
     add        r1,r0,#0x0
-    ldr        r0,PTR_textDict_BattleChip_Names_08015fd0
+    ldr        r0,PTR_TextData_BattleChip_Names_08015fd0
     ldr        r2,PTR_DAT_08015fc0
     ldr        r3,PTR_DAT_08015fc4
     mov        r4,#0x8
@@ -888,8 +888,8 @@ PTR_DAT_08015fc8:
     .word 0x600af00
 PTR_eBgPaletteB_08015fcc:
     .word eBgPaletteB
-PTR_textDict_BattleChip_Names_08015fd0:
-    .word textDict_BattleChip_Names
+PTR_TextData_BattleChip_Names_08015fd0:
+    .word TextData_BattleChip_Names
 PTR_tilesetDialogueText_08015fd4:
     .word tilesetDialogueText
 PTR_tilemapCustomScreenChipName_08015fd8:
@@ -968,7 +968,7 @@ tilemapChipSelectChipAttributes:
 _ts CustomScreen_LoadChipDescription
     push       { lr }
     add        r1,r0,#0x0
-    ldr        r0,PTR_textDict_BattleChip_Descriptions_08016104
+    ldr        r0,PTR_TextData_BattleChip_Descriptions_08016104
     ldr        r2,PTR_iwBufferUITextTile_08016108
     ldr        r3,PTR_DAT_0801610c
     mov        r4,#0xa
@@ -991,8 +991,8 @@ _ts CustomScreen_LoadChipDescription
     mov        r4,#0x5
     bl         CustomScreen_CopyTilemap
     pop        { pc }
-PTR_textDict_BattleChip_Descriptions_08016104:
-    .word textDict_BattleChip_Descriptions
+PTR_TextData_BattleChip_Descriptions_08016104:
+    .word TextData_BattleChip_Descriptions
 PTR_iwBufferUITextTile_08016108:
     .word iwBufferUITextTile
 PTR_DAT_0801610c:

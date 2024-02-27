@@ -703,7 +703,7 @@ PTR_Battle_3_0_ShowMessage:
 
 _nt Battle_3_0_ShowMessage
     push       {lr}
-    ldr        r0,=textDict_BattleMessages
+    ldr        r0,=TextData_BattleMessages
     mov        r1,#0x6
     push       {r5}
     bl         Text_LoadDialogue

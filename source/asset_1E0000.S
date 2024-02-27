@@ -610,8 +610,8 @@ global_label sprite_battle_sharkman_fin
     .incbin "data/maps/online/DenTown_HP/DenTown_Antique_Comp.palettez" @ 0x51398C
     .incbin "data/maps/online/SciLab_HP/SciLab_Large_Monitor_Comp.tilemapz" @ 0x513B30
     .incbin "data/maps/online/SciLab_HP/SciLab_Large_Monitor_Comp.palettez" @ 0x517C78
-    .incbin "data/maps/online/Other/Generic.tilemapz" @ 0x517E1C
-    .incbin "data/maps/online/Other/Generic.palettez" @ 0x51A1C4
+    .incbin "data/maps/online/Other_Comp/Generic.tilemapz" @ 0x517E1C
+    .incbin "data/maps/online/Other_Comp/Generic.palettez" @ 0x51A1C4
     .incbin "data/maps/online/Internet/Internet_1.tilesetz" @ 0x51A368
     .incbin "data/maps/online/Internet/Internet_1.palettez" @ 0x51E23C
     .incbin "data/maps/online/Internet/Internet_1.tilemapz" @ 0x51E3E0
@@ -772,7 +772,7 @@ global_label sprite_battle_sharkman_fin
     .incbin "data/maps/online/Govt_Complex_HP/Govt_Lunch_Cart_Comp.scb" @ 0x5E27D8
     .incbin "data/maps/online/DenTown_HP/DenTown_Antique_Comp.scb" @ 0x5E2F20
     .incbin "data/maps/online/SciLab_HP/SciLab_Large_Monitor_Comp.scb" @ 0x5E384C
-    .incbin "data/maps/online/Other/Generic.scb" @ 0x5E41F8
+    .incbin "data/maps/online/Other_Comp/Generic.scb" @ 0x5E41F8
     .incbin "data/maps/online/Internet/Internet_1.scb" @ 0x5E4604
     .incbin "data/maps/online/Internet/Internet_2.scb" @ 0x5E774C
     .incbin "data/maps/online/Internet/Internet_3.scb" @ 0x5ED608
@@ -1218,7 +1218,7 @@ global_label paletteCustomScreenBg_1
     .incbin "images/custom_screen/frame.gbapal"
 global_label tilemapCustomScreenBg_1
     .incbin "images/custom_screen/frame.tilemap"
-global_label textDict_BattleMessages
+global_label TextData_BattleMessages
     .incbin "text/battle/messages.script"
     @ Quirk: Seems to be a script to instantly get items?
     .incbin "text/other/06420C0.script"

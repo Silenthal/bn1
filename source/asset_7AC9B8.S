@@ -7,7 +7,7 @@
     .incbin "text/shop/robotic.script"
     .incbin "text/shop/rude.script"
 
-global_label textDict_BattleChip_Codes
+global_label TextData_BattleChip_Codes
     .incbin "text/battlechip/codes.script"
     .incbin "text/shop/stock_description.script"
 

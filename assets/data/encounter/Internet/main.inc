@@ -1,4 +1,4 @@
-global_label encounterGroupInternet
+global_label EncounterData_Internet
 
 .word encounterList_Internet_1
 .word encounterList_Internet_2

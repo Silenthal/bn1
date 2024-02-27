@@ -1,0 +1,11 @@
+global_label EncounterData_Power_Plant_Comp
+
+.word encounterList_Power_Plant_Comp_1
+.word encounterList_Power_Plant_Comp_2
+.word encounterList_Power_Plant_Comp_3
+.word encounterList_Power_Plant_Comp_4
+
+encounterList_Power_Plant_Comp_1: .include "data/encounter/Power_Plant_Comp/Power_Plant_Comp_1.inc"
+encounterList_Power_Plant_Comp_2: .include "data/encounter/Power_Plant_Comp/Power_Plant_Comp_2.inc"
+encounterList_Power_Plant_Comp_3: .include "data/encounter/Power_Plant_Comp/Power_Plant_Comp_3.inc"
+encounterList_Power_Plant_Comp_4: .include "data/encounter/Power_Plant_Comp/Power_Plant_Comp_4.inc"

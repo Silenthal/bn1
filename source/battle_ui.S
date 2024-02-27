@@ -603,7 +603,7 @@ _ts BattleUi_InitActiveChipTileMap
 _ts WriteActiveChipName
     push       { r5, lr }
     add        r1,r0,#0x0
-    ldr        r0,PTR_textDict_BattleChip_Names_080158d4
+    ldr        r0,PTR_TextData_BattleChip_Names_080158d4
     ldr        r2,PTR_iwBufferUITextTile_080158d8
     ldr        r3,PTR_DAT_080158dc
     mov        r4,#0x8
@@ -679,8 +679,8 @@ LAB_080158a8:
     bl         Screen_CopyTileMapRect
     pop        { r5, pc }
 
-PTR_textDict_BattleChip_Names_080158d4:
-    .word textDict_BattleChip_Names
+PTR_TextData_BattleChip_Names_080158d4:
+    .word TextData_BattleChip_Names
 PTR_iwBufferUITextTile_080158d8:
     .word iwBufferUITextTile
 PTR_DAT_080158dc:

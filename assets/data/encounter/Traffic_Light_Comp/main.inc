@@ -1,0 +1,13 @@
+global_label EncounterData_Traffic_Light_Comp
+
+.word encounterList_Traffic_Light_Comp_1
+.word encounterList_Traffic_Light_Comp_2
+.word encounterList_Traffic_Light_Comp_3
+.word encounterList_Traffic_Light_Comp_4
+.word encounterList_Traffic_Light_Comp_5
+
+encounterList_Traffic_Light_Comp_1: .include "data/encounter/Traffic_Light_Comp/Traffic_Light_Comp_1.inc"
+encounterList_Traffic_Light_Comp_2: .include "data/encounter/Traffic_Light_Comp/Traffic_Light_Comp_2.inc"
+encounterList_Traffic_Light_Comp_3: .include "data/encounter/Traffic_Light_Comp/Traffic_Light_Comp_3.inc"
+encounterList_Traffic_Light_Comp_4: .include "data/encounter/Traffic_Light_Comp/Traffic_Light_Comp_4.inc"
+encounterList_Traffic_Light_Comp_5: .include "data/encounter/Traffic_Light_Comp/Traffic_Light_Comp_5.inc"

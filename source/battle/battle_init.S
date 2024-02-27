@@ -769,7 +769,7 @@ LAB_0800551c:
 _ts Battle_GetRandomAreaEnemySpawnList
     push       { lr }
     push       { r1 }
-    ldr        r7,PTR_encounterGroupsList
+    ldr        r7,PTR_EncounterData_List
     add        r2,r0,#0x0
     mov        r1,#0x80
     tst        r0,r1
@@ -819,39 +819,39 @@ LAB_08005562:
 LAB_0800557e:
     pop        { pc }
 
-encounterGroupsIrl:
-    .word encounterGroupSchoolComp
-    .word encounterGroupSchoolComp
-    .word encounterGroupSchoolComp
-    .word encounterGroupSchoolComp
-    .word encounterGroupSchoolComp
-    .word encounterGroupSchoolComp
+EncounterData_Offline:
+    .word EncounterData_School_Comp
+    .word EncounterData_School_Comp
+    .word EncounterData_School_Comp
+    .word EncounterData_School_Comp
+    .word EncounterData_School_Comp
+    .word EncounterData_School_Comp
 
-encounterGroupsWeb:
-    .word encounterGroupSchoolComp
-    .word encounterGroupOvenComp
-    .word encounterGroupWaterworksComp
-    .word encounterGroupTrafficLightComp
-    .word encounterGroupPowerPlantComp
-    .word encounterGroupWWWComp
-    .word encounterGroupInternet
-    .word encounterGroupInternet
-    .word encounterGroupAcdcHP
-    .word encounterGroupGovtComplexHP
-    .word encounterGroupDenTownHP
-    .word encounterGroupGovtComplex2HP
-    .word encounterGroupOther
-    .word encounterGroupInternet
-    .word encounterGroupInternet
-    .word encounterGroupInternet
-    .word encounterGroupInternet
+EncounterData_Online:
+    .word EncounterData_School_Comp
+    .word EncounterData_Oven_Comp
+    .word EncounterData_Waterworks_Comp
+    .word EncounterData_Traffic_Light_Comp
+    .word EncounterData_Power_Plant_Comp
+    .word EncounterData_WWW_Comp
+    .word EncounterData_Internet
+    .word EncounterData_Internet
+    .word EncounterData_ACDC_HP
+    .word EncounterData_Govt_Complex_HP
+    .word EncounterData_DenTown_HP
+    .word EncounterData_SciLab_HP
+    .word EncounterData_Other_Comp
+    .word EncounterData_Internet
+    .word EncounterData_Internet
+    .word EncounterData_Internet
+    .word EncounterData_Internet
 
-encounterGroupsList:
-    .word encounterGroupsIrl
-    .word encounterGroupsWeb
+EncounterData_List:
+    .word EncounterData_Offline
+    .word EncounterData_Online
 
-PTR_encounterGroupsList:
-    .word encounterGroupsList
+PTR_EncounterData_List:
+    .word EncounterData_List
 
 
 _ts Battle_GetInternetSpawnListIndex
