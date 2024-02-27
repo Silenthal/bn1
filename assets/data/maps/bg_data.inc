@@ -1,7 +1,7 @@
 global_label BGData_Offline
     .word BGData_ACDC_Elementary
     .word BGData_ACDC_Town
-    .word BGData_Government_Complex
+    .word BGData_Govt_Complex
     .word BGData_DenTown
     .word BGData_SciLab_Basement
     .word BGData_WWW_Base
@@ -16,9 +16,9 @@ global_label BGData_Online
     .word 0
     .word 0
     .word BGData_ACDC_HP
-    .word BGData_Government_Complex_HP
+    .word BGData_Govt_Complex_HP
     .word BGData_DenTown_HP
-    .word BGData_Government_Complex_2_HP
+    .word BGData_SciLab_HP
     .word BGData_Other_Comp
     .word 0
     .word 0
@@ -146,7 +146,7 @@ BGData_ACDC_Town:
    .word 0x84005b0
    .word 0x8400754
 
-BGData_Government_Complex:
+BGData_Govt_Complex:
    .word 0x8401abc
    .word 0x8405374
    .word 0x8405518
@@ -413,7 +413,7 @@ BGData_ACDC_HP:
    .word 0x850c900
    .word 0x8508978
 
-BGData_Government_Complex_HP:
+BGData_Govt_Complex_HP:
    .word 0x850caa4
    .word 0x850dc6c
    .word 0x850de10
@@ -427,7 +427,7 @@ BGData_DenTown_HP:
    .word 0x851398c
    .word 0x8511724
 
-BGData_Government_Complex_2_HP:
+BGData_SciLab_HP:
    .word 0x850caa4
    .word 0x8517c78
    .word 0x8513b30
