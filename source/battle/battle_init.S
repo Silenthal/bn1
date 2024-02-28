@@ -497,7 +497,7 @@ PTR_BgAnimate_NumberMan_08005320:
     .word BgAnimate_MaylHP
     .word BgAnimate_YaiHP
     .word BgAnimate_DexHP
-    .word BgAnimate_HikariHP
+    .word BgAnimate_YuichiroHP
     .word BgAnimate_SalHP
     .word BgAnimate_MiyuHP
     .word BgAnimate_MasaHP
@@ -659,7 +659,7 @@ _nt BgAnimate_DexHP
     pop        {pc}
 
 
-_nt BgAnimate_HikariHP
+_nt BgAnimate_YuichiroHP
     push       {lr}
     ldr        r0,PTR_PTR_DAT_08005814
 

@@ -666,9 +666,9 @@ global_label sprite_battle_sharkman_fin
     .incbin "data/maps/battle/DexHP.tilesetz" @ 0x5670B0
     .incbin "data/maps/battle/DexHP.palettez" @ 0x567410
     .incbin "data/maps/battle/DexHP.tilemapz" @ 0x567534
-    .incbin "data/maps/battle/HikariHP.tilesetz" @ 0x567AA4
-    .incbin "data/maps/battle/HikariHP.palettez" @ 0x567CD4
-    .incbin "data/maps/battle/HikariHP.tilemapz" @ 0x567DF8
+    .incbin "data/maps/battle/YuichiroHP.tilesetz" @ 0x567AA4
+    .incbin "data/maps/battle/YuichiroHP.palettez" @ 0x567CD4
+    .incbin "data/maps/battle/YuichiroHP.tilemapz" @ 0x567DF8
     .incbin "data/maps/battle/SalHP.tilesetz" @ 0x568300
     .incbin "data/maps/battle/SalHP.palettez" @ 0x5684C0
     .incbin "data/maps/battle/SalHP.tilemapz" @ 0x5685E4
