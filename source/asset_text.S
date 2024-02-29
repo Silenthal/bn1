@@ -655,9 +655,13 @@ global_label textBlockInitialDialog
     .incbin "text/scenario/073C238.script"
     .incbin "text/scenario/073C270.script"
     .incbin "text/scenario/073C2AC.script"
+global_label textDict_Battle_Tutorial1
     .incbin "text/scenario/tutorial/tutorial1.script"
+global_label textDict_Battle_Tutorial2
     .incbin "text/scenario/tutorial/tutorial2.script"
+global_label textDict_Battle_Tutorial3
     .incbin "text/scenario/tutorial/tutorial3.script"
+global_label textDict_873E9A0
     .incbin "text/scenario/073E9A0.script"
 
     .end

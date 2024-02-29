@@ -122,6 +122,7 @@ SECTIONS {
 		gChipTrader				 	= 0x7530;
 		gPlayerFixedAnimationState  = 0x7570;
 		gMainMenu                	= 0x7590;
+		gListMPStateAll				= 0x75A0;
 		gPlayerBattleStates         = 0x75F0;
 		gTextBufferList          	= 0x76D0;
 		gBattleSpriteArgsArray		= 0x78D0;
@@ -155,6 +156,9 @@ SECTIONS {
 		gSpriteTilesetOffset0 		= 0xC120;
 		tempBg1Vofs              	= 0xC190;
 		gWindowSettings          	= 0xC1B0;
+		gMPState0					= 0xC1D0;
+		gMPState1					= 0xC1E0;
+		gLatestMpInput				= 0xC1F0;
 		gListMpState				= 0xC200;
 		gCustomScreen            	= 0xC270;
 		musicPlayerInfo_13       	= 0xC520;

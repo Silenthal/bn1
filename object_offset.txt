@@ -30,6 +30,10 @@ battle              0x5864
 screendim           0x6A24
 battle_util         0x6A6C
 battle_regular      0x6BE8
+battle_tutorial1    0x6D44
+battle_tutorial2    0x72D0
+battle_tutorial3    0x7680
+battle_mpstate      0x7828
 battle_util2        0x7C2C
 enemy_detail        0x9DC4
 flag                0x102DC
