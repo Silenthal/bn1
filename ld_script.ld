@@ -53,7 +53,7 @@ SECTIONS {
 		gBattleSpriteArgsArrayCount	= 0x4930;
 		eFrameWaitValue          	= 0x4934;
 		eMainState0x24           	= 0x4940;
-		eMainState0x14           	= 0x4950;
+		gCamera						= 0x4950;
 		gIsObjectXFlipped           = 0x4994;
 		eObjPalette0             	= 0x49A0;
 		eObjPalette1             	= 0x49C0;

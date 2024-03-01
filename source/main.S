@@ -234,7 +234,7 @@ MainState:
     .word gWorld
     .word gBattle
     .word gDisplaySettings
-    .word eMainState0x14
+    .word gCamera
     .word gFadeSettings
     .word gBattleUi
     .word gPlayerBattleStates
