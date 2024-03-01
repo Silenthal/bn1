@@ -592,18 +592,18 @@ global_label sprite_battle_sharkman_fin
     .incbin "data/maps/online/WWW_Comp/Rocket_Comp.tilesetz" @ 0x4FCBA4
     .incbin "data/maps/online/WWW_Comp/Rocket_Comp.palettez" @ 0x4FDCFC
     .incbin "data/maps/online/WWW_Comp/Rocket_Comp.tilemapz" @ 0x4FDEA0
-    .incbin "data/maps/online/ACDC_HP/ACDC_Lan_HP.tilesetz" @ 0x500FD4
-    .incbin "data/maps/online/ACDC_HP/ACDC_Lan_HP.palettez" @ 0x502C60
-    .incbin "data/maps/online/ACDC_HP/ACDC_Lan_HP.tilemapz" @ 0x502E04
-    .incbin "data/maps/online/ACDC_HP/ACDC_Mayl_HP.tilemapz" @ 0x503934
-    .incbin "data/maps/online/ACDC_HP/ACDC_Mayl_HP.palettez" @ 0x506384
-    .incbin "data/maps/online/ACDC_HP/ACDC_Dex_HP.tilemapz" @ 0x506528
-    .incbin "data/maps/online/ACDC_HP/ACDC_Dex_HP.palettez" @ 0x5087D4
-    .incbin "data/maps/online/ACDC_HP/ACDC_Yai_HP.tilemapz" @ 0x508978
-    .incbin "data/maps/online/ACDC_HP/ACDC_Yai_HP.palettez" @ 0x50C900
-    .incbin "data/maps/online/Govt_Complex_HP/Govt_Yuichiro_HP.tilesetz" @ 0x50CAA4
-    .incbin "data/maps/online/Govt_Complex_HP/Govt_Yuichiro_HP.palettez" @ 0x50DC6C
-    .incbin "data/maps/online/Govt_Complex_HP/Govt_Yuichiro_HP.tilemapz" @ 0x50DE10
+    .incbin "data/maps/online/ACDC_HP/ACDC_Lan_PC.tilesetz" @ 0x500FD4
+    .incbin "data/maps/online/ACDC_HP/ACDC_Lan_PC.palettez" @ 0x502C60
+    .incbin "data/maps/online/ACDC_HP/ACDC_Lan_PC.tilemapz" @ 0x502E04
+    .incbin "data/maps/online/ACDC_HP/ACDC_Mayl_PC.tilemapz" @ 0x503934
+    .incbin "data/maps/online/ACDC_HP/ACDC_Mayl_PC.palettez" @ 0x506384
+    .incbin "data/maps/online/ACDC_HP/ACDC_Dex_PC.tilemapz" @ 0x506528
+    .incbin "data/maps/online/ACDC_HP/ACDC_Dex_PC.palettez" @ 0x5087D4
+    .incbin "data/maps/online/ACDC_HP/ACDC_Yai_PC.tilemapz" @ 0x508978
+    .incbin "data/maps/online/ACDC_HP/ACDC_Yai_PC.palettez" @ 0x50C900
+    .incbin "data/maps/online/Govt_Complex_HP/Govt_Yuichiro_PC.tilesetz" @ 0x50CAA4
+    .incbin "data/maps/online/Govt_Complex_HP/Govt_Yuichiro_PC.palettez" @ 0x50DC6C
+    .incbin "data/maps/online/Govt_Complex_HP/Govt_Yuichiro_PC.tilemapz" @ 0x50DE10
     .incbin "data/maps/online/Govt_Complex_HP/Govt_Lunch_Cart_Comp.tilemapz" @ 0x50F498
     .incbin "data/maps/online/Govt_Complex_HP/Govt_Lunch_Cart_Comp.palettez" @ 0x511580
     .incbin "data/maps/online/DenTown_HP/DenTown_Antique_Comp.tilemapz" @ 0x511724
@@ -764,11 +764,11 @@ global_label sprite_battle_sharkman_fin
     .incbin "data/maps/online/WWW_Comp/WWW_Comp_4.scb" @ 0x5D9F4C
     .incbin "data/maps/online/WWW_Comp/WWW_Comp_5.scb" @ 0x5DB4A8
     .incbin "data/maps/online/WWW_Comp/Rocket_Comp.scb" @ 0x5DE704
-    .incbin "data/maps/online/ACDC_HP/ACDC_Lan_HP.scb" @ 0x5DED58
-    .incbin "data/maps/online/ACDC_HP/ACDC_Mayl_HP.scb" @ 0x5DEFE4
-    .incbin "data/maps/online/ACDC_HP/ACDC_Dex_HP.scb" @ 0x5E0C24
-    .incbin "data/maps/online/ACDC_HP/ACDC_Yai_HP.scb" @ 0x5E1C18
-    .incbin "data/maps/online/Govt_Complex_HP/Govt_Yuichiro_HP.scb" @ 0x5E22A8
+    .incbin "data/maps/online/ACDC_HP/ACDC_Lan_PC.scb" @ 0x5DED58
+    .incbin "data/maps/online/ACDC_HP/ACDC_Mayl_PC.scb" @ 0x5DEFE4
+    .incbin "data/maps/online/ACDC_HP/ACDC_Dex_PC.scb" @ 0x5E0C24
+    .incbin "data/maps/online/ACDC_HP/ACDC_Yai_PC.scb" @ 0x5E1C18
+    .incbin "data/maps/online/Govt_Complex_HP/Govt_Yuichiro_PC.scb" @ 0x5E22A8
     .incbin "data/maps/online/Govt_Complex_HP/Govt_Lunch_Cart_Comp.scb" @ 0x5E27D8
     .incbin "data/maps/online/DenTown_HP/DenTown_Antique_Comp.scb" @ 0x5E2F20
     .incbin "data/maps/online/SciLab_HP/SciLab_Large_Monitor_Comp.scb" @ 0x5E384C

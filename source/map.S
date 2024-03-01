@@ -14,6 +14,135 @@
 
     .thumb
 
+dummy_113e4:
+    .word 0x8024269 @ dummy_24268
+    .word 0x802a515 @ dummy_2a514
+    .word 0x8031319 @ dummy_31318
+    .word 0x8035edd @ dummy_35edc
+    .word 0x803bd91 @ dummy_3bd90
+    .word 0x803d87d @ dummy_3d87c
+listGraphicDataSetup_Offline:
+    .word 0x802426d @ GraphicDataSetup_ACDC_Elementary
+    .word 0x802a519 @ GraphicDataSetup_ACDC_Town
+    .word 0x803131d @ GraphicDataSetup_Govt_Complex
+    .word 0x8035ee1 @ GraphicDataSetup_DenTown
+    .word 0x803bd95 @ GraphicDataSetup_SciLab
+    .word 0x803d881 @ GraphicDataSetup_WWW_Base
+dummy_11414:
+    .word 0x8040509 @ dummy_40508
+    .word 0x8043149 @ dummy_43148
+    .word 0x80456a1 @ dummy_456a0
+    .word 0x8047e5d @ dummy_47e5c
+    .word 0x804a119 @ dummy_4a118
+    .word 0x804d179 @ dummy_4d178
+    .word dummy_114bc
+    .word dummy_114bc
+    .word 0x804eef9 @ dummy_4eef8
+    .word 0x804f7f9 @ dummy_4f7f8
+    .word 0x804fdd5 @ dummy_4fdd4
+    .word 0x8050091 @ dummy_50090
+    .word 0x80503cd @ dummy_503cc
+    .word dummy_114bc
+    .word dummy_114bc
+    .word dummy_114bc
+    .word 0x8051cf1 @ dummy_51cf0
+listGraphicDataSetup_Online:
+    .word 0x804050d @ GraphicDataSetup_School_Comp
+    .word 0x804314d @ GraphicDataSetup_Oven_Comp
+    .word 0x80456a5 @ GraphicDataSetup_Waterworks_Comp
+    .word 0x8047e61 @ GraphicDataSetup_Traffic_Light_Comp
+    .word 0x804a11d @ GraphicDataSetup_Power_Plant_Comp
+    .word 0x804d17d @ GraphicDataSetup_WWW_Comp
+    .word dummy_114bc
+    .word dummy_114bc
+    .word 0x804eefd @ GraphicDataSetup_ACDC_HP
+    .word 0x804f7fd @ GraphicDataSetup_Govt_Complex_HP
+    .word 0x804fdd9 @ GraphicDataSetup_DenTown_HP
+    .word 0x8050095 @ GraphicDataSetup_SciLab_HP
+    .word 0x80503d1 @ GraphicDataSetup_Other_Comp
+    .word dummy_114bc
+    .word dummy_114bc
+    .word dummy_114bc
+    .word 0x8051cf5 @ GraphicDataSetup_Internet
+dummy_1149c:
+    .word dummy_114bc
+    .word dummy_114bc
+    .word dummy_114bc
+    .word dummy_114bc
+listGraphicDataSetup_Battle:
+    .word dummy_114bc
+    .word dummy_114bc
+    .word dummy_114bc
+    .word dummy_114bc
+
+
+_ts dummy_114bc
+    push       {lr}
+    pop        {pc}
+
+
+_ts dummy_114c0
+    push       {r5,lr}
+    cmp        r0,#0xf0
+    bge        LAB_080114d4
+    cmp        r0,#0x80
+    bge        LAB_080114ce
+    ldr        r1,PTR_dummy_113e4_08011508
+    b          LAB_080114d8
+LAB_080114ce:
+    ldr        r1,PTR_dummy_11414_0801150c
+    sub        r0,#0x80
+    b          LAB_080114d8
+LAB_080114d4:
+    ldr        r1,PTR_dummy_1149c_08011510
+    sub        r0,#0xf0
+LAB_080114d8:
+    lsl        r0,r0,#0x2
+    ldr        r0,[r1,r0]
+    mov        lr,pc
+    bx         r0
+    pop        {r5,pc}
+
+
+_ts Map_SetupGraphicData
+    push       {r5,lr}
+    cmp        r0,#0xf0
+    bge        LAB_080114f8
+    cmp        r0,#0x80
+    bge        LAB_080114f2
+    ldr        r1,PTR_listGraphicDataSetup_Offline_08011514
+    b          LAB_080114fc
+LAB_080114f2:
+    ldr        r1,PTR_listGraphicDataSetup_Online_08011518
+    sub        r0,#0x80
+    b          LAB_080114fc
+LAB_080114f8:
+    ldr        r1,PTR_listGraphicDataSetup_Battle_0801151c
+    sub        r0,#0xf0
+LAB_080114fc:
+    lsl        r0,r0,#0x2
+    ldr        r0,[r1,r0]
+    mov        lr,pc
+    bx         r0
+    pop        {r5,pc}
+
+    .align 2, 0
+
+PTR_dummy_113e4_08011508:
+    .word dummy_113e4
+PTR_dummy_11414_0801150c:
+    .word dummy_11414
+PTR_dummy_1149c_08011510:
+    .word dummy_1149c
+PTR_listGraphicDataSetup_Offline_08011514:
+    .word listGraphicDataSetup_Offline
+PTR_listGraphicDataSetup_Online_08011518:
+    .word listGraphicDataSetup_Online
+PTR_listGraphicDataSetup_Battle_0801151c:
+    .word listGraphicDataSetup_Battle
+
+
+
 _ts Map_LoadNPCList
     push       { lr }
     mov        r6,r10

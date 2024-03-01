@@ -1,20 +1,21 @@
 {
-    "id": "ACDC_Lan_HP",
-    "width": 72,
-    "height": 44,
+    "id": "Govt_Yuichiro_PC",
+    "width": 112,
+    "height": 64,
     "palette": "palette.txt",
     "tileset": [
         {
             "file": "BG1.png",
-            "tileCount": 115
+            "tileCount": 65
         },
         {
             "file": "BG2.png",
-            "tileCount": 314,
-            "offset": 3680
+            "tileCount": 147,
+            "offset": 2080
         },
         {
             "file": "BG3.png",
+            "tileCount": 36,
             "offset": 16384
         }
     ],
@@ -31,6 +32,7 @@
     ],
     "scb": {
         "boundary": "boundary.json",
+        "cover": "cover.json",
         "event": "event.json"
     }
 }

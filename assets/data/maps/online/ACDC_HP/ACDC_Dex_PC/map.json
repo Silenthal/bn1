@@ -1,7 +1,7 @@
 {
-    "id": "ACDC_Yai_HP",
-    "width": 200,
-    "height": 104,
+    "id": "ACDC_Dex_PC",
+    "width": 144,
+    "height": 80,
     "palette": "palette.txt",
     "tilemap": [
         {

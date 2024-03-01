@@ -1,7 +1,7 @@
 {
-    "id": "ACDC_Mayl_HP",
-    "width": 136,
-    "height": 100,
+    "id": "ACDC_Yai_PC",
+    "width": 200,
+    "height": 104,
     "palette": "palette.txt",
     "tilemap": [
         {
@@ -16,7 +16,6 @@
     ],
     "scb": {
         "boundary": "boundary.json",
-        "elevation": "elevation.json",
         "event": "event.json"
     }
 }
