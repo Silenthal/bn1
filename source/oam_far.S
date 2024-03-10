@@ -488,5 +488,3 @@ SpriteList_ARRAY_03007090:
     .word iwSpriteList3, 0x1A0
 
     .pool
-
-    .end

@@ -190,5 +190,3 @@ DAT_080200cc:
     .word 0x800
 DAT_080200d0:
     .word 0x200
-
-    .end

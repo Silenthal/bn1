@@ -206,5 +206,3 @@ PTR_gBitsetNPC_08003ca0:                .word gBitsetNPC
 PTR_gEntityListNpc_08003ca4:            .word gEntityListNpc
 PTR_SpriteFrame_LoadTileset_1_08003ca8: .word SpriteFrame_LoadTileset
 PTR_gEntityListNpc_08003cac:            .word gEntityListNpc
-
-.end

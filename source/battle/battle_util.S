@@ -213,5 +213,3 @@ LAB_08006bce:
     pop        {pc}
 
     .align 2, 0
-
-    .end

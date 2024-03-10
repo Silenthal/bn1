@@ -338,5 +338,3 @@ PTR_eBgPalette0_08001ba8:                   .word eBgPalette0
 PTR_PAL_BG_08001bac:                        .word PAL_BG
 PTR_eBgPalette0_08001bb0:                   .word eBgPalette0
 PTR_gFillValue_08001bb4:                    .word gFillValue
-
-    .end

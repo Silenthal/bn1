@@ -172,5 +172,3 @@ LAB_08002c3c:
 LAB_08002c48:
     mov        r0,#0x1
     pop        { pc }
-
-.end

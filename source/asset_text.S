@@ -663,5 +663,3 @@ global_label textDict_Battle_Tutorial3
     .incbin "text/scenario/tutorial/tutorial3.script"
 global_label textDict_873E9A0
     .incbin "text/scenario/073E9A0.script"
-
-    .end

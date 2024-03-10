@@ -384,5 +384,3 @@ NPC_Command_24_SetSpriteLong:
     pop        { pc }
 
     push       { lr }
-
-.end

@@ -356,6 +356,4 @@ PTR_GetWidthOfBcdNumber_1_030072ac:
     .word GetWidthOfBcdNumber
 PTR_REG_DISPCNT_030072b0:
     .word REG_DISPCNT
-.word 0x400
-
-    .end
+    .word 0x400

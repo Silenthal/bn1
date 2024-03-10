@@ -462,5 +462,3 @@ LAB_08059c6c:
     add        sp,#0x4
     pop        {pc}
 .align 2, 0
-
-.end

@@ -52,5 +52,3 @@ jumpTableJackOut:
     .word JackOut_Init+1
     .word JackOut_Animate+1
     .word JackOut_Finish+1
-
-    .end

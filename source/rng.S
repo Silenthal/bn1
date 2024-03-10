@@ -49,5 +49,3 @@ eRngState_0:    .word eRngState
 eRngState_1:    .word eRngState
 rngConstant:    .word 0x873CA9E5
 eRngState_2:    .word eRngState
-
-    .end

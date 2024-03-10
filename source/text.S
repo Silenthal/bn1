@@ -3159,5 +3159,3 @@ PTR_EnemySpawn_08014cf8:
 
 layoutDialogBox:
     .incbin "images/text/dialog_box.tilemap"
-
-    .end

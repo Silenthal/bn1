@@ -548,5 +548,3 @@ _ts Sound_StopSong
 
 DAT_0800093c: .word 0x209
 DAT_08000940: .word 0x20B
-
-    .end

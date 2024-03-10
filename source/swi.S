@@ -406,5 +406,3 @@ _ts dummy_9e1cc
     mov        pc,lr
 
     .align 2,0
-
-    .end

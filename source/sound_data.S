@@ -733,5 +733,3 @@ global_label WaveData_1593E4
     .include "songs/song156.S"
     .include "songs/song203.S"
     .include "songs/song169.S"
-
-    .end

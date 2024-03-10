@@ -1190,5 +1190,3 @@ PTR_BgUpdate_MoveLeftSlow_0800585c:
     .word BgUpdate_MoveLeftSlow
 PTR_dummy_6928_08005860:
     .word dummy_6928_far
-
-    .end

@@ -14,5 +14,3 @@ _ts SIO_GetMultiplayerId
     and        r0,r1
     lsr        r0,r0,#0x4
     pop        { pc }
-
-.end

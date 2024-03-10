@@ -150,5 +150,3 @@ dmaChannelStart:        .word REG_DMA0
 ptrDmaListSz0:          .word eDmaParamListSize
 ptrDmaListSz1:          .word eDmaParamListSize
 ptrDmaList:             .word eDmaParamList
-    
-    .end

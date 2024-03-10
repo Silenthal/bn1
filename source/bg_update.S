@@ -176,5 +176,3 @@ PTR_tempBg1Vofs_08001cfc:               .word tempBg1Vofs
 PTR_tempBg1Hofs_08001d00:               .word tempBg1Hofs
 PTR_tempBg1Hofs_08001d04:               .word tempBg1Hofs
 PTR_tempBg1Hofs_08001d08:               .word tempBg1Hofs
-
-    .end

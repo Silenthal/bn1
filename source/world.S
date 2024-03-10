@@ -1461,5 +1461,3 @@ _ts World_StartCredits
     pop        {pc}
 DAT_08004afc:
     .word 0x40
-
-    .end

@@ -149,8 +149,7 @@ _ts InitializeInterruptVectors
     cmp        r0,#0xF
     blt        1b
     bx         lr
+
     .align 2, 0
 
     .pool
-    
-    .end

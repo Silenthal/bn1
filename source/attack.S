@@ -300,23 +300,21 @@ LAB_080037d0:
     mov        pc,lr
 
     .align 2, 0
-PTR_gBitsetAttack_080037e4:         .word gBitsetAttack
+PTR_gBitsetAttack_080037e4:             .word gBitsetAttack
 DAT_080037e8:                           .word 0x80000000
-PTR_gEntityListAttack_080037ec:     .word gEntityListAttack
+PTR_gEntityListAttack_080037ec:         .word gEntityListAttack
 PTR_gCurMapEventData_080037f0:          .word gCurMapEventData
-PTR_gBitsetAttack_080037f4:         .word gBitsetAttack
-PTR_gEntityListAttack_080037f8:     .word gEntityListAttack
-PTR_listHandlerAttack_080037fc:     .word listHandlerAttack
-PTR_gEntityListAttack_08003800:     .word gEntityListAttack
+PTR_gBitsetAttack_080037f4:             .word gBitsetAttack
+PTR_gEntityListAttack_080037f8:         .word gEntityListAttack
+PTR_listHandlerAttack_080037fc:         .word listHandlerAttack
+PTR_gEntityListAttack_08003800:         .word gEntityListAttack
 INT_08003804:                           .word 0x1600
 PTR_gFillValue_08003808:                .word gFillValue
-PTR_gEntityListAttack_0800380c:     .word gEntityListAttack
+PTR_gEntityListAttack_0800380c:         .word gEntityListAttack
 DAT_08003810:                           .word 0x580
 DAT_08003814:                           .word 0x85000000
-PTR_gEntityListAttack_08003818:     .word gEntityListAttack
-PTR_gBitsetAttack_0800381c:         .word gBitsetAttack
-PTR_gEntityListAttack_08003820:     .word gEntityListAttack
+PTR_gEntityListAttack_08003818:         .word gEntityListAttack
+PTR_gBitsetAttack_0800381c:             .word gBitsetAttack
+PTR_gEntityListAttack_08003820:         .word gEntityListAttack
 PTR_SpriteFrame_LoadTileset_1_08003824: .word SpriteFrame_LoadTileset
-PTR_gEntityListAttack_08003828:     .word gEntityListAttack
-
-.end
+PTR_gEntityListAttack_08003828:         .word gEntityListAttack

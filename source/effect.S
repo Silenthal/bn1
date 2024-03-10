@@ -302,5 +302,3 @@ PTR_gBitsetEffect_08003b04:             .word gBitsetEffect
 PTR_gListEffect_08003b08:               .word gListEffect
 PTR_SpriteFrame_LoadTileset_1_08003b0c: .word SpriteFrame_LoadTileset
 PTR_gListEffect_08003b10:               .word gListEffect
-
-.end

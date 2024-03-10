@@ -766,5 +766,3 @@ LAB_080113b6:
     cmp        r4,#0x4
     bgt        LAB_080113ac
     pop        {r5,pc}
-
-.end

@@ -582,5 +582,3 @@ _ts CopyTile_HVFlip
 
 DAT_080021a4: .word 0xFF00FF00
 DAT_080021a8: .word 0xF0F0F0F0
-
-    .end

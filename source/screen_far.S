@@ -111,5 +111,3 @@ LAB_030069ec:
     mov        pc,lr
 
     .align 2, 0
-
-    .end

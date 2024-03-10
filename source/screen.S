@@ -259,5 +259,3 @@ PTR_Screen_SafeCopyTileMapV_1_080022cc:
     far_label Screen_SafeCopyTileMapV
 PTR_Screen_SafeCopyTileMapRect_1_080022d0:
     far_label Screen_SafeCopyTileMapRect
-
-    .end

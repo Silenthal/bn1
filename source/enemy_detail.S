@@ -64,5 +64,3 @@ PTR_dummy_102d8_08010294:
 _ts dummy_102d8
     push       { lr }
     pop        { pc }
-
-    .end

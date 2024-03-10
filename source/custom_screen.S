@@ -3297,5 +3297,3 @@ _nt CustomScreenT2_1_2_0_5_DontCancelNow
     strb       r0,[r5,#0x2]
     mov        r0,#0x0
     pop        {pc}
-
-.end

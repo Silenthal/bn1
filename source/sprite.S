@@ -985,6 +985,3 @@ PTR_gSpriteLzDetails_080029a8:  .word gSpriteLzDetails
 PTR_listSpritePtr_080029ac:     .word listSpritePtr
 PTR_gSpriteLzDetails_080029b0:  .word gSpriteLzDetails
 PTR_DAT_080029b4:               .word DAT_08002980
-
-    .end
-

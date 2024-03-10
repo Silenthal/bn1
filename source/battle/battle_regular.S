@@ -204,5 +204,3 @@ LAB_08006d40:
     pop        {pc}
 
     .align 2, 0
-
-.end

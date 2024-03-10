@@ -196,5 +196,3 @@ PTR_gBitsetPlayerLocation_080031f0:         .word gBitsetPlayerLocation
 PTR_gEntityListPlayerLocation_080031f4:     .word gEntityListPlayerLocation
 PTR_SpriteFrame_LoadTileset_1_080031f8:     .word SpriteFrame_LoadTileset
 PTR_gEntityListPlayerLocation_080031fc:     .word gEntityListPlayerLocation
-
-.end

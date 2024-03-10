@@ -144,5 +144,3 @@ FUN_08180150:
     bx         lr
 
     .pool
-
-    .end

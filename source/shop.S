@@ -22,5 +22,3 @@ jumpTableShopMain:
     .word 0x801e8d0+1
     .word 0x801e988+1
     .word 0x801ee20+1
-
-    .end

@@ -533,5 +533,3 @@ _nt IsCloseToPlayer
     asr        r3,r3,#0xc
     bl         IsDistanceClose
     pop        {pc}
-
-    .end

@@ -454,5 +454,3 @@ LAB_08019118:
 LAB_0801912a:
     mov        r0,#0xff
     pop        {pc}
-
-    .end

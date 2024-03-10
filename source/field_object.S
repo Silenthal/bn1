@@ -606,6 +606,5 @@ _nt FieldObject_MarkAsBigSquare
     orr        r1,r2
     strb       r1,[r0,#0x0]
     mov        pc,lr
-    .align 2, 0
 
-.end
+    .align 2, 0

@@ -456,5 +456,3 @@ DAT_08004018:
     .word  0x80000000
 PTR_hexChars_0800401c:
     .word hexChars
-
-    .end

@@ -258,5 +258,3 @@ DAT_08010c14:                           .word 0x100
 PTR_gSpriteAffineDataFlag_08010c18:     .word gSpriteAffineDataFlag
 PTR_gSpriteAffineDataList_08010c1c:     .word gSpriteAffineDataList
 INT_08010c20:                           .word 0x180
-
-    .end

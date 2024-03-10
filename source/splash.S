@@ -152,5 +152,3 @@ _ts Splash_4_End
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     pop        { pc }
-
-    .end

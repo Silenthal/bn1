@@ -36,5 +36,3 @@ global_label INT_08002324
     .word 0xB0
     .word 0xB0
     .word 0xC0
-
-.end

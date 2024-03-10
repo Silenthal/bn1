@@ -2145,5 +2145,3 @@ _nt Battle_AreAllSpritesSpawned
 LAB_08006a20:
     mov        r0,#0x1
     mov        pc,lr
-
-    .end

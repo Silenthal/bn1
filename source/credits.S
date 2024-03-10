@@ -27,5 +27,3 @@ jumpTableCreditsMain:
     .word 0x80214c0+1
     .word 0x8021534+1
     .word 0x8021564+1
-    
-    .end

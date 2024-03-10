@@ -310,5 +310,3 @@ PTR_gBitsetActor_080034f4:              .word gBitsetActor
 PTR_gEntityListActor_080034f8:          .word gEntityListActor
 PTR_SpriteFrame_LoadTileset_1_080034fc: .word SpriteFrame_LoadTileset
 PTR_gEntityListActor_08003500:          .word gEntityListActor
-
-.end
