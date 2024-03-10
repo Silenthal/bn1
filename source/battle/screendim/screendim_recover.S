@@ -7,7 +7,7 @@
     .set BattleMessage_Load, 0x8017884
     .set BattleMessage_Main, 0x80178ec
     .set BattleMessage_Disable, 0x8017954
-    
+
     .text
 
 

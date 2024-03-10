@@ -86,7 +86,7 @@ LAB_08002a3a:
 
 
 @@ Converts a set of center origin coordinates to top left
-@@ origin coordinates.                                              
+@@ origin coordinates.
 @@ In:
 @@ stack[0]: relative X (-120 to 136)
 @@ stack[1]: relative Y (-80 to 112)

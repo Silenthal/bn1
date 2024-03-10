@@ -168,7 +168,7 @@ LAB_08015a1a:
     strh       r1,[r5,#0x2]
 LAB_08015a20:
     pop        { pc }
-    
+
     .align 2, 0
     .pool
 
@@ -1003,7 +1003,7 @@ PTR_tilemapChipSelectDescription_08016114:
     .word tilemapChipSelectDescription
     .word TilemapEntry_ARRAY_08016198
 PTR_tilemapChipSelectDescriptionPadding_0801611c:
-    .word tilemapChipSelectDescriptionPadding 
+    .word tilemapChipSelectDescriptionPadding
 tilemapChipSelectDescription:
     .incbin "images/custom_screen/chip_description.tilemap"
 TilemapEntry_ARRAY_08016198:
@@ -1855,7 +1855,7 @@ tilemapBlank:
 
 
 @@ Moves up chip IDs in a chip list to eliminate empty spaces.
-@@ In: 
+@@ In:
 @@ r0: deckPtr: The pointer to the group to optimize.
 @@ r1: deckSz: The size of the group.
 _ts CustomScreen_NormalizeChipGroup
@@ -1901,7 +1901,7 @@ LAB_080168ae:
     cmp        r4,#0xf
     bmi        LAB_080168a4
     ldr        r0,PTR_gBattleFolder_080168c0
-    @ 
+    @
     mov        r1,#30
     bl         CustomScreen_NormalizeChipGroup
     pop        { pc }
@@ -1976,7 +1976,7 @@ _ts CustomScreen_ValidateSelection
     @ selected and the current chip, play reject sound
     @ and return false.
     @ This encodes the "rules" of the hand selection:
-    @ - There are two flags: Flag 1 = same ID, Flag 2 = same code 
+    @ - There are two flags: Flag 1 = same ID, Flag 2 = same code
     @ - When a chip is selected, the corresponding flag that
     @ shows its relationship with the prior selected chip
     @ is saved.
@@ -2332,7 +2332,7 @@ LAB_08016b76:
     strb       r0,[r5,#0x1]
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
-    
+
 
 _nt dummy_16b84
     pop        {pc}
@@ -2529,8 +2529,8 @@ _nt CustomScreenT1_1_2_1_Fail
 LAB_08016cf4:
     mov        r0,#0x0
     pop        {pc}
-   
-   
+
+
 _nt CustomScreenT1_1_2_2_Success
     push       {lr}
     bl         CustomScreen_DisableInput
@@ -2544,8 +2544,8 @@ _nt CustomScreenT1_1_2_2_Success
 LAB_08016d10:
     mov        r0,#0x0
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT1_1_3_Add
     push       {lr}
     ldr        r7,=PTR_CustomScreenT1_1_3_0_ShowMessage_08016d40
@@ -2561,14 +2561,14 @@ _nt CustomScreenT1_1_3_Add
     bl         CustomScreen_LoadSelectedChips
     bl         CustomScreen_UpdateChipSelectPosition
     pop        {pc}
-    
+
     .align 2, 0
     .pool
 PTR_CustomScreenT1_1_3_0_ShowMessage_08016d40:
     .word       CustomScreenT1_1_3_0_ShowMessage
     .word       CustomButtonT1_1_3_1_Return
-   
-   
+
+
 _nt CustomScreenT1_1_3_0_ShowMessage
     push       {lr}
     ldrh       r0,[r5,#0x38]
@@ -2597,8 +2597,8 @@ LAB_08016d6c:
     strb       r0,[r5,#0x2]
 LAB_08016d74:
     pop        {pc}
-    
-    
+
+
 _nt CustomButtonT1_1_3_1_Return
     push       {lr}
     bl         CustomScreen_DisableInput
@@ -2609,8 +2609,8 @@ _nt CustomButtonT1_1_3_1_Return
     bl         CustomScreen_EnableInput
 LAB_08016d8a:
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_Main
     push       {lr}
     ldr        r5,PTR_gCustomScreen_08016dd4
@@ -2655,8 +2655,8 @@ DAT_08016ddc:
     .byte 0, 0x13
     .asciz "%D"
     .align 2, 0
-   
-   
+
+
 _nt CustomScreenT2_1_Main
     push       {lr}
     ldr        r7,=PTR_CustomScreen_1_0_Open_08016df4
@@ -2702,8 +2702,8 @@ _nt CustomScreenT2_1_1_ChipSelect
 PTR_CustomScreenT2_1_1_0_CheckChips_08016e50:
     .word       CustomScreenT2_1_1_0_CheckChips
     .word       CustomScreenT2_1_1_1_WaitDialog
-    
-    
+
+
 _nt CustomScreenT2_1_1_0_CheckChips
     push       {lr}
     bl         CustomScreen_CheckRToggle
@@ -2796,8 +2796,8 @@ LAB_08016f08:
     strb       r0,[r5,#0x2]
 LAB_08016f16:
     pop        {pc}
-   
-   
+
+
 _nt CustomScreenT2_1_1_1_WaitDialog
     push       {lr}
     bl         CustomScreen_DisableInput
@@ -2808,8 +2808,8 @@ _nt CustomScreenT2_1_1_1_WaitDialog
     strb       r0,[r5,#0x2]
 LAB_08016f2c:
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_2_Ok
     push       {lr}
     ldr        r7,=PTR_CustomScreenT2_1_2_0_CheckChips_08016f64
@@ -2956,8 +2956,8 @@ LAB_0801704a:
     mov        r0,#0x1
 LAB_08017054:
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_2_1_Fail
     push       {lr}
     bl         CustomScreen_DisableInput
@@ -2969,8 +2969,8 @@ _nt CustomScreenT2_1_2_1_Fail
 LAB_0801706a:
     mov        r0,#0x0
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_2_2_Success
     push       {lr}
     bl         CustomScreen_DisableInput
@@ -2984,8 +2984,8 @@ _nt CustomScreenT2_1_2_2_Success
 LAB_08017086:
     mov        r0,#0x0
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_3_Add
     push       {lr}
     ldr        r7,=PTR_CustomScreenT2_1_3_0_ShowMessage_080170b8
@@ -3007,8 +3007,8 @@ _nt CustomScreenT2_1_3_Add
 PTR_CustomScreenT2_1_3_0_ShowMessage_080170b8:
     .word       CustomScreenT2_1_3_0_ShowMessage
     .word       CustomScreenT2_1_3_1_Next
-    
-    
+
+
 _nt CustomScreenT2_1_3_0_ShowMessage
     push       {lr}
     ldrh       r0,[r5,#0x38]
@@ -3037,8 +3037,8 @@ LAB_080170e4:
     strb       r0,[r5,#0x2]
 LAB_080170ec:
     pop        {pc}
-   
-   
+
+
 _nt CustomScreenT2_1_3_1_Next
     push       {lr}
     bl         CustomScreen_DisableInput
@@ -3049,8 +3049,8 @@ _nt CustomScreenT2_1_3_1_Next
     bl         CustomScreen_EnableInput
 LAB_08017102:
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_VerifySelection
     push       {r0,lr}
     ldr        r7,=PTR_CustomScreenT2_1_1_0_0_CheckIfStealSelected
@@ -3068,8 +3068,8 @@ PTR_CustomScreenT2_1_1_0_0_CheckIfStealSelected:
     .word       CustomScreenT2_1_1_0_1_PromptPressOk
     .word       CustomScreenT2_1_1_0_2_Next
     .pool
-    
-    
+
+
 _nt CustomScreenT2_1_1_0_0_CheckIfStealSelected
     push       {lr}
     cmp        r0,#0x4c
@@ -3099,13 +3099,13 @@ LAB_08017154:
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
     pop        {pc}
-    
-    
+
+
 _nt dummy_1715a
     push       {lr}
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_1_0_1_PromptPressOk
     push       {lr}
     mov        r0,#0x1e
@@ -3116,25 +3116,25 @@ _nt CustomScreenT2_1_1_0_1_PromptPressOk
     mov        r0,#0x5
     strb       r0,[r5,#0x3]
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_1_0_2_Next
     push       {lr}
     mov        r0,#0x4
     strb       r0,[r5,#0x3]
     pop        {pc}
-    
-    
+
+
 _nt dummy_17178
     push       {lr}
     pop        {pc}
-   
-   
+
+
 _nt dummy_1717c
     push       {lr}
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_CheckCancel
     push       {lr}
     ldr        r7,=PTR_CustomScreenT2_1_1_0_0_Next_08017190
@@ -3155,16 +3155,16 @@ PTR_CustomScreenT2_1_1_0_0_Next_08017190:
     .word       CustomScreenT2_1_1_0_5_DontCancel
     .pool
     .align 2, 0
-    
-    
+
+
 _nt CustomScreenT2_1_1_0_0_Next
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x3]
     mov        r0,#0x0
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_1_0_1_Next
     push       {lr}
     mov        r0,#0x0
@@ -3172,8 +3172,8 @@ _nt CustomScreenT2_1_1_0_1_Next
     mov        r0,#0x0
     mov        r0,#0x0
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_1_0_2_DontCancel
     push       {lr}
     mov        r0,#0x16
@@ -3183,24 +3183,24 @@ _nt CustomScreenT2_1_1_0_2_DontCancel
     strb       r0,[r5,#0x2]
     mov        r0,#0x1
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_1_0_3_Next
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x3]
     mov        r0,#0x0
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_1_0_4_Next
     push       {lr}
     mov        r0,#0x3
     strb       r0,[r5,#0x3]
     mov        r0,#0x0
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_1_0_5_DontCancel
     push       {lr}
     mov        r0,#0x1f
@@ -3210,8 +3210,8 @@ _nt CustomScreenT2_1_1_0_5_DontCancel
     strb       r0,[r5,#0x2]
     mov        r0,#0x1
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_OkButtonPressCheck
     push       {lr}
     ldr        r7,=PTR_CustomScreenT2_1_2_0_0_ChooseStealFirst
@@ -3231,8 +3231,8 @@ PTR_CustomScreenT2_1_2_0_0_ChooseStealFirst:
     .word       CustomScreenT2_1_2_0_4_WrongOrder
     .word       CustomScreenT2_1_2_0_5_DontCancelNow
     .pool
-    
-    
+
+
 _nt CustomScreenT2_1_2_0_0_ChooseStealFirst
     push       {lr}
     mov        r0,#0xd
@@ -3242,8 +3242,8 @@ _nt CustomScreenT2_1_2_0_0_ChooseStealFirst
     strb       r0,[r5,#0x2]
     mov        r0,#0x1
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_2_0_1_ChooseStealFirst
     push       {lr}
     mov        r0,#0xd
@@ -3253,8 +3253,8 @@ _nt CustomScreenT2_1_2_0_1_ChooseStealFirst
     strb       r0,[r5,#0x2]
     mov        r0,#0x1
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_2_0_2_SelectWideSwrd
     push       {lr}
     mov        r0,#0x17
@@ -3264,8 +3264,8 @@ _nt CustomScreenT2_1_2_0_2_SelectWideSwrd
     strb       r0,[r5,#0x2]
     mov        r0,#0x1
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_2_0_3_ChooseStealFirst
     push       {lr}
     mov        r0,#0xd
@@ -3275,8 +3275,8 @@ _nt CustomScreenT2_1_2_0_3_ChooseStealFirst
     strb       r0,[r5,#0x2]
     mov        r0,#0x1
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_2_0_4_WrongOrder
     push       {lr}
     mov        r0,#0xf
@@ -3286,8 +3286,8 @@ _nt CustomScreenT2_1_2_0_4_WrongOrder
     strb       r0,[r5,#0x2]
     mov        r0,#0x1
     pop        {pc}
-    
-    
+
+
 _nt CustomScreenT2_1_2_0_5_DontCancelNow
     push       {lr}
     mov        r0,#0x1f

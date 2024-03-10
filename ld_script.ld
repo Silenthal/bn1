@@ -23,7 +23,7 @@ __pal_start     = ORIGIN(palette);
 
 SECTIONS {
 	. = __ewram_start;
-	ewram (NOLOAD) : 
+	ewram (NOLOAD) :
 	{
 		gFlagBase                	= 0;
 		gFolder                  	= 0x1C0;

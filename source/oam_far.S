@@ -104,7 +104,7 @@ Oam_AddSprite:
     and        r0,r4
     orr        r3,r0
     @ r3 |= ([screen Y] + object Y) & 0xFF
-    @ r3 [0:7] = y coord 
+    @ r3 [0:7] = y coord
     ldrb       r4,[r2,#SpriteObjectEntry_flag2]
     lsl        r1,r4,#0x1c
     lsr        r1,r1,#0x1c
@@ -171,7 +171,7 @@ _ts Oam_SpriteRotateFlipPos
     mov        r3,#0x3e
     and        r4,r3
     lsr        r4,r4,#0x1
-    @ r4 = 
+    @ r4 =
     mov        r3,#0x20
     lsl        r3,r3,#0x18
     cmp        r7,#0xff

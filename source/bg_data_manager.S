@@ -516,7 +516,7 @@ _ts BGDM_CopyTilemapEntry_BG2
     pop        {pc}
 
 
-@@ Copies the full surrounding tilemap to the BG1, BG2 and BG3 layer of the screen. 
+@@ Copies the full surrounding tilemap to the BG1, BG2 and BG3 layer of the screen.
 _ts BGDM_CopyTilemap
     push       {lr}
     mov        r7,r10

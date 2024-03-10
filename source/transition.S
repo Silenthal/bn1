@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    
+
     .set JackIn_Init, 0x801753c
     .set JackIn_Animate, 0x801756c
     .set JackIn_Finish, 0x8017584

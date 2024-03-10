@@ -391,7 +391,7 @@ _ts SpritePtr_SetSubFrameIndex
     add        r7,r7,r5
     strb       r0,[r5,#0x1]
     mov        pc,lr
-   
+
 
 _ts SpritePtr_SetFrameIndex
     ldrb       r7,[r5,#0x2]
@@ -537,7 +537,7 @@ _ts FUN_080026b4
     ldr        r0,[r0,#0x0]
     lsr        r0,r0,#0x5
     mov        pc,lr
-    
+
 
 _ts FUN_080026c4
     ldrb       r0,[r5,#0x0]

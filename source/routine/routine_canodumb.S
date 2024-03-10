@@ -28,12 +28,12 @@ _ts Routine_Canodumb
     thumb_func_end R_Canodumb_0_Init
 
     .align 2, 0
-    
+
 PTR_R_Canodumb_0_Init:
     .word R_Canodumb_0_Init
     .word R_Canodumb_1_Main
     .word R_Canodumb_2_Free
-PTR_PTR_R_Canodumb_0_Init:  
+PTR_PTR_R_Canodumb_0_Init:
     .word PTR_R_Canodumb_0_Init
 
 _ts R_Canodumb_0_Init

@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set FUN_080194c8, 0x80194c8
-    
+
     .text
 
     .thumb

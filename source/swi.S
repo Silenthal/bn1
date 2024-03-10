@@ -94,7 +94,7 @@ _ts MemCpy_8_Sram
     sub        r0,r0,r1
     lsl        r0,r0,#0xf
     b LAB_0809dfd4
-    
+
     .align 2, 0
 PTR_REG_WAITCNT_0809dfb8:
     .word REG_WAITCNT

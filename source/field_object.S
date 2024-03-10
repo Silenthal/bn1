@@ -368,9 +368,9 @@ dmgMultFire:
     .byte 0x10, 0x10, 0x10, 0x10, 0x20
 dmgMultAqua:
     .byte 0x10, 0x10, 0x20, 0x10, 0x10
-dmgMultWood: 
+dmgMultWood:
     .byte 0x10, 0x20, 0x10, 0x10, 0x10
-    
+
     .align 2, 0
 PTR_dmgMultNone_08002ee8:   .word dmgMultNone
 
@@ -556,7 +556,7 @@ _nt Field_SetPanelProperty
     mov        pc,lr
 PTR_gAreaProperties_08003040:   .word gAreaProperties
 
-    
+
 _ts Field_GetPanelProperty
     ldr        r7,PTR_gAreaProperties_08003050
     lsl        r1,r1,#0x3

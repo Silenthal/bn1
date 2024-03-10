@@ -207,7 +207,7 @@ _ts World_0_AreaChange
 LAB_08004192:
     pop        {pc}
 
-    
+
 _ts World_1_SubAreaChange
     push       {lr}
     mov        r7,r10

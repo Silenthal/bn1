@@ -3026,7 +3026,7 @@ _nt Battle_IsRandomEncounter
     sub        r1,r1,r2
     cmp        r1,#0x40
     bmi        LAB_0800992a
-    @ Only continue if at least 64 steps have been taken since the 
+    @ Only continue if at least 64 steps have been taken since the
     add        r1,r1,r2
     str        r1,[r6,#0x28]
     ldrb       r2,[r7,#0x5]

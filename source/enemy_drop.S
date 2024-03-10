@@ -54,7 +54,7 @@ _nt Enemy_GetDrop
     mov        r0,#0x0
     b          LAB_0807d852
 LAB_0807d84c:
-    @ If the highest bit is 1, then it's zenny 
+    @ If the highest bit is 1, then it's zenny
     @ Max zenny reward is 0x7FFF, or 32767 zenny
     lsl        r1,r0,#0x11
     lsr        r1,r1,#0x11
@@ -77,5 +77,5 @@ arrayBustingLevelToRollChance:
         .byte 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4  @ Lv. 9
         .byte 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4  @ Lv. 10
         .byte 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4  @ Lv. S
-    
+
     .end

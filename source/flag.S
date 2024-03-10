@@ -141,7 +141,7 @@ global_label Flag_GetBase
     ldrb       r0,[r7,#0x0]
     and        r0,r1
     mov        pc,lr
-        
+
     .align 2, 0
 
 global_label Flag_Toggle420

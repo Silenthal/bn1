@@ -1071,7 +1071,7 @@ _ts DisableScreenDim
     ldr        r7,[r7,#0x54]
     strb       r0,[r7,#0x7]
     pop        {pc}
-    
+
     .align 2, 0
 
 PTR_BgTask_0800577c:

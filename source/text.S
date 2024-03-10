@@ -2263,7 +2263,7 @@ LAB_080145ac:
     add        r4,r0,#0x0
     mov        r0,#0x1
     pop        { pc }
-    
+
     .align  2, 0
     .pool
 PTR_DialogueData_Item_Names_080145f0:

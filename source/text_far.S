@@ -14,7 +14,7 @@ PTR_ARRAY_030070d8:
 
 @@ Writes UI text to the screen.
 @@ Uses different rules than dialogue.
-@@ 
+@@
 @@ In:
 @@ r0 (pushed): void* textDict
 @@ r1: int textDictIndex
@@ -51,7 +51,7 @@ Screen_WriteUIText:
 .main:
     cmp        r3,#0x0
     beq        .done
-    @ Check byte 
+    @ Check byte
     ldrb       r1,[r0,#0x0]
     cmp        r1,#0xe7
     bge        .callTextFunc
@@ -79,7 +79,7 @@ Screen_WriteUIText:
     mov        r9,r7
     b          .main
 .printE5ExtendedChar:
-    @ For E5, next byte specifies an extended range cha to print 
+    @ For E5, next byte specifies an extended range cha to print
     ldrb       r1,[r0,#0x1]
     add        r1,#0xe5
     bl         Screen_CopyUITextTile
@@ -116,21 +116,21 @@ Screen_WriteUIText:
 
 @@ Copies the tile data for a character of UI text
 @@ to the buffer.
-@@ 
+@@
 @@ In:
 @@ r1: int character
 @@ r2: byte* dstTextTileBuf
 @@ r4: int lineCharCounter
 @@ r5: int totalCharCounter
 @@ r6: byte* srcTextTile
-@@ 
+@@
 @@ Out:
 @@ r2: dstTextTileBuf + 0x40
 @@ r4: r4 + 1
 @@ r5: r5 + 1
 far_thumb_func_start Screen_CopyUITextTile
 Screen_CopyUITextTile:
-    push       { r0, r6, lr }    
+    push       { r0, r6, lr }
     @ set r6 to point to 2-tile char specified by r1
     lsl        r7,r1,#0x6
     add        r6,r6,r7
@@ -167,13 +167,13 @@ charShade:
 
 
 @@ Pads a block of UI text till the max length is reached.
-@@ 
+@@
 @@ In:
 @@ r2: byte* dstTextTileBuf
 @@ r4: int lineCharCounter
 @@ r5: int totalCharCounter
 @@ r6: byte* srcTextTileBuf
-@@ 
+@@
 @@ Out:
 @@ r2: dstTextTileBuf + 0x40
 @@ r4: r4 + 1
@@ -199,13 +199,13 @@ _ts Screen_PadUITextToEnd
     pop        { pc }
 
 @@ Pads a block of UI text till a line break.
-@@ 
+@@
 @@ In:
 @@ r2: byte* dstTextTileBuf
 @@ r4: int lineCharCounter
 @@ r5: int totalCharCounter
 @@ r6: byte* srcTextTileBuf
-@@ 
+@@
 @@ Out:
 @@ r2: dstTextTileBuf + 0x40
 @@ r4: r4 + 1
@@ -232,7 +232,7 @@ _ts Screen_PadUITextToLineEnd
     pop        { pc }
 
 @@ Prints a stored number with a given minimum width.
-@@ 
+@@
 @@ In:
 @@ r0: byte* textPointer
 @@ r2: byte* dstTextTileBuf

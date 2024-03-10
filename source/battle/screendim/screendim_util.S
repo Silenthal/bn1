@@ -4,7 +4,7 @@
 
     .set ScreenDim_HidePlayer, 0x80572d2
     .set FUN_08057300, 0x8057300
-    
+
     .text
 
 _nt ScreenDim_WarpPlayerOut

@@ -415,7 +415,7 @@ global_label BgTask_08044880
     task_tilemap_arg 0x4404 0x225
     task_tilemap_arg 0x4406 0x226
 
-    
+
 TilemapEntry_ARRAY_08044bbc:
     tilemap_entry 0x01, 0x00
     tilemap_entry 0x02, 0x00

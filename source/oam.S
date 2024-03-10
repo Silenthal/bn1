@@ -122,9 +122,9 @@ _ts Oam_AffineTransformFree
 @@ r1: Sx: The inverse of the amount to scale X by, multiplied by 16.
 @@ r2: Sy: The inverse of the amount to scale Y by, multiplied by 16.
 @@ r3: index: The parameter index.
-@@ 
+@@
 @@ Notes:
-@@ Two entries are used per index. The one stored at index+16 has the 
+@@ Two entries are used per index. The one stored at index+16 has the
 @@ inverse scaling matrix:
 @@ | Sx  0 |
 @@ |  0 Sy |

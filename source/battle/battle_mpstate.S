@@ -6,7 +6,7 @@
     .set Sio_SetReady, 0x809bdf0
     .set Routine_ClearBetaSigmaTimer, 0x805738e
     @ .set gListMPStateAll, 0x
-    @ 
+    @
     @ .set Routine_ClearBetaSigmaTimer, 0x
     @ .set gListMPStateAll, 0x
     @ .set Sio_SetReady, 0x
