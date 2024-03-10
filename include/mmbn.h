@@ -3580,18 +3580,12 @@ struct Struct_2007200 {
     uint u1;
 };
 
-typedef struct Struct_200C240 Struct_200C240, *PStruct_200C240;
+typedef struct MapSegmentSubPosDetail MapSegmentSubPosDetail, *PMapSegmentSubPosDetail;
 
-struct Struct_200C240 {
-    struct MapOffsetStruct m_mapOffset;
-    int i7;
-    int m_i4_yCoordRelated;
-    int m_i5;
-    short s0;
-    short s1;
-    int i8;
-    int i9;
-    int i10;
+struct MapSegmentSubPosDetail {
+    struct PositionXYZ curr;
+    struct PositionXYZ last;
+    struct PositionXYZ plus;
 };
 
 typedef struct Struct_2A3C_In Struct_2A3C_In, *PStruct_2A3C_In;

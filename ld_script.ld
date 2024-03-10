@@ -45,6 +45,7 @@ SECTIONS {
 		eMainState0x58           	= 0x4710;
 		gTransition              	= 0x48B8;
 		gBitsetAttack		 	    = 0x4890;
+		gCurMapElevationData		= 0x48A0;
 		gFillValue               	= 0x48C0;
 		gBattleUi           	 	= 0x48D0;
 		gBlendSettings           	= 0x4900;
@@ -113,6 +114,7 @@ SECTIONS {
 		gFuncPtrBgUpdatePreLoop  	= 0x7098;
 		eMainState0x28           	= 0x70A0;
 		gCredits				 	= 0x70D0;
+		gCurMapBoundaryData			= 0x70E0;
 		gListSpriteTilesetDetail    = 0x7200;
 		eMainState0x60           	= 0x74C8;
 		gEntityBoundsListCount   	= 0x74D0;
@@ -133,6 +135,7 @@ SECTIONS {
 		eDmaParamList            	= 0x8010;
 		gEntityListAttack    	    = 0x8410;
 		gCurMapEventData         	= 0x9A10;
+		gCurMapCoverData			= 0x9A30;
 		eMainState0x44           	= 0x9A50;
 		eMainState0x64           	= 0x9A80;
 		gSpriteLzDetails         	= 0x9AA0;
@@ -160,6 +163,8 @@ SECTIONS {
 		gMPState1					= 0xC1E0;
 		gLatestMpInput				= 0xC1F0;
 		gListMpState				= 0xC200;
+		gCurPlayerPos				= 0xC230;
+		gMapSegPos					= 0xC240;
 		gCustomScreen            	= 0xC270;
 		musicPlayerInfo_13       	= 0xC520;
 		musicPlayerInfo_17       	= 0xC560;
