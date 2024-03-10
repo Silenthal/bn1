@@ -78,6 +78,7 @@ global_label Flag_SetBase
     mov        pc,lr
 
     .align 2, 0
+
 global_label Flag_Clear420
     add        r0,#0x10
 global_label Flag_Clear410
@@ -109,7 +110,8 @@ global_label Flag_ClearBase
     strb       r0,[r7,#0x0]
     mov        pc,lr
 
-        .align 2, 0
+    .align 2, 0
+
 global_label Flag_Get420
     add        r0,#0x10
 global_label Flag_Get410

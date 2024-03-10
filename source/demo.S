@@ -35,6 +35,7 @@ _ts Demo_Main
     pop        { pc }
 
     .align 2, 0
+
 JT_R5_DemoState_1897C:
     .word Demo_Init
     .word Demo_State1
@@ -79,6 +80,7 @@ _ts Demo_State1
     pop        { pc }
 
     .align 2, 0
+
 JT_R5_DemoState_189D8:
     .word Demo_SetToBeContinuedMessage
     .word Demo_FadeOutScreen

@@ -199,6 +199,7 @@ LAB_08002af2:
     pop        {pc}
 
     .align 2, 0
+
 PTR_listEntityAlloc_08002afc:   .word listEntityAlloc
 PTR_listEntityFree_08002b00:    .word listEntityFree
 PTR_listEntityList_08002b04:    .word listEntityList

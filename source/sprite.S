@@ -313,7 +313,8 @@ _ts SpritePtr_ObjModeNormal
     bic        r1,r0
     strb       r1,[r7,#0x11]
     mov        pc,lr
-.align 2, 0
+
+    .align 2, 0
 
 
 _ts LC_SpritePtr_CalculateOcclusion
@@ -566,6 +567,7 @@ LAB_080026ea:
     mov        pc,lr
 
     .align 2, 0
+
 PTR_SpritePtr_CalculateOcclusion_1_080026f4: .word SpritePtr_CalculateOcclusion
 PTR_gFillValue_080026f8: .word gFillValue
 PTR_OAM_080026fc: .word OAM_BEGIN
@@ -724,7 +726,8 @@ _ts SpriteTilesetDetail_Init
     bl         memset_32
     pop        {pc}
 
-.align 2, 0
+    .align 2, 0
+
 PTR_gSpriteTilesetOffset0_0800280c: .word gSpriteTilesetOffset0
 PTR_eObjPalette0_08002810: .word eObjPalette0
 PTR_gSpritePalettesLoaded_08002814: .word gSpritePalettesLoaded
@@ -969,12 +972,14 @@ _ts dummy_2970
     bl         PrintDebugString
     pop        { r5, pc }
     .align 2, 0
+
 DAT_08002980:
     @ Format text for debugging?
     .byte 0x16, 0x0
     .asciz "UNCOMP\n%8x"
 
     .align 2, 0
+
 PTR_gSpriteLzDetails_08002990:  .word gSpriteLzDetails
 INT_08002994:                   .word 0x7FFF
 PTR_gSpriteLzDetails_08002998:  .word gSpriteLzDetails

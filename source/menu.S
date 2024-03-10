@@ -54,6 +54,7 @@ _ts Menu_Main
     pop        { pc }
 
     .align 2, 0
+
 PTR_JT_R5_74_19820_0801981c:
     .word JT_R5_74_19820
 JT_R5_74_19820:

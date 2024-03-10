@@ -131,7 +131,7 @@ Handler_VCount:
     pop        { r0 }
     bx         r0
 ptrSoundMain:    .word Sound_Main
-.word 0x2006334  @ ???
+    .word 0x2006334  @ ???
 
 FUN_08180150:
     ldr        r0,=REG_VCOUNT

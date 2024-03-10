@@ -358,6 +358,7 @@ LAB_080137d8:
     mov        pc,lr
 
     .align 2, 0
+
 charShade:
     .word 0x00000000
     .word 0x33333333
@@ -1454,6 +1455,8 @@ LAB_08013fdc:
     pop        { pc }
 
     .align 2, 0
+
+
 PTR_gFolder_08013fe4:
     .word       gFolder
 
@@ -2384,6 +2387,8 @@ _ts JT_Layout_FB_00_PrintItemName
     pop        { r3, pc }
 
     .align 2, 0
+
+
 PTR_gTextBufferList_080146d8:
     .word       gTextBufferList
 
@@ -2703,6 +2708,8 @@ LAB_0801496a:
     pop        { pc }
 
     .align 2, 0
+
+
 PTR_PTR_EnemySpawn_08014970:
     .word       PTR_EnemySpawn_08014cf8
 
@@ -2800,12 +2807,16 @@ LAB_08014a30:
     pop        { pc }
 
     .align 2, 0
+
+
 PTR_BYTE_ARRAY_08014a34:
     .word       BYTE_ARRAY_08014a38
 BYTE_ARRAY_08014a38:
     .byte 0x7, 0x7, 0x7, 0xD, 0x12, 0x16
 
     .align 2, 0
+
+
 PTR_AreaIdPack_ARRAY_08014a40:
     .word       AreaIdPack_ARRAY_08014a44
 AreaIdPack_ARRAY_08014a44:
@@ -2975,6 +2986,8 @@ LAB_08014b6a:
     pop        { pc }
 
     .align 2, 0
+
+
 PTR_tilesetArrowVert0_08014b70:
     .word       tilesetArrowVert0
     .word       tilesetArrowVert0
@@ -3035,6 +3048,8 @@ LAB_08014c02:
     pop        { pc }
 
     .align 2, 0
+
+
 tileArrowAnimArray:
     .word tilesetArrowHori0
     .word tilesetArrowHori0
@@ -3140,6 +3155,8 @@ LAB_08014cce:
     pop        { r4, r5, pc }
 
     .align 2, 0
+
+
 PTR_PTR_tilesetArrowVert0_08014cd:  .word PTR_tilesetArrowVert0_08014b70
 PTR_DAT_08014ce0:                   .word DAT_0600d820
 PTR_LayoutEntry_08014ce4:           .word LayoutEntry_08014bc0

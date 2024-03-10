@@ -54,8 +54,10 @@ _nt Battle_IncreaseBattleTime
 LAB_08006ab2:
     strh       r0,[r5,#0x20]
     mov        pc,lr
-.align 2, 0
-.pool
+
+    .align 2, 0
+
+    .pool
 
 @@ Update the multiple delete count based on the delete buffer.
 _ts Battle_ProcessMultipleDelete
@@ -177,6 +179,7 @@ LAB_08006b7c:
     pop        {r5,pc}
 
     .align 2, 0
+
 PTR_listValidPanels_08006b88: .word listValidPanels
 listValidPanels:
     .byte 0, 0, 0, 0, 0, 0, 0, 0

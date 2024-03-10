@@ -6,7 +6,7 @@
 
     .thumb
 
-.set Attack_SharpStrike_Create, 0x80719ac
+    .set Attack_SharpStrike_Create, 0x80719ac
 
 _nt FUN_08000dd4
     push       {r5,lr}
@@ -209,6 +209,7 @@ LAB_08000f28:
     pop        {r5,pc}
 
     .align 2, 0
+
 PTR_listStartX_08000f40: .word listStartX
 listStartX:
     .byte 1, 1
@@ -263,6 +264,7 @@ LAB_08000f88:
     pop        {r5,pc}
 
     .align 2, 0
+
 PTR_BYTE_ARRAY_ARRAY_08000fa0:  .word BYTE_ARRAY_ARRAY_08000fa4
 BYTE_ARRAY_ARRAY_08000fa4:
     .byte 2, 1
@@ -367,6 +369,7 @@ LAB_08001050:
     pop        {r5,pc}
 
     .align 2, 0
+
 PTR_listOffsetX_105C_08001054:  .word listOffsetX_105C
 PTR_listStartX_105E_08001058:   .word listStartX_105E
 listOffsetX_105C:
@@ -844,6 +847,7 @@ LAB_0800141a:
     pop        {r5,pc}
 
     .align 2, 0
+
 PTR_listSearchDirection_0800141c:   .word listSearchDirection
 listSearchDirection:
     .byte 6, -1
@@ -956,7 +960,8 @@ LAB_080014d6:
     add        sp,#0x4
     pop        {r5,pc}
 
-.align 2, 0
+    .align 2, 0
+
 PTR_PanelFlag_ARRAY_080014f0:   .word PanelFlag_ARRAY_08001500
 PTR_PanelFlag_ARRAY_080014f4:   .word PanelFlag_ARRAY_08001508
 PTR_PanelFlag_ARRAY_080014f8:   .word PanelFlag_ARRAY_08001510
@@ -1013,6 +1018,7 @@ LAB_08001566:
     pop        {pc}
 
     .align 2, 0
+
 INT_0800156c: .word 0x2000C30
 
 _ts FUN_08001570
@@ -1132,6 +1138,7 @@ LAB_08001628:
     mov        pc,lr
 
     .align 2, 0
+
 PTR_PTR_gEntityListPlayerLocation_0800163c: .word PTR_gEntityListPlayerLocation_08001604
 PTR_PTR_DAT_08001640:                       .word PTR_DAT_08001614
 PTR_DAT_08001644:                           .word DAT_08001648
@@ -1222,6 +1229,7 @@ LAB_080016cc:
     pop        {r5,pc}
 
     .align 2, 0
+
 DAT_080016d0:
     .word 0x40000
 
@@ -1261,6 +1269,7 @@ LAB_0800170c:
     pop        {r5,pc}
 
     .align 2, 0
+
 DAT_08001710:
     .word 0x40000
 

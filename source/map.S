@@ -852,17 +852,18 @@ LAB_08011abe:
     mov        r0,#0x0
     mov        r1,#0x0
     pop        {pc}
-.byte 0, 13
-.asciz "00 X:%8X Y:%8X"
 
-.byte 0, 14
-.asciz "01 X:%8X Y:%8X"
+    .byte 0, 13
+    .asciz "00 X:%8X Y:%8X"
 
-.byte 0, 15
-.asciz "02 X:%8X Y:%8X"
+    .byte 0, 14
+    .asciz "01 X:%8X Y:%8X"
 
-.byte 0, 16
-.asciz "03 X:%8X Y:%8X"
+    .byte 0, 15
+    .asciz "02 X:%8X Y:%8X"
+
+    .byte 0, 16
+    .asciz "03 X:%8X Y:%8X"
 
 
 _ts Boundary_IntDiv

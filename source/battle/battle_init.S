@@ -864,6 +864,7 @@ _ts Battle_GetInternetSpawnListIndex
     pop        {pc}
 
     .align 2, 0
+
 PTR_PTR_EncounterCheck_Internet1:
     .word PTR_EncounterCheck_Internet1
 PTR_EncounterCheck_Internet1:

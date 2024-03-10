@@ -3,11 +3,11 @@
     .include "macros.inc"
 
 
-.set Battle_AreAllSpritesSpawned, 0x8006a0c
-.set Battle_DrawEnemyHP, 0x807bbcc
-.set Battle_DrawPlayerHand, 0x807c152
-.set BattleR_PauseTimer, 0x80069f0
-.set BattleMessage_Disable, 0x8017954
+    .set Battle_AreAllSpritesSpawned, 0x8006a0c
+    .set Battle_DrawEnemyHP, 0x807bbcc
+    .set Battle_DrawPlayerHand, 0x807c152
+    .set BattleR_PauseTimer, 0x80069f0
+    .set BattleMessage_Disable, 0x8017954
 
     .text
 
@@ -22,6 +22,7 @@ _nt Battle_Regular
     pop        {pc}
 
     .align 2, 0
+
 PTR_BattleR_0_SpawnPlayerWithHP:
     .word BattleR_0_SpawnPlayerWithHP
     .word BattleR_1_HandleCustomScreen
@@ -40,6 +41,7 @@ _nt BattleR_0_SpawnPlayerWithHP
     pop        {pc}
 
     .align 2, 0
+
 PTR_BattleR_1_0_0_SpawnPlayer:
     .word BattleR_1_0_0_SpawnPlayer
     .word BattleR_1_0_1_DrawHP
@@ -101,6 +103,7 @@ _nt BattleR_1_HandleCustomScreen
     pop        {pc}
 
     .align 2, 0
+
 PTR_BattleR_1_0_LoadCustomScreenUI:
     .word BattleR_1_0_LoadCustomScreenUI
     .word BattleR_1_1_CustomScreen

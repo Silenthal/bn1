@@ -24,6 +24,7 @@ _ts Splash_Main
     pop        { pc }
 
     .align 2, 0
+
 jumpTableSplashMain:
     .word Splash_0_LoadCapcomLogo
     .word Splash_1_FadeIn

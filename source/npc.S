@@ -188,6 +188,7 @@ LAB_08003c54:
     mov        pc,lr
 
     .align 2, 0
+
 PTR_gBitsetNPC_08003c68:                .word gBitsetNPC
 DAT_08003c6c:                           .word 0x80000000
 PTR_gEntityListNpc_08003c70:            .word gEntityListNpc

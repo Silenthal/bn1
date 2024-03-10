@@ -56,6 +56,7 @@ _ts E_QuickEffect_0_Init
     pop        {pc}
 
     .align 2, 0
+
 SpriteAnimParam_ARRAY_0807b4e4:
 _00: @ 0
     .short SP_Effect_ShortExplosion
@@ -251,7 +252,8 @@ _ts Effect_QuickEffect_Create
     bl         Effect_Alloc
     pop        {pc}
 
-.align 2, 0
+    .align 2, 0
+
 PTR_PTR_E_QuickEffect_0_Init: .word PTR_E_QuickEffect_0_Init
 Struct_7B5F8_ARRAY_0807b5f8:
 @ 0x00 (0)

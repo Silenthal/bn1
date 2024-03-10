@@ -284,6 +284,7 @@ LAB_08003ab8:
     mov        pc,lr
 
     .align 2, 0
+
 PTR_gBitsetEffect_08003acc:             .word gBitsetEffect
 DAT_08003ad0:                           .word 0x80000000
 PTR_gListEffect_08003ad4:               .word gListEffect

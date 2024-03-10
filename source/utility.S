@@ -6,7 +6,7 @@
 
     .thumb
 
-.set Attack_SharpStrike_Create, 0x80719ac
+    .set Attack_SharpStrike_Create, 0x80719ac
 
 _ts memset0_16
     mov        r2,#0x0
@@ -121,6 +121,7 @@ LAB_08000adc:
     mov        pc,lr
 
     .align 2, 0
+
 powersOf10:
     .word 10000000
     .word 1000000
@@ -261,6 +262,7 @@ _nt FrameTimeToBcdRealTime
     pop        { pc }
 
     .align 2, 0
+
 timeConsts:
     .word 2160000
     .word 216000
@@ -284,7 +286,7 @@ _ts IncrementGameTimer
     cmp        r0,r1
     ble        .setTime
     add        r0,r1,#0x0
-.setTime:
+    .setTime:
     str        r0,[r7,#0x18]
     mov        pc,lr
 
@@ -347,6 +349,7 @@ _ts FUN_08000c80
     pop        { pc }
 
     .align 2, 0
+
 PTR_REG_VCOUNT_08000c90:    .word REG_VCOUNT
 PTR_DAT_08000c94:           .word 0x02006334
 DAT_08000c98:               .word 0x80000000
@@ -464,6 +467,7 @@ _ts AngleToOffset
     mov        pc,lr
 
     .align 2, 0
+
 PTR_sinTable_08000d5c: .word sinTable
 PTR_cosTable_08000d60: .word cosTable
 

@@ -439,6 +439,7 @@ LAB_080156e2:
 LAB_08015700:
     pop        { pc }
     .align 2, 0
+
 tilemapCustomGaugeFullOrange:
     tilemap_entry 0x22B, 0x0, 0xA
     tilemap_entry 0x22B, 0x0, 0xA

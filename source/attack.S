@@ -300,6 +300,7 @@ LAB_080037d0:
     mov        pc,lr
 
     .align 2, 0
+
 PTR_gBitsetAttack_080037e4:             .word gBitsetAttack
 DAT_080037e8:                           .word 0x80000000
 PTR_gEntityListAttack_080037ec:         .word gEntityListAttack

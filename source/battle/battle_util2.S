@@ -6,8 +6,8 @@
 
     .thumb
 
-.set Inventory_SetChecksum, 0x801b0d4
-.set FUN_0801b0f0, 0x801b0f0
+    .set Inventory_SetChecksum, 0x801b0d4
+    .set FUN_0801b0f0, 0x801b0f0
 
 _ts Battle_IsActive
     push       {lr}
@@ -3566,6 +3566,7 @@ LAB_08009d16:
     pop        {pc}
 
     .align 2, 0
+
 DAT_08009d18: .word 60 * 359999
 
 
@@ -3596,6 +3597,8 @@ LAB_08009d44:
     mov        pc,lr
 
     .align 2, 0
+
+
 DAT_08009d48: .word 0xFFFF
 
 
@@ -3661,6 +3664,8 @@ LAB_08009dae:
     pop        {r5,pc}
 
     .align 2, 0
+
+
 PTR_gBattleSpriteArgsArray_08009db0:        .word gBattleSpriteArgsArray
 PTR_gBattleSpriteArgsArrayCount_08009db4:   .word gBattleSpriteArgsArrayCount
 

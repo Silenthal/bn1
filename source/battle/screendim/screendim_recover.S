@@ -20,7 +20,8 @@ _ts ScreenDim_Recover
     bx         r7
     pop        {pc}
 
-.align 2, 0
+    .align 2, 0
+
 PTR_PTR_SD_Recover_0_Init:
     .word PTR_SD_Recover_0_Init
 PTR_SD_Recover_0_Init:
@@ -111,10 +112,11 @@ LAB_080983de:
 LAB_080983ec:
     pop        {pc}
 
-.align 2, 0
+    .align 2, 0
+
 PTR_listRecoverHPAmounts_080983f0: .word listRecoverHPAmounts
 listRecoverHPAmounts:
-.short  10, 30, 50, 80, 120, 150, 200, 300
+    .short  10, 30, 50, 80, 120, 150, 200, 300
 
 
 _ts SD_Recover_2_FadeIn
@@ -162,4 +164,4 @@ _ts ScreenDim_Recover_Create
     str        r0,[r7,#0x14]
     pop        {r5,pc}
 
-.align 2, 0
+    .align 2, 0

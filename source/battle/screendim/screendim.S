@@ -4,7 +4,7 @@
 
     .text
 
-.set listScreenDimHandler, 0x80063e0
+    .set listScreenDimHandler, 0x80063e0
 
 _ts ScreenDim_Alloc
     ldr        r7,=gScreenDim

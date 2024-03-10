@@ -111,8 +111,9 @@ LAB_08003d5e:
     pop        {pc}
 
     .align 2, 0
+
 PTR_formatString:
-.asciz "DdXxSs%0123456789Bb"
+    .asciz "DdXxSs%0123456789Bb"
 
 PTR_FUN_08003dc8_1_08003d7c:
     .word FUN_08003dc8
@@ -159,6 +160,7 @@ LAB_08003dea:
     pop        {r0,r5,r6,r7,pc}
 
     .align 2, 0
+
 DAT_08003df0:
     .byte 0x00, 0xCA, 0x9A, 0x3B, 0x00, 0xE1, 0xF5, 0x05
     .byte 0x80, 0x96, 0x98, 0x00, 0x40, 0x42, 0x0F, 0x00
@@ -414,6 +416,7 @@ LAB_08003fca:
     mov        pc,lr
 
     .align 2, 0
+
 PTR_DAT_08003fcc:
     .word 0x2002318
 DAT_08003fd0:

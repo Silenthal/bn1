@@ -120,6 +120,7 @@ _ts CustomScreen_1_0_Open
     pop        { pc }
 
     .align 2, 0
+
 JT_R5_BCS_159CC:
     .word CustomScreen_StartSlideOpen
     .word CustomScreen_SlideOpen
@@ -416,6 +417,7 @@ _nt CustomScreen_1_3_Add
     pop        { pc }
 
     .align 2, 0
+
 PTR_PTR_CustomScreen_1_3_0_ShowMessage_08015c24:
     .word PTR_CustomScreen_1_3_0_ShowMessage_08015c28
 PTR_CustomScreen_1_3_0_ShowMessage_08015c28:
@@ -523,6 +525,7 @@ _ts CustomScreen_1_4_Close
     pop        { pc }
 
     .align 2, 0
+
 PTR_CustomScreen_1_4_0_CloseStart_1_08015cf4:
     .word CustomScreen_1_4_0_CloseStart
     .word CustomScreen_1_4_1_SlideClosed
@@ -586,6 +589,7 @@ _nt CustomScreen_1_6_NoMoreData
     pop        { pc }
 
     .align 2, 0
+
 PTR_CustomScreen_1_6_0_ShowMessage:
     .word CustomScreen_1_6_0_ShowMessage
     .word CustomScreen_1_6_1_FadeOut
@@ -634,6 +638,7 @@ LAB_08015dc4:
     pop        { pc }
 
     .align 2, 0
+
 PTR_gTextOptionFlags_08015dc8:
     .word gTextOptionFlags
 
@@ -749,6 +754,7 @@ LAB_08015e70:
     pop        { pc }
 
     .align 2, 0
+
 DmaTransferDetail_ARRAY_08015e98:
     .word tilesetCustomScreenBg_1
     .word 0x6009000
@@ -943,6 +949,7 @@ _ts CustomScreen_LoadAlternateArt
     pop        { pc }
 
     .align 2, 0
+
 PTR_DAT_08016060:
     .word 0x600af00
 PTR_eBgPaletteB_08016064:
@@ -1039,6 +1046,7 @@ LAB_080161f0:
     bl         CustomScreen_CopyTilemap
     pop        { pc }
     .align 2, 0
+
 DAT_08016200:
     .word 0x1E0
 PTR_DAT_08016204:
@@ -1286,6 +1294,7 @@ LAB_08016420:
     bl         CustomScreen_LoadChipLayout
     pop        { r5, pc }
     .align 2, 0
+
 unknown_16430:
     .word 0x7FFFF
 
@@ -1442,9 +1451,12 @@ LAB_0801650e:
     bne        LAB_0801650e
 LAB_0801654a:
     pop        { r5, pc }
+
 ObjectTileAttributes_0801654c:
     obj_attr_2 0x3A8, 0, 0xD
+
     .align 2, 0
+
 PTR_gFrameCounter_08016550: .word gFrameCounter
 PTR_PTR_CursorAttributes_08016554: .word PTR_CursorAttributes_08016558
 PTR_CursorAttributes_08016558:
@@ -1705,9 +1717,12 @@ LAB_08016734:
     bl         CustomScreen_CopyTilemap
     add        sp,#0x10
     pop        { pc }
+
 tilemapDamageNumberStart:
     tilemap_entry 0x300, 0, 0xC
+
     .align 2, 0
+
 TilemapEntry_08016760:
     tilemap_entry 0x314, 0, 0xC
 
@@ -2072,6 +2087,7 @@ framesLogoAnimation:
     .byte 2, 3, 3, 3
 
     .align 2, 0
+
 tilemapCustomScreenLogoFrame0:
     tilemap_entry 0x331, 0, 0xC
     tilemap_entry 0x332, 0, 0xC
@@ -2153,6 +2169,7 @@ LAB_080169fe:
     pop        {pc}
 
     .align 2, 0
+
 PTR_CustomScreen_0_Init:
     .word       CustomScreen_0_Init
     .word       CustomScreenT1_1_Main
@@ -2641,6 +2658,7 @@ LAB_08016da2:
     pop        {pc}
 
     .align 2, 0
+
 PTR_CustomScreen_0_Init_08016dc4:
     .word       CustomScreen_0_Init
     .word       CustomScreenT2_1_Main
@@ -3062,6 +3080,7 @@ _nt CustomScreenT2_VerifySelection
     pop        {r0,pc}
 
     .align 2, 0
+
 PTR_CustomScreenT2_1_1_0_0_CheckIfStealSelected:
     .word       CustomScreenT2_1_1_0_0_CheckIfStealSelected
     .word       dummy_1715a
@@ -3146,6 +3165,7 @@ _nt CustomScreenT2_CheckCancel
     pop        {pc}
 
     .align 2, 0
+
 PTR_CustomScreenT2_1_1_0_0_Next_08017190:
     .word       CustomScreenT2_1_1_0_0_Next
     .word       CustomScreenT2_1_1_0_1_Next
@@ -3153,7 +3173,9 @@ PTR_CustomScreenT2_1_1_0_0_Next_08017190:
     .word       CustomScreenT2_1_1_0_3_Next
     .word       CustomScreenT2_1_1_0_4_Next
     .word       CustomScreenT2_1_1_0_5_DontCancel
+
     .pool
+
     .align 2, 0
 
 
@@ -3223,6 +3245,7 @@ _nt CustomScreenT2_OkButtonPressCheck
     pop        {pc}
 
     .align 2, 0
+
 PTR_CustomScreenT2_1_2_0_0_ChooseStealFirst:
     .word       CustomScreenT2_1_2_0_0_ChooseStealFirst
     .word       CustomScreenT2_1_2_0_1_ChooseStealFirst

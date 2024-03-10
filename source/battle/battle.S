@@ -95,6 +95,7 @@ LAB_080058e0:
     bl         Battle_AdvanceTimer
     pop        { pc }
     .align 2, 0
+
 jumpTableBattleMain:
     .word Battle_0_Init
     .word Battle_1_Main
@@ -113,6 +114,7 @@ _ts Battle_0_Init
     pop        {pc}
 
     .align 2, 0
+
 PTR_Battle_0_0_InitStats:
     .word Battle_0_0_InitStats
     .word Battle_0_1_InitField
@@ -290,6 +292,7 @@ LAB_08005a74:
     thumb_func_end Battle_0_2_InitStatsMP
 
     .align 2, 0
+
 PTR_gIsObjectXFlipped_08005a78: .word gIsObjectXFlipped
 
 
@@ -319,6 +322,7 @@ LAB_08005ab4:
     pop        {pc}
 
     .align 2, 0
+
 JT_R5_0C_5AB8:
     .word 0x8006be9 @ Battle_1_0_Regular
     .word 0x8006d45 @ Battle_1_1_Tutorial1
@@ -356,6 +360,7 @@ _ts Battle_2_BattleEnd
     pop        {pc}
 
     .align 2, 0
+
 JT_R5_0C_5B1C:
     .word Battle_2_0_EnemyDeleted
     .word Battle_2_1_MegaManDeleted
@@ -376,6 +381,7 @@ _ts Battle_2_0_EnemyDeleted
     pop        {pc}
 
     .align 2, 0
+
 PTR_Battle_2_0_1_LoadMessage:
     .word Battle_2_0_1_LoadMessage
     .word Battle_2_0_2_ShowMessage
@@ -807,7 +813,8 @@ _nt BattleR_2_2_BattleStart
     mov        r0,#0x0
     pop        {pc}
 
-.align 2, 0
+    .align 2, 0
+
 PTR_BattleR_2_2_0_DrawBattleElements:
     .word BattleR_2_2_0_DrawBattleElements
     .word BattleR_2_2_1_LoadMessage
@@ -947,7 +954,8 @@ LAB_08005f2e:
 LAB_08005f38:
     pop        {pc}
 
-.align 2, 0
+    .align 2, 0
+
 PTR_BattleR_2_3_0_CheckPauseAndBattleEnd:
     .word BattleR_2_3_0_CheckPauseAndBattleEnd
     .word BattleR_2_3_1_CheckSpritesSpawned
@@ -1104,6 +1112,7 @@ LAB_08006052:
     pop        {pc}
 
     .align 2, 0
+
 PTR_tsPauseShow_08006058:
     .word tsPauseShow
 PTR_tsPauseHide_0800605c:
@@ -1729,6 +1738,7 @@ LAB_080064d6:
     pop        {r5,pc}
 
     .align 2, 0
+
 PTR_PTR_CellPosition_ARRAY_08006528:
     .word PTR_CellPosition_ARRAY_0800652c
 PTR_CellPosition_ARRAY_0800652c:
@@ -1824,7 +1834,9 @@ LAB_08006610:
     lsl        r2,r2,#0x2
     ldr        r0,[r6,r2]
     mov        pc,lr
+
     .align 2, 0
+
 BYTE_ARRAY_ARRAY_ARRAY_ARRAY_08006624:
     .byte 0x06, 0x06
     .byte 0x00, 0x01

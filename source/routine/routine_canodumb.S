@@ -4,17 +4,17 @@
 
     .text
 
-.set Entity_SpriteCoordsToCell, 0x80097b8
-.set Battle_LoadEnemyHp, 0x8009b64
-.set IsPanelWalkable, 0x8059c40
-.set Battle_DecreaseOpponentCount, 0x8009cc2
-.set Battle_IsInputLocked, 0x8009cee
-.set FUN_080562d6_HpDrainRelated, 0x80562d6
-.set Entity_CompareToPlayerRow, 0x805aadc
-.set CanodumbTarget_Create, 0x8071B60
-.set Battle_RegisterVirusDelete, 0x8009B90
-.set Effect_CreateVirusDeleteExplosion, 0x807ce16
-.set Battle_RemoveFromEnemyList, 0x8009b74
+    .set Entity_SpriteCoordsToCell, 0x80097b8
+    .set Battle_LoadEnemyHp, 0x8009b64
+    .set IsPanelWalkable, 0x8059c40
+    .set Battle_DecreaseOpponentCount, 0x8009cc2
+    .set Battle_IsInputLocked, 0x8009cee
+    .set FUN_080562d6_HpDrainRelated, 0x80562d6
+    .set Entity_CompareToPlayerRow, 0x805aadc
+    .set CanodumbTarget_Create, 0x8071B60
+    .set Battle_RegisterVirusDelete, 0x8009B90
+    .set Effect_CreateVirusDeleteExplosion, 0x807ce16
+    .set Battle_RemoveFromEnemyList, 0x8009b74
 
 _ts Routine_Canodumb
     push       {lr}
@@ -140,6 +140,7 @@ LAB_08059a24:
     thumb_func_end R_Canodumb_1_Main
 
     .align 2, 0
+
 PTR_R_Canodumb_1_0_Spawn:
     .word R_Canodumb_1_0_Spawn
     .word R_Canodumb_1_1_WaitForBattleStart
@@ -160,6 +161,8 @@ _ts R_Canodumb_1_0_Spawn
     bx         r7
     pop        {pc}
     .align 2, 0
+
+
 PTR_R_Canodumb_1_0_0_ResetAnimState:
     .word R_Canodumb_1_0_0_ResetAnimState
     .word R_Canodumb_1_0_1_InitSpawn
@@ -281,6 +284,8 @@ _nt R_Canodumb_1_5_Act
     bx         r7
     pop        {pc}
     .align 2, 0
+
+
 PTR_R_Canodumb_1_5_0_Delay_1_08059b34:
     .word R_Canodumb_1_5_0_Delay
     .word R_Canodumb_1_5_1_CreateTarget
@@ -461,4 +466,5 @@ LAB_08059c6c:
     ldr        r3,[sp,#0x0]
     add        sp,#0x4
     pop        {pc}
-.align 2, 0
+
+    .align 2, 0

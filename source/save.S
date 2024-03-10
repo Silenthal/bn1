@@ -39,6 +39,7 @@ _ts Save_LoadGame
     pop        { pc }
 
     .align 2, 0
+
 PTR_DAT_0801fb24:
     .word EWRAM_START
 PTR_SRAM_0801fb28:

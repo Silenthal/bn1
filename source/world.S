@@ -420,6 +420,7 @@ _ts World_5_Transition
 LAB_080043a0:
     pop        {pc}
     .align 2, 0
+
 DAT_080043a4:
     .word 0x40
 
@@ -734,7 +735,9 @@ LAB_08004656:
     pop        {r5}
 LAB_0800466a:
     pop        {pc}
-.align 2, 0
+
+    .align 2, 0
+
     .word folderSrcInitialFolder
 PTR_gFolder_08004670:
     .word gFolder
@@ -754,296 +757,296 @@ LAB_08004680:
     add        r0,r0,r1
     ldrb       r0,[r7,r0]
     mov        pc,lr
+
 BackgroundId_ARRAY_ARRAY_0800468c:
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
 
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
+    .byte BG_FireMan
 
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
-.byte BG_FireMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
+    .byte BG_IceMan
 
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
-.byte BG_IceMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
+    .byte BG_ColorMan
 
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
-.byte BG_ColorMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
+    .byte BG_ElecMan
 
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
-.byte BG_ElecMan
+    .byte BG_FireMan
+    .byte BG_NumberMan
+    .byte BG_IceMan
+    .byte BG_ColorMan
+    .byte BG_ElecMan
+    .byte BG_WWW
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
 
-.byte BG_FireMan
-.byte BG_NumberMan
-.byte BG_IceMan
-.byte BG_ColorMan
-.byte BG_ElecMan
-.byte BG_WWW
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
 
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
 
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
+    .byte BG_LanHp
+    .byte BG_MaylHp
+    .byte BG_YaiHp
+    .byte BG_DexHp
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
 
-.byte BG_LanHp
-.byte BG_MaylHp
-.byte BG_YaiHp
-.byte BG_DexHp
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
+    .byte BG_HikariHp
+    .byte BG_SalHp
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
 
-.byte BG_HikariHp
-.byte BG_SalHp
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
+    .byte BG_MiyuHp
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
 
-.byte BG_MiyuHp
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
+    .byte BG_MasaHp
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
+    .byte BG_Invalid
 
-.byte BG_MasaHp
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
-.byte BG_Invalid
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
+    .byte BG_Generic
 
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
-.byte BG_Generic
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
 
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
 
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
+    .byte BG_NumberMan
 
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-.byte BG_NumberMan
-
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
-.byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
+    .byte BG_Internet
 
     .word BackgroundId_ARRAY_ARRAY_0800468c
 PTR_BackgroundId_ARRAY_ARRAY_080047a0:

@@ -582,7 +582,7 @@ ptrTmCopy1x: .word BGDM_CopyTilemapEntry_BG2
 ptrLoad23_2: .word BGDM_LoadTilemap_StaticBG1
 ptrLoadXY23_2: .word BGDM_LoadTilemapXY_StaticBG1
 
-.pool
+    .pool
 
 
 @@ Copies the full surrounding tilemap to the BG1, BG2 and BG3 layer of the screen, keeping the BG1 layer static.

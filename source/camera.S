@@ -262,6 +262,7 @@ LAB_08010dec:
     pop        {pc}
 
     .align 2, 0
+
 listShakeStrength:
     .word 0x1
     .word 0x10000

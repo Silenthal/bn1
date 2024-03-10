@@ -237,6 +237,7 @@ _ts Oam_InitAffineData
     pop        { pc }
 
     .align 2, 0
+
 PTR_srcSpriteContainerList_08010bd0:    .word srcSpriteContainerList
 PTR_iwSpriteContainerList_08010bd4:     .word iwSpriteContainerList
 PTR_srcSpriteContainerList_08010bd8:    .word srcSpriteContainerList

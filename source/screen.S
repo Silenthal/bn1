@@ -253,6 +253,7 @@ _ts LC_Screen_SafeCopyTileMapRect
     pop        { pc }
 
     .align 2, 0
+
 PTR_Screen_SafeCopyTileMapH_1_080022c8:
     far_label Screen_SafeCopyTileMapH
 PTR_Screen_SafeCopyTileMapV_1_080022cc:

@@ -96,6 +96,7 @@ _ts MemCpy_8_Sram
     b LAB_0809dfd4
 
     .align 2, 0
+
 PTR_REG_WAITCNT_0809dfb8:
     .word REG_WAITCNT
 DAT_0809dfbc:
@@ -158,6 +159,8 @@ LAB_0809e020:
     bx         r0
 
     .align 2, 0
+
+
 PTR_REG_WAITCNT_0809e028:
     .word REG_WAITCNT
 USHORT_0809e02c:
@@ -216,6 +219,8 @@ _ts MemCmp_8_Sram
     b          LAB_0809e0a8
 
     .align 2, 0
+
+
 PTR_REG_WAITCNT_0809e08c:
     .word REG_WAITCNT
 DAT_0809e090:

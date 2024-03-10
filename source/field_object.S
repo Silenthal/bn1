@@ -372,6 +372,7 @@ dmgMultWood:
     .byte 0x10, 0x20, 0x10, 0x10, 0x10
 
     .align 2, 0
+
 PTR_dmgMultNone_08002ee8:   .word dmgMultNone
 
 
@@ -417,17 +418,18 @@ LAB_08002f2c:
     mov        r5,r8
     mov        pc,lr
 dmgEffectNone:
-.byte 0, 1, 1, 1, 1
+    .byte 0, 1, 1, 1, 1
 dmgEffectElec:
-.byte 0, 1, 1, 0, 1
+    .byte 0, 1, 1, 0, 1
 dmgEffectFire:
-.byte 0, 1, 1, 1, 0
+    .byte 0, 1, 1, 1, 0
 dmgEffectAqua:
-.byte 0, 1, 0, 1, 1
+    .byte 0, 1, 0, 1, 1
 dmgEffectWood:
-.byte 0, 0, 1, 1, 1
+    .byte 0, 0, 1, 1, 1
 
-.align 2, 0
+    .align 2, 0
+
 PTR_dmgEffectNone_08002f4c: .word dmgEffectNone
 
 
@@ -480,18 +482,18 @@ LAB_08002f8c:
     bne        LAB_08002f8c
     mov        pc,lr
 areaPropertiesLeftPlayer:
-.byte 0, 0, 0, 0, 0, 0, 0, 0
-.byte 0, 1, 1, 1, 3, 3, 3, 0
-.byte 0, 1, 1, 1, 3, 3, 3, 0
-.byte 0, 1, 1, 1, 3, 3, 3, 0
-.byte 0, 0, 0, 0, 0, 0, 0, 0
+    .byte 0, 0, 0, 0, 0, 0, 0, 0
+    .byte 0, 1, 1, 1, 3, 3, 3, 0
+    .byte 0, 1, 1, 1, 3, 3, 3, 0
+    .byte 0, 1, 1, 1, 3, 3, 3, 0
+    .byte 0, 0, 0, 0, 0, 0, 0, 0
 
 areaPropertiesRightPlayer:
-.byte 0, 0, 0, 0, 0, 0, 0, 0
-.byte 0, 3, 3, 3, 1, 1, 1, 0
-.byte 0, 3, 3, 3, 1, 1, 1, 0
-.byte 0, 3, 3, 3, 1, 1, 1, 0
-.byte 0, 0, 0, 0, 0, 0, 0, 0
+    .byte 0, 0, 0, 0, 0, 0, 0, 0
+    .byte 0, 3, 3, 3, 1, 1, 1, 0
+    .byte 0, 3, 3, 3, 1, 1, 1, 0
+    .byte 0, 3, 3, 3, 1, 1, 1, 0
+    .byte 0, 0, 0, 0, 0, 0, 0, 0
 
 PTR_gAreaProperties_08002fe8:           .word gAreaProperties
 PTR_areaPropertiesLeftPlayer_08002fec:  .word areaPropertiesLeftPlayer
@@ -563,7 +565,9 @@ _ts Field_GetPanelProperty
     add        r0,r0,r1
     ldrb       r2,[r7,r0]
     mov        pc,lr
-.align 2, 0
+
+    .align 2, 0
+
 PTR_gAreaProperties_08003050:   .word gAreaProperties
 
 
