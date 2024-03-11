@@ -663,3 +663,83 @@ global_label textDict_Battle_Tutorial3
     .incbin "text/scenario/tutorial/tutorial3.script"
 global_label textDict_873E9A0
     .incbin "text/scenario/073E9A0.script"
+global_label paletteJackInFrame00
+    .incbin "images/jack_in/paletteJackInFrame00.gbapal"
+global_label paletteJackInFrame01
+    .incbin "images/jack_in/paletteJackInFrame01.gbapal"
+global_label paletteJackInFrame02
+    .incbin "images/jack_in/paletteJackInFrame02.gbapal"
+global_label paletteJackInFrame03
+    .incbin "images/jack_in/paletteJackInFrame03.gbapal"
+global_label paletteJackInFrame04
+    .incbin "images/jack_in/paletteJackInFrame04.gbapal"
+global_label paletteJackInFrame05
+    .incbin "images/jack_in/paletteJackInFrame05.gbapal"
+global_label paletteJackInFrame06
+    .incbin "images/jack_in/paletteJackInFrame06.gbapal"
+global_label paletteJackInFrame07
+    .incbin "images/jack_in/paletteJackInFrame07.gbapal"
+global_label paletteJackInFrame08
+    .incbin "images/jack_in/paletteJackInFrame08.gbapal"
+global_label paletteJackInFrame09
+    .incbin "images/jack_in/paletteJackInFrame09.gbapal"
+global_label paletteJackInFrame10
+    .incbin "images/jack_in/paletteJackInFrame10.gbapal"
+global_label paletteJackInFrame11
+    .incbin "images/jack_in/paletteJackInFrame11.gbapal"
+global_label paletteJackInFrame12
+    .incbin "images/jack_in/paletteJackInFrame12.gbapal"
+global_label paletteJackInFrame13
+    .incbin "images/jack_in/paletteJackInFrame13.gbapal"
+global_label paletteJackInFrame14
+    .incbin "images/jack_in/paletteJackInFrame14.gbapal"
+global_label paletteJackInFrame15
+    .incbin "images/jack_in/paletteJackInFrame15.gbapal"
+global_label paletteJackInFrame16
+    .incbin "images/jack_in/paletteJackInFrame16.gbapal"
+global_label paletteJackInFrame17
+    .incbin "images/jack_in/paletteJackInFrame17.gbapal"
+global_label paletteJackInFrame18
+    .incbin "images/jack_in/paletteJackInFrame18.gbapal"
+global_label paletteJackInFrame19
+    .incbin "images/jack_in/paletteJackInFrame19.gbapal"
+global_label lzTilesetJackInFrame00
+    .incbin "images/jack_in/tilesetJackInFrame00.4bpp.lz"
+global_label lzTilesetJackInFrame01
+    .incbin "images/jack_in/tilesetJackInFrame01.4bpp.lz"
+global_label lzTilesetJackInFrame02
+    .incbin "images/jack_in/tilesetJackInFrame02.4bpp.lz"
+global_label lzTilesetJackInFrame03
+    .incbin "images/jack_in/tilesetJackInFrame03.4bpp.lz"
+global_label lzTilesetJackInFrame04
+    .incbin "images/jack_in/tilesetJackInFrame04.4bpp.lz"
+global_label lzTilesetJackInFrame05
+    .incbin "images/jack_in/tilesetJackInFrame05.4bpp.lz"
+global_label lzTilesetJackInFrame06
+    .incbin "images/jack_in/tilesetJackInFrame06.4bpp.lz"
+global_label lzTilesetJackInFrame07
+    .incbin "images/jack_in/tilesetJackInFrame07.4bpp.lz"
+global_label lzTilesetJackInFrame08
+    .incbin "images/jack_in/tilesetJackInFrame08.4bpp.lz"
+global_label lzTilesetJackInFrame09
+    .incbin "images/jack_in/tilesetJackInFrame09.4bpp.lz"
+global_label lzTilesetJackInFrame10
+    .incbin "images/jack_in/tilesetJackInFrame10.4bpp.lz"
+global_label lzTilesetJackInFrame11
+    .incbin "images/jack_in/tilesetJackInFrame11.4bpp.lz"
+global_label lzTilesetJackInFrame12
+    .incbin "images/jack_in/tilesetJackInFrame12.4bpp.lz"
+global_label lzTilesetJackInFrame13
+    .incbin "images/jack_in/tilesetJackInFrame13.4bpp.lz"
+global_label lzTilesetJackInFrame14
+    .incbin "images/jack_in/tilesetJackInFrame14.4bpp.lz"
+global_label lzTilesetJackInFrame15
+    .incbin "images/jack_in/tilesetJackInFrame15.4bpp.lz"
+global_label lzTilesetJackInFrame16
+    .incbin "images/jack_in/tilesetJackInFrame16.4bpp.lz"
+global_label lzTilesetJackInFrame17
+    .incbin "images/jack_in/tilesetJackInFrame17.4bpp.lz"
+global_label lzTilesetJackInFrame18
+    .incbin "images/jack_in/tilesetJackInFrame18.4bpp.lz"
+global_label lzTilesetJackInFrame19
+    .incbin "images/jack_in/tilesetJackInFrame19.4bpp.lz"
