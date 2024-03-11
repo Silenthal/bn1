@@ -49,6 +49,7 @@ battle_ui           0x153C8
 custom_screen       0x158EC
 pet_status_control  0x17284
 transition          0x174F4
+battle_message      0x17884
 demo                0x18950
 key_item            0x18C0C
 splash              0x18C94
