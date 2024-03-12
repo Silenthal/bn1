@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Battle_IsTimerPaused, 0x8006A04
-
 _ts Camera_Init
     push       {lr}
     push       {r3,r4}

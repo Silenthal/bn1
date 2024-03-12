@@ -2,36 +2,15 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08007828, 0x8007828
-    .set Battle_SetFieldTilemap, 0x80064b0
-    .set FUN_08007acc, 0x8007acc
-    .set Battle_IsTimerPaused, 0x8006a04
-    .set PlayerBattleState_InitStats, 0x80062B0
     .set FUN_0809bc4c, 0x809bc4c
-    .set FUN_08007c00, 0x8007c00
     .set DAT_06017200, 0x6017200
     .set tilesetBattleMiscellaneous, 0x8640854
-    .set Battle_IncreaseBattleCount, 0x8009d1c
     .set FUN_08056234, 0x8056234
-    .set FUN_08007994, 0x8007994
-    .set possibleBgMove, 0x8010c98
     .set Struct_C1C0_0200c1c0, 0x200c1c0
     .set PlayerMpState_ARRAY_020075a0, 0x20075a0
-    .set BattleMessage_Load, 0x8017884
-    .set BattleMessage_Main, 0x80178ec
     .set Sio_SetReady, 0x809bdf0
-    .set Battle_SetPostBattleHP, 0x800638C
     .set Effect_BattleResult_Create, 0x807d688
-    .set PlayerMPState_Free, 0x8007c00
-    .set Text_CheckIfDialogActive, 0x8007240
     .set Effect_ProgramAdvance_Create, 0x807c79e
-    .set FUN_080079c8, 0x80079c8
-    .set PlayerMPState_Init, 0x8007b9c
-    .set Battle_UnpauseTimer, 0x80069fa
-    .set Multiplayer_UpdateKeyState, 0x8007a08
-    .set Battle_AreAllSpritesSpawned, 0x8006a0c
-    .set Battle_PauseTimer, 0x80069f0
-    .set BattleMessage_Disable, 0x8017954
     .set Battle_CopyChipHandIcons, 0x807c160
 
     .text
@@ -130,7 +109,7 @@ _ts Battle_0_0_InitStats
     cmp        r0,#0x8
     blt        LAB_08005938
     bl         FUN_0809bc4c
-    bl         FUN_08007c00
+    bl         PlayerMPState_Free
     mov        r0,#0x3c
     strh       r0,[r5,#0x2e]
     mov        r0,#0x8
@@ -314,7 +293,7 @@ _ts Battle_1_Main
     bl         Actor_UpdateAll
     bl         Attack_UpdateAll
     bl         Effect_UpdateAll
-    bl         possibleBgMove
+    bl         Camera_UpdatePos
     bl         BGDM_UpdateMapEdge
     bl         BattleUi_Update
     pop        {r5}

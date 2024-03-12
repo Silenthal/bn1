@@ -2,14 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-
-    .set Battle_AreAllSpritesSpawned, 0x8006a0c
     .set Battle_DrawEnemyHP, 0x807bbcc
     .set Battle_DrawPlayerHand, 0x807c152
-    .set BattleR_PauseTimer, 0x80069f0
-    .set BattleMessage_Disable, 0x8017954
-
-    .text
 
 
 _nt Battle_Regular
@@ -81,7 +75,7 @@ _nt BattleR_1_0_1_DrawHP
     bl         Battle_DrawPlayerHand
     mov        r0,#0x1
     strb       r0,[r5,#0x8]
-    bl         BattleR_PauseTimer
+    bl         Battle_PauseTimer
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     mov        r0,#0x0

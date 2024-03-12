@@ -11,10 +11,6 @@
     .set FUN_0801f6c4, 0x801f6c4
     .set ClearEmailIndexes, 0x801c54c
     .set FUN_0804c60c, 0x804c60c
-    .set dummy_114c0, 0x80114c0
-    .set InitPetStatusControl, 0x8017284
-    .set Scene_UnloadIfMarked, 0x801882c
-    .set PetStatusControl_Main, 0x80172c0
     .set dummy_187a0, 0x80187a0
     .set ClearFlagRange280, 0x805287c
     .set FUN_08052528, 0x8052528
@@ -22,16 +18,9 @@
     .set InitStartMenuFromSubMenu, 0x80191ac
     .set Shop_Init, 0x801ef74
     .set GetBattleChipTotalCount, 0x801e7e4
-    .set SetupMapFlags, 0x8018554
-    .set Scene_MarkForUnloading, 0x8018820
-    .set Event_HandleMapEvents, 0x80185b0
     .set StartMenu_Main, 0x8019224
-    .set Scene_GetActiveScene, 0x801883c
     .set FUN_080521cc, 0x80521cc
-    .set SetupMapEntities, 0x8018580
-    .set Map_HandleCollisionEvent, 0x80124d8
     .set InitStartMenu, 0x8019180
-    .set SetupBackgroundAndSprites, 0x80114e4
 
 _ts InitWorld_LoadGame
     push       {lr}
@@ -201,7 +190,7 @@ _ts World_0_AreaChange
     ldrb       r0,[r5,#0x4]
     bl         dummy_114c0
     ldrb       r0,[r5,#0x4]
-    bl         SetupMapFlags
+    bl         FlagSetup_Main
     mov        r0,#0x4
     strb       r0,[r5,#0x0]
 LAB_08004192:
@@ -231,9 +220,9 @@ _ts World_1_SubAreaChange
     strb       r0,[r5,#0x12]
     ldrb       r0,[r5,#0x4]
     ldrb       r1,[r5,#0x5]
-    bl         SetupMapEntities
+    bl         MapSetup_Main
     ldrb       r0,[r5,#0x4]
-    bl         SetupBackgroundAndSprites
+    bl         Map_SetupGraphicData
     push       {r5}
     mov        r0,#0x3
     bl         Video_SetBgControl
@@ -271,7 +260,7 @@ _ts World_2_Overworld
     pop        {r5}
     ldrb       r0,[r5,#0x4]
     ldrb       r1,[r5,#0x5]
-    bl         Event_HandleMapEvents
+    bl         EventHandler_Main
     mov        r0,#0x0
     strb       r0,[r5,#0xe]
     push       {r5}
@@ -595,7 +584,7 @@ _ts World_HandleMapExit
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08004598
-    bl         Scene_GetActiveScene
+    bl         Scene_IsSceneActive
     bne        LAB_08004598
     mov        r0,#0x80
     bl         Text_CheckOption
@@ -659,7 +648,7 @@ _ts World_HandleRandomEncounter
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0800460c
-    bl         Scene_GetActiveScene
+    bl         Scene_IsSceneActive
     bne        LAB_0800460c
     mov        r0,#0x80
     bl         Text_CheckOption
@@ -1312,7 +1301,7 @@ _ts World_CheckStartMenuOpen
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08004a0c
-    bl         Scene_GetActiveScene
+    bl         Scene_IsSceneActive
     bne        LAB_08004a0c
     mov        r0,#0x80
     bl         Text_CheckOption

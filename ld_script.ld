@@ -78,6 +78,7 @@ SECTIONS {
 		gListEffect                 = 0x4CD0;
 		gMenu           		 	= 0x62E0;
 		gOamAttributeCount       	= 0x6338;
+		gSceneCamera				= 0x6340;
 		gText                    	= 0x6350;
 		gBitsetPlayerLocation    	= 0x63DC;
 		gTextOptionFlags         	= 0x63E0;
