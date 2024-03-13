@@ -19,6 +19,7 @@ sio                 0x2C4C
 field_object        0x2C60
 player_location     0x3084
 actor               0x3200
+gStartMenuState     0x3480
 attack              0x3504
 effect              0x382C
 npc                 0x3B14
@@ -57,6 +58,7 @@ demo                0x18950
 key_item            0x18C0C
 splash              0x18C94
 passcode            0x18DEC
+start_menu          0x19180
 menu                0x197C8
 shop                0x1E8AC
 save                0x1FADC

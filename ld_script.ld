@@ -35,6 +35,7 @@ SECTIONS {
 		gBattleChipInventory     	= 0x4A0;
 		gEntityListNpc			 	= 0x13A0;
 		gEmailIndexes            	= 0x1FA0;
+		gStartMenuState				= 0x3480;
 		gBitsetActor			 	= 0x3484;
 		gEntityBoundsList        	= 0x3490;
 		gBattle                  	= 0x3710;
