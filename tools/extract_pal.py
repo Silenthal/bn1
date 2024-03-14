@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import argparse
 from pathlib import Path
 from typing import BinaryIO, List
