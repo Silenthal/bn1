@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Screen_LoadChipDetail      , 0x801996c
+    .set Menu_LoadChipDetail      , 0x801996c
     .set Sio_SetReady               , 0x809bdf0
 
     .text
@@ -45,7 +45,7 @@ _ts AgbMain
     bl         Fade_Apply
 1:
     bl         Text_Main
-    bl         Screen_LoadChipDetail
+    bl         Menu_LoadChipDetail
     bl         BgUpdate_CallPostLoopFunction
     bl         BgTask_Update
     b          .mainLoop

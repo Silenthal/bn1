@@ -570,7 +570,7 @@ LAB_08005ca2:
     cmp        r2,#0x8
     blt        LAB_08005cc6
     push       {r5,r6}
-    bl         InitMenu_1
+    bl         InitMenu_MP
     pop        {r5,r6}
     mov        r1,#0x18
     b          LAB_08005cd0

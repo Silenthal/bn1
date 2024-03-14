@@ -59,7 +59,7 @@ key_item            0x18C0C
 splash              0x18C94
 passcode            0x18DEC
 start_menu          0x19180
-menu                0x197C8
+menu                0x19540
 shop                0x1E8AC
 save                0x1FADC
 game_over           0x1FF64
@@ -82,6 +82,5 @@ text_far            0x1808D8
 screen_far          0x180178
 asset_1E0000        0x1E0000
 asset_text          0x69D57C
-asset_demo          0x796FD4
-asset_7A6604        0x7A6604
+asset_796FD4        0x796FD4
 asset_7AC9B8        0x7AC9B8

@@ -473,7 +473,7 @@ _ts World_7_SubMenu
     mov        r0,#0xf
     bl         Entity_FreeAllMultiple
     bl         NPC_UnloadAll
-    bl         InitMenu_0
+    bl         InitMenu
     mov        r7,r10
     ldr        r0,[r7,#0x0]
     mov        r1,#0x18
