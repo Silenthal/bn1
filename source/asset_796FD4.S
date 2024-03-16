@@ -52,14 +52,14 @@ global_label paletteFolder2
     .incbin "images/library/palette_07A2DE4.gbapal"
     .incbin "images/library/palette_07A2E64.gbapal"
 
-global_label TilemapEntry_ARRAY_087a2ea4
-    .incbin "images/library/007a2ea4.tilemap"
+global_label tilemapFolderFrameFolder
+    .incbin "images/menu_folder/folder_frame.tilemap"
 
-global_label TilemapEntry_ARRAY_087a33a4
-    .incbin "images/library/007a33a4.tilemap"
+global_label tilemapFolderFrameSack
+    .incbin "images/menu_folder/sack_frame.tilemap"
 
-global_label TilemapEntry_ARRAY_087a38a4
-    .incbin "images/library/007a38a4.tilemap"
+global_label tilemapFolderSortList
+    .incbin "images/menu_folder/folder_sort_list.tilemap"
 
 global_label tilemapMenuLibrary
     .incbin "images/library/library.tilemap"

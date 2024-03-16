@@ -16,7 +16,7 @@ MAKER				:= 08
 VERSION				:= 0
 
 BUILD				:= build
-SOURCES				:= source source/routine source/entity source/entity/effect source/battle source/battle/screendim
+SOURCES				:= source source/routine source/entity source/entity/effect source/battle source/battle/screendim source/menu
 TOOLS				:= tools
 INCLUDES			:= include assets build sound
 BASEDIR				:= base

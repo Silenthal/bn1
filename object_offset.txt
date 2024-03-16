@@ -60,6 +60,7 @@ splash              0x18C94
 passcode            0x18DEC
 start_menu          0x19180
 menu                0x19540
+menu_folder         0x19A38
 shop                0x1E8AC
 save                0x1FADC
 game_over           0x1FF64
