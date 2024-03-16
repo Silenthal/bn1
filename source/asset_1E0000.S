@@ -802,8 +802,8 @@ global_label tilesetDialogueText
 global_label paletteKeyboardNumberChars
     .incbin "images/ui/keyboard.gbapal"
 
-global_label paletteChipLibraryArrow
-    .incbin "images/ui/chipLibraryArrow.gbapal"
+global_label paletteMenuSideArrow
+    .incbin "images/menu/side_arrow.gbapal"
 
     .incbin "images/ui/palette_061BAE8.gbapal"
 

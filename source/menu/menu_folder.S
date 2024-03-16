@@ -12,15 +12,15 @@
     .set listDefaultSort, 0x30072b0
 
 tilemapFolderList:
-    .incbin "images/menu_folder/folder_list.tilemap"
+    .incbin "images/start_menu/folder/folder_list.tilemap"
 tilemapBlank:
-    .incbin "images/menu_folder/blank.tilemap"
+    .incbin "images/start_menu/folder/blank.tilemap"
 tilemapFolderSackList:
-    .incbin "images/menu_folder/sack_list.tilemap"
+    .incbin "images/start_menu/folder/sack_list.tilemap"
 tilemapFolderListBlank:
-    .incbin "images/menu_folder/list_blank.tilemap"
+    .incbin "images/start_menu/folder/list_blank.tilemap"
 tilemapSmallList:
-    .incbin "images/menu_folder/small_list.tilemap"
+    .incbin "images/start_menu/folder/small_list.tilemap"
 
 
 _ts Menu_0_Folder
@@ -45,11 +45,11 @@ PTR_M_Folder_0_Init_08019eb4:
 _ts M_Folder_0_Init
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_tilesetChipLibrary_0801a1d8
+    ldr        r0,PTR_tilesetMenuDesign_0801a1d8
     ldr        r1,PTR_DAT_0801a1dc
     ldr        r2,DAT_0801a1e0
     bl         Dma_TransferListAdd
-    ldr        r0,PTR_paletteChipLibrary_0801a1e4
+    ldr        r0,PTR_paletteMenuDesign_0801a1e4
     ldr        r1,PTR_eBgPalette4_0801a1e8
     mov        r2,#0x40
     bl         Dma_TransferListAdd
@@ -65,7 +65,7 @@ _ts M_Folder_0_Init
     ldr        r1,PTR_DAT_0801a200
     mov        r2,#0xc0
     bl         Dma_TransferListAdd
-    ldr        r0,PTR_paletteChipLibraryArrow_0801a204
+    ldr        r0,PTR_paletteMenuSideArrow_0801a204
     ldr        r1,PTR_eBgPaletteF_0801a208
     mov        r2,#0x8
     bl         Dma_TransferListAdd
@@ -73,7 +73,7 @@ _ts M_Folder_0_Init
     ldr        r1,PTR_DAT_0801a20c
     mov        r2,#0x60
     bl         Dma_TransferListAdd
-    ldr        r0,PTR_paletteChipLibrary_0801a1e4
+    ldr        r0,PTR_paletteMenuDesign_0801a1e4
     ldr        r1,PTR_eObjPalette0_0801a210
     mov        r2,#0x20
     bl         memcpy_32
@@ -411,14 +411,14 @@ LAB_0801a1b4:
     .align 2, 0
 PTR_PTR_M_Folder_0_Init_0801a1d4:
     .word PTR_M_Folder_0_Init_08019eb4
-PTR_tilesetChipLibrary_0801a1d8:
-    .word tilesetChipLibrary
+PTR_tilesetMenuDesign_0801a1d8:
+    .word tilesetMenuDesign
 PTR_DAT_0801a1dc:
     .word 0x6000020
 DAT_0801a1e0:
     .word 0x540
-PTR_paletteChipLibrary_0801a1e4:
-    .word paletteChipLibrary
+PTR_paletteMenuDesign_0801a1e4:
+    .word paletteMenuDesign
 PTR_eBgPalette4_0801a1e8:
     .word eBgPalette4
 PTR_tilesetMenuSideArrow_0801a1ec:
@@ -433,8 +433,8 @@ PTR_tilesetChipLibraryNumbers_0801a1fc:
     .word tilesetChipLibraryNumbers
 PTR_DAT_0801a200:
     .word 0x6003c00
-PTR_paletteChipLibraryArrow_0801a204:
-    .word paletteChipLibraryArrow
+PTR_paletteMenuSideArrow_0801a204:
+    .word paletteMenuSideArrow
 PTR_eBgPaletteF_0801a208:
     .word eBgPaletteF
 PTR_DAT_0801a20c:

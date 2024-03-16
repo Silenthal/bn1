@@ -39,54 +39,54 @@ global_label tilesetStartMenuArrowNumbers
     .incbin "images/start_menu/arrow.4bpp"
     .incbin "images/start_menu/numbers.4bpp"
 
-global_label tilesetChipLibrary
-    .incbin "images/start_menu/library.4bpp"
+global_label tilesetMenuDesign
+    .incbin "images/menu/design.4bpp"
 
 global_label tilesetNoChip
     .incbin "images/start_menu/no_chip.4bpp"
 
-global_label paletteChipLibrary
-    .incbin "images/start_menu/library.gbapal"
+global_label paletteMenuDesign
+    .incbin "images/menu/design.gbapal"
 
 global_label paletteFolder2
-    .incbin "images/library/palette_07A2DE4.gbapal"
-    .incbin "images/library/palette_07A2E64.gbapal"
+    .incbin "images/start_menu/library/palette_07A2DE4.gbapal"
+    .incbin "images/start_menu/library/palette_07A2E64.gbapal"
 
 global_label tilemapFolderFrameFolder
-    .incbin "images/menu_folder/folder_frame.tilemap"
+    .incbin "images/start_menu/folder/folder_frame.tilemap"
 
 global_label tilemapFolderFrameSack
-    .incbin "images/menu_folder/sack_frame.tilemap"
+    .incbin "images/start_menu/folder/sack_frame.tilemap"
 
 global_label tilemapFolderSortList
-    .incbin "images/menu_folder/folder_sort_list.tilemap"
+    .incbin "images/start_menu/folder/folder_sort_list.tilemap"
 
 global_label tilemapMenuLibrary
-    .incbin "images/library/library.tilemap"
+    .incbin "images/start_menu/library/library.tilemap"
 
 global_label tilemapMenuMegaMan
-    .incbin "images/menu_megaman/megaman.tilemap"
+    .incbin "images/start_menu/megaman/megaman.tilemap"
 
 global_label tilemapMenuEmail
-    .incbin "images/menu_email/email.tilemap"
+    .incbin "images/start_menu/email/email.tilemap"
 
 global_label tilemapMenuItem
-    .incbin "images/menu_item/item.tilemap"
+    .incbin "images/start_menu/item/item.tilemap"
 
 global_label tilemapMenuNetwork
-    .incbin "images/menu_network/network.tilemap"
+    .incbin "images/start_menu/network/network.tilemap"
 
 global_label tilemapMenuNetwork2
-    .incbin "images/menu_network/network2.tilemap"
+    .incbin "images/start_menu/network/network2.tilemap"
 
 global_label tilemapMenuNetwork3
-    .incbin "images/menu_network/network3.tilemap"
+    .incbin "images/start_menu/network/network3.tilemap"
 
 global_label tilemapMenuNetwork4
-    .incbin "images/menu_network/network4.tilemap"
+    .incbin "images/start_menu/network/network4.tilemap"
 
 global_label tilemapMenuSave
-    .incbin "images/menu_save/save.tilemap"
+    .incbin "images/start_menu/save/save.tilemap"
 
 global_label tilemapChipTrader
     .incbin "images/chip_trader/chip_trader.tilemap"
@@ -114,31 +114,31 @@ global_label tilesetMenuUpDownArrow
     .incbin "images/menu/up_down_arrow.4bpp"
 
 global_label tilesetMenuMegaManSideArrow
-    .incbin "images/menu_megaman/side_arrow.4bpp"
+    .incbin "images/start_menu/megaman/side_arrow.4bpp"
 
 global_label tilesetRarityStars
-    .incbin "images/library/rarity.4bpp"
+    .incbin "images/start_menu/library/rarity.4bpp"
 
 global_label tilesetNewTag
-    .incbin "images/library/new_tag.4bpp"
+    .incbin "images/start_menu/library/new_tag.4bpp"
 
 global_label tilesetChipLibraryNumbers
-    .incbin "images/library/numbers.4bpp"
+    .incbin "images/start_menu/library/numbers.4bpp"
 
 global_label tilesetArmor
-    .incbin "images/menu_megaman/armor.4bpp"
+    .incbin "images/start_menu/megaman/armor.4bpp"
 
 global_label tilemapArmorNone
-    .incbin "images/menu_megaman/armor_none.tilemap"
+    .incbin "images/start_menu/megaman/armor_none.tilemap"
 
 global_label tilemapArmorHeat
-    .incbin "images/menu_megaman/armor_heat.tilemap"
+    .incbin "images/start_menu/megaman/armor_heat.tilemap"
 
 global_label tilemapArmorAqua
-    .incbin "images/menu_megaman/armor_aqua.tilemap"
+    .incbin "images/start_menu/megaman/armor_aqua.tilemap"
 
 global_label tilemapArmorWood
-    .incbin "images/menu_megaman/armor_wood.tilemap"
+    .incbin "images/start_menu/megaman/armor_wood.tilemap"
 
 global_label textDict_MenuMessages
     .incbin "text/menu/messages.script"
