@@ -203,6 +203,7 @@ SECTIONS {
 		musicPlayerInfo_03			= 0xCCB0;
 		musicPlayerInfo_0B			= 0xCCF0;
 		gTempMemory					= 0x11000;
+		gLibraryChipIndexList		= 0x15000;
 		gSpriteDecompLocation1		= 0x16000;
 		gChipBag					= 0x19000;
 		gDstCompressedSpriteData	= 0x3C000;

@@ -59,7 +59,7 @@ _ts Splash_0_LoadCapcomLogo
     ldr        r1,=eBgPalette0
     mov        r2,#0x78
     bl         Dma_TransferListAdd
-    bl         Video_ClearScreenBuffersToValue
+    bl         Video_ClearScreen
     ldr        r0,=tilemapCapcomLogo
     mov        r1,r10
     ldr        r1,[r1,#0x5c]

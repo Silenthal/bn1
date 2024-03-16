@@ -684,7 +684,7 @@ _ts MainMenu_LoadTitleScreen
     ldr        r1,PTR_eObjPalette0_08010a3c
     mov        r2,#0xc0
     bl         memcpy_32
-    bl         Video_ClearScreenBuffersToValue
+    bl         Video_ClearScreen
     ldr        r0,PTR_layoutMainMenuBG1_08010a40
     mov        r1,r10
     ldr        r1,[r1,#0x5c]

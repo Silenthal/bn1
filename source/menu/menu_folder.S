@@ -5,7 +5,6 @@
     .set FUN_080825cc, 0x80825cc
     .set BuildChipSack, 0x3007518+1
     .set Menu_PrintToBuffer, 0x801bdec
-    .set tilemapListSideArrow, 0x801b2b4
     .set tilemapUpDownArrows, 0x801c148
     .set SortSack, 0x30072b8+1
     .set SortSackReverse, 0x3007360+1
@@ -119,7 +118,7 @@ _ts M_Folder_0_Init
     ldrb       r0,[r7,#0x0]
     ldrb       r1,[r7,#0x1]
     bl         Menu_LoadChipData
-    bl         Video_ClearScreenBuffersToValue
+    bl         Video_ClearScreen
     ldr        r0,PTR_tilemapFolderFrameFolder_0801a248
     mov        r1,r10
     ldr        r1,[r1,#0x5c]

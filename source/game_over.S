@@ -133,7 +133,7 @@ _ts Screen_LoadGameOver
     ldr        r1,PTR_eBgPaletteC_080200bc
     mov        r2,#0x20
     bl         memcpy_32
-    bl         Video_ClearScreenBuffersToValue
+    bl         Video_ClearScreen
     ldr        r0,PTR_layoutGameOverText_080200c0
     mov        r1,r10
     ldr        r1,[r1,#0x5c]

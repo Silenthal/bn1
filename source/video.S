@@ -15,7 +15,7 @@ _ts Video_ClearAndLoadSmallNumbers
     bl         Dma_SetDirect
     mov        r0,#0x8
     bl         Dma_WaitForEnd
-    bl         Video_ClearScreenBuffersToValue
+    bl         Video_ClearScreen
     ldr        r0,PTR_tileSetKeyboardNumberChars_08001b3c
     ldr        r1,vram_off_c
     ldr        r2,INT_08001b44
@@ -286,7 +286,7 @@ _ts Video_QueueBgPalTransfer
     bl         Dma_TransferListAdd
     pop        { pc }
 
-_ts Video_ClearScreenBuffersToValue
+_ts Video_ClearScreen
     push       { lr }
     ldr        r0,PTR_gFillValue_08001bb4
     mov        r1,r10
