@@ -52,9 +52,9 @@ global_label Flag_Set380
     add        r0,#0x80
 global_label Flag_Set280
     add        r0,#0x40
-global_label Flag_Set240
+global_label Flag_SetEmailUnread
     add        r0,#0x40
-global_label Flag_Set200
+global_label Flag_SetEmailRecieved
     add        r0,#0x80
     add        r0,#0x80
 
@@ -123,9 +123,9 @@ global_label Flag_Get380
     add        r0,#0x80
 global_label Flag_Get280
     add        r0,#0x40
-global_label Flag_Get240
+global_label Flag_GetEmailUnread
     add        r0,#0x40
-global_label Flag_Get200
+global_label Flag_GetEmailRecieved
     add        r0,#0x80
     add        r0,#0x80
 global_label Flag_GetLibrary
@@ -176,10 +176,10 @@ global_label Flag_ToggleBase
 global_label Flag_SetEmail
     push       { lr }
     push       { r0 }
-    bl         Flag_Set240
+    bl         Flag_SetEmailUnread
     pop        { r0 }
     push       { r0 }
-    bl         Flag_Set200
+    bl         Flag_SetEmailRecieved
     pop        { r0 }
     ldr        r7,PTR_gEmailIndexes_0801040c
     ldr        r6,PTR_gEmailCount_08010410
