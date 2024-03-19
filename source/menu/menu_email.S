@@ -8,7 +8,7 @@ tilemapEmailList:
     .incbin "images/start_menu/email/list.tilemap"
 tilemapEmailNewTag:
     .incbin "images/start_menu/email/new_tag.tilemap"
-tilemapUpDownArrows:
+global_label tilemapUpDownArrows
     .incbin "images/start_menu/email/up_down_arrow.tilemap"
 
 
