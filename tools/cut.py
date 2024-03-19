@@ -6,6 +6,12 @@ from common import auto_int
 
 def main():
     parser = argparse.ArgumentParser(description="Extract binary data.")
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=str,
+        help="The name of the output file.",
+    )
     parser.add_argument("path", type=str, help="The path to the binary.")
     parser.add_argument("offset", type=auto_int, help="The offset into the binary.")
     parser.add_argument("size", type=auto_int, help="The size of the output.")
@@ -19,7 +25,7 @@ def main():
         exit(f"Offset 0x{args.offset:X} is greater than file size {fs}")
     if args.offset + args.size > fs:
         exit(f"Size 0x{args.size:X} with offset 0x{args.offset:X} is greater than file size {fs}")
-    outPath = f"cut_{args.offset:08x}.bin"
+    outPath = args.output if args.output else f"cut_{args.offset:08x}.bin"
     with open(inPath, mode="rb") as inFile:
         inFile.seek(args.offset)
         outbuf = inFile.read(args.size)
