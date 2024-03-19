@@ -12,13 +12,13 @@
 
 tilemapFolderList:
     .incbin "images/start_menu/folder/folder_list.tilemap"
-tilemapBlank:
+global_label tilemapFolderBlank
     .incbin "images/start_menu/folder/blank.tilemap"
-tilemapFolderSackList:
+global_label tilemapFolderSackList
     .incbin "images/start_menu/folder/sack_list.tilemap"
 tilemapFolderListBlank:
     .incbin "images/start_menu/folder/list_blank.tilemap"
-tilemapSmallList:
+global_label tilemapSmallList
     .incbin "images/start_menu/folder/small_list.tilemap"
 
 
@@ -641,7 +641,7 @@ _ts Menu_Folder_DrawUpDownArrows
     add        r0,#0xd
     mov        r1,#0x4
     mov        r2,#0x2
-    ldr        r3,PTR_tilemapBlank_0801a698
+    ldr        r3,PTR_tilemapFolderBlank_0801a698
     mov        r4,#0x2
     mov        r5,#0xe
     bl         LC_Screen_SafeCopyTileMapRect
@@ -653,7 +653,7 @@ _ts Menu_Folder_DrawUpDownArrows
     add        r0,#0x14
     mov        r1,#0x2
     mov        r2,#0x2
-    ldr        r3,PTR_tilemapBlank_0801a69c
+    ldr        r3,PTR_tilemapFolderBlank_0801a69c
     mov        r4,#0x2
     mov        r5,#0x2
     bl         LC_Screen_SafeCopyTileMapRect
@@ -665,7 +665,7 @@ _ts Menu_Folder_DrawUpDownArrows
     add        r0,#0x14
     mov        r1,#0x12
     mov        r2,#0x2
-    ldr        r3,PTR_tilemapBlank_0801a6a0
+    ldr        r3,PTR_tilemapFolderBlank_0801a6a0
     mov        r4,#0x2
     mov        r5,#0x2
     bl         LC_Screen_SafeCopyTileMapRect
@@ -757,7 +757,7 @@ _ts Menu_Folder_DrawDeckCount
     add        r0,#0x13
     mov        r1,#0x0
     mov        r2,#0x2
-    ldr        r3,PTR_tilemapBlank_0801a6ac
+    ldr        r3,PTR_tilemapFolderBlank_0801a6ac
     mov        r4,#0x4
     mov        r5,#0x2
     bl         LC_Screen_SafeCopyTileMapRect
@@ -1042,18 +1042,18 @@ PTR_tilemapFolderList_0801a690:
     .word tilemapFolderList
 PTR_tilemapFolderListBlank_0801a694:
     .word tilemapFolderListBlank
-PTR_tilemapBlank_0801a698:
-    .word tilemapBlank
-PTR_tilemapBlank_0801a69c:
-    .word tilemapBlank
-PTR_tilemapBlank_0801a6a0:
-    .word tilemapBlank
+PTR_tilemapFolderBlank_0801a698:
+    .word tilemapFolderBlank
+PTR_tilemapFolderBlank_0801a69c:
+    .word tilemapFolderBlank
+PTR_tilemapFolderBlank_0801a6a0:
+    .word tilemapFolderBlank
 PTR_tilemapListSideArrow_0801a6a4:
     .word tilemapListSideArrow
 PTR_tilemapUpDownArrows_0801a6a8:
     .word tilemapUpDownArrows
-PTR_tilemapBlank_0801a6ac:
-    .word tilemapBlank
+PTR_tilemapFolderBlank_0801a6ac:
+    .word tilemapFolderBlank
 PTR_DAT_0801a6b0:
     .word 0x2013400
 PTR_DAT_0801a6b4:
@@ -1841,7 +1841,7 @@ LAB_0801ac4c:
     mov        r0,#0x14
     strb       r0,[r5,#0x1]
     push       {r5}
-    bl         FUN_08000c80
+    bl         SetSortDefault
     pop        {r5}
     pop        {pc}
 
@@ -2320,7 +2320,7 @@ LAB_0801afd8:
     push       {r5}
     mov        r1,#0x4
     mov        r2,#0x2
-    ldr        r3,PTR_tilemapBlank_0801b088
+    ldr        r3,PTR_tilemapFolderBlank_0801b088
     mov        r4,#0x2
     mov        r5,#0xe
     bl         Screen_CopyTileMapRect
@@ -2408,8 +2408,8 @@ PTR_gFolder_0801b080:
     .word gFolder
 PTR_gFolder_0801b084:
     .word gFolder
-PTR_tilemapBlank_0801b088:
-    .word tilemapBlank
+PTR_tilemapFolderBlank_0801b088:
+    .word tilemapFolderBlank
 PTR_tilemapListSideArrow_0801b08c:
     .word tilemapListSideArrow
 PTR_listDefaultSort_0801b090:

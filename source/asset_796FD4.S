@@ -76,8 +76,8 @@ global_label tilemapMenuItem
 global_label tilemapMenuNetwork
     .incbin "images/start_menu/network/network.tilemap"
 
-global_label tilemapMenuNetwork2
-    .incbin "images/start_menu/network/network2.tilemap"
+global_label tilemapMenuNetworkTrade
+    .incbin "images/start_menu/network/network_trade.tilemap"
 
 global_label tilemapMenuNetwork3
     .incbin "images/start_menu/network/network3.tilemap"

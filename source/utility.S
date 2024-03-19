@@ -339,7 +339,7 @@ _ts FUN_08000c48
     .align 2, 0
     .pool
 
-_ts FUN_08000c80
+_ts SetSortDefault
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x78]

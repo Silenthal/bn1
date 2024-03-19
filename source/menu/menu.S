@@ -6,7 +6,7 @@
 
     .text
 
-tilemapChipDetailFG:
+global_label tilemapChipDetailFG
     .incbin "images/menu/chip_detail_fg.tilemap"
 tilemapChipDetailText:
     .incbin "images/menu/chip_detail_text.tilemap"
