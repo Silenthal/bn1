@@ -66,6 +66,7 @@ menu_megaman        0x1B8F0
 menu_email          0x1BFC8
 menu_item           0x1C5F0
 menu_network        0x1CAF8
+menu_save           0x1E3C4
 shop                0x1E8AC
 save                0x1FADC
 game_over           0x1FF64
