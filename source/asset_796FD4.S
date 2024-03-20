@@ -161,4 +161,7 @@ global_label tilesetElements
 global_label tilesetNumbers
     .incbin "images/menu/numbers.4bpp"
 
+global_label tilesetMenuShopUi
+    .incbin "images/shop/ui.4bpp"
+
     .end

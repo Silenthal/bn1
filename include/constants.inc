@@ -10,3 +10,4 @@
     .include "constants/sprite.inc"
     .include "constants/other.inc"
     .include "constants/music.inc"
+    .include "constants/item.inc"

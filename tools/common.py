@@ -408,7 +408,7 @@ def chip_id(bt: int) -> str:
         0xC6: "ElecMan3",
         0xC7: "Bass",
     }
-    return chipIdDict[bt] if bt in chipIdDict else f"{bt:02X}"
+    return chipIdDict[bt] if bt in chipIdDict else f"0x{bt:02X}"
 
 
 def chip_code(id: int) -> str:
@@ -418,3 +418,55 @@ def chip_code(id: int) -> str:
 def element(id: int) -> str:
     elemList = ["None", "Elec", "Fire", "Water", "Wood"]
     return elemList[id] if id < len(elemList) and id >= 0 else "None"
+
+
+def key_item(bt: int) -> str:
+    key_item_map = {
+        0x00: "PET",
+        0x01: "IceBlock",
+        0x02: "WaterGun",
+        0x03: "SchoolID",
+        0x04: "SciLabID",
+        0x05: "Handle",
+        0x06: "Message",
+        0x07: "Response",
+        0x08: "WWW_PIN",
+        0x09: "BatteryA",
+        0x0A: "BatteryB",
+        0x0B: "BatteryC",
+        0x0C: "BatteryD",
+        0x0D: "BatteryE",
+        0x50: "BattA_Ct",
+        0x51: "BattB_Ct",
+        0x52: "BattC_Ct",
+        0x53: "BattD_Ct",
+        0x54: "BattE_Ct",
+        0x0E: "Charger",
+        0x0F: "WWW_Pass",
+        0x11: "Dentures",
+        0x21: "★Mayl",
+        0x22: "★Yai",
+        0x23: "★Dex",
+        0x25: "★Dad",
+        0x26: "★Sal",
+        0x28: "★Miyu",
+        0x2B: "★Masa",
+        0x2D: "★WWW",
+        0x30: "/Dex",
+        0x31: "/Sal",
+        0x32: "/Miyu",
+        0x34: "Hig_Memo",
+        0x35: "Lab_Memo",
+        0x36: "YuriMemo",
+        0x37: "Pa_sMemo",
+        0x3C: "ACDCPass",
+        0x3D: "GovtPass",
+        0x3E: "TownPass",
+        0x40: "HPmemory",
+        0x41: "PowerUP",
+        0x42: "Armor",
+        0x44: "HeatArmr",
+        0x45: "AquaArmr",
+        0x46: "WoodArmr",
+    }
+    return key_item_map[bt] if bt in key_item_map else f"0x{bt:02X}"

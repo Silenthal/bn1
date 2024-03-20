@@ -90,4 +90,4 @@ screen_far          0x180178
 asset_1E0000        0x1E0000
 asset_text          0x69D57C
 asset_796FD4        0x796FD4
-asset_7AC9B8        0x7AC9B8
+asset_7ABB10        0x7ABB10

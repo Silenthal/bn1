@@ -43,3 +43,17 @@
     .word \y
     .word \z
     .endm
+
+    .macro shop_item_key item, stock, price
+    .byte 1
+    .short Item_\item
+    .byte \stock
+    .word \price
+    .endm
+
+    .macro shop_item chip, code, stock, price
+    .byte 0
+    battlechip \chip, \code
+    .byte \stock
+    .word \price
+    .endm

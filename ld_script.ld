@@ -26,16 +26,26 @@ SECTIONS {
 	ewram (NOLOAD) :
 	{
 		gFlagBase					= 0;
+		gShopInventory0				= 0x90;
+		gShopInventory4				= 0x130;
 		gFolder						= 0x1C0;
 		gBitsetNPC					= 0x1FC;
 		gEmailCount					= 0x200;
 		gWorld						= 0x210;
 		gKeyItemInventory			= 0x2D0;
+		gShopHpMemoryBuyCount		= 0x330;
+		gShopPowerUpBuyCount		= 0x338;
+		gShopInventory2				= 0x340;
 		eGameStats					= 0x3D0;
+		gShopInventory1				= 0x410;
 		gBattleChipInventory		= 0x4A0;
 		gEntityListNpc				= 0x13A0;
 		gEmailIndexes				= 0x1FA0;
+		gShopInventory7				= 0x1FE0;
 		gInventoryChecksumIndex		= 0x2150;
+		gShopInventory6				= 0x2160;
+		gShopInventory3				= 0x21F0;
+		gShopInventory5				= 0x2280;
 		gStartMenuState				= 0x3480;
 		gBitsetActor				= 0x3484;
 		gEntityBoundsList			= 0x3490;
