@@ -128,6 +128,3 @@ ptrRomBuildId:
 
 romBuildId:
     .ascii "ROCKMAN EXE 20010727"
-
-
-    .end

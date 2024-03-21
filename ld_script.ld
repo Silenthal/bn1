@@ -88,6 +88,7 @@ SECTIONS {
 		eMainState0x2C				= 0x4BB0;
 		eMainState0x4C				= 0x4BD0;
 		gListEffect					= 0x4CD0;
+		gPETBattery					= 0x62D0;
 		gMenu						= 0x62E0;
 		gOamAttributeCount			= 0x6338;
 		gSceneCamera				= 0x6340;

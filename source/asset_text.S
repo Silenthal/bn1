@@ -3,6 +3,11 @@
 
     .text
 
+global_label paletteBatteryUI
+    .incbin "images/pet/battery_on.gbapal"
+    .incbin "images/pet/battery_off.gbapal"
+global_label tilesetBatteryUI
+    .incbin "images/pet/battery.4bpp"
 global_label TextData_BattleChip_Names
     .incbin "text/battlechip/name.script"
 global_label TextData_BattleChip_Descriptions

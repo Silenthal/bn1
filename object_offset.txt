@@ -69,6 +69,7 @@ menu_network        0x1CAF8
 menu_save           0x1E3C4
 shop                0x1E8AC
 save                0x1FADC
+pet_battery         0x1FBCC
 game_over           0x1FF64
 chip_trader         0x200D4
 credits             0x21498
@@ -88,6 +89,6 @@ oam_far             0x180564
 text_far            0x1808D8
 screen_far          0x180178
 asset_1E0000        0x1E0000
-asset_text          0x69D57C
+asset_text          0x69D0FC
 asset_796FD4        0x796FD4
 asset_7ABB10        0x7ABB10
