@@ -973,7 +973,7 @@ typedef enum ChipId {
     CD_Geddon1=79,
     CD_Geddon2=80,
     CD_Escape=82,
-    CD_Interrupt=83,
+    CD_Interupt=83,
     CD_LifeAura=84,
     CD_AquaAura=85,
     CD_FireAura=86,

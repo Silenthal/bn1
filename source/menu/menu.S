@@ -10,9 +10,9 @@ global_label tilemapChipDetailFG
     .incbin "images/menu/chip_detail_fg.tilemap"
 tilemapChipDetailText:
     .incbin "images/menu/chip_detail_text.tilemap"
-TilemapEntry_ARRAY_08019668:
+tilemapMenuNetworkTradeChip:
     .incbin "images/menu/00019668.tilemap"
-TilemapEntry_ARRAY_08019718:
+tilemapChipTraderChipFG:
     .incbin "images/menu/00019718.tilemap"
 
 _ts InitMenu

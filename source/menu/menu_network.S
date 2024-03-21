@@ -11,7 +11,7 @@
     .set BuildChipSack, 0x3007518+1
     .set PlayerMpState_020037d0, 0x20037d0
     .set listDefaultSort, 0x30072B0
-    .set TilemapEntry_ARRAY_08019668, 0x8019668
+    .set tilemapMenuNetworkTradeChip, 0x8019668
 
 tilemapNetworkListOptions:
     .incbin "images/start_menu/network/list_options.tilemap"
@@ -2318,7 +2318,7 @@ LAB_0801de34:
     pop        {r5}
     push       {r5}
     bl         Video_ClearScreen
-    ldr        r0,PTR_tilemapMenuNetwork3_0801decc
+    ldr        r0,PTR_tilemapMenuNetworkPending_0801decc
     mov        r1,r10
     ldr        r1,[r1,#0x5c]
     mov        r2,#0x80
@@ -2331,7 +2331,7 @@ LAB_0801de34:
     ldrb       r1,[r7,#0x1]
     tst        r1,r1
     bne        LAB_0801de6c
-    ldr        r0,PTR_tilemapMenuNetwork4_0801dedc
+    ldr        r0,PTR_tilemapMenuNetworkNoChip_0801dedc
 LAB_0801de6c:
     ldr        r1,PTR_DAT_0801ded8
     mov        r2,#0xb0
@@ -2381,16 +2381,16 @@ PTR_DAT_0801dec4:
     .word 0x2029000
 PTR_DAT_0801dec8:
     .word 0x2026000
-PTR_tilemapMenuNetwork3_0801decc:
-    .word tilemapMenuNetwork3
+PTR_tilemapMenuNetworkPending_0801decc:
+    .word tilemapMenuNetworkPending
 DAT_0801ded0:
     .word 0xC0
 PTR_TilemapEntry_ARRAY_0801ded4:
-    .word TilemapEntry_ARRAY_08019668
+    .word tilemapMenuNetworkTradeChip
 PTR_DAT_0801ded8:
     .word 0x2026200
-PTR_tilemapMenuNetwork4_0801dedc:
-    .word tilemapMenuNetwork4
+PTR_tilemapMenuNetworkNoChip_0801dedc:
+    .word tilemapMenuNetworkNoChip
 PTR_textDict_MenuMessages_0801dee0:
     .word textDict_MenuMessages
 PTR_tilesetNoChip_0801dee4:
@@ -2438,7 +2438,7 @@ LAB_0801df26:
     ldr        r0,PTR_tilemapChipDetailFG_0801dfb0
     tst        r1,r1
     bne        LAB_0801df3e
-    ldr        r0,PTR_tilemapMenuNetwork4_0801dfb8
+    ldr        r0,PTR_tilemapMenuNetworkNoChip_0801dfb8
 LAB_0801df3e:
     ldr        r1,PTR_DAT_0801dfb4
     mov        r2,#0xb0
@@ -2499,8 +2499,8 @@ PTR_tilemapChipDetailFG_0801dfb0:
     .word tilemapChipDetailFG
 PTR_DAT_0801dfb4:
     .word 0x2026400
-PTR_tilemapMenuNetwork4_0801dfb8:
-    .word tilemapMenuNetwork4
+PTR_tilemapMenuNetworkNoChip_0801dfb8:
+    .word tilemapMenuNetworkNoChip
 PTR_textDict_MenuMessages_0801dfbc:
     .word textDict_MenuMessages
 PTR_DAT_0801dfc0:

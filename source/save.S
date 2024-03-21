@@ -127,4 +127,6 @@ ptrRomBuildId:
     .word romBuildId
 
 romBuildId:
-    .ascii "ROCKMAN EXE 20010727"
+    .asciz "ROCKMAN EXE 20010727"
+
+    .align 2, 0

@@ -69,7 +69,7 @@
     .set CD_Geddon1, 79
     .set CD_Geddon2, 80
     .set CD_Escape, 82
-    .set CD_Interrupt, 83
+    .set CD_Interupt, 83
     .set CD_LifeAura, 84
     .set CD_AquaAura, 85
     .set CD_FireAura, 86

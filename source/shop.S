@@ -1951,7 +1951,7 @@ PTR_listStockHigsby2_0801fa90:
 listStockHigsby1:
     shop_item FstGauge A, 3, 3000
     shop_item Geddon1 H, 3, 3000
-    shop_item Interrupt L, 3, 8000
+    shop_item Interupt L, 3, 8000
     shop_item Recov150 L, 3, 10000
     .word 0xFF
 

@@ -79,11 +79,11 @@ global_label tilemapMenuNetwork
 global_label tilemapMenuNetworkTrade
     .incbin "images/start_menu/network/network_trade.tilemap"
 
-global_label tilemapMenuNetwork3
-    .incbin "images/start_menu/network/network3.tilemap"
+global_label tilemapMenuNetworkPending
+    .incbin "images/start_menu/network/trade_pending.tilemap"
 
-global_label tilemapMenuNetwork4
-    .incbin "images/start_menu/network/network4.tilemap"
+global_label tilemapMenuNetworkNoChip
+    .incbin "images/start_menu/network/no_chip.tilemap"
 
 global_label tilemapMenuSave
     .incbin "images/start_menu/save/save.tilemap"
