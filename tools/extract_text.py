@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 import argparse
-import os
-import struct
 import re
 from pathlib import Path
 
@@ -870,7 +868,7 @@ def Com_EA(infile):
         else:
             textBuf = f"delay({delay})"
     else:
-        textBuf = f"stop()"
+        textBuf = "stop()"
         isDone = True
     return isDone, textBuf
 
@@ -989,41 +987,41 @@ def Com_F4(infile):
         textBuf = f"if_shop({arg_list(infile, 3)})"
     elif command == 3:
 
-        def proc(inf, i):
+        def if_chip(inf, i):
             if i == 0:
                 return get_chip(infile)
             else:
                 return arg_list(inf)
 
-        textBuf = f"if_chip({arg_list(infile, 3, proc)})"
+        textBuf = f"if_chip({arg_list(infile, 3, if_chip)})"
     elif command == 4:
 
-        def proc(inf, i):
+        def if_level(inf, i):
             if i == 0 or i == 1:
                 return get_byte(inf)
             else:
                 return arg_list(inf)
 
-        textBuf = f"if_level({arg_list(infile, 4, proc)})"
+        textBuf = f"if_level({arg_list(infile, 4, if_level)})"
     elif command == 5:
 
-        def proc(inf, i):
+        def if_bust(inf, i):
             if i == 0 or i == 1:
                 lv = get_byte(inf)
                 return f"'{lv}'" if lv < 11 else "'S'"
             else:
                 return arg_list(inf)
 
-        textBuf = f"if_bust({arg_list(infile, 4, proc)})"
+        textBuf = f"if_bust({arg_list(infile, 4, if_bust)})"
     elif command == 6:
 
-        def proc(inf, i):
+        def if_library(inf, i):
             if i == 0 or i == 1:
                 return get_byte(inf)
             else:
                 return arg_list(inf)
 
-        textBuf = f"if_library({arg_list(infile, 4, proc)})"
+        textBuf = f"if_library({arg_list(infile, 4, if_library)})"
     else:
         textBuf = f"_F4({command})"
     return False, textBuf
@@ -1102,7 +1100,7 @@ def Com_F8(infile):
     elif command == 2:
         textBuf = f"passcode_check({arg_list(infile, 7)})"
     elif command == 3:
-        textBuf = f"passcode_hide()"
+        textBuf = "passcode_hide()"
     elif command == 4:
         textBuf = f"passcode_shift({arg_list(infile, 4)})"
     else:
@@ -1320,7 +1318,7 @@ def interpret(infile):
 def interpretUi(infile):
     textBuf = ""
     isDone = False
-    isText = True
+    isText = False
     c = get_byte(infile)
     if c <= 0xE4:
         textBuf = charmap[c]
@@ -1338,10 +1336,18 @@ def interpretUi(infile):
         isDone = True
     elif c == 0xE8:
         textBuf = "\\n"
+        isText = True
     elif c == 0xE9:
         bcdIndex = get_byte(infile)
         commandNum = get_byte(infile)
-        textBuf = f"[Func2({bcdIndex}, 0x{commandNum:X})]"
+        pad = "0" if commandNum & 0x40 != 0 else ""
+        dir = ">" if commandNum & 0x80 != 0 else ""
+        count = commandNum & 0x3F
+        suffix = f":{pad}{dir}{count}"
+        if suffix == ":1":
+            suffix = ""
+        textBuf = f"{{{bcdIndex}{suffix}}}"
+        isText = True
     else:
         textBuf = f"Com_{chr:02X}()"
     return isDone, textBuf, isText
@@ -1533,7 +1539,6 @@ def main():
         of = engine1(infile, blockOffset, isUi)
     with open(outPath, mode="w", encoding="utf-8") as outFile:
         outFile.write(of)
-    os.startfile(outPath)
 
 
 if __name__ == "__main__":

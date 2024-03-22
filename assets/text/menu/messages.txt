@@ -2,7 +2,7 @@ section_count(0x91)
 
 # 0x00 @ 0x7A71A6
 section_start(0x00)
-text("{lpads0 2}")
+text("{0:>2}")
 end()
 section_end()
 
@@ -49,13 +49,13 @@ section_end()
 
 # 0x15 @ 0x7A72C4
 section_start(0x15)
-text("{lpads0 3}")
+text("{0:>3}")
 end()
 section_end()
 
 # 0x16 @ 0x7A72CC
 section_start(0x16)
-text("{lpads0 4}")
+text("{0:>4}")
 end()
 section_end()
 
@@ -292,7 +292,7 @@ section_end()
 
 # 0x60 @ 0x7A7828
 section_start(0x60)
-text("{lpads0 6}")
+text("{0:>6}")
 end()
 section_end()
 
@@ -461,7 +461,7 @@ section_end()
 
 # 0x73 @ 0x7A7C37
 section_start(0x73)
-text("{lpads0 3}  {lpads1 3}")
+text("{0:>3}  {1:>3}")
 end()
 section_end()
 
@@ -554,25 +554,25 @@ section_end()
 
 # 0x7F @ 0x7A7DE4
 section_start(0x7F)
-text("  {lpadz0 2};{lpadz1 2}")
+text("  {0:0>2};{1:0>2}")
 end()
 section_end()
 
 # 0x80 @ 0x7A7DF3
 section_start(0x80)
-text("{lpads0 3}/175")
+text("{0:>3}/175")
 end()
 section_end()
 
 # 0x81 @ 0x7A7E00
 section_start(0x81)
-text(" {lpads0 6}")
+text(" {0:>6}")
 end()
 section_end()
 
 # 0x82 @ 0x7A7E09
 section_start(0x82)
-text("{lpads0 6}z")
+text("{0:>6}z")
 end()
 section_end()
 
@@ -596,7 +596,7 @@ section_end()
 
 # 0x84 @ 0x7A7EA1
 section_start(0x84)
-text("{lpads0 3}/176")
+text("{0:>3}/176")
 end()
 section_end()
 
@@ -619,19 +619,19 @@ section_end()
 
 # 0x8C @ 0x7A7F09
 section_start(0x8C)
-text_bold("{lpads0 2} × {lpads1 1} = {lpads2 2}")
+text_bold("{0:>2} × {1:>1} = {2:>2}")
 end()
 section_end()
 
 # 0x8D @ 0x7A7F1D
 section_start(0x8D)
-text_bold("{rpads0 1}{rpads1 1}:{rpads2 1}{rpads3 1}")
+text_bold("{0}{1}:{2}{3}")
 end()
 section_end()
 
 # 0x8E @ 0x7A7F2F
 section_start(0x8E)
-text("{lpads0 1}")
+text("{0:>1}")
 end()
 section_end()
 

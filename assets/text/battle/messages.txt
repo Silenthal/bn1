@@ -40,7 +40,7 @@ section_end()
 
 # 0x05 @ 0x642073
 section_start(0x05)
-text("{lpads0 8}z")
+text("{0:>8}z")
 end()
 section_end()
 

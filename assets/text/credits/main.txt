@@ -778,8 +778,7 @@ section_end()
 
 # 0x8F @ 0x7AB0B1
 section_start(0x8F)
-text("Time   {w 33280}")
-text(";{w 49665}")
+text("Time   {0:>2};{1:0>2}")
 end()
 section_end()
 
@@ -791,14 +790,13 @@ section_end()
 
 # 0x91 @ 0x7AB0D6
 section_start(0x91)
-text("     {w 33536}")
-text("/{w 33537}")
+text("     {0:>3}/{1:>3}")
 end()
 section_end()
 
 # 0x92 @ 0x7AB0E8
 section_start(0x92)
-text("MEGAMAN {lv}{w 33536}")
+text("MEGAMAN {lv}{0:>3}")
 end()
 section_end()
 

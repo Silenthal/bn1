@@ -5,8 +5,9 @@ import os
 import shlex
 from pathlib import Path
 from typing import List, Union
+import re
 
-from common import is_int
+from common import auto_int, is_int
 
 
 class Section:
@@ -122,7 +123,7 @@ class Reader:
             return len(self.buffer) - self.pos
 
 
-curScript: Script = None
+curScript: Script = Script()
 
 # region
 charmap_basic = {
@@ -1619,11 +1620,36 @@ def parse_command(reader: Reader):
     if reader.isEmpty():
         exit("Incomplete command")
     reader.read()
-    coms = [int(s, 0) if is_int(s) else s for s in shlex.split(com)]
+    singleMatch = re.match(r"^([0123])$", com)
+    padMatch = re.match(r"^([0123]):(([ 0])?(<|>)?)?(\d+)$", com)
+    if singleMatch:
+        bf = int(singleMatch.group(1))
+        curScript.emitByte(0xE9)
+        curScript.emitByte(bf)
+        curScript.emitByte(1)
+        return
+    if padMatch:
+        bf = int(padMatch.group(1))
+        padChar = padMatch.group(3)
+        direction = padMatch.group(4)
+        count = int(padMatch.group(5))
+        if count >= 0x40:
+            exit("Pad amount needs to be less than 0x40")
+        if direction == ">":
+            count += 0x80
+        if padChar == "0":
+            count += 0x40
+        curScript.emitByte(0xE9)
+        curScript.emitByte(bf)
+        curScript.emitByte(count)
+        return
+
+    coms = shlex.split(com)
     if len(coms) > 0:
         if coms[0] == "delay" or coms[0] == "d":
             if len(coms) > 1:
-                delay(coms[1])
+                arg = auto_int(coms[1])
+                delay(arg)
             else:
                 delay()
         elif coms[0] == "key":
@@ -1643,38 +1669,50 @@ def parse_command(reader: Reader):
             text(" ")
             chip_code_buf(2)
         elif coms[0] == "key_item_buf":
-            key_item_buf(coms[1])
+            arg = auto_int(coms[1])
+            key_item_buf(arg)
         elif coms[0] == "anim" or coms[0] == "a":
             if len(coms) > 1:
-                anim(coms[1])
+                arg = auto_int(coms[1])
+                anim(arg)
             else:
                 exit("Animation index required")
         elif coms[0] == "add_chip":
             if len(coms) == 1:
                 exit("Arguments required for add_chip")
-            add_chip(*coms[1:])
+            item = coms[1]
+            args = [auto_int(i) for i in coms[2:]]
+            add_chip(item, *args)
         elif coms[0] == "sub_chip":
             if len(coms) == 1:
                 exit("Arguments required for sub_chip")
-            sub_chip(*coms[1:])
+            item = coms[1]
+            args = [auto_int(i) for i in coms[2:]]
+            sub_chip(item, *args)
         elif coms[0] == "add_item":
             if len(coms) == 1:
                 exit("Arguments required for add_item")
-            add_item(*coms[1:])
+            item = coms[1]
+            args = [auto_int(i) for i in coms[2:]]
+            add_item(item, *args)
         elif coms[0] == "sub_item":
             if len(coms) == 1:
                 exit("Arguments required for sub_item")
-            sub_item(*coms[1:])
+            item = coms[1]
+            args = [auto_int(i) for i in coms[2:]]
+            sub_item(item, *args)
         elif coms[0] == "wait" or coms[0] == "w":
             if len(coms) > 1:
-                wait(coms[1])
+                arg = auto_int(coms[1])
+                wait(arg)
             else:
                 wait()
         elif coms[0] == "buf":
             buffer(1)
         elif coms[0] == "end":
             if len(coms) > 1:
-                end(coms[1])
+                arg = auto_int(coms[1])
+                end(arg)
             else:
                 end()
         elif coms[0] == "lv":
@@ -1694,7 +1732,8 @@ def parse_command(reader: Reader):
         elif coms[0] == "p":
             pad()
         elif coms[0] == "c":
-            option(*coms[1:])
+            args = [auto_int(i) for i in coms[1:]]
+            option(*args)
             pad()
         elif len(coms[0]) == 6 and coms[0][1:4] == "pad":
             if len(coms) != 2:
@@ -1704,7 +1743,7 @@ def parse_command(reader: Reader):
             dr = coms[0][0]
             pd = coms[0][4]
             bf = coms[0][5]
-            sz = coms[1]
+            sz = auto_int(coms[1])
             if dr != "l" and dr != "r":
                 exit("Unrecognized direction for pad")
             if pd != "s" and pd != "z":
@@ -1725,13 +1764,15 @@ def parse_command(reader: Reader):
             curScript.emitByte(sz)
         elif coms[0] == "col":
             if len(coms) > 1:
-                col(coms[1])
+                arg = auto_int(coms[1])
+                col(arg)
             else:
                 exit("Argument required for col")
         elif coms[0] == "se":
             if len(coms) == 1:
                 exit("Argument required for se")
-            se(coms[1])
+            arg = auto_int(coms[1])
+            se(arg)
         else:
             exit(f"Unrecognized command {coms[0]}")
 
@@ -1747,7 +1788,7 @@ def text_base(useBold: bool, *txtList):
                     parse_command(reader)
                 elif char == "\\":
                     char += reader.read()
-                    if char == "\p":
+                    if char == "\\p":
                         page()
                     else:
                         exit(f"Unrecognized command {char}")
@@ -1760,7 +1801,7 @@ def text_base(useBold: bool, *txtList):
                         curScript.emitByte(0xE5)
                         curScript.emitByte(charmap_E5[char])
                     else:
-                        curScript.emitByte(char)
+                        curScript.emitByte(ord(char))
 
 
 def text(*txtList):
@@ -1790,7 +1831,6 @@ def main():
     outPath = make_out_path(inPath, Path(args.output))
     if not inPath.exists():
         exit(f"Couldn't find file {inPath}")
-    curScript = Script()
     with open(inPath, mode="r") as inFile:
         exec(inFile.read())
     curScript.writeToFile(outPath)

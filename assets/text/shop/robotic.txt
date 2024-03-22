@@ -63,7 +63,7 @@ section_end()
 
 # 0x06 @ 0x7ACDA6
 section_start(0x06)
-text("{lpads0 6}z")
+text("{0:>6}z")
 end()
 section_end()
 
