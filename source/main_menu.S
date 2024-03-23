@@ -2,20 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set MainMenu_LoadTitleScreen, 0x0801093C
-    .set tilesetBlankTiles, 0x87b6798
-    .set tileset8MainMenuBackground, 0x87b67d8
-    .set tileset8BattleNetworkLogo, 0x87b8c58
-    .set palette8MainMenu, 0x87b6598
-    .set tilesetMainMenuText, 0x87b4758
-    .set paletteMainMenuText, 0x87b64d8
-    .set layoutMainMenuBG1, 0x87bc2d8
-    .set layoutMainMenuBackground, 0x87bc7d8
-    .set layoutBattleNetworkLogo, 0x87bccd8
-
     .text
-
-    .thumb
 
 _ts InitMainMenu
     push       { lr }

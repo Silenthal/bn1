@@ -21,23 +21,55 @@ global_label paletteMenuShopUi
     .incbin "images/shop/ui.gbapal"
 global_label paletteMenuShopBg
     .incbin "images/shop/bg.gbapal"
-
 global_label textDictShopClerkStandard
     .incbin "text/shop/standard.script"
 global_label textDictShopClerkRobotic
     .incbin "text/shop/robotic.script"
 global_label textDictShopClerkRude
     .incbin "text/shop/rude.script"
-
 global_label TextData_BattleChip_Codes
     .incbin "text/battlechip/codes.script"
 global_label textDictShopDescription
     .incbin "text/shop/stock_description.script"
-
 global_label tilesetCapcomLogo
     .incbin "images/splash/capcom_logo.4bpp"
 global_label paletteCapcomLogo
     .incbin "images/splash/capcom_logo.gbapal"
 global_label tilemapCapcomLogo
     .incbin "images/splash/capcom_logo.bin"
-    .end
+global_label tileset8GameOverText
+    .incbin "images/game_over/foreground.8bpp"
+global_label palette8GameOver
+    .incbin "images/game_over/foreground.gbapal"
+global_label layoutGameOverText
+    .incbin "images/game_over/foreground.tilemap"
+global_label tilesetGameOverBG
+    .incbin "images/game_over/background.4bpp"
+global_label paletteGameOverBG
+    .incbin "images/game_over/background.gbapal"
+global_label layoutGameOverBG
+    .incbin "images/game_over/background.tilemap"
+global_label tileset_PresentedByCapcom
+    .incbin "images/credits/presented_by_capcom.4bpp"
+global_label palette_PresentedByCapcom
+    .incbin "images/credits/presented_by_capcom.gbapal"
+global_label tilemapPresentedByCapcom
+    .incbin "images/credits/presented_by_capcom.tilemap"
+global_label tilesetMainMenuText
+    .incbin "images/main_menu/foreground.4bpp"
+global_label paletteMainMenuText
+    .incbin "images/main_menu/foreground.gbapal"
+global_label palette8MainMenu
+    .incbin "images/main_menu/menu.gbapal"
+global_label tilesetBlankTiles
+    .incbin "images/main_menu/blank.8bpp"
+global_label tileset8MainMenuBackground
+    .incbin "images/main_menu/background.8bpp"
+global_label tileset8BattleNetworkLogo
+    .incbin "images/main_menu/logo.8bpp"
+global_label layoutMainMenuBG1
+    .incbin "images/main_menu/blank.tilemap"
+global_label layoutMainMenuBackground
+    .incbin "images/main_menu/background.tilemap"
+global_label layoutBattleNetworkLogo
+    .incbin "images/main_menu/logo.tilemap"

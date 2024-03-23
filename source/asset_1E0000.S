@@ -805,7 +805,8 @@ global_label paletteKeyboardNumberChars
 global_label paletteMenuSideArrow
     .incbin "images/menu/side_arrow.gbapal"
 
-    .incbin "images/ui/palette_061BAE8.gbapal"
+global_label paletteCreditsText
+    .incbin "images/credits/text.gbapal"
 
 global_label tilesetBoldAlphanumeric
     .incbin "images/ui/charset_bold.4bpp"

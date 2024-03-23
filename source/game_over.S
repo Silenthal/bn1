@@ -2,16 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set tileset8GameOverText, 0x87B1648
-    .set tilesetGameOverBG, 0x87B3448
-    .set palette8GameOver, 0x87B3148
-    .set paletteGameOverBG, 0x87B3848
-    .set layoutGameOverText, 0x87B3348
-    .set layoutGameOverBG, 0x87B3868
-
     .text
-
-    .thumb
 
 _ts InitGameOver
     push       { lr }
