@@ -65,3 +65,37 @@
     .macro chip_trader_stock_end 
     .byte 0, -1, -1, -1, -1, -1, -1, -1
     .endm
+
+    .macro rect x, y, w, h
+    .byte \x, \y, \w, \h
+    .endm
+
+    .macro cam_set x, y, z
+    .short 0
+    .short \x
+    .short \y
+    .short \z
+    .endm
+
+    .macro cam_move dx, dy, dz, time_f
+    .short 4
+    .short \dx
+    .short \dy
+    .short \dz
+    .short \time_f
+    .endm
+
+    .macro cam_wait time_f
+    .short 0xC
+    .short \time_f
+    .endm
+
+    .macro cam_shake strength, time_f
+    .short 0x10
+    .short \strength
+    .short \time_f
+    .endm
+
+    .macro cam_end
+    .short 8
+    .endm

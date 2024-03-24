@@ -6,3 +6,4 @@
     .include "macros/music.inc"
     .include "macros/npc_ai.inc"
     .include "macros/task.inc"
+    .include "macros/entity.inc"

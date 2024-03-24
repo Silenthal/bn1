@@ -29,6 +29,10 @@
     .byte 0x8
     .endm
 
+    .macro a_init_nosprite
+    .byte 0x09
+    .endm
+
     .macro ax_set_0C val
     .byte 0xA
     .byte \val & 0xFF
@@ -79,4 +83,12 @@
     .macro ax_set_flag_64 val
     .byte 0x1D
     .byte \val & 0xFF
+    .endm
+
+    .macro a_cmd_0E_set_flag_1
+    .byte 0x0E
+    .endm
+
+    .macro a_cmd_1F_set_flag_4
+    .byte 0x1F
     .endm

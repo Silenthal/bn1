@@ -11,3 +11,4 @@
     .include "constants/other.inc"
     .include "constants/music.inc"
     .include "constants/item.inc"
+    .include "constants/entity.inc"
