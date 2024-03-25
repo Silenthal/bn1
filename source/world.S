@@ -71,7 +71,7 @@ LAB_08004032:
 PTR_gPlayerFixedAnimationState_08004080:
     .word gPlayerFixedAnimationState
 PTR_BYTE_08004084:
-    .word 0x200c51a
+    .word gNpcTalkState
 PTR_gIsObjectXFlipped_08004088:
     .word gIsObjectXFlipped
 

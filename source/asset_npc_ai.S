@@ -29,7 +29,7 @@ DAT_08028999:
     a_set_dialog 0x2
     a_set_sprite OSP_Car
     a_set_pos_16 -12, -4
-    ax_set_0C 3
+    a_set_radius 3
     a_set_sprite_frame 3
 1:  a_wait 1
     a_jump 1b
@@ -79,7 +79,7 @@ DAT_08028A11:
     a_set_dialog 0x3
     a_set_sprite OSP_Girl_2
     a_set_pos_16 -12, 12
-    ax_set_0C 3
+    a_set_radius 3
     a_set_sprite_frame 7
 1:  a_wait 1
     a_jump 1b

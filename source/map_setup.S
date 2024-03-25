@@ -492,7 +492,7 @@ _ts dummy_187a0
     .align 2,0
 
 PTR_BYTE_080187c0:
-    .word 0x200c51a
+    .word gNpcTalkState
 PTR_PTR_080187c4:
     .word flagSetup_Offline
 PTR_PTR_080187c8:

@@ -22,8 +22,8 @@
     .word \offset, \delay
     .endm
 
-    .macro task_direct_arg dst
-    .word \dst, task_delay
+    .macro task_direct_arg dst, delay=task_delay
+    .word \dst, \delay
     .endm
 
     .macro task_tilemap_arg archiveIndex, tilemap
@@ -37,3 +37,9 @@
     .macro task_stop
     .word 0
     .endm
+
+    .macro task_jump dst
+    .word 2
+    .word \dst
+    .endm
+

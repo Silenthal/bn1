@@ -180,6 +180,7 @@ SECTIONS {
 		gCurPlayerPos				= 0xC230;
 		gMapSegPos					= 0xC240;
 		gCustomScreen				= 0xC270;
+		gNpcTalkState				= 0xC51A;
 		musicPlayerInfo_13			= 0xC520;
 		musicPlayerInfo_17			= 0xC560;
 		musicPlayerInfo_0D			= 0xC5A0;
