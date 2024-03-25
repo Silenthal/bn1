@@ -1091,7 +1091,7 @@ LAB_080015e2:
     pop        {pc}
 
 
-_nt FUN_080015ec
+_nt GetEntityByIndex
     ldr        r2,PTR_DAT_08001614
     ldrb       r2,[r2,r0]
     mul        r2,r1
