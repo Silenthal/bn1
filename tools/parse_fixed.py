@@ -15,6 +15,7 @@ class TokenType(Enum):
     RPAREN = 7
     UNARYPLUS = 8
     UNARYMINUS = 9
+    COMMA = 10
 
 
 class Token:
@@ -84,7 +85,7 @@ def expect(tokenList: TokenStream, type: TokenType) -> Token:
 def tokenize(string: str) -> TokenStream:
     temp = ""
     fStack: List[Token] = []
-    op = ["+", "-", "*", "/", "(", ")"]
+    op = ["+", "-", "*", "/", "(", ")", ","]
     for ch in string:
         if ch.isspace():
             if temp:
@@ -106,12 +107,24 @@ def tokenize(string: str) -> TokenStream:
             fStack.append(Token(TokenType.LPAREN))
         elif ch == ")":
             fStack.append(Token(TokenType.RPAREN))
+        elif ch == ",":
+            fStack.append(Token(TokenType.COMMA))
         else:
             temp += ch
     if temp:
         fStack.append(Token(TokenType.NUMBER, float(temp)))
     return TokenStream(fStack)
 
+
+def parseArgs(tokenList: TokenStream) -> List[Node]:
+    retList = []
+    first = parseExpr(tokenList)
+    retList.append(first)
+    while tokenList.peek_type() == TokenType.COMMA:
+        _ = tokenList.read()
+        next = parseExpr(tokenList)
+        retList.append(next)
+    return retList
 
 def parseExpr(tokenList: TokenStream) -> Node:
     left = parseTerm(tokenList)
@@ -198,10 +211,9 @@ def main():
             elif level > 0 and stack[-1] == "f(":
                 stack.pop()
                 tokens = tokenize(temp)
-                ast = parseExpr(tokens)
-                val = evalAST(ast)
-                fixed = int(val * 65536) & 0xFFFFFFFF
-                stack.append(f"0x{fixed:X}")
+                ast = parseArgs(tokens)
+                valList = [f"0x{int(evalAST(val) * 65536) & 0xFFFFFFFF:X}" for val in ast]
+                stack.extend(", ".join(valList))
                 temp = ""
                 level -= 1
             else:
