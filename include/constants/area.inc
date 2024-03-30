@@ -25,7 +25,7 @@
     .set Map_School_Class_1B                    , 0x0600
     .set Map_School_AV_Room                     , 0x0700
     .set Map_School_Infirmary                   , 0x0800
-    .set Map_School_1F_Hallway                  , 0x0A00
+    .set Map_School_1F_Hallway                  , 0x0900
     .set Map_School_Cross_Hallway               , 0x0B00
     .set Map_School_Storage                     , 0x0C00
     .set Map_School_Staff_Lounge                , 0x0D00

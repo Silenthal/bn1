@@ -1550,7 +1550,7 @@ typedef enum FullArea {
     Map_School_Class_1B=0x0600,
     Map_School_AV_Room=0x0700,
     Map_School_Infirmary=0x0800,
-    Map_School_1F_Hallway=0x0A00,
+    Map_School_1F_Hallway=0x0900,
     Map_School_Cross_Hallway=0x0B00,
     Map_School_Storage=0x0C00,
     Map_School_Staff_Lounge=0x0D00,

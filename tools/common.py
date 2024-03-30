@@ -471,6 +471,7 @@ def key_item(bt: int) -> str:
     }
     return key_item_map[bt] if bt in key_item_map else f"0x{bt:02X}"
 
+
 def map_id(bt: int):
     map_dict = {
         0x0000: "Map_School_Class_5A",
@@ -481,7 +482,7 @@ def map_id(bt: int):
         0x0600: "Map_School_Class_1B",
         0x0700: "Map_School_AV_Room",
         0x0800: "Map_School_Infirmary",
-        0x0A00: "Map_School_1F_Hallway",
+        0x0900: "Map_School_1F_Hallway",
         0x0B00: "Map_School_Cross_Hallway",
         0x0C00: "Map_School_Storage",
         0x0D00: "Map_School_Staff_Lounge",
@@ -595,3 +596,17 @@ def map_id(bt: int):
         0xFFFF: "Map_None",
     }
     return map_dict[bt] if bt in map_dict else f"0x{bt:04X}"
+
+
+def direction(bt: int):
+    dirList = [
+        "d_n",
+        "d_ne",
+        "d_e",
+        "d_se",
+        "d_s",
+        "d_sw",
+        "d_w",
+        "d_nw",
+    ]
+    return dirList[bt] if bt >= 0 and bt < len(dirList) else f"0x{bt:X}"
