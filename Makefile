@@ -16,57 +16,53 @@ MAKER				:= 08
 VERSION				:= 0
 
 BUILD				:= build
-SOURCES				:= source source/routine source/entity source/entity/effect source/battle source/battle/screendim source/menu
+SOURCE				:= source
+SOURCES				:= $(sort $(dir $(wildcard $(SOURCE)/ $(SOURCE)/*/ $(SOURCE)/*/*/)))
 TOOLS				:= tools
+ASSETS				:= $(CURDIR)/assets
+SOUND				:= $(CURDIR)/sound
 INCLUDES			:= include assets build sound
 BASEDIR				:= base
 BASE_DEFINE			:= BASE
 GEN_LD_SCRIPT		:= include.ld
+MAIN_LD_SCRIPT		:= ld_script.ld
 
 ARCH				:= -mthumb -mthumb-interwork -march=armv4t
 
 CFLAGS				:= -mthumb -O1 -fno-toplevel-reorder -Wno-pointer-to-int-cast
 ASFLAGS				:= $(ARCH) -mcpu=arm7tdmi
-LDFLAGS				:= -nostdlib -T $(MAIN_LD_SCRIPT) -Wl,-Map=$(TARGET).map
-
-ifneq ($(BUILD),$(notdir $(CURDIR)))
+LDFLAGS				:= -nostdlib -T $(MAIN_LD_SCRIPT) -Wl,-Map=$(BUILD)/$(TARGET).map
+VPATH				:= $(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) $(ASSETS) $(SOUND) $(BUILD)
 
 # Programs
-export GEN_PAD			:= python3 $(CURDIR)/$(TOOLS)/generate_padding.py
-export MAKE_DEPEND  	:= python3 $(CURDIR)/$(TOOLS)/make_depend.py
-export MAKE_TILES		:= python3 $(CURDIR)/$(TOOLS)/make_tiles.py
-export BUILD_SCRIPT		:= python3 $(CURDIR)/$(TOOLS)/build_script.py
-export GEN_OFFSETS		:= python3 $(CURDIR)/$(TOOLS)/generate_offsets.py
-export LZ				:= python3 $(CURDIR)/$(TOOLS)/lz.py
-export PROGRESS			:= python3 $(CURDIR)/$(TOOLS)/progress.py
-export PARSE_FIXED		:= python3 $(CURDIR)/$(TOOLS)/parse_fixed.py
-export BUILD_MAPS		:= python3 $(CURDIR)/$(TOOLS)/build_maps.py
+GEN_PAD			:= python3 $(CURDIR)/$(TOOLS)/generate_padding.py
+GEN_OFFSETS		:= python3 $(CURDIR)/$(TOOLS)/generate_offsets.py
+PROGRESS		:= python3 $(CURDIR)/$(TOOLS)/progress.py
+PARSE_FIXED		:= python3 $(CURDIR)/$(TOOLS)/parse_fixed.py
 
-export MMBN_H			:= $(CURDIR)/include/mmbn.h
-export OUTPUT			:= $(CURDIR)/$(TARGET)
-export ASSETS			:= $(CURDIR)/assets
-export SOUND			:= $(CURDIR)/sound
-export VPATH			:= $(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) $(ASSETS) $(SOUND) $(BUILD)
-export DEPSDIR			:= $(CURDIR)/$(BUILD)
-export LAYOUT_FILE		:= $(CURDIR)/object_offset.txt
-export MAIN_LD_SCRIPT	:= $(CURDIR)/ld_script.ld
+MMBN_H			:= $(CURDIR)/include/mmbn.h
+OUTPUT			:= $(CURDIR)/$(TARGET)
 
-CFILES				:= $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
-SFILES				:= $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.S)))
+DEPSDIR			:= $(CURDIR)/$(BUILD)
+LAYOUT_FILE		:= $(CURDIR)/object_offset.txt
+MAIN_LD_SCRIPT	:= $(CURDIR)/ld_script.ld
 
-export C_OBJECTS	:= $(CFILES:.c=.o)
-export S_OBJECTS	:= $(SFILES:.S=.o)
-export OFILES		:= $(C_OBJECTS) $(S_OBJECTS)
-export C_DEPEND		:= $(CFILES:.c=.c.d)
-export S_DEPEND		:= $(SFILES:.S=.S.d)
-export DFILES		:= $(C_DEPEND) $(S_DEPEND)
-export INCLUDE		:= $(foreach dir,$(INCLUDES),-iquote $(CURDIR)/$(dir))
-export ASINCLUDE	:= -I $(CURDIR)/$(BASEDIR) $(foreach dir,$(INCLUDES),-I $(CURDIR)/$(dir))
-export LDINCLUDE	:= -L $(CURDIR) $(foreach dir,$(INCLUDES),-L $(CURDIR)/$(dir))
+CFILES			:= $(foreach dir,$(SOURCES),$(wildcard $(dir)*.c))
+SFILES			:= $(foreach dir,$(SOURCES),$(wildcard $(dir)*.S))
 
-export LD			:= $(CC)
+C_OBJECTS		:= $(patsubst $(SOURCE)/%.c,$(BUILD)/%.o,$(CFILES))
+S_OBJECTS		:= $(patsubst $(SOURCE)/%.S,$(BUILD)/%.o,$(SFILES))
+OFILES			:= $(C_OBJECTS) $(S_OBJECTS)
+C_DEPEND		:= $(patsubst $(SOURCE)/%.c,$(BUILD)/%.c.d,$(CFILES))
+S_DEPEND		:= $(patsubst $(SOURCE)/%.S,$(BUILD)/%.S.d,$(SFILES))
+DFILES			:= $(C_DEPEND) $(S_DEPEND)
+INCLUDE			:= $(foreach dir,$(INCLUDES),-iquote $(CURDIR)/$(dir))
+ASINCLUDE		:= -I $(CURDIR)/$(BASEDIR) $(foreach dir,$(INCLUDES),-I $(CURDIR)/$(dir))
+LDINCLUDE		:= -L $(CURDIR) $(foreach dir,$(INCLUDES),-L $(CURDIR)/$(dir))
 
-.PHONY: $(BUILD) depend clean
+LD				:= $(CC)
+
+.PHONY: $(BUILD) pre tidy offsets depend clean check no-check
 
 check: $(BUILD)
 	@$(SHA512SUM) $(BASEDIR)/$(BASE).gba | sed -e 's/$(BASEDIR)\/$(BASE)/$(TARGET)/' >| $(BUILD)/$(TARGET).checksum
@@ -75,14 +71,8 @@ check: $(BUILD)
 
 no-check: $(BUILD)
 
-$(BUILD):
-	$(BUILD_MAPS) $(ASSETS)/data/maps/
-	@[ -d $@ ] || mkdir -p $@
-	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
-
-depend:
+depend: $(DFILES) $(BUILD)/offsets.h
 	@[ -d $(BUILD) ] || mkdir -p $(BUILD)
-	@$(MAKE) depend --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 clean:
 	@echo cleaning up build files and assets ...
@@ -94,22 +84,22 @@ tidy:
 	@echo cleaning up non-asset build files ...
 	@$(RM) -r $(BUILD) $(TARGET).gba $(TARGET).elf
 
-else
+offsets: $(BUILD)/offsets.h
 
-$(OUTPUT).gba: $(OUTPUT).elf
-
-$(OUTPUT).elf: $(OFILES)
-
-depend: $(DFILES) offsets.h
-
-offsets.h: offsets.c
+$(BUILD)/offsets.h: $(BUILD)/offsets.c
 	@$(CC) $(INCLUDE) $(CFLAGS) -S -o /dev/stdout $< | \
 	grep '__AS_DEFINE__' | \
 	sed 's/#//g' | sed 's/\t/ /g' | sed 's/__AS_DEFINE__/#define/g' > $@
 	@echo Offset file built
 
-offsets.c: $(MMBN_H)
+$(BUILD)/offsets.c: $(MMBN_H)
 	@$(GEN_OFFSETS) -o $@ $<
+
+$(BUILD): $(OUTPUT).gba
+
+$(OUTPUT).gba: $(OUTPUT).elf
+
+$(OUTPUT).elf: $(OFILES)
 
 %.gba: %.elf
 	@$(OBJCOPY) -O binary $< $@
@@ -118,55 +108,17 @@ offsets.c: $(MMBN_H)
 
 %.elf:
 	@echo Linking cartridge
-	@cp -f $(LAYOUT_FILE) .
-	@cp -f $(MAIN_LD_SCRIPT) .
-	@$(GEN_PAD) "$(shell which $(AS)) $(ASINCLUDE) $(ASFLAGS)" $(LAYOUT_FILE) $(BASE).gba $(GEN_LD_SCRIPT)
+	@cp -f $(LAYOUT_FILE) $(BUILD)/.
+	@cp -f $(MAIN_LD_SCRIPT) $(BUILD)/.
+	@$(GEN_PAD) "$(shell which $(AS)) $(ASINCLUDE) $(ASFLAGS)" $(BUILD) $(LAYOUT_FILE) $(BASE).gba $(BUILD)/$(GEN_LD_SCRIPT)
 	@$(LD) $(LDINCLUDE) $(LDFLAGS) $(OFILES) -o $@
 
-%.S.d: %.S
-	@echo $(notdir $@)
-	@$(MAKE_DEPEND) $(BUILD) $<
+-include $(BUILD)/*.d
 
-%.c.d: %.c
-	@echo $(notdir $@)
-	@$(MAKE_DEPEND) $(BUILD) $<
-
--include ./*.d
-
-$(C_OBJECTS): %.o: %.c
+$(C_OBJECTS): $(BUILD)/%.o: $(SOURCE)/%.c
 	@echo $(notdir $<)
 	$(CC) -MP -MMD -MF $(DEPSDIR)/$*.d $(INCLUDE) $(CFLAGS) -c -o $@ $<
 
-$(S_OBJECTS): %.o: %.S
+$(S_OBJECTS): $(BUILD)/%.o: $(SOURCE)/%.S
 	@echo $(notdir $<)
 	$(CC) $(INCLUDE) -D $(BASE_DEFINE)=\"$(BASE).gba\" -E $< | $(PARSE_FIXED) | $(AS) $(ASINCLUDE) $(ASFLAGS) -o $@
-
-%.4bpp: %.png
-	$(MAKE_TILES) $@ $<
-
-%.8bpp: %.png
-	$(MAKE_TILES) $@ $<
-
-%.gbapal: %.txt
-	$(MAKE_TILES) $@ $<
-
-%.gbapal: %.gbapal.bin
-	cp $< $(ASSETS)/$@
-
-%.gbapal: %.pal
-	$(MAKE_TILES) $@ $<
-
-%.gbapal: %.png
-	$(MAKE_TILES) $@ $<
-
-%.script: %.txt
-	$(BUILD_SCRIPT) $@ $<
-
-%.sprite.lz: %.sprite
-	$(LZ) $@ $<
-
-%.4bpp.lz: %.png
-	$(MAKE_TILES) $<.4bpp $<
-	$(LZ) $@ $<.4bpp
-
-endif

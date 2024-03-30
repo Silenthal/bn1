@@ -31,8 +31,8 @@ def main():
     inPath = Path(args.input)
     outDir = Path(args.outdir)
     srcName = get_src_name(inPath)
-    objName = get_obj_name(inPath)
-    depName = get_dep_name(inPath)
+    objName = get_obj_name(outDir)
+    depName = outDir
     if not inPath.exists():
         exit(f"Could not find file {inPath}")
     files = set()
@@ -42,8 +42,8 @@ def main():
             if ls.startswith(".incbin"):
                 tok = ls.split()
                 files.add(tok[1].strip('",'))
-    op = get_out_path(inPath, outDir)
-    with open(op, "w") as outFile:
+    outDir.parent.mkdir(parents=True, exist_ok=True)
+    with open(outDir, "w") as outFile:
         slist = list(files)
         slist.sort()
         fileList = " ".join(slist)

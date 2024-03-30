@@ -21,11 +21,11 @@ def main():
 
     with open(inPath, "r") as inMap:
         for line in inMap:
-            matchx = re.match(r"^ \.(\w+)\s+0x[0-9a-f]+\s+(0x[0-9a-f]+) (\w+)\.o", line)
+            matchx = re.match(r"^ \.(\w+)\s+0x[0-9a-f]+\s+(0x[0-9a-f]+) (.+)\.o", line)
             if matchx:
                 if matchx[1] == "text":
                     size = auto_int(matchx[2])
-                    if matchx[3].startswith("__pad__"):
+                    if "__pad__" in matchx[3]:
                         pad += size
                     else:
                         covered += size

@@ -6,7 +6,7 @@ from typing import Callable
 
 
 def create_object_list_with_pad(
-    srcList, maxSize: int, assemble: Callable[[str, int, int], None]
+    buildDir: Path, srcList, maxSize: int, assemble: Callable[[str, int, int], None]
 ):
     outList = []
     for index in range(len(srcList)):
@@ -25,7 +25,7 @@ def create_object_list_with_pad(
         if following_offset < next_offset:
             pad_off = following_offset
             pad_len = next_offset - following_offset
-            pad_base = f"__pad__bin__{pad_off:06X}_{pad_len:06X}"
+            pad_base = str(buildDir / f"__pad__bin__{pad_off:06X}_{pad_len:06X}")
             pad_obj = pad_base + ".o"
             if not Path(pad_obj).exists():
                 assemble(pad_obj, pad_off, pad_len)
@@ -59,7 +59,7 @@ def fill_layout_off_len(layDesc):
     return srcList
 
 
-def parse_layout_file(fileObjPos: Path):
+def parse_layout_file(prefix: Path, fileObjPos: Path):
     layDesc = []
     maxSize = -1
     with open(fileObjPos, "r") as layoutFile:
@@ -69,7 +69,7 @@ def parse_layout_file(fileObjPos: Path):
             if len(tok) == 2 and len(tok[0]) > 0:
                 try:
                     offset = int(tok[1], 0)
-                    layDesc.append({"name": tok[0], "off": offset})
+                    layDesc.append({"name": str(prefix / tok[0]), "off": offset})
                 except:
                     exit(f'Unable to parse line "{line}" in layout file')
             else:
@@ -80,6 +80,7 @@ def parse_layout_file(fileObjPos: Path):
 def main():
     parser = argparse.ArgumentParser(description="Preprocessing.")
     parser.add_argument("assembler", type=str, help="The path to the assembler.")
+    parser.add_argument("build_dir", type=str, help="The directory for files in the layout file.")
     parser.add_argument("layout_file", type=str, help="The path to the layout file.")
     parser.add_argument("base_file", type=str, help="The name of the base file.")
     parser.add_argument(
@@ -88,6 +89,7 @@ def main():
     args = parser.parse_args()
     fileLayout = Path(args.layout_file)
     fileBaseRom = Path(args.base_file)
+    buildDir = Path(args.build_dir)
     if not fileLayout.exists():
         exit(f"Couldn't find layout file {fileLayout}")
 
@@ -103,9 +105,9 @@ def main():
             args.assembler.split() + ["-o", outputName, "-"], stdin=pEcho.stdout
         )
 
-    maxSize, layDesc = parse_layout_file(fileLayout)
+    maxSize, layDesc = parse_layout_file(buildDir, fileLayout)
     srcList = fill_layout_off_len(layDesc)
-    outList = create_object_list_with_pad(srcList, maxSize, assemble)
+    outList = create_object_list_with_pad(buildDir, srcList, maxSize, assemble)
     with open(args.link_file, "w") as lFile:
         for desc in outList:
             lFile.write(f"{desc['obj']}(.text)\n")
