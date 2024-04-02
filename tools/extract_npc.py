@@ -241,15 +241,54 @@ def get_text_offset_list(inFile: BinaryIO) -> List[int]:
     return offsetList
 
 
+def extract_npc_at(inFile: BinaryIO) -> str:
+    output = ""
+    off = inFile.tell()
+    if off & 3 == 0:
+        output += "    .align 2, 0\n\n"
+    scriptBuf = []
+    labelList = []
+    while True:
+        lineOff = inFile.tell() + 0x8000000
+        interp = interpret(inFile)
+        if interp[0]:
+            if interp[1] != "":
+                scriptBuf.append([lineOff, "    " + interp[1]])
+            if interp[2] != -1:
+                labelList.append(interp[2])
+            nextLine = inFile.tell() + 0x8000000
+            if nextLine not in labelList:
+                break
+        else:
+            scriptBuf.append([lineOff, "    " + interp[1]])
+            if interp[2] != -1:
+                labelList.append(interp[2])
+    scriptBufTxt = []
+    for line in scriptBuf:
+        if line[0] in labelList:
+            scriptBufTxt.append(f"L_{line[0]:X}:")
+        scriptBufTxt.append(line[1])
+    scriptBufTxt = "\n".join(scriptBufTxt)
+    output += f"NPC_{(off + 0x8000000):08X}:\n{scriptBufTxt}\n\n"
+    return output
+
+
 def extract_npc(label: str, inFile: BinaryIO) -> str:
+    offsetlist = []
     output = label + ":\n"
-    offsetlist = get_text_offset_list(inFile)
-    for off in offsetlist:
-        output += f"    .word NPC_{off + 0x8000000:08X}\n"
-    output += "    .word 0xFF\n\n"
-    idx = 0
-    for off in offsetlist:
-        if off & 4 != 0:
+    while True:
+        check = inFile.tell()
+        if check in offsetlist:
+            break
+        output += f"NPCList_{inFile.tell() + 0x8000000:08X}:\n"
+        newOffsetlist = get_text_offset_list(inFile)
+        for off in newOffsetlist:
+            output += f"    .word NPC_{off + 0x8000000:08X}\n"
+        output += "    .word 0xFF\n\n"
+        idx = 0
+        offsetlist.extend(newOffsetlist)
+    for off in sorted(set(offsetlist)):
+        if off & 3 == 0:
             output += "    .align 2, 0\n\n"
         inFile.seek(off)
         scriptBuf = []
@@ -303,6 +342,7 @@ def main():
     outPath = Path(args.output if args.output else f"{fileOffset:08x}.txt")
     with open(inPath, mode="rb") as inFile:
         inFile.seek(fileOffset)
+        # result = extract_npc_at(inFile)
         result = extract_npc(label, inFile)
         with open(outPath, "w") as outFile:
             outFile.write(result)

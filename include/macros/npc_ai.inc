@@ -131,7 +131,7 @@
     .endm
 
     .macro a_sprite_auto_priority
-    .byte 0x1A
+    .byte 0x19
     .endm
 
     .macro a_sprite_high_priority

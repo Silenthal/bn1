@@ -17,7 +17,7 @@ VERSION				:= 0
 
 BUILD				:= build
 SOURCE				:= source
-SOURCES				:= $(sort $(dir $(wildcard $(SOURCE)/ $(SOURCE)/*/ $(SOURCE)/*/*/)))
+SOURCES				:= $(sort $(dir $(wildcard $(SOURCE)/ $(SOURCE)/*/ $(SOURCE)/*/*/ $(SOURCE)/*/*/*/ $(SOURCE)/*/*/*/*/)))
 TOOLS				:= tools
 ASSETS				:= $(CURDIR)/assets
 SOUND				:= $(CURDIR)/sound
