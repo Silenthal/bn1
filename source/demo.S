@@ -2,10 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Text_DisableDialogue, 0x8013644
-    .set SetTextPointer, 0x80135e8
     .set USHORT_ARRAY_0872b200, 0x872b200
-    .set TextOption_IsFlagZero, 0x8013924
 
     .text
 
@@ -112,7 +109,7 @@ _ts Demo_SetToBeContinuedMessage
     push       { r5 }
     ldr        r0,PTR_USHORT_ARRAY_08018bcc
     mov        r1,#0xb
-    bl         SetTextPointer
+    bl         Text_LoadDialogue
     pop        { r5 }
     mov        r0,#D_State_1_State1
     strb       r0,[r5,#Demo_m_state1]
@@ -123,7 +120,7 @@ _ts Demo_FadeOutScreen
     push       { lr }
     push       { r5 }
     mov        r0,#0x80
-    bl         TextOption_IsFlagZero
+    bl         Text_CheckOption
     pop        { r5 }
     bne        LAB_08018a4a
     push       { r5 }

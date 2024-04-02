@@ -9,14 +9,14 @@
     .thumb
 
 dummy_113e4:
-    .word 0x8024269 @ dummy_24268
+    .word dummy_ACDC_Elementary
     .word 0x802a515 @ dummy_2a514
     .word 0x8031319 @ dummy_31318
     .word 0x8035edd @ dummy_35edc
     .word 0x803bd91 @ dummy_3bd90
     .word 0x803d87d @ dummy_3d87c
 listGraphicDataSetup_Offline:
-    .word 0x802426d @ GraphicDataSetup_ACDC_Elementary
+    .word GraphicDataSetup_ACDC_Elementary
     .word 0x802a519 @ GraphicDataSetup_ACDC_Town
     .word 0x803131d @ GraphicDataSetup_Govt_Complex
     .word 0x8035ee1 @ GraphicDataSetup_DenTown
@@ -343,7 +343,7 @@ LAB_0801165e:
 LAB_08011698:
     ldrb       r6,[r7,#0x3]
     lsl        r6,r6,#0x2
-    ldr        r4,PTR_regionCollisionBoundary_080118d8
+    ldr        r4,PTR_handlerCollisionShapeBoundary_080118d8
     add        r4,r4,r6
     ldr        r4,[r4,#0x0]
     mov        lr,pc
@@ -375,24 +375,25 @@ LAB_080116bc:
 
     .align 2, 0
 
-regionCollisionBoundary:
+handlerCollisionShapeBoundary:
     .word 0
-    .word 0x8011e68+1
-    .word 0x8011e90+1
-    .word 0x8011eb4+1
-    .word 0x8011edc+1
-    .word 0x8011f00+1
-    .word 0x8011f58+1
-    .word 0x8011fac+1
-    .word 0x8012000+1
-    .word 0x8011cc4+1
-    .word 0x8011d10+1
-    .word 0x8011d38+1
-    .word 0x8011d64+1
-    .word 0x8011da8+1
-    .word 0x8011ddc+1
-    .word 0x8011e0c+1
-    .word 0x8011e3c+1
+    .word Collide_B_01
+    .word Collide_B_02
+    .word Collide_B_03
+    .word Collide_B_04
+    .word Collide_B_05
+    .word Collide_B_06
+    .word Collide_B_07
+    .word Collide_B_08
+    .word Collide_B_09
+    .word Collide_B_0A
+    .word Collide_B_0B
+    .word Collide_B_0C
+    .word Collide_B_0D
+    .word Collide_B_0E
+    .word Collide_B_0F
+    .word Collide_B_10
+
 
     .byte 0, 0
     .ascii "POS X:%D Y:%D Z:%D A:%D\nCELNO:%4X\x00"
@@ -597,7 +598,7 @@ PTR_gDecompDest_080118c8:               .word gDecompDest
 PTR_gCurMapBoundaryData_080118cc:       .word gCurMapBoundaryData
 PTR_gCurMapBoundaryData_080118d0:       .word gCurMapBoundaryData
 PTR_gCurPlayerPos_080118d4:             .word gCurPlayerPos
-PTR_regionCollisionBoundary_080118d8:   .word regionCollisionBoundary
+PTR_handlerCollisionShapeBoundary_080118d8:   .word handlerCollisionShapeBoundary
 PTR_gCurPlayerPos_080118dc:             .word gCurPlayerPos
 PTR_gCurMapBoundaryData_080118e0:       .word gCurMapBoundaryData
 

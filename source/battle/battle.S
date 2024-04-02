@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set FUN_0809bc4c, 0x809bc4c
-    .set DAT_06017200, 0x6017200
     .set tilesetBattleMiscellaneous, 0x8640854
     .set FUN_08056234, 0x8056234
     .set Struct_C1C0_0200c1c0, 0x200c1c0
@@ -221,7 +220,7 @@ PTR_TransferStruct_ARRAY_08005a0c: .word TransferStruct_ARRAY_08005a10
 
 TransferStruct_ARRAY_08005a10:
     .word tilesetBattleMiscellaneous
-    .word DAT_06017200
+    .word 0x6017200
     .word 0x180
 
     .word paletteCustomScreenBg_1
@@ -268,7 +267,6 @@ LAB_08005a60:
     strb       r0,[r5,#0x2]
 LAB_08005a74:
     pop        {pc}
-    thumb_func_end Battle_0_2_InitStatsMP
 
     .align 2, 0
 
@@ -303,16 +301,16 @@ LAB_08005ab4:
     .align 2, 0
 
 JT_R5_0C_5AB8:
-    .word 0x8006be9 @ Battle_1_0_Regular
-    .word 0x8006d45 @ Battle_1_1_Tutorial1
-    .word 0x80072d1 @ Battle_1_2_Tutorial2
-    .word 0x8006be9 @ Battle_1_0_Regular
-    .word 0x8007681 @ Battle_1_4_Tutorial3
-    .word 0x8006be9 @ Battle_1_0_Regular
-    .word 0x8006be9 @ Battle_1_0_Regular
-    .word 0x8006be9 @ Battle_1_0_Regular
-    .word 0x8006be9 @ Battle_1_0_Regular
-    .word 0x8006be9 @ Battle_1_0_Regular
+    .word Battle_Regular
+    .word Battle_Tutorial1
+    .word Battle_Tutorial2
+    .word Battle_Regular
+    .word Battle_Tutorial3
+    .word Battle_Regular
+    .word Battle_Regular
+    .word Battle_Regular
+    .word Battle_Regular
+    .word Battle_Regular
 
     .pool
 
@@ -1604,7 +1602,7 @@ LAB_080063dc:
 
     .align 2, 0
 
-listScreenDimHandler:
+global_label listScreenDimHandler
     .word 0x809832d @ ScreenDim_Recover
     .word 0x8098455 @ ScreenDim_WoodMan
     .word 0x809857d @ ScreenDim_Steal
@@ -1907,7 +1905,7 @@ listTilemapPanelNumberMan:
     .word 0x8698cdc
     .word 0x8698cfc
     .word 0x8698d1c
-    .word 0x8006538
+    .word TilemapEntry_ARRAY_08006538
 listTilemapPanelFireMan:
     .word 0x869959c
     .word 0x86995bc
@@ -1934,7 +1932,7 @@ listTilemapPanelFireMan:
     .word 0x86996fc
     .word 0x869971c
     .word 0x869973c
-    .word 0x8006538
+    .word TilemapEntry_ARRAY_08006538
 listTilemapPanelIceMan:
     .word 0x8699c3c
     .word 0x8699c5c
@@ -1961,7 +1959,7 @@ listTilemapPanelIceMan:
     .word 0x8699d9c
     .word 0x8699dbc
     .word 0x8699ddc
-    .word 0x8006538
+    .word TilemapEntry_ARRAY_08006538
 listTilemapPanelColorMan:
     .word 0x869a39c
     .word 0x869a3bc
@@ -1988,7 +1986,7 @@ listTilemapPanelColorMan:
     .word 0x869a4fc
     .word 0x869a51c
     .word 0x869a53c
-    .word 0x8006538
+    .word TilemapEntry_ARRAY_08006538
 listTilemapPanelElecMan:
     .word 0x869aafc
     .word 0x869ab1c
@@ -2015,7 +2013,7 @@ listTilemapPanelElecMan:
     .word 0x869ac5c
     .word 0x869ac7c
     .word 0x869ac9c
-    .word 0x8006538
+    .word TilemapEntry_ARRAY_08006538
 listTilemapPanelWWW:
     .word 0x869b25c
     .word 0x869b27c
@@ -2042,7 +2040,7 @@ listTilemapPanelWWW:
     .word 0x869b3bc
     .word 0x869b3dc
     .word 0x869b3fc
-    .word 0x8006538
+    .word TilemapEntry_ARRAY_08006538
 listTilemapPanelInternet:
     .word 0x869b93c
     .word 0x869b95c
@@ -2069,7 +2067,7 @@ listTilemapPanelInternet:
     .word 0x869ba9c
     .word 0x869babc
     .word 0x869badc
-    .word 0x8006538
+    .word TilemapEntry_ARRAY_08006538
 listTilemapPanelGeneric:
     .word 0x869c09c
     .word 0x869c0bc
@@ -2096,7 +2094,7 @@ listTilemapPanelGeneric:
     .word 0x869c1fc
     .word 0x869c21c
     .word 0x869c23c
-    .word 0x8006538
+    .word TilemapEntry_ARRAY_08006538
 
 
 _nt Battle_PauseTimer

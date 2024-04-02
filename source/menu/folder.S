@@ -4,8 +4,6 @@
 
     .set FUN_080825cc, 0x80825cc
     .set BuildChipSack, 0x3007518+1
-    .set Menu_PrintToBuffer, 0x801bdec
-    .set tilemapUpDownArrows, 0x801c148
     .set SortSack, 0x30072b8+1
     .set SortSackReverse, 0x3007360+1
     .set listDefaultSort, 0x30072b0
@@ -1077,7 +1075,7 @@ PTR_tilemapFolderSackList_0801a6d4:
 PTR_tilemapFolderListBlank_0801a6d8:
     .word tilemapFolderListBlank
 PTR_DAT_0801a6dc:
-    .word 0x801a63c
+    .word DAT_0801a63c
 DAT_0801a6e0:
     .word 0x40000000
 DAT_0801a6e4:

@@ -2,11 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0801fec0, 0x801fec0
-    .set FUN_0801fe84, 0x801fe84
-    .set DAT_06017200, 0x6017200
-    .set DAT_06017400, 0x6017400
-    .set DAT_06017600, 0x6017600
     .set paletteOfflineIcons, 0x869c25c
     .set tilesetPETIcon, 0x869c27c
     .set tilesetAlert0, 0x869c47c
@@ -42,7 +37,7 @@ _ts InitPetStatusControl
     pop        {r5}
     mov        r0,#0x4
     strb       r0,[r5,#0x4]
-    bl         FUN_0801fec0
+    bl         PETBattery_Disable
     pop        {pc}
 
 
@@ -60,7 +55,7 @@ _ts PetStatusControl_Main
     mov        lr,pc
     bx         r0
 LAB_080172d8:
-    bl         FUN_0801fe84
+    bl         PETBattery_DrawUi
     pop        {pc}
 
     .align 2, 0
@@ -287,11 +282,11 @@ LAB_080174ae:
 PTR_tilesetPETIcon_080174b0:
     .word tilesetPETIcon
 PTR_DAT_080174b4:
-    .word DAT_06017200
+    .word 0x6017200
 PTR_tilesetMegaManIcon_080174b8:
     .word tilesetMegaManIcon
 PTR_DAT_080174bc:
-    .word DAT_06017400
+    .word 0x6017400
 PTR_paletteOfflineIcons_080174c0:
     .word paletteOfflineIcons
 PTR_eObjPaletteD_080174c4:
@@ -311,7 +306,7 @@ ObjectTileAttributes_080174dc:
 PTR_petAlertAnimationFrames_080174e0:
     .word petAlertAnimationFrames
 PTR_DAT_080174e4:
-    .word DAT_06017600
+    .word 0x6017600
 ObjectXYAttributes_080174e8:
     .word 0x80100002
 ObjectTileAttributes_080174ec:

@@ -3,10 +3,6 @@
     .include "macros.inc"
 
     .set PlayerLocation_Create, 0x8056020
-    .set PTR_DAT_080297e4, 0x80297E4
-    .set PTR_DAT_08029804, 0x8029804
-    .set EntityAllocParams_ARRAY_08029cc8, 0x8029CC8
-    .set PTR_DAT_08029828, 0x8029828
 
 
 _ts MapSetup_School_Infirmary_S1
@@ -197,21 +193,21 @@ PTR_PTR_MapSetup_School_Infirmary_F10_08027438:
 PTR_PTR_EventHandler_School_Infirmary_F10_0802743c:
     .word PTR_EventHandler_School_Infirmary_F10_08027328
 PTR_EntityAllocParams_ARRAY_08027440:
-    .word EntityAllocParams_ARRAY_08029cc8
+    .word EntityAllocParams_08029CC8
 PTR_PTR_EventHandler_School_Infirmary_F10_0_08027444:
     .word PTR_EventHandler_School_Infirmary_F10_0_08027378
 PTR_EntityAllocParams_ARRAY_08027448:
-    .word EntityAllocParams_ARRAY_08029cc8
+    .word EntityAllocParams_08029CC8
 PTR_PTR_DAT_0802744c:
-    .word PTR_DAT_080297e4
+    .word NPCList_080297E4
 PTR_PTR_EventHandler_School_Infirmary_F14_0_08027450:
     .word PTR_EventHandler_School_Infirmary_F14_0_080273cc
 DAT_08027454:
     .word 0x8087E35
 PTR_EntityAllocParams_ARRAY_08027458:
-    .word EntityAllocParams_ARRAY_08029cc8
+    .word EntityAllocParams_08029CC8
 PTR_PTR_DAT_0802745c:
-    .word PTR_DAT_080297e4
+    .word NPCList_080297E4
 PTR_PTR_EventHandler_School_Infirmary_F15_0_08027460:
     .word PTR_EventHandler_School_Infirmary_F15_0_08027430
 
@@ -392,21 +388,21 @@ PTR_PTR_MapSetup_School_Infirmary_F20_080275a8:
 PTR_PTR_EventHandler_School_Infirmary_F20_080275ac:
     .word PTR_EventHandler_School_Infirmary_F20_080274c8
 PTR_EntityAllocParams_ARRAY_080275b0:
-    .word EntityAllocParams_ARRAY_08029cc8
+    .word EntityAllocParams_08029CC8
 PTR_PTR_DAT_080275b4:
-    .word PTR_DAT_08029828
+    .word NPCList_08029828
 PTR_PTR_EventHandler_School_Infirmary_F20_0_080275b8:
     .word PTR_EventHandler_School_Infirmary_F20_0_08027520
 PTR_EntityAllocParams_ARRAY_080275bc:
-    .word EntityAllocParams_ARRAY_08029cc8
+    .word EntityAllocParams_08029CC8
 PTR_PTR_DAT_080275c0:
-    .word PTR_DAT_08029804
+    .word NPCList_08029804
 PTR_PTR_EventHandler_School_Infirmary_F24_0_080275c4:
     .word PTR_EventHandler_School_Infirmary_F24_0_08027560
 PTR_EntityAllocParams_ARRAY_080275c8:
-    .word EntityAllocParams_ARRAY_08029cc8
+    .word EntityAllocParams_08029CC8
 PTR_PTR_DAT_080275cc:
-    .word PTR_DAT_08029804
+    .word NPCList_08029804
 PTR_PTR_EventHandler_School_Infirmary_F25_0_080275d0:
     .word PTR_EventHandler_School_Infirmary_F25_0_080275a0
 
@@ -490,8 +486,8 @@ PTR_PTR_MapSetup_School_Infirmary_F30_08027670:
 PTR_PTR_EventHandler_School_Infirmary_F30_08027674:
     .word PTR_EventHandler_School_Infirmary_F30_08027610
 PTR_EntityAllocParams_ARRAY_08027678:
-    .word EntityAllocParams_ARRAY_08029cc8
+    .word EntityAllocParams_08029CC8
 PTR_PTR_DAT_0802767c:
-    .word PTR_DAT_08029828
+    .word NPCList_08029828
 PTR_PTR_EventHandler_School_Infirmary_F30_0_08027680:
     .word PTR_EventHandler_School_Infirmary_F30_0_08027668

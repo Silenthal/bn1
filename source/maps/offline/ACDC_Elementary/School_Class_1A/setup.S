@@ -3,8 +3,6 @@
     .include "macros.inc"
 
     .set PlayerLocation_Create, 0x8056020
-    .set PTR_DAT_08029610, 0x8029610
-    .set EntityAllocParams_ARRAY_08029b18, 0x8029B18
 
 
 _ts MapSetup_School_Class_1A_S1
@@ -218,7 +216,7 @@ PTR_BgTask_080267f0:
 PTR_BgTask_080267f4:
     .word BgTask_080240D0
 PTR_EntityAllocParams_ARRAY_080267f8:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_1A_F10_0_080267fc:
     .word PTR_EventHandler_School_Class_1A_F10_0_08026704
 PTR_BgTask_08026800:
@@ -226,9 +224,9 @@ PTR_BgTask_08026800:
 PTR_BgTask_08026804:
     .word BgTask_08024060
 PTR_EntityAllocParams_ARRAY_08026808:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_PTR_DAT_0802680c:
-    .word PTR_DAT_08029610
+    .word NPCList_08029610
 PTR_PTR_EventHandler_School_Class_1A_F14_0_08026810:
     .word PTR_EventHandler_School_Class_1A_F14_0_08026768
 DAT_08026814:
@@ -238,9 +236,9 @@ PTR_BgTask_08026818:
 PTR_BgTask_0802681c:
     .word BgTask_08024060
 PTR_EntityAllocParams_ARRAY_08026820:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08026824:
-    .word PTR_DAT_08029610
+    .word NPCList_08029610
 PTR_PTR_EventHandler_School_Class_1A_F15_0_08026828:
     .word PTR_EventHandler_School_Class_1A_F15_0_080267e0
 
@@ -437,7 +435,7 @@ PTR_BgTask_0802699c:
 PTR_BgTask_080269a0:
     .word BgTask_080240D0
 PTR_EntityAllocParams_ARRAY_080269a4:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_1A_F20_0_080269a8:
     .word PTR_EventHandler_School_Class_1A_F20_0_080268f4
 PTR_BgTask_080269ac:
@@ -445,7 +443,7 @@ PTR_BgTask_080269ac:
 PTR_BgTask_080269b0:
     .word BgTask_080240D0
 PTR_EntityAllocParams_ARRAY_080269b4:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_1A_F21_0_080269b8:
     .word PTR_EventHandler_School_Class_1A_F21_0_08026940
 PTR_BgTask_080269bc:
@@ -453,7 +451,7 @@ PTR_BgTask_080269bc:
 PTR_BgTask_080269c0:
     .word BgTask_080240D0
 PTR_EntityAllocParams_ARRAY_080269c4:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_1A_F22_0_080269c8:
     .word PTR_EventHandler_School_Class_1A_F22_0_0802698c
 
@@ -545,6 +543,6 @@ PTR_BgTask_08026a7c:
 PTR_BgTask_08026a80:
     .word BgTask_080240D0
 PTR_EntityAllocParams_ARRAY_08026a84:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_1A_F30_0_08026a88:
     .word PTR_EventHandler_School_Class_1A_F30_0_08026a6c

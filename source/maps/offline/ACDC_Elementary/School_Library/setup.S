@@ -2,11 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PTR_DAT_08029460, 0x8029460
     .set PlayerLocation_Create, 0x8056020
-    .set PTR_DAT_080294c8, 0x80294C8
-    .set EntityAllocParams_ARRAY_08029bd0, 0x8029BD0
-    .set PTR_DAT_08029418, 0x8029418
 
 
 _ts MapSetup_School_Library_S1
@@ -271,31 +267,31 @@ PTR_PTR_MapSetup_School_Library_F10_08025d64:
 PTR_PTR_EventHandler_School_Library_F10_08025d68:
     .word PTR_EventHandler_School_Library_F10_08025bd0
 PTR_EntityAllocParams_ARRAY_08025d6c:
-    .word EntityAllocParams_ARRAY_08029bd0
+    .word EntityAllocParams_08029BD0
 PTR_PTR_DAT_08025d70:
-    .word PTR_DAT_08029418
+    .word NPCList_08029418
 PTR_PTR_EventHandler_School_Library_F10_0_08025d74:
     .word PTR_EventHandler_School_Library_F10_0_08025c28
 PTR_EntityAllocParams_ARRAY_08025d78:
-    .word EntityAllocParams_ARRAY_08029bd0
+    .word EntityAllocParams_08029BD0
 PTR_DAT_08025d7c:
-    .word 0x8029420
+    .word NPCList_08029420
 PTR_PTR_EventHandler_School_Library_F13_0_08025d80:
     .word PTR_EventHandler_School_Library_F13_0_08025c7c
 DAT_08025d84:
     .word 0x8087E35
 PTR_EntityAllocParams_ARRAY_08025d88:
-    .word EntityAllocParams_ARRAY_08029bd0
+    .word EntityAllocParams_08029BD0
 PTR_DAT_08025d8c:
-    .word 0x8029420
+    .word NPCList_08029420
 PTR_PTR_EventHandler_School_Library_F14_0_08025d90:
     .word PTR_EventHandler_School_Library_F14_0_08025cf4
 DAT_08025d94:
     .word 0x8087E35
 PTR_EntityAllocParams_ARRAY_08025d98:
-    .word EntityAllocParams_ARRAY_08029bd0
+    .word EntityAllocParams_08029BD0
 PTR_DAT_08025d9c:
-    .word 0x8029420
+    .word NPCList_08029420
 PTR_EventHandler_School_Library_F15_0_08025da0:
     .word EventHandler_School_Library_F15_0
 
@@ -549,31 +545,31 @@ PTR_PTR_MapSetup_School_Library_F20_08025f60:
 PTR_PTR_EventHandler_School_Library_F20_08025f64:
     .word PTR_EventHandler_School_Library_F20_08025e08
 PTR_EntityAllocParams_ARRAY_08025f68:
-    .word EntityAllocParams_ARRAY_08029bd0
+    .word EntityAllocParams_08029BD0
 PTR_PTR_DAT_08025f6c:
-    .word PTR_DAT_08029460
+    .word NPCList_08029460
 PTR_PTR_EventHandler_School_Library_F20_0_08025f70:
     .word PTR_EventHandler_School_Library_F20_0_08025e60
 PTR_EntityAllocParams_ARRAY_08025f74:
-    .word EntityAllocParams_ARRAY_08029bd0
+    .word EntityAllocParams_08029BD0
 PTR_PTR_DAT_08025f78:
-    .word PTR_DAT_08029460
+    .word NPCList_08029460
 PTR_PTR_EventHandler_School_Library_F21_0_08025f7c:
     .word PTR_EventHandler_School_Library_F21_0_08025ea0
 PTR_EntityAllocParams_ARRAY_08025f80:
-    .word EntityAllocParams_ARRAY_08029bd0
+    .word EntityAllocParams_08029BD0
 PTR_PTR_DAT_08025f84:
-    .word PTR_DAT_08029460
+    .word NPCList_08029460
 PTR_PTR_EventHandler_School_Library_F22_0_08025f88:
     .word PTR_EventHandler_School_Library_F22_0_08025ee0
 PTR_EntityAllocParams_ARRAY_08025f8c:
-    .word EntityAllocParams_ARRAY_08029bd0
+    .word EntityAllocParams_08029BD0
 PTR_PTR_DAT_08025f90:
-    .word PTR_DAT_080294c8
+    .word NPCList_080294C8
 PTR_PTR_EventHandler_School_Library_F23_0_08025f94:
     .word PTR_EventHandler_School_Library_F23_0_08025f20
 PTR_EntityAllocParams_ARRAY_08025f98:
-    .word EntityAllocParams_ARRAY_08029bd0
+    .word EntityAllocParams_08029BD0
 PTR_PTR_EventHandler_School_Library_F24_0_08025f9c:
     .word PTR_EventHandler_School_Library_F24_0_08025f58
 
@@ -652,6 +648,6 @@ PTR_PTR_MapSetup_School_Library_F30_08026034:
 PTR_PTR_EventHandler_School_Library_F30_08026038:
     .word PTR_EventHandler_School_Library_F30_08025fdc
 PTR_EntityAllocParams_ARRAY_0802603c:
-    .word EntityAllocParams_ARRAY_08029bd0
+    .word EntityAllocParams_08029BD0
 PTR_PTR_EventHandler_School_Library_F30_0_08026040:
     .word PTR_EventHandler_School_Library_F30_0_0802602c

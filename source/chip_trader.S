@@ -665,13 +665,13 @@ PTR_DAT_080205f4:
 PTR_listChipTrader3IsNewChipDraw_080205f8:
     .word listChipTrader3IsNewChipDraw
 PTR_DAT_080205fc:
-    .word 0x8021070
+    .word DAT_08021070
 PTR_listRarity3_08020600:
     .word listRarity3
 PTR_listChipTrader10IsNewChip_08020604:
     .word listChipTrader10IsNewChip
 PTR_DAT_08020608:
-    .word 0x8021090
+    .word DAT_08021090
 PTR_listRarity10_0802060c:
     .word listRarity10
 PTR_listChipTrader3Stock_08020610:

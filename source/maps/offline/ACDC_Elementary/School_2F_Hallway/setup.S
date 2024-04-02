@@ -2,13 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PTR_DAT_08029500, 0x8029500
-    .set PTR_DAT_080295e0, 0x80295E0
     .set PlayerLocation_Create, 0x8056020
     .set FUN_08082de4, 0x8082DE5
-    .set PTR_DAT_080294ec, 0x80294EC
-    .set PTR_DAT_080294f4, 0x80294F4
-    .set PTR_DAT_08029598, 0x8029598
 
 
 _ts MapSetup_School_2F_Hallway_S1
@@ -340,7 +335,7 @@ DAT_080262bc:
 DAT_080262c0:
     .word 0x8082DE5
 PTR_PTR_DAT_080262c4:
-    .word PTR_DAT_080294ec
+    .word NPCList_080294EC
 PTR_PTR_EventHandler_School_2F_Hallway_F13_0_080262c8:
     .word PTR_EventHandler_School_2F_Hallway_F13_0_0802618c
 DAT_080262cc:
@@ -352,13 +347,13 @@ DAT_080262d4:
 PTR_FUN_08082de4_080262d8:
     .word FUN_08082de4
 PTR_PTR_DAT_080262dc:
-    .word PTR_DAT_080294f4
+    .word NPCList_080294F4
 PTR_PTR_EventHandler_School_2F_Hallway_F14_0_080262e0:
     .word PTR_EventHandler_School_2F_Hallway_F14_0_08026244
 DAT_080262e4:
     .word 0x8087E35
 PTR_PTR_DAT_080262e8:
-    .word PTR_DAT_08029500
+    .word NPCList_08029500
 PTR_PTR_EventHandler_School_2F_Hallway_F15_0_080262ec:
     .word PTR_EventHandler_School_2F_Hallway_F15_0_080262a4
 
@@ -717,25 +712,25 @@ PTR_PTR_MapSetup_School_2F_Hallway_F20_0802657c:
 PTR_PTR_EventHandler_School_2F_Hallway_F20_08026580:
     .word PTR_EventHandler_School_2F_Hallway_F20_0802635c
 PTR_PTR_DAT_08026584:
-    .word PTR_DAT_08029598
+    .word NPCList_08029598
 PTR_PTR_EventHandler_School_2F_Hallway_F20_0_08026588:
     .word PTR_EventHandler_School_2F_Hallway_F20_0_080263b0
 PTR_PTR_DAT_0802658c:
-    .word PTR_DAT_08029598
+    .word NPCList_08029598
 PTR_PTR_EventHandler_School_2F_Hallway_F21_0_08026590:
     .word PTR_EventHandler_School_2F_Hallway_F21_0_080263ec
 PTR_PTR_DAT_08026594:
-    .word PTR_DAT_08029598
+    .word NPCList_08029598
 PTR_PTR_EventHandler_School_2F_Hallway_F22_0_08026598:
     .word PTR_EventHandler_School_2F_Hallway_F22_0_08026428
 PTR_PTR_DAT_0802659c:
-    .word PTR_DAT_080295e0
+    .word NPCList_080295E0
 PTR_PTR_EventHandler_School_2F_Hallway_F23_0_080265a0:
     .word PTR_EventHandler_School_2F_Hallway_F23_0_08026470
 DAT_080265a4:
     .word 0x8082DE5
 PTR_PTR_DAT_080265a8:
-    .word PTR_DAT_08029598
+    .word NPCList_08029598
 PTR_PTR_EventHandler_School_2F_Hallway_F24_0_080265ac:
     .word PTR_EventHandler_School_2F_Hallway_F24_0_080264ec
 DAT_080265b0:

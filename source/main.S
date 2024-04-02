@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Menu_LoadChipDetail      , 0x801996c
     .set Sio_SetReady               , 0x809bdf0
 
     .text
@@ -171,7 +170,7 @@ _ts Main_SoftResetCheck
     @ Soft reset check (A + B + Start + Select)
     push       { r1 }
     bl         InitializeInterruptVectors
-    bl         0x80003F0 @ Main_Init
+    bl         Main_Init
     pop        { r1 }
     mov        r4,#0xa
 .storeCounter:
@@ -196,18 +195,18 @@ _ts Main_Init
     bl         Video_ApplySettings
     bl         Sound_Init
     bl         BgUpdate_Init
-    bl         0x80018fc
-    bl         0x800265c
+    bl         Video_ClearAndLoadSmallNumbers
+    bl         Oam_Init
     bl         InitMainMenu
     bl         Oam_InitTransferData
     bl         Dma_TransferListClear
     bl         Rng_Init
     bl         Text_Init
-    bl         0x8010bbc
-    bl         0x8004020
-    bl         0x800408c
-    bl         0x801880c
-    bl         0x801882c
+    bl         Oam_InitAffineData
+    bl         InitWorld_LoadGame
+    bl         InitWorld_NewGame
+    bl         Scene_UnloadAndResetStepCounter
+    bl         Scene_UnloadIfMarked
     bl         InitBgTask
     bl         Video_InitBlendSettings
     bl         InitFadeSettings

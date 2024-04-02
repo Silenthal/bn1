@@ -6,7 +6,6 @@
     .set Sio_SetReady, 0x809bdf0
     .set BgTask_0803ed68, 0x803ed68
     .set BgTask_0803f138, 0x803f138
-    .set Status_GetLevel, 0x801bf58
     .set BgTask_08042958, 0x8042958
     .set BgTask_080442e8, 0x80442e8
     .set BgTask_080475a4, 0x80475a4

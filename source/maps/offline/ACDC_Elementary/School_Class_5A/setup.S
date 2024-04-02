@@ -5,28 +5,17 @@
     .set FUN_08082f48, 0x8082F49
     .set FUN_0808598c, 0x808598D
     .set Scenario_8308C_DexChallengePreTutorial, 0x808308D
-    .set PTR_DAT_08028d48, 0x8028D48
-    .set PTR_DAT_08028c8c, 0x8028C8C
     .set FUN_08088118, 0x8088119
-    .set EntityAllocParams_ARRAY_08029b18, 0x8029B18
     .set FUN_080834d4, 0x80834D5
-    .set PTR_DAT_08028cdc, 0x8028CDC
     .set LAB_08088fa8, 0x8088FA9
-    .set PTR_DAT_080290e0, 0x80290E0
     .set PlayerLocation_Create, 0x8056020
     .set FUN_080866ec, 0x80866ED
     .set Scene_JackIn, 0x8083EED
-    .set PTR_DAT_08028964, 0x8028964
-    .set PTR_DAT_08028b64, 0x8028B64
-    .set PTR_DAT_08028d64, 0x8028D64
     .set FUN_080864e4, 0x80864E5
     .set FUN_08086a64, 0x8086A65
     .set FUN_08082de4, 0x8082DE5
-    .set PTR_DAT_08028c30, 0x8028C30
     .set Script_ShowDialogue, 0x80848FD
-    .set PTR_DAT_08028d78, 0x8028D78
     .set FUN_08087e34, 0x8087E35
-    .set PTR_DAT_080292bc, 0x80292BC
 
 
 _ts FlagSetup_ACDC_Elementary_S0
@@ -241,7 +230,7 @@ LAB_080248b6:
 PTR_PTR_MapSetup_School_Class_5A_F00_080248b8:
     .word PTR_MapSetup_School_Class_5A_F00_0802472c
 PTR_EntityAllocParams_ARRAY_080248bc:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_5A_F00_080248c0:
     .word PTR_EventHandler_School_Class_5A_F00_08024758
 PTR_BgTask_080248c4:
@@ -249,7 +238,7 @@ PTR_BgTask_080248c4:
 PTR_BgTask_080248c8:
     .word BgTask_08024048
 PTR_PTR_DAT_080248cc:
-    .word PTR_DAT_08028964
+    .word NPCList_08028964
 PTR_PTR_EventHandler_School_Class_5A_F00_0_080248d0:
     .word PTR_EventHandler_School_Class_5A_F00_0_080247c0
 PTR_FUN_08082f48_080248d4:
@@ -261,7 +250,7 @@ PTR_BgTask_080248dc:
 PTR_BgTask_080248e0:
     .word BgTask_08024048
 PTR_PTR_DAT_080248e4:
-    .word PTR_DAT_08028b64
+    .word NPCList_08028B64
 PTR_FUN_0808598c_080248e8:
     .word FUN_0808598c
 PTR_FUN_080834d4_080248ec:
@@ -301,7 +290,7 @@ LAB_08024924:
 PTR_PTR_MapSetup_School_Class_5A_F10_0802492c:
     .word PTR_MapSetup_School_Class_5A_F10_08024934
 PTR_EntityAllocParams_ARRAY_08024930:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_MapSetup_School_Class_5A_F10_08024934:
     .word MapSetup_School_Class_5A_F10
     .word MapSetup_School_Class_5A_F11
@@ -401,9 +390,9 @@ PTR_BgTask_08024a10:
 PTR_BgTask_08024a14:
     .word BgTask_08024048
 PTR_PTR_DAT_08024a18:
-    .word PTR_DAT_08028c8c
+    .word NPCList_08028C8C
 PTR_PTR_DAT_08024a1c:
-    .word PTR_DAT_08028c30
+    .word NPCList_08028C30
 DAT_08024a20:
     .word 0x808598D
 
@@ -545,7 +534,7 @@ PTR_BgTask_08024b30:
 PTR_BgTask_08024b34:
     .word BgTask_08024060
 PTR_PTR_DAT_08024b38:
-    .word PTR_DAT_08028cdc
+    .word NPCList_08028CDC
 
 
 _ts EventHandler_School_Class_5A_F11
@@ -1032,7 +1021,7 @@ LAB_08024eba:
     str        r0,[r5,#0x0]
     pop        {pc}
 PTR_PTR_DAT_08024ee8:
-    .word PTR_DAT_08028d78
+    .word NPCList_08028D78
 
 
 _ts EventHandler_School_Class_5A_F15
@@ -1153,7 +1142,7 @@ PTR_BgTask_08024fd0:
 PTR_BgTask_08024fd4:
     .word BgTask_08024060
 PTR_DAT_08024fd8:
-    .word 0x8028D24
+    .word NPCList_08028D24
 PTR_PTR_EventHandler_School_Class_5A_F12_0_08024fdc:
     .word PTR_EventHandler_School_Class_5A_F12_0_08024c78
 PTR_FUN_08086a64_08024fe0:
@@ -1177,7 +1166,7 @@ PTR_BgTask_08025000:
 PTR_BgTask_08025004:
     .word BgTask_08024060
 PTR_PTR_DAT_08025008:
-    .word PTR_DAT_08028d48
+    .word NPCList_08028D48
 PTR_PTR_EventHandler_School_Class_5A_F13_0_0802500c:
     .word PTR_EventHandler_School_Class_5A_F13_0_08024de8
 DAT_08025010:
@@ -1187,7 +1176,7 @@ PTR_BgTask_08025014:
 PTR_BgTask_08025018:
     .word BgTask_08024060
 PTR_PTR_DAT_0802501c:
-    .word PTR_DAT_08028d64
+    .word NPCList_08028D64
 PTR_PTR_EventHandler_School_Class_5A_F14_0_08025020:
     .word PTR_EventHandler_School_Class_5A_F14_0_08024e7c
 DAT_08025024:
@@ -1706,7 +1695,7 @@ LAB_08025414:
 PTR_PTR_MapSetup_School_Class_5A_F20_08025418:
     .word PTR_MapSetup_School_Class_5A_F20_0802507c
 PTR_EntityAllocParams_ARRAY_0802541c:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_5A_F20_08025420:
     .word PTR_EventHandler_School_Class_5A_F20_080250a8
 PTR_BgTask_08025424:
@@ -1714,7 +1703,7 @@ PTR_BgTask_08025424:
 PTR_BgTask_08025428:
     .word BgTask_080240D0
 DAT_0802542c:
-    .word 0x8029034
+    .word NPCList_08029034
 DAT_08025430:
     .word 0xA0000
 DAT_08025434:
@@ -1732,7 +1721,7 @@ PTR_BgTask_08025448:
 PTR_BgTask_0802544c:
     .word BgTask_080240D0
 PTR_DAT_08025450:
-    .word 0x80290BC
+    .word NPCList_080290BC
 PTR_PTR_EventHandler_School_Class_5A_F21_0_08025454:
     .word PTR_EventHandler_School_Class_5A_F21_0_080251d8
 PTR_BgTask_08025458:
@@ -1740,7 +1729,7 @@ PTR_BgTask_08025458:
 PTR_BgTask_0802545c:
     .word BgTask_080240D0
 PTR_DAT_08025460:
-    .word 0x80290BC
+    .word NPCList_080290BC
 PTR_PTR_EventHandler_School_Class_5A_F22_0_08025464:
     .word PTR_EventHandler_School_Class_5A_F22_0_0802522c
 PTR_BgTask_08025468:
@@ -1748,7 +1737,7 @@ PTR_BgTask_08025468:
 PTR_BgTask_0802546c:
     .word BgTask_080240D0
 PTR_PTR_DAT_08025470:
-    .word PTR_DAT_080290e0
+    .word NPCList_080290E0
 PTR_FUN_0808598c_08025474:
     .word FUN_0808598c
 PTR_PTR_EventHandler_School_Class_5A_F23_0_08025478:
@@ -1762,7 +1751,7 @@ PTR_BgTask_08025484:
 PTR_BgTask_08025488:
     .word BgTask_080240D0
 PTR_PTR_DAT_0802548c:
-    .word PTR_DAT_080292bc
+    .word NPCList_080292BC
 PTR_FUN_0808598c_08025490:
     .word FUN_0808598c
 PTR_PTR_EventHandler_School_Class_5A_F24_0_08025494:
@@ -1864,7 +1853,7 @@ _ts EventHandler_School_Class_5A_F30_0
 PTR_PTR_MapSetup_School_Class_5A_F30_0802555c:
     .word PTR_MapSetup_School_Class_5A_F30_080254cc
 PTR_EntityAllocParams_ARRAY_08025560:
-    .word EntityAllocParams_ARRAY_08029b18
+    .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_5A_F30_08025564:
     .word PTR_EventHandler_School_Class_5A_F30_080254f8
 PTR_BgTask_08025568:

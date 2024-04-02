@@ -2,23 +2,10 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08018e4c, 0x8018e4c
-    .set FUN_0801f974, 0x801f974
-    .set Status_GetLevel, 0x801bf58
-    .set Library_GetStandardChipCount, 0x801E814
-    .set Passcode_Init, 0x8018dec
-    .set FUN_080190cc, 0x80190cc
-    .set FUN_080190dc, 0x80190dc
-    .set Folder_GetChipCount, 0x801a640
     .set PlayerAnimation_Lock, 0x8056058
     .set PlayerAnimation_Get, 0x80560B4
     .set PlayerAnimation_Set, 0x8056074
     .set PlayerAnimation_Unlock, 0x8056064
-    .set Encounter_SetEnemyList, 0x80098cc
-    .set PTR_EnemySpawn_08014cf8, 0x8014cf8
-    .set Save_SaveGame, 0x801fADC
-    .set DAT_0600d820, 0x600d820
-    .set DAT_0600d8a0, 0x600d8a0
 
     .text
 
@@ -466,7 +453,7 @@ _ts Text_CheckPasscodeEntryLoad
     mov        r0,#TS_40
     bl         Text_CheckScriptOption
     push       { r5 }
-    bl         FUN_08018e4c
+    bl         Passcode_HandleEntry
     pop        { r5 }
     strb       r0,[r5,#Text_m_b16]
     strb       r1,[r5,#Text_m_b17]
@@ -556,8 +543,8 @@ DAT_08013980:                               .word 0x3C0
 PTR_tilesetDialogueText_08013984:           .word tilesetDialogueText
 PTR_gTextTileBuffer_08013988:               .word gTextTileBuffer
 PTR_charShade_0801398c:                     .word charShade
-PTR_tilesetListPortraits_08013990:          .word 0x8012b20 @ tilesetListPortraits
-PTR_layoutDialogBox_08013994:               .word 0x80151c8 @ layoutDialogBox
+PTR_tilesetListPortraits_08013990:          .word listPortraitPtr
+PTR_layoutDialogBox_08013994:               .word layoutDialogBox
 DAT_08013998:                               .word 0x200
 PTR_gTextOptionFlags_0801399c:              .word gTextOptionFlags
 PTR_gTextOptionFlags_080139a0:              .word gTextOptionFlags
@@ -1390,7 +1377,7 @@ _ts JT_Command_F4_08_JumpIfShopStock
     push       { lr }
     ldrb       r0,[r4,#0x2]
     push       { r4, r5 }
-    bl         FUN_0801f974
+    bl         Shop_GetUniqueStockCount
     pop        { r4, r5 }
     mov        r1,#0x4
     tst        r0,r0
@@ -1785,7 +1772,7 @@ _ts JT_Command_F8_00_PasscodeInit
     pop        { r4, r5 }
 LAB_0801423e:
     push       { r4, r5 }
-    bl         FUN_080190cc
+    bl         Passcode_InitPickResult
     pop        { r4, r5 }
     mov        r0,#0x60
     bl         Text_EnableScriptOption
@@ -1881,7 +1868,7 @@ _ts JT_Command_F8_10_PasscodeShift
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     push       { r4, r5 }
-    bl         FUN_080190dc
+    bl         Passcode_ShiftDigit
     pop        { r4, r5 }
     add        r1,r0,#0x0
     cmp        r1,#0xff
@@ -2678,7 +2665,7 @@ LAB_08014924:
     lsl        r1,r1,#0x2
     ldr        r0,PTR_PTR_EnemySpawn_08014970
     ldr        r0,[r0,r1]
-    bl         Encounter_SetEnemyList
+    bl         Battle_GetRandomEncounter
     pop        { r4, r5 }
     ldrb       r0,[r4,#0x2]
     cmp        r0,#0xff
@@ -2786,7 +2773,7 @@ LAB_080149dc:
     ldrb       r0,[r7,#0x0]
     ldrb       r1,[r7,#0x1]
     bl         Battle_GetRandomAreaEnemySpawnList
-    bl         Encounter_SetEnemyList
+    bl         Battle_GetRandomEncounter
     bl         World_GetBackgroundId
     mov        r1,#0x0
     mov        r2,#0x0
@@ -3158,10 +3145,10 @@ LAB_08014cce:
 
 
 PTR_PTR_tilesetArrowVert0_08014cd:  .word PTR_tilesetArrowVert0_08014b70
-PTR_DAT_08014ce0:                   .word DAT_0600d820
+PTR_DAT_08014ce0:                   .word 0x600d820
 PTR_LayoutEntry_08014ce4:           .word LayoutEntry_08014bc0
 PTR_tileArrowAnimArray_08014ce8:    .word tileArrowAnimArray
-PTR_DAT_08014cec:                   .word DAT_0600d8a0
+PTR_DAT_08014cec:                   .word 0x600d8a0
 PTR_LayoutEntry_ARRAY_08014cf:      .word LayoutEntry_ARRAY_08014c54
 DAT_08014cf4:                       .word 0x1B8
 

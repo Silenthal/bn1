@@ -232,7 +232,7 @@ _ts GraphicDataSetup_ACDC_Elementary
 
     .align 2, 0
 
-PTR_spriteList_School_Class_5A_080242cc:
+global_label PTR_spriteList_School_Class_5A_080242cc
     .word spriteList_School_Class_5A
     .word spriteList_School_Class_5B
     .word spriteList_School_Library
@@ -284,7 +284,7 @@ PTR_gDstCompressedSpriteData_08024334:
     .word gDstCompressedSpriteData
 PTR_PTR_spriteList_School_Class_5A_08024338:
     .word PTR_spriteList_School_Class_5A_080242cc
-flagSetup_ACDC_Elementary:
+global_label flagSetup_ACDC_Elementary
     .word FlagSetup_ACDC_Elementary_S0
     .word FlagSetup_ACDC_Elementary_S0
     .word FlagSetup_ACDC_Elementary_S0
@@ -292,7 +292,7 @@ flagSetup_ACDC_Elementary:
     .word FlagSetup_ACDC_Elementary_S0
     .word FlagSetup_ACDC_Elementary_S0
 
-mapSetup_ACDC_Elementary:
+global_label mapSetup_ACDC_Elementary
     .word mapSetup_ACDC_Elementary_S0
     .word mapSetup_ACDC_Elementary_S1
     .word mapSetup_ACDC_Elementary_S2
@@ -300,7 +300,7 @@ mapSetup_ACDC_Elementary:
     .word mapSetup_ACDC_Elementary_S3
     .word mapSetup_ACDC_Elementary_S5
 mapSetup_ACDC_Elementary_S0:
-    .word 0x8024711 @ MapSetup_School_Class_5A_S0
+    .word MapSetup_School_Class_5A_S0
     .word MapSetup_Default
     .word MapSetup_Default
     .word MapSetup_Default
@@ -318,74 +318,74 @@ mapSetup_ACDC_Elementary_S0:
     .word MapSetup_Default
 
 mapSetup_ACDC_Elementary_S1:
-    .word 0x80248fd @ MapSetup_School_Class_5A_S1
-    .word 0x8025575 @ MapSetup_School_Class_5B_S1
-    .word 0x8025b81 @ MapSetup_School_Library_S1
-    .word 0x8026045 @ MapSetup_School_2F_Hallway_S1
+    .word MapSetup_School_Class_5A_S1
+    .word MapSetup_School_Class_5B_S1
+    .word MapSetup_School_Library_S1
+    .word MapSetup_School_2F_Hallway_S1
     .word MapSetup_Default
-    .word 0x8026659 @ MapSetup_School_Class_1A_S1
-    .word 0x8026a8d @ MapSetup_School_Class_1B_S1
-    .word 0x8026ee1 @ MapSetup_School_AV_Room_S1
-    .word 0x80272d9 @ MapSetup_School_Infirmary_S1
-    .word 0x8027685 @ MapSetup_School_1F_Hallway_S1
+    .word MapSetup_School_Class_1A_S1
+    .word MapSetup_School_Class_1B_S1
+    .word MapSetup_School_AV_Room_S1
+    .word MapSetup_School_Infirmary_S1
+    .word MapSetup_School_1F_Hallway_S1
     .word MapSetup_Default
-    .word 0x8027d1d @ MapSetup_School_Cross_Hallway_S1
-    .word 0x8028041 @ MapSetup_School_Storage_S1
-    .word 0x80282e1 @ MapSetup_School_Staff_Lounge_S1
-    .word 0x80284f9 @ MapSetup_School_Staff_Lounge_Hallway_S1
+    .word MapSetup_School_Cross_Hallway_S1
+    .word MapSetup_School_Storage_S1
+    .word MapSetup_School_Staff_Lounge_S1
+    .word MapSetup_School_Staff_Lounge_Hallway_S1
 mapSetup_ACDC_Elementary_S2:
-    .word 0x8025039 @ MapSetup_School_Class_5A_S2
-    .word 0x8025791 @ MapSetup_School_Class_5B_S2
-    .word 0x8025da5 @ MapSetup_School_Library_S2
-    .word 0x80262f1 @ MapSetup_School_2F_Hallway_S2
+    .word MapSetup_School_Class_5A_S2
+    .word MapSetup_School_Class_5B_S2
+    .word MapSetup_School_Library_S2
+    .word MapSetup_School_2F_Hallway_S2
     .word MapSetup_Default
-    .word 0x802682d @ MapSetup_School_Class_1A_S2
-    .word 0x8026c61 @ MapSetup_School_Class_1B_S2
-    .word 0x80270e9 @ MapSetup_School_AV_Room_S2
-    .word 0x8027465 @ MapSetup_School_Infirmary_S2
-    .word 0x80279d9 @ MapSetup_School_1F_Hallway_S2
+    .word MapSetup_School_Class_1A_S2
+    .word MapSetup_School_Class_1B_S2
+    .word MapSetup_School_AV_Room_S2
+    .word MapSetup_School_Infirmary_S2
+    .word MapSetup_School_1F_Hallway_S2
     .word MapSetup_Default
-    .word 0x8027ed9 @ MapSetup_School_Cross_Hallway_S2
-    .word 0x8028135 @ MapSetup_School_Storage_S2
+    .word MapSetup_School_Cross_Hallway_S2
+    .word MapSetup_School_Storage_S2
     .word MapSetup_Default
-    .word 0x8028631 @ MapSetup_School_Staff_Lounge_Hallway_S2
+    .word MapSetup_School_Staff_Lounge_Hallway_S2
     .word MapSetup_Default
 mapSetup_ACDC_Elementary_S3:
-    .word 0x80254b1 @ MapSetup_School_Class_5A_S3
-    .word 0x8025ac1 @ MapSetup_School_Class_5B_S3
-    .word 0x8025fa1 @ MapSetup_School_Library_S3
-    .word 0x80265bd @ MapSetup_School_2F_Hallway_S3
+    .word MapSetup_School_Class_5A_S3
+    .word MapSetup_School_Class_5B_S3
+    .word MapSetup_School_Library_S3
+    .word MapSetup_School_2F_Hallway_S3
     .word MapSetup_Default
-    .word 0x80269cd @ MapSetup_School_Class_1A_S3
-    .word 0x8026e19 @ MapSetup_School_Class_1B_S3
-    .word 0x80271f5 @ MapSetup_School_AV_Room_S3
-    .word 0x80275d5 @ MapSetup_School_Infirmary_S3
-    .word 0x8027c81 @ MapSetup_School_1F_Hallway_S3
+    .word MapSetup_School_Class_1A_S3
+    .word MapSetup_School_Class_1B_S3
+    .word MapSetup_School_AV_Room_S3
+    .word MapSetup_School_Infirmary_S3
+    .word MapSetup_School_1F_Hallway_S3
     .word MapSetup_Default
-    .word 0x8027fa5 @ MapSetup_School_Cross_Hallway_S3
-    .word 0x8028231 @ MapSetup_School_Storage_S3
+    .word MapSetup_School_Cross_Hallway_S3
+    .word MapSetup_School_Storage_S3
     .word MapSetup_Default
-    .word 0x802889d @ MapSetup_School_Staff_Lounge_Hallway_S3
+    .word MapSetup_School_Staff_Lounge_Hallway_S3
     .word MapSetup_Default
 mapSetup_ACDC_Elementary_S5:
-    .word 0x80254b1 @ MapSetup_School_Class_5A_S3
-    .word 0x8025ac1 @ MapSetup_School_Class_5B_S3
-    .word 0x8025fa1 @ MapSetup_School_Library_S3
-    .word 0x80265bd @ MapSetup_School_2F_Hallway_S3
+    .word MapSetup_School_Class_5A_S3
+    .word MapSetup_School_Class_5B_S3
+    .word MapSetup_School_Library_S3
+    .word MapSetup_School_2F_Hallway_S3
     .word MapSetup_Default
-    .word 0x80269cd @ MapSetup_School_Class_1A_S3
-    .word 0x8026e19 @ MapSetup_School_Class_1B_S3
-    .word 0x80271f5 @ MapSetup_School_AV_Room_S3
-    .word 0x80275d5 @ MapSetup_School_Infirmary_S3
-    .word 0x8027c81 @ MapSetup_School_1F_Hallway_S3
+    .word MapSetup_School_Class_1A_S3
+    .word MapSetup_School_Class_1B_S3
+    .word MapSetup_School_AV_Room_S3
+    .word MapSetup_School_Infirmary_S3
+    .word MapSetup_School_1F_Hallway_S3
     .word MapSetup_Default
-    .word 0x8027fa5 @ MapSetup_School_Cross_Hallway_S3
-    .word 0x8028231 @ MapSetup_School_Storage_S3
-    .word 0x8028441 @ MapSetup_School_Staff_Lounge_S5
-    .word 0x8028801 @ MapSetup_School_Staff_Lounge_Hallway_S5
+    .word MapSetup_School_Cross_Hallway_S3
+    .word MapSetup_School_Storage_S3
+    .word MapSetup_School_Staff_Lounge_S5
+    .word MapSetup_School_Staff_Lounge_Hallway_S5
     .word MapSetup_Default
 
-eventHandler_ACDC_Elementary:
+global_label eventHandler_ACDC_Elementary
     .word eventHandler_ACDC_Elementary_S0
     .word eventHandler_ACDC_Elementary_S1
     .word eventHandler_ACDC_Elementary_S2
@@ -394,7 +394,7 @@ eventHandler_ACDC_Elementary:
     .word eventHandler_ACDC_Elementary_S5
 
 eventHandler_ACDC_Elementary_S0:
-    .word 0x802474d @ EventHandler_School_Class_5A_S0
+    .word EventHandler_School_Class_5A_S0
     .word EventHandler_Default
     .word EventHandler_Default
     .word EventHandler_Default
@@ -411,74 +411,74 @@ eventHandler_ACDC_Elementary_S0:
     .word EventHandler_Default
     .word EventHandler_Default
 eventHandler_ACDC_Elementary_S1:
-    .word 0x8024955 @ EventHandler_School_Class_5A_S1
-    .word 0x80255b9 @ EventHandler_School_Class_5B_S1
-    .word 0x8025bc5 @ EventHandler_School_Library_S1
-    .word 0x8026091 @ EventHandler_School_2F_Hallway_S1
+    .word EventHandler_School_Class_5A_S1
+    .word EventHandler_School_Class_5B_S1
+    .word EventHandler_School_Library_S1
+    .word EventHandler_School_2F_Hallway_S1
     .word EventHandler_Default
-    .word 0x802669d @ EventHandler_School_Class_1A_S1
-    .word 0x8026ad1 @ EventHandler_School_Class_1B_S1
-    .word 0x8026f25 @ EventHandler_School_AV_Room_S1
-    .word 0x802731d @ EventHandler_School_Infirmary_S1
-    .word 0x80276c9 @ EventHandler_School_1F_Hallway_S1
+    .word EventHandler_School_Class_1A_S1
+    .word EventHandler_School_Class_1B_S1
+    .word EventHandler_School_AV_Room_S1
+    .word EventHandler_School_Infirmary_S1
+    .word EventHandler_School_1F_Hallway_S1
     .word EventHandler_Default
-    .word 0x8027d61 @ EventHandler_School_Cross_Hallway_S1
-    .word 0x8028085 @ EventHandler_School_Storage_S1
-    .word 0x8028325 @ EventHandler_School_Staff_Lounge_S1
-    .word 0x802853d @ EventHandler_School_Staff_Lounge_Hallway_S1
+    .word EventHandler_School_Cross_Hallway_S1
+    .word EventHandler_School_Storage_S1
+    .word EventHandler_School_Staff_Lounge_S1
+    .word EventHandler_School_Staff_Lounge_Hallway_S1
 eventHandler_ACDC_Elementary_S2:
-    .word 0x802509d @ EventHandler_School_Class_5A_S2
-    .word 0x80257e9 @ EventHandler_School_Class_5B_S2
-    .word 0x8025dfd @ EventHandler_School_Library_S2
-    .word 0x8026351 @ EventHandler_School_2F_Hallway_S2
+    .word EventHandler_School_Class_5A_S2
+    .word EventHandler_School_Class_5B_S2
+    .word EventHandler_School_Library_S2
+    .word EventHandler_School_2F_Hallway_S2
     .word EventHandler_Default
-    .word 0x8026885 @ EventHandler_School_Class_1A_S2
-    .word 0x8026cb9 @ EventHandler_School_Class_1B_S2
-    .word 0x802715d @ EventHandler_School_AV_Room_S2
-    .word 0x80274bd @ EventHandler_School_Infirmary_S2
-    .word 0x8027a31 @ EventHandler_School_1F_Hallway_S2
+    .word EventHandler_School_Class_1A_S2
+    .word EventHandler_School_Class_1B_S2
+    .word EventHandler_School_AV_Room_S2
+    .word EventHandler_School_Infirmary_S2
+    .word EventHandler_School_1F_Hallway_S2
     .word EventHandler_Default
-    .word 0x8027f31 @ EventHandler_School_Cross_Hallway_S2
-    .word 0x802818d @ EventHandler_School_Storage_S2
+    .word EventHandler_School_Cross_Hallway_S2
+    .word EventHandler_School_Storage_S2
     .word EventHandler_Default
-    .word 0x8028689 @ EventHandler_School_Staff_Lounge_Hallway_S2
+    .word EventHandler_School_Staff_Lounge_Hallway_S2
     .word EventHandler_Default
 eventHandler_ACDC_Elementary_S3:
-    .word 0x80254ed @ EventHandler_School_Class_5A_S3
-    .word 0x8025af1 @ EventHandler_School_Class_5B_S3
-    .word 0x8025fd1 @ EventHandler_School_Library_S3
-    .word 0x80265ed @ EventHandler_School_2F_Hallway_S3
+    .word EventHandler_School_Class_5A_S3
+    .word EventHandler_School_Class_5B_S3
+    .word EventHandler_School_Library_S3
+    .word EventHandler_School_2F_Hallway_S3
     .word EventHandler_Default
-    .word 0x80269fd @ EventHandler_School_Class_1A_S3
-    .word 0x8026e49 @ EventHandler_School_Class_1B_S3
-    .word 0x8027241 @ EventHandler_School_AV_Room_S3
-    .word 0x8027605 @ EventHandler_School_Infirmary_S3
-    .word 0x8027cb1 @ EventHandler_School_1F_Hallway_S3
+    .word EventHandler_School_Class_1A_S3
+    .word EventHandler_School_Class_1B_S3
+    .word EventHandler_School_AV_Room_S3
+    .word EventHandler_School_Infirmary_S3
+    .word EventHandler_School_1F_Hallway_S3
     .word EventHandler_Default
-    .word 0x8027fd5 @ EventHandler_School_Cross_Hallway_S3
-    .word 0x8028261 @ EventHandler_School_Storage_S3
+    .word EventHandler_School_Cross_Hallway_S3
+    .word EventHandler_School_Storage_S3
     .word EventHandler_Default
-    .word 0x80288cd @ EventHandler_School_Staff_Lounge_Hallway_S3
+    .word EventHandler_School_Staff_Lounge_Hallway_S3
     .word EventHandler_Default
 eventHandler_ACDC_Elementary_S5:
-    .word 0x80254ed @ EventHandler_School_Class_5A_S3
-    .word 0x8025af1 @ EventHandler_School_Class_5B_S3
-    .word 0x8025fd1 @ EventHandler_School_Library_S3
-    .word 0x80265ed @ EventHandler_School_2F_Hallway_S3
+    .word EventHandler_School_Class_5A_S3
+    .word EventHandler_School_Class_5B_S3
+    .word EventHandler_School_Library_S3
+    .word EventHandler_School_2F_Hallway_S3
     .word EventHandler_Default
-    .word 0x80269fd @ EventHandler_School_Class_1A_S3
-    .word 0x8026e49 @ EventHandler_School_Class_1B_S3
-    .word 0x8027241 @ EventHandler_School_AV_Room_S3
-    .word 0x8027605 @ EventHandler_School_Infirmary_S3
-    .word 0x8027cb1 @ EventHandler_School_1F_Hallway_S3
+    .word EventHandler_School_Class_1A_S3
+    .word EventHandler_School_Class_1B_S3
+    .word EventHandler_School_AV_Room_S3
+    .word EventHandler_School_Infirmary_S3
+    .word EventHandler_School_1F_Hallway_S3
     .word EventHandler_Default
-    .word 0x8027fd5 @ EventHandler_School_Cross_Hallway_S3
-    .word 0x8028261 @ EventHandler_School_Storage_S3
-    .word 0x8028471 @ EventHandler_School_Staff_Lounge_S5
-    .word 0x8028831 @ EventHandler_School_Staff_Lounge_Hallway_S5
+    .word EventHandler_School_Cross_Hallway_S3
+    .word EventHandler_School_Storage_S3
+    .word EventHandler_School_Staff_Lounge_S5
+    .word EventHandler_School_Staff_Lounge_Hallway_S5
     .word EventHandler_Default
 
-mapDialogue_ACDC_Elementary:
+global_label mapDialogue_ACDC_Elementary
     .word mapDialogue_School_Class_5A
     .word mapDialogue_School_Class_5B
     .word mapDialogue_School_Library

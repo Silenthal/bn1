@@ -116,7 +116,7 @@ Handler_VBlank:
     adds       r1,#0x1
     str        r1,[r0]
     push       { lr }
-    ldr        r0,=0x8000661
+    ldr        r0,=Sound_VSync
     mov        lr,pc
     bx         r0
     pop        { r0 }

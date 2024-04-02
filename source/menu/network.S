@@ -6,12 +6,10 @@
     .set FUN_080825cc, 0x80825cc+1
     .set FUN_0809bc4c, 0x809bc4c+1
     .set Sio_SetReady, 0x809bdf0+1
-    .set GetBattleChipTotalCount, 0x801e7e4+1
     .set ChipBagSlot_02018fe0, 0x2018fe0
     .set BuildChipSack, 0x3007518+1
     .set PlayerMpState_020037d0, 0x20037d0
     .set listDefaultSort, 0x30072B0
-    .set tilemapMenuNetworkTradeChip, 0x8019668
 
 tilemapNetworkListOptions:
     .incbin "images/start_menu/network/list_options.tilemap"

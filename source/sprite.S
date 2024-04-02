@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set SpritePtr_CalculateOcclusion, 0x3006b61
-    .set listSpritePtr, 0x8012690
 
     .text
 

@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-NPC_08028964:
+global_label NPCList_08028964
     .word NPC_08028984
     .word NPC_08028999
     .word NPC_080289B1
@@ -106,7 +106,7 @@ L_8028A3B:
 
     .align 2, 0
 
-NPC_00028A44:
+NPCList_08028A44:
     .word NPC_08028A94
     .word NPC_08028AA8
     .word NPC_08028ABC
@@ -118,7 +118,7 @@ NPC_00028A44:
     .word NPC_08028B37
     .word 0xFF
 
-NPC_00028A6C:
+NPCList_08028A6C:
     .word NPC_08028A94
     .word NPC_08028AA8
     .word NPC_08028ABC
@@ -249,7 +249,7 @@ L_8028B5C:
 
     .align 2, 0
 
-NPC_00028B64:
+global_label NPCList_08028B64
     .word NPC_08028B84
     .word NPC_08028B99
     .word NPC_08028BB1
@@ -346,7 +346,7 @@ L_8028C29:
 
     .align 2, 0
 
-NPCList_08028C30:
+global_label NPCList_08028C30
     .word NPC_08028D84
     .word NPC_08028D98
     .word NPC_08028DAC
@@ -373,7 +373,7 @@ NPCList_08028C5C:
     .word NPC_08028E4E
     .word 0xFF
 
-NPCList_08028C8C:
+global_label NPCList_08028C8C
     .word NPC_08028E61
     .word NPC_08028E76
     .word NPC_08028E8B
@@ -397,7 +397,7 @@ NPCList_08028CB0:
     .word NPC_08028F21
     .word 0xFF
 
-NPCList_08028CDC:
+global_label NPCList_08028CDC
     .word NPC_08028F7F
     .word NPC_08028E76
     .word NPC_08028E8B
@@ -419,7 +419,7 @@ NPCList_08028D00:
     .word NPC_08028FA9
     .word 0xFF
 
-NPCList_08028D24:
+global_label NPCList_08028D24
     .word NPC_08028FF3
     .word NPC_08029008
     .word NPC_0802901D
@@ -430,7 +430,7 @@ NPCList_08028D24:
     .word NPC_08028FA9
     .word 0xFF
 
-NPCList_08028D48:
+global_label NPCList_08028D48
     .word NPC_08028FF3
     .word NPC_08029008
     .word NPC_0802901D
@@ -439,14 +439,14 @@ NPCList_08028D48:
     .word NPC_08028EF1
     .word 0xFF
 
-NPCList_08028D64:
+global_label NPCList_08028D64
     .word NPC_08029008
     .word NPC_08028EB0
     .word NPC_08028EDA
     .word NPC_08028EF1
     .word 0xFF
 
-NPCList_08028D78:
+global_label NPCList_08028D78
     .word NPC_08029008
     .word NPC_08028EF1
     .word 0xFF
@@ -797,7 +797,7 @@ L_802902B:
 
     .align 2, 0
 
-NPCList_08029034:
+global_label NPCList_08029034
     .word NPC_0802904C
     .word NPC_08029061
     .word NPC_08029076
@@ -864,7 +864,7 @@ L_80290B2:
 
     .align 2, 0
 
-NPCList_080290BC:
+global_label NPCList_080290BC
     .word NPC_080290C4
     .word 0xFF
 
@@ -885,7 +885,7 @@ L_80290D6:
 
     .align 2, 0
 
-NPCList_080290E0:
+global_label NPCList_080290E0
     .word NPC_08029104
     .word NPC_08029119
     .word NPC_0802912E
@@ -1127,7 +1127,7 @@ L_80292B3:
 
     .align 2, 0
 
-NPCList_080292BC:
+global_label NPCList_080292BC
     .word NPC_08029104
     .word NPC_08029119
     .word NPC_0802912E
@@ -1153,7 +1153,7 @@ L_80292F2:
 
     .align 2, 0
 
-NPCList_080292FC:
+global_label NPCList_080292FC
     .word NPC_08029310
     .word NPC_08029325
     .word NPC_0802933A
@@ -1214,7 +1214,7 @@ L_8029361:
 
     .align 2, 0
 
-NPCList_0802937C:
+global_label NPCList_0802937C
     .word NPC_08029384
     .word 0xFF
 
@@ -1238,7 +1238,7 @@ L_8029390:
 
     .align 2, 0
 
-NPCList_080293AC:
+global_label NPCList_080293AC
     .word NPC_08029384
     .word NPC_080293C0
     .word NPC_080293D5
@@ -1289,11 +1289,11 @@ L_80293FC:
 
     .align 2, 0
 
-NPCList_08029418:
+global_label NPCList_08029418
     .word NPC_0802942C
     .word 0xFF
 
-NPCList_08029420:
+global_label NPCList_08029420
     .word NPC_0802942C
     .word NPC_08029447
     .word 0xFF
@@ -1325,7 +1325,7 @@ L_8029457:
 
     .align 2, 0
 
-NPCList_08029460:
+global_label NPCList_08029460
     .word NPC_08029470
     .word NPC_0802948B
     .word NPC_080294A0
@@ -1376,7 +1376,7 @@ L_80294AE:
 
     .align 2, 0
 
-NPCList_080294C8:
+global_label NPCList_080294C8
     .word NPC_080294D0
     .word 0xFF
 
@@ -1396,16 +1396,16 @@ L_80294E4:
 
     .align 2, 0
 
-NPCList_080294EC:
+global_label NPCList_080294EC
     .word NPC_0802950C
     .word 0xFF
 
-NPCList_080294F4:
+global_label NPCList_080294F4
     .word NPC_08029522
     .word NPC_08029537
     .word 0xFF
 
-NPCList_08029500:
+global_label NPCList_08029500
     .word NPC_0802955C
     .word NPC_08029571
     .word 0xFF
@@ -1479,7 +1479,7 @@ L_802957D:
 
     .align 2, 0
 
-NPCList_08029598:
+global_label NPCList_08029598
     .word NPC_080295A4
     .word NPC_080295C9
     .word 0xFF
@@ -1515,7 +1515,7 @@ L_80295D9:
 
     .align 2, 0
 
-NPCList_080295E0:
+global_label NPCList_080295E0
     .word NPC_080295E8
     .word 0xFF
 
@@ -1539,7 +1539,7 @@ L_80295F4:
 
     .align 2, 0
 
-NPCList_08029610:
+global_label NPCList_08029610
     .word NPC_0802962C
     .word NPC_08029641
     .word NPC_08029657
@@ -1617,7 +1617,7 @@ L_80296A8:
 
     .align 2, 0
 
-NPCList_080296B0:
+global_label NPCList_080296B0
     .word NPC_080296D8
     .word NPC_080296ED
     .word NPC_08029704
@@ -1742,7 +1742,7 @@ L_802979B:
 
     .align 2, 0
 
-NPCList_080297A4:
+global_label NPCList_080297A4
     .word NPC_080297AC
     .word 0xFF
 
@@ -1761,7 +1761,7 @@ L_80297BC:
 
     .align 2, 0
 
-NPCList_080297C4:
+global_label NPCList_080297C4
     .word NPC_080297CC
     .word 0xFF
 
@@ -1779,7 +1779,7 @@ L_80297DA:
 
     .align 2, 0
 
-NPCList_080297E4:
+global_label NPCList_080297E4
     .word NPC_080297EC
     .word 0xFF
 
@@ -1797,7 +1797,7 @@ L_80297FA:
 
     .align 2, 0
 
-NPCList_08029804:
+global_label NPCList_08029804
     .word NPC_08029810
     .word NPC_08029830
     .word 0xFF
@@ -1816,7 +1816,7 @@ L_802981E:
 
     .align 2, 0
 
-NPCList_08029828:
+global_label NPCList_08029828
     .word NPC_08029830
     .word 0xFF
 
@@ -1835,7 +1835,7 @@ L_8029840:
 
     .align 2, 0
 
-NPCList_08029848:
+global_label NPCList_08029848
     .word NPC_08029850
     .word 0xFF
 
@@ -1853,7 +1853,7 @@ L_802985E:
 
     .align 2, 0
 
-NPCList_08029868:
+global_label NPCList_08029868
     .word NPC_08029870
     .word 0xFF
 
@@ -1909,7 +1909,7 @@ L_80298CF:
 
     .align 2, 0
 
-NPCList_080298D8:
+global_label NPCList_080298D8
     .word NPC_08029870
     .word NPC_080298E8
     .word NPC_0802990D
@@ -1945,7 +1945,7 @@ L_802991B:
 
     .align 2, 0
 
-NPCList_08029924:
+global_label NPCList_08029924
     .word NPC_08029930
     .word NPC_08029955
     .word 0xFF
@@ -1981,7 +1981,7 @@ L_8029965:
 
     .align 2, 0
 
-NPCList_0802996C:
+global_label NPCList_0802996C
     .word NPC_08029974
     .word 0xFF
 
@@ -1999,7 +1999,7 @@ L_8029982:
 
     .align 2, 0
 
-NPCList_0802998C:
+global_label NPCList_0802998C
     .word NPC_08029994
     .word 0xFF
 
@@ -2023,7 +2023,7 @@ L_80299A0:
 
     .align 2, 0
 
-NPCList_080299BC:
+global_label NPCList_080299BC
     .word NPC_080299C4
     .word 0xFF
 
@@ -2041,11 +2041,11 @@ L_80299D2:
 
     .align 2, 0
 
-NPCList_080299DC:
+global_label NPCList_080299DC
     .word NPC_080299EC
     .word 0xFF
 
-NPCList_080299E4:
+global_label NPCList_080299E4
     .word NPC_08029A20
     .word 0xFF
 
@@ -2134,7 +2134,7 @@ L_8029A91:
 
     .align 2, 0
 
-NPCList_08029A98:
+global_label NPCList_08029A98
     .word NPC_08029AA0
     .word 0xFF
 
@@ -2158,7 +2158,7 @@ L_8029AAC:
 
     .align 2, 0
 
-NPCList_08029AC8:
+global_label NPCList_08029AC8
     .word NPC_08029AD0
     .word 0xFF
 
@@ -2182,7 +2182,7 @@ L_8029ADC:
 
     .align 2, 0
 
-NPCList_08029AF8:
+global_label NPCList_08029AF8
     .word NPC_08029B00
     .word 0xFF
 
@@ -2199,3 +2199,46 @@ L_8029B0E:
     a_jump L_8029B0E
 
     .align 2, 0
+
+global_label EntityAllocParams_08029B18
+    entity Effect, 0x1, f(18, -18, 0), 0x0
+    entity Effect, 0x1, f(18, 30, 0), 0x0
+    entity Effect, 0x1, f(18, 78, 0), 0x0
+    entity Effect, 0x1, f(-30, -18, 0), 0x0
+    entity Effect, 0x1, f(-30, 30, 0), 0x0
+    entity Effect, 0x1, f(-30, 78, 0), 0x0
+    entity Effect, 0x1, f(-78, -18, 0), 0x0
+    entity Effect, 0x1, f(-78, 30, 0), 0x0
+    entity Effect, 0x1, f(-78, 78, 0), 0x0
+    .word 0xFF
+
+global_label EntityAllocParams_08029BD0
+    entity Effect, 0x1, f(-109, 5, 0), 0x10
+    entity Effect, 0x1, f(-113, -15, 0), 0x10
+    entity Effect, 0x1, f(-200, 70, 0), 0x11
+    .word 0xFF
+
+global_label EntityAllocParams_08029C10
+    entity Effect, 0x1, f(42, -26, 0), 0x1C
+    entity Effect, 0x1, f(42, 22, 0), 0x1C
+    entity Effect, 0x1, f(42, 70, 0), 0x1C
+    entity Effect, 0x1, f(-6, -26, 0), 0x1C
+    entity Effect, 0x1, f(-6, 22, 0), 0x1C
+    entity Effect, 0x1, f(-6, 70, 0), 0x1C
+    entity Effect, 0x1, f(-54, -26, 0), 0x1C
+    entity Effect, 0x1, f(-54, 22, 0), 0x1C
+    entity Effect, 0x1, f(-54, 70, 0), 0x1C
+    .word 0xFF
+
+global_label EntityAllocParams_08029CC8
+    entity Effect, 0x1, f(-32, -32, 0), 0x6
+    entity Effect, 0x1, f(20, 4, 36), 0x7
+    .word 0xFF
+
+global_label EntityAllocParams_08029CF4
+    entity Effect, 0x1, f(122, -2, 0), 0x1
+    entity Effect, 0x1, f(122, 30, 0), 0x2
+    entity Effect, 0x1, f(24, 52, 0), 0x4
+    entity Effect, 0x1, f(24, 20, 0), 0x4
+    entity Effect, 0x1, f(24, -12, 0), 0x3
+    .word 0xFF

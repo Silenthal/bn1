@@ -381,7 +381,7 @@ PTR_PTR_MapSetup_School_Staff_Lounge_Hallway_F20_080287d4:
 PTR_PTR_EventHandler_School_Staff_Lounge_Hallway_F20_080287d8:
     .word PTR_EventHandler_School_Staff_Lounge_Hallway_F20_08028694
 PTR_DAT_080287dc:
-    .word 0x8029AC8
+    .word NPCList_08029AC8
 PTR_PTR_EventHandler_School_Staff_Lounge_Hallway_F20_0_080287e0:
     .word PTR_EventHandler_School_Staff_Lounge_Hallway_F20_0_080286f0
 DAT_080287e4:
@@ -389,7 +389,7 @@ DAT_080287e4:
 PTR_FUN_08082de4_080287e8:
     .word FUN_08082de4
 PTR_DAT_080287ec:
-    .word 0x8029AF8
+    .word NPCList_08029AF8
 PTR_PTR_EventHandler_School_Staff_Lounge_Hallway_F23_0_080287f0:
     .word PTR_EventHandler_School_Staff_Lounge_Hallway_F23_0_08028754
 PTR_FUN_08082de4_080287f4:

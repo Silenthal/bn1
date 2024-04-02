@@ -82,7 +82,6 @@ _ts Battle_ProcessMultipleDelete
     strb       r0,[r5,#0x16]
 0:
     mov        pc,lr
-thumb_func_end Battle_ProcessMultipleDelete
 
 
 _ts Battle_CheckCrackedPanelBreak

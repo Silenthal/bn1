@@ -9,21 +9,21 @@
     .set Script_ShowDialogue, 0x80848fc+1
 
 flagSetup_Offline:
-    .word 0x802433c @ flagSetup_ACDC_Elementary
+    .word flagSetup_ACDC_Elementary
     .word 0x802a5f4 @ flagSetup_ACDC_Town
     .word 0x80313c8 @ flagSetup_Govt_Complex
     .word 0x8035fa4 @ flagSetup_DenTown
     .word 0x803be28 @ flagSetup_Scilab
     .word 0x803d908 @ flagSetup_WWW_Base
 mapSetup_Offline:
-    .word 0x8024354 @ mapSetup_ACDCElementary
+    .word mapSetup_ACDC_Elementary
     .word 0x802a60c @ mapSetup_ACDCTown
     .word 0x80313e0 @ mapSetup_GovtComplex
     .word 0x8035fbc @ mapSetup_DenTown
     .word 0x803be40 @ mapSetup_SciLabBasement
     .word 0x803d920 @ mapSetup_WWW_Base
 eventHandler_Offline:
-    .word 0x80244a8 @ eventHandler_ACDC_Elementary
+    .word eventHandler_ACDC_Elementary
     .word 0x802a774 @ eventHandler_ACDC_Town
     .word 0x80314b8 @ eventHandler_Govt_Complex
     .word 0x8036034 @ eventHandler_DenTown
@@ -36,16 +36,16 @@ flagSetup_Online:
     .word 0x8047ef8 @ flagSetup_Traffic_Light_Comp
     .word 0x804a1bc @ flagSetup_Power_Plant_Comp
     .word 0x804d22c @ flagSetup_WWW_Comp
-    .word 0x8018448 @ flagSetup_None
-    .word 0x8018448 @ flagSetup_None
+    .word flagSetup_None
+    .word flagSetup_None
     .word 0x804efa0 @ flagSetup_ACDC_HP
     .word 0x804f8b4 @ flagSetup_Govt_Complex_HP
     .word 0x804fe64 @ flagSetup_DenTown_HP
     .word 0x8050120 @ flagSetup_SciLab_HP
     .word 0x805048c @ flagSetup_Other_Comp
-    .word 0x8018448 @ flagSetup_None
-    .word 0x8018448 @ flagSetup_None
-    .word 0x8018448 @ flagSetup_None
+    .word flagSetup_None
+    .word flagSetup_None
+    .word flagSetup_None
     .word 0x8051e18 @ flagSetup_Internet
 mapSetup_Online:
     .word 0x80405c4 @ mapSetup_School_Comp
@@ -54,16 +54,16 @@ mapSetup_Online:
     .word 0x8047f10 @ mapSetup_Traffic_Light_Comp
     .word 0x804a1d4 @ mapSetup_Power_Plant_Comp
     .word 0x804d244 @ mapSetup_WWW_Comp
-    .word 0x8018488 @ mapSetup_None
-    .word 0x8018488 @ mapSetup_None
+    .word mapSetup_None
+    .word mapSetup_None
     .word 0x804efb8 @ mapSetup_ACDC_HP
     .word 0x804f8cc @ mapSetup_Govt_Complex_HP
     .word 0x804fe7c @ mapSetup_DenTown_HP
     .word 0x8050138 @ mapSetup_SciLab_HP
     .word 0x80504a4 @ mapSetup_Other_Comp
-    .word 0x8018488 @ mapSetup_None
-    .word 0x8018488 @ mapSetup_None
-    .word 0x8018488 @ mapSetup_None
+    .word mapSetup_None
+    .word mapSetup_None
+    .word mapSetup_None
     .word 0x8051e30 @ mapSetup_Internet
 eventHandler_Online:
     .word 0x8040618 @ eventHandler_School_Comp
@@ -72,16 +72,16 @@ eventHandler_Online:
     .word 0x8047f8c @ eventHandler_Traffic_Light_Comp
     .word 0x804a24c @ eventHandler_Power_Plant_Comp
     .word 0x804d274 @ eventHandler_WWW_Comp
-    .word 0x80184c8 @ eventHandler_None
-    .word 0x80184c8 @ eventHandler_None
+    .word eventHandler_None
+    .word eventHandler_None
     .word 0x804efe0 @ eventHandler_ACDC_HP
     .word 0x804f8fc @ eventHandler_Govt_Complex_HP
     .word 0x804fe98 @ eventHandler_DenTown_HP
     .word 0x8050154 @ eventHandler_SciLab_HP
     .word 0x80504f0 @ eventHandler_Other_Comp
-    .word 0x80184c8 @ eventHandler_None
-    .word 0x80184c8 @ eventHandler_None
-    .word 0x80184c8 @ eventHandler_None
+    .word eventHandler_None
+    .word eventHandler_None
+    .word eventHandler_None
     .word 0x8051e88 @ eventHandler_Internet
 
 flagSetup_None:
@@ -136,7 +136,7 @@ eventHandler_None:
     .word EventHandler_Default
     .word EventHandler_Default
 mapDialogue_Offline:
-    .word 0x80245fc @ mapDialogue_ACDC_Elementary
+    .word mapDialogue_ACDC_Elementary
     .word 0x802a8dc @ mapDialogue_ACDC_Town
     .word 0x8031590 @ mapDialogue_Govt_Complex
     .word 0x80360ac @ mapDialogue_Dentown

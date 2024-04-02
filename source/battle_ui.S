@@ -5,8 +5,6 @@
     .set paletteBattleUi, 0x8634634
     .set paletteHpChange, 0x8634654
     .set Color_ARRAY_08634674, 0x8634674
-    .set DAT_06008020, 0x6008020
-    .set DAT_06008a00, 0x6008a00
     .set tilesetBoldAlphanumeric, 0x861bb08
 
     .text
@@ -297,7 +295,7 @@ INT_080155e0:
 PTR_tilesetBattleUi_080155ec:
     .word tilesetBattleUi
 PTR_DAT_080155f0:
-    .word DAT_06008020
+    .word 0x6008020
 DAT_080155f4:
     .word 0x238
 PTR_paletteBattleUi_080155f8:
@@ -685,7 +683,7 @@ PTR_TextData_BattleChip_Names_080158d4:
 PTR_iwBufferUITextTile_080158d8:
     .word iwBufferUITextTile
 PTR_DAT_080158dc:
-    .word DAT_06008a00
+    .word 0x6008a00
 PTR_tilesetBoldAlphanumeric_080158e0:
     .word tilesetBoldAlphanumeric
 PTR_tilemapActiveChipName_080158e4:

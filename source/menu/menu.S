@@ -2,16 +2,14 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_080194c8, 0x80194c8
-
     .text
 
 global_label tilemapChipDetailFG
     .incbin "images/menu/chip_detail_fg.tilemap"
 tilemapChipDetailText:
     .incbin "images/menu/chip_detail_text.tilemap"
-tilemapMenuNetworkTradeChip:
-    .incbin "images/menu/00019668.tilemap"
+global_label tilemapMenuNetworkTradeChip
+    .incbin "images/start_menu/network/network_trade_chip.tilemap"
 tilemapChipTraderChipFG:
     .incbin "images/menu/00019718.tilemap"
 
@@ -38,7 +36,7 @@ _nt _InitMenu
     lsl        r0,r0,#0x2
     strb       r0,[r5,#0x0]
     mov        r0,#0x40
-    bl         FUN_080194c8
+    bl         StartMenu_SetState
     mov        r7,r10
     ldr        r7,[r7,#0x8]
     ldrh       r0,[r7,#0x4]
@@ -65,13 +63,13 @@ _ts Menu_Main
 PTR_JT_R5_74_19820_0801981c:
     .word JT_R5_74_19820
 JT_R5_74_19820:
-    .word 0x8019ea4+1 @ Menu_Folder_Main
-    .word 0x801b404+1 @ Menu_Library_Main
-    .word 0x801b954+1 @ Menu_MegaMan_Main
-    .word 0x801c168+1 @ Menu_Email_Main
-    .word 0x801c6f0+1 @ Menu_Item_Main
-    .word 0x801cc88+1 @ Menu_Network_Main
-    .word 0x801e4f4+1 @ Menu_Save_Main
+    .word Menu_0_Folder
+    .word Menu_1_Library
+    .word Menu_2_MegaMan
+    .word Menu_3_Email
+    .word Menu_4_Item
+    .word Menu_5_Network
+    .word Menu_6_Save
 
 
 _ts Menu_LoadChipData

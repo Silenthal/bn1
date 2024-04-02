@@ -5,22 +5,10 @@
     .text
 
     .set Flag_SetPlayerActive, 0x8056044
-    .set InitStartMenuState, 0x80191c8
-    .set Inventory_InitChecksum, 0x801b0bc
-    .set Inventory_InitChecksumIndex, 0x801b108
-    .set FUN_0801f6c4, 0x801f6c4
-    .set ClearEmailIndexes, 0x801c54c
     .set FUN_0804c60c, 0x804c60c
-    .set dummy_187a0, 0x80187a0
     .set ClearFlagRange280, 0x805287c
     .set FUN_08052528, 0x8052528
-    .set StartMenu_GetState, 0x80194e8
-    .set InitStartMenuFromSubMenu, 0x80191ac
-    .set Shop_Init, 0x801ef74
-    .set GetBattleChipTotalCount, 0x801e7e4
-    .set StartMenu_Main, 0x8019224
     .set FUN_080521cc, 0x80521cc
-    .set InitStartMenu, 0x8019180
 
 _ts InitWorld_LoadGame
     push       {lr}
@@ -116,7 +104,7 @@ _ts InitWorld_NewGame
     push       {r5}
     bl         FUN_080102dc
     bl         InitKeyItem
-    bl         FUN_0801f6c4
+    bl         Shop_InitializeDefaultInventory
     bl         Inventory_InitDefaultChipFolder
     bl         Inventory_InitChecksum
     bl         Inventory_InitChecksumIndex

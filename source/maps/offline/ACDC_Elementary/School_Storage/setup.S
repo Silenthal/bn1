@@ -3,9 +3,7 @@
     .include "macros.inc"
 
     .set PlayerLocation_Create, 0x8056020
-    .set PTR_DAT_080299e4, 0x80299E4
     .set FUN_08087fb0, 0x8087FB1
-    .set PTR_DAT_080299dc, 0x80299DC
 
 
 _ts MapSetup_School_Storage_S1
@@ -124,7 +122,7 @@ PTR_PTR_MapSetup_Default_08028120:
 PTR_PTR_EventHandler_Default_08028124:
     .word PTR_EventHandler_Default_08028090
 PTR_PTR_DAT_08028128:
-    .word PTR_DAT_080299dc
+    .word NPCList_080299DC
 PTR_PTR_EventHandler_School_Storage_F15_0_0802812c:
     .word PTR_EventHandler_School_Storage_F15_0_080280f0
 PTR_FUN_08087fb0_08028130:
@@ -348,6 +346,6 @@ PTR_PTR_MapSetup_School_Storage_F30_080282d0:
 PTR_PTR_EventHandler_School_Storage_F30_080282d4:
     .word PTR_EventHandler_School_Storage_F30_0802826c
 PTR_PTR_DAT_080282d8:
-    .word PTR_DAT_080299e4
+    .word NPCList_080299E4
 PTR_PTR_EventHandler_School_Storage_F30_0_080282dc:
     .word PTR_EventHandler_School_Storage_F30_0_080282c8

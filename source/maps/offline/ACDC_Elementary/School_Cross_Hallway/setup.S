@@ -6,7 +6,6 @@
     .set FUN_08082de4, 0x8082DE5
     .set Scenario_01_LanCheckYourMail, 0x8085A79
     .set FUN_080863b0, 0x80863B1
-    .set PTR_DAT_080299bc, 0x80299BC
 
 
 _ts MapSetup_School_Cross_Hallway_S1
@@ -327,7 +326,7 @@ PTR_PTR_MapSetup_Default_08027f94:
 PTR_PTR_EventHandler_Default_08027f98:
     .word PTR_EventHandler_Default_08027f3c
 PTR_PTR_DAT_08027f9c:
-    .word PTR_DAT_080299bc
+    .word NPCList_080299BC
 PTR_PTR_EventHandler_School_Cross_Hallway_F25_0_08027fa0:
     .word PTR_EventHandler_School_Cross_Hallway_F25_0_08027f8c
 

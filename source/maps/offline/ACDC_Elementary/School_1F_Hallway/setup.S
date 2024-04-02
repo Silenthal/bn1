@@ -4,13 +4,7 @@
 
     .set FUN_080871a8, 0x80871A9
     .set PlayerLocation_Create, 0x8056020
-    .set PTR_DAT_08029924, 0x8029924
-    .set PTR_DAT_08029848, 0x8029848
-    .set PTR_DAT_08029868, 0x8029868
     .set FUN_08082de4, 0x8082DE5
-    .set PTR_DAT_0802996c, 0x802996C
-    .set PTR_DAT_0802998c, 0x802998C
-    .set PTR_DAT_080298d8, 0x80298D8
 
 
 _ts MapSetup_School_1F_Hallway_S1
@@ -401,7 +395,7 @@ PTR_PTR_MapSetup_School_1F_Hallway_F10_08027988:
 PTR_PTR_EventHandler_School_1F_Hallway_F10_0802798c:
     .word PTR_EventHandler_School_1F_Hallway_F10_080276d4
 PTR_PTR_DAT_08027990:
-    .word PTR_DAT_08029848
+    .word NPCList_08029848
 PTR_PTR_EventHandler_School_1F_Hallway_F10_0_08027994:
     .word PTR_EventHandler_School_1F_Hallway_F10_0_0802773c
 DAT_08027998:
@@ -409,13 +403,13 @@ DAT_08027998:
 DAT_0802799c:
     .word 0x103
 PTR_PTR_DAT_080279a0:
-    .word PTR_DAT_08029868
+    .word NPCList_08029868
 PTR_PTR_EventHandler_School_1F_Hallway_F14_0_080279a4:
     .word PTR_EventHandler_School_1F_Hallway_F14_0_080277fc
 DAT_080279a8:
     .word 0x8087E35
 PTR_PTR_DAT_080279ac:
-    .word PTR_DAT_080298d8
+    .word NPCList_080298D8
 PTR_PTR_EventHandler_School_1F_Hallway_F15_0_080279b0:
     .word PTR_EventHandler_School_1F_Hallway_F15_0_080278bc
 PTR_FUN_080871a8_080279b4:
@@ -765,17 +759,17 @@ PTR_PTR_MapSetup_School_1F_Hallway_F20_08027c50:
 PTR_PTR_EventHandler_School_1F_Hallway_F20_08027c54:
     .word PTR_EventHandler_School_1F_Hallway_F20_08027a3c
 PTR_PTR_DAT_08027c58:
-    .word PTR_DAT_08029924
+    .word NPCList_08029924
 PTR_PTR_EventHandler_School_1F_Hallway_F20_0_08027c5c:
     .word PTR_EventHandler_School_1F_Hallway_F20_0_08027a8c
 PTR_PTR_DAT_08027c60:
-    .word PTR_DAT_0802996c
+    .word NPCList_0802996C
 PTR_PTR_EventHandler_School_1F_Hallway_F23_0_08027c64:
     .word PTR_EventHandler_School_1F_Hallway_F23_0_08027af0
 DAT_08027c68:
     .word 0x8082DE5
 PTR_PTR_DAT_08027c6c:
-    .word PTR_DAT_0802998c
+    .word NPCList_0802998C
 PTR_PTR_EventHandler_School_1F_Hallway_F24_0_08027c70:
     .word PTR_EventHandler_School_1F_Hallway_F24_0_08027b98
 DAT_08027c74:

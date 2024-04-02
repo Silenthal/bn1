@@ -872,13 +872,13 @@ CreditsSceneData_2:
     .byte 3
     .word CSD_Cam_2
     .word CSD_NPC_2
-    .word 0x80242CC
-    .word 0x8029B18
+    .word PTR_spriteList_School_Class_5A_080242cc
+    .word EntityAllocParams_08029B18
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
-    .word 0x8024030 @ BgTask_8024030
-    .word 0x80240D0 @ BgTask_80240D0
+    .word BgTask_08024030
+    .word BgTask_080240D0
     .word  0xFF
 
 CreditsSceneData_3:

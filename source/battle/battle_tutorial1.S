@@ -750,7 +750,7 @@ PTR_ObjectTileAttributes_0800729c:
 PTR_gFrameCounter_080072a0:
     .word gFrameCounter
 
-    .word 0x80072a4
+    .word .
     .word 2
     .word 0
     .word 0x4000

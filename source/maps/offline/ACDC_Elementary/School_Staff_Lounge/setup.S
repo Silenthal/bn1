@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set PlayerLocation_Create, 0x8056020
-    .set EntityAllocParams_ARRAY_08029cf4, 0x8029CF4
     .set FUN_080879f4, 0x80879F5
     .set FUN_08087e34, 0x8087E35
 
@@ -168,13 +167,13 @@ PTR_PTR_EventHandler_School_Staff_Lounge_F10_0802841c:
 PTR_BgTask_08028420:
     .word BgTask_08024208
 PTR_EntityAllocParams_ARRAY_08028424:
-    .word EntityAllocParams_ARRAY_08029cf4
+    .word EntityAllocParams_08029CF4
 PTR_PTR_EventHandler_School_Staff_Lounge_F10_0_08028428:
     .word PTR_EventHandler_School_Staff_Lounge_F10_0_08028388
 PTR_BgTask_0802842c:
     .word BgTask_08024208
 PTR_EntityAllocParams_ARRAY_08028430:
-    .word EntityAllocParams_ARRAY_08029cf4
+    .word EntityAllocParams_08029CF4
 PTR_FUN_080879f4_08028434:
     .word FUN_080879f4
 PTR_PTR_EventHandler_School_Staff_Lounge_F15_0_08028438:
@@ -263,8 +262,8 @@ PTR_PTR_EventHandler_School_Staff_Lounge_F50_080284e4:
 PTR_BgTask_080284e8:
     .word BgTask_08024208
 PTR_EntityAllocParams_ARRAY_080284ec:
-    .word EntityAllocParams_ARRAY_08029cf4
+    .word EntityAllocParams_08029CF4
 PTR_DAT_080284f0:
-    .word 0x8029A98
+    .word NPCList_08029A98
 PTR_PTR_EventHandler_School_Staff_Lounge_F50_0_080284f4:
     .word PTR_EventHandler_School_Staff_Lounge_F50_0_080284d8

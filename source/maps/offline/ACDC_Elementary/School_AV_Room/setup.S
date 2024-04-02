@@ -3,9 +3,7 @@
     .include "macros.inc"
 
     .set PlayerLocation_Create, 0x8056020
-    .set PTR_DAT_080297c4, 0x80297C4
     .set FUN_08087400, 0x8087401
-    .set EntityAllocParams_ARRAY_08029c10, 0x8029C10
 
 
 _ts MapSetup_School_AV_Room_S1
@@ -245,7 +243,7 @@ PTR_PTR_MapSetup_School_AV_Room_F10_080270a8:
 PTR_PTR_EventHandler_School_AV_Room_F10_080270ac:
     .word PTR_EventHandler_School_AV_Room_F10_08026f30
 PTR_EntityAllocParams_ARRAY_080270b0:
-    .word EntityAllocParams_ARRAY_08029c10
+    .word EntityAllocParams_08029C10
 PTR_BgTask_080270b4:
     .word BgTask_08024030
 PTR_BgTask_080270b8:
@@ -253,7 +251,7 @@ PTR_BgTask_080270b8:
 PTR_PTR_EventHandler_School_AV_Room_F10_0_080270bc:
     .word PTR_EventHandler_School_AV_Room_F10_0_08026f8c
 PTR_EntityAllocParams_ARRAY_080270c0:
-    .word EntityAllocParams_ARRAY_08029c10
+    .word EntityAllocParams_08029C10
 PTR_BgTask_080270c4:
     .word BgTask_08024018
 PTR_BgTask_080270c8:
@@ -263,7 +261,7 @@ PTR_PTR_EventHandler_School_AV_Room_F14_0_080270cc:
 DAT_080270d0:
     .word 0x8087E35
 PTR_EntityAllocParams_ARRAY_080270d4:
-    .word EntityAllocParams_ARRAY_08029c10
+    .word EntityAllocParams_08029C10
 PTR_BgTask_080270d8:
     .word BgTask_08024018
 PTR_BgTask_080270dc:
@@ -390,13 +388,13 @@ PTR_PTR_MapSetup_School_AV_Room_F20_080271d8:
 PTR_PTR_EventHandler_School_AV_Room_F20_080271dc:
     .word PTR_EventHandler_School_AV_Room_F20_08027168
 PTR_EntityAllocParams_ARRAY_080271e0:
-    .word EntityAllocParams_ARRAY_08029c10
+    .word EntityAllocParams_08029C10
 PTR_BgTask_080271e4:
     .word BgTask_08024030
 PTR_BgTask_080271e8:
     .word BgTask_08024048
 PTR_PTR_DAT_080271ec:
-    .word PTR_DAT_080297c4
+    .word NPCList_080297C4
 PTR_PTR_EventHandler_School_AV_Room_F20_0_080271f0:
     .word PTR_EventHandler_School_AV_Room_F20_0_080271d0
 
@@ -498,12 +496,12 @@ PTR_PTR_MapSetup_School_AV_Room_F30_080272bc:
 PTR_PTR_EventHandler_School_AV_Room_F30_080272c0:
     .word PTR_EventHandler_School_AV_Room_F30_0802724c
 PTR_EntityAllocParams_ARRAY_080272c4:
-    .word EntityAllocParams_ARRAY_08029c10
+    .word EntityAllocParams_08029C10
 PTR_BgTask_080272c8:
     .word BgTask_08024030
 PTR_BgTask_080272cc:
     .word BgTask_08024048
 PTR_PTR_DAT_080272d0:
-    .word PTR_DAT_080297c4
+    .word NPCList_080297C4
 PTR_PTR_EventHandler_School_AV_Room_F30_0_080272d4:
     .word PTR_EventHandler_School_AV_Room_F30_0_080272b4

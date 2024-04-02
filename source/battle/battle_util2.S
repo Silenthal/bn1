@@ -4,10 +4,6 @@
 
     .text
 
-    .thumb
-
-    .set Inventory_SetChecksum, 0x801b0d4
-    .set FUN_0801b0f0, 0x801b0f0
 
 _ts Battle_IsActive
     push       {lr}
@@ -3385,7 +3381,7 @@ LAB_08009c08:
     tst        r1,r1
     bne        LAB_08009c16
     push       { r3 }
-    bl         FUN_0801b0f0
+    bl         Inventory_ClearChecksum
     pop        { r3 }
 LAB_08009c16:
     add        r0,r3,#0x0
