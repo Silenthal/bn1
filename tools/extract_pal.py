@@ -59,6 +59,9 @@ def main():
         description="Extract 16-bit palette data from a GBA game."
     )
     parser.add_argument(
+        "-o", "--output", type=str, default="", help="The output file base name."
+    )
+    parser.add_argument(
         "-n",
         "--count",
         type=auto_int,
@@ -78,21 +81,21 @@ def main():
     inPath = Path(args.path)
     if not inPath.exists():
         exit(f"Couldn't find file {args.path}")
+    outBaseName = Path(args.output if args.output else f"palette_{args.offset:07X}")
     palList: List[GbaPal] = []
     with open(inPath, mode="rb") as inFile:
         inFile.seek(args.offset)
         for _ in range(args.repeat):
             palList.append(get_pal(inFile, args.count))
     if args.repeat == 1:
-        outPath = f"palette_{args.offset:07X}{palList[0].get_ext()}"
+        outPath = f"{outBaseName}{palList[0].get_ext()}"
         with open(outPath, mode="w", encoding="utf-8") as outFile:
             outFile.write(palList[0].as_text())
     else:
         padLen = len_int(len(palList))
-        outBase = f"palette_{args.offset:07X}"
         for i in range(args.repeat):
             suffix = f"{{0:0{padLen}}}".format(i)
-            outPath = f"{outBase}_{suffix}{palList[i].get_ext()}"
+            outPath = f"{outBaseName}_{suffix}{palList[i].get_ext()}"
             with open(outPath, mode="w", encoding="utf-8") as outFile:
                 outFile.write(palList[i].as_text())
 

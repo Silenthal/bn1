@@ -165,13 +165,13 @@ PTR_PTR_MapSetup_School_Staff_Lounge_F10_08028418:
 PTR_PTR_EventHandler_School_Staff_Lounge_F10_0802841c:
     .word PTR_EventHandler_School_Staff_Lounge_F10_08028330
 PTR_BgTask_08028420:
-    .word BgTask_08024208
+    .word BgTask_School_PaletteServer
 PTR_EntityAllocParams_ARRAY_08028424:
     .word EntityAllocParams_08029CF4
 PTR_PTR_EventHandler_School_Staff_Lounge_F10_0_08028428:
     .word PTR_EventHandler_School_Staff_Lounge_F10_0_08028388
 PTR_BgTask_0802842c:
-    .word BgTask_08024208
+    .word BgTask_School_PaletteServer
 PTR_EntityAllocParams_ARRAY_08028430:
     .word EntityAllocParams_08029CF4
 PTR_FUN_080879f4_08028434:
@@ -260,7 +260,7 @@ PTR_PTR_MapSetup_School_Staff_Lounge_F50_080284e0:
 PTR_PTR_EventHandler_School_Staff_Lounge_F50_080284e4:
     .word PTR_EventHandler_School_Staff_Lounge_F50_0802847c
 PTR_BgTask_080284e8:
-    .word BgTask_08024208
+    .word BgTask_School_PaletteServer
 PTR_EntityAllocParams_ARRAY_080284ec:
     .word EntityAllocParams_08029CF4
 PTR_DAT_080284f0:

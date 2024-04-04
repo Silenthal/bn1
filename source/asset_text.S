@@ -748,3 +748,85 @@ global_label lzTilesetJackInFrame18
     .incbin "images/jack_in/tilesetJackInFrame18.4bpp.lz"
 global_label lzTilesetJackInFrame19
     .incbin "images/jack_in/tilesetJackInFrame19.4bpp.lz"
+
+global_label tilesetSchoolBlackboardEvent
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_event.4bpp"
+global_label tilesetSchoolBlackboardTriangle
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_triangle.4bpp"
+global_label tilesetSchoolBlackboardGraph0
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_graph_0.4bpp"
+global_label tilesetSchoolBlackboardGraph1
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_graph_1.4bpp"
+global_label tilesetSchoolBlackboardGraph2
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_graph_2.4bpp"
+global_label tilesetSchoolBlackboardGraph3
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_graph_3.4bpp"
+global_label tilesetSchoolBlackboardMath0
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_math_0.4bpp"
+global_label tilesetSchoolBlackboardMath1
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_math_1.4bpp"
+global_label tilesetSchoolBlackboardMath2
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_math_2.4bpp"
+global_label tilesetSchoolBlackboardRooster0
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_rooster_0.4bpp"
+global_label tilesetSchoolBlackboardRooster1
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_rooster_1.4bpp"
+global_label paletteSchoolBlackboard00
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_00.gbapal"
+global_label paletteSchoolBlackboard01
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_01.gbapal"
+global_label paletteSchoolBlackboard02
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_02.gbapal"
+global_label paletteSchoolBlackboard03
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_03.gbapal"
+global_label paletteSchoolBlackboard04
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_04.gbapal"
+global_label paletteSchoolBlackboard05
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_05.gbapal"
+global_label paletteSchoolBlackboard06
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_06.gbapal"
+global_label paletteSchoolBlackboard07
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_07.gbapal"
+global_label paletteSchoolBlackboard08
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_08.gbapal"
+global_label paletteSchoolBlackboard09
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_09.gbapal"
+global_label paletteSchoolBlackboard10
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_10.gbapal"
+global_label paletteSchoolBlackboardOff
+    .incbin "data/maps/offline/ACDC_Elementary/Common/blackboard_off.gbapal"
+
+global_label paletteSchoolUnused0
+    .incbin "data/maps/offline/ACDC_Elementary/Common/unused_0.gbapal"
+global_label paletteSchoolUnused1
+    .incbin "data/maps/offline/ACDC_Elementary/Common/unused_1.gbapal"
+global_label paletteSchoolUnused2
+    .incbin "data/maps/offline/ACDC_Elementary/Common/unused_2.gbapal"
+global_label paletteSchoolUnused3
+    .incbin "data/maps/offline/ACDC_Elementary/Common/unused_3.gbapal"
+global_label paletteSchoolUnused4
+    .incbin "data/maps/offline/ACDC_Elementary/Common/unused_4.gbapal"
+global_label paletteSchoolUnused5
+    .incbin "data/maps/offline/ACDC_Elementary/Common/unused_5.gbapal"
+global_label paletteSchoolUnused6
+    .incbin "data/maps/offline/ACDC_Elementary/Common/unused_6.gbapal"
+global_label paletteSchoolUnused7
+    .incbin "data/maps/offline/ACDC_Elementary/Common/unused_7.gbapal"
+
+global_label paletteSchoolServer0
+    .incbin "data/maps/offline/ACDC_Elementary/Common/server_0.gbapal"
+global_label paletteSchoolServer1
+    .incbin "data/maps/offline/ACDC_Elementary/Common/server_1.gbapal"
+global_label paletteSchoolServer2
+    .incbin "data/maps/offline/ACDC_Elementary/Common/server_2.gbapal"
+global_label paletteSchoolServer3
+    .incbin "data/maps/offline/ACDC_Elementary/Common/server_3.gbapal"
+global_label paletteSchoolServer4
+    .incbin "data/maps/offline/ACDC_Elementary/Common/server_4.gbapal"
+global_label paletteSchoolServer5
+    .incbin "data/maps/offline/ACDC_Elementary/Common/server_5.gbapal"
+global_label paletteSchoolServer6
+    .incbin "data/maps/offline/ACDC_Elementary/Common/server_6.gbapal"
+
+global_label paletteSchoolUnusedOff
+    .incbin "data/maps/offline/ACDC_Elementary/Common/unused_off.gbapal"

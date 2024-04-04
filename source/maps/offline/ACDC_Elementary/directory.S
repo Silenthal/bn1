@@ -1,0 +1,450 @@
+#include "offsets.h"
+    .include "constants.inc"
+    .include "macros.inc"
+
+
+global_label flagSetup_ACDC_Elementary
+    .word FlagSetup_ACDC_Elementary_S0
+    .word FlagSetup_ACDC_Elementary_S0
+    .word FlagSetup_ACDC_Elementary_S0
+    .word FlagSetup_ACDC_Elementary_S0
+    .word FlagSetup_ACDC_Elementary_S0
+    .word FlagSetup_ACDC_Elementary_S0
+
+global_label mapSetup_ACDC_Elementary
+    .word mapSetup_ACDC_Elementary_S0
+    .word mapSetup_ACDC_Elementary_S1
+    .word mapSetup_ACDC_Elementary_S2
+    .word mapSetup_ACDC_Elementary_S3
+    .word mapSetup_ACDC_Elementary_S3
+    .word mapSetup_ACDC_Elementary_S5
+mapSetup_ACDC_Elementary_S0:
+    .word MapSetup_School_Class_5A_S0
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+    .word MapSetup_Default
+
+mapSetup_ACDC_Elementary_S1:
+    .word MapSetup_School_Class_5A_S1
+    .word MapSetup_School_Class_5B_S1
+    .word MapSetup_School_Library_S1
+    .word MapSetup_School_2F_Hallway_S1
+    .word MapSetup_Default
+    .word MapSetup_School_Class_1A_S1
+    .word MapSetup_School_Class_1B_S1
+    .word MapSetup_School_AV_Room_S1
+    .word MapSetup_School_Infirmary_S1
+    .word MapSetup_School_1F_Hallway_S1
+    .word MapSetup_Default
+    .word MapSetup_School_Cross_Hallway_S1
+    .word MapSetup_School_Storage_S1
+    .word MapSetup_School_Staff_Lounge_S1
+    .word MapSetup_School_Staff_Lounge_Hallway_S1
+mapSetup_ACDC_Elementary_S2:
+    .word MapSetup_School_Class_5A_S2
+    .word MapSetup_School_Class_5B_S2
+    .word MapSetup_School_Library_S2
+    .word MapSetup_School_2F_Hallway_S2
+    .word MapSetup_Default
+    .word MapSetup_School_Class_1A_S2
+    .word MapSetup_School_Class_1B_S2
+    .word MapSetup_School_AV_Room_S2
+    .word MapSetup_School_Infirmary_S2
+    .word MapSetup_School_1F_Hallway_S2
+    .word MapSetup_Default
+    .word MapSetup_School_Cross_Hallway_S2
+    .word MapSetup_School_Storage_S2
+    .word MapSetup_Default
+    .word MapSetup_School_Staff_Lounge_Hallway_S2
+    .word MapSetup_Default
+mapSetup_ACDC_Elementary_S3:
+    .word MapSetup_School_Class_5A_S3
+    .word MapSetup_School_Class_5B_S3
+    .word MapSetup_School_Library_S3
+    .word MapSetup_School_2F_Hallway_S3
+    .word MapSetup_Default
+    .word MapSetup_School_Class_1A_S3
+    .word MapSetup_School_Class_1B_S3
+    .word MapSetup_School_AV_Room_S3
+    .word MapSetup_School_Infirmary_S3
+    .word MapSetup_School_1F_Hallway_S3
+    .word MapSetup_Default
+    .word MapSetup_School_Cross_Hallway_S3
+    .word MapSetup_School_Storage_S3
+    .word MapSetup_Default
+    .word MapSetup_School_Staff_Lounge_Hallway_S3
+    .word MapSetup_Default
+mapSetup_ACDC_Elementary_S5:
+    .word MapSetup_School_Class_5A_S3
+    .word MapSetup_School_Class_5B_S3
+    .word MapSetup_School_Library_S3
+    .word MapSetup_School_2F_Hallway_S3
+    .word MapSetup_Default
+    .word MapSetup_School_Class_1A_S3
+    .word MapSetup_School_Class_1B_S3
+    .word MapSetup_School_AV_Room_S3
+    .word MapSetup_School_Infirmary_S3
+    .word MapSetup_School_1F_Hallway_S3
+    .word MapSetup_Default
+    .word MapSetup_School_Cross_Hallway_S3
+    .word MapSetup_School_Storage_S3
+    .word MapSetup_School_Staff_Lounge_S5
+    .word MapSetup_School_Staff_Lounge_Hallway_S5
+    .word MapSetup_Default
+
+global_label eventHandler_ACDC_Elementary
+    .word eventHandler_ACDC_Elementary_S0
+    .word eventHandler_ACDC_Elementary_S1
+    .word eventHandler_ACDC_Elementary_S2
+    .word eventHandler_ACDC_Elementary_S3
+    .word eventHandler_ACDC_Elementary_S3
+    .word eventHandler_ACDC_Elementary_S5
+
+eventHandler_ACDC_Elementary_S0:
+    .word EventHandler_School_Class_5A_S0
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+    .word EventHandler_Default
+eventHandler_ACDC_Elementary_S1:
+    .word EventHandler_School_Class_5A_S1
+    .word EventHandler_School_Class_5B_S1
+    .word EventHandler_School_Library_S1
+    .word EventHandler_School_2F_Hallway_S1
+    .word EventHandler_Default
+    .word EventHandler_School_Class_1A_S1
+    .word EventHandler_School_Class_1B_S1
+    .word EventHandler_School_AV_Room_S1
+    .word EventHandler_School_Infirmary_S1
+    .word EventHandler_School_1F_Hallway_S1
+    .word EventHandler_Default
+    .word EventHandler_School_Cross_Hallway_S1
+    .word EventHandler_School_Storage_S1
+    .word EventHandler_School_Staff_Lounge_S1
+    .word EventHandler_School_Staff_Lounge_Hallway_S1
+eventHandler_ACDC_Elementary_S2:
+    .word EventHandler_School_Class_5A_S2
+    .word EventHandler_School_Class_5B_S2
+    .word EventHandler_School_Library_S2
+    .word EventHandler_School_2F_Hallway_S2
+    .word EventHandler_Default
+    .word EventHandler_School_Class_1A_S2
+    .word EventHandler_School_Class_1B_S2
+    .word EventHandler_School_AV_Room_S2
+    .word EventHandler_School_Infirmary_S2
+    .word EventHandler_School_1F_Hallway_S2
+    .word EventHandler_Default
+    .word EventHandler_School_Cross_Hallway_S2
+    .word EventHandler_School_Storage_S2
+    .word EventHandler_Default
+    .word EventHandler_School_Staff_Lounge_Hallway_S2
+    .word EventHandler_Default
+eventHandler_ACDC_Elementary_S3:
+    .word EventHandler_School_Class_5A_S3
+    .word EventHandler_School_Class_5B_S3
+    .word EventHandler_School_Library_S3
+    .word EventHandler_School_2F_Hallway_S3
+    .word EventHandler_Default
+    .word EventHandler_School_Class_1A_S3
+    .word EventHandler_School_Class_1B_S3
+    .word EventHandler_School_AV_Room_S3
+    .word EventHandler_School_Infirmary_S3
+    .word EventHandler_School_1F_Hallway_S3
+    .word EventHandler_Default
+    .word EventHandler_School_Cross_Hallway_S3
+    .word EventHandler_School_Storage_S3
+    .word EventHandler_Default
+    .word EventHandler_School_Staff_Lounge_Hallway_S3
+    .word EventHandler_Default
+eventHandler_ACDC_Elementary_S5:
+    .word EventHandler_School_Class_5A_S3
+    .word EventHandler_School_Class_5B_S3
+    .word EventHandler_School_Library_S3
+    .word EventHandler_School_2F_Hallway_S3
+    .word EventHandler_Default
+    .word EventHandler_School_Class_1A_S3
+    .word EventHandler_School_Class_1B_S3
+    .word EventHandler_School_AV_Room_S3
+    .word EventHandler_School_Infirmary_S3
+    .word EventHandler_School_1F_Hallway_S3
+    .word EventHandler_Default
+    .word EventHandler_School_Cross_Hallway_S3
+    .word EventHandler_School_Storage_S3
+    .word EventHandler_School_Staff_Lounge_S5
+    .word EventHandler_School_Staff_Lounge_Hallway_S5
+    .word EventHandler_Default
+
+global_label mapDialogue_ACDC_Elementary
+    .word mapDialogue_School_Class_5A
+    .word mapDialogue_School_Class_5B
+    .word mapDialogue_School_Library
+    .word mapDialogue_School_2F_Hallway
+    .word 0
+    .word mapDialogue_School_Class_1A
+    .word mapDialogue_School_Class_1B
+    .word mapDialogue_School_AV_Room
+    .word mapDialogue_School_Infirmary
+    .word mapDialogue_School_1F_Hallway
+    .word 0
+    .word mapDialogue_School_Cross_Hallway
+    .word mapDialogue_School_Storage
+    .word mapDialogue_School_Staff_Lounge
+    .word mapDialogue_School_Staff_Lounge_Hallway
+    .word 0
+
+mapDialogue_School_Class_5A:
+    .byte 0xE9
+    .byte 0xDD
+    .byte 0xDE
+    .byte 0xDF
+    .byte 0xE0
+    .byte 0xE1
+    .byte 0xE2
+    .byte 0xE3
+    .byte 0xE4
+    .byte 0xE5
+    .byte 0xE6
+    .byte 0xE7
+    .byte 0xE8
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_Class_5B:
+    .byte 0xE6
+    .byte 0xDD
+    .byte 0xDE
+    .byte 0xDF
+    .byte 0xE1
+    .byte 0xE2
+    .byte 0xE3
+    .byte 0xE4
+    .byte 0xE5
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_Library:
+    .byte 0xDC
+    .byte 0xDD
+    .byte 0xDE
+    .byte 0xDF
+    .byte 0xFF
+    .byte 0xE1
+    .byte 0xE2
+    .byte 0x01
+    .byte 0x02
+    .byte 0x03
+    .byte 0x04
+    .byte 0x05
+    .byte 0x06
+    .byte 0x07
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_2F_Hallway:
+    .byte 0xDC
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_Class_1A:
+    .byte 0xDC
+    .byte 0xE5
+    .byte 0xDE
+    .byte 0xDF
+    .byte 0xE0
+    .byte 0xE1
+    .byte 0xE2
+    .byte 0xE3
+    .byte 0xE4
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_Class_1B:
+    .byte 0xE4
+    .byte 0xDD
+    .byte 0xDE
+    .byte 0xDF
+    .byte 0xE0
+    .byte 0xE1
+    .byte 0xE2
+    .byte 0xE3
+    .byte 0xE5
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_AV_Room:
+    .byte 0xDC
+    .byte 0xDD
+    .byte 0xDE
+    .byte 0xDF
+    .byte 0xE0
+    .byte 0xFF
+    .byte 0xE2
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_Infirmary:
+    .byte 0xDC
+    .byte 0xDD
+    .byte 0xDF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_1F_Hallway:
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_Cross_Hallway:
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_Storage:
+    .byte 0xDC
+    .byte 0xDD
+    .byte 0xDE
+    .byte 0xDF
+    .byte 0xE1
+    .byte 0xE2
+    .byte 0xE3
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_Staff_Lounge:
+    .byte 0xDC
+    .byte 0xDD
+    .byte 0xDE
+    .byte 0xDF
+    .byte 0xE0
+    .byte 0xE1
+    .byte 0xE2
+    .byte 0xE3
+    .byte 0xE4
+    .byte 0xE5
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+
+mapDialogue_School_Staff_Lounge_Hallway:
+    .byte 0x02
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF
+    .byte 0xFF

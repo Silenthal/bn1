@@ -234,9 +234,9 @@ PTR_EntityAllocParams_ARRAY_080248bc:
 PTR_PTR_EventHandler_School_Class_5A_F00_080248c0:
     .word PTR_EventHandler_School_Class_5A_F00_08024758
 PTR_BgTask_080248c4:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_080248c8:
-    .word BgTask_08024048
+    .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080248cc:
     .word NPCList_08028964
 PTR_PTR_EventHandler_School_Class_5A_F00_0_080248d0:
@@ -246,9 +246,9 @@ PTR_FUN_08082f48_080248d4:
 PTR_Scenario_8308C_DexChallengePreTutorial_080248d8:
     .word Scenario_8308C_DexChallengePreTutorial
 PTR_BgTask_080248dc:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_080248e0:
-    .word BgTask_08024048
+    .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080248e4:
     .word NPCList_08028B64
 PTR_FUN_0808598c_080248e8:
@@ -386,9 +386,9 @@ LAB_080249e8:
     .align 2, 0
 
 PTR_BgTask_08024a10:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_08024a14:
-    .word BgTask_08024048
+    .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_08024a18:
     .word NPCList_08028C8C
 PTR_PTR_DAT_08024a1c:
@@ -530,9 +530,9 @@ LAB_08024b28:
     .align 2, 0
 
 PTR_BgTask_08024b30:
-    .word BgTask_08024018
+    .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_08024b34:
-    .word BgTask_08024060
+    .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_DAT_08024b38:
     .word NPCList_08028CDC
 
@@ -1138,9 +1138,9 @@ LAB_08024fcc:
     .align 2, 0
 
 PTR_BgTask_08024fd0:
-    .word BgTask_08024018
+    .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_08024fd4:
-    .word BgTask_08024060
+    .word BgTask_School_PaletteBlackboardOn
 PTR_DAT_08024fd8:
     .word NPCList_08028D24
 PTR_PTR_EventHandler_School_Class_5A_F12_0_08024fdc:
@@ -1162,9 +1162,9 @@ PTR_FUN_08087e34_08024ff8:
 PTR_FUN_08082de4_08024ffc:
     .word FUN_08082de4
 PTR_BgTask_08025000:
-    .word BgTask_08024018
+    .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_08025004:
-    .word BgTask_08024060
+    .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_DAT_08025008:
     .word NPCList_08028D48
 PTR_PTR_EventHandler_School_Class_5A_F13_0_0802500c:
@@ -1172,9 +1172,9 @@ PTR_PTR_EventHandler_School_Class_5A_F13_0_0802500c:
 DAT_08025010:
     .word 0x8087E35
 PTR_BgTask_08025014:
-    .word BgTask_08024018
+    .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_08025018:
-    .word BgTask_08024060
+    .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_DAT_0802501c:
     .word NPCList_08028D64
 PTR_PTR_EventHandler_School_Class_5A_F14_0_08025020:
@@ -1182,9 +1182,9 @@ PTR_PTR_EventHandler_School_Class_5A_F14_0_08025020:
 DAT_08025024:
     .word 0x8087E35
 PTR_BgTask_08025028:
-    .word BgTask_08024018
+    .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_0802502c:
-    .word BgTask_08024060
+    .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_EventHandler_School_Class_5A_F15_0_08025030:
     .word PTR_EventHandler_School_Class_5A_F15_0_08024f04
 PTR_Scene_JackIn_08025034:
@@ -1699,9 +1699,9 @@ PTR_EntityAllocParams_ARRAY_0802541c:
 PTR_PTR_EventHandler_School_Class_5A_F20_08025420:
     .word PTR_EventHandler_School_Class_5A_F20_080250a8
 PTR_BgTask_08025424:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_08025428:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 DAT_0802542c:
     .word NPCList_08029034
 DAT_08025430:
@@ -1717,25 +1717,25 @@ PTR_PTR_EventHandler_School_Class_5A_F20_0_08025440:
 DAT_08025444:
     .word 0x80857B9
 PTR_BgTask_08025448:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_0802544c:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_DAT_08025450:
     .word NPCList_080290BC
 PTR_PTR_EventHandler_School_Class_5A_F21_0_08025454:
     .word PTR_EventHandler_School_Class_5A_F21_0_080251d8
 PTR_BgTask_08025458:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_0802545c:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_DAT_08025460:
     .word NPCList_080290BC
 PTR_PTR_EventHandler_School_Class_5A_F22_0_08025464:
     .word PTR_EventHandler_School_Class_5A_F22_0_0802522c
 PTR_BgTask_08025468:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_0802546c:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_PTR_DAT_08025470:
     .word NPCList_080290E0
 PTR_FUN_0808598c_08025474:
@@ -1747,9 +1747,9 @@ DAT_0802547c:
 PTR_LAB_08088fa8_08025480:
     .word LAB_08088fa8
 PTR_BgTask_08025484:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_08025488:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_PTR_DAT_0802548c:
     .word NPCList_080292BC
 PTR_FUN_0808598c_08025490:
@@ -1759,9 +1759,9 @@ PTR_PTR_EventHandler_School_Class_5A_F24_0_08025494:
 DAT_08025498:
     .word 0x80857B9
 PTR_BgTask_0802549c:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_080254a0:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_PTR_EventHandler_School_Class_5A_F25_0_080254a4:
     .word PTR_EventHandler_School_Class_5A_F25_0_080253b4
 DAT_080254a8:
@@ -1857,8 +1857,8 @@ PTR_EntityAllocParams_ARRAY_08025560:
 PTR_PTR_EventHandler_School_Class_5A_F30_08025564:
     .word PTR_EventHandler_School_Class_5A_F30_080254f8
 PTR_BgTask_08025568:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_0802556c:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_PTR_EventHandler_School_Class_5A_F30_0_08025570:
     .word PTR_EventHandler_School_Class_5A_F30_0_08025554

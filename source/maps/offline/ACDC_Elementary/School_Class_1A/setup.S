@@ -212,17 +212,17 @@ PTR_PTR_MapSetup_School_Class_1A_F10_080267e8:
 PTR_PTR_EventHandler_School_Class_1A_F10_080267ec:
     .word PTR_EventHandler_School_Class_1A_F10_080266a8
 PTR_BgTask_080267f0:
-    .word BgTask_08024170
+    .word BgTask_School_TilesetBlackboardMath
 PTR_BgTask_080267f4:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_080267f8:
     .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_1A_F10_0_080267fc:
     .word PTR_EventHandler_School_Class_1A_F10_0_08026704
 PTR_BgTask_08026800:
-    .word BgTask_08024018
+    .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_08026804:
-    .word BgTask_08024060
+    .word BgTask_School_PaletteBlackboardOn
 PTR_EntityAllocParams_ARRAY_08026808:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_0802680c:
@@ -232,9 +232,9 @@ PTR_PTR_EventHandler_School_Class_1A_F14_0_08026810:
 DAT_08026814:
     .word 0x8087E35
 PTR_BgTask_08026818:
-    .word BgTask_08024018
+    .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_0802681c:
-    .word BgTask_08024060
+    .word BgTask_School_PaletteBlackboardOn
 PTR_EntityAllocParams_ARRAY_08026820:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08026824:
@@ -431,25 +431,25 @@ PTR_PTR_MapSetup_School_Class_1A_F20_08026994:
 PTR_PTR_EventHandler_School_Class_1A_F20_08026998:
     .word PTR_EventHandler_School_Class_1A_F20_08026890
 PTR_BgTask_0802699c:
-    .word BgTask_08024170
+    .word BgTask_School_TilesetBlackboardMath
 PTR_BgTask_080269a0:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_080269a4:
     .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_1A_F20_0_080269a8:
     .word PTR_EventHandler_School_Class_1A_F20_0_080268f4
 PTR_BgTask_080269ac:
-    .word BgTask_08024170
+    .word BgTask_School_TilesetBlackboardMath
 PTR_BgTask_080269b0:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_080269b4:
     .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_1A_F21_0_080269b8:
     .word PTR_EventHandler_School_Class_1A_F21_0_08026940
 PTR_BgTask_080269bc:
-    .word BgTask_08024170
+    .word BgTask_School_TilesetBlackboardMath
 PTR_BgTask_080269c0:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_080269c4:
     .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_1A_F22_0_080269c8:
@@ -539,9 +539,9 @@ PTR_PTR_MapSetup_School_Class_1A_F30_08026a74:
 PTR_PTR_EventHandler_School_Class_1A_F30_08026a78:
     .word PTR_EventHandler_School_Class_1A_F30_08026a08
 PTR_BgTask_08026a7c:
-    .word BgTask_08024170
+    .word BgTask_School_TilesetBlackboardMath
 PTR_BgTask_08026a80:
-    .word BgTask_080240D0
+    .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_08026a84:
     .word EntityAllocParams_08029B18
 PTR_PTR_EventHandler_School_Class_1A_F30_0_08026a88:

@@ -5,22 +5,22 @@
 
 
 global_label BgTask_08044030
-    task_tileset 0, 0x87871B4, 0x60056E0, 0x38, 1, 1
+    task_tileset slot=0, src=0x87871B4, dst=0x60056E0, count=0x38, bufIndex=1, delay=1
     task_tileset_arg 0x8044BBC
     task_stop
 
 global_label BgTask_08044048
-    task_tileset 0, 0x87871B4, 0x60056E0, 0x38, 1, 1
+    task_tileset slot=0, src=0x87871B4, dst=0x60056E0, count=0x38, bufIndex=1, delay=1
     task_tileset_arg 0x8044C2C
     task_stop
 
 global_label BgTask_08044060
-    task_direct 1, 0x2006D50
+    task_direct slot=1, dst=eBgPalette4
     task_direct_arg 0x8787174
     task_stop
 
 global_label BgTask_08044078
-    task_tileset 2, 0x87854F4, 0x6000020, 0x10, 2
+    task_tileset slot=2, src=0x87854F4, dst=0x6000020, count=0x10, bufIndex=2
     task_tileset_arg 0x8044DE0
     task_tileset_arg 0x8044E00
     task_tileset_arg 0x8044E20
@@ -34,7 +34,7 @@ global_label BgTask_08044078
     task_repeat
 
 global_label BgTask_080440D8
-    task_tileset 2, 0x87854F4, 0x6000020, 0x10, 2
+    task_tileset slot=2, src=0x87854F4, dst=0x6000020, count=0x10, bufIndex=2
     task_tileset_arg 0x8044F20
     task_tileset_arg 0x8044F40
     task_tileset_arg 0x8044F60
@@ -42,7 +42,7 @@ global_label BgTask_080440D8
     task_repeat
 
 global_label BgTask_08044108
-    task_tileset 2, 0x87854F4, 0x6000020, 0x10, 2
+    task_tileset slot=2, src=0x87854F4, dst=0x6000020, count=0x10, bufIndex=2
     task_tileset_arg 0x8044FA0
     task_tileset_arg 0x8044FC0
     task_tileset_arg 0x8044FE0
@@ -56,7 +56,7 @@ global_label BgTask_08044108
     task_repeat
 
 global_label BgTask_08044168
-    task_tileset 2, 0x87854F4, 0x6000020, 0x10, 2
+    task_tileset slot=2, src=0x87854F4, dst=0x6000020, count=0x10, bufIndex=2
     task_tileset_arg 0x80450E0
     task_tileset_arg 0x8045100
     task_tileset_arg 0x8045120
@@ -64,7 +64,7 @@ global_label BgTask_08044168
     task_repeat
 
 global_label BgTask_08044198
-    task_tileset 2, 0x87854F4, 0x6000020, 0x10, 2
+    task_tileset slot=2, src=0x87854F4, dst=0x6000020, count=0x10, bufIndex=2
     task_tileset_arg 0x8045160
     task_tileset_arg 0x8045180
     task_tileset_arg 0x80451A0
@@ -78,7 +78,7 @@ global_label BgTask_08044198
     task_repeat
 
 global_label BgTask_080441F8
-    task_tileset 2, 0x87854F4, 0x6000020, 0x10, 2
+    task_tileset slot=2, src=0x87854F4, dst=0x6000020, count=0x10, bufIndex=2
     task_tileset_arg 0x80452A0
     task_tileset_arg 0x80452C0
     task_tileset_arg 0x80452E0
@@ -110,7 +110,7 @@ global_label BgTask_080441F8
     task_repeat
 
 global_label BgTask_080442E8
-    task_tileset 2, 0x87854F4, 0x6000020, 0x10, 2, 10
+    task_tileset slot=2, src=0x87854F4, dst=0x6000020, count=0x10, bufIndex=2, delay=10
     task_tileset_arg 0x8045620
     task_tileset_arg 0x8045640
     task_tileset_arg 0x8045660
@@ -118,52 +118,52 @@ global_label BgTask_080442E8
     task_repeat
 
 global_label BgTask_08044318
-    task_direct 3, 0x2006E50
+    task_direct slot=3, dst=0x2006E50
     task_direct_arg 0x8787194
     task_stop
 
 global_label BgTask_08044330
-    task_direct 3, 0x2006CD0
+    task_direct slot=3, dst=0x2006CD0
     task_direct_arg 0x8787194
     task_stop
 
 global_label BgTask_08044348
-    task_tileset 3, 0x8784234, 0x6000240, 0x1E, 3, 1
+    task_tileset slot=3, src=0x8784234, dst=0x6000240, count=0x1E, bufIndex=3, delay=1
     task_tileset_arg 0x8044C9C
     task_stop
 
 global_label BgTask_08044360
-    task_tileset 3, 0x8784234, 0x6000240, 0x1E, 3, 1
+    task_tileset slot=3, src=0x8784234, dst=0x6000240, count=0x1E, bufIndex=3, delay=1
     task_tileset_arg 0x8044CD8
     task_stop
 
 global_label BgTask_08044378
-    task_tileset 3, 0x8784234, 0x60074C0, 0x12, 4, 1
+    task_tileset slot=3, src=0x8784234, dst=0x60074C0, count=0x12, bufIndex=4, delay=1
     task_tileset_arg 0x8044D14
     task_stop
 
 global_label BgTask_08044390
-    task_tileset 3, 0x8784234, 0x60074C0, 0x12, 4, 1
+    task_tileset slot=3, src=0x8784234, dst=0x60074C0, count=0x12, bufIndex=4, delay=1
     task_tileset_arg 0x8044D38
     task_stop
 
 global_label BgTask_080443A8
-    task_tileset 3, 0x8784234, 0x6000240, 0x21, 3, 1
+    task_tileset slot=3, src=0x8784234, dst=0x6000240, count=0x21, bufIndex=3, delay=1
     task_tileset_arg 0x8044D5C
     task_stop
 
 global_label BgTask_080443C0
-    task_tileset 3, 0x8784234, 0x6000240, 0x21, 3, 1
+    task_tileset slot=3, src=0x8784234, dst=0x6000240, count=0x21, bufIndex=3, delay=1
     task_tileset_arg 0x8044D9E
     task_stop
 
 global_label BgTask_080443D8
-    task_direct 0, 0x6008020, 0x130
+    task_direct slot=0, dst=0x6008020, len=0x130
     task_direct_arg 0x8785034
     task_stop
 
 global_label BgTask_080443F0
-    task_tilemap 4, 0x90, 2
+    task_tilemap slot=4, count=0x90, bufIndex=2
     task_tilemap_arg 0x3BF4 0x21A
     task_tilemap_arg 0x3BF6 0x21B
     task_tilemap_arg 0x3BF8 0x21C
@@ -311,7 +311,7 @@ global_label BgTask_080443F0
     task_stop
 
 global_label BgTask_08044880
-    task_tilemap 5, 0x66, 2
+    task_tilemap slot=5, count=0x66, bufIndex=2
     task_tilemap_arg 0x3094 0x21A
     task_tilemap_arg 0x3096 0x21B
     task_tilemap_arg 0x3098 0x21C

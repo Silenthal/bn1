@@ -73,7 +73,10 @@ pet_battery                 0x1FBCC
 game_over                   0x1FF64
 chip_trader                 0x200D4
 credits                     0x21498
-maps/offline/ACDC_Elementary/setup  0x23D8C
+maps/offline/ACDC_Elementary/exit 0x23D8C
+maps/offline/ACDC_Elementary/anim 0x24018
+maps/offline/ACDC_Elementary/setup 0x24268
+maps/offline/ACDC_Elementary/directory 0x2433C
 maps/offline/ACDC_Elementary/School_Class_5A/setup 0x2470C
 maps/offline/ACDC_Elementary/School_Class_5B/setup 0x25574
 maps/offline/ACDC_Elementary/School_Library/setup 0x25B80
@@ -88,6 +91,8 @@ maps/offline/ACDC_Elementary/School_Storage/setup 0x28040
 maps/offline/ACDC_Elementary/School_Staff_Lounge/setup 0x282E0
 maps/offline/ACDC_Elementary/School_Staff_Lounge_Hallway/setup 0x284F8
 maps/offline/ACDC_Elementary/assets 0x28964
+maps/offline/ACDC/exit 0x29D5C
+maps/offline/ACDC/anim 0x29EE4
 asset_bg_task_44030         0x44030
 routine/routine_canodumb    0x59910
 entity/effect/quickeffect   0x7B474

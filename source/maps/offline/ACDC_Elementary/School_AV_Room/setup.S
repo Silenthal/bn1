@@ -245,17 +245,17 @@ PTR_PTR_EventHandler_School_AV_Room_F10_080270ac:
 PTR_EntityAllocParams_ARRAY_080270b0:
     .word EntityAllocParams_08029C10
 PTR_BgTask_080270b4:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_080270b8:
-    .word BgTask_08024048
+    .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_EventHandler_School_AV_Room_F10_0_080270bc:
     .word PTR_EventHandler_School_AV_Room_F10_0_08026f8c
 PTR_EntityAllocParams_ARRAY_080270c0:
     .word EntityAllocParams_08029C10
 PTR_BgTask_080270c4:
-    .word BgTask_08024018
+    .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_080270c8:
-    .word BgTask_08024060
+    .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_EventHandler_School_AV_Room_F14_0_080270cc:
     .word PTR_EventHandler_School_AV_Room_F14_0_08026fe8
 DAT_080270d0:
@@ -263,9 +263,9 @@ DAT_080270d0:
 PTR_EntityAllocParams_ARRAY_080270d4:
     .word EntityAllocParams_08029C10
 PTR_BgTask_080270d8:
-    .word BgTask_08024018
+    .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_080270dc:
-    .word BgTask_08024060
+    .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_EventHandler_School_AV_Room_F15_0_080270e0:
     .word PTR_EventHandler_School_AV_Room_F15_0_08027064
 PTR_FUN_08087400_080270e4:
@@ -390,9 +390,9 @@ PTR_PTR_EventHandler_School_AV_Room_F20_080271dc:
 PTR_EntityAllocParams_ARRAY_080271e0:
     .word EntityAllocParams_08029C10
 PTR_BgTask_080271e4:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_080271e8:
-    .word BgTask_08024048
+    .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080271ec:
     .word NPCList_080297C4
 PTR_PTR_EventHandler_School_AV_Room_F20_0_080271f0:
@@ -498,9 +498,9 @@ PTR_PTR_EventHandler_School_AV_Room_F30_080272c0:
 PTR_EntityAllocParams_ARRAY_080272c4:
     .word EntityAllocParams_08029C10
 PTR_BgTask_080272c8:
-    .word BgTask_08024030
+    .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_080272cc:
-    .word BgTask_08024048
+    .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080272d0:
     .word NPCList_080297C4
 PTR_PTR_EventHandler_School_AV_Room_F30_0_080272d4:
