@@ -14,7 +14,7 @@ mapExitList_ACDC:
     .word 0
     .word mapExitList_ACDC_Yai_Room
     .word 0
-    .word mapExitList_ACDC_Higsby
+    .word mapExitList_ACDC_Higsbys
     .word mapExitList_ACDC_Station
     .word mapExitList_ACDC_Secret_Station
 mapExitList_ACDC_Town:
@@ -23,7 +23,7 @@ mapExitList_ACDC_Town:
     MapEntrance Map_ACDC_Mayl_Living_Room, d_nw, f(-60, 178, 0)
     MapEntrance Map_ACDC_Dex_Room, d_ne, f(-112, 90, 0)
     MapEntrance Map_ACDC_Yai_Room, d_nw, f(-90, 112, 0)
-    MapEntrance Map_ACDC_Higsby, d_ne, f(-134, 28, 0)
+    MapEntrance Map_ACDC_Higsbys, d_ne, f(-134, 28, 0)
     MapEntrance Map_ACDC_Station, d_nw, f(-92, 84, 0)
 mapExitList_ACDC_School_Gate:
     MapEntrance Map_ACDC_Town, d_sw, f(346, -90, 0)
@@ -43,7 +43,7 @@ mapExitList_ACDC_Dex_Room:
     MapEntrance Map_ACDC_Town, d_se, f(-112, 218, 0)
 mapExitList_ACDC_Yai_Room:
     MapEntrance Map_ACDC_Town, d_sw, f(80, -272, 0)
-mapExitList_ACDC_Higsby:
+mapExitList_ACDC_Higsbys:
     MapEntrance Map_ACDC_Town, d_se, f(202, -130, 0)
 mapExitList_ACDC_Station:
     MapEntrance Map_ACDC_Town, d_se, f(-262, 218, 0)

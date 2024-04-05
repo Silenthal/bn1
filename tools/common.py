@@ -495,7 +495,7 @@ def map_id(bt: int):
         0x0601: "Map_ACDC_Mayl_Room",
         0x0701: "Map_ACDC_Dex_Room",
         0x0901: "Map_ACDC_Yai_Room",
-        0x0B01: "Map_ACDC_Higsby",
+        0x0B01: "Map_ACDC_Higsbys",
         0x0C01: "Map_ACDC_Station",
         0x0D01: "Map_ACDC_Secret_Station",
         0x0002: "Map_Govt_Complex_Front",

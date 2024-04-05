@@ -9,26 +9,26 @@
     .set Script_ShowDialogue, 0x80848fc+1
 
 flagSetup_Offline:
-    .word flagSetup_ACDC_Elementary
-    .word 0x802a5f4 @ flagSetup_ACDC_Town
-    .word 0x80313c8 @ flagSetup_Govt_Complex
+    .word FlagSetup_School
+    .word 0x802a5f4 @ FlagSetup_ACDC
+    .word 0x80313c8 @ FlagSetup_Govt
     .word 0x8035fa4 @ flagSetup_DenTown
     .word 0x803be28 @ flagSetup_Scilab
-    .word 0x803d908 @ flagSetup_WWW_Base
+    .word 0x803d908 @ FlagSetup_WWW
 mapSetup_Offline:
-    .word mapSetup_ACDC_Elementary
-    .word 0x802a60c @ mapSetup_ACDCTown
-    .word 0x80313e0 @ mapSetup_GovtComplex
+    .word MapSetup_School
+    .word 0x802a60c @ MapSetup_ACDC
+    .word 0x80313e0 @ mapSetup_Govt
     .word 0x8035fbc @ mapSetup_DenTown
-    .word 0x803be40 @ mapSetup_SciLabBasement
-    .word 0x803d920 @ mapSetup_WWW_Base
+    .word 0x803be40 @ mapSetup_SciLab
+    .word 0x803d920 @ mapSetup_WWW
 eventHandler_Offline:
-    .word eventHandler_ACDC_Elementary
-    .word 0x802a774 @ eventHandler_ACDC_Town
-    .word 0x80314b8 @ eventHandler_Govt_Complex
+    .word eventHandler_School
+    .word 0x802a774 @ eventHandler_ACDC
+    .word 0x80314b8 @ eventHandler_Govt
     .word 0x8036034 @ eventHandler_DenTown
     .word 0x803be88 @ eventHandler_SciLab
-    .word 0x803d968 @ eventHandler_WWW_Base
+    .word 0x803d968 @ eventHandler_WWW
 flagSetup_Online:
     .word 0x80405ac @ flagSetup_School_Comp
     .word 0x80431d0 @ flagSetup_Oven_Comp
@@ -39,7 +39,7 @@ flagSetup_Online:
     .word flagSetup_None
     .word flagSetup_None
     .word 0x804efa0 @ flagSetup_ACDC_HP
-    .word 0x804f8b4 @ flagSetup_Govt_Complex_HP
+    .word 0x804f8b4 @ FlagSetup_Govt_HP
     .word 0x804fe64 @ flagSetup_DenTown_HP
     .word 0x8050120 @ flagSetup_SciLab_HP
     .word 0x805048c @ flagSetup_Other_Comp

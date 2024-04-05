@@ -1,10 +1,10 @@
 global_label MapData_Offline
-    .word MapData_ACDC_Elementary
-    .word MapData_ACDC_Town
-    .word MapData_Govt_Complex
+    .word MapData_School
+    .word MapData_ACDC
+    .word MapData_Govt
     .word MapData_DenTown
     .word MapData_SciLab
-    .word MapData_WWW_Base
+    .word MapData_WWW
 
 global_label MapData_Online
     .word MapData_School_Comp
@@ -16,7 +16,7 @@ global_label MapData_Online
     .word 0
     .word 0
     .word MapData_ACDC_HP
-    .word MapData_Govt_Complex_HP
+    .word MapData_Govt_HP
     .word MapData_DenTown_HP
     .word MapData_SciLab_HP
     .word MapData_Other_Comp
@@ -28,164 +28,164 @@ global_label MapData_Online
 global_label MapData_Battle
     .word 0
 
-MapData_ACDC_Elementary:
-    .word 0x856a038
-    .word 0x856aad4
-    .word 0x856b55c
-    .word 0x856c38c
+MapData_School:
+    .word MapData_School_Class_5A
+    .word MapData_School_Class_5B
+    .word MapData_School_Library
+    .word MapData_School_2F_Hallway
     .word 0
-    .word 0x856c880
-    .word 0x856d314
-    .word 0x856dd8c
-    .word 0x856e684
-    .word 0x856e94c
+    .word MapData_School_Class_1A
+    .word MapData_School_Class_1B
+    .word MapData_School_AV_Room
+    .word MapData_School_Infirmary
+    .word MapData_School_1F_Hallway
     .word 0
-    .word 0x856eea0
-    .word 0x856f084
-    .word 0x856f604
-    .word 0x85707ec
+    .word MapData_School_Cross_Hallway
+    .word MapData_School_Storage
+    .word MapData_School_Staff_Lounge
+    .word MapData_School_Staff_Lounge_Hallway
 
-MapData_ACDC_Town:
-    .word 0x8570a60
-    .word 0x8574080
-    .word 0x8574a2c
-    .word 0x85751d0
+MapData_ACDC:
+    .word MapData_ACDC_Town
+    .word MapData_ACDC_School_Gate
+    .word MapData_ACDC_Lan_Living_Room
+    .word MapData_ACDC_Lan_Room
     .word 0
-    .word 0x85754a8
-    .word 0x8575c98
-    .word 0x85761a8
+    .word MapData_ACDC_Mayl_Living_Room
+    .word MapData_ACDC_Mayl_Room
+    .word MapData_ACDC_Dex_Room
     .word 0
-    .word 0x857663c
+    .word MapData_ACDC_Yai_Room
     .word 0
-    .word 0x8576c60
-    .word 0x8577280
-    .word 0x8577770
+    .word MapData_ACDC_Higsbys
+    .word MapData_ACDC_Station
+    .word MapData_ACDC_Secret_Station
 
-MapData_Govt_Complex:
-    .word 0x857793c
-    .word 0x8578bb8
-    .word 0x8578fb0
-    .word 0x857a3b0
-    .word 0x857b814
-    .word 0x857c4a0
-    .word 0x857d2a8
-    .word 0x857daa8
+MapData_Govt:
+    .word MapData_Govt_Complex_Front
+    .word MapData_Govt_Complex_Station
+    .word MapData_Govt_Waterworks_Lobby
+    .word MapData_Govt_SciLab_Lobby
+    .word MapData_Govt_Complex_Hallway
+    .word MapData_Govt_Yuichiro_Lab
+    .word MapData_Govt_Waterworks_Office
+    .word MapData_Govt_Waterworks_Control_Room
     .word 0
-    .word 0x857e6dc
+    .word MapData_Govt_Waterworks_Pump_Room
     .word 0
-    .word 0x857e994
+    .word MapData_Govt_Waterworks_Purification_Room
 
 MapData_DenTown:
-    .word 0x857f160
-    .word 0x8581924
-    .word 0x8581d30
-    .word 0x8583404
-    .word 0x8584cc0
-    .word 0x85864d0
-    .word 0x8587acc
-    .word 0x8587e00
+    .word MapData_DenTown_Center
+    .word MapData_DenTown_Station
+    .word MapData_DenTown_Block_1
+    .word MapData_DenTown_Block_2
+    .word MapData_DenTown_Block_3
+    .word MapData_DenTown_Block_4
+    .word MapData_DenTown_Miyu_Antiques
+    .word MapData_DenTown_Summer_School
 
 MapData_SciLab:
-    .word 0x858853c
-    .word 0x8588c00
-    .word 0x858a988
-    .word 0x858aff0
-    .word 0x858b330
-    .word 0x858bcb0
+    .word MapData_SciLab_Restaurant_Hallway
+    .word MapData_SciLab_Restaurant
+    .word MapData_SciLab_Power_Plant_Hallway
+    .word MapData_SciLab_Power_Plant
+    .word MapData_SciLab_Power_Plant_Control_Room
+    .word MapData_SciLab_Generator_Room
 
-MapData_WWW_Base:
-    .word 0x858bff8
-    .word 0x858d42c
-    .word 0x858dca8
-    .word 0x858e4d4
-    .word 0x858eaa4
-    .word 0x858f058
+MapData_WWW:
+    .word MapData_WWW_Base
+    .word MapData_WWW_Wily_Lab
+    .word MapData_WWW_Rocket_Hangar
+    .word MapData_WWW_Base_Hall_1
+    .word MapData_WWW_Base_Hall_2
+    .word MapData_WWW_Base_Hall_3
 
 MapData_School_Comp:
-    .word 0x858f5c8
-    .word 0x8590ff8
-    .word 0x8593d9c
-    .word 0x85949d8
-    .word 0x8595f10
+    .word MapData_School_Comp_1
+    .word MapData_School_Comp_2
+    .word MapData_School_Comp_3
+    .word MapData_School_Comp_4
+    .word MapData_School_Comp_5
 
 MapData_Oven_Comp:
-    .word 0x8596c9c
-    .word 0x85985c4
+    .word MapData_Oven_Comp_1
+    .word MapData_Oven_Comp_2
 
 MapData_Waterworks_Comp:
-    .word 0x8599a28
-    .word 0x859bd44
-    .word 0x859eba0
-    .word 0x85a427c
-    .word 0x85a9f50
-    .word 0x85b1478
+    .word MapData_Waterworks_Comp_1
+    .word MapData_Waterworks_Comp_2
+    .word MapData_Waterworks_Comp_3
+    .word MapData_Waterworks_Comp_4
+    .word MapData_Waterworks_Comp_5
+    .word MapData_Waterworks_Comp_6
 
 MapData_Traffic_Light_Comp:
-    .word 0x85b64d0
-    .word 0x85b82f4
-    .word 0x85ba740
-    .word 0x85be13c
-    .word 0x85c05dc
+    .word MapData_Traffic_Light_Comp_1
+    .word MapData_Traffic_Light_Comp_2
+    .word MapData_Traffic_Light_Comp_3
+    .word MapData_Traffic_Light_Comp_4
+    .word MapData_Traffic_Light_Comp_5
 
 MapData_Power_Plant_Comp:
-    .word 0x85c2a2c
-    .word 0x85c7b08
-    .word 0x85c9ff8
-    .word 0x85cd228
+    .word MapData_Power_Plant_Comp_1
+    .word MapData_Power_Plant_Comp_2
+    .word MapData_Power_Plant_Comp_3
+    .word MapData_Power_Plant_Comp_4
 
 MapData_WWW_Comp:
-    .word 0x85cff6c
-    .word 0x85d1b54
-    .word 0x85d57a8
-    .word 0x85d9f4c
-    .word 0x85db4a8
-    .word 0x85de704
+    .word MapData_WWW_Comp_1
+    .word MapData_WWW_Comp_2
+    .word MapData_WWW_Comp_3
+    .word MapData_WWW_Comp_4
+    .word MapData_WWW_Comp_5
+    .word MapData_Rocket_Comp
 
 MapData_ACDC_HP:
-    .word 0x85ded58
-    .word 0x85defe4
-    .word 0x85e0c24
-    .word 0x85e1c18
+    .word MapData_ACDC_Lan_PC
+    .word MapData_ACDC_Mayl_PC
+    .word MapData_ACDC_Dex_PC
+    .word MapData_ACDC_Yai_PC
 
-MapData_Govt_Complex_HP:
-    .word 0x85e22a8
-    .word 0x85e27d8
+MapData_Govt_HP:
+    .word MapData_Govt_Yuichiro_PC
+    .word MapData_Govt_Lunch_Cart_Comp
 
 MapData_DenTown_HP:
-    .word 0x85e2f20
+    .word MapData_DenTown_Antique_Comp
 
 MapData_SciLab_HP:
-    .word 0x85e384c
+    .word MapData_SciLab_Large_Monitor_Comp
 
 MapData_Other_Comp:
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
-    .word 0x85e41f8
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
+    .word MapData_Generic
 
 MapData_Internet:
-    .word 0x85e4604
-    .word 0x85e774c
-    .word 0x85ed608
-    .word 0x85f1e54
-    .word 0x85f5548
-    .word 0x85f8100
-    .word 0x85fa53c
-    .word 0x85fcb14
-    .word 0x85ffee0
-    .word 0x86017a8
-    .word 0x8604ab4
-    .word 0x86074e0
-    .word 0x8609b64
-    .word 0x860ad44
-    .word 0x860de5c
-    .word 0x86109c0
+    .word MapData_Internet_1
+    .word MapData_Internet_2
+    .word MapData_Internet_3
+    .word MapData_Internet_4
+    .word MapData_Undernet_1
+    .word MapData_Undernet_2
+    .word MapData_Undernet_3
+    .word MapData_Undernet_4
+    .word MapData_Undernet_5
+    .word MapData_Undernet_6
+    .word MapData_Undernet_7
+    .word MapData_Undernet_8
+    .word MapData_Undernet_9
+    .word MapData_Undernet_10
+    .word MapData_Undernet_11
+    .word MapData_Undernet_12

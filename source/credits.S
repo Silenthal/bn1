@@ -927,7 +927,7 @@ CreditsSceneData_5:
     .word  0xFF
 
 CreditsSceneData_6:
-    .short Map_ACDC_Higsby
+    .short Map_ACDC_Higsbys
     .byte 0
     .byte 3
     .word CSD_Cam_6

@@ -1,10 +1,10 @@
 global_label DialogueData_Offline
-    .word DialogueData_ACDC_Elementary
-    .word DialogueData_ACDC_Town
-    .word DialogueData_Govt_Complex
+    .word DialogueData_School
+    .word DialogueData_ACDC
+    .word DialogueData_Govt
     .word DialogueData_DenTown
     .word DialogueData_SciLab
-    .word DialogueData_WWW_Base
+    .word DialogueData_WWW
 
 global_label DialogueData_Online
     .word DialogueData_School_Comp
@@ -28,7 +28,7 @@ global_label DialogueData_Online
 global_label DialogueData_Battle
     .word DialogueData_Battle_Other
 
-DialogueData_ACDC_Elementary:
+DialogueData_School:
     .word DialogueData_ACDC_Elementary_Area_0
     .word DialogueData_ACDC_Elementary_Area_1
     .word DialogueData_ACDC_Elementary_Area_2
@@ -44,7 +44,7 @@ DialogueData_ACDC_Elementary:
     .word DialogueData_ACDC_Elementary_Area_C
     .word DialogueData_ACDC_Elementary_Area_D
     .word DialogueData_ACDC_Elementary_Area_E
-DialogueData_ACDC_Town:
+DialogueData_ACDC:
     .word DialogueData_ACDC_Town_Area_0
     .word DialogueData_ACDC_Town_Area_1
     .word DialogueData_ACDC_Town_Area_2
@@ -58,7 +58,7 @@ DialogueData_ACDC_Town:
     .word 0
     .word DialogueData_ACDC_Town_Area_B
     .word DialogueData_ACDC_Town_Area_C
-DialogueData_Govt_Complex:
+DialogueData_Govt:
     .word DialogueData_Govt_Complex_Area_0
     .word DialogueData_Govt_Complex_Area_1
     .word DialogueData_Govt_Complex_Area_2
@@ -87,7 +87,7 @@ DialogueData_SciLab:
     .word DialogueData_SciLab_Area_3
     .word DialogueData_SciLab_Area_4
     .word DialogueData_SciLab_Area_5
-DialogueData_WWW_Base:
+DialogueData_WWW:
     .word DialogueData_WWW_Base_Area_0
     .word DialogueData_WWW_Base_Area_1
     .word DialogueData_WWW_Base_Area_2
@@ -175,12 +175,12 @@ DialogueData_Battle_Other:
     .word 0
     .word 0
 CommentaryData_Offline:
-    .word CommentaryData_ACDC_Elementary
-    .word CommentaryData_ACDC_Town
-    .word CommentaryData_Govt_Complex
+    .word CommentaryData_School
+    .word CommentaryData_ACDC
+    .word CommentaryData_Govt
     .word CommentaryData_DenTown
     .word CommentaryData_SciLab
-    .word CommentaryData_WWW_Base
+    .word CommentaryData_WWW
 CommentaryData_Online:
     .word CommentaryData_School_Comp
     .word CommentaryData_Oven_Comp
@@ -201,7 +201,7 @@ CommentaryData_Online:
     .word CommentaryData_Internet
 CommentaryData_Battle:
     .word PTR_080151c0
-CommentaryData_ACDC_Elementary:
+CommentaryData_School:
     .word CommentaryData_ACDC_Elementary_Area_0
     .word CommentaryData_ACDC_Elementary_Area_1
     .word CommentaryData_ACDC_Elementary_Area_2
@@ -217,7 +217,7 @@ CommentaryData_ACDC_Elementary:
     .word CommentaryData_ACDC_Elementary_Area_C
     .word CommentaryData_ACDC_Elementary_Area_D
     .word CommentaryData_ACDC_Elementary_Area_E
-CommentaryData_ACDC_Town:
+CommentaryData_ACDC:
     .word CommentaryData_ACDC_Town_Area_0
     .word CommentaryData_ACDC_Town_Area_1
     .word CommentaryData_ACDC_Town_Area_2
@@ -232,7 +232,7 @@ CommentaryData_ACDC_Town:
     .word CommentaryData_ACDC_Town_Area_B
     .word CommentaryData_ACDC_Town_Area_C
     .word CommentaryData_ACDC_Town_Area_D
-CommentaryData_Govt_Complex:
+CommentaryData_Govt:
     .word CommentaryData_Govt_Complex_Area_0
     .word CommentaryData_Govt_Complex_Area_1
     .word CommentaryData_Govt_Complex_Area_2
@@ -261,7 +261,7 @@ CommentaryData_SciLab:
     .word CommentaryData_SciLab_Area_3
     .word CommentaryData_SciLab_Area_4
     .word CommentaryData_SciLab_Area_5
-CommentaryData_WWW_Base:
+CommentaryData_WWW:
     .word CommentaryData_WWW_Base_Area_0
     .word CommentaryData_WWW_Base_Area_1
     .word CommentaryData_None

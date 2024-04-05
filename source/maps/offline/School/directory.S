@@ -3,22 +3,22 @@
     .include "macros.inc"
 
 
-global_label flagSetup_ACDC_Elementary
-    .word FlagSetup_ACDC_Elementary_S0
-    .word FlagSetup_ACDC_Elementary_S0
-    .word FlagSetup_ACDC_Elementary_S0
-    .word FlagSetup_ACDC_Elementary_S0
-    .word FlagSetup_ACDC_Elementary_S0
-    .word FlagSetup_ACDC_Elementary_S0
+global_label FlagSetup_School
+    .word FlagSetup_School_S0
+    .word FlagSetup_School_S0
+    .word FlagSetup_School_S0
+    .word FlagSetup_School_S0
+    .word FlagSetup_School_S0
+    .word FlagSetup_School_S0
 
-global_label mapSetup_ACDC_Elementary
-    .word mapSetup_ACDC_Elementary_S0
-    .word mapSetup_ACDC_Elementary_S1
-    .word mapSetup_ACDC_Elementary_S2
-    .word mapSetup_ACDC_Elementary_S3
-    .word mapSetup_ACDC_Elementary_S3
-    .word mapSetup_ACDC_Elementary_S5
-mapSetup_ACDC_Elementary_S0:
+global_label MapSetup_School
+    .word MapSetup_School_S0
+    .word MapSetup_School_S1
+    .word MapSetup_School_S2
+    .word MapSetup_School_S3
+    .word MapSetup_School_S3
+    .word MapSetup_School_S5
+MapSetup_School_S0:
     .word MapSetup_School_Class_5A_S0
     .word MapSetup_Default
     .word MapSetup_Default
@@ -36,7 +36,7 @@ mapSetup_ACDC_Elementary_S0:
     .word MapSetup_Default
     .word MapSetup_Default
 
-mapSetup_ACDC_Elementary_S1:
+MapSetup_School_S1:
     .word MapSetup_School_Class_5A_S1
     .word MapSetup_School_Class_5B_S1
     .word MapSetup_School_Library_S1
@@ -52,7 +52,7 @@ mapSetup_ACDC_Elementary_S1:
     .word MapSetup_School_Storage_S1
     .word MapSetup_School_Staff_Lounge_S1
     .word MapSetup_School_Staff_Lounge_Hallway_S1
-mapSetup_ACDC_Elementary_S2:
+MapSetup_School_S2:
     .word MapSetup_School_Class_5A_S2
     .word MapSetup_School_Class_5B_S2
     .word MapSetup_School_Library_S2
@@ -69,7 +69,7 @@ mapSetup_ACDC_Elementary_S2:
     .word MapSetup_Default
     .word MapSetup_School_Staff_Lounge_Hallway_S2
     .word MapSetup_Default
-mapSetup_ACDC_Elementary_S3:
+MapSetup_School_S3:
     .word MapSetup_School_Class_5A_S3
     .word MapSetup_School_Class_5B_S3
     .word MapSetup_School_Library_S3
@@ -86,7 +86,7 @@ mapSetup_ACDC_Elementary_S3:
     .word MapSetup_Default
     .word MapSetup_School_Staff_Lounge_Hallway_S3
     .word MapSetup_Default
-mapSetup_ACDC_Elementary_S5:
+MapSetup_School_S5:
     .word MapSetup_School_Class_5A_S3
     .word MapSetup_School_Class_5B_S3
     .word MapSetup_School_Library_S3
@@ -104,15 +104,15 @@ mapSetup_ACDC_Elementary_S5:
     .word MapSetup_School_Staff_Lounge_Hallway_S5
     .word MapSetup_Default
 
-global_label eventHandler_ACDC_Elementary
-    .word eventHandler_ACDC_Elementary_S0
-    .word eventHandler_ACDC_Elementary_S1
-    .word eventHandler_ACDC_Elementary_S2
-    .word eventHandler_ACDC_Elementary_S3
-    .word eventHandler_ACDC_Elementary_S3
-    .word eventHandler_ACDC_Elementary_S5
+global_label eventHandler_School
+    .word eventHandler_School_S0
+    .word eventHandler_School_S1
+    .word eventHandler_School_S2
+    .word eventHandler_School_S3
+    .word eventHandler_School_S3
+    .word eventHandler_School_S5
 
-eventHandler_ACDC_Elementary_S0:
+eventHandler_School_S0:
     .word EventHandler_School_Class_5A_S0
     .word EventHandler_Default
     .word EventHandler_Default
@@ -129,7 +129,7 @@ eventHandler_ACDC_Elementary_S0:
     .word EventHandler_Default
     .word EventHandler_Default
     .word EventHandler_Default
-eventHandler_ACDC_Elementary_S1:
+eventHandler_School_S1:
     .word EventHandler_School_Class_5A_S1
     .word EventHandler_School_Class_5B_S1
     .word EventHandler_School_Library_S1
@@ -145,7 +145,7 @@ eventHandler_ACDC_Elementary_S1:
     .word EventHandler_School_Storage_S1
     .word EventHandler_School_Staff_Lounge_S1
     .word EventHandler_School_Staff_Lounge_Hallway_S1
-eventHandler_ACDC_Elementary_S2:
+eventHandler_School_S2:
     .word EventHandler_School_Class_5A_S2
     .word EventHandler_School_Class_5B_S2
     .word EventHandler_School_Library_S2
@@ -162,7 +162,7 @@ eventHandler_ACDC_Elementary_S2:
     .word EventHandler_Default
     .word EventHandler_School_Staff_Lounge_Hallway_S2
     .word EventHandler_Default
-eventHandler_ACDC_Elementary_S3:
+eventHandler_School_S3:
     .word EventHandler_School_Class_5A_S3
     .word EventHandler_School_Class_5B_S3
     .word EventHandler_School_Library_S3
@@ -179,7 +179,7 @@ eventHandler_ACDC_Elementary_S3:
     .word EventHandler_Default
     .word EventHandler_School_Staff_Lounge_Hallway_S3
     .word EventHandler_Default
-eventHandler_ACDC_Elementary_S5:
+eventHandler_School_S5:
     .word EventHandler_School_Class_5A_S3
     .word EventHandler_School_Class_5B_S3
     .word EventHandler_School_Library_S3

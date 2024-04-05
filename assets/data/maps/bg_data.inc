@@ -1,10 +1,10 @@
 global_label BGData_Offline
-    .word BGData_ACDC_Elementary
-    .word BGData_ACDC_Town
-    .word BGData_Govt_Complex
+    .word BGData_School
+    .word BGData_ACDC
+    .word BGData_Govt
     .word BGData_DenTown
     .word BGData_SciLab
-    .word BGData_WWW_Base
+    .word BGData_WWW
 
 global_label BGData_Online
     .word BGData_School_Comp
@@ -16,7 +16,7 @@ global_label BGData_Online
     .word 0
     .word 0
     .word BGData_ACDC_HP
-    .word BGData_Govt_Complex_HP
+    .word BGData_Govt_HP
     .word BGData_DenTown_HP
     .word BGData_SciLab_HP
     .word BGData_Other_Comp
@@ -28,593 +28,748 @@ global_label BGData_Online
 global_label BGData_Battle
     .word BGData_Battle_Other
 
-BGData_ACDC_Elementary:
-    .word 0x83b0298
-    .word 0x83b3230
-    .word 0x83b33d4
+BGData_School:
 
-    .word 0x83b0298
-    .word 0x83b3230
-    .word 0x83b4054
+BgData_School_Class_5A:
+    .word BgData_Tileset_School_Class_5A
+    .word BgData_Palette_School_Class_5A
+    .word BgData_Tilemap_School_Class_5A
 
-    .word 0x83b4e98
-    .word 0x83b4cf4
-    .word 0x83b7980
+BgData_School_Class_5B:
+    .word BgData_Tileset_School_Class_5A
+    .word BgData_Palette_School_Class_5A
+    .word BgData_Tilemap_School_Class_5B
 
-    .word 0x83b9148
-    .word 0x83bbec0
-    .word 0x83bc064
+BgData_School_Library:
+    .word BgData_Tileset_School_Library
+    .word BgData_Palette_School_Library
+    .word BgData_Tilemap_School_Library
 
-    .word 0x0
-    .word 0x0
-    .word 0x0
-
-    .word 0x83b0298
-    .word 0x83bf0b4
-    .word 0x83bf258
-
-    .word 0x83b0298
-    .word 0x83bfef0
-    .word 0x83c0094
-
-    .word 0x83b0298
-    .word 0x83c0d04
-    .word 0x83c0ea8
-
-    .word 0x83c1ca8
-    .word 0x83c434c
-    .word 0x83c44f0
-
-    .word 0x83b9148
-    .word 0x83bbec0
-    .word 0x83c51d4
+BgData_School_2F_Hallway:
+    .word BgData_Tileset_School_2F_Hallway
+    .word BgData_Palette_School_2F_Hallway
+    .word BgData_Tilemap_School_2F_Hallway
 
     .word 0x0
     .word 0x0
     .word 0x0
 
-    .word 0x83b9148
-    .word 0x83c8280
-    .word 0x83c8424
+BgData_School_Class_1A:
+    .word BgData_Tileset_School_Class_5A
+    .word BgData_Palette_School_Class_1A
+    .word BgData_Tilemap_School_Class_1A
 
-    .word 0x83c8f94
-    .word 0x83cbf18
-    .word 0x83cc0bc
+BgData_School_Class_1B:
+    .word BgData_Tileset_School_Class_5A
+    .word BgData_Palette_School_Class_1B
+    .word BgData_Tilemap_School_Class_1B
 
-    .word 0x83cd220
-    .word 0x83cfbd0
-    .word 0x83cfd74
+BgData_School_AV_Room:
+    .word BgData_Tileset_School_Class_5A
+    .word BgData_Palette_School_AV_Room
+    .word BgData_Tilemap_School_AV_Room
 
-    .word 0x83b9148
-    .word 0x83d10cc
-    .word 0x83d1270
+BgData_School_Infirmary:
+    .word BgData_Tileset_School_Infirmary
+    .word BgData_Palette_School_Infirmary
+    .word BgData_Tilemap_School_Infirmary
 
-BGData_ACDC_Town:
-    .word 0x83d22f0
-    .word 0x83d8104
-    .word 0x83d82a8
-
-    .word 0x83dd8fc
-    .word 0x83e1fc0
-    .word 0x83e2164
-
-    .word 0x83e3cc4
-    .word 0x83e6678
-    .word 0x83e681c
-
-    .word 0x83e7718
-    .word 0x83e9500
-    .word 0x83e96a4
+BgData_School_1F_Hallway:
+    .word BgData_Tileset_School_2F_Hallway
+    .word BgData_Palette_School_2F_Hallway
+    .word BgData_Tilemap_School_1F_Hallway
 
     .word 0x0
     .word 0x0
     .word 0x0
 
-    .word 0x83ea180
-    .word 0x83ec5f0
-    .word 0x83ec794
+BgData_School_Cross_Hallway:
+    .word BgData_Tileset_School_2F_Hallway
+    .word BgData_Palette_School_Cross_Hallway
+    .word BgData_Tilemap_School_Cross_Hallway
 
-    .word 0x83ed76c
-    .word 0x83ef004
-    .word 0x83ef1a8
+BgData_School_Storage:
+    .word BgData_Tileset_School_Storage
+    .word BgData_Palette_School_Storage
+    .word BgData_Tilemap_School_Storage
 
-    .word 0x83efbd4
-    .word 0x83f2310
-    .word 0x83f24b4
+BgData_School_Staff_Lounge:
+    .word BgData_Tileset_School_Staff_Lounge
+    .word BgData_Palette_School_Staff_Lounge
+    .word BgData_Tilemap_School_Staff_Lounge
 
-    .word 0x0
-    .word 0x0
-    .word 0x0
+BgData_School_Staff_Lounge_Hallway:
+    .word BgData_Tileset_School_2F_Hallway
+    .word BgData_Palette_School_Staff_Lounge_Hallway
+    .word BgData_Tilemap_School_Staff_Lounge_Hallway
 
-    .word 0x83f308c
-    .word 0x83f600c
-    .word 0x83f61b0
+BGData_ACDC:
 
-    .word 0x0
-    .word 0x0
-    .word 0x0
+BgData_ACDC_Town:
+    .word BgData_Tileset_ACDC_Town
+    .word BgData_Palette_ACDC_Town
+    .word BgData_Tilemap_ACDC_Town
 
-    .word 0x83f715c
-    .word 0x83f9d04
-    .word 0x83f9ea8
+BgData_ACDC_School_Gate:
+    .word BgData_Tileset_ACDC_School_Gate
+    .word BgData_Palette_ACDC_School_Gate
+    .word BgData_Tilemap_ACDC_School_Gate
 
-    .word 0x83face4
-    .word 0x83fee84
-    .word 0x83ff028
+BgData_ACDC_Lan_Living_Room:
+    .word BgData_Tileset_ACDC_Lan_Living_Room
+    .word BgData_Palette_ACDC_Lan_Living_Room
+    .word BgData_Tilemap_ACDC_Lan_Living_Room
 
-    .word 0x83face4
-    .word 0x84005b0
-    .word 0x8400754
-
-BGData_Govt_Complex:
-    .word 0x8401abc
-    .word 0x8405374
-    .word 0x8405518
-
-    .word 0x83face4
-    .word 0x840a4a0
-    .word 0x840a644
-
-    .word 0x840bdd0
-    .word 0x840e520
-    .word 0x840e6c4
-
-    .word 0x8410fa4
-    .word 0x841338c
-    .word 0x8413530
-
-    .word 0x8415d74
-    .word 0x841640c
-    .word 0x84165b0
-
-    .word 0x84176b8
-    .word 0x8419d04
-    .word 0x8419ea8
-
-    .word 0x841c27c
-    .word 0x841d8f0
-    .word 0x841da94
-
-    .word 0x841f390
-    .word 0x8420b50
-    .word 0x8420cf4
+BgData_ACDC_Lan_Room:
+    .word BgData_Tileset_ACDC_Lan_Room
+    .word BgData_Palette_ACDC_Lan_Room
+    .word BgData_Tilemap_ACDC_Lan_Room
 
     .word 0x0
     .word 0x0
     .word 0x0
 
-    .word 0x842344c
-    .word 0x8426324
-    .word 0x84264c8
+BgData_ACDC_Mayl_Living_Room:
+    .word BgData_Tileset_ACDC_Mayl_Living_Room
+    .word BgData_Palette_ACDC_Mayl_Living_Room
+    .word BgData_Tilemap_ACDC_Mayl_Living_Room
+
+BgData_ACDC_Mayl_Room:
+    .word BgData_Tileset_ACDC_Mayl_Room
+    .word BgData_Palette_ACDC_Mayl_Room
+    .word BgData_Tilemap_ACDC_Mayl_Room
+
+BgData_ACDC_Dex_Room:
+    .word BgData_Tileset_ACDC_Dex_Room
+    .word BgData_Palette_ACDC_Dex_Room
+    .word BgData_Tilemap_ACDC_Dex_Room
 
     .word 0x0
     .word 0x0
     .word 0x0
 
-    .word 0x842344c
-    .word 0x8428498
-    .word 0x842863c
+BgData_ACDC_Yai_Room:
+    .word BgData_Tileset_ACDC_Yai_Room
+    .word BgData_Palette_ACDC_Yai_Room
+    .word BgData_Tilemap_ACDC_Yai_Room
+
+    .word 0x0
+    .word 0x0
+    .word 0x0
+
+BgData_ACDC_Higsbys:
+    .word BgData_Tileset_ACDC_Higsbys
+    .word BgData_Palette_ACDC_Higsbys
+    .word BgData_Tilemap_ACDC_Higsbys
+
+BgData_ACDC_Station:
+    .word BgData_Tileset_ACDC_Station
+    .word BgData_Palette_ACDC_Station
+    .word BgData_Tilemap_ACDC_Station
+
+BgData_ACDC_Secret_Station:
+    .word BgData_Tileset_ACDC_Station
+    .word BgData_Palette_ACDC_Secret_Station
+    .word BgData_Tilemap_ACDC_Secret_Station
+
+BGData_Govt:
+
+BgData_Govt_Complex_Front:
+    .word BgData_Tileset_Govt_Complex_Front
+    .word BgData_Palette_Govt_Complex_Front
+    .word BgData_Tilemap_Govt_Complex_Front
+
+BgData_Govt_Complex_Station:
+    .word BgData_Tileset_ACDC_Station
+    .word BgData_Palette_Govt_Complex_Station
+    .word BgData_Tilemap_Govt_Complex_Station
+
+BgData_Govt_Waterworks_Lobby:
+    .word BgData_Tileset_Govt_Waterworks_Lobby
+    .word BgData_Palette_Govt_Waterworks_Lobby
+    .word BgData_Tilemap_Govt_Waterworks_Lobby
+
+BgData_Govt_SciLab_Lobby:
+    .word BgData_Tileset_Govt_SciLab_Lobby
+    .word BgData_Palette_Govt_SciLab_Lobby
+    .word BgData_Tilemap_Govt_SciLab_Lobby
+
+BgData_Govt_Complex_Hallway:
+    .word BgData_Tileset_Govt_Complex_Hallway
+    .word BgData_Palette_Govt_Complex_Hallway
+    .word BgData_Tilemap_Govt_Complex_Hallway
+
+BgData_Govt_Yuichiro_Lab:
+    .word BgData_Tileset_Govt_Yuichiro_Lab
+    .word BgData_Palette_Govt_Yuichiro_Lab
+    .word BgData_Tilemap_Govt_Yuichiro_Lab
+
+BgData_Govt_Waterworks_Office:
+    .word BgData_Tileset_Govt_Waterworks_Office
+    .word BgData_Palette_Govt_Waterworks_Office
+    .word BgData_Tilemap_Govt_Waterworks_Office
+
+BgData_Govt_Waterworks_Control_Room:
+    .word BgData_Tileset_Govt_Waterworks_Control_Room
+    .word BgData_Palette_Govt_Waterworks_Control_Room
+    .word BgData_Tilemap_Govt_Waterworks_Control_Room
+
+    .word 0x0
+    .word 0x0
+    .word 0x0
+
+BgData_Govt_Waterworks_Pump_Room:
+    .word BgData_Tileset_Govt_Waterworks_Pump_Room
+    .word BgData_Palette_Govt_Waterworks_Pump_Room
+    .word BgData_Tilemap_Govt_Waterworks_Pump_Room
+
+    .word 0x0
+    .word 0x0
+    .word 0x0
+
+BgData_Govt_Waterworks_Purification_Room:
+    .word BgData_Tileset_Govt_Waterworks_Pump_Room
+    .word BgData_Palette_Govt_Waterworks_Purification_Room
+    .word BgData_Tilemap_Govt_Waterworks_Purification_Room
 
 BGData_DenTown:
-    .word 0x842bdb8
-    .word 0x842ed5c
-    .word 0x842ef00
 
-    .word 0x83face4
-    .word 0x8432970
-    .word 0x8432b14
+BgData_DenTown_Center:
+    .word BgData_Tileset_DenTown_Center
+    .word BgData_Palette_DenTown_Center
+    .word BgData_Tilemap_DenTown_Center
 
-    .word 0x843423c
-    .word 0x8438430
-    .word 0x84385d4
+BgData_DenTown_Station:
+    .word BgData_Tileset_ACDC_Station
+    .word BgData_Palette_DenTown_Station
+    .word BgData_Tilemap_DenTown_Station
 
-    .word 0x843423c
-    .word 0x843a984
-    .word 0x843ab28
+BgData_DenTown_Block_1:
+    .word BgData_Tileset_DenTown_Block_1
+    .word BgData_Palette_DenTown_Block_1
+    .word BgData_Tilemap_DenTown_Block_1
 
-    .word 0x843423c
-    .word 0x843ce70
-    .word 0x843d014
+BgData_DenTown_Block_2:
+    .word BgData_Tileset_DenTown_Block_1
+    .word BgData_Palette_DenTown_Block_2
+    .word BgData_Tilemap_DenTown_Block_2
 
-    .word 0x843423c
-    .word 0x843f534
-    .word 0x843f6d8
+BgData_DenTown_Block_3:
+    .word BgData_Tileset_DenTown_Block_1
+    .word BgData_Palette_DenTown_Block_3
+    .word BgData_Tilemap_DenTown_Block_3
 
-    .word 0x8441810
-    .word 0x8443618
-    .word 0x84437bc
+BgData_DenTown_Block_4:
+    .word BgData_Tileset_DenTown_Block_1
+    .word BgData_Palette_DenTown_Block_4
+    .word BgData_Tilemap_DenTown_Block_4
 
-    .word 0x84442b0
-    .word 0x844531c
-    .word 0x84454c0
+BgData_DenTown_Miyu_Antiques:
+    .word BgData_Tileset_DenTown_Miyu_Antiques
+    .word BgData_Palette_DenTown_Miyu_Antiques
+    .word BgData_Tilemap_DenTown_Miyu_Antiques
+
+BgData_DenTown_Summer_School:
+    .word BgData_Tileset_DenTown_Summer_School
+    .word BgData_Palette_DenTown_Summer_School
+    .word BgData_Tilemap_DenTown_Summer_School
 
 BGData_SciLab:
-    .word 0x8445f98
-    .word 0x8447bb8
-    .word 0x8447d5c
 
-    .word 0x844a1c4
-    .word 0x844cb4c
-    .word 0x844ccf0
+BgData_SciLab_Restaurant:
+    .word BgData_Tileset_SciLab_Restaurant_Hallway
+    .word BgData_Palette_SciLab_Restaurant_Hallway
+    .word BgData_Tilemap_SciLab_Restaurant_Hallway
 
-    .word 0x8445f98
-    .word 0x844f584
-    .word 0x844f728
+BgData_SciLab_Restaurant_Hallway:
+    .word BgData_Tileset_SciLab_Restaurant
+    .word BgData_Palette_SciLab_Restaurant
+    .word BgData_Tilemap_SciLab_Restaurant
 
-    .word 0x8445f98
-    .word 0x8451afc
-    .word 0x8451ca0
+BgData_SciLab_Power_Plant_Hallway:
+    .word BgData_Tileset_SciLab_Restaurant_Hallway
+    .word BgData_Palette_SciLab_Power_Plant_Hallway
+    .word BgData_Tilemap_SciLab_Power_Plant_Hallway
 
-    .word 0x841f390
-    .word 0x84537d8
-    .word 0x845397c
+BgData_SciLab_Power_Plant:
+    .word BgData_Tileset_SciLab_Restaurant_Hallway
+    .word BgData_Palette_SciLab_Power_Plant
+    .word BgData_Tilemap_SciLab_Power_Plant
 
-    .word 0x8454eec
-    .word 0x845673c
-    .word 0x84568e0
+BgData_SciLab_Power_Plant_Control_Room:
+    .word BgData_Tileset_Govt_Waterworks_Control_Room
+    .word BgData_Palette_SciLab_Power_Plant_Control_Room
+    .word BgData_Tilemap_SciLab_Power_Plant_Control_Room
 
-BGData_WWW_Base:
-    .word 0x8458d1c
-    .word 0x845c3ec
-    .word 0x845c590
+BgData_SciLab_Generator_Room:
+    .word BgData_Tileset_SciLab_Generator_Room
+    .word BgData_Palette_SciLab_Generator_Room
+    .word BgData_Tilemap_SciLab_Generator_Room
 
-    .word 0x845e93c
-    .word 0x8462cc4
-    .word 0x8462e68
+BGData_WWW:
 
-    .word 0x8465260
-    .word 0x8468e34
-    .word 0x8468fd8
+BgData_WWW_Base:
+    .word BgData_Tileset_WWW_Base
+    .word BgData_Palette_WWW_Base
+    .word BgData_Tilemap_WWW_Base
 
-    .word 0x846b200
-    .word 0x846c410
-    .word 0x846c5b4
+BgData_WWW_Wily_Lab:
+    .word BgData_Tileset_WWW_Wily_Lab
+    .word BgData_Palette_WWW_Wily_Lab
+    .word BgData_Tilemap_WWW_Wily_Lab
 
-    .word 0x846b200
-    .word 0x846d578
-    .word 0x846d71c
+BgData_WWW_Rocket_Hangar:
+    .word BgData_Tileset_WWW_Rocket_Hangar
+    .word BgData_Palette_WWW_Rocket_Hangar
+    .word BgData_Tilemap_WWW_Rocket_Hangar
 
-    .word 0x846b200
-    .word 0x846e6b0
-    .word 0x846e854
+BgData_WWW_Base_Hall_1:
+    .word BgData_Tileset_WWW_Base_Hall_1
+    .word BgData_Palette_WWW_Base_Hall_1
+    .word BgData_Tilemap_WWW_Base_Hall_1
+
+BgData_WWW_Base_Hall_2:
+    .word BgData_Tileset_WWW_Base_Hall_1
+    .word BgData_Palette_WWW_Base_Hall_2
+    .word BgData_Tilemap_WWW_Base_Hall_2
+
+BgData_WWW_Base_Hall_3:
+    .word BgData_Tileset_WWW_Base_Hall_1
+    .word BgData_Palette_WWW_Base_Hall_3
+    .word BgData_Tilemap_WWW_Base_Hall_3
 
 BGData_School_Comp:
-    .word 0x846f8a8
-    .word 0x8472b84
-    .word 0x8472d28
 
-    .word 0x8475a74
-    .word 0x8478820
-    .word 0x84789c4
+BgData_School_Comp_1:
+    .word BgData_Tileset_School_Comp_1
+    .word BgData_Palette_School_Comp_1
+    .word BgData_Tilemap_School_Comp_1
 
-    .word 0x846f8a8
-    .word 0x847b634
-    .word 0x847b7d8
+BgData_School_Comp_2:
+    .word BgData_Tileset_School_Comp_2
+    .word BgData_Palette_School_Comp_2
+    .word BgData_Tilemap_School_Comp_2
 
-    .word 0x846f8a8
-    .word 0x847e290
-    .word 0x847e434
+BgData_School_Comp_3:
+    .word BgData_Tileset_School_Comp_1
+    .word BgData_Palette_School_Comp_3
+    .word BgData_Tilemap_School_Comp_3
 
-    .word 0x846f8a8
-    .word 0x8481450
-    .word 0x84815f4
+BgData_School_Comp_4:
+    .word BgData_Tileset_School_Comp_1
+    .word BgData_Palette_School_Comp_4
+    .word BgData_Tilemap_School_Comp_4
+
+BgData_School_Comp_5:
+    .word BgData_Tileset_School_Comp_1
+    .word BgData_Palette_School_Comp_5
+    .word BgData_Tilemap_School_Comp_5
 
 BGData_Oven_Comp:
-    .word 0x8483f78
-    .word 0x8487718
-    .word 0x84878bc
 
-    .word 0x8483f78
-    .word 0x8487718
-    .word 0x848bb6c
+BgData_Oven_Comp_1:
+    .word BgData_Tileset_Oven_Comp_1
+    .word BgData_Palette_Oven_Comp_1
+    .word BgData_Tilemap_Oven_Comp_1
+
+BgData_Oven_Comp_2:
+    .word BgData_Tileset_Oven_Comp_1
+    .word BgData_Palette_Oven_Comp_1
+    .word BgData_Tilemap_Oven_Comp_2
 
 BGData_Waterworks_Comp:
-    .word 0x848ee68
-    .word 0x84955c4
-    .word 0x8495768
 
-    .word 0x848ee68
-    .word 0x84955c4
-    .word 0x849a91c
+BgData_Waterworks_Comp_1:
+    .word BgData_Tileset_Waterworks_Comp_1
+    .word BgData_Palette_Waterworks_Comp_1
+    .word BgData_Tilemap_Waterworks_Comp_1
 
-    .word 0x848ee68
-    .word 0x84955c4
-    .word 0x849ec7c
+BgData_Waterworks_Comp_2:
+    .word BgData_Tileset_Waterworks_Comp_1
+    .word BgData_Palette_Waterworks_Comp_1
+    .word BgData_Tilemap_Waterworks_Comp_2
 
-    .word 0x84a4264
-    .word 0x84a99d0
-    .word 0x84a9b74
+BgData_Waterworks_Comp_3:
+    .word BgData_Tileset_Waterworks_Comp_1
+    .word BgData_Palette_Waterworks_Comp_1
+    .word BgData_Tilemap_Waterworks_Comp_3
 
-    .word 0x84af050
-    .word 0x84b26c4
-    .word 0x84b2868
+BgData_Waterworks_Comp_4:
+    .word BgData_Tileset_Waterworks_Comp_4
+    .word BgData_Palette_Waterworks_Comp_4
+    .word BgData_Tilemap_Waterworks_Comp_4
 
-    .word 0x84a4264
-    .word 0x84b6ee0
-    .word 0x84b7084
+BgData_Waterworks_Comp_5:
+    .word BgData_Tileset_Waterworks_Comp_5
+    .word BgData_Palette_Waterworks_Comp_5
+    .word BgData_Tilemap_Waterworks_Comp_5
+
+BgData_Waterworks_Comp_6:
+    .word BgData_Tileset_Waterworks_Comp_4
+    .word BgData_Palette_Waterworks_Comp_6
+    .word BgData_Tilemap_Waterworks_Comp_6
 
 BGData_Traffic_Light_Comp:
-    .word 0x84bbfb0
-    .word 0x84bdb30
-    .word 0x84bdcd4
 
-    .word 0x84bbfb0
-    .word 0x84bdb30
-    .word 0x84c16f0
+BgData_Traffic_Light_Comp_1:
+    .word BgData_Tileset_Traffic_Light_Comp_1
+    .word BgData_Palette_Traffic_Light_Comp_1
+    .word BgData_Tilemap_Traffic_Light_Comp_1
 
-    .word 0x84bbfb0
-    .word 0x84bdb30
-    .word 0x84c5284
+BgData_Traffic_Light_Comp_2:
+    .word BgData_Tileset_Traffic_Light_Comp_1
+    .word BgData_Palette_Traffic_Light_Comp_1
+    .word BgData_Tilemap_Traffic_Light_Comp_2
 
-    .word 0x84bbfb0
-    .word 0x84bdb30
-    .word 0x84c9438
+BgData_Traffic_Light_Comp_3:
+    .word BgData_Tileset_Traffic_Light_Comp_1
+    .word BgData_Palette_Traffic_Light_Comp_1
+    .word BgData_Tilemap_Traffic_Light_Comp_3
 
-    .word 0x84bbfb0
-    .word 0x84bdb30
-    .word 0x84ccc70
+BgData_Traffic_Light_Comp_4:
+    .word BgData_Tileset_Traffic_Light_Comp_1
+    .word BgData_Palette_Traffic_Light_Comp_1
+    .word BgData_Tilemap_Traffic_Light_Comp_4
+
+BgData_Traffic_Light_Comp_5:
+    .word BgData_Tileset_Traffic_Light_Comp_1
+    .word BgData_Palette_Traffic_Light_Comp_1
+    .word BgData_Tilemap_Traffic_Light_Comp_5
 
 BGData_Power_Plant_Comp:
-    .word 0x84d16fc
-    .word 0x84d3868
-    .word 0x84d3a0c
 
-    .word 0x84d16fc
-    .word 0x84d3868
-    .word 0x84d8530
+BgData_Power_Plant_Comp_1:
+    .word BgData_Tileset_Power_Plant_Comp_1
+    .word BgData_Palette_Power_Plant_Comp_1
+    .word BgData_Tilemap_Power_Plant_Comp_1
 
-    .word 0x84d16fc
-    .word 0x84d3868
-    .word 0x84dcf48
+BgData_Power_Plant_Comp_2:
+    .word BgData_Tileset_Power_Plant_Comp_1
+    .word BgData_Palette_Power_Plant_Comp_1
+    .word BgData_Tilemap_Power_Plant_Comp_2
 
-    .word 0x84d16fc
-    .word 0x84d3868
-    .word 0x84e1ae8
+BgData_Power_Plant_Comp_3:
+    .word BgData_Tileset_Power_Plant_Comp_1
+    .word BgData_Palette_Power_Plant_Comp_1
+    .word BgData_Tilemap_Power_Plant_Comp_3
+
+BgData_Power_Plant_Comp_4:
+    .word BgData_Tileset_Power_Plant_Comp_1
+    .word BgData_Palette_Power_Plant_Comp_1
+    .word BgData_Tilemap_Power_Plant_Comp_4
 
 BGData_WWW_Comp:
-    .word 0x8483f78
-    .word 0x8487718
-    .word 0x84e63ac
 
-    .word 0x8475a74
-    .word 0x84eafbc
-    .word 0x84eb160
+BgData_WWW_Comp_1:
+    .word BgData_Tileset_Oven_Comp_1
+    .word BgData_Palette_Oven_Comp_1
+    .word BgData_Tilemap_WWW_Comp_1
 
-    .word 0x848ee68
-    .word 0x84955c4
-    .word 0x84eefc0
+BgData_WWW_Comp_2:
+    .word BgData_Tileset_School_Comp_2
+    .word BgData_Palette_WWW_Comp_2
+    .word BgData_Tilemap_WWW_Comp_2
 
-    .word 0x84bbfb0
-    .word 0x84bdb30
-    .word 0x84f3de0
+BgData_WWW_Comp_3:
+    .word BgData_Tileset_Waterworks_Comp_1
+    .word BgData_Palette_Waterworks_Comp_1
+    .word BgData_Tilemap_WWW_Comp_3
 
-    .word 0x84d16fc
-    .word 0x84d3868
-    .word 0x84f8438
+BgData_WWW_Comp_4:
+    .word BgData_Tileset_Traffic_Light_Comp_1
+    .word BgData_Palette_Traffic_Light_Comp_1
+    .word BgData_Tilemap_WWW_Comp_4
 
-    .word 0x84fcba4
-    .word 0x84fdcfc
-    .word 0x84fdea0
+BgData_WWW_Comp_5:
+    .word BgData_Tileset_Power_Plant_Comp_1
+    .word BgData_Palette_Power_Plant_Comp_1
+    .word BgData_Tilemap_WWW_Comp_5
+
+BgData_Rocket_Comp:
+    .word BgData_Tileset_Rocket_Comp
+    .word BgData_Palette_Rocket_Comp
+    .word BgData_Tilemap_Rocket_Comp
 
 BGData_ACDC_HP:
-    .word 0x8500fd4
-    .word 0x8502c60
-    .word 0x8502e04
 
-    .word 0x8500fd4
-    .word 0x8506384
-    .word 0x8503934
+BgData_ACDC_Lan_PC:
+    .word BgData_Tileset_ACDC_Lan_PC
+    .word BgData_Palette_ACDC_Lan_PC
+    .word BgData_Tilemap_ACDC_Lan_PC
 
-    .word 0x8500fd4
-    .word 0x85087d4
-    .word 0x8506528
+BgData_ACDC_Mayl_PC:
+    .word BgData_Tileset_ACDC_Lan_PC
+    .word BgData_Palette_ACDC_Mayl_PC
+    .word BgData_Tilemap_ACDC_Mayl_PC
 
-    .word 0x8500fd4
-    .word 0x850c900
-    .word 0x8508978
+BgData_ACDC_Yai_PC:
+    .word BgData_Tileset_ACDC_Lan_PC
+    .word BgData_Palette_ACDC_Dex_PC
+    .word BgData_Tilemap_ACDC_Dex_PC
 
-BGData_Govt_Complex_HP:
-    .word 0x850caa4
-    .word 0x850dc6c
-    .word 0x850de10
+BgData_ACDC_Dex_PC:
+    .word BgData_Tileset_ACDC_Lan_PC
+    .word BgData_Palette_ACDC_Yai_PC
+    .word BgData_Tilemap_ACDC_Yai_PC
 
-    .word 0x850caa4
-    .word 0x8511580
-    .word 0x850f498
+BGData_Govt_HP:
+
+BgData_Govt_Yuichiro_PC:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Govt_Yuichiro_PC
+    .word BgData_Tilemap_Govt_Yuichiro_PC
+
+BgData_Govt_Lunch_Cart_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Govt_Lunch_Cart_Comp
+    .word BgData_Tilemap_Govt_Lunch_Cart_Comp
 
 BGData_DenTown_HP:
-    .word 0x850caa4
-    .word 0x851398c
-    .word 0x8511724
+
+BgData_DenTown_Antique_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_DenTown_Antique_Comp
+    .word BgData_Tilemap_DenTown_Antique_Comp
 
 BGData_SciLab_HP:
-    .word 0x850caa4
-    .word 0x8517c78
-    .word 0x8513b30
+
+BgData_SciLab_Fish_Stand_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_SciLab_Large_Monitor_Comp
+    .word BgData_Tilemap_SciLab_Large_Monitor_Comp
 
 BGData_Other_Comp:
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_Doghouse_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_Servbot_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_New_Game_Machine_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_Telephone_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_Car_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_Waterworks_Vending_Machine_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_Lobby_TV_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_Large_Monitor_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_Control_Equipment_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_SciLab_Vending_Machine_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_Recycled_PET_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
-    .word 0x850caa4
-    .word 0x851a1c4
-    .word 0x8517e1c
+BgData_Other_Big_Vase_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
+
+BgData_Other_Blackboard_Comp:
+    .word BgData_Tileset_Govt_Yuichiro_PC
+    .word BgData_Palette_Other_Generic_Comp
+    .word BgData_Tilemap_Other_Generic_Comp
 
 BGData_Internet:
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x851e3e0
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x8523568
+BgData_Internet_1:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Internet_1
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x8528ae8
+BgData_Internet_2:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Internet_2
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x852d57c
+BgData_Internet_3:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Internet_3
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x8531ed4
+BgData_Internet_4:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Internet_4
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x853614c
+BgData_Undernet_1:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_1
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x853a4c8
+BgData_Undernet_2:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_2
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x853e484
+BgData_Undernet_3:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_3
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x8542204
+BgData_Undernet_4:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_4
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x8545c3c
+BgData_Undernet_5:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_5
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x8549a60
+BgData_Undernet_6:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_6
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x854df24
+BgData_Undernet_7:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_7
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x8551d84
+BgData_Undernet_8:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_8
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x855564c
+BgData_Undernet_9:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_9
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x8559694
+BgData_Undernet_10:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_10
 
-    .word 0x851a368
-    .word 0x851e23c
-    .word 0x855cf88
+BgData_Undernet_11:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_11
+
+BgData_Undernet_12:
+    .word BgData_Tileset_Internet_1
+    .word BgData_Palette_Internet_1
+    .word BgData_Tilemap_Undernet_12
 
 BGData_Battle_Other:
-    .word 0x8561434
-    .word 0x8561650
-    .word 0x8561774
 
-    .word 0x8561c78
-    .word 0x8561e84
-    .word 0x8561fa8
+BgData_Battle_NumberMan:
+    .word BgData_Tileset_Battle_NumberMan
+    .word BgData_Palette_Battle_NumberMan
+    .word BgData_Tilemap_Battle_NumberMan
 
-    .word 0x8562478
-    .word 0x8562674
-    .word 0x8562798
+BgData_Battle_FireMan:
+    .word BgData_Tileset_Battle_FireMan
+    .word BgData_Palette_Battle_FireMan
+    .word BgData_Tilemap_Battle_FireMan
 
-    .word 0x8562c6c
-    .word 0x8562ee4
-    .word 0x8563008
+BgData_Battle_IceMan:
+    .word BgData_Tileset_Battle_IceMan
+    .word BgData_Palette_Battle_IceMan
+    .word BgData_Tilemap_Battle_IceMan
 
-    .word 0x8563500
-    .word 0x85637a8
-    .word 0x85638cc
+BgData_Battle_ColorMan:
+    .word BgData_Tileset_Battle_ColorMan
+    .word BgData_Palette_Battle_ColorMan
+    .word BgData_Tilemap_Battle_ColorMan
 
-    .word 0x8563e24
-    .word 0x8563fec
-    .word 0x8564110
+BgData_Battle_ElecMan:
+    .word BgData_Tileset_Battle_ElecMan
+    .word BgData_Palette_Battle_ElecMan
+    .word BgData_Tilemap_Battle_ElecMan
 
-    .word 0x8564654
-    .word 0x85648d0
-    .word 0x85649f4
+BgData_Battle_WWW:
+    .word BgData_Tileset_Battle_WWW
+    .word BgData_Palette_Battle_WWW
+    .word BgData_Tilemap_Battle_WWW
 
-    .word 0x8564ef4
-    .word 0x8565124
-    .word 0x8565248
+BgData_Battle_Internet:
+    .word BgData_Tileset_Battle_Internet
+    .word BgData_Palette_Battle_Internet
+    .word BgData_Tilemap_Battle_Internet
 
-    .word 0x8565750
-    .word 0x85659ac
-    .word 0x8565ad0
+BgData_Battle_Generic:
+    .word BgData_Tileset_Battle_Generic
+    .word BgData_Palette_Battle_Generic
+    .word BgData_Tilemap_Battle_Generic
 
-    .word 0x8565fd8
-    .word 0x8566260
-    .word 0x8566384
+BgData_Battle_LanHP:
+    .word BgData_Tileset_Battle_LanHP
+    .word BgData_Palette_Battle_LanHP
+    .word BgData_Tilemap_Battle_LanHP
 
-    .word 0x8566898
-    .word 0x8566a7c
-    .word 0x8566ba0
+BgData_Battle_MaylHP:
+    .word BgData_Tileset_Battle_MaylHP
+    .word BgData_Palette_Battle_MaylHP
+    .word BgData_Tilemap_Battle_MaylHP
 
-    .word 0x85670b0
-    .word 0x8567410
-    .word 0x8567534
+BgData_Battle_YaiHP:
+    .word BgData_Tileset_Battle_YaiHP
+    .word BgData_Palette_Battle_YaiHP
+    .word BgData_Tilemap_Battle_YaiHP
 
-    .word 0x8567aa4
-    .word 0x8567cd4
-    .word 0x8567df8
+BgData_Battle_DexHP:
+    .word BgData_Tileset_Battle_DexHP
+    .word BgData_Palette_Battle_DexHP
+    .word BgData_Tilemap_Battle_DexHP
 
-    .word 0x8568300
-    .word 0x85684c0
-    .word 0x85685e4
+BgData_Battle_YuichiroHP:
+    .word BgData_Tileset_Battle_YuichiroHP
+    .word BgData_Palette_Battle_YuichiroHP
+    .word BgData_Tilemap_Battle_YuichiroHP
 
-    .word 0x8568af0
-    .word 0x8568cb4
-    .word 0x8568dd8
+BgData_Battle_SalHP:
+    .word BgData_Tileset_Battle_SalHP
+    .word BgData_Palette_Battle_SalHP
+    .word BgData_Tilemap_Battle_SalHP
 
-    .word 0x85692e8
-    .word 0x856939c
-    .word 0x85694c0
+BgData_Battle_MiyuHP:
+    .word BgData_Tileset_Battle_MiyuHP
+    .word BgData_Palette_Battle_MiyuHP
+    .word BgData_Tilemap_Battle_MiyuHP
 
-    .word 0x856999c
-    .word 0x8569a40
-    .word 0x8569b64
+BgData_Battle_MasaHP:
+    .word BgData_Tileset_Battle_MasaHP
+    .word BgData_Palette_Battle_MasaHP
+    .word BgData_Tilemap_Battle_MasaHP
+
+BgData_Battle_LifeVirus:
+    .word BgData_Tileset_Battle_LifeVirus
+    .word BgData_Palette_Battle_LifeVirus
+    .word BgData_Tilemap_Battle_LifeVirus

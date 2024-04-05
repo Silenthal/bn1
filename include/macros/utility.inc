@@ -62,7 +62,7 @@
     .byte CD_\id, CC_\code_1, CC_\code_2, CC_\code_3, CC_\code_4, CC_\code_5, 0xFF, 0xFF
     .endm
 
-    .macro chip_trader_stock_end 
+    .macro chip_trader_stock_end
     .byte 0, -1, -1, -1, -1, -1, -1, -1
     .endm
 

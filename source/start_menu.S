@@ -270,7 +270,7 @@ LAB_08019380:
 
 tilemapStartMenuCursor:
     @ 0
-    .short 0xD290 
+    .short 0xD290
     .short 0xD291
     .short 0xD292
     .short 0xD293

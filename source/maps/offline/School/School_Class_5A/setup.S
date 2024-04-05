@@ -18,7 +18,7 @@
     .set FUN_08087e34, 0x8087E35
 
 
-_ts FlagSetup_ACDC_Elementary_S0
+_ts FlagSetup_School_S0
     push       {lr}
     pop        {pc}
 
