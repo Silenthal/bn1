@@ -861,107 +861,107 @@ global_label BgData_Tilemap_Undernet_11
 global_label BgData_Tilemap_Undernet_12
     .incbin "data/maps/online/Undernet_12.tilemapz" @ 0x55CF88
 global_label BgData_Tileset_Battle_NumberMan
-    .incbin "data/maps/battle/NumberMan.tilesetz" @ 0x561434
+    .incbin "data/maps/battle/Battle_NumberMan.tilesetz" @ 0x561434
 global_label BgData_Palette_Battle_NumberMan
-    .incbin "data/maps/battle/NumberMan.palettez" @ 0x561650
+    .incbin "data/maps/battle/Battle_NumberMan.palettez" @ 0x561650
 global_label BgData_Tilemap_Battle_NumberMan
-    .incbin "data/maps/battle/NumberMan.tilemapz" @ 0x561774
+    .incbin "data/maps/battle/Battle_NumberMan.tilemapz" @ 0x561774
 global_label BgData_Tileset_Battle_FireMan
-    .incbin "data/maps/battle/FireMan.tilesetz" @ 0x561C78
+    .incbin "data/maps/battle/Battle_FireMan.tilesetz" @ 0x561C78
 global_label BgData_Palette_Battle_FireMan
-    .incbin "data/maps/battle/FireMan.palettez" @ 0x561E84
+    .incbin "data/maps/battle/Battle_FireMan.palettez" @ 0x561E84
 global_label BgData_Tilemap_Battle_FireMan
-    .incbin "data/maps/battle/FireMan.tilemapz" @ 0x561FA8
+    .incbin "data/maps/battle/Battle_FireMan.tilemapz" @ 0x561FA8
 global_label BgData_Tileset_Battle_IceMan
-    .incbin "data/maps/battle/IceMan.tilesetz" @ 0x562478
+    .incbin "data/maps/battle/Battle_IceMan.tilesetz" @ 0x562478
 global_label BgData_Palette_Battle_IceMan
-    .incbin "data/maps/battle/IceMan.palettez" @ 0x562674
+    .incbin "data/maps/battle/Battle_IceMan.palettez" @ 0x562674
 global_label BgData_Tilemap_Battle_IceMan
-    .incbin "data/maps/battle/IceMan.tilemapz" @ 0x562798
+    .incbin "data/maps/battle/Battle_IceMan.tilemapz" @ 0x562798
 global_label BgData_Tileset_Battle_ColorMan
-    .incbin "data/maps/battle/ColorMan.tilesetz" @ 0x562C6C
+    .incbin "data/maps/battle/Battle_ColorMan.tilesetz" @ 0x562C6C
 global_label BgData_Palette_Battle_ColorMan
-    .incbin "data/maps/battle/ColorMan.palettez" @ 0x562EE4
+    .incbin "data/maps/battle/Battle_ColorMan.palettez" @ 0x562EE4
 global_label BgData_Tilemap_Battle_ColorMan
-    .incbin "data/maps/battle/ColorMan.tilemapz" @ 0x563008
+    .incbin "data/maps/battle/Battle_ColorMan.tilemapz" @ 0x563008
 global_label BgData_Tileset_Battle_ElecMan
-    .incbin "data/maps/battle/ElecMan.tilesetz" @ 0x563500
+    .incbin "data/maps/battle/Battle_ElecMan.tilesetz" @ 0x563500
 global_label BgData_Palette_Battle_ElecMan
-    .incbin "data/maps/battle/ElecMan.palettez" @ 0x5637A8
+    .incbin "data/maps/battle/Battle_ElecMan.palettez" @ 0x5637A8
 global_label BgData_Tilemap_Battle_ElecMan
-    .incbin "data/maps/battle/ElecMan.tilemapz" @ 0x5638CC
+    .incbin "data/maps/battle/Battle_ElecMan.tilemapz" @ 0x5638CC
 global_label BgData_Tileset_Battle_WWW
-    .incbin "data/maps/battle/WWW.tilesetz" @ 0x563E24
+    .incbin "data/maps/battle/Battle_WWW.tilesetz" @ 0x563E24
 global_label BgData_Palette_Battle_WWW
-    .incbin "data/maps/battle/WWW.palettez" @ 0x563FEC
+    .incbin "data/maps/battle/Battle_WWW.palettez" @ 0x563FEC
 global_label BgData_Tilemap_Battle_WWW
-    .incbin "data/maps/battle/WWW.tilemapz" @ 0x564110
+    .incbin "data/maps/battle/Battle_WWW.tilemapz" @ 0x564110
 global_label BgData_Tileset_Battle_Internet
-    .incbin "data/maps/battle/Internet.tilesetz" @ 0x564654
+    .incbin "data/maps/battle/Battle_Internet.tilesetz" @ 0x564654
 global_label BgData_Palette_Battle_Internet
-    .incbin "data/maps/battle/Internet.palettez" @ 0x5648D0
+    .incbin "data/maps/battle/Battle_Internet.palettez" @ 0x5648D0
 global_label BgData_Tilemap_Battle_Internet
-    .incbin "data/maps/battle/Internet.tilemapz" @ 0x5649F4
+    .incbin "data/maps/battle/Battle_Internet.tilemapz" @ 0x5649F4
 global_label BgData_Tileset_Battle_Generic
-    .incbin "data/maps/battle/Generic.tilesetz" @ 0x564EF4
+    .incbin "data/maps/battle/Battle_Generic.tilesetz" @ 0x564EF4
 global_label BgData_Palette_Battle_Generic
-    .incbin "data/maps/battle/Generic.palettez" @ 0x565124
+    .incbin "data/maps/battle/Battle_Generic.palettez" @ 0x565124
 global_label BgData_Tilemap_Battle_Generic
-    .incbin "data/maps/battle/Generic.tilemapz" @ 0x565248
+    .incbin "data/maps/battle/Battle_Generic.tilemapz" @ 0x565248
 global_label BgData_Tileset_Battle_LanHP
-    .incbin "data/maps/battle/LanHP.tilesetz" @ 0x565750
+    .incbin "data/maps/battle/Battle_LanHP.tilesetz" @ 0x565750
 global_label BgData_Palette_Battle_LanHP
-    .incbin "data/maps/battle/LanHP.palettez" @ 0x5659AC
+    .incbin "data/maps/battle/Battle_LanHP.palettez" @ 0x5659AC
 global_label BgData_Tilemap_Battle_LanHP
-    .incbin "data/maps/battle/LanHP.tilemapz" @ 0x565AD0
+    .incbin "data/maps/battle/Battle_LanHP.tilemapz" @ 0x565AD0
 global_label BgData_Tileset_Battle_MaylHP
-    .incbin "data/maps/battle/MaylHP.tilesetz" @ 0x565FD8
+    .incbin "data/maps/battle/Battle_MaylHP.tilesetz" @ 0x565FD8
 global_label BgData_Palette_Battle_MaylHP
-    .incbin "data/maps/battle/MaylHP.palettez" @ 0x566260
+    .incbin "data/maps/battle/Battle_MaylHP.palettez" @ 0x566260
 global_label BgData_Tilemap_Battle_MaylHP
-    .incbin "data/maps/battle/MaylHP.tilemapz" @ 0x566384
+    .incbin "data/maps/battle/Battle_MaylHP.tilemapz" @ 0x566384
 global_label BgData_Tileset_Battle_YaiHP
-    .incbin "data/maps/battle/YaiHP.tilesetz" @ 0x566898
+    .incbin "data/maps/battle/Battle_YaiHP.tilesetz" @ 0x566898
 global_label BgData_Palette_Battle_YaiHP
-    .incbin "data/maps/battle/YaiHP.palettez" @ 0x566A7C
+    .incbin "data/maps/battle/Battle_YaiHP.palettez" @ 0x566A7C
 global_label BgData_Tilemap_Battle_YaiHP
-    .incbin "data/maps/battle/YaiHP.tilemapz" @ 0x566BA0
+    .incbin "data/maps/battle/Battle_YaiHP.tilemapz" @ 0x566BA0
 global_label BgData_Tileset_Battle_DexHP
-    .incbin "data/maps/battle/DexHP.tilesetz" @ 0x5670B0
+    .incbin "data/maps/battle/Battle_DexHP.tilesetz" @ 0x5670B0
 global_label BgData_Palette_Battle_DexHP
-    .incbin "data/maps/battle/DexHP.palettez" @ 0x567410
+    .incbin "data/maps/battle/Battle_DexHP.palettez" @ 0x567410
 global_label BgData_Tilemap_Battle_DexHP
-    .incbin "data/maps/battle/DexHP.tilemapz" @ 0x567534
+    .incbin "data/maps/battle/Battle_DexHP.tilemapz" @ 0x567534
 global_label BgData_Tileset_Battle_YuichiroHP
-    .incbin "data/maps/battle/YuichiroHP.tilesetz" @ 0x567AA4
+    .incbin "data/maps/battle/Battle_YuichiroHP.tilesetz" @ 0x567AA4
 global_label BgData_Palette_Battle_YuichiroHP
-    .incbin "data/maps/battle/YuichiroHP.palettez" @ 0x567CD4
+    .incbin "data/maps/battle/Battle_YuichiroHP.palettez" @ 0x567CD4
 global_label BgData_Tilemap_Battle_YuichiroHP
-    .incbin "data/maps/battle/YuichiroHP.tilemapz" @ 0x567DF8
+    .incbin "data/maps/battle/Battle_YuichiroHP.tilemapz" @ 0x567DF8
 global_label BgData_Tileset_Battle_SalHP
-    .incbin "data/maps/battle/SalHP.tilesetz" @ 0x568300
+    .incbin "data/maps/battle/Battle_SalHP.tilesetz" @ 0x568300
 global_label BgData_Palette_Battle_SalHP
-    .incbin "data/maps/battle/SalHP.palettez" @ 0x5684C0
+    .incbin "data/maps/battle/Battle_SalHP.palettez" @ 0x5684C0
 global_label BgData_Tilemap_Battle_SalHP
-    .incbin "data/maps/battle/SalHP.tilemapz" @ 0x5685E4
+    .incbin "data/maps/battle/Battle_SalHP.tilemapz" @ 0x5685E4
 global_label BgData_Tileset_Battle_MiyuHP
-    .incbin "data/maps/battle/MiyuHP.tilesetz" @ 0x568AF0
+    .incbin "data/maps/battle/Battle_MiyuHP.tilesetz" @ 0x568AF0
 global_label BgData_Palette_Battle_MiyuHP
-    .incbin "data/maps/battle/MiyuHP.palettez" @ 0x568CB4
+    .incbin "data/maps/battle/Battle_MiyuHP.palettez" @ 0x568CB4
 global_label BgData_Tilemap_Battle_MiyuHP
-    .incbin "data/maps/battle/MiyuHP.tilemapz" @ 0x568DD8
+    .incbin "data/maps/battle/Battle_MiyuHP.tilemapz" @ 0x568DD8
 global_label BgData_Tileset_Battle_MasaHP
-    .incbin "data/maps/battle/MasaHP.tilesetz" @ 0x5692E8
+    .incbin "data/maps/battle/Battle_MasaHP.tilesetz" @ 0x5692E8
 global_label BgData_Palette_Battle_MasaHP
-    .incbin "data/maps/battle/MasaHP.palettez" @ 0x56939C
+    .incbin "data/maps/battle/Battle_MasaHP.palettez" @ 0x56939C
 global_label BgData_Tilemap_Battle_MasaHP
-    .incbin "data/maps/battle/MasaHP.tilemapz" @ 0x5694C0
+    .incbin "data/maps/battle/Battle_MasaHP.tilemapz" @ 0x5694C0
 global_label BgData_Tileset_Battle_LifeVirus
-    .incbin "data/maps/battle/LifeVirus.tilesetz" @ 0x56999C
+    .incbin "data/maps/battle/Battle_LifeVirus.tilesetz" @ 0x56999C
 global_label BgData_Palette_Battle_LifeVirus
-    .incbin "data/maps/battle/LifeVirus.palettez" @ 0x569A40
+    .incbin "data/maps/battle/Battle_LifeVirus.palettez" @ 0x569A40
 global_label BgData_Tilemap_Battle_LifeVirus
-    .incbin "data/maps/battle/LifeVirus.tilemapz" @ 0x569B64
+    .incbin "data/maps/battle/Battle_LifeVirus.tilemapz" @ 0x569B64
 
 global_label MapData_School_Class_5A
     .incbin "data/maps/offline/School_Class_5A.scb" @ 0x56A038
