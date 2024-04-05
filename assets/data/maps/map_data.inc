@@ -158,19 +158,19 @@ MapData_SciLab_HP:
     .word MapData_SciLab_Large_Monitor_Comp
 
 MapData_Other_Comp:
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
-    .word MapData_Generic
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
+    .word MapData_Other_Generic_Comp
 
 MapData_Internet:
     .word MapData_Internet_1
