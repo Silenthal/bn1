@@ -4,7 +4,14 @@ import os
 from pathlib import Path
 from typing import Callable, List
 from map_common import getMapConfig
-from make_map import packScb, packPalette, packTilemap, packTileset
+from make_map import (
+    packDialogue,
+    packScb,
+    packPalette,
+    packTalk,
+    packTilemap,
+    packTileset,
+)
 from multiprocessing import Pool
 
 
@@ -35,6 +42,10 @@ def process(dirBase: Path):
         process_pack(dirBase, ".tilemapz", packTilemap)
     if "palette" in config:
         process_pack(dirBase, ".palettez", packPalette)
+    if "talk" in config:
+        process_pack(dirBase, ".talk", packTalk)
+    if "dialogue" in config:
+        process_pack(dirBase, ".dialogue", packDialogue)
 
 
 def main():

@@ -2,6 +2,8 @@
 import argparse
 import io
 from pathlib import Path
+import subprocess
+import sys
 from typing import List, Optional, Tuple
 from common import auto_int, write_byte, write_int, write_short
 from lz import compress
@@ -225,6 +227,34 @@ def packPalette(outPath: Path):
     outputBuffer.write(bytes(bin))
     with open(outPath.with_suffix(".palettez"), "wb") as outTM:
         outTM.write(outputBuffer.getbuffer())
+
+
+def packText(outPath: Path, property: str):
+    config = getMapConfig(outPath)
+    if property not in config:
+        return
+    file: Path = outPath / config[property]
+    if not file.exists():
+        exit(f"Couldn't find {property} file")
+    print(f"Out: {outPath.with_suffix('.' + property)}")
+    subprocess.run(
+        [
+            sys.executable,
+            "./build_script.py",
+            outPath.with_suffix("." + property),
+            file,
+        ],
+        stdout=sys.stdout,
+        stderr=sys.stderr,
+    )
+
+
+def packDialogue(outPath: Path):
+    packText(outPath, "dialogue")
+
+
+def packTalk(outPath: Path):
+    packText(outPath, "talk")
 
 
 def main():

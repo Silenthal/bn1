@@ -20,76 +20,76 @@ global_label DialogueData_Item_Descriptions
 global_label CommentaryData_None
     .incbin "text/commentary/none.script"
 
-global_label CommentaryData_ACDC_Elementary_Area_0
-    .incbin "text/commentary/offline/ACDC_Elementary/06A0D5C.script"
-global_label CommentaryData_ACDC_Elementary_Area_1
-    .incbin "text/commentary/offline/ACDC_Elementary/06A2A24.script"
-global_label CommentaryData_ACDC_Elementary_Area_2
-    .incbin "text/commentary/offline/ACDC_Elementary/06A416C.script"
-global_label CommentaryData_ACDC_Elementary_Area_3
-    .incbin "text/commentary/offline/ACDC_Elementary/06A571C.script"
-global_label CommentaryData_ACDC_Elementary_Area_5
-    .incbin "text/commentary/offline/ACDC_Elementary/06A6F3C.script"
-global_label CommentaryData_ACDC_Elementary_Area_6
-    .incbin "text/commentary/offline/ACDC_Elementary/06A8154.script"
-global_label CommentaryData_ACDC_Elementary_Area_7
-    .incbin "text/commentary/offline/ACDC_Elementary/06A936C.script"
-global_label CommentaryData_ACDC_Elementary_Area_8
-    .incbin "text/commentary/offline/ACDC_Elementary/06AA7AC.script"
-global_label CommentaryData_ACDC_Elementary_Area_9
-    .incbin "text/commentary/offline/ACDC_Elementary/06ABC40.script"
-global_label CommentaryData_ACDC_Elementary_Area_B
-    .incbin "text/commentary/offline/ACDC_Elementary/06AD0D4.script"
-global_label CommentaryData_ACDC_Elementary_Area_C
-    .incbin "text/commentary/offline/ACDC_Elementary/06AE1F4.script"
-global_label CommentaryData_ACDC_Elementary_Area_D
-    .incbin "text/commentary/offline/ACDC_Elementary/06AF2D8.script"
-global_label CommentaryData_ACDC_Elementary_Area_E
-    .incbin "text/commentary/offline/ACDC_Elementary/06AFCD8.script"
+global_label CommentaryData_School_Class_5A
+    .incbin "data/maps/offline/School_Class_5A.talk"
+global_label CommentaryData_School_Class_5B
+    .incbin "data/maps/offline/School_Class_5B.talk"
+global_label CommentaryData_School_Library
+    .incbin "data/maps/offline/School_Library.talk"
+global_label CommentaryData_School_2F_Hallway
+    .incbin "data/maps/offline/School_2F_Hallway.talk"
+global_label CommentaryData_School_Class_1A
+    .incbin "data/maps/offline/School_Class_1A.talk"
+global_label CommentaryData_School_Class_1B
+    .incbin "data/maps/offline/School_Class_1B.talk"
+global_label CommentaryData_School_AV_Room
+    .incbin "data/maps/offline/School_AV_Room.talk"
+global_label CommentaryData_School_Infirmary
+    .incbin "data/maps/offline/School_Infirmary.talk"
+global_label CommentaryData_School_1F_Hallway
+    .incbin "data/maps/offline/School_1F_Hallway.talk"
+global_label CommentaryData_School_Cross_Hallway
+    .incbin "data/maps/offline/School_Cross_Hallway.talk"
+global_label CommentaryData_School_Storage
+    .incbin "data/maps/offline/School_Storage.talk"
+global_label CommentaryData_School_Staff_Lounge
+    .incbin "data/maps/offline/School_Staff_Lounge.talk"
+global_label CommentaryData_School_Staff_Lounge_Hallway
+    .incbin "data/maps/offline/School_Staff_Lounge_Hallway.talk"
 
 global_label CommentaryData_ACDC_Town_Area_0
-    .incbin "text/commentary/offline/ACDC_Town/06B0DBC.script"
+    .incbin "text/commentary/offline/ACDC/06B0DBC.script"
 global_label CommentaryData_ACDC_Town_Area_1
-    .incbin "text/commentary/offline/ACDC_Town/06B1EB0.script"
+    .incbin "text/commentary/offline/ACDC/06B1EB0.script"
 global_label CommentaryData_ACDC_Town_Area_2
-    .incbin "text/commentary/offline/ACDC_Town/06B2F9C.script"
+    .incbin "text/commentary/offline/ACDC/06B2F9C.script"
 global_label CommentaryData_ACDC_Town_Area_3
-    .incbin "text/commentary/offline/ACDC_Town/06B42FC.script"
+    .incbin "text/commentary/offline/ACDC/06B42FC.script"
 global_label CommentaryData_ACDC_Town_Area_5
-    .incbin "text/commentary/offline/ACDC_Town/06B5614.script"
+    .incbin "text/commentary/offline/ACDC/06B5614.script"
 global_label CommentaryData_ACDC_Town_Area_6
-    .incbin "text/commentary/offline/ACDC_Town/06B655C.script"
+    .incbin "text/commentary/offline/ACDC/06B655C.script"
 global_label CommentaryData_ACDC_Town_Area_7
-    .incbin "text/commentary/offline/ACDC_Town/06B749C.script"
+    .incbin "text/commentary/offline/ACDC/06B749C.script"
 global_label CommentaryData_ACDC_Town_Area_9
-    .incbin "text/commentary/offline/ACDC_Town/06B8510.script"
+    .incbin "text/commentary/offline/ACDC/06B8510.script"
 global_label CommentaryData_ACDC_Town_Area_B
-    .incbin "text/commentary/offline/ACDC_Town/06B9588.script"
+    .incbin "text/commentary/offline/ACDC/06B9588.script"
 global_label CommentaryData_ACDC_Town_Area_C
-    .incbin "text/commentary/offline/ACDC_Town/06BA440.script"
+    .incbin "text/commentary/offline/ACDC/06BA440.script"
 global_label CommentaryData_ACDC_Town_Area_D
-    .incbin "text/commentary/offline/ACDC_Town/06BB4AC.script"
+    .incbin "text/commentary/offline/ACDC/06BB4AC.script"
 
 global_label CommentaryData_Govt_Complex_Area_0
-    .incbin "text/commentary/offline/Govt_Complex/06BB938.script"
+    .incbin "text/commentary/offline/Govt/06BB938.script"
 global_label CommentaryData_Govt_Complex_Area_1
-    .incbin "text/commentary/offline/Govt_Complex/06BC90C.script"
+    .incbin "text/commentary/offline/Govt/06BC90C.script"
 global_label CommentaryData_Govt_Complex_Area_2
-    .incbin "text/commentary/offline/Govt_Complex/06BD8DC.script"
+    .incbin "text/commentary/offline/Govt/06BD8DC.script"
 global_label CommentaryData_Govt_Complex_Area_3
-    .incbin "text/commentary/offline/Govt_Complex/06BE8CC.script"
+    .incbin "text/commentary/offline/Govt/06BE8CC.script"
 global_label CommentaryData_Govt_Complex_Area_4
-    .incbin "text/commentary/offline/Govt_Complex/06BF8C8.script"
+    .incbin "text/commentary/offline/Govt/06BF8C8.script"
 global_label CommentaryData_Govt_Complex_Area_5
-    .incbin "text/commentary/offline/Govt_Complex/06C08C8.script"
+    .incbin "text/commentary/offline/Govt/06C08C8.script"
 global_label CommentaryData_Govt_Complex_Area_6
-    .incbin "text/commentary/offline/Govt_Complex/06C18A0.script"
+    .incbin "text/commentary/offline/Govt/06C18A0.script"
 global_label CommentaryData_Govt_Complex_Area_7
-    .incbin "text/commentary/offline/Govt_Complex/06C2784.script"
+    .incbin "text/commentary/offline/Govt/06C2784.script"
 global_label CommentaryData_Govt_Complex_Area_9
-    .incbin "text/commentary/offline/Govt_Complex/06C354C.script"
+    .incbin "text/commentary/offline/Govt/06C354C.script"
 global_label CommentaryData_Govt_Complex_Area_B
-    .incbin "text/commentary/offline/Govt_Complex/06C42CC.script"
+    .incbin "text/commentary/offline/Govt/06C42CC.script"
 
 global_label CommentaryData_DenTown_Area_0
     .incbin "text/commentary/offline/DenTown/06C504C.script"
@@ -122,15 +122,15 @@ global_label CommentaryData_SciLab_Area_5
     .incbin "text/commentary/offline/SciLab/06CF2AC.script"
 
 global_label CommentaryData_WWW_Base_Area_0
-    .incbin "text/commentary/offline/WWW_Base/06CF65C.script"
+    .incbin "text/commentary/offline/WWW/06CF65C.script"
 global_label CommentaryData_WWW_Base_Area_1
-    .incbin "text/commentary/offline/WWW_Base/06CFA54.script"
+    .incbin "text/commentary/offline/WWW/06CFA54.script"
 global_label CommentaryData_WWW_Base_Area_3
-    .incbin "text/commentary/offline/WWW_Base/06CFEA8.script"
+    .incbin "text/commentary/offline/WWW/06CFEA8.script"
 global_label CommentaryData_WWW_Base_Area_4
-    .incbin "text/commentary/offline/WWW_Base/06D02A0.script"
+    .incbin "text/commentary/offline/WWW/06D02A0.script"
 global_label CommentaryData_WWW_Base_Area_5
-    .incbin "text/commentary/offline/WWW_Base/06D0698.script"
+    .incbin "text/commentary/offline/WWW/06D0698.script"
 
 global_label CommentaryData_School_Comp_Area_0
     .incbin "text/commentary/online/School_Comp/06D0A90.script"
@@ -204,9 +204,9 @@ global_label CommentaryData_ACDC_HP_Area_3
     .incbin "text/commentary/online/ACDC_HP/06D8E68.script"
 
 global_label CommentaryData_Govt_Complex_HP_Area_0
-    .incbin "text/commentary/online/Govt_Complex_HP/06D9CF4.script"
+    .incbin "text/commentary/online/Govt_HP/06D9CF4.script"
 global_label CommentaryData_Govt_Complex_HP_Area_1
-    .incbin "text/commentary/online/Govt_Complex_HP/06DAAEC.script"
+    .incbin "text/commentary/online/Govt_HP/06DAAEC.script"
 
 global_label CommentaryData_DenTown_HP_Area_0
     .incbin "text/commentary/online/DenTown_HP/06DB918.script"
@@ -274,75 +274,75 @@ global_label CommentaryData_Internet_Area_E
 global_label CommentaryData_Internet_Area_F
     .incbin "text/commentary/online/Internet/06E3548.script"
 
-global_label DialogueData_ACDC_Elementary_Area_0
-    .incbin "text/dialogue/offline/ACDC_Elementary/06E35F0.script"
-global_label DialogueData_ACDC_Elementary_Area_1
-    .incbin "text/dialogue/offline/ACDC_Elementary/06E6934.script"
-global_label DialogueData_ACDC_Elementary_Area_2
-    .incbin "text/dialogue/offline/ACDC_Elementary/06E7288.script"
-global_label DialogueData_ACDC_Elementary_Area_3
-    .incbin "text/dialogue/offline/ACDC_Elementary/06E7D14.script"
-global_label DialogueData_ACDC_Elementary_Area_5
-    .incbin "text/dialogue/offline/ACDC_Elementary/06E86E8.script"
-global_label DialogueData_ACDC_Elementary_Area_6
-    .incbin "text/dialogue/offline/ACDC_Elementary/06E8E0C.script"
-global_label DialogueData_ACDC_Elementary_Area_7
-    .incbin "text/dialogue/offline/ACDC_Elementary/06E9A08.script"
-global_label DialogueData_ACDC_Elementary_Area_8
-    .incbin "text/dialogue/offline/ACDC_Elementary/06EA518.script"
-global_label DialogueData_ACDC_Elementary_Area_9
-    .incbin "text/dialogue/offline/ACDC_Elementary/06EAEC8.script"
-global_label DialogueData_ACDC_Elementary_Area_B
-    .incbin "text/dialogue/offline/ACDC_Elementary/06EB730.script"
-global_label DialogueData_ACDC_Elementary_Area_C
-    .incbin "text/dialogue/offline/ACDC_Elementary/06EBC18.script"
-global_label DialogueData_ACDC_Elementary_Area_D
-    .incbin "text/dialogue/offline/ACDC_Elementary/06EC6E0.script"
-global_label DialogueData_ACDC_Elementary_Area_E
-    .incbin "text/dialogue/offline/ACDC_Elementary/06ECFA0.script"
+global_label DialogueData_School_Class_5A
+    .incbin "data/maps/offline/School_Class_5A.dialogue"
+global_label DialogueData_School_Class_5B
+    .incbin "data/maps/offline/School_Class_5B.dialogue"
+global_label DialogueData_School_Library
+    .incbin "data/maps/offline/School_Library.dialogue"
+global_label DialogueData_School_2F_Hallway
+    .incbin "data/maps/offline/School_2F_Hallway.dialogue"
+global_label DialogueData_School_Class_1A
+    .incbin "data/maps/offline/School_Class_1A.dialogue"
+global_label DialogueData_School_Class_1B
+    .incbin "data/maps/offline/School_Class_1B.dialogue"
+global_label DialogueData_School_AV_Room
+    .incbin "data/maps/offline/School_AV_Room.dialogue"
+global_label DialogueData_School_Infirmary
+    .incbin "data/maps/offline/School_Infirmary.dialogue"
+global_label DialogueData_School_1F_Hallway
+    .incbin "data/maps/offline/School_1F_Hallway.dialogue"
+global_label DialogueData_School_Cross_Hallway
+    .incbin "data/maps/offline/School_Cross_Hallway.dialogue"
+global_label DialogueData_School_Storage
+    .incbin "data/maps/offline/School_Storage.dialogue"
+global_label DialogueData_School_Staff_Lounge
+    .incbin "data/maps/offline/School_Staff_Lounge.dialogue"
+global_label DialogueData_School_Staff_Lounge_Hallway
+    .incbin "data/maps/offline/School_Staff_Lounge_Hallway.dialogue"
 
 global_label DialogueData_ACDC_Town_Area_0
-    .incbin "text/dialogue/offline/ACDC_Town/06ED680.script"
+    .incbin "text/dialogue/offline/ACDC/06ED680.script"
 global_label DialogueData_ACDC_Town_Area_1
-    .incbin "text/dialogue/offline/ACDC_Town/06F1564.script"
+    .incbin "text/dialogue/offline/ACDC/06F1564.script"
 global_label DialogueData_ACDC_Town_Area_2
-    .incbin "text/dialogue/offline/ACDC_Town/06F1DC4.script"
+    .incbin "text/dialogue/offline/ACDC/06F1DC4.script"
 global_label DialogueData_ACDC_Town_Area_3
-    .incbin "text/dialogue/offline/ACDC_Town/06F2DD4.script"
+    .incbin "text/dialogue/offline/ACDC/06F2DD4.script"
 global_label DialogueData_ACDC_Town_Area_5
-    .incbin "text/dialogue/offline/ACDC_Town/06F3818.script"
+    .incbin "text/dialogue/offline/ACDC/06F3818.script"
 global_label DialogueData_ACDC_Town_Area_6
-    .incbin "text/dialogue/offline/ACDC_Town/06F3DC4.script"
+    .incbin "text/dialogue/offline/ACDC/06F3DC4.script"
 global_label DialogueData_ACDC_Town_Area_7
-    .incbin "text/dialogue/offline/ACDC_Town/06F44DC.script"
+    .incbin "text/dialogue/offline/ACDC/06F44DC.script"
 global_label DialogueData_ACDC_Town_Area_9
-    .incbin "text/dialogue/offline/ACDC_Town/06F5504.script"
+    .incbin "text/dialogue/offline/ACDC/06F5504.script"
 global_label DialogueData_ACDC_Town_Area_B
-    .incbin "text/dialogue/offline/ACDC_Town/06F6330.script"
+    .incbin "text/dialogue/offline/ACDC/06F6330.script"
 global_label DialogueData_ACDC_Town_Area_C
-    .incbin "text/dialogue/offline/ACDC_Town/06F76A4.script"
+    .incbin "text/dialogue/offline/ACDC/06F76A4.script"
 
 @ Quirk: Blank script the same size as the one for area 12, but empty
-    .incbin "text/dialogue/offline/ACDC_Town/06F8DD4.script"
+    .incbin "text/dialogue/offline/ACDC/06F8DD4.script"
 
 global_label DialogueData_Govt_Complex_Area_0
-    .incbin "text/dialogue/offline/Govt_Complex/06F9180.script"
+    .incbin "text/dialogue/offline/Govt/06F9180.script"
 global_label DialogueData_Govt_Complex_Area_1
-    .incbin "text/dialogue/offline/Govt_Complex/06FAD74.script"
+    .incbin "text/dialogue/offline/Govt/06FAD74.script"
 global_label DialogueData_Govt_Complex_Area_2
-    .incbin "text/dialogue/offline/Govt_Complex/06FB7E0.script"
+    .incbin "text/dialogue/offline/Govt/06FB7E0.script"
 global_label DialogueData_Govt_Complex_Area_3
-    .incbin "text/dialogue/offline/Govt_Complex/06FD444.script"
+    .incbin "text/dialogue/offline/Govt/06FD444.script"
 global_label DialogueData_Govt_Complex_Area_5
-    .incbin "text/dialogue/offline/Govt_Complex/06FF324.script"
+    .incbin "text/dialogue/offline/Govt/06FF324.script"
 global_label DialogueData_Govt_Complex_Area_6
-    .incbin "text/dialogue/offline/Govt_Complex/0700A24.script"
+    .incbin "text/dialogue/offline/Govt/0700A24.script"
 global_label DialogueData_Govt_Complex_Area_7
-    .incbin "text/dialogue/offline/Govt_Complex/07018DC.script"
+    .incbin "text/dialogue/offline/Govt/07018DC.script"
 global_label DialogueData_Govt_Complex_Area_9
-    .incbin "text/dialogue/offline/Govt_Complex/0702C94.script"
+    .incbin "text/dialogue/offline/Govt/0702C94.script"
 global_label DialogueData_Govt_Complex_Area_B
-    .incbin "text/dialogue/offline/Govt_Complex/070365C.script"
+    .incbin "text/dialogue/offline/Govt/070365C.script"
 
 global_label DialogueData_DenTown_Area_0
     .incbin "text/dialogue/offline/DenTown/0704314.script"
@@ -375,19 +375,19 @@ global_label DialogueData_SciLab_Area_5
     .incbin "text/dialogue/offline/SciLab/070E920.script"
 
 global_label DialogueData_WWW_Base_Area_0
-    .incbin "text/dialogue/offline/WWW_Base/070E964.script"
+    .incbin "text/dialogue/offline/WWW/070E964.script"
 global_label DialogueData_WWW_Base_Area_1
-    .incbin "text/dialogue/offline/WWW_Base/070F288.script"
+    .incbin "text/dialogue/offline/WWW/070F288.script"
 global_label DialogueData_WWW_Base_Area_2
-    .incbin "text/dialogue/offline/WWW_Base/070FCE4.script"
+    .incbin "text/dialogue/offline/WWW/070FCE4.script"
 global_label DialogueData_WWW_Base_Area_3
-    .incbin "text/dialogue/offline/WWW_Base/070FD4C.script"
+    .incbin "text/dialogue/offline/WWW/070FD4C.script"
     @ Quirk: Script for area 4 included twice
-    .incbin "text/dialogue/offline/WWW_Base/071047C.script"
+    .incbin "text/dialogue/offline/WWW/071047C.script"
 global_label DialogueData_WWW_Base_Area_4
-    .incbin "text/dialogue/offline/WWW_Base/071047C.script"
+    .incbin "text/dialogue/offline/WWW/071047C.script"
 global_label DialogueData_WWW_Base_Area_5
-    .incbin "text/dialogue/offline/WWW_Base/0710740.script"
+    .incbin "text/dialogue/offline/WWW/0710740.script"
 
 global_label DialogueData_School_Comp_Area_0
     .incbin "text/dialogue/online/School_Comp/0710BAC.script"
@@ -461,9 +461,9 @@ global_label DialogueData_ACDC_HP_Area_3
     .incbin "text/dialogue/online/ACDC_HP/071F8E8.script"
 
 global_label DialogueData_Govt_Complex_HP_Area_0
-    .incbin "text/dialogue/online/Govt_Complex_HP/071FB4C.script"
+    .incbin "text/dialogue/online/Govt_HP/071FB4C.script"
 global_label DialogueData_Govt_Complex_HP_Area_1
-    .incbin "text/dialogue/online/Govt_Complex_HP/07200AC.script"
+    .incbin "text/dialogue/online/Govt_HP/07200AC.script"
 
 global_label DialogueData_DenTown_HP_Area_0
     .incbin "text/dialogue/online/DenTown_HP/0720314.script"

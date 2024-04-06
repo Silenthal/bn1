@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import argparse
 import io
-import os
 import shlex
 from pathlib import Path
 from typing import List, Union
@@ -1815,20 +1814,16 @@ def text_bold(*txtList):
 # endregion
 
 
-def make_out_path(inPath: Path, outName: Path) -> Path:
-    return Path(os.path.join(os.path.dirname(inPath), os.path.basename(outName)))
-
-
 def main():
     global curScript
     parser = argparse.ArgumentParser(
         description="Builds Mega Man Battle Network text scripts."
     )
-    parser.add_argument("output", type=str, help="The output directory.")
+    parser.add_argument("output", type=str, help="The output file.")
     parser.add_argument("input", type=str, help="The input file.")
     args = parser.parse_args()
     inPath = Path(args.input)
-    outPath = make_out_path(inPath, Path(args.output))
+    outPath = Path(args.output)
     if not inPath.exists():
         exit(f"Couldn't find file {inPath}")
     with open(inPath, mode="r") as inFile:

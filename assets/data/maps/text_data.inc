@@ -29,21 +29,22 @@ global_label DialogueData_Battle
     .word DialogueData_Battle_Other
 
 DialogueData_School:
-    .word DialogueData_ACDC_Elementary_Area_0
-    .word DialogueData_ACDC_Elementary_Area_1
-    .word DialogueData_ACDC_Elementary_Area_2
-    .word DialogueData_ACDC_Elementary_Area_3
+    .word DialogueData_School_Class_5A
+    .word DialogueData_School_Class_5B
+    .word DialogueData_School_Library
+    .word DialogueData_School_2F_Hallway
     .word 0
-    .word DialogueData_ACDC_Elementary_Area_5
-    .word DialogueData_ACDC_Elementary_Area_6
-    .word DialogueData_ACDC_Elementary_Area_7
-    .word DialogueData_ACDC_Elementary_Area_8
-    .word DialogueData_ACDC_Elementary_Area_9
+    .word DialogueData_School_Class_1A
+    .word DialogueData_School_Class_1B
+    .word DialogueData_School_AV_Room
+    .word DialogueData_School_Infirmary
+    .word DialogueData_School_1F_Hallway
     .word 0
-    .word DialogueData_ACDC_Elementary_Area_B
-    .word DialogueData_ACDC_Elementary_Area_C
-    .word DialogueData_ACDC_Elementary_Area_D
-    .word DialogueData_ACDC_Elementary_Area_E
+    .word DialogueData_School_Cross_Hallway
+    .word DialogueData_School_Storage
+    .word DialogueData_School_Staff_Lounge
+    .word DialogueData_School_Staff_Lounge_Hallway
+
 DialogueData_ACDC:
     .word DialogueData_ACDC_Town_Area_0
     .word DialogueData_ACDC_Town_Area_1
@@ -202,21 +203,21 @@ CommentaryData_Online:
 CommentaryData_Battle:
     .word PTR_080151c0
 CommentaryData_School:
-    .word CommentaryData_ACDC_Elementary_Area_0
-    .word CommentaryData_ACDC_Elementary_Area_1
-    .word CommentaryData_ACDC_Elementary_Area_2
-    .word CommentaryData_ACDC_Elementary_Area_3
+    .word CommentaryData_School_Class_5A
+    .word CommentaryData_School_Class_5B
+    .word CommentaryData_School_Library
+    .word CommentaryData_School_2F_Hallway
     .word CommentaryData_None
-    .word CommentaryData_ACDC_Elementary_Area_5
-    .word CommentaryData_ACDC_Elementary_Area_6
-    .word CommentaryData_ACDC_Elementary_Area_7
-    .word CommentaryData_ACDC_Elementary_Area_8
-    .word CommentaryData_ACDC_Elementary_Area_9
+    .word CommentaryData_School_Class_1A
+    .word CommentaryData_School_Class_1B
+    .word CommentaryData_School_AV_Room
+    .word CommentaryData_School_Infirmary
+    .word CommentaryData_School_1F_Hallway
     .word CommentaryData_None
-    .word CommentaryData_ACDC_Elementary_Area_B
-    .word CommentaryData_ACDC_Elementary_Area_C
-    .word CommentaryData_ACDC_Elementary_Area_D
-    .word CommentaryData_ACDC_Elementary_Area_E
+    .word CommentaryData_School_Cross_Hallway
+    .word CommentaryData_School_Storage
+    .word CommentaryData_School_Staff_Lounge
+    .word CommentaryData_School_Staff_Lounge_Hallway
 CommentaryData_ACDC:
     .word CommentaryData_ACDC_Town_Area_0
     .word CommentaryData_ACDC_Town_Area_1
