@@ -9,19 +9,19 @@
     .thumb
 
 dummy_113e4:
-    .word dummy_ACDC_Elementary
-    .word 0x802a515 @ dummy_2a514
+    .word dummy_School
+    .word 0x802a515 @ dummy_ACDC
     .word 0x8031319 @ dummy_31318
     .word 0x8035edd @ dummy_35edc
     .word 0x803bd91 @ dummy_3bd90
     .word 0x803d87d @ dummy_3d87c
 listGraphicDataSetup_Offline:
-    .word GraphicDataSetup_ACDC_Elementary
-    .word 0x802a519 @ GraphicDataSetup_ACDC_Town
-    .word 0x803131d @ GraphicDataSetup_Govt_Complex
+    .word GraphicDataSetup_School
+    .word 0x802a519 @ GraphicDataSetup_ACDC
+    .word 0x803131d @ GraphicDataSetup_Govt
     .word 0x8035ee1 @ GraphicDataSetup_DenTown
     .word 0x803bd95 @ GraphicDataSetup_SciLab
-    .word 0x803d881 @ GraphicDataSetup_WWW_Base
+    .word 0x803d881 @ GraphicDataSetup_WWW
 dummy_11414:
     .word 0x8040509 @ dummy_40508
     .word 0x8043149 @ dummy_43148

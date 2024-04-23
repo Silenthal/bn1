@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-global_label mapExitList_ACDC_Elementary
+global_label mapExitList_School
     .word mapExitList_School_Class_5A
     .word mapExitList_School_Class_5B
     .word mapExitList_School_Library

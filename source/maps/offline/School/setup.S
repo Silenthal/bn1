@@ -3,15 +3,15 @@
     .include "macros.inc"
 
 
-_ts dummy_ACDC_Elementary
+_ts dummy_School
     push       {lr}
     pop        {pc}
 
 
-_ts GraphicDataSetup_ACDC_Elementary
+_ts GraphicDataSetup_School
     push       {lr}
     mov        r7,r10
-    ldr        r0,PTR_mapExitList_ACDC_Elementary_08024330
+    ldr        r0,PTR_mapExitList_School_08024330
     ldr        r1,[r7,#0x2c]
     ldr        r2,[r7,#0x8]
     ldrb       r3,[r2,#0x5]
@@ -99,8 +99,10 @@ spriteList_School_Staff_Lounge:
 spriteList_School_None:
     .short -1
 
-PTR_mapExitList_ACDC_Elementary_08024330:
-    .word mapExitList_ACDC_Elementary
+    .align 2, 0
+
+PTR_mapExitList_School_08024330:
+    .word mapExitList_School
 PTR_gDstCompressedSpriteData_08024334:
     .word gDstCompressedSpriteData
 PTR_PTR_spriteList_School_Class_5A_08024338:

@@ -197,7 +197,7 @@ eventHandler_School_S5:
     .word EventHandler_School_Staff_Lounge_Hallway_S5
     .word EventHandler_Default
 
-global_label mapDialogue_ACDC_Elementary
+global_label mapDialogue_School
     .word mapDialogue_School_Class_5A
     .word mapDialogue_School_Class_5B
     .word mapDialogue_School_Library

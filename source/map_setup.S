@@ -136,12 +136,12 @@ eventHandler_None:
     .word EventHandler_Default
     .word EventHandler_Default
 mapDialogue_Offline:
-    .word mapDialogue_ACDC_Elementary
-    .word 0x802a8dc @ mapDialogue_ACDC_Town
-    .word 0x8031590 @ mapDialogue_Govt_Complex
+    .word mapDialogue_School
+    .word 0x802a8dc @ mapDialogue_ACDC
+    .word 0x8031590 @ mapDialogue_Govt
     .word 0x80360ac @ mapDialogue_Dentown
     .word 0x803bed0 @ mapDialogue_SciLab
-    .word 0x803d9b0 @ mapDialogue_WWW_Base
+    .word 0x803d9b0 @ mapDialogue_WWW
 mapDialogue_Online:
     .word 0
     .word 0

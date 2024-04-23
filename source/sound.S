@@ -152,11 +152,11 @@ _ts Sound_AreaSongChange
     push       { lr }
     mov        r7,r10
     ldr        r7,[r7,#0x8]
-    ldr        r6,PTR_songTableRealWorld_080007a8
+    ldr        r6,PTR_songTableOffline_080007a8
     ldrb       r0,[r7,#0x4]
     cmp        r0,#0x80
     bmi        LAB_08000756
-    ldr        r6,PTR_songTableInternet_080007ac
+    ldr        r6,PTR_songTableOnline_080007ac
     sub        r0,#0x80
 LAB_08000756:
     lsl        r0,r0,#0x2
@@ -200,18 +200,18 @@ LAB_080007a0:
 LAB_080007a6:
     pop        { pc }
 
-PTR_songTableRealWorld_080007a8:        .word songTableRealWorld
-PTR_songTableInternet_080007ac:         .word songTableInternet
+PTR_songTableOffline_080007a8:        .word songTableOffline
+PTR_songTableOnline_080007ac:         .word songTableOnline
 
-songTableRealWorld:
-    .word songGroup_ACCD_Elementary
-    .word songGroup_ACDC_Town
-    .word songGroup_GovernmentComplex
+songTableOffline:
+    .word songGroup_School
+    .word songGroup_ACDC
+    .word songGroup_Govt
     .word songGroup_DenTown
-    .word songGroup_SciLab_Basement
-    .word songGroup_WWW_Base
+    .word songGroup_SciLab
+    .word songGroup_WWW
 
-songTableInternet:
+songTableOnline:
     .word songGroup_School_Comp
     .word songGroup_Oven_Comp
     .word songGroup_Waterworks_Comp
@@ -230,7 +230,7 @@ songTableInternet:
     .word songGroup_Oven_Comp
     .word songGroup_Internet
 
-songGroup_ACCD_Elementary:
+songGroup_School:
     .byte T_School
     .byte T_School
     .byte T_School
@@ -247,7 +247,7 @@ songGroup_ACCD_Elementary:
     .byte T_School
     .byte T_School
     .byte T_School
-songGroup_ACDC_Town:
+songGroup_ACDC:
     .byte T_Home_Town
     .byte T_Home_Town
     .byte T_In_The_Room
@@ -264,7 +264,7 @@ songGroup_ACDC_Town:
     .byte T_Home_Town
     .byte T_Home_Town
     .byte T_Home_Town
-songGroup_GovernmentComplex:
+songGroup_Govt:
     .byte T_Home_Town
     .byte T_Home_Town
     .byte T_In_The_Room
@@ -298,7 +298,7 @@ songGroup_DenTown:
     .byte T_In_The_Room
     .byte T_In_The_Room
     .byte T_In_The_Room
-songGroup_SciLab_Basement:
+songGroup_SciLab:
     .byte T_In_The_Room
     .byte T_In_The_Room
     .byte T_In_The_Room
@@ -315,7 +315,7 @@ songGroup_SciLab_Basement:
     .byte T_In_The_Room
     .byte T_In_The_Room
     .byte T_In_The_Room
-songGroup_WWW_Base:
+songGroup_WWW:
     .byte T_Suspicious_Mood
     .byte T_Suspicious_Mood
     .byte T_Suspicious_Mood

@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-mapExitList_ACDC:
+global_label mapExitList_ACDC
     .word mapExitList_ACDC_Town
     .word mapExitList_ACDC_School_Gate
     .word mapExitList_ACDC_Lan_Living_Room

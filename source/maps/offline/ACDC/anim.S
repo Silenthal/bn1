@@ -25,12 +25,12 @@ global_label BgTask_08029F2C
 
 global_label BgTask_08029F44
     task_tileset slot=2, src=0x8770C54, dst=0x6000020, count=0x22, bufIndex=7, delay=1
-    task_tileset_arg 0x802A3F4
+    task_tileset_arg TransferArgs_0802A3F4
     task_stop
 
 global_label BgTask_08029F5C
     task_tileset slot=3, src=0x8770C54, dst=0x6003B40, count=0x5, bufIndex=8, delay=1
-    task_tileset_arg 0x802A438
+    task_tileset_arg TransferArgs_0802A438
     task_stop
 
 global_label BgTask_08029F74
@@ -40,22 +40,22 @@ global_label BgTask_08029F74
 
 global_label BgTask_08029F8C
     task_tileset slot=5, src=0x8770134, dst=0x6003500, count=0x32, bufIndex=9, delay=1
-    task_tileset_arg 0x802A444
+    task_tileset_arg TransferArgs_0802A444
     task_stop
 
 global_label BgTask_08029FA4
     task_tileset slot=6, src=0x8770134, dst=0x6007F60, count=0x2, bufIndex=10, delay=1
-    task_tileset_arg 0x802A4A8
+    task_tileset_arg TransferArgs_0802A4A8
     task_stop
 
 global_label BgTask_08029FBC
     task_tileset slot=5, src=0x8770134, dst=0x6003500, count=0x32, bufIndex=9, delay=1
-    task_tileset_arg 0x802A4AC
+    task_tileset_arg TransferArgs_0802A4AC
     task_stop
 
 global_label BgTask_08029FD4
     task_tileset slot=6, src=0x8770134, dst=0x6007F60, count=0x2, bufIndex=10, delay=1
-    task_tileset_arg 0x802A510
+    task_tileset_arg TransferArgs_0802A510
     task_stop
 
 global_label BgTask_08029FEC
@@ -204,30 +204,18 @@ global_label BgTask_0802A374
     task_repeat
 
 TransferArgs_0802A3A4:
-
-    .short 0x0, 0x1, 0x2, 0x3
-    .short 0x4, 0x5, 0x6, 0x7
-    .short 0x8, 0x9, 0xB, 0xE
-    .short 0x11, 0x12, 0x14, 0x15
-    .short 0x16, 0x17, 0x18, 0x19
-    .short 0x1A, 0x1B, 0x1C, 0x1D
-    .short 0x1E, 0x1F, 0x20, 0x21
-    .short 0x22, 0x23, 0x24, 0x25
-    .short 0x26, 0x27
-
+    .incbin "data/maps/areas/ACDC/002A3A4.tilemap"
 TransferArgs_0802A3E8:
-    .short 0x2, 0xB, 0xF, 0x10
-    .short 0x13
-
-    .align 2, 0
-
+    .incbin "data/maps/areas/ACDC/002A3E8.tilemap"
 TransferArgs_0802A3F4:
-    .short 0x28, 0x29, 0x2A, 0x2B
-    .short 0x2C, 0x2D, 0x2E, 0x2F
-    .short 0x30, 0x31, 0x33, 0x36
-    .short 0x39, 0x3A, 0x3C, 0x3D
-    .short 0x3E, 0x3F, 0x40, 0x41
-    .short 0x42, 0x43, 0x44, 0x45
-    .short 0x46, 0x47, 0x48, 0x49
-    .short 0x4A, 0x4B, 0x4C, 0x4D
-    .short 0x4E, 0x4F
+    .incbin "data/maps/areas/ACDC/002A3F4.tilemap"
+TransferArgs_0802A438:
+    .incbin "data/maps/areas/ACDC/002A438.tilemap"
+TransferArgs_0802A444:
+    .incbin "data/maps/areas/ACDC/002A444.tilemap"
+TransferArgs_0802A4A8:
+    .incbin "data/maps/areas/ACDC/002A4A8.tilemap"
+TransferArgs_0802A4AC:
+    .incbin "data/maps/areas/ACDC/002A4AC.tilemap"
+TransferArgs_0802A510:
+    .incbin "data/maps/areas/ACDC/002A510.tilemap"

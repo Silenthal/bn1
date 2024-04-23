@@ -503,12 +503,12 @@ typedef enum AllocParamEntityType {
 } AllocParamEntityType;
 
 typedef enum AreaId {
-    Area_ACDC_Elementary=0,
-    Area_ACDC_Town=1,
-    Area_Government_Complex=2,
+    Area_School=0,
+    Area_ACDC=1,
+    Area_Govt=2,
     Area_DenTown=3,
-    Area_SciLab_Basement=4,
-    Area_WWW_Base=5,
+    Area_SciLab=4,
+    Area_WWW=5,
     Area_SchoolComp=128,
     Area_OvenComp=129,
     Area_WaterworksComp=130,
