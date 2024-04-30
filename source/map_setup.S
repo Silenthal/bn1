@@ -8,83 +8,83 @@
     .set Scene_JackIn, 0x8083eec+1
     .set Script_ShowDialogue, 0x80848fc+1
 
-flagSetup_Offline:
+FlagSetup_Offline:
     .word FlagSetup_School
-    .word 0x802a5f4 @ FlagSetup_ACDC
+    .word FlagSetup_ACDC
     .word 0x80313c8 @ FlagSetup_Govt
-    .word 0x8035fa4 @ flagSetup_DenTown
-    .word 0x803be28 @ flagSetup_Scilab
+    .word 0x8035fa4 @ FlagSetup_DenTown
+    .word 0x803be28 @ FlagSetup_Scilab
     .word 0x803d908 @ FlagSetup_WWW
-mapSetup_Offline:
+MapSetup_Offline:
     .word MapSetup_School
-    .word 0x802a60c @ MapSetup_ACDC
-    .word 0x80313e0 @ mapSetup_Govt
-    .word 0x8035fbc @ mapSetup_DenTown
-    .word 0x803be40 @ mapSetup_SciLab
-    .word 0x803d920 @ mapSetup_WWW
-eventHandler_Offline:
-    .word eventHandler_School
-    .word 0x802a774 @ eventHandler_ACDC
-    .word 0x80314b8 @ eventHandler_Govt
-    .word 0x8036034 @ eventHandler_DenTown
-    .word 0x803be88 @ eventHandler_SciLab
-    .word 0x803d968 @ eventHandler_WWW
-flagSetup_Online:
-    .word 0x80405ac @ flagSetup_School_Comp
-    .word 0x80431d0 @ flagSetup_Oven_Comp
-    .word 0x80457b0 @ flagSetup_Waterworks_Comp
-    .word 0x8047ef8 @ flagSetup_Traffic_Light_Comp
-    .word 0x804a1bc @ flagSetup_Power_Plant_Comp
-    .word 0x804d22c @ flagSetup_WWW_Comp
-    .word flagSetup_None
-    .word flagSetup_None
-    .word 0x804efa0 @ flagSetup_ACDC_HP
+    .word MapSetup_ACDC
+    .word 0x80313e0 @ MapSetup_Govt
+    .word 0x8035fbc @ MapSetup_DenTown
+    .word 0x803be40 @ MapSetup_SciLab
+    .word 0x803d920 @ MapSetup_WWW
+EventHandler_Offline:
+    .word EventHandler_School
+    .word EventHandler_ACDC
+    .word 0x80314b8 @ EventHandler_Govt
+    .word 0x8036034 @ EventHandler_DenTown
+    .word 0x803be88 @ EventHandler_SciLab
+    .word 0x803d968 @ EventHandler_WWW
+FlagSetup_Online:
+    .word 0x80405ac @ FlagSetup_School_Comp
+    .word 0x80431d0 @ FlagSetup_Oven_Comp
+    .word 0x80457b0 @ FlagSetup_Waterworks_Comp
+    .word 0x8047ef8 @ FlagSetup_Traffic_Light_Comp
+    .word 0x804a1bc @ FlagSetup_Power_Plant_Comp
+    .word 0x804d22c @ FlagSetup_WWW_Comp
+    .word FlagSetup_None
+    .word FlagSetup_None
+    .word 0x804efa0 @ FlagSetup_ACDC_HP
     .word 0x804f8b4 @ FlagSetup_Govt_HP
-    .word 0x804fe64 @ flagSetup_DenTown_HP
-    .word 0x8050120 @ flagSetup_SciLab_HP
-    .word 0x805048c @ flagSetup_Other_Comp
-    .word flagSetup_None
-    .word flagSetup_None
-    .word flagSetup_None
-    .word 0x8051e18 @ flagSetup_Internet
-mapSetup_Online:
-    .word 0x80405c4 @ mapSetup_School_Comp
-    .word 0x80431e8 @ mapSetup_Oven_Comp
-    .word 0x80457c8 @ mapSetup_Waterworks_Comp
-    .word 0x8047f10 @ mapSetup_Traffic_Light_Comp
-    .word 0x804a1d4 @ mapSetup_Power_Plant_Comp
-    .word 0x804d244 @ mapSetup_WWW_Comp
-    .word mapSetup_None
-    .word mapSetup_None
-    .word 0x804efb8 @ mapSetup_ACDC_HP
-    .word 0x804f8cc @ mapSetup_Govt_Complex_HP
-    .word 0x804fe7c @ mapSetup_DenTown_HP
-    .word 0x8050138 @ mapSetup_SciLab_HP
-    .word 0x80504a4 @ mapSetup_Other_Comp
-    .word mapSetup_None
-    .word mapSetup_None
-    .word mapSetup_None
-    .word 0x8051e30 @ mapSetup_Internet
-eventHandler_Online:
-    .word 0x8040618 @ eventHandler_School_Comp
-    .word 0x8043218 @ eventHandler_Oven_Comp
-    .word 0x8045840 @ eventHandler_Waterworks_Comp
-    .word 0x8047f8c @ eventHandler_Traffic_Light_Comp
-    .word 0x804a24c @ eventHandler_Power_Plant_Comp
-    .word 0x804d274 @ eventHandler_WWW_Comp
-    .word eventHandler_None
-    .word eventHandler_None
-    .word 0x804efe0 @ eventHandler_ACDC_HP
-    .word 0x804f8fc @ eventHandler_Govt_Complex_HP
-    .word 0x804fe98 @ eventHandler_DenTown_HP
-    .word 0x8050154 @ eventHandler_SciLab_HP
-    .word 0x80504f0 @ eventHandler_Other_Comp
-    .word eventHandler_None
-    .word eventHandler_None
-    .word eventHandler_None
-    .word 0x8051e88 @ eventHandler_Internet
+    .word 0x804fe64 @ FlagSetup_DenTown_HP
+    .word 0x8050120 @ FlagSetup_SciLab_HP
+    .word 0x805048c @ FlagSetup_Other_Comp
+    .word FlagSetup_None
+    .word FlagSetup_None
+    .word FlagSetup_None
+    .word 0x8051e18 @ FlagSetup_Internet
+MapSetup_Online:
+    .word 0x80405c4 @ MapSetup_School_Comp
+    .word 0x80431e8 @ MapSetup_Oven_Comp
+    .word 0x80457c8 @ MapSetup_Waterworks_Comp
+    .word 0x8047f10 @ MapSetup_Traffic_Light_Comp
+    .word 0x804a1d4 @ MapSetup_Power_Plant_Comp
+    .word 0x804d244 @ MapSetup_WWW_Comp
+    .word MapSetup_None
+    .word MapSetup_None
+    .word 0x804efb8 @ MapSetup_ACDC_HP
+    .word 0x804f8cc @ MapSetup_Govt_Complex_HP
+    .word 0x804fe7c @ MapSetup_DenTown_HP
+    .word 0x8050138 @ MapSetup_SciLab_HP
+    .word 0x80504a4 @ MapSetup_Other_Comp
+    .word MapSetup_None
+    .word MapSetup_None
+    .word MapSetup_None
+    .word 0x8051e30 @ MapSetup_Internet
+EventHandler_Online:
+    .word 0x8040618 @ EventHandler_School_Comp
+    .word 0x8043218 @ EventHandler_Oven_Comp
+    .word 0x8045840 @ EventHandler_Waterworks_Comp
+    .word 0x8047f8c @ EventHandler_Traffic_Light_Comp
+    .word 0x804a24c @ EventHandler_Power_Plant_Comp
+    .word 0x804d274 @ EventHandler_WWW_Comp
+    .word EventHandler_None
+    .word EventHandler_None
+    .word 0x804efe0 @ EventHandler_ACDC_HP
+    .word 0x804f8fc @ EventHandler_Govt_Complex_HP
+    .word 0x804fe98 @ EventHandler_DenTown_HP
+    .word 0x8050154 @ EventHandler_SciLab_HP
+    .word 0x80504f0 @ EventHandler_Other_Comp
+    .word EventHandler_None
+    .word EventHandler_None
+    .word EventHandler_None
+    .word 0x8051e88 @ EventHandler_Internet
 
-flagSetup_None:
+FlagSetup_None:
     .word FlagSetup_Default
     .word FlagSetup_Default
     .word FlagSetup_Default
@@ -101,7 +101,7 @@ flagSetup_None:
     .word FlagSetup_Default
     .word FlagSetup_Default
     .word FlagSetup_Default
-mapSetup_None:
+MapSetup_None:
     .word MapSetup_Default
     .word MapSetup_Default
     .word MapSetup_Default
@@ -118,7 +118,7 @@ mapSetup_None:
     .word MapSetup_Default
     .word MapSetup_Default
     .word MapSetup_Default
-eventHandler_None:
+EventHandler_None:
     .word EventHandler_Default
     .word EventHandler_Default
     .word EventHandler_Default
@@ -135,14 +135,14 @@ eventHandler_None:
     .word EventHandler_Default
     .word EventHandler_Default
     .word EventHandler_Default
-mapDialogue_Offline:
-    .word mapDialogue_School
-    .word 0x802a8dc @ mapDialogue_ACDC
-    .word 0x8031590 @ mapDialogue_Govt
-    .word 0x80360ac @ mapDialogue_Dentown
-    .word 0x803bed0 @ mapDialogue_SciLab
-    .word 0x803d9b0 @ mapDialogue_WWW
-mapDialogue_Online:
+MapDialogue_Offline:
+    .word MapDialogue_School
+    .word MapDialogue_ACDC
+    .word 0x8031590 @ MapDialogue_Govt
+    .word 0x80360ac @ MapDialogue_Dentown
+    .word 0x803bed0 @ MapDialogue_SciLab
+    .word 0x803d9b0 @ MapDialogue_WWW
+MapDialogue_Online:
     .word 0
     .word 0
     .word 0
@@ -152,7 +152,7 @@ mapDialogue_Online:
     .word 0
     .word 0
     .word 0
-    .word 0x804f92c @ mapDialogue_Govt_Complex_HP
+    .word 0x804f92c @ MapDialogue_Govt_Complex_HP
     .word 0
     .word 0
     .word 0
@@ -454,7 +454,7 @@ _ts MapDialogue_Main
     ldr        r1,PTR_PTR_080187e8
     b          LAB_08018782
 LAB_0801877e:
-    ldr        r1,PTR_mapDialogue_Online_080187ec
+    ldr        r1,PTR_MapDialogue_Online_080187ec
     sub        r6,#0x80
 LAB_08018782:
     lsl        r6,r6,#0x2
@@ -494,17 +494,17 @@ _ts dummy_187a0
 PTR_BYTE_080187c0:
     .word gNpcTalkState
 PTR_PTR_080187c4:
-    .word flagSetup_Offline
+    .word FlagSetup_Offline
 PTR_PTR_080187c8:
-    .word flagSetup_Online
+    .word FlagSetup_Online
 PTR_PTR_080187cc:
-    .word mapSetup_Offline
+    .word MapSetup_Offline
 PTR_PTR_080187d0:
-    .word mapSetup_Online
+    .word MapSetup_Online
 PTR_PTR_080187d4:
-    .word eventHandler_Offline
+    .word EventHandler_Offline
 PTR_PTR_080187d8:
-    .word eventHandler_Online
+    .word EventHandler_Online
 DAT_080187dc:
     .word 0x100
 PTR_Scene_JackOut_080187e0:
@@ -512,8 +512,8 @@ PTR_Scene_JackOut_080187e0:
 PTR_Scene_JackIn_080187e4:
     .word Scene_JackIn
 PTR_PTR_080187e8:
-    .word mapDialogue_Offline
-PTR_mapDialogue_Online_080187ec:
-    .word mapDialogue_Online
+    .word MapDialogue_Offline
+PTR_MapDialogue_Online_080187ec:
+    .word MapDialogue_Online
 PTR_Script_ShowDialogue_080187f0:
     .word Script_ShowDialogue

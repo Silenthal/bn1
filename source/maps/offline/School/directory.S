@@ -18,6 +18,7 @@ global_label MapSetup_School
     .word MapSetup_School_S3
     .word MapSetup_School_S3
     .word MapSetup_School_S5
+
 MapSetup_School_S0:
     .word MapSetup_School_Class_5A_S0
     .word MapSetup_Default
@@ -52,6 +53,7 @@ MapSetup_School_S1:
     .word MapSetup_School_Storage_S1
     .word MapSetup_School_Staff_Lounge_S1
     .word MapSetup_School_Staff_Lounge_Hallway_S1
+
 MapSetup_School_S2:
     .word MapSetup_School_Class_5A_S2
     .word MapSetup_School_Class_5B_S2
@@ -69,6 +71,7 @@ MapSetup_School_S2:
     .word MapSetup_Default
     .word MapSetup_School_Staff_Lounge_Hallway_S2
     .word MapSetup_Default
+
 MapSetup_School_S3:
     .word MapSetup_School_Class_5A_S3
     .word MapSetup_School_Class_5B_S3
@@ -86,6 +89,7 @@ MapSetup_School_S3:
     .word MapSetup_Default
     .word MapSetup_School_Staff_Lounge_Hallway_S3
     .word MapSetup_Default
+
 MapSetup_School_S5:
     .word MapSetup_School_Class_5A_S3
     .word MapSetup_School_Class_5B_S3
@@ -104,15 +108,15 @@ MapSetup_School_S5:
     .word MapSetup_School_Staff_Lounge_Hallway_S5
     .word MapSetup_Default
 
-global_label eventHandler_School
-    .word eventHandler_School_S0
-    .word eventHandler_School_S1
-    .word eventHandler_School_S2
-    .word eventHandler_School_S3
-    .word eventHandler_School_S3
-    .word eventHandler_School_S5
+global_label EventHandler_School
+    .word EventHandler_School_S0
+    .word EventHandler_School_S1
+    .word EventHandler_School_S2
+    .word EventHandler_School_S3
+    .word EventHandler_School_S3
+    .word EventHandler_School_S5
 
-eventHandler_School_S0:
+EventHandler_School_S0:
     .word EventHandler_School_Class_5A_S0
     .word EventHandler_Default
     .word EventHandler_Default
@@ -129,7 +133,8 @@ eventHandler_School_S0:
     .word EventHandler_Default
     .word EventHandler_Default
     .word EventHandler_Default
-eventHandler_School_S1:
+
+EventHandler_School_S1:
     .word EventHandler_School_Class_5A_S1
     .word EventHandler_School_Class_5B_S1
     .word EventHandler_School_Library_S1
@@ -145,7 +150,8 @@ eventHandler_School_S1:
     .word EventHandler_School_Storage_S1
     .word EventHandler_School_Staff_Lounge_S1
     .word EventHandler_School_Staff_Lounge_Hallway_S1
-eventHandler_School_S2:
+
+EventHandler_School_S2:
     .word EventHandler_School_Class_5A_S2
     .word EventHandler_School_Class_5B_S2
     .word EventHandler_School_Library_S2
@@ -162,7 +168,8 @@ eventHandler_School_S2:
     .word EventHandler_Default
     .word EventHandler_School_Staff_Lounge_Hallway_S2
     .word EventHandler_Default
-eventHandler_School_S3:
+
+EventHandler_School_S3:
     .word EventHandler_School_Class_5A_S3
     .word EventHandler_School_Class_5B_S3
     .word EventHandler_School_Library_S3
@@ -179,7 +186,8 @@ eventHandler_School_S3:
     .word EventHandler_Default
     .word EventHandler_School_Staff_Lounge_Hallway_S3
     .word EventHandler_Default
-eventHandler_School_S5:
+
+EventHandler_School_S5:
     .word EventHandler_School_Class_5A_S3
     .word EventHandler_School_Class_5B_S3
     .word EventHandler_School_Library_S3
@@ -197,25 +205,25 @@ eventHandler_School_S5:
     .word EventHandler_School_Staff_Lounge_Hallway_S5
     .word EventHandler_Default
 
-global_label mapDialogue_School
-    .word mapDialogue_School_Class_5A
-    .word mapDialogue_School_Class_5B
-    .word mapDialogue_School_Library
-    .word mapDialogue_School_2F_Hallway
+global_label MapDialogue_School
+    .word MapDialogue_School_Class_5A
+    .word MapDialogue_School_Class_5B
+    .word MapDialogue_School_Library
+    .word MapDialogue_School_2F_Hallway
     .word 0
-    .word mapDialogue_School_Class_1A
-    .word mapDialogue_School_Class_1B
-    .word mapDialogue_School_AV_Room
-    .word mapDialogue_School_Infirmary
-    .word mapDialogue_School_1F_Hallway
+    .word MapDialogue_School_Class_1A
+    .word MapDialogue_School_Class_1B
+    .word MapDialogue_School_AV_Room
+    .word MapDialogue_School_Infirmary
+    .word MapDialogue_School_1F_Hallway
     .word 0
-    .word mapDialogue_School_Cross_Hallway
-    .word mapDialogue_School_Storage
-    .word mapDialogue_School_Staff_Lounge
-    .word mapDialogue_School_Staff_Lounge_Hallway
+    .word MapDialogue_School_Cross_Hallway
+    .word MapDialogue_School_Storage
+    .word MapDialogue_School_Staff_Lounge
+    .word MapDialogue_School_Staff_Lounge_Hallway
     .word 0
 
-mapDialogue_School_Class_5A:
+MapDialogue_School_Class_5A:
     .byte 0xE9
     .byte 0xDD
     .byte 0xDE
@@ -233,7 +241,7 @@ mapDialogue_School_Class_5A:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_Class_5B:
+MapDialogue_School_Class_5B:
     .byte 0xE6
     .byte 0xDD
     .byte 0xDE
@@ -251,7 +259,7 @@ mapDialogue_School_Class_5B:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_Library:
+MapDialogue_School_Library:
     .byte 0xDC
     .byte 0xDD
     .byte 0xDE
@@ -269,7 +277,7 @@ mapDialogue_School_Library:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_2F_Hallway:
+MapDialogue_School_2F_Hallway:
     .byte 0xDC
     .byte 0xFF
     .byte 0xFF
@@ -287,7 +295,7 @@ mapDialogue_School_2F_Hallway:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_Class_1A:
+MapDialogue_School_Class_1A:
     .byte 0xDC
     .byte 0xE5
     .byte 0xDE
@@ -305,7 +313,7 @@ mapDialogue_School_Class_1A:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_Class_1B:
+MapDialogue_School_Class_1B:
     .byte 0xE4
     .byte 0xDD
     .byte 0xDE
@@ -323,7 +331,7 @@ mapDialogue_School_Class_1B:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_AV_Room:
+MapDialogue_School_AV_Room:
     .byte 0xDC
     .byte 0xDD
     .byte 0xDE
@@ -341,7 +349,7 @@ mapDialogue_School_AV_Room:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_Infirmary:
+MapDialogue_School_Infirmary:
     .byte 0xDC
     .byte 0xDD
     .byte 0xDF
@@ -359,7 +367,7 @@ mapDialogue_School_Infirmary:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_1F_Hallway:
+MapDialogue_School_1F_Hallway:
     .byte 0xFF
     .byte 0xFF
     .byte 0xFF
@@ -377,7 +385,7 @@ mapDialogue_School_1F_Hallway:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_Cross_Hallway:
+MapDialogue_School_Cross_Hallway:
     .byte 0xFF
     .byte 0xFF
     .byte 0xFF
@@ -395,7 +403,7 @@ mapDialogue_School_Cross_Hallway:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_Storage:
+MapDialogue_School_Storage:
     .byte 0xDC
     .byte 0xDD
     .byte 0xDE
@@ -413,7 +421,7 @@ mapDialogue_School_Storage:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_Staff_Lounge:
+MapDialogue_School_Staff_Lounge:
     .byte 0xDC
     .byte 0xDD
     .byte 0xDE
@@ -431,7 +439,7 @@ mapDialogue_School_Staff_Lounge:
     .byte 0xFF
     .byte 0xFF
 
-mapDialogue_School_Staff_Lounge_Hallway:
+MapDialogue_School_Staff_Lounge_Hallway:
     .byte 0x02
     .byte 0xFF
     .byte 0xFF

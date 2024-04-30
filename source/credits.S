@@ -837,7 +837,7 @@ CreditsSceneData_0:
     .word CSD_Cam_0
     .word CSD_NPC_0
     .word 0x802A578
-    .word 0x8030D50
+    .word EntityAllocParams_08030D50
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
@@ -919,7 +919,7 @@ CreditsSceneData_5:
     .word CSD_Cam_5
     .word CSD_NPC_5
     .word 0x802A578
-    .word 0x8031024
+    .word EntityAllocParams_08031024
     .word dummy_1cb8
     .word BgUpdate_MoveUp
     .word dummy_6928_far
@@ -933,7 +933,7 @@ CreditsSceneData_6:
     .word CSD_Cam_6
     .word CSD_NPC_6
     .word 0x802A578
-    .word 0x8031024
+    .word EntityAllocParams_08031024
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
