@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import argparse
+import io
 from pathlib import Path
-from typing import BinaryIO, List, Tuple
+from typing import BinaryIO, Tuple
 from common import auto_int, get_byte, get_int, get_short, get_sshort
 
 
@@ -15,7 +16,7 @@ def a_jump(inFile):
 
 
 def a_destroy(inFile):
-    return False, "a_destroy"
+    return True, "a_destroy"
 
 
 def a_jump_if_flag(inFile):
@@ -229,22 +230,26 @@ def interpret(inFile) -> Tuple[bool, str, int]:
     return isDone, textBuf, label
 
 
-def get_text_offset_list(inFile: BinaryIO) -> List[int]:
+def extract_off_list(inFile: BinaryIO) -> str:
     offsetList = []
+    start: int = inFile.tell()
     while True:
         off = get_int(inFile)
         if off == 0xFF:
-            print("Break")
             break
         off -= 0x8000000
         offsetList.append(off)
-    return offsetList
+    output = f"global_label NPCList_{start + 0x8000000:08X}\n"
+    for off in offsetList:
+        output += f"    .word NPC_{off + 0x8000000:08X}\n"
+    output += "    .word 0xFF\n\n"
+    return output
 
 
-def extract_npc_at(inFile: BinaryIO) -> str:
-    output = ""
-    off = inFile.tell()
-    if off & 3 == 0:
+def extract_npc_code(inFile: BinaryIO) -> str:
+    output: str = ""
+    start: int = inFile.tell()
+    if start & 3 == 0:
         output += "    .align 2, 0\n\n"
     scriptBuf = []
     labelList = []
@@ -269,54 +274,26 @@ def extract_npc_at(inFile: BinaryIO) -> str:
             scriptBufTxt.append(f"L_{line[0]:X}:")
         scriptBufTxt.append(line[1])
     scriptBufTxt = "\n".join(scriptBufTxt)
-    output += f"NPC_{(off + 0x8000000):08X}:\n{scriptBufTxt}\n\n"
+    output += f"NPC_{(start + 0x8000000):08X}:\n{scriptBufTxt}\n\n"
     return output
 
 
-def extract_npc(label: str, inFile: BinaryIO) -> str:
-    offsetlist = []
-    output = label + ":\n"
+def extract_npc_list(inFile: BinaryIO) -> str:
+    output: str = ""
     while True:
-        check = inFile.tell()
-        if check in offsetlist:
-            break
-        output += f"NPCList_{inFile.tell() + 0x8000000:08X}:\n"
-        newOffsetlist = get_text_offset_list(inFile)
-        for off in newOffsetlist:
-            output += f"    .word NPC_{off + 0x8000000:08X}\n"
-        output += "    .word 0xFF\n\n"
-        idx = 0
-        offsetlist.extend(newOffsetlist)
-    for off in sorted(set(offsetlist)):
-        if off & 3 == 0:
+        temp = get_int(inFile)
+        inFile.seek(-4, io.SEEK_CUR)
+        if temp > 0x8000000 and temp <= 0x8800000:
+            output += extract_off_list(inFile)
+        elif temp & 0xFF == 8 or temp & 0xFF == 9:
+            output += extract_npc_code(inFile)
+        elif temp & 0xFF == 0:
+            adv = inFile.tell() & 3
+            inFile.seek(4 - adv, io.SEEK_CUR)
             output += "    .align 2, 0\n\n"
-        inFile.seek(off)
-        scriptBuf = []
-        labelList = []
-        while True:
-            lineOff = inFile.tell() + 0x8000000
-            interp = interpret(inFile)
-            if interp[0]:
-                if interp[1] != "":
-                    scriptBuf.append([lineOff, "    " + interp[1]])
-                if interp[2] != -1:
-                    labelList.append(interp[2])
-                nextLine = inFile.tell() + 0x8000000
-                if nextLine not in labelList:
-                    break
-            else:
-                scriptBuf.append([lineOff, "    " + interp[1]])
-                if interp[2] != -1:
-                    labelList.append(interp[2])
-        scriptBufTxt = []
-        for line in scriptBuf:
-            if line[0] in labelList:
-                scriptBufTxt.append(f"L_{line[0]:X}:")
-            scriptBufTxt.append(line[1])
-        scriptBufTxt = "\n".join(scriptBufTxt)
-        output += f"NPC_{(off + 0x8000000):08X}:\n{scriptBufTxt}\n\n"
-        idx += 1
-    output += "    .align 2, 0\n\n"
+        else:
+            print(f"Break reached at {inFile.tell():X}")
+            break
     return output
 
 
@@ -324,9 +301,6 @@ def main():
     parser = argparse.ArgumentParser(description="Extract NPC AI data.")
     parser.add_argument(
         "-o", "--output", type=str, default="", help="The output file name."
-    )
-    parser.add_argument(
-        "-l", "--label", type=str, default="", help="The label for the generated code."
     )
     parser.add_argument("path", type=str, help="The path to the binary.")
     parser.add_argument("offset", type=auto_int, help="The offset into the binary.")
@@ -338,12 +312,10 @@ def main():
     fileSize = inPath.stat().st_size
     if fileOffset >= fileSize:
         exit(f"File offset {fileOffset} is greater than the size of the file {inPath}")
-    label = args.label if args.label else f"NPC_{fileOffset:08X}"
-    outPath = Path(args.output if args.output else f"{fileOffset:08x}.txt")
+    outPath = Path(args.output if args.output else f"{fileOffset:07X}").with_suffix(".txt")
     with open(inPath, mode="rb") as inFile:
         inFile.seek(fileOffset)
-        # result = extract_npc_at(inFile)
-        result = extract_npc(label, inFile)
+        result = extract_npc_list(inFile)
         with open(outPath, "w") as outFile:
             outFile.write(result)
 

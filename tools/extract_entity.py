@@ -4,7 +4,7 @@ import io
 from pathlib import Path
 from typing import BinaryIO
 
-from common import auto_int, get_int
+from common import auto_int, get_byte, get_int, get_short
 
 
 def fix(num: int):
@@ -16,7 +16,7 @@ def fix(num: int):
 
 def extract_entity(inFile: BinaryIO):
     etypeList = {0: "PlayerLocation", 1: "Actor", 2: "Attack", 3: "Effect", 4: "NPC"}
-    out = f"EntityAllocParams_{inFile.tell() + 0x8000000:08X}:\n"
+    out = f"global_label EntityAllocParams_{inFile.tell() + 0x8000000:07X}\n"
     while True:
         v0 = get_int(inFile)
         if v0 == 0xFF:
@@ -33,6 +33,20 @@ def extract_entity(inFile: BinaryIO):
         fm = get_int(inFile)
         out += f"    entity {etypeList[etype]}, 0x{param0:X}, f({x:g}, {y:g}, {z:g}), 0x{fm:X}\n"
     return out
+
+def extract_entity_list(inFile: BinaryIO):
+    output: str = ""
+    while True:
+        type = get_byte(inFile)
+        _ = get_byte(inFile)
+        pad = get_short(inFile)
+        inFile.seek(-4, io.SEEK_CUR)
+        if pad != 0:
+            break
+        if type >= 5:
+            break
+        output += extract_entity(inFile)
+    return output
 
 
 def main():
@@ -52,11 +66,11 @@ def main():
     fileSize = inPath.stat().st_size
     if fileOffset >= fileSize:
         exit(f"File offset {fileOffset} is greater than the size of the file {inPath}")
-    outPath = Path(args.output if args.output else f"{fileOffset:08x}.txt")
+    outPath = Path(args.output if args.output else f"{fileOffset:07X}").with_suffix(".txt")
     with open(inPath, mode="rb") as inFile:
         inFile.seek(fileOffset)
         with open(outPath, "w") as outFile:
-            outFile.write(extract_entity(inFile))
+            outFile.write(extract_entity_list(inFile))
 
 
 if __name__ == "__main__":

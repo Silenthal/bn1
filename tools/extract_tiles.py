@@ -394,7 +394,7 @@ def main():
     fileSize = inPath.stat().st_size
     if fileOffset >= fileSize:
         exit(f"File offset {fileOffset} is greater than the size of the file {inPath}")
-    outPath = Path(f"{fileOffset:08x}.png" if args.output == "" else args.output)
+    outPath = Path(args.output if args.output else f"{fileOffset:07X}").with_suffix(".png")
     tileReader = TileReader()
     tileReader.setBitDepth(args.depth)
     tileReader.setMetaTileWidth(args.meta_tile_width)
