@@ -46,7 +46,7 @@ def extract_task_at(inFile, funcIndex, delay):
 
 def extract_task(inFile):
     offset = inFile.tell()
-    output = f"global_label BgTask_{(offset+0x8000000):08X}\n"
+    output = f"global_label BgTask_{(offset+0x8000000):07X}\n"
     endAddr = get_int(inFile)
     vramDest = get_int(inFile)
     funcIndex = get_byte(inFile)
@@ -103,7 +103,7 @@ def extract_task(inFile):
             scriptBufTxt.append(f"L_{line[0]:X}:")
         scriptBufTxt.append(line[1])
     scriptBufTxt = "\n".join(scriptBufTxt)
-    output += scriptBufTxt
+    output += scriptBufTxt + "\n\n"
     return output
 
 

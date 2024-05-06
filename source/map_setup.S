@@ -3,32 +3,35 @@
     .include "macros.inc"
 
     .set PlayerLocation_Create, 0x8056020
-    .set FUN_080560f8, 0x80560f8
-    .set Scene_JackOut, 0x80836c8+1
-    .set Scene_JackIn, 0x8083eec+1
-    .set Script_ShowDialogue, 0x80848fc+1
+    .set FUN_080560f8, 0x80560F8
+    .set Scene_JackOut, 0x80836C8+1
+    .set Scene_JackIn, 0x8083EEC+1
+    .set Script_ShowDialogue, 0x80848fC+1
 
 FlagSetup_Offline:
     .word FlagSetup_School
     .word FlagSetup_ACDC
-    .word 0x80313c8 @ FlagSetup_Govt
+    .word FlagSetup_Govt
     .word 0x8035fa4 @ FlagSetup_DenTown
     .word 0x803be28 @ FlagSetup_Scilab
     .word 0x803d908 @ FlagSetup_WWW
+
 MapSetup_Offline:
     .word MapSetup_School
     .word MapSetup_ACDC
-    .word 0x80313e0 @ MapSetup_Govt
+    .word MapSetup_Govt
     .word 0x8035fbc @ MapSetup_DenTown
     .word 0x803be40 @ MapSetup_SciLab
     .word 0x803d920 @ MapSetup_WWW
+
 EventHandler_Offline:
     .word EventHandler_School
     .word EventHandler_ACDC
-    .word 0x80314b8 @ EventHandler_Govt
+    .word EventHandler_Govt
     .word 0x8036034 @ EventHandler_DenTown
     .word 0x803be88 @ EventHandler_SciLab
     .word 0x803d968 @ EventHandler_WWW
+
 FlagSetup_Online:
     .word 0x80405ac @ FlagSetup_School_Comp
     .word 0x80431d0 @ FlagSetup_Oven_Comp
@@ -47,6 +50,7 @@ FlagSetup_Online:
     .word FlagSetup_None
     .word FlagSetup_None
     .word 0x8051e18 @ FlagSetup_Internet
+
 MapSetup_Online:
     .word 0x80405c4 @ MapSetup_School_Comp
     .word 0x80431e8 @ MapSetup_Oven_Comp
@@ -65,6 +69,7 @@ MapSetup_Online:
     .word MapSetup_None
     .word MapSetup_None
     .word 0x8051e30 @ MapSetup_Internet
+
 EventHandler_Online:
     .word 0x8040618 @ EventHandler_School_Comp
     .word 0x8043218 @ EventHandler_Oven_Comp
@@ -101,7 +106,8 @@ FlagSetup_None:
     .word FlagSetup_Default
     .word FlagSetup_Default
     .word FlagSetup_Default
-MapSetup_None:
+
+global_label MapSetup_None
     .word MapSetup_Default
     .word MapSetup_Default
     .word MapSetup_Default
@@ -118,7 +124,8 @@ MapSetup_None:
     .word MapSetup_Default
     .word MapSetup_Default
     .word MapSetup_Default
-EventHandler_None:
+
+global_label EventHandler_None
     .word EventHandler_Default
     .word EventHandler_Default
     .word EventHandler_Default
@@ -135,10 +142,11 @@ EventHandler_None:
     .word EventHandler_Default
     .word EventHandler_Default
     .word EventHandler_Default
+
 MapDialogue_Offline:
     .word MapDialogue_School
     .word MapDialogue_ACDC
-    .word 0x8031590 @ MapDialogue_Govt
+    .word MapDialogue_Govt
     .word 0x80360ac @ MapDialogue_Dentown
     .word 0x803bed0 @ MapDialogue_SciLab
     .word 0x803d9b0 @ MapDialogue_WWW
