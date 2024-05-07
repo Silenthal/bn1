@@ -3,6 +3,7 @@ import argparse
 import subprocess
 from pathlib import Path
 from typing import Callable
+from subprocess import check_output
 
 
 def create_object_list_with_pad(
@@ -79,14 +80,20 @@ def parse_layout_file(prefix: Path, fileObjPos: Path):
 
 def main():
     parser = argparse.ArgumentParser(description="Preprocessing.")
-    parser.add_argument("assembler", type=str, help="The path to the assembler.")
-    parser.add_argument("build_dir", type=str, help="The directory for files in the layout file.")
+    parser.add_argument("assembler", type=str, help="The assembler name.")
+    parser.add_argument(
+        "assembler_flags", type=str, help="The flags for the assembler."
+    )
+    parser.add_argument(
+        "build_dir", type=str, help="The directory for files in the layout file."
+    )
     parser.add_argument("layout_file", type=str, help="The path to the layout file.")
     parser.add_argument("base_file", type=str, help="The name of the base file.")
     parser.add_argument(
         "link_file", type=str, help="The name of the linker file to be created."
     )
     args = parser.parse_args()
+    assemblerPath = check_output(["which", args.assembler]).decode("utf-8").strip()
     fileLayout = Path(args.layout_file)
     fileBaseRom = Path(args.base_file)
     buildDir = Path(args.build_dir)
@@ -102,7 +109,8 @@ def main():
             stdout=subprocess.PIPE,
         )
         subprocess.Popen(
-            args.assembler.split() + ["-o", outputName, "-"], stdin=pEcho.stdout
+            [assemblerPath] + args.assembler_flags.split() + ["-o", outputName, "-"],
+            stdin=pEcho.stdout,
         )
 
     maxSize, layDesc = parse_layout_file(buildDir, fileLayout)

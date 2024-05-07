@@ -39,6 +39,7 @@ GEN_PAD			:= python3 $(CURDIR)/$(TOOLS)/generate_padding.py
 GEN_OFFSETS		:= python3 $(CURDIR)/$(TOOLS)/generate_offsets.py
 PROGRESS		:= python3 $(CURDIR)/$(TOOLS)/progress.py
 PARSE_FIXED		:= python3 $(CURDIR)/$(TOOLS)/parse_fixed.py
+QUICK_COMP		:= python3 $(CURDIR)/$(TOOLS)/quick_comp.py
 
 MMBN_H			:= $(CURDIR)/include/mmbn.h
 OUTPUT			:= $(CURDIR)/$(TARGET)
@@ -66,7 +67,7 @@ LD				:= $(CC)
 
 check: $(BUILD)
 	@$(SHA512SUM) $(BASEDIR)/$(BASE).gba | sed -e 's/$(BASEDIR)\/$(BASE)/$(TARGET)/' >| $(BUILD)/$(TARGET).checksum
-	@$(SHA512SUM) -c $(BUILD)/$(TARGET).checksum
+	@$(SHA512SUM) -c $(BUILD)/$(TARGET).checksum || $(QUICK_COMP) $(BASEDIR)/$(BASE).gba $(TARGET).gba
 	@$(PROGRESS) $(DEPSDIR)/$(TARGET).map
 
 no-check: $(BUILD)
@@ -110,7 +111,7 @@ $(OUTPUT).elf: $(OFILES)
 	@echo Linking cartridge
 	@cp -f $(LAYOUT_FILE) $(BUILD)/.
 	@cp -f $(MAIN_LD_SCRIPT) $(BUILD)/.
-	@$(GEN_PAD) "$(shell which $(AS)) $(ASINCLUDE) $(ASFLAGS)" $(BUILD) $(LAYOUT_FILE) $(BASE).gba $(BUILD)/$(GEN_LD_SCRIPT)
+	@$(GEN_PAD) $(AS) "$(ASINCLUDE) $(ASFLAGS)" $(BUILD) $(LAYOUT_FILE) $(BASE).gba $(BUILD)/$(GEN_LD_SCRIPT)
 	@$(LD) $(LDINCLUDE) $(LDFLAGS) $(OFILES) -o $@
 
 -include $(BUILD)/*.d

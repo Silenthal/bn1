@@ -15,6 +15,9 @@ def task_tidy():
 def task_all():
     procCount = multiprocessing.cpu_count()
     Path("build").mkdir(exist_ok=True)
+    checkPath = Path("./base/base.gba")
+    if not checkPath.exists():
+        raise SystemExit("Base file not found. Place base.gba in base folder according to the README.")
     subprocess.run([sys.executable, "./build_assets.py","../source/", "../build/", "../assets/"], cwd="./tools/", stdout=sys.stdout, stderr=sys.stderr, check=True)
     subprocess.run([sys.executable, "./generate_offsets.py", "-o", "../build/offsets.c", "../include/mmbn.h"], cwd="./tools/", stdout=sys.stdout, stderr=sys.stderr, check=True)
     subprocess.run([sys.executable, "./build_maps.py", "../assets/data/maps/"], cwd="./tools/", stdout=sys.stdout, stderr=sys.stderr, check=True)

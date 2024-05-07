@@ -282,10 +282,11 @@ def extract_npc_list(inFile: BinaryIO) -> str:
     output: str = ""
     while True:
         temp = get_int(inFile)
+        bt = temp & 0xFF
         inFile.seek(-4, io.SEEK_CUR)
         if temp > 0x8000000 and temp <= 0x8800000:
             output += extract_off_list(inFile)
-        elif temp & 0xFF == 8 or temp & 0xFF == 9:
+        elif bt == 8 or bt == 9 or bt == 4 or bt == 5:
             output += extract_npc_code(inFile)
         elif temp & 0xFF == 0:
             adv = inFile.tell() & 3
