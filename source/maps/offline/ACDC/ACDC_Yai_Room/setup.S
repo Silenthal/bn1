@@ -199,7 +199,7 @@ PTR_PTR_EventHandler_Default_0802e580:
 PTR_BgTask_0802E584:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e588:
-    .word NPCList_080309A0
+    .word NPCList_80309A0
 PTR_PTR_EventHandler_ACDC_Yai_Room_F02_0_0802e58c:
     .word PTR_EventHandler_ACDC_Yai_Room_F02_0_0802e4a8
 DAT_0802e590:
@@ -209,7 +209,7 @@ DAT_0802e594:
 PTR_BgTask_0802E598:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e59c:
-    .word NPCList_080309A0
+    .word NPCList_80309A0
 PTR_PTR_EventHandler_ACDC_Yai_Room_F06_0_0802e5a0:
     .word PTR_EventHandler_ACDC_Yai_Room_F06_0_0802e528
 DAT_0802e5a4:
@@ -484,13 +484,13 @@ PTR_PTR_EventHandler_ACDC_Yai_Room_F20_0_0802e78c:
 PTR_BgTask_0802E790:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e794:
-    .word NPCList_080309C0
+    .word NPCList_80309C0
 PTR_PTR_EventHandler_ACDC_Yai_Room_F21_0_0802e798:
     .word PTR_EventHandler_ACDC_Yai_Room_F21_0_0802e6b0
 PTR_BgTask_0802E79C:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e7a0:
-    .word NPCList_080309C0
+    .word NPCList_80309C0
 PTR_PTR_EventHandler_ACDC_Yai_Room_F22_0_0802e7a4:
     .word PTR_EventHandler_ACDC_Yai_Room_F22_0_0802e700
 PTR_BgTask_0802E7A8:
@@ -500,7 +500,7 @@ PTR_PTR_EventHandler_ACDC_Yai_Room_F24_0_0802e7ac:
 PTR_BgTask_0802E7B0:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e7b4:
-    .word NPCList_080309E0
+    .word NPCList_80309E0
 PTR_PTR_EventHandler_ACDC_Yai_Room_F25_0_0802e7b8:
     .word PTR_EventHandler_ACDC_Yai_Room_F25_0_0802e778
 
@@ -594,7 +594,7 @@ PTR_PTR_EventHandler_ACDC_Yai_Room_F30_0802e86c:
 PTR_BgTask_0802E870:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e874:
-    .word NPCList_08030A14
+    .word NPCList_8030A14
 PTR_PTR_EventHandler_ACDC_Yai_Room_F30_0_0802e878:
     .word PTR_EventHandler_ACDC_Yai_Room_F30_0_0802e860
 
@@ -686,7 +686,7 @@ PTR_PTR_MapSetup_ACDC_Yai_Room_F40_0802e928:
 PTR_PTR_EventHandler_ACDC_Yai_Room_F40_0802e92c:
     .word PTR_EventHandler_ACDC_Yai_Room_F40_0802e8c8
 PTR_PTR_DAT_0802e930:
-    .word NPCList_08030A44
+    .word NPCList_8030A44
 PTR_BgTask_0802E934:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_EventHandler_ACDC_Yai_Room_F40_0_0802e938:
@@ -816,7 +816,7 @@ PTR_PTR_EventHandler_ACDC_Yai_Room_F50_0802ea24:
 PTR_BgTask_0802EA28:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802ea2c:
-    .word NPCList_08030A14
+    .word NPCList_8030A14
 PTR_PTR_EventHandler_ACDC_Yai_Room_F50_0_0802ea30:
     .word PTR_EventHandler_ACDC_Yai_Room_F50_0_0802e9e0
 PTR_BgTask_0802EA34:

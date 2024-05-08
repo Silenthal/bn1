@@ -222,7 +222,7 @@ PTR_BgTask_08026c38:
 PTR_EntityAllocParams_ARRAY_08026c3c:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08026c40:
-    .word NPCList_080296B0
+    .word NPCList_80296B0
 PTR_PTR_EventHandler_School_Class_1B_F14_0_08026c44:
     .word PTR_EventHandler_School_Class_1B_F14_0_08026b9c
 DAT_08026c48:
@@ -234,7 +234,7 @@ PTR_BgTask_08026c50:
 PTR_EntityAllocParams_ARRAY_08026c54:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08026c58:
-    .word NPCList_080296B0
+    .word NPCList_80296B0
 PTR_PTR_EventHandler_School_Class_1B_F15_0_08026c5c:
     .word PTR_EventHandler_School_Class_1B_F15_0_08026c14
 
@@ -430,7 +430,7 @@ PTR_BgTask_08026de0:
 PTR_EntityAllocParams_ARRAY_08026de4:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08026de8:
-    .word NPCList_080297A4
+    .word NPCList_80297A4
 PTR_PTR_EventHandler_School_Class_1B_F20_0_08026dec:
     .word PTR_EventHandler_School_Class_1B_F20_0_08026d2c
 PTR_BgTask_08026df0:
@@ -440,7 +440,7 @@ PTR_BgTask_08026df4:
 PTR_EntityAllocParams_ARRAY_08026df8:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08026dfc:
-    .word NPCList_080297A4
+    .word NPCList_80297A4
 PTR_PTR_EventHandler_School_Class_1B_F21_0_08026e00:
     .word PTR_EventHandler_School_Class_1B_F21_0_08026d7c
 PTR_BgTask_08026e04:
@@ -450,7 +450,7 @@ PTR_BgTask_08026e08:
 PTR_EntityAllocParams_ARRAY_08026e0c:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08026e10:
-    .word NPCList_080297A4
+    .word NPCList_80297A4
 PTR_PTR_EventHandler_School_Class_1B_F22_0_08026e14:
     .word PTR_EventHandler_School_Class_1B_F22_0_08026dcc
 
@@ -543,6 +543,6 @@ PTR_BgTask_08026ed0:
 PTR_EntityAllocParams_ARRAY_08026ed4:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08026ed8:
-    .word NPCList_080297A4
+    .word NPCList_80297A4
 PTR_PTR_EventHandler_School_Class_1B_F30_0_08026edc:
     .word PTR_EventHandler_School_Class_1B_F30_0_08026ebc

@@ -115,7 +115,7 @@ PTR_BgTask_0802CB30:
 PTR_DAT_0802cb34:
     .word EntityAllocParams_08030F60
 PTR_DAT_0802cb38:
-    .word NPCList_08030864
+    .word NPCList_8030864
 PTR_BgTask_0802CB3C:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 

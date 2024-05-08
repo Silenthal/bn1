@@ -2,40 +2,40 @@
     .include "constants.inc"
     .include "macros.inc"
 
-global_label NPCList_0802F994
-    .word NPC_0802FA00
-    .word NPC_0802FA15
-    .word NPC_0802FA2A
-    .word NPC_0802FA41
-    .word NPC_0802FA66
-    .word NPC_0802FA7B
-    .word NPC_0802FA90
-    .word NPC_0802FAA6
-    .word NPC_0802FAC7
-    .word NPC_0802FAEE
-    .word NPC_0802FB13
-    .word NPC_0802FB38
-    .word NPC_0802FB5D
+global_label NPCList_802F994
+    .word NPC_802FA00
+    .word NPC_802FA15
+    .word NPC_802FA2A
+    .word NPC_802FA41
+    .word NPC_802FA66
+    .word NPC_802FA7B
+    .word NPC_802FA90
+    .word NPC_802FAA6
+    .word NPC_802FAC7
+    .word NPC_802FAEE
+    .word NPC_802FB13
+    .word NPC_802FB38
+    .word NPC_802FB5D
     .word 0xFF
 
-global_label NPCList_0802F9CC
-    .word NPC_0802FA00
-    .word NPC_0802FA15
-    .word NPC_0802FA2A
-    .word NPC_0802FA41
-    .word NPC_0802FA66
-    .word NPC_0802FA7B
-    .word NPC_0802FA90
-    .word NPC_0802FAA6
-    .word NPC_0802FAC7
-    .word NPC_0802FAEE
-    .word NPC_0802FB13
-    .word NPC_0802FB38
+global_label NPCList_802F9CC
+    .word NPC_802FA00
+    .word NPC_802FA15
+    .word NPC_802FA2A
+    .word NPC_802FA41
+    .word NPC_802FA66
+    .word NPC_802FA7B
+    .word NPC_802FA90
+    .word NPC_802FAA6
+    .word NPC_802FAC7
+    .word NPC_802FAEE
+    .word NPC_802FB13
+    .word NPC_802FB38
     .word 0xFF
 
     .align 2, 0
 
-NPC_0802FA00:
+NPC_802FA00:
     a_init
     a_set_dialog 0x0
     a_set_sprite 0x18
@@ -45,7 +45,7 @@ L_802FA0E:
     a_wait 1
     a_jump L_802FA0E
 
-NPC_0802FA15:
+NPC_802FA15:
     a_init
     a_set_dialog 0x3
     a_set_sprite 0x19
@@ -55,7 +55,7 @@ L_802FA23:
     a_wait 1
     a_jump L_802FA23
 
-NPC_0802FA2A:
+NPC_802FA2A:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0x10
@@ -66,7 +66,7 @@ L_802FA3A:
     a_wait 1
     a_jump L_802FA3A
 
-NPC_0802FA41:
+NPC_802FA41:
     a_init
     a_set_dialog 0x5
     a_set_sprite 0x1A
@@ -82,7 +82,7 @@ L_802FA4D:
     a_move d_sw, 8, 6
     a_jump L_802FA4D
 
-NPC_0802FA66:
+NPC_802FA66:
     a_init
     a_set_dialog 0x6
     a_set_sprite 0x1A
@@ -92,7 +92,7 @@ L_802FA74:
     a_wait 1
     a_jump L_802FA74
 
-NPC_0802FA7B:
+NPC_802FA7B:
     a_init
     a_set_dialog 0x7
     a_set_sprite 0xB
@@ -104,7 +104,7 @@ L_802FA89:
 
     .align 2, 0
 
-NPC_0802FA90:
+NPC_802FA90:
     a_init
     a_disable_turn
     a_set_dialog 0x8
@@ -115,7 +115,7 @@ L_802FA9F:
     a_wait 1
     a_jump L_802FA9F
 
-NPC_0802FAA6:
+NPC_802FAA6:
     a_init
     a_set_dialog 0x9
     a_set_sprite 0xC
@@ -131,7 +131,7 @@ L_802FAB2:
     a_wait 10
     a_jump L_802FAB2
 
-NPC_0802FAC7:
+NPC_802FAC7:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0xB
@@ -148,7 +148,7 @@ L_802FAD5:
     a_move d_ne, 8, 8
     a_jump L_802FAD5
 
-NPC_0802FAEE:
+NPC_802FAEE:
     a_init
     a_set_dialog 0xF
     a_set_sprite 0xB
@@ -164,7 +164,7 @@ L_802FAFA:
     a_move d_sw, 8, 6
     a_jump L_802FAFA
 
-NPC_0802FB13:
+NPC_802FB13:
     a_init
     a_set_dialog 0x13
     a_set_sprite 0x40
@@ -182,7 +182,7 @@ L_802FB1F:
 
     .align 2, 0
 
-NPC_0802FB38:
+NPC_802FB38:
     a_init
     a_set_dialog 0x12
     a_set_sprite 0x31
@@ -198,7 +198,7 @@ L_802FB44:
     a_wait 60
     a_jump L_802FB44
 
-NPC_0802FB5D:
+NPC_802FB5D:
     a_init
     a_set_dialog 0x2D
     a_set_sprite 0x4
@@ -209,13 +209,13 @@ L_802FB6D:
     a_wait 1
     a_jump L_802FB6D
 
-global_label NPCList_0802FB74
-    .word NPC_0802FB7C
+global_label NPCList_802FB74
+    .word NPC_802FB7C
     .word 0xFF
 
     .align 2, 0
 
-NPC_0802FB7C:
+NPC_802FB7C:
     a_init
     a_set_sprite 0x9
     a_set_pos 348, -88
@@ -226,20 +226,20 @@ L_802FB88:
 
     .align 2, 0
 
-global_label NPCList_0802FB90
-    .word NPC_0802FBB4
-    .word NPC_0802FBC9
-    .word NPC_0802FBF2
-    .word NPC_0802FC1B
-    .word NPC_0802FC30
-    .word NPC_0802FC55
-    .word NPC_0802FC6A
-    .word NPC_0802FFA4
+global_label NPCList_802FB90
+    .word NPC_802FBB4
+    .word NPC_802FBC9
+    .word NPC_802FBF2
+    .word NPC_802FC1B
+    .word NPC_802FC30
+    .word NPC_802FC55
+    .word NPC_802FC6A
+    .word NPC_802FFA4
     .word 0xFF
 
     .align 2, 0
 
-NPC_0802FBB4:
+NPC_802FBB4:
     a_init
     a_set_dialog 0x23
     a_set_sprite 0x18
@@ -249,7 +249,7 @@ L_802FBC2:
     a_wait 1
     a_jump L_802FBC2
 
-NPC_0802FBC9:
+NPC_802FBC9:
     a_init
     a_set_dialog 0x24
     a_set_sprite 0xC
@@ -265,7 +265,7 @@ L_802FBD5:
     a_move d_nw, 16, 9
     a_jump L_802FBD5
 
-NPC_0802FBF2:
+NPC_802FBF2:
     a_init
     a_set_dialog 0x25
     a_set_sprite 0xC
@@ -281,7 +281,7 @@ L_802FBFE:
     a_move d_se, 16, 9
     a_jump L_802FBFE
 
-NPC_0802FC1B:
+NPC_802FC1B:
     a_init
     a_set_dialog 0x26
     a_set_sprite 0x1E
@@ -293,7 +293,7 @@ L_802FC29:
 
     .align 2, 0
 
-NPC_0802FC30:
+NPC_802FC30:
     a_init
     a_set_dialog 0x27
     a_set_sprite 0x40
@@ -309,7 +309,7 @@ L_802FC3C:
     a_wait 30
     a_jump L_802FC3C
 
-NPC_0802FC55:
+NPC_802FC55:
     a_init
     a_set_dialog 0x28
     a_set_sprite 0xB
@@ -319,7 +319,7 @@ L_802FC63:
     a_wait 1
     a_jump L_802FC63
 
-NPC_0802FC6A:
+NPC_802FC6A:
     a_init
     a_set_dialog 0x29
     a_set_sprite 0x1A
@@ -331,22 +331,22 @@ L_802FC78:
 
     .align 2, 0
 
-global_label NPCList_0802FC80
-    .word NPC_0802FCAC
-    .word NPC_0802FCC1
-    .word NPC_0802FCEA
-    .word NPC_0802FD13
-    .word NPC_0802FD28
-    .word NPC_0802FD4D
-    .word NPC_0802FD62
-    .word NPC_0802FD77
-    .word NPC_0802FD9C
-    .word NPC_0802FFA4
+global_label NPCList_802FC80
+    .word NPC_802FCAC
+    .word NPC_802FCC1
+    .word NPC_802FCEA
+    .word NPC_802FD13
+    .word NPC_802FD28
+    .word NPC_802FD4D
+    .word NPC_802FD62
+    .word NPC_802FD77
+    .word NPC_802FD9C
+    .word NPC_802FFA4
     .word 0xFF
 
     .align 2, 0
 
-NPC_0802FCAC:
+NPC_802FCAC:
     a_init
     a_set_dialog 0x23
     a_set_sprite 0x18
@@ -356,7 +356,7 @@ L_802FCBA:
     a_wait 1
     a_jump L_802FCBA
 
-NPC_0802FCC1:
+NPC_802FCC1:
     a_init
     a_set_dialog 0x24
     a_set_sprite 0xC
@@ -372,7 +372,7 @@ L_802FCCD:
     a_move d_nw, 16, 9
     a_jump L_802FCCD
 
-NPC_0802FCEA:
+NPC_802FCEA:
     a_init
     a_set_dialog 0x25
     a_set_sprite 0xC
@@ -388,7 +388,7 @@ L_802FCF6:
     a_move d_se, 16, 9
     a_jump L_802FCF6
 
-NPC_0802FD13:
+NPC_802FD13:
     a_init
     a_set_dialog 0x26
     a_set_sprite 0x1E
@@ -400,7 +400,7 @@ L_802FD21:
 
     .align 2, 0
 
-NPC_0802FD28:
+NPC_802FD28:
     a_init
     a_set_dialog 0x27
     a_set_sprite 0x40
@@ -416,7 +416,7 @@ L_802FD34:
     a_wait 30
     a_jump L_802FD34
 
-NPC_0802FD4D:
+NPC_802FD4D:
     a_init
     a_set_dialog 0x28
     a_set_sprite 0xB
@@ -426,7 +426,7 @@ L_802FD5B:
     a_wait 1
     a_jump L_802FD5B
 
-NPC_0802FD62:
+NPC_802FD62:
     a_init
     a_set_dialog 0x33
     a_set_sprite 0x1A
@@ -436,7 +436,7 @@ L_802FD70:
     a_wait 1
     a_jump L_802FD70
 
-NPC_0802FD77:
+NPC_802FD77:
     a_init
     a_set_dialog 0x34
     a_set_sprite 0xB
@@ -454,7 +454,7 @@ L_802FD83:
 
     .align 2, 0
 
-NPC_0802FD9C:
+NPC_802FD9C:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0x35
@@ -467,34 +467,34 @@ L_802FDAC:
 
     .align 2, 0
 
-global_label NPCList_0802FDB4
-    .word NPC_0802FCAC
-    .word NPC_0802FCC1
-    .word NPC_0802FCEA
-    .word NPC_0802FD13
-    .word NPC_0802FD28
-    .word NPC_0802FD4D
-    .word NPC_0802FD62
-    .word NPC_0802FD77
-    .word NPC_0802FD9C
-    .word NPC_0802FFA4
-    .word NPC_0802FFBC
-    .word NPC_0802FFD4
+global_label NPCList_802FDB4
+    .word NPC_802FCAC
+    .word NPC_802FCC1
+    .word NPC_802FCEA
+    .word NPC_802FD13
+    .word NPC_802FD28
+    .word NPC_802FD4D
+    .word NPC_802FD62
+    .word NPC_802FD77
+    .word NPC_802FD9C
+    .word NPC_802FFA4
+    .word NPC_802FFBC
+    .word NPC_802FFD4
     .word 0xFF
 
-global_label NPCList_0802FDE8
-    .word NPC_0802FE08
-    .word NPC_0802FE1D
-    .word NPC_0802FE32
-    .word NPC_0802FE47
-    .word NPC_0802FFA4
-    .word NPC_0802FFBC
-    .word NPC_0802FFD4
+global_label NPCList_802FDE8
+    .word NPC_802FE08
+    .word NPC_802FE1D
+    .word NPC_802FE32
+    .word NPC_802FE47
+    .word NPC_802FFA4
+    .word NPC_802FFBC
+    .word NPC_802FFD4
     .word 0xFF
 
     .align 2, 0
 
-NPC_0802FE08:
+NPC_802FE08:
     a_init
     a_set_dialog 0x46
     a_set_sprite 0x2F
@@ -504,7 +504,7 @@ L_802FE16:
     a_wait 1
     a_jump L_802FE16
 
-NPC_0802FE1D:
+NPC_802FE1D:
     a_init
     a_set_dialog 0x47
     a_set_sprite 0x18
@@ -514,7 +514,7 @@ L_802FE2B:
     a_wait 1
     a_jump L_802FE2B
 
-NPC_0802FE32:
+NPC_802FE32:
     a_init
     a_set_dialog 0x49
     a_set_sprite 0x19
@@ -524,7 +524,7 @@ L_802FE40:
     a_wait 1
     a_jump L_802FE40
 
-NPC_0802FE47:
+NPC_802FE47:
     a_init
     a_set_dialog 0x4A
     a_set_sprite 0xC
@@ -542,18 +542,18 @@ L_802FE53:
 
     .align 2, 0
 
-global_label NPCList_0802FE6C
-    .word NPC_0802FE90
-    .word NPC_0802FE32
-    .word NPC_0802FEA5
-    .word NPC_0802FEBA
-    .word NPC_0802FECF
-    .word NPC_0802FFA4
-    .word NPC_0802FFBC
-    .word NPC_0802FFD4
+global_label NPCList_802FE6C
+    .word NPC_802FE90
+    .word NPC_802FE32
+    .word NPC_802FEA5
+    .word NPC_802FEBA
+    .word NPC_802FECF
+    .word NPC_802FFA4
+    .word NPC_802FFBC
+    .word NPC_802FFD4
     .word 0xFF
 
-NPC_0802FE90:
+NPC_802FE90:
     a_init
     a_set_dialog 0x50
     a_set_sprite 0x18
@@ -563,7 +563,7 @@ L_802FE9E:
     a_wait 1
     a_jump L_802FE9E
 
-NPC_0802FEA5:
+NPC_802FEA5:
     a_init
     a_set_dialog 0x53
     a_set_sprite 0xC
@@ -573,7 +573,7 @@ L_802FEB3:
     a_wait 1
     a_jump L_802FEB3
 
-NPC_0802FEBA:
+NPC_802FEBA:
     a_init
     a_set_dialog 0x54
     a_set_sprite 0x1B
@@ -583,7 +583,7 @@ L_802FEC8:
     a_wait 1
     a_jump L_802FEC8
 
-NPC_0802FECF:
+NPC_802FECF:
     a_init
     a_set_dialog 0x55
     a_set_sprite 0x40
@@ -601,13 +601,13 @@ L_802FEDB:
 
     .align 2, 0
 
-global_label NPCList_0802FEF4
-    .word NPC_0802FEFC
+global_label NPCList_802FEF4
+    .word NPC_802FEFC
     .word 0xFF
 
     .align 2, 0
 
-NPC_0802FEFC:
+NPC_802FEFC:
     a_init
     a_set_dialog 0x50
     a_set_sprite 0xB
@@ -629,19 +629,19 @@ L_802FF24:
 
     .align 2, 0
 
-global_label NPCList_0802FF2C
-    .word NPC_0802FE90
-    .word NPC_0802FE32
-    .word NPC_0802FEA5
-    .word NPC_0802FEBA
-    .word NPC_0802FECF
-    .word NPC_0802FF54
-    .word NPC_0802FFA4
-    .word NPC_0802FFBC
-    .word NPC_0802FFD4
+global_label NPCList_802FF2C
+    .word NPC_802FE90
+    .word NPC_802FE32
+    .word NPC_802FEA5
+    .word NPC_802FEBA
+    .word NPC_802FECF
+    .word NPC_802FF54
+    .word NPC_802FFA4
+    .word NPC_802FFBC
+    .word NPC_802FFD4
     .word 0xFF
 
-NPC_0802FF54:
+NPC_802FF54:
     a_init
     a_set_dialog 0x5A
     a_set_sprite 0xB
@@ -653,14 +653,14 @@ L_802FF62:
 
     .align 2, 0
 
-global_label NPCList_0802FF6C
-    .word NPC_0802FF78
-    .word NPC_0802FF8D
+global_label NPCList_802FF6C
+    .word NPC_802FF78
+    .word NPC_802FF8D
     .word 0xFF
 
     .align 2, 0
 
-NPC_0802FF78:
+NPC_802FF78:
     a_init
     a_set_dialog 0x50
     a_set_sprite 0xB
@@ -670,7 +670,7 @@ L_802FF86:
     a_wait 1
     a_jump L_802FF86
 
-NPC_0802FF8D:
+NPC_802FF8D:
     a_init
     a_set_dialog 0x50
     a_set_sprite 0x2D
@@ -683,7 +683,7 @@ L_802FF9B:
     .align 2, 0
 
 
-NPC_0802FFA4:
+NPC_802FFA4:
     a_init
     a_set_dialog 0xBE
     a_set_sprite 0xB
@@ -695,7 +695,7 @@ L_802FFB2:
 
     .align 2, 0
 
-NPC_0802FFBC:
+NPC_802FFBC:
     a_init
     a_set_dialog 0xC6
     a_set_sprite 0x18
@@ -707,7 +707,7 @@ L_802FFCA:
 
     .align 2, 0
 
-NPC_0802FFD4:
+NPC_802FFD4:
     a_init
     a_set_dialog 0xCB
     a_set_sprite 0x18
@@ -719,7 +719,7 @@ L_802FFE2:
 
     .align 2, 0
 
-NPC_0802FFEC:
+NPC_802FFEC:
     a_init
     a_set_dialog 0xD2
     a_set_sprite 0x1A
@@ -731,34 +731,34 @@ L_802FFFA:
 
     .align 2, 0
 
-global_label NPCList_08030004
-    .word NPC_08030058
-    .word NPC_0803007D
-    .word NPC_08030092
-    .word NPC_080300A7
-    .word NPC_080300BC
-    .word NPC_080300E1
-    .word NPC_0802FFA4
-    .word NPC_0802FFBC
-    .word NPC_0802FFD4
+global_label NPCList_8030004
+    .word NPC_8030058
+    .word NPC_803007D
+    .word NPC_8030092
+    .word NPC_80300A7
+    .word NPC_80300BC
+    .word NPC_80300E1
+    .word NPC_802FFA4
+    .word NPC_802FFBC
+    .word NPC_802FFD4
     .word 0xFF
 
-global_label NPCList_0803002C
-    .word NPC_08030058
-    .word NPC_0803007D
-    .word NPC_08030092
-    .word NPC_080300A7
-    .word NPC_080300BC
-    .word NPC_080300E1
-    .word NPC_0802FFA4
-    .word NPC_0802FFBC
-    .word NPC_0802FFD4
-    .word NPC_0802FFEC
+global_label NPCList_803002C
+    .word NPC_8030058
+    .word NPC_803007D
+    .word NPC_8030092
+    .word NPC_80300A7
+    .word NPC_80300BC
+    .word NPC_80300E1
+    .word NPC_802FFA4
+    .word NPC_802FFBC
+    .word NPC_802FFD4
+    .word NPC_802FFEC
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030058:
+NPC_8030058:
     a_init
     a_set_dialog 0x64
     a_set_sprite 0xB
@@ -774,7 +774,7 @@ L_8030064:
     a_wait 30
     a_jump L_8030064
 
-NPC_0803007D:
+NPC_803007D:
     a_init
     a_set_dialog 0x68
     a_set_sprite 0x18
@@ -784,7 +784,7 @@ L_803008B:
     a_wait 1
     a_jump L_803008B
 
-NPC_08030092:
+NPC_8030092:
     a_init
     a_set_dialog 0x69
     a_set_sprite 0x1E
@@ -794,7 +794,7 @@ L_80300A0:
     a_wait 1
     a_jump L_80300A0
 
-NPC_080300A7:
+NPC_80300A7:
     a_init
     a_set_dialog 0x6A
     a_set_sprite 0x1C
@@ -806,7 +806,7 @@ L_80300B5:
 
     .align 2, 0
 
-NPC_080300BC:
+NPC_80300BC:
     a_init
     a_set_dialog 0x6C
     a_set_sprite 0x40
@@ -822,7 +822,7 @@ L_80300C8:
     a_wait 30
     a_jump L_80300C8
 
-NPC_080300E1:
+NPC_80300E1:
     a_init
     a_set_dialog 0x6D
     a_set_sprite 0x19
@@ -834,13 +834,13 @@ L_80300EF:
 
     .align 2, 0
 
-global_label NPCList_080300F8
-    .word NPC_08030100
+global_label NPCList_80300F8
+    .word NPC_8030100
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030100:
+NPC_8030100:
     a_init
     a_set_sprite 0xF
     a_set_pos -130, 220
@@ -859,48 +859,48 @@ L_8030120:
 
     .align 2, 0
 
-global_label NPCList_08030128
-    .word NPC_080301AC
-    .word NPC_080301D1
-    .word NPC_080301E6
-    .word NPC_080301FB
-    .word NPC_08030210
-    .word NPC_08030235
-    .word NPC_0802FFA4
-    .word NPC_0802FFBC
-    .word NPC_0802FFD4
-    .word NPC_0802FFEC
+global_label NPCList_8030128
+    .word NPC_80301AC
+    .word NPC_80301D1
+    .word NPC_80301E6
+    .word NPC_80301FB
+    .word NPC_8030210
+    .word NPC_8030235
+    .word NPC_802FFA4
+    .word NPC_802FFBC
+    .word NPC_802FFD4
+    .word NPC_802FFEC
     .word 0xFF
 
-global_label NPCList_08030154
-    .word NPC_080301AC
-    .word NPC_080301E6
-    .word NPC_080301FB
-    .word NPC_08030210
-    .word NPC_08030235
-    .word NPC_0803024A
-    .word NPC_0802FFA4
-    .word NPC_0802FFBC
-    .word NPC_0802FFD4
-    .word NPC_0802FFEC
+global_label NPCList_8030154
+    .word NPC_80301AC
+    .word NPC_80301E6
+    .word NPC_80301FB
+    .word NPC_8030210
+    .word NPC_8030235
+    .word NPC_803024A
+    .word NPC_802FFA4
+    .word NPC_802FFBC
+    .word NPC_802FFD4
+    .word NPC_802FFEC
     .word 0xFF
 
-global_label NPCList_08030180
-    .word NPC_08030260
-    .word NPC_08030293
-    .word NPC_080302D6
-    .word NPC_080302FD
-    .word NPC_08030310
-    .word NPC_08030323
-    .word NPC_08030336
-    .word NPC_0803035D
-    .word NPC_08030370
-    .word NPC_08030385
+global_label NPCList_8030180
+    .word NPC_8030260
+    .word NPC_8030293
+    .word NPC_80302D6
+    .word NPC_80302FD
+    .word NPC_8030310
+    .word NPC_8030323
+    .word NPC_8030336
+    .word NPC_803035D
+    .word NPC_8030370
+    .word NPC_8030385
     .word 0xFF
 
     .align 2, 0
 
-NPC_080301AC:
+NPC_80301AC:
     a_init
     a_set_dialog 0x82
     a_set_sprite 0xB
@@ -916,7 +916,7 @@ L_80301B8:
     a_wait 30
     a_jump L_80301B8
 
-NPC_080301D1:
+NPC_80301D1:
     a_init
     a_set_dialog 0x83
     a_set_sprite 0x18
@@ -926,7 +926,7 @@ L_80301DF:
     a_wait 1
     a_jump L_80301DF
 
-NPC_080301E6:
+NPC_80301E6:
     a_init
     a_set_dialog 0x86
     a_set_sprite 0x1E
@@ -936,7 +936,7 @@ L_80301F4:
     a_wait 1
     a_jump L_80301F4
 
-NPC_080301FB:
+NPC_80301FB:
     a_init
     a_set_dialog 0x87
     a_set_sprite 0x1C
@@ -948,7 +948,7 @@ L_8030209:
 
     .align 2, 0
 
-NPC_08030210:
+NPC_8030210:
     a_init
     a_set_dialog 0x89
     a_set_sprite 0x40
@@ -964,7 +964,7 @@ L_803021C:
     a_wait 30
     a_jump L_803021C
 
-NPC_08030235:
+NPC_8030235:
     a_init
     a_set_dialog 0x8A
     a_set_sprite 0x19
@@ -974,7 +974,7 @@ L_8030243:
     a_wait 1
     a_jump L_8030243
 
-NPC_0803024A:
+NPC_803024A:
     a_init
     a_set_dialog 0xAB
     a_set_sprite 0xA
@@ -986,7 +986,7 @@ L_8030258:
 
     a_destroy
 
-NPC_08030260:
+NPC_8030260:
     a_init
     a_set_sprite 0x3E
     a_set_pos -98, -144
@@ -1007,7 +1007,7 @@ L_803028C:
     a_wait 1
     a_jump L_803028C
 
-NPC_08030293:
+NPC_8030293:
     a_init
     a_set_sprite 0x13
     a_set_pos -114, -144
@@ -1034,7 +1034,7 @@ L_80302CF:
     a_wait 1
     a_jump L_80302CF
 
-NPC_080302D6:
+NPC_80302D6:
     a_init
     a_set_sprite 0xF
     a_set_pos -130, -132
@@ -1051,7 +1051,7 @@ L_80302F6:
     a_wait 1
     a_jump L_80302F6
 
-NPC_080302FD:
+NPC_80302FD:
     a_init
     a_set_sprite 0xA
     a_set_pos -110, -108
@@ -1062,7 +1062,7 @@ L_8030309:
 
     .align 2, 0
 
-NPC_08030310:
+NPC_8030310:
     a_init
     a_set_sprite 0x9
     a_set_pos -160, -112
@@ -1071,7 +1071,7 @@ L_803031C:
     a_wait 1
     a_jump L_803031C
 
-NPC_08030323:
+NPC_8030323:
     a_init
     a_set_sprite 0x4
     a_set_pos -94, -132
@@ -1080,7 +1080,7 @@ L_803032F:
     a_wait 1
     a_jump L_803032F
 
-NPC_08030336:
+NPC_8030336:
     a_init
     a_set_sprite 0x5
     a_set_pos -94, -108
@@ -1097,7 +1097,7 @@ L_8030356:
     a_wait 1
     a_jump L_8030356
 
-NPC_0803035D:
+NPC_803035D:
     a_init
     a_set_sprite 0x6
     a_set_pos -82, -106
@@ -1108,7 +1108,7 @@ L_8030369:
 
     .align 2, 0
 
-NPC_08030370:
+NPC_8030370:
     a_init
     a_set_palette 0x1
     a_set_sprite 0x6
@@ -1118,7 +1118,7 @@ L_803037E:
     a_wait 1
     a_jump L_803037E
 
-NPC_08030385:
+NPC_8030385:
     a_init
     a_set_sprite 0x2D
     a_set_pos -110, -80
@@ -1129,14 +1129,14 @@ L_8030391:
 
     .align 2, 0
 
-global_label NPCList_08030398
-    .word NPC_080303A4
-    .word NPC_080303B9
+global_label NPCList_8030398
+    .word NPC_80303A4
+    .word NPC_80303B9
     .word 0xFF
 
     .align 2, 0
 
-NPC_080303A4:
+NPC_80303A4:
     a_init
     a_set_dialog 0xA
     a_set_sprite 0x1A
@@ -1146,7 +1146,7 @@ L_80303B2:
     a_wait 1
     a_jump L_80303B2
 
-NPC_080303B9:
+NPC_80303B9:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0xB
@@ -1159,13 +1159,13 @@ L_80303C9:
 
     .align 2, 0
 
-global_label NPCList_080303D0
-    .word NPC_080303D8
+global_label NPCList_80303D0
+    .word NPC_80303D8
     .word 0xFF
 
     .align 2, 0
 
-NPC_080303D8:
+NPC_80303D8:
     a_init
     a_set_sprite 0xF
     a_set_pos -96, 24
@@ -1185,13 +1185,13 @@ L_80303FE:
 
     .align 2, 0
 
-global_label NPCList_08030408
-    .word NPC_08030410
+global_label NPCList_8030408
+    .word NPC_8030410
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030410:
+NPC_8030410:
     a_init
     a_set_dialog 0x14
     a_set_sprite 0xC
@@ -1245,14 +1245,14 @@ NPC_08030410:
 
     .align 2, 0
 
-global_label NPCList_080304A4
-    .word NPC_080304B0
-    .word NPC_080304C5
+global_label NPCList_80304A4
+    .word NPC_80304B0
+    .word NPC_80304C5
     .word 0xFF
 
     .align 2, 0
 
-NPC_080304B0:
+NPC_80304B0:
     a_init
     a_set_dialog 0x1A
     a_set_sprite 0xB
@@ -1262,7 +1262,7 @@ L_80304BE:
     a_wait 1
     a_jump L_80304BE
 
-NPC_080304C5:
+NPC_80304C5:
     a_init
     a_set_dialog 0x1B
     a_set_sprite 0x1C
@@ -1274,13 +1274,13 @@ L_80304D3:
 
     .align 2, 0
 
-global_label NPCList_080304DC
-    .word NPC_080304E4
+global_label NPCList_80304DC
+    .word NPC_80304E4
     .word 0xFF
 
     .align 2, 0
 
-NPC_080304E4:
+NPC_80304E4:
     a_init
     a_set_sprite 0x1E
     a_set_pos -220, 114
@@ -1313,13 +1313,13 @@ L_803052C:
 
     .align 2, 0
 
-global_label NPCList_08030534
-    .word NPC_0803053C
+global_label NPCList_8030534
+    .word NPC_803053C
     .word 0xFF
 
     .align 2, 0
 
-NPC_0803053C:
+NPC_803053C:
     a_init
     a_disable_turn
     a_set_hitbox_offset 8, 0, 0
@@ -1334,14 +1334,14 @@ L_8030551:
 
     .align 2, 0
 
-global_label NPCList_08030558
-    .word NPC_08030564
-    .word NPC_08030579
+global_label NPCList_8030558
+    .word NPC_8030564
+    .word NPC_8030579
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030564:
+NPC_8030564:
     a_init
     a_set_dialog 0x23
     a_set_sprite 0xC
@@ -1351,7 +1351,7 @@ L_8030572:
     a_wait 1
     a_jump L_8030572
 
-NPC_08030579:
+NPC_8030579:
     a_init
     a_set_dialog 0x24
     a_set_sprite 0x1A
@@ -1363,13 +1363,13 @@ L_8030587:
 
     .align 2, 0
 
-global_label NPCList_08030590
-    .word NPC_08030598
+global_label NPCList_8030590
+    .word NPC_8030598
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030598:
+NPC_8030598:
     a_init
     a_set_sprite 0xF
     a_set_pos -220, 140
@@ -1380,14 +1380,14 @@ L_80305A4:
 
     .align 2, 0
 
-global_label NPCList_080305AC
-    .word NPC_080305B8
-    .word NPC_08030605
+global_label NPCList_80305AC
+    .word NPC_80305B8
+    .word NPC_8030605
     .word 0xFF
 
     .align 2, 0
 
-NPC_080305B8:
+NPC_80305B8:
     a_init
     a_set_dialog 0x0
     a_set_sprite 0x13
@@ -1419,7 +1419,7 @@ L_80305C4:
     a_move d_se, 8, 3
     a_jump L_80305C4
 
-NPC_08030605:
+NPC_8030605:
     a_init
     a_disable_turn
     a_set_dialog 0x1
@@ -1437,14 +1437,14 @@ L_803061B:
 
     .align 2, 0
 
-global_label NPCList_08030628
-    .word NPC_08030634
-    .word NPC_08030649
+global_label NPCList_8030628
+    .word NPC_8030634
+    .word NPC_8030649
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030634:
+NPC_8030634:
     a_init
     a_set_dialog 0x5
     a_set_sprite 0x13
@@ -1454,7 +1454,7 @@ L_8030642:
     a_wait 1
     a_jump L_8030642
 
-NPC_08030649:
+NPC_8030649:
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -1473,13 +1473,13 @@ L_8030663:
 
     .align 2, 0
 
-global_label NPCList_08030674
-    .word NPC_0803067C
+global_label NPCList_8030674
+    .word NPC_803067C
     .word 0xFF
 
     .align 2, 0
 
-NPC_0803067C:
+NPC_803067C:
     a_init
     a_set_dialog 0xA
     a_set_sprite 0x13
@@ -1493,13 +1493,13 @@ L_8030688:
 
     .align 2, 0
 
-global_label NPCList_0803069C
-    .word NPC_080306A4
+global_label NPCList_803069C
+    .word NPC_80306A4
     .word 0xFF
 
     .align 2, 0
 
-NPC_080306A4:
+NPC_80306A4:
     a_init
     a_disable_turn
     a_set_dialog 0x14
@@ -1512,13 +1512,13 @@ L_80306B3:
 
     .align 2, 0
 
-global_label NPCList_080306BC
-    .word NPC_080306C4
+global_label NPCList_80306BC
+    .word NPC_80306C4
     .word 0xFF
 
     .align 2, 0
 
-NPC_080306C4:
+NPC_80306C4:
     a_init
     a_disable_dialog
     a_set_sprite 0x13
@@ -1528,13 +1528,13 @@ L_80306D1:
     a_wait 1
     a_jump L_80306D1
 
-global_label NPCList_080306D8
-    .word NPC_080306E0
+global_label NPCList_80306D8
+    .word NPC_80306E0
     .word 0xFF
 
     .align 2, 0
 
-NPC_080306E0:
+NPC_80306E0:
     a_init
     a_set_dialog 0x19
     a_set_sprite 0x13
@@ -1546,13 +1546,13 @@ L_80306EE:
 
     .align 2, 0
 
-global_label NPCList_080306F8
-    .word NPC_08030700
+global_label NPCList_80306F8
+    .word NPC_8030700
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030700:
+NPC_8030700:
     a_init
     a_set_dialog 0x1E
     a_set_sprite 0x13
@@ -1564,13 +1564,13 @@ L_803070E:
 
     .align 2, 0
 
-global_label NPCList_08030718
-    .word NPC_08030720
+global_label NPCList_8030718
+    .word NPC_8030720
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030720:
+NPC_8030720:
     a_init
     a_set_dialog 0x23
     a_set_sprite 0x13
@@ -1604,13 +1604,13 @@ L_803072C:
 
     .align 2, 0
 
-global_label NPCList_08030770
-    .word NPC_08030778
+global_label NPCList_8030770
+    .word NPC_8030778
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030778:
+NPC_8030778:
     a_init
     a_sprite_auto_priority
     a_sprite_low_priority
@@ -1624,13 +1624,13 @@ L_8030788:
 
     .align 2, 0
 
-global_label NPCList_08030790
-    .word NPC_08030798
+global_label NPCList_8030790
+    .word NPC_8030798
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030798:
+NPC_8030798:
     a_init
     a_sprite_auto_priority
     a_sprite_low_priority
@@ -1644,13 +1644,13 @@ L_80307A8:
 
     .align 2, 0
 
-global_label NPCList_080307B0
-    .word NPC_080307B8
+global_label NPCList_80307B0
+    .word NPC_80307B8
     .word 0xFF
 
     .align 2, 0
 
-NPC_080307B8:
+NPC_80307B8:
     a_init
     a_set_dialog 0x3C
     a_set_sprite 0x13
@@ -1684,13 +1684,13 @@ L_80307C4:
 
     .align 2, 0
 
-global_label NPCList_08030808
-    .word NPC_08030810
+global_label NPCList_8030808
+    .word NPC_8030810
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030810:
+NPC_8030810:
     a_init
     a_set_sprite 0x13
     a_set_pos -74, 36
@@ -1706,13 +1706,13 @@ L_803082A:
 
     .align 2, 0
 
-global_label NPCList_08030834
-    .word NPC_0803083C
+global_label NPCList_8030834
+    .word NPC_803083C
     .word 0xFF
 
     .align 2, 0
 
-NPC_0803083C:
+NPC_803083C:
     a_init
     a_set_dialog 0x4B
     a_set_sprite 0x13
@@ -1730,13 +1730,13 @@ L_803085A:
 
     .align 2, 0
 
-global_label NPCList_08030864
-    .word NPC_0803086C
+global_label NPCList_8030864
+    .word NPC_803086C
     .word 0xFF
 
     .align 2, 0
 
-NPC_0803086C:
+NPC_803086C:
     a_init
     a_disable_turn
     a_set_dialog 0x0
@@ -1754,13 +1754,13 @@ L_8030882:
 
     .align 2, 0
 
-global_label NPCList_08030890
-    .word NPC_08030898
+global_label NPCList_8030890
+    .word NPC_8030898
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030898:
+NPC_8030898:
     a_init
     a_set_dialog 0x0
     a_set_sprite 0xF
@@ -1772,13 +1772,13 @@ L_80308A6:
 
     .align 2, 0
 
-global_label NPCList_080308B0
-    .word NPC_080308B8
+global_label NPCList_80308B0
+    .word NPC_80308B8
     .word 0xFF
 
     .align 2, 0
 
-NPC_080308B8:
+NPC_80308B8:
     a_init
     a_set_dialog 0xF
     a_set_sprite 0xF
@@ -1796,13 +1796,13 @@ L_80308C4:
 
     .align 2, 0
 
-global_label NPCList_080308E0
-    .word NPC_080308E8
+global_label NPCList_80308E0
+    .word NPC_80308E8
     .word 0xFF
 
     .align 2, 0
 
-NPC_080308E8:
+NPC_80308E8:
     a_init
     a_set_dialog 0xA
     a_set_sprite 0xF
@@ -1814,13 +1814,13 @@ L_80308F6:
 
     .align 2, 0
 
-global_label NPCList_08030900
-    .word NPC_08030908
+global_label NPCList_8030900
+    .word NPC_8030908
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030908:
+NPC_8030908:
     a_init
     a_set_dialog 0x23
     a_set_sprite 0xF
@@ -1832,13 +1832,13 @@ L_8030916:
 
     .align 2, 0
 
-global_label NPCList_08030920
-    .word NPC_08030928
+global_label NPCList_8030920
+    .word NPC_8030928
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030928:
+NPC_8030928:
     a_init
     a_set_dialog 0x0
     a_set_sprite 0x5
@@ -1850,13 +1850,13 @@ L_8030936:
 
     .align 2, 0
 
-global_label NPCList_08030940
-    .word NPC_08030948
+global_label NPCList_8030940
+    .word NPC_8030948
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030948:
+NPC_8030948:
     a_init
     a_set_dialog 0xF
     a_set_sprite 0x5
@@ -1868,13 +1868,13 @@ L_8030956:
 
     .align 2, 0
 
-global_label NPCList_08030960
-    .word NPC_08030968
+global_label NPCList_8030960
+    .word NPC_8030968
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030968:
+NPC_8030968:
     a_init
     a_set_dialog 0x23
     a_set_sprite 0x5
@@ -1886,13 +1886,13 @@ L_8030976:
 
     .align 2, 0
 
-global_label NPCList_08030980
-    .word NPC_08030988
+global_label NPCList_8030980
+    .word NPC_8030988
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030988:
+NPC_8030988:
     a_init
     a_set_dialog 0x2D
     a_set_sprite 0x5
@@ -1904,13 +1904,13 @@ L_8030996:
 
     .align 2, 0
 
-global_label NPCList_080309A0
-    .word NPC_080309A8
+global_label NPCList_80309A0
+    .word NPC_80309A8
     .word 0xFF
 
     .align 2, 0
 
-NPC_080309A8:
+NPC_80309A8:
     a_init
     a_set_dialog 0x0
     a_set_sprite 0x4
@@ -1922,13 +1922,13 @@ L_80309B6:
 
     .align 2, 0
 
-global_label NPCList_080309C0
-    .word NPC_080309C8
+global_label NPCList_80309C0
+    .word NPC_80309C8
     .word 0xFF
 
     .align 2, 0
 
-NPC_080309C8:
+NPC_80309C8:
     a_init
     a_set_dialog 0xA
     a_set_sprite 0x4
@@ -1940,13 +1940,13 @@ L_80309D6:
 
     .align 2, 0
 
-global_label NPCList_080309E0
-    .word NPC_080309E8
+global_label NPCList_80309E0
+    .word NPC_80309E8
     .word 0xFF
 
     .align 2, 0
 
-NPC_080309E8:
+NPC_80309E8:
     a_init
     a_set_dialog 0x14
     a_set_sprite 0x4
@@ -1964,13 +1964,13 @@ L_80309F4:
 
     .align 2, 0
 
-global_label NPCList_08030A14
-    .word NPC_08030A1C
+global_label NPCList_8030A14
+    .word NPC_8030A1C
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030A1C:
+NPC_8030A1C:
     a_init
     a_set_dialog 0x23
     a_set_sprite 0x4
@@ -1988,13 +1988,13 @@ L_8030A28:
 
     .align 2, 0
 
-global_label NPCList_08030A44
-    .word NPC_08030A4C
+global_label NPCList_8030A44
+    .word NPC_8030A4C
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030A4C:
+NPC_8030A4C:
     a_init
     a_set_dialog 0x2A
     a_set_sprite 0x4
@@ -2006,16 +2006,16 @@ L_8030A5A:
 
     .align 2, 0
 
-global_label NPCList_08030A64
-    .word NPC_08030A78
-    .word NPC_08030A8D
-    .word NPC_08030AAA
-    .word NPC_08030ABF
+global_label NPCList_8030A64
+    .word NPC_8030A78
+    .word NPC_8030A8D
+    .word NPC_8030AAA
+    .word NPC_8030ABF
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030A78:
+NPC_8030A78:
     a_init
     a_set_dialog 0x0
     a_set_sprite 0x9
@@ -2025,7 +2025,7 @@ L_8030A86:
     a_wait 1
     a_jump L_8030A86
 
-NPC_08030A8D:
+NPC_8030A8D:
     a_init_no_sprite
     a_disable_turn
     a_disable_collision
@@ -2039,7 +2039,7 @@ L_8030AA3:
     a_wait 1
     a_jump L_8030AA3
 
-NPC_08030AAA:
+NPC_8030AAA:
     a_init
     a_set_dialog 0x29
     a_set_sprite 0xB
@@ -2049,7 +2049,7 @@ L_8030AB8:
     a_wait 1
     a_jump L_8030AB8
 
-NPC_08030ABF:
+NPC_8030ABF:
     a_init
     a_set_dialog 0x2A
     a_sprite_mask_set_flag 0x4
@@ -2062,22 +2062,22 @@ L_8030ACF:
 
     .align 2, 0
 
-global_label NPCList_08030AD8
-    .word NPC_08030A78
-    .word NPC_08030A8D
-    .word NPC_08030ABF
+global_label NPCList_8030AD8
+    .word NPC_8030A78
+    .word NPC_8030A8D
+    .word NPC_8030ABF
     .word 0xFF
 
-global_label NPCList_08030AE8
-    .word NPC_08030AFC
-    .word NPC_08030B11
-    .word NPC_08030B2E
-    .word NPC_08030B43
+global_label NPCList_8030AE8
+    .word NPC_8030AFC
+    .word NPC_8030B11
+    .word NPC_8030B2E
+    .word NPC_8030B43
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030AFC:
+NPC_8030AFC:
     a_init
     a_set_dialog 0x0
     a_set_sprite 0x9
@@ -2087,7 +2087,7 @@ L_8030B0A:
     a_wait 1
     a_jump L_8030B0A
 
-NPC_08030B11:
+NPC_8030B11:
     a_init_no_sprite
     a_disable_turn
     a_disable_collision
@@ -2101,7 +2101,7 @@ L_8030B27:
     a_wait 1
     a_jump L_8030B27
 
-NPC_08030B2E:
+NPC_8030B2E:
     a_init
     a_set_dialog 0x29
     a_set_sprite 0xB
@@ -2111,7 +2111,7 @@ L_8030B3C:
     a_wait 1
     a_jump L_8030B3C
 
-NPC_08030B43:
+NPC_8030B43:
     a_init
     a_set_dialog 0x2A
     a_sprite_mask_set_flag 0x4
@@ -2124,21 +2124,21 @@ L_8030B53:
 
     .align 2, 0
 
-global_label NPCList_08030B5C
-    .word NPC_08030B7C
-    .word NPC_08030B91
-    .word NPC_08030BAE
-    .word NPC_08030BC3
+global_label NPCList_8030B5C
+    .word NPC_8030B7C
+    .word NPC_8030B91
+    .word NPC_8030BAE
+    .word NPC_8030BC3
     .word 0xFF
 
-global_label NPCList_08030B70
-    .word NPC_08030BAE
-    .word NPC_08030BC3
+global_label NPCList_8030B70
+    .word NPC_8030BAE
+    .word NPC_8030BC3
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030B7C:
+NPC_8030B7C:
     a_init
     a_set_dialog 0x0
     a_set_sprite 0x9
@@ -2148,7 +2148,7 @@ L_8030B8A:
     a_wait 1
     a_jump L_8030B8A
 
-NPC_08030B91:
+NPC_8030B91:
     a_init_no_sprite
     a_disable_turn
     a_disable_collision
@@ -2162,7 +2162,7 @@ L_8030BA7:
     a_wait 1
     a_jump L_8030BA7
 
-NPC_08030BAE:
+NPC_8030BAE:
     a_init
     a_set_dialog 0x50
     a_set_sprite 0xB
@@ -2172,7 +2172,7 @@ L_8030BBC:
     a_wait 1
     a_jump L_8030BBC
 
-NPC_08030BC3:
+NPC_8030BC3:
     a_init
     a_set_dialog 0x2A
     a_sprite_mask_set_flag 0x4
@@ -2185,16 +2185,16 @@ L_8030BD3:
 
     .align 2, 0
 
-global_label NPCList_08030BDC
-    .word NPC_08030BF0
-    .word NPC_08030C05
-    .word NPC_08030C1B
-    .word NPC_08030C31
+global_label NPCList_8030BDC
+    .word NPC_8030BF0
+    .word NPC_8030C05
+    .word NPC_8030C1B
+    .word NPC_8030C31
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030BF0:
+NPC_8030BF0:
     a_init
     a_set_dialog 0x0
     a_set_sprite 0x2B
@@ -2203,7 +2203,7 @@ NPC_08030BF0:
     a_wait 1
     a_jump L_8030C14
 
-NPC_08030C05:
+NPC_8030C05:
     a_init
     a_set_dialog 0x2
     a_disable_turn
@@ -2214,7 +2214,7 @@ L_8030C14:
     a_wait 1
     a_jump L_8030C14
 
-NPC_08030C1B:
+NPC_8030C1B:
     a_init
     a_set_dialog 0x3
     a_disable_turn
@@ -2225,7 +2225,7 @@ L_8030C2A:
     a_wait 1
     a_jump L_8030C2A
 
-NPC_08030C31:
+NPC_8030C31:
     a_init
     a_set_dialog 0x4
     a_set_sprite 0x2B
@@ -2237,20 +2237,20 @@ L_8030C3F:
 
     .align 2, 0
 
-global_label NPCList_08030C48
-    .word NPC_08030C64
-    .word NPC_08030C79
+global_label NPCList_8030C48
+    .word NPC_8030C64
+    .word NPC_8030C79
     .word 0xFF
 
-global_label NPCList_08030C54
-    .word NPC_08030C64
-    .word NPC_08030C79
-    .word NPC_08030D20
+global_label NPCList_8030C54
+    .word NPC_8030C64
+    .word NPC_8030C79
+    .word NPC_8030D20
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030C64:
+NPC_8030C64:
     a_init
     a_set_dialog 0xF
     a_set_sprite 0x2B
@@ -2260,7 +2260,7 @@ L_8030C72:
     a_wait 1
     a_jump L_8030C72
 
-NPC_08030C79:
+NPC_8030C79:
     a_init
     a_set_dialog 0x10
     a_set_sprite 0x2B
@@ -2272,15 +2272,15 @@ L_8030C87:
 
     .align 2, 0
 
-global_label NPCList_08030C90
-    .word NPC_08030CA0
-    .word NPC_08030CB5
-    .word NPC_08030CCA
+global_label NPCList_8030C90
+    .word NPC_8030CA0
+    .word NPC_8030CB5
+    .word NPC_8030CCA
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030CA0:
+NPC_8030CA0:
     a_init
     a_set_dialog 0x28
     a_set_sprite 0x2B
@@ -2290,7 +2290,7 @@ L_8030CAE:
     a_wait 1
     a_jump L_8030CAE
 
-NPC_08030CB5:
+NPC_8030CB5:
     a_init
     a_set_dialog 0x29
     a_set_sprite 0x2B
@@ -2300,7 +2300,7 @@ L_8030CC3:
     a_wait 1
     a_jump L_8030CC3
 
-NPC_08030CCA:
+NPC_8030CCA:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0x2A
@@ -2313,15 +2313,15 @@ L_8030CDA:
 
     .align 2, 0
 
-global_label NPCList_08030CE4
-    .word NPC_08030CF4
-    .word NPC_08030D09
-    .word NPC_08030D20
+global_label NPCList_8030CE4
+    .word NPC_8030CF4
+    .word NPC_8030D09
+    .word NPC_8030D20
     .word 0xFF
 
     .align 2, 0
 
-NPC_08030CF4:
+NPC_8030CF4:
     a_init
     a_set_dialog 0x37
     a_set_sprite 0x2B
@@ -2331,7 +2331,7 @@ L_8030D02:
     a_wait 1
     a_jump L_8030D02
 
-NPC_08030D09:
+NPC_8030D09:
     a_init
     a_set_dialog 0x38
     a_set_sprite 0x2B
@@ -2345,7 +2345,7 @@ L_8030D17:
 
     .align 2, 0
 
-NPC_08030D20:
+NPC_8030D20:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0xBE

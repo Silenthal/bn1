@@ -226,7 +226,7 @@ PTR_BgTask_08026804:
 PTR_EntityAllocParams_ARRAY_08026808:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_0802680c:
-    .word NPCList_08029610
+    .word NPCList_8029610
 PTR_PTR_EventHandler_School_Class_1A_F14_0_08026810:
     .word PTR_EventHandler_School_Class_1A_F14_0_08026768
 DAT_08026814:
@@ -238,7 +238,7 @@ PTR_BgTask_0802681c:
 PTR_EntityAllocParams_ARRAY_08026820:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08026824:
-    .word NPCList_08029610
+    .word NPCList_8029610
 PTR_PTR_EventHandler_School_Class_1A_F15_0_08026828:
     .word PTR_EventHandler_School_Class_1A_F15_0_080267e0
 

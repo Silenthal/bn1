@@ -226,7 +226,7 @@ PTR_PTR_EventHandler_ACDC_Mayl_Room_F20_0_0802db48:
 PTR_DAT_0802db4c:
     .word EntityAllocParams_08030FE0
 PTR_PTR_DAT_0802db50:
-    .word NPCList_080308E0
+    .word NPCList_80308E0
 PTR_PTR_EventHandler_ACDC_Mayl_Room_F21_0_0802db54:
     .word PTR_EventHandler_ACDC_Mayl_Room_F21_0_0802db34
 
@@ -313,7 +313,7 @@ PTR_PTR_MapSetup_ACDC_Mayl_Room_F40_0802dbfc:
 PTR_PTR_EventHandler_ACDC_Mayl_Room_F40_0802dc00:
     .word PTR_EventHandler_ACDC_Mayl_Room_F40_0802db9c
 PTR_PTR_DAT_0802dc04:
-    .word NPCList_08030900
+    .word NPCList_8030900
 PTR_DAT_0802dc08:
     .word EntityAllocParams_08030FE0
 PTR_PTR_EventHandler_ACDC_Mayl_Room_F40_0_0802dc0c:
@@ -438,7 +438,7 @@ PTR_PTR_EventHandler_ACDC_Mayl_Room_F50_0802dcf0:
 PTR_DAT_0802dcf4:
     .word EntityAllocParams_08030FE0
 PTR_PTR_DAT_0802dcf8:
-    .word NPCList_08030900
+    .word NPCList_8030900
 PTR_PTR_EventHandler_ACDC_Mayl_Room_F50_0_0802dcfc:
     .word PTR_EventHandler_ACDC_Mayl_Room_F50_0_0802dcac
 PTR_DAT_0802dd00:

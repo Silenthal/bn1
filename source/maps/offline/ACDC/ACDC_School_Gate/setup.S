@@ -335,7 +335,7 @@ PTR_PTR_MapSetup_ACDC_School_Gate_F20_0802bb6c:
 PTR_PTR_EventHandler_ACDC_School_Gate_F20_0802bb70:
     .word PTR_EventHandler_ACDC_School_Gate_F20_0802b960
 PTR_PTR_DAT_0802bb74:
-    .word NPCList_08030398
+    .word NPCList_8030398
 PTR_BgTask_0802BB78:
     .word BgTask_08029FEC
 PTR_DAT_0802bb7c:
@@ -347,7 +347,7 @@ PTR_BgTask_0802BB84:
 PTR_DAT_0802bb88:
     .word EntityAllocParams_08030D80
 PTR_PTR_DAT_0802bb8c:
-    .word NPCList_080303D0
+    .word NPCList_80303D0
 PTR_PTR_EventHandler_ACDC_School_Gate_F23_0_0802bb90:
     .word PTR_EventHandler_ACDC_School_Gate_F23_0_0802ba3c
 PTR_LAB_08088db8_0802bb94:
@@ -361,7 +361,7 @@ PTR_BgTask_0802BBA0:
 PTR_DAT_0802bba4:
     .word EntityAllocParams_08030D80
 PTR_PTR_DAT_0802bba8:
-    .word NPCList_080304A4
+    .word NPCList_80304A4
 PTR_PTR_EventHandler_ACDC_School_Gate_F24_0_0802bbac:
     .word PTR_EventHandler_ACDC_School_Gate_F24_0_0802bac4
 PTR_DAT_0802bbb0:
@@ -375,7 +375,7 @@ PTR_BgTask_0802BBBC:
 PTR_BgTask_0802BBC0:
     .word BgTask_0802A01C
 PTR_PTR_0802bbc4:
-    .word NPCList_08030534
+    .word NPCList_8030534
 PTR_PTR_EventHandler_ACDC_School_Gate_F26_0_0802bbc8:
     .word PTR_EventHandler_ACDC_School_Gate_F26_0_0802bb4c
 PTR_LAB_0808a4d4_0802bbcc:
@@ -476,7 +476,7 @@ PTR_PTR_MapSetup_ACDC_School_Gate_F30_0802bc90:
 PTR_PTR_EventHandler_ACDC_School_Gate_F30_0802bc94:
     .word PTR_EventHandler_ACDC_School_Gate_F30_0802bc20
 PTR_PTR_DAT_0802bc98:
-    .word NPCList_08030558
+    .word NPCList_8030558
 PTR_BgTask_0802BC9C:
     .word BgTask_08029FEC
 PTR_DAT_0802bca0:
@@ -583,7 +583,7 @@ PTR_BgTask_0802BD70:
 PTR_DAT_0802bd74:
     .word EntityAllocParams_08030D80
 PTR_PTR_DAT_0802bd78:
-    .word NPCList_08030558
+    .word NPCList_8030558
 PTR_PTR_EventHandler_ACDC_School_Gate_F40_0_0802bd7c:
     .word PTR_EventHandler_ACDC_School_Gate_F40_0_0802bd60
 
@@ -826,7 +826,7 @@ PTR_BgTask_0802BF54:
 PTR_DAT_0802bf58:
     .word EntityAllocParams_08030D80
 PTR_PTR_DAT_0802bf5c:
-    .word NPCList_08030558
+    .word NPCList_8030558
 PTR_PTR_EventHandler_ACDC_School_Gate_F50_0_0802bf60:
     .word PTR_EventHandler_ACDC_School_Gate_F50_0_0802be34
 PTR_BgTask_0802BF64:
@@ -836,7 +836,7 @@ PTR_DAT_0802bf68:
 DAT_0802bf6c:
     .word 0x80938CD
 PTR_PTR_DAT_0802bf70:
-    .word NPCList_08030558
+    .word NPCList_8030558
 PTR_PTR_EventHandler_ACDC_School_Gate_F53_0_0802bf74:
     .word PTR_EventHandler_ACDC_School_Gate_F53_0_0802bec8
 PTR_LAB_080939b4_0802bf78:
@@ -846,6 +846,6 @@ PTR_BgTask_0802BF7C:
 PTR_DAT_0802bf80:
     .word EntityAllocParams_08030D80
 PTR_PTR_DAT_0802bf84:
-    .word NPCList_08030558
+    .word NPCList_8030558
 PTR_PTR_EventHandler_ACDC_School_Gate_F54_0_0802bf88:
     .word PTR_EventHandler_ACDC_School_Gate_F54_0_0802bf44

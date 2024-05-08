@@ -10,16 +10,16 @@
 
 dummy_113e4:
     .word dummy_School
-    .word 0x802a515 @ dummy_ACDC
-    .word 0x8031319 @ dummy_31318
-    .word 0x8035edd @ dummy_35edc
+    .word dummy_ACDC
+    .word dummy_Govt
+    .word dummy_DenTown
     .word 0x803bd91 @ dummy_3bd90
     .word 0x803d87d @ dummy_3d87c
 listGraphicDataSetup_Offline:
     .word GraphicDataSetup_School
-    .word 0x802a519 @ GraphicDataSetup_ACDC
-    .word 0x803131d @ GraphicDataSetup_Govt
-    .word 0x8035ee1 @ GraphicDataSetup_DenTown
+    .word GraphicDataSetup_ACDC
+    .word GraphicDataSetup_Govt
+    .word GraphicDataSetup_DenTown
     .word 0x803bd95 @ GraphicDataSetup_SciLab
     .word 0x803d881 @ GraphicDataSetup_WWW
 dummy_11414:

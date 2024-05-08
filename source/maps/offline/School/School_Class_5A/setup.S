@@ -238,7 +238,7 @@ PTR_BgTask_080248c4:
 PTR_BgTask_080248c8:
     .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080248cc:
-    .word NPCList_08028964
+    .word NPCList_8028964
 PTR_PTR_EventHandler_School_Class_5A_F00_0_080248d0:
     .word PTR_EventHandler_School_Class_5A_F00_0_080247c0
 PTR_FUN_08082f48_080248d4:
@@ -250,7 +250,7 @@ PTR_BgTask_080248dc:
 PTR_BgTask_080248e0:
     .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080248e4:
-    .word NPCList_08028B64
+    .word NPCList_8028B64
 PTR_FUN_0808598c_080248e8:
     .word FUN_0808598c
 PTR_FUN_080834d4_080248ec:
@@ -390,9 +390,9 @@ PTR_BgTask_08024a10:
 PTR_BgTask_08024a14:
     .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_08024a18:
-    .word NPCList_08028C8C
+    .word NPCList_8028C8C
 PTR_PTR_DAT_08024a1c:
-    .word NPCList_08028C30
+    .word NPCList_8028C30
 DAT_08024a20:
     .word 0x808598D
 
@@ -534,7 +534,7 @@ PTR_BgTask_08024b30:
 PTR_BgTask_08024b34:
     .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_DAT_08024b38:
-    .word NPCList_08028CDC
+    .word NPCList_8028CDC
 
 
 _ts EventHandler_School_Class_5A_F11
@@ -1021,7 +1021,7 @@ LAB_08024eba:
     str        r0,[r5,#0x0]
     pop        {pc}
 PTR_PTR_DAT_08024ee8:
-    .word NPCList_08028D78
+    .word NPCList_8028D78
 
 
 _ts EventHandler_School_Class_5A_F15
@@ -1142,7 +1142,7 @@ PTR_BgTask_08024fd0:
 PTR_BgTask_08024fd4:
     .word BgTask_School_PaletteBlackboardOn
 PTR_DAT_08024fd8:
-    .word NPCList_08028D24
+    .word NPCList_8028D24
 PTR_PTR_EventHandler_School_Class_5A_F12_0_08024fdc:
     .word PTR_EventHandler_School_Class_5A_F12_0_08024c78
 PTR_FUN_08086a64_08024fe0:
@@ -1166,7 +1166,7 @@ PTR_BgTask_08025000:
 PTR_BgTask_08025004:
     .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_DAT_08025008:
-    .word NPCList_08028D48
+    .word NPCList_8028D48
 PTR_PTR_EventHandler_School_Class_5A_F13_0_0802500c:
     .word PTR_EventHandler_School_Class_5A_F13_0_08024de8
 DAT_08025010:
@@ -1176,7 +1176,7 @@ PTR_BgTask_08025014:
 PTR_BgTask_08025018:
     .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_DAT_0802501c:
-    .word NPCList_08028D64
+    .word NPCList_8028D64
 PTR_PTR_EventHandler_School_Class_5A_F14_0_08025020:
     .word PTR_EventHandler_School_Class_5A_F14_0_08024e7c
 DAT_08025024:
@@ -1703,7 +1703,7 @@ PTR_BgTask_08025424:
 PTR_BgTask_08025428:
     .word BgTask_School_PaletteBlackboardOn_2
 DAT_0802542c:
-    .word NPCList_08029034
+    .word NPCList_8029034
 DAT_08025430:
     .word 0xA0000
 DAT_08025434:
@@ -1721,7 +1721,7 @@ PTR_BgTask_08025448:
 PTR_BgTask_0802544c:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_DAT_08025450:
-    .word NPCList_080290BC
+    .word NPCList_80290BC
 PTR_PTR_EventHandler_School_Class_5A_F21_0_08025454:
     .word PTR_EventHandler_School_Class_5A_F21_0_080251d8
 PTR_BgTask_08025458:
@@ -1729,7 +1729,7 @@ PTR_BgTask_08025458:
 PTR_BgTask_0802545c:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_DAT_08025460:
-    .word NPCList_080290BC
+    .word NPCList_80290BC
 PTR_PTR_EventHandler_School_Class_5A_F22_0_08025464:
     .word PTR_EventHandler_School_Class_5A_F22_0_0802522c
 PTR_BgTask_08025468:
@@ -1737,7 +1737,7 @@ PTR_BgTask_08025468:
 PTR_BgTask_0802546c:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_PTR_DAT_08025470:
-    .word NPCList_080290E0
+    .word NPCList_80290E0
 PTR_FUN_0808598c_08025474:
     .word FUN_0808598c
 PTR_PTR_EventHandler_School_Class_5A_F23_0_08025478:
@@ -1751,7 +1751,7 @@ PTR_BgTask_08025484:
 PTR_BgTask_08025488:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_PTR_DAT_0802548c:
-    .word NPCList_080292BC
+    .word NPCList_80292BC
 PTR_FUN_0808598c_08025490:
     .word FUN_0808598c
 PTR_PTR_EventHandler_School_Class_5A_F24_0_08025494:

@@ -264,6 +264,6 @@ PTR_BgTask_080284e8:
 PTR_EntityAllocParams_ARRAY_080284ec:
     .word EntityAllocParams_08029CF4
 PTR_DAT_080284f0:
-    .word NPCList_08029A98
+    .word NPCList_8029A98
 PTR_PTR_EventHandler_School_Staff_Lounge_F50_0_080284f4:
     .word PTR_EventHandler_School_Staff_Lounge_F50_0_080284d8

@@ -324,7 +324,7 @@ PTR_PTR_EventHandler_ACDC_Town_F00_0_0802ac20:
 PTR_Scenario_082B1C_LanWalksToSchool_0802ac24:
     .word Scenario_082B1C_LanWalksToSchool
 PTR_PTR_DAT_0802ac28:
-    .word NPCList_0802F994
+    .word NPCList_802F994
 PTR_Scenario_01_LanCheckYourMail_0802ac2c:
     .word Scenario_01_LanCheckYourMail
 DAT_0802ac30:
@@ -342,7 +342,7 @@ DAT_0802ac44:
 DAT_0802ac48:
     .word 0xC05
 PTR_PTR_DAT_0802ac4c:
-    .word NPCList_0802F9CC
+    .word NPCList_802F9CC
 PTR_PTR_FUN_0802abe0_0802ac50:
     .word PTR_FUN_0802abe0_0802abdc
 DAT_0802ac54:
@@ -513,7 +513,7 @@ DAT_0802ad90:
 DAT_0802ad94:
     .word 0x140000
 PTR_PTR_DAT_0802ad98:
-    .word NPCList_0802FB74
+    .word NPCList_802FB74
 PTR_BgTask_0802AD9C:
     .word BgTask_08029EE4
 PTR_FUN_08086004_0802ada0:
@@ -700,7 +700,7 @@ _ts MapSetup_ACDC_Town_F20
     str        r0,[r5,#0x0]
     pop        {pc}
 PTR_PTR_DAT_0802af4c:
-    .word NPCList_0802FB90
+    .word NPCList_802FB90
 PTR_EntityAllocParams_0802af50:
     .word EntityAllocParams_08030D50
 
@@ -1203,7 +1203,7 @@ LAB_0802b2f2:
 PTR_PTR_EventHandler_ACDC_Town_F20_0_0802b2f4:
     .word PTR_EventHandler_ACDC_Town_F20_0_0802af64
 PTR_PTR_DAT_0802b2f8:
-    .word NPCList_0802FC80
+    .word NPCList_802FC80
 PTR_EntityAllocParams_0802b2fc:
     .word EntityAllocParams_08030D50
 PTR_PTR_EventHandler_ACDC_Town_F21_0_0802b300:
@@ -1213,7 +1213,7 @@ DAT_0802b304:
 DAT_0802b308:
     .word 0x137
 PTR_PTR_DAT_0802b30c:
-    .word NPCList_0802FDB4
+    .word NPCList_802FDB4
 PTR_EntityAllocParams_0802b310:
     .word EntityAllocParams_08030D50
 PTR_PTR_EventHandler_ACDC_Town_F22_0_0802b314:
@@ -1227,17 +1227,17 @@ PTR_PTR_EventHandler_ACDC_Town_F23_0_0802b320:
 PTR_LAB_08088ac4_0802b324:
     .word LAB_08088ac4
 PTR_PTR_DAT_0802b328:
-    .word NPCList_0802FDE8
+    .word NPCList_802FDE8
 PTR_PTR_EventHandler_ACDC_Town_F24_0_0802b32c:
     .word PTR_EventHandler_ACDC_Town_F24_0_0802b124
 PTR_PTR_DAT_0802b330:
-    .word NPCList_0802FDE8
+    .word NPCList_802FDE8
 PTR_PTR_EventHandler_ACDC_Town_F25_0_0802b334:
     .word PTR_EventHandler_ACDC_Town_F25_0_0802b16c
 PTR_LAB_0808a30c_0802b338:
     .word LAB_0808a30c
 PTR_PTR_DAT_0802b33c:
-    .word NPCList_0802FE6C
+    .word NPCList_802FE6C
 PTR_PTR_EventHandler_ACDC_Town_F26_0_0802b340:
     .word PTR_EventHandler_ACDC_Town_F26_0_0802b1d4
 DAT_0802b344:
@@ -1247,11 +1247,11 @@ DAT_0802b348:
 PTR_LAB_0808a930_0802b34c:
     .word LAB_0808a930
 PTR_PTR_DAT_0802b350:
-    .word NPCList_0802FF6C
+    .word NPCList_802FF6C
 PTR_PTR_DAT_0802b354:
-    .word NPCList_0802FF2C
+    .word NPCList_802FF2C
 PTR_PTR_DAT_0802b358:
-    .word NPCList_0802FE6C
+    .word NPCList_802FE6C
 PTR_PTR_EventHandler_ACDC_Town_F27_0_0802b35c:
     .word PTR_EventHandler_ACDC_Town_F27_0_0802b28c
 PTR_LAB_0808b420_0802b360:
@@ -1430,9 +1430,9 @@ PTR_BgTask_0802B4B4:
 PTR_PTR_EventHandler_ACDC_Town_F30_0802b4b8:
     .word PTR_EventHandler_ACDC_Town_F30_0802b3c4
 PTR_PTR_DAT_0802b4bc:
-    .word NPCList_08030004
+    .word NPCList_8030004
 PTR_PTR_DAT_0802b4c0:
-    .word NPCList_08030004
+    .word NPCList_8030004
 PTR_PTR_EventHandler_ACDC_Town_F30_0_0802b4c4:
     .word PTR_EventHandler_ACDC_Town_F30_0_0802b42c
 DAT_0802b4c8:
@@ -1599,7 +1599,7 @@ PTR_BgTask_0802B618:
 PTR_PTR_EventHandler_ACDC_Town_F40_0802b61c:
     .word PTR_EventHandler_ACDC_Town_F40_0802b568
 PTR_PTR_DAT_0802b620:
-    .word NPCList_0803002C
+    .word NPCList_803002C
 PTR_FUN_0808f044_0802b624:
     .word FUN_0808f044
 PTR_PTR_EventHandler_ACDC_Town_F40_0_0802b628:
@@ -1920,11 +1920,11 @@ PTR_BgTask_0802B8A4:
 PTR_PTR_EventHandler_ACDC_Town_F50_0802b8a8:
     .word PTR_EventHandler_ACDC_Town_F50_0802b6b0
 PTR_PTR_DAT_0802b8ac:
-    .word NPCList_08030128
+    .word NPCList_8030128
 PTR_PTR_EventHandler_ACDC_Town_F50_0_0802b8b0:
     .word PTR_EventHandler_ACDC_Town_F50_0_0802b708
 PTR_PTR_DAT_0802b8b4:
-    .word NPCList_08030154
+    .word NPCList_8030154
 PTR_FUN_0808598c_0802b8b8:
     .word FUN_0808598c
 PTR_PTR_EventHandler_ACDC_Town_F53_0_0802b8bc:
@@ -1938,7 +1938,7 @@ DAT_0802b8c8:
 PTR_FUN_080979cc_0802b8cc:
     .word FUN_080979cc
 PTR_PTR_DAT_0802b8d0:
-    .word NPCList_08030154
+    .word NPCList_8030154
 DAT_0802b8d4:
     .word 0x808598D
 PTR_PTR_EventHandler_ACDC_Town_F54_0_0802b8d8:

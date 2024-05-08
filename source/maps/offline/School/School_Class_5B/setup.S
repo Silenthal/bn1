@@ -248,7 +248,7 @@ PTR_BgTask_08025750:
 PTR_EntityAllocParams_ARRAY_08025754:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08025758:
-    .word NPCList_080292FC
+    .word NPCList_80292FC
 PTR_PTR_EventHandler_School_Class_5B_F13_0_0802575c:
     .word PTR_EventHandler_School_Class_5B_F13_0_0802563c
 DAT_08025760:
@@ -260,7 +260,7 @@ PTR_BgTask_08025768:
 PTR_EntityAllocParams_ARRAY_0802576c:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08025770:
-    .word NPCList_080292FC
+    .word NPCList_80292FC
 PTR_PTR_EventHandler_School_Class_5B_F14_0_08025774:
     .word PTR_EventHandler_School_Class_5B_F14_0_080256c4
 DAT_08025778:
@@ -272,7 +272,7 @@ PTR_BgTask_08025780:
 PTR_EntityAllocParams_ARRAY_08025784:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08025788:
-    .word NPCList_080292FC
+    .word NPCList_80292FC
 PTR_PTR_EventHandler_School_Class_5B_F15_0_0802578c:
     .word PTR_EventHandler_School_Class_5B_F15_0_0802573c
 
@@ -639,7 +639,7 @@ PTR_BgTask_08025a44:
 PTR_EntityAllocParams_ARRAY_08025a48:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08025a4c:
-    .word NPCList_0802937C
+    .word NPCList_802937C
 PTR_PTR_EventHandler_School_Class_5B_F20_0_08025a50:
     .word PTR_EventHandler_School_Class_5B_F20_0_0802585c
 PTR_BgTask_08025a54:
@@ -649,7 +649,7 @@ PTR_BgTask_08025a58:
 PTR_EntityAllocParams_ARRAY_08025a5c:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08025a60:
-    .word NPCList_0802937C
+    .word NPCList_802937C
 PTR_PTR_EventHandler_School_Class_5B_F21_0_08025a64:
     .word PTR_EventHandler_School_Class_5B_F21_0_080258ac
 PTR_BgTask_08025a68:
@@ -659,7 +659,7 @@ PTR_BgTask_08025a6c:
 PTR_EntityAllocParams_ARRAY_08025a70:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08025a74:
-    .word NPCList_0802937C
+    .word NPCList_802937C
 PTR_PTR_EventHandler_School_Class_5B_F22_0_08025a78:
     .word PTR_EventHandler_School_Class_5B_F22_0_080258fc
 PTR_BgTask_08025a7c:
@@ -669,7 +669,7 @@ PTR_BgTask_08025a80:
 PTR_EntityAllocParams_ARRAY_08025a84:
     .word EntityAllocParams_08029B18
 PTR_PTR_DAT_08025a88:
-    .word NPCList_080293AC
+    .word NPCList_80293AC
 PTR_PTR_EventHandler_School_Class_5B_F24_0_08025a8c:
     .word PTR_EventHandler_School_Class_5B_F24_0_0802594c
 PTR_BgTask_08025a90:

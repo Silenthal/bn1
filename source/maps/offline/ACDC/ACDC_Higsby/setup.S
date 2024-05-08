@@ -316,7 +316,7 @@ PTR_PTR_EventHandler_Default_0802eca0:
 PTR_EntityAllocParams_ARRAY_0802eca4:
     .word EntityAllocParams_08031024
 PTR_PTR_DAT_0802eca8:
-    .word NPCList_08030A64
+    .word NPCList_8030A64
 DAT_0802ecac:
     .word 0x808598D
 PTR_PTR_EventHandler_ACDC_Higsby_F24_0_0802ecb0:
@@ -328,7 +328,7 @@ DAT_0802ecb8:
 PTR_EntityAllocParams_ARRAY_0802ecbc:
     .word EntityAllocParams_08031024
 PTR_PTR_DAT_0802ecc0:
-    .word NPCList_08030AD8
+    .word NPCList_8030AD8
 PTR_FUN_0808598c_0802ecc4:
     .word FUN_0808598c
 PTR_PTR_EventHandler_ACDC_Higsby_F26_0_0802ecc8:
@@ -494,7 +494,7 @@ PTR_PTR_EventHandler_ACDC_Higsby_F30_0802ee18:
 PTR_EntityAllocParams_ARRAY_0802ee1c:
     .word EntityAllocParams_08031024
 PTR_PTR_DAT_0802ee20:
-    .word NPCList_08030AE8
+    .word NPCList_8030AE8
 DAT_0802ee24:
     .word 0x808598D
 PTR_PTR_EventHandler_ACDC_Higsby_F30_0_0802ee28:
@@ -649,7 +649,7 @@ PTR_PTR_EventHandler_ACDC_Higsby_F40_0802ef64:
 PTR_EntityAllocParams_ARRAY_0802ef68:
     .word EntityAllocParams_08031024
 PTR_PTR_DAT_0802ef6c:
-    .word NPCList_08030AE8
+    .word NPCList_8030AE8
 DAT_0802ef70:
     .word 0x808598D
 PTR_PTR_EventHandler_ACDC_Higsby_F40_0_0802ef74:
@@ -879,7 +879,7 @@ PTR_PTR_EventHandler_ACDC_Higsby_F50_0802f140:
 PTR_EntityAllocParams_ARRAY_0802f144:
     .word EntityAllocParams_08031024
 PTR_PTR_DAT_0802f148:
-    .word NPCList_08030B5C
+    .word NPCList_8030B5C
 DAT_0802f14c:
     .word 0x808598D
 PTR_PTR_EventHandler_ACDC_Higsby_F50_0_0802f150:
@@ -891,7 +891,7 @@ DAT_0802f158:
 PTR_EntityAllocParams_ARRAY_0802f15c:
     .word EntityAllocParams_08031024
 PTR_PTR_LAB_0802f160:
-    .word NPCList_08030B70
+    .word NPCList_8030B70
 PTR_PTR_EventHandler_ACDC_Higsby_F53_0_0802f164:
     .word PTR_EventHandler_ACDC_Higsby_F53_0_0802f0f0
 DAT_0802f168:

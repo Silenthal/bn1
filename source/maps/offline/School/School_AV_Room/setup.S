@@ -394,7 +394,7 @@ PTR_BgTask_080271e4:
 PTR_BgTask_080271e8:
     .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080271ec:
-    .word NPCList_080297C4
+    .word NPCList_80297C4
 PTR_PTR_EventHandler_School_AV_Room_F20_0_080271f0:
     .word PTR_EventHandler_School_AV_Room_F20_0_080271d0
 
@@ -502,6 +502,6 @@ PTR_BgTask_080272c8:
 PTR_BgTask_080272cc:
     .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080272d0:
-    .word NPCList_080297C4
+    .word NPCList_80297C4
 PTR_PTR_EventHandler_School_AV_Room_F30_0_080272d4:
     .word PTR_EventHandler_School_AV_Room_F30_0_080272b4

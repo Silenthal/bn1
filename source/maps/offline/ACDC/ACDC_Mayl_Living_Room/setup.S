@@ -127,7 +127,7 @@ PTR_PTR_EventHandler_Default_0802d628:
 PTR_LAB_0802d62c:
     .word EntityAllocParams_08030F78
 PTR_DAT_0802d630:
-    .word NPCList_08030890
+    .word NPCList_8030890
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F06_0_0802d634:
     .word PTR_EventHandler_ACDC_Mayl_Living_Room_F06_0_0802d5d0
 DAT_0802d638:
@@ -419,7 +419,7 @@ PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F21_0_0802d858:
 PTR_LAB_0802d85c:
     .word EntityAllocParams_08030F78
 PTR_PTR_DAT_0802d860:
-    .word NPCList_080308B0
+    .word NPCList_80308B0
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F25_0_0802d864:
     .word PTR_EventHandler_ACDC_Mayl_Living_Room_F25_0_0802d784
 DAT_0802d868:

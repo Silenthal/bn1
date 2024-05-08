@@ -165,7 +165,7 @@ PTR_PTR_EventHandler_Default_0802de40:
 PTR_DAT_0802de44:
     .word EntityAllocParams_08030FF8
 PTR_PTR_DAT_0802de48:
-    .word NPCList_08030920
+    .word NPCList_8030920
 DAT_0802de4c:
     .word 0x808598D
 PTR_PTR_EventHandler_ACDC_Dex_Room_F06_0_0802de50:
@@ -468,7 +468,7 @@ PTR_PTR_EventHandler_ACDC_Dex_Room_F20_0_0802e09c:
 PTR_DAT_0802e0a0:
     .word EntityAllocParams_08030FF8
 PTR_PTR_DAT_0802e0a4:
-    .word NPCList_08030940
+    .word NPCList_8030940
 PTR_FUN_08088240_0802e0a8:
     .word FUN_08088240
 PTR_FUN_0808598c_0802e0ac:
@@ -480,7 +480,7 @@ DAT_0802e0b4:
 PTR_DAT_0802e0b8:
     .word EntityAllocParams_08030FF8
 PTR_PTR_DAT_0802e0bc:
-    .word NPCList_08030960
+    .word NPCList_8030960
 PTR_FUN_0808598c_0802e0c0:
     .word FUN_0808598c
 PTR_PTR_EventHandler_ACDC_Dex_Room_F25_0_0802e0c4:
@@ -609,7 +609,7 @@ PTR_PTR_EventHandler_ACDC_Dex_Room_F30_0802e1bc:
 PTR_DAT_0802e1c0:
     .word EntityAllocParams_08030FF8
 PTR_PTR_DAT_0802e1c4:
-    .word NPCList_08030980
+    .word NPCList_8030980
 DAT_0802e1c8:
     .word 0x808598D
 PTR_PTR_EventHandler_ACDC_Dex_Room_F30_0_0802e1cc:
@@ -734,7 +734,7 @@ PTR_PTR_EventHandler_ACDC_Dex_Room_F40_0802e2bc:
 PTR_DAT_0802e2c0:
     .word EntityAllocParams_08030FF8
 PTR_PTR_DAT_0802e2c4:
-    .word NPCList_08030940
+    .word NPCList_8030940
 DAT_0802e2c8:
     .word 0x808598D
 PTR_PTR_EventHandler_ACDC_Dex_Room_F40_0_0802e2cc:
@@ -893,7 +893,7 @@ PTR_PTR_EventHandler_ACDC_Dex_Room_F50_0802e3f4:
 PTR_DAT_0802e3f8:
     .word EntityAllocParams_08030FF8
 PTR_PTR_DAT_0802e3fc:
-    .word NPCList_08030920
+    .word NPCList_8030920
 DAT_0802e400:
     .word 0x808598D
 PTR_PTR_EventHandler_ACDC_Dex_Room_F50_0_0802e404:

@@ -326,7 +326,7 @@ PTR_PTR_MapSetup_Default_08027f94:
 PTR_PTR_EventHandler_Default_08027f98:
     .word PTR_EventHandler_Default_08027f3c
 PTR_PTR_DAT_08027f9c:
-    .word NPCList_080299BC
+    .word NPCList_80299BC
 PTR_PTR_EventHandler_School_Cross_Hallway_F25_0_08027fa0:
     .word PTR_EventHandler_School_Cross_Hallway_F25_0_08027f8c
 

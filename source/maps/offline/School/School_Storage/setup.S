@@ -122,7 +122,7 @@ PTR_PTR_MapSetup_Default_08028120:
 PTR_PTR_EventHandler_Default_08028124:
     .word PTR_EventHandler_Default_08028090
 PTR_PTR_DAT_08028128:
-    .word NPCList_080299DC
+    .word NPCList_80299DC
 PTR_PTR_EventHandler_School_Storage_F15_0_0802812c:
     .word PTR_EventHandler_School_Storage_F15_0_080280f0
 PTR_FUN_08087fb0_08028130:
@@ -346,6 +346,6 @@ PTR_PTR_MapSetup_School_Storage_F30_080282d0:
 PTR_PTR_EventHandler_School_Storage_F30_080282d4:
     .word PTR_EventHandler_School_Storage_F30_0802826c
 PTR_PTR_DAT_080282d8:
-    .word NPCList_080299E4
+    .word NPCList_80299E4
 PTR_PTR_EventHandler_School_Storage_F30_0_080282dc:
     .word PTR_EventHandler_School_Storage_F30_0_080282c8

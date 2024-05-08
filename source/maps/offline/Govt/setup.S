@@ -8,7 +8,7 @@ _ts dummy_Govt
     pop        {pc}
 
 
-_ts GraphicDataSetup_Govt_Complex
+_ts GraphicDataSetup_Govt
     push       {lr}
     mov        r7,r10
     ldr        r0,PTR_MapExitList_Govt_080313bc

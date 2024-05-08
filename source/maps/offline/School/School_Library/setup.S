@@ -269,13 +269,13 @@ PTR_PTR_EventHandler_School_Library_F10_08025d68:
 PTR_EntityAllocParams_ARRAY_08025d6c:
     .word EntityAllocParams_08029BD0
 PTR_PTR_DAT_08025d70:
-    .word NPCList_08029418
+    .word NPCList_8029418
 PTR_PTR_EventHandler_School_Library_F10_0_08025d74:
     .word PTR_EventHandler_School_Library_F10_0_08025c28
 PTR_EntityAllocParams_ARRAY_08025d78:
     .word EntityAllocParams_08029BD0
 PTR_DAT_08025d7c:
-    .word NPCList_08029420
+    .word NPCList_8029420
 PTR_PTR_EventHandler_School_Library_F13_0_08025d80:
     .word PTR_EventHandler_School_Library_F13_0_08025c7c
 DAT_08025d84:
@@ -283,7 +283,7 @@ DAT_08025d84:
 PTR_EntityAllocParams_ARRAY_08025d88:
     .word EntityAllocParams_08029BD0
 PTR_DAT_08025d8c:
-    .word NPCList_08029420
+    .word NPCList_8029420
 PTR_PTR_EventHandler_School_Library_F14_0_08025d90:
     .word PTR_EventHandler_School_Library_F14_0_08025cf4
 DAT_08025d94:
@@ -291,7 +291,7 @@ DAT_08025d94:
 PTR_EntityAllocParams_ARRAY_08025d98:
     .word EntityAllocParams_08029BD0
 PTR_DAT_08025d9c:
-    .word NPCList_08029420
+    .word NPCList_8029420
 PTR_EventHandler_School_Library_F15_0_08025da0:
     .word EventHandler_School_Library_F15_0
 
@@ -547,25 +547,25 @@ PTR_PTR_EventHandler_School_Library_F20_08025f64:
 PTR_EntityAllocParams_ARRAY_08025f68:
     .word EntityAllocParams_08029BD0
 PTR_PTR_DAT_08025f6c:
-    .word NPCList_08029460
+    .word NPCList_8029460
 PTR_PTR_EventHandler_School_Library_F20_0_08025f70:
     .word PTR_EventHandler_School_Library_F20_0_08025e60
 PTR_EntityAllocParams_ARRAY_08025f74:
     .word EntityAllocParams_08029BD0
 PTR_PTR_DAT_08025f78:
-    .word NPCList_08029460
+    .word NPCList_8029460
 PTR_PTR_EventHandler_School_Library_F21_0_08025f7c:
     .word PTR_EventHandler_School_Library_F21_0_08025ea0
 PTR_EntityAllocParams_ARRAY_08025f80:
     .word EntityAllocParams_08029BD0
 PTR_PTR_DAT_08025f84:
-    .word NPCList_08029460
+    .word NPCList_8029460
 PTR_PTR_EventHandler_School_Library_F22_0_08025f88:
     .word PTR_EventHandler_School_Library_F22_0_08025ee0
 PTR_EntityAllocParams_ARRAY_08025f8c:
     .word EntityAllocParams_08029BD0
 PTR_PTR_DAT_08025f90:
-    .word NPCList_080294C8
+    .word NPCList_80294C8
 PTR_PTR_EventHandler_School_Library_F23_0_08025f94:
     .word PTR_EventHandler_School_Library_F23_0_08025f20
 PTR_EntityAllocParams_ARRAY_08025f98:

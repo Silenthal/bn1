@@ -417,19 +417,19 @@ PTR_PTR_MapSetup_ACDC_Station_F20_0802f48c:
 PTR_PTR_EventHandler_ACDC_Station_F20_0802f490:
     .word PTR_EventHandler_ACDC_Station_F20_0802f1d8
 PTR_PTR_DAT_0802f494:
-    .word NPCList_08030BDC
+    .word NPCList_8030BDC
 PTR_BgTask_0802F498:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F20_0_0802f49c:
     .word PTR_EventHandler_ACDC_Station_F20_0_0802f238
 PTR_PTR_DAT_0802f4a0:
-    .word NPCList_08030BDC
+    .word NPCList_8030BDC
 PTR_BgTask_0802F4A4:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F21_0_0802f4a8:
     .word PTR_EventHandler_ACDC_Station_F21_0_0802f290
 PTR_PTR_DAT_0802f4ac:
-    .word NPCList_08030C48
+    .word NPCList_8030C48
 PTR_BgTask_0802F4B0:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F22_0_0802f4b4:
@@ -439,7 +439,7 @@ PTR_FUN_0808b688_0802f4b8:
 DAT_0802f4bc:
     .word 0x80848FD
 PTR_PTR_DAT_0802f4c0:
-    .word NPCList_08030C48
+    .word NPCList_8030C48
 PTR_BgTask_0802F4C4:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F24_0_0802f4c8:
@@ -455,7 +455,7 @@ DAT_0802f4d8:
 PTR_BgTask_0802F4DC:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_DAT_0802f4e0:
-    .word NPCList_08030C48
+    .word NPCList_8030C48
 PTR_LAB_0808a798_0802f4e4:
     .word LAB_0808a798
 PTR_PTR_EventHandler_ACDC_Station_F26_0_0802f4e8:
@@ -611,7 +611,7 @@ PTR_PTR_MapSetup_ACDC_Station_F30_0802f61c:
 PTR_PTR_EventHandler_ACDC_Station_F30_0802f620:
     .word PTR_EventHandler_ACDC_Station_F30_0802f538
 PTR_PTR_DAT_0802f624:
-    .word NPCList_08030C90
+    .word NPCList_8030C90
 PTR_BgTask_0802F628:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F30_0_0802f62c:
@@ -750,7 +750,7 @@ PTR_PTR_EventHandler_ACDC_Station_F40_0802f734:
 PTR_BgTask_0802F738:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_DAT_0802f73c:
-    .word NPCList_08030C54
+    .word NPCList_8030C54
 PTR_PTR_EventHandler_ACDC_Station_F40_0_0802f740:
     .word PTR_EventHandler_ACDC_Station_F40_0_0802f6dc
 PTR_FUN_0808b688_0802f744:
@@ -879,7 +879,7 @@ PTR_PTR_MapSetup_ACDC_Station_F50_0802f838:
 PTR_PTR_EventHandler_ACDC_Station_F50_0802f83c:
     .word PTR_EventHandler_ACDC_Station_F50_0802f788
 PTR_PTR_DAT_0802f840:
-    .word NPCList_08030CE4
+    .word NPCList_8030CE4
 PTR_BgTask_0802F844:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F50_0_0802f848:
