@@ -239,9 +239,9 @@ def extract_off_list(inFile: BinaryIO) -> str:
             break
         off -= 0x8000000
         offsetList.append(off)
-    output = f"global_label NPCList_{start + 0x8000000:08X}\n"
+    output = f"global_label NPCList_{start + 0x8000000:X}\n"
     for off in offsetList:
-        output += f"    .word NPC_{off + 0x8000000:08X}\n"
+        output += f"    .word NPC_{off + 0x8000000:X}\n"
     output += "    .word 0xFF\n\n"
     return output
 

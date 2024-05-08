@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import argparse
+import io
 from pathlib import Path
+from typing import BinaryIO
 
 from common import (
     auto_int,
@@ -107,6 +109,19 @@ def extract_task(inFile):
     return output
 
 
+def extract_task_list(inFile: BinaryIO) -> str:
+    output: str = ""
+    while True:
+        temp = get_int(inFile)
+        inFile.seek(-4, io.SEEK_CUR)
+        if temp >= 0x2000000 and temp <= 0x8800000:
+            output += extract_task(inFile)
+        else:
+            print(f"Break reached at {inFile.tell():X}")
+            break
+    return output
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Extract bg task data from Mega Man Battle Network."
@@ -131,7 +146,7 @@ def main():
     with open(inPath, mode="rb") as inFile:
         inFile.seek(fileOffset)
         with open(outPath, "w") as outFile:
-            outFile.write(extract_task(inFile))
+            outFile.write(extract_task_list(inFile))
 
 
 if __name__ == "__main__":

@@ -32,7 +32,7 @@ def main():
             with open(newg, "rb") as inNewG:
                 data_a = inOrig.read()
                 data_b = inNewG.read()
-    counter = 50
+    counter = int(args.count)
     for f in range(len(data_a)):
         if counter <= 0:
             break

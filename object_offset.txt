@@ -134,6 +134,17 @@ maps/offline/DenTown/DenTown_Block_4/setup 0x381C8
 maps/offline/DenTown/DenTown_Miyu_Antiques/setup 0x38710
 maps/offline/DenTown/DenTown_Summer_School/setup 0x38AF8
 maps/offline/DenTown/assets 0x38DAC
+maps/offline/SciLab/exit 0x3B924
+maps/offline/SciLab/anim 0x3B9DC
+maps/offline/SciLab/setup 0x3BD90
+maps/offline/SciLab/directory 0x3BE28
+maps/offline/SciLab/SciLab_Restaurant_Hallway/setup 0x3BF4C
+maps/offline/SciLab/SciLab_Restaurant/setup 0x3C234
+maps/offline/SciLab/SciLab_Power_Plant_Hallway/setup 0x3C538
+maps/offline/SciLab/SciLab_Power_Plant/setup 0x3C828
+maps/offline/SciLab/SciLab_Power_Plant_Control_Room/setup 0x3CB70
+maps/offline/SciLab/SciLab_Generator_Room/setup 0x3CF14
+maps/offline/SciLab/assets 0x3D1EC
 asset_bg_task_44030         0x44030
 routine/routine_canodumb    0x59910
 entity/effect/quickeffect   0x7B474
