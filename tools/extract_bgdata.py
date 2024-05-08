@@ -94,7 +94,7 @@ def unpack_all(inFile):
     paletteStore: dict[int, PaletteHeader] = dict()
     mapDict: dict[str, dict[str, dict[str, List[int]]]] = {
         "offline": {
-            "ACDC_Elementary": {
+            "School": {
                 "map_56A038": [0x3B0298, 0x3B3230, 0x3B33D4],
                 "map_56AAD4": [0x3B0298, 0x3B3230, 0x3B4054],
                 "map_56B55C": [0x3B4E98, 0x3B4CF4, 0x3B7980],
@@ -109,7 +109,7 @@ def unpack_all(inFile):
                 "map_56F604": [0x3CD220, 0x3CFBD0, 0x3CFD74],
                 "map_5707EC": [0x3B9148, 0x3D10CC, 0x3D1270],
             },
-            "ACDC_Town": {
+            "ACDC": {
                 "map_570A60": [0x3D22F0, 0x3D8104, 0x3D82A8],
                 "map_574080": [0x3DD8FC, 0x3E1FC0, 0x3E2164],
                 "map_574A2C": [0x3E3CC4, 0x3E6678, 0x3E681C],
@@ -122,7 +122,7 @@ def unpack_all(inFile):
                 "map_577280": [0x3FACE4, 0x3FEE84, 0x3FF028],
                 "map_577770": [0x3FACE4, 0x4005B0, 0x400754],
             },
-            "Govt_Complex": {
+            "Govt": {
                 "map_57793C": [0x401ABC, 0x405374, 0x405518],
                 "map_578BB8": [0x3FACE4, 0x40A4A0, 0x40A644],
                 "map_578FB0": [0x40BDD0, 0x40E520, 0x40E6C4],
@@ -152,7 +152,7 @@ def unpack_all(inFile):
                 "map_58B330": [0x41F390, 0x4537D8, 0x45397C],
                 "map_58BCB0": [0x454EEC, 0x45673C, 0x4568E0],
             },
-            "WWW_Base": {
+            "WWW": {
                 "map_58BFF8": [0x458D1C, 0x45C3EC, 0x45C590],
                 "map_58D42C": [0x45E93C, 0x462CC4, 0x462E68],
                 "map_58DCA8": [0x465260, 0x468E34, 0x468FD8],
@@ -162,18 +162,18 @@ def unpack_all(inFile):
             },
         },
         "online": {
-            "SchoolComp": {
+            "School_Comp": {
                 "map_58F5C8": [0x46F8A8, 0x472B84, 0x472D28],
                 "map_590FF8": [0x475A74, 0x478820, 0x4789C4],
                 "map_593D9C": [0x46F8A8, 0x47B634, 0x47B7D8],
                 "map_5949D8": [0x46F8A8, 0x47E290, 0x47E434],
                 "map_595F10": [0x46F8A8, 0x481450, 0x4815F4],
             },
-            "OvenComp": {
+            "Oven_Comp": {
                 "map_596C9C": [0x483F78, 0x487718, 0x4878BC],
                 "map_5985C4": [0x483F78, 0x487718, 0x48BB6C],
             },
-            "WaterworksComp": {
+            "Waterworks_Comp": {
                 "map_599A28": [0x48EE68, 0x4955C4, 0x495768],
                 "map_59BD44": [0x48EE68, 0x4955C4, 0x49A91C],
                 "map_59EBA0": [0x48EE68, 0x4955C4, 0x49EC7C],
@@ -181,7 +181,7 @@ def unpack_all(inFile):
                 "map_5A9F50": [0x4AF050, 0x4B26C4, 0x4B2868],
                 "map_5B1478": [0x4A4264, 0x4B6EE0, 0x4B7084],
             },
-            "TrafficLight_Comp": {
+            "Traffic_Light_Comp": {
                 "map_5B64D0": [0x4BBFB0, 0x4BDB30, 0x4BDCD4],
                 "map_5B82F4": [0x4BBFB0, 0x4BDB30, 0x4C16F0],
                 "map_5BA740": [0x4BBFB0, 0x4BDB30, 0x4C5284],
@@ -208,17 +208,17 @@ def unpack_all(inFile):
                 "map_5E0C24": [0x500FD4, 0x5087D4, 0x506528],
                 "map_5E1C18": [0x500FD4, 0x50C900, 0x508978],
             },
-            "Govt_Complex_HP": {
+            "Govt_HP": {
                 "map_5E22A8": [0x50CAA4, 0x50DC6C, 0x50DE10],
                 "map_5E27D8": [0x50CAA4, 0x511580, 0x50F498],
             },
             "DenTown_HP": {
                 "map_5E2F20": [0x50CAA4, 0x51398C, 0x511724]
             },
-            "Govt_Complex_HP_2": {
+            "SciLab_HP": {
                 "map_5E384C": [0x50CAA4, 0x517C78, 0x513B30]
             },
-            "Other": {
+            "Other_Comp": {
                 "Generic": [0x50CAA4, 0x51A1C4, 0x517E1C],
                 "Servbot": [0x50CAA4, 0x51A1C4, 0x517E1C],
                 "NewGameNachine": [0x50CAA4, 0x51A1C4, 0x517E1C],

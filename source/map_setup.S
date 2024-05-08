@@ -12,25 +12,25 @@ FlagSetup_Offline:
     .word FlagSetup_School
     .word FlagSetup_ACDC
     .word FlagSetup_Govt
-    .word 0x8035fa4 @ FlagSetup_DenTown
-    .word 0x803be28 @ FlagSetup_Scilab
-    .word 0x803d908 @ FlagSetup_WWW
+    .word FlagSetup_DenTown
+    .word FlagSetup_Scilab
+    .word FlagSetup_WWW
 
 MapSetup_Offline:
     .word MapSetup_School
     .word MapSetup_ACDC
     .word MapSetup_Govt
-    .word 0x8035fbc @ MapSetup_DenTown
-    .word 0x803be40 @ MapSetup_SciLab
-    .word 0x803d920 @ MapSetup_WWW
+    .word MapSetup_DenTown
+    .word MapSetup_SciLab
+    .word MapSetup_WWW
 
 EventHandler_Offline:
     .word EventHandler_School
     .word EventHandler_ACDC
     .word EventHandler_Govt
-    .word 0x8036034 @ EventHandler_DenTown
-    .word 0x803be88 @ EventHandler_SciLab
-    .word 0x803d968 @ EventHandler_WWW
+    .word EventHandler_DenTown
+    .word EventHandler_SciLab
+    .word EventHandler_WWW
 
 FlagSetup_Online:
     .word 0x80405ac @ FlagSetup_School_Comp
@@ -147,9 +147,9 @@ MapDialogue_Offline:
     .word MapDialogue_School
     .word MapDialogue_ACDC
     .word MapDialogue_Govt
-    .word 0x80360ac @ MapDialogue_Dentown
-    .word 0x803bed0 @ MapDialogue_SciLab
-    .word 0x803d9b0 @ MapDialogue_WWW
+    .word MapDialogue_DenTown
+    .word MapDialogue_SciLab
+    .word MapDialogue_WWW
 MapDialogue_Online:
     .word 0
     .word 0

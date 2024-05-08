@@ -274,7 +274,7 @@ def extract_npc_code(inFile: BinaryIO) -> str:
             scriptBufTxt.append(f"L_{line[0]:X}:")
         scriptBufTxt.append(line[1])
     scriptBufTxt = "\n".join(scriptBufTxt)
-    output += f"NPC_{(start + 0x8000000):08X}:\n{scriptBufTxt}\n\n"
+    output += f"NPC_{(start + 0x8000000):X}:\n{scriptBufTxt}\n\n"
     return output
 
 

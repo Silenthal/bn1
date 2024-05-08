@@ -145,6 +145,17 @@ maps/offline/SciLab/SciLab_Power_Plant/setup 0x3C828
 maps/offline/SciLab/SciLab_Power_Plant_Control_Room/setup 0x3CB70
 maps/offline/SciLab/SciLab_Generator_Room/setup 0x3CF14
 maps/offline/SciLab/assets 0x3D1EC
+maps/offline/WWW/exit 0x3D6A4
+maps/offline/WWW/anim 0x3D7AC
+maps/offline/WWW/setup 0x3D87C
+maps/offline/WWW/directory 0x3D908
+maps/offline/WWW/WWW_Base/setup 0x3DA30
+maps/offline/WWW/WWW_Wily_Lab/setup 0x3DCD4
+maps/offline/WWW/WWW_Rocket_Hangar/setup 0x3E11C
+maps/offline/WWW/WWW_Passage_1/setup 0x3E260
+maps/offline/WWW/WWW_Passage_2/setup 0x3E3DC
+maps/offline/WWW/WWW_Passage_3/setup 0x3E510
+maps/offline/WWW/assets 0x3E5D0
 asset_bg_task_44030         0x44030
 routine/routine_canodumb    0x59910
 entity/effect/quickeffect   0x7B474

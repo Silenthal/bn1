@@ -524,7 +524,7 @@ def map_id(bt: int):
         0x0504: "Map_SciLab_Generator_Room",
         0x0005: "Map_WWW_Base",
         0x0105: "Map_WWW_Wily_Lab",
-        0x0205: "Map_WWW_Rocket_Hanger",
+        0x0205: "Map_WWW_Rocket_Hangar",
         0x0305: "Map_WWW_Passage_1",
         0x0405: "Map_WWW_Passage_2",
         0x0505: "Map_WWW_Passage_3",

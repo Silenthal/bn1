@@ -32,10 +32,10 @@ def extract_exit_list(label: str, inFile: BinaryIO) -> str:
         if off == 0:
             output += "    .word 0\n"
         else:
-            output += f"    .word mapExitList_{off + 0x8000000:08X}\n"
+            output += f"    .word MapExitList_{off + 0x8000000:08X}\n"
     while True:
         if inFile.tell() in offsetlist:
-            output += f"mapExitList_{inFile.tell() + 0x8000000:08X}:\n"
+            output += f"MapExitList_{inFile.tell() + 0x8000000:08X}:\n"
             offsetlist.remove(inFile.tell())
         id = map_id(get_short(inFile))
         if id.startswith("0x"):
@@ -67,7 +67,7 @@ def main():
     fileSize = inPath.stat().st_size
     if fileOffset >= fileSize:
         exit(f"File offset {fileOffset} is greater than the size of the file {inPath}")
-    label = args.label if args.label else f"mapExitList_{fileOffset:08X}"
+    label = args.label if args.label else f"MapExitList_{fileOffset:08X}"
     outPath = Path(args.output if args.output else f"{fileOffset:08x}.txt")
     with open(inPath, mode="rb") as inFile:
         inFile.seek(fileOffset)

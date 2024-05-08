@@ -230,7 +230,7 @@ def unpackMap(
 def unpack_all(inPath):
     mapDict: dict[str, dict[str, List[int]]] = {
         "offline": {
-            "ACDC_Elementary": [
+            "School": [
                 0x56A038,
                 0x56AAD4,
                 0x56B55C,
@@ -245,7 +245,7 @@ def unpack_all(inPath):
                 0x56F604,
                 0x5707EC,
             ],
-            "ACDC_Town": [
+            "ACDC": [
                 0x570A60,
                 0x574080,
                 0x574A2C,
@@ -258,7 +258,7 @@ def unpack_all(inPath):
                 0x577280,
                 0x577770,
             ],
-            "Govt_Complex": [
+            "Govt": [
                 0x57793C,
                 0x578BB8,
                 0x578FB0,
@@ -288,7 +288,7 @@ def unpack_all(inPath):
                 0x58B330,
                 0x58BCB0,
             ],
-            "WWW_Base": [
+            "WWW": [
                 0x58BFF8,
                 0x58D42C,
                 0x58DCA8,
@@ -298,18 +298,18 @@ def unpack_all(inPath):
             ],
         },
         "online": {
-            "SchoolComp": [
+            "School_Comp": [
                 0x58F5C8,
                 0x590FF8,
                 0x593D9C,
                 0x5949D8,
                 0x595F10,
             ],
-            "OvenComp": [
+            "Oven_Comp": [
                 0x596C9C,
                 0x5985C4
             ],
-            "WaterworksComp": [
+            "Waterworks_Comp": [
                 0x599A28,
                 0x59BD44,
                 0x59EBA0,
@@ -317,7 +317,7 @@ def unpack_all(inPath):
                 0x5A9F50,
                 0x5B1478,
             ],
-            "TrafficLight_Comp": [
+            "Traffic_Light_Comp": [
                 0x5B64D0,
                 0x5B82F4,
                 0x5BA740,
@@ -344,17 +344,17 @@ def unpack_all(inPath):
                 0x5E0C24,
                 0x5E1C18,
             ],
-            "Govt_Complex_HP": [
+            "Govt_HP": [
                 0x5E22A8,
                 0x5E27D8
             ],
             "DenTown_HP": [
                 0x5E2F20,
             ],
-            "Govt_Complex_HP_2": [
+            "SciLab_HP": [
                 0x5E384C,
             ],
-            "Other": [
+            "Other_Comp": [
                 0x5E41F8,
             ],
             "Internet": [

@@ -11,7 +11,7 @@ _ts dummy_ACDC
 _ts GraphicDataSetup_ACDC
     push       {lr}
     mov        r7,r10
-    ldr        r0,PTR_mapExitList_ACDC_0802a5e8
+    ldr        r0,PTR_MapExitList_ACDC_0802a5e8
     ldr        r1,[r7,#0x2c]
     ldr        r2,[r7,#0x8]
     ldrb       r3,[r2,#0x5]
@@ -108,8 +108,8 @@ spriteList_ACDC_None:
 
     .align 2, 0
 
-PTR_mapExitList_ACDC_0802a5e8:
-    .word mapExitList_ACDC
+PTR_MapExitList_ACDC_0802a5e8:
+    .word MapExitList_ACDC
 PTR_gDstCompressedSpriteData_0802a5ec:
     .word gDstCompressedSpriteData
 PTR_PTR_spriteList_ACDC_Town_0802a5f0:
