@@ -118,12 +118,12 @@ global_label BgTask_080442E8
     task_repeat
 
 global_label BgTask_08044318
-    task_direct slot=3, dst=0x2006E50
+    task_direct slot=3, dst=eBgPaletteC
     task_direct_arg 0x8787194
     task_stop
 
 global_label BgTask_08044330
-    task_direct slot=3, dst=0x2006CD0
+    task_direct slot=3, dst=eBgPalette0
     task_direct_arg 0x8787194
     task_stop
 

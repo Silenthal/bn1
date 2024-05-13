@@ -42,7 +42,7 @@ global_label BgTask_80311F0
     task_repeat
 
 global_label BgTask_80312B0
-    task_direct 0, 0x2006DF0, 0x8, 6
+    task_direct 0, eBgPalette9, 0x8, 6
     task_direct_arg 0x877BB74
     task_direct_arg 0x877BB94
     task_direct_arg 0x877BBB4
@@ -51,11 +51,11 @@ global_label BgTask_80312B0
     task_repeat
 
 global_label BgTask_80312E8
-    task_direct 0, 0x2006D50, 0x8
+    task_direct 0, eBgPalette4, 0x8
     task_direct_arg 0x877BC34
     task_stop
 
 global_label BgTask_8031300
-    task_direct 1, 0x2006DB0, 0x8
+    task_direct 1, eBgPalette7, 0x8
     task_direct_arg 0x877BC54
     task_stop

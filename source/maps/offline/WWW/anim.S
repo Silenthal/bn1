@@ -3,7 +3,7 @@
     .include "macros.inc"
 
 global_label BgTask_803D7AC
-    task_direct 1, 0x2006D50, 0x8, 6
+    task_direct 1, eBgPalette4, 0x8, 6
     task_direct_arg 0x877D434
     task_direct_arg 0x877D454
     task_direct_arg 0x877D474
@@ -30,7 +30,7 @@ global_label BgTask_803D814
     task_repeat
 
 global_label BgTask_803D844
-    task_direct 1, 0x2006CD0, 0x8, 6
+    task_direct 1, eBgPalette0, 0x8, 6
     task_direct_arg 0x877DF54
     task_direct_arg 0x877DF74
     task_direct_arg 0x877DF94

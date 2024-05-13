@@ -1665,7 +1665,7 @@ CSD_Entity_3:
     .word 0xFF
 
 global_label CSD_Task_3_0
-    task_direct slot=0, dst=0x2006E50, len=0x8, delay=5
+    task_direct slot=0, dst=eBgPaletteC, len=0x8, delay=5
     task_direct_arg 0x877FBF4
     task_direct_arg 0x877FC14
     task_direct_arg 0x877FC34
@@ -1678,7 +1678,7 @@ global_label CSD_Task_3_0
     .align 2, 0
 
 global_label CSD_Task_3_1
-    task_direct slot=4, dst=0x2006E50, len=0x8, delay=5
+    task_direct slot=4, dst=eBgPaletteC, len=0x8, delay=5
     task_direct_arg 0x877FBF4, 370
 L_8022730:
     task_direct_arg 0x877FCD4
@@ -2869,7 +2869,7 @@ CSD_Entity_9:
     .word 0xFF
 
 global_label CSD_Task_9_2
-    task_direct slot=2, dst=0x2006CD0, len=0x18, delay=100
+    task_direct slot=2, dst=eBgPalette0, len=0x18, delay=100
     task_direct_arg 0x84BDB34
     task_direct_arg 0x878A834, 120
     task_direct_arg 0x84BDB34, 1
@@ -2887,7 +2887,7 @@ global_label CSD_Task_9_3
     .align 2, 0
 
 global_label CSD_Task_9_4
-    task_direct slot=4, dst=0x2006DB0, len=0x8, delay=100
+    task_direct slot=4, dst=eBgPalette7, len=0x8, delay=100
     task_direct_arg 0x84BDC14
     task_direct_arg 0x878A9B4, 120
     task_direct_arg 0x84BDC14, 1
@@ -2896,7 +2896,7 @@ global_label CSD_Task_9_4
     .align 2, 0
 
 global_label CSD_Task_9_5
-    task_direct slot=5, dst=0x2006D30, len=0x8, delay=100
+    task_direct slot=5, dst=eBgPalette3, len=0x8, delay=100
     task_direct_arg 0x84BDB94
     task_direct_arg 0x878A934, 120
     task_direct_arg 0x84BDB94, 1
@@ -3320,7 +3320,7 @@ CSD_Entity_11:
     .word 0xFF
 
 global_label CSD_Task_11_5
-    task_direct slot=5, dst=0x2006E10, len=0x8, delay=180
+    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=180
     task_direct_arg 0x84D39AC
 L_8023BE4:
     task_direct_arg 0x878B7D4, 10
