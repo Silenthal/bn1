@@ -62,10 +62,8 @@ SpriteList_WWW:
     .word SpriteList_WWW_Base
 
 SpriteList_WWW_Base:
-    .byte 0x20
-    .byte 0x01
-    .byte -1
-    .byte -1
+    .short 0x120
+    .short -1
 
 PTR_MapExitList_WWW_0803d8fc:
     .word MapExitList_WWW

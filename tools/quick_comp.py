@@ -20,7 +20,6 @@ def main():
     args = parser.parse_args()
     base = Path(args.base_file_path)
     newg = Path(args.build_file_path)
-    print(os.listdir("."))
     if not newg.exists():
         raise SystemExit(f"Couldn't find build file {newg}")
     if not base.exists():

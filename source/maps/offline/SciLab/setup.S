@@ -62,22 +62,15 @@ SpriteList_SciLab:
     .word SpriteList_SciLab_Generator_Room
 
 SpriteList_SciLab_Generator_Room:
-    .byte 0x11
-    .byte 0x01
-    .byte 0x15
-    .byte 0x01
-    .byte 0x19
-    .byte 0x01
-    .byte 0x1A
-    .byte 0x01
-    .byte 0x1B
-    .byte 0x01
-    .byte -1
-    .byte -1
+    .short 0x111
+    .short 0x115
+    .short 0x119
+    .short 0x11A
+    .short 0x11B
+    .short -1
 
 SpriteList_None:
-    .byte -1
-    .byte -1
+    .short -1
 
     .align 2, 0
 

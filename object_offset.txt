@@ -156,6 +156,16 @@ maps/offline/WWW/WWW_Passage_1/setup 0x3E260
 maps/offline/WWW/WWW_Passage_2/setup 0x3E3DC
 maps/offline/WWW/WWW_Passage_3/setup 0x3E510
 maps/offline/WWW/assets 0x3E5D0
+maps/online/School_Comp/exit 0x3EB74
+maps/online/School_Comp/anim 0x3EC68
+maps/online/School_Comp/setup 0x40508
+maps/online/School_Comp/directory 0x405AC
+maps/online/School_Comp/School_Comp_1/setup 0x40670
+maps/online/School_Comp/School_Comp_2/setup 0x40BF8
+maps/online/School_Comp/School_Comp_3/setup 0x41060
+maps/online/School_Comp/School_Comp_4/setup 0x414C4
+maps/online/School_Comp/School_Comp_5/setup 0x41840
+maps/online/School_Comp/assets 0x41B3C
 asset_bg_task_44030         0x44030
 routine/routine_canodumb    0x59910
 entity/effect/quickeffect   0x7B474

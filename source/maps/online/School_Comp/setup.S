@@ -3,15 +3,15 @@
     .include "macros.inc"
 
 
-_ts dummy_DenTown
+_ts dummy_School_Comp
     push       {lr}
     pop        {pc}
 
 
-_ts GraphicDataSetup_DenTown
+_ts GraphicDataSetup_School_Comp
     push       {lr}
     mov        r7,r10
-    ldr        r0,PTR_MapExitList_DenTown_08035f98
+    ldr        r0,PTR_MapExitList_School_Comp_080405a0
     ldr        r1,[r7,#0x2c]
     ldr        r2,[r7,#0x8]
     ldrb       r3,[r2,#0x5]
@@ -39,13 +39,13 @@ _ts GraphicDataSetup_DenTown
     bl         BGDM_Load
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_gDstCompressedSpriteData_08035f9c
+    ldr        r0,PTR_gDstCompressedSpriteData_080405a4
     bl         SpriteLz_Init
     mov        r7,r10
     ldr        r7,[r7,#0x8]
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
-    ldr        r0,PTR_SpriteList_DenTown_08035fa0
+    ldr        r0,PTR_PTR_SpriteList_School_Comp_1_080405a8
     ldr        r0,[r0,r1]
     bl         SpriteLz_DecompressSpriteList
     pop        {r5}
@@ -53,63 +53,44 @@ _ts GraphicDataSetup_DenTown
 
     .align 2, 0
 
-SpriteList_DenTown:
-    .word SpriteList_DenTown_Center
-    .word SpriteList_DenTown_Station
-    .word SpriteList_DenTown_Block_1
-    .word SpriteList_DenTown_Block_2
-    .word SpriteList_DenTown_Block_3
-    .word SpriteList_DenTown_Block_4
-    .word SpriteList_DenTown_Station
-    .word SpriteList_DenTown_Summer_School
+PTR_SpriteList_School_Comp_1_0804056c:
+    .word SpriteList_School_Comp_1
+    .word SpriteList_School_Comp_2
+    .word SpriteList_School_Comp_3
+    .word SpriteList_School_Comp_4
+    .word SpriteList_School_Comp_5
 
-SpriteList_DenTown_Center:
-    .short 0x103
-    .short 0x104
-    .short 0x10E
-    .short 0x10D
+SpriteList_School_Comp_1:
+    .short 0xCF
+    .short 0xEC
     .short -1
 
-SpriteList_DenTown_Block_1:
-    .short 0x103
-    .short 0x104
-    .short 0x10E
-    .short 0x10D
+SpriteList_School_Comp_2:
+    .short 0xCF
+    .short 0xEC
     .short -1
 
-SpriteList_DenTown_Block_2:
-    .short 0x103
-    .short 0x104
-    .short 0x10E
-    .short 0x10D
+SpriteList_School_Comp_3:
+    .short 0xCF
+    .short 0xEC
     .short -1
 
-SpriteList_DenTown_Block_3:
-    .short 0x103
-    .short 0x104
-    .short 0x10E
-    .short 0x10D
+SpriteList_School_Comp_4:
+    .short 0xCF
+    .short 0xEC
     .short -1
 
-SpriteList_DenTown_Block_4:
-    .short 0x103
-    .short 0x104
-    .short 0x10E
-    .short 0x10D
+SpriteList_School_Comp_5:
+    .short 0xCF
+    .short 0xEC
+    .short -1
     .short -1
 
-SpriteList_DenTown_Summer_School:
-    .short 0xD0
-    .short -1
+PTR_MapExitList_School_Comp_080405a0:
+    .word MapExitList_School_Comp
 
-SpriteList_DenTown_Station:
-    .short -1
-
-PTR_MapExitList_DenTown_08035f98:
-    .word MapExitList_DenTown
-
-PTR_gDstCompressedSpriteData_08035f9c:
+PTR_gDstCompressedSpriteData_080405a4:
     .word gDstCompressedSpriteData
 
-PTR_SpriteList_DenTown_08035fa0:
-    .word SpriteList_DenTown
+PTR_PTR_SpriteList_School_Comp_1_080405a8:
+    .word PTR_SpriteList_School_Comp_1_0804056c
