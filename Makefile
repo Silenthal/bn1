@@ -42,7 +42,7 @@ PARSE_FIXED		:= python3 $(CURDIR)/$(TOOLS)/parse_fixed.py
 QUICK_COMP		:= python3 $(CURDIR)/$(TOOLS)/quick_comp.py
 
 MMBN_H			:= $(CURDIR)/include/mmbn.h
-OUTPUT			:= $(CURDIR)/$(TARGET)
+OUTPUT			:= $(CURDIR)/$(BUILD)/$(TARGET)
 
 DEPSDIR			:= $(CURDIR)/$(BUILD)
 LAYOUT_FILE		:= $(CURDIR)/object_offset.txt
@@ -66,8 +66,8 @@ LD				:= $(CC)
 .PHONY: $(BUILD) pre tidy offsets depend clean check no-check
 
 check: $(BUILD)
-	@$(SHA512SUM) $(BASEDIR)/$(BASE).gba | sed -e 's/$(BASEDIR)\/$(BASE)/$(TARGET)/' >| $(BUILD)/$(TARGET).checksum
-	@$(SHA512SUM) -c $(BUILD)/$(TARGET).checksum || $(QUICK_COMP) $(BASEDIR)/$(BASE).gba $(TARGET).gba
+	@$(SHA512SUM) $(BASEDIR)/$(BASE).gba | sed -e 's/$(BASEDIR)\/$(BASE)/$(BUILD)\/$(TARGET)/' >| $(BUILD)/$(TARGET).checksum
+	@$(SHA512SUM) -c $(BUILD)/$(TARGET).checksum || $(QUICK_COMP) $(BASEDIR)/$(BASE).gba $(OUTPUT).gba
 	@$(PROGRESS) $(DEPSDIR)/$(TARGET).map
 
 no-check: $(BUILD)
@@ -79,11 +79,11 @@ clean:
 	@echo cleaning up build files and assets ...
 	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.script' -o -iname '*.sprite.lz' -o -iname '*.4bpp.lz' -o -iname '*.scb' -o -iname '*.scbin' \) -exec rm {} +
 	@find . \( -iname '*.palettez' -o -iname '*.tilesetz' -o -iname '*.tilemapz' \) -exec rm {} +
-	@$(RM) -r $(BUILD) $(TARGET).gba $(TARGET).elf
+	@$(RM) -r $(BUILD)/*
 
 tidy:
 	@echo cleaning up non-asset build files ...
-	@$(RM) -r $(BUILD) $(TARGET).gba $(TARGET).elf
+	@$(RM) -r $(BUILD)/*
 
 offsets: $(BUILD)/offsets.h
 

@@ -1,0 +1,13 @@
+**/.DS_Store
+**/__pycache__
+**/.dockerignore
+**/.git
+**/.gitignore
+**/.vscode
+**/assets
+**/base
+**/build
+**/compose.y*ml
+**/rebuild.y*ml
+**/Dockerfile*
+README.md
