@@ -186,6 +186,16 @@ maps/online/Waterworks_Comp/Waterworks_Comp_4/setup 0x462BC
 maps/online/Waterworks_Comp/Waterworks_Comp_5/setup 0x4657C
 maps/online/Waterworks_Comp/Waterworks_Comp_6/setup 0x46824
 maps/online/Waterworks_Comp/assets 0x46BC8
+maps/online/Traffic_Light_Comp/exit 0x473A0
+maps/online/Traffic_Light_Comp/anim 0x473B4
+maps/online/Traffic_Light_Comp/setup 0x47E5C
+maps/online/Traffic_Light_Comp/directory 0x47EF8
+maps/online/Traffic_Light_Comp/Traffic_Light_Comp_1/setup 0x4800C
+maps/online/Traffic_Light_Comp/Traffic_Light_Comp_2/setup 0x482D0
+maps/online/Traffic_Light_Comp/Traffic_Light_Comp_3/setup 0x485B4
+maps/online/Traffic_Light_Comp/Traffic_Light_Comp_4/setup 0x48898
+maps/online/Traffic_Light_Comp/Traffic_Light_Comp_5/setup 0x48B5C
+maps/online/Traffic_Light_Comp/assets 0x490DC
 routine/routine_canodumb    0x59910
 entity/effect/quickeffect   0x7B474
 battle_rank                 0x7D5B0
