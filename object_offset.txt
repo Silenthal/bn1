@@ -216,6 +216,15 @@ maps/online/WWW_Comp/WWW_Comp_4/setup 0x4DB1C
 maps/online/WWW_Comp/WWW_Comp_5/setup 0x4DC58
 maps/online/WWW_Comp/Rocket_Comp/setup 0x4DE18
 maps/online/WWW_Comp/assets 0x4DF70
+maps/online/ACDC_HP/exit 0x4ED58
+maps/online/ACDC_HP/anim 0x4EDA8
+maps/online/ACDC_HP/setup 0x4EEF8
+maps/online/ACDC_HP/directory 0x4EFA0
+maps/online/ACDC_HP/ACDC_Lan_PC/setup 0x4F00C
+maps/online/ACDC_HP/ACDC_Mayl_PC/setup 0x4F108
+maps/online/ACDC_HP/ACDC_Yai_PC/setup 0x4F244
+maps/online/ACDC_HP/ACDC_Dex_PC/setup 0x4F360
+maps/online/ACDC_HP/assets 0x4F47C
 routine/routine_canodumb    0x59910
 entity/effect/quickeffect   0x7B474
 battle_rank                 0x7D5B0
