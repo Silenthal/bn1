@@ -6,8 +6,6 @@
     .set Sio_SetReady, 0x809bdf0
     .set BgTask_0803ed68, 0x803ed68
     .set BgTask_0803f138, 0x803f138
-    .set BgTask_08042958, 0x8042958
-    .set BgTask_080442e8, 0x80442e8
     .set BgTask_080475a4, 0x80475a4
     .set BgTask_08049ff8, 0x8049ff8
     .set PTR_DAT_0804ccb0, 0x804ccb0
@@ -1075,13 +1073,13 @@ _ts DisableScreenDim
     .align 2, 0
 
 PTR_BgTask_0800577c:
-    .word BgTask_08042958
+    .word BgTask_8042958
 PTR_BgTask_08005780:
-    .word BgTask_08044108
+    .word BgTask_8044108
 PTR_BgTask_08005784:
-    .word BgTask_080442e8
+    .word BgTask_80442E8
 PTR_BgTask_08005788:
-    .word BgTask_08044330
+    .word BgTask_8044330
 PTR_dummy_1cb8_0800578c:
     .word dummy_1cb8
 PTR_BgUpdate_MoveUp_08005790:
