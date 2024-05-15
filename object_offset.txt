@@ -205,6 +205,17 @@ maps/online/Power_Plant_Comp/Power_Plant_Comp_2/setup 0x4A778
 maps/online/Power_Plant_Comp/Power_Plant_Comp_3/setup 0x4AB40
 maps/online/Power_Plant_Comp/Power_Plant_Comp_4/setup 0x4B010
 maps/online/Power_Plant_Comp/assets 0x4B5C0
+maps/online/WWW_Comp/exit 0x4CC80
+maps/online/WWW_Comp/anim 0x4CC98
+maps/online/WWW_Comp/setup 0x4D178
+maps/online/WWW_Comp/directory 0x4D22C
+maps/online/WWW_Comp/WWW_Comp_1/setup 0x4D2A8
+maps/online/WWW_Comp/WWW_Comp_2/setup 0x4D538
+maps/online/WWW_Comp/WWW_Comp_3/setup 0x4D9CC
+maps/online/WWW_Comp/WWW_Comp_4/setup 0x4DB1C
+maps/online/WWW_Comp/WWW_Comp_5/setup 0x4DC58
+maps/online/WWW_Comp/Rocket_Comp/setup 0x4DE18
+maps/online/WWW_Comp/assets 0x4DF70
 routine/routine_canodumb    0x59910
 entity/effect/quickeffect   0x7B474
 battle_rank                 0x7D5B0
