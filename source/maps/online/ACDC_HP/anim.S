@@ -37,15 +37,15 @@ global_label BgTask_804EE48
     task_tileset_arg TilemapEntry_804EE78_3
     task_repeat
 
-TilemapEntry_804EE78_0:
+global_label TilemapEntry_804EE78_0
     .incbin "data/maps/areas/ACDC_HP/4EE78/4EE78_0.tilemap"
 
-TilemapEntry_804EE78_1:
+global_label TilemapEntry_804EE78_1
     .incbin "data/maps/areas/ACDC_HP/4EE78/4EE78_1.tilemap"
 
-TilemapEntry_804EE78_2:
+global_label TilemapEntry_804EE78_2
     .incbin "data/maps/areas/ACDC_HP/4EE78/4EE78_2.tilemap"
 
-TilemapEntry_804EE78_3:
+global_label TilemapEntry_804EE78_3
     .incbin "data/maps/areas/ACDC_HP/4EE78/4EE78_3.tilemap"
 
