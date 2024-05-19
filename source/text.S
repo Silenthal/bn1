@@ -3,8 +3,8 @@
     .include "macros.inc"
 
     .set PlayerAnimation_Lock, 0x8056058
-    .set PlayerAnimation_Get, 0x80560B4
-    .set PlayerAnimation_Set, 0x8056074
+    .set PlayerAnimation_GetState, 0x80560B4
+    .set PlayerAnimation_SetState, 0x8056074
     .set PlayerAnimation_Unlock, 0x8056064
 
     .text
@@ -2091,7 +2091,7 @@ _ts JT_Command_FA_00_PlayerAnimLock
     b          LAB_080144b6
 LAB_080144a0:
     push       { r4, r5 }
-    bl         PlayerAnimation_Get
+    bl         PlayerAnimation_GetState
     pop        { r4, r5 }
     cmp        r0,#0x2
     bne        LAB_080144b6
@@ -2122,7 +2122,7 @@ _ts JT_Command_FA_04_PlayerAnimSet
     bgt        LAB_080144dc
     strb       r0,[r7,#0x10]
 LAB_080144dc:
-    bl         PlayerAnimation_Set
+    bl         PlayerAnimation_SetState
     pop        { r4, r5 }
     add        r4,#0x3
     mov        r0,#0x0
@@ -2172,7 +2172,7 @@ _ts JT_Command_FA_10_RestorePlayerAnim
     ldr        r7,[r7,#0x28]
     strb       r0,[r7,#0x10]
 LAB_0801453c:
-    bl         PlayerAnimation_Set
+    bl         PlayerAnimation_SetState
     pop        { r4, r5 }
     add        r4,#0x2
     mov        r0,#0x0

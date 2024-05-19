@@ -39,7 +39,7 @@ LAB_08004032:
     strb       r0,[r5,#0x1a]
     ldr        r1,PTR_BYTE_08004084
     strb       r0,[r1,#0x0]
-    ldr        r1,PTR_gPlayerFixedAnimationState_08004080
+    ldr        r1,PTR_gPlayerAnimation_08004080
     mov        r0,#0x0
     strb       r0,[r1,#0x0]
     push       {r5}
@@ -56,8 +56,8 @@ LAB_08004032:
     strb       r0,[r7,#0x0]
     bl         DisableScreenDim
     pop        {pc}
-PTR_gPlayerFixedAnimationState_08004080:
-    .word gPlayerFixedAnimationState
+PTR_gPlayerAnimation_08004080:
+    .word gPlayerAnimation
 PTR_BYTE_08004084:
     .word gNpcTalkState
 PTR_gIsObjectXFlipped_08004088:
