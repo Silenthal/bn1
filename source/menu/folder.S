@@ -2198,7 +2198,6 @@ LAB_0801af04:
     pop        {r5,pc}
 
 
-
 _ts Menu_Folder_Sort_HandleInput
     push       {lr}
     ldrh       r1,[r5,#0x3c]

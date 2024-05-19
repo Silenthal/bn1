@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-
 
 _ts MapSetup_ACDC_Yai_Room_S0
     push       {lr}
@@ -51,7 +49,7 @@ _ts MapSetup_ACDC_Yai_Room_F02
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802E584
+    ldr        r0,PTR_BgTask_802E584
     bl         BgTask_AddNew
     ldr        r7,PTR_PTR_DAT_0802e588
     bl         Map_LoadNPCList
@@ -63,13 +61,12 @@ _ts MapSetup_ACDC_Yai_Room_F02
     .align 2, 0
 
 
-
 _ts EventHandler_ACDC_Yai_Room_F02
     push       {lr}
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F02_0_0802e58c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -112,7 +109,6 @@ LAB_0802e4ec:
     .align 2, 0
 
 
-
 _ts MapSetup_ACDC_Yai_Room_F06
     push       {lr}
     push       {r5}
@@ -121,7 +117,7 @@ _ts MapSetup_ACDC_Yai_Room_F06
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802E598
+    ldr        r0,PTR_BgTask_802E598
     bl         BgTask_AddNew
     ldr        r7,PTR_PTR_DAT_0802e59c
     bl         Map_LoadNPCList
@@ -133,13 +129,12 @@ _ts MapSetup_ACDC_Yai_Room_F06
     .align 2, 0
 
 
-
 _ts EventHandler_ACDC_Yai_Room_F06
     push       {lr}
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F06_0_0802e5a0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -155,7 +150,6 @@ LAB_0802e534:
     pop        {pc}
 
     .align 2, 0
-
 
 
 _ts FUN_0802e538
@@ -196,7 +190,7 @@ PTR_PTR_MapSetup_Default_0802e57c:
     .word PTR_MapSetup_Default_0802e424
 PTR_PTR_EventHandler_Default_0802e580:
     .word PTR_EventHandler_Default_0802e454
-PTR_BgTask_0802E584:
+PTR_BgTask_802E584:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e588:
     .word NPCList_80309A0
@@ -206,7 +200,7 @@ DAT_0802e590:
     .word 0x8082DE5
 DAT_0802e594:
     .word 0x307
-PTR_BgTask_0802E598:
+PTR_BgTask_802E598:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e59c:
     .word NPCList_80309A0
@@ -290,7 +284,7 @@ _ts MapSetup_ACDC_Yai_Room_F20
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802E788
+    ldr        r0,PTR_BgTask_802E788
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -303,7 +297,7 @@ _ts EventHandler_ACDC_Yai_Room_F20
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F20_0_0802e78c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -324,7 +318,7 @@ _ts MapSetup_ACDC_Yai_Room_F21
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802E790
+    ldr        r0,PTR_BgTask_802E790
     bl         BgTask_AddNew
     ldr        r7,PTR_PTR_DAT_0802e794
     bl         Map_LoadNPCList
@@ -339,7 +333,7 @@ _nt EventHandler_ACDC_Yai_Room_F21
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F21_0_0802e798
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -371,7 +365,7 @@ _ts MapSetup_ACDC_Yai_Room_F22
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802E79C
+    ldr        r0,PTR_BgTask_802E79C
     bl         BgTask_AddNew
     ldr        r7,PTR_PTR_DAT_0802e7a0
     bl         Map_LoadNPCList
@@ -386,7 +380,7 @@ _nt EventHandler_ACDC_Yai_Room_F22
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F22_0_0802e7a4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -410,7 +404,7 @@ _ts MapSetup_ACDC_Yai_Room_F24
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802E7A8
+    ldr        r0,PTR_BgTask_802E7A8
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -423,7 +417,7 @@ _ts EventHandler_ACDC_Yai_Room_F24
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F24_0_0802e7ac
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -444,7 +438,7 @@ _ts MapSetup_ACDC_Yai_Room_F25
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802E7B0
+    ldr        r0,PTR_BgTask_802E7B0
     bl         BgTask_AddNew
     ldr        r7,PTR_PTR_DAT_0802e7b4
     bl         Map_LoadNPCList
@@ -459,7 +453,7 @@ _nt EventHandler_ACDC_Yai_Room_F25
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F25_0_0802e7b8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -477,27 +471,27 @@ PTR_PTR_MapSetup_ACDC_Yai_Room_F20_0802e780:
     .word PTR_MapSetup_ACDC_Yai_Room_F20_0802e5e4
 PTR_PTR_EventHandler_ACDC_Yai_Room_F20_0802e784:
     .word PTR_EventHandler_ACDC_Yai_Room_F20_0802e620
-PTR_BgTask_0802E788:
+PTR_BgTask_802E788:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_EventHandler_ACDC_Yai_Room_F20_0_0802e78c:
     .word PTR_EventHandler_ACDC_Yai_Room_F20_0_0802e670
-PTR_BgTask_0802E790:
+PTR_BgTask_802E790:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e794:
     .word NPCList_80309C0
 PTR_PTR_EventHandler_ACDC_Yai_Room_F21_0_0802e798:
     .word PTR_EventHandler_ACDC_Yai_Room_F21_0_0802e6b0
-PTR_BgTask_0802E79C:
+PTR_BgTask_802E79C:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e7a0:
     .word NPCList_80309C0
 PTR_PTR_EventHandler_ACDC_Yai_Room_F22_0_0802e7a4:
     .word PTR_EventHandler_ACDC_Yai_Room_F22_0_0802e700
-PTR_BgTask_0802E7A8:
+PTR_BgTask_802E7A8:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_EventHandler_ACDC_Yai_Room_F24_0_0802e7ac:
     .word PTR_EventHandler_ACDC_Yai_Room_F24_0_0802e738
-PTR_BgTask_0802E7B0:
+PTR_BgTask_802E7B0:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e7b4:
     .word NPCList_80309E0
@@ -558,7 +552,7 @@ _ts MapSetup_ACDC_Yai_Room_F30
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802E870
+    ldr        r0,PTR_BgTask_802E870
     bl         BgTask_AddNew
     ldr        r7,PTR_PTR_DAT_0802e874
     bl         Map_LoadNPCList
@@ -573,7 +567,7 @@ _nt EventHandler_ACDC_Yai_Room_F30
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F30_0_0802e878
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -591,7 +585,7 @@ PTR_PTR_MapSetup_ACDC_Yai_Room_F30_0802e868:
     .word PTR_MapSetup_ACDC_Yai_Room_F30_0802e7cc
 PTR_PTR_EventHandler_ACDC_Yai_Room_F30_0802e86c:
     .word PTR_EventHandler_ACDC_Yai_Room_F30_0802e808
-PTR_BgTask_0802E870:
+PTR_BgTask_802E870:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802e874:
     .word NPCList_8030A14
@@ -654,7 +648,7 @@ _ts MapSetup_ACDC_Yai_Room_F40
     bl         Camera_SetEnabled
     ldr        r7,PTR_PTR_DAT_0802e930
     bl         Map_LoadNPCList
-    ldr        r0,PTR_BgTask_0802E934
+    ldr        r0,PTR_BgTask_802E934
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -667,7 +661,7 @@ _nt EventHandler_ACDC_Yai_Room_F40
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F40_0_0802e938
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -687,7 +681,7 @@ PTR_PTR_EventHandler_ACDC_Yai_Room_F40_0802e92c:
     .word PTR_EventHandler_ACDC_Yai_Room_F40_0802e8c8
 PTR_PTR_DAT_0802e930:
     .word NPCList_8030A44
-PTR_BgTask_0802E934:
+PTR_BgTask_802E934:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_EventHandler_ACDC_Yai_Room_F40_0_0802e938:
     .word PTR_EventHandler_ACDC_Yai_Room_F40_0_0802e920
@@ -746,7 +740,7 @@ _ts MapSetup_ACDC_Yai_Room_F50
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802EA28
+    ldr        r0,PTR_BgTask_802EA28
     bl         BgTask_AddNew
     ldr        r7,PTR_PTR_DAT_0802ea2c
     bl         Map_LoadNPCList
@@ -761,7 +755,7 @@ _nt EventHandler_ACDC_Yai_Room_F50
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F50_0_0802ea30
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -785,7 +779,7 @@ _ts MapSetup_ACDC_Yai_Room_F54
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802EA34
+    ldr        r0,PTR_BgTask_802EA34
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -798,7 +792,7 @@ _ts EventHandler_ACDC_Yai_Room_F54
     ldr        r0,PTR_PTR_EventHandler_ACDC_Yai_Room_F54_0_0802ea38
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -813,13 +807,13 @@ PTR_PTR_MapSetup_ACDC_Yai_Room_F50_0802ea20:
     .word PTR_MapSetup_ACDC_Yai_Room_F50_0802e94c
 PTR_PTR_EventHandler_ACDC_Yai_Room_F50_0802ea24:
     .word PTR_EventHandler_ACDC_Yai_Room_F50_0802e988
-PTR_BgTask_0802EA28:
+PTR_BgTask_802EA28:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_DAT_0802ea2c:
     .word NPCList_8030A14
 PTR_PTR_EventHandler_ACDC_Yai_Room_F50_0_0802ea30:
     .word PTR_EventHandler_ACDC_Yai_Room_F50_0_0802e9e0
-PTR_BgTask_0802EA34:
+PTR_BgTask_802EA34:
     .word BgTask_ACDC_Yai_Room_Tileset_Panel
 PTR_PTR_EventHandler_ACDC_Yai_Room_F54_0_0802ea38:
     .word PTR_EventHandler_ACDC_Yai_Room_F54_0_0802ea18

@@ -62,7 +62,7 @@ MapSetup_ACDC_S2:
     .word MapSetup_Default
     .word MapSetup_ACDC_Yai_Room_S2
     .word MapSetup_Default
-    .word MapSetup_ACDC_Higsby_S2
+    .word MapSetup_ACDC_Higsbys_S2
     .word MapSetup_ACDC_Station_S2
     .word MapSetup_Default
 
@@ -78,7 +78,7 @@ MapSetup_ACDC_S3:
     .word MapSetup_Default
     .word MapSetup_ACDC_Yai_Room_S3
     .word MapSetup_Default
-    .word MapSetup_ACDC_Higsby_S3
+    .word MapSetup_ACDC_Higsbys_S3
     .word MapSetup_ACDC_Station_S3
     .word MapSetup_Default
 
@@ -94,7 +94,7 @@ MapSetup_ACDC_S4:
     .word MapSetup_Default
     .word MapSetup_ACDC_Yai_Room_S4
     .word MapSetup_Default
-    .word MapSetup_ACDC_Higsby_S4
+    .word MapSetup_ACDC_Higsbys_S4
     .word MapSetup_ACDC_Station_S4
     .word MapSetup_Default
 
@@ -110,7 +110,7 @@ MapSetup_ACDC_S5:
     .word MapSetup_Default
     .word MapSetup_ACDC_Yai_Room_S5
     .word MapSetup_Default
-    .word MapSetup_ACDC_Higsby_S5
+    .word MapSetup_ACDC_Higsbys_S5
     .word MapSetup_ACDC_Station_S5
     .word MapSetup_ACDC_Secret_Station_S5
 
@@ -166,7 +166,7 @@ EventHandler_ACDC_S2:
     .word EventHandler_Default
     .word EventHandler_ACDC_Yai_Room_S2
     .word EventHandler_Default
-    .word EventHandler_ACDC_Higsby_S2
+    .word EventHandler_ACDC_Higsbys_S2
     .word EventHandler_ACDC_Station_S2
     .word EventHandler_Default
 
@@ -182,7 +182,7 @@ EventHandler_ACDC_S3:
     .word EventHandler_Default
     .word EventHandler_ACDC_Yai_Room_S3
     .word EventHandler_Default
-    .word EventHandler_ACDC_Higsby_S3
+    .word EventHandler_ACDC_Higsbys_S3
     .word EventHandler_ACDC_Station_S3
     .word EventHandler_Default
 
@@ -198,7 +198,7 @@ EventHandler_ACDC_S4:
     .word EventHandler_Default
     .word EventHandler_ACDC_Yai_Room_S4
     .word EventHandler_Default
-    .word EventHandler_ACDC_Higsby_S4
+    .word EventHandler_ACDC_Higsbys_S4
     .word EventHandler_ACDC_Station_S4
     .word EventHandler_Default
 
@@ -214,7 +214,7 @@ EventHandler_ACDC_S5:
     .word EventHandler_Default
     .word EventHandler_ACDC_Yai_Room_S5
     .word EventHandler_Default
-    .word EventHandler_ACDC_Higsby_S5
+    .word EventHandler_ACDC_Higsbys_S5
     .word EventHandler_ACDC_Station_S5
     .word EventHandler_ACDC_Secret_Station_S5
 
@@ -230,7 +230,7 @@ global_label MapDialogue_ACDC
     .word 0
     .word MapDialogue_ACDC_Yai_Room
     .word 0
-    .word MapDialogue_ACDC_Higsby
+    .word MapDialogue_ACDC_Higsbys
     .word MapDialogue_ACDC_Station
     .word MapDialogue_ACDC_Secret_Station
 
@@ -378,7 +378,7 @@ MapDialogue_ACDC_Yai_Room:
     .byte 0xFF
     .byte 0xFF
 
-MapDialogue_ACDC_Higsby:
+MapDialogue_ACDC_Higsbys:
     .byte 0xFF
     .byte 0xDD
     .byte 0xDE

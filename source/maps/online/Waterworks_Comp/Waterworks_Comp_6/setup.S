@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_Waterworks_Comp_6_S2
     push       {lr}
@@ -134,7 +132,7 @@ _ts EventHandler_Waterworks_Comp_6_F25
     ldr        r0,PTR_PTR_EventHandler_Waterworks_Comp_6_F25_0_08046a74
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r0,#0x1
@@ -215,7 +213,7 @@ _ts EventHandler_Waterworks_Comp_6_F27
     ldr        r0,PTR_PTR_EventHandler_Waterworks_Comp_6_F27_0_08046a88
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r0,#0x1
@@ -279,7 +277,7 @@ PTR_BgTask_80442E8_08046a48:
     .word BgTask_80442E8
 
 DAT_08046a4c:
-    .word 0x8044318
+    .word BgTask_8044318
 
 PTR_BgTask_8044048_08046a50:
     .word BgTask_8044048
@@ -429,7 +427,7 @@ _ts EventHandler_Waterworks_Comp_6_F30
     ldr        r0,PTR_PTR_EventHandler_Waterworks_Comp_6_F30_0_08046bc4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r0,#0x1
@@ -458,7 +456,7 @@ PTR_BgTask_80442E8_08046b98:
     .word BgTask_80442E8
 
 DAT_08046b9c:
-    .word 0x8044318
+    .word BgTask_8044318
 
 PTR_BgTask_8044048_08046ba0:
     .word BgTask_8044048

@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set FUN_08082de4, 0x8082DE5
     .set Scenario_01_LanCheckYourMail, 0x8085A79
     .set FUN_080863b0, 0x80863B1
@@ -82,7 +81,7 @@ _ts EventHandler_School_Cross_Hallway_F10
     ldr        r0,PTR_PTR_EventHandler_School_Cross_Hallway_F10_0_08027eac
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -176,7 +175,7 @@ _nt EventHandler_School_Cross_Hallway_F15
     ldr        r0,PTR_PTR_EventHandler_School_Cross_Hallway_F15_0_08027ecc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -310,7 +309,7 @@ _ts EventHandler_School_Cross_Hallway_F25
     ldr        r0,PTR_PTR_EventHandler_School_Cross_Hallway_F25_0_08027fa0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -387,7 +386,7 @@ _nt EventHandler_School_Cross_Hallway_F30
     ldr        r0,PTR_PTR_EventHandler_School_Cross_Hallway_F30_0_0802803c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

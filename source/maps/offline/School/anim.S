@@ -71,7 +71,7 @@ global_label BgTask_School_TilesetBlackboardRooster
     task_direct_arg tilesetSchoolBlackboardRooster1, 90
     task_repeat
 
-global_label BgTask_080241B8
+global_label BgTask_80241B8
     task_direct slot=0, dst=eBgPalette4, len=0x8, delay=6
     task_direct_arg paletteSchoolUnused0
     task_direct_arg paletteSchoolUnused1
@@ -94,7 +94,7 @@ global_label BgTask_School_PaletteServer
     task_direct_arg paletteSchoolServer6
     task_repeat
 
-global_label BgTask_08024250
+global_label BgTask_8024250
     task_direct slot=0, dst=eBgPalette4, len=0x8, delay=20
     task_direct_arg paletteSchoolUnusedOff
     task_stop

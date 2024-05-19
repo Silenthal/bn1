@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-
 
 _ts MapSetup_Govt_Waterworks_Control_Room_S2
     push       {lr}
@@ -12,7 +10,7 @@ _ts MapSetup_Govt_Waterworks_Control_Room_S2
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08034668
+    ldr        r0,PTR_BgTask_8034668
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0xab
@@ -98,7 +96,7 @@ _ts EventHandler_Govt_Waterworks_Control_Room_F24
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F24_0_08034674
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -165,8 +163,8 @@ _nt EventHandler_Govt_Waterworks_Control_Room_F24_1
 PTR_PTR_MapSetup_Default_08034664:
     .word PTR_MapSetup_Default_08034564
 
-PTR_BgTask_08034668:
-    .word 0x80312B0
+PTR_BgTask_8034668:
+    .word BgTask_80312B0
 
 PTR_PTR_EventHandler_Default_0803466c:
     .word PTR_EventHandler_Default_08034598
@@ -191,7 +189,7 @@ _ts MapSetup_Govt_Waterworks_Control_Room_S3
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08034764
+    ldr        r0,PTR_BgTask_8034764
     bl         BgTask_AddNew
     pop        {r5}
     bl         Sound_AreaSongChange
@@ -266,7 +264,7 @@ _ts EventHandler_Govt_Waterworks_Control_Room_F30
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F30_0_08034774
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -294,8 +292,8 @@ LAB_0803475e:
 PTR_PTR_MapSetup_Govt_Waterworks_Control_Room_F30_08034760:
     .word PTR_MapSetup_Govt_Waterworks_Control_Room_F30_0803469c
 
-PTR_BgTask_08034764:
-    .word 0x80312B0
+PTR_BgTask_8034764:
+    .word BgTask_80312B0
 
 PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F30_08034768:
     .word PTR_EventHandler_Govt_Waterworks_Control_Room_F30_080346d0
@@ -320,7 +318,7 @@ _ts MapSetup_Govt_Waterworks_Control_Room_S5
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08034908
+    ldr        r0,PTR_BgTask_8034908
     bl         BgTask_AddNew
     pop        {r5}
     bl         Sound_AreaSongChange
@@ -400,7 +398,7 @@ _nt EventHandler_Govt_Waterworks_Control_Room_F50
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F50_0_08034918
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -481,7 +479,7 @@ _nt EventHandler_Govt_Waterworks_Control_Room_F54
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F54_0_0803492c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -514,8 +512,8 @@ LAB_08034902:
 PTR_PTR_MapSetup_Govt_Waterworks_Control_Room_F50_08034904:
     .word PTR_MapSetup_Govt_Waterworks_Control_Room_F50_08034798
 
-PTR_BgTask_08034908:
-    .word 0x80312B0
+PTR_BgTask_8034908:
+    .word BgTask_80312B0
 
 PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F50_0803490c:
     .word PTR_EventHandler_Govt_Waterworks_Control_Room_F50_080347cc
@@ -555,7 +553,7 @@ _ts MapSetup_Govt_Waterworks_Control_Room_S4
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08034a28
+    ldr        r0,PTR_BgTask_8034A28
     bl         BgTask_AddNew
     pop        {r5}
     bl         Sound_AreaSongChange
@@ -635,7 +633,7 @@ _nt EventHandler_Govt_Waterworks_Control_Room_F40
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F40_0_08034a38
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -668,8 +666,8 @@ LAB_08034a22:
 PTR_PTR_MapSetup_Govt_Waterworks_Control_Room_F40_08034a24:
     .word PTR_MapSetup_Govt_Waterworks_Control_Room_F40_08034950
 
-PTR_BgTask_08034a28:
-    .word 0x80312B0
+PTR_BgTask_8034A28:
+    .word BgTask_80312B0
 
 PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F40_08034a2c:
     .word PTR_EventHandler_Govt_Waterworks_Control_Room_F40_08034984

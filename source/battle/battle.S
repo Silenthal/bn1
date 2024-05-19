@@ -4,7 +4,7 @@
 
     .set FUN_0809bc4c, 0x809bc4c
     .set tilesetBattleMiscellaneous, 0x8640854
-    .set FUN_08056234, 0x8056234
+    .set Struct_7C_Init, 0x8056234
     .set Struct_C1C0_0200c1c0, 0x200c1c0
     .set PlayerMpState_ARRAY_020075a0, 0x20075a0
     .set Sio_SetReady, 0x809bdf0
@@ -133,12 +133,12 @@ _ts Battle_0_1_InitField
     mov        r7,r10
     ldr        r7,[r7,#0x8]
     ldrb       r0,[r7,#0xf]
-   cmp        r0,#0x8
-   bge        LAB_08005970
-   ldr        r0,PTR_gSpriteDecompLocation1_08005a28
-   bl         SpriteLz_Init
-   ldr        r0,[r5,#0x74]
-   bl         SpriteLz_DecompressEnemyList
+    cmp        r0,#0x8
+    bge        LAB_08005970
+    ldr        r0,PTR_gSpriteDecompLocation1_08005a28
+    bl         SpriteLz_Init
+    ldr        r0,[r5,#0x74]
+    bl         SpriteLz_DecompressEnemyList
 LAB_08005970:
     push       {r5}
     bl         BattleUi_Init
@@ -183,7 +183,7 @@ LAB_080059b4:
     mov        r0,#0x0
     strb       r0,[r7,#0x9]
     str        r0,[r6,#0x58]
-    bl         FUN_08056234
+    bl         Struct_7C_Init
     push       {r5}
     mov        r0,#0x1
     mov        r1,#0x10
@@ -655,7 +655,6 @@ _nt Battle_2_4_0_BattleResult
     pop        {pc}
 
 
-
 _nt Battle_2_4_1_Wait
     push       {lr}
     ldrb       r0,[r5,#0x3]
@@ -700,7 +699,6 @@ _nt Battle_3_0_ShowMessage
     pop        {pc}
 
     .pool
-
 
 
 _nt Battle_3_1_FadeOut
@@ -779,7 +777,6 @@ LAB_08005e2c:
     pop        {pc}
 
 
-
 _nt BattleR_2_2_BattleStart
     push       {lr}
     ldr        r7,=PTR_BattleR_2_2_0_DrawBattleElements
@@ -831,7 +828,6 @@ LAB_08005e8c:
     pop        {pc}
 
 
-
 _nt BattleR_2_2_2_ShowMessage
     push       {lr}
     push       {r5}
@@ -846,7 +842,6 @@ _nt BattleR_2_2_2_ShowMessage
     strh       r0,[r5,#0x2e]
 LAB_08005ea6:
     pop        {pc}
-
 
 
 _nt BattleR_2_2_3_StartBattle
@@ -879,7 +874,6 @@ LAB_08005edc:
     bl         Multiplayer_UpdateKeyState
 LAB_08005ee0:
     pop        {pc}
-
 
 
 _nt BattleR_2_3_CheckBattleState
@@ -1035,7 +1029,6 @@ LAB_08005ff6:
     pop        {pc}
 
 
-
 _nt BattleR_2_3_1_CheckSpritesSpawned
     push       {lr}
     bl         Battle_AreAllSpritesSpawned
@@ -1181,7 +1174,6 @@ LAB_080060fa:
     pop        {pc}
 
 
-
 _nt BattleR_2_1_1
     push       {lr}
     ldrb       r0,[r5,#0x1e]
@@ -1207,7 +1199,6 @@ LAB_08006128:
     pop        {pc}
 
 
-
 _nt BattleR_2_1_2_ShowMessage
     push       {lr}
     push       {r5}
@@ -1226,7 +1217,6 @@ _nt BattleR_2_1_2_ShowMessage
 LAB_0800614a:
     bl         FUN_080079c8
     pop        {pc}
-
 
 
 _nt BattleR_2_1_3_CopyChipHandIcons
@@ -1397,7 +1387,6 @@ _nt BattleR_2_7_3_ShowMessage
     strb       r0,[r5,#0x3]
 LAB_0800627c:
     pop        {pc}
-
 
 
 _nt BattleR_2_7_4_End

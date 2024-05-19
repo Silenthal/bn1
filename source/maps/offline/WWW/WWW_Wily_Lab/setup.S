@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set PlayerLocation_Create, 0x8056020+1
 
 
 _ts MapSetup_WWW_Wily_Lab_S3
@@ -83,7 +82,7 @@ _nt EventHandler_WWW_Wily_Lab_F30
     ldr        r0,PTR_PTR_EventHandler_WWW_Wily_Lab_F30_0_0803ddf0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -131,7 +130,7 @@ _nt EventHandler_WWW_Wily_Lab_F37
     ldr        r0,PTR_PTR_EventHandler_WWW_Wily_Lab_F37_0_0803ddfc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -261,7 +260,7 @@ _nt EventHandler_WWW_Wily_Lab_F50
     ldr        r0,PTR_PTR_EventHandler_WWW_Wily_Lab_F50_0_0803e0e4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -309,7 +308,7 @@ _nt EventHandler_WWW_Wily_Lab_F53
     ldr        r0,PTR_PTR_EventHandler_WWW_Wily_Lab_F53_0_0803e0ec
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -412,7 +411,7 @@ _nt EventHandler_WWW_Wily_Lab_F54
     ldr        r0,PTR_PTR_EventHandler_WWW_Wily_Lab_F54_0_0803e100
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

@@ -17,7 +17,7 @@ _ts GraphicDataSetup_Govt
     ldrb       r3,[r2,#0x5]
     lsl        r3,r3,#0x2
     add        r0,r0,r3
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r1,#0x14]
     push       {r5}
     ldrb       r0,[r5,#0x4]
@@ -45,7 +45,7 @@ _ts GraphicDataSetup_Govt
     ldr        r7,[r7,#0x8]
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
-    ldr        r0,PTR_PTR_SpriteList_Govt_Complex_Front_080313c4
+    ldr        r0,PTR_SpriteList_Govt_080313c4
     ldr        r0,[r0,r1]
     bl         SpriteLz_DecompressSpriteList
     pop        {r5}
@@ -53,19 +53,19 @@ _ts GraphicDataSetup_Govt
 
     .align 2, 0
 
-PTR_SpriteList_Govt_Complex_Front_0803137c:
+global_label SpriteList_Govt
     .word SpriteList_Govt_Complex_Front
-    .word SpriteList_Govt_Complex_Station
+    .word SpriteList_Govt_None
     .word SpriteList_Govt_Waterworks_Lobby
     .word SpriteList_Govt_SciLab_Lobby
-    .word SpriteList_Govt_Complex_Station
-    .word SpriteList_Govt_Complex_Station
-    .word SpriteList_Govt_Complex_Station
-    .word SpriteList_Govt_Complex_Station
-    .word SpriteList_Govt_Complex_Station
-    .word SpriteList_Govt_Complex_Station
-    .word SpriteList_Govt_Complex_Station
-    .word SpriteList_Govt_Complex_Station
+    .word SpriteList_Govt_None
+    .word SpriteList_Govt_None
+    .word SpriteList_Govt_None
+    .word SpriteList_Govt_None
+    .word SpriteList_Govt_None
+    .word SpriteList_Govt_None
+    .word SpriteList_Govt_None
+    .word SpriteList_Govt_None
 
 SpriteList_Govt_Complex_Front:
     .short 0x101
@@ -80,8 +80,10 @@ SpriteList_Govt_SciLab_Lobby:
     .short 0xFF
     .short -1
 
-SpriteList_Govt_Complex_Station:
+SpriteList_Govt_None:
     .short -1
+
+    .align 2, 0
 
 PTR_MapExitList_Govt_080313bc:
     .word MapExitList_Govt
@@ -89,5 +91,5 @@ PTR_MapExitList_Govt_080313bc:
 PTR_gDstCompressedSpriteData_080313c0:
     .word gDstCompressedSpriteData
 
-PTR_PTR_SpriteList_Govt_Complex_Front_080313c4:
-    .word PTR_SpriteList_Govt_Complex_Front_0803137c
+PTR_SpriteList_Govt_080313c4:
+    .word SpriteList_Govt

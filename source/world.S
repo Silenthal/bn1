@@ -4,12 +4,6 @@
 
     .text
 
-    .set Flag_SetPlayerActive, 0x8056044
-    .set FUN_0804c60c, 0x804c60c
-    .set ClearFlagRange280, 0x805287c
-    .set FUN_08052528, 0x8052528
-    .set FUN_080521cc, 0x80521cc
-
 _ts InitWorld_LoadGame
     push       {lr}
     mov        r7,r10
@@ -238,7 +232,6 @@ LAB_0800420a:
     pop        {pc}
 DispCnt_0800420c:
     .word DISPCNT_OMAP1D | DISPCNT_BGALL | DISPCNT_OBJ
-
 
 
 _ts World_2_Overworld

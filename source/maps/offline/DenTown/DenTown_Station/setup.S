@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -93,7 +92,7 @@ _ts MapSetup_DenTown_Station_F40
     push       {r5}
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08036dd8
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08036ddc
+    ldr        r0,PTR_BgTask_8036DDC
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -106,7 +105,7 @@ _ts EventHandler_DenTown_Station_F40
     ldr        r0,PTR_PTR_EventHandler_DenTown_Station_F30_0_08036de0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08036db0
@@ -175,8 +174,8 @@ PTR_NPCList_803904C_08036dd4:
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08036dd8:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 
-PTR_BgTask_08036ddc:
-    .word 0x802A374
+PTR_BgTask_8036DDC:
+    .word BgTask_802A374
 
 PTR_PTR_EventHandler_DenTown_Station_F30_0_08036de0:
     .word PTR_EventHandler_DenTown_Station_F30_0_08036d74
@@ -255,7 +254,7 @@ LAB_08036e7c:
     push       {r5}
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08036f10
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08036f14
+    ldr        r0,PTR_BgTask_8036F14
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -268,7 +267,7 @@ _nt EventHandler_DenTown_Station_F50
     ldr        r0,PTR_PTR_EventHandler_DenTown_Station_F50_0_08036f18
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08036ee4
@@ -342,8 +341,8 @@ PTR_NPCList_8039094_08036f0c:
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08036f10:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 
-PTR_BgTask_08036f14:
-    .word 0x802A374
+PTR_BgTask_8036F14:
+    .word BgTask_802A374
 
 PTR_PTR_EventHandler_DenTown_Station_F50_0_08036f18:
     .word PTR_EventHandler_DenTown_Station_F50_0_08036ea8

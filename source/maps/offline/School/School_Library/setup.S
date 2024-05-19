@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-
 
 _ts MapSetup_School_Library_S1
     push       {lr}
@@ -71,13 +69,12 @@ _ts MapSetup_School_Library_F10
     .align 2, 0
 
 
-
 _ts EventHandler_School_Library_F10
     push       {lr}
     ldr        r0,PTR_PTR_EventHandler_School_Library_F10_0_08025d74
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -124,7 +121,7 @@ _ts EventHandler_School_Library_F13
     ldr        r0,PTR_PTR_EventHandler_School_Library_F13_0_08025d80
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -191,7 +188,7 @@ _ts EventHandler_School_Library_F14
     ldr        r0,PTR_PTR_EventHandler_School_Library_F14_0_08025d90
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -248,7 +245,7 @@ _nt EventHandler_School_Library_F15
     ldr        r0,PTR_EventHandler_School_Library_F15_0_08025da0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -267,13 +264,13 @@ PTR_PTR_MapSetup_School_Library_F10_08025d64:
 PTR_PTR_EventHandler_School_Library_F10_08025d68:
     .word PTR_EventHandler_School_Library_F10_08025bd0
 PTR_EntityAllocParams_ARRAY_08025d6c:
-    .word EntityAllocParams_08029BD0
+    .word EntityAllocParams_8029BD0
 PTR_PTR_DAT_08025d70:
     .word NPCList_8029418
 PTR_PTR_EventHandler_School_Library_F10_0_08025d74:
     .word PTR_EventHandler_School_Library_F10_0_08025c28
 PTR_EntityAllocParams_ARRAY_08025d78:
-    .word EntityAllocParams_08029BD0
+    .word EntityAllocParams_8029BD0
 PTR_DAT_08025d7c:
     .word NPCList_8029420
 PTR_PTR_EventHandler_School_Library_F13_0_08025d80:
@@ -281,7 +278,7 @@ PTR_PTR_EventHandler_School_Library_F13_0_08025d80:
 DAT_08025d84:
     .word 0x8087E35
 PTR_EntityAllocParams_ARRAY_08025d88:
-    .word EntityAllocParams_08029BD0
+    .word EntityAllocParams_8029BD0
 PTR_DAT_08025d8c:
     .word NPCList_8029420
 PTR_PTR_EventHandler_School_Library_F14_0_08025d90:
@@ -289,7 +286,7 @@ PTR_PTR_EventHandler_School_Library_F14_0_08025d90:
 DAT_08025d94:
     .word 0x8087E35
 PTR_EntityAllocParams_ARRAY_08025d98:
-    .word EntityAllocParams_08029BD0
+    .word EntityAllocParams_8029BD0
 PTR_DAT_08025d9c:
     .word NPCList_8029420
 PTR_EventHandler_School_Library_F15_0_08025da0:
@@ -375,7 +372,7 @@ _nt EventHandler_School_Library_F20
     ldr        r0,PTR_PTR_EventHandler_School_Library_F20_0_08025f70
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -414,7 +411,7 @@ _nt EventHandler_School_Library_F21
     ldr        r0,PTR_PTR_EventHandler_School_Library_F21_0_08025f7c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -453,7 +450,7 @@ _nt EventHandler_School_Library_F22
     ldr        r0,PTR_PTR_EventHandler_School_Library_F22_0_08025f88
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -492,7 +489,7 @@ _nt EventHandler_School_Library_F23
     ldr        r0,PTR_PTR_EventHandler_School_Library_F23_0_08025f94
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -529,7 +526,7 @@ _ts EventHandler_School_Library_F24
     ldr        r0,PTR_PTR_EventHandler_School_Library_F24_0_08025f9c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -545,31 +542,31 @@ PTR_PTR_MapSetup_School_Library_F20_08025f60:
 PTR_PTR_EventHandler_School_Library_F20_08025f64:
     .word PTR_EventHandler_School_Library_F20_08025e08
 PTR_EntityAllocParams_ARRAY_08025f68:
-    .word EntityAllocParams_08029BD0
+    .word EntityAllocParams_8029BD0
 PTR_PTR_DAT_08025f6c:
     .word NPCList_8029460
 PTR_PTR_EventHandler_School_Library_F20_0_08025f70:
     .word PTR_EventHandler_School_Library_F20_0_08025e60
 PTR_EntityAllocParams_ARRAY_08025f74:
-    .word EntityAllocParams_08029BD0
+    .word EntityAllocParams_8029BD0
 PTR_PTR_DAT_08025f78:
     .word NPCList_8029460
 PTR_PTR_EventHandler_School_Library_F21_0_08025f7c:
     .word PTR_EventHandler_School_Library_F21_0_08025ea0
 PTR_EntityAllocParams_ARRAY_08025f80:
-    .word EntityAllocParams_08029BD0
+    .word EntityAllocParams_8029BD0
 PTR_PTR_DAT_08025f84:
     .word NPCList_8029460
 PTR_PTR_EventHandler_School_Library_F22_0_08025f88:
     .word PTR_EventHandler_School_Library_F22_0_08025ee0
 PTR_EntityAllocParams_ARRAY_08025f8c:
-    .word EntityAllocParams_08029BD0
+    .word EntityAllocParams_8029BD0
 PTR_PTR_DAT_08025f90:
     .word NPCList_80294C8
 PTR_PTR_EventHandler_School_Library_F23_0_08025f94:
     .word PTR_EventHandler_School_Library_F23_0_08025f20
 PTR_EntityAllocParams_ARRAY_08025f98:
-    .word EntityAllocParams_08029BD0
+    .word EntityAllocParams_8029BD0
 PTR_PTR_EventHandler_School_Library_F24_0_08025f9c:
     .word PTR_EventHandler_School_Library_F24_0_08025f58
 
@@ -632,7 +629,7 @@ _ts EventHandler_School_Library_F30
     ldr        r0,PTR_PTR_EventHandler_School_Library_F30_0_08026040
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -648,6 +645,6 @@ PTR_PTR_MapSetup_School_Library_F30_08026034:
 PTR_PTR_EventHandler_School_Library_F30_08026038:
     .word PTR_EventHandler_School_Library_F30_08025fdc
 PTR_EntityAllocParams_ARRAY_0802603c:
-    .word EntityAllocParams_08029BD0
+    .word EntityAllocParams_8029BD0
 PTR_PTR_EventHandler_School_Library_F30_0_08026040:
     .word PTR_EventHandler_School_Library_F30_0_0802602c

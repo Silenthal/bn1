@@ -2,12 +2,9 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0803b788, 0x803B788
-    .set PlayerLocation_Create, 0x8056020
     .set Scene_JackIn, 0x8083EEC+1
     .set FUN_0807f574, 0x807F574
     .set Script_ShowDialogue, 0x80848FC+1
-    .set FUN_0803b6f4, 0x803B6F4
 
 
 _ts MapSetup_DenTown_Center_S3
@@ -118,7 +115,7 @@ _ts EventHandler_DenTown_Center_F30
     ldr        r0,PTR_PTR_EventHandler_DenTown_Center_F30_0_08036240
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_0803b788
@@ -221,7 +218,7 @@ _ts EventHandler_DenTown_Center_F32
     ldr        r0,PTR_PTR_EventHandler_DenTown_Center_F32_0_08036314
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080368b8
@@ -330,7 +327,7 @@ _ts EventHandler_DenTown_Center_F33
     ldr        r0,PTR_PTR_EventHandler_DenTown_Center_F33_0_080363ec
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080368b8
@@ -469,7 +466,7 @@ _ts EventHandler_DenTown_Center_F34
     ldr        r0,PTR_PTR_EventHandler_DenTown_Center_F34_0_080364f8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080368b8
@@ -560,7 +557,7 @@ _nt EventHandler_DenTown_Center_F35
     ldr        r0,PTR_PTR_EventHandler_DenTown_Center_F35_0_08036988
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080368b8
@@ -730,7 +727,7 @@ _ts EventHandler_DenTown_Center_F36
     ldr        r0,PTR_PTR_EventHandler_DenTown_Center_F36_0_080369ac
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080368b8
@@ -898,7 +895,7 @@ _ts EventHandler_DenTown_Center_F37
     ldr        r0,PTR_PTR_EventHandler_DenTown_Center_F37_0_080369d4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080368b8
@@ -1235,7 +1232,7 @@ _ts EventHandler_DenTown_Center_F40
     ldr        r0,PTR_PTR_EventHandler_DenTown_Center_F40_0_08036b1c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -1400,7 +1397,7 @@ _nt EventHandler_DenTown_Center_F50
     ldr        r0,PTR_PTR_EventHandler_DenTown_Center_F50_0_08036c7c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_WWW_Passage_3_S5
     push       {lr}
@@ -63,7 +61,7 @@ _nt EventHandler_WWW_Passage_3_F54
     ldr        r0,PTR_PTR_EventHandler_WWW_Passage_3_F54_0_0803e5c4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

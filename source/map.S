@@ -8,62 +8,62 @@
 
     .thumb
 
-dummy_113e4:
+DummySetup_Offline:
     .word dummy_School
     .word dummy_ACDC
     .word dummy_Govt
     .word dummy_DenTown
-    .word 0x803bd91 @ dummy_3bd90
-    .word 0x803d87d @ dummy_3d87c
-listGraphicDataSetup_Offline:
+    .word dummy_SciLab
+    .word dummy_WWW
+GraphicDataSetup_Offline:
     .word GraphicDataSetup_School
     .word GraphicDataSetup_ACDC
     .word GraphicDataSetup_Govt
     .word GraphicDataSetup_DenTown
-    .word 0x803bd95 @ GraphicDataSetup_SciLab
-    .word 0x803d881 @ GraphicDataSetup_WWW
-dummy_11414:
-    .word 0x8040509 @ dummy_40508
-    .word 0x8043149 @ dummy_43148
-    .word 0x80456a1 @ dummy_456a0
-    .word 0x8047e5d @ dummy_47e5c
-    .word 0x804a119 @ dummy_4a118
-    .word 0x804d179 @ dummy_4d178
+    .word GraphicDataSetup_SciLab
+    .word GraphicDataSetup_WWW
+DummySetup_Online:
+    .word dummy_School_Comp
+    .word dummy_Oven_Comp
+    .word dummy_Waterworks_Comp
+    .word dummy_Traffic_Light_Comp
+    .word dummy_Power_Plant_Comp
+    .word dummy_WWW_Comp
     .word dummy_114bc
     .word dummy_114bc
-    .word 0x804eef9 @ dummy_4eef8
-    .word 0x804f7f9 @ dummy_4f7f8
-    .word 0x804fdd5 @ dummy_4fdd4
-    .word 0x8050091 @ dummy_50090
-    .word 0x80503cd @ dummy_503cc
-    .word dummy_114bc
-    .word dummy_114bc
-    .word dummy_114bc
-    .word 0x8051cf1 @ dummy_51cf0
-listGraphicDataSetup_Online:
-    .word 0x804050d @ GraphicDataSetup_School_Comp
-    .word 0x804314d @ GraphicDataSetup_Oven_Comp
-    .word 0x80456a5 @ GraphicDataSetup_Waterworks_Comp
-    .word 0x8047e61 @ GraphicDataSetup_Traffic_Light_Comp
-    .word 0x804a11d @ GraphicDataSetup_Power_Plant_Comp
-    .word 0x804d17d @ GraphicDataSetup_WWW_Comp
-    .word dummy_114bc
-    .word dummy_114bc
-    .word 0x804eefd @ GraphicDataSetup_ACDC_HP
-    .word 0x804f7fd @ GraphicDataSetup_Govt_Complex_HP
-    .word 0x804fdd9 @ GraphicDataSetup_DenTown_HP
-    .word 0x8050095 @ GraphicDataSetup_SciLab_HP
-    .word 0x80503d1 @ GraphicDataSetup_Other_Comp
+    .word dummy_ACDC_HP
+    .word dummy_Govt_HP
+    .word dummy_DenTown_HP
+    .word dummy_SciLab_HP
+    .word dummy_Other_Comp
     .word dummy_114bc
     .word dummy_114bc
     .word dummy_114bc
-    .word 0x8051cf5 @ GraphicDataSetup_Internet
-dummy_1149c:
+    .word dummy_Internet
+GraphicDataSetup_Online:
+    .word GraphicDataSetup_School_Comp
+    .word GraphicDataSetup_Oven_Comp
+    .word GraphicDataSetup_Waterworks_Comp
+    .word GraphicDataSetup_Traffic_Light_Comp
+    .word GraphicDataSetup_Power_Plant_Comp
+    .word GraphicDataSetup_WWW_Comp
+    .word dummy_114bc
+    .word dummy_114bc
+    .word GraphicDataSetup_ACDC_HP
+    .word GraphicDataSetup_Govt_HP
+    .word GraphicDataSetup_DenTown_HP
+    .word GraphicDataSetup_SciLab_HP
+    .word GraphicDataSetup_Other_Comp
+    .word dummy_114bc
+    .word dummy_114bc
+    .word dummy_114bc
+    .word GraphicDataSetup_Internet
+DummySetup_Battle:
     .word dummy_114bc
     .word dummy_114bc
     .word dummy_114bc
     .word dummy_114bc
-listGraphicDataSetup_Battle:
+GraphicDataSetup_Battle:
     .word dummy_114bc
     .word dummy_114bc
     .word dummy_114bc
@@ -81,14 +81,14 @@ _ts dummy_114c0
     bge        LAB_080114d4
     cmp        r0,#0x80
     bge        LAB_080114ce
-    ldr        r1,PTR_dummy_113e4_08011508
+    ldr        r1,PTR_DummySetup_Offline_08011508
     b          LAB_080114d8
 LAB_080114ce:
-    ldr        r1,PTR_dummy_11414_0801150c
+    ldr        r1,PTR_DummySetup_Online_0801150c
     sub        r0,#0x80
     b          LAB_080114d8
 LAB_080114d4:
-    ldr        r1,PTR_dummy_1149c_08011510
+    ldr        r1,PTR_DummySetup_Battle_08011510
     sub        r0,#0xf0
 LAB_080114d8:
     lsl        r0,r0,#0x2
@@ -104,14 +104,14 @@ _ts Map_SetupGraphicData
     bge        LAB_080114f8
     cmp        r0,#0x80
     bge        LAB_080114f2
-    ldr        r1,PTR_listGraphicDataSetup_Offline_08011514
+    ldr        r1,PTR_GraphicDataSetup_Offline_08011514
     b          LAB_080114fc
 LAB_080114f2:
-    ldr        r1,PTR_listGraphicDataSetup_Online_08011518
+    ldr        r1,PTR_GraphicDataSetup_Online_08011518
     sub        r0,#0x80
     b          LAB_080114fc
 LAB_080114f8:
-    ldr        r1,PTR_listGraphicDataSetup_Battle_0801151c
+    ldr        r1,PTR_GraphicDataSetup_Battle_0801151c
     sub        r0,#0xf0
 LAB_080114fc:
     lsl        r0,r0,#0x2
@@ -122,18 +122,18 @@ LAB_080114fc:
 
     .align 2, 0
 
-PTR_dummy_113e4_08011508:
-    .word dummy_113e4
-PTR_dummy_11414_0801150c:
-    .word dummy_11414
-PTR_dummy_1149c_08011510:
-    .word dummy_1149c
-PTR_listGraphicDataSetup_Offline_08011514:
-    .word listGraphicDataSetup_Offline
-PTR_listGraphicDataSetup_Online_08011518:
-    .word listGraphicDataSetup_Online
-PTR_listGraphicDataSetup_Battle_0801151c:
-    .word listGraphicDataSetup_Battle
+PTR_DummySetup_Offline_08011508:
+    .word DummySetup_Offline
+PTR_DummySetup_Online_0801150c:
+    .word DummySetup_Online
+PTR_DummySetup_Battle_08011510:
+    .word DummySetup_Battle
+PTR_GraphicDataSetup_Offline_08011514:
+    .word GraphicDataSetup_Offline
+PTR_GraphicDataSetup_Online_08011518:
+    .word GraphicDataSetup_Online
+PTR_GraphicDataSetup_Battle_0801151c:
+    .word GraphicDataSetup_Battle
 
 
 _ts Map_LoadNPCList
@@ -396,13 +396,13 @@ handlerCollisionShapeBoundary:
 
 
     .byte 0, 0
-    .ascii "POS X:%D Y:%D Z:%D A:%D\nCELNO:%4X\x00"
+    .asciz "POS X:%D Y:%D Z:%D A:%D\nCELNO:%4X"
     .byte 0, 2
-    .ascii "C NUM:%D\nX:%8X Y:%8X\x00"
+    .asciz "C NUM:%D\nX:%8X Y:%8X"
     .byte 0, 5
-    .ascii "AT V %3D\x00"
+    .asciz "AT V %3D"
     .byte 0, 6
-    .ascii "PL\n%8x\n%8x\n%8x\x00"
+    .asciz "PL\n%8x\n%8x\n%8x"
     .align 2, 0
 
 @@ Add bound

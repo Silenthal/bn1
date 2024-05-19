@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_Oven_Comp_2_S2
     push       {lr}
@@ -82,7 +80,7 @@ _nt FUN_080439ea
     ldr        r0,PTR_PTR_FUN_08043a00_08043a34
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -90,7 +88,7 @@ _nt FUN_080439ea
     .align 2, 0
 
 PTR_FUN_08043a00_080439fc:
-    .word 0x8043A01
+    .word FUN_08043a00
 
 
 _ts FUN_08043a00
@@ -102,10 +100,10 @@ _ts FUN_08043a00
     .align 2, 0
 
 DAT_08043a0c:
-    .word 0x8043979
+    .word FUN_08043978
 
 DAT_08043a10:
-    .word 0x80439EB
+    .word FUN_080439ea
 
 PTR_FUN_08084070_08043a14:
     .word 0x8084071

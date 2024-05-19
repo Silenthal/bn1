@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-
 
 _ts MapSetup_DenTown_Summer_School_S3
     push       {lr}
@@ -101,7 +99,7 @@ _ts EventHandler_DenTown_Summer_School_F30
     ldr        r0,PTR_PTR_EventHandler_DenTown_Summer_School_F30_0_08038bec
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -201,7 +199,7 @@ _ts EventHandler_DenTown_Summer_School_F40
     ldr        r0,PTR_PTR_EventHandler_DenTown_Summer_School_F40_0_08038cac
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -299,7 +297,7 @@ _ts EventHandler_DenTown_Summer_School_F50
     ldr        r0,PTR_PTR_EventHandler_DenTown_Summer_School_F50_0_08038da0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -334,7 +332,7 @@ _ts EventHandler_DenTown_Summer_School_F53
     ldr        r0,PTR_PTR_EventHandler_DenTown_Summer_School_F53_0_08038da8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

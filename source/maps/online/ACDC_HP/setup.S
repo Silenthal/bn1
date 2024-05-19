@@ -17,7 +17,7 @@ _ts GraphicDataSetup_ACDC_HP
     ldrb       r3,[r2,#0x5]
     lsl        r3,r3,#0x2
     add        r0,r0,r3
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r1,#0x14]
     push       {r5}
     ldrb       r0,[r5,#0x4]

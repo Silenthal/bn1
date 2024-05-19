@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set FUN_0808598c, 0x808598D
     .set FUN_080808f8, 0x80808F8
     .set Scene_ChipTrader, 0x8085DD9
@@ -11,7 +10,7 @@
     .set FUN_08085f54, 0x8085F55
 
 
-_ts MapSetup_ACDC_Higsby_S2
+_ts MapSetup_ACDC_Higsbys_S2
     push       {lr}
     ldr        r0,PTR_PTR_MapSetup_Default_0802ec9c
     ldr        r0,[r0,r1]
@@ -44,13 +43,13 @@ PTR_MapSetup_Default_0802ea78:
     .word MapSetup_Default
     .word MapSetup_Default
     .word MapSetup_Default
-    .word MapSetup_ACDC_Higsby_F24
-    .word MapSetup_ACDC_Higsby_F24
-    .word MapSetup_ACDC_Higsby_F26
-    .word MapSetup_ACDC_Higsby_F26
+    .word MapSetup_ACDC_Higsbys_F24
+    .word MapSetup_ACDC_Higsbys_F24
+    .word MapSetup_ACDC_Higsbys_F26
+    .word MapSetup_ACDC_Higsbys_F26
 
 
-_ts EventHandler_ACDC_Higsby_S2
+_ts EventHandler_ACDC_Higsbys_S2
     push       {lr}
     ldr        r0,PTR_PTR_EventHandler_Default_0802eca0
     ldr        r0,[r0,r1]
@@ -63,13 +62,13 @@ PTR_EventHandler_Default_0802eaa8:
     .word EventHandler_Default
     .word EventHandler_Default
     .word EventHandler_Default
-    .word EventHandler_ACDC_Higsby_F24
-    .word EventHandler_ACDC_Higsby_F24
-    .word EventHandler_ACDC_Higsby_F26
-    .word EventHandler_ACDC_Higsby_F26
+    .word EventHandler_ACDC_Higsbys_F24
+    .word EventHandler_ACDC_Higsbys_F24
+    .word EventHandler_ACDC_Higsbys_F26
+    .word EventHandler_ACDC_Higsbys_F26
 
 
-_ts MapSetup_ACDC_Higsby_F24
+_ts MapSetup_ACDC_Higsbys_F24
     push       {lr}
     push       {r5}
     bl         PlayerLocation_Create
@@ -101,21 +100,20 @@ LAB_0802eb04:
     .align 2, 0
 
 
-
-_ts EventHandler_ACDC_Higsby_F24
+_ts EventHandler_ACDC_Higsbys_F24
     push       {lr}
-    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsby_F24_0_0802ecb0
+    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsbys_F24_0_0802ecb0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
-PTR_EventHandler_ACDC_Higsby_F24_0_0802eb1c:
-    .word EventHandler_ACDC_Higsby_F24_0
+PTR_EventHandler_ACDC_Higsbys_F24_0_0802eb1c:
+    .word EventHandler_ACDC_Higsbys_F24_0
 
 
-_ts EventHandler_ACDC_Higsby_F24_0
+_ts EventHandler_ACDC_Higsbys_F24_0
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -163,7 +161,7 @@ LAB_0802eb7c:
     pop        {pc}
 
 
-_ts MapSetup_ACDC_Higsby_F26
+_ts MapSetup_ACDC_Higsbys_F26
     push       {lr}
     push       {r5}
     bl         PlayerLocation_Create
@@ -195,21 +193,20 @@ LAB_0802ebc0:
     .align 2, 0
 
 
-
-_ts EventHandler_ACDC_Higsby_F26
+_ts EventHandler_ACDC_Higsbys_F26
     push       {lr}
-    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsby_F26_0_0802ecc8
+    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsbys_F26_0_0802ecc8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
-PTR_EventHandler_ACDC_Higsby_F26_0_0802ebd8:
-    .word EventHandler_ACDC_Higsby_F26_0
+PTR_EventHandler_ACDC_Higsbys_F26_0_0802ebd8:
+    .word EventHandler_ACDC_Higsbys_F26_0
 
 
-_ts EventHandler_ACDC_Higsby_F26_0
+_ts EventHandler_ACDC_Higsbys_F26_0
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -314,25 +311,25 @@ PTR_PTR_MapSetup_Default_0802ec9c:
 PTR_PTR_EventHandler_Default_0802eca0:
     .word PTR_EventHandler_Default_0802eaa8
 PTR_EntityAllocParams_ARRAY_0802eca4:
-    .word EntityAllocParams_08031024
+    .word EntityAllocParams_8031024
 PTR_PTR_DAT_0802eca8:
     .word NPCList_8030A64
 DAT_0802ecac:
     .word 0x808598D
-PTR_PTR_EventHandler_ACDC_Higsby_F24_0_0802ecb0:
-    .word PTR_EventHandler_ACDC_Higsby_F24_0_0802eb1c
+PTR_PTR_EventHandler_ACDC_Higsbys_F24_0_0802ecb0:
+    .word PTR_EventHandler_ACDC_Higsbys_F24_0_0802eb1c
 DAT_0802ecb4:
     .word 0x80848FD
 DAT_0802ecb8:
     .word 0x80857B9
 PTR_EntityAllocParams_ARRAY_0802ecbc:
-    .word EntityAllocParams_08031024
+    .word EntityAllocParams_8031024
 PTR_PTR_DAT_0802ecc0:
     .word NPCList_8030AD8
 PTR_FUN_0808598c_0802ecc4:
     .word FUN_0808598c
-PTR_PTR_EventHandler_ACDC_Higsby_F26_0_0802ecc8:
-    .word PTR_EventHandler_ACDC_Higsby_F26_0_0802ebd8
+PTR_PTR_EventHandler_ACDC_Higsbys_F26_0_0802ecc8:
+    .word PTR_EventHandler_ACDC_Higsbys_F26_0_0802ebd8
 DAT_0802eccc:
     .word 0x80848FD
 DAT_0802ecd0:
@@ -345,17 +342,17 @@ PTR_Scene_ChipTrader_0802ecdc:
     .word Scene_ChipTrader
 
 
-_ts MapSetup_ACDC_Higsby_S3
+_ts MapSetup_ACDC_Higsbys_S3
     push       {lr}
-    ldr        r0,PTR_PTR_MapSetup_ACDC_Higsby_F30_0802ee14
+    ldr        r0,PTR_PTR_MapSetup_ACDC_Higsbys_F30_0802ee14
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     bl         Sound_AreaSongChange
     bl         StartChipTraderSceneIfPending
     pop        {pc}
-PTR_MapSetup_ACDC_Higsby_F30_0802ecf4:
-    .word MapSetup_ACDC_Higsby_F30
+PTR_MapSetup_ACDC_Higsbys_F30_0802ecf4:
+    .word MapSetup_ACDC_Higsbys_F30
     .word MapSetup_Default
     .word MapSetup_Default
     .word MapSetup_Default
@@ -365,16 +362,16 @@ PTR_MapSetup_ACDC_Higsby_F30_0802ecf4:
     .word MapSetup_Default
 
 
-_ts EventHandler_ACDC_Higsby_S3
+_ts EventHandler_ACDC_Higsbys_S3
     push       {lr}
-    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsby_F30_0802ee18
+    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsbys_F30_0802ee18
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     bl         FUN_0802ec40
     pop        {pc}
-PTR_EventHandler_ACDC_Higsby_F30_0802ed24:
-    .word EventHandler_ACDC_Higsby_F30
+PTR_EventHandler_ACDC_Higsbys_F30_0802ed24:
+    .word EventHandler_ACDC_Higsbys_F30
     .word EventHandler_Default
     .word EventHandler_Default
     .word EventHandler_Default
@@ -384,7 +381,7 @@ PTR_EventHandler_ACDC_Higsby_F30_0802ed24:
     .word EventHandler_Default
 
 
-_ts MapSetup_ACDC_Higsby_F30
+_ts MapSetup_ACDC_Higsbys_F30
     push       {lr}
     push       {r5}
     bl         PlayerLocation_Create
@@ -419,21 +416,21 @@ LAB_0802ed8a:
     pop        {pc}
 
 
-_ts EventHandler_ACDC_Higsby_F30
+_ts EventHandler_ACDC_Higsbys_F30
     push       {lr}
-    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsby_F30_0_0802ee28
+    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsbys_F30_0_0802ee28
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_0802edac
     pop        {pc}
-PTR_EventHandler_ACDC_Higsby_F30_0_0802eda4:
-    .word EventHandler_ACDC_Higsby_F30_0
+PTR_EventHandler_ACDC_Higsbys_F30_0_0802eda4:
+    .word EventHandler_ACDC_Higsbys_F30_0
 
 
-_ts EventHandler_ACDC_Higsby_F30_0
+_ts EventHandler_ACDC_Higsbys_F30_0
     push       {lr}
     pop        {pc}
 
@@ -487,64 +484,64 @@ LAB_0802ee0c:
     mov        r0,#0x27
     bl         Flag_ClearBase
     pop        {pc}
-PTR_PTR_MapSetup_ACDC_Higsby_F30_0802ee14:
-    .word PTR_MapSetup_ACDC_Higsby_F30_0802ecf4
-PTR_PTR_EventHandler_ACDC_Higsby_F30_0802ee18:
-    .word PTR_EventHandler_ACDC_Higsby_F30_0802ed24
+PTR_PTR_MapSetup_ACDC_Higsbys_F30_0802ee14:
+    .word PTR_MapSetup_ACDC_Higsbys_F30_0802ecf4
+PTR_PTR_EventHandler_ACDC_Higsbys_F30_0802ee18:
+    .word PTR_EventHandler_ACDC_Higsbys_F30_0802ed24
 PTR_EntityAllocParams_ARRAY_0802ee1c:
-    .word EntityAllocParams_08031024
+    .word EntityAllocParams_8031024
 PTR_PTR_DAT_0802ee20:
     .word NPCList_8030AE8
 DAT_0802ee24:
     .word 0x808598D
-PTR_PTR_EventHandler_ACDC_Higsby_F30_0_0802ee28:
-    .word PTR_EventHandler_ACDC_Higsby_F30_0_0802eda4
+PTR_PTR_EventHandler_ACDC_Higsbys_F30_0_0802ee28:
+    .word PTR_EventHandler_ACDC_Higsbys_F30_0_0802eda4
 PTR_Script_ShowDialogue_0802ee2c:
     .word Script_ShowDialogue
 PTR_FUN_080857b8_0802ee30:
     .word FUN_080857b8
 
 
-_ts MapSetup_ACDC_Higsby_S4
+_ts MapSetup_ACDC_Higsbys_S4
     push       {lr}
-    ldr        r0,PTR_PTR_MapSetup_ACDC_Higsby_F40_0802ef60
+    ldr        r0,PTR_PTR_MapSetup_ACDC_Higsbys_F40_0802ef60
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     bl         Sound_AreaSongChange
     bl         StartChipTraderSceneIfPending
     pop        {pc}
-PTR_MapSetup_ACDC_Higsby_F40_0802ee48:
-    .word MapSetup_ACDC_Higsby_F40
-    .word MapSetup_ACDC_Higsby_F40
-    .word MapSetup_ACDC_Higsby_F40
-    .word MapSetup_ACDC_Higsby_F40
-    .word MapSetup_ACDC_Higsby_F40
-    .word MapSetup_ACDC_Higsby_F40
-    .word MapSetup_ACDC_Higsby_F40
-    .word MapSetup_ACDC_Higsby_F40
+PTR_MapSetup_ACDC_Higsbys_F40_0802ee48:
+    .word MapSetup_ACDC_Higsbys_F40
+    .word MapSetup_ACDC_Higsbys_F40
+    .word MapSetup_ACDC_Higsbys_F40
+    .word MapSetup_ACDC_Higsbys_F40
+    .word MapSetup_ACDC_Higsbys_F40
+    .word MapSetup_ACDC_Higsbys_F40
+    .word MapSetup_ACDC_Higsbys_F40
+    .word MapSetup_ACDC_Higsbys_F40
 
 
-_ts EventHandler_ACDC_Higsby_S4
+_ts EventHandler_ACDC_Higsbys_S4
     push       {lr}
-    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsby_F40_0802ef64
+    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsbys_F40_0802ef64
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     bl         FUN_0802ec40
     pop        {pc}
-PTR_EventHandler_ACDC_Higsby_F40_0802ee78:
-    .word EventHandler_ACDC_Higsby_F40
-    .word EventHandler_ACDC_Higsby_F40
-    .word EventHandler_ACDC_Higsby_F40
-    .word EventHandler_ACDC_Higsby_F40
-    .word EventHandler_ACDC_Higsby_F40
-    .word EventHandler_ACDC_Higsby_F40
-    .word EventHandler_ACDC_Higsby_F40
-    .word EventHandler_ACDC_Higsby_F40
+PTR_EventHandler_ACDC_Higsbys_F40_0802ee78:
+    .word EventHandler_ACDC_Higsbys_F40
+    .word EventHandler_ACDC_Higsbys_F40
+    .word EventHandler_ACDC_Higsbys_F40
+    .word EventHandler_ACDC_Higsbys_F40
+    .word EventHandler_ACDC_Higsbys_F40
+    .word EventHandler_ACDC_Higsbys_F40
+    .word EventHandler_ACDC_Higsbys_F40
+    .word EventHandler_ACDC_Higsbys_F40
 
 
-_ts MapSetup_ACDC_Higsby_F40
+_ts MapSetup_ACDC_Higsbys_F40
     push       {lr}
     push       {r5}
     bl         PlayerLocation_Create
@@ -579,20 +576,20 @@ LAB_0802eede:
     pop        {pc}
 
 
-_ts EventHandler_ACDC_Higsby_F40
+_ts EventHandler_ACDC_Higsbys_F40
     push       {lr}
-    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsby_F40_0_0802ef74
+    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsbys_F40_0_0802ef74
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
-PTR_EventHandler_ACDC_Higsby_F40_0_0802eef4:
-    .word EventHandler_ACDC_Higsby_F40_0
+PTR_EventHandler_ACDC_Higsbys_F40_0_0802eef4:
+    .word EventHandler_ACDC_Higsbys_F40_0
 
 
-_ts EventHandler_ACDC_Higsby_F40_0
+_ts EventHandler_ACDC_Higsbys_F40_0
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -642,64 +639,64 @@ LAB_0802ef58:
     bl         Flag_ClearBase
 LAB_0802ef5e:
     pop        {pc}
-PTR_PTR_MapSetup_ACDC_Higsby_F40_0802ef60:
-    .word PTR_MapSetup_ACDC_Higsby_F40_0802ee48
-PTR_PTR_EventHandler_ACDC_Higsby_F40_0802ef64:
-    .word PTR_EventHandler_ACDC_Higsby_F40_0802ee78
+PTR_PTR_MapSetup_ACDC_Higsbys_F40_0802ef60:
+    .word PTR_MapSetup_ACDC_Higsbys_F40_0802ee48
+PTR_PTR_EventHandler_ACDC_Higsbys_F40_0802ef64:
+    .word PTR_EventHandler_ACDC_Higsbys_F40_0802ee78
 PTR_EntityAllocParams_ARRAY_0802ef68:
-    .word EntityAllocParams_08031024
+    .word EntityAllocParams_8031024
 PTR_PTR_DAT_0802ef6c:
     .word NPCList_8030AE8
 DAT_0802ef70:
     .word 0x808598D
-PTR_PTR_EventHandler_ACDC_Higsby_F40_0_0802ef74:
-    .word PTR_EventHandler_ACDC_Higsby_F40_0_0802eef4
+PTR_PTR_EventHandler_ACDC_Higsbys_F40_0_0802ef74:
+    .word PTR_EventHandler_ACDC_Higsbys_F40_0_0802eef4
 DAT_0802ef78:
     .word 0x80848FD
 DAT_0802ef7c:
     .word 0x80857B9
 
 
-_ts MapSetup_ACDC_Higsby_S5
+_ts MapSetup_ACDC_Higsbys_S5
     push       {lr}
-    ldr        r0,PTR_PTR_MapSetup_ACDC_Higsby_F50_0802f13c
+    ldr        r0,PTR_PTR_MapSetup_ACDC_Higsbys_F50_0802f13c
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     bl         Sound_AreaSongChange
     bl         StartChipTraderSceneIfPending
     pop        {pc}
-PTR_MapSetup_ACDC_Higsby_F50_0802ef94:
-    .word MapSetup_ACDC_Higsby_F50
-    .word MapSetup_ACDC_Higsby_F50
-    .word MapSetup_ACDC_Higsby_F50
-    .word MapSetup_ACDC_Higsby_F53
-    .word MapSetup_ACDC_Higsby_F53
-    .word MapSetup_ACDC_Higsby_F53
-    .word MapSetup_ACDC_Higsby_F53
-    .word MapSetup_ACDC_Higsby_F53
+PTR_MapSetup_ACDC_Higsbys_F50_0802ef94:
+    .word MapSetup_ACDC_Higsbys_F50
+    .word MapSetup_ACDC_Higsbys_F50
+    .word MapSetup_ACDC_Higsbys_F50
+    .word MapSetup_ACDC_Higsbys_F53
+    .word MapSetup_ACDC_Higsbys_F53
+    .word MapSetup_ACDC_Higsbys_F53
+    .word MapSetup_ACDC_Higsbys_F53
+    .word MapSetup_ACDC_Higsbys_F53
 
 
-_ts EventHandler_ACDC_Higsby_S5
+_ts EventHandler_ACDC_Higsbys_S5
     push       {lr}
-    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsby_F50_0802f140
+    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsbys_F50_0802f140
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     bl         FUN_0802ec40
     pop        {pc}
-PTR_EventHandler_ACDC_Higsby_F50_0802efc4:
-    .word EventHandler_ACDC_Higsby_F50
-    .word EventHandler_ACDC_Higsby_F50
-    .word EventHandler_ACDC_Higsby_F50
-    .word EventHandler_ACDC_Higsby_F53
-    .word EventHandler_ACDC_Higsby_F53
-    .word EventHandler_ACDC_Higsby_F53
-    .word EventHandler_ACDC_Higsby_F53
-    .word EventHandler_ACDC_Higsby_F53
+PTR_EventHandler_ACDC_Higsbys_F50_0802efc4:
+    .word EventHandler_ACDC_Higsbys_F50
+    .word EventHandler_ACDC_Higsbys_F50
+    .word EventHandler_ACDC_Higsbys_F50
+    .word EventHandler_ACDC_Higsbys_F53
+    .word EventHandler_ACDC_Higsbys_F53
+    .word EventHandler_ACDC_Higsbys_F53
+    .word EventHandler_ACDC_Higsbys_F53
+    .word EventHandler_ACDC_Higsbys_F53
 
 
-_ts MapSetup_ACDC_Higsby_F50
+_ts MapSetup_ACDC_Higsbys_F50
     push       {lr}
     push       {r5}
     bl         PlayerLocation_Create
@@ -734,20 +731,20 @@ LAB_0802f02e:
     pop        {pc}
 
 
-_ts EventHandler_ACDC_Higsby_F50
+_ts EventHandler_ACDC_Higsbys_F50
     push       {lr}
-    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsby_F50_0_0802f150
+    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsbys_F50_0_0802f150
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
-PTR_EventHandler_ACDC_Higsby_F50_0_0802f040:
-    .word EventHandler_ACDC_Higsby_F50_0
+PTR_EventHandler_ACDC_Higsbys_F50_0_0802f040:
+    .word EventHandler_ACDC_Higsbys_F50_0
 
 
-_ts EventHandler_ACDC_Higsby_F50_0
+_ts EventHandler_ACDC_Higsbys_F50_0
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -798,7 +795,7 @@ LAB_0802f0a4:
     pop        {pc}
 
 
-_ts MapSetup_ACDC_Higsby_F53
+_ts MapSetup_ACDC_Higsbys_F53
     push       {lr}
     push       {r5}
     bl         PlayerLocation_Create
@@ -823,21 +820,20 @@ LAB_0802f0d6:
     .align 2, 0
 
 
-
-_ts EventHandler_ACDC_Higsby_F53
+_ts EventHandler_ACDC_Higsbys_F53
     push       {lr}
-    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsby_F53_0_0802f164
+    ldr        r0,PTR_PTR_EventHandler_ACDC_Higsbys_F53_0_0802f164
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
-PTR_EventHandler_ACDC_Higsby_F53_0_0802f0f0:
-    .word EventHandler_ACDC_Higsby_F53_0
+PTR_EventHandler_ACDC_Higsbys_F53_0_0802f0f0:
+    .word EventHandler_ACDC_Higsbys_F53_0
 
 
-_ts EventHandler_ACDC_Higsby_F53_0
+_ts EventHandler_ACDC_Higsbys_F53_0
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -872,28 +868,28 @@ LAB_0802f12e:
     pop        {r5}
 LAB_0802f13a:
     pop        {pc}
-PTR_PTR_MapSetup_ACDC_Higsby_F50_0802f13c:
-    .word PTR_MapSetup_ACDC_Higsby_F50_0802ef94
-PTR_PTR_EventHandler_ACDC_Higsby_F50_0802f140:
-    .word PTR_EventHandler_ACDC_Higsby_F50_0802efc4
+PTR_PTR_MapSetup_ACDC_Higsbys_F50_0802f13c:
+    .word PTR_MapSetup_ACDC_Higsbys_F50_0802ef94
+PTR_PTR_EventHandler_ACDC_Higsbys_F50_0802f140:
+    .word PTR_EventHandler_ACDC_Higsbys_F50_0802efc4
 PTR_EntityAllocParams_ARRAY_0802f144:
-    .word EntityAllocParams_08031024
+    .word EntityAllocParams_8031024
 PTR_PTR_DAT_0802f148:
     .word NPCList_8030B5C
 DAT_0802f14c:
     .word 0x808598D
-PTR_PTR_EventHandler_ACDC_Higsby_F50_0_0802f150:
-    .word PTR_EventHandler_ACDC_Higsby_F50_0_0802f040
+PTR_PTR_EventHandler_ACDC_Higsbys_F50_0_0802f150:
+    .word PTR_EventHandler_ACDC_Higsbys_F50_0_0802f040
 DAT_0802f154:
     .word 0x80848FD
 DAT_0802f158:
     .word 0x80857B9
 PTR_EntityAllocParams_ARRAY_0802f15c:
-    .word EntityAllocParams_08031024
+    .word EntityAllocParams_8031024
 PTR_PTR_LAB_0802f160:
     .word NPCList_8030B70
-PTR_PTR_EventHandler_ACDC_Higsby_F53_0_0802f164:
-    .word PTR_EventHandler_ACDC_Higsby_F53_0_0802f0f0
+PTR_PTR_EventHandler_ACDC_Higsbys_F53_0_0802f164:
+    .word PTR_EventHandler_ACDC_Higsbys_F53_0_0802f0f0
 DAT_0802f168:
     .word 0x80848FD
 DAT_0802f16c:

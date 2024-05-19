@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set Scene_JackIn, 0x8083EED
 
 
@@ -61,13 +60,12 @@ _ts MapSetup_ACDC_Mayl_Living_Room_F06
     .align 2, 0
 
 
-
 _ts EventHandler_ACDC_Mayl_Living_Room_F06
     push       {lr}
     ldr        r0,PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F06_0_0802d634
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -83,7 +81,6 @@ LAB_0802d5dc:
     pop        {pc}
 
     .align 2, 0
-
 
 
 _ts FUN_0802d5e0
@@ -125,7 +122,7 @@ PTR_PTR_MapSetup_Default_0802d624:
 PTR_PTR_EventHandler_Default_0802d628:
     .word PTR_EventHandler_Default_0802d57c
 PTR_LAB_0802d62c:
-    .word EntityAllocParams_08030F78
+    .word EntityAllocParams_8030F78
 PTR_DAT_0802d630:
     .word NPCList_8030890
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F06_0_0802d634:
@@ -218,7 +215,7 @@ _ts EventHandler_ACDC_Mayl_Living_Room_F20
     ldr        r0,PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F20_0_0802d850
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -252,7 +249,7 @@ _ts EventHandler_ACDC_Mayl_Living_Room_F21
     ldr        r0,PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F21_0_0802d858
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -296,7 +293,7 @@ _nt EventHandler_ACDC_Mayl_Living_Room_F25
     ldr        r0,PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F25_0_0802d864
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -409,15 +406,15 @@ PTR_PTR_MapSetup_ACDC_Mayl_Living_Room_F20_0802d844:
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F20_0802d848:
     .word PTR_EventHandler_ACDC_Mayl_Living_Room_F20_0802d6ac
 PTR_LAB_0802d84c:
-    .word EntityAllocParams_08030F78
+    .word EntityAllocParams_8030F78
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F20_0_0802d850:
     .word PTR_EventHandler_ACDC_Mayl_Living_Room_F20_0_0802d6fc
 PTR_LAB_0802d854:
-    .word EntityAllocParams_08030F78
+    .word EntityAllocParams_8030F78
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F21_0_0802d858:
     .word PTR_EventHandler_ACDC_Mayl_Living_Room_F21_0_0802d734
 PTR_LAB_0802d85c:
-    .word EntityAllocParams_08030F78
+    .word EntityAllocParams_8030F78
 PTR_PTR_DAT_0802d860:
     .word NPCList_80308B0
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F25_0_0802d864:
@@ -479,7 +476,7 @@ _ts EventHandler_ACDC_Mayl_Living_Room_F30
     ldr        r0,PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F30_0_0802d8e4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -495,7 +492,7 @@ PTR_PTR_MapSetup_ACDC_Mayl_Living_Room_F30_0802d8d8:
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F30_0802d8dc:
     .word PTR_EventHandler_ACDC_Mayl_Living_Room_F30_0802d89c
 PTR_LAB_0802d8e0:
-    .word EntityAllocParams_08030F78
+    .word EntityAllocParams_8030F78
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F30_0_0802d8e4:
     .word PTR_EventHandler_ACDC_Mayl_Living_Room_F30_0_0802d8d0
 
@@ -563,7 +560,7 @@ _ts EventHandler_ACDC_Mayl_Living_Room_F40
     ldr        r0,PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F40_0_0802d990
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -579,6 +576,6 @@ PTR_PTR_MapSetup_ACDC_Mayl_Living_Room_F40_0802d984:
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F40_0802d988:
     .word PTR_EventHandler_ACDC_Mayl_Living_Room_F40_0802d92c
 PTR_LAB_0802d98c:
-    .word EntityAllocParams_08030F78
+    .word EntityAllocParams_8030F78
 PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F40_0_0802d990:
     .word PTR_EventHandler_ACDC_Mayl_Living_Room_F40_0_0802d97c

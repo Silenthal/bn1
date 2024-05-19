@@ -4,8 +4,7 @@
 
     .text
 
-    .set IsPanelWalkable, 0x8059c40
-    .set FUN_080562d6_HpDrainRelated, 0x80562d6
+    .set Routine_CheckPoisonDrain, 0x80562d6
     .set Entity_CompareToPlayerRow, 0x805aadc
     .set CanodumbTarget_Create, 0x8071B60
     .set Effect_CreateVirusDeleteExplosion, 0x807ce16
@@ -87,7 +86,7 @@ LAB_080599b6:
     bl         SpritePtr_ResetPalette
     bl         Battle_IsInputLocked
     bne        LAB_080599f8
-    bl         FUN_080562d6_HpDrainRelated
+    bl         Routine_CheckPoisonDrain
     ldr        r6,[r5,#0x60]
     ldrh       r0,[r5,#0x18]
     ldr        r1,DAT_08059a44
@@ -115,7 +114,7 @@ LAB_080599f8:
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    bl         FUN_080562d6_HpDrainRelated
+    bl         Routine_CheckPoisonDrain
     ldr        r0,[r5,#0x60]
     bl         FieldObject_MarkAsChecked
     ldrh       r0,[r5,#0x20]

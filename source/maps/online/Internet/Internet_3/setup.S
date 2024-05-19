@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
     .set Script_ShowDialogue, 0x80848FC+1
     .set FUN_0807db72, 0x807DB72+1
 
@@ -126,7 +125,7 @@ _ts FUN_08052714
     ldr        r0,PTR_PTR_FUN_08052728_080528c8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

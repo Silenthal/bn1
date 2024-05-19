@@ -11,7 +11,6 @@
     .set Scenario_082B1C_LanWalksToSchool, 0x8082B1D
     .set FUN_080861e8, 0x80861E9
     .set FUN_0808c5a8, 0x808C5A9
-    .set PlayerLocation_Create, 0x8056020
     .set LAB_0808b420, 0x808B421
     .set FUN_08082de4, 0x8082DE5
     .set Scenario_01_LanCheckYourMail, 0x8085A79
@@ -25,7 +24,6 @@ _ts FlagSetup_ACDC_S0
     .align 2, 0
 
 
-
 _ts MapSetup_ACDC_Town_S0
     push       {lr}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Town_F00_0802ac04
@@ -35,13 +33,13 @@ _ts MapSetup_ACDC_Town_S0
     push       {r5}
     mov        r0,#0x46
     bl         Flag_Set380
-    ldr        r0,PTR_BgTask_0802AC08
+    ldr        r0,PTR_BgTask_802AC08
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AC0C
+    ldr        r0,PTR_BgTask_802AC0C
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AC10
+    ldr        r0,PTR_BgTask_802AC10
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AC14
+    ldr        r0,PTR_BgTask_802AC14
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -121,7 +119,7 @@ _ts EventHandler_ACDC_Town_F00
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F00_0_0802ac20
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -191,7 +189,7 @@ _ts EventHandler_ACDC_Town_F02
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F02_0_0802ac34
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -273,13 +271,12 @@ _ts MapSetup_ACDC_Town_F06
     .align 2, 0
 
 
-
 _ts EventHandler_ACDC_Town_F06
     push       {lr}
     ldr        r0,PTR_PTR_FUN_0802abe0_0802ac50
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -307,16 +304,16 @@ LAB_0802ac02:
     pop        {pc}
 PTR_PTR_MapSetup_ACDC_Town_F00_0802ac04:
     .word PTR_MapSetup_ACDC_Town_F00_0802aa0c
-PTR_BgTask_0802AC08:
-    .word BgTask_08029F14
-PTR_BgTask_0802AC0C:
-    .word BgTask_08029F2C
-PTR_BgTask_0802AC10:
-    .word BgTask_08029F8C
-PTR_BgTask_0802AC14:
-    .word BgTask_08029FA4
+PTR_BgTask_802AC08:
+    .word BgTask_8029F14
+PTR_BgTask_802AC0C:
+    .word BgTask_8029F2C
+PTR_BgTask_802AC10:
+    .word BgTask_8029F8C
+PTR_BgTask_802AC14:
+    .word BgTask_8029FA4
 PTR_DAT_0802ac18:
-    .word EntityAllocParams_08030D38
+    .word EntityAllocParams_8030D38
 PTR_PTR_EventHandler_ACDC_Town_F00_0802ac1c:
     .word PTR_EventHandler_ACDC_Town_F00_0802aa40
 PTR_PTR_EventHandler_ACDC_Town_F00_0_0802ac20:
@@ -360,13 +357,13 @@ _ts MapSetup_ACDC_Town_S1
     bl         Flag_Set380
     mov        r0,#0x48
     bl         Flag_Set380
-    ldr        r0,PTR_BgTask_0802AD74
+    ldr        r0,PTR_BgTask_802AD74
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AD78
+    ldr        r0,PTR_BgTask_802AD78
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AD7C
+    ldr        r0,PTR_BgTask_802AD7C
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AD80
+    ldr        r0,PTR_BgTask_802AD80
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x28
@@ -404,7 +401,7 @@ _ts MapSetup_ACDC_Town_F10
     bl         Flag_GetBase
     beq        LAB_0802acde
     push       {r5}
-    ldr        r0,PTR_BgTask_0802AD88
+    ldr        r0,PTR_BgTask_802AD88
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0xc
@@ -440,7 +437,7 @@ LAB_0802acf8:
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802AD9C
+    ldr        r0,PTR_BgTask_802AD9C
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -457,7 +454,7 @@ _nt EventHandler_ACDC_Town_F10
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F10_0_0802ada4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -494,18 +491,18 @@ _nt EventHandler_ACDC_Town_F10_3
     pop        {pc}
 PTR_PTR_MapSetup_ACDC_Town_F10_0802ad70:
     .word PTR_MapSetup_ACDC_Town_F10_0802ac98
-PTR_BgTask_0802AD74:
-    .word BgTask_08029F14
-PTR_BgTask_0802AD78:
-    .word BgTask_08029F2C
-PTR_BgTask_0802AD7C:
-    .word BgTask_08029F8C
-PTR_BgTask_0802AD80:
-    .word BgTask_08029FA4
+PTR_BgTask_802AD74:
+    .word BgTask_8029F14
+PTR_BgTask_802AD78:
+    .word BgTask_8029F2C
+PTR_BgTask_802AD7C:
+    .word BgTask_8029F8C
+PTR_BgTask_802AD80:
+    .word BgTask_8029FA4
 PTR_PTR_EventHandler_ACDC_Town_F10_0802ad84:
     .word PTR_EventHandler_ACDC_Town_F10_0802aca8
-PTR_BgTask_0802AD88:
-    .word BgTask_08029EFC
+PTR_BgTask_802AD88:
+    .word BgTask_8029EFC
 PTR_FUN_080861e8_0802ad8c:
     .word FUN_080861e8
 DAT_0802ad90:
@@ -514,8 +511,8 @@ DAT_0802ad94:
     .word 0x140000
 PTR_PTR_DAT_0802ad98:
     .word NPCList_802FB74
-PTR_BgTask_0802AD9C:
-    .word BgTask_08029EE4
+PTR_BgTask_802AD9C:
+    .word BgTask_8029EE4
 PTR_FUN_08086004_0802ada0:
     .word FUN_08086004
 PTR_PTR_EventHandler_ACDC_Town_F10_0_0802ada4:
@@ -541,41 +538,41 @@ _ts MapSetup_ACDC_Town_S2
     mov        r0,#0xab
     bl         Flag_GetBase
     beq        LAB_0802ade8
-    ldr        r0,PTR_BgTask_0802AEB0
+    ldr        r0,PTR_BgTask_802AEB0
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AEB4
+    ldr        r0,PTR_BgTask_802AEB4
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AEB8
+    ldr        r0,PTR_BgTask_802AEB8
     bl         BgTask_AddNew
     b          LAB_0802ae0a
 LAB_0802ade8:
     mov        r0,#0xa2
     bl         Flag_GetBase
     beq        LAB_0802adfe
-    ldr        r0,PTR_BgTask_0802AEBC
+    ldr        r0,PTR_BgTask_802AEBC
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AEC0
+    ldr        r0,PTR_BgTask_802AEC0
     bl         BgTask_AddNew
     b          LAB_0802ae0a
 LAB_0802adfe:
-    ldr        r0,PTR_BgTask_0802AEB0
+    ldr        r0,PTR_BgTask_802AEB0
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AEB4
+    ldr        r0,PTR_BgTask_802AEB4
     bl         BgTask_AddNew
 LAB_0802ae0a:
     mov        r0,#0xa8
     bl         Flag_GetBase
     bne        LAB_0802ae22
-    ldr        r0,PTR_BgTask_0802AEC4
+    ldr        r0,PTR_BgTask_802AEC4
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AEC8
+    ldr        r0,PTR_BgTask_802AEC8
     bl         BgTask_AddNew
     pop        {r5}
     b          LAB_0802ae30
 LAB_0802ae22:
-    ldr        r0,PTR_BgTask_0802AECC
+    ldr        r0,PTR_BgTask_802AECC
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802AED0
+    ldr        r0,PTR_BgTask_802AED0
     bl         BgTask_AddNew
     pop        {r5}
 LAB_0802ae30:
@@ -628,27 +625,27 @@ PTR_MapSetup_ACDC_Town_F20_0802ae88:
     .word MapSetup_ACDC_Town_F26
     .word MapSetup_ACDC_Town_F27
 PTR_DAT_0802aea8:
-    .word EntityAllocParams_08030D68
+    .word EntityAllocParams_8030D68
 PTR_DAT_0802aeac:
-    .word EntityAllocParams_08030D38
-PTR_BgTask_0802AEB0:
-    .word BgTask_08029F14
-PTR_BgTask_0802AEB4:
-    .word BgTask_08029F2C
-PTR_BgTask_0802AEB8:
-    .word BgTask_08029F74
-PTR_BgTask_0802AEBC:
-    .word BgTask_08029F44
-PTR_BgTask_0802AEC0:
-    .word BgTask_08029F5C
-PTR_BgTask_0802AEC4:
-    .word BgTask_08029F8C
-PTR_BgTask_0802AEC8:
-    .word BgTask_08029FA4
-PTR_BgTask_0802AECC:
-    .word BgTask_08029FBC
-PTR_BgTask_0802AED0:
-    .word BgTask_08029FD4
+    .word EntityAllocParams_8030D38
+PTR_BgTask_802AEB0:
+    .word BgTask_8029F14
+PTR_BgTask_802AEB4:
+    .word BgTask_8029F2C
+PTR_BgTask_802AEB8:
+    .word BgTask_8029F74
+PTR_BgTask_802AEBC:
+    .word BgTask_8029F44
+PTR_BgTask_802AEC0:
+    .word BgTask_8029F5C
+PTR_BgTask_802AEC4:
+    .word BgTask_8029F8C
+PTR_BgTask_802AEC8:
+    .word BgTask_8029FA4
+PTR_BgTask_802AECC:
+    .word BgTask_8029FBC
+PTR_BgTask_802AED0:
+    .word BgTask_8029FD4
 
 
 _ts EventHandler_ACDC_Town_S2
@@ -687,7 +684,7 @@ _ts MapSetup_ACDC_Town_F20
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802af4c
     bl         Map_LoadNPCList
-    ldr        r0,PTR_EntityAllocParams_0802af50
+    ldr        r0,PTR_EntityAllocParams_802af50
     bl         Entity_AllocList
     mov        r0,#0x46
     bl         Flag_Clear380
@@ -701,8 +698,8 @@ _ts MapSetup_ACDC_Town_F20
     pop        {pc}
 PTR_PTR_DAT_0802af4c:
     .word NPCList_802FB90
-PTR_EntityAllocParams_0802af50:
-    .word EntityAllocParams_08030D50
+PTR_EntityAllocParams_802af50:
+    .word EntityAllocParams_8030D50
 
 
 _ts EventHandler_ACDC_Town_F20
@@ -710,7 +707,7 @@ _ts EventHandler_ACDC_Town_F20
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F20_0_0802b2f4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -743,7 +740,7 @@ _ts MapSetup_ACDC_Town_F21
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802b2f8
     bl         Map_LoadNPCList
-    ldr        r0,PTR_EntityAllocParams_0802b2fc
+    ldr        r0,PTR_EntityAllocParams_802b2fc
     bl         Entity_AllocList
     mov        r0,#0x46
     bl         Flag_Clear380
@@ -762,7 +759,7 @@ _ts EventHandler_ACDC_Town_F21
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F21_0_0802b300
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -798,7 +795,6 @@ LAB_0802b000:
     .align 2, 0
 
 
-
 _ts MapSetup_ACDC_Town_F22
     push       {lr}
     push       {r5}
@@ -811,7 +807,7 @@ _ts MapSetup_ACDC_Town_F22
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802b30c
     bl         Map_LoadNPCList
-    ldr        r0,PTR_EntityAllocParams_0802b310
+    ldr        r0,PTR_EntityAllocParams_802b310
     bl         Entity_AllocList
     mov        r0,#0x46
     bl         Flag_Clear380
@@ -830,7 +826,7 @@ _ts EventHandler_ACDC_Town_F22
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F22_0_0802b314
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -891,7 +887,7 @@ _ts EventHandler_ACDC_Town_F23
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F23_0_0802b320
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -942,7 +938,7 @@ _nt EventHandler_ACDC_Town_F24
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F24_0_0802b32c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_0802b2b0
@@ -984,7 +980,7 @@ _nt EventHandler_ACDC_Town_F25
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F25_0_0802b334
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_0802b2b0
@@ -1044,7 +1040,7 @@ _ts EventHandler_ACDC_Town_F26
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F26_0_0802b340
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -1088,7 +1084,6 @@ LAB_0802b220:
     pop        {pc}
 
     .align 2, 0
-
 
 
 _ts MapSetup_ACDC_Town_F27
@@ -1137,7 +1132,7 @@ _nt EventHandler_ACDC_Town_F27
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F27_0_0802b35c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -1204,8 +1199,8 @@ PTR_PTR_EventHandler_ACDC_Town_F20_0_0802b2f4:
     .word PTR_EventHandler_ACDC_Town_F20_0_0802af64
 PTR_PTR_DAT_0802b2f8:
     .word NPCList_802FC80
-PTR_EntityAllocParams_0802b2fc:
-    .word EntityAllocParams_08030D50
+PTR_EntityAllocParams_802b2fc:
+    .word EntityAllocParams_8030D50
 PTR_PTR_EventHandler_ACDC_Town_F21_0_0802b300:
     .word PTR_EventHandler_ACDC_Town_F21_0_0802afc8
 DAT_0802b304:
@@ -1214,8 +1209,8 @@ DAT_0802b308:
     .word 0x137
 PTR_PTR_DAT_0802b30c:
     .word NPCList_802FDB4
-PTR_EntityAllocParams_0802b310:
-    .word EntityAllocParams_08030D50
+PTR_EntityAllocParams_802b310:
+    .word EntityAllocParams_8030D50
 PTR_PTR_EventHandler_ACDC_Town_F22_0_0802b314:
     .word PTR_EventHandler_ACDC_Town_F22_0_0802b050
 DAT_0802b318:
@@ -1273,13 +1268,13 @@ _ts MapSetup_ACDC_Town_S3
     bl         Flag_Set380
     ldr        r0,PTR_DAT_0802b4a4
     bl         Entity_AllocList
-    ldr        r0,PTR_BgTask_0802B4A8
+    ldr        r0,PTR_BgTask_802B4A8
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802B4AC
+    ldr        r0,PTR_BgTask_802B4AC
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802B4B0
+    ldr        r0,PTR_BgTask_802B4B0
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802B4B4
+    ldr        r0,PTR_BgTask_802B4B4
     bl         BgTask_AddNew
     pop        {r5}
     bl         Sound_AreaSongChange
@@ -1348,7 +1343,7 @@ _ts EventHandler_ACDC_Town_F30
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F30_0_0802b4c4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_0802b47c
@@ -1418,15 +1413,15 @@ LAB_0802b49e:
 PTR_PTR_MapSetup_ACDC_Town_F30_0802b4a0:
     .word PTR_MapSetup_ACDC_Town_F30_0802b3a8
 PTR_DAT_0802b4a4:
-    .word EntityAllocParams_08030D38
-PTR_BgTask_0802B4A8:
-    .word BgTask_08029F14
-PTR_BgTask_0802B4AC:
-    .word BgTask_08029F2C
-PTR_BgTask_0802B4B0:
-    .word BgTask_08029FBC
-PTR_BgTask_0802B4B4:
-    .word BgTask_08029FD4
+    .word EntityAllocParams_8030D38
+PTR_BgTask_802B4A8:
+    .word BgTask_8029F14
+PTR_BgTask_802B4AC:
+    .word BgTask_8029F2C
+PTR_BgTask_802B4B0:
+    .word BgTask_8029FBC
+PTR_BgTask_802B4B4:
+    .word BgTask_8029FD4
 PTR_PTR_EventHandler_ACDC_Town_F30_0802b4b8:
     .word PTR_EventHandler_ACDC_Town_F30_0802b3c4
 PTR_PTR_DAT_0802b4bc:
@@ -1471,13 +1466,13 @@ LAB_0802b4f6:
     bl         Flag_Set380
     ldr        r0,PTR_DAT_0802b608
     bl         Entity_AllocList
-    ldr        r0,PTR_BgTask_0802B60C
+    ldr        r0,PTR_BgTask_802B60C
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802B610
+    ldr        r0,PTR_BgTask_802B610
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802B614
+    ldr        r0,PTR_BgTask_802B614
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802B618
+    ldr        r0,PTR_BgTask_802B618
     bl         BgTask_AddNew
     pop        {r5}
     pop        {pc}
@@ -1557,7 +1552,7 @@ _nt EventHandler_ACDC_Town_F40
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F40_0_0802b628
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -1587,15 +1582,15 @@ LAB_0802b600:
 PTR_PTR_MapSetup_ACDC_Town_F40_0802b604:
     .word PTR_MapSetup_ACDC_Town_F40_0802b530
 PTR_DAT_0802b608:
-    .word EntityAllocParams_08030D38
-PTR_BgTask_0802B60C:
-    .word BgTask_08029F14
-PTR_BgTask_0802B610:
-    .word BgTask_08029F2C
-PTR_BgTask_0802B614:
-    .word BgTask_08029FBC
-PTR_BgTask_0802B618:
-    .word BgTask_08029FD4
+    .word EntityAllocParams_8030D38
+PTR_BgTask_802B60C:
+    .word BgTask_8029F14
+PTR_BgTask_802B610:
+    .word BgTask_8029F2C
+PTR_BgTask_802B614:
+    .word BgTask_8029FBC
+PTR_BgTask_802B618:
+    .word BgTask_8029FD4
 PTR_PTR_EventHandler_ACDC_Town_F40_0802b61c:
     .word PTR_EventHandler_ACDC_Town_F40_0802b568
 PTR_PTR_DAT_0802b620:
@@ -1626,13 +1621,13 @@ _ts MapSetup_ACDC_Town_S5
     bl         Flag_Set380
     ldr        r0,PTR_DAT_0802b894
     bl         Entity_AllocList
-    ldr        r0,PTR_BgTask_0802B898
+    ldr        r0,PTR_BgTask_802B898
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802B89C
+    ldr        r0,PTR_BgTask_802B89C
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802B8A0
+    ldr        r0,PTR_BgTask_802B8A0
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802B8A4
+    ldr        r0,PTR_BgTask_802B8A4
     bl         BgTask_AddNew
     pop        {r5}
     pop        {pc}
@@ -1695,7 +1690,7 @@ _nt EventHandler_ACDC_Town_F50
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F50_0_0802b8b0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -1752,7 +1747,7 @@ _nt EventHandler_ACDC_Town_F53
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F53_0_0802b8bc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -1796,7 +1791,6 @@ LAB_0802b7b4:
     pop        {pc}
 
     .align 2, 0
-
 
 
 _ts MapSetup_ACDC_Town_F54
@@ -1863,7 +1857,7 @@ _ts EventHandler_ACDC_Town_F54
     ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F54_0_0802b8d8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -1908,15 +1902,15 @@ LAB_0802b88c:
 PTR_PTR_MapSetup_ACDC_Town_F50_0802b890:
     .word PTR_MapSetup_ACDC_Town_F50_0802b678
 PTR_DAT_0802b894:
-    .word EntityAllocParams_08030D38
-PTR_BgTask_0802B898:
-    .word BgTask_08029F14
-PTR_BgTask_0802B89C:
-    .word BgTask_08029F2C
-PTR_BgTask_0802B8A0:
-    .word BgTask_08029FBC
-PTR_BgTask_0802B8A4:
-    .word BgTask_08029FD4
+    .word EntityAllocParams_8030D38
+PTR_BgTask_802B898:
+    .word BgTask_8029F14
+PTR_BgTask_802B89C:
+    .word BgTask_8029F2C
+PTR_BgTask_802B8A0:
+    .word BgTask_8029FBC
+PTR_BgTask_802B8A4:
+    .word BgTask_8029FD4
 PTR_PTR_EventHandler_ACDC_Town_F50_0802b8a8:
     .word PTR_EventHandler_ACDC_Town_F50_0802b6b0
 PTR_PTR_DAT_0802b8ac:

@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set FUN_0808b688, 0x808B689
-    .set PlayerLocation_Create, 0x8056020
     .set LAB_0808a798, 0x808A799
     .set Script_ShowDialogue, 0x80848FD
 
@@ -78,7 +77,7 @@ _ts MapSetup_ACDC_Station_F20
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802F498
+    ldr        r0,PTR_BgTask_802F498
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -91,7 +90,7 @@ _nt EventHandler_ACDC_Station_F20
     ldr        r0,PTR_PTR_EventHandler_ACDC_Station_F20_0_0802f49c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -129,7 +128,7 @@ _ts MapSetup_ACDC_Station_F21
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802F4A4
+    ldr        r0,PTR_BgTask_802F4A4
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -142,7 +141,7 @@ _nt EventHandler_ACDC_Station_F21
     ldr        r0,PTR_PTR_EventHandler_ACDC_Station_F21_0_0802f4a8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -172,7 +171,7 @@ _ts MapSetup_ACDC_Station_F22
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802F4B0
+    ldr        r0,PTR_BgTask_802F4B0
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -185,7 +184,7 @@ _nt EventHandler_ACDC_Station_F22
     ldr        r0,PTR_PTR_EventHandler_ACDC_Station_F22_0_0802f4b4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -244,7 +243,7 @@ _nt MapSetup_ACDC_Station_F24
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802F4C4
+    ldr        r0,PTR_BgTask_802F4C4
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -257,7 +256,7 @@ _ts EventHandler_ACDC_Station_F24
     ldr        r0,PTR_PTR_EventHandler_ACDC_Station_F24_0_0802f4c8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -312,7 +311,7 @@ LAB_0802f3b6:
 _ts MapSetup_ACDC_Station_F26
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802F4DC
+    ldr        r0,PTR_BgTask_802F4DC
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -359,7 +358,7 @@ _ts EventHandler_ACDC_Station_F26
     ldr        r0,PTR_PTR_EventHandler_ACDC_Station_F26_0_0802f4e8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -418,19 +417,19 @@ PTR_PTR_EventHandler_ACDC_Station_F20_0802f490:
     .word PTR_EventHandler_ACDC_Station_F20_0802f1d8
 PTR_PTR_DAT_0802f494:
     .word NPCList_8030BDC
-PTR_BgTask_0802F498:
+PTR_BgTask_802F498:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F20_0_0802f49c:
     .word PTR_EventHandler_ACDC_Station_F20_0_0802f238
 PTR_PTR_DAT_0802f4a0:
     .word NPCList_8030BDC
-PTR_BgTask_0802F4A4:
+PTR_BgTask_802F4A4:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F21_0_0802f4a8:
     .word PTR_EventHandler_ACDC_Station_F21_0_0802f290
 PTR_PTR_DAT_0802f4ac:
     .word NPCList_8030C48
-PTR_BgTask_0802F4B0:
+PTR_BgTask_802F4B0:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F22_0_0802f4b4:
     .word PTR_EventHandler_ACDC_Station_F22_0_0802f2d8
@@ -440,7 +439,7 @@ DAT_0802f4bc:
     .word 0x80848FD
 PTR_PTR_DAT_0802f4c0:
     .word NPCList_8030C48
-PTR_BgTask_0802F4C4:
+PTR_BgTask_802F4C4:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F24_0_0802f4c8:
     .word PTR_EventHandler_ACDC_Station_F24_0_0802f35c
@@ -452,7 +451,7 @@ PTR_FUN_0808b688_0802f4d4:
     .word FUN_0808b688
 DAT_0802f4d8:
     .word 0x80848FD
-PTR_BgTask_0802F4DC:
+PTR_BgTask_802F4DC:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_DAT_0802f4e0:
     .word NPCList_8030C48
@@ -521,7 +520,7 @@ _ts MapSetup_ACDC_Station_F30
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802F628
+    ldr        r0,PTR_BgTask_802F628
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x93
@@ -540,7 +539,7 @@ _ts EventHandler_ACDC_Station_F30
     ldr        r0,PTR_PTR_EventHandler_ACDC_Station_F30_0_0802f62c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_0802f602
@@ -612,7 +611,7 @@ PTR_PTR_EventHandler_ACDC_Station_F30_0802f620:
     .word PTR_EventHandler_ACDC_Station_F30_0802f538
 PTR_PTR_DAT_0802f624:
     .word NPCList_8030C90
-PTR_BgTask_0802F628:
+PTR_BgTask_802F628:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F30_0_0802f62c:
     .word PTR_EventHandler_ACDC_Station_F30_0_0802f5a8
@@ -673,7 +672,7 @@ _ts MapSetup_ACDC_Station_F40
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802F738
+    ldr        r0,PTR_BgTask_802F738
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -690,7 +689,7 @@ _nt EventHandler_ACDC_Station_F40
     ldr        r0,PTR_PTR_EventHandler_ACDC_Station_F40_0_0802f740
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -747,7 +746,7 @@ PTR_PTR_MapSetup_ACDC_Station_F40_0802f730:
     .word PTR_MapSetup_ACDC_Station_F40_0802f650
 PTR_PTR_EventHandler_ACDC_Station_F40_0802f734:
     .word PTR_EventHandler_ACDC_Station_F40_0802f67c
-PTR_BgTask_0802F738:
+PTR_BgTask_802F738:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_DAT_0802f73c:
     .word NPCList_8030C54
@@ -808,7 +807,7 @@ _ts MapSetup_ACDC_Station_F50
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802F844
+    ldr        r0,PTR_BgTask_802F844
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -821,7 +820,7 @@ _nt EventHandler_ACDC_Station_F50
     ldr        r0,PTR_PTR_EventHandler_ACDC_Station_F50_0_0802f848
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -880,7 +879,7 @@ PTR_PTR_EventHandler_ACDC_Station_F50_0802f83c:
     .word PTR_EventHandler_ACDC_Station_F50_0802f788
 PTR_PTR_DAT_0802f840:
     .word NPCList_8030CE4
-PTR_BgTask_0802F844:
+PTR_BgTask_802F844:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F50_0_0802f848:
     .word PTR_EventHandler_ACDC_Station_F50_0_0802f7e4

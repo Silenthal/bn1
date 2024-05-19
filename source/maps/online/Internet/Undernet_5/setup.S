@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -68,7 +67,7 @@ _ts FUN_08053194
     ldr        r0,PTR_PTR_FUN_080531a8_08053244
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -133,7 +132,7 @@ LAB_08053212:
     .align 2, 0
 
 DAT_0805321c:
-    .word 0x8053167
+    .word FUN_08053166
 
 PTR_BgTask_80515C8_08053220:
     .word BgTask_80515C8

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-    .set FUN_080560f8, 0x80560F8
     .set Scene_JackOut, 0x80836C8+1
     .set Scene_JackIn, 0x8083EEC+1
     .set Script_ShowDialogue, 0x80848fC+1
@@ -33,61 +31,61 @@ EventHandler_Offline:
     .word EventHandler_WWW
 
 FlagSetup_Online:
-    .word 0x80405ac @ FlagSetup_School_Comp
-    .word 0x80431d0 @ FlagSetup_Oven_Comp
-    .word 0x80457b0 @ FlagSetup_Waterworks_Comp
-    .word 0x8047ef8 @ FlagSetup_Traffic_Light_Comp
-    .word 0x804a1bc @ FlagSetup_Power_Plant_Comp
-    .word 0x804d22c @ FlagSetup_WWW_Comp
+    .word FlagSetup_School_Comp
+    .word FlagSetup_Oven_Comp
+    .word FlagSetup_Waterworks_Comp
+    .word FlagSetup_Traffic_Light_Comp
+    .word FlagSetup_Power_Plant_Comp
+    .word FlagSetup_WWW_Comp
     .word FlagSetup_None
     .word FlagSetup_None
-    .word 0x804efa0 @ FlagSetup_ACDC_HP
-    .word 0x804f8b4 @ FlagSetup_Govt_HP
-    .word 0x804fe64 @ FlagSetup_DenTown_HP
-    .word 0x8050120 @ FlagSetup_SciLab_HP
-    .word 0x805048c @ FlagSetup_Other_Comp
+    .word FlagSetup_ACDC_HP
+    .word FlagSetup_Govt_HP
+    .word FlagSetup_DenTown_HP
+    .word FlagSetup_SciLab_HP
+    .word FlagSetup_Other_Comp
     .word FlagSetup_None
     .word FlagSetup_None
     .word FlagSetup_None
-    .word 0x8051e18 @ FlagSetup_Internet
+    .word FlagSetup_Internet
 
 MapSetup_Online:
-    .word 0x80405c4 @ MapSetup_School_Comp
-    .word 0x80431e8 @ MapSetup_Oven_Comp
-    .word 0x80457c8 @ MapSetup_Waterworks_Comp
-    .word 0x8047f10 @ MapSetup_Traffic_Light_Comp
-    .word 0x804a1d4 @ MapSetup_Power_Plant_Comp
-    .word 0x804d244 @ MapSetup_WWW_Comp
+    .word MapSetup_School_Comp
+    .word MapSetup_Oven_Comp
+    .word MapSetup_Waterworks_Comp
+    .word MapSetup_Traffic_Light_Comp
+    .word MapSetup_Power_Plant_Comp
+    .word MapSetup_WWW_Comp
     .word MapSetup_None
     .word MapSetup_None
-    .word 0x804efb8 @ MapSetup_ACDC_HP
-    .word 0x804f8cc @ MapSetup_Govt_Complex_HP
-    .word 0x804fe7c @ MapSetup_DenTown_HP
-    .word 0x8050138 @ MapSetup_SciLab_HP
-    .word 0x80504a4 @ MapSetup_Other_Comp
+    .word MapSetup_ACDC_HP
+    .word MapSetup_Govt_HP
+    .word MapSetup_DenTown_HP
+    .word MapSetup_SciLab_HP
+    .word MapSetup_Other_Comp
     .word MapSetup_None
     .word MapSetup_None
     .word MapSetup_None
-    .word 0x8051e30 @ MapSetup_Internet
+    .word MapSetup_Internet
 
 EventHandler_Online:
-    .word 0x8040618 @ EventHandler_School_Comp
-    .word 0x8043218 @ EventHandler_Oven_Comp
-    .word 0x8045840 @ EventHandler_Waterworks_Comp
-    .word 0x8047f8c @ EventHandler_Traffic_Light_Comp
-    .word 0x804a24c @ EventHandler_Power_Plant_Comp
-    .word 0x804d274 @ EventHandler_WWW_Comp
+    .word EventHandler_School_Comp
+    .word EventHandler_Oven_Comp
+    .word EventHandler_Waterworks_Comp
+    .word EventHandler_Traffic_Light_Comp
+    .word EventHandler_Power_Plant_Comp
+    .word EventHandler_WWW_Comp
     .word EventHandler_None
     .word EventHandler_None
-    .word 0x804efe0 @ EventHandler_ACDC_HP
-    .word 0x804f8fc @ EventHandler_Govt_Complex_HP
-    .word 0x804fe98 @ EventHandler_DenTown_HP
-    .word 0x8050154 @ EventHandler_SciLab_HP
-    .word 0x80504f0 @ EventHandler_Other_Comp
+    .word EventHandler_ACDC_HP
+    .word EventHandler_Govt_HP
+    .word EventHandler_DenTown_HP
+    .word EventHandler_SciLab_HP
+    .word EventHandler_Other_Comp
     .word EventHandler_None
     .word EventHandler_None
     .word EventHandler_None
-    .word 0x8051e88 @ EventHandler_Internet
+    .word EventHandler_Internet
 
 FlagSetup_None:
     .word FlagSetup_Default
@@ -160,7 +158,7 @@ MapDialogue_Online:
     .word 0
     .word 0
     .word 0
-    .word 0x804f92c @ MapDialogue_Govt_Complex_HP
+    .word MapDialogue_Govt_HP
     .word 0
     .word 0
     .word 0
@@ -492,7 +490,7 @@ _ts dummy_187a0
     ldrb       r2,[r0,#0x0]
     add        r1,r1,r2
     push       {r1}
-    bl         FUN_080560f8
+    bl         PlayerLocation_IsCommentaryState
     pop        {r1}
     add        r1,r1,r0
     pop        {r0,r1,r2,pc}

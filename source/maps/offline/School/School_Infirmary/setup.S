@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-
 
 _ts MapSetup_School_Infirmary_S1
     push       {lr}
@@ -72,7 +70,7 @@ _ts EventHandler_School_Infirmary_F10
     ldr        r0,PTR_PTR_EventHandler_School_Infirmary_F10_0_08027444
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -119,7 +117,7 @@ _ts EventHandler_School_Infirmary_F14
     ldr        r0,PTR_PTR_EventHandler_School_Infirmary_F14_0_08027450
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -174,7 +172,7 @@ _nt EventHandler_School_Infirmary_F15
     ldr        r0,PTR_PTR_EventHandler_School_Infirmary_F15_0_08027460
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -193,11 +191,11 @@ PTR_PTR_MapSetup_School_Infirmary_F10_08027438:
 PTR_PTR_EventHandler_School_Infirmary_F10_0802743c:
     .word PTR_EventHandler_School_Infirmary_F10_08027328
 PTR_EntityAllocParams_ARRAY_08027440:
-    .word EntityAllocParams_08029CC8
+    .word EntityAllocParams_8029CC8
 PTR_PTR_EventHandler_School_Infirmary_F10_0_08027444:
     .word PTR_EventHandler_School_Infirmary_F10_0_08027378
 PTR_EntityAllocParams_ARRAY_08027448:
-    .word EntityAllocParams_08029CC8
+    .word EntityAllocParams_8029CC8
 PTR_PTR_DAT_0802744c:
     .word NPCList_80297E4
 PTR_PTR_EventHandler_School_Infirmary_F14_0_08027450:
@@ -205,7 +203,7 @@ PTR_PTR_EventHandler_School_Infirmary_F14_0_08027450:
 DAT_08027454:
     .word 0x8087E35
 PTR_EntityAllocParams_ARRAY_08027458:
-    .word EntityAllocParams_08029CC8
+    .word EntityAllocParams_8029CC8
 PTR_PTR_DAT_0802745c:
     .word NPCList_80297E4
 PTR_PTR_EventHandler_School_Infirmary_F15_0_08027460:
@@ -291,7 +289,7 @@ _nt EventHandler_School_Infirmary_F20
     ldr        r0,PTR_PTR_EventHandler_School_Infirmary_F20_0_080275b8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -330,7 +328,7 @@ _nt EventHandler_School_Infirmary_F24
     ldr        r0,PTR_PTR_EventHandler_School_Infirmary_F24_0_080275c4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -369,7 +367,7 @@ _nt EventHandler_School_Infirmary_F25
     ldr        r0,PTR_PTR_EventHandler_School_Infirmary_F25_0_080275d0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -388,19 +386,19 @@ PTR_PTR_MapSetup_School_Infirmary_F20_080275a8:
 PTR_PTR_EventHandler_School_Infirmary_F20_080275ac:
     .word PTR_EventHandler_School_Infirmary_F20_080274c8
 PTR_EntityAllocParams_ARRAY_080275b0:
-    .word EntityAllocParams_08029CC8
+    .word EntityAllocParams_8029CC8
 PTR_PTR_DAT_080275b4:
     .word NPCList_8029828
 PTR_PTR_EventHandler_School_Infirmary_F20_0_080275b8:
     .word PTR_EventHandler_School_Infirmary_F20_0_08027520
 PTR_EntityAllocParams_ARRAY_080275bc:
-    .word EntityAllocParams_08029CC8
+    .word EntityAllocParams_8029CC8
 PTR_PTR_DAT_080275c0:
     .word NPCList_8029804
 PTR_PTR_EventHandler_School_Infirmary_F24_0_080275c4:
     .word PTR_EventHandler_School_Infirmary_F24_0_08027560
 PTR_EntityAllocParams_ARRAY_080275c8:
-    .word EntityAllocParams_08029CC8
+    .word EntityAllocParams_8029CC8
 PTR_PTR_DAT_080275cc:
     .word NPCList_8029804
 PTR_PTR_EventHandler_School_Infirmary_F25_0_080275d0:
@@ -467,7 +465,7 @@ _nt EventHandler_School_Infirmary_F30
     ldr        r0,PTR_PTR_EventHandler_School_Infirmary_F30_0_08027680
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -486,7 +484,7 @@ PTR_PTR_MapSetup_School_Infirmary_F30_08027670:
 PTR_PTR_EventHandler_School_Infirmary_F30_08027674:
     .word PTR_EventHandler_School_Infirmary_F30_08027610
 PTR_EntityAllocParams_ARRAY_08027678:
-    .word EntityAllocParams_08029CC8
+    .word EntityAllocParams_8029CC8
 PTR_PTR_DAT_0802767c:
     .word NPCList_8029828
 PTR_PTR_EventHandler_School_Infirmary_F30_0_08027680:

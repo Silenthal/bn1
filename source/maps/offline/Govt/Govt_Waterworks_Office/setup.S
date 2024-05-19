@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set PlayerLocation_Create, 0x8056020
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -88,7 +87,7 @@ _nt EventHandler_Govt_Waterworks_Office_F24
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Office_F24_0_08034264
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08034152
@@ -128,7 +127,7 @@ _nt EventHandler_Govt_Waterworks_Office_F25
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Office_F25_0_08034268
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08034152
@@ -393,7 +392,7 @@ _nt EventHandler_Govt_Waterworks_Office_F30
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Office_F30_0_080343c0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08034328
@@ -565,7 +564,7 @@ _nt EventHandler_Govt_Waterworks_Office_F50
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Office_F50_0_0803450c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08034474

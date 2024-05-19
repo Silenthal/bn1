@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set FUN_08087fb0, 0x8087FB1
 
 
@@ -80,7 +79,7 @@ _nt EventHandler_School_Storage_F15
     ldr        r0,PTR_PTR_EventHandler_School_Storage_F15_0_0802812c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -204,7 +203,7 @@ _nt EventHandler_School_Storage_F20
     ldr        r0,PTR_PTR_EventHandler_School_Storage_F20_0_08028228
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -239,7 +238,7 @@ _nt EventHandler_School_Storage_F23
     ldr        r0,PTR_PTR_EventHandler_School_Storage_F23_0_0802822c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -327,7 +326,7 @@ _nt EventHandler_School_Storage_F30
     ldr        r0,PTR_PTR_EventHandler_School_Storage_F30_0_080282dc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

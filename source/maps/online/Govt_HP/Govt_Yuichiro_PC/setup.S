@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_Govt_Yuichiro_PC_S2
     push       {lr}
@@ -97,7 +95,7 @@ _ts FUN_0804fa04
     ldr        r0,PTR_PTR_FUN_0804fa20_0804fa70
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

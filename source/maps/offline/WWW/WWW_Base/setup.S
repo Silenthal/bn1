@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set PlayerLocation_Create, 0x8056020+1
 
 
 _ts MapSetup_WWW_Base_S5
@@ -172,7 +171,7 @@ _ts EventHandler_WWW_Base_F54
     ldr        r0,PTR_PTR_EventHandler_WWW_Base_F54_0_0803dcb0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -156,7 +155,7 @@ _nt EventHandler_Power_Plant_Comp_1_F42
     ldr        r0,PTR_PTR_EventHandler_Power_Plant_Comp_1_F42_0_0804a540
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -482,7 +481,7 @@ _ts EventHandler_Power_Plant_Comp_1_F50
     ldr        r0,PTR_PTR_EventHandler_Power_Plant_Comp_1_F50_0_0804a76c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

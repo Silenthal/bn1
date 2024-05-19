@@ -115,7 +115,6 @@ _ts Oam_AffineTransformFree
     mov        pc,lr
 
 
-
 @@ Sets params for rotation/scaling.
 @@ In:
 @@ r0: angle: The angle to rotate by.

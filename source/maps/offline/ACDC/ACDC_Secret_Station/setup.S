@@ -4,7 +4,6 @@
 
     .set FUN_08093c68, 0x8093C69
     .set FUN_0808b688, 0x808B689
-    .set PlayerLocation_Create, 0x8056020
 
 
 _ts MapSetup_ACDC_Secret_Station_S5
@@ -56,7 +55,7 @@ _ts MapSetup_ACDC_Secret_Station_F54
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802F980
+    ldr        r0,PTR_BgTask_802F980
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0xa9
@@ -82,7 +81,7 @@ _ts EventHandler_ACDC_Secret_Station_F54
     ldr        r0,PTR_PTR_EventHandler_ACDC_Secret_Station_F54_0_0802f988
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -145,7 +144,7 @@ PTR_PTR_MapSetup_Default_0802f978:
     .word PTR_MapSetup_Default_0802f864
 PTR_PTR_EventHandler_Default_0802f97c:
     .word PTR_EventHandler_Default_0802f894
-PTR_BgTask_0802F980:
+PTR_BgTask_802F980:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_FUN_08093c68_0802f984:
     .word FUN_08093c68

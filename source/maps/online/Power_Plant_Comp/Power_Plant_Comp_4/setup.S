@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_Power_Plant_Comp_4_S4
     push       {lr}
@@ -164,7 +162,7 @@ _nt EventHandler_Power_Plant_Comp_4_F42
     ldr        r0,PTR_PTR_EventHandler_Power_Plant_Comp_4_F42_0_0804b3c4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -361,7 +359,7 @@ _nt EventHandler_Power_Plant_Comp_4_F43
     ldr        r0,PTR_PTR_EventHandler_Power_Plant_Comp_4_F43_0_0804b3ec
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -565,7 +563,7 @@ _ts MapSetup_Power_Plant_Comp_4_S5
     bl         Flag_Set380
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_EntityAllocParams_0804b5a8
+    ldr        r0,PTR_EntityAllocParams_804b5a8
     bl         Entity_AllocList
     pop        {r5}
     pop        {pc}
@@ -657,7 +655,7 @@ _ts EventHandler_Power_Plant_Comp_4_F50
     ldr        r0,PTR_PTR_EventHandler_Power_Plant_Comp_4_F50_0_0804b5bc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -704,8 +702,8 @@ PTR_BgTask_8049FB0_0804b5a0:
 PTR_BgTask_8049FE0_0804b5a4:
     .word BgTask_8049FE0
 
-PTR_EntityAllocParams_0804b5a8:
-    .word 0x804C418
+PTR_EntityAllocParams_804b5a8:
+    .word EntityAllocParams_804C418
 
 PTR_PTR_EventHandler_Power_Plant_Comp_4_F50_0804b5ac:
     .word PTR_EventHandler_Power_Plant_Comp_4_F50_0804b4dc

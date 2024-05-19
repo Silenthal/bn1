@@ -17,7 +17,7 @@ _ts GraphicDataSetup_DenTown
     ldrb       r3,[r2,#0x5]
     lsl        r3,r3,#0x2
     add        r0,r0,r3
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r1,#0x14]
     push       {r5}
     ldrb       r0,[r5,#0x4]
@@ -53,14 +53,14 @@ _ts GraphicDataSetup_DenTown
 
     .align 2, 0
 
-SpriteList_DenTown:
+global_label SpriteList_DenTown
     .word SpriteList_DenTown_Center
-    .word SpriteList_DenTown_Station
+    .word SpriteList_DenTown_None
     .word SpriteList_DenTown_Block_1
     .word SpriteList_DenTown_Block_2
     .word SpriteList_DenTown_Block_3
     .word SpriteList_DenTown_Block_4
-    .word SpriteList_DenTown_Station
+    .word SpriteList_DenTown_None
     .word SpriteList_DenTown_Summer_School
 
 SpriteList_DenTown_Center:
@@ -102,7 +102,7 @@ SpriteList_DenTown_Summer_School:
     .short 0xD0
     .short -1
 
-SpriteList_DenTown_Station:
+SpriteList_DenTown_None:
     .short -1
 
 PTR_MapExitList_DenTown_08035f98:

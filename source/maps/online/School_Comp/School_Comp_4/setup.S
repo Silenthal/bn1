@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
     .set FUN_0807db72, 0x807DB72+1
 
 
@@ -97,7 +96,7 @@ _nt EventHandler_School_Comp_4_F14
     ldr        r0,PTR_PTR_EventHandler_School_Comp_4_F14_0_0804170c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08040a50
@@ -185,7 +184,7 @@ _ts EventHandler_School_Comp_4_F15
     ldr        r0,PTR_PTR_EventHandler_School_Comp_4_F15_0_0804171c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08040a50
@@ -431,7 +430,7 @@ _nt EventHandler_School_Comp_4_F20
     ldr        r0,PTR_PTR_EventHandler_School_Comp_4_F20_0_0804183c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r0,#0x1

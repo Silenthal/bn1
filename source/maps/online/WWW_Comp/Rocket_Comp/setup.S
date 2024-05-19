@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_Rocket_Comp_S5
     push       {lr}
@@ -112,7 +110,7 @@ _nt EventHandler_Rocket_Comp_F54
     ldr        r0,PTR_PTR_EventHandler_Rocket_Comp_F54_0_0804df68
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

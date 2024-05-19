@@ -13,7 +13,6 @@
     .set tilesetMegaManIcon, 0x869d07c
 
 
-
 _ts InitPetStatusControl
     push       {lr}
     mov        r7,r10

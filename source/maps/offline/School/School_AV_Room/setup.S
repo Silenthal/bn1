@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set FUN_08087400, 0x8087401
 
 
@@ -57,9 +56,9 @@ _ts MapSetup_School_AV_Room_F10
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_ARRAY_080270b0
     bl         Entity_AllocList
-    ldr        r0,PTR_BgTask_080270b4
+    ldr        r0,PTR_BgTask_80270B4
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_080270b8
+    ldr        r0,PTR_BgTask_80270B8
     bl         BgTask_AddNew
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -77,7 +76,7 @@ _ts EventHandler_School_AV_Room_F10
     ldr        r0,PTR_PTR_EventHandler_School_AV_Room_F10_0_080270bc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -95,9 +94,9 @@ _ts MapSetup_School_AV_Room_F14
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_ARRAY_080270c0
     bl         Entity_AllocList
-    ldr        r0,PTR_BgTask_080270c4
+    ldr        r0,PTR_BgTask_80270C4
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_080270c8
+    ldr        r0,PTR_BgTask_80270C8
     bl         BgTask_AddNew
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -124,7 +123,7 @@ _ts EventHandler_School_AV_Room_F14
     ldr        r0,PTR_PTR_EventHandler_School_AV_Room_F14_0_080270cc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x5
@@ -166,9 +165,9 @@ _ts MapSetup_School_AV_Room_F15
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_ARRAY_080270d4
     bl         Entity_AllocList
-    ldr        r0,PTR_BgTask_080270d8
+    ldr        r0,PTR_BgTask_80270D8
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_080270dc
+    ldr        r0,PTR_BgTask_80270DC
     bl         BgTask_AddNew
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -193,7 +192,7 @@ _nt EventHandler_School_AV_Room_F15
     ldr        r0,PTR_PTR_EventHandler_School_AV_Room_F15_0_080270e0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x5
@@ -243,28 +242,28 @@ PTR_PTR_MapSetup_School_AV_Room_F10_080270a8:
 PTR_PTR_EventHandler_School_AV_Room_F10_080270ac:
     .word PTR_EventHandler_School_AV_Room_F10_08026f30
 PTR_EntityAllocParams_ARRAY_080270b0:
-    .word EntityAllocParams_08029C10
-PTR_BgTask_080270b4:
+    .word EntityAllocParams_8029C10
+PTR_BgTask_80270B4:
     .word BgTask_School_TilesetBlackboardTriangle
-PTR_BgTask_080270b8:
+PTR_BgTask_80270B8:
     .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_EventHandler_School_AV_Room_F10_0_080270bc:
     .word PTR_EventHandler_School_AV_Room_F10_0_08026f8c
 PTR_EntityAllocParams_ARRAY_080270c0:
-    .word EntityAllocParams_08029C10
-PTR_BgTask_080270c4:
+    .word EntityAllocParams_8029C10
+PTR_BgTask_80270C4:
     .word BgTask_School_TilesetBlackboardEvent
-PTR_BgTask_080270c8:
+PTR_BgTask_80270C8:
     .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_EventHandler_School_AV_Room_F14_0_080270cc:
     .word PTR_EventHandler_School_AV_Room_F14_0_08026fe8
 DAT_080270d0:
     .word 0x8087E35
 PTR_EntityAllocParams_ARRAY_080270d4:
-    .word EntityAllocParams_08029C10
-PTR_BgTask_080270d8:
+    .word EntityAllocParams_8029C10
+PTR_BgTask_80270D8:
     .word BgTask_School_TilesetBlackboardEvent
-PTR_BgTask_080270dc:
+PTR_BgTask_80270DC:
     .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_EventHandler_School_AV_Room_F15_0_080270e0:
     .word PTR_EventHandler_School_AV_Room_F15_0_08027064
@@ -348,9 +347,9 @@ _ts MapSetup_School_AV_Room_F20
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_ARRAY_080271e0
     bl         Entity_AllocList
-    ldr        r0,PTR_BgTask_080271e4
+    ldr        r0,PTR_BgTask_80271E4
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_080271e8
+    ldr        r0,PTR_BgTask_80271E8
     bl         BgTask_AddNew
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -370,7 +369,7 @@ _nt EventHandler_School_AV_Room_F20
     ldr        r0,PTR_PTR_EventHandler_School_AV_Room_F20_0_080271f0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x5
@@ -388,10 +387,10 @@ PTR_PTR_MapSetup_School_AV_Room_F20_080271d8:
 PTR_PTR_EventHandler_School_AV_Room_F20_080271dc:
     .word PTR_EventHandler_School_AV_Room_F20_08027168
 PTR_EntityAllocParams_ARRAY_080271e0:
-    .word EntityAllocParams_08029C10
-PTR_BgTask_080271e4:
+    .word EntityAllocParams_8029C10
+PTR_BgTask_80271E4:
     .word BgTask_School_TilesetBlackboardTriangle
-PTR_BgTask_080271e8:
+PTR_BgTask_80271E8:
     .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080271ec:
     .word NPCList_80297C4
@@ -456,9 +455,9 @@ _ts MapSetup_School_AV_Room_F30
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_ARRAY_080272c4
     bl         Entity_AllocList
-    ldr        r0,PTR_BgTask_080272c8
+    ldr        r0,PTR_BgTask_80272C8
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_080272cc
+    ldr        r0,PTR_BgTask_80272CC
     bl         BgTask_AddNew
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -478,7 +477,7 @@ _nt EventHandler_School_AV_Room_F30
     ldr        r0,PTR_PTR_EventHandler_School_AV_Room_F30_0_080272d4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x5
@@ -496,10 +495,10 @@ PTR_PTR_MapSetup_School_AV_Room_F30_080272bc:
 PTR_PTR_EventHandler_School_AV_Room_F30_080272c0:
     .word PTR_EventHandler_School_AV_Room_F30_0802724c
 PTR_EntityAllocParams_ARRAY_080272c4:
-    .word EntityAllocParams_08029C10
-PTR_BgTask_080272c8:
+    .word EntityAllocParams_8029C10
+PTR_BgTask_80272C8:
     .word BgTask_School_TilesetBlackboardTriangle
-PTR_BgTask_080272cc:
+PTR_BgTask_80272CC:
     .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080272d0:
     .word NPCList_80297C4

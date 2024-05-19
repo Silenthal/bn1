@@ -17,7 +17,7 @@ _ts GraphicDataSetup_School_Comp
     ldrb       r3,[r2,#0x5]
     lsl        r3,r3,#0x2
     add        r0,r0,r3
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r1,#0x14]
     push       {r5}
     ldrb       r0,[r5,#0x4]
@@ -45,7 +45,7 @@ _ts GraphicDataSetup_School_Comp
     ldr        r7,[r7,#0x8]
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
-    ldr        r0,PTR_PTR_SpriteList_School_Comp_1_080405a8
+    ldr        r0,PTR_SpriteList_School_Comp_080405a8
     ldr        r0,[r0,r1]
     bl         SpriteLz_DecompressSpriteList
     pop        {r5}
@@ -53,7 +53,7 @@ _ts GraphicDataSetup_School_Comp
 
     .align 2, 0
 
-PTR_SpriteList_School_Comp_1_0804056c:
+global_label SpriteList_School_Comp
     .word SpriteList_School_Comp_1
     .word SpriteList_School_Comp_2
     .word SpriteList_School_Comp_3
@@ -84,7 +84,11 @@ SpriteList_School_Comp_5:
     .short 0xCF
     .short 0xEC
     .short -1
+
+SpriteList_School_Comp_None:
     .short -1
+
+    .align 2, 0
 
 PTR_MapExitList_School_Comp_080405a0:
     .word MapExitList_School_Comp
@@ -92,5 +96,5 @@ PTR_MapExitList_School_Comp_080405a0:
 PTR_gDstCompressedSpriteData_080405a4:
     .word gDstCompressedSpriteData
 
-PTR_PTR_SpriteList_School_Comp_1_080405a8:
-    .word PTR_SpriteList_School_Comp_1_0804056c
+PTR_SpriteList_School_Comp_080405a8:
+    .word SpriteList_School_Comp

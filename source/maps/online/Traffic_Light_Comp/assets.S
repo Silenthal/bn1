@@ -576,7 +576,7 @@ _ts FUN_080499a8
     .align 2, 0
 
 PTR_FUN_080499bc_080499b8:
-    .word 0x80499BD
+    .word FUN_080499bc
 
 
 _ts FUN_080499bc
@@ -652,11 +652,11 @@ LAB_08049a44:
     .align 2, 0
 
 PTR_FUN_08049aac_08049a48:
-    .word 0x8049AAD
-    .word 0x8049A5D
-    .word 0x8049A85
-    .word 0x8049AAD
-    .word 0x8049AAD
+    .word FUN_08049aac
+    .word FUN_08049a5c
+    .word FUN_08049a84
+    .word FUN_08049aac
+    .word FUN_08049aac
 
 
 _ts FUN_08049a5c

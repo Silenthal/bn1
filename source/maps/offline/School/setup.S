@@ -45,7 +45,7 @@ _ts GraphicDataSetup_School
     ldr        r7,[r7,#0x8]
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
-    ldr        r0,PTR_PTR_spriteList_School_Class_5A_08024338
+    ldr        r0,PTR_SpriteList_School_08024338
     ldr        r0,[r0,r1]
     bl         SpriteLz_DecompressSpriteList
     pop        {r5}
@@ -53,57 +53,66 @@ _ts GraphicDataSetup_School
 
     .align 2, 0
 
-global_label PTR_spriteList_School_Class_5A_080242cc
-    .word spriteList_School_Class_5A
-    .word spriteList_School_Class_5B
-    .word spriteList_School_Library
-    .word spriteList_School_None
-    .word spriteList_School_None
-    .word spriteList_School_Class_1A
-    .word spriteList_School_Class_1B
-    .word spriteList_School_AV_Room
-    .word spriteList_School_Infirmary
-    .word spriteList_School_None
-    .word spriteList_School_None
-    .word spriteList_School_None
-    .word spriteList_School_None
-    .word spriteList_School_Staff_Lounge
-    .word spriteList_School_None
-spriteList_School_Class_5A:
+global_label SpriteList_School
+    .word SpriteList_School_Class_5A
+    .word SpriteList_School_Class_5B
+    .word SpriteList_School_Library
+    .word SpriteList_School_None
+    .word SpriteList_School_None
+    .word SpriteList_School_Class_1A
+    .word SpriteList_School_Class_1B
+    .word SpriteList_School_AV_Room
+    .word SpriteList_School_Infirmary
+    .word SpriteList_School_None
+    .word SpriteList_School_None
+    .word SpriteList_School_None
+    .word SpriteList_School_None
+    .word SpriteList_School_Staff_Lounge
+    .word SpriteList_School_None
+
+SpriteList_School_Class_5A:
     .short 0xD0
     .short -1
-spriteList_School_Class_5B:
+
+SpriteList_School_Class_5B:
     .short 0xD0
     .short -1
-spriteList_School_Library:
+
+SpriteList_School_Library:
     .short 0xE9
     .short 0xEA
     .short -1
-spriteList_School_Class_1A:
+
+SpriteList_School_Class_1A:
     .short 0xD0
     .short -1
-spriteList_School_Class_1B:
+
+SpriteList_School_Class_1B:
     .short 0xD0
     .short -1
-spriteList_School_AV_Room:
+
+SpriteList_School_AV_Room:
     .short 0xD0
     .short -1
-spriteList_School_Infirmary:
+
+SpriteList_School_Infirmary:
     .short 0xD5
     .short 0xD6
     .short -1
-spriteList_School_Staff_Lounge:
+
+SpriteList_School_Staff_Lounge:
     .short 0xD1
     .short 0xD2
     .short -1
-spriteList_School_None:
-    .short -1
 
-    .align 2, 0
+SpriteList_School_None:
+    .short -1
 
 PTR_MapExitList_School_08024330:
     .word MapExitList_School
+
 PTR_gDstCompressedSpriteData_08024334:
     .word gDstCompressedSpriteData
-PTR_PTR_spriteList_School_Class_5A_08024338:
-    .word PTR_spriteList_School_Class_5A_080242cc
+
+PTR_SpriteList_School_08024338:
+    .word SpriteList_School

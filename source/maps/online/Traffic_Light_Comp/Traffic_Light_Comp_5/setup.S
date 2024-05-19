@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
     .set Script_ShowDialogue, 0x80848FC+1
     .set FUN_0807f83c, 0x807F83C+1
 
@@ -106,7 +105,7 @@ _ts EventHandler_Traffic_Light_Comp_5_F35
     ldr        r0,PTR_PTR_EventHandler_Traffic_Light_Comp_5_F35_0_08048f50
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -214,7 +213,7 @@ _ts EventHandler_Traffic_Light_Comp_5_F36
     ldr        r0,PTR_PTR_EventHandler_Traffic_Light_Comp_5_F36_0_08048f60
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -398,7 +397,7 @@ _ts EventHandler_Traffic_Light_Comp_5_F37
     ldr        r0,PTR_PTR_EventHandler_Traffic_Light_Comp_5_F37_0_08048f8c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -686,7 +685,7 @@ _ts EventHandler_Traffic_Light_Comp_5_F40
     ldr        r0,PTR_PTR_EventHandler_Traffic_Light_Comp_5_F40_0_080490d4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

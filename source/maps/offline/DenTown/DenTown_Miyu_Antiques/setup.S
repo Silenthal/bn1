@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-
 
 _ts MapSetup_DenTown_Miyu_Antiques_S3
     push       {lr}
@@ -107,7 +105,7 @@ _ts EventHandler_DenTown_Miyu_Antiques_F30
     ldr        r0,PTR_PTR_EventHandler_DenTown_Miyu_Antiques_F30_0_080388b4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -170,7 +168,7 @@ _nt EventHandler_DenTown_Miyu_Antiques_F34
     ldr        r0,PTR_PTR_EventHandler_DenTown_Miyu_Antiques_F34_0_080388c4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -319,7 +317,7 @@ _ts EventHandler_DenTown_Miyu_Antiques_F40
     ldr        r0,PTR_PTR_EventHandler_DenTown_Miyu_Antiques_F40_0_080389dc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -457,7 +455,7 @@ _ts EventHandler_DenTown_Miyu_Antiques_F50
     ldr        r0,PTR_PTR_EventHandler_DenTown_Miyu_Antiques_F50_0_08038af0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

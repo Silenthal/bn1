@@ -247,18 +247,11 @@ L_8046DD6:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-.byte 0x5
-.short 0x2BF
-.word 0x8046dd6
+    a_jump_if_not_flag 0x2BF, L_8046DD6
 L_8046DE1:
-.byte 3
-.byte 0
-.byte 0
-@     a_jump_if_not_flag 0x2BF, L_8046DD6
-@ L_8046DE1:
-@     a_destroy
+    a_destroy
 
-@     .align 2, 0
+    .align 2, 0
 
 global_label NPCList_8046DE4
     .word NPC_8046DEC

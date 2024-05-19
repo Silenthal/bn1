@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_SciLab_Power_Plant_S4
     push       {lr}
@@ -90,7 +88,7 @@ _ts EventHandler_SciLab_Power_Plant_F41
     ldr        r0,PTR_PTR_EventHandler_SciLab_Power_Plant_F41_0_0803ca30
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -156,7 +154,7 @@ _nt EventHandler_SciLab_Power_Plant_F42
     ldr        r0,PTR_PTR_EventHandler_SciLab_Power_Plant_F42_0_0803ca3c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -195,7 +193,7 @@ _ts EventHandler_SciLab_Power_Plant_F43
     ldr        r0,PTR_PTR_EventHandler_SciLab_Power_Plant_F43_0_0803ca44
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -388,7 +386,7 @@ _ts EventHandler_SciLab_Power_Plant_F50
     ldr        r0,PTR_PTR_EventHandler_SciLab_Power_Plant_F50_0_0803cb60
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

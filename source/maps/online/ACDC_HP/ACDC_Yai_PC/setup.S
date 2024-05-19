@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_ACDC_Yai_PC_S0
     push       {lr}
@@ -99,7 +97,7 @@ _nt FUN_0804f2ee
     ldr        r0,PTR_PTR_FUN_0804f30c_0804f358
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -107,9 +105,9 @@ _nt FUN_0804f2ee
     .align 2, 0
 
 PTR_FUN_0804f30c_0804f300:
-    .word 0x804F30D
-    .word 0x804F327
-    .word 0x804F331
+    .word FUN_0804f30c
+    .word FUN_0804f326
+    .word FUN_0804f330
 
 
 _ts FUN_0804f30c

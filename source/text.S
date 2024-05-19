@@ -2,11 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerAnimation_Lock, 0x8056058
-    .set PlayerAnimation_GetState, 0x80560B4
-    .set PlayerAnimation_SetState, 0x8056074
-    .set PlayerAnimation_Unlock, 0x8056064
-
     .text
 
 _ts Text_Init

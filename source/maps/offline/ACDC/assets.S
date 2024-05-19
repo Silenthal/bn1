@@ -2358,38 +2358,38 @@ L_8030D30:
 
     .align 2, 0
 
-global_label EntityAllocParams_08030D38
+global_label EntityAllocParams_8030D38
     entity Actor, 0x8, f(-360, 272, 0), 0x0
     .word 0xFF
 
-global_label EntityAllocParams_08030D50
+global_label EntityAllocParams_8030D50
     entity Effect, 0x1, f(190, -144, 12), 0x3C
     .word 0xFF
 
-global_label EntityAllocParams_08030D68
+global_label EntityAllocParams_8030D68
     entity Effect, 0x1, f(294, -150, 0), 0x1F
     .word 0xFF
 
-global_label EntityAllocParams_08030D80
+global_label EntityAllocParams_8030D80
     entity Effect, 0x1, f(-44, -106, 0), 0x1B
     entity Effect, 0x1, f(-28, -28, 24), 0x1E
     entity Effect, 0x1, f(24, 144, 0), 0x45
     entity Effect, 0x1, f(24, 126, 0), 0x46
     .word 0xFF
 
-global_label EntityAllocParams_08030DD4
+global_label EntityAllocParams_8030DD4
     entity Effect, 0x1, f(26, 70, 0), 0xA
     entity Effect, 0x1, f(72, 22, 0), 0xB
     .word 0xFF
 
-global_label EntityAllocParams_08030E00
+global_label EntityAllocParams_8030E00
     entity Effect, 0x1, f(-102, -48, 0), 0x8
     entity Effect, 0x1, f(-96, -48, 4), 0xE
     entity Effect, 0x1, f(-84, -48, 12), 0xE
     entity Effect, 0x1, f(-86, -44, 0), 0x8
     .word 0xFF
 
-global_label EntityAllocParams_08030E54
+global_label EntityAllocParams_8030E54
     entity Effect, 0x1, f(-102, -48, 0), 0x8
     entity Effect, 0x1, f(-96, -48, 4), 0xE
     entity Effect, 0x1, f(-84, -48, 12), 0xE
@@ -2401,18 +2401,18 @@ global_label EntityAllocParams_08030E54
     entity Effect, 0x1, f(-92, -54, 16), 0xE
     .word 0xFF
 
-global_label EntityAllocParams_08030F0C
+global_label EntityAllocParams_8030F0C
     entity Effect, 0x1, f(-54, -54, 16), 0x8
     entity Effect, 0x1, f(-75, -30, 0), 0xE
     entity Effect, 0x1, f(-65, -32, 0), 0x8
     entity Effect, 0x1, f(-123, -26, 0), 0xE
     .word 0xFF
 
-global_label EntityAllocParams_08030F60
+global_label EntityAllocParams_8030F60
     entity Effect, 0x1, f(-56, -12, 0), 0xC
     .word 0xFF
 
-global_label EntityAllocParams_08030F78
+global_label EntityAllocParams_8030F78
     entity Effect, 0x1, f(10, 162, 0), 0x12
     entity Effect, 0x1, f(-170, -14, 76), 0x12
     entity Effect, 0x1, f(-106, 22, 0), 0x15
@@ -2420,16 +2420,16 @@ global_label EntityAllocParams_08030F78
     entity Effect, 0x1, f(-6, 60, 0), 0x17
     .word 0xFF
 
-global_label EntityAllocParams_08030FE0
+global_label EntityAllocParams_8030FE0
     entity Effect, 0x1, f(-38, 54, 64), 0x18
     .word 0xFF
 
-global_label EntityAllocParams_08030FF8
+global_label EntityAllocParams_8030FF8
     entity Effect, 0x1, f(-80, 16, 0), 0x19
     entity Effect, 0x1, f(-20, 40, 0), 0x1A
     .word 0xFF
 
-global_label EntityAllocParams_08031024
+global_label EntityAllocParams_8031024
     entity Effect, 0x1, f(0, 108, 0), 0x13
     entity Effect, 0x1, f(-8, -4, 0), 0x14
     .word 0xFF

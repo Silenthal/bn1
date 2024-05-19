@@ -4,23 +4,6 @@
 
     .set Attack_Cube_Create_MP, 0x80738b8
     .set Sio_SetReady, 0x809bdf0
-    .set BgTask_0803ed68, 0x803ed68
-    .set BgTask_0803f138, 0x803f138
-    .set BgTask_080475a4, 0x80475a4
-    .set BgTask_08049ff8, 0x8049ff8
-    .set PTR_DAT_0804ccb0, 0x804ccb0
-    .set BgTask_08051780, 0x8051780
-    .set BgTask_08051820, 0x8051820
-    .set PTR_DAT_0804f728, 0x804f728
-    .set DAT_0804eda8, 0x804eda8
-    .set PTR_DAT_0804edd8, 0x804edd8
-    .set PTR_DAT_0804ee18, 0x804ee18
-    .set PTR_DAT_0804ee48, 0x804ee48
-    .set PTR_DAT_0804f728, 0x804f728
-    .set PTR_DAT_0804f7b8, 0x804f7b8
-    .set PTR_DAT_0804fd64, 0x804fd64
-    .set PTR_DAT_08050060, 0x8050060
-    .set PTR_eBgPalette0_0804cd68, 0x804cd68
 
 _ts Battle_InitBackground
     push       {r5,lr}
@@ -509,23 +492,23 @@ _ts dummy_5368
 
 _nt BgAnimate_NumberMan
     push       {lr}
-    ldr        r0,PTR_BgTask_0800537c
+    ldr        r0,PTR_BgTask_800537C
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08005380
+    ldr        r0,PTR_BgTask_8005380
     bl         BgTask_AddNew
     pop        {pc}
 
     .align 2, 0
 
-PTR_BgTask_0800537c:
-    .word BgTask_0803ed68
-PTR_BgTask_08005380:
-    .word BgTask_0803f138
+PTR_BgTask_800537C:
+    .word BgTask_803ED68
+PTR_BgTask_8005380:
+    .word BgTask_803F138
 
 
 _nt BgAnimate_FireMan
     push       {lr}
-    ldr        r0,PTR_BgTask_0800577c
+    ldr        r0,PTR_BgTask_800577C
     bl         BgTask_AddNew
     pop        {pc}
 
@@ -538,16 +521,16 @@ _nt BgAnimate_IceMan
     cmp        r7,#0x30
     bge        LAB_080053a2
 LAB_0800539a:
-    ldr        r0,PTR_BgTask_08005780
+    ldr        r0,PTR_BgTask_8005780
     bl         BgTask_AddNew
     b          LAB_080053b4
 LAB_080053a2:
     ldrb       r7,[r6,#0x4]
     cmp        r7,#0x85
     beq        LAB_0800539a
-    ldr        r0,PTR_BgTask_08005784
+    ldr        r0,PTR_BgTask_8005784
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08005788
+    ldr        r0,PTR_BgTask_8005788
     bl         BgTask_AddNew
 LAB_080053b4:
     ldr        r0,PTR_dummy_1cb8_0800578c
@@ -559,14 +542,14 @@ LAB_080053b4:
 
 _nt BgAnimate_ColorMan
     push       {lr}
-    ldr        r0,PTR_BgTask_08005798
+    ldr        r0,PTR_BgTask_8005798
     bl         BgTask_AddNew
     pop        {pc}
 
 
 _nt BgAnimate_ElecMan
     push       {lr}
-    ldr        r0,PTR_BgTask_0800579c
+    ldr        r0,PTR_BgTask_800579C
     bl         BgTask_AddNew
     pop        {pc}
 
@@ -585,9 +568,9 @@ _nt BgAnimate_WWW
 
 _nt BgAnimate_Internet
     push       {lr}
-    ldr        r0,PTR_BgTask_080057b0
+    ldr        r0,PTR_BgTask_80057B0
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_080057b4
+    ldr        r0,PTR_BgTask_80057B4
     bl         BgTask_AddNew
     ldr        r0,PTR_dummy_1cb8_080057b8
     ldr        r1,PTR_BgUpdate_MoveUpLeft_080057bc
@@ -1072,13 +1055,13 @@ _ts DisableScreenDim
 
     .align 2, 0
 
-PTR_BgTask_0800577c:
+PTR_BgTask_800577C:
     .word BgTask_8042958
-PTR_BgTask_08005780:
+PTR_BgTask_8005780:
     .word BgTask_8044108
-PTR_BgTask_08005784:
+PTR_BgTask_8005784:
     .word BgTask_80442E8
-PTR_BgTask_08005788:
+PTR_BgTask_8005788:
     .word BgTask_8044330
 PTR_dummy_1cb8_0800578c:
     .word dummy_1cb8
@@ -1086,22 +1069,22 @@ PTR_BgUpdate_MoveUp_08005790:
     .word BgUpdate_MoveUp
 PTR_dummy_6928_08005794:
     .word dummy_6928_far
-PTR_BgTask_08005798:
-    .word BgTask_080475a4
-PTR_BgTask_0800579c:
-    .word BgTask_08049ff8
+PTR_BgTask_8005798:
+    .word BgTask_80475A4
+PTR_BgTask_800579C:
+    .word BgTask_8049FF8
 PTR_PTR_DAT_080057a0:
-    .word PTR_DAT_0804ccb0
+    .word BgTask_804CCB0
 PTR_dummy_1cb8_080057a4:
     .word dummy_1cb8
 PTR_BgUpdate_MoveLeft_080057a8:
     .word BgUpdate_MoveLeft
 PTR_dummy_6928_080057ac:
     .word dummy_6928_far
-PTR_BgTask_080057b0:
-    .word BgTask_08051780
-PTR_BgTask_080057b4:
-    .word BgTask_08051820
+PTR_BgTask_80057B0:
+    .word BgTask_8051780
+PTR_BgTask_80057B4:
+    .word BgTask_8051820
 PTR_dummy_1cb8_080057b8:
     .word dummy_1cb8
 PTR_BgUpdate_MoveUpLeft_080057bc:
@@ -1109,7 +1092,7 @@ PTR_BgUpdate_MoveUpLeft_080057bc:
 PTR_dummy_6928_080057c0:
     .word dummy_6928_far
 PTR_PTR_DAT_080057c4:
-    .word PTR_DAT_0804f728
+    .word BgTask_804F728
 PTR_dummy_1cb8_080057c8:
     .word dummy_1cb8
 PTR_BgUpdate_MoveUpLeft_080057cc:
@@ -1117,7 +1100,7 @@ PTR_BgUpdate_MoveUpLeft_080057cc:
 PTR_dummy_6928_080057d0:
     .word dummy_6928_far
 PTR_DAT_080057d4:
-    .word DAT_0804eda8
+    .word BgTask_804EDA8
 PTR_dummy_1cb8_080057d8:
     .word dummy_1cb8
 PTR_BgUpdate_MoveUpLeft_080057dc:
@@ -1125,7 +1108,7 @@ PTR_BgUpdate_MoveUpLeft_080057dc:
 PTR_dummy_6928_080057e0:
     .word dummy_6928_far
 PTR_PTR_DAT_080057e4:
-    .word PTR_DAT_0804edd8
+    .word BgTask_804EDD8
 PTR_dummy_1cb8_080057e8:
     .word dummy_1cb8
 PTR_BgUpdate_MoveUpLeft_080057ec:
@@ -1133,7 +1116,7 @@ PTR_BgUpdate_MoveUpLeft_080057ec:
 PTR_dummy_6928_080057f0:
     .word dummy_6928_far
 PTR_PTR_DAT_080057f4:
-    .word PTR_DAT_0804ee18
+    .word BgTask_804EE18
 PTR_dummy_1cb8_080057f8:
     .word dummy_1cb8
 PTR_BgUpdate_MoveUpLeft_080057fc:
@@ -1141,7 +1124,7 @@ PTR_BgUpdate_MoveUpLeft_080057fc:
 PTR_dummy_6928_08005800:
     .word dummy_6928_far
 PTR_PTR_DAT_08005804:
-    .word PTR_DAT_0804ee48
+    .word BgTask_804EE48
 PTR_dummy_1cb8_08005808:
     .word dummy_1cb8
 PTR_BgUpdate_MoveUpLeft_0800580c:
@@ -1149,7 +1132,7 @@ PTR_BgUpdate_MoveUpLeft_0800580c:
 PTR_dummy_6928_08005810:
     .word dummy_6928_far
 PTR_PTR_DAT_08005814:
-    .word PTR_DAT_0804f728
+    .word BgTask_804F728
 PTR_dummy_1cb8_08005818:
     .word dummy_1cb8
 PTR_BgUpdate_MoveUpLeft_0800581c:
@@ -1157,7 +1140,7 @@ PTR_BgUpdate_MoveUpLeft_0800581c:
 PTR_dummy_6928_08005820:
     .word dummy_6928_far
 PTR_PTR_DAT_08005824:
-    .word PTR_DAT_0804f7b8
+    .word BgTask_804F7B8
 PTR_dummy_1cb8_08005828:
     .word dummy_1cb8
 PTR_BgUpdate_MoveLeft_0800582c:
@@ -1165,7 +1148,7 @@ PTR_BgUpdate_MoveLeft_0800582c:
 PTR_dummy_6928_08005830:
     .word dummy_6928_far
 PTR_PTR_DAT_08005834:
-    .word PTR_DAT_0804fd64
+    .word BgTask_804FD64
 PTR_dummy_1cb8_08005838:
     .word dummy_1cb8
 PTR_BgUpdate_MoveUpLeft_0800583c:
@@ -1173,7 +1156,7 @@ PTR_BgUpdate_MoveUpLeft_0800583c:
 PTR_dummy_6928_08005840:
     .word dummy_6928_far
 PTR_PTR_DAT_08005844:
-    .word PTR_DAT_08050060
+    .word BgTask_8050060
 PTR_dummy_1cb8_08005848:
     .word dummy_1cb8
 PTR_BgUpdate_MoveRight_0800584c:
@@ -1181,7 +1164,7 @@ PTR_BgUpdate_MoveRight_0800584c:
 PTR_dummy_6928_08005850:
     .word dummy_6928_far
 PTR_PTR_eBgPalette0_08005854:
-    .word PTR_eBgPalette0_0804cd68
+    .word BgTask_804CD68
 PTR_dummy_1cb8_08005858:
     .word dummy_1cb8
 PTR_BgUpdate_MoveLeftSlow_0800585c:

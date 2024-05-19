@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-
 
 _ts MapSetup_Govt_Waterworks_Pump_Room_S2
     push       {lr}
@@ -84,7 +82,7 @@ _ts EventHandler_Govt_Waterworks_Pump_Room_F24
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Pump_Room_F24_0_08034b08
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -172,7 +170,7 @@ _ts EventHandler_Govt_Waterworks_Pump_Room_F40
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Pump_Room_F30_0_08034bb0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -258,7 +256,7 @@ _ts EventHandler_Govt_Waterworks_Pump_Room_F50
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Pump_Room_F50_0_08034c54
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

@@ -2,11 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0803b788, 0x803B788
     .set Scene_JackIn, 0x8083EEC+1
-    .set PlayerLocation_Create, 0x8056020
     .set Script_ShowDialogue, 0x80848FC+1
-    .set FUN_0803b6f4, 0x803B6F4
 
 
 _ts MapSetup_DenTown_Block_4_S3
@@ -106,7 +103,7 @@ _ts EventHandler_DenTown_Block_4_F30
     ldr        r0,PTR_PTR_EventHandler_DenTown_Block_4_F30_0_08038440
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     push       {r5}
@@ -156,7 +153,7 @@ _nt EventHandler_DenTown_Block_4_F33
     ldr        r0,PTR_PTR_EventHandler_DenTown_Block_4_F33_0_0803844c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -228,7 +225,7 @@ _nt EventHandler_DenTown_Block_4_F34
     ldr        r0,PTR_PTR_EventHandler_DenTown_Block_4_F34_0_0803845c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -447,7 +444,7 @@ _ts EventHandler_DenTown_Block_4_F40
     ldr        r0,PTR_PTR_EventHandler_DenTown_Block_4_F40_0_080385a4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -624,7 +621,7 @@ _nt EventHandler_DenTown_Block_4_F50
     ldr        r0,PTR_PTR_EventHandler_DenTown_Block_4_F50_0_08038700
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

@@ -1062,7 +1062,7 @@ _ts FUN_0804ec14
     .align 2, 0
 
 PTR_FUN_0804ec28_0804ec24:
-    .word 0x804EC29
+    .word FUN_0804ec28
 
 
 _ts FUN_0804ec28
@@ -1141,7 +1141,7 @@ PTR_0804ecb4:
     .word 0
     .word 0
     .word 0
-    .word 0x804ECCD
+    .word FUN_0804eccc
     .word 0
     .word 0
 

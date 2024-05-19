@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -13,7 +12,7 @@ _ts MapSetup_Govt_SciLab_Lobby_S2
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_080330d4
+    ldr        r0,PTR_BgTask_80330D4
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8035C70_080330d8
     bl         Entity_AllocList
@@ -102,7 +101,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F22
     ldr        r0,PTR_PTR_EventHandler_Govt_SciLab_Lobby_F22_0_080330e8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033060
@@ -148,7 +147,7 @@ _nt EventHandler_Govt_SciLab_Lobby_F24
     ldr        r0,PTR_PTR_EventHandler_Govt_SciLab_Lobby_F24_0_080330f4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033060
@@ -194,7 +193,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F25
     ldr        r0,PTR_PTR_EventHandler_Govt_SciLab_Lobby_F25_0_08033100
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033060
@@ -266,8 +265,8 @@ LAB_080330cc:
 PTR_PTR_MapSetup_Default_080330d0:
     .word PTR_MapSetup_Default_08032f14
 
-PTR_BgTask_080330d4:
-    .word 0x80311F0
+PTR_BgTask_80330D4:
+    .word BgTask_80311F0
 
 PTR_EntityAllocParams_8035C70_080330d8:
     .word EntityAllocParams_8035C70
@@ -319,7 +318,7 @@ _ts MapSetup_Govt_SciLab_Lobby_S3
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08033238
+    ldr        r0,PTR_BgTask_8033238
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8035C70_0803323c
     bl         Entity_AllocList
@@ -389,7 +388,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F30
     ldr        r0,PTR_PTR_EventHandler_Govt_SciLab_Lobby_F30_0_0803324c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080331d4
@@ -454,8 +453,8 @@ LAB_08033232:
 PTR_PTR_MapSetup_Govt_SciLab_Lobby_F30_08033234:
     .word PTR_MapSetup_Govt_SciLab_Lobby_F30_08033130
 
-PTR_BgTask_08033238:
-    .word 0x80311F0
+PTR_BgTask_8033238:
+    .word BgTask_80311F0
 
 PTR_EntityAllocParams_8035C70_0803323c:
     .word EntityAllocParams_8035C70
@@ -489,7 +488,7 @@ _ts MapSetup_Govt_SciLab_Lobby_S4
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08033418
+    ldr        r0,PTR_BgTask_8033418
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8035C70_0803341c
     bl         Entity_AllocList
@@ -582,7 +581,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40
     ldr        r0,PTR_PTR_EventHandler_Govt_SciLab_Lobby_F40_0_08033434
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080333b4
@@ -696,8 +695,8 @@ LAB_08033412:
 PTR_PTR_MapSetup_Govt_SciLab_Lobby_F40_08033414:
     .word PTR_MapSetup_Govt_SciLab_Lobby_F40_0803327c
 
-PTR_BgTask_08033418:
-    .word 0x80311F0
+PTR_BgTask_8033418:
+    .word BgTask_80311F0
 
 PTR_EntityAllocParams_8035C70_0803341c:
     .word EntityAllocParams_8035C70
@@ -743,7 +742,7 @@ _ts MapSetup_Govt_SciLab_Lobby_S5
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_080335b4
+    ldr        r0,PTR_BgTask_80335B4
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8035C70_080335b8
     bl         Entity_AllocList
@@ -809,7 +808,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F50
     ldr        r0,PTR_PTR_EventHandler_Govt_SciLab_Lobby_F50_0_080335c8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033550
@@ -849,7 +848,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F53
     ldr        r0,PTR_PTR_EventHandler_Govt_SciLab_Lobby_F53_0_080335d4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033550
@@ -914,8 +913,8 @@ LAB_080335ae:
 PTR_PTR_MapSetup_Govt_SciLab_Lobby_F50_080335b0:
     .word PTR_MapSetup_Govt_SciLab_Lobby_F50_0803346c
 
-PTR_BgTask_080335b4:
-    .word 0x80311F0
+PTR_BgTask_80335B4:
+    .word BgTask_80311F0
 
 PTR_EntityAllocParams_8035C70_080335b8:
     .word EntityAllocParams_8035C70

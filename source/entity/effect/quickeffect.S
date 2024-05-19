@@ -245,7 +245,6 @@ _ts E_QuickEffect_2_Free
     pop        {pc}
 
 
-
 _ts Effect_QuickEffect_Create
     push       {lr}
     mov        r0,#0x0

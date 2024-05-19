@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -118,7 +117,7 @@ _nt EventHandler_Waterworks_Comp_1_F25
     ldr        r0,PTR_PTR_EventHandler_Waterworks_Comp_1_F25_0_08045b94
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r0,#0x1
@@ -211,7 +210,7 @@ _ts EventHandler_Waterworks_Comp_1_F27
     ldr        r0,PTR_PTR_EventHandler_Waterworks_Comp_1_F27_0_08045bac
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r0,#0x1
@@ -361,7 +360,7 @@ PTR_BgTask_80442E8_08045b78:
     .word BgTask_80442E8
 
 DAT_08045b7c:
-    .word 0x8044318
+    .word BgTask_8044318
 
 PTR_EntityAllocParams_8046F90_08045b80:
     .word EntityAllocParams_8046F90
@@ -503,7 +502,7 @@ _ts EventHandler_Waterworks_Comp_1_F30
     ldr        r0,PTR_PTR_EventHandler_Waterworks_Comp_1_F30_0_08045ccc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r0,#0x1
@@ -532,7 +531,7 @@ PTR_BgTask_80442E8_08045cb0:
     .word BgTask_80442E8
 
 DAT_08045cb4:
-    .word 0x8044318
+    .word BgTask_8044318
 
 PTR_EntityAllocParams_8046F90_08045cb8:
     .word EntityAllocParams_8046F90

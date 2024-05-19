@@ -722,7 +722,7 @@ _ts PlayerLocation_1_4_0_ShowCommentary
 _nt PlayerLocation_1_4_1_End
     push       {lr}
     ldr        r0,PTR_gTextOptionFlags_080559d8
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        r1,#0x80
     tst        r1,r0
     bne        LAB_080559d4
@@ -847,7 +847,7 @@ _ts PlayerLocation_1_6
     strb       r0,[r5,#0xa]
 LAB_08055a9e:
     ldr        r0,PTR_gTextOptionFlags_08055ab8
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        r1,#0x80
     tst        r0,r1
     bne        LAB_08055ab2
@@ -1061,7 +1061,7 @@ _ts FUN_08055bf4
 
 _ts PlayerLocation_InitHitboxes
     push       {lr}
-    ldr        r0,PTR_EntityBoundsParams_08055c84
+    ldr        r0,PTR_EntityBoundsParams_8055c84
     mov        r1,#0x3c
     add        r1,r1,r5
     bl         PlayerLocation_AddHitbox
@@ -1130,78 +1130,78 @@ _ts PlayerLocation_AddHitbox
 
     .align 2, 0
 
-PTR_EntityBoundsParams_08055c84:
-    .word EntityBoundsParams_08055c88
+PTR_EntityBoundsParams_8055c84:
+    .word EntityBoundsParams_8055c88
 
-EntityBoundsParams_08055c88:
+EntityBoundsParams_8055c88:
     entity_bounds f(0, 0, 0), 4, 32, 0x1, 0xFFFF0000
 
 listHitboxTalking:
-    .word EntityBoundsParams_08055cc0
-    .word EntityBoundsParams_08055cd8
-    .word EntityBoundsParams_08055cf0
-    .word EntityBoundsParams_08055d08
-    .word EntityBoundsParams_08055d20
-    .word EntityBoundsParams_08055d38
-    .word EntityBoundsParams_08055d50
-    .word EntityBoundsParams_08055d68
+    .word EntityBoundsParams_8055cc0
+    .word EntityBoundsParams_8055cd8
+    .word EntityBoundsParams_8055cf0
+    .word EntityBoundsParams_8055d08
+    .word EntityBoundsParams_8055d20
+    .word EntityBoundsParams_8055d38
+    .word EntityBoundsParams_8055d50
+    .word EntityBoundsParams_8055d68
 
-EntityBoundsParams_08055cc0:
+EntityBoundsParams_8055cc0:
     entity_bounds f(5.65683, -5.65683, 0), 8, 32, 0x4, 0xFFFF0000
 
-EntityBoundsParams_08055cd8:
+EntityBoundsParams_8055cd8:
     entity_bounds f(8, 0, 0), 8, 32, 0x4, 0xFFFF0000
 
-EntityBoundsParams_08055cf0:
+EntityBoundsParams_8055cf0:
     entity_bounds f(5.65683, 5.65683, 0), 8, 32, 0x4, 0xFFFF0000
 
-EntityBoundsParams_08055d08:
+EntityBoundsParams_8055d08:
     entity_bounds f(0, 8, 0), 8, 32, 0x4, 0xFFFF0000
 
-EntityBoundsParams_08055d20:
+EntityBoundsParams_8055d20:
     entity_bounds f(-5.65683, 5.65683, 0), 8, 32, 0x4, 0xFFFF0000
 
-EntityBoundsParams_08055d38:
+EntityBoundsParams_8055d38:
     entity_bounds f(-8, 0, 0), 8, 32, 0x4, 0xFFFF0000
 
-EntityBoundsParams_08055d50:
+EntityBoundsParams_8055d50:
     entity_bounds f(-5.65683, -5.65683, 0), 8, 32, 0x4, 0xFFFF0000
 
-EntityBoundsParams_08055d68:
+EntityBoundsParams_8055d68:
     entity_bounds f(0, -8, 0), 8, 32, 0x4, 0xFFFF0000
 
 PTR_ARRAY_08055d80:
-    .word EntityBoundsParams_08055da0
-    .word EntityBoundsParams_08055db8
-    .word EntityBoundsParams_08055dd0
-    .word EntityBoundsParams_08055de8
-    .word EntityBoundsParams_08055e00
-    .word EntityBoundsParams_08055e18
-    .word EntityBoundsParams_08055e30
-    .word EntityBoundsParams_08055e48
+    .word EntityBoundsParams_8055da0
+    .word EntityBoundsParams_8055db8
+    .word EntityBoundsParams_8055dd0
+    .word EntityBoundsParams_8055de8
+    .word EntityBoundsParams_8055e00
+    .word EntityBoundsParams_8055e18
+    .word EntityBoundsParams_8055e30
+    .word EntityBoundsParams_8055e48
 
-EntityBoundsParams_08055da0:
+EntityBoundsParams_8055da0:
     entity_bounds f(2.82842, -2.82842, 0), 4, 32, 0x0, 0xFFFF0002
 
-EntityBoundsParams_08055db8:
+EntityBoundsParams_8055db8:
     entity_bounds f(4, 0, 0), 4, 32, 0x0, 0xFFFF0002
 
-EntityBoundsParams_08055dd0:
+EntityBoundsParams_8055dd0:
     entity_bounds f(2.82842, 2.82842, 0), 4, 32, 0x0, 0xFFFF0002
 
-EntityBoundsParams_08055de8:
+EntityBoundsParams_8055de8:
     entity_bounds f(0, 4, 0), 4, 32, 0x0, 0xFFFF0002
 
-EntityBoundsParams_08055e00:
+EntityBoundsParams_8055e00:
     entity_bounds f(-2.82842, 2.82842, 0), 4, 32, 0x0, 0xFFFF0002
 
-EntityBoundsParams_08055e18:
+EntityBoundsParams_8055e18:
     entity_bounds f(-4, 0, 0), 4, 32, 0x0, 0xFFFF0002
 
-EntityBoundsParams_08055e30:
+EntityBoundsParams_8055e30:
     entity_bounds f(-2.82842, -2.82842, 0), 4, 32, 0x0, 0xFFFF0002
 
-EntityBoundsParams_08055e48:
+EntityBoundsParams_8055e48:
     entity_bounds f(0, -4, 0), 4, 32, 0x0, 0xFFFF0002
 
 
@@ -1475,3 +1475,151 @@ _ts PlayerLocation_Create
     strb       r1,[r5,#0x10]
 LAB_08056042:
     pop        {pc}
+
+
+_ts Flag_SetPlayerActive
+    push       {lr}
+    mov        r0,#0x0
+    bl         Flag_Set400
+    pop        {pc}
+
+
+_nt Flag_SetPlayerInactive
+    push       {lr}
+    mov        r0,#0x0
+    bl         Flag_Clear400
+    pop        {pc}
+
+
+_ts PlayerAnimation_Lock
+    ldr        r7,PTR_gPlayerAnimation_08056060
+    mov        r0,#0x1
+    strb       r0,[r7,#0x0]
+    mov        pc,lr
+
+PTR_gPlayerAnimation_08056060:
+    .word gPlayerAnimation
+
+
+_ts PlayerAnimation_Unlock
+    push       {lr}
+    ldr        r7,PTR_gPlayerAnimation_08056070
+    mov        r0,#0x0
+    strb       r0,[r7,#0x0]
+    pop        {pc}
+
+    .align 2, 0
+
+PTR_gPlayerAnimation_08056070:
+    .word gPlayerAnimation
+
+
+_ts PlayerAnimation_SetState
+    push       {lr}
+    ldr        r7,PTR_gPlayerAnimation_0805607c
+    strb       r0,[r7,#0x2]
+    pop        {pc}
+
+PTR_gPlayerAnimation_0805607c:
+    .word gPlayerAnimation
+
+
+_ts PlayerAnimation_SetPosition
+    push       {lr}
+    ldr        r7,PTR_gPlayerAnimation_080560a4
+    str        r0,[r7,#0x8]
+    str        r1,[r7,#0xc]
+    str        r2,[r7,#0x10]
+    pop        {pc}
+
+
+_ts PlayerAnimation_Move
+    push       {lr}
+    ldr        r7,PTR_gPlayerAnimation_080560a4
+    ldr        r3,[r7,#0x8]
+    add        r3,r3,r0
+    str        r3,[r7,#0x8]
+    ldr        r3,[r7,#0xc]
+    add        r3,r3,r1
+    str        r3,[r7,#0xc]
+    ldr        r3,[r7,#0x10]
+    add        r3,r3,r2
+    str        r3,[r7,#0x10]
+    pop        {pc}
+
+PTR_gPlayerAnimation_080560a4:
+    .word gPlayerAnimation
+
+
+_ts FUN_080560a8
+    push       {lr}
+    ldr        r7,PTR_gPlayerAnimation_080560b0
+    strh       r0,[r7,#0x4]
+    pop        {pc}
+
+PTR_gPlayerAnimation_080560b0:
+    .word gPlayerAnimation
+
+
+_ts PlayerAnimation_GetState
+    push       {lr}
+    ldr        r7,PTR_gPlayerAnimation_080560bc
+    ldrb       r0,[r7,#0x0]
+    pop        {pc}
+
+PTR_gPlayerAnimation_080560bc:
+    .word gPlayerAnimation
+
+
+_ts EnableElevationCheck
+    push       {lr}
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldr        r7,[r7,#0x28]
+    mov        r0,#0x1
+    strb       r0,[r7,#0x17]
+    pop        {pc}
+
+
+_nt DisableElevationCheck
+    push       {lr}
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldr        r7,[r7,#0x28]
+    mov        r0,#0x0
+    strb       r0,[r7,#0x17]
+    pop        {pc}
+
+
+_ts EnableBoundaryCheck
+    push       {lr}
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldr        r7,[r7,#0x28]
+    mov        r0,#0x1
+    strb       r0,[r7,#0xc]
+    pop        {pc}
+
+
+_nt DisableBoundaryCheck
+    push       {lr}
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldr        r7,[r7,#0x28]
+    mov        r0,#0x0
+    strb       r0,[r7,#0xc]
+    pop        {pc}
+
+
+_ts PlayerLocation_IsCommentaryState
+    push       {r1,r7,lr}
+    mov        r0,#0x0
+    mov        r7,r10
+    ldr        r7,[r7,#0x8]
+    ldr        r7,[r7,#0x28]
+    ldrb       r1,[r7,#0x9]
+    cmp        r1,#0x10
+    bne        LAB_0805610a
+    mov        r0,#0x1
+LAB_0805610a:
+    pop        {r1,r7,pc}

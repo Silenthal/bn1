@@ -3,72 +3,72 @@
     .include "macros.inc"
 
 
-global_label BgTask_08029EE4
+global_label BgTask_8029EE4
     task_direct slot=0, dst=eBgPalette0, len=0x68, delay=4
     task_direct_arg paletteACDC_0771654
     task_stop
 
-global_label BgTask_08029EFC
+global_label BgTask_8029EFC
     task_direct slot=1, dst=eBgPalette0, len=0x68, delay=4
     task_direct_arg 0x83D8108
     task_stop
 
-global_label BgTask_08029F14
+global_label BgTask_8029F14
     task_tileset slot=2, src=tilesetACDC_0770C54, dst=0x6000020, count=0x22, bufIndex=7, delay=1
     task_tileset_arg TransferArgs_0802A3A4
     task_stop
 
-global_label BgTask_08029F2C
+global_label BgTask_8029F2C
     task_tileset slot=3, src=tilesetACDC_0770C54, dst=0x6003B40, count=0x5, bufIndex=8, delay=1
     task_tileset_arg TransferArgs_0802A3E8
     task_stop
 
-global_label BgTask_08029F44
+global_label BgTask_8029F44
     task_tileset slot=2, src=tilesetACDC_0770C54, dst=0x6000020, count=0x22, bufIndex=7, delay=1
     task_tileset_arg TransferArgs_0802A3F4
     task_stop
 
-global_label BgTask_08029F5C
+global_label BgTask_8029F5C
     task_tileset slot=3, src=tilesetACDC_0770C54, dst=0x6003B40, count=0x5, bufIndex=8, delay=1
     task_tileset_arg TransferArgs_0802A438
     task_stop
 
-global_label BgTask_08029F74
+global_label BgTask_8029F74
     task_direct slot=4, dst=eBgPaletteB, len=0x8
     task_direct_arg paletteACDC_07717F4
     task_stop
 
-global_label BgTask_08029F8C
+global_label BgTask_8029F8C
     task_tileset slot=5, src=tilesetACDCBuilding, dst=0x6003500, count=0x32, bufIndex=9, delay=1
     task_tileset_arg tilemapACDCBuildingRegular
     task_stop
 
-global_label BgTask_08029FA4
+global_label BgTask_8029FA4
     task_tileset slot=6, src=tilesetACDCBuilding, dst=0x6007F60, count=0x2, bufIndex=10, delay=1
     task_tileset_arg TransferArgs_0802A4A8
     task_stop
 
-global_label BgTask_08029FBC
+global_label BgTask_8029FBC
     task_tileset slot=5, src=tilesetACDCBuilding, dst=0x6003500, count=0x32, bufIndex=9, delay=1
     task_tileset_arg tilemapACDCBuildingHigsby
     task_stop
 
-global_label BgTask_08029FD4
+global_label BgTask_8029FD4
     task_tileset slot=6, src=tilesetACDCBuilding, dst=0x6007F60, count=0x2, bufIndex=10, delay=1
     task_tileset_arg TransferArgs_0802A510
     task_stop
 
-global_label BgTask_08029FEC
+global_label BgTask_8029FEC
     task_direct slot=0, dst=0x6006C40, len=0x210
     task_direct_arg tilesetACDC_0771814
     task_stop
 
-global_label BgTask_0802A004
+global_label BgTask_802A004
     task_direct slot=0, dst=0x6006C40, len=0x210
     task_direct_arg tilesetACDC_0772054
     task_stop
 
-global_label BgTask_0802A01C
+global_label BgTask_802A01C
     task_direct slot=1, dst=eBgPalette6, len=0x8, delay=4
     task_direct_arg paletteACDC_0772894
     task_stop
@@ -157,7 +157,7 @@ global_label BgTask_ACDC_Lan_Room_Tileset_Computer
     task_direct_arg tilesetACDCLanRoomComputer13
     task_repeat
 
-global_label BgTask_0802A284
+global_label BgTask_802A284
     task_direct slot=0, dst=eBgPalette1, len=0x8, delay=8
     task_direct_arg paletteACDC_0778174
     task_direct_arg 0x83F2334
@@ -195,7 +195,7 @@ global_label BgTask_ACDC_Station_Tileset_Gate_Open
     task_direct_arg tilesetACDCStationGateOpen
     task_stop
 
-global_label BgTask_0802A374
+global_label BgTask_802A374
     task_direct slot=1, dst=0x6006FE0, len=0x140, delay=10
     task_direct_arg tilesetGovt_0778CD4_00
     task_direct_arg tilesetGovt_0778CD4_01

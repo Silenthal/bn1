@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set PlayerLocation_Create, 0x8056020+1
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -128,7 +127,7 @@ _nt EventHandler_SciLab_Power_Plant_Control_Room_F42
     ldr        r0,PTR_PTR_EventHandler_SciLab_Power_Plant_Control_Room_F42_0_0803cdc4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -200,7 +199,7 @@ _ts EventHandler_SciLab_Power_Plant_Control_Room_F43
     ldr        r0,PTR_PTR_EventHandler_SciLab_Power_Plant_Control_Room_F43_0_0803cdd8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -406,7 +405,7 @@ _ts EventHandler_SciLab_Power_Plant_Control_Room_F50
     ldr        r0,PTR_PTR_EventHandler_SciLab_Power_Plant_Control_Room_F50_0_0803cf04
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

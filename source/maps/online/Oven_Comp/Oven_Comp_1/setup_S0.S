@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_Oven_Comp_1_S0
     push       {lr}
@@ -138,7 +136,7 @@ _ts EventHandler_Oven_Comp_1_F03
     ldr        r0,PTR_PTR_EventHandler_Oven_Comp_1_F03_0_08043620
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -310,7 +308,7 @@ _ts EventHandler_Oven_Comp_1_F05
     ldr        r0,PTR_PTR_EventHandler_Oven_Comp_1_F05_0_08043640
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -418,7 +416,7 @@ _ts EventHandler_Oven_Comp_1_F06
     ldr        r0,PTR_PTR_EventHandler_Oven_Comp_1_F06_0_08043650
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -550,7 +548,7 @@ PTR_PTR_EventHandler_Oven_Comp_1_F05_0_08043640:
     .word PTR_EventHandler_Oven_Comp_1_F05_0_080434bc
 
 DAT_08043644:
-    .word 0x8043CF8
+    .word EntityAllocParams_8043CF8
 
 PTR_NPCList_8043BEC_08043648:
     .word NPCList_8043BEC

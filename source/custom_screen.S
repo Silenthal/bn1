@@ -2,9 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set tilesetCustomScreenBg_2, 0x863FE34
-    .set FUN_0805758a, 0x805758A
-    .set FUN_0805738e, 0x805738e
+    .set R_Player_ResetBusterAndShields, 0x805758A
+    .set Routine_ClearBetaSigmaTimer, 0x805738e
     .text
 
     .thumb
@@ -45,7 +44,7 @@ PTR_gCustomScreen_08015928:
 
 _ts CustomScreen_0_Init
     push       { lr }
-    bl         FUN_0805758a
+    bl         R_Player_ResetBusterAndShields
     mov        r0,#0x4
     strb       r0,[r5,#0x0]
     mov        r0,#0x0
@@ -306,9 +305,9 @@ LAB_08015b2e:
     sub        r3,#0x1
     bne        LAB_08015b2e
     mov        r0,#0x0
-    bl         FUN_0805738e
+    bl         Routine_ClearBetaSigmaTimer
     mov        r0,#0x1
-    bl         FUN_0805738e
+    bl         Routine_ClearBetaSigmaTimer
 LAB_08015b4c:
     mov        r0,#0x10
     strb       r0,[r5,#0x1]
@@ -1492,7 +1491,6 @@ CursorAttributes_080165a4:
     cursor_attr  17, -1, FLIP_H
     cursor_attr  17,  6, FLIP_HV
     cursor_attr  -1,  6, FLIP_V
-
 
 
 @@ Checks for the cursor moving on the chip select screen.

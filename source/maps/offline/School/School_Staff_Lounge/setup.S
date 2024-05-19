@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set FUN_080879f4, 0x80879F5
     .set FUN_08087e34, 0x8087E35
 
@@ -56,7 +55,7 @@ PTR_EventHandler_School_Staff_Lounge_F10_08028330:
 _ts MapSetup_School_Staff_Lounge_F10
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_08028420
+    ldr        r0,PTR_BgTask_8028420
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08028424
     bl         Entity_AllocList
@@ -76,7 +75,7 @@ _nt EventHandler_School_Staff_Lounge_F10
     ldr        r0,PTR_PTR_EventHandler_School_Staff_Lounge_F10_0_08028428
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -95,7 +94,7 @@ _ts EventHandler_School_Staff_Lounge_F10_0
 _ts MapSetup_School_Staff_Lounge_F15
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802842c
+    ldr        r0,PTR_BgTask_802842C
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08028430
     bl         Entity_AllocList
@@ -130,7 +129,7 @@ _ts EventHandler_School_Staff_Lounge_F15
     ldr        r0,PTR_PTR_EventHandler_School_Staff_Lounge_F15_0_08028438
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -164,16 +163,16 @@ PTR_PTR_MapSetup_School_Staff_Lounge_F10_08028418:
     .word PTR_MapSetup_School_Staff_Lounge_F10_08028304
 PTR_PTR_EventHandler_School_Staff_Lounge_F10_0802841c:
     .word PTR_EventHandler_School_Staff_Lounge_F10_08028330
-PTR_BgTask_08028420:
+PTR_BgTask_8028420:
     .word BgTask_School_PaletteServer
 PTR_EntityAllocParams_ARRAY_08028424:
-    .word EntityAllocParams_08029CF4
+    .word EntityAllocParams_8029CF4
 PTR_PTR_EventHandler_School_Staff_Lounge_F10_0_08028428:
     .word PTR_EventHandler_School_Staff_Lounge_F10_0_08028388
-PTR_BgTask_0802842c:
+PTR_BgTask_802842C:
     .word BgTask_School_PaletteServer
 PTR_EntityAllocParams_ARRAY_08028430:
-    .word EntityAllocParams_08029CF4
+    .word EntityAllocParams_8029CF4
 PTR_FUN_080879f4_08028434:
     .word FUN_080879f4
 PTR_PTR_EventHandler_School_Staff_Lounge_F15_0_08028438:
@@ -222,7 +221,7 @@ PTR_EventHandler_School_Staff_Lounge_F50_0802847c:
 _ts MapSetup_School_Staff_Lounge_F50
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_080284e8
+    ldr        r0,PTR_BgTask_80284E8
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_080284ec
     bl         Entity_AllocList
@@ -244,7 +243,7 @@ _ts EventHandler_School_Staff_Lounge_F50
     ldr        r0,PTR_PTR_EventHandler_School_Staff_Lounge_F50_0_080284f4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -259,10 +258,10 @@ PTR_PTR_MapSetup_School_Staff_Lounge_F50_080284e0:
     .word PTR_MapSetup_School_Staff_Lounge_F50_08028450
 PTR_PTR_EventHandler_School_Staff_Lounge_F50_080284e4:
     .word PTR_EventHandler_School_Staff_Lounge_F50_0802847c
-PTR_BgTask_080284e8:
+PTR_BgTask_80284E8:
     .word BgTask_School_PaletteServer
 PTR_EntityAllocParams_ARRAY_080284ec:
-    .word EntityAllocParams_08029CF4
+    .word EntityAllocParams_8029CF4
 PTR_DAT_080284f0:
     .word NPCList_8029A98
 PTR_PTR_EventHandler_School_Staff_Lounge_F50_0_080284f4:

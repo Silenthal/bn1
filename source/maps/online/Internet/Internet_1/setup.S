@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
     .set Script_ShowDialogue, 0x80848FC+1
     .set FUN_0807db72, 0x807DB72+1
 
@@ -103,11 +102,11 @@ LAB_08051f98:
     cmp        r7,#0x2
     bne        LAB_08051fba
     ldr        r0,[r3,#0x28]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     ldr        r0,[r3,#0x2c]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
 LAB_08051fba:
@@ -117,7 +116,7 @@ LAB_08051fba:
     cmp        r7,#0x20
     blt        LAB_08051fcc
     ldr        r0,[r3,#0x30]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
 LAB_08051fcc:
@@ -199,7 +198,7 @@ _ts FUN_08052054
     ldr        r0,PTR_PTR_FUN_08052068_08052258
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -396,7 +395,7 @@ _ts FUN_080521cc
     ldrb       r1,[r1,r0]
     lsl        r0,r1,#0x2
     ldr        r0,[r3,r0]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     add        r0,r2,#0x0
@@ -408,15 +407,15 @@ _ts FUN_080521cc
     ldrb       r1,[r1,r0]
     lsl        r0,r1,#0x2
     ldr        r0,[r3,r0]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     ldr        r0,[r3,#0x20]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     ldr        r0,[r3,#0x24]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     pop        {pc}
@@ -503,7 +502,7 @@ PTR_PTR_08052284:
     .word PTR_PTR_NPC_8053E1C_08052018
 
 PTR_DAT_08052288:
-    .word 0x805204C
+    .word DAT_0805204c
 
 PTR_DAT_0805228c:
-    .word 0x8052050
+    .word DAT_08052050

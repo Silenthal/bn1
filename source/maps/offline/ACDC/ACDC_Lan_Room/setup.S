@@ -2,13 +2,11 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set Scene_00_LanWakesUp, 0x80828AD
     .set FUN_080839ac, 0x80839AD
     .set Scene_JackIn, 0x8083EED
     .set FUN_08082de4, 0x8082DE5
     .set LAB_080886c4, 0x80886C5
-    .set FUN_0802d78c, 0x802D78C
     .set Script_ShowDialogue, 0x80848FD
 
 
@@ -19,7 +17,7 @@ _ts MapSetup_ACDC_Lan_Room_S0
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_0802CA88
+    ldr        r0,PTR_BgTask_802CA88
     bl         BgTask_AddNew
     pop        {r5}
     pop        {pc}
@@ -36,7 +34,7 @@ PTR_MapSetup_ACDC_Lan_Room_F00_0802ca6c:
     .word MapSetup_ACDC_Lan_Room_F04
     .word MapSetup_ACDC_Lan_Room_F05
     .word MapSetup_ACDC_Lan_Room_F06
-PTR_BgTask_0802CA88:
+PTR_BgTask_802CA88:
     .word BgTask_ACDC_Lan_Room_Tileset_Computer
 
 
@@ -85,7 +83,7 @@ LAB_0802cade:
     push       {r5}
     mov        r0,#0x7
     bl         Flag_Set400
-    ldr        r0,PTR_BgTask_0802CB3C
+    ldr        r0,PTR_BgTask_802CB3C
     bl         BgTask_AddNew
     mov        r0,#0x10
     bl         PetStatusControl_SetState
@@ -97,7 +95,7 @@ LAB_0802cb06:
     push       {r5}
     mov        r0,#0x2
     bl         Sound_ChangeSong
-    ldr        r0,PTR_BgTask_0802CB30
+    ldr        r0,PTR_BgTask_802CB30
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802cb34
     bl         Entity_AllocList
@@ -110,13 +108,13 @@ LAB_0802cb06:
     mov        r0,#0xc
     str        r0,[r5,#0x0]
     pop        {pc}
-PTR_BgTask_0802CB30:
+PTR_BgTask_802CB30:
     .word BgTask_ACDC_Lan_Room_Window_Empty
 PTR_DAT_0802cb34:
-    .word EntityAllocParams_08030F60
+    .word EntityAllocParams_8030F60
 PTR_DAT_0802cb38:
     .word NPCList_8030864
-PTR_BgTask_0802CB3C:
+PTR_BgTask_802CB3C:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 
 
@@ -125,7 +123,7 @@ _ts EventHandler_ACDC_Lan_Room_F00
     ldr        r0,PTR_PTR_EventHandler_ACDC_Lan_Room_F00_0_0802cb50
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -191,7 +189,6 @@ LAB_0802cbc4:
     .align 2, 0
 
 
-
 _ts EventHandler_ACDC_Lan_Room_F00_2
     push       {lr}
     push       {r5}
@@ -243,7 +240,6 @@ LAB_0802cc24:
     .align 2, 0
 
 
-
 _ts MapSetup_ACDC_Lan_Room_F02
     push       {lr}
     push       {r5}
@@ -266,7 +262,7 @@ _ts MapSetup_ACDC_Lan_Room_F02
     push       {r5}
     mov        r0,#0x0
     bl         Flag_Set410
-    ldr        r0,PTR_BgTask_0802CF38
+    ldr        r0,PTR_BgTask_802CF38
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -274,7 +270,7 @@ _ts MapSetup_ACDC_Lan_Room_F02
     pop        {pc}
 LAB_0802cc6e:
     push       {r5}
-    ldr        r0,PTR_BgTask_0802CF3C
+    ldr        r0,PTR_BgTask_802CF3C
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x4
@@ -284,13 +280,12 @@ LAB_0802cc6e:
     .align 2, 0
 
 
-
 _ts EventHandler_ACDC_Lan_Room_F02
     push       {lr}
     ldr        r0,PTR_PTR_EventHandler_ACDC_Lan_Room_F02_0_0802cf40
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -337,7 +332,6 @@ LAB_0802ccd4:
     .align 2, 0
 
 
-
 _ts MapSetup_ACDC_Lan_Room_F03
     push       {lr}
     push       {r5}
@@ -350,7 +344,7 @@ _ts MapSetup_ACDC_Lan_Room_F03
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802CF4C
+    ldr        r0,PTR_BgTask_802CF4C
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -363,7 +357,7 @@ _ts EventHandler_ACDC_Lan_Room_F03
     ldr        r0,PTR_PTR_EventHandler_ACDC_Lan_Room_F03_0_0802cf50
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -404,7 +398,7 @@ _ts MapSetup_ACDC_Lan_Room_F04
     bl         Camera_SetEnabled
     mov        r0,#0x0
     bl         PetStatusControl_SetState
-    ldr        r0,PTR_BgTask_0802CF58
+    ldr        r0,PTR_BgTask_802CF58
     bl         BgTask_AddNew
     mov        r0,#0x1
     bl         Flag_Get280
@@ -424,7 +418,7 @@ _ts EventHandler_ACDC_Lan_Room_F04
     ldr        r0,PTR_PTR_EventHandler_ACDC_Lan_Room_F04_0_0802cf5c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -463,7 +457,7 @@ _ts MapSetup_ACDC_Lan_Room_F05
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802CF64
+    ldr        r0,PTR_BgTask_802CF64
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -476,7 +470,7 @@ _ts EventHandler_ACDC_Lan_Room_F05
     ldr        r0,PTR_PTR_EventHandler_ACDC_Lan_Room_F05_0_0802cf68
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -494,7 +488,6 @@ LAB_0802cdf4:
     .align 2, 0
 
 
-
 _ts MapSetup_ACDC_Lan_Room_F06
     push       {lr}
     push       {r5}
@@ -507,7 +500,7 @@ _ts MapSetup_ACDC_Lan_Room_F06
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802CF70
+    ldr        r0,PTR_BgTask_802CF70
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -520,7 +513,7 @@ _ts EventHandler_ACDC_Lan_Room_F06
     ldr        r0,PTR_PTR_EventHandler_ACDC_Lan_Room_F06_0_0802cf74
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -608,7 +601,6 @@ LAB_0802ced0:
     .align 2, 0
 
 
-
 _ts FUN_0802ced4
     push       {lr}
     mov        r0,r10
@@ -658,36 +650,36 @@ DAT_0802cf2c:
 PTR_Script_ShowDialogue_0802cf30:
     .word Script_ShowDialogue
 PTR_DAT_0802cf34:
-    .word EntityAllocParams_08030F60
-PTR_BgTask_0802CF38:
+    .word EntityAllocParams_8030F60
+PTR_BgTask_802CF38:
     .word BgTask_ACDC_Lan_Room_Window_Bird
-PTR_BgTask_0802CF3C:
+PTR_BgTask_802CF3C:
     .word BgTask_ACDC_Lan_Room_Window_Empty
 PTR_PTR_EventHandler_ACDC_Lan_Room_F02_0_0802cf40:
     .word PTR_EventHandler_ACDC_Lan_Room_F02_0_0802cc90
 PTR_FUN_080839ac_0802cf44:
     .word FUN_080839ac
 PTR_DAT_0802cf48:
-    .word EntityAllocParams_08030F60
-PTR_BgTask_0802CF4C:
+    .word EntityAllocParams_8030F60
+PTR_BgTask_802CF4C:
     .word BgTask_ACDC_Lan_Room_Window_Empty
 PTR_PTR_EventHandler_ACDC_Lan_Room_F03_0_0802cf50:
     .word PTR_EventHandler_ACDC_Lan_Room_F03_0_0802cd14
 PTR_DAT_0802cf54:
-    .word EntityAllocParams_08030F60
-PTR_BgTask_0802CF58:
+    .word EntityAllocParams_8030F60
+PTR_BgTask_802CF58:
     .word BgTask_ACDC_Lan_Room_Window_Empty
 PTR_PTR_EventHandler_ACDC_Lan_Room_F04_0_0802cf5c:
     .word PTR_EventHandler_ACDC_Lan_Room_F04_0_0802cd8c
 PTR_DAT_0802cf60:
-    .word EntityAllocParams_08030F60
-PTR_BgTask_0802CF64:
+    .word EntityAllocParams_8030F60
+PTR_BgTask_802CF64:
     .word BgTask_ACDC_Lan_Room_Window_Empty
 PTR_PTR_EventHandler_ACDC_Lan_Room_F05_0_0802cf68:
     .word PTR_EventHandler_ACDC_Lan_Room_F05_0_0802cde8
 PTR_DAT_0802cf6c:
-    .word EntityAllocParams_08030F60
-PTR_BgTask_0802CF70:
+    .word EntityAllocParams_8030F60
+PTR_BgTask_802CF70:
     .word BgTask_ACDC_Lan_Room_Window_Empty
 PTR_PTR_EventHandler_ACDC_Lan_Room_F06_0_0802cf74:
     .word PTR_EventHandler_ACDC_Lan_Room_F06_0_0802ce34
@@ -708,7 +700,7 @@ _ts MapSetup_ACDC_Lan_Room_S2
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_0802D1E4
+    ldr        r0,PTR_BgTask_802D1E4
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0xab
@@ -781,7 +773,7 @@ _ts MapSetup_ACDC_Lan_Room_F20
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802D1E8
+    ldr        r0,PTR_BgTask_802D1E8
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802d1ec
     bl         Entity_AllocList
@@ -816,7 +808,7 @@ _ts MapSetup_ACDC_Lan_Room_F21
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802D1F4
+    ldr        r0,PTR_BgTask_802D1F4
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802d1f8
     bl         Entity_AllocList
@@ -859,7 +851,7 @@ _ts MapSetup_ACDC_Lan_Room_F22
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802D200
+    ldr        r0,PTR_BgTask_802D200
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802d204
     bl         Entity_AllocList
@@ -950,7 +942,7 @@ MapEntrance_0802d160:
 _ts MapSetup_ACDC_Lan_Room_F23
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802D214
+    ldr        r0,PTR_BgTask_802D214
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802d218
     bl         Entity_AllocList
@@ -1010,34 +1002,34 @@ _ts EventHandler_ACDC_Lan_Room_F23_0
 _ts EventHandler_ACDC_Lan_Room_F23_1
     push       {lr}
     pop        {pc}
-PTR_BgTask_0802D1E4:
+PTR_BgTask_802D1E4:
     .word BgTask_ACDC_Lan_Room_Tileset_Computer
-PTR_BgTask_0802D1E8:
+PTR_BgTask_802D1E8:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 PTR_DAT_0802d1ec:
-    .word EntityAllocParams_08030F60
+    .word EntityAllocParams_8030F60
 PTR_PTR_EventHandler_ACDC_Lan_Room_F20_0_0802d1f0:
     .word PTR_EventHandler_ACDC_Lan_Room_F20_0_0802d05c
-PTR_BgTask_0802D1F4:
+PTR_BgTask_802D1F4:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 PTR_DAT_0802d1f8:
-    .word EntityAllocParams_08030F60
+    .word EntityAllocParams_8030F60
 PTR_PTR_EventHandler_ACDC_Lan_Room_F21_0_0802d1fc:
     .word PTR_EventHandler_ACDC_Lan_Room_F21_0_0802d098
-PTR_BgTask_0802D200:
+PTR_BgTask_802D200:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 PTR_DAT_0802d204:
-    .word EntityAllocParams_08030F60
+    .word EntityAllocParams_8030F60
 PTR_PTR_EventHandler_ACDC_Lan_Room_F22_0_0802d208:
     .word PTR_EventHandler_ACDC_Lan_Room_F22_0_0802d0e4
 DAT_0802d20c:
     .word 0x80848FD
 PTR_MapEntrance_0802d210:
     .word MapEntrance_0802d160
-PTR_BgTask_0802D214:
+PTR_BgTask_802D214:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 PTR_DAT_0802d218:
-    .word EntityAllocParams_08030F60
+    .word EntityAllocParams_8030F60
 PTR_PTR_EventHandler_ACDC_Lan_Room_F23_0_0802d21c:
     .word PTR_EventHandler_ACDC_Lan_Room_F23_0_0802d1c4
 PTR_LAB_080886c4_0802d220:
@@ -1051,7 +1043,7 @@ _ts MapSetup_ACDC_Lan_Room_S3
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_0802D29C
+    ldr        r0,PTR_BgTask_802D29C
     bl         BgTask_AddNew
     pop        {r5}
     bl         Sound_AreaSongChange
@@ -1087,7 +1079,7 @@ _ts MapSetup_ACDC_Lan_Room_F30
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802D2A4
+    ldr        r0,PTR_BgTask_802D2A4
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802d2a8
     bl         Entity_AllocList
@@ -1114,14 +1106,14 @@ _ts EventHandler_ACDC_Lan_Room_F30_0
     pop        {pc}
 PTR_PTR_MapSetup_ACDC_Lan_Room_F30_0802d298:
     .word PTR_MapSetup_ACDC_Lan_Room_F30_0802d240
-PTR_BgTask_0802D29C:
+PTR_BgTask_802D29C:
     .word BgTask_ACDC_Lan_Room_Tileset_Computer
 PTR_PTR_EventHandler_ACDC_Lan_Room_F30_0802d2a0:
     .word PTR_EventHandler_ACDC_Lan_Room_F30_0802d258
-PTR_BgTask_0802D2A4:
+PTR_BgTask_802D2A4:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 PTR_DAT_0802d2a8:
-    .word EntityAllocParams_08030F60
+    .word EntityAllocParams_8030F60
 PTR_PTR_EventHandler_ACDC_Lan_Room_F30_0_0802d2ac:
     .word PTR_EventHandler_ACDC_Lan_Room_F30_0_0802d290
 
@@ -1133,7 +1125,7 @@ _ts MapSetup_ACDC_Lan_Room_S5
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_0802D43C
+    ldr        r0,PTR_BgTask_802D43C
     bl         BgTask_AddNew
     pop        {r5}
     bl         Sound_AreaSongChange
@@ -1183,7 +1175,7 @@ _ts MapSetup_ACDC_Lan_Room_F50
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802D444
+    ldr        r0,PTR_BgTask_802D444
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802d448
     bl         Entity_AllocList
@@ -1227,7 +1219,7 @@ _ts MapSetup_ACDC_Lan_Room_F52
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802D458
+    ldr        r0,PTR_BgTask_802D458
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802d45c
     bl         Entity_AllocList
@@ -1289,7 +1281,7 @@ _nt MapSetup_ACDC_Lan_Room_F53
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802D46C
+    ldr        r0,PTR_BgTask_802D46C
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802d470
     bl         Entity_AllocList
@@ -1328,34 +1320,34 @@ LAB_0802d436:
     pop        {pc}
 PTR_PTR_MapSetup_ACDC_Lan_Room_F50_0802d438:
     .word PTR_MapSetup_ACDC_Lan_Room_F50_0802d2cc
-PTR_BgTask_0802D43C:
+PTR_BgTask_802D43C:
     .word BgTask_ACDC_Lan_Room_Tileset_Computer
 PTR_PTR_EventHandler_ACDC_Lan_Room_F50_0802d440:
     .word PTR_EventHandler_ACDC_Lan_Room_F50_0802d300
-PTR_BgTask_0802D444:
+PTR_BgTask_802D444:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 PTR_DAT_0802d448:
-    .word EntityAllocParams_08030F60
+    .word EntityAllocParams_8030F60
 PTR_PTR_EventHandler_ACDC_Lan_Room_F50_0_0802d44c:
     .word PTR_EventHandler_ACDC_Lan_Room_F50_0_0802d354
 DAT_0802d450:
     .word 0x8085A79
 DAT_0802d454:
     .word 0x14B
-PTR_BgTask_0802D458:
+PTR_BgTask_802D458:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 PTR_DAT_0802d45c:
-    .word EntityAllocParams_08030F60
+    .word EntityAllocParams_8030F60
 PTR_PTR_EventHandler_ACDC_Lan_Room_F52_0_0802d460:
     .word PTR_EventHandler_ACDC_Lan_Room_F52_0_0802d3a4
 DAT_0802d464:
     .word 0x8087E35
 DAT_0802d468:
     .word 0x80848FD
-PTR_BgTask_0802D46C:
+PTR_BgTask_802D46C:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 PTR_DAT_0802d470:
-    .word EntityAllocParams_08030F60
+    .word EntityAllocParams_8030F60
 PTR_PTR_EventHandler_ACDC_Lan_Room_F53_0_0802d474:
     .word PTR_EventHandler_ACDC_Lan_Room_F53_0_0802d41c
 DAT_0802d478:
@@ -1371,7 +1363,7 @@ _ts MapSetup_ACDC_Lan_Room_S4
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_0802D530
+    ldr        r0,PTR_BgTask_802D530
     bl         BgTask_AddNew
     pop        {r5}
     bl         Sound_AreaSongChange
@@ -1421,7 +1413,7 @@ _ts MapSetup_ACDC_Lan_Room_F40
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    ldr        r0,PTR_BgTask_0802D538
+    ldr        r0,PTR_BgTask_802D538
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802d53c
     bl         Entity_AllocList
@@ -1448,13 +1440,13 @@ _ts EventHandler_ACDC_Lan_Room_F40_0
     pop        {pc}
 PTR_PTR_MapSetup_ACDC_Lan_Room_F40_0802d52c:
     .word PTR_MapSetup_ACDC_Lan_Room_F40_0802d49c
-PTR_BgTask_0802D530:
+PTR_BgTask_802D530:
     .word BgTask_ACDC_Lan_Room_Tileset_Computer
 PTR_PTR_EventHandler_ACDC_Lan_Room_F40_0802d534:
     .word PTR_EventHandler_ACDC_Lan_Room_F40_0802d4d0
-PTR_BgTask_0802D538:
+PTR_BgTask_802D538:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 PTR_DAT_0802d53c:
-    .word EntityAllocParams_08030F60
+    .word EntityAllocParams_8030F60
 PTR_PTR_EventHandler_ACDC_Lan_Room_F40_0_0802d540:
     .word PTR_EventHandler_ACDC_Lan_Room_F40_0_0802d524

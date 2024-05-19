@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
     .set FUN_0807db72, 0x807DB72+1
 
 
@@ -121,7 +120,7 @@ LAB_08052370:
     bne        LAB_0805238e
     mov        r0,#0x40
     ldr        r0,[r3,r0]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
 LAB_0805238e:
@@ -137,7 +136,7 @@ LAB_0805238e:
     bne        LAB_080523b0
     mov        r0,#0x50
     ldr        r0,[r3,r0]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
 LAB_080523b0:
@@ -225,7 +224,7 @@ _ts FUN_08052444
     ldr        r0,PTR_PTR_FUN_08052458_080525e8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -352,7 +351,7 @@ _ts FUN_08052528
     ldrb       r1,[r1,r0]
     lsl        r0,r1,#0x2
     ldr        r0,[r3,r0]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     add        r0,r2,#0x0
@@ -364,7 +363,7 @@ _ts FUN_08052528
     ldrb       r1,[r1,r0]
     lsl        r0,r1,#0x2
     ldr        r0,[r3,r0]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     add        r0,r2,#0x0
@@ -376,7 +375,7 @@ _ts FUN_08052528
     ldrb       r1,[r1,r0]
     lsl        r0,r1,#0x2
     ldr        r0,[r3,r0]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     add        r0,r2,#0x0
@@ -388,17 +387,17 @@ _ts FUN_08052528
     ldrb       r1,[r1,r0]
     lsl        r0,r1,#0x2
     ldr        r0,[r3,r0]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     mov        r0,#0x48
     ldr        r0,[r3,r0]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     mov        r0,#0x4c
     ldr        r0,[r3,r0]
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r6,r4]
     add        r4,#0x4
     pop        {pc}
@@ -431,7 +430,7 @@ PTR_BgTask_8051738_080525cc:
     .word BgTask_8051738
 
 DAT_080525d0:
-    .word 0x8052445
+    .word FUN_08052444
 
 PTR_EntityAllocParams_8055428_080525d4:
     .word EntityAllocParams_8055428
@@ -479,13 +478,13 @@ PTR_PTR_0805260c:
     .word PTR_ARRAY_080523e0
 
 PTR_BYTE_ARRAY_08052610:
-    .word 0x8052434
+    .word BYTE_ARRAY_08052434
 
 PTR_BYTE_ARRAY_08052614:
-    .word 0x8052438
+    .word BYTE_ARRAY_08052438
 
 PTR_BYTE_ARRAY_08052618:
-    .word 0x805243C
+    .word BYTE_ARRAY_0805243c
 
 PTR_BYTE_ARRAY_0805261c:
-    .word 0x8052440
+    .word BYTE_ARRAY_08052440

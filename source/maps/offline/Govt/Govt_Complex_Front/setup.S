@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set PlayerLocation_Create, 0x8056020
 
 
 _ts MapSetup_Govt_Complex_Front_S2
@@ -119,7 +118,7 @@ _nt EventHandler_Govt_Complex_Front_F22
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Front_F22_0_0803192c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -197,7 +196,7 @@ _ts EventHandler_Govt_Complex_Front_F23
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Front_F23_0_08031944
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -260,7 +259,7 @@ _nt EventHandler_Govt_Complex_Front_F24
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Front_F24_0_08031958
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -325,7 +324,7 @@ _nt EventHandler_Govt_Complex_Front_F25
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Front_F25_0_0803196c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -531,7 +530,7 @@ _nt EventHandler_Govt_Complex_Front_F30
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Front_F30_0_08031ab4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -715,7 +714,7 @@ _ts EventHandler_Govt_Complex_Front_F40
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Front_F40_0_08031cb0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -979,7 +978,7 @@ _ts EventHandler_Govt_Complex_Front_F50
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Front_F50_0_080320d4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -1102,7 +1101,7 @@ _nt EventHandler_Govt_Complex_Front_F52
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Front_F52_0_080320ec
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -1228,7 +1227,7 @@ _ts EventHandler_Govt_Complex_Front_F53
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Front_F53_0_08032104
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -13,7 +12,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_S2
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08032a34
+    ldr        r0,PTR_BgTask_8032A34
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8035C44_08032a38
     bl         Entity_AllocList
@@ -105,7 +104,7 @@ _ts EventHandler_Govt_Waterworks_Lobby_F22
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F22_0_08032a48
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080329d0
@@ -174,7 +173,7 @@ _nt EventHandler_Govt_Waterworks_Lobby_F24
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F24_0_08032a58
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080329d0
@@ -254,7 +253,7 @@ _ts EventHandler_Govt_Waterworks_Lobby_F25
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F25_0_08032a6c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080329d0
@@ -294,7 +293,7 @@ _nt EventHandler_Govt_Waterworks_Lobby_F26
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F26_0_08032a74
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080329d0
@@ -361,8 +360,8 @@ LAB_08032a2e:
 PTR_PTR_MapSetup_Default_08032a30:
     .word PTR_MapSetup_Default_080327c8
 
-PTR_BgTask_08032a34:
-    .word 0x80311A0
+PTR_BgTask_8032A34:
+    .word BgTask_80311A0
 
 PTR_EntityAllocParams_8035C44_08032a38:
     .word EntityAllocParams_8035C44
@@ -429,7 +428,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_S3
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08032bb4
+    ldr        r0,PTR_BgTask_8032BB4
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8035C44_08032bb8
     bl         Entity_AllocList
@@ -502,7 +501,7 @@ _ts EventHandler_Govt_Waterworks_Lobby_F30
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F30_0_08032bc8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08032b50
@@ -567,8 +566,8 @@ LAB_08032bae:
 PTR_PTR_MapSetup_Govt_Waterworks_Lobby_F30_08032bb0:
     .word PTR_MapSetup_Govt_Waterworks_Lobby_F30_08032aa4
 
-PTR_BgTask_08032bb4:
-    .word 0x80311A0
+PTR_BgTask_8032BB4:
+    .word BgTask_80311A0
 
 PTR_EntityAllocParams_8035C44_08032bb8:
     .word EntityAllocParams_8035C44
@@ -602,7 +601,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_S4
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08032d08
+    ldr        r0,PTR_BgTask_8032D08
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8035C44_08032d0c
     bl         Entity_AllocList
@@ -675,7 +674,7 @@ _ts EventHandler_Govt_Waterworks_Lobby_F40
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F40_0_08032d1c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08032ca4
@@ -740,8 +739,8 @@ LAB_08032d02:
 PTR_PTR_MapSetup_Govt_Waterworks_Lobby_F40_08032d04:
     .word PTR_MapSetup_Govt_Waterworks_Lobby_F40_08032bf8
 
-PTR_BgTask_08032d08:
-    .word 0x80311A0
+PTR_BgTask_8032D08:
+    .word BgTask_80311A0
 
 PTR_EntityAllocParams_8035C44_08032d0c:
     .word EntityAllocParams_8035C44
@@ -775,7 +774,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_S5
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08032e9c
+    ldr        r0,PTR_BgTask_8032E9C
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8035C44_08032ea0
     bl         Entity_AllocList
@@ -844,7 +843,7 @@ _ts EventHandler_Govt_Waterworks_Lobby_F50
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F50_0_08032eb0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08032e38
@@ -884,7 +883,7 @@ _ts EventHandler_Govt_Waterworks_Lobby_F53
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F53_0_08032ebc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08032e38
@@ -949,8 +948,8 @@ LAB_08032e96:
 PTR_PTR_MapSetup_Govt_Waterworks_Lobby_F50_08032e98:
     .word PTR_MapSetup_Govt_Waterworks_Lobby_F50_08032d4c
 
-PTR_BgTask_08032e9c:
-    .word 0x80311A0
+PTR_BgTask_8032E9C:
+    .word BgTask_80311A0
 
 PTR_EntityAllocParams_8035C44_08032ea0:
     .word EntityAllocParams_8035C44

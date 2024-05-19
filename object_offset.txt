@@ -103,7 +103,7 @@ maps/offline/ACDC/ACDC_Mayl_Living_Room/setup 0x2D544
 maps/offline/ACDC/ACDC_Mayl_Room/setup 0x2D994
 maps/offline/ACDC/ACDC_Dex_Room/setup 0x2DD08
 maps/offline/ACDC/ACDC_Yai_Room/setup 0x2E414
-maps/offline/ACDC/ACDC_Higsby/setup 0x2EA3C
+maps/offline/ACDC/ACDC_Higsbys/setup 0x2EA3C
 maps/offline/ACDC/ACDC_Station/setup 0x2F174
 maps/offline/ACDC/ACDC_Secret_Station/setup 0x2F854
 maps/offline/ACDC/assets 0x2F994

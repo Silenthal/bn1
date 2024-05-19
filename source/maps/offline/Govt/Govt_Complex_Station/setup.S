@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-
 
 _ts MapSetup_Govt_Complex_Station_S2
     push       {lr}
@@ -79,7 +77,7 @@ _ts MapSetup_Govt_Complex_Station_F22
     push       {r5}
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08032348
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0803234c
+    ldr        r0,PTR_BgTask_803234C
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -92,7 +90,7 @@ _ts EventHandler_Govt_Complex_Station_F22
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Station_F22_0_08032350
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -147,7 +145,7 @@ _nt MapSetup_Govt_Complex_Station_F23
     push       {r5}
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_0803235c
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08032360
+    ldr        r0,PTR_BgTask_8032360
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -160,7 +158,7 @@ _ts EventHandler_Govt_Complex_Station_F23
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Station_F23_0_08032364
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -215,7 +213,7 @@ _nt MapSetup_Govt_Complex_Station_F26
     push       {r5}
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08032370
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08032374
+    ldr        r0,PTR_BgTask_8032374
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -232,7 +230,7 @@ _nt EventHandler_Govt_Complex_Station_F26
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Station_F26_0_0803237c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -290,8 +288,8 @@ PTR_NPCList_80350EC_08032344:
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08032348:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 
-PTR_BgTask_0803234c:
-    .word 0x802A374
+PTR_BgTask_803234C:
+    .word BgTask_802A374
 
 PTR_PTR_EventHandler_Govt_Complex_Station_F22_0_08032350:
     .word PTR_EventHandler_Govt_Complex_Station_F22_0_080321e8
@@ -305,8 +303,8 @@ DAT_08032358:
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_0803235c:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 
-PTR_BgTask_08032360:
-    .word 0x802A374
+PTR_BgTask_8032360:
+    .word BgTask_802A374
 
 PTR_PTR_EventHandler_Govt_Complex_Station_F23_0_08032364:
     .word PTR_EventHandler_Govt_Complex_Station_F23_0_08032268
@@ -320,8 +318,8 @@ DAT_0803236c:
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08032370:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 
-PTR_BgTask_08032374:
-    .word 0x802A374
+PTR_BgTask_8032374:
+    .word BgTask_802A374
 
 PTR_NPCList_8035134_08032378:
     .word NPCList_8035134
@@ -387,7 +385,7 @@ _ts MapSetup_Govt_Complex_Station_F30
     push       {r5}
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08032480
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08032484
+    ldr        r0,PTR_BgTask_8032484
     bl         BgTask_AddNew
     ldr        r7,PTR_NPCList_8035134_08032488
     bl         Map_LoadNPCList
@@ -402,7 +400,7 @@ _ts EventHandler_Govt_Complex_Station_F30
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Station_F30_0_0803248c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -462,8 +460,8 @@ PTR_PTR_EventHandler_Govt_Complex_Station_F30_0803247c:
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08032480:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 
-PTR_BgTask_08032484:
-    .word 0x802A374
+PTR_BgTask_8032484:
+    .word BgTask_802A374
 
 PTR_NPCList_8035134_08032488:
     .word NPCList_8035134
@@ -529,7 +527,7 @@ _ts MapSetup_Govt_Complex_Station_F40
     push       {r5}
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08032590
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08032594
+    ldr        r0,PTR_BgTask_8032594
     bl         BgTask_AddNew
     ldr        r7,PTR_NPCList_8035134_08032598
     bl         Map_LoadNPCList
@@ -544,7 +542,7 @@ _ts EventHandler_Govt_Complex_Station_F40
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Station_F40_0_0803259c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -604,8 +602,8 @@ PTR_PTR_EventHandler_Govt_Complex_Station_F40_0803258c:
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08032590:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 
-PTR_BgTask_08032594:
-    .word 0x802A374
+PTR_BgTask_8032594:
+    .word BgTask_802A374
 
 PTR_NPCList_8035134_08032598:
     .word NPCList_8035134
@@ -673,7 +671,7 @@ _ts MapSetup_Govt_Complex_Station_F50
     push       {r5}
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_0803274c
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08032750
+    ldr        r0,PTR_BgTask_8032750
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -686,7 +684,7 @@ _ts EventHandler_Govt_Complex_Station_F50
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Station_F50_0_08032754
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -760,7 +758,7 @@ _nt MapSetup_Govt_Complex_Station_F53
     push       {r5}
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_0803276c
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08032770
+    ldr        r0,PTR_BgTask_8032770
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -773,7 +771,7 @@ _nt EventHandler_Govt_Complex_Station_F53
     ldr        r0,PTR_PTR_EventHandler_Govt_Complex_Station_F53_0_08032774
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -838,8 +836,8 @@ PTR_NPCList_8035134_08032748:
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_0803274c:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 
-PTR_BgTask_08032750:
-    .word 0x802A374
+PTR_BgTask_8032750:
+    .word BgTask_802A374
 
 PTR_PTR_EventHandler_Govt_Complex_Station_F50_0_08032754:
     .word PTR_EventHandler_Govt_Complex_Station_F50_0_08032644
@@ -862,8 +860,8 @@ PTR_NPCList_8035134_08032768:
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_0803276c:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 
-PTR_BgTask_08032770:
-    .word 0x802A374
+PTR_BgTask_8032770:
+    .word BgTask_802A374
 
 PTR_PTR_EventHandler_Govt_Complex_Station_F53_0_08032774:
     .word PTR_EventHandler_Govt_Complex_Station_F53_0_080326ec

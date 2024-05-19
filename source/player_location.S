@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Handler, 0x8055440 + 1
     .set SpriteFrame_LoadTileset, 0x3006A00 + 1
 
     .text

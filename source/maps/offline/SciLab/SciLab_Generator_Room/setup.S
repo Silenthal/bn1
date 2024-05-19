@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
     .set FUN_0808199e, 0x808199E
     .set FUN_0807ffba, 0x807FFBA
 
@@ -169,7 +168,7 @@ _ts EventHandler_SciLab_Generator_Room_F43
     ldr        r0,PTR_PTR_EventHandler_SciLab_Generator_Room_F43_0_0803d120
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -349,7 +348,7 @@ _ts EventHandler_SciLab_Generator_Room_F50
     ldr        r0,PTR_PTR_EventHandler_SciLab_Generator_Room_F50_0_0803d1e8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

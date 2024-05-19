@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0804ebc4, 0x804EBC4+1
-    .set PlayerLocation_Create, 0x8056020+1
-    .set FUN_0804ec14, 0x804EC14+1
-
 
 _ts MapSetup_WWW_Comp_4_S5
     push       {lr}
@@ -108,7 +104,7 @@ _ts EventHandler_WWW_Comp_4_F54
     ldr        r0,PTR_PTR_EventHandler_WWW_Comp_4_F54_0_0804dc50
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

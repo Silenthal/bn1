@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
     .set FUN_0807db72, 0x807DB72+1
 
 
@@ -125,7 +124,7 @@ _ts FUN_080529e8
     ldr        r0,PTR_PTR_FUN_080529fc_08052b08
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -237,7 +236,7 @@ LAB_08052ac8:
     pop        {pc}
 
 DAT_08052ad0:
-    .word 0x805294D
+    .word FUN_0805294c
 
 PTR_BgTask_80515C8_08052ad4:
     .word BgTask_80515C8
@@ -264,7 +263,7 @@ PTR_BgTask_8051738_08052af0:
     .word BgTask_8051738
 
 DAT_08052af4:
-    .word 0x80529E9
+    .word FUN_080529e8
 
 PTR_NPCList_8054464_08052af8:
     .word NPCList_8054464

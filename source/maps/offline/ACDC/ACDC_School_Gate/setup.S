@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set FUN_08082de4, 0x8082DE5
     .set LAB_08088db8, 0x8088DB9
     .set LAB_080939b4, 0x80939B5
@@ -89,7 +88,7 @@ _ts MapSetup_ACDC_School_Gate_F20
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802BB78
+    ldr        r0,PTR_BgTask_802BB78
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -106,7 +105,7 @@ _ts EventHandler_ACDC_School_Gate_F20
     ldr        r0,PTR_PTR_EventHandler_ACDC_School_Gate_F20_0_0802bb80
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -122,7 +121,7 @@ _ts EventHandler_ACDC_School_Gate_F20_0
 _ts MapSetup_ACDC_School_Gate_F23
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802BB84
+    ldr        r0,PTR_BgTask_802BB84
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -166,7 +165,7 @@ _ts EventHandler_ACDC_School_Gate_F23
     ldr        r0,PTR_PTR_EventHandler_ACDC_School_Gate_F23_0_0802bb90
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -210,7 +209,7 @@ LAB_0802ba7a:
 _ts MapSetup_ACDC_School_Gate_F24
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802BBA0
+    ldr        r0,PTR_BgTask_802BBA0
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -238,7 +237,7 @@ _ts EventHandler_ACDC_School_Gate_F24
     ldr        r0,PTR_PTR_EventHandler_ACDC_School_Gate_F24_0_0802bbac
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -270,9 +269,9 @@ _ts MapSetup_ACDC_School_Gate_F25
     bl         PlayerLocation_Create
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802BBB4
+    ldr        r0,PTR_BgTask_802BBB4
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802BBB8
+    ldr        r0,PTR_BgTask_802BBB8
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
@@ -287,9 +286,9 @@ LAB_0802bb0a:
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802BBBC
+    ldr        r0,PTR_BgTask_802BBBC
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_0802BBC0
+    ldr        r0,PTR_BgTask_802BBC0
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -306,7 +305,7 @@ _ts EventHandler_ACDC_School_Gate_F26
     ldr        r0,PTR_PTR_EventHandler_ACDC_School_Gate_F26_0_0802bbc8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -336,16 +335,16 @@ PTR_PTR_EventHandler_ACDC_School_Gate_F20_0802bb70:
     .word PTR_EventHandler_ACDC_School_Gate_F20_0802b960
 PTR_PTR_DAT_0802bb74:
     .word NPCList_8030398
-PTR_BgTask_0802BB78:
-    .word BgTask_08029FEC
+PTR_BgTask_802BB78:
+    .word BgTask_8029FEC
 PTR_DAT_0802bb7c:
-    .word EntityAllocParams_08030D80
+    .word EntityAllocParams_8030D80
 PTR_PTR_EventHandler_ACDC_School_Gate_F20_0_0802bb80:
     .word PTR_EventHandler_ACDC_School_Gate_F20_0_0802b9c8
-PTR_BgTask_0802BB84:
-    .word BgTask_0802A004
+PTR_BgTask_802BB84:
+    .word BgTask_802A004
 PTR_DAT_0802bb88:
-    .word EntityAllocParams_08030D80
+    .word EntityAllocParams_8030D80
 PTR_PTR_DAT_0802bb8c:
     .word NPCList_80303D0
 PTR_PTR_EventHandler_ACDC_School_Gate_F23_0_0802bb90:
@@ -356,24 +355,24 @@ PTR_FUN_08082de4_0802bb98:
     .word FUN_08082de4
 INT_0802bb9c:
     .word 0x1501
-PTR_BgTask_0802BBA0:
-    .word BgTask_0802A004
+PTR_BgTask_802BBA0:
+    .word BgTask_802A004
 PTR_DAT_0802bba4:
-    .word EntityAllocParams_08030D80
+    .word EntityAllocParams_8030D80
 PTR_PTR_DAT_0802bba8:
     .word NPCList_80304A4
 PTR_PTR_EventHandler_ACDC_School_Gate_F24_0_0802bbac:
     .word PTR_EventHandler_ACDC_School_Gate_F24_0_0802bac4
 PTR_DAT_0802bbb0:
-    .word EntityAllocParams_08030D80
-PTR_BgTask_0802BBB4:
-    .word BgTask_08029FEC
-PTR_BgTask_0802BBB8:
-    .word BgTask_0802A01C
-PTR_BgTask_0802BBBC:
-    .word BgTask_08029FEC
-PTR_BgTask_0802BBC0:
-    .word BgTask_0802A01C
+    .word EntityAllocParams_8030D80
+PTR_BgTask_802BBB4:
+    .word BgTask_8029FEC
+PTR_BgTask_802BBB8:
+    .word BgTask_802A01C
+PTR_BgTask_802BBBC:
+    .word BgTask_8029FEC
+PTR_BgTask_802BBC0:
+    .word BgTask_802A01C
 PTR_PTR_0802bbc4:
     .word NPCList_8030534
 PTR_PTR_EventHandler_ACDC_School_Gate_F26_0_0802bbc8:
@@ -443,7 +442,7 @@ _ts MapSetup_ACDC_School_Gate_F30
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802BC9C
+    ldr        r0,PTR_BgTask_802BC9C
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -460,7 +459,7 @@ _ts EventHandler_ACDC_School_Gate_F30
     ldr        r0,PTR_PTR_EventHandler_ACDC_School_Gate_F30_0_0802bca4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -477,10 +476,10 @@ PTR_PTR_EventHandler_ACDC_School_Gate_F30_0802bc94:
     .word PTR_EventHandler_ACDC_School_Gate_F30_0802bc20
 PTR_PTR_DAT_0802bc98:
     .word NPCList_8030558
-PTR_BgTask_0802BC9C:
-    .word BgTask_08029FEC
+PTR_BgTask_802BC9C:
+    .word BgTask_8029FEC
 PTR_DAT_0802bca0:
-    .word EntityAllocParams_08030D80
+    .word EntityAllocParams_8030D80
 PTR_PTR_EventHandler_ACDC_School_Gate_F30_0_0802bca4:
     .word PTR_EventHandler_ACDC_School_Gate_F30_0_0802bc88
 
@@ -542,7 +541,7 @@ _ts MapSetup_ACDC_School_Gate_F40
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802BD70
+    ldr        r0,PTR_BgTask_802BD70
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -563,7 +562,7 @@ _ts EventHandler_ACDC_School_Gate_F40
     ldr        r0,PTR_PTR_EventHandler_ACDC_School_Gate_F40_0_0802bd7c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -578,10 +577,10 @@ PTR_PTR_MapSetup_ACDC_School_Gate_F40_0802bd68:
     .word PTR_MapSetup_ACDC_School_Gate_F40_0802bcc4
 PTR_PTR_EventHandler_ACDC_School_Gate_F40_0802bd6c:
     .word PTR_EventHandler_ACDC_School_Gate_F40_0802bcf8
-PTR_BgTask_0802BD70:
-    .word BgTask_08029FEC
+PTR_BgTask_802BD70:
+    .word BgTask_8029FEC
 PTR_DAT_0802bd74:
-    .word EntityAllocParams_08030D80
+    .word EntityAllocParams_8030D80
 PTR_PTR_DAT_0802bd78:
     .word NPCList_8030558
 PTR_PTR_EventHandler_ACDC_School_Gate_F40_0_0802bd7c:
@@ -640,7 +639,7 @@ _ts MapSetup_ACDC_School_Gate_F50
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802BF54
+    ldr        r0,PTR_BgTask_802BF54
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -661,7 +660,7 @@ _nt EventHandler_ACDC_School_Gate_F50
     ldr        r0,PTR_PTR_EventHandler_ACDC_School_Gate_F50_0_0802bf60
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -687,7 +686,7 @@ _ts MapSetup_ACDC_School_Gate_F53
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802BF64
+    ldr        r0,PTR_BgTask_802BF64
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -736,7 +735,7 @@ _nt EventHandler_ACDC_School_Gate_F53
     ldr        r0,PTR_PTR_EventHandler_ACDC_School_Gate_F53_0_0802bf74
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -771,7 +770,6 @@ LAB_0802bef4:
     .align 2, 0
 
 
-
 _ts MapSetup_ACDC_School_Gate_F54
     push       {lr}
     push       {r5}
@@ -784,7 +782,7 @@ _ts MapSetup_ACDC_School_Gate_F54
     mov        r0,#0x74
     bl         Flag_ClearBase
     push       {r5}
-    ldr        r0,PTR_BgTask_0802BF7C
+    ldr        r0,PTR_BgTask_802BF7C
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
@@ -803,7 +801,7 @@ _nt EventHandler_ACDC_School_Gate_F54
     ldr        r0,PTR_PTR_EventHandler_ACDC_School_Gate_F54_0_0802bf88
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -821,18 +819,18 @@ PTR_PTR_MapSetup_ACDC_School_Gate_F50_0802bf4c:
     .word PTR_MapSetup_ACDC_School_Gate_F50_0802bd94
 PTR_PTR_EventHandler_ACDC_School_Gate_F50_0802bf50:
     .word PTR_EventHandler_ACDC_School_Gate_F50_0802bdc8
-PTR_BgTask_0802BF54:
-    .word BgTask_08029FEC
+PTR_BgTask_802BF54:
+    .word BgTask_8029FEC
 PTR_DAT_0802bf58:
-    .word EntityAllocParams_08030D80
+    .word EntityAllocParams_8030D80
 PTR_PTR_DAT_0802bf5c:
     .word NPCList_8030558
 PTR_PTR_EventHandler_ACDC_School_Gate_F50_0_0802bf60:
     .word PTR_EventHandler_ACDC_School_Gate_F50_0_0802be34
-PTR_BgTask_0802BF64:
-    .word BgTask_08029FEC
+PTR_BgTask_802BF64:
+    .word BgTask_8029FEC
 PTR_DAT_0802bf68:
-    .word EntityAllocParams_08030D80
+    .word EntityAllocParams_8030D80
 DAT_0802bf6c:
     .word 0x80938CD
 PTR_PTR_DAT_0802bf70:
@@ -841,10 +839,10 @@ PTR_PTR_EventHandler_ACDC_School_Gate_F53_0_0802bf74:
     .word PTR_EventHandler_ACDC_School_Gate_F53_0_0802bec8
 PTR_LAB_080939b4_0802bf78:
     .word LAB_080939b4
-PTR_BgTask_0802BF7C:
-    .word BgTask_08029FEC
+PTR_BgTask_802BF7C:
+    .word BgTask_8029FEC
 PTR_DAT_0802bf80:
-    .word EntityAllocParams_08030D80
+    .word EntityAllocParams_8030D80
 PTR_PTR_DAT_0802bf84:
     .word NPCList_8030558
 PTR_PTR_EventHandler_ACDC_School_Gate_F54_0_0802bf88:

@@ -9,7 +9,7 @@ global_label NPCList_8053E14
 
     .align 2, 0
 
-NPC_8053E1C:
+global_label NPC_8053E1C
     a_jump_if_flag 0x291, L_8053E41
     a_init
     a_disable_turn
@@ -27,7 +27,7 @@ L_8053E36:
 L_8053E41:
     a_destroy
 
-NPC_8053E42:
+global_label NPC_8053E42
     a_jump_if_flag 0x292, L_8053E67
     a_init
     a_disable_turn
@@ -47,7 +47,7 @@ L_8053E67:
 
     .align 2, 0
 
-NPC_8053E68:
+global_label NPC_8053E68
     a_jump_if_flag 0x293, L_8053E8D
     a_init
     a_disable_turn
@@ -65,7 +65,7 @@ L_8053E82:
 L_8053E8D:
     a_destroy
 
-NPC_8053E8E:
+global_label NPC_8053E8E
     a_jump_if_flag 0x294, L_8053EB3
     a_init
     a_disable_turn
@@ -85,7 +85,7 @@ L_8053EB3:
 
     .align 2, 0
 
-NPC_8053EB4:
+global_label NPC_8053EB4
     a_jump_if_flag 0x295, L_8053ED9
     a_init
     a_disable_turn
@@ -103,7 +103,7 @@ L_8053ECE:
 L_8053ED9:
     a_destroy
 
-NPC_8053EDA:
+global_label NPC_8053EDA
     a_jump_if_flag 0x296, L_8053EFF
     a_init
     a_disable_turn
@@ -123,7 +123,7 @@ L_8053EFF:
 
     .align 2, 0
 
-NPC_8053F00:
+global_label NPC_8053F00
     a_jump_if_flag 0x297, L_8053F25
     a_init
     a_disable_turn
@@ -141,7 +141,7 @@ L_8053F1A:
 L_8053F25:
     a_destroy
 
-NPC_8053F26:
+global_label NPC_8053F26
     a_jump_if_flag 0x298, L_8053F4B
     a_init
     a_disable_turn
@@ -161,7 +161,7 @@ L_8053F4B:
 
     .align 2, 0
 
-NPC_8053F4C:
+global_label NPC_8053F4C
     a_jump_if_flag 0x2D9, L_8053F71
     a_init
     a_disable_turn
@@ -179,7 +179,7 @@ L_8053F66:
 L_8053F71:
     a_destroy
 
-NPC_8053F72:
+global_label NPC_8053F72
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x0
@@ -190,7 +190,7 @@ L_8053F82:
     a_wait 1
     a_jump L_8053F82
 
-NPC_8053F89:
+global_label NPC_8053F89
     a_jump_if_flag 0xE2, L_8053FA7
     a_init
     a_set_dialog 0x5A
@@ -205,7 +205,7 @@ L_8053FA7:
 
     .align 2, 0
 
-NPC_8053FA8:
+global_label NPC_8053FA8
     a_init_no_sprite
     a_disable_dialog
     a_disable_collision

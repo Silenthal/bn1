@@ -361,7 +361,6 @@ tilemapStartMenuCursor:
     .short 0xD29B
 
 
-
 _ts StartMenu_LoadZennyTilemap
     push       {r5,lr}
     ldrb       r0,[r5,#0x4]

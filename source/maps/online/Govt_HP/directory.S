@@ -3,7 +3,7 @@
     .include "macros.inc"
 
 
-FlagSetup_Govt_HP:
+global_label FlagSetup_Govt_HP
     .word FlagSetup_Govt_HP_S0
     .word FlagSetup_Govt_HP_S0
     .word FlagSetup_Govt_HP_S0
@@ -11,7 +11,7 @@ FlagSetup_Govt_HP:
     .word FlagSetup_Govt_HP_S0
     .word FlagSetup_Govt_HP_S0
 
-MapSetup_Govt_HP:
+global_label MapSetup_Govt_HP
     .word MapSetup_Govt_HP_S0
     .word MapSetup_Govt_HP_S1
     .word MapSetup_Govt_HP_S2
@@ -31,7 +31,7 @@ MapSetup_Govt_HP_S2:
     .word MapSetup_Govt_Yuichiro_PC_S2
     .word MapSetup_Govt_Lunch_Cart_Comp_S2
 
-EventHandler_Govt_HP:
+global_label EventHandler_Govt_HP
     .word EventHandler_Govt_HP_S0
     .word EventHandler_Govt_HP_S1
     .word EventHandler_Govt_HP_S2
@@ -51,7 +51,7 @@ EventHandler_Govt_HP_S2:
     .word EventHandler_Govt_Yuichiro_PC_S2
     .word EventHandler_Govt_Lunch_Cart_Comp_S2
 
-MapDialogue_Govt_HP:
+global_label MapDialogue_Govt_HP
     .word MapDialogue_Govt_Yuichiro_PC
     .word MapDialogue_Govt_Lunch_Cart_Comp
 

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_Traffic_Light_Comp_2_S3
     push       {lr}
@@ -94,7 +92,7 @@ _ts EventHandler_Traffic_Light_Comp_2_F33
     ldr        r0,PTR_PTR_EventHandler_Traffic_Light_Comp_2_F33_0_08048488
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -187,7 +185,7 @@ _nt EventHandler_Traffic_Light_Comp_2_F34
     ldr        r0,PTR_PTR_EventHandler_Traffic_Light_Comp_2_F34_0_080484a0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -347,7 +345,7 @@ _ts EventHandler_Traffic_Light_Comp_2_F40
     ldr        r0,PTR_PTR_EventHandler_Traffic_Light_Comp_2_F40_0_080485ac
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

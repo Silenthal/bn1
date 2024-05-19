@@ -17,7 +17,7 @@ _ts GraphicDataSetup_ACDC
     ldrb       r3,[r2,#0x5]
     lsl        r3,r3,#0x2
     add        r0,r0,r3
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     str        r0,[r1,#0x14]
     push       {r5}
     ldrb       r0,[r5,#0x4]
@@ -45,7 +45,7 @@ _ts GraphicDataSetup_ACDC
     ldr        r7,[r7,#0x8]
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
-    ldr        r0,PTR_PTR_spriteList_ACDC_Town_0802a5f0
+    ldr        r0,PTR_SpriteList_ACDC_0802a5f0
     ldr        r0,[r0,r1]
     bl         SpriteLz_DecompressSpriteList
     pop        {r5}
@@ -53,64 +53,75 @@ _ts GraphicDataSetup_ACDC
 
     .align 2, 0
 
-PTR_spriteList_ACDC_Town_0802a578:
-    .word spriteList_ACDC_Town
-    .word spriteList_ACDC_School_Gate
-    .word spriteList_ACDC_Lan_Living_Room
-    .word spriteList_ACDC_Lan_Room
-    .word spriteList_ACDC_None
-    .word spriteList_ACDC_Mayl_Living_Room
-    .word spriteList_ACDC_Mayl_Room
-    .word spriteList_ACDC_Dex_Room
-    .word spriteList_ACDC_None
-    .word spriteList_ACDC_None
-    .word spriteList_ACDC_None
-    .word spriteList_ACDC_Higsby
-    .word spriteList_ACDC_None
-spriteList_ACDC_Town:
+global_label SpriteList_ACDC
+    .word SpriteList_ACDC_Town
+    .word SpriteList_ACDC_School_Gate
+    .word SpriteList_ACDC_Lan_Living_Room
+    .word SpriteList_ACDC_Lan_Room
+    .word SpriteList_ACDC_None
+    .word SpriteList_ACDC_Mayl_Living_Room
+    .word SpriteList_ACDC_Mayl_Room
+    .word SpriteList_ACDC_Dex_Room
+    .word SpriteList_ACDC_None
+    .word SpriteList_ACDC_None
+    .word SpriteList_ACDC_None
+    .word SpriteList_ACDC_Higsbys
+    .word SpriteList_ACDC_None
+
+SpriteList_ACDC_Town:
     .short 0x117
     .short -1
-spriteList_ACDC_School_Gate:
+
+SpriteList_ACDC_School_Gate:
     .short 0xF6
     .short 0x122
     .short -1
-spriteList_ACDC_Lan_Living_Room:
+
+SpriteList_ACDC_Lan_Living_Room:
     .short 0xDD
     .short 0xDE
     .short 0xDF
     .short 0xE1
     .short 0xE8
     .short -1
-spriteList_ACDC_Lan_Room:
+
+SpriteList_ACDC_Lan_Room:
     .short 0xE0
     .short 0x12
     .short -1
-spriteList_ACDC_Mayl_Living_Room:
+
+SpriteList_ACDC_Mayl_Living_Room:
     .short 0xEB
     .short 0xEF
     .short 0xF0
     .short 0xF1
     .short -1
-spriteList_ACDC_Mayl_Room:
+
+SpriteList_ACDC_Mayl_Room:
     .short 0xF2
     .short -1
-spriteList_ACDC_Dex_Room:
+
+SpriteList_ACDC_Dex_Room:
     .short 0xF3
     .short 0xF4
     .short -1
-spriteList_ACDC_Higsby:
+
+SpriteList_ACDC_Higsbys:
     .short 0xED
     .short 0xEE
     .short 0x123
     .short -1
-spriteList_ACDC_None:
+
+SpriteList_ACDC_None:
     .short -1
 
     .align 2, 0
 
 PTR_MapExitList_ACDC_0802a5e8:
     .word MapExitList_ACDC
+
 PTR_gDstCompressedSpriteData_0802a5ec:
     .word gDstCompressedSpriteData
-PTR_PTR_spriteList_ACDC_Town_0802a5f0:
-    .word PTR_spriteList_ACDC_Town_0802a578
+
+PTR_SpriteList_ACDC_0802a5f0:
+    .word SpriteList_ACDC

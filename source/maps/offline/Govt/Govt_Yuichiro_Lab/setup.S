@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set PlayerLocation_Create, 0x8056020
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -91,7 +90,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F22
     ldr        r0,PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F22_0_080339c8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080338d0
@@ -132,7 +131,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F24
     ldr        r0,PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F24_0_080339d0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080338d0
@@ -234,7 +233,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F25
     ldr        r0,PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F25_0_080339d8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_080338d0
@@ -400,7 +399,7 @@ PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F24_0_080339d0:
     .word PTR_EventHandler_Govt_Yuichiro_Lab_F24_0_080337e8
 
 PTR_MapEntrance_080339d4:
-    .word 0x8033854
+    .word MapEntrance_08033854
 
 PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F25_0_080339d8:
     .word PTR_EventHandler_Govt_Yuichiro_Lab_F25_0_080338b0
@@ -503,7 +502,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F30
     ldr        r0,PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F30_0_08033b80
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033ab4
@@ -715,7 +714,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F40
     ldr        r0,PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F40_0_08033d30
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033c4c
@@ -944,7 +943,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F50
     ldr        r0,PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F50_0_08033fd0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033f04
@@ -985,7 +984,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F52
     ldr        r0,PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F52_0_08033fd8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033f04
@@ -1026,7 +1025,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F53
     ldr        r0,PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F53_0_08033fe0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033f04
@@ -1085,7 +1084,7 @@ _ts EventHandler_Govt_Yuichiro_Lab_F54
     ldr        r0,PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F54_0_08033fec
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08033f04

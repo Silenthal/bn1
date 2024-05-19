@@ -2,19 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set NPC_8053F26, 0x8053F26
-    .set PlayerLocation_Create, 0x8056020+1
-    .set NPC_8053F00, 0x8053F00
-    .set NPC_8053E42, 0x8053E42
-    .set NPC_8053F4C, 0x8053F4C
-    .set NPC_8053E8E, 0x8053E8E
-    .set NPC_8053E68, 0x8053E68
-    .set NPC_8053FA8, 0x8053FA8
-    .set NPC_8053EB4, 0x8053EB4
-    .set NPC_8053F72, 0x8053F72
-    .set NPC_8053E1C, 0x8053E1C
-    .set NPC_8053EDA, 0x8053EDA
-
 
 _ts MapSetup_Undernet_12_S0
     push       {lr}
@@ -72,7 +59,7 @@ _nt FUN_08053d96
     ldr        r0,PTR_PTR_FUN_08053dac_08053de0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -92,7 +79,7 @@ _ts FUN_08053dac
     .align 2, 0
 
 DAT_08053db8:
-    .word 0x8053D77
+    .word FUN_08053d76
 
 PTR_BgTask_80515C8_08053dbc:
     .word BgTask_80515C8
@@ -155,7 +142,7 @@ global_label PTR_NPC_8053F4C_08053e08
     .word NPC_8053F4C
 
 global_label PTR_NPC_8053F89_08053e0c
-    .word 0x8053F89
+    .word NPC_8053F89
 
 global_label PTR_NPC_8053FA8_08053e10
     .word NPC_8053FA8

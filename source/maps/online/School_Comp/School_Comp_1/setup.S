@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Scene_JackOut, 0x80836C8+1
-    .set PlayerLocation_Create, 0x8056020+1
     .set FUN_0807db72, 0x807DB72+1
 
 
@@ -99,7 +98,7 @@ _ts EventHandler_School_Comp_1_F01
     ldr        r0,PTR_PTR_EventHandler_School_Comp_1_F01_0_08040778
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -258,7 +257,7 @@ _ts EventHandler_School_Comp_1_F12
     ldr        r0,PTR_PTR_EventHandler_School_Comp_1_F12_0_08040aac
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08040a50
@@ -379,7 +378,7 @@ _ts EventHandler_School_Comp_1_F13
     ldr        r0,PTR_PTR_EventHandler_School_Comp_1_F13_0_08040ac4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08040a50
@@ -449,7 +448,7 @@ _nt EventHandler_School_Comp_1_F14
     ldr        r0,PTR_PTR_EventHandler_School_Comp_1_F14_0_08040ad4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08040a50
@@ -502,7 +501,7 @@ _ts EventHandler_School_Comp_1_F15
     ldr        r0,PTR_PTR_EventHandler_School_Comp_1_F15_0_08040ae0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08040a50
@@ -712,7 +711,7 @@ _ts EventHandler_School_Comp_1_F20
     ldr        r0,PTR_PTR_EventHandler_School_Comp_1_F20_0_08040bf4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r0,#0x1

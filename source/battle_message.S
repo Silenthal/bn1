@@ -250,7 +250,6 @@ messageDelayList:
     .byte 0x3C, 0xFF, 0xFF, 0x00
 
 
-
 _ts BM_StaticMessage_1_ScaleIn
     push       {lr}
     ldr        r3,PTR_scaleListBounceIn_08017d98
@@ -878,7 +877,6 @@ LAB_08017f6a:
 
 scaleListDBBounceOut:
     .byte 0x20, 0x40, 0x80, 0xFF
-
 
 
 _ts BM_DieBomb_3

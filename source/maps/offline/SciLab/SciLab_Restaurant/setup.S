@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020+1
-
 
 _ts MapSetup_SciLab_Restaurant_S4
     push       {lr}
@@ -94,7 +92,7 @@ _ts EventHandler_SciLab_Restaurant_F40
     ldr        r0,PTR_PTR_EventHandler_SciLab_Restaurant_F40_0_0803c460
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -192,7 +190,7 @@ _nt EventHandler_SciLab_Restaurant_F41
     ldr        r0,PTR_PTR_EventHandler_SciLab_Restaurant_F41_0_0803c474
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -233,7 +231,7 @@ _nt EventHandler_SciLab_Restaurant_F43
     ldr        r0,PTR_PTR_EventHandler_SciLab_Restaurant_F43_0_0803c47c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -381,7 +379,7 @@ _ts EventHandler_SciLab_Restaurant_F50
     ldr        r0,PTR_PTR_EventHandler_SciLab_Restaurant_F50_0_0803c534
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

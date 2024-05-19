@@ -773,6 +773,7 @@ global_label EntityAllocParams_804C2D8
     entity Attack, 0x40, f(44, -26, 0), 0xFFFFFFC9
     entity Attack, 0x40, f(44, 22, 0), 0xFFFFFFCA
     entity Attack, 0x40, f(44, 70, 0), 0xFFFFFFCB
+global_label EntityAllocParams_804C418
     entity Effect, 0x1, f(-94, -26, 0), 0x3D
     entity Effect, 0x31, f(-126, -82, 0), 0xFF0200C0
     entity Effect, 0x31, f(-62, -82, 0), 0xFF0101C0
@@ -963,7 +964,7 @@ PTR_Struct_2002070_0804c724:
     .word 0x2002070
 
 PTR_DAT_0804c728:
-    .word 0x804C71C
+    .word DAT_0804c71c
 
 
 _ts FUN_0804c72c
@@ -1217,14 +1218,14 @@ _ts FUN_0804c8a4
     pop        {pc}
 
 PTR_FUN_0804c8d8_0804c8b8:
-    .word 0x804C8D9
-    .word 0x804C8FD
-    .word 0x804C929
-    .word 0x804C959
-    .word 0x804C989
-    .word 0x804C9B9
-    .word 0x804C9E9
-    .word 0x804CA19
+    .word FUN_0804c8d8
+    .word FUN_0804c8fc
+    .word FUN_0804c928
+    .word FUN_0804c958
+    .word FUN_0804c988
+    .word FUN_0804c9b8
+    .word FUN_0804c9e8
+    .word FUN_0804ca18
 
 
 _ts FUN_0804c8d8

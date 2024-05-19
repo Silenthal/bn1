@@ -836,15 +836,15 @@ CreditsSceneData_0:
     .byte 3
     .word CSD_Cam_0
     .word CSD_NPC_0
-    .word 0x802A578
-    .word EntityAllocParams_08030D50
+    .word SpriteList_ACDC
+    .word EntityAllocParams_8030D50
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
-    .word 0x8029F14 @ BgTask_8029F14
-    .word 0x8029F2C @ BgTask_8029F2C
-    .word 0x8029F8C @ BgTask_8029F8C
-    .word 0x8029FA4 @ BgTask_8029FA4
+    .word BgTask_8029F14
+    .word BgTask_8029F2C
+    .word BgTask_8029F8C
+    .word BgTask_8029FA4
     .word  0xFF
 
 CreditsSceneData_1:
@@ -853,17 +853,17 @@ CreditsSceneData_1:
     .byte 3
     .word CSD_Cam_1
     .word CSD_NPC_1
-    .word 0x80431AC
+    .word SpriteList_Oven_Comp
     .word CSD_Entity_1
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
-    .word 0x80423F8 @ BgTask_80423F8
-    .word 0x8042418 @ BgTask_8042418
-    .word 0x8042448 @ BgTask_8042448
-    .word 0x8042498 @ BgTask_8042498
-    .word 0x80424D8 @ BgTask_80424D8
-    .word 0x8042528 @ BgTask_8042528
+    .word BgTask_80423F8
+    .word BgTask_8042418
+    .word BgTask_8042448
+    .word BgTask_8042498
+    .word BgTask_80424D8
+    .word BgTask_8042528
     .word  0xFF
 
 CreditsSceneData_2:
@@ -872,8 +872,8 @@ CreditsSceneData_2:
     .byte 3
     .word CSD_Cam_2
     .word CSD_NPC_2
-    .word PTR_spriteList_School_Class_5A_080242cc
-    .word EntityAllocParams_08029B18
+    .word SpriteList_School
+    .word EntityAllocParams_8029B18
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
@@ -887,16 +887,16 @@ CreditsSceneData_3:
     .byte 3
     .word CSD_Cam_3
     .word CSD_NPC_3
-    .word 0x804056C
+    .word SpriteList_School_Comp
     .word CSD_Entity_3
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
     .word CSD_Task_3_0
     .word CSD_Task_3_1
-    .word 0x803ECF8 @ BgTask_803ECF8
-    .word 0x803ED68 @ BgTask_803ED68
-    .word 0x803F138 @ BgTask_803F138
+    .word BgTask_803ECF8
+    .word BgTask_803ED68
+    .word BgTask_803F138
     .word  0xFF
 
 CreditsSceneData_4:
@@ -905,8 +905,8 @@ CreditsSceneData_4:
     .byte 3
     .word CSD_Cam_4
     .word CSD_NPC_4
-    .word 0x803137C
-    .word 0x8035C18
+    .word SpriteList_Govt
+    .word EntityAllocParams_8035C18
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
@@ -918,12 +918,12 @@ CreditsSceneData_5:
     .byte 3
     .word CSD_Cam_5
     .word CSD_NPC_5
-    .word 0x802A578
-    .word EntityAllocParams_08031024
+    .word SpriteList_ACDC
+    .word EntityAllocParams_8031024
     .word dummy_1cb8
     .word BgUpdate_MoveUp
     .word dummy_6928_far
-    .word 0x8044198 @ BgTask_8044198
+    .word BgTask_8044198
     .word  0xFF
 
 CreditsSceneData_6:
@@ -932,8 +932,8 @@ CreditsSceneData_6:
     .byte 3
     .word CSD_Cam_6
     .word CSD_NPC_6
-    .word 0x802A578
-    .word EntityAllocParams_08031024
+    .word SpriteList_ACDC
+    .word EntityAllocParams_8031024
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
@@ -945,18 +945,18 @@ CreditsSceneData_7:
     .byte 3
     .word CSD_Cam_7
     .word CSD_NPC_7
-    .word 0x8051D5C
+    .word SpriteList_Internet
     .word CSD_Entity_7
     .word dummy_1cb8
     .word BgUpdate_MoveUpLeft
     .word dummy_6928_far
-    .word 0x80515C8 @ BgTask_80515C8
-    .word 0x8051618 @ BgTask_8051618
-    .word 0x8051668 @ BgTask_8051668
-    .word 0x80516B8 @ BgTask_80516B8
-    .word 0x80516F8 @ BgTask_80516F8
-    .word 0x8051780 @ BgTask_8051780
-    .word 0x8051820 @ BgTask_8051820
+    .word BgTask_80515C8
+    .word BgTask_8051618
+    .word BgTask_8051668
+    .word BgTask_80516B8
+    .word BgTask_80516F8
+    .word BgTask_8051780
+    .word BgTask_8051820
     .word  0xFF
 
 CreditsSceneData_8:
@@ -965,7 +965,7 @@ CreditsSceneData_8:
     .byte 3
     .word CSD_Cam_8
     .word CSD_NPC_8
-    .word 0x8035F40
+    .word SpriteList_DenTown
     .word CSD_Entity_8
     .word dummy_1cb8
     .word dummy_1cb8
@@ -978,13 +978,13 @@ CreditsSceneData_9:
     .byte 3
     .word CSD_Cam_9
     .word CSD_NPC_9
-    .word 0x8047EC0
+    .word SpriteList_Traffic_Light_Comp
     .word CSD_Entity_9
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
-    .word 0x80475A4 @ BgTask_80475A4
-    .word 0x80475F4 @ BgTask_80475F4
+    .word BgTask_80475A4
+    .word BgTask_80475F4
     .word CSD_Task_9_2
     .word CSD_Task_9_3
     .word CSD_Task_9_4
@@ -997,13 +997,13 @@ CreditsSceneData_10:
     .byte 3
     .word CSD_Cam_10
     .word CSD_NPC_10
-    .word 0x803BDF4
+    .word SpriteList_SciLab
     .word CSD_Entity_10
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
-    .word 0x803BD78 @ BgTask_803BD78
-    .word 0x803BB84 @ BgTask_803BB84
+    .word BgTask_803BD78
+    .word BgTask_803BB84
     .word  0xFF
 
 CreditsSceneData_11:
@@ -1012,16 +1012,16 @@ CreditsSceneData_11:
     .byte 3
     .word CSD_Cam_11
     .word CSD_NPC_11
-    .word 0x804A17C
+    .word SpriteList_Power_Plant_Comp
     .word CSD_Entity_11
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
-    .word 0x8049C00 @ BgTask_8049C00
-    .word 0x8049C70 @ BgTask_8049C70
-    .word 0x8049CE0 @ BgTask_8049CE0
-    .word 0x8049D50 @ BgTask_8049D50
-    .word 0x8049D68 @ BgTask_8049D68
+    .word BgTask_8049C00
+    .word BgTask_8049C70
+    .word BgTask_8049CE0
+    .word BgTask_8049D50
+    .word BgTask_8049D68
     .word CSD_Task_11_5
     .word  0xFF
 
@@ -1031,12 +1031,12 @@ CreditsSceneData_12:
     .byte 3
     .word CSD_Cam_12
     .word CSD_NPC_12
-    .word 0x803D8E0
+    .word SpriteList_WWW
     .word CSD_Entity_12
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
-    .word 0x803D7E4 @ BgTask_803D7E4
+    .word BgTask_803D7E4
     .word  0xFF
 
 CreditsSceneData_13:
@@ -1045,13 +1045,13 @@ CreditsSceneData_13:
     .byte 3
     .word CSD_Cam_13
     .word CSD_NPC_13
-    .word 0x802A578
+    .word SpriteList_ACDC
     .word CSD_Entity_13
     .word dummy_1cb8
     .word dummy_1cb8
     .word dummy_6928_far
-    .word 0x802A15C @ BgTask_802A15C
-    .word 0x802A204 @ BgTask_802A204
+    .word BgTask_ACDC_Lan_Room_Window_Bird
+    .word BgTask_ACDC_Lan_Room_Tileset_Computer
     .word  0xFF
 
 CSD_Cam_0:
@@ -1464,7 +1464,7 @@ L_80223E4:
 
     .align 2, 0
 
-EntityAllocParams_080223EC:
+EntityAllocParams_80223EC:
     .word 0xFF
 
 CSD_Cam_3:
@@ -1826,7 +1826,7 @@ L_80228EC:
 
     .align 2, 0
 
-EntityAllocParams_080228F4:
+EntityAllocParams_80228F4:
     .word 0xFF
 
 CSD_Cam_5:
@@ -2134,7 +2134,7 @@ L_8022D23:
 
     .align 2, 0
 
-EntityAllocParams_08022D2C:
+EntityAllocParams_8022D2C:
     .word 0xFF
 
 CSD_Cam_6:
@@ -2275,7 +2275,7 @@ L_8022ECC:
 
     .align 2, 0
 
-EntityAllocParams_08022ED4:
+EntityAllocParams_8022ED4:
     .word 0xFF
 
 CSD_Cam_7:

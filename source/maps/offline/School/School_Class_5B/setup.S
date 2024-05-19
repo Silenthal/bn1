@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-
 
 _ts MapSetup_School_Class_5B_S1
     push       {lr}
@@ -54,9 +52,9 @@ PTR_EventHandler_Default_080255c4:
 _ts MapSetup_School_Class_5B_F13
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802574c
+    ldr        r0,PTR_BgTask_802574C
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025750
+    ldr        r0,PTR_BgTask_8025750
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08025754
     bl         Entity_AllocList
@@ -87,7 +85,7 @@ _nt EventHandler_School_Class_5B_F13
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F13_0_0802575c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -125,9 +123,9 @@ _nt EventHandler_School_Class_5B_F13_1
 _nt MapSetup_School_Class_5B_F14
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_08025764
+    ldr        r0,PTR_BgTask_8025764
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025768
+    ldr        r0,PTR_BgTask_8025768
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_0802576c
     bl         Entity_AllocList
@@ -158,7 +156,7 @@ _ts EventHandler_School_Class_5B_F14
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F14_0_08025774
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -198,9 +196,9 @@ _ts EventHandler_School_Class_5B_F14_1
 _ts MapSetup_School_Class_5B_F15
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_0802577c
+    ldr        r0,PTR_BgTask_802577C
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025780
+    ldr        r0,PTR_BgTask_8025780
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08025784
     bl         Entity_AllocList
@@ -224,7 +222,7 @@ _nt EventHandler_School_Class_5B_F15
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F15_0_0802578c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -241,36 +239,36 @@ PTR_PTR_MapSetup_Default_08025744:
     .word PTR_MapSetup_Default_08025598
 PTR_PTR_EventHandler_Default_08025748:
     .word PTR_EventHandler_Default_080255c4
-PTR_BgTask_0802574c:
+PTR_BgTask_802574C:
     .word BgTask_School_TilesetBlackboardEvent
-PTR_BgTask_08025750:
+PTR_BgTask_8025750:
     .word BgTask_School_PaletteBlackboardOn
 PTR_EntityAllocParams_ARRAY_08025754:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_DAT_08025758:
     .word NPCList_80292FC
 PTR_PTR_EventHandler_School_Class_5B_F13_0_0802575c:
     .word PTR_EventHandler_School_Class_5B_F13_0_0802563c
 DAT_08025760:
     .word 0x8087E35
-PTR_BgTask_08025764:
+PTR_BgTask_8025764:
     .word BgTask_School_TilesetBlackboardEvent
-PTR_BgTask_08025768:
+PTR_BgTask_8025768:
     .word BgTask_School_PaletteBlackboardOn
 PTR_EntityAllocParams_ARRAY_0802576c:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_DAT_08025770:
     .word NPCList_80292FC
 PTR_PTR_EventHandler_School_Class_5B_F14_0_08025774:
     .word PTR_EventHandler_School_Class_5B_F14_0_080256c4
 DAT_08025778:
     .word 0x8087E35
-PTR_BgTask_0802577c:
+PTR_BgTask_802577C:
     .word BgTask_School_TilesetBlackboardEvent
-PTR_BgTask_08025780:
+PTR_BgTask_8025780:
     .word BgTask_School_PaletteBlackboardOn
 PTR_EntityAllocParams_ARRAY_08025784:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_DAT_08025788:
     .word NPCList_80292FC
 PTR_PTR_EventHandler_School_Class_5B_F15_0_0802578c:
@@ -336,9 +334,9 @@ PTR_EventHandler_School_Class_5B_F20_080257f4:
 _ts MapSetup_School_Class_5B_F20
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_08025a40
+    ldr        r0,PTR_BgTask_8025A40
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025a44
+    ldr        r0,PTR_BgTask_8025A44
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08025a48
     bl         Entity_AllocList
@@ -360,7 +358,7 @@ _nt EventHandler_School_Class_5B_F20
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F20_0_08025a50
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -378,9 +376,9 @@ _ts EventHandler_School_Class_5B_F20_0
 _ts MapSetup_School_Class_5B_F21
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_08025a54
+    ldr        r0,PTR_BgTask_8025A54
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025a58
+    ldr        r0,PTR_BgTask_8025A58
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08025a5c
     bl         Entity_AllocList
@@ -402,7 +400,7 @@ _nt EventHandler_School_Class_5B_F21
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F21_0_08025a64
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -420,9 +418,9 @@ _ts EventHandler_School_Class_5B_F21_0
 _ts MapSetup_School_Class_5B_F22
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_08025a68
+    ldr        r0,PTR_BgTask_8025A68
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025a6c
+    ldr        r0,PTR_BgTask_8025A6C
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08025a70
     bl         Entity_AllocList
@@ -444,7 +442,7 @@ _nt EventHandler_School_Class_5B_F22
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F22_0_08025a78
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -462,9 +460,9 @@ _ts EventHandler_School_Class_5B_F22_0
 _ts MapSetup_School_Class_5B_F24
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_08025a7c
+    ldr        r0,PTR_BgTask_8025A7C
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025a80
+    ldr        r0,PTR_BgTask_8025A80
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08025a84
     bl         Entity_AllocList
@@ -486,7 +484,7 @@ _nt EventHandler_School_Class_5B_F24
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F24_0_08025a8c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -504,9 +502,9 @@ _ts EventHandler_School_Class_5B_F24_0
 _ts MapSetup_School_Class_5B_F25
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_08025a90
+    ldr        r0,PTR_BgTask_8025A90
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025a94
+    ldr        r0,PTR_BgTask_8025A94
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08025a98
     bl         Entity_AllocList
@@ -526,7 +524,7 @@ _ts EventHandler_School_Class_5B_F25
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F25_0_08025a9c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -547,9 +545,9 @@ _ts EventHandler_School_Class_5B_F25_0
 _ts MapSetup_School_Class_5B_F26
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_08025aa0
+    ldr        r0,PTR_BgTask_8025AA0
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025aa4
+    ldr        r0,PTR_BgTask_8025AA4
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08025aa8
     bl         Entity_AllocList
@@ -569,7 +567,7 @@ _ts EventHandler_School_Class_5B_F26
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F26_0_08025aac
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -590,9 +588,9 @@ _ts EventHandler_School_Class_5B_F26_0
 _ts MapSetup_School_Class_5B_F27
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_08025ab0
+    ldr        r0,PTR_BgTask_8025AB0
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025ab4
+    ldr        r0,PTR_BgTask_8025AB4
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08025ab8
     bl         Entity_AllocList
@@ -612,7 +610,7 @@ _ts EventHandler_School_Class_5B_F27
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F27_0_08025abc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -632,68 +630,68 @@ PTR_PTR_MapSetup_School_Class_5B_F20_08025a38:
     .word PTR_MapSetup_School_Class_5B_F20_080257c8
 PTR_PTR_EventHandler_School_Class_5B_F20_08025a3c:
     .word PTR_EventHandler_School_Class_5B_F20_080257f4
-PTR_BgTask_08025a40:
+PTR_BgTask_8025A40:
     .word BgTask_School_TilesetBlackboardGraph
-PTR_BgTask_08025a44:
+PTR_BgTask_8025A44:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_08025a48:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_DAT_08025a4c:
     .word NPCList_802937C
 PTR_PTR_EventHandler_School_Class_5B_F20_0_08025a50:
     .word PTR_EventHandler_School_Class_5B_F20_0_0802585c
-PTR_BgTask_08025a54:
+PTR_BgTask_8025A54:
     .word BgTask_School_TilesetBlackboardGraph
-PTR_BgTask_08025a58:
+PTR_BgTask_8025A58:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_08025a5c:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_DAT_08025a60:
     .word NPCList_802937C
 PTR_PTR_EventHandler_School_Class_5B_F21_0_08025a64:
     .word PTR_EventHandler_School_Class_5B_F21_0_080258ac
-PTR_BgTask_08025a68:
+PTR_BgTask_8025A68:
     .word BgTask_School_TilesetBlackboardGraph
-PTR_BgTask_08025a6c:
+PTR_BgTask_8025A6C:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_08025a70:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_DAT_08025a74:
     .word NPCList_802937C
 PTR_PTR_EventHandler_School_Class_5B_F22_0_08025a78:
     .word PTR_EventHandler_School_Class_5B_F22_0_080258fc
-PTR_BgTask_08025a7c:
+PTR_BgTask_8025A7C:
     .word BgTask_School_TilesetBlackboardGraph
-PTR_BgTask_08025a80:
+PTR_BgTask_8025A80:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_08025a84:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_DAT_08025a88:
     .word NPCList_80293AC
 PTR_PTR_EventHandler_School_Class_5B_F24_0_08025a8c:
     .word PTR_EventHandler_School_Class_5B_F24_0_0802594c
-PTR_BgTask_08025a90:
+PTR_BgTask_8025A90:
     .word BgTask_School_TilesetBlackboardGraph
-PTR_BgTask_08025a94:
+PTR_BgTask_8025A94:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_08025a98:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_EventHandler_School_Class_5B_F25_0_08025a9c:
     .word PTR_EventHandler_School_Class_5B_F25_0_08025998
-PTR_BgTask_08025aa0:
+PTR_BgTask_8025AA0:
     .word BgTask_School_TilesetBlackboardGraph
-PTR_BgTask_08025aa4:
+PTR_BgTask_8025AA4:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_08025aa8:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_EventHandler_School_Class_5B_F26_0_08025aac:
     .word PTR_EventHandler_School_Class_5B_F26_0_080259e4
-PTR_BgTask_08025ab0:
+PTR_BgTask_8025AB0:
     .word BgTask_School_TilesetBlackboardGraph
-PTR_BgTask_08025ab4:
+PTR_BgTask_8025AB4:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_08025ab8:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_EventHandler_School_Class_5B_F27_0_08025abc:
     .word PTR_EventHandler_School_Class_5B_F27_0_08025a30
 
@@ -738,9 +736,9 @@ PTR_EventHandler_School_Class_5B_F30_08025afc:
 _ts MapSetup_School_Class_5B_F30
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_BgTask_08025b70
+    ldr        r0,PTR_BgTask_8025B70
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08025b74
+    ldr        r0,PTR_BgTask_8025B74
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_ARRAY_08025b78
     bl         Entity_AllocList
@@ -760,7 +758,7 @@ _ts EventHandler_School_Class_5B_F30
     ldr        r0,PTR_PTR_EventHandler_School_Class_5B_F30_0_08025b7c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     mov        r1,#0x2
@@ -780,11 +778,11 @@ PTR_PTR_MapSetup_School_Class_5B_F30_08025b68:
     .word PTR_MapSetup_School_Class_5B_F30_08025ad0
 PTR_PTR_EventHandler_School_Class_5B_F30_08025b6c:
     .word PTR_EventHandler_School_Class_5B_F30_08025afc
-PTR_BgTask_08025b70:
+PTR_BgTask_8025B70:
     .word BgTask_School_TilesetBlackboardGraph
-PTR_BgTask_08025b74:
+PTR_BgTask_8025B74:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_EntityAllocParams_ARRAY_08025b78:
-    .word EntityAllocParams_08029B18
+    .word EntityAllocParams_8029B18
 PTR_PTR_EventHandler_School_Class_5B_F30_0_08025b7c:
     .word PTR_EventHandler_School_Class_5B_F30_0_08025b60

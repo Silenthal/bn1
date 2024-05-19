@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set FUN_080871a8, 0x80871A9
-    .set PlayerLocation_Create, 0x8056020
     .set FUN_08082de4, 0x8082DE5
 
 
@@ -82,7 +81,7 @@ _ts EventHandler_School_1F_Hallway_F10
     ldr        r0,PTR_PTR_EventHandler_School_1F_Hallway_F10_0_08027994
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -175,7 +174,7 @@ _nt EventHandler_School_1F_Hallway_F14
     ldr        r0,PTR_PTR_EventHandler_School_1F_Hallway_F14_0_080279a4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08027916
@@ -274,7 +273,7 @@ _ts EventHandler_School_1F_Hallway_F15
     ldr        r0,PTR_PTR_EventHandler_School_1F_Hallway_F15_0_080279b0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     bl         FUN_08027916
@@ -509,7 +508,7 @@ _ts EventHandler_School_1F_Hallway_F20
     ldr        r0,PTR_PTR_EventHandler_School_1F_Hallway_F20_0_08027c5c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -557,7 +556,7 @@ _nt EventHandler_School_1F_Hallway_F23
     ldr        r0,PTR_PTR_EventHandler_School_1F_Hallway_F23_0_08027c64
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -647,7 +646,7 @@ _nt EventHandler_School_1F_Hallway_F24
     ldr        r0,PTR_PTR_EventHandler_School_1F_Hallway_F24_0_08027c70
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -715,7 +714,7 @@ _ts EventHandler_School_1F_Hallway_F25
     ldr        r0,PTR_PTR_EventHandler_School_1F_Hallway_F25_0_08027c78
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -836,7 +835,7 @@ _nt EventHandler_School_1F_Hallway_F30
     ldr        r0,PTR_PTR_EventHandler_School_1F_Hallway_F30_0_08027d18
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

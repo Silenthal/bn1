@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
-
 
 _ts MapSetup_Govt_Waterworks_Purification_Room_S2
     push       {lr}
@@ -12,9 +10,9 @@ _ts MapSetup_Govt_Waterworks_Purification_Room_S2
     mov        lr,pc
     bx         r0
     push       {r5}
-    ldr        r0,PTR_BgTask_08034d18
+    ldr        r0,PTR_BgTask_8034D18
     bl         BgTask_AddNew
-    ldr        r0,PTR_BgTask_08034d1c
+    ldr        r0,PTR_BgTask_8034D1C
     bl         BgTask_AddNew
     pop        {r5}
     bl         Sound_AreaSongChange
@@ -71,7 +69,7 @@ _ts EventHandler_Govt_Waterworks_Purification_Room_F24
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Purification_Room_F24_0_08034d28
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -98,11 +96,11 @@ LAB_08034d12:
 PTR_PTR_MapSetup_Default_08034d14:
     .word PTR_MapSetup_Default_08034c78
 
-PTR_BgTask_08034d18:
-    .word 0x80312E8
+PTR_BgTask_8034D18:
+    .word BgTask_80312E8
 
-PTR_BgTask_08034d1c:
-    .word 0x8031300
+PTR_BgTask_8034D1C:
+    .word BgTask_8031300
 
 PTR_PTR_EventHandler_Default_08034d20:
     .word PTR_EventHandler_Default_08034ca4
@@ -177,7 +175,7 @@ _ts EventHandler_Govt_Waterworks_Purification_Room_F40
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Purification_Room_F30_0_08034dd0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -273,7 +271,7 @@ _nt EventHandler_Govt_Waterworks_Purification_Room_F50
     ldr        r0,PTR_PTR_EventHandler_Govt_Waterworks_Purification_Room_F50_0_08034e8c
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

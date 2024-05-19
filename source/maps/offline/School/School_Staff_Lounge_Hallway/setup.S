@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set PlayerLocation_Create, 0x8056020
     .set FUN_08082de4, 0x8082DE5
     .set FUN_08087e34, 0x8087E35
 
@@ -85,7 +84,7 @@ _ts EventHandler_School_Staff_Lounge_Hallway_F15
     ldr        r0,PTR_PTR_EventHandler_School_Staff_Lounge_Hallway_F15_0_08028620
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -242,7 +241,7 @@ _nt EventHandler_School_Staff_Lounge_Hallway_F20
     ldr        r0,PTR_PTR_EventHandler_School_Staff_Lounge_Hallway_F20_0_080287e0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -298,7 +297,7 @@ _nt EventHandler_School_Staff_Lounge_Hallway_F23
     ldr        r0,PTR_PTR_EventHandler_School_Staff_Lounge_Hallway_F23_0_080287f0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -350,7 +349,7 @@ _ts EventHandler_School_Staff_Lounge_Hallway_F24
     ldr        r0,PTR_PTR_EventHandler_School_Staff_Lounge_Hallway_F24_0_080287f8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -456,7 +455,7 @@ _nt EventHandler_School_Staff_Lounge_Hallway_F50
     ldr        r0,PTR_PTR_EventHandler_School_Staff_Lounge_Hallway_F50_0_08028898
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
@@ -536,7 +535,7 @@ _ts EventHandler_School_Staff_Lounge_Hallway_F30
     ldr        r0,PTR_PTR_EventHandler_School_Staff_Lounge_Hallway_F30_0_08028958
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
-    .byte 0x00, 0x68 @ ldr r0, [r0, #0x0]
+    ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}

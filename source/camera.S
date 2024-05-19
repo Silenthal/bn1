@@ -60,7 +60,6 @@ LAB_08010c82:
     pop        {pc}
 
 
-
 _ts Camera_UpdatePos
     push       {lr}
     mov        r5,r10
