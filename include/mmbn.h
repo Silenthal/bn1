@@ -2480,6 +2480,17 @@ typedef enum SongId {
     T_NoSong=255
 } SongId;
 
+typedef enum ShieldType {
+    ST_LifeAura=0,
+    ST_AquaAura=1,
+    ST_FireAura=2,
+    ST_WoodAura=3,
+    ST_Barrier=128,
+    ST_BubbleWrap=129,
+    ST_LeafShield=130,
+    ST_None=255
+} ShieldType;
+
 typedef struct PlayerLocation PlayerLocation, *PPlayerLocation;
 
 typedef struct Struct_83BA4 Struct_83BA4, *PStruct_83BA4;

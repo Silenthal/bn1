@@ -501,7 +501,7 @@ PTR_areaPropertiesRightPlayer_08002ff0: .word areaPropertiesRightPlayer
 
 
 @@ Marks the field object as being able to deal damage
-_nt FieldObject_SetDamageFlag
+_nt FieldObject_Enable
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x2
     orr        r1,r2
@@ -510,7 +510,7 @@ _nt FieldObject_SetDamageFlag
 
 
 @@ Marks the field object so that it can't deal damage
-_nt FieldObject_ClearDamageFlag
+_nt FieldObject_Disable
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x2
     bic        r1,r2
@@ -545,7 +545,7 @@ _ts FieldObject_DisableIfHitFlagSet
     beq        LAB_08003034
     bic        r1,r2
     str        r1,[r0,#0xc]
-    bl         FieldObject_ClearDamageFlag
+    bl         FieldObject_Disable
 LAB_08003034:
     pop        {pc}
 

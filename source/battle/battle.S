@@ -4,7 +4,6 @@
 
     .set FUN_0809bc4c, 0x809bc4c
     .set tilesetBattleMiscellaneous, 0x8640854
-    .set Struct_7C_Init, 0x8056234
     .set Struct_C1C0_0200c1c0, 0x200c1c0
     .set PlayerMpState_ARRAY_020075a0, 0x20075a0
     .set Sio_SetReady, 0x809bdf0
@@ -183,7 +182,7 @@ LAB_080059b4:
     mov        r0,#0x0
     strb       r0,[r7,#0x9]
     str        r0,[r6,#0x58]
-    bl         Struct_7C_Init
+    bl         FieldObstacleManager_Init
     push       {r5}
     mov        r0,#0x1
     mov        r1,#0x10

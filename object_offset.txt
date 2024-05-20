@@ -283,7 +283,11 @@ maps/online/Internet/Undernet_10/setup 0x53904
 maps/online/Internet/Undernet_11/setup 0x53B40
 maps/online/Internet/Undernet_12/setup 0x53D2C
 maps/online/Internet/assets 0x53E14
-player_location_handler 0x55440
+player_location_handler     0x55440
+routine/actor               0x5610C
+routine/field_obstacle      0x56234
+routine/poison_drain        0x562BC
+routine/player              0x56300
 routine/routine_canodumb    0x59910
 entity/effect/quickeffect   0x7B474
 battle_rank                 0x7D5B0
