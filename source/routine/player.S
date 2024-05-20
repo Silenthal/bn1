@@ -2840,7 +2840,7 @@ listHandlerBattleChip:
     .word BattleChip_Barrier
     .word BattleChip_XPanel
     .word BattleChip_Recover
-    .word BattleChip_TimeStop
+    .word BattleChip_ScreenDim
     .word BattleChip_PoweredCannon
     .word BattleChip_ZetaOmegaPA
     .word BattleChip_Navi
@@ -4192,7 +4192,7 @@ _nt BC_Recover_1_Free
     pop        {pc}
 
 
-_ts BattleChip_TimeStop
+_ts BattleChip_ScreenDim
     push       {lr}
     mov        r3,#0x67
     ldrb       r0,[r5,r3]
@@ -4333,7 +4333,7 @@ _nt BattleChip_Navi
     bne        LAB_0805815a
     mov        r0,#0xf
     bl         ActorPlayer_ClearFlag_1
-    ldr        r7,PTR_TimeStopArg_ARRAY_080581c8
+    ldr        r7,PTR_ScreenDimArg_ARRAY_080581c8
     mov        r3,#0x61
     ldrb       r3,[r5,r3]
     lsl        r3,r3,#0x1
@@ -4358,7 +4358,7 @@ LAB_0805815a:
     bl         R_Player_ResetChipUseState
     pop        {pc}
 
-TimeStopArg_ARRAY_08058166:
+ScreenDimArg_ARRAY_08058166:
     .byte 0x01, 0x00
     .byte 0x01, 0x01
     .byte 0x01, 0x02
@@ -4409,8 +4409,8 @@ TimeStopArg_ARRAY_08058166:
     .byte 0x2D, 0x02
     .byte 0x2E, 0x00
 
-PTR_TimeStopArg_ARRAY_080581c8:
-    .word TimeStopArg_ARRAY_08058166
+PTR_ScreenDimArg_ARRAY_080581c8:
+    .word ScreenDimArg_ARRAY_08058166
 
 
 _ts BattleChip_Arrow
