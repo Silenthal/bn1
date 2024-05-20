@@ -2,17 +2,15 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
+    .set Entity_CompareToPlayerRow, 0x805AADC+1
+    .set CanodumbTarget_Create, 0x8071B60+1
+    .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
-    .set Routine_CheckPoisonDrain, 0x80562d6
-    .set Entity_CompareToPlayerRow, 0x805aadc
-    .set CanodumbTarget_Create, 0x8071B60
-    .set Effect_CreateVirusDeleteExplosion, 0x807ce16
 
 _ts Routine_Canodumb
     push       {lr}
     ldrb       r0,[r5,#0x8]
-    ldr        r7,PTR_PTR_R_Canodumb_0_Init
+    ldr        r7,PTR_PTR_R_Canodumb_0_Init_08059930
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -21,12 +19,15 @@ _ts Routine_Canodumb
 
     .align 2, 0
 
-PTR_R_Canodumb_0_Init:
+
+PTR_R_Canodumb_0_Init_08059924:
     .word R_Canodumb_0_Init
     .word R_Canodumb_1_Main
     .word R_Canodumb_2_Free
-PTR_PTR_R_Canodumb_0_Init:
-    .word PTR_R_Canodumb_0_Init
+
+PTR_PTR_R_Canodumb_0_Init_08059930:
+    .word PTR_R_Canodumb_0_Init_08059924
+
 
 _ts R_Canodumb_0_Init
     push       {lr}
@@ -66,6 +67,7 @@ _ts R_Canodumb_0_Init
     bl         Battle_PriorityQueueEnqueue
     pop        {pc}
 
+
 _ts R_Canodumb_1_Main
     push       {lr}
     bl         Battle_EntitySpriteCoordsToCell
@@ -89,7 +91,7 @@ LAB_080599b6:
     bl         Routine_CheckPoisonDrain
     ldr        r6,[r5,#0x60]
     ldrh       r0,[r5,#0x18]
-    ldr        r1,DAT_08059a44
+    ldr        r1,PanelFlag_08059a44
     ldrb       r2,[r5,#0x1a]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
@@ -110,7 +112,7 @@ LAB_080599b6:
     bl         Sound_PlaySongImmediate
 LAB_080599f8:
     ldrb       r0,[r5,#0x9]
-    ldr        r7,PTR_PTR_R_Canodumb_1_0_Spawn
+    ldr        r7,PTR_PTR_R_Canodumb_1_0_Spawn_08059a40
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -132,36 +134,44 @@ LAB_08059a24:
 
     .align 2, 0
 
-PTR_R_Canodumb_1_0_Spawn:
+
+PTR_R_Canodumb_1_0_Spawn_08059a28:
     .word R_Canodumb_1_0_Spawn
     .word R_Canodumb_1_1_WaitForBattleStart
     .word R_Canodumb_1_4_Observe
     .word R_Canodumb_1_4_Observe
     .word R_Canodumb_1_4_Observe
     .word R_Canodumb_1_5_Act
-PTR_PTR_R_Canodumb_1_0_Spawn:
-    .word PTR_R_Canodumb_1_0_Spawn
-DAT_08059a44: .word 0x28850
+
+PTR_PTR_R_Canodumb_1_0_Spawn_08059a40:
+    .word PTR_R_Canodumb_1_0_Spawn_08059a28
+
+PanelFlag_08059a44:
+    .word PF_PlayerOccupied | PF_Player | PF_Solid | PF_FieldBlock | PF_Apple
+
 
 _ts R_Canodumb_1_0_Spawn
     push       {lr}
-    ldr        r7,PTR_PTR_R_Canodumb_1_0_0_ResetAnimState
+    ldr        r7,PTR_PTR_R_Canodumb_1_0_0_ResetAnimState_08059a64
     ldrb       r0,[r5,#0xa]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     pop        {pc}
+
     .align 2, 0
 
 
-PTR_R_Canodumb_1_0_0_ResetAnimState:
+PTR_R_Canodumb_1_0_0_ResetAnimState_08059a58:
     .word R_Canodumb_1_0_0_ResetAnimState
     .word R_Canodumb_1_0_1_InitSpawn
     .word R_Canodumb_1_0_2_WaitForBattleStart
-PTR_PTR_R_Canodumb_1_0_0_ResetAnimState:
-    .word PTR_R_Canodumb_1_0_0_ResetAnimState
 
-_nt R_Canodumb_1_0_0_ResetAnimState
+PTR_PTR_R_Canodumb_1_0_0_ResetAnimState_08059a64:
+    .word PTR_R_Canodumb_1_0_0_ResetAnimState_08059a58
+
+
+_ts R_Canodumb_1_0_0_ResetAnimState
     push       {lr}
     bl         Battle_PriorityQueueIsEntityNext
     tst        r0,r0
@@ -172,7 +182,8 @@ _nt R_Canodumb_1_0_0_ResetAnimState
 LAB_08059a7a:
     pop        {pc}
 
-_nt R_Canodumb_1_0_1_InitSpawn
+
+_ts R_Canodumb_1_0_1_InitSpawn
     push       {lr}
     bl         BattleSpawnAnimation_Main
     tst        r0,r0
@@ -183,7 +194,8 @@ _nt R_Canodumb_1_0_1_InitSpawn
 LAB_08059a8e:
     pop        {pc}
 
-_nt R_Canodumb_1_0_2_WaitForBattleStart
+
+_ts R_Canodumb_1_0_2_WaitForBattleStart
     push       {lr}
     bl         Battle_GetEntryState
     mov        r1,#0x8
@@ -195,6 +207,7 @@ _nt R_Canodumb_1_0_2_WaitForBattleStart
     strh       r0,[r5,#0xa]
 LAB_08059aa4:
     pop        {pc}
+
 
 _nt R_Canodumb_1_1_WaitForBattleStart
     push       {lr}
@@ -222,10 +235,11 @@ LAB_08059ac0:
 LAB_08059ad2:
     pop        {pc}
 
-_nt R_Canodumb_1_4_Observe
+
+_ts R_Canodumb_1_4_Observe
     push       {lr}
     ldrb       r0,[r5,#0xa]
-    ldr        r7,PTR_PTR_R_Canodumb_1_4_0_CheckRow
+    ldr        r7,PTR_PTR_R_Canodumb_1_4_0_CheckRow_08059afc
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -239,13 +253,16 @@ _nt R_Canodumb_1_4_Observe
     strh       r1,[r5,#0xa]
 LAB_08059af2:
     pop        {pc}
-PTR_R_Canodumb_1_4_0_CheckRow:
-    .word       R_Canodumb_1_4_0_CheckRow
-    .word       R_Canodumb_1_4_1_CheckRow
-PTR_PTR_R_Canodumb_1_4_0_CheckRow:
-    .word       PTR_R_Canodumb_1_4_0_CheckRow
 
-_nt R_Canodumb_1_4_0_CheckRow
+PTR_R_Canodumb_1_4_0_CheckRow_08059af4:
+    .word R_Canodumb_1_4_0_CheckRow
+    .word R_Canodumb_1_4_1_CheckRow
+
+PTR_PTR_R_Canodumb_1_4_0_CheckRow_08059afc:
+    .word PTR_R_Canodumb_1_4_0_CheckRow_08059af4
+
+
+_ts R_Canodumb_1_4_0_CheckRow
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
@@ -254,7 +271,8 @@ _nt R_Canodumb_1_4_0_CheckRow
     bl         R_Canodumb_1_4_1_CheckRow
     pop        {pc}
 
-_nt R_Canodumb_1_4_1_CheckRow
+
+_ts R_Canodumb_1_4_1_CheckRow
     push       {lr}
     bl         Entity_CompareToPlayerRow
     tst        r0,r0
@@ -266,27 +284,31 @@ _nt R_Canodumb_1_4_1_CheckRow
 LAB_08059b22:
     pop        {pc}
 
-_nt R_Canodumb_1_5_Act
+
+_ts R_Canodumb_1_5_Act
     push       {lr}
     ldrb       r0,[r5,#0xa]
-    ldr        r7,PTR_PTR_R_Canodumb_1_5_0_Delay_1_08059b48
+    ldr        r7,PTR_PTR_R_Canodumb_1_5_0_Delay_08059b48
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     pop        {pc}
+
     .align 2, 0
 
 
-PTR_R_Canodumb_1_5_0_Delay_1_08059b34:
+PTR_R_Canodumb_1_5_0_Delay_08059b34:
     .word R_Canodumb_1_5_0_Delay
     .word R_Canodumb_1_5_1_CreateTarget
     .word R_Canodumb_1_5_2_Attack
     .word R_Canodumb_1_5_3_WaitForAnimEnd
     .word R_Canodumb_1_5_4_Recovery
-PTR_PTR_R_Canodumb_1_5_0_Delay_1_08059b48:
-    .word PTR_R_Canodumb_1_5_0_Delay_1_08059b34
 
-_nt R_Canodumb_1_5_0_Delay
+PTR_PTR_R_Canodumb_1_5_0_Delay_08059b48:
+    .word PTR_R_Canodumb_1_5_0_Delay_08059b34
+
+
+_ts R_Canodumb_1_5_0_Delay
     push       {lr}
     mov        r0,#0x20
     strh       r0,[r5,#0x1c]
@@ -294,7 +316,8 @@ _nt R_Canodumb_1_5_0_Delay
     strb       r0,[r5,#0xa]
     pop        {pc}
 
-_nt R_Canodumb_1_5_1_CreateTarget
+
+_ts R_Canodumb_1_5_1_CreateTarget
     push       {lr}
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -328,6 +351,7 @@ LAB_08059b88:
 LAB_08059b90:
     pop        {pc}
 
+
 _nt R_Canodumb_1_5_2_Attack
     push       {lr}
     ldr        r7,[r5,#0x6c]
@@ -354,7 +378,8 @@ LAB_08059bb6:
 LAB_08059bbe:
     pop        {pc}
 
-_nt R_Canodumb_1_5_3_WaitForAnimEnd
+
+_ts R_Canodumb_1_5_3_WaitForAnimEnd
     push       {lr}
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
@@ -384,20 +409,22 @@ LAB_08059be8:
 
 _nt R_Canodumb_2_Free
     push       {lr}
-    ldr        r7,PTR_PTR_R_Canodumb_2_0_StartAnimExplode
+    ldr        r7,PTR_PTR_R_Canodumb_2_0_StartAnimExplode_08059c00
     ldrb       r0,[r5,#0x9]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     pop        {pc}
-PTR_R_Canodumb_2_0_StartAnimExplode:
+
+PTR_R_Canodumb_2_0_StartAnimExplode_08059bf8:
     .word R_Canodumb_2_0_StartAnimExplode
     .word R_Canodumb_2_1_Free
-PTR_PTR_R_Canodumb_2_0_StartAnimExplode:
-    .word PTR_R_Canodumb_2_0_StartAnimExplode
+
+PTR_PTR_R_Canodumb_2_0_StartAnimExplode_08059c00:
+    .word PTR_R_Canodumb_2_0_StartAnimExplode_08059bf8
 
 
-_nt R_Canodumb_2_0_StartAnimExplode
+_ts R_Canodumb_2_0_StartAnimExplode
     push       {lr}
     ldr        r0,[r5,#0x60]
     bl         FieldObject_Free
@@ -408,7 +435,7 @@ _nt R_Canodumb_2_0_StartAnimExplode
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
-    bl         Effect_CreateVirusDeleteExplosion
+    bl         Effect_VirusDeleteExplosion_Create
     add        r0,r5,#0x0
     pop        {r5}
     str        r0,[r5,#0x7c]
@@ -417,7 +444,7 @@ _nt R_Canodumb_2_0_StartAnimExplode
     pop        {pc}
 
 
-_nt R_Canodumb_2_1_Free
+_ts R_Canodumb_2_1_Free
     push       {lr}
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -459,3 +486,4 @@ LAB_08059c6c:
     pop        {pc}
 
     .align 2, 0
+

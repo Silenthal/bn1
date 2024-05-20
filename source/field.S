@@ -436,7 +436,7 @@ _ts Field_GetDamageOnEntity
     pop        {pc}
 
 
-_ts FieldObject_SetPanelFlags
+_ts Field_SetPanelFlagsOnEntity
     push       {r5,lr}
     push       {r1}
     bl         Field_GetPanelFlagGroup
