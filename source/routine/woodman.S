@@ -1369,7 +1369,7 @@ PTR_DAT_0805952c:
 _ts FUN_08059530_IsTargetablePanelToLeft
     push       {lr}
     push       {r0,r1}
-    bl         Battle_CheckCellPosOutOfBounds
+    bl         Battle_IsOutOfBounds
     add        r2,r0,#0x0
     pop        {r0,r1}
     tst        r2,r2
@@ -1384,7 +1384,7 @@ _ts FUN_08059530_IsTargetablePanelToLeft
 LAB_08059550:
     sub        r0,#0x1
     push       {r0,r1}
-    bl         Battle_CheckCellPosOutOfBounds
+    bl         Battle_IsOutOfBounds
     add        r2,r0,#0x0
     pop        {r0,r1}
     tst        r2,r2

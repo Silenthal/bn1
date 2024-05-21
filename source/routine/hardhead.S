@@ -1,0 +1,452 @@
+#include "offsets.h"
+    .include "constants.inc"
+    .include "macros.inc"
+
+    .set Attack_Howitzer_Create, 0x8071D70+1
+    .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
+
+listHardHeadAttackDelay:
+    .byte 0xF0
+    .byte 0xB4
+    .byte 0x5A
+
+    .align 2, 0
+
+
+
+_ts Routine_HardHead
+    push       {lr}
+    mov        r3,#0x28
+    add        r7,r5,r3
+    ldmia      r7!,{r0,r1,r2}
+    stmia      r7!,{r0,r1,r2}
+    bl         SpritePtr_ResetPalette
+    ldr        r7,PTR_PTR_R_HardHead_0_Init_0805c7c4
+    ldrb       r0,[r5,#0x8]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    pop        {pc}
+
+    .align 2, 0
+
+
+PTR_PTR_R_HardHead_0_Init_0805c7c4:
+    .word PTR_R_HardHead_0_Init_0805c7c8
+
+PTR_R_HardHead_0_Init_0805c7c8:
+    .word R_HardHead_0_Init
+    .word R_HardHead_1_Main
+    .word R_HardHead_2_Free
+
+
+_ts R_HardHead_0_Init
+    push       {lr}
+    ldrb       r0,[r5,#0x0]
+    mov        r1,#0x2
+    bic        r0,r1
+    strb       r0,[r5,#0x0]
+    mov        r0,#0x1
+    mov        r1,#0x25
+    bl         Sprite_InitSpritePtr
+    bl         SpritePtr_SetZClip
+    mov        r0,#0x0
+    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#0x15]
+    bl         SpritePtr_SetFrameIndex
+    bl         SpritePtr_InitFrames
+    ldrb       r0,[r5,#0x4]
+    bl         SpritePtr_SetPaletteIndex
+    mov        r3,#0x28
+    add        r7,r5,r3
+    mov        r3,#0x50
+    add        r6,r5,r3
+    ldmia      r7!,{r0,r1,r2}
+    stmia      r6!,{r0,r1,r2}
+    bl         Battle_LoadEnemyHp
+    bl         Battle_PriorityQueueEnqueue
+    mov        r0,#0x1e
+    strh       r0,[r5,#0x24]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x1a]
+    mov        r0,#0xc
+    mov        r3,#0x64
+    add        r1,r5,r3
+    bl         Field_CreateEntity
+    mov        r0,#0x1
+    strb       r0,[r5,#0x5]
+    mov        r0,#0x4
+    str        r0,[r5,#0x8]
+    mov        r0,#0x4
+    strb       r0,[r5,#0xb]
+    bl         R_HardHead_1_Main
+    ldr        r0,[r5,#0x64]
+    bl         FieldObject_MarkAsChecked
+    pop        {pc}
+
+
+_ts R_HardHead_1_Main
+    push       {lr}
+    ldr        r0,[r5,#0x64]
+    bl         FieldObject_DisableIfHitFlagSet
+    mov        r0,#0x0
+    bl         FieldObject_UpdateField
+    ldrb       r0,[r5,#0x18]
+    ldrb       r1,[r5,#0x19]
+    bl         Field_GetPanelFlags
+    mov        r1,#0x1
+    tst        r0,r1
+    bne        LAB_0805c86a
+    bl         Battle_DecreaseOpponentCount
+    mov        r0,#0x8
+    str        r0,[r5,#0x8]
+    pop        {pc}
+    ldr        r0,[r5,#0x64]
+    bl         FieldObject_SetHitFlag
+    b          LAB_0805c8d0
+LAB_0805c86a:
+    bl         Battle_IsInputLocked
+    bne        LAB_0805c8d0
+    ldrh       r0,[r5,#0x20]
+    tst        r0,r0
+    ble        LAB_0805c8b0
+    bl         Routine_CheckPoisonDrain
+    tst        r0,r0
+    bne        LAB_0805c8b0
+    mov        r0,#0xa
+    ldr        r1,[r5,#0x64]
+    bl         Field_GetDamageOnEntity
+    tst        r0,r0
+    beq        LAB_0805c8d0
+    mov        r1,#0x40
+    lsl        r1,r1,#0x8
+    tst        r0,r1
+    bne        LAB_0805c8b0
+    ldrb       r0,[r5,#0x1a]
+    bl         Field_CalcDamageDealt
+    tst        r0,r0
+    beq        LAB_0805c8d0
+    ldrb       r1,[r5,#0x5]
+    tst        r1,r1
+    bne        LAB_0805c8d0
+    bl         Field_SubtractHP
+    bl         SpritePtr_SetFlashPalette
+    ldrh       r0,[r5,#0x20]
+    tst        r0,r0
+    bne        LAB_0805c8ca
+LAB_0805c8b0:
+    bl         Battle_DecreaseOpponentCount
+    mov        r0,#0x70
+    bl         Sound_PlaySongImmediate
+    ldr        r0,[r5,#0x64]
+    bl         FieldObject_SetHitFlag
+    mov        r0,#0x0
+    strh       r0,[r5,#0x20]
+    mov        r0,#0x8
+    str        r0,[r5,#0x8]
+    pop        {pc}
+LAB_0805c8ca:
+    mov        r0,#0x6f
+    bl         Sound_PlaySongImmediate
+LAB_0805c8d0:
+    ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0805c8e0
+    ldrb       r0,[r5,#0x9]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    bl         UpdateSpriteFrameIndex
+    pop        {pc}
+
+PTR_PTR_R_Actor_1_0_Spawn_0805c8e0:
+    .word PTR_R_Actor_1_0_Spawn_0805c8e4
+
+PTR_R_Actor_1_0_Spawn_0805c8e4:
+    .word R_Actor_1_0_Spawn
+    .word R_HardHead_1_1_WaitUntilBattleStart
+    .word R_HardHead_1_2_Wait
+    .word R_HardHead_1_3_Attack
+
+
+_ts R_HardHead_1_1_WaitUntilBattleStart
+    push       {lr}
+    ldrb       r0,[r5,#0xa]
+    tst        r0,r0
+    bne        LAB_0805c90e
+    mov        r0,#0x0
+    strb       r0,[r5,#0x14]
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r0,[r7,#0x7]
+    add        r0,#0x1
+    strb       r0,[r7,#0x7]
+    mov        r0,#0x4
+    strh       r0,[r5,#0xa]
+LAB_0805c90e:
+    bl         Battle_GetEntryState
+    mov        r1,#0x1
+    cmp        r0,r1
+    beq        LAB_0805c920
+    mov        r0,#0x8
+    strb       r0,[r5,#0x9]
+    mov        r0,#0x0
+    strh       r0,[r5,#0xa]
+LAB_0805c920:
+    pop        {pc}
+
+
+_nt R_HardHead_1_2_Wait
+    push       {lr}
+    ldr        r7,PTR_PTR_R_HardHead_1_2_0_SetDelay_0805c944
+    ldrb       r0,[r5,#0xa]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    bl         Battle_GetEntryState
+    mov        r1,#0x1
+    tst        r0,r1
+    beq        LAB_0805c940
+    mov        r1,#0x4
+    strb       r1,[r5,#0x9]
+    mov        r1,#0x0
+    strh       r1,[r5,#0xa]
+LAB_0805c940:
+    pop        {pc}
+
+    .align 2, 0
+
+
+PTR_PTR_R_HardHead_1_2_0_SetDelay_0805c944:
+    .word PTR_R_HardHead_1_2_0_SetDelay_0805c948
+
+PTR_R_HardHead_1_2_0_SetDelay_0805c948:
+    .word R_HardHead_1_2_0_SetDelay
+    .word R_HardHead_1_2_1_Next
+
+
+_ts R_HardHead_1_2_0_SetDelay
+    push       {lr}
+    mov        r0,#0x0
+    strb       r0,[r5,#0x14]
+    ldr        r7,PTR_listHardHeadAttackDelay_0805c964
+    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r7,r0]
+    strh       r0,[r5,#0x1c]
+    mov        r0,#0x4
+    strh       r0,[r5,#0xa]
+    pop        {pc}
+
+PTR_listHardHeadAttackDelay_0805c964:
+    .word listHardHeadAttackDelay
+
+
+_ts R_HardHead_1_2_1_Next
+    push       {lr}
+    ldrh       r0,[r5,#0x1c]
+    sub        r0,#0x1
+    strh       r0,[r5,#0x1c]
+    bne        LAB_0805c97a
+    mov        r0,#0xc
+    strb       r0,[r5,#0x9]
+    mov        r0,#0x0
+    strh       r0,[r5,#0xa]
+LAB_0805c97a:
+    pop        {pc}
+
+
+_ts R_HardHead_1_3_Attack
+    push       {lr}
+    ldr        r7,PTR_PTR_R_HardHead_1_3_0_PrepareOpen_0805c98c
+    ldrb       r0,[r5,#0xa]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    pop        {pc}
+
+    .align 2, 0
+
+
+PTR_PTR_R_HardHead_1_3_0_PrepareOpen_0805c98c:
+    .word PTR_R_HardHead_1_3_0_PrepareOpen_0805c990
+
+PTR_R_HardHead_1_3_0_PrepareOpen_0805c990:
+    .word R_HardHead_1_3_0_PrepareOpen
+    .word R_HardHead_1_3_1_Open
+    .word R_HardHead_1_3_2_Wait
+    .word R_HardHead_1_3_3_Fire
+    .word R_HardHead_1_3_4_Recover
+    .word R_HardHead_1_3_5_Close
+    .word R_HardHead_1_3_6_Next
+
+
+_ts R_HardHead_1_3_0_PrepareOpen
+    push       {lr}
+    mov        r0,#0x3
+    strb       r0,[r5,#0x14]
+    mov        r0,#0x5
+    strh       r0,[r5,#0x1c]
+    mov        r0,#0x4
+    strh       r0,[r5,#0xa]
+    pop        {pc}
+
+
+_ts R_HardHead_1_3_1_Open
+    push       {lr}
+    ldrh       r0,[r5,#0x1c]
+    sub        r0,#0x1
+    strh       r0,[r5,#0x1c]
+    bne        LAB_0805c9da
+    mov        r0,#0x1
+    strb       r0,[r5,#0x14]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x5]
+    mov        r0,#0x9
+    ldr        r1,[r5,#0x64]
+    bl         Field_SetPanelFlagsOnEntity
+    mov        r0,#0x8
+    strh       r0,[r5,#0xa]
+LAB_0805c9da:
+    pop        {pc}
+
+
+_ts R_HardHead_1_3_2_Wait
+    push       {lr}
+    bl         SpritePtr_GetFrameStatus
+    mov        r1,#0x80
+    tst        r0,r1
+    beq        LAB_0805c9f0
+    mov        r0,#0x2
+    strb       r0,[r5,#0x14]
+    mov        r0,#0xc
+    strh       r0,[r5,#0xa]
+LAB_0805c9f0:
+    pop        {pc}
+
+
+_nt R_HardHead_1_3_3_Fire
+    push       {lr}
+    bl         SpritePtr_GetFrameStatus
+    mov        r1,#0x81
+    tst        r0,r1
+    beq        LAB_0805ca2c
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldr        r7,[r7,#0x40]
+    ldrb       r0,[r7,#0x18]
+    lsl        r0,r0,#0x10
+    ldrb       r4,[r7,#0x19]
+    lsl        r4,r4,#0x18
+    orr        r4,r0
+    mov        r3,#0x28
+    add        r7,r5,r3
+    ldmia      r7!,{r1,r2,r3}
+    mov        r6,#0x10
+    lsl        r6,r6,#0x10
+    sub        r1,r1,r6
+    add        r3,r3,r6
+    mov        r6,#0x1e
+    bl         Attack_Howitzer_Create
+    mov        r0,#0x74
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x10
+    strh       r0,[r5,#0xa]
+LAB_0805ca2c:
+    pop        {pc}
+
+
+_nt R_HardHead_1_3_4_Recover
+    push       {lr}
+    bl         SpritePtr_GetFrameStatus
+    mov        r1,#0x80
+    tst        r0,r1
+    beq        LAB_0805ca42
+    mov        r0,#0x3c
+    strh       r0,[r5,#0x1c]
+    mov        r0,#0x14
+    strh       r0,[r5,#0xa]
+LAB_0805ca42:
+    pop        {pc}
+
+
+_ts R_HardHead_1_3_5_Close
+    push       {lr}
+    ldrh       r0,[r5,#0x1c]
+    sub        r0,#0x1
+    strh       r0,[r5,#0x1c]
+    bne        LAB_0805ca56
+    mov        r0,#0x4
+    strb       r0,[r5,#0x14]
+    mov        r0,#0x18
+    strh       r0,[r5,#0xa]
+LAB_0805ca56:
+    pop        {pc}
+
+
+_ts R_HardHead_1_3_6_Next
+    push       {lr}
+    bl         SpritePtr_GetFrameStatus
+    mov        r1,#0x80
+    tst        r0,r1
+    beq        LAB_0805ca78
+    mov        r0,#0x1
+    strb       r0,[r5,#0x5]
+    mov        r0,#0xc
+    ldr        r1,[r5,#0x64]
+    bl         Field_SetPanelFlagsOnEntity
+    mov        r0,#0x8
+    strb       r0,[r5,#0x9]
+    mov        r0,#0x0
+    strh       r0,[r5,#0xa]
+LAB_0805ca78:
+    pop        {pc}
+
+
+_nt R_HardHead_2_Free
+    push       {lr}
+    ldr        r7,PTR_PTR_R_HardHead_2_0_Delete_0805ca88
+    ldrb       r0,[r5,#0x9]
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    pop        {pc}
+
+PTR_PTR_R_HardHead_2_0_Delete_0805ca88:
+    .word PTR_R_HardHead_2_0_Delete_0805ca8c
+
+PTR_R_HardHead_2_0_Delete_0805ca8c:
+    .word R_HardHead_2_0_Delete
+    .word R_HardHead_2_1_Free
+
+
+_ts R_HardHead_2_0_Delete
+    push       {lr}
+    bl         Battle_RegisterVirusDelete
+    ldr        r0,[r5,#0x64]
+    bl         FieldObject_Disable
+    mov        r0,#0x3
+    strb       r0,[r5,#0x14]
+    push       {r5}
+    add        r0,r5,#0x0
+    bl         Effect_VirusDeleteExplosion_Create
+    pop        {r5}
+    mov        r0,#0x20
+    strh       r0,[r5,#0x1c]
+    mov        r0,#0x4
+    strb       r0,[r5,#0x9]
+    pop        {pc}
+
+
+_ts R_HardHead_2_1_Free
+    push       {lr}
+    ldrh       r0,[r5,#0x1c]
+    sub        r0,#0x1
+    strh       r0,[r5,#0x1c]
+    bne        LAB_0805cad0
+    ldr        r0,[r5,#0x64]
+    bl         FieldObject_Free
+    bl         Battle_RemoveFromEnemyList
+    bl         Actor_Free
+LAB_0805cad0:
+    pop        {pc}
+
+    .align 2, 0
+

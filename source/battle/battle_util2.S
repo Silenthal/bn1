@@ -3492,7 +3492,7 @@ _ts Inventory_SubtractZenny
     pop        { pc }
 
 
-_nt Battle_CheckCellPosOutOfBounds
+_nt Battle_IsOutOfBounds
     sub        r0,#0x1
     cmp        r0,#0x5
     bhi        LAB_08009cbe

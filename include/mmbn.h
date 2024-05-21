@@ -1669,7 +1669,30 @@ typedef enum FuncState {
     FS_1=4,
     FS_2=8,
     FS_3=12,
-    FS_4=16
+    FS_4=16,
+    FS_5=20,
+    FS_6=24,
+    FS_7=28,
+    FS_8=32,
+    FS_9=36,
+    FS_10=40,
+    FS_11=44,
+    FS_12=48,
+    FS_13=52,
+    FS_14=56,
+    FS_15=60,
+    FS_16=64,
+    FS_17=68,
+    FS_18=72,
+    FS_19=76,
+    FS_20=80,
+    FS_21=84,
+    FS_22=88,
+    FS_23=92,
+    FS_24=96,
+    FS_25=100,
+    FS_26=104,
+    FS_27=108
 } FuncState;
 
 typedef struct TilemapEntry TilemapEntry, *PTilemapEntry;
