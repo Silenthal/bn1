@@ -310,6 +310,10 @@ routine/cloudy              0x5EEC8
 routine/stoneman            0x5F3B0
 routine/fireman_chip        0x5F998
 routine/numberman_chip      0x5FB98
+routine/floshell            0x5FD94
+routine/gutsman_chip        0x603B4
+routine/handy               0x605CC
+routine/iceman              0x60BF8
 entity/effect/quickeffect   0x7B474
 battle_rank                 0x7D5B0
 enemy_drop                  0x7D80E

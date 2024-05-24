@@ -851,7 +851,7 @@ LAB_08059188:
     add        r0,r0,r5
     ldr        r4,DAT_080591f0
     ldr        r6,DAT_080591f4
-    bl         FUN_08000dd4
+    bl         CalculateGravity
     str        r0,[r5,#0x4c]
     strh       r1,[r5,#0x1c]
 LAB_080591d0:

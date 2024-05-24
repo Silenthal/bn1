@@ -2340,7 +2340,7 @@ LAB_0805734e:
     pop        {pc}
 
 
-_ts FUN_08057350
+_ts Routine_IsPlayerFrozen
     push       {r5,lr}
     mov        r7,r10
     ldr        r7,[r7,#0xc]
@@ -2355,7 +2355,7 @@ LAB_08057364:
     pop        {r5,pc}
 
 
-_ts FUN_08057368
+_ts Routine_IsPlayerInvulnerable
     mov        r0,r10
     ldr        r0,[r0,#0xc]
     ldr        r0,[r0,#0x40]

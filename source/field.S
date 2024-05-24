@@ -8,7 +8,7 @@
 
     .set Attack_SharpStrike_Create, 0x80719ac
 
-_nt FUN_08000dd4
+_nt CalculateGravity
     push       {r5,lr}
     tst        r4,r4
     bne        LAB_08000e02
@@ -1001,7 +1001,7 @@ _ts Field_CrackPanel
     mov        r0,#0x1
     pop        {pc}
 LAB_0800154c:
-    ldr        r2,INT_0800156c
+    ldr        r2,PanelFlag_0800156c
     tst        r7,r2
     bne        LAB_08001562
     push       {r0,r1}
@@ -1019,11 +1019,13 @@ LAB_08001566:
 
     .align 2, 0
 
-INT_0800156c: .word 0x2000C30
+PanelFlag_0800156c:
+    .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Teleporting | PF_Solid | PF_Sealed
 
-_ts FUN_08001570
+
+_ts Field_CrackAllEnemyPanels
     push       {lr}
-    ldr        r7,PTR_LAB_080015ac
+    ldr        r7,PTR_listPanelFilter_080015ac
     add        r7,r7,r0
     ldrb       r2,[r7,#0x0]
     ldrb       r3,[r7,#0x2]
@@ -1054,12 +1056,17 @@ LAB_080015a2:
     bpl        LAB_0800157c
     pop        {pc}
 
-PTR_LAB_080015ac:   .word LAB_080015b0
+PTR_listPanelFilter_080015ac:
+    .word listPanelFilter
 
-LAB_080015b0:
-    lsl        r3,r0,#0x4
-LAB_080015b2:
-    lsl        r0,r0,#0x8
+listPanelFilter:
+    .byte 0x03
+    .byte 0x01
+    .byte 0x00
+    .byte 0x02
+
+
+_ts Field_CrackAllPanels
     push       {lr}
     mov        r2,#0x1
     mov        r3,#0x0
