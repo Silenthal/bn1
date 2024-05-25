@@ -314,6 +314,15 @@ routine/floshell            0x5FD94
 routine/gutsman_chip        0x603B4
 routine/handy               0x605CC
 routine/iceman              0x60BF8
+routine/coldbear            0x61530
+routine/iceman_chip         0x61A64
+routine/stoneman_chip       0x61C70
+routine/jelly               0x61F04
+routine/ratty               0x623A4
+routine/popper              0x628A8
+routine/skullman            0x62CB8
+routine/colorman            0x633C0
+routine/mini_colorman       0x639D4
 entity/effect/quickeffect   0x7B474
 battle_rank                 0x7D5B0
 enemy_drop                  0x7D80E

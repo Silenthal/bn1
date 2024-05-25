@@ -8,7 +8,7 @@
 
     .set Attack_SharpStrike_Create, 0x80719ac
 
-_nt CalculateGravity
+_nt Field_CalculateGravityZ
     push       {r5,lr}
     tst        r4,r4
     bne        LAB_08000e02
@@ -72,7 +72,7 @@ LAB_08000e30:
     pop        {r5,pc}
 
 
-_nt FUN_08000e4e
+_nt Field_CalculateGravityXY
     push       {lr}
     ldr        r7,[r0,#0x0]
     sub        r1,r1,r7

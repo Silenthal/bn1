@@ -280,7 +280,7 @@ _ts R_Flappy_1_2_1_CalculateArc
     ldr        r3,DAT_0805e574
     str        r3,[r5,#0x4c]
     ldr        r4,DAT_0805e578
-    bl         FUN_08000e4e
+    bl         Field_CalculateGravityXY
     strh       r0,[r5,#0x1c]
     str        r1,[r5,#0x44]
     str        r2,[r5,#0x48]
