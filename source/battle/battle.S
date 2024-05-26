@@ -349,7 +349,7 @@ JT_R5_0C_5B1C:
 
 _ts Battle_2_0_EnemyDeleted
     push       {lr}
-    ldr        r7,=PTR_Battle_2_0_1_LoadMessage
+    ldr        r7,=PTR_Battle_2_0_0_LoadMessage
     ldrb       r0,[r5,#0x2]
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -358,14 +358,14 @@ _ts Battle_2_0_EnemyDeleted
 
     .align 2, 0
 
-PTR_Battle_2_0_1_LoadMessage:
-    .word Battle_2_0_1_LoadMessage
-    .word Battle_2_0_2_ShowMessage
-    .word Battle_2_0_3_CalculateRank
+PTR_Battle_2_0_0_LoadMessage:
+    .word Battle_2_0_0_LoadMessage
+    .word Battle_2_0_1_ShowMessage
+    .word Battle_2_0_2_CalculateRank
 
     .pool
 
-_nt Battle_2_0_1_LoadMessage
+_nt Battle_2_0_0_LoadMessage
     push       {lr}
     push       {r5}
     mov        r0,#0x1
@@ -376,7 +376,7 @@ _nt Battle_2_0_1_LoadMessage
     pop        {pc}
 
 
-_nt Battle_2_0_2_ShowMessage
+_nt Battle_2_0_1_ShowMessage
     push       {lr}
     push       {r5}
     mov        r0,#0x1
@@ -392,7 +392,7 @@ LAB_08005b7e:
     pop        {pc}
 
 
-_ts Battle_2_0_3_CalculateRank
+_ts Battle_2_0_2_CalculateRank
     push       {lr}
     ldrh       r0,[r5,#0x2e]
     sub        r0,#0x1

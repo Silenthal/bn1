@@ -192,7 +192,7 @@ PTR_gAreaProperties_08006bb8: .word gAreaProperties
 DAT_08006bbc: .word 900
 
 
-_ts FUN_08006bc0
+_ts Battle_EndNow
     push       {lr}
     tst        r0,r0
     bne        LAB_08006bce
