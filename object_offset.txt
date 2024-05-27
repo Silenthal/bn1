@@ -342,6 +342,17 @@ routine/fanner              0x68410
 routine/candevil            0x686E4
 routine/deathstorm          0x68AC4
 routine/mosqurito           0x68D2C
+routine/drain               0x69264
+routine/lifevirus           0x694F0
+routine/colorman_chip       0x69BC8
+routine/mini_colorman_chip  0x69D6C
+routine/protoman_chip       0x69F74
+routine/sharkman_chip       0x6A324
+routine/elecman_chip        0x6A608
+routine/magicman            0x6A82C
+routine/pharaohman          0x6ADA4
+routine/poitton             0x6B1EC
+routine/shadowman           0x6B758
 entity/effect/quickeffect   0x7B474
 battle_rank                 0x7D5B0
 enemy_drop                  0x7D80E
