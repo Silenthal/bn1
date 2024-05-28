@@ -12,7 +12,7 @@ _ts AgbMain
     bl         Main_Init
     LoadStateTo r0, Main_manager
     movs       r1,#MS_Splash
-    strb       r1,[r0, #Manager_m_gameState]
+    strb       r1,[r0, #Manager_gameState]
 .mainLoop:
     bl         Main_SoftResetCheck
     bl         Main_WaitFrames
@@ -34,7 +34,7 @@ _ts AgbMain
     bl         IncrementGameTimer
     ldr        r0,=jumpTableMain
     LoadStateTo r1, Main_manager
-    ldrb       r1,[r1,#Manager_m_gameState]
+    ldrb       r1,[r1,#Manager_gameState]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0

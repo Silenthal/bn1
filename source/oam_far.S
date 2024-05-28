@@ -407,13 +407,13 @@ Oam_TransferData:
     ldr        r7,=iwOamAttributeList
     add        r7,r7,r5
     @ Copy xyDetails and tileDetails from the object to the location in OAM
-    ldr        r5,[r7,#OamAttributeListNode_m_xyDetails]
-    str        r5,[r0,#ObjectControl_m_xyDetails]
-    ldrh       r5,[r7,#OamAttributeListNode_m_tileDetail]
-    strh       r5,[r0,#ObjectControl_m_tileDetails]
+    ldr        r5,[r7,#OamAttributeListNode_xyDetails]
+    str        r5,[r0,#ObjectControl_xyDetails]
+    ldrh       r5,[r7,#OamAttributeListNode_tileDetail]
+    strh       r5,[r0,#ObjectControl_tileDetails]
     @ Move to the next object index
     add        r0,#0x8
-    ldrb       r5,[r7,#OamAttributeListNode_m_nextIndex]
+    ldrb       r5,[r7,#OamAttributeListNode_nextIndex]
     @ If the next index is 0xFF, go to the next entry in the sprite container list
     @ Otherwise, continue this block with the new index
     cmp        r5,#0xff
@@ -448,14 +448,14 @@ Oam_TransferData:
     mov        r2,#0
     mov        r3,#32
 .load_affine_data_main_loop:
-    ldrh       r4,[r0,#ObjectAffineAttributes_m_pa]
-    strh       r4,[r1,#ObjectControl_m_affineDetails + 0x8 * 0]
-    ldrh       r4,[r0,#ObjectAffineAttributes_m_pb]
-    strh       r4,[r1,#ObjectControl_m_affineDetails + 0x8 * 1]
-    ldrh       r4,[r0,#ObjectAffineAttributes_m_pc]
-    strh       r4,[r1,#ObjectControl_m_affineDetails + 0x8 * 2]
-    ldrh       r4,[r0,#ObjectAffineAttributes_m_pd]
-    strh       r4,[r1,#ObjectControl_m_affineDetails + 0x8 * 3]
+    ldrh       r4,[r0,#ObjectAffineAttributes_pa]
+    strh       r4,[r1,#ObjectControl_affineDetails + 0x8 * 0]
+    ldrh       r4,[r0,#ObjectAffineAttributes_pb]
+    strh       r4,[r1,#ObjectControl_affineDetails + 0x8 * 1]
+    ldrh       r4,[r0,#ObjectAffineAttributes_pc]
+    strh       r4,[r1,#ObjectControl_affineDetails + 0x8 * 2]
+    ldrh       r4,[r0,#ObjectAffineAttributes_pd]
+    strh       r4,[r1,#ObjectControl_affineDetails + 0x8 * 3]
     add        r0,#0xc
     add        r1,#0x20
     add        r2,#0x1

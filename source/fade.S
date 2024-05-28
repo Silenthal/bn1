@@ -23,7 +23,7 @@ _ts Fade_Request
     mov        r0,#TRUE
     strb       r0,[r5,#FadeSettings_m_isApplyFadeFunc] @ Yes, it's done twice
     mov        r0,#TRUE
-    strb       r0,[r5,#FadeSettings_m_isFadeActive]
+    strb       r0,[r5,#FadeSettings_isFadeActive]
     mov        r0,#FALSE
     strb       r0,[r5,#FadeSettings_m_isFadeStarted]
     cmp        r2,#0x0
@@ -115,7 +115,7 @@ _ts Fade_FadeOut
 LAB_08004be8:
     strh       r2,[r0,#BlendSettings_m_blendControl]
     mov        r0,#FALSE
-    strb       r0,[r5,#FadeSettings_m_isFadeActive]
+    strb       r0,[r5,#FadeSettings_isFadeActive]
     pop        { pc }
 
 _ts Fade_FadeOutSlight
@@ -133,7 +133,7 @@ _ts Fade_FadeOutSlight
 LAB_08004c08:
     strh       r2,[r0,#BlendSettings_m_blendControl]
     mov        r0,#FALSE
-    strb       r0,[r5,#FadeSettings_m_isFadeActive]
+    strb       r0,[r5,#FadeSettings_isFadeActive]
     pop        { pc }
 
 _ts Fade_Init

@@ -93,7 +93,7 @@ _ts Demo_Finish
     pop        { r5 }
     LoadStateTo r0, Main_manager
     mov        r1,#MS_Splash
-    strb       r1,[r0,#Manager_m_gameState]
+    strb       r1,[r0,#Manager_gameState]
     LoadStateTo r0, Main_display
     mov        r1,#DISPCNT_OMAP1D
     strh       r1,[r0,#DisplaySettings_dispcnt]
@@ -102,7 +102,7 @@ _ts Demo_Finish
 _ts Demo_SetToBeContinuedMessage
     push       { lr }
     LoadStateTo r0, Main_fade, r0
-    ldrb       r0,[r0,#FadeSettings_m_isFadeActive]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08018a2a
@@ -136,7 +136,7 @@ LAB_08018a4a:
 _ts Demo_ApplyVideoSettings
     push       { lr }
     LoadStateTo r0, Main_fade, r0
-    ldrb       r0,[r0,#FadeSettings_m_isFadeActive]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08018a92

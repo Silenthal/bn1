@@ -76,11 +76,11 @@ _ts Oam_AddObject
     add        r5,r5,r6
     @ And store the xy and tile attributes, and the old index
     @ as the "next" node to go to
-    str        r0,[r5,#OamAttributeListNode_m_xyDetails]
-    strh       r1,[r5,#OamAttributeListNode_m_tileDetail]
-    strb       r7,[r5,#OamAttributeListNode_m_nextIndex]
+    str        r0,[r5,#OamAttributeListNode_xyDetails]
+    strh       r1,[r5,#OamAttributeListNode_tileDetail]
+    strb       r7,[r5,#OamAttributeListNode_nextIndex]
     mov        r0,#0xff
-    strb       r0,[r5,#OamAttributeListNode_m_unused]
+    strb       r0,[r5,#OamAttributeListNode_unused]
 .oam_add_object_end:
     mov        pc,lr
 

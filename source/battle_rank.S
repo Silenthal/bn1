@@ -18,7 +18,7 @@ _ts BattleResult_CalculateRank
     @ Virus busting uses different thresholds than boss busting
     mov        r1,#0x0
     LoadStateTo r4, Main_world, r4
-    ldrb       r0,[r4,#World_m_battleType]
+    ldrb       r0,[r4,#World_battleType]
     cmp        r0,#BattleType_5_InvElecMan
     beq        LAB_0807d5ca
     cmp        r0,#BattleType_7_Boss
@@ -70,7 +70,7 @@ LAB_0807d600:
 LAB_0807d60a:
     ldrb       r0,[r6,r3]
     str        r3,[sp,#0x4]
-    ldrb       r2,[r7,#Battle_m_multipleDeletionCount]
+    ldrb       r2,[r7,#Battle_multiDeleteCount]
     @ Calculate points for multiple deletion - double delete
     @ is +2, triple delete is +4
     ldr        r6,PTR_scoreMultipleDeletion_0807d670

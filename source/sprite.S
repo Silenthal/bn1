@@ -884,7 +884,7 @@ LAB_080028f0:
     bl         Enemy_GetEnemyDetail
     @ Get sprite index of enemy, and compare it to 0xFF. If so, set index
     @ value to 0x7FFF
-    ldrb       r0,[r0,#EnemyDetail_m_lzSpriteIndex]
+    ldrb       r0,[r0,#EnemyDetail_lzSpriteIndex]
     cmp        r0,#0xff
     bne        LAB_08002904
     ldr        r0,INT_08002994

@@ -17,8 +17,8 @@ _ts Text_LoadAreaDialogue
     push       { lr }
     push       { r0 }
     LoadStateTo r5, Main_world
-    ldrb       r0,[r5,#World_m_currentArea]
-    ldrb       r1,[r5,#World_m_currentSubArea]
+    ldrb       r0,[r5,#0x4]
+    ldrb       r1,[r5,#0x5]
     cmp        r0,#0xf0
     bge        LAB_08013592
     cmp        r0,#0x80
@@ -451,7 +451,7 @@ _ts Text_CheckPasscodeEntryLoad
     bl         Passcode_HandleEntry
     pop        { r5 }
     strb       r0,[r5,#Text_m_b16]
-    strb       r1,[r5,#Text_m_b17]
+    strb       r1,[r5,#Text_passcodeChoice]
 LAB_080138dc:
     pop        { r5, pc }
 
