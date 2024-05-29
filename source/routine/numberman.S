@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateAnimationOnly, 0x806F5A4+1
     .set Attack_NumberBall_Create, 0x80723B0+1
     .set Attack_TimeBomb_Create, 0x8072660+1
     .set Attack_DieBomb_Create, 0x80729A0+1
@@ -383,7 +382,7 @@ _ts R_NumberMan_1_4_0_StartAnim
     mov        r0,#0x82
     lsl        r4,r0,#0x10
     mov        r0,#0x0
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x8f
     bl         Sound_PlaySongImmediate

@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateAnimationOnly, 0x806F5A4+1
     .set Attack_IceManSpikes_Create, 0x807434A+1
 
 
@@ -181,7 +180,7 @@ _ts R_IceManC_1_1_1_Spikes
     ldrb       r0,[r5,#0x16]
     neg        r0,r0
     add        r0,#0x1
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     tst        r7,r7
     beq        LAB_08061ba8

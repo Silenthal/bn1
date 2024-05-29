@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateAnimationOnly, 0x806F5A4+1
     .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set SWI_DivMod, 0x809DF58+1
 
@@ -109,7 +108,7 @@ _ts R_DeathStorm_1_0
     strb       r0,[r5,#0x14]
     ldr        r4,DAT_08068ba0
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     tst        r7,r7
     beq        LAB_08068b98
@@ -141,7 +140,7 @@ _ts R_DeathStorm_1_1
     bl         R_Actor_ClearCurrentAttack
     ldr        r4,DAT_08068be0
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     tst        r7,r7
     beq        LAB_08068bce
@@ -193,7 +192,7 @@ LAB_08068c08:
     bl         R_Actor_ClearCurrentAttack
     ldr        r4,DAT_08068c34
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     tst        r7,r7
     beq        LAB_08068c2e

@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateAnimationOnly, 0x806F5A4+1
 
 
 _ts Routine_Drain
@@ -108,7 +107,7 @@ _ts R_Drain_1_0
     strb       r0,[r5,#0x14]
     ldr        r4,DAT_08069344
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     tst        r7,r7
     beq        LAB_0806933c
@@ -154,7 +153,7 @@ _nt R_Drain_1_2
     bl         R_Actor_ClearCurrentAttack
     ldr        r4,DAT_080693f8
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     tst        r7,r7
     beq        LAB_0806938a

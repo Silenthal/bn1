@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateAnimationOnly, 0x806F5A4+1
     .set Attack_SharpStrike_Create, 0x80719AC+1
     .set Attack_LockonTarget_Create, 0x807A394+1
     .set Effect_QuickEffect_Create, 0x807B5E8+1
@@ -294,7 +293,7 @@ _nt R_Satella_1_3_2
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_0806d6a4
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0xc
     strh       r0,[r5,#0xa]

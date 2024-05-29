@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Entity_SetCellPosToSpritePos, 0x805D0F2+1
-    .set Attack_WoodTower_Create, 0x806FA38+1
     .set Attack_Seed_Create, 0x80721A4+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
     .set SWI_Div, 0x809DF54+1

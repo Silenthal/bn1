@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateAnimationOnly, 0x806F5A4+1
     .set Attack_DieBombChip_Create, 0x8073E78+1
 
 
@@ -164,7 +163,7 @@ _ts R_NumberManC_1_1_0_Charge
     ldrb       r0,[r5,#0x16]
     neg        r0,r0
     add        r0,#0x1
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     tst        r7,r7
     beq        LAB_0805fcba
     ldrb       r0,[r7,#0x0]

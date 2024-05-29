@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateAnimationOnly, 0x806F5A4+1
     .set Effect_QuickEffect_Create, 0x807B5E8+1
 
 
@@ -131,7 +130,7 @@ _ts R_GutsShoot_MegaMan_1_1
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_08068354
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     tst        r7,r7
     beq        LAB_08068348

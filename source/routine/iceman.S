@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateAnimationOnly, 0x806F5A4+1
-    .set Attack_BurnerFreezeBomb_Create, 0x806F7DC+1
     .set Attack_SharpStrike_Create, 0x80719AC+1
     .set Attack_Cube_Create, 0x8073842+1
     .set Effect_QuickEffect_Create, 0x807B5E8+1
@@ -689,7 +687,7 @@ _nt R_IceMan_1_5_4_IceCube
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_080610f8
     mov        r0,#0x0
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x9d
     bl         Sound_PlaySongImmediate
@@ -810,7 +808,7 @@ _ts R_IceMan_1_6_1_FreezeBomb
     mov        r0,#0x3
     ldr        r7,[r5,#0x7c]
     ldrb       r6,[r7,#0x1]
-    bl         Attack_BurnerFreezeBomb_Create
+    bl         Attack_IceManBeetankBomb_Create
     mov        r0,#0x77
     bl         Sound_PlaySongImmediate
     mov        r0,#0x8
@@ -987,7 +985,7 @@ _nt R_IceMan_1_7_2_IceCube
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,FamilyDetail_08061320
     mov        r0,#0x0
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x9d
     bl         Sound_PlaySongImmediate

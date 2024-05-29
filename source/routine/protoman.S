@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_MetGuard_Create, 0x806FF1E+1
     .set Attack_Charging_Create, 0x8070392+1
     .set Attack_SharpStrike_Create, 0x80719AC+1
     .set Effect_QuickEffect_Create, 0x807B5E8+1

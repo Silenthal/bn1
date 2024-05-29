@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0806f7dc, 0x806F7DC+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 DAT_0805b468:
@@ -486,7 +485,7 @@ _ts R_Beetank_1_4_1
     ldr        r7,PTR_DAT_0805b7e0
     ldrb       r6,[r5,#0x4]
     ldrb       r6,[r7,r6]
-    bl         FUN_0806f7dc
+    bl         Attack_IceManBeetankBomb_Create
     mov        r0,#0x8
     strh       r0,[r5,#0xa]
 LAB_0805b7de:

@@ -3,12 +3,6 @@
     .include "macros.inc"
 
     .set R_Actor_IsShieldPopped, 0x8066E3C+1
-    .set Attack_CreateAnimationOnly, 0x806F5A4+1
-    .set FUN_0806fbcc, 0x806FBCC+1
-    .set FUN_0806fd5a, 0x806FD5A+1
-    .set Attack_MetGuard_Create, 0x806FF1E+1
-    .set Attack_Aura_Create, 0x807006E+1
-    .set Attack_Bomb_Create, 0x80702FC+1
     .set Attack_Charging_Create, 0x8070392+1
     .set Attack_Shotgun_Create, 0x8070530+1
     .set Attack_Shockwave_Create, 0x8070A16+1
@@ -917,7 +911,7 @@ LAB_08056956:
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,familyFreeze
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x0
     strb       r0,[r5,#0x17]
@@ -2603,7 +2597,7 @@ _ts R_Player_ApplyNumbStatus
     add        r7,#0x28
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,FamilyDetail_08057524
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     ldr        r6,[r5,#0x74]
     str        r7,[r6,#0x58]
     tst        r7,r7
@@ -3033,7 +3027,7 @@ _ts BC_Cannon_0_Init
     orr        r4,r0
     ldrb       r0,[r5,#0x16]
     push       {r7}
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     pop        {r7}
     ldmia      r7!,{r1,r2,r3}
@@ -3149,7 +3143,7 @@ _ts BC_Sword_0_Init
     ldr        r7,PTR_FamilyDetail_ARRAY_0805793c
     ldr        r4,[r7,r0]
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x61
     ldrb       r0,[r5,r0]
@@ -3198,7 +3192,7 @@ _ts BC_Sword_1
     ldr        r7,[r5,#0x74]
     ldrh       r6,[r7,#0x18]
     ldrb       r0,[r7,#0x6]
-    bl         FUN_0806fbcc
+    bl         Attack_Sword_Create
     mov        r3,#0x67
     mov        r0,#0x8
     strb       r0,[r5,r3]
@@ -3599,7 +3593,7 @@ _ts FUN_08057c28
     ldr        r3,[r5,#0x30]
     mov        r4,#0x0
     push       {r5}
-    bl         FUN_0806fd5a
+    bl         Attack_Unk05_Create
     add        r7,r5,#0x0
     pop        {r5}
     str        r7,[r5,#0x5c]
@@ -3673,7 +3667,7 @@ _ts BC_Shockwave_0_Init
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_08057cd0
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x4
     mov        r3,#0x67
@@ -3721,7 +3715,7 @@ _ts BC_Shockwave_2_Recover
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_08057d28
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0xd
     strb       r0,[r5,#0x14]
@@ -3784,7 +3778,7 @@ _ts BC_TowerPunch_0_Init
     ldr        r4,PTR_listTowerPunchParam_08057dc4
     ldr        r4,[r4,r0]
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     pop        {r0}
     cmp        r0,#0x3
@@ -4016,7 +4010,7 @@ _ts BC_XPanel_0_Init
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_08057f48
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x4
     mov        r3,#0x67
@@ -4124,7 +4118,7 @@ _ts BC_XPanel_2_Recover
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_08058024
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0xd
     strb       r0,[r5,#0x14]
@@ -4448,7 +4442,7 @@ _ts BC_Arrow_0
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_08058220
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x4
     mov        r3,#0x67
@@ -4480,7 +4474,7 @@ _ts BC_Arrow_1
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_08058280
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     bl         Field_GetAttackDirectionOffset_MP
     ldrb       r1,[r5,#0x18]
@@ -4536,7 +4530,7 @@ _ts BC_Arrow_4
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_080582bc
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r3,#0x67
     mov        r0,#0x14
@@ -4594,7 +4588,7 @@ _ts BC_Hammer_0_Init
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_0805831c
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x4
     mov        r3,#0x67
@@ -4685,7 +4679,7 @@ _ts BC_Hammer_2
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_080583d8
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0xd
     strb       r0,[r5,#0x14]
@@ -4748,7 +4742,7 @@ _ts BC_Dash_0_Init
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_08058444
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x4
     mov        r3,#0x67
@@ -5358,7 +5352,7 @@ _ts BC_Typhoon_0_Init
     strb       r0,[r5,#0x14]
     ldr        r4,DAT_08058890
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x4
     mov        r3,#0x67
@@ -5383,7 +5377,7 @@ _ts BC_Typhoon_1
     bl         R_Player_ClearAttack
     ldr        r4,DAT_080588d8
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x3c
     strh       r0,[r5,#0x1e]
@@ -5419,7 +5413,7 @@ _ts BC_Typhoon_2
     bl         R_Player_ClearAttack
     ldr        r4,DAT_08058900
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0xc
     mov        r3,#0x67
@@ -5479,7 +5473,7 @@ _ts BC_Gaia_0
     ldrb       r0,[r5,r0]
     add        r4,r4,r0
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x4
     mov        r3,#0x67
@@ -5571,7 +5565,7 @@ _ts BC_Gaia_2
     ldrb       r0,[r5,r0]
     add        r4,r4,r0
     ldrb       r0,[r5,#0x16]
-    bl         Attack_CreateAnimationOnly
+    bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0xd
     strb       r0,[r5,#0x14]

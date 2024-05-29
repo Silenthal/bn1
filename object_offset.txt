@@ -298,6 +298,7 @@ routine/lan_bed             0x5B154
 routine/brown_car           0x5B1FC
 routine/beetank             0x5B468
 routine/spooky              0x5B8A8
+routine/poweredcannon       0x5BF40
 routine/gutsman             0x5C0CC
 routine/hardhead            0x5C7A4
 routine/fishy               0x5CAD4
@@ -369,6 +370,17 @@ routine/2xhero_protoman     0x6E8C8
 routine/heavystamp          0x6EB2C
 routine/bloodsuck           0x6EE6C
 routine/mole                0x6F058
+attack/animation_only       0x6F4B8
+attack/icemanbeetankbomb    0x6F5C4
+attack/woodtower            0x6F7F8
+attack/sword                0x6FA88
+attack/cannon               0x6FBE8
+attack/unk05                0x6FCB4
+attack/unk06                0x6FD68
+attack/metguard             0x6FE3C
+attack/aura                 0x6FF3C
+attack/unk09                0x70084
+attack/bomb                 0x70130
 entity/effect/quickeffect   0x7B474
 battle_rank                 0x7D5B0
 enemy_drop                  0x7D80E

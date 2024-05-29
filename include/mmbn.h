@@ -327,7 +327,7 @@ typedef enum SpriteIndex {
     SP_Attack_Sword=108,
     SP_Attack_Cannon=109,
     SP_BattleObject_MiniBomb=110,
-    SP_BattleEffect_MetGuard=111,
+    SP_BattleObject_MetGuard=111,
     SP_BattleObject_Barrier=112,
     SP_BattleEffect_Charging=114,
     SP_BattleEffect_XPanel=116,
@@ -381,6 +381,7 @@ typedef enum SpriteIndex {
     SP_BattleObject_PharaohTrap=175,
     SP_BattleObject_PharaohManCoffin=176,
     SP_BattleObject_Anubis=177,
+    SP_BattleObject_ProtoShield=178,
     SP_BattleObject_Shuriken=179,
     SP_BattleObject_Aura=182,
     SP_BattleObject_BloodSuckSyringe=184,
@@ -1389,7 +1390,7 @@ struct AT_68_Pack {
 
 typedef enum AttackIndex {
     ACI_AnimationOnly=0,
-    ACI_BurnerFreezerBomb=1,
+    ACI_IceManBeetankBomb=1,
     ACI_WoodTower=2,
     ACI_Sword=3,
     ACI_MetGuard=7,
