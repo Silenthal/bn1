@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Attack_Shockwave_Create, 0x8070A16+1
-    .set Attack_SharpStrike_Create, 0x80719AC+1
     .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
 

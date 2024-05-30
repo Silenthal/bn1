@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_SharpStrike_Create, 0x80719AC+1
     .set Attack_Cube_Create, 0x8073842+1
     .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1

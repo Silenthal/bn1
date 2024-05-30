@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_RingZap_Create, 0x8075DF6+1
+    .set Attack_ProgThunder_Create, 0x8075DF6+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 
@@ -517,7 +517,7 @@ _ts R_Prog_1_5_1
     mov        r3,#0x5c
     add        r3,r3,r5
     mov        r6,#0x64
-    bl         Attack_RingZap_Create
+    bl         Attack_ProgThunder_Create
 LAB_08066526:
     pop        {pc}
 

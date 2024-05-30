@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateQuickAttack, 0x80718E6+1
     .set Attack_BassExplosion_Chip_Create, 0x807ADA0+1
     .set Effect_Bass_Create, 0x8081808+1
 
@@ -569,7 +568,7 @@ LAB_0806e338:
     ldr        r4,[r7,#0x0]
     mov        r6,#0x0
     mov        r7,#0x1
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     pop        {r0,r1,r2,r3,r5,r7}
 LAB_0806e356:
     lsr        r3,r3,#0x1

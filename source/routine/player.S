@@ -2,20 +2,12 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set R_Actor_IsShieldPopped, 0x8066E3C+1
-    .set Attack_Charging_Create, 0x8070392+1
-    .set Attack_Shotgun_Create, 0x8070530+1
-    .set Attack_Shockwave_Create, 0x8070A16+1
-    .set Attack_Tower_Create, 0x8070F98+1
-    .set Attack_Buster_Create, 0x807128E+1
-    .set Attack_CreateQuickAttack, 0x80718E6+1
-    .set Attack_SharpStrike_Create, 0x80719AC+1
     .set Attack_Howitzer_Create, 0x8071D70+1
     .set Attack_Arrow_Create, 0x8072FAE+1
     .set Attack_Quake_Create, 0x8073294+1
     .set Attack_Wave_CreateColumn, 0x80744B4+1
     .set Attack_Ratton_Create, 0x8074788+1
-    .set Attack_RingZap_Create, 0x8075DF6+1
+    .set Attack_ProgThunder_Create, 0x8075DF6+1
     .set Attack_Thunder_Create, 0x8076082+1
     .set FUN_08076f88, 0x8076F88+1
     .set Attack_BodyBurn_Create, 0x80773A8+1
@@ -4076,7 +4068,7 @@ LAB_08057fac:
     mov        r3,#0xa
     mov        r6,#0x0
     mov        r7,#0x1
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     pop        {r0,r1,r5,r6}
     push       {r0,r1,r5,r6}
     bl         Battle_CellCoordsToSprite
@@ -4639,7 +4631,7 @@ LAB_08058362:
     mov        r6,#0x0
     mov        r7,#0x1
     push       {r5}
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     pop        {r5}
     bl         Battle_CellCoordsToSprite
     add        r2,r1,#0x0
@@ -5200,7 +5192,7 @@ _ts BC_RingZap_0
     add        r3,r3,r5
     ldr        r7,[r5,#0x74]
     ldrh       r6,[r7,#0x18]
-    bl         Attack_RingZap_Create
+    bl         Attack_ProgThunder_Create
     mov        r0,#0x4
     mov        r3,#0x67
     strb       r0,[r5,r3]

@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateQuickAttack, 0x80718E6+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
     .set ScreenDim_Recover_Create, 0x809843C+1
 
@@ -657,7 +656,7 @@ _nt R_Spooky_1_4_3_1_Damage
     mov        r4,#0x80
     mov        r6,#0x0
     mov        r7,#0x1
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#0xb]

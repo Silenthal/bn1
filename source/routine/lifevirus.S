@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set Attack_LifeVirusSword_Create, 0x8077D88+1
-    .set FUN_08078390, 0x8078390+1
+    .set Attack_Scuttlest_Create, 0x8078390+1
     .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_Laser_Create, 0x807E16E+1
     .set Effect_LifeVirusAura_Create, 0x808086E+1
@@ -79,11 +79,11 @@ _ts R_LifeVirus_0_Init
     mov        r0,#0x4
     mov        r1,#0x2
     mov        r4,#0x0
-    bl         FUN_08078390
+    bl         Attack_Scuttlest_Create
     push       {r0}
     mov        r0,#0xff
     mov        r4,#0x0
-    bl         FUN_08078390
+    bl         Attack_Scuttlest_Create
     pop        {r1}
     mov        r2,#0x0
     tst        r1,r1

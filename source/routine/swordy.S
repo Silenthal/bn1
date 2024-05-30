@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateQuickAttack, 0x80718E6+1
     .set Attack_SwordySlash_Create, 0x8072728+1
     .set Attack_SwordySlash_Hide, 0x807273E+1
     .set Attack_SwordySlash_Show, 0x807274A+1
@@ -655,7 +654,7 @@ LAB_0805dc20:
     mov        r4,#0x88
     mov        r6,#0x0
     mov        r7,#0x3
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     pop        {r5}
     mov        r0,#0x75
     bl         Sound_PlaySongImmediate
@@ -1206,7 +1205,7 @@ LAB_0805dfb2:
     mov        r4,#0x88
     ldr        r6,[r6,#0x4]
     mov        r7,#0x3
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     pop        {r0,r1,r3,r5,r6}
 LAB_0805dfd2:
     sub        r0,#0x1
@@ -1238,7 +1237,7 @@ LAB_0805dfec:
     mov        r4,#0x88
     ldr        r6,[r6,#0x4]
     mov        r7,#0x3
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     pop        {r0,r1,r3,r5,r6}
 LAB_0805e00c:
     add        r1,#0x1

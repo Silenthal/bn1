@@ -6,7 +6,6 @@
 
     .thumb
 
-    .set Attack_SharpStrike_Create, 0x80719ac
 
 _nt Field_CalculateGravityZ
     push       {r5,lr}

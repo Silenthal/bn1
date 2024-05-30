@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateQuickAttack, 0x80718E6+1
     .set Attack_Stone_Create, 0x8073A1C+1
 
 
@@ -354,7 +353,7 @@ LAB_08061ea2:
     ldr        r4,[r4,r6]
     mov        r6,#0x0
     mov        r7,#0x1
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     pop        {r0,r1,r5}
 LAB_08061edc:
     add        r0,#0x1

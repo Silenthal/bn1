@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateQuickAttack, 0x80718E6+1
     .set Attack_Cube_Create, 0x8073842+1
     .set Attack_Stone_Create, 0x8073A1C+1
     .set Attack_StoneManLaser_Create, 0x8073C94+1
@@ -521,10 +520,10 @@ _ts R_StoneMan_1_4_2_StartAttack
     mov        r4,#0x88
     mov        r6,#0x0
     mov        r7,#0x1
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     ldrb       r0,[r5,#0x18]
     add        r1,#0x2
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     pop        {r5}
     mov        r0,#0xc
     strh       r0,[r5,#0xa]

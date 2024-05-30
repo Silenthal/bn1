@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_SharpStrike_Create, 0x80719AC+1
     .set Attack_Tornado_Create, 0x807771E+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 

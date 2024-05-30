@@ -6,7 +6,6 @@
 
     .thumb
 
-    .set Attack_SharpStrike_Create, 0x80719ac
 
 _ts memset0_16
     mov        r2,#0x0

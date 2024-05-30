@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Tower_Create, 0x8070F98+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
     .set ScreenDim_Recover_Create, 0x809843C+1
 

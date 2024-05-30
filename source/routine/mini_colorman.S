@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Tower_Create, 0x8070F98+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
 
 

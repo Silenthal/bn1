@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_CreateQuickAttack, 0x80718E6+1
     .set Effect_QuickEffect_Create, 0x807B5E8+1
 
 
@@ -300,7 +299,7 @@ _nt A_WoodTower_2_Free
     ldrh       r3,[r5,#0x24]
     mov        r6,#0x4
     mov        r7,#0x1
-    bl         Attack_CreateQuickAttack
+    bl         Attack_QuickAttack_Create
     pop        {r5}
 LAB_0806fa20:
     bl         Attack_Free

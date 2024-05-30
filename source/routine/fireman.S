@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_BurnerBomb_Create, 0x80707E4+1
-    .set Attack_Tower_Create, 0x8070F98+1
     .set Attack_FireArm_Create, 0x8071170+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
 
