@@ -462,7 +462,7 @@ attack/bass_explosion_chip  0x7AC74
 attack/lockon               0x7ADCC
 attack/bloodsuck_syringe    0x7B238
 attack/mole_hole            0x7B388
-entity/effect/quickeffect   0x7B474
+effect/quickeffect          0x7B474
 battle_rank                 0x7D5B0
 enemy_drop                  0x7D80E
 npc_command                 0x82104
