@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Stone_Create, 0x8073A1C+1
-
 
 _ts Routine_StoneMan_Chip
     push       {lr}

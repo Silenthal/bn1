@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_FireArm_Create, 0x8071170+1
-
 
 _ts Routine_FireMan_Chip
     push       {lr}

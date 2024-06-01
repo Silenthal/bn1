@@ -42,13 +42,13 @@ _ts GraphicDataSetup_Govt_HP
     ldrb       r7,[r7,#0x5]
     cmp        r7,#0x0
     bne        LAB_0804f852
-    ldr        r0,PTR_dummy_1cb8_0804f894
+    ldr        r0,PTR_BgUpdate_NoMove_0804f894
     ldr        r1,PTR_BgUpdate_MoveUpLeft_0804f898
     ldr        r2,PTR_dummy_6928_0804f89c
     bl         BgUpdate_Set
     b          LAB_0804f85c
 LAB_0804f852:
-    ldr        r0,PTR_dummy_1cb8_0804f8a0
+    ldr        r0,PTR_BgUpdate_NoMove_0804f8a0
     ldr        r1,PTR_BgUpdate_MoveLeft_0804f8a4
     ldr        r2,PTR_dummy_6928_0804f8a8
     bl         BgUpdate_Set
@@ -87,8 +87,8 @@ SpriteList_Govt_Lunch_Cart_Comp:
 PTR_MapExitList_Govt_HP_0804f890:
     .word MapExitList_Govt_HP
 
-PTR_dummy_1cb8_0804f894:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_0804f894:
+    .word BgUpdate_NoMove
 
 PTR_BgUpdate_MoveUpLeft_0804f898:
     .word BgUpdate_MoveUpLeft
@@ -96,8 +96,8 @@ PTR_BgUpdate_MoveUpLeft_0804f898:
 PTR_dummy_6928_0804f89c:
     .word dummy_6928_far
 
-PTR_dummy_1cb8_0804f8a0:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_0804f8a0:
+    .word BgUpdate_NoMove
 
 PTR_BgUpdate_MoveLeft_0804f8a4:
     .word BgUpdate_MoveLeft

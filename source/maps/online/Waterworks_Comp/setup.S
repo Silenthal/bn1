@@ -37,7 +37,7 @@ _ts GraphicDataSetup_Waterworks_Comp
     push       {r5}
     bl         Camera_Init
     bl         BGDM_Load
-    ldr        r0,PTR_dummy_1cb8_0804578c
+    ldr        r0,PTR_BgUpdate_NoMove_0804578c
     ldr        r1,PTR_BgUpdate_MoveUp_08045790
     ldr        r2,PTR_dummy_6928_08045794
     bl         BgUpdate_Set
@@ -128,8 +128,8 @@ _nt FUN_08045786
 PTR_MapExitList_Waterworks_Comp_08045788:
     .word MapExitList_Waterworks_Comp
 
-PTR_dummy_1cb8_0804578c:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_0804578c:
+    .word BgUpdate_NoMove
 
 PTR_BgUpdate_MoveUp_08045790:
     .word BgUpdate_MoveUp

@@ -19,7 +19,7 @@ _ts BgUpdate_Set
 _ts BgUpdate_Init
     push       { lr }
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cc4
-    ldr        r0,PTR_dummy_1cb8_1_08001cc8
+    ldr        r0,PTR_BgUpdate_NoMove_1_08001cc8
     str        r0,[r5,#0x0]
     str        r0,[r5,#0x8]
     ldr        r1,PTR_dummy_6928_1_08001ccc
@@ -151,7 +151,7 @@ _ts BgUpdate_MoveLeftSlow
     strh       r2,[r7,#0x10]
     mov        pc,lr
 
-_ts dummy_1cb8
+_ts BgUpdate_NoMove
     mov        pc,lr
 
         .align 2, 0
@@ -159,7 +159,7 @@ _ts dummy_1cb8
 PTR_gFuncPtrBgUpdatePostLoop_08001cbc:  .word gFuncPtrBgUpdatePostLoop
 PTR_interruptVector_hblank_08001cc0:    .word interruptVectorHblank
 PTR_gFuncPtrBgUpdatePostLoop_08001cc4:  .word gFuncPtrBgUpdatePostLoop
-PTR_dummy_1cb8_1_08001cc8:              .word dummy_1cb8
+PTR_BgUpdate_NoMove_1_08001cc8:              .word BgUpdate_NoMove
 PTR_dummy_6928_1_08001ccc:              .word dummy_6928_far
 PTR_interruptVector_hblank_08001cd0:    .word interruptVectorHblank
 PTR_gFuncPtrBgUpdatePostLoop_08001cd4:  .word gFuncPtrBgUpdatePostLoop

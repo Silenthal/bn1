@@ -105,7 +105,7 @@ PTR_listSpookyRecoverCount_0805b964:
     .word listSpookyRecoverCount
 
 PTR_listSpookyActorDamage_0805b968:
-    .word 0x805B961
+    .word listSpookyActorDamage
 
 
 _ts R_Spooky_1_Main

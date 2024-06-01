@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Cube_Create_MP, 0x80738b8
     .set Sio_SetReady, 0x809bdf0
 
 _ts Battle_InitBackground
@@ -177,7 +176,7 @@ LAB_080050c8:
     ldrb       r4,[r6,#0x2]
     mov        r6,#0xc8
     mov        r7,#0x0
-    bl         Attack_Cube_Create_MP
+    bl         Attack_Cube_MP_Create
     tst        r7,r7
     beq        LAB_080050de
     ldrb       r0,[r7,#0x0]
@@ -533,7 +532,7 @@ LAB_080053a2:
     ldr        r0,PTR_BgTask_8005788
     bl         BgTask_AddNew
 LAB_080053b4:
-    ldr        r0,PTR_dummy_1cb8_0800578c
+    ldr        r0,PTR_BgUpdate_NoMove_0800578c
     ldr        r1,PTR_BgUpdate_MoveUp_08005790
     ldr        r2,PTR_dummy_6928_08005794
     bl         BgUpdate_Set
@@ -559,7 +558,7 @@ _nt BgAnimate_WWW
     ldr        r0,PTR_PTR_DAT_080057a0
 
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_080057a4
+    ldr        r0,PTR_BgUpdate_NoMove_080057a4
     ldr        r1,PTR_BgUpdate_MoveLeft_080057a8
     ldr        r2,PTR_dummy_6928_080057ac
     bl         BgUpdate_Set
@@ -572,7 +571,7 @@ _nt BgAnimate_Internet
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_80057B4
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_080057b8
+    ldr        r0,PTR_BgUpdate_NoMove_080057b8
     ldr        r1,PTR_BgUpdate_MoveUpLeft_080057bc
     ldr        r2,PTR_dummy_6928_080057c0
     bl         BgUpdate_Set
@@ -584,7 +583,7 @@ _nt BgAnimate_Generic
     ldr        r0,PTR_PTR_DAT_080057c4
 
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_080057c8
+    ldr        r0,PTR_BgUpdate_NoMove_080057c8
     ldr        r1,PTR_BgUpdate_MoveUpLeft_080057cc
     ldr        r2,PTR_dummy_6928_080057d0
     bl         BgUpdate_Set
@@ -596,7 +595,7 @@ _nt BgAnimate_LanHP
     ldr        r0,PTR_DAT_080057d4
 
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_080057d8
+    ldr        r0,PTR_BgUpdate_NoMove_080057d8
     ldr        r1,PTR_BgUpdate_MoveUpLeft_080057dc
     ldr        r2,PTR_dummy_6928_080057e0
     bl         BgUpdate_Set
@@ -608,7 +607,7 @@ _nt BgAnimate_MaylHP
     ldr        r0,PTR_PTR_DAT_080057e4
 
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_080057e8
+    ldr        r0,PTR_BgUpdate_NoMove_080057e8
     ldr        r1,PTR_BgUpdate_MoveUpLeft_080057ec
     ldr        r2,PTR_dummy_6928_080057f0
     bl         BgUpdate_Set
@@ -620,7 +619,7 @@ _nt BgAnimate_YaiHP
     ldr        r0,PTR_PTR_DAT_080057f4
 
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_080057f8
+    ldr        r0,PTR_BgUpdate_NoMove_080057f8
     ldr        r1,PTR_BgUpdate_MoveUpLeft_080057fc
     ldr        r2,PTR_dummy_6928_08005800
     bl         BgUpdate_Set
@@ -632,7 +631,7 @@ _nt BgAnimate_DexHP
     ldr        r0,PTR_PTR_DAT_08005804
 
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_08005808
+    ldr        r0,PTR_BgUpdate_NoMove_08005808
     ldr        r1,PTR_BgUpdate_MoveUpLeft_0800580c
     ldr        r2,PTR_dummy_6928_08005810
     bl         BgUpdate_Set
@@ -644,7 +643,7 @@ _nt BgAnimate_YuichiroHP
     ldr        r0,PTR_PTR_DAT_08005814
 
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_08005818
+    ldr        r0,PTR_BgUpdate_NoMove_08005818
     ldr        r1,PTR_BgUpdate_MoveUpLeft_0800581c
     ldr        r2,PTR_dummy_6928_08005820
     bl         BgUpdate_Set
@@ -656,7 +655,7 @@ _nt BgAnimate_SalHP
     ldr        r0,PTR_PTR_DAT_08005824
 
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_08005828
+    ldr        r0,PTR_BgUpdate_NoMove_08005828
     ldr        r1,PTR_BgUpdate_MoveLeft_0800582c
     ldr        r2,PTR_dummy_6928_08005830
     bl         BgUpdate_Set
@@ -668,7 +667,7 @@ _nt BgAnimate_MiyuHP
     ldr        r0,PTR_PTR_DAT_08005834
 
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_08005838
+    ldr        r0,PTR_BgUpdate_NoMove_08005838
     ldr        r1,PTR_BgUpdate_MoveUpLeft_0800583c
     ldr        r2,PTR_dummy_6928_08005840
     bl         BgUpdate_Set
@@ -680,7 +679,7 @@ _nt BgAnimate_MasaHP
     ldr        r0,PTR_PTR_DAT_08005844
 
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_08005848
+    ldr        r0,PTR_BgUpdate_NoMove_08005848
     ldr        r1,PTR_BgUpdate_MoveRight_0800584c
     ldr        r2,PTR_dummy_6928_08005850
     bl         BgUpdate_Set
@@ -691,7 +690,7 @@ _nt BgAnimate_LifeVirus
     push       {lr}
     ldr        r0,PTR_PTR_eBgPalette0_08005854
     bl         BgTask_AddNew
-    ldr        r0,PTR_dummy_1cb8_08005858
+    ldr        r0,PTR_BgUpdate_NoMove_08005858
     ldr        r1,PTR_BgUpdate_MoveLeftSlow_0800585c
     ldr        r2,PTR_dummy_6928_08005860
     bl         BgUpdate_Set
@@ -1063,8 +1062,8 @@ PTR_BgTask_8005784:
     .word BgTask_80442E8
 PTR_BgTask_8005788:
     .word BgTask_8044330
-PTR_dummy_1cb8_0800578c:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_0800578c:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveUp_08005790:
     .word BgUpdate_MoveUp
 PTR_dummy_6928_08005794:
@@ -1075,8 +1074,8 @@ PTR_BgTask_800579C:
     .word BgTask_8049FF8
 PTR_PTR_DAT_080057a0:
     .word BgTask_804CCB0
-PTR_dummy_1cb8_080057a4:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_080057a4:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveLeft_080057a8:
     .word BgUpdate_MoveLeft
 PTR_dummy_6928_080057ac:
@@ -1085,88 +1084,88 @@ PTR_BgTask_80057B0:
     .word BgTask_8051780
 PTR_BgTask_80057B4:
     .word BgTask_8051820
-PTR_dummy_1cb8_080057b8:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_080057b8:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveUpLeft_080057bc:
     .word BgUpdate_MoveUpLeft
 PTR_dummy_6928_080057c0:
     .word dummy_6928_far
 PTR_PTR_DAT_080057c4:
     .word BgTask_804F728
-PTR_dummy_1cb8_080057c8:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_080057c8:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveUpLeft_080057cc:
     .word BgUpdate_MoveUpLeft
 PTR_dummy_6928_080057d0:
     .word dummy_6928_far
 PTR_DAT_080057d4:
     .word BgTask_804EDA8
-PTR_dummy_1cb8_080057d8:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_080057d8:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveUpLeft_080057dc:
     .word BgUpdate_MoveUpLeft
 PTR_dummy_6928_080057e0:
     .word dummy_6928_far
 PTR_PTR_DAT_080057e4:
     .word BgTask_804EDD8
-PTR_dummy_1cb8_080057e8:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_080057e8:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveUpLeft_080057ec:
     .word BgUpdate_MoveUpLeft
 PTR_dummy_6928_080057f0:
     .word dummy_6928_far
 PTR_PTR_DAT_080057f4:
     .word BgTask_804EE18
-PTR_dummy_1cb8_080057f8:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_080057f8:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveUpLeft_080057fc:
     .word BgUpdate_MoveUpLeft
 PTR_dummy_6928_08005800:
     .word dummy_6928_far
 PTR_PTR_DAT_08005804:
     .word BgTask_804EE48
-PTR_dummy_1cb8_08005808:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_08005808:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveUpLeft_0800580c:
     .word BgUpdate_MoveUpLeft
 PTR_dummy_6928_08005810:
     .word dummy_6928_far
 PTR_PTR_DAT_08005814:
     .word BgTask_804F728
-PTR_dummy_1cb8_08005818:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_08005818:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveUpLeft_0800581c:
     .word BgUpdate_MoveUpLeft
 PTR_dummy_6928_08005820:
     .word dummy_6928_far
 PTR_PTR_DAT_08005824:
     .word BgTask_804F7B8
-PTR_dummy_1cb8_08005828:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_08005828:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveLeft_0800582c:
     .word BgUpdate_MoveLeft
 PTR_dummy_6928_08005830:
     .word dummy_6928_far
 PTR_PTR_DAT_08005834:
     .word BgTask_804FD64
-PTR_dummy_1cb8_08005838:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_08005838:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveUpLeft_0800583c:
     .word BgUpdate_MoveUpLeft
 PTR_dummy_6928_08005840:
     .word dummy_6928_far
 PTR_PTR_DAT_08005844:
     .word BgTask_8050060
-PTR_dummy_1cb8_08005848:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_08005848:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveRight_0800584c:
     .word BgUpdate_MoveRight
 PTR_dummy_6928_08005850:
     .word dummy_6928_far
 PTR_PTR_eBgPalette0_08005854:
     .word BgTask_804CD68
-PTR_dummy_1cb8_08005858:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_08005858:
+    .word BgUpdate_NoMove
 PTR_BgUpdate_MoveLeftSlow_0800585c:
     .word BgUpdate_MoveLeftSlow
 PTR_dummy_6928_08005860:

@@ -838,8 +838,8 @@ CreditsSceneData_0:
     .word CSD_NPC_0
     .word SpriteList_ACDC
     .word EntityAllocParams_8030D50
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word BgTask_8029F14
     .word BgTask_8029F2C
@@ -855,8 +855,8 @@ CreditsSceneData_1:
     .word CSD_NPC_1
     .word SpriteList_Oven_Comp
     .word CSD_Entity_1
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word BgTask_80423F8
     .word BgTask_8042418
@@ -874,8 +874,8 @@ CreditsSceneData_2:
     .word CSD_NPC_2
     .word SpriteList_School
     .word EntityAllocParams_8029B18
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word BgTask_School_TilesetBlackboardTriangle
     .word BgTask_School_PaletteBlackboardOn_2
@@ -889,8 +889,8 @@ CreditsSceneData_3:
     .word CSD_NPC_3
     .word SpriteList_School_Comp
     .word CSD_Entity_3
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word CSD_Task_3_0
     .word CSD_Task_3_1
@@ -907,8 +907,8 @@ CreditsSceneData_4:
     .word CSD_NPC_4
     .word SpriteList_Govt
     .word EntityAllocParams_8035C18
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word  0xFF
 
@@ -920,7 +920,7 @@ CreditsSceneData_5:
     .word CSD_NPC_5
     .word SpriteList_ACDC
     .word EntityAllocParams_8031024
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
     .word BgUpdate_MoveUp
     .word dummy_6928_far
     .word BgTask_8044198
@@ -934,8 +934,8 @@ CreditsSceneData_6:
     .word CSD_NPC_6
     .word SpriteList_ACDC
     .word EntityAllocParams_8031024
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word  0xFF
 
@@ -947,7 +947,7 @@ CreditsSceneData_7:
     .word CSD_NPC_7
     .word SpriteList_Internet
     .word CSD_Entity_7
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
     .word BgUpdate_MoveUpLeft
     .word dummy_6928_far
     .word BgTask_80515C8
@@ -967,8 +967,8 @@ CreditsSceneData_8:
     .word CSD_NPC_8
     .word SpriteList_DenTown
     .word CSD_Entity_8
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word  0xFF
 
@@ -980,8 +980,8 @@ CreditsSceneData_9:
     .word CSD_NPC_9
     .word SpriteList_Traffic_Light_Comp
     .word CSD_Entity_9
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word BgTask_80475A4
     .word BgTask_80475F4
@@ -999,8 +999,8 @@ CreditsSceneData_10:
     .word CSD_NPC_10
     .word SpriteList_SciLab
     .word CSD_Entity_10
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word BgTask_803BD78
     .word BgTask_803BB84
@@ -1014,8 +1014,8 @@ CreditsSceneData_11:
     .word CSD_NPC_11
     .word SpriteList_Power_Plant_Comp
     .word CSD_Entity_11
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word BgTask_8049C00
     .word BgTask_8049C70
@@ -1033,8 +1033,8 @@ CreditsSceneData_12:
     .word CSD_NPC_12
     .word SpriteList_WWW
     .word CSD_Entity_12
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word BgTask_803D7E4
     .word  0xFF
@@ -1047,8 +1047,8 @@ CreditsSceneData_13:
     .word CSD_NPC_13
     .word SpriteList_ACDC
     .word CSD_Entity_13
-    .word dummy_1cb8
-    .word dummy_1cb8
+    .word BgUpdate_NoMove
+    .word BgUpdate_NoMove
     .word dummy_6928_far
     .word BgTask_ACDC_Lan_Room_Window_Bird
     .word BgTask_ACDC_Lan_Room_Tileset_Computer

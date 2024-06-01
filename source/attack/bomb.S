@@ -225,9 +225,9 @@ PTR_listBombPattern_080702c0:
 
 listBombPattern:
     .word patternLilBomb
-    .word 0x80702DB
+    .word patternCrossBomb
     .word patternBigBomb
-    .word 0x80702F9
+    .word patternMiniBomb
 
 patternLilBomb:
     cell_pos 0, 0

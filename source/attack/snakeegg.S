@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_Tower, 0x807BD64+1
     .set Effect_Tower_Create, 0x807BEB4+1
     .set SWI_DivMod, 0x809DF58+1
@@ -100,7 +99,7 @@ PTR_DAT_08079744:
     .word DAT_0807974c
 
 PTR_DAT_08079748:
-    .word 0x807974F
+    .word DAT_0807974f
 
 DAT_0807974c:
     .byte 0x04

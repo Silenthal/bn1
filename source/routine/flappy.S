@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_BombExplosion_Create, 0x807BCBA+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 

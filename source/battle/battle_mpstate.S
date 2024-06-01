@@ -4,21 +4,6 @@
 
     .set FUN_0809bd28, 0x809bd28
     .set Sio_SetReady, 0x809bdf0
-    .set Routine_ClearBetaSigmaTimer, 0x805738e
-    @ .set gListMPStateAll, 0x
-    @
-    @ .set Routine_ClearBetaSigmaTimer, 0x
-    @ .set gListMPStateAll, 0x
-    @ .set Sio_SetReady, 0x
-    @ .set gListMPStateAll, 0x
-    @ .set gLatestMpInput, 0x
-    @ .set gMPState0, 0x
-    @ .set gMPState1, 0x
-    @ .set gLatestMpInput, 0x
-    @ .set gMPState0, 0x
-    @ .set gMPState1, 0x
-    @ .set gListMPStateAll, 0x
-    @ .set gListMPStateAll, 0x
 
 
 _ts FUN_08007828

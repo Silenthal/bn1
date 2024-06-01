@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_AnimationOnly_Create, 0x806F5A4+1
-    .set Attack_PoweredCannon_Create, 0x807168A+1
-
 
 _ts Routine_PoweredCannon
     push       {lr}

@@ -2,18 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Howitzer_Create, 0x8071D70+1
-    .set Attack_Arrow_Create, 0x8072FAE+1
-    .set Attack_Quake_Create, 0x8073294+1
-    .set Attack_Wave_CreateColumn, 0x80744B4+1
-    .set Attack_Ratton_Create, 0x8074788+1
-    .set Attack_ProgThunder_Create, 0x8075DF6+1
-    .set Attack_Thunder_Create, 0x8076082+1
-    .set FUN_08076f88, 0x8076F88+1
-    .set Attack_BodyBurn_Create, 0x80773A8+1
-    .set FUN_08077838, 0x8077838+1
-    .set FUN_08079cf6, 0x8079CF6+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_MegaManDelete_Create, 0x807CD50+1
     .set Effect_BlockBreak_Create, 0x807E4E8+1
     .set BattleChip_PoweredCannon, 0x80825F4+1
@@ -2493,7 +2481,7 @@ PTR_listRespawnFamily_0805746c:
     .word listRespawnFamily
 
 PTR_listShieldId_08057470:
-    .word 0x805747D
+    .word listShieldId
 
 listRespawnFamily:
     .byte 0x00
@@ -5011,7 +4999,7 @@ _ts BC_IronShield_0_Init
     add        r0,#0x54
     mov        r4,#0x0
     mov        r6,#0x64
-    bl         FUN_08076f88
+    bl         Attack_IronShield_Create
     tst        r7,r7
     beq        LAB_0805865e
     mov        r0,#0x8
@@ -5383,7 +5371,7 @@ _ts BC_Typhoon_1
     ldrb       r4,[r5,r0]
     ldr        r7,[r5,#0x74]
     ldrh       r6,[r7,#0x18]
-    bl         FUN_08077838
+    bl         Attack_Tornado_Chip_Create
     mov        r0,#0x8
     mov        r3,#0x67
     strb       r0,[r5,r3]
@@ -5518,7 +5506,7 @@ _ts BC_Gaia_1
     ldrh       r6,[r6,#0x18]
 LAB_080589c6:
     push       {r1,r2,r4,r6}
-    bl         FUN_08079cf6
+    bl         Attack_GaiaExplosion_Create
     pop        {r1,r2,r4,r6}
     sub        r2,#0x1
     bne        LAB_080589c6

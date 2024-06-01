@@ -37,7 +37,7 @@ _ts GraphicDataSetup_ACDC_HP
     push       {r5}
     bl         Camera_Init
     bl         BGDM_Load
-    ldr        r0,PTR_dummy_1cb8_0804ef8c
+    ldr        r0,PTR_BgUpdate_NoMove_0804ef8c
     ldr        r1,PTR_BgUpdate_MoveUpLeft_0804ef90
     ldr        r2,PTR_dummy_6928_0804ef94
     bl         BgUpdate_Set
@@ -83,8 +83,8 @@ SpriteList_ACDC_Dex_PC:
 PTR_MapExitList_ACDC_HP_0804ef88:
     .word MapExitList_ACDC_HP
 
-PTR_dummy_1cb8_0804ef8c:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_0804ef8c:
+    .word BgUpdate_NoMove
 
 PTR_BgUpdate_MoveUpLeft_0804ef90:
     .word BgUpdate_MoveUpLeft

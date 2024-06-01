@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_PharaohManCoffin_Create, 0x807A596+1
-
 
 _ts Routine_PharaohMan_Chip
     push       {lr}

@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set FUN_08080320, 0x8080320+1
     .set SWI_Div, 0x809DF54+1
 

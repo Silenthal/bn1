@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Entity_CompareToPlayerRow, 0x805AADC+1
-    .set CanodumbTarget_Create, 0x8071B60+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 
@@ -335,7 +333,7 @@ LAB_08059b70:
     ldrb       r1,[r5,#0x19]
     add        r3,r5,#0x0
     ldrb       r4,[r5,#0x4]
-    bl         CanodumbTarget_Create
+    bl         Attack_CanodumbTarget_Create
     str        r0,[r5,#0x6c]
     str        r0,[r5,#0x5c]
     tst        r0,r0

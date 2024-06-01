@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Shockwave_Create, 0x8070A16+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 

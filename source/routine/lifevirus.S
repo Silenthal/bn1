@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_LifeVirusSword_Create, 0x8077D88+1
-    .set Attack_Scuttlest_Create, 0x8078390+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_Laser_Create, 0x807E16E+1
     .set Effect_LifeVirusAura_Create, 0x808086E+1
     .set Effect_Scuttlest_Create, 0x808098E+1

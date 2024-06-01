@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_AirBurst_Create, 0x8079BA0+1
-    .set Attack_BassExplosionYellow_Create, 0x8079E88+1
-    .set Attack_BassExplosionBlue_Create, 0x807A010+1
     .set Effect_Bass_Create, 0x8081808+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
     .set SWI_Div, 0x809DF54+1

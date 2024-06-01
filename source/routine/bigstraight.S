@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_BigStraight_Create, 0x8077590+1
-
 
 _ts Routine_BigStraight
     push       {lr}

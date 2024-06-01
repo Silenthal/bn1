@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_MagicFire_Create, 0x807A948+1
     .set Effect_MagicMan_Create, 0x8080B7A+1
 
 
@@ -183,7 +182,7 @@ _nt R_MagicManC_1_0_3
     ldrb       r1,[r5,#0x19]
     add        r2,r5,#0x0
     ldrb       r4,[r5,#0x4]
-    bl         Attack_MagicFire_Create
+    bl         Attack_MagicFire_Chip_Create
     mov        r0,#0x1
     strb       r0,[r5,#0x5]
     mov        r0,#0xb6

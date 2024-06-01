@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Ratton_Create, 0x8074788+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 

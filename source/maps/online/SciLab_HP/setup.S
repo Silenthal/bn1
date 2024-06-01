@@ -37,7 +37,7 @@ _ts GraphicDataSetup_SciLab_HP
     push       {r5}
     bl         Camera_Init
     bl         BGDM_Load
-    ldr        r0,PTR_dummy_1cb8_0805010c
+    ldr        r0,PTR_BgUpdate_NoMove_0805010c
     ldr        r1,PTR_BgUpdate_MoveRight_08050110
     ldr        r2,PTR_dummy_6928_08050114
     bl         BgUpdate_Set
@@ -68,8 +68,8 @@ SpriteList_SciLab_Fish_Stand_Comp:
 PTR_MapExitList_SciLab_HP_08050108:
     .word MapExitList_SciLab_HP
 
-PTR_dummy_1cb8_0805010c:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_0805010c:
+    .word BgUpdate_NoMove
 
 PTR_BgUpdate_MoveRight_08050110:
     .word BgUpdate_MoveRight

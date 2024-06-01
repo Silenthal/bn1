@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Entity_SetCellPosToSpritePos, 0x805D0F2+1
-    .set Attack_Seed_Create, 0x80721A4+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
     .set SWI_Div, 0x809DF54+1
 
@@ -945,7 +943,7 @@ LAB_0805925e:
     add        r0,r0,r1
     str        r0,[r5,#0x4c]
 LAB_0805927c:
-    bl         Entity_SetCellPosToSpritePos
+    bl         R_Actor_UpdateCellPos
     pop        {pc}
 
     .align 2, 0

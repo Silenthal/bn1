@@ -37,7 +37,7 @@ _ts GraphicDataSetup_Internet
     push       {r5}
     bl         Camera_Init
     bl         BGDM_Load
-    ldr        r0,PTR_dummy_1cb8_08051e04
+    ldr        r0,PTR_BgUpdate_NoMove_08051e04
     ldr        r1,PTR_BgUpdate_MoveUpLeft_08051e08
     ldr        r2,PTR_dummy_6928_08051e0c
     bl         BgUpdate_Set
@@ -161,8 +161,8 @@ SpriteList_Internet_None:
 PTR_MapExitList_Internet_08051e00:
     .word MapExitList_Internet
 
-PTR_dummy_1cb8_08051e04:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_08051e04:
+    .word BgUpdate_NoMove
 
 PTR_BgUpdate_MoveUpLeft_08051e08:
     .word BgUpdate_MoveUpLeft

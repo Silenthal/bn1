@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_ShotgunBurst_Create, 0x8071380+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
-
 
 _ts Attack_Shotgun
     push       {lr}
@@ -188,7 +185,7 @@ PTR_BYTE_ARRAY_080704f0:
     .word BYTE_ARRAY_0807050c
 
 PTR_SongId_ARRAY_080704f4:
-    .word 0x8070511
+    .word SongId_ARRAY_08070511
 
 PTR_CellPosition_ARRAY_080704f8:
     .word CellPosition_ARRAY_08070516

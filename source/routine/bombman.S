@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_BombManBomb_Create, 0x8077BA6+1
-    .set A_BombManBomb_Kick, 0x8077BE6+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
     .set SWI_Div, 0x809DF54+1
 

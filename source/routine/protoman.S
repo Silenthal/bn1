@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_SwordSlash_Create, 0x807BFA0+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
 

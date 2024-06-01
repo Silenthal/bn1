@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Wave_CreateColumn, 0x80744B4+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
     .set Effect_JellyCharging_Create, 0x807E590+1
 

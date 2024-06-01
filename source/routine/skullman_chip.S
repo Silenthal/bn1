@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Skull_Create, 0x8074F92+1
-
 
 _ts Routine_SkullMan_Chip
     push       {lr}

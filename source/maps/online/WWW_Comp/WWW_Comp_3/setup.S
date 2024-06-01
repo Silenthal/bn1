@@ -149,10 +149,10 @@ PTR_BgTask_8044108_0804daec:
     .word BgTask_8044108
 
 DAT_0804daf0:
-    .word 0x8001CB9
+    .word BgUpdate_NoMove
 
 DAT_0804daf4:
-    .word 0x8001C6D
+    .word BgUpdate_MoveUp
 
 PTR_dummy_6928_0804daf8:
     .word dummy_6928_far

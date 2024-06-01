@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_Tower_Create, 0x807BEB4+1
 
 

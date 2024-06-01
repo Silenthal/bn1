@@ -160,10 +160,10 @@ PTR_BgTask_804CD30_0804df44:
     .word BgTask_804CD30
 
 DAT_0804df48:
-    .word 0x8001CB9
+    .word BgUpdate_NoMove
 
 DAT_0804df4c:
-    .word 0x8001C81
+    .word BgUpdate_MoveLeft
 
 PTR_dummy_6928_0804df50:
     .word dummy_6928_far

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_MagicFire_Create, 0x8074A18+1
-    .set Attack_Candle_Create, 0x8076DB8+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 

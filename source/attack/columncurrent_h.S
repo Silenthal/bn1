@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_ColumnCurrentV_Create, 0x8075778+1
-
 
 DAT_08075394:
     .byte 0x02

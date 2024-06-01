@@ -7,7 +7,7 @@
     .text
 
 listHandlerEffect:
-    .word 0x807b475 @ DO_QuickEffect
+    .word Effect_QuickEffect
     .word 0x807b9ad @ FUN_0807b9ac
     .word 0x807ba41 @ DO_BattleHP
     .word 0x807bbf1 @ dummy_7bbf0

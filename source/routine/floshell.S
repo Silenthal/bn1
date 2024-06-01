@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_FloshellShield_Create, 0x8074022+1
-    .set Attack_FloshellMiniBomb_Create, 0x80741E8+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 

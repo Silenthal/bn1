@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set SWI_Div, 0x809DF54+1
 
 
@@ -190,7 +189,7 @@ _ts A_Mine_1_0_1
 
 
 DAT_080758e4:
-    .word 0x80758E8
+    .word PTR_A_Mine_1_0_1_0_080758e8
 
 PTR_A_Mine_1_0_1_0_080758e8:
     .word A_Mine_1_0_1_0

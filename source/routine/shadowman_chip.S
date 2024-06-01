@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Shuriken_Chip_Create, 0x807A750+1
-
 
 _ts Routine_ShadowMan_Chip
     push       {lr}

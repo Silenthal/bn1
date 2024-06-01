@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_MegalianHead_Create, 0x80768B6+1
-    .set A_Megalian_ShowHead, 0x80768DC+1
-    .set A_Megalian_HideHead, 0x80768E8+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
     .set SWI_Div, 0x809DF54+1
 

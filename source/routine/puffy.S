@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_PuffyBubble_Create, 0x8072D04+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 

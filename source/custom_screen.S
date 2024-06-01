@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set R_Player_ResetBusterAndShields, 0x805758A
-    .set Routine_ClearBetaSigmaTimer, 0x805738e
     .text
 
     .thumb

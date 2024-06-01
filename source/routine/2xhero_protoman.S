@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Charging_Create, 0x8070392+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set SWI_DivMod, 0x809DF58+1
 
 

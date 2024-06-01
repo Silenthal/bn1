@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_MagicFire_Create, 0x8074A18+1
-    .set Attack_BoneCrush_Create, 0x8074D20+1
-    .set Attack_Skull_Create, 0x8074F92+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
 
 listSkullManSpec:

@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_BassExplosion_Chip_Create, 0x807ADA0+1
     .set Effect_Bass_Create, 0x8081808+1
 
 

@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_SwordySlash_Create, 0x8072728+1
-    .set Attack_SwordySlash_Hide, 0x807273E+1
-    .set Attack_SwordySlash_Show, 0x807274A+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 

@@ -37,7 +37,7 @@ _ts GraphicDataSetup_DenTown_HP
     push       {r5}
     bl         Camera_Init
     bl         BGDM_Load
-    ldr        r0,PTR_dummy_1cb8_0804fe50
+    ldr        r0,PTR_BgUpdate_NoMove_0804fe50
     ldr        r1,PTR_BgUpdate_MoveUpLeft_0804fe54
     ldr        r2,PTR_dummy_6928_0804fe58
     bl         BgUpdate_Set
@@ -68,8 +68,8 @@ SpriteList_DenTown_Antique_Comp:
 PTR_MapExitList_DenTown_HP_0804fe4c:
     .word MapExitList_DenTown_HP
 
-PTR_dummy_1cb8_0804fe50:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_0804fe50:
+    .word BgUpdate_NoMove
 
 PTR_BgUpdate_MoveUpLeft_0804fe54:
     .word BgUpdate_MoveUpLeft

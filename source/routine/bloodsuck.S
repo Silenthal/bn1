@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_BloodSuckSyringe_Create, 0x807B366+1
-
 
 _ts Routine_BloodSuck
     push       {lr}

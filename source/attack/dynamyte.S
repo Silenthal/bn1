@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set FUN_08081170, 0x8081170+1
     .set Effect_DynamyteExplosion_Create, 0x8081380+1
 

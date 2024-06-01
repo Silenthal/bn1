@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_MoleHole_Create, 0x807B458+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 

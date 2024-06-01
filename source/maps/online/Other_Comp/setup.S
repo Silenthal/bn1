@@ -37,7 +37,7 @@ _ts GraphicDataSetup_Other_Comp
     push       {r5}
     bl         Camera_Init
     bl         BGDM_Load
-    ldr        r0,PTR_dummy_1cb8_08050478
+    ldr        r0,PTR_BgUpdate_NoMove_08050478
     ldr        r1,PTR_BgUpdate_MoveUpLeft_0805047c
     ldr        r2,PTR_dummy_6928_08050480
     bl         BgUpdate_Set
@@ -80,8 +80,8 @@ SpriteList_Other_Doghouse_Comp:
 PTR_MapExitList_Other_Comp_08050474:
     .word MapExitList_Other_Comp
 
-PTR_dummy_1cb8_08050478:
-    .word dummy_1cb8
+PTR_BgUpdate_NoMove_08050478:
+    .word BgUpdate_NoMove
 
 PTR_BgUpdate_MoveUpLeft_0805047c:
     .word BgUpdate_MoveUpLeft

@@ -7,89 +7,89 @@
     .text
 
 listHandlerActor:
-    .word 0x8056301  @ Routine_Player+1
-    .word 0x8058bf1  @ Routine_Woodman+1
-    .word 0x8059911  @ Routine_Canodumb+1
-    .word 0x8059c91  @ Routine_FireMan+1
-    .word 0x805a551  @ Routine_Mettaur+1
-    .word 0x805ab25  @ Routine_Vulgear+1
-    .word 0x805b05d  @ FUN_0805b05c+1
-    .word 0x805b155  @ FUN_0805b154+1
-    .word 0x805b1fd  @ FUN_0805b1fc+1
-    .word 0x805b475  @ Routine_Beetank+1
-    .word 0x805b8a9  @ Routine_Spooky+1
-    .word 0x805bf41  @ FUN_0805bf40+1
-    .word 0x805c0f9  @ Routine_GutsMan+1
-    .word 0x805c7a9  @ Routine_HardHead+1
-    .word 0x805cad5  @ Routine_Fishy+1
-    .word 0x805d1e9  @ Routine_NumberMan+1
-    .word 0x805d779  @ Routine_Swordy+1
-    .word 0x805e085  @ Routine_Puffy+1
-    .word 0x805e369  @ Routine_Flappy+1
-    .word 0x805e949  @ Routine_Piranha+1
-    .word 0x805eec9  @ Routine_Cloudy+1
-    .word 0x805f3b1  @ Routine_StoneMan+1
-    .word 0x805f999  @ FUN_0805f998+1
-    .word 0x805fb99  @ FUN_0805fb98+1
-    .word 0x805fd95  @ Routine_Froshell+1
-    .word 0x80603b5  @ FUN_080603b4+1
-    .word 0x80605cd  @ Routine_Handy_Main+1
-    .word 0x8060c15  @ Actor_IceMan+1
-    .word 0x8061531  @ Routine_ColdBear+1
-    .word 0x8061a65  @ FUN_08061a64+1
-    .word 0x8061c71  @ FUN_08061c70+1
-    .word 0x8061f05  @ Routine_Jelly+1
-    .word 0x80623a5  @ Routine_Ratty+1
-    .word 0x80628b5  @ Routine_Popper+1
-    .word 0x8062cc5  @ Routine_SkullMan+1
-    .word 0x80633c7  @ Routine_ColorMan+1
-    .word 0x80639ed  @ Routine_ColorManDummy+1
-    .word 0x8063de5  @ Routine_ElecMan+1
-    .word 0x8064659  @ Routine_ProtoMan+1
-    .word 0x8065075  @ Routine_Miney+1
-    .word 0x806538d  @ Routine_Ammonicule+1
-    .word 0x8065881  @ Routine_SharkMan+1
-    .word 0x8066175  @ Routine_Prog+1
-    .word 0x80665e5  @ Routine_Billy+1
-    .word 0x8066a09  @ Routine_Megalian+1
-    .word 0x806700d  @ Routine_Remobit+1
-    .word 0x8067229  @ Routine_BombMan+1
-    .word 0x8067971  @ FUN_08067970+1
-    .word 0x8067bad  @ FUN_08067bac+1
-    .word 0x8067f55  @ FUN_08067f54+1
-    .word 0x80680fd  @ FUN_080680fc+1
-    .word 0x806824d  @ FUN_0806824c+1
-    .word 0x806841d  @ Routine_Fanner+1
-    .word 0x80686fd  @ Routine_CanDevil+1
-    .word 0x8068ac5  @ FUN_08068ac4+1
-    .word 0x8068d45  @ Routine_Mosqurito+1
-    .word 0x8069265  @ FUN_08069264+1
-    .word 0x80694f1  @ Routine_LifeVirus+1
-    .word 0x8069bc9  @ FUN_08069bc8+1
-    .word 0x8069d6d  @ FUN_08069d6c+1
-    .word 0x8069f75  @ FUN_08069f74+1
-    .word 0x806a325  @ FUN_0806a324+1
-    .word 0x806a609  @ FUN_0806a608+1
-    .word 0x806a82d  @ Routine_MagicMan+1
-    .word 0x806ada5  @ Routine_PharaohMan+1
-    .word 0x806b1ed  @ Routine_Poitton+1
-    .word 0x806b759  @ Routine_ShadowMan+1
-    .word 0x806bdf9  @ Routine_BigSnake+1
-    .word 0x806c37d  @ FUN_0806c37c+1
-    .word 0x806c6ed  @ Routine_Gaia+1
-    .word 0x806cc8d  @ Routine_Bass+1
-    .word 0x806d495  @ Routine_Satella+1
-    .word 0x806d859  @ FUN_0806d858+1
-    .word 0x806daa5  @ FUN_0806daa4+1
-    .word 0x806dc39  @ FUN_0806dc38+1
-    .word 0x806de2d  @ FUN_0806de2c+1
-    .word 0x806dfe1  @ FUN_0806dfe0+1
-    .word 0x806e375  @ FUN_0806e374+1
-    .word 0x806e5f9  @ FUN_0806e5f8+1
-    .word 0x806e8c9  @ FUN_0806e8c8+1
-    .word 0x806eb2d  @ FUN_0806eb2c+1
-    .word 0x806ee6d  @ FUN_0806ee6c+1
-    .word 0x806f059  @ Routine_Mole+1
+    .word Routine_Player
+    .word Routine_Woodman
+    .word Routine_Canodumb
+    .word Routine_FireMan
+    .word Routine_Mettaur
+    .word Routine_Vulgear
+    .word Routine_Mayl
+    .word Routine_LanBed
+    .word Routine_BrownCar
+    .word Routine_Beetank
+    .word Routine_Spooky
+    .word Routine_PoweredCannon
+    .word Routine_GutsMan
+    .word Routine_HardHead
+    .word Routine_Fishy
+    .word Routine_NumberMan
+    .word Routine_Swordy
+    .word Routine_Puffy
+    .word Routine_Flappy
+    .word Routine_Piranha
+    .word Routine_Cloudy
+    .word Routine_StoneMan
+    .word Routine_FireMan_Chip
+    .word Routine_NumberMan_Chip
+    .word Routine_Floshell
+    .word Routine_GutsMan_Chip
+    .word Routine_Handy_Main
+    .word Routine_IceMan
+    .word Routine_ColdBear
+    .word Routine_IceMan_Chip
+    .word Routine_StoneMan_Chip
+    .word Routine_Jelly
+    .word Routine_Ratty
+    .word Routine_Popper
+    .word Routine_SkullMan
+    .word Routine_ColorMan
+    .word Routine_MiniColorMan
+    .word Routine_ElecMan
+    .word Routine_ProtoMan
+    .word Routine_Miney
+    .word Routine_Ammonicule
+    .word Routine_SharkMan
+    .word Routine_Prog
+    .word Routine_Billy
+    .word Routine_Megalian
+    .word Routine_Remobit
+    .word Routine_BombMan
+    .word Routine_SkullMan_Chip
+    .word Routine_Roll_Chip
+    .word Routine_BigStraight
+    .word Routine_GutsShoot_GutsMan
+    .word Routine_GutsShoot_MegaMan
+    .word Routine_Fanner
+    .word Routine_CanDevil
+    .word Routine_DeathStorm
+    .word Routine_Mosqurito
+    .word Routine_Drain
+    .word Routine_LifeVirus
+    .word Routine_ColorMan_Chip
+    .word Routine_MiniColorMan_Chip
+    .word Routine_ProtoMan_Chip
+    .word Routine_SharkMan_Chip
+    .word Routine_ElecMan_Chip
+    .word Routine_MagicMan
+    .word Routine_PharaohMan
+    .word Routine_Poitton
+    .word Routine_ShadowMan
+    .word Routine_BigSnake
+    .word Routine_BigSnakeBody
+    .word Routine_Gaia
+    .word Routine_Bass
+    .word Routine_Satella
+    .word Routine_PharaohMan_Chip
+    .word Routine_ShadowMan_Chip
+    .word Routine_MagicMan_Chip
+    .word Routine_BombMan_Chip
+    .word Routine_Bass_Chip
+    .word Routine_LifeSaver
+    .word Routine_2xHeroMegaMan
+    .word Routine_2xHeroProtoMan
+    .word Routine_HeavyStamp
+    .word Routine_BloodSuck
+    .word Routine_Mole
 
 _ts Actor_Alloc
     push       { r0, r1, r2, r3, r4, lr }

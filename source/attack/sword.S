@@ -146,13 +146,13 @@ PTR_PTR_listSwordRange1x1_0806fb84:
 PTR_listSwordRange1x1_0806fb88:
     .word listSwordRange1x1
     .word listSwordRange1x3
-    .word 0x806FBB7
+    .word listSwordRange2x1
     .word listSwordRange1x3
     .word listSwordRange1x3
     .word listSwordRange1x3
-    .word 0x806FBC3
-    .word 0x806FBC3
-    .word 0x806FBC3
+    .word listSwordRange3x1
+    .word listSwordRange3x1
+    .word listSwordRange3x1
     .word listSwordRange1x1
 
 FamilyDetail_0806fbb0:

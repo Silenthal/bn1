@@ -7,98 +7,98 @@
     .text
 
 listHandlerAttack:
-    .word 0x806f4b9 @ FUN_0806f4b8+1
-    .word 0x806f5c5 @ FUN_0806f5c4+1
-    .word 0x806f7f9 @ FUN_0806f7f8+1
-    .word 0x806fa89 @ FUN_0806fa88+1
-    .word 0x806fbe9 @ FUN_0806fbe8+1
-    .word 0x806fcb5 @ FUN_0806fcb4+1
-    .word 0x806fd69 @ FUN_0806fd68+1
-    .word 0x806fe3f @ FUN_0806fe3e+1
-    .word 0x806ff85 @ FUN_0806ff84+1
-    .word 0x8070085 @ FUN_08070084+1
-    .word 0x8070131 @ FUN_08070130+1
-    .word 0x8070319 @ FUN_08070318+1
-    .word 0x80703a9 @ FUN_080703a8+1
-    .word 0x8070555 @ FUN_08070554+1
-    .word 0x8070801 @ FUN_08070800_Routine_Shockwave+1
-    .word 0x8070a35 @ FUN_08070a34+1
-    .word 0x8070cf5 @ FUN_08070cf4+1
-    .word 0x8070fbd @ FUN_08070fbc+1
-    .word 0x8071199 @ FUN_08071198+1
-    .word 0x80712b1 @ FUN_080712b0+1
-    .word 0x807139d @ FUN_0807139c+1
-    .word 0x80714c9 @ FUN_080714c8+1
-    .word 0x8071589 @ FUN_08071588+1
-    .word 0x80716b5 @ FUN_080716b4+1
-    .word 0x8071849 @ FUN_08071848+1
-    .word 0x807190d @ FUN_0807190c+1
-    .word 0x80719d1 @ FUN_080719d0+1
-    .word 0x8071bc1 @ FUN_08071bc0+1
-    .word 0x8071d8d @ FUN_08071d8c+1
-    .word 0x80721c9 @ FUN_080721c8+1
-    .word 0x80723dd @ FUN_080723dc+1
-    .word 0x80726a5 @ FUN_080726a4+1
-    .word 0x8072765 @ FUN_08072764+1
-    .word 0x80729bd @ FUN_080729bc+1
-    .word 0x8072dad @ FUN_08072dac+1
-    .word 0x8072fe9 @ FUN_08072fe8+1
-    .word 0x80732b1 @ FUN_080732b0+1
-    .word 0x80735f5 @ FUN_080735f4+1
-    .word 0x80738f5 @ FUN_080738f4+1
-    .word 0x8073a59 @ FUN_08073a58+1
-    .word 0x8073ce9 @ FUN_08073ce8+1
-    .word 0x8073e99 @ FUN_08073e98+1
-    .word 0x807405d @ FUN_0807405c+1
-    .word 0x8074201 @ FUN_08074200+1
-    .word 0x807436d @ FUN_0807436c+1
-    .word 0x80744fd @ FUN_080744fc+1
-    .word 0x8074861 @ FUN_08074860+1
-    .word 0x8074a45 @ FUN_08074a44+1
-    .word 0x8074d45 @ FUN_08074d44+1
-    .word 0x8074fb5 @ FUN_08074fb4+1
-    .word 0x8075249 @ FUN_08075248+1
-    .word 0x80753d5 @ FUN_080753d4+1
-    .word 0x80755f5 @ FUN_080755f4+1
-    .word 0x8075799 @ FUN_08075798+1
-    .word 0x8075a65 @ FUN_08075a64+1
-    .word 0x8075c85 @ FUN_08075c84+1
-    .word 0x8075e21 @ FUN_08075e20+1
-    .word 0x80760f1 @ FUN_080760f0+1
-    .word 0x807667d @ FUN_0807667c+1
-    .word 0x80768f5 @ FUN_080768f4+1
-    .word 0x8076b7b @ FUN_08076b7a+1
-    .word 0x8076dd9 @ FUN_08076dd8+1
-    .word 0x8076fad @ FUN_08076fac+1
-    .word 0x8077235 @ FUN_08077234+1
-    .word 0x80773c5 @ FUN_080773c4+1
-    .word 0x807747d @ FUN_0807747c+1
-    .word 0x80775b1 @ FUN_080775b0+1
-    .word 0x8077741 @ FUN_08077740+1
-    .word 0x8077859 @ FUN_08077858+1
-    .word 0x8077c2d @ FUN_08077c2c+1
-    .word 0x8077df1 @ FUN_08077df0+1
-    .word 0x8077f31 @ FUN_08077f30+1
-    .word 0x80784a5 @ FUN_080784a4+1
-    .word 0x8078861 @ FUN_08078860+1
-    .word 0x8078d49 @ FUN_08078d48+1
-    .word 0x80790a9 @ FUN_080790a8+1
-    .word 0x80791f1 @ FUN_080791f0+1
-    .word 0x8079335 @ FUN_08079334+1
-    .word 0x807968d @ FUN_0807968c+1
-    .word 0x8079a71 @ FUN_08079a70+1
-    .word 0x8079bc9 @ FUN_08079bc8+1
-    .word 0x8079d15 @ FUN_08079d14+1
-    .word 0x8079ed9 @ FUN_08079ed8+1
-    .word 0x807a087 @ FUN_0807a086+1
-    .word 0x807a3b9 @ FUN_0807a3b8+1
-    .word 0x807a629 @ FUN_0807a628+1
-    .word 0x807a785 @ FUN_0807a784+1
-    .word 0x807a9f5 @ FUN_0807a9f4+1
-    .word 0x807ac75 @ FUN_0807ac74+1
-    .word 0x807adcd @ FUN_0807adcc+1
-    .word 0x807b239 @ FUN_0807b238+1
-    .word 0x807b389 @ FUN_0807b388+1
+    .word Attack_AnimationOnly
+    .word Attack_IceManBeetankBomb
+    .word Attack_WoodTower
+    .word Attack_Sword
+    .word Attack_Cannon
+    .word Attack_Unk05
+    .word Attack_Unk06
+    .word Attack_MetGuard
+    .word Attack_Aura
+    .word Attack_Unk09
+    .word Attack_Bomb
+    .word Attack_Charging
+    .word Attack_Shotgun
+    .word Attack_BurnerBomb
+    .word Attack_Shockwave
+    .word Attack_Unk0F
+    .word Attack_Tower
+    .word Attack_FireArm
+    .word Attack_Buster
+    .word Attack_ShotgunBurst
+    .word Attack_Meteor
+    .word Attack_Meteor_Fire
+    .word Attack_PoweredCannon
+    .word Attack_Steal
+    .word Attack_QuickAttack
+    .word Attack_SharpStrike
+    .word Attack_CanodumbTarget
+    .word Attack_Howitzer
+    .word Attack_Seed
+    .word Attack_NumberBall
+    .word Attack_TimeBomb
+    .word Attack_SwordySlash
+    .word Attack_DieBomb
+    .word Attack_PuffyBubble
+    .word Attack_Arrow
+    .word Attack_Quake
+    .word Attack_Cloudy
+    .word Attack_Cube
+    .word Attack_Stone
+    .word Attack_StoneManLaser
+    .word Attack_DieBomb_Chip
+    .word Attack_FloshellShield
+    .word Attack_FloshellMiniBomb
+    .word Attack_IceManSpikes
+    .word Attack_Wave
+    .word Attack_Ratton
+    .word Attack_MagicFire
+    .word Attack_BoneCrush
+    .word Attack_Skull
+    .word Attack_ColorManBall
+    .word Attack_SparkStrike
+    .word Attack_ColumnCurrentH
+    .word Attack_ColumnCurrentV
+    .word Attack_Mine
+    .word Attack_AmmoniculeBubbleWrap
+    .word Attack_ProgThunder
+    .word Attack_Thunder
+    .word Attack_Remobit
+    .word Attack_MegalianHead
+    .word Attack_Anubis
+    .word Attack_Candle
+    .word Attack_IronShield
+    .word Attack_Remobit_Chip
+    .word Attack_BodyBurn
+    .word Attack_Battery
+    .word Attack_BigStraight
+    .word Attack_Tornado
+    .word Attack_Tornado_Chip
+    .word Attack_BombManBomb
+    .word Attack_LifeVirusSword
+    .word Attack_LifeVirusMeteorExplosion
+    .word Attack_Scuttlest
+    .word Attack_Sarcophagus
+    .word Attack_PharaohTrap
+    .word Attack_Dynamyte
+    .word Attack_Bakufu
+    .word Attack_Shuriken
+    .word Attack_Bunshin
+    .word Attack_SnakeEgg
+    .word Attack_AirBurst
+    .word Attack_GaiaExplosion
+    .word Attack_BassExplosionYellow
+    .word Attack_BassExplosionBlue
+    .word Attack_LockonTarget
+    .word Attack_PharaohManCoffin
+    .word Attack_Shuriken_Chip
+    .word Attack_MagicFire_Chip
+    .word Attack_BombShoot
+    .word Attack_BassExplosion_Chip
+    .word Attack_LockOn
+    .word Attack_BloodSuckSyringe
+    .word Attack_MoleHole
 
 _ts Attack_Alloc
     push       { r0, r1, r2, r3, r4, lr }

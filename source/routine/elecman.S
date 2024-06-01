@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_SparkStrike_Create, 0x8075376+1
-    .set Attack_ColumnCurrentH_Create, 0x80755D8+1
-    .set Attack_ColumnCurrentV_Create, 0x8075778+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
 
 

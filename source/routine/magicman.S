@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_MagicFire_Create, 0x8074A18+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_BattleHP_Create, 0x807BAD4+1
     .set Effect_MagicMan_Create, 0x8080B7A+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1

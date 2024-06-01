@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_DieBombChip_Create, 0x8073E78+1
-
 
 _ts Routine_NumberMan_Chip
     push       {lr}

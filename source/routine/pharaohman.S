@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_080787d6, 0x80787D6+1
-    .set R_Pharaoh_SearchForClearPanel, 0x8078C80+1
     .set Effect_PharaohManCurse_Create, 0x8081228+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
 
@@ -85,7 +83,7 @@ _ts R_PharaohMan_0_Init
     mov        r1,#0x2
     mov        r2,#0x5c
     add        r2,r2,r5
-    bl         FUN_080787d6
+    bl         Attack_Sarcophagus_Create
     bl         R_PharaohMan_1_Main
     pop        {pc}
 
@@ -576,7 +574,7 @@ _ts R_PharaohMan_SetTrap
     tst        r0,r0
     bne        LAB_0806b1e6
     add        r0,r5,#0x0
-    bl         R_Pharaoh_SearchForClearPanel
+    bl         A_PharaohTrap_SearchForClearPanel
     tst        r1,r1
     beq        LAB_0806b1e6
     mov        r0,#0x1

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_SparkStrike_Create, 0x8075376+1
-
 
 _ts Routine_ElecMan_Chip
     push       {lr}

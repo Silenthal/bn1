@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_FireArm_Create, 0x8071170+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
 
 DAT_08059c74:

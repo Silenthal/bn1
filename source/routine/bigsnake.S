@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Routine_BigSnakeBody_Create, 0x806C6C4+1
-    .set Attack_Shockwave_Create, 0x8070A16+1
-    .set Attack_MagicFire_Create, 0x8074A18+1
-    .set Attack_Thunder_Create, 0x8076082+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
     .set SWI_DivMod, 0x809DF58+1
 

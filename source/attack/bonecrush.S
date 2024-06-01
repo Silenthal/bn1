@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
-
 
 BYTE_ARRAY_ARRAY_08074a38:
     .byte 0xA1

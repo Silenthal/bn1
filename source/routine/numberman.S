@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_NumberBall_Create, 0x80723B0+1
-    .set Attack_TimeBomb_Create, 0x8072660+1
-    .set Attack_DieBomb_Create, 0x80729A0+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
 
 

@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Remobit_Create, 0x80765C4+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
     .set Effect_Remobit_Create, 0x807F99C+1
 

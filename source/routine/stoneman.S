@@ -2,11 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Cube_Create, 0x8073842+1
-    .set Attack_Stone_Create, 0x8073A1C+1
-    .set Attack_StoneManLaser_Create, 0x8073C94+1
     .set Effect_NaviDelete_Create, 0x8081D7C+1
-@ Start: 
 
 
 _ts Routine_StoneMan

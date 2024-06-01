@@ -248,18 +248,18 @@ PTR_listBFBombPattern_0806f780:
     .word listBFBombPattern
 
 PTR_DAT_0806f784:
-    .word 0x806F7CD
+    .word DAT_0806f7cd
 
 PTR_listExplosionSound_0806f788:
     .word listExplosionSound
 
 listBFBombPattern:
     .word listBFBombLinePattern
-    .word 0x806F7AF
+    .word listBFBombCrossPattern
     .word listBFBombSquarePattern
-    .word 0x806F7AF
+    .word listBFBombCrossPattern
     .word listBFBombLinePattern
-    .word 0x806F7AF
+    .word listBFBombCrossPattern
     .word listBFBombSquarePattern
 
 listBFBombLinePattern:

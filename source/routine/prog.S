@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_ProgThunder_Create, 0x8075DF6+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 

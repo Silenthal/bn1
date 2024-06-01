@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_BombShoot_Create, 0x807AC1A+1
-    .set A_BombShoot_SetTarget, 0x807AC66+1
-
 
 _ts Routine_BombMan_Chip
     push       {lr}

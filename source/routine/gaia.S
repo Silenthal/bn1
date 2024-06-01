@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_GaiaExplosion_Create, 0x8079CF6+1
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
     .set Effect_GaiaBase_Create, 0x80818B0+1
 

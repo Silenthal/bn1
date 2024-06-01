@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_IceManSpikes_Create, 0x807434A+1
-
 
 _ts Routine_IceMan_Chip
     push       {lr}

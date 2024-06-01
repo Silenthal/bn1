@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Attack_Howitzer_Create, 0x8071D70+1
     .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 listHardHeadAttackDelay:

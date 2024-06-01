@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_QuickEffect_Create, 0x807B5E8+1
-
 
 EP_68_A_Candle_Param0_ARRAY_08076b74:
     .byte 0x14, 0x1E
