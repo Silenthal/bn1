@@ -365,7 +365,7 @@ routine/magicman_chip       0x6DC38
 routine/bombman_chip        0x6DE2C
 routine/bass_chip           0x6DFE0
 routine/lifesaver           0x6E374
-routine/2xhero_megaman      0x6E618
+routine/2xhero_megaman      0x6E5F8
 routine/2xhero_protoman     0x6E8C8
 routine/heavystamp          0x6EB2C
 routine/bloodsuck           0x6EE6C

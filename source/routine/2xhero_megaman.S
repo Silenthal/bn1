@@ -7,6 +7,27 @@
     .set SWI_DivMod, 0x809DF58+1
 
 
+_ts Routine_2xHeroMegaMan
+    push       {lr}
+    ldrb       r0,[r5,#0x8]
+    ldr        r7,PTR_PTR_R_2xHeroMegaMan_0_Init_0806e608
+    ldr        r7,[r7,r0]
+    mov        lr,pc
+    bx         r7
+    pop        {pc}
+
+    .align 2, 0
+
+
+PTR_PTR_R_2xHeroMegaMan_0_Init_0806e608:
+    .word PTR_R_2xHeroMegaMan_0_Init_0806e60c
+
+PTR_R_2xHeroMegaMan_0_Init_0806e60c:
+    .word R_2xHeroMegaMan_0_Init
+    .word R_2xHeroMegaMan_1_Main
+    .word R_2xHeroMegaMan_2_Free
+
+
 _ts R_2xHeroMegaMan_0_Init
     push       {lr}
     ldrb       r0,[r5,#0x0]

@@ -146,3 +146,24 @@ _ts A_TornadoC_2_Free
     push       {lr}
     bl         Attack_Free
     pop        {pc}
+
+
+_ts Attack_Tornado_Chip_Create
+    push       {lr}
+    push       {r1,r2,r5,r6}
+    mov        r0,#0x43
+    bl         Attack_Alloc
+    add        r7,r5,#0x0
+    pop        {r1,r2,r5,r6}
+    tst        r7,r7
+    beq        LAB_08077854
+    strb       r1,[r7,#0x18]
+    strb       r2,[r7,#0x19]
+    strh       r6,[r7,#0x24]
+    ldrb       r0,[r5,#0x16]
+    strb       r0,[r7,#0x16]
+LAB_08077854:
+    pop        {pc}
+
+    .align 2, 0
+
