@@ -477,8 +477,7 @@ effect/water_spray          0x7C264
 effect/program_advance      0x7C310
 effect/megaman_delete       0x7CC8C
 effect/virus_delete         0x7CD60
-battle_rank                 0x7D5B0
-enemy_drop                  0x7D80E
+effect/battle_result        0x7CE30
 npc_command                 0x82104
 battle/screendim/util       0x982B8
 battle/screendim/recover    0x9832C

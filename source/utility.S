@@ -275,7 +275,7 @@ ptrTimeConsts:  .word timeConsts
     .pool
 
 @@ Increments a timer, capping it at 99 hours and 59 minutes
-_ts IncrementGameTimer
+_ts Main_IncrementGameTimer
     LoadStateTo r7, Main_gameStats
     ldr        r0,[r7,#0x18]
     add        r0,#0x1
@@ -292,7 +292,7 @@ _ts IncrementGameTimer
     .align 2, 0
     .pool
 
-_ts FUN_08000c24
+_ts Main_IncrementMPCounters
     mov        r7,r10
     ldr        r7,[r7,#0x78]
     ldr        r2,=999
