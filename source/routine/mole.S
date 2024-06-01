@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
-
 
 _ts Routine_Mole
     push       {lr}
@@ -524,7 +522,7 @@ _ts R_Mole_2_0
     strb       r0,[r5,#0x14]
     push       {r5}
     add        r0,r5,#0x0
-    bl         Effect_VirusDeleteExplosion_Create
+    bl         Effect_VirusDelete_Create
     pop        {r5}
     mov        r0,#0x20
     strh       r0,[r5,#0x1c]

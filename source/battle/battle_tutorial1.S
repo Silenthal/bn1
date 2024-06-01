@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Battle_CopyChipHandIcons, 0x807c160
+    .set Effect_BattleChip_LoadHandIcons, 0x807c160
 
 _nt Battle_Tutorial1
     push       {lr}
@@ -365,7 +365,7 @@ _ts BattleT1_3_0
     bl         BattleUi_DrawActiveChip
     pop        {r5}
     bl         Battle_CopyBattleHand
-    bl         Battle_CopyChipHandIcons
+    bl         Effect_BattleChip_LoadHandIcons
     bl         Battle_SetState_InBattle
     mov        r0,#0x28
     bl         Text_SetTextPointer_Tutorial1

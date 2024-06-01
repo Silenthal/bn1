@@ -9,8 +9,8 @@
 @@ r0: 1 if zenny, 0 if a chip
 @@ r1: The amount of zenny, or the chip ID
 @@ r2: The chip code
-@ Enemy_GetDrop(byte enemyId, byte bustingLevel)
-_nt Enemy_GetDrop
+@ E_BattleResult_GetEnemyDrop(byte enemyId, byte bustingLevel)
+_nt E_BattleResult_GetEnemyDrop
     push       { lr }
     push       { r1 }
     bl         Enemy_GetEnemyDetail

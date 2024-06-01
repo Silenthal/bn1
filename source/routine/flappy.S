@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_BombExplosion_Create, 0x807BCBA+1
-    .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
-
 
 FlappyParam_ARRAY_0805e350:
     .byte 0x07, 0x06, 0x04, 0x00, 0x00
@@ -659,21 +656,21 @@ LAB_0805e818:
 _nt R_Flappy_2_Free
     push       {lr}
     ldrb       r0,[r5,#0x9]
-    ldr        r7,PTR_PTR_FUN_0805e834_0805e828
+    ldr        r7,PTR_PTR_R_Flappy_2_0_0805e828
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     pop        {pc}
 
-PTR_PTR_FUN_0805e834_0805e828:
-    .word PTR_FUN_0805e834_0805e82c
+PTR_PTR_R_Flappy_2_0_0805e828:
+    .word PTR_R_Flappy_2_0_0805e82c
 
-PTR_FUN_0805e834_0805e82c:
-    .word FUN_0805e834
-    .word FUN_0805e862
+PTR_R_Flappy_2_0_0805e82c:
+    .word R_Flappy_2_0
+    .word R_Flappy_2_1
 
 
-_ts FUN_0805e834
+_ts R_Flappy_2_0
     push       {lr}
     bl         Battle_RegisterVirusDelete
     ldr        r0,[r5,#0x70]
@@ -686,7 +683,7 @@ _ts FUN_0805e834
     strb       r0,[r5,#0x0]
     push       {r5}
     add        r0,r5,#0x0
-    bl         Effect_VirusDeleteExplosion_Create
+    bl         Effect_VirusDelete_Create
     pop        {r5}
     mov        r0,#0x20
     strh       r0,[r5,#0x1c]
@@ -695,7 +692,7 @@ _ts FUN_0805e834
     pop        {pc}
 
 
-_nt FUN_0805e862
+_nt R_Flappy_2_1
     push       {lr}
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1

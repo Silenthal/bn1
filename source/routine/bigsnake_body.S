@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
     .set SWI_DivMod, 0x809DF58+1
 
 
@@ -330,7 +329,7 @@ _ts R_BigSnakeBody_2_0_Delete
     strb       r0,[r5,#0x14]
     push       {r5}
     add        r0,r5,#0x0
-    bl         Effect_VirusDeleteExplosion_Create
+    bl         Effect_VirusDelete_Create
     pop        {r5}
     mov        r0,#0x20
     strh       r0,[r5,#0x1c]

@@ -9,7 +9,7 @@
     .set Sio_SetReady, 0x809bdf0
     .set Effect_BattleResult_Create, 0x807d688
     .set Effect_ProgramAdvance_Create, 0x807c79e
-    .set Battle_CopyChipHandIcons, 0x807c160
+    .set Effect_BattleChip_LoadHandIcons, 0x807c160
 
     .text
 
@@ -398,7 +398,7 @@ _ts Battle_2_0_2_CalculateRank
     sub        r0,#0x1
     strh       r0,[r5,#0x2e]
     bne        LAB_08005bbc
-    bl         BattleResult_CalculateRank
+    bl         Effect_BattleResult_CalculateRank
     mov        r7,r10
     ldr        r7,[r7,#0x8]
     strb       r0,[r7,#0x19]
@@ -1220,7 +1220,7 @@ LAB_0800614a:
 
 _nt BattleR_2_1_3_CopyChipHandIcons
     push       {lr}
-    bl         Battle_CopyChipHandIcons
+    bl         Effect_BattleChip_LoadHandIcons
     mov        r0,#0x8
     mov        r7,r10
     ldr        r7,[r7,#0x8]

@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Battle_DrawEnemyHP, 0x807bbcc
-    .set Battle_DrawPlayerHand, 0x807c152
-
 
 _nt Battle_Regular
     push       {lr}
@@ -71,8 +68,8 @@ _nt BattleR_1_0_1_DrawHP
     strb       r0,[r5,#0x6]
     strb       r0,[r5,#0x7]
     bl         Battle_SetState_EnemySpawned
-    bl         Battle_DrawEnemyHP
-    bl         Battle_DrawPlayerHand
+    bl         Effect_BattleHP_CreateAll
+    bl         Effect_BattleChip_DrawHand
     mov        r0,#0x1
     strb       r0,[r5,#0x8]
     bl         Battle_PauseTimer

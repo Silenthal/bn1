@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
-
 
 _ts Routine_Cloudy
     push       {lr}
@@ -654,7 +652,7 @@ _ts R_Cloudy_2_0
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
-    bl         Effect_VirusDeleteExplosion_Create
+    bl         Effect_VirusDelete_Create
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x20

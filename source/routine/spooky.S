@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
     .set ScreenDim_Recover_Create, 0x809843C+1
 
 
@@ -860,7 +859,7 @@ _ts R_Spooky_2_0_StartAnimDelete
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
-    bl         Effect_VirusDeleteExplosion_Create
+    bl         Effect_VirusDelete_Create
     add        r0,r5,#0x0
     pop        {r5}
     str        r0,[r5,#0x7c]

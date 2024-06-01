@@ -230,6 +230,7 @@ SECTIONS {
 		iwOamAttributeList		= 0x21E0;
 		iwBufferUITextTile		= 0x25E0;
 		iwTilesetSelectedChips	= 0x2FA0;
+		gBattleHandChipIcons	= 0x30E0;
 		interruptHandlerStart	= 0x6800;
 		interruptHandlerEnd		= 0x7640;
 		iwSpriteContainerList	= 0x47C0;

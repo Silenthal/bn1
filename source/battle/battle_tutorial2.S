@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Battle_CopyChipHandIcons, 0x807c160
+    .set Effect_BattleChip_LoadHandIcons, 0x807c160
 
 _ts Battle_Tutorial2
     push       {lr}
@@ -326,7 +326,7 @@ PTR_PTR_BattleT2_3_0_08007510:
 _ts BattleT2_3_0
     push       {lr}
     bl         Battle_CopyBattleHand
-    bl         Battle_CopyChipHandIcons
+    bl         Effect_BattleChip_LoadHandIcons
     bl         Battle_SetState_InBattle
     mov        r0,#0x28
     bl         Text_SetTextPointer_Tutorial2

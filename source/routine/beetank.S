@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_VirusDeleteExplosion_Create, 0x807CE16+1
 
 DAT_0805b468:
     .byte 0x08
@@ -541,7 +540,7 @@ _ts R_Beetank_2_0_Destroy
     strb       r0,[r5,#0x14]
     push       {r5}
     add        r0,r5,#0x0
-    bl         Effect_VirusDeleteExplosion_Create
+    bl         Effect_VirusDelete_Create
     pop        {r5}
     mov        r0,#0x20
     strh       r0,[r5,#0x1c]

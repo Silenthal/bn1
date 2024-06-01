@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Battle_CopyChipHandIcons, 0x807c160
+    .set Effect_BattleChip_LoadHandIcons, 0x807c160
 
 
 _ts Battle_Tutorial3
