@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_MegaManDelete_Create, 0x807CD50+1
-    .set Effect_BlockBreak_Create, 0x807E4E8+1
     .set BattleChip_PoweredCannon, 0x80825F4+1
     .set BattleChip_ZetaOmegaPA, 0x808268C+1
     .set BattleChip_BetaSigmaPA, 0x8082760+1
@@ -928,14 +926,14 @@ LAB_0805699c:
     mov        r0,#0x7
     bl         Field_GetRandomXZPosOnTarget
     mov        r4,#0x2
-    bl         Effect_BlockBreak_Create
+    bl         Effect_CubeBreak_Create
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
     mov        r0,#0x7
     bl         Field_GetRandomXZPosOnTarget
     mov        r4,#0x2
-    bl         Effect_BlockBreak_Create
+    bl         Effect_CubeBreak_Create
     mov        r0,#0x18
     bl         ActorPlayer_ClearStatus
     mov        r0,#0x8

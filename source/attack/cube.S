@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_BlockBreak_Create, 0x807E4E8+1
-
 
 EP_60_A_Block_BlockParam_ARRAY_080735bc:
     .byte 0x01, 0x01, 0x96, 0x01, 0x84, 0x03, 0x00, 0x00
@@ -216,14 +214,14 @@ _nt A_Cube_2_Free
     mov        r0,#0x7
     bl         Field_GetRandomXZPosOnTarget
     ldrb       r4,[r5,#0x4]
-    bl         Effect_BlockBreak_Create
+    bl         Effect_CubeBreak_Create
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
     mov        r0,#0x7
     bl         Field_GetRandomXZPosOnTarget
     ldrb       r4,[r5,#0x4]
-    bl         Effect_BlockBreak_Create
+    bl         Effect_CubeBreak_Create
     mov        r0,#0x95
     bl         Sound_PlaySongImmediate
     ldrb       r0,[r5,#0x5]
