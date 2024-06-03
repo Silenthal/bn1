@@ -538,7 +538,12 @@ effect/generator_lightning  0x818C8
 effect/pharaohman_laser     0x81A10
 effect/bombshoot_explosion  0x81B14
 effect/navi_delete          0x81CC0
-npc_command                 0x82104
+npc_handler                 0x81D94
+battlechip/powered_cannon   0x825F4
+battlechip/zeta_omega_pa    0x8263C
+battlechip/beta_sigma_pa    0x82710
+battlechip/buster_chip      0x827DC
+battlechip/geddon           0x82838
 battle/screendim/util       0x982B8
 battle/screendim/recover    0x9832C
 swi                         0x9DF50
