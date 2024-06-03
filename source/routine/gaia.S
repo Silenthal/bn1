@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_GaiaBase_Create, 0x80818B0+1
-
 
 _ts Routine_Gaia
     push       {lr}

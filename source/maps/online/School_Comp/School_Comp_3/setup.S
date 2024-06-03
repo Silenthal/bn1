@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0807db72, 0x807DB72+1
-
 
 _ts MapSetup_School_Comp_3_S1
     push       {lr}
@@ -93,7 +91,7 @@ LAB_08041120:
     bne        LAB_08041138
     push       {r5}
     mov        r1,#0x4
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
     b          LAB_08041142
 LAB_08041138:
@@ -109,7 +107,7 @@ LAB_08041142:
     bne        LAB_0804115c
     push       {r5}
     mov        r1,#0x3
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
     mov        r0,#0x0
     b          LAB_0804119c
@@ -121,7 +119,7 @@ LAB_0804115c:
     bne        LAB_08041180
     push       {r5}
     mov        r1,#0x3
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
     push       {r5}
     ldr        r0,DAT_08041380
@@ -287,7 +285,7 @@ LAB_08041298:
     bne        LAB_080412c6
     push       {r5}
     mov        r1,#0x4
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_FUN_08086e18_0804139c

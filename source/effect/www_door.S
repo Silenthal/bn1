@@ -82,7 +82,7 @@ _nt E_WWWDoor_2_Free
     pop        {pc}
 
 
-_nt FUN_0807db72
+_nt Effect_WWWDoor_Create
     push       {lr}
     push       {r5}
     push       {r1}

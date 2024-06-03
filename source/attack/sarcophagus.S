@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_Laser_Create, 0x807E16E+1
     .set SWI_Div, 0x809DF54+1
 
 

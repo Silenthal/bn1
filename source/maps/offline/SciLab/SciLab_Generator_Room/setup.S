@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0808199e, 0x808199E
-    .set FUN_0807ffba, 0x807FFBA
-
 
 _ts MapSetup_SciLab_Generator_Room_S4
     push       {lr}
@@ -126,7 +123,7 @@ LAB_0803d014:
     beq        LAB_0803d032
     push       {r5}
     mov        r0,#0x2
-    bl         FUN_0807ffba
+    bl         Effect_BarSwitch_Create
     pop        {r5}
     mov        r0,#0x8
     str        r0,[r5,#0x0]
@@ -134,11 +131,11 @@ LAB_0803d014:
 LAB_0803d032:
     push       {r5}
     mov        r0,#0x0
-    bl         FUN_0808199e
+    bl         Effect_GeneratorLightning_Create
     pop        {r5}
     push       {r5}
     mov        r0,#0x0
-    bl         FUN_0807ffba
+    bl         Effect_BarSwitch_Create
     pop        {r5}
     mov        r0,#0xbf
     bl         Flag_GetBase
@@ -336,7 +333,7 @@ _ts MapSetup_SciLab_Generator_Room_F50
     pop        {r5}
     push       {r5}
     mov        r0,#0x0
-    bl         FUN_0807ffba
+    bl         Effect_BarSwitch_Create
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]

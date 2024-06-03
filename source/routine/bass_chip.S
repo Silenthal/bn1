@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_Bass_Create, 0x8081808+1
-
 
 _ts Routine_Bass_Chip
     push       {lr}

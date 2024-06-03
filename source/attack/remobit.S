@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_Remobit_Create, 0x807F99C+1
-
 
 _ts Attack_Remobit
     push       {lr}
@@ -683,7 +681,7 @@ _ts FUN_08076558
     ldrb       r1,[r5,#0x19]
     mov        r4,#0x0
     ldrh       r6,[r5,#0x24]
-    bl         Effect_Remobit_Create
+    bl         Effect_RemobitThunder_Create
     mov        r0,#0xbb
     bl         Sound_PlaySongImmediate
 LAB_0807657c:

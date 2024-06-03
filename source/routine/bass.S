@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_Bass_Create, 0x8081808+1
-    .set Effect_NaviDelete_Create, 0x8081D7C+1
     .set SWI_Div, 0x809DF54+1
 
 

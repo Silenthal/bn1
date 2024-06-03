@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_PharaohManLaser_Create, 0x8081AD2+1
-
 
 _ts Attack_PharaohManCoffin
     push       {lr}

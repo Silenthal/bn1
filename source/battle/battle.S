@@ -7,9 +7,6 @@
     .set Struct_C1C0_0200c1c0, 0x200c1c0
     .set PlayerMpState_ARRAY_020075a0, 0x20075a0
     .set Sio_SetReady, 0x809bdf0
-    .set Effect_BattleResult_Create, 0x807d688
-    .set Effect_ProgramAdvance_Create, 0x807c79e
-    .set Effect_BattleChip_LoadHandIcons, 0x807c160
 
     .text
 

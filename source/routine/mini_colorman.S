@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_NaviDelete_Create, 0x8081D7C+1
-
 
 listMiniColorManSpec:
     .byte 0x68

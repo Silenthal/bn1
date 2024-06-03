@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_JellyCharging_Create, 0x807E590+1
-
 
 _ts Routine_Jelly
     push       {lr}

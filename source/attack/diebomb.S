@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_DieBombExplosion_Create, 0x807DE5E+1
-
 
 listDieBombFaceValue:
     .byte 0x00

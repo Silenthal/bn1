@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_SwordSlash_Create, 0x807BFA0+1
-    .set Effect_NaviDelete_Create, 0x8081D7C+1
-
 
 _ts Routine_ProtoMan
     push       {lr}

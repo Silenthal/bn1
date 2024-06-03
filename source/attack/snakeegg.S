@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_Tower, 0x807BD64+1
-    .set Effect_Tower_Create, 0x807BEB4+1
     .set SWI_DivMod, 0x809DF58+1
 
 

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_StonePiece_Create, 0x807DFEE+1
-
 
 _ts Attack_Stone
     push       {lr}

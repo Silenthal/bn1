@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_MagicMan_Create, 0x8080B7A+1
-@ Start: 0x7A784
-
 
 _ts Attack_MagicFire_Chip
     push       {lr}

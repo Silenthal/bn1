@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_SwordSlash_Create, 0x807BFA0+1
-
 
 _ts Attack_Sword
     push       {lr}

@@ -2,11 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set BattleChip_PoweredCannon, 0x80825F4+1
-    .set BattleChip_ZetaOmegaPA, 0x808268C+1
-    .set BattleChip_BetaSigmaPA, 0x8082760+1
-    .set BattleChip_BusterChip, 0x80827E0+1
-    .set BattleChip_Geddon, 0x8082838+1
     .set ScreenDim_Recover_Create, 0x809843C+1
     .set SWI_DivMod, 0x809DF58+1
 

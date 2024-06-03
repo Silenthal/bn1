@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_NaviDelete_Create, 0x8081D7C+1
-
 
 listElecManSpec:
     .byte 0x64, 0xC8, 0x04, 0x00

@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_BattleHP_Create, 0x807BAD4+1
-    .set Effect_MagicMan_Create, 0x8080B7A+1
-    .set Effect_NaviDelete_Create, 0x8081D7C+1
-
 
 _ts Routine_MagicMan
     push       {lr}

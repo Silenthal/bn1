@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0807db72, 0x807DB72+1
-
 
 _ts MapSetup_School_Comp_5_S1
     push       {lr}
@@ -115,7 +113,7 @@ LAB_08041930:
     bne        LAB_08041942
     push       {r5}
     mov        r1,#0x6
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
 LAB_08041942:
     push       {r5}

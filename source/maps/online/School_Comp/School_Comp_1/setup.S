@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Scene_JackOut, 0x80836C8+1
-    .set FUN_0807db72, 0x807DB72+1
 
 
 _ts MapSetup_School_Comp_1_S0
@@ -239,7 +238,7 @@ LAB_0804083c:
 LAB_08040854:
     push       {r5}
     mov        r1,#0x0
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -349,7 +348,7 @@ LAB_08040908:
 LAB_08040920:
     push       {r5}
     mov        r1,#0x0
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
     push       {r5}
     mov        r0,#0xa4

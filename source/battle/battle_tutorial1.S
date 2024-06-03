@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_BattleChip_LoadHandIcons, 0x807c160
 
 _nt Battle_Tutorial1
     push       {lr}

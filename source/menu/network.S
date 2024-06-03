@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set FUN_0809bd28, 0x809bd28+1
-    .set FUN_080825cc, 0x80825cc+1
     .set FUN_0809bc4c, 0x809bc4c+1
     .set Sio_SetReady, 0x809bdf0+1
     .set ChipBagSlot_02018fe0, 0x2018fe0
@@ -296,7 +295,7 @@ _ts Menu_Network_2_Close
 LAB_0801cee2:
     strb       r1,[r0,#0x0]
     push       {r5,r7}
-    bl         FUN_080825cc
+    bl         NPC_ResetAllTalkState
     pop        {r5,r7}
     ldr        r0,[r7,#0x10]
     mov        r1,#0x40

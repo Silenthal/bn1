@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_DieBombExplosion_Create, 0x807DE5E+1
-
 
 BYTE_ARRAY_08073cd8:
     .byte 0x05

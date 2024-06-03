@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_Remobit_Create, 0x807F99C+1
-
 
 _ts Routine_Remobit
     push       {lr}
@@ -211,7 +209,7 @@ _ts R_Remobit_1_2_0
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     mov        r4,#0x1
-    bl         Effect_Remobit_Create
+    bl         Effect_RemobitThunder_Create
     str        r0,[r5,#0x5c]
     pop        {pc}
 

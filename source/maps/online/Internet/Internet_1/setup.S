@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Script_ShowDialogue, 0x80848FC+1
-    .set FUN_0807db72, 0x807DB72+1
 
 
 _ts MapSetup_Internet_1_S0
@@ -69,7 +68,7 @@ _ts FUN_08051f3c
 LAB_08051f68:
     push       {r5}
     mov        r1,#0x87
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
 LAB_08051f72:
     mov        r0,r10

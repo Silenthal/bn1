@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0807db72, 0x807DB72+1
-
 
 _ts MapSetup_Undernet_11_S0
     push       {lr}
@@ -105,7 +103,7 @@ LAB_08053bde:
 LAB_08053c06:
     push       {r5}
     mov        r1,#0x5c
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
 LAB_08053c10:
     mov        r0,#0x0

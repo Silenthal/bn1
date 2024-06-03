@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Script_ShowDialogue, 0x80848FC+1
-    .set FUN_0807db72, 0x807DB72+1
 
 
 _ts MapSetup_Undernet_6_S0
@@ -100,7 +99,7 @@ LAB_080532ea:
 LAB_08053312:
     push       {r5}
     mov        r1,#0x57
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
 LAB_0805331c:
     mov        r0,#0x7c
@@ -112,7 +111,7 @@ LAB_0805331c:
 LAB_0805332c:
     push       {r5}
     mov        r1,#0x58
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
 LAB_08053336:
     mov        r0,#0x8a
@@ -124,7 +123,7 @@ LAB_08053336:
 LAB_08053346:
     push       {r5}
     mov        r1,#0x9d
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
 LAB_08053350:
     mov        r0,#0x0

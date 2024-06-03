@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Script_ShowDialogue, 0x80848FC+1
-    .set FUN_0807f83c, 0x807F83C+1
 
 
 _ts MapSetup_Traffic_Light_Comp_5_S3
@@ -368,7 +367,7 @@ LAB_08048e40:
     push       {r5}
     ldr        r7,PTR_NPCList_80492A0_08048f84
     bl         Map_LoadNPCList
-    bl         FUN_0807f83c
+    bl         Effect_ColorMan_Create
     pop        {r5}
     mov        r0,r10
     ldr        r0,[r0,#0x8]

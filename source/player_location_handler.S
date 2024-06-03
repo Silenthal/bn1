@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set TextData_BattleMessages, 0x8641FCC
-    .set FUN_080825cc, 0x80825CC+1
-
 
 _ts PlayerLocation_Handler
     push       {lr}
@@ -731,7 +728,7 @@ _nt PlayerLocation_1_4_1_End
     mov        r0,#0x0
     strb       r0,[r5,#0xa]
     strb       r0,[r5,#0xb]
-    bl         FUN_080825cc
+    bl         NPC_ResetAllTalkState
 LAB_080559d4:
     pop        {pc}
 

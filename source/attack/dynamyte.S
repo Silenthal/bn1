@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08081170, 0x8081170+1
-    .set Effect_DynamyteExplosion_Create, 0x8081380+1
-
 
 _ts Attack_Dynamyte
     push       {lr}
@@ -176,10 +173,10 @@ _ts A_Dynamyte_1_1
     lsl        r4,r4,#0x1c
     lsr        r4,r4,#0x1b
     push       {r1,r2,r3,r4}
-    bl         FUN_08081170
+    bl         Effect_DynamyteRedDot_Create
     pop        {r1,r2,r3,r4}
     add        r4,#0x1
-    bl         FUN_08081170
+    bl         Effect_DynamyteRedDot_Create
 LAB_08078ea8:
     bl         Field_GetAttackDirectionOffset_MP
     add        r2,r0,#0x0

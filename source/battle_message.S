@@ -835,7 +835,7 @@ _ts BM_DieBomb_0
 _ts BM_DieBomb_1
     push       {lr}
     ldr        r3,PTR_scaleListDBBounceIn_080182c8
-    bl         FUN_08017cb0
+    bl         FUN_08017f7c
     ldrb       r0,[r5,#0xa]
     tst        r0,r0
     beq        LAB_08017f42
@@ -862,7 +862,7 @@ scaleListDBBounceIn:
 _ts BM_DieBomb_2
     push       {lr}
     ldr        r3,PTR_scaleListDBBounceOut_080182cc
-    bl         FUN_08017cb0
+    bl         FUN_08017f7c
     tst        r7,r7
     beq        LAB_08017f66
     b          LAB_08017f6a
@@ -886,7 +886,7 @@ _ts BM_DieBomb_3
     pop        {pc}
 
 
-_ts FUN_08017cb0
+_ts FUN_08017f7c
     push       {lr}
     mov        r2,#0x24
     ldr        r1,DAT_080182d0

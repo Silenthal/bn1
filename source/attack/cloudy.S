@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_CloudyRain_Create, 0x807DF10+1
-
 
 _ts Attack_Cloudy
     push       {lr}

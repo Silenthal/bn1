@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set FUN_0808598c, 0x808598D
-    .set FUN_080808f8, 0x80808F8
     .set Scene_ChipTrader, 0x8085DD9
     .set FUN_080857b8, 0x80857B9
     .set Script_ShowDialogue, 0x80848FD
@@ -810,7 +809,7 @@ _ts MapSetup_ACDC_Higsbys_F53
     mov        r0,#0xf
     bl         KeyItem_IsPresent
     bne        LAB_0802f0d6
-    bl         FUN_080808f8
+    bl         Effect_WWWPass_Create
 LAB_0802f0d6:
     pop        {r5}
     mov        r0,#0x0

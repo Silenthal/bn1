@@ -198,6 +198,8 @@ LAB_080804ae:
 LAB_080804b6:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
+
+INT_080804bc:
     .word 0xFFFFDB48
     .word 0x7D0
     .word 0x128E
@@ -383,7 +385,7 @@ PTR_PTR_E_LifeVirusSeed_1_0_08080628:
     .word PTR_E_LifeVirusSeed_1_0_08080400
 
 DAT_0808062c:
-    .word 0x80804BC
+    .word INT_080804bc
 
 DAT_08080630:
     .word 0x19A

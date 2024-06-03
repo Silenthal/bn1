@@ -8,81 +8,81 @@
 
 listHandlerEffect:
     .word Effect_QuickEffect
-    .word 0x807b9ad @ FUN_0807b9ac
-    .word 0x807ba41 @ DO_BattleHP
-    .word 0x807bbf1 @ dummy_7bbf0
-    .word 0x807bc01 @ FUN_0807bc00
-    .word 0x807bd65 @ FUN_0807bd64
-    .word 0x807bed5 @ FUN_0807bed4
-    .word 0x807bf01 @ FUN_0807bf00
-    .word 0x807bfc1 @ FUN_0807bfc0
-    .word 0x807c075 @ DO_BattleChip
-    .word 0x807c1f1 @ FUN_0807c1f0
-    .word 0x807c265 @ FUN_0807c264
-    .word 0x807c311 @ FUN_0807c310
-    .word 0x807cc8d @ FUN_0807cc8c
-    .word 0x807cd61 @ DO_VirusDeleteExplosion
-    .word 0x807ce31 @ DO_BattleResult
-    .word 0x807dad9 @ FUN_0807dad8
-    .word 0x807dce5 @ FUN_0807dce4
-    .word 0x807de7d @ FUN_0807de7c
-    .word 0x807df25 @ FUN_0807df24
-    .word 0x807e011 @ FUN_0807e010
-    .word 0x807e1c5 @ FUN_0807e1c4
-    .word 0x807e31d @ DO_TeleportPortal
-    .word 0x807e41b @ DO_BattleObject_Block
-    .word 0x807e509 @ FUN_0807e508
-    .word 0x807e5a9 @ FUN_0807e5a8
-    .word 0x807e655 @ FUN_0807e654
-    .word 0x807e6f5 @ FUN_0807e6f4
-    .word 0x807e8a5 @ FUN_0807e8a4
-    .word 0x807ea85 @ FUN_0807ea84
-    .word 0x807eb19 @ FUN_0807eb18
-    .word 0x807ebd9 @ FUN_0807ebd8
-    .word 0x807ee19 @ FUN_0807ee18
-    .word 0x807eec9 @ FUN_0807eec8
-    .word 0x807efd5 @ FUN_0807efd4
-    .word 0x807f0c1 @ FUN_0807f0c0
-    .word 0x807f179 @ FUN_0807f178
-    .word 0x807f22d @ FUN_0807f22c
-    .word 0x807f2f5 @ FUN_0807f2f4
-    .word 0x807f5f9 @ FUN_0807f5f8
-    .word 0x807f691 @ FUN_0807f690
-    .word 0x807f709 @ FUN_0807f708
-    .word 0x807f86d @ FUN_0807f86c
-    .word 0x807f9bd @ FUN_0807f9bc
-    .word 0x807faa1 @ FUN_0807faa0
-    .word 0x807fb41 @ FUN_0807fb40
-    .word 0x807fbc9 @ FUN_0807fbc8
-    .word 0x807fd1d @ FUN_0807fd1c
-    .word 0x807ff29 @ FUN_0807ff28
-    .word 0x807ffe9 @ FUN_0807ffe8
-    .word 0x8080095 @ FUN_08080094
-    .word 0x8080115 @ FUN_08080114
-    .word 0x80801b9 @ FUN_080801b8
-    .word 0x8080349 @ FUN_08080348
-    .word 0x8080639 @ FUN_08080638
-    .word 0x80807a1 @ FUN_080807a0
-    .word 0x8080885 @ FUN_08080884
-    .word 0x8080921 @ FUN_08080920
-    .word 0x80809b9 @ FUN_080809b8
-    .word 0x8080a71 @ FUN_08080a70
-    .word 0x8080bb5 @ FUN_08080bb4
-    .word 0x8080d09 @ FUN_08080d08
-    .word 0x8080e05 @ FUN_08080e04
-    .word 0x8080f35 @ FUN_08080f34
-    .word 0x808108d @ FUN_0808108c
-    .word 0x8081199 @ FUN_08081198
-    .word 0x8081241 @ FUN_08081240
-    .word 0x80813a1 @ FUN_080813a0
-    .word 0x8081529 @ FUN_08081528
-    .word 0x8081651 @ FUN_08081650
-    .word 0x8081721 @ FUN_08081720
-    .word 0x8081821 @ FUN_08081820
-    .word 0x80818c9 @ FUN_080818c8
-    .word 0x8081a11 @ FUN_08081a10
-    .word 0x8081b15 @ FUN_08081b14
-    .word 0x8081cc1 @ FUN_08081cc0
+    .word Effect_MapObject
+    .word Effect_BattleHP
+    .word Effect_Unk03
+    .word Effect_BombExplosion
+    .word Effect_Tower
+    .word Effect_Unk06
+    .word Effect_SwordSlash
+    .word Effect_FireColumn
+    .word Effect_BattleChip
+    .word Effect_TallExplosion
+    .word Effect_WaterSpray
+    .word Effect_ProgramAdvance
+    .word Effect_MegaManDelete
+    .word Effect_VirusDelete
+    .word Effect_BattleResult
+    .word Effect_WWWDoor
+    .word Effect_DieBombExplosion
+    .word Effect_CloudyRain
+    .word Effect_StonePiece
+    .word Effect_Laser
+    .word Effect_Boulders
+    .word Effect_TeleportPortal
+    .word Effect_CubeBreak
+    .word Effect_JellyCharging
+    .word Effect_AirBlowing
+    .word Effect_TrafficLight
+    .word Effect_TrafficBarrier
+    .word Effect_Car
+    .word Effect_TrafficBarrier_2
+    .word Effect_TrafficLight_2
+    .word Effect_Traffic
+    .word Effect_TrafficExplosion
+    .word Effect_TrafficCarParts
+    .word Effect_TrafficLightToggle
+    .word Effect_Pipe
+    .word Effect_Pipe_2
+    .word Effect_Pipe_3
+    .word Effect_Unk26
+    .word Effect_ElectricField
+    .word Effect_FloorBreak
+    .word Effect_ColorMan
+    .word Effect_RemobitThunder
+    .word Effect_Cannon
+    .word Effect_PoisonCloud
+    .word Effect_TrafficSwitch
+    .word Effect_CountZap
+    .word Effect_ElecMan
+    .word Effect_BarSwitch
+    .word Effect_LightBulb
+    .word Effect_RollHeart
+    .word Effect_SmallElectrified
+    .word Effect_BombManBombExplosion
+    .word Effect_LifeVirusSeed
+    .word Effect_BombMan
+    .word Effect_LiveVirusAura
+    .word Effect_WWWPass
+    .word Effect_Scuttlest
+    .word Effect_LifeVirusMeteor
+    .word Effect_MagicMan
+    .word Effect_LockProgram
+    .word Effect_WWWIceWall
+    .word Effect_WWWBoulder
+    .word Effect_GutsMan
+    .word Effect_DynamyteRedDot
+    .word Effect_PharaohMan_Curse
+    .word Effect_DynamyteExplosion
+    .word Effect_MegaMan
+    .word Effect_JackIn
+    .word Effect_Sparks
+    .word Effect_Bass
+    .word Effect_GaiaBase
+    .word Effect_GeneratorLightning
+    .word Effect_PharaohManLaser
+    .word Effect_BombShootExplosion
+    .word Effect_NaviDelete
 
 _ts Effect_Alloc
     push       { r0, r1, r2, r3, r4, lr }

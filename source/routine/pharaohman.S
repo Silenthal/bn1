@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_PharaohManCurse_Create, 0x8081228+1
-    .set Effect_NaviDelete_Create, 0x8081D7C+1
-
 
 _ts Routine_PharaohMan
     push       {lr}

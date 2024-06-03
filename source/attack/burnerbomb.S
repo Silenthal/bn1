@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_Tower_Create, 0x807BEB4+1
-
 
 _ts Attack_BurnerBomb
     push       {lr}

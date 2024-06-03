@@ -2,11 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_Laser_Create, 0x807E16E+1
-    .set Effect_LifeVirusAura_Create, 0x808086E+1
-    .set Effect_Scuttlest_Create, 0x808098E+1
-    .set Effect_LifeVirusMeteor_Create, 0x8080A58+1
-
 
 _ts Routine_LifeVirus
     push       {lr}

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_PoisonCloud_Create, 0x807FB20+1
-
 
 _ts Attack_Anubis
     push       {lr}

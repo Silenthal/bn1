@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set FUN_0807f574, 0x807F574
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -877,7 +876,7 @@ _ts MapSetup_DenTown_Center_F37
 LAB_0803682a:
     push       {r5}
     mov        r7,#0x6
-    bl         FUN_0807f574
+    bl         Effect_Unk26_Create
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_803A060_080369d0

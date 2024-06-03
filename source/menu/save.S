@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_080825cc, 0x80825cc
 
 tilemapSaveCategories:
     .incbin "images/start_menu/save/categories.tilemap"
@@ -174,7 +173,7 @@ _ts Menu_Save_2_Close
 LAB_0801e64e:
     strb       r1,[r0,#0x0]
     push       {r5,r7}
-    bl         FUN_080825cc
+    bl         NPC_ResetAllTalkState
     pop        {r5,r7}
     ldr        r0,[r7,#0x10]
     mov        r1,#0x40

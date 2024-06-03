@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Effect_BombExplosion_Create, 0x807BCBA+1
-
 
 _ts Attack_Bomb
     push       {lr}

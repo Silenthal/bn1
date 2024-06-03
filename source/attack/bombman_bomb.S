@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08080320, 0x8080320+1
     .set SWI_Div, 0x809DF54+1
 
 
@@ -339,7 +338,7 @@ _ts A_BombManBomb_1_2_2
     ldrb       r1,[r5,#0x19]
     mov        r2,#0x8c
     mov        r4,#0x0
-    bl         FUN_08080320
+    bl         Effect_BombManBombExplosion_Create
 LAB_08077ace:
     mov        r0,#0x8
     strh       r0,[r5,#0x8]
@@ -368,7 +367,7 @@ _nt A_BombManBomb_1_3
     ldrb       r1,[r5,#0x19]
     mov        r2,#0x8c
     mov        r4,#0x0
-    bl         FUN_08080320
+    bl         Effect_BombManBombExplosion_Create
 LAB_08077b04:
     mov        r0,#0x8
     strh       r0,[r5,#0x8]

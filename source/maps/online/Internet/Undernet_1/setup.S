@@ -4,7 +4,6 @@
 
     .set Scenario_01_LanCheckYourMail, 0x8085A78+1
     .set Script_ShowDialogue, 0x80848FC+1
-    .set FUN_0807db72, 0x807DB72+1
 
 
 _ts MapSetup_Undernet_1_S0
@@ -90,7 +89,7 @@ LAB_08052bc8:
 LAB_08052bdc:
     push       {r5}
     mov        r1,#0x8c
-    bl         FUN_0807db72
+    bl         Effect_WWWDoor_Create
     pop        {r5}
 LAB_08052be6:
     mov        r0,#0x0
