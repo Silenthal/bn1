@@ -70,26 +70,26 @@ global_label CommentaryData_ACDC_Station
 global_label CommentaryData_ACDC_Secret_Station
     .incbin "data/maps/offline/ACDC_Secret_Station.talk"
 
-global_label CommentaryData_Govt_Complex_Area_0
-    .incbin "text/commentary/offline/Govt/06BB938.script"
-global_label CommentaryData_Govt_Complex_Area_1
-    .incbin "text/commentary/offline/Govt/06BC90C.script"
-global_label CommentaryData_Govt_Complex_Area_2
-    .incbin "text/commentary/offline/Govt/06BD8DC.script"
-global_label CommentaryData_Govt_Complex_Area_3
-    .incbin "text/commentary/offline/Govt/06BE8CC.script"
-global_label CommentaryData_Govt_Complex_Area_4
-    .incbin "text/commentary/offline/Govt/06BF8C8.script"
-global_label CommentaryData_Govt_Complex_Area_5
-    .incbin "text/commentary/offline/Govt/06C08C8.script"
-global_label CommentaryData_Govt_Complex_Area_6
-    .incbin "text/commentary/offline/Govt/06C18A0.script"
-global_label CommentaryData_Govt_Complex_Area_7
-    .incbin "text/commentary/offline/Govt/06C2784.script"
-global_label CommentaryData_Govt_Complex_Area_9
-    .incbin "text/commentary/offline/Govt/06C354C.script"
-global_label CommentaryData_Govt_Complex_Area_B
-    .incbin "text/commentary/offline/Govt/06C42CC.script"
+global_label CommentaryData_Govt_Complex_Front
+    .incbin "data/maps/offline/Govt_Complex_Front.talk"
+global_label CommentaryData_Govt_Complex_Station
+    .incbin "data/maps/offline/Govt_Complex_Station.talk"
+global_label CommentaryData_Govt_Waterworks_Lobby
+    .incbin "data/maps/offline/Govt_Waterworks_Lobby.talk"
+global_label CommentaryData_Govt_SciLab_Lobby
+    .incbin "data/maps/offline/Govt_SciLab_Lobby.talk"
+global_label CommentaryData_Govt_Complex_Hallway
+    .incbin "data/maps/offline/Govt_Complex_Hallway.talk"
+global_label CommentaryData_Govt_Yuichiro_Lab
+    .incbin "data/maps/offline/Govt_Yuichiro_Lab.talk"
+global_label CommentaryData_Govt_Waterworks_Office
+    .incbin "data/maps/offline/Govt_Waterworks_Office.talk"
+global_label CommentaryData_Govt_Waterworks_Control_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Control_Room.talk"
+global_label CommentaryData_Govt_Waterworks_Pump_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Pump_Room.talk"
+global_label CommentaryData_Govt_Waterworks_Purification_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Purification_Room.talk"
 
 global_label CommentaryData_DenTown_Area_0
     .incbin "text/commentary/offline/DenTown/06C504C.script"
@@ -324,24 +324,24 @@ global_label DialogueData_ACDC_Station
 global_label DialogueData_ACDC_Secret_Station
     .incbin "data/maps/offline/ACDC_Secret_Station.dialogue"
 
-global_label DialogueData_Govt_Complex_Area_0
-    .incbin "text/dialogue/offline/Govt/06F9180.script"
-global_label DialogueData_Govt_Complex_Area_1
-    .incbin "text/dialogue/offline/Govt/06FAD74.script"
-global_label DialogueData_Govt_Complex_Area_2
-    .incbin "text/dialogue/offline/Govt/06FB7E0.script"
-global_label DialogueData_Govt_Complex_Area_3
-    .incbin "text/dialogue/offline/Govt/06FD444.script"
-global_label DialogueData_Govt_Complex_Area_5
-    .incbin "text/dialogue/offline/Govt/06FF324.script"
-global_label DialogueData_Govt_Complex_Area_6
-    .incbin "text/dialogue/offline/Govt/0700A24.script"
-global_label DialogueData_Govt_Complex_Area_7
-    .incbin "text/dialogue/offline/Govt/07018DC.script"
-global_label DialogueData_Govt_Complex_Area_9
-    .incbin "text/dialogue/offline/Govt/0702C94.script"
-global_label DialogueData_Govt_Complex_Area_B
-    .incbin "text/dialogue/offline/Govt/070365C.script"
+global_label DialogueData_Govt_Complex_Front
+    .incbin "data/maps/offline/Govt_Complex_Front.dialogue"
+global_label DialogueData_Govt_Complex_Station
+    .incbin "data/maps/offline/Govt_Complex_Station.dialogue"
+global_label DialogueData_Govt_Waterworks_Lobby
+    .incbin "data/maps/offline/Govt_Waterworks_Lobby.dialogue"
+global_label DialogueData_Govt_SciLab_Lobby
+    .incbin "data/maps/offline/Govt_SciLab_Lobby.dialogue"
+global_label DialogueData_Govt_Yuichiro_Lab
+    .incbin "data/maps/offline/Govt_Yuichiro_Lab.dialogue"
+global_label DialogueData_Govt_Waterworks_Office
+    .incbin "data/maps/offline/Govt_Waterworks_Office.dialogue"
+global_label DialogueData_Govt_Waterworks_Control_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Control_Room.dialogue"
+global_label DialogueData_Govt_Waterworks_Pump_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Pump_Room.dialogue"
+global_label DialogueData_Govt_Waterworks_Purification_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Purification_Room.dialogue"
 
 global_label DialogueData_DenTown_Area_0
     .incbin "text/dialogue/offline/DenTown/0704314.script"

@@ -33,5 +33,7 @@
     "scb": {
         "boundary": "boundary.json",
         "event": "event.json"
-    }
+    },
+    "talk": "talk.txt",
+    "dialogue": "dialogue.txt"
 }

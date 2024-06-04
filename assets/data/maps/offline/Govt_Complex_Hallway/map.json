@@ -33,5 +33,6 @@
         "boundary": "boundary.json",
         "cover": "cover.json",
         "event": "event.json"
-    }
+    },
+    "talk": "talk.txt"
 }

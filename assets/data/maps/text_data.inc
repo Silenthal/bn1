@@ -60,18 +60,18 @@ DialogueData_ACDC:
     .word DialogueData_ACDC_Higsbys
     .word DialogueData_ACDC_Station
 DialogueData_Govt:
-    .word DialogueData_Govt_Complex_Area_0
-    .word DialogueData_Govt_Complex_Area_1
-    .word DialogueData_Govt_Complex_Area_2
-    .word DialogueData_Govt_Complex_Area_3
+    .word DialogueData_Govt_Complex_Front
+    .word DialogueData_Govt_Complex_Station
+    .word DialogueData_Govt_Waterworks_Lobby
+    .word DialogueData_Govt_SciLab_Lobby
     .word 0
-    .word DialogueData_Govt_Complex_Area_5
-    .word DialogueData_Govt_Complex_Area_6
-    .word DialogueData_Govt_Complex_Area_7
+    .word DialogueData_Govt_Yuichiro_Lab
+    .word DialogueData_Govt_Waterworks_Office
+    .word DialogueData_Govt_Waterworks_Control_Room
     .word 0
-    .word DialogueData_Govt_Complex_Area_9
+    .word DialogueData_Govt_Waterworks_Pump_Room
     .word 0
-    .word DialogueData_Govt_Complex_Area_B
+    .word DialogueData_Govt_Waterworks_Purification_Room
 DialogueData_DenTown:
     .word DialogueData_DenTown_Area_0
     .word DialogueData_DenTown_Area_1
@@ -234,18 +234,18 @@ CommentaryData_ACDC:
     .word CommentaryData_ACDC_Station
     .word CommentaryData_ACDC_Secret_Station
 CommentaryData_Govt:
-    .word CommentaryData_Govt_Complex_Area_0
-    .word CommentaryData_Govt_Complex_Area_1
-    .word CommentaryData_Govt_Complex_Area_2
-    .word CommentaryData_Govt_Complex_Area_3
-    .word CommentaryData_Govt_Complex_Area_4
-    .word CommentaryData_Govt_Complex_Area_5
-    .word CommentaryData_Govt_Complex_Area_6
-    .word CommentaryData_Govt_Complex_Area_7
+    .word CommentaryData_Govt_Complex_Front
+    .word CommentaryData_Govt_Complex_Station
+    .word CommentaryData_Govt_Waterworks_Lobby
+    .word CommentaryData_Govt_SciLab_Lobby
+    .word CommentaryData_Govt_Complex_Hallway
+    .word CommentaryData_Govt_Yuichiro_Lab
+    .word CommentaryData_Govt_Waterworks_Office
+    .word CommentaryData_Govt_Waterworks_Control_Room
     .word CommentaryData_None
-    .word CommentaryData_Govt_Complex_Area_9
+    .word CommentaryData_Govt_Waterworks_Pump_Room
     .word CommentaryData_None
-    .word CommentaryData_Govt_Complex_Area_B
+    .word CommentaryData_Govt_Waterworks_Purification_Room
 CommentaryData_DenTown:
     .word CommentaryData_DenTown_Area_0
     .word CommentaryData_DenTown_Area_1
