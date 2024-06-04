@@ -46,19 +46,19 @@ DialogueData_School:
     .word DialogueData_School_Staff_Lounge_Hallway
 
 DialogueData_ACDC:
-    .word DialogueData_ACDC_Town_Area_0
-    .word DialogueData_ACDC_Town_Area_1
-    .word DialogueData_ACDC_Town_Area_2
-    .word DialogueData_ACDC_Town_Area_3
+    .word DialogueData_ACDC_Town
+    .word DialogueData_ACDC_School_Gate
+    .word DialogueData_ACDC_Lan_Living_Room
+    .word DialogueData_ACDC_Lan_Room
     .word 0
-    .word DialogueData_ACDC_Town_Area_5
-    .word DialogueData_ACDC_Town_Area_6
-    .word DialogueData_ACDC_Town_Area_7
+    .word DialogueData_ACDC_Mayl_Living_Room
+    .word DialogueData_ACDC_Mayl_Room
+    .word DialogueData_ACDC_Dex_Room
     .word 0
-    .word DialogueData_ACDC_Town_Area_9
+    .word DialogueData_ACDC_Yai_Room
     .word 0
-    .word DialogueData_ACDC_Town_Area_B
-    .word DialogueData_ACDC_Town_Area_C
+    .word DialogueData_ACDC_Higsbys
+    .word DialogueData_ACDC_Station
 DialogueData_Govt:
     .word DialogueData_Govt_Complex_Area_0
     .word DialogueData_Govt_Complex_Area_1
@@ -219,20 +219,20 @@ CommentaryData_School:
     .word CommentaryData_School_Staff_Lounge
     .word CommentaryData_School_Staff_Lounge_Hallway
 CommentaryData_ACDC:
-    .word CommentaryData_ACDC_Town_Area_0
-    .word CommentaryData_ACDC_Town_Area_1
-    .word CommentaryData_ACDC_Town_Area_2
-    .word CommentaryData_ACDC_Town_Area_3
+    .word CommentaryData_ACDC_Town
+    .word CommentaryData_ACDC_School_Gate
+    .word CommentaryData_ACDC_Lan_Living_Room
+    .word CommentaryData_ACDC_Lan_Room
     .word CommentaryData_None
-    .word CommentaryData_ACDC_Town_Area_5
-    .word CommentaryData_ACDC_Town_Area_6
-    .word CommentaryData_ACDC_Town_Area_7
+    .word CommentaryData_ACDC_Mayl_Living_Room
+    .word CommentaryData_ACDC_Mayl_Room
+    .word CommentaryData_ACDC_Dex_Room
     .word CommentaryData_None
-    .word CommentaryData_ACDC_Town_Area_9
+    .word CommentaryData_ACDC_Yai_Room
     .word CommentaryData_None
-    .word CommentaryData_ACDC_Town_Area_B
-    .word CommentaryData_ACDC_Town_Area_C
-    .word CommentaryData_ACDC_Town_Area_D
+    .word CommentaryData_ACDC_Higsbys
+    .word CommentaryData_ACDC_Station
+    .word CommentaryData_ACDC_Secret_Station
 CommentaryData_Govt:
     .word CommentaryData_Govt_Complex_Area_0
     .word CommentaryData_Govt_Complex_Area_1

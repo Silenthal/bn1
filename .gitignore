@@ -15,3 +15,5 @@ __pycache__/
 *.palettez
 *.tilesetz
 *.tilemapz
+*.talk
+*.dialogue

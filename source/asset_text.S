@@ -47,28 +47,28 @@ global_label CommentaryData_School_Staff_Lounge
 global_label CommentaryData_School_Staff_Lounge_Hallway
     .incbin "data/maps/offline/School_Staff_Lounge_Hallway.talk"
 
-global_label CommentaryData_ACDC_Town_Area_0
-    .incbin "text/commentary/offline/ACDC/06B0DBC.script"
-global_label CommentaryData_ACDC_Town_Area_1
-    .incbin "text/commentary/offline/ACDC/06B1EB0.script"
-global_label CommentaryData_ACDC_Town_Area_2
-    .incbin "text/commentary/offline/ACDC/06B2F9C.script"
-global_label CommentaryData_ACDC_Town_Area_3
-    .incbin "text/commentary/offline/ACDC/06B42FC.script"
-global_label CommentaryData_ACDC_Town_Area_5
-    .incbin "text/commentary/offline/ACDC/06B5614.script"
-global_label CommentaryData_ACDC_Town_Area_6
-    .incbin "text/commentary/offline/ACDC/06B655C.script"
-global_label CommentaryData_ACDC_Town_Area_7
-    .incbin "text/commentary/offline/ACDC/06B749C.script"
-global_label CommentaryData_ACDC_Town_Area_9
-    .incbin "text/commentary/offline/ACDC/06B8510.script"
-global_label CommentaryData_ACDC_Town_Area_B
-    .incbin "text/commentary/offline/ACDC/06B9588.script"
-global_label CommentaryData_ACDC_Town_Area_C
-    .incbin "text/commentary/offline/ACDC/06BA440.script"
-global_label CommentaryData_ACDC_Town_Area_D
-    .incbin "text/commentary/offline/ACDC/06BB4AC.script"
+global_label CommentaryData_ACDC_Town
+    .incbin "data/maps/offline/ACDC_Town.talk"
+global_label CommentaryData_ACDC_School_Gate
+    .incbin "data/maps/offline/ACDC_School_Gate.talk"
+global_label CommentaryData_ACDC_Lan_Living_Room
+    .incbin "data/maps/offline/ACDC_Lan_Living_Room.talk"
+global_label CommentaryData_ACDC_Lan_Room
+    .incbin "data/maps/offline/ACDC_Lan_Room.talk"
+global_label CommentaryData_ACDC_Mayl_Living_Room
+    .incbin "data/maps/offline/ACDC_Mayl_Living_Room.talk"
+global_label CommentaryData_ACDC_Mayl_Room
+    .incbin "data/maps/offline/ACDC_Mayl_Room.talk"
+global_label CommentaryData_ACDC_Dex_Room
+    .incbin "data/maps/offline/ACDC_Dex_Room.talk"
+global_label CommentaryData_ACDC_Yai_Room
+    .incbin "data/maps/offline/ACDC_Yai_Room.talk"
+global_label CommentaryData_ACDC_Higsbys
+    .incbin "data/maps/offline/ACDC_Higsbys.talk"
+global_label CommentaryData_ACDC_Station
+    .incbin "data/maps/offline/ACDC_Station.talk"
+global_label CommentaryData_ACDC_Secret_Station
+    .incbin "data/maps/offline/ACDC_Secret_Station.talk"
 
 global_label CommentaryData_Govt_Complex_Area_0
     .incbin "text/commentary/offline/Govt/06BB938.script"
@@ -301,29 +301,28 @@ global_label DialogueData_School_Staff_Lounge
 global_label DialogueData_School_Staff_Lounge_Hallway
     .incbin "data/maps/offline/School_Staff_Lounge_Hallway.dialogue"
 
-global_label DialogueData_ACDC_Town_Area_0
-    .incbin "text/dialogue/offline/ACDC/06ED680.script"
-global_label DialogueData_ACDC_Town_Area_1
-    .incbin "text/dialogue/offline/ACDC/06F1564.script"
-global_label DialogueData_ACDC_Town_Area_2
-    .incbin "text/dialogue/offline/ACDC/06F1DC4.script"
-global_label DialogueData_ACDC_Town_Area_3
-    .incbin "text/dialogue/offline/ACDC/06F2DD4.script"
-global_label DialogueData_ACDC_Town_Area_5
-    .incbin "text/dialogue/offline/ACDC/06F3818.script"
-global_label DialogueData_ACDC_Town_Area_6
-    .incbin "text/dialogue/offline/ACDC/06F3DC4.script"
-global_label DialogueData_ACDC_Town_Area_7
-    .incbin "text/dialogue/offline/ACDC/06F44DC.script"
-global_label DialogueData_ACDC_Town_Area_9
-    .incbin "text/dialogue/offline/ACDC/06F5504.script"
-global_label DialogueData_ACDC_Town_Area_B
-    .incbin "text/dialogue/offline/ACDC/06F6330.script"
-global_label DialogueData_ACDC_Town_Area_C
-    .incbin "text/dialogue/offline/ACDC/06F76A4.script"
-
-@ Quirk: Blank script the same size as the one for area 12, but empty
-    .incbin "text/dialogue/offline/ACDC/06F8DD4.script"
+global_label DialogueData_ACDC_Town
+    .incbin "data/maps/offline/ACDC_Town.dialogue"
+global_label DialogueData_ACDC_School_Gate
+    .incbin "data/maps/offline/ACDC_School_Gate.dialogue"
+global_label DialogueData_ACDC_Lan_Living_Room
+    .incbin "data/maps/offline/ACDC_Lan_Living_Room.dialogue"
+global_label DialogueData_ACDC_Lan_Room
+    .incbin "data/maps/offline/ACDC_Lan_Room.dialogue"
+global_label DialogueData_ACDC_Mayl_Living_Room
+    .incbin "data/maps/offline/ACDC_Mayl_Living_Room.dialogue"
+global_label DialogueData_ACDC_Mayl_Room
+    .incbin "data/maps/offline/ACDC_Mayl_Room.dialogue"
+global_label DialogueData_ACDC_Dex_Room
+    .incbin "data/maps/offline/ACDC_Dex_Room.dialogue"
+global_label DialogueData_ACDC_Yai_Room
+    .incbin "data/maps/offline/ACDC_Yai_Room.dialogue"
+global_label DialogueData_ACDC_Higsbys
+    .incbin "data/maps/offline/ACDC_Higsbys.dialogue"
+global_label DialogueData_ACDC_Station
+    .incbin "data/maps/offline/ACDC_Station.dialogue"
+global_label DialogueData_ACDC_Secret_Station
+    .incbin "data/maps/offline/ACDC_Secret_Station.dialogue"
 
 global_label DialogueData_Govt_Complex_Area_0
     .incbin "text/dialogue/offline/Govt/06F9180.script"
