@@ -91,188 +91,188 @@ global_label CommentaryData_Govt_Waterworks_Pump_Room
 global_label CommentaryData_Govt_Waterworks_Purification_Room
     .incbin "data/maps/offline/Govt_Waterworks_Purification_Room.talk"
 
-global_label CommentaryData_DenTown_Area_0
-    .incbin "text/commentary/offline/DenTown/06C504C.script"
-global_label CommentaryData_DenTown_Area_1
-    .incbin "text/commentary/offline/DenTown/06C5F10.script"
-global_label CommentaryData_DenTown_Area_2
-    .incbin "text/commentary/offline/DenTown/06C6BAC.script"
-global_label CommentaryData_DenTown_Area_3
-    .incbin "text/commentary/offline/DenTown/06C7900.script"
-global_label CommentaryData_DenTown_Area_4
-    .incbin "text/commentary/offline/DenTown/06C863C.script"
-global_label CommentaryData_DenTown_Area_5
-    .incbin "text/commentary/offline/DenTown/06C9374.script"
-global_label CommentaryData_DenTown_Area_6
-    .incbin "text/commentary/offline/DenTown/06CA0B0.script"
-global_label CommentaryData_DenTown_Area_7
-    .incbin "text/commentary/offline/DenTown/06CAE08.script"
+global_label CommentaryData_DenTown_Center
+    .incbin "data/maps/offline/DenTown_Center.talk"
+global_label CommentaryData_DenTown_Station
+    .incbin "data/maps/offline/DenTown_Station.talk"
+global_label CommentaryData_DenTown_Block_1
+    .incbin "data/maps/offline/DenTown_Block_1.talk"
+global_label CommentaryData_DenTown_Block_2
+    .incbin "data/maps/offline/DenTown_Block_2.talk"
+global_label CommentaryData_DenTown_Block_3
+    .incbin "data/maps/offline/DenTown_Block_3.talk"
+global_label CommentaryData_DenTown_Block_4
+    .incbin "data/maps/offline/DenTown_Block_4.talk"
+global_label CommentaryData_DenTown_Miyu_Antiques
+    .incbin "data/maps/offline/DenTown_Miyu_Antiques.talk"
+global_label CommentaryData_DenTown_Summer_School
+    .incbin "data/maps/offline/DenTown_Summer_School.talk"
 
-global_label CommentaryData_SciLab_Area_0
-    .incbin "text/commentary/offline/SciLab/06CBA8C.script"
-global_label CommentaryData_SciLab_Area_1
-    .incbin "text/commentary/offline/SciLab/06CC570.script"
-global_label CommentaryData_SciLab_Area_2
-    .incbin "text/commentary/offline/SciLab/06CD0A8.script"
-global_label CommentaryData_SciLab_Area_3
-    .incbin "text/commentary/offline/SciLab/06CDC2C.script"
-global_label CommentaryData_SciLab_Area_4
-    .incbin "text/commentary/offline/SciLab/06CE7B0.script"
-global_label CommentaryData_SciLab_Area_5
-    .incbin "text/commentary/offline/SciLab/06CF2AC.script"
+global_label CommentaryData_SciLab_Restaurant_Hallway
+    .incbin "data/maps/offline/SciLab_Restaurant_Hallway.talk"
+global_label CommentaryData_SciLab_Restaurant
+    .incbin "data/maps/offline/SciLab_Restaurant.talk"
+global_label CommentaryData_SciLab_Power_Plant_Hallway
+    .incbin "data/maps/offline/SciLab_Power_Plant_Hallway.talk"
+global_label CommentaryData_SciLab_Power_Plant
+    .incbin "data/maps/offline/SciLab_Power_Plant.talk"
+global_label CommentaryData_SciLab_Power_Plant_Control_Room
+    .incbin "data/maps/offline/SciLab_Power_Plant_Control_Room.talk"
+global_label CommentaryData_SciLab_Generator_Room
+    .incbin "data/maps/offline/SciLab_Generator_Room.talk"
 
-global_label CommentaryData_WWW_Base_Area_0
-    .incbin "text/commentary/offline/WWW/06CF65C.script"
-global_label CommentaryData_WWW_Base_Area_1
-    .incbin "text/commentary/offline/WWW/06CFA54.script"
-global_label CommentaryData_WWW_Base_Area_3
-    .incbin "text/commentary/offline/WWW/06CFEA8.script"
-global_label CommentaryData_WWW_Base_Area_4
-    .incbin "text/commentary/offline/WWW/06D02A0.script"
-global_label CommentaryData_WWW_Base_Area_5
-    .incbin "text/commentary/offline/WWW/06D0698.script"
+global_label CommentaryData_WWW_Base
+    .incbin "data/maps/offline/WWW_Base.talk"
+global_label CommentaryData_WWW_Wily_Lab
+    .incbin "data/maps/offline/WWW_Wily_Lab.talk"
+global_label CommentaryData_WWW_Passage_1
+    .incbin "data/maps/offline/WWW_Passage_1.talk"
+global_label CommentaryData_WWW_Passage_2
+    .incbin "data/maps/offline/WWW_Passage_2.talk"
+global_label CommentaryData_WWW_Passage_3
+    .incbin "data/maps/offline/WWW_Passage_3.talk"
 
-global_label CommentaryData_School_Comp_Area_0
-    .incbin "text/commentary/online/School_Comp/06D0A90.script"
-global_label CommentaryData_School_Comp_Area_1
-    .incbin "text/commentary/online/School_Comp/06D0BAC.script"
-global_label CommentaryData_School_Comp_Area_2
-    .incbin "text/commentary/online/School_Comp/06D0CC0.script"
-global_label CommentaryData_School_Comp_Area_3
-    .incbin "text/commentary/online/School_Comp/06D0DB0.script"
-global_label CommentaryData_School_Comp_Area_4
-    .incbin "text/commentary/online/School_Comp/06D0EA8.script"
+global_label CommentaryData_School_Comp_1
+    .incbin "data/maps/online/School_Comp_1.talk"
+global_label CommentaryData_School_Comp_2
+    .incbin "data/maps/online/School_Comp_2.talk"
+global_label CommentaryData_School_Comp_3
+    .incbin "data/maps/online/School_Comp_3.talk"
+global_label CommentaryData_School_Comp_4
+    .incbin "data/maps/online/School_Comp_4.talk"
+global_label CommentaryData_School_Comp_5
+    .incbin "data/maps/online/School_Comp_5.talk"
 
-global_label CommentaryData_Oven_Comp_Area_0
-    .incbin "text/commentary/online/Oven_Comp/06D0F74.script"
-global_label CommentaryData_Oven_Comp_Area_1
-    .incbin "text/commentary/online/Oven_Comp/06D10B8.script"
+global_label CommentaryData_Oven_Comp_1
+    .incbin "data/maps/online/Oven_Comp_1.talk"
+global_label CommentaryData_Oven_Comp_2
+    .incbin "data/maps/online/Oven_Comp_2.talk"
 
-global_label CommentaryData_Waterworks_Comp_Area_0
-    .incbin "text/commentary/online/Waterworks_Comp/06D117C.script"
-global_label CommentaryData_Waterworks_Comp_Area_1
-    .incbin "text/commentary/online/Waterworks_Comp/06D1564.script"
-global_label CommentaryData_Waterworks_Comp_Area_2
-    .incbin "text/commentary/online/Waterworks_Comp/06D194C.script"
-global_label CommentaryData_Waterworks_Comp_Area_3
-    .incbin "text/commentary/online/Waterworks_Comp/06D1D34.script"
-global_label CommentaryData_Waterworks_Comp_Area_4
-    .incbin "text/commentary/online/Waterworks_Comp/06D211C.script"
-global_label CommentaryData_Waterworks_Comp_Area_5
-    .incbin "text/commentary/online/Waterworks_Comp/06D2434.script"
+global_label CommentaryData_Waterworks_Comp_1
+    .incbin "data/maps/online/Waterworks_Comp_1.talk"
+global_label CommentaryData_Waterworks_Comp_2
+    .incbin "data/maps/online/Waterworks_Comp_2.talk"
+global_label CommentaryData_Waterworks_Comp_3
+    .incbin "data/maps/online/Waterworks_Comp_3.talk"
+global_label CommentaryData_Waterworks_Comp_4
+    .incbin "data/maps/online/Waterworks_Comp_4.talk"
+global_label CommentaryData_Waterworks_Comp_5
+    .incbin "data/maps/online/Waterworks_Comp_5.talk"
+global_label CommentaryData_Waterworks_Comp_6
+    .incbin "data/maps/online/Waterworks_Comp_6.talk"
 
-global_label CommentaryData_Traffic_Light_Comp_Area_0
-    .incbin "text/commentary/online/Traffic_Light_Comp/06D274C.script"
-global_label CommentaryData_Traffic_Light_Comp_Area_1
-    .incbin "text/commentary/online/Traffic_Light_Comp/06D2AA4.script"
-global_label CommentaryData_Traffic_Light_Comp_Area_2
-    .incbin "text/commentary/online/Traffic_Light_Comp/06D2DFC.script"
-global_label CommentaryData_Traffic_Light_Comp_Area_3
-    .incbin "text/commentary/online/Traffic_Light_Comp/06D3154.script"
-global_label CommentaryData_Traffic_Light_Comp_Area_4
-    .incbin "text/commentary/online/Traffic_Light_Comp/06D34AC.script"
+global_label CommentaryData_Traffic_Light_Comp_1
+    .incbin "data/maps/online/Traffic_Light_Comp_1.talk"
+global_label CommentaryData_Traffic_Light_Comp_2
+    .incbin "data/maps/online/Traffic_Light_Comp_2.talk"
+global_label CommentaryData_Traffic_Light_Comp_3
+    .incbin "data/maps/online/Traffic_Light_Comp_3.talk"
+global_label CommentaryData_Traffic_Light_Comp_4
+    .incbin "data/maps/online/Traffic_Light_Comp_4.talk"
+global_label CommentaryData_Traffic_Light_Comp_5
+    .incbin "data/maps/online/Traffic_Light_Comp_5.talk"
 
-global_label CommentaryData_Power_Plant_Comp_Area_0
-    .incbin "text/commentary/online/Power_Plant_Comp/06D37D4.script"
-global_label CommentaryData_Power_Plant_Comp_Area_1
-    .incbin "text/commentary/online/Power_Plant_Comp/06D3B64.script"
-global_label CommentaryData_Power_Plant_Comp_Area_2
-    .incbin "text/commentary/online/Power_Plant_Comp/06D3EF4.script"
-global_label CommentaryData_Power_Plant_Comp_Area_3
-    .incbin "text/commentary/online/Power_Plant_Comp/06D4284.script"
+global_label CommentaryData_Power_Plant_Comp_1
+    .incbin "data/maps/online/Power_Plant_Comp_1.talk"
+global_label CommentaryData_Power_Plant_Comp_2
+    .incbin "data/maps/online/Power_Plant_Comp_2.talk"
+global_label CommentaryData_Power_Plant_Comp_3
+    .incbin "data/maps/online/Power_Plant_Comp_3.talk"
+global_label CommentaryData_Power_Plant_Comp_4
+    .incbin "data/maps/online/Power_Plant_Comp_4.talk"
 
-global_label CommentaryData_WWW_Comp_Area_0
-    .incbin "text/commentary/online/WWW_Comp/06D4620.script"
-global_label CommentaryData_WWW_Comp_Area_1
-    .incbin "text/commentary/online/WWW_Comp/06D4A7C.script"
-global_label CommentaryData_WWW_Comp_Area_2
-    .incbin "text/commentary/online/WWW_Comp/06D4ED8.script"
-global_label CommentaryData_WWW_Comp_Area_3
-    .incbin "text/commentary/online/WWW_Comp/06D5334.script"
-global_label CommentaryData_WWW_Comp_Area_4
-    .incbin "text/commentary/online/WWW_Comp/06D5790.script"
-global_label CommentaryData_WWW_Comp_Area_5
-    .incbin "text/commentary/online/WWW_Comp/06D5BEC.script"
+global_label CommentaryData_WWW_Comp_1
+    .incbin "data/maps/online/WWW_Comp_1.talk"
+global_label CommentaryData_WWW_Comp_2
+    .incbin "data/maps/online/WWW_Comp_2.talk"
+global_label CommentaryData_WWW_Comp_3
+    .incbin "data/maps/online/WWW_Comp_3.talk"
+global_label CommentaryData_WWW_Comp_4
+    .incbin "data/maps/online/WWW_Comp_4.talk"
+global_label CommentaryData_WWW_Comp_5
+    .incbin "data/maps/online/WWW_Comp_5.talk"
+global_label CommentaryData_Rocket_Comp
+    .incbin "data/maps/online/Rocket_Comp.talk"
 
-global_label CommentaryData_ACDC_HP_Area_0
-    .incbin "text/commentary/online/ACDC_HP/06D5FEC.script"
-global_label CommentaryData_ACDC_HP_Area_1
-    .incbin "text/commentary/online/ACDC_HP/06D6FD8.script"
-global_label CommentaryData_ACDC_HP_Area_2
-    .incbin "text/commentary/online/ACDC_HP/06D7E78.script"
-global_label CommentaryData_ACDC_HP_Area_3
-    .incbin "text/commentary/online/ACDC_HP/06D8E68.script"
+global_label CommentaryData_ACDC_Lan_PC
+    .incbin "data/maps/online/ACDC_Lan_PC.talk"
+global_label CommentaryData_ACDC_Mayl_PC
+    .incbin "data/maps/online/ACDC_Mayl_PC.talk"
+global_label CommentaryData_ACDC_Yai_PC
+    .incbin "data/maps/online/ACDC_Yai_PC.talk"
+global_label CommentaryData_ACDC_Dex_PC
+    .incbin "data/maps/online/ACDC_Dex_PC.talk"
 
-global_label CommentaryData_Govt_Complex_HP_Area_0
-    .incbin "text/commentary/online/Govt_HP/06D9CF4.script"
-global_label CommentaryData_Govt_Complex_HP_Area_1
-    .incbin "text/commentary/online/Govt_HP/06DAAEC.script"
+global_label CommentaryData_Govt_Yuichiro_PC
+    .incbin "data/maps/online/Govt_Yuichiro_PC.talk"
+global_label CommentaryData_Govt_Lunch_Cart_Comp
+    .incbin "data/maps/online/Govt_Lunch_Cart_Comp.talk"
 
-global_label CommentaryData_DenTown_HP_Area_0
-    .incbin "text/commentary/online/DenTown_HP/06DB918.script"
+global_label CommentaryData_DenTown_Antique_Comp
+    .incbin "data/maps/online/DenTown_Antique_Comp.talk"
 
-global_label CommentaryData_SciLab_HP_Area_0
-    .incbin "text/commentary/online/SciLab_HP/06DC608.script"
+global_label CommentaryData_SciLab_Fish_Stand_Comp
+    .incbin "data/maps/online/SciLab_Fish_Stand_Comp.talk"
 
-global_label CommentaryData_Other_Comp_Area_0
-    .incbin "text/commentary/online/Other_Comp/06DD110.script"
-global_label CommentaryData_Other_Comp_Area_1
-    .incbin "text/commentary/online/Other_Comp/06DD180.script"
-global_label CommentaryData_Other_Comp_Area_2
-    .incbin "text/commentary/online/Other_Comp/06DD218.script"
-global_label CommentaryData_Other_Comp_Area_3
-    .incbin "text/commentary/online/Other_Comp/06DD2A4.script"
-global_label CommentaryData_Other_Comp_Area_4
-    .incbin "text/commentary/online/Other_Comp/06DD314.script"
-global_label CommentaryData_Other_Comp_Area_5
-    .incbin "text/commentary/online/Other_Comp/06DD37C.script"
-global_label CommentaryData_Other_Comp_Area_6
-    .incbin "text/commentary/online/Other_Comp/06DD494.script"
-global_label CommentaryData_Other_Comp_Area_7
-    .incbin "text/commentary/online/Other_Comp/06DD4F0.script"
-global_label CommentaryData_Other_Comp_Area_8
-    .incbin "text/commentary/online/Other_Comp/06DD570.script"
-global_label CommentaryData_Other_Comp_Area_9
-    .incbin "text/commentary/online/Other_Comp/06DD5E0.script"
-global_label CommentaryData_Other_Comp_Area_A
-    .incbin "text/commentary/online/Other_Comp/06DD644.script"
-global_label CommentaryData_Other_Comp_Area_B
-    .incbin "text/commentary/online/Other_Comp/06DD6B0.script"
-global_label CommentaryData_Other_Comp_Area_C
-    .incbin "text/commentary/online/Other_Comp/06DD714.script"
+global_label CommentaryData_Other_Doghouse_Comp
+    .incbin "data/maps/online/Other_Doghouse_Comp.talk"
+global_label CommentaryData_Other_Servbot_Comp
+    .incbin "data/maps/online/Other_Servbot_Comp.talk"
+global_label CommentaryData_Other_New_Game_Machine_Comp
+    .incbin "data/maps/online/Other_New_Game_Machine_Comp.talk"
+global_label CommentaryData_Other_Telephone_Comp
+    .incbin "data/maps/online/Other_Telephone_Comp.talk"
+global_label CommentaryData_Other_Car_Comp
+    .incbin "data/maps/online/Other_Car_Comp.talk"
+global_label CommentaryData_Other_Waterworks_Vending_Machine
+    .incbin "data/maps/online/Other_Waterworks_Vending_Machine.talk"
+global_label CommentaryData_Other_Lobby_TV_Comp
+    .incbin "data/maps/online/Other_Lobby_TV_Comp.talk"
+global_label CommentaryData_Other_Large_Monitor_Comp
+    .incbin "data/maps/online/Other_Large_Monitor_Comp.talk"
+global_label CommentaryData_Other_Control_Equipment_Comp
+    .incbin "data/maps/online/Other_Control_Equipment_Comp.talk"
+global_label CommentaryData_Other_SciLab_Vending_Machine
+    .incbin "data/maps/online/Other_SciLab_Vending_Machine.talk"
+global_label CommentaryData_Other_Recycled_PET_Comp
+    .incbin "data/maps/online/Other_Recycled_PET_Comp.talk"
+global_label CommentaryData_Other_Big_Vase_Comp
+    .incbin "data/maps/online/Other_Big_Vase_Comp.talk"
+global_label CommentaryData_Other_Blackboard_Comp
+    .incbin "data/maps/online/Other_Blackboard_Comp.talk"
 
-global_label CommentaryData_Internet_Area_0
-    .incbin "text/commentary/online/Internet/06DD788.script"
-global_label CommentaryData_Internet_Area_1
-    .incbin "text/commentary/online/Internet/06DE71C.script"
-global_label CommentaryData_Internet_Area_2
-    .incbin "text/commentary/online/Internet/06DF57C.script"
-global_label CommentaryData_Internet_Area_3
-    .incbin "text/commentary/online/Internet/06E0354.script"
-global_label CommentaryData_Internet_Area_4
-    .incbin "text/commentary/online/Internet/06E1000.script"
-global_label CommentaryData_Internet_Area_5
-    .incbin "text/commentary/online/Internet/06E182C.script"
-global_label CommentaryData_Internet_Area_6
-    .incbin "text/commentary/online/Internet/06E2058.script"
-global_label CommentaryData_Internet_Area_7
-    .incbin "text/commentary/online/Internet/06E2884.script"
-global_label CommentaryData_Internet_Area_8
-    .incbin "text/commentary/online/Internet/06E30B0.script"
-global_label CommentaryData_Internet_Area_9
-    .incbin "text/commentary/online/Internet/06E3158.script"
-global_label CommentaryData_Internet_Area_A
-    .incbin "text/commentary/online/Internet/06E3200.script"
-global_label CommentaryData_Internet_Area_B
-    .incbin "text/commentary/online/Internet/06E32A8.script"
-global_label CommentaryData_Internet_Area_C
-    .incbin "text/commentary/online/Internet/06E3350.script"
-global_label CommentaryData_Internet_Area_D
-    .incbin "text/commentary/online/Internet/06E33F8.script"
-global_label CommentaryData_Internet_Area_E
-    .incbin "text/commentary/online/Internet/06E34A0.script"
-global_label CommentaryData_Internet_Area_F
-    .incbin "text/commentary/online/Internet/06E3548.script"
+global_label CommentaryData_Internet_1
+    .incbin "data/maps/online/Internet_1.talk"
+global_label CommentaryData_Internet_2
+    .incbin "data/maps/online/Internet_2.talk"
+global_label CommentaryData_Internet_3
+    .incbin "data/maps/online/Internet_3.talk"
+global_label CommentaryData_Internet_4
+    .incbin "data/maps/online/Internet_4.talk"
+global_label CommentaryData_Undernet_1
+    .incbin "data/maps/online/Undernet_1.talk"
+global_label CommentaryData_Undernet_2
+    .incbin "data/maps/online/Undernet_2.talk"
+global_label CommentaryData_Undernet_3
+    .incbin "data/maps/online/Undernet_3.talk"
+global_label CommentaryData_Undernet_4
+    .incbin "data/maps/online/Undernet_4.talk"
+global_label CommentaryData_Undernet_5
+    .incbin "data/maps/online/Undernet_5.talk"
+global_label CommentaryData_Undernet_6
+    .incbin "data/maps/online/Undernet_6.talk"
+global_label CommentaryData_Undernet_7
+    .incbin "data/maps/online/Undernet_7.talk"
+global_label CommentaryData_Undernet_8
+    .incbin "data/maps/online/Undernet_8.talk"
+global_label CommentaryData_Undernet_9
+    .incbin "data/maps/online/Undernet_9.talk"
+global_label CommentaryData_Undernet_10
+    .incbin "data/maps/online/Undernet_10.talk"
+global_label CommentaryData_Undernet_11
+    .incbin "data/maps/online/Undernet_11.talk"
+global_label CommentaryData_Undernet_12
+    .incbin "data/maps/online/Undernet_12.talk"
 
 global_label DialogueData_School_Class_5A
     .incbin "data/maps/offline/School_Class_5A.dialogue"
@@ -343,192 +343,192 @@ global_label DialogueData_Govt_Waterworks_Pump_Room
 global_label DialogueData_Govt_Waterworks_Purification_Room
     .incbin "data/maps/offline/Govt_Waterworks_Purification_Room.dialogue"
 
-global_label DialogueData_DenTown_Area_0
-    .incbin "text/dialogue/offline/DenTown/0704314.script"
-global_label DialogueData_DenTown_Area_1
-    .incbin "text/dialogue/offline/DenTown/07059CC.script"
-global_label DialogueData_DenTown_Area_2
-    .incbin "text/dialogue/offline/DenTown/070633C.script"
-global_label DialogueData_DenTown_Area_3
-    .incbin "text/dialogue/offline/DenTown/0706F5C.script"
-global_label DialogueData_DenTown_Area_4
-    .incbin "text/dialogue/offline/DenTown/0707858.script"
-global_label DialogueData_DenTown_Area_5
-    .incbin "text/dialogue/offline/DenTown/0708714.script"
-global_label DialogueData_DenTown_Area_6
-    .incbin "text/dialogue/offline/DenTown/0708F68.script"
-global_label DialogueData_DenTown_Area_7
-    .incbin "text/dialogue/offline/DenTown/0709B74.script"
+global_label DialogueData_DenTown_Center
+    .incbin "data/maps/offline/DenTown_Center.dialogue"
+global_label DialogueData_DenTown_Station
+    .incbin "data/maps/offline/DenTown_Station.dialogue"
+global_label DialogueData_DenTown_Block_1
+    .incbin "data/maps/offline/DenTown_Block_1.dialogue"
+global_label DialogueData_DenTown_Block_2
+    .incbin "data/maps/offline/DenTown_Block_2.dialogue"
+global_label DialogueData_DenTown_Block_3
+    .incbin "data/maps/offline/DenTown_Block_3.dialogue"
+global_label DialogueData_DenTown_Block_4
+    .incbin "data/maps/offline/DenTown_Block_4.dialogue"
+global_label DialogueData_DenTown_Miyu_Antiques
+    .incbin "data/maps/offline/DenTown_Miyu_Antiques.dialogue"
+global_label DialogueData_DenTown_Summer_School
+    .incbin "data/maps/offline/DenTown_Summer_School.dialogue"
 
-global_label DialogueData_SciLab_Area_0
-    .incbin "text/dialogue/offline/SciLab/070B100.script"
-global_label DialogueData_SciLab_Area_1
-    .incbin "text/dialogue/offline/SciLab/070B968.script"
-global_label DialogueData_SciLab_Area_2
-    .incbin "text/dialogue/offline/SciLab/070CC20.script"
-global_label DialogueData_SciLab_Area_3
-    .incbin "text/dialogue/offline/SciLab/070D268.script"
-global_label DialogueData_SciLab_Area_4
-    .incbin "text/dialogue/offline/SciLab/070E1E0.script"
-global_label DialogueData_SciLab_Area_5
-    .incbin "text/dialogue/offline/SciLab/070E920.script"
+global_label DialogueData_SciLab_Restaurant_Hallway
+    .incbin "data/maps/offline/SciLab_Restaurant_Hallway.dialogue"
+global_label DialogueData_SciLab_Restaurant
+    .incbin "data/maps/offline/SciLab_Restaurant.dialogue"
+global_label DialogueData_SciLab_Power_Plant_Hallway
+    .incbin "data/maps/offline/SciLab_Power_Plant_Hallway.dialogue"
+global_label DialogueData_SciLab_Power_Plant
+    .incbin "data/maps/offline/SciLab_Power_Plant.dialogue"
+global_label DialogueData_SciLab_Power_Plant_Control_Room
+    .incbin "data/maps/offline/SciLab_Power_Plant_Control_Room.dialogue"
+global_label DialogueData_SciLab_Generator_Room
+    .incbin "data/maps/offline/SciLab_Generator_Room.dialogue"
 
-global_label DialogueData_WWW_Base_Area_0
-    .incbin "text/dialogue/offline/WWW/070E964.script"
-global_label DialogueData_WWW_Base_Area_1
-    .incbin "text/dialogue/offline/WWW/070F288.script"
-global_label DialogueData_WWW_Base_Area_2
-    .incbin "text/dialogue/offline/WWW/070FCE4.script"
-global_label DialogueData_WWW_Base_Area_3
-    .incbin "text/dialogue/offline/WWW/070FD4C.script"
+global_label DialogueData_WWW_Base
+    .incbin "data/maps/offline/WWW_Base.dialogue"
+global_label DialogueData_WWW_Wily_Lab
+    .incbin "data/maps/offline/WWW_Wily_Lab.dialogue"
+global_label DialogueData_WWW_Rocket_Hangar
+    .incbin "data/maps/offline/WWW_Rocket_Hangar.dialogue"
+global_label DialogueData_WWW_Passage_1
+    .incbin "data/maps/offline/WWW_Passage_1.dialogue"
     @ Quirk: Script for area 4 included twice
-    .incbin "text/dialogue/offline/WWW/071047C.script"
-global_label DialogueData_WWW_Base_Area_4
-    .incbin "text/dialogue/offline/WWW/071047C.script"
-global_label DialogueData_WWW_Base_Area_5
-    .incbin "text/dialogue/offline/WWW/0710740.script"
+    .incbin "data/maps/offline/WWW_Passage_2.dialogue"
+global_label DialogueData_WWW_Passage_2
+    .incbin "data/maps/offline/WWW_Passage_2.dialogue"
+global_label DialogueData_WWW_Passage_3
+    .incbin "data/maps/offline/WWW_Passage_3.dialogue"
 
-global_label DialogueData_School_Comp_Area_0
-    .incbin "text/dialogue/online/School_Comp/0710BAC.script"
-global_label DialogueData_School_Comp_Area_1
-    .incbin "text/dialogue/online/School_Comp/07111C8.script"
-global_label DialogueData_School_Comp_Area_2
-    .incbin "text/dialogue/online/School_Comp/0711BB4.script"
-global_label DialogueData_School_Comp_Area_3
-    .incbin "text/dialogue/online/School_Comp/0712448.script"
-global_label DialogueData_School_Comp_Area_4
-    .incbin "text/dialogue/online/School_Comp/0712D28.script"
+global_label DialogueData_School_Comp_1
+    .incbin "data/maps/online/School_Comp_1.dialogue"
+global_label DialogueData_School_Comp_2
+    .incbin "data/maps/online/School_Comp_2.dialogue"
+global_label DialogueData_School_Comp_3
+    .incbin "data/maps/online/School_Comp_3.dialogue"
+global_label DialogueData_School_Comp_4
+    .incbin "data/maps/online/School_Comp_4.dialogue"
+global_label DialogueData_School_Comp_5
+    .incbin "data/maps/online/School_Comp_5.dialogue"
 
-global_label DialogueData_Oven_Comp_Area_0
-    .incbin "text/dialogue/online/Oven_Comp/0713478.script"
-global_label DialogueData_Oven_Comp_Area_1
-    .incbin "text/dialogue/online/Oven_Comp/071440C.script"
+global_label DialogueData_Oven_Comp_1
+    .incbin "data/maps/online/Oven_Comp_1.dialogue"
+global_label DialogueData_Oven_Comp_2
+    .incbin "data/maps/online/Oven_Comp_2.dialogue"
 
-global_label DialogueData_Waterworks_Comp_Area_0
-    .incbin "text/dialogue/online/Waterworks_Comp/07146AC.script"
-global_label DialogueData_Waterworks_Comp_Area_1
-    .incbin "text/dialogue/online/Waterworks_Comp/071496C.script"
-global_label DialogueData_Waterworks_Comp_Area_2
-    .incbin "text/dialogue/online/Waterworks_Comp/0714E28.script"
-global_label DialogueData_Waterworks_Comp_Area_3
-    .incbin "text/dialogue/online/Waterworks_Comp/0715198.script"
-global_label DialogueData_Waterworks_Comp_Area_4
-    .incbin "text/dialogue/online/Waterworks_Comp/0715208.script"
-global_label DialogueData_Waterworks_Comp_Area_5
-    .incbin "text/dialogue/online/Waterworks_Comp/07155F4.script"
+global_label DialogueData_Waterworks_Comp_1
+    .incbin "data/maps/online/Waterworks_Comp_1.dialogue"
+global_label DialogueData_Waterworks_Comp_2
+    .incbin "data/maps/online/Waterworks_Comp_2.dialogue"
+global_label DialogueData_Waterworks_Comp_3
+    .incbin "data/maps/online/Waterworks_Comp_3.dialogue"
+global_label DialogueData_Waterworks_Comp_4
+    .incbin "data/maps/online/Waterworks_Comp_4.dialogue"
+global_label DialogueData_Waterworks_Comp_5
+    .incbin "data/maps/online/Waterworks_Comp_5.dialogue"
+global_label DialogueData_Waterworks_Comp_6
+    .incbin "data/maps/online/Waterworks_Comp_6.dialogue"
 
-global_label DialogueData_Traffic_Light_Comp_Area_0
-    .incbin "text/dialogue/online/Traffic_Light_Comp/0715884.script"
-global_label DialogueData_Traffic_Light_Comp_Area_1
-    .incbin "text/dialogue/online/Traffic_Light_Comp/0715C34.script"
-global_label DialogueData_Traffic_Light_Comp_Area_2
-    .incbin "text/dialogue/online/Traffic_Light_Comp/0715E10.script"
-global_label DialogueData_Traffic_Light_Comp_Area_3
-    .incbin "text/dialogue/online/Traffic_Light_Comp/071605C.script"
-global_label DialogueData_Traffic_Light_Comp_Area_4
-    .incbin "text/dialogue/online/Traffic_Light_Comp/0716230.script"
+global_label DialogueData_Traffic_Light_Comp_1
+    .incbin "data/maps/online/Traffic_Light_Comp_1.dialogue"
+global_label DialogueData_Traffic_Light_Comp_2
+    .incbin "data/maps/online/Traffic_Light_Comp_2.dialogue"
+global_label DialogueData_Traffic_Light_Comp_3
+    .incbin "data/maps/online/Traffic_Light_Comp_3.dialogue"
+global_label DialogueData_Traffic_Light_Comp_4
+    .incbin "data/maps/online/Traffic_Light_Comp_4.dialogue"
+global_label DialogueData_Traffic_Light_Comp_5
+    .incbin "data/maps/online/Traffic_Light_Comp_5.dialogue"
 
-global_label DialogueData_Power_Plant_Comp_Area_0
-    .incbin "text/dialogue/online/Power_Plant_Comp/0716838.script"
-global_label DialogueData_Power_Plant_Comp_Area_1
-    .incbin "text/dialogue/online/Power_Plant_Comp/071862C.script"
-global_label DialogueData_Power_Plant_Comp_Area_2
-    .incbin "text/dialogue/online/Power_Plant_Comp/071A378.script"
-global_label DialogueData_Power_Plant_Comp_Area_3
-    .incbin "text/dialogue/online/Power_Plant_Comp/071BFEC.script"
+global_label DialogueData_Power_Plant_Comp_1
+    .incbin "data/maps/online/Power_Plant_Comp_1.dialogue"
+global_label DialogueData_Power_Plant_Comp_2
+    .incbin "data/maps/online/Power_Plant_Comp_2.dialogue"
+global_label DialogueData_Power_Plant_Comp_3
+    .incbin "data/maps/online/Power_Plant_Comp_3.dialogue"
+global_label DialogueData_Power_Plant_Comp_4
+    .incbin "data/maps/online/Power_Plant_Comp_4.dialogue"
 
-global_label DialogueData_WWW_Comp_Area_0
-    .incbin "text/dialogue/online/WWW_Comp/071DB7C.script"
-global_label DialogueData_WWW_Comp_Area_1
-    .incbin "text/dialogue/online/WWW_Comp/071E07C.script"
-global_label DialogueData_WWW_Comp_Area_2
-    .incbin "text/dialogue/online/WWW_Comp/071E9A4.script"
-global_label DialogueData_WWW_Comp_Area_3
-    .incbin "text/dialogue/online/WWW_Comp/071EB08.script"
-global_label DialogueData_WWW_Comp_Area_4
-    .incbin "text/dialogue/online/WWW_Comp/071EC20.script"
-global_label DialogueData_WWW_Comp_Area_5
-    .incbin "text/dialogue/online/WWW_Comp/071EEE4.script"
+global_label DialogueData_WWW_Comp_1
+    .incbin "data/maps/online/WWW_Comp_1.dialogue"
+global_label DialogueData_WWW_Comp_2
+    .incbin "data/maps/online/WWW_Comp_2.dialogue"
+global_label DialogueData_WWW_Comp_3
+    .incbin "data/maps/online/WWW_Comp_3.dialogue"
+global_label DialogueData_WWW_Comp_4
+    .incbin "data/maps/online/WWW_Comp_4.dialogue"
+global_label DialogueData_WWW_Comp_5
+    .incbin "data/maps/online/WWW_Comp_5.dialogue"
+global_label DialogueData_Rocket_Comp
+    .incbin "data/maps/online/Rocket_Comp.dialogue"
 
-global_label DialogueData_ACDC_HP_Area_0
-    .incbin "text/dialogue/online/ACDC_HP/071EFEC.script"
-global_label DialogueData_ACDC_HP_Area_1
-    .incbin "text/dialogue/online/ACDC_HP/071F154.script"
-global_label DialogueData_ACDC_HP_Area_2
-    .incbin "text/dialogue/online/ACDC_HP/071F4D4.script"
-global_label DialogueData_ACDC_HP_Area_3
-    .incbin "text/dialogue/online/ACDC_HP/071F8E8.script"
+global_label DialogueData_ACDC_Lan_PC
+    .incbin "data/maps/online/ACDC_Lan_PC.dialogue"
+global_label DialogueData_ACDC_Mayl_PC
+    .incbin "data/maps/online/ACDC_Mayl_PC.dialogue"
+global_label DialogueData_ACDC_Yai_PC
+    .incbin "data/maps/online/ACDC_Yai_PC.dialogue"
+global_label DialogueData_ACDC_Dex_PC
+    .incbin "data/maps/online/ACDC_Dex_PC.dialogue"
 
-global_label DialogueData_Govt_Complex_HP_Area_0
-    .incbin "text/dialogue/online/Govt_HP/071FB4C.script"
-global_label DialogueData_Govt_Complex_HP_Area_1
-    .incbin "text/dialogue/online/Govt_HP/07200AC.script"
+global_label DialogueData_Govt_Yuichiro_PC
+    .incbin "data/maps/online/Govt_Yuichiro_PC.dialogue"
+global_label DialogueData_Govt_Lunch_Cart_Comp
+    .incbin "data/maps/online/Govt_Lunch_Cart_Comp.dialogue"
 
-global_label DialogueData_DenTown_HP_Area_0
-    .incbin "text/dialogue/online/DenTown_HP/0720314.script"
+global_label DialogueData_DenTown_Antique_Comp
+    .incbin "data/maps/online/DenTown_Antique_Comp.dialogue"
 
-global_label DialogueData_SciLab_HP_Area_0
-    .incbin "text/dialogue/online/SciLab_HP/0720584.script"
+global_label DialogueData_SciLab_Fish_Stand_Comp
+    .incbin "data/maps/online/SciLab_Fish_Stand_Comp.dialogue"
 
-global_label DialogueData_Other_Comp_Area_0
-    .incbin "text/dialogue/online/Other_Comp/07207E4.script"
-global_label DialogueData_Other_Comp_Area_1
-    .incbin "text/dialogue/online/Other_Comp/07209D0.script"
-global_label DialogueData_Other_Comp_Area_2
-    .incbin "text/dialogue/online/Other_Comp/0720B4C.script"
-global_label DialogueData_Other_Comp_Area_3
-    .incbin "text/dialogue/online/Other_Comp/0720D18.script"
-global_label DialogueData_Other_Comp_Area_4
-    .incbin "text/dialogue/online/Other_Comp/0720F24.script"
-global_label DialogueData_Other_Comp_Area_5
-    .incbin "text/dialogue/online/Other_Comp/07210EC.script"
-global_label DialogueData_Other_Comp_Area_6
-    .incbin "text/dialogue/online/Other_Comp/0721338.script"
-global_label DialogueData_Other_Comp_Area_7
-    .incbin "text/dialogue/online/Other_Comp/07214EC.script"
-global_label DialogueData_Other_Comp_Area_8
-    .incbin "text/dialogue/online/Other_Comp/0721724.script"
-global_label DialogueData_Other_Comp_Area_9
-    .incbin "text/dialogue/online/Other_Comp/07218D8.script"
-global_label DialogueData_Other_Comp_Area_A
-    .incbin "text/dialogue/online/Other_Comp/0721A94.script"
-global_label DialogueData_Other_Comp_Area_B
-    .incbin "text/dialogue/online/Other_Comp/0721BD8.script"
-global_label DialogueData_Other_Comp_Area_C
-    .incbin "text/dialogue/online/Other_Comp/0721DB4.script"
+global_label DialogueData_Other_Doghouse_Comp
+    .incbin "data/maps/online/Other_Doghouse_Comp.dialogue"
+global_label DialogueData_Other_Servbot_Comp
+    .incbin "data/maps/online/Other_Servbot_Comp.dialogue"
+global_label DialogueData_Other_New_Game_Machine_Comp
+    .incbin "data/maps/online/Other_New_Game_Machine_Comp.dialogue"
+global_label DialogueData_Other_Telephone_Comp
+    .incbin "data/maps/online/Other_Telephone_Comp.dialogue"
+global_label DialogueData_Other_Car_Comp
+    .incbin "data/maps/online/Other_Car_Comp.dialogue"
+global_label DialogueData_Other_Waterworks_Vending_Machine
+    .incbin "data/maps/online/Other_Waterworks_Vending_Machine.dialogue"
+global_label DialogueData_Other_Lobby_TV_Comp
+    .incbin "data/maps/online/Other_Lobby_TV_Comp.dialogue"
+global_label DialogueData_Other_Large_Monitor_Comp
+    .incbin "data/maps/online/Other_Large_Monitor_Comp.dialogue"
+global_label DialogueData_Other_Control_Equipment_Comp
+    .incbin "data/maps/online/Other_Control_Equipment_Comp.dialogue"
+global_label DialogueData_Other_SciLab_Vending_Machine
+    .incbin "data/maps/online/Other_SciLab_Vending_Machine.dialogue"
+global_label DialogueData_Other_Recycled_PET_Comp
+    .incbin "data/maps/online/Other_Recycled_PET_Comp.dialogue"
+global_label DialogueData_Other_Big_Vase_Comp
+    .incbin "data/maps/online/Other_Big_Vase_Comp.dialogue"
+global_label DialogueData_Other_Blackboard_Comp
+    .incbin "data/maps/online/Other_Blackboard_Comp.dialogue"
 
-global_label DialogueData_Internet_Area_0
-    .incbin "text/dialogue/online/Internet/0721F40.script"
-global_label DialogueData_Internet_Area_1
-    .incbin "text/dialogue/online/Internet/0723318.script"
-global_label DialogueData_Internet_Area_2
-    .incbin "text/dialogue/online/Internet/0724040.script"
-global_label DialogueData_Internet_Area_3
-    .incbin "text/dialogue/online/Internet/07248D4.script"
-global_label DialogueData_Internet_Area_4
-    .incbin "text/dialogue/online/Internet/07251F0.script"
-global_label DialogueData_Internet_Area_5
-    .incbin "text/dialogue/online/Internet/07259F4.script"
-global_label DialogueData_Internet_Area_6
-    .incbin "text/dialogue/online/Internet/0725E68.script"
-global_label DialogueData_Internet_Area_7
-    .incbin "text/dialogue/online/Internet/07262DC.script"
-global_label DialogueData_Internet_Area_8
-    .incbin "text/dialogue/online/Internet/072663C.script"
-global_label DialogueData_Internet_Area_9
-    .incbin "text/dialogue/online/Internet/0726B6C.script"
-global_label DialogueData_Internet_Area_A
-    .incbin "text/dialogue/online/Internet/07273AC.script"
-global_label DialogueData_Internet_Area_B
-    .incbin "text/dialogue/online/Internet/0727944.script"
-global_label DialogueData_Internet_Area_C
-    .incbin "text/dialogue/online/Internet/0727DA0.script"
-global_label DialogueData_Internet_Area_D
-    .incbin "text/dialogue/online/Internet/072829C.script"
-global_label DialogueData_Internet_Area_E
-    .incbin "text/dialogue/online/Internet/0728948.script"
-global_label DialogueData_Internet_Area_F
-    .incbin "text/dialogue/online/Internet/0728F50.script"
+global_label DialogueData_Internet_1
+    .incbin "data/maps/online/Internet_1.dialogue"
+global_label DialogueData_Internet_2
+    .incbin "data/maps/online/Internet_2.dialogue"
+global_label DialogueData_Internet_3
+    .incbin "data/maps/online/Internet_3.dialogue"
+global_label DialogueData_Internet_4
+    .incbin "data/maps/online/Internet_4.dialogue"
+global_label DialogueData_Undernet_1
+    .incbin "data/maps/online/Undernet_1.dialogue"
+global_label DialogueData_Undernet_2
+    .incbin "data/maps/online/Undernet_2.dialogue"
+global_label DialogueData_Undernet_3
+    .incbin "data/maps/online/Undernet_3.dialogue"
+global_label DialogueData_Undernet_4
+    .incbin "data/maps/online/Undernet_4.dialogue"
+global_label DialogueData_Undernet_5
+    .incbin "data/maps/online/Undernet_5.dialogue"
+global_label DialogueData_Undernet_6
+    .incbin "data/maps/online/Undernet_6.dialogue"
+global_label DialogueData_Undernet_7
+    .incbin "data/maps/online/Undernet_7.dialogue"
+global_label DialogueData_Undernet_8
+    .incbin "data/maps/online/Undernet_8.dialogue"
+global_label DialogueData_Undernet_9
+    .incbin "data/maps/online/Undernet_9.dialogue"
+global_label DialogueData_Undernet_10
+    .incbin "data/maps/online/Undernet_10.dialogue"
+global_label DialogueData_Undernet_11
+    .incbin "data/maps/online/Undernet_11.dialogue"
+global_label DialogueData_Undernet_12
+    .incbin "data/maps/online/Undernet_12.dialogue"
 
 global_label textBlockInitialDialog
     .incbin "text/scenario/initial.script"

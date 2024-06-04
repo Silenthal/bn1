@@ -1,0 +1,23 @@
+{
+    "id": "SciLab_Fish_Stand_Comp",
+    "width": 160,
+    "height": 140,
+    "palette": "palette.txt",
+    "tilemap": [
+        {
+            "file": "BG1.bin"
+        },
+        {
+            "file": "BG2.bin"
+        },
+        {
+            "file": "BG3.bin"
+        }
+    ],
+    "scb": {
+        "boundary": "boundary.json",
+        "event": "event.json"
+    },
+    "talk": "talk.txt",
+    "dialogue": "dialogue.txt"
+}

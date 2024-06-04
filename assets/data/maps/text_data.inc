@@ -73,105 +73,105 @@ DialogueData_Govt:
     .word 0
     .word DialogueData_Govt_Waterworks_Purification_Room
 DialogueData_DenTown:
-    .word DialogueData_DenTown_Area_0
-    .word DialogueData_DenTown_Area_1
-    .word DialogueData_DenTown_Area_2
-    .word DialogueData_DenTown_Area_3
-    .word DialogueData_DenTown_Area_4
-    .word DialogueData_DenTown_Area_5
-    .word DialogueData_DenTown_Area_6
-    .word DialogueData_DenTown_Area_7
+    .word DialogueData_DenTown_Center
+    .word DialogueData_DenTown_Station
+    .word DialogueData_DenTown_Block_1
+    .word DialogueData_DenTown_Block_2
+    .word DialogueData_DenTown_Block_3
+    .word DialogueData_DenTown_Block_4
+    .word DialogueData_DenTown_Miyu_Antiques
+    .word DialogueData_DenTown_Summer_School
 DialogueData_SciLab:
-    .word DialogueData_SciLab_Area_0
-    .word DialogueData_SciLab_Area_1
-    .word DialogueData_SciLab_Area_2
-    .word DialogueData_SciLab_Area_3
-    .word DialogueData_SciLab_Area_4
-    .word DialogueData_SciLab_Area_5
+    .word DialogueData_SciLab_Restaurant_Hallway
+    .word DialogueData_SciLab_Restaurant
+    .word DialogueData_SciLab_Power_Plant_Hallway
+    .word DialogueData_SciLab_Power_Plant
+    .word DialogueData_SciLab_Power_Plant_Control_Room
+    .word DialogueData_SciLab_Generator_Room
 DialogueData_WWW:
-    .word DialogueData_WWW_Base_Area_0
-    .word DialogueData_WWW_Base_Area_1
-    .word DialogueData_WWW_Base_Area_2
-    .word DialogueData_WWW_Base_Area_3
-    .word DialogueData_WWW_Base_Area_4
-    .word DialogueData_WWW_Base_Area_5
+    .word DialogueData_WWW_Base
+    .word DialogueData_WWW_Wily_Lab
+    .word DialogueData_WWW_Rocket_Hangar
+    .word DialogueData_WWW_Passage_1
+    .word DialogueData_WWW_Passage_2
+    .word DialogueData_WWW_Passage_3
 DialogueData_School_Comp:
-    .word DialogueData_School_Comp_Area_0
-    .word DialogueData_School_Comp_Area_1
-    .word DialogueData_School_Comp_Area_2
-    .word DialogueData_School_Comp_Area_3
-    .word DialogueData_School_Comp_Area_4
+    .word DialogueData_School_Comp_1
+    .word DialogueData_School_Comp_2
+    .word DialogueData_School_Comp_3
+    .word DialogueData_School_Comp_4
+    .word DialogueData_School_Comp_5
 DialogueData_Oven_Comp:
-    .word DialogueData_Oven_Comp_Area_0
-    .word DialogueData_Oven_Comp_Area_1
+    .word DialogueData_Oven_Comp_1
+    .word DialogueData_Oven_Comp_2
 DialogueData_Waterworks_Comp:
-    .word DialogueData_Waterworks_Comp_Area_0
-    .word DialogueData_Waterworks_Comp_Area_1
-    .word DialogueData_Waterworks_Comp_Area_2
-    .word DialogueData_Waterworks_Comp_Area_3
-    .word DialogueData_Waterworks_Comp_Area_4
-    .word DialogueData_Waterworks_Comp_Area_5
+    .word DialogueData_Waterworks_Comp_1
+    .word DialogueData_Waterworks_Comp_2
+    .word DialogueData_Waterworks_Comp_3
+    .word DialogueData_Waterworks_Comp_4
+    .word DialogueData_Waterworks_Comp_5
+    .word DialogueData_Waterworks_Comp_6
 DialogueData_Traffic_Light_Comp:
-    .word DialogueData_Traffic_Light_Comp_Area_0
-    .word DialogueData_Traffic_Light_Comp_Area_1
-    .word DialogueData_Traffic_Light_Comp_Area_2
-    .word DialogueData_Traffic_Light_Comp_Area_3
-    .word DialogueData_Traffic_Light_Comp_Area_4
+    .word DialogueData_Traffic_Light_Comp_1
+    .word DialogueData_Traffic_Light_Comp_2
+    .word DialogueData_Traffic_Light_Comp_3
+    .word DialogueData_Traffic_Light_Comp_4
+    .word DialogueData_Traffic_Light_Comp_5
 DialogueData_Power_Plant_Comp:
-    .word DialogueData_Power_Plant_Comp_Area_0
-    .word DialogueData_Power_Plant_Comp_Area_1
-    .word DialogueData_Power_Plant_Comp_Area_2
-    .word DialogueData_Power_Plant_Comp_Area_3
+    .word DialogueData_Power_Plant_Comp_1
+    .word DialogueData_Power_Plant_Comp_2
+    .word DialogueData_Power_Plant_Comp_3
+    .word DialogueData_Power_Plant_Comp_4
 DialogueData_WWW_Comp:
-    .word DialogueData_WWW_Comp_Area_0
-    .word DialogueData_WWW_Comp_Area_1
-    .word DialogueData_WWW_Comp_Area_2
-    .word DialogueData_WWW_Comp_Area_3
-    .word DialogueData_WWW_Comp_Area_4
-    .word DialogueData_WWW_Comp_Area_5
+    .word DialogueData_WWW_Comp_1
+    .word DialogueData_WWW_Comp_2
+    .word DialogueData_WWW_Comp_3
+    .word DialogueData_WWW_Comp_4
+    .word DialogueData_WWW_Comp_5
+    .word DialogueData_Rocket_Comp
 DialogueData_ACDC_HP:
-    .word DialogueData_ACDC_HP_Area_0
-    .word DialogueData_ACDC_HP_Area_1
-    .word DialogueData_ACDC_HP_Area_2
-    .word DialogueData_ACDC_HP_Area_3
+    .word DialogueData_ACDC_Lan_PC
+    .word DialogueData_ACDC_Mayl_PC
+    .word DialogueData_ACDC_Yai_PC
+    .word DialogueData_ACDC_Dex_PC
 DialogueData_Govt_Complex_HP:
-    .word DialogueData_Govt_Complex_HP_Area_0
-    .word DialogueData_Govt_Complex_HP_Area_1
+    .word DialogueData_Govt_Yuichiro_PC
+    .word DialogueData_Govt_Lunch_Cart_Comp
 DialogueData_DenTown_HP:
-    .word DialogueData_DenTown_HP_Area_0
+    .word DialogueData_DenTown_Antique_Comp
 DialogueData_SciLab_HP:
-    .word DialogueData_SciLab_HP_Area_0
+    .word DialogueData_SciLab_Fish_Stand_Comp
 DialogueData_Other_Comp:
-    .word DialogueData_Other_Comp_Area_0
-    .word DialogueData_Other_Comp_Area_1
-    .word DialogueData_Other_Comp_Area_2
-    .word DialogueData_Other_Comp_Area_3
-    .word DialogueData_Other_Comp_Area_4
-    .word DialogueData_Other_Comp_Area_5
-    .word DialogueData_Other_Comp_Area_6
-    .word DialogueData_Other_Comp_Area_7
-    .word DialogueData_Other_Comp_Area_8
-    .word DialogueData_Other_Comp_Area_9
-    .word DialogueData_Other_Comp_Area_A
-    .word DialogueData_Other_Comp_Area_B
-    .word DialogueData_Other_Comp_Area_C
+    .word DialogueData_Other_Doghouse_Comp
+    .word DialogueData_Other_Servbot_Comp
+    .word DialogueData_Other_New_Game_Machine_Comp
+    .word DialogueData_Other_Telephone_Comp
+    .word DialogueData_Other_Car_Comp
+    .word DialogueData_Other_Waterworks_Vending_Machine
+    .word DialogueData_Other_Lobby_TV_Comp
+    .word DialogueData_Other_Large_Monitor_Comp
+    .word DialogueData_Other_Control_Equipment_Comp
+    .word DialogueData_Other_SciLab_Vending_Machine
+    .word DialogueData_Other_Recycled_PET_Comp
+    .word DialogueData_Other_Big_Vase_Comp
+    .word DialogueData_Other_Blackboard_Comp
 DialogueData_Internet:
-    .word DialogueData_Internet_Area_0
-    .word DialogueData_Internet_Area_1
-    .word DialogueData_Internet_Area_2
-    .word DialogueData_Internet_Area_3
-    .word DialogueData_Internet_Area_4
-    .word DialogueData_Internet_Area_5
-    .word DialogueData_Internet_Area_6
-    .word DialogueData_Internet_Area_7
-    .word DialogueData_Internet_Area_8
-    .word DialogueData_Internet_Area_9
-    .word DialogueData_Internet_Area_A
-    .word DialogueData_Internet_Area_B
-    .word DialogueData_Internet_Area_C
-    .word DialogueData_Internet_Area_D
-    .word DialogueData_Internet_Area_E
-    .word DialogueData_Internet_Area_F
+    .word DialogueData_Internet_1
+    .word DialogueData_Internet_2
+    .word DialogueData_Internet_3
+    .word DialogueData_Internet_4
+    .word DialogueData_Undernet_1
+    .word DialogueData_Undernet_2
+    .word DialogueData_Undernet_3
+    .word DialogueData_Undernet_4
+    .word DialogueData_Undernet_5
+    .word DialogueData_Undernet_6
+    .word DialogueData_Undernet_7
+    .word DialogueData_Undernet_8
+    .word DialogueData_Undernet_9
+    .word DialogueData_Undernet_10
+    .word DialogueData_Undernet_11
+    .word DialogueData_Undernet_12
 DialogueData_Battle_Other:
     .word 0
     .word 0
@@ -247,105 +247,105 @@ CommentaryData_Govt:
     .word CommentaryData_None
     .word CommentaryData_Govt_Waterworks_Purification_Room
 CommentaryData_DenTown:
-    .word CommentaryData_DenTown_Area_0
-    .word CommentaryData_DenTown_Area_1
-    .word CommentaryData_DenTown_Area_2
-    .word CommentaryData_DenTown_Area_3
-    .word CommentaryData_DenTown_Area_4
-    .word CommentaryData_DenTown_Area_5
-    .word CommentaryData_DenTown_Area_6
-    .word CommentaryData_DenTown_Area_7
+    .word CommentaryData_DenTown_Center
+    .word CommentaryData_DenTown_Station
+    .word CommentaryData_DenTown_Block_1
+    .word CommentaryData_DenTown_Block_2
+    .word CommentaryData_DenTown_Block_3
+    .word CommentaryData_DenTown_Block_4
+    .word CommentaryData_DenTown_Miyu_Antiques
+    .word CommentaryData_DenTown_Summer_School
 CommentaryData_SciLab:
-    .word CommentaryData_SciLab_Area_0
-    .word CommentaryData_SciLab_Area_1
-    .word CommentaryData_SciLab_Area_2
-    .word CommentaryData_SciLab_Area_3
-    .word CommentaryData_SciLab_Area_4
-    .word CommentaryData_SciLab_Area_5
+    .word CommentaryData_SciLab_Restaurant_Hallway
+    .word CommentaryData_SciLab_Restaurant
+    .word CommentaryData_SciLab_Power_Plant_Hallway
+    .word CommentaryData_SciLab_Power_Plant
+    .word CommentaryData_SciLab_Power_Plant_Control_Room
+    .word CommentaryData_SciLab_Generator_Room
 CommentaryData_WWW:
-    .word CommentaryData_WWW_Base_Area_0
-    .word CommentaryData_WWW_Base_Area_1
+    .word CommentaryData_WWW_Base
+    .word CommentaryData_WWW_Wily_Lab
     .word CommentaryData_None
-    .word CommentaryData_WWW_Base_Area_3
-    .word CommentaryData_WWW_Base_Area_4
-    .word CommentaryData_WWW_Base_Area_5
+    .word CommentaryData_WWW_Passage_1
+    .word CommentaryData_WWW_Passage_2
+    .word CommentaryData_WWW_Passage_3
 CommentaryData_School_Comp:
-    .word CommentaryData_School_Comp_Area_0
-    .word CommentaryData_School_Comp_Area_1
-    .word CommentaryData_School_Comp_Area_2
-    .word CommentaryData_School_Comp_Area_3
-    .word CommentaryData_School_Comp_Area_4
+    .word CommentaryData_School_Comp_1
+    .word CommentaryData_School_Comp_2
+    .word CommentaryData_School_Comp_3
+    .word CommentaryData_School_Comp_4
+    .word CommentaryData_School_Comp_5
 CommentaryData_Oven_Comp:
-    .word CommentaryData_Oven_Comp_Area_0
-    .word CommentaryData_Oven_Comp_Area_1
+    .word CommentaryData_Oven_Comp_1
+    .word CommentaryData_Oven_Comp_2
 CommentaryData_Waterworks_Comp:
-    .word CommentaryData_Waterworks_Comp_Area_0
-    .word CommentaryData_Waterworks_Comp_Area_1
-    .word CommentaryData_Waterworks_Comp_Area_2
-    .word CommentaryData_Waterworks_Comp_Area_3
-    .word CommentaryData_Waterworks_Comp_Area_4
-    .word CommentaryData_Waterworks_Comp_Area_5
+    .word CommentaryData_Waterworks_Comp_1
+    .word CommentaryData_Waterworks_Comp_2
+    .word CommentaryData_Waterworks_Comp_3
+    .word CommentaryData_Waterworks_Comp_4
+    .word CommentaryData_Waterworks_Comp_5
+    .word CommentaryData_Waterworks_Comp_6
 CommentaryData_Traffic_Light_Comp:
-    .word CommentaryData_Traffic_Light_Comp_Area_0
-    .word CommentaryData_Traffic_Light_Comp_Area_1
-    .word CommentaryData_Traffic_Light_Comp_Area_2
-    .word CommentaryData_Traffic_Light_Comp_Area_3
-    .word CommentaryData_Traffic_Light_Comp_Area_4
+    .word CommentaryData_Traffic_Light_Comp_1
+    .word CommentaryData_Traffic_Light_Comp_2
+    .word CommentaryData_Traffic_Light_Comp_3
+    .word CommentaryData_Traffic_Light_Comp_4
+    .word CommentaryData_Traffic_Light_Comp_5
 CommentaryData_Power_Plant_Comp:
-    .word CommentaryData_Power_Plant_Comp_Area_0
-    .word CommentaryData_Power_Plant_Comp_Area_1
-    .word CommentaryData_Power_Plant_Comp_Area_2
-    .word CommentaryData_Power_Plant_Comp_Area_3
+    .word CommentaryData_Power_Plant_Comp_1
+    .word CommentaryData_Power_Plant_Comp_2
+    .word CommentaryData_Power_Plant_Comp_3
+    .word CommentaryData_Power_Plant_Comp_4
 CommentaryData_WWW_Comp:
-    .word CommentaryData_WWW_Comp_Area_0
-    .word CommentaryData_WWW_Comp_Area_1
-    .word CommentaryData_WWW_Comp_Area_2
-    .word CommentaryData_WWW_Comp_Area_3
-    .word CommentaryData_WWW_Comp_Area_4
-    .word CommentaryData_WWW_Comp_Area_5
+    .word CommentaryData_WWW_Comp_1
+    .word CommentaryData_WWW_Comp_2
+    .word CommentaryData_WWW_Comp_3
+    .word CommentaryData_WWW_Comp_4
+    .word CommentaryData_WWW_Comp_5
+    .word CommentaryData_Rocket_Comp
 CommentaryData_ACDC_HP:
-    .word CommentaryData_ACDC_HP_Area_0
-    .word CommentaryData_ACDC_HP_Area_1
-    .word CommentaryData_ACDC_HP_Area_2
-    .word CommentaryData_ACDC_HP_Area_3
+    .word CommentaryData_ACDC_Lan_PC
+    .word CommentaryData_ACDC_Mayl_PC
+    .word CommentaryData_ACDC_Yai_PC
+    .word CommentaryData_ACDC_Dex_PC
 CommentaryData_Govt_Complex_HP:
-    .word CommentaryData_Govt_Complex_HP_Area_0
-    .word CommentaryData_Govt_Complex_HP_Area_1
+    .word CommentaryData_Govt_Yuichiro_PC
+    .word CommentaryData_Govt_Lunch_Cart_Comp
 CommentaryData_DenTown_HP:
-    .word CommentaryData_DenTown_HP_Area_0
+    .word CommentaryData_DenTown_Antique_Comp
 CommentaryData_SciLab_HP:
-    .word CommentaryData_SciLab_HP_Area_0
+    .word CommentaryData_SciLab_Fish_Stand_Comp
 CommentaryData_Other:
-    .word CommentaryData_Other_Comp_Area_0
-    .word CommentaryData_Other_Comp_Area_1
-    .word CommentaryData_Other_Comp_Area_2
-    .word CommentaryData_Other_Comp_Area_3
-    .word CommentaryData_Other_Comp_Area_4
-    .word CommentaryData_Other_Comp_Area_5
-    .word CommentaryData_Other_Comp_Area_6
-    .word CommentaryData_Other_Comp_Area_7
-    .word CommentaryData_Other_Comp_Area_8
-    .word CommentaryData_Other_Comp_Area_9
-    .word CommentaryData_Other_Comp_Area_A
-    .word CommentaryData_Other_Comp_Area_B
-    .word CommentaryData_Other_Comp_Area_C
+    .word CommentaryData_Other_Doghouse_Comp
+    .word CommentaryData_Other_Servbot_Comp
+    .word CommentaryData_Other_New_Game_Machine_Comp
+    .word CommentaryData_Other_Telephone_Comp
+    .word CommentaryData_Other_Car_Comp
+    .word CommentaryData_Other_Waterworks_Vending_Machine
+    .word CommentaryData_Other_Lobby_TV_Comp
+    .word CommentaryData_Other_Large_Monitor_Comp
+    .word CommentaryData_Other_Control_Equipment_Comp
+    .word CommentaryData_Other_SciLab_Vending_Machine
+    .word CommentaryData_Other_Recycled_PET_Comp
+    .word CommentaryData_Other_Big_Vase_Comp
+    .word CommentaryData_Other_Blackboard_Comp
 CommentaryData_Internet:
-    .word CommentaryData_Internet_Area_0
-    .word CommentaryData_Internet_Area_1
-    .word CommentaryData_Internet_Area_2
-    .word CommentaryData_Internet_Area_3
-    .word CommentaryData_Internet_Area_4
-    .word CommentaryData_Internet_Area_5
-    .word CommentaryData_Internet_Area_6
-    .word CommentaryData_Internet_Area_7
-    .word CommentaryData_Internet_Area_8
-    .word CommentaryData_Internet_Area_9
-    .word CommentaryData_Internet_Area_A
-    .word CommentaryData_Internet_Area_B
-    .word CommentaryData_Internet_Area_C
-    .word CommentaryData_Internet_Area_D
-    .word CommentaryData_Internet_Area_E
-    .word CommentaryData_Internet_Area_F
+    .word CommentaryData_Internet_1
+    .word CommentaryData_Internet_2
+    .word CommentaryData_Internet_3
+    .word CommentaryData_Internet_4
+    .word CommentaryData_Undernet_1
+    .word CommentaryData_Undernet_2
+    .word CommentaryData_Undernet_3
+    .word CommentaryData_Undernet_4
+    .word CommentaryData_Undernet_5
+    .word CommentaryData_Undernet_6
+    .word CommentaryData_Undernet_7
+    .word CommentaryData_Undernet_8
+    .word CommentaryData_Undernet_9
+    .word CommentaryData_Undernet_10
+    .word CommentaryData_Undernet_11
+    .word CommentaryData_Undernet_12
 PTR_080151c0:
     .word 0
     .word 0

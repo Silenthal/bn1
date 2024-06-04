@@ -668,20 +668,20 @@ global_label BgData_Palette_WWW_Rocket_Hangar
     .incbin "data/maps/offline/WWW_Rocket_Hangar.palettez" @ 0x468E34
 global_label BgData_Tilemap_WWW_Rocket_Hangar
     .incbin "data/maps/offline/WWW_Rocket_Hangar.tilemapz" @ 0x468FD8
-global_label BgData_Tileset_WWW_Base_Hall_1
-    .incbin "data/maps/offline/WWW_Base_Hall_1.tilesetz" @ 0x46B200
-global_label BgData_Palette_WWW_Base_Hall_1
-    .incbin "data/maps/offline/WWW_Base_Hall_1.palettez" @ 0x46C410
-global_label BgData_Tilemap_WWW_Base_Hall_1
-    .incbin "data/maps/offline/WWW_Base_Hall_1.tilemapz" @ 0x46C5B4
-global_label BgData_Palette_WWW_Base_Hall_2
-    .incbin "data/maps/offline/WWW_Base_Hall_2.palettez" @ 0x46D578
-global_label BgData_Tilemap_WWW_Base_Hall_2
-    .incbin "data/maps/offline/WWW_Base_Hall_2.tilemapz" @ 0x46D71C
-global_label BgData_Palette_WWW_Base_Hall_3
-    .incbin "data/maps/offline/WWW_Base_Hall_3.palettez" @ 0x46E6B0
-global_label BgData_Tilemap_WWW_Base_Hall_3
-    .incbin "data/maps/offline/WWW_Base_Hall_3.tilemapz" @ 0x46E854
+global_label BgData_Tileset_WWW_Passage_1
+    .incbin "data/maps/offline/WWW_Passage_1.tilesetz" @ 0x46B200
+global_label BgData_Palette_WWW_Passage_1
+    .incbin "data/maps/offline/WWW_Passage_1.palettez" @ 0x46C410
+global_label BgData_Tilemap_WWW_Passage_1
+    .incbin "data/maps/offline/WWW_Passage_1.tilemapz" @ 0x46C5B4
+global_label BgData_Palette_WWW_Passage_2
+    .incbin "data/maps/offline/WWW_Passage_2.palettez" @ 0x46D578
+global_label BgData_Tilemap_WWW_Passage_2
+    .incbin "data/maps/offline/WWW_Passage_2.tilemapz" @ 0x46D71C
+global_label BgData_Palette_WWW_Passage_3
+    .incbin "data/maps/offline/WWW_Passage_3.palettez" @ 0x46E6B0
+global_label BgData_Tilemap_WWW_Passage_3
+    .incbin "data/maps/offline/WWW_Passage_3.tilemapz" @ 0x46E854
 global_label BgData_Tileset_School_Comp_1
     .incbin "data/maps/online/School_Comp_1.tilesetz" @ 0x46F8A8
 global_label BgData_Palette_School_Comp_1
@@ -816,10 +816,10 @@ global_label BgData_Tilemap_DenTown_Antique_Comp
     .incbin "data/maps/online/DenTown_Antique_Comp.tilemapz" @ 0x511724
 global_label BgData_Palette_DenTown_Antique_Comp
     .incbin "data/maps/online/DenTown_Antique_Comp.palettez" @ 0x51398C
-global_label BgData_Tilemap_SciLab_Large_Monitor_Comp
-    .incbin "data/maps/online/SciLab_Large_Monitor_Comp.tilemapz" @ 0x513B30
-global_label BgData_Palette_SciLab_Large_Monitor_Comp
-    .incbin "data/maps/online/SciLab_Large_Monitor_Comp.palettez" @ 0x517C78
+global_label BgData_Tilemap_SciLab_Fish_Stand_Comp
+    .incbin "data/maps/online/SciLab_Fish_Stand_Comp.tilemapz" @ 0x513B30
+global_label BgData_Palette_SciLab_Fish_Stand_Comp
+    .incbin "data/maps/online/SciLab_Fish_Stand_Comp.palettez" @ 0x517C78
 global_label BgData_Tilemap_Other_Generic_Comp
     .incbin "data/maps/online/Other_Generic_Comp.tilemapz" @ 0x517E1C
 global_label BgData_Palette_Other_Generic_Comp
@@ -1065,12 +1065,12 @@ global_label MapData_WWW_Wily_Lab
     .incbin "data/maps/offline/WWW_Wily_Lab.scb" @ 0x58D42C
 global_label MapData_WWW_Rocket_Hangar
     .incbin "data/maps/offline/WWW_Rocket_Hangar.scb" @ 0x58DCA8
-global_label MapData_WWW_Base_Hall_1
-    .incbin "data/maps/offline/WWW_Base_Hall_1.scb" @ 0x58E4D4
-global_label MapData_WWW_Base_Hall_2
-    .incbin "data/maps/offline/WWW_Base_Hall_2.scb" @ 0x58EAA4
-global_label MapData_WWW_Base_Hall_3
-    .incbin "data/maps/offline/WWW_Base_Hall_3.scb" @ 0x58F058
+global_label MapData_WWW_Passage_1
+    .incbin "data/maps/offline/WWW_Passage_1.scb" @ 0x58E4D4
+global_label MapData_WWW_Passage_2
+    .incbin "data/maps/offline/WWW_Passage_2.scb" @ 0x58EAA4
+global_label MapData_WWW_Passage_3
+    .incbin "data/maps/offline/WWW_Passage_3.scb" @ 0x58F058
 global_label MapData_School_Comp_1
     .incbin "data/maps/online/School_Comp_1.scb" @ 0x58F5C8
 global_label MapData_School_Comp_2
@@ -1141,8 +1141,8 @@ global_label MapData_Govt_Lunch_Cart_Comp
     .incbin "data/maps/online/Govt_Lunch_Cart_Comp.scb" @ 0x5E27D8
 global_label MapData_DenTown_Antique_Comp
     .incbin "data/maps/online/DenTown_Antique_Comp.scb" @ 0x5E2F20
-global_label MapData_SciLab_Large_Monitor_Comp
-    .incbin "data/maps/online/SciLab_Large_Monitor_Comp.scb" @ 0x5E384C
+global_label MapData_SciLab_Fish_Stand_Comp
+    .incbin "data/maps/online/SciLab_Fish_Stand_Comp.scb" @ 0x5E384C
 global_label MapData_Other_Generic_Comp
     .incbin "data/maps/online/Other_Generic_Comp.scb" @ 0x5E41F8
 global_label MapData_Internet_1

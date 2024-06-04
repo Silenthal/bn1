@@ -34,5 +34,6 @@
         "boundary": "boundary.json",
         "cover": "cover.json",
         "event": "event.json"
-    }
+    },
+    "dialogue": "dialogue.txt"
 }

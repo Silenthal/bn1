@@ -32,7 +32,7 @@ def main():
         exit(f"Offset 0x{args.offset:X} is greater than file size {fs}")
     if args.offset + args.size > fs:
         exit(f"Size 0x{args.size:X} with offset 0x{args.offset:X} is greater than file size {fs}")
-    
+
     repeat: int = int(args.repeat)
     repLen = len(str(repeat - 1))
     repFmt = f"_{{0:0{repLen}}}"

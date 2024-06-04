@@ -17,5 +17,7 @@
         "boundary": "boundary.json",
         "elevation": "elevation.json",
         "event": "event.json"
-    }
+    },
+    "talk": "talk.txt",
+    "dialogue": "dialogue.txt"
 }

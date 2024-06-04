@@ -97,9 +97,9 @@ MapData_WWW:
     .word MapData_WWW_Base
     .word MapData_WWW_Wily_Lab
     .word MapData_WWW_Rocket_Hangar
-    .word MapData_WWW_Base_Hall_1
-    .word MapData_WWW_Base_Hall_2
-    .word MapData_WWW_Base_Hall_3
+    .word MapData_WWW_Passage_1
+    .word MapData_WWW_Passage_2
+    .word MapData_WWW_Passage_3
 
 MapData_School_Comp:
     .word MapData_School_Comp_1
@@ -155,7 +155,7 @@ MapData_DenTown_HP:
     .word MapData_DenTown_Antique_Comp
 
 MapData_SciLab_HP:
-    .word MapData_SciLab_Large_Monitor_Comp
+    .word MapData_SciLab_Fish_Stand_Comp
 
 MapData_Other_Comp:
     .word MapData_Other_Generic_Comp

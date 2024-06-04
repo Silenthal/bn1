@@ -323,20 +323,20 @@ BgData_WWW_Rocket_Hangar:
     .word BgData_Palette_WWW_Rocket_Hangar
     .word BgData_Tilemap_WWW_Rocket_Hangar
 
-BgData_WWW_Base_Hall_1:
-    .word BgData_Tileset_WWW_Base_Hall_1
-    .word BgData_Palette_WWW_Base_Hall_1
-    .word BgData_Tilemap_WWW_Base_Hall_1
+BgData_WWW_Passage_1:
+    .word BgData_Tileset_WWW_Passage_1
+    .word BgData_Palette_WWW_Passage_1
+    .word BgData_Tilemap_WWW_Passage_1
 
-BgData_WWW_Base_Hall_2:
-    .word BgData_Tileset_WWW_Base_Hall_1
-    .word BgData_Palette_WWW_Base_Hall_2
-    .word BgData_Tilemap_WWW_Base_Hall_2
+BgData_WWW_Passage_2:
+    .word BgData_Tileset_WWW_Passage_1
+    .word BgData_Palette_WWW_Passage_2
+    .word BgData_Tilemap_WWW_Passage_2
 
-BgData_WWW_Base_Hall_3:
-    .word BgData_Tileset_WWW_Base_Hall_1
-    .word BgData_Palette_WWW_Base_Hall_3
-    .word BgData_Tilemap_WWW_Base_Hall_3
+BgData_WWW_Passage_3:
+    .word BgData_Tileset_WWW_Passage_1
+    .word BgData_Palette_WWW_Passage_3
+    .word BgData_Tilemap_WWW_Passage_3
 
 BGData_School_Comp:
 
@@ -535,8 +535,8 @@ BGData_SciLab_HP:
 
 BgData_SciLab_Fish_Stand_Comp:
     .word BgData_Tileset_Govt_Yuichiro_PC
-    .word BgData_Palette_SciLab_Large_Monitor_Comp
-    .word BgData_Tilemap_SciLab_Large_Monitor_Comp
+    .word BgData_Palette_SciLab_Fish_Stand_Comp
+    .word BgData_Tilemap_SciLab_Fish_Stand_Comp
 
 BGData_Other_Comp:
 

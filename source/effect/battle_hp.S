@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-@ Start: 
-
 
 _ts Effect_BattleHP
     push       {lr}
