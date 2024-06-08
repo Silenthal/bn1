@@ -13,7 +13,7 @@ section_end()
 
 # 0x01 @ 0x70EB6D
 section_start(0x01)
-clear_flag(1040)
+clear_flag(0x410)
 hidepic()
 dialog_up()
 text("Lan returns to\nACDC Town...\p")
@@ -90,11 +90,11 @@ section_end()
 
 # 0x15 @ 0x70ED86
 section_start(0x15)
-if_flag(41, 0x17, 0xFF)
+if_flag(0x29, 0x17, 0xFF)
 pic(6)
 dialog_up()
 text("{a 2}Collecting rare\nchips ain't easy,\nhuh!{a 1}\p")
-set_flag(41)
+set_flag(0x29)
 dialog_down()
 end()
 section_end()
@@ -185,7 +185,7 @@ section_end()
 
 # 0x24 @ 0x70F099
 section_start(0x24)
-set_flag(43)
+set_flag(0x2B)
 dialog_down()
 stop()
 section_end()

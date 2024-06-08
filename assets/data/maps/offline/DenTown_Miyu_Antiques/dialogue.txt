@@ -54,14 +54,14 @@ section_end()
 
 # 0x07 @ 0x7092B2
 section_start(0x07)
-set_flag(45)
+set_flag(0x2D)
 dialog_down()
 stop()
 section_end()
 
 # 0x08 @ 0x7092BE
 section_start(0x08)
-if_flag(45, 0x02, 0xFF)
+if_flag(0x2D, 0x02, 0xFF)
 pic(31)
 dialog_up()
 text("{a 2}Let the feast of\nsouls begin!{a 1}{d}\n{a 2}SkullMan,arise!{a 1}\p{w 5}")
@@ -70,11 +70,11 @@ section_end()
 
 # 0x0A @ 0x709311
 section_start(0x0A)
-if_story(0x53, 0x54, 0x23)
-if_story(0x50, 0x52, 0x1E)
-if_story(0x40, 0x47, 0x1A)
-if_flag(151, 0x0F, 0xFF)
-set_flag(151)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x23)
+if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x1E)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x1A)
+if_flag(0x97, 0x0F, 0xFF)
+set_flag(0x97)
 pic(31)
 dialog_up()
 text("{a 2}My name is Miyu{a 1}...{d}\n{a 2}Welcome to my store.{a 1}\p{w 0}")
@@ -120,7 +120,7 @@ section_end()
 
 # 0x0F @ 0x7095A6
 section_start(0x0F)
-if_story(0x34, 0x34, 0x14)
+if_story(FLAG_STORY_LIGHT_2_FIX, 0x14)
 pic(31)
 dialog_up()
 text("{a 2}I'm sorry,I'm not\nopen for business\nyet.{a 1}\p{w 5}")

@@ -2,10 +2,10 @@ section_count(0xEB)
 
 # 0x00 @ 0x6ED856
 section_start(0x00)
-if_flag(202, 0x14, 0xFF)
+if_flag(0xCA, 0x14, 0xFF)
 pic(14)
 dialog_up()
-if_flag(145, 0x01, 0xFF)
+if_flag(0x91, 0x01, 0xFF)
 text("{a 2}Pardon me,laddy!{a 1}\p{w 0}")
 text("{a 2}Would you please ask\nme where we are?{a 1}\n")
 text("{c 0 0 1 1}Ask him ")
@@ -17,7 +17,7 @@ section_end()
 
 # 0x01 @ 0x6ED8D6
 section_start(0x01)
-set_flag(145)
+set_flag(0x91)
 pic(14)
 dialog_up()
 text("{a 2}This is ACDC Town,\nDenCity! See!\nI'm not senile yet!{a 1}\p")
@@ -34,7 +34,7 @@ section_end()
 
 # 0x03 @ 0x6ED971
 section_start(0x03)
-if_flag(202, 0x15, 0xFF)
+if_flag(0xCA, 0x15, 0xFF)
 pic(15)
 dialog_up()
 text("{a 2}Yesterday my stove\ncaught on fire!{a 1}\p{w 0}")
@@ -44,7 +44,7 @@ section_end()
 
 # 0x05 @ 0x6ED9E6
 section_start(0x05)
-if_flag(202, 0x16, 0xFF)
+if_flag(0xCA, 0x16, 0xFF)
 pic(19)
 dialog_up()
 text("{a 2}The new Metroline\nstation is almost\nfinished!{a 1}\p{w 0}")
@@ -54,7 +54,7 @@ section_end()
 
 # 0x06 @ 0x6EDA60
 section_start(0x06)
-if_flag(202, 0x17, 0xFF)
+if_flag(0xCA, 0x17, 0xFF)
 pic(19)
 dialog_up()
 text("{a 2}It feels so nice\nto skip work and\nrest in the park.{a 1}\p{w 0}")
@@ -64,7 +64,7 @@ section_end()
 
 # 0x07 @ 0x6EDAF0
 section_start(0x07)
-if_flag(202, 0x18, 0xFF)
+if_flag(0xCA, 0x18, 0xFF)
 pic(9)
 dialog_up()
 text("{a 2}When you delete\nviruses,if you fight\nwell you will{a 1}\p{w 0}")
@@ -75,8 +75,8 @@ section_end()
 
 # 0x08 @ 0x6EDBAA
 section_start(0x08)
-if_flag(202, 0x19, 0xFF)
-set_flag(210)
+if_flag(0xCA, 0x19, 0xFF)
+set_flag(0xD2)
 pic(11)
 dialog_up()
 text("{a 2}Ready or not,here\nI come!!{a 1}\p")
@@ -85,8 +85,8 @@ section_end()
 
 # 0x09 @ 0x6EDBE1
 section_start(0x09)
-if_flag(202, 0x1A, 0xFF)
-if_flag(210, 0xFF, 0x0A)
+if_flag(0xCA, 0x1A, 0xFF)
+if_flag(0xD2, 0xFF, 0x0A)
 pic(11)
 dialog_up()
 text("{a 2}I'm not ready yet!{a 1}\p")
@@ -103,7 +103,7 @@ section_end()
 
 # 0x0B @ 0x6EDC53
 section_start(0x0B)
-if_flag(202, 0x1C, 0xFF)
+if_flag(0xCA, 0x1C, 0xFF)
 pic(10)
 dialog_up()
 text("{a 2}I came to play with\nMayl,but she's not\nhome!{a 1}\p{w 0}")
@@ -137,7 +137,7 @@ section_end()
 
 # 0x0F @ 0x6EDD9E
 section_start(0x0F)
-if_flag(202, 0x1D, 0xFF)
+if_flag(0xCA, 0x1D, 0xFF)
 pic(9)
 dialog_up()
 text("{a 2}There are a lot of\nplaces you can jack\nin...{a 1}\p{w 0}")
@@ -149,7 +149,7 @@ section_end()
 
 # 0x10 @ 0x6EDE2B
 section_start(0x10)
-if_flag(202, 0x1E, 0xFF)
+if_flag(0xCA, 0x1E, 0xFF)
 pic(10)
 dialog_up()
 text("{a 2}Yai sure does have\na big house...{a 1}\p")
@@ -168,7 +168,7 @@ section_end()
 
 # 0x12 @ 0x6EDE95
 section_start(0x12)
-if_flag(202, 0x1F, 0xFF)
+if_flag(0xCA, 0x1F, 0xFF)
 pic(27)
 dialog_up()
 text("{a 2}You can only keep\n30 chips in your\nfolder.{a 1}\p{w 0}")
@@ -180,7 +180,7 @@ section_end()
 
 # 0x13 @ 0x6EDF9B
 section_start(0x13)
-if_flag(202, 0x20, 0xFF)
+if_flag(0xCA, 0x20, 0xFF)
 pic(20)
 dialog_up()
 text("{a 2}Hmmm... Hmmm...\nI'm oraganizing my\nchip folder!{a 1}\p{w 0}")
@@ -234,7 +234,7 @@ section_end()
 
 # 0x19 @ 0x6EE26D
 section_start(0x19)
-set_flag(210)
+set_flag(0xD2)
 pic(11)
 dialog_up()
 text("{a 2}Ready or not,here\nI come... (pant,\npant){a 1}\p")
@@ -243,7 +243,7 @@ section_end()
 
 # 0x1A @ 0x6EE2B0
 section_start(0x1A)
-if_flag(210, 0xFF, 0x1B)
+if_flag(0xD2, 0xFF, 0x1B)
 pic(11)
 dialog_up()
 text("{a 2}I'm still not \nready! (pant,\npant){a 1}\p")
@@ -332,12 +332,12 @@ section_end()
 
 # 0x26 @ 0x6EE665
 section_start(0x26)
-if_story(0x22, 0x22, 0x3C)
+if_story(FLAG_STORY_DELETE_STONEMAN, 0x3C)
 pic(16)
 dialog_up()
 text("{a 2}I'm going to ride\nthe Metroline\nlater today.{a 1}\p{w 5}")
 text("{a 2}It is opening day,\nafter all.{a 1}\p{w 0}")
-if_flag(151, 0x32, 0xFF)
+if_flag(0x97, 0x32, 0xFF)
 end()
 section_end()
 
@@ -361,7 +361,7 @@ section_end()
 
 # 0x29 @ 0x6EE7D0
 section_start(0x29)
-if_flag(33, 0x33, 0xFF)
+if_flag(0x21, 0x33, 0xFF)
 pic(19)
 dialog_up()
 text("{a 2}The Metroline\nstation is on that\nmain road there.{a 1}\p")
@@ -414,7 +414,7 @@ section_end()
 
 # 0x33 @ 0x6EEB50
 section_start(0x33)
-if_story(0x22, 0x22, 0x3D)
+if_story(FLAG_STORY_DELETE_STONEMAN, 0x3D)
 pic(19)
 dialog_up()
 text("{a 2}The Metroline runs\nby the main street,\nbut it's shut down.{a 1}\p")
@@ -506,8 +506,8 @@ section_end()
 
 # 0x49 @ 0x6EEDFD
 section_start(0x49)
-if_story(0x26, 0x26, 0x52)
-if_story(0x27, 0x27, 0x52)
+if_story(FLAG_STORY_POLAR_BEAR, 0x52)
+if_story(FLAG_STORY_TRUNK_FIND, 0x52)
 pic(15)
 dialog_up()
 text("{a 2}I took the Metroline\nto buy some water.{a 1}\p{w 0}")
@@ -583,9 +583,9 @@ section_end()
 
 # 0x64 @ 0x6EF0B4
 section_start(0x64)
-if_story(0x40, 0x40, 0x78)
-if_flag(149, 0x6E, 0xFF)
-if_flag(147, 0x65, 0xFF)
+if_story(FLAG_STORY_DELETE_COLORMAN, 0x78)
+if_flag(0x95, 0x6E, 0xFF)
+if_flag(0x93, 0x65, 0xFF)
 pic(9)
 dialog_up()
 text("{a 2}Where are you going\nLan?{a 1}\p")
@@ -602,7 +602,7 @@ section_end()
 
 # 0x66 @ 0x6EF11F
 section_start(0x66)
-if_flag(149, 0x67, 0xFF)
+if_flag(0x95, 0x67, 0xFF)
 dialog_up()
 text("You press the bell,\nbut no one answers.\p{w 0}")
 text("You hear the sound\nof running water\ncoming from inside.\p")
@@ -618,7 +618,7 @@ section_end()
 
 # 0x68 @ 0x6EF1C3
 section_start(0x68)
-if_story(0x40, 0x40, 0x79)
+if_story(FLAG_STORY_DELETE_COLORMAN, 0x79)
 pic(14)
 dialog_up()
 text("{a 2}I see an aura of\ntrouble about you!{a 1}\p{w 0}")
@@ -628,7 +628,7 @@ section_end()
 
 # 0x69 @ 0x6EF22C
 section_start(0x69)
-if_story(0x40, 0x40, 0x7A)
+if_story(FLAG_STORY_DELETE_COLORMAN, 0x7A)
 pic(16)
 dialog_up()
 text("{a 2}Too cool!\nI got a rare chip!{a 1}\p")
@@ -637,7 +637,7 @@ section_end()
 
 # 0x6A @ 0x6EF260
 section_start(0x6A)
-if_story(0x40, 0x40, 0x7B)
+if_story(FLAG_STORY_DELETE_COLORMAN, 0x7B)
 pic(18)
 dialog_up()
 text("{a 2}If,if the WWW starts\na war,will we all\ndie???{a 1}\p{w 0}")
@@ -658,7 +658,7 @@ section_end()
 
 # 0x6C @ 0x6EF360
 section_start(0x6C)
-if_story(0x40, 0x40, 0x7C)
+if_story(FLAG_STORY_DELETE_COLORMAN, 0x7C)
 pic(20)
 dialog_up()
 text("{a 2}Virus busting is\nwhat keeps me\nyoung!{a 1}\p")
@@ -667,7 +667,7 @@ section_end()
 
 # 0x6D @ 0x6EF39C
 section_start(0x6D)
-if_story(0x40, 0x40, 0x7D)
+if_story(FLAG_STORY_DELETE_COLORMAN, 0x7D)
 pic(15)
 dialog_up()
 text("{a 2}I heard that Mayl's\nparents go overseas\na lot for work.{a 1}\p{w 0}")
@@ -756,7 +756,7 @@ section_end()
 
 # 0x82 @ 0x6EF6E7
 section_start(0x82)
-if_story(0x53, 0x54, 0xA5)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xA5)
 pic(9)
 dialog_up()
 text("{a 2}Lan,have you ever\nbeen to the SciLab?{a 1}\p{w 0}")
@@ -766,9 +766,9 @@ section_end()
 
 # 0x83 @ 0x6EF769
 section_start(0x83)
-if_story(0x51, 0x52, 0x91)
-if_story(0x53, 0x54, 0xA6)
-if_flag(144, 0x84, 0xFF)
+if_story_in(FLAG_STORY_DELETE_DOOR_VIRUS, FLAG_STORY_DELETE_BOMBMAN, 0x91)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xA6)
+if_flag(0x90, 0x84, 0xFF)
 pic(14)
 dialog_up()
 text("{a 2}Oh,you again?{a 1}\p{w 0}")
@@ -781,7 +781,7 @@ section_end()
 
 # 0x84 @ 0x6EF7DA
 section_start(0x84)
-set_flag(144)
+set_flag(0x90)
 pic(14)
 dialog_up()
 text("{a 2}This is ACDC Town!\nSee! I'm STILL not\nsenile!{a 1}\p")
@@ -798,7 +798,7 @@ section_end()
 
 # 0x86 @ 0x6EF866
 section_start(0x86)
-if_story(0x53, 0x54, 0xA7)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xA7)
 pic(16)
 dialog_up()
 text("{a 2}NetBattling is now\nmore than just a\nhobby!{a 1}\p{w 0}")
@@ -808,7 +808,7 @@ section_end()
 
 # 0x87 @ 0x6EF8DD
 section_start(0x87)
-if_story(0x53, 0x54, 0xA8)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xA8)
 pic(18)
 dialog_up()
 text("{a 2}My momma told me\nthat the war is\nabout to start!{a 1}\p{w 0}")
@@ -818,7 +818,7 @@ section_end()
 
 # 0x89 @ 0x6EF963
 section_start(0x89)
-if_story(0x53, 0x54, 0xA9)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xA9)
 pic(20)
 dialog_up()
 text("{a 2}I heard that the WWW\nhas all of the\nstrongest programs.{a 1}\p{w 0}")
@@ -828,7 +828,7 @@ section_end()
 
 # 0x8A @ 0x6EF9D6
 section_start(0x8A)
-if_story(0x53, 0x54, 0xAA)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xAA)
 pic(15)
 dialog_up()
 text("{a 2}That girl Yai sure\nknows a lot about\n{key PET}s{a 1}\p{w 0}")
@@ -882,8 +882,8 @@ section_end()
 
 # 0x95 @ 0x6EFD07
 section_start(0x95)
-if_flag(145, 0x96, 0xFF)
-set_flag(145)
+if_flag(0x91, 0x96, 0xFF)
+set_flag(0x91)
 pic(14)
 dialog_up()
 text("{a 2}You think that I'm\nan exーmember of the\nWWW,huh?{a 1}\p{w 0}")
@@ -1033,7 +1033,7 @@ section_end()
 
 # 0xAB @ 0x6F0421
 section_start(0xAB)
-if_flag(255, 0xFF, 0xB9)
+if_flag(0xFF, 0xFF, 0xB9)
 pic(7)
 dialog_up()
 text("{a 2}I,the great Chaud\nwill take out the\nWWW!!{a 1}\p{w 0}")
@@ -1128,14 +1128,14 @@ section_end()
 
 # 0xB8 @ 0x6F06EC
 section_start(0xB8)
-set_flag(99)
+set_flag(0x63)
 dialog_down()
 stop()
 section_end()
 
 # 0xB9 @ 0x6F06F8
 section_start(0xB9)
-set_flag(255)
+set_flag(0xFF)
 pic(7)
 dialog_up()
 text("{a 2}I shouldn't be \ntaking time from my\nbusy schedule now,{a 1}\p{w 0}")
@@ -1145,7 +1145,7 @@ section_end()
 
 # 0xBE @ 0x6F078F
 section_start(0xBE)
-if_flag(1056, 0xC2, 0xFF)
+if_flag(0x420, 0xC2, 0xFF)
 pic(9)
 dialog_up()
 text("{a 2}Hey! You got a\n{chip FireTowr F}")
@@ -1170,7 +1170,7 @@ section_end()
 # 0xC0 @ 0x6F086F
 section_start(0xC0)
 check_chip_pack("FireTowr F", 1, eq=0xFF, gt=0xFF, lt=0xC1)
-set_flag(1056)
+set_flag(0x420)
 pic(9)
 dialog_up()
 text("{a 2}Oh,too cool! I\nreally wanted one\nof these!{a 1}\p{w 0}")
@@ -1205,7 +1205,7 @@ section_end()
 
 # 0xC6 @ 0x6F09F3
 section_start(0xC6)
-if_flag(1059, 0xCA, 0xFF)
+if_flag(0x423, 0xCA, 0xFF)
 pic(14)
 dialog_up()
 text("{a 2}I just looove\n{chip Escape}! More'n\nanythin' else!{a 1}\p{w 0}")
@@ -1234,7 +1234,7 @@ check_chip_pack("Escape H", 1, eq=0xFF, gt=0xFF, lt=0xC9)
 check_chip_pack("Escape J", 1, eq=0xFF, gt=0xFF, lt=0xC9)
 check_chip_pack("Escape L", 1, eq=0xFF, gt=0xFF, lt=0xC9)
 check_chip_pack("Escape N", 1, eq=0xFF, gt=0xFF, lt=0xC9)
-set_flag(1059)
+set_flag(0x423)
 pic(14)
 dialog_up()
 text("{a 2}Oh,happy day,Oh\nhappy day! I'm in\nheaven!{a 1}\p{w 0}")
@@ -1271,10 +1271,10 @@ section_end()
 
 # 0xCB @ 0x6F0DB4
 section_start(0xCB)
-if_flag(1068, 0xCF, 0xFF)
+if_flag(0x42C, 0xCF, 0xFF)
 if_have_item("Dentures", 0xCD)
-if_flag(1077, 0xCE, 0xFF)
-set_flag(1077)
+if_flag(0x435, 0xCE, 0xFF)
+set_flag(0x435)
 pic(14)
 dialog_up()
 text("{a 2}Mmmph...Mmmph...\nI sheem to'uv\nlost mah denshurs!{a 1}\p{w 0}")
@@ -1285,7 +1285,7 @@ section_end()
 
 # 0xCC @ 0x6F0E82
 section_start(0xCC)
-clear_flag(1077)
+clear_flag(0x435)
 dialog_up()
 pc_anim(30)
 text("{add_item 'Dentures'}Lan found\n\"{key Dentures}\"!")
@@ -1299,7 +1299,7 @@ section_end()
 
 # 0xCD @ 0x6F0EE0
 section_start(0xCD)
-set_flag(1068)
+set_flag(0x42C)
 pic(14)
 dialog_up()
 text("{a 2}Oh yesh! You found\nmah denshures!{a 1}\p{w 0}")
@@ -1334,10 +1334,10 @@ section_end()
 
 # 0xD2 @ 0x6F102F
 section_start(0xD2)
-if_flag(1070, 0xD5, 0xFF)
-if_flag(1083, 0xD4, 0xFF)
-if_flag(1082, 0xD3, 0xFF)
-set_flag(1082)
+if_flag(0x42E, 0xD5, 0xFF)
+if_flag(0x43B, 0xD4, 0xFF)
+if_flag(0x43A, 0xD3, 0xFF)
+set_flag(0x43A)
 pic(19)
 dialog_up()
 text("{a 2}Oh,no! Oh,no!\nMy money is gone\nfrom my bank!!{a 1}\p{w 0}")
@@ -1362,7 +1362,7 @@ section_end()
 
 # 0xD4 @ 0x6F128A
 section_start(0xD4)
-set_flag(1070)
+set_flag(0x42E)
 pic(19)
 dialog_up()
 text("{a 2}The money was back\nin my account! Thank\nyou so much!{a 1}\p{w 0}")

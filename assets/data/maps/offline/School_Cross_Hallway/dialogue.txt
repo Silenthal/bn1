@@ -2,7 +2,7 @@ section_count(0xEB)
 
 # 0x00 @ 0x6EB906
 section_start(0x00)
-set_flag(147)
+set_flag(0x93)
 pic(34)
 dialog_up()
 text("{a 2}Lan don't leave now!{a 1}\p")
@@ -11,8 +11,8 @@ section_end()
 
 # 0x01 @ 0x6EB930
 section_start(0x01)
-if_flag(148, 0x02, 0xFF)
-set_flag(148)
+if_flag(0x94, 0x02, 0xFF)
+set_flag(0x94)
 pic(34)
 dialog_up()
 text("{a 2}That's the teacher's\nlounge! Your class\nis that way!{a 1}\p")

@@ -2,7 +2,7 @@ section_count(0xE6)
 
 # 0x00 @ 0x6BB678
 section_start(0x00)
-if_story(0x54, 0x54, 0xE1)
+if_story(FLAG_STORY_FINAL, 0xE1)
 dialog_up()
 page()
 end()
@@ -10,7 +10,7 @@ section_end()
 
 # 0xE1 @ 0x6BB846
 section_start(0xE1)
-if_flag(170, 0xE2, 0xFF)
+if_flag(0xAA, 0xE2, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Let's ask Dad about\nthe expiration date\non the pass!{a 1}\p")
@@ -19,7 +19,7 @@ section_end()
 
 # 0xE2 @ 0x6BB892
 section_start(0xE2)
-if_flag(175, 0xE3, 0xFF)
+if_flag(0xAF, 0xE3, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Let's go!\nTo the WWW labs!{a 1}\p")

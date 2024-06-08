@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x708975
 section_start(0x02)
-if_story(0x33, 0x34, 0x0B)
+if_story_in(FLAG_STORY_EXPOSE_WWW, FLAG_STORY_LIGHT_2_FIX, 0x0B)
 pic(19)
 dialog_up()
 text("{a 2}Looks like the WWW\nis getting close to\ndominating the net!{a 1}\p{w 0}")
@@ -73,7 +73,7 @@ section_end()
 
 # 0x15 @ 0x708B9B
 section_start(0x15)
-if_story(0x53, 0x54, 0x19)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x19)
 pic(9)
 dialog_up()
 text("{a 2}Our summer school\nteacher is normally\nreally cheerful.{a 1}\p{w 0}")
@@ -115,8 +115,8 @@ section_end()
 
 # 0xDE @ 0x708ECD
 section_start(0xDE)
-if_story(0x40, 0x5F, 0xDF)
-if_flag(152, 0xDF, 0xFF)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x5F, 0xDF)
+if_flag(0x98, 0xDF, 0xFF)
 dialog_up()
 text("This signal has a\njack in port\p{w 0}")
 text("You don't need to\njack in now,though\p")

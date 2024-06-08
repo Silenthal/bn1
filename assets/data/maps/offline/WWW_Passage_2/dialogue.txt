@@ -41,11 +41,11 @@ section_end()
 
 # 0x0B @ 0x7105E5
 section_start(0x0B)
-if_flag(56, 0x0D, 0xFF)
+if_flag(0x38, 0x0D, 0xFF)
 pic(23)
 dialog_up()
 text("{a 2}I will win,with the\nhelp of my family's\nlove...and IceMan!{a 1}\p")
-set_flag(56)
+set_flag(0x38)
 dialog_down()
 end()
 section_end()

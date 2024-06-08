@@ -2,7 +2,7 @@ section_count(0x6)
 
 # 0x00 @ 0x6E320C
 section_start(0x00)
-if_story(0x22, 0x54, 0x01)
+if_story_in(FLAG_STORY_DELETE_STONEMAN, FLAG_STORY_FINAL, 0x01)
 dialog_up()
 text("Test message\p")
 end(0)

@@ -21,13 +21,13 @@ section_start(0x05)
 pic(9)
 dialog_up()
 text("*rattle* *rattle*\p{w 5}")
-if_flag(195, 0xFF, 0x06)
+if_flag(0xC3, 0xFF, 0x06)
 end()
 section_end()
 
 # 0x06 @ 0x6E7FA7
 section_start(0x06)
-set_flag(195)
+set_flag(0xC3)
 pic(9)
 dialog_up()
 text("{a 2}We can't get to\nthe first floor!{a 1}\p")
@@ -75,7 +75,7 @@ section_end()
 
 # 0x14 @ 0x6E811E
 section_start(0x14)
-if_story(0x24, 0x24, 0x28)
+if_story(FLAG_STORY_SCHOOL_CANCEL, 0x28)
 pic(9)
 dialog_up()
 text("{a 2}All bow before the\nWWW! Follow or be\ndeleted!{a 1}\p{w 5}")
@@ -85,11 +85,11 @@ section_end()
 
 # 0x15 @ 0x6E819C
 section_start(0x15)
-if_story(0x24, 0x24, 0x29)
+if_story(FLAG_STORY_SCHOOL_CANCEL, 0x29)
 pic(10)
 dialog_up()
 text("{a 2}I want to go shop in\nDentown. I wonder if\nI can go by Metro?{a 1}\p{w 0}")
-if_flag(151, 0x19, 0xFF)
+if_flag(0x97, 0x19, 0xFF)
 end()
 section_end()
 
@@ -100,7 +100,7 @@ section_end()
 
 # 0x19 @ 0x6E8202
 section_start(0x19)
-if_story(0x22, 0x22, 0x16)
+if_story(FLAG_STORY_DELETE_STONEMAN, 0x16)
 pic(10)
 dialog_up()
 text("{a 2}What? A landslide\non the tracks?{a 1}\p{w 5}")
@@ -131,10 +131,10 @@ section_end()
 
 # 0x20 @ 0x6E8387
 section_start(0x20)
-if_flag(218, 0x21, 0xFF)
+if_flag(0xDA, 0x21, 0xFF)
 dialog_up()
 text("Good morning,\nteacher!\p{w 0}")
-set_flag(218)
+set_flag(0xDA)
 jump(0x21)
 section_end()
 
@@ -171,10 +171,10 @@ section_end()
 
 # 0xDC @ 0x6E8613
 section_start(0xDC)
-if_flag(739, 0xDD, 0xFF)
+if_flag(0x2E3, 0xDD, 0xFF)
 dialog_up()
 text("Extra desks are here\n・{d}・{d}・{d}you found\na chip in a drawer!\p{w 0}")
-set_flag(739)
+set_flag(0x2E3)
 pc_anim(30)
 text("{add_chip 'X-Panel1 B'}Lan got a chip for\n\"")
 text("{chip X-Panel1 B}")

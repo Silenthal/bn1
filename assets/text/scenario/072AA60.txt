@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72AAB0
 section_start(0x01)
-set_flag(216)
+set_flag(0xD8)
 pic(0)
 dialog_up()
 text("{a 2}MegaMan!{a 1}{d}")

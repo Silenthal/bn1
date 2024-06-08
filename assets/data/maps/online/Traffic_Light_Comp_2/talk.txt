@@ -2,8 +2,8 @@ section_count(0xA6)
 
 # 0x00 @ 0x6D2BF0
 section_start(0x00)
-if_story(0x33, 0x34, 0x8C)
-if_story(0x40, 0x57, 0xA5)
+if_story_in(FLAG_STORY_EXPOSE_WWW, FLAG_STORY_LIGHT_2_FIX, 0x8C)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x57, 0xA5)
 dialog_up()
 text("Test message\p")
 end(0)
@@ -11,7 +11,7 @@ section_end()
 
 # 0x8C @ 0x6D2D26
 section_start(0x8C)
-if_flag(169, 0x91, 0xFF)
+if_flag(0xA9, 0x91, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}MegaMan!\nChange the signal\nto red!{a 1}\p")

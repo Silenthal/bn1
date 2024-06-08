@@ -18,7 +18,7 @@ section_end()
 
 # 0x06 @ 0x70CE5A
 section_start(0x06)
-if_story(0x41, 0x43, 0xE0)
+if_story_in(FLAG_STORY_COUNT_ZAP, FLAG_STORY_BATTERIES_DONE, 0xE0)
 dialog_up()
 text("An elevator switch.\p{w 0}")
 text("Lan used the\n{key SciLabID}!\p{w 0}")
@@ -32,19 +32,19 @@ section_end()
 
 # 0x07 @ 0x70CEFD
 section_start(0x07)
-set_flag(49)
+set_flag(0x31)
 end()
 section_end()
 
 # 0x08 @ 0x70CF06
 section_start(0x08)
-set_flag(50)
+set_flag(0x32)
 end()
 section_end()
 
 # 0x09 @ 0x70CF0F
 section_start(0x09)
-set_flag(52)
+set_flag(0x34)
 end()
 section_end()
 
@@ -71,7 +71,7 @@ section_end()
 
 # 0xDF @ 0x70D157
 section_start(0xDF)
-if_story(0x41, 0x43, 0xDE)
+if_story_in(FLAG_STORY_COUNT_ZAP, FLAG_STORY_BATTERIES_DONE, 0xDE)
 pic(34)
 dialog_up()
 text("{a 2}Lan! You gotta\npress that button!{a 1}\p")
@@ -87,7 +87,7 @@ section_end()
 
 # 0xE1 @ 0x70D1AA
 section_start(0xE1)
-if_story(0x41, 0x43, 0xE0)
+if_story_in(FLAG_STORY_COUNT_ZAP, FLAG_STORY_BATTERIES_DONE, 0xE0)
 dialog_up()
 text("An elevator switch\p{w 0}")
 text("Lan used the\n{key SciLabID}!\p{w 0}")
@@ -101,18 +101,18 @@ section_end()
 
 # 0xE2 @ 0x70D24B
 section_start(0xE2)
-set_flag(49)
+set_flag(0x31)
 end()
 section_end()
 
 # 0xE3 @ 0x70D254
 section_start(0xE3)
-set_flag(50)
+set_flag(0x32)
 end()
 section_end()
 
 # 0xE4 @ 0x70D25D
 section_start(0xE4)
-set_flag(52)
+set_flag(0x34)
 end()
 section_end()

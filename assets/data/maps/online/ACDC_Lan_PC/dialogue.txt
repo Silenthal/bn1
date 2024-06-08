@@ -12,7 +12,7 @@ section_end()
 
 # 0x01 @ 0x71F022
 section_start(0x01)
-if_story(0x30, 0x54, 0x02)
+if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_FINAL, 0x02)
 pic(36)
 dialog_up()
 text("{a 2}This is the inside\nof your computer.{a 1}\p{w 0}")

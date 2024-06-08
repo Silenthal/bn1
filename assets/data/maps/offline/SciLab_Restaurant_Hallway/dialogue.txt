@@ -2,8 +2,8 @@ section_count(0xEB)
 
 # 0x00 @ 0x70B2D6
 section_start(0x00)
-if_story(0x50, 0x52, 0x0A)
-if_story(0x53, 0x54, 0x0F)
+if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x0A)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x0F)
 pic(25)
 dialog_up()
 text("{a 2}This is the\nrestaurant floor{a 1}\p{w 0}")
@@ -13,12 +13,12 @@ section_end()
 
 # 0x01 @ 0x70B339
 section_start(0x01)
-if_story(0x41, 0x43, 0x06)
+if_story_in(FLAG_STORY_COUNT_ZAP, FLAG_STORY_BATTERIES_DONE, 0x06)
 dialog_up()
 text("An elevator switch.\p{w 0}")
 text("Lan used the\n{key SciLabID}!\p{w 0}")
 text("The elevator doors\nopened!Which floor?\n\p{w 0}")
-if_story(0x41, 0x57, 0x02)
+if_story_in(FLAG_STORY_COUNT_ZAP, 0x57, 0x02)
 text("{c 1 1 0 0}SciLab lobby\n")
 text("{c 0 0 1 1}Dad's lab")
 pick([0x10, 0x11], 0, True, True)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x70B412
 section_start(0x04)
-if_story(0x41, 0x41, 0xE2)
+if_story(FLAG_STORY_COUNT_ZAP, 0xE2)
 pic(34)
 dialog_up()
 text("{a 2}Lan,I think that\nyou have to push\nthat button.{a 1}\p")
@@ -79,19 +79,19 @@ section_end()
 
 # 0x10 @ 0x70B57C
 section_start(0x10)
-set_flag(49)
+set_flag(0x31)
 end()
 section_end()
 
 # 0x11 @ 0x70B585
 section_start(0x11)
-set_flag(50)
+set_flag(0x32)
 end()
 section_end()
 
 # 0x12 @ 0x70B58E
 section_start(0x12)
-set_flag(51)
+set_flag(0x33)
 end()
 section_end()
 

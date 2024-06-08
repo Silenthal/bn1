@@ -2,7 +2,7 @@ section_count(0xE5)
 
 # 0x00 @ 0x6CFC1E
 section_start(0x00)
-if_story(0x54, 0x54, 0xE1)
+if_story(FLAG_STORY_FINAL, 0xE1)
 dialog_up()
 text("Test message\p")
 end(0)
@@ -10,12 +10,12 @@ section_end()
 
 # 0xE1 @ 0x6CFDF8
 section_start(0xE1)
-if_flag(175, 0xE3, 0xFF)
+if_flag(0xAF, 0xE3, 0xFF)
 section_end()
 
 # 0xE3 @ 0x6CFE02
 section_start(0xE3)
-if_flag(115, 0xE4, 0xFF)
+if_flag(0x73, 0xE4, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}A dead end?{a 1}{d}\n{a 2}But something's odd\nabout this room{a 1}...\p")
@@ -24,7 +24,7 @@ section_end()
 
 # 0xE4 @ 0x6CFE57
 section_start(0xE4)
-if_flag(232, 0xE5, 0xFF)
+if_flag(0xE8, 0xE5, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}I'll bet this room\nis connected to\nwhere the rocket is!{a 1}\p")

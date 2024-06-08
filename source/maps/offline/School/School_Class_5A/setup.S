@@ -4,7 +4,7 @@
 
     .set FUN_08082f48, 0x8082F49
     .set FUN_0808598c, 0x808598D
-    .set Scenario_8308C_DexChallengePreTutorial, 0x808308D
+    .set Scene_02_DexChallengePreTutorial, 0x808308D
     .set FUN_08088118, 0x8088119
     .set FUN_080834d4, 0x80834D5
     .set LAB_08088fa8, 0x8088FA9
@@ -134,7 +134,7 @@ LAB_080247fa:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     push       {r5}
-    ldr        r0,PTR_Scenario_8308C_DexChallengePreTutorial_080248d8
+    ldr        r0,PTR_Scene_02_DexChallengePreTutorial_080248d8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -241,8 +241,8 @@ PTR_PTR_EventHandler_School_Class_5A_F00_0_080248d0:
     .word PTR_EventHandler_School_Class_5A_F00_0_080247c0
 PTR_FUN_08082f48_080248d4:
     .word FUN_08082f48
-PTR_Scenario_8308C_DexChallengePreTutorial_080248d8:
-    .word Scenario_8308C_DexChallengePreTutorial
+PTR_Scene_02_DexChallengePreTutorial_080248d8:
+    .word Scene_02_DexChallengePreTutorial
 PTR_BgTask_80248DC:
     .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_80248E0:

@@ -58,7 +58,7 @@ section_end()
 
 # 0x07 @ 0x735B49
 section_start(0x07)
-if_flag(209, 0x05, 0xFF)
+if_flag(0xD1, 0x05, 0xFF)
 pic(27)
 dialog_up()
 text("{a 2}You're going to have\nto hit that button\nquicker this time!{a 1}\p{w 0}")

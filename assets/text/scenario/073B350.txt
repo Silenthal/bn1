@@ -43,7 +43,7 @@ section_end()
 
 # 0x05 @ 0x73B46E
 section_start(0x05)
-set_flag(147)
+set_flag(0x93)
 pic(34)
 dialog_up()
 text("{a 2}Lan?\nYou called me \"Hub\"?{a 1}\p{w 5}")

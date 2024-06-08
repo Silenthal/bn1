@@ -2,9 +2,9 @@ section_count(0xE5)
 
 # 0x00 @ 0x70F452
 section_start(0x00)
-if_flag(115, 0x07, 0xFF)
-if_flag(224, 0x04, 0xFF)
-set_flag(224)
+if_flag(0x73, 0x07, 0xFF)
+if_flag(0xE0, 0x04, 0xFF)
+set_flag(0xE0)
 dialog_up()
 text("A selfーportrait of\nWily.\p{w 5}")
 jump(0x01)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x70F516
 section_start(0x04)
-set_flag(115)
+set_flag(0x73)
 dialog_up()
 text("...!!\p{w 0}")
 text("You notice that\nthe picture swings\nback!\p{w 5}")
@@ -167,7 +167,7 @@ section_end()
 
 # 0x1B @ 0x70F947
 section_start(0x1B)
-set_flag(99)
+set_flag(0x63)
 dialog_down()
 stop()
 section_end()

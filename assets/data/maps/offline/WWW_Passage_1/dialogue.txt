@@ -105,11 +105,11 @@ section_end()
 
 # 0x15 @ 0x71003E
 section_start(0x15)
-if_flag(41, 0x17, 0xFF)
+if_flag(0x29, 0x17, 0xFF)
 pic(6)
 dialog_up()
 text("{a 2}Collecting rare\nchips ain't easy,\nhuh!{a 1}\p")
-set_flag(41)
+set_flag(0x29)
 dialog_down()
 end()
 section_end()

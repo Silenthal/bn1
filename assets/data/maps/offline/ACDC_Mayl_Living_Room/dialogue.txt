@@ -22,7 +22,7 @@ section_end()
 
 # 0x0F @ 0x6F3A95
 section_start(0x0F)
-if_story(0x26, 0x27, 0x14)
+if_story_in(FLAG_STORY_POLAR_BEAR, FLAG_STORY_TRUNK_FIND, 0x14)
 pic(8)
 dialog_up()
 text("{a 2}Looks like there's\nstill no water...{a 1}\p")

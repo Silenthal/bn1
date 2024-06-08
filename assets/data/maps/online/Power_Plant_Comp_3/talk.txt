@@ -2,8 +2,8 @@ section_count(0xBF)
 
 # 0x00 @ 0x6D4072
 section_start(0x00)
-if_story(0x42, 0x43, 0xB4)
-if_story(0x50, 0x54, 0xBE)
+if_story_in(FLAG_STORY_CONTROL_ROOM, FLAG_STORY_BATTERIES_DONE, 0xB4)
+if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_FINAL, 0xBE)
 dialog_up()
 text("Test message\p")
 end(0)

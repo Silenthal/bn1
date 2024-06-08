@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set FUN_08082de4, 0x8082DE5
-    .set Scenario_01_LanCheckYourMail, 0x8085A79
+    .set Scene_LanCheckYourMail, 0x8085A79
     .set FUN_080863b0, 0x80863B1
 
 
@@ -108,7 +108,7 @@ _ts EventHandler_School_Cross_Hallway_F10_1
     bl         Flag_GetEmailRecieved
     bne        LAB_08027e00
     push       {r5}
-    ldr        r0,PTR_Scenario_01_LanCheckYourMail_08027eb4
+    ldr        r0,PTR_Scene_LanCheckYourMail_08027eb4
     ldr        r1,DAT_08027eb8
     bl         Scene_Prepare
     pop        {r5}
@@ -212,8 +212,8 @@ PTR_PTR_EventHandler_School_Cross_Hallway_F10_0_08027eac:
     .word PTR_EventHandler_School_Cross_Hallway_F10_0_08027dcc
 PTR_FUN_080863b0_08027eb0:
     .word FUN_080863b0
-PTR_Scenario_01_LanCheckYourMail_08027eb4:
-    .word Scenario_01_LanCheckYourMail
+PTR_Scene_LanCheckYourMail_08027eb4:
+    .word Scene_LanCheckYourMail
 DAT_08027eb8:
     .word 0x103
 DAT_08027ebc:

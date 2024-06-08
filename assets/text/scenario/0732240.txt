@@ -29,7 +29,7 @@ section_start(0x03)
 pic(0)
 dialog_up()
 text("{a 2}Oh,it's you Mayl{a 1}...{d}\n{a 2}Oh no!!!{a 1}\p{w 5}")
-set_flag(165)
+set_flag(0xA5)
 jump(0x04)
 section_end()
 

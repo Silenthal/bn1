@@ -3,7 +3,7 @@ section_count(0xA)
 # 0x00 @ 0x72FD40
 section_start(0x00)
 dialog_up()
-set_flag(165)
+set_flag(0xA5)
 text("*beep*\p{w 5}")
 jump(0x01)
 section_end()

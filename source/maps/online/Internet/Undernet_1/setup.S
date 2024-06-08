@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scenario_01_LanCheckYourMail, 0x8085A78+1
+    .set Scene_LanCheckYourMail, 0x8085A78+1
     .set Script_ShowDialogue, 0x80848FC+1
 
 
@@ -117,7 +117,7 @@ _ts FUN_08052c00
     bl         Flag_GetEmailRecieved
     bne        LAB_08052c16
     push       {r5}
-    ldr        r0,PTR_Scenario_01_LanCheckYourMail_08052ce4
+    ldr        r0,PTR_Scene_LanCheckYourMail_08052ce4
     ldr        r1,DAT_08052ce8
     bl         Scene_Prepare
     pop        {r5}
@@ -236,8 +236,8 @@ PTR_DAT_08052cdc:
 PTR_PTR_FUN_08052c00_08052ce0:
     .word PTR_FUN_08052c00_08052bfc
 
-PTR_Scenario_01_LanCheckYourMail_08052ce4:
-    .word Scenario_01_LanCheckYourMail
+PTR_Scene_LanCheckYourMail_08052ce4:
+    .word Scene_LanCheckYourMail
 
 DAT_08052ce8:
     .word 0x113

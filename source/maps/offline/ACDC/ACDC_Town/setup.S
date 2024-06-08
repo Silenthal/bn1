@@ -13,7 +13,7 @@
     .set FUN_0808c5a8, 0x808C5A9
     .set LAB_0808b420, 0x808B421
     .set FUN_08082de4, 0x8082DE5
-    .set Scenario_01_LanCheckYourMail, 0x8085A79
+    .set Scene_LanCheckYourMail, 0x8085A79
     .set Script_ShowDialogue, 0x80848FD
     .set LAB_0808a930, 0x808A931
 
@@ -174,7 +174,7 @@ _ts MapSetup_ACDC_Town_F02
     pop        {r5}
     bne        LAB_0802ab1e
     push       {r5}
-    ldr        r0,PTR_Scenario_01_LanCheckYourMail_0802ac2c
+    ldr        r0,PTR_Scene_LanCheckYourMail_0802ac2c
     ldr        r1,DAT_0802ac30
     bl         Scene_Prepare
     pop        {r5}
@@ -322,8 +322,8 @@ PTR_Scenario_082B1C_LanWalksToSchool_0802ac24:
     .word Scenario_082B1C_LanWalksToSchool
 PTR_PTR_DAT_0802ac28:
     .word NPCList_802F994
-PTR_Scenario_01_LanCheckYourMail_0802ac2c:
-    .word Scenario_01_LanCheckYourMail
+PTR_Scene_LanCheckYourMail_0802ac2c:
+    .word Scene_LanCheckYourMail
 DAT_0802ac30:
     .word 0x111
 PTR_PTR_EventHandler_ACDC_Town_F02_0_0802ac34:
@@ -1374,7 +1374,7 @@ _nt EventHandler_ACDC_Town_F30_1
     bl         Flag_GetEmailRecieved
     bne        LAB_0802b466
     push       {r5}
-    ldr        r0,PTR_Scenario_01_LanCheckYourMail_0802b4d0
+    ldr        r0,PTR_Scene_LanCheckYourMail_0802b4d0
     ldr        r1,DAT_0802b4cc
     bl         Scene_Prepare
     pop        {r5}
@@ -1434,8 +1434,8 @@ DAT_0802b4c8:
     .word 0x8085A79
 DAT_0802b4cc:
     .word 0x16F
-PTR_Scenario_01_LanCheckYourMail_0802b4d0:
-    .word Scenario_01_LanCheckYourMail
+PTR_Scene_LanCheckYourMail_0802b4d0:
+    .word Scene_LanCheckYourMail
 PTR_FUN_0808c5a8_0802b4d4:
     .word FUN_0808c5a8
 DAT_0802b4d8:

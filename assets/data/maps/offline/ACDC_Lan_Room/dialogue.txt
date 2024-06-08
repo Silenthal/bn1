@@ -3,8 +3,8 @@ section_count(0xEB)
 # 0x00 @ 0x6F2FAA
 section_start(0x00)
 dialog_up()
-set_flag(640)
-clear_flag(1040)
+set_flag(0x280)
+clear_flag(0x410)
 pc_anim_start(30)
 text("{add_item 'PET'}Lan got his\n\"{key PET}\"!")
 pc_wait()
@@ -97,8 +97,8 @@ section_end()
 
 # 0x0F @ 0x6F3243
 section_start(0x0F)
-if_story(0x04, 0x04, 0xFF, 0xDC)
-if_flag(641, 0xDC, 0xFF)
+if_story(FLAG_STORY_OVEN_EXPLODE, 0xFF, 0xDC)
+if_flag(0x281, 0xDC, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}Here it is!!{a 1}\p{w 0}")
@@ -110,7 +110,7 @@ section_end()
 # 0x10 @ 0x6F3274
 section_start(0x10)
 dialog_up()
-set_flag(641)
+set_flag(0x281)
 pc_anim(30)
 text("{add_item 'WaterGun' 5}Lan got;\n\"{key WaterGun}\"!")
 pc_wait()
@@ -162,7 +162,7 @@ section_end()
 
 # 0x1B @ 0x6F338A
 section_start(0x1B)
-if_flag(1033, 0xFF, 0x21)
+if_flag(0x409, 0xFF, 0x21)
 pic(34)
 dialog_up()
 text("A file exists.\nOK to overwrite?\n")
@@ -179,9 +179,9 @@ section_start(0x1C)
 pic(34)
 dialog_up()
 text("{a 2}Good night,Lan!{a 1}\p")
-if_story(0x00, 0x0F, 0x1E)
-if_story(0x20, 0x2F, 0x1F)
-if_story(0x52, 0x52, 0x20)
+if_story_in(FLAG_STORY_NEW_GAME, 0xF, 0x1E)
+if_story_in(FLAG_STORY_DELETE_NUMBERMAN, 0x2F, 0x1F)
+if_story(FLAG_STORY_DELETE_BOMBMAN, 0x20)
 end(5)
 section_end()
 
@@ -199,19 +199,19 @@ section_end()
 
 # 0x1E @ 0x6F347D
 section_start(0x1E)
-set_flag(0)
+set_flag(0x0)
 end()
 section_end()
 
 # 0x1F @ 0x6F3486
 section_start(0x1F)
-set_flag(221)
+set_flag(0xDD)
 end()
 section_end()
 
 # 0x20 @ 0x6F348F
 section_start(0x20)
-set_flag(160)
+set_flag(0xA0)
 end()
 section_end()
 
@@ -245,7 +245,7 @@ section_end()
 
 # 0xDC @ 0x6F3694
 section_start(0xDC)
-if_flag(641, 0xDD, 0xFF)
+if_flag(0x281, 0xDD, 0xFF)
 dialog_up()
 text("Lan's secret tools\nare hidden here\p")
 end(5)
@@ -268,7 +268,7 @@ section_end()
 
 # 0xDF @ 0x6F3768
 section_start(0xDF)
-if_flag(640, 0xE0, 0xFF)
+if_flag(0x280, 0xE0, 0xFF)
 dialog_up()
 text("That's not your\n{key PET}!!\p")
 end(5)

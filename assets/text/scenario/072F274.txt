@@ -149,7 +149,7 @@ section_end()
 
 # 0x12 @ 0x72F67F
 section_start(0x12)
-set_flag(248)
+set_flag(0xF8)
 pic(0)
 dialog_up()
 text("{a 2}What an attitude!{a 1}\p{w 0}")

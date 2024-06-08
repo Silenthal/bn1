@@ -2,8 +2,8 @@ section_count(0xA6)
 
 # 0x00 @ 0x6D35F8
 section_start(0x00)
-if_story(0x35, 0x37, 0x9B)
-if_story(0x40, 0x57, 0xA5)
+if_story_in(FLAG_STORY_LIGHT_3_FIX, FLAG_STORY_LIGHT_5_FIX, 0x9B)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x57, 0xA5)
 dialog_up()
 text("Test message\p")
 end(0)

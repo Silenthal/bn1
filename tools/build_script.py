@@ -826,6 +826,50 @@ def bytes_key(itemid: Union[str, int]):
 # endregion
 
 
+# region Flags
+
+FLAG_STORY_NEW_GAME = 0
+FLAG_STORY_TUTORIAL_START = 1
+FLAG_STORY_TUTORIAL_END = 2
+FLAG_STORY_OVEN_FIRE = 3
+FLAG_STORY_OVEN_EXPLODE = 4
+FLAG_STORY_WATER_GUN = 5
+FLAG_STORY_DELETE_FIREMAN = 6
+FLAG_STORY_FIREMAN_BED = 16
+FLAG_STORY_CLASS_TALK = 17
+FLAG_STORY_DEX_TALK = 18
+FLAG_STORY_DOOR_1_UNLOCK = 19
+FLAG_STORY_DOOR_3_UNLOCK = 20
+FLAG_STORY_MEGAMAN_CAPTURE = 21
+FLAG_STORY_DELETE_NUMBERMAN = 32
+FLAG_STORY_CONDUCTOR_TALK = 33
+FLAG_STORY_DELETE_STONEMAN = 34
+FLAG_STORY_DAD_POWERUP = 35
+FLAG_STORY_SCHOOL_CANCEL = 36
+FLAG_STORY_SCILAB_NIGHT = 37
+FLAG_STORY_POLAR_BEAR = 38
+FLAG_STORY_TRUNK_FIND = 39
+FLAG_STORY_DELETE_ICEMAN = 48
+FLAG_STORY_TRAFFIC_LIGHTS = 49
+FLAG_STORY_LIGHT_1_FIX = 50
+FLAG_STORY_EXPOSE_WWW = 51
+FLAG_STORY_LIGHT_2_FIX = 52
+FLAG_STORY_LIGHT_3_FIX = 53
+FLAG_STORY_LIGHT_4_FIX = 54
+FLAG_STORY_LIGHT_5_FIX = 55
+FLAG_STORY_DELETE_COLORMAN = 64
+FLAG_STORY_COUNT_ZAP = 65
+FLAG_STORY_CONTROL_ROOM = 66
+FLAG_STORY_BATTERIES_DONE = 67
+FLAG_STORY_DELETE_PROTOMAN = 80
+FLAG_STORY_DELETE_DOOR_VIRUS = 81
+FLAG_STORY_DELETE_BOMBMAN = 82
+FLAG_STORY_BOMBMAN_BED = 83
+FLAG_STORY_FINAL = 84
+
+# endregion
+
+
 # region Script control
 def section_count(count: int) -> None:
     global curScript
@@ -1037,7 +1081,11 @@ def if_flag(flag: int, eq: int = 0xFF, neq: int = 0xFF):
     curScript.emitByte(neq)
 
 
-def if_story(lower: int, upper: int, inrange: int = 0xFF, outrange: int = 0xFF):
+def if_story(flag: int, inrange: int = 0xFF, outrange: int = 0xFF):
+    if_story_in(flag, flag, inrange, outrange)
+
+
+def if_story_in(lower: int, upper: int, inrange: int = 0xFF, outrange: int = 0xFF):
     global curScript
     cond_control(1)
     curScript.emitByte(lower)

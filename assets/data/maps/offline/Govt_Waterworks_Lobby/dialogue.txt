@@ -2,8 +2,8 @@ section_count(0xEB)
 
 # 0x00 @ 0x6FB9B6
 section_start(0x00)
-if_story(0x30, 0x37, 0x2D)
-if_story(0x40, 0x43, 0x3F)
+if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x2D)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, FLAG_STORY_BATTERIES_DONE, 0x3F)
 pic(27)
 dialog_up()
 text("{a 2}There are 5 kinds\nof chip;Fire,Water,\nElectric,Wood,and{a 1}\p{w 0}")
@@ -26,7 +26,7 @@ section_end()
 
 # 0x02 @ 0x6FBB03
 section_start(0x02)
-if_story(0x30, 0x37, 0x2F)
+if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x2F)
 pic(25)
 dialog_up()
 text("{a 2}This is the\nWaterworks\ninformation desk.{a 1}\p{w 0}")
@@ -36,7 +36,7 @@ section_end()
 
 # 0x03 @ 0x6FBB83
 section_start(0x03)
-if_story(0x30, 0x37, 0x30)
+if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x30)
 pic(26)
 dialog_up()
 text("{a 2}Welcome to the\nWaterworks!\nWater is our life!{a 1}\p")
@@ -45,8 +45,8 @@ section_end()
 
 # 0x04 @ 0x6FBBC8
 section_start(0x04)
-if_story(0x30, 0x37, 0x31)
-if_story(0x40, 0x43, 0x40)
+if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x31)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, FLAG_STORY_BATTERIES_DONE, 0x40)
 pic(14)
 dialog_up()
 text("{a 2}Why do government\noffices always keep\nyou waiting so long?{a 1}\p{w 0}")
@@ -61,7 +61,7 @@ section_end()
 
 # 0x05 @ 0x6FBD94
 section_start(0x05)
-if_story(0x30, 0x37, 0x32)
+if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x32)
 pic(26)
 dialog_up()
 text("{a 2}Please pay your\nwater bill here.{a 1}\p")
@@ -70,7 +70,7 @@ section_end()
 
 # 0x06 @ 0x6FBDCB
 section_start(0x06)
-if_story(0x30, 0x37, 0x33)
+if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x33)
 pic(25)
 dialog_up()
 text("{a 2}This is the sewer\nconstruction\ninformation desk.{a 1}\p")
@@ -95,9 +95,9 @@ section_end()
 
 # 0x0F @ 0x6FBE9F
 section_start(0x0F)
-if_story(0x25, 0x25, 0x23)
-if_story(0x26, 0x26, 0x23)
-if_story(0x27, 0x27, 0x23)
+if_story(FLAG_STORY_SCILAB_NIGHT, 0x23)
+if_story(FLAG_STORY_POLAR_BEAR, 0x23)
+if_story(FLAG_STORY_TRUNK_FIND, 0x23)
 pic(25)
 dialog_up()
 text("{a 2}We're looking into\nthe water shortage\nproblem.{a 1}\p{w 0}")
@@ -115,7 +115,7 @@ section_end()
 
 # 0x11 @ 0x6FBF77
 section_start(0x11)
-if_flag(185, 0x12, 0xFF)
+if_flag(0xB9, 0x12, 0xFF)
 pic(26)
 dialog_up()
 text("{a 2}Can you please\nwait your turn?{a 1}\p")
@@ -199,9 +199,9 @@ dialog_up()
 text("An elevator switch.\p{w 0}")
 text("Lan used the\n{key SciLabID}!\p{w 0}")
 text("The elevator doors\nopened!\p")
-if_flag(1095, 0x1D, 0xFF)
+if_flag(0x447, 0x1D, 0xFF)
 wait()
-set_flag(1095)
+set_flag(0x447)
 jump(0x1B)
 section_end()
 
@@ -215,7 +215,7 @@ section_end()
 
 # 0x1C @ 0x6FC289
 section_start(0x1C)
-set_flag(185)
+set_flag(0xB9)
 end()
 section_end()
 
@@ -234,7 +234,7 @@ section_end()
 
 # 0x2D @ 0x6FC2EE
 section_start(0x2D)
-if_story(0x40, 0x47, 0x3F)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x3F)
 pic(27)
 dialog_up()
 text("{a 2}Is this the SciLab?{a 1}\n")
@@ -256,7 +256,7 @@ section_end()
 
 # 0x2F @ 0x6FC3CB
 section_start(0x2F)
-if_story(0x40, 0x47, 0x02)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x02)
 pic(25)
 dialog_up()
 text("{a 2}This is the\nWaterworks\ninformation desk.{a 1}\p{w 0}")
@@ -266,7 +266,7 @@ section_end()
 
 # 0x30 @ 0x6FC431
 section_start(0x30)
-if_story(0x40, 0x47, 0x03)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x03)
 pic(26)
 dialog_up()
 text("{a 2}Welcome to the\nWaterworks!\nWater is our life!{a 1}\p")
@@ -275,7 +275,7 @@ section_end()
 
 # 0x31 @ 0x6FC476
 section_start(0x31)
-if_story(0x40, 0x47, 0x40)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x40)
 pic(14)
 dialog_up()
 text("{a 2}Even with the crisis\nover,they still keep\nus waiting!{a 1}\p")
@@ -284,7 +284,7 @@ section_end()
 
 # 0x32 @ 0x6FC4C3
 section_start(0x32)
-if_story(0x40, 0x47, 0x05)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x05)
 pic(26)
 dialog_up()
 text("{a 2}Please pay your\nwater bill here.{a 1}\p")
@@ -293,7 +293,7 @@ section_end()
 
 # 0x33 @ 0x6FC4FA
 section_start(0x33)
-if_story(0x40, 0x47, 0x06)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x06)
 pic(25)
 dialog_up()
 text("{a 2}This is the sewer\nconstruction\ninformation desk.{a 1}\p")
@@ -320,7 +320,7 @@ section_end()
 
 # 0x46 @ 0x6FC67D
 section_start(0x46)
-if_story(0x53, 0x54, 0x55)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x55)
 pic(27)
 dialog_up()
 text("{a 2}Our customers are\nbecoming more and\nmore worried...{a 1}\p{w 0}")
@@ -330,7 +330,7 @@ section_end()
 
 # 0x47 @ 0x6FC6FF
 section_start(0x47)
-if_story(0x53, 0x54, 0x56)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x56)
 pic(25)
 dialog_up()
 text("{a 2}This is the\nWaterworks\ninformation desk.{a 1}\p{w 0}")
@@ -340,7 +340,7 @@ section_end()
 
 # 0x48 @ 0x6FC765
 section_start(0x48)
-if_story(0x53, 0x54, 0x57)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x57)
 pic(26)
 dialog_up()
 text("{a 2}Welcome to the\nWaterworks!\nWater is our life!{a 1}\p")
@@ -349,8 +349,8 @@ section_end()
 
 # 0x49 @ 0x6FC7AA
 section_start(0x49)
-if_story(0x51, 0x52, 0x50)
-if_story(0x53, 0x54, 0x58)
+if_story_in(FLAG_STORY_DELETE_DOOR_VIRUS, FLAG_STORY_DELETE_BOMBMAN, 0x50)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x58)
 pic(14)
 dialog_up()
 text("{a 2}Even with the crisis\nover,they still make\nus wait!!{a 1}\p")
@@ -359,7 +359,7 @@ section_end()
 
 # 0x4A @ 0x6FC7FC
 section_start(0x4A)
-if_story(0x53, 0x54, 0x59)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x59)
 pic(26)
 dialog_up()
 text("{a 2}Please pay your\nwater bill here.{a 1}\p")
@@ -368,7 +368,7 @@ section_end()
 
 # 0x4B @ 0x6FC833
 section_start(0x4B)
-if_story(0x53, 0x54, 0x5A)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x5A)
 pic(25)
 dialog_up()
 text("{a 2}This is the sewer\nconstruction\ninformation desk.{a 1}\p")
@@ -447,9 +447,9 @@ section_end()
 
 # 0xBE @ 0x6FCC84
 section_start(0xBE)
-if_flag(1060, 0xC4, 0xFF)
-if_flag(1078, 0xC3, 0xFF)
-set_flag(1078)
+if_flag(0x424, 0xC4, 0xFF)
+if_flag(0x436, 0xC3, 0xFF)
+set_flag(0x436)
 pic(19)
 dialog_up()
 text("{a 2}My son asked me to\nlook for a chip\nfor him.{a 1}\p{w 0}")
@@ -475,7 +475,7 @@ section_end()
 # 0xC1 @ 0x6FCDDB
 section_start(0xC1)
 check_chip_pack("Howitzer H", 1, eq=0xFF, gt=0xFF, lt=0xC2)
-set_flag(1060)
+set_flag(0x424)
 pic(19)
 dialog_up()
 text("{a 2}Thanks so much!\nMy son will be\nso happy!{a 1}\p{w 0}")
@@ -525,10 +525,10 @@ section_end()
 
 # 0xC8 @ 0x6FCFF9
 section_start(0xC8)
-if_flag(1069, 0xCB, 0xFF)
-if_flag(1080, 0xC9, 0xFF)
-if_flag(1079, 0xCA, 0xFF)
-set_flag(1079)
+if_flag(0x42D, 0xCB, 0xFF)
+if_flag(0x438, 0xC9, 0xFF)
+if_flag(0x437, 0xCA, 0xFF)
+set_flag(0x437)
 pic(25)
 dialog_up()
 text("{a 2}That's strange?\nI put in my money\nbut I can't buy{a 1}\p{w 0}")
@@ -538,7 +538,7 @@ section_end()
 
 # 0xC9 @ 0x6FD08E
 section_start(0xC9)
-set_flag(1069)
+set_flag(0x42D)
 pic(25)
 dialog_up()
 text("{a 2}Thanks! I got my\ncola!{a 1}\p{w 0}")
@@ -575,7 +575,7 @@ section_end()
 
 # 0xDC @ 0x6FD24D
 section_start(0xDC)
-if_story(0x24, 0x27, 0xE4)
+if_story_in(FLAG_STORY_SCHOOL_CANCEL, FLAG_STORY_TRUNK_FIND, 0xE4)
 dialog_up()
 text("There is a wide\nvariety of drinks\ninside\p")
 end(5)

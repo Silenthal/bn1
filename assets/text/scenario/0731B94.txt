@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x731C85
 section_start(0x04)
-set_flag(201)
+set_flag(0xC9)
 pic(34)
 dialog_up()
 text("{a 2}A!{a 1}{d} {a 2}Watch out!{a 1}\p")

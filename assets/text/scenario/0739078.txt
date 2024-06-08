@@ -45,7 +45,7 @@ section_start(0x05)
 pic(39)
 dialog_up()
 text("{a 2}Certainly,my lady!{a 1}\p")
-set_flag(179)
+set_flag(0xB3)
 end()
 section_end()
 

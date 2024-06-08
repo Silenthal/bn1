@@ -78,7 +78,7 @@ section_start(0x09)
 pic(6)
 dialog_up()
 text("{a 2}All right everyone{a 1}...{d}\n{a 2}Good luck!{a 1}\p")
-set_flag(152)
+set_flag(0x98)
 end()
 section_end()
 

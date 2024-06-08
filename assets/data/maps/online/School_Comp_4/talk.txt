@@ -2,9 +2,9 @@ section_count(0xF)
 
 # 0x00 @ 0x6D0DCE
 section_start(0x00)
-if_story(0x14, 0x14, 0x05)
-if_story(0x15, 0x15, 0x05)
-if_story(0x20, 0x57, 0x0A)
+if_story(FLAG_STORY_DOOR_3_UNLOCK, 0x05)
+if_story(FLAG_STORY_MEGAMAN_CAPTURE, 0x05)
+if_story_in(FLAG_STORY_DELETE_NUMBERMAN, 0x57, 0x0A)
 dialog_up()
 text("Test message\p")
 end(5)

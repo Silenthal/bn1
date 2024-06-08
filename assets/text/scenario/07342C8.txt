@@ -33,7 +33,7 @@ text("{a 2}Hahaha! Well,that'll\ntake a while,if I\nknow your mother!{a 1}\p{w 0
 hidepic()
 text("{..}.\p")
 text(" ")
-set_flag(157)
+set_flag(0x9D)
 end()
 section_end()
 

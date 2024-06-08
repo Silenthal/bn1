@@ -2,7 +2,7 @@ section_count(0xBC)
 
 # 0x00 @ 0x6CF424
 section_start(0x00)
-if_story(0x43, 0x43, 0xBB)
+if_story(FLAG_STORY_BATTERIES_DONE, 0xBB)
 dialog_up()
 text("Test message\p")
 end(0)
@@ -25,8 +25,8 @@ section_end()
 
 # 0xBB @ 0x6CF60A
 section_start(0xBB)
-if_flag(196, 0xBA, 0xFF)
-if_flag(189, 0xB9, 0xFF)
+if_flag(0xC4, 0xBA, 0xFF)
+if_flag(0xBD, 0xB9, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Huh? Is the\ngenerator running?\nLet's check it out!{a 1}\p")

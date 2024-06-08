@@ -87,7 +87,7 @@ section_start(0x0A)
 pic(40)
 dialog_up()
 text("{a 2}Yep...{a 1}\p")
-set_flag(227)
+set_flag(0xE3)
 end()
 section_end()
 

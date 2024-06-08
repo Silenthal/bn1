@@ -58,7 +58,7 @@ section_end()
 
 # 0x07 @ 0x735974
 section_start(0x07)
-if_flag(209, 0x05, 0xFF)
+if_flag(0xD1, 0x05, 0xFF)
 pic(27)
 dialog_up()
 text("{a 2}Well,here goes\nnothing!\nReady...Go!!{a 1}\p")

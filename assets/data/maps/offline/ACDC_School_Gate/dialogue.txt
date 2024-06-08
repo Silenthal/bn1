@@ -58,9 +58,9 @@ section_end()
 
 # 0x23 @ 0x6F18C5
 section_start(0x23)
-if_story(0x40, 0x40, 0x2E)
-if_story(0x50, 0x52, 0x32)
-if_story(0x53, 0x54, 0x37)
+if_story(FLAG_STORY_DELETE_COLORMAN, 0x2E)
+if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x32)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x37)
 pic(11)
 dialog_up()
 text("{a 2}Even when school is\nout,we still have to\nfeed the animals!{a 1}\p")
@@ -69,8 +69,8 @@ section_end()
 
 # 0x24 @ 0x6F1923
 section_start(0x24)
-if_story(0x50, 0x52, 0x33)
-if_story(0x53, 0x54, 0x38)
+if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x33)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x38)
 pic(19)
 dialog_up()
 text("{a 2}School's out.\nShouldn't be many\npeople here...{a 1}\p")

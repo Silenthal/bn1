@@ -2,8 +2,8 @@ section_count(0xA)
 
 # 0x00 @ 0x6D10CC
 section_start(0x00)
-if_story(0x05, 0x05, 0x01)
-if_story(0x06, 0x57, 0x05)
+if_story(FLAG_STORY_WATER_GUN, 0x01)
+if_story_in(FLAG_STORY_DELETE_FIREMAN, 0x57, 0x05)
 dialog_up()
 text("Test message\p")
 end(5)

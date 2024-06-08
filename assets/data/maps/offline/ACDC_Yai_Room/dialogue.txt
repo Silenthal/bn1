@@ -42,7 +42,7 @@ section_end()
 
 # 0x0A @ 0x6F59EC
 section_start(0x0A)
-if_story(0x40, 0x40, 0x2A)
+if_story(FLAG_STORY_DELETE_COLORMAN, 0x2A)
 pic(1)
 dialog_up()
 text("{a 2}I need to get back\nto studying...{a 1}\p{w 0}")
@@ -52,8 +52,8 @@ section_end()
 
 # 0x14 @ 0x6F5A62
 section_start(0x14)
-if_story(0x26, 0x26, 0x19)
-if_story(0x27, 0x27, 0x1E)
+if_story(FLAG_STORY_POLAR_BEAR, 0x19)
+if_story(FLAG_STORY_TRUNK_FIND, 0x1E)
 pic(1)
 dialog_up()
 text("{a 2}Did you find the\nboy from B Class?\nDon't give up!{a 1}\p")
@@ -62,7 +62,7 @@ section_end()
 
 # 0x19 @ 0x6F5ABA
 section_start(0x19)
-if_flag(176, 0x1A, 0xFF)
+if_flag(0xB0, 0x1A, 0xFF)
 pic(1)
 dialog_up()
 text("{a 2}Did you find the\nboy from B Class?\nDon't give up!{a 1}\p")
@@ -99,8 +99,8 @@ section_end()
 
 # 0x23 @ 0x6F5C22
 section_start(0x23)
-if_story(0x50, 0x52, 0x32)
-if_story(0x53, 0x53, 0x3C)
+if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x32)
+if_story(FLAG_STORY_BOMBMAN_BED, 0x3C)
 pic(1)
 dialog_up()
 text("{a 2}I'm collecting\nantiques! They're\njust so fashionable.{a 1}\p{w 0}")
@@ -110,8 +110,8 @@ section_end()
 
 # 0x2A @ 0x6F5CBA
 section_start(0x2A)
-if_flag(145, 0x2D, 0xFF)
-set_flag(145)
+if_flag(0x91, 0x2D, 0xFF)
+set_flag(0x91)
 pic(1)
 dialog_up()
 text("{a 2}Lan,thank you for\nthe birthday\npresent!{a 1}\p{w 0}")

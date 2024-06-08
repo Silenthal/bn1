@@ -2,7 +2,7 @@ section_count(0xEB)
 
 # 0x00 @ 0x707A2E
 section_start(0x00)
-if_story(0x35, 0x36, 0x0C)
+if_story_in(FLAG_STORY_LIGHT_3_FIX, FLAG_STORY_LIGHT_4_FIX, 0x0C)
 pic(16)
 dialog_up()
 text("{a 2}This is Block3 of\nDentown.{a 1}\p{w 0}")
@@ -21,7 +21,7 @@ section_end()
 
 # 0x02 @ 0x707B19
 section_start(0x02)
-if_story(0x35, 0x36, 0x0D)
+if_story_in(FLAG_STORY_LIGHT_3_FIX, FLAG_STORY_LIGHT_4_FIX, 0x0D)
 pic(11)
 dialog_up()
 text("{a 2}Man,there's a lot\nof cars downtown...{a 1}\p")
@@ -99,7 +99,7 @@ section_end()
 
 # 0x1A @ 0x707D4A
 section_start(0x1A)
-if_story(0x53, 0x54, 0x32)
+if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x32)
 pic(15)
 dialog_up()
 text("{a 2}Ever since that\naccident,it takes{a 1}\p{w 0}")
@@ -152,7 +152,7 @@ section_end()
 
 # 0x27 @ 0x707EE3
 section_start(0x27)
-if_flag(100, 0x26, 0xFF)
+if_flag(0x64, 0x26, 0xFF)
 pic(7)
 dialog_up()
 text("{a 2}I didn't make any\nmistakes! What's IN\nthat Navi there?{a 1}\p")
@@ -177,7 +177,7 @@ section_end()
 
 # 0x2A @ 0x707F96
 section_start(0x2A)
-if_flag(99, 0x25, 0xFF)
+if_flag(0x63, 0x25, 0xFF)
 pic(7)
 dialog_up()
 text("{a 2}So you want to see\nhow the pros do it,\nhuh? PROTOMAN!!{a 1}\p{w 5}")
@@ -194,7 +194,7 @@ section_end()
 
 # 0x2C @ 0x708008
 section_start(0x2C)
-set_flag(99)
+set_flag(0x63)
 dialog_down()
 stop()
 section_end()
@@ -218,7 +218,7 @@ section_end()
 
 # 0xBE @ 0x7081EB
 section_start(0xBE)
-if_flag(1061, 0xC2, 0xFF)
+if_flag(0x425, 0xC2, 0xFF)
 pic(18)
 dialog_up()
 text("{a 2}Oh,wow,dude... I\njust heard the most\namaaazing rumor,dig?{a 1}\p{w 0}")
@@ -252,7 +252,7 @@ check_chip_pack("Shotgun K", 1, eq=0xFF, gt=0xFF, lt=0xC1)
 check_chip_pack("CrossGun K", 1, eq=0xFF, gt=0xFF, lt=0xC1)
 check_chip_pack("Spreader K", 1, eq=0xFF, gt=0xFF, lt=0xC1)
 check_chip_pack("M-Cannon K", 1, eq=0xFF, gt=0xFF, lt=0xC1)
-set_flag(1061)
+set_flag(0x425)
 pic(18)
 dialog_up()
 text("{a 2}Oh,dude,how totally\ngroovy!{a 1}\p{w 0}")
@@ -295,8 +295,8 @@ section_end()
 
 # 0xDD @ 0x708620
 section_start(0xDD)
-if_story(0x40, 0x5F, 0xE0)
-if_flag(152, 0xE0, 0xFF)
+if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x5F, 0xE0)
+if_flag(0x98, 0xE0, 0xFF)
 dialog_up()
 text("This signal has a\njack in port\p{w 0}")
 text("You don't have any\nreason to jack in\nnow,though\p")

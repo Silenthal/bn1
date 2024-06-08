@@ -38,7 +38,7 @@ section_end()
 
 # 0x04 @ 0x7355D7
 section_start(0x04)
-if_flag(209, 0x0A, 0xFF)
+if_flag(0xD1, 0x0A, 0xFF)
 pic(27)
 dialog_up()
 text("{a 2}Ready?\nAnd...GO!!{a 1}\p")

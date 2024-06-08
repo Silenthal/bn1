@@ -31,7 +31,7 @@ section_start(0x03)
 pic(12)
 dialog_up()
 text("{a 2}OK!{a 1} ...{d}{a 2}But wait!{a 1}{d}\n{a 2}It's almost 7 now!\nWe have to hurry!{a 1}\p")
-set_flag(150)
+set_flag(0x96)
 end()
 section_end()
 
