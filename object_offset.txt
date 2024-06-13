@@ -544,6 +544,11 @@ battlechip/zeta_omega_pa    0x8263C
 battlechip/beta_sigma_pa    0x82710
 battlechip/buster_chip      0x827DC
 battlechip/geddon           0x82838
+scene/story_00              0x82880
+scene/story_01              0x82AC8
+scene/locked_path           0x82DE0
+scene/locked_path_School_Class_5A   0x82F44
+scene/story_02              0x83054
 battle/screendim/util       0x982B8
 battle/screendim/recover    0x9832C
 swi                         0x9DF50

@@ -106,7 +106,7 @@ L_8028A3B:
 
     .align 2, 0
 
-NPCList_8028A44:
+global_label NPCList_8028A44
     .word NPC_8028A94
     .word NPC_8028AA8
     .word NPC_8028ABC
@@ -118,7 +118,7 @@ NPCList_8028A44:
     .word NPC_8028B37
     .word 0xFF
 
-NPCList_8028A6C:
+global_label NPCList_8028A6C
     .word NPC_8028A94
     .word NPC_8028AA8
     .word NPC_8028ABC

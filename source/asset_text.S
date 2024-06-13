@@ -531,9 +531,12 @@ global_label DialogueData_Undernet_12
     .incbin "data/maps/online/Undernet_12.dialogue"
 
 global_label textBlockInitialDialog
-    .incbin "text/scenario/initial.script"
-    .incbin "text/scenario/0729828.script"
-    .incbin "text/scenario/0729B94.script"
+global_label ScenarioData_00
+    .incbin "text/scenario/00.script"
+global_label ScenarioData_01
+    .incbin "text/scenario/01.script"
+global_label ScenarioData_02
+    .incbin "text/scenario/02.script"
     .incbin "text/scenario/0729FB8.script"
     .incbin "text/scenario/072A2AC.script"
     .incbin "text/scenario/072A350.script"

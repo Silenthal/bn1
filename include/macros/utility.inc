@@ -99,3 +99,10 @@
     .macro cam_end
     .short 8
     .endm
+
+    .macro player_anim animId, dx, dy, time
+    .byte \animId
+    .byte \dx
+    .byte \dy
+    .byte \time
+    .endm
