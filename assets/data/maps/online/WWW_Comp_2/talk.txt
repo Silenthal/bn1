@@ -10,7 +10,7 @@ section_end()
 
 # 0xE1 @ 0x6D4E22
 section_start(0xE1)
-if_flag(0xAF, 0xE3, 0xFF)
+if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_1, 0xE3, 0xFF)
 end()
 section_end()
 

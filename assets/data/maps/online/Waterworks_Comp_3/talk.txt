@@ -22,7 +22,7 @@ section_end()
 # 0x73 @ 0x6D1B8B
 section_start(0x73)
 if_flag(0xB0, 0x75, 0xFF)
-if_flag(0xAB, 0x74, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_2_2, 0x74, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}Let's get back to\nACDC Town and check\nthe water!{a 1}\p")
@@ -44,7 +44,7 @@ section_end()
 
 # 0x78 @ 0x6D1C25
 section_start(0x78)
-if_flag(0xD9, 0x79, 0xFF)
+if_flag(FLAG_GATE_CLEAR_WWW_COMP_2_6, 0x79, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}I don't want to\nfight Froid,but...{a 1}\p{w 0}")

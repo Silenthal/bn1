@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x6ED235
 section_start(0x03)
-if_flag(0xC0, 0xDC, 0xFF)
+if_flag(FLAG_GATE_LOCK_WWW_COMP_2_9, 0xDC, 0xFF)
 dialog_up()
 text("A time recorder.\nYou need an\nID card\p{w 0}")
 text("Lan used the\nID card! It\nworked!!\p{w 0}")
@@ -36,7 +36,7 @@ text("{a 2}But be careful!{a 1}\p{w 0}")
 pic(34)
 text("{a 2}OK!!{a 1}\p")
 dialog_down()
-set_flag(0xC0)
+set_flag(FLAG_GATE_LOCK_WWW_COMP_2_9)
 end()
 section_end()
 

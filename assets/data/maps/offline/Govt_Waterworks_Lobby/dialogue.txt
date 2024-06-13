@@ -115,7 +115,7 @@ section_end()
 
 # 0x11 @ 0x6FBF77
 section_start(0x11)
-if_flag(0xB9, 0x12, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_4, 0x12, 0xFF)
 pic(26)
 dialog_up()
 text("{a 2}Can you please\nwait your turn?{a 1}\p")
@@ -215,7 +215,7 @@ section_end()
 
 # 0x1C @ 0x6FC289
 section_start(0x1C)
-set_flag(0xB9)
+set_flag(FLAG_GATE_LOCK_SCHOOL_COMP_4)
 end()
 section_end()
 

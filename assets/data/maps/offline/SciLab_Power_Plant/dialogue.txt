@@ -27,7 +27,7 @@ pic(25)
 dialog_up()
 text("{a 2}Huh? It looks like\nthe control room\ndoor is open now.{a 1}\p{w 0}")
 text("{a 2}You go on. I'll\nget this door open.{a 1}\p")
-set_flag(0xAF)
+set_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_1)
 end()
 section_end()
 

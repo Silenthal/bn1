@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x71F1DD
 section_start(0x01)
-set_flag(0x6)
+set_flag(FLAG_BOOKMARK_MAYL)
 dialog_up()
 text("MegaMan bookmarked\nMayl's piano!\p{w 0}")
 text("You can now freely\nenter here!\p")

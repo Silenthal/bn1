@@ -36,7 +36,7 @@ section_end()
 
 # 0x03 @ 0x703990
 section_start(0x03)
-set_flag(0xD8)
+set_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_5)
 section_end()
 
 # 0x0A @ 0x7039A2

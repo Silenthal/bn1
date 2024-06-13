@@ -4,7 +4,7 @@ section_count(0xEB)
 section_start(0x00)
 dialog_up()
 set_flag(0x280)
-clear_flag(0x410)
+clear_flag(FLAG_GATE_LOCK_AT_LAN_YUICHIRO)
 pc_anim_start(30)
 text("{add_item 'PET'}Lan got his\n\"{key PET}\"!")
 pc_wait()
@@ -199,7 +199,7 @@ section_end()
 
 # 0x1E @ 0x6F347D
 section_start(0x1E)
-set_flag(0x0)
+set_flag(FLAG_CLEAR_CHAPTER_1)
 end()
 section_end()
 

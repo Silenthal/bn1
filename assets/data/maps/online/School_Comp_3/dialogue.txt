@@ -229,7 +229,7 @@ section_end()
 
 # 0x1C @ 0x7123F6
 section_start(0x1C)
-set_flag(0xB8)
+set_flag(FLAG_GATE_LOCK_WWW_COMP_2_1)
 end()
 section_end()
 

@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x720119
 section_start(0x01)
-set_flag(0x48)
+set_flag(FLAG_BOOKMARK_SAL)
 dialog_up()
 text("MegaMan bookmarked\nSal's sandwich shop!\p{w 0}")
 text("You can now freely\nenter here!\p")

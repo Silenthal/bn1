@@ -55,7 +55,7 @@ section_end()
 
 # 0x82 @ 0x6C6FD9
 section_start(0x82)
-if_flag(0x9A, 0x83, 0xFF)
+if_flag(FLAG_JACK_IN_OVEN_COMP, 0x83, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Lan,I wanna know\nwhat's in that mail\nfrom the WWW!{a 1}\p")
@@ -277,7 +277,7 @@ section_end()
 
 # 0xD9 @ 0x6C7758
 section_start(0xD9)
-if_flag(0xA5, 0xDA, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_1, 0xDA, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}That pass,the\nMetroline...{a 1}\p{w 0}")
@@ -304,7 +304,7 @@ section_end()
 
 # 0xE2 @ 0x6C785B
 section_start(0xE2)
-if_flag(0xAF, 0xE3, 0xFF)
+if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_1, 0xE3, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Let's go!\nTo the WWW labs!{a 1}\p")

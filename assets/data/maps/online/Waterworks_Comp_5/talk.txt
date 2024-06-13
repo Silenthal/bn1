@@ -11,7 +11,7 @@ section_end()
 
 # 0x78 @ 0x6D2326
 section_start(0x78)
-if_flag(0xD9, 0x79, 0xFF)
+if_flag(FLAG_GATE_CLEAR_WWW_COMP_2_6, 0x79, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}I don't want to\nfight Froid,but...{a 1}\p{w 0}")

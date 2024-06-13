@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x71F555
 section_start(0x01)
-set_flag(0x7)
+set_flag(FLAG_BOOKMARK_YAI)
 dialog_up()
 text("MegaMan bookmarked\nYai's portrait!\p{w 0}")
 text("You can now freely\nenter here!\p")

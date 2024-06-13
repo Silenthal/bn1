@@ -121,7 +121,7 @@ section_end()
 
 # 0xD9 @ 0x6E2F50
 section_start(0xD9)
-if_flag(0xA5, 0xDA, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_1, 0xDA, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}Maybe I should ask\nabout that pass at\nthe station...{a 1}\p")
@@ -147,7 +147,7 @@ section_end()
 
 # 0xE2 @ 0x6E3040
 section_start(0xE2)
-if_flag(0xAF, 0xE3, 0xFF)
+if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_1, 0xE3, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}And we're off!\nTo the WWW lab!{a 1}\p")

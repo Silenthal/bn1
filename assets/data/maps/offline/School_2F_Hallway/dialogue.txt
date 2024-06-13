@@ -131,10 +131,10 @@ section_end()
 
 # 0x20 @ 0x6E8387
 section_start(0x20)
-if_flag(0xDA, 0x21, 0xFF)
+if_flag(FLAG_GATE_CLEAR_WWW_COMP_2_7, 0x21, 0xFF)
 dialog_up()
 text("Good morning,\nteacher!\p{w 0}")
-set_flag(0xDA)
+set_flag(FLAG_GATE_CLEAR_WWW_COMP_2_7)
 jump(0x21)
 section_end()
 

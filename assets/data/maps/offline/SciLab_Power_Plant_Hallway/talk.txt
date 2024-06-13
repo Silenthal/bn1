@@ -58,7 +58,7 @@ section_end()
 # 0xBB @ 0x6CD539
 section_start(0xBB)
 if_flag(0xC4, 0xBA, 0xFF)
-if_flag(0xBD, 0xB9, 0xFF)
+if_flag(FLAG_GATE_LOCK_WWW_COMP_2_6, 0xB9, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Lan! Hurry up and\nget to the power\nplant!{a 1}\p")
@@ -220,7 +220,7 @@ section_end()
 
 # 0xD9 @ 0x6CDA85
 section_start(0xD9)
-if_flag(0xA5, 0xDA, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_1, 0xDA, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}That pass,the\nMetroline...{a 1}\p{w 1}")
@@ -247,7 +247,7 @@ section_end()
 
 # 0xE2 @ 0x6CDB88
 section_start(0xE2)
-if_flag(0xAF, 0xE3, 0xFF)
+if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_1, 0xE3, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Let's go!\nTo the WWW labs!{a 1}\p")

@@ -2,7 +2,7 @@ section_count(0xEB)
 
 # 0x00 @ 0x705BA2
 section_start(0x00)
-if_flag(0x2A, 0x03, 0xFF)
+if_flag(FLAG_HAS_TRAIN_PASS, 0x03, 0xFF)
 dialog_up()
 text("Where to?\p{w 0}")
 text("{c 2 1 0 0}ACDC Town\n")
@@ -14,7 +14,7 @@ section_end()
 
 # 0x01 @ 0x705BEF
 section_start(0x01)
-set_flag(0x2A)
+set_flag(FLAG_HAS_TRAIN_PASS)
 add_item("ACDCPass")
 dialog_up()
 pc_anim(30)
@@ -28,7 +28,7 @@ section_end()
 
 # 0x02 @ 0x705C20
 section_start(0x02)
-set_flag(0x2A)
+set_flag(FLAG_HAS_TRAIN_PASS)
 add_item("GovtPass")
 dialog_up()
 pc_anim(30)
@@ -52,7 +52,7 @@ section_end()
 
 # 0x04 @ 0x705C88
 section_start(0x04)
-clear_flag(0x2A)
+clear_flag(FLAG_HAS_TRAIN_PASS)
 sub_item("ACDCPass")
 sub_item("GovtPass")
 dialog_up()

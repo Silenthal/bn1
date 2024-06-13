@@ -2,7 +2,7 @@ section_count(0x2D)
 
 # 0x00 @ 0x71DBD6
 section_start(0x00)
-if_flag(0xB2, 0x01, 0xFF)
+if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_2, 0x01, 0xFF)
 pic(41)
 dialog_up()
 text("{a 2}I am a WWW Navi{a 1}...{d}\n{a 2}However,I can no\nlonger help them.{a 1}\p{w 0}")

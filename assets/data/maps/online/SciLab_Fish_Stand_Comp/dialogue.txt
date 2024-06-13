@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x7205ED
 section_start(0x01)
-set_flag(0x49)
+set_flag(FLAG_BOOKMARK_MASA)
 dialog_up()
 text("MegaMan bookmarked\nMasa's fish stand!\p{w 0}")
 text("You can now freely\nenter here!\p")

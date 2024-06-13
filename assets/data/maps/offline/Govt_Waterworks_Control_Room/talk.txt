@@ -17,9 +17,9 @@ section_end()
 
 # 0x69 @ 0x6C2A58
 section_start(0x69)
-if_flag(0xBE, 0x6C, 0xFF)
-if_flag(0xBD, 0x6B, 0xFF)
-if_flag(0xB9, 0x6A, 0xFF)
+if_flag(FLAG_GATE_LOCK_WWW_COMP_2_7, 0x6C, 0xFF)
+if_flag(FLAG_GATE_LOCK_WWW_COMP_2_6, 0x6B, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_4, 0x6A, 0xFF)
 end()
 section_end()
 
@@ -293,7 +293,7 @@ section_end()
 
 # 0xD9 @ 0x6C33A3
 section_start(0xD9)
-if_flag(0xA5, 0xDA, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_1, 0xDA, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}That pass,the\nMetroline...{a 1}\p{w 0}")
@@ -320,7 +320,7 @@ section_end()
 
 # 0xE2 @ 0x6C34A6
 section_start(0xE2)
-if_flag(0xAF, 0xE3, 0xFF)
+if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_1, 0xE3, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Let's go!\nTo the WWW labs!{a 1}\p")

@@ -19,7 +19,7 @@ section_end()
 
 # 0x02 @ 0x71ECEC
 section_start(0x02)
-if_flag(0x446, 0x03, 0xFF)
+if_flag(FLAG_SAVE_DISABLED, 0x03, 0xFF)
 pic(36)
 dialog_up()
 text("{a 2}Be careful...{a 1}\p{w 0}")

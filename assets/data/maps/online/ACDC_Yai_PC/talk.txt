@@ -88,7 +88,7 @@ section_end()
 # 0x0F @ 0x6D82CE
 section_start(0x0F)
 if_flag(0xE2, 0x11, 0xFF)
-if_flag(0xD7, 0x10, 0xFF)
+if_flag(FLAG_GATE_CLEAR_WWW_COMP_2_4, 0x10, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}Let's go see Dad!{a 1}\p")
@@ -378,7 +378,7 @@ section_end()
 
 # 0xD9 @ 0x6D8D06
 section_start(0xD9)
-if_flag(0xA5, 0xDA, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_1, 0xDA, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}Maybe I should ask\nabout that pass at\nthe station...{a 1}\p")
@@ -404,7 +404,7 @@ section_end()
 
 # 0xE2 @ 0x6D8DF6
 section_start(0xE2)
-if_flag(0xAF, 0xE3, 0xFF)
+if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_1, 0xE3, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}And we're off!\nTo the WWW lab!{a 1}\p")

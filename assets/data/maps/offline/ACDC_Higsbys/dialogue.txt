@@ -38,7 +38,7 @@ section_end()
 # 0x06 @ 0x6F65D9
 section_start(0x06)
 if_shop(0x00, 0xFF, 0x07)
-clear_flag(0xA6)
+clear_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_1)
 pic(6)
 dialog_up()
 text("{a 2}Yah wanna buy some\nchips,huh?{a 1}\n")
@@ -59,7 +59,7 @@ section_end()
 
 # 0x08 @ 0x6F666A
 section_start(0x08)
-set_flag(0xA6)
+set_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_1)
 end()
 section_end()
 

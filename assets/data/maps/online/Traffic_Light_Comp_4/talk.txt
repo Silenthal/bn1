@@ -11,7 +11,7 @@ section_end()
 
 # 0x96 @ 0x6D33EA
 section_start(0x96)
-if_flag(0xAC, 0x9B, 0xFF)
+if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_2_2, 0x9B, 0xFF)
 pic(0)
 dialog_up()
 text("{a 2}MegaMan!\nChange the signal\nto red!{a 1}\p")

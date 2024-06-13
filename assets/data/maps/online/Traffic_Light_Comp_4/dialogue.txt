@@ -16,7 +16,7 @@ section_start(0x01)
 dialog_up()
 text("MegaMan pressed the\ncolor switch!\p{w 0}")
 text("The signal turned\nred!\p{w 0}")
-set_flag(0xAC)
+set_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_2_2)
 end()
 section_end()
 

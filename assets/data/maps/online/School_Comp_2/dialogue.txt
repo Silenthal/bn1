@@ -212,7 +212,7 @@ section_end()
 
 # 0x21 @ 0x71197B
 section_start(0x21)
-set_flag(0xB8)
+set_flag(FLAG_GATE_LOCK_WWW_COMP_2_1)
 end()
 section_end()
 

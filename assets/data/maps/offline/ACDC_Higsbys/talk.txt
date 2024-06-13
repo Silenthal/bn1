@@ -20,9 +20,9 @@ section_end()
 
 # 0x69 @ 0x6B986E
 section_start(0x69)
-if_flag(0xBE, 0x6C, 0xFF)
-if_flag(0xBD, 0x6B, 0xFF)
-if_flag(0xB9, 0x6A, 0xFF)
+if_flag(FLAG_GATE_LOCK_WWW_COMP_2_7, 0x6C, 0xFF)
+if_flag(FLAG_GATE_LOCK_WWW_COMP_2_6, 0x6B, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_4, 0x6A, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Wonder why there's\nno water? Let's\ncheck it out!{a 1}\p")
@@ -62,7 +62,7 @@ section_end()
 # 0x73 @ 0x6B99A5
 section_start(0x73)
 if_flag(0xB0, 0x75, 0xFF)
-if_flag(0xAB, 0x74, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_2_2, 0x74, 0xFF)
 end()
 section_end()
 
@@ -84,7 +84,7 @@ section_end()
 
 # 0x78 @ 0x6B9A2B
 section_start(0x78)
-if_flag(0xD9, 0x79, 0xFF)
+if_flag(FLAG_GATE_CLEAR_WWW_COMP_2_6, 0x79, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Let's tell Froid\nabout his son!{a 1}\p")
@@ -344,7 +344,7 @@ section_end()
 
 # 0xD9 @ 0x6BA2AA
 section_start(0xD9)
-if_flag(0xA5, 0xDA, 0xFF)
+if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_1, 0xDA, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Let's ask if we can\nuse that pass on\nthe Metroline!{a 1}\p")
@@ -370,7 +370,7 @@ section_end()
 
 # 0xE2 @ 0x6BA39B
 section_start(0xE2)
-if_flag(0xAF, 0xE3, 0xFF)
+if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_1, 0xE3, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Let's go!\nTo the WWW labs!{a 1}\p")
