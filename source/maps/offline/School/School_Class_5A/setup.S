@@ -13,7 +13,7 @@
     .set FUN_080864e4, 0x80864E5
     .set FUN_08086a64, 0x8086A65
     .set FUN_08082de4, 0x8082DE5
-    .set Script_ShowDialogue, 0x80848FD
+    .set Scene_Dialogue, 0x80848FD
     .set FUN_08087e34, 0x8087E35
 
 
@@ -749,7 +749,7 @@ _ts EventHandler_School_Class_5A_F12_1
     bne        LAB_08024ce2
     push       {r5}
     mov        r1,#0x3f
-    ldr        r0,PTR_Script_ShowDialogue_08024fe8
+    ldr        r0,PTR_Scene_Dialogue_08024fe8
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -1147,8 +1147,8 @@ PTR_FUN_08086a64_08024fe0:
     .word FUN_08086a64
 DAT_08024fe4:
     .word 0x100
-PTR_Script_ShowDialogue_08024fe8:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08024fe8:
+    .word Scene_Dialogue
 PTR_Scene_JackIn_08024fec:
     .word Scene_JackIn
 PTR_DAT_08024ff0:

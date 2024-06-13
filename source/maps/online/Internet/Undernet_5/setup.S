@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Undernet_5_S0
@@ -115,7 +115,7 @@ LAB_080531e2:
 LAB_080531fa:
     mov        r1,#0xa
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08053250
+    ldr        r0,PTR_Scene_Dialogue_08053250
     bl         Scene_Prepare
     pop        {r5}
     b          LAB_08053212
@@ -170,8 +170,8 @@ PTR_FUN_080857b8_08053248:
 DAT_0805324c:
     .word 0xA03
 
-PTR_Script_ShowDialogue_08053250:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08053250:
+    .word Scene_Dialogue
 
 PTR_FUN_08082de4_08053254:
     .word 0x8082DE5

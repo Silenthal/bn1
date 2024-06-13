@@ -14,7 +14,7 @@
     .set LAB_0808b420, 0x808B421
     .set FUN_08082de4, 0x8082DE5
     .set Scene_LanCheckYourMail, 0x8085A79
-    .set Script_ShowDialogue, 0x80848FD
+    .set Scene_Dialogue, 0x80848FD
     .set LAB_0808a930, 0x808A931
 
 
@@ -1173,7 +1173,7 @@ LAB_0802b2bc:
     cmp        r0,#0x30
     bne        LAB_0802b2d2
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0802b364
+    ldr        r0,PTR_Scene_Dialogue_0802b364
     mov        r1,#0x48
     bl         Scene_Prepare
     pop        {r5}
@@ -1251,8 +1251,8 @@ PTR_PTR_EventHandler_ACDC_Town_F27_0_0802b35c:
     .word PTR_EventHandler_ACDC_Town_F27_0_0802b28c
 PTR_LAB_0808b420_0802b360:
     .word LAB_0808b420
-PTR_Script_ShowDialogue_0802b364:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0802b364:
+    .word Scene_Dialogue
 
 
 _ts MapSetup_ACDC_Town_S3
@@ -1346,7 +1346,7 @@ _ts EventHandler_ACDC_Town_F30
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_0802b47c
+    bl         EventHandler_ACDC_Town_F30_HandleExits
     pop        {pc}
 PTR_EventHandler_ACDC_Town_F30_0_0802b42c:
     .word EventHandler_ACDC_Town_F30_0
@@ -1392,7 +1392,7 @@ LAB_0802b47a:
     pop        {pc}
 
 
-_ts FUN_0802b47c
+_ts EventHandler_ACDC_Town_F30_HandleExits
     push       {lr}
     push       {r5}
     mov        r7,r10

@@ -345,7 +345,7 @@ LAB_0804b2ec:
     mov        r1,#0x0
 LAB_0804b2ee:
     push       {r5}
-    ldr        r0,PTR_FUN_080919d8_0804b3e8
+    ldr        r0,PTR_Scene_RechargeSuccess_0804b3e8
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804b2f8:
@@ -500,7 +500,7 @@ PTR_FUN_080912b4_0804b3e0:
 PTR_FUN_08084070_0804b3e4:
     .word 0x8084071
 
-PTR_FUN_080919d8_0804b3e8:
+PTR_Scene_RechargeSuccess_0804b3e8:
     .word 0x80919D9
 
 PTR_PTR_EventHandler_Power_Plant_Comp_4_F43_0_0804b3ec:

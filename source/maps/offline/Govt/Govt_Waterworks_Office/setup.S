@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Govt_Waterworks_Office_S2
@@ -245,7 +245,7 @@ LAB_0803419e:
     bl         Flag_GetBase
     bne        LAB_080341f0
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0803427c
+    ldr        r0,PTR_Scene_Dialogue_0803427c
     mov        r1,#0x7
     bl         Scene_Prepare
     pop        {r5}
@@ -320,8 +320,8 @@ PTR_FUN_08082de4_08034274:
 DAT_08034278:
     .word 0x100
 
-PTR_Script_ShowDialogue_0803427c:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0803427c:
+    .word Scene_Dialogue
 
 PTR_FUN_080897a4_08034280:
     .word 0x80897A5

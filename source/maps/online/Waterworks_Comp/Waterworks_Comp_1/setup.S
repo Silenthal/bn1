@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Waterworks_Comp_1_S2
@@ -302,7 +302,7 @@ _ts FUN_08045ae0
     cmp        r0,#0x21
     bne        LAB_08045b26
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08045bb4
+    ldr        r0,PTR_Scene_Dialogue_08045bb4
     mov        r1,#0x7
     bl         Scene_Prepare
     pop        {r5}
@@ -401,8 +401,8 @@ PTR_PTR_EventHandler_Waterworks_Comp_1_F27_0_08045bac:
 PTR_FUN_0808be50_08045bb0:
     .word 0x808BE51
 
-PTR_Script_ShowDialogue_08045bb4:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08045bb4:
+    .word Scene_Dialogue
 
 PTR_LAB_0808bacc_08045bb8:
     .word 0x808BACD

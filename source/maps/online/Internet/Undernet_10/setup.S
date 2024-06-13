@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Undernet_10_S0
@@ -191,7 +191,7 @@ LAB_08053a6e:
     cmp        r0,#0x20
     bne        LAB_08053a84
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08053b34
+    ldr        r0,PTR_Scene_Dialogue_08053b34
     mov        r1,#0x1f
     bl         Scene_Prepare
     pop        {r5}
@@ -293,8 +293,8 @@ PTR_BgTask_8051738_08053b2c:
 PTR_Scene_UnlockWWWGate_08053b30:
     .word 0x8086E19
 
-PTR_Script_ShowDialogue_08053b34:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08053b34:
+    .word Scene_Dialogue
 
 PTR_Scene_UnlockWWWGate_08053b38:
     .word 0x8086E19

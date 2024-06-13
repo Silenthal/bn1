@@ -5,7 +5,7 @@
     .set FUN_0808598c, 0x808598D
     .set Scene_ChipTrader, 0x8085DD9
     .set FUN_080857b8, 0x80857B9
-    .set Script_ShowDialogue, 0x80848FD
+    .set Scene_Dialogue, 0x80848FD
     .set FUN_08085f54, 0x8085F55
 
 
@@ -445,7 +445,7 @@ _ts FUN_0802edac
     cmp        r0,#0x20
     bne        LAB_0802edce
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0802ee2c
+    ldr        r0,PTR_Scene_Dialogue_0802ee2c
     mov        r1,#0xa
     bl         Scene_Prepare
     pop        {r5}
@@ -495,8 +495,8 @@ DAT_0802ee24:
     .word 0x808598D
 PTR_PTR_EventHandler_ACDC_Higsbys_F30_0_0802ee28:
     .word PTR_EventHandler_ACDC_Higsbys_F30_0_0802eda4
-PTR_Script_ShowDialogue_0802ee2c:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0802ee2c:
+    .word Scene_Dialogue
 PTR_FUN_080857b8_0802ee30:
     .word FUN_080857b8
 

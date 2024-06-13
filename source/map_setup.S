@@ -4,7 +4,7 @@
 
     .set Scene_JackOut, 0x80836C8+1
     .set Scene_JackIn, 0x8083EEC+1
-    .set Script_ShowDialogue, 0x80848fC+1
+    .set Scene_Dialogue, 0x80848fC+1
 
 FlagSetup_Offline:
     .word FlagSetup_School
@@ -470,7 +470,7 @@ LAB_08018782:
     ldrb       r1,[r1,r2]
     cmp        r1,#0xff
     beq        LAB_0801879a
-    ldr        r0,PTR_Script_ShowDialogue_080187f0
+    ldr        r0,PTR_Scene_Dialogue_080187f0
     bl         Scene_Prepare
     mov        r0,#0x0
     pop        {r5,pc}
@@ -521,5 +521,5 @@ PTR_PTR_080187e8:
     .word MapDialogue_Offline
 PTR_MapDialogue_Online_080187ec:
     .word MapDialogue_Online
-PTR_Script_ShowDialogue_080187f0:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080187f0:
+    .word Scene_Dialogue

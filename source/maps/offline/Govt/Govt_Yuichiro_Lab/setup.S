@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Govt_Yuichiro_Lab_S2
@@ -316,7 +316,7 @@ _ts FUN_0803391c
     cmp        r0,#0x22
     bne        LAB_08033944
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_080339e8
+    ldr        r0,PTR_Scene_Dialogue_080339e8
     mov        r1,#0x1
     bl         Scene_Prepare
     pop        {r5}
@@ -325,7 +325,7 @@ LAB_08033944:
     cmp        r0,#0x21
     bne        LAB_08033956
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_080339ec
+    ldr        r0,PTR_Scene_Dialogue_080339ec
     mov        r1,#0x10
     bl         Scene_Prepare
     pop        {r5}
@@ -337,7 +337,7 @@ LAB_08033956:
     bl         Flag_GetBase
     bne        LAB_08033970
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_080339f0
+    ldr        r0,PTR_Scene_Dialogue_080339f0
     mov        r1,#0xd
     bl         Scene_Prepare
     pop        {r5}
@@ -413,14 +413,14 @@ DAT_080339e0:
 PTR_Scene_JackIn_080339e4:
     .word Scene_JackIn
 
-PTR_Script_ShowDialogue_080339e8:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080339e8:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_080339ec:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080339ec:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_080339f0:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080339f0:
+    .word Scene_Dialogue
 
 PTR_FUN_08087e34_080339f4:
     .word 0x8087E35
@@ -572,7 +572,7 @@ _ts FUN_08033b00
     cmp        r0,#0x22
     bne        LAB_08033b28
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08033b8c
+    ldr        r0,PTR_Scene_Dialogue_08033b8c
     mov        r1,#0x1
     bl         Scene_Prepare
     pop        {r5}
@@ -581,7 +581,7 @@ LAB_08033b28:
     cmp        r0,#0x21
     bne        LAB_08033b3a
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08033b90
+    ldr        r0,PTR_Scene_Dialogue_08033b90
     mov        r1,#0x10
     bl         Scene_Prepare
     pop        {r5}
@@ -634,11 +634,11 @@ DAT_08033b84:
 PTR_Scene_JackIn_08033b88:
     .word Scene_JackIn
 
-PTR_Script_ShowDialogue_08033b8c:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08033b8c:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_08033b90:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08033b90:
+    .word Scene_Dialogue
 
 PTR_FUN_08087e34_08033b94:
     .word 0x8087E35
@@ -717,8 +717,8 @@ _nt EventHandler_Govt_Yuichiro_Lab_F40
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08033c4c
-    bl         FUN_08033c98
+    bl         EventHandler_Govt_Yuichiro_Lab_F40_HandleJackIn
+    bl         EventHandler_Govt_Yuichiro_Lab_F40_HandleExits
     pop        {pc}
 
     .align 2, 0
@@ -732,7 +732,7 @@ _ts EventHandler_Govt_Yuichiro_Lab_F40_0
     pop        {pc}
 
 
-_ts FUN_08033c4c
+_ts EventHandler_Govt_Yuichiro_Lab_F40_HandleJackIn
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -770,7 +770,7 @@ LAB_08033c96:
     pop        {pc}
 
 
-_ts FUN_08033c98
+_ts EventHandler_Govt_Yuichiro_Lab_F40_HandleExits
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -784,7 +784,7 @@ _ts FUN_08033c98
     cmp        r0,#0x22
     bne        LAB_08033cc0
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08033d3c
+    ldr        r0,PTR_Scene_Dialogue_08033d3c
     mov        r1,#0x1
     bl         Scene_Prepare
     pop        {r5}
@@ -793,7 +793,7 @@ LAB_08033cc0:
     cmp        r0,#0x21
     bne        LAB_08033cd2
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08033d40
+    ldr        r0,PTR_Scene_Dialogue_08033d40
     mov        r1,#0x10
     bl         Scene_Prepare
     pop        {r5}
@@ -858,11 +858,11 @@ DAT_08033d34:
 PTR_Scene_JackIn_08033d38:
     .word Scene_JackIn
 
-PTR_Script_ShowDialogue_08033d3c:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08033d3c:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_08033d40:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08033d40:
+    .word Scene_Dialogue
 
 PTR_LAB_080918c0_08033d44:
     .word 0x80918C1
@@ -947,7 +947,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F50
     mov        lr,pc
     bx         r0
     bl         FUN_08033f04
-    bl         FUN_08033f50
+    bl         EventHandler_Govt_Yuichiro_Lab_F50_HandleExits
     pop        {pc}
 
     .align 2, 0
@@ -988,7 +988,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F52
     mov        lr,pc
     bx         r0
     bl         FUN_08033f04
-    bl         FUN_08033f50
+    bl         EventHandler_Govt_Yuichiro_Lab_F50_HandleExits
     pop        {pc}
 
     .align 2, 0
@@ -1029,7 +1029,7 @@ _nt EventHandler_Govt_Yuichiro_Lab_F53
     mov        lr,pc
     bx         r0
     bl         FUN_08033f04
-    bl         FUN_08033f50
+    bl         EventHandler_Govt_Yuichiro_Lab_F50_HandleExits
     pop        {pc}
 
     .align 2, 0
@@ -1088,7 +1088,7 @@ _ts EventHandler_Govt_Yuichiro_Lab_F54
     mov        lr,pc
     bx         r0
     bl         FUN_08033f04
-    bl         FUN_08033f50
+    bl         EventHandler_Govt_Yuichiro_Lab_F50_HandleExits
     pop        {pc}
 
 PTR_EventHandler_Govt_Yuichiro_Lab_F54_0_08033efc:
@@ -1138,7 +1138,7 @@ LAB_08033f4e:
     pop        {pc}
 
 
-_ts FUN_08033f50
+_ts EventHandler_Govt_Yuichiro_Lab_F50_HandleExits
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -1152,7 +1152,7 @@ _ts FUN_08033f50
     cmp        r0,#0x22
     bne        LAB_08033f78
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08033ff8
+    ldr        r0,PTR_Scene_Dialogue_08033ff8
     mov        r1,#0x1
     bl         Scene_Prepare
     pop        {r5}
@@ -1161,7 +1161,7 @@ LAB_08033f78:
     cmp        r0,#0x21
     bne        LAB_08033f8a
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08033ffc
+    ldr        r0,PTR_Scene_Dialogue_08033ffc
     mov        r1,#0x10
     bl         Scene_Prepare
     pop        {r5}
@@ -1235,11 +1235,11 @@ DAT_08033ff0:
 PTR_Scene_JackIn_08033ff4:
     .word Scene_JackIn
 
-PTR_Script_ShowDialogue_08033ff8:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08033ff8:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_08033ffc:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08033ffc:
+    .word Scene_Dialogue
 
 PTR_LAB_080918c0_08034000:
     .word 0x80918C1

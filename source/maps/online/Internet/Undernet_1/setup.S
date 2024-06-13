@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set Scene_LanCheckYourMail, 0x8085A78+1
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Undernet_1_S0
@@ -153,7 +153,7 @@ LAB_08052c4c:
     cmp        r0,#0x20
     bne        LAB_08052c62
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08052cf4
+    ldr        r0,PTR_Scene_Dialogue_08052cf4
     mov        r1,#0x1f
     bl         Scene_Prepare
     pop        {r5}
@@ -178,7 +178,7 @@ LAB_08052c62:
 LAB_08052c8a:
     mov        r1,#0xa
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08052cfc
+    ldr        r0,PTR_Scene_Dialogue_08052cfc
     bl         Scene_Prepare
     pop        {r5}
     b          LAB_08052ca2
@@ -248,14 +248,14 @@ PTR_BgTask_8051738_08052cec:
 PTR_Scene_UnlockWWWGate_08052cf0:
     .word 0x8086E19
 
-PTR_Script_ShowDialogue_08052cf4:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08052cf4:
+    .word Scene_Dialogue
 
 DAT_08052cf8:
     .word 0xA05
 
-PTR_Script_ShowDialogue_08052cfc:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08052cfc:
+    .word Scene_Dialogue
 
 PTR_FUN_08082de4_08052d00:
     .word 0x8082DE5

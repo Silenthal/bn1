@@ -4,7 +4,7 @@
 
     .set FUN_0808b688, 0x808B689
     .set LAB_0808a798, 0x808A799
-    .set Script_ShowDialogue, 0x80848FD
+    .set Scene_Dialogue, 0x80848FD
 
 
 _ts MapSetup_ACDC_Station_S2
@@ -600,7 +600,7 @@ _nt FUN_0802f602
     bne        LAB_0802f61a
     push       {r5}
     mov        r1,#0x11
-    ldr        r0,PTR_Script_ShowDialogue_0802f63c
+    ldr        r0,PTR_Scene_Dialogue_0802f63c
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f61a:
@@ -621,8 +621,8 @@ DAT_0802f634:
     .word 0x12C
 PTR_FUN_0808b688_0802f638:
     .word FUN_0808b688
-PTR_Script_ShowDialogue_0802f63c:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0802f63c:
+    .word Scene_Dialogue
 
 
 _ts MapSetup_ACDC_Station_S4

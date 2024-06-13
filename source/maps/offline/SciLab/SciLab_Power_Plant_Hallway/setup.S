@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_SciLab_Power_Plant_Hallway_S4
@@ -49,7 +49,7 @@ _ts EventHandler_SciLab_Power_Plant_Hallway_S4
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_0803c680
+    bl         EventHandler_SciLab_Power_Plant_Hallway_S4_HandleExits
     pop        {pc}
 
 PTR_EventHandler_Default_0803c59c:
@@ -182,7 +182,7 @@ _ts EventHandler_SciLab_Power_Plant_Hallway_F43_0
     pop        {pc}
 
 
-_ts FUN_0803c680
+_ts EventHandler_SciLab_Power_Plant_Hallway_S4_HandleExits
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -198,7 +198,7 @@ _ts FUN_0803c680
     cmp        r1,#0x43
     bhi        LAB_0803c6ac
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0803c720
+    ldr        r0,PTR_Scene_Dialogue_0803c720
     mov        r1,#0xe0
     bl         Scene_Prepare
     pop        {r5}
@@ -219,7 +219,7 @@ LAB_0803c6ba:
     cmp        r1,#0x41
     bne        LAB_0803c6d6
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0803c728
+    ldr        r0,PTR_Scene_Dialogue_0803c728
     mov        r1,#0xdc
     bl         Scene_Prepare
     pop        {r5}
@@ -272,14 +272,14 @@ PTR_NPCList_803D46C_0803c718:
 PTR_PTR_EventHandler_SciLab_Power_Plant_Hallway_F43_0_0803c71c:
     .word PTR_EventHandler_SciLab_Power_Plant_Hallway_F43_0_0803c678
 
-PTR_Script_ShowDialogue_0803c720:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0803c720:
+    .word Scene_Dialogue
 
 PTR_LAB_080918c0_0803c724:
     .word 0x80918C1
 
-PTR_Script_ShowDialogue_0803c728:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0803c728:
+    .word Scene_Dialogue
 
 PTR_FUN_08082de4_0803c72c:
     .word 0x8082DE5
@@ -314,7 +314,7 @@ _ts EventHandler_SciLab_Power_Plant_Hallway_S5
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_0803c7cc
+    bl         EventHandler_SciLab_Power_Plant_Hallway_S5_HandleExits
     pop        {pc}
 
 PTR_EventHandler_SciLab_Power_Plant_Hallway_F50_0803c774:
@@ -363,7 +363,7 @@ _ts EventHandler_SciLab_Power_Plant_Hallway_F50_0
     pop        {pc}
 
 
-_ts FUN_0803c7cc
+_ts EventHandler_SciLab_Power_Plant_Hallway_S5_HandleExits
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0

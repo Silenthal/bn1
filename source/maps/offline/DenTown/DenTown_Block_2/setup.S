@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_DenTown_Block_2_S3
@@ -269,7 +269,7 @@ LAB_080377a8:
     cmp        r1,#0x20
     bne        LAB_080377be
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08037858
+    ldr        r0,PTR_Scene_Dialogue_08037858
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -309,7 +309,7 @@ LAB_080377be:
     cmp        r1,#0x30
     bne        LAB_08037816
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08037860
+    ldr        r0,PTR_Scene_Dialogue_08037860
     mov        r1,#0x4
     bl         Scene_Prepare
     pop        {r5}
@@ -362,14 +362,14 @@ PTR_PTR_EventHandler_DenTown_Block_2_F35_0_08037850:
 PTR_LAB_0808d740_08037854:
     .word 0x808D741
 
-PTR_Script_ShowDialogue_08037858:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08037858:
+    .word Scene_Dialogue
 
 DAT_0803785c:
     .word 0x100
 
-PTR_Script_ShowDialogue_08037860:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08037860:
+    .word Scene_Dialogue
 
 PTR_Scene_JackIn_08037864:
     .word Scene_JackIn
@@ -473,7 +473,7 @@ LAB_08037924:
     cmp        r1,#0x20
     bne        LAB_0803793a
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0803799c
+    ldr        r0,PTR_Scene_Dialogue_0803799c
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -530,8 +530,8 @@ PTR_NPCList_80392E4_08037994:
 PTR_PTR_EventHandler_DenTown_Block_2_F40_0_08037998:
     .word PTR_EventHandler_DenTown_Block_2_F40_0_08037910
 
-PTR_Script_ShowDialogue_0803799c:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0803799c:
+    .word Scene_Dialogue
 
 DAT_080379a0:
     .word 0x100
@@ -652,7 +652,7 @@ LAB_08037a7c:
     cmp        r1,#0x20
     bne        LAB_08037a92
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08037af8
+    ldr        r0,PTR_Scene_Dialogue_08037af8
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -712,8 +712,8 @@ PTR_NPCList_8039358_08037af0:
 PTR_PTR_EventHandler_DenTown_Block_2_F50_0_08037af4:
     .word PTR_EventHandler_DenTown_Block_2_F50_0_08037a68
 
-PTR_Script_ShowDialogue_08037af8:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08037af8:
+    .word Scene_Dialogue
 
 DAT_08037afc:
     .word 0x100

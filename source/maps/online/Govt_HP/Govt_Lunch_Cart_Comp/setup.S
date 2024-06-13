@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Govt_Lunch_Cart_Comp_S2
@@ -112,7 +112,7 @@ _ts FUN_0804fb38
     push       {lr}
     push       {r5}
     mov        r1,#0x1
-    ldr        r0,PTR_Script_ShowDialogue_0804fb88
+    ldr        r0,PTR_Scene_Dialogue_0804fb88
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x4
@@ -161,5 +161,5 @@ PTR_DAT_0804fb80:
 PTR_PTR_FUN_0804fb38_0804fb84:
     .word PTR_FUN_0804fb38_0804fb2c
 
-PTR_Script_ShowDialogue_0804fb88:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0804fb88:
+    .word Scene_Dialogue

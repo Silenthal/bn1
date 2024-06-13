@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_DenTown_Center_S3
@@ -929,7 +929,7 @@ _nt EventHandler_DenTown_Center_F37_1
     tst        r0,r0
     beq        LAB_0803689c
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_080369d8
+    ldr        r0,PTR_Scene_Dialogue_080369d8
     mov        r1,#0x3c
     bl         Scene_Prepare
     pop        {r5}
@@ -1130,8 +1130,8 @@ PTR_EntityAllocParams_803A060_080369d0:
 PTR_PTR_EventHandler_DenTown_Center_F37_0_080369d4:
     .word PTR_EventHandler_DenTown_Center_F37_0_0803685c
 
-PTR_Script_ShowDialogue_080369d8:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080369d8:
+    .word Scene_Dialogue
 
 PTR_Scene_JackIn_080369dc:
     .word Scene_JackIn

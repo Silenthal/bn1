@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_DenTown_Station_S3
@@ -154,7 +154,7 @@ _ts FUN_08036db0
     bne        LAB_08036dc8
     push       {r5}
     mov        r1,#0x0
-    ldr        r0,PTR_Script_ShowDialogue_08036de8
+    ldr        r0,PTR_Scene_Dialogue_08036de8
     bl         Scene_Prepare
     pop        {r5}
 LAB_08036dc8:
@@ -183,8 +183,8 @@ PTR_PTR_EventHandler_DenTown_Station_F30_0_08036de0:
 PTR_FUN_0808b688_08036de4:
     .word 0x808B689
 
-PTR_Script_ShowDialogue_08036de8:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08036de8:
+    .word Scene_Dialogue
 
 
 _ts MapSetup_DenTown_Station_S5
@@ -318,7 +318,7 @@ _ts FUN_08036ee4
     bne        LAB_08036efc
     push       {r5}
     mov        r1,#0x0
-    ldr        r0,PTR_Script_ShowDialogue_08036f20
+    ldr        r0,PTR_Scene_Dialogue_08036f20
     bl         Scene_Prepare
     pop        {r5}
 LAB_08036efc:
@@ -350,5 +350,5 @@ PTR_PTR_EventHandler_DenTown_Station_F50_0_08036f18:
 PTR_FUN_0808b688_08036f1c:
     .word 0x808B689
 
-PTR_Script_ShowDialogue_08036f20:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08036f20:
+    .word Scene_Dialogue

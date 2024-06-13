@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Traffic_Light_Comp_5_S3
@@ -263,7 +263,7 @@ _nt EventHandler_Traffic_Light_Comp_5_F36_2
     bl         Flag_GetBase
     beq        LAB_08048d86
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08048f6c
+    ldr        r0,PTR_Scene_Dialogue_08048f6c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -447,7 +447,7 @@ _ts FUN_08048eac
     bl         dummy_187a0
     bne        LAB_08048ee2
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08048f94
+    ldr        r0,PTR_Scene_Dialogue_08048f94
     mov        r1,#0xd
     bl         Scene_Prepare
     pop        {r5}
@@ -463,7 +463,7 @@ _ts FUN_08048ee4
     cmp        r0,#0x20
     bne        LAB_08048efc
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08048f98
+    ldr        r0,PTR_Scene_Dialogue_08048f98
     mov        r1,#0x9
     bl         Scene_Prepare
     pop        {r5}
@@ -471,7 +471,7 @@ LAB_08048efc:
     cmp        r0,#0x21
     bne        LAB_08048f0c
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08048f9c
+    ldr        r0,PTR_Scene_Dialogue_08048f9c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -479,7 +479,7 @@ LAB_08048f0c:
     cmp        r0,#0x22
     bne        LAB_08048f1c
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08048fa0
+    ldr        r0,PTR_Scene_Dialogue_08048fa0
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -487,7 +487,7 @@ LAB_08048f1c:
     cmp        r0,#0x23
     bne        LAB_08048f2c
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08048fa4
+    ldr        r0,PTR_Scene_Dialogue_08048fa4
     mov        r1,#0x6
     bl         Scene_Prepare
     pop        {r5}
@@ -541,8 +541,8 @@ PTR_FUN_0808de30_08048f64:
 PTR_FUN_08087e34_08048f68:
     .word 0x8087E35
 
-PTR_Script_ShowDialogue_08048f6c:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08048f6c:
+    .word Scene_Dialogue
 
 PTR_FUN_08087e34_08048f70:
     .word 0x8087E35
@@ -571,20 +571,20 @@ PTR_PTR_EventHandler_Traffic_Light_Comp_5_F37_0_08048f8c:
 PTR_LAB_0808e808_08048f90:
     .word 0x808E809
 
-PTR_Script_ShowDialogue_08048f94:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08048f94:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_08048f98:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08048f98:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_08048f9c:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08048f9c:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_08048fa0:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08048fa0:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_08048fa4:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08048fa4:
+    .word Scene_Dialogue
 
 
 _ts MapSetup_Traffic_Light_Comp_5_S4

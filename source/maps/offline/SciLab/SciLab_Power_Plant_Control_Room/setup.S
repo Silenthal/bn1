@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_SciLab_Power_Plant_Control_Room_S4
@@ -224,7 +224,7 @@ _ts FUN_0803cd10
     cmp        r0,#0x20
     bne        LAB_0803cd32
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0803cddc
+    ldr        r0,PTR_Scene_Dialogue_0803cddc
     mov        r1,#0xde
     bl         Scene_Prepare
     pop        {r5}
@@ -325,8 +325,8 @@ PTR_FUN_0809073c_0803cdd4:
 PTR_PTR_EventHandler_SciLab_Power_Plant_Control_Room_F43_0_0803cdd8:
     .word PTR_EventHandler_SciLab_Power_Plant_Control_Room_F43_0_0803cd08
 
-PTR_Script_ShowDialogue_0803cddc:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0803cddc:
+    .word Scene_Dialogue
 
 DAT_0803cde0:
     .word 0x100
@@ -430,7 +430,7 @@ _ts FUN_0803ce90
     cmp        r0,#0x20
     bne        LAB_0803ceb2
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0803cf08
+    ldr        r0,PTR_Scene_Dialogue_0803cf08
     mov        r1,#0xde
     bl         Scene_Prepare
     pop        {r5}
@@ -482,8 +482,8 @@ PTR_NPCList_803D5F8_0803cf00:
 PTR_PTR_EventHandler_SciLab_Power_Plant_Control_Room_F50_0_0803cf04:
     .word PTR_EventHandler_SciLab_Power_Plant_Control_Room_F50_0_0803ce88
 
-PTR_Script_ShowDialogue_0803cf08:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0803cf08:
+    .word Scene_Dialogue
 
 DAT_0803cf0c:
     .word 0x100

@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Undernet_2_S0
@@ -119,7 +119,7 @@ _ts EventHandler_Undernet_2_0
 LAB_08052de6:
     mov        r1,#0xa
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08052e78
+    ldr        r0,PTR_Scene_Dialogue_08052e78
     bl         Scene_Prepare
     pop        {r5}
     b          LAB_08052dfe
@@ -202,8 +202,8 @@ PTR_PTR_EventHandler_Undernet_2_0_08052e70:
 DAT_08052e74:
     .word 0xA05
 
-PTR_Script_ShowDialogue_08052e78:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08052e78:
+    .word Scene_Dialogue
 
 PTR_FUN_08082de4_08052e7c:
     .word 0x8082DE5

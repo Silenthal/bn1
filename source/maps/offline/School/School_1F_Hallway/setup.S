@@ -177,7 +177,7 @@ _nt EventHandler_School_1F_Hallway_F14
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08027916
+    bl         EventHandler_School_1F_Hallway_F14_HandleExits
     pop        {pc}
 
     .align 2, 0
@@ -276,7 +276,7 @@ _ts EventHandler_School_1F_Hallway_F15
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08027916
+    bl         EventHandler_School_1F_Hallway_F14_HandleExits
     pop        {pc}
 PTR_EventHandler_School_1F_Hallway_F15_0_080278bc:
     .word EventHandler_School_1F_Hallway_F15_0
@@ -330,7 +330,7 @@ _nt EventHandler_School_1F_Hallway_F15_2
     pop        {pc}
 
 
-_nt FUN_08027916
+_nt EventHandler_School_1F_Hallway_F14_HandleExits
     bl         Scene_IsSceneActive
     tst        r0,r0
     pop        {r1}

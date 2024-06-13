@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Undernet_6_S0
@@ -270,7 +270,7 @@ _nt EventHandler_Undernet_SkillGatePass
     cmp        r2,r0
     bne        LAB_08053474
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_080534d4
+    ldr        r0,PTR_Scene_Dialogue_080534d4
     bl         Scene_Prepare
     pop        {r5}
 LAB_08053474:
@@ -344,8 +344,8 @@ PTR_Scene_UnlockWWWGate_080534cc:
 PTR_Scene_UnlockWWWGate_080534d0:
     .word 0x8086E19
 
-PTR_Script_ShowDialogue_080534d4:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080534d4:
+    .word Scene_Dialogue
 
 PTR_Scene_SkillGate_080534d8:
     .word 0x8085BB9

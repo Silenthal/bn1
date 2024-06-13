@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Govt_Waterworks_Lobby_S2
@@ -324,7 +324,7 @@ _ts FUN_080329d0
     bl         KeyItem_IsPresent
     bne        LAB_080329fa
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08032a78
+    ldr        r0,PTR_Scene_Dialogue_08032a78
     mov        r1,#0x7
     bl         Scene_Prepare
     pop        {r5}
@@ -411,8 +411,8 @@ PTR_EntityAllocParams_8035C44_08032a70:
 PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F26_0_08032a74:
     .word PTR_EventHandler_Govt_Waterworks_Lobby_F26_0_080329c8
 
-PTR_Script_ShowDialogue_08032a78:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08032a78:
+    .word Scene_Dialogue
 
 PTR_FUN_08087e34_08032a7c:
     .word 0x8087E35
@@ -530,7 +530,7 @@ _ts FUN_08032b50
     bl         KeyItem_IsPresent
     bne        LAB_08032b7a
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08032bcc
+    ldr        r0,PTR_Scene_Dialogue_08032bcc
     mov        r1,#0x7
     bl         Scene_Prepare
     pop        {r5}
@@ -584,8 +584,8 @@ PTR_NPCList_8035158_08032bc4:
 PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F30_0_08032bc8:
     .word PTR_EventHandler_Govt_Waterworks_Lobby_F30_0_08032b48
 
-PTR_Script_ShowDialogue_08032bcc:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08032bcc:
+    .word Scene_Dialogue
 
 PTR_FUN_08087e34_08032bd0:
     .word 0x8087E35
@@ -703,7 +703,7 @@ _ts FUN_08032ca4
     bl         KeyItem_IsPresent
     bne        LAB_08032cce
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08032d20
+    ldr        r0,PTR_Scene_Dialogue_08032d20
     mov        r1,#0x7
     bl         Scene_Prepare
     pop        {r5}
@@ -757,8 +757,8 @@ PTR_NPCList_8035158_08032d18:
 PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F40_0_08032d1c:
     .word PTR_EventHandler_Govt_Waterworks_Lobby_F40_0_08032c9c
 
-PTR_Script_ShowDialogue_08032d20:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08032d20:
+    .word Scene_Dialogue
 
 PTR_FUN_08087e34_08032d24:
     .word 0x8087E35
@@ -912,7 +912,7 @@ _ts FUN_08032e38
     bl         KeyItem_IsPresent
     bne        LAB_08032e62
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08032ec0
+    ldr        r0,PTR_Scene_Dialogue_08032ec0
     mov        r1,#0x7
     bl         Scene_Prepare
     pop        {r5}
@@ -975,8 +975,8 @@ PTR_EntityAllocParams_8035C44_08032eb8:
 PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F53_0_08032ebc:
     .word PTR_EventHandler_Govt_Waterworks_Lobby_F53_0_08032e30
 
-PTR_Script_ShowDialogue_08032ec0:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08032ec0:
+    .word Scene_Dialogue
 
 PTR_FUN_08087e34_08032ec4:
     .word 0x8087E35

@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Internet_3_S0
@@ -192,7 +192,7 @@ LAB_08052796:
     bl         Flag_GetBase
     bne        LAB_080527b4
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_080528d8
+    ldr        r0,PTR_Scene_Dialogue_080528d8
     mov        r1,#0x15
     bl         Scene_Prepare
     pop        {r5}
@@ -279,7 +279,7 @@ LAB_08052848:
     b          LAB_0805286a
 LAB_08052858:
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_080528ec
+    ldr        r0,PTR_Scene_Dialogue_080528ec
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x1
@@ -362,8 +362,8 @@ PTR_BgTask_8051738_080528d0:
 PTR_FUN_080857b8_080528d4:
     .word 0x80857B9
 
-PTR_Script_ShowDialogue_080528d8:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080528d8:
+    .word Scene_Dialogue
 
 DAT_080528dc:
     .word 0xA00
@@ -377,8 +377,8 @@ DAT_080528e4:
 PTR_DAT_080528e8:
     .word 0x1305
 
-PTR_Script_ShowDialogue_080528ec:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080528ec:
+    .word Scene_Dialogue
 
 PTR_FUN_08082de4_080528f0:
     .word 0x8082DE5

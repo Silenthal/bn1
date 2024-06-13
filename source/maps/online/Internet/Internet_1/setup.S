@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Internet_1_S0
@@ -361,7 +361,7 @@ LAB_080521a6:
     mov        r1,#0x12
 LAB_080521a8:
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08052278
+    ldr        r0,PTR_Scene_Dialogue_08052278
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x1
@@ -488,8 +488,8 @@ DAT_08052270:
 PTR_DAT_08052274:
     .word 0x1205
 
-PTR_Script_ShowDialogue_08052278:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08052278:
+    .word Scene_Dialogue
 
 DAT_0805227c:
     .word 0x8082DE5

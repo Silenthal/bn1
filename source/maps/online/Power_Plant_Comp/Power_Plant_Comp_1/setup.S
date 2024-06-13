@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Power_Plant_Comp_1_S4
@@ -263,7 +263,7 @@ LAB_0804a4ca:
     mov        r0,#0x0
     pop        {r5,pc}
 LAB_0804a4f0:
-    ldr        r0,PTR_Script_ShowDialogue_0804a554
+    ldr        r0,PTR_Scene_Dialogue_0804a554
     mov        r1,#0xb3
     bl         Scene_Prepare
     mov        r0,#0x0
@@ -335,8 +335,8 @@ PTR_FUN_08092ab8_0804a54c:
 PTR_FUN_0809272c_0804a550:
     .word 0x809272D
 
-PTR_Script_ShowDialogue_0804a554:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0804a554:
+    .word Scene_Dialogue
 
 
 _ts MapSetup_Power_Plant_Comp_1_S5
@@ -520,7 +520,7 @@ _ts FUN_0804a6e0
     blt        LAB_0804a718
     cmp        r1,#0x28
     bgt        LAB_0804a718
-    ldr        r0,PTR_Script_ShowDialogue_0804a770
+    ldr        r0,PTR_Scene_Dialogue_0804a770
     mov        r1,#0xf2
     bl         Scene_Prepare
     mov        r0,#0x0
@@ -530,7 +530,7 @@ LAB_0804a718:
     blt        LAB_0804a72c
     cmp        r1,#0xcf
     bgt        LAB_0804a72c
-    ldr        r0,PTR_Script_ShowDialogue_0804a774
+    ldr        r0,PTR_Scene_Dialogue_0804a774
     mov        r1,#0xf6
     bl         Scene_Prepare
     mov        r0,#0x0
@@ -587,8 +587,8 @@ PTR_DAT_0804a768:
 PTR_PTR_EventHandler_Power_Plant_Comp_1_F50_0_0804a76c:
     .word PTR_EventHandler_Power_Plant_Comp_1_F50_0_0804a6d0
 
-PTR_Script_ShowDialogue_0804a770:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0804a770:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_0804a774:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0804a774:
+    .word Scene_Dialogue

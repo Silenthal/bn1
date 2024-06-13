@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_Govt_SciLab_Lobby_S2
@@ -104,7 +104,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F22
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08033060
+    bl         EventHandler_Govt_SciLab_Lobby_F22_HandleExits
     pop        {pc}
 
 PTR_EventHandler_Govt_SciLab_Lobby_F22_0_08032fb0:
@@ -150,7 +150,7 @@ _nt EventHandler_Govt_SciLab_Lobby_F24
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08033060
+    bl         EventHandler_Govt_SciLab_Lobby_F22_HandleExits
     pop        {pc}
 
     .align 2, 0
@@ -196,7 +196,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F25
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08033060
+    bl         EventHandler_Govt_SciLab_Lobby_F22_HandleExits
     pop        {pc}
 
 PTR_EventHandler_Govt_SciLab_Lobby_F25_0_08033058:
@@ -208,7 +208,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F25_0
     pop        {pc}
 
 
-_ts FUN_08033060
+_ts EventHandler_Govt_SciLab_Lobby_F22_HandleExits
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -225,7 +225,7 @@ _ts FUN_08033060
     bl         KeyItem_IsPresent
     bne        LAB_08033092
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08033104
+    ldr        r0,PTR_Scene_Dialogue_08033104
     mov        r1,#0x4
     bl         Scene_Prepare
     pop        {r5}
@@ -301,8 +301,8 @@ PTR_NPCList_8035594_080330fc:
 PTR_PTR_EventHandler_Govt_SciLab_Lobby_F25_0_08033100:
     .word PTR_EventHandler_Govt_SciLab_Lobby_F25_0_08033058
 
-PTR_Script_ShowDialogue_08033104:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08033104:
+    .word Scene_Dialogue
 
 PTR_FUN_08087e34_08033108:
     .word 0x8087E35
@@ -391,7 +391,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F30
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_080331d4
+    bl         EventHandler_Govt_SciLab_Lobby_F30_HandleExits
     pop        {pc}
 
 PTR_EventHandler_Govt_SciLab_Lobby_F30_0_080331cc:
@@ -403,7 +403,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F30_0
     pop        {pc}
 
 
-_ts FUN_080331d4
+_ts EventHandler_Govt_SciLab_Lobby_F30_HandleExits
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -417,7 +417,7 @@ _ts FUN_080331d4
     bl         KeyItem_IsPresent
     bne        LAB_080331fe
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08033250
+    ldr        r0,PTR_Scene_Dialogue_08033250
     mov        r1,#0x4
     bl         Scene_Prepare
     pop        {r5}
@@ -471,8 +471,8 @@ PTR_NPCList_803549C_08033248:
 PTR_PTR_EventHandler_Govt_SciLab_Lobby_F30_0_0803324c:
     .word PTR_EventHandler_Govt_SciLab_Lobby_F30_0_080331cc
 
-PTR_Script_ShowDialogue_08033250:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08033250:
+    .word Scene_Dialogue
 
 PTR_FUN_08087e34_08033254:
     .word 0x8087E35
@@ -584,7 +584,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_080333b4
+    bl         EventHandler_Govt_SciLab_Lobby_F40_HandleExits
     pop        {pc}
 
 PTR_EventHandler_Govt_SciLab_Lobby_F40_0_08033348:
@@ -645,7 +645,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40_2
     pop        {pc}
 
 
-_ts FUN_080333b4
+_ts EventHandler_Govt_SciLab_Lobby_F40_HandleExits
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -811,7 +811,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F50
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08033550
+    bl         EventHandler_Govt_SciLab_Lobby_F50_HandleExits
     pop        {pc}
 
 PTR_EventHandler_Govt_SciLab_Lobby_F50_0_08033500:
@@ -851,7 +851,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F53
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08033550
+    bl         EventHandler_Govt_SciLab_Lobby_F50_HandleExits
     pop        {pc}
 
 PTR_EventHandler_Govt_SciLab_Lobby_F53_0_08033548:
@@ -863,7 +863,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F53_0
     pop        {pc}
 
 
-_ts FUN_08033550
+_ts EventHandler_Govt_SciLab_Lobby_F50_HandleExits
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -877,7 +877,7 @@ _ts FUN_08033550
     bl         KeyItem_IsPresent
     bne        LAB_0803357a
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_080335d8
+    ldr        r0,PTR_Scene_Dialogue_080335d8
     mov        r1,#0x4
     bl         Scene_Prepare
     pop        {r5}
@@ -940,8 +940,8 @@ PTR_EntityAllocParams_8035C70_080335d0:
 PTR_PTR_EventHandler_Govt_SciLab_Lobby_F53_0_080335d4:
     .word PTR_EventHandler_Govt_SciLab_Lobby_F53_0_08033548
 
-PTR_Script_ShowDialogue_080335d8:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080335d8:
+    .word Scene_Dialogue
 
 PTR_LAB_080918c0_080335dc:
     .word 0x80918C1

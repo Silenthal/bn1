@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_DenTown_Block_1_S3
@@ -390,7 +390,7 @@ LAB_08037228:
     cmp        r1,#0x20
     bne        LAB_0803723e
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08037304
+    ldr        r0,PTR_Scene_Dialogue_08037304
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -431,14 +431,14 @@ LAB_0803723e:
     bl         Flag_GetBase
     bne        LAB_0803729c
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0803730c
+    ldr        r0,PTR_Scene_Dialogue_0803730c
     mov        r1,#0x4
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
 LAB_0803729c:
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08037310
+    ldr        r0,PTR_Scene_Dialogue_08037310
     mov        r1,#0xb
     bl         Scene_Prepare
     pop        {r5}
@@ -509,17 +509,17 @@ PTR_PTR_EventHandler_DenTown_Block_1_F32_0_080372fc:
 PTR_LAB_0808cd38_08037300:
     .word 0x808CD39
 
-PTR_Script_ShowDialogue_08037304:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08037304:
+    .word Scene_Dialogue
 
 DAT_08037308:
     .word 0x100
 
-PTR_Script_ShowDialogue_0803730c:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0803730c:
+    .word Scene_Dialogue
 
-PTR_Script_ShowDialogue_08037310:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08037310:
+    .word Scene_Dialogue
 
 PTR_Scene_JackIn_08037314:
     .word Scene_JackIn
@@ -623,7 +623,7 @@ LAB_080373d4:
     cmp        r1,#0x20
     bne        LAB_080373ea
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0803744c
+    ldr        r0,PTR_Scene_Dialogue_0803744c
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -680,8 +680,8 @@ PTR_NPCList_803909C_08037444:
 PTR_PTR_EventHandler_DenTown_Block_1_F40_0_08037448:
     .word PTR_EventHandler_DenTown_Block_1_F40_0_080373c0
 
-PTR_Script_ShowDialogue_0803744c:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0803744c:
+    .word Scene_Dialogue
 
 DAT_08037450:
     .word 0x100
@@ -802,7 +802,7 @@ LAB_0803752c:
     cmp        r1,#0x20
     bne        LAB_08037542
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_080375a8
+    ldr        r0,PTR_Scene_Dialogue_080375a8
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -862,8 +862,8 @@ PTR_NPCList_80391CC_080375a0:
 PTR_PTR_EventHandler_DenTown_Block_1_F50_0_080375a4:
     .word PTR_EventHandler_DenTown_Block_1_F50_0_08037518
 
-PTR_Script_ShowDialogue_080375a8:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080375a8:
+    .word Scene_Dialogue
 
 DAT_080375ac:
     .word 0x100

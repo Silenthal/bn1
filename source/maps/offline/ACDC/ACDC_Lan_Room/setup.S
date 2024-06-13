@@ -7,7 +7,7 @@
     .set Scene_JackIn, 0x8083EED
     .set FUN_08082de4, 0x8082DE5
     .set LAB_080886c4, 0x80886C5
-    .set Script_ShowDialogue, 0x80848FD
+    .set Scene_Dialogue, 0x80848FD
 
 
 _ts MapSetup_ACDC_Lan_Room_S0
@@ -230,7 +230,7 @@ _ts EventHandler_ACDC_Lan_Room_F00_3
     bl         Text_CheckOption
     bne        LAB_0802cc24
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0802cf30
+    ldr        r0,PTR_Scene_Dialogue_0802cf30
     mov        r1,#0x7
     bl         Scene_Prepare
     pop        {r5}
@@ -625,7 +625,7 @@ _ts FUN_0802ced4
     cmp        r0,#0x40
     bne        LAB_0802cf14
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0802cf84
+    ldr        r0,PTR_Scene_Dialogue_0802cf84
     add        r1,r7,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -647,8 +647,8 @@ DAT_0802cf28:
     .word 0x108
 DAT_0802cf2c:
     .word 0x100
-PTR_Script_ShowDialogue_0802cf30:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0802cf30:
+    .word Scene_Dialogue
 PTR_DAT_0802cf34:
     .word EntityAllocParams_8030F60
 PTR_BgTask_802CF38:
@@ -689,8 +689,8 @@ DAT_0802cf7c:
     .word 0x80848FD
 PTR_Scene_JackIn_0802cf80:
     .word Scene_JackIn
-PTR_Script_ShowDialogue_0802cf84:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0802cf84:
+    .word Scene_Dialogue
 
 
 _ts MapSetup_ACDC_Lan_Room_S2

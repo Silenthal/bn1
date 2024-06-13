@@ -252,7 +252,7 @@ LAB_0804ad5e:
     mov        r1,#0x0
 LAB_0804ad60:
     push       {r5}
-    ldr        r0,PTR_FUN_080919d8_0804ae38
+    ldr        r0,PTR_Scene_RechargeSuccess_0804ae38
     bl         Scene_Prepare
     pop        {r5}
     b          LAB_0804ad8c
@@ -386,7 +386,7 @@ PTR_FUN_08091b70_0804ae30:
 PTR_NPCList_804B888_0804ae34:
     .word NPCList_804B888
 
-PTR_FUN_080919d8_0804ae38:
+PTR_Scene_RechargeSuccess_0804ae38:
     .word 0x80919D9
 
 PTR_FUN_08084070_0804ae3c:

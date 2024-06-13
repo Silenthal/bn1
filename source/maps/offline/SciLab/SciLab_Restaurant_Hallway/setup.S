@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 _ts MapSetup_SciLab_Restaurant_Hallway_S4
     push       {lr}
@@ -56,7 +56,7 @@ _ts EventHandler_SciLab_Restaurant_Hallway_S4
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_0803c070
+    bl         EventHandler_SciLab_Restaurant_Hallway_S4_HandleExits
     pop        {pc}
 
 PTR_EventHandler_SciLab_Restaurant_Hallway_F40_0803bfc8:
@@ -152,7 +152,7 @@ _ts EventHandler_SciLab_Restaurant_Hallway_F41_0
     pop        {pc}
 
 
-_ts FUN_0803c070
+_ts EventHandler_SciLab_Restaurant_Hallway_S4_HandleExits
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -168,7 +168,7 @@ _ts FUN_0803c070
     cmp        r1,#0x41
     bne        LAB_0803c09c
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_0803c110
+    ldr        r0,PTR_Scene_Dialogue_0803c110
     mov        r1,#0x6
     bl         Scene_Prepare
     pop        {r5}
@@ -241,8 +241,8 @@ PTR_NPCList_803D20C_0803c108:
 PTR_PTR_EventHandler_SciLab_Restaurant_Hallway_F41_0_0803c10c:
     .word PTR_EventHandler_SciLab_Restaurant_Hallway_F41_0_0803c068
 
-PTR_Script_ShowDialogue_0803c110:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_0803c110:
+    .word Scene_Dialogue
 
 PTR_LAB_080918c0_0803c114:
     .word 0x80918C1
@@ -286,7 +286,7 @@ _ts EventHandler_SciLab_Restaurant_Hallway_S5
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_0803c1cc
+    bl         EventHandler_SciLab_Restaurant_Hallway_S5_HandleExits
     pop        {pc}
 
 PTR_EventHandler_SciLab_Restaurant_Hallway_F50_0803c16c:
@@ -339,7 +339,7 @@ _ts EventHandler_SciLab_Restaurant_Hallway_F50_0
     pop        {pc}
 
 
-_ts FUN_0803c1cc
+_ts EventHandler_SciLab_Restaurant_Hallway_S5_HandleExits
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0

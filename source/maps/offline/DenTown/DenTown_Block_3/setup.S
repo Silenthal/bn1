@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set Scene_JackIn, 0x8083EEC+1
-    .set Script_ShowDialogue, 0x80848FC+1
+    .set Scene_Dialogue, 0x80848FC+1
 
 
 _ts MapSetup_DenTown_Block_3_S3
@@ -350,7 +350,7 @@ LAB_08037daa:
     cmp        r1,#0x20
     bne        LAB_08037dc0
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08037e30
+    ldr        r0,PTR_Scene_Dialogue_08037e30
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -431,8 +431,8 @@ PTR_Scene_JackIn_08037e28:
 DAT_08037e2c:
     .word 0x100
 
-PTR_Script_ShowDialogue_08037e30:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08037e30:
+    .word Scene_Dialogue
 
 PTR_FUN_08082de4_08037e34:
     .word 0x8082DE5
@@ -582,7 +582,7 @@ LAB_08037f54:
     cmp        r1,#0x20
     bne        LAB_08037f6a
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_08037f88
+    ldr        r0,PTR_Scene_Dialogue_08037f88
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -610,8 +610,8 @@ DAT_08037f80:
 PTR_Scene_JackIn_08037f84:
     .word Scene_JackIn
 
-PTR_Script_ShowDialogue_08037f88:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_08037f88:
+    .word Scene_Dialogue
 
 
 _ts MapSetup_DenTown_Block_3_S5
@@ -860,7 +860,7 @@ LAB_08038174:
     cmp        r1,#0x20
     bne        LAB_0803818a
     push       {r5}
-    ldr        r0,PTR_Script_ShowDialogue_080381c4
+    ldr        r0,PTR_Scene_Dialogue_080381c4
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -909,5 +909,5 @@ DAT_080381bc:
 PTR_Scene_JackIn_080381c0:
     .word Scene_JackIn
 
-PTR_Script_ShowDialogue_080381c4:
-    .word Script_ShowDialogue
+PTR_Scene_Dialogue_080381c4:
+    .word Scene_Dialogue
