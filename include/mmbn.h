@@ -154,6 +154,8 @@ typedef struct ActorAttributes_ElecMan ActorAttributes_ElecMan, *PActorAttribute
 
 typedef struct ActorAttributes_ProtoMan ActorAttributes_ProtoMan, *PActorAttributes_ProtoMan;
 
+typedef struct ActorAttributes_LifeVirus ActorAttributes_LifeVirus, *PActorAttributes_LifeVirus;
+
 typedef enum SpriteFlag {
     SF_NoMiniAnimation=1,
     SF_TilesetLoaded=2,
@@ -179,9 +181,9 @@ typedef struct FieldObject FieldObject, *PFieldObject;
 
 typedef struct Attack Attack, *PAttack;
 
-typedef struct Tile Tile, *PTile;
-
 typedef struct Effect Effect, *PEffect;
+
+typedef struct Tile Tile, *PTile;
 
 typedef enum PanelFlag {
     PF_Walkable=1,
@@ -276,26 +278,68 @@ typedef enum SpriteIndex {
     SP_Battle_Mettaur=1,
     SP_Battle_WoodMan=2,
     SP_Overworld_Lan=3,
+    SP_Overworld_Yai=4,
+    SP_Overworld_Dex=5,
+    SP_Overworld_Mari=6,
+    SP_Overworld_Masa=7,
     SP_Overworld_MegaMan=8,
+    SP_Overworld_Higsby=9,
+    SP_Overworld_Chaud=10,
+    SP_Overworld_YoungBoy=11,
+    SP_Overworld_PreschoolBoy=12,
     SP_Overworld_BrownCar=13,
+    SP_Overworld_WoodMan=14,
     SP_Overworld_Mayl=15,
     SP_Battle_Canodumb=16,
     SP_Battle_FireMan=17,
     SP_Overworld_LanBed=18,
+    SP_Overworld_Haruka=19,
     SP_Battle_Vulgear=20,
+    SP_Overworld_Match=21,
+    SP_Overworld_Prog=22,
+    SP_Overworld_FireMan=23,
+    SP_Overworld_OldMan=24,
+    SP_Overworld_WomanApron=25,
+    SP_Overworld_ManTie=26,
+    SP_Overworld_WomanSkirt=27,
+    SP_Overworld_PreschoolGirl=28,
+    SP_Overworld_YoungGirl=29,
+    SP_Overworld_ManGreen=30,
     SP_Battle_Beetank=31,
     SP_Battle_Spooky=32,
     SP_Battle_Flappy=33,
     SP_Battle_GutsMan=34,
+    SP_Overworld_NumberMan=35,
     SP_Battle_NumberMan=36,
     SP_Battle_HardHead=37,
     SP_Battle_Fishy=38,
     SP_Battle_Puffy=39,
+    SP_Battle_Swordy=40,
     SP_Battle_Handy=41,
     SP_Battle_IceMan=42,
+    SP_Overworld_Conductor=43,
+    SP_Overworld_Sal=44,
+    SP_Overworld_ManGovt=45,
+    SP_Overworld_Madd=46,
+    SP_Overworld_ManJacket=47,
+    SP_Overworld_WomanJacket=48,
+    SP_Overworld_Scientist=49,
+    SP_Overworld_NormalNavi=50,
+    SP_Overworld_NormalNavi2=51,
+    SP_Overworld_StoneMan=52,
+    SP_Overworld_ColdMan=53,
+    SP_Overworld_ColorMan=54,
+    SP_Overworld_ProtoMan=55,
+    SP_Overworld_Glyde=56,
+    SP_Overworld_Roll=57,
     SP_Battle_StoneMan=58,
     SP_Battle_Piranha=59,
+    SP_Battle_Cloudy=60,
+    SP_Battle_ColdBear=61,
+    SP_Overworld_Yuichiro=62,
     SP_Battle_Froshell=63,
+    SP_Overworld_OldWoman=64,
+    SP_Battle_Ratty=65,
     SP_Battle_Jelly=66,
     SP_Battle_Miney=67,
     SP_Battle_Ammonicule=68,
@@ -308,18 +352,32 @@ typedef enum SpriteIndex {
     SP_BattleObject_Remobit=75,
     SP_Battle_Popper=76,
     SP_Battle_Gaia=77,
+    SP_Overworld_Wily=78,
+    SP_Overworld_Yahoot=79,
+    SP_Overworld_CountZap=80,
     SP_Battle_MagicMan=81,
     SP_Battle_Satella=82,
     SP_Battle_Megalian=83,
+    SP_Overworld_Miyu=84,
+    SP_Overworld_WomanPurple=85,
+    SP_Overworld_Waitress=86,
+    SP_Overworld_ElecMan=87,
+    SP_Overworld_BombMan=88,
     SP_Battle_SharkMan=89,
     SP_Battle_ElecMan=90,
     SP_Battle_BombMan=91,
+    SP_Overworld_Prog2=92,
+    SP_Overworld_GutsMan=93,
+    SP_Overworld_MagicMan=94,
     SP_Battle_Fanner=95,
     SP_Battle_CanDevil=96,
+    SP_Battle_PharaohMan=97,
     SP_Battle_ShadowMan=98,
     SP_Battle_Roll=99,
     SP_Battle_BigSnakeHead=100,
     SP_Battle_Mole=101,
+    SP_Overworld_Prog3=102,
+    SP_Battle_Poitton=103,
     SP_Battle_LifeVirus=104,
     SP_Battle_Mosqurito=105,
     SP_Battle_DarkBass=106,
@@ -329,7 +387,9 @@ typedef enum SpriteIndex {
     SP_BattleObject_MiniBomb=110,
     SP_BattleObject_MetGuard=111,
     SP_BattleObject_Barrier=112,
+    SP_BattleObject_WoodTower1=113,
     SP_BattleEffect_Charging=114,
+    SP_BattleEffect_ShockWave=115,
     SP_BattleEffect_XPanel=116,
     SP_BattleObject_BurnerBomb=117,
     SP_BattleObject_FireTower=118,
@@ -337,10 +397,12 @@ typedef enum SpriteIndex {
     SP_BattleEffect_BubblerHit=120,
     SP_BattleEffect_SwordSlash=121,
     SP_BattleObject_AquaTower=123,
+    SP_BattleEffect_FireTowerFist=124,
     SP_BattleObject_WoodTower=125,
     SP_BattleEffect_PanelGrab=126,
     SP_BattleEffect_HeaterHit=127,
-    SP_Effect_NumberManChargingHands=130,
+    SP_BattleEffect_PoweredCannon=128,
+    SP_BattleEffect_NumberManChargingHands=130,
     SP_BattleObject_NumberBall=131,
     SP_BattleObject_TimeBomb=132,
     SP_BattleObject_DieBomb=133,
@@ -354,6 +416,7 @@ typedef enum SpriteIndex {
     SP_BattleObject_Arrow=142,
     SP_BattleObject_ArrowTarget=143,
     SP_BattleObject_Cloud=144,
+    SP_BattleEffect_CloudyRain=145,
     SP_Attack_FireSwrd=146,
     SP_Attack_ElecSwrd=147,
     SP_Attack_AquaSwrd=148,
@@ -376,6 +439,7 @@ typedef enum SpriteIndex {
     SP_BattleObject_Electrode=169,
     SP_BattleEffect_SparkStrike=170,
     SP_BattleObject_BombShoot=171,
+    SP_BattleEffect_Tornado=172,
     SP_BattleObject_Candle=173,
     SP_BattleEffect_PharaohManCurse=174,
     SP_BattleObject_PharaohTrap=175,
@@ -391,6 +455,7 @@ typedef enum SpriteIndex {
     SP_Battle_BigSnakeBody=189,
     SP_BattleObject_Snake=190,
     SP_BattleObject_Egg=191,
+    SP_DynamyteRedDot=194,
     SP_BattleObject_Scuttlest=197,
     SP_BattleEffect_LifeVirusSword=198,
     SP_BattleObject_RollHeart=199,
@@ -410,7 +475,10 @@ typedef enum SpriteIndex {
     SP_MegaManDeleteGreenCircle=219,
     SP_Effect_CanodumbTarget=220,
     SP_Overworld_HouseControlPanel=223,
+    SP_Overworld_PET=224,
     SP_BattleEffect_Glint=226,
+    SP_BattleEffect_Meteor_Fire=228,
+    SP_BattleObject_Meteor=229,
     SP_BattleEffect_Recover=230,
     SP_Effect_TeleportMove=231,
     SP_BattleEffect_PanelBreak=245,
@@ -421,6 +489,22 @@ typedef enum SpriteIndex {
     SP_Effect_AquaHit=251,
     SP_Effect_WoodHit=252,
     SP_Effect_JellyCharging=256,
+    SP_Overworld_LunchBoxStand=257,
+    SP_Overworld_Pipe=258,
+    SP_Overworld_TrafficCarParts=259,
+    SP_Overworld_Bus=260,
+    SP_Overworld_TrafficBarrier=265,
+    SP_Overworld_TrafficLight=269,
+    SP_Overworld_TrafficSwitch=271,
+    SP_Overworld_BarSwitch=273,
+    SP_Overworld_LightBulb=278,
+    SP_Overworld_GeneratorLightning_Big=281,
+    SP_Overworld_GeneratorLightning_Mid=282,
+    SP_Overworld_GeneratorLightning_Small=283,
+    SP_Object_Battery=284,
+    SP_Overword_JackIn=285,
+    SP_Overworld_LifeVirusSeed=288,
+    SP_Overworld_WWWPass=291,
     New_Name=45568
 } SpriteIndex;
 
@@ -720,24 +804,6 @@ struct Struct_Dat7BD24 {
     byte b3;
 };
 
-struct CellPosition {
-    byte x;
-    byte y;
-};
-
-struct FieldObject {
-    enum FieldObjectFlag flags;
-    byte id;
-    struct CellPosition cPosCurr;
-    struct CellPosition cPosLast;
-    enum ElementID element;
-    byte routineType; /* Shares routine type with associated entity */
-    short damage;
-    enum PanelFlag panelFlags;
-    int idFlag;
-    int attackerIdFlags;
-};
-
 struct Struct_7BCDC {
     undefined field0_0x0;
     undefined field1_0x1;
@@ -767,6 +833,11 @@ struct EP_60_E_BombExplosionParam {
 
 struct EP_60_R_Car_Param0 {
     ushort *vals;
+};
+
+struct CellPosition {
+    byte x;
+    byte y;
 };
 
 struct EP_64_R_Player_Param1 {
@@ -833,6 +904,31 @@ union EntityParam {
     struct EP_60_A_Block_BlockParam *blockParam;
     struct EP_68_A_Candle_Param0 *candleParam;
     struct EP_68_R_NumberMan_Param ep68_numberMan;
+};
+
+struct ActorAttributes_LifeVirus {
+    struct Effect *aura;
+    union EntityParam obj_60;
+    union EntityParam obj_64;
+    struct Effect *scut1;
+    struct Effect *scut2;
+    struct Effect *scut3;
+    union EntityParam obj_74;
+    union EntityParam obj_78;
+    union EntityParam obj_7C;
+};
+
+struct FieldObject {
+    enum FieldObjectFlag flags;
+    byte id;
+    struct CellPosition cPosCurr;
+    struct CellPosition cPosLast;
+    enum ElementID element;
+    byte routineType; /* Shares routine type with associated entity */
+    short damage;
+    enum PanelFlag panelFlags;
+    int idFlag;
+    int attackerIdFlags;
 };
 
 struct PlayerBattleState {
@@ -976,11 +1072,14 @@ struct ActorAttributes_ProtoMan {
 struct ActorAttributes_Default {
     union EntityParam obj_5C;
     union EntityParam obj_60;
-    union EntityParam obj_64;
+    byte b_64;
+    byte b_65;
+    byte b_66;
+    byte b_67;
     union EntityParam obj_68;
     union EntityParam obj_6C;
     union EntityParam obj_70;
-    union EntityParam obj_74;
+    struct Actor *obj_74;
     union EntityParam obj_78;
     union EntityParam obj_7C;
 };
@@ -989,6 +1088,7 @@ union ActorAttribUnion {
     struct ActorAttributes_Default def;
     struct ActorAttributes_ElecMan elec;
     struct ActorAttributes_ProtoMan proto;
+    struct ActorAttributes_LifeVirus life;
 };
 
 struct FunctionState {
@@ -1193,6 +1293,92 @@ struct SpriteTilesetHeader {
     struct Tile m_tiles;
 };
 
+typedef enum ActorID {
+    ACT_Player=0,
+    ACT_Woodman=1,
+    ACT_Canodumb=2,
+    ACT_FireMan=3,
+    ACT_Mettaur=4,
+    ACT_Vulgear=5,
+    ACT_Mayl=6,
+    ACT_LanBed=7,
+    ACT_BrownCar=8,
+    ACT_Beetank=9,
+    ACT_Spooky=10,
+    ACT_PoweredCannon=11,
+    ACT_GutsMan=12,
+    ACT_HardHead=13,
+    ACT_Fishy=14,
+    ACT_NumberMan=15,
+    ACT_Swordy=16,
+    ACT_Puffy=17,
+    ACT_Flappy=18,
+    ACT_Piranha=19,
+    ACT_Cloudy=20,
+    ACT_StoneMan=21,
+    ACT_FireMan_Chip=22,
+    ACT_NumberMan_Chip=23,
+    ACT_Floshell=24,
+    ACT_GutsMan_Chip=25,
+    ACT_Handy_Main=26,
+    ACT_IceMan=27,
+    ACT_ColdBear=28,
+    ACT_IceMan_Chip=29,
+    ACT_StoneMan_Chip=30,
+    ACT_Jelly=31,
+    ACT_Ratty=32,
+    ACT_Popper=33,
+    ACT_SkullMan=34,
+    ACT_ColorMan=35,
+    ACT_MiniColorMan=36,
+    ACT_ElecMan=37,
+    ACT_ProtoMan=38,
+    ACT_Miney=39,
+    ACT_Ammonicule=40,
+    ACT_SharkMan=41,
+    ACT_Prog=42,
+    ACT_Billy=43,
+    ACT_Megalian=44,
+    ACT_Remobit=45,
+    ACT_BombMan=46,
+    ACT_SkullMan_Chip=47,
+    ACT_Roll_Chip=48,
+    ACT_BigStraight=49,
+    ACT_GutsShoot_GutsMan=50,
+    ACT_GutsShoot_MegaMan=51,
+    ACT_Fanner=52,
+    ACT_CanDevil=53,
+    ACT_DeathStorm=54,
+    ACT_Mosqurito=55,
+    ACT_Drain=56,
+    ACT_LifeVirus=57,
+    ACT_ColorMan_Chip=58,
+    ACT_MiniColorMan_Chip=59,
+    ACT_ProtoMan_Chip=60,
+    ACT_SharkMan_Chip=61,
+    ACT_ElecMan_Chip=62,
+    ACT_MagicMan=63,
+    ACT_PharaohMan=64,
+    ACT_Poitton=65,
+    ACT_ShadowMan=66,
+    ACT_BigSnake=67,
+    ACT_BigSnakeBody=68,
+    ACT_Gaia=69,
+    ACT_Bass=70,
+    ACT_Satella=71,
+    ACT_PharaohMan_Chip=72,
+    ACT_ShadowMan_Chip=73,
+    ACT_MagicMan_Chip=74,
+    ACT_BombMan_Chip=75,
+    ACT_Bass_Chip=76,
+    ACT_LifeSaver=77,
+    ACT_2xHeroMegaMan=78,
+    ACT_2xHeroProtoMan=79,
+    ACT_HeavyStamp=80,
+    ACT_BloodSuck=81,
+    ACT_Mole=82
+} ActorID;
+
 typedef enum AllocParamEntityType {
     APT_PlayerLocation=0,
     APT_Actor=1,
@@ -1393,6 +1579,9 @@ typedef enum AttackIndex {
     ACI_IceManBeetankBomb=1,
     ACI_WoodTower=2,
     ACI_Sword=3,
+    ACI_Cannon=4,
+    ACI_Unk05=5,
+    ACI_Unk06=6,
     ACI_MetGuard=7,
     ACI_Aura=8,
     ACI_Bomb=10,
@@ -1442,6 +1631,7 @@ typedef enum AttackIndex {
     ACI_BigStraight=65,
     ACI_Tornado=66,
     ACI_BombManBomb=68,
+    ACI_Scuttlest=71,
     ACI_PharaohTrap=73,
     ACI_Dynamyte=74,
     ACI_Bakufu=75,
@@ -2139,6 +2329,13 @@ struct BattleMessageList {
     struct BattleMessage list[16];
 };
 
+typedef enum BattleResultState {
+    BRS_Winner=0,
+    BRS_Loser=1,
+    BRS_2=2,
+    BRS_MPError=3
+} BattleResultState;
+
 typedef enum BattleResultType {
     BRT_Regular=0,
     BRT_MP_Winner=1,
@@ -2290,6 +2487,46 @@ struct BlendSettings {
     byte _bldY_EVA;
     byte _pad0;
     ushort m_blendControl;
+};
+
+typedef struct Cam_End Cam_End, *PCam_End;
+
+struct Cam_End {
+    short inst;
+};
+
+typedef struct Cam_Move Cam_Move, *PCam_Move;
+
+struct Cam_Move {
+    short inst;
+    short x;
+    short y;
+    short z;
+    short time;
+};
+
+typedef struct Cam_Set Cam_Set, *PCam_Set;
+
+struct Cam_Set {
+    short inst;
+    short x;
+    short y;
+    short z;
+};
+
+typedef struct Cam_Shake Cam_Shake, *PCam_Shake;
+
+struct Cam_Shake {
+    short inst;
+    short strength;
+    short time;
+};
+
+typedef struct Cam_Wait Cam_Wait, *PCam_Wait;
+
+struct Cam_Wait {
+    short inst;
+    short time;
 };
 
 typedef struct Camera Camera, *PCamera;
@@ -2879,27 +3116,78 @@ union DO_DVP {
 
 typedef enum EffectID {
     EFI_QuickEffect=0,
+    EFI_MapObject=1,
+    EFI_BattleHP=2,
+    EFI_Unk03=3,
     EFI_BombExplosion=4,
     EFI_Tower=5,
+    EFI_Unk06=6,
     EFI_SwordSlash=7,
+    EFI_FireColumn=8,
     EFI_BattleChip=9,
+    EFI_TallExplosion=10,
+    EFI_WaterSpray=11,
     EFI_ProgramAdvance=12,
     EFI_MegaManDelete=13,
     EFI_VirusDelete=14,
+    EFI_BattleResult=15,
+    EFI_WWWDoor=16,
     EFI_DieBombExplosion=17,
+    EFI_CloudyRain=18,
     EFI_StonePiece=19,
     EFI_Laser=20,
-    EFI_BlockBreak=23,
+    EFI_Boulders=21,
+    EFI_TeleportPortal=22,
+    EFI_CubeBreak=23,
+    EFI_JellyCharging=24,
+    EFI_AirBlowing=25,
+    EFI_TrafficLight=26,
+    EFI_TrafficBarrier=27,
+    EFI_Car=28,
+    EFI_TrafficBarrier2=29,
+    EFI_TrafficLight2=30,
+    EFI_Traffic=31,
+    EFI_TrafficExplosion=32,
+    EFI_TrafficCarParts=33,
+    EFI_TrafficLightToggle=34,
+    EFI_Pipe=35,
+    EFI_Pipe2=36,
+    EFI_Pipe3=37,
+    EFI_Unk26=38,
+    EFI_ElectricField=39,
+    EFI_FloorBreak=40,
+    EFI_ColorMan=41,
     EFI_Remobit=42,
+    EFI_Cannon=43,
     EFI_PoisonCloud=44,
+    EFI_TrafficSwitch=45,
+    EFI_CountZap=46,
+    EFI_ElecMan=47,
+    EFI_BarSwitch=48,
+    EFI_LightBulb=49,
+    EFI_RollHeart=50,
+    EFI_SmallElectrified=51,
+    EFI_BombManBombExplosion=52,
+    EFI_LifeVirusSeed=53,
+    EFI_BombMan=54,
     EFI_LifeVirusAura=55,
+    EFI_WWWPass=56,
     EFI_Scuttlest=57,
     EFI_LifeVirusMeteor=58,
     EFI_MagicMan=59,
+    EFI_LockProgram=60,
+    EFI_WWWIceWall=61,
+    EFI_WWWBoulder=62,
+    EFI_GutsMan=63,
+    EFI_DynamyteRedDot=64,
     EFI_PharaohManCurse=65,
     EFI_DynamyteExplosion=66,
+    EFI_MegaMan=67,
+    EFI_JackIn=68,
+    EFI_Sparks=69,
     EFI_Bass=70,
     EFI_GaiaBase=71,
+    EFI_GeneratorLightning=72,
     EFI_PharaohManLaser=73,
     EFI_BombShootExplosion=74,
     EFI_NaviDelete=75
@@ -3098,29 +3386,150 @@ struct FixedBattleSettings {
     byte _pad19[3];
 };
 
+typedef enum Flag_280 {
+    F280_0=0
+} Flag_280;
+
+typedef enum Flag_380 {
+    FLAG_PIN_USED_INTERNET_2_3_4=0,
+    FLAG_PIN_USED_INTERNET_1=1,
+    F380_2=2,
+    F380_3=3,
+    F380_4=4,
+    F380_5=5,
+    F380_6=6,
+    F380_7=7,
+    F380_8=8
+} Flag_380;
+
 typedef enum Flag_400 {
+    F400_PlayerActive=0,
+    F400_IsJackingIn=1,
+    F400_2=2,
+    F400_3=3,
     F400_StartMenuOpen=4,
     F400_DelayAfterDialogue=5,
     F400_DialogueComplete=6,
+    F400_7=7,
     F400_Unescapable=8,
     F400_SaveOk=9
 } Flag_400;
 
+typedef enum Flag_410 {
+    FLAG_GATE_LOCK_AT_LAN_YUICHIRO=0,
+    FLAG_GATE_LOCK_AT_MAYL_SAL_LAB=1,
+    FLAG_GATE_LOCK_AT_YAI_MASA=2,
+    FLAG_GATE_LOCK_AT_DEX=3,
+    FLAG_GATE_LOCK_SLASH_DEX=5
+} Flag_410;
+
 typedef enum Flag_420 {
-    F420_SaveNotAllowed=38
+    FLAG_SKILL_CHECK_RESET=32,
+    FLAG_SKILL_CHECK_FAIL_UNDERNET_6=33,
+    FLAG_SKILL_CHECK_FAIL_UNDERNET_7=34,
+    FLAG_SKILL_CHECK_FAIL_UNDERNET_9=35,
+    FLAG_SKILL_CHECK_FAIL_UNDERNET_10=36,
+    FLAG_SKILL_CHECK_FAIL_UNDERNET_11=37,
+    FLAG_SAVE_DISABLED=38,
+    FLAG_2F=47
 } Flag_420;
 
 typedef enum Flag_Base {
-    FLAG_GAME_CLEAR=5,
+    FLAG_CLEAR_CHAPTER_1=0,
+    FLAG_CLEAR_CHAPTER_2=1,
+    FLAG_CLEAR_CHAPTER_3=2,
+    FLAG_CLEAR_CHAPTER_4=3,
+    FLAG_CLEAR_CHAPTER_5=4,
+    FLAG_CLEAR_GAME=5,
+    FLAG_BOOKMARK_MAYL=6,
+    FLAG_BOOKMARK_YAI=7,
+    FLAG_BOOKMARK_DEX=8,
+    FLAG_BOOKMARK_SLASH_DEX=10,
     FLAG_DEFEATED_PHARAOHMAN=18,
+    FLAG_GATE_LOCK_INTERNET_2=22,
+    FLAG_GATE_CLEAR_INTERNET_2=23,
+    FLAG_PIN_UNLOCK_INTERNET_2=24,
+    FLAG_GATE_LOCK_INTERNET_1=36,
+    FLAG_GATE_CLEAR_INTERNET_1=37,
+    FLAG_PIN_UNLOCK_INTERNET_1=38,
+    FLAG_HAS_TRAIN_TICKET=42,
+    FLAG_2B=43,
     FLAG_JACK_IN=53,
+    FLAG_BOOKMARK_SAL=72,
+    FLAG_BOOKMARK_MASA=73,
+    FLAG_BOOKMARK_YUICHIRO=74,
+    FLAG_BOOKMARK_MIYU=75,
+    FLAG_GATE_LOCK_INTERNET_3=82,
+    FLAG_GATE_CLEAR_INTERNET_3=83,
+    FLAG_PIN_UNLOCK_INTERNET_3=84,
     FLAG_DEFEATED_STONEMAN_V2=85,
+    FLAG_GATE_LOCK_INTERNET_4=87,
+    FLAG_GATE_CLEAR_INTERNET_4=88,
+    FLAG_HIG_MEMO_USED_INTERNET_4=90,
     FLAG_DEFEATED_FIREMAN_V2=92,
     FLAG_DEFEATED_COLORMAN_V2=93,
     FLAG_DEFEATED_ELECMAN_V2=94,
     FLAG_DEFEATED_BOMBMAN_V2=95,
     FLAG_DEFEATED_MAGICMAN_V2=96,
-    FLAG_DEFEATED_SHADOWMAN=143
+    FLAG_63=99,
+    FLAG_LAB_MEMO_USED_UNDERNET_1=101,
+    FLAG_GATE_LOCK_UNDERNET_1=103,
+    FLAG_GATE_CLEAR_UNDERNET_1=104,
+    FLAG_YURI_MEMO_USED_UNDERNET_2=106,
+    FLAG_PAS_MEMO_USED_UNDERNET_3=109,
+    FLAG_GATE_LOCK_UNDERNET_6_1=119,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_6_TO_7=120,
+    FLAG_GATE_CLEAR_UNDERNET_6_1=121,
+    FLAG_GATE_LOCK_UNDERNET_6_2=122,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_6_TO_9=123,
+    FLAG_GATE_CLEAR_UNDERNET_6_2=124,
+    FLAG_GATE_LOCK_UNDERNET_7=125,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_7=126,
+    FLAG_GATE_CLEAR_UNDERNET_7=127,
+    FLAG_GATE_LOCK_UNDERNET_9=128,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_9=129,
+    FLAG_GATE_CLEAR_UNDERNET_9=130,
+    FLAG_GATE_LOCK_UNDERNET_10=131,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_10=132,
+    FLAG_GATE_CLEAR_UNDERNET_10=133,
+    FLAG_GATE_LOCK_UNDERNET_11=134,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_11=135,
+    FLAG_GATE_CLEAR_UNDERNET_11=136,
+    FLAG_GATE_LOCK_UNDERNET_6_3=137,
+    FLAG_GATE_CLEAR_UNDERNET_6_3=138,
+    FLAG_GATE_LOCK_UNDERNET_10_PIN=140,
+    FLAG_GATE_CLEAR_UNDERNET_10_PIN=141,
+    FLAG_PIN_UNLOCK_UNDERNET_10=142,
+    FLAG_DEFEATED_SHADOWMAN=143,
+    FLAG_SCENE_00=144,
+    FLAG_JACK_IN_OVEN_COMP=154,
+    FLAG_GATE_LOCK_SCHOOL_COMP_1=165,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_1=166,
+    FLAG_GATE_LOCK_SCHOOL_COMP_2_1=169,
+    FLAG_GATE_LOCK_SCHOOL_COMP_2_2=171,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_2_2=172,
+    FLAG_GATE_LOCK_SCHOOL_COMP_3_1=174,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_3_1=175,
+    FLAG_GATE_LOCK_SCHOOL_COMP_3_2=177,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_3_2=178,
+    FLAG_GATE_LOCK_WWW_COMP_2_1=184,
+    FLAG_GATE_LOCK_SCHOOL_COMP_4=185,
+    FLAG_GATE_LOCK_WWW_COMP_2_3=186,
+    FLAG_GATE_LOCK_WWW_COMP_2_4=187,
+    FLAG_GATE_LOCK_SCHOOL_COMP_5=188,
+    FLAG_GATE_LOCK_WWW_COMP_2_6=189,
+    FLAG_GATE_LOCK_WWW_COMP_2_7=190,
+    FLAG_GATE_LOCK_WWW_COMP_2_8=191,
+    FLAG_GATE_LOCK_WWW_COMP_2_9=192,
+    FLAG_GATE_CLEAR_WWW_COMP_2_1=212,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_4=213,
+    FLAG_GATE_CLEAR_WWW_COMP_2_3=214,
+    FLAG_GATE_CLEAR_WWW_COMP_2_4=215,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_5=216,
+    FLAG_GATE_CLEAR_WWW_COMP_2_6=217,
+    FLAG_GATE_CLEAR_WWW_COMP_2_7=218,
+    FLAG_GATE_CLEAR_WWW_COMP_2_8=219,
+    FLAG_GATE_CLEAR_WWW_COMP_2_9=220
 } Flag_Base;
 
 typedef struct FlappyParam FlappyParam, *PFlappyParam;
@@ -3304,32 +3713,13 @@ typedef enum ItemId {
     Item_WoodArmr=70
 } ItemId;
 
-typedef struct JackOutInfo JackOutInfo, *PJackOutInfo;
-
-typedef struct MapEntrance MapEntrance, *PMapEntrance;
-
-struct MapEntrance {
-    enum MapId area;
-    byte field1_0x2;
-    byte direction;
-    struct PositionXYZ pos;
-};
-
-struct JackOutInfo {
-    struct MapEntrance jackOutLocation;
-    byte areaDialogueIndex;
-    byte flag;
-    byte field3_0x12;
-    byte field4_0x13;
-};
-
 typedef struct Main Main, *PMain;
 
 typedef struct Manager Manager, *PManager;
 
 typedef struct World World, *PWorld;
 
-typedef struct Struct_Unk24 Struct_Unk24, *PStruct_Unk24;
+typedef struct MapEventState MapEventState, *PMapEventState;
 
 typedef struct Scene Scene, *PScene;
 
@@ -3418,6 +3808,10 @@ typedef struct PlayerLocation PlayerLocation, *PPlayerLocation;
 
 typedef struct WorldPosition WorldPosition, *PWorldPosition;
 
+typedef struct MapEntranceOptions MapEntranceOptions, *PMapEntranceOptions;
+
+typedef struct MapEntrance MapEntrance, *PMapEntrance;
+
 typedef enum TextStateDelayType {
     TSDT_NoDelay=0,
     TSDT_DelayCounter=1,
@@ -3443,6 +3837,13 @@ typedef enum PlayerLocationKeyFlag {
     PK_Run=32,
     PK_Commentary=256
 } PlayerLocationKeyFlag;
+
+struct MapEntrance {
+    enum MapId area;
+    byte field1_0x2;
+    byte direction;
+    struct PositionXYZ pos;
+};
 
 struct Struct_Unk2C {
     struct MapEntrance mapEntrance;
@@ -3514,7 +3915,7 @@ struct World {
     union AreaUnion lastArea;
     byte curEventFlag;
     enum BattleType battleType;
-    byte m_bx10_battleResultState;
+    enum BattleResultState lastBattleResult;
     bool isShuffleFolder;
     byte m_bx12_commentaryTextIndex;
     byte m_bx13_fadeStep;
@@ -3599,17 +4000,9 @@ struct MainMenu {
     byte unk15;
 };
 
-struct Struct_Unk24 {
-    enum FuncState b0;
-    byte b1;
-    byte b2;
-    byte b3;
-    byte fixedBattleIndex;
-    byte b5;
-    byte b6;
-    byte b7;
-    int i2;
-    int i3;
+struct MapEntranceOptions {
+    struct MapEntrance entrance;
+    int options;
 };
 
 struct Menu {
@@ -3665,6 +4058,22 @@ struct PetStatusControl {
     byte petAnimCounter;
     byte alertAnimCounter;
     byte alertAudioCounter;
+};
+
+struct MapEventState {
+    enum FuncState state;
+    byte b1;
+    byte b2;
+    byte b3;
+    byte fixedBattleIndex;
+    byte b5;
+    byte b6;
+    byte b7;
+    byte b8;
+    byte b9;
+    byte b10;
+    byte b11;
+    int i3;
 };
 
 struct PasscodeEntry {
@@ -3743,7 +4152,7 @@ struct Scene {
     ushort m_delayCounter;
     ushort flag1;
     void *scenePointer;
-    struct JackOutInfo *m_px10;
+    struct MapEntranceOptions *entranceOptions;
     struct Scene *m_px14;
     void *m_px18;
     struct Actor *m_px1c_actor;
@@ -3806,7 +4215,7 @@ struct Main {
     struct FadeSettings *fade;
     struct BattleUI *battleUi;
     struct PlayerBattleState *playerBattleState;
-    struct Struct_Unk24 *unk_24;
+    struct MapEventState *mapEventState;
     struct Scene *scene;
     struct Struct_Unk2C *unk_2C;
     struct Transition *transition;
@@ -3818,7 +4227,7 @@ struct Main {
     struct Text *text;
     struct BattleMessage *battleMessageList;
     struct FrameCounter *frameCounter;
-    struct ScreenDim *timeStop;
+    struct ScreenDim *screenDim;
     struct BgAnimationTask *bgAnimationTaskList;
     struct ScreenTilemapContainer *screens;
     struct PetStatusControl *petStatusControl;
@@ -4121,13 +4530,6 @@ struct MusicPlayerInfo {
     uint ident;
     void (*MPlayMainNext)(struct MusicPlayerInfo *);
     struct MusicPlayerInfo *musicPlayerNext;
-};
-
-typedef struct NaviRelatedArg NaviRelatedArg, *PNaviRelatedArg;
-
-struct NaviRelatedArg {
-    byte b0;
-    ushort time;
 };
 
 typedef struct NetworkOptionSelectResult NetworkOptionSelectResult, *PNetworkOptionSelectResult;
@@ -4445,6 +4847,15 @@ struct PETBattery {
     byte b9;
     byte b10;
     byte b11;
+};
+
+typedef struct PlayerAnimateArgs PlayerAnimateArgs, *PPlayerAnimateArgs;
+
+struct PlayerAnimateArgs {
+    byte animationId;
+    byte dx;
+    byte dy;
+    byte time;
 };
 
 typedef struct PlayerAnimation PlayerAnimation, *PPlayerAnimation;
@@ -4917,6 +5328,19 @@ struct Struct_807091C {
     short valC;
 };
 
+typedef struct Struct_85870 Struct_85870, *PStruct_85870;
+
+struct Struct_85870 {
+    byte field0_0x0;
+    byte field1_0x1;
+    enum Flag_Base flagSet;
+    enum Flag_Base flagClear;
+    enum Flag_Base flagSetIfWin;
+    enum Flag_Base flagClearIfWin;
+    enum Flag_Base flagSetIfLose;
+    enum Flag_Base flagClearIfLose;
+};
+
 typedef struct Struct_98E50 Struct_98E50, *PStruct_98E50;
 
 struct Struct_98E50 {
@@ -5138,5 +5562,45 @@ typedef enum WorldBattleState {
     WB_BattleWon=0,
     WB_BattleLost=1
 } WorldBattleState;
+
+typedef enum WWWGateID {
+    WG_School_Comp_1=0,
+    WG_School_Comp_2_1=1,
+    WG_School_Comp_2_2=2,
+    WG_School_Comp_3_1=3,
+    WG_School_Comp_3_2=4,
+    WG_School_Comp_4=5,
+    WG_School_Comp_5=6,
+    WG_WWW_Comp_2_1=13,
+    WG_WWW_Comp_2_2=14,
+    WG_WWW_Comp_2_3=15,
+    WG_WWW_Comp_2_4=16,
+    WG_WWW_Comp_2_5=17,
+    WG_WWW_Comp_2_6=18,
+    WG_WWW_Comp_2_7=19,
+    WG_WWW_Comp_2_8=20,
+    WG_WWW_Comp_2_9=21,
+    WG_WWW_Comp_2_10=22,
+    WG_Undernet_6_1=87,
+    WG_Undernet_6_2=88,
+    WG_Undernet_7=89,
+    WG_Undernet_9=90,
+    WG_Undernet_10_1=91,
+    WG_Undernet_11=92,
+    WG_Internet_1=135,
+    WG_Internet_2=137,
+    WG_Internet_3=138,
+    WG_Internet_4=139,
+    WG_Undernet_1=140,
+    WG_Undernet_6_3=157,
+    WG_Undernet_10_2=158
+} WWWGateID;
+
+typedef struct ZetaOmegaType ZetaOmegaType, *PZetaOmegaType;
+
+struct ZetaOmegaType {
+    enum ChipId chipId;
+    ushort time;
+};
 
 #endif

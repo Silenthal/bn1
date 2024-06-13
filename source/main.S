@@ -237,29 +237,29 @@ MainState:
     .word gFadeSettings
     .word gBattleUi
     .word gPlayerBattleStates
-    .word eMainState0x24
-    .word eMainState0x28
+    .word gMapEventState
+    .word gScene
     .word eMainState0x2C
     .word gTransition
     .word gMainMenu
     .word gWindowSettings
     .word gBlendSettings
     .word gDemo
-    .word eMainState0x44
+    .word gBgDataManager
     .word gText
-    .word eMainState0x4C
+    .word gBattleMessageList
     .word gFrameCounter
     .word gScreenDim
-    .word eMainState0x58
+    .word gBgAnimationTaskList
     .word gScreens
-    .word eMainState0x60
-    .word eMainState0x64
+    .word gPetStatusControl
+    .word gPasscodeEntry
     .word gTextUi
-    .word eMainState0x6C
+    .word gStartMenu
     .word gShop
     .word gMenu
     .word eGameStats
-    .word eMainState0x7C
+    .word gFieldObstacleManager
 
 _ts waitForVBlank
     push       { lr }

@@ -478,7 +478,7 @@ effect/program_advance      0x7C310
 effect/megaman_delete       0x7CC8C
 effect/virus_delete         0x7CD60
 effect/battle_result        0x7CE30
-effect/www_door             0x7DAD8
+effect/www_gate             0x7DAD8
 effect/diebomb_explosion    0x7DCE4
 effect/cloudy_rain          0x7DE7C
 effect/stone_piece          0x7DF24

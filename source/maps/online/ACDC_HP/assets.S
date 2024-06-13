@@ -15,7 +15,7 @@ global_label NPCList_804F484
 
 NPC_804F48C:
     a_init
-    a_set_sprite 0x39
+    a_set_sprite SP_Overworld_Roll
     a_set_pos 82, -2
     a_set_sprite_frame 5
 L_804F498:
@@ -33,7 +33,7 @@ L_804F4AE:
 NPC_804F4B5:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -42, -36
 L_804F4C1:
     a_set_sprite_frame 3
@@ -99,7 +99,7 @@ global_label NPCList_804F530
 NPC_804F53C:
     a_init
     a_set_dialog 0x14
-    a_set_sprite 0x39
+    a_set_sprite SP_Overworld_Roll
     a_set_pos 76, 240, 128
     a_set_sprite_frame 3
 L_804F54A:
@@ -174,7 +174,7 @@ NPC_804F5D0:
     a_jump_if_flag 0x99, L_804F5FA
     a_init
     a_set_dialog 0xF
-    a_set_sprite 0x38
+    a_set_sprite SP_Overworld_Glyde
     a_set_pos 50, -50
     a_set_sprite_frame 5
 L_804F5F3:

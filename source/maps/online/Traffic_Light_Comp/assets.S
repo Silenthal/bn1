@@ -14,7 +14,7 @@ global_label NPCList_80490DC
 NPC_80490EC:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -282, 124
     a_set_sprite_frame 5
 L_80490FA:
@@ -24,7 +24,7 @@ L_80490FA:
 NPC_8049101:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 56, 140
     a_set_sprite_frame 5
 L_804910F:
@@ -226,7 +226,7 @@ global_label NPCList_80492A0
 
 NPC_80492A8:
     a_init
-    a_set_sprite 0x39
+    a_set_sprite SP_Overworld_Roll
     a_set_pos 114, -22
     a_set_sprite_frame 13
 L_80492B4:
@@ -249,7 +249,7 @@ global_label NPCList_80492CC
 
 NPC_80492D4:
     a_init
-    a_set_sprite 0x39
+    a_set_sprite SP_Overworld_Roll
     a_set_pos 114, -22
     a_set_sprite_frame 3
 L_80492E0:

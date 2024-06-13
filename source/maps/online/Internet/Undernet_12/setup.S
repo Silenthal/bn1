@@ -32,13 +32,13 @@ _ts MapSetup_Undernet_12_S0
 
 _ts EventHandler_Undernet_12_S0
     push       {lr}
-    ldr        r0,PTR_FUN_08053d96_08053dd8
+    ldr        r0,PTR_EventHandler_Undernet_12_08053dd8
     mov        lr,pc
     bx         r0
     pop        {pc}
 
 
-_nt FUN_08053d76
+_nt MapSetup_Undernet_12
     push       {lr}
     push       {r5}
     bl         PlayerLocation_Create
@@ -54,9 +54,9 @@ _nt FUN_08053d76
     pop        {pc}
 
 
-_nt FUN_08053d96
+_nt EventHandler_Undernet_12
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_08053dac_08053de0
+    ldr        r0,PTR_PTR_EventHandler_Undernet_12_0_08053de0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
@@ -66,11 +66,11 @@ _nt FUN_08053d96
 
     .align 2, 0
 
-PTR_FUN_08053dac_08053da8:
-    .word FUN_08053dac
+PTR_EventHandler_Undernet_12_0_08053da8:
+    .word EventHandler_Undernet_12_0
 
 
-_ts FUN_08053dac
+_ts EventHandler_Undernet_12_0
     push       {lr}
     mov        r0,#0x1
     bl         CheckForJackOut
@@ -79,7 +79,7 @@ _ts FUN_08053dac
     .align 2, 0
 
 DAT_08053db8:
-    .word FUN_08053d76
+    .word MapSetup_Undernet_12
 
 PTR_BgTask_80515C8_08053dbc:
     .word BgTask_80515C8
@@ -102,14 +102,14 @@ PTR_BgTask_8051780_08053dd0:
 PTR_BgTask_8051820_08053dd4:
     .word BgTask_8051820
 
-PTR_FUN_08053d96_08053dd8:
-    .word FUN_08053d96
+PTR_EventHandler_Undernet_12_08053dd8:
+    .word EventHandler_Undernet_12
 
 PTR_NPCList_805518C_08053ddc:
     .word NPCList_805518C
 
-PTR_PTR_FUN_08053dac_08053de0:
-    .word PTR_FUN_08053dac_08053da8
+PTR_PTR_EventHandler_Undernet_12_0_08053de0:
+    .word PTR_EventHandler_Undernet_12_0_08053da8
 
 global_label PTR_NPC_8053E1C_08053de4
     .word NPC_8053E1C

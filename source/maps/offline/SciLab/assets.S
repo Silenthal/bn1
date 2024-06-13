@@ -11,7 +11,7 @@ global_label NPCList_803D1EC
 NPC_803D1F4:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -236, -122
     a_set_sprite_frame 5
 L_803D202:
@@ -29,7 +29,7 @@ global_label NPCList_803D20C
 NPC_803D214:
     a_init
     a_set_dialog 0x5
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -280, -126
     a_set_sprite_frame 1
 L_803D222:
@@ -57,7 +57,7 @@ global_label NPCList_803D22C
 NPC_803D25C:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -106, 44
     a_set_sprite_frame 3
 L_803D26A:
@@ -67,7 +67,7 @@ L_803D26A:
 NPC_803D271:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 50, 198
     a_set_sprite_frame 1
 L_803D27F:
@@ -77,7 +77,7 @@ L_803D27F:
 NPC_803D286:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -256, 210
     a_set_sprite_frame 1
 L_803D294:
@@ -87,7 +87,7 @@ L_803D294:
 NPC_803D29B:
     a_init
     a_set_dialog 0x3
-    a_set_sprite 0x56
+    a_set_sprite SP_Overworld_Waitress
     a_set_pos -124, 256
 L_803D2A7:
     a_set_sprite_frame 10
@@ -105,7 +105,7 @@ L_803D2A7:
 NPC_803D2C0:
     a_init
     a_set_dialog 0x4
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -44, 100
     a_set_sprite_frame 7
 L_803D2CE:
@@ -115,7 +115,7 @@ L_803D2CE:
 NPC_803D2D5:
     a_init
     a_set_dialog 0x5
-    a_set_sprite 0xA
+    a_set_sprite SP_Overworld_Chaud
     a_set_pos -230, 20
     a_set_sprite_frame 5
 L_803D2E3:
@@ -125,7 +125,7 @@ L_803D2E3:
 NPC_803D2EA:
     a_init
     a_set_dialog 0x6
-    a_set_sprite 0x55
+    a_set_sprite SP_Overworld_WomanPurple
     a_set_pos -136, 120
     a_set_sprite_frame 3
 L_803D2F8:
@@ -137,7 +137,7 @@ NPC_803D2FF:
     a_init
     a_disable_turn
     a_set_dialog 0x12
-    a_set_sprite 0x3E
+    a_set_sprite SP_Overworld_Yuichiro
     a_set_pos -120, 138
     a_set_sprite_frame 5
 L_803D315:
@@ -153,7 +153,7 @@ L_803D329:
 NPC_803D32A:
     a_init
     a_set_dialog 0x23
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos -198, 38
     a_set_sprite_frame 3
 L_803D338:
@@ -163,7 +163,7 @@ L_803D338:
 NPC_803D33F:
     a_init
     a_set_dialog 0x25
-    a_set_sprite 0x19
+    a_set_sprite SP_Overworld_WomanApron
     a_set_pos -252, 148
     a_set_sprite_frame 1
 L_803D34D:
@@ -175,7 +175,7 @@ L_803D34D:
 NPC_803D354:
     a_init
     a_set_dialog 0x24
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos 78, 194
     a_set_sprite_frame 5
 L_803D362:
@@ -227,7 +227,7 @@ NPC_803D3E8:
     a_init
     a_disable_turn
     a_set_dialog 0x6
-    a_set_sprite 0x55
+    a_set_sprite SP_Overworld_WomanPurple
     a_set_pos -136, 120
     a_set_sprite_frame 3
 L_803D3F7:
@@ -246,7 +246,7 @@ global_label NPCList_803D400
 NPC_803D40C:
     a_init
     a_set_dialog 0x14
-    a_set_sprite 0x56
+    a_set_sprite SP_Overworld_Waitress
     a_set_pos -124, 256
 L_803D418:
     a_set_sprite_frame 10
@@ -266,7 +266,7 @@ L_803D418:
 NPC_803D434:
     a_init
     a_set_dialog 0xBE
-    a_set_sprite 0x1E
+    a_set_sprite SP_Overworld_ManGreen
     a_set_pos -228, 250
     a_set_sprite_frame 7
 L_803D442:
@@ -284,7 +284,7 @@ global_label NPCList_803D44C
 NPC_803D454:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -280, -110
     a_set_sprite_frame 7
 L_803D462:
@@ -302,7 +302,7 @@ global_label NPCList_803D46C
 NPC_803D474:
     a_init
     a_set_dialog 0x5
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -280, -110
     a_set_sprite_frame 3
 L_803D482:
@@ -321,7 +321,7 @@ global_label NPCList_803D48C
 NPC_803D498:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -334, 10
     a_set_sprite_frame 7
 L_803D4A6:
@@ -334,7 +334,7 @@ L_803D4B4:
 NPC_803D4B5:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -46, 10
     a_set_sprite_frame 7
 L_803D4C3:
@@ -356,7 +356,7 @@ global_label NPCList_803D4D4
 NPC_803D4DC:
     a_init
     a_set_dialog 0x5
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -80, 10
     a_set_sprite_frame 3
 L_803D4EA:
@@ -381,7 +381,7 @@ global_label NPCList_803D500
 NPC_803D510:
     a_init
     a_set_dialog 0xB
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -334, 82
 L_803D51C:
     a_set_sprite_frame 7
@@ -397,7 +397,7 @@ L_803D51C:
 NPC_803D535:
     a_init
     a_set_dialog 0xA
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 12, 50
     a_set_sprite_frame 1
 L_803D543:
@@ -411,7 +411,7 @@ L_803D543:
 NPC_803D54C:
     a_init
     a_set_dialog 0xBE
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -370, 38
     a_set_sprite_frame 1
 L_803D55A:
@@ -429,7 +429,7 @@ global_label NPCList_803D564
 NPC_803D56C:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_sprite_frame 1
     a_set_pos 22, 44
 L_803D57A:
@@ -455,7 +455,7 @@ global_label NPCList_803D598
 NPC_803D5A0:
     a_init
     a_set_dialog 0x5
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 22, 44
     a_set_sprite_frame 1
 L_803D5AE:
@@ -473,7 +473,7 @@ global_label NPCList_803D5B8
 NPC_803D5C0:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_sprite_frame 7
     a_set_pos 22, 20
 L_803D5CE:
@@ -491,7 +491,7 @@ global_label NPCList_803D5D8
 NPC_803D5E0:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_sprite_frame 7
     a_set_pos 22, 44
 L_803D5EE:
@@ -510,7 +510,7 @@ global_label NPCList_803D5F8
 NPC_803D604:
     a_init
     a_set_dialog 0xA
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -124, 30
     a_set_sprite_frame 1
 L_803D612:
@@ -527,7 +527,7 @@ L_803D612:
 NPC_803D62B:
     a_init
     a_set_dialog 0xB
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 22, 44
     a_set_sprite_frame 1
 L_803D639:
@@ -546,7 +546,7 @@ global_label NPCList_803D648
 
 NPC_803D650:
     a_init
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_sprite_frame 7
     a_set_pos 8, 28
 L_803D65C:
@@ -563,7 +563,7 @@ L_803D672:
 
 NPC_803D679:
     a_init
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_sprite_frame 7
     a_set_pos 8, -108
 L_803D685:

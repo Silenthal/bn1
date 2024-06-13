@@ -111,7 +111,7 @@ LAB_0804d600:
     b          LAB_0804d618
 LAB_0804d612:
     mov        r1,#0xd
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
 LAB_0804d618:
     mov        r0,#0xd5
     bl         Flag_GetBase
@@ -121,7 +121,7 @@ LAB_0804d618:
     b          LAB_0804d62e
 LAB_0804d628:
     mov        r1,#0xe
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
 LAB_0804d62e:
     mov        r0,#0xd6
     bl         Flag_GetBase
@@ -131,7 +131,7 @@ LAB_0804d62e:
     b          LAB_0804d644
 LAB_0804d63e:
     mov        r1,#0xf
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
 LAB_0804d644:
     mov        r0,#0xd7
     bl         Flag_GetBase
@@ -141,7 +141,7 @@ LAB_0804d644:
     b          LAB_0804d65a
 LAB_0804d654:
     mov        r1,#0x10
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
 LAB_0804d65a:
     mov        r0,#0xca
     bl         Flag_GetBase
@@ -151,7 +151,7 @@ LAB_0804d65a:
     b          LAB_0804d670
 LAB_0804d66a:
     mov        r1,#0x11
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
 LAB_0804d670:
     mov        r0,#0xcc
     bl         Flag_GetBase
@@ -161,7 +161,7 @@ LAB_0804d670:
     b          LAB_0804d686
 LAB_0804d680:
     mov        r1,#0x12
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
 LAB_0804d686:
     mov        r0,#0xce
     bl         Flag_GetBase
@@ -171,7 +171,7 @@ LAB_0804d686:
     b          LAB_0804d69c
 LAB_0804d696:
     mov        r1,#0x13
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
 LAB_0804d69c:
     mov        r0,#0xd0
     bl         Flag_GetBase
@@ -181,7 +181,7 @@ LAB_0804d69c:
     b          LAB_0804d6b2
 LAB_0804d6ac:
     mov        r1,#0x14
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
 LAB_0804d6b2:
     mov        r0,#0xd2
     bl         Flag_GetBase
@@ -191,9 +191,9 @@ LAB_0804d6b2:
     b          LAB_0804d6ce
 LAB_0804d6c2:
     mov        r1,#0x15
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     mov        r1,#0x16
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
 LAB_0804d6ce:
     pop        {r5}
     push       {r5}

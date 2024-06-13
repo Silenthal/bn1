@@ -18,7 +18,7 @@ global_label NPCList_8034E90
 NPC_8034EB0:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -164, -20
     a_set_sprite_frame 7
 L_8034EBE:
@@ -28,7 +28,7 @@ L_8034EBE:
 NPC_8034EC5:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos -208, -224
     a_set_sprite_frame 1
 L_8034ED3:
@@ -38,7 +38,7 @@ L_8034ED3:
 NPC_8034EDA:
     a_init
     a_set_dialog 0x4
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -180, -138
     a_set_sprite_frame 5
 L_8034EE8:
@@ -48,7 +48,7 @@ L_8034EE8:
 NPC_8034EEF:
     a_init
     a_set_dialog 0x5
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos 116, -204
     a_set_sprite_frame 3
 L_8034EFD:
@@ -60,7 +60,7 @@ L_8034EFD:
 NPC_8034F04:
     a_init
     a_set_dialog 0x6
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 470, -88
     a_set_sprite_frame 3
 L_8034F12:
@@ -70,7 +70,7 @@ L_8034F12:
 NPC_8034F19:
     a_init
     a_set_dialog 0x7
-    a_set_sprite 0x40
+    a_set_sprite SP_Overworld_OldWoman
     a_set_pos 496, -226
     a_set_sprite_frame 5
 L_8034F27:
@@ -80,7 +80,7 @@ L_8034F27:
 NPC_8034F2E:
     a_init
     a_set_dialog 0x8
-    a_set_sprite 0x2C
+    a_set_sprite SP_Overworld_Sal
     a_set_pos 472, -132
     a_set_sprite_frame 5
 L_8034F3C:
@@ -119,7 +119,7 @@ global_label NPCList_8034F70
 NPC_8034F90:
     a_init
     a_set_dialog 0x43
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -164, -20
     a_set_sprite_frame 7
 L_8034F9E:
@@ -129,7 +129,7 @@ L_8034F9E:
 NPC_8034FA5:
     a_init
     a_set_dialog 0x44
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos -208, -224
     a_set_sprite_frame 1
 L_8034FB3:
@@ -139,7 +139,7 @@ L_8034FB3:
 NPC_8034FBA:
     a_init
     a_set_dialog 0x45
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -180, -138
     a_set_sprite_frame 5
 L_8034FC8:
@@ -149,7 +149,7 @@ L_8034FC8:
 NPC_8034FCF:
     a_init
     a_set_dialog 0x46
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos 116, -204
     a_set_sprite_frame 3
 L_8034FDD:
@@ -161,7 +161,7 @@ L_8034FDD:
 NPC_8034FE4:
     a_init
     a_set_dialog 0x47
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 470, -88
     a_set_sprite_frame 3
 L_8034FF2:
@@ -171,7 +171,7 @@ L_8034FF2:
 NPC_8034FF9:
     a_init
     a_set_dialog 0x48
-    a_set_sprite 0x40
+    a_set_sprite SP_Overworld_OldWoman
     a_set_pos 496, -226
     a_set_sprite_frame 5
 L_8035007:
@@ -181,7 +181,7 @@ L_8035007:
 NPC_803500E:
     a_init
     a_set_dialog 0x8
-    a_set_sprite 0x2C
+    a_set_sprite SP_Overworld_Sal
     a_set_pos 472, -132
     a_set_sprite_frame 5
 L_803501C:
@@ -191,7 +191,7 @@ L_803501C:
 NPC_8035023:
     a_init
     a_set_dialog 0x57
-    a_set_sprite 0x7
+    a_set_sprite SP_Overworld_Masa
     a_set_pos 408, -146
     a_set_sprite_frame 4
 L_8035031:
@@ -213,7 +213,7 @@ global_label NPCList_8035038
 NPC_8035058:
     a_init
     a_set_dialog 0x5A
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -164, -20
     a_set_sprite_frame 7
 L_8035066:
@@ -223,7 +223,7 @@ L_8035066:
 NPC_803506D:
     a_init
     a_set_dialog 0x5B
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos -208, -224
     a_set_sprite_frame 1
 L_803507B:
@@ -233,7 +233,7 @@ L_803507B:
 NPC_8035082:
     a_init
     a_set_dialog 0x5C
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -180, -138
     a_set_sprite_frame 5
 L_8035090:
@@ -243,7 +243,7 @@ L_8035090:
 NPC_8035097:
     a_init
     a_set_dialog 0x5D
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos 116, -204
     a_set_sprite_frame 3
 L_80350A5:
@@ -255,7 +255,7 @@ L_80350A5:
 NPC_80350AC:
     a_init
     a_set_dialog 0x5E
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 470, -88
     a_set_sprite_frame 3
 L_80350BA:
@@ -265,7 +265,7 @@ L_80350BA:
 NPC_80350C1:
     a_init
     a_set_dialog 0x8
-    a_set_sprite 0x2C
+    a_set_sprite SP_Overworld_Sal
     a_set_pos 472, -132
     a_set_sprite_frame 5
 L_80350CF:
@@ -275,7 +275,7 @@ L_80350CF:
 NPC_80350D6:
     a_init
     a_set_dialog 0x57
-    a_set_sprite 0x7
+    a_set_sprite SP_Overworld_Masa
     a_set_pos 408, -146
     a_set_sprite_frame 4
 L_80350E4:
@@ -294,7 +294,7 @@ global_label NPCList_80350EC
 NPC_80350F8:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x2B
+    a_set_sprite SP_Overworld_Conductor
     a_set_pos -58, 0
     a_set_sprite_frame 1
 L_8035106:
@@ -304,7 +304,7 @@ L_8035106:
 NPC_803510D:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -90, -110
 L_8035119:
     a_set_sprite_frame 8
@@ -348,7 +348,7 @@ global_label NPCList_8035158
 NPC_803517C:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -300, 72
 L_8035188:
     a_set_sprite_frame 8
@@ -364,7 +364,7 @@ L_8035188:
 NPC_80351A5:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -164, 94
     a_set_sprite_frame 5
 L_80351B3:
@@ -378,7 +378,7 @@ NPC_80351BA:
     a_set_hitbox_offset 232, 8, 0
     a_set_radius 10
     a_set_dialog 0x3
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 218, 76
     a_set_sprite_frame 5
 L_80351D0:
@@ -388,7 +388,7 @@ L_80351D0:
 NPC_80351D7:
     a_init
     a_set_dialog 0x4
-    a_set_sprite 0x18
+    a_set_sprite SP_Overworld_OldMan
     a_set_pos -154, -30
     a_set_sprite_frame 1
 L_80351E5:
@@ -404,7 +404,7 @@ NPC_80351EC:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x5
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 178, -134
     a_set_sprite_frame 3
 L_8035202:
@@ -418,7 +418,7 @@ NPC_8035209:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x6
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 122, -134
     a_set_sprite_frame 3
 L_803521F:
@@ -457,7 +457,7 @@ global_label NPCList_8035254
 NPC_803527C:
     a_init
     a_set_dialog 0xF
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -290, 98
     a_set_sprite_frame 7
 L_803528A:
@@ -467,7 +467,7 @@ L_803528A:
 NPC_8035291:
     a_init
     a_set_dialog 0x10
-    a_set_sprite 0x19
+    a_set_sprite SP_Overworld_WomanApron
     a_set_pos -148, 68
     a_set_sprite_frame 3
 L_803529F:
@@ -480,7 +480,7 @@ NPC_80352A6:
     a_set_hitbox_offset 232, 8, 0
     a_set_radius 10
     a_set_dialog 0x11
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 218, 76
     a_set_sprite_frame 5
 L_80352BB:
@@ -494,7 +494,7 @@ NPC_80352C2:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x14
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 206, -134
     a_set_sprite_frame 3
 L_80352D8:
@@ -508,7 +508,7 @@ NPC_80352DF:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x15
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 152, -134
     a_set_sprite_frame 3
 L_80352F5:
@@ -521,7 +521,7 @@ NPC_80352FC:
     a_init
     a_disable_turn
     a_set_dialog 0x16
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos 216, -96
     a_set_sprite_frame 7
 L_803530B:
@@ -532,7 +532,7 @@ NPC_8035312:
     a_init
     a_disable_turn
     a_set_dialog 0x17
-    a_set_sprite 0x18
+    a_set_sprite SP_Overworld_OldMan
     a_set_pos 178, -96
     a_set_sprite_frame 7
 L_8035321:
@@ -545,7 +545,7 @@ NPC_8035328:
     a_init
     a_disable_turn
     a_set_dialog 0x18
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos 154, -96
     a_set_sprite_frame 7
 L_8035337:
@@ -556,7 +556,7 @@ NPC_803533E:
     a_init
     a_disable_turn
     a_set_dialog 0x19
-    a_set_sprite 0x1E
+    a_set_sprite SP_Overworld_ManGreen
     a_set_pos 116, -96
     a_set_sprite_frame 7
 L_803534D:
@@ -569,7 +569,7 @@ NPC_8035354:
     a_init
     a_disable_turn
     a_set_dialog 0x1C
-    a_set_sprite 0xA
+    a_set_sprite SP_Overworld_Chaud
     a_set_pos 174, 90
     a_set_sprite_frame 1
 L_8035363:
@@ -600,7 +600,7 @@ global_label NPCList_8035394
 NPC_803539C:
     a_init
     a_set_dialog 0xBE
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -290, -90
     a_set_sprite_frame 3
 L_80353AA:
@@ -614,7 +614,7 @@ L_80353AA:
 NPC_80353B4:
     a_init
     a_set_dialog 0xC8
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 238, -94
     a_set_sprite_frame 1
 L_80353C2:
@@ -639,7 +639,7 @@ global_label NPCList_80353CC
 NPC_80353F0:
     a_init
     a_set_dialog 0x46
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -300, 72
 L_80353FC:
     a_set_sprite_frame 8
@@ -655,7 +655,7 @@ L_80353FC:
 NPC_8035419:
     a_init
     a_set_dialog 0x47
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -164, 94
     a_set_sprite_frame 5
 L_8035427:
@@ -669,7 +669,7 @@ NPC_803542E:
     a_set_hitbox_offset 232, 8, 0
     a_set_radius 10
     a_set_dialog 0x48
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 218, 76
     a_set_sprite_frame 5
 L_8035444:
@@ -679,7 +679,7 @@ L_8035444:
 NPC_803544B:
     a_init
     a_set_dialog 0x49
-    a_set_sprite 0x18
+    a_set_sprite SP_Overworld_OldMan
     a_set_pos -154, -30
     a_set_sprite_frame 1
 L_8035459:
@@ -695,7 +695,7 @@ NPC_8035460:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x4A
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 178, -134
     a_set_sprite_frame 3
 L_8035476:
@@ -709,7 +709,7 @@ NPC_803547D:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x4B
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 122, -134
     a_set_sprite_frame 3
 L_8035493:
@@ -737,7 +737,7 @@ NPC_80354BC:
     a_set_hitbox_offset 248, 24, 0
     a_set_radius 10
     a_set_dialog 0x0
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos -42, -250
     a_set_sprite_frame 3
 L_80354D2:
@@ -751,7 +751,7 @@ NPC_80354D9:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x6
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 166, -210
     a_set_sprite_frame 5
 L_80354EF:
@@ -765,7 +765,7 @@ NPC_80354F6:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x7
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 166, -154
     a_set_sprite_frame 5
 L_803550C:
@@ -775,7 +775,7 @@ L_803550C:
 NPC_8035513:
     a_init
     a_set_dialog 0x8
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 128, 224
 L_803551F:
     a_set_sprite_frame 10
@@ -801,7 +801,7 @@ L_803551F:
 NPC_8035554:
     a_init
     a_set_dialog 0x9
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 98, 58
     a_set_sprite_frame 7
 L_8035562:
@@ -811,7 +811,7 @@ L_8035562:
 NPC_8035569:
     a_init
     a_set_dialog 0xA
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -244, -144
     a_set_sprite_frame 7
 L_8035577:
@@ -821,7 +821,7 @@ L_8035577:
 NPC_803557E:
     a_init
     a_set_dialog 0xB
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -64, 80
     a_set_sprite_frame 3
 L_803558C:
@@ -865,7 +865,7 @@ NPC_80355E0:
     a_set_hitbox_offset 248, 24, 0
     a_set_radius 10
     a_set_dialog 0x28
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos -42, -250
     a_set_sprite_frame 3
 L_80355F5:
@@ -881,7 +881,7 @@ NPC_80355FC:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x29
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 166, -210
     a_set_sprite_frame 5
 L_8035612:
@@ -895,7 +895,7 @@ NPC_8035619:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x2A
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 166, -154
     a_set_sprite_frame 5
 L_803562F:
@@ -905,7 +905,7 @@ L_803562F:
 NPC_8035636:
     a_init
     a_set_dialog 0x39
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 128, 224
 L_8035642:
     a_set_sprite_frame 10
@@ -930,7 +930,7 @@ NPC_8035677:
     a_init
     a_disable_turn
     a_set_dialog 0x38
-    a_set_sprite 0xA
+    a_set_sprite SP_Overworld_Chaud
     a_set_pos 98, 58
     a_set_sprite_frame 7
 L_8035686:
@@ -951,7 +951,7 @@ L_80356A4:
 NPC_80356AB:
     a_init
     a_set_dialog 0x2D
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -244, -144
     a_set_sprite_frame 7
 L_80356B9:
@@ -963,7 +963,7 @@ L_80356B9:
 NPC_80356C0:
     a_init
     a_set_dialog 0x3A
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -64, 80
     a_set_sprite_frame 3
 L_80356CE:
@@ -981,7 +981,7 @@ global_label NPCList_80356D8
 
 NPC_80356E4:
     a_init
-    a_set_sprite 0x3E
+    a_set_sprite SP_Overworld_Yuichiro
     a_set_pos 98, 58
     a_set_sprite_frame 3
 L_80356F0:
@@ -996,7 +996,7 @@ L_8035700:
 
 NPC_8035707:
     a_init
-    a_set_sprite 0x55
+    a_set_sprite SP_Overworld_WomanPurple
     a_set_pos -70, 56
     a_set_sprite_frame 8
 L_8035713:
@@ -1039,7 +1039,7 @@ NPC_803576C:
     a_set_hitbox_offset 248, 24, 0
     a_set_radius 10
     a_set_dialog 0x41
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos -42, -250
     a_set_sprite_frame 3
 L_8035782:
@@ -1053,7 +1053,7 @@ NPC_8035789:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x42
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 166, -210
     a_set_sprite_frame 5
 L_803579F:
@@ -1067,7 +1067,7 @@ NPC_80357A6:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x43
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 166, -154
     a_set_sprite_frame 5
 L_80357BC:
@@ -1077,7 +1077,7 @@ L_80357BC:
 NPC_80357C3:
     a_init
     a_set_dialog 0x44
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 128, 224
 L_80357CF:
     a_set_sprite_frame 10
@@ -1103,7 +1103,7 @@ L_80357CF:
 NPC_8035804:
     a_init
     a_set_dialog 0x45
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 98, 58
     a_set_sprite_frame 7
 L_8035812:
@@ -1113,7 +1113,7 @@ L_8035812:
 NPC_8035819:
     a_init
     a_set_dialog 0x46
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -244, -144
     a_set_sprite_frame 7
 L_8035827:
@@ -1123,7 +1123,7 @@ L_8035827:
 NPC_803582E:
     a_init
     a_set_dialog 0x47
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -64, 80
     a_set_sprite_frame 3
 L_803583C:
@@ -1145,7 +1145,7 @@ NPC_803584C:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x0
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 44, -190
     a_set_sprite_frame 3
 L_8035862:
@@ -1177,7 +1177,7 @@ NPC_803588C:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x2D
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 44, -190
     a_set_sprite_frame 3
 L_80358A2:
@@ -1187,7 +1187,7 @@ L_80358A2:
 NPC_80358A9:
     a_init
     a_set_dialog 0x2E
-    a_set_sprite 0x3E
+    a_set_sprite SP_Overworld_Yuichiro
     a_set_pos -38, 248
     a_set_sprite_frame 3
 L_80358B7:
@@ -1196,7 +1196,7 @@ L_80358B7:
 
 NPC_80358BE:
     a_init
-    a_set_sprite 0x3E
+    a_set_sprite SP_Overworld_Yuichiro
     a_set_pos 100, 206
     a_set_sprite_frame 1
 L_80358CA:
@@ -1211,7 +1211,7 @@ L_80358DA:
 
 NPC_80358E1:
     a_init
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 100, 80
     a_set_sprite_frame 3
 L_80358ED:
@@ -1240,7 +1240,7 @@ global_label NPCList_803590C
 NPC_8035920:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 80, 228
     a_set_sprite_frame 1
 L_803592E:
@@ -1254,7 +1254,7 @@ NPC_8035935:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x1
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos -72, -50
     a_set_sprite_frame 3
 L_803594B:
@@ -1264,7 +1264,7 @@ L_803594B:
 NPC_8035952:
     a_init
     a_set_dialog 0x3
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 38, 92
     a_set_sprite_frame 1
 L_8035960:
@@ -1274,7 +1274,7 @@ L_8035960:
 NPC_8035967:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -246, -30
 L_8035973:
     a_set_sprite_frame 3
@@ -1295,7 +1295,7 @@ global_label NPCList_803598C
 
 NPC_8035994:
     a_init
-    a_set_sprite 0x2E
+    a_set_sprite SP_Overworld_Madd
     a_set_pos 114, 174
     a_set_sprite_frame 5
 L_80359A0:
@@ -1327,7 +1327,7 @@ global_label NPCList_80359C8
 NPC_80359DC:
     a_init
     a_set_dialog 0x19
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 80, 228
     a_set_sprite_frame 1
 L_80359EA:
@@ -1341,7 +1341,7 @@ NPC_80359F1:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x1A
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos -72, -50
     a_set_sprite_frame 3
 L_8035A07:
@@ -1351,7 +1351,7 @@ L_8035A07:
 NPC_8035A0E:
     a_init
     a_set_dialog 0x1B
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -246, -30
 L_8035A1A:
     a_set_sprite_frame 3
@@ -1371,7 +1371,7 @@ L_8035A1A:
 NPC_8035A34:
     a_init
     a_set_dialog 0xBE
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos -224, -6
     a_set_sprite_frame 3
 L_8035A42:
@@ -1391,7 +1391,7 @@ global_label NPCList_8035A4C
 NPC_8035A5C:
     a_init
     a_set_dialog 0x23
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 80, 228
     a_set_sprite_frame 1
 L_8035A6A:
@@ -1405,7 +1405,7 @@ NPC_8035A71:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x24
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos -72, -50
     a_set_sprite_frame 3
 L_8035A87:
@@ -1432,7 +1432,7 @@ global_label NPCList_8035AA4
 NPC_8035AB4:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0x2D
+    a_set_sprite SP_Overworld_ManGovt
     a_set_pos 118, -80
     a_set_sprite_frame 1
 L_8035AC2:
@@ -1443,7 +1443,7 @@ NPC_8035AC9:
     a_init
     a_disable_turn
     a_set_dialog 0x3
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 6, -4
     a_set_sprite_frame 1
 L_8035AD8:
@@ -1454,7 +1454,7 @@ NPC_8035ADF:
     a_init
     a_disable_turn
     a_set_dialog 0x4
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 6, -42
     a_set_sprite_frame 1
 L_8035AEE:
@@ -1464,7 +1464,7 @@ L_8035AEE:
 NPC_8035AF5:
     a_init
     a_set_dialog 0x5
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos 88, 54
 L_8035B01:
     a_set_sprite_frame 8
@@ -1490,7 +1490,7 @@ global_label NPCList_8035B1C
 NPC_8035B2C:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos -76, 98
     a_set_sprite_frame 1
 L_8035B3A:
@@ -1500,7 +1500,7 @@ L_8035B3A:
 NPC_8035B41:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x31
+    a_set_sprite SP_Overworld_Scientist
     a_set_pos -100, -112
 L_8035B4D:
     a_set_sprite_frame 9
@@ -1516,7 +1516,7 @@ L_8035B4D:
 NPC_8035B66:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 88, 120
     a_set_sprite_frame 7
 L_8035B74:
@@ -1536,7 +1536,7 @@ global_label NPCList_8035B7C
 NPC_8035B8C:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x30
+    a_set_sprite SP_Overworld_WomanJacket
     a_set_pos -72, 2
     a_set_sprite_frame 1
 L_8035B9A:
@@ -1547,7 +1547,7 @@ NPC_8035BA1:
     a_init
     a_disable_turn
     a_set_dialog 0x3
-    a_set_sprite 0xA
+    a_set_sprite SP_Overworld_Chaud
     a_set_pos 30, -220
     a_set_sprite_frame 1
 L_8035BB0:
@@ -1557,7 +1557,7 @@ L_8035BB0:
 NPC_8035BB7:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0x2F
+    a_set_sprite SP_Overworld_ManJacket
     a_set_pos 30, 224
     a_set_sprite_frame 7
 L_8035BC5:
@@ -1580,7 +1580,7 @@ global_label NPCList_8035BD8
 NPC_8035BE8:
     a_init
     a_set_dialog 0xBE
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos 20, -228
     a_set_sprite_frame 5
 L_8035BF6:

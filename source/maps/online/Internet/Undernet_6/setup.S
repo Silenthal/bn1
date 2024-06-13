@@ -10,7 +10,7 @@ _ts MapSetup_Undernet_6_S0
     push       {r1,r5}
     bl         Sound_AreaSongChange
     pop        {r1,r5}
-    ldr        r0,PTR_FUN_080532b0_08053490
+    ldr        r0,PTR_MapSetup_Undernet_6_08053490
     mov        lr,pc
     bx         r0
     push       {r5}
@@ -40,13 +40,13 @@ LAB_080532a2:
 
 _nt EventHandler_Undernet_6_S0
     push       {lr}
-    ldr        r0,PTR_FUN_08053356_080534b4
+    ldr        r0,PTR_EventHandler_Undernet_6_080534b4
     mov        lr,pc
     bx         r0
     pop        {pc}
 
 
-_ts FUN_080532b0
+_ts MapSetup_Undernet_6
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x1]
@@ -99,7 +99,7 @@ LAB_080532ea:
 LAB_08053312:
     push       {r5}
     mov        r1,#0x57
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_0805331c:
     mov        r0,#0x7c
@@ -111,7 +111,7 @@ LAB_0805331c:
 LAB_0805332c:
     push       {r5}
     mov        r1,#0x58
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_08053336:
     mov        r0,#0x8a
@@ -123,7 +123,7 @@ LAB_08053336:
 LAB_08053346:
     push       {r5}
     mov        r1,#0x9d
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_08053350:
     mov        r0,#0x0
@@ -131,9 +131,9 @@ LAB_08053350:
     pop        {pc}
 
 
-_nt FUN_08053356
+_nt EventHandler_Undernet_6
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_0805336c_080534bc
+    ldr        r0,PTR_PTR_EventHandler_Undernet_6_0_080534bc
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
@@ -143,11 +143,11 @@ _nt FUN_08053356
 
     .align 2, 0
 
-PTR_FUN_0805336c_08053368:
-    .word FUN_0805336c
+PTR_EventHandler_Undernet_6_0_08053368:
+    .word EventHandler_Undernet_6_0
 
 
-_ts FUN_0805336c
+_ts EventHandler_Undernet_6_0
     push       {lr}
     mov        r0,#0x79
     bl         Flag_GetBase
@@ -173,7 +173,7 @@ LAB_0805338c:
     mov        r0,#0x21
     bl         Flag_Set420
     push       {r5}
-    ldr        r0,PTR_FUN_08085bb8_080534c0
+    ldr        r0,PTR_Scene_SkillGate_080534c0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -197,7 +197,7 @@ LAB_080533c0:
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_080534c8
+    ldr        r0,PTR_Scene_UnlockWWWGate_080534c8
     mov        r1,#0x1c
     bl         Scene_Prepare
     pop        {r5}
@@ -205,7 +205,7 @@ LAB_080533c0:
 LAB_080533e2:
     mov        r0,#0x20
     mov        r1,#0x1f
-    bl         FUN_0805345e
+    bl         EventHandler_Undernet_SkillGatePass
 LAB_080533ea:
     mov        r0,#0x79
     bl         Flag_GetBase
@@ -214,7 +214,7 @@ LAB_080533ea:
     bl         Flag_GetBase
     beq        LAB_08053408
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_080534cc
+    ldr        r0,PTR_Scene_UnlockWWWGate_080534cc
     mov        r1,#0x16
     bl         Scene_Prepare
     pop        {r5}
@@ -225,12 +225,12 @@ LAB_08053408:
     beq        LAB_08053418
     mov        r0,#0x21
     mov        r1,#0x0
-    bl         FUN_08053476
+    bl         EventHandler_Undernet_SkillGateFail
     b          LAB_08053420
 LAB_08053418:
     mov        r0,#0x21
     mov        r1,#0xa
-    bl         FUN_0805345e
+    bl         EventHandler_Undernet_SkillGatePass
 LAB_08053420:
     mov        r0,#0x7c
     bl         Flag_GetBase
@@ -239,7 +239,7 @@ LAB_08053420:
     bl         Flag_GetBase
     beq        LAB_0805343e
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_080534d0
+    ldr        r0,PTR_Scene_UnlockWWWGate_080534d0
     mov        r1,#0x17
     bl         Scene_Prepare
     pop        {r5}
@@ -250,19 +250,19 @@ LAB_0805343e:
     beq        LAB_0805344e
     mov        r0,#0x22
     mov        r1,#0x1
-    bl         FUN_08053476
+    bl         EventHandler_Undernet_SkillGateFail
     b          LAB_08053456
 LAB_0805344e:
     mov        r0,#0x22
     mov        r1,#0xc
-    bl         FUN_0805345e
+    bl         EventHandler_Undernet_SkillGatePass
 LAB_08053456:
     mov        r0,#0x1
     bl         CheckForJackOut
     pop        {pc}
 
 
-_nt FUN_0805345e
+_nt EventHandler_Undernet_SkillGatePass
     push       {lr}
     mov        r7,r10
     ldr        r7,[r7,#0x8]
@@ -277,7 +277,7 @@ LAB_08053474:
     pop        {pc}
 
 
-_nt FUN_08053476
+_nt EventHandler_Undernet_SkillGateFail
     push       {lr}
     mov        r7,r10
     ldr        r7,[r7,#0x8]
@@ -285,7 +285,7 @@ _nt FUN_08053476
     cmp        r2,r0
     bne        LAB_0805348c
     push       {r5}
-    ldr        r0,PTR_FUN_08085bb8_080534d8
+    ldr        r0,PTR_Scene_SkillGate_080534d8
     bl         Scene_Prepare
     pop        {r5}
 LAB_0805348c:
@@ -293,8 +293,8 @@ LAB_0805348c:
 
     .align 2, 0
 
-PTR_FUN_080532b0_08053490:
-    .word FUN_080532b0
+PTR_MapSetup_Undernet_6_08053490:
+    .word MapSetup_Undernet_6
 
 PTR_BgTask_80515C8_08053494:
     .word BgTask_80515C8
@@ -320,32 +320,32 @@ PTR_BgTask_8051820_080534ac:
 PTR_BgTask_8051738_080534b0:
     .word BgTask_8051738
 
-PTR_FUN_08053356_080534b4:
-    .word FUN_08053356
+PTR_EventHandler_Undernet_6_080534b4:
+    .word EventHandler_Undernet_6
 
 PTR_NPCList_8054AC4_080534b8:
     .word NPCList_8054AC4
 
-PTR_PTR_FUN_0805336c_080534bc:
-    .word PTR_FUN_0805336c_08053368
+PTR_PTR_EventHandler_Undernet_6_0_080534bc:
+    .word PTR_EventHandler_Undernet_6_0_08053368
 
-PTR_FUN_08085bb8_080534c0:
+PTR_Scene_SkillGate_080534c0:
     .word 0x8085BB9
 
 PTR_BgTask_8051738_080534c4:
     .word BgTask_8051738
 
-PTR_FUN_08086e18_080534c8:
+PTR_Scene_UnlockWWWGate_080534c8:
     .word 0x8086E19
 
-PTR_FUN_08086e18_080534cc:
+PTR_Scene_UnlockWWWGate_080534cc:
     .word 0x8086E19
 
-PTR_FUN_08086e18_080534d0:
+PTR_Scene_UnlockWWWGate_080534d0:
     .word 0x8086E19
 
 PTR_Script_ShowDialogue_080534d4:
     .word Script_ShowDialogue
 
-PTR_FUN_08085bb8_080534d8:
+PTR_Scene_SkillGate_080534d8:
     .word 0x8085BB9

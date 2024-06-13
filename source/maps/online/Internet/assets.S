@@ -183,7 +183,7 @@ global_label NPC_8053F72
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x0
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 108, -172
     a_set_sprite_frame 5
 L_8053F82:
@@ -194,7 +194,7 @@ global_label NPC_8053F89
     a_jump_if_flag 0xE2, L_8053FA7
     a_init
     a_set_dialog 0x5A
-    a_set_sprite 0x38
+    a_set_sprite SP_Overworld_Glyde
     a_set_pos -180, -4
     a_set_sprite_frame 5
 L_8053F9E:
@@ -210,7 +210,7 @@ global_label NPC_8053FA8
     a_disable_dialog
     a_disable_collision
     a_set_dialog 0x5E
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -6, 186
 L_8053FB6:
     a_wait 1
@@ -237,7 +237,7 @@ NPC_8053FE0:
     a_init
     a_set_dialog 0x15
     a_sprite_mask_set_flag 0x3
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -180, -4
     a_set_sprite_frame 5
 L_8053FF0:
@@ -599,7 +599,7 @@ L_80542AF:
 NPC_80542B0:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x34
+    a_set_sprite SP_Overworld_StoneMan
     a_set_pos -78, -458, 64
     a_set_sprite_frame 3
 L_80542BE:
@@ -642,7 +642,7 @@ NPC_805430D:
     a_init
     a_set_dialog 0xE
     a_sprite_mask_set_flag 0x3
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -302, 30
     a_set_sprite_frame 7
 L_805431D:
@@ -655,7 +655,7 @@ NPC_8054324:
     a_jump_if_flag 0x75, L_8054344
     a_init
     a_set_dialog 0x78
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_palette 0x2
     a_set_pos -78, -432, 64
     a_set_sprite_frame 3
@@ -797,7 +797,7 @@ NPC_805444C:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x0
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -78, -96, 64
     a_set_sprite_frame 5
 L_805445C:
@@ -936,7 +936,7 @@ NPC_8054568:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x0
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 554, -366
     a_set_sprite_frame 5
 L_8054578:
@@ -1078,7 +1078,7 @@ NPC_8054690:
     a_init
     a_set_dialog 0x0
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 96, -86
     a_set_sprite_frame 5
 L_80546A0:
@@ -1089,7 +1089,7 @@ NPC_80546A7:
     a_init
     a_set_dialog 0x10
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -288, -112
     a_set_sprite_frame 5
 L_80546B7:
@@ -1100,7 +1100,7 @@ NPC_80546BE:
     a_init
     a_set_dialog 0x11
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 594, -48
     a_set_sprite_frame 5
 L_80546CE:
@@ -1111,7 +1111,7 @@ NPC_80546D5:
     a_init
     a_set_dialog 0x12
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 480, 154
     a_set_sprite_frame 7
 L_80546E5:
@@ -1448,7 +1448,7 @@ L_8054995:
 NPC_8054996:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x58
+    a_set_sprite SP_Overworld_BombMan
     a_set_pos 420, -172
     a_set_sprite_frame 4
 L_80549A4:
@@ -1582,7 +1582,7 @@ NPC_8054AAA:
     a_init
     a_set_dialog 0x10
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -24, -260
     a_set_sprite_frame 5
 L_8054ABA:
@@ -1722,7 +1722,7 @@ NPC_8054BCC:
     a_init
     a_set_dialog 0x0
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 90, 196, 64
     a_set_sprite_frame 5
 L_8054BDC:
@@ -1733,7 +1733,7 @@ NPC_8054BE3:
     a_init
     a_set_dialog 0x14
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -344, 118, 64
     a_set_sprite_frame 5
 L_8054BF3:
@@ -1744,7 +1744,7 @@ NPC_8054BFA:
     a_init
     a_set_dialog 0x15
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -344, 140, 64
     a_set_sprite_frame 5
 L_8054C0A:
@@ -1863,7 +1863,7 @@ NPC_8054CF2:
     a_init
     a_set_dialog 0x15
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -194, 20, 64
     a_set_sprite_frame 7
 L_8054D02:
@@ -1874,7 +1874,7 @@ NPC_8054D09:
     a_init
     a_set_dialog 0x14
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -184, -124, 64
     a_set_sprite_frame 5
 L_8054D19:
@@ -1991,7 +1991,7 @@ NPC_8054DFE:
     a_init
     a_set_dialog 0x0
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -270, 222
     a_set_sprite_frame 5
 L_8054E0E:
@@ -2002,7 +2002,7 @@ NPC_8054E15:
     a_init
     a_set_dialog 0x14
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -466, -42
     a_set_sprite_frame 3
 L_8054E25:
@@ -2139,7 +2139,7 @@ NPC_8054F30:
     a_init
     a_set_dialog 0x14
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -368, -70
     a_set_sprite_frame 7
 L_8054F40:
@@ -2279,7 +2279,7 @@ NPC_8055050:
     a_init
     a_set_dialog 0x14
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -190, -182
     a_set_sprite_frame 7
 L_8055060:
@@ -2290,7 +2290,7 @@ NPC_8055067:
     a_init
     a_set_dialog 0x15
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 264, -266
     a_set_sprite_frame 5
 L_8055077:
@@ -2409,7 +2409,7 @@ NPC_805515E:
     a_init
     a_set_dialog 0x0
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 80, -160
     a_set_sprite_frame 5
 L_805516E:
@@ -2420,7 +2420,7 @@ NPC_8055175:
     a_init
     a_set_dialog 0x14
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -266, -220, 64
     a_set_sprite_frame 5
 L_8055185:
@@ -2638,7 +2638,7 @@ NPC_805533C:
     a_init
     a_set_dialog 0x14
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -208, -56
     a_set_sprite_frame 5
 L_805534C:
@@ -2649,7 +2649,7 @@ NPC_8055353:
     a_init
     a_set_dialog 0x15
     a_set_palette 0x2
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -84, -88
     a_set_sprite_frame 1
 L_8055363:

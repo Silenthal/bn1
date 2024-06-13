@@ -10,7 +10,7 @@ _ts MapSetup_Undernet_10_S0
     push       {r1,r5}
     bl         Sound_AreaSongChange
     pop        {r1,r5}
-    ldr        r0,PTR_FUN_0805395c_08053af8
+    ldr        r0,PTR_MapSetup_Undernet_10_08053af8
     mov        lr,pc
     bx         r0
     push       {r5}
@@ -40,13 +40,13 @@ LAB_0805394e:
 
 _nt EventHandler_Undernet_10_S0
     push       {lr}
-    ldr        r0,PTR_FUN_080539ec_08053b1c
+    ldr        r0,PTR_EventHandler_Undernet_10_08053b1c
     mov        lr,pc
     bx         r0
     pop        {pc}
 
 
-_ts FUN_0805395c
+_ts MapSetup_Undernet_10
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x1]
@@ -97,7 +97,7 @@ LAB_08053996:
 LAB_080539be:
     push       {r5}
     mov        r1,#0x5b
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_080539c8:
     mov        r0,#0x8d
@@ -111,7 +111,7 @@ LAB_080539c8:
 LAB_080539dc:
     push       {r5}
     mov        r1,#0x9e
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_080539e6:
     mov        r0,#0x0
@@ -119,9 +119,9 @@ LAB_080539e6:
     pop        {pc}
 
 
-_ts FUN_080539ec
+_ts EventHandler_Undernet_10
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_08053a00_08053b24
+    ldr        r0,PTR_PTR_EventHandler_Undernet_10_0_08053b24
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
@@ -129,11 +129,11 @@ _ts FUN_080539ec
     bx         r0
     pop        {pc}
 
-PTR_FUN_08053a00_080539fc:
-    .word FUN_08053a00
+PTR_EventHandler_Undernet_10_0_080539fc:
+    .word EventHandler_Undernet_10_0
 
 
-_ts FUN_08053a00
+_ts EventHandler_Undernet_10_0
     push       {lr}
     mov        r0,#0x85
     bl         Flag_GetBase
@@ -155,7 +155,7 @@ LAB_08053a18:
     mov        r0,#0x24
     bl         Flag_Set420
     push       {r5}
-    ldr        r0,PTR_FUN_08085bb8_08053b28
+    ldr        r0,PTR_Scene_SkillGate_08053b28
     mov        r1,#0x4
     bl         Scene_Prepare
     pop        {r5}
@@ -179,7 +179,7 @@ LAB_08053a4c:
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_08053b30
+    ldr        r0,PTR_Scene_UnlockWWWGate_08053b30
     mov        r1,#0x1d
     bl         Scene_Prepare
     pop        {r5}
@@ -203,7 +203,7 @@ LAB_08053a84:
     bl         Flag_GetBase
     beq        LAB_08053aa2
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_08053b38
+    ldr        r0,PTR_Scene_UnlockWWWGate_08053b38
     mov        r1,#0x1a
     bl         Scene_Prepare
     pop        {r5}
@@ -214,12 +214,12 @@ LAB_08053aa2:
     beq        LAB_08053ab2
     mov        r0,#0x21
     mov        r1,#0x4
-    bl         FUN_08053476
+    bl         EventHandler_Undernet_SkillGateFail
     b          LAB_08053aba
 LAB_08053ab2:
     mov        r0,#0x21
     mov        r1,#0xa
-    bl         FUN_0805345e
+    bl         EventHandler_Undernet_SkillGatePass
 LAB_08053aba:
     mov        r0,#0x5
     bl         Flag_GetBase
@@ -248,8 +248,8 @@ LAB_08053af0:
     bl         CheckForJackOut
     pop        {pc}
 
-PTR_FUN_0805395c_08053af8:
-    .word FUN_0805395c
+PTR_MapSetup_Undernet_10_08053af8:
+    .word MapSetup_Undernet_10
 
 PTR_BgTask_80515C8_08053afc:
     .word BgTask_80515C8
@@ -275,28 +275,28 @@ PTR_BgTask_8051820_08053b14:
 PTR_BgTask_8051738_08053b18:
     .word BgTask_8051738
 
-PTR_FUN_080539ec_08053b1c:
-    .word FUN_080539ec
+PTR_EventHandler_Undernet_10_08053b1c:
+    .word EventHandler_Undernet_10
 
 PTR_NPCList_8054F48_08053b20:
     .word NPCList_8054F48
 
-PTR_PTR_FUN_08053a00_08053b24:
-    .word PTR_FUN_08053a00_080539fc
+PTR_PTR_EventHandler_Undernet_10_0_08053b24:
+    .word PTR_EventHandler_Undernet_10_0_080539fc
 
-PTR_FUN_08085bb8_08053b28:
+PTR_Scene_SkillGate_08053b28:
     .word 0x8085BB9
 
 PTR_BgTask_8051738_08053b2c:
     .word BgTask_8051738
 
-PTR_FUN_08086e18_08053b30:
+PTR_Scene_UnlockWWWGate_08053b30:
     .word 0x8086E19
 
 PTR_Script_ShowDialogue_08053b34:
     .word Script_ShowDialogue
 
-PTR_FUN_08086e18_08053b38:
+PTR_Scene_UnlockWWWGate_08053b38:
     .word 0x8086E19
 
 PTR_FUN_080857b8_08053b3c:

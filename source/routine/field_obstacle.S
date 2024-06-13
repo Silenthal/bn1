@@ -11,7 +11,7 @@ _ts FieldObstacleManager_Init
     mov        r2,#0x0
     bl         memset_32
     pop        {pc}
-    .word eMainState0x7C
+    .word gFieldObstacleManager
 
 
 _ts FieldObstacleManager_Add

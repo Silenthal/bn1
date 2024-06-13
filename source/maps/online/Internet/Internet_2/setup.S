@@ -8,7 +8,7 @@ _ts MapSetup_Internet_2_S0
     push       {r1,r5}
     bl         Sound_AreaSongChange
     pop        {r1,r5}
-    ldr        r0,PTR_FUN_080522e8_080525ac
+    ldr        r0,PTR_MapSetup_Internet_2_080525ac
     mov        lr,pc
     bx         r0
     push       {r5}
@@ -44,7 +44,7 @@ _nt EventHandler_Internet_2_S0
     pop        {pc}
 
 
-_ts FUN_080522e8
+_ts MapSetup_Internet_2
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x1]
@@ -66,7 +66,7 @@ _ts FUN_080522e8
 LAB_08052314:
     push       {r5}
     mov        r1,#0x89
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_0805231e:
     mov        r0,#0x19
@@ -217,9 +217,9 @@ BYTE_ARRAY_08052440:
     .byte 0x0E
 
 
-_ts FUN_08052444
+_ts EventHandler_Internet_2
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_08052458_080525e8
+    ldr        r0,PTR_PTR_EventHandler_Internet_2_0_080525e8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
@@ -227,11 +227,11 @@ _ts FUN_08052444
     bx         r0
     pop        {pc}
 
-PTR_FUN_08052458_08052454:
-    .word FUN_08052458
+PTR_EventHandler_Internet_2_0_08052454:
+    .word EventHandler_Internet_2_0
 
 
-_ts FUN_08052458
+_ts EventHandler_Internet_2_0
     push       {lr}
     mov        r0,#0x17
     bl         Flag_GetBase
@@ -400,8 +400,8 @@ _ts FUN_08052528
     add        r4,#0x4
     pop        {pc}
 
-PTR_FUN_080522e8_080525ac:
-    .word FUN_080522e8
+PTR_MapSetup_Internet_2_080525ac:
+    .word MapSetup_Internet_2
 
 PTR_BgTask_80515C8_080525b0:
     .word BgTask_80515C8
@@ -428,7 +428,7 @@ PTR_BgTask_8051738_080525cc:
     .word BgTask_8051738
 
 DAT_080525d0:
-    .word FUN_08052444
+    .word EventHandler_Internet_2
 
 PTR_EntityAllocParams_8055428_080525d4:
     .word EntityAllocParams_8055428
@@ -445,8 +445,8 @@ PTR_DAT_080525e0:
 PTR_PTR_080525e4:
     .word PTR_ARRAY_080523e0
 
-PTR_PTR_FUN_08052458_080525e8:
-    .word PTR_FUN_08052458_08052454
+PTR_PTR_EventHandler_Internet_2_0_080525e8:
+    .word PTR_EventHandler_Internet_2_0_08052454
 
 DAT_080525ec:
     .word 0x8086E19

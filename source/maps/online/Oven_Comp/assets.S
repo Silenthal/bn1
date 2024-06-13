@@ -25,7 +25,7 @@ global_label NPCList_8043A38
 NPC_8043A74:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 328, 92
     a_set_sprite_frame 3
 L_8043A82:
@@ -35,7 +35,7 @@ L_8043A82:
 NPC_8043A89:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 422, 136
     a_set_sprite_frame 5
 L_8043A97:
@@ -45,7 +45,7 @@ L_8043A97:
 NPC_8043A9E:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 364, 177
     a_set_sprite_frame 7
 L_8043AAC:
@@ -55,7 +55,7 @@ L_8043AAC:
 NPC_8043AB3:
     a_init
     a_set_dialog 0x3
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 150, 110
     a_set_sprite_frame 1
 L_8043AC1:
@@ -68,7 +68,7 @@ NPC_8043AC8:
     a_init
     a_disable_turn
     a_set_dialog 0x4
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -30, 175
     a_set_sprite_frame 15
 L_8043AD7:
@@ -79,7 +79,7 @@ NPC_8043ADE:
     a_init
     a_disable_turn
     a_set_dialog 0x5
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -45, 78
     a_set_sprite_frame 12
 L_8043AED:
@@ -92,7 +92,7 @@ NPC_8043AF4:
     a_init
     a_disable_turn
     a_set_dialog 0x6
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -42, -354
     a_set_sprite_frame 13
 L_8043B03:
@@ -103,7 +103,7 @@ NPC_8043B0A:
     a_init
     a_disable_turn
     a_set_dialog 0x7
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -372, -135
     a_set_sprite_frame 12
 L_8043B19:
@@ -205,7 +205,7 @@ L_8043BD3:
 NPC_8043BD4:
     a_init
     a_set_dialog 0x1D
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -424, 138
     a_set_sprite_frame 7
 L_8043BE2:
@@ -223,7 +223,7 @@ global_label NPCList_8043BEC
 NPC_8043BF4:
     a_init
     a_set_dialog 0x1E
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -372, -135
     a_set_sprite_frame 3
 L_8043C02:
@@ -241,7 +241,7 @@ global_label NPCList_8043C0C
 NPC_8043C14:
     a_init
     a_set_dialog 0x1E
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -372, -135
     a_set_sprite_frame 3
 L_8043C22:
@@ -264,7 +264,7 @@ NPC_8043C44:
     a_init
     a_disable_turn
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -248, 8
     a_set_sprite_frame 15
 L_8043C53:
@@ -275,7 +275,7 @@ NPC_8043C5A:
     a_init
     a_disable_turn
     a_disable_dialog
-    a_set_sprite 0x17
+    a_set_sprite SP_Overworld_FireMan
     a_set_pos -310, -135
     a_set_sprite_frame 3
 L_8043C68:
@@ -339,7 +339,7 @@ NPC_8043CE0:
     a_init
     a_disable_turn
     a_disable_dialog
-    a_set_sprite 0x17
+    a_set_sprite SP_Overworld_FireMan
     a_set_pos -310, -135
     a_set_sprite_frame 3
 L_8043CEE:

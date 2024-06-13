@@ -44,7 +44,7 @@ _nt EventHandler_Internet_4_S0
     pop        {pc}
 
 
-_ts FUN_0805294c
+_ts MapSetup_Internet_4
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x1]
@@ -109,7 +109,7 @@ LAB_080529c4:
 LAB_080529d8:
     push       {r5}
     mov        r1,#0x8b
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_080529e2:
     mov        r0,#0x0
@@ -117,9 +117,9 @@ LAB_080529e2:
     pop        {pc}
 
 
-_ts FUN_080529e8
+_ts EventHandler_Internet_4
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_080529fc_08052b08
+    ldr        r0,PTR_PTR_EventHandler_Internet_4_0_08052b08
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
@@ -127,11 +127,11 @@ _ts FUN_080529e8
     bx         r0
     pop        {pc}
 
-PTR_FUN_080529fc_080529f8:
-    .word FUN_080529fc
+PTR_EventHandler_Internet_4_0_080529f8:
+    .word EventHandler_Internet_4_0
 
 
-_ts FUN_080529fc
+_ts EventHandler_Internet_4_0
     push       {lr}
     ldrb       r0,[r5,#0x1]
     tst        r0,r0
@@ -234,7 +234,7 @@ LAB_08052ac8:
     pop        {pc}
 
 DAT_08052ad0:
-    .word FUN_0805294c
+    .word MapSetup_Internet_4
 
 PTR_BgTask_80515C8_08052ad4:
     .word BgTask_80515C8
@@ -261,7 +261,7 @@ PTR_BgTask_8051738_08052af0:
     .word BgTask_8051738
 
 DAT_08052af4:
-    .word FUN_080529e8
+    .word EventHandler_Internet_4
 
 PTR_NPCList_8054464_08052af8:
     .word NPCList_8054464
@@ -275,8 +275,8 @@ PTR_DAT_08052b00:
 PTR_FUN_08087e34_08052b04:
     .word 0x8087E35
 
-PTR_PTR_FUN_080529fc_08052b08:
-    .word PTR_FUN_080529fc_080529f8
+PTR_PTR_EventHandler_Internet_4_0_08052b08:
+    .word PTR_EventHandler_Internet_4_0_080529f8
 
 PTR_BgTask_8051738_08052b0c:
     .word BgTask_8051738

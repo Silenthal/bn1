@@ -10,7 +10,7 @@ _ts MapSetup_Undernet_3_S0
     push       {r1,r5}
     bl         Sound_AreaSongChange
     pop        {r1,r5}
-    ldr        r0,PTR_FUN_08052ece_08052f74
+    ldr        r0,PTR_MapSetup_Undernet_3_08052f74
     mov        lr,pc
     bx         r0
     push       {r5}
@@ -34,13 +34,13 @@ _ts MapSetup_Undernet_3_S0
 
 _ts EventHandler_Undernet_3_S0
     push       {lr}
-    ldr        r0,PTR_FUN_08052f14_08052f94
+    ldr        r0,PTR_EventHandler_Undernet_3_08052f94
     mov        lr,pc
     bx         r0
     pop        {pc}
 
 
-_nt FUN_08052ece
+_nt MapSetup_Undernet_3
     push       {lr}
     push       {r5}
     bl         PlayerLocation_Create
@@ -74,9 +74,9 @@ LAB_08052f0e:
     pop        {pc}
 
 
-_ts FUN_08052f14
+_ts EventHandler_Undernet_3
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_08052f28_08052fa4
+    ldr        r0,PTR_PTR_EventHandler_Undernet_3_0_08052fa4
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
@@ -84,11 +84,11 @@ _ts FUN_08052f14
     bx         r0
     pop        {pc}
 
-PTR_FUN_08052f28_08052f24:
-    .word FUN_08052f28
+PTR_EventHandler_Undernet_3_0_08052f24:
+    .word EventHandler_Undernet_3_0
 
 
-_ts FUN_08052f28
+_ts EventHandler_Undernet_3_0
     push       {lr}
     push       {r5}
     mov        r7,r10
@@ -126,8 +126,8 @@ LAB_08052f6a:
 
     .align 2, 0
 
-PTR_FUN_08052ece_08052f74:
-    .word FUN_08052ece
+PTR_MapSetup_Undernet_3_08052f74:
+    .word MapSetup_Undernet_3
 
 PTR_BgTask_80515C8_08052f78:
     .word BgTask_80515C8
@@ -150,8 +150,8 @@ PTR_BgTask_8051780_08052f8c:
 PTR_BgTask_8051820_08052f90:
     .word BgTask_8051820
 
-PTR_FUN_08052f14_08052f94:
-    .word FUN_08052f14
+PTR_EventHandler_Undernet_3_08052f94:
+    .word EventHandler_Undernet_3
 
 PTR_NPCList_80547C4_08052f98:
     .word NPCList_80547C4
@@ -162,8 +162,8 @@ PTR_FUN_08084070_08052f9c:
 INT_08052fa0:
     .word 0x2000
 
-PTR_PTR_FUN_08052f28_08052fa4:
-    .word PTR_FUN_08052f28_08052f24
+PTR_PTR_EventHandler_Undernet_3_0_08052fa4:
+    .word PTR_EventHandler_Undernet_3_0_08052f24
 
 DAT_08052fa8:
     .word 0xA05

@@ -14,7 +14,7 @@ global_label NPCList_8038DAC
 NPC_8038DC0:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0xB
+    a_set_sprite SP_Overworld_YoungBoy
     a_set_pos -114, 272
 L_8038DCC:
     a_set_sprite_frame 11
@@ -30,7 +30,7 @@ L_8038DCC:
 NPC_8038DE5:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x18
+    a_set_sprite SP_Overworld_OldMan
     a_set_pos 84, 140
     a_set_sprite_frame 1
 L_8038DF3:
@@ -40,7 +40,7 @@ L_8038DF3:
 NPC_8038DFA:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -100, -60
     a_set_sprite_frame 5
 L_8038E08:
@@ -50,7 +50,7 @@ L_8038E08:
 NPC_8038E0F:
     a_init
     a_set_dialog 0x3
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos 164, -60
 L_8038E1B:
     a_set_sprite_frame 10
@@ -76,7 +76,7 @@ global_label NPCList_8038E34
 NPC_8038E4C:
     a_init
     a_set_dialog 0x18
-    a_set_sprite 0x2E
+    a_set_sprite SP_Overworld_Madd
     a_set_pos -168, 228
     a_set_sprite_frame 5
 L_8038E5A:
@@ -86,7 +86,7 @@ L_8038E5A:
 NPC_8038E61:
     a_init
     a_set_dialog 0xE
-    a_set_sprite 0xB
+    a_set_sprite SP_Overworld_YoungBoy
     a_set_pos -100, -80
     a_set_sprite_frame 5
 L_8038E6F:
@@ -97,7 +97,7 @@ NPC_8038E76:
     a_jump_if_flag 0xA2, L_8038EAB
     a_init
     a_set_dialog 0xF
-    a_set_sprite 0x18
+    a_set_sprite SP_Overworld_OldMan
     a_set_pos -170, 200
     a_set_sprite_frame 3
 L_8038E8B:
@@ -120,7 +120,7 @@ NPC_8038EAC:
     a_jump_if_flag 0xA3, L_8038EE1
     a_init
     a_set_dialog 0x12
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -196, 228
     a_set_sprite_frame 1
 L_8038EC1:
@@ -141,7 +141,7 @@ NPC_8038EE2:
     a_jump_if_flag 0xA4, L_8038F11
     a_init
     a_set_dialog 0x15
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos -178, 258
     a_set_sprite_frame 7
 L_8038EF7:
@@ -167,7 +167,7 @@ global_label NPCList_8038F14
 NPC_8038F1C:
     a_init
     a_disable_collision
-    a_set_sprite 0x2E
+    a_set_sprite SP_Overworld_Madd
     a_set_pos -168, 228
     a_set_sprite_frame 1
 L_8038F29:
@@ -193,7 +193,7 @@ global_label NPCList_8038F48
 
 NPC_8038F50:
     a_init
-    a_set_sprite 0xF
+    a_set_sprite SP_Overworld_Mayl
     a_set_pos -100, 8
     a_set_sprite_frame 3
 L_8038F5C:
@@ -230,7 +230,7 @@ global_label NPCList_8038F90
 NPC_8038FA8:
     a_init
     a_set_dialog 0x50
-    a_set_sprite 0xB
+    a_set_sprite SP_Overworld_YoungBoy
     a_set_pos -114, 272
 L_8038FB4:
     a_set_sprite_frame 11
@@ -246,7 +246,7 @@ L_8038FB4:
 NPC_8038FCD:
     a_init
     a_set_dialog 0x51
-    a_set_sprite 0x18
+    a_set_sprite SP_Overworld_OldMan
     a_set_pos 84, 140
     a_set_sprite_frame 1
 L_8038FDB:
@@ -256,7 +256,7 @@ L_8038FDB:
 NPC_8038FE2:
     a_init
     a_set_dialog 0x52
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -100, -60
     a_set_sprite_frame 5
 L_8038FF0:
@@ -266,7 +266,7 @@ L_8038FF0:
 NPC_8038FF7:
     a_init
     a_set_dialog 0x53
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos 164, -60
     a_set_sprite_frame 5
 L_8039005:
@@ -281,7 +281,7 @@ NPC_803900C:
     a_disable_turn
     a_init
     a_set_dialog 0x60
-    a_set_sprite 0xA
+    a_set_sprite SP_Overworld_Chaud
     a_set_pos 150, -60
     a_set_sprite_frame 1
 L_8039029:
@@ -310,7 +310,7 @@ global_label NPCList_803904C
 NPC_8039058:
     a_init
     a_set_dialog 0xF
-    a_set_sprite 0x2B
+    a_set_sprite SP_Overworld_Conductor
     a_set_pos -18, 62
     a_set_sprite_frame 5
 L_8039066:
@@ -321,7 +321,7 @@ NPC_803906D:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0x10
-    a_set_sprite 0x1D
+    a_set_sprite SP_Overworld_YoungGirl
     a_set_pos -30, -70
 L_803907B:
     a_set_sprite_frame 11
@@ -349,7 +349,7 @@ global_label NPCList_803909C
 NPC_80390AC:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0xC
+    a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos 80, 164
 L_80390B8:
     a_set_sprite_frame 9
@@ -366,7 +366,7 @@ L_80390B8:
 NPC_80390D3:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x40
+    a_set_sprite SP_Overworld_OldWoman
     a_set_pos 112, -70
 L_80390DF:
     a_set_sprite_frame 8
@@ -384,7 +384,7 @@ L_80390DF:
 NPC_80390F8:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0x1E
+    a_set_sprite SP_Overworld_ManGreen
     a_set_pos -112, 234
     a_set_sprite_frame 1
 L_8039106:
@@ -402,7 +402,7 @@ global_label NPCList_8039110
 
 NPC_803911C:
     a_init
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -80, 114
     a_set_sprite_frame 1
 L_8039128:
@@ -417,7 +417,7 @@ L_8039138:
 
 NPC_803913F:
     a_init
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos -84, 96
     a_set_sprite_frame 1
 L_803914B:
@@ -442,7 +442,7 @@ global_label NPCList_8039164
 
 NPC_8039174:
     a_init
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -74, 112
     a_set_sprite_frame 12
     a_move d_se, 8, 25
@@ -452,7 +452,7 @@ L_8039184:
 
 NPC_803918B:
     a_init
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos -98, 120
     a_set_sprite_frame 12
     a_move d_se, 8, 25
@@ -462,7 +462,7 @@ L_803919B:
 
 NPC_80391A2:
     a_init
-    a_set_sprite 0x1E
+    a_set_sprite SP_Overworld_ManGreen
     a_set_pos -88, 174
     a_set_sprite_frame 16
     a_move d_se, 8, 25
@@ -487,7 +487,7 @@ global_label NPCList_80391CC
 NPC_80391D4:
     a_init
     a_set_dialog 0x2D
-    a_set_sprite 0xC
+    a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos 80, 164
 L_80391E0:
     a_set_sprite_frame 9
@@ -504,7 +504,7 @@ L_80391E0:
 NPC_80391FB:
     a_init
     a_set_dialog 0x2E
-    a_set_sprite 0x40
+    a_set_sprite SP_Overworld_OldWoman
     a_set_pos 112, -70
 L_8039207:
     a_set_sprite_frame 8
@@ -522,7 +522,7 @@ L_8039207:
 NPC_8039220:
     a_init
     a_set_dialog 0x2F
-    a_set_sprite 0x1E
+    a_set_sprite SP_Overworld_ManGreen
     a_set_pos -112, 234
     a_set_sprite_frame 1
 L_803922E:
@@ -540,7 +540,7 @@ global_label NPCList_8039238
 
 NPC_8039244:
     a_init
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -80, 114
     a_set_sprite_frame 1
 L_8039250:
@@ -555,7 +555,7 @@ L_8039260:
 
 NPC_8039267:
     a_init
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos -84, 96
     a_set_sprite_frame 1
 L_8039273:
@@ -580,7 +580,7 @@ global_label NPCList_803928C
 
 NPC_803929C:
     a_init
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos -74, 112
     a_set_sprite_frame 12
     a_move d_se, 8, 25
@@ -590,7 +590,7 @@ L_80392AC:
 
 NPC_80392B3:
     a_init
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos -98, 120
     a_set_sprite_frame 12
     a_move d_se, 8, 25
@@ -600,7 +600,7 @@ L_80392C3:
 
 NPC_80392CA:
     a_init
-    a_set_sprite 0x1E
+    a_set_sprite SP_Overworld_ManGreen
     a_set_pos -88, 174
     a_set_sprite_frame 16
     a_move d_se, 8, 25
@@ -621,7 +621,7 @@ global_label NPCList_80392E4
 NPC_80392F4:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x40
+    a_set_sprite SP_Overworld_OldWoman
     a_set_pos -238, -16
     a_set_sprite_frame 1
 L_8039302:
@@ -631,7 +631,7 @@ L_8039302:
 NPC_8039309:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x1C
+    a_set_sprite SP_Overworld_PreschoolGirl
     a_set_pos 18, 272
 L_8039315:
     a_set_sprite_frame 11
@@ -648,7 +648,7 @@ NPC_803932E:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0x2
-    a_set_sprite 0x1D
+    a_set_sprite SP_Overworld_YoungGirl
     a_set_pos 24, -50
     a_set_sprite_frame 5
 L_803933E:
@@ -672,7 +672,7 @@ global_label NPCList_8039358
 NPC_8039360:
     a_init
     a_set_dialog 0x23
-    a_set_sprite 0x40
+    a_set_sprite SP_Overworld_OldWoman
     a_set_pos -238, -16
     a_set_sprite_frame 1
 L_803936E:
@@ -682,7 +682,7 @@ L_803936E:
 NPC_8039375:
     a_init
     a_set_dialog 0x24
-    a_set_sprite 0x1C
+    a_set_sprite SP_Overworld_PreschoolGirl
     a_set_pos 18, 272
 L_8039381:
     a_set_sprite_frame 11
@@ -699,7 +699,7 @@ NPC_803939A:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0x25
-    a_set_sprite 0x1D
+    a_set_sprite SP_Overworld_YoungGirl
     a_set_pos 24, -50
     a_set_sprite_frame 5
 L_80393AA:
@@ -726,7 +726,7 @@ global_label NPCList_80393C4
 NPC_80393D8:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x1E
+    a_set_sprite SP_Overworld_ManGreen
     a_set_pos -148, -148
 L_80393E4:
     a_set_sprite_frame 8
@@ -743,7 +743,7 @@ L_80393E4:
 NPC_80393FF:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x19
+    a_set_sprite SP_Overworld_WomanApron
     a_set_pos 114, 92
     a_set_sprite_frame 7
 L_803940D:
@@ -755,7 +755,7 @@ L_803940D:
 NPC_8039414:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0xC
+    a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos 112, -118
     a_set_sprite_frame 7
 L_8039422:
@@ -787,7 +787,7 @@ global_label NPCList_8039450
 NPC_803945C:
     a_init
     a_set_dialog 0x19
-    a_set_sprite 0x1E
+    a_set_sprite SP_Overworld_ManGreen
     a_set_pos -148, -148
 L_8039468:
     a_set_sprite_frame 8
@@ -804,7 +804,7 @@ L_8039468:
 NPC_8039483:
     a_init
     a_set_dialog 0x1A
-    a_set_sprite 0x19
+    a_set_sprite SP_Overworld_WomanApron
     a_set_pos 114, 92
     a_set_sprite_frame 7
 L_8039491:
@@ -816,7 +816,7 @@ L_8039491:
 NPC_8039498:
     a_init
     a_set_dialog 0x1B
-    a_set_sprite 0xC
+    a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos 112, -118
     a_set_sprite_frame 7
 L_80394A6:
@@ -827,7 +827,7 @@ NPC_80394AD:
     a_jump_if_not_flag 0x97, L_80394C9
     a_init
     a_set_dialog 0x1C
-    a_set_sprite 0xA
+    a_set_sprite SP_Overworld_Chaud
     a_set_pos -150, 86
     a_set_sprite_frame 7
 L_80394C2:
@@ -843,7 +843,7 @@ L_80394C9:
 NPC_80394CC:
     a_init
     a_set_dialog 0xBE
-    a_set_sprite 0x1C
+    a_set_sprite SP_Overworld_PreschoolGirl
     a_set_pos 124, 196
     a_set_sprite_frame 5
 L_80394DA:
@@ -863,7 +863,7 @@ global_label NPCList_80394E4
 NPC_80394F4:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos 256, 28
 L_8039500:
     a_set_sprite_frame 8
@@ -879,7 +879,7 @@ L_8039500:
 NPC_8039519:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0xB
+    a_set_sprite SP_Overworld_YoungBoy
     a_set_pos 26, -178
 L_8039525:
     a_set_sprite_frame 9
@@ -895,7 +895,7 @@ L_8039525:
 NPC_803953E:
     a_init
     a_set_dialog 0x2
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos 10, 148
     a_set_sprite_frame 7
 L_803954C:
@@ -919,7 +919,7 @@ global_label NPCList_803955C
 NPC_803956C:
     a_init
     a_set_dialog 0x14
-    a_set_sprite 0x1B
+    a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos 256, 28
 L_8039578:
     a_set_sprite_frame 8
@@ -935,7 +935,7 @@ L_8039578:
 NPC_8039591:
     a_init
     a_set_dialog 0x15
-    a_set_sprite 0xB
+    a_set_sprite SP_Overworld_YoungBoy
     a_set_pos 26, -178
 L_803959D:
     a_set_sprite_frame 9
@@ -951,7 +951,7 @@ L_803959D:
 NPC_80395B6:
     a_init
     a_set_dialog 0x16
-    a_set_sprite 0x1A
+    a_set_sprite SP_Overworld_ManTie
     a_set_pos 10, 148
     a_set_sprite_frame 7
 L_80395C4:
@@ -976,7 +976,7 @@ NPC_80395DC:
     a_set_hitbox_offset 4, 10, 0
     a_disable_turn
     a_set_dialog 0xA
-    a_set_sprite 0x54
+    a_set_sprite SP_Overworld_Miyu
     a_set_pos -40, 40, 16
     a_set_sprite_frame 0
 L_80395F0:
@@ -1007,7 +1007,7 @@ global_label NPCList_803961C
 NPC_8039624:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0xB
+    a_set_sprite SP_Overworld_YoungBoy
     a_set_pos 28, -46
 L_8039630:
     a_set_sprite_frame 10
@@ -1027,7 +1027,7 @@ NPC_803964B:
     a_disable_turn
     a_disable_collision
     a_set_dialog 0x1
-    a_set_sprite 0x1D
+    a_set_sprite SP_Overworld_YoungGirl
     a_set_pos 0, 32, 18
     a_set_sprite_frame 12
 L_803965D:
@@ -1040,7 +1040,7 @@ NPC_8039664:
     a_init
     a_set_palette 0x1
     a_set_dialog 0x2
-    a_set_sprite 0x6
+    a_set_sprite SP_Overworld_Mari
     a_set_pos 88, 12
     a_set_sprite_frame 5
 L_8039674:
@@ -1054,7 +1054,7 @@ L_8039674:
 NPC_803967C:
     a_init
     a_set_dialog 0xBE
-    a_set_sprite 0xC
+    a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos -78, -38
     a_set_sprite_frame 3
 L_803968A:

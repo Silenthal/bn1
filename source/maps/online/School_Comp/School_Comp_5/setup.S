@@ -113,7 +113,7 @@ LAB_08041930:
     bne        LAB_08041942
     push       {r5}
     mov        r1,#0x6
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_08041942:
     push       {r5}
@@ -187,7 +187,7 @@ LAB_080419c2:
 _ts EventHandler_School_Comp_5_F15_1
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_08041a30
+    ldr        r0,PTR_Scene_UnlockWWWGate_08041a30
     mov        r1,#0x5
     bl         Scene_Prepare
     pop        {r5}
@@ -257,7 +257,7 @@ PTR_FUN_080875f8_08041a28:
 DAT_08041a2c:
     .word 0x8086E19
 
-PTR_FUN_08086e18_08041a30:
+PTR_Scene_UnlockWWWGate_08041a30:
     .word 0x8086E19
 
 PTR_FUN_0808771c_08041a34:

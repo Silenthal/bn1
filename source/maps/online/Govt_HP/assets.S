@@ -12,7 +12,7 @@ global_label NPCList_804FB8C
 NPC_804FB98:
     a_init
     a_set_dialog 0xA
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -106, 38
     a_set_sprite_frame 7
 L_804FBA6:

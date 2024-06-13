@@ -389,7 +389,7 @@ LAB_0807d102:
 _ts E_BattleResult_1_1_ShowReward
     push       {lr}
     ldrb       r0,[r5,#0xa]
-    ldr        r7,PTR_PTR_DO_BattleResult_1_1_0_ScrambleRewardReveal_0807d114
+    ldr        r7,PTR_PTR_E_BattleResult_1_1_0_ScrambleRewardReveal_0807d114
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -398,19 +398,19 @@ _ts E_BattleResult_1_1_ShowReward
     .align 2, 0
 
 
-PTR_PTR_DO_BattleResult_1_1_0_ScrambleRewardReveal_0807d114:
-    .word PTR_DO_BattleResult_1_1_0_ScrambleRewardReveal_0807d118
+PTR_PTR_E_BattleResult_1_1_0_ScrambleRewardReveal_0807d114:
+    .word PTR_E_BattleResult_1_1_0_ScrambleRewardReveal_0807d118
 
-PTR_DO_BattleResult_1_1_0_ScrambleRewardReveal_0807d118:
-    .word DO_BattleResult_1_1_0_ScrambleRewardReveal
+PTR_E_BattleResult_1_1_0_ScrambleRewardReveal_0807d118:
+    .word E_BattleResult_1_1_0_ScrambleRewardReveal
     .word E_BattleResult_1_1_1_RewardReveal
     .word E_BattleResult_1_1_2_RewardWaitInput
 
 
-_ts DO_BattleResult_1_1_0_ScrambleRewardReveal
+_ts E_BattleResult_1_1_0_ScrambleRewardReveal
     push       {lr}
     ldrb       r0,[r5,#0xb]
-    ldr        r7,PTR_PTR_DO_BattleResult_1_1_0_0_SetupRandomBuffer_0807d134
+    ldr        r7,PTR_PTR_E_BattleResult_1_1_0_0_SetupRandomBuffer_0807d134
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -419,15 +419,15 @@ _ts DO_BattleResult_1_1_0_ScrambleRewardReveal
     .align 2, 0
 
 
-PTR_PTR_DO_BattleResult_1_1_0_0_SetupRandomBuffer_0807d134:
-    .word PTR_DO_BattleResult_1_1_0_0_SetupRandomBuffer_0807d138
+PTR_PTR_E_BattleResult_1_1_0_0_SetupRandomBuffer_0807d134:
+    .word PTR_E_BattleResult_1_1_0_0_SetupRandomBuffer_0807d138
 
-PTR_DO_BattleResult_1_1_0_0_SetupRandomBuffer_0807d138:
-    .word DO_BattleResult_1_1_0_0_SetupRandomBuffer
-    .word DO_BattleResult_1_1_0_1_CopyRandomBufferTiles
+PTR_E_BattleResult_1_1_0_0_SetupRandomBuffer_0807d138:
+    .word E_BattleResult_1_1_0_0_SetupRandomBuffer
+    .word E_BattleResult_1_1_0_1_CopyRandomBufferTiles
 
 
-_ts DO_BattleResult_1_1_0_0_SetupRandomBuffer
+_ts E_BattleResult_1_1_0_0_SetupRandomBuffer
     push       {lr}
     mov        r0,#0x0
     ldr        r7,PTR_iwBufferUITextTile_0807d164
@@ -453,7 +453,7 @@ PTR_iwBufferUITextTile_0807d164:
     .word iwBufferUITextTile
 
 
-_ts DO_BattleResult_1_1_0_1_CopyRandomBufferTiles
+_ts E_BattleResult_1_1_0_1_CopyRandomBufferTiles
     push       {lr}
     ldrh       r0,[r5,#0x1c]
     cmp        r0,#0x38

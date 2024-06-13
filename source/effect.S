@@ -23,7 +23,7 @@ listHandlerEffect:
     .word Effect_MegaManDelete
     .word Effect_VirusDelete
     .word Effect_BattleResult
-    .word Effect_WWWDoor
+    .word Effect_WWWGate
     .word Effect_DieBombExplosion
     .word Effect_CloudyRain
     .word Effect_StonePiece

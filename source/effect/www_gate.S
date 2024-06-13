@@ -5,9 +5,9 @@
     .set DAT_0c000000, 0xC000000
 
 
-_ts Effect_WWWDoor
+_ts Effect_WWWGate
     push       {lr}
-    ldr        r0,PTR_PTR_E_WWWDoor_0_Init_0807dccc
+    ldr        r0,PTR_PTR_E_WWWGate_0_Init_0807dccc
     ldrb       r1,[r5,#0x8]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
@@ -15,13 +15,13 @@ _ts Effect_WWWDoor
     bx         r0
     pop        {pc}
 
-PTR_E_WWWDoor_0_Init_0807dae8:
-    .word E_WWWDoor_0_Init
-    .word E_WWWDoor_1_Main
-    .word E_WWWDoor_2_Free
+PTR_E_WWWGate_0_Init_0807dae8:
+    .word E_WWWGate_0_Init
+    .word E_WWWGate_1_Main
+    .word E_WWWGate_2_Free
 
 
-_ts E_WWWDoor_0_Init
+_ts E_WWWGate_0_Init
     push       {lr}
     mov        r0,#0x3
     strb       r0,[r5,#0x0]
@@ -62,7 +62,7 @@ LAB_0807db48:
     pop        {pc}
 
 
-_nt E_WWWDoor_1_Main
+_nt E_WWWGate_1_Main
     push       {lr}
     push       {r5}
     ldr        r1,[r5,#0x60]
@@ -70,19 +70,19 @@ _nt E_WWWDoor_1_Main
     ldrb       r0,[r0,r1]
     bl         Flag_GetBase
     pop        {r5}
-    beq        E_WWWDoor_2_Free
+    beq        E_WWWGate_2_Free
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
 
 
-_nt E_WWWDoor_2_Free
+_nt E_WWWGate_2_Free
     mov        r0,#0x91
     bl         Sound_PlaySongImmediate
     bl         Effect_Free
     pop        {pc}
 
 
-_nt Effect_WWWDoor_Create
+_nt Effect_WWWGate_Create
     push       {lr}
     push       {r5}
     push       {r1}
@@ -277,8 +277,8 @@ BYTE_ARRAY_0807dcac:
     .align 2, 0
 
 
-PTR_PTR_E_WWWDoor_0_Init_0807dccc:
-    .word PTR_E_WWWDoor_0_Init_0807dae8
+PTR_PTR_E_WWWGate_0_Init_0807dccc:
+    .word PTR_E_WWWGate_0_Init_0807dae8
 
 DAT_0807dcd0:
     .word 0x1C000000

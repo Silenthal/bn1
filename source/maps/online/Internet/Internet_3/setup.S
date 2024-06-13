@@ -10,7 +10,7 @@ _ts MapSetup_Internet_3_S0
     push       {r1,r5}
     bl         Sound_AreaSongChange
     pop        {r1,r5}
-    ldr        r0,PTR_FUN_08052678_08052890
+    ldr        r0,PTR_MapSetup_Internet_3_08052890
     mov        lr,pc
     bx         r0
     push       {r5}
@@ -40,13 +40,13 @@ LAB_0805266a:
 
 _nt EventHandler_Internet_3_S0
     push       {lr}
-    ldr        r0,PTR_FUN_08052714_080528b4
+    ldr        r0,PTR_EventHandler_Internet_3_080528b4
     mov        lr,pc
     bx         r0
     pop        {pc}
 
 
-_ts FUN_08052678
+_ts MapSetup_Internet_3
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x1]
@@ -102,7 +102,7 @@ LAB_080526dc:
 LAB_080526f0:
     push       {r5}
     mov        r1,#0x8a
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_080526fa:
     mov        r0,#0x56
@@ -119,9 +119,9 @@ LAB_0805270e:
     pop        {pc}
 
 
-_ts FUN_08052714
+_ts EventHandler_Internet_3
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_08052728_080528c8
+    ldr        r0,PTR_PTR_EventHandler_Internet_3_0_080528c8
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
@@ -129,11 +129,11 @@ _ts FUN_08052714
     bx         r0
     pop        {pc}
 
-PTR_FUN_08052728_08052724:
-    .word FUN_08052728
+PTR_EventHandler_Internet_3_0_08052724:
+    .word EventHandler_Internet_3_0
 
 
-_ts FUN_08052728
+_ts EventHandler_Internet_3_0
     push       {lr}
     mov        r0,#0x53
     bl         Flag_GetBase
@@ -144,7 +144,7 @@ _ts FUN_08052728
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_080528cc
+    ldr        r0,PTR_Scene_UnlockWWWGate_080528cc
     mov        r1,#0x9
     bl         Scene_Prepare
     pop        {r5}
@@ -308,8 +308,8 @@ LAB_0805287e:
     bne        LAB_0805287e
     pop        {pc}
 
-PTR_FUN_08052678_08052890:
-    .word FUN_08052678
+PTR_MapSetup_Internet_3_08052890:
+    .word MapSetup_Internet_3
 
 PTR_BgTask_80515C8_08052894:
     .word BgTask_80515C8
@@ -335,8 +335,8 @@ PTR_BgTask_8051820_080528ac:
 PTR_BgTask_8051738_080528b0:
     .word BgTask_8051738
 
-PTR_FUN_08052714_080528b4:
-    .word FUN_08052714
+PTR_EventHandler_Internet_3_080528b4:
+    .word EventHandler_Internet_3
 
 PTR_NPCList_8054348_080528b8:
     .word NPCList_8054348
@@ -350,10 +350,10 @@ PTR_DAT_080528c0:
 PTR_FUN_0808598c_080528c4:
     .word 0x808598D
 
-PTR_PTR_FUN_08052728_080528c8:
-    .word PTR_FUN_08052728_08052724
+PTR_PTR_EventHandler_Internet_3_0_080528c8:
+    .word PTR_EventHandler_Internet_3_0_08052724
 
-PTR_FUN_08086e18_080528cc:
+PTR_Scene_UnlockWWWGate_080528cc:
     .word 0x8086E19
 
 PTR_BgTask_8051738_080528d0:

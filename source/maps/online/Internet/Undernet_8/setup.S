@@ -8,7 +8,7 @@ _ts MapSetup_Undernet_8_S0
     push       {r1,r5}
     bl         Sound_AreaSongChange
     pop        {r1,r5}
-    ldr        r0,PTR_FUN_08053702_08053784
+    ldr        r0,PTR_MapSetup_Undernet_8_08053784
     mov        lr,pc
     bx         r0
     push       {r5}
@@ -32,13 +32,13 @@ _ts MapSetup_Undernet_8_S0
 
 _ts EventHandler_Undernet_8_S0
     push       {lr}
-    ldr        r0,PTR_FUN_08053722_080537a4
+    ldr        r0,PTR_EventHandler_Undernet_8_080537a4
     mov        lr,pc
     bx         r0
     pop        {pc}
 
 
-_nt FUN_08053702
+_nt MapSetup_Undernet_8
     push       {lr}
     push       {r5}
     bl         PlayerLocation_Create
@@ -54,9 +54,9 @@ _nt FUN_08053702
     pop        {pc}
 
 
-_nt FUN_08053722
+_nt EventHandler_Undernet_8
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_08053738_080537ac
+    ldr        r0,PTR_PTR_EventHandler_Undernet_8_0_080537ac
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
@@ -66,11 +66,11 @@ _nt FUN_08053722
 
     .align 2, 0
 
-PTR_FUN_08053738_08053734:
-    .word FUN_08053738
+PTR_EventHandler_Undernet_8_0_08053734:
+    .word EventHandler_Undernet_8_0
 
 
-_ts FUN_08053738
+_ts EventHandler_Undernet_8_0
     push       {lr}
     push       {r5}
     mov        r7,r10
@@ -104,8 +104,8 @@ LAB_0805377c:
     bl         CheckForJackOut
     pop        {pc}
 
-PTR_FUN_08053702_08053784:
-    .word FUN_08053702
+PTR_MapSetup_Undernet_8_08053784:
+    .word MapSetup_Undernet_8
 
 PTR_BgTask_80515C8_08053788:
     .word BgTask_80515C8
@@ -128,14 +128,14 @@ PTR_BgTask_8051780_0805379c:
 PTR_BgTask_8051820_080537a0:
     .word BgTask_8051820
 
-PTR_FUN_08053722_080537a4:
-    .word FUN_08053722
+PTR_EventHandler_Undernet_8_080537a4:
+    .word EventHandler_Undernet_8
 
 PTR_NPCList_8054D20_080537a8:
     .word NPCList_8054D20
 
-PTR_PTR_FUN_08053738_080537ac:
-    .word PTR_FUN_08053738_08053734
+PTR_PTR_EventHandler_Undernet_8_0_080537ac:
+    .word PTR_EventHandler_Undernet_8_0_08053734
 
 PTR_FUN_080857b8_080537b0:
     .word 0x80857B9

@@ -91,7 +91,7 @@ LAB_08041120:
     bne        LAB_08041138
     push       {r5}
     mov        r1,#0x4
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
     b          LAB_08041142
 LAB_08041138:
@@ -107,7 +107,7 @@ LAB_08041142:
     bne        LAB_0804115c
     push       {r5}
     mov        r1,#0x3
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
     mov        r0,#0x0
     b          LAB_0804119c
@@ -119,7 +119,7 @@ LAB_0804115c:
     bne        LAB_08041180
     push       {r5}
     mov        r1,#0x3
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
     push       {r5}
     ldr        r0,DAT_08041380
@@ -222,7 +222,7 @@ _ts EventHandler_School_Comp_3_F14_2
     pop        {r5}
     beq        LAB_08041240
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_08041390
+    ldr        r0,PTR_Scene_UnlockWWWGate_08041390
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -285,10 +285,10 @@ LAB_08041298:
     bne        LAB_080412c6
     push       {r5}
     mov        r1,#0x4
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_0804139c
+    ldr        r0,PTR_Scene_UnlockWWWGate_0804139c
     mov        r1,#0x2
     bl         Scene_Prepare
     pop        {r5}
@@ -351,7 +351,7 @@ _ts EventHandler_School_Comp_3_F15_1
     pop        {r5}
     beq        LAB_0804133c
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_080413a8
+    ldr        r0,PTR_Scene_UnlockWWWGate_080413a8
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -417,7 +417,7 @@ DAT_08041388:
 DAT_0804138c:
     .word 0x8087E35
 
-PTR_FUN_08086e18_08041390:
+PTR_Scene_UnlockWWWGate_08041390:
     .word 0x8086E19
 
 PTR_NPCList_8041DC8_08041394:
@@ -426,7 +426,7 @@ PTR_NPCList_8041DC8_08041394:
 PTR_FUN_08084070_08041398:
     .word 0x8084071
 
-PTR_FUN_08086e18_0804139c:
+PTR_Scene_UnlockWWWGate_0804139c:
     .word 0x8086E19
 
 PTR_PTR_EventHandler_School_Comp_3_F15_0_080413a0:
@@ -435,7 +435,7 @@ PTR_PTR_EventHandler_School_Comp_3_F15_0_080413a0:
 DAT_080413a4:
     .word 0x8087E35
 
-PTR_FUN_08086e18_080413a8:
+PTR_Scene_UnlockWWWGate_080413a8:
     .word 0x8086E19
 
 

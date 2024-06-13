@@ -82,7 +82,7 @@ _ts MapSetup_School_Comp_2_F12
 LAB_08040cac:
     push       {r5}
     mov        r1,#0x2
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -145,7 +145,7 @@ LAB_08040d10:
 LAB_08040d28:
     push       {r5}
     mov        r1,#0x2
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_08040d32:
     push       {r5}
@@ -161,7 +161,7 @@ LAB_08040d32:
 LAB_08040d4a:
     push       {r5}
     mov        r1,#0x1
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
     push       {r5}
     mov        r0,#0xa7
@@ -257,7 +257,7 @@ _nt EventHandler_School_Comp_2_F12_2
     bl         Fade_Request
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_08040f3c
+    ldr        r0,PTR_Scene_UnlockWWWGate_08040f3c
     mov        r1,#0x1
     bl         Scene_Prepare
     pop        {r5}
@@ -437,7 +437,7 @@ DAT_08040f34:
 PTR_FUN_08087e34_08040f38:
     .word 0x8087E35
 
-PTR_FUN_08086e18_08040f3c:
+PTR_Scene_UnlockWWWGate_08040f3c:
     .word 0x8086E19
 
 PTR_FUN_08087e34_08040f40:

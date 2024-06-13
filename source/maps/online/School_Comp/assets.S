@@ -19,7 +19,7 @@ global_label NPCList_8041B3C
 
 NPC_8041B64:
     a_init
-    a_set_sprite 0x5D
+    a_set_sprite SP_Overworld_GutsMan
     a_set_pos -298, 102
     a_set_sprite_frame 1
 L_8041B70:
@@ -28,7 +28,7 @@ L_8041B70:
 
 NPC_8041B77:
     a_init
-    a_set_sprite 0x39
+    a_set_sprite SP_Overworld_Roll
     a_set_pos -248, 102
     a_set_sprite_frame 1
 L_8041B83:
@@ -37,7 +37,7 @@ L_8041B83:
 
 NPC_8041B8A:
     a_init
-    a_set_sprite 0x38
+    a_set_sprite SP_Overworld_Glyde
     a_set_pos -344, 62
     a_set_sprite_frame 1
 L_8041B96:
@@ -47,7 +47,7 @@ L_8041B96:
 NPC_8041B9D:
     a_init
     a_sprite_mask_set_flag 0x3
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -248, 142
     a_set_sprite_frame 1
 L_8041BAB:
@@ -57,7 +57,7 @@ L_8041BAB:
 NPC_8041BB2:
     a_init
     a_sprite_mask_set_flag 0x3
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -344, 102
     a_set_sprite_frame 1
 L_8041BC0:
@@ -67,7 +67,7 @@ L_8041BC0:
 NPC_8041BC7:
     a_init
     a_sprite_mask_set_flag 0x3
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -298, 62
     a_set_sprite_frame 1
 L_8041BD5:
@@ -79,7 +79,7 @@ L_8041BD5:
 NPC_8041BDC:
     a_init
     a_sprite_mask_set_flag 0x3
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -344, 142
     a_set_sprite_frame 1
 L_8041BEA:
@@ -88,7 +88,7 @@ L_8041BEA:
 
 NPC_8041BF1:
     a_init
-    a_set_sprite 0x8
+    a_set_sprite SP_Overworld_MegaMan
     a_set_pos -248, 62
     a_set_sprite_frame 1
 L_8041BFD:
@@ -100,7 +100,7 @@ L_8041BFD:
 NPC_8041C04:
     a_init
     a_sprite_mask_set_flag 0x3
-    a_set_sprite 0x33
+    a_set_sprite SP_Overworld_NormalNavi2
     a_set_pos -166, 102
     a_set_sprite_frame 5
     a_set_palette 0x1
@@ -132,7 +132,7 @@ NPC_8041C4C:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x5
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -190, 92
     a_set_sprite_frame 1
 L_8041C5C:
@@ -142,7 +142,7 @@ L_8041C5C:
 NPC_8041C63:
     a_init
     a_set_dialog 0x6
-    a_set_sprite 0x38
+    a_set_sprite SP_Overworld_Glyde
     a_set_pos -330, 160
     a_set_sprite_frame 1
 L_8041C71:
@@ -155,7 +155,7 @@ NPC_8041C78:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x7
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 130, -30
     a_set_sprite_frame 1
 L_8041C88:
@@ -166,7 +166,7 @@ NPC_8041C8F:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x9
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 50, 60
     a_set_sprite_frame 5
 L_8041C9F:
@@ -229,7 +229,7 @@ global_label NPCList_8041D04
 NPC_8041D14:
     a_init
     a_set_dialog 0x28
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 238, 60, 64
     a_set_sprite_frame 1
 L_8041D22:
@@ -323,7 +323,7 @@ NPC_8041DD8:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x1E
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -142, -20
     a_set_sprite_frame 3
 L_8041DE8:
@@ -418,7 +418,7 @@ NPC_8041EA0:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x1E
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -150, 206
     a_set_sprite_frame 7
 L_8041EB0:
@@ -428,7 +428,7 @@ L_8041EB0:
 NPC_8041EB7:
     a_init
     a_set_dialog 0x1F
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -170, -280
     a_set_sprite_frame 1
 L_8041EC5:
@@ -522,7 +522,7 @@ global_label NPCList_8041F68
 NPC_8041F74:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x23
+    a_set_sprite SP_Overworld_NumberMan
     a_set_pos 128, -66
     a_set_sprite_frame 3
 L_8041F82:

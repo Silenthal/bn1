@@ -238,7 +238,7 @@ LAB_0804083c:
 LAB_08040854:
     push       {r5}
     mov        r1,#0x0
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -348,7 +348,7 @@ LAB_08040908:
 LAB_08040920:
     push       {r5}
     mov        r1,#0x0
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
     push       {r5}
     mov        r0,#0xa4

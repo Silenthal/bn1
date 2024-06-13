@@ -35,7 +35,7 @@ global_label NPCList_8046BF4
 
 NPC_8046C04:
     a_init
-    a_set_sprite 0x37
+    a_set_sprite SP_Overworld_ProtoMan
     a_set_pos 20, 38
     a_set_sprite_frame 3
 L_8046C10:
@@ -50,7 +50,7 @@ L_8046C20:
 
 NPC_8046C27:
     a_init
-    a_set_sprite 0x36
+    a_set_sprite SP_Overworld_ColorMan
     a_set_pos 38, 86
     a_set_sprite_frame 6
 L_8046C33:
@@ -65,7 +65,7 @@ L_8046C43:
 
 NPC_8046C4A:
     a_init
-    a_set_sprite 0x35
+    a_set_sprite SP_Overworld_ColdMan
     a_set_pos -124, 70
     a_set_sprite_frame 8
 L_8046C56:
@@ -95,7 +95,7 @@ global_label NPCList_8046C84
 
 NPC_8046C8C:
     a_init
-    a_set_sprite 0x37
+    a_set_sprite SP_Overworld_ProtoMan
     a_set_pos -374, 224
     a_set_sprite_frame 3
 L_8046C98:
@@ -131,7 +131,7 @@ global_label NPCList_8046CC8
 NPC_8046CDC:
     a_init
     a_set_dialog 0x14
-    a_set_sprite 0x36
+    a_set_sprite SP_Overworld_ColorMan
     a_set_pos -140, 150, 64
     a_set_sprite_frame 7
 L_8046CEA:
@@ -174,7 +174,7 @@ NPC_8046D39:
     a_init
     a_set_dialog 0x15
     a_sprite_mask_set_flag 0x3
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -380, -28
     a_set_sprite_frame 3
 L_8046D49:
@@ -308,7 +308,7 @@ L_8046E4B:
 NPC_8046E4C:
     a_init
     a_set_dialog 0x14
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -238, -18, 64
     a_set_sprite_frame 7
 L_8046E5A:
@@ -318,7 +318,7 @@ L_8046E5A:
 NPC_8046E61:
     a_init
     a_set_dialog 0x15
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 190, 118, 96
     a_set_sprite_frame 7
 L_8046E6F:
@@ -359,7 +359,7 @@ global_label NPCList_8046EA4
 
 NPC_8046EB4:
     a_init
-    a_set_sprite 0x37
+    a_set_sprite SP_Overworld_ProtoMan
     a_set_pos 54, 380, -96
     a_set_sprite_frame 7
 L_8046EC0:
@@ -383,7 +383,7 @@ L_8046EE8:
 
 NPC_8046EEF:
     a_init
-    a_set_sprite 0x35
+    a_set_sprite SP_Overworld_ColdMan
     a_set_pos 54, 360, -96
     a_set_sprite_frame 12
 L_8046EFB:
@@ -424,7 +424,7 @@ global_label NPCList_8046F3C
 
 NPC_8046F48:
     a_init
-    a_set_sprite 0x35
+    a_set_sprite SP_Overworld_ColdMan
     a_set_pos 54, 360, -96
     a_set_sprite_frame 5
 L_8046F54:

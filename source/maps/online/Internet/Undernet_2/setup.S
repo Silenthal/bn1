@@ -34,13 +34,13 @@ _ts MapSetup_Undernet_2_S0
 
 _ts EventHandler_Undernet_2_S0
     push       {lr}
-    ldr        r0,PTR_FUN_08052da8_08052e5c
+    ldr        r0,PTR_EventHandler_Undernet_2_08052e5c
     mov        lr,pc
     bx         r0
     pop        {pc}
 
 
-_nt FUN_08052d4e
+_nt MapSetup_Undernet_2
     push       {lr}
     push       {r5}
     bl         PlayerLocation_Create
@@ -83,9 +83,9 @@ LAB_08052da2:
     pop        {pc}
 
 
-_ts FUN_08052da8
+_ts EventHandler_Undernet_2
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_08052dbc_08052e70
+    ldr        r0,PTR_PTR_EventHandler_Undernet_2_0_08052e70
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
@@ -93,11 +93,11 @@ _ts FUN_08052da8
     bx         r0
     pop        {pc}
 
-PTR_FUN_08052dbc_08052db8:
-    .word FUN_08052dbc
+PTR_EventHandler_Undernet_2_0_08052db8:
+    .word EventHandler_Undernet_2_0
 
 
-_ts FUN_08052dbc
+_ts EventHandler_Undernet_2_0
     push       {lr}
     push       {r5}
     mov        r7,r10
@@ -158,7 +158,7 @@ LAB_08052e32:
     .align 2, 0
 
 DAT_08052e3c:
-    .word FUN_08052d4e
+    .word MapSetup_Undernet_2
 
 PTR_BgTask_80515C8_08052e40:
     .word BgTask_80515C8
@@ -181,8 +181,8 @@ PTR_BgTask_8051780_08052e54:
 PTR_BgTask_8051820_08052e58:
     .word BgTask_8051820
 
-PTR_FUN_08052da8_08052e5c:
-    .word FUN_08052da8
+PTR_EventHandler_Undernet_2_08052e5c:
+    .word EventHandler_Undernet_2
 
 PTR_NPCList_80546EC_08052e60:
     .word NPCList_80546EC
@@ -196,8 +196,8 @@ PTR_DAT_08052e68:
 PTR_FUN_0808598c_08052e6c:
     .word 0x808598D
 
-PTR_PTR_FUN_08052dbc_08052e70:
-    .word PTR_FUN_08052dbc_08052db8
+PTR_PTR_EventHandler_Undernet_2_0_08052e70:
+    .word PTR_EventHandler_Undernet_2_0_08052db8
 
 DAT_08052e74:
     .word 0xA05

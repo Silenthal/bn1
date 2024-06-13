@@ -11,7 +11,7 @@ _ts MapSetup_Undernet_1_S0
     push       {r1,r5}
     bl         Sound_AreaSongChange
     pop        {r1,r5}
-    ldr        r0,PTR_FUN_08052b84_08052cac
+    ldr        r0,PTR_MapSetup_Undernet_1_08052cac
     mov        lr,pc
     bx         r0
     push       {r5}
@@ -41,13 +41,13 @@ LAB_08052b76:
 
 _nt EventHandler_Undernet_1_S0
     push       {lr}
-    ldr        r0,PTR_FUN_08052bec_08052cd0
+    ldr        r0,PTR_EventHandler_Undernet_1_08052cd0
     mov        lr,pc
     bx         r0
     pop        {pc}
 
 
-_ts FUN_08052b84
+_ts MapSetup_Undernet_1
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x1]
@@ -89,7 +89,7 @@ LAB_08052bc8:
 LAB_08052bdc:
     push       {r5}
     mov        r1,#0x8c
-    bl         Effect_WWWDoor_Create
+    bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_08052be6:
     mov        r0,#0x0
@@ -97,9 +97,9 @@ LAB_08052be6:
     pop        {pc}
 
 
-_ts FUN_08052bec
+_ts EventHandler_Undernet_1
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_08052c00_08052ce0
+    ldr        r0,PTR_PTR_EventHandler_Undernet_1_0_08052ce0
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
@@ -107,11 +107,11 @@ _ts FUN_08052bec
     bx         r0
     pop        {pc}
 
-PTR_FUN_08052c00_08052bfc:
-    .word FUN_08052c00
+PTR_EventHandler_Undernet_1_0_08052bfc:
+    .word EventHandler_Undernet_1_0
 
 
-_ts FUN_08052c00
+_ts EventHandler_Undernet_1_0
     push       {lr}
     mov        r0,#0x10
     bl         Flag_GetEmailRecieved
@@ -141,7 +141,7 @@ LAB_08052c2a:
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     push       {r5}
-    ldr        r0,PTR_FUN_08086e18_08052cf0
+    ldr        r0,PTR_Scene_UnlockWWWGate_08052cf0
     mov        r1,#0xb
     bl         Scene_Prepare
     pop        {r5}
@@ -194,8 +194,8 @@ LAB_08052ca2:
 
     .align 2, 0
 
-PTR_FUN_08052b84_08052cac:
-    .word FUN_08052b84
+PTR_MapSetup_Undernet_1_08052cac:
+    .word MapSetup_Undernet_1
 
 PTR_BgTask_80515C8_08052cb0:
     .word BgTask_80515C8
@@ -221,8 +221,8 @@ PTR_BgTask_8051820_08052cc8:
 PTR_BgTask_8051738_08052ccc:
     .word BgTask_8051738
 
-PTR_FUN_08052bec_08052cd0:
-    .word FUN_08052bec
+PTR_EventHandler_Undernet_1_08052cd0:
+    .word EventHandler_Undernet_1
 
 PTR_NPCList_8054580_08052cd4:
     .word NPCList_8054580
@@ -233,8 +233,8 @@ PTR_FUN_08084070_08052cd8:
 PTR_DAT_08052cdc:
     .word 0x2000
 
-PTR_PTR_FUN_08052c00_08052ce0:
-    .word PTR_FUN_08052c00_08052bfc
+PTR_PTR_EventHandler_Undernet_1_0_08052ce0:
+    .word PTR_EventHandler_Undernet_1_0_08052bfc
 
 PTR_Scene_LanCheckYourMail_08052ce4:
     .word Scene_LanCheckYourMail
@@ -245,7 +245,7 @@ DAT_08052ce8:
 PTR_BgTask_8051738_08052cec:
     .word BgTask_8051738
 
-PTR_FUN_08086e18_08052cf0:
+PTR_Scene_UnlockWWWGate_08052cf0:
     .word 0x8086E19
 
 PTR_Script_ShowDialogue_08052cf4:

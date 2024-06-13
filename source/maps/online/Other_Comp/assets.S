@@ -33,7 +33,7 @@ L_8050D49:
 NPC_8050D4C:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -230, -250
     a_set_sprite_frame 3
 L_8050D5A:
@@ -47,7 +47,7 @@ L_8050D5A:
 NPC_8050D64:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 250, 230
     a_set_sprite_frame 5
 L_8050D72:
@@ -106,7 +106,7 @@ L_8050DCD:
 NPC_8050DD0:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -198, 102
     a_set_sprite_frame 1
 L_8050DDE:
@@ -120,7 +120,7 @@ L_8050DDE:
 NPC_8050DE8:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 218, -250
     a_set_sprite_frame 3
 L_8050DF6:
@@ -160,7 +160,7 @@ L_8050E35:
 NPC_8050E38:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -134, -122
     a_set_sprite_frame 1
 L_8050E46:
@@ -174,7 +174,7 @@ L_8050E46:
 NPC_8050E50:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 26, 102
     a_set_sprite_frame 3
 L_8050E5E:
@@ -215,7 +215,7 @@ L_8050EA1:
 NPC_8050EA4:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 58, -58
     a_set_sprite_frame 5
 L_8050EB2:
@@ -229,7 +229,7 @@ L_8050EB2:
 NPC_8050EBC:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 250, -250
     a_set_sprite_frame 3
 L_8050ECA:
@@ -287,7 +287,7 @@ L_8050F2D:
 NPC_8050F30:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -134, -218
     a_set_sprite_frame 3
 L_8050F3E:
@@ -301,7 +301,7 @@ L_8050F3E:
 NPC_8050F48:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 186, -154
     a_set_sprite_frame 5
 L_8050F56:
@@ -350,7 +350,7 @@ NPC_8050FB0:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x0
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -144, -186
     a_set_sprite_frame 5
 L_8050FC0:
@@ -364,7 +364,7 @@ L_8050FC0:
 NPC_8050FC8:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -166, -186
     a_set_sprite_frame 1
 L_8050FD6:
@@ -378,7 +378,7 @@ L_8050FD6:
 NPC_8050FE0:
     a_init
     a_set_dialog 0x14
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_palette 0x2
     a_set_pos 26, 6
     a_set_sprite_frame 5
@@ -420,7 +420,7 @@ NPC_8051030:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x1
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -6, 38
     a_set_sprite_frame 7
 L_8051040:
@@ -434,7 +434,7 @@ L_8051040:
 NPC_8051048:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 26, -58
     a_set_sprite_frame 3
 L_8051056:
@@ -475,7 +475,7 @@ NPC_8051098:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x0
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 250, -186
     a_set_sprite_frame 3
 L_80510A8:
@@ -490,7 +490,7 @@ NPC_80510B0:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x1
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 250, 198
     a_set_sprite_frame 7
 L_80510C0:
@@ -531,7 +531,7 @@ L_8051101:
 NPC_8051104:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 90, -250
     a_set_sprite_frame 3
 L_8051112:
@@ -545,7 +545,7 @@ L_8051112:
 NPC_805111C:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 250, -26
     a_set_sprite_frame 5
 L_805112A:
@@ -605,7 +605,7 @@ NPC_8051190:
     a_init
     a_sprite_mask_set_flag 0x3
     a_set_dialog 0x1
-    a_set_sprite 0x32
+    a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 154, 134
     a_set_sprite_frame 7
 L_80511A0:
@@ -619,7 +619,7 @@ L_80511A0:
 NPC_80511A8:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 218, -26
     a_set_sprite_frame 3
 L_80511B6:
@@ -659,7 +659,7 @@ L_80511F5:
 NPC_80511F8:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 26, -26
     a_set_sprite_frame 5
 L_8051206:
@@ -673,7 +673,7 @@ L_8051206:
 NPC_8051210:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 26, 6
     a_set_sprite_frame 5
 L_805121E:
@@ -713,7 +713,7 @@ L_805125D:
 NPC_8051260:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -70, 6
     a_set_sprite_frame 5
 L_805126E:
@@ -727,7 +727,7 @@ L_805126E:
 NPC_8051278:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 218, 6
     a_set_sprite_frame 5
 L_8051286:
@@ -767,7 +767,7 @@ L_80512C5:
 NPC_80512C8:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos 186, -250
     a_set_sprite_frame 3
 L_80512D6:
@@ -781,7 +781,7 @@ L_80512D6:
 NPC_80512E0:
     a_init
     a_set_dialog 0x1
-    a_set_sprite 0x16
+    a_set_sprite SP_Overworld_Prog
     a_set_pos -166, 230
     a_set_sprite_frame 1
 L_80512EE:
