@@ -117,7 +117,7 @@ NPC_8043B20:
     a_init
     a_disable_turn
     a_set_dialog 0x18
-    a_set_sprite 0xE3
+    a_set_sprite SP_Overworld_MysteryData
     a_set_palette 0x0
     a_set_pos -384, 130
     a_set_radius 4
@@ -135,7 +135,7 @@ NPC_8043B44:
     a_init
     a_disable_turn
     a_set_dialog 0x10
-    a_set_sprite 0xE3
+    a_set_sprite SP_Overworld_MysteryData
     a_set_palette 0x1
     a_set_pos 134, 48
     a_set_radius 4
@@ -153,7 +153,7 @@ NPC_8043B68:
     a_init
     a_disable_turn
     a_set_dialog 0x11
-    a_set_sprite 0xE3
+    a_set_sprite SP_Overworld_MysteryData
     a_set_palette 0x2
     a_set_pos 6, 98
     a_set_radius 4
@@ -171,7 +171,7 @@ NPC_8043B8C:
     a_init
     a_disable_turn
     a_set_dialog 0x12
-    a_set_sprite 0xE3
+    a_set_sprite SP_Overworld_MysteryData
     a_set_palette 0x0
     a_set_pos -116, -355
     a_set_radius 4
@@ -189,7 +189,7 @@ NPC_8043BB0:
     a_init
     a_disable_turn
     a_set_dialog 0x13
-    a_set_sprite 0xE3
+    a_set_sprite SP_Overworld_MysteryData
     a_set_palette 0x1
     a_set_pos -196, 28
     a_set_radius 1
@@ -287,7 +287,7 @@ NPC_8043C6F:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite 0xE3
+    a_set_sprite SP_Overworld_MysteryData
     a_set_palette 0x0
     a_set_pos 144, 80
     a_set_sprite_frame 0
@@ -302,7 +302,7 @@ NPC_8043C91:
     a_init
     a_disable_turn
     a_set_dialog 0x3
-    a_set_sprite 0xE3
+    a_set_sprite SP_Overworld_MysteryData
     a_set_palette 0x1
     a_set_pos 98, -78
     a_set_sprite_frame 0
@@ -317,7 +317,7 @@ NPC_8043CB3:
     a_init
     a_disable_turn
     a_set_dialog 0x4
-    a_set_sprite 0xE3
+    a_set_sprite SP_Overworld_MysteryData
     a_set_palette 0x2
     a_set_pos -139, -79
     a_set_sprite_frame 0

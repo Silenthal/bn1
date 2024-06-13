@@ -3424,7 +3424,7 @@ CSD_NPC_13:
 NPC_8023D34:
     a_init
     a_set_dialog 0x0
-    a_set_sprite 0xE0
+    a_set_sprite SP_Overworld_PET
     a_set_pos 34, 70, 8
     a_set_sprite_frame 0
 L_8023D42:

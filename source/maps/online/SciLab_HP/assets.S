@@ -14,7 +14,7 @@ NPC_8050294:
     a_init
     a_disable_turn
     a_set_dialog 0x5
-    a_set_sprite 0xE3
+    a_set_sprite SP_Overworld_MysteryData
     a_set_palette 0x0
     a_set_pos 180, -164
     a_set_radius 4
@@ -32,7 +32,7 @@ NPC_80502B8:
     a_init
     a_disable_turn
     a_set_dialog 0x6
-    a_set_sprite 0xE3
+    a_set_sprite SP_Overworld_MysteryData
     a_set_palette 0x1
     a_set_pos -172, -36
     a_set_radius 4

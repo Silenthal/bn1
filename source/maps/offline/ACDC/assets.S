@@ -1423,7 +1423,7 @@ NPC_8030605:
     a_init
     a_disable_turn
     a_set_dialog 0x1
-    a_set_sprite 0xE8
+    a_set_sprite SP_Overworld_Breakfast
     a_set_pos 12, -28, 16
     a_set_sprite_frame 0
     a_set_radius 6
