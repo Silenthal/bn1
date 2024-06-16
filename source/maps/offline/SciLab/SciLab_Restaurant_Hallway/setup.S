@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
 
 _ts MapSetup_SciLab_Restaurant_Hallway_S4
     push       {lr}
@@ -209,7 +208,7 @@ LAB_0803c0c6:
     lsl        r1,r1,#0x8
     mov        r0,#0x3
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_0803c11c
+    ldr        r0,PTR_Scene_LockedPath_0803c11c
     bl         Scene_Prepare
     pop        {r5}
 LAB_0803c0ec:
@@ -250,8 +249,8 @@ PTR_LAB_080918c0_0803c114:
 PTR_FUN_08087e34_0803c118:
     .word 0x8087E35
 
-PTR_FUN_08082de4_0803c11c:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_0803c11c:
+    .word Scene_LockedPath
 
 
 _ts MapSetup_SciLab_Restaurant_Hallway_S5
@@ -370,7 +369,7 @@ LAB_0803c1ee:
     lsl        r1,r1,#0x8
     mov        r0,#0x3
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_0803c230
+    ldr        r0,PTR_Scene_LockedPath_0803c230
     bl         Scene_Prepare
     pop        {r5}
 LAB_0803c214:
@@ -396,5 +395,5 @@ PTR_PTR_EventHandler_SciLab_Restaurant_Hallway_F50_0_0803c228:
 PTR_LAB_080918c0_0803c22c:
     .word 0x80918C1
 
-PTR_FUN_08082de4_0803c230:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_0803c230:
+    .word Scene_LockedPath

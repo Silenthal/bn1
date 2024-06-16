@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Govt_Waterworks_Lobby_S2
     push       {lr}
@@ -351,7 +349,7 @@ LAB_08032a08:
     lsl        r1,r1,#0x8
     mov        r0,#0x5
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_08032a80
+    ldr        r0,PTR_Scene_LockedPath_08032a80
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032a2e:
@@ -417,8 +415,8 @@ PTR_Scene_Dialogue_08032a78:
 PTR_FUN_08087e34_08032a7c:
     .word 0x8087E35
 
-PTR_FUN_08082de4_08032a80:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08032a80:
+    .word Scene_LockedPath
 
 
 _ts MapSetup_Govt_Waterworks_Lobby_S3
@@ -557,7 +555,7 @@ LAB_08032b88:
     lsl        r1,r1,#0x8
     mov        r0,#0x5
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_08032bd4
+    ldr        r0,PTR_Scene_LockedPath_08032bd4
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032bae:
@@ -590,8 +588,8 @@ PTR_Scene_Dialogue_08032bcc:
 PTR_FUN_08087e34_08032bd0:
     .word 0x8087E35
 
-PTR_FUN_08082de4_08032bd4:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08032bd4:
+    .word Scene_LockedPath
 
 
 _ts MapSetup_Govt_Waterworks_Lobby_S4
@@ -730,7 +728,7 @@ LAB_08032cdc:
     lsl        r1,r1,#0x8
     mov        r0,#0x5
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_08032d28
+    ldr        r0,PTR_Scene_LockedPath_08032d28
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032d02:
@@ -763,8 +761,8 @@ PTR_Scene_Dialogue_08032d20:
 PTR_FUN_08087e34_08032d24:
     .word 0x8087E35
 
-PTR_FUN_08082de4_08032d28:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08032d28:
+    .word Scene_LockedPath
 
 
 _ts MapSetup_Govt_Waterworks_Lobby_S5
@@ -939,7 +937,7 @@ LAB_08032e70:
     lsl        r1,r1,#0x8
     mov        r0,#0x5
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_08032ec8
+    ldr        r0,PTR_Scene_LockedPath_08032ec8
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032e96:
@@ -981,5 +979,5 @@ PTR_Scene_Dialogue_08032ec0:
 PTR_FUN_08087e34_08032ec4:
     .word 0x8087E35
 
-PTR_FUN_08082de4_08032ec8:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08032ec8:
+    .word Scene_LockedPath

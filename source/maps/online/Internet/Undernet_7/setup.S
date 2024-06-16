@@ -177,7 +177,7 @@ LAB_0805360a:
     mov        r0,#0x5f
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_080857b8_080536b0
+    ldr        r0,PTR_Scene_StartFixedBattle_080536b0
     mov        r1,#0x2a
     bl         Scene_Prepare
     pop        {r5}
@@ -247,10 +247,10 @@ PTR_PTR_EventHandler_Undernet_7_0_080536a8:
     .word PTR_EventHandler_Undernet_7_0_080535c0
 
 PTR_Scene_SkillGate_080536ac:
-    .word 0x8085BB9
+    .word Scene_SkillGateFail
 
-PTR_FUN_080857b8_080536b0:
-    .word 0x80857B9
+PTR_Scene_StartFixedBattle_080536b0:
+    .word Scene_StartFixedBattle
 
 PTR_Scene_UnlockWWWGate_080536b4:
     .word 0x8086E19

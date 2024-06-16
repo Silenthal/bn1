@@ -262,7 +262,7 @@ PTR_FUN_0809244c_0803d118:
     .word 0x809244D
 
 DAT_0803d11c:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 PTR_PTR_EventHandler_SciLab_Generator_Room_F43_0_0803d120:
     .word PTR_EventHandler_SciLab_Generator_Room_F43_0_0803d084

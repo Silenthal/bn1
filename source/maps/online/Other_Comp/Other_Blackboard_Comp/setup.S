@@ -46,7 +46,7 @@ _ts FUN_08050ca8
     cmp        r1,r2
     beq        LAB_08050cda
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08050d08
+    ldr        r0,PTR_Scene_MegaManJackIn_08050d08
     ldr        r1,PTR_DAT_08050d0c
     bl         Scene_Prepare
     pop        {r5}
@@ -86,8 +86,8 @@ DAT_08050d00:
 PTR_NPCList_8051290_08050d04:
     .word NPCList_8051290
 
-PTR_FUN_08084070_08050d08:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08050d08:
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08050d0c:
     .word 0x2000

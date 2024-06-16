@@ -1090,9 +1090,9 @@ _ts Effect_BattleResult_CalculateRank
     mov        r1,#0x0
     LoadStateTo r4, Main_world, r4
     ldrb       r0,[r4,#World_battleType]
-    cmp        r0,#BattleType_5_InvElecMan
+    cmp        r0,#BattleType_5_Boss
     beq        LAB_0807d5ca
-    cmp        r0,#BattleType_7_Boss
+    cmp        r0,#BattleType_7
     beq        LAB_0807d5ca
     cmp        r0,#BattleType_8_Save
     bge        LAB_0807d5ca

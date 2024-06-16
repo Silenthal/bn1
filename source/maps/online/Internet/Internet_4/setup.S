@@ -66,7 +66,7 @@ _ts MapSetup_Internet_4
     cmp        r1,r2
     beq        LAB_08052986
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08052afc
+    ldr        r0,PTR_Scene_MegaManJackIn_08052afc
     ldr        r1,PTR_DAT_08052b00
     bl         Scene_Prepare
     pop        {r5}
@@ -266,8 +266,8 @@ DAT_08052af4:
 PTR_NPCList_8054464_08052af8:
     .word NPCList_8054464
 
-PTR_FUN_08084070_08052afc:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08052afc:
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08052b00:
     .word 0x2000
@@ -285,7 +285,7 @@ DAT_08052b10:
     .word 0x8086E19
 
 DAT_08052b14:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_08052b18:
     .word 0xA00
@@ -297,7 +297,7 @@ PTR_FUN_08097db0_08052b20:
     .word 0x8097DB1
 
 DAT_08052b24:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_08052b28:
-    .word 0x8082DE5
+    .word Scene_LockedPath

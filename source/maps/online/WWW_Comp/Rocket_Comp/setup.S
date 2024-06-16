@@ -172,7 +172,7 @@ PTR_PTR_EventHandler_Default_0804df54:
     .word PTR_EventHandler_Default_0804de74
 
 DAT_0804df58:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804df5c:
     .word 0x2000

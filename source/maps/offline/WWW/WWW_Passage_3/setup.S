@@ -98,7 +98,7 @@ PTR_PTR_EventHandler_WWW_Passage_3_F54_0_0803e5c4:
     .word PTR_EventHandler_WWW_Passage_3_F54_0_0803e598
 
 DAT_0803e5c8:
-    .word 0x8085A79
+    .word Scene_CheckMail
 
 DAT_0803e5cc:
     .word 0x101

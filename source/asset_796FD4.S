@@ -100,7 +100,7 @@ global_label tilesetChipFrame
 global_label tilemapChipDetailBG
     .incbin "images/menu/chip_detail_bg.tilemap"
 
-global_label TilemapEntry_ARRAY_087a6000
+global_label tilemapChipTraderChipBG
     .incbin "images/menu/007a6000.tilemap"
 
 global_label paletteFolder1

@@ -234,7 +234,7 @@ PTR_PTR_EventHandler_Default_08045e9c:
     .word PTR_EventHandler_Default_08045d8c
 
 DAT_08045ea0:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08045ea4:
     .word 0x2000
@@ -395,7 +395,7 @@ PTR_PTR_EventHandler_Waterworks_Comp_2_F30_08045fd0:
     .word PTR_EventHandler_Waterworks_Comp_2_F30_08045f2c
 
 DAT_08045fd4:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08045fd8:
     .word 0x2000

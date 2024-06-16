@@ -155,7 +155,7 @@ _ts EventHandler_Oven_Comp_1_F03_0
     bl         Flag_Set400
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_FUN_0808419c_08043624
+    ldr        r0,PTR_Scene_Story_07_08043624
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -172,7 +172,7 @@ _ts EventHandler_Oven_Comp_1_F03_1
     mov        r0,#0x2
     bl         Flag_SetBase
     pop        {r5}
-    bl         FUN_08043598
+    bl         EventHandler_Oven_Comp_1_F03_HandleIceBlock
     beq        LAB_080433d8
     bl         GetCollisionEventAttribute
     cmp        r0,#0x10
@@ -197,7 +197,7 @@ LAB_080433d8:
 
 _ts EventHandler_Oven_Comp_1_F03_2
     push       {lr}
-    bl         FUN_08043598
+    bl         EventHandler_Oven_Comp_1_F03_HandleIceBlock
     beq        LAB_08043416
     push       {r5}
     mov        r0,#0xc0
@@ -270,7 +270,7 @@ LAB_0804343a:
     push       {r5}
     mov        r0,#0xc8
     bl         Flag_ClearBase
-    ldr        r0,PTR_LAB_08084bec_08043638
+    ldr        r0,PTR_Scene_Story_0B_08043638
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -289,7 +289,7 @@ LAB_0804347e:
     b          LAB_080434a0
 LAB_08043494:
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_0804363c
+    ldr        r0,PTR_Scene_MegaManJackIn_0804363c
     ldr        r1,PTR_DAT_0804361c
     bl         Scene_Prepare
     pop        {r5}
@@ -351,7 +351,7 @@ LAB_080434de:
     bl         Entity_AllocList
     pop        {r5}
 LAB_0804350c:
-    bl         FUN_080435bc
+    bl         EventHandler_Oven_Comp_1_F05_HandleIceBlock
     beq        LAB_0804351a
     mov        r0,#0x0
     bl         CheckForJackOut
@@ -399,7 +399,7 @@ LAB_08043524:
     b          LAB_08043570
 LAB_08043564:
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_0804364c
+    ldr        r0,PTR_Scene_MegaManJackIn_0804364c
     ldr        r1,PTR_DAT_0804361c
     bl         Scene_Prepare
     pop        {r5}
@@ -434,7 +434,7 @@ LAB_08043596:
     pop        {pc}
 
 
-_ts FUN_08043598
+_ts EventHandler_Oven_Comp_1_F03_HandleIceBlock
     push       {lr}
     mov        r7,r10
     ldr        r0,[r7,#0x8]
@@ -444,7 +444,7 @@ _ts FUN_08043598
     cmp        r1,#0x3f
     bgt        LAB_080435b6
     push       {r5}
-    ldr        r0,PTR_LAB_0808464c_08043654
+    ldr        r0,PTR_Scene_ExtinguishFlame_08043654
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x0
@@ -456,7 +456,7 @@ LAB_080435b6:
     .align 2, 0
 
 
-_ts FUN_080435bc
+_ts EventHandler_Oven_Comp_1_F05_HandleIceBlock
     push       {lr}
     mov        r7,r10
     ldr        r0,[r7,#0x8]
@@ -473,7 +473,7 @@ _ts FUN_080435bc
     pop        {r1,r5}
     bne        LAB_080435ea
     push       {r5}
-    ldr        r0,PTR_LAB_0808464c_08043658
+    ldr        r0,PTR_Scene_ExtinguishFlame_08043658
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x0
@@ -515,7 +515,7 @@ PTR_EntityAllocParams_8043CF8_08043614:
     .word EntityAllocParams_8043CF8
 
 DAT_08043618:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804361c:
     .word 0x2000
@@ -523,14 +523,14 @@ PTR_DAT_0804361c:
 PTR_PTR_EventHandler_Oven_Comp_1_F03_0_08043620:
     .word PTR_EventHandler_Oven_Comp_1_F03_0_08043374
 
-PTR_FUN_0808419c_08043624:
-    .word 0x808419D
+PTR_Scene_Story_07_08043624:
+    .word Scene_Story_07
 
 DAT_08043628:
-    .word 0x8084255
+    .word Scene_Story_08
 
 DAT_0804362c:
-    .word 0x8084369
+    .word Scene_MeteorAttack
 
 PTR_NPCList_8043A38_08043630:
     .word NPCList_8043A38
@@ -538,11 +538,11 @@ PTR_NPCList_8043A38_08043630:
 PTR_EntityAllocParams_8043CF8_08043634:
     .word EntityAllocParams_8043CF8
 
-PTR_LAB_08084bec_08043638:
-    .word 0x8084BED
+PTR_Scene_Story_0B_08043638:
+    .word Scene_Story_0B
 
-PTR_FUN_08084070_0804363c:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_0804363c:
+    .word Scene_MegaManJackIn
 
 PTR_PTR_EventHandler_Oven_Comp_1_F05_0_08043640:
     .word PTR_EventHandler_Oven_Comp_1_F05_0_080434bc
@@ -553,14 +553,14 @@ DAT_08043644:
 PTR_NPCList_8043BEC_08043648:
     .word NPCList_8043BEC
 
-PTR_FUN_08084070_0804364c:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_0804364c:
+    .word Scene_MegaManJackIn
 
 PTR_PTR_EventHandler_Oven_Comp_1_F06_0_08043650:
     .word PTR_EventHandler_Oven_Comp_1_F06_0_08043588
 
-PTR_LAB_0808464c_08043654:
-    .word 0x808464D
+PTR_Scene_ExtinguishFlame_08043654:
+    .word Scene_ExtinguishFlame
 
-PTR_LAB_0808464c_08043658:
-    .word 0x808464D
+PTR_Scene_ExtinguishFlame_08043658:
+    .word Scene_ExtinguishFlame

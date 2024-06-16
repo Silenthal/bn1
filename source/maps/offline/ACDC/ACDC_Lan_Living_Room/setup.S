@@ -3,13 +3,8 @@
     .include "macros.inc"
 
     .set FUN_0808f208, 0x808F209
-    .set FUN_0808498c, 0x808498D
     .set LAB_08088900, 0x8088901
-    .set FUN_08083a84, 0x8083A85
-    .set FUN_0808387c, 0x808387D
     .set FUN_08093610, 0x8093611
-    .set LAB_08084ff0, 0x8084FF1
-    .set FUN_08084714, 0x8084715
 
 
 _ts MapSetup_ACDC_Lan_Living_Room_S0
@@ -172,7 +167,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F02_0
     b          LAB_0802c0e4
 LAB_0802c0d4:
     push       {r5}
-    ldr        r0,PTR_FUN_0808387c_0802c474
+    ldr        r0,PTR_Scene_Story_05_0802c474
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -389,7 +384,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F04_0
     pop        {r5}
     bne        LAB_0802c29a
     push       {r5}
-    ldr        r0,PTR_FUN_08084714_0802c4b4
+    ldr        r0,PTR_Scene_Story_09_0802c4b4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -422,7 +417,7 @@ LAB_0802c2c0:
     pop        {r0,r5}
     beq        LAB_0802c2de
     push       {r5}
-    ldr        r0,PTR_FUN_0808498c_0802c4b8
+    ldr        r0,PTR_Scene_Story_0A_0802c4b8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -433,7 +428,7 @@ LAB_0802c2de:
     cmp        r0,#0x2
     bne        LAB_0802c2ee
     push       {r5}
-    ldr        r0,PTR_FUN_08083a84_0802c4bc
+    ldr        r0,PTR_Scene_LockedPath_M0102_0802c4bc
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -566,7 +561,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F06
     pop        {r5}
     bne        LAB_0802c400
     push       {r5}
-    ldr        r0,PTR_LAB_08084ff0_0802c4e8
+    ldr        r0,PTR_Scene_Story_0E_0802c4e8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -634,10 +629,10 @@ PTR_BgTask_802C46C:
     .word BgTask_ACDC_Lan_Living_Room_TV_Regular
 PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F02_0_0802c470:
     .word PTR_EventHandler_ACDC_Lan_Living_Room_F02_0_0802c0b4
-PTR_FUN_0808387c_0802c474:
-    .word FUN_0808387c
+PTR_Scene_Story_05_0802c474:
+    .word Scene_Story_05
 DAT_0802c478:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 DAT_0802c47c:
     .word 0x707
 PTR_PTR_DAT_0802c480:
@@ -651,11 +646,11 @@ PTR_BgTask_802C48C:
 PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F03_0_0802c490:
     .word PTR_EventHandler_ACDC_Lan_Living_Room_F03_0_0802c180
 DAT_0802c494:
-    .word 0x8083A85
+    .word Scene_LockedPath_M0102
 DAT_0802c498:
     .word 0x100
 DAT_0802c49c:
-    .word 0x8083EED
+    .word Scene_JackIn
 PTR_PTR_DAT_0802c4a0:
     .word NPCList_803069C
 PTR_DAT_0802c4a4:
@@ -666,12 +661,12 @@ PTR_BgTask_802C4AC:
     .word BgTask_ACDC_Lan_Living_Room_TV_Regular
 PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F04_0_0802c4b0:
     .word PTR_EventHandler_ACDC_Lan_Living_Room_F04_0_0802c274
-PTR_FUN_08084714_0802c4b4:
-    .word FUN_08084714
-PTR_FUN_0808498c_0802c4b8:
-    .word FUN_0808498c
-PTR_FUN_08083a84_0802c4bc:
-    .word FUN_08083a84
+PTR_Scene_Story_09_0802c4b4:
+    .word Scene_Story_09
+PTR_Scene_Story_0A_0802c4b8:
+    .word Scene_Story_0A
+PTR_Scene_LockedPath_M0102_0802c4bc:
+    .word Scene_LockedPath_M0102
 PTR_PTR_DAT_0802c4c0:
     .word NPCList_80306D8
 PTR_DAT_0802c4c4:
@@ -683,21 +678,21 @@ PTR_BgTask_802C4CC:
 PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F05_0_0802c4d0:
     .word PTR_EventHandler_ACDC_Lan_Living_Room_F05_0_0802c35c
 DAT_0802c4d4:
-    .word 0x8083A85
+    .word Scene_LockedPath_M0102
 DAT_0802c4d8:
-    .word 0x8083EED
+    .word Scene_JackIn
 PTR_PTR_DAT_0802c4dc:
     .word NPCList_80306F8
 PTR_DAT_0802c4e0:
     .word EntityAllocParams_8030DD4
 PTR_BgTask_802C4E4:
     .word BgTask_ACDC_Lan_Living_Room_TV_Regular
-PTR_LAB_08084ff0_0802c4e8:
-    .word LAB_08084ff0
+PTR_Scene_Story_0E_0802c4e8:
+    .word Scene_Story_0E
 PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F06_0_0802c4ec:
     .word PTR_EventHandler_ACDC_Lan_Living_Room_F06_0_0802c418
 DAT_0802c4f0:
-    .word 0x8083EED
+    .word Scene_JackIn
 
 
 _ts MapSetup_ACDC_Lan_Living_Room_S2

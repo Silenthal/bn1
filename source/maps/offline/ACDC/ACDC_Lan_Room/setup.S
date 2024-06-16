@@ -2,12 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_00_LanWakesUp, 0x80828AD
-    .set FUN_080839ac, 0x80839AD
-    .set Scene_JackIn, 0x8083EED
-    .set FUN_08082de4, 0x8082DE5
-    .set LAB_080886c4, 0x80886C5
-    .set Scene_Dialogue, 0x80848FD
+    .set Scene_Story_21, 0x80886C5
 
 
 _ts MapSetup_ACDC_Lan_Room_S0
@@ -139,7 +134,7 @@ PTR_EventHandler_ACDC_Lan_Room_F00_0_0802cb54:
 _ts EventHandler_ACDC_Lan_Room_F00_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_Scene_00_LanWakesUp_0802cf18
+    ldr        r0,PTR_Scene_Story_00_LanWakesUp_0802cf18
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -179,7 +174,7 @@ LAB_0802cba4:
     cmp        r0,#0x1
     bne        LAB_0802cbc4
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_0802cf1c
+    ldr        r0,PTR_Scene_LockedPath_0802cf1c
     ldr        r1,DAT_0802cf20
     bl         Scene_Prepare
     pop        {r5}
@@ -312,7 +307,7 @@ _ts EventHandler_ACDC_Lan_Room_F02_0
     b          LAB_0802ccca
 LAB_0802ccba:
     push       {r5}
-    ldr        r0,PTR_FUN_080839ac_0802cf44
+    ldr        r0,PTR_Scene_Story_06_0802cf44
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -635,14 +630,14 @@ LAB_0802cf14:
 
     .align 2, 0
 
-PTR_Scene_00_LanWakesUp_0802cf18:
-    .word Scene_00_LanWakesUp
-PTR_FUN_08082de4_0802cf1c:
-    .word FUN_08082de4
+PTR_Scene_Story_00_LanWakesUp_0802cf18:
+    .word Scene_Story_00_LanWakesUp
+PTR_Scene_LockedPath_0802cf1c:
+    .word Scene_LockedPath
 DAT_0802cf20:
     .word 0x101
 DAT_0802cf24:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802cf28:
     .word 0x108
 DAT_0802cf2c:
@@ -657,8 +652,8 @@ PTR_BgTask_802CF3C:
     .word BgTask_ACDC_Lan_Room_Window_Empty
 PTR_PTR_EventHandler_ACDC_Lan_Room_F02_0_0802cf40:
     .word PTR_EventHandler_ACDC_Lan_Room_F02_0_0802cc90
-PTR_FUN_080839ac_0802cf44:
-    .word FUN_080839ac
+PTR_Scene_Story_06_0802cf44:
+    .word Scene_Story_06
 PTR_DAT_0802cf48:
     .word EntityAllocParams_8030F60
 PTR_BgTask_802CF4C:
@@ -686,7 +681,7 @@ PTR_PTR_EventHandler_ACDC_Lan_Room_F06_0_0802cf74:
 DAT_0802cf78:
     .word 0x8087E35
 DAT_0802cf7c:
-    .word 0x80848FD
+    .word Scene_Dialogue
 PTR_Scene_JackIn_0802cf80:
     .word Scene_JackIn
 PTR_Scene_Dialogue_0802cf84:
@@ -990,7 +985,7 @@ PTR_EventHandler_ACDC_Lan_Room_F23_0_0802d1c4:
 _ts EventHandler_ACDC_Lan_Room_F23_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_LAB_080886c4_0802d220
+    ldr        r0,PTR_Scene_Story_21_0802d220
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1023,7 +1018,7 @@ PTR_DAT_0802d204:
 PTR_PTR_EventHandler_ACDC_Lan_Room_F22_0_0802d208:
     .word PTR_EventHandler_ACDC_Lan_Room_F22_0_0802d0e4
 DAT_0802d20c:
-    .word 0x80848FD
+    .word Scene_Dialogue
 PTR_MapEntrance_0802d210:
     .word MapEntrance_0802d160
 PTR_BgTask_802D214:
@@ -1032,8 +1027,8 @@ PTR_DAT_0802d218:
     .word EntityAllocParams_8030F60
 PTR_PTR_EventHandler_ACDC_Lan_Room_F23_0_0802d21c:
     .word PTR_EventHandler_ACDC_Lan_Room_F23_0_0802d1c4
-PTR_LAB_080886c4_0802d220:
-    .word LAB_080886c4
+PTR_Scene_Story_21_0802d220:
+    .word Scene_Story_21
 
 
 _ts MapSetup_ACDC_Lan_Room_S3
@@ -1331,7 +1326,7 @@ PTR_DAT_0802d448:
 PTR_PTR_EventHandler_ACDC_Lan_Room_F50_0_0802d44c:
     .word PTR_EventHandler_ACDC_Lan_Room_F50_0_0802d354
 DAT_0802d450:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802d454:
     .word 0x14B
 PTR_BgTask_802D458:
@@ -1343,7 +1338,7 @@ PTR_PTR_EventHandler_ACDC_Lan_Room_F52_0_0802d460:
 DAT_0802d464:
     .word 0x8087E35
 DAT_0802d468:
-    .word 0x80848FD
+    .word Scene_Dialogue
 PTR_BgTask_802D46C:
     .word BgTask_ACDC_Lan_Room_Window_Bird
 PTR_DAT_0802d470:
@@ -1351,7 +1346,7 @@ PTR_DAT_0802d470:
 PTR_PTR_EventHandler_ACDC_Lan_Room_F53_0_0802d474:
     .word PTR_EventHandler_ACDC_Lan_Room_F53_0_0802d41c
 DAT_0802d478:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802d47c:
     .word 0x15A
 

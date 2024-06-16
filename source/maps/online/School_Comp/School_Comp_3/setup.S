@@ -269,7 +269,7 @@ _ts MapSetup_School_Comp_3_F15
     mov        r0,#0xd6
     bl         Flag_ClearBase
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08041398
+    ldr        r0,PTR_Scene_MegaManJackIn_08041398
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -403,7 +403,7 @@ PTR_NPCList_8041DC8_08041378:
     .word NPCList_8041DC8
 
 DAT_0804137c:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 DAT_08041380:
     .word 0x8086E19
@@ -423,8 +423,8 @@ PTR_Scene_UnlockWWWGate_08041390:
 PTR_NPCList_8041DC8_08041394:
     .word NPCList_8041DC8
 
-PTR_FUN_08084070_08041398:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08041398:
+    .word Scene_MegaManJackIn
 
 PTR_Scene_UnlockWWWGate_0804139c:
     .word 0x8086E19
@@ -578,7 +578,7 @@ PTR_NPCList_8041E38_080414b8:
     .word NPCList_8041E38
 
 DAT_080414bc:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_PTR_EventHandler_School_Comp_3_F20_0_080414c0:
     .word PTR_EventHandler_School_Comp_3_F20_0_08041494

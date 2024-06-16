@@ -222,7 +222,7 @@ _ts FUN_0803c9ac
     cmp        r0,#0x21
     bne        LAB_0803c9d8
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_0803ca48
+    ldr        r0,PTR_Scene_LockedPath_0803ca48
     ldr        r1,DAT_0803ca4c
     bl         Scene_Prepare
     pop        {r5}
@@ -238,7 +238,7 @@ LAB_0803c9d8:
     bl         dummy_187a0
     bne        LAB_0803c9fa
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_0803ca50
+    ldr        r0,PTR_Scene_LockedPath_0803ca50
     ldr        r1,DAT_0803ca54
     bl         Scene_Prepare
     pop        {r5}
@@ -254,7 +254,7 @@ LAB_0803c9fa:
     bl         dummy_187a0
     bne        LAB_0803c9fa
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_0803ca58
+    ldr        r0,PTR_Scene_LockedPath_0803ca58
     ldr        r1,DAT_0803ca5c
     bl         Scene_Prepare
     pop        {r5}
@@ -294,20 +294,20 @@ PTR_NPCList_803D4D4_0803ca40:
 PTR_PTR_EventHandler_SciLab_Power_Plant_F43_0_0803ca44:
     .word PTR_EventHandler_SciLab_Power_Plant_F43_0_0803c9a4
 
-PTR_FUN_08082de4_0803ca48:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_0803ca48:
+    .word Scene_LockedPath
 
 DAT_0803ca4c:
     .word 0xDC03
 
-PTR_FUN_08082de4_0803ca50:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_0803ca50:
+    .word Scene_LockedPath
 
 DAT_0803ca54:
     .word 0xDE03
 
-PTR_FUN_08082de4_0803ca58:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_0803ca58:
+    .word Scene_LockedPath
 
 DAT_0803ca5c:
     .word 0xDD03
@@ -415,7 +415,7 @@ _ts FUN_0803cb10
     cmp        r0,#0x21
     bne        LAB_0803cb3c
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_0803cb64
+    ldr        r0,PTR_Scene_LockedPath_0803cb64
     ldr        r1,DAT_0803cb68
     bl         Scene_Prepare
     pop        {r5}
@@ -424,7 +424,7 @@ LAB_0803cb3c:
     cmp        r0,#0x3
     bne        LAB_0803cb4c
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_0803cb6c
+    ldr        r0,PTR_Scene_LockedPath_0803cb6c
     ldr        r1,DAT_0803cb68
     bl         Scene_Prepare
     pop        {r5}
@@ -448,11 +448,11 @@ PTR_NPCList_803D4F4_0803cb5c:
 PTR_PTR_EventHandler_SciLab_Power_Plant_F50_0_0803cb60:
     .word PTR_EventHandler_SciLab_Power_Plant_F50_0_0803cb08
 
-PTR_FUN_08082de4_0803cb64:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_0803cb64:
+    .word Scene_LockedPath
 
 DAT_0803cb68:
     .word 0xDC03
 
-PTR_FUN_08082de4_0803cb6c:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_0803cb6c:
+    .word Scene_LockedPath

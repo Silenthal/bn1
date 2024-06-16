@@ -197,7 +197,7 @@ PTR_PTR_DAT_0802e588:
 PTR_PTR_EventHandler_ACDC_Yai_Room_F02_0_0802e58c:
     .word PTR_EventHandler_ACDC_Yai_Room_F02_0_0802e4a8
 DAT_0802e590:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 DAT_0802e594:
     .word 0x307
 PTR_BgTask_802E598:
@@ -209,7 +209,7 @@ PTR_PTR_EventHandler_ACDC_Yai_Room_F06_0_0802e5a0:
 DAT_0802e5a4:
     .word 0x100
 DAT_0802e5a8:
-    .word 0x8083EED
+    .word Scene_JackIn
 
 
 _ts MapSetup_ACDC_Yai_Room_S2

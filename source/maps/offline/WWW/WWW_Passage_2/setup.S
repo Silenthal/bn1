@@ -151,13 +151,13 @@ PTR_NPCList_803EB00_0803e4fc:
     .word NPCList_803EB00
 
 DAT_0803e500:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_WWW_Passage_2_F54_0_0803e504:
     .word PTR_EventHandler_WWW_Passage_2_F54_0_0803e4a4
 
 DAT_0803e508:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 DAT_0803e50c:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle

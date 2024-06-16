@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08082de4, 0x8082DE5
-
 
 _ts MapSetup_School_2F_Hallway_S1
     push       {lr}
@@ -216,7 +214,7 @@ _ts EventHandler_School_2F_Hallway_F13_1
     bne        LAB_080261fe
     push       {r5}
     ldr        r1,DAT_080262cc
-    ldr        r0,PTR_FUN_08082de4_080262d8
+    ldr        r0,PTR_Scene_LockedPath_080262d8
     bl         Scene_Prepare
     pop        {r5}
 LAB_080261fe:
@@ -328,11 +326,11 @@ PTR_PTR_EventHandler_School_2F_Hallway_F10_080262b0:
 PTR_PTR_EventHandler_School_2F_Hallway_F10_0_080262b4:
     .word PTR_EventHandler_School_2F_Hallway_F10_0_08026100
 DAT_080262b8:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 DAT_080262bc:
     .word 0x103
 DAT_080262c0:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 PTR_PTR_DAT_080262c4:
     .word NPCList_80294EC
 PTR_PTR_EventHandler_School_2F_Hallway_F13_0_080262c8:
@@ -340,11 +338,11 @@ PTR_PTR_EventHandler_School_2F_Hallway_F13_0_080262c8:
 DAT_080262cc:
     .word 0x703
 DAT_080262d0:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 DAT_080262d4:
     .word 0x8087E35
-PTR_FUN_08082de4_080262d8:
-    .word FUN_08082de4
+PTR_Scene_LockedPath_080262d8:
+    .word Scene_LockedPath
 PTR_PTR_DAT_080262dc:
     .word NPCList_80294F4
 PTR_PTR_EventHandler_School_2F_Hallway_F14_0_080262e0:
@@ -727,17 +725,17 @@ PTR_PTR_DAT_0802659c:
 PTR_PTR_EventHandler_School_2F_Hallway_F23_0_080265a0:
     .word PTR_EventHandler_School_2F_Hallway_F23_0_08026470
 DAT_080265a4:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 PTR_PTR_DAT_080265a8:
     .word NPCList_8029598
 PTR_PTR_EventHandler_School_2F_Hallway_F24_0_080265ac:
     .word PTR_EventHandler_School_2F_Hallway_F24_0_080264ec
 DAT_080265b0:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 PTR_PTR_EventHandler_School_2F_Hallway_F25_0_080265b4:
     .word PTR_EventHandler_School_2F_Hallway_F25_0_0802654c
 DAT_080265b8:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 
 _ts MapSetup_School_2F_Hallway_S3

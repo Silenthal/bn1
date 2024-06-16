@@ -307,7 +307,7 @@ PTR_PTR_EventHandler_SciLab_Restaurant_F43_0_0803c47c:
     .word PTR_EventHandler_SciLab_Restaurant_F43_0_0803c410
 
 DAT_0803c480:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 DAT_0803c484:
     .word 0x1505

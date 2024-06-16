@@ -2,9 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0808b688, 0x808B689
-    .set LAB_0808a798, 0x808A799
-    .set Scene_Dialogue, 0x80848FD
+    .set Scene_TrainRide, 0x808B689
+    .set Scene_Story_2F, 0x808A799
 
 
 _ts MapSetup_ACDC_Station_S2
@@ -211,7 +210,7 @@ _ts EventHandler_ACDC_Station_F22_0
     beq        LAB_0802f306
     push       {r5}
     mov        r1,#0x0
-    ldr        r0,PTR_FUN_0808b688_0802f4b8
+    ldr        r0,PTR_Scene_TrainRide_0802f4b8
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f306:
@@ -290,7 +289,7 @@ LAB_0802f378:
     beq        LAB_0802f3a0
     push       {r5}
     mov        r1,#0x0
-    ldr        r0,PTR_FUN_0808b688_0802f4d4
+    ldr        r0,PTR_Scene_TrainRide_0802f4d4
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f3a0:
@@ -344,7 +343,7 @@ LAB_0802f3ee:
     bl         PlayerLocation_Create
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_LAB_0808a798_0802f4e4
+    ldr        r0,PTR_Scene_Story_2F_0802f4e4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -395,7 +394,7 @@ LAB_0802f44c:
     beq        LAB_0802f474
     push       {r5}
     mov        r1,#0x0
-    ldr        r0,PTR_FUN_0808b688_0802f4f4
+    ldr        r0,PTR_Scene_TrainRide_0802f4f4
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f474:
@@ -433,10 +432,10 @@ PTR_BgTask_802F4B0:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F22_0_0802f4b4:
     .word PTR_EventHandler_ACDC_Station_F22_0_0802f2d8
-PTR_FUN_0808b688_0802f4b8:
-    .word FUN_0808b688
+PTR_Scene_TrainRide_0802f4b8:
+    .word Scene_TrainRide
 DAT_0802f4bc:
-    .word 0x80848FD
+    .word Scene_Dialogue
 PTR_PTR_DAT_0802f4c0:
     .word NPCList_8030C48
 PTR_BgTask_802F4C4:
@@ -444,29 +443,29 @@ PTR_BgTask_802F4C4:
 PTR_PTR_EventHandler_ACDC_Station_F24_0_0802f4c8:
     .word PTR_EventHandler_ACDC_Station_F24_0_0802f35c
 DAT_0802f4cc:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802f4d0:
     .word 0x120
-PTR_FUN_0808b688_0802f4d4:
-    .word FUN_0808b688
+PTR_Scene_TrainRide_0802f4d4:
+    .word Scene_TrainRide
 DAT_0802f4d8:
-    .word 0x80848FD
+    .word Scene_Dialogue
 PTR_BgTask_802F4DC:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_DAT_0802f4e0:
     .word NPCList_8030C48
-PTR_LAB_0808a798_0802f4e4:
-    .word LAB_0808a798
+PTR_Scene_Story_2F_0802f4e4:
+    .word Scene_Story_2F
 PTR_PTR_EventHandler_ACDC_Station_F26_0_0802f4e8:
     .word PTR_EventHandler_ACDC_Station_F26_0_0802f428
 DAT_0802f4ec:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802f4f0:
     .word 0x125
-PTR_FUN_0808b688_0802f4f4:
-    .word FUN_0808b688
+PTR_Scene_TrainRide_0802f4f4:
+    .word Scene_TrainRide
 DAT_0802f4f8:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 
 _ts MapSetup_ACDC_Station_S3
@@ -584,7 +583,7 @@ LAB_0802f5cc:
 LAB_0802f5f6:
     mov        r1,#0x2
 LAB_0802f5f8:
-    ldr        r0,PTR_FUN_0808b688_0802f638
+    ldr        r0,PTR_Scene_TrainRide_0802f638
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f600:
@@ -616,11 +615,11 @@ PTR_BgTask_802F628:
 PTR_PTR_EventHandler_ACDC_Station_F30_0_0802f62c:
     .word PTR_EventHandler_ACDC_Station_F30_0_0802f5a8
 DAT_0802f630:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802f634:
     .word 0x12C
-PTR_FUN_0808b688_0802f638:
-    .word FUN_0808b688
+PTR_Scene_TrainRide_0802f638:
+    .word Scene_TrainRide
 PTR_Scene_Dialogue_0802f63c:
     .word Scene_Dialogue
 
@@ -723,7 +722,7 @@ _ts EventHandler_ACDC_Station_F40_0
 LAB_0802f70c:
     mov        r1,#0x0
 LAB_0802f70e:
-    ldr        r0,PTR_FUN_0808b688_0802f744
+    ldr        r0,PTR_Scene_TrainRide_0802f744
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f716:
@@ -752,10 +751,10 @@ PTR_PTR_DAT_0802f73c:
     .word NPCList_8030C54
 PTR_PTR_EventHandler_ACDC_Station_F40_0_0802f740:
     .word PTR_EventHandler_ACDC_Station_F40_0_0802f6dc
-PTR_FUN_0808b688_0802f744:
-    .word FUN_0808b688
+PTR_Scene_TrainRide_0802f744:
+    .word Scene_TrainRide
 DAT_0802f748:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 
 _ts MapSetup_ACDC_Station_S5
@@ -854,7 +853,7 @@ _ts EventHandler_ACDC_Station_F50_0
 LAB_0802f814:
     mov        r1,#0x2
 LAB_0802f816:
-    ldr        r0,PTR_FUN_0808b688_0802f84c
+    ldr        r0,PTR_Scene_TrainRide_0802f84c
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f81e:
@@ -883,7 +882,7 @@ PTR_BgTask_802F844:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
 PTR_PTR_EventHandler_ACDC_Station_F50_0_0802f848:
     .word PTR_EventHandler_ACDC_Station_F50_0_0802f7e4
-PTR_FUN_0808b688_0802f84c:
-    .word FUN_0808b688
+PTR_Scene_TrainRide_0802f84c:
+    .word Scene_TrainRide
 DAT_0802f850:
-    .word 0x80848FD
+    .word Scene_Dialogue

@@ -115,7 +115,7 @@ _ts EventHandler_Govt_Complex_Station_F22_0
     beq        LAB_08032216
     push       {r5}
     mov        r1,#0x1
-    ldr        r0,PTR_FUN_0808b688_08032354
+    ldr        r0,PTR_Scene_TrainRide_08032354
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032216:
@@ -183,7 +183,7 @@ _ts EventHandler_Govt_Complex_Station_F23_0
     beq        LAB_08032296
     push       {r5}
     mov        r1,#0x1
-    ldr        r0,PTR_FUN_0808b688_08032368
+    ldr        r0,PTR_Scene_TrainRide_08032368
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032296:
@@ -257,7 +257,7 @@ _ts EventHandler_Govt_Complex_Station_F26_0
     beq        LAB_08032322
     push       {r5}
     mov        r1,#0x1
-    ldr        r0,PTR_FUN_0808b688_08032380
+    ldr        r0,PTR_Scene_TrainRide_08032380
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032322:
@@ -294,11 +294,11 @@ PTR_BgTask_803234C:
 PTR_PTR_EventHandler_Govt_Complex_Station_F22_0_08032350:
     .word PTR_EventHandler_Govt_Complex_Station_F22_0_080321e8
 
-PTR_FUN_0808b688_08032354:
+PTR_Scene_TrainRide_08032354:
     .word 0x808B689
 
 DAT_08032358:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_0803235c:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
@@ -309,11 +309,11 @@ PTR_BgTask_8032360:
 PTR_PTR_EventHandler_Govt_Complex_Station_F23_0_08032364:
     .word PTR_EventHandler_Govt_Complex_Station_F23_0_08032268
 
-PTR_FUN_0808b688_08032368:
+PTR_Scene_TrainRide_08032368:
     .word 0x808B689
 
 DAT_0803236c:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 PTR_BgTask_ACDC_Station_Tileset_Gate_Closed_08032370:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
@@ -327,11 +327,11 @@ PTR_NPCList_8035134_08032378:
 PTR_PTR_EventHandler_Govt_Complex_Station_F26_0_0803237c:
     .word PTR_EventHandler_Govt_Complex_Station_F26_0_080322f4
 
-PTR_FUN_0808b688_08032380:
+PTR_Scene_TrainRide_08032380:
     .word 0x808B689
 
 DAT_08032384:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 
 _ts MapSetup_Govt_Complex_Station_S3
@@ -432,7 +432,7 @@ _ts EventHandler_Govt_Complex_Station_F30_0
 LAB_08032454:
     mov        r1,#0x1
 LAB_08032456:
-    ldr        r0,PTR_FUN_0808b688_08032490
+    ldr        r0,PTR_Scene_TrainRide_08032490
     bl         Scene_Prepare
     pop        {r5}
 LAB_0803245e:
@@ -469,11 +469,11 @@ PTR_NPCList_8035134_08032488:
 PTR_PTR_EventHandler_Govt_Complex_Station_F30_0_0803248c:
     .word PTR_EventHandler_Govt_Complex_Station_F30_0_08032424
 
-PTR_FUN_0808b688_08032490:
+PTR_Scene_TrainRide_08032490:
     .word 0x808B689
 
 DAT_08032494:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 
 _ts MapSetup_Govt_Complex_Station_S4
@@ -574,7 +574,7 @@ _ts EventHandler_Govt_Complex_Station_F40_0
 LAB_08032564:
     mov        r1,#0x1
 LAB_08032566:
-    ldr        r0,PTR_FUN_0808b688_080325a0
+    ldr        r0,PTR_Scene_TrainRide_080325a0
     bl         Scene_Prepare
     pop        {r5}
 LAB_0803256e:
@@ -611,11 +611,11 @@ PTR_NPCList_8035134_08032598:
 PTR_PTR_EventHandler_Govt_Complex_Station_F40_0_0803259c:
     .word PTR_EventHandler_Govt_Complex_Station_F40_0_08032534
 
-PTR_FUN_0808b688_080325a0:
+PTR_Scene_TrainRide_080325a0:
     .word 0x808B689
 
 DAT_080325a4:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 
 _ts MapSetup_Govt_Complex_Station_S5
@@ -805,7 +805,7 @@ _ts EventHandler_Govt_Complex_Station_F53_0
 LAB_0803271c:
     mov        r1,#0x1
 LAB_0803271e:
-    ldr        r0,PTR_FUN_0808b688_08032778
+    ldr        r0,PTR_Scene_TrainRide_08032778
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032726:
@@ -843,7 +843,7 @@ PTR_PTR_EventHandler_Govt_Complex_Station_F50_0_08032754:
     .word PTR_EventHandler_Govt_Complex_Station_F50_0_08032644
 
 DAT_08032758:
-    .word 0x8085A79
+    .word Scene_CheckMail
 
 DAT_0803275c:
     .word 0x124
@@ -852,7 +852,7 @@ DAT_08032760:
     .word 0x808B689
 
 DAT_08032764:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 PTR_NPCList_8035134_08032768:
     .word NPCList_8035134
@@ -866,8 +866,8 @@ PTR_BgTask_8032770:
 PTR_PTR_EventHandler_Govt_Complex_Station_F53_0_08032774:
     .word PTR_EventHandler_Govt_Complex_Station_F53_0_080326ec
 
-PTR_FUN_0808b688_08032778:
+PTR_Scene_TrainRide_08032778:
     .word 0x808B689
 
 DAT_0803277c:
-    .word 0x80848FD
+    .word Scene_Dialogue

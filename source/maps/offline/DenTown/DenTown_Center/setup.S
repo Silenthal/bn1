@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_JackIn, 0x8083EEC+1
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_DenTown_Center_S3
     push       {lr}
@@ -376,13 +373,13 @@ PTR_LAB_0808cf94_08036438:
     .word 0x808CF95
 
 DAT_0803643c:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 PTR_FUN_0808d19c_08036440:
     .word 0x808D19D
 
 DAT_08036444:
-    .word 0x8085A79
+    .word Scene_CheckMail
 
 
 _ts EventHandler_DenTown_Center_F33_1
@@ -593,7 +590,7 @@ LAB_080365e2:
     pop        {pc}
 
 DAT_080365e4:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 
 _ts MapSetup_DenTown_Center_F36
@@ -1009,7 +1006,7 @@ LAB_08036918:
     ldr        r1,DAT_080369f4
 LAB_0803691a:
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_080369f8
+    ldr        r0,PTR_Scene_LockedPath_080369f8
     bl         Scene_Prepare
     pop        {r5}
 LAB_08036924:
@@ -1074,7 +1071,7 @@ PTR_PTR_EventHandler_DenTown_Center_F35_0_08036988:
     .word PTR_EventHandler_DenTown_Center_F35_0_080365b0
 
 DAT_0803698c:
-    .word 0x8085A79
+    .word Scene_CheckMail
 
 DAT_08036990:
     .word 0x132
@@ -1154,8 +1151,8 @@ DAT_080369f0:
 DAT_080369f4:
     .word 0x3D07
 
-PTR_FUN_08082de4_080369f8:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_080369f8:
+    .word Scene_LockedPath
 
 DAT_080369fc:
     .word 0x100

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Power_Plant_Comp_1_S4
     push       {lr}
@@ -315,7 +313,7 @@ DAT_0804a534:
     .word 0x80919D9
 
 DAT_0804a538:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804a53c:
     .word 0x2000
@@ -579,7 +577,7 @@ PTR_NPCList_804B740_0804a760:
     .word NPCList_804B740
 
 DAT_0804a764:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804a768:
     .word 0x2000

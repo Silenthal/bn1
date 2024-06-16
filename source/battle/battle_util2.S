@@ -107,7 +107,7 @@ global_label folderSrcInitialFolder
     battlechip Steal S
     battlechip Escape F
 
-BattleChip_ARRAY_08007ce4:
+global_label folderTutorial1
     battlechip Cannon A
     battlechip MiniBomb L
     battlechip Cannon A
@@ -138,6 +138,8 @@ BattleChip_ARRAY_08007ce4:
     battlechip Cannon A
     battlechip Shotgun N
     battlechip CrossGun J
+
+global_label folderTutorial2
     battlechip Steal S
     battlechip WideSwrd S
     battlechip Cannon A

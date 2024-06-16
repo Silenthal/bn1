@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_JackIn, 0x8083EEC+1
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_DenTown_Block_3_S3
     push       {lr}
@@ -365,7 +362,7 @@ LAB_08037dc0:
     cmp        r0,#0x3
     bne        LAB_08037de0
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_08037e34
+    ldr        r0,PTR_Scene_LockedPath_08037e34
     ldr        r1,DAT_08037e38
     bl         Scene_Prepare
     pop        {r5}
@@ -390,10 +387,10 @@ PTR_PTR_EventHandler_DenTown_Block_3_F30_0_08037df4:
     .word PTR_EventHandler_DenTown_Block_3_F30_0_08037bf0
 
 DAT_08037df8:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_08037dfc:
-    .word 0x8085A79
+    .word Scene_CheckMail
 
 DAT_08037e00:
     .word 0x104
@@ -408,7 +405,7 @@ PTR_PTR_EventHandler_DenTown_Block_3_F35_0_08037e0c:
     .word PTR_EventHandler_DenTown_Block_3_F35_0_08037c7c
 
 DAT_08037e10:
-    .word 0x8083EED
+    .word Scene_JackIn
 
 PTR_NPCList_803942C_08037e14:
     .word NPCList_803942C
@@ -434,8 +431,8 @@ DAT_08037e2c:
 PTR_Scene_Dialogue_08037e30:
     .word Scene_Dialogue
 
-PTR_FUN_08082de4_08037e34:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08037e34:
+    .word Scene_LockedPath
 
 DAT_08037e38:
     .word 0xB03
@@ -764,7 +761,7 @@ LAB_080380c8:
     bl         Flag_ClearBase
     add        r1,r6,#0x0
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_080381b0
+    ldr        r0,PTR_Scene_AfterFixedBattle_080381b0
     bl         Scene_Prepare
     pop        {r5}
 LAB_080380da:
@@ -880,13 +877,13 @@ PTR_NPCList_8039438_08038198:
     .word NPCList_8039438
 
 DAT_0803819c:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_DenTown_Block_3_F50_0_080381a0:
     .word PTR_EventHandler_DenTown_Block_3_F50_0_0803805c
 
 DAT_080381a4:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 PTR_NPCList_8039438_080381a8:
     .word NPCList_8039438
@@ -894,14 +891,14 @@ PTR_NPCList_8039438_080381a8:
 PTR_NPCList_8039450_080381ac:
     .word NPCList_8039450
 
-PTR_FUN_0808598c_080381b0:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_080381b0:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_DenTown_Block_3_F52_0_080381b4:
     .word PTR_EventHandler_DenTown_Block_3_F52_0_080380f0
 
 DAT_080381b8:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 DAT_080381bc:
     .word 0x100

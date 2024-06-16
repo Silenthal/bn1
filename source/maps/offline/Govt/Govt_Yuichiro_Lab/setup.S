@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_JackIn, 0x8083EEC+1
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Govt_Yuichiro_Lab_S2
     push       {lr}
@@ -363,7 +360,7 @@ LAB_0803397e:
     bl         Flag_GetBase
     bne        LAB_080339a8
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_080339f8
+    ldr        r0,PTR_Scene_LockedPath_080339f8
     ldr        r1,DAT_080339fc
     bl         Scene_Prepare
     pop        {r5}
@@ -374,7 +371,7 @@ LAB_080339a8:
     lsl        r1,r1,#0x8
     mov        r0,#0x3
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_08033a00
+    ldr        r0,PTR_Scene_LockedPath_08033a00
     bl         Scene_Prepare
     pop        {r5}
 LAB_080339ba:
@@ -425,14 +422,14 @@ PTR_Scene_Dialogue_080339f0:
 PTR_FUN_08087e34_080339f4:
     .word 0x8087E35
 
-PTR_FUN_08082de4_080339f8:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_080339f8:
+    .word Scene_LockedPath
 
 DAT_080339fc:
     .word 0xD03
 
-PTR_FUN_08082de4_08033a00:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08033a00:
+    .word Scene_LockedPath
 
 
 _ts MapSetup_Govt_Yuichiro_Lab_S3
@@ -610,7 +607,7 @@ LAB_08033b4c:
     lsl        r1,r1,#0x8
     mov        r0,#0x3
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_08033b98
+    ldr        r0,PTR_Scene_LockedPath_08033b98
     bl         Scene_Prepare
     pop        {r5}
 LAB_08033b72:
@@ -643,8 +640,8 @@ PTR_Scene_Dialogue_08033b90:
 PTR_FUN_08087e34_08033b94:
     .word 0x8087E35
 
-PTR_FUN_08082de4_08033b98:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08033b98:
+    .word Scene_LockedPath
 
 
 _ts MapSetup_Govt_Yuichiro_Lab_S4
@@ -832,7 +829,7 @@ LAB_08033cfa:
     lsl        r1,r1,#0x8
     mov        r0,#0x3
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_08033d4c
+    ldr        r0,PTR_Scene_LockedPath_08033d4c
     bl         Scene_Prepare
     pop        {r5}
 LAB_08033d20:
@@ -870,8 +867,8 @@ PTR_LAB_080918c0_08033d44:
 PTR_FUN_08087e34_08033d48:
     .word 0x8087E35
 
-PTR_FUN_08082de4_08033d4c:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08033d4c:
+    .word Scene_LockedPath
 
 
 _ts MapSetup_Govt_Yuichiro_Lab_S5
@@ -1190,7 +1187,7 @@ LAB_08033f9c:
     lsl        r1,r1,#0x8
     mov        r0,#0x3
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_08034004
+    ldr        r0,PTR_Scene_LockedPath_08034004
     bl         Scene_Prepare
     pop        {r5}
 LAB_08033fc2:
@@ -1244,5 +1241,5 @@ PTR_Scene_Dialogue_08033ffc:
 PTR_LAB_080918c0_08034000:
     .word 0x80918C1
 
-PTR_FUN_08082de4_08034004:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08034004:
+    .word Scene_LockedPath

@@ -311,7 +311,7 @@ LAB_0804b29c:
     and        r2,r1
     beq        LAB_0804b2b0
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_0804b3e4
+    ldr        r0,PTR_Scene_MegaManJackIn_0804b3e4
     ldr        r1,PTR_DAT_0804b3c0
     bl         Scene_Prepare
     pop        {r5}
@@ -468,7 +468,7 @@ DAT_0804b3b8:
     .word 0x80919D9
 
 DAT_0804b3bc:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804b3c0:
     .word 0x2000
@@ -497,8 +497,8 @@ PTR_FUN_08091054_0804b3dc:
 PTR_FUN_080912b4_0804b3e0:
     .word 0x80912B5
 
-PTR_FUN_08084070_0804b3e4:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_0804b3e4:
+    .word Scene_MegaManJackIn
 
 PTR_Scene_RechargeSuccess_0804b3e8:
     .word 0x80919D9
@@ -712,7 +712,7 @@ PTR_NPCList_804BA7C_0804b5b0:
     .word NPCList_804BA7C
 
 DAT_0804b5b4:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804b5b8:
     .word 0x2000

@@ -464,10 +464,10 @@ DAT_080525fc:
     .word 0xC03
 
 DAT_08052600:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_08052604:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 PTR_DAT_08052608:
     .word 0x2002110

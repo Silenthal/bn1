@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Undernet_5_S0
     push       {lr}
@@ -96,7 +94,7 @@ _ts EventHandler_Undernet_5_0
     mov        r0,#0x5d
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_080857b8_08053248
+    ldr        r0,PTR_Scene_StartFixedBattle_08053248
     mov        r1,#0x29
     bl         Scene_Prepare
     pop        {r5}
@@ -121,7 +119,7 @@ LAB_080531fa:
     b          LAB_08053212
 LAB_08053208:
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_08053254
+    ldr        r0,PTR_Scene_LockedPath_08053254
     bl         Scene_Prepare
     pop        {r5}
 LAB_08053212:
@@ -164,8 +162,8 @@ PTR_NPCList_80549D0_08053240:
 PTR_PTR_EventHandler_Undernet_5_0_08053244:
     .word PTR_EventHandler_Undernet_5_0_080531a4
 
-PTR_FUN_080857b8_08053248:
-    .word 0x80857B9
+PTR_Scene_StartFixedBattle_08053248:
+    .word Scene_StartFixedBattle
 
 DAT_0805324c:
     .word 0xA03
@@ -173,5 +171,5 @@ DAT_0805324c:
 PTR_Scene_Dialogue_08053250:
     .word Scene_Dialogue
 
-PTR_FUN_08082de4_08053254:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08053254:
+    .word Scene_LockedPath

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Undernet_2_S0
     push       {lr}
@@ -58,7 +56,7 @@ _nt MapSetup_Undernet_2
     cmp        r1,r2
     beq        LAB_08052d80
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08052e64
+    ldr        r0,PTR_Scene_MegaManJackIn_08052e64
     ldr        r1,PTR_DAT_08052e68
     bl         Scene_Prepare
     pop        {r5}
@@ -73,7 +71,7 @@ LAB_08052d8e:
     bl         Flag_GetBase
     beq        LAB_08052da2
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_08052e6c
+    ldr        r0,PTR_Scene_AfterFixedBattle_08052e6c
     mov        r1,#0x17
     bl         Scene_Prepare
     pop        {r5}
@@ -125,7 +123,7 @@ LAB_08052de6:
     b          LAB_08052dfe
 LAB_08052df4:
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_08052e7c
+    ldr        r0,PTR_Scene_LockedPath_08052e7c
     bl         Scene_Prepare
     pop        {r5}
 LAB_08052dfe:
@@ -146,7 +144,7 @@ LAB_08052dfe:
     mov        r0,#0x5e
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_080857b8_08052e80
+    ldr        r0,PTR_Scene_StartFixedBattle_08052e80
     mov        r1,#0x1a
     bl         Scene_Prepare
     pop        {r5}
@@ -187,14 +185,14 @@ PTR_EventHandler_Undernet_2_08052e5c:
 PTR_NPCList_80546EC_08052e60:
     .word NPCList_80546EC
 
-PTR_FUN_08084070_08052e64:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08052e64:
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08052e68:
     .word 0x2000
 
-PTR_FUN_0808598c_08052e6c:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_08052e6c:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Undernet_2_0_08052e70:
     .word PTR_EventHandler_Undernet_2_0_08052db8
@@ -205,8 +203,8 @@ DAT_08052e74:
 PTR_Scene_Dialogue_08052e78:
     .word Scene_Dialogue
 
-PTR_FUN_08082de4_08052e7c:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08052e7c:
+    .word Scene_LockedPath
 
-PTR_FUN_080857b8_08052e80:
-    .word 0x80857B9
+PTR_Scene_StartFixedBattle_08052e80:
+    .word Scene_StartFixedBattle

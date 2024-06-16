@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Undernet_6_S0
     push       {lr}
@@ -330,7 +328,7 @@ PTR_PTR_EventHandler_Undernet_6_0_080534bc:
     .word PTR_EventHandler_Undernet_6_0_08053368
 
 PTR_Scene_SkillGate_080534c0:
-    .word 0x8085BB9
+    .word Scene_SkillGateFail
 
 PTR_BgTask_8051738_080534c4:
     .word BgTask_8051738
@@ -348,4 +346,4 @@ PTR_Scene_Dialogue_080534d4:
     .word Scene_Dialogue
 
 PTR_Scene_SkillGate_080534d8:
-    .word 0x8085BB9
+    .word Scene_SkillGateFail

@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_JackIn, 0x8083EEC+1
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Govt_Waterworks_Office_S2
     push       {lr}
@@ -209,7 +206,7 @@ LAB_08034176:
     lsl        r1,r1,#0x8
     mov        r0,#0x5
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_08034274
+    ldr        r0,PTR_Scene_LockedPath_08034274
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -309,13 +306,13 @@ PTR_PTR_EventHandler_Govt_Waterworks_Office_F25_0_08034268:
     .word PTR_EventHandler_Govt_Waterworks_Office_F25_0_0803410c
 
 DAT_0803426c:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 PTR_FUN_08087e34_08034270:
     .word 0x8087E35
 
-PTR_FUN_08082de4_08034274:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08034274:
+    .word Scene_LockedPath
 
 DAT_08034278:
     .word 0x100
@@ -442,7 +439,7 @@ LAB_0803434c:
     lsl        r1,r1,#0x8
     mov        r0,#0x5
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_080343c8
+    ldr        r0,PTR_Scene_LockedPath_080343c8
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -492,8 +489,8 @@ PTR_PTR_EventHandler_Govt_Waterworks_Office_F30_0_080343c0:
 PTR_FUN_08087e34_080343c4:
     .word 0x8087E35
 
-PTR_FUN_08082de4_080343c8:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_080343c8:
+    .word Scene_LockedPath
 
 DAT_080343cc:
     .word 0x100
@@ -614,7 +611,7 @@ LAB_08034498:
     lsl        r1,r1,#0x8
     mov        r0,#0x5
     orr        r1,r0
-    ldr        r0,PTR_FUN_08082de4_08034514
+    ldr        r0,PTR_Scene_LockedPath_08034514
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -664,8 +661,8 @@ PTR_PTR_EventHandler_Govt_Waterworks_Office_F50_0_0803450c:
 PTR_FUN_08087e34_08034510:
     .word 0x8087E35
 
-PTR_FUN_08082de4_08034514:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08034514:
+    .word Scene_LockedPath
 
 DAT_08034518:
     .word 0x100

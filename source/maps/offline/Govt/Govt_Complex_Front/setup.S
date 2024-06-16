@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_JackIn, 0x8083EEC+1
-
 
 _ts MapSetup_Govt_Complex_Front_S2
     push       {lr}
@@ -181,7 +179,7 @@ _ts MapSetup_Govt_Complex_Front_F23
     pop        {r5}
     beq        LAB_080317e2
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_08031940
+    ldr        r0,PTR_Scene_AfterFixedBattle_08031940
     mov        r1,#0x5
     bl         Scene_Prepare
     pop        {r5}
@@ -244,7 +242,7 @@ _ts MapSetup_Govt_Complex_Front_F24
     pop        {r5}
     beq        LAB_0803185c
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_08031954
+    ldr        r0,PTR_Scene_AfterFixedBattle_08031954
     mov        r1,#0x5
     bl         Scene_Prepare
     pop        {r5}
@@ -309,7 +307,7 @@ _ts MapSetup_Govt_Complex_Front_F25
     pop        {r5}
     beq        LAB_080318d8
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_08031968
+    ldr        r0,PTR_Scene_AfterFixedBattle_08031968
     mov        r1,#0x5
     bl         Scene_Prepare
     pop        {r5}
@@ -367,31 +365,31 @@ PTR_NPCList_8034E90_08031924:
     .word NPCList_8034E90
 
 DAT_08031928:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Complex_Front_F22_0_0803192c:
     .word PTR_EventHandler_Govt_Complex_Front_F22_0_08031760
 
 DAT_08031930:
-    .word 0x8085A79
+    .word Scene_CheckMail
 
 DAT_08031934:
     .word 0x115
 
 DAT_08031938:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 PTR_EntityAllocParams_8035C00_0803193c:
     .word EntityAllocParams_8035C00
 
-PTR_FUN_0808598c_08031940:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_08031940:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Complex_Front_F23_0_08031944:
     .word PTR_EventHandler_Govt_Complex_Front_F23_0_080317f8
 
 DAT_08031948:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 PTR_EntityAllocParams_8035C00_0803194c:
     .word EntityAllocParams_8035C00
@@ -399,14 +397,14 @@ PTR_EntityAllocParams_8035C00_0803194c:
 PTR_NPCList_8034E90_08031950:
     .word NPCList_8034E90
 
-PTR_FUN_0808598c_08031954:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_08031954:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Complex_Front_F24_0_08031958:
     .word PTR_EventHandler_Govt_Complex_Front_F24_0_08031874
 
 DAT_0803195c:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 PTR_EntityAllocParams_8035C00_08031960:
     .word EntityAllocParams_8035C00
@@ -414,14 +412,14 @@ PTR_EntityAllocParams_8035C00_08031960:
 PTR_NPCList_8034F44_08031964:
     .word NPCList_8034F44
 
-PTR_FUN_0808598c_08031968:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_08031968:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Complex_Front_F25_0_0803196c:
     .word PTR_EventHandler_Govt_Complex_Front_F25_0_080318f0
 
 DAT_08031970:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_Govt_Complex_Front_S3
@@ -586,13 +584,13 @@ PTR_NPCList_8034E90_08031aac:
     .word NPCList_8034E90
 
 DAT_08031ab0:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Complex_Front_F30_0_08031ab4:
     .word PTR_EventHandler_Govt_Complex_Front_F30_0_08031a60
 
 DAT_08031ab8:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_Govt_Complex_Front_S4
@@ -835,25 +833,25 @@ PTR_NPCList_8034F70_08031ca4:
     .word NPCList_8034F70
 
 DAT_08031ca8:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 DAT_08031cac:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Complex_Front_F40_0_08031cb0:
     .word PTR_EventHandler_Govt_Complex_Front_F40_0_08031bc8
 
 DAT_08031cb4:
-    .word 0x8085A79
+    .word Scene_CheckMail
 
 DAT_08031cb8:
     .word 0x14B
 
 DAT_08031cbc:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 DAT_08031cc0:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 DAT_08031cc4:
     .word 0x100
@@ -1065,7 +1063,7 @@ LAB_08031e7c:
     bl         Flag_ClearBase
     add        r1,r6,#0x0
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_080320e4
+    ldr        r0,PTR_Scene_AfterFixedBattle_080320e4
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -1087,7 +1085,7 @@ LAB_08031eae:
     bl         Flag_ClearBase
     add        r1,r6,#0x0
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_080320e8
+    ldr        r0,PTR_Scene_AfterFixedBattle_080320e8
     bl         Scene_Prepare
     pop        {r5}
 LAB_08031ec0:
@@ -1191,7 +1189,7 @@ LAB_08031f7e:
     bl         Flag_ClearBase
     add        r1,r6,#0x0
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_080320fc
+    ldr        r0,PTR_Scene_AfterFixedBattle_080320fc
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -1213,7 +1211,7 @@ LAB_08031fb0:
     bl         Flag_ClearBase
     add        r1,r6,#0x0
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_08032100
+    ldr        r0,PTR_Scene_AfterFixedBattle_08032100
     bl         Scene_Prepare
     pop        {r5}
 LAB_08031fc2:
@@ -1358,61 +1356,61 @@ PTR_NPCList_8035038_080320c8:
     .word NPCList_8035038
 
 DAT_080320cc:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 DAT_080320d0:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Complex_Front_F50_0_080320d4:
     .word PTR_EventHandler_Govt_Complex_Front_F50_0_08031dd8
 
 DAT_080320d8:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 DAT_080320dc:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 PTR_NPCList_8035038_080320e0:
     .word NPCList_8035038
 
-PTR_FUN_0808598c_080320e4:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_080320e4:
+    .word Scene_AfterFixedBattle
 
-PTR_FUN_0808598c_080320e8:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_080320e8:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Complex_Front_F52_0_080320ec:
     .word PTR_EventHandler_Govt_Complex_Front_F52_0_08031ed8
 
 DAT_080320f0:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 DAT_080320f4:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 PTR_NPCList_8035038_080320f8:
     .word NPCList_8035038
 
-PTR_FUN_0808598c_080320fc:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_080320fc:
+    .word Scene_AfterFixedBattle
 
-PTR_FUN_0808598c_08032100:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_08032100:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Complex_Front_F53_0_08032104:
     .word PTR_EventHandler_Govt_Complex_Front_F53_0_08031fd8
 
 DAT_08032108:
-    .word 0x8085A79
+    .word Scene_CheckMail
 
 DAT_0803210c:
     .word 0x170
 
 DAT_08032110:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 DAT_08032114:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 DAT_08032118:
     .word 0x100

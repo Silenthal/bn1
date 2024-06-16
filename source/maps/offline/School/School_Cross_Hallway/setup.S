@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08082de4, 0x8082DE5
-    .set Scene_LanCheckYourMail, 0x8085A79
     .set FUN_080863b0, 0x80863B1
 
 
@@ -108,7 +106,7 @@ _ts EventHandler_School_Cross_Hallway_F10_1
     bl         Flag_GetEmailRecieved
     bne        LAB_08027e00
     push       {r5}
-    ldr        r0,PTR_Scene_LanCheckYourMail_08027eb4
+    ldr        r0,PTR_Scene_CheckMail_08027eb4
     ldr        r1,DAT_08027eb8
     bl         Scene_Prepare
     pop        {r5}
@@ -148,7 +146,7 @@ LAB_08027e3c:
     ldr        r1,DAT_08027ec4
 LAB_08027e3e:
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_08027ec8
+    ldr        r0,PTR_Scene_LockedPath_08027ec8
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -212,8 +210,8 @@ PTR_PTR_EventHandler_School_Cross_Hallway_F10_0_08027eac:
     .word PTR_EventHandler_School_Cross_Hallway_F10_0_08027dcc
 PTR_FUN_080863b0_08027eb0:
     .word FUN_080863b0
-PTR_Scene_LanCheckYourMail_08027eb4:
-    .word Scene_LanCheckYourMail
+PTR_Scene_CheckMail_08027eb4:
+    .word Scene_CheckMail
 DAT_08027eb8:
     .word 0x103
 DAT_08027ebc:
@@ -222,14 +220,14 @@ DAT_08027ec0:
     .word 0x205
 DAT_08027ec4:
     .word 0x105
-PTR_FUN_08082de4_08027ec8:
-    .word FUN_08082de4
+PTR_Scene_LockedPath_08027ec8:
+    .word Scene_LockedPath
 PTR_PTR_EventHandler_School_Cross_Hallway_F15_0_08027ecc:
     .word PTR_EventHandler_School_Cross_Hallway_F15_0_08027e7c
 DAT_08027ed0:
     .word 0x507
 DAT_08027ed4:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 
 _ts MapSetup_School_Cross_Hallway_S2

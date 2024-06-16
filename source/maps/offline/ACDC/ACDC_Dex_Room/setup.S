@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0808598c, 0x808598D
     .set FUN_08088240, 0x8088241
 
 
@@ -164,15 +163,15 @@ PTR_DAT_0802de44:
 PTR_PTR_DAT_0802de48:
     .word NPCList_8030920
 DAT_0802de4c:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Dex_Room_F06_0_0802de50:
     .word PTR_EventHandler_ACDC_Dex_Room_F06_0_0802ddc8
 DAT_0802de54:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 DAT_0802de58:
     .word 0x100
 DAT_0802de5c:
-    .word 0x8083EED
+    .word Scene_JackIn
 
 
 _ts MapSetup_ACDC_Dex_Room_S2
@@ -325,7 +324,7 @@ LAB_0802df76:
     b          LAB_0802dfac
 LAB_0802dfa0:
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_0802e0ac
+    ldr        r0,PTR_Scene_AfterFixedBattle_0802e0ac
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -412,7 +411,7 @@ _ts MapSetup_ACDC_Dex_Room_F25
     pop        {r5}
     beq        LAB_0802e054
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_0802e0c0
+    ldr        r0,PTR_Scene_AfterFixedBattle_0802e0c0
     mov        r1,#0x13
     bl         Scene_Prepare
     pop        {r5}
@@ -468,22 +467,22 @@ PTR_PTR_DAT_0802e0a4:
     .word NPCList_8030940
 PTR_FUN_08088240_0802e0a8:
     .word FUN_08088240
-PTR_FUN_0808598c_0802e0ac:
-    .word FUN_0808598c
+PTR_Scene_AfterFixedBattle_0802e0ac:
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Dex_Room_F21_0_0802e0b0:
     .word PTR_EventHandler_ACDC_Dex_Room_F21_0_0802dfc4
 DAT_0802e0b4:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 PTR_DAT_0802e0b8:
     .word EntityAllocParams_8030FF8
 PTR_PTR_DAT_0802e0bc:
     .word NPCList_8030960
-PTR_FUN_0808598c_0802e0c0:
-    .word FUN_0808598c
+PTR_Scene_AfterFixedBattle_0802e0c0:
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Dex_Room_F25_0_0802e0c4:
     .word PTR_EventHandler_ACDC_Dex_Room_F25_0_0802e06c
 DAT_0802e0c8:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_ACDC_Dex_Room_S3
@@ -608,11 +607,11 @@ PTR_DAT_0802e1c0:
 PTR_PTR_DAT_0802e1c4:
     .word NPCList_8030980
 DAT_0802e1c8:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Dex_Room_F30_0_0802e1cc:
     .word PTR_EventHandler_ACDC_Dex_Room_F30_0_0802e194
 DAT_0802e1d0:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_ACDC_Dex_Room_S4
@@ -733,11 +732,11 @@ PTR_DAT_0802e2c0:
 PTR_PTR_DAT_0802e2c4:
     .word NPCList_8030940
 DAT_0802e2c8:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Dex_Room_F40_0_0802e2cc:
     .word PTR_EventHandler_ACDC_Dex_Room_F40_0_0802e298
 DAT_0802e2d0:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_ACDC_Dex_Room_S5
@@ -892,11 +891,11 @@ PTR_DAT_0802e3f8:
 PTR_PTR_DAT_0802e3fc:
     .word NPCList_8030920
 DAT_0802e400:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Dex_Room_F50_0_0802e404:
     .word PTR_EventHandler_ACDC_Dex_Room_F50_0_0802e398
 DAT_0802e408:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 PTR_DAT_0802e40c:
     .word EntityAllocParams_8030FF8
 PTR_PTR_EventHandler_ACDC_Dex_Room_F54_0_0802e410:

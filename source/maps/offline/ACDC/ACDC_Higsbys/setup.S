@@ -2,12 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0808598c, 0x808598D
-    .set Scene_ChipTrader, 0x8085DD9
-    .set FUN_080857b8, 0x80857B9
-    .set Scene_Dialogue, 0x80848FD
-    .set FUN_08085f54, 0x8085F55
-
 
 _ts MapSetup_ACDC_Higsbys_S2
     push       {lr}
@@ -180,7 +174,7 @@ _ts MapSetup_ACDC_Higsbys_F26
     bl         Flag_GetBase
     beq        LAB_0802ebc0
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_0802ecc4
+    ldr        r0,PTR_Scene_AfterFixedBattle_0802ecc4
     mov        r1,#0x8
     bl         Scene_Prepare
     pop        {r5}
@@ -209,7 +203,7 @@ _ts EventHandler_ACDC_Higsbys_F26_0
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
-    bne        FUN_0802ec1c
+    bne        EventHandler_ACDC_Higsby_F26_0_HandleEvents
     mov        r7,r10
     ldr        r0,[r7,#0x8]
     ldrb       r0,[r0,#0xe]
@@ -224,10 +218,10 @@ _ts EventHandler_ACDC_Higsbys_F26_0
 LAB_0802ebfe:
     mov        r0,#0x36
     bl         Flag_GetBase
-    bne        FUN_0802ec1c
+    bne        EventHandler_ACDC_Higsby_F26_0_HandleEvents
     mov        r0,#0x29
     bl         Flag_GetBase
-    beq        FUN_0802ec1c
+    beq        EventHandler_ACDC_Higsby_F26_0_HandleEvents
     push       {r5}
     ldr        r0,DAT_0802ecd0
     mov        r1,#0x8
@@ -236,7 +230,7 @@ LAB_0802ebfe:
     pop        {pc}
 
 
-_ts FUN_0802ec1c
+_ts EventHandler_ACDC_Higsby_F26_0_HandleEvents
     push       {r5}
     mov        r7,r10
     ldr        r0,[r7,#0x8]
@@ -280,7 +274,7 @@ _ts FUN_0802ec40
     cmp        r1,#0x22
     bgt        LAB_0802ec80
     push       {r5}
-    ldr        r0,PTR_FUN_08085f54_0802ecd4
+    ldr        r0,PTR_Scene_ChipTraderDialogue_0802ecd4
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x0
@@ -297,7 +291,7 @@ _ts StartChipTraderSceneIfPending
     cmp        r2,#0x0
     beq        LAB_0802ec98
     push       {r5}
-    ldr        r0,PTR_Scene_ChipTrader_0802ecdc
+    ldr        r0,PTR_Scene_ChipTraderMain_0802ecdc
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802ec98:
@@ -314,31 +308,31 @@ PTR_EntityAllocParams_ARRAY_0802eca4:
 PTR_PTR_DAT_0802eca8:
     .word NPCList_8030A64
 DAT_0802ecac:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Higsbys_F24_0_0802ecb0:
     .word PTR_EventHandler_ACDC_Higsbys_F24_0_0802eb1c
 DAT_0802ecb4:
-    .word 0x80848FD
+    .word Scene_Dialogue
 DAT_0802ecb8:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 PTR_EntityAllocParams_ARRAY_0802ecbc:
     .word EntityAllocParams_8031024
 PTR_PTR_DAT_0802ecc0:
     .word NPCList_8030AD8
-PTR_FUN_0808598c_0802ecc4:
-    .word FUN_0808598c
+PTR_Scene_AfterFixedBattle_0802ecc4:
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Higsbys_F26_0_0802ecc8:
     .word PTR_EventHandler_ACDC_Higsbys_F26_0_0802ebd8
 DAT_0802eccc:
-    .word 0x80848FD
+    .word Scene_Dialogue
 DAT_0802ecd0:
-    .word 0x80857B9
-PTR_FUN_08085f54_0802ecd4:
-    .word FUN_08085f54
+    .word Scene_StartFixedBattle
+PTR_Scene_ChipTraderDialogue_0802ecd4:
+    .word Scene_ChipTraderDialogue
 PTR_gChipTrader_0802ecd8:
     .word gChipTrader
-PTR_Scene_ChipTrader_0802ecdc:
-    .word Scene_ChipTrader
+PTR_Scene_ChipTraderMain_0802ecdc:
+    .word Scene_ChipTraderMain
 
 
 _ts MapSetup_ACDC_Higsbys_S3
@@ -423,7 +417,7 @@ _ts EventHandler_ACDC_Higsbys_F30
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_0802edac
+    bl         EventHandler_ACDC_Higsbys_F30_HandleEvents
     pop        {pc}
 PTR_EventHandler_ACDC_Higsbys_F30_0_0802eda4:
     .word EventHandler_ACDC_Higsbys_F30_0
@@ -434,7 +428,7 @@ _ts EventHandler_ACDC_Higsbys_F30_0
     pop        {pc}
 
 
-_ts FUN_0802edac
+_ts EventHandler_ACDC_Higsbys_F30_HandleEvents
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -462,7 +456,7 @@ LAB_0802edda:
     beq        LAB_0802edf0
     add        r1,r6,#0x0
     push       {r5}
-    ldr        r0,PTR_FUN_080857b8_0802ee30
+    ldr        r0,PTR_Scene_StartFixedBattle_0802ee30
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -492,13 +486,13 @@ PTR_EntityAllocParams_ARRAY_0802ee1c:
 PTR_PTR_DAT_0802ee20:
     .word NPCList_8030AE8
 DAT_0802ee24:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Higsbys_F30_0_0802ee28:
     .word PTR_EventHandler_ACDC_Higsbys_F30_0_0802eda4
 PTR_Scene_Dialogue_0802ee2c:
     .word Scene_Dialogue
-PTR_FUN_080857b8_0802ee30:
-    .word FUN_080857b8
+PTR_Scene_StartFixedBattle_0802ee30:
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_ACDC_Higsbys_S4
@@ -647,13 +641,13 @@ PTR_EntityAllocParams_ARRAY_0802ef68:
 PTR_PTR_DAT_0802ef6c:
     .word NPCList_8030AE8
 DAT_0802ef70:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Higsbys_F40_0_0802ef74:
     .word PTR_EventHandler_ACDC_Higsbys_F40_0_0802eef4
 DAT_0802ef78:
-    .word 0x80848FD
+    .word Scene_Dialogue
 DAT_0802ef7c:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_ACDC_Higsbys_S5
@@ -876,13 +870,13 @@ PTR_EntityAllocParams_ARRAY_0802f144:
 PTR_PTR_DAT_0802f148:
     .word NPCList_8030B5C
 DAT_0802f14c:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Higsbys_F50_0_0802f150:
     .word PTR_EventHandler_ACDC_Higsbys_F50_0_0802f040
 DAT_0802f154:
-    .word 0x80848FD
+    .word Scene_Dialogue
 DAT_0802f158:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 PTR_EntityAllocParams_ARRAY_0802f15c:
     .word EntityAllocParams_8031024
 PTR_PTR_LAB_0802f160:
@@ -890,8 +884,8 @@ PTR_PTR_LAB_0802f160:
 PTR_PTR_EventHandler_ACDC_Higsbys_F53_0_0802f164:
     .word PTR_EventHandler_ACDC_Higsbys_F53_0_0802f0f0
 DAT_0802f168:
-    .word 0x80848FD
+    .word Scene_Dialogue
 DAT_0802f16c:
     .word 0x8097E95
 DAT_0802f170:
-    .word 0x80848FD
+    .word Scene_Dialogue

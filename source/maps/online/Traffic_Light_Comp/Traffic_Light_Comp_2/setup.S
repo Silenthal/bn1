@@ -170,7 +170,7 @@ _nt MapSetup_Traffic_Light_Comp_2_F34
     beq        LAB_08048434
 LAB_08048428:
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_0804849c
+    ldr        r0,PTR_Scene_MegaManJackIn_0804849c
     ldr        r1,PTR_DAT_08048484
     bl         Scene_Prepare
     pop        {r5}
@@ -226,7 +226,7 @@ PTR_NPCList_804917C_0804847c:
     .word NPCList_804917C
 
 DAT_08048480:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08048484:
     .word 0x2000
@@ -235,7 +235,7 @@ PTR_PTR_EventHandler_Traffic_Light_Comp_2_F33_0_08048488:
     .word PTR_EventHandler_Traffic_Light_Comp_2_F33_0_08048398
 
 DAT_0804848c:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 PTR_FUN_0808d2a4_08048490:
     .word 0x808D2A5
@@ -246,14 +246,14 @@ DAT_08048494:
 PTR_NPCList_804917C_08048498:
     .word NPCList_804917C
 
-PTR_FUN_08084070_0804849c:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_0804849c:
+    .word Scene_MegaManJackIn
 
 PTR_PTR_EventHandler_Traffic_Light_Comp_2_F34_0_080484a0:
     .word PTR_EventHandler_Traffic_Light_Comp_2_F34_0_0804844c
 
 DAT_080484a4:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 
 _ts MapSetup_Traffic_Light_Comp_2_S4
@@ -384,7 +384,7 @@ PTR_NPCList_804917C_080485a0:
     .word NPCList_804917C
 
 DAT_080485a4:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_080485a8:
     .word 0x2000
@@ -393,4 +393,4 @@ PTR_PTR_EventHandler_Traffic_Light_Comp_2_F40_0_080485ac:
     .word PTR_EventHandler_Traffic_Light_Comp_2_F40_0_08048570
 
 DAT_080485b0:
-    .word 0x80848FD
+    .word Scene_Dialogue

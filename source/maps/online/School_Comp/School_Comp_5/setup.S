@@ -240,7 +240,7 @@ PTR_PTR_EventHandler_Default_08041a14:
     .word PTR_EventHandler_Default_080418c4
 
 DAT_08041a18:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_FUN_080878c0_08041a1c:
     .word 0x80878C1
@@ -394,7 +394,7 @@ PTR_PTR_EventHandler_School_Comp_5_F20_08041b30:
     .word PTR_EventHandler_School_Comp_5_F20_08041a9c
 
 DAT_08041b34:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_PTR_EventHandler_School_Comp_5_F20_0_08041b38:
     .word PTR_EventHandler_School_Comp_5_F20_0_08041b10

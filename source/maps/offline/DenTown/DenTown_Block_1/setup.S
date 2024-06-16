@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_JackIn, 0x8083EEC+1
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_DenTown_Block_1_S3
     push       {lr}
@@ -480,7 +477,7 @@ PTR_PTR_EventHandler_DenTown_Block_1_F31_0_080372d8:
     .word PTR_EventHandler_DenTown_Block_1_F31_0_080370fc
 
 DAT_080372dc:
-    .word 0x8085A79
+    .word Scene_CheckMail
 
 DAT_080372e0:
     .word 0x10A
@@ -492,7 +489,7 @@ DAT_080372e8:
     .word 0xB07
 
 DAT_080372ec:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 PTR_NPCList_803909C_080372f0:
     .word NPCList_803909C

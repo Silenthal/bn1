@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_JackIn, 0x8083EEC+1
-
 
 _ts MapSetup_WWW_Wily_Lab_S3
     push       {lr}
@@ -392,7 +390,7 @@ LAB_0803dfb2:
     bl         Flag_ClearBase
     add        r1,r6,#0x0
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_0803e0fc
+    ldr        r0,PTR_Scene_AfterFixedBattle_0803e0fc
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -460,7 +458,7 @@ _ts EventHandler_WWW_Wily_Lab_F54_1
     cmp        r0,#0x1
     bne        LAB_0803e040
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_0803e108
+    ldr        r0,PTR_Scene_LockedPath_0803e108
     ldr        r1,DAT_0803e10c
     bl         Scene_Prepare
     pop        {r5}
@@ -477,7 +475,7 @@ LAB_0803e04c:
     beq        LAB_0803e062
     add        r1,r6,#0x0
     push       {r5}
-    ldr        r0,PTR_FUN_080857b8_0803e110
+    ldr        r0,PTR_Scene_StartFixedBattle_0803e110
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -571,23 +569,23 @@ PTR_FUN_0809721c_0803e0f4:
 PTR_NPCList_803E734_0803e0f8:
     .word NPCList_803E734
 
-PTR_FUN_0808598c_0803e0fc:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_0803e0fc:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_WWW_Wily_Lab_F54_0_0803e100:
     .word PTR_EventHandler_WWW_Wily_Lab_F54_0_0803dfe4
 
 DAT_0803e104:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
-PTR_FUN_08082de4_0803e108:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_0803e108:
+    .word Scene_LockedPath
 
 DAT_0803e10c:
     .word 0xB01
 
-PTR_FUN_080857b8_0803e110:
-    .word 0x80857B9
+PTR_Scene_StartFixedBattle_0803e110:
+    .word Scene_StartFixedBattle
 
 DAT_0803e114:
     .word 0x100

@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08082de4, 0x8082DE5
     .set LAB_08088db8, 0x8088DB9
     .set LAB_080939b4, 0x80939B5
     .set LAB_0808a4d4, 0x808A4D5
@@ -198,7 +197,7 @@ _ts EventHandler_ACDC_School_Gate_F23_1
     cmp        r0,#0x1
     bne        LAB_0802ba7a
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_0802bb98
+    ldr        r0,PTR_Scene_LockedPath_0802bb98
     ldr        r1,INT_0802bb9c
     bl         Scene_Prepare
     pop        {r5}
@@ -351,8 +350,8 @@ PTR_PTR_EventHandler_ACDC_School_Gate_F23_0_0802bb90:
     .word PTR_EventHandler_ACDC_School_Gate_F23_0_0802ba3c
 PTR_LAB_08088db8_0802bb94:
     .word LAB_08088db8
-PTR_FUN_08082de4_0802bb98:
-    .word FUN_08082de4
+PTR_Scene_LockedPath_0802bb98:
+    .word Scene_LockedPath
 INT_0802bb9c:
     .word 0x1501
 PTR_BgTask_802BBA0:

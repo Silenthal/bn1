@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_JackOut, 0x80836C8+1
-    .set Scene_JackIn, 0x8083EEC+1
-    .set Scene_Dialogue, 0x80848fC+1
 
 FlagSetup_Offline:
     .word FlagSetup_School

@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_LanCheckYourMail, 0x8085A78+1
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Undernet_1_S0
     push       {lr}
@@ -67,7 +64,7 @@ _ts MapSetup_Undernet_1
     cmp        r1,r2
     beq        LAB_08052bba
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08052cd8
+    ldr        r0,PTR_Scene_MegaManJackIn_08052cd8
     ldr        r1,PTR_DAT_08052cdc
     bl         Scene_Prepare
     pop        {r5}
@@ -117,7 +114,7 @@ _ts EventHandler_Undernet_1_0
     bl         Flag_GetEmailRecieved
     bne        LAB_08052c16
     push       {r5}
-    ldr        r0,PTR_Scene_LanCheckYourMail_08052ce4
+    ldr        r0,PTR_Scene_CheckMail_08052ce4
     ldr        r1,DAT_08052ce8
     bl         Scene_Prepare
     pop        {r5}
@@ -184,7 +181,7 @@ LAB_08052c8a:
     b          LAB_08052ca2
 LAB_08052c98:
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_08052d00
+    ldr        r0,PTR_Scene_LockedPath_08052d00
     bl         Scene_Prepare
     pop        {r5}
 LAB_08052ca2:
@@ -227,8 +224,8 @@ PTR_EventHandler_Undernet_1_08052cd0:
 PTR_NPCList_8054580_08052cd4:
     .word NPCList_8054580
 
-PTR_FUN_08084070_08052cd8:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08052cd8:
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08052cdc:
     .word 0x2000
@@ -236,8 +233,8 @@ PTR_DAT_08052cdc:
 PTR_PTR_EventHandler_Undernet_1_0_08052ce0:
     .word PTR_EventHandler_Undernet_1_0_08052bfc
 
-PTR_Scene_LanCheckYourMail_08052ce4:
-    .word Scene_LanCheckYourMail
+PTR_Scene_CheckMail_08052ce4:
+    .word Scene_CheckMail
 
 DAT_08052ce8:
     .word 0x113
@@ -257,5 +254,5 @@ DAT_08052cf8:
 PTR_Scene_Dialogue_08052cfc:
     .word Scene_Dialogue
 
-PTR_FUN_08082de4_08052d00:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08052d00:
+    .word Scene_LockedPath

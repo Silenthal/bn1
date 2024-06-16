@@ -2,18 +2,11 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08082f48, 0x8082F49
-    .set FUN_0808598c, 0x808598D
-    .set Scene_02_DexChallengePreTutorial, 0x808308D
     .set FUN_08088118, 0x8088119
-    .set FUN_080834d4, 0x80834D5
     .set LAB_08088fa8, 0x8088FA9
     .set FUN_080866ec, 0x80866ED
-    .set Scene_JackIn, 0x8083EED
     .set FUN_080864e4, 0x80864E5
     .set FUN_08086a64, 0x8086A65
-    .set FUN_08082de4, 0x8082DE5
-    .set Scene_Dialogue, 0x80848FD
     .set FUN_08087e34, 0x8087E35
 
 
@@ -124,7 +117,7 @@ _ts EventHandler_School_Class_5A_F00_0
     b          LAB_080247f8
 LAB_080247ec:
     push       {r5}
-    ldr        r0,PTR_FUN_08082f48_080248d4
+    ldr        r0,PTR_Scene_LockedPath_School_Class_5A_080248d4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -134,7 +127,7 @@ LAB_080247fa:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     push       {r5}
-    ldr        r0,PTR_Scene_02_DexChallengePreTutorial_080248d8
+    ldr        r0,PTR_Scene_Story_02_DexChallengePreTutorial_080248d8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -169,7 +162,7 @@ _ts MapSetup_School_Class_5A_F02
     pop        {r5}
     beq        LAB_0802485c
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_080248e8
+    ldr        r0,PTR_Scene_AfterFixedBattle_080248e8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -179,7 +172,7 @@ LAB_0802485c:
     bl         Flag_GetBase
     bne        LAB_08024870
     push       {r5}
-    ldr        r0,PTR_FUN_080834d4_080248ec
+    ldr        r0,PTR_Scene_Story_04_080248ec
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -239,26 +232,26 @@ PTR_PTR_DAT_080248cc:
     .word NPCList_8028964
 PTR_PTR_EventHandler_School_Class_5A_F00_0_080248d0:
     .word PTR_EventHandler_School_Class_5A_F00_0_080247c0
-PTR_FUN_08082f48_080248d4:
-    .word FUN_08082f48
-PTR_Scene_02_DexChallengePreTutorial_080248d8:
-    .word Scene_02_DexChallengePreTutorial
+PTR_Scene_LockedPath_School_Class_5A_080248d4:
+    .word Scene_LockedPath_School_Class_5A
+PTR_Scene_Story_02_DexChallengePreTutorial_080248d8:
+    .word Scene_Story_02_DexChallengePreTutorial
 PTR_BgTask_80248DC:
     .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_80248E0:
     .word BgTask_School_PaletteBlackboardOff
 PTR_PTR_DAT_080248e4:
     .word NPCList_8028B64
-PTR_FUN_0808598c_080248e8:
-    .word FUN_0808598c
-PTR_FUN_080834d4_080248ec:
-    .word FUN_080834d4
+PTR_Scene_AfterFixedBattle_080248e8:
+    .word Scene_AfterFixedBattle
+PTR_Scene_Story_04_080248ec:
+    .word Scene_Story_04
 PTR_PTR_EventHandler_School_Class_5A_F02_0_080248f0:
     .word PTR_EventHandler_School_Class_5A_F02_0_08024888
 PTR_MapEntrance_ARRAY_080248f4:
     .word MapEntrance_ARRAY_08023de8
 DAT_080248f8:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_School_Class_5A_S1
@@ -392,7 +385,7 @@ PTR_PTR_DAT_08024a18:
 PTR_PTR_DAT_08024a1c:
     .word NPCList_8028C30
 DAT_08024a20:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 
 _ts EventHandler_School_Class_5A_F10
@@ -462,7 +455,7 @@ LAB_08024a80:
     bl         Scene_Prepare
     pop        {r5}
 LAB_08024aa0:
-    bl         FUN_08024f7c
+    bl         EventHandler_School_Class_5A_F10_1_CheckEveryoneTalk
     push       {r5}
     mov        r0,#0x95
     bl         Flag_GetBase
@@ -608,11 +601,11 @@ LAB_08024bb8:
     .align 2, 0
 
 DAT_08024bbc:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 DAT_08024bc0:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 DAT_08024bc4:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 
 _ts MapSetup_School_Class_5A_F12
@@ -783,7 +776,7 @@ LAB_08024d06:
 LAB_08024d1e:
     push       {r5}
     ldr        r1,PTR_DAT_08024ff0
-    ldr        r0,PTR_FUN_08082de4_08024ff4
+    ldr        r0,PTR_Scene_LockedPath_08024ff4
     bl         Scene_Prepare
     pop        {r5}
 LAB_08024d2a:
@@ -826,7 +819,7 @@ LAB_08024d5a:
 LAB_08024d72:
     push       {r5}
     ldr        r1,PTR_DAT_08024ff0
-    ldr        r0,PTR_FUN_08082de4_08024ffc
+    ldr        r0,PTR_Scene_LockedPath_08024ffc
     bl         Scene_Prepare
     pop        {r5}
 LAB_08024d7e:
@@ -1099,7 +1092,7 @@ LAB_08024f78:
     pop        {pc}
 
 
-_ts FUN_08024f7c
+_ts EventHandler_School_Class_5A_F10_1_CheckEveryoneTalk
     push       {lr}
     mov        r0,#0x95
     bl         Flag_GetBase
@@ -1153,12 +1146,12 @@ PTR_Scene_JackIn_08024fec:
     .word Scene_JackIn
 PTR_DAT_08024ff0:
     .word 0x3507
-PTR_FUN_08082de4_08024ff4:
-    .word FUN_08082de4
+PTR_Scene_LockedPath_08024ff4:
+    .word Scene_LockedPath
 PTR_FUN_08087e34_08024ff8:
     .word FUN_08087e34
-PTR_FUN_08082de4_08024ffc:
-    .word FUN_08082de4
+PTR_Scene_LockedPath_08024ffc:
+    .word Scene_LockedPath
 PTR_BgTask_8025000:
     .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_8025004:
@@ -1467,7 +1460,7 @@ _ts MapSetup_School_Class_5A_F23
     pop        {r5}
     beq        LAB_0802527a
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_08025474
+    ldr        r0,PTR_Scene_AfterFixedBattle_08025474
     mov        r1,#0x12
     bl         Scene_Prepare
     pop        {r5}
@@ -1559,7 +1552,7 @@ _ts MapSetup_School_Class_5A_F24
     pop        {r5}
     beq        LAB_08025336
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_08025490
+    ldr        r0,PTR_Scene_AfterFixedBattle_08025490
     mov        r1,#0x12
     bl         Scene_Prepare
     pop        {r5}
@@ -1709,11 +1702,11 @@ DAT_08025434:
 PTR_FUN_08088118_08025438:
     .word FUN_08088118
 DAT_0802543c:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_School_Class_5A_F20_0_08025440:
     .word PTR_EventHandler_School_Class_5A_F20_0_08025168
 DAT_08025444:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 PTR_BgTask_8025448:
     .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_802544C:
@@ -1736,12 +1729,12 @@ PTR_BgTask_802546C:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_PTR_DAT_08025470:
     .word NPCList_80290E0
-PTR_FUN_0808598c_08025474:
-    .word FUN_0808598c
+PTR_Scene_AfterFixedBattle_08025474:
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_School_Class_5A_F23_0_08025478:
     .word PTR_EventHandler_School_Class_5A_F23_0_08025298
 DAT_0802547c:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 PTR_LAB_08088fa8_08025480:
     .word LAB_08088fa8
 PTR_BgTask_8025484:
@@ -1750,12 +1743,12 @@ PTR_BgTask_8025488:
     .word BgTask_School_PaletteBlackboardOn_2
 PTR_PTR_DAT_0802548c:
     .word NPCList_80292BC
-PTR_FUN_0808598c_08025490:
-    .word FUN_0808598c
+PTR_Scene_AfterFixedBattle_08025490:
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_School_Class_5A_F24_0_08025494:
     .word PTR_EventHandler_School_Class_5A_F24_0_08025354
 DAT_08025498:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 PTR_BgTask_802549C:
     .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_80254A0:

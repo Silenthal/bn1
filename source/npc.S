@@ -7,7 +7,7 @@
     .text
 
 listHandlerNpc:
-    .word 0x08081d94 + 1 @ NPC_Handler
+    .word NPC_Main
 
 _ts NPC_Alloc
     push       { r0, r1, r2, r3, r4, lr }

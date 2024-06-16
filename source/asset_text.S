@@ -532,24 +532,37 @@ global_label DialogueData_Undernet_12
 
 global_label textBlockInitialDialog
 global_label ScenarioData_00
-    .incbin "text/scenario/00.script"
+    .incbin "text/scenario/story_00.script"
 global_label ScenarioData_01
-    .incbin "text/scenario/01.script"
+    .incbin "text/scenario/story_01.script"
 global_label ScenarioData_02
-    .incbin "text/scenario/02.script"
-    .incbin "text/scenario/0729FB8.script"
-    .incbin "text/scenario/072A2AC.script"
-    .incbin "text/scenario/072A350.script"
-    .incbin "text/scenario/072A598.script"
-    .incbin "text/scenario/072A618.script"
-    .incbin "text/scenario/072A700.script"
-    .incbin "text/scenario/072A81C.script"
-    .incbin "text/scenario/072AA60.script"
-    .incbin "text/scenario/072AAEC.script"
-    .incbin "text/scenario/072AC28.script"
-    .incbin "text/scenario/072AF48.script"
-    .incbin "text/scenario/072B200.script"
-    .incbin "text/scenario/072B5E0.script"
+    .incbin "text/scenario/story_02.script"
+global_label ScenarioData_03
+    .incbin "text/scenario/story_03.script"
+global_label ScenarioData_04
+    .incbin "text/scenario/story_04.script"
+global_label ScenarioData_05
+    .incbin "text/scenario/story_05.script"
+global_label ScenarioData_06
+    .incbin "text/scenario/story_06.script"
+global_label ScenarioData_07
+    .incbin "text/scenario/story_07.script"
+global_label ScenarioData_08
+    .incbin "text/scenario/story_08.script"
+global_label ScenarioData_09
+    .incbin "text/scenario/story_09.script"
+global_label ScenarioData_0A
+    .incbin "text/scenario/story_0A.script"
+global_label ScenarioData_0B
+    .incbin "text/scenario/story_0B.script"
+global_label ScenarioData_0C
+    .incbin "text/scenario/story_0C.script"
+global_label ScenarioData_0D
+    .incbin "text/scenario/story_0D.script"
+global_label ScenarioData_0E
+    .incbin "text/scenario/story_0E.script"
+global_label ScenarioData_0F
+    .incbin "text/scenario/story_0F.script"
     .incbin "text/scenario/072B6E4.script"
     .incbin "text/scenario/072B838.script"
     .incbin "text/scenario/072BA98.script"
@@ -668,8 +681,8 @@ global_label textDict_Battle_Tutorial2
     .incbin "text/scenario/tutorial/tutorial2.script"
 global_label textDict_Battle_Tutorial3
     .incbin "text/scenario/tutorial/tutorial3.script"
-global_label textDict_873E9A0
-    .incbin "text/scenario/073E9A0.script"
+global_label TextData_JackOut
+    .incbin "text/scenario/jack_out.script"
 global_label paletteJackInFrame00
     .incbin "images/jack_in/paletteJackInFrame00.gbapal"
 global_label paletteJackInFrame01

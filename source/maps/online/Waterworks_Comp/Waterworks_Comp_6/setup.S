@@ -176,7 +176,7 @@ _ts MapSetup_Waterworks_Comp_6_F27
     beq        LAB_0804699c
 LAB_08046990:
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08046a78
+    ldr        r0,PTR_Scene_MegaManJackIn_08046a78
     ldr        r1,PTR_DAT_08046a70
     bl         Scene_Prepare
     pop        {r5}
@@ -301,7 +301,7 @@ PTR_NPCList_8046E78_08046a68:
     .word NPCList_8046E78
 
 DAT_08046a6c:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08046a70:
     .word 0x2000
@@ -309,8 +309,8 @@ PTR_DAT_08046a70:
 PTR_PTR_EventHandler_Waterworks_Comp_6_F25_0_08046a74:
     .word PTR_EventHandler_Waterworks_Comp_6_F25_0_08046954
 
-PTR_FUN_08084070_08046a78:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08046a78:
+    .word Scene_MegaManJackIn
 
 PTR_NPCList_8046F3C_08046a7c:
     .word NPCList_8046F3C
@@ -480,7 +480,7 @@ PTR_NPCList_8046E78_08046bb8:
     .word NPCList_8046E78
 
 DAT_08046bbc:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08046bc0:
     .word 0x2000

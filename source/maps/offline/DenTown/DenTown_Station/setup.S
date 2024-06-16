@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_DenTown_Station_S3
     push       {lr}
@@ -138,7 +136,7 @@ _ts EventHandler_DenTown_Station_F30_0
 LAB_08036da4:
     mov        r1,#0x4
 LAB_08036da6:
-    ldr        r0,PTR_FUN_0808b688_08036de4
+    ldr        r0,PTR_Scene_TrainRide_08036de4
     bl         Scene_Prepare
     pop        {r5}
 LAB_08036dae:
@@ -180,7 +178,7 @@ PTR_BgTask_8036DDC:
 PTR_PTR_EventHandler_DenTown_Station_F30_0_08036de0:
     .word PTR_EventHandler_DenTown_Station_F30_0_08036d74
 
-PTR_FUN_0808b688_08036de4:
+PTR_Scene_TrainRide_08036de4:
     .word 0x808B689
 
 PTR_Scene_Dialogue_08036de8:
@@ -302,7 +300,7 @@ _ts EventHandler_DenTown_Station_F50_0
 LAB_08036ed8:
     mov        r1,#0x4
 LAB_08036eda:
-    ldr        r0,PTR_FUN_0808b688_08036f1c
+    ldr        r0,PTR_Scene_TrainRide_08036f1c
     bl         Scene_Prepare
     pop        {r5}
 LAB_08036ee2:
@@ -347,7 +345,7 @@ PTR_BgTask_8036F14:
 PTR_PTR_EventHandler_DenTown_Station_F50_0_08036f18:
     .word PTR_EventHandler_DenTown_Station_F50_0_08036ea8
 
-PTR_FUN_0808b688_08036f1c:
+PTR_Scene_TrainRide_08036f1c:
     .word 0x808B689
 
 PTR_Scene_Dialogue_08036f20:

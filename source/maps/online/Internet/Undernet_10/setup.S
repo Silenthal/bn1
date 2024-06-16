@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Undernet_10_S0
     push       {lr}
@@ -239,7 +237,7 @@ LAB_08053aba:
     mov        r0,#0x60
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_080857b8_08053b3c
+    ldr        r0,PTR_Scene_StartFixedBattle_08053b3c
     mov        r1,#0x2c
     bl         Scene_Prepare
     pop        {r5}
@@ -285,7 +283,7 @@ PTR_PTR_EventHandler_Undernet_10_0_08053b24:
     .word PTR_EventHandler_Undernet_10_0_080539fc
 
 PTR_Scene_SkillGate_08053b28:
-    .word 0x8085BB9
+    .word Scene_SkillGateFail
 
 PTR_BgTask_8051738_08053b2c:
     .word BgTask_8051738
@@ -299,5 +297,5 @@ PTR_Scene_Dialogue_08053b34:
 PTR_Scene_UnlockWWWGate_08053b38:
     .word 0x8086E19
 
-PTR_FUN_080857b8_08053b3c:
-    .word 0x80857B9
+PTR_Scene_StartFixedBattle_08053b3c:
+    .word Scene_StartFixedBattle

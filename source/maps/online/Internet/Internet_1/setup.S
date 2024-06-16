@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Internet_1_S0
     push       {lr}
@@ -78,7 +76,7 @@ LAB_08051f72:
     cmp        r1,r2
     beq        LAB_08051f8c
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08052244
+    ldr        r0,PTR_Scene_MegaManJackIn_08052244
     ldr        r1,PTR_DAT_08052248
     bl         Scene_Prepare
     pop        {r5}
@@ -255,7 +253,7 @@ LAB_080520a0:
     mov        r0,#0x5c
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_080857b8_08052264
+    ldr        r0,PTR_Scene_StartFixedBattle_08052264
     mov        r1,#0x5
     bl         Scene_Prepare
     pop        {r5}
@@ -449,8 +447,8 @@ PTR_BgTask_8051738_0805223c:
 PTR_EventHandler_Internet_1_08052240:
     .word EventHandler_Internet_1
 
-PTR_FUN_08084070_08052244:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08052244:
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08052248:
     .word 0x2000
@@ -473,8 +471,8 @@ PTR_BgTask_8051738_0805225c:
 PTR_Scene_UnlockWWWGate_08052260:
     .word 0x8086E19
 
-PTR_FUN_080857b8_08052264:
-    .word 0x80857B9
+PTR_Scene_StartFixedBattle_08052264:
+    .word Scene_StartFixedBattle
 
 DAT_08052268:
     .word 0xA00
@@ -492,7 +490,7 @@ PTR_Scene_Dialogue_08052278:
     .word Scene_Dialogue
 
 DAT_0805227c:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 PTR_DAT_08052280:
     .word 0x2000290

@@ -176,10 +176,10 @@ PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F24_0_08034674:
     .word PTR_EventHandler_Govt_Waterworks_Control_Room_F24_0_080345f4
 
 DAT_08034678:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 DAT_0803467c:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 
 _ts MapSetup_Govt_Waterworks_Control_Room_S3
@@ -302,13 +302,13 @@ PTR_NPCList_8035A90_0803476c:
     .word NPCList_8035A90
 
 DAT_08034770:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F30_0_08034774:
     .word PTR_EventHandler_Govt_Waterworks_Control_Room_F30_0_0803473c
 
 DAT_08034778:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_Govt_Waterworks_Control_Room_S5
@@ -465,7 +465,7 @@ LAB_080348b2:
     bl         Flag_ClearBase
     add        r1,r6,#0x0
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_08034928
+    ldr        r0,PTR_Scene_AfterFixedBattle_08034928
     bl         Scene_Prepare
     pop        {r5}
 LAB_080348c4:
@@ -522,13 +522,13 @@ PTR_NPCList_8035A90_08034910:
     .word NPCList_8035A90
 
 DAT_08034914:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F50_0_08034918:
     .word PTR_EventHandler_Govt_Waterworks_Control_Room_F50_0_08034844
 
 DAT_0803491c:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 PTR_NPCList_8035AA4_08034920:
     .word NPCList_8035AA4
@@ -536,14 +536,14 @@ PTR_NPCList_8035AA4_08034920:
 PTR_NPCList_8035A90_08034924:
     .word NPCList_8035A90
 
-PTR_FUN_0808598c_08034928:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_08034928:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F54_0_0803492c:
     .word PTR_EventHandler_Govt_Waterworks_Control_Room_F54_0_080348dc
 
 DAT_08034930:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_Govt_Waterworks_Control_Room_S4
@@ -676,10 +676,10 @@ PTR_NPCList_8035A90_08034a30:
     .word NPCList_8035A90
 
 DAT_08034a34:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Govt_Waterworks_Control_Room_F40_0_08034a38:
     .word PTR_EventHandler_Govt_Waterworks_Control_Room_F40_0_080349fc
 
 DAT_08034a3c:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle

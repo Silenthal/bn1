@@ -210,7 +210,7 @@ PTR_NPCList_8046DE4_0804644c:
     .word NPCList_8046DE4
 
 DAT_08046450:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08046454:
     .word 0x2000
@@ -222,7 +222,7 @@ PTR_PTR_EventHandler_Waterworks_Comp_4_F25_0_0804645c:
     .word PTR_EventHandler_Waterworks_Comp_4_F25_0_080463e0
 
 DAT_08046460:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_Waterworks_Comp_4_S3
@@ -362,7 +362,7 @@ PTR_NPCList_8046DE4_0804656c:
     .word NPCList_8046DE4
 
 DAT_08046570:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08046574:
     .word 0x2000

@@ -153,7 +153,7 @@ _nt MapSetup_DenTown_Miyu_Antiques_F34
     bl         Flag_GetBase
     beq        LAB_08038860
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_080388c0
+    ldr        r0,PTR_Scene_AfterFixedBattle_080388c0
     mov        r1,#0x6
     bl         Scene_Prepare
     pop        {r5}
@@ -209,25 +209,25 @@ PTR_NPCList_80395D4_080388ac:
     .word NPCList_80395D4
 
 DAT_080388b0:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_DenTown_Miyu_Antiques_F30_0_080388b4:
     .word PTR_EventHandler_DenTown_Miyu_Antiques_F30_0_080387fc
 
 DAT_080388b8:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 PTR_NPCList_80395D4_080388bc:
     .word NPCList_80395D4
 
-PTR_FUN_0808598c_080388c0:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_080388c0:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_DenTown_Miyu_Antiques_F34_0_080388c4:
     .word PTR_EventHandler_DenTown_Miyu_Antiques_F34_0_08038878
 
 DAT_080388c8:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_DenTown_Miyu_Antiques_S4
@@ -362,13 +362,13 @@ PTR_NPCList_80395D4_080389d4:
     .word NPCList_80395D4
 
 DAT_080389d8:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_DenTown_Miyu_Antiques_F40_0_080389dc:
     .word PTR_EventHandler_DenTown_Miyu_Antiques_F40_0_08038994
 
 DAT_080389e0:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 
 _ts MapSetup_DenTown_Miyu_Antiques_S5
@@ -499,10 +499,10 @@ PTR_NPCList_80395D4_08038ae8:
     .word NPCList_80395D4
 
 DAT_08038aec:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_DenTown_Miyu_Antiques_F50_0_08038af0:
     .word PTR_EventHandler_DenTown_Miyu_Antiques_F50_0_08038aa8
 
 DAT_08038af4:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle

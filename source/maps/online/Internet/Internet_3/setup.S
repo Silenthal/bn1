@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Internet_3_S0
     push       {lr}
@@ -68,7 +66,7 @@ _ts MapSetup_Internet_3
     cmp        r1,r2
     beq        LAB_080526b2
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_080528bc
+    ldr        r0,PTR_Scene_MegaManJackIn_080528bc
     ldr        r1,PTR_DAT_080528c0
     bl         Scene_Prepare
     pop        {r5}
@@ -109,7 +107,7 @@ LAB_080526fa:
     bl         Flag_GetBase
     beq        LAB_0805270e
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_080528c4
+    ldr        r0,PTR_Scene_AfterFixedBattle_080528c4
     mov        r1,#0x14
     bl         Scene_Prepare
     pop        {r5}
@@ -175,7 +173,7 @@ LAB_08052760:
     mov        r0,#0x56
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_080857b8_080528d4
+    ldr        r0,PTR_Scene_StartFixedBattle_080528d4
     mov        r1,#0x17
     bl         Scene_Prepare
     pop        {r5}
@@ -287,7 +285,7 @@ LAB_08052858:
     pop        {pc}
 LAB_0805286a:
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_080528f0
+    ldr        r0,PTR_Scene_LockedPath_080528f0
     bl         Scene_Prepare
     pop        {r5}
 LAB_08052874:
@@ -341,14 +339,14 @@ PTR_EventHandler_Internet_3_080528b4:
 PTR_NPCList_8054348_080528b8:
     .word NPCList_8054348
 
-PTR_FUN_08084070_080528bc:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_080528bc:
+    .word Scene_MegaManJackIn
 
 PTR_DAT_080528c0:
     .word 0x2000
 
-PTR_FUN_0808598c_080528c4:
-    .word 0x808598D
+PTR_Scene_AfterFixedBattle_080528c4:
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_Internet_3_0_080528c8:
     .word PTR_EventHandler_Internet_3_0_08052724
@@ -359,8 +357,8 @@ PTR_Scene_UnlockWWWGate_080528cc:
 PTR_BgTask_8051738_080528d0:
     .word BgTask_8051738
 
-PTR_FUN_080857b8_080528d4:
-    .word 0x80857B9
+PTR_Scene_StartFixedBattle_080528d4:
+    .word Scene_StartFixedBattle
 
 PTR_Scene_Dialogue_080528d8:
     .word Scene_Dialogue
@@ -380,5 +378,5 @@ PTR_DAT_080528e8:
 PTR_Scene_Dialogue_080528ec:
     .word Scene_Dialogue
 
-PTR_FUN_08082de4_080528f0:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_080528f0:
+    .word Scene_LockedPath

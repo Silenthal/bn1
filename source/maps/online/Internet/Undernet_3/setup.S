@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Undernet_3_S0
     push       {lr}
@@ -58,7 +56,7 @@ _nt MapSetup_Undernet_3
     cmp        r1,r2
     beq        LAB_08052f00
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08052f9c
+    ldr        r0,PTR_Scene_MegaManJackIn_08052f9c
     ldr        r1,INT_08052fa0
     bl         Scene_Prepare
     pop        {r5}
@@ -116,7 +114,7 @@ LAB_08052f52:
     b          LAB_08052f6a
 LAB_08052f60:
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_08052fb0
+    ldr        r0,PTR_Scene_LockedPath_08052fb0
     bl         Scene_Prepare
     pop        {r5}
 LAB_08052f6a:
@@ -156,8 +154,8 @@ PTR_EventHandler_Undernet_3_08052f94:
 PTR_NPCList_80547C4_08052f98:
     .word NPCList_80547C4
 
-PTR_FUN_08084070_08052f9c:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08052f9c:
+    .word Scene_MegaManJackIn
 
 INT_08052fa0:
     .word 0x2000
@@ -171,5 +169,5 @@ DAT_08052fa8:
 PTR_Scene_Dialogue_08052fac:
     .word Scene_Dialogue
 
-PTR_FUN_08082de4_08052fb0:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_08052fb0:
+    .word Scene_LockedPath

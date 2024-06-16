@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_SciLab_Power_Plant_Hallway_S4
     push       {lr}
@@ -235,7 +233,7 @@ LAB_0803c6d6:
     cmp        r0,#0x1
     bne        LAB_0803c6f8
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_0803c72c
+    ldr        r0,PTR_Scene_LockedPath_0803c72c
     ldr        r1,DAT_0803c730
     bl         Scene_Prepare
     pop        {r5}
@@ -281,8 +279,8 @@ PTR_LAB_080918c0_0803c724:
 PTR_Scene_Dialogue_0803c728:
     .word Scene_Dialogue
 
-PTR_FUN_08082de4_0803c72c:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_0803c72c:
+    .word Scene_LockedPath
 
 DAT_0803c730:
     .word 0xDF03
@@ -390,7 +388,7 @@ LAB_0803c7ee:
     cmp        r0,#0x1
     bne        LAB_0803c80e
     push       {r5}
-    ldr        r0,PTR_FUN_08082de4_0803c820
+    ldr        r0,PTR_Scene_LockedPath_0803c820
     ldr        r1,DAT_0803c824
     bl         Scene_Prepare
     pop        {r5}
@@ -409,8 +407,8 @@ PTR_PTR_EventHandler_SciLab_Power_Plant_Hallway_F50_0_0803c818:
 PTR_LAB_080918c0_0803c81c:
     .word 0x80918C1
 
-PTR_FUN_08082de4_0803c820:
-    .word 0x8082DE5
+PTR_Scene_LockedPath_0803c820:
+    .word Scene_LockedPath
 
 DAT_0803c824:
     .word 0xDF03

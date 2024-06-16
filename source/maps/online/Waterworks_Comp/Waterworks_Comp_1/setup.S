@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Waterworks_Comp_1_S2
     push       {lr}
@@ -195,7 +193,7 @@ LAB_08045a3a:
     beq        LAB_08045a5a
 LAB_08045a4e:
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08045ba8
+    ldr        r0,PTR_Scene_MegaManJackIn_08045ba8
     ldr        r1,PTR_DAT_08045b90
     bl         Scene_Prepare
     pop        {r5}
@@ -372,7 +370,7 @@ PTR_NPCList_8046BC8_08045b88:
     .word NPCList_8046BC8
 
 DAT_08045b8c:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08045b90:
     .word 0x2000
@@ -392,8 +390,8 @@ PTR_NPCList_8046BF4_08045ba0:
 PTR_LAB_0808b184_08045ba4:
     .word 0x808B185
 
-PTR_FUN_08084070_08045ba8:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08045ba8:
+    .word Scene_MegaManJackIn
 
 PTR_PTR_EventHandler_Waterworks_Comp_1_F27_0_08045bac:
     .word PTR_EventHandler_Waterworks_Comp_1_F27_0_08045a78
@@ -408,7 +406,7 @@ PTR_LAB_0808bacc_08045bb8:
     .word 0x808BACD
 
 DAT_08045bbc:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 
 _ts MapSetup_Waterworks_Comp_1_S3
@@ -543,7 +541,7 @@ PTR_NPCList_8046BC8_08045cc0:
     .word NPCList_8046BC8
 
 DAT_08045cc4:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08045cc8:
     .word 0x2000

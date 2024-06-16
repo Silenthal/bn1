@@ -206,7 +206,7 @@ PTR_NPCList_8046D60_08046174:
     .word NPCList_8046D60
 
 DAT_08046178:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804617c:
     .word 0x2000
@@ -365,7 +365,7 @@ PTR_NPCList_8046D60_080462ac:
     .word NPCList_8046D60
 
 DAT_080462b0:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_080462b4:
     .word 0x2000

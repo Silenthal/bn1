@@ -43,7 +43,7 @@ _ts FUN_08043978
     beq        LAB_080439ac
 LAB_080439a0:
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08043a14
+    ldr        r0,PTR_Scene_MegaManJackIn_08043a14
     ldr        r1,PTR_DAT_08043a18
     bl         Scene_Prepare
     pop        {r5}
@@ -105,8 +105,8 @@ DAT_08043a0c:
 DAT_08043a10:
     .word FUN_080439ea
 
-PTR_FUN_08084070_08043a14:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08043a14:
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08043a18:
     .word 0x2000

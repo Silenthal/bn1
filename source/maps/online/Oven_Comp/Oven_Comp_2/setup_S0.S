@@ -90,7 +90,7 @@ LAB_08043714:
     pop        {r5}
     beq        LAB_0804373c
     push       {r5}
-    ldr        r0,PTR_LAB_08084ecc_08043850
+    ldr        r0,PTR_Scene_Story_0D_08043850
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -148,7 +148,7 @@ PTR_EventHandler_Oven_Comp_2_F05_0_08043788:
 
 _ts EventHandler_Oven_Comp_2_F05_0
     push       {lr}
-    bl         FUN_080435bc
+    bl         EventHandler_Oven_Comp_1_F05_HandleIceBlock
     beq        LAB_080437b8
     bl         GetCollisionEventAttribute
     cmp        r0,#0x10
@@ -207,7 +207,7 @@ LAB_080437d6:
     b          LAB_0804380a
 LAB_080437fe:
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_0804386c
+    ldr        r0,PTR_Scene_MegaManJackIn_0804386c
     ldr        r1,PTR_DAT_08043860
     bl         Scene_Prepare
     pop        {r5}
@@ -263,8 +263,8 @@ PTR_BgTask_8042528_08043848:
 PTR_PTR_EventHandler_Default_0804384c:
     .word PTR_EventHandler_Default_080436c4
 
-PTR_LAB_08084ecc_08043850:
-    .word 0x8084ECD
+PTR_Scene_Story_0D_08043850:
+    .word Scene_Story_0D
 
 PTR_NPCList_8043C2C_08043854:
     .word NPCList_8043C2C
@@ -273,7 +273,7 @@ PTR_EntityAllocParams_8043D4C_08043858:
     .word EntityAllocParams_8043D4C
 
 DAT_0804385c:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_08043860:
     .word 0x2000
@@ -282,10 +282,10 @@ PTR_PTR_EventHandler_Oven_Comp_2_F05_0_08043864:
     .word PTR_EventHandler_Oven_Comp_2_F05_0_08043788
 
 DAT_08043868:
-    .word 0x8084D21
+    .word Scene_Story_0C
 
-PTR_FUN_08084070_0804386c:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_0804386c:
+    .word Scene_MegaManJackIn
 
 PTR_PTR_EventHandler_Oven_Comp_2_F06_0_08043870:
     .word PTR_EventHandler_Oven_Comp_2_F06_0_08043820

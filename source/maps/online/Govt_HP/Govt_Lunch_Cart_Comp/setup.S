@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Dialogue, 0x80848FC+1
-
 
 _ts MapSetup_Govt_Lunch_Cart_Comp_S2
     push       {lr}
@@ -64,7 +62,7 @@ LAB_0804fab6:
     beq        LAB_0804faf4
 LAB_0804fae8:
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_0804fb7c
+    ldr        r0,PTR_Scene_MegaManJackIn_0804fb7c
     ldr        r1,PTR_DAT_0804fb80
     bl         Scene_Prepare
     pop        {r5}
@@ -152,8 +150,8 @@ PTR_EntityAllocParams_804FD24_0804fb74:
 PTR_NPCList_804FCA4_0804fb78:
     .word NPCList_804FCA4
 
-PTR_FUN_08084070_0804fb7c:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_0804fb7c:
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804fb80:
     .word 0x2000

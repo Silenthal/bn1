@@ -70,7 +70,7 @@ LAB_0804f070:
     beq        LAB_0804f09a
 LAB_0804f08e:
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_0804f0f8
+    ldr        r0,PTR_Scene_MegaManJackIn_0804f0f8
     ldr        r1,PTR_DAT_0804f0fc
     bl         Scene_Prepare
     pop        {r5}
@@ -135,8 +135,8 @@ PTR_FUN_0808c3e8_0804f0f0:
 PTR_NPCList_804F47C_0804f0f4:
     .word NPCList_804F47C
 
-PTR_FUN_08084070_0804f0f8:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_0804f0f8:
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804f0fc:
     .word 0x2000
@@ -145,4 +145,4 @@ PTR_PTR_FUN_0804f0b4_0804f100:
     .word PTR_FUN_0804f0b4_0804f0b0
 
 DAT_0804f104:
-    .word 0x8085A79
+    .word Scene_CheckMail

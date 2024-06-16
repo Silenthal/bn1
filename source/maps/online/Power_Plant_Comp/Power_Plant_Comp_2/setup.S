@@ -248,7 +248,7 @@ DAT_0804a964:
     .word 0x80919D9
 
 DAT_0804a968:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804a96c:
     .word 0x2000
@@ -459,7 +459,7 @@ PTR_NPCList_804B77C_0804ab30:
     .word NPCList_804B77C
 
 DAT_0804ab34:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804ab38:
     .word 0x2000

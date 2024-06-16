@@ -3,7 +3,7 @@
     .include "macros.inc"
 
     .set FUN_08093c68, 0x8093C69
-    .set FUN_0808b688, 0x808B689
+    .set Scene_TrainRide, 0x808B689
 
 
 _ts MapSetup_ACDC_Secret_Station_S5
@@ -131,7 +131,7 @@ LAB_0802f92a:
     b          LAB_0802f974
 LAB_0802f968:
     push       {r5}
-    ldr        r0,PTR_FUN_0808b688_0802f990
+    ldr        r0,PTR_Scene_TrainRide_0802f990
     mov        r1,#0x6
     bl         Scene_Prepare
     pop        {r5}
@@ -152,5 +152,5 @@ PTR_PTR_EventHandler_ACDC_Secret_Station_F54_0_0802f988:
     .word PTR_EventHandler_ACDC_Secret_Station_F54_0_0802f908
 DAT_0802f98c:
     .word 0x8087E35
-PTR_FUN_0808b688_0802f990:
-    .word FUN_0808b688
+PTR_Scene_TrainRide_0802f990:
+    .word Scene_TrainRide

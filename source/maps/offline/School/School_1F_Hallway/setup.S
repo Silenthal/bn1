@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set FUN_080871a8, 0x80871A9
-    .set FUN_08082de4, 0x8082DE5
 
 
 _ts MapSetup_School_1F_Hallway_S1
@@ -360,28 +359,28 @@ LAB_08027922:
     bne        LAB_08027984
     push       {r5}
     ldr        r1,DAT_080279b8
-    ldr        r0,PTR_FUN_08082de4_080279bc
+    ldr        r0,PTR_Scene_LockedPath_080279bc
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
 LAB_0802795c:
     push       {r5}
     ldr        r1,DAT_080279c0
-    ldr        r0,PTR_FUN_08082de4_080279c4
+    ldr        r0,PTR_Scene_LockedPath_080279c4
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
 LAB_0802796a:
     push       {r5}
     ldr        r1,DAT_080279c8
-    ldr        r0,PTR_FUN_08082de4_080279cc
+    ldr        r0,PTR_Scene_LockedPath_080279cc
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
 LAB_08027978:
     push       {r5}
     ldr        r1,DAT_080279d0
-    ldr        r0,PTR_FUN_08082de4_080279d4
+    ldr        r0,PTR_Scene_LockedPath_080279d4
     bl         Scene_Prepare
     pop        {r5}
 LAB_08027984:
@@ -398,7 +397,7 @@ PTR_PTR_DAT_08027990:
 PTR_PTR_EventHandler_School_1F_Hallway_F10_0_08027994:
     .word PTR_EventHandler_School_1F_Hallway_F10_0_0802773c
 DAT_08027998:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 DAT_0802799c:
     .word 0x103
 PTR_PTR_DAT_080279a0:
@@ -415,20 +414,20 @@ PTR_FUN_080871a8_080279b4:
     .word FUN_080871a8
 DAT_080279b8:
     .word 0x605
-PTR_FUN_08082de4_080279bc:
-    .word FUN_08082de4
+PTR_Scene_LockedPath_080279bc:
+    .word Scene_LockedPath
 DAT_080279c0:
     .word 0x903
-PTR_FUN_08082de4_080279c4:
-    .word FUN_08082de4
+PTR_Scene_LockedPath_080279c4:
+    .word Scene_LockedPath
 DAT_080279c8:
     .word 0x803
-PTR_FUN_08082de4_080279cc:
-    .word FUN_08082de4
+PTR_Scene_LockedPath_080279cc:
+    .word Scene_LockedPath
 DAT_080279d0:
     .word 0x703
-PTR_FUN_08082de4_080279d4:
-    .word FUN_08082de4
+PTR_Scene_LockedPath_080279d4:
+    .word Scene_LockedPath
 
 
 _ts MapSetup_School_1F_Hallway_S2
@@ -766,17 +765,17 @@ PTR_PTR_DAT_08027c60:
 PTR_PTR_EventHandler_School_1F_Hallway_F23_0_08027c64:
     .word PTR_EventHandler_School_1F_Hallway_F23_0_08027af0
 DAT_08027c68:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 PTR_PTR_DAT_08027c6c:
     .word NPCList_802998C
 PTR_PTR_EventHandler_School_1F_Hallway_F24_0_08027c70:
     .word PTR_EventHandler_School_1F_Hallway_F24_0_08027b98
 DAT_08027c74:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 PTR_PTR_EventHandler_School_1F_Hallway_F25_0_08027c78:
     .word PTR_EventHandler_School_1F_Hallway_F25_0_08027c14
 DAT_08027c7c:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 
 _ts MapSetup_School_1F_Hallway_S3

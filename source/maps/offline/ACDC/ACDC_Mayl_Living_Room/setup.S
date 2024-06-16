@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_JackIn, 0x8083EED
-
 
 _ts MapSetup_ACDC_Mayl_Living_Room_S0
     push       {lr}
@@ -130,7 +128,7 @@ PTR_PTR_EventHandler_ACDC_Mayl_Living_Room_F06_0_0802d634:
 DAT_0802d638:
     .word 0x100
 DAT_0802d63c:
-    .word 0x8083EED
+    .word Scene_JackIn
 
 
 _ts MapSetup_ACDC_Mayl_Living_Room_S2

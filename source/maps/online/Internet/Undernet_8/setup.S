@@ -95,7 +95,7 @@ _ts EventHandler_Undernet_8_0
     mov        r0,#0x12
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_080857b8_080537b0
+    ldr        r0,PTR_Scene_StartFixedBattle_080537b0
     mov        r1,#0x2b
     bl         Scene_Prepare
     pop        {r5}
@@ -137,5 +137,5 @@ PTR_NPCList_8054D20_080537a8:
 PTR_PTR_EventHandler_Undernet_8_0_080537ac:
     .word PTR_EventHandler_Undernet_8_0_08053734
 
-PTR_FUN_080857b8_080537b0:
-    .word 0x80857B9
+PTR_Scene_StartFixedBattle_080537b0:
+    .word Scene_StartFixedBattle

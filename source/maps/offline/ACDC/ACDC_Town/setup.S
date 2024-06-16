@@ -2,20 +2,14 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_080979cc, 0x80979CD
-    .set LAB_0808a30c, 0x808A30D
-    .set FUN_0808598c, 0x808598D
-    .set LAB_08088ac4, 0x8088AC5
-    .set FUN_08086004, 0x8086005
-    .set FUN_0808f044, 0x808F045
-    .set Scenario_082B1C_LanWalksToSchool, 0x8082B1D
-    .set FUN_080861e8, 0x80861E9
-    .set FUN_0808c5a8, 0x808C5A9
-    .set LAB_0808b420, 0x808B421
-    .set FUN_08082de4, 0x8082DE5
-    .set Scene_LanCheckYourMail, 0x8085A79
-    .set Scene_Dialogue, 0x80848FD
-    .set LAB_0808a930, 0x808A931
+    .set Scene_Story_7F, 0x80979CD
+    .set Scene_Story_2D, 0x808A30D
+    .set Scene_Story_23, 0x8088AC5
+    .set Scene_Story_4E, 0x808F045
+    .set Scene_Story_10, 0x80861E9
+    .set Scene_Story_37, 0x808C5A9
+    .set Scene_Story_34, 0x808B421
+    .set Scene_Story_30, 0x808A931
 
 
 _ts FlagSetup_ACDC_S0
@@ -131,7 +125,7 @@ PTR_EventHandler_ACDC_Town_F00_0_0802aaa8:
 _ts EventHandler_ACDC_Town_F00_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_Scenario_082B1C_LanWalksToSchool_0802ac24
+    ldr        r0,PTR_Scene_Story_01_LanWalksToSchool_0802ac24
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -174,7 +168,7 @@ _ts MapSetup_ACDC_Town_F02
     pop        {r5}
     bne        LAB_0802ab1e
     push       {r5}
-    ldr        r0,PTR_Scene_LanCheckYourMail_0802ac2c
+    ldr        r0,PTR_Scene_CheckMail_0802ac2c
     ldr        r1,DAT_0802ac30
     bl         Scene_Prepare
     pop        {r5}
@@ -318,24 +312,24 @@ PTR_PTR_EventHandler_ACDC_Town_F00_0802ac1c:
     .word PTR_EventHandler_ACDC_Town_F00_0802aa40
 PTR_PTR_EventHandler_ACDC_Town_F00_0_0802ac20:
     .word PTR_EventHandler_ACDC_Town_F00_0_0802aaa8
-PTR_Scenario_082B1C_LanWalksToSchool_0802ac24:
-    .word Scenario_082B1C_LanWalksToSchool
+PTR_Scene_Story_01_LanWalksToSchool_0802ac24:
+    .word Scene_Story_01_LanWalksToSchool
 PTR_PTR_DAT_0802ac28:
     .word NPCList_802F994
-PTR_Scene_LanCheckYourMail_0802ac2c:
-    .word Scene_LanCheckYourMail
+PTR_Scene_CheckMail_0802ac2c:
+    .word Scene_CheckMail
 DAT_0802ac30:
     .word 0x111
 PTR_PTR_EventHandler_ACDC_Town_F02_0_0802ac34:
     .word PTR_EventHandler_ACDC_Town_F02_0_0802ab34
 DAT_0802ac38:
-    .word 0x80848FD
+    .word Scene_Dialogue
 DAT_0802ac3c:
-    .word 0x80848FD
+    .word Scene_Dialogue
 DAT_0802ac40:
-    .word 0x80848FD
+    .word Scene_Dialogue
 DAT_0802ac44:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 DAT_0802ac48:
     .word 0xC05
 PTR_PTR_DAT_0802ac4c:
@@ -343,7 +337,7 @@ PTR_PTR_DAT_0802ac4c:
 PTR_PTR_FUN_0802abe0_0802ac50:
     .word PTR_FUN_0802abe0_0802abdc
 DAT_0802ac54:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 
 _ts MapSetup_ACDC_Town_S1
@@ -412,7 +406,7 @@ LAB_0802acde:
     bl         Flag_GetBase
     beq        LAB_0802acf8
     push       {r5}
-    ldr        r0,PTR_FUN_080861e8_0802ad8c
+    ldr        r0,PTR_Scene_Story_10_0802ad8c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -441,7 +435,7 @@ LAB_0802acf8:
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_FUN_08086004_0802ada0
+    ldr        r0,PTR_Scene_Story_0F_0802ada0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -503,8 +497,8 @@ PTR_PTR_EventHandler_ACDC_Town_F10_0802ad84:
     .word PTR_EventHandler_ACDC_Town_F10_0802aca8
 PTR_BgTask_802AD88:
     .word BgTask_8029EFC
-PTR_FUN_080861e8_0802ad8c:
-    .word FUN_080861e8
+PTR_Scene_Story_10_0802ad8c:
+    .word Scene_Story_10
 DAT_0802ad90:
     .word 0xF00000
 DAT_0802ad94:
@@ -513,8 +507,8 @@ PTR_PTR_DAT_0802ad98:
     .word NPCList_802FB74
 PTR_BgTask_802AD9C:
     .word BgTask_8029EE4
-PTR_FUN_08086004_0802ada0:
-    .word FUN_08086004
+PTR_Scene_Story_0F_0802ada0:
+    .word Scene_Story_0F
 PTR_PTR_EventHandler_ACDC_Town_F10_0_0802ada4:
     .word PTR_EventHandler_ACDC_Town_F10_0_0802ad44
 
@@ -899,7 +893,7 @@ PTR_EventHandler_ACDC_Town_F23_0_0802b0c4:
 _ts EventHandler_ACDC_Town_F23_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_LAB_08088ac4_0802b324
+    ldr        r0,PTR_Scene_Story_23_0802b324
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1018,7 +1012,7 @@ _ts MapSetup_ACDC_Town_F26
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_LAB_0808a30c_0802b338
+    ldr        r0,PTR_Scene_Story_2D_0802b338
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1076,7 +1070,7 @@ LAB_0802b1fc:
     mov        r0,#0x0
     bl         Flag_Set380
     push       {r5}
-    ldr        r0,PTR_LAB_0808a930_0802b34c
+    ldr        r0,PTR_Scene_Story_30_0802b34c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1152,7 +1146,7 @@ _ts EventHandler_ACDC_Town_F27_0
     bl         Flag_GetBase
     bne        LAB_0802b2ae
     push       {r5}
-    ldr        r0,PTR_LAB_0808b420_0802b360
+    ldr        r0,PTR_Scene_Story_34_0802b360
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1204,7 +1198,7 @@ PTR_EntityAllocParams_802b2fc:
 PTR_PTR_EventHandler_ACDC_Town_F21_0_0802b300:
     .word PTR_EventHandler_ACDC_Town_F21_0_0802afc8
 DAT_0802b304:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802b308:
     .word 0x137
 PTR_PTR_DAT_0802b30c:
@@ -1214,13 +1208,13 @@ PTR_EntityAllocParams_802b310:
 PTR_PTR_EventHandler_ACDC_Town_F22_0_0802b314:
     .word PTR_EventHandler_ACDC_Town_F22_0_0802b050
 DAT_0802b318:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802b31c:
     .word 0x13E
 PTR_PTR_EventHandler_ACDC_Town_F23_0_0802b320:
     .word PTR_EventHandler_ACDC_Town_F23_0_0802b0c4
-PTR_LAB_08088ac4_0802b324:
-    .word LAB_08088ac4
+PTR_Scene_Story_23_0802b324:
+    .word Scene_Story_23
 PTR_PTR_DAT_0802b328:
     .word NPCList_802FDE8
 PTR_PTR_EventHandler_ACDC_Town_F24_0_0802b32c:
@@ -1229,18 +1223,18 @@ PTR_PTR_DAT_0802b330:
     .word NPCList_802FDE8
 PTR_PTR_EventHandler_ACDC_Town_F25_0_0802b334:
     .word PTR_EventHandler_ACDC_Town_F25_0_0802b16c
-PTR_LAB_0808a30c_0802b338:
-    .word LAB_0808a30c
+PTR_Scene_Story_2D_0802b338:
+    .word Scene_Story_2D
 PTR_PTR_DAT_0802b33c:
     .word NPCList_802FE6C
 PTR_PTR_EventHandler_ACDC_Town_F26_0_0802b340:
     .word PTR_EventHandler_ACDC_Town_F26_0_0802b1d4
 DAT_0802b344:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802b348:
     .word 0x13F
-PTR_LAB_0808a930_0802b34c:
-    .word LAB_0808a930
+PTR_Scene_Story_30_0802b34c:
+    .word Scene_Story_30
 PTR_PTR_DAT_0802b350:
     .word NPCList_802FF6C
 PTR_PTR_DAT_0802b354:
@@ -1249,8 +1243,8 @@ PTR_PTR_DAT_0802b358:
     .word NPCList_802FE6C
 PTR_PTR_EventHandler_ACDC_Town_F27_0_0802b35c:
     .word PTR_EventHandler_ACDC_Town_F27_0_0802b28c
-PTR_LAB_0808b420_0802b360:
-    .word LAB_0808b420
+PTR_Scene_Story_34_0802b360:
+    .word Scene_Story_34
 PTR_Scene_Dialogue_0802b364:
     .word Scene_Dialogue
 
@@ -1374,7 +1368,7 @@ _nt EventHandler_ACDC_Town_F30_1
     bl         Flag_GetEmailRecieved
     bne        LAB_0802b466
     push       {r5}
-    ldr        r0,PTR_Scene_LanCheckYourMail_0802b4d0
+    ldr        r0,PTR_Scene_CheckMail_0802b4d0
     ldr        r1,DAT_0802b4cc
     bl         Scene_Prepare
     pop        {r5}
@@ -1384,7 +1378,7 @@ LAB_0802b466:
     bl         Flag_GetBase
     bne        LAB_0802b47a
     push       {r5}
-    ldr        r0,PTR_FUN_0808c5a8_0802b4d4
+    ldr        r0,PTR_Scene_Story_37_0802b4d4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1405,7 +1399,7 @@ _ts EventHandler_ACDC_Town_F30_HandleExits
     bne        LAB_0802b49e
     push       {r5}
     ldr        r1,DAT_0802b4d8
-    ldr        r0,PTR_FUN_08082de4_0802b4dc
+    ldr        r0,PTR_Scene_LockedPath_0802b4dc
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802b49e:
@@ -1431,17 +1425,17 @@ PTR_PTR_DAT_0802b4c0:
 PTR_PTR_EventHandler_ACDC_Town_F30_0_0802b4c4:
     .word PTR_EventHandler_ACDC_Town_F30_0_0802b42c
 DAT_0802b4c8:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802b4cc:
     .word 0x16F
-PTR_Scene_LanCheckYourMail_0802b4d0:
-    .word Scene_LanCheckYourMail
-PTR_FUN_0808c5a8_0802b4d4:
-    .word FUN_0808c5a8
+PTR_Scene_CheckMail_0802b4d0:
+    .word Scene_CheckMail
+PTR_Scene_Story_37_0802b4d4:
+    .word Scene_Story_37
 DAT_0802b4d8:
     .word 0x6603
-PTR_FUN_08082de4_0802b4dc:
-    .word FUN_08082de4
+PTR_Scene_LockedPath_0802b4dc:
+    .word Scene_LockedPath
 
 
 _ts MapSetup_ACDC_Town_S4
@@ -1537,7 +1531,7 @@ _ts MapSetup_ACDC_Town_F40
     mov        r1,#0xff
     strb       r1,[r7,#0x13]
     push       {r5}
-    ldr        r0,PTR_FUN_0808f044_0802b624
+    ldr        r0,PTR_Scene_Story_4E_0802b624
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1595,12 +1589,12 @@ PTR_PTR_EventHandler_ACDC_Town_F40_0802b61c:
     .word PTR_EventHandler_ACDC_Town_F40_0802b568
 PTR_PTR_DAT_0802b620:
     .word NPCList_803002C
-PTR_FUN_0808f044_0802b624:
-    .word FUN_0808f044
+PTR_Scene_Story_4E_0802b624:
+    .word Scene_Story_4E
 PTR_PTR_EventHandler_ACDC_Town_F40_0_0802b628:
     .word PTR_EventHandler_ACDC_Town_F40_0_0802b5e4
 DAT_0802b62c:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802b630:
     .word 0x17E
 
@@ -1732,7 +1726,7 @@ LAB_0802b744:
     bl         Flag_ClearBase
     add        r1,r6,#0x0
     push       {r5}
-    ldr        r0,PTR_FUN_0808598c_0802b8b8
+    ldr        r0,PTR_Scene_AfterFixedBattle_0802b8b8
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -1818,7 +1812,7 @@ _ts MapSetup_ACDC_Town_F54
     strb       r1,[r7,#0x13]
     bl         Sound_StopAllMusic
     push       {r5}
-    ldr        r0,PTR_FUN_080979cc_0802b8cc
+    ldr        r0,PTR_Scene_Story_7F_0802b8cc
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1919,27 +1913,27 @@ PTR_PTR_EventHandler_ACDC_Town_F50_0_0802b8b0:
     .word PTR_EventHandler_ACDC_Town_F50_0_0802b708
 PTR_PTR_DAT_0802b8b4:
     .word NPCList_8030154
-PTR_FUN_0808598c_0802b8b8:
-    .word FUN_0808598c
+PTR_Scene_AfterFixedBattle_0802b8b8:
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Town_F53_0_0802b8bc:
     .word PTR_EventHandler_ACDC_Town_F53_0_0802b770
 DAT_0802b8c0:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802b8c4:
     .word 0x1AC
 DAT_0802b8c8:
-    .word 0x80857B9
-PTR_FUN_080979cc_0802b8cc:
-    .word FUN_080979cc
+    .word Scene_StartFixedBattle
+PTR_Scene_Story_7F_0802b8cc:
+    .word Scene_Story_7F
 PTR_PTR_DAT_0802b8d0:
     .word NPCList_8030154
 DAT_0802b8d4:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Town_F54_0_0802b8d8:
     .word PTR_EventHandler_ACDC_Town_F54_0_0802b848
 DAT_0802b8dc:
-    .word 0x8085A79
+    .word Scene_CheckMail
 DAT_0802b8e0:
     .word 0x1AD
 DAT_0802b8e4:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle

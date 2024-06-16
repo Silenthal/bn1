@@ -502,7 +502,7 @@ PTR_PTR_EventHandler_Default_0804d968:
     .word PTR_EventHandler_Default_0804d590
 
 DAT_0804d96c:
-    .word 0x8084071
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0804d970:
     .word 0x2000
@@ -523,49 +523,49 @@ DAT_0804d984:
     .word 0x8086E19
 
 DAT_0804d988:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_0804d98c:
     .word 0x8086E19
 
 DAT_0804d990:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_0804d994:
     .word 0x8086E19
 
 DAT_0804d998:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_0804d99c:
     .word 0x8086E19
 
 DAT_0804d9a0:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_0804d9a4:
     .word 0x8086E19
 
 DAT_0804d9a8:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_0804d9ac:
     .word 0x8086E19
 
 DAT_0804d9b0:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_0804d9b4:
     .word 0x8086E19
 
 DAT_0804d9b8:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_0804d9bc:
     .word 0x8086E19
 
 DAT_0804d9c0:
-    .word 0x80848FD
+    .word Scene_Dialogue
 
 DAT_0804d9c4:
     .word 0x8086E19

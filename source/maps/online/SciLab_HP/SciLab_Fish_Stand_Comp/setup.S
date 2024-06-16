@@ -62,7 +62,7 @@ LAB_080501b2:
     beq        LAB_080501f0
 LAB_080501e4:
     push       {r5}
-    ldr        r0,PTR_FUN_08084070_08050278
+    ldr        r0,PTR_Scene_MegaManJackIn_08050278
     ldr        r1,PTR_DAT_0805027c
     bl         Scene_Prepare
     pop        {r5}
@@ -150,8 +150,8 @@ PTR_EntityAllocParams_80502DC_08050270:
 PTR_NPCList_8050288_08050274:
     .word NPCList_8050288
 
-PTR_FUN_08084070_08050278:
-    .word 0x8084071
+PTR_Scene_MegaManJackIn_08050278:
+    .word Scene_MegaManJackIn
 
 PTR_DAT_0805027c:
     .word 0x2000
@@ -160,4 +160,4 @@ PTR_PTR_FUN_08050234_08050280:
     .word PTR_FUN_08050234_08050228
 
 DAT_08050284:
-    .word 0x80848FD
+    .word Scene_Dialogue

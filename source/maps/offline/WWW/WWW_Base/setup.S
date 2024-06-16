@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_JackIn, 0x8083EEC+1
-
 
 _ts MapSetup_WWW_Base_S5
     push       {lr}
@@ -316,16 +314,16 @@ PTR_NPCList_803E5D0_0803dca4:
     .word NPCList_803E5D0
 
 DAT_0803dca8:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 DAT_0803dcac:
-    .word 0x808598D
+    .word Scene_AfterFixedBattle
 
 PTR_PTR_EventHandler_WWW_Base_F54_0_0803dcb0:
     .word PTR_EventHandler_WWW_Base_F54_0_0803dba4
 
 DAT_0803dcb4:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 DAT_0803dcb8:
     .word 0x285
@@ -334,13 +332,13 @@ PTR_FUN_08097f38_0803dcbc:
     .word 0x8097F39
 
 DAT_0803dcc0:
-    .word 0x8082DE5
+    .word Scene_LockedPath
 
 DAT_0803dcc4:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 DAT_0803dcc8:
-    .word 0x80857B9
+    .word Scene_StartFixedBattle
 
 DAT_0803dccc:
     .word 0x100
