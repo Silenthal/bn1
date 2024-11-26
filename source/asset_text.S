@@ -563,22 +563,38 @@ global_label ScenarioData_0E
     .incbin "text/scenario/story_0E.script"
 global_label ScenarioData_0F
     .incbin "text/scenario/story_0F.script"
-    .incbin "text/scenario/072B6E4.script"
-    .incbin "text/scenario/072B838.script"
-    .incbin "text/scenario/072BA98.script"
-    .incbin "text/scenario/072BE64.script"
-    .incbin "text/scenario/072C508.script"
-    .incbin "text/scenario/072C8B4.script"
-    .incbin "text/scenario/072C9A4.script"
-    .incbin "text/scenario/072CA30.script"
-    .incbin "text/scenario/072CB9C.script"
-    .incbin "text/scenario/072CC0C.script"
-    .incbin "text/scenario/072CC5C.script"
-    .incbin "text/scenario/072CF9C.script"
-    .incbin "text/scenario/072D2B0.script"
-    .incbin "text/scenario/072D540.script"
-    .incbin "text/scenario/072D6DC.script"
-    .incbin "text/scenario/072DA84.script"
+global_label ScenarioData_10
+    .incbin "text/scenario/story_10.script"
+global_label ScenarioData_11
+    .incbin "text/scenario/story_11.script"
+global_label ScenarioData_12
+    .incbin "text/scenario/story_12.script"
+global_label ScenarioData_13
+    .incbin "text/scenario/story_13.script"
+global_label ScenarioData_14
+    .incbin "text/scenario/story_14.script"
+global_label ScenarioData_15
+    .incbin "text/scenario/story_15.script"
+global_label ScenarioData_16
+    .incbin "text/scenario/story_16.script"
+global_label ScenarioData_17
+    .incbin "text/scenario/story_17.script"
+global_label ScenarioData_18
+    .incbin "text/scenario/story_18.script"
+global_label ScenarioData_19
+    .incbin "text/scenario/story_19.script"
+global_label ScenarioData_1A
+    .incbin "text/scenario/story_1A.script"
+global_label ScenarioData_1B
+    .incbin "text/scenario/story_1B.script"
+global_label ScenarioData_1C
+    .incbin "text/scenario/story_1C.script"
+global_label ScenarioData_1D
+    .incbin "text/scenario/story_1D.script"
+global_label ScenarioData_1E
+    .incbin "text/scenario/story_1E.script"
+global_label ScenarioData_1F
+    .incbin "text/scenario/story_1F.script"
     .incbin "text/scenario/072DD40.script"
     .incbin "text/scenario/072DE60.script"
     .incbin "text/scenario/072E050.script"

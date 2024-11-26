@@ -359,7 +359,7 @@ global_label NPCList_8028C30
     .word NPC_8028E4E
     .word 0xFF
 
-NPCList_8028C5C:
+global_label NPCList_8028C5C
     .word NPC_8028D84
     .word NPC_8028D98
     .word NPC_8028DAC
@@ -384,7 +384,7 @@ global_label NPCList_8028C8C
     .word NPC_8028F0A
     .word 0xFF
 
-NPCList_8028CB0:
+global_label NPCList_8028CB0
     .word NPC_8028D84
     .word NPC_8028D98
     .word NPC_8028DAC
@@ -408,7 +408,7 @@ global_label NPCList_8028CDC
     .word NPC_8028FA9
     .word 0xFF
 
-NPCList_8028D00:
+global_label NPCList_8028D00
     .word NPC_8028FC0
     .word NPC_8029008
     .word NPC_802901D
@@ -996,7 +996,7 @@ L_80291BD:
 
     .align 2, 0
 
-NPCList_80291C4:
+global_label NPCList_80291C4
     .word NPC_80291F0
     .word NPC_8029204
     .word NPC_8029218
@@ -1871,11 +1871,11 @@ L_802987E:
 
     .align 2, 0
 
-NPCList_8029888:
+global_label NPCList_8029888
     .word NPC_8029898
     .word 0xFF
 
-NPCList_8029890:
+global_label NPCList_8029890
     .word NPC_80298B7
     .word 0xFF
 
@@ -2087,7 +2087,7 @@ L_8029A2E:
 
     .align 2, 0
 
-NPCList_8029A38:
+global_label NPCList_8029A38
     .word NPC_8029A4C
     .word NPC_8029A5F
     .word NPC_8029A72

@@ -257,7 +257,7 @@ _ts EventHandler_School_Comp_1_F12
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
 PTR_EventHandler_School_Comp_1_F12_0_08040880:
@@ -378,7 +378,7 @@ _ts EventHandler_School_Comp_1_F13
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
 PTR_EventHandler_School_Comp_1_F13_0_08040964:
@@ -448,7 +448,7 @@ _nt EventHandler_School_Comp_1_F14
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
     .align 2, 0
@@ -501,7 +501,7 @@ _ts EventHandler_School_Comp_1_F15
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
 PTR_EventHandler_School_Comp_1_F15_0_08040a48:
@@ -513,7 +513,7 @@ _ts EventHandler_School_Comp_1_F15_0
     pop        {pc}
 
 
-_ts FUN_08040a50
+_ts EventHandler_School_Comp_HandleJackOut
     push       {lr}
     bl         Scene_IsSceneActive
     tst        r0,r0
@@ -611,7 +611,7 @@ PTR_PTR_EventHandler_School_Comp_1_F15_0_08040ae0:
     .word PTR_EventHandler_School_Comp_1_F15_0_08040a48
 
 DAT_08040ae4:
-    .word 0x100
+    .word KEY_R
 
 PTR_Scene_JackOut_08040ae8:
     .word Scene_JackOut

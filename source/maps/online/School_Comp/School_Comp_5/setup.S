@@ -144,7 +144,7 @@ _ts EventHandler_School_Comp_5_F15
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
 PTR_EventHandler_School_Comp_5_F15_0_0804197c:

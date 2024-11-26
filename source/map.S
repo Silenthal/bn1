@@ -29,16 +29,16 @@ DummySetup_Online:
     .word dummy_Traffic_Light_Comp
     .word dummy_Power_Plant_Comp
     .word dummy_WWW_Comp
-    .word dummy_114bc
-    .word dummy_114bc
+    .word DummySetup_None
+    .word DummySetup_None
     .word dummy_ACDC_HP
     .word dummy_Govt_HP
     .word dummy_DenTown_HP
     .word dummy_SciLab_HP
     .word dummy_Other_Comp
-    .word dummy_114bc
-    .word dummy_114bc
-    .word dummy_114bc
+    .word DummySetup_None
+    .word DummySetup_None
+    .word DummySetup_None
     .word dummy_Internet
 GraphicDataSetup_Online:
     .word GraphicDataSetup_School_Comp
@@ -47,30 +47,30 @@ GraphicDataSetup_Online:
     .word GraphicDataSetup_Traffic_Light_Comp
     .word GraphicDataSetup_Power_Plant_Comp
     .word GraphicDataSetup_WWW_Comp
-    .word dummy_114bc
-    .word dummy_114bc
+    .word DummySetup_None
+    .word DummySetup_None
     .word GraphicDataSetup_ACDC_HP
     .word GraphicDataSetup_Govt_HP
     .word GraphicDataSetup_DenTown_HP
     .word GraphicDataSetup_SciLab_HP
     .word GraphicDataSetup_Other_Comp
-    .word dummy_114bc
-    .word dummy_114bc
-    .word dummy_114bc
+    .word DummySetup_None
+    .word DummySetup_None
+    .word DummySetup_None
     .word GraphicDataSetup_Internet
 DummySetup_Battle:
-    .word dummy_114bc
-    .word dummy_114bc
-    .word dummy_114bc
-    .word dummy_114bc
+    .word DummySetup_None
+    .word DummySetup_None
+    .word DummySetup_None
+    .word DummySetup_None
 GraphicDataSetup_Battle:
-    .word dummy_114bc
-    .word dummy_114bc
-    .word dummy_114bc
-    .word dummy_114bc
+    .word DummySetup_None
+    .word DummySetup_None
+    .word DummySetup_None
+    .word DummySetup_None
 
 
-_ts dummy_114bc
+_ts DummySetup_None
     push       {lr}
     pop        {pc}
 

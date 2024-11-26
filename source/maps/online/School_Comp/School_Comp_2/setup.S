@@ -97,7 +97,7 @@ _ts EventHandler_School_Comp_2_F12
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
     .word FUN_08040cd4
@@ -191,7 +191,7 @@ _ts EventHandler_School_Comp_2_F13
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
 PTR_EventHandler_School_Comp_2_F12_0_08040d8c:
@@ -329,7 +329,7 @@ _ts EventHandler_School_Comp_2_F14
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
 PTR_EventHandler_School_Comp_2_F14_0_08040e94:
@@ -382,7 +382,7 @@ _nt EventHandler_School_Comp_2_F15
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
     .align 2, 0

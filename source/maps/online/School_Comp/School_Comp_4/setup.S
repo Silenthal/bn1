@@ -97,7 +97,7 @@ _nt EventHandler_School_Comp_4_F14
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
     .align 2, 0
@@ -185,7 +185,7 @@ _ts EventHandler_School_Comp_4_F15
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_08040a50
+    bl         EventHandler_School_Comp_HandleJackOut
     pop        {pc}
 
 PTR_EventHandler_School_Comp_4_F15_0_08041644:

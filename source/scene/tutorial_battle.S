@@ -3,6 +3,10 @@
     .include "macros.inc"
 
 
+Cam_Set_08085100:
+    cam_end
+
+
 _ts Scene_TutorialBattle
     push       {lr}
     ldr        r0,PTR_PTR_S_TutorialBattle_0_0808529c
