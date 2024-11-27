@@ -595,102 +595,198 @@ global_label ScenarioData_1E
     .incbin "text/scenario/story_1E.script"
 global_label ScenarioData_1F
     .incbin "text/scenario/story_1F.script"
-    .incbin "text/scenario/072DD40.script"
-    .incbin "text/scenario/072DE60.script"
-    .incbin "text/scenario/072E050.script"
-    .incbin "text/scenario/072E244.script"
-    .incbin "text/scenario/072E3B0.script"
-    .incbin "text/scenario/072E4DC.script"
-    .incbin "text/scenario/072E790.script"
-    .incbin "text/scenario/072EB2C.script"
-    .incbin "text/scenario/072ED28.script"
-    .incbin "text/scenario/072EEB8.script"
-    .incbin "text/scenario/072F120.script"
-    .incbin "text/scenario/072F274.script"
-    .incbin "text/scenario/072F74C.script"
-    .incbin "text/scenario/072F8A4.script"
-    .incbin "text/scenario/072F914.script"
-    .incbin "text/scenario/072FD2C.script"
-    .incbin "text/scenario/073000C.script"
-    .incbin "text/scenario/0730278.script"
-    .incbin "text/scenario/07307E4.script"
-    .incbin "text/scenario/0730AB8.script"
-    .incbin "text/scenario/0730ED0.script"
-    .incbin "text/scenario/0731238.script"
-    .incbin "text/scenario/0731844.script"
-    .incbin "text/scenario/07319C4.script"
-    .incbin "text/scenario/0731B94.script"
-    .incbin "text/scenario/0731D10.script"
-    .incbin "text/scenario/0731EC0.script"
-    .incbin "text/scenario/0731F40.script"
-    .incbin "text/scenario/0732240.script"
-    .incbin "text/scenario/07324D4.script"
-    .incbin "text/scenario/0732534.script"
-    .incbin "text/scenario/07325FC.script"
-    .incbin "text/scenario/0732928.script"
-    .incbin "text/scenario/07329C8.script"
-    .incbin "text/scenario/0732A70.script"
-    .incbin "text/scenario/0732AE8.script"
-    .incbin "text/scenario/0732B78.script"
-    .incbin "text/scenario/0732C00.script"
-    .incbin "text/scenario/0732C4C.script"
-    .incbin "text/scenario/0732C70.script"
-    .incbin "text/scenario/0732C94.script"
-    .incbin "text/scenario/0732CB8.script"
-    .incbin "text/scenario/07330EC.script"
-    .incbin "text/scenario/073336C.script"
-    .incbin "text/scenario/0733488.script"
-    .incbin "text/scenario/073379C.script"
-    .incbin "text/scenario/07339E4.script"
-    .incbin "text/scenario/0733E60.script"
-    .incbin "text/scenario/0734140.script"
-    .incbin "text/scenario/07342C8.script"
-    .incbin "text/scenario/0734504.script"
-    .incbin "text/scenario/0734834.script"
-    .incbin "text/scenario/0734C54.script"
-    .incbin "text/scenario/07352BC.script"
-    .incbin "text/scenario/0735404.script"
-    .incbin "text/scenario/07357D4.script"
-    .incbin "text/scenario/07359B8.script"
-    .incbin "text/scenario/0735BBC.script"
-    .incbin "text/scenario/0735C4C.script"
-    .incbin "text/scenario/0735D08.script"
-    .incbin "text/scenario/0735E88.script"
-    .incbin "text/scenario/0735FE8.script"
-    .incbin "text/scenario/0736168.script"
-    .incbin "text/scenario/0736508.script"
-    .incbin "text/scenario/07369F0.script"
-    .incbin "text/scenario/0736AA4.script"
-    .incbin "text/scenario/0736D84.script"
-    .incbin "text/scenario/073724C.script"
-    .incbin "text/scenario/0737530.script"
-    .incbin "text/scenario/073783C.script"
-    .incbin "text/scenario/0737A8C.script"
-    .incbin "text/scenario/0737C98.script"
-    .incbin "text/scenario/0737F28.script"
-    .incbin "text/scenario/07381B8.script"
-    .incbin "text/scenario/07383DC.script"
-    .incbin "text/scenario/07384D4.script"
-    .incbin "text/scenario/07386F8.script"
-    .incbin "text/scenario/073896C.script"
-    .incbin "text/scenario/0738D78.script"
-    .incbin "text/scenario/0738E3C.script"
-    .incbin "text/scenario/0738FF0.script"
-    .incbin "text/scenario/0739078.script"
-    .incbin "text/scenario/0739260.script"
-    .incbin "text/scenario/0739450.script"
-    .incbin "text/scenario/0739628.script"
-    .incbin "text/scenario/0739778.script"
-    .incbin "text/scenario/07399FC.script"
-    .incbin "text/scenario/073A0CC.script"
-    .incbin "text/scenario/073A2F0.script"
-    .incbin "text/scenario/073B350.script"
-    .incbin "text/scenario/073B88C.script"
-    .incbin "text/scenario/073BF18.script"
-    .incbin "text/scenario/073C0EC.script"
-    .incbin "text/scenario/073C238.script"
-    .incbin "text/scenario/073C270.script"
-    .incbin "text/scenario/073C2AC.script"
+global_label ScenarioData_20
+    .incbin "text/scenario/story_20.script"
+global_label ScenarioData_21
+    .incbin "text/scenario/story_21.script"
+global_label ScenarioData_22
+    .incbin "text/scenario/story_22.script"
+global_label ScenarioData_23
+    .incbin "text/scenario/story_23.script"
+global_label ScenarioData_24
+    .incbin "text/scenario/story_24.script"
+global_label ScenarioData_25
+    .incbin "text/scenario/story_25.script"
+global_label ScenarioData_26
+    .incbin "text/scenario/story_26.script"
+global_label ScenarioData_27
+    .incbin "text/scenario/story_27.script"
+global_label ScenarioData_28
+    .incbin "text/scenario/story_28.script"
+global_label ScenarioData_29
+    .incbin "text/scenario/story_29.script"
+global_label ScenarioData_2A
+    .incbin "text/scenario/story_2A.script"
+global_label ScenarioData_2B
+    .incbin "text/scenario/story_2B.script"
+global_label ScenarioData_2C
+    .incbin "text/scenario/story_2C.script"
+global_label ScenarioData_2D
+    .incbin "text/scenario/story_2D.script"
+global_label ScenarioData_2E
+    .incbin "text/scenario/story_2E.script"
+global_label ScenarioData_2F
+    .incbin "text/scenario/story_2F.script"
+global_label ScenarioData_30
+    .incbin "text/scenario/story_30.script"
+global_label ScenarioData_31
+    .incbin "text/scenario/story_31.script"
+global_label ScenarioData_32
+    .incbin "text/scenario/story_32.script"
+global_label ScenarioData_33
+    .incbin "text/scenario/story_33.script"
+global_label ScenarioData_34
+    .incbin "text/scenario/story_34.script"
+global_label ScenarioData_35
+    .incbin "text/scenario/story_35.script"
+global_label ScenarioData_36
+    .incbin "text/scenario/story_36.script"
+global_label ScenarioData_37
+    .incbin "text/scenario/story_37.script"
+global_label ScenarioData_38
+    .incbin "text/scenario/story_38.script"
+global_label ScenarioData_39
+    .incbin "text/scenario/story_39.script"
+global_label ScenarioData_3A
+    .incbin "text/scenario/story_3A.script"
+global_label ScenarioData_3B
+    .incbin "text/scenario/story_3B.script"
+global_label ScenarioData_3C
+    .incbin "text/scenario/story_3C.script"
+global_label ScenarioData_3D
+    .incbin "text/scenario/story_3D.script"
+global_label ScenarioData_3E
+    .incbin "text/scenario/story_3E.script"
+global_label ScenarioData_3F
+    .incbin "text/scenario/story_3F.script"
+global_label ScenarioData_40
+    .incbin "text/scenario/story_40.script"
+global_label ScenarioData_41
+    .incbin "text/scenario/story_41.script"
+global_label ScenarioData_42
+    .incbin "text/scenario/story_42.script"
+global_label ScenarioData_43
+    .incbin "text/scenario/story_43.script"
+global_label ScenarioData_44
+    .incbin "text/scenario/story_44.script"
+global_label ScenarioData_45
+    .incbin "text/scenario/story_45.script"
+global_label ScenarioData_46
+    .incbin "text/scenario/story_46.script"
+global_label ScenarioData_47
+    .incbin "text/scenario/story_47.script"
+global_label ScenarioData_48
+    .incbin "text/scenario/story_48.script"
+global_label ScenarioData_49
+    .incbin "text/scenario/story_49.script"
+global_label ScenarioData_4A
+    .incbin "text/scenario/story_4A.script"
+global_label ScenarioData_4B
+    .incbin "text/scenario/story_4B.script"
+global_label ScenarioData_4C
+    .incbin "text/scenario/story_4C.script"
+global_label ScenarioData_4D
+    .incbin "text/scenario/story_4D.script"
+global_label ScenarioData_4E
+    .incbin "text/scenario/story_4E.script"
+global_label ScenarioData_4F
+    .incbin "text/scenario/story_4F.script"
+global_label ScenarioData_50
+    .incbin "text/scenario/story_50.script"
+global_label ScenarioData_51
+    .incbin "text/scenario/story_51.script"
+global_label ScenarioData_52
+    .incbin "text/scenario/story_52.script"
+global_label ScenarioData_53
+    .incbin "text/scenario/story_53.script"
+global_label ScenarioData_54
+    .incbin "text/scenario/story_54.script"
+global_label ScenarioData_55
+    .incbin "text/scenario/story_55.script"
+global_label ScenarioData_56
+    .incbin "text/scenario/story_56.script"
+global_label ScenarioData_57
+    .incbin "text/scenario/story_57.script"
+global_label ScenarioData_58
+    .incbin "text/scenario/story_58.script"
+global_label ScenarioData_59
+    .incbin "text/scenario/story_59.script"
+global_label ScenarioData_5A
+    .incbin "text/scenario/story_5A.script"
+global_label ScenarioData_5B
+    .incbin "text/scenario/story_5B.script"
+global_label ScenarioData_5C
+    .incbin "text/scenario/story_5C.script"
+global_label ScenarioData_5D
+    .incbin "text/scenario/story_5D.script"
+global_label ScenarioData_5E
+    .incbin "text/scenario/story_5E.script"
+global_label ScenarioData_5F
+    .incbin "text/scenario/story_5F.script"
+global_label ScenarioData_60
+    .incbin "text/scenario/story_60.script"
+global_label ScenarioData_61
+    .incbin "text/scenario/story_61.script"
+global_label ScenarioData_62
+    .incbin "text/scenario/story_62.script"
+global_label ScenarioData_63
+    .incbin "text/scenario/story_63.script"
+global_label ScenarioData_64
+    .incbin "text/scenario/story_64.script"
+global_label ScenarioData_65
+    .incbin "text/scenario/story_65.script"
+global_label ScenarioData_66
+    .incbin "text/scenario/story_66.script"
+global_label ScenarioData_67
+    .incbin "text/scenario/story_67.script"
+global_label ScenarioData_68
+    .incbin "text/scenario/story_68.script"
+global_label ScenarioData_69
+    .incbin "text/scenario/story_69.script"
+global_label ScenarioData_6A
+    .incbin "text/scenario/story_6A.script"
+global_label ScenarioData_6B
+    .incbin "text/scenario/story_6B.script"
+global_label ScenarioData_6C
+    .incbin "text/scenario/story_6C.script"
+global_label ScenarioData_6D
+    .incbin "text/scenario/story_6D.script"
+global_label ScenarioData_6E
+    .incbin "text/scenario/story_6E.script"
+global_label ScenarioData_6F
+    .incbin "text/scenario/story_6F.script"
+global_label ScenarioData_70
+    .incbin "text/scenario/story_70.script"
+global_label ScenarioData_71
+    .incbin "text/scenario/story_71.script"
+global_label ScenarioData_72
+    .incbin "text/scenario/story_72.script"
+global_label ScenarioData_73
+    .incbin "text/scenario/story_73.script"
+global_label ScenarioData_74
+    .incbin "text/scenario/story_74.script"
+global_label ScenarioData_75
+    .incbin "text/scenario/story_75.script"
+global_label ScenarioData_76
+    .incbin "text/scenario/story_76.script"
+global_label ScenarioData_77
+    .incbin "text/scenario/story_77.script"
+global_label ScenarioData_78
+    .incbin "text/scenario/story_78.script"
+global_label ScenarioData_79
+    .incbin "text/scenario/story_79.script"
+global_label ScenarioData_7A
+    .incbin "text/scenario/story_7A.script"
+global_label ScenarioData_7B
+    .incbin "text/scenario/story_7B.script"
+global_label ScenarioData_7C
+    .incbin "text/scenario/story_7C.script"
+global_label ScenarioData_7D
+    .incbin "text/scenario/story_7D.script"
+global_label ScenarioData_7E
+    .incbin "text/scenario/story_7E.script"
+global_label ScenarioData_7F
+    .incbin "text/scenario/story_7F.script"
 global_label textDict_Battle_Tutorial1
     .incbin "text/scenario/tutorial/tutorial1.script"
 global_label textDict_Battle_Tutorial2
