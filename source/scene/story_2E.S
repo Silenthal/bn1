@@ -1,0 +1,360 @@
+#include "offsets.h"
+    .include "constants.inc"
+    .include "macros.inc"
+
+
+Cam_Set_0808a4bc:
+    cam_set -192, 138, 0
+    cam_move 128, -128, 0, 212
+    cam_wait 60
+    cam_end
+
+
+_ts Scene_Story_2E
+    push       {lr}
+    ldr        r0,PTR_PTR_S_Story_2E_0_0808a778
+    ldrb       r1,[r5,#0x0]
+    add        r0,r0,r1
+    ldr        r0,[r0,#0x0]
+    bx         r0
+
+PTR_S_Story_2E_0_0808a4e0:
+    .word S_Story_2E_0
+    .word S_Story_2E_1
+    .word S_Story_2E_2
+    .word S_Story_2E_3
+    .word S_Story_2E_4
+    .word S_Story_2E_5
+    .word S_Story_2E_6
+    .word S_Story_2E_7
+    .word S_Story_2E_8
+    .word S_Story_2E_9
+    .word S_Story_2E_10
+
+
+_ts S_Story_2E_0
+    push       {r5}
+    bl         PlayerAnimation_Lock
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+    mov        r0,#0x0
+    strb       r0,[r5,#0x1]
+    pop        {pc}
+
+
+_ts S_Story_2E_1
+    push       {r5}
+    bl         PlayerAnimation_GetState
+    pop        {r5}
+    cmp        r0,#0x2
+    bne        LAB_0808a55a
+    push       {r5}
+    mov        r0,#0x5a
+    neg        r0,r0
+    lsl        r0,r0,#0x10
+    mov        r1,#0x24
+    lsl        r1,r1,#0x10
+    mov        r2,#0x0
+    bl         PlayerAnimation_SetPosition
+    mov        r0,#0x0
+    bl         PlayerAnimation_SetState
+    mov        r0,#0x3
+    mov        r1,#0x8
+    bl         Fade_Request
+    pop        {r5}
+    ldr        r0,PTR_Cam_Set_0808a77c
+    bl         SceneCamera_Init
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_0808a55a:
+    pop        {pc}
+
+
+_ts S_Story_2E_2
+    bl         SceneCamera_Main
+    cmp        r0,#0x1
+    beq        LAB_0808a582
+    mov        r0,r10
+    ldr        r0,[r0,#0x18]
+    ldrb       r0,[r0,#0x3]
+    mov        r1,#0x1
+    cmp        r0,r1
+    beq        LAB_0808a58c
+    push       {r5}
+    ldr        r0,PTR_ScenarioData_2E_0808a780
+    mov        r1,#0x0
+    bl         Text_LoadDialogue
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_0808a582:
+    bl         Scene_IsStartPressed
+    beq        LAB_0808a58c
+    bl         S_Story_2E_SkipIfStart
+LAB_0808a58c:
+    pop        {pc}
+
+
+_nt S_Story_2E_3
+    push       {r5}
+    mov        r0,#0x80
+    bl         Text_CheckOption
+    pop        {r5}
+    bne        LAB_0808a5ae
+    push       {r5}
+    ldr        r7,PTR_DAT_0808a784
+    bl         Map_LoadNPCList
+    pop        {r5}
+    mov        r0,#0xdc
+    strb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_0808a5ae:
+    bl         Scene_IsStartPressed
+    beq        LAB_0808a5b8
+    bl         S_Story_2E_SkipIfStart
+LAB_0808a5b8:
+    pop        {pc}
+
+
+_nt S_Story_2E_4
+    ldrb       r0,[r5,#0x8]
+    cmp        r0,#0x0
+    bne        LAB_0808a5d2
+    push       {r5}
+    ldr        r0,PTR_ScenarioData_2E_0808a780
+    mov        r1,#0x2
+    bl         Text_LoadDialogue
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_0808a5d2:
+    sub        r0,#0x1
+    strb       r0,[r5,#0x8]
+    bl         Scene_IsStartPressed
+    beq        LAB_0808a5e0
+    bl         S_Story_2E_SkipIfStart
+LAB_0808a5e0:
+    pop        {pc}
+
+
+_nt S_Story_2E_5
+    mov        r0,#0xac
+    bl         Flag_GetBase
+    beq        LAB_0808a5fc
+    push       {r5}
+    ldr        r0,PTR_ScenarioData_2E_0808a780
+    mov        r1,#0x3
+    bl         Text_LoadDialogue
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_0808a5fc:
+    bl         Scene_IsStartPressed
+    beq        LAB_0808a606
+    bl         S_Story_2E_SkipIfStart
+LAB_0808a606:
+    pop        {pc}
+
+
+_ts S_Story_2E_6
+    push       {r5}
+    mov        r0,#0x80
+    bl         Text_CheckOption
+    pop        {r5}
+    bne        LAB_0808a5ae
+    mov        r0,#0xad
+    bl         Flag_SetBase
+    mov        r0,#0x3c
+    strb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+    bl         Scene_IsStartPressed
+    beq        LAB_0808a62e
+    bl         S_Story_2E_SkipIfStart
+LAB_0808a62e:
+    pop        {pc}
+
+
+_ts S_Story_2E_7
+    mov        r0,#0xae
+    bl         Flag_GetBase
+    beq        LAB_0808a654
+    ldrb       r0,[r5,#0x8]
+    sub        r0,#0x1
+    strb       r0,[r5,#0x8]
+    cmp        r0,#0x0
+    bne        LAB_0808a654
+    push       {r5}
+    ldr        r0,PTR_ScenarioData_2E_0808a780
+    mov        r1,#0x4
+    bl         Text_LoadDialogue
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_0808a654:
+    bl         Scene_IsStartPressed
+    beq        LAB_0808a65e
+    bl         S_Story_2E_SkipIfStart
+LAB_0808a65e:
+    pop        {pc}
+
+
+_ts S_Story_2E_8
+    mov        r0,#0xf6
+    bl         Flag_GetBase
+    beq        LAB_0808a674
+    mov        r0,#0x4
+    bl         Sound_ChangeSong
+    mov        r0,#0xf6
+    bl         Flag_ClearBase
+LAB_0808a674:
+    ldrb       r0,[r5,#0x1]
+    tst        r0,r0
+    beq        LAB_0808a694
+    ldrb       r0,[r5,#0x8]
+    sub        r0,#0x1
+    strb       r0,[r5,#0x8]
+    tst        r0,r0
+    bne        LAB_0808a6b4
+    mov        r0,#0x0
+    strb       r0,[r5,#0x1]
+    push       {r5}
+    mov        r0,#0x4
+    bl         PetStatusControl_SetState
+    pop        {r5}
+    b          LAB_0808a6b4
+LAB_0808a694:
+    mov        r0,#0xf9
+    bl         Flag_GetBase
+    beq        LAB_0808a6b4
+    mov        r0,#0xf9
+    bl         Flag_ClearBase
+    push       {r5}
+    mov        r0,#0xc
+    bl         PetStatusControl_SetState
+    pop        {r5}
+    mov        r0,#0x78
+    strb       r0,[r5,#0x8]
+    mov        r0,#0x1
+    strb       r0,[r5,#0x1]
+LAB_0808a6b4:
+    push       {r5}
+    mov        r0,#0x80
+    bl         Text_CheckOption
+    pop        {r5}
+    bne        LAB_0808a6d8
+    mov        r0,#0x0
+    bl         NPC_FindByIndex
+    push       {r5}
+    mov        r0,#0x4
+    mov        r1,#0x8
+    bl         Fade_Request
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_0808a6d8:
+    pop        {pc}
+
+
+_nt S_Story_2E_9
+    mov        r0,r10
+    ldr        r0,[r0,#0x18]
+    ldrb       r0,[r0,#0x3]
+    mov        r1,#0x1
+    cmp        r0,r1
+    beq        LAB_0808a72c
+    push       {r5}
+    mov        r0,#0x40
+    bl         Text_DisableOption
+    bl         Text_DisableDialogue
+    pop        {r5}
+    push       {r5}
+    mov        r0,#0x10
+    bl         Entity_FreeAllMultiple
+    pop        {r5}
+    push       {r5}
+    ldr        r7,PTR_DAT_0808a788
+    bl         Map_LoadNPCList
+    pop        {r5}
+    push       {r5}
+    mov        r0,#0x1
+    mov        r1,r10
+    ldr        r1,[r1,#0x8]
+    ldr        r1,[r1,#0x28]
+    add        r1,#0x24
+    bl         Camera_SetEnabled
+    pop        {r5}
+    push       {r5}
+    mov        r0,#0x3
+    mov        r1,#0x8
+    bl         Fade_Request
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_0808a72c:
+    pop        {pc}
+
+
+_nt S_Story_2E_10
+    mov        r0,r10
+    ldr        r0,[r0,#0x18]
+    ldrb       r0,[r0,#0x3]
+    mov        r1,#0x1
+    cmp        r0,r1
+    beq        LAB_0808a75c
+    push       {r5}
+    bl         Text_DisableDialogue
+    mov        r0,#0xab
+    bl         Flag_SetBase
+    pop        {r5}
+    mov        r0,#0x4
+    bl         Sound_ChangeSong
+    bl         PlayerAnimation_Unlock
+    mov        r0,#0xdf
+    bl         Flag_ClearBase
+    bl         Scene_UnloadAndResetStepCounter
+LAB_0808a75c:
+    pop        {pc}
+
+
+_nt S_Story_2E_SkipIfStart
+    push       {r5}
+    mov        r0,#0x4
+    mov        r1,#0x10
+    bl         Fade_Request
+    mov        r0,#0x40
+    bl         Text_EnableOption
+    pop        {r5}
+    mov        r0,#0x24
+    strb       r0,[r5,#0x0]
+    pop        {pc}
+
+    .align 2, 0
+
+
+PTR_PTR_S_Story_2E_0_0808a778:
+    .word PTR_S_Story_2E_0_0808a4e0
+
+PTR_Cam_Set_0808a77c:
+    .word Cam_Set_0808a4bc
+
+PTR_ScenarioData_2E_0808a780:
+    .word ScenarioData_2E
+
+PTR_DAT_0808a784:
+    .word NPCList_80304DC
+
+PTR_DAT_0808a788:
+    .word NPCList_8030534
