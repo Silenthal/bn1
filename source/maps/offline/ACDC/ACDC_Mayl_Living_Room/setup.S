@@ -176,7 +176,7 @@ _ts EventHandler_ACDC_Mayl_Living_Room_S2
     mov        lr,pc
     bx         r0
     mov        r1,#0x7
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0
@@ -307,7 +307,7 @@ _ts EventHandler_ACDC_Mayl_Living_Room_F25_0
     pop        {pc}
 
 
-_ts FUN_0802d78c
+_ts EventHandler_Offline_HandleJackIn
     push       {lr}
     push       {r1}
     bl         Scene_IsSceneActive
@@ -444,7 +444,7 @@ _ts EventHandler_ACDC_Mayl_Living_Room_S3
     mov        lr,pc
     bx         r0
     mov        r1,#0x7
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0
@@ -521,7 +521,7 @@ _ts EventHandler_ACDC_Mayl_Living_Room_S4
     mov        lr,pc
     bx         r0
     mov        r1,#0x7
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0

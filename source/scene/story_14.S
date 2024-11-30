@@ -116,7 +116,7 @@ _ts S_Story_14_2
     strb       r0,[r5,#0x0]
 
 
-_nt FUN_08086b3e
+_nt S_Story_14_SkipIfStart
     bl         Scene_IsStartPressed
     beq        LAB_08086b48
     mov        r0,#0x14
@@ -152,7 +152,7 @@ LAB_08086b6e:
     add        r0,#0x8
     strb       r0,[r5,#0x0]
 LAB_08086b80:
-    b          FUN_08086b3e
+    b          S_Story_14_SkipIfStart
 
 
 _nt S_Story_14_4
@@ -165,7 +165,7 @@ _nt S_Story_14_4
     add        r0,#0x4
     strb       r0,[r5,#0x0]
 LAB_08086b94:
-    b          FUN_08086b3e
+    b          S_Story_14_SkipIfStart
 
 
 _nt S_Story_14_5

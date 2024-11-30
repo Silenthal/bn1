@@ -55,7 +55,7 @@ section_end()
 
 # 0x82 @ 0x6C6FD9
 section_start(0x82)
-if_flag(FLAG_JACK_IN_OVEN_COMP, 0x83, 0xFF)
+if_flag(FLAG_STORY_13, 0x83, 0xFF)
 pic(34)
 dialog_up()
 text("{a 2}Lan,I wanna know\nwhat's in that mail\nfrom the WWW!{a 1}\p")

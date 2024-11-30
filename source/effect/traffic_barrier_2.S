@@ -81,4 +81,4 @@ DAT_0807eb10:
     .word 0x3FFFFFFF
 
 PTR_DAT_0807eb14:
-    .word 0x2000120
+    .word gTraffic

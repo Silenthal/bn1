@@ -48,7 +48,7 @@ _ts EventHandler_ACDC_Higsbys_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_0802ec40
+    bl         EventHandler_ACDC_Higsbys_CheckChipTrader
     pop        {pc}
 PTR_EventHandler_Default_0802eaa8:
     .word EventHandler_Default
@@ -249,7 +249,7 @@ LAB_0802ec38:
     pop        {pc}
 
 
-_ts FUN_0802ec40
+_ts EventHandler_ACDC_Higsbys_CheckChipTrader
     push       {r5,lr}
     mov        r7,r10
     ldr        r6,[r7,#0x18]
@@ -361,7 +361,7 @@ _ts EventHandler_ACDC_Higsbys_S3
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_0802ec40
+    bl         EventHandler_ACDC_Higsbys_CheckChipTrader
     pop        {pc}
 PTR_EventHandler_ACDC_Higsbys_F30_0802ed24:
     .word EventHandler_ACDC_Higsbys_F30
@@ -521,7 +521,7 @@ _ts EventHandler_ACDC_Higsbys_S4
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_0802ec40
+    bl         EventHandler_ACDC_Higsbys_CheckChipTrader
     pop        {pc}
 PTR_EventHandler_ACDC_Higsbys_F40_0802ee78:
     .word EventHandler_ACDC_Higsbys_F40
@@ -676,7 +676,7 @@ _ts EventHandler_ACDC_Higsbys_S5
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_0802ec40
+    bl         EventHandler_ACDC_Higsbys_CheckChipTrader
     pop        {pc}
 PTR_EventHandler_ACDC_Higsbys_F50_0802efc4:
     .word EventHandler_ACDC_Higsbys_F50

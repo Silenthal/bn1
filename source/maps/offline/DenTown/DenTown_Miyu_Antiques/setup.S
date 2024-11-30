@@ -129,7 +129,7 @@ _ts EventHandler_DenTown_Miyu_Antiques_F30_0
     pop        {r5}
 LAB_0803881e:
     mov        r1,#0x1b
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
 
@@ -194,7 +194,7 @@ _ts EventHandler_DenTown_Miyu_Antiques_F34_0
     pop        {r5}
 LAB_0803889a:
     mov        r1,#0x1b
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0
@@ -347,7 +347,7 @@ LAB_080389ae:
     pop        {r5}
 LAB_080389c2:
     mov        r1,#0x1b
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0
@@ -486,7 +486,7 @@ LAB_08038ac4:
     pop        {r5}
 LAB_08038ad8:
     mov        r1,#0x1b
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
 PTR_PTR_MapSetup_DenTown_Miyu_Antiques_F50_08038ae0:

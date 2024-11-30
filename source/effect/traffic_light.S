@@ -88,4 +88,4 @@ PTR_main_0807e6ec:
     .word 0x8000000
 
 PTR_DAT_0807e6f0:
-    .word 0x2000120
+    .word gTraffic

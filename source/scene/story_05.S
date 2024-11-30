@@ -135,7 +135,7 @@ _ts S_Story_05_4
 LAB_08083960:
     bl         Scene_IsStartPressed
     beq        LAB_0808396a
-    bl         FUN_0808398c
+    bl         S_Story_05_SkipIfStart
 LAB_0808396a:
     pop        {pc}
 
@@ -154,7 +154,7 @@ _ts S_Story_05_5
     pop        {pc}
 
 
-_ts FUN_0808398c
+_ts S_Story_05_SkipIfStart
     push       {lr}
     push       {r5}
     mov        r0,#0x40

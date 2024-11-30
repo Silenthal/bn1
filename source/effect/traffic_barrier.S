@@ -78,4 +78,4 @@ DAT_0807e774:
     .word 0x109
 
 PTR_DAT_0807e778:
-    .word 0x2000120
+    .word gTraffic

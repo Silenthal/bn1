@@ -257,7 +257,7 @@ _ts EventHandler_ACDC_Yai_Room_S2
     mov        lr,pc
     bx         r0
     mov        r1,#0x8
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     mov        r0,#0x41
     mov        r1,#0x1f
     bl         CheckForJackIn
@@ -525,7 +525,7 @@ _ts EventHandler_ACDC_Yai_Room_S3
     mov        lr,pc
     bx         r0
     mov        r1,#0x8
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     mov        r0,#0x41
     mov        r1,#0x1f
     bl         CheckForJackIn
@@ -619,7 +619,7 @@ _ts EventHandler_ACDC_Yai_Room_S4
     mov        lr,pc
     bx         r0
     mov        r1,#0x8
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     mov        r0,#0x41
     mov        r1,#0x1f
     bl         CheckForJackIn
@@ -713,7 +713,7 @@ _ts EventHandler_ACDC_Yai_Room_S5
     mov        lr,pc
     bx         r0
     mov        r1,#0x8
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     mov        r0,#0x41
     mov        r1,#0x1f
     bl         CheckForJackIn

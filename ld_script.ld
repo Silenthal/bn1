@@ -27,6 +27,7 @@ SECTIONS {
 	{
 		gFlagBase					= 0;
 		gShopInventory0				= 0x90;
+		gTraffic					= 0x120;
 		gShopInventory4				= 0x130;
 		gFolder						= 0x1C0;
 		gBitsetNPC					= 0x1FC;

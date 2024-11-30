@@ -63,7 +63,7 @@ _ts EventHandler_Govt_Complex_Front_S2
     mov        lr,pc
     bx         r0
     mov        r1,#0xd
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0
@@ -463,7 +463,7 @@ _ts EventHandler_Govt_Complex_Front_S3
     mov        lr,pc
     bx         r0
     mov        r1,#0xd
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0
@@ -626,7 +626,7 @@ _ts EventHandler_Govt_Complex_Front_S4
     mov        lr,pc
     bx         r0
     mov        r1,#0xd
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     mov        r1,#0x13
     bl         FUN_08031c36
     pop        {pc}
@@ -893,7 +893,7 @@ _ts EventHandler_Govt_Complex_Front_S5
     mov        lr,pc
     bx         r0
     mov        r1,#0xd
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     mov        r1,#0x13
     bl         FUN_0803205c
     pop        {pc}

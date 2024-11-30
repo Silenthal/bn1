@@ -742,7 +742,7 @@ _ts EventHandler_ACDC_Lan_Room_S2
     mov        lr,pc
     bx         r0
     mov        r1,#0x6
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0
@@ -1057,7 +1057,7 @@ _ts EventHandler_ACDC_Lan_Room_S3
     mov        lr,pc
     bx         r0
     mov        r1,#0x6
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0
@@ -1146,7 +1146,7 @@ _ts EventHandler_ACDC_Lan_Room_S5
     mov        lr,pc
     bx         r0
     mov        r1,#0x6
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0
@@ -1384,7 +1384,7 @@ _ts EventHandler_ACDC_Lan_Room_S4
     mov        lr,pc
     bx         r0
     mov        r1,#0x6
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0

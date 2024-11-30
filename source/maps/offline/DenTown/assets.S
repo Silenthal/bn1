@@ -1576,7 +1576,7 @@ NPCParamList_803B6B4:
     .word f(364, -30, 0), 3
 
 
-_ts FUN_0803b6f4
+_ts Traffic_Init
     push       {r5,lr}
     ldr        r5,PTR_DAT_0803b900
     mov        r0,r10
@@ -1596,7 +1596,7 @@ LAB_0803b70c:
     strb       r0,[r5,#0x5]
     mov        r0,#0x0
     strb       r0,[r5,#0x4]
-    bl         FUN_0803b890
+    bl         Traffic_SetCarTimer
     ldr        r0,DAT_0803b904
     strh       r0,[r5,#0x2]
     mov        r0,#0x0
@@ -1650,23 +1650,23 @@ LAB_0803b766:
     .align 2, 0
 
 
-_ts FUN_0803b788
+_ts Traffic_Main
     push       {r5,lr}
     ldr        r5,PTR_DAT_0803b90c
-    ldr        r0,PTR_PTR_FUN_0803b7a4_0803b910
+    ldr        r0,PTR_PTR_Traffic_0_CheckTimers_0803b910
     ldrb       r1,[r5,#0x4]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     pop        {r5,pc}
 
-PTR_FUN_0803b7a4_0803b798:
-    .word FUN_0803b7a4
-    .word FUN_0803b7f4
-    .word FUN_0803b810
+PTR_Traffic_0_CheckTimers_0803b798:
+    .word Traffic_0_CheckTimers
+    .word Traffic_1_WaitForCars
+    .word Traffic_2_ChangeLight
 
 
-_ts FUN_0803b7a4
+_ts Traffic_0_CheckTimers
     push       {lr}
     ldrh       r0,[r5,#0x2]
     sub        r0,#0x1
@@ -1700,15 +1700,15 @@ LAB_0803b7e0:
     sub        r0,#0x1
     strh       r0,[r5,#0x0]
     bgt        LAB_0803b7f0
-    bl         FUN_0803b840
-    bl         FUN_0803b890
+    bl         Traffic_SpawnCar
+    bl         Traffic_SetCarTimer
 LAB_0803b7f0:
     pop        {pc}
 
     .align 2, 0
 
 
-_ts FUN_0803b7f4
+_ts Traffic_1_WaitForCars
     push       {lr}
     ldrb       r0,[r5,#0x5]
     add        r0,#0x8
@@ -1726,7 +1726,7 @@ LAB_0803b80e:
     pop        {pc}
 
 
-_ts FUN_0803b810
+_ts Traffic_2_ChangeLight
     push       {lr}
     ldrh       r0,[r5,#0x2]
     sub        r0,#0x1
@@ -1752,7 +1752,7 @@ LAB_0803b83e:
     pop        {pc}
 
 
-_ts FUN_0803b840
+_ts Traffic_SpawnCar
     push       {lr}
     ldrb       r0,[r5,#0x7]
     cmp        r0,#0x2
@@ -1797,7 +1797,7 @@ LAB_0803b88c:
     .align 2, 0
 
 
-_ts FUN_0803b890
+_ts Traffic_SetCarTimer
     push       {lr}
     mov        r1,#0x1
     ldrb       r0,[r5,#0x7]
@@ -1825,7 +1825,7 @@ DAT_0803b8b4:
     .byte 210
 
 
-_ts FUN_0803b8b8
+_ts Traffic_ResetToRedLight
     push       {r5,lr}
     ldr        r5,PTR_DAT_0803b91c
     mov        r0,#0x1
@@ -1834,7 +1834,7 @@ _ts FUN_0803b8b8
     strb       r0,[r5,#0x5]
     mov        r0,#0x0
     strb       r0,[r5,#0x4]
-    bl         FUN_0803b890
+    bl         Traffic_SetCarTimer
     ldr        r0,DAT_0803b904
     strh       r0,[r5,#0x2]
     mov        r0,#0x0
@@ -1860,19 +1860,19 @@ _ts FUN_0803b8b8
     pop        {r5,pc}
 
 PTR_DAT_0803b900:
-    .word 0x2000120
+    .word gTraffic
 
 DAT_0803b904:
-    .word 0x168
+    .word 360
 
 PTR_PTR_EntityAllocParams_8039694_0803b908:
     .word PTR_EntityAllocParams_8039694_0803b584
 
 PTR_DAT_0803b90c:
-    .word 0x2000120
+    .word gTraffic
 
-PTR_PTR_FUN_0803b7a4_0803b910:
-    .word PTR_FUN_0803b7a4_0803b798
+PTR_PTR_Traffic_0_CheckTimers_0803b910:
+    .word PTR_Traffic_0_CheckTimers_0803b798
 
 PTR_PTR_NPCParamList_803B5B4_0803b914:
     .word PTR_NPCParamList_803B5B4_0803b59c
@@ -1881,7 +1881,7 @@ PTR_DAT_0803b918:
     .word DAT_0803b8b4
 
 PTR_DAT_0803b91c:
-    .word 0x2000120
+    .word gTraffic
 
 PTR_PTR_EntityAllocParams_8039694_0803b920:
     .word PTR_EntityAllocParams_8039694_0803b584

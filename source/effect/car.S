@@ -402,10 +402,10 @@ PTR_PTR_0807ea74:
     .word PTR_PTR_USHORT_ARRAY_0807e77c
 
 PTR_DAT_0807ea78:
-    .word 0x2000120
+    .word gTraffic
 
 PTR_DAT_0807ea7c:
-    .word 0x2000120
+    .word gTraffic
 
 PTR_DAT_0807ea80:
-    .word 0x2000120
+    .word gTraffic

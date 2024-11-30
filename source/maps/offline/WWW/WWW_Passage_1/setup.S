@@ -161,7 +161,7 @@ _ts FUN_0803e39c
     pop        {r5}
 LAB_0803e3a6:
     mov        r1,#0x16
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0

@@ -136,7 +136,7 @@ LAB_0803e4d6:
     pop        {r5}
 LAB_0803e4ea:
     mov        r1,#0x18
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     pop        {pc}
 
     .align 2, 0

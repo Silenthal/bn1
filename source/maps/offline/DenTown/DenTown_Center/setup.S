@@ -85,7 +85,7 @@ PTR_EventHandler_DenTown_Center_F30_080361dc:
 _ts MapSetup_DenTown_Center_F30
     push       {lr}
     push       {r5}
-    bl         FUN_0803b6f4
+    bl         Traffic_Init
     pop        {r5}
     push       {r5}
     bl         PlayerLocation_Create
@@ -114,7 +114,7 @@ _ts EventHandler_DenTown_Center_F30
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
-    bl         FUN_0803b788
+    bl         Traffic_Main
     pop        {pc}
 
 PTR_PTR_EventHandler_DenTown_Center_F30_0_08036240:
@@ -1168,7 +1168,7 @@ _ts MapSetup_DenTown_Center_S4
     ldr        r0,PTR_EntityAllocParams_8039828_08036b10
     bl         Entity_AllocList
     pop        {r5}
-    bl         FUN_0803b6f4
+    bl         Traffic_Init
     bl         Sound_AreaSongChange
     pop        {pc}
 
@@ -1191,7 +1191,7 @@ _ts EventHandler_DenTown_Center_S4
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_0803b788
+    bl         Traffic_Main
     pop        {pc}
 
 PTR_EventHandler_DenTown_Center_F40_08036a50:
@@ -1321,7 +1321,7 @@ _ts MapSetup_DenTown_Center_S5
     ldr        r0,PTR_EntityAllocParams_8039828_08036c6c
     bl         Entity_AllocList
     pop        {r5}
-    bl         FUN_0803b6f4
+    bl         Traffic_Init
     bl         Sound_AreaSongChange
     pop        {pc}
 
@@ -1344,7 +1344,7 @@ _ts EventHandler_DenTown_Center_S5
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    bl         FUN_0803b788
+    bl         Traffic_Main
     pop        {pc}
 
 PTR_EventHandler_DenTown_Center_F50_08036b78:

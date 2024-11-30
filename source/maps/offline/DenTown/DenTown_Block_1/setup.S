@@ -77,7 +77,7 @@ PTR_EventHandler_DenTown_Block_1_F30_08036fa8:
 _ts MapSetup_DenTown_Block_1_F30
     push       {lr}
     push       {r5}
-    bl         FUN_0803b6f4
+    bl         Traffic_Init
     pop        {r5}
     push       {r5}
     bl         PlayerLocation_Create
@@ -126,7 +126,7 @@ PTR_EventHandler_DenTown_Block_1_F30_0_08037020:
 _ts EventHandler_DenTown_Block_1_F30_0
     push       {lr}
     push       {r5}
-    bl         FUN_0803b788
+    bl         Traffic_Main
     pop        {r5}
     push       {r5}
     mov        r7,r10
@@ -307,7 +307,7 @@ _ts MapSetup_DenTown_Block_1_F32
     mov        r0,#0x9b
     bl         Flag_GetBase
     beq        LAB_080371ba
-    bl         FUN_0803b6f4
+    bl         Traffic_Init
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_803A76C_080372f4
     bl         Entity_AllocList
@@ -370,7 +370,7 @@ LAB_08037212:
 
 _ts EventHandler_DenTown_Block_1_F32_1
     push       {lr}
-    bl         FUN_0803b788
+    bl         Traffic_Main
     pop        {pc}
 
 
@@ -532,7 +532,7 @@ _ts MapSetup_DenTown_Block_1_S4
     ldr        r0,PTR_EntityAllocParams_803A76C_0803743c
     bl         Entity_AllocList
     pop        {r5}
-    bl         FUN_0803b6f4
+    bl         Traffic_Init
     bl         Sound_AreaSongChange
     pop        {pc}
 
@@ -556,7 +556,7 @@ _ts EventHandler_DenTown_Block_1_S4
     mov        lr,pc
     bx         r0
     bl         FUN_080373c8
-    bl         FUN_0803b788
+    bl         Traffic_Main
     pop        {pc}
 
 PTR_EventHandler_DenTown_Block_1_F40_0803736c:
@@ -697,7 +697,7 @@ _ts MapSetup_DenTown_Block_1_S5
     ldr        r0,PTR_EntityAllocParams_803A76C_08037594
     bl         Entity_AllocList
     pop        {r5}
-    bl         FUN_0803b6f4
+    bl         Traffic_Init
     bl         Sound_AreaSongChange
     pop        {pc}
 
@@ -721,7 +721,7 @@ _ts EventHandler_DenTown_Block_1_S5
     mov        lr,pc
     bx         r0
     bl         FUN_08037520
-    bl         FUN_0803b788
+    bl         Traffic_Main
     pop        {pc}
 
 PTR_EventHandler_DenTown_Block_1_F50_080374ac:

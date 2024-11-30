@@ -237,7 +237,7 @@ LAB_0803dc0c:
     pop        {r5}
 LAB_0803dc20:
     mov        r1,#0x17
-    bl         FUN_0802d78c
+    bl         EventHandler_Offline_HandleJackIn
     mov        r1,#0x19
     bl         FUN_0803dc2e
     pop        {pc}
