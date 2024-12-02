@@ -50,7 +50,7 @@ listHandlerEffect:
     .word Effect_FloorBreak
     .word Effect_ColorMan
     .word Effect_RemobitThunder
-    .word Effect_Cannon
+    .word Effect_Chaud
     .word Effect_PoisonCloud
     .word Effect_TrafficSwitch
     .word Effect_CountZap
