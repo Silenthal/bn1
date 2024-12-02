@@ -45,7 +45,7 @@ listHandlerEffect:
     .word Effect_Pipe
     .word Effect_Pipe_2
     .word Effect_Pipe_3
-    .word Effect_Unk26
+    .word Effect_Nonstop_Bus
     .word Effect_ElectricField
     .word Effect_FloorBreak
     .word Effect_ColorMan

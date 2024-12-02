@@ -873,7 +873,7 @@ _ts MapSetup_DenTown_Center_F37
 LAB_0803682a:
     push       {r5}
     mov        r7,#0x6
-    bl         Effect_Unk26_Create
+    bl         Effect_Nonstop_Bus_Create
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_803A060_080369d0

@@ -3,9 +3,9 @@
     .include "macros.inc"
 
 
-_ts Effect_Unk26
+_ts Effect_Nonstop_Bus
     push       {lr}
-    ldr        r0,PTR_PTR_E_Unk26_0_Init_0807f5e0
+    ldr        r0,PTR_PTR_E_Nonstop_Bus_0_Init_0807f5e0
     ldrb       r1,[r5,#0x8]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
@@ -13,13 +13,13 @@ _ts Effect_Unk26
     bx         r0
     pop        {pc}
 
-PTR_E_Unk26_0_Init_0807f304:
-    .word E_Unk26_0_Init
-    .word E_Unk26_1_Main
-    .word E_Unk26_2_Free
+PTR_E_Nonstop_Bus_0_Init_0807f304:
+    .word E_Nonstop_Bus_0_Init
+    .word E_Nonstop_Bus_1_Main
+    .word E_Nonstop_Bus_2_Free
 
 
-_ts E_Unk26_0_Init
+_ts E_Nonstop_Bus_0_Init
     push       {lr}
     mov        r0,#0x3
     strb       r0,[r5,#0x0]
@@ -149,7 +149,7 @@ LAB_0807f402:
     pop        {pc}
 
 
-_nt E_Unk26_1_Main
+_nt E_Nonstop_Bus_1_Main
     push       {lr}
     ldr        r0,[r5,#0x68]
     ldr        r1,DAT_0807f5ec
@@ -298,7 +298,7 @@ LAB_0807f52e:
     pop        {pc}
 
 
-_ts E_Unk26_2_Free
+_ts E_Nonstop_Bus_2_Free
     bl         Effect_Free
     pop        {pc}
 
@@ -338,7 +338,7 @@ USHORT_ARRAY_ARRAY_0807f564:
     .short 0x7
 
 
-_ts Effect_Unk26_Create
+_ts Effect_Nonstop_Bus_Create
     push       {lr}
     push       {r7}
     ldr        r0,PTR_USHORT_ARRAY_ARRAY_0807f5f4
@@ -396,8 +396,8 @@ USHORT_ARRAY_ARRAY_0807f5a8:
     .short 0x8
     .short 0x8
 
-PTR_PTR_E_Unk26_0_Init_0807f5e0:
-    .word PTR_E_Unk26_0_Init_0807f304
+PTR_PTR_E_Nonstop_Bus_0_Init_0807f5e0:
+    .word PTR_E_Nonstop_Bus_0_Init_0807f304
 
 DAT_0807f5e4:
     .word 0x104

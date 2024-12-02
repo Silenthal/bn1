@@ -3155,7 +3155,7 @@ typedef enum EffectID {
     EFI_Pipe=35,
     EFI_Pipe2=36,
     EFI_Pipe3=37,
-    EFI_Unk26=38,
+    EFI_NonstopBus=38,
     EFI_ElectricField=39,
     EFI_FloorBreak=40,
     EFI_ColorMan=41,
