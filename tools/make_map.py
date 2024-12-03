@@ -78,7 +78,12 @@ def writeMapData(outputBuffer: io.BytesIO, mapFile: Optional[Path]):
                     else:
                         for key in attrOff.keys():
                             if key in mp["parameters"][j]:
-                                attr = int(mp["parameters"][j][key]) + attrOff[key]
+                                attrRaw = mp["parameters"][j][key]
+                                if isinstance(attrRaw, str):
+                                    attr = int(attrRaw, 0)
+                                else:
+                                    attr = int(attrRaw)
+                                attr += attrOff[key]
                     write_byte(outputBuffer, z)
                     write_byte(outputBuffer, attr)
                     write_byte(outputBuffer, height)

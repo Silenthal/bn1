@@ -790,97 +790,97 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 101
+            "attribute": "0x65"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 100
+            "attribute": "0x64"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 99
+            "attribute": "0x63"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 98
+            "attribute": "0x62"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 95
+            "attribute": "0x5F"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 94
+            "attribute": "0x5E"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 16
+            "attribute": "0x50"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 17
+            "attribute": "0x51"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 96
+            "attribute": "0x60"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 97
+            "attribute": "0x61"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 18
+            "attribute": "0x52"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 19
+            "attribute": "0x53"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 24
+            "attribute": "0x58"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 89
+            "attribute": "0x59"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 128
+            "attribute": "0x80"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 90
+            "attribute": "0x5A"
         },
         {
             "z": 0,
@@ -892,55 +892,55 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 92
+            "attribute": "0x5C"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 103
+            "attribute": "0x67"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 102
+            "attribute": "0x66"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 93
+            "attribute": "0x5D"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 91
+            "attribute": "0x5B"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 23
+            "attribute": "0x57"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 22
+            "attribute": "0x56"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 21
+            "attribute": "0x55"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 20
+            "attribute": "0x54"
         }
     ]
 }

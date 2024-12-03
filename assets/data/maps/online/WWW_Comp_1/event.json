@@ -934,7 +934,7 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 49
+            "attribute": "0x31"
         },
         {
             "z": 0,
@@ -952,7 +952,7 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 50
+            "attribute": "0x32"
         },
         {
             "z": 0,
@@ -964,13 +964,13 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 53
+            "attribute": "0x35"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 48
+            "attribute": "0x30"
         },
         {
             "z": 0,
@@ -982,19 +982,19 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 54
+            "attribute": "0x36"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 51
+            "attribute": "0x33"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 52
+            "attribute": "0x34"
         },
         {
             "z": 0,

@@ -144,8 +144,8 @@ MapData_WWW_Comp:
 MapData_ACDC_HP:
     .word MapData_ACDC_Lan_PC
     .word MapData_ACDC_Mayl_PC
-    .word MapData_ACDC_Dex_PC
     .word MapData_ACDC_Yai_PC
+    .word MapData_ACDC_Dex_PC
 
 MapData_Govt_HP:
     .word MapData_Govt_Yuichiro_PC

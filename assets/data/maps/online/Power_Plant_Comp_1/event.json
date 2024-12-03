@@ -396,19 +396,19 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 16
+            "attribute": "0x50"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 4,
-            "jackInIndex": 16
+            "attribute": "0x50"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 3,
-            "jackInIndex": 16
+            "attribute": "0x50"
         },
         {
             "z": 0,
@@ -432,13 +432,13 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 17
+            "attribute": "0x51"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 4,
-            "jackInIndex": 17
+            "attribute": "0x51"
         },
         {
             "z": 0,
@@ -456,25 +456,25 @@
             "z": 0,
             "height": 8,
             "shape": 3,
-            "jackInIndex": 17
+            "attribute": "0x51"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 18
+            "attribute": "0x52"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 4,
-            "jackInIndex": 18
+            "attribute": "0x52"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 3,
-            "jackInIndex": 18
+            "attribute": "0x52"
         }
     ]
 }

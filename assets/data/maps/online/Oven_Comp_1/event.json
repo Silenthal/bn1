@@ -366,19 +366,19 @@
             "z": 0,
             "height": 8,
             "shape": 9,
-            "jackInIndex": 1
+            "attribute": "0x41"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 1
+            "attribute": "0x41"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 10,
-            "jackInIndex": 1
+            "attribute": "0x41"
         },
         {
             "z": 0,
@@ -390,31 +390,31 @@
             "z": 0,
             "height": 8,
             "shape": 11,
-            "jackInIndex": 1
+            "attribute": "0x41"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 12,
-            "jackInIndex": 1
+            "attribute": "0x41"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 9,
-            "jackInIndex": 0
+            "attribute": "0x40"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 0
+            "attribute": "0x40"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 10,
-            "jackInIndex": 0
+            "attribute": "0x40"
         },
         {
             "z": 0,
@@ -450,13 +450,13 @@
             "z": 0,
             "height": 8,
             "shape": 11,
-            "jackInIndex": 0
+            "attribute": "0x40"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 12,
-            "jackInIndex": 0
+            "attribute": "0x40"
         },
         {
             "z": 0,

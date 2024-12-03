@@ -862,13 +862,13 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 48
+            "attribute": "0x30"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 10,
-            "attribute": 48
+            "attribute": "0x30"
         },
         {
             "z": 0,
@@ -928,13 +928,13 @@
             "z": 0,
             "height": 8,
             "shape": 11,
-            "attribute": 48
+            "attribute": "0x30"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 12,
-            "attribute": 48
+            "attribute": "0x30"
         },
         {
             "z": 0,

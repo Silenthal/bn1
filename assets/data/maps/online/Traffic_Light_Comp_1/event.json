@@ -350,55 +350,55 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 90
+            "attribute": "0x5A"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 24
+            "attribute": "0x58"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 128
+            "attribute": "0x80"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 89
+            "attribute": "0x59"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 23
+            "attribute": "0x57"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 22
+            "attribute": "0x56"
         },
         {
             "z": 64,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 21
+            "attribute": "0x55"
         },
         {
             "z": 64,
             "height": 8,
             "shape": 17,
-            "attribute": 128
+            "attribute": "0x80"
         },
         {
             "z": 64,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 20
+            "attribute": "0x54"
         },
         {
             "z": 0,
@@ -410,25 +410,25 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 18
+            "attribute": "0x52"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 19
+            "attribute": "0x53"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 16
+            "attribute": "0x50"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "jackInIndex": 17
+            "attribute": "0x51"
         }
     ]
 }

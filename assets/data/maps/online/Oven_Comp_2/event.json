@@ -854,13 +854,13 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 55
+            "attribute": "0x37"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 54
+            "attribute": "0x36"
         },
         {
             "z": 0,
@@ -872,61 +872,61 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 56
+            "attribute": "0x38"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 49
+            "attribute": "0x31"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 57
+            "attribute": "0x39"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 58
+            "attribute": "0x3A"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 53
+            "attribute": "0x35"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 61
+            "attribute": "0x3D"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 52
+            "attribute": "0x34"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 63
+            "attribute": "0x3F"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 62
+            "attribute": "0x3E"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 59
+            "attribute": "0x3B"
         },
         {
             "z": 0,
@@ -938,7 +938,7 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 48
+            "attribute": "0x30"
         },
         {
             "z": 0,

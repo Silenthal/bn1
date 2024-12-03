@@ -1398,37 +1398,37 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 128
+            "attribute": "0x80"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 131
+            "attribute": "0x83"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 134
+            "attribute": "0x86"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 129
+            "attribute": "0x81"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 132
+            "attribute": "0x84"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 135
+            "attribute": "0x87"
         },
         {
             "z": 0,
@@ -1452,19 +1452,19 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 130
+            "attribute": "0x82"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 133
+            "attribute": "0x85"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 136
+            "attribute": "0x88"
         },
         {
             "z": 0,
@@ -1482,61 +1482,61 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 144
+            "attribute": "0x90"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 147
+            "attribute": "0x93"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 150
+            "attribute": "0x96"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 145
+            "attribute": "0x91"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 148
+            "attribute": "0x94"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 151
+            "attribute": "0x97"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 160
+            "attribute": "0xA0"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 163
+            "attribute": "0xA3"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 166
+            "attribute": "0xA6"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 169
+            "attribute": "0xA9"
         },
         {
             "z": 0,
@@ -1560,19 +1560,19 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 146
+            "attribute": "0x92"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 149
+            "attribute": "0x95"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 152
+            "attribute": "0x98"
         },
         {
             "z": 0,
@@ -1590,49 +1590,49 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 161
+            "attribute": "0xA1"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 164
+            "attribute": "0xA4"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 167
+            "attribute": "0xA7"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 170
+            "attribute": "0xAA"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 162
+            "attribute": "0xA2"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 165
+            "attribute": "0xA5"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 168
+            "attribute": "0xA8"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 171
+            "attribute": "0xAB"
         },
         {
             "z": 0,
@@ -1662,7 +1662,7 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 176
+            "attribute": "0xB0"
         },
         {
             "z": 0,

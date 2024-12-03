@@ -263,6 +263,7 @@ LAB_0804a4ca:
 LAB_0804a4f0:
     ldr        r0,PTR_Scene_Dialogue_0804a554
     mov        r1,#0xb3
+    @ "MegaMan, we don't need to play with that anymore! Let's get going!"
     bl         Scene_Prepare
     mov        r0,#0x0
     pop        {r5,pc}

@@ -794,14 +794,14 @@ global_label BgData_Tilemap_ACDC_Mayl_PC
     .incbin "data/maps/online/ACDC_Mayl_PC.tilemapz" @ 0x503934
 global_label BgData_Palette_ACDC_Mayl_PC
     .incbin "data/maps/online/ACDC_Mayl_PC.palettez" @ 0x506384
-global_label BgData_Tilemap_ACDC_Dex_PC
-    .incbin "data/maps/online/ACDC_Dex_PC.tilemapz" @ 0x506528
-global_label BgData_Palette_ACDC_Dex_PC
-    .incbin "data/maps/online/ACDC_Dex_PC.palettez" @ 0x5087D4
 global_label BgData_Tilemap_ACDC_Yai_PC
-    .incbin "data/maps/online/ACDC_Yai_PC.tilemapz" @ 0x508978
+    .incbin "data/maps/online/ACDC_Yai_PC.tilemapz" @ 0x506528
 global_label BgData_Palette_ACDC_Yai_PC
-    .incbin "data/maps/online/ACDC_Yai_PC.palettez" @ 0x50C900
+    .incbin "data/maps/online/ACDC_Yai_PC.palettez" @ 0x5087D4
+global_label BgData_Tilemap_ACDC_Dex_PC
+    .incbin "data/maps/online/ACDC_Dex_PC.tilemapz" @ 0x508978
+global_label BgData_Palette_ACDC_Dex_PC
+    .incbin "data/maps/online/ACDC_Dex_PC.palettez" @ 0x50C900
 global_label BgData_Tileset_Govt_Yuichiro_PC
     .incbin "data/maps/online/Govt_Yuichiro_PC.tilesetz" @ 0x50CAA4
 global_label BgData_Palette_Govt_Yuichiro_PC
@@ -1131,10 +1131,10 @@ global_label MapData_ACDC_Lan_PC
     .incbin "data/maps/online/ACDC_Lan_PC.scb" @ 0x5DED58
 global_label MapData_ACDC_Mayl_PC
     .incbin "data/maps/online/ACDC_Mayl_PC.scb" @ 0x5DEFE4
-global_label MapData_ACDC_Dex_PC
-    .incbin "data/maps/online/ACDC_Dex_PC.scb" @ 0x5E0C24
 global_label MapData_ACDC_Yai_PC
-    .incbin "data/maps/online/ACDC_Yai_PC.scb" @ 0x5E1C18
+    .incbin "data/maps/online/ACDC_Yai_PC.scb" @ 0x5E0C24
+global_label MapData_ACDC_Dex_PC
+    .incbin "data/maps/online/ACDC_Dex_PC.scb" @ 0x5E1C18
 global_label MapData_Govt_Yuichiro_PC
     .incbin "data/maps/online/Govt_Yuichiro_PC.scb" @ 0x5E22A8
 global_label MapData_Govt_Lunch_Cart_Comp

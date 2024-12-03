@@ -60,28 +60,28 @@ class WallParameter:
                 self.isShade = True
             elif attr >= 0x40 and attr <= 0x58:
                 if isOnline:
-                    if attr >= 0x48 and attr <= 0x4F:
-                        self.roadIndex = attr - 0x48
-                    else:
-                        self.attribute = attr
+                    # if attr >= 0x48 and attr <= 0x4F:
+                    #     self.roadIndex = attr - 0x48
+                    # else:
+                        self.attribute = f"0x{attr:X}" if attr != 0 else 0
                 else:
                     self.jackInIndex = attr - 0x40
             elif attr >= 0x60 and attr <= 0xCF:
-                if isOnline:
-                    self.mapEventIndex = attr - 0x60
-                else:
-                    self.attribute = attr
+                # if isOnline:
+                #     self.mapEventIndex = attr - 0x60
+                # else:
+                    self.attribute = f"0x{attr:X}" if attr != 0 else 0
             elif attr >= 0xD0 and attr <= 0xEF:
                 if isOnline:
                     self.ghostIndex = attr - 0xD0
                 else:
-                    self.attribute = attr
+                    self.attribute = f"0x{attr:X}" if attr != 0 else 0
             elif attr >= 0xF0:
                 self.textIndex = attr - 0xF0
             else:
-                self.attribute = attr
+                self.attribute = f"0x{attr:X}" if attr != 0 else 0
         else:
-            self.attribute = attr
+            self.attribute = f"0x{attr:X}" if attr != 0 else 0
 
     def toJson(self) -> str:
         return json.dumps(self, default=lambda o: o.__dict__, indent=4)
@@ -115,7 +115,7 @@ class MapData:
 
 
 def readMapData(
-    mapType: MapType, outBuffer: BytesIO, offset: int, assumedSize: int
+    mapType: MapType, isOnline: bool, outBuffer: BytesIO, offset: int, assumedSize: int
 ) -> Tuple[int, MapData]:
     outBuffer.seek(offset)
     start = outBuffer.tell()
@@ -165,7 +165,7 @@ def readMapData(
             assumedSize -= 4
             if param == 0xFFFFFFFF:
                 break
-            mapData.addParameter(WallParameter(mapType, param))
+            mapData.addParameter(WallParameter(mapType, param, isOnline))
     end = outBuffer.tell()
     size = end - start
     if size == 4:
@@ -174,7 +174,7 @@ def readMapData(
 
 
 def unpackMap(
-    inFile: BufferedReader, offset: int, dirName: Path, dumpRawMapData: bool = False
+    inFile: BufferedReader, offset: int, dirName: Path, isOnline: bool = False, dumpRawMapData: bool = False
 ):
     outBound = dirName / "boundary.json"
     outElevation = dirName / "elevation.json"
@@ -200,194 +200,207 @@ def unpackMap(
             write_int(outBin, offsetEvent)
             outBin.write(outBuffer.getbuffer())
     sizeBoundary, boundaryData = readMapData(
-        MapType.BOUNDARY, outBuffer, offsetBoundary, offsetElevation - offsetBoundary
+        MapType.BOUNDARY, isOnline, outBuffer, offsetBoundary, offsetElevation - offsetBoundary
     )
     sizeElevation, elevationData = readMapData(
-        MapType.ELEVATION, outBuffer, offsetElevation, offsetCover - offsetElevation
+        MapType.ELEVATION, isOnline, outBuffer, offsetElevation, offsetCover - offsetElevation
     )
     sizeCover, coverData = readMapData(
-        MapType.COVER, outBuffer, offsetCover, offsetEvent - offsetCover
+        MapType.COVER, isOnline, outBuffer, offsetCover, offsetEvent - offsetCover
     )
     sizeEvent, eventData = readMapData(
-        MapType.EVENT, outBuffer, offsetEvent, offsetEnd - offsetEvent
+        MapType.EVENT, isOnline, outBuffer, offsetEvent, offsetEnd - offsetEvent
     )
-    files = [
-        [sizeBoundary, outBound, boundaryData],
-        [sizeElevation, outElevation, elevationData],
-        [sizeCover, outCover, coverData],
-        [sizeEvent, outEvent, eventData],
+    files: List[Tuple[int, Path, MapData]] = [
+        (sizeBoundary, outBound, boundaryData),
+        (sizeElevation, outElevation, elevationData),
+        (sizeCover, outCover, coverData),
+        (sizeEvent, outEvent, eventData),
     ]
     config = getMapConfig(dirName)
     config["scb"] = {}
     for size, path, data in files:
         if size > 0:
-            with open(path, "w") as outBF:
-                outBF.write(data.toJson())
+            if path.exists():
+                with open(path, "r") as existing:
+                    oldVal = ordered(json.load(existing))
+                newVal = json.loads(data.toJson())
+                if oldVal != newVal:
+                    with open(path, "w") as outBF:
+                        outBF.write(data.toJson())
+            else:
+                with open(path, "w") as outBF:
+                    outBF.write(data.toJson())
             config["scb"][path.stem] = path.name
     writeMapConfig(dirName, config)
 
 
+def ordered(obj):
+    if isinstance(obj, dict):
+        return sorted((k, ordered(v)) for k, v in obj.items())
+    if isinstance(obj, list):
+        return sorted(ordered(x) for x in obj)
+    else:
+        return obj
+
 def unpack_all(inPath):
-    mapDict: dict[str, dict[str, List[int]]] = {
+    mapDict: dict[str, dict[str, List[Tuple[str, int]]]] = {
         "offline": {
             "School": [
-                0x56A038,
-                0x56AAD4,
-                0x56B55C,
-                0x56C38C,
-                0x56C880,
-                0x56D314,
-                0x56DD8C,
-                0x56E684,
-                0x56E94C,
-                0x56EEA0,
-                0x56F084,
-                0x56F604,
-                0x5707EC,
+                ("School_Class_5A", 0x56A038),
+                ("School_Class_5B", 0x56AAD4),
+                ("School_Library", 0x56B55C),
+                ("School_2F_Hallway", 0x56C38C),
+                ("School_Class_1A", 0x56C880),
+                ("School_Class_1B", 0x56D314),
+                ("School_AV_Room", 0x56DD8C),
+                ("School_Infirmary", 0x56E684),
+                ("School_1F_Hallway", 0x56E94C),
+                ("School_Cross_Hallway", 0x56EEA0),
+                ("School_Storage", 0x56F084),
+                ("School_Staff_Lounge", 0x56F604),
+                ("School_Staff_Lounge_Hallway", 0x5707EC),
             ],
             "ACDC": [
-                0x570A60,
-                0x574080,
-                0x574A2C,
-                0x5751D0,
-                0x5754A8,
-                0x575C98,
-                0x5761A8,
-                0x57663C,
-                0x576C60,
-                0x577280,
-                0x577770,
+                ("ACDC_Town", 0x570A60),
+                ("ACDC_School_Gate", 0x574080),
+                ("ACDC_Lan_Living_Room", 0x574A2C),
+                ("ACDC_Lan_Room", 0x5751D0),
+                ("ACDC_Mayl_Living_Room", 0x5754A8),
+                ("ACDC_Mayl_Room", 0x575C98),
+                ("ACDC_Dex_Room", 0x5761A8),
+                ("ACDC_Yai_Room", 0x57663C),
+                ("ACDC_Higsbys", 0x576C60),
+                ("ACDC_Station", 0x577280),
+                ("ACDC_Secret_Station", 0x577770),
             ],
             "Govt": [
-                0x57793C,
-                0x578BB8,
-                0x578FB0,
-                0x57A3B0,
-                0x57B814,
-                0x57C4A0,
-                0x57D2A8,
-                0x57DAA8,
-                0x57E6DC,
-                0x57E994,
+                ("Govt_Complex_Front", 0x57793C),
+                ("Govt_Complex_Station", 0x578BB8),
+                ("Govt_Waterworks_Lobby", 0x578FB0),
+                ("Govt_SciLab_Lobby", 0x57A3B0),
+                ("Govt_Complex_Hallway", 0x57B814),
+                ("Govt_Yuichiro_Lab", 0x57C4A0),
+                ("Govt_Waterworks_Office", 0x57D2A8),
+                ("Govt_Waterworks_Control_Room", 0x57DAA8),
+                ("Govt_Waterworks_Pump_Room", 0x57E6DC),
+                ("Govt_Waterworks_Purification_Room", 0x57E994),
             ],
             "DenTown": [
-                0x57F160,
-                0x581924,
-                0x581D30,
-                0x583404,
-                0x584CC0,
-                0x5864D0,
-                0x587ACC,
-                0x587E00,
+                ("DenTown_Center", 0x57F160),
+                ("DenTown_Station", 0x581924),
+                ("DenTown_Block_1", 0x581D30),
+                ("DenTown_Block_2", 0x583404),
+                ("DenTown_Block_3", 0x584CC0),
+                ("DenTown_Block_4", 0x5864D0),
+                ("DenTown_Miyu_Antiques", 0x587ACC),
+                ("DenTown_Summer_School", 0x587E00),
             ],
             "SciLab": [
-                0x58853C,
-                0x588C00,
-                0x58A988,
-                0x58AFF0,
-                0x58B330,
-                0x58BCB0,
+                ("SciLab_Restaurant_Hallway", 0x58853C),
+                ("SciLab_Restaurant", 0x588C00),
+                ("SciLab_Power_Plant_Hallway", 0x58A988),
+                ("SciLab_Power_Plant", 0x58AFF0),
+                ("SciLab_Power_Plant_Control_Room", 0x58B330),
+                ("SciLab_Generator_Room", 0x58BCB0),
             ],
             "WWW": [
-                0x58BFF8,
-                0x58D42C,
-                0x58DCA8,
-                0x58E4D4,
-                0x58EAA4,
-                0x58F058,
+                ("WWW_Base", 0x58BFF8),
+                ("WWW_Wily_Lab", 0x58D42C),
+                ("WWW_Rocket_Hangar", 0x58DCA8),
+                ("WWW_Passage_1", 0x58E4D4),
+                ("WWW_Passage_2", 0x58EAA4),
+                ("WWW_Passage_3", 0x58F058),
             ],
         },
         "online": {
             "School_Comp": [
-                0x58F5C8,
-                0x590FF8,
-                0x593D9C,
-                0x5949D8,
-                0x595F10,
+                ("School_Comp_1", 0x58F5C8),
+                ("School_Comp_2", 0x590FF8),
+                ("School_Comp_3", 0x593D9C),
+                ("School_Comp_4", 0x5949D8),
+                ("School_Comp_5", 0x595F10),
             ],
             "Oven_Comp": [
-                0x596C9C,
-                0x5985C4
+                ("Oven_Comp_1", 0x596C9C),
+                ("Oven_Comp_2", 0x5985C4)
             ],
             "Waterworks_Comp": [
-                0x599A28,
-                0x59BD44,
-                0x59EBA0,
-                0x5A427C,
-                0x5A9F50,
-                0x5B1478,
+                ("Waterworks_Comp_1", 0x599A28),
+                ("Waterworks_Comp_2", 0x59BD44),
+                ("Waterworks_Comp_3", 0x59EBA0),
+                ("Waterworks_Comp_4", 0x5A427C),
+                ("Waterworks_Comp_5", 0x5A9F50),
+                ("Waterworks_Comp_6", 0x5B1478),
             ],
             "Traffic_Light_Comp": [
-                0x5B64D0,
-                0x5B82F4,
-                0x5BA740,
-                0x5BE13C,
-                0x5C05DC,
+                ("Traffic_Light_Comp_1", 0x5B64D0),
+                ("Traffic_Light_Comp_2", 0x5B82F4),
+                ("Traffic_Light_Comp_3", 0x5BA740),
+                ("Traffic_Light_Comp_4", 0x5BE13C),
+                ("Traffic_Light_Comp_5", 0x5C05DC),
             ],
             "Power_Plant_Comp": [
-                0x5C2A2C,
-                0x5C7B08,
-                0x5C9FF8,
-                0x5CD228,
+                ("Power_Plant_Comp_1", 0x5C2A2C),
+                ("Power_Plant_Comp_2", 0x5C7B08),
+                ("Power_Plant_Comp_3", 0x5C9FF8),
+                ("Power_Plant_Comp_4", 0x5CD228),
             ],
             "WWW_Comp": [
-                0x5CFF6C,
-                0x5D1B54,
-                0x5D57A8,
-                0x5D9F4C,
-                0x5DB4A8,
-                0x5DE704,
+                ("WWW_Comp_1", 0x5CFF6C),
+                ("WWW_Comp_2", 0x5D1B54),
+                ("WWW_Comp_3", 0x5D57A8),
+                ("WWW_Comp_4", 0x5D9F4C),
+                ("WWW_Comp_5", 0x5DB4A8),
+                ("Rocket_Comp", 0x5DE704),
             ],
             "ACDC_HP": [
-                0x5DED58,
-                0x5DEFE4,
-                0x5E0C24,
-                0x5E1C18,
+                ("ACDC_Lan_PC", 0x5DED58),
+                ("ACDC_Mayl_PC", 0x5DEFE4),
+                ("ACDC_Yai_PC", 0x5E0C24),
+                ("ACDC_Dex_PC", 0x5E1C18),
             ],
             "Govt_HP": [
-                0x5E22A8,
-                0x5E27D8
+                ("Govt_Yuichiro_PC", 0x5E22A8),
+                ("Govt_Lunch_Cart_Comp", 0x5E27D8)
             ],
             "DenTown_HP": [
-                0x5E2F20,
+                ("DenTown_Antique_Comp", 0x5E2F20),
             ],
             "SciLab_HP": [
-                0x5E384C,
+                ("SciLab_Fish_Stand_Comp", 0x5E384C),
             ],
             "Other_Comp": [
-                0x5E41F8,
+                ("Other_Generic_Comp", 0x5E41F8),
             ],
             "Internet": [
-                0x5E4604,
-                0x5E774C,
-                0x5ED608,
-                0x5F1E54,
-                0x5F5548,
-                0x5F8100,
-                0x5FA53C,
-                0x5FCB14,
-                0x5FFEE0,
-                0x6017A8,
-                0x604AB4,
-                0x6074E0,
-                0x609B64,
-                0x60AD44,
-                0x60DE5C,
-                0x6109C0,
+                ("Internet_1", 0x5E4604),
+                ("Internet_2", 0x5E774C),
+                ("Internet_3", 0x5ED608),
+                ("Internet_4", 0x5F1E54),
+                ("Undernet_1", 0x5F5548),
+                ("Undernet_2", 0x5F8100),
+                ("Undernet_3", 0x5FA53C),
+                ("Undernet_4", 0x5FCB14),
+                ("Undernet_5", 0x5FFEE0),
+                ("Undernet_6", 0x6017A8),
+                ("Undernet_7", 0x604AB4),
+                ("Undernet_8", 0x6074E0),
+                ("Undernet_9", 0x609B64),
+                ("Undernet_10", 0x60AD44),
+                ("Undernet_11", 0x60DE5C),
+                ("Undernet_12", 0x6109C0),
             ],
         },
     }
     sortList = []
     for loc in mapDict.keys():
-        locationDir = Path.cwd() / loc
+        locationDir = Path.cwd() / ".." / "assets" / "data" / "maps" / loc
         for area in mapDict[loc].keys():
-            outFolder = locationDir / area
-            for offset in mapDict[loc][area]:
-                if offset == 0x5E41F8:
-                    dirBase = outFolder / "Generic"
-                else:
-                    dirBase = outFolder / f"map_{offset:X}"
-                unpackMap(inPath, offset, dirBase)
+            outFolder = locationDir
+            for name, offset in mapDict[loc][area]:
+                dirBase = outFolder / name
+                unpackMap(inPath, offset, dirBase, loc == "online")
                 sortList.append([offset, dirBase.with_suffix(".scb")])
     sortList.sort(key=lambda x: x[0])
     with open("sortlist_scb.txt", "w") as outSort:

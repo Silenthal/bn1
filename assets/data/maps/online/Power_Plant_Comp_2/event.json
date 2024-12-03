@@ -714,13 +714,13 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 96
+            "attribute": "0x60"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 99
+            "attribute": "0x63"
         },
         {
             "z": 0,
@@ -744,13 +744,13 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 97
+            "attribute": "0x61"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 100
+            "attribute": "0x64"
         },
         {
             "z": 0,
@@ -768,13 +768,13 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 98
+            "attribute": "0x62"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 101
+            "attribute": "0x65"
         },
         {
             "z": 0,
@@ -786,37 +786,37 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 112
+            "attribute": "0x70"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 115
+            "attribute": "0x73"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 118
+            "attribute": "0x76"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 113
+            "attribute": "0x71"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 116
+            "attribute": "0x74"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 119
+            "attribute": "0x77"
         },
         {
             "z": 0,
@@ -840,19 +840,19 @@
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 114
+            "attribute": "0x72"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 117
+            "attribute": "0x75"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 17,
-            "attribute": 120
+            "attribute": "0x78"
         },
         {
             "z": 0,

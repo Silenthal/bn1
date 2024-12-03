@@ -504,13 +504,13 @@ BgData_ACDC_Mayl_PC:
 
 BgData_ACDC_Yai_PC:
     .word BgData_Tileset_ACDC_Lan_PC
-    .word BgData_Palette_ACDC_Dex_PC
-    .word BgData_Tilemap_ACDC_Dex_PC
+    .word BgData_Palette_ACDC_Yai_PC
+    .word BgData_Tilemap_ACDC_Yai_PC
 
 BgData_ACDC_Dex_PC:
     .word BgData_Tileset_ACDC_Lan_PC
-    .word BgData_Palette_ACDC_Yai_PC
-    .word BgData_Tilemap_ACDC_Yai_PC
+    .word BgData_Palette_ACDC_Dex_PC
+    .word BgData_Tilemap_ACDC_Dex_PC
 
 BGData_Govt_HP:
 
