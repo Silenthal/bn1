@@ -1,0 +1,311 @@
+#include "offsets.h"
+    .include "constants.inc"
+    .include "macros.inc"
+
+
+_ts Scene_Story_6C
+    push       {lr}
+    ldr        r0,PTR_PTR_S_Story_6C_0_08093ec0
+    ldrb       r1,[r5,#0x0]
+    add        r0,r0,r1
+    ldr        r0,[r0,#0x0]
+    bx         r0
+
+PTR_S_Story_6C_0_08093c74:
+    .word S_Story_6C_0
+    .word S_Story_6C_1
+    .word S_Story_6C_2
+    .word S_Story_6C_3
+    .word S_Story_6C_4
+    .word S_Story_6C_5
+    .word S_Story_6C_6
+    .word S_Story_6C_7
+    .word S_Story_6C_8
+    .word S_Story_6C_9
+
+
+_ts S_Story_6C_0
+    bl         Flag_SetPlayerInactive
+    bl         PlayerAnimation_Lock
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+    mov        r0,#0x1
+    strb       r0,[r5,#0xa]
+    pop        {pc}
+
+
+_ts S_Story_6C_1
+    bl         PlayerAnimation_GetState
+    cmp        r0,#0x2
+    bne        LAB_08093ce4
+    push       {r5}
+    mov        r0,#0x18
+    neg        r0,r0
+    lsl        r0,r0,#0x10
+    mov        r1,#0x24
+    lsl        r1,r1,#0x10
+    mov        r2,#0x0
+    bl         PlayerAnimation_SetPosition
+    mov        r0,#0x1
+    bl         PlayerAnimation_SetState
+    pop        {r5}
+    push       {r5}
+    mov        r0,#0x3
+    mov        r1,#0x10
+    bl         Fade_Request
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_08093ce4:
+    pop        {pc}
+
+
+_nt S_Story_6C_2
+    mov        r0,r10
+    ldr        r0,[r0,#0x18]
+    ldrb       r0,[r0,#0x3]
+    mov        r1,#0x1
+    cmp        r0,r1
+    beq        LAB_08093d04
+    push       {r5}
+    ldr        r0,PTR_ScenarioData_6C_08093ec4
+    mov        r1,#0x0
+    bl         Text_LoadDialogue
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_08093d04:
+    pop        {pc}
+
+
+_nt S_Story_6C_3
+    push       {r5}
+    mov        r0,#0x80
+    bl         Text_CheckOption
+    pop        {r5}
+    bne        LAB_08093d2a
+    mov        r0,#0x9
+    bl         PlayerAnimation_SetState
+    mov        r0,#0x8
+    lsl        r0,r0,#0xc
+    mov        r1,#0x0
+    mov        r2,#0x0
+    bl         PlayerAnimation_Move
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_08093d2a:
+    bl         Scene_IsStartPressed
+    beq        LAB_08093d34
+    bl         S_Story_6C_SkipIfStart
+LAB_08093d34:
+    pop        {pc}
+
+
+_nt S_Story_6C_4
+    mov        r0,#0x8
+    lsl        r0,r0,#0xc
+    mov        r1,#0x0
+    mov        r2,#0x0
+    bl         PlayerAnimation_Move
+    push       {r5}
+    mov        r7,r10
+    ldr        r0,[r7,#0x8]
+    ldr        r0,[r0,#0x28]
+    add        r0,#0x24
+    bl         Map_HandleCollisionEvent
+    pop        {r5}
+    cmp        r0,#0x10
+    bne        LAB_08093d66
+    mov        r0,#0x2e
+    bl         PlayerAnimation_SetState
+    mov        r0,#0x3c
+    strb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_08093d66:
+    bl         Scene_IsStartPressed
+    beq        LAB_08093d70
+    bl         S_Story_6C_SkipIfStart
+LAB_08093d70:
+    pop        {pc}
+
+
+_nt S_Story_6C_5
+    ldrb       r0,[r5,#0x8]
+    sub        r0,#0x1
+    strb       r0,[r5,#0x8]
+    tst        r0,r0
+    bne        LAB_08093d8c
+    mov        r0,#0x2f
+    bl         PlayerAnimation_SetState
+    mov        r0,#0xa
+    strb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_08093d8c:
+    bl         Scene_IsStartPressed
+    beq        LAB_08093d96
+    bl         S_Story_6C_SkipIfStart
+LAB_08093d96:
+    pop        {pc}
+
+
+_ts S_Story_6C_6
+    ldrb       r0,[r5,#0x8]
+    sub        r0,#0x1
+    strb       r0,[r5,#0x8]
+    tst        r0,r0
+    bne        LAB_08093db4
+    push       {r5}
+    ldr        r0,PTR_ScenarioData_6C_08093ec4
+    mov        r1,#0x6
+    bl         Text_LoadDialogue
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_08093db4:
+    bl         Scene_IsStartPressed
+    beq        LAB_08093dbe
+    bl         S_Story_6C_SkipIfStart
+LAB_08093dbe:
+    pop        {pc}
+
+
+_ts S_Story_6C_7
+    mov        r0,#0x74
+    bl         Flag_GetBase
+    beq        LAB_08093ddc
+    ldrb       r0,[r5,#0xa]
+    sub        r0,#0x1
+    strb       r0,[r5,#0xa]
+    tst        r0,r0
+    bne        LAB_08093ddc
+    mov        r0,#0xd1
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x36
+    strb       r0,[r5,#0xa]
+LAB_08093ddc:
+    push       {r5}
+    mov        r0,#0x80
+    bl         Text_CheckOption
+    pop        {r5}
+    bne        LAB_08093dfa
+    push       {r5}
+    mov        r0,#0x4
+    mov        r1,#0x10
+    bl         Fade_Request
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_08093dfa:
+    bl         Scene_IsStartPressed
+    beq        LAB_08093e04
+    bl         S_Story_6C_SkipIfStart
+LAB_08093e04:
+    pop        {pc}
+
+
+_nt S_Story_6C_8
+    ldrb       r0,[r5,#0xa]
+    sub        r0,#0x1
+    strb       r0,[r5,#0xa]
+    tst        r0,r0
+    bne        LAB_08093e1a
+    mov        r0,#0xd1
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x36
+    strb       r0,[r5,#0xa]
+LAB_08093e1a:
+    mov        r0,r10
+    ldr        r0,[r0,#0x18]
+    ldrb       r0,[r0,#0x3]
+    mov        r1,#0x1
+    cmp        r0,r1
+    beq        LAB_08093e60
+    push       {r5}
+    mov        r0,#0x40
+    bl         Text_DisableOption
+    bl         Text_DisableDialogue
+    pop        {r5}
+    push       {r5}
+    mov        r0,#0x18
+    neg        r0,r0
+    lsl        r0,r0,#0x10
+    mov        r1,#0x24
+    lsl        r1,r1,#0x10
+    mov        r2,#0x0
+    bl         PlayerAnimation_SetPosition
+    mov        r0,#0x1
+    bl         PlayerAnimation_SetState
+    pop        {r5}
+    push       {r5}
+    mov        r0,#0x3
+    mov        r1,#0x8
+    bl         Fade_Request
+    pop        {r5}
+    ldrb       r0,[r5,#0x0]
+    add        r0,#0x4
+    strb       r0,[r5,#0x0]
+LAB_08093e60:
+    pop        {pc}
+
+
+_nt S_Story_6C_9
+    ldrb       r0,[r5,#0xa]
+    sub        r0,#0x1
+    strb       r0,[r5,#0xa]
+    tst        r0,r0
+    bne        LAB_08093e76
+    mov        r0,#0xd1
+    bl         Sound_PlaySongImmediate
+    mov        r0,#0x36
+    strb       r0,[r5,#0xa]
+LAB_08093e76:
+    mov        r7,r10
+    ldr        r7,[r7,#0x24]
+    ldrb       r0,[r5,#0xa]
+    strb       r0,[r7,#0x6]
+    mov        r0,r10
+    ldr        r0,[r0,#0x18]
+    ldrb       r0,[r0,#0x3]
+    mov        r1,#0x1
+    cmp        r0,r1
+    beq        LAB_08093ea6
+    push       {r5}
+    bl         PlayerAnimation_Unlock
+    bl         Flag_SetPlayerActive
+    mov        r0,#0xa9
+    bl         Flag_SetBase
+    mov        r0,#0x74
+    bl         Flag_SetBase
+    pop        {r5}
+    bl         Scene_UnloadAndResetStepCounter
+LAB_08093ea6:
+    pop        {pc}
+
+
+_ts S_Story_6C_SkipIfStart
+    push       {r5}
+    mov        r0,#0x4
+    mov        r1,#0x10
+    bl         Fade_Request
+    mov        r0,#0x40
+    bl         Text_EnableOption
+    pop        {r5}
+    mov        r0,#0x20
+    strb       r0,[r5,#0x0]
+    pop        {pc}
+
+PTR_PTR_S_Story_6C_0_08093ec0:
+    .word PTR_S_Story_6C_0_08093c74
+
+PTR_ScenarioData_6C_08093ec4:
+    .word ScenarioData_6C
