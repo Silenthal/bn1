@@ -2,12 +2,10 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
 
-
-_ts ScreenDim_Recover
+_ts ScreenDim_Candle
     push       {lr}
-    ldr        r7,PTR_PTR_SD_Recover_0_Init
+    ldr        r7,PTR_PTR_SD_Candle_0_Init_08099cb8
     ldrb       r0,[r5,#0x0]
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -16,16 +14,18 @@ _ts ScreenDim_Recover
 
     .align 2, 0
 
-PTR_PTR_SD_Recover_0_Init:
-    .word PTR_SD_Recover_0_Init
-PTR_SD_Recover_0_Init:
-    .word SD_Recover_0_Init
-    .word SD_Recover_1_Main
-    .word SD_Recover_2_FadeIn
-    .word SD_Recover_3_Free
+
+PTR_PTR_SD_Candle_0_Init_08099cb8:
+    .word PTR_SD_Candle_0_Init_08099cbc
+
+PTR_SD_Candle_0_Init_08099cbc:
+    .word SD_Candle_0_Init
+    .word SD_Candle_1
+    .word SD_Candle_2
+    .word SD_Candle_3
 
 
-_ts SD_Recover_0_Init
+_ts SD_Candle_0_Init
     push       {lr}
     mov        r0,#0x6
     mov        r1,#0x4
@@ -35,7 +35,7 @@ _ts SD_Recover_0_Init
     mov        r0,#0x1e
     strh       r0,[r5,#0x8]
     ldrb       r1,[r5,#0x5]
-    add        r1,#0x43
+    add        r1,#0x73
     push       {r5}
     ldrb       r0,[r5,#0x6]
     add        r0,#0x4
@@ -49,7 +49,7 @@ _ts SD_Recover_0_Init
     pop        {pc}
 
 
-_ts SD_Recover_1_Main
+_ts SD_Candle_1
     push       {lr}
     push       {r5}
     ldrb       r0,[r5,#0x6]
@@ -57,7 +57,7 @@ _ts SD_Recover_1_Main
     bl         BattleMessage_Main
     pop        {r5}
     tst        r0,r0
-    bne        LAB_080983ec
+    bne        LAB_08099d68
     push       {r5}
     ldrb       r0,[r5,#0x6]
     add        r0,#0x4
@@ -66,59 +66,50 @@ _ts SD_Recover_1_Main
     ldrh       r0,[r5,#0x8]
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
-    bne        LAB_080983ec
-    ldr        r7,[r5,#0x14]
-    add        r7,#0x28
-    ldmia      r7!,{r1,r2,r3}
-    mov        r4,#0xe
+    bne        LAB_08099d68
+    ldrb       r0,[r5,#0x6]
+    bl         R_Player_ClearOwnedEntity
+    ldrb       r0,[r5,#0x6]
+    push       {r0}
+    bl         Field_GetAttackDirectionOffset
+    add        r2,r0,#0x0
+    pop        {r6}
+    mov        r7,r10
+    ldr        r7,[r7,#0xc]
+    ldrb       r4,[r5,#0x5]
     push       {r5}
-    bl         Effect_QuickEffect_Create
-    tst        r5,r5
-    beq        LAB_080983c0
-    ldrb       r0,[r5,#0x0]
+    lsl        r0,r6,#0x2
+    add        r0,#0x40
+    ldr        r5,[r7,r0]
+    ldr        r7,[r5,#0x74]
+    ldrb       r1,[r5,#0x18]
+    add        r1,r1,r2
+    ldrb       r2,[r5,#0x19]
+    add        r0,r7,#0x0
+    add        r0,#0x50
+    bl         Attack_Candle_Create
+    pop        {r5}
+    tst        r4,r4
+    beq        LAB_08099d60
+    ldrb       r0,[r4,#0x0]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-LAB_080983c0:
-    pop        {r5}
-    ldr        r0,PTR_listRecoverHPAmounSD_080983f0
-    ldrb       r1,[r5,#0x5]
-    lsl        r1,r1,#0x1
-    ldrh       r0,[r0,r1]
-    ldr        r7,[r5,#0x14]
-    ldrh       r1,[r7,#0x20]
-    tst        r1,r1
-    beq        LAB_080983de
-    add        r0,r0,r1
-    ldrh       r1,[r7,#0x22]
-    cmp        r0,r1
-    bls        LAB_080983dc
-    add        r0,r1,#0x0
-LAB_080983dc:
-    strh       r0,[r7,#0x20]
-LAB_080983de:
-    mov        r0,#0x72
-    bl         Sound_PlaySongImmediate
+    strb       r0,[r4,#0x0]
+LAB_08099d60:
     mov        r0,#0x3c
     strh       r0,[r5,#0x8]
     mov        r0,#0x8
     str        r0,[r5,#0x0]
-LAB_080983ec:
+LAB_08099d68:
     pop        {pc}
 
-    .align 2, 0
 
-PTR_listRecoverHPAmounSD_080983f0: .word listRecoverHPAmounts
-listRecoverHPAmounts:
-    .short  10, 30, 50, 80, 120, 150, 200, 300
-
-
-_ts SD_Recover_2_FadeIn
+_nt SD_Candle_2
     push       {lr}
     ldrh       r0,[r5,#0x8]
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
-    bne        LAB_0809841e
+    bne        LAB_08099d84
     mov        r0,#0x5
     mov        r1,#0x4
     push       {r5}
@@ -126,36 +117,24 @@ _ts SD_Recover_2_FadeIn
     pop        {r5}
     mov        r0,#0xc
     str        r0,[r5,#0x0]
-LAB_0809841e:
+LAB_08099d84:
     pop        {pc}
 
 
-_ts SD_Recover_3_Free
+_nt SD_Candle_3
     push       {lr}
     mov        r7,r10
     ldr        r0,[r7,#0x18]
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
-    beq        LAB_0809843a
+    beq        LAB_08099da0
     push       {r5}
     bl         BattleUi_DrawActiveChip
     pop        {r5}
     bl         ScreenDim_Free
-LAB_0809843a:
+LAB_08099da0:
     pop        {pc}
 
-
-_ts ScreenDim_Recover_Create
-    push       {r5,lr}
-    push       {r0}
-    mov        r0,#0x0
-    ldrb       r2,[r5,#0x16]
-    bl         ScreenDim_Alloc
-    pop        {r0}
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
-    str        r0,[r7,#0x14]
-    pop        {r5,pc}
-
     .align 2, 0
+

@@ -1588,58 +1588,58 @@ LAB_080063dc:
     .align 2, 0
 
 global_label listScreenDimHandler
-    .word 0x809832d @ ScreenDim_Recover
-    .word 0x8098455 @ ScreenDim_WoodMan
-    .word 0x809857d @ ScreenDim_Steal
-    .word 0x80986a9 @ ScreenDim_PoweredCannon
-    .word 0x8098771 @ ScreenDim_ActivateProg
-    .word 0x809886d @ ScreenDim_FireMan
-    .word 0x8098991 @ ScreenDim_NumberMan
-    .word 0x8098ac1 @ ScreenDim_GutsMan
-    .word 0x8098c01 @ ScreenDim_Escape
-    .word 0x8098d59 @ ScreenDim_Repair
-    .word 0x8098e59 @ ScreenDim_Cube
-    .word 0x8098e59 @ ScreenDim_Cube
-    .word 0x8098ff3 @ ScreenDim_TimeBomb
-    .word 0x8098ff3 @ ScreenDim_TimeBomb
-    .word 0x8098ff3 @ ScreenDim_TimeBomb
-    .word 0x8099115 @ ScreenDim_Invisible
-    .word 0x8099259 @ ScreenDim_IceMan
-    .word 0x8099389 @ ScreenDim_StoneMan
-    .word 0x80994b9 @ ScreenDim_Geddon
-    .word 0x80996b1 @ ScreenDim_Cloudy
-    .word 0x8099835 @ FUN_08099834
-    .word 0x8099889 @ ScreenDim_Mine
-    .word 0x80999b1 @ ScreenDim_Anubis
-    .word 0x8099b09 @ ScreenDim_Barrier
-    .word 0x8099be1 @ ScreenDim_IronBody
-    .word 0x8099ca9 @ ScreenDim_Candle
-    .word 0x8099da5 @ ScreenDim_Gauge
-    .word 0x8099e9d @ ScreenDim_Remobit
-    .word 0x8099fc5 @ ScreenDim_Interrupt
-    .word 0x809a15d @ ScreenDim_SkullMan
-    .word 0x809a28d @ ScreenDim_Roll
-    .word 0x809a475 @ ScreenDim_BigStraight
-    .word 0x809a539 @ ScreenDim_GutsShoot
-    .word 0x809a611 @ ScreenDim_DeathStorm
-    .word 0x809a6d5 @ ScreenDim_Drain
-    .word 0x809a79d @ ScreenDim_ColorMan
-    .word 0x809a8fd @ ScreenDim_ProtoMan
-    .word 0x809aa35 @ ScreenDim_SharkMan
-    .word 0x809abcd @ ScreenDim_ElecMan
-    .word 0x809ad05 @ ScreenDim_PharaohTrap
-    .word 0x809ae19 @ ScreenDim_SnakeEgg
-    .word 0x809af71 @ ScreenDim_Dynamyte
-    .word 0x809b085 @ ScreenDim_PharaohMan
-    .word 0x809b1ad @ ScreenDim_ShadowMan
-    .word 0x809b399 @ ScreenDim_MagicMan
-    .word 0x809b4b9 @ ScreenDim_BombMan
-    .word 0x809b5d9 @ ScreenDim_Bass
-    .word 0x809b6f5 @ ScreenDim_LockOn
-    .word 0x809b81d @ ScreenDim_LifeSaver
-    .word 0x809b8f9 @ ScreenDim_DoubleHero
-    .word 0x809ba19 @ ScreenDim_HeavyStamp
-    .word 0x809bb29 @ ScreenDim_BloodSuck
+    .word ScreenDim_Recover
+    .word ScreenDim_WoodMan
+    .word ScreenDim_Steal
+    .word ScreenDim_PoweredCannon
+    .word ScreenDim_ActivateProgAdv
+    .word ScreenDim_FireMan
+    .word ScreenDim_NumberMan
+    .word ScreenDim_GutsMan
+    .word ScreenDim_Escape
+    .word ScreenDim_Repair
+    .word ScreenDim_Cube
+    .word ScreenDim_Cube
+    .word ScreenDim_TimeBomb
+    .word ScreenDim_TimeBomb
+    .word ScreenDim_TimeBomb
+    .word ScreenDim_Invisible
+    .word ScreenDim_IceMan
+    .word ScreenDim_StoneMan
+    .word ScreenDim_Geddon
+    .word ScreenDim_Cloudy
+    .word ScreenDim_ElecManEscape
+    .word ScreenDim_Mine
+    .word ScreenDim_Anubis
+    .word ScreenDim_Barrier
+    .word ScreenDim_IronBody
+    .word ScreenDim_Candle
+    .word ScreenDim_Gauge
+    .word ScreenDim_Remobit
+    .word ScreenDim_Interrupt
+    .word ScreenDim_SkullMan
+    .word ScreenDim_Roll
+    .word ScreenDim_BigStraight
+    .word ScreenDim_GutsShoot
+    .word ScreenDim_DeathStorm
+    .word ScreenDim_Drain
+    .word ScreenDim_ColorMan
+    .word ScreenDim_ProtoMan
+    .word ScreenDim_SharkMan
+    .word ScreenDim_ElecMan
+    .word ScreenDim_PharaohTrap
+    .word ScreenDim_SnakeEgg
+    .word ScreenDim_Dynamyte
+    .word ScreenDim_PharaohMan
+    .word ScreenDim_ShadowMan
+    .word ScreenDim_MagicMan
+    .word ScreenDim_BombMan
+    .word ScreenDim_Bass
+    .word ScreenDim_LockOn
+    .word ScreenDim_LifeSaver
+    .word ScreenDim_DoubleHero
+    .word ScreenDim_HeavyStamp
+    .word ScreenDim_BloodSuck
 
 
 _ts Battle_SetFieldTilemap
