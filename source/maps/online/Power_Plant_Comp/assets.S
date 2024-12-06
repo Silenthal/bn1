@@ -780,51 +780,51 @@ global_label EntityAllocParams_804C418
     entity Effect, 0x31, f(-22, -82, 0), 0xFF0002C0
     .word 0xFF
 
-PTR_DAT_0804c46c:
-    .word DAT_0804c48c
-    .word DAT_0804c4bc
-    .word DAT_0804c4ec
-    .word DAT_0804c51c
-    .word DAT_0804c54c
-    .word DAT_0804c57c
-    .word DAT_0804c5ac
-    .word DAT_0804c5dc
+listGridSolution:
+    .word gridSolution0
+    .word gridSolution1
+    .word gridSolution2
+    .word gridSolution3
+    .word gridSolution4
+    .word gridSolution5
+    .word gridSolution6
+    .word gridSolution7
 
-DAT_0804c48c:
+gridSolution0:
     .byte    0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     .byte    0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     .byte    0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
-DAT_0804c4bc:
+gridSolution1:
     .byte    0, -1, -1, -1, -1,  2, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     .byte    0, -1, -1, -1, -1,  2, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     .byte    0, -1, -1, -1, -1,  2, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
-DAT_0804c4ec:
+gridSolution2:
     .byte   -1, -1,  1, -1,  0, -1, -1, -1,  2, -1, -1, -1, -1, -1, -1, -1
     .byte   -1, -1,  1, -1,  0, -1, -1, -1,  2, -1, -1, -1, -1, -1, -1, -1
     .byte   -1, -1,  1, -1,  0, -1, -1, -1,  2, -1, -1, -1, -1, -1, -1, -1
-DAT_0804c51c:
+gridSolution3:
     .byte   -1, -1,  0, -1, -1, -1,  2, -1,  1, -1, -1, -1, -1, -1, -1, -1
     .byte   -1, -1,  0, -1, -1, -1,  2, -1,  1, -1, -1, -1, -1, -1, -1, -1
     .byte   -1, -1,  0, -1, -1, -1,  2, -1,  1, -1, -1, -1, -1, -1, -1, -1
-DAT_0804c54c:
+gridSolution4:
     .byte   -1, -1,  0, -1,  2, -1,  1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     .byte   -1, -1,  0, -1,  2, -1,  1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     .byte   -1, -1,  0, -1,  2, -1,  1, -1, -1, -1, -1, -1, -1, -1, -1, -1
-DAT_0804c57c:
+gridSolution5:
     .byte   -1, -1,  0, -1, -1, -1,  1, -1,  2, -1, -1, -1, -1, -1, -1, -1
     .byte   -1, -1,  0, -1, -1, -1,  1, -1,  2, -1, -1, -1, -1, -1, -1, -1
     .byte   -1, -1,  0, -1, -1, -1,  1, -1,  2, -1, -1, -1, -1, -1, -1, -1
-DAT_0804c5ac:
+gridSolution6:
     .byte    0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     .byte    0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     .byte    0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
-DAT_0804c5dc:
+gridSolution7:
     .byte   -1,  1, -1, -1, -1, -1, -1, -1, -1,  2, -1,  0, -1, -1, -1, -1
     .byte   -1,  1, -1, -1, -1, -1, -1, -1, -1,  2, -1,  0, -1, -1, -1, -1
     .byte   -1,  1, -1, -1, -1, -1, -1, -1, -1,  2, -1,  0, -1, -1, -1, -1
 
 
-_ts FUN_0804c60c
+_ts PowerPlant_Init
     push       {lr}
     ldr        r0,PTR_Struct_2002070_0804c698
     mov        r1,#0xa0
@@ -837,78 +837,80 @@ _ts FUN_0804c60c
     pop        {pc}
 
 
-_ts PowerPlant_Init
+_ts PowerPlant_ResetState
     push       {lr}
-    mov        r0,#0x9
+    mov        r0,#Item_BatteryA
     mov        r1,#0x0
     bl         KeyItem_SetAmount
-    mov        r0,#0x50
+    mov        r0,#Item_BattA_Ct
     mov        r1,#0x0
     bl         KeyItem_SetAmount
-    mov        r0,#0xa
+    mov        r0,#Item_BatteryB
     mov        r1,#0x0
     bl         KeyItem_SetAmount
-    mov        r0,#0x51
+    mov        r0,#Item_BattB_Ct
     mov        r1,#0x0
     bl         KeyItem_SetAmount
-    mov        r0,#0xb
+    mov        r0,#Item_BatteryC
     mov        r1,#0x0
     bl         KeyItem_SetAmount
-    mov        r0,#0x52
+    mov        r0,#Item_BattC_Ct
     mov        r1,#0x0
     bl         KeyItem_SetAmount
-    mov        r0,#0xc
+    mov        r0,#Item_BatteryD
     mov        r1,#0x0
     bl         KeyItem_SetAmount
-    mov        r0,#0x53
+    mov        r0,#Item_BattD_Ct
     mov        r1,#0x0
     bl         KeyItem_SetAmount
-    mov        r0,#0xd
+    mov        r0,#Item_BatteryE
     mov        r1,#0x0
     bl         KeyItem_SetAmount
-    mov        r0,#0x54
+    mov        r0,#Item_BattE_Ct
     mov        r1,#0x0
     bl         KeyItem_SetAmount
-    mov        r0,#0xd8
+    mov        r0,#FLAG_POWER_PLANT_BATTERY_A
     bl         Flag_ClearBase
-    mov        r0,#0xd9
+    mov        r0,#FLAG_POWER_PLANT_BATTERY_B
     bl         Flag_ClearBase
-    mov        r0,#0xda
+    mov        r0,#FLAG_POWER_PLANT_BATTERY_C
     bl         Flag_ClearBase
-    mov        r0,#0xdb
+    mov        r0,#FLAG_POWER_PLANT_BATTERY_D
     bl         Flag_ClearBase
-    mov        r0,#0xdc
+    mov        r0,#FLAG_POWER_PLANT_BATTERY_E
     bl         Flag_ClearBase
     pop        {pc}
 
     .align 2, 0
 
 PTR_Struct_2002070_0804c698:
-    .word 0x2002070
+    .word gPowerPlant
 
 
-_ts FUN_0804c69c
+_ts PowerPlant_RandomizeAllSolutions
     push       {lr}
     mov        r0,#0x50
-    bl         FUN_0804c6d0
+    bl         PowerPlant_RandomizeSolution
     mov        r0,#0x60
-    bl         FUN_0804c6d0
+    bl         PowerPlant_RandomizeSolution
     mov        r0,#0x70
-    bl         FUN_0804c6d0
+    bl         PowerPlant_RandomizeSolution
     mov        r0,#0x80
-    bl         FUN_0804c6d0
+    bl         PowerPlant_RandomizeSolution
     mov        r0,#0x90
-    bl         FUN_0804c6d0
+    bl         PowerPlant_RandomizeSolution
     mov        r0,#0xa0
-    bl         FUN_0804c6d0
+    bl         PowerPlant_RandomizeSolution
     mov        r0,#0xb0
-    bl         FUN_0804c6d0
+    bl         PowerPlant_RandomizeSolution
     mov        r0,#0xc0
-    bl         FUN_0804c6d0
+    bl         PowerPlant_RandomizeSolution
     pop        {pc}
 
 
-_ts FUN_0804c6d0
+@@ Randomizes the specified grid solution to be one of 3 values. Since all 3
+@@ are the same, this does nothing.
+_ts PowerPlant_RandomizeSolution
     push       {lr}
     ldr        r5,PTR_Struct_2002070_0804c724
     sub        r0,#0x50
@@ -961,13 +963,13 @@ DAT_0804c71c:
     .byte 0x03
 
 PTR_Struct_2002070_0804c724:
-    .word 0x2002070
+    .word gPowerPlant
 
 PTR_DAT_0804c728:
     .word DAT_0804c71c
 
 
-_ts FUN_0804c72c
+_ts PowerPlant_GetBatteryCount
     push       {lr}
     ldr        r5,PTR_Struct_2002070_0804c76c
     sub        r0,#0x50
@@ -975,7 +977,7 @@ _ts FUN_0804c72c
     add        r6,r0,#0x0
     add        r0,#0x4
     ldrb       r2,[r5,r0]
-    ldr        r7,PTR_PTR_DAT_0804c770
+    ldr        r7,PTR_listGridSolution_0804c770
     lsl        r6,r6,#0x2
     ldr        r7,[r7,r6]
     lsl        r2,r2,#0x4
@@ -1005,10 +1007,10 @@ LAB_0804c760:
     .align 2, 0
 
 PTR_Struct_2002070_0804c76c:
-    .word 0x2002070
+    .word gPowerPlant
 
-PTR_PTR_DAT_0804c770:
-    .word PTR_DAT_0804c46c
+PTR_listGridSolution_0804c770:
+    .word listGridSolution
 
 
 _ts FUN_0804c774
@@ -1049,13 +1051,13 @@ LAB_0804c7b0:
     pop        {pc}
 
 PTR_Struct_2002070_0804c7b4:
-    .word 0x2002070
+    .word gPowerPlant
 
 PTR_PTR_DAT_0804c7b8:
-    .word PTR_DAT_0804c46c
+    .word listGridSolution
 
 
-_ts FUN_0804c7bc
+_ts PowerPlant_AddBattery
     sub        r0,#0x50
     lsl        r2,r0,#0x1c
     lsr        r2,r2,#0x1c
@@ -1068,7 +1070,7 @@ _ts FUN_0804c7bc
     mov        pc,lr
 
 
-_ts FUN_0804c7d0
+_ts PowerPlant_RemoveBattery
     sub        r0,#0x50
     lsl        r2,r0,#0x1c
     lsr        r2,r2,#0x1c
@@ -1084,7 +1086,7 @@ _ts FUN_0804c7d0
     .align 2, 0
 
 
-_ts FUN_0804c7e8
+_ts PowerPlant_GetBatteryInSlot
     sub        r0,#0x50
     lsl        r2,r0,#0x1c
     lsr        r2,r2,#0x1c
@@ -1100,7 +1102,7 @@ _ts FUN_0804c7e8
     .align 2, 0
 
 
-_ts FUN_0804c800
+_ts PowerPlant_SwitchOn
     sub        r0,#0x50
     lsr        r0,r0,#0x4
     mov        r1,#0x80
@@ -1114,7 +1116,7 @@ _ts FUN_0804c800
     .align 2, 0
 
 
-_ts FUN_0804c814
+_ts PowerPlant_SwitchOff
     sub        r0,#0x50
     lsr        r0,r0,#0x4
     mov        r1,#0x80
@@ -1128,7 +1130,7 @@ _ts FUN_0804c814
     .align 2, 0
 
 
-_ts FUN_0804c828
+_ts PowerPlant_TestSwitch
     sub        r0,#0x50
     lsr        r0,r0,#0x4
     mov        r1,#0x80
@@ -1139,7 +1141,7 @@ _ts FUN_0804c828
     mov        pc,lr
 
 
-_ts FUN_0804c838
+_ts PowerPlant_DrainBattery
     push       {lr}
     sub        r0,#0x50
     lsr        r0,r0,#0x4
@@ -1166,10 +1168,10 @@ LAB_0804c85a:
     .align 2, 0
 
 PTR_Struct_2002070_0804c864:
-    .word 0x2002070
+    .word gPowerPlant
 
 
-_ts FUN_0804c868
+_ts PowerPlant_TestBatteryCount
     push       {lr}
     sub        r0,#0x50
     lsr        r0,r0,#0x4
@@ -1205,36 +1207,36 @@ LAB_0804c89e:
     .align 2, 0
 
 
-_ts FUN_0804c8a4
+_ts PowerPlant_CheckPaths
     push       {lr}
     add        r6,r0,#0x0
     sub        r6,#0x50
     lsr        r6,r6,#0x4
     lsl        r6,r6,#0x2
-    ldr        r7,PTR_PTR_FUN_0804c8d8_0804cc4c
+    ldr        r7,PTR_PTR_PowerPlant_CheckPaths_Grid_0_0804cc4c
     ldr        r7,[r7,r6]
     mov        lr,pc
     bx         r7
     pop        {pc}
 
-PTR_FUN_0804c8d8_0804c8b8:
-    .word FUN_0804c8d8
-    .word FUN_0804c8fc
-    .word FUN_0804c928
-    .word FUN_0804c958
-    .word FUN_0804c988
-    .word FUN_0804c9b8
-    .word FUN_0804c9e8
-    .word FUN_0804ca18
+PTR_PowerPlant_CheckPaths_Grid_0_0804c8b8:
+    .word PowerPlant_CheckPaths_Grid_0
+    .word PowerPlant_CheckPaths_Grid_1
+    .word PowerPlant_CheckPaths_Grid_2
+    .word PowerPlant_CheckPaths_Grid_3
+    .word PowerPlant_CheckPaths_Grid_4
+    .word PowerPlant_CheckPaths_Grid_5
+    .word PowerPlant_CheckPaths_Grid_6
+    .word PowerPlant_CheckPaths_Grid_7
 
 
-_ts FUN_0804c8d8
+_ts PowerPlant_CheckPaths_Grid_0
     push       {lr}
     push       {r0}
-    bl         FUN_0804c828
+    bl         PowerPlant_TestSwitch
     pop        {r0}
     beq        LAB_0804c8ea
-    bl         FUN_0804ca5c
+    bl         PowerPlant_SetPathPalette_0
     b          LAB_0804c8fa
 LAB_0804c8ea:
     push       {r5}
@@ -1247,13 +1249,13 @@ LAB_0804c8fa:
     pop        {pc}
 
 
-_ts FUN_0804c8fc
+_ts PowerPlant_CheckPaths_Grid_1
     push       {lr}
     push       {r0}
-    bl         FUN_0804c828
+    bl         PowerPlant_TestSwitch
     pop        {r0}
     beq        LAB_0804c90e
-    bl         FUN_0804ca5c
+    bl         PowerPlant_SetPathPalette_0
     b          LAB_0804c924
 LAB_0804c90e:
     push       {r5}
@@ -1270,13 +1272,13 @@ LAB_0804c924:
     .align 2, 0
 
 
-_ts FUN_0804c928
+_ts PowerPlant_CheckPaths_Grid_2
     push       {lr}
     push       {r0}
-    bl         FUN_0804c828
+    bl         PowerPlant_TestSwitch
     pop        {r0}
     beq        LAB_0804c93a
-    bl         FUN_0804cae8
+    bl         PowerPlant_SetPathPalette_1
     b          LAB_0804c956
 LAB_0804c93a:
     push       {r5}
@@ -1293,13 +1295,13 @@ LAB_0804c956:
     pop        {pc}
 
 
-_ts FUN_0804c958
+_ts PowerPlant_CheckPaths_Grid_3
     push       {lr}
     push       {r0}
-    bl         FUN_0804c828
+    bl         PowerPlant_TestSwitch
     pop        {r0}
     beq        LAB_0804c96a
-    bl         FUN_0804ca5c
+    bl         PowerPlant_SetPathPalette_0
     b          LAB_0804c986
 LAB_0804c96a:
     push       {r5}
@@ -1316,13 +1318,13 @@ LAB_0804c986:
     pop        {pc}
 
 
-_ts FUN_0804c988
+_ts PowerPlant_CheckPaths_Grid_4
     push       {lr}
     push       {r0}
-    bl         FUN_0804c828
+    bl         PowerPlant_TestSwitch
     pop        {r0}
     beq        LAB_0804c99a
-    bl         FUN_0804cae8
+    bl         PowerPlant_SetPathPalette_1
     b          LAB_0804c9b6
 LAB_0804c99a:
     push       {r5}
@@ -1339,13 +1341,13 @@ LAB_0804c9b6:
     pop        {pc}
 
 
-_ts FUN_0804c9b8
+_ts PowerPlant_CheckPaths_Grid_5
     push       {lr}
     push       {r0}
-    bl         FUN_0804c828
+    bl         PowerPlant_TestSwitch
     pop        {r0}
     beq        LAB_0804c9ca
-    bl         FUN_0804cb74
+    bl         PowerPlant_SetPathPalette_2
     b          LAB_0804c9e6
 LAB_0804c9ca:
     push       {r5}
@@ -1362,10 +1364,10 @@ LAB_0804c9e6:
     pop        {pc}
 
 
-_ts FUN_0804c9e8
+_ts PowerPlant_CheckPaths_Grid_6
     push       {lr}
     push       {r0}
-    bl         FUN_0804c828
+    bl         PowerPlant_TestSwitch
     pop        {r0}
     beq        LAB_0804ca06
     push       {r5}
@@ -1386,16 +1388,16 @@ LAB_0804ca16:
     pop        {pc}
 
 
-_ts FUN_0804ca18
+_ts PowerPlant_CheckPaths_Grid_7
     push       {lr}
     push       {r0}
-    bl         FUN_0804c828
+    bl         PowerPlant_TestSwitch
     pop        {r0}
     beq        LAB_0804ca3c
     push       {r0}
-    bl         FUN_0804ca5c
+    bl         PowerPlant_SetPathPalette_0
     pop        {r0}
-    bl         FUN_0804c72c
+    bl         PowerPlant_GetBatteryCount
     cmp        r0,#0x3
     bne        LAB_0804ca58
     mov        r0,#0xd7
@@ -1418,7 +1420,7 @@ LAB_0804ca58:
     .align 2, 0
 
 
-_ts FUN_0804ca5c
+_ts PowerPlant_SetPathPalette_0
     push       {lr}
     mov        r1,#0x0
     push       {r0,r1}
@@ -1481,7 +1483,7 @@ PTR_BgTask_8049D88_0804cac8:
     .word BgTask_8049E30
 
 
-_ts FUN_0804cae8
+_ts PowerPlant_SetPathPalette_1
     push       {lr}
     mov        r1,#0x0
     push       {r0,r1}
@@ -1544,7 +1546,7 @@ PTR_BgTask_8049E48_0804cb54:
     .word BgTask_8049EF0
 
 
-_ts FUN_0804cb74
+_ts PowerPlant_SetPathPalette_2
     push       {lr}
     mov        r1,#0x0
     push       {r0,r1}
@@ -1626,7 +1628,7 @@ LAB_0804cc1c:
     mov        r1,#0x0
     strb       r1,[r7,r0]
     add        r0,r2,#0x0
-    bl         FUN_0804c6d0
+    bl         PowerPlant_RandomizeSolution
     mov        r0,#0x1
     pop        {pc}
 
@@ -1649,13 +1651,13 @@ LAB_0804cc40:
     pop        {pc}
 
 DAT_0804cc44:
-    .word 0x2002070
+    .word gPowerPlant
 
 PTR_Struct_2002070_0804cc48:
-    .word 0x2002070
+    .word gPowerPlant
 
-PTR_PTR_FUN_0804c8d8_0804cc4c:
-    .word PTR_FUN_0804c8d8_0804c8b8
+PTR_PTR_PowerPlant_CheckPaths_Grid_0_0804cc4c:
+    .word PTR_PowerPlant_CheckPaths_Grid_0_0804c8b8
 
 PTR_BgTask_8049D88_0804cc50:
     .word BgTask_8049D88

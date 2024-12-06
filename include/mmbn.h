@@ -3757,7 +3757,12 @@ typedef enum ItemId {
     Item_Armor=66,
     Item_HeatArmr=68,
     Item_AquaArmr=69,
-    Item_WoodArmr=70
+    Item_WoodArmr=70,
+    Item_BattA_Ct=80,
+    Item_BattB_Ct=81,
+    Item_BattC_Ct=82,
+    Item_BattD_Ct=83,
+    Item_BattE_Ct=84
 } ItemId;
 
 typedef struct Main Main, *PMain;

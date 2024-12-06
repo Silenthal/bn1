@@ -103,7 +103,7 @@ _ts InitWorld_NewGame
     bl         Inventory_InitChecksum
     bl         Inventory_InitChecksumIndex
     bl         ClearEmailIndexes
-    bl         FUN_0804c60c
+    bl         PowerPlant_Init
     pop        {r5}
     ldr        r0,DAT_08004114
     strh       r0,[r5,#0x4]

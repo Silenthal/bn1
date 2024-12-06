@@ -337,9 +337,9 @@ _ts S_Story_54_12
     ldr        r0,[r5,#0x10]
     mov        r1,#0x0
     bl         World_SetTransitionLocation
-    bl         FUN_0804c60c
     bl         PowerPlant_Init
-    bl         FUN_0804c69c
+    bl         PowerPlant_ResetState
+    bl         PowerPlant_RandomizeAllSolutions
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_08090080:

@@ -42,7 +42,7 @@ LAB_0804a316:
     ldr        r0,PTR_EntityAllocParams_804BB54_0804a528
     bl         Entity_AllocList
     mov        r0,#0x50
-    bl         FUN_0804c8a4
+    bl         PowerPlant_CheckPaths
     pop        {r5}
     pop        {pc}
 

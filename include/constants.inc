@@ -12,3 +12,4 @@
     .include "constants/music.inc"
     .include "constants/item.inc"
     .include "constants/entity.inc"
+    .include "constants/flag.inc"

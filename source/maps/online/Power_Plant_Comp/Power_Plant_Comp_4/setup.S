@@ -44,12 +44,12 @@ LAB_0804b05e:
     bne        LAB_0804b07a
     mov        r0,#0xd6
     bl         Flag_SetBase
-    bl         PowerPlant_Init
+    bl         PowerPlant_ResetState
 LAB_0804b07a:
     ldr        r0,PTR_EntityAllocParams_804C2D8_0804b3ac
     bl         Entity_AllocList
     mov        r0,#0xc0
-    bl         FUN_0804c8a4
+    bl         PowerPlant_CheckPaths
     pop        {r5}
     pop        {pc}
 

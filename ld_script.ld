@@ -43,6 +43,7 @@ SECTIONS {
 		gEntityListNpc				= 0x13A0;
 		gEmailIndexes				= 0x1FA0;
 		gShopInventory7				= 0x1FE0;
+		gPowerPlant					= 0x2070;
 		gInventoryChecksumIndex		= 0x2150;
 		gShopInventory6				= 0x2160;
 		gShopInventory3				= 0x21F0;

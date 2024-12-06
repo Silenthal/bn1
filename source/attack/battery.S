@@ -49,7 +49,7 @@ LAB_08077406:
     bl         Map_HandleCollisionCover
     pop        {r5}
     bl         SpritePtr_SetPriority
-    bl         FUN_08077448
+    bl         A_Battery_SetVisualLevel
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     pop        {pc}
@@ -67,7 +67,7 @@ DAT_0807742c:
 
 _ts A_Battery_1_Main
     push       {lr}
-    bl         FUN_08077448
+    bl         A_Battery_SetVisualLevel
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
 
@@ -78,11 +78,11 @@ _ts A_Battery_2_Free
     pop        {pc}
 
 
-_ts FUN_08077448
+_ts A_Battery_SetVisualLevel
     push       {lr}
     push       {r0,r5}
     ldrb       r0,[r5,#0x4]
-    bl         FUN_0804c7e8
+    bl         PowerPlant_GetBatteryInSlot
     pop        {r1,r5}
     bne        LAB_0807745c
     mov        r1,#0x1

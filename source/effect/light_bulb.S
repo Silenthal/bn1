@@ -38,7 +38,7 @@ _ts E_LightBulb_0_Init
     bl         Map_HandleCollisionCover
     pop        {r5}
     bl         SpritePtr_SetPriority
-    bl         FUN_08080054
+    bl         E_LightBulb_CheckLitState
     ldrb       r0,[r5,#0x6]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
@@ -48,7 +48,7 @@ _ts E_LightBulb_0_Init
 
 _ts E_LightBulb_1_Main
     push       {lr}
-    bl         FUN_08080054
+    bl         E_LightBulb_CheckLitState
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
 
@@ -59,7 +59,7 @@ _ts E_LightBulb_2_Free
     pop        {pc}
 
 
-_ts FUN_08080054
+_ts E_LightBulb_CheckLitState
     push       {lr}
     mov        r7,r10
     ldr        r7,[r7,#0x8]
@@ -69,7 +69,7 @@ _ts FUN_08080054
     mov        r1,#0x0
     push       {r1,r5}
     ldrb       r0,[r5,#0x4]
-    bl         FUN_0804c828
+    bl         PowerPlant_TestSwitch
     pop        {r1,r5}
     beq        LAB_0808007e
     push       {r1,r5}
