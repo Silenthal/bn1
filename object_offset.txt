@@ -757,8 +757,12 @@ battle/screendim/lifesaver  0x9B81C
 battle/screendim/doublehero 0x9B8F8
 battle/screendim/heavystamp 0x9BA18
 battle/screendim/bloodsuck  0x9BB28
+network                     0x9BC4C
+m4a                         0x9BFA4
 swi                         0x9DF50
+m4a_data                    0x9E1D0
 sound_data                  0xA111C
+sram_ptr                    0x160AA8
 interrupt_handler           0x180000
 oam_far                     0x180564
 text_far                    0x1808D8

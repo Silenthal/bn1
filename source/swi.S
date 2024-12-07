@@ -282,19 +282,19 @@ LAB_0809e0f4:
     pop        { r1 }
     bx         r1
 
-Call_R0_9e0fc:
+_ts Call_R0_9e0fc
     bx         r0
     nop
 
-Call_R1_9E100:
+_ts Call_R1_9E100
     bx         r1
     nop
 
-Call_R2_9e103:
+_ts Call_R2_9e103
     bx         r2
     nop
 
-Call_R3_9e108:
+_ts Call_R3_9e108
     bx         r3
     nop
     bx         r4
