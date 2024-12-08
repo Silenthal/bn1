@@ -1,0 +1,218 @@
+#include "offsets.h"
+    .include "constants.inc"
+    .include "macros.inc"
+
+
+_ts BuildChipSack
+    push       {r5,lr}
+    @@ r6 = current inventory slot
+    ldr        r6,PTR_gBattleChipInventory_03007628
+    @@ r0 = chip index
+    mov        r0,#0x0
+    mov        r1,#0x0
+LAB_03007520:
+    @@ r2 = chip code index for a particular chip
+    mov        r2,#0x0
+    mov        r8,r2
+LAB_03007524:
+    @@ r3 = quantity of a particular chip/code in the inventory
+    ldrb       r3,[r6,#0x0]
+    tst        r3,r3
+    beq        LAB_030075aa
+    @@ r5 = current battle chip in folder
+    ldr        r5,PTR_gFolder_0300762c
+    @@ r2 = current folder chip index (out of 30)
+    mov        r2,#0x0
+LAB_0300752e:
+    @@ Compare the current inventory chip/code quantity with
+    @@ the current chip in the folder until a match is made.
+    @@ Once made, get chip data and store ptr in r0
+    ldrb       r4,[r5,#0x0]
+    cmp        r0,r4
+    bne        LAB_03007552
+    push       {r0}
+    push       {r1,r2,r5}
+    ldr        r7,PTR_BattleChip_GetChipData_03007630
+    mov        lr,pc
+    bx         r7
+    pop        {r1,r2,r5}
+    @@ r0 = chip data ptr
+    mov        r4,#0x0
+    @@ r4 = chip code index for a particular chip
+    add        r4,r8
+    @@ r4 = chip code as a value (A=0, B=1, etc.)
+    ldrb       r4,[r0,r4]
+    @@ Compare the code of the chip being checked to the code of
+    @@ the current chip in the folder
+    ldrb       r0,[r5,#0x1]
+    cmp        r0,r4
+    pop        {r0}
+    bne        LAB_03007552
+    @@ Continue if the amount of the particular chip/code
+    @@ is at least 2
+    sub        r3,#0x1
+    ble        LAB_030075aa
+LAB_03007552:
+    @@ Go to the next chip in the folder (r5)
+    @@ Increment folder chip index, loop if
+    @@ less than 30
+    add        r5,#0x2
+    add        r2,#0x1
+    cmp        r2,#0x1e
+    blt        LAB_0300752e
+    @@ Stack:
+    @@ r3 = quantity of a chip code in the inventory
+    push       {r3}
+    mov        r2,r8
+    @@ r3 = start address of the inventory slot
+    sub        r3,r6,r2
+    lsl        r2,r2,#0x1
+    add        r2,#0x6
+    @@ r3 = checksum for the specific chip code quantity
+    ldrh       r3,[r3,r2]
+    push       {r3}
+    @@ Stack:
+    @@ quantity of chip code
+    @@ checksum for chip code quantity
+    mov        r5,#0x0
+    ldr        r7,PTR_SubMenuChipBagSlot_03007634
+    mov        r9,r7
+LAB_0300756e:
+    @@ r1 = index of the sub menu bag being inserted into
+    @@ r7 = base address of the sub menu bag slot
+    @@ r5 = current bag slot index being looked at
+    cmp        r5,r1
+    beq        LAB_0300759a
+    @@ Compare the checksum of the existing chip info to the
+    @@ inserted chip - because of checksum ordering, greater
+    @@ number = chip was acquired earlier
+    ldrh       r2,[r7,#0x4]
+    cmp        r2,r3
+    bgt        LAB_0300757e
+    add        r7,#0x8
+    add        r5,#0x1
+    b          LAB_0300756e
+LAB_0300757e:
+    @@ If the inserted chip was acquired later (lower # as checksum)
+    @@ , perform insertion in place
+    mov        r2,r9
+    mov        r9,r5
+    add        r5,r1,#0x0
+    sub        r5,#0x1
+    lsl        r3,r5,#0x3
+    add        r2,r2,r3
+LAB_0300758a:
+    ldr        r3,[r2,#0x0]
+    str        r3,[r2,#0x8]
+    ldr        r3,[r2,#0x4]
+    str        r3,[r2,#0xc]
+    sub        r2,#0x8
+    sub        r5,#0x1
+    cmp        r5,r9
+    bge        LAB_0300758a
+LAB_0300759a:
+    pop        {r2}
+    pop        {r3}
+    @@ r2 = checksum
+    @@ r3 = quantity
+    @@ 
+    @@ Store the chip id, the chip code, the count,
+    @@ and the checksum at the current slot
+    strh       r0,[r7,#0x0]
+    mov        r4,r8
+    strh       r4,[r7,#0x2]
+    strh       r3,[r7,#0x6]
+    strh       r2,[r7,#0x4]
+    add        r1,#0x1
+LAB_030075aa:
+    @@ Move to next chip code index within the inventory slot
+    add        r6,#0x1
+    mov        r2,r8
+    add        r2,#0x1
+    mov        r8,r2
+    cmp        r2,#0x5
+    blt        LAB_03007524
+    @@ Move to next chip in inventory
+    add        r6,#0xb
+    add        r0,#0x1
+    cmp        r0,#0xef
+    ble        LAB_03007520
+    @@ r7 = start of "chip bag slot"
+    @@ r6 = start of "sub menu chip bag"
+    @@ r1 = amount of chips in "sub menu chip bag"
+    ldr        r7,PTR_gChipBag_03007638
+    ldr        r6,PTR_SubMenuChipBagSlot_03007634
+    push       {r1}
+LAB_030075c4:
+    cmp        r1,#0x0
+    ble        LAB_03007622
+    push       {r1}
+    ldrh       r0,[r6,#0x0]
+    push       {r0,r6,r7}
+    ldr        r7,PTR_BattleChip_GetChipData_0300763c
+    mov        lr,pc
+    bx         r7
+    pop        {r4,r6,r7}
+    str        r4,[r7,#0x18]
+    ldrb       r4,[r0,#0x9]
+    lsl        r2,r4,#0x8
+    ldrh       r3,[r6,#0x2]
+    add        r3,#0x0
+    ldrb       r3,[r0,r3]
+    orr        r2,r3
+    lsl        r3,r3,#0x10
+    orr        r3,r2
+    str        r3,[r7,#0x8]
+    lsl        r3,r4,#0x10
+    orr        r3,r2
+    str        r3,[r7,#0x0]
+    ldrh       r3,[r6,#0x6]
+    lsl        r3,r3,#0x10
+    orr        r3,r2
+    str        r3,[r7,#0x14]
+    ldrb       r3,[r0,#0x9]
+    lsl        r3,r3,#0x10
+    orr        r3,r2
+    str        r3,[r7,#0x4]
+    ldrh       r3,[r0,#0xc]
+    lsl        r3,r3,#0x10
+LAB_03007604:
+    orr        r3,r2
+    str        r3,[r7,#0xc]
+    ldrb       r3,[r0,#0x5]
+    lsl        r3,r3,#0x10
+    orr        r3,r2
+    str        r3,[r7,#0x10]
+    ldrb       r3,[r0,#0xa]
+    lsl        r3,r3,#0x10
+    orr        r3,r2
+    str        r3,[r7,#0x4]
+    pop        {r1}
+    add        r6,#0x8
+    add        r7,#0x20
+    sub        r1,#0x1
+    b          LAB_030075c4
+LAB_03007622:
+    pop        {r0}
+    pop        {r5,pc}
+
+    .align 2, 0
+
+
+PTR_gBattleChipInventory_03007628:
+    .word gBattleChipInventory
+
+PTR_gFolder_0300762c:
+    .word gFolder
+
+PTR_BattleChip_GetChipData_03007630:
+    .word BattleChip_GetChipData
+
+PTR_SubMenuChipBagSlot_03007634:
+    .word 0x2024000
+
+PTR_gChipBag_03007638:
+    .word gChipBag
+
+PTR_BattleChip_GetChipData_0300763c:
+    .word BattleChip_GetChipData

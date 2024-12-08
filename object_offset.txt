@@ -764,9 +764,13 @@ m4a_data                    0x9E1D0
 sound_data                  0xA111C
 sram_ptr                    0x160AA8
 interrupt_handler           0x180000
+screen_far                  0x180178
+sprite_frame_far            0x180200
 oam_far                     0x180564
 text_far                    0x1808D8
-screen_far                  0x180178
+sort_sack_far               0x180AB0
+irq_timer_far               0x180C10
+build_chip_sack_far         0x180D18
 asset_1E0000                0x1E0000
 asset_text                  0x69D0FC
 asset_796FD4                0x796FD4
