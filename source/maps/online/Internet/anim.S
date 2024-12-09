@@ -4,7 +4,7 @@
 
 
 global_label BgTask_80515C8
-    task_direct 0, 0x2006D10, 0x8, 8
+    task_direct 0, eBgPalette2, 0x8, 8
     task_direct_arg 0x851E280
     task_direct_arg 0x8796814
     task_direct_arg 0x8796834
@@ -16,7 +16,7 @@ global_label BgTask_80515C8
     task_repeat
 
 global_label BgTask_8051618
-    task_direct 1, 0x2006DD0, 0x8, 8
+    task_direct 1, eBgPalette8, 0x8, 8
     task_direct_arg 0x851E340
     task_direct_arg 0x8796A14
     task_direct_arg 0x8796A34
@@ -28,7 +28,7 @@ global_label BgTask_8051618
     task_repeat
 
 global_label BgTask_8051668
-    task_direct 2, 0x2006DF0, 0x8, 8
+    task_direct 2, eBgPalette9, 0x8, 8
     task_direct_arg 0x851E360
     task_direct_arg 0x8796AF4
     task_direct_arg 0x8796B14
@@ -40,7 +40,7 @@ global_label BgTask_8051668
     task_repeat
 
 global_label BgTask_80516B8
-    task_direct 3, 0x2006D30, 0x8, 8
+    task_direct 3, eBgPalette3, 0x8, 8
     task_direct_arg 0x851E2A0
     task_direct_arg 0x87968F4
     task_direct_arg 0x8796914
@@ -50,7 +50,7 @@ global_label BgTask_80516B8
     task_repeat
 
 global_label BgTask_80516F8
-    task_direct 4, 0x2006D50, 0x8, 8
+    task_direct 4, eBgPalette4, 0x8, 8
     task_direct_arg 0x851E2C0
     task_direct_arg 0x8796954
     task_direct_arg 0x8796974
@@ -60,12 +60,12 @@ global_label BgTask_80516F8
     task_repeat
 
 global_label BgTask_8051738
-    task_direct 5, 0x2006E10, 0x8
+    task_direct 5, eBgPaletteA, 0x8
     task_direct_arg 0x87969B4
     task_stop
 
 global_label BgTask_8051750
-    task_direct 6, 0x2006E30, 0x8, 16
+    task_direct 6, eBgPaletteB, 0x8, 16
     task_direct_arg 0x851E3A0
     task_direct_arg 0x8796C14
     task_direct_arg 0x8796C34
