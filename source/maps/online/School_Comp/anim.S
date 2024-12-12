@@ -4,7 +4,7 @@
 
 
 global_label BgTask_803EC68
-    task_direct 0, eBgPaletteC, 0x8, 5
+    task_direct slot=0, dst=eBgPaletteC, len=0x8, delay=5
     task_direct_arg 0x877FBF4
     task_direct_arg 0x877FC14
     task_direct_arg 0x877FC34
@@ -15,7 +15,7 @@ global_label BgTask_803EC68
     task_repeat
 
 global_label BgTask_803ECB0
-    task_direct 0, eBgPaletteC, 0x8, 5
+    task_direct slot=0, dst=eBgPaletteC, len=0x8, delay=5
     task_direct_arg 0x877FCD4
     task_direct_arg 0x877FCF4
     task_direct_arg 0x877FD14
@@ -26,7 +26,7 @@ global_label BgTask_803ECB0
     task_repeat
 
 global_label BgTask_803ECF8
-    task_direct 1, eBgPalette6, 0x8, 15
+    task_direct slot=1, dst=eBgPalette6, len=0x8, delay=15
     task_direct_arg 0x877FDB4
     task_direct_arg 0x877FDD4
     task_direct_arg 0x877FDF4
@@ -42,7 +42,7 @@ global_label BgTask_803ECF8
     task_repeat
 
 global_label BgTask_803ED68
-    task_tileset 2, 0x877EBF4, 0x6000000, 0x20, 14, 4
+    task_tileset slot=2, src=0x877EBF4, dst=0x6000000, count=0x20, bufIndex=14, delay=4
     task_tileset_arg TilemapEntry_803F208
     task_tileset_arg TilemapEntry_803F248
     task_tileset_arg TilemapEntry_803F288
@@ -166,7 +166,7 @@ global_label BgTask_803ED68
     task_repeat
 
 global_label BgTask_803F138
-    task_direct 3, eBgPalette0, 0x8, 22
+    task_direct slot=3, dst=eBgPalette0, len=0x8, delay=22
     task_direct_arg 0x877FE94
     task_direct_arg 0x877FEB4
     task_direct_arg 0x877FED4

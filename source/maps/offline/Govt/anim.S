@@ -4,7 +4,7 @@
 
 
 global_label BgTask_80311A0
-    task_direct 0, 0x6004020, 0x58, 600
+    task_direct slot=0, dst=0x6004020, len=0x58, delay=600
     task_direct_arg 0x877A254
     task_direct_arg 0x877A3B4, 12
     task_direct_arg 0x877A514, 12
@@ -16,7 +16,7 @@ global_label BgTask_80311A0
     task_repeat
 
 global_label BgTask_80311F0
-    task_direct 0, 0x6002400, 0x60, 16
+    task_direct slot=0, dst=0x6002400, len=0x60, delay=16
     task_direct_arg 0x877A674
     task_direct_arg 0x877A7F4
     task_direct_arg 0x877A674
@@ -42,7 +42,7 @@ global_label BgTask_80311F0
     task_repeat
 
 global_label BgTask_80312B0
-    task_direct 0, eBgPalette9, 0x8, 6
+    task_direct slot=0, dst=eBgPalette9, len=0x8, delay=6
     task_direct_arg 0x877BB74
     task_direct_arg 0x877BB94
     task_direct_arg 0x877BBB4
@@ -51,11 +51,11 @@ global_label BgTask_80312B0
     task_repeat
 
 global_label BgTask_80312E8
-    task_direct 0, eBgPalette4, 0x8
+    task_direct slot=0, dst=eBgPalette4, len=0x8, delay=1
     task_direct_arg 0x877BC34
     task_stop
 
 global_label BgTask_8031300
-    task_direct 1, eBgPalette7, 0x8
+    task_direct slot=1, dst=eBgPalette7, len=0x8, delay=1
     task_direct_arg 0x877BC54
     task_stop
