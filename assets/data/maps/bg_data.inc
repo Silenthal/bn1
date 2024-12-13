@@ -276,12 +276,12 @@ BgData_DenTown_Summer_School:
 
 BGData_SciLab:
 
-BgData_SciLab_Restaurant:
+BgData_SciLab_Restaurant_Hallway:
     .word BgData_Tileset_SciLab_Restaurant_Hallway
     .word BgData_Palette_SciLab_Restaurant_Hallway
     .word BgData_Tilemap_SciLab_Restaurant_Hallway
 
-BgData_SciLab_Restaurant_Hallway:
+BgData_SciLab_Restaurant:
     .word BgData_Tileset_SciLab_Restaurant
     .word BgData_Palette_SciLab_Restaurant
     .word BgData_Tilemap_SciLab_Restaurant

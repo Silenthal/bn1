@@ -99,6 +99,7 @@ def searchAssets(assetPath: Path, incLink: Path) -> list[str]:
             inMatch = re.match(r"^\s+\.include \"(.*.inc)\".*$", line)
             if inMatch:
                 link = inMatch.group(1)
+                retList.append(link)
                 retList.extend(searchAssets(assetPath, link))
     return retList
 
@@ -126,6 +127,7 @@ def createDepParams(
             inMatch = re.match(r"^\s+\.include \"(.*.inc)\".*$", line)
             if inMatch:
                 link = inMatch.group(1)
+                fileList.append(Path("$(ASSETS)") / link)
                 retList = searchAssets(assetPath, Path(link))
                 for file in retList:
                     fileList.append(Path("$(ASSETS)") / file)
