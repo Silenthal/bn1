@@ -1,0 +1,255 @@
+global_label DialogueData_School_Class_5A
+    .incbin "data/maps/offline/School_Class_5A.dialogue"
+global_label DialogueData_School_Class_5B
+    .incbin "data/maps/offline/School_Class_5B.dialogue"
+global_label DialogueData_School_Library
+    .incbin "data/maps/offline/School_Library.dialogue"
+global_label DialogueData_School_2F_Hallway
+    .incbin "data/maps/offline/School_2F_Hallway.dialogue"
+global_label DialogueData_School_Class_1A
+    .incbin "data/maps/offline/School_Class_1A.dialogue"
+global_label DialogueData_School_Class_1B
+    .incbin "data/maps/offline/School_Class_1B.dialogue"
+global_label DialogueData_School_AV_Room
+    .incbin "data/maps/offline/School_AV_Room.dialogue"
+global_label DialogueData_School_Infirmary
+    .incbin "data/maps/offline/School_Infirmary.dialogue"
+global_label DialogueData_School_1F_Hallway
+    .incbin "data/maps/offline/School_1F_Hallway.dialogue"
+global_label DialogueData_School_Cross_Hallway
+    .incbin "data/maps/offline/School_Cross_Hallway.dialogue"
+global_label DialogueData_School_Storage
+    .incbin "data/maps/offline/School_Storage.dialogue"
+global_label DialogueData_School_Staff_Lounge
+    .incbin "data/maps/offline/School_Staff_Lounge.dialogue"
+global_label DialogueData_School_Staff_Lounge_Hallway
+    .incbin "data/maps/offline/School_Staff_Lounge_Hallway.dialogue"
+
+global_label DialogueData_ACDC_Town
+    .incbin "data/maps/offline/ACDC_Town.dialogue"
+global_label DialogueData_ACDC_School_Gate
+    .incbin "data/maps/offline/ACDC_School_Gate.dialogue"
+global_label DialogueData_ACDC_Lan_Living_Room
+    .incbin "data/maps/offline/ACDC_Lan_Living_Room.dialogue"
+global_label DialogueData_ACDC_Lan_Room
+    .incbin "data/maps/offline/ACDC_Lan_Room.dialogue"
+global_label DialogueData_ACDC_Mayl_Living_Room
+    .incbin "data/maps/offline/ACDC_Mayl_Living_Room.dialogue"
+global_label DialogueData_ACDC_Mayl_Room
+    .incbin "data/maps/offline/ACDC_Mayl_Room.dialogue"
+global_label DialogueData_ACDC_Dex_Room
+    .incbin "data/maps/offline/ACDC_Dex_Room.dialogue"
+global_label DialogueData_ACDC_Yai_Room
+    .incbin "data/maps/offline/ACDC_Yai_Room.dialogue"
+global_label DialogueData_ACDC_Higsbys
+    .incbin "data/maps/offline/ACDC_Higsbys.dialogue"
+global_label DialogueData_ACDC_Station
+    .incbin "data/maps/offline/ACDC_Station.dialogue"
+global_label DialogueData_ACDC_Secret_Station
+    .incbin "data/maps/offline/ACDC_Secret_Station.dialogue"
+
+global_label DialogueData_Govt_Complex_Front
+    .incbin "data/maps/offline/Govt_Complex_Front.dialogue"
+global_label DialogueData_Govt_Complex_Station
+    .incbin "data/maps/offline/Govt_Complex_Station.dialogue"
+global_label DialogueData_Govt_Waterworks_Lobby
+    .incbin "data/maps/offline/Govt_Waterworks_Lobby.dialogue"
+global_label DialogueData_Govt_SciLab_Lobby
+    .incbin "data/maps/offline/Govt_SciLab_Lobby.dialogue"
+global_label DialogueData_Govt_Yuichiro_Lab
+    .incbin "data/maps/offline/Govt_Yuichiro_Lab.dialogue"
+global_label DialogueData_Govt_Waterworks_Office
+    .incbin "data/maps/offline/Govt_Waterworks_Office.dialogue"
+global_label DialogueData_Govt_Waterworks_Control_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Control_Room.dialogue"
+global_label DialogueData_Govt_Waterworks_Pump_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Pump_Room.dialogue"
+global_label DialogueData_Govt_Waterworks_Purification_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Purification_Room.dialogue"
+
+global_label DialogueData_DenTown_Center
+    .incbin "data/maps/offline/DenTown_Center.dialogue"
+global_label DialogueData_DenTown_Station
+    .incbin "data/maps/offline/DenTown_Station.dialogue"
+global_label DialogueData_DenTown_Block_1
+    .incbin "data/maps/offline/DenTown_Block_1.dialogue"
+global_label DialogueData_DenTown_Block_2
+    .incbin "data/maps/offline/DenTown_Block_2.dialogue"
+global_label DialogueData_DenTown_Block_3
+    .incbin "data/maps/offline/DenTown_Block_3.dialogue"
+global_label DialogueData_DenTown_Block_4
+    .incbin "data/maps/offline/DenTown_Block_4.dialogue"
+global_label DialogueData_DenTown_Miyu_Antiques
+    .incbin "data/maps/offline/DenTown_Miyu_Antiques.dialogue"
+global_label DialogueData_DenTown_Summer_School
+    .incbin "data/maps/offline/DenTown_Summer_School.dialogue"
+
+global_label DialogueData_SciLab_Restaurant_Hallway
+    .incbin "data/maps/offline/SciLab_Restaurant_Hallway.dialogue"
+global_label DialogueData_SciLab_Restaurant
+    .incbin "data/maps/offline/SciLab_Restaurant.dialogue"
+global_label DialogueData_SciLab_Power_Plant_Hallway
+    .incbin "data/maps/offline/SciLab_Power_Plant_Hallway.dialogue"
+global_label DialogueData_SciLab_Power_Plant
+    .incbin "data/maps/offline/SciLab_Power_Plant.dialogue"
+global_label DialogueData_SciLab_Power_Plant_Control_Room
+    .incbin "data/maps/offline/SciLab_Power_Plant_Control_Room.dialogue"
+global_label DialogueData_SciLab_Generator_Room
+    .incbin "data/maps/offline/SciLab_Generator_Room.dialogue"
+
+global_label DialogueData_WWW_Base
+    .incbin "data/maps/offline/WWW_Base.dialogue"
+global_label DialogueData_WWW_Wily_Lab
+    .incbin "data/maps/offline/WWW_Wily_Lab.dialogue"
+global_label DialogueData_WWW_Rocket_Hangar
+    .incbin "data/maps/offline/WWW_Rocket_Hangar.dialogue"
+global_label DialogueData_WWW_Passage_1
+    .incbin "data/maps/offline/WWW_Passage_1.dialogue"
+    @ Quirk: Script for area 4 included twice
+    .incbin "data/maps/offline/WWW_Passage_2.dialogue"
+global_label DialogueData_WWW_Passage_2
+    .incbin "data/maps/offline/WWW_Passage_2.dialogue"
+global_label DialogueData_WWW_Passage_3
+    .incbin "data/maps/offline/WWW_Passage_3.dialogue"
+
+global_label DialogueData_School_Comp_1
+    .incbin "data/maps/online/School_Comp_1.dialogue"
+global_label DialogueData_School_Comp_2
+    .incbin "data/maps/online/School_Comp_2.dialogue"
+global_label DialogueData_School_Comp_3
+    .incbin "data/maps/online/School_Comp_3.dialogue"
+global_label DialogueData_School_Comp_4
+    .incbin "data/maps/online/School_Comp_4.dialogue"
+global_label DialogueData_School_Comp_5
+    .incbin "data/maps/online/School_Comp_5.dialogue"
+
+global_label DialogueData_Oven_Comp_1
+    .incbin "data/maps/online/Oven_Comp_1.dialogue"
+global_label DialogueData_Oven_Comp_2
+    .incbin "data/maps/online/Oven_Comp_2.dialogue"
+
+global_label DialogueData_Waterworks_Comp_1
+    .incbin "data/maps/online/Waterworks_Comp_1.dialogue"
+global_label DialogueData_Waterworks_Comp_2
+    .incbin "data/maps/online/Waterworks_Comp_2.dialogue"
+global_label DialogueData_Waterworks_Comp_3
+    .incbin "data/maps/online/Waterworks_Comp_3.dialogue"
+global_label DialogueData_Waterworks_Comp_4
+    .incbin "data/maps/online/Waterworks_Comp_4.dialogue"
+global_label DialogueData_Waterworks_Comp_5
+    .incbin "data/maps/online/Waterworks_Comp_5.dialogue"
+global_label DialogueData_Waterworks_Comp_6
+    .incbin "data/maps/online/Waterworks_Comp_6.dialogue"
+
+global_label DialogueData_Traffic_Light_Comp_1
+    .incbin "data/maps/online/Traffic_Light_Comp_1.dialogue"
+global_label DialogueData_Traffic_Light_Comp_2
+    .incbin "data/maps/online/Traffic_Light_Comp_2.dialogue"
+global_label DialogueData_Traffic_Light_Comp_3
+    .incbin "data/maps/online/Traffic_Light_Comp_3.dialogue"
+global_label DialogueData_Traffic_Light_Comp_4
+    .incbin "data/maps/online/Traffic_Light_Comp_4.dialogue"
+global_label DialogueData_Traffic_Light_Comp_5
+    .incbin "data/maps/online/Traffic_Light_Comp_5.dialogue"
+
+global_label DialogueData_Power_Plant_Comp_1
+    .incbin "data/maps/online/Power_Plant_Comp_1.dialogue"
+global_label DialogueData_Power_Plant_Comp_2
+    .incbin "data/maps/online/Power_Plant_Comp_2.dialogue"
+global_label DialogueData_Power_Plant_Comp_3
+    .incbin "data/maps/online/Power_Plant_Comp_3.dialogue"
+global_label DialogueData_Power_Plant_Comp_4
+    .incbin "data/maps/online/Power_Plant_Comp_4.dialogue"
+
+global_label DialogueData_WWW_Comp_1
+    .incbin "data/maps/online/WWW_Comp_1.dialogue"
+global_label DialogueData_WWW_Comp_2
+    .incbin "data/maps/online/WWW_Comp_2.dialogue"
+global_label DialogueData_WWW_Comp_3
+    .incbin "data/maps/online/WWW_Comp_3.dialogue"
+global_label DialogueData_WWW_Comp_4
+    .incbin "data/maps/online/WWW_Comp_4.dialogue"
+global_label DialogueData_WWW_Comp_5
+    .incbin "data/maps/online/WWW_Comp_5.dialogue"
+global_label DialogueData_Rocket_Comp
+    .incbin "data/maps/online/Rocket_Comp.dialogue"
+
+global_label DialogueData_ACDC_Lan_PC
+    .incbin "data/maps/online/ACDC_Lan_PC.dialogue"
+global_label DialogueData_ACDC_Mayl_PC
+    .incbin "data/maps/online/ACDC_Mayl_PC.dialogue"
+global_label DialogueData_ACDC_Yai_PC
+    .incbin "data/maps/online/ACDC_Yai_PC.dialogue"
+global_label DialogueData_ACDC_Dex_PC
+    .incbin "data/maps/online/ACDC_Dex_PC.dialogue"
+
+global_label DialogueData_Govt_Yuichiro_PC
+    .incbin "data/maps/online/Govt_Yuichiro_PC.dialogue"
+global_label DialogueData_Govt_Lunch_Cart_Comp
+    .incbin "data/maps/online/Govt_Lunch_Cart_Comp.dialogue"
+
+global_label DialogueData_DenTown_Antique_Comp
+    .incbin "data/maps/online/DenTown_Antique_Comp.dialogue"
+
+global_label DialogueData_SciLab_Fish_Stand_Comp
+    .incbin "data/maps/online/SciLab_Fish_Stand_Comp.dialogue"
+
+global_label DialogueData_Other_Doghouse_Comp
+    .incbin "data/maps/online/Other_Doghouse_Comp.dialogue"
+global_label DialogueData_Other_Servbot_Comp
+    .incbin "data/maps/online/Other_Servbot_Comp.dialogue"
+global_label DialogueData_Other_New_Game_Machine_Comp
+    .incbin "data/maps/online/Other_New_Game_Machine_Comp.dialogue"
+global_label DialogueData_Other_Telephone_Comp
+    .incbin "data/maps/online/Other_Telephone_Comp.dialogue"
+global_label DialogueData_Other_Car_Comp
+    .incbin "data/maps/online/Other_Car_Comp.dialogue"
+global_label DialogueData_Other_Waterworks_Vending_Machine
+    .incbin "data/maps/online/Other_Waterworks_Vending_Machine.dialogue"
+global_label DialogueData_Other_Lobby_TV_Comp
+    .incbin "data/maps/online/Other_Lobby_TV_Comp.dialogue"
+global_label DialogueData_Other_Large_Monitor_Comp
+    .incbin "data/maps/online/Other_Large_Monitor_Comp.dialogue"
+global_label DialogueData_Other_Control_Equipment_Comp
+    .incbin "data/maps/online/Other_Control_Equipment_Comp.dialogue"
+global_label DialogueData_Other_SciLab_Vending_Machine
+    .incbin "data/maps/online/Other_SciLab_Vending_Machine.dialogue"
+global_label DialogueData_Other_Recycled_PET_Comp
+    .incbin "data/maps/online/Other_Recycled_PET_Comp.dialogue"
+global_label DialogueData_Other_Big_Vase_Comp
+    .incbin "data/maps/online/Other_Big_Vase_Comp.dialogue"
+global_label DialogueData_Other_Blackboard_Comp
+    .incbin "data/maps/online/Other_Blackboard_Comp.dialogue"
+
+global_label DialogueData_Internet_1
+    .incbin "data/maps/online/Internet_1.dialogue"
+global_label DialogueData_Internet_2
+    .incbin "data/maps/online/Internet_2.dialogue"
+global_label DialogueData_Internet_3
+    .incbin "data/maps/online/Internet_3.dialogue"
+global_label DialogueData_Internet_4
+    .incbin "data/maps/online/Internet_4.dialogue"
+global_label DialogueData_Undernet_1
+    .incbin "data/maps/online/Undernet_1.dialogue"
+global_label DialogueData_Undernet_2
+    .incbin "data/maps/online/Undernet_2.dialogue"
+global_label DialogueData_Undernet_3
+    .incbin "data/maps/online/Undernet_3.dialogue"
+global_label DialogueData_Undernet_4
+    .incbin "data/maps/online/Undernet_4.dialogue"
+global_label DialogueData_Undernet_5
+    .incbin "data/maps/online/Undernet_5.dialogue"
+global_label DialogueData_Undernet_6
+    .incbin "data/maps/online/Undernet_6.dialogue"
+global_label DialogueData_Undernet_7
+    .incbin "data/maps/online/Undernet_7.dialogue"
+global_label DialogueData_Undernet_8
+    .incbin "data/maps/online/Undernet_8.dialogue"
+global_label DialogueData_Undernet_9
+    .incbin "data/maps/online/Undernet_9.dialogue"
+global_label DialogueData_Undernet_10
+    .incbin "data/maps/online/Undernet_10.dialogue"
+global_label DialogueData_Undernet_11
+    .incbin "data/maps/online/Undernet_11.dialogue"
+global_label DialogueData_Undernet_12
+    .incbin "data/maps/online/Undernet_12.dialogue"

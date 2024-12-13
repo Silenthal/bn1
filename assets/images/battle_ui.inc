@@ -1,0 +1,25 @@
+global_label paletteBattleUi
+    .incbin "images/battle/battle_ui.gbapal"
+global_label paletteHpChange
+    .incbin "images/battle/hp_change.gbapal"
+    .incbin "images/battle/palette_0634674.gbapal"
+global_label paletteBattleMessage
+    .incbin "images/battle/battle_message.gbapal"
+global_label paletteBusyOk
+    .incbin "images/battle/busy_ok.gbapal"
+global_label tilesetBattleUi
+    .incbin "images/battle/battle_ui.4bpp"
+global_label tilesetBattleStart
+    .incbin "images/battle/battle_start.4bpp"
+global_label tilesetProgramAdvance
+    .incbin "images/battle/program_advance.4bpp"
+global_label tilesetEnemyDeleted
+    .incbin "images/battle/enemy_deleted.4bpp"
+global_label tilesetMegaManDeleted
+    .incbin "images/battle/megaman_deleted.4bpp"
+global_label tilesetMaxMode
+    .incbin "images/battle/max_mode.4bpp"
+global_label tilesetBusy
+    .incbin "images/battle/busy.4bpp"
+global_label tilesetOk
+    .incbin "images/battle/ok.4bpp"

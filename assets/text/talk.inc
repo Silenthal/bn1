@@ -1,0 +1,256 @@
+global_label CommentaryData_None
+    .incbin "text/commentary/none.script"
+
+global_label CommentaryData_School_Class_5A
+    .incbin "data/maps/offline/School_Class_5A.talk"
+global_label CommentaryData_School_Class_5B
+    .incbin "data/maps/offline/School_Class_5B.talk"
+global_label CommentaryData_School_Library
+    .incbin "data/maps/offline/School_Library.talk"
+global_label CommentaryData_School_2F_Hallway
+    .incbin "data/maps/offline/School_2F_Hallway.talk"
+global_label CommentaryData_School_Class_1A
+    .incbin "data/maps/offline/School_Class_1A.talk"
+global_label CommentaryData_School_Class_1B
+    .incbin "data/maps/offline/School_Class_1B.talk"
+global_label CommentaryData_School_AV_Room
+    .incbin "data/maps/offline/School_AV_Room.talk"
+global_label CommentaryData_School_Infirmary
+    .incbin "data/maps/offline/School_Infirmary.talk"
+global_label CommentaryData_School_1F_Hallway
+    .incbin "data/maps/offline/School_1F_Hallway.talk"
+global_label CommentaryData_School_Cross_Hallway
+    .incbin "data/maps/offline/School_Cross_Hallway.talk"
+global_label CommentaryData_School_Storage
+    .incbin "data/maps/offline/School_Storage.talk"
+global_label CommentaryData_School_Staff_Lounge
+    .incbin "data/maps/offline/School_Staff_Lounge.talk"
+global_label CommentaryData_School_Staff_Lounge_Hallway
+    .incbin "data/maps/offline/School_Staff_Lounge_Hallway.talk"
+
+global_label CommentaryData_ACDC_Town
+    .incbin "data/maps/offline/ACDC_Town.talk"
+global_label CommentaryData_ACDC_School_Gate
+    .incbin "data/maps/offline/ACDC_School_Gate.talk"
+global_label CommentaryData_ACDC_Lan_Living_Room
+    .incbin "data/maps/offline/ACDC_Lan_Living_Room.talk"
+global_label CommentaryData_ACDC_Lan_Room
+    .incbin "data/maps/offline/ACDC_Lan_Room.talk"
+global_label CommentaryData_ACDC_Mayl_Living_Room
+    .incbin "data/maps/offline/ACDC_Mayl_Living_Room.talk"
+global_label CommentaryData_ACDC_Mayl_Room
+    .incbin "data/maps/offline/ACDC_Mayl_Room.talk"
+global_label CommentaryData_ACDC_Dex_Room
+    .incbin "data/maps/offline/ACDC_Dex_Room.talk"
+global_label CommentaryData_ACDC_Yai_Room
+    .incbin "data/maps/offline/ACDC_Yai_Room.talk"
+global_label CommentaryData_ACDC_Higsbys
+    .incbin "data/maps/offline/ACDC_Higsbys.talk"
+global_label CommentaryData_ACDC_Station
+    .incbin "data/maps/offline/ACDC_Station.talk"
+global_label CommentaryData_ACDC_Secret_Station
+    .incbin "data/maps/offline/ACDC_Secret_Station.talk"
+
+global_label CommentaryData_Govt_Complex_Front
+    .incbin "data/maps/offline/Govt_Complex_Front.talk"
+global_label CommentaryData_Govt_Complex_Station
+    .incbin "data/maps/offline/Govt_Complex_Station.talk"
+global_label CommentaryData_Govt_Waterworks_Lobby
+    .incbin "data/maps/offline/Govt_Waterworks_Lobby.talk"
+global_label CommentaryData_Govt_SciLab_Lobby
+    .incbin "data/maps/offline/Govt_SciLab_Lobby.talk"
+global_label CommentaryData_Govt_Complex_Hallway
+    .incbin "data/maps/offline/Govt_Complex_Hallway.talk"
+global_label CommentaryData_Govt_Yuichiro_Lab
+    .incbin "data/maps/offline/Govt_Yuichiro_Lab.talk"
+global_label CommentaryData_Govt_Waterworks_Office
+    .incbin "data/maps/offline/Govt_Waterworks_Office.talk"
+global_label CommentaryData_Govt_Waterworks_Control_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Control_Room.talk"
+global_label CommentaryData_Govt_Waterworks_Pump_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Pump_Room.talk"
+global_label CommentaryData_Govt_Waterworks_Purification_Room
+    .incbin "data/maps/offline/Govt_Waterworks_Purification_Room.talk"
+
+global_label CommentaryData_DenTown_Center
+    .incbin "data/maps/offline/DenTown_Center.talk"
+global_label CommentaryData_DenTown_Station
+    .incbin "data/maps/offline/DenTown_Station.talk"
+global_label CommentaryData_DenTown_Block_1
+    .incbin "data/maps/offline/DenTown_Block_1.talk"
+global_label CommentaryData_DenTown_Block_2
+    .incbin "data/maps/offline/DenTown_Block_2.talk"
+global_label CommentaryData_DenTown_Block_3
+    .incbin "data/maps/offline/DenTown_Block_3.talk"
+global_label CommentaryData_DenTown_Block_4
+    .incbin "data/maps/offline/DenTown_Block_4.talk"
+global_label CommentaryData_DenTown_Miyu_Antiques
+    .incbin "data/maps/offline/DenTown_Miyu_Antiques.talk"
+global_label CommentaryData_DenTown_Summer_School
+    .incbin "data/maps/offline/DenTown_Summer_School.talk"
+
+global_label CommentaryData_SciLab_Restaurant_Hallway
+    .incbin "data/maps/offline/SciLab_Restaurant_Hallway.talk"
+global_label CommentaryData_SciLab_Restaurant
+    .incbin "data/maps/offline/SciLab_Restaurant.talk"
+global_label CommentaryData_SciLab_Power_Plant_Hallway
+    .incbin "data/maps/offline/SciLab_Power_Plant_Hallway.talk"
+global_label CommentaryData_SciLab_Power_Plant
+    .incbin "data/maps/offline/SciLab_Power_Plant.talk"
+global_label CommentaryData_SciLab_Power_Plant_Control_Room
+    .incbin "data/maps/offline/SciLab_Power_Plant_Control_Room.talk"
+global_label CommentaryData_SciLab_Generator_Room
+    .incbin "data/maps/offline/SciLab_Generator_Room.talk"
+
+global_label CommentaryData_WWW_Base
+    .incbin "data/maps/offline/WWW_Base.talk"
+global_label CommentaryData_WWW_Wily_Lab
+    .incbin "data/maps/offline/WWW_Wily_Lab.talk"
+global_label CommentaryData_WWW_Passage_1
+    .incbin "data/maps/offline/WWW_Passage_1.talk"
+global_label CommentaryData_WWW_Passage_2
+    .incbin "data/maps/offline/WWW_Passage_2.talk"
+global_label CommentaryData_WWW_Passage_3
+    .incbin "data/maps/offline/WWW_Passage_3.talk"
+
+global_label CommentaryData_School_Comp_1
+    .incbin "data/maps/online/School_Comp_1.talk"
+global_label CommentaryData_School_Comp_2
+    .incbin "data/maps/online/School_Comp_2.talk"
+global_label CommentaryData_School_Comp_3
+    .incbin "data/maps/online/School_Comp_3.talk"
+global_label CommentaryData_School_Comp_4
+    .incbin "data/maps/online/School_Comp_4.talk"
+global_label CommentaryData_School_Comp_5
+    .incbin "data/maps/online/School_Comp_5.talk"
+
+global_label CommentaryData_Oven_Comp_1
+    .incbin "data/maps/online/Oven_Comp_1.talk"
+global_label CommentaryData_Oven_Comp_2
+    .incbin "data/maps/online/Oven_Comp_2.talk"
+
+global_label CommentaryData_Waterworks_Comp_1
+    .incbin "data/maps/online/Waterworks_Comp_1.talk"
+global_label CommentaryData_Waterworks_Comp_2
+    .incbin "data/maps/online/Waterworks_Comp_2.talk"
+global_label CommentaryData_Waterworks_Comp_3
+    .incbin "data/maps/online/Waterworks_Comp_3.talk"
+global_label CommentaryData_Waterworks_Comp_4
+    .incbin "data/maps/online/Waterworks_Comp_4.talk"
+global_label CommentaryData_Waterworks_Comp_5
+    .incbin "data/maps/online/Waterworks_Comp_5.talk"
+global_label CommentaryData_Waterworks_Comp_6
+    .incbin "data/maps/online/Waterworks_Comp_6.talk"
+
+global_label CommentaryData_Traffic_Light_Comp_1
+    .incbin "data/maps/online/Traffic_Light_Comp_1.talk"
+global_label CommentaryData_Traffic_Light_Comp_2
+    .incbin "data/maps/online/Traffic_Light_Comp_2.talk"
+global_label CommentaryData_Traffic_Light_Comp_3
+    .incbin "data/maps/online/Traffic_Light_Comp_3.talk"
+global_label CommentaryData_Traffic_Light_Comp_4
+    .incbin "data/maps/online/Traffic_Light_Comp_4.talk"
+global_label CommentaryData_Traffic_Light_Comp_5
+    .incbin "data/maps/online/Traffic_Light_Comp_5.talk"
+
+global_label CommentaryData_Power_Plant_Comp_1
+    .incbin "data/maps/online/Power_Plant_Comp_1.talk"
+global_label CommentaryData_Power_Plant_Comp_2
+    .incbin "data/maps/online/Power_Plant_Comp_2.talk"
+global_label CommentaryData_Power_Plant_Comp_3
+    .incbin "data/maps/online/Power_Plant_Comp_3.talk"
+global_label CommentaryData_Power_Plant_Comp_4
+    .incbin "data/maps/online/Power_Plant_Comp_4.talk"
+
+global_label CommentaryData_WWW_Comp_1
+    .incbin "data/maps/online/WWW_Comp_1.talk"
+global_label CommentaryData_WWW_Comp_2
+    .incbin "data/maps/online/WWW_Comp_2.talk"
+global_label CommentaryData_WWW_Comp_3
+    .incbin "data/maps/online/WWW_Comp_3.talk"
+global_label CommentaryData_WWW_Comp_4
+    .incbin "data/maps/online/WWW_Comp_4.talk"
+global_label CommentaryData_WWW_Comp_5
+    .incbin "data/maps/online/WWW_Comp_5.talk"
+global_label CommentaryData_Rocket_Comp
+    .incbin "data/maps/online/Rocket_Comp.talk"
+
+global_label CommentaryData_ACDC_Lan_PC
+    .incbin "data/maps/online/ACDC_Lan_PC.talk"
+global_label CommentaryData_ACDC_Mayl_PC
+    .incbin "data/maps/online/ACDC_Mayl_PC.talk"
+global_label CommentaryData_ACDC_Yai_PC
+    .incbin "data/maps/online/ACDC_Yai_PC.talk"
+global_label CommentaryData_ACDC_Dex_PC
+    .incbin "data/maps/online/ACDC_Dex_PC.talk"
+
+global_label CommentaryData_Govt_Yuichiro_PC
+    .incbin "data/maps/online/Govt_Yuichiro_PC.talk"
+global_label CommentaryData_Govt_Lunch_Cart_Comp
+    .incbin "data/maps/online/Govt_Lunch_Cart_Comp.talk"
+
+global_label CommentaryData_DenTown_Antique_Comp
+    .incbin "data/maps/online/DenTown_Antique_Comp.talk"
+
+global_label CommentaryData_SciLab_Fish_Stand_Comp
+    .incbin "data/maps/online/SciLab_Fish_Stand_Comp.talk"
+
+global_label CommentaryData_Other_Doghouse_Comp
+    .incbin "data/maps/online/Other_Doghouse_Comp.talk"
+global_label CommentaryData_Other_Servbot_Comp
+    .incbin "data/maps/online/Other_Servbot_Comp.talk"
+global_label CommentaryData_Other_New_Game_Machine_Comp
+    .incbin "data/maps/online/Other_New_Game_Machine_Comp.talk"
+global_label CommentaryData_Other_Telephone_Comp
+    .incbin "data/maps/online/Other_Telephone_Comp.talk"
+global_label CommentaryData_Other_Car_Comp
+    .incbin "data/maps/online/Other_Car_Comp.talk"
+global_label CommentaryData_Other_Waterworks_Vending_Machine
+    .incbin "data/maps/online/Other_Waterworks_Vending_Machine.talk"
+global_label CommentaryData_Other_Lobby_TV_Comp
+    .incbin "data/maps/online/Other_Lobby_TV_Comp.talk"
+global_label CommentaryData_Other_Large_Monitor_Comp
+    .incbin "data/maps/online/Other_Large_Monitor_Comp.talk"
+global_label CommentaryData_Other_Control_Equipment_Comp
+    .incbin "data/maps/online/Other_Control_Equipment_Comp.talk"
+global_label CommentaryData_Other_SciLab_Vending_Machine
+    .incbin "data/maps/online/Other_SciLab_Vending_Machine.talk"
+global_label CommentaryData_Other_Recycled_PET_Comp
+    .incbin "data/maps/online/Other_Recycled_PET_Comp.talk"
+global_label CommentaryData_Other_Big_Vase_Comp
+    .incbin "data/maps/online/Other_Big_Vase_Comp.talk"
+global_label CommentaryData_Other_Blackboard_Comp
+    .incbin "data/maps/online/Other_Blackboard_Comp.talk"
+
+global_label CommentaryData_Internet_1
+    .incbin "data/maps/online/Internet_1.talk"
+global_label CommentaryData_Internet_2
+    .incbin "data/maps/online/Internet_2.talk"
+global_label CommentaryData_Internet_3
+    .incbin "data/maps/online/Internet_3.talk"
+global_label CommentaryData_Internet_4
+    .incbin "data/maps/online/Internet_4.talk"
+global_label CommentaryData_Undernet_1
+    .incbin "data/maps/online/Undernet_1.talk"
+global_label CommentaryData_Undernet_2
+    .incbin "data/maps/online/Undernet_2.talk"
+global_label CommentaryData_Undernet_3
+    .incbin "data/maps/online/Undernet_3.talk"
+global_label CommentaryData_Undernet_4
+    .incbin "data/maps/online/Undernet_4.talk"
+global_label CommentaryData_Undernet_5
+    .incbin "data/maps/online/Undernet_5.talk"
+global_label CommentaryData_Undernet_6
+    .incbin "data/maps/online/Undernet_6.talk"
+global_label CommentaryData_Undernet_7
+    .incbin "data/maps/online/Undernet_7.talk"
+global_label CommentaryData_Undernet_8
+    .incbin "data/maps/online/Undernet_8.talk"
+global_label CommentaryData_Undernet_9
+    .incbin "data/maps/online/Undernet_9.talk"
+global_label CommentaryData_Undernet_10
+    .incbin "data/maps/online/Undernet_10.talk"
+global_label CommentaryData_Undernet_11
+    .incbin "data/maps/online/Undernet_11.talk"
+global_label CommentaryData_Undernet_12
+    .incbin "data/maps/online/Undernet_12.talk"

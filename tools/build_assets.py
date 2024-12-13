@@ -85,9 +85,27 @@ def process(outFile: Path):
         print(res)
 
 
+def searchAssets(assetPath: Path, incLink: Path) -> list[str]:
+    retList: list[str] = []
+    inPath = assetPath / incLink
+    if not inPath.exists():
+        return retList
+    with open(assetPath / incLink, "r") as inFile:
+        for line in inFile:
+            inMatch = re.match(r"^\s+\.incbin \"(.*)\".*$", line)
+            if inMatch:
+                link = inMatch.group(1)
+                retList.append(link)
+            inMatch = re.match(r"^\s+\.include \"(.*.inc)\".*$", line)
+            if inMatch:
+                link = inMatch.group(1)
+                retList.extend(searchAssets(assetPath, link))
+    return retList
+
+
 def createDepParams(
     inPath: Path, build_s: Path, buildFolder: Path, assetPath: Path, depPrefix: str
-):
+) -> DependFileParams:
     source_index = build_s.parts.index(inPath.stem) + 1
     build_rep = buildFolder.joinpath(*build_s.parts[source_index:])
     depFile = build_rep.with_suffix(depPrefix)
@@ -105,6 +123,13 @@ def createDepParams(
                 link = inMatch.group(1)
                 fileList.append(Path("$(ASSETS)") / link)
                 assetList.append(assetPath / link)
+            inMatch = re.match(r"^\s+\.include \"(.*.inc)\".*$", line)
+            if inMatch:
+                link = inMatch.group(1)
+                retList = searchAssets(assetPath, Path(link))
+                for file in retList:
+                    fileList.append(Path("$(ASSETS)") / file)
+                    assetList.append(assetPath / file)
     return DependFileParams(
         depFile, build_s, build_d, build_o, sFile, fileList, assetList
     )

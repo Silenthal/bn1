@@ -1,0 +1,141 @@
+global_label tilesetACDCBuilding
+    .incbin "data/maps/areas/ACDC/building.4bpp"
+
+global_label tilesetACDC_0770C54
+    .incbin "data/maps/areas/ACDC/0770C54.4bpp"
+
+global_label paletteACDC_0771654
+    .incbin "data/maps/areas/ACDC/palette_0771654.gbapal"
+
+global_label paletteACDC_07717F4
+    .incbin "data/maps/areas/ACDC/palette_07717F4.gbapal"
+
+global_label tilesetACDC_0771814
+    .incbin "data/maps/areas/ACDC/0771814.4bpp"
+
+global_label tilesetACDC_0772054
+    .incbin "data/maps/areas/ACDC/0772054.4bpp"
+
+global_label paletteACDC_0772894
+    .incbin "data/maps/areas/ACDC/palette_0772894.gbapal"
+
+global_label tilesetACDCTVRegular00
+    .incbin "data/maps/areas/ACDC/tv_regular_00.4bpp"
+global_label tilesetACDCTVRegular01
+    .incbin "data/maps/areas/ACDC/tv_regular_01.4bpp"
+global_label tilesetACDCTVRegular02
+    .incbin "data/maps/areas/ACDC/tv_regular_02.4bpp"
+global_label tilesetACDCTVRegular03
+    .incbin "data/maps/areas/ACDC/tv_regular_03.4bpp"
+global_label tilesetACDCTVRegular04
+    .incbin "data/maps/areas/ACDC/tv_regular_04.4bpp"
+global_label tilesetACDCTVRegular05
+    .incbin "data/maps/areas/ACDC/tv_regular_05.4bpp"
+global_label tilesetACDCTVRegular06
+    .incbin "data/maps/areas/ACDC/tv_regular_06.4bpp"
+global_label tilesetACDCTVRegular07
+    .incbin "data/maps/areas/ACDC/tv_regular_07.4bpp"
+global_label tilesetACDCTVRegular08
+    .incbin "data/maps/areas/ACDC/tv_regular_08.4bpp"
+global_label tilesetACDCTVRegular09
+    .incbin "data/maps/areas/ACDC/tv_regular_09.4bpp"
+global_label tilesetACDCTVRegular10
+    .incbin "data/maps/areas/ACDC/tv_regular_10.4bpp"
+global_label tilesetACDCTVRegular11
+    .incbin "data/maps/areas/ACDC/tv_regular_11.4bpp"
+global_label tilesetACDCTVRegular12
+    .incbin "data/maps/areas/ACDC/tv_regular_12.4bpp"
+global_label tilesetACDCTVRegular13
+    .incbin "data/maps/areas/ACDC/tv_regular_13.4bpp"
+global_label tilesetACDCTVRegular14
+    .incbin "data/maps/areas/ACDC/tv_regular_14.4bpp"
+global_label tilesetACDCTVWily00
+    .incbin "data/maps/areas/ACDC/tv_wily_00.4bpp"
+global_label tilesetACDCTVWily01
+    .incbin "data/maps/areas/ACDC/tv_wily_01.4bpp"
+global_label tilesetACDCTVWily02
+    .incbin "data/maps/areas/ACDC/tv_wily_02.4bpp"
+global_label tilesetACDCTVWily03
+    .incbin "data/maps/areas/ACDC/tv_wily_03.4bpp"
+global_label tilesetACDCTVWily04
+    .incbin "data/maps/areas/ACDC/tv_wily_04.4bpp"
+global_label tilesetACDCTVWily05
+    .incbin "data/maps/areas/ACDC/tv_wily_05.4bpp"
+global_label tilesetACDCTVWily06
+    .incbin "data/maps/areas/ACDC/tv_wily_06.4bpp"
+global_label tilesetACDCTVWily07
+    .incbin "data/maps/areas/ACDC/tv_wily_07.4bpp"
+global_label tilesetACDCTVWily08
+    .incbin "data/maps/areas/ACDC/tv_wily_08.4bpp"
+global_label tilesetACDCTVWily09
+    .incbin "data/maps/areas/ACDC/tv_wily_09.4bpp"
+
+global_label tilesetACDCLanRoomBird00
+    .incbin "data/maps/areas/ACDC/bird_0.4bpp"
+global_label tilesetACDCLanRoomBird01
+    .incbin "data/maps/areas/ACDC/bird_1.4bpp"
+global_label tilesetACDCLanRoomBird02
+    .incbin "data/maps/areas/ACDC/bird_2.4bpp"
+global_label tilesetACDCLanRoomBird03
+    .incbin "data/maps/areas/ACDC/bird_3.4bpp"
+global_label tilesetACDCLanRoomBird04
+    .incbin "data/maps/areas/ACDC/bird_4.4bpp"
+
+global_label tilesetACDCLanRoomComputer00
+    .incbin "data/maps/areas/ACDC/computer_00.4bpp"
+global_label tilesetACDCLanRoomComputer01
+    .incbin "data/maps/areas/ACDC/computer_01.4bpp"
+global_label tilesetACDCLanRoomComputer02
+    .incbin "data/maps/areas/ACDC/computer_02.4bpp"
+global_label tilesetACDCLanRoomComputer03
+    .incbin "data/maps/areas/ACDC/computer_03.4bpp"
+global_label tilesetACDCLanRoomComputer04
+    .incbin "data/maps/areas/ACDC/computer_04.4bpp"
+global_label tilesetACDCLanRoomComputer05
+    .incbin "data/maps/areas/ACDC/computer_05.4bpp"
+global_label tilesetACDCLanRoomComputer06
+    .incbin "data/maps/areas/ACDC/computer_06.4bpp"
+global_label tilesetACDCLanRoomComputer07
+    .incbin "data/maps/areas/ACDC/computer_07.4bpp"
+global_label tilesetACDCLanRoomComputer08
+    .incbin "data/maps/areas/ACDC/computer_08.4bpp"
+global_label tilesetACDCLanRoomComputer09
+    .incbin "data/maps/areas/ACDC/computer_09.4bpp"
+global_label tilesetACDCLanRoomComputer10
+    .incbin "data/maps/areas/ACDC/computer_10.4bpp"
+global_label tilesetACDCLanRoomComputer11
+    .incbin "data/maps/areas/ACDC/computer_11.4bpp"
+global_label tilesetACDCLanRoomComputer12
+    .incbin "data/maps/areas/ACDC/computer_12.4bpp"
+global_label tilesetACDCLanRoomComputer13
+    .incbin "data/maps/areas/ACDC/computer_13.4bpp"
+
+global_label paletteACDC_0778174
+    .incbin "data/maps/areas/ACDC/palette_0778174.gbapal"
+
+global_label tilesetACDCYaiRoomPanel00
+    .incbin "data/maps/areas/ACDC/panel_00.4bpp"
+global_label tilesetACDCYaiRoomPanel01
+    .incbin "data/maps/areas/ACDC/panel_01.4bpp"
+global_label tilesetACDCYaiRoomPanel02
+    .incbin "data/maps/areas/ACDC/panel_02.4bpp"
+global_label tilesetACDCYaiRoomPanel03
+    .incbin "data/maps/areas/ACDC/panel_03.4bpp"
+global_label tilesetACDCYaiRoomPanel04
+    .incbin "data/maps/areas/ACDC/panel_04.4bpp"
+global_label tilesetACDCYaiRoomPanel05
+    .incbin "data/maps/areas/ACDC/panel_05.4bpp"
+global_label tilesetACDCYaiRoomPanel06
+    .incbin "data/maps/areas/ACDC/panel_06.4bpp"
+global_label tilesetACDCYaiRoomPanel07
+    .incbin "data/maps/areas/ACDC/panel_07.4bpp"
+global_label tilesetACDCYaiRoomPanel08
+    .incbin "data/maps/areas/ACDC/panel_08.4bpp"
+global_label tilesetACDCYaiRoomPanel09
+    .incbin "data/maps/areas/ACDC/panel_09.4bpp"
+global_label tilesetACDCYaiRoomPanel10
+    .incbin "data/maps/areas/ACDC/panel_10.4bpp"
+global_label tilesetACDCYaiRoomPanel11
+    .incbin "data/maps/areas/ACDC/panel_11.4bpp"
+global_label tilesetACDCYaiRoomPanel12
+    .incbin "data/maps/areas/ACDC/panel_12.4bpp"

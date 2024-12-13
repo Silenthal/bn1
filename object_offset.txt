@@ -772,5 +772,4 @@ sort_sack_far               0x180AB0
 irq_timer_far               0x180C10
 build_chip_sack_far         0x180D18
 asset_1E0000                0x1E0000
-asset_text                  0x69D0FC
 asset_796FD4                0x796FD4
