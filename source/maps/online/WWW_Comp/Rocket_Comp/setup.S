@@ -138,7 +138,7 @@ _ts EventHandler_Rocket_Comp_F54_0
     mov        r0,#0xfe
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_08098098_0804df6c
+    ldr        r0,PTR_Scene_Rocket_Comp_LifeVirus_0804df6c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -178,7 +178,7 @@ PTR_DAT_0804df5c:
     .word 0x2000
 
 DAT_0804df60:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 
 PTR_EntityAllocParams_804EB1C_0804df64:
     .word EntityAllocParams_804EB1C
@@ -186,5 +186,5 @@ PTR_EntityAllocParams_804EB1C_0804df64:
 PTR_PTR_EventHandler_Rocket_Comp_F54_0_0804df68:
     .word PTR_EventHandler_Rocket_Comp_F54_0_0804df00
 
-PTR_FUN_08098098_0804df6c:
-    .word 0x8098099
+PTR_Scene_Rocket_Comp_LifeVirus_0804df6c:
+    .word Scene_Rocket_Comp_LifeVirus

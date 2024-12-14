@@ -274,7 +274,7 @@ _ts EventHandler_School_Comp_1_F12_0
     pop        {r5}
     bne        LAB_080408a6
     push       {r5}
-    ldr        r0,PTR_FUN_08086c3c_08040ab0
+    ldr        r0,PTR_Scene_Story_15_08040ab0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -293,7 +293,7 @@ _ts EventHandler_School_Comp_1_F12_1
     bne        LAB_080408c8
     push       {r5}
     mov        r1,#0x0
-    ldr        r0,PTR_FUN_08087e34_08040ab4
+    ldr        r0,PTR_Scene_ChangeMap_08040ab4
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x8
@@ -571,11 +571,11 @@ DAT_08040aa8:
 PTR_PTR_EventHandler_School_Comp_1_F12_0_08040aac:
     .word PTR_EventHandler_School_Comp_1_F12_0_08040880
 
-PTR_FUN_08086c3c_08040ab0:
-    .word 0x8086C3D
+PTR_Scene_Story_15_08040ab0:
+    .word Scene_Story_15
 
-PTR_FUN_08087e34_08040ab4:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08040ab4:
+    .word Scene_ChangeMap
 
 PTR_NPCList_8041C34_08040ab8:
     .word NPCList_8041C34
@@ -584,13 +584,13 @@ DAT_08040abc:
     .word Scene_MegaManJackIn
 
 DAT_08040ac0:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_PTR_EventHandler_School_Comp_1_F13_0_08040ac4:
     .word PTR_EventHandler_School_Comp_1_F13_0_08040964
 
 DAT_08040ac8:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 
 PTR_NPCList_8041C34_08040acc:
     .word NPCList_8041C34

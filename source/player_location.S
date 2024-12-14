@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SpriteFrame_LoadTileset, 0x3006A00 + 1
-
-    .text
 
 PTR_PlayerLocation_Handler_1_08003084: .word PlayerLocation_Handler
 
@@ -193,5 +190,5 @@ DAT_080031e8:                               .word 0x85000000
 PTR_gEntityListPlayerLocation_080031ec:     .word gEntityListPlayerLocation
 PTR_gBitsetPlayerLocation_080031f0:         .word gBitsetPlayerLocation
 PTR_gEntityListPlayerLocation_080031f4:     .word gEntityListPlayerLocation
-PTR_SpriteFrame_LoadTileset_1_080031f8:     .word SpriteFrame_LoadTileset
+PTR_SpriteFrame_LoadTileset_1_080031f8:     far_label SpriteFrame_LoadTileset
 PTR_gEntityListPlayerLocation_080031fc:     .word gEntityListPlayerLocation

@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0808f208, 0x808F209
-    .set LAB_08088900, 0x8088901
-    .set FUN_08093610, 0x8093611
-
 
 _ts MapSetup_ACDC_Lan_Living_Room_S0
     push       {lr}
@@ -866,7 +862,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F23_0
     bl         Flag_GetBase
     bne        LAB_0802c666
     push       {r5}
-    ldr        r0,PTR_LAB_08088900_0802c6dc
+    ldr        r0,PTR_Scene_Story_22_0802c6dc
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -934,8 +930,8 @@ PTR_BgTask_802C6D4:
     .word BgTask_ACDC_Lan_Living_Room_TV_Regular
 PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F23_0_0802c6d8:
     .word PTR_EventHandler_ACDC_Lan_Living_Room_F23_0_0802c638
-PTR_LAB_08088900_0802c6dc:
-    .word LAB_08088900
+PTR_Scene_Story_22_0802c6dc:
+    .word Scene_Story_22
 PTR_PTR_DAT_0802c6e0:
     .word NPCList_8030790
 PTR_DAT_0802c6e4:
@@ -1150,7 +1146,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F40_0
     bl         Flag_GetBase
     bne        LAB_0802c8ba
     push       {r5}
-    ldr        r0,PTR_FUN_0808f208_0802c8d4
+    ldr        r0,PTR_Scene_Story_4F_0802c8d4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1168,8 +1164,8 @@ PTR_BgTask_802C8CC:
     .word BgTask_ACDC_Lan_Living_Room_TV_Regular
 PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F40_0_0802c8d0:
     .word PTR_EventHandler_ACDC_Lan_Living_Room_F40_0_0802c898
-PTR_FUN_0808f208_0802c8d4:
-    .word FUN_0808f208
+PTR_Scene_Story_4F_0802c8d4:
+    .word Scene_Story_4F
 
 
 _ts MapSetup_ACDC_Lan_Living_Room_S5
@@ -1289,7 +1285,7 @@ LAB_0802c9c0:
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_08093610_0802ca40
+    ldr        r0,PTR_Scene_Story_69_0802ca40
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1349,8 +1345,8 @@ PTR_BgTask_802CA38:
     .word BgTask_ACDC_Lan_Living_Room_TV_Regular
 PTR_BgTask_802CA3C:
     .word BgTask_ACDC_Lan_Living_Room_TV_Wily
-PTR_FUN_08093610_0802ca40:
-    .word FUN_08093610
+PTR_Scene_Story_69_0802ca40:
+    .word Scene_Story_69
 PTR_PTR_DAT_0802ca44:
     .word NPCList_8030834
 PTR_PTR_DAT_0802ca48:

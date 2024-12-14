@@ -227,7 +227,7 @@ PTR_PTR_DAT_0802680c:
 PTR_PTR_EventHandler_School_Class_1A_F14_0_08026810:
     .word PTR_EventHandler_School_Class_1A_F14_0_08026768
 DAT_08026814:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_BgTask_8026818:
     .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_802681C:

@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set LAB_08088db8, 0x8088DB9
-    .set LAB_080939b4, 0x80939B5
-    .set LAB_0808a4d4, 0x808A4D5
-
 
 _ts MapSetup_ACDC_School_Gate_S2
     push       {lr}
@@ -176,7 +172,7 @@ PTR_EventHandler_ACDC_School_Gate_F23_0_0802ba3c:
 _ts EventHandler_ACDC_School_Gate_F23_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_LAB_08088db8_0802bb94
+    ldr        r0,PTR_Scene_Story_24_0802bb94
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -316,7 +312,7 @@ PTR_EventHandler_ACDC_School_Gate_F26_0_0802bb4c:
 _ts EventHandler_ACDC_School_Gate_F26_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_LAB_0808a4d4_0802bbcc
+    ldr        r0,PTR_Scene_Story_2E_0802bbcc
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -348,8 +344,8 @@ PTR_PTR_DAT_0802bb8c:
     .word NPCList_80303D0
 PTR_PTR_EventHandler_ACDC_School_Gate_F23_0_0802bb90:
     .word PTR_EventHandler_ACDC_School_Gate_F23_0_0802ba3c
-PTR_LAB_08088db8_0802bb94:
-    .word LAB_08088db8
+PTR_Scene_Story_24_0802bb94:
+    .word Scene_Story_24
 PTR_Scene_LockedPath_0802bb98:
     .word Scene_LockedPath
 INT_0802bb9c:
@@ -376,8 +372,8 @@ PTR_PTR_0802bbc4:
     .word NPCList_8030534
 PTR_PTR_EventHandler_ACDC_School_Gate_F26_0_0802bbc8:
     .word PTR_EventHandler_ACDC_School_Gate_F26_0_0802bb4c
-PTR_LAB_0808a4d4_0802bbcc:
-    .word LAB_0808a4d4
+PTR_Scene_Story_2E_0802bbcc:
+    .word Scene_Story_2E
 
 
 _ts MapSetup_ACDC_School_Gate_S3
@@ -759,7 +755,7 @@ _ts EventHandler_ACDC_School_Gate_F53_0
     bl         Flag_GetBase
     bne        LAB_0802bef4
     push       {r5}
-    ldr        r0,PTR_LAB_080939b4_0802bf78
+    ldr        r0,PTR_Scene_Story_6B_0802bf78
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -831,13 +827,13 @@ PTR_BgTask_802BF64:
 PTR_DAT_0802bf68:
     .word EntityAllocParams_8030D80
 DAT_0802bf6c:
-    .word 0x80938CD
+    .word Scene_Story_6A
 PTR_PTR_DAT_0802bf70:
     .word NPCList_8030558
 PTR_PTR_EventHandler_ACDC_School_Gate_F53_0_0802bf74:
     .word PTR_EventHandler_ACDC_School_Gate_F53_0_0802bec8
-PTR_LAB_080939b4_0802bf78:
-    .word LAB_080939b4
+PTR_Scene_Story_6B_0802bf78:
+    .word Scene_Story_6B
 PTR_BgTask_802BF7C:
     .word BgTask_8029FEC
 PTR_DAT_0802bf80:

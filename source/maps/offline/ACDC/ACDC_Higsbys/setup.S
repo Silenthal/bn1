@@ -886,6 +886,6 @@ PTR_PTR_EventHandler_ACDC_Higsbys_F53_0_0802f164:
 DAT_0802f168:
     .word Scene_Dialogue
 DAT_0802f16c:
-    .word 0x8097E95
+    .word Scene_AutoChipShop
 DAT_0802f170:
     .word Scene_Dialogue

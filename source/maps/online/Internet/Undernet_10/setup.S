@@ -289,13 +289,13 @@ PTR_BgTask_8051738_08053b2c:
     .word BgTask_8051738
 
 PTR_Scene_UnlockWWWGate_08053b30:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_Scene_Dialogue_08053b34:
     .word Scene_Dialogue
 
 PTR_Scene_UnlockWWWGate_08053b38:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_Scene_StartFixedBattle_08053b3c:
     .word Scene_StartFixedBattle

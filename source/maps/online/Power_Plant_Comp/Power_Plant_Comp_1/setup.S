@@ -170,7 +170,7 @@ _ts EventHandler_Power_Plant_Comp_1_F42_0
     bl         Flag_GetBase
     bne        LAB_0804a43e
     push       {r5}
-    ldr        r0,PTR_FUN_08090128_0804a544
+    ldr        r0,PTR_Scene_Story_55_0804a544
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -201,7 +201,7 @@ LAB_0804a472:
     mov        r1,#0x0
 LAB_0804a474:
     push       {r5}
-    ldr        r0,PTR_FUN_08091b70_0804a548
+    ldr        r0,PTR_Scene_RechargePrompt_0804a548
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804a47e:
@@ -238,7 +238,7 @@ _ts FUN_0804a480
     bl         Flag_GetBase
     pop        {r1}
     bne        LAB_0804a4f0
-    ldr        r0,PTR_FUN_08092ab8_0804a54c
+    ldr        r0,PTR_Scene_BatterySwitch_0804a54c
     bl         Scene_Prepare
     mov        r0,#0x0
     pop        {r5,pc}
@@ -256,7 +256,7 @@ LAB_0804a4ca:
     bl         Flag_GetBase
     pop        {r1}
     bne        LAB_0804a4f0
-    ldr        r0,PTR_FUN_0809272c_0804a550
+    ldr        r0,PTR_Scene_Battery_0804a550
     bl         Scene_Prepare
     mov        r0,#0x0
     pop        {r5,pc}
@@ -311,7 +311,7 @@ PTR_NPCList_804B5C0_0804a530:
     .word NPCList_804B5C0
 
 DAT_0804a534:
-    .word 0x80919D9
+    .word Scene_RechargeSuccess
 
 DAT_0804a538:
     .word Scene_MegaManJackIn
@@ -322,17 +322,17 @@ PTR_DAT_0804a53c:
 PTR_PTR_EventHandler_Power_Plant_Comp_1_F42_0_0804a540:
     .word PTR_EventHandler_Power_Plant_Comp_1_F42_0_0804a424
 
-PTR_FUN_08090128_0804a544:
-    .word 0x8090129
+PTR_Scene_Story_55_0804a544:
+    .word Scene_Story_55
 
-PTR_FUN_08091b70_0804a548:
-    .word 0x8091B71
+PTR_Scene_RechargePrompt_0804a548:
+    .word Scene_RechargePrompt
 
-PTR_FUN_08092ab8_0804a54c:
-    .word 0x8092AB9
+PTR_Scene_BatterySwitch_0804a54c:
+    .word Scene_BatterySwitch
 
-PTR_FUN_0809272c_0804a550:
-    .word 0x809272D
+PTR_Scene_Battery_0804a550:
+    .word Scene_Battery
 
 PTR_Scene_Dialogue_0804a554:
     .word Scene_Dialogue

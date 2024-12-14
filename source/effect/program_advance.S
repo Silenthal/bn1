@@ -2,12 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set tilesetBoldAlphanumeric, 0x861BB08
-    .set paletteCustomScreenBg_1, 0x8641D54
-    .set Color_ARRAY_08647a9c, 0x8647A9C
-    .set TextData_BattleChip_Names, 0x869D57C
-    .set textDictChipCodes, 0x87AD148
-
 
 _ts Effect_ProgramAdvance
     push       {lr}
@@ -62,7 +56,7 @@ PTR_PTR_Color_ARRAY_0807c364:
     .word PTR_Color_ARRAY_0807c368
 
 PTR_Color_ARRAY_0807c368:
-    .word Color_ARRAY_08647a9c
+    .word palette_0647A9C
     .word eBgPaletteC
     .word 0x18
 
@@ -244,7 +238,7 @@ LAB_0807c47c:
     ldrb       r1,[r7,#0x1]
     mov        r4,#0x1
     mov        r5,#0x1
-    ldr        r0,PTR_textDictChipCodes_0807c4c8
+    ldr        r0,PTR_TextData_BattleChip_Codes_0807c4c8
     ldr        r6,PTR_tilesetBoldAlphanumeric_0807c4d4
     mov        r7,#0x0
     bl         Text_CopyCharTileUI
@@ -264,8 +258,8 @@ LAB_0807c47c:
 PTR_TextData_BattleChip_Names_0807c4c4:
     .word TextData_BattleChip_Names
 
-PTR_textDictChipCodes_0807c4c8:
-    .word textDictChipCodes
+PTR_TextData_BattleChip_Codes_0807c4c8:
+    .word TextData_BattleChip_Codes
 
 PTR_iwBufferUITextTile_0807c4cc:
     .word iwBufferUITextTile

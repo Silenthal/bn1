@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0809bd28, 0x809bd28
-    .set Sio_SetReady, 0x809bdf0
-
 
 _ts FUN_08007828
     push       {lr}

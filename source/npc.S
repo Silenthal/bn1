@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SpriteFrame_LoadTileset, 0x3006A00 + 1
-
-    .text
 
 listHandlerNpc:
     .word NPC_Main
@@ -205,5 +202,5 @@ DAT_08003c98:                           .word 0x85000000
 PTR_gEntityListNpc_08003c9c:            .word gEntityListNpc
 PTR_gBitsetNPC_08003ca0:                .word gBitsetNPC
 PTR_gEntityListNpc_08003ca4:            .word gEntityListNpc
-PTR_SpriteFrame_LoadTileset_1_08003ca8: .word SpriteFrame_LoadTileset
+PTR_SpriteFrame_LoadTileset_1_08003ca8: far_label SpriteFrame_LoadTileset
 PTR_gEntityListNpc_08003cac:            .word gEntityListNpc

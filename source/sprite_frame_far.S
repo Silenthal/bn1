@@ -2,11 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set OBJ_VRAM0, 0x6010000
-    .set Dma_TransferListAdd, 0x80009AC+1
-    .set Map_HandleCollisionElevation, 0x8012108+1
-@ Start: 
-
 
 _ts SpriteFrame_LoadTileset
     push       {r5,lr}

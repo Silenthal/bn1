@@ -239,7 +239,7 @@ PTR_EventHandler_DenTown_Block_2_F35_0_0803777c:
 _ts EventHandler_DenTown_Block_2_F35_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_LAB_0808d740_08037854
+    ldr        r0,PTR_Scene_Story_41_08037854
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -356,8 +356,8 @@ PTR_EntityAllocParams_803AB3C_0803784c:
 PTR_PTR_EventHandler_DenTown_Block_2_F35_0_08037850:
     .word PTR_EventHandler_DenTown_Block_2_F35_0_0803777c
 
-PTR_LAB_0808d740_08037854:
-    .word 0x808D741
+PTR_Scene_Story_41_08037854:
+    .word Scene_Story_41
 
 PTR_Scene_Dialogue_08037858:
     .word Scene_Dialogue

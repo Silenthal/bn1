@@ -86,7 +86,7 @@ _ts EventHandler_Govt_Waterworks_Purification_Room_F24_0
     push       {r5}
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_FUN_0808b844_08034d2c
+    ldr        r0,PTR_Scene_Waterworks_Purification_Room_Chaud_08034d2c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -111,8 +111,8 @@ PTR_NPCList_8035B7C_08034d24:
 PTR_PTR_EventHandler_Govt_Waterworks_Purification_Room_F24_0_08034d28:
     .word PTR_EventHandler_Govt_Waterworks_Purification_Room_F24_0_08034cf4
 
-PTR_FUN_0808b844_08034d2c:
-    .word 0x808B845
+PTR_Scene_Waterworks_Purification_Room_Chaud_08034d2c:
+    .word Scene_Waterworks_Purification_Room_Chaud
 
 
 _ts MapSetup_Govt_Waterworks_Purification_Room_S3

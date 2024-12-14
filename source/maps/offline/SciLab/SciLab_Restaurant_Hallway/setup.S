@@ -174,7 +174,7 @@ _ts EventHandler_SciLab_Restaurant_Hallway_S4_HandleExits
     b          LAB_0803c0aa
 LAB_0803c09c:
     push       {r5}
-    ldr        r0,PTR_LAB_080918c0_0803c114
+    ldr        r0,PTR_Scene_GovtElevator_0803c114
     mov        r1,#0x1
     bl         Scene_Prepare
     pop        {r5}
@@ -188,7 +188,7 @@ LAB_0803c0aa:
     cmp        r1,#0x41
     bne        LAB_0803c0c6
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_0803c118
+    ldr        r0,PTR_Scene_ChangeMap_0803c118
     mov        r1,#0x14
     bl         Scene_Prepare
     pop        {r5}
@@ -243,11 +243,11 @@ PTR_PTR_EventHandler_SciLab_Restaurant_Hallway_F41_0_0803c10c:
 PTR_Scene_Dialogue_0803c110:
     .word Scene_Dialogue
 
-PTR_LAB_080918c0_0803c114:
-    .word 0x80918C1
+PTR_Scene_GovtElevator_0803c114:
+    .word Scene_GovtElevator
 
-PTR_FUN_08087e34_0803c118:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_0803c118:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_0803c11c:
     .word Scene_LockedPath
@@ -349,7 +349,7 @@ _ts EventHandler_SciLab_Restaurant_Hallway_S5_HandleExits
     cmp        r0,#0x20
     bne        LAB_0803c1ee
     push       {r5}
-    ldr        r0,PTR_LAB_080918c0_0803c22c
+    ldr        r0,PTR_Scene_GovtElevator_0803c22c
     mov        r1,#0x1
     bl         Scene_Prepare
     pop        {r5}
@@ -392,8 +392,8 @@ PTR_NPCList_803D1EC_0803c224:
 PTR_PTR_EventHandler_SciLab_Restaurant_Hallway_F50_0_0803c228:
     .word PTR_EventHandler_SciLab_Restaurant_Hallway_F50_0_0803c1c4
 
-PTR_LAB_080918c0_0803c22c:
-    .word 0x80918C1
+PTR_Scene_GovtElevator_0803c22c:
+    .word Scene_GovtElevator
 
 PTR_Scene_LockedPath_0803c230:
     .word Scene_LockedPath

@@ -276,7 +276,7 @@ PTR_DAT_08025d7c:
 PTR_PTR_EventHandler_School_Library_F13_0_08025d80:
     .word PTR_EventHandler_School_Library_F13_0_08025c7c
 DAT_08025d84:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_EntityAllocParams_ARRAY_08025d88:
     .word EntityAllocParams_8029BD0
 PTR_DAT_08025d8c:
@@ -284,7 +284,7 @@ PTR_DAT_08025d8c:
 PTR_PTR_EventHandler_School_Library_F14_0_08025d90:
     .word PTR_EventHandler_School_Library_F14_0_08025cf4
 DAT_08025d94:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_EntityAllocParams_ARRAY_08025d98:
     .word EntityAllocParams_8029BD0
 PTR_DAT_08025d9c:

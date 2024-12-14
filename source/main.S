@@ -2,11 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Sio_SetReady               , 0x809bdf0
-
-    .text
-
-    .thumb
 
 _ts AgbMain
     bl         Main_Init

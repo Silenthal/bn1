@@ -191,7 +191,7 @@ LAB_0804699c:
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_LAB_0808aeb0_08046a80
+    ldr        r0,PTR_Scene_Story_32_08046a80
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -246,7 +246,7 @@ _ts EventHandler_Waterworks_Comp_6_F27_0
     bl         Flag_GetBase
     bne        LAB_08046a28
     push       {r5}
-    ldr        r0,PTR_LAB_0808ac0c_08046a8c
+    ldr        r0,PTR_Scene_Story_31_08046a8c
     bl         Scene_Prepare
     pop        {r5}
 LAB_08046a28:
@@ -315,8 +315,8 @@ PTR_Scene_MegaManJackIn_08046a78:
 PTR_NPCList_8046F3C_08046a7c:
     .word NPCList_8046F3C
 
-PTR_LAB_0808aeb0_08046a80:
-    .word 0x808AEB1
+PTR_Scene_Story_32_08046a80:
+    .word Scene_Story_32
 
 PTR_NPCList_8046EA4_08046a84:
     .word NPCList_8046EA4
@@ -324,8 +324,8 @@ PTR_NPCList_8046EA4_08046a84:
 PTR_PTR_EventHandler_Waterworks_Comp_6_F27_0_08046a88:
     .word PTR_EventHandler_Waterworks_Comp_6_F27_0_080469ec
 
-PTR_LAB_0808ac0c_08046a8c:
-    .word 0x808AC0D
+PTR_Scene_Story_31_08046a8c:
+    .word Scene_Story_31
 
 
 _ts MapSetup_Waterworks_Comp_6_S3

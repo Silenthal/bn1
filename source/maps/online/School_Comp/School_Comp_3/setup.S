@@ -406,19 +406,19 @@ DAT_0804137c:
     .word Scene_MegaManJackIn
 
 DAT_08041380:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_PTR_EventHandler_School_Comp_3_F14_0_08041384:
     .word PTR_EventHandler_School_Comp_3_F14_0_080411b4
 
 DAT_08041388:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 
 DAT_0804138c:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 
 PTR_Scene_UnlockWWWGate_08041390:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_NPCList_8041DC8_08041394:
     .word NPCList_8041DC8
@@ -427,16 +427,16 @@ PTR_Scene_MegaManJackIn_08041398:
     .word Scene_MegaManJackIn
 
 PTR_Scene_UnlockWWWGate_0804139c:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_PTR_EventHandler_School_Comp_3_F15_0_080413a0:
     .word PTR_EventHandler_School_Comp_3_F15_0_080412ec
 
 DAT_080413a4:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 
 PTR_Scene_UnlockWWWGate_080413a8:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 
 _ts MapSetup_School_Comp_3_S2

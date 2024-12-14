@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08087400, 0x8087401
-
 
 _ts MapSetup_School_AV_Room_S1
     push       {lr}
@@ -220,7 +218,7 @@ LAB_08027086:
     beq        LAB_0802709e
     push       {r5}
     mov        r1,#0x0
-    ldr        r0,PTR_FUN_08087400_080270e4
+    ldr        r0,PTR_Scene_Story_19_080270e4
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x8
@@ -258,7 +256,7 @@ PTR_BgTask_80270C8:
 PTR_PTR_EventHandler_School_AV_Room_F14_0_080270cc:
     .word PTR_EventHandler_School_AV_Room_F14_0_08026fe8
 DAT_080270d0:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_EntityAllocParams_ARRAY_080270d4:
     .word EntityAllocParams_8029C10
 PTR_BgTask_80270D8:
@@ -267,8 +265,8 @@ PTR_BgTask_80270DC:
     .word BgTask_School_PaletteBlackboardOn
 PTR_PTR_EventHandler_School_AV_Room_F15_0_080270e0:
     .word PTR_EventHandler_School_AV_Room_F15_0_08027064
-PTR_FUN_08087400_080270e4:
-    .word FUN_08087400
+PTR_Scene_Story_19_080270e4:
+    .word Scene_Story_19
 
 
 _ts MapSetup_School_AV_Room_S2

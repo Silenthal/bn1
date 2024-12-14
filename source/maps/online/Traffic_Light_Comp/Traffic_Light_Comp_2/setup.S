@@ -121,7 +121,7 @@ LAB_080483b4:
     bl         Flag_GetBase
     bne        LAB_080483d2
     push       {r5}
-    ldr        r0,PTR_FUN_0808d2a4_08048490
+    ldr        r0,PTR_Scene_Story_3D_08048490
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -237,11 +237,11 @@ PTR_PTR_EventHandler_Traffic_Light_Comp_2_F33_0_08048488:
 DAT_0804848c:
     .word Scene_Dialogue
 
-PTR_FUN_0808d2a4_08048490:
-    .word 0x808D2A5
+PTR_Scene_Story_3D_08048490:
+    .word Scene_Story_3D
 
 DAT_08048494:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 
 PTR_NPCList_804917C_08048498:
     .word NPCList_804917C

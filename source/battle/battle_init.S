@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Sio_SetReady, 0x809bdf0
 
 _ts Battle_InitBackground
     push       {r5,lr}
@@ -28,7 +27,7 @@ _ts Battle_InitBackground
     ldrb       r0,[r5,#0xf]
     mov        r1,#0xc
     mul        r0,r1
-    ldr        r7,=listBattleFieldTiles
+    ldr        r7,=listBattlePanelTiles
     add        r7,r7,r0
     ldr        r0,[r7,#0x0]
     ldr        r1,[r7,#0x4]
@@ -38,73 +37,73 @@ _ts Battle_InitBackground
 
     .align 2, 0
 
-listBattleFieldTiles:
+listBattlePanelTiles:
     @ 0x0
-    .word 0x869849C
+    .word tilesetPanelNumberMan
     .word 0x6004020
     .word 0x118
     @ 0x1
-    .word 0x8698D3C
+    .word tilesetPanelFireMan
     .word 0x6004020
     .word 0x1D0
     @ 0x2
-    .word 0x869975C
+    .word tilesetPanelIceMan
     .word 0x6004020
     .word 0xF0
     @ 0x3
-    .word 0x8699DFC
+    .word tilesetPanelColorMan
     .word 0x6004020
     .word 0x120
     @ 0x4
-    .word 0x869A55C
+    .word tilesetPanelElecMan
     .word 0x6004020
     .word 0x120
     @ 0x5
-    .word 0x869ACBC
+    .word tilesetPanelWWW
     .word 0x6004020
     .word 0x120
     @ 0x6
-    .word 0x869B41C
+    .word tilesetPanelInternet
     .word 0x6004020
     .word 0x100
     @ 0x7
-    .word 0x869BAFC
+    .word tilesetPanelGeneric
     .word 0x6004020
     .word 0x120
     @ 0x8
-    .word 0x869BAFC
+    .word tilesetPanelGeneric
     .word 0x6004020
     .word 0x120
     @ 0x9
-    .word 0x869BAFC
+    .word tilesetPanelGeneric
     .word 0x6004020
     .word 0x120
     @ 0xA
-    .word 0x869BAFC
+    .word tilesetPanelGeneric
     .word 0x6004020
     .word 0x120
     @ 0xB
-    .word 0x869BAFC
+    .word tilesetPanelGeneric
     .word 0x6004020
     .word 0x120
     @ 0xC
-    .word 0x869BAFC
+    .word tilesetPanelGeneric
     .word 0x6004020
     .word 0x120
     @ 0xD
-    .word 0x869BAFC
+    .word tilesetPanelGeneric
     .word 0x6004020
     .word 0x120
     @ 0xE
-    .word 0x869BAFC
+    .word tilesetPanelGeneric
     .word 0x6004020
     .word 0x120
     @ 0xF
-    .word 0x869BAFC
+    .word tilesetPanelGeneric
     .word 0x6004020
     .word 0x120
     @ 0x10
-    .word 0x869ACBC
+    .word tilesetPanelWWW
     .word 0x6004020
     .word 0x120
 

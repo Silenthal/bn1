@@ -243,7 +243,7 @@ PTR_BgTask_8051738_08052cec:
     .word BgTask_8051738
 
 PTR_Scene_UnlockWWWGate_08052cf0:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_Scene_Dialogue_08052cf4:
     .word Scene_Dialogue

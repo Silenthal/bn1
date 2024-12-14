@@ -253,4 +253,4 @@ PTR_Scene_StartFixedBattle_080536b0:
     .word Scene_StartFixedBattle
 
 PTR_Scene_UnlockWWWGate_080536b4:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate

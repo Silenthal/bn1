@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08088240, 0x8088241
-
 
 _ts MapSetup_ACDC_Dex_Room_S0
     push       {lr}
@@ -317,7 +315,7 @@ LAB_0802df76:
     bl         Sound_StopAllMusic
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_FUN_08088240_0802e0a8
+    ldr        r0,PTR_Scene_Story_1E_0802e0a8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -465,8 +463,8 @@ PTR_DAT_0802e0a0:
     .word EntityAllocParams_8030FF8
 PTR_PTR_DAT_0802e0a4:
     .word NPCList_8030940
-PTR_FUN_08088240_0802e0a8:
-    .word FUN_08088240
+PTR_Scene_Story_1E_0802e0a8:
+    .word Scene_Story_1E
 PTR_Scene_AfterFixedBattle_0802e0ac:
     .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_ACDC_Dex_Room_F21_0_0802e0b0:

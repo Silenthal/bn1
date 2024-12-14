@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SWI_CpuSet, 0x809DF50+1
     .set vBattleHandChipIcons, 0x6016e00
 
 

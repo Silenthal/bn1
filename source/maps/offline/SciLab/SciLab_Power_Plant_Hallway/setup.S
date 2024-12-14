@@ -203,7 +203,7 @@ _ts EventHandler_SciLab_Power_Plant_Hallway_S4_HandleExits
     b          LAB_0803c6f8
 LAB_0803c6ac:
     push       {r5}
-    ldr        r0,PTR_LAB_080918c0_0803c724
+    ldr        r0,PTR_Scene_GovtElevator_0803c724
     mov        r1,#0xe1
     bl         Scene_Prepare
     pop        {r5}
@@ -273,8 +273,8 @@ PTR_PTR_EventHandler_SciLab_Power_Plant_Hallway_F43_0_0803c71c:
 PTR_Scene_Dialogue_0803c720:
     .word Scene_Dialogue
 
-PTR_LAB_080918c0_0803c724:
-    .word 0x80918C1
+PTR_Scene_GovtElevator_0803c724:
+    .word Scene_GovtElevator
 
 PTR_Scene_Dialogue_0803c728:
     .word Scene_Dialogue
@@ -372,7 +372,7 @@ _ts EventHandler_SciLab_Power_Plant_Hallway_S5_HandleExits
     cmp        r0,#0x20
     bne        LAB_0803c7ee
     push       {r5}
-    ldr        r0,PTR_LAB_080918c0_0803c81c
+    ldr        r0,PTR_Scene_GovtElevator_0803c81c
     mov        r1,#0xe1
     bl         Scene_Prepare
     pop        {r5}
@@ -404,8 +404,8 @@ PTR_PTR_EventHandler_SciLab_Power_Plant_Hallway_F50_0803c814:
 PTR_PTR_EventHandler_SciLab_Power_Plant_Hallway_F50_0_0803c818:
     .word PTR_EventHandler_SciLab_Power_Plant_Hallway_F50_0_0803c7c4
 
-PTR_LAB_080918c0_0803c81c:
-    .word 0x80918C1
+PTR_Scene_GovtElevator_0803c81c:
+    .word Scene_GovtElevator
 
 PTR_Scene_LockedPath_0803c820:
     .word Scene_LockedPath

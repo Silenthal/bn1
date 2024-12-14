@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_080863b0, 0x80863B1
-
 
 _ts MapSetup_School_Cross_Hallway_S1
     push       {lr}
@@ -91,7 +89,7 @@ PTR_EventHandler_School_Cross_Hallway_F10_0_08027dcc:
 _ts EventHandler_School_Cross_Hallway_F10_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_FUN_080863b0_08027eb0
+    ldr        r0,PTR_Scene_Story_11_08027eb0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -208,8 +206,8 @@ PTR_PTR_EventHandler_School_Cross_Hallway_F10_08027ea8:
     .word PTR_EventHandler_School_Cross_Hallway_F10_08027d6c
 PTR_PTR_EventHandler_School_Cross_Hallway_F10_0_08027eac:
     .word PTR_EventHandler_School_Cross_Hallway_F10_0_08027dcc
-PTR_FUN_080863b0_08027eb0:
-    .word FUN_080863b0
+PTR_Scene_Story_11_08027eb0:
+    .word Scene_Story_11
 PTR_Scene_CheckMail_08027eb4:
     .word Scene_CheckMail
 DAT_08027eb8:

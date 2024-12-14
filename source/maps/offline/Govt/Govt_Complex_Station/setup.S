@@ -295,7 +295,7 @@ PTR_PTR_EventHandler_Govt_Complex_Station_F22_0_08032350:
     .word PTR_EventHandler_Govt_Complex_Station_F22_0_080321e8
 
 PTR_Scene_TrainRide_08032354:
-    .word 0x808B689
+    .word Scene_TrainRide
 
 DAT_08032358:
     .word Scene_Dialogue
@@ -310,7 +310,7 @@ PTR_PTR_EventHandler_Govt_Complex_Station_F23_0_08032364:
     .word PTR_EventHandler_Govt_Complex_Station_F23_0_08032268
 
 PTR_Scene_TrainRide_08032368:
-    .word 0x808B689
+    .word Scene_TrainRide
 
 DAT_0803236c:
     .word Scene_Dialogue
@@ -328,7 +328,7 @@ PTR_PTR_EventHandler_Govt_Complex_Station_F26_0_0803237c:
     .word PTR_EventHandler_Govt_Complex_Station_F26_0_080322f4
 
 PTR_Scene_TrainRide_08032380:
-    .word 0x808B689
+    .word Scene_TrainRide
 
 DAT_08032384:
     .word Scene_Dialogue
@@ -470,7 +470,7 @@ PTR_PTR_EventHandler_Govt_Complex_Station_F30_0_0803248c:
     .word PTR_EventHandler_Govt_Complex_Station_F30_0_08032424
 
 PTR_Scene_TrainRide_08032490:
-    .word 0x808B689
+    .word Scene_TrainRide
 
 DAT_08032494:
     .word Scene_Dialogue
@@ -612,7 +612,7 @@ PTR_PTR_EventHandler_Govt_Complex_Station_F40_0_0803259c:
     .word PTR_EventHandler_Govt_Complex_Station_F40_0_08032534
 
 PTR_Scene_TrainRide_080325a0:
-    .word 0x808B689
+    .word Scene_TrainRide
 
 DAT_080325a4:
     .word Scene_Dialogue
@@ -849,7 +849,7 @@ DAT_0803275c:
     .word 0x124
 
 DAT_08032760:
-    .word 0x808B689
+    .word Scene_TrainRide
 
 DAT_08032764:
     .word Scene_Dialogue
@@ -867,7 +867,7 @@ PTR_PTR_EventHandler_Govt_Complex_Station_F53_0_08032774:
     .word PTR_EventHandler_Govt_Complex_Station_F53_0_080326ec
 
 PTR_Scene_TrainRide_08032778:
-    .word 0x808B689
+    .word Scene_TrainRide
 
 DAT_0803277c:
     .word Scene_Dialogue

@@ -48,7 +48,7 @@ _nt FUN_0804f032
     bl         Flag_GetBase
     bne        LAB_0804f070
     push       {r5}
-    ldr        r0,PTR_FUN_0808c3e8_0804f0f0
+    ldr        r0,PTR_Scene_Story_36_0804f0f0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -129,8 +129,8 @@ PTR_FUN_0804f0a0_0804f0e8:
 PTR_EntityAllocParams_804F650_0804f0ec:
     .word EntityAllocParams_804F650
 
-PTR_FUN_0808c3e8_0804f0f0:
-    .word 0x808C3E9
+PTR_Scene_Story_36_0804f0f0:
+    .word Scene_Story_36
 
 PTR_NPCList_804F47C_0804f0f4:
     .word NPCList_804F47C

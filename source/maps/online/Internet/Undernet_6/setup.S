@@ -334,13 +334,13 @@ PTR_BgTask_8051738_080534c4:
     .word BgTask_8051738
 
 PTR_Scene_UnlockWWWGate_080534c8:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_Scene_UnlockWWWGate_080534cc:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_Scene_UnlockWWWGate_080534d0:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_Scene_Dialogue_080534d4:
     .word Scene_Dialogue

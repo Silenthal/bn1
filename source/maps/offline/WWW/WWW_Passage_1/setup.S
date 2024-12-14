@@ -61,7 +61,7 @@ _ts MapSetup_WWW_Passage_1_F54
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_080942e8_0803e3b8
+    ldr        r0,PTR_Scene_Story_6F_0803e3b8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -172,8 +172,8 @@ PTR_PTR_MapSetup_Default_0803e3b0:
 PTR_PTR_EventHandler_Default_0803e3b4:
     .word PTR_EventHandler_Default_0803e29c
 
-PTR_FUN_080942e8_0803e3b8:
-    .word 0x80942E9
+PTR_Scene_Story_6F_0803e3b8:
+    .word Scene_Story_6F
 
 PTR_NPCList_803EA28_0803e3bc:
     .word NPCList_803EA28

@@ -223,7 +223,7 @@ PTR_PTR_EventHandler_Traffic_Light_Comp_4_F35_0_08048a34:
     .word PTR_EventHandler_Traffic_Light_Comp_4_F35_0_08048960
 
 DAT_08048a38:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 
 DAT_08048a3c:
     .word Scene_Dialogue

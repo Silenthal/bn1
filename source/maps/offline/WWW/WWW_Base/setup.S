@@ -69,7 +69,7 @@ _ts MapSetup_WWW_Base_F54
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_0809410c_0803dc94
+    ldr        r0,PTR_Scene_Story_6E_0803dc94
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -115,7 +115,7 @@ LAB_0803db12:
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
     push       {r5}
-    ldr        r0,PTR_FUN_08097534_0803dc9c
+    ldr        r0,PTR_Scene_Story_7D_0803dc9c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -198,7 +198,7 @@ LAB_0803dbca:
     cmp        r0,#0x1
     bne        LAB_0803dbda
     push       {r5}
-    ldr        r0,PTR_FUN_08097f38_0803dcbc
+    ldr        r0,PTR_Scene_WWW_Base_Exit_0803dcbc
     mov        r1,#0x5
     bl         Scene_Prepare
     pop        {r5}
@@ -298,14 +298,14 @@ PTR_BgTask_803D7AC_0803dc8c:
 PTR_PTR_EventHandler_Default_0803dc90:
     .word PTR_EventHandler_Default_0803da7c
 
-PTR_FUN_0809410c_0803dc94:
-    .word 0x809410D
+PTR_Scene_Story_6E_0803dc94:
+    .word Scene_Story_6E
 
 DAT_0803dc98:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 
-PTR_FUN_08097534_0803dc9c:
-    .word 0x8097535
+PTR_Scene_Story_7D_0803dc9c:
+    .word Scene_Story_7D
 
 PTR_NPCList_803E5F0_0803dca0:
     .word NPCList_803E5F0
@@ -328,8 +328,8 @@ DAT_0803dcb4:
 DAT_0803dcb8:
     .word 0x285
 
-PTR_FUN_08097f38_0803dcbc:
-    .word 0x8097F39
+PTR_Scene_WWW_Base_Exit_0803dcbc:
+    .word Scene_WWW_Base_Exit
 
 DAT_0803dcc0:
     .word Scene_LockedPath

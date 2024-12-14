@@ -298,16 +298,23 @@ global_label TextData_BattleMessages
     @ Quirk: Seems to be a script to instantly get items?
     .incbin "text/other/06420C0.script"
     .incbin "images/battlechip/results/regular.4bpp"
+global_label layoutBattleResultUiRegular
     .incbin "images/battlechip/results/regular.tilemap"
     .incbin "images/battlechip/results/mp_winner.4bpp"
+global_label layoutBattleResultUiMpWinner
     .incbin "images/battlechip/results/mp_winner.tilemap"
     .incbin "images/battlechip/results/mp_loser.4bpp"
+global_label layoutBattleResultUiMpLoser
     .incbin "images/battlechip/results/mp_loser.tilemap"
     .incbin "images/battlechip/results/result.gbapal"
+global_label tilesetChipCodes
     .incbin "images/battlechip/chip_codes.4bpp"
     .incbin "images/battlechip/results/numbers.4bpp"
+global_label tilesetZenny
     .incbin "images/battlechip/zenny.4bpp"
+global_label paletteZenny
     .incbin "images/battlechip/zenny.gbapal"
+global_label palette_0647A9C
     .incbin "images/other/palette_0647A9C.gbapal"
     .incbin "images/other/palette_0647ABC.gbapal"
     .incbin "images/other/palette_0647ADC.gbapal"
@@ -684,7 +691,7 @@ global_label paletteChipDataTransmission
     .incbin "images/custom_screen/chip_data_transmission.gbapal"
 global_label paletteAdditionalChipData
     .incbin "images/custom_screen/additional_chip_data.gbapal"
-global_label tilesetFieldNumberMan
+global_label tilesetPanelNumberMan
     .incbin "data/maps/battle/Battle_NumberMan/panel.4bpp"
 
     .incbin "data/maps/battle/Battle_NumberMan/panel.gbapal"
@@ -715,6 +722,7 @@ global_label tilesetFieldNumberMan
     .incbin "data/maps/battle/Battle_NumberMan/panel_23.tilemap"
     .incbin "data/maps/battle/Battle_NumberMan/panel_24.tilemap"
 
+global_label tilesetPanelFireMan
     .incbin "data/maps/battle/Battle_FireMan/panel.4bpp"
 
     .incbin "data/maps/battle/Battle_FireMan/panel.gbapal"
@@ -734,6 +742,7 @@ global_label tilesetFieldNumberMan
     .incbin "data/maps/battle/Battle_FireMan/panel_12.tilemap"
     .incbin "data/maps/battle/Battle_FireMan/panel_13.tilemap"
 
+global_label tilesetPanelIceMan
     .incbin "data/maps/battle/Battle_IceMan/panel.4bpp"
 
     .incbin "data/maps/battle/Battle_IceMan/panel.gbapal"
@@ -753,6 +762,7 @@ global_label tilesetFieldNumberMan
     .incbin "data/maps/battle/Battle_IceMan/panel_12.tilemap"
     .incbin "data/maps/battle/Battle_IceMan/panel_13.tilemap"
 
+global_label tilesetPanelColorMan
     .incbin "data/maps/battle/Battle_ColorMan/panel.4bpp"
 
     .incbin "data/maps/battle/Battle_ColorMan/panel.gbapal"
@@ -772,6 +782,7 @@ global_label tilesetFieldNumberMan
     .incbin "data/maps/battle/Battle_ColorMan/panel_12.tilemap"
     .incbin "data/maps/battle/Battle_ColorMan/panel_13.tilemap"
 
+global_label tilesetPanelElecMan
     .incbin "data/maps/battle/Battle_ElecMan/panel.4bpp"
 
     .incbin "data/maps/battle/Battle_ElecMan/panel.gbapal"
@@ -791,6 +802,7 @@ global_label tilesetFieldNumberMan
     .incbin "data/maps/battle/Battle_ElecMan/panel_12.tilemap"
     .incbin "data/maps/battle/Battle_ElecMan/panel_13.tilemap"
 
+global_label tilesetPanelWWW
     .incbin "data/maps/battle/Battle_WWW/panel.4bpp"
 
     .incbin "data/maps/battle/Battle_WWW/panel.gbapal"
@@ -810,6 +822,7 @@ global_label tilesetFieldNumberMan
     .incbin "data/maps/battle/Battle_WWW/panel_12.tilemap"
     .incbin "data/maps/battle/Battle_WWW/panel_13.tilemap"
 
+global_label tilesetPanelInternet
     .incbin "data/maps/battle/Battle_Internet/panel.4bpp"
 
     .incbin "data/maps/battle/Battle_Internet/panel.gbapal"
@@ -829,6 +842,7 @@ global_label tilesetFieldNumberMan
     .incbin "data/maps/battle/Battle_Internet/panel_12.tilemap"
     .incbin "data/maps/battle/Battle_Internet/panel_13.tilemap"
 
+global_label tilesetPanelGeneric
     .incbin "data/maps/battle/Battle_Generic/panel.4bpp"
 
     .incbin "data/maps/battle/Battle_Generic/panel.gbapal"

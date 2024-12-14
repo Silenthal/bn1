@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set BuildChipSack, 0x3007518+1
-    .set listDefaultSort, 0x30072b0
-
-    .text
 
 _ts InitChipTraderFromScript
     push       { lr }
@@ -121,7 +117,7 @@ PTR_tilemapChipTrader_080201bc:
 PTR_gChipBag_080201c0:
     .word gChipBag
 PTR_BuildChipSack_080201c4:
-    .word BuildChipSack
+    far_label BuildChipSack
 
 
 _ts ChipTrader_1_Main
@@ -1881,7 +1877,7 @@ PTR_gChipBag_0802105c:
 PTR_textDict_ChipTrader_08021060:
     .word textDict_ChipTrader
 PTR_listDefaultSort_08021064:
-    .word listDefaultSort
+    far_label listDefaultSort
 listChipTrader3IsNewChipDraw:
     .byte 0, 0, 0, 0
     .byte 0, 0, 1, 1

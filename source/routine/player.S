@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set ScreenDim_Recover_Create, 0x809843C+1
-    .set SWI_DivMod, 0x809DF58+1
-
 
 _ts Routine_Player
     @@ Notes:

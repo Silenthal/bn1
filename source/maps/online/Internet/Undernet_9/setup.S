@@ -186,4 +186,4 @@ PTR_PTR_EventHandler_Undernet_9_0_080538fc:
     .word PTR_EventHandler_Undernet_9_0_0805387c
 
 PTR_Scene_UnlockWWWGate_08053900:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate

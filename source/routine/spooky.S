@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set ScreenDim_Recover_Create, 0x809843C+1
-
 
 _ts Routine_Spooky
     push       {lr}

@@ -352,7 +352,7 @@ PTR_PTR_EventHandler_Internet_3_0_080528c8:
     .word PTR_EventHandler_Internet_3_0_08052724
 
 PTR_Scene_UnlockWWWGate_080528cc:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_BgTask_8051738_080528d0:
     .word BgTask_8051738

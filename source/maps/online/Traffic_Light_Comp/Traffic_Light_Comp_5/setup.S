@@ -227,7 +227,7 @@ PTR_EventHandler_Traffic_Light_Comp_5_F36_0_08048d08:
 _ts EventHandler_Traffic_Light_Comp_5_F36_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_FUN_0808de30_08048f64
+    ldr        r0,PTR_Scene_Story_44_08048f64
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -245,7 +245,7 @@ _ts EventHandler_Traffic_Light_Comp_5_F36_1
     mov        r0,#0xb8
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08048f68
+    ldr        r0,PTR_Scene_ChangeMap_08048f68
     mov        r1,#0x11
     bl         Scene_Prepare
     pop        {r5}
@@ -268,7 +268,7 @@ _nt EventHandler_Traffic_Light_Comp_5_F36_2
     mov        r0,#0xb8
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08048f70
+    ldr        r0,PTR_Scene_ChangeMap_08048f70
     mov        r1,#0x11
     bl         Scene_Prepare
     pop        {r5}
@@ -286,7 +286,7 @@ _ts EventHandler_Traffic_Light_Comp_5_F36_3
     mov        r0,#0xb8
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08048f74
+    ldr        r0,PTR_Scene_ChangeMap_08048f74
     mov        r1,#0x11
     bl         Scene_Prepare
     pop        {r5}
@@ -310,7 +310,7 @@ _nt EventHandler_Traffic_Light_Comp_5_F36_4
     mov        r0,#0xb8
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08048f78
+    ldr        r0,PTR_Scene_ChangeMap_08048f78
     mov        r1,#0x11
     bl         Scene_Prepare
     pop        {r5}
@@ -328,7 +328,7 @@ _ts EventHandler_Traffic_Light_Comp_5_F36_5
     mov        r0,#0xb8
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08048f7c
+    ldr        r0,PTR_Scene_ChangeMap_08048f7c
     mov        r1,#0x13
     bl         Scene_Prepare
     pop        {r5}
@@ -354,7 +354,7 @@ _nt MapSetup_Traffic_Light_Comp_5_F37
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_LAB_0808eaa8_08048f80
+    ldr        r0,PTR_Scene_Story_4B_08048f80
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -410,7 +410,7 @@ _ts EventHandler_Traffic_Light_Comp_5_F37_0
     bl         Flag_GetBase
     bne        LAB_08048ea6
     push       {r5}
-    ldr        r0,PTR_LAB_0808e808_08048f90
+    ldr        r0,PTR_Scene_Story_4A_08048f90
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -533,29 +533,29 @@ PTR_Scene_MegaManJackIn_08048f5c:
 PTR_PTR_EventHandler_Traffic_Light_Comp_5_F36_0_08048f60:
     .word PTR_EventHandler_Traffic_Light_Comp_5_F36_0_08048d08
 
-PTR_FUN_0808de30_08048f64:
-    .word 0x808DE31
+PTR_Scene_Story_44_08048f64:
+    .word Scene_Story_44
 
-PTR_FUN_08087e34_08048f68:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08048f68:
+    .word Scene_ChangeMap
 
 PTR_Scene_Dialogue_08048f6c:
     .word Scene_Dialogue
 
-PTR_FUN_08087e34_08048f70:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08048f70:
+    .word Scene_ChangeMap
 
-PTR_FUN_08087e34_08048f74:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08048f74:
+    .word Scene_ChangeMap
 
-PTR_FUN_08087e34_08048f78:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08048f78:
+    .word Scene_ChangeMap
 
-PTR_FUN_08087e34_08048f7c:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08048f7c:
+    .word Scene_ChangeMap
 
-PTR_LAB_0808eaa8_08048f80:
-    .word 0x808EAA9
+PTR_Scene_Story_4B_08048f80:
+    .word Scene_Story_4B
 
 PTR_NPCList_80492A0_08048f84:
     .word NPCList_80492A0
@@ -566,8 +566,8 @@ PTR_Scene_MegaManJackIn_08048f88:
 PTR_PTR_EventHandler_Traffic_Light_Comp_5_F37_0_08048f8c:
     .word PTR_EventHandler_Traffic_Light_Comp_5_F37_0_08048e84
 
-PTR_LAB_0808e808_08048f90:
-    .word 0x808E809
+PTR_Scene_Story_4A_08048f90:
+    .word Scene_Story_4A
 
 PTR_Scene_Dialogue_08048f94:
     .word Scene_Dialogue

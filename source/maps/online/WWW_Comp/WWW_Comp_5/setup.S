@@ -112,7 +112,7 @@ LAB_0804dd28:
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
     push       {r5}
-    ldr        r0,PTR_FUN_080960a4_0804de04
+    ldr        r0,PTR_Scene_Story_77_0804de04
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -127,7 +127,7 @@ LAB_0804dd5a:
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
     push       {r5}
-    ldr        r0,PTR_FUN_080967d0_0804de08
+    ldr        r0,PTR_Scene_Story_79_0804de08
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -172,7 +172,7 @@ _ts EventHandler_WWW_Comp_5_F54_0
     bl         Flag_GetBase
     bne        LAB_0804ddca
     push       {r5}
-    ldr        r0,PTR_FUN_08095b40_0804de14
+    ldr        r0,PTR_Scene_Story_76_0804de14
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -219,11 +219,11 @@ PTR_EntityAllocParams_804EAF0_0804ddfc:
 PTR_BgTask_804CC98_0804de00:
     .word BgTask_804CC98
 
-PTR_FUN_080960a4_0804de04:
-    .word 0x80960A5
+PTR_Scene_Story_77_0804de04:
+    .word Scene_Story_77
 
-PTR_FUN_080967d0_0804de08:
-    .word 0x80967D1
+PTR_Scene_Story_79_0804de08:
+    .word Scene_Story_79
 
 PTR_NPCList_804E4BC_0804de0c:
     .word NPCList_804E4BC
@@ -231,5 +231,5 @@ PTR_NPCList_804E4BC_0804de0c:
 PTR_PTR_EventHandler_WWW_Comp_5_F54_0_0804de10:
     .word PTR_EventHandler_WWW_Comp_5_F54_0_0804dd9c
 
-PTR_FUN_08095b40_0804de14:
-    .word 0x8095B41
+PTR_Scene_Story_76_0804de14:
+    .word Scene_Story_76

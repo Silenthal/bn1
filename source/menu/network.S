@@ -2,13 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0809bd28, 0x809bd28+1
-    .set FUN_0809bc4c, 0x809bc4c+1
-    .set Sio_SetReady, 0x809bdf0+1
     .set ChipBagSlot_02018fe0, 0x2018fe0
-    .set BuildChipSack, 0x3007518+1
     .set PlayerMpState_020037d0, 0x20037d0
-    .set listDefaultSort, 0x30072B0
 
 tilemapNetworkListOptions:
     .incbin "images/start_menu/network/list_options.tilemap"
@@ -944,7 +939,7 @@ LAB_0801d380:
     mov        r0,#0x0
     pop        {pc}
 PTR_BuildChipSack_0801d408:
-    .word BuildChipSack
+    far_label BuildChipSack
 PTR_textDict_MenuMessages_0801d40c:
     .word textDict_MenuMessages
 PTR_gSpriteDecompLocation1_0801d410:
@@ -1934,7 +1929,7 @@ DAT_0801db4c:
 PTR_tilemapNetworkNoneEntry_0801db50:
     .word tilemapNetworkNoneEntry
 PTR_listDefaultSort_0801db54:
-    .word listDefaultSort
+    far_label listDefaultSort
 PTR_PlayerMpState_0801db58:
     .word PlayerMpState_020037d0
 

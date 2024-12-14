@@ -134,7 +134,7 @@ _ts EventHandler_Waterworks_Comp_1_F25_0
     bl         FUN_08045ae0
     beq        LAB_080459ea
     push       {r5}
-    ldr        r0,PTR_FUN_08089b88_08045b98
+    ldr        r0,PTR_Scene_Story_2A_08045b98
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -175,7 +175,7 @@ _ts MapSetup_Waterworks_Comp_1_F27
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_LAB_0808b184_08045ba4
+    ldr        r0,PTR_Scene_Story_33_08045ba4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -263,7 +263,7 @@ _ts FUN_08045a8c
     bne        LAB_08045adc
 LAB_08045ace:
     push       {r5}
-    ldr        r0,PTR_FUN_0808be50_08045bb0
+    ldr        r0,PTR_Scene_Ice_Slide_08045bb0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -308,7 +308,7 @@ _ts FUN_08045ae0
     pop        {pc}
 LAB_08045b26:
     push       {r5}
-    ldr        r0,PTR_LAB_0808bacc_08045bb8
+    ldr        r0,PTR_Scene_Waterworks_Comp_TurnHandle_08045bb8
     ldrb       r1,[r7,#0xe]
     bl         Scene_Prepare
     pop        {r5}
@@ -378,8 +378,8 @@ PTR_DAT_08045b90:
 PTR_PTR_EventHandler_Waterworks_Comp_1_F25_0_08045b94:
     .word PTR_EventHandler_Waterworks_Comp_1_F25_0_080459c4
 
-PTR_FUN_08089b88_08045b98:
-    .word 0x8089B89
+PTR_Scene_Story_2A_08045b98:
+    .word Scene_Story_2A
 
 PTR_NPCList_8046BC8_08045b9c:
     .word NPCList_8046BC8
@@ -387,8 +387,8 @@ PTR_NPCList_8046BC8_08045b9c:
 PTR_NPCList_8046BF4_08045ba0:
     .word NPCList_8046BF4
 
-PTR_LAB_0808b184_08045ba4:
-    .word 0x808B185
+PTR_Scene_Story_33_08045ba4:
+    .word Scene_Story_33
 
 PTR_Scene_MegaManJackIn_08045ba8:
     .word Scene_MegaManJackIn
@@ -396,14 +396,14 @@ PTR_Scene_MegaManJackIn_08045ba8:
 PTR_PTR_EventHandler_Waterworks_Comp_1_F27_0_08045bac:
     .word PTR_EventHandler_Waterworks_Comp_1_F27_0_08045a78
 
-PTR_FUN_0808be50_08045bb0:
-    .word 0x808BE51
+PTR_Scene_Ice_Slide_08045bb0:
+    .word Scene_Ice_Slide
 
 PTR_Scene_Dialogue_08045bb4:
     .word Scene_Dialogue
 
-PTR_LAB_0808bacc_08045bb8:
-    .word 0x808BACD
+PTR_Scene_Waterworks_Comp_TurnHandle_08045bb8:
+    .word Scene_Waterworks_Comp_TurnHandle
 
 DAT_08045bbc:
     .word Scene_Dialogue

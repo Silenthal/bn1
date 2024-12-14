@@ -199,7 +199,7 @@ LAB_0804a922:
     mov        r1,#0x0
 LAB_0804a924:
     push       {r5}
-    ldr        r0,PTR_FUN_08091b70_0804a974
+    ldr        r0,PTR_Scene_RechargePrompt_0804a974
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804a92e:
@@ -245,7 +245,7 @@ PTR_NPCList_804B754_0804a960:
     .word NPCList_804B754
 
 DAT_0804a964:
-    .word 0x80919D9
+    .word Scene_RechargeSuccess
 
 DAT_0804a968:
     .word Scene_MegaManJackIn
@@ -256,8 +256,8 @@ PTR_DAT_0804a96c:
 PTR_PTR_EventHandler_Power_Plant_Comp_2_F42_0_0804a970:
     .word PTR_EventHandler_Power_Plant_Comp_2_F42_0_0804a8e8
 
-PTR_FUN_08091b70_0804a974:
-    .word 0x8091B71
+PTR_Scene_RechargePrompt_0804a974:
+    .word Scene_RechargePrompt
 
 
 _ts MapSetup_Power_Plant_Comp_2_S5

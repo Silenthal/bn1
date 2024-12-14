@@ -113,7 +113,7 @@ LAB_0804639a:
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_LAB_08089fbc_08046458
+    ldr        r0,PTR_Scene_Story_2C_08046458
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -215,8 +215,8 @@ DAT_08046450:
 PTR_DAT_08046454:
     .word 0x2000
 
-PTR_LAB_08089fbc_08046458:
-    .word 0x8089FBD
+PTR_Scene_Story_2C_08046458:
+    .word Scene_Story_2C
 
 PTR_PTR_EventHandler_Waterworks_Comp_4_F25_0_0804645c:
     .word PTR_EventHandler_Waterworks_Comp_4_F25_0_080463e0

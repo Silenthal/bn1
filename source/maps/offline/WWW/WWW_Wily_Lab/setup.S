@@ -65,7 +65,7 @@ _ts MapSetup_WWW_Wily_Lab_F30
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_LAB_0808c148_0803ddec
+    ldr        r0,PTR_Scene_Story_35_0803ddec
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -113,7 +113,7 @@ _ts MapSetup_WWW_Wily_Lab_F37
     bl         Flag_GetBase
     bne        LAB_0803ddbc
     push       {r5}
-    ldr        r0,PTR_LAB_0808ee94_0803ddf8
+    ldr        r0,PTR_Scene_Story_4D_0803ddf8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -155,8 +155,8 @@ PTR_PTR_EventHandler_WWW_Wily_Lab_F30_0803dde4:
 PTR_NPCList_803E650_0803dde8:
     .word NPCList_803E650
 
-PTR_LAB_0808c148_0803ddec:
-    .word 0x808C149
+PTR_Scene_Story_35_0803ddec:
+    .word Scene_Story_35
 
 PTR_PTR_EventHandler_WWW_Wily_Lab_F30_0_0803ddf0:
     .word PTR_EventHandler_WWW_Wily_Lab_F30_0_0803dd84
@@ -164,8 +164,8 @@ PTR_PTR_EventHandler_WWW_Wily_Lab_F30_0_0803ddf0:
 PTR_NPCList_803E6F4_0803ddf4:
     .word NPCList_803E6F4
 
-PTR_LAB_0808ee94_0803ddf8:
-    .word 0x808EE95
+PTR_Scene_Story_4D_0803ddf8:
+    .word Scene_Story_4D
 
 PTR_PTR_EventHandler_WWW_Wily_Lab_F37_0_0803ddfc:
     .word PTR_EventHandler_WWW_Wily_Lab_F37_0_0803ddd4
@@ -243,7 +243,7 @@ _ts MapSetup_WWW_Wily_Lab_F50
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_LAB_08092d28_0803e0e0
+    ldr        r0,PTR_Scene_Story_65_0803e0e0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -291,7 +291,7 @@ _ts MapSetup_WWW_Wily_Lab_F53
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_LAB_0809337c_0803e0e8
+    ldr        r0,PTR_Scene_Story_68_0803e0e8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -349,7 +349,7 @@ LAB_0803df3e:
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
     push       {r5}
-    ldr        r0,PTR_FUN_0809656c_0803e0f0
+    ldr        r0,PTR_Scene_Story_78_0803e0f0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -363,7 +363,7 @@ LAB_0803df68:
     bne        LAB_0803df8e
     bl         Sound_StopAllMusic
     push       {r5}
-    ldr        r0,PTR_FUN_0809721c_0803e0f4
+    ldr        r0,PTR_Scene_Story_7C_0803e0f4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -548,23 +548,23 @@ PTR_BgTask_803D7FC_0803e0d8:
 PTR_PTR_EventHandler_WWW_Wily_Lab_F50_0803e0dc:
     .word PTR_EventHandler_WWW_Wily_Lab_F50_0803de5c
 
-PTR_LAB_08092d28_0803e0e0:
-    .word 0x8092D29
+PTR_Scene_Story_65_0803e0e0:
+    .word Scene_Story_65
 
 PTR_PTR_EventHandler_WWW_Wily_Lab_F50_0_0803e0e4:
     .word PTR_EventHandler_WWW_Wily_Lab_F50_0_0803dec4
 
-PTR_LAB_0809337c_0803e0e8:
-    .word 0x809337D
+PTR_Scene_Story_68_0803e0e8:
+    .word Scene_Story_68
 
 PTR_PTR_EventHandler_WWW_Wily_Lab_F53_0_0803e0ec:
     .word PTR_EventHandler_WWW_Wily_Lab_F53_0_0803df14
 
-PTR_FUN_0809656c_0803e0f0:
-    .word 0x809656D
+PTR_Scene_Story_78_0803e0f0:
+    .word Scene_Story_78
 
-PTR_FUN_0809721c_0803e0f4:
-    .word 0x809721D
+PTR_Scene_Story_7C_0803e0f4:
+    .word Scene_Story_7C
 
 PTR_NPCList_803E734_0803e0f8:
     .word NPCList_803E734

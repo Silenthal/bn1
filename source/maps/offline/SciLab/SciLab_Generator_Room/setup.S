@@ -94,7 +94,7 @@ _ts MapSetup_SciLab_Generator_Room_F43
     bl         Flag_GetBase
     bne        LAB_0803cff2
     push       {r5}
-    ldr        r0,PTR_FUN_08091e8c_0803d110
+    ldr        r0,PTR_Scene_Story_62_0803d110
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -104,14 +104,14 @@ LAB_0803cff2:
     bl         Flag_GetBase
     bne        LAB_0803d008
     push       {r5}
-    ldr        r0,PTR_FUN_0809216c_0803d114
+    ldr        r0,PTR_Scene_Story_63_0803d114
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
     b          LAB_0803d014
 LAB_0803d008:
     push       {r5}
-    ldr        r0,PTR_FUN_0809244c_0803d118
+    ldr        r0,PTR_Scene_Story_64_0803d118
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -186,7 +186,7 @@ _ts EventHandler_SciLab_Generator_Room_F43_0
     mov        r0,#0xbc
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_08091b70_0803d124
+    ldr        r0,PTR_Scene_RechargePrompt_0803d124
     mov        r1,#0x4
     bl         Scene_Prepare
     pop        {r5}
@@ -205,7 +205,7 @@ _ts EventHandler_SciLab_Generator_Room_F43_1
     bl         Flag_GetBase
     bne        LAB_0803d0d0
     push       {r5}
-    ldr        r0,PTR_FUN_08090dbc_0803d128
+    ldr        r0,PTR_Scene_Story_5D_0803d128
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -224,7 +224,7 @@ _nt EventHandler_SciLab_Generator_Room_F43_2
     bl         Flag_GetBase
     bne        LAB_0803d0f2
     push       {r5}
-    ldr        r0,PTR_FUN_08091468_0803d12c
+    ldr        r0,PTR_Scene_Story_60_0803d12c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -252,14 +252,14 @@ PTR_BgTask_803BB84_0803d108:
 PTR_PTR_EventHandler_Default_0803d10c:
     .word PTR_EventHandler_Default_0803cf98
 
-PTR_FUN_08091e8c_0803d110:
-    .word 0x8091E8D
+PTR_Scene_Story_62_0803d110:
+    .word Scene_Story_62
 
-PTR_FUN_0809216c_0803d114:
-    .word 0x809216D
+PTR_Scene_Story_63_0803d114:
+    .word Scene_Story_63
 
-PTR_FUN_0809244c_0803d118:
-    .word 0x809244D
+PTR_Scene_Story_64_0803d118:
+    .word Scene_Story_64
 
 DAT_0803d11c:
     .word Scene_Dialogue
@@ -267,14 +267,14 @@ DAT_0803d11c:
 PTR_PTR_EventHandler_SciLab_Generator_Room_F43_0_0803d120:
     .word PTR_EventHandler_SciLab_Generator_Room_F43_0_0803d084
 
-PTR_FUN_08091b70_0803d124:
-    .word 0x8091B71
+PTR_Scene_RechargePrompt_0803d124:
+    .word Scene_RechargePrompt
 
-PTR_FUN_08090dbc_0803d128:
-    .word 0x8090DBD
+PTR_Scene_Story_5D_0803d128:
+    .word Scene_Story_5D
 
-PTR_FUN_08091468_0803d12c:
-    .word 0x8091469
+PTR_Scene_Story_60_0803d12c:
+    .word Scene_Story_60
 
 
 _ts MapSetup_SciLab_Generator_Room_S5

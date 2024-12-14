@@ -273,7 +273,7 @@ PTR_EventHandler_DenTown_Block_3_F36_0_08037d20:
 _ts EventHandler_DenTown_Block_3_F36_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_FUN_0808d974_08037e24
+    ldr        r0,PTR_Scene_Story_42_08037e24
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -419,8 +419,8 @@ PTR_EntityAllocParams_803AF1C_08037e1c:
 PTR_PTR_EventHandler_DenTown_Block_3_F36_0_08037e20:
     .word PTR_EventHandler_DenTown_Block_3_F36_0_08037d20
 
-PTR_FUN_0808d974_08037e24:
-    .word 0x808D975
+PTR_Scene_Story_42_08037e24:
+    .word Scene_Story_42
 
 PTR_Scene_JackIn_08037e28:
     .word Scene_JackIn

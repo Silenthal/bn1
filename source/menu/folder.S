@@ -2,10 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set BuildChipSack, 0x3007518+1
-    .set SortSack, 0x30072b8+1
-    .set SortSackReverse, 0x3007360+1
-    .set listDefaultSort, 0x30072b0
 
 tilemapFolderList:
     .incbin "images/start_menu/folder/folder_list.tilemap"
@@ -458,7 +454,7 @@ PTR_gSpriteDecompLocation1_0801a234:
 PTR_DAT_0801a238:
     .word 0x6002c00
 PTR_BuildChipSack_0801a23c:
-    .word BuildChipSack
+    far_label BuildChipSack
 PTR_gFolder_0801a240:
     .word gFolder
 PTR_gFolder_0801a244:
@@ -2031,8 +2027,8 @@ LAB_0801ad9e:
     pop        {r0}
     pop        {pc}
 PTR_SortSack_0801add0:
-    .word SortSack
-    .word SortSackReverse
+    far_label SortSack
+    far_label SortSackReverse
 
 
 _ts Menu_Folder_SortFolder
@@ -2409,7 +2405,7 @@ PTR_tilemapFolderBlank_0801b088:
 PTR_tilemapListSideArrow_0801b08c:
     .word tilemapListSideArrow
 PTR_listDefaultSort_0801b090:
-    .word listDefaultSort
+    far_label listDefaultSort
 
 
 _ts InitInventoryChecksumFromChipBag

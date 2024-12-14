@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set ScreenDim_Recover_Create, 0x809843C+1
-
 
 listPopperParams:
     .byte 0x3C

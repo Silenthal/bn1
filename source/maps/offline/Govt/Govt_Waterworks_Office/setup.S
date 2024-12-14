@@ -186,7 +186,7 @@ LAB_0803415e:
     cmp        r0,#0x20
     bne        LAB_08034176
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08034270
+    ldr        r0,PTR_Scene_ChangeMap_08034270
     mov        r1,#0x10
     bl         Scene_Prepare
     pop        {r5}
@@ -252,7 +252,7 @@ LAB_080341f0:
     bl         Flag_GetBase
     bne        LAB_08034206
     push       {r5}
-    ldr        r0,PTR_FUN_080897a4_08034280
+    ldr        r0,PTR_Scene_Story_29_08034280
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -308,8 +308,8 @@ PTR_PTR_EventHandler_Govt_Waterworks_Office_F25_0_08034268:
 DAT_0803426c:
     .word Scene_LockedPath
 
-PTR_FUN_08087e34_08034270:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08034270:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_08034274:
     .word Scene_LockedPath
@@ -320,8 +320,8 @@ DAT_08034278:
 PTR_Scene_Dialogue_0803427c:
     .word Scene_Dialogue
 
-PTR_FUN_080897a4_08034280:
-    .word 0x80897A5
+PTR_Scene_Story_29_08034280:
+    .word Scene_Story_29
 
 PTR_Scene_JackIn_08034284:
     .word Scene_JackIn
@@ -419,7 +419,7 @@ LAB_08034334:
     cmp        r0,#0x20
     bne        LAB_0803434c
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_080343c4
+    ldr        r0,PTR_Scene_ChangeMap_080343c4
     mov        r1,#0x10
     bl         Scene_Prepare
     pop        {r5}
@@ -486,8 +486,8 @@ PTR_NPCList_80359C8_080343bc:
 PTR_PTR_EventHandler_Govt_Waterworks_Office_F30_0_080343c0:
     .word PTR_EventHandler_Govt_Waterworks_Office_F30_0_08034320
 
-PTR_FUN_08087e34_080343c4:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_080343c4:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_080343c8:
     .word Scene_LockedPath
@@ -591,7 +591,7 @@ LAB_08034480:
     cmp        r0,#0x20
     bne        LAB_08034498
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08034510
+    ldr        r0,PTR_Scene_ChangeMap_08034510
     mov        r1,#0x10
     bl         Scene_Prepare
     pop        {r5}
@@ -658,8 +658,8 @@ PTR_NPCList_8035A4C_08034508:
 PTR_PTR_EventHandler_Govt_Waterworks_Office_F50_0_0803450c:
     .word PTR_EventHandler_Govt_Waterworks_Office_F50_0_0803446c
 
-PTR_FUN_08087e34_08034510:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08034510:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_08034514:
     .word Scene_LockedPath

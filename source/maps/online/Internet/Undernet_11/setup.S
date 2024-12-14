@@ -257,7 +257,7 @@ PTR_Scene_SkillGate_08053d20:
     .word Scene_SkillGateFail
 
 PTR_Scene_UnlockWWWGate_08053d24:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_Scene_StartFixedBattle_08053d28:
     .word Scene_StartFixedBattle

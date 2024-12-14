@@ -503,7 +503,7 @@ PTR_BYTE_ARRAY_0808be28:
     .word BYTE_ARRAY_0808bab4
 
 PTR_BYTE_ARRAY_0808be2c:
-    .word 0x808BABF
+    .word BYTE_ARRAY_0808babf
 
 PTR_PlayerAnimateArgsSet_ARRAY_0808be30:
     .word PlayerAnimateArgsSet_ARRAY_0808ba04

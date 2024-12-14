@@ -146,7 +146,7 @@ _ts EventHandler_WWW_Comp_1_F54_0
     bl         Flag_GetBase
     bne        LAB_0804d3dc
     push       {r5}
-    ldr        r0,PTR_FUN_080945c4_0804d528
+    ldr        r0,PTR_Scene_Story_71_0804d528
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -156,7 +156,7 @@ LAB_0804d3dc:
     bl         Flag_GetBase
     bne        LAB_0804d3f0
     push       {r5}
-    ldr        r0,PTR_FUN_080944f8_0804d52c
+    ldr        r0,PTR_Scene_Story_70_0804d52c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -281,7 +281,7 @@ _ts FUN_0804d4a4
     pop        {r1,r5}
     bne        LAB_0804d4e8
     push       {r5}
-    ldr        r0,PTR_FUN_080981f0_0804d534
+    ldr        r0,PTR_Scene_WWW_Comp_1_IceBlock_0804d534
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x0
@@ -335,14 +335,14 @@ PTR_EntityAllocParams_804E710_0804d520:
 PTR_PTR_EventHandler_WWW_Comp_1_F54_0_0804d524:
     .word PTR_EventHandler_WWW_Comp_1_F54_0_0804d3a8
 
-PTR_FUN_080945c4_0804d528:
-    .word 0x80945C5
+PTR_Scene_Story_71_0804d528:
+    .word Scene_Story_71
 
-PTR_FUN_080944f8_0804d52c:
-    .word 0x80944F9
+PTR_Scene_Story_70_0804d52c:
+    .word Scene_Story_70
 
 PTR_EntityAllocParams_804E73C_0804d530:
     .word EntityAllocParams_804E73C
 
-PTR_FUN_080981f0_0804d534:
-    .word 0x80981F1
+PTR_Scene_WWW_Comp_1_IceBlock_0804d534:
+    .word Scene_WWW_Comp_1_IceBlock

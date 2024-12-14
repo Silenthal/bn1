@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SpriteFrame_LoadTileset, 0x3006A00 + 1
-
-    .text
 
 listHandlerActor:
     .word Routine_Player
@@ -308,5 +305,5 @@ DAT_080034ec:                           .word 0x85000000
 PTR_gEntityListActor_080034f0:          .word gEntityListActor
 PTR_gBitsetActor_080034f4:              .word gBitsetActor
 PTR_gEntityListActor_080034f8:          .word gEntityListActor
-PTR_SpriteFrame_LoadTileset_1_080034fc: .word SpriteFrame_LoadTileset
+PTR_SpriteFrame_LoadTileset_1_080034fc: far_label SpriteFrame_LoadTileset
 PTR_gEntityListActor_08003500:          .word gEntityListActor

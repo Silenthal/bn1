@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SWI_Div, 0x809DF54+1
-
 
 Cam_Set_08089c28:
     cam_set -394, 254, 0

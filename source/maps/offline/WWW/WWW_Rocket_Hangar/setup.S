@@ -67,7 +67,7 @@ _ts MapSetup_WWW_Rocket_Hangar_F54
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_08094f8c_0803e24c
+    ldr        r0,PTR_Scene_Story_73_0803e24c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -81,7 +81,7 @@ LAB_0803e1be:
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_08096aec_0803e250
+    ldr        r0,PTR_Scene_Story_7A_0803e250
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -96,7 +96,7 @@ LAB_0803e1dc:
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
     push       {r5}
-    ldr        r0,PTR_FUN_08096f20_0803e254
+    ldr        r0,PTR_Scene_Story_7B_0803e254
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -111,7 +111,7 @@ LAB_0803e1fe:
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
     push       {r5}
-    ldr        r0,PTR_FUN_08097744_0803e258
+    ldr        r0,PTR_Scene_Story_7E_0803e258
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -151,17 +151,17 @@ PTR_BgTask_803D844_0803e244:
 PTR_PTR_EventHandler_Default_0803e248:
     .word PTR_EventHandler_Default_0803e16c
 
-PTR_FUN_08094f8c_0803e24c:
-    .word 0x8094F8D
+PTR_Scene_Story_73_0803e24c:
+    .word Scene_Story_73
 
-PTR_FUN_08096aec_0803e250:
-    .word 0x8096AED
+PTR_Scene_Story_7A_0803e250:
+    .word Scene_Story_7A
 
-PTR_FUN_08096f20_0803e254:
-    .word 0x8096F21
+PTR_Scene_Story_7B_0803e254:
+    .word Scene_Story_7B
 
-PTR_FUN_08097744_0803e258:
-    .word 0x8097745
+PTR_Scene_Story_7E_0803e258:
+    .word Scene_Story_7E
 
 PTR_PTR_EventHandler_WWW_Rocket_Hangar_F54_0_0803e25c:
     .word PTR_EventHandler_WWW_Rocket_Hangar_F54_0_0803e234

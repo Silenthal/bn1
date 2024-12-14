@@ -190,7 +190,7 @@ _ts EventHandler_Waterworks_Comp_2_F25_0
     cmp        r0,#0x18
     bne        LAB_08045e6e
     push       {r5}
-    ldr        r0,PTR_LAB_08089c34_08045eb8
+    ldr        r0,PTR_Scene_Story_2B_08045eb8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -251,8 +251,8 @@ PTR_NPCList_8046D50_08045eb0:
 PTR_PTR_EventHandler_Waterworks_Comp_2_F25_0_08045eb4:
     .word PTR_EventHandler_Waterworks_Comp_2_F25_0_08045e34
 
-PTR_LAB_08089c34_08045eb8:
-    .word 0x8089C35
+PTR_Scene_Story_2B_08045eb8:
+    .word Scene_Story_2B
 
 
 _ts MapSetup_Waterworks_Comp_2_S3

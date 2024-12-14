@@ -1,18 +1,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set m4aSoundInit, 0x0809cb90
-    .set m4aSoundMode, 0x0809d0bc
-    .set m4aSoundMain, 0x809CC1C
-    .set m4aSoundVSync, 0x809c568
-    .set m4aSongNumStart, 0x809cc2c
-    .set MPlayFadeOut, 0x809cb70
-    .set m4aMPlayAllStop, 0x809cd60
-    .set m4aSongNumStop, 0x0809ccf8
-
-    .text
-
-    .thumb
 
 @@ Initializes audio
 @ void __stdcall Sound_Init(void)

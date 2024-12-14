@@ -2,11 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_0809bc4c, 0x809bc4c
-    .set tilesetBattleMiscellaneous, 0x8640854
     .set Struct_C1C0_0200c1c0, 0x200c1c0
     .set PlayerMpState_ARRAY_020075a0, 0x20075a0
-    .set Sio_SetReady, 0x809bdf0
 
     .text
 

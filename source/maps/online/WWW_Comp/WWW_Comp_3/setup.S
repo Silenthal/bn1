@@ -179,4 +179,4 @@ PTR_PTR_EventHandler_WWW_Comp_3_F54_0_0804db14:
     .word PTR_EventHandler_WWW_Comp_3_F54_0_0804daac
 
 DAT_0804db18:
-    .word 0x8095249
+    .word Scene_Story_74

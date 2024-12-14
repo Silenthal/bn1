@@ -82,7 +82,7 @@ LAB_0805231e:
     pop        {r5}
     beq        LAB_0805235c
     push       {r5}
-    ldr        r0,PTR_FUN_080884e0_080525d8
+    ldr        r0,PTR_Scene_Story_20_080525d8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -271,7 +271,7 @@ LAB_08052490:
     bl         Flag_GetBase
     bne        LAB_080524b8
     push       {r5}
-    ldr        r0,PTR_FUN_08088380_080525f4
+    ldr        r0,PTR_Scene_Story_1F_080525f4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -433,8 +433,8 @@ DAT_080525d0:
 PTR_EntityAllocParams_8055428_080525d4:
     .word EntityAllocParams_8055428
 
-PTR_FUN_080884e0_080525d8:
-    .word 0x80884E1
+PTR_Scene_Story_20_080525d8:
+    .word Scene_Story_20
 
 PTR_DAT_080525dc:
     .word 0x2002110
@@ -449,13 +449,13 @@ PTR_PTR_EventHandler_Internet_2_0_080525e8:
     .word PTR_EventHandler_Internet_2_0_08052454
 
 DAT_080525ec:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_BgTask_8051738_080525f0:
     .word BgTask_8051738
 
-PTR_FUN_08088380_080525f4:
-    .word 0x8088381
+PTR_Scene_Story_1F_080525f4:
+    .word Scene_Story_1F
 
 DAT_080525f8:
     .word 0xA01

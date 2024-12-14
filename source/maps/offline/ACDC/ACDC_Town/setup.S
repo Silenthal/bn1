@@ -2,15 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Story_7F, 0x80979CD
-    .set Scene_Story_2D, 0x808A30D
-    .set Scene_Story_23, 0x8088AC5
-    .set Scene_Story_4E, 0x808F045
-    .set Scene_Story_10, 0x80861E9
-    .set Scene_Story_37, 0x808C5A9
-    .set Scene_Story_34, 0x808B421
-    .set Scene_Story_30, 0x808A931
-
 
 _ts FlagSetup_ACDC_S0
     mov        pc,lr
@@ -267,18 +258,18 @@ _ts MapSetup_ACDC_Town_F06
 
 _ts EventHandler_ACDC_Town_F06
     push       {lr}
-    ldr        r0,PTR_PTR_FUN_0802abe0_0802ac50
+    ldr        r0,PTR_PTR_EventHandler_ACDC_Town_F06_0_0802ac50
     ldrb       r1,[r5,#0x0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
     bx         r0
     pop        {pc}
-PTR_FUN_0802abe0_0802abdc:
-    .word FUN_0802abe0
+PTR_EventHandler_ACDC_Town_F06_0_0802abdc:
+    .word EventHandler_ACDC_Town_F06_0
 
 
-_ts FUN_0802abe0
+_ts EventHandler_ACDC_Town_F06_0
     push       {lr}
     push       {r5}
     mov        r7,r10
@@ -334,8 +325,8 @@ DAT_0802ac48:
     .word 0xC05
 PTR_PTR_DAT_0802ac4c:
     .word NPCList_802F9CC
-PTR_PTR_FUN_0802abe0_0802ac50:
-    .word PTR_FUN_0802abe0_0802abdc
+PTR_PTR_EventHandler_ACDC_Town_F06_0_0802ac50:
+    .word PTR_EventHandler_ACDC_Town_F06_0_0802abdc
 DAT_0802ac54:
     .word Scene_LockedPath
 

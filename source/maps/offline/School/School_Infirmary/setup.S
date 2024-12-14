@@ -201,7 +201,7 @@ PTR_PTR_DAT_0802744c:
 PTR_PTR_EventHandler_School_Infirmary_F14_0_08027450:
     .word PTR_EventHandler_School_Infirmary_F14_0_080273cc
 DAT_08027454:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_EntityAllocParams_ARRAY_08027458:
     .word EntityAllocParams_8029CC8
 PTR_PTR_DAT_0802745c:

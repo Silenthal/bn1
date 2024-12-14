@@ -2,6 +2,7 @@ global_label paletteBattleUi
     .incbin "images/battle/battle_ui.gbapal"
 global_label paletteHpChange
     .incbin "images/battle/hp_change.gbapal"
+global_label palette_0634674
     .incbin "images/battle/palette_0634674.gbapal"
 global_label paletteBattleMessage
     .incbin "images/battle/battle_message.gbapal"

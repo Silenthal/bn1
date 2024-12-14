@@ -191,7 +191,7 @@ _ts EventHandler_Govt_Waterworks_Lobby_F24_0
     bl         Flag_GetBase
     beq        LAB_08032916
     push       {r5}
-    ldr        r0,PTR_FUN_08089158_08032a5c
+    ldr        r0,PTR_Scene_Story_26_08032a5c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -207,7 +207,7 @@ _ts EventHandler_Govt_Waterworks_Lobby_F24_1
     bl         Flag_GetBase
     beq        LAB_08032932
     push       {r5}
-    ldr        r0,PTR_FUN_0808940c_08032a60
+    ldr        r0,PTR_Scene_Story_27_08032a60
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -329,7 +329,7 @@ _ts FUN_080329d0
     b          LAB_08032a2e
 LAB_080329fa:
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08032a7c
+    ldr        r0,PTR_Scene_ChangeMap_08032a7c
     mov        r1,#0xd
     bl         Scene_Prepare
     pop        {r5}
@@ -388,11 +388,11 @@ PTR_NPCList_8035254_08032a54:
 PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F24_0_08032a58:
     .word PTR_EventHandler_Govt_Waterworks_Lobby_F24_0_080328f0
 
-PTR_FUN_08089158_08032a5c:
-    .word 0x8089159
+PTR_Scene_Story_26_08032a5c:
+    .word Scene_Story_26
 
-PTR_FUN_0808940c_08032a60:
-    .word 0x808940D
+PTR_Scene_Story_27_08032a60:
+    .word Scene_Story_27
 
 PTR_EntityAllocParams_8035C44_08032a64:
     .word EntityAllocParams_8035C44
@@ -412,8 +412,8 @@ PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F26_0_08032a74:
 PTR_Scene_Dialogue_08032a78:
     .word Scene_Dialogue
 
-PTR_FUN_08087e34_08032a7c:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08032a7c:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_08032a80:
     .word Scene_LockedPath
@@ -535,7 +535,7 @@ _ts FUN_08032b50
     b          LAB_08032bae
 LAB_08032b7a:
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08032bd0
+    ldr        r0,PTR_Scene_ChangeMap_08032bd0
     mov        r1,#0xd
     bl         Scene_Prepare
     pop        {r5}
@@ -585,8 +585,8 @@ PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F30_0_08032bc8:
 PTR_Scene_Dialogue_08032bcc:
     .word Scene_Dialogue
 
-PTR_FUN_08087e34_08032bd0:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08032bd0:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_08032bd4:
     .word Scene_LockedPath
@@ -708,7 +708,7 @@ _ts FUN_08032ca4
     b          LAB_08032d02
 LAB_08032cce:
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08032d24
+    ldr        r0,PTR_Scene_ChangeMap_08032d24
     mov        r1,#0xd
     bl         Scene_Prepare
     pop        {r5}
@@ -758,8 +758,8 @@ PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F40_0_08032d1c:
 PTR_Scene_Dialogue_08032d20:
     .word Scene_Dialogue
 
-PTR_FUN_08087e34_08032d24:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08032d24:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_08032d28:
     .word Scene_LockedPath
@@ -917,7 +917,7 @@ _ts FUN_08032e38
     b          LAB_08032e96
 LAB_08032e62:
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08032ec4
+    ldr        r0,PTR_Scene_ChangeMap_08032ec4
     mov        r1,#0xd
     bl         Scene_Prepare
     pop        {r5}
@@ -976,8 +976,8 @@ PTR_PTR_EventHandler_Govt_Waterworks_Lobby_F53_0_08032ebc:
 PTR_Scene_Dialogue_08032ec0:
     .word Scene_Dialogue
 
-PTR_FUN_08087e34_08032ec4:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08032ec4:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_08032ec8:
     .word Scene_LockedPath

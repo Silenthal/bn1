@@ -2,12 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SpritePtr_CalculateOcclusion, 0x3006b61
-
-    .text
-
-    .thumb
-
 
 _ts Sprite_AddSpriteToOam
     push       { lr }
@@ -567,7 +561,7 @@ LAB_080026ea:
 
     .align 2, 0
 
-PTR_SpritePtr_CalculateOcclusion_1_080026f4: .word SpritePtr_CalculateOcclusion
+PTR_SpritePtr_CalculateOcclusion_1_080026f4: far_label SpritePtr_CalculateOcclusion
 PTR_gFillValue_080026f8: .word gFillValue
 PTR_OAM_080026fc: .word OAM_BEGIN
 INT_08002700: .word 0x100

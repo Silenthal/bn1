@@ -340,7 +340,7 @@ DAT_080262cc:
 DAT_080262d0:
     .word Scene_LockedPath
 DAT_080262d4:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_Scene_LockedPath_080262d8:
     .word Scene_LockedPath
 PTR_PTR_DAT_080262dc:
@@ -348,7 +348,7 @@ PTR_PTR_DAT_080262dc:
 PTR_PTR_EventHandler_School_2F_Hallway_F14_0_080262e0:
     .word PTR_EventHandler_School_2F_Hallway_F14_0_08026244
 DAT_080262e4:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_PTR_DAT_080262e8:
     .word NPCList_8029500
 PTR_PTR_EventHandler_School_2F_Hallway_F15_0_080262ec:

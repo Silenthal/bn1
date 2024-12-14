@@ -469,7 +469,7 @@ PTR_BgTask_8051738_0805225c:
     .word BgTask_8051738
 
 PTR_Scene_UnlockWWWGate_08052260:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 PTR_Scene_StartFixedBattle_08052264:
     .word Scene_StartFixedBattle

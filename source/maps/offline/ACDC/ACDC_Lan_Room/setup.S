@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_Story_21, 0x80886C5
-
 
 _ts MapSetup_ACDC_Lan_Room_S0
     push       {lr}
@@ -679,7 +677,7 @@ PTR_BgTask_802CF70:
 PTR_PTR_EventHandler_ACDC_Lan_Room_F06_0_0802cf74:
     .word PTR_EventHandler_ACDC_Lan_Room_F06_0_0802ce34
 DAT_0802cf78:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 DAT_0802cf7c:
     .word Scene_Dialogue
 PTR_Scene_JackIn_0802cf80:
@@ -1336,7 +1334,7 @@ PTR_DAT_0802d45c:
 PTR_PTR_EventHandler_ACDC_Lan_Room_F52_0_0802d460:
     .word PTR_EventHandler_ACDC_Lan_Room_F52_0_0802d3a4
 DAT_0802d464:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 DAT_0802d468:
     .word Scene_Dialogue
 PTR_BgTask_802D46C:

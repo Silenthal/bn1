@@ -2,7 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SWI_Div, 0x809DF54+1
     cam_end
 
     .align 2, 0

@@ -155,7 +155,7 @@ _ts EventHandler_DenTown_Block_1_F30_0
     pop        {r5}
     bne        LAB_08037092
     push       {r5}
-    ldr        r0,PTR_LAB_0808c748_080372cc
+    ldr        r0,PTR_Scene_Story_38_080372cc
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -251,7 +251,7 @@ LAB_0803711c:
     bl         Flag_GetBase
     bne        LAB_08037142
     push       {r5}
-    ldr        r0,PTR_LAB_0808cb20_080372e4
+    ldr        r0,PTR_Scene_Story_39_080372e4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -358,7 +358,7 @@ _ts EventHandler_DenTown_Block_1_F32_0
     bl         Flag_GetBase
     bne        LAB_08037212
     push       {r5}
-    ldr        r0,PTR_LAB_0808cd38_08037300
+    ldr        r0,PTR_Scene_Story_3A_08037300
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -464,8 +464,8 @@ PTR_NPCList_803909C_080372c4:
 PTR_PTR_EventHandler_DenTown_Block_1_F30_0_080372c8:
     .word PTR_EventHandler_DenTown_Block_1_F30_0_08037020
 
-PTR_LAB_0808c748_080372cc:
-    .word 0x808C749
+PTR_Scene_Story_38_080372cc:
+    .word Scene_Story_38
 
 PTR_NPCList_803909C_080372d0:
     .word NPCList_803909C
@@ -482,8 +482,8 @@ DAT_080372dc:
 DAT_080372e0:
     .word 0x10A
 
-PTR_LAB_0808cb20_080372e4:
-    .word 0x808CB21
+PTR_Scene_Story_39_080372e4:
+    .word Scene_Story_39
 
 DAT_080372e8:
     .word 0xB07
@@ -503,8 +503,8 @@ PTR_EntityAllocParams_803A3A0_080372f8:
 PTR_PTR_EventHandler_DenTown_Block_1_F32_0_080372fc:
     .word PTR_EventHandler_DenTown_Block_1_F32_0_080371f0
 
-PTR_LAB_0808cd38_08037300:
-    .word 0x808CD39
+PTR_Scene_Story_3A_08037300:
+    .word Scene_Story_3A
 
 PTR_Scene_Dialogue_08037304:
     .word Scene_Dialogue

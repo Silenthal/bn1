@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Scene_TrainRide, 0x808B689
-    .set Scene_Story_2F, 0x808A799
-
 
 _ts MapSetup_ACDC_Station_S2
     push       {lr}

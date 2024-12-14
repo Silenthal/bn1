@@ -247,7 +247,7 @@ PTR_EventHandler_Govt_Yuichiro_Lab_F25_0_080338b0:
 _ts EventHandler_Govt_Yuichiro_Lab_F25_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_FUN_08089508_080339dc
+    ldr        r0,PTR_Scene_Story_28_080339dc
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -341,7 +341,7 @@ LAB_08033956:
     b          LAB_080339ba
 LAB_08033970:
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_080339f4
+    ldr        r0,PTR_Scene_ChangeMap_080339f4
     mov        r1,#0xf
     bl         Scene_Prepare
     pop        {r5}
@@ -401,8 +401,8 @@ PTR_MapEntrance_080339d4:
 PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F25_0_080339d8:
     .word PTR_EventHandler_Govt_Yuichiro_Lab_F25_0_080338b0
 
-PTR_FUN_08089508_080339dc:
-    .word 0x8089509
+PTR_Scene_Story_28_080339dc:
+    .word Scene_Story_28
 
 DAT_080339e0:
     .word 0x100
@@ -419,8 +419,8 @@ PTR_Scene_Dialogue_080339ec:
 PTR_Scene_Dialogue_080339f0:
     .word Scene_Dialogue
 
-PTR_FUN_08087e34_080339f4:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_080339f4:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_080339f8:
     .word Scene_LockedPath
@@ -587,7 +587,7 @@ LAB_08033b3a:
     cmp        r0,#0x20
     bne        LAB_08033b4c
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08033b94
+    ldr        r0,PTR_Scene_ChangeMap_08033b94
     mov        r1,#0xf
     bl         Scene_Prepare
     pop        {r5}
@@ -637,8 +637,8 @@ PTR_Scene_Dialogue_08033b8c:
 PTR_Scene_Dialogue_08033b90:
     .word Scene_Dialogue
 
-PTR_FUN_08087e34_08033b94:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08033b94:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_08033b98:
     .word Scene_LockedPath
@@ -802,14 +802,14 @@ LAB_08033cd2:
     bl         Flag_GetBase
     beq        LAB_08033cec
     push       {r5}
-    ldr        r0,PTR_LAB_080918c0_08033d44
+    ldr        r0,PTR_Scene_GovtElevator_08033d44
     mov        r1,#0x23
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
 LAB_08033cec:
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08033d48
+    ldr        r0,PTR_Scene_ChangeMap_08033d48
     mov        r1,#0xf
     bl         Scene_Prepare
     pop        {r5}
@@ -861,11 +861,11 @@ PTR_Scene_Dialogue_08033d3c:
 PTR_Scene_Dialogue_08033d40:
     .word Scene_Dialogue
 
-PTR_LAB_080918c0_08033d44:
-    .word 0x80918C1
+PTR_Scene_GovtElevator_08033d44:
+    .word Scene_GovtElevator
 
-PTR_FUN_08087e34_08033d48:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08033d48:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_08033d4c:
     .word Scene_LockedPath
@@ -1066,7 +1066,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F54
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_08093ed4_08033fe8
+    ldr        r0,PTR_Scene_Story_6D_08033fe8
     mov        r1,#0x17
     bl         Scene_Prepare
     pop        {r5}
@@ -1167,7 +1167,7 @@ LAB_08033f8a:
     cmp        r0,#0x20
     bne        LAB_08033f9c
     push       {r5}
-    ldr        r0,PTR_LAB_080918c0_08034000
+    ldr        r0,PTR_Scene_GovtElevator_08034000
     mov        r1,#0x23
     bl         Scene_Prepare
     pop        {r5}
@@ -1220,8 +1220,8 @@ PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F53_0_08033fe0:
 PTR_NPCList_803586C_08033fe4:
     .word NPCList_803586C
 
-PTR_FUN_08093ed4_08033fe8:
-    .word 0x8093ED5
+PTR_Scene_Story_6D_08033fe8:
+    .word Scene_Story_6D
 
 PTR_PTR_EventHandler_Govt_Yuichiro_Lab_F54_0_08033fec:
     .word PTR_EventHandler_Govt_Yuichiro_Lab_F54_0_08033efc
@@ -1238,8 +1238,8 @@ PTR_Scene_Dialogue_08033ff8:
 PTR_Scene_Dialogue_08033ffc:
     .word Scene_Dialogue
 
-PTR_LAB_080918c0_08034000:
-    .word 0x80918C1
+PTR_Scene_GovtElevator_08034000:
+    .word Scene_GovtElevator
 
 PTR_Scene_LockedPath_08034004:
     .word Scene_LockedPath

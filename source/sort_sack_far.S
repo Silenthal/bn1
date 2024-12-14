@@ -3,7 +3,7 @@
     .include "macros.inc"
 
 
-listDefaultSort:
+global_label listDefaultSort
     .byte 0x00
     .byte 0x00
     .byte 0x00

@@ -139,7 +139,7 @@ DAT_0804fa50:
     .word FUN_0804f998
 
 DAT_0804fa54:
-    .word 0x808B8F1
+    .word Scene_Yuichiro_PC_Wait
 
 PTR_BgTask_804F728_0804fa58:
     .word BgTask_804F728

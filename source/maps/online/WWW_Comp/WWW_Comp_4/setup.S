@@ -128,7 +128,7 @@ _ts EventHandler_WWW_Comp_4_F54_0
     bl         Flag_GetBase
     bne        LAB_0804dc26
     push       {r5}
-    ldr        r0,PTR_FUN_0809570c_0804dc54
+    ldr        r0,PTR_Scene_Story_75_0804dc54
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -166,5 +166,5 @@ PTR_NPCList_804E3B0_0804dc4c:
 PTR_PTR_EventHandler_WWW_Comp_4_F54_0_0804dc50:
     .word PTR_EventHandler_WWW_Comp_4_F54_0_0804dbf8
 
-PTR_FUN_0809570c_0804dc54:
-    .word 0x809570D
+PTR_Scene_Story_75_0804dc54:
+    .word Scene_Story_75

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_080871a8, 0x80871A9
-
 
 _ts MapSetup_School_1F_Hallway_S1
     push       {lr}
@@ -300,7 +298,7 @@ _ts EventHandler_School_1F_Hallway_F15_0
     mov        r1,#0x0
 LAB_080278e6:
     push       {r5}
-    ldr        r0,PTR_FUN_080871a8_080279b4
+    ldr        r0,PTR_Scene_Story_18_080279b4
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x4
@@ -405,13 +403,13 @@ PTR_PTR_DAT_080279a0:
 PTR_PTR_EventHandler_School_1F_Hallway_F14_0_080279a4:
     .word PTR_EventHandler_School_1F_Hallway_F14_0_080277fc
 DAT_080279a8:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_PTR_DAT_080279ac:
     .word NPCList_80298D8
 PTR_PTR_EventHandler_School_1F_Hallway_F15_0_080279b0:
     .word PTR_EventHandler_School_1F_Hallway_F15_0_080278bc
-PTR_FUN_080871a8_080279b4:
-    .word FUN_080871a8
+PTR_Scene_Story_18_080279b4:
+    .word Scene_Story_18
 DAT_080279b8:
     .word 0x605
 PTR_Scene_LockedPath_080279bc:

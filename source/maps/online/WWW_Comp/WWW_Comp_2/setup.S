@@ -489,7 +489,7 @@ LAB_0804d93c:
     bl         Flag_GetBase
     bne        LAB_0804d960
     push       {r5}
-    ldr        r0,PTR_FUN_08094b98_0804d9c8
+    ldr        r0,PTR_Scene_Story_72_0804d9c8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -520,55 +520,55 @@ PTR_PTR_EventHandler_WWW_Comp_2_F54_0_0804d980:
     .word PTR_EventHandler_WWW_Comp_2_F54_0_0804d6f8
 
 DAT_0804d984:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 DAT_0804d988:
     .word Scene_Dialogue
 
 DAT_0804d98c:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 DAT_0804d990:
     .word Scene_Dialogue
 
 DAT_0804d994:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 DAT_0804d998:
     .word Scene_Dialogue
 
 DAT_0804d99c:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 DAT_0804d9a0:
     .word Scene_Dialogue
 
 DAT_0804d9a4:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 DAT_0804d9a8:
     .word Scene_Dialogue
 
 DAT_0804d9ac:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 DAT_0804d9b0:
     .word Scene_Dialogue
 
 DAT_0804d9b4:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 DAT_0804d9b8:
     .word Scene_Dialogue
 
 DAT_0804d9bc:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 DAT_0804d9c0:
     .word Scene_Dialogue
 
 DAT_0804d9c4:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
-PTR_FUN_08094b98_0804d9c8:
-    .word 0x8094B99
+PTR_Scene_Story_72_0804d9c8:
+    .word Scene_Story_72

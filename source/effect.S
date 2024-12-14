@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SpriteFrame_LoadTileset, 0x3006A00 + 1
-
-    .text
 
 listHandlerEffect:
     .word Effect_QuickEffect
@@ -301,5 +298,5 @@ DAT_08003afc:                           .word 0x85000000
 PTR_gListEffect_08003b00:               .word gListEffect
 PTR_gBitsetEffect_08003b04:             .word gBitsetEffect
 PTR_gListEffect_08003b08:               .word gListEffect
-PTR_SpriteFrame_LoadTileset_1_08003b0c: .word SpriteFrame_LoadTileset
+PTR_SpriteFrame_LoadTileset_1_08003b0c: far_label SpriteFrame_LoadTileset
 PTR_gListEffect_08003b10:               .word gListEffect

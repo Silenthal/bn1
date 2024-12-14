@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08087e34, 0x8087E35
-
 
 _ts MapSetup_School_Staff_Lounge_Hallway_S1
     push       {lr}
@@ -99,7 +97,7 @@ _ts EventHandler_School_Staff_Lounge_Hallway_F15_0
     beq        LAB_080285d0
     push       {r5}
     mov        r1,#0xa
-    ldr        r0,PTR_FUN_08087e34_08028624
+    ldr        r0,PTR_Scene_ChangeMap_08028624
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x4
@@ -151,8 +149,8 @@ PTR_PTR_EventHandler_Default_0802861c:
     .word PTR_EventHandler_Default_08028548
 PTR_PTR_EventHandler_School_Staff_Lounge_Hallway_F15_0_08028620:
     .word PTR_EventHandler_School_Staff_Lounge_Hallway_F15_0_080285ac
-PTR_FUN_08087e34_08028624:
-    .word FUN_08087e34
+PTR_Scene_ChangeMap_08028624:
+    .word Scene_ChangeMap
 PTR_Scene_LockedPath_08028628:
     .word Scene_LockedPath
 PTR_Scene_LockedPath_0802862c:

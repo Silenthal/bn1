@@ -1,13 +1,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set tilesetBattleUi, 0x86346d4
-    .set paletteBattleUi, 0x8634634
-    .set paletteHpChange, 0x8634654
-    .set Color_ARRAY_08634674, 0x8634674
-    .set tilesetBoldAlphanumeric, 0x861bb08
-
-    .text
 
 _ts BattleUi_Init
     push       { lr }
@@ -305,7 +298,7 @@ PTR_eBgPaletteA_080155fc:
 PTR_eBgPalette9_08015600:
     .word eBgPalette9
 PTR_Color_ARRAY_08015604:
-    .word Color_ARRAY_08634674
+    .word palette_0634674
 PTR_eBgPaletteA_08015608:
     .word eBgPaletteA
 PTR_paletteHpChange_0801560c:

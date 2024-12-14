@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_080879f4, 0x80879F5
-    .set FUN_08087e34, 0x8087E35
-
 
 _ts MapSetup_School_Staff_Lounge_S1
     push       {lr}
@@ -112,7 +109,7 @@ _ts MapSetup_School_Staff_Lounge_F15
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_080879f4_08028434
+    ldr        r0,PTR_Scene_Story_1C_08028434
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -143,7 +140,7 @@ _ts EventHandler_School_Staff_Lounge_F15_0
     bl         Flag_GetBase
     beq        LAB_08028414
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_0802843c
+    ldr        r0,PTR_Scene_ChangeMap_0802843c
     mov        r1,#0xc
     bl         Scene_Prepare
     mov        r0,r10
@@ -173,12 +170,12 @@ PTR_BgTask_802842C:
     .word BgTask_School_PaletteServer
 PTR_EntityAllocParams_ARRAY_08028430:
     .word EntityAllocParams_8029CF4
-PTR_FUN_080879f4_08028434:
-    .word FUN_080879f4
+PTR_Scene_Story_1C_08028434:
+    .word Scene_Story_1C
 PTR_PTR_EventHandler_School_Staff_Lounge_F15_0_08028438:
     .word PTR_EventHandler_School_Staff_Lounge_F15_0_080283e8
-PTR_FUN_08087e34_0802843c:
-    .word FUN_08087e34
+PTR_Scene_ChangeMap_0802843c:
+    .word Scene_ChangeMap
 
 
 _ts MapSetup_School_Staff_Lounge_S5

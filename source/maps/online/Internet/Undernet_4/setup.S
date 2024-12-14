@@ -70,7 +70,7 @@ _nt MapSetup_Undernet_4
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_08093078_08053100
+    ldr        r0,PTR_Scene_Story_67_08053100
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -133,7 +133,7 @@ _ts EventHandler_Undernet_4_0
     bl         Flag_GetBase
     bne        LAB_080530c6
     push       {r5}
-    ldr        r0,PTR_FUN_08092f18_08053118
+    ldr        r0,PTR_Scene_Story_66_08053118
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -180,8 +180,8 @@ PTR_BgTask_80518A8_080530f8:
 PTR_EventHandler_Undernet_4_080530fc:
     .word EventHandler_Undernet_4
 
-PTR_FUN_08093078_08053100:
-    .word 0x8093079
+PTR_Scene_Story_67_08053100:
+    .word Scene_Story_67
 
 PTR_NPCList_805489C_08053104:
     .word NPCList_805489C
@@ -198,5 +198,5 @@ INT_08053110:
 PTR_PTR_EventHandler_Undernet_4_0_08053114:
     .word PTR_EventHandler_Undernet_4_0_08053098
 
-PTR_FUN_08092f18_08053118:
-    .word 0x8092F19
+PTR_Scene_Story_66_08053118:
+    .word Scene_Story_66

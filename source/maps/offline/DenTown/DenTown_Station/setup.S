@@ -179,7 +179,7 @@ PTR_PTR_EventHandler_DenTown_Station_F30_0_08036de0:
     .word PTR_EventHandler_DenTown_Station_F30_0_08036d74
 
 PTR_Scene_TrainRide_08036de4:
-    .word 0x808B689
+    .word Scene_TrainRide
 
 PTR_Scene_Dialogue_08036de8:
     .word Scene_Dialogue
@@ -346,7 +346,7 @@ PTR_PTR_EventHandler_DenTown_Station_F50_0_08036f18:
     .word PTR_EventHandler_DenTown_Station_F50_0_08036ea8
 
 PTR_Scene_TrainRide_08036f1c:
-    .word 0x808B689
+    .word Scene_TrainRide
 
 PTR_Scene_Dialogue_08036f20:
     .word Scene_Dialogue

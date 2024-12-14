@@ -93,7 +93,7 @@ LAB_080529a2:
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08052b04
+    ldr        r0,PTR_Scene_ChangeMap_08052b04
     mov        r1,#0x1a
     bl         Scene_Prepare
     pop        {r5}
@@ -211,7 +211,7 @@ LAB_08052a86:
 LAB_08052a9e:
     mov        r1,#0xc
     push       {r5}
-    ldr        r0,PTR_FUN_08097db0_08052b20
+    ldr        r0,PTR_Scene_Internet_4_HigMemo_Gate_08052b20
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
@@ -272,8 +272,8 @@ PTR_Scene_MegaManJackIn_08052afc:
 PTR_DAT_08052b00:
     .word 0x2000
 
-PTR_FUN_08087e34_08052b04:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08052b04:
+    .word Scene_ChangeMap
 
 PTR_PTR_EventHandler_Internet_4_0_08052b08:
     .word PTR_EventHandler_Internet_4_0_080529f8
@@ -282,7 +282,7 @@ PTR_BgTask_8051738_08052b0c:
     .word BgTask_8051738
 
 DAT_08052b10:
-    .word 0x8086E19
+    .word Scene_UnlockWWWGate
 
 DAT_08052b14:
     .word Scene_Dialogue
@@ -293,8 +293,8 @@ DAT_08052b18:
 DAT_08052b1c:
     .word 0xC03
 
-PTR_FUN_08097db0_08052b20:
-    .word 0x8097DB1
+PTR_Scene_Internet_4_HigMemo_Gate_08052b20:
+    .word Scene_Internet_4_HigMemo_Gate
 
 DAT_08052b24:
     .word Scene_Dialogue

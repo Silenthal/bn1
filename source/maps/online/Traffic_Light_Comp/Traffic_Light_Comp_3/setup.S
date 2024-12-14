@@ -110,7 +110,7 @@ _ts EventHandler_Traffic_Light_Comp_3_F34_0
     bl         Flag_GetBase
     bne        LAB_080486a0
     push       {r5}
-    ldr        r0,PTR_FUN_0808d684_08048770
+    ldr        r0,PTR_Scene_Story_40_08048770
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -233,11 +233,11 @@ PTR_DAT_08048768:
 PTR_PTR_EventHandler_Traffic_Light_Comp_3_F34_0_0804876c:
     .word PTR_EventHandler_Traffic_Light_Comp_3_F34_0_0804867c
 
-PTR_FUN_0808d684_08048770:
-    .word 0x808D685
+PTR_Scene_Story_40_08048770:
+    .word Scene_Story_40
 
 DAT_08048774:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 
 DAT_08048778:
     .word Scene_Dialogue

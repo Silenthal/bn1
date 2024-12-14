@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SWI_DivMod, 0x809DF58+1
-
 
 _ts Routine_2xHeroMegaMan
     push       {lr}

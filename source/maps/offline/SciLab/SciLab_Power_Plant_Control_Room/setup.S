@@ -164,7 +164,7 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_F43
     bl         Flag_GetBase
     bne        LAB_0803ccd0
     push       {r5}
-    ldr        r0,PTR_FUN_080901c8_0803cdcc
+    ldr        r0,PTR_Scene_Story_56_0803cdcc
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -174,14 +174,14 @@ LAB_0803ccd0:
     bl         Flag_GetBase
     bne        LAB_0803cce6
     push       {r5}
-    ldr        r0,PTR_FUN_0809049c_0803cdd0
+    ldr        r0,PTR_Scene_Story_57_0803cdd0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
     b          LAB_0803ccf2
 LAB_0803cce6:
     push       {r5}
-    ldr        r0,PTR_FUN_0809073c_0803cdd4
+    ldr        r0,PTR_Scene_Story_58_0803cdd4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -265,7 +265,7 @@ LAB_0803cd32:
     mov        r0,#0x35
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_0808fdf4_0803cde4
+    ldr        r0,PTR_Scene_Story_54_0803cde4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -296,13 +296,13 @@ PTR_NPCList_803D564_0803cdb4:
     .word NPCList_803D564
 
 DAT_0803cdb8:
-    .word 0x80901C9
+    .word Scene_Story_56
 
 DAT_0803cdbc:
-    .word 0x809049D
+    .word Scene_Story_57
 
 DAT_0803cdc0:
-    .word 0x809073D
+    .word Scene_Story_58
 
 PTR_PTR_EventHandler_SciLab_Power_Plant_Control_Room_F42_0_0803cdc4:
     .word PTR_EventHandler_SciLab_Power_Plant_Control_Room_F42_0_0803cc84
@@ -310,14 +310,14 @@ PTR_PTR_EventHandler_SciLab_Power_Plant_Control_Room_F42_0_0803cdc4:
 PTR_NPCList_803D564_0803cdc8:
     .word NPCList_803D564
 
-PTR_FUN_080901c8_0803cdcc:
-    .word 0x80901C9
+PTR_Scene_Story_56_0803cdcc:
+    .word Scene_Story_56
 
-PTR_FUN_0809049c_0803cdd0:
-    .word 0x809049D
+PTR_Scene_Story_57_0803cdd0:
+    .word Scene_Story_57
 
-PTR_FUN_0809073c_0803cdd4:
-    .word 0x809073D
+PTR_Scene_Story_58_0803cdd4:
+    .word Scene_Story_58
 
 PTR_PTR_EventHandler_SciLab_Power_Plant_Control_Room_F43_0_0803cdd8:
     .word PTR_EventHandler_SciLab_Power_Plant_Control_Room_F43_0_0803cd08
@@ -328,8 +328,8 @@ PTR_Scene_Dialogue_0803cddc:
 DAT_0803cde0:
     .word 0x100
 
-PTR_FUN_0808fdf4_0803cde4:
-    .word 0x808FDF5
+PTR_Scene_Story_54_0803cde4:
+    .word Scene_Story_54
 
 PTR_Scene_JackIn_0803cde8:
     .word Scene_JackIn

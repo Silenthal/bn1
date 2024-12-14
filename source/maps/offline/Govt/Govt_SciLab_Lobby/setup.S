@@ -232,7 +232,7 @@ LAB_08033092:
     mov        r0,#0xd7
     bl         Flag_SetBase
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08033108
+    ldr        r0,PTR_Scene_ChangeMap_08033108
     mov        r1,#0xe
     bl         Scene_Prepare
     pop        {r5}
@@ -302,8 +302,8 @@ PTR_PTR_EventHandler_Govt_SciLab_Lobby_F25_0_08033100:
 PTR_Scene_Dialogue_08033104:
     .word Scene_Dialogue
 
-PTR_FUN_08087e34_08033108:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08033108:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_0803310c:
     .word Scene_LockedPath
@@ -422,7 +422,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F30_HandleExits
     b          LAB_08033232
 LAB_080331fe:
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08033254
+    ldr        r0,PTR_Scene_ChangeMap_08033254
     mov        r1,#0xe
     bl         Scene_Prepare
     pop        {r5}
@@ -472,8 +472,8 @@ PTR_PTR_EventHandler_Govt_SciLab_Lobby_F30_0_0803324c:
 PTR_Scene_Dialogue_08033250:
     .word Scene_Dialogue
 
-PTR_FUN_08087e34_08033254:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08033254:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_08033258:
     .word Scene_LockedPath
@@ -600,7 +600,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40_0
     bl         Flag_GetBase
     bne        LAB_08033376
     push       {r5}
-    ldr        r0,PTR_FUN_0808f428_08033438
+    ldr        r0,PTR_Scene_Story_50_08033438
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -628,7 +628,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40_1
     bl         Flag_GetBase
     bne        LAB_080333ae
     push       {r5}
-    ldr        r0,PTR_FUN_0808f5e4_0803343c
+    ldr        r0,PTR_Scene_Story_51_0803343c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -657,14 +657,14 @@ _ts EventHandler_Govt_SciLab_Lobby_F40_HandleExits
     bl         Flag_GetBase
     beq        LAB_080333de
     push       {r5}
-    ldr        r0,PTR_LAB_080918c0_08033440
+    ldr        r0,PTR_Scene_GovtElevator_08033440
     mov        r1,#0x3d
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
 LAB_080333de:
     push       {r5}
-    ldr        r0,PTR_FUN_08087e34_08033444
+    ldr        r0,PTR_Scene_ChangeMap_08033444
     mov        r1,#0xe
     bl         Scene_Prepare
     pop        {r5}
@@ -717,17 +717,17 @@ PTR_NPCList_80355BC_08033430:
 PTR_PTR_EventHandler_Govt_SciLab_Lobby_F40_0_08033434:
     .word PTR_EventHandler_Govt_SciLab_Lobby_F40_0_08033348
 
-PTR_FUN_0808f428_08033438:
-    .word 0x808F429
+PTR_Scene_Story_50_08033438:
+    .word Scene_Story_50
 
-PTR_FUN_0808f5e4_0803343c:
-    .word 0x808F5E5
+PTR_Scene_Story_51_0803343c:
+    .word Scene_Story_51
 
-PTR_LAB_080918c0_08033440:
-    .word 0x80918C1
+PTR_Scene_GovtElevator_08033440:
+    .word Scene_GovtElevator
 
-PTR_FUN_08087e34_08033444:
-    .word 0x8087E35
+PTR_Scene_ChangeMap_08033444:
+    .word Scene_ChangeMap
 
 PTR_Scene_LockedPath_08033448:
     .word Scene_LockedPath
@@ -882,7 +882,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F50_HandleExits
     b          LAB_080335ae
 LAB_0803357a:
     push       {r5}
-    ldr        r0,PTR_LAB_080918c0_080335dc
+    ldr        r0,PTR_Scene_GovtElevator_080335dc
     mov        r1,#0x3d
     bl         Scene_Prepare
     pop        {r5}
@@ -941,8 +941,8 @@ PTR_PTR_EventHandler_Govt_SciLab_Lobby_F53_0_080335d4:
 PTR_Scene_Dialogue_080335d8:
     .word Scene_Dialogue
 
-PTR_LAB_080918c0_080335dc:
-    .word 0x80918C1
+PTR_Scene_GovtElevator_080335dc:
+    .word Scene_GovtElevator
 
 PTR_Scene_LockedPath_080335e0:
     .word Scene_LockedPath

@@ -185,7 +185,7 @@ _ts EventHandler_Power_Plant_Comp_4_F42_0
     mov        r1,#0x43
     strb       r1,[r0,#0x6]
     push       {r5}
-    ldr        r0,PTR_FUN_08091b70_0804b3c8
+    ldr        r0,PTR_Scene_RechargePrompt_0804b3c8
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -216,7 +216,7 @@ LAB_0804b1dc:
     mov        r1,#0x0
 LAB_0804b1de:
     push       {r5}
-    ldr        r0,PTR_FUN_08091b70_0804b3cc
+    ldr        r0,PTR_Scene_RechargePrompt_0804b3cc
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804b1e8:
@@ -247,7 +247,7 @@ _nt MapSetup_Power_Plant_Comp_4_F43
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_08090bc8_0804b3d4
+    ldr        r0,PTR_Scene_Story_5C_0804b3d4
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -261,7 +261,7 @@ LAB_0804b22e:
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_08091d24_0804b3d8
+    ldr        r0,PTR_Scene_Story_ElecMan_0804b3d8
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -275,7 +275,7 @@ LAB_0804b24c:
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_08091054_0804b3dc
+    ldr        r0,PTR_Scene_Story_5E_0804b3dc
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -289,7 +289,7 @@ LAB_0804b26a:
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_080912b4_0804b3e0
+    ldr        r0,PTR_Scene_Story_5F_0804b3e0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -385,7 +385,7 @@ _ts EventHandler_Power_Plant_Comp_4_F43_0
     cmp        r0,#0x10
     bne        LAB_0804b340
     push       {r5}
-    ldr        r0,PTR_FUN_080909dc_0804b3f0
+    ldr        r0,PTR_Scene_Story_5B_0804b3f0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -417,7 +417,7 @@ LAB_0804b374:
     mov        r1,#0x0
 LAB_0804b376:
     push       {r5}
-    ldr        r0,PTR_FUN_08091b70_0804b3f4
+    ldr        r0,PTR_Scene_RechargePrompt_0804b3f4
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804b380:
@@ -465,7 +465,7 @@ PTR_NPCList_804BA60_0804b3b4:
     .word NPCList_804BA60
 
 DAT_0804b3b8:
-    .word 0x80919D9
+    .word Scene_RechargeSuccess
 
 DAT_0804b3bc:
     .word Scene_MegaManJackIn
@@ -476,41 +476,41 @@ PTR_DAT_0804b3c0:
 PTR_PTR_EventHandler_Power_Plant_Comp_4_F42_0_0804b3c4:
     .word PTR_EventHandler_Power_Plant_Comp_4_F42_0_0804b180
 
-PTR_FUN_08091b70_0804b3c8:
-    .word 0x8091B71
+PTR_Scene_RechargePrompt_0804b3c8:
+    .word Scene_RechargePrompt
 
-PTR_FUN_08091b70_0804b3cc:
-    .word 0x8091B71
+PTR_Scene_RechargePrompt_0804b3cc:
+    .word Scene_RechargePrompt
 
 PTR_NPCList_804BA60_0804b3d0:
     .word NPCList_804BA60
 
-PTR_FUN_08090bc8_0804b3d4:
-    .word 0x8090BC9
+PTR_Scene_Story_5C_0804b3d4:
+    .word Scene_Story_5C
 
-PTR_FUN_08091d24_0804b3d8:
-    .word 0x8091D25
+PTR_Scene_Story_ElecMan_0804b3d8:
+    .word Scene_Story_ElecMan
 
-PTR_FUN_08091054_0804b3dc:
-    .word 0x8091055
+PTR_Scene_Story_5E_0804b3dc:
+    .word Scene_Story_5E
 
-PTR_FUN_080912b4_0804b3e0:
-    .word 0x80912B5
+PTR_Scene_Story_5F_0804b3e0:
+    .word Scene_Story_5F
 
 PTR_Scene_MegaManJackIn_0804b3e4:
     .word Scene_MegaManJackIn
 
 PTR_Scene_RechargeSuccess_0804b3e8:
-    .word 0x80919D9
+    .word Scene_RechargeSuccess
 
 PTR_PTR_EventHandler_Power_Plant_Comp_4_F43_0_0804b3ec:
     .word PTR_EventHandler_Power_Plant_Comp_4_F43_0_0804b310
 
-PTR_FUN_080909dc_0804b3f0:
-    .word 0x80909DD
+PTR_Scene_Story_5B_0804b3f0:
+    .word Scene_Story_5B
 
-PTR_FUN_08091b70_0804b3f4:
-    .word 0x8091B71
+PTR_Scene_RechargePrompt_0804b3f4:
+    .word Scene_RechargePrompt
 
 
 _ts MapSetup_Power_Plant_Comp_4_S5

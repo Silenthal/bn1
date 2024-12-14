@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SWI_Div, 0x809DF54+1
-
 
 DAT_080633c0:
     .byte 0x68

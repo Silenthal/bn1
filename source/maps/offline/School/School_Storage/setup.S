@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08087fb0, 0x8087FB1
-
 
 _ts MapSetup_School_Storage_S1
     push       {lr}
@@ -99,7 +97,7 @@ _ts EventHandler_School_Storage_F15_0
     beq        LAB_08028116
     push       {r5}
     mov        r1,#0x0
-    ldr        r0,PTR_FUN_08087fb0_08028130
+    ldr        r0,PTR_Scene_Get_SchoolID_08028130
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x8
@@ -124,8 +122,8 @@ PTR_PTR_DAT_08028128:
     .word NPCList_80299DC
 PTR_PTR_EventHandler_School_Storage_F15_0_0802812c:
     .word PTR_EventHandler_School_Storage_F15_0_080280f0
-PTR_FUN_08087fb0_08028130:
-    .word FUN_08087fb0
+PTR_Scene_Get_SchoolID_08028130:
+    .word Scene_Get_SchoolID
 
 
 _ts MapSetup_School_Storage_S2

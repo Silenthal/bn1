@@ -2,17 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SWI_Div, 0x809DF54+1
-    .set tilesetDialogueText, 0x8613AA8
-    .set TextData_BattleMessages, 0x8641FCC
-    .set layoutBattleResultUiRegular, 0x86436EC
-    .set layoutBattleResultUiMpWinner, 0x8644CFC
-    .set layoutBattleResultUiMpLoser, 0x864628C
-    .set tilesetChipCodes, 0x864677C
-    .set tilesetZenny, 0x864737C
-    .set paletteZenny, 0x8647A7C
-    .set TextData_BattleChip_Names, 0x869D57C
-
 
 _ts Effect_BattleResult
     push       {lr}

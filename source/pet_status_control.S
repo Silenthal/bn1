@@ -2,16 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set paletteOfflineIcons, 0x869c25c
-    .set tilesetPETIcon, 0x869c27c
-    .set tilesetAlert0, 0x869c47c
-    .set tilesetAlert1, 0x869c67c
-    .set tilesetAlert2, 0x869c87c
-    .set tilesetAlert3, 0x869ca7c
-    .set tilesetAlert4, 0x869cc7c
-    .set tilesetAlert5, 0x869ce7c
-    .set tilesetMegaManIcon, 0x869d07c
-
 
 _ts InitPetStatusControl
     push       {lr}
@@ -29,7 +19,7 @@ _ts InitPetStatusControl
     ldr        r1,PTR_DAT_080174bc
     mov        r2,#0x20
     bl         Dma_TransferListAdd
-    ldr        r0,PTR_paletteOfflineIcons_080174c0
+    ldr        r0,PTR_palettePETIcon_080174c0
     ldr        r1,PTR_eObjPaletteD_080174c4
     mov        r2,#0x20
     bl         memcpy_32
@@ -286,8 +276,8 @@ PTR_tilesetMegaManIcon_080174b8:
     .word tilesetMegaManIcon
 PTR_DAT_080174bc:
     .word 0x6017400
-PTR_paletteOfflineIcons_080174c0:
-    .word paletteOfflineIcons
+PTR_palettePETIcon_080174c0:
+    .word palettePETIcon
 PTR_eObjPaletteD_080174c4:
     .word eObjPaletteD
 PTR_PTR_PSC_0_DrawEmptyPet_080174c8:

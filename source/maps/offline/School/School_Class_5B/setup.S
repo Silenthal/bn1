@@ -250,7 +250,7 @@ PTR_PTR_DAT_08025758:
 PTR_PTR_EventHandler_School_Class_5B_F13_0_0802575c:
     .word PTR_EventHandler_School_Class_5B_F13_0_0802563c
 DAT_08025760:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_BgTask_8025764:
     .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_8025768:
@@ -262,7 +262,7 @@ PTR_PTR_DAT_08025770:
 PTR_PTR_EventHandler_School_Class_5B_F14_0_08025774:
     .word PTR_EventHandler_School_Class_5B_F14_0_080256c4
 DAT_08025778:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_BgTask_802577C:
     .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_8025780:

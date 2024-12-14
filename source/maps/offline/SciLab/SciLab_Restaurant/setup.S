@@ -111,7 +111,7 @@ _ts EventHandler_SciLab_Restaurant_F40_0
     bl         Flag_GetBase
     beq        LAB_0803c326
     push       {r5}
-    ldr        r0,PTR_FUN_0808f808_0803c464
+    ldr        r0,PTR_Scene_Story_52_0803c464
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -157,7 +157,7 @@ _ts EventHandler_SciLab_Restaurant_F40_1
     bl         Flag_GetBase
     beq        LAB_0803c38e
     push       {r5}
-    ldr        r0,PTR_FUN_0808fa24_0803c468
+    ldr        r0,PTR_Scene_Story_53_0803c468
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -266,7 +266,7 @@ LAB_0803c436:
     bl         Flag_GetBase
     beq        LAB_0803c452
     push       {r5}
-    ldr        r0,PTR_FUN_08091650_0803c488
+    ldr        r0,PTR_Scene_Story_61_0803c488
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -285,11 +285,11 @@ PTR_NPCList_803D22C_0803c45c:
 PTR_PTR_EventHandler_SciLab_Restaurant_F40_0_0803c460:
     .word PTR_EventHandler_SciLab_Restaurant_F40_0_0803c2fc
 
-PTR_FUN_0808f808_0803c464:
-    .word 0x808F809
+PTR_Scene_Story_52_0803c464:
+    .word Scene_Story_52
 
-PTR_FUN_0808fa24_0803c468:
-    .word 0x808FA25
+PTR_Scene_Story_53_0803c468:
+    .word Scene_Story_53
 
 PTR_NPCList_803D398_0803c46c:
     .word NPCList_803D398
@@ -312,8 +312,8 @@ DAT_0803c480:
 DAT_0803c484:
     .word 0x1505
 
-PTR_FUN_08091650_0803c488:
-    .word 0x8091651
+PTR_Scene_Story_61_0803c488:
+    .word Scene_Story_61
 
 
 _ts MapSetup_SciLab_Restaurant_S5

@@ -2,13 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08088118, 0x8088119
-    .set LAB_08088fa8, 0x8088FA9
-    .set FUN_080866ec, 0x80866ED
-    .set FUN_080864e4, 0x80864E5
-    .set FUN_08086a64, 0x8086A65
-    .set FUN_08087e34, 0x8087E35
-
 
 _ts FlagSetup_School_S0
     push       {lr}
@@ -409,13 +402,13 @@ PTR_EventHandler_School_Class_5A_F10_0_08024a38:
 _ts EventHandler_School_Class_5A_F10_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_FUN_080864e4_08024a50
+    ldr        r0,PTR_Scene_Story_12_08024a50
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
     pop        {pc}
-PTR_FUN_080864e4_08024a50:
-    .word FUN_080864e4
+PTR_Scene_Story_12_08024a50:
+    .word Scene_Story_12
 
 
 _ts EventHandler_School_Class_5A_F10_1
@@ -549,7 +542,7 @@ _ts EventHandler_School_Class_5A_F11_0
     mov        r0,#0x14
     bl         Sound_ChangeSong
     push       {r5}
-    ldr        r0,PTR_FUN_080866ec_08024b70
+    ldr        r0,PTR_Scene_Story_13_08024b70
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -557,8 +550,8 @@ _ts EventHandler_School_Class_5A_F11_0
 
     .align 2, 0
 
-PTR_FUN_080866ec_08024b70:
-    .word FUN_080866ec
+PTR_Scene_Story_13_08024b70:
+    .word Scene_Story_13
 
 
 _ts EventHandler_School_Class_5A_F11_1
@@ -704,7 +697,7 @@ PTR_EventHandler_School_Class_5A_F12_0_08024c78:
 _ts EventHandler_School_Class_5A_F12_0
     push       {lr}
     push       {r5}
-    ldr        r0,PTR_FUN_08086a64_08024fe0
+    ldr        r0,PTR_Scene_Story_14_08024fe0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -794,7 +787,7 @@ _ts EventHandler_School_Class_5A_F12_2
     beq        LAB_08024d5a
     push       {r5}
     mov        r1,#0x1
-    ldr        r0,PTR_FUN_08087e34_08024ff8
+    ldr        r0,PTR_Scene_ChangeMap_08024ff8
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,r10
@@ -1136,8 +1129,8 @@ PTR_DAT_08024fd8:
     .word NPCList_8028D24
 PTR_PTR_EventHandler_School_Class_5A_F12_0_08024fdc:
     .word PTR_EventHandler_School_Class_5A_F12_0_08024c78
-PTR_FUN_08086a64_08024fe0:
-    .word FUN_08086a64
+PTR_Scene_Story_14_08024fe0:
+    .word Scene_Story_14
 DAT_08024fe4:
     .word 0x100
 PTR_Scene_Dialogue_08024fe8:
@@ -1148,8 +1141,8 @@ PTR_DAT_08024ff0:
     .word 0x3507
 PTR_Scene_LockedPath_08024ff4:
     .word Scene_LockedPath
-PTR_FUN_08087e34_08024ff8:
-    .word FUN_08087e34
+PTR_Scene_ChangeMap_08024ff8:
+    .word Scene_ChangeMap
 PTR_Scene_LockedPath_08024ffc:
     .word Scene_LockedPath
 PTR_BgTask_8025000:
@@ -1161,7 +1154,7 @@ PTR_PTR_DAT_08025008:
 PTR_PTR_EventHandler_School_Class_5A_F13_0_0802500c:
     .word PTR_EventHandler_School_Class_5A_F13_0_08024de8
 DAT_08025010:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_BgTask_8025014:
     .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_8025018:
@@ -1171,7 +1164,7 @@ PTR_PTR_DAT_0802501c:
 PTR_PTR_EventHandler_School_Class_5A_F14_0_08025020:
     .word PTR_EventHandler_School_Class_5A_F14_0_08024e7c
 DAT_08025024:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_BgTask_8025028:
     .word BgTask_School_TilesetBlackboardEvent
 PTR_BgTask_802502C:
@@ -1274,7 +1267,7 @@ _ts MapSetup_School_Class_5A_F20
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    ldr        r0,PTR_FUN_08088118_08025438
+    ldr        r0,PTR_Scene_Story_1D_08025438
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -1519,7 +1512,7 @@ LAB_080252cc:
     push       {r5}
     mov        r0,#0x14
     bl         Sound_PlaySong
-    ldr        r0,PTR_LAB_08088fa8_08025480
+    ldr        r0,PTR_Scene_Story_25_08025480
     mov        r1,#0x3
     bl         Scene_Prepare
     pop        {r5}
@@ -1699,8 +1692,8 @@ DAT_08025430:
     .word 0xA0000
 DAT_08025434:
     .word 0xFFDE0000
-PTR_FUN_08088118_08025438:
-    .word FUN_08088118
+PTR_Scene_Story_1D_08025438:
+    .word Scene_Story_1D
 DAT_0802543c:
     .word Scene_AfterFixedBattle
 PTR_PTR_EventHandler_School_Class_5A_F20_0_08025440:
@@ -1735,8 +1728,8 @@ PTR_PTR_EventHandler_School_Class_5A_F23_0_08025478:
     .word PTR_EventHandler_School_Class_5A_F23_0_08025298
 DAT_0802547c:
     .word Scene_StartFixedBattle
-PTR_LAB_08088fa8_08025480:
-    .word LAB_08088fa8
+PTR_Scene_Story_25_08025480:
+    .word Scene_Story_25
 PTR_BgTask_8025484:
     .word BgTask_School_TilesetBlackboardTriangle
 PTR_BgTask_8025488:

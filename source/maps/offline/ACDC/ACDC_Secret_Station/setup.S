@@ -2,9 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set FUN_08093c68, 0x8093C69
-    .set Scene_TrainRide, 0x808B689
-
 
 _ts MapSetup_ACDC_Secret_Station_S5
     push       {lr}
@@ -66,7 +63,7 @@ _ts MapSetup_ACDC_Secret_Station_F54
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
-    ldr        r0,PTR_FUN_08093c68_0802f984
+    ldr        r0,PTR_Scene_Story_6C_0802f984
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -146,11 +143,11 @@ PTR_PTR_EventHandler_Default_0802f97c:
     .word PTR_EventHandler_Default_0802f894
 PTR_BgTask_802F980:
     .word BgTask_ACDC_Station_Tileset_Gate_Closed
-PTR_FUN_08093c68_0802f984:
-    .word FUN_08093c68
+PTR_Scene_Story_6C_0802f984:
+    .word Scene_Story_6C
 PTR_PTR_EventHandler_ACDC_Secret_Station_F54_0_0802f988:
     .word PTR_EventHandler_ACDC_Secret_Station_F54_0_0802f908
 DAT_0802f98c:
-    .word 0x8087E35
+    .word Scene_ChangeMap
 PTR_Scene_TrainRide_0802f990:
     .word Scene_TrainRide

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set SWI_Div, 0x809DF54+1
-
 
 _ts Attack_Scuttlest
     push       {lr}
