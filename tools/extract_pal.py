@@ -95,7 +95,8 @@ def main():
         padLen = len_int(len(palList))
         for i in range(args.repeat):
             suffix = f"{{0:0{padLen}}}".format(i)
-            outPath = f"{outBaseName}_{suffix}{palList[i].get_ext()}"
+            outPath = f"{outBaseName}/{suffix}{palList[i].get_ext()}"
+            Path(outBaseName).mkdir(parents=True, exist_ok=True)
             with open(outPath, mode="w", encoding="utf-8") as outFile:
                 outFile.write(palList[i].as_text())
 

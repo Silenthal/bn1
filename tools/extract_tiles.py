@@ -300,7 +300,8 @@ class TileReader:
                 base = outPath.stem
                 ex = outPath.suffix
                 suffix = f"{{0:0{padLen}}}".format(i)
-                op = outPath.with_name(base + "_" + suffix + ex)
+                op = Path(base) / Path(suffix + ex)
+                Path(base).mkdir(parents=True, exist_ok=True)
                 with open(op, mode="wb") as of:
                     w.write(of, outDataList[i])
                 if isWriteConfig:
@@ -394,7 +395,7 @@ def main():
     fileSize = inPath.stat().st_size
     if fileOffset >= fileSize:
         exit(f"File offset {fileOffset} is greater than the size of the file {inPath}")
-    outPath = Path(args.output if args.output else f"{fileOffset:07X}").with_suffix(".png")
+    outPath = Path(args.output if args.output else f"tileset_{fileOffset:07X}").with_suffix(".png")
     tileReader = TileReader()
     tileReader.setBitDepth(args.depth)
     tileReader.setMetaTileWidth(args.meta_tile_width)
