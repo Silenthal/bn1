@@ -1,0 +1,74 @@
+global_label tileset_077EBF4
+    .incbin "data/maps/areas/School_Comp/tileset_077EBF4.4bpp"
+
+global_label palette_077FBF4_0
+    .incbin "data/maps/areas/School_Comp/palette_077FBF4/0.gbapal"
+global_label palette_077FBF4_1
+    .incbin "data/maps/areas/School_Comp/palette_077FBF4/1.gbapal"
+global_label palette_077FBF4_2
+    .incbin "data/maps/areas/School_Comp/palette_077FBF4/2.gbapal"
+global_label palette_077FBF4_3
+    .incbin "data/maps/areas/School_Comp/palette_077FBF4/3.gbapal"
+global_label palette_077FBF4_4
+    .incbin "data/maps/areas/School_Comp/palette_077FBF4/4.gbapal"
+global_label palette_077FBF4_5
+    .incbin "data/maps/areas/School_Comp/palette_077FBF4/5.gbapal"
+global_label palette_077FBF4_6
+    .incbin "data/maps/areas/School_Comp/palette_077FBF4/6.gbapal"
+
+global_label palette_077FCD4_0
+    .incbin "data/maps/areas/School_Comp/palette_077FCD4/0.gbapal"
+global_label palette_077FCD4_1
+    .incbin "data/maps/areas/School_Comp/palette_077FCD4/1.gbapal"
+global_label palette_077FCD4_2
+    .incbin "data/maps/areas/School_Comp/palette_077FCD4/2.gbapal"
+global_label palette_077FCD4_3
+    .incbin "data/maps/areas/School_Comp/palette_077FCD4/3.gbapal"
+global_label palette_077FCD4_4
+    .incbin "data/maps/areas/School_Comp/palette_077FCD4/4.gbapal"
+global_label palette_077FCD4_5
+    .incbin "data/maps/areas/School_Comp/palette_077FCD4/5.gbapal"
+global_label palette_077FCD4_6
+    .incbin "data/maps/areas/School_Comp/palette_077FCD4/6.gbapal"
+
+global_label palette_077FDB4_0
+    .incbin "data/maps/areas/School_Comp/palette_077FDB4/0.gbapal"
+global_label palette_077FDB4_1
+    .incbin "data/maps/areas/School_Comp/palette_077FDB4/1.gbapal"
+global_label palette_077FDB4_2
+    .incbin "data/maps/areas/School_Comp/palette_077FDB4/2.gbapal"
+global_label palette_077FDB4_3
+    .incbin "data/maps/areas/School_Comp/palette_077FDB4/3.gbapal"
+global_label palette_077FDB4_4
+    .incbin "data/maps/areas/School_Comp/palette_077FDB4/4.gbapal"
+global_label palette_077FDB4_5
+    .incbin "data/maps/areas/School_Comp/palette_077FDB4/5.gbapal"
+global_label palette_077FDB4_6
+    .incbin "data/maps/areas/School_Comp/palette_077FDB4/6.gbapal"
+
+global_label palette_077FE94_00
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/00.gbapal"
+global_label palette_077FE94_01
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/01.gbapal"
+global_label palette_077FE94_02
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/02.gbapal"
+global_label palette_077FE94_03
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/03.gbapal"
+global_label palette_077FE94_04
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/04.gbapal"
+global_label palette_077FE94_05
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/05.gbapal"
+global_label palette_077FE94_06
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/06.gbapal"
+global_label palette_077FE94_07
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/07.gbapal"
+global_label palette_077FE94_08
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/08.gbapal"
+global_label palette_077FE94_09
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/09.gbapal"
+global_label palette_077FE94_10
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/10.gbapal"
+global_label palette_077FE94_11
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/11.gbapal"
+global_label palette_077FE94_12
+    .incbin "data/maps/areas/School_Comp/palette_077FE94/12.gbapal"

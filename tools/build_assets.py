@@ -119,12 +119,12 @@ def createDepParams(
     assetList: List[Path] = []
     with open(build_s, "r") as inFile:
         for line in inFile:
-            inMatch = re.match(r"^\s+\.incbin \"(.*)\".*$", line)
+            inMatch = re.match(r"^\s*\.incbin \"(.*)\".*$", line)
             if inMatch:
                 link = inMatch.group(1)
                 fileList.append(Path("$(ASSETS)") / link)
                 assetList.append(assetPath / link)
-            inMatch = re.match(r"^\s+\.include \"(.*.inc)\".*$", line)
+            inMatch = re.match(r"^\s*\.include \"(.*.inc)\".*$", line)
             if inMatch:
                 link = inMatch.group(1)
                 fileList.append(Path("$(ASSETS)") / link)

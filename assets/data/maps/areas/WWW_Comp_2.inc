@@ -1,0 +1,32 @@
+global_label palette_0796CD4_00
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/00.gbapal"
+global_label palette_0796CD4_01
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/01.gbapal"
+global_label palette_0796CD4_02
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/02.gbapal"
+global_label palette_0796CD4_03
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/03.gbapal"
+global_label palette_0796CD4_04
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/04.gbapal"
+global_label palette_0796CD4_05
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/05.gbapal"
+global_label palette_0796CD4_06
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/06.gbapal"
+global_label palette_0796CD4_07
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/07.gbapal"
+global_label palette_0796CD4_08
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/08.gbapal"
+global_label palette_0796CD4_09
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/09.gbapal"
+global_label palette_0796CD4_10
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/10.gbapal"
+global_label palette_0796CD4_11
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/11.gbapal"
+global_label palette_0796CD4_12
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/12.gbapal"
+global_label palette_0796CD4_13
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/13.gbapal"
+global_label palette_0796CD4_14
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/14.gbapal"
+global_label palette_0796CD4_15
+    .incbin "data/maps/areas/WWW_Comp/palette_0796CD4/15.gbapal"

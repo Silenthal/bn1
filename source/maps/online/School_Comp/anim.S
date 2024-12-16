@@ -5,44 +5,44 @@
 
 global_label BgTask_803EC68
     task_direct slot=0, dst=eBgPaletteC, len=0x8, delay=5
-    task_direct_arg 0x877FBF4
-    task_direct_arg 0x877FC14
-    task_direct_arg 0x877FC34
-    task_direct_arg 0x877FC54
-    task_direct_arg 0x877FC74
-    task_direct_arg 0x877FC94
-    task_direct_arg 0x877FCB4
+    task_direct_arg palette_077FBF4_0
+    task_direct_arg palette_077FBF4_1
+    task_direct_arg palette_077FBF4_2
+    task_direct_arg palette_077FBF4_3
+    task_direct_arg palette_077FBF4_4
+    task_direct_arg palette_077FBF4_5
+    task_direct_arg palette_077FBF4_6
     task_repeat
 
 global_label BgTask_803ECB0
     task_direct slot=0, dst=eBgPaletteC, len=0x8, delay=5
-    task_direct_arg 0x877FCD4
-    task_direct_arg 0x877FCF4
-    task_direct_arg 0x877FD14
-    task_direct_arg 0x877FD34
-    task_direct_arg 0x877FD54
-    task_direct_arg 0x877FD74
-    task_direct_arg 0x877FD94
+    task_direct_arg palette_077FCD4_0
+    task_direct_arg palette_077FCD4_1
+    task_direct_arg palette_077FCD4_2
+    task_direct_arg palette_077FCD4_3
+    task_direct_arg palette_077FCD4_4
+    task_direct_arg palette_077FCD4_5
+    task_direct_arg palette_077FCD4_6
     task_repeat
 
 global_label BgTask_803ECF8
     task_direct slot=1, dst=eBgPalette6, len=0x8, delay=15
-    task_direct_arg 0x877FDB4
-    task_direct_arg 0x877FDD4
-    task_direct_arg 0x877FDF4
-    task_direct_arg 0x877FE14
-    task_direct_arg 0x877FE34
-    task_direct_arg 0x877FE14
-    task_direct_arg 0x877FDF4
-    task_direct_arg 0x877FE54
-    task_direct_arg 0x877FE74
-    task_direct_arg 0x877FE54
-    task_direct_arg 0x877FDF4
-    task_direct_arg 0x877FDD4
+    task_direct_arg palette_077FDB4_0
+    task_direct_arg palette_077FDB4_1
+    task_direct_arg palette_077FDB4_2
+    task_direct_arg palette_077FDB4_3
+    task_direct_arg palette_077FDB4_4
+    task_direct_arg palette_077FDB4_3
+    task_direct_arg palette_077FDB4_2
+    task_direct_arg palette_077FDB4_5
+    task_direct_arg palette_077FDB4_6
+    task_direct_arg palette_077FDB4_5
+    task_direct_arg palette_077FDB4_2
+    task_direct_arg palette_077FDB4_1
     task_repeat
 
 global_label BgTask_803ED68
-    task_tileset slot=2, src=0x877EBF4, dst=0x6000000, count=0x20, bufIndex=14, delay=4
+    task_tileset slot=2, src=tileset_077EBF4, dst=0x6000000, count=0x20, bufIndex=14, delay=4
     task_tileset_arg TilemapEntry_803F208
     task_tileset_arg TilemapEntry_803F248
     task_tileset_arg TilemapEntry_803F288
@@ -167,30 +167,30 @@ global_label BgTask_803ED68
 
 global_label BgTask_803F138
     task_direct slot=3, dst=eBgPalette0, len=0x8, delay=22
-    task_direct_arg 0x877FE94
-    task_direct_arg 0x877FEB4
-    task_direct_arg 0x877FED4
-    task_direct_arg 0x877FEF4
-    task_direct_arg 0x877FF14
-    task_direct_arg 0x877FF34
-    task_direct_arg 0x877FF54
-    task_direct_arg 0x877FF34
-    task_direct_arg 0x877FF14
-    task_direct_arg 0x877FEF4
-    task_direct_arg 0x877FF74
-    task_direct_arg 0x877FF94
-    task_direct_arg 0x877FFB4
-    task_direct_arg 0x877FF94
-    task_direct_arg 0x877FF74
-    task_direct_arg 0x877FEF4
-    task_direct_arg 0x877FFD4
-    task_direct_arg 0x877FFF4
-    task_direct_arg 0x8780014
-    task_direct_arg 0x877FFF4
-    task_direct_arg 0x877FFD4
-    task_direct_arg 0x877FEF4
-    task_direct_arg 0x877FED4
-    task_direct_arg 0x877FEB4
+    task_direct_arg palette_077FE94_00
+    task_direct_arg palette_077FE94_01
+    task_direct_arg palette_077FE94_02
+    task_direct_arg palette_077FE94_03
+    task_direct_arg palette_077FE94_04
+    task_direct_arg palette_077FE94_05
+    task_direct_arg palette_077FE94_06
+    task_direct_arg palette_077FE94_05
+    task_direct_arg palette_077FE94_04
+    task_direct_arg palette_077FE94_03
+    task_direct_arg palette_077FE94_07
+    task_direct_arg palette_077FE94_08
+    task_direct_arg palette_077FE94_09
+    task_direct_arg palette_077FE94_08
+    task_direct_arg palette_077FE94_07
+    task_direct_arg palette_077FE94_03
+    task_direct_arg palette_077FE94_10
+    task_direct_arg palette_077FE94_11
+    task_direct_arg palette_077FE94_12
+    task_direct_arg palette_077FE94_11
+    task_direct_arg palette_077FE94_10
+    task_direct_arg palette_077FE94_03
+    task_direct_arg palette_077FE94_02
+    task_direct_arg palette_077FE94_01
     task_repeat
 
 TilemapEntry_803F208:
