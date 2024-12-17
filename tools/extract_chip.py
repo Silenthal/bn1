@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import argparse
 from pathlib import Path
 from typing import BinaryIO
@@ -46,7 +47,7 @@ def rarity(inFile: BinaryIO) -> str:
     if rarity == 255:
         return "norarity"
     else:
-        return f"rarity {rarity}"
+        return f"rarity {rarity+1}"
 
 
 def library(inFile: BinaryIO) -> str:
@@ -55,6 +56,13 @@ def library(inFile: BinaryIO) -> str:
         return "nolibrary"
     else:
         return f"library {library}"
+
+def abc(inFile: BinaryIO) -> str:
+    abc = get_short(inFile) & 0xFF
+    if abc == 0:
+        return "no_abc"
+    else:
+        return f"abc {abc}"
 
 
 def main():
@@ -95,13 +103,13 @@ def main():
         with open(outPath, mode="w", encoding="utf-8") as outFile:
             inFile.seek(args.chip_offset)
             for i in range(args.count):
-                outFile.write(f"    _{i}: @ {common.chip_id(i)}\n")
+                outFile.write(f"    @ {i}: {common.chip_id(i)}\n")
                 outFile.write(f"        {codes(inFile)}\n")
                 outFile.write(f"        {element(inFile)}\n")
                 outFile.write(f"        {family(inFile)}\n")
                 outFile.write(f"        {rarity(inFile)}\n")
                 outFile.write(f"        {library(inFile)}\n")
-                outFile.write(f"        {bytelist(inFile, 2)}\n")
+                outFile.write(f"        {abc(inFile)}\n")
                 outFile.write(f"        damage {get_short(inFile)}\n")
                 outFile.write(f"        {bytelist(inFile, 2)}\n")
                 _ = get_int(inFile)

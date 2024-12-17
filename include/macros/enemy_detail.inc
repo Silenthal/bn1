@@ -76,6 +76,16 @@
     .byte 0xFF
     .endm
 
+    .macro abc index
+    .byte \index
+    .byte 0
+    .endm
+
+    .macro no_abc
+    .byte 0
+    .byte 0
+    .endm
+
     .macro spawn enemyId, x, y
     .byte ED_\enemyId
     .byte \x
