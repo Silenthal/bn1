@@ -762,7 +762,7 @@ DmaTransferDetail_ARRAY_08015e98:
     .word 0x6009e40
     .word 0x288
 
-    .word 0x86385d4
+    .word palette_06385D4
     .word eBgPaletteD
     .word 0x10
 
@@ -770,7 +770,7 @@ DmaTransferDetail_ARRAY_08015e98:
     .word eObjPaletteD
     .word 8
 
-    .word 0x8638614
+    .word palette_0638614
     .word eObjPaletteC
     .word 8
 PTR_DmaTransferDetail_ARRAY_08015ee0:

@@ -5,7 +5,7 @@
 
 global_label BgTask_804CC98
     task_direct slot=0, dst=eBgPaletteA, len=0x8, delay=1
-    task_direct_arg 0x878B774
+    task_direct_arg palette_078B774
     task_repeat
 
 global_label BgTask_804CCB0

@@ -2,8 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set USHORT_ARRAY_0872b200, 0x872b200
-
     .text
 
     .thumb
@@ -107,7 +105,7 @@ _ts Demo_SetToBeContinuedMessage
     cmp        r0,r1
     beq        LAB_08018a2a
     push       { r5 }
-    ldr        r0,PTR_USHORT_ARRAY_08018bcc
+    ldr        r0,PTR_ScenarioData_0E_08018bcc
     mov        r1,#0xb
     bl         Text_LoadDialogue
     pop        { r5 }
@@ -321,7 +319,7 @@ LAB_08018ba6:
 PTR_JT_R5_DemoState_1897C_08018bc0:     .word JT_R5_DemoState_1897C
 PTR_DAT_08018bc4:                       .word 0x1140
 PTR_JT_R5_DemoState_189D8_08018bc8:     .word JT_R5_DemoState_189D8
-PTR_USHORT_ARRAY_08018bcc:              .word USHORT_ARRAY_0872b200
+PTR_ScenarioData_0E_08018bcc:           .word ScenarioData_0E
 DAT_08018bd0:                           .word 0xFFFFFFC0
 DAT_08018bd4:                           .word 0x000001FF
 DAT_08018bd8:                           .word 0xFFFFFF80

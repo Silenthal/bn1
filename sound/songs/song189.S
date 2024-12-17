@@ -19,5 +19,5 @@ global_label SongHeader_080D19F4
     .byte 0
     .byte 64
     .byte 0
-    .word 0x80A0C10
+    .word ToneData_080a0c10
     .word Track_080D19E0

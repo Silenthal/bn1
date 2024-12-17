@@ -1999,7 +1999,7 @@ global_label SongHeader_080A4710
     .byte 0
     .byte 0
     .byte 163
-    .word 0x809F0D4
+    .word ToneData_0809f0d4
     .word Track_080A3960
     .word Track_080A3D26
     .word Track_080A3FD9

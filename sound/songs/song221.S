@@ -15,5 +15,5 @@ global_label SongHeader_080B71B4
     .byte 0
     .byte 64
     .byte 0
-    .word 0x80A0D9C
+    .word ToneData_080a0d9c
     .word Track_080B71A4

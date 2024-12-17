@@ -1,5 +1,10 @@
+global_label palette_06385D4
     .incbin "images/other/palette_06385D4.gbapal"
+
+global_label palette_06385F4
     .incbin "images/other/palette_06385F4.gbapal"
+
+global_label palette_0638614
     .incbin "images/other/palette_0638614.gbapal"
 
 global_label tilesetChipIcons
@@ -696,30 +701,55 @@ global_label tilesetPanelNumberMan
 
     .incbin "data/maps/battle/Battle_NumberMan/panel.gbapal"
     
+global_label tilemapPanelNumberMan_00
     .incbin "data/maps/battle/Battle_NumberMan/panel_00.tilemap"
+global_label tilemapPanelNumberMan_01
     .incbin "data/maps/battle/Battle_NumberMan/panel_01.tilemap"
+global_label tilemapPanelNumberMan_02
     .incbin "data/maps/battle/Battle_NumberMan/panel_02.tilemap"
+global_label tilemapPanelNumberMan_03
     .incbin "data/maps/battle/Battle_NumberMan/panel_03.tilemap"
+global_label tilemapPanelNumberMan_04
     .incbin "data/maps/battle/Battle_NumberMan/panel_04.tilemap"
+global_label tilemapPanelNumberMan_05
     .incbin "data/maps/battle/Battle_NumberMan/panel_05.tilemap"
+global_label tilemapPanelNumberMan_06
     .incbin "data/maps/battle/Battle_NumberMan/panel_06.tilemap"
+global_label tilemapPanelNumberMan_07
     .incbin "data/maps/battle/Battle_NumberMan/panel_07.tilemap"
+global_label tilemapPanelNumberMan_08
     .incbin "data/maps/battle/Battle_NumberMan/panel_08.tilemap"
+global_label tilemapPanelNumberMan_09
     .incbin "data/maps/battle/Battle_NumberMan/panel_09.tilemap"
+global_label tilemapPanelNumberMan_10
     .incbin "data/maps/battle/Battle_NumberMan/panel_10.tilemap"
+global_label tilemapPanelNumberMan_11
     .incbin "data/maps/battle/Battle_NumberMan/panel_11.tilemap"
+global_label tilemapPanelNumberMan_12
     .incbin "data/maps/battle/Battle_NumberMan/panel_12.tilemap"
+global_label tilemapPanelNumberMan_13
     .incbin "data/maps/battle/Battle_NumberMan/panel_13.tilemap"
+global_label tilemapPanelNumberMan_14
     .incbin "data/maps/battle/Battle_NumberMan/panel_14.tilemap"
+global_label tilemapPanelNumberMan_15
     .incbin "data/maps/battle/Battle_NumberMan/panel_15.tilemap"
+global_label tilemapPanelNumberMan_16
     .incbin "data/maps/battle/Battle_NumberMan/panel_16.tilemap"
+global_label tilemapPanelNumberMan_17
     .incbin "data/maps/battle/Battle_NumberMan/panel_17.tilemap"
+global_label tilemapPanelNumberMan_18
     .incbin "data/maps/battle/Battle_NumberMan/panel_18.tilemap"
+global_label tilemapPanelNumberMan_19
     .incbin "data/maps/battle/Battle_NumberMan/panel_19.tilemap"
+global_label tilemapPanelNumberMan_20
     .incbin "data/maps/battle/Battle_NumberMan/panel_20.tilemap"
+global_label tilemapPanelNumberMan_21
     .incbin "data/maps/battle/Battle_NumberMan/panel_21.tilemap"
+global_label tilemapPanelNumberMan_22
     .incbin "data/maps/battle/Battle_NumberMan/panel_22.tilemap"
+global_label tilemapPanelNumberMan_23
     .incbin "data/maps/battle/Battle_NumberMan/panel_23.tilemap"
+global_label tilemapPanelNumberMan_24
     .incbin "data/maps/battle/Battle_NumberMan/panel_24.tilemap"
 
 global_label tilesetPanelFireMan
@@ -727,19 +757,33 @@ global_label tilesetPanelFireMan
 
     .incbin "data/maps/battle/Battle_FireMan/panel.gbapal"
     
+global_label tilemapPanelFireMan_00
     .incbin "data/maps/battle/Battle_FireMan/panel_00.tilemap"
+global_label tilemapPanelFireMan_01
     .incbin "data/maps/battle/Battle_FireMan/panel_01.tilemap"
+global_label tilemapPanelFireMan_02
     .incbin "data/maps/battle/Battle_FireMan/panel_02.tilemap"
+global_label tilemapPanelFireMan_03
     .incbin "data/maps/battle/Battle_FireMan/panel_03.tilemap"
+global_label tilemapPanelFireMan_04
     .incbin "data/maps/battle/Battle_FireMan/panel_04.tilemap"
+global_label tilemapPanelFireMan_05
     .incbin "data/maps/battle/Battle_FireMan/panel_05.tilemap"
+global_label tilemapPanelFireMan_06
     .incbin "data/maps/battle/Battle_FireMan/panel_06.tilemap"
+global_label tilemapPanelFireMan_07
     .incbin "data/maps/battle/Battle_FireMan/panel_07.tilemap"
+global_label tilemapPanelFireMan_08
     .incbin "data/maps/battle/Battle_FireMan/panel_08.tilemap"
+global_label tilemapPanelFireMan_09
     .incbin "data/maps/battle/Battle_FireMan/panel_09.tilemap"
+global_label tilemapPanelFireMan_10
     .incbin "data/maps/battle/Battle_FireMan/panel_10.tilemap"
+global_label tilemapPanelFireMan_11
     .incbin "data/maps/battle/Battle_FireMan/panel_11.tilemap"
+global_label tilemapPanelFireMan_12
     .incbin "data/maps/battle/Battle_FireMan/panel_12.tilemap"
+global_label tilemapPanelFireMan_13
     .incbin "data/maps/battle/Battle_FireMan/panel_13.tilemap"
 
 global_label tilesetPanelIceMan
@@ -747,19 +791,33 @@ global_label tilesetPanelIceMan
 
     .incbin "data/maps/battle/Battle_IceMan/panel.gbapal"
     
+global_label tilemapPanelIceMan_00
     .incbin "data/maps/battle/Battle_IceMan/panel_00.tilemap"
+global_label tilemapPanelIceMan_01
     .incbin "data/maps/battle/Battle_IceMan/panel_01.tilemap"
+global_label tilemapPanelIceMan_02
     .incbin "data/maps/battle/Battle_IceMan/panel_02.tilemap"
+global_label tilemapPanelIceMan_03
     .incbin "data/maps/battle/Battle_IceMan/panel_03.tilemap"
+global_label tilemapPanelIceMan_04
     .incbin "data/maps/battle/Battle_IceMan/panel_04.tilemap"
+global_label tilemapPanelIceMan_05
     .incbin "data/maps/battle/Battle_IceMan/panel_05.tilemap"
+global_label tilemapPanelIceMan_06
     .incbin "data/maps/battle/Battle_IceMan/panel_06.tilemap"
+global_label tilemapPanelIceMan_07
     .incbin "data/maps/battle/Battle_IceMan/panel_07.tilemap"
+global_label tilemapPanelIceMan_08
     .incbin "data/maps/battle/Battle_IceMan/panel_08.tilemap"
+global_label tilemapPanelIceMan_09
     .incbin "data/maps/battle/Battle_IceMan/panel_09.tilemap"
+global_label tilemapPanelIceMan_10
     .incbin "data/maps/battle/Battle_IceMan/panel_10.tilemap"
+global_label tilemapPanelIceMan_11
     .incbin "data/maps/battle/Battle_IceMan/panel_11.tilemap"
+global_label tilemapPanelIceMan_12
     .incbin "data/maps/battle/Battle_IceMan/panel_12.tilemap"
+global_label tilemapPanelIceMan_13
     .incbin "data/maps/battle/Battle_IceMan/panel_13.tilemap"
 
 global_label tilesetPanelColorMan
@@ -767,19 +825,33 @@ global_label tilesetPanelColorMan
 
     .incbin "data/maps/battle/Battle_ColorMan/panel.gbapal"
     
+global_label tilemapPanelColorMan_00
     .incbin "data/maps/battle/Battle_ColorMan/panel_00.tilemap"
+global_label tilemapPanelColorMan_01
     .incbin "data/maps/battle/Battle_ColorMan/panel_01.tilemap"
+global_label tilemapPanelColorMan_02
     .incbin "data/maps/battle/Battle_ColorMan/panel_02.tilemap"
+global_label tilemapPanelColorMan_03
     .incbin "data/maps/battle/Battle_ColorMan/panel_03.tilemap"
+global_label tilemapPanelColorMan_04
     .incbin "data/maps/battle/Battle_ColorMan/panel_04.tilemap"
+global_label tilemapPanelColorMan_05
     .incbin "data/maps/battle/Battle_ColorMan/panel_05.tilemap"
+global_label tilemapPanelColorMan_06
     .incbin "data/maps/battle/Battle_ColorMan/panel_06.tilemap"
+global_label tilemapPanelColorMan_07
     .incbin "data/maps/battle/Battle_ColorMan/panel_07.tilemap"
+global_label tilemapPanelColorMan_08
     .incbin "data/maps/battle/Battle_ColorMan/panel_08.tilemap"
+global_label tilemapPanelColorMan_09
     .incbin "data/maps/battle/Battle_ColorMan/panel_09.tilemap"
+global_label tilemapPanelColorMan_10
     .incbin "data/maps/battle/Battle_ColorMan/panel_10.tilemap"
+global_label tilemapPanelColorMan_11
     .incbin "data/maps/battle/Battle_ColorMan/panel_11.tilemap"
+global_label tilemapPanelColorMan_12
     .incbin "data/maps/battle/Battle_ColorMan/panel_12.tilemap"
+global_label tilemapPanelColorMan_13
     .incbin "data/maps/battle/Battle_ColorMan/panel_13.tilemap"
 
 global_label tilesetPanelElecMan
@@ -787,19 +859,33 @@ global_label tilesetPanelElecMan
 
     .incbin "data/maps/battle/Battle_ElecMan/panel.gbapal"
     
+global_label tilemapPanelElecMan_00
     .incbin "data/maps/battle/Battle_ElecMan/panel_00.tilemap"
+global_label tilemapPanelElecMan_01
     .incbin "data/maps/battle/Battle_ElecMan/panel_01.tilemap"
+global_label tilemapPanelElecMan_02
     .incbin "data/maps/battle/Battle_ElecMan/panel_02.tilemap"
+global_label tilemapPanelElecMan_03
     .incbin "data/maps/battle/Battle_ElecMan/panel_03.tilemap"
+global_label tilemapPanelElecMan_04
     .incbin "data/maps/battle/Battle_ElecMan/panel_04.tilemap"
+global_label tilemapPanelElecMan_05
     .incbin "data/maps/battle/Battle_ElecMan/panel_05.tilemap"
+global_label tilemapPanelElecMan_06
     .incbin "data/maps/battle/Battle_ElecMan/panel_06.tilemap"
+global_label tilemapPanelElecMan_07
     .incbin "data/maps/battle/Battle_ElecMan/panel_07.tilemap"
+global_label tilemapPanelElecMan_08
     .incbin "data/maps/battle/Battle_ElecMan/panel_08.tilemap"
+global_label tilemapPanelElecMan_09
     .incbin "data/maps/battle/Battle_ElecMan/panel_09.tilemap"
+global_label tilemapPanelElecMan_10
     .incbin "data/maps/battle/Battle_ElecMan/panel_10.tilemap"
+global_label tilemapPanelElecMan_11
     .incbin "data/maps/battle/Battle_ElecMan/panel_11.tilemap"
+global_label tilemapPanelElecMan_12
     .incbin "data/maps/battle/Battle_ElecMan/panel_12.tilemap"
+global_label tilemapPanelElecMan_13
     .incbin "data/maps/battle/Battle_ElecMan/panel_13.tilemap"
 
 global_label tilesetPanelWWW
@@ -807,19 +893,33 @@ global_label tilesetPanelWWW
 
     .incbin "data/maps/battle/Battle_WWW/panel.gbapal"
     
+global_label tilemapPanelWWW_00
     .incbin "data/maps/battle/Battle_WWW/panel_00.tilemap"
+global_label tilemapPanelWWW_01
     .incbin "data/maps/battle/Battle_WWW/panel_01.tilemap"
+global_label tilemapPanelWWW_02
     .incbin "data/maps/battle/Battle_WWW/panel_02.tilemap"
+global_label tilemapPanelWWW_03
     .incbin "data/maps/battle/Battle_WWW/panel_03.tilemap"
+global_label tilemapPanelWWW_04
     .incbin "data/maps/battle/Battle_WWW/panel_04.tilemap"
+global_label tilemapPanelWWW_05
     .incbin "data/maps/battle/Battle_WWW/panel_05.tilemap"
+global_label tilemapPanelWWW_06
     .incbin "data/maps/battle/Battle_WWW/panel_06.tilemap"
+global_label tilemapPanelWWW_07
     .incbin "data/maps/battle/Battle_WWW/panel_07.tilemap"
+global_label tilemapPanelWWW_08
     .incbin "data/maps/battle/Battle_WWW/panel_08.tilemap"
+global_label tilemapPanelWWW_09
     .incbin "data/maps/battle/Battle_WWW/panel_09.tilemap"
+global_label tilemapPanelWWW_10
     .incbin "data/maps/battle/Battle_WWW/panel_10.tilemap"
+global_label tilemapPanelWWW_11
     .incbin "data/maps/battle/Battle_WWW/panel_11.tilemap"
+global_label tilemapPanelWWW_12
     .incbin "data/maps/battle/Battle_WWW/panel_12.tilemap"
+global_label tilemapPanelWWW_13
     .incbin "data/maps/battle/Battle_WWW/panel_13.tilemap"
 
 global_label tilesetPanelInternet
@@ -827,19 +927,33 @@ global_label tilesetPanelInternet
 
     .incbin "data/maps/battle/Battle_Internet/panel.gbapal"
     
+global_label tilemapPanelInternet_00
     .incbin "data/maps/battle/Battle_Internet/panel_00.tilemap"
+global_label tilemapPanelInternet_01
     .incbin "data/maps/battle/Battle_Internet/panel_01.tilemap"
+global_label tilemapPanelInternet_02
     .incbin "data/maps/battle/Battle_Internet/panel_02.tilemap"
+global_label tilemapPanelInternet_03
     .incbin "data/maps/battle/Battle_Internet/panel_03.tilemap"
+global_label tilemapPanelInternet_04
     .incbin "data/maps/battle/Battle_Internet/panel_04.tilemap"
+global_label tilemapPanelInternet_05
     .incbin "data/maps/battle/Battle_Internet/panel_05.tilemap"
+global_label tilemapPanelInternet_06
     .incbin "data/maps/battle/Battle_Internet/panel_06.tilemap"
+global_label tilemapPanelInternet_07
     .incbin "data/maps/battle/Battle_Internet/panel_07.tilemap"
+global_label tilemapPanelInternet_08
     .incbin "data/maps/battle/Battle_Internet/panel_08.tilemap"
+global_label tilemapPanelInternet_09
     .incbin "data/maps/battle/Battle_Internet/panel_09.tilemap"
+global_label tilemapPanelInternet_10
     .incbin "data/maps/battle/Battle_Internet/panel_10.tilemap"
+global_label tilemapPanelInternet_11
     .incbin "data/maps/battle/Battle_Internet/panel_11.tilemap"
+global_label tilemapPanelInternet_12
     .incbin "data/maps/battle/Battle_Internet/panel_12.tilemap"
+global_label tilemapPanelInternet_13
     .incbin "data/maps/battle/Battle_Internet/panel_13.tilemap"
 
 global_label tilesetPanelGeneric
@@ -847,17 +961,31 @@ global_label tilesetPanelGeneric
 
     .incbin "data/maps/battle/Battle_Generic/panel.gbapal"
     
+global_label tilemapPanelGeneric_00
     .incbin "data/maps/battle/Battle_Generic/panel_00.tilemap"
+global_label tilemapPanelGeneric_01
     .incbin "data/maps/battle/Battle_Generic/panel_01.tilemap"
+global_label tilemapPanelGeneric_02
     .incbin "data/maps/battle/Battle_Generic/panel_02.tilemap"
+global_label tilemapPanelGeneric_03
     .incbin "data/maps/battle/Battle_Generic/panel_03.tilemap"
+global_label tilemapPanelGeneric_04
     .incbin "data/maps/battle/Battle_Generic/panel_04.tilemap"
+global_label tilemapPanelGeneric_05
     .incbin "data/maps/battle/Battle_Generic/panel_05.tilemap"
+global_label tilemapPanelGeneric_06
     .incbin "data/maps/battle/Battle_Generic/panel_06.tilemap"
+global_label tilemapPanelGeneric_07
     .incbin "data/maps/battle/Battle_Generic/panel_07.tilemap"
+global_label tilemapPanelGeneric_08
     .incbin "data/maps/battle/Battle_Generic/panel_08.tilemap"
+global_label tilemapPanelGeneric_09
     .incbin "data/maps/battle/Battle_Generic/panel_09.tilemap"
+global_label tilemapPanelGeneric_10
     .incbin "data/maps/battle/Battle_Generic/panel_10.tilemap"
+global_label tilemapPanelGeneric_11
     .incbin "data/maps/battle/Battle_Generic/panel_11.tilemap"
+global_label tilemapPanelGeneric_12
     .incbin "data/maps/battle/Battle_Generic/panel_12.tilemap"
+global_label tilemapPanelGeneric_13
     .incbin "data/maps/battle/Battle_Generic/panel_13.tilemap"

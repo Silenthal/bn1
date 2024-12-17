@@ -1666,28 +1666,28 @@ CSD_Entity_3:
 
 global_label CSD_Task_3_0
     task_direct slot=0, dst=eBgPaletteC, len=0x8, delay=5
-    task_direct_arg 0x877FBF4
-    task_direct_arg 0x877FC14
-    task_direct_arg 0x877FC34
-    task_direct_arg 0x877FC54
-    task_direct_arg 0x877FC74
-    task_direct_arg 0x877FC94
-    task_direct_arg 0x877FCB4
+    task_direct_arg palette_077FBF4_0
+    task_direct_arg palette_077FBF4_1
+    task_direct_arg palette_077FBF4_2
+    task_direct_arg palette_077FBF4_3
+    task_direct_arg palette_077FBF4_4
+    task_direct_arg palette_077FBF4_5
+    task_direct_arg palette_077FBF4_6
     task_repeat
 
     .align 2, 0
 
 global_label CSD_Task_3_1
     task_direct slot=4, dst=eBgPaletteC, len=0x8, delay=5
-    task_direct_arg 0x877FBF4, 370
+    task_direct_arg palette_077FBF4_0, 370
 L_8022730:
-    task_direct_arg 0x877FCD4
-    task_direct_arg 0x877FCF4
-    task_direct_arg 0x877FD14
-    task_direct_arg 0x877FD34
-    task_direct_arg 0x877FD54
-    task_direct_arg 0x877FD74
-    task_direct_arg 0x877FD94
+    task_direct_arg palette_077FCD4_0
+    task_direct_arg palette_077FCD4_1
+    task_direct_arg palette_077FCD4_2
+    task_direct_arg palette_077FCD4_3
+    task_direct_arg palette_077FCD4_4
+    task_direct_arg palette_077FCD4_5
+    task_direct_arg palette_077FCD4_6
     task_jump L_8022730
 
     .align 2, 0
@@ -2870,36 +2870,36 @@ CSD_Entity_9:
 
 global_label CSD_Task_9_2
     task_direct slot=2, dst=eBgPalette0, len=0x18, delay=100
-    task_direct_arg 0x84BDB34
-    task_direct_arg 0x878A834, 120
-    task_direct_arg 0x84BDB34, 1
+    task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 4
+    task_direct_arg palette_078A834, 120
+    task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 4, 1
     task_stop
 
     .align 2, 0
 
 global_label CSD_Task_9_3
     task_direct slot=3, dst=eBgPalette4, len=0x10, delay=100
-    task_direct_arg 0x84BDBB4
-    task_direct_arg 0x878A894, 120
-    task_direct_arg 0x84BDBB4, 1
+    task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x84
+    task_direct_arg palette_078A894, 120
+    task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x84, 1
     task_stop
 
     .align 2, 0
 
 global_label CSD_Task_9_4
     task_direct slot=4, dst=eBgPalette7, len=0x8, delay=100
-    task_direct_arg 0x84BDC14
-    task_direct_arg 0x878A9B4, 120
-    task_direct_arg 0x84BDC14, 1
+    task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0xE4
+    task_direct_arg palette_078A9B4, 120
+    task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0xE4, 1
     task_stop
 
     .align 2, 0
 
 global_label CSD_Task_9_5
     task_direct slot=5, dst=eBgPalette3, len=0x8, delay=100
-    task_direct_arg 0x84BDB94
-    task_direct_arg 0x878A934, 120
-    task_direct_arg 0x84BDB94, 1
+    task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x64
+    task_direct_arg palette_078A934_0, 120
+    task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x64, 1
     task_stop
 
     .align 2, 0
@@ -3321,15 +3321,15 @@ CSD_Entity_11:
 
 global_label CSD_Task_11_5
     task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=180
-    task_direct_arg 0x84D39AC
+    task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x144
 L_8023BE4:
-    task_direct_arg 0x878B7D4, 10
-    task_direct_arg 0x878B834, 20
-    task_direct_arg 0x878B774, 5
-    task_direct_arg 0x878B814, 10
-    task_direct_arg 0x878B794, 20
-    task_direct_arg 0x878B7F4, 5
-    task_direct_arg 0x878B7B4, 10
+    task_direct_arg palette_078B7D4, 10
+    task_direct_arg palette_078B834, 20
+    task_direct_arg palette_078B774, 5
+    task_direct_arg palette_078B814, 10
+    task_direct_arg palette_078B794, 20
+    task_direct_arg palette_078B7F4, 5
+    task_direct_arg palette_078B7B4, 10
     task_jump L_8023BE4
 
     .align 2, 0

@@ -2010,7 +2010,7 @@ global_label SongHeader_080AC974
     .byte 0
     .byte 0
     .byte 163
-    .word 0x809FDE8
+    .word ToneData_0809fde8
     .word Track_080ABC78
     .word Track_080AC033
     .word Track_080AC2ED

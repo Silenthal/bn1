@@ -2460,7 +2460,7 @@ global_label SongHeader_080A651C
     .byte 0
     .byte 0
     .byte 163
-    .word 0x809F458
+    .word ToneData_0809f458
     .word Track_080A55CC
     .word Track_080A59C9
     .word Track_080A5D91

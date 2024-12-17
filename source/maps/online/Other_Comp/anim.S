@@ -3,7 +3,7 @@
     .include "macros.inc"
 
 global_label BgTask_805033C
-    task_tileset slot=0, src=0x8790AB4, dst=0x6000020, count=0x10, bufIndex=27, delay=240
+    task_tileset slot=0, src=tileset_0790AB4, dst=0x6000020, count=0x10, bufIndex=27, delay=240
     task_tileset_arg TilemapEntry_804EE78_0
     task_tileset_arg TilemapEntry_804EE78_1, 8
     task_tileset_arg TilemapEntry_804EE78_2, 8

@@ -77,13 +77,13 @@ global_label BgTask_8049D50
 
 global_label BgTask_8049D68
     task_direct slot=4, dst=eBgPalette9, len=0x8, delay=16
-    task_direct_arg 0x84D398C
+    task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x124
     task_direct_arg palette_078B754
     task_repeat
 
 global_label BgTask_8049D88
     task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=1
-    task_direct_arg 0x84D39AC
+    task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x144
     task_stop
 
 global_label BgTask_8049DA0
@@ -123,7 +123,7 @@ global_label BgTask_8049E30
 
 global_label BgTask_8049E48
     task_direct slot=6, dst=eBgPaletteB, len=0x8, delay=1
-    task_direct_arg 0x84D39CC
+    task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x164
     task_stop
 
 global_label BgTask_8049E60
@@ -163,7 +163,7 @@ global_label BgTask_8049EF0
 
 global_label BgTask_8049F08
     task_direct slot=7, dst=eBgPaletteC, len=0x8, delay=1
-    task_direct_arg 0x84D39EC
+    task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x184
     task_stop
 
 global_label BgTask_8049F20
@@ -203,7 +203,7 @@ global_label BgTask_8049FB0
 
 global_label BgTask_8049FC8
     task_direct slot=8, dst=eBgPalette4, len=0x8, delay=1
-    task_direct_arg 0x84D38EC
+    task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x84
     task_stop
 
 global_label BgTask_8049FE0
@@ -213,7 +213,7 @@ global_label BgTask_8049FE0
 
 global_label BgTask_8049FF8
     task_direct slot=9, dst=eBgPalette0, len=0x8, delay=180
-    task_direct_arg 0x85637AC
+    task_direct_arg BgData_Palette_Battle_ElecMan + 0x4
     task_direct_arg palette_0796C74_0, 4
     task_direct_arg palette_0796C74_1, 4
     task_direct_arg palette_0796C74_2, 4
