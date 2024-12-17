@@ -1083,7 +1083,7 @@ _ts Effect_BattleResult_CalculateRank
     beq        LAB_0807d5ca
     cmp        r0,#BattleType_7
     beq        LAB_0807d5ca
-    cmp        r0,#BattleType_8_Save
+    cmp        r0,#BattleType_8_NetworkReal
     bge        LAB_0807d5ca
     b          LAB_0807d5cc
 LAB_0807d5ca:

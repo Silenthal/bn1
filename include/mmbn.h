@@ -1381,6 +1381,186 @@ typedef enum ActorID {
     ACT_Mole=82
 } ActorID;
 
+typedef struct AfterBattleFlagSettings AfterBattleFlagSettings, *PAfterBattleFlagSettings;
+
+typedef enum Flag_Base {
+    FLAG_CLEAR_CHAPTER_1=0,
+    FLAG_CLEAR_CHAPTER_2=1,
+    FLAG_CLEAR_CHAPTER_3=2,
+    FLAG_CLEAR_CHAPTER_4=3,
+    FLAG_CLEAR_CHAPTER_5=4,
+    FLAG_CLEAR_GAME=5,
+    FLAG_BOOKMARK_MAYL=6,
+    FLAG_BOOKMARK_YAI=7,
+    FLAG_BOOKMARK_DEX=8,
+    FLAG_BOOKMARK_SLASH_DEX=10,
+    FLAG_DEFEATED_PHARAOHMAN=18,
+    FLAG_15=21,
+    FLAG_GATE_LOCK_INTERNET_2=22,
+    FLAG_GATE_CLEAR_INTERNET_2=23,
+    FLAG_PIN_UNLOCK_INTERNET_2=24,
+    FLAG_GATE_LOCK_INTERNET_1=36,
+    FLAG_GATE_CLEAR_INTERNET_1=37,
+    FLAG_PIN_UNLOCK_INTERNET_1=38,
+    FLAG_27=39,
+    FLAG_BATTLE_NUMBERMAN=41,
+    FLAG_HAS_TRAIN_TICKET=42,
+    FLAG_BATTLE_GUTSMAN=43,
+    FLAG_BATTLE_WOODMAN=44,
+    FLAG_BATTLE_SKULLMAN=45,
+    FLAG_BATTLE_SHARKMAN=47,
+    FLAG_JACK_IN=53,
+    FLAG_BATTLE_WIN_NUMBERMAN_V2=54,
+    FLAG_BATTLE_WIN_NUMBERMAN_V3=55,
+    FLAG_BATTLE_ICEMAN=56,
+    FLAG_BATTLE_WIN_ICEMAN_V2=57,
+    FLAG_BATTLE_WIN_ICEMAN_V3=58,
+    FLAG_BATTLE_WIN_SKULLMAN_V1=59,
+    FLAG_BATTLE_WIN_SKULLMAN_V2=60,
+    FLAG_BATTLE_WIN_SKULLMAN_V3=61,
+    FLAG_BATTLE_WIN_WOODMAN_V1=62,
+    FLAG_BATTLE_WIN_WOODMAN_V2=63,
+    FLAG_BATTLE_WIN_WOODMAN_V3=64,
+    FLAG_BATTLE_WIN_SHARKMAN_V1=65,
+    FLAG_BATTLE_WIN_SHARKMAN_V2=66,
+    FLAG_BATTLE_WIN_SHARKMAN_V3=67,
+    FLAG_BATTLE_WIN_GUTSMAN_V1=68,
+    FLAG_GET_ITEM_SLASHDEX=69,
+    FLAG_BATTLE_WIN_GUTSMAN_V2=70,
+    FLAG_BOOKMARK_SAL=72,
+    FLAG_BOOKMARK_MASA=73,
+    FLAG_BOOKMARK_YUICHIRO=74,
+    FLAG_BOOKMARK_MIYU=75,
+    FLAG_GATE_LOCK_INTERNET_3=82,
+    FLAG_GATE_CLEAR_INTERNET_3=83,
+    FLAG_PIN_UNLOCK_INTERNET_3=84,
+    FLAG_DEFEATED_STONEMAN_V2=85,
+    FLAG_BATTLE_STONEMAN=86,
+    FLAG_GATE_LOCK_INTERNET_4=87,
+    FLAG_GATE_CLEAR_INTERNET_4=88,
+    FLAG_HIG_MEMO_USED_INTERNET_4=90,
+    FLAG_DEFEATED_FIREMAN_V2=92,
+    FLAG_DEFEATED_COLORMAN_V2=93,
+    FLAG_DEFEATED_ELECMAN_V2=94,
+    FLAG_DEFEATED_BOMBMAN_V2=95,
+    FLAG_DEFEATED_MAGICMAN_V2=96,
+    FLAG_BATTLE_PROTOMAN=99,
+    FLAG_BATTLE_WIN_PROTOMAN_V2=100,
+    FLAG_LAB_MEMO_USED_UNDERNET_1=101,
+    FLAG_GATE_LOCK_UNDERNET_1=103,
+    FLAG_GATE_CLEAR_UNDERNET_1=104,
+    FLAG_YURI_MEMO_USED_UNDERNET_2=106,
+    FLAG_6C=108,
+    FLAG_PAS_MEMO_USED_UNDERNET_3=109,
+    FLAG_6F=111,
+    FLAG_BATTLE_WIN_PROTOMAN_V3=112,
+    FLAG_GATE_LOCK_UNDERNET_6_1=119,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_6_TO_7=120,
+    FLAG_GATE_CLEAR_UNDERNET_6_1=121,
+    FLAG_GATE_LOCK_UNDERNET_6_2=122,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_6_TO_9=123,
+    FLAG_GATE_CLEAR_UNDERNET_6_2=124,
+    FLAG_GATE_LOCK_UNDERNET_7=125,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_7=126,
+    FLAG_GATE_CLEAR_UNDERNET_7=127,
+    FLAG_GATE_LOCK_UNDERNET_9=128,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_9=129,
+    FLAG_GATE_CLEAR_UNDERNET_9=130,
+    FLAG_GATE_LOCK_UNDERNET_10=131,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_10=132,
+    FLAG_GATE_CLEAR_UNDERNET_10=133,
+    FLAG_GATE_LOCK_UNDERNET_11=134,
+    FLAG_SKILL_CHECK_PASS_UNDERNET_11=135,
+    FLAG_GATE_CLEAR_UNDERNET_11=136,
+    FLAG_GATE_LOCK_UNDERNET_6_3=137,
+    FLAG_GATE_CLEAR_UNDERNET_6_3=138,
+    FLAG_GATE_LOCK_UNDERNET_10_PIN=140,
+    FLAG_GATE_CLEAR_UNDERNET_10_PIN=141,
+    FLAG_PIN_UNLOCK_UNDERNET_10=142,
+    FLAG_DEFEATED_SHADOWMAN=143,
+    FLAG_STORY_00=144,
+    FLAG_STORY_01=146,
+    FLAG_93=147,
+    FLAG_STORY_02=148,
+    FLAG_STORY_03=149,
+    FLAG_STORY_04=151,
+    FLAG_STORY_05=152,
+    FLAG_STORY_06=153,
+    FLAG_STORY_13=154,
+    FLAG_STORY_14=155,
+    FLAG_9C=156,
+    FLAG_STORY_07=158,
+    FLAG_STORY_08=159,
+    FLAG_GATE_LOCK_SCHOOL_COMP_1=165,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_1=166,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_2_1=168,
+    FLAG_GATE_LOCK_SCHOOL_COMP_2_1=169,
+    FLAG_GATE_LOCK_SCHOOL_COMP_2_2=171,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_2_2=172,
+    FLAG_GATE_LOCK_SCHOOL_COMP_3_1=174,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_3_1=175,
+    FLAG_GATE_LOCK_SCHOOL_COMP_3_2=177,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_3_2=178,
+    FLAG_B7=183,
+    FLAG_GATE_LOCK_WWW_COMP_2_1=184,
+    FLAG_GATE_LOCK_SCHOOL_COMP_4=185,
+    FLAG_GATE_LOCK_WWW_COMP_2_3=186,
+    FLAG_GATE_LOCK_WWW_COMP_2_4=187,
+    FLAG_GATE_LOCK_SCHOOL_COMP_5=188,
+    FLAG_GATE_LOCK_WWW_COMP_2_6=189,
+    FLAG_GATE_LOCK_WWW_COMP_2_7=190,
+    FLAG_GATE_LOCK_WWW_COMP_2_8=191,
+    FLAG_GATE_LOCK_WWW_COMP_2_9=192,
+    FLAG_STORY_09_0=193,
+    FLAG_STORY_09_1=196,
+    FLAG_EXTRA_C6=198,
+    FLAG_STORY_0B=199,
+    FLAG_C8=200,
+    FLAG_STORY_0C=201,
+    FLAG_STORY_0D=202,
+    FLAG_CC=204,
+    FLAG_D3=211,
+    FLAG_GATE_CLEAR_WWW_COMP_2_1=212,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_4=213,
+    FLAG_GATE_CLEAR_WWW_COMP_2_3=214,
+    FLAG_GATE_CLEAR_WWW_COMP_2_4=215,
+    FLAG_GATE_CLEAR_SCHOOL_COMP_5=216,
+    FLAG_GATE_CLEAR_WWW_COMP_2_6=217,
+    FLAG_GATE_CLEAR_WWW_COMP_2_7=218,
+    FLAG_GATE_CLEAR_WWW_COMP_2_8=219,
+    FLAG_GATE_CLEAR_WWW_COMP_2_9=220,
+    FLAG_DF=223,
+    FLAG_SLIDE_E0=224,
+    FLAG_SLIDE_E1=225,
+    FLAG_SLIDE_E2=226,
+    FLAG_SLIDE_E3=227,
+    FLAG_STORY_77=228,
+    FLAG_STORY_78=229,
+    FLAG_STORY_79=230,
+    FLAG_STORY_7A=231,
+    FLAG_STORY_7B=232,
+    FLAG_STORY_7C=233,
+    FLAG_STORY_7D=234,
+    FLAG_STORY_7E=235,
+    FLAG_STORY_7F=236,
+    FLAG_ED=237,
+    FLAG_EE=238,
+    FLAG_EF=239,
+    FLAG_F1=241,
+    FLAG_F6=246
+} Flag_Base;
+
+struct AfterBattleFlagSettings {
+    byte dialogueIfWin;
+    byte dialogueIfLose;
+    enum Flag_Base flagSet;
+    enum Flag_Base flagClear;
+    enum Flag_Base flagSetIfWin;
+    enum Flag_Base flagClearIfWin;
+    enum Flag_Base flagSetIfLose;
+    enum Flag_Base flagClearIfLose;
+};
+
 typedef enum AllocParamEntityType {
     APT_PlayerLocation=0,
     APT_Actor=1,
@@ -1390,22 +1570,22 @@ typedef enum AllocParamEntityType {
 } AllocParamEntityType;
 
 typedef enum AreaId {
-    Area_ACDC_Elementary=0,
-    Area_ACDC_Town=1,
-    Area_Government_Complex=2,
+    Area_School=0,
+    Area_ACDC=1,
+    Area_Govt=2,
     Area_DenTown=3,
-    Area_SciLab_Basement=4,
-    Area_WWW_Base=5,
+    Area_SciLab=4,
+    Area_WWW=5,
     Area_SchoolComp=128,
     Area_OvenComp=129,
     Area_WaterworksComp=130,
     Area_TrafficLightComp=131,
     Area_Power_Plant_Comp=132,
     Area_WWW_Comp=133,
-    Area_ACDC_Homepage=136,
-    Area_Government_Complex_Homepage=137,
-    Area_DenTown_Homepage=138,
-    Area_Government_Complex_Homepage_2=139,
+    Area_ACDC_HP=136,
+    Area_GovtHP=137,
+    Area_DenTown_HP=138,
+    Area_SciLab_HP=139,
     Area_Other_Comp=140,
     Area_Internet=144,
     Area_Battle=240
@@ -1595,6 +1775,7 @@ typedef enum AttackIndex {
     ACI_FireArm=17,
     ACI_Buster=18,
     ACI_ShotgunBurst=19,
+    ACI_Meteor=20,
     ACI_PoweredCannon=22,
     ACI_Steal=23,
     ACI_QuickAttack=24,
@@ -2258,7 +2439,7 @@ struct BattleChipData {
     byte possibleChipSubfamily;
     byte rarity;
     byte libraryIndex;
-    byte m_b22;
+    byte alphabetIndex;
     byte b33;
     ushort damage;
     byte b2;
@@ -2353,8 +2534,8 @@ typedef enum BattleType {
     BattleType_5_Boss=5,
     BattleType_6_FinalBoss=6,
     BattleType_7=7,
-    BattleType_8_Save=8,
-    BattleType_9=9
+    BattleType_8_NetworkReal=8,
+    BattleType_9_NetworkTest=9
 } BattleType;
 
 typedef struct BattleUI BattleUI, *PBattleUI;
@@ -3160,7 +3341,7 @@ typedef enum EffectID {
     EFI_FloorBreak=40,
     EFI_ColorMan=41,
     EFI_Remobit=42,
-    EFI_Cannon=43,
+    EFI_Chaud=43,
     EFI_PoisonCloud=44,
     EFI_TrafficSwitch=45,
     EFI_CountZap=46,
@@ -3389,7 +3570,8 @@ struct FixedBattleSettings {
 };
 
 typedef enum Flag_280 {
-    F280_0=0
+    FLAG_ITEM_PET=0,
+    FLAG_ITEM_WATERGUN=1
 } Flag_280;
 
 typedef enum Flag_380 {
@@ -3435,149 +3617,6 @@ typedef enum Flag_420 {
     FLAG_SAVE_DISABLED=38,
     FLAG_2F=47
 } Flag_420;
-
-typedef enum Flag_Base {
-    FLAG_CLEAR_CHAPTER_1=0,
-    FLAG_CLEAR_CHAPTER_2=1,
-    FLAG_CLEAR_CHAPTER_3=2,
-    FLAG_CLEAR_CHAPTER_4=3,
-    FLAG_CLEAR_CHAPTER_5=4,
-    FLAG_CLEAR_GAME=5,
-    FLAG_BOOKMARK_MAYL=6,
-    FLAG_BOOKMARK_YAI=7,
-    FLAG_BOOKMARK_DEX=8,
-    FLAG_BOOKMARK_SLASH_DEX=10,
-    FLAG_DEFEATED_PHARAOHMAN=18,
-    FLAG_15=21,
-    FLAG_GATE_LOCK_INTERNET_2=22,
-    FLAG_GATE_CLEAR_INTERNET_2=23,
-    FLAG_PIN_UNLOCK_INTERNET_2=24,
-    FLAG_GATE_LOCK_INTERNET_1=36,
-    FLAG_GATE_CLEAR_INTERNET_1=37,
-    FLAG_PIN_UNLOCK_INTERNET_1=38,
-    FLAG_27=39,
-    FLAG_BATTLE_NUMBERMAN=41,
-    FLAG_HAS_TRAIN_TICKET=42,
-    FLAG_BATTLE_GUTSMAN=43,
-    FLAG_BATTLE_WOODMAN=44,
-    FLAG_BATTLE_SKULLMAN=45,
-    FLAG_BATTLE_SHARKMAN=47,
-    FLAG_JACK_IN=53,
-    FLAG_BATTLE_WIN_NUMBERMAN_V2=54,
-    FLAG_BATTLE_WIN_NUMBERMAN_V3=55,
-    FLAG_BATTLE_ICEMAN=56,
-    FLAG_BATTLE_WIN_ICEMAN_V2=57,
-    FLAG_BATTLE_WIN_ICEMAN_V3=58,
-    FLAG_BATTLE_WIN_SKULLMAN_V1=59,
-    FLAG_BATTLE_WIN_SKULLMAN_V2=60,
-    FLAG_BATTLE_WIN_SKULLMAN_V3=61,
-    FLAG_BATTLE_WIN_WOODMAN_V1=62,
-    FLAG_BATTLE_WIN_WOODMAN_V2=63,
-    FLAG_BATTLE_WIN_WOODMAN_V3=64,
-    FLAG_BATTLE_WIN_SHARKMAN_V1=65,
-    FLAG_BATTLE_WIN_SHARKMAN_V2=66,
-    FLAG_BATTLE_WIN_SHARKMAN_V3=67,
-    FLAG_BATTLE_WIN_GUTSMAN_V1=68,
-    FLAG_GET_ITEM_SLASHDEX=69,
-    FLAG_BATTLE_WIN_GUTSMAN_V2=70,
-    FLAG_BOOKMARK_SAL=72,
-    FLAG_BOOKMARK_MASA=73,
-    FLAG_BOOKMARK_YUICHIRO=74,
-    FLAG_BOOKMARK_MIYU=75,
-    FLAG_GATE_LOCK_INTERNET_3=82,
-    FLAG_GATE_CLEAR_INTERNET_3=83,
-    FLAG_PIN_UNLOCK_INTERNET_3=84,
-    FLAG_DEFEATED_STONEMAN_V2=85,
-    FLAG_BATTLE_STONEMAN=86,
-    FLAG_GATE_LOCK_INTERNET_4=87,
-    FLAG_GATE_CLEAR_INTERNET_4=88,
-    FLAG_HIG_MEMO_USED_INTERNET_4=90,
-    FLAG_DEFEATED_FIREMAN_V2=92,
-    FLAG_DEFEATED_COLORMAN_V2=93,
-    FLAG_DEFEATED_ELECMAN_V2=94,
-    FLAG_DEFEATED_BOMBMAN_V2=95,
-    FLAG_DEFEATED_MAGICMAN_V2=96,
-    FLAG_BATTLE_PROTOMAN=99,
-    FLAG_BATTLE_WIN_PROTOMAN_V2=100,
-    FLAG_LAB_MEMO_USED_UNDERNET_1=101,
-    FLAG_GATE_LOCK_UNDERNET_1=103,
-    FLAG_GATE_CLEAR_UNDERNET_1=104,
-    FLAG_YURI_MEMO_USED_UNDERNET_2=106,
-    FLAG_PAS_MEMO_USED_UNDERNET_3=109,
-    FLAG_6F=111,
-    FLAG_BATTLE_WIN_PROTOMAN_V3=112,
-    FLAG_GATE_LOCK_UNDERNET_6_1=119,
-    FLAG_SKILL_CHECK_PASS_UNDERNET_6_TO_7=120,
-    FLAG_GATE_CLEAR_UNDERNET_6_1=121,
-    FLAG_GATE_LOCK_UNDERNET_6_2=122,
-    FLAG_SKILL_CHECK_PASS_UNDERNET_6_TO_9=123,
-    FLAG_GATE_CLEAR_UNDERNET_6_2=124,
-    FLAG_GATE_LOCK_UNDERNET_7=125,
-    FLAG_SKILL_CHECK_PASS_UNDERNET_7=126,
-    FLAG_GATE_CLEAR_UNDERNET_7=127,
-    FLAG_GATE_LOCK_UNDERNET_9=128,
-    FLAG_SKILL_CHECK_PASS_UNDERNET_9=129,
-    FLAG_GATE_CLEAR_UNDERNET_9=130,
-    FLAG_GATE_LOCK_UNDERNET_10=131,
-    FLAG_SKILL_CHECK_PASS_UNDERNET_10=132,
-    FLAG_GATE_CLEAR_UNDERNET_10=133,
-    FLAG_GATE_LOCK_UNDERNET_11=134,
-    FLAG_SKILL_CHECK_PASS_UNDERNET_11=135,
-    FLAG_GATE_CLEAR_UNDERNET_11=136,
-    FLAG_GATE_LOCK_UNDERNET_6_3=137,
-    FLAG_GATE_CLEAR_UNDERNET_6_3=138,
-    FLAG_GATE_LOCK_UNDERNET_10_PIN=140,
-    FLAG_GATE_CLEAR_UNDERNET_10_PIN=141,
-    FLAG_PIN_UNLOCK_UNDERNET_10=142,
-    FLAG_DEFEATED_SHADOWMAN=143,
-    FLAG_STORY_00=144,
-    FLAG_STORY_01=146,
-    FLAG_STORY_02=148,
-    FLAG_STORY_03=149,
-    FLAG_STORY_04=151,
-    FLAG_STORY_05=152,
-    FLAG_STORY_06=153,
-    FLAG_STORY_13=154,
-    FLAG_9B=155,
-    FLAG_9C=156,
-    FLAG_STORY_07=158,
-    FLAG_STORY_08=159,
-    FLAG_GATE_LOCK_SCHOOL_COMP_1=165,
-    FLAG_GATE_CLEAR_SCHOOL_COMP_1=166,
-    FLAG_GATE_LOCK_SCHOOL_COMP_2_1=169,
-    FLAG_GATE_LOCK_SCHOOL_COMP_2_2=171,
-    FLAG_GATE_CLEAR_SCHOOL_COMP_2_2=172,
-    FLAG_GATE_LOCK_SCHOOL_COMP_3_1=174,
-    FLAG_GATE_CLEAR_SCHOOL_COMP_3_1=175,
-    FLAG_GATE_LOCK_SCHOOL_COMP_3_2=177,
-    FLAG_GATE_CLEAR_SCHOOL_COMP_3_2=178,
-    FLAG_GATE_LOCK_WWW_COMP_2_1=184,
-    FLAG_GATE_LOCK_SCHOOL_COMP_4=185,
-    FLAG_GATE_LOCK_WWW_COMP_2_3=186,
-    FLAG_GATE_LOCK_WWW_COMP_2_4=187,
-    FLAG_GATE_LOCK_SCHOOL_COMP_5=188,
-    FLAG_GATE_LOCK_WWW_COMP_2_6=189,
-    FLAG_GATE_LOCK_WWW_COMP_2_7=190,
-    FLAG_GATE_LOCK_WWW_COMP_2_8=191,
-    FLAG_GATE_LOCK_WWW_COMP_2_9=192,
-    FLAG_STORY_09_0=193,
-    FLAG_STORY_09_1=196,
-    FLAG_EXTRA_C6=198,
-    FLAG_STORY_0B=199,
-    FLAG_C8=200,
-    FLAG_STORY_0C=201,
-    FLAG_STORY_0D=202,
-    FLAG_D3=211,
-    FLAG_GATE_CLEAR_WWW_COMP_2_1=212,
-    FLAG_GATE_CLEAR_SCHOOL_COMP_4=213,
-    FLAG_GATE_CLEAR_WWW_COMP_2_3=214,
-    FLAG_GATE_CLEAR_WWW_COMP_2_4=215,
-    FLAG_GATE_CLEAR_SCHOOL_COMP_5=216,
-    FLAG_GATE_CLEAR_WWW_COMP_2_6=217,
-    FLAG_GATE_CLEAR_WWW_COMP_2_7=218,
-    FLAG_GATE_CLEAR_WWW_COMP_2_8=219,
-    FLAG_GATE_CLEAR_WWW_COMP_2_9=220
-} Flag_Base;
 
 typedef struct FlappyParam FlappyParam, *PFlappyParam;
 
@@ -3860,7 +3899,9 @@ typedef struct PlayerLocation PlayerLocation, *PPlayerLocation;
 
 typedef struct WorldPosition WorldPosition, *PWorldPosition;
 
-typedef struct MapEntranceOptions MapEntranceOptions, *PMapEntranceOptions;
+typedef union SceneArg SceneArg, *PSceneArg;
+
+typedef struct PlayerAnimation PlayerAnimation, *PPlayerAnimation;
 
 typedef struct MapEntrance MapEntrance, *PMapEntrance;
 
@@ -3889,6 +3930,20 @@ typedef enum PlayerLocationKeyFlag {
     PK_Run=32,
     PK_Commentary=256
 } PlayerLocationKeyFlag;
+
+typedef struct SceneArg_Actor SceneArg_Actor, *PSceneArg_Actor;
+
+typedef struct SceneArg_Animate SceneArg_Animate, *PSceneArg_Animate;
+
+typedef struct MapEntranceOptions MapEntranceOptions, *PMapEntranceOptions;
+
+typedef struct PlayerAnimateArgs PlayerAnimateArgs, *PPlayerAnimateArgs;
+
+typedef enum PlayerAnimArgState {
+    PlayerAnimArgState_Inactive=0,
+    PlayerAnimArgState_Active=1,
+    PlayerAnimArgState_Complete=2
+} PlayerAnimArgState;
 
 struct MapEntrance {
     enum MapId area;
@@ -3921,6 +3976,24 @@ struct StartMenu {
     byte selectedIndex;
     byte cursorTimer;
     struct TilemapEntry tilemapZenny[12];
+};
+
+struct SceneArg_Animate {
+    int waitTimer;
+    int filterAnimId;
+    struct PlayerAnimateArgs *curArgPtr;
+    enum PlayerAnimArgState state;
+};
+
+struct PlayerAnimation {
+    byte animState; /* 0 = motion | 1 = locked | 2 = animating */
+    byte isTalking;
+    byte curMoveIndex;
+    undefined field3_0x3;
+    undefined2 field4_0x4;
+    undefined field5_0x6;
+    undefined field6_0x7;
+    struct PositionXYZ position;
 };
 
 struct ScreenTilemapContainer {
@@ -3959,7 +4032,7 @@ struct World {
     struct FunctionState state;
     union AreaUnion currentArea;
     enum StoryFlag storyFlag;
-    byte m_bx07_fadeType;
+    enum FadeType fadeType;
     byte field4_0x8;
     byte IsBattleTimePaused;
     byte m_bx0a;
@@ -3970,7 +4043,7 @@ struct World {
     enum BattleResultState lastBattleResult;
     bool isShuffleFolder;
     byte m_bx12_commentaryTextIndex;
-    byte m_bx13_fadeStep;
+    byte fadeStep;
     byte statAttack;
     byte statSpeed;
     byte statCharge;
@@ -4050,6 +4123,13 @@ struct MainMenu {
     byte unk13;
     byte unk14;
     byte unk15;
+};
+
+struct PlayerAnimateArgs {
+    byte animationId;
+    byte dx;
+    byte dy;
+    byte time;
 };
 
 struct MapEntranceOptions {
@@ -4195,6 +4275,18 @@ struct Text {
     struct Sprite m_portrait;
 };
 
+struct SceneArg_Actor {
+    struct MapEntranceOptions *entranceOptions;
+    struct Scene *m_px14;
+    void *m_px18;
+    struct Actor *m_px1c_actor;
+};
+
+union SceneArg {
+    struct SceneArg_Actor actorArg;
+    struct SceneArg_Animate animArg;
+};
+
 struct Scene {
     struct FunctionState m_state0;
     byte dialogueIndex;
@@ -4204,14 +4296,11 @@ struct Scene {
     ushort m_delayCounter;
     ushort flag1;
     void *scenePointer;
-    struct MapEntranceOptions *entranceOptions;
-    struct Scene *m_px14;
-    void *m_px18;
-    struct Actor *m_px1c_actor;
-    int field12_0x20;
-    int field13_0x24;
-    int field14_0x28;
-    int field15_0x2c;
+    union SceneArg sceneArg;
+    int field9_0x20;
+    struct PlayerAnimation *pAnim;
+    int field11_0x28;
+    int field12_0x2c;
 };
 
 struct Shop {
@@ -4901,26 +4990,11 @@ struct PETBattery {
     byte b11;
 };
 
-typedef struct PlayerAnimateArgs PlayerAnimateArgs, *PPlayerAnimateArgs;
+typedef struct PlayerAnimateArgsSet PlayerAnimateArgsSet, *PPlayerAnimateArgsSet;
 
-struct PlayerAnimateArgs {
-    byte animationId;
-    byte dx;
-    byte dy;
-    byte time;
-};
-
-typedef struct PlayerAnimation PlayerAnimation, *PPlayerAnimation;
-
-struct PlayerAnimation {
-    byte animState;
-    byte isTalking;
-    byte curMoveIndex;
-    undefined field3_0x3;
-    undefined2 field4_0x4;
-    undefined field5_0x6;
-    undefined field6_0x7;
+struct PlayerAnimateArgsSet {
     struct PositionXYZ position;
+    int state;
 };
 
 typedef enum PlayerFlag_6E {
@@ -4968,6 +5042,16 @@ typedef struct PositionShort PositionShort, *PPositionShort;
 struct PositionShort {
     short x;
     short y;
+};
+
+typedef struct PowerPlant PowerPlant, *PPowerPlant;
+
+struct PowerPlant {
+    int _unused0;
+    byte solutionSelector[8];
+    int switchFlags;
+    byte _unused1[16];
+    byte slots[8][16];
 };
 
 typedef enum QuickEffect {
@@ -5336,12 +5420,16 @@ struct Struct_2000000 {
     byte other2[8];
 };
 
-typedef struct Struct_2002070 Struct_2002070, *PStruct_2002070;
+typedef struct Struct_2003420_Sub Struct_2003420_Sub, *PStruct_2003420_Sub;
 
-struct Struct_2002070 {
-    int ix0;
-    byte i1[8];
-    byte pad0[148];
+struct Struct_2003420_Sub {
+    byte b0; /* Vals: 2, 8 (counter), 4, 0 */
+    byte counter_1;
+    byte b2;
+    byte b3;
+    int i4;
+    int *p8;
+    int *pc;
 };
 
 typedef struct Struct_2A3C_In Struct_2A3C_In, *PStruct_2A3C_In;
@@ -5378,19 +5466,6 @@ struct Struct_807091C {
     byte m_spriteIndex;
     byte m_frameIndex;
     short valC;
-};
-
-typedef struct Struct_85870 Struct_85870, *PStruct_85870;
-
-struct Struct_85870 {
-    byte field0_0x0;
-    byte field1_0x1;
-    enum Flag_Base flagSet;
-    enum Flag_Base flagClear;
-    enum Flag_Base flagSetIfWin;
-    enum Flag_Base flagClearIfWin;
-    enum Flag_Base flagSetIfLose;
-    enum Flag_Base flagClearIfLose;
 };
 
 typedef struct Struct_98E50 Struct_98E50, *PStruct_98E50;
@@ -5563,6 +5638,22 @@ typedef enum TimerControl {
     TIMER_ENABLE=128
 } TimerControl;
 
+typedef struct Traffic Traffic, *PTraffic;
+
+struct Traffic {
+    ushort carTimer;
+    ushort lightTimer;
+    enum FuncState state;
+    byte nextLightIndex;
+    bool isNeutral;
+    byte carReadyState;
+    byte activeCarList[4];
+    undefined field7_0xc;
+    undefined field8_0xd;
+    undefined field9_0xe;
+    undefined field10_0xf;
+};
+
 typedef struct TransferDetail_1799C TransferDetail_1799C, *PTransferDetail_1799C;
 
 struct TransferDetail_1799C {
@@ -5592,6 +5683,15 @@ typedef struct TryChipSelectResult TryChipSelectResult, *PTryChipSelectResult;
 struct TryChipSelectResult {
     byte canBeSelected;
     enum RelationFlag relationToPriorChip;
+};
+
+typedef struct TutorialBattleOptions TutorialBattleOptions, *PTutorialBattleOptions;
+
+struct TutorialBattleOptions {
+    struct EnemySpawn *spawnList;
+    int battleType;
+    struct BattleChip *folder;
+    bool isShuffled;
 };
 
 typedef unsigned short    wchar16;
