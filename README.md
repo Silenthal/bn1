@@ -12,9 +12,11 @@ It uses the following ROM as a base:
 
 Python 3, devkitPro, and make are required. For the Python tools, the pip packages `pypng` and `pycparser` are required and can be installed with `python3 -m pip install -r requirements.txt`.
 
-To build, create a directory called `base`, place the ROM in the directory, and name it `base.gba`.
+To build, run `build.py`. The output GBA file will be put in the `build` directory.
 
-Then, run `build.py`. The output GBA file will be in the `build` directory.
+To build and also check for accuracy against a given game, create a directory called `base`, place the ROM in the directory, and name it `base.gba`. Then, run `build.py check`.
+
+To run the rebuild command (tidy, then build), run `build.py rebuild`.
 
 To clean up all build files, run `build.py clean`. Run `build.py tidy` to only remove built source files and leave built asset files alone. Run `build.py rebuild` to do tidying and building in one step.
 
@@ -22,9 +24,9 @@ To clean up all build files, run `build.py clean`. Run `build.py tidy` to only r
 
 Docker and make are required.
 
-To build, create a directory called `base`, place the ROM in the directory, and name it `base.gba`.
+To build, run `docker compose up --build`. The output GBA file will be put in the `build` directory.
 
-Then, run `docker compose up --build`. The output GBA file will be in the `build` directory.
+To build and also check for accuracy against a given game, create a directory called `base`, place the ROM in the directory, and name it `base.gba`. Then, run `docker compose -f check.yaml up --build`.
 
 To run the rebuild command (tidy, then build), run `docker compose -f rebuild.yaml up --build`.
 

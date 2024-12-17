@@ -65,12 +65,12 @@ LD				:= $(CC)
 
 .PHONY: $(BUILD) pre tidy offsets depend clean check no-check
 
+no-check: $(BUILD)
+
 check: $(BUILD)
 	@$(SHA512SUM) $(BASEDIR)/$(BASE).gba | sed -e 's/$(BASEDIR)\/$(BASE)/$(BUILD)\/$(TARGET)/' >| $(BUILD)/$(TARGET).checksum
 	@$(SHA512SUM) -c $(BUILD)/$(TARGET).checksum || $(QUICK_COMP) $(BASEDIR)/$(BASE).gba $(OUTPUT).gba
 	@$(PROGRESS) $(DEPSDIR)/$(TARGET).map
-
-no-check: $(BUILD)
 
 depend: $(DFILES) $(BUILD)/offsets.h
 	@[ -d $(BUILD) ] || mkdir -p $(BUILD)
@@ -103,15 +103,13 @@ $(OUTPUT).gba: $(OUTPUT).elf
 $(OUTPUT).elf: $(OFILES)
 
 %.gba: %.elf
-	@$(OBJCOPY) -O binary $< $@
+	@$(OBJCOPY) -O binary --gap-fill 0xFF $< $@
 	@echo built ... $(notdir $@)
 	@gbafix -p -t"$(TITLE)" -c$(CODE) -m$(MAKER) -r$(VERSION) $@
 
 %.elf:
 	@echo Linking cartridge
-	@cp -f $(LAYOUT_FILE) $(BUILD)/.
 	@cp -f $(MAIN_LD_SCRIPT) $(BUILD)/.
-	@$(GEN_PAD) $(AS) "$(ASINCLUDE) $(ASFLAGS)" $(BUILD) $(LAYOUT_FILE) $(BASE).gba $(BUILD)/$(GEN_LD_SCRIPT)
 	@$(LD) $(LDINCLUDE) $(LDFLAGS) $(OFILES) -o $@
 
 -include $(BUILD)/*.d

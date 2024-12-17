@@ -9,20 +9,29 @@ import multiprocessing
 def task_clean():
     subprocess.run(["make", "clean"], stdout=sys.stdout, stderr=sys.stderr, check=True)
 
+
 def task_tidy():
     subprocess.run(["make", "tidy"], stdout=sys.stdout, stderr=sys.stderr, check=True)
 
-def task_all():
-    procCount = multiprocessing.cpu_count()
+
+def task_prep():
     Path("build").mkdir(exist_ok=True)
-    checkPath = Path("./base/base.gba")
-    if not checkPath.exists():
-        raise SystemExit("Base file not found. Place base.gba in base folder according to the README.")
     subprocess.run([sys.executable, "./build_assets.py","../source/", "../build/", "../assets/"], cwd="./tools/", stdout=sys.stdout, stderr=sys.stderr, check=True)
     subprocess.run([sys.executable, "./generate_offsets.py", "-o", "../build/offsets.c", "../include/mmbn.h"], cwd="./tools/", stdout=sys.stdout, stderr=sys.stderr, check=True)
     subprocess.run([sys.executable, "./build_maps.py", "../assets/data/maps/"], cwd="./tools/", stdout=sys.stdout, stderr=sys.stderr, check=True)
     subprocess.run(["make", "offsets"], stdout=sys.stdout, stderr=sys.stderr, check=True)
+
+
+def task_all():
+    task_prep()
+    procCount = multiprocessing.cpu_count()
     subprocess.run(["make", f"-j{procCount}"], stdout=sys.stdout, stderr=sys.stderr, check=True)
+
+
+def task_check():
+    task_prep()
+    procCount = multiprocessing.cpu_count()
+    subprocess.run(["make", "check", f"-j{procCount}"], stdout=sys.stdout, stderr=sys.stderr, check=True)
 
 
 def main():
@@ -36,6 +45,8 @@ def main():
     elif args.task == "rebuild":
         task_tidy()
         task_all()
+    elif args.task == "check":
+        task_check()
     else:
         task_all()
 

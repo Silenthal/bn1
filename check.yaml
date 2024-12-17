@@ -1,0 +1,15 @@
+services:
+  build:
+    build:
+      context: .
+    volumes:
+      - type: bind
+        source: build
+        target: /app/build
+      - type: bind
+        source: assets
+        target: /app/assets
+      - type: bind
+        source: base
+        target: /app/base
+    command: python3 build.py check

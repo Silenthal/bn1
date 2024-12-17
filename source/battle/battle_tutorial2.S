@@ -453,6 +453,7 @@ _ts BattleT2_5_1
     mov        r0,#0x0
     strh       r0,[r5,#0x3e]
     push       {r5}
+global_label LAB_080075FE
     bl         BattleUi_LoadCustomGaugeTileMap
     bl         BattleUi_ClearActiveChip
     bl         CustomScreen_LoadUIUpper

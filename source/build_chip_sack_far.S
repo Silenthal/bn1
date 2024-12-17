@@ -163,9 +163,11 @@ LAB_030075c4:
     lsl        r3,r3,#0x10
     orr        r3,r2
     str        r3,[r7,#0x8]
+LAB_030075ea:
     lsl        r3,r4,#0x10
     orr        r3,r2
     str        r3,[r7,#0x0]
+LAB_030075f0:
     ldrh       r3,[r6,#0x6]
     lsl        r3,r3,#0x10
     orr        r3,r2
@@ -187,6 +189,7 @@ LAB_03007604:
     lsl        r3,r3,#0x10
     orr        r3,r2
     str        r3,[r7,#0x4]
+LAB_03007618:
     pop        {r1}
     add        r6,#0x8
     add        r7,#0x20
@@ -216,3 +219,141 @@ PTR_gChipBag_03007638:
 
 PTR_BattleChip_GetChipData_0300763c:
     .word BattleChip_GetChipData
+
+    @@ Everything after here isn't copied to RAM
+    bge        LAB_03007618
+    add        r1,r3,r5
+    lsl        r1,r1,#0x5
+    add        r1,r10
+    mov        r0,sp
+    ldmia      r0!,{r2,r3,r7}
+    stmia      r1!,{r2,r3,r7}
+    ldmia      r0!,{r4,r6,r7}
+    stmia      r1!,{r4,r6,r7}
+    ldmia      r0!,{r2,r3}
+    stmia      r1!,{r2,r3}
+    mov        r2,r12
+    cmp        r2,r8
+    blt        LAB_030075f0
+    add        r0,r5,#0x0
+    mov        r1,#0x3
+    ldr        r5,DAT_0300771c
+    mov        lr,pc
+    bx         r5
+    add        r5,r0,#0x0
+    cmp        r0,#0x0
+    bgt        LAB_030075ea
+    add        sp,#0x24
+    pop        {r0,r7}
+    mov        r10,r0
+    mov        pc,r7
+
+_ts FUN_03007674
+    mov        r7,r10
+    push       {r7,lr}
+    sub        sp,#0x24
+    mov        r10,r0
+    mov        r8,r1
+    mov        r9,r2
+    mov        r5,#0x1
+    cmp        r5,r8
+    bgt        LAB_03007704
+LAB_03007686:
+    lsl        r0,r5,#0x1
+LAB_03007688:
+    add        r0,r0,r5
+    add        r5,r0,#0x1
+    cmp        r5,r8
+    ble        LAB_03007686
+    b          LAB_03007704
+LAB_03007692:
+    add        r2,r0,#0x0
+    cmp        r2,r8
+    bge        LAB_03007704
+LAB_03007698:
+    lsl        r1,r2,#0x5
+    mov        r0,sp
+    add        r1,r10
+    ldmia      r1!,{r3,r4,r6}
+    stmia      r0!,{r3,r4,r6}
+    ldmia      r1!,{r3,r4,r7}
+    stmia      r0!,{r3,r4,r7}
+    ldmia      r1!,{r6,r7}
+    stmia      r0!,{r6,r7}
+    sub        r3,r2,r5
+    add        r2,#0x1
+    mov        r12,r2
+    cmp        r3,#0x0
+    blt        LAB_030076ea
+    mov        r0,r9
+    lsl        r4,r0,#0x2
+    mov        r1,sp
+    add        r0,r4,r1
+    ldr        r0,[r0,#0x0]
+    str        r0,[sp,#0x20]
+LAB_030076c0:
+    lsl        r0,r3,#0x5
+    mov        r6,r10
+    add        r2,r0,r6
+    add        r0,r4,r2
+    ldr        r0,[r0,#0x0]
+    ldr        r7,[sp,#0x20]
+    cmp        r0,r7
+    bge        LAB_030076ea
+    add        r1,r3,r5
+    lsl        r1,r1,#0x5
+    add        r1,r10
+    add        r0,r2,#0x0
+    ldmia      r0!,{r2,r6,r7}
+    stmia      r1!,{r2,r6,r7}
+    ldmia      r0!,{r2,r6,r7}
+    stmia      r1!,{r2,r6,r7}
+    ldmia      r0!,{r2,r6}
+    stmia      r1!,{r2,r6}
+    sub        r3,r3,r5
+    cmp        r3,#0x0
+    bge        LAB_030076c0
+LAB_030076ea:
+    add        r1,r3,r5
+    lsl        r1,r1,#0x5
+    add        r1,r10
+    mov        r0,sp
+    ldmia      r0!,{r2,r3,r7}
+    stmia      r1!,{r2,r3,r7}
+    ldmia      r0!,{r4,r6,r7}
+    stmia      r1!,{r4,r6,r7}
+    ldmia      r0!,{r2,r3}
+    stmia      r1!,{r2,r3}
+    mov        r2,r12
+    cmp        r2,r8
+    blt        LAB_03007698
+LAB_03007704:
+    add        r0,r5,#0x0
+    mov        r1,#0x3
+    ldr        r5,DAT_03007720
+    mov        lr,pc
+    bx         r5
+    add        r5,r0,#0x0
+    cmp        r0,#0x0
+    bgt        LAB_03007692
+    add        sp,#0x24
+    pop        {r0,r7}
+    mov        r10,r0
+    mov        pc,r7
+
+DAT_0300771c:
+    .word 0x8075F99
+
+DAT_03007720:
+    .word 0x8075F99
+    push       {lr}
+    mov        r1,#0x4
+LAB_03007728:
+    mov        r0,#0x7
+LAB_0300772a:
+    bl         FUN_03007738
+    sub        r0,#0x1
+    bpl        LAB_0300772a
+    sub        r1,#0x1
+    bpl        LAB_03007728
+    pop        {pc}
