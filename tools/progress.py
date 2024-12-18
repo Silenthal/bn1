@@ -6,7 +6,7 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser(description="Calculate disassembly progress.")
-    parser.add_argument("-p", "--path", type=str, help="The path to the map file used.")
+    parser.add_argument("-mp", "--map-path", type=str, help="The path to the map file used.")
     args = parser.parse_args()
     inPath = Path(args.path if args.path else "../build/mmbn.map")
     if not inPath.exists():
