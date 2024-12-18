@@ -1221,7 +1221,7 @@ _ts World_SetTransitionLocation
     pop        {pc}
 
 
-_ts FUN_08004944
+_ts World_StartDemo
     push       {lr}
     mov        r7,r10
     ldr        r5,[r7,#0x8]

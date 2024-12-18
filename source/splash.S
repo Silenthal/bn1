@@ -2,8 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-@ Not used - main menu is intialized elsewhere
-_ts InitMainMenu_2
+
+_ts InitSplash
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x34]

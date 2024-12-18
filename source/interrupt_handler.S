@@ -120,7 +120,7 @@ _fts IRQ_VBlank
     pop        { r0 }
     bx         r0
 
-_fts Handler_VCount
+_fts IRQ_VCount
     push       { lr }
     ldr        r0,ptrSoundMain
     mov        lr,pc
@@ -128,9 +128,9 @@ _fts Handler_VCount
     pop        { r0 }
     bx         r0
 ptrSoundMain:    .word Sound_Main
-    .word 0x2006334  @ ???
+    .word 0x2006334
 
-FUN_08180150:
+IRQ_VCountBG1:
     ldr        r0,=REG_VCOUNT
     ldrh       r0,[r0]
     lsrs       r0,r0,#0x3

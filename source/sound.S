@@ -29,7 +29,7 @@ _ts Sound_Init
 initVal:        .word 0x93040D
 regDispStat:    .word REG_DISPSTAT
 ptrIntrVec:     .word interruptVector
-longcall_4169:  .word 0x03006941
+longcall_4169:  .word IRQ_VCount_far
 
 _ts Sound_Main
     push       { lr }

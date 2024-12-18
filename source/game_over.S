@@ -31,17 +31,17 @@ _ts GameOver_Main
     strh       r0,[r7,#0x12]
     pop        { pc }
 jumpTableGameOver:
-    .word GameOver_Init
-    .word GameOver_DelayTillFadeOut
-    .word GameOver_Finish
+    .word GameOver_0_Init
+    .word GameOver_1_Main
+    .word GameOver_2_Free
 
-_ts GameOver_Init
+_ts GameOver_0_Init
     push       { lr }
     push       { r5 }
     bl         Text_DisableDialogue
     mov        r0,#0x6
     bl         Video_SetBgControl
-    bl         Screen_LoadGameOver
+    bl         GameOver_LoadGraphics
     mov        r7,r10
     ldr        r0,[r7,#0x10]
     ldr        r1,PTR_DAT_08020090
@@ -65,7 +65,7 @@ _ts GameOver_Init
     strh       r0,[r5,#0x4]
     pop        { pc }
 
-_ts GameOver_DelayTillFadeOut
+_ts GameOver_1_Main
     push       { lr }
     ldrh       r0,[r5,#0x4]
     sub        r0,#0x1
@@ -82,7 +82,7 @@ _ts GameOver_DelayTillFadeOut
 LAB_08020000:
     pop        { pc }
 
-_ts GameOver_Finish
+_ts GameOver_2_Free
     push       { lr }
     mov        r7,r10
     ldr        r0,[r7,#0x18]
@@ -104,7 +104,7 @@ _ts GameOver_Finish
 LAB_0802002a:
     pop        { pc }
 
-_ts Screen_LoadGameOver
+_ts GameOver_LoadGraphics
     push       { r5, lr }
     bl         Video_InitPaletteColor0
     bl         Video_ClearAllTile0Maps
