@@ -39,7 +39,7 @@ SECTIONS {
 		gShopHpMemoryBuyCount		= 0x330;
 		gShopPowerUpBuyCount		= 0x338;
 		gShopInventory2				= 0x340;
-		eGameStats					= 0x3D0;
+		gGameStats					= 0x3D0;
 		gShopInventory1				= 0x410;
 		gBattleChipInventory		= 0x4A0;
 		gEntityListNpc				= 0x13A0;
@@ -235,6 +235,10 @@ SECTIONS {
 		iwBufferUITextTile		= 0x25E0;
 		iwTilesetSelectedChips	= 0x2FA0;
 		gBattleHandChipIcons	= 0x30E0;
+		gSoundInfo				= 0x4B10;
+		gMPlayJumpTable			= 0x5AC0;
+		gCgbChans				= 0x5B50;
+		SoundMainRAM			= 0x5C50;
 		interruptHandlerStart	= 0x6800;
 		interruptHandlerEnd		= 0x7640;
 		iwSpriteContainerList	= 0x47C0;

@@ -39,7 +39,7 @@ _ts GraphicDataSetup_Internet
     bl         BGDM_Load
     ldr        r0,PTR_BgUpdate_NoMove_08051e04
     ldr        r1,PTR_BgUpdate_MoveUpLeft_08051e08
-    ldr        r2,PTR_dummy_6928_08051e0c
+    ldr        r2,PTR_IRQ_Dummy_08051e0c
     bl         BgUpdate_Set
     pop        {r5}
     push       {r5}
@@ -167,8 +167,8 @@ PTR_BgUpdate_NoMove_08051e04:
 PTR_BgUpdate_MoveUpLeft_08051e08:
     .word BgUpdate_MoveUpLeft
 
-PTR_dummy_6928_08051e0c:
-    .word dummy_6928_far
+PTR_IRQ_Dummy_08051e0c:
+    .word IRQ_Dummy_far
 
 PTR_gDstCompressedSpriteData_08051e10:
     .word gDstCompressedSpriteData

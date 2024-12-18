@@ -840,7 +840,7 @@ CreditsSceneData_0:
     .word EntityAllocParams_8030D50
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word BgTask_8029F14
     .word BgTask_8029F2C
     .word BgTask_8029F8C
@@ -857,7 +857,7 @@ CreditsSceneData_1:
     .word CSD_Entity_1
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word BgTask_80423F8
     .word BgTask_8042418
     .word BgTask_8042448
@@ -876,7 +876,7 @@ CreditsSceneData_2:
     .word EntityAllocParams_8029B18
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word BgTask_School_TilesetBlackboardTriangle
     .word BgTask_School_PaletteBlackboardOn_2
     .word  0xFF
@@ -891,7 +891,7 @@ CreditsSceneData_3:
     .word CSD_Entity_3
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word CSD_Task_3_0
     .word CSD_Task_3_1
     .word BgTask_803ECF8
@@ -909,7 +909,7 @@ CreditsSceneData_4:
     .word EntityAllocParams_8035C18
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word  0xFF
 
 CreditsSceneData_5:
@@ -922,7 +922,7 @@ CreditsSceneData_5:
     .word EntityAllocParams_8031024
     .word BgUpdate_NoMove
     .word BgUpdate_MoveUp
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word BgTask_8044198
     .word  0xFF
 
@@ -936,7 +936,7 @@ CreditsSceneData_6:
     .word EntityAllocParams_8031024
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word  0xFF
 
 CreditsSceneData_7:
@@ -949,7 +949,7 @@ CreditsSceneData_7:
     .word CSD_Entity_7
     .word BgUpdate_NoMove
     .word BgUpdate_MoveUpLeft
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word BgTask_80515C8
     .word BgTask_8051618
     .word BgTask_8051668
@@ -969,7 +969,7 @@ CreditsSceneData_8:
     .word CSD_Entity_8
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word  0xFF
 
 CreditsSceneData_9:
@@ -982,7 +982,7 @@ CreditsSceneData_9:
     .word CSD_Entity_9
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word BgTask_80475A4
     .word BgTask_80475F4
     .word CSD_Task_9_2
@@ -1001,7 +1001,7 @@ CreditsSceneData_10:
     .word CSD_Entity_10
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word BgTask_803BD78
     .word BgTask_803BB84
     .word  0xFF
@@ -1016,7 +1016,7 @@ CreditsSceneData_11:
     .word CSD_Entity_11
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word BgTask_8049C00
     .word BgTask_8049C70
     .word BgTask_8049CE0
@@ -1035,7 +1035,7 @@ CreditsSceneData_12:
     .word CSD_Entity_12
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word BgTask_803D7E4
     .word  0xFF
 
@@ -1049,7 +1049,7 @@ CreditsSceneData_13:
     .word CSD_Entity_13
     .word BgUpdate_NoMove
     .word BgUpdate_NoMove
-    .word dummy_6928_far
+    .word IRQ_Dummy_far
     .word BgTask_ACDC_Lan_Room_Window_Bird
     .word BgTask_ACDC_Lan_Room_Tileset_Computer
     .word  0xFF

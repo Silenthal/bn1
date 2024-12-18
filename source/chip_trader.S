@@ -117,7 +117,7 @@ PTR_tilemapChipTrader_080201bc:
 PTR_gChipBag_080201c0:
     .word gChipBag
 PTR_BuildChipSack_080201c4:
-    far_label BuildChipSack
+    .word BuildChipSack_far
 
 
 _ts ChipTrader_1_Main
@@ -1877,7 +1877,7 @@ PTR_gChipBag_0802105c:
 PTR_textDict_ChipTrader_08021060:
     .word textDict_ChipTrader
 PTR_listDefaultSort_08021064:
-    far_label listDefaultSort
+    .word listDefaultSort_far
 listChipTrader3IsNewChipDraw:
     .byte 0, 0, 0, 0
     .byte 0, 0, 1, 1

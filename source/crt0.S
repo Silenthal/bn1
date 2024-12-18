@@ -119,21 +119,21 @@ iwCodeLen:          .word 0xE40
     .pool
 
 srcInterruptVector:
-    .word Handler_VBlank_far
-    .word dummy_6928_far
-    .word dummy_6928_far
-    .word dummy_6928_far
-    .word dummy_6928_far
-    .word dummy_6928_far
-    .word 0x03007411
-    .word 0x03007411
-    .word dummy_6928_far
-    .word dummy_6928_far
-    .word dummy_6928_far
-    .word dummy_6928_far
-    .word dummy_6928_far
-    .word dummy_6928_far
-    .word dummy_6928_far
+    .word IRQ_VBlank_far
+    .word IRQ_Dummy_far
+    .word IRQ_Dummy_far
+    .word IRQ_Dummy_far
+    .word IRQ_Dummy_far
+    .word IRQ_Dummy_far
+    .word IRQ_TimerSerial_far
+    .word IRQ_TimerSerial_far
+    .word IRQ_Dummy_far
+    .word IRQ_Dummy_far
+    .word IRQ_Dummy_far
+    .word IRQ_Dummy_far
+    .word IRQ_Dummy_far
+    .word IRQ_Dummy_far
+    .word IRQ_Dummy_far
 
 
 _ts InitializeInterruptVectors

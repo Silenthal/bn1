@@ -203,7 +203,7 @@ PTR_PlayerLocation_1_0_Dispatch_080555ac:
 
 PTR_PTR_PlayerLocation_1_0_Dispatch_080555c8:
     .word PTR_PlayerLocation_1_0_Dispatch_080555ac
-    .word eGameStats
+    .word gGameStats
 
 DAT_080555d0:
     .word 0xFFFF

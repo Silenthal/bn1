@@ -39,7 +39,7 @@ _ts GraphicDataSetup_Waterworks_Comp
     bl         BGDM_Load
     ldr        r0,PTR_BgUpdate_NoMove_0804578c
     ldr        r1,PTR_BgUpdate_MoveUp_08045790
-    ldr        r2,PTR_dummy_6928_08045794
+    ldr        r2,PTR_IRQ_Dummy_08045794
     bl         BgUpdate_Set
     pop        {r5}
     ldrb       r0,[r5,#0x5]
@@ -134,8 +134,8 @@ PTR_BgUpdate_NoMove_0804578c:
 PTR_BgUpdate_MoveUp_08045790:
     .word BgUpdate_MoveUp
 
-PTR_dummy_6928_08045794:
-    .word dummy_6928_far
+PTR_IRQ_Dummy_08045794:
+    .word IRQ_Dummy_far
 
 PTR_BgTask_8044880_08045798:
     .word BgTask_8044880

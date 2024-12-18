@@ -44,13 +44,13 @@ _ts GraphicDataSetup_Govt_HP
     bne        LAB_0804f852
     ldr        r0,PTR_BgUpdate_NoMove_0804f894
     ldr        r1,PTR_BgUpdate_MoveUpLeft_0804f898
-    ldr        r2,PTR_dummy_6928_0804f89c
+    ldr        r2,PTR_IRQ_Dummy_0804f89c
     bl         BgUpdate_Set
     b          LAB_0804f85c
 LAB_0804f852:
     ldr        r0,PTR_BgUpdate_NoMove_0804f8a0
     ldr        r1,PTR_BgUpdate_MoveLeft_0804f8a4
-    ldr        r2,PTR_dummy_6928_0804f8a8
+    ldr        r2,PTR_IRQ_Dummy_0804f8a8
     bl         BgUpdate_Set
 LAB_0804f85c:
     pop        {r5}
@@ -93,8 +93,8 @@ PTR_BgUpdate_NoMove_0804f894:
 PTR_BgUpdate_MoveUpLeft_0804f898:
     .word BgUpdate_MoveUpLeft
 
-PTR_dummy_6928_0804f89c:
-    .word dummy_6928_far
+PTR_IRQ_Dummy_0804f89c:
+    .word IRQ_Dummy_far
 
 PTR_BgUpdate_NoMove_0804f8a0:
     .word BgUpdate_NoMove
@@ -102,8 +102,8 @@ PTR_BgUpdate_NoMove_0804f8a0:
 PTR_BgUpdate_MoveLeft_0804f8a4:
     .word BgUpdate_MoveLeft
 
-PTR_dummy_6928_0804f8a8:
-    .word dummy_6928_far
+PTR_IRQ_Dummy_0804f8a8:
+    .word IRQ_Dummy_far
 
 PTR_gDstCompressedSpriteData_0804f8ac:
     .word gDstCompressedSpriteData

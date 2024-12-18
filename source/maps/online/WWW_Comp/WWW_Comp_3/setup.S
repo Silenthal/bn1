@@ -17,7 +17,7 @@ _ts MapSetup_WWW_Comp_3_S5
     bl         BgTask_AddNew
     ldr        r0,DAT_0804daf0
     ldr        r1,DAT_0804daf4
-    ldr        r2,PTR_dummy_6928_0804daf8
+    ldr        r2,PTR_IRQ_Dummy_0804daf8
     bl         BgUpdate_Set
     pop        {r5}
     pop        {pc}
@@ -154,8 +154,8 @@ DAT_0804daf0:
 DAT_0804daf4:
     .word BgUpdate_MoveUp
 
-PTR_dummy_6928_0804daf8:
-    .word dummy_6928_far
+PTR_IRQ_Dummy_0804daf8:
+    .word IRQ_Dummy_far
 
 PTR_PTR_EventHandler_Default_0804dafc:
     .word PTR_EventHandler_Default_0804da14

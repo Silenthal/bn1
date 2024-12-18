@@ -39,7 +39,7 @@ _ts GraphicDataSetup_DenTown_HP
     bl         BGDM_Load
     ldr        r0,PTR_BgUpdate_NoMove_0804fe50
     ldr        r1,PTR_BgUpdate_MoveUpLeft_0804fe54
-    ldr        r2,PTR_dummy_6928_0804fe58
+    ldr        r2,PTR_IRQ_Dummy_0804fe58
     bl         BgUpdate_Set
     pop        {r5}
     push       {r5}
@@ -74,8 +74,8 @@ PTR_BgUpdate_NoMove_0804fe50:
 PTR_BgUpdate_MoveUpLeft_0804fe54:
     .word BgUpdate_MoveUpLeft
 
-PTR_dummy_6928_0804fe58:
-    .word dummy_6928_far
+PTR_IRQ_Dummy_0804fe58:
+    .word IRQ_Dummy_far
 
 PTR_gDstCompressedSpriteData_0804fe5c:
     .word gDstCompressedSpriteData

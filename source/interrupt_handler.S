@@ -104,13 +104,11 @@ afterBranch:
 
     .pool
 
-far_thumb_func_start dummy_6928
-dummy_6928:
+_fts IRQ_Dummy
     bx         lr
     .p2align 2,0
 
-far_thumb_func_start Handler_VBlank
-Handler_VBlank:
+_fts IRQ_VBlank
     ldr        r0,=eFrameCounter
     ldr        r1,[r0]
     adds       r1,#0x1
@@ -122,8 +120,7 @@ Handler_VBlank:
     pop        { r0 }
     bx         r0
 
-far_thumb_func_start Handler_VCount
-Handler_VCount:
+_fts Handler_VCount
     push       { lr }
     ldr        r0,ptrSoundMain
     mov        lr,pc

@@ -545,7 +545,7 @@ PTR_gTextOptionFlags_0801399c:              .word gTextOptionFlags
 PTR_gTextOptionFlags_080139a0:              .word gTextOptionFlags
 PTR_gTextOptionFlags_080139a4:              .word gTextOptionFlags
 PTR_gTextOptionFlags_080139a8:              .word gTextOptionFlags
-PTR_Screen_WriteUIText_1_080139ac:          .word 0x30070e4 + 1 @ Screen_WriteUIText
+PTR_Screen_WriteUIText_1_080139ac:          .word Screen_WriteUIText_far
 
 JT_Command:
     .word JT_Command_E7_End

@@ -8,8 +8,7 @@
 @ In:
 @ r0: spriteListIndex - The index in which to insert the sprite
 @ r5: sprite - The sprite to add
-far_thumb_func_start Oam_AddSprite
-Oam_AddSprite:
+_fts Oam_AddSprite
     push       { lr }
     strb       r0,[r5,#Sprite_indexOamList]
     ldrb       r0,[r5,#Sprite_spriteFlags]
@@ -342,37 +341,37 @@ LAB_03006f42:
     mov        r7,r8
     mov        pc,lr
 
-objMidpointX:
+far_global_label objMidpointX
     .byte -4,  -8, -16, -32
     .byte -8, -16, -16, -32
     .byte -4,  -4,  -8, -16
- objMidpointY:
+far_global_label objMidpointY
     .byte -4,  -8, -16, -32
     .byte -4,  -4,  -8, -16
     .byte -8, -16, -16, -32
-objWidth:
+far_global_label objWidth
     .byte -8,  -16, -32, -64
     .byte -16, -32, -32, -64
     .byte -8,   -8, -16, -32
-objHeight:
+far_global_label objHeight
     .byte -8,  -16, -32, -64
     .byte -8,   -8, -16, -32
     .byte -16, -32, -32, -64
 
 PTR_Oam_AddObject_1_03006fbc:           .word Oam_AddObject + 1
 PTR_gSpriteAffineDataList_03006fc0:     .word gSpriteAffineDataList
-PTR_objMidpointX_03006fc4:              far_label objMidpointX
+PTR_objMidpointX_03006fc4:              .word objMidpointX_far
 PTR_sinTable_03006fc8:                  .word sinTable
-PTR_objMidpointY_03006fcc:              far_label objMidpointY
+PTR_objMidpointY_03006fcc:              .word objMidpointY_far
 PTR_cosTable_03006fd0:                  .word cosTable
-PTR_objWidth_03006fd4:                  far_label objWidth
-PTR_objMidpointX_03006fd8:              far_label objMidpointX
+PTR_objWidth_03006fd4:                  .word objWidth_far
+PTR_objMidpointX_03006fd8:              .word objMidpointX_far
 PTR_cosTable_03006fdc:                  .word cosTable
-PTR_objMidpointY_03006fe0:              far_label objMidpointY
+PTR_objMidpointY_03006fe0:              .word objMidpointY_far
 PTR_sinTable_03006fe4:                  .word sinTable
-PTR_objHeight_03006fe8:                 far_label objHeight
-PTR_objWidth_03006fec:                  far_label objWidth
-PTR_objHeight_03006ff0:                 far_label objHeight
+PTR_objHeight_03006fe8:                 .word objHeight_far
+PTR_objWidth_03006fec:                  .word objWidth_far
+PTR_objHeight_03006ff0:                 .word objHeight_far
 
 far_thumb_func_start Oam_TransferData
 @@ Transfers object data to OAM memory.
@@ -464,7 +463,7 @@ Oam_TransferData:
     @ Initialize all sprite lists
     mov        r2,#0x0
     mvn        r2,r2
-    ldr        r3,=far(SpriteList_ARRAY_03007090)
+    ldr        r3,=SpriteList_ARRAY_03007090_far
     mov        r4,#0x4
 .clear_sprite_lists:
     ldr        r0,[r3,#0x0]
@@ -481,7 +480,7 @@ Oam_TransferData:
     str        r1,[r0,#0x0]
     pop        { pc }
 
-SpriteList_ARRAY_03007090:
+far_global_label SpriteList_ARRAY_03007090
     .word iwSpriteList0, 0x34
     .word iwSpriteList1, 0x34
     .word iwSpriteList2, 0x1A0

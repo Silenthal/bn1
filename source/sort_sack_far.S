@@ -3,7 +3,7 @@
     .include "macros.inc"
 
 
-global_label listDefaultSort
+far_global_label listDefaultSort
     .byte 0x00
     .byte 0x00
     .byte 0x00
@@ -14,8 +14,7 @@ global_label listDefaultSort
     .align 2, 0
 
 
-
-_ts SortSack
+_fts SortSack
     mov        r7,r10
     push       {r7,lr}
     sub        sp,#0x24
@@ -108,7 +107,7 @@ LAB_03007348:
     mov        pc,r7
 
 
-_ts SortSackReverse
+_fts SortSackReverse
     mov        r7,r10
     push       {r7,lr}
     sub        sp,#0x24

@@ -45,6 +45,27 @@
     \name:
     .endm
 
+    .macro _fts label
+    .align 2, 0
+    .global \label\()_far
+    .set \label\()_far, . - ROM_IntrCodeStart + IWRAM_IntrCodeStart + 1
+    .global \label
+    .thumb
+    .thumb_func
+    .type \label, %function
+    \label:
+    .endm
+
+    .macro _fnt label
+    .global \label\()_far
+    .set \label\()_far, . - ROM_IntrCodeStart + IWRAM_IntrCodeStart + 1
+    .global \label
+    .thumb
+    .thumb_func
+    .type \label, %function
+    \label:
+    .endm
+
     .macro LoadStateTo reg, stateOff, regTemp=r7
     mov \regTemp,r10
     ldr \reg,[\regTemp,#\stateOff]

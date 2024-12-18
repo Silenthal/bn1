@@ -6,10 +6,10 @@
 
     .thumb
 
-PTR_ARRAY_030070d8:
-    far_label Screen_PadUITextToEnd
-    far_label Screen_PadUITextToLineEnd
-    far_label Screen_PrintFixedWidthNumber
+far_global_label PTR_ARRAY_030070d8
+    .word Screen_PadUITextToEnd_far
+    .word Screen_PadUITextToLineEnd_far
+    .word Screen_PrintFixedWidthNumber_far
 
 
 @@ Writes UI text to the screen.
@@ -25,8 +25,7 @@ PTR_ARRAY_030070d8:
 @@ r6: byte* srcTextTileBuf
 @@ r7: byte charShade
 
-far_thumb_func_start Screen_WriteUIText
-Screen_WriteUIText:
+_fts Screen_WriteUIText
     pop        { r0 }
     push       { lr }
     mov        r8,r7
@@ -128,8 +127,7 @@ Screen_WriteUIText:
 @@ r2: dstTextTileBuf + 0x40
 @@ r4: r4 + 1
 @@ r5: r5 + 1
-far_thumb_func_start Screen_CopyUITextTile
-Screen_CopyUITextTile:
+_fts Screen_CopyUITextTile
     push       { r0, r6, lr }
     @ set r6 to point to 2-tile char specified by r1
     lsl        r7,r1,#0x6
@@ -158,7 +156,7 @@ Screen_CopyUITextTile:
 
     .align 2, 0
 
-charShade:
+far_global_label charShade
     .word 0x0
     .word 0x33333333
     .word 0x66666666
@@ -178,7 +176,7 @@ charShade:
 @@ r2: dstTextTileBuf + 0x40
 @@ r4: r4 + 1
 @@ r5: r5 + 1
-_ts Screen_PadUITextToEnd
+_fts Screen_PadUITextToEnd
     push       { lr }
     @ Fetch total text length into r1
     mov        r1,r10
@@ -210,7 +208,7 @@ _ts Screen_PadUITextToEnd
 @@ r2: dstTextTileBuf + 0x40
 @@ r4: r4 + 1
 @@ r5: r5 + 1
-_ts Screen_PadUITextToLineEnd
+_fts Screen_PadUITextToLineEnd
     push       { lr }
     @ Fetch text width into r1
     mov        r1,r10
@@ -245,7 +243,7 @@ _ts Screen_PadUITextToLineEnd
 @@ textPointer[2] = the width of the output.
 @@ - If <  0x80, pad right with space if (width - numberWidth)        < 0x40, otherwise 0
 @@ - If >= 0x80, pad left  with space if (width - 0x80 - numberWidth) < 0x40, otherwise 0
-_ts Screen_PrintFixedWidthNumber
+_fts Screen_PrintFixedWidthNumber
     push       { r3, lr }
     push       { r0, r2, r4, r5, r6 }
     ldrb       r1,[r0,#0x1]
@@ -345,11 +343,11 @@ LAB_03007294:
     .align 2, 0
 
 PTR_PTR_ARRAY_0300729c:
-    far_label PTR_ARRAY_030070d8
+    .word PTR_ARRAY_030070d8_far
 PTR_Dma_TransferListAdd_1_030072a0:
     .word Dma_TransferListAdd
 PTR_charShade_030072a4:
-    far_label charShade
+    .word charShade_far
 PTR_ConvertNumToBCD_1_030072a8:
     .word ConvertNumToBCD
 PTR_GetWidthOfBcdNumber_1_030072ac:

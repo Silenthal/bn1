@@ -39,7 +39,7 @@ _ts GraphicDataSetup_Other_Comp
     bl         BGDM_Load
     ldr        r0,PTR_BgUpdate_NoMove_08050478
     ldr        r1,PTR_BgUpdate_MoveUpLeft_0805047c
-    ldr        r2,PTR_dummy_6928_08050480
+    ldr        r2,PTR_IRQ_Dummy_08050480
     bl         BgUpdate_Set
     pop        {r5}
     push       {r5}
@@ -86,8 +86,8 @@ PTR_BgUpdate_NoMove_08050478:
 PTR_BgUpdate_MoveUpLeft_0805047c:
     .word BgUpdate_MoveUpLeft
 
-PTR_dummy_6928_08050480:
-    .word dummy_6928_far
+PTR_IRQ_Dummy_08050480:
+    .word IRQ_Dummy_far
 
 PTR_gDstCompressedSpriteData_08050484:
     .word gDstCompressedSpriteData

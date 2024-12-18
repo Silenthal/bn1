@@ -1800,10 +1800,10 @@ cpuSetControl:
     .word 0x4000100
 
 PTR_gSoundInfo_0809cc04:
-    .word 0x3004B10
+    .word gSoundInfo
 
 PTR_gCgbChans_0809cc08:
-    .word 0x3005B50
+    .word gCgbChans
 
 DAT_0809cc0c:
     .word 0x93D400
@@ -2251,7 +2251,7 @@ soundMagic_9ceec:
     .word 0x68736D53
 
 PTR_gMPlayJumpTable_0809cef0:
-    .word 0x3005AC0
+    .word gMPlayJumpTable
 
 PTR_ply_memacc_0809cef4:
     .word ply_memacc

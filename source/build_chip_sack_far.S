@@ -3,7 +3,7 @@
     .include "macros.inc"
 
 
-_ts BuildChipSack
+_fts BuildChipSack
     push       {r5,lr}
     @@ r6 = current inventory slot
     ldr        r6,PTR_gBattleChipInventory_03007628

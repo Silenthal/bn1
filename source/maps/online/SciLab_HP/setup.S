@@ -39,7 +39,7 @@ _ts GraphicDataSetup_SciLab_HP
     bl         BGDM_Load
     ldr        r0,PTR_BgUpdate_NoMove_0805010c
     ldr        r1,PTR_BgUpdate_MoveRight_08050110
-    ldr        r2,PTR_dummy_6928_08050114
+    ldr        r2,PTR_IRQ_Dummy_08050114
     bl         BgUpdate_Set
     pop        {r5}
     push       {r5}
@@ -74,8 +74,8 @@ PTR_BgUpdate_NoMove_0805010c:
 PTR_BgUpdate_MoveRight_08050110:
     .word BgUpdate_MoveRight
 
-PTR_dummy_6928_08050114:
-    .word dummy_6928_far
+PTR_IRQ_Dummy_08050114:
+    .word IRQ_Dummy_far
 
 PTR_gDstCompressedSpriteData_08050118:
     .word gDstCompressedSpriteData

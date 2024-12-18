@@ -454,7 +454,7 @@ PTR_gSpriteDecompLocation1_0801a234:
 PTR_DAT_0801a238:
     .word 0x6002c00
 PTR_BuildChipSack_0801a23c:
-    far_label BuildChipSack
+    .word BuildChipSack_far
 PTR_gFolder_0801a240:
     .word gFolder
 PTR_gFolder_0801a244:
@@ -2027,8 +2027,8 @@ LAB_0801ad9e:
     pop        {r0}
     pop        {pc}
 PTR_SortSack_0801add0:
-    far_label SortSack
-    far_label SortSackReverse
+    .word SortSack_far
+    .word SortSackReverse_far
 
 
 _ts Menu_Folder_SortFolder
@@ -2405,7 +2405,7 @@ PTR_tilemapFolderBlank_0801b088:
 PTR_tilemapListSideArrow_0801b08c:
     .word tilemapListSideArrow
 PTR_listDefaultSort_0801b090:
-    far_label listDefaultSort
+    .word listDefaultSort_far
 
 
 _ts InitInventoryChecksumFromChipBag

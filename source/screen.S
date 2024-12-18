@@ -255,8 +255,8 @@ _ts LC_Screen_SafeCopyTileMapRect
     .align 2, 0
 
 PTR_Screen_SafeCopyTileMapH_1_080022c8:
-    far_label Screen_SafeCopyTileMapH
+    .word Screen_SafeCopyTileMapH_far
 PTR_Screen_SafeCopyTileMapV_1_080022cc:
-    far_label Screen_SafeCopyTileMapV
+    .word Screen_SafeCopyTileMapV_far
 PTR_Screen_SafeCopyTileMapRect_1_080022d0:
-    far_label Screen_SafeCopyTileMapRect
+    .word Screen_SafeCopyTileMapRect_far

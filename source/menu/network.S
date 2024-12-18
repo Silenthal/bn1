@@ -939,7 +939,7 @@ LAB_0801d380:
     mov        r0,#0x0
     pop        {pc}
 PTR_BuildChipSack_0801d408:
-    far_label BuildChipSack
+    .word BuildChipSack_far
 PTR_textDict_MenuMessages_0801d40c:
     .word textDict_MenuMessages
 PTR_gSpriteDecompLocation1_0801d410:
@@ -1929,7 +1929,7 @@ DAT_0801db4c:
 PTR_tilemapNetworkNoneEntry_0801db50:
     .word tilemapNetworkNoneEntry
 PTR_listDefaultSort_0801db54:
-    far_label listDefaultSort
+    .word listDefaultSort_far
 PTR_PlayerMpState_0801db58:
     .word PlayerMpState_020037d0
 

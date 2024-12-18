@@ -22,7 +22,7 @@ _ts BgUpdate_Init
     ldr        r0,PTR_BgUpdate_NoMove_1_08001cc8
     str        r0,[r5,#0x0]
     str        r0,[r5,#0x8]
-    ldr        r1,PTR_dummy_6928_1_08001ccc
+    ldr        r1,PTR_IRQ_Dummy_1_08001ccc
     ldr        r0,PTR_interruptVector_hblank_08001cd0
     str        r1,[r0,#0x0]
     str        r1,[r5,#0x4]
@@ -160,7 +160,7 @@ PTR_gFuncPtrBgUpdatePostLoop_08001cbc:  .word gFuncPtrBgUpdatePostLoop
 PTR_interruptVector_hblank_08001cc0:    .word interruptVectorHblank
 PTR_gFuncPtrBgUpdatePostLoop_08001cc4:  .word gFuncPtrBgUpdatePostLoop
 PTR_BgUpdate_NoMove_1_08001cc8:              .word BgUpdate_NoMove
-PTR_dummy_6928_1_08001ccc:              .word dummy_6928_far
+PTR_IRQ_Dummy_1_08001ccc:              .word IRQ_Dummy_far
 PTR_interruptVector_hblank_08001cd0:    .word interruptVectorHblank
 PTR_gFuncPtrBgUpdatePostLoop_08001cd4:  .word gFuncPtrBgUpdatePostLoop
 PTR_gFuncPtrBgUpdatePostLoop_08001cd8:  .word gFuncPtrBgUpdatePostLoop

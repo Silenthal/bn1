@@ -3,7 +3,7 @@
     .include "macros.inc"
 
 
-_ts SpriteFrame_LoadTileset
+_fts SpriteFrame_LoadTileset
     push       {r5,lr}
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -106,7 +106,7 @@ LAB_03006ab4:
     .align 2, 0
 
 
-listTilesetOffset:
+far_global_label listTilesetOffset
     .word gSpriteTilesetOffset0
     .word gSpriteTilesetOffset0
     .word gSpriteTilesetOffset0
@@ -212,7 +212,7 @@ _ts SpriteFrame_TilesetTrackerAlloc
 
 
 
-_ts SpritePtr_CalculateOcclusion
+_fts SpritePtr_CalculateOcclusion
     push       {r5,lr}
     ldrb       r6,[r5,#0x0]
     push       {r6}
@@ -484,7 +484,7 @@ LAB_03006d22:
 
 
 PTR_listTilesetOffset_03006d28:
-    far_label listTilesetOffset
+    .word listTilesetOffset_far
 
 PTR_OBJ_VRAM0_03006d2c:
     .word OBJ_VRAM0

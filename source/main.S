@@ -253,10 +253,10 @@ MainState:
     .word gStartMenu
     .word gShop
     .word gMenu
-    .word eGameStats
+    .word gGameStats
     .word gFieldObstacleManager
 
-_ts waitForVBlank
+_ts Main_WaitForVBlank
     push       { lr }
     ldr        r0,dispStat
     mov        r2,#0x1

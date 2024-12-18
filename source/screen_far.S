@@ -12,8 +12,7 @@
 @@ r2: screen: The screen to draw to.
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
-far_thumb_func_start Screen_SafeCopyTileMapH
-Screen_SafeCopyTileMapH:
+_fts Screen_SafeCopyTileMapH
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -44,8 +43,7 @@ LAB_03006992:
 @@ r2: screen: The screen to draw to.
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
-far_thumb_func_start Screen_SafeCopyTileMapV
-Screen_SafeCopyTileMapV:
+_fts Screen_SafeCopyTileMapV
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb
@@ -77,8 +75,7 @@ LAB_030069ba:
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: width: The width of the rectangle.
 @@ r5: height: The height of the rectangle.
-far_thumb_func_start Screen_SafeCopyTileMapRect
-Screen_SafeCopyTileMapRect:
+_fts Screen_SafeCopyTileMapRect
     mov        r6,r10
     ldr        r6,[r6,#0x5c]
     lsl        r2,r2,#0xb

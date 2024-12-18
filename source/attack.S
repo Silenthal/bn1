@@ -314,5 +314,5 @@ DAT_08003814:                           .word 0x85000000
 PTR_gEntityListAttack_08003818:         .word gEntityListAttack
 PTR_gBitsetAttack_0800381c:             .word gBitsetAttack
 PTR_gEntityListAttack_08003820:         .word gEntityListAttack
-PTR_SpriteFrame_LoadTileset_1_08003824: far_label SpriteFrame_LoadTileset
+PTR_SpriteFrame_LoadTileset_1_08003824: .word SpriteFrame_LoadTileset_far
 PTR_gEntityListAttack_08003828:         .word gEntityListAttack

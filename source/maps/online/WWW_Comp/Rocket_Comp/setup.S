@@ -21,7 +21,7 @@ _ts MapSetup_Rocket_Comp_S5
     bl         BgTask_AddNew
     ldr        r0,DAT_0804df48
     ldr        r1,DAT_0804df4c
-    ldr        r2,PTR_dummy_6928_0804df50
+    ldr        r2,PTR_IRQ_Dummy_0804df50
     bl         BgUpdate_Set
     pop        {r5}
     pop        {pc}
@@ -165,8 +165,8 @@ DAT_0804df48:
 DAT_0804df4c:
     .word BgUpdate_MoveLeft
 
-PTR_dummy_6928_0804df50:
-    .word dummy_6928_far
+PTR_IRQ_Dummy_0804df50:
+    .word IRQ_Dummy_far
 
 PTR_PTR_EventHandler_Default_0804df54:
     .word PTR_EventHandler_Default_0804de74
