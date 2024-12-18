@@ -134,7 +134,7 @@ LAB_080695ee:
     strh       r0,[r5,#0xa]
     bl         Battle_DecreaseOpponentCount
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x1
     strb       r0,[r5,#0xf]
     mov        r0,#0x0

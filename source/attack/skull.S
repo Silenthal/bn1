@@ -309,7 +309,7 @@ _ts A_Skull_IsDestroyed
     tst        r0,r0
     beq        LAB_08074f8e
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

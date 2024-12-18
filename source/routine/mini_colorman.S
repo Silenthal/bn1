@@ -114,7 +114,7 @@ _ts R_MiniColorMan_1_Main
     push       {lr}
     bl         SpritePtr_ResetPalette
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
@@ -126,7 +126,7 @@ _ts R_MiniColorMan_1_Main
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     pop        {pc}
 LAB_08063abc:
     bl         R_MiniColorMan_CheckLive
@@ -527,7 +527,7 @@ _nt R_MiniColorMan_CheckLive
     tst        r0,r0
     beq        LAB_08063d88
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

@@ -79,7 +79,7 @@ LAB_08080242:
     mov        r0,#0x1
     strb       r0,[r5,#0xc]
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_08080258:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80

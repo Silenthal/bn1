@@ -75,7 +75,7 @@ _ts R_Mole_0_Init
 _ts R_Mole_1_Main
     push       {lr}
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         R_Mole_CheckDamage
     tst        r0,r0
     bne        LAB_0806f102
@@ -294,7 +294,7 @@ _ts R_Mole_1_4_1_WaitAnim
     push       {r0}
     bl         FieldObject_Disable
     pop        {r0}
-    bl         FieldObject_ClearHitFlag
+    bl         FieldObject_ClearDeletedFlag
 LAB_0806f24e:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
@@ -469,7 +469,7 @@ _nt R_Mole_1_6_1_Wait
     push       {r0}
     bl         FieldObject_Enable
     pop        {r0}
-    bl         FieldObject_ClearHitFlag
+    bl         FieldObject_ClearDeletedFlag
 LAB_0806f38c:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
@@ -605,14 +605,14 @@ LAB_0806f47c:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1
     pop        {pc}
 LAB_0806f494:
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x6f
     bl         Sound_PlaySongImmediate
     mov        r0,#0xec

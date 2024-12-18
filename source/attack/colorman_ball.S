@@ -71,7 +71,7 @@ _nt A_ColorManBall_1_Main
     push       {lr}
     bl         SpritePtr_ResetPalette
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         A_ColorManBall_CheckDamage
     tst        r0,r0
     bne        LAB_08075068
@@ -88,7 +88,7 @@ _nt A_ColorManBall_1_Main
     b          LAB_08075068
 LAB_08075062:
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_08075068:
     ldr        r0,[r5,#0x60]
     bl         FieldObject_UpdateCellPosition
@@ -284,7 +284,7 @@ LAB_080751ce:
     bne        LAB_080751e6
 LAB_080751d8:
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

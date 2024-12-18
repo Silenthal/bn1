@@ -308,7 +308,7 @@ LAB_08072604:
     bne        LAB_0807262e
 LAB_08072616:
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     bl         SpritePtr_SetFlashPalette

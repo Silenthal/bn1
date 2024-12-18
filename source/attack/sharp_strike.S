@@ -43,7 +43,7 @@ LAB_08071944:
     tst        r0,r0
     beq        LAB_0807195a
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_MarkAsBigSquare
+    bl         FieldObject_MarkAsSpread
 LAB_0807195a:
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
@@ -75,7 +75,7 @@ LAB_08071986:
     bl         Field_CreateStrikeEffect
 LAB_08071992:
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     strb       r0,[r5,#0x8]
     pop        {pc}

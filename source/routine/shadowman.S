@@ -138,7 +138,7 @@ LAB_0806b868:
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_0806b87c:
     pop        {pc}
 

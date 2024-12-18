@@ -64,7 +64,7 @@ LAB_08070416:
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     pop        {pc}
 
 
@@ -84,7 +84,7 @@ _ts A_Shotgun_CheckTargetDamage
     tst        r0,r0
     beq        LAB_08070478
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     bl         Battle_CellCoordsToSprite
@@ -102,7 +102,7 @@ _ts A_Shotgun_CheckTargetDamage
     cmp        r0,#0x2
     bhi        LAB_08070470
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_MarkAsBigSquare
+    bl         FieldObject_MarkAsSpread
 LAB_08070470:
     mov        r0,#0x8
     str        r0,[r5,#0x8]

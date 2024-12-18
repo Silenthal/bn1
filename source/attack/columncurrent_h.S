@@ -146,7 +146,7 @@ PTR_DAT_0807545c:
 _ts A_ColumnCurrentH_1
     push       {lr}
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r0,#0x3
     bl         Battle_GetBattleFlagCurrent
     beq        LAB_08075476
@@ -327,7 +327,7 @@ LAB_08075596:
     bic        r0,r1
     strb       r0,[r5,#0x0]
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
     mov        r0,#0x0

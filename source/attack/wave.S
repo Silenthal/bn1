@@ -70,7 +70,7 @@ _nt A_Wave_1_Main
     tst        r0,r0
     beq        LAB_08074406
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     strb       r0,[r5,#0x8]
     mov        r0,#0x0

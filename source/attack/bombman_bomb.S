@@ -113,7 +113,7 @@ LAB_08077916:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     ldrb       r0,[r5,#0xc]
     tst        r0,r0
     bne        LAB_08077950
@@ -275,7 +275,7 @@ _ts A_BombManBomb_1_2_1
     mov        r0,#0x1
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     b          LAB_08077a9a
 LAB_08077a5c:
     mov        r0,#0x8
@@ -343,7 +343,7 @@ LAB_08077ace:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_08077adc:
     pop        {pc}
 
@@ -372,7 +372,7 @@ LAB_08077b04:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     ldrb       r0,[r5,#0xc]
     tst        r0,r0
     bne        LAB_08077b1e
@@ -409,7 +409,7 @@ _ts A_BombManBomb_2_0
     mov        r0,#0x4
     strb       r0,[r5,#0x9]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_ClearHitFlag
+    bl         FieldObject_ClearDeletedFlag
     ldr        r0,[r5,#0x60]
     bl         FieldObject_Disable
     mov        r0,#0x1
@@ -438,7 +438,7 @@ _nt A_BombManBomb_2_2
     bl         Effect_QuickEffect_Create
     pop        {r5}
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_ClearHitFlag
+    bl         FieldObject_ClearDeletedFlag
     ldr        r0,[r5,#0x60]
     bl         FieldObject_Disable
     mov        r0,#0x1

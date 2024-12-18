@@ -1553,7 +1553,7 @@ LAB_08056e4a:
     bl         Battle_DecreaseOpponentCount
     ldr        r0,[r5,#0x74]
     ldr        r0,[r0,#0x44]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0xf
     bl         ActorPlayer_ClearFlag_1

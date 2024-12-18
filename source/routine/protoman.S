@@ -88,7 +88,7 @@ _ts R_ProtoMan_0_Init
 _ts R_ProtoMan_1_Main
     push       {lr}
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r3,#0x64
     ldrb       r0,[r5,r3]
     tst        r0,r0
@@ -1369,7 +1369,7 @@ LAB_0806501a:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     ldr        r0,[r5,#0x68]
     mov        r1,#0x10
     lsl        r1,r1,#0x10

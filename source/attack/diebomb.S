@@ -299,7 +299,7 @@ _nt A_DieBomb_CheckDamage
     bne        LAB_0807298e
 LAB_08072976:
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     bl         SpritePtr_SetFlashPalette

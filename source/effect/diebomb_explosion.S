@@ -135,14 +135,14 @@ _ts E_DieBombExplosion_1_Main
     tst        r0,r0
     beq        LAB_0807de0c
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r0,#0x2
     ldr        r1,[r5,#0x60]
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_0807de0c
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_0807de0c:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
@@ -171,7 +171,7 @@ LAB_0807de38:
     tst        r0,r0
     beq        LAB_0807de48
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_0807de48:
     pop        {pc}
 

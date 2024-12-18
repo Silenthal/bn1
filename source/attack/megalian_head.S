@@ -67,7 +67,7 @@ _nt A_MegalianHead_1_Main
     tst        r0,r0
     bne        LAB_0807670c
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     strb       r0,[r5,#0x8]
     mov        r0,#0x0

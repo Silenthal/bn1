@@ -330,7 +330,7 @@ _nt A_BurnerBomb_CheckDamage
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x14
     strb       r0,[r5,#0x9]
     mov        r0,#0x0

@@ -119,7 +119,7 @@ _nt A_Tornado_1_1
     strh       r0,[r5,#0x1c]
     bne        LAB_08077678
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     pop        {pc}
@@ -153,7 +153,7 @@ _nt A_Tornado_CheckDamage
     bl         Effect_QuickEffect_Create
     pop        {r5}
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

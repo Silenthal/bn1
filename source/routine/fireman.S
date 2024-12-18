@@ -146,7 +146,7 @@ _ts R_FireMan_1_Main
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     ldr        r0,[r5,#0x74]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     pop        {pc}
 LAB_08059d7a:
     bl         Battle_IsInputLocked
@@ -208,7 +208,7 @@ LAB_08059df0:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x74]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
     ldr        r1,[r5,#0x74]
     bl         Field_SetPanelFlagsOnEntity

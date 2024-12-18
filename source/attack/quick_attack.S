@@ -51,7 +51,7 @@ _ts A_QuickAttack_0_Init
 _nt A_QuickAttack_1_Main
     push       {lr}
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
     strh       r0,[r5,#0x1c]
@@ -69,7 +69,7 @@ _nt A_QuickAttack_1_Main
     beq        LAB_080718ca
 LAB_080718c0:
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     strb       r0,[r5,#0x8]
 LAB_080718ca:

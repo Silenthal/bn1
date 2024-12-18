@@ -157,7 +157,7 @@ _ts E_Tower_1_Main
     lsl        r0,r0,#0x19
     bcs        LAB_0807be26
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
 LAB_0807be26:
     bl         Battle_GetEntryState
     cmp        r0,#0x0
@@ -207,7 +207,7 @@ LAB_0807be80:
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_0807be8e:
     ldr        r7,[r5,#0x64]
     ldrb       r0,[r7,#0x2]
@@ -215,7 +215,7 @@ LAB_0807be8e:
     tst        r0,r1
     beq        LAB_0807be9e
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_0807be9e:
     pop        {pc}
 

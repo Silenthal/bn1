@@ -110,7 +110,7 @@ PTR_listSkullManSpec_08062d78:
 _ts R_SkullMan_1_Main
     push       {lr}
     ldr        r0,[r5,#0x70]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     ldr        r0,[r5,#0x68]
     ldr        r1,[r5,#0x6c]
     orr        r0,r1
@@ -131,7 +131,7 @@ LAB_08062d90:
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     ldr        r0,[r5,#0x70]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     pop        {pc}
 LAB_08062db8:
     bl         R_SkullMan_CheckDamage
@@ -956,7 +956,7 @@ LAB_0806336c:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x70]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
     ldr        r1,[r5,#0x70]
     bl         Field_SetPanelFlagsOnEntity

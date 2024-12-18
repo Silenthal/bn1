@@ -128,7 +128,7 @@ PTR_listIceManDamage_08060cc4:
 _ts R_IceMan_1_Main
     push       {lr}
     ldr        r0,[r5,#0x70]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
@@ -141,7 +141,7 @@ _ts R_IceMan_1_Main
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     ldr        r0,[r5,#0x70]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     pop        {pc}
 LAB_08060cf4:
     bl         R_IceMan_CheckDamage
@@ -1196,7 +1196,7 @@ LAB_0806147e:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x70]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
     ldr        r1,[r5,#0x70]
     bl         Field_SetPanelFlagsOnEntity

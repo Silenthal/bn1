@@ -91,7 +91,7 @@ CellPosition_ARRAY_080812d8:
 _ts E_DynamyteExplosion_1_Main
     push       {lr}
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         E_DynamyteExplosion_IsHit
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_E_DynamyteExplosion_1_0_08081300
@@ -168,7 +168,7 @@ _ts E_DynamyteExplosion_IsHit
     tst        r0,r0
     beq        LAB_0808137c
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x1
     pop        {pc}
 LAB_0808137c:

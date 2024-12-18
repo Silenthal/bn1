@@ -78,7 +78,7 @@ _ts R_Canodumb_1_Main
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     pop        {pc}
 LAB_080599b6:
     bl         SpritePtr_ResetPalette
@@ -124,7 +124,7 @@ LAB_080599f8:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_08059a24:
     pop        {pc}
 

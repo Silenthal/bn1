@@ -88,7 +88,7 @@ USHORT_ARRAY_0806d534:
 _nt R_Satella_1_Main
     push       {lr}
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
@@ -105,7 +105,7 @@ _nt R_Satella_1_Main
 
 _ts FUN_0806d560
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     b          LAB_0806d570
 LAB_0806d568:
     bl         R_Satella_CheckDamage
@@ -520,7 +520,7 @@ LAB_0806d836:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

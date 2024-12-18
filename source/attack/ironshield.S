@@ -66,7 +66,7 @@ _ts A_IronShield_0_Init
 _ts A_IronShield_1_Main
     push       {lr}
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         SpritePtr_ResetPalette
     ldr        r7,[r5,#0x60]
     ldrb       r1,[r7,#0x0]
@@ -101,7 +101,7 @@ LAB_08076e9a:
     mov        r0,#0x2
     strb       r0,[r5,#0x14]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0xc
     strb       r0,[r5,#0x9]
     mov        r0,#0x0
@@ -159,7 +159,7 @@ _ts A_IronShield_1_1
     mov        r0,#0x2
     strb       r0,[r5,#0x14]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0xc
     strb       r0,[r5,#0x9]
     mov        r0,#0x0
@@ -192,7 +192,7 @@ _ts A_IronShield_1_2
     mov        r0,#0x2
     strb       r0,[r5,#0x14]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0xc
     strb       r0,[r5,#0x9]
     mov        r0,#0x0

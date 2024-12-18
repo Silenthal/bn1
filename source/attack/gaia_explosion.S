@@ -80,7 +80,7 @@ _ts A_GaiaExplosion_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         A_GaiaExplosion_CheckIfHitSolid
     tst        r0,r0
     bne        LAB_08079caa
@@ -107,7 +107,7 @@ LAB_08079c9e:
     pop        {pc}
 LAB_08079ca4:
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_08079caa:
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -139,7 +139,7 @@ _nt A_GaiaExplosion_CheckIfHitSolid
     tst        r0,r1
     beq        LAB_08079cf2
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

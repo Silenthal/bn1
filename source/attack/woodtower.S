@@ -95,7 +95,7 @@ _ts A_WoodTower_1_Main
     tst        r0,r0
     bne        LAB_0806f8c6
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         Battle_GetEntryState
     cmp        r0,#0x0
     beq        LAB_0806f8c6
@@ -241,7 +241,7 @@ _nt A_WoodTower_1_1
 LAB_0806f9b8:
     pop        {r5}
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_0806f9c0:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1

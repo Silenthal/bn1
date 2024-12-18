@@ -2,9 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
 
-
+@@ Initializes the field object list.
 _ts FieldObject_Init
     mov        r0,#0x0
     ldr        r7,PTR_gBitsetFieldObject_08002c7c
@@ -25,6 +24,7 @@ PTR_gBitsetFieldObject_08002c7c:
     .word gBitsetFieldObject
 
 
+@@ Allocates a field object slot.
 _ts FieldObject_Alloc
     ldr        r7,PTR_gBitsetFieldObject_08002ccc
     ldr        r6,[r7,#0x0]
@@ -73,6 +73,7 @@ PTR_gBitsetFieldObject_08002ccc:
     .word gBitsetFieldObject
 
 
+@@ Frees up a field object slot.
 _ts FieldObject_Free
     ldr        r7,PTR_gBitsetFieldObject_08002ce8
     ldr        r2,[r7,#0x0]
@@ -90,6 +91,8 @@ PTR_gBitsetFieldObject_08002ce8:
     .word gBitsetFieldObject
 
 
+@@ Calculates all damage on a field object from other field objects based on
+@@ their property flags.
 _ts FieldObject_CalcDamage
     push       {lr}
     sub        sp,#0x3c
@@ -130,7 +133,7 @@ LAB_08002d24:
     ldr        r2,[r6,#0xc]
     tst        r0,r2
     beq        LAB_08002d3e
-    @ Check that cur object isn't marked as "hit"
+    @ Check that cur object isn't marked as deleted
     mov        r2,#0x2
     lsl        r2,r2,#0x8
     ldr        r3,[r7,#0xc]
@@ -158,7 +161,7 @@ LAB_08002d3e:
     ldrb       r1,[r6,#0x1]
     ldrb       r2,[r7,#0x2]
     ldrb       r3,[r7,#0x3]
-    bl         Field_IsClose_LeftUpBoundary
+    bl         Field_IsWithinSpreadDistance
     tst        r0,r0
     pop        {r0,r1}
     beq        LAB_08002d9e
@@ -218,6 +221,8 @@ PTR_gListFieldObject_08002dc0:
     .word gListFieldObject
 
 
+@@ Updates the properties of all panels on the field based on existing field
+@@ objects.
 _ts FieldObject_UpdateField
     mov        r8,r0
     mov        r3,#0x28
@@ -298,7 +303,9 @@ PTR_gBitsetFieldObject_08002e60:    .word gBitsetFieldObject
 PTR_gListFieldObject_08002e64:      .word gListFieldObject
 
 
-_ts Field_IsClose_LeftUpBoundary
+@@ Checks if two positions are within one panel horizontally or vertically to
+@@ each other. Used for spread damage distance checks.
+_ts Field_IsWithinSpreadDistance
     add        r0,#0x1
     sub        r0,r0,r2
     cmp        r0,#0x2
@@ -315,6 +322,7 @@ LAB_08002e7e:
     mov        pc,lr
 
 
+@@ Gets the property flags of a panel.
 _ts Field_GetPanelFlags
     ldr        r6,PTR_gPanelStatuses_08002e8c
     lsl        r0,r0,#0x4
@@ -326,6 +334,7 @@ _ts Field_GetPanelFlags
 PTR_gPanelStatuses_08002e8c:    .word gPanelStatuses
 
 
+@@ Gets the ID flag based on a field object's ID.
 _ts FieldObject_GetIdFlag
     mov        r2,#0x80
     lsl        r2,r2,#0x18
@@ -335,6 +344,8 @@ _ts FieldObject_GetIdFlag
     mov        pc,lr
 
 
+@@ Calculates total damage from all sources to another entity based on their
+@@ element.
 _ts Field_CalcDamageDealt
     mov        r8,r5
     ldr        r5,PTR_dmgMultNone_08002ee8
@@ -376,6 +387,8 @@ dmgMultWood:
 PTR_dmgMultNone_08002ee8:   .word dmgMultNone
 
 
+@@ Calculates total damage from all sources to the player based on their
+@@ element.
 _ts Field_CalcDamageTaken
     mov        r8,r5
     ldr        r5,PTR_dmgEffectNone_08002f4c
@@ -433,6 +446,7 @@ dmgEffectWood:
 PTR_dmgEffectNone_08002f4c: .word dmgEffectNone
 
 
+@@ Adds HP to an actor.
 _ts Field_AddHp
     ldrh       r1,[r5,#0x20]
     tst        r1,r1
@@ -448,6 +462,7 @@ LAB_08002f62:
     mov        pc,lr
 
 
+@@ Subtracts HP from an actor.
 _ts Field_SubtractHP
     ldrh       r1,[r5,#0x20]
     sub        r1,r1,r0
@@ -458,6 +473,7 @@ LAB_08002f6c:
     mov        pc,lr
 
 
+@@ Resets the field properties based on a player's side.
 _ts Field_InitializeAreaProperties
     ldr        r6,PTR_areaPropertiesLeftPlayer_08002fec
     mov        r7,r10
@@ -500,7 +516,7 @@ PTR_areaPropertiesLeftPlayer_08002fec:  .word areaPropertiesLeftPlayer
 PTR_areaPropertiesRightPlayer_08002ff0: .word areaPropertiesRightPlayer
 
 
-@@ Marks the field object as being able to deal damage
+@@ Marks the field object as being active.
 _nt FieldObject_Enable
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x2
@@ -509,7 +525,7 @@ _nt FieldObject_Enable
     mov        pc,lr
 
 
-@@ Marks the field object so that it can't deal damage
+@@ Marks the field object as being inactive.
 _nt FieldObject_Disable
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x2
@@ -518,7 +534,8 @@ _nt FieldObject_Disable
     mov        pc,lr
 
 
-_nt FieldObject_SetHitFlag
+@@ Sets the deleted flag on a field object.
+_nt FieldObject_SetDeletedFlag
     ldr        r1,[r0,#0xc]
     mov        r2,#0x20
     lsl        r2,r2,#0x4
@@ -527,7 +544,8 @@ _nt FieldObject_SetHitFlag
     mov        pc,lr
 
 
-_nt FieldObject_ClearHitFlag
+@@ Clears the deleted flag from a field object.
+_nt FieldObject_ClearDeletedFlag
     ldr        r1,[r0,#0xc]
     mov        r2,#0x20
     lsl        r2,r2,#0x4
@@ -536,7 +554,8 @@ _nt FieldObject_ClearHitFlag
     mov        pc,lr
 
 
-_ts FieldObject_DisableIfHitFlagSet
+@@ Disables a field object if the deleted flag is set.
+_ts FieldObject_DisableIfDeleted
     push       {lr}
     ldr        r1,[r0,#0xc]
     mov        r2,#0x20
@@ -550,17 +569,20 @@ LAB_08003034:
     pop        {pc}
 
 
+@@ Sets the property of a given panel.
 _nt Field_SetPanelProperty
-    ldr        r7,PTR_gAreaProperties_08003040
+    ldr        r7,=gAreaProperties
     lsl        r1,r1,#0x3
     add        r0,r0,r1
     strb       r2,[r7,r0]
     mov        pc,lr
-PTR_gAreaProperties_08003040:   .word gAreaProperties
+
+    .pool
 
 
+@@ Gets the property of a given panel.
 _ts Field_GetPanelProperty
-    ldr        r7,PTR_gAreaProperties_08003050
+    ldr        r7,=gAreaProperties
     lsl        r1,r1,#0x3
     add        r0,r0,r1
     ldrb       r2,[r7,r0]
@@ -568,9 +590,10 @@ _ts Field_GetPanelProperty
 
     .align 2, 0
 
-PTR_gAreaProperties_08003050:   .word gAreaProperties
+    .pool
 
 
+@@ Updates the position of a field object to match the parent actor.
 _ts FieldObject_UpdateCellPosition
     ldrh       r1,[r0,#0x2]
     strh       r1,[r0,#0x4]
@@ -590,6 +613,7 @@ _nt FieldObject_MarkAsChecked
     mov        pc,lr
 
 
+@@ Sets a given panel flag on a field object.
 _nt FieldObject_SetPanelFlag
     ldr        r2,[r0,#0xc]
     orr        r2,r1
@@ -597,6 +621,7 @@ _nt FieldObject_SetPanelFlag
     mov        pc,lr
 
 
+@@ Clears a given panel flag on a field object.
 _nt FieldObject_ClearPanelFlag
     ldr        r2,[r0,#0xc]
     bic        r2,r1
@@ -604,7 +629,8 @@ _nt FieldObject_ClearPanelFlag
     mov        pc,lr
 
 
-_nt FieldObject_MarkAsBigSquare
+@@ Marks a field object as spread, making it affect all surrounding panesl.
+_nt FieldObject_MarkAsSpread
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x8
     orr        r1,r2

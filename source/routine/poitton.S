@@ -81,7 +81,7 @@ _ts R_Poitton_0_Init
 _ts R_Poitton_1_Main
     push       {lr}
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         R_Poitton_CheckDamage
     tst        r0,r0
     bne        LAB_0806b2a6
@@ -755,7 +755,7 @@ LAB_0806b734:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

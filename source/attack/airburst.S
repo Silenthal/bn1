@@ -72,7 +72,7 @@ _nt A_AirBurst_1_Main
     tst        r1,r0
     beq        LAB_08079b0e
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     strh       r0,[r5,#0x8]
     mov        r0,#0x0

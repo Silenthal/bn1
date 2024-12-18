@@ -155,7 +155,7 @@ _ts A_Shockwave_1_Main
     tst        r0,r0
     beq        LAB_0807094a
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         A_Shockwave_CheckTargetDamage
 LAB_0807094a:
     ldrb       r0,[r5,#0x9]
@@ -268,7 +268,7 @@ _nt A_Shockwave_CheckTargetDamage
     mov        r3,#0x0
     bl         Field_CreateStrikeEffect
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x1
     pop        {pc}
 LAB_08070a12:

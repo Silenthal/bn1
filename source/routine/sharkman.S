@@ -153,7 +153,7 @@ _ts R_SharkMan_1_Main
     push       {lr}
     bl         SpritePtr_ResetPalette
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r0,#0xc
     mov        r3,#0x60
     ldrb       r1,[r5,r3]
@@ -1105,7 +1105,7 @@ LAB_08066048:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

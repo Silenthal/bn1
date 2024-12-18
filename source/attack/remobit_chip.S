@@ -133,7 +133,7 @@ _ts A_RemobitC_1_0
     tst        r0,r1
     bne        LAB_080770be
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     pop        {pc}
@@ -299,7 +299,7 @@ _ts A_RemobitC_CheckDamage
     bne        LAB_08077204
 LAB_080771e4:
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     ldr        r7,[r5,#0x5c]
     tst        r7,r7
     beq        LAB_080771fc

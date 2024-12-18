@@ -293,7 +293,7 @@ _ts A_Mine_1_1_0
     mov        r0,#0x4
     strb       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_080759a8:
     pop        {pc}
 

@@ -64,7 +64,7 @@ _ts A_Cloudy_0_Init
 _ts A_Cloudy_1_Main
     push       {lr}
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         Battle_IsInputLocked
     bne        LAB_08073342
     ldrb       r0,[r5,#0x4]
@@ -75,7 +75,7 @@ _ts A_Cloudy_1_Main
     beq        LAB_0807334e
 LAB_08073342:
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     pop        {pc}
@@ -92,7 +92,7 @@ LAB_0807334e:
     tst        r0,r0
     beq        LAB_08073378
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x19
     mov        r3,#0x10
     lsl        r3,r3,#0x10

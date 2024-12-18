@@ -104,7 +104,7 @@ LAB_08078df6:
     bne        LAB_08078e2a
 LAB_08078e1e:
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     b          LAB_08078e3c
@@ -204,7 +204,7 @@ LAB_08078eda:
     mov        r0,#0x8
     strh       r0,[r5,#0x1c]
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0xc
     str        r0,[r5,#0x8]
     pop        {pc}
@@ -416,7 +416,7 @@ LAB_0807905a:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

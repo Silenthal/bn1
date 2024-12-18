@@ -138,7 +138,7 @@ _ts A_Buster_IsContact
     ldr        r3,[r5,#0x30]
     bl         Field_CreateBusterEffect
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

@@ -78,7 +78,7 @@ LAB_080772c6:
 _ts A_BodyBurn_1_Main
     push       {lr}
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         A_BodyBurn_CheckDamage
@@ -183,7 +183,7 @@ _ts A_BodyBurn_CheckDamage
     tst        r0,r0
     beq        LAB_080773a4
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x19
     mov        r3,#0x10
     lsl        r3,r3,#0x10

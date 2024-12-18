@@ -162,7 +162,7 @@ LAB_08074652:
     tst        r0,r0
     bne        LAB_08074694
     add        r0,r7,#0x0
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x76
     bl         Sound_PlaySongImmediate
     push       {r5}
@@ -202,7 +202,7 @@ _ts A_Ratton_1_0_MoveX
     tst        r0,r0
     beq        LAB_080746dc
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x76
     bl         Sound_PlaySongImmediate
     push       {r5}
@@ -276,7 +276,7 @@ _ts A_Ratton_1_1_MoveY
     tst        r0,r0
     beq        LAB_0807476c
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x76
     bl         Sound_PlaySongImmediate
     push       {r5}

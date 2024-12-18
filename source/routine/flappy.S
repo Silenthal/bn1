@@ -101,7 +101,7 @@ PTR_FlappyParam_ARRAY_0805e418:
 _ts R_Flappy_1_Main
     push       {lr}
     ldr        r0,[r5,#0x70]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         R_Flappy_CheckLive
     tst        r0,r0
     bne        LAB_0805e436
@@ -744,7 +744,7 @@ LAB_0805e8ca:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x70]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

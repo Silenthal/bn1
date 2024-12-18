@@ -296,7 +296,7 @@ LAB_08074c42:
     bne        LAB_08074c60
 LAB_08074c52:
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

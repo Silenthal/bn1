@@ -274,7 +274,7 @@ LAB_08071f66:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
     add        r0,r7,#0x0
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
 LAB_08071f8c:
     pop        {pc}
 
@@ -568,7 +568,7 @@ _ts A_Seed_1_3_3
     beq        LAB_08072194
 LAB_08072186:
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     strh       r0,[r5,#0x8]
     mov        r0,#0x0

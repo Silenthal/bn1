@@ -171,7 +171,7 @@ LAB_08071ce6:
     stmia      r7!,{r0,r1,r2}
     ldr        r0,[r5,#0x60]
     bl         FieldObject_Enable
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     strb       r0,[r5,#0x8]
     pop        {pc}

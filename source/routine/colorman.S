@@ -110,7 +110,7 @@ PTR_DAT_0806348c:
 _ts R_ColorMan_1_Main
     push       {lr}
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
@@ -123,7 +123,7 @@ _ts R_ColorMan_1_Main
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     pop        {pc}
 LAB_080634bc:
     mov        r0,#0x1
@@ -763,7 +763,7 @@ LAB_0806392e:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
     ldr        r1,[r5,#0x6c]
     bl         Field_SetPanelFlagsOnEntity

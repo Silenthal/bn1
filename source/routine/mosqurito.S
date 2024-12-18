@@ -105,7 +105,7 @@ _ts R_Mosqurito_1_Main
     push       {lr}
     bl         SpritePtr_ResetPalette
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     ldr        r7,[r5,#0x6c]
     ldr        r0,[r7,#0x10]
     bl         FieldObject_UpdateField
@@ -402,7 +402,7 @@ LAB_08069010:
     mov        r3,#0x60
     strb       r0,[r5,r3]
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x14
     strb       r0,[r5,#0x9]
     mov        r0,#0x0
@@ -663,7 +663,7 @@ LAB_0806920c:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

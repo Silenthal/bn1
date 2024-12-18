@@ -352,7 +352,7 @@ _ts A_Tower_CheckTargetDamage
     tst        r0,r0
     beq        LAB_08070f94
     ldr        r0,[r5,#0x6c]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x19
     mov        r3,#0x10
     lsl        r3,r3,#0x10

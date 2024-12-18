@@ -86,7 +86,7 @@ _ts R_HardHead_0_Init
 _ts R_HardHead_1_Main
     push       {lr}
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
@@ -100,7 +100,7 @@ _ts R_HardHead_1_Main
     str        r0,[r5,#0x8]
     pop        {pc}
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     b          LAB_0805c8d0
 LAB_0805c86a:
     bl         Battle_IsInputLocked
@@ -137,7 +137,7 @@ LAB_0805c8b0:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x0
     strh       r0,[r5,#0x20]
     mov        r0,#0x8

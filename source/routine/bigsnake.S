@@ -84,7 +84,7 @@ _ts R_BigSnake_0_Init
 _ts R_BigSnake_1_Main
     push       {lr}
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     mov        r0,#0x1
     bl         Battle_GetBattleFlagBuffer
     tst        r0,r0
@@ -742,7 +742,7 @@ LAB_0806c330:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

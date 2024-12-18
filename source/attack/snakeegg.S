@@ -123,7 +123,7 @@ _ts A_SnakeEgg_1_Main
     tst        r0,r1
     bne        LAB_0807977a
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     b          LAB_0807978c
@@ -504,7 +504,7 @@ _ts A_SnakeEgg_CheckDamage
     bne        LAB_08079a34
 LAB_08079a26:
     ldr        r0,[r5,#0x64]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

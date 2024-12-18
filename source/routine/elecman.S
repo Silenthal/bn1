@@ -111,7 +111,7 @@ PTR_listElecManSpec_08063eac:
 _ts R_ElecMan_1_Main
     push       {lr}
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_DisableIfHitFlagSet
+    bl         FieldObject_DisableIfDeleted
     bl         R_ElecMan_CheckDamage
     tst        r0,r0
     bne        LAB_08063eca
@@ -1170,7 +1170,7 @@ LAB_0806461e:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x68]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
     ldr        r1,[r5,#0x68]
     bl         Field_SetPanelFlagsOnEntity

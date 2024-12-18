@@ -78,7 +78,7 @@ _nt A_Thunder_1_Main
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     b          LAB_08075eec
 LAB_08075ec2:
     ldrb       r0,[r5,#0x4]

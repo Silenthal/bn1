@@ -106,7 +106,7 @@ _ts A_Candle_1_Main
     tst        r0,r1
     bne        LAB_08076c4a
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     b          LAB_08076c5c
@@ -150,7 +150,7 @@ _ts A_Candle_1_0_CheckPlacement
     tst        r0,r1
     bne        LAB_08076c9a
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     pop        {pc}
@@ -284,7 +284,7 @@ LAB_08076d8e:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

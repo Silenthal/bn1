@@ -105,8 +105,8 @@ PTR_listPopperParams_08062960:
 _ts R_Popper_1_Main
     push       {lr}
     ldr        r0,[r5,#0x74]
-    bl         FieldObject_DisableIfHitFlagSet
-    bl         FUN_08062c50
+    bl         FieldObject_DisableIfDeleted
+    bl         R_Popper_CheckDamage
     tst        r0,r0
     bne        LAB_0806297e
     ldrb       r0,[r5,#0x9]
@@ -455,7 +455,7 @@ LAB_08062bd0:
     bmi        LAB_08062bea
     str        r1,[r5,#0x30]
     ldr        r0,[r5,#0x74]
-    bl         FieldObject_ClearHitFlag
+    bl         FieldObject_ClearDeletedFlag
     mov        r0,#0xc
     strb       r0,[r5,#0x9]
     mov        r0,#0x0
@@ -520,7 +520,7 @@ LAB_08062c4e:
     pop        {pc}
 
 
-_ts FUN_08062c50
+_ts R_Popper_CheckDamage
     push       {lr}
     bl         Battle_IsInputLocked
     bne        LAB_08062cb4
@@ -553,7 +553,7 @@ LAB_08062c92:
     mov        r0,#0x70
     bl         Sound_PlaySongImmediate
     ldr        r0,[r5,#0x74]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

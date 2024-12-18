@@ -86,7 +86,7 @@ LAB_08072a5e:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     ldrb       r0,[r5,#0xc]
     tst        r0,r0
     beq        LAB_08072b28
@@ -113,9 +113,9 @@ LAB_08072a78:
     mov        r0,#0x1
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_MarkAsBigSquare
+    bl         FieldObject_MarkAsSpread
     b          LAB_08072b28
 LAB_08072ab2:
     ldr        r6,[r5,#0x60]
@@ -166,9 +166,9 @@ LAB_08072b0e:
     mov        r0,#0x1
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_MarkAsBigSquare
+    bl         FieldObject_MarkAsSpread
 LAB_08072b28:
     pop        {pc}
 
@@ -289,7 +289,7 @@ _ts A_PuffyBubble_1_1_1
     mov        r0,#0x1
     strh       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
-    bl         FieldObject_SetHitFlag
+    bl         FieldObject_SetDeletedFlag
     b          LAB_08072c3a
 LAB_08072c06:
     mov        r0,#0x0
