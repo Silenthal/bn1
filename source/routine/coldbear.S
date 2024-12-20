@@ -627,7 +627,7 @@ _nt R_ColdBear_1_5_1_Next
 LAB_08061990:
     push       {r5}
     ldr        r0,PTR_s__PANEL_RETURN_080619b0
-    bl         PrintDebugString
+    bl         Debug_Print
     pop        {r5}
     pop        {pc}
 

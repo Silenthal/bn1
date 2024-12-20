@@ -962,7 +962,7 @@ _ts dummy_2970
     ldr        r0,PTR_DAT_080029b4
     @ Passing the address of format text at 0x2980, and the pointer to the
     @ next available decompressed sprite block to a dummy function
-    bl         PrintDebugString
+    bl         Debug_Print
     pop        { r5, pc }
     .align 2, 0
 

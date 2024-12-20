@@ -16,7 +16,7 @@ _ts PlayerLocation_Handler
     mov        r7,r10
     ldr        r7,[r7,#0x78]
     ldr        r1,[r7,#0x24]
-    bl         PrintDebugString
+    bl         Debug_Print
     pop        {r5}
     pop        {pc}
 
@@ -1440,7 +1440,7 @@ _ts FUN_08055fe0
     ldr        r4,[r5,#0x58]
     mov        r6,#0x6a
     ldrb       r5,[r5,r6]
-    bl         PrintDebugString
+    bl         Debug_Print
     pop        {r5}
     pop        {pc}
 

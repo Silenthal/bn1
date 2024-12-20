@@ -2,7 +2,7 @@
     .include "constants.inc"
     .include "macros.inc"
 
-_ts FUN_08003cb0
+_ts InitPrint
     push       {lr}
     ldr        r0,PTR_DAT_08003fcc
     ldr        r1,DAT_08003fd0
@@ -13,12 +13,12 @@ _ts FUN_08003cb0
     pop        {pc}
 
 
-_ts PrintDebugString
+_ts Debug_Print
     push       {lr}
     pop        {pc}
 
 
-_ts FUN_08003cc8
+_ts Print_Main
     push       {r1,r2,r3,r4,r5,r6,r7}
     ldr        r5,PTR_DAT_08003fdc
     mov        r6,#0x1c
@@ -79,7 +79,7 @@ LAB_08003d2e:
     ldr        r4,PTR_DAT_08003fe8
     sub        r3,r3,r4
     lsl        r3,r3,#0x2
-    ldr        r4,PTR_PTR_FUN_08003dc8_1_08003fec
+    ldr        r4,PTR_PTR_Print_Base10_1_08003fec
     add        r4,r4,r3
     ldr        r4,[r4,#0x0]
     lsr        r3,r3,#0x2
@@ -115,29 +115,29 @@ LAB_08003d5e:
 PTR_formatString:
     .asciz "DdXxSs%0123456789Bb"
 
-PTR_FUN_08003dc8_1_08003d7c:
-    .word FUN_08003dc8
-    .word FUN_08003dc8
-    .word FUN_08003e18
-    .word FUN_08003e18
-    .word FUN_08003ec0
-    .word FUN_08003ec0
-    .word FUN_08003f0c
-    .word FUN_08003ef0
-    .word FUN_08003ef0
-    .word FUN_08003ef0
-    .word FUN_08003ef0
-    .word FUN_08003ef0
-    .word FUN_08003ef0
-    .word FUN_08003ef0
-    .word FUN_08003ef0
-    .word FUN_08003ef0
-    .word FUN_08003ef0
-    .word FUN_08003f64
-    .word FUN_08003f64
+PTR_Print_Base10_1_08003d7c:
+    .word Print_Base10 @ %D
+    .word Print_Base10 @ 
+    .word Print_Base16
+    .word Print_Base16
+    .word Print_StringCopy
+    .word Print_StringCopy
+    .word Print_Percent
+    .word Print_Register
+    .word Print_Register
+    .word Print_Register
+    .word Print_Register
+    .word Print_Register
+    .word Print_Register
+    .word Print_Register
+    .word Print_Register
+    .word Print_Register
+    .word Print_Register
+    .word Print_Base2
+    .word Print_Base2
 
 
-_ts FUN_08003dc8
+_ts Print_Base10
     push       {r0,r5,r6,r7,lr}
     cmp        r2,#0x0
     bge        LAB_08003de2
@@ -154,30 +154,38 @@ _ts FUN_08003dc8
 LAB_08003de2:
     ldr        r0,PTR_DAT_08003ff8
     mov        r6,#0xa
-    bl         FUN_08003e48
+    bl         Print_BaseCustom
 LAB_08003dea:
     mov        r4,#0x1
     pop        {r0,r5,r6,r7,pc}
 
     .align 2, 0
 
-DAT_08003df0:
-    .byte 0x00, 0xCA, 0x9A, 0x3B, 0x00, 0xE1, 0xF5, 0x05
-    .byte 0x80, 0x96, 0x98, 0x00, 0x40, 0x42, 0x0F, 0x00
-    .byte 0xA0, 0x86, 0x01, 0x00, 0x10, 0x27, 0x00, 0x00
-    .byte 0xE8, 0x03, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00
-    .byte 0x0A, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
+listPowers10:
+    .word 1000000000
+    .word 100000000
+    .word 10000000
+    .word 1000000
+    .word 100000
+    .word 10000
+    .word 1000
+    .word 100
+    .word 10
+    .word 1
 
 
-_ts FUN_08003e18
+_ts Print_Base16
     push       {r0,r5,r6,r7,lr}
     sub        r3,#0x2
     ldr        r0,PTR_INT_08003ffc
     mov        r6,#0x8
-    bl         FUN_08003e48
+    bl         Print_BaseCustom
     mov        r4,#0x1
     pop        {r0,r5,r6,r7,pc}
-INT_08003e28:
+
+    .align 2, 0
+
+listPowers16:
     .word 0x10000000
     .word 0x1000000
     .word 0x100000
@@ -188,7 +196,7 @@ INT_08003e28:
     .word 0x1
 
 
-_ts FUN_08003e48
+_ts Print_BaseCustom
     mov        r7,r8
     cmp        r7,#0x0
     beq        LAB_08003e52
@@ -237,7 +245,7 @@ LAB_08003e90:
     orr        r7,r6
     cmp        r1,r5
     bge        LAB_08003eac
-    ldr        r6,PTR_hexChars_08004000
+    ldr        r6,PTR_strBaseChars_08004000
     add        r6,r6,r3
     ldrb       r3,[r6,#0x0]
     sub        r3,#0x20
@@ -250,11 +258,12 @@ LAB_08003ea6:
     bne        LAB_08003e5a
 LAB_08003eac:
     mov        pc,lr
-hexChars:
+
+strBaseChars:
     .asciz "0123456789ABCDEF"
 
 
-_ts FUN_08003ec0
+_ts Print_StringCopy
     push       {r0,r5,r6,r7,lr}
     mov        r7,r8
     cmp        r7,#0x0
@@ -282,7 +291,7 @@ LAB_08003eea:
     pop        {r0,r5,r6,r7,pc}
 
 
-_ts FUN_08003ef0
+_ts Print_Register
     push       {r2}
     add        r6,#0x4
     mov        r3,#0x0
@@ -300,7 +309,7 @@ LAB_08003ef8:
     mov        pc,lr
 
 
-_ts FUN_08003f0c
+_ts Print_Percent
     push       {r2}
     add        r6,#0x4
     mov        r3,#0x5
@@ -310,7 +319,7 @@ _ts FUN_08003f0c
     mov        pc,lr
 
 
-_ts FUN_08003f1c
+_ts Print_DrawText
     push       {lr}
     ldr        r4,PTR_DAT_08004004
     ldr        r7,DAT_08004008
@@ -351,16 +360,16 @@ LAB_08003f5a:
     pop        {pc}
 
 
-_ts FUN_08003f64
+_ts Print_Base2
     push       {r0,r5,r6,r7,lr}
     sub        r3,#0x11
     mov        r6,#0x20
-    bl         FUN_08003f74
+    bl         Print_Base2_Core
     mov        r4,#0x1
     pop        {r0,r5,r6,r7,pc}
 
 
-_ts FUN_08003f74
+_ts Print_Base2_Core
     mov        r7,r8
     cmp        r7,#0x0
     beq        LAB_08003f7e
@@ -401,7 +410,7 @@ LAB_08003fae:
     orr        r7,r6
     cmp        r1,r5
     bge        LAB_08003fca
-    ldr        r6,PTR_hexChars_0800401c
+    ldr        r6,PTR_strBaseChars_0800401c
     add        r6,r6,r3
     ldrb       r3,[r6,#0x0]
     sub        r3,#0x20
@@ -418,44 +427,44 @@ LAB_08003fca:
     .align 2, 0
 
 PTR_DAT_08003fcc:
-    .word 0x2002318
+    .word gPrintBufferStart
 DAT_08003fd0:
-    .word  0x400
+    .word 0x400 @ gPrintBufferEnd - gPrintBufferStart + 2
 PTR_DAT_08003fd4:
-    .word 0x2002718
+    .word gPrintBufferCur
 PTR_DAT_08003fd8:
-    .word 0x2002318
+    .word gPrintBufferStart
 PTR_DAT_08003fdc:
-    .word 0x2002716
+    .word gPrintBufferEnd
 PTR_DAT_08003fe0:
-    .word 0x2002718
+    .word gPrintBufferCur
 PTR_DAT_08003fe4:
     .word PTR_formatString
 PTR_DAT_08003fe8:
     .word PTR_formatString
-PTR_PTR_FUN_08003dc8_1_08003fec:
-    .word PTR_FUN_08003dc8_1_08003d7c
+PTR_PTR_Print_Base10_1_08003fec:
+    .word PTR_Print_Base10_1_08003d7c
 PTR_DAT_08003ff0:
-    .word 0x2002718
+    .word gPrintBufferCur
 DAT_08003ff4:
-    .word  0xFFFFFFFF
+    .word 0xFFFFFFFF
 PTR_DAT_08003ff8:
-    .word DAT_08003df0
+    .word listPowers10
 PTR_INT_08003ffc:
-    .word INT_08003e28
-PTR_hexChars_08004000:
-    .word hexChars
+    .word listPowers16
+PTR_strBaseChars_08004000:
+    .word strBaseChars
 PTR_DAT_08004004:
-    .word 0x2002318
+    .word gPrintBufferStart
 DAT_08004008:
-    .word  0xF200
+    .word 0xF200
 PTR_DAT_0800400c:
-    .word 0x2002718
+    .word gPrintBufferCur
 PTR_DAT_08004010:
-    .word 0x2002718
+    .word gPrintBufferCur
 PTR_DAT_08004014:
-    .word 0x2002318
+    .word gPrintBufferStart
 DAT_08004018:
-    .word  0x80000000
-PTR_hexChars_0800401c:
-    .word hexChars
+    .word 0x80000000
+PTR_strBaseChars_0800401c:
+    .word strBaseChars

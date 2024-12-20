@@ -50,6 +50,9 @@ SECTIONS {
 		gShopInventory6				= 0x2160;
 		gShopInventory3				= 0x21F0;
 		gShopInventory5				= 0x2280;
+		gPrintBufferStart			= 0x2318;
+		gPrintBufferEnd				= 0x2716;
+		gPrintBufferCur				= 0x2718;
 		gStartMenuState				= 0x3480;
 		gBitsetActor				= 0x3484;
 		gEntityBoundsList			= 0x3490;

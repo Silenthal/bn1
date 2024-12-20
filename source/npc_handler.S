@@ -1192,7 +1192,7 @@ _nt NPC_PrintMovement
     ldr        r2,[r5,#0x28]
     ldr        r3,[r5,#0x30]
     ldr        r4,[r5,#0x34]
-    bl         PrintDebugString
+    bl         Debug_Print
     pop        {r5}
     pop        {pc}
 

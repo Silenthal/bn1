@@ -5,7 +5,7 @@
 
     .thumb
 
-_ts Video_ClearAndLoadSmallNumbers
+_ts Video_Init
     push       { lr }
     ldr        r0,PTR_gFillValue_08001b2c
     ldr        r1,PTR_BG_VRAM_SCREEN0_08001b30

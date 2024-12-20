@@ -345,7 +345,7 @@ LAB_08020364:
     tst        r1,r1
     bne        LAB_0802039c
     ldr        r7,PTR_DAT_080205fc
-    bl         FUN_080204e8
+    bl         ChipTrader_GetRandomWeightedRarity
     bl         ChipTrader_BuildObtainedChipSack
     b          LAB_080203dc
 LAB_0802039c:
@@ -365,7 +365,7 @@ LAB_080203ae:
     tst        r1,r1
     bne        LAB_080203ca
     ldr        r7,PTR_DAT_08020608
-    bl         FUN_080204e8
+    bl         ChipTrader_GetRandomWeightedRarity
     bl         ChipTrader_BuildObtainedChipSack
     b          LAB_080203dc
 LAB_080203ca:
@@ -527,7 +527,7 @@ LAB_080204de:
     pop        {r5,pc}
 
 
-_ts FUN_080204e8
+_ts ChipTrader_GetRandomWeightedRarity
     push       {r5,lr}
     push       {r7}
     mov        r0,#0x0
@@ -661,13 +661,13 @@ PTR_DAT_080205f4:
 PTR_listChipTrader3IsNewChipDraw_080205f8:
     .word listChipTrader3IsNewChipDraw
 PTR_DAT_080205fc:
-    .word DAT_08021070
+    .word listRarityThreshold3Chip
 PTR_listRarity3_08020600:
     .word listRarity3
 PTR_listChipTrader10IsNewChip_08020604:
     .word listChipTrader10IsNewChip
 PTR_DAT_08020608:
-    .word DAT_08021090
+    .word listRarityThreshold10Chip
 PTR_listRarity10_0802060c:
     .word listRarity10
 PTR_listChipTrader3Stock_08020610:
@@ -1881,7 +1881,7 @@ PTR_listDefaultSort_08021064:
 listChipTrader3IsNewChipDraw:
     .byte 0, 0, 0, 0
     .byte 0, 0, 1, 1
-DAT_08021070:
+listRarityThreshold3Chip:
     .byte 0xCA, 0x20, 0x10, 0x5, 0x1
 
     .align 2, 0
@@ -1894,7 +1894,7 @@ listRarity3:
 listChipTrader10IsNewChip:
     .byte 0, 0, 0, 0
     .byte 0, 0, 1, 1
-DAT_08021090:
+listRarityThreshold10Chip:
     .byte 0x10, 0xB0, 0x20, 0x10, 0x10
 
     .align 2, 0

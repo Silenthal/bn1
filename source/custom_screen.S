@@ -2646,7 +2646,7 @@ LAB_08016da2:
     push       {r0,r1,r5}
     ldr        r0,PTR_DAT_08016dd8
     ldrb       r1,[r5,#0x3]
-    bl         PrintDebugString
+    bl         Debug_Print
     pop        {r0,r1,r5}
     pop        {pc}
 

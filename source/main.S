@@ -190,7 +190,7 @@ _ts Main_Init
     bl         Video_ApplySettings
     bl         Sound_Init
     bl         BgUpdate_Init
-    bl         Video_ClearAndLoadSmallNumbers
+    bl         Video_Init
     bl         Oam_Init
     bl         InitMainMenu
     bl         Oam_InitTransferData
