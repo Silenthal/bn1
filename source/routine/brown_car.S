@@ -210,7 +210,7 @@ LAB_0805b342:
     asr        r0,r0,#0xc
     ldr        r1,[r5,#0x2c]
     asr        r1,r1,#0xc
-    bl         IsDistanceClose
+    bl         IsCollision_Circle
     tst        r0,r0
     beq        LAB_0805b382
     ldrh       r0,[r7,#0x0]
@@ -274,7 +274,7 @@ LAB_0805b3ca:
 LAB_0805b3ce:
     lsl        r4,r4,#0x4
     push       {r1}
-    bl         IsCloseToPlayer
+    bl         IsCollision_Player
     pop        {r1}
     tst        r0,r0
     beq        LAB_0805b3f4

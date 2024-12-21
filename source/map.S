@@ -2281,10 +2281,12 @@ PTR_gCurMapEventData_080125ac:              .word gCurMapEventData
 PTR_gCurPlayerPos_080125b0:                 .word gCurPlayerPos
 PTR_handlerCollisionShapeEvents_080125b4:   .word handlerCollisionShapeEvents
 PTR_gCurMapEventData_080125b8:              .word gCurMapEventData
-    .short 0xB500
-    .short 0x2000
-    .short 0xBD00
-    .short 0
+
+
+_ts dummy_125bc
+    push       {lr}
+    mov        r0,#0x0
+    pop        {pc}
 
 
 _ts Collide_E_01

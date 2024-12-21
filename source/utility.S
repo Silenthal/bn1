@@ -223,7 +223,7 @@ LAB_08000b9c:
 _nt FrameTimeToBcdRealTime
     push       { lr }
     @ return early if a time greater than 100 hours is passed
-    ldr        r1,=21600000
+    ldr        r1,=(100 * 60 * 60 * 60)
     cmp        r0,r1
     bmi        1f
     ldr        r0,=0x99595999
@@ -315,17 +315,23 @@ LAB_08000c40:
     .align 2, 0
     .pool
 
-_ts FUN_08000c48
+
+@@ Converts frame time to real time.
+@@ r1 = hours, r2 = minutes, r3 = seconds, r4 = frames
+_ts FrameTimeToRealTime_Reg
     push       { lr }
     sub        sp,#0x8
-    ldr        r1,=216000
+    @ hours
+    ldr        r1,=(60 * 60 * 60)
     bl         SWI_Div
     str        r0,[sp,#0x0]
     add        r0,r1,#0x0
-    ldr        r1,=3600
+    @ minutes
+    ldr        r1,=(60 * 60)
     bl         SWI_Div
     str        r0,[sp,#0x4]
     add        r0,r1,#0x0
+    @ seconds
     ldr        r1,=60
     bl         SWI_Div
     add        r3,r0,#0x0
@@ -485,7 +491,7 @@ LAB_08000d78:
     pop        {pc}
 
 
-_nt FUN_08000d7e
+_nt IsCollision_Square
     sub        r0,r0,r2
     add        r0,r0,r4
     lsl        r2,r4,#0x1
@@ -502,7 +508,7 @@ LAB_08000d94:
     mov        pc,lr
 
 
-_nt IsDistanceClose
+_nt IsCollision_Circle
     sub        r0,r0,r2
     sub        r1,r1,r3
     add        r2,r4,#0x0
@@ -521,7 +527,7 @@ LAB_08000db2:
     mov        pc,lr
 
 
-_nt IsCloseToPlayer
+_nt IsCollision_Player
     push       {lr}
     ldr        r0,[r5,#0x28]
     asr        r0,r0,#0xc
@@ -534,5 +540,5 @@ _nt IsCloseToPlayer
     asr        r2,r2,#0xc
     ldr        r3,[r7,#0x28]
     asr        r3,r3,#0xc
-    bl         IsDistanceClose
+    bl         IsCollision_Circle
     pop        {pc}

@@ -267,7 +267,7 @@ LAB_08055630:
     strh       r0,[r5,#0xa]
     pop        {pc}
 LAB_08055646:
-    bl         FUN_08055bf4
+    bl         PlayerLocation_IsJackIn
     tst        r0,r0
     beq        LAB_08055656
     mov        r0,#0x18
@@ -293,7 +293,7 @@ LAB_0805566a:
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    bl         FUN_08055bf4
+    bl         PlayerLocation_IsJackIn
     tst        r0,r0
     beq        LAB_08055686
     mov        r0,#0x18
@@ -385,7 +385,7 @@ _ts PlayerLocation_1_1_0_UpdateWalkDelta
 
 _ts PlayerLocation_1_1_1_UpdateWalkPosition
     push       {lr}
-    bl         FUN_08055e60
+    bl         PlayerLocation_CanMove
     tst        r0,r0
     beq        LAB_08055752
     mov        r0,#0x24
@@ -466,7 +466,7 @@ LAB_080557d6:
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    bl         FUN_08055bf4
+    bl         PlayerLocation_IsJackIn
     tst        r0,r0
     beq        LAB_080557f2
     mov        r0,#0x18
@@ -561,7 +561,7 @@ PTR_MovementOffset_ARRAY_08055884:
 
 _ts PlayerLocation_1_2_1_UpdateRunPosition
     push       {lr}
-    bl         FUN_08055e60
+    bl         PlayerLocation_CanMove
     tst        r0,r0
     beq        LAB_080558a8
     ldr        r0,[r5,#0x40]
@@ -1047,7 +1047,7 @@ PTR_gNpcTalkState_08055bf0:
     .word gNpcTalkState
 
 
-_ts FUN_08055bf4
+_ts PlayerLocation_IsJackIn
     mov        r3,#0x60
     ldrh       r0,[r5,r3]
     mov        r1,#0x2
@@ -1202,7 +1202,7 @@ EntityBoundsParams_8055e48:
     entity_bounds f(0, -4, 0), 4, 32, 0x0, 0xFFFF0002
 
 
-_ts FUN_08055e60
+_ts PlayerLocation_CanMove
     push       {lr}
     mov        r0,#0x0
     ldrh       r1,[r5,#0x1c]

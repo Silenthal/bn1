@@ -523,7 +523,7 @@ _ts Oam_Init
     pop        {pc}
 
 
-_ts FUN_080026b4
+_ts SpriteFrame_GetTilesetSize
     ldr        r0,[r5,#0x1c]
     ldr        r0,[r0,#0x0]
     ldr        r1,[r5,#0x18]
@@ -533,7 +533,7 @@ _ts FUN_080026b4
     mov        pc,lr
 
 
-_ts FUN_080026c4
+_ts Sprite_GetScreenPosXY
     ldrb       r0,[r5,#0x0]
     tst        r0,r0
     beq        LAB_080026ea
@@ -579,8 +579,10 @@ _ts InitializeSpriteTilesetOffset
     mov        r1,#0x1
     str        r1,[r0,#0x0]
     mov        pc,lr
-    mov r0, #0x0 @ TODO: part of below func maybe
 
+
+_ts SpritePtr_ResetFlipType
+    mov r0, #0x0
 
 _nt SpritePtr_SetFlipType
     ldrb       r7,[r5,#0x2]
