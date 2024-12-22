@@ -195,7 +195,7 @@ typedef enum PanelFlag {
     PF_Player=64,
     PF_Enemy=128,
     PF_100=256,
-    PF_Hit=512,
+    PF_Deleted=512,
     PF_Teleporting=1024,
     PF_Solid=2048,
     PF_PlayerPush=4096,
@@ -270,7 +270,7 @@ typedef enum FieldObjectFlag {
     F9_1=1,
     F9_IsLive=2,
     F9_NewObject=4,
-    F9_IsBigSquare=8
+    F9_IsSpread=8
 } FieldObjectFlag;
 
 typedef enum SpriteIndex {
@@ -1491,6 +1491,7 @@ typedef enum Flag_Base {
     FLAG_9C=156,
     FLAG_STORY_07=158,
     FLAG_STORY_08=159,
+    FLAG_A3=163,
     FLAG_GATE_LOCK_SCHOOL_COMP_1=165,
     FLAG_GATE_CLEAR_SCHOOL_COMP_1=166,
     FLAG_GATE_CLEAR_SCHOOL_COMP_2_1=168,
@@ -2975,8 +2976,7 @@ struct ChipTrader {
     enum FuncState lastState;
     byte b2;
     byte arrowAnimationTimer;
-    byte exchangeAmount;
-    byte b5;
+    short exchangeAmount;
     ushort lastPageOffsetInsert;
     ushort curPageOffsetInsert;
     ushort curPageIndexInsert;
@@ -3928,7 +3928,8 @@ typedef enum MoveType {
 typedef enum PlayerLocationKeyFlag {
     PK_Walk=16,
     PK_Run=32,
-    PK_Commentary=256
+    PK_Commentary=256,
+    PK_JackIn=512
 } PlayerLocationKeyFlag;
 
 typedef struct SceneArg_Actor SceneArg_Actor, *PSceneArg_Actor;
@@ -4602,6 +4603,24 @@ struct Menu_Network {
     int ix9;
     int chipDetailX;
     int chipDetailY;
+};
+
+typedef struct MonitorTask MonitorTask, *PMonitorTask;
+
+typedef enum MonitorTaskStatus {
+    MTS_Stopped=0,
+    MTS_Active=2,
+    MTS_Running=4,
+    MTS_Sleeping=8
+} MonitorTaskStatus;
+
+struct MonitorTask {
+    enum MonitorTaskStatus status;
+    byte sleepTimer;
+    short _pad2;
+    int _pad4;
+    int *curStackTop;
+    int *stackTop;
 };
 
 typedef struct MosquritoParam MosquritoParam, *PMosquritoParam;
@@ -5343,6 +5362,14 @@ struct SpriteParam {
     int palette;
 };
 
+typedef struct SpritePosResult SpritePosResult, *PSpritePosResult;
+
+struct SpritePosResult {
+    int success;
+    int screenX;
+    int screenY;
+};
+
 typedef struct SpriteTilesetDetail SpriteTilesetDetail, *PSpriteTilesetDetail;
 
 struct SpriteTilesetDetail {
@@ -5418,18 +5445,6 @@ struct Struct_2000000 {
     short s0;
     short s1;
     byte other2[8];
-};
-
-typedef struct Struct_2003420_Sub Struct_2003420_Sub, *PStruct_2003420_Sub;
-
-struct Struct_2003420_Sub {
-    byte b0; /* Vals: 2, 8 (counter), 4, 0 */
-    byte counter_1;
-    byte b2;
-    byte b3;
-    int i4;
-    int *p8;
-    int *pc;
 };
 
 typedef struct Struct_2A3C_In Struct_2A3C_In, *PStruct_2A3C_In;

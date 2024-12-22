@@ -53,6 +53,9 @@ SECTIONS {
 		gPrintBufferStart			= 0x2318;
 		gPrintBufferEnd				= 0x2716;
 		gPrintBufferCur				= 0x2718;
+		gMonitorCurrentTask			= 0x3420;
+		gMonitorTaskList			= 0x3430;
+		gMonitorLastStackPtr		= 0x3470;
 		gStartMenuState				= 0x3480;
 		gBitsetActor				= 0x3484;
 		gEntityBoundsList			= 0x3490;
@@ -244,6 +247,7 @@ SECTIONS {
 		SoundMainRAM			= 0x5C50;
 		interruptHandlerStart	= 0x6800;
 		interruptHandlerEnd		= 0x7640;
+		iwMonitorStackTop		= 0x7D80;
 		iwSpriteContainerList	= 0x47C0;
 		iwSpriteList0			= 0x47E0;
 		iwSpriteList1			= 0x4780;
@@ -255,7 +259,7 @@ SECTIONS {
 	.text :  {
 		build/crt0.o(.text)
 		build/main.o(.text)
-		build/unknown.o(.text)
+		build/monitor.o(.text)
 		build/sound.o(.text)
 		build/dma.o(.text)
 		build/utility.o(.text)

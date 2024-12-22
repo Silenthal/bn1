@@ -5,7 +5,7 @@
 
     .thumb
 
-FUN_08000510:
+Monitor_Main:
     push       { lr }
     ldr        r0,PTR_DAT_080005d0
 LAB_08000514:
@@ -24,7 +24,7 @@ LAB_08000520:
     beq        LAB_0800052e
     b          LAB_08000532
 LAB_0800052e:
-    bl         FUN_08000542
+    bl         ChangeTask
 LAB_08000532:
     ldr        r7,PTR_DAT_080005d8
     ldr        r0,[r7,#0x0]
@@ -35,7 +35,7 @@ LAB_08000532:
     bne        LAB_08000514
     pop        { pc }
 
-FUN_08000542:
+ChangeTask:
     push       { lr }
     ldr        r1,PTR_DAT_080005e0
     str        r0,[r1,#0x0]
@@ -48,7 +48,7 @@ FUN_08000542:
     mov        sp,r2
     pop        { pc }
 
-FUN_08000558:
+Monitor_Exec:
     push       { lr }
     ldr        r2,PTR_DAT_080005e8
     lsl        r0,r0,#0x4
@@ -61,7 +61,7 @@ FUN_08000558:
     str        r2,[r0,#0x8]
     pop        { pc }
 
-FUN_0800056e:
+Monitor_TaskSleep:
     push       { lr }
     ldr        r1,PTR_DAT_080005ec
     ldr        r1,[r1,#0x0]
@@ -77,7 +77,7 @@ FUN_0800056e:
     mov        sp,r0
     pop        { pc }
 
-FUN_0800058a:
+Monitor_TaskStop:
     ldr        r0,PTR_DAT_080005f8
     ldr        r0,[r0,#0x0]
     mov        r1,#0x0
@@ -87,7 +87,7 @@ FUN_0800058a:
     mov        sp,r0
     pop        { pc }
 
-FUN_0800059a:
+Monitor_TaskNext:
     ldr        r3,PTR_DAT_08000600
     ldr        r3,[r3,#0x0]
     mov        r1,#0x2
@@ -101,7 +101,7 @@ FUN_0800059a:
     mov        sp,r0
     pop        { pc }
 
-FUN_080005b2:
+Monitor_Init:
     push       { lr }
     ldr        r4,PTR_DAT_08000608
     mov        r0,#0x4
@@ -120,19 +120,19 @@ LAB_080005ba:
 
     .align 2, 0
 
-PTR_DAT_080005d0:   .word 0x02003430
-PTR_DAT_080005d4:   .word 0x02003420
-PTR_DAT_080005d8:   .word 0x02003420
-PTR_DAT_080005dc:   .word 0x02003470
-PTR_DAT_080005e0:   .word 0x02003420
-PTR_DAT_080005e4:   .word 0x02003470
-PTR_DAT_080005e8:   .word 0x02003430
-PTR_DAT_080005ec:   .word 0x02003420
-PTR_DAT_080005f0:   .word 0x02003420
-PTR_DAT_080005f4:   .word 0x02003470
-PTR_DAT_080005f8:   .word 0x02003420
-PTR_DAT_080005fc:   .word 0x02003470
-PTR_DAT_08000600:   .word 0x02003420
-PTR_DAT_08000604:   .word 0x02003470
-PTR_DAT_08000608:   .word 0x02003430
-PTR_DAT_0800060c:   .word 0x03007d80
+PTR_DAT_080005d0:   .word gMonitorTaskList
+PTR_DAT_080005d4:   .word gMonitorCurrentTask
+PTR_DAT_080005d8:   .word gMonitorCurrentTask
+PTR_DAT_080005dc:   .word gMonitorLastStackPtr
+PTR_DAT_080005e0:   .word gMonitorCurrentTask
+PTR_DAT_080005e4:   .word gMonitorLastStackPtr
+PTR_DAT_080005e8:   .word gMonitorTaskList
+PTR_DAT_080005ec:   .word gMonitorCurrentTask
+PTR_DAT_080005f0:   .word gMonitorCurrentTask
+PTR_DAT_080005f4:   .word gMonitorLastStackPtr
+PTR_DAT_080005f8:   .word gMonitorCurrentTask
+PTR_DAT_080005fc:   .word gMonitorLastStackPtr
+PTR_DAT_08000600:   .word gMonitorCurrentTask
+PTR_DAT_08000604:   .word gMonitorLastStackPtr
+PTR_DAT_08000608:   .word gMonitorTaskList
+PTR_DAT_0800060c:   .word iwMonitorStackTop

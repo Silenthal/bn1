@@ -1776,7 +1776,7 @@ LAB_08056fea:
     strb       r0,[r5,#0x17]
 LAB_08056ffa:
     pop        {pc}
-    .word PF_Ground | PF_PlayerOccupied | PF_Player | PF_Hit
+    .word PF_Ground | PF_PlayerOccupied | PF_Player | PF_Deleted
 
 
 _ts FUN_08057000
