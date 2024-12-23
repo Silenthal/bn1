@@ -34,11 +34,7 @@ PTR_DAT_08055474:
     .word DAT_08055478
 
 DAT_08055478:
-    .byte 0x00
-    .byte 0x13
-    .asciz "%D"
-
-    .align 2, 0
+    debug_str 0x00, 0x13, "%D"
 
 
 _ts PlayerLocation_0_Init

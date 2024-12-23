@@ -2663,12 +2663,10 @@ PTR_gCustomScreen_08016dd4:
 PTR_DAT_08016dd8:
     .word       DAT_08016ddc
 DAT_08016ddc:
-    .byte 0, 0x13
-    .asciz "%D"
-    .align 2, 0
+    debug_str 0x00, 0x13, "%D"
 
 
-_nt CustomScreenT2_1_Main
+_ts CustomScreenT2_1_Main
     push       {lr}
     ldr        r7,=PTR_CustomScreen_1_0_Open_08016df4
     ldrb       r0,[r5,#0x1]

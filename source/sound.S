@@ -38,10 +38,10 @@ _ts Sound_Main
 
 @ unknown
     .word 0x2002310
-    .word .unused
-.unused:
-    .word 0x4425121c
-    .word 0
+    .word DAT_08000658
+DAT_08000658:
+    debug_str 0x1C, 0x12, "%D"
+
 
 _ts Sound_VSync
     push       { lr }

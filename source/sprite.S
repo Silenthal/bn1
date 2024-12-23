@@ -957,21 +957,17 @@ LAB_0800296a:
     mov        r0,#0x0
     pop        { r5, pc }
 
-_ts dummy_2970
+_ts SpriteLz_PrintDebugInfo
     push       { r5, lr }
     ldr        r5,PTR_gSpriteLzDetails_080029b0
     ldr        r1,[r5,#SpriteLzDetails_m_next]
     ldr        r0,PTR_DAT_080029b4
-    @ Passing the address of format text at 0x2980, and the pointer to the
-    @ next available decompressed sprite block to a dummy function
     bl         Debug_Print
     pop        { r5, pc }
     .align 2, 0
 
 DAT_08002980:
-    @ Format text for debugging?
-    .byte 0x16, 0x0
-    .asciz "UNCOMP\n%8x"
+    debug_str 0x16, 0x0, "UNCOMP\n%8x"
 
     .align 2, 0
 

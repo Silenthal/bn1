@@ -354,7 +354,7 @@ LAB_0807d0d0:
     ldrb       r0,[r7,#0x10]
     mov        r1,#0x1
     eor        r0,r1
-    bl         Main_IncrementMPCounters
+    bl         IncrementMPCounters
     push       {r5}
     bl         Save_SaveGame
     pop        {r5}

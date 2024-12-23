@@ -26,7 +26,7 @@ _ts AgbMain
     ldrh       r1,[r0,#FrameCounter_m_counter]
     add        r1,#0x1
     strh       r1,[r0,#FrameCounter_m_counter]
-    bl         Main_IncrementGameTimer
+    bl         IncrementGameTimer
     ldr        r0,=jumpTableMain
     LoadStateTo r1, Main_manager
     ldrb       r1,[r1,#Manager_gameState]

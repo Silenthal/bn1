@@ -1197,9 +1197,7 @@ _nt NPC_PrintMovement
     pop        {pc}
 
 DAT_08082590:
-    .byte 0x00
-    .byte 0x07
-    .asciz " X:%X\n Y:%X\nOX:%X\nOY:%X\nTM:%D"
+    debug_str 0x00, 0x07, " X:%X\n Y:%X\nOX:%X\nOY:%X\nTM:%D"
 
 
 _ts NPC_FindByIndex

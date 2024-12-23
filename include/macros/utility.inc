@@ -128,3 +128,9 @@
     .byte \canEscape
     .byte -1, -1, -1
     .endm
+
+    .macro debug_str x, y, str
+    .byte \x
+    .byte \y
+    .asciz "\str"
+    .endm

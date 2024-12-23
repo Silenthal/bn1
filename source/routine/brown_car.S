@@ -54,7 +54,7 @@ _ts R_BrownCar_0_Init
     stmia      r7!,{r0,r1,r2}
     ldrb       r0,[r5,#0x5]
     strb       r0,[r5,#0x7]
-    bl         FUN_0805b428_Direction
+    bl         R_BrownCar_Direction
     strb       r0,[r5,#0x14]
     ldr        r0,DAT_0805b278
     str        r0,[r5,#0x4c]
@@ -135,7 +135,7 @@ _ts R_BrownCar_1_1
     ldrb       r0,[r5,#0x7]
     strb       r0,[r5,#0x5]
 LAB_0805b2ee:
-    bl         FUN_0805b428_Direction
+    bl         R_BrownCar_Direction
     strb       r0,[r5,#0x14]
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
@@ -143,14 +143,10 @@ LAB_0805b2ee:
     strh       r0,[r5,#0xa]
     bl         R_BrownCar_1_2_0
     pop        {pc}
-    .byte 0x00
-    .byte 0x00
-    .byte 0x00
-    .byte 0x00
-    .byte 0x03
 
     .align 2, 0
 
+    .word PF_DieBombExplosion | PF_Apple
 
 
 _ts R_BrownCar_1_2
@@ -325,7 +321,7 @@ DAT_0805b424:
     .word 0x1
 
 
-_ts FUN_0805b428_Direction
+_ts R_BrownCar_Direction
     push       {lr}
     ldrb       r1,[r5,#0x5]
     ldr        r6,[r5,#0x60]
