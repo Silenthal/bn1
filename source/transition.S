@@ -55,7 +55,7 @@ _ts JackIn_Init
     strh       r1,[r0,#0x0]
     push       {r5}
     bl         dummy_177c4
-    bl         Layout_LoadJackInLayout
+    bl         JackIn_LoadTilemap
     pop        {r5}
     ldr        r0,[r7,#0x10]
     mov        r1,#0x0
@@ -297,7 +297,7 @@ _ts dummy_177c4
     pop        {pc}
 
 
-_ts Layout_LoadJackInLayout
+_ts JackIn_LoadTilemap
     push       {lr}
     mov        r0,#0x0
     mov        r1,#0x0

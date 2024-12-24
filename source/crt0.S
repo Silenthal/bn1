@@ -14,7 +14,6 @@ Start:
     .include "header.inc"
 
 Init:
-
     mov        r0,#0x12
     msr        cpsr_cf,r0
     ldr        sp,irqStackPtr
