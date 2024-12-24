@@ -266,14 +266,13 @@ _ts Main_WaitForVBlank
     beq        1b
     pop        { pc }
 
-    .byte 0
-    .byte 0
+    .align 2, 0
 
-frameCounter:    .word eFrameCounter
-frameWait0:        .word eFrameWaitValue
-keyInput:        .word REG_KEYINPUT
-frameWait:        .word eFrameWaitValue
-dispStat:        .word REG_DISPSTAT
+frameCounter:   .word eFrameCounter
+frameWait0:     .word eFrameWaitValue
+keyInput:       .word REG_KEYINPUT
+frameWait:      .word eFrameWaitValue
+dispStat:       .word REG_DISPSTAT
 
     .end
 

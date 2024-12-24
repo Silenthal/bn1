@@ -85,13 +85,8 @@ _ts A_LockonTarget_0_Init
     str        r0,[r5,#0x8]
     bl         A_LockonTarget_1_Main
     pop        {pc}
-    .byte 0x00
-    .byte 0x00
-    .byte 0x27
 
-    .align 2, 0
-
-
+    .word PF_DieBombExplosion | PF_Apple | PF_Armor | PF_Freeze
 PTR_DAT_0807a11c:
     .word DAT_0807a080
 

@@ -1441,9 +1441,7 @@ _ts FUN_08055fe0
     pop        {pc}
 
 DAT_08056000:
-    .byte 0x00
-    .byte 0x01
-    .asciz "X:%x\nY:%x\nZ:%x\nD:%x\nH:%8x"
+    debug_str 0x00, 0x01, "X:%x\nY:%x\nZ:%x\nD:%x\nH:%8x"
 
 PTR_DAT_0805601c:
     .word DAT_08056000

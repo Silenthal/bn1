@@ -125,8 +125,9 @@ _ts SD_IceMan_1_1
     strb       r0,[r5,#0x1]
 LAB_08099334:
     pop        {pc}
-    .byte 0x00
-    .byte 0x00
+
+    .align 2, 0
+
     .word DAT_0809933c
 
 DAT_0809933c:

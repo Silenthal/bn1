@@ -394,15 +394,11 @@ handlerCollisionShapeBoundary:
     .word Collide_B_0F
     .word Collide_B_10
 
+    debug_str 0x00, 0x00, "POS X:%D Y:%D Z:%D A:%D\nCELNO:%4X"
+    debug_str 0x00, 0x02, "C NUM:%D\nX:%8X Y:%8X"
+    debug_str 0x00, 0x05, "AT V %3D"
+    debug_str 0x00, 0x06, "PL\n%8x\n%8x\n%8x"
 
-    .byte 0, 0
-    .asciz "POS X:%D Y:%D Z:%D A:%D\nCELNO:%4X"
-    .byte 0, 2
-    .asciz "C NUM:%D\nX:%8X Y:%8X"
-    .byte 0, 5
-    .asciz "AT V %3D"
-    .byte 0, 6
-    .asciz "PL\n%8x\n%8x\n%8x"
     .align 2, 0
 
 @@ Add bound
@@ -854,17 +850,10 @@ LAB_08011abe:
     mov        r1,#0x0
     pop        {pc}
 
-    .byte 0, 13
-    .asciz "00 X:%8X Y:%8X"
-
-    .byte 0, 14
-    .asciz "01 X:%8X Y:%8X"
-
-    .byte 0, 15
-    .asciz "02 X:%8X Y:%8X"
-
-    .byte 0, 16
-    .asciz "03 X:%8X Y:%8X"
+    debug_str 0x00, 0x0D, "00 X:%8X Y:%8X"
+    debug_str 0x00, 0x0E, "01 X:%8X Y:%8X"
+    debug_str 0x00, 0x0F, "02 X:%8X Y:%8X"
+    debug_str 0x00, 0x10, "03 X:%8X Y:%8X"
 
 
 _ts Boundary_IntDiv

@@ -125,8 +125,9 @@ _ts SD_ElecMan_1_1
     strb       r0,[r5,#0x1]
 LAB_0809aca8:
     pop        {pc}
-    .byte 0x00
-    .byte 0x00
+
+    .align 2, 0
+
     .word DAT_0809acb4
     .word DAT_0809acb8
 

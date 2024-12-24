@@ -158,10 +158,7 @@ DAT_0807ab00:
 
 DAT_0807ab04:
     .word 0x28000
-    .byte 0x00
-    .byte 0x00
-    .byte 0x00
-    .byte 0x02
+    .word PF_Sealed
 
 
 _ts A_BombShoot_1_2_1
