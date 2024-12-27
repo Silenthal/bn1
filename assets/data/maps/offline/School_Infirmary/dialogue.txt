@@ -114,10 +114,10 @@ section_end()
 
 # 0xDD @ 0x6EADDE
 section_start(0xDD)
-if_flag(0x2B1, 0xDE, 0xFF)
+if_flag(FLAG_ITEM_SCHOOL_INFIRMARY_RECOV50_G, 0xDE, 0xFF)
 dialog_up()
 text("You check the\nmedicine cabinet\p{w 0}")
-set_flag(0x2B1)
+set_flag(FLAG_ITEM_SCHOOL_INFIRMARY_RECOV50_G)
 pc_anim(30)
 text("{add_chip 'Recov50 G'}Lan got a chip for\n\"{chip Recov50 G}\"!")
 pc_wait()

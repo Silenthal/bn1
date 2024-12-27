@@ -103,7 +103,7 @@ L_804B69D:
     a_destroy
 
 NPC_804B69E:
-    a_jump_if_flag 0x2C1, L_804B6C1
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_RATTON1_D, L_804B6C1
     a_init
     a_disable_turn
     a_set_dialog 0x1
@@ -114,12 +114,12 @@ NPC_804B69E:
     a_set_sprite_frame 0
 L_804B6B8:
     a_wait 1
-    a_jump_if_not_flag 0x2C1, L_804B6B8
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_RATTON1_D, L_804B6B8
 L_804B6C1:
     a_destroy
 
 NPC_804B6C2:
-    a_jump_if_flag 0x2C2, L_804B6E5
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_RECOV120_C, L_804B6E5
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -130,12 +130,12 @@ NPC_804B6C2:
     a_set_sprite_frame 0
 L_804B6DC:
     a_wait 1
-    a_jump_if_not_flag 0x2C2, L_804B6DC
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_RECOV120_C, L_804B6DC
 L_804B6E5:
     a_destroy
 
 NPC_804B6E6:
-    a_jump_if_flag 0x2C3, L_804B709
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_5000Z, L_804B709
     a_init
     a_disable_turn
     a_set_dialog 0x3
@@ -146,12 +146,12 @@ NPC_804B6E6:
     a_set_sprite_frame 0
 L_804B700:
     a_wait 1
-    a_jump_if_not_flag 0x2C3, L_804B700
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_5000Z, L_804B700
 L_804B709:
     a_destroy
 
 NPC_804B70A:
-    a_jump_if_flag 0x2C4, L_804B72D
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_XPANEL3_G, L_804B72D
     a_init
     a_disable_turn
     a_set_dialog 0x4
@@ -162,7 +162,7 @@ NPC_804B70A:
     a_set_sprite_frame 0
 L_804B724:
     a_wait 1
-    a_jump_if_not_flag 0x2C4, L_804B724
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_XPANEL3_G, L_804B724
 L_804B72D:
     a_destroy
 
@@ -270,7 +270,7 @@ L_804B819:
     a_destroy
 
 NPC_804B81A:
-    a_jump_if_flag 0x2C5, L_804B83D
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_2_1000Z, L_804B83D
     a_init
     a_disable_turn
     a_set_dialog 0x0
@@ -281,12 +281,12 @@ NPC_804B81A:
     a_set_sprite_frame 0
 L_804B834:
     a_wait 1
-    a_jump_if_not_flag 0x2C5, L_804B834
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_2_1000Z, L_804B834
 L_804B83D:
     a_destroy
 
 NPC_804B83E:
-    a_jump_if_flag 0x2C6, L_804B861
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_2_800Z, L_804B861
     a_init
     a_disable_turn
     a_set_dialog 0x1
@@ -297,12 +297,12 @@ NPC_804B83E:
     a_set_sprite_frame 0
 L_804B858:
     a_wait 1
-    a_jump_if_not_flag 0x2C6, L_804B858
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_2_800Z, L_804B858
 L_804B861:
     a_destroy
 
 NPC_804B862:
-    a_jump_if_flag 0x2C7, L_804B885
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_2_1200Z, L_804B885
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -313,7 +313,7 @@ NPC_804B862:
     a_set_sprite_frame 0
 L_804B87C:
     a_wait 1
-    a_jump_if_not_flag 0x2C7, L_804B87C
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_2_1200Z, L_804B87C
 L_804B885:
     a_destroy
 
@@ -433,7 +433,7 @@ L_804B988:
     a_destroy
 
 NPC_804B989:
-    a_jump_if_flag 0x2CA, L_804B9AC
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_3_1000Z, L_804B9AC
     a_init
     a_disable_turn
     a_set_dialog 0x0
@@ -444,12 +444,12 @@ NPC_804B989:
     a_set_sprite_frame 0
 L_804B9A3:
     a_wait 1
-    a_jump_if_not_flag 0x2CA, L_804B9A3
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_3_1000Z, L_804B9A3
 L_804B9AC:
     a_destroy
 
 NPC_804B9AD:
-    a_jump_if_flag 0x2CC, L_804B9D0
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_3_500Z, L_804B9D0
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -460,7 +460,7 @@ NPC_804B9AD:
     a_set_sprite_frame 0
 L_804B9C7:
     a_wait 1
-    a_jump_if_not_flag 0x2CC, L_804B9C7
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_3_500Z, L_804B9C7
 L_804B9D0:
     a_destroy
 
@@ -594,7 +594,7 @@ L_804BAE4:
     a_destroy
 
 NPC_804BAE5:
-    a_jump_if_flag 0x2CD, L_804BB08
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_4_1800Z, L_804BB08
     a_init
     a_disable_turn
     a_set_dialog 0x0
@@ -605,12 +605,12 @@ NPC_804BAE5:
     a_set_sprite_frame 0
 L_804BAFF:
     a_wait 1
-    a_jump_if_not_flag 0x2CD, L_804BAFF
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_4_1800Z, L_804BAFF
 L_804BB08:
     a_destroy
 
 NPC_804BB09:
-    a_jump_if_flag 0x2CE, L_804BB2C
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_4_2000Z, L_804BB2C
     a_init
     a_disable_turn
     a_set_dialog 0x1
@@ -621,12 +621,12 @@ NPC_804BB09:
     a_set_sprite_frame 0
 L_804BB23:
     a_wait 1
-    a_jump_if_not_flag 0x2CE, L_804BB23
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_4_2000Z, L_804BB23
 L_804BB2C:
     a_destroy
 
 NPC_804BB2D:
-    a_jump_if_flag 0x2CF, L_804BB50
+    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_4_TYPHOON_D, L_804BB50
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -637,7 +637,7 @@ NPC_804BB2D:
     a_set_sprite_frame 0
 L_804BB47:
     a_wait 1
-    a_jump_if_not_flag 0x2CF, L_804BB47
+    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_4_TYPHOON_D, L_804BB47
 L_804BB50:
     a_destroy
 

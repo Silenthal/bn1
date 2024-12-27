@@ -189,10 +189,10 @@ section_end()
 
 # 0xDF @ 0x6EC5BE
 section_start(0xDF)
-if_flag(0x2E4, 0xE0, 0xFF)
+if_flag(FLAG_ITEM_SCHOOL_STORAGE_HPMEMORY, 0xE0, 0xFF)
 dialog_up()
 text("There's something\nshiny towards the\nback...\p{w 0}")
-set_flag(0x2E4)
+set_flag(FLAG_ITEM_SCHOOL_STORAGE_HPMEMORY)
 pc_anim(30)
 text("{add_item 'HPmemory'}Lan got a PowerUp;\n\"{key HPmemory}\"!")
 pc_wait()

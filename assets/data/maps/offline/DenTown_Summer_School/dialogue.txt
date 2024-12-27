@@ -397,10 +397,10 @@ section_end()
 
 # 0xDF @ 0x70B00B
 section_start(0xDF)
-if_flag(0x2E6, 0xE0, 0xFF)
+if_flag(FLAG_ITEM_DENTOWN_SUMMER_SCHOOL_BARRIER_R, 0xE0, 0xFF)
 dialog_up()
 text("Something is shining\nin this locker...\p{w 0}")
-set_flag(0x2E6)
+set_flag(FLAG_ITEM_DENTOWN_SUMMER_SCHOOL_BARRIER_R)
 pc_anim(30)
 text("{add_chip 'Barrier R'}Lan got a chip for\n\"{chip Barrier R}\"!")
 pc_wait()

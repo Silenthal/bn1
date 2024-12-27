@@ -6,7 +6,7 @@
 
     .thumb
 
-_ts FUN_080102dc
+_ts Flag_InitAll
     push       { lr }
     ldr        r0,PTR_DAT_080103f8
     mov        r1,#0x8c
@@ -50,7 +50,7 @@ global_label Flag_Set400
 global_label Flag_Set380
     add        r0,#0x80
     add        r0,#0x80
-global_label Flag_Set280
+global_label Flag_SetItem
     add        r0,#0x40
 global_label Flag_SetEmailUnread
     add        r0,#0x40
@@ -88,7 +88,7 @@ global_label Flag_Clear400
 global_label Flag_Clear380
     add        r0,#0x80
     add        r0,#0x80
-global_label Flag_Clear280
+global_label Flag_ClearItem
     add        r0,#0x40
     add        r0,#0x40
     add        r0,#0x80
@@ -121,7 +121,7 @@ global_label Flag_Get400
 global_label Flag_Get380
     add        r0,#0x80
     add        r0,#0x80
-global_label Flag_Get280
+global_label Flag_GetItem
     add        r0,#0x40
 global_label Flag_GetEmailUnread
     add        r0,#0x40

@@ -136,7 +136,7 @@ _ts EventHandler_Govt_Complex_Front_F22_0
     bl         Flag_GetEmailRecieved
     bne        LAB_0803178a
     mov        r0,#0xb
-    bl         Flag_Set280
+    bl         Flag_SetItem
     push       {r5}
     ldr        r0,DAT_08031930
     ldr        r1,DAT_08031934

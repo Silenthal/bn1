@@ -54,7 +54,7 @@ _ts MapSetup_ACDC_Lan_Room_F00
     push       {lr}
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Get280
+    bl         Flag_GetItem
     pop        {r5}
     bne        LAB_0802cade
     push       {r5}
@@ -145,7 +145,7 @@ _ts EventHandler_ACDC_Lan_Room_F00_1
     push       {lr}
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Get280
+    bl         Flag_GetItem
     pop        {r5}
     beq        LAB_0802cba4
     push       {r5}
@@ -394,7 +394,7 @@ _ts MapSetup_ACDC_Lan_Room_F04
     ldr        r0,PTR_BgTask_802CF58
     bl         BgTask_AddNew
     mov        r0,#0x1
-    bl         Flag_Get280
+    bl         Flag_GetItem
     pop        {r5}
     beq        LAB_0802cd76
     mov        r0,#0x4

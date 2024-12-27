@@ -171,10 +171,10 @@ section_end()
 
 # 0xDC @ 0x6E8613
 section_start(0xDC)
-if_flag(0x2E3, 0xDD, 0xFF)
+if_flag(FLAG_ITEM_SCHOOL_2F_HALLWAY_XPANEL1_B, 0xDD, 0xFF)
 dialog_up()
 text("Extra desks are here\n・{d}・{d}・{d}you found\na chip in a drawer!\p{w 0}")
-set_flag(0x2E3)
+set_flag(FLAG_ITEM_SCHOOL_2F_HALLWAY_XPANEL1_B)
 pc_anim(30)
 text("{add_chip 'X-Panel1 B'}Lan got a chip for\n\"")
 text("{chip X-Panel1 B}")

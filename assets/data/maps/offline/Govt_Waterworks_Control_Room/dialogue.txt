@@ -431,11 +431,11 @@ section_end()
 
 # 0xDF @ 0x702B70
 section_start(0xDF)
-if_flag(0x2E5, 0xE0, 0xFF)
+if_flag(FLAG_ITEM_GOVT_WATERWORKS_CONTROL_ROOM_HPMEMORY, 0xE0, 0xFF)
 dialog_up()
 text("The staff's personal\nbelongings are in\nhere.\p{w 0}")
 text("Something is glowing\nin the back...\p{w 0}")
-set_flag(0x2E5)
+set_flag(FLAG_ITEM_GOVT_WATERWORKS_CONTROL_ROOM_HPMEMORY)
 pc_anim(30)
 text("{add_item 'HPmemory'}Lan got a PowerUp;\n\"{key HPmemory}\"!")
 pc_wait()

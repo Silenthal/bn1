@@ -56,7 +56,7 @@ global_label NPCList_804F4DC
     .align 2, 0
 
 NPC_804F4E8:
-    a_jump_if_flag 0x28B, L_804F50B
+    a_jump_if_flag FLAG_ITEM_ACDC_MAYL_PC_KEYMAYL, L_804F50B
     a_init
     a_disable_turn
     a_set_dialog 0x5
@@ -67,14 +67,14 @@ NPC_804F4E8:
     a_set_sprite_frame 0
 L_804F502:
     a_wait 1
-    a_jump_if_not_flag 0x28B, L_804F502
+    a_jump_if_not_flag FLAG_ITEM_ACDC_MAYL_PC_KEYMAYL, L_804F502
 L_804F50B:
     a_destroy
 
     .align 2, 0
 
 NPC_804F50C:
-    a_jump_if_flag 0x28C, L_804F52F
+    a_jump_if_flag FLAG_ITEM_ACDC_MAYL_PC_RECOV50_L, L_804F52F
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -85,7 +85,7 @@ NPC_804F50C:
     a_set_sprite_frame 0
 L_804F526:
     a_wait 1
-    a_jump_if_not_flag 0x28C, L_804F526
+    a_jump_if_not_flag FLAG_ITEM_ACDC_MAYL_PC_RECOV50_L, L_804F526
 L_804F52F:
     a_destroy
 
@@ -107,7 +107,7 @@ L_804F54A:
     a_jump L_804F54A
 
 NPC_804F551:
-    a_jump_if_flag 0x28C, L_804F574
+    a_jump_if_flag FLAG_ITEM_ACDC_MAYL_PC_RECOV50_L, L_804F574
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -118,7 +118,7 @@ NPC_804F551:
     a_set_sprite_frame 0
 L_804F56B:
     a_wait 1
-    a_jump_if_not_flag 0x28C, L_804F56B
+    a_jump_if_not_flag FLAG_ITEM_ACDC_MAYL_PC_RECOV50_L, L_804F56B
 L_804F574:
     a_destroy
 
@@ -133,7 +133,7 @@ global_label NPCList_804F578
     .align 2, 0
 
 NPC_804F588:
-    a_jump_if_flag 0x28D, L_804F5AB
+    a_jump_if_flag FLAG_ITEM_ACDC_YAI_PC_KEYYAI, L_804F5AB
     a_init
     a_disable_turn
     a_set_dialog 0x5
@@ -144,14 +144,14 @@ NPC_804F588:
     a_set_sprite_frame 0
 L_804F5A2:
     a_wait 1
-    a_jump_if_not_flag 0x28D, L_804F5A2
+    a_jump_if_not_flag FLAG_ITEM_ACDC_YAI_PC_KEYYAI, L_804F5A2
 L_804F5AB:
     a_destroy
 
     .align 2, 0
 
 NPC_804F5AC:
-    a_jump_if_flag 0x28E, L_804F5CF
+    a_jump_if_flag FLAG_ITEM_ACDC_YAI_PC_RECOV30_L, L_804F5CF
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -162,7 +162,7 @@ NPC_804F5AC:
     a_set_sprite_frame 0
 L_804F5C6:
     a_wait 1
-    a_jump_if_not_flag 0x28E, L_804F5C6
+    a_jump_if_not_flag FLAG_ITEM_ACDC_YAI_PC_RECOV30_L, L_804F5C6
 L_804F5CF:
     a_destroy
 
@@ -193,7 +193,7 @@ global_label NPCList_804F5FC
     .align 2, 0
 
 NPC_804F608:
-    a_jump_if_flag 0x28F, L_804F62B
+    a_jump_if_flag FLAG_ITEM_ACDC_DEX_PC_KEYDEX, L_804F62B
     a_init
     a_disable_turn
     a_set_dialog 0x5
@@ -204,14 +204,14 @@ NPC_804F608:
     a_set_sprite_frame 0
 L_804F622:
     a_wait 1
-    a_jump_if_not_flag 0x28F, L_804F622
+    a_jump_if_not_flag FLAG_ITEM_ACDC_DEX_PC_KEYDEX, L_804F622
 L_804F62B:
     a_destroy
 
     .align 2, 0
 
 NPC_804F62C:
-    a_jump_if_flag 0x290, L_804F64F
+    a_jump_if_flag FLAG_ITEM_ACDC_DEX_PC_XPANEL3_B, L_804F64F
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -222,7 +222,7 @@ NPC_804F62C:
     a_set_sprite_frame 0
 L_804F646:
     a_wait 1
-    a_jump_if_not_flag 0x290, L_804F646
+    a_jump_if_not_flag FLAG_ITEM_ACDC_DEX_PC_XPANEL3_B, L_804F646
 L_804F64F:
     a_destroy
 

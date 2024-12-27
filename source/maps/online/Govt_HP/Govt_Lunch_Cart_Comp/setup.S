@@ -36,7 +36,7 @@ _nt FUN_0804fa9e
     beq        LAB_0804fab6
     push       {r5}
     mov        r0,#0x34
-    bl         Flag_Clear280
+    bl         Flag_ClearItem
     pop        {r5}
 LAB_0804fab6:
     push       {r5}

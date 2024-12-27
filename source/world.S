@@ -96,7 +96,7 @@ _ts InitWorld_NewGame
     strb       r0,[r5,#0x16]
     strb       r0,[r5,#0x17]
     push       {r5}
-    bl         FUN_080102dc
+    bl         Flag_InitAll
     bl         InitKeyItem
     bl         Shop_InitializeDefaultInventory
     bl         Inventory_InitDefaultChipFolder
@@ -1193,8 +1193,8 @@ LAB_08004870:
     mov        r0,#0xb9
     mov        r1,#0x8
     bl         ClearFlagRange280
-    bl         FUN_08052528
-    bl         FUN_080521cc
+    bl         EventHandler_Internet_2_SetupRandomGMD
+    bl         EventHandler_Internet_1_SetupRandomGMD
     pop        {r5,r7}
 LAB_08004910:
     mov        r7,r10

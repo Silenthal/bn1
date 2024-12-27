@@ -10,7 +10,7 @@ global_label NPCList_8053E14
     .align 2, 0
 
 global_label NPC_8053E1C
-    a_jump_if_flag 0x291, L_8053E41
+    a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_1, L_8053E41
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -23,12 +23,12 @@ L_8053E36:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x291, L_8053E36
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_1, L_8053E36
 L_8053E41:
     a_destroy
 
 global_label NPC_8053E42
-    a_jump_if_flag 0x292, L_8053E67
+    a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_2, L_8053E67
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -41,14 +41,14 @@ L_8053E5C:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x292, L_8053E5C
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_2, L_8053E5C
 L_8053E67:
     a_destroy
 
     .align 2, 0
 
 global_label NPC_8053E68
-    a_jump_if_flag 0x293, L_8053E8D
+    a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_3, L_8053E8D
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -61,12 +61,12 @@ L_8053E82:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x293, L_8053E82
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_3, L_8053E82
 L_8053E8D:
     a_destroy
 
 global_label NPC_8053E8E
-    a_jump_if_flag 0x294, L_8053EB3
+    a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_4, L_8053EB3
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -79,14 +79,14 @@ L_8053EA8:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x294, L_8053EA8
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_4, L_8053EA8
 L_8053EB3:
     a_destroy
 
     .align 2, 0
 
 global_label NPC_8053EB4
-    a_jump_if_flag 0x295, L_8053ED9
+    a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_5, L_8053ED9
     a_init
     a_disable_turn
     a_set_dialog 0x42
@@ -99,12 +99,12 @@ L_8053ECE:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x295, L_8053ECE
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_5, L_8053ECE
 L_8053ED9:
     a_destroy
 
 global_label NPC_8053EDA
-    a_jump_if_flag 0x296, L_8053EFF
+    a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_6, L_8053EFF
     a_init
     a_disable_turn
     a_set_dialog 0x46
@@ -117,14 +117,14 @@ L_8053EF4:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x296, L_8053EF4
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_6, L_8053EF4
 L_8053EFF:
     a_destroy
 
     .align 2, 0
 
 global_label NPC_8053F00
-    a_jump_if_flag 0x297, L_8053F25
+    a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_7, L_8053F25
     a_init
     a_disable_turn
     a_set_dialog 0x4A
@@ -137,12 +137,12 @@ L_8053F1A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x297, L_8053F1A
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_7, L_8053F1A
 L_8053F25:
     a_destroy
 
 global_label NPC_8053F26
-    a_jump_if_flag 0x298, L_8053F4B
+    a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_8, L_8053F4B
     a_init
     a_disable_turn
     a_set_dialog 0x4E
@@ -155,14 +155,14 @@ L_8053F40:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x298, L_8053F40
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_8, L_8053F40
 L_8053F4B:
     a_destroy
 
     .align 2, 0
 
 global_label NPC_8053F4C
-    a_jump_if_flag 0x2D9, L_8053F71
+    a_jump_if_flag FLAG_ITEM_INTERNET_1_TRILANCE_M, L_8053F71
     a_init
     a_disable_turn
     a_set_dialog 0x25
@@ -175,7 +175,7 @@ L_8053F66:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2D9, L_8053F66
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_1_TRILANCE_M, L_8053F66
 L_8053F71:
     a_destroy
 
@@ -293,7 +293,7 @@ global_label PTR_NPC_8054324_08054048
 
 
 NPC_8054050:
-    a_jump_if_flag 0x299, L_8054075
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_1, L_8054075
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -306,12 +306,12 @@ L_805406A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x299, L_805406A
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_1, L_805406A
 L_8054075:
     a_destroy
 
 NPC_8054076:
-    a_jump_if_flag 0x29A, L_805409B
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_2, L_805409B
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -324,14 +324,14 @@ L_8054090:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x29A, L_8054090
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_2, L_8054090
 L_805409B:
     a_destroy
 
     .align 2, 0
 
 NPC_805409C:
-    a_jump_if_flag 0x29B, L_80540C1
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_3, L_80540C1
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -344,12 +344,12 @@ L_80540B6:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x29B, L_80540B6
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_3, L_80540B6
 L_80540C1:
     a_destroy
 
 NPC_80540C2:
-    a_jump_if_flag 0x29C, L_80540E7
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_4, L_80540E7
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -362,14 +362,14 @@ L_80540DC:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x29C, L_80540DC
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_4, L_80540DC
 L_80540E7:
     a_destroy
 
     .align 2, 0
 
 NPC_80540E8:
-    a_jump_if_flag 0x29D, L_805410D
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_5, L_805410D
     a_init
     a_disable_turn
     a_set_dialog 0x42
@@ -382,12 +382,12 @@ L_8054102:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x29D, L_8054102
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_5, L_8054102
 L_805410D:
     a_destroy
 
 NPC_805410E:
-    a_jump_if_flag 0x29E, L_8054133
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_6, L_8054133
     a_init
     a_disable_turn
     a_set_dialog 0x46
@@ -400,14 +400,14 @@ L_8054128:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x29E, L_8054128
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_6, L_8054128
 L_8054133:
     a_destroy
 
     .align 2, 0
 
 NPC_8054134:
-    a_jump_if_flag 0x29F, L_8054159
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_7, L_8054159
     a_init
     a_disable_turn
     a_set_dialog 0x4A
@@ -420,12 +420,12 @@ L_805414E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x29F, L_805414E
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_7, L_805414E
 L_8054159:
     a_destroy
 
 NPC_805415A:
-    a_jump_if_flag 0x2A0, L_805417F
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_8, L_805417F
     a_init
     a_disable_turn
     a_set_dialog 0x4E
@@ -438,14 +438,14 @@ L_8054174:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2A0, L_8054174
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_8, L_8054174
 L_805417F:
     a_destroy
 
     .align 2, 0
 
 NPC_8054180:
-    a_jump_if_flag 0x2A1, L_80541A5
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_9, L_80541A5
     a_init
     a_disable_turn
     a_set_dialog 0x52
@@ -458,12 +458,12 @@ L_805419A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2A1, L_805419A
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_9, L_805419A
 L_80541A5:
     a_destroy
 
 NPC_80541A6:
-    a_jump_if_flag 0x2A2, L_80541CB
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_10, L_80541CB
     a_init
     a_disable_turn
     a_set_dialog 0x56
@@ -476,14 +476,14 @@ L_80541C0:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2A2, L_80541C0
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_10, L_80541C0
 L_80541CB:
     a_destroy
 
     .align 2, 0
 
 NPC_80541CC:
-    a_jump_if_flag 0x2A3, L_80541F1
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_11, L_80541F1
     a_init
     a_disable_turn
     a_set_dialog 0x5A
@@ -496,12 +496,12 @@ L_80541E6:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2A3, L_80541E6
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_11, L_80541E6
 L_80541F1:
     a_destroy
 
 NPC_80541F2:
-    a_jump_if_flag 0x2A4, L_8054217
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_12, L_8054217
     a_init
     a_disable_turn
     a_set_dialog 0x5E
@@ -514,14 +514,14 @@ L_805420C:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2A4, L_805420C
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_12, L_805420C
 L_8054217:
     a_destroy
 
     .align 2, 0
 
 NPC_8054218:
-    a_jump_if_flag 0x2A5, L_805423D
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_13, L_805423D
     a_init
     a_disable_turn
     a_set_dialog 0x62
@@ -534,12 +534,12 @@ L_8054232:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2A5, L_8054232
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_13, L_8054232
 L_805423D:
     a_destroy
 
 NPC_805423E:
-    a_jump_if_flag 0x2A6, L_8054263
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_14, L_8054263
     a_init
     a_disable_turn
     a_set_dialog 0x66
@@ -552,14 +552,14 @@ L_8054258:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2A6, L_8054258
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_14, L_8054258
 L_8054263:
     a_destroy
 
     .align 2, 0
 
 NPC_8054264:
-    a_jump_if_flag 0x2A7, L_8054289
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_15, L_8054289
     a_init
     a_disable_turn
     a_set_dialog 0x6A
@@ -572,12 +572,12 @@ L_805427E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2A7, L_805427E
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_15, L_805427E
 L_8054289:
     a_destroy
 
 NPC_805428A:
-    a_jump_if_flag 0x2A8, L_80542AF
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_16, L_80542AF
     a_init
     a_disable_turn
     a_set_dialog 0x6E
@@ -590,7 +590,7 @@ L_80542A4:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2A8, L_80542A4
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_16, L_80542A4
 L_80542AF:
     a_destroy
 
@@ -607,7 +607,7 @@ L_80542BE:
     a_jump L_80542BE
 
 NPC_80542C5:
-    a_jump_if_flag 0x2DA, L_80542E8
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_POWERUP_1, L_80542E8
     a_init
     a_disable_turn
     a_set_dialog 0x16
@@ -618,12 +618,12 @@ NPC_80542C5:
     a_set_sprite_frame 0
 L_80542DF:
     a_wait 1
-    a_jump_if_not_flag 0x2DA, L_80542DF
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_POWERUP_1, L_80542DF
 L_80542E8:
     a_destroy
 
 NPC_80542E9:
-    a_jump_if_flag 0x2DB, L_805430C
+    a_jump_if_flag FLAG_ITEM_INTERNET_2_POWERUP_2, L_805430C
     a_init
     a_disable_turn
     a_set_dialog 0x19
@@ -634,7 +634,7 @@ NPC_80542E9:
     a_set_sprite_frame 0
 L_8054303:
     a_wait 1
-    a_jump_if_not_flag 0x2DB, L_8054303
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_2_POWERUP_2, L_8054303
 L_805430C:
     a_destroy
 
@@ -680,7 +680,7 @@ global_label NPCList_8054348
     .align 2, 0
 
 NPC_8054368:
-    a_jump_if_flag 0x2E7, L_805438D
+    a_jump_if_flag FLAG_ITEM_INTERNET_3_MD_1, L_805438D
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -693,12 +693,12 @@ L_8054382:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2E7, L_8054382
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_3_MD_1, L_8054382
 L_805438D:
     a_destroy
 
 NPC_805438E:
-    a_jump_if_flag 0x2E8, L_80543B3
+    a_jump_if_flag FLAG_ITEM_INTERNET_3_MD_2, L_80543B3
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -711,14 +711,14 @@ L_80543A8:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2E8, L_80543A8
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_3_MD_2, L_80543A8
 L_80543B3:
     a_destroy
 
     .align 2, 0
 
 NPC_80543B4:
-    a_jump_if_flag 0x2E9, L_80543D9
+    a_jump_if_flag FLAG_ITEM_INTERNET_3_MD_3, L_80543D9
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -731,12 +731,12 @@ L_80543CE:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2E9, L_80543CE
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_3_MD_3, L_80543CE
 L_80543D9:
     a_destroy
 
 NPC_80543DA:
-    a_jump_if_flag 0x2EA, L_80543FF
+    a_jump_if_flag FLAG_ITEM_INTERNET_3_MD_4, L_80543FF
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -749,14 +749,14 @@ L_80543F4:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2EA, L_80543F4
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_3_MD_4, L_80543F4
 L_80543FF:
     a_destroy
 
     .align 2, 0
 
 NPC_8054400:
-    a_jump_if_flag 0x2EB, L_8054425
+    a_jump_if_flag FLAG_ITEM_INTERNET_3_ROCKCUBE_O, L_8054425
     a_init
     a_disable_turn
     a_set_dialog 0x14
@@ -769,12 +769,12 @@ L_805441A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2EB, L_805441A
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_3_ROCKCUBE_O, L_805441A
 L_8054425:
     a_destroy
 
 NPC_8054426:
-    a_jump_if_flag 0x2EC, L_805444B
+    a_jump_if_flag FLAG_ITEM_INTERNET_3_FTRSWORD_B, L_805444B
     a_init
     a_disable_turn
     a_set_dialog 0x17
@@ -787,7 +787,7 @@ L_8054440:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2EC, L_8054440
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_3_FTRSWORD_B, L_8054440
 L_805444B:
     a_destroy
 
@@ -819,7 +819,7 @@ global_label NPCList_8054464
     .align 2, 0
 
 NPC_8054484:
-    a_jump_if_flag 0x2F1, L_80544A9
+    a_jump_if_flag FLAG_ITEM_INTERNET_4_MD_1, L_80544A9
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -832,12 +832,12 @@ L_805449E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2F1, L_805449E
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_4_MD_1, L_805449E
 L_80544A9:
     a_destroy
 
 NPC_80544AA:
-    a_jump_if_flag 0x2F2, L_80544CF
+    a_jump_if_flag FLAG_ITEM_INTERNET_4_MD_2, L_80544CF
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -850,14 +850,14 @@ L_80544C4:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2F2, L_80544C4
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_4_MD_2, L_80544C4
 L_80544CF:
     a_destroy
 
     .align 2, 0
 
 NPC_80544D0:
-    a_jump_if_flag 0x2F3, L_80544F5
+    a_jump_if_flag FLAG_ITEM_INTERNET_4_MD_3, L_80544F5
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -870,12 +870,12 @@ L_80544EA:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2F3, L_80544EA
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_4_MD_3, L_80544EA
 L_80544F5:
     a_destroy
 
 NPC_80544F6:
-    a_jump_if_flag 0x2F4, L_805451B
+    a_jump_if_flag FLAG_ITEM_INTERNET_4_MD_4, L_805451B
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -888,14 +888,14 @@ L_8054510:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2F4, L_8054510
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_4_MD_4, L_8054510
 L_805451B:
     a_destroy
 
     .align 2, 0
 
 NPC_805451C:
-    a_jump_if_flag 0x2F5, L_8054541
+    a_jump_if_flag FLAG_ITEM_INTERNET_4_AQUASWRD_A, L_8054541
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -908,12 +908,12 @@ L_8054536:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2F5, L_8054536
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_4_AQUASWRD_A, L_8054536
 L_8054541:
     a_destroy
 
 NPC_8054542:
-    a_jump_if_flag 0x2F6, L_8054567
+    a_jump_if_flag FLAG_ITEM_INTERNET_4_HPMEMORY, L_8054567
     a_init_no_sprite
     a_disable_turn
     a_set_dialog 0x21
@@ -926,7 +926,7 @@ L_805455C:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2F6, L_805455C
+    a_jump_if_not_flag FLAG_ITEM_INTERNET_4_HPMEMORY, L_805455C
 L_8054567:
     a_destroy
 
@@ -961,7 +961,7 @@ global_label NPCList_8054580
     .align 2, 0
 
 NPC_80545AC:
-    a_jump_if_flag 0x2F7, L_80545D1
+    a_jump_if_flag FLAG_ITEM_UNDERNET_1_MD_1, L_80545D1
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -974,12 +974,12 @@ L_80545C6:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2F7, L_80545C6
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_MD_1, L_80545C6
 L_80545D1:
     a_destroy
 
 NPC_80545D2:
-    a_jump_if_flag 0x2F8, L_80545F7
+    a_jump_if_flag FLAG_ITEM_UNDERNET_1_MD_2, L_80545F7
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -992,14 +992,14 @@ L_80545EC:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2F8, L_80545EC
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_MD_2, L_80545EC
 L_80545F7:
     a_destroy
 
     .align 2, 0
 
 NPC_80545F8:
-    a_jump_if_flag 0x2F9, L_805461D
+    a_jump_if_flag FLAG_ITEM_UNDERNET_1_MD_3, L_805461D
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -1012,12 +1012,12 @@ L_8054612:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2F9, L_8054612
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_MD_3, L_8054612
 L_805461D:
     a_destroy
 
 NPC_805461E:
-    a_jump_if_flag 0x2FA, L_8054643
+    a_jump_if_flag FLAG_ITEM_UNDERNET_1_MD_4, L_8054643
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -1030,14 +1030,14 @@ L_8054638:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2FA, L_8054638
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_MD_4, L_8054638
 L_8054643:
     a_destroy
 
     .align 2, 0
 
 NPC_8054644:
-    a_jump_if_flag 0x2FB, L_8054669
+    a_jump_if_flag FLAG_ITEM_UNDERNET_1_THUNDER1_H, L_8054669
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -1050,12 +1050,12 @@ L_805465E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2FB, L_805465E
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_THUNDER1_H, L_805465E
 L_8054669:
     a_destroy
 
 NPC_805466A:
-    a_jump_if_flag 0x2FC, L_805468F
+    a_jump_if_flag FLAG_ITEM_UNDERNET_1_HPMEMORY, L_805468F
     a_init
     a_disable_turn
     a_set_dialog 0x21
@@ -1068,7 +1068,7 @@ L_8054684:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2FC, L_8054684
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_HPMEMORY, L_8054684
 L_805468F:
     a_destroy
 
@@ -1129,7 +1129,7 @@ global_label NPCList_80546EC
     .align 2, 0
 
 NPC_8054704:
-    a_jump_if_flag 0x2FD, L_8054729
+    a_jump_if_flag FLAG_ITEM_UNDERNET_2_MD_1, L_8054729
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -1142,12 +1142,12 @@ L_805471E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2FD, L_805471E
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_2_MD_1, L_805471E
 L_8054729:
     a_destroy
 
 NPC_805472A:
-    a_jump_if_flag 0x2FE, L_805474F
+    a_jump_if_flag FLAG_ITEM_UNDERNET_2_MD_2, L_805474F
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -1160,14 +1160,14 @@ L_8054744:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2FE, L_8054744
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_2_MD_2, L_8054744
 L_805474F:
     a_destroy
 
     .align 2, 0
 
 NPC_8054750:
-    a_jump_if_flag 0x2FF, L_8054775
+    a_jump_if_flag FLAG_ITEM_UNDERNET_2_MD_3, L_8054775
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -1180,12 +1180,12 @@ L_805476A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2FF, L_805476A
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_2_MD_3, L_805476A
 L_8054775:
     a_destroy
 
 NPC_8054776:
-    a_jump_if_flag 0x300, L_805479B
+    a_jump_if_flag FLAG_ITEM_UNDERNET_2_MD_4, L_805479B
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -1198,14 +1198,14 @@ L_8054790:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x300, L_8054790
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_2_MD_4, L_8054790
 L_805479B:
     a_destroy
 
     .align 2, 0
 
 NPC_805479C:
-    a_jump_if_flag 0x301, L_80547C1
+    a_jump_if_flag FLAG_ITEM_UNDERNET_2_6000Z, L_80547C1
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -1218,7 +1218,7 @@ L_80547B6:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x301, L_80547B6
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_2_6000Z, L_80547B6
 L_80547C1:
     a_destroy
 
@@ -1235,7 +1235,7 @@ global_label NPCList_80547C4
     .align 2, 0
 
 NPC_80547DC:
-    a_jump_if_flag 0x303, L_8054801
+    a_jump_if_flag FLAG_ITEM_UNDERNET_3_MD_1, L_8054801
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -1248,12 +1248,12 @@ L_80547F6:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x303, L_80547F6
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_3_MD_1, L_80547F6
 L_8054801:
     a_destroy
 
 NPC_8054802:
-    a_jump_if_flag 0x304, L_8054827
+    a_jump_if_flag FLAG_ITEM_UNDERNET_3_MD_2, L_8054827
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -1266,14 +1266,14 @@ L_805481C:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x304, L_805481C
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_3_MD_2, L_805481C
 L_8054827:
     a_destroy
 
     .align 2, 0
 
 NPC_8054828:
-    a_jump_if_flag 0x305, L_805484D
+    a_jump_if_flag FLAG_ITEM_UNDERNET_3_MD_3, L_805484D
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -1286,12 +1286,12 @@ L_8054842:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x305, L_8054842
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_3_MD_3, L_8054842
 L_805484D:
     a_destroy
 
 NPC_805484E:
-    a_jump_if_flag 0x306, L_8054873
+    a_jump_if_flag FLAG_ITEM_UNDERNET_3_MD_4, L_8054873
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -1304,14 +1304,14 @@ L_8054868:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x306, L_8054868
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_3_MD_4, L_8054868
 L_8054873:
     a_destroy
 
     .align 2, 0
 
 NPC_8054874:
-    a_jump_if_flag 0x307, L_8054899
+    a_jump_if_flag FLAG_ITEM_UNDERNET_3_REMOBIT1_N, L_8054899
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -1324,7 +1324,7 @@ L_805488E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x307, L_805488E
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_3_REMOBIT1_N, L_805488E
 L_8054899:
     a_destroy
 
@@ -1352,7 +1352,7 @@ global_label NPCList_80548BC
     .align 2, 0
 
 NPC_80548D8:
-    a_jump_if_flag 0x309, L_80548FD
+    a_jump_if_flag FLAG_ITEM_UNDERNET_4_MD_1, L_80548FD
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -1365,12 +1365,12 @@ L_80548F2:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x309, L_80548F2
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_4_MD_1, L_80548F2
 L_80548FD:
     a_destroy
 
 NPC_80548FE:
-    a_jump_if_flag 0x30A, L_8054923
+    a_jump_if_flag FLAG_ITEM_UNDERNET_4_MD_2, L_8054923
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -1383,14 +1383,14 @@ L_8054918:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x30A, L_8054918
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_4_MD_2, L_8054918
 L_8054923:
     a_destroy
 
     .align 2, 0
 
 NPC_8054924:
-    a_jump_if_flag 0x30B, L_8054949
+    a_jump_if_flag FLAG_ITEM_UNDERNET_4_MD_3, L_8054949
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -1403,12 +1403,12 @@ L_805493E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x30B, L_805493E
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_4_MD_3, L_805493E
 L_8054949:
     a_destroy
 
 NPC_805494A:
-    a_jump_if_flag 0x30C, L_805496F
+    a_jump_if_flag FLAG_ITEM_UNDERNET_4_MD_4, L_805496F
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -1421,14 +1421,14 @@ L_8054964:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x30C, L_8054964
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_4_MD_4, L_8054964
 L_805496F:
     a_destroy
 
     .align 2, 0
 
 NPC_8054970:
-    a_jump_if_flag 0x30D, L_8054995
+    a_jump_if_flag FLAG_ITEM_UNDERNET_4_10000Z, L_8054995
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -1441,7 +1441,7 @@ L_805498A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x30D, L_805498A
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_4_10000Z, L_805498A
 L_8054995:
     a_destroy
 
@@ -1456,7 +1456,7 @@ L_80549A4:
     a_jump L_80549A4
 
 NPC_80549AB:
-    a_jump_if_flag 0x30E, L_80549CC
+    a_jump_if_flag FLAG_ITEM_30E, L_80549CC
     a_init
     a_disable_turn
     a_set_sprite SP_Overworld_MysteryData
@@ -1467,7 +1467,7 @@ L_80549C1:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x30E, L_80549C1
+    a_jump_if_not_flag FLAG_ITEM_30E, L_80549C1
 L_80549CC:
     a_destroy
 
@@ -1485,7 +1485,7 @@ global_label NPCList_80549D0
     .align 2, 0
 
 NPC_80549EC:
-    a_jump_if_flag 0x30F, L_8054A11
+    a_jump_if_flag FLAG_ITEM_UNDERNET_5_MD_1, L_8054A11
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -1498,12 +1498,12 @@ L_8054A06:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x30F, L_8054A06
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_5_MD_1, L_8054A06
 L_8054A11:
     a_destroy
 
 NPC_8054A12:
-    a_jump_if_flag 0x310, L_8054A37
+    a_jump_if_flag FLAG_ITEM_UNDERNET_5_MD_2, L_8054A37
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -1516,14 +1516,14 @@ L_8054A2C:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x310, L_8054A2C
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_5_MD_2, L_8054A2C
 L_8054A37:
     a_destroy
 
     .align 2, 0
 
 NPC_8054A38:
-    a_jump_if_flag 0x311, L_8054A5D
+    a_jump_if_flag FLAG_ITEM_UNDERNET_5_MD_3, L_8054A5D
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -1536,12 +1536,12 @@ L_8054A52:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x311, L_8054A52
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_5_MD_3, L_8054A52
 L_8054A5D:
     a_destroy
 
 NPC_8054A5E:
-    a_jump_if_flag 0x312, L_8054A83
+    a_jump_if_flag FLAG_ITEM_UNDERNET_5_MD_4, L_8054A83
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -1554,14 +1554,14 @@ L_8054A78:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x312, L_8054A78
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_5_MD_4, L_8054A78
 L_8054A83:
     a_destroy
 
     .align 2, 0
 
 NPC_8054A84:
-    a_jump_if_flag 0x313, L_8054AA9
+    a_jump_if_flag FLAG_ITEM_UNDERNET_5_RINGZAP1_H, L_8054AA9
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -1574,7 +1574,7 @@ L_8054A9E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x313, L_8054A9E
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_5_RINGZAP1_H, L_8054A9E
 L_8054AA9:
     a_destroy
 
@@ -1605,7 +1605,7 @@ global_label NPCList_8054AC4
     .align 2, 0
 
 NPC_8054AE8:
-    a_jump_if_flag 0x315, L_8054B0D
+    a_jump_if_flag FLAG_ITEM_UNDERNET_6_MD_1, L_8054B0D
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -1618,12 +1618,12 @@ L_8054B02:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x315, L_8054B02
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_MD_1, L_8054B02
 L_8054B0D:
     a_destroy
 
 NPC_8054B0E:
-    a_jump_if_flag 0x316, L_8054B33
+    a_jump_if_flag FLAG_ITEM_UNDERNET_6_MD_2, L_8054B33
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -1636,14 +1636,14 @@ L_8054B28:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x316, L_8054B28
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_MD_2, L_8054B28
 L_8054B33:
     a_destroy
 
     .align 2, 0
 
 NPC_8054B34:
-    a_jump_if_flag 0x317, L_8054B59
+    a_jump_if_flag FLAG_ITEM_UNDERNET_6_MD_3, L_8054B59
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -1656,12 +1656,12 @@ L_8054B4E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x317, L_8054B4E
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_MD_3, L_8054B4E
 L_8054B59:
     a_destroy
 
 NPC_8054B5A:
-    a_jump_if_flag 0x318, L_8054B7F
+    a_jump_if_flag FLAG_ITEM_UNDERNET_6_MD_4, L_8054B7F
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -1674,14 +1674,14 @@ L_8054B74:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x318, L_8054B74
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_MD_4, L_8054B74
 L_8054B7F:
     a_destroy
 
     .align 2, 0
 
 NPC_8054B80:
-    a_jump_if_flag 0x319, L_8054BA5
+    a_jump_if_flag FLAG_ITEM_UNDERNET_6_WIDESWRD_S, L_8054BA5
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -1694,12 +1694,12 @@ L_8054B9A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x319, L_8054B9A
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_WIDESWRD_S, L_8054B9A
 L_8054BA5:
     a_destroy
 
 NPC_8054BA6:
-    a_jump_if_flag 0x31A, L_8054BCB
+    a_jump_if_flag FLAG_ITEM_UNDERNET_6_HPMEMORY, L_8054BCB
     a_init
     a_disable_turn
     a_set_dialog 0x21
@@ -1712,7 +1712,7 @@ L_8054BC0:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x31A, L_8054BC0
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_HPMEMORY, L_8054BC0
 L_8054BCB:
     a_destroy
 
@@ -1766,7 +1766,7 @@ global_label NPCList_8054C14
     .align 2, 0
 
 NPC_8054C34:
-    a_jump_if_flag 0x31B, L_8054C59
+    a_jump_if_flag FLAG_ITEM_UNDERNET_7_MD_1, L_8054C59
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -1779,12 +1779,12 @@ L_8054C4E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x31B, L_8054C4E
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_7_MD_1, L_8054C4E
 L_8054C59:
     a_destroy
 
 NPC_8054C5A:
-    a_jump_if_flag 0x31C, L_8054C7F
+    a_jump_if_flag FLAG_ITEM_UNDERNET_7_MD_2, L_8054C7F
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -1797,14 +1797,14 @@ L_8054C74:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x31C, L_8054C74
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_7_MD_2, L_8054C74
 L_8054C7F:
     a_destroy
 
     .align 2, 0
 
 NPC_8054C80:
-    a_jump_if_flag 0x31D, L_8054CA5
+    a_jump_if_flag FLAG_ITEM_UNDERNET_7_MD_3, L_8054CA5
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -1817,12 +1817,12 @@ L_8054C9A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x31D, L_8054C9A
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_7_MD_3, L_8054C9A
 L_8054CA5:
     a_destroy
 
 NPC_8054CA6:
-    a_jump_if_flag 0x31E, L_8054CCB
+    a_jump_if_flag FLAG_ITEM_UNDERNET_7_MD_4, L_8054CCB
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -1835,14 +1835,14 @@ L_8054CC0:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x31E, L_8054CC0
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_7_MD_4, L_8054CC0
 L_8054CCB:
     a_destroy
 
     .align 2, 0
 
 NPC_8054CCC:
-    a_jump_if_flag 0x31F, L_8054CF1
+    a_jump_if_flag FLAG_ITEM_UNDERNET_7_10000Z, L_8054CF1
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -1855,7 +1855,7 @@ L_8054CE6:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x31F, L_8054CE6
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_7_10000Z, L_8054CE6
 L_8054CF1:
     a_destroy
 
@@ -1894,7 +1894,7 @@ global_label NPCList_8054D20
     .align 2, 0
 
 NPC_8054D40:
-    a_jump_if_flag 0x321, L_8054D65
+    a_jump_if_flag FLAG_ITEM_UNDERNET_8_MD_1, L_8054D65
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -1907,12 +1907,12 @@ L_8054D5A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x321, L_8054D5A
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_8_MD_1, L_8054D5A
 L_8054D65:
     a_destroy
 
 NPC_8054D66:
-    a_jump_if_flag 0x322, L_8054D8B
+    a_jump_if_flag FLAG_ITEM_UNDERNET_8_MD_2, L_8054D8B
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -1925,14 +1925,14 @@ L_8054D80:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x322, L_8054D80
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_8_MD_2, L_8054D80
 L_8054D8B:
     a_destroy
 
     .align 2, 0
 
 NPC_8054D8C:
-    a_jump_if_flag 0x323, L_8054DB1
+    a_jump_if_flag FLAG_ITEM_UNDERNET_8_MD_3, L_8054DB1
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -1945,12 +1945,12 @@ L_8054DA6:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x323, L_8054DA6
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_8_MD_3, L_8054DA6
 L_8054DB1:
     a_destroy
 
 NPC_8054DB2:
-    a_jump_if_flag 0x324, L_8054DD7
+    a_jump_if_flag FLAG_ITEM_UNDERNET_8_MD_4, L_8054DD7
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -1963,14 +1963,14 @@ L_8054DCC:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x324, L_8054DCC
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_8_MD_4, L_8054DCC
 L_8054DD7:
     a_destroy
 
     .align 2, 0
 
 NPC_8054DD8:
-    a_jump_if_flag 0x325, L_8054DFD
+    a_jump_if_flag FLAG_ITEM_UNDERNET_8_KNGTSWRD_B, L_8054DFD
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -1983,7 +1983,7 @@ L_8054DF2:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x325, L_8054DF2
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_8_KNGTSWRD_B, L_8054DF2
 L_8054DFD:
     a_destroy
 
@@ -2022,7 +2022,7 @@ global_label NPCList_8054E2C
     .align 2, 0
 
 NPC_8054E4C:
-    a_jump_if_flag 0x327, L_8054E71
+    a_jump_if_flag FLAG_ITEM_UNDERNET_9_MD_1, L_8054E71
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -2035,12 +2035,12 @@ L_8054E66:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x327, L_8054E66
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_MD_1, L_8054E66
 L_8054E71:
     a_destroy
 
 NPC_8054E72:
-    a_jump_if_flag 0x328, L_8054E97
+    a_jump_if_flag FLAG_ITEM_UNDERNET_9_MD_2, L_8054E97
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -2053,14 +2053,14 @@ L_8054E8C:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x328, L_8054E8C
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_MD_2, L_8054E8C
 L_8054E97:
     a_destroy
 
     .align 2, 0
 
 NPC_8054E98:
-    a_jump_if_flag 0x329, L_8054EBD
+    a_jump_if_flag FLAG_ITEM_UNDERNET_9_MD_3, L_8054EBD
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -2073,12 +2073,12 @@ L_8054EB2:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x329, L_8054EB2
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_MD_3, L_8054EB2
 L_8054EBD:
     a_destroy
 
 NPC_8054EBE:
-    a_jump_if_flag 0x32A, L_8054EE3
+    a_jump_if_flag FLAG_ITEM_UNDERNET_9_MD_4, L_8054EE3
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -2091,14 +2091,14 @@ L_8054ED8:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x32A, L_8054ED8
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_MD_4, L_8054ED8
 L_8054EE3:
     a_destroy
 
     .align 2, 0
 
 NPC_8054EE4:
-    a_jump_if_flag 0x32B, L_8054F09
+    a_jump_if_flag FLAG_ITEM_UNDERNET_9_8000Z, L_8054F09
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -2111,12 +2111,12 @@ L_8054EFE:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x32B, L_8054EFE
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_8000Z, L_8054EFE
 L_8054F09:
     a_destroy
 
 NPC_8054F0A:
-    a_jump_if_flag 0x32C, L_8054F2F
+    a_jump_if_flag FLAG_ITEM_UNDERNET_9_RECOV150_A, L_8054F2F
     a_init
     a_disable_turn
     a_set_dialog 0x21
@@ -2129,7 +2129,7 @@ L_8054F24:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x32C, L_8054F24
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_RECOV150_A, L_8054F24
 L_8054F2F:
     a_destroy
 
@@ -2162,7 +2162,7 @@ global_label NPCList_8054F48
     .align 2, 0
 
 NPC_8054F6C:
-    a_jump_if_flag 0x32D, L_8054F91
+    a_jump_if_flag FLAG_ITEM_UNDERNET_10_MD_1, L_8054F91
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -2175,12 +2175,12 @@ L_8054F86:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x32D, L_8054F86
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_MD_1, L_8054F86
 L_8054F91:
     a_destroy
 
 NPC_8054F92:
-    a_jump_if_flag 0x32E, L_8054FB7
+    a_jump_if_flag FLAG_ITEM_UNDERNET_10_MD_2, L_8054FB7
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -2193,14 +2193,14 @@ L_8054FAC:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x32E, L_8054FAC
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_MD_2, L_8054FAC
 L_8054FB7:
     a_destroy
 
     .align 2, 0
 
 NPC_8054FB8:
-    a_jump_if_flag 0x32F, L_8054FDD
+    a_jump_if_flag FLAG_ITEM_UNDERNET_10_MD_3, L_8054FDD
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -2213,12 +2213,12 @@ L_8054FD2:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x32F, L_8054FD2
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_MD_3, L_8054FD2
 L_8054FDD:
     a_destroy
 
 NPC_8054FDE:
-    a_jump_if_flag 0x330, L_8055003
+    a_jump_if_flag FLAG_ITEM_UNDERNET_10_MD_4, L_8055003
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -2231,14 +2231,14 @@ L_8054FF8:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x330, L_8054FF8
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_MD_4, L_8054FF8
 L_8055003:
     a_destroy
 
     .align 2, 0
 
 NPC_8055004:
-    a_jump_if_flag 0x331, L_8055029
+    a_jump_if_flag FLAG_ITEM_UNDERNET_10_5000Z, L_8055029
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -2251,12 +2251,12 @@ L_805501E:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x331, L_805501E
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_5000Z, L_805501E
 L_8055029:
     a_destroy
 
 NPC_805502A:
-    a_jump_if_flag 0x332, L_805504F
+    a_jump_if_flag FLAG_ITEM_UNDERNET_10_POWERUP, L_805504F
     a_init
     a_disable_turn
     a_set_dialog 0x21
@@ -2269,7 +2269,7 @@ L_8055044:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x332, L_8055044
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_POWERUP, L_8055044
 L_805504F:
     a_destroy
 
@@ -2312,7 +2312,7 @@ global_label NPCList_8055080
     .align 2, 0
 
 NPC_80550A0:
-    a_jump_if_flag 0x333, L_80550C5
+    a_jump_if_flag FLAG_ITEM_UNDERNET_11_MD_1, L_80550C5
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -2325,12 +2325,12 @@ L_80550BA:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x333, L_80550BA
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_11_MD_1, L_80550BA
 L_80550C5:
     a_destroy
 
 NPC_80550C6:
-    a_jump_if_flag 0x334, L_80550EB
+    a_jump_if_flag FLAG_ITEM_UNDERNET_11_MD_2, L_80550EB
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -2343,14 +2343,14 @@ L_80550E0:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x334, L_80550E0
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_11_MD_2, L_80550E0
 L_80550EB:
     a_destroy
 
     .align 2, 0
 
 NPC_80550EC:
-    a_jump_if_flag 0x335, L_8055111
+    a_jump_if_flag FLAG_ITEM_UNDERNET_11_MD_3, L_8055111
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -2363,12 +2363,12 @@ L_8055106:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x335, L_8055106
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_11_MD_3, L_8055106
 L_8055111:
     a_destroy
 
 NPC_8055112:
-    a_jump_if_flag 0x336, L_8055137
+    a_jump_if_flag FLAG_ITEM_UNDERNET_11_MD_4, L_8055137
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -2381,14 +2381,14 @@ L_805512C:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x336, L_805512C
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_11_MD_4, L_805512C
 L_8055137:
     a_destroy
 
     .align 2, 0
 
 NPC_8055138:
-    a_jump_if_flag 0x337, L_805515D
+    a_jump_if_flag FLAG_ITEM_UNDERNET_11_REDWAVE_J, L_805515D
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -2401,7 +2401,7 @@ L_8055152:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x337, L_8055152
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_11_REDWAVE_J, L_8055152
 L_805515D:
     a_destroy
 
@@ -2445,7 +2445,7 @@ global_label NPCList_805518C
     .align 2, 0
 
 NPC_80551C0:
-    a_jump_if_flag 0x339, L_80551E5
+    a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_1, L_80551E5
     a_init
     a_disable_turn
     a_set_dialog 0x32
@@ -2458,12 +2458,12 @@ L_80551DA:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x339, L_80551DA
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_1, L_80551DA
 L_80551E5:
     a_destroy
 
 NPC_80551E6:
-    a_jump_if_flag 0x33A, L_805520B
+    a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_2, L_805520B
     a_init
     a_disable_turn
     a_set_dialog 0x36
@@ -2476,14 +2476,14 @@ L_8055200:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x33A, L_8055200
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_2, L_8055200
 L_805520B:
     a_destroy
 
     .align 2, 0
 
 NPC_805520C:
-    a_jump_if_flag 0x33B, L_8055231
+    a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_3, L_8055231
     a_init
     a_disable_turn
     a_set_dialog 0x3A
@@ -2496,12 +2496,12 @@ L_8055226:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x33B, L_8055226
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_3, L_8055226
 L_8055231:
     a_destroy
 
 NPC_8055232:
-    a_jump_if_flag 0x33C, L_8055257
+    a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_4, L_8055257
     a_init
     a_disable_turn
     a_set_dialog 0x3E
@@ -2514,14 +2514,14 @@ L_805524C:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x33C, L_805524C
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_4, L_805524C
 L_8055257:
     a_destroy
 
     .align 2, 0
 
 NPC_8055258:
-    a_jump_if_flag 0x33D, L_805527D
+    a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_5, L_805527D
     a_init
     a_disable_turn
     a_set_dialog 0x42
@@ -2534,12 +2534,12 @@ L_8055272:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x33D, L_8055272
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_5, L_8055272
 L_805527D:
     a_destroy
 
 NPC_805527E:
-    a_jump_if_flag 0x33E, L_80552A3
+    a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_6, L_80552A3
     a_init
     a_disable_turn
     a_set_dialog 0x46
@@ -2552,14 +2552,14 @@ L_8055298:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x33E, L_8055298
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_6, L_8055298
 L_80552A3:
     a_destroy
 
     .align 2, 0
 
 NPC_80552A4:
-    a_jump_if_flag 0x33F, L_80552C9
+    a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_7, L_80552C9
     a_init
     a_disable_turn
     a_set_dialog 0x4A
@@ -2572,12 +2572,12 @@ L_80552BE:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x33F, L_80552BE
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_7, L_80552BE
 L_80552C9:
     a_destroy
 
 NPC_80552CA:
-    a_jump_if_flag 0x340, L_80552EF
+    a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_8, L_80552EF
     a_init
     a_disable_turn
     a_set_dialog 0x4E
@@ -2590,14 +2590,14 @@ L_80552E4:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x340, L_80552E4
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_8, L_80552E4
 L_80552EF:
     a_destroy
 
     .align 2, 0
 
 NPC_80552F0:
-    a_jump_if_flag 0x341, L_8055315
+    a_jump_if_flag FLAG_ITEM_UNDERNET_12_HEROSWRD_I, L_8055315
     a_init
     a_disable_turn
     a_set_dialog 0x1E
@@ -2610,12 +2610,12 @@ L_805530A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x341, L_805530A
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_HEROSWRD_I, L_805530A
 L_8055315:
     a_destroy
 
 NPC_8055316:
-    a_jump_if_flag 0x342, L_805533B
+    a_jump_if_flag FLAG_ITEM_UNDERNET_12_20000Z, L_805533B
     a_init
     a_disable_turn
     a_set_dialog 0x1F
@@ -2628,7 +2628,7 @@ L_8055330:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x342, L_8055330
+    a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_20000Z, L_8055330
 L_805533B:
     a_destroy
 

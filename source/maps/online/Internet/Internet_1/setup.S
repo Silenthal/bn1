@@ -376,7 +376,7 @@ LAB_080521c4:
     pop        {pc}
 
 
-_ts FUN_080521cc
+_ts EventHandler_Internet_1_SetupRandomGMD
     push       {lr}
     ldr        r6,PTR_DAT_08052280
     ldr        r3,PTR_PTR_08052284

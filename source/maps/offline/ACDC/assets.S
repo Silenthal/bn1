@@ -1431,7 +1431,7 @@ NPC_8030605:
     a_disable_collision
 L_803061B:
     a_wait 1
-    a_jump_if_not_flag 0x286, L_803061B
+    a_jump_if_not_flag FLAG_ITEM_ACDC_LAN_LIVING_ROOM_RECOV10_A, L_803061B
     a_destroy
     a_end
 
@@ -1749,7 +1749,7 @@ NPC_803086C:
 L_8030882:
     a_set_no_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x280, L_8030882
+    a_jump_if_not_flag FLAG_ITEM_ACDC_LAN_ROOM_PET, L_8030882
     a_destroy
 
     .align 2, 0

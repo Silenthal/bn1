@@ -11,7 +11,7 @@ global_label NPCList_804FFCC
     .align 2, 0
 
 NPC_804FFD8:
-    a_jump_if_flag 0x2ED, L_804FFFB
+    a_jump_if_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_KEYMIYU, L_804FFFB
     a_init
     a_disable_turn
     a_set_dialog 0x5
@@ -22,14 +22,14 @@ NPC_804FFD8:
     a_set_sprite_frame 0
 L_804FFF2:
     a_wait 1
-    a_jump_if_not_flag 0x2ED, L_804FFF2
+    a_jump_if_not_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_KEYMIYU, L_804FFF2
 L_804FFFB:
     a_destroy
 
     .align 2, 0
 
 NPC_804FFFC:
-    a_jump_if_flag 0x2EE, L_805001F
+    a_jump_if_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_BARRIER_S, L_805001F
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -40,7 +40,7 @@ NPC_804FFFC:
     a_set_sprite_frame 0
 L_8050016:
     a_wait 1
-    a_jump_if_not_flag 0x2EE, L_8050016
+    a_jump_if_not_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_BARRIER_S, L_8050016
 L_805001F:
     a_destroy
 

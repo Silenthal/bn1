@@ -124,7 +124,7 @@ L_804FC76:
     a_jump L_804FC76
 
 NPC_804FC7D:
-    a_jump_if_flag 0x2B2, L_804FCA0
+    a_jump_if_flag FLAG_ITEM_GOVT_YUICHIRO_PC_KEYDAD, L_804FCA0
     a_init
     a_disable_turn
     a_set_dialog 0x4
@@ -135,7 +135,7 @@ NPC_804FC7D:
     a_set_sprite_frame 0
 L_804FC97:
     a_wait 1
-    a_jump_if_not_flag 0x2B2, L_804FC97
+    a_jump_if_not_flag FLAG_ITEM_GOVT_YUICHIRO_PC_KEYDAD, L_804FC97
 L_804FCA0:
     a_destroy
 
@@ -149,7 +149,7 @@ global_label NPCList_804FCA4
     .align 2, 0
 
 NPC_804FCB0:
-    a_jump_if_flag 0x2B3, L_804FCD3
+    a_jump_if_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_KEYSAL, L_804FCD3
     a_init
     a_disable_turn
     a_set_dialog 0x5
@@ -160,14 +160,14 @@ NPC_804FCB0:
     a_set_sprite_frame 0
 L_804FCCA:
     a_wait 1
-    a_jump_if_not_flag 0x2B3, L_804FCCA
+    a_jump_if_not_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_KEYSAL, L_804FCCA
 L_804FCD3:
     a_destroy
 
     .align 2, 0
 
 NPC_804FCD4:
-    a_jump_if_flag 0x2B4, L_804FCF7
+    a_jump_if_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_RECOV120_A, L_804FCF7
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -178,7 +178,7 @@ NPC_804FCD4:
     a_set_sprite_frame 0
 L_804FCEE:
     a_wait 1
-    a_jump_if_not_flag 0x2B4, L_804FCEE
+    a_jump_if_not_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_RECOV120_A, L_804FCEE
 L_804FCF7:
     a_destroy
 

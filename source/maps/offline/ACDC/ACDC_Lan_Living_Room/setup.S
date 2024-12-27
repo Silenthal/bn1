@@ -409,7 +409,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F04_1
 LAB_0802c2c0:
     push       {r0,r5}
     mov        r0,#0x1
-    bl         Flag_Get280
+    bl         Flag_GetItem
     pop        {r0,r5}
     beq        LAB_0802c2de
     push       {r5}

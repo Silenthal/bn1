@@ -32,7 +32,7 @@ L_804910F:
     a_jump L_804910F
 
 NPC_8049116:
-    a_jump_if_flag 0x2D0, L_8049139
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_800Z, L_8049139
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -43,12 +43,12 @@ NPC_8049116:
     a_set_sprite_frame 0
 L_8049130:
     a_wait 1
-    a_jump_if_not_flag 0x2D0, L_8049130
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_800Z, L_8049130
 L_8049139:
     a_destroy
 
 NPC_804913A:
-    a_jump_if_flag 0x2D1, L_804915D
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_BUBBLER_K, L_804915D
     a_init
     a_disable_turn
     a_set_dialog 0x7
@@ -59,7 +59,7 @@ NPC_804913A:
     a_set_sprite_frame 0
 L_8049154:
     a_wait 1
-    a_jump_if_not_flag 0x2D1, L_8049154
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_BUBBLER_K, L_8049154
 L_804915D:
     a_destroy
 
@@ -84,7 +84,7 @@ global_label NPCList_804917C
     .align 2, 0
 
 NPC_8049188:
-    a_jump_if_flag 0x2D2, L_80491AB
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_800Z, L_80491AB
     a_init
     a_disable_turn
     a_set_dialog 0x5
@@ -95,14 +95,14 @@ NPC_8049188:
     a_set_sprite_frame 0
 L_80491A2:
     a_wait 1
-    a_jump_if_not_flag 0x2D2, L_80491A2
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_800Z, L_80491A2
 L_80491AB:
     a_destroy
 
     .align 2, 0
 
 NPC_80491AC:
-    a_jump_if_flag 0x2D3, L_80491CF
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_ESCAPE_N, L_80491CF
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -113,7 +113,7 @@ NPC_80491AC:
     a_set_sprite_frame 0
 L_80491C6:
     a_wait 1
-    a_jump_if_not_flag 0x2D3, L_80491C6
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_ESCAPE_N, L_80491C6
 L_80491CF:
     a_destroy
 
@@ -126,7 +126,7 @@ global_label NPCList_80491D0
     .align 2, 0
 
 NPC_80491E0:
-    a_jump_if_flag 0x2D4, L_8049203
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_HEATER_O, L_8049203
     a_init
     a_disable_turn
     a_set_dialog 0x5
@@ -137,14 +137,14 @@ NPC_80491E0:
     a_set_sprite_frame 0
 L_80491FA:
     a_wait 1
-    a_jump_if_not_flag 0x2D4, L_80491FA
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_HEATER_O, L_80491FA
 L_8049203:
     a_destroy
 
     .align 2, 0
 
 NPC_8049204:
-    a_jump_if_flag 0x2D5, L_8049227
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_500Z, L_8049227
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -155,14 +155,14 @@ NPC_8049204:
     a_set_sprite_frame 0
 L_804921E:
     a_wait 1
-    a_jump_if_not_flag 0x2D5, L_804921E
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_500Z, L_804921E
 L_8049227:
     a_destroy
 
     .align 2, 0
 
 NPC_8049228:
-    a_jump_if_flag 0x2D6, L_804924B
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_FIRETOWR_T, L_804924B
     a_init
     a_disable_turn
     a_set_dialog 0x7
@@ -173,7 +173,7 @@ NPC_8049228:
     a_set_sprite_frame 0
 L_8049242:
     a_wait 1
-    a_jump_if_not_flag 0x2D6, L_8049242
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_FIRETOWR_T, L_8049242
 L_804924B:
     a_destroy
 
@@ -185,7 +185,7 @@ global_label NPCList_804924C
     .align 2, 0
 
 NPC_8049258:
-    a_jump_if_flag 0x2D7, L_804927B
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_1000Z, L_804927B
     a_init
     a_disable_turn
     a_set_dialog 0x5
@@ -196,14 +196,14 @@ NPC_8049258:
     a_set_sprite_frame 0
 L_8049272:
     a_wait 1
-    a_jump_if_not_flag 0x2D7, L_8049272
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_1000Z, L_8049272
 L_804927B:
     a_destroy
 
     .align 2, 0
 
 NPC_804927C:
-    a_jump_if_flag 0x2D8, L_804929F
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_HPMEMORY, L_804929F
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -214,7 +214,7 @@ NPC_804927C:
     a_set_sprite_frame 0
 L_8049296:
     a_wait 1
-    a_jump_if_not_flag 0x2D8, L_8049296
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_HPMEMORY, L_8049296
 L_804929F:
     a_destroy
 
@@ -267,7 +267,7 @@ global_label NPCList_80492E8
     .align 2, 0
 
 NPC_80492F8:
-    a_jump_if_flag 0x2DD, L_804931B
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_AQUATOWR_C, L_804931B
     a_init
     a_disable_turn
     a_set_dialog 0xF
@@ -278,14 +278,14 @@ NPC_80492F8:
     a_set_sprite_frame 0
 L_8049312:
     a_wait 1
-    a_jump_if_not_flag 0x2DD, L_8049312
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_AQUATOWR_C, L_8049312
 L_804931B:
     a_destroy
 
     .align 2, 0
 
 NPC_804931C:
-    a_jump_if_flag 0x2DE, L_804933F
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_2400Z, L_804933F
     a_init
     a_disable_turn
     a_set_dialog 0x10
@@ -296,14 +296,14 @@ NPC_804931C:
     a_set_sprite_frame 0
 L_8049336:
     a_wait 1
-    a_jump_if_not_flag 0x2DE, L_8049336
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_2400Z, L_8049336
 L_804933F:
     a_destroy
 
     .align 2, 0
 
 NPC_8049340:
-    a_jump_if_flag 0x2DF, L_8049363
+    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_RECOV80_G, L_8049363
     a_init
     a_disable_turn
     a_set_dialog 0x11
@@ -314,7 +314,7 @@ NPC_8049340:
     a_set_sprite_frame 0
 L_804935A:
     a_wait 1
-    a_jump_if_not_flag 0x2DF, L_804935A
+    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_RECOV80_G, L_804935A
 L_8049363:
     a_destroy
 

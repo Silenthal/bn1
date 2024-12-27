@@ -113,7 +113,7 @@ L_8043B19:
     .align 2, 0
 
 NPC_8043B20:
-    a_jump_if_flag 0x285, L_8043B43
+    a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_200Z, L_8043B43
     a_init
     a_disable_turn
     a_set_dialog 0x18
@@ -124,14 +124,14 @@ NPC_8043B20:
     a_set_sprite_frame 0
 L_8043B3A:
     a_wait 1
-    a_jump_if_not_flag 0x285, L_8043B3A
+    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_200Z, L_8043B3A
 L_8043B43:
     a_destroy
 
     .align 2, 0
 
 NPC_8043B44:
-    a_jump_if_flag 0x287, L_8043B67
+    a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_SHOTGUN_Q, L_8043B67
     a_init
     a_disable_turn
     a_set_dialog 0x10
@@ -142,14 +142,14 @@ NPC_8043B44:
     a_set_sprite_frame 0
 L_8043B5E:
     a_wait 1
-    a_jump_if_not_flag 0x287, L_8043B5E
+    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_SHOTGUN_Q, L_8043B5E
 L_8043B67:
     a_destroy
 
     .align 2, 0
 
 NPC_8043B68:
-    a_jump_if_flag 0x288, L_8043B8B
+    a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_400Z, L_8043B8B
     a_init
     a_disable_turn
     a_set_dialog 0x11
@@ -160,14 +160,14 @@ NPC_8043B68:
     a_set_sprite_frame 0
 L_8043B82:
     a_wait 1
-    a_jump_if_not_flag 0x288, L_8043B82
+    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_400Z, L_8043B82
 L_8043B8B:
     a_destroy
 
     .align 2, 0
 
 NPC_8043B8C:
-    a_jump_if_flag 0x289, L_8043BAF
+    a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_STEAL_A, L_8043BAF
     a_init
     a_disable_turn
     a_set_dialog 0x12
@@ -178,14 +178,14 @@ NPC_8043B8C:
     a_set_sprite_frame 0
 L_8043BA6:
     a_wait 1
-    a_jump_if_not_flag 0x289, L_8043BA6
+    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_STEAL_A, L_8043BA6
 L_8043BAF:
     a_destroy
 
     .align 2, 0
 
 NPC_8043BB0:
-    a_jump_if_flag 0x28A, L_8043BD3
+    a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_SWORD_B, L_8043BD3
     a_init
     a_disable_turn
     a_set_dialog 0x13
@@ -196,7 +196,7 @@ NPC_8043BB0:
     a_set_sprite_frame 0
 L_8043BCA:
     a_wait 1
-    a_jump_if_not_flag 0x28A, L_8043BCA
+    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_SWORD_B, L_8043BCA
 L_8043BD3:
     a_destroy
 
@@ -283,7 +283,7 @@ L_8043C68:
     a_jump L_8043C68
 
 NPC_8043C6F:
-    a_jump_if_flag 0x282, L_8043C90
+    a_jump_if_flag FLAG_ITEM_OVEN_COMP_2_SHOTGUN_Q, L_8043C90
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -293,12 +293,12 @@ NPC_8043C6F:
     a_set_sprite_frame 0
 L_8043C87:
     a_wait 1
-    a_jump_if_not_flag 0x282, L_8043C87
+    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_2_SHOTGUN_Q, L_8043C87
 L_8043C90:
     a_destroy
 
 NPC_8043C91:
-    a_jump_if_flag 0x283, L_8043CB2
+    a_jump_if_flag FLAG_ITEM_OVEN_COMP_2_500Z, L_8043CB2
     a_init
     a_disable_turn
     a_set_dialog 0x3
@@ -308,12 +308,12 @@ NPC_8043C91:
     a_set_sprite_frame 0
 L_8043CA9:
     a_wait 1
-    a_jump_if_not_flag 0x283, L_8043CA9
+    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_2_500Z, L_8043CA9
 L_8043CB2:
     a_destroy
 
 NPC_8043CB3:
-    a_jump_if_flag 0x284, L_8043CD4
+    a_jump_if_flag FLAG_ITEM_OVEN_COMP_2_LILBOMB_T, L_8043CD4
     a_init
     a_disable_turn
     a_set_dialog 0x4
@@ -323,7 +323,7 @@ NPC_8043CB3:
     a_set_sprite_frame 0
 L_8043CCB:
     a_wait 1
-    a_jump_if_not_flag 0x284, L_8043CCB
+    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_2_LILBOMB_T, L_8043CCB
 L_8043CD4:
     a_destroy
 

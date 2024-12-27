@@ -112,11 +112,11 @@ section_end()
 
 # 0xDF @ 0x6E7057
 section_start(0xDF)
-if_flag(0x2E2, 0xE0, 0xFF)
+if_flag(FLAG_ITEM_SCHOOL_CLASS_5B_SPREADER_J, 0xE0, 0xFF)
 dialog_up()
 text("There are many books\nhere\p{w 0}")
 text("You found a chip\namong the books!\p{w 0}")
-set_flag(0x2E2)
+set_flag(FLAG_ITEM_SCHOOL_CLASS_5B_SPREADER_J)
 pc_anim(30)
 text("{add_chip 'Spreader J'}Lan found a chip for\n\"{chip Spreader J}\"!")
 pc_wait()

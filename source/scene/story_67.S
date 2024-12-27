@@ -98,7 +98,7 @@ _ts S_Story_67_3
     mov        r0,#0x9d
     bl         Flag_SetBase
     mov        r0,#0x8e
-    bl         Flag_Set280
+    bl         Flag_SetItem
     mov        r0,#0x85
     bl         Sound_PlaySongImmediate
     mov        r0,#0x32
@@ -309,7 +309,7 @@ _nt S_Story_67_10
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x8e
-    bl         Flag_Set280
+    bl         Flag_SetItem
     push       {r5}
     mov        r0,#0x3
     mov        r1,#0x10

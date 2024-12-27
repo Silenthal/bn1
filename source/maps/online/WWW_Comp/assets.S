@@ -67,7 +67,7 @@ global_label NPCList_804E020
     .align 2, 0
 
 NPC_804E03C:
-    a_jump_if_flag 0x345, L_804E05F
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_1_RECOV200_C, L_804E05F
     a_init
     a_disable_turn
     a_set_dialog 0x23
@@ -78,14 +78,14 @@ NPC_804E03C:
     a_set_sprite_frame 0
 L_804E056:
     a_wait 1
-    a_jump_if_not_flag 0x345, L_804E056
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_1_RECOV200_C, L_804E056
 L_804E05F:
     a_destroy
 
     .align 2, 0
 
 NPC_804E060:
-    a_jump_if_flag 0x346, L_804E083
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_1_5000Z, L_804E083
     a_init
     a_disable_turn
     a_set_dialog 0x24
@@ -96,14 +96,14 @@ NPC_804E060:
     a_set_sprite_frame 0
 L_804E07A:
     a_wait 1
-    a_jump_if_not_flag 0x346, L_804E07A
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_1_5000Z, L_804E07A
 L_804E083:
     a_destroy
 
     .align 2, 0
 
 NPC_804E084:
-    a_jump_if_flag 0x347, L_804E0A7
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_1_3000Z, L_804E0A7
     a_init
     a_disable_turn
     a_set_dialog 0x25
@@ -114,14 +114,14 @@ NPC_804E084:
     a_set_sprite_frame 0
 L_804E09E:
     a_wait 1
-    a_jump_if_not_flag 0x347, L_804E09E
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_1_3000Z, L_804E09E
 L_804E0A7:
     a_destroy
 
     .align 2, 0
 
 NPC_804E0A8:
-    a_jump_if_flag 0x348, L_804E0CB
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_1_FIRESWRD_P, L_804E0CB
     a_init
     a_disable_turn
     a_set_dialog 0x26
@@ -132,7 +132,7 @@ NPC_804E0A8:
     a_set_sprite_frame 0
 L_804E0C2:
     a_wait 1
-    a_jump_if_not_flag 0x348, L_804E0C2
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_1_FIRESWRD_P, L_804E0C2
 L_804E0CB:
     a_destroy
 
@@ -330,7 +330,7 @@ global_label NPCList_804E230
     .align 2, 0
 
 NPC_804E244:
-    a_jump_if_flag 0x349, L_804E267
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_2_HURICANE_L, L_804E267
     a_init
     a_disable_turn
     a_set_dialog 0x28
@@ -341,14 +341,14 @@ NPC_804E244:
     a_set_sprite_frame 0
 L_804E25E:
     a_wait 1
-    a_jump_if_not_flag 0x349, L_804E25E
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_2_HURICANE_L, L_804E25E
 L_804E267:
     a_destroy
 
     .align 2, 0
 
 NPC_804E268:
-    a_jump_if_flag 0x34A, L_804E28B
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_2_8000Z, L_804E28B
     a_init
     a_disable_turn
     a_set_dialog 0x29
@@ -359,14 +359,14 @@ NPC_804E268:
     a_set_sprite_frame 0
 L_804E282:
     a_wait 1
-    a_jump_if_not_flag 0x34A, L_804E282
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_2_8000Z, L_804E282
 L_804E28B:
     a_destroy
 
     .align 2, 0
 
 NPC_804E28C:
-    a_jump_if_flag 0x34B, L_804E2AF
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_2_FTRSWRD_P, L_804E2AF
     a_init
     a_disable_turn
     a_set_dialog 0x2A
@@ -377,7 +377,7 @@ NPC_804E28C:
     a_set_sprite_frame 0
 L_804E2A6:
     a_wait 1
-    a_jump_if_not_flag 0x34B, L_804E2A6
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_2_FTRSWRD_P, L_804E2A6
 L_804E2AF:
     a_destroy
 
@@ -436,7 +436,7 @@ global_label NPCList_804E318
     .align 2, 0
 
 NPC_804E328:
-    a_jump_if_flag 0x34C, L_804E34B
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_3_4000Z, L_804E34B
     a_init
     a_disable_turn
     a_set_dialog 0x19
@@ -447,14 +447,14 @@ NPC_804E328:
     a_set_sprite_frame 0
 L_804E342:
     a_wait 1
-    a_jump_if_not_flag 0x34C, L_804E342
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_3_4000Z, L_804E342
 L_804E34B:
     a_destroy
 
     .align 2, 0
 
 NPC_804E34C:
-    a_jump_if_flag 0x34D, L_804E36F
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_3_RECOV300_L, L_804E36F
     a_init
     a_disable_turn
     a_set_dialog 0x1A
@@ -465,7 +465,7 @@ NPC_804E34C:
     a_set_sprite_frame 0
 L_804E366:
     a_wait 1
-    a_jump_if_not_flag 0x34D, L_804E366
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_3_RECOV300_L, L_804E366
 L_804E36F:
     a_destroy
 
@@ -511,7 +511,7 @@ global_label NPCList_804E3B0
     .align 2, 0
 
 NPC_804E3C0:
-    a_jump_if_flag 0x34E, L_804E3E3
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_4_TIMEBOM3_P, L_804E3E3
     a_init
     a_disable_turn
     a_set_dialog 0x5
@@ -522,14 +522,14 @@ NPC_804E3C0:
     a_set_sprite_frame 0
 L_804E3DA:
     a_wait 1
-    a_jump_if_not_flag 0x34E, L_804E3DA
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_4_TIMEBOM3_P, L_804E3DA
 L_804E3E3:
     a_destroy
 
     .align 2, 0
 
 NPC_804E3E4:
-    a_jump_if_flag 0x34F, L_804E407
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_4_HPMEMORY, L_804E407
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -540,7 +540,7 @@ NPC_804E3E4:
     a_set_sprite_frame 0
 L_804E3FE:
     a_wait 1
-    a_jump_if_not_flag 0x34F, L_804E3FE
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_4_HPMEMORY, L_804E3FE
 L_804E407:
     a_destroy
 
@@ -622,7 +622,7 @@ global_label NPCList_804E4BC
     .align 2, 0
 
 NPC_804E4D4:
-    a_jump_if_flag 0x350, L_804E4F7
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_5_2000Z, L_804E4F7
     a_init
     a_disable_turn
     a_set_dialog 0x5
@@ -633,14 +633,14 @@ NPC_804E4D4:
     a_set_sprite_frame 0
 L_804E4EE:
     a_wait 1
-    a_jump_if_not_flag 0x350, L_804E4EE
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_5_2000Z, L_804E4EE
 L_804E4F7:
     a_destroy
 
     .align 2, 0
 
 NPC_804E4F8:
-    a_jump_if_flag 0x351, L_804E51B
+    a_jump_if_flag FLAG_ITEM_WWW_COMP_5_BIGWAVE_K, L_804E51B
     a_init
     a_disable_turn
     a_set_dialog 0x6
@@ -651,7 +651,7 @@ NPC_804E4F8:
     a_set_sprite_frame 0
 L_804E512:
     a_wait 1
-    a_jump_if_not_flag 0x351, L_804E512
+    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_5_BIGWAVE_K, L_804E512
 L_804E51B:
     a_destroy
 

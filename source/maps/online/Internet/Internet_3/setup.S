@@ -298,7 +298,7 @@ _ts ClearFlagRange280
     push       {lr}
 LAB_0805287e:
     push       {r0,r1}
-    bl         Flag_Clear280
+    bl         Flag_ClearItem
     pop        {r0,r1}
     add        r0,#0x1
     sub        r1,#0x1

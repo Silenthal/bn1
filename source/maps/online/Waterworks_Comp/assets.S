@@ -10,7 +10,7 @@ global_label NPCList_8046BC8
     .align 2, 0
 
 NPC_8046BD0:
-    a_jump_if_flag 0x2B7, L_8046BF3
+    a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_1_SONIWAVE_J, L_8046BF3
     a_init
     a_disable_turn
     a_set_dialog 0x0
@@ -21,7 +21,7 @@ NPC_8046BD0:
     a_set_sprite_frame 0
 L_8046BEA:
     a_wait 1
-    a_jump_if_not_flag 0x2B7, L_8046BEA
+    a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_1_SONIWAVE_J, L_8046BEA
 L_8046BF3:
     a_destroy
 
@@ -139,7 +139,7 @@ L_8046CEA:
     a_jump L_8046CEA
 
 NPC_8046CF1:
-    a_jump_if_flag 0x2B8, L_8046D14
+    a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_2_HPMEMORY, L_8046D14
     a_init
     a_disable_turn
     a_set_dialog 0x0
@@ -150,12 +150,12 @@ NPC_8046CF1:
     a_set_sprite_frame 0
 L_8046D0B:
     a_wait 1
-    a_jump_if_not_flag 0x2B8, L_8046D0B
+    a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_2_HPMEMORY, L_8046D0B
 L_8046D14:
     a_destroy
 
 NPC_8046D15:
-    a_jump_if_flag 0x2BB, L_8046D38
+    a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_2_RECOV80_C, L_8046D38
     a_init
     a_disable_turn
     a_set_dialog 0x1
@@ -166,7 +166,7 @@ NPC_8046D15:
     a_set_sprite_frame 0
 L_8046D2F:
     a_wait 1
-    a_jump_if_not_flag 0x2BB, L_8046D2F
+    a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_2_RECOV80_C, L_8046D2F
 L_8046D38:
     a_destroy
 
@@ -196,7 +196,7 @@ global_label NPCList_8046D60
     .align 2, 0
 
 NPC_8046D70:
-    a_jump_if_flag 0x2B9, L_8046D95
+    a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_WIDESWRD_C, L_8046D95
     a_init
     a_disable_turn
     a_set_dialog 0x0
@@ -209,12 +209,12 @@ L_8046D8A:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2B9, L_8046D8A
+    a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_WIDESWRD_C, L_8046D8A
 L_8046D95:
     a_destroy
 
 NPC_8046D96:
-    a_jump_if_flag 0x2BC, L_8046DBB
+    a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_TRIARROW_A, L_8046DBB
     a_init
     a_disable_turn
     a_set_dialog 0x1
@@ -227,14 +227,14 @@ L_8046DB0:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2BC, L_8046DB0
+    a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_TRIARROW_A, L_8046DB0
 L_8046DBB:
     a_destroy
 
     .align 2, 0
 
 NPC_8046DBC:
-    a_jump_if_flag 0x2BF, L_8046DE1
+    a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_ICEPUNCH_B, L_8046DE1
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -247,7 +247,7 @@ L_8046DD6:
     a_set_no_z_clip
     a_clear_z_clip
     a_wait 1
-    a_jump_if_not_flag 0x2BF, L_8046DD6
+    a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_ICEPUNCH_B, L_8046DD6
 L_8046DE1:
     a_destroy
 
@@ -260,7 +260,7 @@ global_label NPCList_8046DE4
     .align 2, 0
 
 NPC_8046DEC:
-    a_jump_if_flag 0x2BA, L_8046E0F
+    a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_4_MCANNON_L, L_8046E0F
     a_init
     a_disable_turn
     a_set_dialog 0x0
@@ -271,7 +271,7 @@ NPC_8046DEC:
     a_set_sprite_frame 0
 L_8046E06:
     a_wait 1
-    a_jump_if_not_flag 0x2BA, L_8046E06
+    a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_4_MCANNON_L, L_8046E06
 L_8046E0F:
     a_destroy
 
@@ -288,7 +288,7 @@ global_label NPCList_8046E18
     .align 2, 0
 
 NPC_8046E28:
-    a_jump_if_flag 0x2BD, L_8046E4B
+    a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_5_POWERUP, L_8046E4B
     a_init
     a_disable_turn
     a_set_dialog 0x0
@@ -299,7 +299,7 @@ NPC_8046E28:
     a_set_sprite_frame 0
 L_8046E42:
     a_wait 1
-    a_jump_if_not_flag 0x2BD, L_8046E42
+    a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_5_POWERUP, L_8046E42
 L_8046E4B:
     a_destroy
 
@@ -334,7 +334,7 @@ global_label NPCList_8046E78
     .align 2, 0
 
 NPC_8046E80:
-    a_jump_if_flag 0x2BE, L_8046EA3
+    a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_6_1000Z, L_8046EA3
     a_init
     a_disable_turn
     a_set_dialog 0x0
@@ -345,7 +345,7 @@ NPC_8046E80:
     a_set_sprite_frame 0
 L_8046E9A:
     a_wait 1
-    a_jump_if_not_flag 0x2BE, L_8046E9A
+    a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_6_1000Z, L_8046E9A
 L_8046EA3:
     a_destroy
 

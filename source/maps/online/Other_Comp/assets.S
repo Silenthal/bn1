@@ -12,7 +12,7 @@ global_label NPCList_8050D14
     .align 2, 0
 
 NPC_8050D28:
-    a_jump_if_flag 0x352, L_8050D49
+    a_jump_if_flag FLAG_ITEM_OTHER_DOGHOUSE_COMP_SHOTGUN_K, L_8050D49
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -22,7 +22,7 @@ NPC_8050D28:
     a_set_sprite_frame 0
 L_8050D40:
     a_wait 1
-    a_jump_if_not_flag 0x352, L_8050D40
+    a_jump_if_not_flag FLAG_ITEM_OTHER_DOGHOUSE_COMP_SHOTGUN_K, L_8050D40
 L_8050D49:
     a_destroy
 
@@ -85,7 +85,7 @@ global_label NPCList_8050D98
     .align 2, 0
 
 NPC_8050DAC:
-    a_jump_if_flag 0x353, L_8050DCD
+    a_jump_if_flag FLAG_ITEM_OTHER_SERVBOT_COMP_HPMEMORY, L_8050DCD
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -95,7 +95,7 @@ NPC_8050DAC:
     a_set_sprite_frame 0
 L_8050DC4:
     a_wait 1
-    a_jump_if_not_flag 0x353, L_8050DC4
+    a_jump_if_not_flag FLAG_ITEM_OTHER_SERVBOT_COMP_HPMEMORY, L_8050DC4
 L_8050DCD:
     a_destroy
 
@@ -139,7 +139,7 @@ global_label NPCList_8050E00
     .align 2, 0
 
 NPC_8050E14:
-    a_jump_if_flag 0x354, L_8050E35
+    a_jump_if_flag FLAG_ITEM_OTHER_NEW_GAME_MACHINE_COMP_CROSSGUN_K, L_8050E35
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -149,7 +149,7 @@ NPC_8050E14:
     a_set_sprite_frame 0
 L_8050E2C:
     a_wait 1
-    a_jump_if_not_flag 0x354, L_8050E2C
+    a_jump_if_not_flag FLAG_ITEM_OTHER_NEW_GAME_MACHINE_COMP_CROSSGUN_K, L_8050E2C
 L_8050E35:
     a_destroy
 
@@ -194,7 +194,7 @@ global_label NPCList_8050E68
     .align 2, 0
 
 NPC_8050E80:
-    a_jump_if_flag 0x355, L_8050EA1
+    a_jump_if_flag FLAG_ITEM_OTHER_TELEPHONE_COMP_ESCAPE_J, L_8050EA1
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -204,7 +204,7 @@ NPC_8050E80:
     a_set_sprite_frame 0
 L_8050E98:
     a_wait 1
-    a_jump_if_not_flag 0x355, L_8050E98
+    a_jump_if_not_flag FLAG_ITEM_OTHER_TELEPHONE_COMP_ESCAPE_J, L_8050E98
 L_8050EA1:
     a_destroy
 
@@ -241,7 +241,7 @@ L_8050ECA:
     .align 2, 0
 
 NPC_8050ED4:
-    a_jump_if_flag 0x356, L_8050EA1
+    a_jump_if_flag FLAG_ITEM_OTHER_TELEPHONE_COMP_1000Z, L_8050EA1
     a_init
     a_disable_turn
     a_set_dialog 0x3
@@ -251,7 +251,7 @@ NPC_8050ED4:
     a_set_sprite_frame 0
 L_8050EEC:
     a_wait 1
-    a_jump_if_not_flag 0x356, L_8050EEC
+    a_jump_if_not_flag FLAG_ITEM_OTHER_TELEPHONE_COMP_1000Z, L_8050EEC
     a_destroy
 
     .align 2, 0
@@ -266,7 +266,7 @@ global_label NPCList_8050EF8
     .align 2, 0
 
 NPC_8050F0C:
-    a_jump_if_flag 0x357, L_8050F2D
+    a_jump_if_flag FLAG_ITEM_OTHER_CAR_COMP_HPMEMORY, L_8050F2D
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -276,7 +276,7 @@ NPC_8050F0C:
     a_set_sprite_frame 0
 L_8050F24:
     a_wait 1
-    a_jump_if_not_flag 0x357, L_8050F24
+    a_jump_if_not_flag FLAG_ITEM_OTHER_CAR_COMP_HPMEMORY, L_8050F24
 L_8050F2D:
     a_destroy
 
@@ -328,7 +328,7 @@ global_label NPCList_8050F74
     .align 2, 0
 
 NPC_8050F8C:
-    a_jump_if_flag 0x358, L_8050FAD
+    a_jump_if_flag FLAG_ITEM_OTHER_WATERWORKS_VENDING_MACHINE_SPREADER_J, L_8050FAD
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -338,7 +338,7 @@ NPC_8050F8C:
     a_set_sprite_frame 0
 L_8050FA4:
     a_wait 1
-    a_jump_if_not_flag 0x358, L_8050FA4
+    a_jump_if_not_flag FLAG_ITEM_OTHER_WATERWORKS_VENDING_MACHINE_SPREADER_J, L_8050FA4
 L_8050FAD:
     a_destroy
 
@@ -398,7 +398,7 @@ global_label NPCList_8050FF8
     .align 2, 0
 
 NPC_805100C:
-    a_jump_if_flag 0x359, L_805102D
+    a_jump_if_flag FLAG_ITEM_OTHER_LOBBY_TV_COMP_ESCAPE_L, L_805102D
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -408,7 +408,7 @@ NPC_805100C:
     a_set_sprite_frame 0
 L_8051024:
     a_wait 1
-    a_jump_if_not_flag 0x359, L_8051024
+    a_jump_if_not_flag FLAG_ITEM_OTHER_LOBBY_TV_COMP_ESCAPE_L, L_8051024
 L_805102D:
     a_destroy
 
@@ -453,7 +453,7 @@ global_label NPCList_8051060
     .align 2, 0
 
 NPC_8051074:
-    a_jump_if_flag 0x35A, L_8051095
+    a_jump_if_flag FLAG_ITEM_OTHER_LARGE_MONITOR_COMP_HICANNON_J, L_8051095
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -463,7 +463,7 @@ NPC_8051074:
     a_set_sprite_frame 0
 L_805108C:
     a_wait 1
-    a_jump_if_not_flag 0x35A, L_805108C
+    a_jump_if_not_flag FLAG_ITEM_OTHER_LARGE_MONITOR_COMP_HICANNON_J, L_805108C
 L_8051095:
     a_destroy
 
@@ -510,7 +510,7 @@ global_label NPCList_80510C8
     .align 2, 0
 
 NPC_80510E0:
-    a_jump_if_flag 0x35B, L_8051101
+    a_jump_if_flag FLAG_ITEM_OTHER_CONTROL_EQUIPMENT_COMP_RECOV200_L, L_8051101
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -520,7 +520,7 @@ NPC_80510E0:
     a_set_sprite_frame 0
 L_80510F8:
     a_wait 1
-    a_jump_if_not_flag 0x35B, L_80510F8
+    a_jump_if_not_flag FLAG_ITEM_OTHER_CONTROL_EQUIPMENT_COMP_RECOV200_L, L_80510F8
 L_8051101:
     a_destroy
 
@@ -557,7 +557,7 @@ L_805112A:
     .align 2, 0
 
 NPC_8051134:
-    a_jump_if_flag 0x35C, L_8051155
+    a_jump_if_flag FLAG_ITEM_OTHER_CONTROL_EQUIPMENT_COMP_3000Z, L_8051155
     a_init
     a_disable_turn
     a_set_dialog 0x3
@@ -567,7 +567,7 @@ NPC_8051134:
     a_set_sprite_frame 0
 L_805114C:
     a_wait 1
-    a_jump_if_not_flag 0x35C, L_805114C
+    a_jump_if_not_flag FLAG_ITEM_OTHER_CONTROL_EQUIPMENT_COMP_3000Z, L_805114C
 L_8051155:
     a_destroy
 
@@ -583,7 +583,7 @@ global_label NPCList_8051158
     .align 2, 0
 
 NPC_805116C:
-    a_jump_if_flag 0x35D, L_805118D
+    a_jump_if_flag FLAG_ITEM_OTHER_SCILAB_VENDING_MACHINE_5000Z, L_805118D
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -593,7 +593,7 @@ NPC_805116C:
     a_set_sprite_frame 0
 L_8051184:
     a_wait 1
-    a_jump_if_not_flag 0x35D, L_8051184
+    a_jump_if_not_flag FLAG_ITEM_OTHER_SCILAB_VENDING_MACHINE_5000Z, L_8051184
 L_805118D:
     a_destroy
 
@@ -638,7 +638,7 @@ global_label NPCList_80511C0
     .align 2, 0
 
 NPC_80511D4:
-    a_jump_if_flag 0x35E, L_80511F5
+    a_jump_if_flag FLAG_ITEM_OTHER_RECYCLED_PET_COMP_HPMEMORY, L_80511F5
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -648,7 +648,7 @@ NPC_80511D4:
     a_set_sprite_frame 0
 L_80511EC:
     a_wait 1
-    a_jump_if_not_flag 0x35E, L_80511EC
+    a_jump_if_not_flag FLAG_ITEM_OTHER_RECYCLED_PET_COMP_HPMEMORY, L_80511EC
 L_80511F5:
     a_destroy
 
@@ -692,7 +692,7 @@ global_label NPCList_8051228
     .align 2, 0
 
 NPC_805123C:
-    a_jump_if_flag 0x35F, L_805125D
+    a_jump_if_flag FLAG_ITEM_OTHER_BIG_VASE_COMP_QUAKE3_C, L_805125D
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -702,7 +702,7 @@ NPC_805123C:
     a_set_sprite_frame 0
 L_8051254:
     a_wait 1
-    a_jump_if_not_flag 0x35F, L_8051254
+    a_jump_if_not_flag FLAG_ITEM_OTHER_BIG_VASE_COMP_QUAKE3_C, L_8051254
 L_805125D:
     a_destroy
 
@@ -746,7 +746,7 @@ global_label NPCList_8051290
     .align 2, 0
 
 NPC_80512A4:
-    a_jump_if_flag 0x360, L_80512C5
+    a_jump_if_flag FLAG_ITEM_OTHER_BLACKBOARD_COMP_POWERUP, L_80512C5
     a_init
     a_disable_turn
     a_set_dialog 0x2
@@ -756,7 +756,7 @@ NPC_80512A4:
     a_set_sprite_frame 0
 L_80512BC:
     a_wait 1
-    a_jump_if_not_flag 0x360, L_80512BC
+    a_jump_if_not_flag FLAG_ITEM_OTHER_BLACKBOARD_COMP_POWERUP, L_80512BC
 L_80512C5:
     a_destroy
 
