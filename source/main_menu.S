@@ -62,7 +62,7 @@ _ts MainMenu_0_Init
     mov        r0,#T_Theme_Of_Mega_Man_Battle_Network
     bl         Sound_PlaySong
     mov        r0,#F400_SaveOk
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x0
     push       { r0, r5 }
     bl         Save_LoadGame
@@ -76,7 +76,7 @@ _ts MainMenu_0_Init
     mov        r0,#0x1
     push       { r0, r5 }
     mov        r0,#F400_SaveOk
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     pop        { r0, r5 }
 LAB_080104c8:
     strb       r0,[r5,#0xb]
@@ -126,7 +126,7 @@ _ts MainMenu_2_Free
     mov        r1,#0x0
     push       {r1}
     mov        r0,#0x9
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     pop        {r1}
     beq        LAB_0801052c
     mov        r1,#0x1
@@ -139,7 +139,7 @@ LAB_0801052c:
     tst        r1,r1
     beq        LAB_08010550
     mov        r0,#0x9
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     b          LAB_08010550
 LAB_08010548:
     push       {r5}

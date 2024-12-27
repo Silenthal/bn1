@@ -94,9 +94,9 @@ _ts Menu_MegaMan_0_Init
     strb       r0,[r5,#0x1]
     push       {r5}
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x5
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {r5}
     mov        r0,#0x0
     pop        {pc}
@@ -249,7 +249,7 @@ LAB_0801bb30:
 LAB_0801bb3e:
     mov        r8,r5
     mov        r0,#0x6
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     mov        r5,r8
 LAB_0801bb48:
     mov        r0,#0x8
@@ -262,12 +262,12 @@ _ts Menu_MegaMan_3_2_Close
     push       {lr}
     mov        r8,r5
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     mov        r5,r8
     beq        LAB_0801bb7c
     mov        r8,r5
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r5,r8
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
@@ -371,7 +371,7 @@ _ts Menu_MegaMan_4_1_RaiseStat
 LAB_0801bc2c:
     mov        r8,r5
     mov        r0,#0x6
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     mov        r5,r8
 LAB_0801bc36:
     mov        r0,#0x8
@@ -384,12 +384,12 @@ _ts Menu_MegaMan_4_2_Close
     push       {lr}
     mov        r8,r5
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     mov        r5,r8
     beq        LAB_0801bc68
     mov        r8,r5
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r5,r8
     mov        r0,#0x4
     strb       r0,[r5,#0x1]

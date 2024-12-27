@@ -136,17 +136,17 @@ _ts MapSetup_ACDC_Town_F02
     ldr        r7,PTR_PTR_DAT_0802ac28
     bl         Map_LoadNPCList
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x4
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x6
-    bl         Flag_Set410
+    bl         Flag_SetGate
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -238,11 +238,11 @@ _ts MapSetup_ACDC_Town_F06
     ldr        r7,PTR_PTR_DAT_0802ac4c
     bl         Map_LoadNPCList
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x6
-    bl         Flag_Set410
+    bl         Flag_SetGate
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -675,7 +675,7 @@ _ts MapSetup_ACDC_Town_F20
     bl         Flag_Clear380
     pop        {r5}
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     bl         Flag_Set380
     mov        r0,#0x0
@@ -731,7 +731,7 @@ _ts MapSetup_ACDC_Town_F21
     bl         Flag_Clear380
     pop        {r5}
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     bl         Flag_Set380
     mov        r0,#0x0
@@ -798,7 +798,7 @@ _ts MapSetup_ACDC_Town_F22
     bl         Flag_Clear380
     pop        {r5}
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     bl         Flag_Set380
     mov        r0,#0x0
@@ -848,7 +848,7 @@ _ts MapSetup_ACDC_Town_F23
     mov        r0,#0x0
     bl         Flag_Set380
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     push       {r5}
     mov        r0,#0xa2
     bl         Flag_GetBase
@@ -1298,7 +1298,7 @@ _ts MapSetup_ACDC_Town_F30
     mov        r0,#0x0
     bl         Flag_Set380
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x94
     bl         Flag_GetBase
     bne        LAB_0802b400

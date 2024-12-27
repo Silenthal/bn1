@@ -76,7 +76,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F22
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -116,7 +116,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F24
     ldr        r7,PTR_NPCList_8035844_080339cc
     bl         Map_LoadNPCList
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -210,7 +210,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F25
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r4,#0x4
     mov        r0,#0xbf
     bl         Flag_GetBase
@@ -488,7 +488,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F30
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -700,7 +700,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F40
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -929,7 +929,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F50
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -970,7 +970,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F52
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -1011,7 +1011,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F53
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -1052,7 +1052,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F54
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0xab
     bl         Flag_GetBase
     bne        LAB_08033ede

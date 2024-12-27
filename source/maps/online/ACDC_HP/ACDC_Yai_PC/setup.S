@@ -82,7 +82,7 @@ LAB_0804f2be:
     pop        {pc}
 LAB_0804f2de:
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x4
     b          LAB_0804f2ea
 LAB_0804f2e8:

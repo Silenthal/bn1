@@ -16,7 +16,7 @@ _ts InitStartMenu
     bl         StartMenu_SetState
     bl         StartMenu_LoadTileset
     mov        r0,#0x4
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     mov        r0,#0xbe
     bl         Sound_PlaySongImmediate
     pop        {pc}
@@ -32,7 +32,7 @@ _ts InitStartMenuFromSubMenu
     strb       r0,[r5,#0x0]
     bl         StartMenu_LoadTileset
     mov        r0,#0x4
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     pop        {pc}
 
 
@@ -45,7 +45,7 @@ _ts InitStartMenuState
     mov        r0,#0x20
     bl         StartMenu_ClearState
     mov        r0,#0x4
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {pc}
 
 
@@ -215,7 +215,7 @@ _ts StartMenu_2_Close
     mov        r0,#0x20
     bl         StartMenu_ClearState
     mov        r0,#0x4
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     ldrb       r0,[r5,#0x5]
     pop        {pc}
 LAB_08019332:

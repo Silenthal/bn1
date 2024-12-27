@@ -115,7 +115,7 @@ _ts MapSetup_School_Staff_Lounge_F15
     pop        {r5}
 LAB_080283cc:
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

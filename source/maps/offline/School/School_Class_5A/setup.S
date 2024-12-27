@@ -62,9 +62,9 @@ _ts MapSetup_School_Class_5A_F00
     ldr        r7,PTR_PTR_DAT_080248cc
     bl         Map_LoadNPCList
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -314,9 +314,9 @@ _ts MapSetup_School_Class_5A_F10
     ldr        r0,PTR_BgTask_8024A14
     bl         BgTask_AddNew
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x92
     bl         Flag_GetBase
     beq        LAB_080249e8
@@ -489,9 +489,9 @@ _nt MapSetup_School_Class_5A_F11
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     push       {r5}
     mov        r0,#0x9a
     bl         Flag_GetBase
@@ -625,9 +625,9 @@ LAB_08024bec:
     bne        LAB_08024c08
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
 LAB_08024c08:
     push       {r5}

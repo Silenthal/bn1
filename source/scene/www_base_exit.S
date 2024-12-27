@@ -77,7 +77,7 @@ _ts S_WWW_Base_Exit_2
     pop        {r5}
     bne        LAB_08097fca
     mov        r0,#0x0
-    bl         Flag_Get410
+    bl         Flag_GetGate
     bne        LAB_08097fc4
     mov        r0,#0x14
     strb       r0,[r5,#0x0]

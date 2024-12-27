@@ -62,9 +62,9 @@ _ts MapSetup_School_Comp_1_F01
     push       {lr}
     push       {r5}
     mov        r0,#0x7
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     mov        r0,#0x2
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     mov        r0,#0x95
     bl         Flag_GetBase
     pop        {r5}

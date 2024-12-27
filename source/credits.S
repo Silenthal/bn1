@@ -347,7 +347,7 @@ _ts Credits_1_5_SaveGame
     bl         memcpy_16
     pop        {r5}
     mov        r0,#0x9
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     push       {r5}
     bl         Save_LoadGame
     bl         Save_ChecksumCheck
@@ -358,7 +358,7 @@ _ts Credits_1_5_SaveGame
     pop        {r5}
     bne        LAB_080217fa
     mov        r0,#0x9
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     push       {r5}
     mov        r0,#0x5
     bl         Flag_SetBase

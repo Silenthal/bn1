@@ -70,7 +70,7 @@ LAB_0803e2f0:
     bl         Flag_GetBase
     bne        LAB_0803e30a
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     push       {r5}
     ldr        r7,PTR_NPCList_803EA28_0803e3bc
     bl         Map_LoadNPCList

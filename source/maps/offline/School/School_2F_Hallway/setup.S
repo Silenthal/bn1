@@ -65,11 +65,11 @@ _ts MapSetup_School_2F_Hallway_F10
     pop        {r5}
     bne        LAB_080260ea
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_080260ea:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -146,7 +146,7 @@ LAB_08026154:
     pop        {r5}
     push       {r5}
     mov        r0,#0x4
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
     pop        {pc}
 
@@ -535,9 +535,9 @@ _ts MapSetup_School_2F_Hallway_F23
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -606,7 +606,7 @@ _nt MapSetup_School_2F_Hallway_F24
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -658,7 +658,7 @@ _nt MapSetup_School_2F_Hallway_F25
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

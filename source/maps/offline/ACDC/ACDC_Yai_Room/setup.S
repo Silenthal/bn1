@@ -83,7 +83,7 @@ _ts EventHandler_ACDC_Yai_Room_F02_0
     beq        LAB_0802e4e6
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
     push       {r5}
     mov        r7,r10

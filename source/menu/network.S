@@ -238,9 +238,9 @@ LAB_0801ce68:
 LAB_0801ce82:
     push       {r5}
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x5
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {r5}
     mov        r0,#0x0
     pop        {pc}
@@ -338,7 +338,7 @@ _ts Menu_Network_3_ConfirmSaveFirst
     b          LAB_0801cf6a
 LAB_0801cf4c:
     mov        r0,#0x9
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801cf60
     ldrb       r0,[r5,#0xf]
     tst        r0,r0
@@ -389,10 +389,10 @@ LAB_0801cfa2:
 _ts Menu_Network_5_ShowSelectionInfo
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801cfd2
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     push       {r5}
@@ -1126,7 +1126,7 @@ LAB_0801d57e:
 _ts Menu_Network_11
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801d5a4
     push       {r5}
     mov        r0,#0x4
@@ -1134,7 +1134,7 @@ _ts Menu_Network_11
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x24
     strb       r0,[r5,#0x1]
 LAB_0801d5a4:
@@ -1341,7 +1341,7 @@ _ts Menu_Network_HandleInputTrade
     strh       r1,[r5,r0]
     mov        r9,r5
     mov        r0,#0x5
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     mov        r5,r9
     beq        LAB_0801d734
     mov        r0,#0x8
@@ -1568,7 +1568,7 @@ _ts Menu_Network_HandleInputSort
     strb       r1,[r5,#0x1f]
     mov        r9,r5
     mov        r0,#0x5
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     mov        r5,r9
     beq        LAB_0801d8d8
     mov        r0,#0x8
@@ -2597,7 +2597,7 @@ LAB_0801e08e:
 _ts Menu_Network_21
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801e0b4
     push       {r5}
     mov        r0,#0x4
@@ -2605,7 +2605,7 @@ _ts Menu_Network_21
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x4c
     strb       r0,[r5,#0x1]
 LAB_0801e0b4:

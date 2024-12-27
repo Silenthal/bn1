@@ -154,7 +154,7 @@ _ts MapSetup_DenTown_Block_3_F35
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -212,7 +212,7 @@ _ts MapSetup_DenTown_Block_3_F36
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0xb0
     bl         Flag_GetBase
     bne        LAB_08037ce6

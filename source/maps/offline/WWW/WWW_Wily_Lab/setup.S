@@ -335,7 +335,7 @@ _ts MapSetup_WWW_Wily_Lab_F54
     bl         Flag_GetBase
     bne        LAB_0803df3e
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_0803df3e:
     mov        r0,#0xe4
     bl         Flag_GetBase
@@ -372,7 +372,7 @@ LAB_0803df68:
     pop        {pc}
 LAB_0803df8e:
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     push       {r5}
     ldr        r7,PTR_NPCList_803E734_0803e0f8
     bl         Map_LoadNPCList

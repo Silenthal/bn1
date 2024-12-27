@@ -51,7 +51,7 @@ _ts FUN_0804f998
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     mov        r0,r10
     ldr        r0,[r0,#0x8]
     ldrb       r1,[r0,#0x5]
@@ -80,7 +80,7 @@ LAB_0804f9de:
     pop        {pc}
 LAB_0804f9f4:
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x4
     b          LAB_0804fa00
 LAB_0804f9fe:

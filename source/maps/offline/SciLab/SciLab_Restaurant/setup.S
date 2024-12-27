@@ -220,7 +220,7 @@ _ts MapSetup_SciLab_Restaurant_F43
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

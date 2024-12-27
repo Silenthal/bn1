@@ -101,7 +101,7 @@ _ts S_Story_06_3
     push       {r5}
     bl         Text_DisableDialogue
     mov        r0,#0x0
-    bl         Flag_Clear410
+    bl         Flag_ClearGate
     mov        r0,#0x99
     bl         Flag_SetBase
     mov        r7,r10

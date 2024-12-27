@@ -300,9 +300,9 @@ _ts S_Story_02_9
     mov        r0,#0x94
     bl         Flag_SetBase
     mov        r0,#0x0
-    bl         Flag_Clear410
+    bl         Flag_ClearGate
     mov        r0,#0x1
-    bl         Flag_Clear410
+    bl         Flag_ClearGate
     ldr        r0,PTR_MapEntrance_08083318
     mov        r1,#0x0
     bl         World_SetTransitionLocation

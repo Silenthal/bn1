@@ -61,13 +61,13 @@ _ts MapSetup_School_1F_Hallway_F10
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -116,9 +116,9 @@ LAB_0802776e:
 _ts MapSetup_School_1F_Hallway_F14
     push       {lr}
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x6
-    bl         Flag_Set410
+    bl         Flag_SetGate
     push       {r5}
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -136,9 +136,9 @@ _ts MapSetup_School_1F_Hallway_F14
     pop        {r5}
     bne        LAB_080277b2
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_080277b2:
     push       {r5}
     mov        r0,#0xb2
@@ -146,12 +146,12 @@ LAB_080277b2:
     pop        {r5}
     bne        LAB_080277ca
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_080277ca:
     mov        r0,#0x8
-    bl         Flag_Set410
+    bl         Flag_SetGate
     push       {r5}
     mov        r0,#0xb4
     bl         Flag_GetBase
@@ -220,9 +220,9 @@ _ts MapSetup_School_1F_Hallway_F15
     pop        {r5}
     bne        LAB_08027850
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_08027850:
     push       {r5}
     mov        r0,#0xaf
@@ -230,9 +230,9 @@ LAB_08027850:
     pop        {r5}
     bne        LAB_08027868
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_08027868:
     push       {r5}
     mov        r0,#0xb5
@@ -240,9 +240,9 @@ LAB_08027868:
     pop        {r5}
     bne        LAB_08027886
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x6
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     b          LAB_0802788a
@@ -256,7 +256,7 @@ LAB_0802788a:
     pop        {r5}
     bne        LAB_0802789c
     mov        r0,#0x8
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_0802789c:
     push       {r5}
     ldr        r7,PTR_PTR_DAT_080279ac
@@ -313,9 +313,9 @@ _nt EventHandler_School_1F_Hallway_F15_1
     bl         Flag_GetBase
     beq        LAB_08027910
     mov        r0,#0x5
-    bl         Flag_Clear410
+    bl         Flag_ClearGate
     mov        r0,#0x6
-    bl         Flag_Clear410
+    bl         Flag_ClearGate
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
 LAB_08027910:
@@ -530,19 +530,19 @@ _ts MapSetup_School_1F_Hallway_F23
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x7
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x6
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -626,13 +626,13 @@ _nt MapSetup_School_1F_Hallway_F24
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -694,13 +694,13 @@ _nt MapSetup_School_1F_Hallway_F25
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

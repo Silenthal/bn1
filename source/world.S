@@ -550,7 +550,7 @@ _ts World_HandleMapExit
     bl         dummy_187a0
     bne        LAB_08004598
     mov        r0,#0x1
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     bne        LAB_08004598
     mov        r7,r10
     ldr        r0,[r7,#0x2c]
@@ -584,7 +584,7 @@ _ts World_HandleMapExit
     mov        r1,#0x0
     sub        r0,#0x1
     add        r0,r0,r1
-    bl         Flag_Get410
+    bl         Flag_GetGate
     pop        {r1,r5,r7}
     bne        LAB_08004598
     ldr        r2,[r7,#0x2c]
@@ -614,7 +614,7 @@ _ts World_HandleRandomEncounter
     bl         dummy_187a0
     bne        LAB_0800460c
     mov        r0,#0x2
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     bne        LAB_0800460c
     mov        r7,r10
     ldr        r0,[r7,#0x2c]
@@ -675,10 +675,10 @@ LAB_08004622:
     mov        r0,#0x8
     tst        r6,r6
     beq        LAB_08004638
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     b          LAB_0800463c
 LAB_08004638:
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
 LAB_0800463c:
     pop        {r7}
     mov        r0,#0x1
@@ -1036,7 +1036,7 @@ _ts World_ChangeMap
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
     mov        r0,#0x2
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r5,r10
     ldr        r1,[r5,#0x2c]
     ldr        r0,[r1,#0x14]
@@ -1264,7 +1264,7 @@ _ts World_CheckStartMenuOpen
     bl         dummy_187a0
     bne        LAB_08004a0c
     mov        r0,#0x7
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     bne        LAB_08004a0c
     mov        r7,r10
     ldr        r0,[r7,#0x2c]

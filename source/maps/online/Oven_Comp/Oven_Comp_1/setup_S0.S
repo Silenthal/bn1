@@ -124,7 +124,7 @@ LAB_08043354:
 LAB_08043356:
     push       {r0,r5}
     mov        r0,#0x2
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     pop        {r0,r5}
 LAB_08043360:
     str        r0,[r5,#0x0]
@@ -152,7 +152,7 @@ _ts EventHandler_Oven_Comp_1_F03_0
     push       {lr}
     push       {r5}
     mov        r0,#0x2
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_Scene_Story_07_08043624

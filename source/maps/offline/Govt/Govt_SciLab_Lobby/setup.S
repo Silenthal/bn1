@@ -88,7 +88,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F22
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -132,7 +132,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F24
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0xe0
     bl         Flag_SetBase
     mov        r0,#0x0
@@ -176,7 +176,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F25
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     push       {r5}
     ldr        r7,PTR_NPCList_8035594_080330fc
     bl         Map_LoadNPCList
@@ -375,7 +375,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F30
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -570,7 +570,7 @@ LAB_0803331e:
     str        r0,[r5,#0x0]
 LAB_0803332c:
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {pc}
 
 
@@ -795,7 +795,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F50
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -835,7 +835,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F53
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

@@ -53,7 +53,7 @@ _nt MapSetup_Undernet_5
     bl         Flag_GetBase
     bne        LAB_0805318e
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_0805318e:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -103,7 +103,7 @@ LAB_080531e2:
     cmp        r0,#0x2
     bne        LAB_08053212
     mov        r0,#0x1
-    bl         Flag_Get410
+    bl         Flag_GetGate
     beq        LAB_08053212
     mov        r0,#0x35
     bl         KeyItem_IsPresent

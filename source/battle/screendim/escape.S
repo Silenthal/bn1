@@ -110,7 +110,7 @@ _nt SD_Escape_1_1_CheckEscapable
     strh       r0,[r5,#0x8]
     bne        LAB_08098cdc
     mov        r0,#0x8
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     tst        r0,r0
     bne        LAB_08098cd4
     mov        r0,#0x10

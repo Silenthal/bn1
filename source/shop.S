@@ -257,7 +257,7 @@ _ts Shop_1_1_0_WhatWillYouBuy
     mov        r0,#0x7
     bl         Shop_SetClerkDialogue
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
     pop        {pc}
@@ -266,7 +266,7 @@ _ts Shop_1_1_0_WhatWillYouBuy
 _ts Shop_1_1_1_HandleInput
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801eb2c
     mov        r7,r10
     ldr        r7,[r7,#0x4]
@@ -337,7 +337,7 @@ _nt Shop_1_1_2_WhatWillYouBuy
     mov        r0,#0x0
     bl         Shop_SetClerkDialogue
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
     pop        {pc}
@@ -364,9 +364,9 @@ _ts Shop_1_2_0_ConfirmLeaveShop
     mov        r0,#0x4
     bl         Shop_SetClerkDialogue
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x5
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
     pop        {pc}
@@ -375,7 +375,7 @@ _ts Shop_1_2_0_ConfirmLeaveShop
 _nt Shop_1_2_1_CloseOrCancel
     push       {lr}
     mov        r0,#0x5
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801eb8c
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
@@ -383,7 +383,7 @@ _nt Shop_1_2_1_CloseOrCancel
     strh       r0,[r5,#0x2]
 LAB_0801eb8c:
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801eb9c
     mov        r0,#0x18
     strb       r0,[r5,#0x1]
@@ -416,7 +416,7 @@ _ts Shop_1_3_0_NotEnoughZenny
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x6c
     bl         Sound_PlaySongImmediate
     pop        {pc}
@@ -425,7 +425,7 @@ _ts Shop_1_3_0_NotEnoughZenny
 _nt Shop_1_3_1
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801ebf4
     mov        r7,r10
     ldr        r7,[r7,#0x4]
@@ -465,7 +465,7 @@ _ts Shop_1_4_0_SorrySoldOut
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x6c
     bl         Sound_PlaySongImmediate
     pop        {pc}
@@ -474,7 +474,7 @@ _ts Shop_1_4_0_SorrySoldOut
 _nt Shop_1_4_1
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801ec50
     mov        r7,r10
     ldr        r7,[r7,#0x4]
@@ -536,16 +536,16 @@ LAB_0801ec9a:
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x5
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {pc}
 
 
 _ts Shop_1_5_1_AttemptPurchase
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801ecd4
     bl         Shop_AttemptPurchase
     mov        r0,#0x8
@@ -553,7 +553,7 @@ _ts Shop_1_5_1_AttemptPurchase
     b          LAB_0801ece4
 LAB_0801ecd4:
     mov        r0,#0x5
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801ece4
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
@@ -588,14 +588,14 @@ LAB_0801ecfc:
     mov        r0,#0xc
     strb       r0,[r5,#0x2]
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {pc}
 
 
 _ts Shop_1_5_3_ReturnToItemList
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801ed3a
     mov        r7,r10
     ldr        r7,[r7,#0x4]
@@ -722,14 +722,14 @@ _ts Shop_1_8_0_ComeAgainSoon
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {pc}
 
 
 _ts Shop_1_8_1_PrepareClose
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801ee1e
     mov        r7,r10
     ldr        r7,[r7,#0x4]

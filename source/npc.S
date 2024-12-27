@@ -62,7 +62,7 @@ _ts NPC_Free
 _ts NPC_UpdateAll
     push       { lr }
     mov        r0,#0x4
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     bne        LAB_08003bbc
     ldr        r5,PTR_gEntityListNpc_08003c7c
 LAB_08003b88:

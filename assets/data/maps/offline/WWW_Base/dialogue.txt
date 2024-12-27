@@ -13,7 +13,7 @@ section_end()
 
 # 0x01 @ 0x70EB6D
 section_start(0x01)
-clear_flag(FLAG_GATE_LOCK_AT_LAN_YUICHIRO)
+clear_flag(FLAG_GATE_00)
 hidepic()
 dialog_up()
 text("Lan returns to\nACDC Town...\p")

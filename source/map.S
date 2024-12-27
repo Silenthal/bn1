@@ -2215,7 +2215,7 @@ LAB_08012512:
     bgt        LAB_08012548
     push       {r0,r1,r5}
     sub        r0,#0x1
-    bl         Flag_Get410
+    bl         Flag_GetGate
     pop        {r0,r1,r5}
     bne        LAB_08012548
     mov        r0,#0x0

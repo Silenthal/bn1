@@ -75,9 +75,9 @@ _ts MapSetup_SciLab_Power_Plant_F41
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -109,7 +109,7 @@ _ts EventHandler_SciLab_Power_Plant_F41_0
     pop        {r5}
     bne        LAB_0803c926
     mov        r0,#0x1
-    bl         Flag_Clear410
+    bl         Flag_ClearGate
     push       {r5}
     ldr        r0,PTR_BgTask_803BABC_0803ca34
     bl         BgTask_AddNew
@@ -143,7 +143,7 @@ _ts MapSetup_SciLab_Power_Plant_F42
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -375,7 +375,7 @@ LAB_0803cae4:
 LAB_0803caea:
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

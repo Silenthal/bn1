@@ -107,7 +107,7 @@ _ts S_Story_08_3
     push       {r5}
     bl         Text_DisableDialogue
     mov        r0,#0x2
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x9f
     bl         Flag_SetBase
     bl         PlayerAnimation_Unlock

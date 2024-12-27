@@ -20,12 +20,12 @@ _ts Save_SaveGame
     bl         MemCmp_8_Sram
     push       { r0 }
     mov        r0,#0x9
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     pop        { r0 }
     tst        r0,r0
     beq        LAB_0801fb10
     mov        r0,#0x9
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x1
 LAB_0801fb10:
     pop        { pc }

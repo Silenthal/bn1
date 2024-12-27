@@ -66,9 +66,9 @@ LAB_08027d9c:
     pop        {r5}
     str        r3,[r5,#0x0]
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {pc}
 
 
@@ -160,7 +160,7 @@ _nt MapSetup_School_Cross_Hallway_F15
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

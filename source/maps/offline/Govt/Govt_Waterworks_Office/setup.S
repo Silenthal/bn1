@@ -72,7 +72,7 @@ _ts MapSetup_Govt_Waterworks_Office_F24
     ldr        r7,PTR_NPCList_803590C_08034260
     bl         Map_LoadNPCList
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -113,9 +113,9 @@ _ts MapSetup_Govt_Waterworks_Office_F25
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {pc}
 
 
@@ -377,7 +377,7 @@ _ts MapSetup_Govt_Waterworks_Office_F40
     ldr        r7,PTR_NPCList_80359C8_080343bc
     bl         Map_LoadNPCList
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -549,7 +549,7 @@ _ts MapSetup_Govt_Waterworks_Office_F50
     ldr        r7,PTR_NPCList_8035A4C_08034508
     bl         Map_LoadNPCList
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]

@@ -65,7 +65,7 @@ LAB_08052f00:
     bl         Flag_GetBase
     bne        LAB_08052f0e
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_08052f0e:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -98,7 +98,7 @@ _ts EventHandler_Undernet_3_0
     cmp        r0,#0x2
     bne        LAB_08052f6a
     mov        r0,#0x1
-    bl         Flag_Get410
+    bl         Flag_GetGate
     beq        LAB_08052f6a
     mov        r0,#0x37
     bl         KeyItem_IsPresent

@@ -136,7 +136,7 @@ _ts S_JackIn_1_SetJackInText
     bne        LAB_08083f6e
     push       {r5}
     mov        r0,#0x4
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
     ldr        r0,[r5,#0x10]
@@ -234,7 +234,7 @@ LAB_08083ffa:
     push       {r5}
     bl         PlayerAnimation_Unlock
     mov        r0,#0x4
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {r5}
     push       {r5}
     ldr        r0,[r5,#0x10]

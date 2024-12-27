@@ -871,7 +871,7 @@ _ts PlayerLocation_UpdateMoveFlags
     cmp        r1,r2
     beq        LAB_08055b60
     mov        r0,#0x0
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     add        r1,r0,#0x0
     mov        r0,#0x0
     tst        r1,r1
@@ -1471,14 +1471,14 @@ LAB_08056042:
 _ts Flag_SetPlayerActive
     push       {lr}
     mov        r0,#0x0
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     pop        {pc}
 
 
 _nt Flag_SetPlayerInactive
     push       {lr}
     mov        r0,#0x0
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {pc}
 
 

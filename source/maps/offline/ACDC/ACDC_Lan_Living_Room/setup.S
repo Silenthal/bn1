@@ -184,7 +184,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F02_1
     beq        LAB_0802c120
     push       {r5}
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
     push       {r5}
     mov        r7,r10
@@ -227,7 +227,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F03
     ldr        r0,PTR_LAB_0802c488
     bl         Entity_AllocList
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     ldr        r0,PTR_BgTask_802C48C
     bl         BgTask_AddNew
     pop        {r5}
@@ -339,7 +339,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F04
     ldr        r0,PTR_DAT_0802c4a8
     bl         Entity_AllocList
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     ldr        r0,PTR_BgTask_802C4AC
     bl         BgTask_AddNew
     mov        r0,#0xc4
@@ -462,7 +462,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F05
     ldr        r0,PTR_DAT_0802c4c8
     bl         Entity_AllocList
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     ldr        r0,PTR_BgTask_802C4CC
     bl         BgTask_AddNew
     pop        {r5}

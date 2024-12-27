@@ -94,9 +94,9 @@ _ts MapSetup_DenTown_Block_1_F30
     bl         Flag_GetBase
     beq        LAB_08037008
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x4
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -194,9 +194,9 @@ _ts MapSetup_DenTown_Block_1_F31
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -261,9 +261,9 @@ LAB_08037142:
     bl         Flag_GetBase
     beq        LAB_08037156
     mov        r0,#0x0
-    bl         Flag_Clear410
+    bl         Flag_ClearGate
     mov        r0,#0x1
-    bl         Flag_Clear410
+    bl         Flag_ClearGate
 LAB_08037156:
     push       {r5}
     mov        r7,r10

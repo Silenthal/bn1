@@ -59,7 +59,7 @@ _ts MapSetup_ACDC_Lan_Room_F00
     bne        LAB_0802cade
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     ldr        r7,PTR_DAT_0802cb38
     bl         Map_LoadNPCList
     pop        {r5}
@@ -75,7 +75,7 @@ LAB_0802cade:
     bne        LAB_0802cb06
     push       {r5}
     mov        r0,#0x7
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     ldr        r0,PTR_BgTask_802CB3C
     bl         BgTask_AddNew
     mov        r0,#0x10
@@ -150,7 +150,7 @@ _ts EventHandler_ACDC_Lan_Room_F00_1
     beq        LAB_0802cba4
     push       {r5}
     mov        r0,#0x7
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x4
     bl         PetStatusControl_SetState
     pop        {r5}
@@ -254,7 +254,7 @@ _ts MapSetup_ACDC_Lan_Room_F02
     bne        LAB_0802cc6e
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     ldr        r0,PTR_BgTask_802CF38
     bl         BgTask_AddNew
     pop        {r5}

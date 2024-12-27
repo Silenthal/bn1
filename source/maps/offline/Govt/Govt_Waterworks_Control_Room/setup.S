@@ -83,9 +83,9 @@ _ts MapSetup_Govt_Waterworks_Control_Room_F24
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -112,9 +112,9 @@ _ts EventHandler_Govt_Waterworks_Control_Room_F24_0
     bl         Flag_GetBase
     beq        LAB_08034614
     mov        r0,#0x1
-    bl         Flag_Clear410
+    bl         Flag_ClearGate
     mov        r0,#0x2
-    bl         Flag_Clear410
+    bl         Flag_ClearGate
     pop        {pc}
 LAB_08034614:
     bl         Scene_IsSceneActive

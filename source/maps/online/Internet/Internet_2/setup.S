@@ -149,13 +149,13 @@ LAB_080523be:
     bl         Flag_GetBase
     bne        LAB_080523cc
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_080523cc:
     mov        r0,#0x51
     bl         Flag_GetBase
     bne        LAB_080523da
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_080523da:
     mov        r0,#0x0
     str        r0,[r5,#0x0]

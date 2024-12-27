@@ -87,7 +87,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F22
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     push       {r5}
     ldr        r7,PTR_NPCList_803513C_08032a44
     bl         Map_LoadNPCList
@@ -131,7 +131,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F24
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0xb9
     bl         Flag_GetBase
     bne        LAB_080328ae
@@ -236,7 +236,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F25
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     push       {r5}
     ldr        r7,PTR_NPCList_8035394_08032a68
     bl         Map_LoadNPCList
@@ -280,7 +280,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F26
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -488,7 +488,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F30
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -661,7 +661,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F40
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -830,7 +830,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F50
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -870,7 +870,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F53
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

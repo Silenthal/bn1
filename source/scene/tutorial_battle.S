@@ -179,9 +179,9 @@ _ts S_TutorialBattle_3
     push       {r5}
     bl         Flag_SetPlayerActive
     mov        r0,#0x7
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x2
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     bl         Text_DisableDialogue
     ldr        r0,PTR_MapEntrance_080852ac
     mov        r1,#0x0

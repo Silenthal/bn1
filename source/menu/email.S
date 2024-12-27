@@ -94,7 +94,7 @@ _ts Menu_Email_0_Init
     mov        r2,#0x40
     bl         memset
     mov        r0,#0x5
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     pop        {r5}
     mov        r0,#0x0
     strb       r0,[r5,#0xe]
@@ -220,7 +220,7 @@ _ts Menu_Email_HandleInput
     strb       r0,[r5,#0xf]
     mov        r9,r5
     mov        r0,#0x5
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     mov        r5,r9
     beq        LAB_0801c31c
     mov        r0,#0x8
@@ -259,7 +259,7 @@ LAB_0801c34c:
     beq        LAB_0801c37c
     mov        r9,r5
     mov        r0,#0x5
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     mov        r5,r9
     ldrb       r2,[r5,#0xc]
     ldrb       r1,[r5,#0xe]

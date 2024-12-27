@@ -183,19 +183,19 @@ _nt MapSetup_DenTown_Center_F32
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x4
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x6
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -289,17 +289,17 @@ _nt MapSetup_DenTown_Center_F33
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x4
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0xa6
     bl         Flag_GetBase
     bne        LAB_080363ca
@@ -408,15 +408,15 @@ _ts MapSetup_DenTown_Center_F34
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x4
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x6
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     bl         Flag_Clear380
     mov        r0,#0x1
@@ -516,15 +516,15 @@ _nt MapSetup_DenTown_Center_F35
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x6
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     bl         Flag_Clear380
     mov        r0,#0x1
@@ -603,19 +603,19 @@ _ts MapSetup_DenTown_Center_F36
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x4
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x6
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     bl         Flag_Set380
     mov        r0,#0x1
@@ -834,19 +834,19 @@ _ts MapSetup_DenTown_Center_F37
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x3
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x4
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x5
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x6
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     bl         Flag_Set380
     mov        r0,#0x1

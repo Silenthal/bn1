@@ -24,7 +24,7 @@ _ts S_MegaManJackIn_0
     push       {lr}
     push       {r5}
     mov        r0,#0x1
-    bl         Flag_Set400
+    bl         Flag_SetSystem
     pop        {r5}
     push       {r5}
     bl         Flag_SetPlayerInactive
@@ -99,7 +99,7 @@ LAB_08084110:
     ldr        r0,[r0,#0x44]
     bl         PlayerAnimation_SetState
     mov        r0,#0x1
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {r5}
     ldrb       r1,[r5,#0x4]
     tst        r1,r1

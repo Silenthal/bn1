@@ -31,7 +31,7 @@ LAB_0802b91a:
 LAB_0802b91e:
     push       {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
     pop        {pc}
 
@@ -124,7 +124,7 @@ _ts MapSetup_ACDC_School_Gate_F23
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0xa3
     bl         Flag_GetBase
     bne        LAB_0802ba14
@@ -385,7 +385,7 @@ _ts MapSetup_ACDC_School_Gate_S3
     bl         Sound_AreaSongChange
     push       {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
     pop        {pc}
 
@@ -488,7 +488,7 @@ _ts MapSetup_ACDC_School_Gate_S4
     bl         Sound_AreaSongChange
     push       {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     pop        {r5}
     pop        {pc}
 
@@ -644,7 +644,7 @@ _ts MapSetup_ACDC_School_Gate_F50
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -714,7 +714,7 @@ LAB_0802be98:
     bl         Flag_GetBase
     bne        LAB_0802bea6
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_0802bea6:
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802bf70

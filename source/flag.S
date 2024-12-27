@@ -43,9 +43,9 @@ DAT_08010320:       .word 0x10
 
 global_label Flag_Set420
     add        r0,#0x10
-global_label Flag_Set410
+global_label Flag_SetGate
     add        r0,#0x10
-global_label Flag_Set400
+global_label Flag_SetSystem
     add        r0,#0x80
 global_label Flag_Set380
     add        r0,#0x80
@@ -81,9 +81,9 @@ global_label Flag_SetBase
 
 global_label Flag_Clear420
     add        r0,#0x10
-global_label Flag_Clear410
+global_label Flag_ClearGate
     add        r0,#0x10
-global_label Flag_Clear400
+global_label Flag_ClearSystem
     add        r0,#0x80
 global_label Flag_Clear380
     add        r0,#0x80
@@ -114,9 +114,9 @@ global_label Flag_ClearBase
 
 global_label Flag_Get420
     add        r0,#0x10
-global_label Flag_Get410
+global_label Flag_GetGate
     add        r0,#0x10
-global_label Flag_Get400
+global_label Flag_GetSystem
     add        r0,#0x80
 global_label Flag_Get380
     add        r0,#0x80

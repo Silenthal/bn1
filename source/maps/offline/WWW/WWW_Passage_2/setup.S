@@ -60,7 +60,7 @@ _ts MapSetup_WWW_Passage_2_F54
     bl         Flag_GetBase
     bne        LAB_0803e460
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
     b          LAB_0803e490
 LAB_0803e460:
     push       {r5}

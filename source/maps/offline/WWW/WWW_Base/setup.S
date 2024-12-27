@@ -60,7 +60,7 @@ _ts MapSetup_WWW_Base_F54
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
     mov        r0,#0xaf
     bl         Flag_GetBase
     bne        LAB_0803dad4
@@ -79,7 +79,7 @@ LAB_0803dad4:
     bl         Flag_GetBase
     bne        LAB_0803dae4
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
     b          LAB_0803db8e
 LAB_0803dae4:
     mov        r0,#0xf8
@@ -100,7 +100,7 @@ LAB_0803db02:
     bl         Flag_GetBase
     bne        LAB_0803db12
     mov        r0,#0x4
-    bl         Flag_Set410
+    bl         Flag_SetGate
     b          LAB_0803db48
 LAB_0803db12:
     mov        r0,#0xe9

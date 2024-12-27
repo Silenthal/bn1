@@ -103,9 +103,9 @@ _ts Menu_Save_0_Init
     strb       r0,[r5,#0xd]
     push       {r5}
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x5
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {r5}
     mov        r0,#0x0
     pop        {pc}
@@ -131,7 +131,7 @@ _ts Menu_Save_1_CheckDialogResult
     b          LAB_0801e61e
 LAB_0801e600:
     mov        r0,#0x9
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801e614
     ldrb       r0,[r5,#0xd]
     tst        r0,r0
@@ -227,10 +227,10 @@ LAB_0801e6b2:
 _ts Menu_Save_4_StartClose
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     beq        LAB_0801e6dc
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x10

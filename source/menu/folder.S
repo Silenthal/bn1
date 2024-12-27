@@ -157,9 +157,9 @@ _ts M_Folder_0_Init
     strb       r0,[r5,#0x1]
     push       {r5}
     mov        r0,#0x6
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     mov        r0,#0x5
-    bl         Flag_Clear400
+    bl         Flag_ClearSystem
     pop        {r5}
     mov        r0,#0x0
     pop        {pc}
@@ -1643,7 +1643,7 @@ LAB_0801aae2:
     strh       r1,[r5,r0]
     mov        r9,r5
     mov        r0,#0x5
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     mov        r5,r9
     beq        LAB_0801ab0e
     mov        r0,#0x8
@@ -2203,7 +2203,7 @@ _ts Menu_Folder_Sort_HandleInput
     strh       r1,[r5,r0]
     mov        r9,r5
     mov        r0,#0x5
-    bl         Flag_Get400
+    bl         Flag_GetSystem
     mov        r5,r9
     beq        LAB_0801af28
     mov        r0,#0x8

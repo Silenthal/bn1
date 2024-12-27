@@ -75,19 +75,19 @@ LAB_080526b2:
     bl         Flag_GetBase
     bne        LAB_080526c0
     mov        r0,#0x0
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_080526c0:
     mov        r0,#0x48
     bl         Flag_GetBase
     bne        LAB_080526ce
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_080526ce:
     mov        r0,#0x49
     bl         Flag_GetBase
     bne        LAB_080526dc
     mov        r0,#0x2
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_080526dc:
     mov        r0,#0x53
     bl         Flag_GetBase
@@ -205,7 +205,7 @@ LAB_080527b4:
     cmp        r0,#0x1
     bne        LAB_080527f0
     mov        r0,#0x0
-    bl         Flag_Get410
+    bl         Flag_GetGate
     beq        LAB_08052874
     mov        r0,#0x25
     bl         KeyItem_IsPresent
@@ -227,7 +227,7 @@ LAB_080527f0:
     cmp        r0,#0x2
     bne        LAB_0805281c
     mov        r0,#0x1
-    bl         Flag_Get410
+    bl         Flag_GetGate
     beq        LAB_08052874
     mov        r0,#0x26
     bl         KeyItem_IsPresent
@@ -249,7 +249,7 @@ LAB_0805281c:
     cmp        r0,#0x3
     bne        LAB_08052848
     mov        r0,#0x2
-    bl         Flag_Get410
+    bl         Flag_GetGate
     beq        LAB_08052874
     mov        r0,#0x2b
     bl         KeyItem_IsPresent
@@ -271,7 +271,7 @@ LAB_08052848:
     cmp        r0,#0x5
     bne        LAB_08052874
     mov        r0,#0x4
-    bl         Flag_Get410
+    bl         Flag_GetGate
     beq        LAB_08052874
     ldr        r1,PTR_DAT_080528e8
     b          LAB_0805286a

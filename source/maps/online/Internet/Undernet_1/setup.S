@@ -73,7 +73,7 @@ LAB_08052bba:
     bl         Flag_GetBase
     bne        LAB_08052bc8
     mov        r0,#0x1
-    bl         Flag_Set410
+    bl         Flag_SetGate
 LAB_08052bc8:
     mov        r0,#0x68
     bl         Flag_GetBase
@@ -165,7 +165,7 @@ LAB_08052c62:
     cmp        r0,#0x2
     bne        LAB_08052ca2
     mov        r0,#0x1
-    bl         Flag_Get410
+    bl         Flag_GetGate
     beq        LAB_08052ca2
     mov        r0,#0x35
     bl         KeyItem_IsPresent
