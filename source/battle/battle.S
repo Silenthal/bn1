@@ -1334,7 +1334,7 @@ LAB_0800620e:
 LAB_08006226:
     pop        {r5}
     mov        r0,#0x32
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     mov        r0,#0x1e
     strh       r0,[r5,#0x2e]
     mov        r0,#0x8

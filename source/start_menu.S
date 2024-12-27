@@ -66,7 +66,7 @@ _ts StartMenu_LoadTileset
     mov        r2,#0x40
     push       {r2}
     mov        r0,#0x26
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     pop        {r2}
     beq        LAB_08019214
     mov        r2,#0x0
@@ -151,7 +151,7 @@ LAB_0801929c:
     beq        LAB_08019290
     push       {r0,r5}
     mov        r0,#0x26
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     pop        {r0,r5}
     beq        LAB_080192c6
     cmp        r0,#0x5

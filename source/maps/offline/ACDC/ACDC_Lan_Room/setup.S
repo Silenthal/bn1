@@ -531,7 +531,7 @@ _ts EventHandler_ACDC_Lan_Room_F06_0
     mov        r1,#0x10
     strb       r1,[r0,#0x6]
     mov        r0,#0x28
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     bl         FUN_080102e8
     pop        {r5}
     mov        r0,#0x4
@@ -870,7 +870,7 @@ PTR_EventHandler_ACDC_Lan_Room_F22_0_0802d0e4:
 _ts EventHandler_ACDC_Lan_Room_F22_0
     push       {lr}
     mov        r0,#0x7
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     beq        LAB_0802d114
     mov        r0,#0x7
     bl         Flag_GetEmailUnread
@@ -1193,7 +1193,7 @@ PTR_EventHandler_ACDC_Lan_Room_F50_0_0802d354:
 _ts EventHandler_ACDC_Lan_Room_F50_0
     push       {lr}
     mov        r0,#0xe
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802d36e
     push       {r5}
     ldr        r0,DAT_0802d450
@@ -1302,7 +1302,7 @@ PTR_EventHandler_ACDC_Lan_Room_F53_0_0802d41c:
 _ts EventHandler_ACDC_Lan_Room_F53_0
     push       {lr}
     mov        r0,#0x11
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802d436
     push       {r5}
     ldr        r0,DAT_0802d478

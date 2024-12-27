@@ -335,7 +335,7 @@ _nt S_Story_67_11
     mov        r0,#0x9b
     bl         Flag_SetBase
     mov        r0,#0x2d
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     mov        r0,#0x63
     bl         Flag_ClearBase
     mov        r0,#0x2f

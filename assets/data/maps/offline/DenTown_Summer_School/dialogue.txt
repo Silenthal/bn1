@@ -236,7 +236,7 @@ section_end()
 
 # 0xBE @ 0x70A9B9
 section_start(0xBE)
-if_flag(0x42F, 0xC7, 0xFF)
+if_flag(FLAG_EVENT_DENTOWN_SUMMER_SCHOOL_TRADE_RATTON1_E, 0xC7, 0xFF)
 pic(11)
 dialog_up()
 text("{a 2}It's quiz time!\nIt's quiz time!{a 1}\p{w 0}")
@@ -338,7 +338,7 @@ section_end()
 
 # 0xC5 @ 0x70AD98
 section_start(0xC5)
-set_flag(0x42F)
+set_flag(FLAG_EVENT_DENTOWN_SUMMER_SCHOOL_TRADE_RATTON1_E)
 pic(11)
 dialog_up()
 anim(2)

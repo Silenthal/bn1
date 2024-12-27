@@ -84,10 +84,10 @@ LAB_08052994:
     bl         Flag_SetGate
 LAB_080529a2:
     mov        r0,#0x2f
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_080529c4
     mov        r0,#0x2f
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     mov        r0,r10
     ldr        r0,[r0,#0x8]
     mov        r1,#0x0

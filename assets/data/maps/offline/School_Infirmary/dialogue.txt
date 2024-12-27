@@ -19,7 +19,7 @@ section_end()
 
 # 0xBE @ 0x6EA92B
 section_start(0xBE)
-if_flag(0x422, 0xC4, 0xFF)
+if_flag(FLAG_EVENT_SCHOOL_INFIRMARY_TRADE_SHOTGUN_K, 0xC4, 0xFF)
 pic(10)
 dialog_up()
 text("{a 2}Hey! I just heard\nsomething amazing!{a 1}\p{w 0}")
@@ -65,7 +65,7 @@ section_end()
 # 0xC2 @ 0x6EAB17
 section_start(0xC2)
 check_chip_pack("Invis1 I", 3, eq=0xFF, gt=0xFF, lt=0xC3)
-set_flag(0x422)
+set_flag(FLAG_EVENT_SCHOOL_INFIRMARY_TRADE_SHOTGUN_K)
 pic(10)
 dialog_up()
 text("{a 2}Great! Thanks!\nHere you go!{a 1}\p{w 0}")

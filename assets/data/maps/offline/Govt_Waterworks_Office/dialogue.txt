@@ -230,7 +230,7 @@ section_end()
 
 # 0xBE @ 0x70148E
 section_start(0xBE)
-if_flag(0x429, 0xC2, 0xFF)
+if_flag(FLAG_EVENT_GOVT_WATERWORKS_OFFICE_TRADE_HAMMER_M, 0xC2, 0xFF)
 check_chip("Repair H", 1, 0xBF, 0xBF, 0xFF)
 pic(17)
 dialog_up()
@@ -242,8 +242,8 @@ section_end()
 
 # 0xBF @ 0x701500
 section_start(0xBF)
-if_flag(0x439, 0xC3, 0xFF)
-set_flag(0x439)
+if_flag(FLAG_EVENT_GOVT_WATERWORKS_OFFICE_TRADE_HAMMER_M_GATE, 0xC3, 0xFF)
+set_flag(FLAG_EVENT_GOVT_WATERWORKS_OFFICE_TRADE_HAMMER_M_GATE)
 pic(17)
 dialog_up()
 text("{a 2}Hey! Is that a\n{chip Repair H}")
@@ -260,7 +260,7 @@ section_end()
 # 0xC0 @ 0x7015A1
 section_start(0xC0)
 check_chip_pack("Repair H", 1, eq=0xFF, gt=0xFF, lt=0xC4)
-set_flag(0x429)
+set_flag(FLAG_EVENT_GOVT_WATERWORKS_OFFICE_TRADE_HAMMER_M)
 pic(17)
 dialog_up()
 text("{a 2}Oh,you're the\ncoolest! Here you\ngo!{a 1}\p{w 0}")

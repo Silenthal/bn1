@@ -86,7 +86,7 @@ _ts EventHandler_Undernet_5_0
     cmp        r0,#0x10
     bne        LAB_080531e2
     mov        r0,#0x2e
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_080531e2
     mov        r0,#0x5d
     bl         Flag_GetBase

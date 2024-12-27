@@ -1995,10 +1995,10 @@ LAB_08057162:
 _ts FUN_08057164
     push       {lr}
     mov        r0,#0x26
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_08057176
     mov        r0,#0x32
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_08057180
 LAB_08057176:
     mov        r0,#0x5

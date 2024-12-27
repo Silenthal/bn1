@@ -60,7 +60,7 @@ LAB_0807f01e:
     pop        {r5}
     push       {r0}
     mov        r0,#0x34
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     pop        {r0}
     beq        LAB_0807f04e
     mov        r0,#0x2

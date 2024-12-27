@@ -18,9 +18,9 @@ section_end()
 
 # 0x02 @ 0x6DD3FC
 section_start(0x02)
-if_flag(0x42D, 0x01, 0xFF)
-if_flag(0x438, 0x0A, 0xFF)
-if_flag(0x437, 0x05, 0xFF)
+if_flag(FLAG_EVENT_GOVT_WATERWORKS_LOBBY_TRADE_REPAIR_G, 0x01, 0xFF)
+if_flag(FLAG_EVENT_GOVT_WATERWORKS_LOBBY_TRADE_REPAIR_G_GATE_2, 0x0A, 0xFF)
+if_flag(FLAG_EVENT_GOVT_WATERWORKS_LOBBY_TRADE_REPAIR_G_GATE_1, 0x05, 0xFF)
 jump(0x01)
 section_end()
 

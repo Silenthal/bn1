@@ -155,7 +155,7 @@ _ts MapSetup_ACDC_Town_F02
     pop        {r5}
     push       {r5}
     mov        r0,#0x2
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     pop        {r5}
     bne        LAB_0802ab1e
     push       {r5}
@@ -352,7 +352,7 @@ _ts MapSetup_ACDC_Town_S1
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x28
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_0802ac96
     bl         Sound_AreaSongChange
 LAB_0802ac96:
@@ -766,7 +766,7 @@ _ts EventHandler_ACDC_Town_F21_0
     bl         Flag_GetBase
     beq        LAB_0802b000
     mov        r0,#0x5
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802b000
     push       {r5}
     ldr        r0,DAT_0802b304
@@ -825,7 +825,7 @@ _ts EventHandler_ACDC_Town_F22_0
     bl         Flag_GetBase
     beq        LAB_0802b072
     mov        r0,#0x7
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802b072
     push       {r5}
     ldr        r0,DAT_0802b318
@@ -1036,7 +1036,7 @@ PTR_EventHandler_ACDC_Town_F26_0_0802b1d4:
 _ts EventHandler_ACDC_Town_F26_0
     push       {lr}
     mov        r0,#0x6
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802b1ee
     push       {r5}
     ldr        r0,DAT_0802b344
@@ -1171,10 +1171,10 @@ _ts FUN_0802b2d4
     mov        r0,#0x47
     bl         Flag_Set380
     mov        r0,#0xc
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_0802b2f2
     mov        r0,#0x15
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_0802b2f2
     mov        r0,#0x47
     bl         Flag_Clear380
@@ -1341,7 +1341,7 @@ PTR_EventHandler_ACDC_Town_F30_0_0802b42c:
 _ts EventHandler_ACDC_Town_F30_0
     push       {lr}
     mov        r0,#0x13
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802b44c
     push       {r5}
     ldr        r0,DAT_0802b4c8
@@ -1356,7 +1356,7 @@ LAB_0802b44c:
 _nt EventHandler_ACDC_Town_F30_1
     push       {lr}
     mov        r0,#0x13
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802b466
     push       {r5}
     ldr        r0,PTR_Scene_CheckMail_0802b4d0
@@ -1551,7 +1551,7 @@ PTR_EventHandler_ACDC_Town_F40_0_0802b5e4:
 _ts EventHandler_ACDC_Town_F40_0
     push       {lr}
     mov        r0,#0x12
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802b600
     push       {r5}
     ldr        r0,DAT_0802b62c
@@ -1749,7 +1749,7 @@ _ts EventHandler_ACDC_Town_F53_0
     bl         Flag_GetBase
     beq        LAB_0802b792
     mov        r0,#0x19
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802b792
     push       {r5}
     ldr        r0,DAT_0802b8c0
@@ -1856,7 +1856,7 @@ _ts EventHandler_ACDC_Town_F54_0
     bl         Flag_GetBase
     beq        LAB_0802b86a
     mov        r0,#0x1b
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802b86a
     push       {r5}
     ldr        r0,DAT_0802b8dc

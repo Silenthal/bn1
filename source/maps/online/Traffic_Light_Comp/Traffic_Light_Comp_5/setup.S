@@ -25,7 +25,7 @@ LAB_08048b82:
 LAB_08048b88:
     pop        {r5}
     mov        r0,#0x2a
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_08048b96
     bl         Sound_AreaSongChange
 LAB_08048b96:

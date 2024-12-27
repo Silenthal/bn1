@@ -94,7 +94,7 @@ _ts S_Story_38_1
     strb       r0,[r7,#0x9]
     strb       r0,[r7,#0xb]
     mov        r0,#0x34
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     push       {r5}
     mov        r0,#0x18
     bl         Entity_FreeAllMultiple
@@ -433,7 +433,7 @@ _ts S_Story_38_13
     bl         Flag_SetBase
     pop        {r5}
     mov        r0,#0x34
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     push       {r5}
     mov        r7,r10
     ldr        r0,[r7,#0x2c]

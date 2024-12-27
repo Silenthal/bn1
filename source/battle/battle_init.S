@@ -362,7 +362,7 @@ _ts Battle_Init
     lsl        r1,r1,#0x4
     bl         memset0_16
     mov        r0,#0x32
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     mov        r0,#0x0
     ldr        r7,=gIsObjectXFlipped
     strb       r0,[r7,#0x0]

@@ -302,10 +302,10 @@ LAB_0802711e:
     cmp        r0,r1
     beq        LAB_08027138
     mov        r0,#0x13
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_08027138
     mov        r0,#0x14
-    bl         Flag_Set420
+    bl         Flag_SetEvent
 LAB_08027138:
     pop        {pc}
 
@@ -410,10 +410,10 @@ _ts MapSetup_School_AV_Room_S3
     cmp        r0,r1
     beq        LAB_0802721c
     mov        r0,#0x13
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_0802721c
     mov        r0,#0x14
-    bl         Flag_Set420
+    bl         Flag_SetEvent
 LAB_0802721c:
     pop        {pc}
 

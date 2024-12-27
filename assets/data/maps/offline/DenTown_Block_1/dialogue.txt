@@ -62,7 +62,7 @@ section_end()
 
 # 0x0B @ 0x70675D
 section_start(0x0B)
-if_flag(0x24C, 0xFF, 0x0C)
+if_flag(FLAG_EMAIL_UNREAD_13, 0xFF, 0x0C)
 pic(34)
 dialog_up()
 text("{a 2}Lan,I wanna know\nwhat's in that mail\nfrom the WWW!{a 1}\p")

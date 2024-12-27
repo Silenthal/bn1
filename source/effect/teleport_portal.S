@@ -52,7 +52,7 @@ LAB_0807e36c:
     tst        r1,r1
     bne        LAB_0807e3ca
     mov        r0,#0x31
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_0807e3ca
     mov        r0,#0xe
     bl         Flag_SetGate
@@ -66,7 +66,7 @@ LAB_0807e38e:
     tst        r1,r1
     bne        LAB_0807e3ca
     mov        r0,#0x31
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_0807e3ca
     mov        r0,#0xe
     bl         Flag_SetGate

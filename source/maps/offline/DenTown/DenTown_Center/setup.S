@@ -130,7 +130,7 @@ _ts EventHandler_DenTown_Center_F30_0
     bl         Flag_GetBase
     beq        LAB_0803626e
     mov        r0,#0x15
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0803626e
     push       {r5}
     ldr        r0,DAT_08036444
@@ -568,7 +568,7 @@ PTR_EventHandler_DenTown_Center_F35_0_080365b0:
 _ts EventHandler_DenTown_Center_F35_0
     push       {lr}
     mov        r0,#0xd
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_080365cc
     push       {r5}
     ldr        r0,DAT_0803698c

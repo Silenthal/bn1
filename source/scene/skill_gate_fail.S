@@ -111,7 +111,7 @@ LAB_08085c48:
 _ts S_SkillGateFail_3
     push       {lr}
     mov        r0,#0x20
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_08085c62
     push       {r5}
     mov        r0,#0x4
@@ -143,13 +143,13 @@ _ts S_SkillGateFail_4
     lsl        r1,r1,#0x2
     ldr        r7,PTR_INT_08085dcc
     ldr        r0,[r7,r1]
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_08085cba
     ldrb       r1,[r5,#0x4]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_INT_08085dd0
     ldr        r0,[r7,r1]
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     bl         S_SkillGateFail_ResetSkillCheck
     push       {r5}
     mov        r7,r10
@@ -228,7 +228,7 @@ _ts ResetSkillCheck_Undernet_6
     mov        r0,#0x0
     strb       r0,[r7,#0xd]
     mov        r0,#0x21
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     pop        {pc}
 
     .align 2, 0
@@ -248,7 +248,7 @@ _ts ResetSkillCheck_Undernet_7
     mov        r0,#0x0
     strb       r0,[r4,#0xd]
     mov        r0,#0x22
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     pop        {pc}
 
     .align 2, 0
@@ -265,7 +265,7 @@ _ts ResetSkillCheck_Undernet_9
     mov        r0,#0x0
     strb       r0,[r4,#0xe]
     mov        r0,#0x23
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     pop        {pc}
 
 
@@ -280,7 +280,7 @@ _ts ResetSkillCheck_Undernet_10
     mov        r0,#0x0
     strb       r0,[r7,#0xf]
     mov        r0,#0x24
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     pop        {pc}
 
     .align 2, 0
@@ -300,7 +300,7 @@ _ts ResetSkillCheck_Undernet_11
     mov        r0,#0x0
     strb       r0,[r4,#0xd]
     mov        r0,#0x25
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     pop        {pc}
 
     .align 2, 0

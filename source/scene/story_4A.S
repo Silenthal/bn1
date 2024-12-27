@@ -299,7 +299,7 @@ _nt S_Story_4A_12
     mov        r0,#0xbb
     bl         Flag_SetBase
     mov        r0,#0x2a
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     ldr        r0,PTR_EnemySpawn_ColorManV1_0808ea98
     bl         Battle_GetRandomEncounter
     mov        r0,#0x3

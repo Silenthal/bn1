@@ -133,7 +133,7 @@ _ts EventHandler_Govt_Complex_Front_F22_0
     bl         KeyItem_IsPresent
     bne        LAB_0803178a
     mov        r0,#0xf
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0803178a
     mov        r0,#0xb
     bl         Flag_SetItem
@@ -665,7 +665,7 @@ LAB_08031b52:
 LAB_08031b58:
     pop        {r5}
     mov        r0,#0x31
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     mov        r0,#0x2c
     bl         Flag_GetBase
     beq        LAB_08031b92
@@ -727,7 +727,7 @@ _ts EventHandler_Govt_Complex_Front_F40_0
     bl         Flag_GetBase
     beq        LAB_08031bec
     mov        r0,#0x17
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_08031bec
     push       {r5}
     ldr        r0,DAT_08031cb4
@@ -811,7 +811,7 @@ LAB_08031c5e:
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x31
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     pop        {pc}
 LAB_08031c90:
     pop        {r1}
@@ -921,7 +921,7 @@ _ts MapSetup_Govt_Complex_Front_F50
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x31
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     mov        r0,#0x2c
     bl         Flag_GetBase
     beq        LAB_08031d92
@@ -1045,7 +1045,7 @@ _nt MapSetup_Govt_Complex_Front_F52
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x31
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     mov        r0,#0x2c
     bl         Flag_GetBase
     beq        LAB_08031e90
@@ -1171,7 +1171,7 @@ _ts MapSetup_Govt_Complex_Front_F53
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x31
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     mov        r0,#0x2c
     bl         Flag_GetBase
     beq        LAB_08031f92
@@ -1240,7 +1240,7 @@ _ts EventHandler_Govt_Complex_Front_F53_0
     bl         Flag_GetBase
     beq        LAB_08031ffa
     mov        r0,#0x1a
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_08031ffa
     push       {r5}
     ldr        r0,DAT_08032108
@@ -1335,7 +1335,7 @@ LAB_08032084:
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x31
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     pop        {pc}
 LAB_080320b6:
     pop        {r1}

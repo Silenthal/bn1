@@ -105,7 +105,7 @@ section_end()
 
 # 0xBE @ 0x6E9436
 section_start(0xBE)
-if_flag(0x428, 0xC2, 0xFF)
+if_flag(FLAG_EVENT_SCHOOL_CLASS_1B_TRADE_REPAIR_H, 0xC2, 0xFF)
 check_chip("Dash G", 1, 0xBF, 0xBF, 0xFF)
 pic(9)
 dialog_up()
@@ -118,8 +118,8 @@ section_end()
 
 # 0xBF @ 0x6E94CA
 section_start(0xBF)
-if_flag(0x431, 0xC3, 0xFF)
-set_flag(0x431)
+if_flag(FLAG_EVENT_SCHOOL_CLASS_1B_TRADE_REPAIR_H_GATE, 0xC3, 0xFF)
+set_flag(FLAG_EVENT_SCHOOL_CLASS_1B_TRADE_REPAIR_H_GATE)
 pic(9)
 dialog_up()
 text("{a 2}Hey! Isn't that a\n{chip Dash G}?{a 1}\p{w 0}")
@@ -134,7 +134,7 @@ section_end()
 # 0xC0 @ 0x6E9552
 section_start(0xC0)
 check_chip_pack("Dash G", 1, eq=0xFF, gt=0xFF, lt=0xC4)
-set_flag(0x428)
+set_flag(FLAG_EVENT_SCHOOL_CLASS_1B_TRADE_REPAIR_H)
 pic(9)
 dialog_up()
 text("{a 2}Cool! Thanks!\nHere's your chip!{a 1}\p{w 0}")

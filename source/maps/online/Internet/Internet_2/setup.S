@@ -124,12 +124,12 @@ LAB_08052370:
 LAB_0805238e:
     push       {r3,r4,r6}
     mov        r0,#0x1a
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     pop        {r3,r4,r6}
     beq        LAB_080523b0
     push       {r3,r4,r6}
     mov        r0,#0x1b
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     pop        {r3,r4,r6}
     bne        LAB_080523b0
     mov        r0,#0x50

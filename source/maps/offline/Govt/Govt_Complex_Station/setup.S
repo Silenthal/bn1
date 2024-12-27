@@ -696,7 +696,7 @@ PTR_EventHandler_Govt_Complex_Station_F50_0_08032644:
 _ts EventHandler_Govt_Complex_Station_F50_0
     push       {lr}
     mov        r0,#0x18
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0803265e
     push       {r5}
     ldr        r0,DAT_08032758

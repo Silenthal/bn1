@@ -63,7 +63,7 @@ LAB_0805353c:
     b          LAB_08053578
 LAB_08053550:
     mov        r0,#0x22
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_08053566
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
@@ -146,13 +146,13 @@ LAB_080535de:
     strb       r0,[r5,#0x2]
 LAB_080535ea:
     mov        r0,#0x22
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_0805360a
     ldrb       r0,[r5,#0x2]
     tst        r0,r0
     beq        LAB_0805360a
     mov        r0,#0x22
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     push       {r5}
     ldr        r0,PTR_Scene_SkillGate_080536ac
     mov        r1,#0x2
@@ -160,7 +160,7 @@ LAB_080535ea:
     pop        {r5}
 LAB_0805360a:
     mov        r0,#0x2d
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_08053640
     push       {r5}
     mov        r7,r10

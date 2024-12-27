@@ -163,13 +163,13 @@ LAB_0805337e:
     strb       r0,[r5,#0x2]
 LAB_0805338c:
     mov        r0,#0x21
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_080533ac
     ldrb       r0,[r5,#0x2]
     tst        r0,r0
     beq        LAB_080533ac
     mov        r0,#0x21
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     push       {r5}
     ldr        r0,PTR_Scene_SkillGate_080534c0
     mov        r1,#0x0

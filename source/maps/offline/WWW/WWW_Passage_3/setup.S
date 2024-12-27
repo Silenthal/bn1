@@ -78,7 +78,7 @@ _ts EventHandler_WWW_Passage_3_F54_0
     bl         Flag_GetBase
     beq        LAB_0803e5ba
     mov        r0,#0x1f
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0803e5ba
     push       {r5}
     ldr        r0,DAT_0803e5c8

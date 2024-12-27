@@ -232,7 +232,7 @@ PTR_EventHandler_DenTown_Block_1_F31_0_080370fc:
 _ts EventHandler_DenTown_Block_1_F31_0
     push       {lr}
     mov        r0,#0xc
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0803711c
     push       {r5}
     ldr        r0,DAT_080372dc

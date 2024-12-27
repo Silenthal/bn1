@@ -111,7 +111,7 @@ PTR_EventHandler_Undernet_1_0_08052bfc:
 _ts EventHandler_Undernet_1_0
     push       {lr}
     mov        r0,#0x10
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_08052c16
     push       {r5}
     ldr        r0,PTR_Scene_CheckMail_08052ce4

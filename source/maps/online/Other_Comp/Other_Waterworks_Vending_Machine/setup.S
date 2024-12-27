@@ -37,10 +37,10 @@ _ts FUN_08050864
     add        r1,#0x24
     bl         Camera_SetEnabled
     mov        r0,#0x17
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_0805088e
     mov        r0,#0x18
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_0805088e
     ldr        r7,PTR_NPCList_8050F74_080508d8
     bl         Map_LoadNPCList

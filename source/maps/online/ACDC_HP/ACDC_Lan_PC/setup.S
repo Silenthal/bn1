@@ -102,7 +102,7 @@ _ts FUN_0804f0b4
     cmp        r1,#0x30
     bne        LAB_0804f0d6
     mov        r0,#0x9
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0804f0d6
     push       {r5}
     ldr        r0,DAT_0804f104

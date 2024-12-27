@@ -12,10 +12,10 @@ _ts MapSetup_Govt_Yuichiro_PC_S2
     mov        lr,pc
     bx         r0 @ FUN_0804f998
     mov        r0,#0x1e
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     beq        LAB_0804f982
     mov        r0,#0x1e
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     push       {r5}
     ldr        r0,DAT_0804fa54
     mov        r1,#0x0

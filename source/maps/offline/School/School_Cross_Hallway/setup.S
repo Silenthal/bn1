@@ -101,7 +101,7 @@ _ts EventHandler_School_Cross_Hallway_F10_0
 _ts EventHandler_School_Cross_Hallway_F10_1
     push       {lr}
     mov        r0,#0x3
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_08027e00
     push       {r5}
     ldr        r0,PTR_Scene_CheckMail_08027eb4

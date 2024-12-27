@@ -97,7 +97,7 @@ _ts S_Internet_4_HigMemo_Gate_3
     bl         Flag_SetPlayerActive
     pop        {r5}
     mov        r0,#0x2f
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     ldr        r0,PTR_EnemySpawn_08097e90
     bl         Battle_GetRandomEncounter
     mov        r0,#0x6

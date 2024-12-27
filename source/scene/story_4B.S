@@ -33,7 +33,7 @@ _ts S_Story_4B_0
     bl         Sound_StopAllMusic
     pop        {r5}
     mov        r0,#0x2a
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
@@ -147,7 +147,7 @@ _ts S_Story_4B_5
     mov        r0,#0xbd
     bl         Flag_SetBase
     mov        r0,#0x2e
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     pop        {r5}
     push       {r5}
     mov        r7,r10

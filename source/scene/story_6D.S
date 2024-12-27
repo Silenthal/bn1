@@ -41,7 +41,7 @@ _ts S_Story_6D_0
     strb       r0,[r7,#0x18]
     pop        {r5}
     mov        r0,#0x2c
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}

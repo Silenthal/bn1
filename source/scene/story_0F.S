@@ -50,7 +50,7 @@ _nt S_Story_0F_0
     strb       r0,[r5,#0x0]
     bl         Sound_StopAllMusic
     mov        r0,#0x28
-    bl         Flag_Clear420
+    bl         Flag_ClearEvent
     pop        {pc}
 
 

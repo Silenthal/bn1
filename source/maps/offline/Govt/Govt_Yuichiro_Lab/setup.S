@@ -878,7 +878,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_S5
     mov        lr,pc
     bx         r0
     mov        r0,#0x2c
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_08033d66
     bl         Sound_AreaSongChange
 LAB_08033d66:
@@ -1060,7 +1060,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F54
     bl         Flag_GetBase
     beq        LAB_08033ede
     mov        r0,#0x2c
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     mov        r0,r10
     ldr        r0,[r0,#0x8]
     mov        r1,#0x0

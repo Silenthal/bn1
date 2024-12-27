@@ -263,7 +263,7 @@ PTR_EventHandler_ACDC_Station_F24_0_0802f35c:
 _ts EventHandler_ACDC_Station_F24_0
     push       {lr}
     mov        r0,#0x8
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802f378
     push       {r5}
     ldr        r0,DAT_0802f4cc
@@ -368,7 +368,7 @@ _ts EventHandler_ACDC_Station_F26_0
     bl         Flag_GetBase
     beq        LAB_0802f44c
     mov        r0,#0x1c
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802f44c
     push       {r5}
     ldr        r0,DAT_0802f4ec
@@ -550,7 +550,7 @@ _ts EventHandler_ACDC_Station_F30_0
     bl         Flag_GetBase
     beq        LAB_0802f5cc
     mov        r0,#0x14
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_0802f5cc
     push       {r5}
     ldr        r0,DAT_0802f630

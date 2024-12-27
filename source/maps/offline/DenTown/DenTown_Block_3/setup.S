@@ -128,7 +128,7 @@ LAB_08037c0c:
     bl         Flag_GetBase
     beq        LAB_08037c2a
     mov        r0,#0xb
-    bl         Flag_GetEmailRecieved
+    bl         Flag_GetEmailReceived
     bne        LAB_08037c2a
     push       {r5}
     ldr        r0,DAT_08037dfc

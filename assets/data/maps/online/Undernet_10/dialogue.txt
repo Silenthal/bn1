@@ -34,7 +34,7 @@ section_end()
 section_start(0x10)
 dialog_up()
 text("And now,back with\nyou!!\p")
-set_flag(FLAG_SKILL_CHECK_RESET)
+set_flag(FLAG_EVENT_UNDERNET_SKILL_CHECK_RESET)
 end()
 section_end()
 

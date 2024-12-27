@@ -452,7 +452,7 @@ section_end()
 
 # 0xBE @ 0x6F89C8
 section_start(0xBE)
-if_flag(0x42A, 0xC2, 0xFF)
+if_flag(FLAG_EVENT_ACDC_STATION_TRADE_XPANEL3_S, 0xC2, 0xFF)
 check_chip("Hammer M", 1, 0xBF, 0xBF, 0xFF)
 pic(10)
 dialog_up()
@@ -464,8 +464,8 @@ section_end()
 
 # 0xBF @ 0x6F8A45
 section_start(0xBF)
-if_flag(0x43C, 0xC3, 0xFF)
-set_flag(0x43C)
+if_flag(FLAG_EVENT_ACDC_STATION_TRADE_XPANEL3_S_GATE, 0xC3, 0xFF)
+set_flag(FLAG_EVENT_ACDC_STATION_TRADE_XPANEL3_S_GATE)
 pic(10)
 dialog_up()
 text("{a 2}I have a\n")
@@ -484,7 +484,7 @@ section_end()
 # 0xC0 @ 0x6F8AF6
 section_start(0xC0)
 check_chip_pack("Hammer M", 1, eq=0xFF, gt=0xFF, lt=0xC4)
-set_flag(0x42A)
+set_flag(FLAG_EVENT_ACDC_STATION_TRADE_XPANEL3_S)
 pic(10)
 dialog_up()
 text("{a 2}Really!? Wonderful!\nHere,take this,my\nnew friend!{a 1}\p{w 0}")

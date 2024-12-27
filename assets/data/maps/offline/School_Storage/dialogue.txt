@@ -79,7 +79,7 @@ section_end()
 
 # 0xBE @ 0x6EC105
 section_start(0xBE)
-if_flag(0x42B, 0xC2, 0xFF)
+if_flag(FLAG_EVENT_SCHOOL_STORAGE_TRADE_BSTRBOMB_D, 0xC2, 0xFF)
 check_chip("X-Panel3 S", 1, 0xBF, 0xBF, 0xFF)
 pic(11)
 dialog_up()
@@ -93,8 +93,8 @@ section_end()
 
 # 0xBF @ 0x6EC1B6
 section_start(0xBF)
-if_flag(0x43D, 0xC3, 0xFF)
-set_flag(0x43D)
+if_flag(FLAG_EVENT_SCHOOL_STORAGE_TRADE_BSTRBOMB_D_GATE, 0xC3, 0xFF)
+set_flag(FLAG_EVENT_SCHOOL_STORAGE_TRADE_BSTRBOMB_D_GATE)
 pic(11)
 dialog_up()
 text("{a 2}Well,well,how\nlucky for me! Want\nto trade that chip?{a 1}\p{w 0}")
@@ -112,7 +112,7 @@ section_end()
 # 0xC0 @ 0x6EC269
 section_start(0xC0)
 check_chip_pack("X-Panel3 S", 1, eq=0xFF, gt=0xFF, lt=0xC4)
-set_flag(0x42B)
+set_flag(FLAG_EVENT_SCHOOL_STORAGE_TRADE_BSTRBOMB_D)
 pic(11)
 dialog_up()
 text("{a 2}Groovy! Another page\nin my album filled!{a 1}\p{w 0}")

@@ -78,7 +78,7 @@ section_end()
 
 # 0xBE @ 0x70D8F2
 section_start(0xBE)
-if_flag(0x430, 0xCC, 0xFF)
+if_flag(FLAG_EVENT_SCILAB_POWER_PLANT_TRADE_RATTON3_M, 0xCC, 0xFF)
 pic(27)
 dialog_up()
 text("{a 2}It's quiz time!\nIt's quiz time!{a 1}\p{w 0}")
@@ -260,7 +260,7 @@ section_end()
 
 # 0xCA @ 0x70DFA0
 section_start(0xCA)
-set_flag(0x430)
+set_flag(FLAG_EVENT_SCILAB_POWER_PLANT_TRADE_RATTON3_M)
 pic(27)
 dialog_up()
 anim(2)

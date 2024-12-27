@@ -41,7 +41,7 @@ _ts FUN_08010310
 PTR_DAT_0801031c:   .word 0x2000070
 DAT_08010320:       .word 0x10
 
-global_label Flag_Set420
+global_label Flag_SetEvent
     add        r0,#0x10
 global_label Flag_SetGate
     add        r0,#0x10
@@ -54,7 +54,7 @@ global_label Flag_SetItem
     add        r0,#0x40
 global_label Flag_SetEmailUnread
     add        r0,#0x40
-global_label Flag_SetEmailRecieved
+global_label Flag_SetEmailReceived
     add        r0,#0x80
     add        r0,#0x80
 
@@ -79,7 +79,7 @@ global_label Flag_SetBase
 
     .align 2, 0
 
-global_label Flag_Clear420
+global_label Flag_ClearEvent
     add        r0,#0x10
 global_label Flag_ClearGate
     add        r0,#0x10
@@ -112,7 +112,7 @@ global_label Flag_ClearBase
 
     .align 2, 0
 
-global_label Flag_Get420
+global_label Flag_GetEvent
     add        r0,#0x10
 global_label Flag_GetGate
     add        r0,#0x10
@@ -125,7 +125,7 @@ global_label Flag_GetItem
     add        r0,#0x40
 global_label Flag_GetEmailUnread
     add        r0,#0x40
-global_label Flag_GetEmailRecieved
+global_label Flag_GetEmailReceived
     add        r0,#0x80
     add        r0,#0x80
 global_label Flag_GetLibrary
@@ -179,7 +179,7 @@ global_label Flag_SetEmail
     bl         Flag_SetEmailUnread
     pop        { r0 }
     push       { r0 }
-    bl         Flag_SetEmailRecieved
+    bl         Flag_SetEmailReceived
     pop        { r0 }
     ldr        r7,PTR_gEmailIndexes_0801040c
     ldr        r6,PTR_gEmailCount_08010410

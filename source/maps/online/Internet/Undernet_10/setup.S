@@ -145,13 +145,13 @@ _ts EventHandler_Undernet_10_0
     strb       r0,[r5,#0x2]
 LAB_08053a18:
     mov        r0,#0x24
-    bl         Flag_Get420
+    bl         Flag_GetEvent
     bne        LAB_08053a38
     ldrb       r0,[r5,#0x2]
     tst        r0,r0
     beq        LAB_08053a38
     mov        r0,#0x24
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     push       {r5}
     ldr        r0,PTR_Scene_SkillGate_08053b28
     mov        r1,#0x4

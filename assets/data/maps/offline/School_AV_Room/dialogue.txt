@@ -38,9 +38,9 @@ section_end()
 
 # 0xBE @ 0x6E9E5B
 section_start(0xBE)
-if_flag(0x421, 0xC4, 0xFF)
-if_flag(0x432, 0xBF, 0xFF)
-set_flag(0x432)
+if_flag(FLAG_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A, 0xC4, 0xFF)
+if_flag(FLAG_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A_GATE_1, 0xBF, 0xFF)
+set_flag(FLAG_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A_GATE_1)
 pic(11)
 dialog_up()
 text("{a 2}I know how to\nmodify battle chips!\nPretty cool,huh?{a 1}\p{w 0}")
@@ -50,7 +50,7 @@ section_end()
 
 # 0xBF @ 0x6E9EEE
 section_start(0xBF)
-if_flag(0x433, 0xC1, 0xFF)
+if_flag(FLAG_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A_GATE_2, 0xC1, 0xFF)
 pic(11)
 dialog_up()
 text("{a 2}What do you want\nnow!?{a 1}\p{w 0}")
@@ -79,8 +79,8 @@ section_end()
 
 # 0xC1 @ 0x6EA052
 section_start(0xC1)
-if_flag(0x434, 0xC2, 0xFF)
-set_flag(0x433)
+if_flag(FLAG_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A_GATE_3, 0xC2, 0xFF)
+set_flag(FLAG_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A_GATE_2)
 pic(11)
 dialog_up()
 text("{a 2}Thanks! Now I can\nmake a new original\nchip!{a 1}\p{w 0}")
@@ -90,7 +90,7 @@ section_end()
 
 # 0xC2 @ 0x6EA0CD
 section_start(0xC2)
-set_flag(0x421)
+set_flag(FLAG_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A)
 pic(11)
 dialog_up()
 text("{a 2}I finished the chip!\nI'm such a genius.\nHere you go!{a 1}\p{w 0}")

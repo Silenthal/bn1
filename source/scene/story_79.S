@@ -330,7 +330,7 @@ _ts S_Story_79_11
     mov        r0,#0xe6
     bl         Flag_SetBase
     mov        r0,#0x26
-    bl         Flag_Set420
+    bl         Flag_SetEvent
     pop        {r5}
     mov        r0,#0xd
     bl         Sound_ChangeSong

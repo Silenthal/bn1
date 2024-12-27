@@ -45,7 +45,7 @@ section_end()
 
 # 0x06 @ 0x71FDD0
 section_start(0x06)
-set_flag(0x43E)
+set_flag(FLAG_EVENT_GOVT_YUICHIRO_PC_VIRUS_MACHINE)
 virus_machine()
 section_end()
 
