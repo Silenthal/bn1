@@ -314,7 +314,7 @@ LAB_0808bcae:
 _ts S_Waterworks_Comp_TurnHandle_Flags_1
     push       {r5,lr}
     mov        r0,#0x0
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     pop        {r5,pc}
 
     .align 2, 0
@@ -331,12 +331,12 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_2
     b          LAB_0808bcf6
 LAB_0808bcca:
     mov        r0,#0x1
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     b          LAB_0808bcfe
 LAB_0808bcd2:
     push       {r5}
     mov        r0,#0x2
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     pop        {r5}
     mov        r0,#0xf0
     bl         Flag_GetBase
@@ -350,7 +350,7 @@ LAB_0808bcd2:
     b          LAB_0808bcfe
 LAB_0808bcf6:
     mov        r0,#0x3
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     b          LAB_0808bcfe
 LAB_0808bcfe:
     pop        {r5,pc}
@@ -368,20 +368,20 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_3
     b          LAB_0808bd2a
 LAB_0808bd12:
     mov        r0,#0x4
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     b          LAB_0808bd54
 LAB_0808bd1a:
     mov        r0,#0x5
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     b          LAB_0808bd54
 LAB_0808bd22:
     mov        r0,#0x6
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     b          LAB_0808bd54
 LAB_0808bd2a:
     push       {r5}
     mov        r0,#0x7
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     pop        {r5}
     mov        r0,#0xf1
     bl         Flag_GetBase
@@ -474,7 +474,7 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_6
     push       {lr}
     push       {r5}
     mov        r0,#0xa
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     pop        {r5}
     mov        r0,#0xf4
     bl         Flag_GetBase

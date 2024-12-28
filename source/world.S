@@ -193,8 +193,8 @@ _ts World_1_SubAreaChange
     push       {r5}
     bl         BgUpdate_Init
     bl         InitBgTask
-    bl         FUN_080102fc
-    bl         FUN_08010310
+    bl         Flag_InitGate
+    bl         Flag_InitIgnore
     bl         Scene_MarkForUnloading
     bl         Scene_UnloadIfMarked
     pop        {r5}
@@ -1147,52 +1147,52 @@ LAB_08004870:
     push       {r5,r7}
     mov        r0,#0x11
     mov        r1,#0x8
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0x19
     mov        r1,#0x10
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0x67
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0x71
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0x77
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0x7d
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0x83
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0x89
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0x8f
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0x95
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0x9b
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0xa1
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0xa7
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0xad
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0xb3
     mov        r1,#0x4
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     mov        r0,#0xb9
     mov        r1,#0x8
-    bl         ClearFlagRange280
+    bl         EventHandler_Internet_ResetGMD
     bl         EventHandler_Internet_2_SetupRandomGMD
     bl         EventHandler_Internet_1_SetupRandomGMD
     pop        {r5,r7}

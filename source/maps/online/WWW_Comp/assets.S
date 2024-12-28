@@ -1119,9 +1119,9 @@ LAB_0804ec74:
     mov        r0,#0x30
     bl         Flag_ToggleBase
     mov        r0,#0x0
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     mov        r0,#0x1
-    bl         Flag_Toggle380
+    bl         Flag_ToggleIgnore
     mov        r0,#0xba
     bl         Sound_PlaySongImmediate
     pop        {r5}

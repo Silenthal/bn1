@@ -2,9 +2,15 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
-
-    .thumb
+@@ Base: Most flags are here.
+@@ Library: Set when a chip is received for the first time.
+@@ EmailReceived: Set when email is recieved.
+@@ EmailUnread: Also set when email is received. Cleared when email is read.
+@@ Item: Set when a fixed item is picked up or received.
+@@ Ignore: Set when collision for an ingame barrier should be ignored.
+@@ System: Set for specific game conditions, like no saving or no input.
+@@ Gate: Set to block map exits or paths.
+@@ Event: can be used to indicate small events, like trade aknowledgements.
 
 _ts Flag_InitAll
     push       { lr }
@@ -12,6 +18,7 @@ _ts Flag_InitAll
     mov        r1,#0x8c
     bl         memset0_32
     pop        { pc }
+
 
 _ts FUN_080102e8
     push       { lr }
@@ -23,7 +30,7 @@ PTR_DAT_080102f4:   .word 0x2000012
 DAT_080102f8:       .word 0xE
 
 
-_ts FUN_080102fc
+_ts Flag_InitGate
     push       { lr }
     ldr        r0,PTR_DAT_08010308
     ldr        r1,DAT_0801030c
@@ -32,7 +39,8 @@ _ts FUN_080102fc
 PTR_DAT_08010308:       .word 0x2000082
 DAT_0801030c:           .word 2
 
-_ts FUN_08010310
+
+_ts Flag_InitIgnore
     push       { lr }
     ldr        r0,PTR_DAT_0801031c
     ldr        r1,DAT_08010320
@@ -40,6 +48,7 @@ _ts FUN_08010310
     pop        { pc }
 PTR_DAT_0801031c:   .word 0x2000070
 DAT_08010320:       .word 0x10
+
 
 global_label Flag_SetEvent
     add        r0,#0x10
@@ -57,9 +66,6 @@ global_label Flag_SetEmailUnread
 global_label Flag_SetEmailReceived
     add        r0,#0x80
     add        r0,#0x80
-
-@ Sets flag indicating a particular chip has been obtained.
-@ Range *should* be from 1 (Cannon) to 199 (Bass).
 global_label Flag_SetLibrary
     add        r0,#0x80
     add        r0,#0x80
@@ -146,12 +152,12 @@ global_label Flag_GetBase
 
     .align 2, 0
 
-global_label Flag_Toggle420
+global_label Flag_ToggleEvent
     add        r0,#0x10
     add        r0,#0x10
     add        r0,#0x80
 
-global_label Flag_Toggle380
+global_label Flag_ToggleIgnore
     add        r0,#0x80
     add        r0,#0x80
     add        r0,#0x40

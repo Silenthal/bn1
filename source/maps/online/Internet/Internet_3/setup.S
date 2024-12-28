@@ -294,7 +294,7 @@ LAB_08052874:
     pop        {pc}
 
 
-_ts ClearFlagRange280
+_ts EventHandler_Internet_ResetGMD
     push       {lr}
 LAB_0805287e:
     push       {r0,r1}

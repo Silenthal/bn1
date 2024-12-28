@@ -127,8 +127,8 @@ _ts Credits_1_0_StartScene
     push       {r5}
     bl         BgUpdate_Init
     bl         InitBgTask
-    bl         FUN_080102fc
-    bl         FUN_08010310
+    bl         Flag_InitGate
+    bl         Flag_InitIgnore
     pop        {r5}
     bl         Credits_GetCreditsSceneData
     ldr        r0,[r7,#0x4]
