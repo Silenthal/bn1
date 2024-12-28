@@ -5198,15 +5198,13 @@
             "z": 0,
             "height": 8,
             "shape": 2,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 1,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
@@ -5284,8 +5282,7 @@
             "z": 0,
             "height": 8,
             "shape": 4,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 60,
@@ -5351,29 +5348,25 @@
             "z": 0,
             "height": 8,
             "shape": 3,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 3,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 2,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 1,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 0,
@@ -5385,8 +5378,7 @@
             "z": 64,
             "height": 8,
             "shape": 4,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 60,
@@ -5404,8 +5396,7 @@
             "z": 0,
             "height": 8,
             "shape": 4,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 60,
@@ -5423,8 +5414,7 @@
             "z": 64,
             "height": 8,
             "shape": 3,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,

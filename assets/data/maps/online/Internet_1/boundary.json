@@ -6890,8 +6890,7 @@
             "z": 32,
             "height": 40,
             "shape": 1,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         }
     ]
 }

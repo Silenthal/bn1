@@ -230,7 +230,7 @@ LAB_0804083c:
     beq        LAB_08040854
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     b          LAB_08040864
 LAB_08040854:
@@ -340,7 +340,7 @@ LAB_08040908:
     beq        LAB_08040920
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     b          LAB_08040942
 LAB_08040920:
@@ -434,7 +434,7 @@ _nt MapSetup_School_Comp_1_F14
     pop        {r5}
 LAB_080409c6:
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -487,7 +487,7 @@ _ts MapSetup_School_Comp_1_F15
     pop        {r5}
 LAB_08040a28:
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -697,7 +697,7 @@ LAB_08040b98:
     pop        {r5}
 LAB_08040ba4:
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

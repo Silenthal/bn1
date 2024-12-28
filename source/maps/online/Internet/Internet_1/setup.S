@@ -60,7 +60,7 @@ _ts MapSetup_Internet_1
     beq        LAB_08051f68
     push       {r5}
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     b          LAB_08051f72
 LAB_08051f68:

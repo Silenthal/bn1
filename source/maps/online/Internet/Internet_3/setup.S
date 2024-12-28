@@ -94,7 +94,7 @@ LAB_080526dc:
     beq        LAB_080526f0
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     b          LAB_080526fa
 LAB_080526f0:

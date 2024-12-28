@@ -87,7 +87,7 @@ _ts S_ExtinguishFlame_2
     bl         Flag_SetBase
     pop        {r0}
     add        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_080846e8:
     push       {r5}

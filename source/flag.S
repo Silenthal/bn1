@@ -47,7 +47,7 @@ global_label Flag_SetGate
     add        r0,#0x10
 global_label Flag_SetSystem
     add        r0,#0x80
-global_label Flag_Set380
+global_label Flag_SetIgnore
     add        r0,#0x80
     add        r0,#0x80
 global_label Flag_SetItem
@@ -85,7 +85,7 @@ global_label Flag_ClearGate
     add        r0,#0x10
 global_label Flag_ClearSystem
     add        r0,#0x80
-global_label Flag_Clear380
+global_label Flag_ClearIgnore
     add        r0,#0x80
     add        r0,#0x80
 global_label Flag_ClearItem
@@ -118,7 +118,7 @@ global_label Flag_GetGate
     add        r0,#0x10
 global_label Flag_GetSystem
     add        r0,#0x80
-global_label Flag_Get380
+global_label Flag_GetIgnore
     add        r0,#0x80
     add        r0,#0x80
 global_label Flag_GetItem

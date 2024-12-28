@@ -97,7 +97,7 @@ LAB_08053578:
     bl         Flag_GetBase
     beq        LAB_080535a0
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     b          LAB_080535aa
 LAB_080535a0:
     push       {r5}

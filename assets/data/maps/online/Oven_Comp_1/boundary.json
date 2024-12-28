@@ -3322,141 +3322,121 @@
             "z": 0,
             "height": 8,
             "shape": 7,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 4,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 8,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 7,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 8,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 1,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 2,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 1,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 2,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 4,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 5,
-            "id": 3,
-            "canDisable": true
+            "doorIndex": "0x03"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 3,
-            "id": 3,
-            "canDisable": true
+            "doorIndex": "0x03"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 6,
-            "id": 3,
-            "canDisable": true
+            "doorIndex": "0x03"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 5,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 3,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 6,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 1,
-            "id": 3,
-            "canDisable": true
+            "doorIndex": "0x03"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 2,
-            "id": 3,
-            "canDisable": true
+            "doorIndex": "0x03"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 1,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 2,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         }
     ]
 }

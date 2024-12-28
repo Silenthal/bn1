@@ -107,7 +107,7 @@ LAB_0804d600:
     bl         Flag_GetBase
     beq        LAB_0804d612
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     b          LAB_0804d618
 LAB_0804d612:
     mov        r1,#0xd
@@ -117,7 +117,7 @@ LAB_0804d618:
     bl         Flag_GetBase
     beq        LAB_0804d628
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     b          LAB_0804d62e
 LAB_0804d628:
     mov        r1,#0xe
@@ -127,7 +127,7 @@ LAB_0804d62e:
     bl         Flag_GetBase
     beq        LAB_0804d63e
     mov        r0,#0x2
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     b          LAB_0804d644
 LAB_0804d63e:
     mov        r1,#0xf
@@ -137,7 +137,7 @@ LAB_0804d644:
     bl         Flag_GetBase
     beq        LAB_0804d654
     mov        r0,#0x3
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     b          LAB_0804d65a
 LAB_0804d654:
     mov        r1,#0x10
@@ -147,7 +147,7 @@ LAB_0804d65a:
     bl         Flag_GetBase
     beq        LAB_0804d66a
     mov        r0,#0x4
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     b          LAB_0804d670
 LAB_0804d66a:
     mov        r1,#0x11
@@ -157,7 +157,7 @@ LAB_0804d670:
     bl         Flag_GetBase
     beq        LAB_0804d680
     mov        r0,#0x5
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     b          LAB_0804d686
 LAB_0804d680:
     mov        r1,#0x12
@@ -167,7 +167,7 @@ LAB_0804d686:
     bl         Flag_GetBase
     beq        LAB_0804d696
     mov        r0,#0x6
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     b          LAB_0804d69c
 LAB_0804d696:
     mov        r1,#0x13
@@ -177,7 +177,7 @@ LAB_0804d69c:
     bl         Flag_GetBase
     beq        LAB_0804d6ac
     mov        r0,#0x7
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     b          LAB_0804d6b2
 LAB_0804d6ac:
     mov        r1,#0x14
@@ -187,7 +187,7 @@ LAB_0804d6b2:
     bl         Flag_GetBase
     beq        LAB_0804d6c2
     mov        r0,#0x8
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     b          LAB_0804d6ce
 LAB_0804d6c2:
     mov        r1,#0x15

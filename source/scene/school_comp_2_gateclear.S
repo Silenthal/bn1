@@ -47,7 +47,7 @@ _ts S_School_Comp_2_GateClear_1
     mov        r0,#0xa9
     bl         Flag_ClearBase
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     mov        r0,#0x3c
     str        r0,[r5,#0x10]

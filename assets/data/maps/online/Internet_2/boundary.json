@@ -11716,8 +11716,7 @@
             "z": 64,
             "height": 8,
             "shape": 4,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 120,
@@ -11801,8 +11800,7 @@
             "z": 64,
             "height": 8,
             "shape": 3,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         }
     ]
 }

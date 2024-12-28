@@ -33,7 +33,7 @@ LAB_080458f4:
     beq        LAB_0804590e
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_0804590e:
     pop        {pc}
@@ -426,7 +426,7 @@ _ts MapSetup_Waterworks_Comp_1_S3
     ldr        r0,PTR_EntityAllocParams_8046F90_08045cb8
     bl         Entity_AllocList
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     pop        {pc}
 

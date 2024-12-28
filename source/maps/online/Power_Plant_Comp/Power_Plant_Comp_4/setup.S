@@ -542,25 +542,25 @@ _ts MapSetup_Power_Plant_Comp_4_S5
     ldr        r0,PTR_BgTask_8049FE0_0804b5a4
     bl         BgTask_AddNew
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x2
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x3
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x4
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x5
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x6
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x7
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x8
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x9
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_804b5a8

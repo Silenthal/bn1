@@ -163,7 +163,7 @@ LAB_0804160c:
     beq        LAB_08041620
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     b          LAB_0804162a
 LAB_08041620:
@@ -398,7 +398,7 @@ _ts MapSetup_School_Comp_4_F20
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     push       {r5}
     ldr        r7,PTR_NPCList_8041F14_08041834
     bl         Map_LoadNPCList

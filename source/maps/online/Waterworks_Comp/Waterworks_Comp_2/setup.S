@@ -33,7 +33,7 @@ LAB_08045d00:
     beq        LAB_08045d1a
     push       {r5}
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_08045d1a:
     mov        r0,#0xe6
@@ -41,7 +41,7 @@ LAB_08045d1a:
     bne        LAB_08045d2c
     push       {r5}
     mov        r0,#0x2
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_08045d2c:
     mov        r0,#0xf0
@@ -63,7 +63,7 @@ LAB_08045d4a:
     beq        LAB_08045d5c
     push       {r5}
     mov        r0,#0x3
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_08045d5c:
     pop        {pc}
@@ -272,11 +272,11 @@ _ts MapSetup_Waterworks_Comp_2_S3
     ldr        r0,PTR_EntityAllocParams_8046FBC_08045fc8
     bl         Entity_AllocList
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x2
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x3
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     ldr        r0,PTR_BgTask_8044360_08045fcc
     bl         BgTask_AddNew
     pop        {r5}

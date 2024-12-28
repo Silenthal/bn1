@@ -125,9 +125,9 @@ _ts MapSetup_DenTown_Block_2_F34
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -202,7 +202,7 @@ _ts MapSetup_DenTown_Block_2_F35
     b          LAB_08037766
 LAB_08037748:
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x2
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0xa]

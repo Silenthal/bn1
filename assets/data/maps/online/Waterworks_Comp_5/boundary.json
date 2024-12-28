@@ -6300,15 +6300,13 @@
             "z": 64,
             "height": 8,
             "shape": 1,
-            "id": 8,
-            "canDisable": true
+            "doorIndex": "0x08"
         },
         {
             "z": 64,
             "height": 8,
             "shape": 2,
-            "id": 8,
-            "canDisable": true
+            "doorIndex": "0x08"
         },
         {
             "z": 60,
@@ -6368,22 +6366,19 @@
             "z": 60,
             "height": 8,
             "shape": 6,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 60,
             "height": 8,
             "shape": 2,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 60,
             "height": 8,
             "shape": 8,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 60,
@@ -6407,78 +6402,67 @@
             "z": 64,
             "height": 8,
             "shape": 7,
-            "id": 8,
-            "canDisable": true
+            "doorIndex": "0x08"
         },
         {
             "z": 64,
             "height": 8,
             "shape": 8,
-            "id": 8,
-            "canDisable": true
+            "doorIndex": "0x08"
         },
         {
             "z": 60,
             "height": 8,
             "shape": 3,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 60,
             "height": 8,
             "shape": 6,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 64,
             "height": 8,
             "shape": 5,
-            "id": 9,
-            "canDisable": true
+            "doorIndex": "0x09"
         },
         {
             "z": 64,
             "height": 8,
             "shape": 3,
-            "id": 9,
-            "canDisable": true
+            "doorIndex": "0x09"
         },
         {
             "z": 60,
             "height": 8,
             "shape": 4,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 60,
             "height": 8,
             "shape": 2,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 60,
             "height": 8,
             "shape": 8,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 64,
             "height": 8,
             "shape": 7,
-            "id": 9,
-            "canDisable": true
+            "doorIndex": "0x09"
         },
         {
             "z": 64,
             "height": 8,
             "shape": 4,
-            "id": 9,
-            "canDisable": true
+            "doorIndex": "0x09"
         }
     ]
 }

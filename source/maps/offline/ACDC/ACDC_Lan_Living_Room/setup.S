@@ -7,13 +7,13 @@ _ts MapSetup_ACDC_Lan_Living_Room_S0
     push       {lr}
     push       {r1,r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x48
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x49
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Lan_Living_Room_F00_0802bfb4
     ldr        r0,[r0,r1]
@@ -212,9 +212,9 @@ _ts MapSetup_ACDC_Lan_Living_Room_F03
     mov        r0,#0x4
     bl         Sound_ChangeSong
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x48
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -318,13 +318,13 @@ _ts MapSetup_ACDC_Lan_Living_Room_F04
     mov        r0,#0x4
     bl         Sound_ChangeSong
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x48
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x49
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x0
     bl         PetStatusControl_SetState
     bl         PlayerLocation_Create
@@ -443,13 +443,13 @@ _ts MapSetup_ACDC_Lan_Living_Room_F05
     mov        r0,#0x4
     bl         Sound_ChangeSong
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x48
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x49
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -695,13 +695,13 @@ _ts MapSetup_ACDC_Lan_Living_Room_S2
     push       {lr}
     push       {r1,r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x48
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x49
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Lan_Living_Room_F20_0802c6b0
     ldr        r0,[r0,r1]
@@ -946,13 +946,13 @@ _ts MapSetup_ACDC_Lan_Living_Room_S3
     push       {lr}
     push       {r1,r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x48
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x49
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Lan_Living_Room_F30_0802c7b8
     ldr        r0,[r0,r1]
@@ -1050,13 +1050,13 @@ _ts MapSetup_ACDC_Lan_Living_Room_S4
     push       {lr}
     push       {r1,r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x48
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x49
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Lan_Living_Room_F40_0802c8bc
     ldr        r0,[r0,r1]
@@ -1172,13 +1172,13 @@ _ts MapSetup_ACDC_Lan_Living_Room_S5
     push       {lr}
     push       {r1,r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x48
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x49
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Lan_Living_Room_F50_0802ca1c
     ldr        r0,[r0,r1]

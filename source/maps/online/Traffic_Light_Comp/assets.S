@@ -725,9 +725,9 @@ _ts FUN_08049ab0
     ldr        r0,PTR_BgTask_8047444_08049b24
     bl         BgTask_AddNew
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     b          LAB_08049b04
 LAB_08049ae0:
     ldr        r0,PTR_BgTask_80473B4_08049b28
@@ -739,9 +739,9 @@ LAB_08049ae0:
     ldr        r0,PTR_BgTask_8047474_08049b34
     bl         BgTask_AddNew
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
 LAB_08049b04:
     pop        {r5,pc}
 

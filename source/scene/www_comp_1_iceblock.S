@@ -89,7 +89,7 @@ _ts S_WWW_Comp_1_IceBlock_2
     bl         Flag_SetBase
     pop        {r0}
     add        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_0809828c:
     push       {r5}

@@ -165,9 +165,9 @@ _nt MapSetup_DenTown_Center_F32
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -271,9 +271,9 @@ _nt MapSetup_DenTown_Center_F33
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -418,9 +418,9 @@ _ts MapSetup_DenTown_Center_F34
     mov        r0,#0x6
     bl         Flag_SetGate
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -526,9 +526,9 @@ _nt MapSetup_DenTown_Center_F35
     mov        r0,#0x6
     bl         Flag_SetGate
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -617,9 +617,9 @@ _ts MapSetup_DenTown_Center_F36
     mov        r0,#0x6
     bl         Flag_SetGate
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -848,9 +848,9 @@ _ts MapSetup_DenTown_Center_F37
     mov        r0,#0x6
     bl         Flag_SetGate
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0xbd
     bl         Flag_GetBase
     beq        LAB_0803682a

@@ -5626,8 +5626,7 @@
             "z": 64,
             "height": 8,
             "shape": 3,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 60,
@@ -5705,8 +5704,7 @@
             "z": 0,
             "height": 8,
             "shape": 3,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 124,
@@ -5736,8 +5734,7 @@
             "z": 64,
             "height": 8,
             "shape": 3,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 124,

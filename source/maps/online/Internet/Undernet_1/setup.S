@@ -80,7 +80,7 @@ LAB_08052bc8:
     beq        LAB_08052bdc
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     b          LAB_08052be6
 LAB_08052bdc:

@@ -169,7 +169,7 @@ _nt S_Story_72_5
     mov        r0,#0xc0
     bl         Flag_ClearBase
     mov        r0,#0x8
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]

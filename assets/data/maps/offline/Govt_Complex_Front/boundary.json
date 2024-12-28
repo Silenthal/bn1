@@ -2606,43 +2606,37 @@
             "z": 0,
             "height": 8,
             "shape": 9,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 10,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 13,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 14,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 11,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 15,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
@@ -2654,8 +2648,7 @@
             "z": 0,
             "height": 8,
             "shape": 2,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
@@ -2667,15 +2660,13 @@
             "z": 0,
             "height": 8,
             "shape": 4,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 8,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 0,

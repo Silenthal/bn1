@@ -176,7 +176,7 @@ _nt FUN_0804d3fe
     add        r2,#0x1
 LAB_0804d406:
     push       {r0}
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r0}
     add        r0,#0x1
     cmp        r0,r2
@@ -204,7 +204,7 @@ LAB_0804d43a:
     push       {r5,r7}
     mov        r0,#0x0
     add        r0,r0,r7
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     pop        {r5,r7}
     push       {r5,r7}
     mov        r0,#0xdf
@@ -242,7 +242,7 @@ LAB_0804d478:
     push       {r5,r7}
     mov        r0,#0x0
     add        r0,r0,r7
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5,r7}
 LAB_0804d492:
     add        r7,#0x1

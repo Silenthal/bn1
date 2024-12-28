@@ -414,17 +414,17 @@ LAB_0808bd62:
     bne        LAB_0808bd7c
     push       {r5}
     mov        r0,#0x9
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     pop        {r5}
     b          LAB_0808bda4
 LAB_0808bd7c:
     push       {r5}
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x9
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     pop        {r5}
     mov        r0,#0xf3
     bl         Flag_GetBase
@@ -443,17 +443,17 @@ LAB_0808bda6:
     bne        LAB_0808bdc0
     push       {r5}
     mov        r0,#0x8
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     pop        {r5}
     b          LAB_0808bde8
 LAB_0808bdc0:
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x8
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     pop        {r5}
     mov        r0,#0xf2
     bl         Flag_GetBase
@@ -481,9 +481,9 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_6
     bne        LAB_0808be1e
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0xa
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0xf4
     bl         Flag_SetBase
     ldr        r0,PTR_BgTask_80443C0_0808be4c

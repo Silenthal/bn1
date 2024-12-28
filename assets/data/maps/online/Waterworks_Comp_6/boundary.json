@@ -5764,29 +5764,25 @@
             "z": 156,
             "height": 4,
             "shape": 2,
-            "id": 10,
-            "canDisable": true
+            "doorIndex": "0x0A"
         },
         {
             "z": 156,
             "height": 4,
             "shape": 8,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 156,
             "height": 4,
             "shape": 2,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 156,
             "height": 4,
             "shape": 4,
-            "id": 10,
-            "canDisable": true
+            "doorIndex": "0x0A"
         },
         {
             "z": 220,

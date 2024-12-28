@@ -58,6 +58,7 @@ def writeMapData(outputBuffer: io.BytesIO, mapFile: Optional[Path]):
                     "roadIndex": 0x48,
                     "jackInIndex": 0x40,
                     "mapEventIndex": 0x60,
+                    "doorIndex": 0x80,
                     "ghostIndex": 0xD0,
                     "textIndex": 0xF0,
                 }

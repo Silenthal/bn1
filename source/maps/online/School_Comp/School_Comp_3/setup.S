@@ -97,7 +97,7 @@ LAB_08041120:
 LAB_08041138:
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_08041142:
     push       {r5}
@@ -130,7 +130,7 @@ LAB_0804115c:
 LAB_08041180:
     push       {r5}
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_0804118a:
     push       {r5}
@@ -276,7 +276,7 @@ _ts MapSetup_School_Comp_3_F15
 LAB_08041298:
     push       {r5}
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     push       {r5}
     mov        r0,#0xb2
@@ -296,7 +296,7 @@ LAB_08041298:
 LAB_080412c6:
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_080412d0:
     mov        r0,#0x0
@@ -504,9 +504,9 @@ _ts MapSetup_School_Comp_3_F20
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     push       {r5}
     ldr        r7,PTR_NPCList_8041E38_080414b8
     bl         Map_LoadNPCList

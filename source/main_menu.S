@@ -61,7 +61,7 @@ _ts MainMenu_0_Init
     strb       r0,[r5,#0x0]
     mov        r0,#T_Theme_Of_Mega_Man_Battle_Network
     bl         Sound_PlaySong
-    mov        r0,#F400_SaveOk
+    mov        r0,#0x9
     bl         Flag_ClearSystem
     mov        r0,#0x0
     push       { r0, r5 }
@@ -75,7 +75,7 @@ _ts MainMenu_0_Init
     bne        LAB_080104c8
     mov        r0,#0x1
     push       { r0, r5 }
-    mov        r0,#F400_SaveOk
+    mov        r0,#0x9
     bl         Flag_SetSystem
     pop        { r0, r5 }
 LAB_080104c8:

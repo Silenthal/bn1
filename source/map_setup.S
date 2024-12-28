@@ -446,7 +446,7 @@ _ts MapDialogue_Main
     bge        LAB_0801879a
     mov        r1,#0x40
     add        r0,r1,r2
-    bl         Flag_Get380
+    bl         Flag_GetIgnore
     bne        LAB_0801879a
     mov        r7,r10
     ldr        r7,[r7,#0x8]

@@ -56,7 +56,7 @@ LAB_080438ce:
 LAB_080438d0:
     mov        r0,#0x0
     add        r0,r0,r2
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     add        r2,#0x1
     cmp        r2,#0x20
     blt        LAB_080438d0

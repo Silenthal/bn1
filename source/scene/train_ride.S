@@ -87,7 +87,7 @@ _ts S_TrainRide_2
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     bl         Flag_SetPlayerActive
     bl         PlayerAnimation_Lock
     ldrb       r0,[r5,#0x0]
@@ -173,7 +173,7 @@ _ts S_TrainRide_5
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]

@@ -6126,8 +6126,7 @@
             "z": 0,
             "height": 8,
             "shape": 4,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 12,

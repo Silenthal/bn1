@@ -1603,9 +1603,9 @@ LAB_0803b70c:
     strb       r0,[r5,#0x6]
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     b          LAB_0803b766
 LAB_0803b736:
@@ -1615,20 +1615,20 @@ LAB_0803b736:
     push       {r5}
     ldrb       r0,[r5,#0x5]
     add        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     ldrb       r0,[r5,#0x5]
     mov        r1,#0x1
     eor        r0,r1
     add        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     b          LAB_0803b766
 LAB_0803b756:
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     pop        {r5}
 LAB_0803b766:
     push       {r5}
@@ -1685,9 +1685,9 @@ _ts Traffic_0_CheckTimers
     strb       r0,[r5,#0x6]
     push       {r0}
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     pop        {r0}
     mov        r0,#0x4
     strb       r0,[r5,#0x4]
@@ -1737,13 +1737,13 @@ _ts Traffic_2_ChangeLight
     ldrb       r0,[r5,#0x5]
     push       {r0}
     add        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r0}
     mov        r1,#0x1
     eor        r0,r1
     strb       r0,[r5,#0x5]
     add        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     ldr        r0,DAT_0803b904
     strh       r0,[r5,#0x2]
     mov        r0,#0x0
@@ -1854,9 +1854,9 @@ _ts Traffic_ResetToRedLight
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5,pc}
 
 PTR_DAT_0803b900:

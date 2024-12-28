@@ -3569,55 +3569,6 @@ struct FixedBattleSettings {
     byte _pad19[3];
 };
 
-typedef enum Flag_280 {
-    FLAG_ITEM_PET=0,
-    FLAG_ITEM_WATERGUN=1
-} Flag_280;
-
-typedef enum Flag_380 {
-    FLAG_PIN_USED_INTERNET_2_3_4=0,
-    FLAG_PIN_USED_INTERNET_1=1,
-    F380_2=2,
-    F380_3=3,
-    F380_4=4,
-    F380_5=5,
-    F380_6=6,
-    F380_7=7,
-    F380_8=8
-} Flag_380;
-
-typedef enum Flag_400 {
-    F400_PlayerActive=0,
-    F400_IsJackingIn=1,
-    F400_2=2,
-    F400_3=3,
-    F400_StartMenuOpen=4,
-    F400_DelayAfterDialogue=5,
-    F400_DialogueComplete=6,
-    F400_7=7,
-    F400_Unescapable=8,
-    F400_SaveOk=9
-} Flag_400;
-
-typedef enum Flag_410 {
-    FLAG_GATE_LOCK_AT_LAN_YUICHIRO=0,
-    FLAG_GATE_LOCK_AT_MAYL_SAL_LAB=1,
-    FLAG_GATE_LOCK_AT_YAI_MASA=2,
-    FLAG_GATE_LOCK_AT_DEX=3,
-    FLAG_GATE_LOCK_SLASH_DEX=5
-} Flag_410;
-
-typedef enum Flag_420 {
-    FLAG_EVENT_UNDERNET_SKILL_CHECK_RESET=32,
-    FLAG_EVENT_UNDERNET_6_SKILL_CHECK_FAIL=33,
-    FLAG_EVENT_UNDERNET_7_SKILL_CHECK_FAIL=34,
-    FLAG_EVENT_UNDERNET_9_SKILL_CHECK_FAIL=35,
-    FLAG_EVENT_UNDERNET_10_SKILL_CHECK_FAIL=36,
-    FLAG_EVENT_UNDERNET_11_SKILL_CHECK_FAIL=37,
-    FLAG_EVENT_WWW_COMP_5_SAVE_DISABLED=38,
-    FLAG_2F=47
-} Flag_420;
-
 typedef struct FlappyParam FlappyParam, *PFlappyParam;
 
 struct FlappyParam {
@@ -3956,18 +3907,10 @@ struct MapEntrance {
 struct Struct_Unk2C {
     struct MapEntrance mapEntrance;
     byte isCollisionEvent;
-    byte b11;
+    byte _pad1;
     byte exitIndex;
-    byte b13;
+    byte _pad2;
     void *exitList;
-    byte field6_0x18;
-    byte field7_0x19;
-    byte field8_0x1a;
-    byte field9_0x1b;
-    byte field10_0x1c;
-    byte field11_0x1d;
-    byte field12_0x1e;
-    byte field13_0x1f;
 };
 
 struct StartMenu {
@@ -5410,41 +5353,11 @@ struct Struct_1804_Return {
     int x1;
 };
 
-typedef struct Struct_187A0 Struct_187A0, *PStruct_187A0;
-
-struct Struct_187A0 {
-    int field0_0x0;
-    int field1_0x4;
-    int field2_0x8;
-};
-
 typedef struct Struct_1A40 Struct_1A40, *PStruct_1A40;
 
 struct Struct_1A40 {
     byte damage;
     byte b2;
-};
-
-typedef struct Struct_2000000 Struct_2000000, *PStruct_2000000;
-
-struct Struct_2000000 {
-    int i0;
-    int i1;
-    int i2;
-    short is2;
-    short is0;
-    short is3;
-    void *is1;
-    short is4;
-    int x0;
-    int i7;
-    int i8;
-    int i9;
-    byte other1[72];
-    byte ba0[16];
-    short s0;
-    short s1;
-    byte other2[8];
 };
 
 typedef struct Struct_2A3C_In Struct_2A3C_In, *PStruct_2A3C_In;

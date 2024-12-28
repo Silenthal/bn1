@@ -320,7 +320,7 @@ _ts S_Story_30_11
     mov        r1,#0x1
     bl         KeyItem_AddAmount
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     bl         PlayerAnimation_Unlock
     push       {r5}
     mov        r0,#0x4

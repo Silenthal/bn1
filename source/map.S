@@ -337,7 +337,7 @@ LAB_0801165e:
     mov        r4,#0x7f
     and        r6,r4
     add        r0,r6,#0x0
-    bl         Flag_Get380
+    bl         Flag_GetIgnore
     pop        { r0, r1, r2, r5, r7 }
     bne        LAB_080116b4
 LAB_08011698:

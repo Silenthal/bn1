@@ -129,7 +129,7 @@ LAB_08041942:
     b          LAB_08041964
 LAB_0804195c:
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x8
 LAB_08041964:
     str        r0,[r5,#0x0]
@@ -329,7 +329,7 @@ _ts MapSetup_School_Comp_5_F20
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,r10
     ldr        r0,[r0,#0x8]
     ldrb       r1,[r0,#0x4]

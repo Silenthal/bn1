@@ -164,9 +164,9 @@ _ts EventHandler_DenTown_Block_1_F30_0
     mov        r1,#0x31
     strb       r1,[r0,#0x6]
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
 LAB_08037092:
     pop        {pc}
 
@@ -179,9 +179,9 @@ _ts EventHandler_DenTown_Block_1_F30_1
 _ts MapSetup_DenTown_Block_1_F31
     push       {lr}
     mov        r0,#0x0
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x1
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     push       {r5}
     bl         PlayerLocation_Create
     mov        r0,#0x1

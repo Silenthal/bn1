@@ -5430,8 +5430,7 @@
             "z": 0,
             "height": 8,
             "shape": 3,
-            "id": 3,
-            "canDisable": true
+            "doorIndex": "0x03"
         },
         {
             "z": 64,
@@ -5467,8 +5466,7 @@
             "z": 0,
             "height": 8,
             "shape": 4,
-            "id": 3,
-            "canDisable": true
+            "doorIndex": "0x03"
         },
         {
             "z": 64,
@@ -5546,22 +5544,19 @@
             "z": 0,
             "height": 8,
             "shape": 5,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 3,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 1,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 88,
@@ -5585,15 +5580,13 @@
             "z": 0,
             "height": 8,
             "shape": 7,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 4,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 32,
@@ -5647,15 +5640,13 @@
             "z": 0,
             "height": 8,
             "shape": 1,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 2,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         }
     ]
 }

@@ -7512,15 +7512,13 @@
             "z": 96,
             "height": 8,
             "shape": 1,
-            "id": 4,
-            "canDisable": true
+            "doorIndex": "0x04"
         },
         {
             "z": 96,
             "height": 8,
             "shape": 2,
-            "id": 4,
-            "canDisable": true
+            "doorIndex": "0x04"
         },
         {
             "z": 92,
@@ -7580,8 +7578,7 @@
             "z": 60,
             "height": 8,
             "shape": 3,
-            "id": 6,
-            "canDisable": true
+            "doorIndex": "0x06"
         },
         {
             "z": 60,
@@ -7593,8 +7590,7 @@
             "z": 60,
             "height": 8,
             "shape": 4,
-            "id": 6,
-            "canDisable": true
+            "doorIndex": "0x06"
         },
         {
             "z": 0,
@@ -7702,15 +7698,13 @@
             "z": 60,
             "height": 8,
             "shape": 3,
-            "id": 7,
-            "canDisable": true
+            "doorIndex": "0x07"
         },
         {
             "z": 60,
             "height": 8,
             "shape": 4,
-            "id": 7,
-            "canDisable": true
+            "doorIndex": "0x07"
         },
         {
             "z": 28,

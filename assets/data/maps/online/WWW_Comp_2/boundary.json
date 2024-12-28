@@ -6248,8 +6248,7 @@
             "z": 0,
             "height": 8,
             "shape": 2,
-            "id": 5,
-            "canDisable": true
+            "doorIndex": "0x05"
         },
         {
             "z": 60,
@@ -6345,36 +6344,31 @@
             "z": 48,
             "height": 20,
             "shape": 4,
-            "id": 8,
-            "canDisable": true
+            "doorIndex": "0x08"
         },
         {
             "z": 48,
             "height": 20,
             "shape": 1,
-            "id": 3,
-            "canDisable": true
+            "doorIndex": "0x03"
         },
         {
             "z": 48,
             "height": 20,
             "shape": 2,
-            "id": 3,
-            "canDisable": true
+            "doorIndex": "0x03"
         },
         {
             "z": 48,
             "height": 20,
             "shape": 4,
-            "id": 1,
-            "canDisable": true
+            "doorIndex": "0x01"
         },
         {
             "z": 48,
             "height": 20,
             "shape": 2,
-            "id": 2,
-            "canDisable": true
+            "doorIndex": "0x02"
         },
         {
             "z": 0,
@@ -6386,36 +6380,31 @@
             "z": 48,
             "height": 20,
             "shape": 4,
-            "id": 7,
-            "canDisable": true
+            "doorIndex": "0x07"
         },
         {
             "z": 48,
             "height": 20,
             "shape": 3,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 48,
             "height": 20,
             "shape": 4,
-            "id": 0,
-            "canDisable": true
+            "doorIndex": "0x00"
         },
         {
             "z": 48,
             "height": 20,
             "shape": 3,
-            "id": 6,
-            "canDisable": true
+            "doorIndex": "0x06"
         },
         {
             "z": 0,
             "height": 8,
             "shape": 4,
-            "id": 4,
-            "canDisable": true
+            "doorIndex": "0x04"
         },
         {
             "z": 0,

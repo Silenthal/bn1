@@ -35,20 +35,20 @@ LAB_080465ac:
     bne        LAB_080465e0
     push       {r5}
     mov        r0,#0x8
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     mov        r0,#0xf2
     bl         Flag_GetBase
     bne        LAB_080465ea
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     b          LAB_080465ea
 LAB_080465e0:
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_080465ea:
     mov        r0,#0xed
@@ -56,20 +56,20 @@ LAB_080465ea:
     bne        LAB_08046610
     push       {r5}
     mov        r0,#0x9
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     mov        r0,#0xf3
     bl         Flag_GetBase
     bne        LAB_0804661a
     push       {r5}
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     b          LAB_0804661a
 LAB_08046610:
     push       {r5}
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
 LAB_0804661a:
     pop        {pc}
@@ -219,9 +219,9 @@ _ts MapSetup_Waterworks_Comp_5_S3
     ldr        r0,PTR_EntityAllocParams_80471B8_0804680c
     bl         Entity_AllocList
     mov        r0,#0x8
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x9
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     pop        {pc}
 

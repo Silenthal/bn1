@@ -200,7 +200,7 @@ _ts MapSetup_DenTown_Block_4_F34
     b          LAB_08038372
 LAB_08038354:
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x2
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0xa]

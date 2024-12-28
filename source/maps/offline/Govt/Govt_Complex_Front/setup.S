@@ -7,7 +7,7 @@ _ts MapSetup_Govt_Complex_Front_S2
     push       {lr}
     push       {r1,r5}
     mov        r0,#0x41
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_Default_08031914
     ldr        r0,[r0,r1]
@@ -39,7 +39,7 @@ LAB_080316a2:
 LAB_080316a6:
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     pop        {pc}
 
@@ -426,7 +426,7 @@ _ts MapSetup_Govt_Complex_Front_S3
     push       {lr}
     push       {r1,r5}
     mov        r0,#0x41
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_Govt_Complex_Front_F30_08031a9c
     ldr        r0,[r0,r1]
@@ -439,7 +439,7 @@ _ts MapSetup_Govt_Complex_Front_S3
     bl         Sound_AreaSongChange
     push       {r5}
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     pop        {pc}
 

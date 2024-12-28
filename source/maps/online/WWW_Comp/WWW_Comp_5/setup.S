@@ -101,7 +101,7 @@ LAB_0804dd28:
     ldr        r0,PTR_BgTask_804CC98_0804de00
     bl         BgTask_AddNew
     mov        r0,#0x0
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r5}
     mov        r0,#0xe4
     bl         Flag_GetBase

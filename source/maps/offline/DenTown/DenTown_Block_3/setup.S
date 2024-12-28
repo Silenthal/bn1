@@ -7,7 +7,7 @@ _ts MapSetup_DenTown_Block_3_S3
     push       {lr}
     push       {r1,r5}
     mov        r0,#0x8
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_DenTown_Block_3_F30_08037de4
     ldr        r0,[r0,r1]
@@ -234,9 +234,9 @@ _ts MapSetup_DenTown_Block_3_F36
     b          LAB_08037d0a
 LAB_08037ce6:
     mov        r0,#0x1
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     mov        r0,#0x8
-    bl         Flag_Clear380
+    bl         Flag_ClearIgnore
     mov        r0,#0x2
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0xa]
@@ -442,7 +442,7 @@ _ts MapSetup_DenTown_Block_3_S4
     push       {lr}
     push       {r1,r5}
     mov        r0,#0x8
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_DenTown_Block_3_F40_08037f6c
     ldr        r0,[r0,r1]
@@ -615,7 +615,7 @@ _ts MapSetup_DenTown_Block_3_S5
     push       {lr}
     push       {r1,r5}
     mov        r0,#0x8
-    bl         Flag_Set380
+    bl         Flag_SetIgnore
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_DenTown_Block_3_F50_0803818c
     ldr        r0,[r0,r1]
