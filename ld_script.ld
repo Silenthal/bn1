@@ -95,7 +95,7 @@ SECTIONS {
 		eObjPaletteE				= 0x4B60;
 		eObjPaletteF				= 0x4B80;
 		gSpriteAffineDataFlag		= 0x4BA4;
-		eMainState0x2C				= 0x4BB0;
+		gMapChange					= 0x4BB0;
 		gBattleMessageList			= 0x4BD0;
 		gListEffect					= 0x4CD0;
 		gPETBattery					= 0x62D0;

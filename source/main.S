@@ -234,7 +234,7 @@ MainState:
     .word gPlayerBattleStates
     .word gMapEventState
     .word gScene
-    .word eMainState0x2C
+    .word gMapChange
     .word gTransition
     .word gMainMenu
     .word gWindowSettings

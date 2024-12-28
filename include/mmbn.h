@@ -3765,7 +3765,7 @@ typedef struct MapEventState MapEventState, *PMapEventState;
 
 typedef struct Scene Scene, *PScene;
 
-typedef struct Struct_Unk2C Struct_Unk2C, *PStruct_Unk2C;
+typedef struct MapChange MapChange, *PMapChange;
 
 typedef struct Transition Transition, *PTransition;
 
@@ -3904,15 +3904,6 @@ struct MapEntrance {
     struct PositionXYZ pos;
 };
 
-struct Struct_Unk2C {
-    struct MapEntrance mapEntrance;
-    byte isCollisionEvent;
-    byte _pad1;
-    byte exitIndex;
-    byte _pad2;
-    void *exitList;
-};
-
 struct StartMenu {
     struct FunctionState state;
     byte menuPos;
@@ -4006,8 +3997,8 @@ struct World {
     void *npcCommandList;
     struct PositionXYZ savedPos;
     int savedDirection;
-    struct WorldPosition field33_0x48;
-    struct WorldPosition field34_0x5c;
+    struct WorldPosition lastMapPosOffline;
+    struct WorldPosition lastMapPosOnline;
     void *m_updatingEntity;
     int m_zenny;
 };
@@ -4074,6 +4065,15 @@ struct PlayerAnimateArgs {
     byte dx;
     byte dy;
     byte time;
+};
+
+struct MapChange {
+    struct MapEntrance destination;
+    byte type;
+    byte _pad1;
+    byte destinationIndex;
+    byte _pad2;
+    void *destinationList;
 };
 
 struct MapEntranceOptions {
@@ -4302,7 +4302,7 @@ struct Main {
     struct PlayerBattleState *playerBattleState;
     struct MapEventState *mapEventState;
     struct Scene *scene;
-    struct Struct_Unk2C *unk_2C;
+    struct MapChange *mapChange;
     struct Transition *transition;
     struct MainMenu *mainMenu;
     struct WindowSettings *window;
