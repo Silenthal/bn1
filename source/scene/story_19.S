@@ -64,14 +64,12 @@ LAB_08087454:
 
 
 _ts S_Story_19_1
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080874b2
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     ldr        r2,[r5,#0x10]
@@ -109,8 +107,7 @@ _ts S_Story_19_3
     bl         PlayerAnimation_GetState
     cmp        r0,#0x2
     bne        LAB_080874dc
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x34
     bl         PlayerAnimation_SetState
     mov        r0,#0x1
@@ -133,14 +130,12 @@ _nt S_Story_19_4
     mov        r0,#0x8d
     bl         Sound_PlaySongImmediate
 LAB_080874f2:
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808750e
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x35
     bl         PlayerAnimation_SetState
     ldrb       r0,[r5,#0x0]
@@ -185,8 +180,7 @@ LAB_0808754e:
 
 
 _ts S_Story_19_7
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -216,8 +210,7 @@ _nt S_Story_19_8
 
 
 _nt S_Story_19_9
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

@@ -266,8 +266,7 @@ _nt R_Spooky_1_1_WaitForBattleStart
     bne        LAB_0805bab8
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -556,8 +555,7 @@ _nt R_Spooky_1_4_0_2_StartAnimReappear
     cmp        r0,#0x2
     bmi        LAB_0805bcb6
 LAB_0805bca6:
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r1,[r7,#0x18]
     add        r1,#0x1
@@ -798,8 +796,7 @@ _nt R_Spooky_1_5_1_Recover
     ldrb       r0,[r5,#0xc]
     sub        r0,#0x1
     strb       r0,[r5,#0xc]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0xc]
     strb       r0,[r5,#0x1b]
 LAB_0805be3a:
@@ -925,8 +922,7 @@ _nt R_Spooky_FindTarget
     ldrb       r1,[r5,#0xc]
     tst        r1,r1
     beq        LAB_0805bf12
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r1,[r7,#0xc]
     ldrb       r2,[r5,#0x1b]
     cmp        r1,r2
@@ -945,8 +941,7 @@ LAB_0805bf12:
 
 _ts R_Spooky_GetAnyLiveEnemy
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     add        r7,#0x54
     mov        r0,#0x0
 LAB_0805bf1e:

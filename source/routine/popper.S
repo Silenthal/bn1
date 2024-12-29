@@ -141,8 +141,7 @@ _ts R_Popper_1_1_Wait
     bne        LAB_080629be
     mov        r0,#0x2
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -397,8 +396,7 @@ _ts R_Popper_1_4_2_WoodTower
 LAB_08062b76:
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     mov        r2,#0x2c
     add        r2,r2,r7

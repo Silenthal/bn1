@@ -37,8 +37,7 @@ _ts R_StoneManC_0_Init
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_SetZClip
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     add        r7,#0x40
     ldrb       r0,[r5,#0x16]
     lsl        r0,r0,#0x2

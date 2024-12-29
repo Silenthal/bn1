@@ -201,8 +201,7 @@ _ts Routine_ShadowMan_Chip_Create
     strh       r3,[r7,#0x1e]
     mov        r0,#0xf
     strb       r0,[r7,#0x0]
-    mov        r4,r10
-    ldr        r4,[r4,#0xc]
+    LoadMain battle, r4, r4
     ldrb       r0,[r4,#0x1a]
     ldrb       r1,[r7,#0x16]
     eor        r0,r1

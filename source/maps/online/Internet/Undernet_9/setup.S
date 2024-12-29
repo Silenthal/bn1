@@ -40,8 +40,7 @@ _ts EventHandler_Undernet_9_S0
 
 _nt MapSetup_Undernet_9
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -53,16 +52,14 @@ _nt MapSetup_Undernet_9
 LAB_08053814:
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0xe]
     b          LAB_08053834
 LAB_08053822:
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0xe]
     cmp        r0,#0xa
     bge        LAB_08053834
@@ -111,8 +108,7 @@ PTR_EventHandler_Undernet_9_0_0805387c:
 
 _ts EventHandler_Undernet_9_0
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0xe]
     cmp        r0,#0xa
     bge        LAB_08053892

@@ -83,8 +83,7 @@ _nt SD_ActivateProgAdv_2_ShowEffect
     bne        LAB_08098832
     mov        r0,#0x28
     strh       r0,[r5,#0x8]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     lsl        r0,r0,#0x2
     add        r0,#0x40
@@ -129,8 +128,7 @@ LAB_0809884e:
 
 _ts SD_ActivateProgAdv_4_Free
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

@@ -60,8 +60,7 @@ LAB_080030e0:
     ldrb       r0,[r5,#0x0]
     tst        r0,r1
     beq        LAB_08003106
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x9]
     tst        r1,r1
     beq        LAB_080030f8
@@ -85,8 +84,7 @@ LAB_08003106:
     beq        LAB_08003114
     b          LAB_080030e0
 LAB_08003114:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#0x70]
     pop        { pc }

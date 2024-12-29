@@ -247,8 +247,7 @@ _nt R_Ratty_1_1_Wait
     bne        LAB_08062594
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -681,8 +680,7 @@ LAB_08062866:
     push       {r0}
     bl         Field_IndexToCellXY
     pop        {r0}
-    mov        r5,r10
-    ldr        r5,[r5,#0xc]
+    LoadMain battle, r5, r5
     ldr        r5,[r5,#0x40]
     ldrb       r2,[r5,#0x19]
     cmp        r1,r2

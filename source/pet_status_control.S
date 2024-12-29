@@ -5,8 +5,7 @@
 
 _ts InitPetStatusControl
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x60]
+    LoadMain petStatusControl, r5, r7
     push       {r5}
     add        r0,r5,#0x0
     mov        r1,#0x8
@@ -32,8 +31,7 @@ _ts InitPetStatusControl
 
 _ts PetStatusControl_Main
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0x4]
     cmp        r1,#0x80
     bge        LAB_080172d8
@@ -258,8 +256,7 @@ petAlertAnimationFrames:
 
 _ts PetStatusControl_SetState
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x60]
+    LoadMain petStatusControl, r5, r7
     strb       r0,[r5,#0x4]
     cmp        r0,#0x14
     blt        LAB_080174ae

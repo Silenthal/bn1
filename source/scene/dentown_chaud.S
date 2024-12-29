@@ -37,8 +37,7 @@ _ts S_Dentown_Center_Chaud_Undernet_0
 
 
 _ts S_Dentown_Center_Chaud_Undernet_1
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -68,8 +67,7 @@ _ts S_Dentown_Center_Chaud_Undernet_1
     bl         DisableBoundaryCheck
     mov        r0,#0x1
     bl         PlayerAnimation_SetState
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0x1
     strb       r0,[r7,#0x10]
@@ -86,8 +84,7 @@ LAB_08097ce6:
 
 
 _ts S_Dentown_Center_Chaud_Undernet_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -124,8 +121,7 @@ _ts S_Dentown_Center_Chaud_Undernet_3
     bl         Entity_AllocList
     pop        {r5}
     push       {r5}
-    mov        r0,r10
-    ldr        r5,[r0,#0x24]
+    LoadMain mapEventState, r5, r0
     bl         Traffic_Init
     pop        {r5}
     mov        r0,#0x78

@@ -373,8 +373,7 @@ _ts R_WoodMan_1_2_0
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -1495,8 +1494,7 @@ _ts R_WoodManC_0_Init
     mov        r1,#0x2
     orr        r0,r1
     strb       r0,[r5,#0x0]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     add        r7,#0x40
     ldrb       r0,[r5,#0x16]
     lsl        r0,r0,#0x2
@@ -1780,8 +1778,7 @@ _ts R_WoodManC_1_2_3_PepareAttack
     strb       r0,[r5,#0xa]
     mov        r0,#0x1
     strh       r0,[r5,#0x1c]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r0,#0x1
     ldrb       r1,[r7,#0x1a]
     ldrb       r2,[r5,#0x16]

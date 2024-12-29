@@ -44,8 +44,7 @@ LAB_0806eeac:
     ldrb       r3,[r5,#0x16]
     lsl        r3,r3,#0x2
     add        r3,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r3]
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x2
@@ -247,15 +246,13 @@ _ts R_BloodSuck_1_2_0
 _ts R_BloodSuck_2_Free
     push       {lr}
     bl         R_Actor_ClearCurrentAttack
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x3]
     ldrb       r3,[r5,#0x16]
     lsl        r3,r3,#0x2
     add        r3,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r3]
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x2

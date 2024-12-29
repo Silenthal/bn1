@@ -159,8 +159,7 @@ _ts SD_WoodMan_2_Free
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
 LAB_08098564:
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     cmp        r0,#0x1
     beq        LAB_0809857a

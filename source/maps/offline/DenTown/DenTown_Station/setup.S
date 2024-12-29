@@ -9,8 +9,7 @@ _ts MapSetup_DenTown_Station_S3
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x6]
     cmp        r1,#0x40
     bge        LAB_08036cd8
@@ -116,8 +115,7 @@ PTR_EventHandler_DenTown_Station_F30_0_08036d74:
 _ts EventHandler_DenTown_Station_F30_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -145,8 +143,7 @@ LAB_08036dae:
 
 _ts FUN_08036db0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08036dc8
@@ -233,8 +230,7 @@ _ts MapSetup_DenTown_Station_F50
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x6]
     cmp        r0,#0x53
     bge        LAB_08036e72
@@ -280,8 +276,7 @@ PTR_EventHandler_DenTown_Station_F50_0_08036ea8:
 _ts EventHandler_DenTown_Station_F50_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -309,8 +304,7 @@ LAB_08036ee2:
 
 _ts FUN_08036ee4
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08036efc

@@ -55,8 +55,7 @@ LAB_0805634e:
     mov        r1,#0x20
     bl         memset0_32
     mov        r6,r10
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     ldrb       r1,[r5,#0x16]
     tst        r1,r1
     beq        LAB_0805637a
@@ -269,8 +268,7 @@ PTR_PTR_R_PlayerB_0_0_RegisterSpawn_0805652c:
 
 _ts R_PlayerB_0_0_RegisterSpawn
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x6]
     add        r0,#0x1
     strb       r0,[r7,#0x6]
@@ -379,8 +377,7 @@ _ts R_PlayerB_2_0
     push       {lr}
     mov        r0,#0x1
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x16]
     add        r7,#0x6
     ldrb       r0,[r7,r0]
@@ -955,8 +952,7 @@ _ts dummy_569fc
 
 _ts R_PlayerB_7_Drain
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     lsr        r0,r0,#0x2
     bcc        LAB_08056a14
@@ -1128,8 +1124,7 @@ _ts R_Player_2_Free
     bl         FieldObject_Free
     ldrb       r0,[r5,#0x16]
     bl         R_Player_ResetPlayerDefenseState
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r3,[r5,#0x16]
     add        r3,#0x4
     ldrb       r0,[r7,r3]
@@ -2188,8 +2183,7 @@ LAB_0805728c:
 
 
 _ts R_Player_ClearOwnedEntity
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     tst        r0,r0
     beq        LAB_0805729e
     add        r7,#0x70
@@ -2228,8 +2222,7 @@ _ts FUN_080572c8
 
 
 _nt ScreenDim_HidePlayer
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r7,[r7,r0]
@@ -2256,8 +2249,7 @@ LAB_080572fe:
 
 
 _ts FUN_08057300
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r7,[r7,r0]
@@ -2285,8 +2277,7 @@ LAB_0805732c:
 
 _nt DisableZetaOmegaTimer
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     tst        r0,r0
     beq        LAB_0805733a
     add        r7,#0x70
@@ -2306,8 +2297,7 @@ LAB_0805734e:
 
 _ts Routine_IsPlayerFrozen
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r5,[r7,#0x40]
     mov        r0,#0x20
     bl         ActorPlayer_CheckStatus
@@ -2320,8 +2310,7 @@ LAB_08057364:
 
 
 _ts Routine_IsPlayerInvulnerable
-    mov        r0,r10
-    ldr        r0,[r0,#0xc]
+    LoadMain battle, r0, r0
     ldr        r0,[r0,#0x40]
     ldrb       r0,[r0,#0x17]
     mov        pc,lr
@@ -2329,8 +2318,7 @@ _ts Routine_IsPlayerInvulnerable
 
 _nt Routine_IsPlayerDrainActive
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r5,[r7,r0]
@@ -2349,8 +2337,7 @@ _nt Routine_ClearBetaSigmaTimer
     push       {r0}
     bl         DisableZetaOmegaTimer
     pop        {r0}
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     mov        r1,#0x70
     mul        r1,r0
     add        r7,r7,r1
@@ -2375,8 +2362,7 @@ LAB_080573b6:
 
 
 _ts R_Player_ClearBusterChip
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     mov        r1,#0x70
     mul        r0,r1
     add        r7,r7,r0
@@ -2408,8 +2394,7 @@ LAB_080573fa:
     ldrb       r1,[r5,#0x16]
     tst        r1,r1
     bne        LAB_0805740a
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     lsr        r0,r0,#0x1
     bcs        LAB_0805741e
@@ -2438,8 +2423,7 @@ _ts S_Barrier_Activate
     add        r0,r1,#0x0
     bl         R_Player_ResetPlayerDefenseState
     pop        {r0,r1}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     lsl        r1,r1,#0x2
     add        r1,#0x40
     ldr        r5,[r7,r1]
@@ -2504,8 +2488,7 @@ _ts R_Player_SetInvisible
     push       {r0,r1,r2}
     bl         R_Player_ResetPlayerDefenseState
     pop        {r0,r1,r2}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     add        r7,#0x40
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
@@ -2520,8 +2503,7 @@ _ts R_Player_ApplyIronBody
     push       {r0}
     bl         R_Player_ResetPlayerDefenseState
     pop        {r0}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r5,[r7,r0]
@@ -2554,8 +2536,7 @@ _ts R_Player_ApplyNumbStatus
     push       {r0}
     bl         R_Player_ResetPlayerDefenseState
     pop        {r0}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r5,[r7,r0]
@@ -2651,8 +2632,7 @@ _nt R_Player_ResetBusterAndShields
     bl         R_Player_ClearBusterChip
     mov        r0,#0x1
     bl         R_Player_ClearBusterChip
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     push       {r7}
     ldr        r5,[r7,#0x40]
     tst        r5,r5
@@ -2680,8 +2660,7 @@ LAB_080575b6:
     bl         R_Player_CheckBubbleShieldPop
 LAB_080575d0:
     mov        r0,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r6,[r7,#0x40]
     tst        r6,r6
     beq        LAB_080575e8
@@ -2707,8 +2686,7 @@ LAB_080575fa:
 
 _ts R_Player_ResetPlayerDefenseState
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r5,[r7,r0]
@@ -3284,8 +3262,7 @@ _ts BC_Bomb_1_Main
     add        r7,r5,r7
     ldmia      r7!,{r1,r2,r3}
     ldrb       r6,[r5,#0x16]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r7,[r7,#0x1a]
     eor        r6,r7
     lsl        r6,r6,#0x2
@@ -5237,8 +5214,7 @@ LAB_080587e2:
     push       {r2,r7}
     ldrsb      r3,[r7,r2]
     ldrb       r0,[r5,#0x16]
-    mov        r4,r10
-    ldr        r4,[r4,#0xc]
+    LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
     eor        r0,r4
     beq        LAB_080587f4

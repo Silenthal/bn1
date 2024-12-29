@@ -35,8 +35,7 @@ _ts S_Story_6D_0
     push       {r5}
     mov        r0,#0x3
     bl         Sound_StopSong
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0xff
     strb       r0,[r7,#0x18]
     pop        {r5}
@@ -104,8 +103,7 @@ LAB_08093f94:
 
 
 _nt S_Story_6D_3
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -195,8 +193,7 @@ LAB_08094044:
 
 
 _nt S_Story_6D_7
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -221,8 +218,7 @@ _ts S_Story_6D_8
     bl         Flag_SetBase
     pop        {r5}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1

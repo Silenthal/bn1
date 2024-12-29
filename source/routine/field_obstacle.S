@@ -5,8 +5,7 @@
 
 _ts FieldObstacleManager_Init
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x7c]
+    LoadMain fieldObstacleManager, r0, r0
     mov        r1,#0x28
     mov        r2,#0x0
     bl         memset_32
@@ -16,8 +15,7 @@ _ts FieldObstacleManager_Init
 
 _ts FieldObstacleManager_Add
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x7c]
+    LoadMain fieldObstacleManager, r7, r7
     mov        r0,#0x4
 LAB_08056250:
     sub        r0,#0x1
@@ -62,8 +60,7 @@ LAB_08056292:
 
 _ts FieldObstacleManager_Remove
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x7c]
+    LoadMain fieldObstacleManager, r7, r7
     ldrb       r0,[r5,#0x6]
     ldrb       r1,[r7,r0]
     mov        r2,#0x0

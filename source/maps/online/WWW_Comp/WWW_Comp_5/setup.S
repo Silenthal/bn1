@@ -61,8 +61,7 @@ _ts MapSetup_WWW_Comp_5_F54
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -106,8 +105,7 @@ LAB_0804dd28:
     mov        r0,#0xe4
     bl         Flag_GetBase
     bne        LAB_0804dd5a
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
@@ -121,8 +119,7 @@ LAB_0804dd5a:
     mov        r0,#0xe6
     bl         Flag_GetBase
     bne        LAB_0804dd7c
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
@@ -160,8 +157,7 @@ PTR_EventHandler_WWW_Comp_5_F54_0_0804dd9c:
 _ts EventHandler_WWW_Comp_5_F54_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

@@ -476,13 +476,11 @@ LAB_08002f6c:
 @@ Resets the field properties based on a player's side.
 _ts Field_InitializeAreaProperties
     ldr        r6,PTR_areaPropertiesLeftPlayer_08002fec
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_08002f88
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1b]
     tst        r0,r0
     beq        LAB_08002f88

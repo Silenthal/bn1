@@ -260,8 +260,7 @@ _ts A_SnakeEgg_1_1_0
     beq        LAB_0807988e
     neg        r2,r2
     lsr        r0,r2,#0x1f
-    mov        r1,r10
-    ldr        r1,[r1,#0xc]
+    LoadMain battle, r1, r1
     ldrb       r1,[r1,#0x1a]
     eor        r0,r1
     bl         SpritePtr_SetFlipType

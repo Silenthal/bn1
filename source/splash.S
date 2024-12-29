@@ -5,8 +5,7 @@
 
 _ts InitSplash
     push       { lr }
-    mov        r7,r10
-    ldr        r0,[r7,#0x34]
+    LoadMain mainMenu, r0, r7
     mov        r1,#0x10
     bl         memset0_32
     pop        { pc }
@@ -14,8 +13,7 @@ _ts InitSplash
 
 _ts Splash_Main
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x34]
+    LoadMain mainMenu, r5, r7
     ldr        r0,=jumpTableSplashMain
     ldrb       r1,[r5,#0x0]
     ldr        r0,[r0,r1]
@@ -37,8 +35,7 @@ _ts Splash_0_LoadCapcomLogo
     push       { r5 }
     mov        r0,#0x3
     bl         Video_SetBgControl
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -61,8 +58,7 @@ _ts Splash_0_LoadCapcomLogo
     bl         Dma_TransferListAdd
     bl         Video_ClearScreen
     ldr        r0,=tilemapCapcomLogo
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,=0x800
     add        r1,r1,r2
     ldr        r2,=0x140
@@ -77,8 +73,7 @@ _ts Splash_0_LoadCapcomLogo
 
 _ts Splash_1_FadeIn
     push       { lr }
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,=0x1f40
     strh       r1,[r0,#0x0]
     push       { r5 }
@@ -94,14 +89,12 @@ _ts Splash_1_FadeIn
 
 _ts Splash_2_Wait
     push       { lr }
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08018d80
-    mov        r7,r10
-    ldr        r0,[r7,#0x4]
+    LoadMain input, r0, r7
     ldrh       r0,[r0,#0x0]
     ldr        r1,=0x3FF
     and        r1,r0
@@ -124,8 +117,7 @@ LAB_08018d80:
 
 _ts Splash_3_FadeOut
     push       { lr }
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -141,15 +133,13 @@ _ts Splash_4_End
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
     pop        { r5 }
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x0
     strb       r1,[r0,#0x0]
     push       { r5 }
     bl         InitMainMenu
     pop        { r5 }
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     pop        { pc }

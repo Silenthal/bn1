@@ -85,8 +85,7 @@ LAB_08096fc0:
 
 
 _nt S_Story_7B_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -113,8 +112,7 @@ LAB_08096ff4:
 
 
 _nt S_Story_7B_3
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -135,8 +133,7 @@ LAB_0809701e:
 
 
 _ts S_Story_7B_4
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -316,8 +313,7 @@ LAB_08097154:
     mov        r1,#0xa
     strb       r1,[r5,#0x8]
 LAB_0809718e:
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -341,8 +337,7 @@ _ts S_Story_7B_8
     bl         Flag_SetPlayerActive
     mov        r0,#0xe8
     bl         Flag_SetBase
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1

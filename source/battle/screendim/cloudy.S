@@ -90,8 +90,7 @@ _nt SD_Cloudy_2_Attack
     orr        r4,r0
     lsl        r1,r1,#0x10
     orr        r4,r1
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r3,[r5,#0x6]
     lsl        r3,r3,#0x2
     add        r3,#0x40
@@ -144,8 +143,7 @@ DAT_08099794:
 
 _ts SD_Cloudy_3_FadeIn
     push       {lr}
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     ldrb       r3,[r5,#0x6]
     lsl        r3,r3,#0x2
     add        r3,#0x40
@@ -169,8 +167,7 @@ LAB_080997ca:
 
 _ts SD_Cloudy_4_Free
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -201,8 +198,7 @@ _ts FUN_080997e8
     mov        r0,#0x6
 LAB_0809980a:
     add        r1,r0,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r2,[r5,#0x6]
     lsl        r2,r2,#0x2
     add        r2,#0x40

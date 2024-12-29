@@ -40,8 +40,7 @@ _ts EventHandler_Undernet_7_S0
 
 _nt MapSetup_Undernet_7
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -53,8 +52,7 @@ _nt MapSetup_Undernet_7
 LAB_0805353c:
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
-    mov        r7,r10
-    ldr        r4,[r7,#0x8]
+    LoadMain world, r4, r7
     mov        r0,#0x4
     strb       r0,[r4,#0x19]
     ldr        r4,[r7,#0x78]
@@ -67,8 +65,7 @@ LAB_08053550:
     bne        LAB_08053566
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
-    mov        r7,r10
-    ldr        r4,[r7,#0x8]
+    LoadMain world, r4, r7
     ldrb       r0,[r4,#0x19]
     cmp        r0,#0x4
     bge        LAB_0805356c
@@ -129,8 +126,7 @@ _ts EventHandler_Undernet_7_0
     mov        r0,#0x7f
     bl         Flag_GetBase
     bne        LAB_0805360a
-    mov        r7,r10
-    ldr        r4,[r7,#0x8]
+    LoadMain world, r4, r7
     ldrb       r0,[r4,#0x19]
     cmp        r0,#0x4
     bge        LAB_080535de
@@ -163,8 +159,7 @@ LAB_0805360a:
     bl         Flag_GetEvent
     beq        LAB_08053640
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

@@ -39,8 +39,7 @@ _ts R_MagicManC_0_Init
     bl         SpritePtr_SetZClip
     mov        r0,#0x7
     strb       r0,[r5,#0x0]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     add        r7,#0x40
     ldrb       r0,[r5,#0x16]
     lsl        r0,r0,#0x2

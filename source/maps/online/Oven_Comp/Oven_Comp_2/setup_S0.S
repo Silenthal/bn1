@@ -106,8 +106,7 @@ LAB_0804373c:
     ldr        r0,PTR_EntityAllocParams_8043D4C_08043858
     bl         Entity_AllocList
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -194,8 +193,7 @@ LAB_080437d6:
     add        r7,#0x1
     cmp        r7,#0x20
     blt        LAB_080437d6
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2

@@ -164,8 +164,7 @@ _ts R_MiniColorMan_1_1_Register
     tst        r0,r0
     bne        LAB_08063b12
     bl         Battle_RemoveFromEnemyList
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -422,8 +421,7 @@ _ts R_MiniColorMan_1_5_0_Delay
 
 _nt R_MiniColorMan_1_5_1_Tower
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     lsr        r0,r0,#0x2
     bcc        LAB_08063cc6
@@ -437,8 +435,7 @@ LAB_08063cc6:
     bne        LAB_08063cfc
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r2,[r7,#0x40]
     add        r2,#0x2c
     ldr        r7,[r5,#0x64]
@@ -549,8 +546,7 @@ _ts R_MiniColorMan_Decide
     strh       r0,[r5,#0xa]
     pop        {pc}
 LAB_08063da2:
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x19]
     ldrb       r1,[r5,#0x19]

@@ -69,8 +69,7 @@ _nt S_Story_54_1
     bne        LAB_0808feac
     mov        r0,#0x1
     bl         PlayerAnimation_SetState
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -99,8 +98,7 @@ LAB_0808feac:
 
 _nt S_Story_54_2
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -181,15 +179,13 @@ LAB_0808ff3a:
 
 _nt S_Story_54_6
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808ff88
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r5,[r0,#0x28]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}
@@ -217,8 +213,7 @@ LAB_0808ff88:
 
 _nt S_Story_54_7
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -279,8 +274,7 @@ LAB_0808fff8:
 
 _nt S_Story_54_10
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -322,8 +316,7 @@ LAB_08090046:
 
 _ts S_Story_54_12
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -348,8 +341,7 @@ LAB_08090080:
 
 _nt S_Story_54_13
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -377,8 +369,7 @@ _ts FUN_080900b8
     push       {lr}
     mov        r0,#0x84
     bl         Sound_PlaySongImmediate
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     ldr        r1,[r0,#0x24]
     ldr        r2,[r0,#0x28]

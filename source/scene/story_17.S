@@ -47,8 +47,7 @@ _ts S_Story_17_1
     bl         PlayerAnimation_GetState
     cmp        r0,#0x2
     bne        LAB_080870c2
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x33
     bl         PlayerAnimation_SetState
     mov        r0,#0x1
@@ -70,8 +69,7 @@ LAB_080870c2:
 
 
 _ts S_Story_17_2
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x34
     bl         PlayerAnimation_SetState
     ldrb       r0,[r5,#0x0]
@@ -125,8 +123,7 @@ _ts S_Story_17_4
 
 
 _nt S_Story_17_5
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -146,8 +143,7 @@ LAB_08087146:
 _ts S_Story_17_6
     ldr        r0,PTR_MapEntranceOptions_080871a0
     str        r0,[r5,#0x10]
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]
     ldr        r0,[r7,#0x2c]
@@ -161,8 +157,7 @@ _ts S_Story_17_6
     ldrb       r0,[r0,#0x12]
     bl         World_ChangeMap
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x15
     strb       r1,[r0,#0x6]
     push       {r5}

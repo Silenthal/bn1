@@ -120,8 +120,7 @@ PTR_Menu_Network_0_Init_0801cd10:
 
 _ts Menu_Network_0_Init
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -151,8 +150,7 @@ _ts Menu_Network_0_Init
     push       {r5}
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapMenuNetwork_0801d15c
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     mov        r2,#0x80
     lsl        r2,r2,#0x4
     add        r1,r1,r2
@@ -185,8 +183,7 @@ _ts Menu_Network_0_Init
     bl         FUN_0809bc4c
     pop        {r0}
     mov        r10,r0
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801d170
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -225,8 +222,7 @@ _ts Menu_Network_0_Init
 LAB_0801ce68:
     push       {r5}
     ldr        r0,PTR_textDict_MenuMessages_0801d174
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x10]
     ldr        r7,PTR_listNetworkBattleResultMessage_0801ce98
     ldrb       r1,[r7,r1]
@@ -255,8 +251,7 @@ listNetworkBattleResultMessage:
 
 _ts Menu_Network_1_Main
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -271,8 +266,7 @@ LAB_0801ceb2:
 _ts Menu_Network_2_Close
     push       {lr}
     bl         Menu_Network_DrawUi
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -417,8 +411,7 @@ _ts Menu_Network_DrawUi
 
 _ts Menu_Network_HandleInput
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -432,8 +425,7 @@ _ts Menu_Network_HandleInput
     strb       r0,[r5,#0xf]
     b          LAB_0801d07c
 LAB_0801d002:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x2
     tst        r1,r0
@@ -526,8 +518,7 @@ LAB_0801d08c:
     pop        {r5}
     bl         GetBattleChipTotalCount
     str        r0,[r5,#0x18]
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     str        r0,[r7,#0x4]
     ldr        r0,PTR_textDict_MenuMessages_0801d174
     mov        r1,#0x60
@@ -538,8 +529,7 @@ LAB_0801d08c:
     ldr        r6,PTR_tilesetDialogueText_0801d188
     mov        r7,#0x0
     bl         Text_CopyCharTileUI
-    mov        r7,r10
-    ldr        r6,[r7,#0x78]
+    LoadMain gameStats, r6, r7
     ldr        r7,[r7,#0x68]
     ldrh       r0,[r6,#0x14]
     ldrh       r1,[r6,#0x16]
@@ -788,8 +778,7 @@ PTR_textDict_MenuMessages_0801d2b4:
 
 _ts Menu_Network_7_InitTrade
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -920,8 +909,7 @@ LAB_0801d380:
     bl         Menu_LoadChipData
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapMenuNetworkTrade_0801d428
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     mov        r2,#0x80
     lsl        r2,r2,#0x4
     add        r1,r1,r2
@@ -997,8 +985,7 @@ LAB_0801d46a:
 _ts Menu_Network_9_LoadOptionMenu
     push       {lr}
     bl         Menu_Network_PrintUiTrade
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -1028,8 +1015,7 @@ _ts Menu_Network_9_LoadOptionMenu
     push       {r5}
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapMenuNetwork_0801d550
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     mov        r2,#0x80
     lsl        r2,r2,#0x4
     add        r1,r1,r2
@@ -1110,8 +1096,7 @@ PTR_textDict_MenuMessages_0801d564:
 _ts Menu_Network_10_OpenTradePending
     push       {lr}
     bl         Menu_Network_PrintUiTrade
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -1325,8 +1310,7 @@ PTR_gListMPStateAll_0801d700:
 
 _ts Menu_Network_HandleInputTrade
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -1355,8 +1339,7 @@ LAB_0801d734:
     strb       r0,[r5,#0xf]
     b          LAB_0801d800
 LAB_0801d740:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x2
     tst        r1,r0
@@ -1480,8 +1463,7 @@ LAB_0801d81c:
 
 _ts Menu_Network_OpenSort
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x78]
+    LoadMain gameStats, r0, r0
     ldrb       r1,[r0,#0x2]
     strb       r1,[r5,#0x1c]
     mov        r0,#0x0
@@ -1582,8 +1564,7 @@ LAB_0801d8d8:
     strb       r0,[r5,#0xf]
     b          LAB_0801d96a
 LAB_0801d8e4:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0xa
     tst        r1,r0
@@ -1660,8 +1641,7 @@ LAB_0801d96a:
 _ts Menu_Network_UpdateSort
     push       {lr}
     ldrb       r0,[r5,#0x1c]
-    mov        r1,r10
-    ldr        r1,[r1,#0x78]
+    LoadMain gameStats, r1, r1
     ldrb       r2,[r1,#0x2]
     cmp        r0,r2
     beq        LAB_0801d984
@@ -1734,8 +1714,7 @@ LAB_0801d9fe:
     ldrh       r0,[r5,r0]
     cmp        r0,#0x7
     ble        LAB_0801da4c
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r7,[r7,#0x0]
     mov        r1,#0x10
     and        r1,r7
@@ -2002,8 +1981,7 @@ LAB_0801dbd6:
 
 _ts Menu_Network_23_StartBattle
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -2026,8 +2004,7 @@ LAB_0801dbf4:
     bl         NPC_UnloadAll
     bl         Battle_Init
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x8
     strb       r1,[r0,#0x0]
     push       {r5}
@@ -2040,8 +2017,7 @@ LAB_0801dbf4:
     bl         BgUpdate_Init
     bl         InitBgTask
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
 LAB_0801dc42:
@@ -2202,8 +2178,7 @@ _ts FUN_0801dd64
     ldrb       r0,[r5,#0x14]
     tst        r0,r0
     beq        LAB_0801ddb6
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r7,[r7,#0x0]
     mov        r1,#0x2
     and        r1,r7
@@ -2260,8 +2235,7 @@ DAT_0801ddd4:
 
 _ts Menu_Network_13_TradePending
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -2311,8 +2285,7 @@ LAB_0801de34:
     push       {r5}
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapMenuNetworkPending_0801decc
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     mov        r2,#0x80
     lsl        r2,r2,#0x4
     add        r1,r1,r2
@@ -2456,8 +2429,7 @@ LAB_0801df3e:
     pop        {r5}
     b          LAB_0801dfa6
 LAB_0801df72:
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -2504,8 +2476,7 @@ PTR_DAT_0801dfc4:
 _ts Menu_Network_19_LoadOptionMenu
     push       {lr}
     bl         Menu_Network_PrintChipsTrading
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -2533,8 +2504,7 @@ _ts Menu_Network_19_LoadOptionMenu
     push       {r5}
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapMenuNetwork_0801e398
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,DAT_0801e39c
     add        r1,r1,r2
     mov        r2,#0xc0
@@ -2581,8 +2551,7 @@ LAB_0801e074:
 _ts Menu_Network_20_LoadTradeMenu
     push       {lr}
     bl         Menu_Network_PrintChipsTrading
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

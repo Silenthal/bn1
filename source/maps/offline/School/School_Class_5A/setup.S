@@ -97,8 +97,7 @@ _ts EventHandler_School_Class_5A_F00_0
     pop        {r5}
     bne        LAB_080247fa
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -124,8 +123,7 @@ LAB_080247fa:
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x1
     strb       r1,[r0,#0x6]
     pop        {pc}
@@ -192,8 +190,7 @@ PTR_EventHandler_School_Class_5A_F02_0_08024888:
 
 _ts EventHandler_School_Class_5A_F02_0
     push       {lr}
-    mov        r7,r10
-    ldr        r1,[r7,#0x2c]
+    LoadMain mapChange, r1, r7
     ldr        r0,PTR_MapEntrance_ARRAY_080248f4
     str        r0,[r1,#0x14]
     mov        r0,#0x44
@@ -348,8 +345,7 @@ LAB_080249d0:
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_080249e8:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x42
     mov        r1,#0x10
     lsl        r0,r1
@@ -414,8 +410,7 @@ PTR_Scene_Story_12_08024a50:
 _ts EventHandler_School_Class_5A_F10_1
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -463,8 +458,7 @@ LAB_08024aa0:
     bl         Scene_Prepare
     pop        {r5}
     bl         Sound_StopAllMusic
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x11
     strb       r1,[r0,#0x6]
     mov        r0,#0x0
@@ -557,8 +551,7 @@ PTR_Scene_Story_13_08024b70:
 _ts EventHandler_School_Class_5A_F11_1
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -582,8 +575,7 @@ LAB_08024ba0:
     bl         Flag_GetBase
     pop        {r5}
     beq        LAB_08024bb8
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x12
     strb       r1,[r0,#0x6]
     mov        r0,#0x0
@@ -610,8 +602,7 @@ _ts MapSetup_School_Class_5A_F12
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x18]
     cmp        r0,#0x4
     beq        LAB_08024bec
@@ -709,8 +700,7 @@ _ts EventHandler_School_Class_5A_F12_0
 _ts EventHandler_School_Class_5A_F12_1
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -722,8 +712,7 @@ _ts EventHandler_School_Class_5A_F12_1
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08024d06
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_08024fe4
     and        r1,r0
@@ -756,8 +745,7 @@ LAB_08024ce2:
     pop        {pc}
 LAB_08024d06:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -790,8 +778,7 @@ _ts EventHandler_School_Class_5A_F12_2
     ldr        r0,PTR_Scene_ChangeMap_08024ff8
     bl         Scene_Prepare
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x13
     strb       r1,[r0,#0x6]
     mov        r0,#0x0
@@ -799,8 +786,7 @@ _ts EventHandler_School_Class_5A_F12_2
     pop        {pc}
 LAB_08024d5a:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -821,8 +807,7 @@ LAB_08024d7e:
 
 _ts MapSetup_School_Class_5A_F13
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x18]
     cmp        r0,#0x4
     beq        LAB_08024d92
@@ -900,8 +885,7 @@ _nt EventHandler_School_Class_5A_F13_1
 
 _nt MapSetup_School_Class_5A_F14
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x18]
     cmp        r0,#0x4
     beq        LAB_08024e28
@@ -978,8 +962,7 @@ _ts EventHandler_School_Class_5A_F14_1
 
 _ts MapSetup_School_Class_5A_F15
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x18]
     cmp        r0,#0x4
     beq        LAB_08024eba
@@ -1041,8 +1024,7 @@ _ts FUN_08024f0c
     pop        {pc}
 LAB_08024f1c:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -1059,8 +1041,7 @@ LAB_08024f38:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08024f78
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_08024fe4
     and        r1,r0
@@ -1252,8 +1233,7 @@ _ts MapSetup_School_Class_5A_F20
     bl         Flag_GetBase
     bne        LAB_08025118
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r0,DAT_08025430
     str        r0,[r7,#0x38]
     ldr        r0,DAT_08025434
@@ -1641,8 +1621,7 @@ _ts CheckJackIn_2
     pop        {pc}
 LAB_080253cc:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -1659,8 +1638,7 @@ LAB_080253e8:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08025414
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_080254a8
     and        r1,r0

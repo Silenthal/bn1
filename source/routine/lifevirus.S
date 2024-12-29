@@ -170,8 +170,7 @@ _ts R_LifeVirus_1_1_WaitForBattleStart
     ldrb       r0,[r5,#0xa]
     tst        r0,r0
     bne        LAB_08069666
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -691,8 +690,7 @@ _ts R_LifeVirus_2_0_0
     strb       r0,[r5,#0xa]
     ldr        r0,[r5,#0x60]
     bl         FieldObject_Disable
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x8]
     mov        r0,#0x0
@@ -730,8 +728,7 @@ LAB_080699f0:
 
 _nt R_LifeVirus_2_0_2
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -791,8 +788,7 @@ LAB_08069a62:
 
 _ts R_LifeVirus_2_0_4
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -856,8 +852,7 @@ LAB_08069ac6:
 
 _ts R_LifeVirus_2_1_2
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -928,8 +923,7 @@ LAB_08069b46:
 LAB_08069b4a:
     cmp        r4,#0x2
     blt        LAB_08069b5e
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x18]
     cmp        r0,#0x2

@@ -113,8 +113,7 @@ PTR_A_Remobit_1_0_0_080761a8:
 
 _ts A_Remobit_1_0_0
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
     ldrb       r1,[r5,#0x16]
     eor        r0,r1
@@ -283,8 +282,7 @@ _ts FUN_080762b0
 
 _nt FUN_080762ce
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
     ldrb       r1,[r5,#0x16]
     eor        r0,r1
@@ -324,8 +322,7 @@ _nt FUN_0807630e
 
 _ts FUN_08076310
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
     ldrb       r1,[r5,#0x16]
     eor        r0,r1
@@ -415,8 +412,7 @@ LAB_080763a8:
 
 _nt FUN_080763aa
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
     ldrb       r1,[r5,#0x16]
     eor        r0,r1
@@ -457,8 +453,7 @@ _ts dummy_763ec
 
 _nt FUN_080763ee
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
     ldrb       r1,[r5,#0x16]
     eor        r0,r1

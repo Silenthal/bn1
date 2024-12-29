@@ -46,8 +46,7 @@ _ts SD_Invisible_0_Init
     bl         BattleUi_ClearActiveChip
     pop        {r5}
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     lsl        r0,r0,#0x2
     add        r0,#0x40
@@ -142,8 +141,7 @@ LAB_0809920a:
 _ts SD_Invisible_3_Free
     push       {lr}
     bl         SD_Invisible_DoEffect
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -162,8 +160,7 @@ _ts SD_Invisible_DoEffect
     bl         Battle_GetPlayer
     tst        r7,r7
     beq        LAB_08099254
-    mov        r6,r10
-    ldr        r6,[r6,#0x50]
+    LoadMain frameCounter, r6, r6
     ldrh       r0,[r6,#0x0]
     lsr        r0,r0,#0x1
     bcs        LAB_0809924c

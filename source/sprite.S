@@ -284,8 +284,7 @@ _ts SpritePtr_ObjModeSemiTransparent
     mov        r2,#0x4
     orr        r1,r2
     strb       r1,[r7,#0x11]
-    mov        r7,r10
-    ldr        r7,[r7,#0x3c]
+    LoadMain blend, r7, r7
     ldrb       r1,[r7,#0x0]
     mov        r2,#0xc0
     bic        r1,r2

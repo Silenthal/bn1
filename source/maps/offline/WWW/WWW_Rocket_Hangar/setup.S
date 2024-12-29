@@ -62,8 +62,7 @@ _ts MapSetup_WWW_Rocket_Hangar_F54
     mov        r0,#0xf8
     bl         Flag_GetBase
     bne        LAB_0803e1be
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -76,8 +75,7 @@ LAB_0803e1be:
     mov        r0,#0xe7
     bl         Flag_GetBase
     bne        LAB_0803e1dc
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -90,8 +88,7 @@ LAB_0803e1dc:
     mov        r0,#0xe8
     bl         Flag_GetBase
     bne        LAB_0803e1fe
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
@@ -105,8 +102,7 @@ LAB_0803e1fe:
     mov        r0,#0xeb
     bl         Flag_GetBase
     bne        LAB_0803e21e
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic

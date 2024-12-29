@@ -216,8 +216,7 @@ _nt R_Vulgear_1_1
     bne        LAB_0805ace4
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -473,8 +472,7 @@ _nt R_Vulgear_1_6_3
     push       {r5}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    mov        r2,r10
-    ldr        r2,[r2,#0xc]
+    LoadMain battle, r2, r2
     ldr        r2,[r2,#0x40]
     add        r2,#0x2c
     ldr        r4,PTR_ElementID_0805aec4

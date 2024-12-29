@@ -6,20 +6,17 @@ _ts Camera_Init
     push       {lr}
     push       {r3,r4}
     push       {r0,r1,r2}
-    mov        r5,r10
-    ldr        r5,[r5,#0x14]
+    LoadMain camera, r5, r5
     ldrb       r0,[r5,#0x3]
     ldr        r1,[r5,#0x10]
     push       {r0,r1,r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x14]
+    LoadMain camera, r0, r0
     mov        r1,#0x44
     bl         memset0_32
     pop        {r0,r1,r5}
     strb       r0,[r5,#0x3]
     str        r1,[r5,#0x10]
-    mov        r0,r10
-    ldr        r0,[r0,#0x44]
+    LoadMain bgDataManager, r0, r0
     ldrb       r3,[r0,#0x0]
     sub        r3,#0x1e
     lsl        r3,r3,#0x12
@@ -62,8 +59,7 @@ LAB_08010c82:
 
 _ts Camera_UpdatePos
     push       {lr}
-    mov        r5,r10
-    ldr        r5,[r5,#0x14]
+    LoadMain camera, r5, r5
     ldr        r0,PTR_PTR_dummy_10d6c
     ldrb       r1,[r5,#0x3]
     lsl        r1,r1,#0x2
@@ -78,8 +74,7 @@ _ts Camera_UpdatePos
     ldrh       r4,[r5,#0x6]
     ldrh       r2,[r5,#0xa]
     sub        r4,r4,r2
-    mov        r0,r10
-    ldr        r0,[r0,#0x10]
+    LoadMain display, r0, r0
     ldrh       r6,[r0,#0x14]
     add        r6,r6,r1
     strh       r6,[r0,#0x14]
@@ -197,8 +192,7 @@ _ts Camera_UpdateMapPosFromPlayerLoc
 
 _ts Camera_SetEnabled
     push       {lr}
-    mov        r5,r10
-    ldr        r5,[r5,#0x14]
+    LoadMain camera, r5, r5
     strb       r0,[r5,#0x3]
     str        r1,[r5,#0x10]
     pop        {pc}
@@ -206,8 +200,7 @@ _ts Camera_SetEnabled
 
 _ts Camera_CheckScreenShake
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r7,[r7,#0x18]
     tst        r7,r7
     bne        LAB_08010da8
@@ -272,16 +265,14 @@ listShakeStrength:
 
 
 _ts Camera_EnableScreenShake
-    mov        r5,r10
-    ldr        r5,[r5,#0x14]
+    LoadMain camera, r5, r5
     strh       r0,[r5,#0xe]
     strh       r1,[r5,#0xc]
     mov        pc,lr
 
 
 _ts Camera_DisableScreenShake
-    mov        r5,r10
-    ldr        r5,[r5,#0x14]
+    LoadMain camera, r5, r5
     mov        r0,#0x0
     strh       r0,[r5,#0xe]
     strh       r0,[r5,#0xc]
@@ -320,8 +311,7 @@ _ts Camera_UpdateOverworldPos
 @@ If online, update only BG2 and BG3.
 @@ If in battle, update only BG2.
 _ts Camera_UpdateDisplay
-    mov        r7,r10
-    ldr        r5,[r7,#0x14]
+    LoadMain camera, r5, r7
     ldrh       r1,[r5,#0x4]
     ldrh       r2,[r5,#0x6]
     ldr        r3,[r7,#0x10]

@@ -10,7 +10,7 @@ _ts Fade_Request
     mov        r2,#0x1
     neg        r2,r2
     push       { lr }
-    LoadStateTo r5, Main_fade, r5
+    LoadMain fade, r5, r5
     tst        r0,r0
     beq        LAB_08004b34
     push       { r0, r1, r2 }
@@ -29,14 +29,14 @@ _ts Fade_Request
     cmp        r2,#0x0
     blt        LAB_08004b34
     @ r2 is always -1, so the following is never executed
-    LoadStateTo r0, Main_blend, r0
+    LoadMain blend, r0, r0
     strh       r2,[r0,#BlendSettings_m_blendControl]
 LAB_08004b34:
     pop        { pc }
 
 _ts Fade_Apply
     push       { lr }
-    LoadStateTo r5, Main_fade, r5
+    LoadMain fade, r5, r5
     ldrb       r0,[r5,#FadeSettings_m_isApplyFadeFunc]
     mov        r1,#TRUE
     cmp        r0,r1
@@ -76,7 +76,7 @@ fadeFuncArgList:
 
 _ts Fade_FadeIn
     push       { lr }
-    LoadStateTo r0, Main_blend, r0
+    LoadMain blend, r0, r0
     strb       r1,[r0,#BlendSettings_m_bldCnt_Target1]
     ldrh       r1,[r0,#BlendSettings_m_blendControl]
     ldrb       r2,[r5,#FadeSettings_m_fadeStep]
@@ -102,7 +102,7 @@ LAB_08004bce:
 
 _ts Fade_FadeOut
     push       { lr }
-    LoadStateTo r0, Main_blend, r0
+    LoadMain blend, r0, r0
     strb       r1,[r0,#BlendSettings_m_bldCnt_Target1]
     ldrh       r1,[r0,#BlendSettings_m_blendControl]
     ldrb       r2,[r5,#FadeSettings_m_fadeStep]
@@ -120,7 +120,7 @@ LAB_08004be8:
 
 _ts Fade_FadeOutSlight
     push       { lr }
-    LoadStateTo r0, Main_blend, r0
+    LoadMain blend, r0, r0
     strb       r1,[r0,#BlendSettings_m_bldCnt_Target1]
     ldrh       r1,[r0,#BlendSettings_m_blendControl]
     ldrb       r2,[r5,#FadeSettings_m_fadeStep]
@@ -138,7 +138,7 @@ LAB_08004c08:
 
 _ts Fade_Init
     push       { lr }
-    LoadStateTo r0, Main_fade, r0
+    LoadMain fade, r0, r0
     mov        r1,#0x8
     bl         memset0_32
     pop        { pc }

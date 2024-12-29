@@ -69,8 +69,7 @@ LAB_08051f68:
     bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_08051f72:
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -82,8 +81,7 @@ LAB_08051f72:
     pop        {r5}
     b          LAB_08051f98
 LAB_08051f8c:
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -93,8 +91,7 @@ LAB_08051f98:
     ldr        r3,PTR_PTR_08052250
     mov        r4,#0x4
     lsl        r4,r4,#0x2
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x6]
     cmp        r7,#0x2
     bne        LAB_08051fba
@@ -107,8 +104,7 @@ LAB_08051f98:
     str        r0,[r6,r4]
     add        r4,#0x4
 LAB_08051fba:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x6]
     cmp        r7,#0x20
     blt        LAB_08051fcc
@@ -231,16 +227,14 @@ LAB_0805207e:
     pop        {r5}
     pop        {pc}
 LAB_080520a0:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x6]
     mov        r2,#0xf0
     and        r1,r2
     tst        r1,r1
     beq        LAB_080520e4
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -264,8 +258,7 @@ LAB_080520e4:
     mov        r0,#0x25
     bl         Flag_GetBase
     bne        LAB_080520fa
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x21
     bne        LAB_080520fa
@@ -273,8 +266,7 @@ LAB_080520e4:
     b          LAB_080521a8
 LAB_080520fa:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -287,8 +279,7 @@ LAB_080520fa:
     mov        r0,#0x21
     bl         KeyItem_IsPresent
     bne        LAB_08052132
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldr        r0,[r7,#0x10]
     add        r0,#0x4
@@ -309,8 +300,7 @@ LAB_08052136:
     mov        r0,#0x22
     bl         KeyItem_IsPresent
     bne        LAB_0805215e
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldr        r0,[r7,#0x10]
     add        r0,#0x4
@@ -331,8 +321,7 @@ LAB_08052162:
     mov        r0,#0x23
     bl         KeyItem_IsPresent
     bne        LAB_0805218a
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldr        r0,[r7,#0x10]
     add        r0,#0x4

@@ -63,8 +63,7 @@ LAB_08093ce4:
 
 
 _nt S_Story_6C_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -112,8 +111,7 @@ _nt S_Story_6C_4
     mov        r2,#0x0
     bl         PlayerAnimation_Move
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -224,8 +222,7 @@ _nt S_Story_6C_8
     mov        r0,#0x36
     strb       r0,[r5,#0xa]
 LAB_08093e1a:
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -269,12 +266,10 @@ _nt S_Story_6C_9
     mov        r0,#0x36
     strb       r0,[r5,#0xa]
 LAB_08093e76:
-    mov        r7,r10
-    ldr        r7,[r7,#0x24]
+    LoadMain mapEventState, r7, r7
     ldrb       r0,[r5,#0xa]
     strb       r0,[r7,#0x6]
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

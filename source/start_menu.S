@@ -5,8 +5,7 @@
 
 _ts InitStartMenu
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x6c]
+    LoadMain startMenuState, r5, r7
     push       {r5}
     add        r0,r5,#0x0
     mov        r1,#0x14
@@ -24,8 +23,7 @@ _ts InitStartMenu
 
 _ts InitStartMenuFromSubMenu
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x6c]
+    LoadMain startMenuState, r5, r7
     mov        r0,#0x0
     strb       r0,[r5,#0x5]
     mov        r0,#0x4
@@ -81,8 +79,7 @@ LAB_08019214:
 
 _ts StartMenu_Main
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x6c]
+    LoadMain startMenuState, r5, r7
     ldr        r0,PTR_PTR_StartMenu_0_Open_0801951c
     ldrb       r1,[r5,#0x0]
     ldr        r0,[r0,r1]
@@ -102,8 +99,7 @@ PTR_StartMenu_0_Open_08019240:
 
 _ts StartMenu_LoadTilemap
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x6c]
+    LoadMain startMenuState, r5, r7
     bl         StartMenu_LoadMenuTilemap
     bl         StartMenu_LoadZennyTilemap
     bl         StartMenu_LoadCursorTilemap
@@ -130,8 +126,7 @@ _ts StartMenu_1_HandleInput
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801930a
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0xa
     tst        r1,r0
@@ -376,19 +371,16 @@ _ts StartMenu_LoadZennyTilemap
     mov        r5,#0x4
     bl         LC_Screen_SafeCopyTileMapRect
     ldr        r0,PTR_tilemapStartMenuZennyText_0801952c
-    mov        r1,r10
-    ldr        r1,[r1,#0x6c]
+    LoadMain startMenuState, r1, r1
     add        r1,#0x8
     mov        r2,#0x18
     bl         memcpy_32
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r0,[r7,#0x74]
     bl         ConvertNumToBCD
     mov        r8,r0
     bl         GetWidthOfBcdNumber
-    mov        r5,r10
-    ldr        r5,[r5,#0x6c]
+    LoadMain startMenuState, r5, r5
     mov        r0,#0x14
     add        r1,r5,#0x0
     add        r1,#0x8

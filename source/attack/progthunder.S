@@ -78,8 +78,7 @@ _ts A_ProgThunder_1_0
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
     ldrb       r1,[r5,#0x16]
     eor        r0,r1

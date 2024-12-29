@@ -46,13 +46,11 @@ _ts S_WWW_Comp_1_IceBlock_1
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_0809825e
-    mov        r0,r10
-    ldr        r0,[r0,#0x24]
+    LoadMain mapEventState, r0, r0
     ldrb       r1,[r5,#0x4]
     sub        r1,#0x20
     strb       r1,[r0,#0x8]
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     push       {r5}
     ldr        r0,[r0,#0x28]
     ldrb       r0,[r0,#0x14]
@@ -100,8 +98,7 @@ LAB_0809828c:
     push       {r5}
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,r10
-    ldr        r1,[r0,#0x24]
+    LoadMain mapEventState, r1, r0
     mov        r0,#0xff
     strb       r0,[r1,#0x8]
     bl         Scene_MarkForUnloading

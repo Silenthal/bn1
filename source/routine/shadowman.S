@@ -163,8 +163,7 @@ _ts R_ShadowMan_1_1_WaitForBattleStart
     ldrb       r0,[r5,#0xa]
     tst        r0,r0
     bne        LAB_0806b8b6
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -639,8 +638,7 @@ _nt R_ShadowMan_1_5_3
     strh       r0,[r5,#0x1c]
     mov        r0,#0xb7
     bl         Sound_PlaySongImmediate
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]

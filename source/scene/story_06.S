@@ -47,8 +47,7 @@ _ts S_Story_06_1
     cmp        r0,#0x2
     bne        LAB_08083a18
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r0,[r0,#0x28]
     ldrb       r0,[r0,#0x14]
     mov        r1,#0x7
@@ -104,8 +103,7 @@ _ts S_Story_06_3
     bl         Flag_ClearGate
     mov        r0,#0x99
     bl         Flag_SetBase
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x3
     strb       r0,[r7,#0x6]
     bl         PlayerAnimation_Unlock

@@ -105,8 +105,7 @@ _ts EventHandler_School_Staff_Lounge_Hallway_F15_0
     pop        {pc}
 LAB_080285d0:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -125,8 +124,7 @@ LAB_080285f0:
 _nt EventHandler_School_Staff_Lounge_Hallway_F15_1
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -252,8 +250,7 @@ PTR_EventHandler_School_Staff_Lounge_Hallway_F20_0_080286f0:
 _ts EventHandler_School_Staff_Lounge_Hallway_F20_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -308,8 +305,7 @@ PTR_EventHandler_School_Staff_Lounge_Hallway_F23_0_08028754:
 _ts EventHandler_School_Staff_Lounge_Hallway_F23_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -357,8 +353,7 @@ PTR_EventHandler_School_Staff_Lounge_Hallway_F24_0_080287ac:
 _ts EventHandler_School_Staff_Lounge_Hallway_F24_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -543,8 +538,7 @@ PTR_EventHandler_School_Staff_Lounge_Hallway_F30_0_08028928:
 _ts EventHandler_School_Staff_Lounge_Hallway_F30_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

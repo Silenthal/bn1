@@ -8,8 +8,7 @@
 
 _ts InitTransition
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x30]
+    LoadMain transition, r5, r7
     ldrb       r1,[r5,#0x3]
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -18,8 +17,7 @@ _ts InitTransition
 
 _ts Transition_Main
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x30]
+    LoadMain transition, r5, r7
     ldr        r2,[r7,#0x8]
     ldrb       r0,[r2,#0x4]
     cmp        r0,#0x80
@@ -89,8 +87,7 @@ PTR_JackIn_StartAnimation_0801757c:
 
 _ts JackIn_Finish
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x4
     strb       r1,[r0,#0x0]
     ldr        r0,PTR_eFrameWaitValue_08017860
@@ -141,8 +138,7 @@ _ts JackIn_PlayAnimation
     lsl        r0,r0,#0x2
     ldr        r4,PTR_DispCnt_08017868
     ldrh       r1,[r4,r0]
-    mov        r7,r10
-    ldr        r4,[r7,#0x10]
+    LoadMain display, r4, r7
     strh       r1,[r4,#0x0]
     ldr        r1,PTR_PTR_BG_VRAM_BASE0_0801786c
     ldr        r1,[r1,r0]
@@ -181,8 +177,7 @@ LAB_0801763e:
     strb       r0,[r5,#0x2]
     mov        r0,#0x2
     strb       r0,[r5,#0x0]
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1
@@ -350,8 +345,7 @@ _ts JackOut_Animate
 
 _ts JackOut_Finish
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x4
     strb       r1,[r0,#0x0]
     push       {r5,r7}

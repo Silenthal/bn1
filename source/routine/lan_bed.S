@@ -69,8 +69,7 @@ _ts R_LanBed_1_0_SetAnimation
     push       {lr}
     bl         SpritePtr_ProcessFrameDelay
     mov        r0,#0xd9
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldrb       r1,[r1,#0x6]
     mov        r2,#0x20
     and        r1,r2

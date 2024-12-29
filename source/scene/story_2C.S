@@ -90,8 +90,7 @@ LAB_0808a05e:
 
 
 _ts S_Story_2C_3
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -117,8 +116,7 @@ _nt S_Story_2C_4
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808a0ae
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x30
     bl         PlayerAnimation_SetState
     mov        r0,#0xa1
@@ -152,21 +150,18 @@ LAB_0808a0d2:
     mov        r1,#0x7
     and        r0,r1
     bne        LAB_0808a108
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x37
     bl         PlayerAnimation_SetState
     mov        r0,#0x6e
     bl         Sound_PlaySongImmediate
     b          LAB_0808a108
 LAB_0808a0f4:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x30
     bl         PlayerAnimation_SetState
     ldrb       r0,[r5,#0x0]
@@ -217,8 +212,7 @@ LAB_0808a152:
 
 
 _ts S_Story_2C_7
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -251,8 +245,7 @@ LAB_0808a19c:
 
 
 _nt S_Story_2C_8
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -320,8 +313,7 @@ LAB_0808a21a:
 
 
 _ts S_Story_2C_11
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -352,12 +344,10 @@ _nt S_Story_2C_12
     push       {r5}
     bl         Camera_DisableScreenShake
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x26
     strb       r1,[r0,#0x6]
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]
     ldr        r0,[r7,#0x2c]

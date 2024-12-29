@@ -21,8 +21,7 @@ PTR_E_Pipe_3_0_Init_0807f23c:
 
 _ts E_Pipe_3_0_Init
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x6]
     lsr        r7,r7,#0x4
     cmp        r7,#0x2

@@ -110,8 +110,7 @@ PTR_EventHandler_School_Comp_4_F14_0_080415a0:
 _ts EventHandler_School_Comp_4_F14_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -213,8 +212,7 @@ LAB_0804166e:
     bl         Flag_GetBase
     pop        {r5}
     bne        LAB_08041690
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08041694
@@ -246,8 +244,7 @@ _nt EventHandler_School_Comp_4_F15_1
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_080416b6:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08041694
@@ -403,8 +400,7 @@ _ts MapSetup_School_Comp_4_F20
     ldr        r7,PTR_NPCList_8041F14_08041834
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2

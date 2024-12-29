@@ -187,8 +187,7 @@ _ts R_Floshell_1_1_Wait
     orr        r0,r1
     strb       r0,[r7,#0x0]
 LAB_0805ff2a:
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -813,8 +812,7 @@ LAB_08060346:
     bmi        LAB_08060346
 LAB_08060364:
     push       {r1,r2,r3}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrh       r4,[r7,#0x18]
     lsl        r4,r4,#0x10

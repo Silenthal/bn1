@@ -5,8 +5,7 @@
 
 _ts BattleMessage_Load
     push       {lr}
-    mov        r5,r10
-    ldr        r5,[r5,#0x4c]
+    LoadMain battleMessageList, r5, r5
     lsl        r7,r0,#0x4
     add        r5,r5,r7
     push       {r0,r1,r2,r5}
@@ -52,8 +51,7 @@ _ts BattleMessage_Main
 
 _nt BattleMessage_Main_2
     push       {lr}
-    mov        r5,r10
-    ldr        r5,[r5,#0x4c]
+    LoadMain battleMessageList, r5, r5
     lsl        r7,r0,#0x4
     add        r5,r5,r7
     strb       r1,[r5,#0xa]
@@ -95,8 +93,7 @@ PTR_BattleMessage_StaticMessage_08017918:
 
 _ts BattleMessage_Disable
     push       {lr}
-    mov        r5,r10
-    ldr        r5,[r5,#0x4c]
+    LoadMain battleMessageList, r5, r5
     lsl        r7,r0,#0x4
     add        r5,r5,r7
     mov        r0,#0x0
@@ -742,8 +739,7 @@ TextDst_ARRAY_08017e0c:
 
 _ts BattleMessage_LoadDieBomb
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     ldrb       r0,[r5,#0x2]
     str        r0,[r7,#0x4]
     ldrb       r1,[r5,#0x3]
@@ -1089,8 +1085,7 @@ LAB_080180be:
     ldrh       r0,[r5,#0xc]
     bl         FrameTimeToBcdRealTime
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     mov        r2,#0xf
     lsr        r1,r0,#0xc
     and        r1,r2
@@ -1289,8 +1284,7 @@ LAB_08018236:
     cmp        r6,#0x8
     blt        LAB_08018236
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     ldrh       r0,[r5,#0xc]
     str        r0,[r7,#0x4]
     ldrb       r1,[r5,#0x5]

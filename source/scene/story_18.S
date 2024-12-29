@@ -45,8 +45,7 @@ _ts S_Story_18_1
     bl         PlayerAnimation_GetState
     cmp        r0,#0x2
     bne        LAB_08087218
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
     push       {r5}
@@ -62,8 +61,7 @@ LAB_08087218:
 
 
 _nt S_Story_18_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -94,8 +92,7 @@ LAB_08087254:
 
 
 _nt S_Story_18_3
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     push       {r0,r5}
     ldr        r0,[r0,#0x28]
@@ -111,8 +108,7 @@ _nt S_Story_18_3
     str        r0,[r5,#0x14]
     mov        r0,#0x8e
     bl         Sound_PlaySongImmediate
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x25
     bl         PlayerAnimation_SetState
     ldrb       r0,[r5,#0x0]
@@ -131,8 +127,7 @@ LAB_08087296:
 
 _ts S_Story_18_4
     bl         FUN_080873ac
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -164,8 +159,7 @@ LAB_080872d2:
 
 
 _ts S_Story_18_6
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x26
     bl         PlayerAnimation_SetState
     mov        r0,#0x6
@@ -189,8 +183,7 @@ _nt S_Story_18_7
     str        r0,[r5,#0x14]
     tst        r0,r0
     bne        LAB_0808730e
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x1
     bl         PlayerAnimation_SetState
 LAB_0808730e:
@@ -218,8 +211,7 @@ _nt S_Story_18_8
 
 
 _ts S_Story_18_9
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -237,8 +229,7 @@ _ts S_Story_18_9
     ldr        r7,PTR_NPCList_80298D8_080873e4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x26
     bl         PlayerAnimation_SetState
     push       {r5}
@@ -254,8 +245,7 @@ LAB_08087382:
 
 
 _ts S_Story_18_10
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

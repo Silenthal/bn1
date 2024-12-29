@@ -46,8 +46,7 @@ _ts R_LifeSaver_0_Init
     ldrb       r3,[r5,#0x16]
     lsl        r3,r3,#0x2
     add        r3,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r3]
     ldrh       r0,[r7,#0x18]
     strh       r0,[r5,#0x18]
@@ -337,8 +336,7 @@ _nt R_LifeSaver_2_Free
     sub        r0,#0x1
     strh       r0,[r5,#0x1c]
     bne        LAB_0806e5d2
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     ldrb       r0,[r7,#0x3]
     add        r0,#0x1
     strb       r0,[r7,#0x3]

@@ -77,8 +77,7 @@ _ts S_Story_71_1
     bne        LAB_080946a8
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -126,8 +125,7 @@ PTR_Cam_Set_080946b0:
 
 
 _ts S_Story_71_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -311,8 +309,7 @@ LAB_0809481e:
 
 
 _ts S_Story_71_9
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -343,8 +340,7 @@ LAB_0809485c:
 
 
 _nt S_Story_71_10
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -373,8 +369,7 @@ _nt S_Story_71_11
     bl         PlayerAnimation_SetState
     push       {r5}
     mov        r0,#0x1
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldr        r1,[r1,#0x28]
     add        r1,#0x24
     bl         Camera_SetEnabled
@@ -535,8 +530,7 @@ _nt S_Story_71_17
     mov        r1,#0x7
     and        r0,r1
     bne        LAB_08094a10
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
@@ -571,8 +565,7 @@ LAB_08094a1a:
 
 
 _ts S_Story_71_18
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -592,8 +585,7 @@ LAB_08094a3e:
 
 
 _ts S_Story_71_19
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -644,8 +636,7 @@ LAB_08094aa2:
 
 
 _ts S_Story_71_21
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -669,8 +660,7 @@ _ts S_Story_71_21
     pop        {r5}
     push       {r5}
     mov        r0,#0x1
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldr        r1,[r1,#0x28]
     add        r1,#0x24
     bl         Camera_SetEnabled
@@ -679,8 +669,7 @@ _ts S_Story_71_21
     mov        r0,#0x1c
     bl         Entity_FreeAllMultiple
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     str        r1,[r0,#0x34]
     push       {r5}
@@ -713,8 +702,7 @@ LAB_08094b38:
 
 
 _nt S_Story_71_22
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

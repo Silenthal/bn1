@@ -13,8 +13,7 @@
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
 _fts Screen_SafeCopyTileMapH
-    mov        r6,r10
-    ldr        r6,[r6,#0x5c]
+    LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
     add        r6,r6,r2
     lsl        r1,r1,#0x6
@@ -44,8 +43,7 @@ LAB_03006992:
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
 _fts Screen_SafeCopyTileMapV
-    mov        r6,r10
-    ldr        r6,[r6,#0x5c]
+    LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
     add        r6,r6,r2
     lsl        r0,r0,#0x1
@@ -76,8 +74,7 @@ LAB_030069ba:
 @@ r4: width: The width of the rectangle.
 @@ r5: height: The height of the rectangle.
 _fts Screen_SafeCopyTileMapRect
-    mov        r6,r10
-    ldr        r6,[r6,#0x5c]
+    LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
     add        r6,r6,r2
     add        r4,r4,r0

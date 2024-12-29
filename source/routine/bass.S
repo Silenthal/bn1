@@ -175,8 +175,7 @@ _ts R_Bass_1_1_Wait
     ldrb       r0,[r5,#0xa]
     tst        r0,r0
     bne        LAB_0806ce0e
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -1138,8 +1137,7 @@ LAB_0806d448:
 _ts R_Bass_GetNextMovePanelPlayerRow
     push       {lr}
     sub        sp,#0x10
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r1,[r7,#0x19]
     mov        r7,sp

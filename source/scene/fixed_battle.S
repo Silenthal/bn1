@@ -100,8 +100,7 @@ _ts S_StartFixedBattle_1
 
 _ts S_StartFixedBattle_2
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -129,8 +128,7 @@ _ts S_StartFixedBattle_2
     ldrb       r6,[r7,#0x18]
     bl         World_SetBattleParams
     pop        {r7}
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     ldr        r0,[r7,#0xc]
     str        r0,[r6,#0x38]
     ldr        r0,[r7,#0x10]

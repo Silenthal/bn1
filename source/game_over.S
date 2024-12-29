@@ -23,8 +23,7 @@ _ts GameOver_Main
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r7,r10
-    ldr        r7,[r7,#0x10]
+    LoadMain display, r7, r7
     ldrh       r0,[r7,#0x10]
     sub        r0,#0x1
     strh       r0,[r7,#0x10]
@@ -42,8 +41,7 @@ _ts GameOver_0_Init
     mov        r0,#0x6
     bl         Video_SetBgControl
     bl         GameOver_LoadGraphics
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,PTR_DAT_08020090
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -84,8 +82,7 @@ LAB_08020000:
 
 _ts GameOver_2_Free
     push       { lr }
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -93,12 +90,10 @@ _ts GameOver_2_Free
     push       { r5 }
     bl         Main_Init
     pop        { r5 }
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x0
     strb       r1,[r0,#0x0]
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
 LAB_0802002a:
@@ -126,15 +121,13 @@ _ts GameOver_LoadGraphics
     bl         memcpy_32
     bl         Video_ClearScreen
     ldr        r0,PTR_layoutGameOverText_080200c0
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,INT_080200c4
     add        r1,r1,r2
     mov        r2,#0x40
     bl         Dma_TransferListAdd
     ldr        r0,PTR_layoutGameOverBG_080200c8
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,DAT_080200cc
     add        r1,r1,r2
     ldr        r2,DAT_080200d0

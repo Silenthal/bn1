@@ -86,8 +86,7 @@ _ts ActorFacingPlayerAngle
     push       {r0}
     ldr        r0,[r5,#0x2c]
     ldr        r1,[r5,#0x28]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldr        r2,[r7,#0x28]
     ldr        r3,[r7,#0x24]
@@ -176,8 +175,7 @@ _nt IsCollision_Player
     asr        r0,r0,#0xc
     ldr        r1,[r5,#0x2c]
     asr        r1,r1,#0xc
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldr        r2,[r7,#0x24]
     asr        r2,r2,#0xc
@@ -342,8 +340,7 @@ LAB_08000ed8:
 
 _nt Field_SearchWithOwner
     push       {r5,lr}
-    mov        r4,r10
-    ldr        r4,[r4,#0xc]
+    LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
     eor        r3,r4
     add        r7,r0,#0x0
@@ -397,8 +394,7 @@ listStartX:
 
 _ts Field_SearchExcludeFirstCol
     push       {r5,lr}
-    mov        r4,r10
-    ldr        r4,[r4,#0xc]
+    LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
     eor        r3,r4
     add        r7,r0,#0x0
@@ -453,8 +449,7 @@ BYTE_ARRAY_ARRAY_08000fa4:
 _ts Field_GetFirstWalkableColumnFront
     push       {lr}
     lsl        r2,r0,#0x1
-    mov        r4,r10
-    ldr        r4,[r4,#0xc]
+    LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
     eor        r0,r4
     ldr        r7,PTR_listOffsetX_1004_08000ff8
@@ -507,8 +502,7 @@ listStartX_1006:
 
 _ts Field_GetFirstColumnFront
     push       {r5,lr}
-    mov        r3,r10
-    ldr        r3,[r3,#0xc]
+    LoadMain battle, r3, r3
     ldrb       r3,[r3,#0x1a]
     eor        r0,r3
     ldr        r7,PTR_listOffsetX_105C_08001054
@@ -805,8 +799,7 @@ PanelFlag_ARRAY_ARRAY_080010f4:
 _ts Field_GetAttackDirectionOffset_MP
     ldrb       r0,[r5,#0x16]
 _nt Field_GetAttackDirectionOffset
-    mov        r1,r10
-    ldr        r1,[r1,#0xc]
+    LoadMain battle, r1, r1
     ldrb       r1,[r1,#0x1a]
     eor        r0,r1
     lsl        r0,r0,#0x1
@@ -961,16 +954,14 @@ LAB_080013a4:
 
 _ts Field_FindFirstEdgeForward
     push       {lr}
-    mov        r4,r10
-    ldr        r4,[r4,#0xc]
+    LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
     eor        r0,r4
     mov        r4,#0x1
     mov        r7,#0x0
 LAB_080013b6:
     push       {r0,r1,r2,r3,r4,r7}
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     ldrb       r6,[r6,#0x1a]
     eor        r0,r6
     bl         Field_GetFirstInRowForward
@@ -995,8 +986,7 @@ LAB_080013da:
 
 _ts Field_GetFirstInRowForward
     push       {r5,lr}
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     ldrb       r6,[r6,#0x1a]
     eor        r0,r6
     lsl        r5,r0,#0x1
@@ -1338,8 +1328,7 @@ DAT_08001648:
 _nt Battle_SetBattleFlag
     mov        r1,#0x1
     lsl        r1,r0
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r0,[r7,#0x68]
     orr        r0,r1
     str        r0,[r7,#0x68]
@@ -1349,8 +1338,7 @@ _nt Battle_SetBattleFlag
 _nt Battle_GetBattleFlagCurrent
     mov        r1,#0x1
     lsl        r1,r0
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r0,[r7,#0x68]
     ldr        r2,[r7,#0x6c]
     orr        r0,r2
@@ -1359,8 +1347,7 @@ _nt Battle_GetBattleFlagCurrent
 
 
 _nt Battle_GetBattleFlagMulti
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r1,[r7,#0x68]
     ldr        r2,[r7,#0x6c]
     orr        r1,r2
@@ -1371,8 +1358,7 @@ _nt Battle_GetBattleFlagMulti
 _nt Battle_GetBattleFlag
     mov        r1,#0x1
     lsl        r1,r0
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r0,[r7,#0x6c]
     and        r0,r1
     mov        pc,lr
@@ -1476,8 +1462,7 @@ LAB_08001722:
     add        r7,#0x8
 LAB_0800172c:
     ldr        r1,[r7,#0x0]
-    mov        r2,r10
-    ldr        r2,[r2,#0xc]
+    LoadMain battle, r2, r2
     ldrb       r2,[r2,#0x1a]
     tst        r2,r2
     beq        LAB_0800173a
@@ -1541,8 +1526,7 @@ _nt Battle_GetBattleFlagBuffer
     add        r0,#0x1c
     mov        r1,#0x1
     lsl        r1,r0
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r0,[r7,#0x68]
     tst        r0,r1
     mov        pc,lr
@@ -1551,8 +1535,7 @@ _nt Battle_GetBattleFlagBuffer
 _nt Battle_GetPlayer
     lsl        r0,r0,#0x2
     add        r0,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r0]
     mov        pc,lr
 

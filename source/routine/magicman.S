@@ -151,8 +151,7 @@ _ts R_MagicMan_1_1_Wait
     ldrb       r0,[r5,#0xa]
     tst        r0,r0
     bne        LAB_0806a97e
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]

@@ -12,7 +12,7 @@ _ts GraphicDataSetup_Govt_HP
     push       {lr}
     mov        r7,r10
     ldr        r0,PTR_MapExitList_Govt_HP_0804f890
-    ldr        r1,[r7,#0x2c]
+    ldr        r1,[r7,#Main_mapChange]
     ldr        r2,[r7,#0x8]
     ldrb       r3,[r2,#0x5]
     lsl        r3,r3,#0x2
@@ -37,8 +37,7 @@ _ts GraphicDataSetup_Govt_HP
     push       {r5}
     bl         Camera_Init
     bl         BGDM_Load
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x5]
     cmp        r7,#0x0
     bne        LAB_0804f852
@@ -57,8 +56,7 @@ LAB_0804f85c:
     push       {r5}
     ldr        r0,PTR_gDstCompressedSpriteData_0804f8ac
     bl         SpriteLz_Init
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
     ldr        r0,PTR_PTR_SpriteList_Govt_Yuichiro_PC_0804f8b0

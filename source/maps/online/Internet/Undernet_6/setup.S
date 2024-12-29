@@ -48,8 +48,7 @@ _ts MapSetup_Undernet_6
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x1]
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -61,14 +60,12 @@ _ts MapSetup_Undernet_6
 LAB_080532ca:
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0xd]
     b          LAB_080532ea
 LAB_080532d8:
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0xd]
     tst        r0,r0
     bne        LAB_080532e6
@@ -154,8 +151,7 @@ _ts EventHandler_Undernet_6_0
     bl         Flag_GetBase
     bne        LAB_080533ac
 LAB_0805337e:
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0xd]
     tst        r0,r0
     beq        LAB_0805338c
@@ -262,8 +258,7 @@ LAB_08053456:
 
 _nt EventHandler_Undernet_SkillGatePass
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r2,[r7,#0xe]
     cmp        r2,r0
     bne        LAB_08053474
@@ -277,8 +272,7 @@ LAB_08053474:
 
 _nt EventHandler_Undernet_SkillGateFail
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r2,[r7,#0xe]
     cmp        r2,r0
     bne        LAB_0805348c

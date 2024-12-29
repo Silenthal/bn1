@@ -111,8 +111,7 @@ _ts EventHandler_School_Cross_Hallway_F10_1
     pop        {pc}
 LAB_08027e00:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -185,8 +184,7 @@ PTR_EventHandler_School_Cross_Hallway_F15_0_08027e7c:
 _ts EventHandler_School_Cross_Hallway_F15_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

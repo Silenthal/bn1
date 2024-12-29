@@ -28,8 +28,7 @@ _ts EventHandler_ACDC_Mayl_PC_S0
 
 _nt FUN_0804f12e
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -50,8 +49,7 @@ LAB_0804f146:
     ldr        r0,PTR_EntityAllocParams_804F67C_0804f228
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -67,8 +65,7 @@ LAB_0804f176:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804f182:
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x30
     bne        LAB_0804f1a0

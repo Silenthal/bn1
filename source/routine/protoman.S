@@ -134,8 +134,7 @@ _ts R_ProtoMan_1_1_Wait
     bne        LAB_0806477e
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -239,8 +238,7 @@ LAB_08064810:
 
 _nt R_ProtoMan_1_3_Flinch
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     lsr        r0,r0,#0x1
     bcs        LAB_08064822
@@ -425,8 +423,7 @@ _ts R_ProtoMan_1_6_0_ChooseMovePanel
     mov        r7,sp
     mov        r0,#0x0
     strb       r0,[r5,#0x5]
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     ldr        r6,[r6,#0x40]
     ldrb       r4,[r6,#0x19]
     ldrb       r0,[r5,#0x16]
@@ -609,8 +606,7 @@ _nt R_ProtoMan_1_6_6_RepeatOrNext
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_08064acc
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x19]
     ldrb       r1,[r5,#0x19]
@@ -710,8 +706,7 @@ LAB_08064b58:
     mov        r1,#0x10
     lsl        r1,r1,#0x10
     bl         FieldObject_SetPanelFlag
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x18]
     add        r0,#0x1

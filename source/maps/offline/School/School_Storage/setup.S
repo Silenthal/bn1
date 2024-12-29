@@ -305,8 +305,7 @@ _ts MapSetup_School_Storage_F30
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x6]
     cmp        r7,#0x53
     blt        LAB_080282ae

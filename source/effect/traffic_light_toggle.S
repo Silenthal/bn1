@@ -21,8 +21,7 @@ PTR_E_TrafficLightToggle_0_Init_0807efe4:
 
 _ts E_TrafficLightToggle_0_Init
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x24]
+    LoadMain mapEventState, r7, r7
     ldrb       r0,[r7,#0x8]
     ldrb       r1,[r5,#0x5]
     cmp        r1,#0x0
@@ -86,8 +85,7 @@ _ts E_TrafficLightToggle_1_Main
     beq        LAB_0807f094
     b          LAB_0807f09e
 LAB_0807f072:
-    mov        r7,r10
-    ldr        r7,[r7,#0x24]
+    LoadMain mapEventState, r7, r7
     ldrb       r0,[r7,#0x8]
     ldrb       r1,[r5,#0x5]
     cmp        r1,#0x0

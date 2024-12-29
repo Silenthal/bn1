@@ -157,8 +157,7 @@ LAB_080036d8:
     ldrb       r0,[r5,#0x0]
     tst        r0,r1
     beq        LAB_0800370e
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x9]
     tst        r1,r1
     beq        LAB_080036f0
@@ -166,8 +165,7 @@ LAB_080036d8:
     tst        r0,r1
     beq        LAB_0800370e
 LAB_080036f0:
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     ldrb       r1,[r7,#0x7]
     tst        r1,r1
     beq        LAB_08003700
@@ -183,13 +181,11 @@ LAB_08003700:
     mov        lr,pc
     bx         r0
 LAB_0800370e:
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r1,[r7,#0x18]
     tst        r1,r1
     bne        LAB_0800372c
-    mov        r6,r10
-    ldr        r6,[r6,#0x54]
+    LoadMain screenDim, r6, r6
     ldrb       r1,[r6,#0x7]
     tst        r1,r1
     beq        LAB_0800372c
@@ -207,8 +203,7 @@ LAB_0800372c:
     beq        LAB_0800373a
     b          LAB_080036d8
 LAB_0800373a:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#0x70]
     pop        { pc }

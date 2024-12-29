@@ -45,8 +45,7 @@ _ts SD_ElecManEscape_1
 
 _ts SD_ElecManEscape_2
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     cmp        r0,#0x1
     beq        LAB_08099886

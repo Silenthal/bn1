@@ -51,8 +51,7 @@ LAB_08068b00:
     ldrb       r3,[r5,#0x16]
     lsl        r3,r3,#0x2
     add        r3,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r3]
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x2
@@ -225,8 +224,7 @@ _nt R_DeathStorm_2_Free
     ldrb       r3,[r5,#0x16]
     lsl        r3,r3,#0x2
     add        r3,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r3]
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x2
@@ -242,8 +240,7 @@ _nt R_DeathStorm_RandomTornadoes
     ldrb       r2,[r5,#0x18]
     add        r3,r2,#0x1
     ldrb       r1,[r5,#0x16]
-    mov        r4,r10
-    ldr        r4,[r4,#0xc]
+    LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
     eor        r1,r4
     tst        r1,r1

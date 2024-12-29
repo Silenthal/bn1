@@ -1579,8 +1579,7 @@ NPCParamList_803B6B4:
 _ts Traffic_Init
     push       {r5,lr}
     ldr        r5,PTR_DAT_0803b900
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -1632,8 +1631,7 @@ LAB_0803b756:
     pop        {r5}
 LAB_0803b766:
     push       {r5}
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldrb       r1,[r1,#0x5]
     lsl        r1,r1,#0x2
     ldr        r0,PTR_PTR_EntityAllocParams_8039694_0803b908
@@ -1776,8 +1774,7 @@ LAB_0803b85c:
     mov        r2,#0x1
     strb       r2,[r1,r0]
     lsl        r0,r0,#0x4
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldrb       r1,[r1,#0x5]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_PTR_NPCParamList_803B5B4_0803b914
@@ -1845,8 +1842,7 @@ _ts Traffic_ResetToRedLight
     strb       r0,[r5,#0xa]
     strb       r0,[r5,#0xb]
     push       {r5}
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldrb       r1,[r1,#0x5]
     lsl        r1,r1,#0x2
     ldr        r0,PTR_PTR_EntityAllocParams_8039694_0803b920

@@ -68,8 +68,7 @@ LAB_08091da8:
 
 
 _nt S_Story_ElecMan_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -112,8 +111,7 @@ LAB_08091dfc:
 
 
 _nt S_Story_ElecMan_4
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -137,8 +135,7 @@ _ts S_Story_ElecMan_5
     pop        {r5}
     mov        r0,#0xc2
     bl         Flag_SetBase
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0xa
     strb       r0,[r7,#0x5]
     push       {r5}

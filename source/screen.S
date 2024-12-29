@@ -12,8 +12,7 @@
 @@ r2: screen: The screen to draw to.
 @@ r3: entry: The tilemap entry.
 _ts Screen_CopyTileMapEntry
-    mov        r4,r10
-    ldr        r4,[r4,#0x5c]
+    LoadMain screens, r4, r4
     lsl        r2,r2,#0xb
     add        r4,r4,r2
     lsl        r0,r0,#0x1
@@ -32,8 +31,7 @@ _ts Screen_CopyTileMapEntry
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
 _ts Screen_CopyTileMapH
-    mov        r6,r10
-    ldr        r6,[r6,#0x5c]
+    LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
     add        r6,r6,r2
     lsl        r0,r0,#0x1
@@ -59,8 +57,7 @@ LAB_080021d0:
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
 _ts Screen_CopyTileMapV
-    mov        r6,r10
-    ldr        r6,[r6,#0x5c]
+    LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
     add        r6,r6,r2
     lsl        r0,r0,#0x1
@@ -87,8 +84,7 @@ LAB_080021f0:
 @@ r4: width: The width of the rectangle.
 @@ r5: height: The height of the rectangle.
 _ts Screen_CopyTileMapRect
-    mov        r6,r10
-    ldr        r6,[r6,#0x5c]
+    LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
     add        r6,r6,r2
     lsl        r0,r0,#0x1
@@ -124,8 +120,7 @@ LAB_08002214:
 @@ r4: height: The height of the rectangle.
 @@ r5: entry: The tilemap entry.
 _ts Screen_SetTileMapRect
-    mov        r6,r10
-    ldr        r6,[r6,#0x5c]
+    LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
     add        r6,r6,r2
     lsl        r0,r0,#0x1
@@ -158,8 +153,7 @@ LAB_08002244:
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
 _ts Screen_CopyTileMapHWrap
-    mov        r6,r10
-    ldr        r6,[r6,#0x5c]
+    LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
     add        r6,r6,r2
     lsl        r1,r1,#0x6
@@ -187,8 +181,7 @@ LAB_08002268:
 @@ r3: entryList: The list of tilemap entries.
 @@ r4: entryListSz: The size of the tilemap entry list.
 _ts Screen_CopyTileMapVWrap
-    mov        r6,r10
-    ldr        r6,[r6,#0x5c]
+    LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
     add        r6,r6,r2
     lsl        r0,r0,#0x1

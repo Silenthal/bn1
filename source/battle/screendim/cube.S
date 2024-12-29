@@ -112,8 +112,7 @@ LAB_08098f0e:
 
 _ts SD_Cube_3_Free
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -196,8 +195,7 @@ DAT_08098fa0:
 
 _ts SD_Cube_1_0_IceCube
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     lsl        r0,r0,#0x2
     add        r0,#0x40

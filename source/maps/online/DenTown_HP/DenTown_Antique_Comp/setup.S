@@ -28,8 +28,7 @@ _ts EventHandler_DenTown_Antique_Comp_S0
 
 _nt FUN_0804fede
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -50,8 +49,7 @@ LAB_0804fef6:
     ldr        r7,PTR_NPCList_804FFCC_0804ffb8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2

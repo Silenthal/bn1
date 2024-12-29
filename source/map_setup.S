@@ -163,8 +163,7 @@ MapDialogue_Online:
 
 _ts FlagSetup_Main
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x24]
+    LoadMain mapEventState, r5, r7
     ldr        r3,[r7,#0x8]
     cmp        r0,#0x80
     bge        LAB_08018564
@@ -191,8 +190,7 @@ LAB_08018568:
 
 _ts MapSetup_Main
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x24]
+    LoadMain mapEventState, r5, r7
     ldr        r3,[r7,#0x8]
     cmp        r0,#0x80
     bge        LAB_08018590
@@ -225,8 +223,7 @@ _ts EventHandler_Main
     bl         Scene_IsSceneActive
     pop        {r0,r1}
     bne        LAB_080185ee
-    mov        r7,r10
-    ldr        r5,[r7,#0x24]
+    LoadMain mapEventState, r5, r7
     ldr        r3,[r7,#0x8]
     cmp        r0,#0x80
     bge        LAB_080185ca
@@ -255,8 +252,7 @@ LAB_080185ce:
 LAB_080185ee:
     bl         Scene_IsSceneActive
     beq        LAB_080185fc
-    mov        r5,r10
-    ldr        r5,[r5,#0x28]
+    LoadMain scene, r5, r5
     mov        lr,pc
     bx         r0
 LAB_080185fc:
@@ -289,8 +285,7 @@ _ts EventHandler_Default
 
 _ts CheckForJackOut
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r2,[r7,#0x4]
+    LoadMain input, r2, r7
     ldrh       r2,[r2,#0x2]
     ldr        r3,DAT_080187dc
     tst        r3,r2
@@ -325,8 +320,7 @@ LAB_08018668:
 
 _ts CheckForJackIn
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r2,[r7,#0x4]
+    LoadMain input, r2, r7
     ldrh       r2,[r2,#0x2]
     ldr        r3,DAT_080187dc
     tst        r3,r2
@@ -348,8 +342,7 @@ _ts CheckForJackIn
     pop        {r0,r1}
     bne        LAB_080186c4
     push       {r0,r1,r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r0,[r7,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -370,13 +363,11 @@ LAB_080186c4:
 
 _ts CheckJackInRejectNoise
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x4]
     cmp        r7,#0x80
     bge        LAB_08018718
-    mov        r7,r10
-    ldr        r2,[r7,#0x4]
+    LoadMain input, r2, r7
     ldrh       r2,[r2,#0x2]
     ldr        r3,DAT_080187dc
     tst        r3,r2
@@ -411,8 +402,7 @@ LAB_08018718:
 
 _ts GetCollisionEventAttribute
     push       {r5,lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -422,8 +412,7 @@ _ts GetCollisionEventAttribute
 
 _ts MapDialogue_Main
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r6,[r7,#0x18]
+    LoadMain fade, r6, r7
     ldrb       r6,[r6,#0x3]
     mov        r1,#0x1
     cmp        r6,r1
@@ -435,8 +424,7 @@ _ts MapDialogue_Main
     bne        LAB_0801879a
     bl         Scene_IsSceneActive
     bne        LAB_0801879a
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r2,[r7,#0xe]
     tst        r2,r2
     beq        LAB_0801879a
@@ -448,8 +436,7 @@ _ts MapDialogue_Main
     add        r0,r1,r2
     bl         Flag_GetIgnore
     bne        LAB_0801879a
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r6,[r7,#0x4]
     ldrb       r7,[r7,#0x5]
     cmp        r6,#0x80
@@ -478,8 +465,7 @@ LAB_0801879a:
 
 _ts dummy_187a0
     push       {r0,r1,r2,lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x1a]
     ldrb       r2,[r0,#0x1b]
     add        r1,r1,r2

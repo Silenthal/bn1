@@ -66,7 +66,7 @@
     \label:
     .endm
 
-    .macro LoadStateTo reg, stateOff, regTemp=r7
+    .macro LoadMain stateOff, reg, regTemp=r7
     mov \regTemp,r10
     ldr \reg,[\regTemp,#\stateOff]
     .endm

@@ -44,8 +44,7 @@ LAB_0806eb6c:
     ldrb       r3,[r5,#0x16]
     lsl        r3,r3,#0x2
     add        r3,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r3]
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x2
@@ -390,8 +389,7 @@ DAT_0806edc8:
 _ts R_HeavyStamp_2_Free
     push       {lr}
     bl         R_Actor_ClearCurrentAttack
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x3]
     bl         Actor_Free
@@ -403,8 +401,7 @@ _ts R_HeavyStamp_ChooseTarget
     ldrb       r0,[r5,#0x16]
     tst        r0,r0
     beq        LAB_0806ee0e
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     tst        r7,r7
     bne        LAB_0806ee32
@@ -424,8 +421,7 @@ LAB_0806ee08:
     orr        r4,r0
     b          LAB_0806ee34
 LAB_0806ee0e:
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     add        r6,#0x54
     mov        r7,#0x0
     mov        r0,#0x0

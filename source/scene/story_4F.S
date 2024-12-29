@@ -39,8 +39,7 @@ _ts S_Story_4F_0
 
 
 _ts S_Story_4F_1
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -82,8 +81,7 @@ LAB_0808f2ac:
 
 
 _nt S_Story_4F_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -190,8 +188,7 @@ LAB_0808f376:
 
 
 _ts S_Story_4F_7
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -206,8 +203,7 @@ _ts S_Story_4F_7
     bl         Text_DisableDialogue
     pop        {r5}
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0x0
     strb       r0,[r7,#0x10]
@@ -238,8 +234,7 @@ LAB_0808f3d8:
 
 
 _nt S_Story_4F_8
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

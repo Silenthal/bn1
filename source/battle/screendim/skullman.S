@@ -104,8 +104,7 @@ _ts SD_SkullMan_1_1
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_0809a238
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     lsl        r0,r0,#0x2
     add        r0,#0x40
@@ -165,8 +164,7 @@ _ts SD_SkullMan_2
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
 LAB_0809a274:
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     cmp        r0,#0x1
     beq        LAB_0809a28a

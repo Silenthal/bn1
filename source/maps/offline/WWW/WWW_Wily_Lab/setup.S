@@ -60,8 +60,7 @@ _ts MapSetup_WWW_Wily_Lab_F30
     mov        r0,#0x90
     bl         Flag_GetBase
     bne        LAB_0803dd6c
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -98,8 +97,7 @@ _ts EventHandler_WWW_Wily_Lab_F30_0
 
 _ts MapSetup_WWW_Wily_Lab_F37
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -238,8 +236,7 @@ _ts MapSetup_WWW_Wily_Lab_F50
     mov        r0,#0x92
     bl         Flag_GetBase
     bne        LAB_0803deac
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -286,8 +283,7 @@ _ts MapSetup_WWW_Wily_Lab_F53
     mov        r0,#0xa1
     bl         Flag_GetBase
     bne        LAB_0803defc
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -343,8 +339,7 @@ LAB_0803df3e:
     mov        r0,#0xe5
     bl         Flag_GetBase
     bne        LAB_0803df68
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
@@ -426,8 +421,7 @@ _ts EventHandler_WWW_Wily_Lab_F54_0
     mov        r0,#0xe1
     bl         Flag_GetBase
     bne        LAB_0803e00c
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x2
     bne        LAB_0803e00c
@@ -449,8 +443,7 @@ LAB_0803e01a:
 _ts EventHandler_WWW_Wily_Lab_F54_1
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -495,15 +488,13 @@ _nt FUN_0803e06a
     pop        {pc}
 LAB_0803e07a:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     mov        r1,#0xc
     strh       r1,[r0,#0x2e]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r1,#0x0
     strh       r1,[r7,#0x2e]
@@ -518,8 +509,7 @@ LAB_0803e0a0:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0803e0cc
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0803e114
     and        r1,r0

@@ -53,8 +53,7 @@ _ts E_FireColumn_1_Main
     pop        {r5}
     tst        r0,r0
     beq        LAB_0807c038
-    mov        r0,r10
-    ldr        r0,[r0,#0x24]
+    LoadMain mapEventState, r0, r0
     ldrb       r0,[r0,#0x8]
     ldrb       r1,[r5,#0x4]
     cmp        r0,r1

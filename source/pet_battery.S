@@ -57,8 +57,7 @@ _ts PETBattery_1_RechargeMode
 
 _ts PETBattery_DrawGauge
     push       {lr}
-    mov        r6,r10
-    ldr        r6,[r6,#0x78]
+    LoadMain gameStats, r6, r6
     ldrb       r6,[r6,#0x5]
     mov        r0,#0x0
     mov        r7,#0x0
@@ -97,8 +96,7 @@ LAB_0801fc3c:
 
 _ts PETBattery_FlashIfMoving
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x78]
+    LoadMain gameStats, r0, r7
     ldrh       r1,[r0,#0x10]
     ldrb       r0,[r0,#0x5]
     ldr        r6,[r7,#0x8]
@@ -274,8 +272,7 @@ listRechargeTarget:
 
 _ts PETBattery_ManualRecharge
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0x5]
     cmp        r0,#0xa
     bge        LAB_0801fe32
@@ -286,8 +283,7 @@ _ts PETBattery_ManualRecharge
     sub        r0,#0x1
     ble        LAB_0801fe2e
     strh       r0,[r5,#0x4]
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r7,[r7,#0x2]
     mov        r2,#0x2
     and        r2,r7
@@ -310,8 +306,7 @@ _ts PETBattery_ManualRecharge
     mov        r0,#0xc6
     bl         Sound_PlaySongImmediate
     pop        {r0}
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0x5]
     add        r0,#0x1
     strb       r0,[r7,#0x5]
@@ -333,8 +328,7 @@ LAB_0801fe32:
 
 _ts PETBattery_IsBatteryActive
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0x5]
     ldrh       r1,[r7,#0x10]
     cmp        r0,#0x0
@@ -358,8 +352,7 @@ LAB_0801fe58:
 
 
 _ts PETBattery_ResetStepCounter
-    mov        r7,r10
-    ldr        r6,[r7,#0x8]
+    LoadMain world, r6, r7
     ldrb       r0,[r6,#0x4]
     ldrb       r1,[r6,#0xc]
     cmp        r0,r1
@@ -372,8 +365,7 @@ LAB_0801fe76:
 
 
 _ts PETBattery_RestoreBattery
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0xa
     strb       r0,[r7,#0x5]
     mov        pc,lr
@@ -382,8 +374,7 @@ _ts PETBattery_RestoreBattery
 _ts PETBattery_DrawUi
     push       {lr}
     ldr        r5,PTR_gPETBattery_0801ff58
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x0]
     cmp        r7,#0x18
     beq        LAB_0801feb8

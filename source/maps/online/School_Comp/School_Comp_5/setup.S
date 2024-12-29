@@ -161,8 +161,7 @@ _ts EventHandler_School_Comp_5_F15_0
     bl         Flag_GetBase
     pop        {r5}
     bne        LAB_080419b2
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080419c2
@@ -330,8 +329,7 @@ _ts MapSetup_School_Comp_5_F20
     pop        {r5}
     mov        r0,#0x0
     bl         Flag_SetIgnore
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2

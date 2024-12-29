@@ -61,8 +61,7 @@ _ts Menu_Email_0_Init
     push       {r5}
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapMenuEmail_0801c594
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,DAT_0801c598
     add        r1,r1,r2
     mov        r2,#0xc0
@@ -74,8 +73,7 @@ _ts Menu_Email_0_Init
     mov        r4,#0x17
     mov        r5,#0x8
     bl         Screen_CopyTileMapRect
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801c5a0
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -146,8 +144,7 @@ LAB_0801c264:
 
 _ts Menu_Email_1_Main
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -162,8 +159,7 @@ LAB_0801c28a:
 _ts Menu_Email_2_Free
     push       {lr}
     bl         Menu_Email_PrintUi
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -234,8 +230,7 @@ LAB_0801c31c:
     strb       r0,[r5,#0x13]
     b          LAB_0801c3fa
 LAB_0801c328:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x2
     tst        r1,r0
@@ -426,8 +421,7 @@ LAB_0801c454:
     ldrb       r0,[r5,#0x10]
     cmp        r0,#0x4
     ble        LAB_0801c4de
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r7,[r7,#0x0]
     mov        r1,#0x10
     and        r1,r7
@@ -467,8 +461,7 @@ LAB_0801c4de:
 
 _ts Menu_Email_PrintNewTag
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r7,[r7,#0x0]
     mov        r1,#0x20
     and        r7,r1

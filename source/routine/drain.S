@@ -52,8 +52,7 @@ LAB_080692a0:
     ldrb       r3,[r5,#0x16]
     lsl        r3,r3,#0x2
     add        r3,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r3]
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x2
@@ -193,8 +192,7 @@ LAB_0806938a:
     bl         Field_CreateSharpStrikeAttack
     push       {r5}
     ldrh       r0,[r5,#0x24]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
     add        r1,#0x40
@@ -263,8 +261,7 @@ _ts R_Drain_1_3
     bl         Field_CreateSharpStrikeAttack
     push       {r5}
     ldrh       r0,[r5,#0x24]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
     add        r1,#0x40
@@ -318,8 +315,7 @@ _nt R_Drain_2_Free
     ldrb       r3,[r5,#0x16]
     lsl        r3,r3,#0x2
     add        r3,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r3]
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x2

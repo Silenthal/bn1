@@ -47,8 +47,7 @@ _ts SceneCamera_0_SetPosition
     lsl        r3,r3,#0x10
     ldrh       r4,[r1,#0x6]
     lsl        r4,r4,#0x10
-    mov        r6,r10
-    ldr        r6,[r6,#0x14]
+    LoadMain camera, r6, r6
     str        r2,[r6,#0x2c]
     str        r3,[r6,#0x30]
     str        r4,[r6,#0x34]
@@ -66,8 +65,7 @@ _ts SceneCamera_1_MoveCamera
     ldrh       r2,[r1,#0x8]
     strh       r2,[r5,#0x4]
 LAB_080188c2:
-    mov        r6,r10
-    ldr        r6,[r6,#0x14]
+    LoadMain camera, r6, r6
     mov        r3,#0x2
     ldrsh      r2,[r1,r3]
     lsl        r2,r2,#0x8

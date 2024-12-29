@@ -44,8 +44,7 @@ _ts S_Story_3B_0
 
 
 _ts S_Story_3B_1
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -90,8 +89,7 @@ LAB_0808d03c:
 
 
 _nt S_Story_3B_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -177,8 +175,7 @@ LAB_0808d0de:
 
 
 _ts S_Story_3B_6
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -190,8 +187,7 @@ _ts S_Story_3B_6
     pop        {r5}
     push       {r5}
     mov        r0,#0x1
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldr        r1,[r1,#0x28]
     add        r1,#0x24
     bl         Camera_SetEnabled
@@ -204,8 +200,7 @@ LAB_0808d112:
 
 
 _ts S_Story_3B_7
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -218,13 +213,11 @@ _ts S_Story_3B_7
     mov        r0,#0xa1
     bl         Flag_SetBase
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x33
     strb       r1,[r0,#0x6]
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1

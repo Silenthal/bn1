@@ -185,13 +185,11 @@ _ts EventHandler_SciLab_Power_Plant_Hallway_S4_HandleExits
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0803c6f8
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803c6ba
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x43
     bhi        LAB_0803c6ac
@@ -211,8 +209,7 @@ LAB_0803c6ac:
 LAB_0803c6ba:
     cmp        r0,#0xf0
     bne        LAB_0803c6d6
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x41
     bne        LAB_0803c6d6
@@ -224,8 +221,7 @@ LAB_0803c6ba:
     pop        {pc}
 LAB_0803c6d6:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -366,8 +362,7 @@ _ts EventHandler_SciLab_Power_Plant_Hallway_S5_HandleExits
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0803c80e
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803c7ee
@@ -379,8 +374,7 @@ _ts EventHandler_SciLab_Power_Plant_Hallway_S5_HandleExits
     pop        {pc}
 LAB_0803c7ee:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

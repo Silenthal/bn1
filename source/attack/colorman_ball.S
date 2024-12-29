@@ -296,8 +296,7 @@ LAB_080751e6:
 
 _nt A_ColorManBall_GetNextPos
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r2,[r7,#0x18]
     ldrb       r3,[r7,#0x19]

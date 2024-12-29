@@ -46,8 +46,7 @@ _ts S_Story_1E_1
     bl         PlayerAnimation_GetState
     cmp        r0,#0x2
     bne        LAB_080882e6
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -58,8 +57,7 @@ _ts S_Story_1E_1
     mov        r2,#0x1
     bl         Inventory_SubtractChip
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x10]
     cmp        r7,#0x0
     beq        LAB_080882bc

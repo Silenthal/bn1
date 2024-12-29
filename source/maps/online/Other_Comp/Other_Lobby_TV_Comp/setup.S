@@ -39,8 +39,7 @@ _ts FUN_08050918
     ldr        r7,PTR_NPCList_8050FF8_08050974
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2

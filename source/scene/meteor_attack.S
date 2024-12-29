@@ -46,8 +46,7 @@ _ts S_MeteorAttack_1
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_080843f2
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     push       {r5}
     mov        r0,#0x2e
     bl         PlayerAnimation_SetState
@@ -98,8 +97,7 @@ _ts S_MeteorAttack_2
     mov        r0,#0x29
     bl         PlayerAnimation_SetState
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     push       {r0,r5}
     ldr        r0,[r0,#0x24]
@@ -165,8 +163,7 @@ _ts S_MeteorAttack_4
     push       {lr}
     bl         S_MeteorAttack_Meteors
     bl         S_MeteorAttack_AnimatePlayer
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -209,8 +206,7 @@ _ts S_MeteorAttack_Meteors
     add        r4,r0,#0x0
     cmp        r0,#0x9
     bne        LAB_08084510
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     ldrh       r1,[r0,#0x26]
     add        r1,#0x10
@@ -336,8 +332,7 @@ _ts S_MeteorAttack_AnimatePlayer
     pop        {r5}
 LAB_080845ea:
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r5,[r0,#0x28]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}

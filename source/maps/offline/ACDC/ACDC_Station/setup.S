@@ -102,8 +102,7 @@ _ts EventHandler_ACDC_Station_F20_0
     mov        r0,#0x97
     bl         Flag_GetBase
     beq        LAB_0802f24e
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x21
     strb       r1,[r0,#0x6]
 LAB_0802f24e:
@@ -194,8 +193,7 @@ PTR_EventHandler_ACDC_Station_F22_0_0802f2d8:
 _ts EventHandler_ACDC_Station_F22_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -211,8 +209,7 @@ _ts EventHandler_ACDC_Station_F22_0
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f306:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0xf2
     bne        LAB_0802f31c
@@ -273,8 +270,7 @@ _ts EventHandler_ACDC_Station_F24_0
     pop        {pc}
 LAB_0802f378:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -290,8 +286,7 @@ LAB_0802f378:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f3a0:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0xf2
     bne        LAB_0802f3b6
@@ -332,8 +327,7 @@ LAB_0802f3ee:
     mov        r0,#0xab
     bl         Flag_GetBase
     beq        LAB_0802f3d6
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -378,8 +372,7 @@ _ts EventHandler_ACDC_Station_F26_0
     pop        {pc}
 LAB_0802f44c:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -395,8 +388,7 @@ LAB_0802f44c:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f474:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0xf2
     bne        LAB_0802f48a
@@ -560,8 +552,7 @@ _ts EventHandler_ACDC_Station_F30_0
     pop        {pc}
 LAB_0802f5cc:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -589,8 +580,7 @@ LAB_0802f600:
 
 _nt FUN_0802f602
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0xf2
     bne        LAB_0802f61a
@@ -699,8 +689,7 @@ PTR_EventHandler_ACDC_Station_F40_0_0802f6dc:
 _ts EventHandler_ACDC_Station_F40_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -723,8 +712,7 @@ LAB_0802f70e:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f716:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0xf2
     bne        LAB_0802f72c
@@ -830,8 +818,7 @@ PTR_EventHandler_ACDC_Station_F50_0_0802f7e4:
 _ts EventHandler_ACDC_Station_F50_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -854,8 +841,7 @@ LAB_0802f816:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802f81e:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0xf2
     bne        LAB_0802f834

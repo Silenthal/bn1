@@ -66,8 +66,7 @@ LAB_08090522:
 
 
 _ts S_Story_57_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -135,8 +134,7 @@ LAB_0809059c:
 
 
 _nt S_Story_57_6
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -165,8 +163,7 @@ LAB_080905d6:
 
 
 _ts S_Story_57_7
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -224,8 +221,7 @@ _ts S_Story_57_9
     pop        {r5}
     tst        r0,r0
     beq        LAB_08090698
-    mov        r7,r10
-    ldr        r1,[r7,#0x78]
+    LoadMain gameStats, r1, r7
     ldrb       r0,[r1,#0x5]
     tst        r0,r0
     bne        LAB_0809066c
@@ -284,8 +280,7 @@ LAB_080906b6:
 
 
 _nt S_Story_57_10
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -293,8 +288,7 @@ _nt S_Story_57_10
     mov        r0,#0xb8
     bl         Flag_SetBase
     bl         PlayerAnimation_Unlock
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]
     ldr        r0,[r7,#0x2c]

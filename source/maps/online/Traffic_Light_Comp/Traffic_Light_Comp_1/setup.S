@@ -65,8 +65,7 @@ _ts MapSetup_Traffic_Light_Comp_1_F31
     ldr        r7,PTR_NPCList_80490DC_0804819c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -106,8 +105,7 @@ _ts EventHandler_Traffic_Light_Comp_1_F31_0
     mov        r0,#0xa7
     bl         Flag_GetBase
     beq        LAB_080480f8
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x32
     strb       r1,[r0,#0x6]
     push       {r5}
@@ -117,8 +115,7 @@ _ts EventHandler_Traffic_Light_Comp_1_F31_0
     pop        {r5}
     pop        {pc}
 LAB_080480f8:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0804810e
@@ -146,8 +143,7 @@ _nt MapSetup_Traffic_Light_Comp_1_F32
     ldr        r7,PTR_NPCList_8049160_080481b4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -186,8 +182,7 @@ PTR_EventHandler_Traffic_Light_Comp_1_F32_0_0804816c:
 
 _ts EventHandler_Traffic_Light_Comp_1_F32_0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08048188
@@ -303,8 +298,7 @@ _ts MapSetup_Traffic_Light_Comp_1_F40
     ldr        r7,PTR_NPCList_8049170_080482bc
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -341,8 +335,7 @@ PTR_EventHandler_Traffic_Light_Comp_1_F40_0_0804828c:
 
 _ts EventHandler_Traffic_Light_Comp_1_F40_0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080482a8

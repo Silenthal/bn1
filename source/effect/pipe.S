@@ -39,8 +39,7 @@ _ts E_Pipe_0_Init
     bl         Map_HandleCollisionCover
     pop        {r5}
     bl         SpritePtr_SetPriority
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x6]
     lsr        r7,r7,#0x4
     cmp        r7,#0x2

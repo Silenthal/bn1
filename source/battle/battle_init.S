@@ -112,8 +112,7 @@ listBattlePanelTiles:
 
 _ts Battle_InitPlayer
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     bge        LAB_0800506e
@@ -314,8 +313,7 @@ AttackParams_11:
 
 _ts Battle_Init
     push       {r5,lr}
-    mov        r5,r10
-    ldr        r5,[r5,#0xc]
+    LoadMain battle, r5, r5
     add        r0,r5,#0x0
     mov        r1,#0x84
     bl         memset0_32
@@ -324,8 +322,7 @@ _ts Battle_Init
     mov        r1,#0x6
     mov        r2,#0xff
     bl         memset
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     ldrb       r0,[r6,#0xb]
     strb       r0,[r5,#0xf]
     mov        r0,#0x1
@@ -337,8 +334,7 @@ _ts Battle_Init
     sub        r0,#0x1
     str        r0,[r5,#0x64]
     bl         Sio_SetReady
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     mov        r1,#0xc
     bl         SWI_Div
@@ -347,8 +343,7 @@ _ts Battle_Init
     strb       r0,[r5,#0x9]
     mov        r0,#0x20
     strb       r0,[r5,#0x12]
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     mov        r0,#0x0
     strh       r0,[r7,#0x1e]
     strh       r0,[r7,#0x20]
@@ -367,8 +362,7 @@ _ts Battle_Init
     ldr        r7,=gIsObjectXFlipped
     strb       r0,[r7,#0x0]
     bl         BattleSpriteQueue_Clear
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0x7]
     bl         FieldObject_Init
@@ -394,8 +388,7 @@ LAB_08005298:
     ldrb       r0,[r6,#0x0]
     cmp        r0,#0xff
     beq        LAB_08005306
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r1,#0x64
     add        r1,r1,r3
     strb       r0,[r7,r1]
@@ -429,8 +422,7 @@ LAB_08005298:
     strb       r1,[r5,#0x19]
     mov        r0,#0x1
     strb       r0,[r5,#0x16]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     lsl        r0,r3,#0x2
     mov        r1,#0x54
     add        r0,r0,r1
@@ -451,8 +443,7 @@ LAB_08005306:
 _nt Battle_SetupBackground
     push       {lr}
     ldr        r7,PTR_PTR_BgAnimate_NumberMan_08005364
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     ldrb       r0,[r6,#0xb]
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
@@ -513,8 +504,7 @@ _nt BgAnimate_FireMan
 
 _nt BgAnimate_IceMan
     push       {lr}
-    mov        r7,r10
-    ldr        r6,[r7,#0x8]
+    LoadMain world, r6, r7
     ldrb       r7,[r6,#0x6]
     cmp        r7,#0x30
     bge        LAB_080053a2
@@ -714,8 +704,7 @@ _nt Battle_AddPlayerEntity
     str        r1,[r5,#0x2c]
     mov        r2,#0x0
     str        r2,[r5,#0x30]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r0,#0x40
     ldrb       r2,[r5,#0x16]
     tst        r2,r2
@@ -730,8 +719,7 @@ LAB_08005502:
 
 _ts Battle_InitEnemyList
     push       { lr }
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     ldr        r0,[r6,#0x2c]
     mov        r1,#0x0
     str        r1,[r6,#0x2c]
@@ -784,14 +772,12 @@ LAB_08005562:
     ldrb       r1,[r7,#0x1]
     tst        r1,r1
     beq        LAB_0800557e
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     ldrb       r1,[r6,#0xf]
     mov        r2,#0x8
     cmp        r1,r2
     bge        LAB_0800557e
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     mov        r1,#0x5
     strb       r1,[r6,#0xf]
 LAB_0800557e:
@@ -1043,11 +1029,9 @@ LAB_0800575e:
 _ts DisableScreenDim
     push       {lr}
     mov        r0,#0x0
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     strb       r0,[r6,#0x18]
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     strb       r0,[r7,#0x7]
     pop        {pc}
 

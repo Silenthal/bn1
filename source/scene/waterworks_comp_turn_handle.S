@@ -99,8 +99,7 @@ _ts S_Waterworks_Comp_TurnHandle_1
     cmp        r0,#0x2
     bne        LAB_0808bb3c
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r0,[r0,#0x28]
     ldrb       r0,[r0,#0x14]
     mov        r1,#0x7
@@ -120,8 +119,7 @@ LAB_0808bb3c:
 
 _ts S_Waterworks_Comp_TurnHandle_2
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -156,8 +154,7 @@ LAB_0808bb80:
 
 _ts S_Waterworks_Comp_TurnHandle_3
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -220,8 +217,7 @@ LAB_0808bbf2:
 
 _ts S_Waterworks_Comp_TurnHandle_5
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -236,8 +232,7 @@ _ts S_Waterworks_Comp_TurnHandle_5
     ldr        r1,[r7,#0x4]
     ldr        r2,[r7,#0x8]
     ldr        r3,[r7,#0xc]
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     ldr        r6,[r6,#0x28]
     strb       r3,[r6,#0x10]
     push       {r3}
@@ -252,8 +247,7 @@ _ts S_Waterworks_Comp_TurnHandle_5
     bl         Flag_SetBase
     pop        {r5}
     ldr        r0,PTR_PTR_S_Waterworks_Comp_TurnHandle_Flags_1_0808be34
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x5]
     lsl        r7,r7,#0x2
     ldr        r0,[r0,r7]
@@ -275,8 +269,7 @@ PTR_S_Waterworks_Comp_TurnHandle_Flags_1_0808bc54:
 
 _ts S_Waterworks_Comp_TurnHandle_6
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

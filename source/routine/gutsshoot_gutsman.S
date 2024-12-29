@@ -46,8 +46,7 @@ _ts R_GutsShoot_GutsMan_0_Init
     ldrb       r3,[r5,#0x16]
     lsl        r3,r3,#0x2
     add        r3,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r3]
     mov        r3,#0x28
     add        r7,r7,r3

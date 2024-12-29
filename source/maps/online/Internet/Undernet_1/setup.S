@@ -57,8 +57,7 @@ _ts MapSetup_Undernet_1
     ldr        r7,PTR_NPCList_8054580_08052cd4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -144,8 +143,7 @@ LAB_08052c2a:
     pop        {r5}
     pop        {pc}
 LAB_08052c4c:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08052c62
@@ -156,8 +154,7 @@ LAB_08052c4c:
     pop        {r5}
 LAB_08052c62:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

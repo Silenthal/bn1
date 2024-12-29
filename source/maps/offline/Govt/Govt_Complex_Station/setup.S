@@ -102,8 +102,7 @@ PTR_EventHandler_Govt_Complex_Station_F22_0_080321e8:
 _ts EventHandler_Govt_Complex_Station_F22_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -119,8 +118,7 @@ _ts EventHandler_Govt_Complex_Station_F22_0
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032216:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803222c
@@ -170,8 +168,7 @@ PTR_EventHandler_Govt_Complex_Station_F23_0_08032268:
 _ts EventHandler_Govt_Complex_Station_F23_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -187,8 +184,7 @@ _ts EventHandler_Govt_Complex_Station_F23_0
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032296:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080322ac
@@ -244,8 +240,7 @@ PTR_EventHandler_Govt_Complex_Station_F26_0_080322f4:
 _ts EventHandler_Govt_Complex_Station_F26_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -261,8 +256,7 @@ _ts EventHandler_Govt_Complex_Station_F26_0
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032322:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08032338
@@ -412,8 +406,7 @@ PTR_EventHandler_Govt_Complex_Station_F30_0_08032424:
 _ts EventHandler_Govt_Complex_Station_F30_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -436,8 +429,7 @@ LAB_08032456:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0803245e:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08032474
@@ -554,8 +546,7 @@ PTR_EventHandler_Govt_Complex_Station_F40_0_08032534:
 _ts EventHandler_Govt_Complex_Station_F40_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -578,8 +569,7 @@ LAB_08032566:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0803256e:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08032584
@@ -705,8 +695,7 @@ _ts EventHandler_Govt_Complex_Station_F50_0
     pop        {r5}
 LAB_0803265e:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -730,8 +719,7 @@ LAB_0803268c:
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032692:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080326a8
@@ -785,8 +773,7 @@ PTR_EventHandler_Govt_Complex_Station_F53_0_080326ec:
 _ts EventHandler_Govt_Complex_Station_F53_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -809,8 +796,7 @@ LAB_0803271e:
     bl         Scene_Prepare
     pop        {r5}
 LAB_08032726:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803273c

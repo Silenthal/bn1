@@ -7,8 +7,7 @@
 
 _ts Battle_IsActive
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x1
     ldrb       r1,[r7,#0xf]
     cmp        r1,#0x8
@@ -33,8 +32,7 @@ LAB_08007c4a:
     add        r0,#0x1
     cmp        r0,#0x1e
     bne        LAB_08007c4a
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x11]
     tst        r1,r1
     beq        LAB_08007c66
@@ -2827,8 +2825,7 @@ dataChipDetailList:
 
 
 _ts Battle_GetEntryState
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x8]
     mov        pc,lr
 
@@ -2906,8 +2903,7 @@ _nt Battle_AddObject
 
 _nt Battle_PriorityQueueIsEntityNext
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r3,#0x4c
     mov        r2,#0x0
     ldrb       r0,[r7,r3]
@@ -2921,8 +2917,7 @@ LAB_0800984e:
 
 
 _nt Battle_PriorityQueueEnqueue
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r0,#0x4c
     add        r7,r7,r0
     ldrb       r2,[r5,#0x12]
@@ -2949,8 +2944,7 @@ LAB_08009876:
 
 _nt Battle_PriorityQueueRemove
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r0,#0x4c
     add        r7,r7,r0
     ldrb       r2,[r5,#0x12]
@@ -2970,8 +2964,7 @@ LAB_08009892:
 
 
 _nt Battle_PriorityQueueMinimize
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r0,#0x4c
     add        r7,r7,r0
     add        r6,r7,#0x0
@@ -3001,8 +2994,7 @@ LAB_080098ca:
 
 _nt Battle_GetRandomEncounter
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     str        r0,[r7,#0x2c]
     pop        {pc}
 
@@ -3010,10 +3002,8 @@ _nt Battle_GetRandomEncounter
 _nt Battle_IsRandomEncounter
     push       {lr}
     mov        r0,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
-    mov        r6,r10
-    ldr        r6,[r6,#0x78]
+    LoadMain world, r7, r7
+    LoadMain gameStats, r6, r6
     ldrb       r3,[r7,#0x4]
     cmp        r3,#0x80
     bmi        LAB_0800992a
@@ -3254,8 +3244,7 @@ _nt BattleSpawnAnimation_1_Main
     strh       r0,[r6,#0x4]
     cmp        r0,#0x10
     bne        LAB_08009b56
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x16]
     tst        r0,r0
     bne        LAB_08009b44
@@ -3297,8 +3286,7 @@ _nt Battle_LoadEnemyHp
 
 
 _nt Battle_RemoveFromEnemyList
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x12]
     cmp        r0,#0xff
     beq        LAB_08009b8e
@@ -3316,8 +3304,7 @@ LAB_08009b8e:
 
 _nt Battle_RegisterVirusDelete
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x16]
     add        r0,#0x1
     strb       r0,[r7,#0x16]
@@ -3467,8 +3454,7 @@ _ts Inventory_GetChipCount
 
 _nt Inventory_AddZenny
     push       { lr }
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r1,[r7,#0x74]
     add        r0,r0,r1
     ldr        r1,=999999
@@ -3484,8 +3470,7 @@ LAB_08009c94:
 
 _ts Inventory_SubtractZenny
     push       { lr }
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r1,[r7,#0x74]
     sub        r1,r1,r0
     bpl        LAB_08009c94
@@ -3512,8 +3497,7 @@ _nt Battle_DecreaseOpponentCount
     ldrb       r0,[r5,#0x12]
     cmp        r0,#0xff
     beq        LAB_08009cec
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x16]
     tst        r0,r0
     bne        LAB_08009ce0
@@ -3536,8 +3520,7 @@ LAB_08009cec:
 
 
 _nt Battle_IsInputLocked
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x13]
     tst        r0,r0
     mov        pc,lr
@@ -3545,13 +3528,11 @@ _nt Battle_IsInputLocked
 
 _nt Battle_AdvanceTimer
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     bge        LAB_08009d16
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldr        r0,[r7,#0x1c]
     add        r0,#0x1
     ldr        r1,DAT_08009d18
@@ -3569,13 +3550,11 @@ DAT_08009d18: .word 60 * 359999
 
 
 _nt Battle_IncreaseBattleCount
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     bge        LAB_08009d44
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrh       r0,[r7,#0x12]
     add        r0,#0x1
     ldr        r1,DAT_08009d48
@@ -3601,13 +3580,11 @@ DAT_08009d48: .word 0xFFFF
 
 
 _ts Battle_IncrementRewardChipCounter
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     bge        LAB_08009d66
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0xe]
     add        r0,#0x1
     cmp        r0,#0xff

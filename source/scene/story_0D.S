@@ -84,8 +84,7 @@ LAB_08084f52:
 
 _ts S_Story_0D_3
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -99,8 +98,7 @@ _ts S_Story_0D_3
     mov        r1,#0x0
     bl         World_SetTransitionLocation
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x6
     strb       r0,[r7,#0x6]
     bl         Scene_UnloadAndResetStepCounter

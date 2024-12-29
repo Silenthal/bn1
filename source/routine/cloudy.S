@@ -246,8 +246,7 @@ _nt R_Cloudy_1_1_Wait
     bne        LAB_0805f0b4
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -674,8 +673,7 @@ LAB_0805f346:
 
 _ts R_Cloudy_GetPlayerX
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]

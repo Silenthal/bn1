@@ -56,8 +56,7 @@ _ts MapSetup_WWW_Passage_1_F54
     mov        r0,#0xb0
     bl         Flag_GetBase
     bne        LAB_0803e2f0
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -128,8 +127,7 @@ PTR_EventHandler_WWW_Passage_1_F54_0_0803e360:
 _ts EventHandler_WWW_Passage_1_F54_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

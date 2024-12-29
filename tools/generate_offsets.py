@@ -26,6 +26,10 @@ def main():
                     declareList.append(
                         f'    DECLARE("{structNode.name}_{member.name}", offsetof({structNode.name}, {member.name}));'
                     )
+                    if structNode.name == "Main":
+                        declareList.append(
+                            f'    DECLARE("{member.name}", offsetof({structNode.name}, {member.name}));'
+                        )
         elif isinstance(node, c_ast.Typedef) and isinstance(node.type.type, c_ast.Enum):
             enumNode: c_ast.Enum = node.type.type
             for member in enumNode.values:

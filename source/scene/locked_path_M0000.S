@@ -48,8 +48,7 @@ _ts S_LockedPath_School_Class_5A_1
     cmp        r0,#0x2
     bne        LAB_08082fb6
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r0,[r0,#0x28]
     ldrb       r0,[r0,#0x14]
     mov        r1,#0x7
@@ -88,8 +87,7 @@ _ts S_LockedPath_School_Class_5A_3
     push       {lr}
     bl         S_LockedPath_School_Class_5A_AnimatePlayer
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

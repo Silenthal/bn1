@@ -68,8 +68,7 @@ _ts S_SkillGateFail_1
     cmp        r0,#0x2
     bne        LAB_08085c30
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r0,[r0,#0x28]
     ldrb       r0,[r0,#0x14]
     mov        r1,#0x7
@@ -130,8 +129,7 @@ LAB_08085c62:
 
 _ts S_SkillGateFail_4
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -152,8 +150,7 @@ _ts S_SkillGateFail_4
     bl         Flag_ClearEvent
     bl         S_SkillGateFail_ResetSkillCheck
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1
@@ -179,8 +176,7 @@ INT_08085cc0:
 
 _ts S_SkillGateFail_ResetSkillCheck
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
     ldr        r0,PTR_PTR_ResetSkillCheck_None_08085dd4
@@ -219,12 +215,10 @@ _ts ResetSkillCheck_None
 
 _ts ResetSkillCheck_Undernet_6
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x24]
+    LoadMain mapEventState, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0xd]
     mov        r0,#0x21
@@ -237,8 +231,7 @@ _ts ResetSkillCheck_Undernet_6
 
 _ts ResetSkillCheck_Undernet_7
     push       {lr}
-    mov        r7,r10
-    ldr        r4,[r7,#0x24]
+    LoadMain mapEventState, r4, r7
     mov        r0,#0x0
     strb       r0,[r4,#0x2]
     ldr        r4,[r7,#0x8]
@@ -257,8 +250,7 @@ _ts ResetSkillCheck_Undernet_7
 
 _ts ResetSkillCheck_Undernet_9
     push       {lr}
-    mov        r7,r10
-    ldr        r4,[r7,#0x24]
+    LoadMain mapEventState, r4, r7
     mov        r0,#0x0
     strb       r0,[r4,#0x2]
     ldr        r4,[r7,#0x78]
@@ -271,12 +263,10 @@ _ts ResetSkillCheck_Undernet_9
 
 _ts ResetSkillCheck_Undernet_10
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x24]
+    LoadMain mapEventState, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0xf]
     mov        r0,#0x24
@@ -289,8 +279,7 @@ _ts ResetSkillCheck_Undernet_10
 
 _ts ResetSkillCheck_Undernet_11
     push       {lr}
-    mov        r7,r10
-    ldr        r4,[r7,#0x24]
+    LoadMain mapEventState, r4, r7
     mov        r0,#0x0
     strb       r0,[r4,#0x2]
     ldr        r4,[r7,#0x8]

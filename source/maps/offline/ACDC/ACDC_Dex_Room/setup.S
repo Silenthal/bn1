@@ -122,16 +122,14 @@ _ts FUN_0802ddf4
     bl         Text_CheckOption
     bne        LAB_0802de34
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x40
     bne        LAB_0802de34
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0802de58
     mvn        r0,r0
@@ -382,8 +380,7 @@ LAB_0802e00a:
     mov        r0,#0x6f
     bl         Flag_GetBase
     beq        LAB_0802e01a
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x22
     strb       r1,[r0,#0x6]
 LAB_0802e01a:

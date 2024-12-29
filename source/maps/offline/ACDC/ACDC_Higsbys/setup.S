@@ -111,8 +111,7 @@ _ts EventHandler_ACDC_Higsbys_F24_0
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0802eb60
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0802eb42
@@ -137,8 +136,7 @@ LAB_0802eb42:
     pop        {pc}
 LAB_0802eb60:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -204,8 +202,7 @@ _ts EventHandler_ACDC_Higsbys_F26_0
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        EventHandler_ACDC_Higsby_F26_0_HandleEvents
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0802ebfe
@@ -232,8 +229,7 @@ LAB_0802ebfe:
 
 _ts EventHandler_ACDC_Higsby_F26_0_HandleEvents
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -251,8 +247,7 @@ LAB_0802ec38:
 
 _ts EventHandler_ACDC_Higsbys_CheckChipTrader
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r6,[r7,#0x18]
+    LoadMain fade, r6, r7
     ldrb       r6,[r6,#0x3]
     mov        r1,#0x1
     cmp        r6,r1
@@ -266,8 +261,7 @@ _ts EventHandler_ACDC_Higsbys_CheckChipTrader
     bl         Scene_IsSceneActive
     pop        {r0}
     bne        LAB_0802ec80
-    mov        r7,r10
-    ldr        r1,[r7,#0x8]
+    LoadMain world, r1, r7
     ldrb       r1,[r1,#0xe]
     cmp        r1,#0x21
     blt        LAB_0802ec80
@@ -433,8 +427,7 @@ _ts EventHandler_ACDC_Higsbys_F30_HandleEvents
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0802edf0
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0802edce
@@ -462,8 +455,7 @@ LAB_0802edda:
     pop        {pc}
 LAB_0802edf0:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -587,8 +579,7 @@ _ts EventHandler_ACDC_Higsbys_F40_0
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0802ef5e
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0802ef1a
@@ -616,8 +607,7 @@ LAB_0802ef26:
     pop        {pc}
 LAB_0802ef3c:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -742,8 +732,7 @@ _ts EventHandler_ACDC_Higsbys_F50_0
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0802f088
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0802f066
@@ -771,8 +760,7 @@ LAB_0802f072:
     pop        {pc}
 LAB_0802f088:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -831,8 +819,7 @@ _ts EventHandler_ACDC_Higsbys_F53_0
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0802f13a
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0802f114

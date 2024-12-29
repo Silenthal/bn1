@@ -6,8 +6,7 @@
 
 
 _ts Battle_SetState_InBattle
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x9]
     mov        r1,#0x2
     orr        r0,r1
@@ -16,8 +15,7 @@ _ts Battle_SetState_InBattle
 
 
 _nt Battle_ClearState_InBattle
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x9]
     mov        r1,#0x2
     mvn        r1,r1
@@ -27,8 +25,7 @@ _nt Battle_ClearState_InBattle
 
 
 _nt Battle_SetState_EnemySpawned
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x9]
     mov        r1,#0x1
     orr        r0,r1
@@ -36,8 +33,7 @@ _nt Battle_SetState_EnemySpawned
     mov        pc,lr
 
 _nt Battle_ClearState_EnemySpawned
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x9]
     mov        r1,#0x1
     bic        r0,r1
@@ -196,13 +192,11 @@ _ts Battle_EndNow
     push       {lr}
     tst        r0,r0
     bne        LAB_08006bce
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0xd]
 LAB_08006bce:
-    mov        r7,r10
-    ldr        r6,[r7,#0x8]
+    LoadMain world, r6, r7
     mov        r0,#0x2
     strb       r0,[r6,#0x10]
     ldr        r6,[r7,#0xc]

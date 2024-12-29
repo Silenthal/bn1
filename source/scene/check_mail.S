@@ -42,8 +42,7 @@ _ts S_CheckMail_1
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_08085aec
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     push       {r5}
     ldrb       r0,[r7,#0x14]

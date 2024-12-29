@@ -29,8 +29,7 @@ _ts S_School_Comp_2_GateClear_0
     push       {r5}
     bl         Flag_SetPlayerInactive
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -74,8 +73,7 @@ LAB_08086fdc:
 
 
 _nt S_School_Comp_2_GateClear_3
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -100,8 +98,7 @@ _nt S_School_Comp_2_GateClear_4
 
 
 _nt S_School_Comp_2_GateClear_5
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

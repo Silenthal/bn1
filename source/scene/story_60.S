@@ -38,8 +38,7 @@ _ts S_Story_60_0
 
 
 _ts S_Story_60_1
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -74,8 +73,7 @@ LAB_080914f8:
 
 
 _nt S_Story_60_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -176,8 +174,7 @@ LAB_080915ba:
 
 
 _ts S_Story_60_6
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -201,8 +198,7 @@ _nt S_Story_60_7
     pop        {r5}
     mov        r0,#0xc5
     bl         Flag_SetBase
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]
     ldr        r0,[r7,#0x2c]

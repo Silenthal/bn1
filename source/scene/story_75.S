@@ -70,8 +70,7 @@ _ts S_Story_75_1
     bne        LAB_080957c8
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -112,8 +111,7 @@ PTR_Cam_Set_080957d0:
 
 
 _ts S_Story_75_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -191,8 +189,7 @@ LAB_0809586e:
 
 
 _ts S_Story_75_5
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -211,8 +208,7 @@ _ts S_Story_75_5
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,r10
-    ldr        r5,[r0,#0x28]
+    LoadMain scene, r5, r0
     bl         FUN_0804ebc8
     pop        {r5}
     mov        r0,#0x7
@@ -233,8 +229,7 @@ LAB_080958ca:
 
 
 _ts S_Story_75_6
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -336,8 +331,7 @@ _ts S_Story_75_10
     mov        r1,#0x7
     and        r0,r1
     bne        LAB_080959ca
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
@@ -372,8 +366,7 @@ LAB_080959d4:
 
 
 _nt S_Story_75_11
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -393,8 +386,7 @@ LAB_080959f8:
 
 
 _nt S_Story_75_12
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -445,8 +437,7 @@ LAB_08095a5c:
 
 
 _nt S_Story_75_14
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -473,8 +464,7 @@ _nt S_Story_75_14
     mov        r0,#0x18
     bl         Entity_FreeAllMultiple
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     str        r1,[r0,#0x34]
     push       {r5}
@@ -483,8 +473,7 @@ _nt S_Story_75_14
     bl         Camera_DisableScreenShake
     pop        {r5}
     push       {r5}
-    mov        r0,r10
-    ldr        r5,[r0,#0x28]
+    LoadMain scene, r5, r0
     bl         FUN_0804ebc8
     pop        {r5}
     mov        r0,#0xdf
@@ -510,8 +499,7 @@ LAB_08095aea:
 
 
 _ts S_Story_75_15
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

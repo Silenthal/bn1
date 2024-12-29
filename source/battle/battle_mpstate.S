@@ -106,8 +106,7 @@ _ts FUN_080078e4
 
 _ts FUN_080078ec
     push       {lr}
-    mov        r4,r10
-    ldr        r4,[r4,#0x20]
+    LoadMain playerBattleState, r4, r4
     ldrb       r0,[r6,#0x2]
     strb       r0,[r4,#0x9]
     ldrb       r0,[r6,#0x3]
@@ -150,8 +149,7 @@ LAB_08007930:
 
 _ts FUN_0800793c
     push       {lr}
-    mov        r4,r10
-    ldr        r4,[r4,#0x20]
+    LoadMain playerBattleState, r4, r4
     ldrb       r0,[r6,#0x2]
     strb       r0,[r4,#0x1]
     add        r0,r6,#0x3
@@ -202,8 +200,7 @@ _nt FUN_0800798e
 _ts FUN_08007994
     push       {lr}
     ldr        r7,PTR_PlayerMpState_080079c4
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     mov        r0,#0x1
     strb       r0,[r7,#0x0]
     mov        r0,#0xfd
@@ -233,8 +230,7 @@ PTR_PlayerMpState_080079c4:
 _ts FUN_080079c8
     push       {lr}
     ldr        r7,PTR_PlayerMpState_08007a00
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     mov        r0,#0x2
     strb       r0,[r7,#0x0]
     mov        r0,#0xfd
@@ -269,8 +265,7 @@ PTR_gCustomScreen_08007a04:
 
 _ts Multiplayer_UpdateKeyState
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     ldr        r6,PTR_gListMpState_08007a34
     ldrb       r0,[r5,#0x1b]
     lsl        r1,r0,#0x4
@@ -435,8 +430,7 @@ _ts FUN_08007acc
     ldr        r1,PTR_gMPState0_08007b94
     mov        r2,#0x10
     bl         memcpy_32
-    mov        r6,r10
-    ldr        r6,[r6,#0x4]
+    LoadMain input, r6, r6
     ldr        r7,PTR_gLatestMpInput_08007b90
     ldrh       r0,[r6,#0x0]
     strh       r0,[r7,#0x2]

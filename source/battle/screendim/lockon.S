@@ -73,8 +73,7 @@ _ts SD_LockOn_1
     bl         Field_GetAttackDirectionOffset
     add        r2,r0,#0x0
     pop        {r0}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     add        r7,#0x40
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
@@ -101,8 +100,7 @@ _nt SD_LockOn_2
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_0809b7e2
-    mov        r0,r10
-    ldr        r0,[r0,#0x20]
+    LoadMain playerBattleState, r0, r0
     ldrb       r7,[r5,#0x6]
     tst        r7,r7
     beq        LAB_0809b7bc
@@ -150,8 +148,7 @@ LAB_0809b7fe:
 
 _ts SD_LockOn_4
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

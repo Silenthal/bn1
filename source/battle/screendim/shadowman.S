@@ -107,8 +107,7 @@ _ts SD_ShadowMan_1_1
     bne        LAB_0809b2ae
     mov        r0,#0x14
     add        r0,r0,r5
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0xf]
     cmp        r1,#0x8
     bge        LAB_0809b276
@@ -185,8 +184,7 @@ _nt SD_ShadowMan_2_Free
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
 LAB_0809b2f2:
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     cmp        r0,#0x1
     beq        LAB_0809b308
@@ -202,8 +200,7 @@ _nt SD_ShadowMan_FindTargets
     push       {r5,lr}
     sub        sp,#0x10
     str        r0,[sp,#0xc]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r0,#0x54
     add        r6,r7,r0
     mov        r2,#0x0
@@ -265,8 +262,7 @@ LAB_0809b378:
 
 _ts SD_ShadowMan_FindTarget_MP
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r1,[r5,#0x6]
     mov        r2,#0x1
     eor        r1,r2

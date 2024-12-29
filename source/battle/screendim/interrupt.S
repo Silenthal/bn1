@@ -44,8 +44,7 @@ _ts SD_Interrupt_0
     bl         BattleUi_ClearActiveChip
     pop        {r5}
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     lsl        r0,r0,#0x2
     add        r0,#0x40
@@ -105,8 +104,7 @@ LAB_0809a07e:
 
 _ts SD_Interrupt_3
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -125,8 +123,7 @@ LAB_0809a0a4:
 
 _nt FUN_0809a0a6
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x20]
+    LoadMain playerBattleState, r0, r0
     ldrb       r1,[r5,#0x6]
     tst        r1,r1
     bne        LAB_0809a0b6
@@ -134,8 +131,7 @@ _nt FUN_0809a0a6
     b          LAB_0809a0c8
 LAB_0809a0b6:
     push       {r0}
-    mov        r0,r10
-    ldr        r0,[r0,#0xc]
+    LoadMain battle, r0, r0
     add        r0,#0x78
     mov        r1,#0x6
     mov        r2,#0xff
@@ -146,8 +142,7 @@ LAB_0809a0c8:
     mov        r1,#0x6
     mov        r2,#0xff
     bl         memset
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     tst        r0,r0
     bne        LAB_0809a122

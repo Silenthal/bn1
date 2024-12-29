@@ -63,8 +63,7 @@ _ts MapSetup_Rocket_Comp_F54
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -83,8 +82,7 @@ LAB_0804debc:
     mov        r0,#0xfe
     bl         Flag_GetBase
     beq        LAB_0804dede
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
@@ -124,8 +122,7 @@ PTR_EventHandler_Rocket_Comp_F54_0_0804df00:
 _ts EventHandler_Rocket_Comp_F54_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

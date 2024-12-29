@@ -53,8 +53,7 @@ _ts Menu_Item_0_Init
     push       {r5}
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapMenuItem_0801caa8
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,DAT_0801caac
     add        r1,r1,r2
     mov        r2,#0xc0
@@ -73,8 +72,7 @@ _ts Menu_Item_0_Init
     mov        r4,#0x8
     mov        r5,#0x8
     bl         Screen_CopyTileMapRect
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801cab8
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -132,8 +130,7 @@ LAB_0801c7ca:
 
 _ts Menu_Item_1_Main
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -148,8 +145,7 @@ LAB_0801c802:
 _ts Menu_Item_2_Close
     push       {lr}
     bl         Menu_DrawUi
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -203,8 +199,7 @@ _ts Menu_Item_HandleInput
     strb       r0,[r5,#0xd]
     ldrb       r0,[r5,#0xe]
     strb       r0,[r5,#0xf]
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x2
     tst        r1,r0
@@ -428,8 +423,7 @@ LAB_0801c9dc:
     ldrb       r0,[r5,#0x10]
     cmp        r0,#0x8
     ble        LAB_0801ca74
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r7,[r7,#0x0]
     mov        r1,#0x10
     and        r1,r7

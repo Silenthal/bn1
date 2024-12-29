@@ -10,8 +10,7 @@ _ts Effect_BattleResult
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    mov        r7,r10
-    ldr        r7,[r7,#0x10]
+    LoadMain display, r7, r7
     ldrh       r0,[r5,#0x2a]
     strh       r0,[r7,#0x18]
     pop        {pc}
@@ -173,8 +172,7 @@ _ts E_BattleResult_1_0_1_WaitForSlideIn
     sub        r0,#0x8
     bpl        LAB_0807cfa2
     mov        r0,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0xf]
     cmp        r1,#0x8
     bge        LAB_0807cf9a
@@ -193,8 +191,7 @@ LAB_0807cfa2:
 
 _nt E_BattleResult_1_0_2_WaitButton
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x1
     tst        r0,r1
@@ -207,8 +204,7 @@ _nt E_BattleResult_1_0_2_WaitButton
     bl         E_BattleResult_LoadAnimBattleResultUiPressA
     pop        {pc}
 LAB_0807cfc4:
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     mov        r1,#0x8
     and        r0,r1
@@ -219,8 +215,7 @@ LAB_0807cfc4:
 
 _nt E_BattleResult_1_0_3_WaitButtonMP
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     mov        r1,#0x8
     and        r0,r1
@@ -244,8 +239,7 @@ PTR_E_BattleResult_1_0_3_0_0807cff8:
 
 _ts E_BattleResult_1_0_3_0
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r1,[r7,#0x1e]
     cmp        r1,#0x4
     bne        LAB_0807d024
@@ -259,8 +253,7 @@ _ts E_BattleResult_1_0_3_0
     strb       r0,[r5,#0xb]
     b          LAB_0807d038
 LAB_0807d024:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x1
     tst        r0,r1
@@ -278,8 +271,7 @@ LAB_0807d038:
 
 _nt E_BattleResult_1_0_3_1
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1e]
     cmp        r0,#0x4
     bne        LAB_0807d086
@@ -290,8 +282,7 @@ _nt E_BattleResult_1_0_3_1
     bne        LAB_0807d086
     cmp        r2,#0x2
     bne        LAB_0807d086
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r2,[r7,#0x10]
     cmp        r2,#0x0
     beq        LAB_0807d074
@@ -319,8 +310,7 @@ LAB_0807d08e:
 
 _ts E_BattleResult_1_0_3_2_RewardGiveTakeChip
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1e]
     cmp        r0,#0x4
     bne        LAB_0807d0f6
@@ -331,8 +321,7 @@ _ts E_BattleResult_1_0_3_2_RewardGiveTakeChip
     bne        LAB_0807d0f6
     cmp        r2,#0x4
     bne        LAB_0807d0f6
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r2,[r7,#0x10]
     cmp        r2,#0x0
     beq        LAB_0807d0c2
@@ -349,8 +338,7 @@ LAB_0807d0c2:
     mov        r2,#0x1
     bl         Inventory_AddChip
 LAB_0807d0d0:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x10]
     mov        r1,#0x1
     eor        r0,r1
@@ -515,8 +503,7 @@ LAB_0807d1ce:
     mov        r2,#0x38
     bl         ArrayShuffle
     bl         Rng_RandomInt
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r1,[r7,#0xb]
     bl         SWI_Div
     mov        r3,#0x64
@@ -668,8 +655,7 @@ LAB_0807d302:
 
 
 _ts E_BattleResult_1_1_2_RewardWaitInput
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x9
     tst        r0,r1
@@ -853,8 +839,7 @@ PTR_E_BattleResult_1_2_2_0_0807d434:
 
 _ts E_BattleResult_1_2_2_0
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r1,[r7,#0x1e]
     cmp        r1,#0x4
     bne        LAB_0807d460
@@ -868,8 +853,7 @@ _ts E_BattleResult_1_2_2_0
     strb       r0,[r5,#0xb]
     b          LAB_0807d474
 LAB_0807d460:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x9
     tst        r0,r1
@@ -886,8 +870,7 @@ LAB_0807d474:
 
 _ts E_BattleResult_1_2_2_1
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1e]
     cmp        r0,#0x4
     bne        LAB_0807d4a4
@@ -912,8 +895,7 @@ LAB_0807d4aa:
 
 _ts E_BattleResult_1_2_2_2
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1e]
     cmp        r0,#0x4
     bne        LAB_0807d4d2
@@ -939,8 +921,7 @@ LAB_0807d4d8:
 _nt E_BattleResult_2_Free
     push       {lr}
     mov        r0,#0x1
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     strb       r0,[r7,#0x3]
     bl         Effect_Free
     pop        {pc}
@@ -1077,7 +1058,7 @@ _ts Effect_BattleResult_CalculateRank
     @ Figure out which scoring to use based on the type of battle
     @ Virus busting uses different thresholds than boss busting
     mov        r1,#0x0
-    LoadStateTo r4, Main_world, r4
+    LoadMain world, r4, r4
     ldrb       r0,[r4,#World_battleType]
     cmp        r0,#BattleType_5_Boss
     beq        LAB_0807d5ca
@@ -1092,7 +1073,7 @@ LAB_0807d5cc:
     str        r1,[sp,#0x8]
     @ Figure out the score for battle time
     @ First, get time and cap it at 9 minutes, 59.99 seconds
-    LoadStateTo r7, Main_battle
+    LoadMain battle, r7, r7
     push       { r7 }
     ldrh       r0,[r7,#Battle_m_possibleBattleTime]
     bl         FrameTimeToBcdRealTime
@@ -1138,7 +1119,7 @@ LAB_0807d60a:
     add        r0,r0,r2
     @ Calculate points for hits taken - start off at +1
     @ and subtract 1 for every hit taken up to 4
-    LoadStateTo r7, Main_playerBattleState
+    LoadMain playerBattleState, r7, r7
     mov        r2,#0x1
     ldrb       r1,[r7,#PlayerBattleState_m_hitsTaken]
     tst        r1,r1
@@ -1354,8 +1335,7 @@ _ts E_BattleResult_LoadZennyDetailText
     push       {r5,lr}
     sub        sp,#0x70
     mov        r6,sp
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     str        r0,[r7,#0x4]
     push       {r6}
     ldr        r0,PTR_TextData_BattleMessages_0807d7a4

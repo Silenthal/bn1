@@ -43,8 +43,7 @@ _ts S_BatterySwitch_1_Check
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_08092bc2
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     push       {r5}
     ldr        r0,[r0,#0x28]
     ldrb       r0,[r0,#0x14]

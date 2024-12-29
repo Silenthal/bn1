@@ -151,8 +151,7 @@ _ts R_ElecMan_1_1_Reset
     bne        LAB_08063f1a
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -365,8 +364,7 @@ _nt R_ElecMan_1_5_2_SparkStrike
     sub        r0,#0x1
     strh       r0,[r5,#0x1c]
     bne        LAB_08064098
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r1,[r7,#0x18]
     ldrb       r2,[r7,#0x19]
@@ -656,8 +654,7 @@ _nt R_ElecMan_1_7_4
     mov        r0,#0xf
     strh       r0,[r5,#0x1e]
 LAB_08064276:
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     lsr        r0,r0,#0x2
     bcc        LAB_08064284
@@ -771,8 +768,7 @@ LAB_08064340:
 
 _nt R_ElecMan_1_8_3_Reset
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     lsr        r0,r0,#0x2
     bcc        LAB_08064352

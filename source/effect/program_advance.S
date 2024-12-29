@@ -649,8 +649,7 @@ LAB_0807c750:
 
 _nt E_ProgramAdvance_2_Free
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r0,#0x1
     strh       r0,[r7,#0x2e]
     push       {r5}
@@ -708,8 +707,7 @@ LAB_0807c7ae:
 _ts FUN_0807c7b0
     push       {lr}
     sub        sp,#0x4
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x19]
     add        r0,#0x78
     add        r7,r7,r0
@@ -1355,8 +1353,7 @@ _ts FUN_0807cc24
 
 _nt FUN_0807cc46
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r6,#0x78
     ldrb       r0,[r7,#0x19]
     add        r6,r6,r0

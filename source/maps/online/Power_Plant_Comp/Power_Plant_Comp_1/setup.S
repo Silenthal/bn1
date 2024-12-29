@@ -100,8 +100,7 @@ _ts MapSetup_Power_Plant_Comp_1_F42
     mov        r0,#0xb6
     bl         Flag_GetBase
     beq        LAB_0804a3ec
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     mov        r0,#0xb6
@@ -126,8 +125,7 @@ LAB_0804a3e0:
     pop        {r5}
     b          LAB_0804a40c
 LAB_0804a3ec:
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -210,8 +208,7 @@ LAB_0804a47e:
 
 _ts FUN_0804a480
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r6,[r7,#0x18]
+    LoadMain fade, r6, r7
     ldrb       r6,[r6,#0x3]
     mov        r1,#0x1
     cmp        r6,r1
@@ -222,16 +219,14 @@ _ts FUN_0804a480
     mov        r0,#0x80
     bl         Text_CheckOption
     bne        LAB_0804a4fc
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0xe]
     cmp        r1,#0x20
     blt        LAB_0804a4ca
     cmp        r1,#0x28
     bgt        LAB_0804a4ca
     push       {r1}
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldrb       r1,[r1,#0x5]
     mov        r0,#0xd4
     add        r0,r0,r1
@@ -248,8 +243,7 @@ LAB_0804a4ca:
     cmp        r1,#0xcf
     bgt        LAB_0804a4fc
     push       {r1}
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldrb       r1,[r1,#0x5]
     mov        r0,#0xd4
     add        r0,r0,r1
@@ -453,8 +447,7 @@ _ts MapSetup_Power_Plant_Comp_1_F50
     ldr        r7,PTR_NPCList_804B740_0804a760
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -500,8 +493,7 @@ _ts EventHandler_Power_Plant_Comp_1_F50_0
 
 _ts FUN_0804a6e0
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r6,[r7,#0x18]
+    LoadMain fade, r6, r7
     ldrb       r6,[r6,#0x3]
     mov        r1,#0x1
     cmp        r6,r1
@@ -512,8 +504,7 @@ _ts FUN_0804a6e0
     mov        r0,#0x80
     bl         Text_CheckOption
     bne        LAB_0804a72c
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0xe]
     cmp        r1,#0x20
     blt        LAB_0804a718

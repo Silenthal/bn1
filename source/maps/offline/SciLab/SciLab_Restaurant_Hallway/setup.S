@@ -156,13 +156,11 @@ _ts EventHandler_SciLab_Restaurant_Hallway_S4_HandleExits
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0803c0ec
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803c0aa
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x41
     bne        LAB_0803c09c
@@ -182,8 +180,7 @@ LAB_0803c09c:
 LAB_0803c0aa:
     cmp        r0,#0xf1
     bne        LAB_0803c0c6
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x41
     bne        LAB_0803c0c6
@@ -195,8 +192,7 @@ LAB_0803c0aa:
     pop        {pc}
 LAB_0803c0c6:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -343,8 +339,7 @@ _ts EventHandler_SciLab_Restaurant_Hallway_S5_HandleExits
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0803c214
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803c1ee
@@ -356,8 +351,7 @@ _ts EventHandler_SciLab_Restaurant_Hallway_S5_HandleExits
     pop        {pc}
 LAB_0803c1ee:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

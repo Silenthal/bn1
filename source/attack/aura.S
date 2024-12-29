@@ -16,8 +16,7 @@ listAuraSpec:
 
 _ts Attack_Aura
     push       {lr}
-    mov        r6,r10
-    ldr        r7,[r6,#0xc]
+    LoadMain battle, r7, r6
     ldrb       r0,[r7,#0x18]
     tst        r0,r0
     bne        LAB_0806ff98

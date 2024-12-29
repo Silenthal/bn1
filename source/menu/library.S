@@ -120,8 +120,7 @@ LAB_0801b4bc:
     push       {r5}
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapMenuLibrary_0801b894
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,DAT_0801b898
     add        r1,r1,r2
     ldr        r2,DAT_0801b89c
@@ -133,8 +132,7 @@ LAB_0801b4bc:
     mov        r4,#0xc
     mov        r5,#0xe
     bl         Screen_CopyTileMapRect
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801b8a4
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -170,8 +168,7 @@ LAB_0801b538:
 
 _ts Menu_Library_1_Main
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -186,8 +183,7 @@ LAB_0801b55a:
 _ts Menu_Library_2_Close
     push       {lr}
     bl         Menu_Library_PrintUI
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -254,8 +250,7 @@ LAB_0801b5ce:
     cmp        r1,r5
     blt        LAB_0801b5ce
     pop        {r0}
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     str        r0,[r7,#0x4]
     ldr        r0,PTR_textDict_MenuMessages_0801b8c0
     mov        r1,#0x0
@@ -271,8 +266,7 @@ LAB_0801b600:
     push       {r0,r2,r3,r6}
     bl         Text_CopyCharTileUI
     pop        {r0,r2,r3,r6}
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     ldr        r4,[r7,#0x4]
     add        r4,#0x1
     str        r4,[r7,#0x4]
@@ -392,8 +386,7 @@ _ts Menu_Library_HandleInput
     strb       r0,[r5,#0xd]
     ldrb       r0,[r5,#0xe]
     strb       r0,[r5,#0xf]
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x2
     tst        r1,r0
@@ -520,8 +513,7 @@ LAB_0801b7b0:
     mov        r4,#0x2
     mov        r5,#0x0
     bl         Screen_SetTileMapRect
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r7,[r7,#0x0]
     mov        r1,#0x10
     and        r1,r7

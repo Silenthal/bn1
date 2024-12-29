@@ -140,16 +140,14 @@ PTR_EventHandler_Govt_Waterworks_Office_F25_0_0803410c:
 _ts EventHandler_Govt_Waterworks_Office_F25_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_0803414c
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x27
     bne        LAB_0803413a
@@ -180,8 +178,7 @@ _nt FUN_08034152
     beq        LAB_0803415e
     pop        {pc}
 LAB_0803415e:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08034176
@@ -193,8 +190,7 @@ LAB_0803415e:
     pop        {pc}
 LAB_08034176:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -211,8 +207,7 @@ LAB_08034176:
     pop        {r5}
     pop        {pc}
 LAB_0803419e:
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x24
     beq        LAB_08034254
@@ -221,8 +216,7 @@ LAB_0803419e:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08034254
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_08034278
     and        r1,r0
@@ -230,8 +224,7 @@ LAB_0803419e:
     bl         dummy_187a0
     bne        LAB_08034254
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -413,8 +406,7 @@ _ts FUN_08034328
     beq        LAB_08034334
     pop        {pc}
 LAB_08034334:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803434c
@@ -426,8 +418,7 @@ LAB_08034334:
     pop        {pc}
 LAB_0803434c:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -449,8 +440,7 @@ LAB_08034374:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080343b2
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_080343cc
     and        r1,r0
@@ -458,8 +448,7 @@ LAB_08034374:
     bl         dummy_187a0
     bne        LAB_080343b2
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -585,8 +574,7 @@ _ts FUN_08034474
     beq        LAB_08034480
     pop        {pc}
 LAB_08034480:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08034498
@@ -598,8 +586,7 @@ LAB_08034480:
     pop        {pc}
 LAB_08034498:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -621,8 +608,7 @@ LAB_080344c0:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080344fe
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_08034518
     and        r1,r0
@@ -630,8 +616,7 @@ LAB_080344c0:
     bl         dummy_187a0
     bne        LAB_080344fe
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

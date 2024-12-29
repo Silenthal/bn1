@@ -276,7 +276,7 @@ ptrTimeConsts:  .word timeConsts
 
 @@ Increments a timer, capping it at 99 hours and 59 minutes
 _ts IncrementGameTimer
-    LoadStateTo r7, Main_gameStats
+    LoadMain gameStats, r7, r7
     ldr        r0,[r7,#0x18]
     add        r0,#0x1
     @ 99 hours and 50 minutes = 5999 minutes
@@ -293,8 +293,7 @@ _ts IncrementGameTimer
     .pool
 
 _ts IncrementMPCounters
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldr        r2,=999
     ldrh       r1,[r7,#0x16]
     add        r1,r1,r0
@@ -346,8 +345,7 @@ _ts FrameTimeToRealTime_Reg
 
 _ts SetSortDefault
     push       { lr }
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x4
     strb       r0,[r7,#0x1]
     strb       r0,[r7,#0x3]

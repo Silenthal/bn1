@@ -202,8 +202,7 @@ _ts A_Unk0F_1_2
     strh       r0,[r5,#0x1c]
     mov        r0,#0x4
     strb       r0,[r5,#0xa]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r1,[r7,#0x18]
     strb       r1,[r5,#0x18]
@@ -346,8 +345,7 @@ _ts FUN_08070c88
     bl         Entity_CompareToPlayerRow
     tst        r0,r0
     bne        LAB_08070cc0
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]

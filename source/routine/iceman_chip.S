@@ -287,8 +287,7 @@ _ts R_IceManC_2_Free
     sub        r0,#0x1
     strh       r0,[r5,#0x1c]
     bne        LAB_08061c52
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x3]
     bl         Actor_Free

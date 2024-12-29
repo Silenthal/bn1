@@ -172,8 +172,7 @@ _ts EventHandler_School_Comp_3_F14_0
     bl         Flag_GetBase
     pop        {r5}
     bne        LAB_080411f4
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080411f4
@@ -193,8 +192,7 @@ LAB_080411f4:
     bl         Flag_GetBase
     pop        {r5}
     bne        LAB_0804121a
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x21
     bne        LAB_0804121a
@@ -325,8 +323,7 @@ PTR_EventHandler_School_Comp_3_F15_0_080412ec:
 
 _ts EventHandler_School_Comp_3_F15_0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0804131a
@@ -511,8 +508,7 @@ _ts MapSetup_School_Comp_3_F20
     ldr        r7,PTR_NPCList_8041E38_080414b8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2

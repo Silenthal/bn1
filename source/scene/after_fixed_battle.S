@@ -345,15 +345,13 @@ _ts S_AfterFixedBattle_0
     push       {r5}
     bl         Flag_SetPlayerInactive
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080859de
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x10]
     ldr        r6,PTR_AfterBattleFlagSettings_ARRAY_08085a70
     ldrb       r0,[r5,#0x4]
@@ -399,8 +397,7 @@ LAB_08085a06:
     bl         Flag_ClearBase
     pop        {r6}
 LAB_08085a14:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x10]
     tst        r7,r7
     bne        LAB_08085a3c

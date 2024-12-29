@@ -73,8 +73,7 @@ PTR_EventHandler_Undernet_8_0_08053734:
 _ts EventHandler_Undernet_8_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

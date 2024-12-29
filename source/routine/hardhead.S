@@ -172,8 +172,7 @@ _ts R_HardHead_1_1_WaitUntilBattleStart
     bne        LAB_0805c90e
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -326,8 +325,7 @@ _nt R_HardHead_1_3_3_Fire
     mov        r1,#0x81
     tst        r0,r1
     beq        LAB_0805ca2c
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x18]
     lsl        r0,r0,#0x10

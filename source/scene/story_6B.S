@@ -63,8 +63,7 @@ _nt S_Story_6B_1
     bl         PlayerAnimation_GetState
     cmp        r0,#0x2
     bne        LAB_08093a86
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     push       {r5}
     ldr        r0,[r0,#0x28]
     ldrb       r0,[r0,#0x14]
@@ -72,8 +71,7 @@ _nt S_Story_6B_1
     and        r0,r1
     bl         PlayerAnimation_SetState
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -114,8 +112,7 @@ LAB_08093a86:
 
 
 _ts S_Story_6B_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -277,8 +274,7 @@ LAB_08093bc0:
 
 
 _nt S_Story_6B_10
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -302,13 +298,11 @@ _ts S_Story_6B_11
     mov        r0,#0xa8
     bl         Flag_SetBase
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x54
     strb       r1,[r0,#0x6]
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1

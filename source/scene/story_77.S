@@ -84,8 +84,7 @@ PTR_NPCList_804E470_08096154:
 
 
 _ts S_Story_77_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -170,8 +169,7 @@ _ts S_Story_77_5
     pop        {r5}
     mov        r0,#0x32
     strb       r0,[r5,#0x8]
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     push       {r0,r5}
     ldr        r0,[r0,#0x24]
@@ -212,8 +210,7 @@ _ts S_Story_77_6
     mov        r0,#0x4
     bl         Sound_StopSong
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0xff
     strb       r0,[r7,#0x18]
     push       {r5}
@@ -222,8 +219,7 @@ _ts S_Story_77_6
     bl         Text_LoadDialogue
     pop        {r5}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     ldrh       r1,[r0,#0x26]
     lsl        r1,r1,#0x10
@@ -396,8 +392,7 @@ LAB_080963de:
 
 
 _ts S_Story_77_11
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -427,8 +422,7 @@ LAB_0809641e:
 
 
 _ts S_Story_77_12
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -474,8 +468,7 @@ LAB_0809647c:
 
 
 _nt S_Story_77_14
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -499,8 +492,7 @@ _ts S_Story_77_15
     bl         Flag_SetPlayerActive
     mov        r0,#0xe4
     bl         Flag_SetBase
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1
@@ -554,8 +546,7 @@ _ts FUN_080964fc
     pop        {r5}
 LAB_08096522:
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r5,[r0,#0x28]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}

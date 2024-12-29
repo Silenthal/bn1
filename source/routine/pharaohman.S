@@ -187,8 +187,7 @@ _ts R_PharaohMan_1_1_WaitForBattleStart
     ldrb       r0,[r5,#0xa]
     tst        r0,r0
     bne        LAB_0806af2a
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -591,8 +590,7 @@ LAB_0806b1c6:
     mov        r1,#0x0
     ldrb       r2,[r5,#0x16]
     bl         ScreenDim_Alloc
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     str        r5,[r7,#0x14]
     mov        r0,#0x1
     b          LAB_0806b1e8

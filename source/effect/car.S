@@ -181,8 +181,7 @@ _ts E_Car_0_Init
     push       {lr}
     mov        r0,#0x3
     strb       r0,[r5,#0x0]
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r0,[r0,#0x5]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_0807ea74

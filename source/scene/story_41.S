@@ -51,8 +51,7 @@ _ts S_Story_41_1
     ldr        r0,PTR_Cam_Set_0808d958
     bl         SceneCamera_Init
     bl         SceneCamera_Main
-    mov        r7,r10
-    ldr        r7,[r7,#0x24]
+    LoadMain mapEventState, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0x8]
     strb       r0,[r7,#0x9]
@@ -87,8 +86,7 @@ LAB_0808d7e2:
 
 
 _ts S_Story_41_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -149,8 +147,7 @@ _ts S_Story_41_5
     strh       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_0808d872
-    mov        r7,r10
-    ldr        r7,[r7,#0x24]
+    LoadMain mapEventState, r7, r7
     mov        r0,#0x2
     strb       r0,[r7,#0x8]
     strb       r0,[r7,#0xa]
@@ -209,8 +206,7 @@ LAB_0808d8c4:
 
 
 _nt S_Story_41_8
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -222,8 +218,7 @@ _nt S_Story_41_8
     pop        {r5}
     push       {r5}
     mov        r0,#0x1
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldr        r1,[r1,#0x28]
     add        r1,#0x24
     bl         Camera_SetEnabled
@@ -244,8 +239,7 @@ _nt S_Story_41_9
     bl         Flag_SetBase
     pop        {r5}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1

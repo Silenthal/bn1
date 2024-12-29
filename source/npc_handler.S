@@ -454,8 +454,7 @@ _ts NPC_2_0_0
     mov        r1,#0x2
     tst        r0,r1
     bne        LAB_080820c8
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldrb       r0,[r7,#0x10]
     add        r0,#0x4
@@ -481,8 +480,7 @@ _ts NPC_2_0_1
     mov        r1,#0x80
     tst        r0,r1
     bne        LAB_080820fa
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r6,PTR_gNpcTalkState_08082100
     mov        r0,#0x0
     strb       r0,[r7,#0x1a]

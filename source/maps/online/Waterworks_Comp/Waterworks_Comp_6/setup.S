@@ -105,8 +105,7 @@ _ts MapSetup_Waterworks_Comp_6_F25
     ldr        r7,PTR_NPCList_8046E78_08046a68
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -164,8 +163,7 @@ _ts MapSetup_Waterworks_Comp_6_F27
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -234,8 +232,7 @@ _ts EventHandler_Waterworks_Comp_6_F27_0
     bl         FUN_08045ae0
     beq        LAB_08046a28
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -400,8 +397,7 @@ _ts MapSetup_Waterworks_Comp_6_F30
     ldr        r7,PTR_NPCList_8046E78_08046bb8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2

@@ -12,7 +12,7 @@ _ts GraphicDataSetup_DenTown
     push       {lr}
     mov        r7,r10
     ldr        r0,PTR_MapExitList_DenTown_08035f98
-    ldr        r1,[r7,#0x2c]
+    ldr        r1,[r7,#Main_mapChange]
     ldr        r2,[r7,#0x8]
     ldrb       r3,[r2,#0x5]
     lsl        r3,r3,#0x2
@@ -41,8 +41,7 @@ _ts GraphicDataSetup_DenTown
     push       {r5}
     ldr        r0,PTR_gDstCompressedSpriteData_08035f9c
     bl         SpriteLz_Init
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
     ldr        r0,PTR_SpriteList_DenTown_08035fa0

@@ -38,8 +38,7 @@ _ts S_Story_61_0
 
 
 _ts S_Story_61_1
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -50,8 +49,7 @@ _ts S_Story_61_1
     cmp        r0,#0x2
     bne        LAB_080916f6
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0x7
     strb       r0,[r7,#0x10]
@@ -87,8 +85,7 @@ LAB_080916f6:
 
 
 _ts S_Story_61_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -171,8 +168,7 @@ LAB_08091790:
 
 
 _nt S_Story_61_6
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -199,8 +195,7 @@ _ts S_Story_61_7
     mov        r0,#0xc7
     bl         Flag_SetBase
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x50
     strb       r1,[r0,#0x6]
     mov        r0,#0x2d
@@ -225,8 +220,7 @@ _ts S_Story_61_7
     bl         Flag_ClearBase
     pop        {r5}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1

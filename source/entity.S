@@ -97,8 +97,7 @@ LAB_08002a3a:
 @@ r2: isDraw: True if the given position is on screen
 _ts ConvertToObjectPosition
     push       {lr}
-    mov        r3,r10
-    ldr        r3,[r3,#0x14]
+    LoadMain camera, r3, r3
     mov        r2,#0x2
     ldrsh      r1,[r0,r2]
     ldr        r4,[r3,#0x38]
@@ -148,8 +147,7 @@ LAB_08002a90:
 
 _ts FUN_08002a98
     push       {lr}
-    mov        r3,r10
-    ldr        r3,[r3,#0x14]
+    LoadMain camera, r3, r3
     ldr        r1,[r0,#0x0]
     asr        r1,r1,#0xf
     ldr        r4,[r3,#0x38]

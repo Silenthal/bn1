@@ -79,8 +79,7 @@ LAB_08088750:
 
 _nt S_Story_21_2
     bl         SceneCamera_Main
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -184,8 +183,7 @@ LAB_08088816:
 
 
 _ts S_Story_21_7
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -197,8 +195,7 @@ _ts S_Story_21_7
     bl         Text_DisableDialogue
     ldr        r0,PTR_EntityAllocParams_8030F60_080888e8
     bl         Entity_AllocList
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     ldr        r1,DAT_080888ec
     str        r1,[r6,#0x38]
     ldr        r1,DAT_080888f0
@@ -226,8 +223,7 @@ LAB_08088870:
 
 
 _nt S_Story_21_8
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

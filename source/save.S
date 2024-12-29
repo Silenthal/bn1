@@ -48,8 +48,7 @@ saveLen:
     .word 0x2308
 
 _ts Save_CalculateChecksum
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#0x20]
     mov        r0,#0x0
@@ -67,8 +66,7 @@ LAB_0801fb3e:
 _ts Save_CopyBuildId
     push       { lr }
     ldr        r0,ptrRomBuildId
-    mov        r1,r10
-    ldr        r1,[r1,#0x78]
+    LoadMain gameStats, r1, r1
     add        r1,#0x2c
     mov        r2,#0x14
     bl         memcpy_8
@@ -76,8 +74,7 @@ _ts Save_CopyBuildId
 
 _ts Save_ChecksumCheck
     push       { lr }
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldr        r6,[r7,#0x20]
     mov        r0,#0x0
     str        r0,[r7,#0x20]
@@ -106,8 +103,7 @@ INT_0801fb8c:
 _ts Save_CheckBuildId
     push       { lr }
     ldr        r0,ptrRomBuildId
-    mov        r1,r10
-    ldr        r1,[r1,#0x78]
+    LoadMain gameStats, r1, r1
     add        r1,#0x2c
     mov        r2,#0x13
 LAB_0801fb9c:

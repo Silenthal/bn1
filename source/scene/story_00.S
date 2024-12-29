@@ -61,8 +61,7 @@ LAB_08082906:
 _ts S_Story_00_1
     push       {lr}
     bl         SceneCamera_Main
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -193,8 +192,7 @@ _ts S_Story_00_9
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -209,8 +207,7 @@ _ts S_Story_00_9
     bl         S_Story_00_FreeLanBed
     ldr        r0,PTR_EntityAllocParams_8030F60_08082ab4
     bl         Entity_AllocList
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     ldr        r1,DAT_08082ab8
     str        r1,[r6,#0x38]
     ldr        r1,DAT_08082abc
@@ -234,8 +231,7 @@ LAB_08082a42:
 
 _ts S_Story_00_10
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

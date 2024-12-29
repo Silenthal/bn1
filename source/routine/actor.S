@@ -123,8 +123,7 @@ _ts R_Drone_1_0_1_StartAnim
 LAB_080561d8:
     pop        {pc}
 LAB_080561da:
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     sub        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -166,8 +165,7 @@ _ts R_BigSnakeBody_1_0_1
     bl         BattleSpawnAnimation_Main
     tst        r0,r0
     bne        LAB_08056230
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     sub        r0,#0x1
     strb       r0,[r7,#0x7]

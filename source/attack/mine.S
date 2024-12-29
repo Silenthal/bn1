@@ -156,8 +156,7 @@ LAB_080758ac:
     strh       r0,[r5,#0x8]
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x3]
 LAB_080758bc:
@@ -249,8 +248,7 @@ LAB_08075920:
     bl         Sound_PlaySongImmediate
     b          LAB_0807596e
 LAB_0807595e:
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x3]
     mov        r0,#0x4

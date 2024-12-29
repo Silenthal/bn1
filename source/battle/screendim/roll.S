@@ -107,8 +107,7 @@ _ts SD_Roll_1_1
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_0809a374
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     lsl        r0,r0,#0x2
     add        r0,#0x40
@@ -163,8 +162,7 @@ _ts SD_Roll_1_3
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_0809a3d6
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     lsl        r0,r0,#0x2
     add        r0,#0x40
@@ -201,8 +199,7 @@ _ts SD_Roll_1_4_Recover
     ldrb       r0,[r5,#0x5]
     ldrb       r0,[r7,r0]
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r1,[r5,#0x6]
     lsl        r1,r1,#0x2
     add        r1,#0x40
@@ -271,8 +268,7 @@ _ts SD_Roll_2_Free
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
 LAB_0809a45c:
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     cmp        r0,#0x1
     beq        LAB_0809a472

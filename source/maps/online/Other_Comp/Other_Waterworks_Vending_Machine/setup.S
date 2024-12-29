@@ -50,8 +50,7 @@ LAB_0805088e:
     bl         Map_LoadNPCList
 LAB_08050894:
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2

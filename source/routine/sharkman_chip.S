@@ -162,8 +162,7 @@ LAB_0806a430:
 
 _nt R_SharkManC_1_0_1
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x1
     ldrb       r0,[r7,#0x2]
     tst        r0,r0
@@ -203,8 +202,7 @@ _nt R_SharkManC_1_0_3
     beq        LAB_0806a48e
     mov        r0,#0x9
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x2]
     mov        r0,#0x10
@@ -341,8 +339,7 @@ LAB_0806a554:
 
 _nt R_SharkManC_2_Free
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     ldrb       r0,[r7,#0x3]
     sub        r0,#0x1
     strb       r0,[r7,#0x3]

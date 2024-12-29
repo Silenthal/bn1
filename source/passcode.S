@@ -5,8 +5,7 @@
 
 _nt Passcode_Init
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x64]
+    LoadMain passcodeEntry, r5, r7
     push       {r0,r1,r5}
     add        r0,r5,#0x0
     mov        r1,#0x1c
@@ -51,8 +50,7 @@ LAB_08018e0a:
 
 _nt Passcode_HandleEntry
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x64]
+    LoadMain passcodeEntry, r5, r7
     ldrb       r1,[r5,#0x7]
     strb       r1,[r5,#0x17]
     strb       r0,[r5,#0x16]
@@ -193,8 +191,7 @@ LAB_08018f58:
 
 _ts Passcode_CheckKeyInput
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x4]
     mov        r1,#0xc0
     tst        r1,r0
@@ -210,8 +207,7 @@ LAB_08018f70:
     bl         Passcode_SelectDigit
     b          LAB_08018fac
 LAB_08018f82:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x1
     tst        r1,r0
@@ -387,8 +383,7 @@ _ts Passcode_SetValueFromDigits
 
 _nt Passcode_GetRandomValue
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x50]
+    LoadMain frameCounter, r0, r7
     ldrh       r0,[r0,#0x0]
     ldr        r1,=0xFFF
     and        r0,r1
@@ -402,8 +397,7 @@ LAB_080190c8:
 
 
 _ts Passcode_InitPickResult
-    mov        r7,r10
-    ldr        r5,[r7,#0x64]
+    LoadMain passcodeEntry, r5, r7
     mov        r1,#0x0
     strb       r1,[r5,#0x11]
     mov        r1,#0x0
@@ -413,8 +407,7 @@ _ts Passcode_InitPickResult
 
 _ts Passcode_ShiftDigit
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x64]
+    LoadMain passcodeEntry, r5, r7
     ldrb       r2,[r5,#0x18]
     add        r2,#0x1
     strb       r2,[r5,#0x18]

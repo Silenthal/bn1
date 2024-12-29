@@ -153,8 +153,7 @@ LAB_080990f6:
 
 _ts SD_TimeBomb_4
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

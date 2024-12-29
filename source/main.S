@@ -5,7 +5,7 @@
 
 _ts AgbMain
     bl         Main_Init
-    LoadStateTo r0, Main_manager
+    LoadMain manager, r0, r7
     movs       r1,#MS_Splash
     strb       r1,[r0, #Manager_gameState]
 .mainLoop:
@@ -22,13 +22,13 @@ _ts AgbMain
     bl         SpriteTilesetDetail_Init
     bl         Video_BlitScreens
     bl         Main_ReadInput
-    LoadStateTo r0, Main_frameCounter, r0
+    LoadMain frameCounter, r0, r0
     ldrh       r1,[r0,#FrameCounter_m_counter]
     add        r1,#0x1
     strh       r1,[r0,#FrameCounter_m_counter]
     bl         IncrementGameTimer
     ldr        r0,=jumpTableMain
-    LoadStateTo r1, Main_manager
+    LoadMain manager, r1, r7
     ldrb       r1,[r1,#Manager_gameState]
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -64,9 +64,9 @@ jumpTableMain:
 _ts Main_WaitFrames
     push       { lr }
 1:
-    ldr        r0,frameCounter
+    ldr        r0,PTR_gFrameCounter_080004fc
     ldrh       r2,[r0]
-    ldr        r1,frameWait0
+    ldr        r1,PTR_eFrameWaitValue_08000500
     ldrh       r1,[r1]
     cmp        r2,r1
     blt        1b
@@ -77,8 +77,7 @@ _ts Main_WaitFrames
 @@ Reads the input.
 @ void Main_ReadInput(void)
 _ts Main_ReadInput
-    mov        r7,r10
-    ldr        r0,[r7,#0x4]
+    LoadMain input, r0, r7
     ldrb       r7,[r0,#0x13]
     add        r7,#0x1
     cmp        r7,#0x3
@@ -86,7 +85,7 @@ _ts Main_ReadInput
     mov        r7,#0x0
 .resetCounter:
     strb       r7,[r0,#0x13]
-    ldr        r4,keyInput
+    ldr        r4,PTR_REG_KEYINPUT_08000504
     ldrh       r4,[r4]
     mvn        r4,r4
     ldrh       r5,[r0]
@@ -138,14 +137,12 @@ _ts Main_ReadInput
 @ void Main_SoftResetCheck(void)
 _ts Main_SoftResetCheck
     push       { lr }
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
     beq        .end
-    mov        r7,r10
-    ldr        r0,[r7,#0x4]
+    LoadMain input, r0, r7
     ldrh       r2,[r0,#0x2]
     ldrh       r0,[r0,#0x0]
     ldr        r1,[r7,#0x0]
@@ -182,8 +179,7 @@ _ts Main_Init
     push       { lr }
     ldr        r0,PTR_MainState_08000468
     mov        r10,r0
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     bl         Video_InitPaletteColor0
@@ -211,11 +207,10 @@ _ts Main_Init
     pop        { r0 }
     mov        r10,r0
     @ Set eFrameWait to 1
-    ldr        r0,frameWait
+    ldr        r0,PTR_eFrameWaitValue_08000508
     mov        r1,#0x1
     strh       r1,[r0,#0x0]
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x8
     bl         memset0_32
     pop        { pc }
@@ -258,7 +253,7 @@ MainState:
 
 _ts Main_WaitForVBlank
     push       { lr }
-    ldr        r0,dispStat
+    ldr        r0,PTR_REG_DISPSTAT_0800050c
     mov        r2,#0x1
 1:
     ldrh       r1,[r0]
@@ -268,11 +263,11 @@ _ts Main_WaitForVBlank
 
     .align 2, 0
 
-frameCounter:   .word eFrameCounter
-frameWait0:     .word eFrameWaitValue
-keyInput:       .word REG_KEYINPUT
-frameWait:      .word eFrameWaitValue
-dispStat:       .word REG_DISPSTAT
+PTR_gFrameCounter_080004fc:     .word eFrameCounter
+PTR_eFrameWaitValue_08000500:   .word eFrameWaitValue
+PTR_REG_KEYINPUT_08000504:      .word REG_KEYINPUT
+PTR_eFrameWaitValue_08000508:   .word eFrameWaitValue
+PTR_REG_DISPSTAT_0800050c:      .word REG_DISPSTAT
 
     .end
 

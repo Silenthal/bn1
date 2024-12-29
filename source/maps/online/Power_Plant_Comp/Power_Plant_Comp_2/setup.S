@@ -107,8 +107,7 @@ _ts MapSetup_Power_Plant_Comp_2_F42
     mov        r0,#0xb6
     bl         Flag_GetBase
     beq        LAB_0804a8b0
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     mov        r0,#0xb6
@@ -133,8 +132,7 @@ LAB_0804a8a4:
     pop        {r5}
     b          LAB_0804a8d0
 LAB_0804a8b0:
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -375,8 +373,7 @@ _ts MapSetup_Power_Plant_Comp_2_F50
     ldr        r7,PTR_NPCList_804B77C_0804ab30
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2

@@ -192,8 +192,7 @@ _ts S_UnlockWWWGate_0
     push       {r5}
     bl         Flag_SetPlayerInactive
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -283,8 +282,7 @@ LAB_08086eda:
 
 
 _ts S_UnlockWWWGate_4
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -318,8 +316,7 @@ LAB_08086f20:
 
 
 _ts S_UnlockWWWGate_6
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

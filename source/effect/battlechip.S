@@ -18,8 +18,7 @@ _ts Effect_BattleChip
     bl         Effect_Free
     b          LAB_0807c0f2
 LAB_0807c08c:
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x9]
     mov        r1,#0x2
     tst        r0,r1
@@ -128,8 +127,7 @@ LAB_0807c14e:
 
 _nt Effect_BattleChip_DrawHand
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r0,[r7,#0x40]
     bl         Effect_BattleChip_Create
     pop        {r5,pc}
@@ -138,8 +136,7 @@ _nt Effect_BattleChip_DrawHand
 _ts Effect_BattleChip_LoadHandIcons
     push       {r5,lr}
     sub        sp,#0x10
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     mov        r6,#0x6a
     add        r0,r6,r7
     mov        r1,sp
@@ -197,8 +194,7 @@ _ts E_BattleChip_GetCurrentChipIndex
     ldr        r7,[r5,#0x60]
     ldrb       r0,[r7,#0x16]
     mul        r0,r1
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     add        r7,r7,r0
     mov        r3,#0x0
     mov        r6,#0x6a

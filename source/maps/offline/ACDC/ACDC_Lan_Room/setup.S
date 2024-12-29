@@ -63,8 +63,7 @@ _ts MapSetup_ACDC_Lan_Room_F00
     ldr        r7,PTR_DAT_0802cb38
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0xff
     strb       r1,[r0,#0x12]
 LAB_0802cade:
@@ -154,8 +153,7 @@ _ts EventHandler_ACDC_Lan_Room_F00_1
     mov        r0,#0x4
     bl         PetStatusControl_SetState
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x12]
     mov        r0,#0x8
@@ -163,8 +161,7 @@ _ts EventHandler_ACDC_Lan_Room_F00_1
     b          LAB_0802cbc4
 LAB_0802cba4:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -203,16 +200,14 @@ LAB_0802cbe6:
 _ts EventHandler_ACDC_Lan_Room_F00_3
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x40
     bne        LAB_0802cc24
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0802cf2c
     and        r1,r0
@@ -292,8 +287,7 @@ _ts EventHandler_ACDC_Lan_Room_F02_0
     bl         FUN_0802ce90
     beq        LAB_0802ccca
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -526,8 +520,7 @@ _ts EventHandler_ACDC_Lan_Room_F06_0
     ldr        r0,DAT_0802cf78
     mov        r1,#0xb
     bl         Scene_Prepare
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x10
     strb       r1,[r0,#0x6]
     mov        r0,#0x28
@@ -540,8 +533,7 @@ _ts EventHandler_ACDC_Lan_Room_F06_0
 LAB_0802ce6e:
     bl         FUN_0802ce90
     beq        LAB_0802ce8a
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
     cmp        r1,#0xf3
     bne        LAB_0802ce8a
@@ -561,8 +553,7 @@ _ts EventHandler_ACDC_Lan_Room_F06_1
 
 _ts FUN_0802ce90
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0802cf2c
     mvn        r0,r0
@@ -574,8 +565,7 @@ _ts FUN_0802ce90
     bl         Text_CheckOption
     bne        LAB_0802ced0
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -596,8 +586,7 @@ LAB_0802ced0:
 
 _ts FUN_0802ced4
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0802cf2c
     mvn        r0,r0
@@ -609,8 +598,7 @@ _ts FUN_0802ced4
     bl         Text_CheckOption
     bne        LAB_0802cf14
     push       {r5,r7}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -828,8 +816,7 @@ _ts EventHandler_ACDC_Lan_Room_F21_0
     mov        r0,#0x6f
     bl         Flag_GetBase
     beq        LAB_0802d0ae
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x22
     strb       r1,[r0,#0x6]
 LAB_0802d0ae:
@@ -875,8 +862,7 @@ _ts EventHandler_ACDC_Lan_Room_F22_0
     mov        r0,#0x7
     bl         Flag_GetEmailUnread
     bne        LAB_0802d114
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
     cmp        r1,#0xf3
     bne        LAB_0802d114
@@ -902,19 +888,16 @@ LAB_0802d12c:
 
 _nt EventHandler_ACDC_Lan_Room_F22_1
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0802d15c
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x23
     strb       r1,[r0,#0x6]
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1
@@ -943,8 +926,7 @@ _ts MapSetup_ACDC_Lan_Room_F23
     mov        r0,#0x9d
     bl         Flag_GetBase
     bne        LAB_0802d198
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r1,#0x8
     strb       r1,[r7,#0x7]
     mov        r1,#0xff
@@ -1239,8 +1221,7 @@ _ts EventHandler_ACDC_Lan_Room_F52_0
     mov        r0,#0xa0
     bl         Flag_GetBase
     beq        LAB_0802d3c6
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x53
     strb       r1,[r0,#0x6]
     push       {r5}
@@ -1252,8 +1233,7 @@ LAB_0802d3c6:
     mov        r0,#0x9e
     bl         Flag_GetBase
     beq        LAB_0802d3e4
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
     cmp        r1,#0xf3
     bne        LAB_0802d3e4

@@ -8,8 +8,7 @@
 
 _ts InitDemo
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x40]
+    LoadMain demo, r5, r7
     push       { r0, r5 }
     add        r0,r5,#0x0
     mov        r1,#0x8
@@ -21,7 +20,7 @@ _ts InitDemo
 
 _ts Demo_Main
     push       { lr }
-    LoadStateTo r5, Main_demo
+    LoadMain demo, r5, r7
     ldr        r0,PTR_JT_R5_DemoState_1897C_08018bc0
     ldrb       r1,[r5,#Demo_m_state0]
     ldr        r0,[r0,r1]
@@ -42,7 +41,7 @@ _ts Demo_Init
     bl         Text_DisableDialogue
     mov        r0,#BGC_Standard
     bl         Video_SetBgControl
-    LoadStateTo r0, Main_display
+    LoadMain display, r0, r7
     ldr        r1,PTR_DAT_08018bc4
     strh       r1,[r0,#DisplaySettings_dispcnt]
     bl         Video_ClearAllTile0Maps
@@ -89,17 +88,17 @@ _ts Demo_Finish
     push       { r5 }
     bl         Main_Init
     pop        { r5 }
-    LoadStateTo r0, Main_manager
+    LoadMain manager, r0, r7
     mov        r1,#MS_Splash
     strb       r1,[r0,#Manager_gameState]
-    LoadStateTo r0, Main_display
+    LoadMain display, r0, r7
     mov        r1,#DISPCNT_OMAP1D
     strh       r1,[r0,#DisplaySettings_dispcnt]
     pop        { pc }
 
 _ts Demo_SetToBeContinuedMessage
     push       { lr }
-    LoadStateTo r0, Main_fade, r0
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
@@ -133,7 +132,7 @@ LAB_08018a4a:
 
 _ts Demo_ApplyVideoSettings
     push       { lr }
-    LoadStateTo r0, Main_fade, r0
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
@@ -142,7 +141,7 @@ _ts Demo_ApplyVideoSettings
     mov        r0,#BGC_Standard
     bl         Video_SetBgControl
     pop        { r5 }
-    LoadStateTo r0, Main_display
+    LoadMain display, r0, r7
     mov        r1,#DISPCNT_OMAP1D
     strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0
@@ -178,8 +177,7 @@ _ts Demo_ShowThankYouMessage
     mov        r1,#0x8
     bl         Fade_Request
     pop        { r5 }
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,PTR_DAT_08018bdc
     strh       r1,[r0,#0x0]
     ldr        r0,DAT_08018be0
@@ -207,8 +205,7 @@ _ts Demo_WaitForTimer
 
 _ts Demo_CleanUp
     push       { lr }
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

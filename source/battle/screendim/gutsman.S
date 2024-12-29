@@ -109,8 +109,7 @@ _ts SD_GutsMan_1_1
     add        r7,r7,r0
     ldrb       r1,[r7,#0x0]
     ldrb       r2,[r7,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     lsl        r3,r0,#0x2
     add        r3,#0x40
     ldr        r7,[r7,r3]
@@ -175,8 +174,7 @@ _ts SD_GutsMan_2
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
 LAB_08098be8:
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     cmp        r0,#0x1
     beq        LAB_08098bfe

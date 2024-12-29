@@ -113,14 +113,12 @@ _ts M_Folder_0_Init
     bl         Menu_LoadChipData
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapFolderFrameFolder_0801a248
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,DAT_0801a24c
     add        r1,r1,r2
     ldr        r2,DAT_0801a250
     bl         Dma_TransferListAdd
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,DispCnt_0801a254
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -172,8 +170,7 @@ _ts M_Folder_1_Main
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0801a01a
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -190,8 +187,7 @@ LAB_0801a01a:
 _ts M_Folder_2_Close
     push       {lr}
     bl         Menu_Folder_DrawUI
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -696,8 +692,7 @@ LAB_0801a40c:
     ldrh       r0,[r5,r0]
     cmp        r0,#0x7
     ble        LAB_0801a46c
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r7,[r7,#0x0]
     mov        r1,#0x10
     and        r1,r7
@@ -861,8 +856,7 @@ LAB_0801a526:
     ldr        r6,PTR_tilesetDialogueText_0801a674
 LAB_0801a554:
     push       {r0,r1,r2,r3,r5,r6}
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     ldr        r4,[r5,#0x14]
     lsr        r4,r4,#0x10
     str        r4,[r7,#0x4]
@@ -933,8 +927,7 @@ _ts Menu_Folder_DrawSwitchArrow
     ldrb       r0,[r5,#0x11]
     tst        r0,r0
     beq        LAB_0801a63a
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r7,[r7,#0x0]
     mov        r1,#0x2
     and        r1,r7
@@ -1657,8 +1650,7 @@ LAB_0801ab0e:
     strb       r0,[r5,#0xe]
     b          LAB_0801ac1a
 LAB_0801ab1a:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x2
     tst        r1,r0
@@ -1822,8 +1814,7 @@ _ts Menu_Folder_Sort_Open
     beq        LAB_0801ac4c
     mov        r2,#0x2
 LAB_0801ac4c:
-    mov        r0,r10
-    ldr        r0,[r0,#0x78]
+    LoadMain gameStats, r0, r0
     ldrb       r1,[r0,r2]
     mov        r0,#0x3c
     strh       r1,[r5,r0]
@@ -1916,8 +1907,7 @@ LAB_0801ace8:
     push       {r1,r3,r7}
     bl         BattleChip_GetChipData
     pop        {r1,r3,r7}
-    mov        r2,r10
-    ldr        r2,[r2,#0x78]
+    LoadMain gameStats, r2, r2
     ldrb       r2,[r2,#0x3]
     tst        r2,r2
     bne        LAB_0801ad4c
@@ -2014,8 +2004,7 @@ LAB_0801ad9e:
     pop        {r5}
     push       {r1}
     push       {r5}
-    mov        r2,r10
-    ldr        r2,[r2,#0x78]
+    LoadMain gameStats, r2, r2
     ldrb       r4,[r2,#0x3]
     ldr        r0,PTR_gChipBag_0801b068
     ldrb       r2,[r2,#0x2]
@@ -2071,8 +2060,7 @@ LAB_0801ae14:
     add        r0,r4,#0x0
     bl         BattleChip_GetChipData
     pop        {r4,r6,r7}
-    mov        r2,r10
-    ldr        r2,[r2,#0x78]
+    LoadMain gameStats, r2, r2
     ldrb       r2,[r2,#0x1]
     tst        r2,r2
     bne        LAB_0801ae6a
@@ -2154,8 +2142,7 @@ LAB_0801aeb4:
     cmp        r0,#0x1e
     blt        LAB_0801ade2
     push       {r1,r5}
-    mov        r2,r10
-    ldr        r2,[r2,#0x78]
+    LoadMain gameStats, r2, r2
     ldrb       r4,[r2,#0x1]
     ldr        r0,PTR_DAT_0801b074
     ldrb       r2,[r2,#0x0]
@@ -2169,8 +2156,7 @@ LAB_0801aeb4:
     pop        {r1,r5}
     ldr        r7,PTR_DAT_0801b074
     ldr        r6,PTR_gFolder_0801b084
-    mov        r0,r10
-    ldr        r0,[r0,#0x78]
+    LoadMain gameStats, r0, r0
     ldrb       r0,[r0,#0x1]
 LAB_0801aee6:
     cmp        r1,#0x0
@@ -2217,8 +2203,7 @@ LAB_0801af28:
     strb       r0,[r5,#0xe]
     b          LAB_0801afca
 LAB_0801af34:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0xa
     tst        r1,r0
@@ -2349,8 +2334,7 @@ _ts Menu_Folder_CheckSortSelection
     bne        LAB_0801b024
     mov        r7,#0x0
 LAB_0801b024:
-    mov        r1,r10
-    ldr        r1,[r1,#0x78]
+    LoadMain gameStats, r1, r1
     add        r1,r1,r7
     ldrb       r2,[r1,#0x0]
     cmp        r0,r2

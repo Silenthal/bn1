@@ -184,8 +184,7 @@ _ts MapSetup_DenTown_Block_2_F35
     mov        r0,#0xaf
     bl         Flag_GetBase
     bne        LAB_08037748
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     mov        r0,#0x0
@@ -260,8 +259,7 @@ _ts FUN_0803779c
     beq        LAB_080377a8
     pop        {pc}
 LAB_080377a8:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
     cmp        r1,#0x20
     bne        LAB_080377be
@@ -272,15 +270,13 @@ LAB_080377a8:
     pop        {r5}
 LAB_080377be:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     mov        r1,#0x8
     strh       r1,[r0,#0x2e]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r1,#0x0
     strh       r1,[r7,#0x2e]
@@ -292,16 +288,14 @@ LAB_080377be:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08037822
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0803785c
     and        r1,r0
     beq        LAB_08037822
     bl         dummy_187a0
     bne        LAB_08037822
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x30
     bne        LAB_08037816
@@ -464,8 +458,7 @@ _ts FUN_08037918
     beq        LAB_08037924
     pop        {pc}
 LAB_08037924:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
     cmp        r1,#0x20
     bne        LAB_0803793a
@@ -476,15 +469,13 @@ LAB_08037924:
     pop        {r5}
 LAB_0803793a:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     mov        r1,#0x8
     strh       r1,[r0,#0x2e]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r1,#0x0
     strh       r1,[r7,#0x2e]
@@ -496,8 +487,7 @@ LAB_0803793a:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08037986
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_080379a0
     and        r1,r0
@@ -594,8 +584,7 @@ _ts MapSetup_DenTown_Block_2_F50
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x6]
     cmp        r0,#0x53
     bge        LAB_08037a46
@@ -643,8 +632,7 @@ _ts FUN_08037a70
     beq        LAB_08037a7c
     pop        {pc}
 LAB_08037a7c:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
     cmp        r1,#0x20
     bne        LAB_08037a92
@@ -655,15 +643,13 @@ LAB_08037a7c:
     pop        {r5}
 LAB_08037a92:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     mov        r1,#0x8
     strh       r1,[r0,#0x2e]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r1,#0x0
     strh       r1,[r7,#0x2e]
@@ -675,8 +661,7 @@ LAB_08037a92:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08037ade
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_08037afc
     and        r1,r0

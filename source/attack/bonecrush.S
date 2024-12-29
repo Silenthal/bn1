@@ -313,8 +313,7 @@ _ts A_BoneCrush_GetNextMove
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r2,[r7,#0x18]
     sub        r0,r2,r0
@@ -346,8 +345,7 @@ LAB_08074c96:
 _nt A_BoneCrush_MoveX
     push       {lr}
     ldrb       r0,[r5,#0x18]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r2,[r7,#0x18]
     sub        r0,r2,r0
@@ -383,8 +381,7 @@ DAT_08074cd8:
 _ts A_BoneCrush_MoveY
     push       {lr}
     ldrb       r0,[r5,#0x19]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r2,[r7,#0x19]
     sub        r0,r2,r0

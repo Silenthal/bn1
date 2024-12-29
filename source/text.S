@@ -6,7 +6,7 @@
 
 _ts Text_Init
     push       { lr }
-    LoadStateTo r0, Main_text, r0
+    LoadMain textHandler, r0, r0
     mov        r1,#0x8c
     bl         memset0_32
     mov        r0,#(TF_ClearDialogBox|TF_DisableInput)
@@ -16,7 +16,7 @@ _ts Text_Init
 _ts Text_LoadAreaDialogue
     push       { lr }
     push       { r0 }
-    LoadStateTo r5, Main_world
+    LoadMain world, r5, r7
     ldrb       r0,[r5,#0x4]
     ldrb       r1,[r5,#0x5]
     cmp        r0,#0xf0
@@ -48,8 +48,7 @@ _ts Text_LoadCommentaryDialogue
     cmp        r0,#0xff
     beq        LAB_080135e4
     push       { r0 }
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     ldrb       r0,[r5,#0x4]
     ldrb       r1,[r5,#0x5]
     cmp        r0,#0xf0
@@ -79,14 +78,13 @@ LAB_080135e4:
 
 _ts Text_LoadDialogue
     push       { lr }
-    LoadStateTo r5, Main_text, r5
+    LoadMain textHandler, r5, r5
     ldr        r2,[r5,#0x30]
     ldr        r3,[r5,#0x34]
     ldr        r4,[r5,#0x38]
     ldr        r6,[r5,#0x3c]
     push       { r0, r1, r2, r3, r4, r5, r6 }
-    mov        r0,r10
-    ldr        r0,[r0,#0x48]
+    LoadMain textHandler, r0, r0
     mov        r1,#0x8c
     bl         memset0_32
     pop        { r0, r1, r2, r3, r4, r5, r6 }
@@ -124,7 +122,7 @@ _ts Text_LoadDialogue
 
 _ts Text_DisableDialogue
     push       { lr }
-    LoadStateTo r5, Main_text, r5
+    LoadMain textHandler, r5, r5
     mov        r0,#FALSE
     strb       r0,[r5,#Text_m_isWriteText]
     mov        r0,#(TF_DisableInput|TF_ClearDialogBox)
@@ -133,7 +131,7 @@ _ts Text_DisableDialogue
 
 _ts Text_Main
     push       { lr }
-    LoadStateTo r5, Main_text, r5
+    LoadMain textHandler, r5, r5
     ldrb       r0,[r5,#Text_m_isWriteText]
     cmp        r0,#FALSE
     bne        write_text_start
@@ -150,7 +148,7 @@ write_text_start:
     strh       r1,[r5,#Text_m_heldKeyState]
     b          state_after_input_check
 state_store_input:
-    LoadStateTo r0, Main_input
+    LoadMain input, r0, r7
     ldrh       r1,[r0,#Input_curKeyState]
     strh       r1,[r5,#Text_m_curKeyState]
     ldrh       r1,[r0,#Input_toggleKeyState]
@@ -297,7 +295,7 @@ layout_finish:
     ldrb       r0,[r5,#Text_m_layoutLineOffset]
     lsl        r1,r0,#0x6
     ldr        r0,[r5,#Text_m_dialogLayout]
-    LoadStateTo r2, Main_screens, r2
+    LoadMain 92, r2, r2
     add        r1,r1,r2
     mov        r2,#0x80
     push       { r5 }
@@ -1340,8 +1338,7 @@ _ts JT_Command_F4_04_JumpIfStoryRange
     push       { lr }
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x6]
     mov        r0,#0x5
     cmp        r7,r1
@@ -1479,8 +1476,7 @@ _ts JT_Command_F4_14_JumpIfBustRank
     push       { lr }
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x19]
     mov        r0,#0x5
     cmp        r7,r1
@@ -2104,8 +2100,7 @@ _ts JT_Command_FA_04_PlayerAnimSet
     push       { lr }
     mov        r0,#0x1
     bl         Text_EnableScriptOption
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     add        r1,r5,#0x0
     add        r1,#0x54
@@ -2137,8 +2132,7 @@ _ts JT_Command_FA_0C_WaitForPlayerAnim
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     push       { r4, r5 }
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r5,[r0,#0x28]
     bl         SpritePtr_GetFrameStatus
     pop        { r4, r5 }
@@ -2162,8 +2156,7 @@ _ts JT_Command_FA_10_RestorePlayerAnim
     ldrb       r0,[r1,#0x0]
     cmp        r0,#0x7
     bgt        LAB_0801453c
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     strb       r0,[r7,#0x10]
 LAB_0801453c:
@@ -2315,8 +2308,7 @@ _ts JT_Command_FB_0C_PrintZennyBuffer
     ldr        r0,[r5,r0]
     b          LAB_08014676
 LAB_08014670:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r0,[r7,#0x74]
 LAB_08014676:
     ldrb       r1,[r4,#0x2]
@@ -2755,8 +2747,7 @@ LAB_080149dc:
     bl         Rng_RandomInt
     mov        r1,#0xff
     and        r0,r1
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldrb       r1,[r1,#0x6]
     lsr        r1,r1,#0x4
     ldr        r7,PTR_BYTE_ARRAY_08014a34
@@ -2889,8 +2880,7 @@ _ts JT_Layout_FD_18_StartVirusMachineBattle
 
 _ts JT_Command_FE_Save
     push       { lr }
-    mov        r7,r10
-    ldr        r6,[r7,#0x8]
+    LoadMain world, r6, r7
     ldr        r7,[r6,#0x28]
     ldr        r0,[r7,#0x24]
     str        r0,[r6,#0x38]

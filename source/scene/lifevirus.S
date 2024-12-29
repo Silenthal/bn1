@@ -48,8 +48,7 @@ _nt S_Rocket_Comp_LifeVirus_1
     mov        r0,#0x2e
     bl         PlayerAnimation_SetState
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -70,8 +69,7 @@ LAB_08098118:
 
 _nt S_Rocket_Comp_LifeVirus_2
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -124,8 +122,7 @@ LAB_08098180:
 
 _nt S_Rocket_Comp_LifeVirus_4
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

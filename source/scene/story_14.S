@@ -51,8 +51,7 @@ LAB_08086ab6:
 
 
 _ts S_Story_14_1
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -69,8 +68,7 @@ _ts S_Story_14_1
     bl         Fade_Request
     pop        {r5}
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r0,DAT_08086c24
     str        r0,[r7,#0x38]
     ldr        r0,DAT_08086c28
@@ -98,8 +96,7 @@ _ts S_Story_14_2
     bl         SceneCamera_Main
     cmp        r0,#0x1
     beq        LAB_08086b48
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -185,8 +182,7 @@ _nt S_Story_14_5
 
 
 _ts S_Story_14_6
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

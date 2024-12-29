@@ -105,8 +105,7 @@ _ts SD_ColorMan_1_1
     strh       r0,[r5,#0x8]
     bne        LAB_0809a8a0
     ldrb       r0,[r5,#0x6]
-    mov        r1,r10
-    ldr        r1,[r1,#0xc]
+    LoadMain battle, r1, r1
     ldrb       r1,[r1,#0x1a]
     eor        r1,r0
     ldr        r7,PTR_DAT_0809a8a8
@@ -190,8 +189,7 @@ _nt SD_ColorMan_2_Free
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
 LAB_0809a8e2:
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     cmp        r0,#0x1
     beq        LAB_0809a8f8

@@ -222,8 +222,7 @@ _fts SpritePtr_CalculateOcclusion
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
     add        r5,r5,r7
-    mov        r2,r10
-    ldr        r2,[r2,#0x0]
+    LoadMain manager, r2, r2
     ldrb       r2,[r2,#0x0]
     cmp        r2,#0x8
     beq        LAB_03006b82
@@ -360,8 +359,7 @@ LAB_03006c4a:
     ldr        r1,[r0,#0x8]
     mov        r9,r1
 LAB_03006c4e:
-    mov        r3,r10
-    ldr        r3,[r3,#0x14]
+    LoadMain camera, r3, r3
     ldr        r1,[r0,#0x0]
     ldr        r4,[r3,#0x38]
     sub        r1,r1,r4
@@ -403,8 +401,7 @@ LAB_03006c4e:
 
 _ts SpritePtr_CalculatePositionBattle
     add        r6,r4,#0x0
-    mov        r3,r10
-    ldr        r3,[r3,#0x14]
+    LoadMain camera, r3, r3
     mov        r2,#0x2
     ldrsh      r1,[r0,r2]
     ldr        r4,[r3,#0x38]
@@ -443,8 +440,7 @@ LAB_03006ce2:
 
 
 _ts SpriteFrame_CheckTilesetLimit
-    mov        r3,r10
-    ldr        r3,[r3,#0x0]
+    LoadMain manager, r3, r3
     ldrb       r3,[r3,#0x0]
     cmp        r3,#0x8
     beq        LAB_03006d06

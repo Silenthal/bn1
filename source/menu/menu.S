@@ -22,23 +22,20 @@ _nt InitMenu_MP
 
 _nt _InitMenu
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x74]
+    LoadMain menu, r5, r7
     push       { r0, r5 }
     add        r0,r5,#0x0
     mov        r1,#0x54
     bl         memset0_32
     pop        { r0, r5 }
     strb       r0,[r5,#0x3]
-    mov        r7,r10
-    ldr        r7,[r7,#0x6c]
+    LoadMain startMenuState, r7, r7
     ldrb       r0,[r7,#0x6]
     lsl        r0,r0,#0x2
     strb       r0,[r5,#0x0]
     mov        r0,#0x40
     bl         StartMenu_SetState
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrh       r0,[r7,#0x4]
     strh       r0,[r7,#0xc]
     push       { r5 }
@@ -49,8 +46,7 @@ _nt _InitMenu
 
 _ts Menu_Main
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x74]
+    LoadMain menu, r5, r7
     ldr        r0,PTR_JT_R5_74_19820_0801981c
     ldrb       r1,[r5,#0x0]
     ldr        r0,[r0,r1]
@@ -82,8 +78,7 @@ _nt Menu_LoadChipDataCustom
     mov        r12,r2
     push       {r5,lr}
     push       {r4}
-    mov        r7,r10
-    ldr        r5,[r7,#0x74]
+    LoadMain menu, r5, r7
     strb       r0,[r5,#0x4]
     strb       r1,[r5,#0x5]
     push       {r3,r5}
@@ -159,8 +154,7 @@ LAB_080198bc:
     tst        r0,r0
     beq        LAB_080198f4
     mov        r1,#0x16
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     str        r0,[r7,#0x4]
 LAB_080198f4:
     push       {r3,r5}
@@ -220,8 +214,7 @@ LAB_080198f4:
 
 _ts Menu_LoadChipDetail
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x74]
+    LoadMain menu, r5, r7
     ldrb       r0,[r5,#0x7]
     tst        r0,r0
     beq        LAB_080199b6
@@ -259,8 +252,7 @@ LAB_080199b6:
 
 _ts Menu_ShowChipDetail
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x74]
+    LoadMain menu, r5, r7
     str        r0,[r5,#0x4c]
     str        r1,[r5,#0x50]
     mov        r0,#0x1

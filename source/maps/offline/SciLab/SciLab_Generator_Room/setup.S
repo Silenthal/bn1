@@ -86,8 +86,7 @@ _ts MapSetup_SciLab_Generator_Room_F43
     mov        r0,#0xb6
     bl         Flag_GetBase
     beq        LAB_0803d014
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     mov        r0,#0xb7
@@ -178,8 +177,7 @@ PTR_EventHandler_SciLab_Generator_Room_F43_0_0803d084:
 
 _ts EventHandler_SciLab_Generator_Room_F43_0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803d0ae
@@ -196,8 +194,7 @@ LAB_0803d0ae:
 
 _ts EventHandler_SciLab_Generator_Room_F43_1
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803d0d0
@@ -215,8 +212,7 @@ LAB_0803d0d0:
 
 _nt EventHandler_SciLab_Generator_Room_F43_2
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803d0f2

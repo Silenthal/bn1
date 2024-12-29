@@ -379,8 +379,7 @@ LAB_08072c96:
 _ts A_PuffyBubble_GetNextPanelTowardsPlayer
     push       {lr}
     mov        r3,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r2,[r7,#0x18]
     ldrb       r3,[r7,#0x19]

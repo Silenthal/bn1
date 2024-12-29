@@ -74,8 +74,7 @@ _ts SD_Candle_1
     bl         Field_GetAttackDirectionOffset
     add        r2,r0,#0x0
     pop        {r6}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r4,[r5,#0x5]
     push       {r5}
     lsl        r0,r6,#0x2
@@ -123,8 +122,7 @@ LAB_08099d84:
 
 _nt SD_Candle_3
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

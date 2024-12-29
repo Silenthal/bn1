@@ -104,8 +104,7 @@ _ts MapSetup_School_Staff_Lounge_F15
     mov        r0,#0xc7
     bl         Flag_GetBase
     beq        LAB_080283cc
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -143,8 +142,7 @@ _ts EventHandler_School_Staff_Lounge_F15_0
     ldr        r0,PTR_Scene_ChangeMap_0802843c
     mov        r1,#0xc
     bl         Scene_Prepare
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x20
     strb       r1,[r0,#0x6]
     mov        r0,#0x1

@@ -32,8 +32,7 @@ _ts E_TeleportPortal_0_Init
     mov        r0,#0x1
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r2,[r7,#0x58]
     ldr        r3,DAT_0807e408
     and        r2,r3

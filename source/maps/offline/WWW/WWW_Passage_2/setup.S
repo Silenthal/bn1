@@ -106,8 +106,7 @@ PTR_EventHandler_WWW_Passage_2_F54_0_0803e4a4:
 _ts EventHandler_WWW_Passage_2_F54_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

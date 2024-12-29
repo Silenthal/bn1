@@ -41,8 +41,7 @@ _ts Credits_0_Init
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldr        r0,[r7,#0x18]
     ldr        r1,framesPerHour
     push       {r5}
@@ -111,12 +110,10 @@ _ts Credits_2_Free
     push       {r5}
     bl         Main_Init
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x14
     strb       r1,[r0,#0x0]
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     pop        {pc}
@@ -139,8 +136,7 @@ _ts Credits_1_0_StartScene
     mov        r0,#0x3
     bl         Video_SetBgControl
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,INT_080215d4
     strh       r1,[r0,#0x0]
     mov        r0,#0x3
@@ -282,8 +278,7 @@ _ts Credits_1_3_FadeOut
     bl         Effect_LoadAll
     pop        {r5}
     bl         Credits_PrintBackdrop
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -423,8 +418,7 @@ LAB_08021860:
     strh       r0,[r5,#0x4]
     bgt        LAB_08021888
 LAB_0802186c:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     ldr        r1,DAT_080218d8
     tst        r1,r0
@@ -519,8 +513,7 @@ LAB_08021b3c:
     ldrb       r1,[r7,#0x1]
     bl         Map_LoadBackgroundData
     pop        {r5,r7}
-    mov        r6,r10
-    ldr        r6,[r6,#0x14]
+    LoadMain camera, r6, r6
     ldr        r0,[r6,#0x2c]
     ldr        r1,[r6,#0x30]
     ldr        r2,[r6,#0x34]
@@ -562,16 +555,14 @@ LAB_08021b94:
 
 _ts Credits_ResetEntityData
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#0x34]
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
     mov        r0,#0x3
     bl         Video_SetBgControl
-    mov        r5,r10
-    ldr        r0,[r5,#0x10]
+    LoadMain display, r0, r5
     ldr        r1,INT_08021bd0
     strh       r1,[r0,#0x0]
     pop        {r5,pc}
@@ -635,8 +626,7 @@ _ts Credits_PrintPage
     add        r1,#0xa
 LAB_08021c34:
     push       {r1,r6}
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#0x4]
     str        r0,[r7,#0x8]
@@ -689,8 +679,7 @@ LAB_08021c8e:
 LAB_08021c94:
     ldrb       r0,[r5,#0xe]
 LAB_08021c96:
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     str        r0,[r7,#0x4]
     str        r1,[r7,#0x8]
     ldr        r0,PTR_textDict_Credits_08021d80

@@ -403,8 +403,7 @@ LAB_08073570:
     bl         Battle_CellCoordsToSprite
     pop        {r4}
     str        r1,[r4,#0x2c]
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     ldrb       r2,[r6,#0x1a]
     ldrb       r3,[r4,#0x16]
     eor        r2,r3

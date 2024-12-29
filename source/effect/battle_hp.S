@@ -5,8 +5,7 @@
 
 _ts Effect_BattleHP
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r1,[r7,#0x9]
     mov        r0,#0x5
     and        r1,r0
@@ -231,8 +230,7 @@ LAB_0807bbba:
 
 _ts Effect_BattleHP_CreateAll
     push       {r5,lr}
-    mov        r5,r10
-    ldr        r5,[r5,#0xc]
+    LoadMain battle, r5, r5
     mov        r4,#0x0
     mov        r3,#0x54
 LAB_0807bbd6:

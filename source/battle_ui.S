@@ -1,11 +1,11 @@
+#include "offsets.h"
     .include "constants.inc"
     .include "macros.inc"
 
 
 _ts BattleUi_Init
     push       { lr }
-    mov        r5,r10
-    ldr        r5,[r5,#0x1c]
+    LoadMain battleUi, r5, r5
     push       { r5 }
     add        r0,r5,#0x0
     mov        r1,#0x2c
@@ -19,8 +19,7 @@ _ts BattleUi_Init
 
 _ts BattleUi_Update
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x1c]
+    LoadMain battleUi, r5, r7
     push       { r5 }
     ldr        r0,PTR_paletteBattleUi_080155f8
     ldr        r1,PTR_eBgPaletteA_080155fc
@@ -38,8 +37,7 @@ _ts BattleUi_Update
 
 _ts BattleUi_SetState
     push       { r1, r2, lr }
-    mov        r2,r10
-    ldr        r2,[r2,#0x1c]
+    LoadMain battleUi, r2, r2
     ldrb       r1,[r2,#0x4]
     orr        r1,r0
     strb       r1,[r2,#0x4]
@@ -47,8 +45,7 @@ _ts BattleUi_SetState
 
 _ts BattleUi_ClearState
     push       { r1, r2, lr }
-    mov        r2,r10
-    ldr        r2,[r2,#0x1c]
+    LoadMain battleUi, r2, r2
     ldrb       r1,[r2,#0x4]
     bic        r1,r0
     strb       r1,[r2,#0x4]
@@ -56,16 +53,14 @@ _ts BattleUi_ClearState
 
 _ts BattleUi_CheckState
     push       { r1, r2, lr }
-    mov        r2,r10
-    ldr        r2,[r2,#0x1c]
+    LoadMain battleUi, r2, r2
     ldrb       r1,[r2,#0x4]
     and        r0,r1
     pop        { r1, r2, pc }
 
 _ts BattleUi_CheckDrawPlayerHp
     push       { lr }
-    mov        r3,r10
-    ldr        r3,[r3,#0xc]
+    LoadMain battle, r3, r3
     ldr        r3,[r3,#0x40]
     ldrh       r0,[r3,#0x20]
     ldrh       r1,[r3,#0x22]
@@ -84,8 +79,7 @@ _ts BattleUi_CheckDrawPlayerHp
     bl         BattleUi_CheckState
     pop        { r3 }
     beq        LAB_0801547c
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x9]
     tst        r7,r7
     bne        LAB_0801547c
@@ -213,12 +207,10 @@ TilemapEntry_ARRAY_08015548:
 
 _ts BattleUi_InitHpDisplay
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x1c]
+    LoadMain battleUi, r5, r7
     mov        r0,#0x80
     bl         BattleUi_SetState
-    mov        r3,r10
-    ldr        r3,[r3,#0xc]
+    LoadMain battle, r3, r3
     ldr        r3,[r3,#0x40]
     ldrh       r1,[r3,#0x20]
     strh       r1,[r5,#0x8]
@@ -227,8 +219,7 @@ _ts BattleUi_InitHpDisplay
 
 _ts BattleUi_ClearHpDisplay
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x1c]
+    LoadMain battleUi, r5, r7
     mov        r0,#0x80
     bl         BattleUi_ClearState
     mov        r0,#0x0
@@ -324,8 +315,7 @@ LAB_08015630:
 
 _ts BattleUi_DrawFullCustomGauge
     push       { lr }
-    mov        r5,r10
-    ldr        r5,[r5,#0x1c]
+    LoadMain battleUi, r5, r5
     bl         BattleUi_LoadCustomGaugeTileMap
     mov        r0,#0x40
     bl         BattleUi_SetState
@@ -337,8 +327,7 @@ _ts BattleUi_DrawFullCustomGauge
 
 _ts BattleUi_LoadCustomGaugeTileMap
     push       { lr }
-    mov        r5,r10
-    ldr        r5,[r5,#0x1c]
+    LoadMain battleUi, r5, r5
     push       { r0 }
     mov        r0,#0x6
     mov        r1,#0x0
@@ -358,8 +347,7 @@ _ts dummy_15678
 
 _ts DrawCustomGauge
     push       { lr }
-    mov        r7,r10
-    ldr        r0,[r7,#0xc]
+    LoadMain battle, r0, r7
     ldrh       r0,[r0,#0x3e]
     ldr        r6,DAT_080157a4
     ldr        r7,DAT_080157a8
@@ -537,8 +525,7 @@ _ts CheckDrawActiveChip
     tst        r0,r0
     beq        LAB_080157fc
     bl         BattleUi_InitActiveChipTileMap
-    mov        r7,r10
-    ldr        r6,[r7,#0x20]
+    LoadMain playerBattleState, r6, r7
     ldrb       r2,[r6,#0x1]
     add        r2,#0x6a
     ldrb       r0,[r6,r2]
@@ -564,8 +551,7 @@ LAB_080157fc:
 
 _ts BattleUi_DrawActiveChip
     push       { lr }
-    mov        r5,r10
-    ldr        r5,[r5,#0x1c]
+    LoadMain battleUi, r5, r5
     bl         BattleUi_InitActiveChipTileMap
     mov        r0,#0x20
     bl         BattleUi_SetState
@@ -574,8 +560,7 @@ _ts BattleUi_DrawActiveChip
 
 _ts BattleUi_ClearActiveChip
     push       { lr }
-    mov        r5,r10
-    ldr        r5,[r5,#0x1c]
+    LoadMain battleUi, r5, r5
     bl         BattleUi_InitActiveChipTileMap
     mov        r0,#0x20
     bl         BattleUi_ClearState

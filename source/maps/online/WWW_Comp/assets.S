@@ -1019,16 +1019,14 @@ _nt FUN_0804ebca
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     push       {r5}
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldrb       r1,[r1,#0x5]
     lsl        r1,r1,#0x2
     ldr        r0,PTR_PTR_0804ed28
     ldr        r0,[r0,r1]
     bl         Entity_AllocList
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x4]
     ldrb       r2,[r7,#0xc]
     cmp        r1,r2
@@ -1068,8 +1066,7 @@ PTR_FUN_0804ec28_0804ec24:
 _ts FUN_0804ec28
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r0,[r7,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -1080,12 +1077,10 @@ _ts FUN_0804ec28
     blt        LAB_0804eca8
     cmp        r0,#0x7f
     bgt        LAB_0804eca8
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r6,[r7,#0x4]
     strb       r0,[r7,#0x4]
     mov        r8,r0
@@ -1106,8 +1101,7 @@ LAB_0804ec6c:
     blt        LAB_0804ec64
     b          LAB_0804ecb0
 LAB_0804ec74:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
     mov        r7,r8
@@ -1128,8 +1122,7 @@ LAB_0804ec74:
     bl         FUN_0804ecd0
     b          LAB_0804ecb0
 LAB_0804eca8:
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0x4]
 LAB_0804ecb0:

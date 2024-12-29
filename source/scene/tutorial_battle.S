@@ -43,8 +43,7 @@ LAB_08085140:
     add        r2,#0x1
     cmp        r2,#0x3
     blt        LAB_08085134
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x10]
     tst        r7,r7
     bne        LAB_08085164
@@ -128,8 +127,7 @@ LAB_080851d4:
 
 _ts S_TutorialBattle_2
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -170,8 +168,7 @@ TutorialBattleOptions_ARRAY_08085220:
 
 _ts S_TutorialBattle_3
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -187,8 +184,7 @@ _ts S_TutorialBattle_3
     mov        r1,#0x0
     bl         World_SetTransitionLocation
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x2
     strb       r0,[r7,#0x6]
     bl         Scene_UnloadAndResetStepCounter

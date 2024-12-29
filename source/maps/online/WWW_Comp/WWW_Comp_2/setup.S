@@ -67,8 +67,7 @@ _ts MapSetup_WWW_Comp_2_F54
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -262,8 +261,7 @@ LAB_0804d708:
     pop        {r5}
     pop        {pc}
 LAB_0804d75c:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0804d77a
@@ -289,8 +287,7 @@ LAB_0804d77a:
     pop        {r5}
     pop        {pc}
 LAB_0804d798:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x21
     bne        LAB_0804d7b6
@@ -316,8 +313,7 @@ LAB_0804d7b6:
     pop        {r5}
     pop        {pc}
 LAB_0804d7d4:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x22
     bne        LAB_0804d7f2
@@ -343,8 +339,7 @@ LAB_0804d7f2:
     pop        {r5}
     pop        {pc}
 LAB_0804d810:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x23
     bne        LAB_0804d82e
@@ -370,8 +365,7 @@ LAB_0804d82e:
     pop        {r5}
     pop        {pc}
 LAB_0804d84c:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x24
     bne        LAB_0804d86a
@@ -397,8 +391,7 @@ LAB_0804d86a:
     pop        {r5}
     pop        {pc}
 LAB_0804d888:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x25
     bne        LAB_0804d8a6
@@ -424,8 +417,7 @@ LAB_0804d8a6:
     pop        {r5}
     pop        {pc}
 LAB_0804d8c4:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x26
     bne        LAB_0804d8e2
@@ -451,8 +443,7 @@ LAB_0804d8e2:
     pop        {r5}
     pop        {pc}
 LAB_0804d900:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x27
     bne        LAB_0804d91e
@@ -478,8 +469,7 @@ LAB_0804d91e:
     pop        {r5}
     pop        {pc}
 LAB_0804d93c:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x28
     bne        LAB_0804d960

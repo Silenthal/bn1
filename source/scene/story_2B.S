@@ -65,8 +65,7 @@ _nt S_Story_2B_1
     mov        r0,#0x31
     bl         PlayerAnimation_SetState
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -108,8 +107,7 @@ LAB_08089d02:
 
 
 _ts S_Story_2B_3
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -155,8 +153,7 @@ _nt S_Story_2B_5
     sub        r0,#0x1
     strb       r0,[r5,#0x8]
     bne        LAB_08089d9e
-    mov        r7,r10
-    ldr        r2,[r7,#0x8]
+    LoadMain world, r2, r7
     ldr        r2,[r2,#0x28]
     push       {r2,r5}
     ldr        r0,[r2,#0x24]
@@ -177,8 +174,7 @@ _nt S_Story_2B_5
     str        r0,[r5,#0x1c]
     mov        r0,#0x0
     str        r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x38
     bl         PlayerAnimation_SetState
     ldrb       r0,[r5,#0x0]
@@ -198,8 +194,7 @@ _nt S_Story_2B_6
     bne        LAB_08089dcc
     mov        r0,#0x75
     bl         Sound_PlaySongImmediate
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x39
     bl         PlayerAnimation_SetState
     mov        r0,#0x6
@@ -216,8 +211,7 @@ LAB_08089dd6:
 
 
 _ts S_Story_2B_7
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r0,#0x3a
     bl         PlayerAnimation_SetState
     mov        r0,#0x1e
@@ -330,8 +324,7 @@ LAB_08089eb4:
 
 
 _nt S_Story_2B_12
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -352,8 +345,7 @@ _nt S_Story_2B_12
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
     mov        r0,#0x1
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldr        r1,[r1,#0x28]
     add        r1,#0x24
     bl         Camera_SetEnabled
@@ -375,8 +367,7 @@ LAB_08089f14:
 
 
 _nt S_Story_2B_13
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

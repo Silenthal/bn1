@@ -103,8 +103,7 @@ LAB_08091956:
 
 
 _ts S_GovtElevator_3
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -134,8 +133,7 @@ _nt S_GovtElevator_4
     bl         Flag_ClearBase
     mov        r0,#0x33
     bl         Flag_ClearBase
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]
     ldr        r0,[r7,#0x2c]

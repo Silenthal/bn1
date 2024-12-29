@@ -8,8 +8,7 @@ _nt ScreenDim_WarpPlayerOut
     push       {r5,lr}
     ldrb       r0,[r5,#0x6]
     bl         ScreenDim_HidePlayer
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     lsl        r0,r0,#0x2
     add        r0,#0x40
@@ -40,8 +39,7 @@ _nt ScreenDim_WarpPlayerIn
     push       {r5,lr}
     ldrb       r0,[r5,#0x6]
     bl         FUN_08057300
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     lsl        r0,r0,#0x2
     add        r7,r7,r0

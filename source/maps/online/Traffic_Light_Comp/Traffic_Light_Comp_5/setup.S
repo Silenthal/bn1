@@ -75,8 +75,7 @@ _ts MapSetup_Traffic_Light_Comp_5_F35
     ldr        r7,PTR_NPCList_80492E8_08048f44
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -118,16 +117,14 @@ _ts EventHandler_Traffic_Light_Comp_5_F35_0
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08048c6e
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_08048f54
     and        r1,r0
     beq        LAB_08048c6e
     bl         dummy_187a0
     bne        LAB_08048c6e
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x36
     strb       r1,[r0,#0x6]
     mov        r0,#0x9
@@ -152,8 +149,7 @@ _ts MapSetup_Traffic_Light_Comp_5_F36
     mov        r0,#0xb8
     bl         Flag_GetBase
     bne        LAB_08048cb6
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -299,8 +295,7 @@ _nt EventHandler_Traffic_Light_Comp_5_F36_4
     push       {lr}
     bl         FUN_08048ee4
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -349,8 +344,7 @@ _nt MapSetup_Traffic_Light_Comp_5_F37
     mov        r0,#0xbb
     bl         Flag_GetBase
     beq        LAB_08048e40
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -367,8 +361,7 @@ LAB_08048e40:
     bl         Map_LoadNPCList
     bl         Effect_ColorMan_Create
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -436,8 +429,7 @@ _ts FUN_08048eac
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08048ee2
-    mov        r2,r10
-    ldr        r2,[r2,#0x4]
+    LoadMain input, r2, r2
     ldrh       r2,[r2,#0x2]
     ldr        r1,DAT_08048f54
     and        r1,r2
@@ -455,8 +447,7 @@ LAB_08048ee2:
 
 _ts FUN_08048ee4
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08048efc
@@ -655,8 +646,7 @@ _ts MapSetup_Traffic_Light_Comp_5_F40
     ldr        r7,PTR_NPCList_80492E8_080490c8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -693,8 +683,7 @@ PTR_EventHandler_Traffic_Light_Comp_5_F40_0_08049084:
 
 _ts EventHandler_Traffic_Light_Comp_5_F40_0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     beq        LAB_080490a0

@@ -73,8 +73,7 @@ _ts MapSetup_Oven_Comp_1_F03
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -276,8 +275,7 @@ LAB_0804343a:
     pop        {r5}
     b          LAB_080434a0
 LAB_0804347e:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -386,8 +384,7 @@ LAB_08043524:
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -436,8 +433,7 @@ LAB_08043596:
 
 _ts EventHandler_Oven_Comp_1_F03_HandleIceBlock
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
     cmp        r1,#0x20
     blt        LAB_080435b6
@@ -458,8 +454,7 @@ LAB_080435b6:
 
 _ts EventHandler_Oven_Comp_1_F05_HandleIceBlock
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
     cmp        r1,#0x20
     blt        LAB_080435ea

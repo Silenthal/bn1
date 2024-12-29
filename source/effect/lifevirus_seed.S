@@ -60,8 +60,7 @@ _ts E_LifeVirusSeed_0_Init
     and        r0,r1
     tst        r0,r0
     bne        LAB_080803ce
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x53
     beq        LAB_080803e4

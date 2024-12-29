@@ -295,8 +295,7 @@ LAB_08027106:
 LAB_0802711a:
     bl         Sound_AreaSongChange
 LAB_0802711e:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x5]
     ldrb       r1,[r7,#0xd]
     cmp        r0,r1
@@ -403,8 +402,7 @@ _ts MapSetup_School_AV_Room_S3
     mov        lr,pc
     bx         r0
     bl         Sound_AreaSongChange
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x5]
     ldrb       r1,[r7,#0xd]
     cmp        r0,r1

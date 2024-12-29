@@ -180,8 +180,7 @@ _ts S_Story_09_6
     bl         Text_DisableDialogue
     mov        r0,#0x0
     bl         PetStatusControl_SetState
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0x4
     strb       r0,[r7,#0x10]

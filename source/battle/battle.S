@@ -11,12 +11,10 @@
 
 _ts Battle_Main
     push       { lr }
-    mov        r5,r10
-    ldr        r5,[r5,#0xc]
+    LoadMain battle, r5, r5
     mov        r0,#0x1
     strb       r0,[r5,#0x1f]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_08005890
@@ -95,8 +93,7 @@ PTR_Battle_0_0_InitStats:
 
 _ts Battle_0_0_InitStats
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_08005938
@@ -108,8 +105,7 @@ _ts Battle_0_0_InitStats
     b          LAB_08005948
 LAB_08005938:
     bl         PlayerBattleState_InitStats
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#0x24]
     str        r0,[r7,#0x28]
@@ -123,8 +119,7 @@ _ts Battle_0_1_InitField
     bl         Battle_InitChipDeck
     bl         Battle_InitEnemyList
     bl         Battle_InitBackground
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     bge        LAB_08005970
@@ -148,15 +143,13 @@ LAB_0800597a:
     sub        r0,#0x1
     bne        LAB_0800597a
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x10]
+    LoadMain display, r7, r7
     ldr        r1,INT_08005a04
     strh       r1,[r7,#0x0]
     mov        r0,#0x0
     strb       r0,[r5,#0xa]
     bl         Field_InitializeAreaProperties
-    mov        r7,r10
-    ldr        r7,[r7,#0x14]
+    LoadMain camera, r7, r7
     ldr        r0,INT_08005a08
     str        r0,[r7,#0x30]
     bl         FieldObject_Init
@@ -171,8 +164,7 @@ LAB_080059b4:
     bne        LAB_080059b4
     mov        r0,#0x1
     strb       r0,[r5,#0x8]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0x9]
     str        r0,[r6,#0x58]
@@ -186,8 +178,7 @@ LAB_080059b4:
     strh       r0,[r5,#0x0]
     mov        r0,#0x0
     strh       r0,[r5,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     ldr        r7,PTR_battleSongList_08005a00
     ldrb       r0,[r7,r0]
@@ -249,8 +240,7 @@ LAB_08005a52:
     b          LAB_08005a74
 LAB_08005a60:
     mov        r0,#0x3
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     strb       r0,[r7,#0x10]
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
@@ -272,8 +262,7 @@ _ts Battle_1_Main
     tst        r0,r0
     beq        LAB_08005ab4
     bl         BattleSpriteQueue_Clear
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     lsl        r0,r0,#0x2
     ldr        r7,=JT_R5_0C_5AB8
@@ -393,8 +382,7 @@ _ts Battle_2_0_2_CalculateRank
     strh       r0,[r5,#0x2e]
     bne        LAB_08005bbc
     bl         Effect_BattleResult_CalculateRank
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     strb       r0,[r7,#0x19]
     mov        r0,#0x0
     strb       r0,[r7,#0x10]
@@ -472,8 +460,7 @@ _nt Battle_2_1_2_End
     sub        r0,#0x1
     strh       r0,[r5,#0x2e]
     bne        LAB_08005c30
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0x19]
     mov        r0,#0x1
@@ -511,8 +498,7 @@ _nt Battle_2_2_BattleEnd
     strb       r0,[r5,#0x1d]
     pop        {pc}
 LAB_08005c58:
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -522,8 +508,7 @@ LAB_08005c58:
     bl         Entity_FreeAllMultiple
     pop        {r5}
     bl         DisableScreenDim
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0x10]
     cmp        r1,#0x1
     bne        LAB_08005c96
@@ -555,8 +540,7 @@ LAB_08005ca2:
     strb       r1,[r0,#0xd]
     mov        r1,#0x0
     strb       r1,[r0,#0x9]
-    mov        r7,r10
-    ldr        r6,[r7,#0x0]
+    LoadMain manager, r6, r7
     ldrb       r2,[r0,#0xf]
     cmp        r2,#0x8
     blt        LAB_08005cc6
@@ -637,8 +621,7 @@ PTR_Battle_2_4_0_BattleResult:
 
 _nt Battle_2_4_0_BattleResult
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x10]
     add        r0,#0x1
     bl         Effect_BattleResult_Create
@@ -684,8 +667,7 @@ _nt Battle_3_0_ShowMessage
     bl         Text_LoadDialogue
     pop        {r5}
     mov        r0,#0x3
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     strb       r0,[r7,#0x10]
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
@@ -711,8 +693,7 @@ LAB_08005db8:
 
 _nt Battle_3_2_End
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -856,8 +837,7 @@ _nt BattleR_2_2_3_StartBattle
     mov        r0,#0x0
     strb       r0,[r5,#0xe]
 LAB_08005ecc:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     bge        LAB_08005edc
@@ -874,8 +854,7 @@ _nt BattleR_2_3_CheckBattleState
     bl         Battle_IsActive
     tst        r0,r0
     beq        LAB_08005f38
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_08005efc
@@ -884,8 +863,7 @@ _nt BattleR_2_3_CheckBattleState
 LAB_08005efc:
     bl         Battle_UpdateKeyState
 LAB_08005f00:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x9]
     tst        r0,r0
     bne        LAB_08005f2e
@@ -936,8 +914,7 @@ _nt BattleR_2_3_0_CheckPauseAndBattleEnd
     bne        LAB_08005f72
     mov        r0,#0x1
     strb       r0,[r5,#0x8]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_08005f6e
@@ -957,8 +934,7 @@ LAB_08005f72:
     bne        LAB_08005fa6
     mov        r0,#0x1
     strb       r0,[r5,#0x8]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x6
     beq        LAB_08005fa2
@@ -986,8 +962,7 @@ LAB_08005fa6:
     bl         Battle_CheckKeyLR
     tst        r0,r0
     beq        LAB_08005fce
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     ldrb       r0,[r7,#0x1]
     strb       r0,[r5,#0x19]
     ldrb       r0,[r5,#0xc]
@@ -1027,8 +1002,7 @@ _nt BattleR_2_3_1_CheckSpritesSpawned
     bl         Battle_AreAllSpritesSpawned
     tst        r0,r0
     beq        LAB_0800600c
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x10]
     b          LAB_0800600e
 LAB_0800600c:
@@ -1042,8 +1016,7 @@ _nt BattleR_2_4_CheckUnPause
     bl         Battle_IsActive
     tst        r0,r0
     beq        LAB_08006052
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_08006026
@@ -1149,8 +1122,7 @@ PTR_BattleR_2_1_0_CopyBattleHand:
 
 _nt BattleR_2_1_0_CopyBattleHand
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     bge        LAB_080060f2
@@ -1216,8 +1188,7 @@ _nt BattleR_2_1_3_CopyChipHandIcons
     push       {lr}
     bl         Effect_BattleChip_LoadHandIcons
     mov        r0,#0x8
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0xf]
     cmp        r1,#0x8
     blt        LAB_0800616a
@@ -1302,8 +1273,7 @@ _nt BattleR_2_7_0_Darken
 
 _nt BattleR_2_7_1_ApplyEffect
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -1384,8 +1354,7 @@ LAB_0800627c:
 
 _nt BattleR_2_7_4_End
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -1397,10 +1366,8 @@ LAB_08006290:
 
 _nt Battle_CopyBattleHand
     push       {lr}
-    mov        r6,r10
-    ldr        r6,[r6,#0x20]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain playerBattleState, r6, r6
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x19]
     strb       r0,[r6,#0x1]
     mov        r0,#0x78
@@ -1413,10 +1380,8 @@ _nt Battle_CopyBattleHand
 
 _nt PlayerBattleState_InitStats
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain playerBattleState, r7, r7
+    LoadMain world, r6, r6
     ldrb       r0,[r6,#0x14]
     strb       r0,[r7,#0x9]
     ldrb       r0,[r6,#0x15]
@@ -1434,10 +1399,8 @@ _nt PlayerBattleState_InitStats
 
 _nt Battle_UpdateKeyState
     push       {lr}
-    mov        r4,r10
-    ldr        r4,[r4,#0x20]
-    mov        r6,r10
-    ldr        r6,[r6,#0x4]
+    LoadMain playerBattleState, r4, r4
+    LoadMain input, r6, r6
     bl         Battle_IsInputLocked
     bne        LAB_080062f4
     ldrh       r0,[r6,#0x0]
@@ -1464,13 +1427,11 @@ _nt Battle_CheckKeyLR
     bl         Battle_IsInputLocked
     pop        {r0}
     bne        LAB_08006338
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_0800632c
-    mov        r7,r10
-    ldr        r7,[r7,#0x20]
+    LoadMain playerBattleState, r7, r7
     ldrh       r0,[r7,#0x20]
     add        r7,#0x70
     ldrh       r1,[r7,#0x20]
@@ -1480,8 +1441,7 @@ _nt Battle_CheckKeyLR
     and        r0,r1
     b          LAB_08006338
 LAB_0800632c:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x3
     lsl        r1,r1,#0x8
@@ -1496,8 +1456,7 @@ _nt Battle_CheckStartPressed
     bl         Battle_IsInputLocked
     pop        {r0}
     bne        LAB_08006386
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_0800637c
@@ -1525,8 +1484,7 @@ LAB_0800636e:
     strb       r0,[r5,#0x14]
     b          LAB_08006386
 LAB_0800637c:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x8
     and        r0,r1
@@ -1538,10 +1496,8 @@ LAB_08006386:
 
 _nt Battle_SetPostBattleHP
     push       {lr}
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain world, r6, r6
+    LoadMain gameStats, r7, r7
     ldrh       r4,[r6,#0x1e]
     ldrb       r0,[r7,#0x5]
     mul        r0,r4
@@ -1561,19 +1517,16 @@ LAB_080063ae:
 _nt Battle_IsBattleActive
     push       {lr}
     mov        r0,#0x1
-    mov        r7,r10
-    ldr        r7,[r7,#0x0]
+    LoadMain manager, r7, r7
     ldrb       r1,[r7,#0x0]
     cmp        r1,#0x8
     bne        LAB_080063dc
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0xf]
     cmp        r1,#0x8
     blt        LAB_080063dc
     push       {r0,r5}
-    mov        r5,r10
-    ldr        r5,[r5,#0xc]
+    LoadMain battle, r5, r5
     bl         Battle_IsActive
     tst        r0,r0
     pop        {r0,r5}
@@ -1738,8 +1691,7 @@ _nt GetPanelTilemap
     ldrb       r3,[r0,#0xd]
     tst        r3,r3
     beq        LAB_080065d6
-    mov        r3,r10
-    ldr        r3,[r3,#0x50]
+    LoadMain frameCounter, r3, r3
     ldrh       r3,[r3,#0x0]
     mov        r4,#0x2
     tst        r3,r4
@@ -2080,24 +2032,21 @@ listTilemapPanelGeneric:
 
 
 _nt Battle_PauseTimer
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x9]
     mov        pc,lr
 
 
 _nt Battle_UnpauseTimer
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0x9]
     mov        pc,lr
 
 
 _nt Battle_IsTimerPaused
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x9]
     mov        pc,lr
 

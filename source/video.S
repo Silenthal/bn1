@@ -1,3 +1,4 @@
+#include "offsets.h"
     .include "constants.inc"
     .include "macros.inc"
 
@@ -34,16 +35,14 @@ _ts Video_Init
     bl         Dma_WaitForEnd
     mov        r0,#0x0
     bl         Video_SetBgControl
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     pop        { pc }
 
 _ts Video_BlitScreens
     push       { lr }
-    mov        r0,r10
-    ldr        r0,[r0,#0x5c]
+    LoadMain screens, r0, r0
     ldr        r1,PTR_BG_VRAM_SCREEN0_08001b30
     ldr        r2,INT_08001b34
     mov        r3,#0x3
@@ -54,8 +53,7 @@ _ts Video_BlitScreens
     ldr        r0,PTR_gFillValue_08001b54
     ldr        r1,tileMapBlankTile
     str        r1,[r0,#0x0]
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain screens, r1, r1
     ldr        r2,INT_08001b44
     mov        r3,#0x3
     ldr        r4,DAT_08001b38
@@ -72,8 +70,7 @@ _ts Video_SetBgControl
     ldr        r1,PTR_BgControl_ARRAY_08001b60
     lsl        r0,r0,#0x3
     add        r1,r1,r0
-    mov        r7,r10
-    ldr        r2,[r7,#0x10]
+    LoadMain display, r2, r7
     add        r2,#0x4
     ldr        r0,[r1,#0x0]
     str        r0,[r2,#0x0]
@@ -115,8 +112,7 @@ BgControl_ARRAY_080019a8:
 
 _ts Video_ApplySettings
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x10]
+    LoadMain display, r5, r7
     ldr        r1,PTR_REG_DISPCNT_08001b64
     ldrh       r2,[r5,#0x0]
     strh       r2,[r1,#0x0]
@@ -272,8 +268,7 @@ _ts Video_InitPaletteColor0
 
 _ts Video_InitBlendSettings
     push       { lr }
-    mov        r7,r10
-    ldr        r0,[r7,#0x3c]
+    LoadMain blend, r0, r7
     mov        r1,#0x8
     bl         memset0_32
     pop        { pc }
@@ -289,8 +284,7 @@ _ts Video_QueueBgPalTransfer
 _ts Video_ClearScreen
     push       { lr }
     ldr        r0,PTR_gFillValue_08001bb4
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain screens, r1, r1
     ldr        r2,INT_08001b34
     mov        r3,#0x3
     ldr        r4,DAT_08001b38

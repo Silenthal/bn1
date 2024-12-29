@@ -4309,7 +4309,7 @@ struct Main {
     struct BlendSettings *blend;
     struct Demo *demo;
     struct BackgroundDataManager *bgDataManager;
-    struct Text *text;
+    struct Text *textHandler;
     struct BattleMessage *battleMessageList;
     struct FrameCounter *frameCounter;
     struct ScreenDim *screenDim;
@@ -4322,7 +4322,7 @@ struct Main {
     struct Shop *shop;
     struct Menu *menu;
     struct GameStats *gameStats;
-    struct FieldObstacleManager *fieldObstableManager;
+    struct FieldObstacleManager *fieldObstacleManager;
 };
 
 struct TextUI {

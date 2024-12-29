@@ -370,8 +370,7 @@ _ts A_Ratton_GetYDistanceToTarget
 _ts FUN_080747e8
     push       {lr}
     mov        r2,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r1,[r7,#0x18]
     cmp        r0,r1
@@ -391,8 +390,7 @@ LAB_08074806:
 
 _nt FUN_0807480a
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     mov        r1,#0x54
     add        r7,r7,r1
     mov        r3,#0x0

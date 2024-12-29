@@ -103,16 +103,14 @@ _ts S_Story_01_2
     bl         SceneCamera_Main
     cmp        r0,#0x1
     beq        LAB_08082bde
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08082bde
     push       {r5}
     mov        r0,#0x1
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldr        r1,[r1,#0x28]
     add        r1,#0x24
     bl         Camera_SetEnabled
@@ -277,8 +275,7 @@ _ts S_Story_01_8
 _ts S_Story_01_9
     push       {lr}
     bl         S_01_AnimatePlayer
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -289,8 +286,7 @@ _ts S_Story_01_9
     bl         Flag_SetBase
     bl         Text_DisableDialogue
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]
     ldr        r0,[r7,#0x2c]

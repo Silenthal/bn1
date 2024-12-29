@@ -114,8 +114,7 @@ _ts EventHandler_SciLab_Power_Plant_F41_0
     ldr        r0,PTR_BgTask_803BABC_0803ca34
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x42
     strb       r1,[r0,#0x6]
     mov        r0,#0x0
@@ -213,8 +212,7 @@ _ts FUN_0803c9ac
     tst        r0,r0
     bne        LAB_0803ca1c
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -230,8 +228,7 @@ _ts FUN_0803c9ac
 LAB_0803c9d8:
     cmp        r0,#0x2
     bne        LAB_0803c9fa
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x41
     bne        LAB_0803c9fa
@@ -246,8 +243,7 @@ LAB_0803c9d8:
 LAB_0803c9fa:
     cmp        r0,#0x3
     bne        LAB_0803ca1c
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x42
     bhi        LAB_0803ca1c
@@ -361,8 +357,7 @@ _ts MapSetup_SciLab_Power_Plant_F50
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x6]
     cmp        r7,#0x53
     blt        LAB_0803cae4
@@ -406,8 +401,7 @@ _ts FUN_0803cb10
     tst        r0,r0
     bne        LAB_0803cb4c
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

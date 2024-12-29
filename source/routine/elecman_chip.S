@@ -254,8 +254,7 @@ _ts R_ElecManC_2_Free
     sub        r0,#0x1
     strh       r0,[r5,#0x1c]
     bne        LAB_0806a7b2
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x3]
     bl         Actor_Free
@@ -268,8 +267,7 @@ _ts R_ElecManC_HitTargets
     ldrb       r0,[r5,#0x16]
     tst        r0,r0
     bne        LAB_0806a7ec
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     add        r7,#0x54
     mov        r2,#0xc
     mov        r4,#0x80
@@ -294,8 +292,7 @@ LAB_0806a7e6:
     bpl        LAB_0806a7c8
     pop        {pc}
 LAB_0806a7ec:
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     tst        r7,r7
     beq        LAB_0806a80e

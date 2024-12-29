@@ -54,8 +54,7 @@ _ts S_Story_03_1
     bl         SceneCamera_Main
     cmp        r0,#0x1
     beq        LAB_080833b2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -124,8 +123,7 @@ LAB_08083410:
 
 _ts S_Story_03_4
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -145,8 +143,7 @@ _ts S_Story_03_4
     mov        r6,#0x1
     bl         World_SetBattleParams
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0xe8
     neg        r0,r0
     lsl        r0,r0,#0x10

@@ -1,3 +1,4 @@
+#include "offsets.h"
     .include "constants.inc"
     .include "macros.inc"
 
@@ -61,8 +62,7 @@ LAB_08000676:
 
 _ts Sound_ChangeSong
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x18]
     cmp        r0,r1
     beq        LAB_08000676
@@ -71,8 +71,7 @@ _ts Sound_ChangeSong
 
 _ts Sound_PlaySong
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     strb       r0,[r7,#0x18]
     b          LAB_0800066a
 
@@ -130,16 +129,14 @@ _ts Sound_StopAllMusic
     bl         m4aMPlayAllStop
     pop        { r1 }
     mov        r10,r1
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r0,#0xff
     strb       r0,[r7,#0x18]
     pop        { pc }
 
 _ts Sound_AreaSongChange
     push       { lr }
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r6,PTR_songTableOffline_080007a8
     ldrb       r0,[r7,#0x4]
     cmp        r0,#0x80
@@ -158,8 +155,7 @@ LAB_08000756:
     bl         Flag_GetBase
     pop        { r0 }
     bne        LAB_080007a0
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x4]
     cmp        r1,#0x80
     bpl        LAB_080007a0

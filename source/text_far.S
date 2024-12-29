@@ -29,8 +29,7 @@ _fts Screen_WriteUIText
     pop        { r0 }
     push       { lr }
     mov        r8,r7
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     @ Store text width, total text length, and char shade
     strb       r4,[r7,#0x0]
     mul        r4,r5
@@ -134,8 +133,7 @@ _fts Screen_CopyUITextTile
     add        r6,r6,r7
     @set r0 to point to char shade specified by unk68->m_charShade
     ldr        r7,PTR_charShade_030072a4
-    mov        r1,r10
-    ldr        r1,[r1,#0x68]
+    LoadMain textUI, r1, r1
     ldrb       r1,[r1,#0x2]
     ldr        r0,[r7,r1]
     mov        r1,#0x0
@@ -179,8 +177,7 @@ far_global_label charShade
 _fts Screen_PadUITextToEnd
     push       { lr }
     @ Fetch total text length into r1
-    mov        r1,r10
-    ldr        r1,[r1,#0x68]
+    LoadMain textUI, r1, r1
     ldrb       r1,[r1,#0x1]
     mov        r8,r1
 1:
@@ -211,8 +208,7 @@ _fts Screen_PadUITextToEnd
 _fts Screen_PadUITextToLineEnd
     push       { lr }
     @ Fetch text width into r1
-    mov        r1,r10
-    ldr        r1,[r1,#0x68]
+    LoadMain textUI, r1, r1
     ldrb       r1,[r1,#0x0]
     mov        r8,r1
 1:
@@ -249,8 +245,7 @@ _fts Screen_PrintFixedWidthNumber
     ldrb       r1,[r0,#0x1]
     lsl        r1,r1,#0x2
     add        r1,#0x4
-    mov        r7,r10
-    ldr        r7,[r7,#0x68]
+    LoadMain textUI, r7, r7
     ldr        r0,[r7,r1]
     ldr        r6,PTR_ConvertNumToBCD_1_030072a8
     mov        lr,pc

@@ -182,8 +182,7 @@ _ts R_IceMan_1_1_WaitForBattleStart
     bne        LAB_08060d52
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -785,8 +784,7 @@ _ts R_IceMan_1_6_1_FreezeBomb
     mov        r1,#0x81
     tst        r0,r1
     beq        LAB_080611b2
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x18]
     lsl        r0,r0,#0x10
@@ -864,8 +862,7 @@ PTR_R_IceMan_1_7_0_TeleportStart_080611f0:
 
 _ts R_IceMan_1_7_0_TeleportStart
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x19]
     bl         R_IceMan_FindEmptyPanelInRow

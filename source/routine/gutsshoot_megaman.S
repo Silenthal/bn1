@@ -56,8 +56,7 @@ LAB_08068288:
     ldrb       r3,[r5,#0x16]
     lsl        r3,r3,#0x2
     add        r3,#0x40
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,r3]
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x2

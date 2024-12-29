@@ -35,8 +35,7 @@ _ts E_TrafficLight_2_0_Init
     mov        r0,#0x2
     b          LAB_0807eb60
 LAB_0807eb52:
-    mov        r7,r10
-    ldr        r7,[r7,#0x24]
+    LoadMain mapEventState, r7, r7
     ldrb       r0,[r7,#0x8]
     ldrb       r1,[r5,#0x5]
     tst        r1,r1
@@ -80,8 +79,7 @@ _ts E_TrafficLight_2_1_Main
     mov        r0,#0x2
     b          LAB_0807ebb8
 LAB_0807ebaa:
-    mov        r7,r10
-    ldr        r7,[r7,#0x24]
+    LoadMain mapEventState, r7, r7
     ldrb       r0,[r7,#0x8]
     ldrb       r1,[r5,#0x5]
     tst        r1,r1

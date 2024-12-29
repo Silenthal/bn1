@@ -49,8 +49,7 @@ _nt MapSetup_Undernet_2
     ldr        r7,PTR_NPCList_80546EC_08052e60
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -98,8 +97,7 @@ PTR_EventHandler_Undernet_2_0_08052db8:
 _ts EventHandler_Undernet_2_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -128,8 +126,7 @@ LAB_08052df4:
     pop        {r5}
 LAB_08052dfe:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

@@ -48,8 +48,7 @@ _ts MapSetup_Undernet_10
     push       {lr}
     mov        r0,#0x0
     strb       r0,[r5,#0x1]
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -61,16 +60,14 @@ _ts MapSetup_Undernet_10
 LAB_08053976:
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0xf]
     b          LAB_08053996
 LAB_08053984:
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x7
     blt        LAB_08053996
@@ -136,8 +133,7 @@ _ts EventHandler_Undernet_10_0
     mov        r0,#0x85
     bl         Flag_GetBase
     bne        LAB_08053a38
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x7
     blt        LAB_08053a18
@@ -183,8 +179,7 @@ LAB_08053a4c:
     pop        {r5}
     pop        {pc}
 LAB_08053a6e:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08053a84
@@ -223,8 +218,7 @@ LAB_08053aba:
     bl         Flag_GetBase
     beq        LAB_08053af0
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

@@ -203,8 +203,7 @@ PTR_EventHandler_School_Comp_2_F12_0_08040d8c:
 
 _ts EventHandler_School_Comp_2_F12_0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08040db8
@@ -226,8 +225,7 @@ _nt EventHandler_School_Comp_2_F12_1
     bl         Flag_GetBase
     pop        {r5}
     bne        LAB_08040dde
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x21
     bne        LAB_08040de4
@@ -261,16 +259,14 @@ _nt EventHandler_School_Comp_2_F12_2
     mov        r1,#0x1
     bl         Scene_Prepare
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x14
     strb       r1,[r0,#0x6]
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     b          LAB_08040e30
 LAB_08040e1a:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x21
     bne        LAB_08040de4
@@ -530,8 +526,7 @@ _ts MapSetup_School_Comp_2_F20
     ldr        r7,PTR_NPCList_8041D74_08041054
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2

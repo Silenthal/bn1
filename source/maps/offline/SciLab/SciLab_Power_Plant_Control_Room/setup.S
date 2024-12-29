@@ -84,8 +84,7 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_F42
     mov        r0,#0xb6
     bl         Flag_GetBase
     beq        LAB_0803cc6c
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     mov        r0,#0xb7
@@ -156,8 +155,7 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_F43
     mov        r0,#0xb6
     bl         Flag_GetBase
     beq        LAB_0803ccf2
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     mov        r0,#0xb7
@@ -215,8 +213,7 @@ _ts FUN_0803cd10
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0803cda2
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803cd32
@@ -228,8 +225,7 @@ _ts FUN_0803cd10
     pop        {pc}
 LAB_0803cd32:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -241,21 +237,18 @@ LAB_0803cd32:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0803cda2
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0803cde0
     and        r1,r0
     beq        LAB_0803cda2
     bl         dummy_187a0
     bne        LAB_0803cda2
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x43
     beq        LAB_0803cda2
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x42
     bne        LAB_0803cd94
@@ -421,8 +414,7 @@ _ts FUN_0803ce90
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0803cef2
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803ceb2
@@ -434,8 +426,7 @@ _ts FUN_0803ce90
     pop        {pc}
 LAB_0803ceb2:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -447,8 +438,7 @@ LAB_0803ceb2:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0803cef2
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0803cf0c
     and        r1,r0

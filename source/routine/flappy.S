@@ -426,8 +426,7 @@ _ts R_Flappy_1_3_0_Teleport
     bl         Field_SetPanelFlagsOnEntity
     mov        r0,#0x1
     strb       r0,[r5,#0x5]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]

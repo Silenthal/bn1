@@ -246,8 +246,7 @@ _nt R_SkullManC_2_Free
     sub        r0,#0x1
     strh       r0,[r5,#0x1c]
     bne        LAB_08067b14
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x3]
     bl         Actor_Free
@@ -260,8 +259,7 @@ _nt R_SkullManC_CreateSkullAndTargetHighestHP
     ldrb       r0,[r5,#0x16]
     tst        r0,r0
     beq        LAB_08067b44
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     tst        r7,r7
     bne        LAB_08067b68
@@ -281,8 +279,7 @@ LAB_08067b3e:
     orr        r4,r0
     b          LAB_08067b6c
 LAB_08067b44:
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     add        r6,#0x54
     mov        r7,#0x0
     mov        r0,#0x0

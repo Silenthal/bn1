@@ -6,8 +6,7 @@
 
 _ts InitWorld_LoadGame
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     mov        r0,#0x0
     ldrb       r2,[r5,#0x4]
     ldrb       r3,[r5,#0xc]
@@ -60,8 +59,7 @@ PTR_gIsObjectXFlipped_08004088:
 
 _ts InitWorld_NewGame
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     mov        r0,#0x0
     str        r0,[r5,#0x24]
     str        r0,[r5,#0x34]
@@ -137,8 +135,7 @@ DAT_0800412c:
 _ts World_Main
     push       { lr }
     ldr        r0,=jumpTableWorldMain
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     ldrb       r1,[r5,#0x0]
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -163,8 +160,7 @@ jumpTableWorldMain:
 
 _ts World_0_AreaChange
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -181,8 +177,7 @@ LAB_08004192:
 
 _ts World_1_SubAreaChange
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -209,8 +204,7 @@ _ts World_1_SubAreaChange
     mov        r0,#0x3
     bl         Video_SetBgControl
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,DispCnt_0800420c
     strh       r1,[r0,#0x0]
     push       {r5}
@@ -222,8 +216,7 @@ _ts World_1_SubAreaChange
     strb       r0,[r5,#0x7]
     mov        r0,#0x10
     strb       r0,[r5,#0x13]
-    mov        r0,r10
-    ldr        r0,[r0,#0x2c]
+    LoadMain mapChange, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x10]
     mov        r0,#0x8
@@ -281,8 +274,7 @@ _ts World_3_Battle
     bl         Attack_LoadAll
     bl         Effect_LoadAll
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -294,8 +286,7 @@ _ts World_3_Battle
     bl         NPC_UnloadAll
     bl         Battle_Init
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x8
     strb       r1,[r0,#0x0]
     push       {r5}
@@ -304,8 +295,7 @@ _ts World_3_Battle
     bl         BgUpdate_Init
     bl         InitBgTask
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,DAT_080042e8
     strh       r1,[r0,#0x0]
 LAB_080042e6:
@@ -326,8 +316,7 @@ _ts World_4_MapChange
     bl         Attack_LoadAll
     bl         Effect_LoadAll
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -335,8 +324,7 @@ _ts World_4_MapChange
     push       {r5}
     bl         Text_DisableDialogue
     mov        r0,#0x0
-    mov        r7,r10
-    ldr        r6,[r7,#0x2c]
+    LoadMain mapChange, r6, r7
     ldrb       r6,[r6,#0x12]
     cmp        r6,#0xf
     bne        LAB_08004338
@@ -363,8 +351,7 @@ _ts World_5_Transition
     bl         Attack_LoadAll
     bl         Effect_LoadAll
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -375,16 +362,14 @@ _ts World_5_Transition
     bl         Entity_FreeAllMultiple
     bl         InitTransition
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0xc
     strb       r1,[r0,#0x0]
     push       {r5}
     bl         BgUpdate_Init
     bl         InitBgTask
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,DAT_080043a4
     strh       r1,[r0,#0x0]
 LAB_080043a0:
@@ -443,8 +428,7 @@ _ts World_7_SubMenu
     bl         Effect_LoadAll
     bl         StartMenu_Main
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -455,8 +439,7 @@ _ts World_7_SubMenu
     bl         Entity_FreeAllMultiple
     bl         NPC_UnloadAll
     bl         InitMenu
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x18
     strb       r1,[r0,#0x0]
     mov        r0,#0x3
@@ -464,8 +447,7 @@ _ts World_7_SubMenu
     bl         BgUpdate_Init
     bl         InitBgTask
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,SHORT_08004464
     strh       r1,[r0,#0x0]
 LAB_08004462:
@@ -486,8 +468,7 @@ _nt World_8_Shop
     bl         Attack_LoadAll
     bl         Effect_LoadAll
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -500,8 +481,7 @@ _nt World_8_Shop
     bl         BgUpdate_Init
     bl         InitBgTask
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x1c
     strb       r1,[r0,#0x0]
 LAB_080044ba:
@@ -520,8 +500,7 @@ _ts World_9_ChipTrader
     bl         Attack_LoadAll
     bl         Effect_LoadAll
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -534,8 +513,7 @@ _ts World_9_ChipTrader
     bl         BgUpdate_Init
     bl         InitBgTask
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x24
     strb       r1,[r0,#0x0]
 LAB_08004510:
@@ -552,8 +530,7 @@ _ts World_HandleMapExit
     mov        r0,#0x1
     bl         Flag_GetSystem
     bne        LAB_08004598
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     ldrb       r1,[r0,#0x10]
     cmp        r1,#0x0
     bne        LAB_08004598
@@ -616,8 +593,7 @@ _ts World_HandleRandomEncounter
     mov        r0,#0x2
     bl         Flag_GetSystem
     bne        LAB_0800460c
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     ldrb       r1,[r0,#0x10]
     cmp        r1,#0x0
     bne        LAB_0800460c
@@ -658,8 +634,7 @@ LAB_0800460c:
 
 _ts World_SetBattleParams
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     strb       r0,[r5,#0xb]
     strb       r1,[r5,#0xf]
     tst        r2,r2
@@ -714,8 +689,7 @@ PTR_gFolder_08004670:
 
 
 _ts World_GetBackgroundId
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     ldrb       r0,[r5,#0x4]
     cmp        r0,#0x80
     bmi        LAB_08004680
@@ -1026,8 +1000,7 @@ PTR_BackgroundId_ARRAY_ARRAY_080047a0:
 _ts World_ChangeMap
     push       {lr}
     push       {r0}
-    mov        r5,r10
-    ldr        r5,[r5,#0x8]
+    LoadMain world, r5, r5
     ldr        r0,[r5,#0x24]
     add        r0,#0x1
     str        r0,[r5,#0x24]
@@ -1037,8 +1010,7 @@ _ts World_ChangeMap
     bl         Entity_FreeAllMultiple
     mov        r0,#0x2
     bl         Flag_ClearSystem
-    mov        r5,r10
-    ldr        r1,[r5,#0x2c]
+    LoadMain mapChange, r1, r5
     ldr        r0,[r1,#0x14]
     mov        r2,#0x10
     ldrb       r3,[r1,#0x12]
@@ -1054,8 +1026,7 @@ LAB_080047da:
     bl         memcpy_32
     mov        r0,#0x3
     bl         Video_SetBgControl
-    mov        r5,r10
-    ldr        r0,[r5,#0x10]
+    LoadMain display, r0, r5
     ldr        r1,DAT_08004afc
     strh       r1,[r0,#0x0]
     ldr        r7,[r5,#0x2c]
@@ -1197,8 +1168,7 @@ LAB_08004870:
     bl         EventHandler_Internet_1_SetupRandomGMD
     pop        {r5,r7}
 LAB_08004910:
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#0x24]
     str        r0,[r7,#0x28]
@@ -1211,8 +1181,7 @@ MapEntrance_08004920:
 
 _ts World_SetTransitionLocation
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     ldr        r2,[r7,#0x30]
     str        r0,[r2,#0x4]
     strb       r1,[r2,#0x3]
@@ -1223,8 +1192,7 @@ _ts World_SetTransitionLocation
 
 _ts World_StartDemo
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     push       {r0,r5}
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
@@ -1232,16 +1200,14 @@ _ts World_StartDemo
     push       {r5}
     bl         InitDemo
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x10
     strb       r1,[r0,#0x0]
     push       {r5}
     bl         BgUpdate_Init
     bl         InitBgTask
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,DAT_08004afc
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -1266,8 +1232,7 @@ _ts World_CheckStartMenuOpen
     mov        r0,#0x7
     bl         Flag_GetSystem
     bne        LAB_08004a0c
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     ldrb       r1,[r0,#0x10]
     cmp        r1,#0x0
     bne        LAB_08004a0c
@@ -1287,8 +1252,7 @@ _ts World_CheckStartMenuOpen
     mov        r0,#0x80
     bl         Text_CheckOption
     bne        LAB_08004a0c
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     mov        r1,#0x8
     tst        r1,r0
@@ -1320,8 +1284,7 @@ LAB_08004a0c:
 _ts World_StartShop
     push       {lr}
     bl         Shop_Init
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     ldr        r7,[r5,#0x28]
     ldr        r0,[r7,#0x24]
     str        r0,[r5,#0x38]
@@ -1346,14 +1309,12 @@ _ts World_StartGameOver
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
     bl         InitGameOver
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x20
     strb       r1,[r0,#0x0]
     bl         BgUpdate_Init
     bl         InitBgTask
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,DAT_08004afc
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -1379,8 +1340,7 @@ _ts World_StartChipTrader
     pop        {pc}
 LAB_08004a8a:
     bl         InitChipTraderFromScript
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     ldr        r7,[r5,#0x28]
     ldr        r0,[r7,#0x24]
     str        r0,[r5,#0x38]
@@ -1403,8 +1363,7 @@ LAB_08004a8a:
 
 _ts World_StartCredits
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x8]
+    LoadMain world, r5, r7
     push       {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x34]
@@ -1412,16 +1371,14 @@ _ts World_StartCredits
     bl         Entity_FreeAllMultiple
     bl         InitCredits
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x28
     strb       r1,[r0,#0x0]
     push       {r5}
     bl         BgUpdate_Init
     bl         InitBgTask
     pop        {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,DAT_08004afc
     strh       r1,[r0,#0x0]
     mov        r1,#0x0

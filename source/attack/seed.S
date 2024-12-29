@@ -430,8 +430,7 @@ _nt A_Seed_1_2
     push       {r5}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    mov        r2,r10
-    ldr        r2,[r2,#0xc]
+    LoadMain battle, r2, r2
     ldr        r2,[r2,#0x40]
     add        r2,#0x2c
     mov        r4,#0x3

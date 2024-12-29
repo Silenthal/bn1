@@ -99,8 +99,7 @@ LAB_08097a96:
 
 
 _ts S_Story_7F_3
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -123,8 +122,7 @@ LAB_08097ac6:
 
 
 _ts S_Story_7F_4
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -160,15 +158,13 @@ LAB_08097b12:
 
 
 _ts S_Story_7F_5
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08097b54
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r5,[r0,#0x28]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}
@@ -195,8 +191,7 @@ LAB_08097b54:
 
 
 _nt S_Story_7F_6
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -229,8 +224,7 @@ _ts S_Story_7F_7
 
 
 _ts S_Story_7F_8
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -272,8 +266,7 @@ _ts FUN_08097bec
     push       {lr}
     mov        r0,#0x84
     bl         Sound_PlaySongImmediate
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     ldr        r1,[r0,#0x24]
     ldr        r2,[r0,#0x28]

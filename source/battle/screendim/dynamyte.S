@@ -88,8 +88,7 @@ _ts SD_Dynamyte_2
     push       {r0}
     bl         Field_GetAttackDirectionOffset
     pop        {r1}
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     lsl        r1,r1,#0x2
     add        r1,#0x40
     ldr        r7,[r7,r1]
@@ -143,8 +142,7 @@ LAB_0809b066:
 
 _ts SD_Dynamyte_4
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

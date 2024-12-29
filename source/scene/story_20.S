@@ -95,8 +95,7 @@ _ts S_Story_20_3
     mov        r1,#0x7
     and        r0,r1
     bne        LAB_080885bc
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
@@ -167,8 +166,7 @@ LAB_08088608:
 
 
 _nt S_Story_20_7
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -199,8 +197,7 @@ LAB_0808864c:
 
 
 _nt S_Story_20_8
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -211,8 +208,7 @@ _nt S_Story_20_8
     mov        r0,#0x19
     bl         Flag_SetBase
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x22
     strb       r1,[r0,#0x6]
     bl         Scene_UnloadAndResetStepCounter

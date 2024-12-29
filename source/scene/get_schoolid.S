@@ -41,8 +41,7 @@ _ts S_Get_SchoolID_0
 
 
 _ts S_Get_SchoolID_1
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -50,8 +49,7 @@ _ts S_Get_SchoolID_1
     mov        r0,#0x0
     bl         NPC_FindByIndex
     str        r0,[r5,#0x10]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldrb       r0,[r7,#0x10]
     add        r0,#0x4
@@ -74,8 +72,7 @@ LAB_0808802e:
 
 
 _ts S_Get_SchoolID_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -122,8 +119,7 @@ LAB_08088082:
 
 
 _ts S_Get_SchoolID_4
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -160,8 +156,7 @@ LAB_080880d6:
 
 
 _ts S_Get_SchoolID_5
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

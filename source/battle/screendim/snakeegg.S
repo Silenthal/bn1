@@ -122,8 +122,7 @@ LAB_0809aee6:
     mov        r0,#0x0
     lsl        r4,r4,#0x19
     bcs        LAB_0809af0c
-    mov        r0,r10
-    ldr        r0,[r0,#0x20]
+    LoadMain playerBattleState, r0, r0
     tst        r7,r7
     beq        LAB_0809af0a
     add        r0,#0x70
@@ -183,8 +182,7 @@ LAB_0809af52:
 
 _ts SD_SnakeEgg_4
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

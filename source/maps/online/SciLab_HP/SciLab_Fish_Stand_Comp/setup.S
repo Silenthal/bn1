@@ -28,8 +28,7 @@ _ts EventHandler_SciLab_Fish_Stand_Comp_S0
 
 _nt FUN_0805019a
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -50,8 +49,7 @@ LAB_080501b2:
     ldr        r7,PTR_NPCList_8050288_08050274
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2

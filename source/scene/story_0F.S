@@ -80,8 +80,7 @@ LAB_08086090:
 
 
 _nt S_Story_0F_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -138,8 +137,7 @@ LAB_080860fc:
 
 
 _nt S_Story_0F_6
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -161,8 +159,7 @@ _nt S_Story_0F_6
     mov        r0,#0x1
     bl         Sound_ChangeSong
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x2c]
+    LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
     mov        r1,#0x1
@@ -197,8 +194,7 @@ _ts S_Story_0F_8
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

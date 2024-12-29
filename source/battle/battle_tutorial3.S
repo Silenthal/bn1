@@ -238,8 +238,7 @@ _ts BattleT3_DecreaseGeneralCounter
 
 
 _ts CheckButtonAToggled_2
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x1
     tst        r0,r1

@@ -211,8 +211,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F22_HandleExits
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_080330cc
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080330a6
@@ -239,8 +238,7 @@ LAB_08033092:
     pop        {pc}
 LAB_080330a6:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -406,8 +404,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F30_HandleExits
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_08033232
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803320c
@@ -429,8 +426,7 @@ LAB_080331fe:
     pop        {pc}
 LAB_0803320c:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -616,8 +612,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40_1
     bl         Flag_GetBase
     beq        LAB_080333ae
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -648,8 +643,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40_HandleExits
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_08033412
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080333ec
@@ -671,8 +665,7 @@ LAB_080333de:
     pop        {pc}
 LAB_080333ec:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -866,8 +859,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F50_HandleExits
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_080335ae
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08033588
@@ -889,8 +881,7 @@ LAB_0803357a:
     pop        {pc}
 LAB_08033588:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent

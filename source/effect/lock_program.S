@@ -45,8 +45,7 @@ _ts E_LockProgram_0_Init
     ldrb       r0,[r5,#0x4]
     cmp        r0,#0x4
     bge        LAB_08080c1a
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r0,[r0,#0x5]
     bl         SpritePtr_SetPaletteIndex
 LAB_08080c1a:
@@ -66,8 +65,7 @@ _ts E_LockProgram_1_Main
     beq        LAB_08080c5e
     b          E_LockProgram_2_Free
 LAB_08080c34:
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldr        r7,PTR_DAT_08080d04
     ldrb       r0,[r7,r1]

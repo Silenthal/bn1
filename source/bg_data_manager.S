@@ -12,8 +12,7 @@
 @ void BGDM_Init(AreaId areaId,byte areaSubId)
 _ts BGDM_Init
     push       {lr}
-    mov        r5,r10
-    ldr        r5,[r5,#0x44]
+    LoadMain bgDataManager, r5, r5
     cmp        r0,#0xf0
     bge        .initBattleMap
     cmp        r0,#0x80
@@ -70,8 +69,7 @@ _ts BGDM_Init
 @@ Loads tileset, tilemap, and palette data for the current map.
 _ts BGDM_Load
     push       {lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x44]
+    LoadMain bgDataManager, r5, r7
     ldr        r0,[r5,#0x10]
     ldr        r2,[r0,#0x0]
     lsr        r2,r2,#0x2
@@ -133,8 +131,7 @@ _ts BGDM_Load
 @@ Updates the drawn edges of the current map based on the player location.
 _ts BGDM_UpdateMapEdge
     push       {lr}
-    mov        r7,r10
-    ldr        r3,[r7,#0x14]
+    LoadMain camera, r3, r7
     ldr        r5,[r7,#0x44]
     mov        r4,#0x4
     ldrsh      r0,[r3,r4]
@@ -240,8 +237,7 @@ _ts BGDM_CopyTilemapEntry_BG123
     mov        r2,#0x1
 .loopCopy:
     pop        {r0}
-    mov        r7,r10
-    ldr        r7,[r7,#0x5c]
+    LoadMain 92, r7, r7
     lsl        r6,r2,#0xb
     add        r7,r7,r6
     lsl        r6,r3,#0x1
@@ -483,8 +479,7 @@ _ts BGDM_CopyTilemapEntry_BG23
     mov        r2,#0x2
 LAB_080111c4:
     pop        {r0}
-    mov        r7,r10
-    ldr        r7,[r7,#0x5c]
+    LoadMain 92, r7, r7
     lsl        r6,r2,#0xb
     add        r7,r7,r6
     lsl        r6,r3,#0x1
@@ -505,8 +500,7 @@ LAB_080111c4:
 _ts BGDM_CopyTilemapEntry_BG2
     push       {lr}
     mov        r2,#0x2
-    mov        r7,r10
-    ldr        r7,[r7,#0x5c]
+    LoadMain 92, r7, r7
     lsl        r6,r2,#0xb
     add        r7,r7,r6
     lsl        r6,r3,#0x1
@@ -519,8 +513,7 @@ _ts BGDM_CopyTilemapEntry_BG2
 @@ Copies the full surrounding tilemap to the BG1, BG2 and BG3 layer of the screen.
 _ts BGDM_CopyTilemap
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x14]
+    LoadMain camera, r0, r7
     mov        r1,#0x4
     ldrsh      r3,[r0,r1]
     mov        r1,#0x6
@@ -588,8 +581,7 @@ ptrLoadXY23_2: .word BGDM_LoadTilemapXY_StaticBG1
 @@ Copies the full surrounding tilemap to the BG1, BG2 and BG3 layer of the screen, keeping the BG1 layer static.
 _ts BGDM_LoadTilemap_StaticBG1
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x14]
+    LoadMain camera, r0, r7
     mov        r1,#0x4
     ldrsh      r3,[r0,r1]
     mov        r1,#0x6

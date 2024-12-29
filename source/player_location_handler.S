@@ -13,8 +13,7 @@ _ts PlayerLocation_Handler
     bl         UpdateSpriteFrameIndex
     push       {r5}
     ldr        r0,PTR_DAT_08055474
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldr        r1,[r7,#0x24]
     bl         Debug_Print
     pop        {r5}
@@ -42,8 +41,7 @@ _ts PlayerLocation_0_Init
     mov        r0,#0x3
     strb       r0,[r5,#0x0]
     mov        r1,#0x3
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x4]
     mov        r2,#0x80
     cmp        r0,r2
@@ -57,8 +55,7 @@ LAB_08055496:
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetZClip
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     str        r5,[r0,#0x28]
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
@@ -96,8 +93,7 @@ LAB_08055496:
     strb       r0,[r5,#0x7]
     ldr        r1,PTR_gNpcTalkState_08055508
     strb       r0,[r1,#0x0]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     strb       r0,[r7,#0x1a]
     strh       r0,[r5,#0x1c]
     bl         PlayerLocation_1_Main
@@ -112,8 +108,7 @@ PTR_gNpcTalkState_08055508:
 _ts PlayerLocation_1_Main
     push       {lr}
     mov        r0,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     strb       r0,[r7,#0x1b]
     strb       r0,[r5,#0x13]
     strb       r0,[r5,#0x12]
@@ -163,8 +158,7 @@ LAB_08055564:
     tst        r0,r0
     beq        LAB_080555a4
     ldrb       r1,[r5,#0x13]
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldr        r0,[r7,#0x24]
     add        r0,r0,r1
     str        r0,[r7,#0x24]
@@ -665,8 +659,7 @@ PTR_gNpcTalkState_08055968:
 
 _ts PlayerLocation_1_3_2_EndTalking
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x1a]
     tst        r0,r0
     bne        LAB_08055984
@@ -704,8 +697,7 @@ _ts PlayerLocation_1_4_0_ShowCommentary
     mov        r0,#0x4
     strb       r0,[r5,#0xa]
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r0,[r0,#0x12]
     bl         Text_LoadCommentaryDialogue
     pop        {r5}
@@ -864,8 +856,7 @@ _ts PlayerLocation_UpdateMoveFlags
     sub        sp,#0xc
     mov        r8,sp
     mov        r0,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r1,[r7,#0x3]
     mov        r2,#0x1
     cmp        r1,r2
@@ -879,8 +870,7 @@ _ts PlayerLocation_UpdateMoveFlags
     ldrb       r0,[r5,#0x10]
     strb       r0,[r5,#0x11]
     mov        r0,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r1,[r7,#0x2]
     mov        r2,#0x1
     tst        r2,r1
@@ -909,8 +899,7 @@ _ts PlayerLocation_UpdateMoveFlags
     pop        {r0,r1,r5,r7}
     strb       r2,[r5,#0xd]
     push       {r7}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r2,#0x1
     strb       r2,[r7,#0x1b]
     pop        {r7}
@@ -918,8 +907,7 @@ LAB_08055b2c:
     ldr        r2,DAT_08055b84
     tst        r1,r2
     beq        LAB_08055b40
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     ldrb       r2,[r6,#0x12]
     cmp        r2,#0xff
     beq        LAB_08055b40
@@ -1010,8 +998,7 @@ _ts PlayerLocation_IsCommentary
     lsl        r1,r1,#0x8
     and        r0,r1
     beq        LAB_08055bec
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x1a]
     ldrb       r1,[r7,#0x1b]
     add        r0,r0,r1
@@ -1019,8 +1006,7 @@ _ts PlayerLocation_IsCommentary
     mov        r0,#0x40
     bl         StartMenu_GetState
     bne        LAB_08055bec
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -1065,8 +1051,7 @@ _ts PlayerLocation_InitHitboxes
     mov        r1,#0x64
     add        r1,r1,r5
     bl         PlayerLocation_AddHitbox
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x1b]
     tst        r0,r0
     beq        LAB_08055c3e
@@ -1271,8 +1256,7 @@ _ts PlayerLocation_Events_0_Update
     b          LAB_08055edc
 LAB_08055ed4:
     ldrb       r0,[r5,#0xf]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     strb       r0,[r7,#0xe]
 LAB_08055edc:
     mov        r0,#0x0
@@ -1286,8 +1270,7 @@ _ts PlayerLocation_Events_1_WaitTalk
     cmp        r0,#0x3
     bne        LAB_08055efa
     mov        r0,#0x1
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     strb       r0,[r7,#0x1a]
     mov        r0,#0x2
     strb       r0,[r5,#0x7]
@@ -1301,8 +1284,7 @@ LAB_08055efa:
 _nt PlayerLocation_Events_2_Talking
     push       {lr}
     mov        r0,#0x1
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     strb       r0,[r7,#0x1a]
     mov        r0,#0x1
     pop        {pc}
@@ -1453,8 +1435,7 @@ _ts PlayerLocation_Create
     bl         PlayerLocation_Alloc
     tst        r5,r5
     beq        LAB_08056042
-    mov        r6,r10
-    ldr        r6,[r6,#0x8]
+    LoadMain world, r6, r6
     str        r5,[r6,#0x28]
     ldr        r1,[r6,#0x38]
     str        r1,[r5,#0x24]
@@ -1564,8 +1545,7 @@ PTR_gPlayerAnimation_080560bc:
 
 _ts EnableElevationCheck
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0x1
     strb       r0,[r7,#0x17]
@@ -1574,8 +1554,7 @@ _ts EnableElevationCheck
 
 _nt DisableElevationCheck
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0x0
     strb       r0,[r7,#0x17]
@@ -1584,8 +1563,7 @@ _nt DisableElevationCheck
 
 _ts EnableBoundaryCheck
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0x1
     strb       r0,[r7,#0xc]
@@ -1594,8 +1572,7 @@ _ts EnableBoundaryCheck
 
 _nt DisableBoundaryCheck
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0x0
     strb       r0,[r7,#0xc]
@@ -1605,8 +1582,7 @@ _nt DisableBoundaryCheck
 _ts PlayerLocation_IsCommentaryState
     push       {r1,r7,lr}
     mov        r0,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldrb       r1,[r7,#0x9]
     cmp        r1,#0x10

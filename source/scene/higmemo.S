@@ -42,8 +42,7 @@ _ts S_Internet_4_HigMemo_Gate_1
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_08097e1a
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     push       {r5}
     ldr        r0,[r0,#0x28]
     ldrb       r0,[r0,#0x14]
@@ -86,8 +85,7 @@ LAB_08097e46:
 
 _ts S_Internet_4_HigMemo_Gate_3
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -106,8 +104,7 @@ _ts S_Internet_4_HigMemo_Gate_3
     mov        r4,#0x1
     mov        r6,#0x1
     bl         World_SetBattleParams
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x51
     strb       r1,[r0,#0x6]
     bl         Scene_UnloadAndResetStepCounter

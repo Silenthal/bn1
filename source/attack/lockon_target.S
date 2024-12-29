@@ -411,8 +411,7 @@ _ts A_LockonTarget_FindTargetEnemy
     ldrb       r0,[r5,#0x16]
     tst        r0,r0
     bne        LAB_0807a38a
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     add        r6,#0x54
     mov        r7,#0x0
     mov        r2,#0xc
@@ -431,8 +430,7 @@ LAB_0807a382:
     str        r7,[r5,#0x70]
     pop        {pc}
 LAB_0807a38a:
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     str        r7,[r5,#0x70]
     pop        {pc}

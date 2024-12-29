@@ -65,8 +65,7 @@ _ts E_Chaud_1_0
     beq        LAB_0807fa4a
     mov        r0,#0xde
     bl         Flag_ClearBase
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldrb       r0,[r7,#0x10]
     add        r0,#0x4

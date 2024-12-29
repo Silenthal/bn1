@@ -126,8 +126,7 @@ LAB_0806594a:
     bl         Field_CreateEntity
     ldr        r0,[r5,#0x70]
     bl         FieldObject_Disable
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x9]
     mov        r1,#0x4
     bic        r0,r1
@@ -209,8 +208,7 @@ _ts R_SharkMan_1_1_WaitForBattleStart
     ldrb       r0,[r5,#0x4]
     lsr        r0,r0,#0x8
     bcs        LAB_08065a1c
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -533,8 +531,7 @@ _ts R_SharkMan_1_6_0_Emerge
     strb       r0,[r5,#0x14]
     mov        r0,#0x35
     strh       r0,[r5,#0x1c]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x9]
     mov        r1,#0x4
     orr        r0,r1
@@ -561,8 +558,7 @@ _nt R_SharkMan_1_6_1_AquaTower
     beq        LAB_08065c88
     add        r0,#0x1
     ldrb       r1,[r5,#0x19]
-    mov        r2,r10
-    ldr        r2,[r2,#0xc]
+    LoadMain battle, r2, r2
     ldr        r2,[r2,#0x40]
     add        r2,#0x2c
     mov        r3,#0x3
@@ -626,8 +622,7 @@ _ts R_SharkMan_1_6_4_SetState
     mov        r1,#0x2
     bic        r0,r1
     strb       r0,[r5,#0x0]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x9]
     mov        r1,#0x4
     bic        r0,r1
@@ -1144,8 +1139,7 @@ LAB_08066086:
     strh       r0,[r5,#0xa]
     pop        {pc}
 LAB_08066096:
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x19]
     ldrb       r1,[r5,#0x19]

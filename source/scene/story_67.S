@@ -71,8 +71,7 @@ LAB_0809310a:
 
 
 _ts S_Story_67_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -191,8 +190,7 @@ _nt S_Story_67_7
     mov        r0,#0x9c
     bl         Flag_GetBase
     beq        LAB_08093236
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -228,8 +226,7 @@ _ts S_Story_67_8
     strb       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_08093266
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -271,8 +268,7 @@ LAB_08093290:
 
 
 _nt S_Story_67_10
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -286,8 +282,7 @@ _nt S_Story_67_10
     mov        r0,#0x18
     bl         Entity_FreeAllMultiple
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     str        r1,[r0,#0x34]
     push       {r5}
@@ -323,8 +318,7 @@ LAB_08093304:
 
 
 _nt S_Story_67_11
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -340,8 +334,7 @@ _nt S_Story_67_11
     bl         Flag_ClearBase
     mov        r0,#0x2f
     bl         Flag_ClearBase
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x52
     strb       r1,[r0,#0x6]
     bl         Scene_UnloadAndResetStepCounter

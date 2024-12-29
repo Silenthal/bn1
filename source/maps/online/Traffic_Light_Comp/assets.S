@@ -533,16 +533,14 @@ _nt FUN_0804995e
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     push       {r5}
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldrb       r1,[r1,#0x5]
     lsl        r1,r1,#0x2
     ldr        r0,PTR_PTR_EntityAllocParams_8049364_08049b08
     ldr        r0,[r0,r1]
     bl         Entity_AllocList
     pop        {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x4]
     ldrb       r2,[r7,#0xc]
     cmp        r1,r2
@@ -582,8 +580,7 @@ PTR_FUN_080499bc_080499b8:
 _ts FUN_080499bc
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r0,[r7,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -594,12 +591,10 @@ _ts FUN_080499bc
     blt        LAB_08049a3c
     cmp        r0,#0x7f
     bgt        LAB_08049a3c
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r6,[r7,#0x4]
     strb       r0,[r7,#0x4]
     mov        r8,r0
@@ -620,8 +615,7 @@ LAB_08049a00:
     blt        LAB_080499f8
     b          LAB_08049a44
 LAB_08049a08:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
     mov        r7,r8
@@ -642,8 +636,7 @@ LAB_08049a08:
     bl         FUN_08049ab0
     b          LAB_08049a44
 LAB_08049a3c:
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0x4]
 LAB_08049a44:
@@ -661,8 +654,7 @@ PTR_FUN_08049aac_08049a48:
 
 _ts FUN_08049a5c
     push       {r5,lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r0,[r0,#0x6]
     lsr        r0,r0,#0x4
     cmp        r0,#0x3
@@ -684,8 +676,7 @@ LAB_08049a80:
 
 _ts FUN_08049a84
     push       {r5,lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r0,[r0,#0x6]
     lsr        r0,r0,#0x4
     cmp        r0,#0x3

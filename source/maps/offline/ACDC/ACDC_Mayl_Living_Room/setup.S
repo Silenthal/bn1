@@ -87,16 +87,14 @@ _ts FUN_0802d5e0
     bl         Text_CheckOption
     bne        LAB_0802d620
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x40
     bne        LAB_0802d620
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0802d638
     mvn        r0,r0
@@ -260,8 +258,7 @@ _ts EventHandler_ACDC_Mayl_Living_Room_F21_0
     mov        r0,#0x6f
     bl         Flag_GetBase
     beq        LAB_0802d74a
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x22
     strb       r1,[r0,#0x6]
 LAB_0802d74a:
@@ -317,8 +314,7 @@ _ts EventHandler_Offline_HandleJackIn
     pop        {pc}
 LAB_0802d79c:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -333,8 +329,7 @@ LAB_0802d7b4:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0802d7e0
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0802d868
     and        r1,r0
@@ -362,8 +357,7 @@ _ts FUN_0802d7e4
     pop        {pc}
 LAB_0802d7f4:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -382,8 +376,7 @@ LAB_0802d814:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0802d840
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_0802d868
     and        r1,r0

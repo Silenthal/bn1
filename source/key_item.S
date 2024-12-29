@@ -44,8 +44,7 @@ _nt KeyItem_HpMemoryRecalculate
     ldrb       r2,[r2,#0x0]
     mov        r3,#0x14
     mul        r2,r3
-    mov        r3,r10
-    ldr        r3,[r3,#0x8]
+    LoadMain world, r3, r3
     mov        r4,#0x64
     @ HPMemory * 20 + 100 = Current HP
     add        r2,r2,r4

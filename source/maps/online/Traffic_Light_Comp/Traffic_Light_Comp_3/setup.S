@@ -65,8 +65,7 @@ _ts MapSetup_Traffic_Light_Comp_3_F34
     ldr        r7,PTR_NPCList_80491D0_08048760
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -119,8 +118,7 @@ LAB_080486a0:
     mov        r0,#0xab
     bl         Flag_GetBase
     beq        LAB_080486be
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x35
     strb       r1,[r0,#0x6]
     push       {r5}
@@ -130,8 +128,7 @@ LAB_080486a0:
     pop        {r5}
     pop        {pc}
 LAB_080486be:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080486d4
@@ -159,8 +156,7 @@ _ts MapSetup_Traffic_Light_Comp_3_F35
     ldr        r7,PTR_NPCList_80491D0_0804877c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -197,8 +193,7 @@ PTR_EventHandler_Traffic_Light_Comp_3_F35_0_08048730:
 
 _ts EventHandler_Traffic_Light_Comp_3_F35_0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0804874c
@@ -317,8 +312,7 @@ _ts MapSetup_Traffic_Light_Comp_3_F40
     ldr        r7,PTR_NPCList_80491D0_08048884
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -355,8 +349,7 @@ PTR_EventHandler_Traffic_Light_Comp_3_F40_0_08048854:
 
 _ts EventHandler_Traffic_Light_Comp_3_F40_0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08048870

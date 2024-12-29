@@ -6,16 +6,14 @@
 
 _ts InitMainMenu
     push       { lr }
-    mov        r7,r10
-    ldr        r0,[r7,#0x34]
+    LoadMain mainMenu, r0, r7
     mov        r1,#0x10
     bl         memset0_32
     pop        { pc }
 
 _ts MainMenu_Main
     push       { lr }
-    mov        r7,r10
-    ldr        r5,[r7,#0x34]
+    LoadMain mainMenu, r5, r7
     ldr        r0,=jumpTableMainMenu
     ldrb       r1,[r5,#0x0]
     lsl        r1,r1,#0x2
@@ -39,8 +37,7 @@ _ts MainMenu_0_Init
     push       { r5 }
     mov        r0,#0x5
     bl         Video_SetBgControl
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -95,8 +92,7 @@ _ts MainMenu_1_Main
     mov        lr,pc
     bx         r0
     bl         MainMenu_DrawCopyrightInfo
-    mov        r7,r10
-    ldr        r7,[r7,#0x10]
+    LoadMain display, r7, r7
     ldrh       r0,[r7,#0x14]
     sub        r0,#0x2
     strh       r0,[r7,#0x14]
@@ -112,12 +108,10 @@ PTR_ARRAY_080104f4:
 
 _ts MainMenu_2_Free
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x4
     strb       r1,[r0,#0x0]
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
     ldrb       r0,[r5,#0x8]
@@ -160,8 +154,7 @@ _ts MainMenu_1_0_Display
     strb       r0,[r5,#0xa]
     ldr        r0,INT_08010580
     strh       r0,[r5,#0x4]
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,INT_08010584
     strh       r1,[r0,#0x0]
     push       {r5}
@@ -239,8 +232,7 @@ _ts MainMenu_1_3_End
     ble        LAB_080105ec
     bl         MainMenu_DisplayMenuOptions
 LAB_080105ec:
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -254,8 +246,7 @@ LAB_080105ec:
     strb       r0,[r5,#0x0]
     b          LAB_08010618
 LAB_08010608:
-    mov        r7,r10
-    ldr        r0,[r7,#0x0]
+    LoadMain manager, r0, r7
     mov        r1,#0x14
     strb       r1,[r0,#0x0]
     push       {r5}
@@ -267,8 +258,7 @@ LAB_08010618:
 
 _ts MainMenu_PressStartFlash
     push       {r5,lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x50]
+    LoadMain frameCounter, r0, r0
     ldrh       r0,[r0,#0x0]
     mov        r1,#0x1f
     and        r0,r1
@@ -318,8 +308,7 @@ ObjectXYAttributes_0801067c:
 
 _ts MainMenu_DisplayMenuOptions
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r5,[r7,#0x34]
+    LoadMain mainMenu, r5, r7
     ldrb       r0,[r5,#0x6]
     add        r0,#0x1
     cmp        r0,#0x12
@@ -345,8 +334,7 @@ LAB_0801069c:
     mov        r2,#0x0
     mov        r3,#0x0
     bl         Oam_AddObject
-    mov        r7,r10
-    ldr        r5,[r7,#0x34]
+    LoadMain mainMenu, r5, r7
     ldrb       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_08010734
@@ -365,8 +353,7 @@ LAB_0801069c:
     mov        r2,#0x0
     mov        r3,#0x0
     bl         Oam_AddObject
-    mov        r7,r10
-    ldr        r5,[r7,#0x34]
+    LoadMain mainMenu, r5, r7
     ldrb       r0,[r5,#0xb]
     tst        r0,r0
     beq        LAB_0801079c
@@ -390,8 +377,7 @@ LAB_0801069c:
     beq        LAB_0801079c
     ldr        r0,ObjXY_Star
     ldr        r1,PTR_tileAttrListStarShine_080107f0
-    mov        r7,r10
-    ldr        r7,[r7,#0x34]
+    LoadMain mainMenu, r7, r7
     ldrb       r7,[r7,#0x7]
     mov        r6,#0x3
     bic        r7,r6
@@ -436,8 +422,7 @@ LAB_08010734:
     beq        LAB_0801079c
     ldr        r0,ObjXY_Star
     ldr        r1,PTR_tileAttrListStarShine_080107f0
-    mov        r7,r10
-    ldr        r7,[r7,#0x34]
+    LoadMain mainMenu, r7, r7
     ldrb       r7,[r7,#0x7]
     mov        r6,#0x3
     bic        r7,r6
@@ -512,8 +497,7 @@ tileAttrListStarShine:
 
 _ts MainMenu_HandlePressStart
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x4]
+    LoadMain input, r0, r7
     ldrh       r0,[r0,#0x2]
     mov        r1,#0x8
     tst        r1,r0
@@ -528,14 +512,12 @@ LAB_08010848:
 
 _ts MainMenu_HandleInput
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x9
     tst        r1,r0
     beq        LAB_08010882
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -673,22 +655,19 @@ _ts MainMenu_LoadTitleScreen
     bl         memcpy_32
     bl         Video_ClearScreen
     ldr        r0,PTR_layoutMainMenuBG1_08010a40
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,DAT_08010a44
     add        r1,r1,r2
     ldr        r2,DAT_08010a48
     bl         Dma_TransferListAdd
     ldr        r0,PTR_layoutMainMenuBackground_08010a4c
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,INT_08010a50
     add        r1,r1,r2
     ldr        r2,DAT_08010a48
     bl         Dma_TransferListAdd
     ldr        r0,PTR_layoutBattleNetworkLogo_08010a54
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,INT_08010a58
     add        r1,r1,r2
     ldr        r2,DAT_08010a48

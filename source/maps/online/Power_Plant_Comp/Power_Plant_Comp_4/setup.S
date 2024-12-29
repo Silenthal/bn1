@@ -109,8 +109,7 @@ _ts MapSetup_Power_Plant_Comp_4_F42
     mov        r0,#0xb6
     bl         Flag_GetBase
     beq        LAB_0804b148
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     mov        r0,#0xb6
@@ -135,8 +134,7 @@ LAB_0804b13c:
     pop        {r5}
     b          LAB_0804b168
 LAB_0804b148:
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -180,8 +178,7 @@ _ts EventHandler_Power_Plant_Comp_4_F42_0
     beq        LAB_0804b1a8
     mov        r0,#0xba
     bl         Flag_SetBase
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x43
     strb       r1,[r0,#0x6]
     push       {r5}
@@ -242,8 +239,7 @@ _nt MapSetup_Power_Plant_Comp_4_F43
     mov        r0,#0xbf
     bl         Flag_GetBase
     bne        LAB_0804b22e
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -256,8 +252,7 @@ LAB_0804b22e:
     mov        r0,#0xc2
     bl         Flag_GetBase
     bne        LAB_0804b24c
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -270,8 +265,7 @@ LAB_0804b24c:
     mov        r0,#0xc3
     bl         Flag_GetBase
     bne        LAB_0804b26a
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -284,8 +278,7 @@ LAB_0804b26a:
     mov        r0,#0xc4
     bl         Flag_GetBase
     bne        LAB_0804b288
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -295,8 +288,7 @@ LAB_0804b26a:
     pop        {r5}
     b          LAB_0804b2f8
 LAB_0804b288:
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -324,8 +316,7 @@ LAB_0804b2b0:
     mov        r0,#0xb6
     bl         Flag_GetBase
     beq        LAB_0804b2f8
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     mov        r0,#0xb6
@@ -376,8 +367,7 @@ _ts EventHandler_Power_Plant_Comp_4_F43_0
     bl         Flag_GetBase
     bne        LAB_0804b340
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -628,8 +618,7 @@ _ts MapSetup_Power_Plant_Comp_4_F50
     ldr        r7,PTR_NPCList_804BA7C_0804b5b0
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2

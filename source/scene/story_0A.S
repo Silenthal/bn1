@@ -50,8 +50,7 @@ _ts S_Story_0A_1
     cmp        r0,#0x2
     bne        LAB_08084a00
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r0,[r0,#0x28]
     ldrb       r0,[r0,#0x14]
     mov        r1,#0x7
@@ -73,8 +72,7 @@ LAB_08084a00:
 
 _ts S_Story_0A_2
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -168,8 +166,7 @@ LAB_08084ab8:
 _ts S_Story_0A_5
     push       {lr}
     push       {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldr        r5,[r0,#0x28]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}
@@ -231,8 +228,7 @@ LAB_08084b32:
 
 _ts S_Story_0A_7
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -244,8 +240,7 @@ _ts S_Story_0A_7
     bl         Flag_SetBase
     mov        r0,#0xc8
     bl         Flag_SetBase
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     ldr        r0,[r7,#0x2c]

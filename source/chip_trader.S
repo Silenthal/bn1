@@ -10,8 +10,7 @@ _ts InitChipTraderFromScript
     pop        { r0 }
     ldr        r5,PTR_gChipTrader_08020108
     strh       r0,[r5,#0x4]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrh       r0,[r7,#0x4]
     strh       r0,[r7,#0xc]
     pop        { pc }
@@ -60,15 +59,13 @@ _ts ChipTrader_0_Init
     push       {r5}
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapChipTrader_080201bc
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     mov        r2,#0x80
     lsl        r2,r2,#0x4
     add        r1,r1,r2
     ldr        r2,DAT_080201b8
     bl         Dma_TransferListAdd
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,INT_080201b4
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -127,8 +124,7 @@ _ts ChipTrader_1_Main
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080201e6
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -147,8 +143,7 @@ _ts ChipTrader_4_Sort
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0802020e
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -163,8 +158,7 @@ LAB_0802020e:
 _ts ChipTrader_3_CloseAndPullChip
     push       {lr}
     bl         ChipTrader_DrawUI
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -284,8 +278,7 @@ _ts ChipTrader_6_ConfirmTrade
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08020352
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -845,8 +838,7 @@ LAB_080208d2:
     ldrh       r0,[r5,#0x18]
     cmp        r0,#0x7
     ble        LAB_0802091a
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r7,[r7,#0x0]
     mov        r1,#0x10
     and        r1,r7
@@ -943,8 +935,7 @@ LAB_08020996:
     ldrh       r0,[r5,#0xe]
     cmp        r0,#0x7
     ble        LAB_080209de
-    mov        r7,r10
-    ldr        r7,[r7,#0x50]
+    LoadMain frameCounter, r7, r7
     ldrh       r7,[r7,#0x0]
     mov        r1,#0x10
     and        r1,r7
@@ -1213,8 +1204,7 @@ LAB_08020b7a:
     mov        r0,#0xc
     add        r0,r8
     strh       r1,[r5,r0]
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x2
     tst        r1,r0
@@ -1671,8 +1661,7 @@ LAB_08020edc:
 
 _ts ChipTrader_StartSort
     push       {lr}
-    mov        r0,r10
-    ldr        r0,[r0,#0x78]
+    LoadMain gameStats, r0, r0
     ldrb       r1,[r0,#0x2]
     strh       r1,[r5,#0x30]
     mov        r0,#0x67
@@ -1691,8 +1680,7 @@ _ts ChipTrader_HandleInputSort
     strh       r1,[r5,#0x32]
     ldrh       r1,[r5,#0x34]
     strh       r1,[r5,#0x36]
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0xa
     tst        r1,r0
@@ -1769,8 +1757,7 @@ LAB_08020f90:
 _ts ChipTrader_ApplySort
     push       {lr}
     ldrh       r0,[r5,#0x30]
-    mov        r1,r10
-    ldr        r1,[r1,#0x78]
+    LoadMain gameStats, r1, r1
     ldrb       r2,[r1,#0x2]
     cmp        r0,r2
     beq        LAB_08020fac

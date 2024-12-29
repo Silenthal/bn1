@@ -277,8 +277,7 @@ LAB_0806ea94:
 
 _nt R_2xHeroProtoMan_2_Free
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     ldrb       r0,[r7,#0x3]
     add        r0,#0x1
     strb       r0,[r7,#0x3]
@@ -292,8 +291,7 @@ _ts R_2xHeroProtoMan_CreateHitEffects
     ldrb       r2,[r5,#0x18]
     add        r3,r2,#0x1
     ldrb       r1,[r5,#0x16]
-    mov        r4,r10
-    ldr        r4,[r4,#0xc]
+    LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
     eor        r1,r4
     tst        r1,r1

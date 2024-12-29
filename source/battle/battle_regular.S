@@ -42,8 +42,7 @@ PTR_BattleR_1_0_0_SpawnPlayer:
 
 _nt BattleR_1_0_0_SpawnPlayer
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x18]
+    LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

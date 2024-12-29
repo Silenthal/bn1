@@ -117,8 +117,7 @@ _ts MapSetup_Waterworks_Comp_5_F25
     ldr        r7,PTR_NPCList_8046E18_080466f4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -268,8 +267,7 @@ _ts MapSetup_Waterworks_Comp_5_F30
     ldr        r7,PTR_NPCList_8046E10_08046814
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2

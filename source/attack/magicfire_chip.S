@@ -311,8 +311,7 @@ PanelFlag_0807a9a0:
 
 _ts A_MagicFireC_IsRareEvent
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0xf]
     cmp        r1,#0x0
     bne        LAB_0807a9c4

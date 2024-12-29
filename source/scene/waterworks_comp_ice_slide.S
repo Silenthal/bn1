@@ -41,8 +41,7 @@ _ts S_Ice_Slide_1
     cmp        r0,#0x2
     bne        LAB_0808becc
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldrb       r0,[r7,#0x10]
     add        r0,#0x3b
@@ -72,8 +71,7 @@ LAB_0808becc:
 _ts S_Ice_Slide_2
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r0,[r7,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionElevation
@@ -103,8 +101,7 @@ LAB_0808bef4:
     bne        LAB_0808bf2a
     cmp        r3,r4
     bne        LAB_0808bf2a
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldrb       r0,[r7,#0x10]
     add        r0,#0x4
@@ -115,16 +112,14 @@ LAB_0808bef4:
     bl         Sound_PlaySongImmediate
 LAB_0808bf2a:
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r0,[r7,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x10
     beq        LAB_0808bf74
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x6]
     lsr        r7,r7,#0x4
     cmp        r7,#0x2
@@ -138,8 +133,7 @@ LAB_0808bf2a:
     bl         Flag_GetBase
     beq        LAB_0808bf74
 LAB_0808bf5c:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldr        r0,[r7,#0x24]
     ldr        r1,[r7,#0x28]
@@ -195,8 +189,7 @@ _ts S_Ice_Slide_5
     mov        r0,#0x1
     strb       r0,[r5,#0x1]
     push       {r5}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r0,[r7,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionElevation
@@ -243,8 +236,7 @@ LAB_0808bfec:
     pop        {r5}
     cmp        r0,#0x10
     beq        LAB_0808c03c
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x6]
     lsr        r7,r7,#0x4
     cmp        r7,#0x2
@@ -269,8 +261,7 @@ LAB_0808c03c:
 
 _ts S_Ice_Slide_HandleCollisionDirection
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldr        r3,[r7,#0x24]
     ldr        r4,[r7,#0x28]
@@ -364,8 +355,7 @@ PlayerAnimateArgs_ARRAY_0808c0d8:
 
 _ts S_Ice_Slide_HoldDirectionChange
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r1,[r7,#0x0]
     mov        r0,#0xf0
     and        r0,r1
@@ -373,8 +363,7 @@ _ts S_Ice_Slide_HoldDirectionChange
     lsr        r0,r0,#0x4
     ldr        r7,PTR_BYTE_ARRAY_0808c138
     ldrb       r0,[r7,r0]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     strb       r0,[r7,#0x10]
     mov        r0,#0x1

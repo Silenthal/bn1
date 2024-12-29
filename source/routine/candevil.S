@@ -222,8 +222,7 @@ _ts R_CanDevil_1_1_Wait
     bne        LAB_0806889a
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -326,8 +325,7 @@ _ts R_CanDevil_1_3_0
     ldrh       r0,[r7,#0x2]
     strh       r0,[r5,#0x1c]
     mov        r2,#0x1
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x19]
     ldrb       r1,[r5,#0x19]

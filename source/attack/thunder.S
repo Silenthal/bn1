@@ -361,8 +361,7 @@ LAB_080760aa:
 _nt A_Thunder_GetNextPanelNearPlayer
     push       {lr}
     mov        r3,#0x0
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r2,[r7,#0x18]
     ldrb       r3,[r7,#0x19]

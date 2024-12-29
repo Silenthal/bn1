@@ -132,8 +132,7 @@ _ts MapSetup_ACDC_School_Gate_F23
     ldr        r7,PTR_PTR_DAT_0802bb8c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -184,8 +183,7 @@ _ts EventHandler_ACDC_School_Gate_F23_0
 _ts EventHandler_ACDC_School_Gate_F23_1
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -256,8 +254,7 @@ _ts MapSetup_ACDC_School_Gate_F25
     bl         Flag_GetBase
     pop        {r5}
     bne        LAB_0802bb0a
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -694,8 +691,7 @@ _ts MapSetup_ACDC_School_Gate_F53
     mov        r0,#0xa7
     bl         Flag_GetBase
     bne        LAB_0802be8c
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     bl         Sound_StopAllMusic
@@ -746,8 +742,7 @@ _ts EventHandler_ACDC_School_Gate_F53_0
     mov        r0,#0xa5
     bl         Flag_GetBase
     beq        LAB_0802bef4
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0xf1
     bne        LAB_0802bef4

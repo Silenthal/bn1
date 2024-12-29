@@ -286,8 +286,7 @@ LAB_080408a6:
 
 _ts EventHandler_School_Comp_1_F12_1
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080408c8
@@ -388,8 +387,7 @@ PTR_EventHandler_School_Comp_1_F13_0_08040964:
 
 _ts EventHandler_School_Comp_1_F13_0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_08040988
@@ -523,8 +521,7 @@ _ts EventHandler_School_Comp_HandleJackOut
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08040a84
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_08040ae4
     and        r1,r0
@@ -681,8 +678,7 @@ _ts MapSetup_School_Comp_1_F20
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2

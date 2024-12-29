@@ -48,8 +48,7 @@ _ts Menu_Save_0_Init
     push       {r5}
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapMenuSave_0801e85c
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,DAT_0801e860
     add        r1,r1,r2
     mov        r2,#0xc0
@@ -75,8 +74,7 @@ _ts Menu_Save_0_Init
     bl         Library_GetStandardChipCount
     pop        {r5}
     strb       r1,[r5,#0xc]
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801e86c
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -154,8 +152,7 @@ LAB_0801e61e:
 _ts Menu_Save_2_Close
     push       {lr}
     bl         Menu_Save_PrintUi
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -279,8 +276,7 @@ LAB_0801e6f6:
 _ts Menu_Save_PrintData
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r6,[r7,#0x78]
+    LoadMain gameStats, r6, r7
     ldr        r5,[r7,#0x68]
     ldr        r0,[r6,#0x18]
     push       {r5}
@@ -320,8 +316,7 @@ _ts Menu_Save_PrintData
     pop        {r5}
     ldrb       r1,[r5,#0xc]
     push       {r5}
-    mov        r7,r10
-    ldr        r5,[r7,#0x68]
+    LoadMain textUI, r5, r7
     str        r1,[r5,#0x4]
     mov        r1,#0x80
     push       {r1}
@@ -342,8 +337,7 @@ LAB_0801e78c:
     pop        {r5}
     ldr        r1,[r5,#0x10]
     push       {r5}
-    mov        r7,r10
-    ldr        r5,[r7,#0x68]
+    LoadMain textUI, r5, r7
     str        r1,[r5,#0x4]
     ldr        r0,PTR_textDict_MenuMessages_0801e870
     mov        r1,#0x81
@@ -356,8 +350,7 @@ LAB_0801e78c:
     bl         Text_CopyCharTileUI
     pop        {r5}
     push       {r5}
-    mov        r7,r10
-    ldr        r6,[r7,#0x8]
+    LoadMain world, r6, r7
     ldr        r5,[r7,#0x68]
     ldr        r0,[r6,#0x74]
     str        r0,[r5,#0x4]

@@ -81,8 +81,7 @@ _ts MapSetup_Waterworks_Comp_1_F25
     ldr        r7,PTR_NPCList_8046BC8_08045b88
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -181,8 +180,7 @@ _ts MapSetup_Waterworks_Comp_1_F27
     pop        {r5}
     pop        {pc}
 LAB_08045a3a:
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
@@ -239,16 +237,14 @@ _ts FUN_08045a8c
     bl         Text_CheckOption
     bne        LAB_08045adc
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x10
     beq        LAB_08045ace
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r7,[r7,#0x6]
     lsr        r7,r7,#0x4
     cmp        r7,#0x2
@@ -281,8 +277,7 @@ _ts FUN_08045ae0
     mov        r0,#0x80
     bl         Text_CheckOption
     bne        LAB_08045b36
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0xe]
     cmp        r1,#0x20
     blt        LAB_08045b36
@@ -328,8 +323,7 @@ _ts FUN_08045b3c
     mov        r0,#0x80
     bl         Text_CheckOption
     bne        LAB_08045b6a
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0xe]
     cmp        r1,#0x20
     blt        LAB_08045b6a
@@ -473,8 +467,7 @@ _ts MapSetup_Waterworks_Comp_1_F30
     ldr        r7,PTR_NPCList_8046BC8_08045cc0
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2

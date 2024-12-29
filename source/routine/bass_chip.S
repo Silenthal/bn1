@@ -44,8 +44,7 @@ _ts R_BassC_0_Init
     mov        r0,#0x0
     str        r0,[r5,#0x6c]
     str        r0,[r5,#0x70]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     add        r7,#0x40
     ldrb       r0,[r5,#0x16]
     lsl        r0,r0,#0x2
@@ -294,8 +293,7 @@ _ts FUN_0806e1b8
     mov        r2,#0x96
     lsl        r2,r2,#0x1
     ldrb       r3,[r5,#0x16]
-    mov        r4,r10
-    ldr        r4,[r4,#0xc]
+    LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
     eor        r4,r3
     mov        r6,#0x4

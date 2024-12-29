@@ -6,8 +6,7 @@
 
 _ts InitBgTask
     push       { lr }
-    mov        r0,r10
-    ldr        r0,[r0,#0x58]
+    LoadMain bgAnimationTaskList, r0, r0
     ldr        r1,=0x180
     bl         memset0_32
     pop        { pc }
@@ -18,8 +17,7 @@ _ts InitBgTask
 
 _ts BgTask_AddNew
     push       { lr }
-    mov        r7,r10
-    ldr        r7,[r7,#0x58]
+    LoadMain bgAnimationTaskList, r7, r7
     ldrb       r1,[r0,#0x9]
     mov        r2,#0x18
     mul        r2,r1
@@ -53,8 +51,7 @@ LAB_08001d46:
 
 _ts BgTask_Update
     push       { lr }
-    mov        r7,r10
-    ldr        r7,[r7,#0x58]
+    LoadMain bgAnimationTaskList, r7, r7
     mov        r4,#0x0
 LAB_08001d68:
     ldrb       r1,[r7,#0x0]
@@ -130,8 +127,7 @@ _ts BgTask_TransferDirect
 
 _ts BgTask_TransferTilemap
     push       { lr }
-    mov        r5,r10
-    ldr        r5,[r5,#0x44]
+    LoadMain bgDataManager, r5, r5
     ldr        r5,[r5,#0xc]
     ldrb       r2,[r7,#0x17]
     lsl        r2,r2,#0x2
@@ -154,8 +150,7 @@ LAB_08001e0a:
     bgt        LAB_08001e0a
     mov        r7,r8
     push       { r4, r7 }
-    mov        r7,r10
-    ldr        r5,[r7,#0x44]
+    LoadMain bgDataManager, r5, r7
     bl         BGDM_LoadTilemap_StaticBG1
     pop        { r4, r7 }
     mov        r0,#0x0

@@ -18,8 +18,7 @@ _ts FUN_03007738
     ldrb       r4,[r7,#0x1]
     lsl        r4,r4,#0x5
     orr        r2,r4
-    mov        r6,r10
-    ldr        r6,[r6,#0x1c]
+    LoadMain battleUi, r6, r6
     lsl        r4,r1,#0x3
     add        r4,r4,r0
     lsl        r4,r4,#0x2
@@ -272,8 +271,7 @@ _ts FUN_03007900
     ldrb       r3,[r7,#0x5]
     bl         FUN_0300796c
     bl         FUN_03007994
-    mov        r2,r10
-    ldr        r2,[r2,#0xc]
+    LoadMain battle, r2, r2
     ldrb       r2,[r2,#0x16]
     tst        r2,r2
     beq        LAB_03007928
@@ -561,8 +559,7 @@ DAT_03007af0:
 
 _ts FUN_03007af4
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x78]
+    LoadMain gameStats, r7, r7
     ldrb       r7,[r7,#0x6]
     mov        r6,#0x1e
     mul        r7,r6

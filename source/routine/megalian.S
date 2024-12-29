@@ -222,8 +222,7 @@ _ts R_Megalian_1_1_Wait
     bne        LAB_08066be2
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -695,8 +694,7 @@ _ts R_Megalian_GetPanelInPlayerRow
     sub        sp,#0x28
     mov        r0,#0xff
     str        r0,[sp,#0x24]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r1,[r7,#0x19]
     mov        r3,#0x0
@@ -738,8 +736,7 @@ LAB_08066f32:
     ldrb       r0,[r4,r2]
     b          LAB_08066fa2
 LAB_08066f50:
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r1,[r7,#0x19]
     mov        r3,#0x0

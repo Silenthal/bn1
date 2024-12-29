@@ -76,8 +76,7 @@ _ts MapSetup_ACDC_Town_F00
     bl         Flag_GetBase
     pop        {r5}
     bne        LAB_0802aa80
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -184,8 +183,7 @@ PTR_EventHandler_ACDC_Town_F02_0_0802ab34:
 
 _ts EventHandler_ACDC_Town_F02_0
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
     cmp        r1,#0x20
     bne        LAB_0802ab52
@@ -215,8 +213,7 @@ LAB_0802ab64:
     bne        LAB_0802ab96
 LAB_0802ab76:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -272,8 +269,7 @@ PTR_EventHandler_ACDC_Town_F06_0_0802abdc:
 _ts EventHandler_ACDC_Town_F06_0
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -405,8 +401,7 @@ LAB_0802acde:
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_0802acf8:
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r1,#0x8
     strb       r1,[r7,#0x7]
     mov        r1,#0xff
@@ -705,8 +700,7 @@ _ts EventHandler_ACDC_Town_F20_0
     mov        r0,#0x97
     bl         Flag_GetBase
     beq        LAB_0802af7a
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x21
     strb       r1,[r0,#0x6]
 LAB_0802af7a:
@@ -854,8 +848,7 @@ _ts MapSetup_ACDC_Town_F23
     bl         Flag_GetBase
     pop        {r5}
     bne        LAB_0802b0ae
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     mov        r0,#0x0
@@ -998,8 +991,7 @@ _ts MapSetup_ACDC_Town_F26
     bl         Flag_GetBase
     pop        {r5}
     bne        LAB_0802b1b4
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
     push       {r5}
@@ -1053,8 +1045,7 @@ LAB_0802b1fc:
     mov        r0,#0xb1
     bl         Flag_GetBase
     bne        LAB_0802b220
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x30
     bne        LAB_0802b2ae
@@ -1152,8 +1143,7 @@ _ts FUN_0802b2b0
     beq        LAB_0802b2bc
     pop        {pc}
 LAB_0802b2bc:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x30
     bne        LAB_0802b2d2
@@ -1380,8 +1370,7 @@ LAB_0802b47a:
 _ts EventHandler_ACDC_Town_F30_HandleExits
     push       {lr}
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -1515,8 +1504,7 @@ _ts MapSetup_ACDC_Town_F40
     mov        r0,#0x93
     bl         Flag_GetBase
     bne        LAB_0802b5cc
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r1,#0x8
     strb       r1,[r7,#0x7]
     mov        r1,#0xff
@@ -1795,8 +1783,7 @@ _ts MapSetup_ACDC_Town_F54
     mov        r0,#0xec
     bl         Flag_GetBase
     bne        LAB_0802b800
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     mov        r1,#0x8
     strb       r1,[r7,#0x7]
     mov        r1,#0xff

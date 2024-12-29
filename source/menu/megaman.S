@@ -65,14 +65,12 @@ _ts Menu_MegaMan_0_Init
     push       {r5}
     bl         Video_ClearScreen
     ldr        r0,PTR_tilemapMenuMegaMan_0801bd1c
-    mov        r1,r10
-    ldr        r1,[r1,#0x5c]
+    LoadMain 92, r1, r1
     ldr        r2,DAT_0801bd20
     add        r1,r1,r2
     mov        r2,#0xc0
     bl         Dma_TransferListAdd
-    mov        r7,r10
-    ldr        r0,[r7,#0x10]
+    LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801bd24
     strh       r1,[r0,#0x0]
     mov        r1,#0x0
@@ -104,8 +102,7 @@ _ts Menu_MegaMan_0_Init
 
 _ts Menu_MegaMan_1_Main
     push       {lr}
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -120,8 +117,7 @@ LAB_0801ba32:
 _ts Menu_MegaMan_2_Close
     push       {lr}
     bl         Menu_MegaMan_PrintUI
-    mov        r7,r10
-    ldr        r0,[r7,#0x18]
+    LoadMain fade, r0, r7
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -201,8 +197,7 @@ LAB_0801bade:
     add        r1,#0x35
 LAB_0801bae2:
     strb       r0,[r5,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0x48]
+    LoadMain textHandler, r7, r7
     add        r7,#0x30
     add        r5,#0x17
     mov        r0,#0x3
@@ -229,12 +224,10 @@ _ts Menu_MegaMan_3_1_ChangeArmor
     beq        LAB_0801bb3e
     add        r0,r0,r5
     ldrb       r1,[r0,#0x17]
-    mov        r7,r10
-    ldr        r7,[r7,#0x48]
+    LoadMain textHandler, r7, r7
     str        r1,[r7,#0x30]
     sub        r1,#0x42
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     strb       r1,[r7,#0x17]
     tst        r1,r1
     beq        LAB_0801bb30
@@ -306,8 +299,7 @@ _ts Menu_MegaMan_4_0_CheckStatRaise
     pop        {r5}
     ldrb       r1,[r5,#0xc]
     sub        r1,#0x1
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     add        r7,#0x14
     add        r7,r7,r1
     ldrb       r2,[r7,#0x0]
@@ -332,8 +324,7 @@ LAB_0801bbd4:
     add        r1,#0x2b
 LAB_0801bbdc:
     strb       r2,[r5,#0x2]
-    mov        r7,r10
-    ldr        r7,[r7,#0x48]
+    LoadMain textHandler, r7, r7
     ldr        r0,PTR_textDict_MenuMessages_0801bd34
     bl         Text_LoadDialogue
     pop        {r5,pc}
@@ -348,8 +339,7 @@ _ts Menu_MegaMan_4_1_RaiseStat
     cmp        r0,#0x1
     beq        LAB_0801bc2c
     ldrb       r1,[r5,#0xc]
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     add        r7,#0x14
     add        r7,r7,r1
     sub        r7,#0x1
@@ -452,8 +442,7 @@ _ts Menu_MegaMan_AddArmorIfPresent
     pop        {r0}
     beq        LAB_0801bce4
     mov        r5,r9
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x17]
     add        r1,#0x42
     cmp        r0,r1
@@ -522,8 +511,7 @@ _ts Menu_MegaMan_HandleInput
     sub        r0,#0x1
     strb       r0,[r5,#0x13]
 LAB_0801bd4c:
-    mov        r7,r10
-    ldr        r7,[r7,#0x4]
+    LoadMain input, r7, r7
     ldrh       r0,[r7,#0x2]
     mov        r1,#0x2
     tst        r1,r0
@@ -590,8 +578,7 @@ LAB_0801bdc0:
 
 _ts Menu_MegaMan_PrintHP
     push       {lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrh       r0,[r7,#0x1c]
     mov        r1,#0x4
     bl         Menu_PrintToBuffer
@@ -625,8 +612,7 @@ _ts Menu_PrintToBuffer
     beq        LAB_0801be46
     bl         ConvertNumToBCD
     mov        r8,r0
-    mov        r5,r10
-    ldr        r5,[r5,#0x74]
+    LoadMain menu, r5, r5
     mov        r0,#0xc
     add        r1,r5,#0x0
     add        r1,#0x2c
@@ -656,8 +642,7 @@ LAB_0801be3e:
     bge        LAB_0801be24
     b          LAB_0801be58
 LAB_0801be46:
-    mov        r5,r10
-    ldr        r5,[r5,#0x74]
+    LoadMain menu, r5, r5
     add        r1,r5,#0x0
     add        r1,#0x2c
     ldr        r3,DAT_0801bfb0
@@ -671,8 +656,7 @@ LAB_0801be58:
 
 _ts Menu_MegaMan_PrintStatLines
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x14]
     ldr        r3,PTR_tilemapMegaManStats_0801bfb4
     mov        r1,#0x14
@@ -684,8 +668,7 @@ _ts Menu_MegaMan_PrintStatLines
     mov        r4,#0x5
     mov        r5,#0x2
     bl         Screen_CopyTileMapRect
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x15]
     ldr        r3,PTR_tilemapMegaManStats_0801bfb8
     mov        r1,#0x14
@@ -697,8 +680,7 @@ _ts Menu_MegaMan_PrintStatLines
     mov        r4,#0x5
     mov        r5,#0x2
     bl         Screen_CopyTileMapRect
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x16]
     ldr        r3,PTR_tilemapMegaManStats_0801bfbc
     mov        r1,#0x14
@@ -757,8 +739,7 @@ LAB_0801befe:
 _ts Menu_MegaMan_PrintLevel
     push       {r5,lr}
     bl         Status_GetLevel
-    mov        r5,r10
-    ldr        r5,[r5,#0x74]
+    LoadMain menu, r5, r5
     mov        r1,#0x4
     bl         Menu_PrintToBuffer
     mov        r0,#0x18
@@ -774,8 +755,7 @@ _ts Menu_MegaMan_PrintLevel
 
 _ts Menu_MegaMan_PrintArmor
     push       {r5,lr}
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r0,[r7,#0x17]
     ldr        r3,PTR_PTR_tilemapArmor_0801bfc4
     lsl        r0,r0,#0x2
@@ -803,8 +783,7 @@ _ts Status_GetLevel
     mov        r0,#0x40
     bl         KeyItem_IsPresent
     add        r0,#0x1
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldrb       r1,[r7,#0x14]
     ldrb       r2,[r7,#0x15]
     ldrb       r3,[r7,#0x16]

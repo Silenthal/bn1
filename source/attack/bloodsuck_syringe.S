@@ -107,8 +107,7 @@ _ts A_BloodSuckSyringe_1_0
 LAB_0807b302:
     pop        {pc}
 LAB_0807b304:
-    mov        r7,r10
-    ldr        r7,[r7,#0x54]
+    LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x2]
     mov        r0,#0x1e

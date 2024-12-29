@@ -59,8 +59,7 @@ _ts MapSetup_Internet_3
     ldr        r7,PTR_NPCList_8054348_080528b8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]
     cmp        r1,r2
@@ -159,8 +158,7 @@ LAB_0805274c:
     pop        {r5}
 LAB_08052760:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -181,8 +179,7 @@ LAB_08052760:
     bl         CheckForJackOut
     pop        {pc}
 LAB_08052796:
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080527b4
@@ -196,8 +193,7 @@ LAB_08052796:
     pop        {r5}
 LAB_080527b4:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -210,8 +206,7 @@ LAB_080527b4:
     mov        r0,#0x25
     bl         KeyItem_IsPresent
     bne        LAB_080527ec
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldr        r0,[r7,#0x10]
     add        r0,#0x4
@@ -232,8 +227,7 @@ LAB_080527f0:
     mov        r0,#0x26
     bl         KeyItem_IsPresent
     bne        LAB_08052818
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldr        r0,[r7,#0x10]
     add        r0,#0x4
@@ -254,8 +248,7 @@ LAB_0805281c:
     mov        r0,#0x2b
     bl         KeyItem_IsPresent
     bne        LAB_08052844
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldr        r0,[r7,#0x10]
     add        r0,#0x4

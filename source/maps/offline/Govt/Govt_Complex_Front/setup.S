@@ -781,8 +781,7 @@ _nt FUN_08031c36
     pop        {pc}
 LAB_08031c46:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -797,8 +796,7 @@ LAB_08031c5e:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08031c90
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_08031cc4
     and        r1,r0
@@ -1305,8 +1303,7 @@ _ts FUN_0803205c
     pop        {pc}
 LAB_0803206c:
     push       {r5}
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
@@ -1321,8 +1318,7 @@ LAB_08032084:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080320b6
-    mov        r0,r10
-    ldr        r0,[r0,#0x4]
+    LoadMain input, r0, r0
     ldrh       r0,[r0,#0x2]
     ldr        r1,DAT_08032118
     and        r1,r0

@@ -114,8 +114,7 @@ _ts R_Mole_1_1_WaitForBattleStart
     bne        LAB_0806f14e
     mov        r0,#0x2
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]

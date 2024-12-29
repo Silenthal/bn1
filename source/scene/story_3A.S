@@ -54,8 +54,7 @@ _ts S_Story_3A_0
 
 
 _nt S_Story_3A_1
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -78,8 +77,7 @@ LAB_0808cdb2:
 
 
 _ts S_Story_3A_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -130,8 +128,7 @@ _nt S_Story_3A_4
     mov        r0,#0x1
     strb       r0,[r5,#0x1]
     push       {r5}
-    mov        r0,r10
-    ldr        r5,[r0,#0x24]
+    LoadMain mapEventState, r5, r0
     bl         Traffic_ResetToRedLight
     pop        {r5}
     push       {r5}
@@ -153,8 +150,7 @@ LAB_0808ce3e:
 
 _ts S_Story_3A_5
     push       {r5}
-    mov        r0,r10
-    ldr        r5,[r0,#0x24]
+    LoadMain mapEventState, r5, r0
     bl         Traffic_Main
     pop        {r5}
     ldrb       r0,[r5,#0x8]
@@ -179,8 +175,7 @@ LAB_0808ce70:
 
 _nt S_Story_3A_6
     push       {r5}
-    mov        r0,r10
-    ldr        r5,[r0,#0x24]
+    LoadMain mapEventState, r5, r0
     bl         Traffic_Main
     pop        {r5}
     push       {r5}
@@ -215,8 +210,7 @@ _ts S_Story_3A_7
     bl         Entity_FreeAllMultiple
     pop        {r5}
     push       {r5}
-    mov        r0,r10
-    ldr        r5,[r0,#0x24]
+    LoadMain mapEventState, r5, r0
     bl         Traffic_ResetToRedLight
     pop        {r5}
     push       {r5}
@@ -226,13 +220,11 @@ _ts S_Story_3A_7
     b          LAB_0808cee0
 LAB_0808ced4:
     push       {r5}
-    mov        r0,r10
-    ldr        r5,[r0,#0x24]
+    LoadMain mapEventState, r5, r0
     bl         Traffic_Main
     pop        {r5}
 LAB_0808cee0:
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -244,8 +236,7 @@ LAB_0808cee0:
     pop        {r5}
     push       {r5}
     mov        r0,#0x1
-    mov        r1,r10
-    ldr        r1,[r1,#0x8]
+    LoadMain world, r1, r1
     ldr        r1,[r1,#0x28]
     add        r1,#0x24
     bl         Camera_SetEnabled
@@ -264,12 +255,10 @@ LAB_0808cf1e:
 
 _ts S_Story_3A_8
     push       {r5}
-    mov        r0,r10
-    ldr        r5,[r0,#0x24]
+    LoadMain mapEventState, r5, r0
     bl         Traffic_Main
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1

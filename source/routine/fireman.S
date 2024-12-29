@@ -249,8 +249,7 @@ _ts R_FireMan_1_1_WaitForBattleStart
     bne        LAB_08059e66
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
@@ -361,8 +360,7 @@ _ts R_FireMan_1_3_0_FindNextPanel
     sub        sp,#0x4
     mov        r7,sp
     mov        r0,#0x0
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     ldr        r6,[r6,#0x40]
     ldrb       r1,[r6,#0x19]
     bl         Field_FindEmptyOpponentWalkableEdgeFront
@@ -602,8 +600,7 @@ _ts R_FireMan_1_4_0_FindNextPanel
     sub        sp,#0x4
     mov        r7,sp
     mov        r0,#0x1
-    mov        r6,r10
-    ldr        r6,[r6,#0xc]
+    LoadMain battle, r6, r6
     ldr        r6,[r6,#0x40]
     ldrb       r1,[r6,#0x19]
     bl         Field_FindEmptyOpponentWalkablePanelsFront
@@ -709,8 +706,7 @@ _ts R_FireMan_1_4_4_FlameTower
     strh       r0,[r5,#0x1c]
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    mov        r7,r10
-    ldr        r7,[r7,#0xc]
+    LoadMain battle, r7, r7
     ldr        r2,[r7,#0x40]
     add        r2,#0x2c
     mov        r4,#0x1

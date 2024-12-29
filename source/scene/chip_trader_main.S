@@ -39,8 +39,7 @@ _ts Scene_ChipTraderMain_1_StartDialogue
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_08085e92
-    mov        r7,r10
-    ldr        r0,[r7,#0x8]
+    LoadMain world, r0, r7
     push       {r5}
     ldr        r0,[r0,#0x28]
     ldrb       r0,[r0,#0x14]
@@ -63,8 +62,7 @@ _ts Scene_ChipTraderMain_1_StartDialogue
     bl         Scene_UnloadAndResetStepCounter
     b          LAB_08085e92
 LAB_08085e54:
-    mov        r6,r10
-    ldr        r6,[r6,#0x48]
+    LoadMain textHandler, r6, r6
     ldrh       r2,[r7,#0x3a]
     str        r2,[r6,#0x30]
     ldrh       r2,[r7,#0x3c]

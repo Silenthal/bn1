@@ -53,8 +53,7 @@ _ts S_Story_72_1
     bne        LAB_08094c50
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -85,8 +84,7 @@ LAB_08094c50:
 
 
 _nt S_Story_72_2
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -283,8 +281,7 @@ _ts S_Story_72_10
     mov        r1,#0x7
     and        r0,r1
     bne        LAB_08094e12
-    mov        r7,r10
-    ldr        r7,[r7,#0x8]
+    LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
@@ -319,8 +316,7 @@ LAB_08094e1c:
 
 
 _nt S_Story_72_11
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -340,8 +336,7 @@ LAB_08094e40:
 
 
 _nt S_Story_72_12
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -392,8 +387,7 @@ LAB_08094ea4:
 
 
 _nt S_Story_72_14
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
@@ -421,8 +415,7 @@ _nt S_Story_72_14
     mov        r0,#0x18
     bl         Entity_FreeAllMultiple
     pop        {r5}
-    mov        r0,r10
-    ldr        r0,[r0,#0x8]
+    LoadMain world, r0, r0
     mov        r1,#0x0
     str        r1,[r0,#0x34]
     push       {r5}
@@ -445,8 +438,7 @@ LAB_08094f18:
 
 
 _nt S_Story_72_15
-    mov        r0,r10
-    ldr        r0,[r0,#0x18]
+    LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1
     cmp        r0,r1
