@@ -14,9 +14,7 @@ NPC_803D1F4:
     a_set_sprite SP_Overworld_ManJacket
     a_set_pos -236, -122
     a_set_sprite_frame 5
-L_803D202:
-    a_wait 1
-    a_jump L_803D202
+    a_stop
 
     .align 2, 0
 
@@ -32,9 +30,7 @@ NPC_803D214:
     a_set_sprite SP_Overworld_ManJacket
     a_set_pos -280, -126
     a_set_sprite_frame 1
-L_803D222:
-    a_wait 1
-    a_jump L_803D222
+    a_stop
 
     .align 2, 0
 
@@ -60,9 +56,7 @@ NPC_803D25C:
     a_set_sprite SP_Overworld_ManJacket
     a_set_pos -106, 44
     a_set_sprite_frame 3
-L_803D26A:
-    a_wait 1
-    a_jump L_803D26A
+    a_stop
 
 NPC_803D271:
     a_init
@@ -70,9 +64,7 @@ NPC_803D271:
     a_set_sprite SP_Overworld_WomanJacket
     a_set_pos 50, 198
     a_set_sprite_frame 1
-L_803D27F:
-    a_wait 1
-    a_jump L_803D27F
+    a_stop
 
 NPC_803D286:
     a_init
@@ -80,9 +72,7 @@ NPC_803D286:
     a_set_sprite SP_Overworld_Scientist
     a_set_pos -256, 210
     a_set_sprite_frame 1
-L_803D294:
-    a_wait 1
-    a_jump L_803D294
+    a_stop
 
 NPC_803D29B:
     a_init
@@ -108,9 +98,7 @@ NPC_803D2C0:
     a_set_sprite SP_Overworld_Scientist
     a_set_pos -44, 100
     a_set_sprite_frame 7
-L_803D2CE:
-    a_wait 1
-    a_jump L_803D2CE
+    a_stop
 
 NPC_803D2D5:
     a_init
@@ -118,9 +106,7 @@ NPC_803D2D5:
     a_set_sprite SP_Overworld_Chaud
     a_set_pos -230, 20
     a_set_sprite_frame 5
-L_803D2E3:
-    a_wait 1
-    a_jump L_803D2E3
+    a_stop
 
 NPC_803D2EA:
     a_init
@@ -128,9 +114,7 @@ NPC_803D2EA:
     a_set_sprite SP_Overworld_WomanPurple
     a_set_pos -136, 120
     a_set_sprite_frame 3
-L_803D2F8:
-    a_wait 1
-    a_jump L_803D2F8
+    a_stop
 
 NPC_803D2FF:
     a_jump_if_flag 0x9F, L_803D329
@@ -156,9 +140,7 @@ NPC_803D32A:
     a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos -198, 38
     a_set_sprite_frame 3
-L_803D338:
-    a_wait 1
-    a_jump L_803D338
+    a_stop
 
 NPC_803D33F:
     a_init
@@ -166,9 +148,7 @@ NPC_803D33F:
     a_set_sprite SP_Overworld_WomanApron
     a_set_pos -252, 148
     a_set_sprite_frame 1
-L_803D34D:
-    a_wait 1
-    a_jump L_803D34D
+    a_stop
 
     .align 2, 0
 
@@ -178,9 +158,7 @@ NPC_803D354:
     a_set_sprite SP_Overworld_ManTie
     a_set_pos 78, 194
     a_set_sprite_frame 5
-L_803D362:
-    a_wait 1
-    a_jump L_803D362
+    a_stop
 
     .align 2, 0
 
@@ -230,9 +208,7 @@ NPC_803D3E8:
     a_set_sprite SP_Overworld_WomanPurple
     a_set_pos -136, 120
     a_set_sprite_frame 3
-L_803D3F7:
-    a_wait 1
-    a_jump L_803D3F7
+    a_stop
 
     .align 2, 0
 
@@ -269,9 +245,7 @@ NPC_803D434:
     a_set_sprite SP_Overworld_ManGreen
     a_set_pos -228, 250
     a_set_sprite_frame 7
-L_803D442:
-    a_wait 1
-    a_jump L_803D442
+    a_stop
 
     .align 2, 0
 
@@ -287,9 +261,7 @@ NPC_803D454:
     a_set_sprite SP_Overworld_ManJacket
     a_set_pos -280, -110
     a_set_sprite_frame 7
-L_803D462:
-    a_wait 1
-    a_jump L_803D462
+    a_stop
 
     .align 2, 0
 
@@ -305,9 +277,7 @@ NPC_803D474:
     a_set_sprite SP_Overworld_ManJacket
     a_set_pos -280, -110
     a_set_sprite_frame 3
-L_803D482:
-    a_wait 1
-    a_jump L_803D482
+    a_stop
 
     .align 2, 0
 
@@ -337,9 +307,7 @@ NPC_803D4B5:
     a_set_sprite SP_Overworld_ManJacket
     a_set_pos -46, 10
     a_set_sprite_frame 7
-L_803D4C3:
-    a_wait 1
-    a_jump L_803D4C3
+    a_stop
 
     .align 2, 0
 
@@ -359,9 +327,7 @@ NPC_803D4DC:
     a_set_sprite SP_Overworld_ManJacket
     a_set_pos -80, 10
     a_set_sprite_frame 3
-L_803D4EA:
-    a_wait 1
-    a_jump L_803D4EA
+    a_stop
 
     .align 2, 0
 
@@ -400,9 +366,7 @@ NPC_803D535:
     a_set_sprite SP_Overworld_ManJacket
     a_set_pos 12, 50
     a_set_sprite_frame 1
-L_803D543:
-    a_wait 1
-    a_jump L_803D543
+    a_stop
 
     .align 2, 0
 
@@ -414,9 +378,7 @@ NPC_803D54C:
     a_set_sprite SP_Overworld_Scientist
     a_set_pos -370, 38
     a_set_sprite_frame 1
-L_803D55A:
-    a_wait 1
-    a_jump L_803D55A
+    a_stop
 
     .align 2, 0
 
@@ -440,9 +402,7 @@ L_803D588:
     a_set_sprite_frame 11
     a_move d_nw, 8, 3
     a_set_sprite_frame 7
-L_803D590:
-    a_wait 1
-    a_jump L_803D590
+    a_stop
 
     .align 2, 0
 
@@ -458,9 +418,7 @@ NPC_803D5A0:
     a_set_sprite SP_Overworld_Scientist
     a_set_pos 22, 44
     a_set_sprite_frame 1
-L_803D5AE:
-    a_wait 1
-    a_jump L_803D5AE
+    a_stop
 
     .align 2, 0
 
@@ -476,9 +434,7 @@ NPC_803D5C0:
     a_set_sprite SP_Overworld_Scientist
     a_set_sprite_frame 7
     a_set_pos 22, 20
-L_803D5CE:
-    a_wait 1
-    a_jump L_803D5CE
+    a_stop
 
     .align 2, 0
 
@@ -494,9 +450,7 @@ NPC_803D5E0:
     a_set_sprite SP_Overworld_Scientist
     a_set_sprite_frame 7
     a_set_pos 22, 44
-L_803D5EE:
-    a_wait 1
-    a_jump L_803D5EE
+    a_stop
 
     .align 2, 0
 
@@ -530,9 +484,7 @@ NPC_803D62B:
     a_set_sprite SP_Overworld_Scientist
     a_set_pos 22, 44
     a_set_sprite_frame 1
-L_803D639:
-    a_wait 1
-    a_jump L_803D639
+    a_stop
 
 global_label NPCList_803D640
     .word NPC_803D650
@@ -557,18 +509,14 @@ L_803D66A:
     a_set_sprite_frame 11
     a_move d_nw, 32, 17
     a_set_sprite_frame 7
-L_803D672:
-    a_wait 1
-    a_jump L_803D672
+    a_stop
 
 NPC_803D679:
     a_init
     a_set_sprite SP_Overworld_Scientist
     a_set_sprite_frame 7
     a_set_pos 8, -108
-L_803D685:
-    a_wait 1
-    a_jump L_803D685
+    a_stop
 
 global_label EntityAllocParams_803D68C
     entity Effect, 0x1, f(6, -136, 0), 0x3F

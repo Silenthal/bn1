@@ -15,9 +15,7 @@ NPC_803E5D8:
     a_set_sprite SP_Overworld_Higsby
     a_set_pos -44, 128
     a_set_sprite_frame 5
-L_803E5E6:
-    a_wait 1
-    a_jump L_803E5E6
+    a_stop
 
     .align 2, 0
 
@@ -34,9 +32,7 @@ NPC_803E5FC:
     a_set_sprite SP_Overworld_Dex
     a_set_pos 0, 128, 64
     a_set_sprite_frame 5
-L_803E60A:
-    a_wait 1
-    a_jump L_803E60A
+    a_stop
 
     .align 2, 0
 
@@ -53,9 +49,7 @@ NPC_803E620:
     a_set_pos -194, 130, -64
     a_set_sprite_frame 11
     a_move d_nw, 16, 20
-L_803E630:
-    a_wait 1
-    a_jump L_803E630
+    a_stop
 
 NPC_803E637:
     a_init
@@ -63,9 +57,7 @@ NPC_803E637:
     a_set_pos -194, 110, -64
     a_set_sprite_frame 11
     a_move d_nw, 16, 20
-L_803E647:
-    a_wait 1
-    a_jump L_803E647
+    a_stop
 
     .align 2, 0
 
@@ -84,36 +76,28 @@ NPC_803E668:
     a_set_sprite SP_Overworld_Wily
     a_set_pos 116, -42
     a_set_sprite_frame 1
-L_803E674:
-    a_wait 1
-    a_jump L_803E674
+    a_stop
 
 NPC_803E67B:
     a_init
     a_set_sprite SP_Overworld_Yahoot
     a_set_pos 114, -68
     a_set_sprite_frame 5
-L_803E687:
-    a_wait 1
-    a_jump L_803E687
+    a_stop
 
 NPC_803E68E:
     a_init
     a_set_sprite SP_Overworld_CountZap
     a_set_pos 54, -34
     a_set_sprite_frame 1
-L_803E69A:
-    a_wait 1
-    a_jump L_803E69A
+    a_stop
 
 NPC_803E6A1:
     a_init
     a_set_sprite SP_Overworld_Madd
     a_set_pos 54, -54
     a_set_sprite_frame 1
-L_803E6AD:
-    a_wait 1
-    a_jump L_803E6AD
+    a_stop
 
     .align 2, 0
 
@@ -122,9 +106,7 @@ NPC_803E6B4:
     a_set_sprite SP_Overworld_Match
     a_set_pos 54, -14
     a_set_sprite_frame 1
-L_803E6C0:
-    a_wait 1
-    a_jump L_803E6C0
+    a_stop
 
     .align 2, 0
 
@@ -145,9 +127,7 @@ NPC_803E6E0:
     a_set_sprite SP_Overworld_Wily
     a_set_pos 116, -42
     a_set_sprite_frame 5
-L_803E6EC:
-    a_wait 1
-    a_jump L_803E6EC
+    a_stop
 
     .align 2, 0
 
@@ -233,9 +213,7 @@ L_803E7B8:
     a_set_sprite_frame 13
     a_wait 1
     a_set_sprite_frame 14
-L_803E7BE:
-    a_wait 1
-    a_jump L_803E7BE
+    a_stop
 
 NPC_803E7C5:
     a_init
@@ -258,9 +236,7 @@ L_803E7E9:
     a_jump L_803E7E9
 L_803E7F7:
     a_set_sprite_frame 5
-L_803E7F9:
-    a_wait 1
-    a_jump L_803E7F9
+    a_stop
 
     .align 2, 0
 
@@ -269,9 +245,7 @@ NPC_803E800:
     a_set_sprite SP_Overworld_Yahoot
     a_set_pos 6, -48
     a_set_sprite_frame 7
-L_803E80C:
-    a_wait 1
-    a_jump L_803E80C
+    a_stop
 
 NPC_803E813:
     a_init
@@ -286,9 +260,7 @@ L_803E82D:
     a_set_sprite_frame 9
     a_move d_se, 8, 2
     a_set_sprite_frame 3
-L_803E835:
-    a_wait 1
-    a_jump L_803E835
+    a_stop
 
     .align 2, 0
 
@@ -297,9 +269,7 @@ NPC_803E83C:
     a_set_sprite SP_Overworld_Mayl
     a_set_pos 126, 98
     a_set_sprite_frame 16
-L_803E848:
-    a_wait 1
-    a_jump L_803E848
+    a_stop
 
 NPC_803E84F:
     a_init
@@ -314,9 +284,7 @@ L_803E869:
     a_set_no_z_clip
     a_set_sprite_frame 10
     a_move d_sw, 16, 10
-L_803E870:
-    a_wait 1
-    a_jump L_803E870
+    a_stop
 
 NPC_803E877:
     a_init
@@ -331,9 +299,7 @@ L_803E891:
     a_set_no_z_clip
     a_set_sprite_frame 10
     a_move d_sw, 16, 10
-L_803E898:
-    a_wait 1
-    a_jump L_803E898
+    a_stop
 
 NPC_803E89F:
     a_init
@@ -341,9 +307,7 @@ NPC_803E89F:
     a_set_sprite SP_Overworld_Chaud
     a_set_pos 120, 60
     a_set_sprite_frame 3
-L_803E8AD:
-    a_wait 1
-    a_jump L_803E8AD
+    a_stop
 
     .align 2, 0
 
@@ -353,9 +317,7 @@ NPC_803E8B4:
     a_set_sprite SP_Overworld_Mayl
     a_set_pos 120, 108
     a_set_sprite_frame 7
-L_803E8C2:
-    a_wait 1
-    a_jump L_803E8C2
+    a_stop
 
     .align 2, 0
 
@@ -416,9 +378,7 @@ L_803E944:
     a_set_sprite_frame 13
     a_wait 2
     a_set_sprite_frame 14
-L_803E94E:
-    a_wait 1
-    a_jump L_803E94E
+    a_stop
 
 NPC_803E955:
     a_init
@@ -479,18 +439,14 @@ L_803E9D6:
     a_jump L_803E9D6
 L_803E9E4:
     a_set_sprite_frame 20
-L_803E9E6:
-    a_wait 1
-    a_jump L_803E9E6
+    a_stop
 
 NPC_803E9ED:
     a_init
     a_set_sprite SP_Overworld_Wily
     a_set_pos -20, 62
     a_set_sprite_frame 20
-L_803E9F9:
-    a_wait 1
-    a_jump L_803E9F9
+    a_stop
 
     .align 2, 0
 
@@ -507,9 +463,7 @@ L_803EA1A:
     a_set_sprite_frame 13
     a_wait 2
     a_set_sprite_frame 14
-L_803EA20:
-    a_wait 1
-    a_jump L_803EA20
+    a_stop
 
     .align 2, 0
 
@@ -546,9 +500,7 @@ NPC_803EA6C:
     a_set_sprite SP_Overworld_Higsby
     a_set_pos -26, 182
     a_set_sprite_frame 5
-L_803EA7A:
-    a_wait 1
-    a_jump L_803EA7A
+    a_stop
 
 NPC_803EA81:
     a_init
@@ -556,9 +508,7 @@ NPC_803EA81:
     a_set_sprite SP_Overworld_OldMan
     a_set_pos -26, 224
     a_set_sprite_frame 5
-L_803EA8F:
-    a_wait 1
-    a_jump L_803EA8F
+    a_stop
 
 NPC_803EA96:
     a_init
@@ -567,9 +517,7 @@ NPC_803EA96:
     a_set_sprite SP_Overworld_Mari
     a_set_pos -26, 200
     a_set_sprite_frame 5
-L_803EAA6:
-    a_wait 1
-    a_jump L_803EAA6
+    a_stop
 
 NPC_803EAAD:
     a_init
@@ -577,27 +525,21 @@ NPC_803EAAD:
     a_set_sprite SP_Overworld_Yai
     a_set_pos -54, -110, 64
     a_set_sprite_frame 5
-L_803EABB:
-    a_wait 1
-    a_jump L_803EABB
+    a_stop
 
 NPC_803EAC2:
     a_init
     a_set_sprite SP_Overworld_Higsby
     a_set_pos -26, 182
     a_set_sprite_frame 13
-L_803EACE:
-    a_wait 1
-    a_jump L_803EACE
+    a_stop
 
 NPC_803EAD5:
     a_init
     a_set_sprite SP_Overworld_OldMan
     a_set_pos -26, 224
     a_set_sprite_frame 12
-L_803EAE1:
-    a_wait 1
-    a_jump L_803EAE1
+    a_stop
 
     .align 2, 0
 
@@ -607,9 +549,7 @@ NPC_803EAE8:
     a_set_sprite SP_Overworld_Mari
     a_set_pos -26, 200
     a_set_sprite_frame 13
-L_803EAF6:
-    a_wait 1
-    a_jump L_803EAF6
+    a_stop
 
     .align 2, 0
 
@@ -625,9 +565,7 @@ NPC_803EB08:
     a_set_sprite SP_Overworld_ManGovt
     a_set_pos -54, -110, 64
     a_set_sprite_frame 5
-L_803EB16:
-    a_wait 1
-    a_jump L_803EB16
+    a_stop
 
     .align 2, 0
 

@@ -181,3 +181,9 @@
     .byte 0x24
     .short \index & 0xFFFF
     .endm
+
+    .macro a_stop wait=1
+1:
+    a_wait \wait
+    a_jump 1b
+    .endm

@@ -15,9 +15,7 @@ NPC_804FB98:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -106, 38
     a_set_sprite_frame 7
-L_804FBA6:
-    a_wait 1
-    a_jump L_804FBA6
+    a_stop
 
 NPC_804FBAD:
     a_init
@@ -28,9 +26,7 @@ NPC_804FBAD:
     a_set_pos 184, -86
     a_set_radius 4
     a_set_sprite_frame 0
-L_804FBC0:
-    a_wait 1
-    a_jump L_804FBC0
+    a_stop
 
 NPC_804FBC7:
     a_init
@@ -41,9 +37,7 @@ NPC_804FBC7:
     a_set_pos 106, -86
     a_set_radius 4
     a_set_sprite_frame 0
-L_804FBDA:
-    a_wait 1
-    a_jump L_804FBDA
+    a_stop
 
 NPC_804FBE1:
     a_init
@@ -54,9 +48,7 @@ NPC_804FBE1:
     a_set_pos 184, 106
     a_set_radius 4
     a_set_sprite_frame 0
-L_804FBF4:
-    a_wait 1
-    a_jump L_804FBF4
+    a_stop
 
 NPC_804FBFB:
     a_init
@@ -67,9 +59,7 @@ NPC_804FBFB:
     a_set_pos 106, 106
     a_set_radius 4
     a_set_sprite_frame 0
-L_804FC0E:
-    a_wait 1
-    a_jump L_804FC0E
+    a_stop
 
 NPC_804FC15:
     a_init
@@ -80,9 +70,7 @@ NPC_804FC15:
     a_set_pos -100, -86
     a_set_radius 4
     a_set_sprite_frame 0
-L_804FC28:
-    a_wait 1
-    a_jump L_804FC28
+    a_stop
 
 NPC_804FC2F:
     a_init
@@ -93,9 +81,7 @@ NPC_804FC2F:
     a_set_pos -206, -86
     a_set_radius 4
     a_set_sprite_frame 0
-L_804FC42:
-    a_wait 1
-    a_jump L_804FC42
+    a_stop
 
 NPC_804FC49:
     a_init
@@ -106,9 +92,7 @@ NPC_804FC49:
     a_set_pos -100, 106
     a_set_radius 4
     a_set_sprite_frame 0
-L_804FC5C:
-    a_wait 1
-    a_jump L_804FC5C
+    a_stop
 
 NPC_804FC63:
     a_init
@@ -119,9 +103,7 @@ NPC_804FC63:
     a_set_pos -206, 106
     a_set_radius 4
     a_set_sprite_frame 0
-L_804FC76:
-    a_wait 1
-    a_jump L_804FC76
+    a_stop
 
 NPC_804FC7D:
     a_jump_if_flag FLAG_ITEM_GOVT_YUICHIRO_PC_KEYDAD, L_804FCA0

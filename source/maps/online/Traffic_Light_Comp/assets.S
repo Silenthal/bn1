@@ -17,9 +17,7 @@ NPC_80490EC:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -282, 124
     a_set_sprite_frame 5
-L_80490FA:
-    a_wait 1
-    a_jump L_80490FA
+    a_stop
 
 NPC_8049101:
     a_init
@@ -27,9 +25,7 @@ NPC_8049101:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 56, 140
     a_set_sprite_frame 5
-L_804910F:
-    a_wait 1
-    a_jump L_804910F
+    a_stop
 
 NPC_8049116:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_800Z, L_8049139
@@ -235,9 +231,7 @@ L_80492B4:
     a_jump L_80492B4
 L_80492C2:
     a_set_sprite_frame 12
-L_80492C4:
-    a_wait 1
-    a_jump L_80492C4
+    a_stop
 
     .align 2, 0
 
@@ -252,9 +246,7 @@ NPC_80492D4:
     a_set_sprite SP_Overworld_Roll
     a_set_pos 114, -22
     a_set_sprite_frame 3
-L_80492E0:
-    a_wait 1
-    a_jump L_80492E0
+    a_stop
 
     .align 2, 0
 

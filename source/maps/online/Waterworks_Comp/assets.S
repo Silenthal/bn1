@@ -44,9 +44,7 @@ L_8046C10:
     a_jump L_8046C10
 L_8046C1E:
     a_set_sprite_frame 12
-L_8046C20:
-    a_wait 1
-    a_jump L_8046C20
+    a_stop
 
 NPC_8046C27:
     a_init
@@ -59,9 +57,7 @@ L_8046C33:
     a_jump L_8046C33
 L_8046C41:
     a_set_sprite_frame 9
-L_8046C43:
-    a_wait 1
-    a_jump L_8046C43
+    a_stop
 
 NPC_8046C4A:
     a_init
@@ -81,9 +77,7 @@ L_8046C6A:
     a_jump L_8046C6A
 L_8046C78:
     a_set_sprite_frame 7
-L_8046C7A:
-    a_wait 1
-    a_jump L_8046C7A
+    a_stop
 
     .align 2, 0
 
@@ -113,9 +107,7 @@ L_8046CB0:
     a_jump L_8046CB0
 L_8046CBE:
     a_set_sprite_frame 12
-L_8046CC0:
-    a_wait 1
-    a_jump L_8046CC0
+    a_stop
 
     .align 2, 0
 
@@ -134,9 +126,7 @@ NPC_8046CDC:
     a_set_sprite SP_Overworld_ColorMan
     a_set_pos -140, 150, 64
     a_set_sprite_frame 7
-L_8046CEA:
-    a_wait 1
-    a_jump L_8046CEA
+    a_stop
 
 NPC_8046CF1:
     a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_2_HPMEMORY, L_8046D14
@@ -177,9 +167,7 @@ NPC_8046D39:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -380, -28
     a_set_sprite_frame 3
-L_8046D49:
-    a_wait 1
-    a_jump L_8046D49
+    a_stop
 
 global_label NPCList_8046D50
     .word NPC_8046CF1
@@ -311,9 +299,7 @@ NPC_8046E4C:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -238, -18, 64
     a_set_sprite_frame 7
-L_8046E5A:
-    a_wait 1
-    a_jump L_8046E5A
+    a_stop
 
 NPC_8046E61:
     a_init
@@ -321,9 +307,7 @@ NPC_8046E61:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 190, 118, 96
     a_set_sprite_frame 7
-L_8046E6F:
-    a_wait 1
-    a_jump L_8046E6F
+    a_stop
 
     .align 2, 0
 
@@ -377,9 +361,7 @@ L_8046ED8:
     a_jump L_8046ED8
 L_8046EE6:
     a_set_sprite_frame 12
-L_8046EE8:
-    a_wait 1
-    a_jump L_8046EE8
+    a_stop
 
 NPC_8046EEF:
     a_init
@@ -409,9 +391,7 @@ L_8046F29:
     a_set_flag 0xC8
     a_wait 60
     a_set_sprite_frame 5
-L_8046F34:
-    a_wait 1
-    a_jump L_8046F34
+    a_stop
 
     .align 2, 0
 
@@ -447,9 +427,7 @@ L_8046F78:
     a_jump L_8046F78
 L_8046F86:
     a_set_sprite_frame 5
-L_8046F88:
-    a_wait 1
-    a_jump L_8046F88
+    a_stop
 
     .align 2, 0
 

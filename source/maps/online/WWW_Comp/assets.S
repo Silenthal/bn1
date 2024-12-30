@@ -144,9 +144,7 @@ NPC_804E0CC:
     a_set_sprite SP_Overworld_Glyde
     a_set_pos -330, 400
     a_set_sprite_frame 5
-L_804E0DA:
-    a_wait 1
-    a_jump L_804E0DA
+    a_stop
 
 NPC_804E0E1:
     a_init
@@ -159,9 +157,7 @@ NPC_804E0E1:
     a_set_sprite_frame 13
     a_move d_nw, 32, 4
     a_set_sprite_frame 14
-L_804E0FB:
-    a_wait 1
-    a_jump L_804E0FB
+    a_stop
 
 NPC_804E102:
     a_init
@@ -171,9 +167,7 @@ NPC_804E102:
     a_set_sprite_frame 14
     a_wait 80
     a_set_sprite_frame 3
-L_804E114:
-    a_wait 1
-    a_jump L_804E114
+    a_stop
 
 NPC_804E11B:
     a_init
@@ -183,9 +177,7 @@ NPC_804E11B:
     a_set_sprite SP_BattleEffect_Meteor_Fire
     a_set_pos -332, 358
     a_set_sprite_frame 0
-L_804E12A:
-    a_wait 1
-    a_jump L_804E12A
+    a_stop
 
 NPC_804E131:
     a_init
@@ -195,9 +187,7 @@ NPC_804E131:
     a_set_sprite SP_BattleEffect_Meteor_Fire
     a_set_pos -345, 358
     a_set_sprite_frame 1
-L_804E140:
-    a_wait 1
-    a_jump L_804E140
+    a_stop
 
 NPC_804E147:
     a_init
@@ -207,9 +197,7 @@ NPC_804E147:
     a_set_sprite SP_BattleEffect_Meteor_Fire
     a_set_pos -358, 358
     a_set_sprite_frame 0
-L_804E156:
-    a_wait 1
-    a_jump L_804E156
+    a_stop
 
 NPC_804E15D:
     a_init
@@ -219,9 +207,7 @@ NPC_804E15D:
     a_set_sprite SP_BattleEffect_Meteor_Fire
     a_set_pos -332, 372
     a_set_sprite_frame 1
-L_804E16C:
-    a_wait 1
-    a_jump L_804E16C
+    a_stop
 
 NPC_804E173:
     a_init
@@ -231,9 +217,7 @@ NPC_804E173:
     a_set_sprite SP_BattleEffect_Meteor_Fire
     a_set_pos -345, 372
     a_set_sprite_frame 0
-L_804E182:
-    a_wait 1
-    a_jump L_804E182
+    a_stop
 
 NPC_804E189:
     a_init
@@ -243,9 +227,7 @@ NPC_804E189:
     a_set_sprite SP_BattleEffect_Meteor_Fire
     a_set_pos -358, 372
     a_set_sprite_frame 1
-L_804E198:
-    a_wait 1
-    a_jump L_804E198
+    a_stop
 
 NPC_804E19F:
     a_init
@@ -255,9 +237,7 @@ NPC_804E19F:
     a_set_sprite SP_BattleEffect_Meteor_Fire
     a_set_pos -332, 386
     a_set_sprite_frame 0
-L_804E1AE:
-    a_wait 1
-    a_jump L_804E1AE
+    a_stop
 
 NPC_804E1B5:
     a_init
@@ -267,9 +247,7 @@ NPC_804E1B5:
     a_set_sprite SP_BattleEffect_Meteor_Fire
     a_set_pos -345, 386
     a_set_sprite_frame 1
-L_804E1C4:
-    a_wait 1
-    a_jump L_804E1C4
+    a_stop
 
 NPC_804E1CB:
     a_init
@@ -279,9 +257,7 @@ NPC_804E1CB:
     a_set_sprite SP_BattleEffect_Meteor_Fire
     a_set_pos -358, 386
     a_set_sprite_frame 0
-L_804E1DA:
-    a_wait 1
-    a_jump L_804E1DA
+    a_stop
 
 NPC_804E1E1:
     a_init
@@ -290,9 +266,7 @@ NPC_804E1E1:
     a_set_dialog 0x0
     a_set_pos -100, -424
     a_set_sprite_frame 3
-L_804E1F1:
-    a_wait 1
-    a_jump L_804E1F1
+    a_stop
 
     .align 2, 0
 
@@ -301,9 +275,7 @@ NPC_804E1F8:
     a_set_sprite SP_Overworld_Glyde
     a_set_pos -348, 406
     a_set_sprite_frame 7
-L_804E204:
-    a_wait 1
-    a_jump L_804E204
+    a_stop
 
     .align 2, 0
 
@@ -389,9 +361,7 @@ NPC_804E2B0:
     a_set_sprite SP_Overworld_NumberMan
     a_set_pos -478, 20, 64
     a_set_sprite_frame 7
-L_804E2BE:
-    a_wait 1
-    a_jump L_804E2BE
+    a_stop
 
 NPC_804E2C5:
     a_init
@@ -412,9 +382,7 @@ L_804E2E5:
     a_jump L_804E2E5
 L_804E2F3:
     a_set_sprite_frame 7
-L_804E2F5:
-    a_wait 1
-    a_jump L_804E2F5
+    a_stop
 
 global_label NPCList_804E2FC
     .word NPC_804E328
@@ -481,9 +449,7 @@ NPC_804E370:
     a_set_sprite_frame 7
     a_wait 30
     a_set_sprite_frame 17
-L_804E387:
-    a_wait 1
-    a_jump L_804E387
+    a_stop
 
 NPC_804E38E:
     a_init
@@ -491,9 +457,7 @@ NPC_804E38E:
     a_set_sprite SP_Overworld_ColdMan
     a_set_pos 518, 10, 32
     a_set_sprite_frame 5
-L_804E39C:
-    a_wait 1
-    a_jump L_804E39C
+    a_stop
 
     .align 2, 0
 
@@ -552,9 +516,7 @@ NPC_804E408:
     a_set_sprite SP_Overworld_GutsMan
     a_set_pos -486, -20
     a_set_sprite_frame 5
-L_804E416:
-    a_wait 1
-    a_jump L_804E416
+    a_stop
 
     .align 2, 0
 
@@ -663,9 +625,7 @@ NPC_804E51C:
     a_set_sprite SP_Overworld_Roll
     a_set_pos 562, -122
     a_set_sprite_frame 5
-L_804E52A:
-    a_wait 1
-    a_jump L_804E52A
+    a_stop
 
 NPC_804E531:
     a_init
@@ -703,18 +663,14 @@ L_804E58A:
     a_set_sprite_frame 7
     a_wait 10
     a_set_sprite_frame 5
-L_804E590:
-    a_wait 1
-    a_jump L_804E590
+    a_stop
 
 NPC_804E597:
     a_init
     a_set_sprite SP_Overworld_MagicMan
     a_set_pos 560, -236
     a_set_sprite_frame 20
-L_804E5A3:
-    a_wait 1
-    a_jump L_804E5A3
+    a_stop
 
 NPC_804E5AA:
     a_init
@@ -730,9 +686,7 @@ L_804E5C5:
     a_set_sprite_frame 15
     a_move d_nw, 16, 3
     a_set_sprite_frame 18
-L_804E5CD:
-    a_wait 1
-    a_jump L_804E5CD
+    a_stop
 
     .align 2, 0
 
@@ -768,18 +722,14 @@ L_804E612:
     a_jump L_804E612
 L_804E620:
     a_set_sprite_frame 19
-L_804E622:
-    a_wait 1
-    a_jump L_804E622
+    a_stop
 
 NPC_804E629:
     a_init
     a_set_sprite SP_Overworld_Roll
     a_set_pos 568, -154
     a_set_sprite_frame 18
-L_804E635:
-    a_wait 1
-    a_jump L_804E635
+    a_stop
 
     .align 2, 0
 
@@ -818,18 +768,14 @@ L_804E683:
     a_jump L_804E683
 L_804E691:
     a_set_sprite_frame 3
-L_804E693:
-    a_wait 1
-    a_jump L_804E693
+    a_stop
 
 NPC_804E69A:
     a_init
     a_set_sprite SP_Overworld_ProtoMan
     a_set_pos 556, -220
     a_set_sprite_frame 3
-L_804E6A6:
-    a_wait 1
-    a_jump L_804E6A6
+    a_stop
 
 NPC_804E6AD:
     a_init
@@ -842,9 +788,7 @@ L_804E6B9:
     a_jump L_804E6B9
 L_804E6C7:
     a_set_sprite_frame 5
-L_804E6C9:
-    a_wait 1
-    a_jump L_804E6C9
+    a_stop
 
     .align 2, 0
 
@@ -854,9 +798,7 @@ NPC_804E6D0:
     a_set_sprite SP_Overworld_Roll
     a_set_pos 568, -154
     a_set_sprite_frame 5
-L_804E6DE:
-    a_wait 1
-    a_jump L_804E6DE
+    a_stop
 
 NPC_804E6E5:
     a_init
@@ -864,9 +806,7 @@ NPC_804E6E5:
     a_set_sprite SP_Overworld_ProtoMan
     a_set_pos 556, -220
     a_set_sprite_frame 3
-L_804E6F3:
-    a_wait 1
-    a_jump L_804E6F3
+    a_stop
 
 NPC_804E6FA:
     a_init
@@ -874,9 +814,7 @@ NPC_804E6FA:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 566, 94
     a_set_sprite_frame 5
-L_804E708:
-    a_wait 1
-    a_jump L_804E708
+    a_stop
 
     .align 2, 0
 

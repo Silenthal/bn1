@@ -41,9 +41,7 @@ NPC_802FA00:
     a_set_sprite SP_Overworld_OldMan
     a_set_pos 280, -134
     a_set_sprite_frame 5
-L_802FA0E:
-    a_wait 1
-    a_jump L_802FA0E
+    a_stop
 
 NPC_802FA15:
     a_init
@@ -51,9 +49,7 @@ NPC_802FA15:
     a_set_sprite SP_Overworld_WomanApron
     a_set_pos -308, -298
     a_set_sprite_frame 5
-L_802FA23:
-    a_wait 1
-    a_jump L_802FA23
+    a_stop
 
 NPC_802FA2A:
     a_init
@@ -62,9 +58,7 @@ NPC_802FA2A:
     a_set_sprite SP_Overworld_YoungGirl
     a_set_pos 130, -366
     a_set_sprite_frame 3
-L_802FA3A:
-    a_wait 1
-    a_jump L_802FA3A
+    a_stop
 
 NPC_802FA41:
     a_init
@@ -88,9 +82,7 @@ NPC_802FA66:
     a_set_sprite SP_Overworld_ManTie
     a_set_pos 180, 94
     a_set_sprite_frame 5
-L_802FA74:
-    a_wait 1
-    a_jump L_802FA74
+    a_stop
 
 NPC_802FA7B:
     a_init
@@ -98,9 +90,7 @@ NPC_802FA7B:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos -150, 10
     a_set_sprite_frame 5
-L_802FA89:
-    a_wait 1
-    a_jump L_802FA89
+    a_stop
 
     .align 2, 0
 
@@ -111,9 +101,7 @@ NPC_802FA90:
     a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos 242, 176
     a_set_sprite_frame 1
-L_802FA9F:
-    a_wait 1
-    a_jump L_802FA9F
+    a_stop
 
 NPC_802FAA6:
     a_init
@@ -205,9 +193,7 @@ NPC_802FB5D:
     a_set_pos 72, -272
     a_set_sprite_frame 5
     a_set_radius 4
-L_802FB6D:
-    a_wait 1
-    a_jump L_802FB6D
+    a_stop
 
 global_label NPCList_802FB74
     .word NPC_802FB7C
@@ -220,9 +206,7 @@ NPC_802FB7C:
     a_set_sprite SP_Overworld_Higsby
     a_set_pos 348, -88
     a_set_sprite_frame 1
-L_802FB88:
-    a_wait 1
-    a_jump L_802FB88
+    a_stop
 
     .align 2, 0
 
@@ -245,9 +229,7 @@ NPC_802FBB4:
     a_set_sprite SP_Overworld_OldMan
     a_set_pos 280, -134
     a_set_sprite_frame 1
-L_802FBC2:
-    a_wait 1
-    a_jump L_802FBC2
+    a_stop
 
 NPC_802FBC9:
     a_init
@@ -287,9 +269,7 @@ NPC_802FC1B:
     a_set_sprite SP_Overworld_ManGreen
     a_set_pos 180, 94
     a_set_sprite_frame 5
-L_802FC29:
-    a_wait 1
-    a_jump L_802FC29
+    a_stop
 
     .align 2, 0
 
@@ -315,9 +295,7 @@ NPC_802FC55:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos 160, -136
     a_set_sprite_frame 3
-L_802FC63:
-    a_wait 1
-    a_jump L_802FC63
+    a_stop
 
 NPC_802FC6A:
     a_init
@@ -325,9 +303,7 @@ NPC_802FC6A:
     a_set_sprite SP_Overworld_ManTie
     a_set_pos -164, 66
     a_set_sprite_frame 7
-L_802FC78:
-    a_wait 1
-    a_jump L_802FC78
+    a_stop
 
     .align 2, 0
 
@@ -352,9 +328,7 @@ NPC_802FCAC:
     a_set_sprite SP_Overworld_OldMan
     a_set_pos 280, -134
     a_set_sprite_frame 1
-L_802FCBA:
-    a_wait 1
-    a_jump L_802FCBA
+    a_stop
 
 NPC_802FCC1:
     a_init
@@ -394,9 +368,7 @@ NPC_802FD13:
     a_set_sprite SP_Overworld_ManGreen
     a_set_pos 180, 94
     a_set_sprite_frame 5
-L_802FD21:
-    a_wait 1
-    a_jump L_802FD21
+    a_stop
 
     .align 2, 0
 
@@ -422,9 +394,7 @@ NPC_802FD4D:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos 160, -136
     a_set_sprite_frame 3
-L_802FD5B:
-    a_wait 1
-    a_jump L_802FD5B
+    a_stop
 
 NPC_802FD62:
     a_init
@@ -432,9 +402,7 @@ NPC_802FD62:
     a_set_sprite SP_Overworld_ManTie
     a_set_pos -164, 66
     a_set_sprite_frame 7
-L_802FD70:
-    a_wait 1
-    a_jump L_802FD70
+    a_stop
 
 NPC_802FD77:
     a_init
@@ -461,9 +429,7 @@ NPC_802FD9C:
     a_set_sprite SP_Overworld_YoungGirl
     a_set_pos -166, -324
     a_set_sprite_frame 5
-L_802FDAC:
-    a_wait 1
-    a_jump L_802FDAC
+    a_stop
 
     .align 2, 0
 
@@ -500,9 +466,7 @@ NPC_802FE08:
     a_set_sprite SP_Overworld_ManJacket
     a_set_pos 184, 62
     a_set_sprite_frame 1
-L_802FE16:
-    a_wait 1
-    a_jump L_802FE16
+    a_stop
 
 NPC_802FE1D:
     a_init
@@ -510,9 +474,7 @@ NPC_802FE1D:
     a_set_sprite SP_Overworld_OldMan
     a_set_pos 164, -136
     a_set_sprite_frame 3
-L_802FE2B:
-    a_wait 1
-    a_jump L_802FE2B
+    a_stop
 
 NPC_802FE32:
     a_init
@@ -520,9 +482,7 @@ NPC_802FE32:
     a_set_sprite SP_Overworld_WomanApron
     a_set_pos -282, 210
     a_set_sprite_frame 3
-L_802FE40:
-    a_wait 1
-    a_jump L_802FE40
+    a_stop
 
 NPC_802FE47:
     a_init
@@ -559,9 +519,7 @@ NPC_802FE90:
     a_set_sprite SP_Overworld_OldMan
     a_set_pos 164, -136
     a_set_sprite_frame 7
-L_802FE9E:
-    a_wait 1
-    a_jump L_802FE9E
+    a_stop
 
 NPC_802FEA5:
     a_init
@@ -569,9 +527,7 @@ NPC_802FEA5:
     a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos -292, 188
     a_set_sprite_frame 1
-L_802FEB3:
-    a_wait 1
-    a_jump L_802FEB3
+    a_stop
 
 NPC_802FEBA:
     a_init
@@ -579,9 +535,7 @@ NPC_802FEBA:
     a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos 184, 62
     a_set_sprite_frame 1
-L_802FEC8:
-    a_wait 1
-    a_jump L_802FEC8
+    a_stop
 
 NPC_802FECF:
     a_init
@@ -623,9 +577,7 @@ L_802FF14:
     a_jump L_802FF14
 L_802FF22:
     a_set_sprite_frame 5
-L_802FF24:
-    a_wait 1
-    a_jump L_802FF24
+    a_stop
 
     .align 2, 0
 
@@ -647,9 +599,7 @@ NPC_802FF54:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos 346, -138
     a_set_sprite_frame 5
-L_802FF62:
-    a_wait 1
-    a_jump L_802FF62
+    a_stop
 
     .align 2, 0
 
@@ -666,9 +616,7 @@ NPC_802FF78:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos 328, -148
     a_set_sprite_frame 7
-L_802FF86:
-    a_wait 1
-    a_jump L_802FF86
+    a_stop
 
 NPC_802FF8D:
     a_init
@@ -676,9 +624,7 @@ NPC_802FF8D:
     a_set_sprite SP_Overworld_ManGovt
     a_set_pos 324, -188
     a_set_sprite_frame 3
-L_802FF9B:
-    a_wait 1
-    a_jump L_802FF9B
+    a_stop
 
     .align 2, 0
 
@@ -689,9 +635,7 @@ NPC_802FFA4:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos -274, -268
     a_set_sprite_frame 3
-L_802FFB2:
-    a_wait 1
-    a_jump L_802FFB2
+    a_stop
 
     .align 2, 0
 
@@ -701,9 +645,7 @@ NPC_802FFBC:
     a_set_sprite SP_Overworld_OldMan
     a_set_pos 250, -344
     a_set_sprite_frame 1
-L_802FFCA:
-    a_wait 1
-    a_jump L_802FFCA
+    a_stop
 
     .align 2, 0
 
@@ -713,9 +655,7 @@ NPC_802FFD4:
     a_set_sprite SP_Overworld_OldMan
     a_set_pos -304, 320
     a_set_sprite_frame 5
-L_802FFE2:
-    a_wait 1
-    a_jump L_802FFE2
+    a_stop
 
     .align 2, 0
 
@@ -725,9 +665,7 @@ NPC_802FFEC:
     a_set_sprite SP_Overworld_ManTie
     a_set_pos 378, 218
     a_set_sprite_frame 5
-L_802FFFA:
-    a_wait 1
-    a_jump L_802FFFA
+    a_stop
 
     .align 2, 0
 
@@ -780,9 +718,7 @@ NPC_803007D:
     a_set_sprite SP_Overworld_OldMan
     a_set_pos -148, 8
     a_set_sprite_frame 7
-L_803008B:
-    a_wait 1
-    a_jump L_803008B
+    a_stop
 
 NPC_8030092:
     a_init
@@ -790,9 +726,7 @@ NPC_8030092:
     a_set_sprite SP_Overworld_ManGreen
     a_set_pos 140, -136
     a_set_sprite_frame 3
-L_80300A0:
-    a_wait 1
-    a_jump L_80300A0
+    a_stop
 
 NPC_80300A7:
     a_init
@@ -800,9 +734,7 @@ NPC_80300A7:
     a_set_sprite SP_Overworld_PreschoolGirl
     a_set_pos 180, 80
     a_set_sprite_frame 5
-L_80300B5:
-    a_wait 1
-    a_jump L_80300B5
+    a_stop
 
     .align 2, 0
 
@@ -828,9 +760,7 @@ NPC_80300E1:
     a_set_sprite SP_Overworld_WomanApron
     a_set_pos -220, -148
     a_set_sprite_frame 5
-L_80300EF:
-    a_wait 1
-    a_jump L_80300EF
+    a_stop
 
     .align 2, 0
 
@@ -922,9 +852,7 @@ NPC_80301D1:
     a_set_sprite SP_Overworld_OldMan
     a_set_pos -148, 8
     a_set_sprite_frame 7
-L_80301DF:
-    a_wait 1
-    a_jump L_80301DF
+    a_stop
 
 NPC_80301E6:
     a_init
@@ -932,9 +860,7 @@ NPC_80301E6:
     a_set_sprite SP_Overworld_ManGreen
     a_set_pos 140, -136
     a_set_sprite_frame 3
-L_80301F4:
-    a_wait 1
-    a_jump L_80301F4
+    a_stop
 
 NPC_80301FB:
     a_init
@@ -942,9 +868,7 @@ NPC_80301FB:
     a_set_sprite SP_Overworld_PreschoolGirl
     a_set_pos 180, 80
     a_set_sprite_frame 5
-L_8030209:
-    a_wait 1
-    a_jump L_8030209
+    a_stop
 
     .align 2, 0
 
@@ -970,9 +894,7 @@ NPC_8030235:
     a_set_sprite SP_Overworld_WomanApron
     a_set_pos -220, -148
     a_set_sprite_frame 5
-L_8030243:
-    a_wait 1
-    a_jump L_8030243
+    a_stop
 
 NPC_803024A:
     a_init
@@ -980,9 +902,7 @@ NPC_803024A:
     a_set_sprite SP_Overworld_Chaud
     a_set_pos 28, -148
     a_set_sprite_frame 3
-L_8030258:
-    a_wait 1
-    a_jump L_8030258
+    a_stop
 
     a_destroy
 
@@ -1003,9 +923,7 @@ L_803027C:
     a_jump L_803027C
 L_803028A:
     a_set_sprite_frame 3
-L_803028C:
-    a_wait 1
-    a_jump L_803028C
+    a_stop
 
 NPC_8030293:
     a_init
@@ -1030,9 +948,7 @@ L_80302BF:
     a_jump L_80302BF
 L_80302CD:
     a_set_sprite_frame 5
-L_80302CF:
-    a_wait 1
-    a_jump L_80302CF
+    a_stop
 
 NPC_80302D6:
     a_init
@@ -1047,18 +963,14 @@ L_80302F0:
     a_set_sprite_frame 17
     a_wait 60
     a_set_sprite_frame 1
-L_80302F6:
-    a_wait 1
-    a_jump L_80302F6
+    a_stop
 
 NPC_80302FD:
     a_init
     a_set_sprite SP_Overworld_Chaud
     a_set_pos -110, -108
     a_set_sprite_frame 7
-L_8030309:
-    a_wait 1
-    a_jump L_8030309
+    a_stop
 
     .align 2, 0
 
@@ -1067,18 +979,14 @@ NPC_8030310:
     a_set_sprite SP_Overworld_Higsby
     a_set_pos -160, -112
     a_set_sprite_frame 1
-L_803031C:
-    a_wait 1
-    a_jump L_803031C
+    a_stop
 
 NPC_8030323:
     a_init
     a_set_sprite SP_Overworld_Yai
     a_set_pos -94, -132
     a_set_sprite_frame 5
-L_803032F:
-    a_wait 1
-    a_jump L_803032F
+    a_stop
 
 NPC_8030336:
     a_init
@@ -1093,18 +1001,14 @@ L_8030350:
     a_set_sprite_frame 15
     a_wait 180
     a_set_sprite_frame 5
-L_8030356:
-    a_wait 1
-    a_jump L_8030356
+    a_stop
 
 NPC_803035D:
     a_init
     a_set_sprite SP_Overworld_Mari
     a_set_pos -82, -106
     a_set_sprite_frame 6
-L_8030369:
-    a_wait 1
-    a_jump L_8030369
+    a_stop
 
     .align 2, 0
 
@@ -1114,18 +1018,14 @@ NPC_8030370:
     a_set_sprite SP_Overworld_Mari
     a_set_pos -66, -106
     a_set_sprite_frame 6
-L_803037E:
-    a_wait 1
-    a_jump L_803037E
+    a_stop
 
 NPC_8030385:
     a_init
     a_set_sprite SP_Overworld_ManGovt
     a_set_pos -110, -80
     a_set_sprite_frame 7
-L_8030391:
-    a_wait 1
-    a_jump L_8030391
+    a_stop
 
     .align 2, 0
 
@@ -1142,9 +1042,7 @@ NPC_80303A4:
     a_set_sprite SP_Overworld_ManTie
     a_set_pos -224, 158
     a_set_sprite_frame 7
-L_80303B2:
-    a_wait 1
-    a_jump L_80303B2
+    a_stop
 
 NPC_80303B9:
     a_init
@@ -1153,9 +1051,7 @@ NPC_80303B9:
     a_set_sprite SP_Overworld_YoungGirl
     a_set_pos 0, 164
     a_set_sprite_frame 5
-L_80303C9:
-    a_wait 1
-    a_jump L_80303C9
+    a_stop
 
     .align 2, 0
 
@@ -1179,9 +1075,7 @@ L_80303F2:
     a_move d_nw, 16, 9
     a_set_sprite_frame 8
     a_move d_ne, 16, 14
-L_80303FE:
-    a_wait 1
-    a_jump L_80303FE
+    a_stop
 
     .align 2, 0
 
@@ -1258,9 +1152,7 @@ NPC_80304B0:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos 0, 164
     a_set_sprite_frame 5
-L_80304BE:
-    a_wait 1
-    a_jump L_80304BE
+    a_stop
 
 NPC_80304C5:
     a_init
@@ -1268,9 +1160,7 @@ NPC_80304C5:
     a_set_sprite SP_Overworld_PreschoolGirl
     a_set_pos -30, 124
     a_set_sprite_frame 7
-L_80304D3:
-    a_wait 1
-    a_jump L_80304D3
+    a_stop
 
     .align 2, 0
 
@@ -1307,9 +1197,7 @@ L_803051C:
     a_jump L_803051C
 L_803052A:
     a_set_sprite_frame 14
-L_803052C:
-    a_wait 1
-    a_jump L_803052C
+    a_stop
 
     .align 2, 0
 
@@ -1328,9 +1216,7 @@ NPC_803053C:
     a_set_sprite SP_Overworld_ManGreen
     a_set_pos -120, 38
     a_set_sprite_frame 15
-L_8030551:
-    a_wait 1
-    a_jump L_8030551
+    a_stop
 
     .align 2, 0
 
@@ -1347,9 +1233,7 @@ NPC_8030564:
     a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos 0, 168
     a_set_sprite_frame 5
-L_8030572:
-    a_wait 1
-    a_jump L_8030572
+    a_stop
 
 NPC_8030579:
     a_init
@@ -1357,9 +1241,7 @@ NPC_8030579:
     a_set_sprite SP_Overworld_ManTie
     a_set_pos -218, 116
     a_set_sprite_frame 3
-L_8030587:
-    a_wait 1
-    a_jump L_8030587
+    a_stop
 
     .align 2, 0
 
@@ -1374,9 +1256,7 @@ NPC_8030598:
     a_set_sprite SP_Overworld_Mayl
     a_set_pos -220, 140
     a_set_sprite_frame 0
-L_80305A4:
-    a_wait 1
-    a_jump L_80305A4
+    a_stop
 
     .align 2, 0
 
@@ -1450,9 +1330,7 @@ NPC_8030634:
     a_set_sprite SP_Overworld_Haruka
     a_set_pos 40, -8
     a_set_sprite_frame 3
-L_8030642:
-    a_wait 1
-    a_jump L_8030642
+    a_stop
 
 NPC_8030649:
     a_init
@@ -1506,9 +1384,7 @@ NPC_80306A4:
     a_set_sprite SP_Overworld_Haruka
     a_set_pos -116, 0
     a_set_sprite_frame 15
-L_80306B3:
-    a_wait 1
-    a_jump L_80306B3
+    a_stop
 
     .align 2, 0
 
@@ -1524,9 +1400,7 @@ NPC_80306C4:
     a_set_sprite SP_Overworld_Haruka
     a_set_pos -116, -4
     a_set_sprite_frame 7
-L_80306D1:
-    a_wait 1
-    a_jump L_80306D1
+    a_stop
 
 global_label NPCList_80306D8
     .word NPC_80306E0
@@ -1540,9 +1414,7 @@ NPC_80306E0:
     a_set_sprite SP_Overworld_Haruka
     a_set_pos -116, -4
     a_set_sprite_frame 7
-L_80306EE:
-    a_wait 1
-    a_jump L_80306EE
+    a_stop
 
     .align 2, 0
 
@@ -1558,9 +1430,7 @@ NPC_8030700:
     a_set_sprite SP_Overworld_Haruka
     a_set_pos -80, -4
     a_set_sprite_frame 5
-L_803070E:
-    a_wait 1
-    a_jump L_803070E
+    a_stop
 
     .align 2, 0
 
@@ -1618,9 +1488,7 @@ NPC_8030778:
     a_set_sprite SP_Overworld_Haruka
     a_set_pos -20, 42
     a_set_sprite_frame 1
-L_8030788:
-    a_wait 1
-    a_jump L_8030788
+    a_stop
 
     .align 2, 0
 
@@ -1638,9 +1506,7 @@ NPC_8030798:
     a_set_sprite SP_Overworld_Haruka
     a_set_pos 64, 70
     a_set_sprite_frame 1
-L_80307A8:
-    a_wait 1
-    a_jump L_80307A8
+    a_stop
 
     .align 2, 0
 
@@ -1724,9 +1590,7 @@ L_803084A:
     a_jump L_803084A
 L_8030858:
     a_set_sprite_frame 5
-L_803085A:
-    a_wait 1
-    a_jump L_803085A
+    a_stop
 
     .align 2, 0
 
@@ -1766,9 +1630,7 @@ NPC_8030898:
     a_set_sprite SP_Overworld_Mayl
     a_set_pos -130, 54
     a_set_sprite_frame 3
-L_80308A6:
-    a_wait 1
-    a_jump L_80308A6
+    a_stop
 
     .align 2, 0
 
@@ -1808,9 +1670,7 @@ NPC_80308E8:
     a_set_sprite SP_Overworld_Mayl
     a_set_pos 2, 52
     a_set_sprite_frame 1
-L_80308F6:
-    a_wait 1
-    a_jump L_80308F6
+    a_stop
 
     .align 2, 0
 
@@ -1826,9 +1686,7 @@ NPC_8030908:
     a_set_sprite SP_Overworld_Mayl
     a_set_pos -10, 108
     a_set_sprite_frame 7
-L_8030916:
-    a_wait 1
-    a_jump L_8030916
+    a_stop
 
     .align 2, 0
 
@@ -1844,9 +1702,7 @@ NPC_8030928:
     a_set_sprite SP_Overworld_Dex
     a_set_pos -34, 6
     a_set_sprite_frame 3
-L_8030936:
-    a_wait 1
-    a_jump L_8030936
+    a_stop
 
     .align 2, 0
 
@@ -1862,9 +1718,7 @@ NPC_8030948:
     a_set_sprite SP_Overworld_Dex
     a_set_pos -34, 6
     a_set_sprite_frame 3
-L_8030956:
-    a_wait 1
-    a_jump L_8030956
+    a_stop
 
     .align 2, 0
 
@@ -1880,9 +1734,7 @@ NPC_8030968:
     a_set_sprite SP_Overworld_Dex
     a_set_pos -8, 72
     a_set_sprite_frame 1
-L_8030976:
-    a_wait 1
-    a_jump L_8030976
+    a_stop
 
     .align 2, 0
 
@@ -1898,9 +1750,7 @@ NPC_8030988:
     a_set_sprite SP_Overworld_Dex
     a_set_pos -8, 72
     a_set_sprite_frame 1
-L_8030996:
-    a_wait 1
-    a_jump L_8030996
+    a_stop
 
     .align 2, 0
 
@@ -1916,9 +1766,7 @@ NPC_80309A8:
     a_set_sprite SP_Overworld_Yai
     a_set_pos -20, 80
     a_set_sprite_frame 5
-L_80309B6:
-    a_wait 1
-    a_jump L_80309B6
+    a_stop
 
     .align 2, 0
 
@@ -1934,9 +1782,7 @@ NPC_80309C8:
     a_set_sprite SP_Overworld_Yai
     a_set_pos -20, 80
     a_set_sprite_frame 5
-L_80309D6:
-    a_wait 1
-    a_jump L_80309D6
+    a_stop
 
     .align 2, 0
 
@@ -2000,9 +1846,7 @@ NPC_8030A4C:
     a_set_sprite SP_Overworld_Yai
     a_set_pos 34, 100
     a_set_sprite_frame 5
-L_8030A5A:
-    a_wait 1
-    a_jump L_8030A5A
+    a_stop
 
     .align 2, 0
 
@@ -2021,9 +1865,7 @@ NPC_8030A78:
     a_set_sprite SP_Overworld_Higsby
     a_set_pos 48, 2
     a_set_sprite_frame 5
-L_8030A86:
-    a_wait 1
-    a_jump L_8030A86
+    a_stop
 
 NPC_8030A8D:
     a_init_no_sprite
@@ -2035,9 +1877,7 @@ NPC_8030A8D:
     a_set_sprite SP_Overworld_Higsby
     a_set_pos 48, 2
     a_set_sprite_frame 5
-L_8030AA3:
-    a_wait 1
-    a_jump L_8030AA3
+    a_stop
 
 NPC_8030AAA:
     a_init
@@ -2045,9 +1885,7 @@ NPC_8030AAA:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos -46, 2
     a_set_sprite_frame 7
-L_8030AB8:
-    a_wait 1
-    a_jump L_8030AB8
+    a_stop
 
 NPC_8030ABF:
     a_init
@@ -2056,9 +1894,7 @@ NPC_8030ABF:
     a_set_sprite SP_Overworld_YoungGirl
     a_set_pos -134, 118
     a_set_sprite_frame 7
-L_8030ACF:
-    a_wait 1
-    a_jump L_8030ACF
+    a_stop
 
     .align 2, 0
 
@@ -2083,9 +1919,7 @@ NPC_8030AFC:
     a_set_sprite SP_Overworld_Higsby
     a_set_pos 48, 2
     a_set_sprite_frame 5
-L_8030B0A:
-    a_wait 1
-    a_jump L_8030B0A
+    a_stop
 
 NPC_8030B11:
     a_init_no_sprite
@@ -2097,9 +1931,7 @@ NPC_8030B11:
     a_set_sprite SP_Overworld_Higsby
     a_set_pos 48, 2
     a_set_sprite_frame 5
-L_8030B27:
-    a_wait 1
-    a_jump L_8030B27
+    a_stop
 
 NPC_8030B2E:
     a_init
@@ -2107,9 +1939,7 @@ NPC_8030B2E:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos -46, 2
     a_set_sprite_frame 7
-L_8030B3C:
-    a_wait 1
-    a_jump L_8030B3C
+    a_stop
 
 NPC_8030B43:
     a_init
@@ -2118,9 +1948,7 @@ NPC_8030B43:
     a_set_sprite SP_Overworld_YoungGirl
     a_set_pos -134, 118
     a_set_sprite_frame 7
-L_8030B53:
-    a_wait 1
-    a_jump L_8030B53
+    a_stop
 
     .align 2, 0
 
@@ -2144,9 +1972,7 @@ NPC_8030B7C:
     a_set_sprite SP_Overworld_Higsby
     a_set_pos 48, 2
     a_set_sprite_frame 5
-L_8030B8A:
-    a_wait 1
-    a_jump L_8030B8A
+    a_stop
 
 NPC_8030B91:
     a_init_no_sprite
@@ -2158,9 +1984,7 @@ NPC_8030B91:
     a_set_sprite SP_Overworld_Higsby
     a_set_pos 48, 2
     a_set_sprite_frame 5
-L_8030BA7:
-    a_wait 1
-    a_jump L_8030BA7
+    a_stop
 
 NPC_8030BAE:
     a_init
@@ -2168,9 +1992,7 @@ NPC_8030BAE:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos -46, 2
     a_set_sprite_frame 7
-L_8030BBC:
-    a_wait 1
-    a_jump L_8030BBC
+    a_stop
 
 NPC_8030BC3:
     a_init
@@ -2179,9 +2001,7 @@ NPC_8030BC3:
     a_set_sprite SP_Overworld_YoungGirl
     a_set_pos -134, 118
     a_set_sprite_frame 7
-L_8030BD3:
-    a_wait 1
-    a_jump L_8030BD3
+    a_stop
 
     .align 2, 0
 
@@ -2221,9 +2041,7 @@ NPC_8030C1B:
     a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos -40, 12
     a_set_sprite_frame 3
-L_8030C2A:
-    a_wait 1
-    a_jump L_8030C2A
+    a_stop
 
 NPC_8030C31:
     a_init
@@ -2231,9 +2049,7 @@ NPC_8030C31:
     a_set_sprite SP_Overworld_Conductor
     a_set_pos -34, -128
     a_set_sprite_frame 3
-L_8030C3F:
-    a_wait 1
-    a_jump L_8030C3F
+    a_stop
 
     .align 2, 0
 
@@ -2256,9 +2072,7 @@ NPC_8030C64:
     a_set_sprite SP_Overworld_Conductor
     a_set_pos -50, 60
     a_set_sprite_frame 5
-L_8030C72:
-    a_wait 1
-    a_jump L_8030C72
+    a_stop
 
 NPC_8030C79:
     a_init
@@ -2266,9 +2080,7 @@ NPC_8030C79:
     a_set_sprite SP_Overworld_Conductor
     a_set_pos -36, -116
     a_set_sprite_frame 5
-L_8030C87:
-    a_wait 1
-    a_jump L_8030C87
+    a_stop
 
     .align 2, 0
 
@@ -2286,9 +2098,7 @@ NPC_8030CA0:
     a_set_sprite SP_Overworld_Conductor
     a_set_pos -50, 60
     a_set_sprite_frame 5
-L_8030CAE:
-    a_wait 1
-    a_jump L_8030CAE
+    a_stop
 
 NPC_8030CB5:
     a_init
@@ -2296,9 +2106,7 @@ NPC_8030CB5:
     a_set_sprite SP_Overworld_Conductor
     a_set_pos -36, -116
     a_set_sprite_frame 5
-L_8030CC3:
-    a_wait 1
-    a_jump L_8030CC3
+    a_stop
 
 NPC_8030CCA:
     a_init
@@ -2307,9 +2115,7 @@ NPC_8030CCA:
     a_set_sprite SP_Overworld_YoungGirl
     a_set_pos -70, -132
     a_set_sprite_frame 7
-L_8030CDA:
-    a_wait 1
-    a_jump L_8030CDA
+    a_stop
 
     .align 2, 0
 
@@ -2327,9 +2133,7 @@ NPC_8030CF4:
     a_set_sprite SP_Overworld_Conductor
     a_set_pos -50, 60
     a_set_sprite_frame 5
-L_8030D02:
-    a_wait 1
-    a_jump L_8030D02
+    a_stop
 
 NPC_8030D09:
     a_init
@@ -2337,9 +2141,7 @@ NPC_8030D09:
     a_set_sprite SP_Overworld_Conductor
     a_set_pos -36, -116
     a_set_sprite_frame 5
-L_8030D17:
-    a_wait 1
-    a_jump L_8030D17
+    a_stop
 
     .align 2, 0
 
@@ -2352,9 +2154,7 @@ NPC_8030D20:
     a_set_sprite SP_Overworld_YoungGirl
     a_set_pos -94, -116
     a_set_sprite_frame 3
-L_8030D30:
-    a_wait 1
-    a_jump L_8030D30
+    a_stop
 
     .align 2, 0
 

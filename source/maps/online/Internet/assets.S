@@ -186,9 +186,7 @@ global_label NPC_8053F72
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 108, -172
     a_set_sprite_frame 5
-L_8053F82:
-    a_wait 1
-    a_jump L_8053F82
+    a_stop
 
 global_label NPC_8053F89
     a_jump_if_flag 0xE2, L_8053FA7
@@ -240,9 +238,7 @@ NPC_8053FE0:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -180, -4
     a_set_sprite_frame 5
-L_8053FF0:
-    a_wait 1
-    a_jump L_8053FF0
+    a_stop
 
     .align 2, 0
 
@@ -602,9 +598,7 @@ NPC_80542B0:
     a_set_sprite SP_Overworld_StoneMan
     a_set_pos -78, -458, 64
     a_set_sprite_frame 3
-L_80542BE:
-    a_wait 1
-    a_jump L_80542BE
+    a_stop
 
 NPC_80542C5:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_POWERUP_1, L_80542E8
@@ -645,9 +639,7 @@ NPC_805430D:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -302, 30
     a_set_sprite_frame 7
-L_805431D:
-    a_wait 1
-    a_jump L_805431D
+    a_stop
 
     .align 2, 0
 
@@ -800,9 +792,7 @@ NPC_805444C:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -78, -96, 64
     a_set_sprite_frame 5
-L_805445C:
-    a_wait 1
-    a_jump L_805445C
+    a_stop
 
     .align 2, 0
 
@@ -939,9 +929,7 @@ NPC_8054568:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 554, -366
     a_set_sprite_frame 5
-L_8054578:
-    a_wait 1
-    a_jump L_8054578
+    a_stop
 
     .align 2, 0
 
@@ -1081,9 +1069,7 @@ NPC_8054690:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 96, -86
     a_set_sprite_frame 5
-L_80546A0:
-    a_wait 1
-    a_jump L_80546A0
+    a_stop
 
 NPC_80546A7:
     a_init
@@ -1092,9 +1078,7 @@ NPC_80546A7:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -288, -112
     a_set_sprite_frame 5
-L_80546B7:
-    a_wait 1
-    a_jump L_80546B7
+    a_stop
 
 NPC_80546BE:
     a_init
@@ -1103,9 +1087,7 @@ NPC_80546BE:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 594, -48
     a_set_sprite_frame 5
-L_80546CE:
-    a_wait 1
-    a_jump L_80546CE
+    a_stop
 
 NPC_80546D5:
     a_init
@@ -1114,9 +1096,7 @@ NPC_80546D5:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 480, 154
     a_set_sprite_frame 7
-L_80546E5:
-    a_wait 1
-    a_jump L_80546E5
+    a_stop
 
 global_label NPCList_80546EC
     .word NPC_8054704
@@ -1451,9 +1431,7 @@ NPC_8054996:
     a_set_sprite SP_Overworld_BombMan
     a_set_pos 420, -172
     a_set_sprite_frame 4
-L_80549A4:
-    a_wait 1
-    a_jump L_80549A4
+    a_stop
 
 NPC_80549AB:
     a_jump_if_flag FLAG_ITEM_30E, L_80549CC
@@ -1585,9 +1563,7 @@ NPC_8054AAA:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -24, -260
     a_set_sprite_frame 5
-L_8054ABA:
-    a_wait 1
-    a_jump L_8054ABA
+    a_stop
 
     .align 2, 0
 
@@ -1725,9 +1701,7 @@ NPC_8054BCC:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 90, 196, 64
     a_set_sprite_frame 5
-L_8054BDC:
-    a_wait 1
-    a_jump L_8054BDC
+    a_stop
 
 NPC_8054BE3:
     a_init
@@ -1736,9 +1710,7 @@ NPC_8054BE3:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -344, 118, 64
     a_set_sprite_frame 5
-L_8054BF3:
-    a_wait 1
-    a_jump L_8054BF3
+    a_stop
 
 NPC_8054BFA:
     a_init
@@ -1747,9 +1719,7 @@ NPC_8054BFA:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -344, 140, 64
     a_set_sprite_frame 5
-L_8054C0A:
-    a_wait 1
-    a_jump L_8054C0A
+    a_stop
 
     .align 2, 0
 
@@ -1866,9 +1836,7 @@ NPC_8054CF2:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -194, 20, 64
     a_set_sprite_frame 7
-L_8054D02:
-    a_wait 1
-    a_jump L_8054D02
+    a_stop
 
 NPC_8054D09:
     a_init
@@ -1877,9 +1845,7 @@ NPC_8054D09:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -184, -124, 64
     a_set_sprite_frame 5
-L_8054D19:
-    a_wait 1
-    a_jump L_8054D19
+    a_stop
 
 global_label NPCList_8054D20
     .word NPC_8054D40
@@ -1994,9 +1960,7 @@ NPC_8054DFE:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -270, 222
     a_set_sprite_frame 5
-L_8054E0E:
-    a_wait 1
-    a_jump L_8054E0E
+    a_stop
 
 NPC_8054E15:
     a_init
@@ -2005,9 +1969,7 @@ NPC_8054E15:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -466, -42
     a_set_sprite_frame 3
-L_8054E25:
-    a_wait 1
-    a_jump L_8054E25
+    a_stop
 
 global_label NPCList_8054E2C
     .word NPC_8054E4C
@@ -2142,9 +2104,7 @@ NPC_8054F30:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -368, -70
     a_set_sprite_frame 7
-L_8054F40:
-    a_wait 1
-    a_jump L_8054F40
+    a_stop
 
     .align 2, 0
 
@@ -2282,9 +2242,7 @@ NPC_8055050:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -190, -182
     a_set_sprite_frame 7
-L_8055060:
-    a_wait 1
-    a_jump L_8055060
+    a_stop
 
 NPC_8055067:
     a_init
@@ -2293,9 +2251,7 @@ NPC_8055067:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 264, -266
     a_set_sprite_frame 5
-L_8055077:
-    a_wait 1
-    a_jump L_8055077
+    a_stop
 
     .align 2, 0
 
@@ -2412,9 +2368,7 @@ NPC_805515E:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos 80, -160
     a_set_sprite_frame 5
-L_805516E:
-    a_wait 1
-    a_jump L_805516E
+    a_stop
 
 NPC_8055175:
     a_init
@@ -2423,9 +2377,7 @@ NPC_8055175:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -266, -220, 64
     a_set_sprite_frame 5
-L_8055185:
-    a_wait 1
-    a_jump L_8055185
+    a_stop
 
 global_label NPCList_805518C
     .word NPC_80551C0
@@ -2641,9 +2593,7 @@ NPC_805533C:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -208, -56
     a_set_sprite_frame 5
-L_805534C:
-    a_wait 1
-    a_jump L_805534C
+    a_stop
 
 NPC_8055353:
     a_init
@@ -2652,9 +2602,7 @@ NPC_8055353:
     a_set_sprite SP_Overworld_NormalNavi
     a_set_pos -84, -88
     a_set_sprite_frame 1
-L_8055363:
-    a_wait 1
-    a_jump L_8055363
+    a_stop
 
     .align 2, 0
 

@@ -28,9 +28,7 @@ NPC_8043A74:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 328, 92
     a_set_sprite_frame 3
-L_8043A82:
-    a_wait 1
-    a_jump L_8043A82
+    a_stop
 
 NPC_8043A89:
     a_init
@@ -38,9 +36,7 @@ NPC_8043A89:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 422, 136
     a_set_sprite_frame 5
-L_8043A97:
-    a_wait 1
-    a_jump L_8043A97
+    a_stop
 
 NPC_8043A9E:
     a_init
@@ -48,9 +44,7 @@ NPC_8043A9E:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 364, 177
     a_set_sprite_frame 7
-L_8043AAC:
-    a_wait 1
-    a_jump L_8043AAC
+    a_stop
 
 NPC_8043AB3:
     a_init
@@ -58,9 +52,7 @@ NPC_8043AB3:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 150, 110
     a_set_sprite_frame 1
-L_8043AC1:
-    a_wait 1
-    a_jump L_8043AC1
+    a_stop
 
     .align 2, 0
 
@@ -71,9 +63,7 @@ NPC_8043AC8:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -30, 175
     a_set_sprite_frame 15
-L_8043AD7:
-    a_wait 1
-    a_jump L_8043AD7
+    a_stop
 
 NPC_8043ADE:
     a_init
@@ -82,9 +72,7 @@ NPC_8043ADE:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -45, 78
     a_set_sprite_frame 12
-L_8043AED:
-    a_wait 1
-    a_jump L_8043AED
+    a_stop
 
     .align 2, 0
 
@@ -95,9 +83,7 @@ NPC_8043AF4:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -42, -354
     a_set_sprite_frame 13
-L_8043B03:
-    a_wait 1
-    a_jump L_8043B03
+    a_stop
 
 NPC_8043B0A:
     a_init
@@ -106,9 +92,7 @@ NPC_8043B0A:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -372, -135
     a_set_sprite_frame 12
-L_8043B19:
-    a_wait 1
-    a_jump L_8043B19
+    a_stop
 
     .align 2, 0
 
@@ -208,9 +192,7 @@ NPC_8043BD4:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -424, 138
     a_set_sprite_frame 7
-L_8043BE2:
-    a_wait 1
-    a_jump L_8043BE2
+    a_stop
 
     .align 2, 0
 
@@ -226,9 +208,7 @@ NPC_8043BF4:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -372, -135
     a_set_sprite_frame 3
-L_8043C02:
-    a_wait 1
-    a_jump L_8043C02
+    a_stop
 
     .align 2, 0
 
@@ -244,9 +224,7 @@ NPC_8043C14:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -372, -135
     a_set_sprite_frame 3
-L_8043C22:
-    a_wait 1
-    a_jump L_8043C22
+    a_stop
 
     .align 2, 0
 
@@ -267,9 +245,7 @@ NPC_8043C44:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -248, 8
     a_set_sprite_frame 15
-L_8043C53:
-    a_wait 1
-    a_jump L_8043C53
+    a_stop
 
 NPC_8043C5A:
     a_init
@@ -278,9 +254,7 @@ NPC_8043C5A:
     a_set_sprite SP_Overworld_FireMan
     a_set_pos -310, -135
     a_set_sprite_frame 3
-L_8043C68:
-    a_wait 1
-    a_jump L_8043C68
+    a_stop
 
 NPC_8043C6F:
     a_jump_if_flag FLAG_ITEM_OVEN_COMP_2_SHOTGUN_Q, L_8043C90
@@ -342,9 +316,7 @@ NPC_8043CE0:
     a_set_sprite SP_Overworld_FireMan
     a_set_pos -310, -135
     a_set_sprite_frame 3
-L_8043CEE:
-    a_wait 1
-    a_jump L_8043CEE
+    a_stop
 
     .align 2, 0
 

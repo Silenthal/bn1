@@ -24,9 +24,7 @@ NPC_804B5EC:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 284, 122, 18
     a_set_sprite_frame 1
-L_804B5FA:
-    a_wait 1
-    a_jump L_804B5FA
+    a_stop
 
 NPC_804B601:
     a_init
@@ -53,9 +51,7 @@ NPC_804B628:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 450, -202, -64
     a_set_sprite_frame 5
-L_804B636:
-    a_wait 1
-    a_jump L_804B636
+    a_stop
 
 NPC_804B63D:
     a_init
@@ -207,9 +203,7 @@ NPC_804B78C:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -420, -4
     a_set_sprite_frame 1
-L_804B79A:
-    a_wait 1
-    a_jump L_804B79A
+    a_stop
 
 NPC_804B7A1:
     a_init
@@ -217,9 +211,7 @@ NPC_804B7A1:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 50, -4
     a_set_sprite_frame 5
-L_804B7AF:
-    a_wait 1
-    a_jump L_804B7AF
+    a_stop
 
 NPC_804B7B6:
     a_init
@@ -227,9 +219,7 @@ NPC_804B7B6:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 180, -62
     a_set_sprite_frame 3
-L_804B7C4:
-    a_wait 1
-    a_jump L_804B7C4
+    a_stop
 
 NPC_804B7CB:
     a_init
@@ -237,9 +227,7 @@ NPC_804B7CB:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 480, 94
     a_set_sprite_frame 3
-L_804B7D9:
-    a_wait 1
-    a_jump L_804B7D9
+    a_stop
 
     .align 2, 0
 
@@ -363,9 +351,7 @@ NPC_804B8EB:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -110, -420, 96
     a_set_sprite_frame 3
-L_804B8F9:
-    a_wait 1
-    a_jump L_804B8F9
+    a_stop
 
     .align 2, 0
 
@@ -375,9 +361,7 @@ NPC_804B900:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 530, -194
     a_set_sprite_frame 1
-L_804B90E:
-    a_wait 1
-    a_jump L_804B90E
+    a_stop
 
 NPC_804B915:
     a_init
@@ -470,9 +454,7 @@ NPC_804B9D1:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -334, 254
     a_set_sprite_frame 1
-L_804B9DF:
-    a_wait 1
-    a_jump L_804B9DF
+    a_stop
 
 NPC_804B9E6:
     a_init
@@ -480,9 +462,7 @@ NPC_804B9E6:
     a_set_sprite SP_Overworld_Prog
     a_set_pos 178, 190
     a_set_sprite_frame 1
-L_804B9F4:
-    a_wait 1
-    a_jump L_804B9F4
+    a_stop
 
     .align 2, 0
 
@@ -507,9 +487,7 @@ L_804BA1E:
     a_move d_sw, 40, 2
     a_clear_flag 0xBE
     a_move d_sw, 40, 2
-L_804BA2D:
-    a_wait 1
-    a_jump L_804BA2D
+    a_stop
 
 global_label NPCList_804BA34
     .word NPC_804BA3C
@@ -528,9 +506,7 @@ L_804BA48:
     a_jump L_804BA48
 L_804BA56:
     a_set_sprite_frame 24
-L_804BA58:
-    a_wait 1
-    a_jump L_804BA58
+    a_stop
 
     .align 2, 0
 
@@ -574,9 +550,7 @@ NPC_804BAB3:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -278, 68
     a_set_sprite_frame 5
-L_804BAC1:
-    a_wait 1
-    a_jump L_804BAC1
+    a_stop
 
     .align 2, 0
 

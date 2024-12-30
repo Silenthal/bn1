@@ -26,9 +26,7 @@ L_804F4A6:
     a_set_sprite_frame 10
     a_move d_sw, 8, 14
     a_set_sprite_frame 5
-L_804F4AE:
-    a_wait 1
-    a_jump L_804F4AE
+    a_stop
 
 NPC_804F4B5:
     a_init
@@ -102,9 +100,7 @@ NPC_804F53C:
     a_set_sprite SP_Overworld_Roll
     a_set_pos 76, 240, 128
     a_set_sprite_frame 3
-L_804F54A:
-    a_wait 1
-    a_jump L_804F54A
+    a_stop
 
 NPC_804F551:
     a_jump_if_flag FLAG_ITEM_ACDC_MAYL_PC_RECOV50_L, L_804F574
@@ -177,9 +173,7 @@ NPC_804F5D0:
     a_set_sprite SP_Overworld_Glyde
     a_set_pos 50, -50
     a_set_sprite_frame 5
-L_804F5F3:
-    a_wait 1
-    a_jump L_804F5F3
+    a_stop
 L_804F5FA:
     a_destroy
 
