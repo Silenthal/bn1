@@ -10,11 +10,7 @@ global_label NPCList_804FB8C
     .align 2, 0
 
 NPC_804FB98:
-    a_init
-    a_set_dialog 0xA
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -106, 38
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -106, 38, 0, SP_Overworld_Prog, frame=7, dialog=0xA
     a_stop
 
 NPC_804FBAD:
@@ -50,14 +46,7 @@ NPC_804FC63:
     a_stop
 
 NPC_804FC7D:
-    a_jump_if_flag FLAG_ITEM_GOVT_YUICHIRO_PC_KEYDAD, L_804FCA0
-    a_init_bmd_at 234, -58, 0, dialog=0x4
-L_804FC97:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_GOVT_YUICHIRO_PC_KEYDAD, L_804FC97
-L_804FCA0:
-    a_destroy
-
+    a_create_bmd 234, -58, 0, FLAG_ITEM_GOVT_YUICHIRO_PC_KEYDAD, dialog=0x4
     .align 2, 0
 
 global_label NPCList_804FCA4
@@ -68,25 +57,11 @@ global_label NPCList_804FCA4
     .align 2, 0
 
 NPC_804FCB0:
-    a_jump_if_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_KEYSAL, L_804FCD3
-    a_init_bmd_at 200, 260, 0, dialog=0x5
-L_804FCCA:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_KEYSAL, L_804FCCA
-L_804FCD3:
-    a_destroy
-
+    a_create_bmd 200, 260, 0, FLAG_ITEM_GOVT_LUNCH_CART_COMP_KEYSAL, dialog=0x5
     .align 2, 0
 
 NPC_804FCD4:
-    a_jump_if_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_RECOV120_A, L_804FCF7
-    a_init_gmd_at 200, -250, 0, dialog=0x6
-L_804FCEE:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_RECOV120_A, L_804FCEE
-L_804FCF7:
-    a_destroy
-
+    a_create_gmd 200, -250, 0, FLAG_ITEM_GOVT_LUNCH_CART_COMP_RECOV120_A, dialog=0x6
 global_label EntityAllocParams_804FCF8
     entity Effect, 0x16, f(-198, 6, 0), 0x502
     entity Effect, 0x16, f(218, 6, 0), 0x4A010502

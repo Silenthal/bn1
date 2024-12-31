@@ -19,19 +19,11 @@ global_label NPCList_804B5C0
     .align 2, 0
 
 NPC_804B5EC:
-    a_init
-    a_set_dialog 0x2C
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 284, 122, 18
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 284, 122, 18, SP_Overworld_Prog, frame=1, dialog=0x2C
     a_stop
 
 NPC_804B601:
-    a_init
-    a_set_dialog 0x2D
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 224, 222
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 224, 222, 0, SP_Overworld_Prog, frame=5, dialog=0x2D
 L_804B60F:
     a_move_f 10, d_sw, 8, 10
     a_wait_f 3, 30
@@ -42,19 +34,11 @@ L_804B60F:
     .align 2, 0
 
 NPC_804B628:
-    a_init
-    a_set_dialog 0x33
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 450, -202, -64
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 450, -202, -64, SP_Overworld_Prog, frame=5, dialog=0x33
     a_stop
 
 NPC_804B63D:
-    a_init
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 144, -164, -64
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 144, -164, -64, SP_Overworld_Prog, frame=1, dialog=0x3A
 L_804B64B:
     a_move_f 8, d_ne, 8, 10
     a_wait_f 3, 30
@@ -65,11 +49,7 @@ L_804B64B:
     .align 2, 0
 
 NPC_804B664:
-    a_init
-    a_set_dialog 0x3B
-    a_set_sprite SP_Overworld_Prog3
-    a_set_pos -150, -228, -64
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -150, -228, -64, SP_Overworld_Prog3, frame=1, dialog=0x3B
 L_804B672:
     a_jump_if_flag 0xB3, L_804B680
     a_wait 1
@@ -78,11 +58,7 @@ L_804B680:
     a_destroy
 
 NPC_804B681:
-    a_init
-    a_set_dialog 0x3C
-    a_set_sprite SP_Overworld_Prog3
-    a_set_pos -528, 36, -64
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -528, 36, -64, SP_Overworld_Prog3, frame=3, dialog=0x3C
 L_804B68F:
     a_jump_if_flag 0xB4, L_804B69D
     a_wait 1
@@ -91,41 +67,13 @@ L_804B69D:
     a_destroy
 
 NPC_804B69E:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_RATTON1_D, L_804B6C1
-    a_init_bmd_at 98, 204, -64, dialog=0x1
-L_804B6B8:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_RATTON1_D, L_804B6B8
-L_804B6C1:
-    a_destroy
-
+    a_create_bmd 98, 204, -64, FLAG_ITEM_POWER_PLANT_COMP_1_RATTON1_D, dialog=0x1
 NPC_804B6C2:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_RECOV120_C, L_804B6E5
-    a_init_bmd_at 130, -180, 0, dialog=0x2
-L_804B6DC:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_RECOV120_C, L_804B6DC
-L_804B6E5:
-    a_destroy
-
+    a_create_bmd 130, -180, 0, FLAG_ITEM_POWER_PLANT_COMP_1_RECOV120_C, dialog=0x2
 NPC_804B6E6:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_5000Z, L_804B709
-    a_init_bmd_at -92, 396, -64, dialog=0x3
-L_804B700:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_5000Z, L_804B700
-L_804B709:
-    a_destroy
-
+    a_create_bmd -92, 396, -64, FLAG_ITEM_POWER_PLANT_COMP_1_5000Z, dialog=0x3
 NPC_804B70A:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_XPANEL3_G, L_804B72D
-    a_init_bmd_at -444, 268, -64, dialog=0x4
-L_804B724:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_XPANEL3_G, L_804B724
-L_804B72D:
-    a_destroy
-
+    a_create_bmd -444, 268, -64, FLAG_ITEM_POWER_PLANT_COMP_1_XPANEL3_G, dialog=0x4
     .align 2, 0
 
 global_label NPCList_804B730
@@ -162,45 +110,25 @@ global_label NPCList_804B77C
     .align 2, 0
 
 NPC_804B78C:
-    a_init
-    a_set_dialog 0x6A
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -420, -4
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -420, -4, 0, SP_Overworld_Prog, frame=1, dialog=0x6A
     a_stop
 
 NPC_804B7A1:
-    a_init
-    a_set_dialog 0x64
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 50, -4
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 50, -4, 0, SP_Overworld_Prog, frame=5, dialog=0x64
     a_stop
 
 NPC_804B7B6:
-    a_init
-    a_set_dialog 0x63
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 180, -62
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 180, -62, 0, SP_Overworld_Prog, frame=3, dialog=0x63
     a_stop
 
 NPC_804B7CB:
-    a_init
-    a_set_dialog 0x6B
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 480, 94
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 480, 94, 0, SP_Overworld_Prog, frame=3, dialog=0x6B
     a_stop
 
     .align 2, 0
 
 NPC_804B7E0:
-    a_init
-    a_set_dialog 0x76
-    a_set_sprite SP_Overworld_Prog3
-    a_set_pos -108, -164
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -108, -164, 0, SP_Overworld_Prog3, frame=7, dialog=0x76
 L_804B7EE:
     a_jump_if_flag 0xCA, L_804B7FC
     a_wait 1
@@ -209,11 +137,7 @@ L_804B7FC:
     a_destroy
 
 NPC_804B7FD:
-    a_init
-    a_set_dialog 0x77
-    a_set_sprite SP_Overworld_Prog3
-    a_set_pos 274, -276
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 274, -276, 0, SP_Overworld_Prog3, frame=7, dialog=0x77
 L_804B80B:
     a_jump_if_flag 0xCB, L_804B819
     a_wait 1
@@ -222,32 +146,11 @@ L_804B819:
     a_destroy
 
 NPC_804B81A:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_2_1000Z, L_804B83D
-    a_init_bmd_at -286, -370, 0, dialog=0x0
-L_804B834:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_2_1000Z, L_804B834
-L_804B83D:
-    a_destroy
-
+    a_create_bmd -286, -370, 0, FLAG_ITEM_POWER_PLANT_COMP_2_1000Z, dialog=0x0
 NPC_804B83E:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_2_800Z, L_804B861
-    a_init_bmd_at 442, -290, -64, dialog=0x1
-L_804B858:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_2_800Z, L_804B858
-L_804B861:
-    a_destroy
-
+    a_create_bmd 442, -290, -64, FLAG_ITEM_POWER_PLANT_COMP_2_800Z, dialog=0x1
 NPC_804B862:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_2_1200Z, L_804B885
-    a_init_bmd_at 310, -4, 0, dialog=0x2
-L_804B87C:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_2_1200Z, L_804B87C
-L_804B885:
-    a_destroy
-
+    a_create_bmd 310, -4, 0, FLAG_ITEM_POWER_PLANT_COMP_2_1200Z, dialog=0x2
     .align 2, 0
 
 global_label NPCList_804B888
@@ -272,11 +175,7 @@ global_label NPCList_804B8B8
     .align 2, 0
 
 NPC_804B8C4:
-    a_init
-    a_set_dialog 0x6A
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -302, -260, 96
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -302, -260, 96, SP_Overworld_Prog, frame=1, dialog=0x6A
 L_804B8D2:
     a_move_f 8, d_ne, 8, 10
     a_wait_f 3, 30
@@ -285,29 +184,17 @@ L_804B8D2:
     a_jump L_804B8D2
 
 NPC_804B8EB:
-    a_init
-    a_set_dialog 0x6B
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -110, -420, 96
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -110, -420, 96, SP_Overworld_Prog, frame=3, dialog=0x6B
     a_stop
 
     .align 2, 0
 
 NPC_804B900:
-    a_init
-    a_set_dialog 0x71
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 530, -194
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 530, -194, 0, SP_Overworld_Prog, frame=1, dialog=0x71
     a_stop
 
 NPC_804B915:
-    a_init
-    a_set_dialog 0x7C
-    a_set_sprite SP_Overworld_Prog3
-    a_set_pos 242, -340
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 242, -340, 0, SP_Overworld_Prog3, frame=3, dialog=0x7C
 L_804B923:
     a_jump_if_flag 0xCC, L_804B94E
     a_wait 1
@@ -315,11 +202,7 @@ L_804B923:
     a_destroy
 
 NPC_804B932:
-    a_init
-    a_set_dialog 0x7D
-    a_set_sprite SP_Overworld_Prog3
-    a_set_pos 50, -116
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 50, -116, 0, SP_Overworld_Prog3, frame=3, dialog=0x7D
 L_804B940:
     a_jump_if_flag 0xCD, L_804B94E
     a_wait 1
@@ -328,11 +211,7 @@ L_804B94E:
     a_destroy
 
 NPC_804B94F:
-    a_init
-    a_set_dialog 0x7E
-    a_set_sprite SP_Overworld_Prog3
-    a_set_pos 194, -130
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 194, -130, 0, SP_Overworld_Prog3, frame=1, dialog=0x7E
 L_804B95D:
     a_jump_if_flag 0xCE, L_804B96B
     a_wait 1
@@ -343,11 +222,7 @@ L_804B96B:
     .align 2, 0
 
 NPC_804B96C:
-    a_init
-    a_set_dialog 0x7F
-    a_set_sprite SP_Overworld_Prog3
-    a_set_pos 470, -320
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 470, -320, 0, SP_Overworld_Prog3, frame=5, dialog=0x7F
 L_804B97A:
     a_jump_if_flag 0xCF, L_804B988
     a_wait 1
@@ -356,37 +231,15 @@ L_804B988:
     a_destroy
 
 NPC_804B989:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_3_1000Z, L_804B9AC
-    a_init_bmd_at -300, -36, 96, dialog=0x0
-L_804B9A3:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_3_1000Z, L_804B9A3
-L_804B9AC:
-    a_destroy
-
+    a_create_bmd -300, -36, 96, FLAG_ITEM_POWER_PLANT_COMP_3_1000Z, dialog=0x0
 NPC_804B9AD:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_3_500Z, L_804B9D0
-    a_init_bmd_at -172, -36, 96, dialog=0x2
-L_804B9C7:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_3_500Z, L_804B9C7
-L_804B9D0:
-    a_destroy
-
+    a_create_bmd -172, -36, 96, FLAG_ITEM_POWER_PLANT_COMP_3_500Z, dialog=0x2
 NPC_804B9D1:
-    a_init
-    a_set_dialog 0x71
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -334, 254
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -334, 254, 0, SP_Overworld_Prog, frame=1, dialog=0x71
     a_stop
 
 NPC_804B9E6:
-    a_init
-    a_set_dialog 0x71
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 178, 190
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 178, 190, 0, SP_Overworld_Prog, frame=1, dialog=0x71
     a_stop
 
     .align 2, 0
@@ -399,9 +252,7 @@ global_label NPCList_804B9FC
 
 NPC_804BA04:
     a_init
-    a_set_sprite SP_Overworld_ProtoMan
-    a_set_pos 60, -398
-    a_set_sprite_frame 19
+    a_set_sprite_at 60, -398, 0, SP_Overworld_ProtoMan, frame=19
 L_804BA10:
     a_jump_if_flag 0xBE, L_804BA1E
     a_wait 1
@@ -421,9 +272,7 @@ global_label NPCList_804BA34
 
 NPC_804BA3C:
     a_init
-    a_set_sprite SP_Overworld_ProtoMan
-    a_set_pos 60, -398
-    a_set_sprite_frame 20
+    a_set_sprite_at 60, -398, 0, SP_Overworld_ProtoMan, frame=20
 L_804BA48:
     a_jump_if_flag 0xBE, L_804BA56
     a_wait 1
@@ -452,11 +301,7 @@ global_label NPCList_804BA7C
     .align 2, 0
 
 NPC_804BA8C:
-    a_init
-    a_set_dialog 0x63
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 232, 164
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 232, 164, 0, SP_Overworld_Prog, frame=5, dialog=0x63
 L_804BA9A:
     a_move_f 10, d_sw, 8, 10
     a_wait_f 7, 30
@@ -465,21 +310,13 @@ L_804BA9A:
     a_jump L_804BA9A
 
 NPC_804BAB3:
-    a_init
-    a_set_dialog 0x73
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -278, 68
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -278, 68, 0, SP_Overworld_Prog, frame=5, dialog=0x73
     a_stop
 
     .align 2, 0
 
 NPC_804BAC8:
-    a_init
-    a_set_dialog 0x7E
-    a_set_sprite SP_Overworld_Prog3
-    a_set_pos -212, 354, -64
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -212, 354, -64, SP_Overworld_Prog3, frame=7, dialog=0x7E
 L_804BAD6:
     a_jump_if_flag 0xD0, L_804BAE4
     a_wait 1
@@ -488,32 +325,11 @@ L_804BAE4:
     a_destroy
 
 NPC_804BAE5:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_4_1800Z, L_804BB08
-    a_init_bmd_at 170, 324, 0, dialog=0x0
-L_804BAFF:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_4_1800Z, L_804BAFF
-L_804BB08:
-    a_destroy
-
+    a_create_bmd 170, 324, 0, FLAG_ITEM_POWER_PLANT_COMP_4_1800Z, dialog=0x0
 NPC_804BB09:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_4_2000Z, L_804BB2C
-    a_init_bmd_at 362, 152, 0, dialog=0x1
-L_804BB23:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_4_2000Z, L_804BB23
-L_804BB2C:
-    a_destroy
-
+    a_create_bmd 362, 152, 0, FLAG_ITEM_POWER_PLANT_COMP_4_2000Z, dialog=0x1
 NPC_804BB2D:
-    a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_4_TYPHOON_D, L_804BB50
-    a_init_bmd_at -114, 196, -64, dialog=0x2
-L_804BB47:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_4_TYPHOON_D, L_804BB47
-L_804BB50:
-    a_destroy
-
+    a_create_bmd -114, 196, -64, FLAG_ITEM_POWER_PLANT_COMP_4_TYPHOON_D, dialog=0x2
     .align 2, 0
 
 global_label EntityAllocParams_804BB54

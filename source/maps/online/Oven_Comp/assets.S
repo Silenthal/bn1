@@ -23,35 +23,19 @@ global_label NPCList_8043A38
     .align 2, 0
 
 NPC_8043A74:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 328, 92
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 328, 92, 0, SP_Overworld_Prog, frame=3, dialog=0x0
     a_stop
 
 NPC_8043A89:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 422, 136
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 422, 136, 0, SP_Overworld_Prog, frame=5, dialog=0x1
     a_stop
 
 NPC_8043A9E:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 364, 177
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 364, 177, 0, SP_Overworld_Prog, frame=7, dialog=0x2
     a_stop
 
 NPC_8043AB3:
-    a_init
-    a_set_dialog 0x3
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 150, 110
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 150, 110, 0, SP_Overworld_Prog, frame=1, dialog=0x3
     a_stop
 
     .align 2, 0
@@ -60,18 +44,14 @@ NPC_8043AC8:
     a_init
     a_disable_turn
     a_set_dialog 0x4
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -30, 175
-    a_set_sprite_frame 15
+    a_set_sprite_at -30, 175, 0, SP_Overworld_Prog, frame=15
     a_stop
 
 NPC_8043ADE:
     a_init
     a_disable_turn
     a_set_dialog 0x5
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -45, 78
-    a_set_sprite_frame 12
+    a_set_sprite_at -45, 78, 0, SP_Overworld_Prog, frame=12
     a_stop
 
     .align 2, 0
@@ -80,83 +60,45 @@ NPC_8043AF4:
     a_init
     a_disable_turn
     a_set_dialog 0x6
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -42, -354
-    a_set_sprite_frame 13
+    a_set_sprite_at -42, -354, 0, SP_Overworld_Prog, frame=13
     a_stop
 
 NPC_8043B0A:
     a_init
     a_disable_turn
     a_set_dialog 0x7
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -372, -135
-    a_set_sprite_frame 12
+    a_set_sprite_at -372, -135, 0, SP_Overworld_Prog, frame=12
     a_stop
 
     .align 2, 0
 
 NPC_8043B20:
-    a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_200Z, L_8043B43
-    a_init_bmd_at -384, 130, 0, dialog=0x18
-L_8043B3A:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_200Z, L_8043B3A
-L_8043B43:
-    a_destroy
+    a_create_bmd -384, 130, 0, FLAG_ITEM_OVEN_COMP_1_200Z, dialog=0x18
 
     .align 2, 0
 
 NPC_8043B44:
-    a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_SHOTGUN_Q, L_8043B67
-    a_init_gmd_at 134, 48, 0, dialog=0x10
-L_8043B5E:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_SHOTGUN_Q, L_8043B5E
-L_8043B67:
-    a_destroy
+    a_create_gmd 134, 48, 0, FLAG_ITEM_OVEN_COMP_1_SHOTGUN_Q, dialog=0x10
 
     .align 2, 0
 
 NPC_8043B68:
-    a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_400Z, L_8043B8B
-    a_init_pmd_at 6, 98, 0, dialog=0x11
-L_8043B82:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_400Z, L_8043B82
-L_8043B8B:
-    a_destroy
+    a_create_pmd 6, 98, 0, FLAG_ITEM_OVEN_COMP_1_400Z, dialog=0x11
 
     .align 2, 0
 
 NPC_8043B8C:
-    a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_STEAL_A, L_8043BAF
-    a_init_bmd_at -116, -355, 0, dialog=0x12
-L_8043BA6:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_STEAL_A, L_8043BA6
-L_8043BAF:
-    a_destroy
+    a_create_bmd -116, -355, 0, FLAG_ITEM_OVEN_COMP_1_STEAL_A, dialog=0x12
 
     .align 2, 0
 
 NPC_8043BB0:
-    a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_SWORD_B, L_8043BD3
-    a_init_gmd_at -196, 28, 0, dialog=0x13, radius=1
-L_8043BCA:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_SWORD_B, L_8043BCA
-L_8043BD3:
-    a_destroy
+    a_create_gmd -196, 28, 0, FLAG_ITEM_OVEN_COMP_1_SWORD_B, dialog=0x13, radius=1
 
     .align 2, 0
 
 NPC_8043BD4:
-    a_init
-    a_set_dialog 0x1D
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -424, 138
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -424, 138, 0, SP_Overworld_Prog, frame=7, dialog=0x1D
     a_stop
 
     .align 2, 0
@@ -168,11 +110,7 @@ global_label NPCList_8043BEC
     .align 2, 0
 
 NPC_8043BF4:
-    a_init
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -372, -135
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -372, -135, 0, SP_Overworld_Prog, frame=3, dialog=0x1E
     a_stop
 
     .align 2, 0
@@ -184,11 +122,7 @@ global_label NPCList_8043C0C
     .align 2, 0
 
 NPC_8043C14:
-    a_init
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -372, -135
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -372, -135, 0, SP_Overworld_Prog, frame=3, dialog=0x1E
     a_stop
 
     .align 2, 0
@@ -207,58 +141,24 @@ NPC_8043C44:
     a_init
     a_disable_turn
     a_set_dialog 0x0
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -248, 8
-    a_set_sprite_frame 15
+    a_set_sprite_at -248, 8, 0, SP_Overworld_Prog, frame=15
     a_stop
 
 NPC_8043C5A:
     a_init
     a_disable_turn
     a_disable_dialog
-    a_set_sprite SP_Overworld_FireMan
-    a_set_pos -310, -135
-    a_set_sprite_frame 3
+    a_set_sprite_at -310, -135, 0, SP_Overworld_FireMan, frame=3
     a_stop
 
 NPC_8043C6F:
-    a_jump_if_flag FLAG_ITEM_OVEN_COMP_2_SHOTGUN_Q, L_8043C90
-    a_init
-    a_disable_turn
-    a_set_dialog 0x2
-    a_set_sprite_bmd_at 144, 80, 0
-    a_set_sprite_frame 0
-L_8043C87:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_2_SHOTGUN_Q, L_8043C87
-L_8043C90:
-    a_destroy
+    a_create_bmd 144, 80, 0, FLAG_ITEM_OVEN_COMP_2_SHOTGUN_Q, dialog=0x2, default_radius=1
 
 NPC_8043C91:
-    a_jump_if_flag FLAG_ITEM_OVEN_COMP_2_500Z, L_8043CB2
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3
-    a_set_sprite_gmd_at 98, -78, 0
-    a_set_sprite_frame 0
-L_8043CA9:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_2_500Z, L_8043CA9
-L_8043CB2:
-    a_destroy
+    a_create_gmd 98, -78, 0, FLAG_ITEM_OVEN_COMP_2_500Z, dialog=0x3, default_radius=1
 
 NPC_8043CB3:
-    a_jump_if_flag FLAG_ITEM_OVEN_COMP_2_LILBOMB_T, L_8043CD4
-    a_init
-    a_disable_turn
-    a_set_dialog 0x4
-    a_set_sprite_pmd_at -139, -79, 0
-    a_set_sprite_frame 0
-L_8043CCB:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_2_LILBOMB_T, L_8043CCB
-L_8043CD4:
-    a_destroy
+    a_create_pmd -139, -79, 0, FLAG_ITEM_OVEN_COMP_2_LILBOMB_T, dialog=0x4, default_radius=1
 
     .align 2, 0
 
@@ -272,9 +172,7 @@ NPC_8043CE0:
     a_init
     a_disable_turn
     a_disable_dialog
-    a_set_sprite SP_Overworld_FireMan
-    a_set_pos -310, -135
-    a_set_sprite_frame 3
+    a_set_sprite_at -310, -135, 0, SP_Overworld_FireMan, frame=3
     a_stop
 
     .align 2, 0

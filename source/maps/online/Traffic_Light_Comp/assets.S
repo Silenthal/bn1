@@ -12,39 +12,17 @@ global_label NPCList_80490DC
     .align 2, 0
 
 NPC_80490EC:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos -282, 124
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -282, 124, 0, SP_Overworld_Prog, frame=5, dialog=0x0
     a_stop
 
 NPC_8049101:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 56, 140
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 56, 140, 0, SP_Overworld_Prog, frame=5, dialog=0x1
     a_stop
 
 NPC_8049116:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_800Z, L_8049139
-    a_init_bmd_at -412, -96, 0, dialog=0x6
-L_8049130:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_800Z, L_8049130
-L_8049139:
-    a_destroy
-
+    a_create_bmd -412, -96, 0, FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_800Z, dialog=0x6
 NPC_804913A:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_BUBBLER_K, L_804915D
-    a_init_bmd_at -412, -168, 0, dialog=0x7
-L_8049154:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_BUBBLER_K, L_8049154
-L_804915D:
-    a_destroy
-
+    a_create_bmd -412, -168, 0, FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_BUBBLER_K, dialog=0x7
     .align 2, 0
 
 global_label NPCList_8049160
@@ -66,25 +44,11 @@ global_label NPCList_804917C
     .align 2, 0
 
 NPC_8049188:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_800Z, L_80491AB
-    a_init_bmd_at -294, 72, 0, dialog=0x5
-L_80491A2:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_800Z, L_80491A2
-L_80491AB:
-    a_destroy
-
+    a_create_bmd -294, 72, 0, FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_800Z, dialog=0x5
     .align 2, 0
 
 NPC_80491AC:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_ESCAPE_N, L_80491CF
-    a_init_bmd_at 148, -380, 64, dialog=0x6
-L_80491C6:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_ESCAPE_N, L_80491C6
-L_80491CF:
-    a_destroy
-
+    a_create_bmd 148, -380, 64, FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_ESCAPE_N, dialog=0x6
 global_label NPCList_80491D0
     .word NPC_80491E0
     .word NPC_8049204
@@ -94,36 +58,15 @@ global_label NPCList_80491D0
     .align 2, 0
 
 NPC_80491E0:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_HEATER_O, L_8049203
-    a_init_bmd_at -284, -244, 0, dialog=0x5
-L_80491FA:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_HEATER_O, L_80491FA
-L_8049203:
-    a_destroy
-
+    a_create_bmd -284, -244, 0, FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_HEATER_O, dialog=0x5
     .align 2, 0
 
 NPC_8049204:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_500Z, L_8049227
-    a_init_bmd_at -30, 388, -64, dialog=0x6
-L_804921E:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_500Z, L_804921E
-L_8049227:
-    a_destroy
-
+    a_create_bmd -30, 388, -64, FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_500Z, dialog=0x6
     .align 2, 0
 
 NPC_8049228:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_FIRETOWR_T, L_804924B
-    a_init_bmd_at 420, -84, 0, dialog=0x7
-L_8049242:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_FIRETOWR_T, L_8049242
-L_804924B:
-    a_destroy
-
+    a_create_bmd 420, -84, 0, FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_FIRETOWR_T, dialog=0x7
 global_label NPCList_804924C
     .word NPC_8049258
     .word NPC_804927C
@@ -132,25 +75,11 @@ global_label NPCList_804924C
     .align 2, 0
 
 NPC_8049258:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_1000Z, L_804927B
-    a_init_bmd_at -22, -152, 0, dialog=0x5
-L_8049272:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_1000Z, L_8049272
-L_804927B:
-    a_destroy
-
+    a_create_bmd -22, -152, 0, FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_1000Z, dialog=0x5
     .align 2, 0
 
 NPC_804927C:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_HPMEMORY, L_804929F
-    a_init_bmd_at 230, 224, 8, dialog=0x6
-L_8049296:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_HPMEMORY, L_8049296
-L_804929F:
-    a_destroy
-
+    a_create_bmd 230, 224, 8, FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_HPMEMORY, dialog=0x6
 global_label NPCList_80492A0
     .word NPC_80492A8
     .word 0xFF
@@ -159,9 +88,7 @@ global_label NPCList_80492A0
 
 NPC_80492A8:
     a_init
-    a_set_sprite SP_Overworld_Roll
-    a_set_pos 114, -22
-    a_set_sprite_frame 13
+    a_set_sprite_at 114, -22, 0, SP_Overworld_Roll, frame=13
 L_80492B4:
     a_jump_if_flag 0xBC, L_80492C2
     a_wait 1
@@ -179,10 +106,7 @@ global_label NPCList_80492CC
     .align 2, 0
 
 NPC_80492D4:
-    a_init
-    a_set_sprite SP_Overworld_Roll
-    a_set_pos 114, -22
-    a_set_sprite_frame 3
+    a_init_basic_npc 114, -22, 0, SP_Overworld_Roll, frame=3
     a_stop
 
     .align 2, 0
@@ -196,36 +120,15 @@ global_label NPCList_80492E8
     .align 2, 0
 
 NPC_80492F8:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_AQUATOWR_C, L_804931B
-    a_init_bmd_at -350, -194, 0, dialog=0xF
-L_8049312:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_AQUATOWR_C, L_8049312
-L_804931B:
-    a_destroy
-
+    a_create_bmd -350, -194, 0, FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_AQUATOWR_C, dialog=0xF
     .align 2, 0
 
 NPC_804931C:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_2400Z, L_804933F
-    a_init_bmd_at -62, -336, 0, dialog=0x10
-L_8049336:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_2400Z, L_8049336
-L_804933F:
-    a_destroy
-
+    a_create_bmd -62, -336, 0, FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_2400Z, dialog=0x10
     .align 2, 0
 
 NPC_8049340:
-    a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_RECOV80_G, L_8049363
-    a_init_bmd_at 82, 370, 0, dialog=0x11
-L_804935A:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_RECOV80_G, L_804935A
-L_8049363:
-    a_destroy
-
+    a_create_bmd 82, 370, 0, FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_RECOV80_G, dialog=0x11
 global_label EntityAllocParams_8049364
     entity Effect, 0x2D, f(-158, 236, 0), 0xFFFFFF00
     entity Effect, 0x2D, f(2, 140, 0), 0xFFFFFF01

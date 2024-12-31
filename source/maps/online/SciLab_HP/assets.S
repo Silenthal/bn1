@@ -10,25 +10,11 @@ global_label NPCList_8050288
     .align 2, 0
 
 NPC_8050294:
-    a_jump_if_flag FLAG_ITEM_SCILAB_FISH_STAND_COMP_KEYMASA, L_80502B7
-    a_init_bmd_at 180, -164, 0, dialog=0x5
-L_80502AE:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_SCILAB_FISH_STAND_COMP_KEYMASA, L_80502AE
-L_80502B7:
-    a_destroy
-
+    a_create_bmd 180, -164, 0, FLAG_ITEM_SCILAB_FISH_STAND_COMP_KEYMASA, dialog=0x5
     .align 2, 0
 
 NPC_80502B8:
-    a_jump_if_flag FLAG_ITEM_SCILAB_FISH_STAND_COMP_TRISPEAR_J, L_80502DB
-    a_init_gmd_at -172, -36, 0, dialog=0x6
-L_80502D2:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_SCILAB_FISH_STAND_COMP_TRISPEAR_J, L_80502D2
-L_80502DB:
-    a_destroy
-
+    a_create_gmd -172, -36, 0, FLAG_ITEM_SCILAB_FISH_STAND_COMP_TRISPEAR_J, dialog=0x6
 global_label EntityAllocParams_80502DC
     entity Effect, 0x16, f(50, -386, 0), 0x2000002
     entity Effect, 0x16, f(162, 350, 0), 0x49010002

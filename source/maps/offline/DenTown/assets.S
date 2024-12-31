@@ -12,10 +12,7 @@ global_label NPCList_8038DAC
     .align 2, 0
 
 NPC_8038DC0:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_YoungBoy
-    a_set_pos -114, 272
+    a_init_basic_npc_talk -114, 272, 0, SP_Overworld_YoungBoy, dialog=0x0
 L_8038DCC:
     a_move_f 11, d_nw, 8, 16
     a_wait_f 1, 30
@@ -24,26 +21,15 @@ L_8038DCC:
     a_jump L_8038DCC
 
 NPC_8038DE5:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_OldMan
-    a_set_pos 84, 140
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 84, 140, 0, SP_Overworld_OldMan, frame=1, dialog=0x1
     a_stop
 
 NPC_8038DFA:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -100, -60
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -100, -60, 0, SP_Overworld_ManTie, frame=5, dialog=0x2
     a_stop
 
 NPC_8038E0F:
-    a_init
-    a_set_dialog 0x3
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos 164, -60
+    a_init_basic_npc_talk 164, -60, 0, SP_Overworld_WomanSkirt, dialog=0x3
 L_8038E1B:
     a_move_f 10, d_sw, 8, 10
     a_wait_f 7, 30
@@ -62,28 +48,16 @@ global_label NPCList_8038E34
     .align 2, 0
 
 NPC_8038E4C:
-    a_init
-    a_set_dialog 0x18
-    a_set_sprite SP_Overworld_Madd
-    a_set_pos -168, 228
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -168, 228, 0, SP_Overworld_Madd, frame=5, dialog=0x18
     a_stop
 
 NPC_8038E61:
-    a_init
-    a_set_dialog 0xE
-    a_set_sprite SP_Overworld_YoungBoy
-    a_set_pos -100, -80
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -100, -80, 0, SP_Overworld_YoungBoy, frame=5, dialog=0xE
     a_stop
 
 NPC_8038E76:
     a_jump_if_flag 0xA2, L_8038EAB
-    a_init
-    a_set_dialog 0xF
-    a_set_sprite SP_Overworld_OldMan
-    a_set_pos -170, 200
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -170, 200, 0, SP_Overworld_OldMan, frame=3, dialog=0xF
 L_8038E8B:
     a_jump_if_flag 0xA2, L_8038E99
     a_wait 1
@@ -99,11 +73,7 @@ L_8038EAB:
 
 NPC_8038EAC:
     a_jump_if_flag 0xA3, L_8038EE1
-    a_init
-    a_set_dialog 0x12
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -196, 228
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -196, 228, 0, SP_Overworld_ManTie, frame=1, dialog=0x12
 L_8038EC1:
     a_jump_if_flag 0xA3, L_8038ECF
     a_wait 1
@@ -117,11 +87,7 @@ L_8038EE1:
 
 NPC_8038EE2:
     a_jump_if_flag 0xA4, L_8038F11
-    a_init
-    a_set_dialog 0x15
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos -178, 258
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -178, 258, 0, SP_Overworld_WomanSkirt, frame=7, dialog=0x15
 L_8038EF7:
     a_jump_if_flag 0xA4, L_8038F05
     a_wait 1
@@ -143,9 +109,7 @@ global_label NPCList_8038F14
 NPC_8038F1C:
     a_init
     a_disable_collision
-    a_set_sprite SP_Overworld_Madd
-    a_set_pos -168, 228
-    a_set_sprite_frame 1
+    a_set_sprite_at -168, 228, 0, SP_Overworld_Madd, frame=1
 L_8038F29:
     a_jump_if_flag 0xA0, L_8038F37
     a_wait 1
@@ -168,9 +132,7 @@ global_label NPCList_8038F48
 
 NPC_8038F50:
     a_init
-    a_set_sprite SP_Overworld_Mayl
-    a_set_pos -100, 8
-    a_set_sprite_frame 3
+    a_set_sprite_at -100, 8, 0, SP_Overworld_Mayl, frame=3
 L_8038F5C:
     a_jump_if_flag 0xBE, L_8038F6A
     a_wait 1
@@ -200,10 +162,7 @@ global_label NPCList_8038F90
     .align 2, 0
 
 NPC_8038FA8:
-    a_init
-    a_set_dialog 0x50
-    a_set_sprite SP_Overworld_YoungBoy
-    a_set_pos -114, 272
+    a_init_basic_npc_talk -114, 272, 0, SP_Overworld_YoungBoy, dialog=0x50
 L_8038FB4:
     a_move_f 11, d_nw, 8, 16
     a_wait_f 1, 30
@@ -212,27 +171,15 @@ L_8038FB4:
     a_jump L_8038FB4
 
 NPC_8038FCD:
-    a_init
-    a_set_dialog 0x51
-    a_set_sprite SP_Overworld_OldMan
-    a_set_pos 84, 140
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 84, 140, 0, SP_Overworld_OldMan, frame=1, dialog=0x51
     a_stop
 
 NPC_8038FE2:
-    a_init
-    a_set_dialog 0x52
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -100, -60
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -100, -60, 0, SP_Overworld_ManTie, frame=5, dialog=0x52
     a_stop
 
 NPC_8038FF7:
-    a_init
-    a_set_dialog 0x53
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos 164, -60
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 164, -60, 0, SP_Overworld_WomanSkirt, frame=5, dialog=0x53
     a_stop
 
     .align 2, 0
@@ -241,11 +188,7 @@ NPC_803900C:
     a_jump_if_not_flag 0x94, L_8039043
     a_jump_if_flag 0x97, L_8039043
     a_disable_turn
-    a_init
-    a_set_dialog 0x60
-    a_set_sprite SP_Overworld_Chaud
-    a_set_pos 150, -60
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 150, -60, 0, SP_Overworld_Chaud, frame=1, dialog=0x60
 L_8039029:
     a_jump_if_flag 0x96, L_8039037
     a_wait 1
@@ -268,19 +211,14 @@ global_label NPCList_803904C
     .align 2, 0
 
 NPC_8039058:
-    a_init
-    a_set_dialog 0xF
-    a_set_sprite SP_Overworld_Conductor
-    a_set_pos -18, 62
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -18, 62, 0, SP_Overworld_Conductor, frame=5, dialog=0xF
     a_stop
 
 NPC_803906D:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0x10
-    a_set_sprite SP_Overworld_YoungGirl
-    a_set_pos -30, -70
+    a_set_sprite_at -30, -70, 0, SP_Overworld_YoungGirl
 L_803907B:
     a_move_f 11, d_nw, 8, 5
     a_wait_f 1, 30
@@ -301,10 +239,7 @@ global_label NPCList_803909C
     .align 2, 0
 
 NPC_80390AC:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_PreschoolBoy
-    a_set_pos 80, 164
+    a_init_basic_npc_talk 80, 164, 0, SP_Overworld_PreschoolBoy, dialog=0x0
 L_80390B8:
     a_move_f 9, d_se, 8, 10
     a_wait_f 1, 30
@@ -314,10 +249,7 @@ L_80390B8:
     a_jump L_80390B8
 
 NPC_80390D3:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_OldWoman
-    a_set_pos 112, -70
+    a_init_basic_npc_talk 112, -70, 0, SP_Overworld_OldWoman, dialog=0x1
 L_80390DF:
     a_move_f 8, d_ne, 8, 10
     a_wait_f 3, 30
@@ -328,11 +260,7 @@ L_80390DF:
     .align 2, 0
 
 NPC_80390F8:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_ManGreen
-    a_set_pos -112, 234
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -112, 234, 0, SP_Overworld_ManGreen, frame=1, dialog=0x2
     a_stop
 
     .align 2, 0
@@ -346,9 +274,7 @@ global_label NPCList_8039110
 
 NPC_803911C:
     a_init
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -80, 114
-    a_set_sprite_frame 1
+    a_set_sprite_at -80, 114, 0, SP_Overworld_ManTie, frame=1
 L_8039128:
     a_jump_if_flag 0x99, L_8039136
     a_wait 1
@@ -359,9 +285,7 @@ L_8039136:
 
 NPC_803913F:
     a_init
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos -84, 96
-    a_set_sprite_frame 1
+    a_set_sprite_at -84, 96, 0, SP_Overworld_WomanSkirt, frame=1
 L_803914B:
     a_jump_if_flag 0x99, L_8039159
     a_wait 1
@@ -382,22 +306,19 @@ global_label NPCList_8039164
 
 NPC_8039174:
     a_init
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -74, 112
+    a_set_sprite_at -74, 112, 0, SP_Overworld_ManTie
     a_move_f 12, d_se, 8, 25
     a_stop
 
 NPC_803918B:
     a_init
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos -98, 120
+    a_set_sprite_at -98, 120, 0, SP_Overworld_WomanSkirt
     a_move_f 12, d_se, 8, 25
     a_stop
 
 NPC_80391A2:
     a_init
-    a_set_sprite SP_Overworld_ManGreen
-    a_set_pos -88, 174
+    a_set_sprite_at -88, 174, 0, SP_Overworld_ManGreen
     a_move_f 16, d_se, 8, 25
     a_stop
 
@@ -416,10 +337,7 @@ global_label NPCList_80391CC
     .align 2, 0
 
 NPC_80391D4:
-    a_init
-    a_set_dialog 0x2D
-    a_set_sprite SP_Overworld_PreschoolBoy
-    a_set_pos 80, 164
+    a_init_basic_npc_talk 80, 164, 0, SP_Overworld_PreschoolBoy, dialog=0x2D
 L_80391E0:
     a_move_f 9, d_se, 8, 10
     a_wait_f 1, 30
@@ -429,10 +347,7 @@ L_80391E0:
     a_jump L_80391E0
 
 NPC_80391FB:
-    a_init
-    a_set_dialog 0x2E
-    a_set_sprite SP_Overworld_OldWoman
-    a_set_pos 112, -70
+    a_init_basic_npc_talk 112, -70, 0, SP_Overworld_OldWoman, dialog=0x2E
 L_8039207:
     a_move_f 8, d_ne, 8, 10
     a_wait_f 3, 30
@@ -443,11 +358,7 @@ L_8039207:
     .align 2, 0
 
 NPC_8039220:
-    a_init
-    a_set_dialog 0x2F
-    a_set_sprite SP_Overworld_ManGreen
-    a_set_pos -112, 234
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -112, 234, 0, SP_Overworld_ManGreen, frame=1, dialog=0x2F
     a_stop
 
     .align 2, 0
@@ -461,9 +372,7 @@ global_label NPCList_8039238
 
 NPC_8039244:
     a_init
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -80, 114
-    a_set_sprite_frame 1
+    a_set_sprite_at -80, 114, 0, SP_Overworld_ManTie, frame=1
 L_8039250:
     a_jump_if_flag 0x99, L_803925E
     a_wait 1
@@ -474,9 +383,7 @@ L_803925E:
 
 NPC_8039267:
     a_init
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos -84, 96
-    a_set_sprite_frame 1
+    a_set_sprite_at -84, 96, 0, SP_Overworld_WomanSkirt, frame=1
 L_8039273:
     a_jump_if_flag 0x99, L_8039281
     a_wait 1
@@ -497,22 +404,19 @@ global_label NPCList_803928C
 
 NPC_803929C:
     a_init
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -74, 112
+    a_set_sprite_at -74, 112, 0, SP_Overworld_ManTie
     a_move_f 12, d_se, 8, 25
     a_stop
 
 NPC_80392B3:
     a_init
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos -98, 120
+    a_set_sprite_at -98, 120, 0, SP_Overworld_WomanSkirt
     a_move_f 12, d_se, 8, 25
     a_stop
 
 NPC_80392CA:
     a_init
-    a_set_sprite SP_Overworld_ManGreen
-    a_set_pos -88, 174
+    a_set_sprite_at -88, 174, 0, SP_Overworld_ManGreen
     a_move_f 16, d_se, 8, 25
     a_stop
 
@@ -527,18 +431,11 @@ global_label NPCList_80392E4
     .align 2, 0
 
 NPC_80392F4:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_OldWoman
-    a_set_pos -238, -16
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -238, -16, 0, SP_Overworld_OldWoman, frame=1, dialog=0x0
     a_stop
 
 NPC_8039309:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_PreschoolGirl
-    a_set_pos 18, 272
+    a_init_basic_npc_talk 18, 272, 0, SP_Overworld_PreschoolGirl, dialog=0x1
 L_8039315:
     a_move_f 11, d_nw, 8, 6
     a_wait_f 1, 30
@@ -550,9 +447,7 @@ NPC_803932E:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_YoungGirl
-    a_set_pos 24, -50
-    a_set_sprite_frame 5
+    a_set_sprite_at 24, -50, 0, SP_Overworld_YoungGirl, frame=5
     a_stop
 
     .align 2, 0
@@ -570,18 +465,11 @@ global_label NPCList_8039358
     .align 2, 0
 
 NPC_8039360:
-    a_init
-    a_set_dialog 0x23
-    a_set_sprite SP_Overworld_OldWoman
-    a_set_pos -238, -16
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -238, -16, 0, SP_Overworld_OldWoman, frame=1, dialog=0x23
     a_stop
 
 NPC_8039375:
-    a_init
-    a_set_dialog 0x24
-    a_set_sprite SP_Overworld_PreschoolGirl
-    a_set_pos 18, 272
+    a_init_basic_npc_talk 18, 272, 0, SP_Overworld_PreschoolGirl, dialog=0x24
 L_8039381:
     a_move_f 11, d_nw, 8, 6
     a_wait_f 1, 30
@@ -593,9 +481,7 @@ NPC_803939A:
     a_init
     a_sprite_mask_set_flag 0x4
     a_set_dialog 0x25
-    a_set_sprite SP_Overworld_YoungGirl
-    a_set_pos 24, -50
-    a_set_sprite_frame 5
+    a_set_sprite_at 24, -50, 0, SP_Overworld_YoungGirl, frame=5
     a_stop
 
     .align 2, 0
@@ -616,10 +502,7 @@ global_label NPCList_80393C4
     .align 2, 0
 
 NPC_80393D8:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_ManGreen
-    a_set_pos -148, -148
+    a_init_basic_npc_talk -148, -148, 0, SP_Overworld_ManGreen, dialog=0x0
 L_80393E4:
     a_move_f 8, d_ne, 8, 5
     a_wait_f 3, 30
@@ -629,21 +512,13 @@ L_80393E4:
     a_jump L_80393E4
 
 NPC_80393FF:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_WomanApron
-    a_set_pos 114, 92
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 114, 92, 0, SP_Overworld_WomanApron, frame=7, dialog=0x1
     a_stop
 
     .align 2, 0
 
 NPC_8039414:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_PreschoolBoy
-    a_set_pos 112, -118
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 112, -118, 0, SP_Overworld_PreschoolBoy, frame=7, dialog=0x2
     a_stop
 
     .align 2, 0
@@ -669,10 +544,7 @@ global_label NPCList_8039450
     .align 2, 0
 
 NPC_803945C:
-    a_init
-    a_set_dialog 0x19
-    a_set_sprite SP_Overworld_ManGreen
-    a_set_pos -148, -148
+    a_init_basic_npc_talk -148, -148, 0, SP_Overworld_ManGreen, dialog=0x19
 L_8039468:
     a_move_f 8, d_ne, 8, 5
     a_wait_f 3, 30
@@ -682,44 +554,26 @@ L_8039468:
     a_jump L_8039468
 
 NPC_8039483:
-    a_init
-    a_set_dialog 0x1A
-    a_set_sprite SP_Overworld_WomanApron
-    a_set_pos 114, 92
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 114, 92, 0, SP_Overworld_WomanApron, frame=7, dialog=0x1A
     a_stop
 
     .align 2, 0
 
 NPC_8039498:
-    a_init
-    a_set_dialog 0x1B
-    a_set_sprite SP_Overworld_PreschoolBoy
-    a_set_pos 112, -118
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 112, -118, 0, SP_Overworld_PreschoolBoy, frame=7, dialog=0x1B
     a_stop
 
 NPC_80394AD:
     a_jump_if_not_flag 0x97, L_80394C9
-    a_init
-    a_set_dialog 0x1C
-    a_set_sprite SP_Overworld_Chaud
-    a_set_pos -150, 86
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -150, 86, 0, SP_Overworld_Chaud, frame=7, dialog=0x1C
     a_stop 30
 L_80394C9:
     a_destroy
 
     .align 2, 0
 
-    .align 2, 0
-
 NPC_80394CC:
-    a_init
-    a_set_dialog 0xBE
-    a_set_sprite SP_Overworld_PreschoolGirl
-    a_set_pos 124, 196
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 124, 196, 0, SP_Overworld_PreschoolGirl, frame=5, dialog=0xBE
     a_stop
 
     .align 2, 0
@@ -733,10 +587,7 @@ global_label NPCList_80394E4
     .align 2, 0
 
 NPC_80394F4:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos 256, 28
+    a_init_basic_npc_talk 256, 28, 0, SP_Overworld_WomanSkirt, dialog=0x0
 L_8039500:
     a_move_f 8, d_ne, 8, 10
     a_wait_f 1, 30
@@ -745,10 +596,7 @@ L_8039500:
     a_jump L_8039500
 
 NPC_8039519:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_YoungBoy
-    a_set_pos 26, -178
+    a_init_basic_npc_talk 26, -178, 0, SP_Overworld_YoungBoy, dialog=0x1
 L_8039525:
     a_move_f 9, d_se, 8, 4
     a_wait_f 3, 30
@@ -757,11 +605,7 @@ L_8039525:
     a_jump L_8039525
 
 NPC_803953E:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos 10, 148
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 10, 148, 0, SP_Overworld_ManTie, frame=7, dialog=0x2
     a_stop
 
     .align 2, 0
@@ -779,10 +623,7 @@ global_label NPCList_803955C
     .align 2, 0
 
 NPC_803956C:
-    a_init
-    a_set_dialog 0x14
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos 256, 28
+    a_init_basic_npc_talk 256, 28, 0, SP_Overworld_WomanSkirt, dialog=0x14
 L_8039578:
     a_move_f 8, d_ne, 8, 10
     a_wait_f 1, 30
@@ -791,10 +632,7 @@ L_8039578:
     a_jump L_8039578
 
 NPC_8039591:
-    a_init
-    a_set_dialog 0x15
-    a_set_sprite SP_Overworld_YoungBoy
-    a_set_pos 26, -178
+    a_init_basic_npc_talk 26, -178, 0, SP_Overworld_YoungBoy, dialog=0x15
 L_803959D:
     a_move_f 9, d_se, 8, 4
     a_wait_f 3, 30
@@ -803,11 +641,7 @@ L_803959D:
     a_jump L_803959D
 
 NPC_80395B6:
-    a_init
-    a_set_dialog 0x16
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos 10, 148
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 10, 148, 0, SP_Overworld_ManTie, frame=7, dialog=0x16
     a_stop
 
     .align 2, 0
@@ -828,9 +662,7 @@ NPC_80395DC:
     a_set_hitbox_offset 4, 10, 0
     a_disable_turn
     a_set_dialog 0xA
-    a_set_sprite SP_Overworld_Miyu
-    a_set_pos -40, 40, 16
-    a_set_sprite_frame 0
+    a_set_sprite_at -40, 40, 16, SP_Overworld_Miyu, frame=0
     a_stop
 
     .align 2, 0
@@ -855,10 +687,7 @@ global_label NPCList_803961C
     .align 2, 0
 
 NPC_8039624:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_YoungBoy
-    a_set_pos 28, -46
+    a_init_basic_npc_talk 28, -46, 0, SP_Overworld_YoungBoy, dialog=0x0
 L_8039630:
     a_move_f 10, d_sw, 8, 6
     a_wait_f 3, 30
@@ -873,9 +702,7 @@ NPC_803964B:
     a_disable_turn
     a_disable_collision
     a_set_dialog 0x1
-    a_set_sprite SP_Overworld_YoungGirl
-    a_set_pos 0, 32, 18
-    a_set_sprite_frame 12
+    a_set_sprite_at 0, 32, 18, SP_Overworld_YoungGirl, frame=12
     a_stop
 
     .align 2, 0
@@ -884,21 +711,13 @@ NPC_8039664:
     a_init
     a_set_palette 0x1
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_Mari
-    a_set_pos 88, 12
-    a_set_sprite_frame 5
+    a_set_sprite_at 88, 12, 0, SP_Overworld_Mari, frame=5
     a_stop
 
     .align 2, 0
 
-    .align 2, 0
-
 NPC_803967C:
-    a_init
-    a_set_dialog 0xBE
-    a_set_sprite SP_Overworld_PreschoolBoy
-    a_set_pos -78, -38
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -78, -38, 0, SP_Overworld_PreschoolBoy, frame=3, dialog=0xBE
     a_stop
 
     .align 2, 0

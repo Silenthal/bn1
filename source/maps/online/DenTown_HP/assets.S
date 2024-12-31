@@ -11,25 +11,11 @@ global_label NPCList_804FFCC
     .align 2, 0
 
 NPC_804FFD8:
-    a_jump_if_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_KEYMIYU, L_804FFFB
-    a_init_bmd_at 400, -4, 0, dialog=0x5
-L_804FFF2:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_KEYMIYU, L_804FFF2
-L_804FFFB:
-    a_destroy
-
+    a_create_bmd 400, -4, 0, FLAG_ITEM_DENTOWN_ANTIQUE_COMP_KEYMIYU, dialog=0x5
     .align 2, 0
 
 NPC_804FFFC:
-    a_jump_if_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_BARRIER_S, L_805001F
-    a_init_gmd_at 146, 236, 0, dialog=0x6
-L_8050016:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_BARRIER_S, L_8050016
-L_805001F:
-    a_destroy
-
+    a_create_gmd 146, 236, 0, FLAG_ITEM_DENTOWN_ANTIQUE_COMP_BARRIER_S, dialog=0x6
 global_label EntityAllocParams_8050020
     entity Effect, 0x16, f(-398, -18, 0), 0x603
     entity Effect, 0x16, f(-14, 110, 0), 0x4B010603

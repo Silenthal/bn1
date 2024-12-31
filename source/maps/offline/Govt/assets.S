@@ -16,61 +16,33 @@ global_label NPCList_8034E90
     .align 2, 0
 
 NPC_8034EB0:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -164, -20
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -164, -20, 0, SP_Overworld_ManTie, frame=7, dialog=0x0
     a_stop
 
 NPC_8034EC5:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos -208, -224
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -208, -224, 0, SP_Overworld_WomanJacket, frame=1, dialog=0x1
     a_stop
 
 NPC_8034EDA:
-    a_init
-    a_set_dialog 0x4
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -180, -138
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -180, -138, 0, SP_Overworld_Scientist, frame=5, dialog=0x4
     a_stop
 
 NPC_8034EEF:
-    a_init
-    a_set_dialog 0x5
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos 116, -204
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 116, -204, 0, SP_Overworld_WomanSkirt, frame=3, dialog=0x5
     a_stop
 
     .align 2, 0
 
 NPC_8034F04:
-    a_init
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 470, -88
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 470, -88, 0, SP_Overworld_ManJacket, frame=3, dialog=0x6
     a_stop
 
 NPC_8034F19:
-    a_init
-    a_set_dialog 0x7
-    a_set_sprite SP_Overworld_OldWoman
-    a_set_pos 496, -226
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 496, -226, 0, SP_Overworld_OldWoman, frame=5, dialog=0x7
     a_stop
 
 NPC_8034F2E:
-    a_init
-    a_set_dialog 0x8
-    a_set_sprite SP_Overworld_Sal
-    a_set_pos 472, -132
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 472, -132, 0, SP_Overworld_Sal, frame=5, dialog=0x8
     a_stop
 
     .align 2, 0
@@ -103,69 +75,37 @@ global_label NPCList_8034F70
     .align 2, 0
 
 NPC_8034F90:
-    a_init
-    a_set_dialog 0x43
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -164, -20
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -164, -20, 0, SP_Overworld_ManTie, frame=7, dialog=0x43
     a_stop
 
 NPC_8034FA5:
-    a_init
-    a_set_dialog 0x44
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos -208, -224
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -208, -224, 0, SP_Overworld_WomanJacket, frame=1, dialog=0x44
     a_stop
 
 NPC_8034FBA:
-    a_init
-    a_set_dialog 0x45
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -180, -138
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -180, -138, 0, SP_Overworld_Scientist, frame=5, dialog=0x45
     a_stop
 
 NPC_8034FCF:
-    a_init
-    a_set_dialog 0x46
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos 116, -204
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 116, -204, 0, SP_Overworld_WomanSkirt, frame=3, dialog=0x46
     a_stop
 
     .align 2, 0
 
 NPC_8034FE4:
-    a_init
-    a_set_dialog 0x47
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 470, -88
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 470, -88, 0, SP_Overworld_ManJacket, frame=3, dialog=0x47
     a_stop
 
 NPC_8034FF9:
-    a_init
-    a_set_dialog 0x48
-    a_set_sprite SP_Overworld_OldWoman
-    a_set_pos 496, -226
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 496, -226, 0, SP_Overworld_OldWoman, frame=5, dialog=0x48
     a_stop
 
 NPC_803500E:
-    a_init
-    a_set_dialog 0x8
-    a_set_sprite SP_Overworld_Sal
-    a_set_pos 472, -132
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 472, -132, 0, SP_Overworld_Sal, frame=5, dialog=0x8
     a_stop
 
 NPC_8035023:
-    a_init
-    a_set_dialog 0x57
-    a_set_sprite SP_Overworld_Masa
-    a_set_pos 408, -146
-    a_set_sprite_frame 4
+    a_init_basic_npc_talk 408, -146, 0, SP_Overworld_Masa, frame=4, dialog=0x57
     a_stop
 
 global_label NPCList_8035038
@@ -181,61 +121,33 @@ global_label NPCList_8035038
     .align 2, 0
 
 NPC_8035058:
-    a_init
-    a_set_dialog 0x5A
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -164, -20
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -164, -20, 0, SP_Overworld_ManTie, frame=7, dialog=0x5A
     a_stop
 
 NPC_803506D:
-    a_init
-    a_set_dialog 0x5B
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos -208, -224
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -208, -224, 0, SP_Overworld_WomanJacket, frame=1, dialog=0x5B
     a_stop
 
 NPC_8035082:
-    a_init
-    a_set_dialog 0x5C
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -180, -138
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -180, -138, 0, SP_Overworld_Scientist, frame=5, dialog=0x5C
     a_stop
 
 NPC_8035097:
-    a_init
-    a_set_dialog 0x5D
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos 116, -204
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 116, -204, 0, SP_Overworld_WomanSkirt, frame=3, dialog=0x5D
     a_stop
 
     .align 2, 0
 
 NPC_80350AC:
-    a_init
-    a_set_dialog 0x5E
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 470, -88
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 470, -88, 0, SP_Overworld_ManJacket, frame=3, dialog=0x5E
     a_stop
 
 NPC_80350C1:
-    a_init
-    a_set_dialog 0x8
-    a_set_sprite SP_Overworld_Sal
-    a_set_pos 472, -132
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 472, -132, 0, SP_Overworld_Sal, frame=5, dialog=0x8
     a_stop
 
 NPC_80350D6:
-    a_init
-    a_set_dialog 0x57
-    a_set_sprite SP_Overworld_Masa
-    a_set_pos 408, -146
-    a_set_sprite_frame 4
+    a_init_basic_npc_talk 408, -146, 0, SP_Overworld_Masa, frame=4, dialog=0x57
     a_stop
 
     .align 2, 0
@@ -248,18 +160,11 @@ global_label NPCList_80350EC
     .align 2, 0
 
 NPC_80350F8:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_Conductor
-    a_set_pos -58, 0
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -58, 0, 0, SP_Overworld_Conductor, frame=1, dialog=0x0
     a_stop
 
 NPC_803510D:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -90, -110
+    a_init_basic_npc_talk -90, -110, 0, SP_Overworld_ManTie, dialog=0x1
 L_8035119:
     a_move_f 8, d_ne, 8, 6
     a_wait_f 3, 30
@@ -296,10 +201,7 @@ global_label NPCList_8035158
     .align 2, 0
 
 NPC_803517C:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -300, 72
+    a_init_basic_npc_talk -300, 72, 0, SP_Overworld_Scientist, dialog=0x0
 L_8035188:
     a_move_f 8, d_ne, 8, 35
     a_move_f 9, d_se, 8, 5
@@ -308,11 +210,7 @@ L_8035188:
     a_jump L_8035188
 
 NPC_80351A5:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos -164, 94
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -164, 94, 0, SP_Overworld_ManJacket, frame=5, dialog=0x2
     a_stop
 
 NPC_80351BA:
@@ -322,17 +220,11 @@ NPC_80351BA:
     a_set_hitbox_offset 232, 8, 0
     a_set_radius 10
     a_set_dialog 0x3
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 218, 76
-    a_set_sprite_frame 5
+    a_set_sprite_at 218, 76, 0, SP_Overworld_WomanJacket, frame=5
     a_stop
 
 NPC_80351D7:
-    a_init
-    a_set_dialog 0x4
-    a_set_sprite SP_Overworld_OldMan
-    a_set_pos -154, -30
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -154, -30, 0, SP_Overworld_OldMan, frame=1, dialog=0x4
     a_stop
 
     .align 2, 0
@@ -344,9 +236,7 @@ NPC_80351EC:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x5
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 178, -134
-    a_set_sprite_frame 3
+    a_set_sprite_at 178, -134, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
 NPC_8035209:
@@ -356,9 +246,7 @@ NPC_8035209:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x6
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 122, -134
-    a_set_sprite_frame 3
+    a_set_sprite_at 122, -134, 0, SP_Overworld_ManJacket, frame=3
     a_stop
 
     .align 2, 0
@@ -391,19 +279,11 @@ global_label NPCList_8035254
     .align 2, 0
 
 NPC_803527C:
-    a_init
-    a_set_dialog 0xF
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos -290, 98
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -290, 98, 0, SP_Overworld_ManJacket, frame=7, dialog=0xF
     a_stop
 
 NPC_8035291:
-    a_init
-    a_set_dialog 0x10
-    a_set_sprite SP_Overworld_WomanApron
-    a_set_pos -148, 68
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -148, 68, 0, SP_Overworld_WomanApron, frame=3, dialog=0x10
     a_stop
 
 NPC_80352A6:
@@ -412,9 +292,7 @@ NPC_80352A6:
     a_set_hitbox_offset 232, 8, 0
     a_set_radius 10
     a_set_dialog 0x11
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 218, 76
-    a_set_sprite_frame 5
+    a_set_sprite_at 218, 76, 0, SP_Overworld_WomanJacket, frame=5
     a_stop
 
 NPC_80352C2:
@@ -424,9 +302,7 @@ NPC_80352C2:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x14
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 206, -134
-    a_set_sprite_frame 3
+    a_set_sprite_at 206, -134, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
 NPC_80352DF:
@@ -436,9 +312,7 @@ NPC_80352DF:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x15
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 152, -134
-    a_set_sprite_frame 3
+    a_set_sprite_at 152, -134, 0, SP_Overworld_ManJacket, frame=3
     a_stop
 
     .align 2, 0
@@ -447,18 +321,14 @@ NPC_80352FC:
     a_init
     a_disable_turn
     a_set_dialog 0x16
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos 216, -96
-    a_set_sprite_frame 7
+    a_set_sprite_at 216, -96, 0, SP_Overworld_ManTie, frame=7
     a_stop
 
 NPC_8035312:
     a_init
     a_disable_turn
     a_set_dialog 0x17
-    a_set_sprite SP_Overworld_OldMan
-    a_set_pos 178, -96
-    a_set_sprite_frame 7
+    a_set_sprite_at 178, -96, 0, SP_Overworld_OldMan, frame=7
     a_stop
 
     .align 2, 0
@@ -467,18 +337,14 @@ NPC_8035328:
     a_init
     a_disable_turn
     a_set_dialog 0x18
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos 154, -96
-    a_set_sprite_frame 7
+    a_set_sprite_at 154, -96, 0, SP_Overworld_WomanSkirt, frame=7
     a_stop
 
 NPC_803533E:
     a_init
     a_disable_turn
     a_set_dialog 0x19
-    a_set_sprite SP_Overworld_ManGreen
-    a_set_pos 116, -96
-    a_set_sprite_frame 7
+    a_set_sprite_at 116, -96, 0, SP_Overworld_ManGreen, frame=7
     a_stop
 
     .align 2, 0
@@ -487,9 +353,7 @@ NPC_8035354:
     a_init
     a_disable_turn
     a_set_dialog 0x1C
-    a_set_sprite SP_Overworld_Chaud
-    a_set_pos 174, 90
-    a_set_sprite_frame 1
+    a_set_sprite_at 174, 90, 0, SP_Overworld_Chaud, frame=1
 L_8035363:
     a_jump_if_flag 0xBA, L_8035371
     a_wait 1
@@ -513,23 +377,13 @@ global_label NPCList_8035394
     .align 2, 0
 
 NPC_803539C:
-    a_init
-    a_set_dialog 0xBE
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos -290, -90
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -290, -90, 0, SP_Overworld_ManTie, frame=3, dialog=0xBE
     a_stop
 
     .align 2, 0
 
-    .align 2, 0
-
 NPC_80353B4:
-    a_init
-    a_set_dialog 0xC8
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 238, -94
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 238, -94, 0, SP_Overworld_ManJacket, frame=1, dialog=0xC8
     a_stop
 
     .align 2, 0
@@ -548,10 +402,7 @@ global_label NPCList_80353CC
     .align 2, 0
 
 NPC_80353F0:
-    a_init
-    a_set_dialog 0x46
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -300, 72
+    a_init_basic_npc_talk -300, 72, 0, SP_Overworld_Scientist, dialog=0x46
 L_80353FC:
     a_move_f 8, d_ne, 8, 35
     a_move_f 9, d_se, 8, 5
@@ -560,11 +411,7 @@ L_80353FC:
     a_jump L_80353FC
 
 NPC_8035419:
-    a_init
-    a_set_dialog 0x47
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos -164, 94
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -164, 94, 0, SP_Overworld_ManJacket, frame=5, dialog=0x47
     a_stop
 
 NPC_803542E:
@@ -574,17 +421,11 @@ NPC_803542E:
     a_set_hitbox_offset 232, 8, 0
     a_set_radius 10
     a_set_dialog 0x48
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 218, 76
-    a_set_sprite_frame 5
+    a_set_sprite_at 218, 76, 0, SP_Overworld_WomanJacket, frame=5
     a_stop
 
 NPC_803544B:
-    a_init
-    a_set_dialog 0x49
-    a_set_sprite SP_Overworld_OldMan
-    a_set_pos -154, -30
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -154, -30, 0, SP_Overworld_OldMan, frame=1, dialog=0x49
     a_stop
 
     .align 2, 0
@@ -596,9 +437,7 @@ NPC_8035460:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x4A
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 178, -134
-    a_set_sprite_frame 3
+    a_set_sprite_at 178, -134, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
 NPC_803547D:
@@ -608,9 +447,7 @@ NPC_803547D:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x4B
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 122, -134
-    a_set_sprite_frame 3
+    a_set_sprite_at 122, -134, 0, SP_Overworld_ManJacket, frame=3
     a_stop
 
     .align 2, 0
@@ -634,9 +471,7 @@ NPC_80354BC:
     a_set_hitbox_offset 248, 24, 0
     a_set_radius 10
     a_set_dialog 0x0
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos -42, -250
-    a_set_sprite_frame 3
+    a_set_sprite_at -42, -250, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
 NPC_80354D9:
@@ -646,9 +481,7 @@ NPC_80354D9:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x6
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 166, -210
-    a_set_sprite_frame 5
+    a_set_sprite_at 166, -210, 0, SP_Overworld_ManJacket, frame=5
     a_stop
 
 NPC_80354F6:
@@ -658,16 +491,11 @@ NPC_80354F6:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x7
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 166, -154
-    a_set_sprite_frame 5
+    a_set_sprite_at 166, -154, 0, SP_Overworld_WomanJacket, frame=5
     a_stop
 
 NPC_8035513:
-    a_init
-    a_set_dialog 0x8
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos 128, 224
+    a_init_basic_npc_talk 128, 224, 0, SP_Overworld_Scientist, dialog=0x8
 L_803551F:
     a_move_f 10, d_sw, 8, 21
     a_move_f 11, d_nw, 8, 46
@@ -682,27 +510,15 @@ L_803551F:
     .align 2, 0
 
 NPC_8035554:
-    a_init
-    a_set_dialog 0x9
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos 98, 58
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 98, 58, 0, SP_Overworld_Scientist, frame=7, dialog=0x9
     a_stop
 
 NPC_8035569:
-    a_init
-    a_set_dialog 0xA
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -244, -144
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -244, -144, 0, SP_Overworld_Scientist, frame=7, dialog=0xA
     a_stop
 
 NPC_803557E:
-    a_init
-    a_set_dialog 0xB
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos -64, 80
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -64, 80, 0, SP_Overworld_ManJacket, frame=3, dialog=0xB
     a_stop
 
     .align 2, 0
@@ -742,9 +558,7 @@ NPC_80355E0:
     a_set_hitbox_offset 248, 24, 0
     a_set_radius 10
     a_set_dialog 0x28
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos -42, -250
-    a_set_sprite_frame 3
+    a_set_sprite_at -42, -250, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
     .align 2, 0
@@ -756,9 +570,7 @@ NPC_80355FC:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x29
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 166, -210
-    a_set_sprite_frame 5
+    a_set_sprite_at 166, -210, 0, SP_Overworld_ManJacket, frame=5
     a_stop
 
 NPC_8035619:
@@ -768,16 +580,11 @@ NPC_8035619:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x2A
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 166, -154
-    a_set_sprite_frame 5
+    a_set_sprite_at 166, -154, 0, SP_Overworld_WomanJacket, frame=5
     a_stop
 
 NPC_8035636:
-    a_init
-    a_set_dialog 0x39
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos 128, 224
+    a_init_basic_npc_talk 128, 224, 0, SP_Overworld_Scientist, dialog=0x39
 L_8035642:
     a_move_f 10, d_sw, 8, 21
     a_move_f 11, d_nw, 8, 46
@@ -793,9 +600,7 @@ NPC_8035677:
     a_init
     a_disable_turn
     a_set_dialog 0x38
-    a_set_sprite SP_Overworld_Chaud
-    a_set_pos 98, 58
-    a_set_sprite_frame 7
+    a_set_sprite_at 98, 58, 0, SP_Overworld_Chaud, frame=7
 L_8035686:
     a_jump_if_flag 0x9A, L_8035694
     a_wait 1
@@ -811,21 +616,13 @@ L_80356A4:
     a_destroy
 
 NPC_80356AB:
-    a_init
-    a_set_dialog 0x2D
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -244, -144
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -244, -144, 0, SP_Overworld_Scientist, frame=7, dialog=0x2D
     a_stop
 
     .align 2, 0
 
 NPC_80356C0:
-    a_init
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos -64, 80
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -64, 80, 0, SP_Overworld_ManJacket, frame=3, dialog=0x3A
     a_stop
 
     .align 2, 0
@@ -839,9 +636,7 @@ global_label NPCList_80356D8
 
 NPC_80356E4:
     a_init
-    a_set_sprite SP_Overworld_Yuichiro
-    a_set_pos 98, 58
-    a_set_sprite_frame 3
+    a_set_sprite_at 98, 58, 0, SP_Overworld_Yuichiro, frame=3
 L_80356F0:
     a_jump_if_flag 0x9E, L_80356FE
     a_wait 1
@@ -852,9 +647,7 @@ L_80356FE:
 
 NPC_8035707:
     a_init
-    a_set_sprite SP_Overworld_WomanPurple
-    a_set_pos -70, 56
-    a_set_sprite_frame 8
+    a_set_sprite_at -70, 56, 0, SP_Overworld_WomanPurple, frame=8
 L_8035713:
     a_jump_if_flag 0x9D, L_8035721
     a_wait 1
@@ -892,9 +685,7 @@ NPC_803576C:
     a_set_hitbox_offset 248, 24, 0
     a_set_radius 10
     a_set_dialog 0x41
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos -42, -250
-    a_set_sprite_frame 3
+    a_set_sprite_at -42, -250, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
 NPC_8035789:
@@ -904,9 +695,7 @@ NPC_8035789:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x42
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 166, -210
-    a_set_sprite_frame 5
+    a_set_sprite_at 166, -210, 0, SP_Overworld_ManJacket, frame=5
     a_stop
 
 NPC_80357A6:
@@ -916,16 +705,11 @@ NPC_80357A6:
     a_set_hitbox_offset 236, 6, 0
     a_set_radius 10
     a_set_dialog 0x43
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 166, -154
-    a_set_sprite_frame 5
+    a_set_sprite_at 166, -154, 0, SP_Overworld_WomanJacket, frame=5
     a_stop
 
 NPC_80357C3:
-    a_init
-    a_set_dialog 0x44
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos 128, 224
+    a_init_basic_npc_talk 128, 224, 0, SP_Overworld_Scientist, dialog=0x44
 L_80357CF:
     a_move_f 10, d_sw, 8, 21
     a_move_f 11, d_nw, 8, 46
@@ -940,27 +724,15 @@ L_80357CF:
     .align 2, 0
 
 NPC_8035804:
-    a_init
-    a_set_dialog 0x45
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos 98, 58
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 98, 58, 0, SP_Overworld_Scientist, frame=7, dialog=0x45
     a_stop
 
 NPC_8035819:
-    a_init
-    a_set_dialog 0x46
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -244, -144
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -244, -144, 0, SP_Overworld_Scientist, frame=7, dialog=0x46
     a_stop
 
 NPC_803582E:
-    a_init
-    a_set_dialog 0x47
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos -64, 80
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -64, 80, 0, SP_Overworld_ManJacket, frame=3, dialog=0x47
     a_stop
 
     .align 2, 0
@@ -978,9 +750,7 @@ NPC_803584C:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x0
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 44, -190
-    a_set_sprite_frame 3
+    a_set_sprite_at 44, -190, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
     .align 2, 0
@@ -1008,24 +778,16 @@ NPC_803588C:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x2D
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos 44, -190
-    a_set_sprite_frame 3
+    a_set_sprite_at 44, -190, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
 NPC_80358A9:
-    a_init
-    a_set_dialog 0x2E
-    a_set_sprite SP_Overworld_Yuichiro
-    a_set_pos -38, 248
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -38, 248, 0, SP_Overworld_Yuichiro, frame=3, dialog=0x2E
     a_stop
 
 NPC_80358BE:
     a_init
-    a_set_sprite SP_Overworld_Yuichiro
-    a_set_pos 100, 206
-    a_set_sprite_frame 1
+    a_set_sprite_at 100, 206, 0, SP_Overworld_Yuichiro, frame=1
 L_80358CA:
     a_jump_if_flag 0xAE, L_80358D8
     a_wait 1
@@ -1036,9 +798,7 @@ L_80358D8:
 
 NPC_80358E1:
     a_init
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos 100, 80
-    a_set_sprite_frame 3
+    a_set_sprite_at 100, 80, 0, SP_Overworld_Scientist, frame=3
 L_80358ED:
     a_jump_if_flag 0xAD, L_80358FB
     a_wait 1
@@ -1060,11 +820,7 @@ global_label NPCList_803590C
     .align 2, 0
 
 NPC_8035920:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 80, 228
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 80, 228, 0, SP_Overworld_ManJacket, frame=1, dialog=0x0
     a_stop
 
 NPC_8035935:
@@ -1074,24 +830,15 @@ NPC_8035935:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x1
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos -72, -50
-    a_set_sprite_frame 3
+    a_set_sprite_at -72, -50, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
 NPC_8035952:
-    a_init
-    a_set_dialog 0x3
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos 38, 92
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 38, 92, 0, SP_Overworld_Scientist, frame=1, dialog=0x3
     a_stop
 
 NPC_8035967:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -246, -30
+    a_init_basic_npc_talk -246, -30, 0, SP_Overworld_Scientist, dialog=0x2
 L_8035973:
     a_wait_f 3, 30
     a_move_f 10, d_sw, 8, 5
@@ -1107,9 +854,7 @@ global_label NPCList_803598C
 
 NPC_8035994:
     a_init
-    a_set_sprite SP_Overworld_Madd
-    a_set_pos 114, 174
-    a_set_sprite_frame 5
+    a_set_sprite_at 114, 174, 0, SP_Overworld_Madd, frame=5
 L_80359A0:
     a_jump_if_flag 0xC0, L_80359AE
     a_wait 1
@@ -1136,11 +881,7 @@ global_label NPCList_80359C8
     .align 2, 0
 
 NPC_80359DC:
-    a_init
-    a_set_dialog 0x19
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 80, 228
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 80, 228, 0, SP_Overworld_ManJacket, frame=1, dialog=0x19
     a_stop
 
 NPC_80359F1:
@@ -1150,16 +891,11 @@ NPC_80359F1:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x1A
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos -72, -50
-    a_set_sprite_frame 3
+    a_set_sprite_at -72, -50, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
 NPC_8035A0E:
-    a_init
-    a_set_dialog 0x1B
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -246, -30
+    a_init_basic_npc_talk -246, -30, 0, SP_Overworld_Scientist, dialog=0x1B
 L_8035A1A:
     a_wait_f 3, 30
     a_move_f 10, d_sw, 8, 5
@@ -1169,14 +905,8 @@ L_8035A1A:
 
     .align 2, 0
 
-    .align 2, 0
-
 NPC_8035A34:
-    a_init
-    a_set_dialog 0xBE
-    a_set_sprite SP_Overworld_WomanSkirt
-    a_set_pos -224, -6
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk -224, -6, 0, SP_Overworld_WomanSkirt, frame=3, dialog=0xBE
     a_stop
 
     .align 2, 0
@@ -1190,11 +920,7 @@ global_label NPCList_8035A4C
     .align 2, 0
 
 NPC_8035A5C:
-    a_init
-    a_set_dialog 0x23
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 80, 228
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 80, 228, 0, SP_Overworld_ManJacket, frame=1, dialog=0x23
     a_stop
 
 NPC_8035A71:
@@ -1204,9 +930,7 @@ NPC_8035A71:
     a_set_hitbox_offset 250, 20, 0
     a_set_radius 10
     a_set_dialog 0x24
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos -72, -50
-    a_set_sprite_frame 3
+    a_set_sprite_at -72, -50, 0, SP_Overworld_WomanJacket, frame=3
     a_stop
 
     .align 2, 0
@@ -1227,36 +951,25 @@ global_label NPCList_8035AA4
     .align 2, 0
 
 NPC_8035AB4:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_ManGovt
-    a_set_pos 118, -80
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk 118, -80, 0, SP_Overworld_ManGovt, frame=1, dialog=0x2
     a_stop
 
 NPC_8035AC9:
     a_init
     a_disable_turn
     a_set_dialog 0x3
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos 6, -4
-    a_set_sprite_frame 1
+    a_set_sprite_at 6, -4, 0, SP_Overworld_Scientist, frame=1
     a_stop
 
 NPC_8035ADF:
     a_init
     a_disable_turn
     a_set_dialog 0x4
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos 6, -42
-    a_set_sprite_frame 1
+    a_set_sprite_at 6, -42, 0, SP_Overworld_Scientist, frame=1
     a_stop
 
 NPC_8035AF5:
-    a_init
-    a_set_dialog 0x5
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos 88, 54
+    a_init_basic_npc_talk 88, 54, 0, SP_Overworld_Scientist, dialog=0x5
 L_8035B01:
     a_move_f 8, d_ne, 8, 6
     a_wait_f 3, 30
@@ -1275,18 +988,11 @@ global_label NPCList_8035B1C
     .align 2, 0
 
 NPC_8035B2C:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos -76, 98
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -76, 98, 0, SP_Overworld_ManJacket, frame=1, dialog=0x0
     a_stop
 
 NPC_8035B41:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_Scientist
-    a_set_pos -100, -112
+    a_init_basic_npc_talk -100, -112, 0, SP_Overworld_Scientist, dialog=0x1
 L_8035B4D:
     a_move_f 9, d_se, 8, 15
     a_wait_f 1, 30
@@ -1295,11 +1001,7 @@ L_8035B4D:
     a_jump L_8035B4D
 
 NPC_8035B66:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 88, 120
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 88, 120, 0, SP_Overworld_ManJacket, frame=7, dialog=0x2
     a_stop
 
     .align 2, 0
@@ -1313,28 +1015,18 @@ global_label NPCList_8035B7C
     .align 2, 0
 
 NPC_8035B8C:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_WomanJacket
-    a_set_pos -72, 2
-    a_set_sprite_frame 1
+    a_init_basic_npc_talk -72, 2, 0, SP_Overworld_WomanJacket, frame=1, dialog=0x0
     a_stop
 
 NPC_8035BA1:
     a_init
     a_disable_turn
     a_set_dialog 0x3
-    a_set_sprite SP_Overworld_Chaud
-    a_set_pos 30, -220
-    a_set_sprite_frame 1
+    a_set_sprite_at 30, -220, 0, SP_Overworld_Chaud, frame=1
     a_stop
 
 NPC_8035BB7:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_ManJacket
-    a_set_pos 30, 224
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk 30, 224, 0, SP_Overworld_ManJacket, frame=7, dialog=0x2
     a_stop
 
 global_label NPCList_8035BCC
@@ -1351,11 +1043,7 @@ global_label NPCList_8035BD8
     .align 2, 0
 
 NPC_8035BE8:
-    a_init
-    a_set_dialog 0xBE
-    a_set_sprite SP_Overworld_ManTie
-    a_set_pos 20, -228
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 20, -228, 0, SP_Overworld_ManTie, frame=5, dialog=0xBE
     a_stop
 
     .align 2, 0

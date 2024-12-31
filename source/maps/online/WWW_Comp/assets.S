@@ -67,61 +67,28 @@ global_label NPCList_804E020
     .align 2, 0
 
 NPC_804E03C:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_1_RECOV200_C, L_804E05F
-    a_init_bmd_at -50, -492, 0, dialog=0x23
-L_804E056:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_1_RECOV200_C, L_804E056
-L_804E05F:
-    a_destroy
-
+    a_create_bmd -50, -492, 0, FLAG_ITEM_WWW_COMP_1_RECOV200_C, dialog=0x23
     .align 2, 0
 
 NPC_804E060:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_1_5000Z, L_804E083
-    a_init_bmd_at 84, -208, 0, dialog=0x24
-L_804E07A:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_1_5000Z, L_804E07A
-L_804E083:
-    a_destroy
-
+    a_create_bmd 84, -208, 0, FLAG_ITEM_WWW_COMP_1_5000Z, dialog=0x24
     .align 2, 0
 
 NPC_804E084:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_1_3000Z, L_804E0A7
-    a_init_bmd_at 114, 210, 0, dialog=0x25
-L_804E09E:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_1_3000Z, L_804E09E
-L_804E0A7:
-    a_destroy
-
+    a_create_bmd 114, 210, 0, FLAG_ITEM_WWW_COMP_1_3000Z, dialog=0x25
     .align 2, 0
 
 NPC_804E0A8:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_1_FIRESWRD_P, L_804E0CB
-    a_init_bmd_at 18, 292, 0, dialog=0x26
-L_804E0C2:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_1_FIRESWRD_P, L_804E0C2
-L_804E0CB:
-    a_destroy
-
+    a_create_bmd 18, 292, 0, FLAG_ITEM_WWW_COMP_1_FIRESWRD_P, dialog=0x26
     .align 2, 0
 
 NPC_804E0CC:
-    a_init
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_Glyde
-    a_set_pos -330, 400
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -330, 400, 0, SP_Overworld_Glyde, frame=5, dialog=0x1E
     a_stop
 
 NPC_804E0E1:
     a_init
-    a_set_sprite SP_Overworld_Glyde
-    a_set_pos -348, 438
+    a_set_sprite_at -348, 438, 0, SP_Overworld_Glyde
     a_wait_f 15, 60
     a_wait_f 12, 2
     a_move_f 13, d_nw, 32, 4
@@ -129,10 +96,7 @@ NPC_804E0E1:
     a_stop
 
 NPC_804E102:
-    a_init
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_Glyde
-    a_set_pos -348, 406
+    a_init_basic_npc_talk -348, 406, 0, SP_Overworld_Glyde, dialog=0x1E
     a_wait_f 14, 80
     a_set_sprite_frame 3
     a_stop
@@ -142,9 +106,7 @@ NPC_804E11B:
     a_sprite_high_priority
     a_disable_dialog
     a_disable_turn
-    a_set_sprite SP_BattleEffect_Meteor_Fire
-    a_set_pos -332, 358
-    a_set_sprite_frame 0
+    a_set_sprite_at -332, 358, 0, SP_BattleEffect_Meteor_Fire, frame=0
     a_stop
 
 NPC_804E131:
@@ -152,9 +114,7 @@ NPC_804E131:
     a_sprite_high_priority
     a_disable_dialog
     a_disable_turn
-    a_set_sprite SP_BattleEffect_Meteor_Fire
-    a_set_pos -345, 358
-    a_set_sprite_frame 1
+    a_set_sprite_at -345, 358, 0, SP_BattleEffect_Meteor_Fire, frame=1
     a_stop
 
 NPC_804E147:
@@ -162,9 +122,7 @@ NPC_804E147:
     a_sprite_high_priority
     a_disable_dialog
     a_disable_turn
-    a_set_sprite SP_BattleEffect_Meteor_Fire
-    a_set_pos -358, 358
-    a_set_sprite_frame 0
+    a_set_sprite_at -358, 358, 0, SP_BattleEffect_Meteor_Fire, frame=0
     a_stop
 
 NPC_804E15D:
@@ -172,9 +130,7 @@ NPC_804E15D:
     a_sprite_high_priority
     a_disable_dialog
     a_disable_turn
-    a_set_sprite SP_BattleEffect_Meteor_Fire
-    a_set_pos -332, 372
-    a_set_sprite_frame 1
+    a_set_sprite_at -332, 372, 0, SP_BattleEffect_Meteor_Fire, frame=1
     a_stop
 
 NPC_804E173:
@@ -182,9 +138,7 @@ NPC_804E173:
     a_sprite_high_priority
     a_disable_dialog
     a_disable_turn
-    a_set_sprite SP_BattleEffect_Meteor_Fire
-    a_set_pos -345, 372
-    a_set_sprite_frame 0
+    a_set_sprite_at -345, 372, 0, SP_BattleEffect_Meteor_Fire, frame=0
     a_stop
 
 NPC_804E189:
@@ -192,9 +146,7 @@ NPC_804E189:
     a_sprite_high_priority
     a_disable_dialog
     a_disable_turn
-    a_set_sprite SP_BattleEffect_Meteor_Fire
-    a_set_pos -358, 372
-    a_set_sprite_frame 1
+    a_set_sprite_at -358, 372, 0, SP_BattleEffect_Meteor_Fire, frame=1
     a_stop
 
 NPC_804E19F:
@@ -202,9 +154,7 @@ NPC_804E19F:
     a_sprite_high_priority
     a_disable_dialog
     a_disable_turn
-    a_set_sprite SP_BattleEffect_Meteor_Fire
-    a_set_pos -332, 386
-    a_set_sprite_frame 0
+    a_set_sprite_at -332, 386, 0, SP_BattleEffect_Meteor_Fire, frame=0
     a_stop
 
 NPC_804E1B5:
@@ -212,9 +162,7 @@ NPC_804E1B5:
     a_sprite_high_priority
     a_disable_dialog
     a_disable_turn
-    a_set_sprite SP_BattleEffect_Meteor_Fire
-    a_set_pos -345, 386
-    a_set_sprite_frame 1
+    a_set_sprite_at -345, 386, 0, SP_BattleEffect_Meteor_Fire, frame=1
     a_stop
 
 NPC_804E1CB:
@@ -222,9 +170,7 @@ NPC_804E1CB:
     a_sprite_high_priority
     a_disable_dialog
     a_disable_turn
-    a_set_sprite SP_BattleEffect_Meteor_Fire
-    a_set_pos -358, 386
-    a_set_sprite_frame 0
+    a_set_sprite_at -358, 386, 0, SP_BattleEffect_Meteor_Fire, frame=0
     a_stop
 
 NPC_804E1E1:
@@ -239,10 +185,7 @@ NPC_804E1E1:
     .align 2, 0
 
 NPC_804E1F8:
-    a_init
-    a_set_sprite SP_Overworld_Glyde
-    a_set_pos -348, 406
-    a_set_sprite_frame 7
+    a_init_basic_npc -348, 406, 0, SP_Overworld_Glyde, frame=7
     a_stop
 
     .align 2, 0
@@ -270,50 +213,24 @@ global_label NPCList_804E230
     .align 2, 0
 
 NPC_804E244:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_2_HURICANE_L, L_804E267
-    a_init_bmd_at 220, 196, 0, dialog=0x28
-L_804E25E:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_2_HURICANE_L, L_804E25E
-L_804E267:
-    a_destroy
-
+    a_create_bmd 220, 196, 0, FLAG_ITEM_WWW_COMP_2_HURICANE_L, dialog=0x28
     .align 2, 0
 
 NPC_804E268:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_2_8000Z, L_804E28B
-    a_init_bmd_at 380, -284, 0, dialog=0x29
-L_804E282:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_2_8000Z, L_804E282
-L_804E28B:
-    a_destroy
-
+    a_create_bmd 380, -284, 0, FLAG_ITEM_WWW_COMP_2_8000Z, dialog=0x29
     .align 2, 0
 
 NPC_804E28C:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_2_FTRSWRD_P, L_804E2AF
-    a_init_bmd_at -100, -124, 0, dialog=0x2A
-L_804E2A6:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_2_FTRSWRD_P, L_804E2A6
-L_804E2AF:
-    a_destroy
-
+    a_create_bmd -100, -124, 0, FLAG_ITEM_WWW_COMP_2_FTRSWRD_P, dialog=0x2A
     .align 2, 0
 
 NPC_804E2B0:
-    a_init
-    a_set_dialog 0x2B
-    a_set_sprite SP_Overworld_NumberMan
-    a_set_pos -478, 20, 64
-    a_set_sprite_frame 7
+    a_init_basic_npc_talk -478, 20, 64, SP_Overworld_NumberMan, frame=7, dialog=0x2B
     a_stop
 
 NPC_804E2C5:
     a_init
-    a_set_sprite SP_Overworld_NumberMan
-    a_set_pos -484, 38, 64
+    a_set_sprite_at -484, 38, 64, SP_Overworld_NumberMan
     a_wait_f 12, 60
     a_set_sprite_frame 13
 L_804E2D5:
@@ -350,43 +267,24 @@ global_label NPCList_804E318
     .align 2, 0
 
 NPC_804E328:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_3_4000Z, L_804E34B
-    a_init_bmd_at -384, 58, -32, dialog=0x19
-L_804E342:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_3_4000Z, L_804E342
-L_804E34B:
-    a_destroy
-
+    a_create_bmd -384, 58, -32, FLAG_ITEM_WWW_COMP_3_4000Z, dialog=0x19
     .align 2, 0
 
 NPC_804E34C:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_3_RECOV300_L, L_804E36F
-    a_init_bmd_at 348, 74, 32, dialog=0x1A
-L_804E366:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_3_RECOV300_L, L_804E366
-L_804E36F:
-    a_destroy
-
+    a_create_bmd 348, 74, 32, FLAG_ITEM_WWW_COMP_3_RECOV300_L, dialog=0x1A
     .align 2, 0
 
 NPC_804E370:
     a_init
     a_disable_collision
-    a_set_sprite SP_Overworld_ColdMan
-    a_set_pos 516, 88, 32
-    a_move_f 11, d_nw, 8, 11
+    a_set_sprite_at 516, 88, 32, SP_Overworld_ColdMan, frame=11
+    a_move d_nw, 8, 11
     a_wait_f 7, 30
     a_set_sprite_frame 17
     a_stop
 
 NPC_804E38E:
-    a_init
-    a_set_dialog 0x14
-    a_set_sprite SP_Overworld_ColdMan
-    a_set_pos 518, 10, 32
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 518, 10, 32, SP_Overworld_ColdMan, frame=5, dialog=0x14
     a_stop
 
     .align 2, 0
@@ -405,33 +303,15 @@ global_label NPCList_804E3B0
     .align 2, 0
 
 NPC_804E3C0:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_4_TIMEBOM3_P, L_804E3E3
-    a_init_bmd_at -92, 332, 0, dialog=0x5
-L_804E3DA:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_4_TIMEBOM3_P, L_804E3DA
-L_804E3E3:
-    a_destroy
-
+    a_create_bmd -92, 332, 0, FLAG_ITEM_WWW_COMP_4_TIMEBOM3_P, dialog=0x5
     .align 2, 0
 
 NPC_804E3E4:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_4_HPMEMORY, L_804E407
-    a_init_bmd_at -316, -118, 0, dialog=0x6
-L_804E3FE:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_4_HPMEMORY, L_804E3FE
-L_804E407:
-    a_destroy
-
+    a_create_bmd -316, -118, 0, FLAG_ITEM_WWW_COMP_4_HPMEMORY, dialog=0x6
     .align 2, 0
 
 NPC_804E408:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_GutsMan
-    a_set_pos -486, -20
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk -486, -20, 0, SP_Overworld_GutsMan, frame=5, dialog=0x0
     a_stop
 
     .align 2, 0
@@ -500,41 +380,22 @@ global_label NPCList_804E4BC
     .align 2, 0
 
 NPC_804E4D4:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_5_2000Z, L_804E4F7
-    a_init_bmd_at -144, 248, 64, dialog=0x5
-L_804E4EE:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_5_2000Z, L_804E4EE
-L_804E4F7:
-    a_destroy
-
+    a_create_bmd -144, 248, 64, FLAG_ITEM_WWW_COMP_5_2000Z, dialog=0x5
     .align 2, 0
 
 NPC_804E4F8:
-    a_jump_if_flag FLAG_ITEM_WWW_COMP_5_BIGWAVE_K, L_804E51B
-    a_init_bmd_at 246, 376, 0, dialog=0x6
-L_804E512:
-    a_wait 1
-    a_jump_if_not_flag FLAG_ITEM_WWW_COMP_5_BIGWAVE_K, L_804E512
-L_804E51B:
-    a_destroy
-
+    a_create_bmd 246, 376, 0, FLAG_ITEM_WWW_COMP_5_BIGWAVE_K, dialog=0x6
     .align 2, 0
 
 NPC_804E51C:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_Roll
-    a_set_pos 562, -122
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 562, -122, 0, SP_Overworld_Roll, frame=5, dialog=0x0
     a_stop
 
 NPC_804E531:
     a_init
     a_disable_collision
-    a_set_sprite SP_Overworld_Roll
-    a_set_pos 562, 14
-    a_move_f 15, d_nw, 16, 9
+    a_set_sprite_at 562, 14, 0, SP_Overworld_Roll, frame=15
+    a_move d_nw, 16, 9
     a_set_sprite_frame 7
 L_804E544:
     a_jump_if_flag 0xE3, L_804E552
@@ -564,18 +425,13 @@ L_804E58A:
     a_stop
 
 NPC_804E597:
-    a_init
-    a_set_sprite SP_Overworld_MagicMan
-    a_set_pos 560, -236
-    a_set_sprite_frame 20
+    a_init_basic_npc 560, -236, 0, SP_Overworld_MagicMan, frame=20
     a_stop
 
 NPC_804E5AA:
     a_init
     a_disable_collision
-    a_set_sprite SP_Overworld_Roll
-    a_set_pos 568, -130
-    a_set_sprite_frame 7
+    a_set_sprite_at 568, -130, 0, SP_Overworld_Roll, frame=7
 L_804E5B7:
     a_jump_if_flag 0xE3, L_804E5C5
     a_wait 1
@@ -589,9 +445,7 @@ L_804E5C5:
 
 NPC_804E5D4:
     a_init
-    a_set_sprite SP_Overworld_MagicMan
-    a_set_pos 556, -236
-    a_set_sprite_frame 12
+    a_set_sprite_at 556, -236, 0, SP_Overworld_MagicMan, frame=12
 L_804E5E0:
     a_jump_if_flag 0xF9, L_804E5EE
     a_wait 1
@@ -618,19 +472,14 @@ L_804E620:
     a_stop
 
 NPC_804E629:
-    a_init
-    a_set_sprite SP_Overworld_Roll
-    a_set_pos 568, -154
-    a_set_sprite_frame 18
+    a_init_basic_npc 568, -154, 0, SP_Overworld_Roll, frame=18
     a_stop
 
     .align 2, 0
 
 NPC_804E63C:
     a_init
-    a_set_sprite SP_Overworld_MagicMan
-    a_set_pos 556, -236
-    a_set_sprite_frame 14
+    a_set_sprite_at 556, -236, 0, SP_Overworld_MagicMan, frame=14
 L_804E648:
     a_jump_if_flag 0xF9, L_804E656
     a_wait 1
@@ -646,8 +495,7 @@ L_804E666:
 
 NPC_804E667:
     a_init
-    a_set_sprite SP_Overworld_ProtoMan
-    a_set_pos 556, -180
+    a_set_sprite_at 556, -180, 0, SP_Overworld_ProtoMan
     a_wait_f 25, 14
     a_move_f 26, d_nw, 40, 1
     a_move_f 27, d_nw, 40, 4
@@ -661,17 +509,12 @@ L_804E691:
     a_stop
 
 NPC_804E69A:
-    a_init
-    a_set_sprite SP_Overworld_ProtoMan
-    a_set_pos 556, -220
-    a_set_sprite_frame 3
+    a_init_basic_npc 556, -220, 0, SP_Overworld_ProtoMan, frame=3
     a_stop
 
 NPC_804E6AD:
     a_init
-    a_set_sprite SP_Overworld_Roll
-    a_set_pos 568, -154
-    a_set_sprite_frame 18
+    a_set_sprite_at 568, -154, 0, SP_Overworld_Roll, frame=18
 L_804E6B9:
     a_jump_if_flag 0xE3, L_804E6C7
     a_wait 1
@@ -683,27 +526,15 @@ L_804E6C7:
     .align 2, 0
 
 NPC_804E6D0:
-    a_init
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_Roll
-    a_set_pos 568, -154
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 568, -154, 0, SP_Overworld_Roll, frame=5, dialog=0x0
     a_stop
 
 NPC_804E6E5:
-    a_init
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_ProtoMan
-    a_set_pos 556, -220
-    a_set_sprite_frame 3
+    a_init_basic_npc_talk 556, -220, 0, SP_Overworld_ProtoMan, frame=3, dialog=0x1
     a_stop
 
 NPC_804E6FA:
-    a_init
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_Prog
-    a_set_pos 566, 94
-    a_set_sprite_frame 5
+    a_init_basic_npc_talk 566, 94, 0, SP_Overworld_Prog, frame=5, dialog=0x2
     a_stop
 
     .align 2, 0

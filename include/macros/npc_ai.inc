@@ -216,30 +216,36 @@
     a_set_pos \x, \y, \z
     .endm
 
-    .macro a_init_bmd_at x, y, z, dialog, radius=4
+    .macro a_init_bmd_at x, y, z, dialog, default_radius=0, radius=4
     a_init
     a_disable_turn
     a_set_dialog \dialog
     a_set_sprite_bmd_at \x, \y, \z
+.ifeq \default_radius
     a_set_radius \radius
+.endif
     a_set_sprite_frame 0
     .endm
 
-    .macro a_init_gmd_at x, y, z, dialog, radius=4
+    .macro a_init_gmd_at x, y, z, dialog, default_radius=0, radius=4
     a_init
     a_disable_turn
     a_set_dialog \dialog
     a_set_sprite_gmd_at \x, \y, \z
+.ifeq \default_radius
     a_set_radius \radius
+.endif
     a_set_sprite_frame 0
     .endm
 
-    .macro a_init_pmd_at x, y, z, dialog, radius=4
+    .macro a_init_pmd_at x, y, z, dialog, default_radius=0, radius=4
     a_init
     a_disable_turn
     a_set_dialog \dialog
     a_set_sprite_pmd_at \x, \y, \z
+.ifeq \default_radius
     a_set_radius \radius
+.endif
     a_set_sprite_frame 0
     .endm
 
@@ -251,4 +257,62 @@
     .macro a_wait_at x, y, z, wait=1
     a_set_pos \x, \y, \z
     a_wait \wait
+    .endm
+
+    .macro a_set_sprite_at x, y, z, id, frame
+    a_set_sprite \id
+    a_set_pos \x, \y, \z
+.ifnb \frame
+    a_set_sprite_frame \frame
+.endif
+    .endm
+
+    .macro a_create_bmd x, y, z, flag, dialog, default_radius=0, radius=4, no_shadow=0
+    a_jump_if_flag \flag, 2f
+    a_init_bmd_at \x, \y, \z, dialog=\dialog, default_radius=\default_radius, radius=\radius
+1:
+.if \no_shadow
+    a_shadow_off
+.endif
+    a_wait 1
+    a_jump_if_not_flag \flag, 1b
+2:
+    a_destroy
+    .endm
+
+    .macro a_create_gmd x, y, z, flag, dialog, default_radius=0, radius=4, no_shadow=0
+    a_jump_if_flag \flag, 2f
+    a_init_gmd_at \x, \y, \z, dialog=\dialog, default_radius=\default_radius, radius=\radius
+1:
+.if \no_shadow
+    a_shadow_off
+.endif
+    a_wait 1
+    a_jump_if_not_flag \flag, 1b
+2:
+    a_destroy
+    .endm
+
+    .macro a_create_pmd x, y, z, flag, dialog, default_radius=0, radius=4, no_shadow=0
+    a_jump_if_flag \flag, 2f
+    a_init_pmd_at \x, \y, \z, dialog=\dialog, default_radius=\default_radius, radius=\radius
+1:
+.if \no_shadow
+    a_shadow_off
+.endif
+    a_wait 1
+    a_jump_if_not_flag \flag, 1b
+2:
+    a_destroy
+    .endm
+
+    .macro a_init_basic_npc x, y, z, id, frame
+    a_init
+    a_set_sprite_at \x, \y, \z, \id, \frame
+    .endm
+
+    .macro a_init_basic_npc_talk x, y, z, id, frame, dialog
+    a_init
+    a_set_dialog \dialog
+    a_set_sprite_at \x, \y, \z, \id, \frame
     .endm
