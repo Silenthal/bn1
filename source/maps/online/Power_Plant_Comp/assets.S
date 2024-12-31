@@ -33,14 +33,10 @@ NPC_804B601:
     a_set_pos 224, 222
     a_set_sprite_frame 5
 L_804B60F:
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 10
-    a_set_sprite_frame 3
-    a_wait 30
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 10
-    a_set_sprite_frame 3
-    a_wait 30
+    a_move_f 10, d_sw, 8, 10
+    a_wait_f 3, 30
+    a_move_f 8, d_ne, 8, 10
+    a_wait_f 3, 30
     a_jump L_804B60F
 
     .align 2, 0
@@ -60,14 +56,10 @@ NPC_804B63D:
     a_set_pos 144, -164, -64
     a_set_sprite_frame 1
 L_804B64B:
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 10
-    a_set_sprite_frame 3
-    a_wait 30
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 10
-    a_set_sprite_frame 3
-    a_wait 30
+    a_move_f 8, d_ne, 8, 10
+    a_wait_f 3, 30
+    a_move_f 10, d_sw, 8, 10
+    a_wait_f 3, 30
     a_jump L_804B64B
 
     .align 2, 0
@@ -100,14 +92,7 @@ L_804B69D:
 
 NPC_804B69E:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_RATTON1_D, L_804B6C1
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 98, 204, -64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 98, 204, -64, dialog=0x1
 L_804B6B8:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_RATTON1_D, L_804B6B8
@@ -116,14 +101,7 @@ L_804B6C1:
 
 NPC_804B6C2:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_RECOV120_C, L_804B6E5
-    a_init
-    a_disable_turn
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 130, -180
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 130, -180, 0, dialog=0x2
 L_804B6DC:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_RECOV120_C, L_804B6DC
@@ -132,14 +110,7 @@ L_804B6E5:
 
 NPC_804B6E6:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_5000Z, L_804B709
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -92, 396, -64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -92, 396, -64, dialog=0x3
 L_804B700:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_5000Z, L_804B700
@@ -148,14 +119,7 @@ L_804B709:
 
 NPC_804B70A:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_1_XPANEL3_G, L_804B72D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x4
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -444, 268, -64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -444, 268, -64, dialog=0x4
 L_804B724:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_1_XPANEL3_G, L_804B724
@@ -259,14 +223,7 @@ L_804B819:
 
 NPC_804B81A:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_2_1000Z, L_804B83D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -286, -370
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -286, -370, 0, dialog=0x0
 L_804B834:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_2_1000Z, L_804B834
@@ -275,14 +232,7 @@ L_804B83D:
 
 NPC_804B83E:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_2_800Z, L_804B861
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 442, -290, -64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 442, -290, -64, dialog=0x1
 L_804B858:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_2_800Z, L_804B858
@@ -291,14 +241,7 @@ L_804B861:
 
 NPC_804B862:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_2_1200Z, L_804B885
-    a_init
-    a_disable_turn
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 310, -4
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 310, -4, 0, dialog=0x2
 L_804B87C:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_2_1200Z, L_804B87C
@@ -335,14 +278,10 @@ NPC_804B8C4:
     a_set_pos -302, -260, 96
     a_set_sprite_frame 1
 L_804B8D2:
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 10
-    a_set_sprite_frame 3
-    a_wait 30
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 10
-    a_set_sprite_frame 3
-    a_wait 30
+    a_move_f 8, d_ne, 8, 10
+    a_wait_f 3, 30
+    a_move_f 10, d_sw, 8, 10
+    a_wait_f 3, 30
     a_jump L_804B8D2
 
 NPC_804B8EB:
@@ -418,14 +357,7 @@ L_804B988:
 
 NPC_804B989:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_3_1000Z, L_804B9AC
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -300, -36, 96
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -300, -36, 96, dialog=0x0
 L_804B9A3:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_3_1000Z, L_804B9A3
@@ -434,14 +366,7 @@ L_804B9AC:
 
 NPC_804B9AD:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_3_500Z, L_804B9D0
-    a_init
-    a_disable_turn
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -172, -36, 96
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -172, -36, 96, dialog=0x2
 L_804B9C7:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_3_500Z, L_804B9C7
@@ -482,8 +407,7 @@ L_804BA10:
     a_wait 1
     a_jump L_804BA10
 L_804BA1E:
-    a_set_sprite_frame 21
-    a_wait 4
+    a_wait_f 21, 4
     a_move d_sw, 40, 2
     a_clear_flag 0xBE
     a_move d_sw, 40, 2
@@ -534,14 +458,10 @@ NPC_804BA8C:
     a_set_pos 232, 164
     a_set_sprite_frame 5
 L_804BA9A:
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 10
-    a_set_sprite_frame 7
-    a_wait 30
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 10
-    a_set_sprite_frame 7
-    a_wait 30
+    a_move_f 10, d_sw, 8, 10
+    a_wait_f 7, 30
+    a_move_f 8, d_ne, 8, 10
+    a_wait_f 7, 30
     a_jump L_804BA9A
 
 NPC_804BAB3:
@@ -569,14 +489,7 @@ L_804BAE4:
 
 NPC_804BAE5:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_4_1800Z, L_804BB08
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 170, 324
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 170, 324, 0, dialog=0x0
 L_804BAFF:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_4_1800Z, L_804BAFF
@@ -585,14 +498,7 @@ L_804BB08:
 
 NPC_804BB09:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_4_2000Z, L_804BB2C
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 362, 152
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 362, 152, 0, dialog=0x1
 L_804BB23:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_4_2000Z, L_804BB23
@@ -601,14 +507,7 @@ L_804BB2C:
 
 NPC_804BB2D:
     a_jump_if_flag FLAG_ITEM_POWER_PLANT_COMP_4_TYPHOON_D, L_804BB50
-    a_init
-    a_disable_turn
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -114, 196, -64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -114, 196, -64, dialog=0x2
 L_804BB47:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_POWER_PLANT_COMP_4_TYPHOON_D, L_804BB47

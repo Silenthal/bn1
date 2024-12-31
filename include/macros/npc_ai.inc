@@ -187,3 +187,68 @@
     a_wait \wait
     a_jump 1b
     .endm
+
+    .macro a_move_f frame dir speed dist
+    a_set_sprite_frame \frame
+    a_move \dir, \speed, \dist
+    .endm
+
+    .macro a_wait_f frame wait
+    a_set_sprite_frame \frame
+    a_wait \wait
+    .endm
+
+    .macro a_set_sprite_bmd_at x, y, z
+    a_set_sprite SP_Overworld_MysteryData
+    a_set_palette 0x0
+    a_set_pos \x, \y, \z
+    .endm
+
+    .macro a_set_sprite_gmd_at x, y, z
+    a_set_sprite SP_Overworld_MysteryData
+    a_set_palette 0x1
+    a_set_pos \x, \y, \z
+    .endm
+
+    .macro a_set_sprite_pmd_at x, y, z
+    a_set_sprite SP_Overworld_MysteryData
+    a_set_palette 0x2
+    a_set_pos \x, \y, \z
+    .endm
+
+    .macro a_init_bmd_at x, y, z, dialog, radius=4
+    a_init
+    a_disable_turn
+    a_set_dialog \dialog
+    a_set_sprite_bmd_at \x, \y, \z
+    a_set_radius \radius
+    a_set_sprite_frame 0
+    .endm
+
+    .macro a_init_gmd_at x, y, z, dialog, radius=4
+    a_init
+    a_disable_turn
+    a_set_dialog \dialog
+    a_set_sprite_gmd_at \x, \y, \z
+    a_set_radius \radius
+    a_set_sprite_frame 0
+    .endm
+
+    .macro a_init_pmd_at x, y, z, dialog, radius=4
+    a_init
+    a_disable_turn
+    a_set_dialog \dialog
+    a_set_sprite_pmd_at \x, \y, \z
+    a_set_radius \radius
+    a_set_sprite_frame 0
+    .endm
+
+    .macro a_shadow_off
+    a_set_no_z_clip
+    a_clear_z_clip
+    .endm
+
+    .macro a_wait_at x, y, z, wait=1
+    a_set_pos \x, \y, \z
+    a_wait \wait
+    .endm

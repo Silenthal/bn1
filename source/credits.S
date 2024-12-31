@@ -1072,14 +1072,10 @@ NPC_80220C8:
     a_set_sprite SP_Overworld_PreschoolGirl
     a_set_pos 148, 84
 L_80220D4:
-    a_set_sprite_frame 10
-    a_move d_sw, 16, 9
-    a_set_sprite_frame 9
-    a_move d_se, 16, 9
-    a_set_sprite_frame 8
-    a_move d_ne, 16, 9
-    a_set_sprite_frame 11
-    a_move d_nw, 16, 9
+    a_move_f 10, d_sw, 16, 9
+    a_move_f 9, d_se, 16, 9
+    a_move_f 8, d_ne, 16, 9
+    a_move_f 11, d_nw, 16, 9
     a_jump L_80220D4
 
     .align 2, 0
@@ -1090,14 +1086,10 @@ NPC_80220F4:
     a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos 76, 156
 L_8022100:
-    a_set_sprite_frame 8
-    a_move d_ne, 16, 9
-    a_set_sprite_frame 11
-    a_move d_nw, 16, 9
-    a_set_sprite_frame 10
-    a_move d_sw, 16, 9
-    a_set_sprite_frame 9
-    a_move d_se, 16, 9
+    a_move_f 8, d_ne, 16, 9
+    a_move_f 11, d_nw, 16, 9
+    a_move_f 10, d_sw, 16, 9
+    a_move_f 9, d_se, 16, 9
     a_jump L_8022100
 
     .align 2, 0
@@ -1135,24 +1127,16 @@ NPC_8022170:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Prog
     a_set_pos -332, -144
-    a_set_sprite_frame 1
+    a_wait_f 1, 30
+    a_wait_f 7, 60
+    a_wait_f 3, 240
     a_wait 30
-    a_set_sprite_frame 7
-    a_wait 60
-    a_set_sprite_frame 3
-    a_wait 240
-    a_wait 30
-    a_set_sprite_frame 7
-    a_wait 45
+    a_wait_f 7, 45
 L_8022190:
-    a_set_sprite_frame 1
-    a_wait 60
-    a_set_sprite_frame 7
-    a_wait 90
-    a_set_sprite_frame 1
-    a_wait 60
-    a_set_sprite_frame 7
-    a_wait 45
+    a_wait_f 1, 60
+    a_wait_f 7, 90
+    a_wait_f 1, 60
+    a_wait_f 7, 45
     a_jump L_8022190
 
     .align 2, 0
@@ -1165,14 +1149,10 @@ NPC_80221A8:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -344, -168
 L_80221B6:
-    a_set_sprite_frame 3
-    a_wait 60
-    a_set_sprite_frame 1
-    a_wait 80
-    a_set_sprite_frame 3
-    a_wait 60
-    a_set_sprite_frame 1
-    a_wait 40
+    a_wait_f 3, 60
+    a_wait_f 1, 80
+    a_wait_f 3, 60
+    a_wait_f 1, 40
     a_wait 1
     a_jump L_80221B6
 
@@ -1186,14 +1166,10 @@ NPC_80221D0:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -322, -198
 L_80221DE:
-    a_set_sprite_frame 1
-    a_wait 120
-    a_set_sprite_frame 3
-    a_wait 80
-    a_set_sprite_frame 1
-    a_wait 20
-    a_set_sprite_frame 3
-    a_wait 60
+    a_wait_f 1, 120
+    a_wait_f 3, 80
+    a_wait_f 1, 20
+    a_wait_f 3, 60
     a_wait 1
     a_jump L_80221DE
 
@@ -1207,14 +1183,10 @@ NPC_80221F8:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -304, -200
 L_8022206:
-    a_set_sprite_frame 3
-    a_wait 60
-    a_set_sprite_frame 5
-    a_wait 40
-    a_set_sprite_frame 3
-    a_wait 60
-    a_set_sprite_frame 5
-    a_wait 120
+    a_wait_f 3, 60
+    a_wait_f 5, 40
+    a_wait_f 3, 60
+    a_wait_f 5, 120
     a_wait 1
     a_jump L_8022206
 
@@ -1228,14 +1200,10 @@ NPC_8022220:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -278, -174
 L_802222E:
-    a_set_sprite_frame 5
-    a_wait 30
-    a_set_sprite_frame 3
-    a_wait 30
-    a_set_sprite_frame 5
-    a_wait 30
-    a_set_sprite_frame 3
-    a_wait 30
+    a_wait_f 5, 30
+    a_wait_f 3, 30
+    a_wait_f 5, 30
+    a_wait_f 3, 30
     a_wait 1
     a_jump L_802222E
 
@@ -1249,14 +1217,10 @@ NPC_8022248:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -286, -148
 L_8022256:
-    a_set_sprite_frame 7
-    a_wait 60
-    a_set_sprite_frame 5
-    a_wait 60
-    a_set_sprite_frame 7
-    a_wait 60
-    a_set_sprite_frame 5
-    a_wait 60
+    a_wait_f 7, 60
+    a_wait_f 5, 60
+    a_wait_f 7, 60
+    a_wait_f 5, 60
     a_wait 1
     a_jump L_8022256
 
@@ -1268,15 +1232,11 @@ NPC_8022270:
     a_disable_collision
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Prog
-    a_set_pos -320, -24
-    a_wait 60
-    a_set_sprite_frame 11
-    a_move d_nw, 8, 13
+    a_wait_at -320, -24, 0, wait=60
+    a_move_f 11, d_nw, 8, 13
     a_wait 90
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 2
-    a_set_sprite_frame 9
-    a_move d_se, 8, 13
+    a_move_f 8, d_ne, 8, 2
+    a_move_f 9, d_se, 8, 13
     a_stop
 
     .align 2, 0
@@ -1396,14 +1356,10 @@ NPC_80223A0:
     a_init
     a_set_sprite SP_Overworld_Mari
     a_set_pos 48, 92
-    a_set_sprite_frame 5
-    a_wait 120
-    a_set_sprite_frame 7
-    a_wait 120
-    a_set_sprite_frame 5
-    a_wait 120
-    a_set_sprite_frame 7
-    a_wait 120
+    a_wait_f 5, 120
+    a_wait_f 7, 120
+    a_wait_f 5, 120
+    a_wait_f 7, 120
     a_stop
 
     .align 2, 0
@@ -1412,14 +1368,10 @@ NPC_80223C4:
     a_init
     a_set_sprite SP_Overworld_Mayl
     a_set_pos 88, 32, 4
-    a_set_sprite_frame 1
-    a_wait 120
-    a_set_sprite_frame 11
-    a_move d_nw, 8, 4
-    a_set_sprite_frame 1
-    a_wait 120
-    a_set_sprite_frame 9
-    a_move d_se, 8, 4
+    a_wait_f 1, 120
+    a_move_f 11, d_nw, 8, 4
+    a_wait_f 1, 120
+    a_move_f 9, d_se, 8, 4
     a_set_sprite_frame 1
     a_stop
 
@@ -1447,23 +1399,15 @@ NPC_8022418:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_NumberMan
     a_set_pos 130, -66
-    a_set_sprite_frame 7
-    a_wait 120
+    a_wait_f 7, 120
     a_init
-    a_set_sprite_frame 12
-    a_wait 10
-    a_set_sprite_frame 7
-    a_wait 50
-    a_set_sprite_frame 5
-    a_wait 30
-    a_set_sprite_frame 1
-    a_wait 30
-    a_set_sprite_frame 13
-    a_wait 60
-    a_set_sprite_frame 14
-    a_wait 30
-    a_set_sprite_frame 7
-    a_wait 60
+    a_wait_f 12, 10
+    a_wait_f 7, 50
+    a_wait_f 5, 30
+    a_wait_f 1, 30
+    a_wait_f 13, 60
+    a_wait_f 14, 30
+    a_wait_f 7, 60
     a_set_sprite_frame 3
     a_stop
 
@@ -1477,42 +1421,26 @@ NPC_8022450:
     a_set_sprite SP_Overworld_NormalNavi
     a_sprite_mask_set_flag 3
     a_set_pos 108, -66
+    a_wait_f 1, 40
+    a_wait_f 7, 30
+    a_wait_f 1, 20
+    a_wait_f 7, 30
     a_set_sprite_frame 1
-    a_wait 40
-    a_set_sprite_frame 7
-    a_wait 30
-    a_set_sprite_frame 1
-    a_wait 20
-    a_set_sprite_frame 7
-    a_wait 30
-    a_set_sprite_frame 1
-    a_set_pos 108, -66, 4
-    a_wait 1
-    a_set_pos 108, -66, 5
-    a_wait 1
-    a_set_pos 108, -66, 6
-    a_wait 1
-    a_set_pos 108, -66, 4
-    a_wait 1
-    a_set_pos 108, -66, 2
-    a_wait 1
-    a_set_pos 108, -66
-    a_wait 240
+    a_wait_at 108, -66, 4
+    a_wait_at 108, -66, 5
+    a_wait_at 108, -66, 6
+    a_wait_at 108, -66, 4
+    a_wait_at 108, -66, 2
+    a_wait_at 108, -66, 0, wait=240
     a_wait 55
     a_wait 30
 L_80224AC:
-    a_set_pos 108, -66, 4
-    a_wait 1
-    a_set_pos 108, -66, 5
-    a_wait 1
-    a_set_pos 108, -66, 6
-    a_wait 1
-    a_set_pos 108, -66, 4
-    a_wait 1
-    a_set_pos 108, -66, 2
-    a_wait 1
-    a_set_pos 108, -66
-    a_wait 30
+    a_wait_at 108, -66, 4
+    a_wait_at 108, -66, 5
+    a_wait_at 108, -66, 6
+    a_wait_at 108, -66, 4
+    a_wait_at 108, -66, 2
+    a_wait_at 108, -66, 0, wait=30
     a_jump L_80224AC
 
     .align 2, 0
@@ -1525,42 +1453,26 @@ NPC_80224E8:
     a_set_sprite SP_Overworld_NormalNavi
     a_sprite_mask_set_flag 3
     a_set_pos 148, -66
-    a_set_sprite_frame 7
-    a_wait 40
+    a_wait_f 7, 40
+    a_wait_f 5, 30
+    a_wait_f 7, 20
+    a_wait_f 5, 30
     a_set_sprite_frame 5
-    a_wait 30
-    a_set_sprite_frame 7
-    a_wait 20
-    a_set_sprite_frame 5
-    a_wait 30
-    a_set_sprite_frame 5
-    a_set_pos 148, -66, 4
-    a_wait 1
-    a_set_pos 148, -66, 5
-    a_wait 1
-    a_set_pos 148, -66, 6
-    a_wait 1
-    a_set_pos 148, -66, 4
-    a_wait 1
-    a_set_pos 148, -66, 2
-    a_wait 1
-    a_set_pos 148, -66
-    a_wait 240
+    a_wait_at 148, -66, 4
+    a_wait_at 148, -66, 5
+    a_wait_at 148, -66, 6
+    a_wait_at 148, -66, 4
+    a_wait_at 148, -66, 2
+    a_wait_at 148, -66, 0, wait=240
     a_wait 40
     a_wait 30
 L_8022544:
-    a_set_pos 148, -66, 4
-    a_wait 1
-    a_set_pos 148, -66, 5
-    a_wait 1
-    a_set_pos 148, -66, 6
-    a_wait 1
-    a_set_pos 148, -66, 4
-    a_wait 1
-    a_set_pos 148, -66, 2
-    a_wait 1
-    a_set_pos 148, -66
-    a_wait 30
+    a_wait_at 148, -66, 4
+    a_wait_at 148, -66, 5
+    a_wait_at 148, -66, 6
+    a_wait_at 148, -66, 4
+    a_wait_at 148, -66, 2
+    a_wait_at 148, -66, 0, wait=30
     a_jump L_8022544
 
     .align 2, 0
@@ -1572,41 +1484,26 @@ NPC_8022580:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Prog
     a_set_pos 118, -42
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 3
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 3
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 1
+    a_move_f 8, d_ne, 8, 3
+    a_move_f 10, d_sw, 8, 3
+    a_move_f 8, d_ne, 8, 1
     a_wait 5
     a_set_sprite_frame 7
-    a_set_pos 126, -42, 4
-    a_wait 1
-    a_set_pos 126, -42, 5
-    a_wait 1
-    a_set_pos 126, -42, 6
-    a_wait 1
-    a_set_pos 126, -42, 4
-    a_wait 1
-    a_set_pos 126, -42, 2
-    a_wait 1
-    a_set_pos 126, -42
-    a_wait 240
+    a_wait_at 126, -42, 4
+    a_wait_at 126, -42, 5
+    a_wait_at 126, -42, 6
+    a_wait_at 126, -42, 4
+    a_wait_at 126, -42, 2
+    a_wait_at 126, -42, 0, wait=240
     a_wait 30
     a_wait 30
 L_80225DE:
-    a_set_pos 126, -42, 4
-    a_wait 1
-    a_set_pos 126, -42, 5
-    a_wait 1
-    a_set_pos 126, -42, 6
-    a_wait 1
-    a_set_pos 126, -42, 4
-    a_wait 1
-    a_set_pos 126, -42, 2
-    a_wait 1
-    a_set_pos 126, -42
-    a_wait 30
+    a_wait_at 126, -42, 4
+    a_wait_at 126, -42, 5
+    a_wait_at 126, -42, 6
+    a_wait_at 126, -42, 4
+    a_wait_at 126, -42, 2
+    a_wait_at 126, -42, 0, wait=30
     a_jump L_80225DE
 
     .align 2, 0
@@ -1673,14 +1570,10 @@ NPC_80227A8:
     a_set_sprite SP_Overworld_Sal
     a_set_pos 472, -132
 L_80227B4:
-    a_set_sprite_frame 5
-    a_wait 45
-    a_set_sprite_frame 3
-    a_wait 30
-    a_set_sprite_frame 5
-    a_wait 45
-    a_set_sprite_frame 3
-    a_wait 60
+    a_wait_f 5, 45
+    a_wait_f 3, 30
+    a_wait_f 5, 45
+    a_wait_f 3, 60
     a_jump L_80227B4
 
 NPC_80227C9:
@@ -1688,47 +1581,28 @@ NPC_80227C9:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Masa
     a_set_pos 408, -146
-    a_set_sprite_frame 3
-    a_wait 90
-    a_set_pos 408, -146, 4
-    a_wait 1
-    a_set_pos 408, -146, 5
-    a_wait 1
-    a_set_pos 408, -146, 6
-    a_wait 1
-    a_set_pos 408, -146, 4
-    a_wait 1
-    a_set_pos 408, -146, 2
-    a_wait 1
-    a_set_pos 408, -146
-    a_wait 1
+    a_wait_f 3, 90
+    a_wait_at 408, -146, 4
+    a_wait_at 408, -146, 5
+    a_wait_at 408, -146, 6
+    a_wait_at 408, -146, 4
+    a_wait_at 408, -146, 2
+    a_wait_at 408, -146, 0
 L_802280F:
     a_wait 90
-    a_set_pos 408, -146, 4
-    a_wait 1
-    a_set_pos 408, -146, 5
-    a_wait 1
-    a_set_pos 408, -146, 6
-    a_wait 1
-    a_set_pos 408, -146, 4
-    a_wait 1
-    a_set_pos 408, -146, 2
-    a_wait 1
-    a_set_pos 408, -146
-    a_wait 1
+    a_wait_at 408, -146, 4
+    a_wait_at 408, -146, 5
+    a_wait_at 408, -146, 6
+    a_wait_at 408, -146, 4
+    a_wait_at 408, -146, 2
+    a_wait_at 408, -146, 0
     a_wait 10
-    a_set_pos 408, -146, 4
-    a_wait 1
-    a_set_pos 408, -146, 5
-    a_wait 1
-    a_set_pos 408, -146, 6
-    a_wait 1
-    a_set_pos 408, -146, 4
-    a_wait 1
-    a_set_pos 408, -146, 2
-    a_wait 1
-    a_set_pos 408, -146
-    a_wait 1
+    a_wait_at 408, -146, 4
+    a_wait_at 408, -146, 5
+    a_wait_at 408, -146, 6
+    a_wait_at 408, -146, 4
+    a_wait_at 408, -146, 2
+    a_wait_at 408, -146, 0
     a_jump L_802280F
 
 NPC_8022884:
@@ -1768,8 +1642,7 @@ NPC_80228D8:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Scientist
     a_set_pos 348, -64
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 6
+    a_move_f 8, d_ne, 8, 6
     a_set_sprite_frame 1
     a_stop
 
@@ -1800,12 +1673,9 @@ NPC_8022930:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_GutsMan
     a_set_pos -234, 72, 64
-    a_set_sprite_frame 7
-    a_wait 100
-    a_set_sprite_frame 12
-    a_wait 15
-    a_set_sprite_frame 13
-    a_wait 60
+    a_wait_f 7, 100
+    a_wait_f 12, 15
+    a_wait_f 13, 60
     a_set_sprite_frame 7
     a_stop
 
@@ -1813,259 +1683,156 @@ NPC_8022951:
     a_init
     a_set_sprite SP_Overworld_ColdMan
     a_set_pos -242, -50, 64
-    a_set_sprite_frame 8
-    a_move d_ne, 4, 2
-    a_set_sprite_frame 1
-    a_wait 60
-    a_set_pos -226, -50, 68
-    a_wait 1
-    a_set_pos -225, -50, 69
-    a_wait 1
-    a_set_pos -224, -50, 70
-    a_wait 1
-    a_set_pos -223, -50, 68
-    a_wait 1
-    a_set_pos -222, -50, 66
-    a_wait 1
+    a_move_f 8, d_ne, 4, 2
+    a_wait_f 1, 60
+    a_wait_at -226, -50, 68
+    a_wait_at -225, -50, 69
+    a_wait_at -224, -50, 70
+    a_wait_at -223, -50, 68
+    a_wait_at -222, -50, 66
     a_set_pos -221, -50, 64
-    a_set_no_z_clip
-    a_clear_z_clip
-    a_set_sprite_frame 1
-    a_move d_ne, 32, 22
+    a_shadow_off
+    a_move_f 1, d_ne, 32, 22
     a_wait 90
-    a_set_sprite_frame 5
-    a_move d_sw, 32, 22
+    a_move_f 5, d_sw, 32, 22
     a_set_z_clip
-    a_set_pos -221, -50, 68
-    a_wait 1
-    a_set_pos -222, -50, 69
-    a_wait 1
-    a_set_pos -223, -50, 70
-    a_wait 1
-    a_set_pos -224, -50, 68
-    a_wait 1
-    a_set_pos -225, -50, 66
-    a_wait 1
+    a_wait_at -221, -50, 68
+    a_wait_at -222, -50, 69
+    a_wait_at -223, -50, 70
+    a_wait_at -224, -50, 68
+    a_wait_at -225, -50, 66
     a_set_pos -226, -50, 64
-    a_set_sprite_frame 10
-    a_move d_sw, 4, 1
+    a_move_f 10, d_sw, 4, 1
     a_set_sprite_frame 1
-    a_set_sprite_frame 3
-    a_wait 20
-    a_set_sprite_frame 7
-    a_wait 20
-    a_set_sprite_frame 3
-    a_wait 20
+    a_wait_f 3, 20
+    a_wait_f 7, 20
+    a_wait_f 3, 20
     a_stop
 
 NPC_80229F9:
     a_init
     a_set_sprite SP_Overworld_Prog
     a_set_pos -242, -18, 64
-    a_set_sprite_frame 8
-    a_move d_ne, 4, 2
-    a_set_sprite_frame 1
-    a_wait 60
-    a_set_pos -226, -18, 68
-    a_wait 1
-    a_set_pos -225, -18, 69
-    a_wait 1
-    a_set_pos -224, -18, 70
-    a_wait 1
-    a_set_pos -223, -18, 68
-    a_wait 1
-    a_set_pos -222, -18, 66
-    a_wait 1
+    a_move_f 8, d_ne, 4, 2
+    a_wait_f 1, 60
+    a_wait_at -226, -18, 68
+    a_wait_at -225, -18, 69
+    a_wait_at -224, -18, 70
+    a_wait_at -223, -18, 68
+    a_wait_at -222, -18, 66
     a_set_pos -221, -18, 64
-    a_set_no_z_clip
-    a_clear_z_clip
-    a_set_sprite_frame 1
-    a_move d_ne, 32, 22
+    a_shadow_off
+    a_move_f 1, d_ne, 32, 22
     a_wait 120
     a_sprite_mask_set_flag 3
     a_set_sprite SP_Overworld_NormalNavi
-    a_set_sprite_frame 5
-    a_move d_sw, 32, 22
+    a_move_f 5, d_sw, 32, 22
     a_set_z_clip
-    a_set_pos -221, -18, 68
-    a_wait 1
-    a_set_pos -222, -18, 69
-    a_wait 1
-    a_set_pos -223, -18, 70
-    a_wait 1
-    a_set_pos -224, -18, 68
-    a_wait 1
-    a_set_pos -225, -18, 66
-    a_wait 1
+    a_wait_at -221, -18, 68
+    a_wait_at -222, -18, 69
+    a_wait_at -223, -18, 70
+    a_wait_at -224, -18, 68
+    a_wait_at -225, -18, 66
     a_set_pos -226, -18, 64
-    a_set_sprite_frame 5
-    a_move d_sw, 4, 1
+    a_move_f 5, d_sw, 4, 1
     a_set_sprite_frame 1
 L_8022A92:
-    a_set_pos -234, -18, 68
-    a_wait 1
-    a_set_pos -234, -18, 69
-    a_wait 1
-    a_set_pos -234, -18, 70
-    a_wait 1
-    a_set_pos -234, -18, 68
-    a_wait 1
-    a_set_pos -234, -18, 66
-    a_wait 1
-    a_set_pos -234, -18, 64
-    a_wait 10
-    a_set_pos -234, -18, 68
-    a_wait 1
-    a_set_pos -234, -18, 69
-    a_wait 1
-    a_set_pos -234, -18, 70
-    a_wait 1
-    a_set_pos -234, -18, 68
-    a_wait 1
-    a_set_pos -234, -18, 66
-    a_wait 1
-    a_set_pos -234, -18, 64
-    a_wait 30
+    a_wait_at -234, -18, 68
+    a_wait_at -234, -18, 69
+    a_wait_at -234, -18, 70
+    a_wait_at -234, -18, 68
+    a_wait_at -234, -18, 66
+    a_wait_at -234, -18, 64, wait=10
+    a_wait_at -234, -18, 68
+    a_wait_at -234, -18, 69
+    a_wait_at -234, -18, 70
+    a_wait_at -234, -18, 68
+    a_wait_at -234, -18, 66
+    a_wait_at -234, -18, 64, wait=30
     a_jump L_8022A92
 
 NPC_8022B03:
     a_init
     a_set_sprite SP_Overworld_Prog
     a_set_pos -242, 14, 64
-    a_set_sprite_frame 8
-    a_move d_ne, 4, 2
-    a_set_sprite_frame 1
-    a_wait 60
-    a_set_pos -226, 14, 68
-    a_wait 1
-    a_set_pos -225, 14, 69
-    a_wait 1
-    a_set_pos -224, 14, 70
-    a_wait 1
-    a_set_pos -223, 14, 68
-    a_wait 1
-    a_set_pos -222, 14, 66
-    a_wait 1
+    a_move_f 8, d_ne, 4, 2
+    a_wait_f 1, 60
+    a_wait_at -226, 14, 68
+    a_wait_at -225, 14, 69
+    a_wait_at -224, 14, 70
+    a_wait_at -223, 14, 68
+    a_wait_at -222, 14, 66
     a_set_pos -221, 14, 64
-    a_set_no_z_clip
-    a_clear_z_clip
-    a_set_sprite_frame 1
-    a_move d_ne, 32, 22
+    a_shadow_off
+    a_move_f 1, d_ne, 32, 22
     a_wait 100
     a_sprite_mask_set_flag 3
     a_set_sprite SP_Overworld_NormalNavi
-    a_set_sprite_frame 5
-    a_move d_sw, 32, 22
+    a_move_f 5, d_sw, 32, 22
     a_set_z_clip
-    a_set_pos -221, 14, 68
-    a_wait 1
-    a_set_pos -222, 14, 69
-    a_wait 1
-    a_set_pos -223, 14, 70
-    a_wait 1
-    a_set_pos -224, 14, 68
-    a_wait 1
-    a_set_pos -225, 14, 66
-    a_wait 1
+    a_wait_at -221, 14, 68
+    a_wait_at -222, 14, 69
+    a_wait_at -223, 14, 70
+    a_wait_at -224, 14, 68
+    a_wait_at -225, 14, 66
     a_set_pos -226, 14, 64
-    a_set_sprite_frame 5
-    a_move d_sw, 4, 1
+    a_move_f 5, d_sw, 4, 1
     a_set_sprite_frame 1
 L_8022B9C:
-    a_set_pos -234, 14, 68
-    a_wait 1
-    a_set_pos -234, 14, 69
-    a_wait 1
-    a_set_pos -234, 14, 70
-    a_wait 1
-    a_set_pos -234, 14, 68
-    a_wait 1
-    a_set_pos -234, 14, 66
-    a_wait 1
-    a_set_pos -234, 14, 64
-    a_wait 10
-    a_set_pos -234, 14, 68
-    a_wait 1
-    a_set_pos -234, 14, 69
-    a_wait 1
-    a_set_pos -234, 14, 70
-    a_wait 1
-    a_set_pos -234, 14, 68
-    a_wait 1
-    a_set_pos -234, 14, 66
-    a_wait 1
-    a_set_pos -234, 14, 64
-    a_wait 30
+    a_wait_at -234, 14, 68
+    a_wait_at -234, 14, 69
+    a_wait_at -234, 14, 70
+    a_wait_at -234, 14, 68
+    a_wait_at -234, 14, 66
+    a_wait_at -234, 14, 64, wait=10
+    a_wait_at -234, 14, 68
+    a_wait_at -234, 14, 69
+    a_wait_at -234, 14, 70
+    a_wait_at -234, 14, 68
+    a_wait_at -234, 14, 66
+    a_wait_at -234, 14, 64, wait=30
     a_jump L_8022B9C
 
 NPC_8022C0D:
     a_init
     a_set_sprite SP_Overworld_Prog
     a_set_pos -242, -82, 64
-    a_set_sprite_frame 8
-    a_move d_ne, 4, 2
-    a_set_sprite_frame 1
-    a_wait 60
-    a_set_pos -226, -82, 68
-    a_wait 1
-    a_set_pos -225, -82, 69
-    a_wait 1
-    a_set_pos -224, -82, 70
-    a_wait 1
-    a_set_pos -223, -82, 68
-    a_wait 1
-    a_set_pos -222, -82, 66
-    a_wait 1
+    a_move_f 8, d_ne, 4, 2
+    a_wait_f 1, 60
+    a_wait_at -226, -82, 68
+    a_wait_at -225, -82, 69
+    a_wait_at -224, -82, 70
+    a_wait_at -223, -82, 68
+    a_wait_at -222, -82, 66
     a_set_pos -221, -82, 64
-    a_set_no_z_clip
-    a_clear_z_clip
-    a_set_sprite_frame 1
-    a_move d_ne, 32, 22
+    a_shadow_off
+    a_move_f 1, d_ne, 32, 22
     a_wait 130
     a_sprite_mask_set_flag 3
     a_set_sprite SP_Overworld_NormalNavi
-    a_set_sprite_frame 5
-    a_move d_sw, 32, 22
+    a_move_f 5, d_sw, 32, 22
     a_set_z_clip
-    a_set_pos -221, -82, 68
-    a_wait 1
-    a_set_pos -222, -82, 69
-    a_wait 1
-    a_set_pos -223, -82, 70
-    a_wait 1
-    a_set_pos -224, -82, 68
-    a_wait 1
-    a_set_pos -225, -82, 66
-    a_wait 1
+    a_wait_at -221, -82, 68
+    a_wait_at -222, -82, 69
+    a_wait_at -223, -82, 70
+    a_wait_at -224, -82, 68
+    a_wait_at -225, -82, 66
     a_set_pos -226, -82, 64
-    a_set_sprite_frame 5
-    a_move d_sw, 4, 1
+    a_move_f 5, d_sw, 4, 1
     a_set_sprite_frame 1
 L_8022CA6:
-    a_set_pos -234, -82, 68
-    a_wait 1
-    a_set_pos -234, -82, 69
-    a_wait 1
-    a_set_pos -234, -82, 70
-    a_wait 1
-    a_set_pos -234, -82, 68
-    a_wait 1
-    a_set_pos -234, -82, 66
-    a_wait 1
-    a_set_pos -234, -82, 64
-    a_wait 10
-    a_set_pos -234, -82, 68
-    a_wait 1
-    a_set_pos -234, -82, 69
-    a_wait 1
-    a_set_pos -234, -82, 70
-    a_wait 1
-    a_set_pos -234, -82, 68
-    a_wait 1
-    a_set_pos -234, -82, 66
-    a_wait 1
-    a_set_pos -234, -82, 64
-    a_wait 30
+    a_wait_at -234, -82, 68
+    a_wait_at -234, -82, 69
+    a_wait_at -234, -82, 70
+    a_wait_at -234, -82, 68
+    a_wait_at -234, -82, 66
+    a_wait_at -234, -82, 64, wait=10
+    a_wait_at -234, -82, 68
+    a_wait_at -234, -82, 69
+    a_wait_at -234, -82, 70
+    a_wait_at -234, -82, 68
+    a_wait_at -234, -82, 66
+    a_wait_at -234, -82, 64, wait=30
     a_jump L_8022CA6
 
 NPC_8022D17:
@@ -2099,10 +1866,8 @@ NPC_8022D60:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Higsby
     a_set_pos 48, 2
-    a_set_sprite_frame 5
-    a_wait 60
-    a_set_sprite_frame 9
-    a_move d_se, 8, 4
+    a_wait_f 5, 60
+    a_move_f 9, d_se, 8, 4
     a_set_sprite_frame 5
     a_stop
 
@@ -2114,14 +1879,10 @@ NPC_8022D80:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos -46, 2
 L_8022D8C:
-    a_set_sprite_frame 7
-    a_wait 120
-    a_set_sprite_frame 10
-    a_move d_sw, 4, 2
-    a_set_sprite_frame 7
-    a_wait 120
-    a_set_sprite_frame 8
-    a_move d_ne, 4, 2
+    a_wait_f 7, 120
+    a_move_f 10, d_sw, 4, 2
+    a_wait_f 7, 120
+    a_move_f 8, d_ne, 4, 2
     a_jump L_8022D8C
 
     .align 2, 0
@@ -2141,10 +1902,8 @@ NPC_8022DC0:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_PreschoolGirl
     a_set_pos -148, 32
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 20
-    a_set_sprite_frame 1
-    a_wait 30
+    a_move_f 8, d_ne, 8, 20
+    a_wait_f 1, 30
     a_set_sprite_frame 3
     a_stop 90
 
@@ -2155,56 +1914,31 @@ NPC_8022DE0:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos -148, 50
-    a_set_sprite_frame 8
-    a_move d_ne, 16, 20
-    a_set_sprite_frame 1
-    a_wait 150
-    a_set_pos 12, 50, 4
-    a_wait 1
-    a_set_pos 12, 50, 5
-    a_wait 1
-    a_set_pos 12, 50, 6
-    a_wait 1
-    a_set_pos 12, 50, 4
-    a_wait 1
-    a_set_pos 12, 50, 2
-    a_wait 1
-    a_set_pos 12, 50
-    a_wait 10
-    a_set_pos 12, 50, 4
-    a_wait 1
-    a_set_pos 12, 50, 5
-    a_wait 1
-    a_set_pos 12, 50, 6
-    a_wait 1
-    a_set_pos 12, 50, 4
-    a_wait 1
-    a_set_pos 12, 50, 2
-    a_wait 1
-    a_set_pos 12, 50
-    a_wait 60
-    a_set_pos 12, 50, 4
-    a_wait 1
-    a_set_pos 12, 50, 5
-    a_wait 1
-    a_set_pos 12, 50, 6
-    a_wait 1
-    a_set_pos 12, 50, 4
-    a_wait 1
-    a_set_pos 12, 50, 2
-    a_wait 1
-    a_set_pos 12, 50
-    a_wait 10
-    a_set_pos 12, 50, 4
-    a_wait 1
-    a_set_pos 12, 50, 5
-    a_wait 1
-    a_set_pos 12, 50, 6
-    a_wait 1
-    a_set_pos 12, 50, 4
-    a_wait 1
-    a_set_pos 12, 50, 2
-    a_wait 1
+    a_move_f 8, d_ne, 16, 20
+    a_wait_f 1, 150
+    a_wait_at 12, 50, 4
+    a_wait_at 12, 50, 5
+    a_wait_at 12, 50, 6
+    a_wait_at 12, 50, 4
+    a_wait_at 12, 50, 2
+    a_wait_at 12, 50, 0, wait=10
+    a_wait_at 12, 50, 4
+    a_wait_at 12, 50, 5
+    a_wait_at 12, 50, 6
+    a_wait_at 12, 50, 4
+    a_wait_at 12, 50, 2
+    a_wait_at 12, 50, 0, wait=60
+    a_wait_at 12, 50, 4
+    a_wait_at 12, 50, 5
+    a_wait_at 12, 50, 6
+    a_wait_at 12, 50, 4
+    a_wait_at 12, 50, 2
+    a_wait_at 12, 50, 0, wait=10
+    a_wait_at 12, 50, 4
+    a_wait_at 12, 50, 5
+    a_wait_at 12, 50, 6
+    a_wait_at 12, 50, 4
+    a_wait_at 12, 50, 2
     a_set_pos 12, 50
     a_stop
 
@@ -2230,14 +1964,10 @@ NPC_8022F00:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Glyde
     a_set_pos -86, -442, 64
-    a_set_sprite_frame 2
-    a_wait 120
-    a_set_sprite_frame 0
-    a_wait 60
-    a_set_sprite_frame 2
-    a_wait 120
-    a_set_sprite_frame 0
-    a_wait 30
+    a_wait_f 2, 120
+    a_wait_f 0, 60
+    a_wait_f 2, 120
+    a_wait_f 0, 30
     a_set_sprite_frame 2
     a_stop
 
@@ -2248,14 +1978,10 @@ NPC_8022F28:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Prog
     a_set_pos -66, -442, 64
-    a_set_sprite_frame 2
-    a_wait 140
-    a_set_sprite_frame 4
-    a_wait 60
-    a_set_sprite_frame 2
-    a_wait 80
-    a_set_sprite_frame 4
-    a_wait 60
+    a_wait_f 2, 140
+    a_wait_f 4, 60
+    a_wait_f 2, 80
+    a_wait_f 4, 60
     a_set_sprite_frame 2
     a_stop
 
@@ -2267,195 +1993,104 @@ NPC_8022F50:
     a_set_sprite SP_Overworld_MegaMan
     a_set_pos -278, -268, 32
     a_set_sprite_frame 17
-    a_set_pos -278, -268, 40
-    a_wait 1
-    a_set_pos -276, -268, 41
-    a_wait 1
-    a_set_pos -274, -268, 42
-    a_wait 1
-    a_set_pos -272, -268, 43
-    a_wait 1
-    a_set_pos -270, -268, 44
-    a_wait 1
-    a_set_pos -268, -268, 45
-    a_wait 1
-    a_set_pos -266, -268, 46
-    a_wait 1
-    a_set_pos -264, -268, 47
-    a_wait 1
-    a_set_pos -262, -268, 48
-    a_wait 1
-    a_set_pos -260, -268, 49
-    a_wait 1
-    a_set_pos -258, -268, 50
-    a_wait 1
-    a_set_pos -256, -268, 51
-    a_wait 1
-    a_set_pos -254, -268, 52
-    a_wait 1
-    a_set_pos -252, -268, 53
-    a_wait 1
-    a_set_pos -250, -268, 54
-    a_wait 1
-    a_set_pos -248, -268, 55
-    a_wait 1
-    a_set_pos -246, -268, 56
-    a_wait 1
-    a_set_pos -244, -268, 57
-    a_wait 1
-    a_set_pos -242, -268, 58
-    a_wait 1
-    a_set_pos -240, -268, 59
-    a_wait 1
-    a_set_pos -238, -268, 60
-    a_wait 1
-    a_set_pos -236, -268, 61
-    a_wait 1
-    a_set_pos -234, -268, 62
-    a_wait 1
-    a_set_pos -232, -268, 63
-    a_wait 1
-    a_set_pos -230, -268, 64
-    a_wait 1
-    a_set_pos -228, -268, 64
-    a_wait 1
-    a_set_pos -226, -268, 64
-    a_wait 1
-    a_set_pos -224, -268, 64
-    a_wait 1
-    a_set_pos -222, -268, 64
-    a_wait 1
-    a_set_pos -220, -268, 64
-    a_wait 1
-    a_set_pos -218, -268, 64
-    a_wait 1
-    a_set_pos -216, -268, 64
-    a_wait 1
-    a_set_pos -214, -268, 64
-    a_wait 1
-    a_set_pos -212, -268, 64
-    a_wait 1
-    a_set_pos -210, -268, 64
-    a_wait 1
-    a_set_pos -208, -268, 64
-    a_wait 1
+    a_wait_at -278, -268, 40
+    a_wait_at -276, -268, 41
+    a_wait_at -274, -268, 42
+    a_wait_at -272, -268, 43
+    a_wait_at -270, -268, 44
+    a_wait_at -268, -268, 45
+    a_wait_at -266, -268, 46
+    a_wait_at -264, -268, 47
+    a_wait_at -262, -268, 48
+    a_wait_at -260, -268, 49
+    a_wait_at -258, -268, 50
+    a_wait_at -256, -268, 51
+    a_wait_at -254, -268, 52
+    a_wait_at -252, -268, 53
+    a_wait_at -250, -268, 54
+    a_wait_at -248, -268, 55
+    a_wait_at -246, -268, 56
+    a_wait_at -244, -268, 57
+    a_wait_at -242, -268, 58
+    a_wait_at -240, -268, 59
+    a_wait_at -238, -268, 60
+    a_wait_at -236, -268, 61
+    a_wait_at -234, -268, 62
+    a_wait_at -232, -268, 63
+    a_wait_at -230, -268, 64
+    a_wait_at -228, -268, 64
+    a_wait_at -226, -268, 64
+    a_wait_at -224, -268, 64
+    a_wait_at -222, -268, 64
+    a_wait_at -220, -268, 64
+    a_wait_at -218, -268, 64
+    a_wait_at -216, -268, 64
+    a_wait_at -214, -268, 64
+    a_wait_at -212, -268, 64
+    a_wait_at -210, -268, 64
+    a_wait_at -208, -268, 64
     a_set_pos -206, -268, 64
-    a_set_sprite_frame 19
-    a_move d_se, 32, 8
+    a_move_f 19, d_se, 32, 8
     a_wait 30
     a_set_pos -78, -244, 64
-    a_set_sprite_frame 23
-    a_move d_nw, 32, 6
-    a_set_sprite_frame 17
-    a_move d_ne, 32, 8
+    a_move_f 23, d_nw, 32, 6
+    a_move_f 17, d_ne, 32, 8
     a_wait 30
     a_set_pos 162, -452
-    a_set_sprite_frame 21
-    a_move d_sw, 32, 13
-    a_set_sprite_frame 17
-    a_move d_ne, 32, 13
+    a_move_f 21, d_sw, 32, 13
+    a_move_f 17, d_ne, 32, 13
     a_wait 30
     a_set_sprite_frame 23
-    a_set_pos -78, -320, 32
-    a_wait 1
-    a_set_pos -78, -322, 33
-    a_wait 1
-    a_set_pos -78, -324, 34
-    a_wait 1
-    a_set_pos -78, -326, 35
-    a_wait 1
-    a_set_pos -78, -328, 36
-    a_wait 1
-    a_set_pos -78, -330, 37
-    a_wait 1
-    a_set_pos -78, -332, 38
-    a_wait 1
-    a_set_pos -78, -334, 39
-    a_wait 1
-    a_set_pos -78, -336, 40
-    a_wait 1
-    a_set_pos -78, -338, 41
-    a_wait 1
-    a_set_pos -78, -340, 42
-    a_wait 1
-    a_set_pos -78, -342, 43
-    a_wait 1
-    a_set_pos -78, -344, 44
-    a_wait 1
-    a_set_pos -78, -346, 45
-    a_wait 1
-    a_set_pos -78, -348, 46
-    a_wait 1
-    a_set_pos -78, -350, 47
-    a_wait 1
-    a_set_pos -78, -352, 48
-    a_wait 1
-    a_set_pos -78, -354, 49
-    a_wait 1
-    a_set_pos -78, -356, 50
-    a_wait 1
-    a_set_pos -78, -358, 51
-    a_wait 1
-    a_set_pos -78, -360, 52
-    a_wait 1
-    a_set_pos -78, -362, 53
-    a_wait 1
-    a_set_pos -78, -364, 54
-    a_wait 1
-    a_set_pos -78, -366, 55
-    a_wait 1
-    a_set_pos -78, -368, 56
-    a_wait 1
-    a_set_pos -78, -370, 57
-    a_wait 1
-    a_set_pos -78, -372, 58
-    a_wait 1
-    a_set_pos -78, -374, 59
-    a_wait 1
-    a_set_pos -78, -376, 60
-    a_wait 1
-    a_set_pos -78, -378, 61
-    a_wait 1
-    a_set_pos -78, -380, 62
-    a_wait 1
-    a_set_pos -78, -382, 63
-    a_wait 1
-    a_set_pos -78, -384, 64
-    a_wait 1
-    a_set_pos -78, -386, 64
-    a_wait 1
-    a_set_pos -78, -388, 64
-    a_wait 1
-    a_set_pos -78, -390, 64
-    a_wait 1
-    a_set_pos -78, -392, 64
-    a_wait 1
-    a_set_pos -78, -394, 64
-    a_wait 1
-    a_set_pos -78, -396, 64
-    a_wait 1
-    a_set_pos -78, -398, 64
-    a_wait 1
-    a_set_pos -78, -400, 64
-    a_wait 1
-    a_set_pos -78, -402, 64
-    a_wait 1
-    a_set_pos -78, -404, 64
-    a_wait 1
-    a_set_pos -78, -406, 64
-    a_wait 1
-    a_set_pos -78, -408, 64
-    a_wait 1
-    a_set_pos -78, -410, 64
-    a_wait 1
-    a_set_pos -78, -412, 64
-    a_wait 1
-    a_set_pos -78, -414, 64
-    a_wait 1
-    a_set_pos -78, -416, 64
-    a_wait 1
-    a_set_pos -78, -418, 64
-    a_wait 1
+    a_wait_at -78, -320, 32
+    a_wait_at -78, -322, 33
+    a_wait_at -78, -324, 34
+    a_wait_at -78, -326, 35
+    a_wait_at -78, -328, 36
+    a_wait_at -78, -330, 37
+    a_wait_at -78, -332, 38
+    a_wait_at -78, -334, 39
+    a_wait_at -78, -336, 40
+    a_wait_at -78, -338, 41
+    a_wait_at -78, -340, 42
+    a_wait_at -78, -342, 43
+    a_wait_at -78, -344, 44
+    a_wait_at -78, -346, 45
+    a_wait_at -78, -348, 46
+    a_wait_at -78, -350, 47
+    a_wait_at -78, -352, 48
+    a_wait_at -78, -354, 49
+    a_wait_at -78, -356, 50
+    a_wait_at -78, -358, 51
+    a_wait_at -78, -360, 52
+    a_wait_at -78, -362, 53
+    a_wait_at -78, -364, 54
+    a_wait_at -78, -366, 55
+    a_wait_at -78, -368, 56
+    a_wait_at -78, -370, 57
+    a_wait_at -78, -372, 58
+    a_wait_at -78, -374, 59
+    a_wait_at -78, -376, 60
+    a_wait_at -78, -378, 61
+    a_wait_at -78, -380, 62
+    a_wait_at -78, -382, 63
+    a_wait_at -78, -384, 64
+    a_wait_at -78, -386, 64
+    a_wait_at -78, -388, 64
+    a_wait_at -78, -390, 64
+    a_wait_at -78, -392, 64
+    a_wait_at -78, -394, 64
+    a_wait_at -78, -396, 64
+    a_wait_at -78, -398, 64
+    a_wait_at -78, -400, 64
+    a_wait_at -78, -402, 64
+    a_wait_at -78, -404, 64
+    a_wait_at -78, -406, 64
+    a_wait_at -78, -408, 64
+    a_wait_at -78, -410, 64
+    a_wait_at -78, -412, 64
+    a_wait_at -78, -414, 64
+    a_wait_at -78, -416, 64
+    a_wait_at -78, -418, 64
     a_set_sprite_frame 50
     a_stop
 
@@ -2484,67 +2119,37 @@ NPC_80232DC:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_PreschoolGirl
     a_set_pos 24, 150
-    a_set_sprite_frame 3
-    a_wait 30
-    a_set_sprite_frame 5
-    a_wait 60
-    a_set_sprite_frame 3
-    a_wait 45
-    a_set_sprite_frame 5
-    a_wait 45
-    a_set_pos 24, 150, 4
-    a_wait 1
-    a_set_pos 24, 150, 5
-    a_wait 1
-    a_set_pos 24, 150, 6
-    a_wait 1
-    a_set_pos 24, 150, 4
-    a_wait 1
-    a_set_pos 24, 150, 2
-    a_wait 1
-    a_set_pos 24, 150
-    a_wait 10
-    a_set_pos 24, 150, 4
-    a_wait 1
-    a_set_pos 24, 150, 5
-    a_wait 1
-    a_set_pos 24, 150, 6
-    a_wait 1
-    a_set_pos 24, 150, 4
-    a_wait 1
-    a_set_pos 24, 150, 2
-    a_wait 1
-    a_set_pos 24, 150
-    a_wait 60
-    a_set_sprite_frame 9
-    a_move d_se, 16, 8
+    a_wait_f 3, 30
+    a_wait_f 5, 60
+    a_wait_f 3, 45
+    a_wait_f 5, 45
+    a_wait_at 24, 150, 4
+    a_wait_at 24, 150, 5
+    a_wait_at 24, 150, 6
+    a_wait_at 24, 150, 4
+    a_wait_at 24, 150, 2
+    a_wait_at 24, 150, 0, wait=10
+    a_wait_at 24, 150, 4
+    a_wait_at 24, 150, 5
+    a_wait_at 24, 150, 6
+    a_wait_at 24, 150, 4
+    a_wait_at 24, 150, 2
+    a_wait_at 24, 150, 0, wait=60
+    a_move_f 9, d_se, 16, 8
     a_set_sprite_frame 7
-    a_set_pos 24, 214, 4
-    a_wait 1
-    a_set_pos 24, 214, 5
-    a_wait 1
-    a_set_pos 24, 214, 6
-    a_wait 1
-    a_set_pos 24, 214, 4
-    a_wait 1
-    a_set_pos 24, 214, 2
-    a_wait 1
-    a_set_pos 24, 214
-    a_wait 10
-    a_set_pos 24, 214, 4
-    a_wait 1
-    a_set_pos 24, 214, 5
-    a_wait 1
-    a_set_pos 24, 214, 6
-    a_wait 1
-    a_set_pos 24, 214, 4
-    a_wait 1
-    a_set_pos 24, 214, 2
-    a_wait 1
-    a_set_pos 24, 214
-    a_wait 30
-    a_set_sprite_frame 9
-    a_move d_se, 16, 20
+    a_wait_at 24, 214, 4
+    a_wait_at 24, 214, 5
+    a_wait_at 24, 214, 6
+    a_wait_at 24, 214, 4
+    a_wait_at 24, 214, 2
+    a_wait_at 24, 214, 0, wait=10
+    a_wait_at 24, 214, 4
+    a_wait_at 24, 214, 5
+    a_wait_at 24, 214, 6
+    a_wait_at 24, 214, 4
+    a_wait_at 24, 214, 2
+    a_wait_at 24, 214, 0, wait=30
+    a_move_f 9, d_se, 16, 20
     a_stop
 
     .align 2, 0
@@ -2555,16 +2160,11 @@ NPC_80233E8:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_WomanSkirt
     a_set_pos 2, 8
-    a_set_sprite_frame 12
-    a_move d_se, 16, 18
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 1
-    a_set_sprite_frame 1
-    a_wait 90
-    a_set_sprite_frame 3
-    a_wait 30
-    a_set_sprite_frame 9
-    a_move d_se, 8, 20
+    a_move_f 12, d_se, 16, 18
+    a_move_f 8, d_ne, 8, 1
+    a_wait_f 1, 90
+    a_wait_f 3, 30
+    a_move_f 9, d_se, 8, 20
     a_stop
 
     .align 2, 0
@@ -2575,13 +2175,10 @@ NPC_8023418:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Chaud
     a_set_pos -6, 308
-    a_set_sprite_frame 11
-    a_move d_nw, 8, 12
-    a_set_sprite_frame 7
-    a_wait 90
+    a_move_f 11, d_nw, 8, 12
+    a_wait_f 7, 90
     a_wait 60
-    a_set_sprite_frame 11
-    a_move d_nw, 8, 12
+    a_move_f 11, d_nw, 8, 12
     a_stop
 
     .align 2, 0
@@ -2605,12 +2202,10 @@ NPC_802345C:
     a_set_sprite SP_Overworld_BrownCar
     a_set_pos -54, -156
     a_set_palette 0x1
-    a_set_sprite_frame 3
-    a_move d_se, 32, 60
+    a_move_f 3, d_se, 32, 60
     a_set_pos -54, -156
     a_set_palette 0x0
-    a_set_sprite_frame 3
-    a_move d_se, 32, 60
+    a_move_f 3, d_se, 32, 60
     a_stop
 
     .align 2, 0
@@ -2646,12 +2241,9 @@ NPC_8023578:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_GutsMan
     a_set_pos 240, 308
-    a_set_sprite_frame 7
-    a_wait 160
-    a_set_sprite_frame 12
-    a_wait 10
-    a_set_sprite_frame 13
-    a_wait 120
+    a_wait_f 7, 160
+    a_wait_f 12, 10
+    a_wait_f 13, 120
     a_set_sprite_frame 5
     a_stop
 
@@ -2664,10 +2256,8 @@ NPC_802359C:
     a_set_dialog 0x0
     a_set_sprite_ex 0x10F
     a_set_pos 242, 204
-    a_set_sprite_frame 0
-    a_wait 1
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_wait_f 0, 1
+    a_shadow_off
     a_wait 99
     a_set_palette 0x1
     a_wait 120
@@ -2681,27 +2271,17 @@ NPC_80235C0:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Prog
     a_set_pos 244, 160
-    a_set_sprite_frame 9
-    a_move d_se, 8, 7
-    a_set_pos 244, 216, 4
-    a_wait 1
-    a_set_pos 244, 215, 5
-    a_wait 1
-    a_set_pos 244, 214, 6
-    a_wait 1
-    a_set_pos 244, 213, 4
-    a_wait 1
-    a_set_pos 244, 212, 2
-    a_wait 1
-    a_set_pos 244, 211
-    a_wait 120
-    a_set_sprite_frame 9
-    a_move d_se, 8, 3
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 4
+    a_move_f 9, d_se, 8, 7
+    a_wait_at 244, 216, 4
+    a_wait_at 244, 215, 5
+    a_wait_at 244, 214, 6
+    a_wait_at 244, 213, 4
+    a_wait_at 244, 212, 2
+    a_wait_at 244, 211, 0, wait=120
+    a_move_f 9, d_se, 8, 3
+    a_move_f 10, d_sw, 8, 4
     a_set_pos 120, 302
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 10
+    a_move_f 8, d_ne, 8, 10
     a_stop
 
     .align 2, 0
@@ -2712,30 +2292,19 @@ NPC_802362C:
     a_disable_collision
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Prog
-    a_set_pos 244, 144
-    a_wait 1
-    a_set_sprite_frame 9
-    a_move d_se, 8, 7
+    a_wait_at 244, 144, 0
+    a_move_f 9, d_se, 8, 7
     a_wait 5
-    a_set_pos 244, 200, 4
-    a_wait 1
-    a_set_pos 244, 199, 5
-    a_wait 1
-    a_set_pos 244, 198, 6
-    a_wait 1
-    a_set_pos 244, 197, 4
-    a_wait 1
-    a_set_pos 244, 196, 2
-    a_wait 1
-    a_set_pos 244, 195
-    a_wait 120
-    a_set_sprite_frame 9
-    a_move d_se, 8, 5
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 4
+    a_wait_at 244, 200, 4
+    a_wait_at 244, 199, 5
+    a_wait_at 244, 198, 6
+    a_wait_at 244, 197, 4
+    a_wait_at 244, 196, 2
+    a_wait_at 244, 195, 0, wait=120
+    a_move_f 9, d_se, 8, 5
+    a_move_f 10, d_sw, 8, 4
     a_set_pos 120, 302
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 10
+    a_move_f 8, d_ne, 8, 10
     a_stop
 
     .align 2, 0
@@ -2746,30 +2315,19 @@ NPC_802369C:
     a_disable_collision
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_Prog
-    a_set_pos 244, 128
-    a_wait 2
-    a_set_sprite_frame 9
-    a_move d_se, 8, 7
+    a_wait_at 244, 128, 0, wait=2
+    a_move_f 9, d_se, 8, 7
     a_wait 10
-    a_set_pos 244, 184, 4
-    a_wait 1
-    a_set_pos 244, 183, 5
-    a_wait 1
-    a_set_pos 244, 182, 6
-    a_wait 1
-    a_set_pos 244, 181, 4
-    a_wait 1
-    a_set_pos 244, 180, 2
-    a_wait 1
-    a_set_pos 244, 179
-    a_wait 120
-    a_set_sprite_frame 9
-    a_move d_se, 8, 7
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 4
+    a_wait_at 244, 184, 4
+    a_wait_at 244, 183, 5
+    a_wait_at 244, 182, 6
+    a_wait_at 244, 181, 4
+    a_wait_at 244, 180, 2
+    a_wait_at 244, 179, 0, wait=120
+    a_move_f 9, d_se, 8, 7
+    a_move_f 10, d_sw, 8, 4
     a_set_pos 120, 302
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 10
+    a_move_f 8, d_ne, 8, 10
     a_stop
 
     .align 2, 0
@@ -2848,14 +2406,10 @@ NPC_8023804:
     a_set_sprite SP_Overworld_YoungBoy
     a_set_pos 30, -58
 L_8023810:
-    a_set_sprite_frame 1
-    a_wait 120
-    a_set_sprite_frame 3
-    a_wait 90
-    a_set_sprite_frame 1
-    a_wait 60
-    a_set_sprite_frame 3
-    a_wait 120
+    a_wait_f 1, 120
+    a_wait_f 3, 90
+    a_wait_f 1, 60
+    a_wait_f 3, 120
     a_jump L_8023810
 
     .align 2, 0
@@ -2865,33 +2419,20 @@ NPC_8023828:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_PreschoolBoy
     a_set_pos 30, -40
-    a_set_sprite_frame 0
-    a_wait 60
+    a_wait_f 0, 60
 L_8023838:
-    a_set_pos 30, -40, 4
-    a_wait 1
-    a_set_pos 30, -40, 5
-    a_wait 1
-    a_set_pos 30, -40, 6
-    a_wait 1
-    a_set_pos 30, -40, 4
-    a_wait 1
-    a_set_pos 30, -40, 2
-    a_wait 1
-    a_set_pos 30, -40
-    a_wait 10
-    a_set_pos 30, -40, 4
-    a_wait 1
-    a_set_pos 30, -40, 5
-    a_wait 1
-    a_set_pos 30, -40, 6
-    a_wait 1
-    a_set_pos 30, -40, 4
-    a_wait 1
-    a_set_pos 30, -40, 2
-    a_wait 1
-    a_set_pos 30, -40
-    a_wait 120
+    a_wait_at 30, -40, 4
+    a_wait_at 30, -40, 5
+    a_wait_at 30, -40, 6
+    a_wait_at 30, -40, 4
+    a_wait_at 30, -40, 2
+    a_wait_at 30, -40, 0, wait=10
+    a_wait_at 30, -40, 4
+    a_wait_at 30, -40, 5
+    a_wait_at 30, -40, 6
+    a_wait_at 30, -40, 4
+    a_wait_at 30, -40, 2
+    a_wait_at 30, -40, 0, wait=120
     a_jump L_8023838
 
     .align 2, 0
@@ -2902,14 +2443,10 @@ NPC_80238AC:
     a_set_sprite SP_Overworld_Mari
     a_set_pos -18, -122
 L_80238B8:
-    a_set_sprite_frame 5
-    a_wait 180
-    a_set_sprite_frame 3
-    a_wait 60
-    a_set_sprite_frame 5
-    a_wait 180
-    a_set_sprite_frame 3
-    a_wait 180
+    a_wait_f 5, 180
+    a_wait_f 3, 60
+    a_wait_f 5, 180
+    a_wait_f 3, 180
     a_jump L_80238B8
 
     .align 2, 0
@@ -2920,38 +2457,24 @@ NPC_80238D0:
     a_set_sprite SP_Overworld_Yai
     a_set_pos -18, -104
 L_80238DC:
-    a_set_sprite_frame 9
-    a_move d_se, 8, 3
+    a_move_f 9, d_se, 8, 3
     a_set_sprite_frame 10
-    a_set_pos -18, -80, 4
-    a_wait 1
-    a_set_pos -18, -80, 5
-    a_wait 1
-    a_set_pos -18, -80, 6
-    a_wait 1
-    a_set_pos -18, -80, 4
-    a_wait 1
-    a_set_pos -18, -80, 2
-    a_wait 1
+    a_wait_at -18, -80, 4
+    a_wait_at -18, -80, 5
+    a_wait_at -18, -80, 6
+    a_wait_at -18, -80, 4
+    a_wait_at -18, -80, 2
     a_set_pos -18, -80
-    a_set_sprite_frame 5
-    a_wait 90
-    a_set_sprite_frame 11
-    a_move d_nw, 8, 3
+    a_wait_f 5, 90
+    a_move_f 11, d_nw, 8, 3
     a_set_sprite_frame 10
-    a_set_pos -18, -104, 4
-    a_wait 1
-    a_set_pos -18, -104, 5
-    a_wait 1
-    a_set_pos -18, -104, 6
-    a_wait 1
-    a_set_pos -18, -104, 4
-    a_wait 1
-    a_set_pos -18, -104, 2
-    a_wait 1
+    a_wait_at -18, -104, 4
+    a_wait_at -18, -104, 5
+    a_wait_at -18, -104, 6
+    a_wait_at -18, -104, 4
+    a_wait_at -18, -104, 2
     a_set_pos -18, -104
-    a_set_sprite_frame 5
-    a_wait 90
+    a_wait_f 5, 90
     a_jump L_80238DC
 
     .align 2, 0
@@ -2973,14 +2496,10 @@ NPC_802397C:
     a_set_sprite SP_Overworld_YoungGirl
     a_set_pos -18, -30
 L_802398A:
-    a_set_sprite_frame 7
-    a_wait 120
-    a_set_sprite_frame 5
-    a_wait 90
-    a_set_sprite_frame 7
-    a_wait 60
-    a_set_sprite_frame 5
-    a_wait 120
+    a_wait_f 7, 120
+    a_wait_f 5, 90
+    a_wait_f 7, 60
+    a_wait_f 5, 120
     a_jump L_802398A
 
     .align 2, 0
@@ -2992,8 +2511,7 @@ NPC_80239A0:
     a_set_pos 8, -128
     a_set_sprite_frame 0
 L_80239AF:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump L_80239AF
 
@@ -3027,14 +2545,10 @@ NPC_8023A08:
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_GutsMan
     a_set_pos -104, -48
-    a_set_sprite_frame 7
-    a_wait 100
-    a_set_sprite_frame 12
-    a_wait 10
-    a_set_sprite_frame 13
-    a_wait 120
-    a_set_sprite_frame 1
-    a_wait 120
+    a_wait_f 7, 100
+    a_wait_f 12, 10
+    a_wait_f 13, 120
+    a_wait_f 1, 120
     a_set_sprite_frame 5
     a_stop
 
@@ -3050,16 +2564,11 @@ NPC_8023A30:
     a_set_palette 0x2
     a_wait 180
 L_8023A43:
-    a_set_sprite_frame 1
-    a_wait 15
-    a_set_sprite_frame 0
-    a_wait 20
-    a_set_sprite_frame 1
-    a_wait 15
-    a_set_sprite_frame 0
-    a_wait 50
-    a_set_sprite_frame 1
-    a_wait 30
+    a_wait_f 1, 15
+    a_wait_f 0, 20
+    a_wait_f 1, 15
+    a_wait_f 0, 50
+    a_wait_f 1, 30
     a_jump L_8023A43
 
     .align 2, 0
@@ -3074,16 +2583,11 @@ NPC_8023A5C:
     a_set_palette 0x1
     a_wait 180
 L_8023A6F:
-    a_set_sprite_frame 1
-    a_wait 15
-    a_set_sprite_frame 0
-    a_wait 10
-    a_set_sprite_frame 1
-    a_wait 15
-    a_set_sprite_frame 0
-    a_wait 20
-    a_set_sprite_frame 1
-    a_wait 40
+    a_wait_f 1, 15
+    a_wait_f 0, 10
+    a_wait_f 1, 15
+    a_wait_f 0, 20
+    a_wait_f 1, 40
     a_jump L_8023A6F
 
 NPC_8023A88:
@@ -3096,16 +2600,11 @@ NPC_8023A88:
     a_set_palette 0x0
     a_wait 180
 L_8023A9B:
-    a_set_sprite_frame 1
-    a_wait 15
-    a_set_sprite_frame 0
-    a_wait 20
-    a_set_sprite_frame 1
-    a_wait 30
-    a_set_sprite_frame 0
-    a_wait 20
-    a_set_sprite_frame 1
-    a_wait 15
+    a_wait_f 1, 15
+    a_wait_f 0, 20
+    a_wait_f 1, 30
+    a_wait_f 0, 20
+    a_wait_f 1, 15
     a_jump L_8023A9B
 
 NPC_8023AB4:
@@ -3145,8 +2644,7 @@ NPC_8023AFC:
     a_set_dialog 0x0
     a_set_sprite_ex 0x39
     a_set_pos 64, -48
-    a_set_sprite_frame 10
-    a_wait 110
+    a_wait_f 10, 110
     a_init
     a_move d_sw, 16, 14
     a_set_sprite_frame 18
@@ -3161,8 +2659,7 @@ NPC_8023B20:
     a_set_dialog 0x0
     a_set_sprite_ex 0x8
     a_set_pos -76, 68
-    a_set_sprite_frame 15
-    a_wait 120
+    a_wait_f 15, 120
     a_init
     a_move d_nw, 32, 10
     a_set_sprite_frame 49
@@ -3177,32 +2674,20 @@ NPC_8023B44:
     a_set_dialog 0x0
     a_set_sprite_ex 0xCE
     a_set_pos -98, -22, 32
-    a_set_sprite_frame 0
-    a_wait 130
+    a_wait_f 0, 130
     a_init
     a_set_sprite_ex 0xDA
-    a_set_sprite_frame 0
-    a_wait 1
-    a_set_no_z_clip
-    a_clear_z_clip
-    a_set_pos -98, -22, 32
-    a_wait 1
-    a_set_pos -98, -22, 32
-    a_wait 1
-    a_set_pos -98, -22, 33
-    a_wait 1
-    a_set_pos -98, -22, 33
-    a_wait 1
-    a_set_pos -98, -22, 34
-    a_wait 1
-    a_set_pos -98, -22, 34
-    a_wait 1
-    a_set_pos -98, -22, 35
-    a_wait 1
-    a_set_pos -98, -22, 35
-    a_wait 1
-    a_set_pos -98, -22, 36
-    a_wait 1
+    a_wait_f 0, 1
+    a_shadow_off
+    a_wait_at -98, -22, 32
+    a_wait_at -98, -22, 32
+    a_wait_at -98, -22, 33
+    a_wait_at -98, -22, 33
+    a_wait_at -98, -22, 34
+    a_wait_at -98, -22, 34
+    a_wait_at -98, -22, 35
+    a_wait_at -98, -22, 35
+    a_wait_at -98, -22, 36
     a_wait 20
     a_destroy
 
@@ -3247,10 +2732,8 @@ NPC_8023C54:
     a_init
     a_set_sprite SP_Overworld_Wily
     a_set_pos 116, -42
-    a_set_sprite_frame 12
-    a_wait 60
-    a_set_sprite_frame 13
-    a_wait 5
+    a_wait_f 12, 60
+    a_wait_f 13, 5
     a_set_sprite_frame 14
     a_stop
 
@@ -3330,14 +2813,11 @@ NPC_8023D64:
     a_init_no_sprite
     a_set_dialog 0x0
     a_set_sprite SP_Overworld_MegaMan
-    a_set_pos 0, -16
-    a_wait 120
+    a_wait_at 0, -16, 0, wait=120
     a_init
-    a_set_sprite_frame 40
-    a_wait 64
+    a_wait_f 40, 64
     a_set_sprite_frame 5
-    a_set_sprite_frame 13
-    a_move d_sw, 4, 2
+    a_move_f 13, d_sw, 4, 2
     a_set_sprite_frame 5
     a_stop
 

@@ -16,9 +16,7 @@ NPC_8050D28:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 250, -250
+    a_set_sprite_bmd_at 250, -250, 0
     a_set_sprite_frame 0
 L_8050D40:
     a_wait 1
@@ -64,8 +62,7 @@ NPC_8050D7C:
     a_set_pos -150, -10
     a_set_sprite_frame 0
 L_8050D8D:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump L_8050D8D
 
@@ -85,9 +82,7 @@ NPC_8050DAC:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 218, 166
+    a_set_sprite_bmd_at 218, 166, 0
     a_set_sprite_frame 0
 L_8050DC4:
     a_wait 1
@@ -135,9 +130,7 @@ NPC_8050E14:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 218, -186
+    a_set_sprite_bmd_at 218, -186, 0
     a_set_sprite_frame 0
 L_8050E2C:
     a_wait 1
@@ -186,9 +179,7 @@ NPC_8050E80:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -230, -186
+    a_set_sprite_bmd_at -230, -186, 0
     a_set_sprite_frame 0
 L_8050E98:
     a_wait 1
@@ -229,9 +220,7 @@ NPC_8050ED4:
     a_init
     a_disable_turn
     a_set_dialog 0x3
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 218, 230
+    a_set_sprite_bmd_at 218, 230, 0
     a_set_sprite_frame 0
 L_8050EEC:
     a_wait 1
@@ -254,9 +243,7 @@ NPC_8050F0C:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 26, 6
+    a_set_sprite_bmd_at 26, 6, 0
     a_set_sprite_frame 0
 L_8050F24:
     a_wait 1
@@ -312,9 +299,7 @@ NPC_8050F8C:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 218, -218
+    a_set_sprite_bmd_at 218, -218, 0
     a_set_sprite_frame 0
 L_8050FA4:
     a_wait 1
@@ -376,9 +361,7 @@ NPC_805100C:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -134, -186
+    a_set_sprite_bmd_at -134, -186, 0
     a_set_sprite_frame 0
 L_8051024:
     a_wait 1
@@ -427,9 +410,7 @@ NPC_8051074:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -38, -26
+    a_set_sprite_bmd_at -38, -26, 0
     a_set_sprite_frame 0
 L_805108C:
     a_wait 1
@@ -480,9 +461,7 @@ NPC_80510E0:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -166, 198
+    a_set_sprite_bmd_at -166, 198, 0
     a_set_sprite_frame 0
 L_80510F8:
     a_wait 1
@@ -523,9 +502,7 @@ NPC_8051134:
     a_init
     a_disable_turn
     a_set_dialog 0x3
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 218, 198
+    a_set_sprite_bmd_at 218, 198, 0
     a_set_sprite_frame 0
 L_805114C:
     a_wait 1
@@ -549,9 +526,7 @@ NPC_805116C:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -198, -218
+    a_set_sprite_bmd_at -198, -218, 0
     a_set_sprite_frame 0
 L_8051184:
     a_wait 1
@@ -600,9 +575,7 @@ NPC_80511D4:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 186, -186
+    a_set_sprite_bmd_at 186, -186, 0
     a_set_sprite_frame 0
 L_80511EC:
     a_wait 1
@@ -650,9 +623,7 @@ NPC_805123C:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 250, -26
+    a_set_sprite_bmd_at 250, -26, 0
     a_set_sprite_frame 0
 L_8051254:
     a_wait 1
@@ -700,9 +671,7 @@ NPC_80512A4:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 250, 230
+    a_set_sprite_bmd_at 250, 230, 0
     a_set_sprite_frame 0
 L_80512BC:
     a_wait 1

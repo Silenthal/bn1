@@ -29,14 +29,7 @@ NPC_8049101:
 
 NPC_8049116:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_800Z, L_8049139
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -412, -96
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -412, -96, 0, dialog=0x6
 L_8049130:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_800Z, L_8049130
@@ -45,14 +38,7 @@ L_8049139:
 
 NPC_804913A:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_BUBBLER_K, L_804915D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x7
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -412, -168
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -412, -168, 0, dialog=0x7
 L_8049154:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_1_BUBBLER_K, L_8049154
@@ -81,14 +67,7 @@ global_label NPCList_804917C
 
 NPC_8049188:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_800Z, L_80491AB
-    a_init
-    a_disable_turn
-    a_set_dialog 0x5
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -294, 72
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -294, 72, 0, dialog=0x5
 L_80491A2:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_800Z, L_80491A2
@@ -99,14 +78,7 @@ L_80491AB:
 
 NPC_80491AC:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_ESCAPE_N, L_80491CF
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 148, -380, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 148, -380, 64, dialog=0x6
 L_80491C6:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_2_ESCAPE_N, L_80491C6
@@ -123,14 +95,7 @@ global_label NPCList_80491D0
 
 NPC_80491E0:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_HEATER_O, L_8049203
-    a_init
-    a_disable_turn
-    a_set_dialog 0x5
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -284, -244
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -284, -244, 0, dialog=0x5
 L_80491FA:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_HEATER_O, L_80491FA
@@ -141,14 +106,7 @@ L_8049203:
 
 NPC_8049204:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_500Z, L_8049227
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -30, 388, -64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -30, 388, -64, dialog=0x6
 L_804921E:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_500Z, L_804921E
@@ -159,14 +117,7 @@ L_8049227:
 
 NPC_8049228:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_FIRETOWR_T, L_804924B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x7
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 420, -84
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 420, -84, 0, dialog=0x7
 L_8049242:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_3_FIRETOWR_T, L_8049242
@@ -182,14 +133,7 @@ global_label NPCList_804924C
 
 NPC_8049258:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_1000Z, L_804927B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x5
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -22, -152
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -22, -152, 0, dialog=0x5
 L_8049272:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_1000Z, L_8049272
@@ -200,14 +144,7 @@ L_804927B:
 
 NPC_804927C:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_HPMEMORY, L_804929F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 230, 224, 8
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 230, 224, 8, dialog=0x6
 L_8049296:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_4_HPMEMORY, L_8049296
@@ -260,14 +197,7 @@ global_label NPCList_80492E8
 
 NPC_80492F8:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_AQUATOWR_C, L_804931B
-    a_init
-    a_disable_turn
-    a_set_dialog 0xF
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -350, -194
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -350, -194, 0, dialog=0xF
 L_8049312:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_AQUATOWR_C, L_8049312
@@ -278,14 +208,7 @@ L_804931B:
 
 NPC_804931C:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_2400Z, L_804933F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x10
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -62, -336
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -62, -336, 0, dialog=0x10
 L_8049336:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_2400Z, L_8049336
@@ -296,14 +219,7 @@ L_804933F:
 
 NPC_8049340:
     a_jump_if_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_RECOV80_G, L_8049363
-    a_init
-    a_disable_turn
-    a_set_dialog 0x11
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 82, 370
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 82, 370, 0, dialog=0x11
 L_804935A:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_RECOV80_G, L_804935A

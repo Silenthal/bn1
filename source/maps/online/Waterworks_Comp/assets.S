@@ -11,14 +11,7 @@ global_label NPCList_8046BC8
 
 NPC_8046BD0:
     a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_1_SONIWAVE_J, L_8046BF3
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 68, 92
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 68, 92, 0, dialog=0x0
 L_8046BEA:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_1_SONIWAVE_J, L_8046BEA
@@ -98,8 +91,7 @@ L_8046C98:
     a_jump L_8046C98
 L_8046CA6:
     a_set_sprite_frame 13
-    a_set_sprite_frame 14
-    a_move d_se, 40, 2
+    a_move_f 14, d_se, 40, 2
     a_set_sprite_frame 15
 L_8046CB0:
     a_jump_if_flag 0xB6, L_8046CBE
@@ -130,14 +122,7 @@ NPC_8046CDC:
 
 NPC_8046CF1:
     a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_2_HPMEMORY, L_8046D14
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -280, 180, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -280, 180, 64, dialog=0x0
 L_8046D0B:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_2_HPMEMORY, L_8046D0B
@@ -146,14 +131,7 @@ L_8046D14:
 
 NPC_8046D15:
     a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_2_RECOV80_C, L_8046D38
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 66, 106, 32
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 66, 106, 32, dialog=0x1
 L_8046D2F:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_2_RECOV80_C, L_8046D2F
@@ -185,17 +163,9 @@ global_label NPCList_8046D60
 
 NPC_8046D70:
     a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_WIDESWRD_C, L_8046D95
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -230, 418, 96
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -230, 418, 96, dialog=0x0
 L_8046D8A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_WIDESWRD_C, L_8046D8A
 L_8046D95:
@@ -203,17 +173,9 @@ L_8046D95:
 
 NPC_8046D96:
     a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_TRIARROW_A, L_8046DBB
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 152, -200, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 152, -200, 64, dialog=0x1
 L_8046DB0:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_TRIARROW_A, L_8046DB0
 L_8046DBB:
@@ -223,17 +185,9 @@ L_8046DBB:
 
 NPC_8046DBC:
     a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_ICEPUNCH_B, L_8046DE1
-    a_init
-    a_disable_turn
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -230, -124, 96
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -230, -124, 96, dialog=0x2
 L_8046DD6:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_3_ICEPUNCH_B, L_8046DD6
 L_8046DE1:
@@ -249,14 +203,7 @@ global_label NPCList_8046DE4
 
 NPC_8046DEC:
     a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_4_MCANNON_L, L_8046E0F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -34, -166, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -34, -166, 64, dialog=0x0
 L_8046E06:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_4_MCANNON_L, L_8046E06
@@ -277,14 +224,7 @@ global_label NPCList_8046E18
 
 NPC_8046E28:
     a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_5_POWERUP, L_8046E4B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 80, -214
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 80, -214, 0, dialog=0x0
 L_8046E42:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_5_POWERUP, L_8046E42
@@ -319,14 +259,7 @@ global_label NPCList_8046E78
 
 NPC_8046E80:
     a_jump_if_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_6_1000Z, L_8046EA3
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -12, 2, -96
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -12, 2, -96, dialog=0x0
 L_8046E9A:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_WATERWORKS_COMP_6_1000Z, L_8046E9A
@@ -352,8 +285,7 @@ L_8046EC0:
     a_jump L_8046EC0
 L_8046ECE:
     a_set_sprite_frame 16
-    a_set_sprite_frame 17
-    a_move d_se, 40, 4
+    a_move_f 17, d_se, 40, 4
     a_set_sprite_frame 18
 L_8046ED8:
     a_jump_if_flag 0xC6, L_8046EE6
@@ -373,11 +305,9 @@ L_8046EFB:
     a_wait 1
     a_jump L_8046EFB
 L_8046F09:
-    a_set_sprite_frame 13
-    a_wait 9
+    a_wait_f 13, 9
     a_set_flag 0xC5
-    a_set_sprite_frame 14
-    a_wait 9
+    a_wait_f 14, 9
     a_set_flag 0xCA
     a_wait 60
     a_set_sprite_frame 3
@@ -386,8 +316,7 @@ L_8046F1B:
     a_wait 1
     a_jump L_8046F1B
 L_8046F29:
-    a_set_sprite_frame 15
-    a_wait 9
+    a_wait_f 15, 9
     a_set_flag 0xC8
     a_wait 60
     a_set_sprite_frame 5
@@ -418,8 +347,7 @@ L_8046F64:
     a_wait 1
     a_jump L_8046F64
 L_8046F72:
-    a_set_sprite_frame 3
-    a_wait 45
+    a_wait_f 3, 45
     a_set_sprite_frame 16
 L_8046F78:
     a_jump_if_flag 0xCC, L_8046F86

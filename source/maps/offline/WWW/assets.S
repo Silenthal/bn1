@@ -47,16 +47,14 @@ NPC_803E620:
     a_init
     a_set_sprite SP_Overworld_Chaud
     a_set_pos -194, 130, -64
-    a_set_sprite_frame 11
-    a_move d_nw, 16, 20
+    a_move_f 11, d_nw, 16, 20
     a_stop
 
 NPC_803E637:
     a_init
     a_set_sprite SP_Overworld_Mayl
     a_set_pos -194, 110, -64
-    a_set_sprite_frame 11
-    a_move d_nw, 16, 20
+    a_move_f 11, d_nw, 16, 20
     a_stop
 
     .align 2, 0
@@ -180,24 +178,21 @@ L_803E75C:
     a_wait 1
     a_jump L_803E75C
 L_803E76A:
-    a_set_sprite_frame 13
-    a_wait 1
+    a_wait_f 13, 1
     a_set_sprite_frame 14
 L_803E770:
     a_jump_if_flag 0x93, L_803E77E
     a_wait 1
     a_jump L_803E770
 L_803E77E:
-    a_set_sprite_frame 11
-    a_move d_nw, 8, 5
+    a_move_f 11, d_nw, 8, 5
     a_set_sprite_frame 5
 L_803E786:
     a_jump_if_not_flag 0x93, L_803E794
     a_wait 1
     a_jump L_803E786
 L_803E794:
-    a_set_sprite_frame 13
-    a_wait 1
+    a_wait_f 13, 1
     a_set_sprite_frame 14
 L_803E79A:
     a_jump_if_flag 0x93, L_803E7A8
@@ -210,8 +205,7 @@ L_803E7AA:
     a_wait 1
     a_jump L_803E7AA
 L_803E7B8:
-    a_set_sprite_frame 13
-    a_wait 1
+    a_wait_f 13, 1
     a_set_sprite_frame 14
     a_stop
 
@@ -225,10 +219,8 @@ L_803E7D1:
     a_wait 1
     a_jump L_803E7D1
 L_803E7DF:
-    a_set_sprite_frame 12
-    a_wait 60
-    a_set_sprite_frame 13
-    a_wait 1
+    a_wait_f 12, 60
+    a_wait_f 13, 1
     a_set_sprite_frame 14
 L_803E7E9:
     a_jump_if_not_flag 0x93, L_803E7F7
@@ -257,8 +249,7 @@ L_803E81F:
     a_wait 1
     a_jump L_803E81F
 L_803E82D:
-    a_set_sprite_frame 9
-    a_move d_se, 8, 2
+    a_move_f 9, d_se, 8, 2
     a_set_sprite_frame 3
     a_stop
 
@@ -282,8 +273,7 @@ L_803E85B:
     a_jump L_803E85B
 L_803E869:
     a_set_no_z_clip
-    a_set_sprite_frame 10
-    a_move d_sw, 16, 10
+    a_move_f 10, d_sw, 16, 10
     a_stop
 
 NPC_803E877:
@@ -297,8 +287,7 @@ L_803E883:
     a_jump L_803E883
 L_803E891:
     a_set_no_z_clip
-    a_set_sprite_frame 10
-    a_move d_sw, 16, 10
+    a_move_f 10, d_sw, 16, 10
     a_stop
 
 NPC_803E89F:
@@ -350,10 +339,8 @@ L_803E8FC:
     a_wait 1
     a_jump L_803E8FC
 L_803E90A:
-    a_set_sprite_frame 12
-    a_wait 60
-    a_set_sprite_frame 13
-    a_wait 2
+    a_wait_f 12, 60
+    a_wait_f 13, 2
     a_set_sprite_frame 14
 L_803E914:
     a_jump_if_not_flag 0x93, L_803E922
@@ -373,10 +360,8 @@ L_803E936:
     a_wait 1
     a_jump L_803E936
 L_803E944:
-    a_set_sprite_frame 12
-    a_wait 60
-    a_set_sprite_frame 13
-    a_wait 2
+    a_wait_f 12, 60
+    a_wait_f 13, 2
     a_set_sprite_frame 14
     a_stop
 
@@ -390,8 +375,7 @@ L_803E961:
     a_wait 1
     a_jump L_803E961
 L_803E96F:
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 20
+    a_move_f 10, d_sw, 8, 20
     a_destroy
 
 NPC_803E976:
@@ -404,12 +388,9 @@ L_803E982:
     a_wait 1
     a_jump L_803E982
 L_803E990:
-    a_set_sprite_frame 5
-    a_wait 20
-    a_set_sprite_frame 12
-    a_wait 60
-    a_set_sprite_frame 13
-    a_wait 2
+    a_wait_f 5, 20
+    a_wait_f 12, 60
+    a_wait_f 13, 2
     a_set_sprite_frame 14
 L_803E99E:
     a_jump_if_not_flag 0x93, L_803E9AC
@@ -422,16 +403,14 @@ L_803E9AE:
     a_wait 1
     a_jump L_803E9AE
 L_803E9BC:
-    a_set_sprite_frame 16
-    a_wait 7
+    a_wait_f 16, 7
     a_set_sprite_frame 17
 L_803E9C2:
     a_jump_if_not_flag 0x93, L_803E9D0
     a_wait 1
     a_jump L_803E9C2
 L_803E9D0:
-    a_set_sprite_frame 18
-    a_wait 3
+    a_wait_f 18, 3
     a_set_sprite_frame 19
 L_803E9D6:
     a_jump_if_flag 0x93, L_803E9E4
@@ -460,8 +439,7 @@ L_803EA0C:
     a_wait 1
     a_jump L_803EA0C
 L_803EA1A:
-    a_set_sprite_frame 13
-    a_wait 2
+    a_wait_f 13, 2
     a_set_sprite_frame 14
     a_stop
 

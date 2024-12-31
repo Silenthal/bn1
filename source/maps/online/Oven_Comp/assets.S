@@ -98,14 +98,7 @@ NPC_8043B0A:
 
 NPC_8043B20:
     a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_200Z, L_8043B43
-    a_init
-    a_disable_turn
-    a_set_dialog 0x18
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -384, 130
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -384, 130, 0, dialog=0x18
 L_8043B3A:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_200Z, L_8043B3A
@@ -116,14 +109,7 @@ L_8043B43:
 
 NPC_8043B44:
     a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_SHOTGUN_Q, L_8043B67
-    a_init
-    a_disable_turn
-    a_set_dialog 0x10
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 134, 48
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 134, 48, 0, dialog=0x10
 L_8043B5E:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_SHOTGUN_Q, L_8043B5E
@@ -134,14 +120,7 @@ L_8043B67:
 
 NPC_8043B68:
     a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_400Z, L_8043B8B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x11
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x2
-    a_set_pos 6, 98
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_pmd_at 6, 98, 0, dialog=0x11
 L_8043B82:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_400Z, L_8043B82
@@ -152,14 +131,7 @@ L_8043B8B:
 
 NPC_8043B8C:
     a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_STEAL_A, L_8043BAF
-    a_init
-    a_disable_turn
-    a_set_dialog 0x12
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -116, -355
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -116, -355, 0, dialog=0x12
 L_8043BA6:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_STEAL_A, L_8043BA6
@@ -170,14 +142,7 @@ L_8043BAF:
 
 NPC_8043BB0:
     a_jump_if_flag FLAG_ITEM_OVEN_COMP_1_SWORD_B, L_8043BD3
-    a_init
-    a_disable_turn
-    a_set_dialog 0x13
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -196, 28
-    a_set_radius 1
-    a_set_sprite_frame 0
+    a_init_gmd_at -196, 28, 0, dialog=0x13, radius=1
 L_8043BCA:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_OVEN_COMP_1_SWORD_B, L_8043BCA
@@ -261,9 +226,7 @@ NPC_8043C6F:
     a_init
     a_disable_turn
     a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 144, 80
+    a_set_sprite_bmd_at 144, 80, 0
     a_set_sprite_frame 0
 L_8043C87:
     a_wait 1
@@ -276,9 +239,7 @@ NPC_8043C91:
     a_init
     a_disable_turn
     a_set_dialog 0x3
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 98, -78
+    a_set_sprite_gmd_at 98, -78, 0
     a_set_sprite_frame 0
 L_8043CA9:
     a_wait 1
@@ -291,9 +252,7 @@ NPC_8043CB3:
     a_init
     a_disable_turn
     a_set_dialog 0x4
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x2
-    a_set_pos -139, -79
+    a_set_sprite_pmd_at -139, -79, 0
     a_set_sprite_frame 0
 L_8043CCB:
     a_wait 1

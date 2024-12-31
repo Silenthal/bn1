@@ -12,14 +12,7 @@ global_label NPCList_804FFCC
 
 NPC_804FFD8:
     a_jump_if_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_KEYMIYU, L_804FFFB
-    a_init
-    a_disable_turn
-    a_set_dialog 0x5
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 400, -4
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 400, -4, 0, dialog=0x5
 L_804FFF2:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_KEYMIYU, L_804FFF2
@@ -30,14 +23,7 @@ L_804FFFB:
 
 NPC_804FFFC:
     a_jump_if_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_BARRIER_S, L_805001F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 146, 236
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 146, 236, 0, dialog=0x6
 L_8050016:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_DENTOWN_ANTIQUE_COMP_BARRIER_S, L_8050016

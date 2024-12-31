@@ -149,14 +149,7 @@ NPC_8041C8F:
 
 NPC_8041CA6:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_1_SHOKWAVE_L, L_8041CC9
-    a_init
-    a_disable_turn
-    a_set_dialog 0xA
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 84, -230
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 84, -230, 0, dialog=0xA
 L_8041CC0:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_1_SHOKWAVE_L, L_8041CC0
@@ -173,14 +166,7 @@ global_label NPCList_8041CCC
 
 NPC_8041CD4:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_1_SHOKWAVE_L, L_8041CF7
-    a_init
-    a_disable_turn
-    a_set_dialog 0xA
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 84, -230
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 84, -230, 0, dialog=0xA
 L_8041CEE:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_1_SHOKWAVE_L, L_8041CEE
@@ -210,14 +196,7 @@ NPC_8041D14:
 
 NPC_8041D29:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_2_800Z, L_8041D4C
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 20, 204, 32
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 20, 204, 32, dialog=0x0
 L_8041D43:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_2_800Z, L_8041D43
@@ -226,14 +205,7 @@ L_8041D4C:
 
 NPC_8041D4D:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_2_HICANNON_I, L_8041D70
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 80, 236
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 80, 236, 0, dialog=0x1
 L_8041D67:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_2_HICANNON_I, L_8041D67
@@ -251,14 +223,7 @@ global_label NPCList_8041D74
 
 NPC_8041D80:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_2_800Z, L_8041DA3
-    a_init
-    a_disable_turn
-    a_set_dialog 0x0
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 20, 204, 32
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 20, 204, 32, dialog=0x0
 L_8041D9A:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_2_800Z, L_8041D9A
@@ -269,14 +234,7 @@ L_8041DA3:
 
 NPC_8041DA4:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_2_HICANNON_I, L_8041DC7
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 80, 236
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 80, 236, 0, dialog=0x1
 L_8041DBE:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_2_HICANNON_I, L_8041DBE
@@ -302,14 +260,7 @@ NPC_8041DD8:
 
 NPC_8041DEF:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_3_HPMEMORY, L_8041E12
-    a_init
-    a_disable_turn
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -374, -28
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -374, -28, 0, dialog=0x2
 L_8041E09:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_3_HPMEMORY, L_8041E09
@@ -318,14 +269,7 @@ L_8041E12:
 
 NPC_8041E13:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_3_SPREADER_H, L_8041E36
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -188, -132
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -188, -132, 0, dialog=0x3
 L_8041E2D:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_3_SPREADER_H, L_8041E2D
@@ -343,14 +287,7 @@ global_label NPCList_8041E38
 
 NPC_8041E44:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_3_HPMEMORY, L_8041E67
-    a_init
-    a_disable_turn
-    a_set_dialog 0x2
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -374, -28
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -374, -28, 0, dialog=0x2
 L_8041E5E:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_3_HPMEMORY, L_8041E5E
@@ -361,14 +298,7 @@ L_8041E67:
 
 NPC_8041E68:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_3_SPREADER_H, L_8041E8B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -188, -132
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -188, -132, 0, dialog=0x3
 L_8041E82:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_3_SPREADER_H, L_8041E82
@@ -405,14 +335,7 @@ NPC_8041EB7:
 
 NPC_8041ECC:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_4_400Z, L_8041EEF
-    a_init
-    a_disable_turn
-    a_set_dialog 0x20
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -118, 196
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -118, 196, 0, dialog=0x20
 L_8041EE6:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_4_400Z, L_8041EE6
@@ -423,14 +346,7 @@ L_8041EEF:
 
 NPC_8041EF0:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_4_QUAKE_A, L_8041F13
-    a_init
-    a_disable_turn
-    a_set_dialog 0x21
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 266, -140
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 266, -140, 0, dialog=0x21
 L_8041F0A:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_4_QUAKE_A, L_8041F0A
@@ -446,14 +362,7 @@ global_label NPCList_8041F14
 
 NPC_8041F20:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_4_400Z, L_8041F43
-    a_init
-    a_disable_turn
-    a_set_dialog 0x20
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -118, 196
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -118, 196, 0, dialog=0x20
 L_8041F3A:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_4_400Z, L_8041F3A
@@ -464,14 +373,7 @@ L_8041F43:
 
 NPC_8041F44:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_4_QUAKE_A, L_8041F67
-    a_init
-    a_disable_turn
-    a_set_dialog 0x21
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 266, -140
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 266, -140, 0, dialog=0x21
 L_8041F5E:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_4_QUAKE_A, L_8041F5E
@@ -495,14 +397,7 @@ NPC_8041F74:
 
 NPC_8041F89:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_5_CANNON_C, L_8041FAC
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1F
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 18, -54
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 18, -54, 0, dialog=0x1F
 L_8041FA3:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_5_CANNON_C, L_8041FA3
@@ -519,14 +414,7 @@ global_label NPCList_8041FB0
 
 NPC_8041FB8:
     a_jump_if_flag FLAG_ITEM_SCHOOL_COMP_5_CANNON_C, L_8041FDB
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1F
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 18, -54
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 18, -54, 0, dialog=0x1F
 L_8041FD2:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_SCHOOL_COMP_5_CANNON_C, L_8041FD2

@@ -11,17 +11,9 @@ global_label NPCList_8053E14
 
 global_label NPC_8053E1C
     a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_1, L_8053E41
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 164, 20, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 164, 20, 64, dialog=0x32
 L_8053E36:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_1, L_8053E36
 L_8053E41:
@@ -29,17 +21,9 @@ L_8053E41:
 
 global_label NPC_8053E42
     a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_2, L_8053E67
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -330, 404
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -330, 404, 0, dialog=0x36
 L_8053E5C:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_2, L_8053E5C
 L_8053E67:
@@ -49,17 +33,9 @@ L_8053E67:
 
 global_label NPC_8053E68
     a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_3, L_8053E8D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 220, 282, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 220, 282, 64, dialog=0x3A
 L_8053E82:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_3, L_8053E82
 L_8053E8D:
@@ -67,17 +43,9 @@ L_8053E8D:
 
 global_label NPC_8053E8E
     a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_4, L_8053EB3
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -4, 424
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -4, 424, 0, dialog=0x3E
 L_8053EA8:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_4, L_8053EA8
 L_8053EB3:
@@ -87,17 +55,9 @@ L_8053EB3:
 
 global_label NPC_8053EB4
     a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_5, L_8053ED9
-    a_init
-    a_disable_turn
-    a_set_dialog 0x42
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 272, -172, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 272, -172, 64, dialog=0x42
 L_8053ECE:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_5, L_8053ECE
 L_8053ED9:
@@ -105,17 +65,9 @@ L_8053ED9:
 
 global_label NPC_8053EDA
     a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_6, L_8053EFF
-    a_init
-    a_disable_turn
-    a_set_dialog 0x46
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -92, -276
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -92, -276, 0, dialog=0x46
 L_8053EF4:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_6, L_8053EF4
 L_8053EFF:
@@ -125,17 +77,9 @@ L_8053EFF:
 
 global_label NPC_8053F00
     a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_7, L_8053F25
-    a_init
-    a_disable_turn
-    a_set_dialog 0x4A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -242, 190
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -242, 190, 0, dialog=0x4A
 L_8053F1A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_7, L_8053F1A
 L_8053F25:
@@ -143,17 +87,9 @@ L_8053F25:
 
 global_label NPC_8053F26
     a_jump_if_flag FLAG_ITEM_INTERNET_1_MD_8, L_8053F4B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x4E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 284, -354
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 284, -354, 0, dialog=0x4E
 L_8053F40:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_1_MD_8, L_8053F40
 L_8053F4B:
@@ -163,17 +99,9 @@ L_8053F4B:
 
 global_label NPC_8053F4C
     a_jump_if_flag FLAG_ITEM_INTERNET_1_TRILANCE_M, L_8053F71
-    a_init
-    a_disable_turn
-    a_set_dialog 0x25
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 436, -152, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 436, -152, 64, dialog=0x25
 L_8053F66:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_1_TRILANCE_M, L_8053F66
 L_8053F71:
@@ -219,14 +147,10 @@ L_8053FC4:
     a_enable_dialog
     a_enable_collision
 L_8053FC7:
-    a_set_sprite_frame 7
-    a_wait 30
-    a_set_sprite_frame 9
-    a_move d_se, 8, 6
-    a_set_sprite_frame 3
-    a_wait 30
-    a_set_sprite_frame 11
-    a_move d_nw, 8, 6
+    a_wait_f 7, 30
+    a_move_f 9, d_se, 8, 6
+    a_wait_f 3, 30
+    a_move_f 11, d_nw, 8, 6
     a_jump L_8053FC7
 
     .align 2, 0
@@ -290,17 +214,9 @@ global_label PTR_NPC_8054324_08054048
 
 NPC_8054050:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_1, L_8054075
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -570, 344, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -570, 344, 64, dialog=0x32
 L_805406A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_1, L_805406A
 L_8054075:
@@ -308,17 +224,9 @@ L_8054075:
 
 NPC_8054076:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_2, L_805409B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -270, 476, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -270, 476, 64, dialog=0x36
 L_8054090:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_2, L_8054090
 L_805409B:
@@ -328,17 +236,9 @@ L_805409B:
 
 NPC_805409C:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_3, L_80540C1
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -118, 356
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -118, 356, 0, dialog=0x3A
 L_80540B6:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_3, L_80540B6
 L_80540C1:
@@ -346,17 +246,9 @@ L_80540C1:
 
 NPC_80540C2:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_4, L_80540E7
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -88, 50, 128
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -88, 50, 128, dialog=0x3E
 L_80540DC:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_4, L_80540DC
 L_80540E7:
@@ -366,17 +258,9 @@ L_80540E7:
 
 NPC_80540E8:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_5, L_805410D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x42
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 64, -450
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 64, -450, 0, dialog=0x42
 L_8054102:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_5, L_8054102
 L_805410D:
@@ -384,17 +268,9 @@ L_805410D:
 
 NPC_805410E:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_6, L_8054133
-    a_init
-    a_disable_turn
-    a_set_dialog 0x46
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -10, -102
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -10, -102, 0, dialog=0x46
 L_8054128:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_6, L_8054128
 L_8054133:
@@ -404,17 +280,9 @@ L_8054133:
 
 NPC_8054134:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_7, L_8054159
-    a_init
-    a_disable_turn
-    a_set_dialog 0x4A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -156, -396
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -156, -396, 0, dialog=0x4A
 L_805414E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_7, L_805414E
 L_8054159:
@@ -422,17 +290,9 @@ L_8054159:
 
 NPC_805415A:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_8, L_805417F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x4E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -220, 200, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -220, 200, 64, dialog=0x4E
 L_8054174:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_8, L_8054174
 L_805417F:
@@ -442,17 +302,9 @@ L_805417F:
 
 NPC_8054180:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_9, L_80541A5
-    a_init
-    a_disable_turn
-    a_set_dialog 0x52
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 398, 34, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 398, 34, 64, dialog=0x52
 L_805419A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_9, L_805419A
 L_80541A5:
@@ -460,17 +312,9 @@ L_80541A5:
 
 NPC_80541A6:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_10, L_80541CB
-    a_init
-    a_disable_turn
-    a_set_dialog 0x56
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -328, 240, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -328, 240, 64, dialog=0x56
 L_80541C0:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_10, L_80541C0
 L_80541CB:
@@ -480,17 +324,9 @@ L_80541CB:
 
 NPC_80541CC:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_11, L_80541F1
-    a_init
-    a_disable_turn
-    a_set_dialog 0x5A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -428, -136, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -428, -136, 64, dialog=0x5A
 L_80541E6:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_11, L_80541E6
 L_80541F1:
@@ -498,17 +334,9 @@ L_80541F1:
 
 NPC_80541F2:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_12, L_8054217
-    a_init
-    a_disable_turn
-    a_set_dialog 0x5E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 218, 246
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 218, 246, 0, dialog=0x5E
 L_805420C:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_12, L_805420C
 L_8054217:
@@ -518,17 +346,9 @@ L_8054217:
 
 NPC_8054218:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_13, L_805423D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x62
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -48, 76
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -48, 76, 0, dialog=0x62
 L_8054232:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_13, L_8054232
 L_805423D:
@@ -536,17 +356,9 @@ L_805423D:
 
 NPC_805423E:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_14, L_8054263
-    a_init
-    a_disable_turn
-    a_set_dialog 0x66
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 356, -40
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 356, -40, 0, dialog=0x66
 L_8054258:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_14, L_8054258
 L_8054263:
@@ -556,17 +368,9 @@ L_8054263:
 
 NPC_8054264:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_15, L_8054289
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 250, 196
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 250, 196, 0, dialog=0x6A
 L_805427E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_15, L_805427E
 L_8054289:
@@ -574,17 +378,9 @@ L_8054289:
 
 NPC_805428A:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_MD_16, L_80542AF
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 204, -20
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 204, -20, 0, dialog=0x6E
 L_80542A4:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_MD_16, L_80542A4
 L_80542AF:
@@ -602,14 +398,7 @@ NPC_80542B0:
 
 NPC_80542C5:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_POWERUP_1, L_80542E8
-    a_init
-    a_disable_turn
-    a_set_dialog 0x16
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -112, 478, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -112, 478, 64, dialog=0x16
 L_80542DF:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_POWERUP_1, L_80542DF
@@ -618,14 +407,7 @@ L_80542E8:
 
 NPC_80542E9:
     a_jump_if_flag FLAG_ITEM_INTERNET_2_POWERUP_2, L_805430C
-    a_init
-    a_disable_turn
-    a_set_dialog 0x19
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 506, -60, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 506, -60, 64, dialog=0x19
 L_8054303:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_2_POWERUP_2, L_8054303
@@ -673,17 +455,9 @@ global_label NPCList_8054348
 
 NPC_8054368:
     a_jump_if_flag FLAG_ITEM_INTERNET_3_MD_1, L_805438D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -90, -114, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -90, -114, 64, dialog=0x32
 L_8054382:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_3_MD_1, L_8054382
 L_805438D:
@@ -691,17 +465,9 @@ L_805438D:
 
 NPC_805438E:
     a_jump_if_flag FLAG_ITEM_INTERNET_3_MD_2, L_80543B3
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 86, -264, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 86, -264, 64, dialog=0x36
 L_80543A8:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_3_MD_2, L_80543A8
 L_80543B3:
@@ -711,17 +477,9 @@ L_80543B3:
 
 NPC_80543B4:
     a_jump_if_flag FLAG_ITEM_INTERNET_3_MD_3, L_80543D9
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 76, 200
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 76, 200, 0, dialog=0x3A
 L_80543CE:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_3_MD_3, L_80543CE
 L_80543D9:
@@ -729,17 +487,9 @@ L_80543D9:
 
 NPC_80543DA:
     a_jump_if_flag FLAG_ITEM_INTERNET_3_MD_4, L_80543FF
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -684, 138, 128
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -684, 138, 128, dialog=0x3E
 L_80543F4:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_3_MD_4, L_80543F4
 L_80543FF:
@@ -749,17 +499,9 @@ L_80543FF:
 
 NPC_8054400:
     a_jump_if_flag FLAG_ITEM_INTERNET_3_ROCKCUBE_O, L_8054425
-    a_init
-    a_disable_turn
-    a_set_dialog 0x14
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -210, -370, 128
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -210, -370, 128, dialog=0x14
 L_805441A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_3_ROCKCUBE_O, L_805441A
 L_8054425:
@@ -767,17 +509,9 @@ L_8054425:
 
 NPC_8054426:
     a_jump_if_flag FLAG_ITEM_INTERNET_3_FTRSWORD_B, L_805444B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x17
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -268, -40
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -268, -40, 0, dialog=0x17
 L_8054440:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_3_FTRSWORD_B, L_8054440
 L_805444B:
@@ -810,17 +544,9 @@ global_label NPCList_8054464
 
 NPC_8054484:
     a_jump_if_flag FLAG_ITEM_INTERNET_4_MD_1, L_80544A9
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 100, -356
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 100, -356, 0, dialog=0x32
 L_805449E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_4_MD_1, L_805449E
 L_80544A9:
@@ -828,17 +554,9 @@ L_80544A9:
 
 NPC_80544AA:
     a_jump_if_flag FLAG_ITEM_INTERNET_4_MD_2, L_80544CF
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -244, 212, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -244, 212, 64, dialog=0x36
 L_80544C4:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_4_MD_2, L_80544C4
 L_80544CF:
@@ -848,17 +566,9 @@ L_80544CF:
 
 NPC_80544D0:
     a_jump_if_flag FLAG_ITEM_INTERNET_4_MD_3, L_80544F5
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -154, -396, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -154, -396, 64, dialog=0x3A
 L_80544EA:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_4_MD_3, L_80544EA
 L_80544F5:
@@ -866,17 +576,9 @@ L_80544F5:
 
 NPC_80544F6:
     a_jump_if_flag FLAG_ITEM_INTERNET_4_MD_4, L_805451B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -118, 452
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -118, 452, 0, dialog=0x3E
 L_8054510:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_4_MD_4, L_8054510
 L_805451B:
@@ -886,17 +588,9 @@ L_805451B:
 
 NPC_805451C:
     a_jump_if_flag FLAG_ITEM_INTERNET_4_AQUASWRD_A, L_8054541
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 130, -180
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 130, -180, 0, dialog=0x1E
 L_8054536:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_4_AQUASWRD_A, L_8054536
 L_8054541:
@@ -907,14 +601,11 @@ NPC_8054542:
     a_init_no_sprite
     a_disable_turn
     a_set_dialog 0x21
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 450, -174
+    a_set_sprite_gmd_at 450, -174, 0
     a_set_radius 4
     a_set_sprite_frame 0
 L_805455C:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_INTERNET_4_HPMEMORY, L_805455C
 L_8054567:
@@ -950,17 +641,9 @@ global_label NPCList_8054580
 
 NPC_80545AC:
     a_jump_if_flag FLAG_ITEM_UNDERNET_1_MD_1, L_80545D1
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -52, -236
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -52, -236, 0, dialog=0x32
 L_80545C6:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_MD_1, L_80545C6
 L_80545D1:
@@ -968,17 +651,9 @@ L_80545D1:
 
 NPC_80545D2:
     a_jump_if_flag FLAG_ITEM_UNDERNET_1_MD_2, L_80545F7
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 284, 308, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 284, 308, 64, dialog=0x36
 L_80545EC:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_MD_2, L_80545EC
 L_80545F7:
@@ -988,17 +663,9 @@ L_80545F7:
 
 NPC_80545F8:
     a_jump_if_flag FLAG_ITEM_UNDERNET_1_MD_3, L_805461D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 28, -412
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 28, -412, 0, dialog=0x3A
 L_8054612:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_MD_3, L_8054612
 L_805461D:
@@ -1006,17 +673,9 @@ L_805461D:
 
 NPC_805461E:
     a_jump_if_flag FLAG_ITEM_UNDERNET_1_MD_4, L_8054643
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 436, -48
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 436, -48, 0, dialog=0x3E
 L_8054638:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_MD_4, L_8054638
 L_8054643:
@@ -1026,17 +685,9 @@ L_8054643:
 
 NPC_8054644:
     a_jump_if_flag FLAG_ITEM_UNDERNET_1_THUNDER1_H, L_8054669
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -380, 200
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -380, 200, 0, dialog=0x1E
 L_805465E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_THUNDER1_H, L_805465E
 L_8054669:
@@ -1044,17 +695,9 @@ L_8054669:
 
 NPC_805466A:
     a_jump_if_flag FLAG_ITEM_UNDERNET_1_HPMEMORY, L_805468F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x21
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 194, 330
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 194, 330, 0, dialog=0x21
 L_8054684:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_1_HPMEMORY, L_8054684
 L_805468F:
@@ -1110,17 +753,9 @@ global_label NPCList_80546EC
 
 NPC_8054704:
     a_jump_if_flag FLAG_ITEM_UNDERNET_2_MD_1, L_8054729
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -334, -292
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -334, -292, 0, dialog=0x32
 L_805471E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_2_MD_1, L_805471E
 L_8054729:
@@ -1128,17 +763,9 @@ L_8054729:
 
 NPC_805472A:
     a_jump_if_flag FLAG_ITEM_UNDERNET_2_MD_2, L_805474F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -428, 266
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -428, 266, 0, dialog=0x36
 L_8054744:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_2_MD_2, L_8054744
 L_805474F:
@@ -1148,17 +775,9 @@ L_805474F:
 
 NPC_8054750:
     a_jump_if_flag FLAG_ITEM_UNDERNET_2_MD_3, L_8054775
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -86, 276
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -86, 276, 0, dialog=0x3A
 L_805476A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_2_MD_3, L_805476A
 L_8054775:
@@ -1166,17 +785,9 @@ L_8054775:
 
 NPC_8054776:
     a_jump_if_flag FLAG_ITEM_UNDERNET_2_MD_4, L_805479B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 180, -342
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 180, -342, 0, dialog=0x3E
 L_8054790:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_2_MD_4, L_8054790
 L_805479B:
@@ -1186,17 +797,9 @@ L_805479B:
 
 NPC_805479C:
     a_jump_if_flag FLAG_ITEM_UNDERNET_2_6000Z, L_80547C1
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 378, 160
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 378, 160, 0, dialog=0x1E
 L_80547B6:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_2_6000Z, L_80547B6
 L_80547C1:
@@ -1216,17 +819,9 @@ global_label NPCList_80547C4
 
 NPC_80547DC:
     a_jump_if_flag FLAG_ITEM_UNDERNET_3_MD_1, L_8054801
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 356, 220, -64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 356, 220, -64, dialog=0x32
 L_80547F6:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_3_MD_1, L_80547F6
 L_8054801:
@@ -1234,17 +829,9 @@ L_8054801:
 
 NPC_8054802:
     a_jump_if_flag FLAG_ITEM_UNDERNET_3_MD_2, L_8054827
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -92, 372
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -92, 372, 0, dialog=0x36
 L_805481C:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_3_MD_2, L_805481C
 L_8054827:
@@ -1254,17 +841,9 @@ L_8054827:
 
 NPC_8054828:
     a_jump_if_flag FLAG_ITEM_UNDERNET_3_MD_3, L_805484D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -296, 124, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -296, 124, 64, dialog=0x3A
 L_8054842:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_3_MD_3, L_8054842
 L_805484D:
@@ -1272,17 +851,9 @@ L_805484D:
 
 NPC_805484E:
     a_jump_if_flag FLAG_ITEM_UNDERNET_3_MD_4, L_8054873
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 142, -252
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 142, -252, 0, dialog=0x3E
 L_8054868:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_3_MD_4, L_8054868
 L_8054873:
@@ -1292,17 +863,9 @@ L_8054873:
 
 NPC_8054874:
     a_jump_if_flag FLAG_ITEM_UNDERNET_3_REMOBIT1_N, L_8054899
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 356, 112
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 356, 112, 0, dialog=0x1E
 L_805488E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_3_REMOBIT1_N, L_805488E
 L_8054899:
@@ -1333,17 +896,9 @@ global_label NPCList_80548BC
 
 NPC_80548D8:
     a_jump_if_flag FLAG_ITEM_UNDERNET_4_MD_1, L_80548FD
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -470, 280, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -470, 280, 64, dialog=0x32
 L_80548F2:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_4_MD_1, L_80548F2
 L_80548FD:
@@ -1351,17 +906,9 @@ L_80548FD:
 
 NPC_80548FE:
     a_jump_if_flag FLAG_ITEM_UNDERNET_4_MD_2, L_8054923
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 264, 44, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 264, 44, 64, dialog=0x36
 L_8054918:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_4_MD_2, L_8054918
 L_8054923:
@@ -1371,17 +918,9 @@ L_8054923:
 
 NPC_8054924:
     a_jump_if_flag FLAG_ITEM_UNDERNET_4_MD_3, L_8054949
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 142, -266, 128
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 142, -266, 128, dialog=0x3A
 L_805493E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_4_MD_3, L_805493E
 L_8054949:
@@ -1389,17 +928,9 @@ L_8054949:
 
 NPC_805494A:
     a_jump_if_flag FLAG_ITEM_UNDERNET_4_MD_4, L_805496F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -208, -388, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -208, -388, 64, dialog=0x3E
 L_8054964:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_4_MD_4, L_8054964
 L_805496F:
@@ -1409,17 +940,9 @@ L_805496F:
 
 NPC_8054970:
     a_jump_if_flag FLAG_ITEM_UNDERNET_4_10000Z, L_8054995
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 306, 288, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 306, 288, 64, dialog=0x1E
 L_805498A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_4_10000Z, L_805498A
 L_8054995:
@@ -1437,13 +960,10 @@ NPC_80549AB:
     a_jump_if_flag FLAG_ITEM_30E, L_80549CC
     a_init
     a_disable_turn
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 400, -152
+    a_set_sprite_gmd_at 400, -152, 0
     a_set_sprite_frame 0
 L_80549C1:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_30E, L_80549C1
 L_80549CC:
@@ -1464,17 +984,9 @@ global_label NPCList_80549D0
 
 NPC_80549EC:
     a_jump_if_flag FLAG_ITEM_UNDERNET_5_MD_1, L_8054A11
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -200, 100
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -200, 100, 0, dialog=0x32
 L_8054A06:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_5_MD_1, L_8054A06
 L_8054A11:
@@ -1482,17 +994,9 @@ L_8054A11:
 
 NPC_8054A12:
     a_jump_if_flag FLAG_ITEM_UNDERNET_5_MD_2, L_8054A37
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 300, -206
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 300, -206, 0, dialog=0x36
 L_8054A2C:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_5_MD_2, L_8054A2C
 L_8054A37:
@@ -1502,17 +1006,9 @@ L_8054A37:
 
 NPC_8054A38:
     a_jump_if_flag FLAG_ITEM_UNDERNET_5_MD_3, L_8054A5D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 112, 172
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 112, 172, 0, dialog=0x3A
 L_8054A52:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_5_MD_3, L_8054A52
 L_8054A5D:
@@ -1520,17 +1016,9 @@ L_8054A5D:
 
 NPC_8054A5E:
     a_jump_if_flag FLAG_ITEM_UNDERNET_5_MD_4, L_8054A83
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 376, 304
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 376, 304, 0, dialog=0x3E
 L_8054A78:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_5_MD_4, L_8054A78
 L_8054A83:
@@ -1540,17 +1028,9 @@ L_8054A83:
 
 NPC_8054A84:
     a_jump_if_flag FLAG_ITEM_UNDERNET_5_RINGZAP1_H, L_8054AA9
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 108, 356, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 108, 356, 64, dialog=0x1E
 L_8054A9E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_5_RINGZAP1_H, L_8054A9E
 L_8054AA9:
@@ -1582,17 +1062,9 @@ global_label NPCList_8054AC4
 
 NPC_8054AE8:
     a_jump_if_flag FLAG_ITEM_UNDERNET_6_MD_1, L_8054B0D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -298, 252, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -298, 252, 64, dialog=0x32
 L_8054B02:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_MD_1, L_8054B02
 L_8054B0D:
@@ -1600,17 +1072,9 @@ L_8054B0D:
 
 NPC_8054B0E:
     a_jump_if_flag FLAG_ITEM_UNDERNET_6_MD_2, L_8054B33
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 280, 150, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 280, 150, 64, dialog=0x36
 L_8054B28:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_MD_2, L_8054B28
 L_8054B33:
@@ -1620,17 +1084,9 @@ L_8054B33:
 
 NPC_8054B34:
     a_jump_if_flag FLAG_ITEM_UNDERNET_6_MD_3, L_8054B59
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 44, 4
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 44, 4, 0, dialog=0x3A
 L_8054B4E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_MD_3, L_8054B4E
 L_8054B59:
@@ -1638,17 +1094,9 @@ L_8054B59:
 
 NPC_8054B5A:
     a_jump_if_flag FLAG_ITEM_UNDERNET_6_MD_4, L_8054B7F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -316, -190
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -316, -190, 0, dialog=0x3E
 L_8054B74:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_MD_4, L_8054B74
 L_8054B7F:
@@ -1658,17 +1106,9 @@ L_8054B7F:
 
 NPC_8054B80:
     a_jump_if_flag FLAG_ITEM_UNDERNET_6_WIDESWRD_S, L_8054BA5
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 132, -400
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 132, -400, 0, dialog=0x1E
 L_8054B9A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_WIDESWRD_S, L_8054B9A
 L_8054BA5:
@@ -1676,17 +1116,9 @@ L_8054BA5:
 
 NPC_8054BA6:
     a_jump_if_flag FLAG_ITEM_UNDERNET_6_HPMEMORY, L_8054BCB
-    a_init
-    a_disable_turn
-    a_set_dialog 0x21
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -118, 304
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -118, 304, 0, dialog=0x21
 L_8054BC0:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_6_HPMEMORY, L_8054BC0
 L_8054BCB:
@@ -1737,17 +1169,9 @@ global_label NPCList_8054C14
 
 NPC_8054C34:
     a_jump_if_flag FLAG_ITEM_UNDERNET_7_MD_1, L_8054C59
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -356, 170, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -356, 170, 64, dialog=0x32
 L_8054C4E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_7_MD_1, L_8054C4E
 L_8054C59:
@@ -1755,17 +1179,9 @@ L_8054C59:
 
 NPC_8054C5A:
     a_jump_if_flag FLAG_ITEM_UNDERNET_7_MD_2, L_8054C7F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 68, 64, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 68, 64, 64, dialog=0x36
 L_8054C74:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_7_MD_2, L_8054C74
 L_8054C7F:
@@ -1775,17 +1191,9 @@ L_8054C7F:
 
 NPC_8054C80:
     a_jump_if_flag FLAG_ITEM_UNDERNET_7_MD_3, L_8054CA5
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -194, -340
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -194, -340, 0, dialog=0x3A
 L_8054C9A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_7_MD_3, L_8054C9A
 L_8054CA5:
@@ -1793,17 +1201,9 @@ L_8054CA5:
 
 NPC_8054CA6:
     a_jump_if_flag FLAG_ITEM_UNDERNET_7_MD_4, L_8054CCB
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 150, 12
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 150, 12, 0, dialog=0x3E
 L_8054CC0:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_7_MD_4, L_8054CC0
 L_8054CCB:
@@ -1813,17 +1213,9 @@ L_8054CCB:
 
 NPC_8054CCC:
     a_jump_if_flag FLAG_ITEM_UNDERNET_7_10000Z, L_8054CF1
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -240, 284
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -240, 284, 0, dialog=0x1E
 L_8054CE6:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_7_10000Z, L_8054CE6
 L_8054CF1:
@@ -1861,17 +1253,9 @@ global_label NPCList_8054D20
 
 NPC_8054D40:
     a_jump_if_flag FLAG_ITEM_UNDERNET_8_MD_1, L_8054D65
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 108, 328
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 108, 328, 0, dialog=0x32
 L_8054D5A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_8_MD_1, L_8054D5A
 L_8054D65:
@@ -1879,17 +1263,9 @@ L_8054D65:
 
 NPC_8054D66:
     a_jump_if_flag FLAG_ITEM_UNDERNET_8_MD_2, L_8054D8B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 190, -28
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 190, -28, 0, dialog=0x36
 L_8054D80:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_8_MD_2, L_8054D80
 L_8054D8B:
@@ -1899,17 +1275,9 @@ L_8054D8B:
 
 NPC_8054D8C:
     a_jump_if_flag FLAG_ITEM_UNDERNET_8_MD_3, L_8054DB1
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 10, -220, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 10, -220, 64, dialog=0x3A
 L_8054DA6:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_8_MD_3, L_8054DA6
 L_8054DB1:
@@ -1917,17 +1285,9 @@ L_8054DB1:
 
 NPC_8054DB2:
     a_jump_if_flag FLAG_ITEM_UNDERNET_8_MD_4, L_8054DD7
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 416, 212, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 416, 212, 64, dialog=0x3E
 L_8054DCC:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_8_MD_4, L_8054DCC
 L_8054DD7:
@@ -1937,17 +1297,9 @@ L_8054DD7:
 
 NPC_8054DD8:
     a_jump_if_flag FLAG_ITEM_UNDERNET_8_KNGTSWRD_B, L_8054DFD
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 610, -88
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 610, -88, 0, dialog=0x1E
 L_8054DF2:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_8_KNGTSWRD_B, L_8054DF2
 L_8054DFD:
@@ -1985,17 +1337,9 @@ global_label NPCList_8054E2C
 
 NPC_8054E4C:
     a_jump_if_flag FLAG_ITEM_UNDERNET_9_MD_1, L_8054E71
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -366, 204
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -366, 204, 0, dialog=0x32
 L_8054E66:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_MD_1, L_8054E66
 L_8054E71:
@@ -2003,17 +1347,9 @@ L_8054E71:
 
 NPC_8054E72:
     a_jump_if_flag FLAG_ITEM_UNDERNET_9_MD_2, L_8054E97
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -6, -156
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -6, -156, 0, dialog=0x36
 L_8054E8C:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_MD_2, L_8054E8C
 L_8054E97:
@@ -2023,17 +1359,9 @@ L_8054E97:
 
 NPC_8054E98:
     a_jump_if_flag FLAG_ITEM_UNDERNET_9_MD_3, L_8054EBD
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 154, 132
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 154, 132, 0, dialog=0x3A
 L_8054EB2:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_MD_3, L_8054EB2
 L_8054EBD:
@@ -2041,17 +1369,9 @@ L_8054EBD:
 
 NPC_8054EBE:
     a_jump_if_flag FLAG_ITEM_UNDERNET_9_MD_4, L_8054EE3
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 440, -154
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 440, -154, 0, dialog=0x3E
 L_8054ED8:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_MD_4, L_8054ED8
 L_8054EE3:
@@ -2061,17 +1381,9 @@ L_8054EE3:
 
 NPC_8054EE4:
     a_jump_if_flag FLAG_ITEM_UNDERNET_9_8000Z, L_8054F09
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -166, 2
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -166, 2, 0, dialog=0x1E
 L_8054EFE:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_8000Z, L_8054EFE
 L_8054F09:
@@ -2079,17 +1391,9 @@ L_8054F09:
 
 NPC_8054F0A:
     a_jump_if_flag FLAG_ITEM_UNDERNET_9_RECOV150_A, L_8054F2F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x21
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 250, 34
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 250, 34, 0, dialog=0x21
 L_8054F24:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_9_RECOV150_A, L_8054F24
 L_8054F2F:
@@ -2123,17 +1427,9 @@ global_label NPCList_8054F48
 
 NPC_8054F6C:
     a_jump_if_flag FLAG_ITEM_UNDERNET_10_MD_1, L_8054F91
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 394, -204
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 394, -204, 0, dialog=0x32
 L_8054F86:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_MD_1, L_8054F86
 L_8054F91:
@@ -2141,17 +1437,9 @@ L_8054F91:
 
 NPC_8054F92:
     a_jump_if_flag FLAG_ITEM_UNDERNET_10_MD_2, L_8054FB7
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 8, 154
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 8, 154, 0, dialog=0x36
 L_8054FAC:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_MD_2, L_8054FAC
 L_8054FB7:
@@ -2161,17 +1449,9 @@ L_8054FB7:
 
 NPC_8054FB8:
     a_jump_if_flag FLAG_ITEM_UNDERNET_10_MD_3, L_8054FDD
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 140, -236, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 140, -236, 64, dialog=0x3A
 L_8054FD2:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_MD_3, L_8054FD2
 L_8054FDD:
@@ -2179,17 +1459,9 @@ L_8054FDD:
 
 NPC_8054FDE:
     a_jump_if_flag FLAG_ITEM_UNDERNET_10_MD_4, L_8055003
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 300, 200, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 300, 200, 64, dialog=0x3E
 L_8054FF8:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_MD_4, L_8054FF8
 L_8055003:
@@ -2199,17 +1471,9 @@ L_8055003:
 
 NPC_8055004:
     a_jump_if_flag FLAG_ITEM_UNDERNET_10_5000Z, L_8055029
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 476, -190, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 476, -190, 64, dialog=0x1E
 L_805501E:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_5000Z, L_805501E
 L_8055029:
@@ -2217,17 +1481,9 @@ L_8055029:
 
 NPC_805502A:
     a_jump_if_flag FLAG_ITEM_UNDERNET_10_POWERUP, L_805504F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x21
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 50, 380, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 50, 380, 64, dialog=0x21
 L_8055044:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_10_POWERUP, L_8055044
 L_805504F:
@@ -2269,17 +1525,9 @@ global_label NPCList_8055080
 
 NPC_80550A0:
     a_jump_if_flag FLAG_ITEM_UNDERNET_11_MD_1, L_80550C5
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -20, -72, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -20, -72, 64, dialog=0x32
 L_80550BA:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_11_MD_1, L_80550BA
 L_80550C5:
@@ -2287,17 +1535,9 @@ L_80550C5:
 
 NPC_80550C6:
     a_jump_if_flag FLAG_ITEM_UNDERNET_11_MD_2, L_80550EB
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 208, 292, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 208, 292, 64, dialog=0x36
 L_80550E0:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_11_MD_2, L_80550E0
 L_80550EB:
@@ -2307,17 +1547,9 @@ L_80550EB:
 
 NPC_80550EC:
     a_jump_if_flag FLAG_ITEM_UNDERNET_11_MD_3, L_8055111
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 210, 214, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 210, 214, 64, dialog=0x3A
 L_8055106:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_11_MD_3, L_8055106
 L_8055111:
@@ -2325,17 +1557,9 @@ L_8055111:
 
 NPC_8055112:
     a_jump_if_flag FLAG_ITEM_UNDERNET_11_MD_4, L_8055137
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 104, -324
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 104, -324, 0, dialog=0x3E
 L_805512C:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_11_MD_4, L_805512C
 L_8055137:
@@ -2345,17 +1569,9 @@ L_8055137:
 
 NPC_8055138:
     a_jump_if_flag FLAG_ITEM_UNDERNET_11_REDWAVE_J, L_805515D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 428, 154
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 428, 154, 0, dialog=0x1E
 L_8055152:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_11_REDWAVE_J, L_8055152
 L_805515D:
@@ -2398,17 +1614,9 @@ global_label NPCList_805518C
 
 NPC_80551C0:
     a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_1, L_80551E5
-    a_init
-    a_disable_turn
-    a_set_dialog 0x32
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -220, -286
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -220, -286, 0, dialog=0x32
 L_80551DA:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_1, L_80551DA
 L_80551E5:
@@ -2416,17 +1624,9 @@ L_80551E5:
 
 NPC_80551E6:
     a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_2, L_805520B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x36
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 254, -286
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 254, -286, 0, dialog=0x36
 L_8055200:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_2, L_8055200
 L_805520B:
@@ -2436,17 +1636,9 @@ L_805520B:
 
 NPC_805520C:
     a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_3, L_8055231
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 254, 186
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 254, 186, 0, dialog=0x3A
 L_8055226:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_3, L_8055226
 L_8055231:
@@ -2454,17 +1646,9 @@ L_8055231:
 
 NPC_8055232:
     a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_4, L_8055257
-    a_init
-    a_disable_turn
-    a_set_dialog 0x3E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -218, 186
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -218, 186, 0, dialog=0x3E
 L_805524C:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_4, L_805524C
 L_8055257:
@@ -2474,17 +1658,9 @@ L_8055257:
 
 NPC_8055258:
     a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_5, L_805527D
-    a_init
-    a_disable_turn
-    a_set_dialog 0x42
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -98, 58
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -98, 58, 0, dialog=0x42
 L_8055272:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_5, L_8055272
 L_805527D:
@@ -2492,17 +1668,9 @@ L_805527D:
 
 NPC_805527E:
     a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_6, L_80552A3
-    a_init
-    a_disable_turn
-    a_set_dialog 0x46
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 70, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 70, 64, 0, dialog=0x46
 L_8055298:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_6, L_8055298
 L_80552A3:
@@ -2512,17 +1680,9 @@ L_80552A3:
 
 NPC_80552A4:
     a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_7, L_80552C9
-    a_init
-    a_disable_turn
-    a_set_dialog 0x4A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 434, 200
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 434, 200, 0, dialog=0x4A
 L_80552BE:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_7, L_80552BE
 L_80552C9:
@@ -2530,17 +1690,9 @@ L_80552C9:
 
 NPC_80552CA:
     a_jump_if_flag FLAG_ITEM_UNDERNET_12_MD_8, L_80552EF
-    a_init
-    a_disable_turn
-    a_set_dialog 0x4E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -266, -410
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -266, -410, 0, dialog=0x4E
 L_80552E4:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_MD_8, L_80552E4
 L_80552EF:
@@ -2550,17 +1702,9 @@ L_80552EF:
 
 NPC_80552F0:
     a_jump_if_flag FLAG_ITEM_UNDERNET_12_HEROSWRD_I, L_8055315
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 364, 216, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 364, 216, 64, dialog=0x1E
 L_805530A:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_HEROSWRD_I, L_805530A
 L_8055315:
@@ -2568,17 +1712,9 @@ L_8055315:
 
 NPC_8055316:
     a_jump_if_flag FLAG_ITEM_UNDERNET_12_20000Z, L_805533B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1F
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -28, 30, 64
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -28, 30, 64, dialog=0x1F
 L_8055330:
-    a_set_no_z_clip
-    a_clear_z_clip
+    a_shadow_off
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_UNDERNET_12_20000Z, L_8055330
 L_805533B:

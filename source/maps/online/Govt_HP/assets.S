@@ -18,103 +18,40 @@ NPC_804FB98:
     a_stop
 
 NPC_804FBAD:
-    a_init
-    a_disable_turn
-    a_set_dialog 0x14
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 184, -86
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 184, -86, 0, dialog=0x14
     a_stop
 
 NPC_804FBC7:
-    a_init
-    a_disable_turn
-    a_set_dialog 0x16
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 106, -86
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 106, -86, 0, dialog=0x16
     a_stop
 
 NPC_804FBE1:
-    a_init
-    a_disable_turn
-    a_set_dialog 0x18
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 184, 106
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 184, 106, 0, dialog=0x18
     a_stop
 
 NPC_804FBFB:
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1A
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 106, 106
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 106, 106, 0, dialog=0x1A
     a_stop
 
 NPC_804FC15:
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1C
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -100, -86
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -100, -86, 0, dialog=0x1C
     a_stop
 
 NPC_804FC2F:
-    a_init
-    a_disable_turn
-    a_set_dialog 0x1E
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -206, -86
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -206, -86, 0, dialog=0x1E
     a_stop
 
 NPC_804FC49:
-    a_init
-    a_disable_turn
-    a_set_dialog 0x20
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -100, 106
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -100, 106, 0, dialog=0x20
     a_stop
 
 NPC_804FC63:
-    a_init
-    a_disable_turn
-    a_set_dialog 0x22
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos -206, 106
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at -206, 106, 0, dialog=0x22
     a_stop
 
 NPC_804FC7D:
     a_jump_if_flag FLAG_ITEM_GOVT_YUICHIRO_PC_KEYDAD, L_804FCA0
-    a_init
-    a_disable_turn
-    a_set_dialog 0x4
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 234, -58
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 234, -58, 0, dialog=0x4
 L_804FC97:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_GOVT_YUICHIRO_PC_KEYDAD, L_804FC97
@@ -132,14 +69,7 @@ global_label NPCList_804FCA4
 
 NPC_804FCB0:
     a_jump_if_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_KEYSAL, L_804FCD3
-    a_init
-    a_disable_turn
-    a_set_dialog 0x5
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 200, 260
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 200, 260, 0, dialog=0x5
 L_804FCCA:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_KEYSAL, L_804FCCA
@@ -150,14 +80,7 @@ L_804FCD3:
 
 NPC_804FCD4:
     a_jump_if_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_RECOV120_A, L_804FCF7
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 200, -250
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 200, -250, 0, dialog=0x6
 L_804FCEE:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_GOVT_LUNCH_CART_COMP_RECOV120_A, L_804FCEE

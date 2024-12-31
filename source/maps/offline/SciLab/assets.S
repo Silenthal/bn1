@@ -80,14 +80,10 @@ NPC_803D29B:
     a_set_sprite SP_Overworld_Waitress
     a_set_pos -124, 256
 L_803D2A7:
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 10
-    a_set_sprite_frame 7
-    a_wait 30
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 10
-    a_set_sprite_frame 7
-    a_wait 30
+    a_move_f 10, d_sw, 8, 10
+    a_wait_f 7, 30
+    a_move_f 8, d_ne, 8, 10
+    a_wait_f 7, 30
     a_jump L_803D2A7
 
     .align 2, 0
@@ -129,8 +125,7 @@ L_803D315:
     a_wait 1
     a_jump L_803D315
 L_803D323:
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 20
+    a_move_f 8, d_ne, 8, 20
 L_803D329:
     a_destroy
 
@@ -225,14 +220,10 @@ NPC_803D40C:
     a_set_sprite SP_Overworld_Waitress
     a_set_pos -124, 256
 L_803D418:
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 10
-    a_set_sprite_frame 7
-    a_wait 30
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 10
-    a_set_sprite_frame 7
-    a_wait 30
+    a_move_f 10, d_sw, 8, 10
+    a_wait_f 7, 30
+    a_move_f 8, d_ne, 8, 10
+    a_wait_f 7, 30
     a_jump L_803D418
 
     .align 2, 0
@@ -350,14 +341,10 @@ NPC_803D510:
     a_set_sprite SP_Overworld_Scientist
     a_set_pos -334, 82
 L_803D51C:
-    a_set_sprite_frame 7
-    a_wait 30
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 8
-    a_set_sprite_frame 7
-    a_wait 30
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 8
+    a_wait_f 7, 30
+    a_move_f 8, d_ne, 8, 8
+    a_wait_f 7, 30
+    a_move_f 10, d_sw, 8, 8
     a_jump L_803D51C
 
 NPC_803D535:
@@ -399,8 +386,7 @@ L_803D57A:
     a_wait 1
     a_jump L_803D57A
 L_803D588:
-    a_set_sprite_frame 11
-    a_move d_nw, 8, 3
+    a_move_f 11, d_nw, 8, 3
     a_set_sprite_frame 7
     a_stop
 
@@ -468,14 +454,10 @@ NPC_803D604:
     a_set_pos -124, 30
     a_set_sprite_frame 1
 L_803D612:
-    a_set_sprite_frame 9
-    a_move d_se, 8, 6
-    a_set_sprite_frame 1
-    a_wait 30
-    a_set_sprite_frame 11
-    a_move d_nw, 8, 6
-    a_set_sprite_frame 1
-    a_wait 30
+    a_move_f 9, d_se, 8, 6
+    a_wait_f 1, 30
+    a_move_f 11, d_nw, 8, 6
+    a_wait_f 1, 30
     a_jump L_803D612
 
 NPC_803D62B:
@@ -506,8 +488,7 @@ L_803D65C:
     a_wait 1
     a_jump L_803D65C
 L_803D66A:
-    a_set_sprite_frame 11
-    a_move d_nw, 32, 17
+    a_move_f 11, d_nw, 32, 17
     a_set_sprite_frame 7
     a_stop
 

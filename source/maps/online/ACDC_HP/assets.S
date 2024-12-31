@@ -23,8 +23,7 @@ L_804F498:
     a_wait 1
     a_jump L_804F498
 L_804F4A6:
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 14
+    a_move_f 10, d_sw, 8, 14
     a_set_sprite_frame 5
     a_stop
 
@@ -34,14 +33,10 @@ NPC_804F4B5:
     a_set_sprite SP_Overworld_Prog
     a_set_pos -42, -36
 L_804F4C1:
-    a_set_sprite_frame 3
-    a_wait 60
-    a_set_sprite_frame 8
-    a_move d_ne, 8, 10
-    a_set_sprite_frame 3
-    a_wait 60
-    a_set_sprite_frame 10
-    a_move d_sw, 8, 10
+    a_wait_f 3, 60
+    a_move_f 8, d_ne, 8, 10
+    a_wait_f 3, 60
+    a_move_f 10, d_sw, 8, 10
     a_jump L_804F4C1
 
     .align 2, 0
@@ -55,14 +50,7 @@ global_label NPCList_804F4DC
 
 NPC_804F4E8:
     a_jump_if_flag FLAG_ITEM_ACDC_MAYL_PC_KEYMAYL, L_804F50B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x5
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 110, 250, 128
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 110, 250, 128, dialog=0x5
 L_804F502:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_ACDC_MAYL_PC_KEYMAYL, L_804F502
@@ -73,14 +61,7 @@ L_804F50B:
 
 NPC_804F50C:
     a_jump_if_flag FLAG_ITEM_ACDC_MAYL_PC_RECOV50_L, L_804F52F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 36, 250, 128
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 36, 250, 128, dialog=0x6
 L_804F526:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_ACDC_MAYL_PC_RECOV50_L, L_804F526
@@ -104,14 +85,7 @@ NPC_804F53C:
 
 NPC_804F551:
     a_jump_if_flag FLAG_ITEM_ACDC_MAYL_PC_RECOV50_L, L_804F574
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 36, 250, 128
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 36, 250, 128, dialog=0x6
 L_804F56B:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_ACDC_MAYL_PC_RECOV50_L, L_804F56B
@@ -130,14 +104,7 @@ global_label NPCList_804F578
 
 NPC_804F588:
     a_jump_if_flag FLAG_ITEM_ACDC_YAI_PC_KEYYAI, L_804F5AB
-    a_init
-    a_disable_turn
-    a_set_dialog 0x5
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 18, -38
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 18, -38, 0, dialog=0x5
 L_804F5A2:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_ACDC_YAI_PC_KEYYAI, L_804F5A2
@@ -148,14 +115,7 @@ L_804F5AB:
 
 NPC_804F5AC:
     a_jump_if_flag FLAG_ITEM_ACDC_YAI_PC_RECOV30_L, L_804F5CF
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos -174, -38
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at -174, -38, 0, dialog=0x6
 L_804F5C6:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_ACDC_YAI_PC_RECOV30_L, L_804F5C6
@@ -188,14 +148,7 @@ global_label NPCList_804F5FC
 
 NPC_804F608:
     a_jump_if_flag FLAG_ITEM_ACDC_DEX_PC_KEYDEX, L_804F62B
-    a_init
-    a_disable_turn
-    a_set_dialog 0x5
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x0
-    a_set_pos 430, 80
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_bmd_at 430, 80, 0, dialog=0x5
 L_804F622:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_ACDC_DEX_PC_KEYDEX, L_804F622
@@ -206,14 +159,7 @@ L_804F62B:
 
 NPC_804F62C:
     a_jump_if_flag FLAG_ITEM_ACDC_DEX_PC_XPANEL3_B, L_804F64F
-    a_init
-    a_disable_turn
-    a_set_dialog 0x6
-    a_set_sprite SP_Overworld_MysteryData
-    a_set_palette 0x1
-    a_set_pos 450, 148
-    a_set_radius 4
-    a_set_sprite_frame 0
+    a_init_gmd_at 450, 148, 0, dialog=0x6
 L_804F646:
     a_wait 1
     a_jump_if_not_flag FLAG_ITEM_ACDC_DEX_PC_XPANEL3_B, L_804F646
