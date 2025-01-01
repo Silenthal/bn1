@@ -25,11 +25,12 @@ _ts MainMenu_Main
     .pool
 
 jumpTableMainMenu:
-    .word 0x08010460+1
-    .word 0x080104D4+1
-    .word 0x08010504+1
+    .word MainMenu_0_Init
+    .word MainMenu_1_Main
+    .word MainMenu_2_Free
 
     debug_str 0x00, 0x01, "RNO/%1d,%1d,%1d,%1d"
+
     .align 2,0
 
 _ts MainMenu_0_Init
