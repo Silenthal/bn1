@@ -71,16 +71,12 @@ LAB_0804da50:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804da5c:
-    mov        r0,#0xfa
-    bl         Flag_GetBase
+    Flag_GetBase 0xFA
     bne        LAB_0804da8c
     push       {r5}
-    mov        r0,#0xb4
-    bl         Flag_ClearBase
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
-    mov        r0,#0xdf
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xB4
+    Flag_ClearBase 0xF9
+    Flag_ClearBase 0xDF
     ldr        r0,PTR_EntityAllocParams_804E938_0804db08
     bl         Entity_AllocList
     pop        {r5}
@@ -127,8 +123,7 @@ LAB_0804dab8:
     pop        {r5}
     cmp        r0,#0x18
     bne        LAB_0804dae0
-    mov        r0,#0xfa
-    bl         Flag_GetBase
+    Flag_GetBase 0xFA
     bne        LAB_0804dae0
     push       {r5}
     ldr        r0,DAT_0804db18

@@ -89,8 +89,7 @@ _ts S_Story_5C_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08090c84
-    mov        r0,#0xbe
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xBE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -103,8 +102,7 @@ LAB_08090c8e:
 
 
 _ts S_Story_5C_4
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     bne        LAB_08090cac
     mov        r0,#0x45
     bl         PlayerAnimation_SetState
@@ -206,8 +204,7 @@ _ts S_Story_5C_8
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,#0xbf
-    bl         Flag_SetBase
+    Flag_SetBase 0xBF
     LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]

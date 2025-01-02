@@ -9,8 +9,7 @@ _ts MapSetup_ACDC_Higsbys_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802ea5a
     push       {r5}
     mov        r0,#0x4
@@ -18,8 +17,7 @@ _ts MapSetup_ACDC_Higsbys_S2
     pop        {r5}
     b          LAB_0802ea72
 LAB_0802ea5a:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0802ea6e
     push       {r5}
     mov        r0,#0x3
@@ -74,11 +72,9 @@ _ts MapSetup_ACDC_Higsbys_F24
     ldr        r7,PTR_PTR_DAT_0802eca8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     bne        LAB_0802eb04
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0802eb04
     push       {r5}
     ldr        r0,DAT_0802ecac
@@ -122,11 +118,9 @@ _ts EventHandler_ACDC_Higsbys_F24_0
     pop        {r5}
     pop        {pc}
 LAB_0802eb42:
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     bne        LAB_0802eb60
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0802eb60
     push       {r5}
     ldr        r0,DAT_0802ecb8
@@ -143,12 +137,10 @@ LAB_0802eb60:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802eb7c
-    mov        r0,#0x27
-    bl         Flag_SetBase
+    Flag_SetBase 0x27
     pop        {pc}
 LAB_0802eb7c:
-    mov        r0,#0x27
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x27
     pop        {pc}
 
 
@@ -165,11 +157,9 @@ _ts MapSetup_ACDC_Higsbys_F26
     ldr        r7,PTR_PTR_DAT_0802ecc0
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     bne        LAB_0802ebc0
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0802ebc0
     push       {r5}
     ldr        r0,PTR_Scene_AfterFixedBattle_0802ecc4
@@ -213,11 +203,9 @@ _ts EventHandler_ACDC_Higsbys_F26_0
     pop        {r5}
     pop        {pc}
 LAB_0802ebfe:
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     bne        EventHandler_ACDC_Higsby_F26_0_HandleEvents
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        EventHandler_ACDC_Higsby_F26_0_HandleEvents
     push       {r5}
     ldr        r0,DAT_0802ecd0
@@ -236,12 +224,10 @@ _ts EventHandler_ACDC_Higsby_F26_0_HandleEvents
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802ec38
-    mov        r0,#0x27
-    bl         Flag_SetBase
+    Flag_SetBase 0x27
     pop        {pc}
 LAB_0802ec38:
-    mov        r0,#0x27
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x27
     pop        {pc}
 
 
@@ -381,17 +367,14 @@ _ts MapSetup_ACDC_Higsbys_F30
     ldr        r7,PTR_PTR_DAT_0802ee20
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0802ed8a
     mov        r6,#0x8
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     beq        LAB_0802ed78
     mov        r6,#0x9
 LAB_0802ed78:
-    mov        r0,#0x29
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x29
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_0802ee24
@@ -439,13 +422,11 @@ _ts EventHandler_ACDC_Higsbys_F30_HandleEvents
     pop        {pc}
 LAB_0802edce:
     mov        r6,#0x8
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     beq        LAB_0802edda
     mov        r6,#0xb
 LAB_0802edda:
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0802edf0
     add        r1,r6,#0x0
     push       {r5}
@@ -462,12 +443,10 @@ LAB_0802edf0:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802ee0c
-    mov        r0,#0x27
-    bl         Flag_SetBase
+    Flag_SetBase 0x27
     pop        {pc}
 LAB_0802ee0c:
-    mov        r0,#0x27
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x27
     pop        {pc}
 PTR_PTR_MapSetup_ACDC_Higsbys_F30_0802ee14:
     .word PTR_MapSetup_ACDC_Higsbys_F30_0802ecf4
@@ -539,17 +518,14 @@ _ts MapSetup_ACDC_Higsbys_F40
     ldr        r7,PTR_PTR_DAT_0802ef6c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0802eede
     mov        r6,#0x8
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     beq        LAB_0802eecc
     mov        r6,#0x9
 LAB_0802eecc:
-    mov        r0,#0x29
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x29
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_0802ef70
@@ -591,13 +567,11 @@ _ts EventHandler_ACDC_Higsbys_F40_0
     pop        {pc}
 LAB_0802ef1a:
     mov        r6,#0x8
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     beq        LAB_0802ef26
     mov        r6,#0xb
 LAB_0802ef26:
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0802ef3c
     add        r1,r6,#0x0
     push       {r5}
@@ -614,12 +588,10 @@ LAB_0802ef3c:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802ef58
-    mov        r0,#0x27
-    bl         Flag_SetBase
+    Flag_SetBase 0x27
     pop        {pc}
 LAB_0802ef58:
-    mov        r0,#0x27
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x27
 LAB_0802ef5e:
     pop        {pc}
 PTR_PTR_MapSetup_ACDC_Higsbys_F40_0802ef60:
@@ -694,17 +666,14 @@ _ts MapSetup_ACDC_Higsbys_F50
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0802f02e
     mov        r6,#0x8
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     beq        LAB_0802f01c
     mov        r6,#0x9
 LAB_0802f01c:
-    mov        r0,#0x29
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x29
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_0802f14c
@@ -744,13 +713,11 @@ _ts EventHandler_ACDC_Higsbys_F50_0
     pop        {pc}
 LAB_0802f066:
     mov        r6,#0x8
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     beq        LAB_0802f072
     mov        r6,#0xb
 LAB_0802f072:
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0802f088
     add        r1,r6,#0x0
     push       {r5}
@@ -767,12 +734,10 @@ LAB_0802f088:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802f0a4
-    mov        r0,#0x27
-    bl         Flag_SetBase
+    Flag_SetBase 0x27
     pop        {pc}
 LAB_0802f0a4:
-    mov        r0,#0x27
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x27
     pop        {pc}
 
 

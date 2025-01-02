@@ -122,8 +122,7 @@ _ts S_Story_26_4
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08089258
-    mov        r0,#0xba
-    bl         Flag_SetBase
+    Flag_SetBase 0xBA
     push       {r5}
     ldr        r0,PTR_ScenarioData_26_08089404
     mov        r1,#0x5
@@ -141,8 +140,7 @@ LAB_08089262:
 
 
 _ts S_Story_26_5
-    mov        r0,#0xbb
-    bl         Flag_GetBase
+    Flag_GetBase 0xBB
     beq        LAB_08089288
     mov        r0,#0x8
     neg        r0,r0
@@ -176,8 +174,7 @@ _ts S_Story_26_6
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08089288
-    mov        r0,#0xbc
-    bl         Flag_SetBase
+    Flag_SetBase 0xBC
     mov        r0,#0x50
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -302,8 +299,7 @@ _nt S_Story_26_11
     push       {r5}
     bl         Text_DisableDialogue
     pop        {r5}
-    mov        r0,#0xb9
-    bl         Flag_SetBase
+    Flag_SetBase 0xB9
     bl         PlayerAnimation_Unlock
     bl         Scene_UnloadAndResetStepCounter
 LAB_080893b8:

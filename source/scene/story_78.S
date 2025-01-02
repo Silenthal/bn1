@@ -54,8 +54,7 @@ _nt S_Story_78_1
     mov        r0,#0x2d
     bl         PlayerAnimation_SetState
     pop        {r5}
-    mov        r0,#0x96
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x96
     push       {r5}
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
@@ -101,8 +100,7 @@ _nt S_Story_78_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08096684
-    mov        r0,#0x96
-    bl         Flag_SetBase
+    Flag_SetBase 0x96
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -160,11 +158,9 @@ _ts S_Story_78_5
     pop        {r5}
     b          LAB_080966cc
 LAB_080966b0:
-    mov        r0,#0xee
-    bl         Flag_GetBase
+    Flag_GetBase 0xEE
     beq        LAB_080966cc
-    mov        r0,#0xee
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xEE
     push       {r5}
     mov        r0,#0x18
     bl         PetStatusControl_SetState
@@ -243,8 +239,7 @@ _ts S_Story_78_8
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xe5
-    bl         Flag_SetBase
+    Flag_SetBase 0xE5
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]

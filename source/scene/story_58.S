@@ -227,8 +227,7 @@ _ts S_Story_58_9
     ldrb       r0,[r1,#0x5]
     tst        r0,r0
     bne        LAB_0809090c
-    mov        r0,#0xd1
-    bl         Flag_SetBase
+    Flag_SetBase 0xD1
     mov        r0,#0x20
     strb       r0,[r5,#0x0]
     mov        r0,#0x0
@@ -239,8 +238,7 @@ _ts S_Story_58_9
 LAB_0809090c:
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
-    mov        r0,#0xd1
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD1
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -287,8 +285,7 @@ _nt S_Story_58_10
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809099a
-    mov        r0,#0xb9
-    bl         Flag_SetBase
+    Flag_SetBase 0xB9
     bl         PlayerAnimation_Unlock
     LoadMain world, r0, r7
     mov        r1,#0x3

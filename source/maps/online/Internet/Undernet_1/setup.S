@@ -26,8 +26,7 @@ _ts MapSetup_Undernet_1_S0
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8051820_08052cc8
     bl         BgTask_AddNew
-    mov        r0,#0x68
-    bl         Flag_GetBase
+    Flag_GetBase 0x68
     beq        LAB_08052b76
     ldr        r0,PTR_BgTask_8051738_08052ccc
     bl         BgTask_AddNew
@@ -68,18 +67,14 @@ _ts MapSetup_Undernet_1
     bl         Scene_Prepare
     pop        {r5}
 LAB_08052bba:
-    mov        r0,#0x65
-    bl         Flag_GetBase
+    Flag_GetBase 0x65
     bne        LAB_08052bc8
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
 LAB_08052bc8:
-    mov        r0,#0x68
-    bl         Flag_GetBase
+    Flag_GetBase 0x68
     beq        LAB_08052bdc
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     b          LAB_08052be6
 LAB_08052bdc:
@@ -109,8 +104,7 @@ PTR_EventHandler_Undernet_1_0_08052bfc:
 
 _ts EventHandler_Undernet_1_0
     push       {lr}
-    mov        r0,#0x10
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x10
     bne        LAB_08052c16
     push       {r5}
     ldr        r0,PTR_Scene_CheckMail_08052ce4
@@ -128,11 +122,9 @@ LAB_08052c16:
     bl         BgTask_AddNew
     pop        {r5}
 LAB_08052c2a:
-    mov        r0,#0x68
-    bl         Flag_GetBase
+    Flag_GetBase 0x68
     bne        LAB_08052c62
-    mov        r0,#0x69
-    bl         Flag_GetBase
+    Flag_GetBase 0x69
     beq        LAB_08052c4c
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
@@ -161,8 +153,7 @@ LAB_08052c62:
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_08052ca2
-    mov        r0,#0x1
-    bl         Flag_GetGate
+    Flag_GetGate F_GATE_01
     beq        LAB_08052ca2
     mov        r0,#0x35
     bl         KeyItem_IsPresent

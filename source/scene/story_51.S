@@ -156,8 +156,7 @@ _nt S_Story_51_6
     strb       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_0808f736
-    mov        r0,#0x9e
-    bl         Flag_SetBase
+    Flag_SetBase 0x9E
     mov        r0,#0x6
     bl         PlayerAnimation_SetState
     push       {r5}
@@ -220,11 +219,9 @@ _nt S_Story_51_9
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
     push       {r5}
-    mov        r0,#0x9c
-    bl         Flag_SetBase
+    Flag_SetBase 0x9C
     pop        {r5}
-    mov        r0,#0x9e
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x9E
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1

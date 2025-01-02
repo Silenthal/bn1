@@ -250,8 +250,7 @@ _ts S_Story_18_10
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080873a8
-    mov        r0,#0xb5
-    bl         Flag_SetBase
+    Flag_SetBase 0xB5
     bl         PlayerAnimation_Unlock
     push       {r5}
     mov        r0,#0x4

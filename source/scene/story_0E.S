@@ -116,10 +116,8 @@ _ts S_Story_0E_4
     push       {lr}
     push       {r5}
     bl         Text_DisableDialogue
-    mov        r0,#0xd2
-    bl         Flag_ClearBase
-    mov        r0,#0xdf
-    bl         Flag_SetBase
+    Flag_ClearBase 0xD2
+    Flag_SetBase 0xDF
     bl         PlayerAnimation_Unlock
     mov        r0,#0x1
     LoadMain world, r1, r7

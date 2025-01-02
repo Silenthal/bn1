@@ -100,10 +100,8 @@ _ts Menu_Save_0_Init
     mov        r0,#0x0
     strb       r0,[r5,#0xd]
     push       {r5}
-    mov        r0,#0x6
-    bl         Flag_ClearSystem
-    mov        r0,#0x5
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
+    Flag_ClearSystem F_SYSTEM_INPUT_DELAY_ON
     pop        {r5}
     mov        r0,#0x0
     pop        {pc}
@@ -128,8 +126,7 @@ _ts Menu_Save_1_CheckDialogResult
     strb       r0,[r5,#0x1]
     b          LAB_0801e61e
 LAB_0801e600:
-    mov        r0,#0x9
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_SAVE_OK
     beq        LAB_0801e614
     ldrb       r0,[r5,#0xd]
     tst        r0,r0
@@ -223,11 +220,9 @@ LAB_0801e6b2:
 
 _ts Menu_Save_4_StartClose
     push       {lr}
-    mov        r0,#0x6
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     beq        LAB_0801e6dc
-    mov        r0,#0x6
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x10
@@ -320,8 +315,7 @@ _ts Menu_Save_PrintData
     str        r1,[r5,#0x4]
     mov        r1,#0x80
     push       {r1}
-    mov        r0,#0xc7
-    bl         Flag_GetLibrary
+    Flag_GetLibrary 0xC7
     pop        {r1}
     beq        LAB_0801e78c
     mov        r1,#0x84

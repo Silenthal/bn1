@@ -6,8 +6,7 @@
 _ts MapSetup_Govt_Complex_Front_S2
     push       {lr}
     push       {r1,r5}
-    mov        r0,#0x41
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_01
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_Default_08031914
     ldr        r0,[r0,r1]
@@ -17,8 +16,7 @@ _ts MapSetup_Govt_Complex_Front_S2
     ldr        r0,PTR_EntityAllocParams_8035C00_08031918
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0803168e
     push       {r5}
     mov        r0,#0x4
@@ -26,8 +24,7 @@ _ts MapSetup_Govt_Complex_Front_S2
     pop        {r5}
     b          LAB_080316a6
 LAB_0803168e:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_080316a2
     push       {r5}
     mov        r0,#0x3
@@ -38,8 +35,7 @@ LAB_080316a2:
     bl         Sound_AreaSongChange
 LAB_080316a6:
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     pop        {pc}
 
@@ -92,12 +88,10 @@ _ts MapSetup_Govt_Complex_Front_F22
     ldr        r7,PTR_NPCList_8034E90_08031924
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     bne        LAB_08031748
     push       {r5}
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     pop        {r5}
     beq        LAB_08031748
     push       {r5}
@@ -132,11 +126,9 @@ _ts EventHandler_Govt_Complex_Front_F22_0
     mov        r0,#0x21
     bl         KeyItem_IsPresent
     bne        LAB_0803178a
-    mov        r0,#0xf
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x0F
     bne        LAB_0803178a
-    mov        r0,#0xb
-    bl         Flag_SetItem
+    Flag_SetItem F_ITEM_ACDC_MAYL_PC_KEYMAYL
     push       {r5}
     ldr        r0,DAT_08031930
     ldr        r1,DAT_08031934
@@ -144,11 +136,9 @@ _ts EventHandler_Govt_Complex_Front_F22_0
     pop        {r5}
     pop        {pc}
 LAB_0803178a:
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     bne        LAB_080317a6
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     beq        LAB_080317a6
     push       {r5}
     ldr        r0,DAT_08031938
@@ -170,12 +160,10 @@ _ts MapSetup_Govt_Complex_Front_F23
     ldr        r0,PTR_EntityAllocParams_8035C00_0803193c
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     bne        LAB_080317e2
     push       {r5}
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     pop        {r5}
     beq        LAB_080317e2
     push       {r5}
@@ -205,11 +193,9 @@ PTR_EventHandler_Govt_Complex_Front_F23_0_080317f8:
 
 _ts EventHandler_Govt_Complex_Front_F23_0
     push       {lr}
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     bne        LAB_0803181a
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     beq        LAB_0803181a
     push       {r5}
     ldr        r0,DAT_08031948
@@ -233,12 +219,10 @@ _ts MapSetup_Govt_Complex_Front_F24
     ldr        r7,PTR_NPCList_8034E90_08031950
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     bne        LAB_0803185c
     push       {r5}
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     pop        {r5}
     beq        LAB_0803185c
     push       {r5}
@@ -270,11 +254,9 @@ PTR_EventHandler_Govt_Complex_Front_F24_0_08031874:
 
 _ts EventHandler_Govt_Complex_Front_F24_0
     push       {lr}
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     bne        LAB_08031896
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     beq        LAB_08031896
     push       {r5}
     ldr        r0,DAT_0803195c
@@ -298,12 +280,10 @@ _ts MapSetup_Govt_Complex_Front_F25
     ldr        r7,PTR_NPCList_8034F44_08031964
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     bne        LAB_080318d8
     push       {r5}
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     pop        {r5}
     beq        LAB_080318d8
     push       {r5}
@@ -335,11 +315,9 @@ PTR_EventHandler_Govt_Complex_Front_F25_0_080318f0:
 
 _ts EventHandler_Govt_Complex_Front_F25_0
     push       {lr}
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     bne        LAB_08031912
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     beq        LAB_08031912
     push       {r5}
     ldr        r0,DAT_08031970
@@ -425,8 +403,7 @@ DAT_08031970:
 _ts MapSetup_Govt_Complex_Front_S3
     push       {lr}
     push       {r1,r5}
-    mov        r0,#0x41
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_01
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_Govt_Complex_Front_F30_08031a9c
     ldr        r0,[r0,r1]
@@ -438,8 +415,7 @@ _ts MapSetup_Govt_Complex_Front_S3
     pop        {r5}
     bl         Sound_AreaSongChange
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     pop        {pc}
 
@@ -492,23 +468,19 @@ _ts MapSetup_Govt_Complex_Front_F30
     ldr        r7,PTR_NPCList_8034E90_08031aac
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     beq        LAB_08031a48
     mov        r6,#0x5
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     beq        FUN_08031a36
     mov        r6,#0xe
-    mov        r0,#0x3f
-    bl         Flag_GetBase
+    Flag_GetBase 0x3F
     bne        LAB_08031a48
     b          FUN_08031a3c
 
 
 _nt FUN_08031a36
-    mov        r0,#0x2c
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2C
 
 
 _ts FUN_08031a3c
@@ -543,20 +515,17 @@ _ts EventHandler_Govt_Complex_Front_F30_0
     push       {lr}
     mov        r1,#0x7
     push       {r1}
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     pop        {r1}
     beq        LAB_08031a82
     mov        r1,#0x10
     push       {r1}
-    mov        r0,#0x3f
-    bl         Flag_GetBase
+    Flag_GetBase 0x3F
     pop        {r1}
     bne        LAB_08031a98
 LAB_08031a82:
     push       {r1}
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     pop        {r1}
     beq        LAB_08031a98
     push       {r5}
@@ -653,8 +622,7 @@ _nt FUN_08031b3a
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    mov        r0,#0x9c
-    bl         Flag_GetBase
+    Flag_GetBase 0x9C
     bne        LAB_08031b52
     ldr        r7,PTR_NPCList_8034F4C_08031ca0
     bl         Map_LoadNPCList
@@ -664,23 +632,18 @@ LAB_08031b52:
     bl         Map_LoadNPCList
 LAB_08031b58:
     pop        {r5}
-    mov        r0,#0x31
-    bl         Flag_ClearEvent
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_ClearEvent 0x31
+    Flag_GetBase 0x2C
     beq        LAB_08031b92
     mov        r6,#0x5
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     beq        LAB_08031b7e
     mov        r6,#0xe
-    mov        r0,#0x3f
-    bl         Flag_GetBase
+    Flag_GetBase 0x3F
     beq        LAB_08031b7e
     mov        r6,#0xf
 LAB_08031b7e:
-    mov        r0,#0x2c
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2C
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_08031ca8
@@ -688,12 +651,10 @@ LAB_08031b7e:
     pop        {r5}
     pop        {pc}
 LAB_08031b92:
-    mov        r0,#0x41
-    bl         Flag_GetBase
+    Flag_GetBase 0x41
     bne        LAB_08031bb2
     push       {r5}
-    mov        r0,#0x2f
-    bl         Flag_GetBase
+    Flag_GetBase 0x2F
     pop        {r5}
     beq        LAB_08031bb2
     push       {r5}
@@ -723,11 +684,9 @@ PTR_EventHandler_Govt_Complex_Front_F40_0_08031bc8:
 
 _ts EventHandler_Govt_Complex_Front_F40_0
     push       {lr}
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     beq        LAB_08031bec
-    mov        r0,#0x17
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x17
     bne        LAB_08031bec
     push       {r5}
     ldr        r0,DAT_08031cb4
@@ -737,17 +696,14 @@ _ts EventHandler_Govt_Complex_Front_F40_0
     pop        {pc}
 LAB_08031bec:
     mov        r6,#0x7
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     beq        LAB_08031c02
     mov        r6,#0x10
-    mov        r0,#0x3f
-    bl         Flag_GetBase
+    Flag_GetBase 0x3F
     beq        LAB_08031c02
     mov        r6,#0x11
 LAB_08031c02:
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     beq        LAB_08031c18
     add        r1,r6,#0x0
     push       {r5}
@@ -756,11 +712,9 @@ LAB_08031c02:
     pop        {r5}
     pop        {pc}
 LAB_08031c18:
-    mov        r0,#0x41
-    bl         Flag_GetBase
+    Flag_GetBase 0x41
     bne        LAB_08031c34
-    mov        r0,#0x2f
-    bl         Flag_GetBase
+    Flag_GetBase 0x2F
     beq        LAB_08031c34
     push       {r5}
     ldr        r0,DAT_08031cc0
@@ -808,8 +762,7 @@ LAB_08031c5e:
     ldr        r0,PTR_Scene_JackIn_08031cc8
     bl         Scene_Prepare
     pop        {r5}
-    mov        r0,#0x31
-    bl         Flag_SetEvent
+    Flag_SetEvent 0x31
     pop        {pc}
 LAB_08031c90:
     pop        {r1}
@@ -918,23 +871,18 @@ _ts MapSetup_Govt_Complex_Front_F50
     ldr        r7,PTR_NPCList_8035038_080320c8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x31
-    bl         Flag_ClearEvent
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_ClearEvent 0x31
+    Flag_GetBase 0x2C
     beq        LAB_08031d92
     mov        r6,#0x5
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     beq        LAB_08031d7e
     mov        r6,#0xe
-    mov        r0,#0x3f
-    bl         Flag_GetBase
+    Flag_GetBase 0x3F
     beq        LAB_08031d7e
     mov        r6,#0xf
 LAB_08031d7e:
-    mov        r0,#0x2c
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2C
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_080320cc
@@ -942,21 +890,17 @@ LAB_08031d7e:
     pop        {r5}
     pop        {pc}
 LAB_08031d92:
-    mov        r0,#0x2f
-    bl         Flag_GetBase
+    Flag_GetBase 0x2F
     beq        LAB_08031dc2
     mov        r6,#0x7
-    mov        r0,#0x41
-    bl         Flag_GetBase
+    Flag_GetBase 0x41
     beq        LAB_08031db0
     mov        r6,#0x10
-    mov        r0,#0x42
-    bl         Flag_GetBase
+    Flag_GetBase 0x42
     bne        LAB_08031dc2
     b          LAB_08031db6
 LAB_08031db0:
-    mov        r0,#0x2f
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2F
 LAB_08031db6:
     add        r1,r6,#0x0
     push       {r5}
@@ -986,17 +930,14 @@ PTR_EventHandler_Govt_Complex_Front_F50_0_08031dd8:
 _ts EventHandler_Govt_Complex_Front_F50_0
     push       {lr}
     mov        r6,#0x7
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     beq        LAB_08031df4
     mov        r6,#0x10
-    mov        r0,#0x3f
-    bl         Flag_GetBase
+    Flag_GetBase 0x3F
     beq        LAB_08031df4
     mov        r6,#0x11
 LAB_08031df4:
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     beq        LAB_08031e0a
     add        r1,r6,#0x0
     push       {r5}
@@ -1007,20 +948,17 @@ LAB_08031df4:
 LAB_08031e0a:
     mov        r1,#0xa
     push       {r1}
-    mov        r0,#0x41
-    bl         Flag_GetBase
+    Flag_GetBase 0x41
     pop        {r1}
     beq        LAB_08031e26
     mov        r1,#0x12
     push       {r1}
-    mov        r0,#0x42
-    bl         Flag_GetBase
+    Flag_GetBase 0x42
     pop        {r1}
     bne        LAB_08031e3c
 LAB_08031e26:
     push       {r1}
-    mov        r0,#0x2f
-    bl         Flag_GetBase
+    Flag_GetBase 0x2F
     pop        {r1}
     beq        LAB_08031e3c
     push       {r5}
@@ -1042,23 +980,18 @@ _nt MapSetup_Govt_Complex_Front_F52
     ldr        r7,PTR_NPCList_8035038_080320e0
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x31
-    bl         Flag_ClearEvent
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_ClearEvent 0x31
+    Flag_GetBase 0x2C
     beq        LAB_08031e90
     mov        r6,#0x5
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     beq        LAB_08031e7c
     mov        r6,#0xe
-    mov        r0,#0x3f
-    bl         Flag_GetBase
+    Flag_GetBase 0x3F
     beq        LAB_08031e7c
     mov        r6,#0xf
 LAB_08031e7c:
-    mov        r0,#0x2c
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2C
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,PTR_Scene_AfterFixedBattle_080320e4
@@ -1066,21 +999,17 @@ LAB_08031e7c:
     pop        {r5}
     pop        {pc}
 LAB_08031e90:
-    mov        r0,#0x2f
-    bl         Flag_GetBase
+    Flag_GetBase 0x2F
     beq        LAB_08031ec0
     mov        r6,#0x7
-    mov        r0,#0x41
-    bl         Flag_GetBase
+    Flag_GetBase 0x41
     beq        LAB_08031eae
     mov        r6,#0x10
-    mov        r0,#0x42
-    bl         Flag_GetBase
+    Flag_GetBase 0x42
     beq        LAB_08031eae
     mov        r6,#0x11
 LAB_08031eae:
-    mov        r0,#0x2f
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2F
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,PTR_Scene_AfterFixedBattle_080320e8
@@ -1111,17 +1040,14 @@ PTR_EventHandler_Govt_Complex_Front_F52_0_08031ed8:
 _ts EventHandler_Govt_Complex_Front_F52_0
     push       {lr}
     mov        r6,#0x7
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     beq        LAB_08031ef4
     mov        r6,#0x10
-    mov        r0,#0x3f
-    bl         Flag_GetBase
+    Flag_GetBase 0x3F
     beq        LAB_08031ef4
     mov        r6,#0x11
 LAB_08031ef4:
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     beq        LAB_08031f0a
     add        r1,r6,#0x0
     push       {r5}
@@ -1132,21 +1058,18 @@ LAB_08031ef4:
 LAB_08031f0a:
     mov        r1,#0xa
     push       {r1}
-    mov        r0,#0x41
-    bl         Flag_GetBase
+    Flag_GetBase 0x41
     pop        {r1}
     beq        LAB_08031f28
     mov        r1,#0x12
     push       {r1}
-    mov        r0,#0x42
-    bl         Flag_GetBase
+    Flag_GetBase 0x42
     pop        {r1}
     beq        LAB_08031f28
     mov        r1,#0x13
 LAB_08031f28:
     push       {r1}
-    mov        r0,#0x2f
-    bl         Flag_GetBase
+    Flag_GetBase 0x2F
     pop        {r1}
     beq        LAB_08031f3e
     push       {r5}
@@ -1168,23 +1091,18 @@ _ts MapSetup_Govt_Complex_Front_F53
     ldr        r7,PTR_NPCList_8035038_080320f8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x31
-    bl         Flag_ClearEvent
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_ClearEvent 0x31
+    Flag_GetBase 0x2C
     beq        LAB_08031f92
     mov        r6,#0x5
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     beq        LAB_08031f7e
     mov        r6,#0xe
-    mov        r0,#0x3f
-    bl         Flag_GetBase
+    Flag_GetBase 0x3F
     beq        LAB_08031f7e
     mov        r6,#0xf
 LAB_08031f7e:
-    mov        r0,#0x2c
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2C
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,PTR_Scene_AfterFixedBattle_080320fc
@@ -1192,21 +1110,17 @@ LAB_08031f7e:
     pop        {r5}
     pop        {pc}
 LAB_08031f92:
-    mov        r0,#0x2f
-    bl         Flag_GetBase
+    Flag_GetBase 0x2F
     beq        LAB_08031fc2
     mov        r6,#0x7
-    mov        r0,#0x41
-    bl         Flag_GetBase
+    Flag_GetBase 0x41
     beq        LAB_08031fb0
     mov        r6,#0x10
-    mov        r0,#0x42
-    bl         Flag_GetBase
+    Flag_GetBase 0x42
     beq        LAB_08031fb0
     mov        r6,#0x11
 LAB_08031fb0:
-    mov        r0,#0x2f
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2F
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,PTR_Scene_AfterFixedBattle_08032100
@@ -1234,11 +1148,9 @@ PTR_EventHandler_Govt_Complex_Front_F53_0_08031fd8:
 
 _ts EventHandler_Govt_Complex_Front_F53_0
     push       {lr}
-    mov        r0,#0xa9
-    bl         Flag_GetBase
+    Flag_GetBase 0xA9
     beq        LAB_08031ffa
-    mov        r0,#0x1a
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x1A
     bne        LAB_08031ffa
     push       {r5}
     ldr        r0,DAT_08032108
@@ -1247,17 +1159,14 @@ _ts EventHandler_Govt_Complex_Front_F53_0
     pop        {r5}
 LAB_08031ffa:
     mov        r6,#0x7
-    mov        r0,#0x3e
-    bl         Flag_GetBase
+    Flag_GetBase 0x3E
     beq        LAB_08032010
     mov        r6,#0x10
-    mov        r0,#0x3f
-    bl         Flag_GetBase
+    Flag_GetBase 0x3F
     beq        LAB_08032010
     mov        r6,#0x11
 LAB_08032010:
-    mov        r0,#0x2c
-    bl         Flag_GetBase
+    Flag_GetBase 0x2C
     beq        LAB_08032026
     add        r1,r6,#0x0
     push       {r5}
@@ -1268,21 +1177,18 @@ LAB_08032010:
 LAB_08032026:
     mov        r1,#0xa
     push       {r1}
-    mov        r0,#0x41
-    bl         Flag_GetBase
+    Flag_GetBase 0x41
     pop        {r1}
     beq        LAB_08032044
     mov        r1,#0x12
     push       {r1}
-    mov        r0,#0x42
-    bl         Flag_GetBase
+    Flag_GetBase 0x42
     pop        {r1}
     beq        LAB_08032044
     mov        r1,#0x13
 LAB_08032044:
     push       {r1}
-    mov        r0,#0x2f
-    bl         Flag_GetBase
+    Flag_GetBase 0x2F
     pop        {r1}
     beq        LAB_0803205a
     push       {r5}
@@ -1330,8 +1236,7 @@ LAB_08032084:
     ldr        r0,PTR_Scene_JackIn_0803211c
     bl         Scene_Prepare
     pop        {r5}
-    mov        r0,#0x31
-    bl         Flag_SetEvent
+    Flag_SetEvent 0x31
     pop        {pc}
 LAB_080320b6:
     pop        {r1}

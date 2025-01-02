@@ -73,11 +73,9 @@ LAB_0808d21e:
 
 
 _ts S_Story_3C_3
-    mov        r0,#0xa5
-    bl         Flag_GetBase
+    Flag_GetBase 0xA5
     beq        LAB_0808d238
-    mov        r0,#0xa5
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xA5
     push       {r5}
     mov        r0,#0x4
     bl         Sound_ChangeSong
@@ -114,8 +112,7 @@ _nt S_Story_3C_4
 _ts S_Story_3C_5
     bl         Flag_SetPlayerActive
     push       {r5}
-    mov        r0,#0xa6
-    bl         Flag_SetBase
+    Flag_SetBase 0xA6
     pop        {r5}
     push       {r5}
     mov        r0,#0x4

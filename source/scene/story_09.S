@@ -95,15 +95,13 @@ LAB_080847ba:
 _ts S_Story_09_3
     push       {lr}
     push       {r5}
-    mov        r0,#0xd5
-    bl         Flag_GetBase
+    Flag_GetBase 0xD5
     pop        {r5}
     beq        LAB_080847da
     push       {r5}
     mov        r0,#0x1a
     bl         PlayerAnimation_SetState
-    mov        r0,#0xd5
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD5
     pop        {r5}
 LAB_080847da:
     push       {r5}
@@ -185,11 +183,9 @@ _ts S_Story_09_6
     mov        r0,#0x4
     strb       r0,[r7,#0x10]
     bl         PlayerAnimation_SetState
-    mov        r0,#0xd5
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD5
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xc4
-    bl         Flag_SetBase
+    Flag_SetBase 0xC4
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

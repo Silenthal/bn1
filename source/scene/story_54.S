@@ -117,8 +117,7 @@ LAB_0808fece:
 
 _ts S_Story_54_3
     push       {lr}
-    mov        r0,#0xb1
-    bl         Flag_GetBase
+    Flag_GetBase 0xB1
     beq        LAB_0808fee4
     mov        r0,#0x1e
     strb       r0,[r5,#0x8]
@@ -321,8 +320,7 @@ _ts S_Story_54_12
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08090080
-    mov        r0,#0xb2
-    bl         Flag_SetBase
+    Flag_SetBase 0xB2
     push       {r5}
     bl         PlayerAnimation_Unlock
     pop        {r5}

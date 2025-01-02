@@ -141,12 +141,10 @@ _nt S_Story_4D_5
     beq        LAB_0808f008
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0xc2
-    bl         Flag_SetBase
+    Flag_SetBase 0xC2
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    bl         Flag_SetBase
+    Flag_SetBase 0x03
     bl         FUN_080102e8
     mov        r0,#0x3c
     mov        r1,#0x1
@@ -157,18 +155,14 @@ _nt S_Story_4D_5
     mov        r0,#0x3e
     mov        r1,#0x1
     bl         KeyItem_SubtractAmount
-    mov        r0,#0x2a
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2A
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x40
     strb       r1,[r0,#0x6]
-    mov        r0,#0x38
-    bl         Flag_ClearBase
-    mov        r0,#0x2d
-    bl         Flag_ClearBase
-    mov        r0,#0x2c
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x38
+    Flag_ClearBase 0x2D
+    Flag_ClearBase 0x2C
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1

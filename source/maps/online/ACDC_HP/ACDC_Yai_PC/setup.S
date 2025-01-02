@@ -34,8 +34,7 @@ _nt FUN_0804f26a
     cmp        r1,r2
     beq        LAB_0804f282
     push       {r5}
-    mov        r0,#0xe
-    bl         Flag_ClearItem
+    Flag_ClearItem F_ITEM_ACDC_YAI_PC_RECOV30_L
     pop        {r5}
 LAB_0804f282:
     push       {r5}
@@ -69,18 +68,15 @@ LAB_0804f2be:
     ldr        r7,PTR_NPCList_804F578_0804f354
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x7
-    bl         Flag_GetBase
+    Flag_GetBase 0x07
     beq        LAB_0804f2de
-    mov        r0,#0xd
-    bl         Flag_GetBase
+    Flag_GetBase 0x0D
     bne        LAB_0804f2e8
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_0804f2de:
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x4
     b          LAB_0804f2ea
 LAB_0804f2e8:
@@ -117,8 +113,7 @@ _ts FUN_0804f30c
     pop        {r5}
     mov        r0,#0x4
     str        r0,[r5,#0x0]
-    mov        r0,#0xd
-    bl         Flag_SetBase
+    Flag_SetBase 0x0D
     pop        {pc}
 
 

@@ -63,8 +63,7 @@ PTR_E_ColorMan_1_0_0807f76c:
 
 
 _ts E_ColorMan_1_0
-    mov        r0,#0xbc
-    bl         Flag_GetBase
+    Flag_GetBase 0xBC
     beq        LAB_0807f7aa
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
@@ -143,8 +142,7 @@ _ts E_ColorMan_1_3
     mov        r1,#0x80
     and        r0,r1
     beq        LAB_0807f830
-    mov        r0,#0xbc
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xBC
     mov        r0,#0x8
     strb       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex

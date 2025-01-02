@@ -318,8 +318,7 @@ MapDialogue_Govt_Waterworks_Purification_Room:
 
 _ts FlagSetup_Govt_S2
     push       {lr}
-    mov        r0,#0x2e
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2E
     pop        {pc}
 
     .align 2, 0

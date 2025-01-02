@@ -60,8 +60,7 @@ _ts E_TrafficSwitch_2_Free
 
 _ts E_TrafficSwitch_SetPalette
     push       {lr}
-    mov        r0,#0x30
-    bl         Flag_GetBase
+    Flag_GetBase 0x30
     beq        LAB_0807fbb6
     mov        r0,#0x1
     b          LAB_0807fbb8

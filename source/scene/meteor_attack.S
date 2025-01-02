@@ -89,8 +89,7 @@ _ts S_MeteorAttack_2
     str        r0,[r5,#0x10]
     bl         S_MeteorAttack_Meteors
     push       {r5}
-    mov        r0,#0xda
-    bl         Flag_GetBase
+    Flag_GetBase 0xDA
     pop        {r5}
     beq        LAB_0808445e
     push       {r5}
@@ -173,8 +172,7 @@ _ts S_MeteorAttack_4
     strb       r1,[r0,#0x6]
     push       {r5}
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xc1
-    bl         Flag_SetBase
+    Flag_SetBase 0xC1
     ldr        r0,PTR_MapEntrance_0808463c
     mov        r1,#0x0
     bl         World_SetTransitionLocation

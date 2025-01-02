@@ -63,8 +63,7 @@ _ts MapSetup_Oven_Comp_1_F03
     push       {r5}
     ldr        r7,PTR_NPCList_8043A38_08043610
     bl         Map_LoadNPCList
-    mov        r0,#0xde
-    bl         Flag_SetBase
+    Flag_SetBase 0xDE
     ldr        r0,PTR_EntityAllocParams_8043CF8_08043614
     bl         Entity_AllocList
     bl         PlayerLocation_Create
@@ -85,8 +84,7 @@ _ts MapSetup_Oven_Comp_1_F03
     b          LAB_08043334
 LAB_08043310:
     push       {r5}
-    mov        r0,#0x9e
-    bl         Flag_GetBase
+    Flag_GetBase 0x9E
     beq        LAB_08043320
     mov        r0,#0x4
     mov        r1,#0x0
@@ -105,15 +103,13 @@ LAB_08043324:
 LAB_08043334:
     mov        r0,#0x8
     push       {r0,r5}
-    mov        r0,#0x9f
-    bl         Flag_GetBase
+    Flag_GetBase 0x9F
     pop        {r0,r5}
     beq        LAB_08043344
     b          LAB_08043360
 LAB_08043344:
     push       {r0}
-    mov        r0,#0x9e
-    bl         Flag_GetBase
+    Flag_GetBase 0x9E
     pop        {r0}
     bne        LAB_08043354
     mov        r0,#0x0
@@ -122,8 +118,7 @@ LAB_08043354:
     mov        r0,#0x4
 LAB_08043356:
     push       {r0,r5}
-    mov        r0,#0x2
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_NO_RANDOM_BATTLES
     pop        {r0,r5}
 LAB_08043360:
     str        r0,[r5,#0x0]
@@ -150,8 +145,7 @@ PTR_EventHandler_Oven_Comp_1_F03_0_08043374:
 _ts EventHandler_Oven_Comp_1_F03_0
     push       {lr}
     push       {r5}
-    mov        r0,#0x2
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_NO_RANDOM_BATTLES
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_Scene_Story_07_08043624
@@ -168,8 +162,7 @@ _ts EventHandler_Oven_Comp_1_F03_0
 _ts EventHandler_Oven_Comp_1_F03_1
     push       {lr}
     push       {r5}
-    mov        r0,#0x2
-    bl         Flag_SetBase
+    Flag_SetBase 0x02
     pop        {r5}
     bl         EventHandler_Oven_Comp_1_F03_HandleIceBlock
     beq        LAB_080433d8
@@ -199,8 +192,7 @@ _ts EventHandler_Oven_Comp_1_F03_2
     bl         EventHandler_Oven_Comp_1_F03_HandleIceBlock
     beq        LAB_08043416
     push       {r5}
-    mov        r0,#0xc0
-    bl         Flag_GetBase
+    Flag_GetBase 0xC0
     pop        {r5}
     beq        LAB_0804340a
     bl         GetCollisionEventAttribute
@@ -262,13 +254,11 @@ LAB_0804343a:
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0xc8
-    bl         Flag_GetBase
+    Flag_GetBase 0xC8
     pop        {r5}
     beq        LAB_0804347e
     push       {r5}
-    mov        r0,#0xc8
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xC8
     ldr        r0,PTR_Scene_Story_0B_08043638
     mov        r1,#0x0
     bl         Scene_Prepare
@@ -319,13 +309,11 @@ PTR_EventHandler_Oven_Comp_1_F05_0_080434bc:
 _ts EventHandler_Oven_Comp_1_F05_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xdd
-    bl         Flag_GetBase
+    Flag_GetBase 0xDD
     pop        {r5}
     beq        LAB_0804350c
     push       {r5}
-    mov        r0,#0xdd
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xDD
     pop        {r5}
     mov        r7,#0x0
 LAB_080434de:

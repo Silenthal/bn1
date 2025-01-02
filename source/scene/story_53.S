@@ -175,8 +175,7 @@ _ts S_Story_53_6
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808fb84
-    mov        r0,#0xae
-    bl         Flag_SetBase
+    Flag_SetBase 0xAE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -241,8 +240,7 @@ _nt S_Story_53_9
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808fc0e
-    mov        r0,#0xac
-    bl         Flag_SetBase
+    Flag_SetBase 0xAC
     mov        r0,#0xc8
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -396,8 +394,7 @@ _nt S_Story_53_15
     mov        r1,#0x41
     strb       r1,[r0,#0x6]
     push       {r5}
-    mov        r0,#0xab
-    bl         Flag_SetBase
+    Flag_SetBase 0xAB
     pop        {r5}
     push       {r5}
     LoadMain world, r7, r7

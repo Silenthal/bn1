@@ -88,8 +88,7 @@ _ts S_Story_37_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808c660
-    mov        r0,#0x96
-    bl         Flag_SetBase
+    Flag_SetBase 0x96
     mov        r0,#0x50
     strh       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -168,8 +167,7 @@ _ts S_Story_37_6
     beq        LAB_0808c6fe
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0x95
-    bl         Flag_SetBase
+    Flag_SetBase 0x95
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808c6fe:

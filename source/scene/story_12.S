@@ -191,8 +191,7 @@ _ts S_Story_12_8
     bl         Text_DisableDialogue
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
-    mov        r0,#0x92
-    bl         Flag_SetBase
+    Flag_SetBase 0x92
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

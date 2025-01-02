@@ -106,8 +106,7 @@ _nt S_Story_52_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808f8f2
-    mov        r0,#0x9e
-    bl         Flag_SetBase
+    Flag_SetBase 0x9E
     mov        r0,#0x1e
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -226,8 +225,7 @@ _ts S_Story_52_8
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0x9f
-    bl         Flag_SetBase
+    Flag_SetBase 0x9F
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808f9d6:

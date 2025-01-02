@@ -91,8 +91,7 @@ _ts Menu_Email_0_Init
     mov        r1,#0x40
     mov        r2,#0x40
     bl         memset
-    mov        r0,#0x5
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_INPUT_DELAY_ON
     pop        {r5}
     mov        r0,#0x0
     strb       r0,[r5,#0xe]
@@ -215,8 +214,7 @@ _ts Menu_Email_HandleInput
     ldrb       r0,[r5,#0xe]
     strb       r0,[r5,#0xf]
     mov        r9,r5
-    mov        r0,#0x5
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_INPUT_DELAY_ON
     mov        r5,r9
     beq        LAB_0801c31c
     mov        r0,#0x8
@@ -253,8 +251,7 @@ LAB_0801c34c:
     tst        r1,r0
     beq        LAB_0801c37c
     mov        r9,r5
-    mov        r0,#0x5
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_INPUT_DELAY_ON
     mov        r5,r9
     ldrb       r2,[r5,#0xc]
     ldrb       r1,[r5,#0xe]

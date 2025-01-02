@@ -103,12 +103,10 @@ _ts S_Story_20_3
     bl         Sound_PlaySongImmediate
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
-    mov        r0,#0xa0
-    bl         Flag_SetBase
+    Flag_SetBase 0xA0
     b          LAB_080885bc
 LAB_080885a6:
-    mov        r0,#0xa1
-    bl         Flag_SetBase
+    Flag_SetBase 0xA1
     mov        r0,#0x31
     bl         PlayerAnimation_SetState
     mov        r0,#0x5a
@@ -171,10 +169,8 @@ _nt S_Story_20_7
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808864c
-    mov        r0,#0xa1
-    bl         Flag_SetBase
-    mov        r0,#0xa6
-    bl         Flag_SetBase
+    Flag_SetBase 0xA1
+    Flag_SetBase 0xA6
     push       {r5}
     mov        r0,#0x3
     bl         PlayerAnimation_SetState
@@ -205,8 +201,7 @@ _nt S_Story_20_8
     push       {r5}
     bl         Text_DisableDialogue
     bl         PlayerAnimation_Unlock
-    mov        r0,#0x19
-    bl         Flag_SetBase
+    Flag_SetBase 0x19
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x22

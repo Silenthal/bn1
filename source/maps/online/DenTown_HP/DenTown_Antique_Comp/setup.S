@@ -34,8 +34,7 @@ _nt FUN_0804fede
     cmp        r1,r2
     beq        LAB_0804fef6
     push       {r5}
-    mov        r0,#0x6e
-    bl         Flag_ClearItem
+    Flag_ClearItem F_ITEM_DENTOWN_ANTIQUE_COMP_BARRIER_S
     pop        {r5}
 LAB_0804fef6:
     push       {r5}
@@ -65,18 +64,15 @@ LAB_0804ff28:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804ff34:
-    mov        r0,#0x4b
-    bl         Flag_GetBase
+    Flag_GetBase 0x4B
     beq        LAB_0804ff4a
-    mov        r0,#0x4f
-    bl         Flag_GetBase
+    Flag_GetBase 0x4F
     bne        LAB_0804ff54
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_0804ff4a:
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x4
     b          LAB_0804ff56
 LAB_0804ff54:
@@ -113,8 +109,7 @@ _ts FUN_0804ff78
     pop        {r5}
     mov        r0,#0x4
     str        r0,[r5,#0x0]
-    mov        r0,#0x4f
-    bl         Flag_SetBase
+    Flag_SetBase 0x4F
     pop        {pc}
 
 

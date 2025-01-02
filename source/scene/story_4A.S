@@ -215,8 +215,7 @@ _nt S_Story_4A_8
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808e9ae
-    mov        r0,#0xbc
-    bl         Flag_SetBase
+    Flag_SetBase 0xBC
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -229,8 +228,7 @@ LAB_0808e9b8:
 
 
 _nt S_Story_4A_9
-    mov        r0,#0xbc
-    bl         Flag_GetBase
+    Flag_GetBase 0xBC
     bne        LAB_0808e9d4
     push       {r5}
     ldr        r0,PTR_ScenarioData_4A_0808ea8c
@@ -294,10 +292,8 @@ LAB_0808ea34:
 _nt S_Story_4A_12
     push       {r5}
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xbb
-    bl         Flag_SetBase
-    mov        r0,#0x2a
-    bl         Flag_SetEvent
+    Flag_SetBase 0xBB
+    Flag_SetEvent 0x2A
     ldr        r0,PTR_EnemySpawn_ColorManV1_0808ea98
     bl         Battle_GetRandomEncounter
     mov        r0,#0x3

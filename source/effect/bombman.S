@@ -116,16 +116,14 @@ LAB_080806cc:
 LAB_08080714:
     strh       r1,[r5,#0x1c]
 LAB_08080716:
-    mov        r0,#0x9c
-    bl         Flag_GetBase
+    Flag_GetBase 0x9C
     beq        LAB_08080746
     ldrb       r0,[r5,#0xa]
     add        r0,#0x1
     strb       r0,[r5,#0xa]
     mov        r0,#0xe
     strb       r0,[r5,#0x14]
-    mov        r0,#0x9c
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x9C
     ldrb       r0,[r5,#0xa]
     cmp        r0,#0x2
     bne        LAB_08080746
@@ -156,8 +154,7 @@ _ts E_BombMan_1_1
 
 
 _nt E_BombMan_2_Free
-    mov        r0,#0x9c
-    bl         Flag_SetBase
+    Flag_SetBase 0x9C
     bl         Effect_Free
     pop        {pc}
 

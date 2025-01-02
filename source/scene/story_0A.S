@@ -116,8 +116,7 @@ _ts S_Story_0A_3
     strh       r0,[r5,#0x8]
     bgt        LAB_08084a76
     push       {r5}
-    mov        r0,#0xd6
-    bl         Flag_SetBase
+    Flag_SetBase 0xD6
     pop        {r5}
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
@@ -136,8 +135,7 @@ LAB_08084a80:
 _ts S_Story_0A_4
     push       {lr}
     push       {r5}
-    mov        r0,#0xd7
-    bl         Flag_GetBase
+    Flag_GetBase 0xD7
     pop        {r5}
     beq        LAB_08084aae
     push       {r5}
@@ -181,8 +179,7 @@ _ts S_Story_0A_5
     b          LAB_08084afa
 LAB_08084ade:
     push       {r5}
-    mov        r0,#0xd8
-    bl         Flag_GetBase
+    Flag_GetBase 0xD8
     pop        {r5}
     beq        LAB_08084afa
     push       {r5}
@@ -236,10 +233,8 @@ _ts S_Story_0A_7
     push       {r5}
     bl         Text_DisableDialogue
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xc6
-    bl         Flag_SetBase
-    mov        r0,#0xc8
-    bl         Flag_SetBase
+    Flag_SetBase 0xC6
+    Flag_SetBase 0xC8
     LoadMain world, r0, r7
     mov        r1,#0x0
     strb       r1,[r0,#0x7]

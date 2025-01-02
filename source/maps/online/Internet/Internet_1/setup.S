@@ -26,8 +26,7 @@ _ts MapSetup_Internet_1_S0
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8051820_08052238
     bl         BgTask_AddNew
-    mov        r0,#0x25
-    bl         Flag_GetBase
+    Flag_GetBase 0x25
     beq        LAB_08051f2e
     ldr        r0,PTR_BgTask_8051738_0805223c
     bl         BgTask_AddNew
@@ -55,12 +54,10 @@ _ts MapSetup_Internet_1
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x25
-    bl         Flag_GetBase
+    Flag_GetBase 0x25
     beq        LAB_08051f68
     push       {r5}
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_01
     pop        {r5}
     b          LAB_08051f72
 LAB_08051f68:
@@ -120,29 +117,21 @@ LAB_08051fd0:
     push       {r5}
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x6
-    bl         Flag_GetBase
+    Flag_GetBase 0x06
     bne        LAB_08051fe8
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
 LAB_08051fe8:
-    mov        r0,#0x7
-    bl         Flag_GetBase
+    Flag_GetBase 0x07
     bne        LAB_08051ff6
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
 LAB_08051ff6:
-    mov        r0,#0x8
-    bl         Flag_GetBase
+    Flag_GetBase 0x08
     bne        LAB_08052004
-    mov        r0,#0x3
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_03
 LAB_08052004:
-    mov        r0,#0xa
-    bl         Flag_GetBase
+    Flag_GetBase 0x0A
     bne        LAB_08052012
-    mov        r0,#0x5
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_05
 LAB_08052012:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -212,11 +201,9 @@ _ts EventHandler_Internet_1_0
     bl         BgTask_AddNew
     pop        {r5}
 LAB_0805207e:
-    mov        r0,#0x25
-    bl         Flag_GetBase
+    Flag_GetBase 0x25
     bne        LAB_080520a0
-    mov        r0,#0x26
-    bl         Flag_GetBase
+    Flag_GetBase 0x26
     beq        LAB_080520a0
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
@@ -241,11 +228,9 @@ LAB_080520a0:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_080520e4
-    mov        r0,#0x5c
-    bl         Flag_GetBase
+    Flag_GetBase 0x5C
     bne        LAB_080520e4
-    mov        r0,#0x5c
-    bl         Flag_SetBase
+    Flag_SetBase 0x5C
     push       {r5}
     ldr        r0,PTR_Scene_StartFixedBattle_08052264
     mov        r1,#0x5
@@ -255,8 +240,7 @@ LAB_080520a0:
     bl         CheckForJackOut
     pop        {pc}
 LAB_080520e4:
-    mov        r0,#0x25
-    bl         Flag_GetBase
+    Flag_GetBase 0x25
     bne        LAB_080520fa
     LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
@@ -273,8 +257,7 @@ LAB_080520fa:
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_08052136
-    mov        r0,#0x1
-    bl         Flag_GetGate
+    Flag_GetGate F_GATE_01
     beq        LAB_080521c4
     mov        r0,#0x21
     bl         KeyItem_IsPresent
@@ -294,8 +277,7 @@ LAB_08052132:
 LAB_08052136:
     cmp        r0,#0x3
     bne        LAB_08052162
-    mov        r0,#0x2
-    bl         Flag_GetGate
+    Flag_GetGate F_GATE_02
     beq        LAB_080521c4
     mov        r0,#0x22
     bl         KeyItem_IsPresent
@@ -315,8 +297,7 @@ LAB_0805215e:
 LAB_08052162:
     cmp        r0,#0x4
     bne        LAB_0805218e
-    mov        r0,#0x3
-    bl         Flag_GetGate
+    Flag_GetGate F_GATE_03
     beq        LAB_080521c4
     mov        r0,#0x23
     bl         KeyItem_IsPresent
@@ -336,8 +317,7 @@ LAB_0805218a:
 LAB_0805218e:
     cmp        r0,#0x6
     bne        LAB_080521c4
-    mov        r0,#0x5
-    bl         Flag_GetGate
+    Flag_GetGate F_GATE_05
     beq        LAB_080521c4
     mov        r0,#0x30
     bl         KeyItem_IsPresent

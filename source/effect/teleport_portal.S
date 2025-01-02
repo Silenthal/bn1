@@ -39,8 +39,7 @@ _ts E_TeleportPortal_0_Init
     ldrh       r1,[r5,#0x4]
     cmp        r2,r1
     beq        LAB_0807e36c
-    mov        r0,#0xe
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_0E
     mov        r0,#0x1
 LAB_0807e36c:
     strb       r0,[r5,#0x14]
@@ -50,11 +49,9 @@ LAB_0807e36c:
     ldrb       r1,[r5,#0x14]
     tst        r1,r1
     bne        LAB_0807e3ca
-    mov        r0,#0x31
-    bl         Flag_GetEvent
+    Flag_GetEvent 0x31
     beq        LAB_0807e3ca
-    mov        r0,#0xe
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_0E
     mov        r0,#0x1
     strb       r0,[r5,#0x14]
     b          LAB_0807e3ca
@@ -64,11 +61,9 @@ LAB_0807e38e:
     ldrb       r1,[r5,#0x14]
     tst        r1,r1
     bne        LAB_0807e3ca
-    mov        r0,#0x31
-    bl         Flag_GetEvent
+    Flag_GetEvent 0x31
     bne        LAB_0807e3ca
-    mov        r0,#0xe
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_0E
     mov        r0,#0x1
     strb       r0,[r5,#0x14]
     b          LAB_0807e3ca

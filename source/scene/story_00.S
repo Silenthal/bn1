@@ -151,8 +151,7 @@ _ts S_Story_00_5
     pop        {r5}
     bne        LAB_080829c8
     push       {r5}
-    mov        r0,#0xd9
-    bl         Flag_SetBase
+    Flag_SetBase 0xD9
     pop        {r5}
     mov        r0,#0x60
     strh       r0,[r5,#0x8]
@@ -238,8 +237,7 @@ _ts S_Story_00_10
     beq        LAB_08082a74
     push       {r5}
     bl         Flag_SetPlayerActive
-    mov        r0,#0x90
-    bl         Flag_SetBase
+    Flag_SetBase 0x90
     mov        r0,#0x40
     bl         Text_DisableOption
     bl         Text_DisableDialogue

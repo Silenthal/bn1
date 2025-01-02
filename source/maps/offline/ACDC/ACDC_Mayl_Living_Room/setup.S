@@ -135,8 +135,7 @@ _ts MapSetup_ACDC_Mayl_Living_Room_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802d65e
     push       {r5}
     mov        r0,#0x4
@@ -144,8 +143,7 @@ _ts MapSetup_ACDC_Mayl_Living_Room_S2
     pop        {r5}
     b          LAB_0802d676
 LAB_0802d65e:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0802d672
     push       {r5}
     mov        r0,#0x3
@@ -255,8 +253,7 @@ PTR_EventHandler_ACDC_Mayl_Living_Room_F21_0_0802d734:
 
 _ts EventHandler_ACDC_Mayl_Living_Room_F21_0
     push       {lr}
-    mov        r0,#0x6f
-    bl         Flag_GetBase
+    Flag_GetBase 0x6F
     beq        LAB_0802d74a
     LoadMain world, r0, r0
     mov        r1,#0x22

@@ -71,8 +71,7 @@ _ts S_AutoChipShop_2
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
     pop        {r5}
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_GetBase 0xA6
     beq        LAB_08097f28
     push       {r5}
     mov        r0,#0x0

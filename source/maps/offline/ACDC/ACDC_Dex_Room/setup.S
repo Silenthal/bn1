@@ -61,12 +61,10 @@ _ts MapSetup_ACDC_Dex_Room_F06
     ldr        r7,PTR_PTR_DAT_0802de48
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x44
-    bl         Flag_GetBase
+    Flag_GetBase 0x44
     bne        LAB_0802ddb0
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_0802ddb0
     push       {r5}
@@ -99,11 +97,9 @@ _ts EventHandler_ACDC_Dex_Room_F06_0
     push       {lr}
     bl         FUN_0802ddf4
     beq        LAB_0802ddf0
-    mov        r0,#0x44
-    bl         Flag_GetBase
+    Flag_GetBase 0x44
     bne        LAB_0802ddf0
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     beq        LAB_0802ddf0
     push       {r5}
     ldr        r0,DAT_0802de54
@@ -176,8 +172,7 @@ _ts MapSetup_ACDC_Dex_Room_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802de7e
     push       {r5}
     mov        r0,#0x4
@@ -185,8 +180,7 @@ _ts MapSetup_ACDC_Dex_Room_S2
     pop        {r5}
     b          LAB_0802de96
 LAB_0802de7e:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0802de92
     push       {r5}
     mov        r0,#0x3
@@ -288,21 +282,17 @@ _ts MapSetup_ACDC_Dex_Room_F21
     ldr        r7,PTR_PTR_DAT_0802e0a4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x92
-    bl         Flag_GetBase
+    Flag_GetBase 0x92
     bne        LAB_0802df76
-    mov        r0,#0x44
-    bl         Flag_GetBase
+    Flag_GetBase 0x44
     bne        LAB_0802dfac
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_0802dfac
     b          LAB_0802dfa0
 LAB_0802df76:
-    mov        r0,#0x45
-    bl         Flag_GetBase
+    Flag_GetBase 0x45
     bne        LAB_0802dfac
     mov        r0,#0x45
     mov        r1,#0xb
@@ -349,26 +339,22 @@ PTR_EventHandler_ACDC_Dex_Room_F21_0_0802dfc4:
 _ts EventHandler_ACDC_Dex_Room_F21_0
     push       {lr}
     push       {r1}
-    mov        r0,#0x45
-    bl         Flag_GetBase
+    Flag_GetBase 0x45
     pop        {r1}
     bne        LAB_0802e00a
     mov        r6,#0x4
     push       {r1}
-    mov        r0,#0x92
-    bl         Flag_GetBase
+    Flag_GetBase 0x92
     pop        {r1}
     bne        LAB_0802dff2
     mov        r6,#0x2
     push       {r1}
-    mov        r0,#0x44
-    bl         Flag_GetBase
+    Flag_GetBase 0x44
     pop        {r1}
     bne        LAB_0802e00a
 LAB_0802dff2:
     push       {r1}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r1}
     beq        LAB_0802e00a
     add        r1,r6,#0x0
@@ -377,8 +363,7 @@ LAB_0802dff2:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802e00a:
-    mov        r0,#0x6f
-    bl         Flag_GetBase
+    Flag_GetBase 0x6F
     beq        LAB_0802e01a
     LoadMain world, r0, r0
     mov        r1,#0x22
@@ -401,8 +386,7 @@ _ts MapSetup_ACDC_Dex_Room_F25
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_0802e054
     push       {r5}
@@ -435,8 +419,7 @@ PTR_EventHandler_ACDC_Dex_Room_F25_0_0802e06c:
 _ts EventHandler_ACDC_Dex_Room_F25_0
     push       {lr}
     push       {r1}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r1}
     beq        LAB_0802e08a
     push       {r5}
@@ -546,8 +529,7 @@ _ts MapSetup_ACDC_Dex_Room_F30
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_0802e17c
     push       {r5}
@@ -580,8 +562,7 @@ PTR_EventHandler_ACDC_Dex_Room_F30_0_0802e194:
 _ts EventHandler_ACDC_Dex_Room_F30_0
     push       {lr}
     push       {r1}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r1}
     beq        LAB_0802e1b2
     push       {r5}
@@ -674,8 +655,7 @@ _ts MapSetup_ACDC_Dex_Room_F40
     ldr        r7,PTR_PTR_DAT_0802e2c4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     beq        LAB_0802e280
     push       {r5}
     ldr        r0,DAT_0802e2c8
@@ -706,8 +686,7 @@ PTR_EventHandler_ACDC_Dex_Room_F40_0_0802e298:
 
 _ts EventHandler_ACDC_Dex_Room_F40_0
     push       {lr}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     beq        LAB_0802e2b2
     push       {r5}
     ldr        r0,DAT_0802e2d0
@@ -799,8 +778,7 @@ _ts MapSetup_ACDC_Dex_Room_F50
     ldr        r7,PTR_PTR_DAT_0802e3fc
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     beq        LAB_0802e380
     push       {r5}
     ldr        r0,DAT_0802e400
@@ -831,8 +809,7 @@ PTR_EventHandler_ACDC_Dex_Room_F50_0_0802e398:
 
 _ts EventHandler_ACDC_Dex_Room_F50_0
     push       {lr}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     beq        LAB_0802e3b2
     push       {r5}
     ldr        r0,DAT_0802e408

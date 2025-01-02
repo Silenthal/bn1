@@ -9,8 +9,7 @@ _ts MapSetup_Govt_Waterworks_Office_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08034026
     push       {r5}
     mov        r0,#0x4
@@ -18,8 +17,7 @@ _ts MapSetup_Govt_Waterworks_Office_S2
     pop        {r5}
     b          LAB_0803403e
 LAB_08034026:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0803403a
     push       {r5}
     mov        r0,#0x3
@@ -71,8 +69,7 @@ _ts MapSetup_Govt_Waterworks_Office_F24
     bl         Camera_SetEnabled
     ldr        r7,PTR_NPCList_803590C_08034260
     bl         Map_LoadNPCList
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -112,10 +109,8 @@ _ts MapSetup_Govt_Waterworks_Office_F25
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
+    Flag_SetGate F_GATE_00
     pop        {pc}
 
 
@@ -151,8 +146,7 @@ _ts EventHandler_Govt_Waterworks_Office_F25_0
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x27
     bne        LAB_0803413a
-    mov        r0,#0xd9
-    bl         Flag_SetBase
+    Flag_SetBase 0xD9
 LAB_0803413a:
     push       {r5}
     mov        r1,#0xa
@@ -231,8 +225,7 @@ LAB_0803419e:
     pop        {r5}
     cmp        r0,#0x40
     bne        LAB_08034254
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     bne        LAB_080341f0
     push       {r5}
     ldr        r0,PTR_Scene_Dialogue_0803427c
@@ -241,8 +234,7 @@ LAB_0803419e:
     pop        {r5}
     b          LAB_08034254
 LAB_080341f0:
-    mov        r0,#0xc7
-    bl         Flag_GetBase
+    Flag_GetBase 0xC7
     bne        LAB_08034206
     push       {r5}
     ldr        r0,PTR_Scene_Story_29_08034280
@@ -255,28 +247,17 @@ LAB_08034206:
     ldr        r0,PTR_Scene_JackIn_08034284
     mov        r1,#0xb
     bl         Scene_Prepare
-    mov        r0,#0xe4
-    bl         Flag_ClearBase
-    mov        r0,#0xe5
-    bl         Flag_ClearBase
-    mov        r0,#0xe6
-    bl         Flag_ClearBase
-    mov        r0,#0xe7
-    bl         Flag_ClearBase
-    mov        r0,#0xe8
-    bl         Flag_ClearBase
-    mov        r0,#0xe9
-    bl         Flag_ClearBase
-    mov        r0,#0xea
-    bl         Flag_ClearBase
-    mov        r0,#0xeb
-    bl         Flag_ClearBase
-    mov        r0,#0xec
-    bl         Flag_ClearBase
-    mov        r0,#0xed
-    bl         Flag_ClearBase
-    mov        r0,#0xee
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xE4
+    Flag_ClearBase 0xE5
+    Flag_ClearBase 0xE6
+    Flag_ClearBase 0xE7
+    Flag_ClearBase 0xE8
+    Flag_ClearBase 0xE9
+    Flag_ClearBase 0xEA
+    Flag_ClearBase 0xEB
+    Flag_ClearBase 0xEC
+    Flag_ClearBase 0xED
+    Flag_ClearBase 0xEE
     pop        {r5}
 LAB_08034254:
     pop        {pc}
@@ -369,8 +350,7 @@ _ts MapSetup_Govt_Waterworks_Office_F40
     bl         Camera_SetEnabled
     ldr        r7,PTR_NPCList_80359C8_080343bc
     bl         Map_LoadNPCList
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -537,8 +517,7 @@ _ts MapSetup_Govt_Waterworks_Office_F50
     bl         Camera_SetEnabled
     ldr        r7,PTR_NPCList_8035A4C_08034508
     bl         Map_LoadNPCList
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]

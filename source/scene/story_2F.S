@@ -89,8 +89,7 @@ LAB_0808a836:
 
 
 _ts S_Story_2F_3
-    mov        r0,#0xa5
-    bl         Flag_GetBase
+    Flag_GetBase 0xA5
     beq        LAB_0808a854
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
@@ -178,8 +177,7 @@ _nt S_Story_2F_7
 _ts S_Story_2F_8
     push       {r5}
     bl         Text_DisableDialogue
-    mov        r0,#0xb0
-    bl         Flag_SetBase
+    Flag_SetBase 0xB0
     pop        {r5}
     push       {r5}
     mov        r0,#0x4

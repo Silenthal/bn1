@@ -135,8 +135,7 @@ LAB_08080440:
 
 
 _nt E_LifeVirusSeed_1_1
-    mov        r0,#0xa2
-    bl         Flag_GetBase
+    Flag_GetBase 0xA2
     beq        LAB_08080476
     ldrb       r1,[r5,#0x4]
     mov        r2,#0x40

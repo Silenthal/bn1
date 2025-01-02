@@ -13,25 +13,21 @@ _ts MapSetup_DenTown_Station_S3
     ldrb       r1,[r7,#0x6]
     cmp        r1,#0x40
     bge        LAB_08036cd8
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     bne        LAB_08036cd8
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_GetBase 0xA6
     beq        LAB_08036cb8
     mov        r0,#0x4
     bl         Sound_ChangeSong
     b          LAB_08036cdc
 LAB_08036cb8:
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     beq        LAB_08036cc8
     mov        r0,#0x3
     bl         Sound_ChangeSong
     b          LAB_08036cdc
 LAB_08036cc8:
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     beq        LAB_08036cd8
     mov        r0,#0x4
     bl         Sound_ChangeSong
@@ -122,8 +118,7 @@ _ts EventHandler_DenTown_Station_F30_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08036dae
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_08036dae
     push       {r5}
     mov        r0,#0x3d
@@ -283,8 +278,7 @@ _ts EventHandler_DenTown_Station_F50_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08036ee2
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_08036ee2
     push       {r5}
     mov        r0,#0x3d

@@ -49,11 +49,9 @@ _nt MapSetup_Undernet_5
     ldr        r7,PTR_NPCList_80549D0_08053240
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x76
-    bl         Flag_GetBase
+    Flag_GetBase 0x76
     bne        LAB_0805318e
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
 LAB_0805318e:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -84,14 +82,11 @@ _ts EventHandler_Undernet_5_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_080531e2
-    mov        r0,#0x2e
-    bl         Flag_GetEvent
+    Flag_GetEvent 0x2E
     beq        LAB_080531e2
-    mov        r0,#0x5d
-    bl         Flag_GetBase
+    Flag_GetBase 0x5D
     bne        LAB_080531e2
-    mov        r0,#0x5d
-    bl         Flag_SetBase
+    Flag_SetBase 0x5D
     push       {r5}
     ldr        r0,PTR_Scene_StartFixedBattle_08053248
     mov        r1,#0x29
@@ -101,8 +96,7 @@ _ts EventHandler_Undernet_5_0
 LAB_080531e2:
     cmp        r0,#0x2
     bne        LAB_08053212
-    mov        r0,#0x1
-    bl         Flag_GetGate
+    Flag_GetGate F_GATE_01
     beq        LAB_08053212
     mov        r0,#0x35
     bl         KeyItem_IsPresent

@@ -53,13 +53,11 @@ PTR_EventHandler_ACDC_Lan_Room_F00_0802ca9c:
 _ts MapSetup_ACDC_Lan_Room_F00
     push       {lr}
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_GetItem
+    Flag_GetItem F_ITEM_ACDC_LAN_ROOM_PET
     pop        {r5}
     bne        LAB_0802cade
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     ldr        r7,PTR_DAT_0802cb38
     bl         Map_LoadNPCList
     pop        {r5}
@@ -68,13 +66,11 @@ _ts MapSetup_ACDC_Lan_Room_F00
     strb       r1,[r0,#0x12]
 LAB_0802cade:
     push       {r5}
-    mov        r0,#0x90
-    bl         Flag_GetBase
+    Flag_GetBase 0x90
     pop        {r5}
     bne        LAB_0802cb06
     push       {r5}
-    mov        r0,#0x7
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_NO_START_MENU
     ldr        r0,PTR_BgTask_802CB3C
     bl         BgTask_AddNew
     mov        r0,#0x10
@@ -143,13 +139,11 @@ _ts EventHandler_ACDC_Lan_Room_F00_0
 _ts EventHandler_ACDC_Lan_Room_F00_1
     push       {lr}
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_GetItem
+    Flag_GetItem F_ITEM_ACDC_LAN_ROOM_PET
     pop        {r5}
     beq        LAB_0802cba4
     push       {r5}
-    mov        r0,#0x7
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_NO_START_MENU
     mov        r0,#0x4
     bl         PetStatusControl_SetState
     pop        {r5}
@@ -241,15 +235,12 @@ _ts MapSetup_ACDC_Lan_Room_F02
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xe3
-    bl         Flag_GetBase
+    Flag_GetBase 0xE3
     beq        LAB_0802cc6e
-    mov        r0,#0x99
-    bl         Flag_GetBase
+    Flag_GetBase 0x99
     bne        LAB_0802cc6e
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     ldr        r0,PTR_BgTask_802CF38
     bl         BgTask_AddNew
     pop        {r5}
@@ -355,11 +346,9 @@ PTR_EventHandler_ACDC_Lan_Room_F03_0_0802cd14:
 
 _ts EventHandler_ACDC_Lan_Room_F03_0
     push       {lr}
-    mov        r0,#0xde
-    bl         Flag_GetBase
+    Flag_GetBase 0xDE
     bne        LAB_0802cd36
-    mov        r0,#0x99
-    bl         Flag_GetBase
+    Flag_GetBase 0x99
     beq        LAB_0802cd2e
 LAB_0802cd2e:
     mov        r7,#0xc
@@ -387,8 +376,7 @@ _ts MapSetup_ACDC_Lan_Room_F04
     bl         PetStatusControl_SetState
     ldr        r0,PTR_BgTask_802CF58
     bl         BgTask_AddNew
-    mov        r0,#0x1
-    bl         Flag_GetItem
+    Flag_GetItem F_ITEM_ACDC_LAN_ROOM_WATERGUN
     pop        {r5}
     beq        LAB_0802cd76
     mov        r0,#0x4
@@ -512,8 +500,7 @@ PTR_EventHandler_ACDC_Lan_Room_F06_0_0802ce34:
 _ts EventHandler_ACDC_Lan_Room_F06_0
     push       {lr}
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_GetBase
+    Flag_GetBase 0x00
     pop        {r5}
     beq        LAB_0802ce6e
     push       {r5}
@@ -523,8 +510,7 @@ _ts EventHandler_ACDC_Lan_Room_F06_0
     LoadMain world, r0, r0
     mov        r1,#0x10
     strb       r1,[r0,#0x6]
-    mov        r0,#0x28
-    bl         Flag_SetEvent
+    Flag_SetEvent 0x28
     bl         FUN_080102e8
     pop        {r5}
     mov        r0,#0x4
@@ -684,8 +670,7 @@ _ts MapSetup_ACDC_Lan_Room_S2
     ldr        r0,PTR_BgTask_802D1E4
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802cfb0
     push       {r5}
     mov        r0,#0x4
@@ -693,8 +678,7 @@ _ts MapSetup_ACDC_Lan_Room_S2
     pop        {r5}
     b          LAB_0802cfc8
 LAB_0802cfb0:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0802cfc4
     push       {r5}
     mov        r0,#0x3
@@ -813,8 +797,7 @@ PTR_EventHandler_ACDC_Lan_Room_F21_0_0802d098:
 
 _ts EventHandler_ACDC_Lan_Room_F21_0
     push       {lr}
-    mov        r0,#0x6f
-    bl         Flag_GetBase
+    Flag_GetBase 0x6F
     beq        LAB_0802d0ae
     LoadMain world, r0, r0
     mov        r1,#0x22
@@ -856,11 +839,9 @@ PTR_EventHandler_ACDC_Lan_Room_F22_0_0802d0e4:
 
 _ts EventHandler_ACDC_Lan_Room_F22_0
     push       {lr}
-    mov        r0,#0x7
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x07
     beq        LAB_0802d114
-    mov        r0,#0x7
-    bl         Flag_GetEmailUnread
+    Flag_GetEmailUnread 0x07
     bne        LAB_0802d114
     LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
@@ -872,8 +853,7 @@ _ts EventHandler_ACDC_Lan_Room_F22_0
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802d114:
-    mov        r0,#0xdd
-    bl         Flag_GetBase
+    Flag_GetBase 0xDD
     beq        LAB_0802d12c
     mov        r0,#0x4
     str        r0,[r5,#0x0]
@@ -923,8 +903,7 @@ _ts MapSetup_ACDC_Lan_Room_F23
     ldr        r0,PTR_DAT_0802d218
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x9d
-    bl         Flag_GetBase
+    Flag_GetBase 0x9D
     bne        LAB_0802d198
     LoadMain world, r7, r7
     mov        r1,#0x8
@@ -1174,8 +1153,7 @@ PTR_EventHandler_ACDC_Lan_Room_F50_0_0802d354:
 
 _ts EventHandler_ACDC_Lan_Room_F50_0
     push       {lr}
-    mov        r0,#0xe
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x0E
     bne        LAB_0802d36e
     push       {r5}
     ldr        r0,DAT_0802d450
@@ -1218,8 +1196,7 @@ PTR_EventHandler_ACDC_Lan_Room_F52_0_0802d3a4:
 
 _ts EventHandler_ACDC_Lan_Room_F52_0
     push       {lr}
-    mov        r0,#0xa0
-    bl         Flag_GetBase
+    Flag_GetBase 0xA0
     beq        LAB_0802d3c6
     LoadMain world, r0, r0
     mov        r1,#0x53
@@ -1230,8 +1207,7 @@ _ts EventHandler_ACDC_Lan_Room_F52_0
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802d3c6:
-    mov        r0,#0x9e
-    bl         Flag_GetBase
+    Flag_GetBase 0x9E
     beq        LAB_0802d3e4
     LoadMain world, r0, r7
     ldrb       r1,[r0,#0xe]
@@ -1281,8 +1257,7 @@ PTR_EventHandler_ACDC_Lan_Room_F53_0_0802d41c:
 
 _ts EventHandler_ACDC_Lan_Room_F53_0
     push       {lr}
-    mov        r0,#0x11
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x11
     bne        LAB_0802d436
     push       {r5}
     ldr        r0,DAT_0802d478

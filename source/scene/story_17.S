@@ -164,8 +164,7 @@ _ts S_Story_17_6
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
     pop        {r5}
-    mov        r0,#0xc4
-    bl         Flag_SetBase
+    Flag_SetBase 0xC4
     push       {r5}
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive

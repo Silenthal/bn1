@@ -197,8 +197,7 @@ _ts S_Story_30_7
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808aac4
-    mov        r0,#0xb2
-    bl         Flag_SetBase
+    Flag_SetBase 0xB2
     push       {r5}
     mov        r0,#0x3
     mov        r1,#0x8
@@ -302,8 +301,7 @@ _ts S_Story_30_11
     beq        LAB_0808abbe
     push       {r5}
     bl         Text_DisableDialogue
-    mov        r0,#0xb1
-    bl         Flag_SetBase
+    Flag_SetBase 0xB1
     pop        {r5}
     mov        r0,#0x5
     mov        r1,#0x1
@@ -311,8 +309,7 @@ _ts S_Story_30_11
     mov        r0,#0x6
     mov        r1,#0x1
     bl         KeyItem_AddAmount
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
     bl         PlayerAnimation_Unlock
     push       {r5}
     mov        r0,#0x4

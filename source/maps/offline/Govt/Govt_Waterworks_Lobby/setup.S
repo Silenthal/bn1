@@ -15,8 +15,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_S2
     ldr        r0,PTR_EntityAllocParams_8035C44_08032a38
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_080327ae
     push       {r5}
     mov        r0,#0x4
@@ -24,8 +23,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_S2
     pop        {r5}
     b          LAB_080327c6
 LAB_080327ae:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_080327c2
     push       {r5}
     mov        r0,#0x3
@@ -86,8 +84,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F22
     ldr        r0,PTR_EntityAllocParams_8035C44_08032a40
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     push       {r5}
     ldr        r7,PTR_NPCList_803513C_08032a44
     bl         Map_LoadNPCList
@@ -130,10 +127,8 @@ _ts MapSetup_Govt_Waterworks_Lobby_F24
     ldr        r0,PTR_EntityAllocParams_8035C44_08032a4c
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetGate
-    mov        r0,#0xb9
-    bl         Flag_GetBase
+    Flag_SetGate F_GATE_02
+    Flag_GetBase 0xB9
     bne        LAB_080328ae
     push       {r5}
     ldr        r7,PTR_NPCList_8035228_08032a50
@@ -146,11 +141,9 @@ LAB_080328ae:
     ldr        r7,PTR_NPCList_8035254_08032a54
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     beq        LAB_080328d0
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     bne        LAB_080328d4
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -186,8 +179,7 @@ PTR_EventHandler_Govt_Waterworks_Lobby_F24_0_080328f0:
 
 _ts EventHandler_Govt_Waterworks_Lobby_F24_0
     push       {lr}
-    mov        r0,#0xb9
-    bl         Flag_GetBase
+    Flag_GetBase 0xB9
     beq        LAB_08032916
     push       {r5}
     ldr        r0,PTR_Scene_Story_26_08032a5c
@@ -202,8 +194,7 @@ LAB_08032916:
 
 _ts EventHandler_Govt_Waterworks_Lobby_F24_1
     push       {lr}
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     beq        LAB_08032932
     push       {r5}
     ldr        r0,PTR_Scene_Story_27_08032a60
@@ -234,8 +225,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F25
     ldr        r0,PTR_EntityAllocParams_8035C44_08032a64
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     push       {r5}
     ldr        r7,PTR_NPCList_8035394_08032a68
     bl         Map_LoadNPCList
@@ -278,8 +268,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F26
     ldr        r0,PTR_EntityAllocParams_8035C44_08032a70
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -484,8 +473,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F30
     ldr        r7,PTR_NPCList_8035158_08032bc4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -655,8 +643,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F40
     ldr        r7,PTR_NPCList_8035158_08032d18
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -822,8 +809,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F50
     ldr        r0,PTR_EntityAllocParams_8035C44_08032eac
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -862,8 +848,7 @@ _ts MapSetup_Govt_Waterworks_Lobby_F53
     ldr        r0,PTR_EntityAllocParams_8035C44_08032eb8
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

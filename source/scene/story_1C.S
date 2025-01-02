@@ -216,10 +216,8 @@ _nt S_Story_1C_7
     bl         Text_DisableDialogue
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xc7
-    bl         Flag_SetBase
-    mov        r0,#0x35
-    bl         Flag_ClearBase
+    Flag_SetBase 0xC7
+    Flag_ClearBase 0x35
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_08087b8e:

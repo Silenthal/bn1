@@ -536,14 +536,12 @@ _nt S_Story_71_17
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
     bl         Sound_PlaySongImmediate
-    mov        r0,#0xb4
-    bl         Flag_SetBase
+    Flag_SetBase 0xB4
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
     b          LAB_08094a10
 LAB_080949ec:
-    mov        r0,#0xb5
-    bl         Flag_SetBase
+    Flag_SetBase 0xB5
     mov        r0,#0xa9
     bl         Sound_PlaySongImmediate
     mov        r0,#0x31
@@ -711,8 +709,7 @@ _nt S_Story_71_22
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xb2
-    bl         Flag_SetBase
+    Flag_SetBase 0xB2
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_08094b60:

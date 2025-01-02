@@ -356,8 +356,7 @@ _ts Battle_Init
     mov        r1,#0x28
     lsl        r1,r1,#0x4
     bl         memset0_16
-    mov        r0,#0x32
-    bl         Flag_ClearEvent
+    Flag_ClearEvent 0x32
     mov        r0,#0x0
     ldr        r7,=gIsObjectXFlipped
     strb       r0,[r7,#0x0]
@@ -853,8 +852,7 @@ PTR_EncounterCheck_Internet1:
 _ts EncounterCheck_Internet1
     push       {lr}
     push       {r0}
-    mov        r0,#0x5c
-    bl         Flag_GetBase
+    Flag_GetBase 0x5C
     tst        r0,r0
     pop        {r0}
     beq        LAB_0800564e
@@ -866,8 +864,7 @@ LAB_0800564e:
 _ts EncounterCheck_Internet3
     push       {lr}
     push       {r0}
-    mov        r0,#0x55
-    bl         Flag_GetBase
+    Flag_GetBase 0x55
     tst        r0,r0
     pop        {r0}
     beq        LAB_08005662
@@ -879,8 +876,7 @@ LAB_08005662:
 _ts EncounterCheck_Undernet2
     push       {lr}
     push       {r0}
-    mov        r0,#0x5e
-    bl         Flag_GetBase
+    Flag_GetBase 0x5E
     tst        r0,r0
     pop        {r0}
     beq        LAB_08005676
@@ -892,8 +888,7 @@ LAB_08005676:
 _ts EncounterCheck_Undernet5
     push       {lr}
     push       {r0}
-    mov        r0,#0x5d
-    bl         Flag_GetBase
+    Flag_GetBase 0x5D
     tst        r0,r0
     pop        {r0}
     beq        LAB_0800568a
@@ -905,8 +900,7 @@ LAB_0800568a:
 _ts EncounterCheck_Undernet7
     push       {lr}
     push       {r0}
-    mov        r0,#0x5f
-    bl         Flag_GetBase
+    Flag_GetBase 0x5F
     tst        r0,r0
     pop        {r0}
     beq        LAB_0800569e
@@ -918,14 +912,12 @@ LAB_0800569e:
 _ts EncounterCheck_Undernet8
     push       {lr}
     push       {r0}
-    mov        r0,#0x12
-    bl         Flag_GetBase
+    Flag_GetBase 0x12
     tst        r0,r0
     pop        {r0}
     beq        LAB_080056cc
     push       {r0}
-    mov        r0,#0x5
-    bl         Flag_GetBase
+    Flag_GetBase 0x05
     tst        r0,r0
     pop        {r0}
     beq        LAB_080056cc
@@ -942,8 +934,7 @@ LAB_080056cc:
 _nt EncounterCheck_Undernet10
     push       {lr}
     push       {r0}
-    mov        r0,#0x60
-    bl         Flag_GetBase
+    Flag_GetBase 0x60
     tst        r0,r0
     pop        {r0}
     beq        LAB_080056e0
@@ -955,8 +946,7 @@ LAB_080056e0:
 _nt EncounterCheck_Undernet11
     push       {lr}
     push       {r0}
-    mov        r0,#0x8f
-    bl         Flag_GetBase
+    Flag_GetBase 0x8F
     tst        r0,r0
     pop        {r0}
     beq        LAB_0800571a
@@ -966,8 +956,7 @@ _nt EncounterCheck_Undernet11
     pop        {r0}
     blt        LAB_0800571a
     push       {r0}
-    mov        r0,#0x5
-    bl         Flag_GetBase
+    Flag_GetBase 0x05
     tst        r0,r0
     pop        {r0}
     beq        LAB_0800571a
@@ -989,8 +978,7 @@ _ts EncounterCheck_Undernet12
     pop        {r0}
     blt        LAB_08005746
     push       {r0}
-    mov        r0,#0x5
-    bl         Flag_GetBase
+    Flag_GetBase 0x05
     tst        r0,r0
     pop        {r0}
     beq        LAB_08005746

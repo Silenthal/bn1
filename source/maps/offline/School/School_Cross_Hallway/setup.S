@@ -10,8 +10,7 @@ _ts MapSetup_School_Cross_Hallway_S1
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_08027d3a
     mov        r0,#0x4
@@ -53,8 +52,7 @@ _ts MapSetup_School_Cross_Hallway_F10
     push       {lr}
     mov        r3,#0x4
     push       {r5}
-    mov        r0,#0x91
-    bl         Flag_GetBase
+    Flag_GetBase 0x91
     bne        LAB_08027d9c
     mov        r3,#0x0
 LAB_08027d9c:
@@ -65,10 +63,8 @@ LAB_08027d9c:
     bl         Camera_SetEnabled
     pop        {r5}
     str        r3,[r5,#0x0]
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_02
     pop        {pc}
 
 
@@ -100,8 +96,7 @@ _ts EventHandler_School_Cross_Hallway_F10_0
 
 _ts EventHandler_School_Cross_Hallway_F10_1
     push       {lr}
-    mov        r0,#0x3
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x03
     bne        LAB_08027e00
     push       {r5}
     ldr        r0,PTR_Scene_CheckMail_08027eb4
@@ -123,8 +118,7 @@ LAB_08027e00:
     pop        {pc}
 LAB_08027e1a:
     push       {r5}
-    mov        r0,#0x93
-    bl         Flag_GetBase
+    Flag_GetBase 0x93
     pop        {r5}
     bne        LAB_08027e2a
     mov        r1,#0x7
@@ -134,8 +128,7 @@ LAB_08027e2a:
     b          LAB_08027e3e
 LAB_08027e2e:
     push       {r5}
-    mov        r0,#0x94
-    bl         Flag_GetBase
+    Flag_GetBase 0x94
     pop        {r5}
     bne        LAB_08027e3c
     ldr        r1,DAT_08027ec0
@@ -158,8 +151,7 @@ _nt MapSetup_School_Cross_Hallway_F15
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -232,8 +224,7 @@ _ts MapSetup_School_Cross_Hallway_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08027ef6
     push       {r5}
     mov        r0,#0x4
@@ -241,8 +232,7 @@ _ts MapSetup_School_Cross_Hallway_S2
     pop        {r5}
     b          LAB_08027f0e
 LAB_08027ef6:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08027f0a
     push       {r5}
     mov        r0,#0x3

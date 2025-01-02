@@ -113,8 +113,7 @@ _ts S_Story_3F_3
 _nt S_Story_3F_4
     bl         Flag_SetPlayerActive
     push       {r5}
-    mov        r0,#0xb1
-    bl         Flag_SetBase
+    Flag_SetBase 0xB1
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

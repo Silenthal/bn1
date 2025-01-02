@@ -92,8 +92,7 @@ _ts S_Story_1B_3
     push       {r5}
     bl         Text_DisableDialogue
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xc7
-    bl         Flag_SetBase
+    Flag_SetBase 0xC7
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

@@ -23,8 +23,7 @@ PTR_S_MegaManJackIn_0_08084080:
 _ts S_MegaManJackIn_0
     push       {lr}
     push       {r5}
-    mov        r0,#0x1
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_JACK_IN
     pop        {r5}
     push       {r5}
     bl         Flag_SetPlayerInactive
@@ -96,8 +95,7 @@ LAB_08084110:
     LoadMain world, r0, r0
     ldr        r0,[r0,#0x44]
     bl         PlayerAnimation_SetState
-    mov        r0,#0x1
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_JACK_IN
     pop        {r5}
     ldrb       r1,[r5,#0x4]
     tst        r1,r1

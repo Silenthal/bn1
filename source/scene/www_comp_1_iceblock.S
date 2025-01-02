@@ -73,13 +73,11 @@ LAB_0809825e:
 _ts S_WWW_Comp_1_IceBlock_2
     push       {lr}
     push       {r5}
-    mov        r0,#0xf6
-    bl         Flag_GetBase
+    Flag_GetBase 0xF6
     pop        {r5}
     beq        LAB_0809828c
     push       {r5}
-    mov        r0,#0xf6
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xF6
     ldrb       r0,[r5,#0x4]
     sub        r0,#0x20
     push       {r0}

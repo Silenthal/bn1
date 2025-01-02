@@ -217,8 +217,7 @@ _ts S_Story_6E_7
     bl         Flag_SetPlayerActive
     pop        {r5}
     push       {r5}
-    mov        r0,#0xaf
-    bl         Flag_SetBase
+    Flag_SetBase 0xAF
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_080942ba:

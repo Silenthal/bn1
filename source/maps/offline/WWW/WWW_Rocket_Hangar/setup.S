@@ -59,8 +59,7 @@ _ts MapSetup_WWW_Rocket_Hangar_F54
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xf8
-    bl         Flag_GetBase
+    Flag_GetBase 0xF8
     bne        LAB_0803e1be
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -72,8 +71,7 @@ _ts MapSetup_WWW_Rocket_Hangar_F54
     pop        {r5}
     b          LAB_0803e21e
 LAB_0803e1be:
-    mov        r0,#0xe7
-    bl         Flag_GetBase
+    Flag_GetBase 0xE7
     bne        LAB_0803e1dc
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -85,8 +83,7 @@ LAB_0803e1be:
     pop        {r5}
     b          LAB_0803e21e
 LAB_0803e1dc:
-    mov        r0,#0xe8
-    bl         Flag_GetBase
+    Flag_GetBase 0xE8
     bne        LAB_0803e1fe
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -99,8 +96,7 @@ LAB_0803e1dc:
     pop        {r5}
     b          LAB_0803e21e
 LAB_0803e1fe:
-    mov        r0,#0xeb
-    bl         Flag_GetBase
+    Flag_GetBase 0xEB
     bne        LAB_0803e21e
     LoadMain world, r0, r0
     mov        r1,#0x0

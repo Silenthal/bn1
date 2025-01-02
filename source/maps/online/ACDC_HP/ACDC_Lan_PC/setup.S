@@ -43,8 +43,7 @@ _nt FUN_0804f032
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x30
     bne        LAB_0804f070
-    mov        r0,#0x91
-    bl         Flag_GetBase
+    Flag_GetBase 0x91
     bne        LAB_0804f070
     push       {r5}
     ldr        r0,PTR_Scene_Story_36_0804f0f0
@@ -98,8 +97,7 @@ _ts FUN_0804f0b4
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x30
     bne        LAB_0804f0d6
-    mov        r0,#0x9
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x09
     bne        LAB_0804f0d6
     push       {r5}
     ldr        r0,DAT_0804f104

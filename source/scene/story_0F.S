@@ -49,8 +49,7 @@ _nt S_Story_0F_0
     add        r0,#0x4
     strb       r0,[r5,#0x0]
     bl         Sound_StopAllMusic
-    mov        r0,#0x28
-    bl         Flag_ClearEvent
+    Flag_ClearEvent 0x28
     pop        {pc}
 
 
@@ -153,8 +152,7 @@ _nt S_Story_0F_6
     bl         Text_DisableDialogue
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
-    mov        r0,#0xd7
-    bl         Flag_SetBase
+    Flag_SetBase 0xD7
     pop        {r5}
     mov        r0,#0x1
     bl         Sound_ChangeSong

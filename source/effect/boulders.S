@@ -58,14 +58,11 @@ _ts E_Boulders_1_Main
     beq        LAB_0807e250
     b          E_Boulders_2_Free
 LAB_0807e234:
-    mov        r0,#0xa1
-    bl         Flag_GetBase
+    Flag_GetBase 0xA1
     bne        E_Boulders_2_Free
-    mov        r0,#0xa0
-    bl         Flag_GetBase
+    Flag_GetBase 0xA0
     beq        LAB_0807e250
-    mov        r0,#0xa0
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xA0
     mov        r4,#0x2
     bl         E_Boulders_Generate
 LAB_0807e250:
@@ -77,8 +74,7 @@ _nt E_Boulders_2_Free
     ldrb       r0,[r5,#0x4]
     cmp        r0,#0x2
     beq        LAB_0807e298
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_GetBase 0xA6
     bne        LAB_0807e298
     push       {r5}
     mov        r0,#0x76

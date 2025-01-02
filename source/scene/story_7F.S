@@ -52,14 +52,10 @@ _ts S_Story_7F_1
     mov        r0,#0x5
     bl         PlayerAnimation_SetState
     pop        {r5}
-    mov        r0,#0xae
-    bl         Flag_ClearBase
-    mov        r0,#0xa4
-    bl         Flag_ClearBase
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
-    mov        r0,#0x93
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xAE
+    Flag_ClearBase 0xA4
+    Flag_ClearBase 0xF9
+    Flag_ClearBase 0x93
     push       {r5}
     ldr        r7,PTR_NPCList_8030180_08097c34
     bl         Map_LoadNPCList
@@ -127,11 +123,9 @@ _ts S_Story_7F_4
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08097b12
-    mov        r0,#0xed
-    bl         Flag_GetBase
+    Flag_GetBase 0xED
     beq        LAB_08097aea
-    mov        r0,#0xed
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xED
     mov        r0,#0x1f
     mov        r1,#0xa
     bl         Song_FadeOut
@@ -213,8 +207,7 @@ _ts S_Story_7F_7
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xec
-    bl         Flag_SetBase
+    Flag_SetBase 0xEC
     pop        {r5}
     push       {r5}
     bl         World_StartCredits
@@ -253,10 +246,8 @@ _ts S_Story_7F_SkipIfStart
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}
-    mov        r0,#0x96
-    bl         Flag_SetBase
-    mov        r0,#0xf9
-    bl         Flag_SetBase
+    Flag_SetBase 0x96
+    Flag_SetBase 0xF9
     mov        r0,#0x20
     strb       r0,[r5,#0x0]
     pop        {pc}

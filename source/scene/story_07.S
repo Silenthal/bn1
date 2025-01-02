@@ -82,8 +82,7 @@ _ts S_Story_07_3
     push       {lr}
     push       {r5}
     bl         Text_DisableDialogue
-    mov        r0,#0x9e
-    bl         Flag_SetBase
+    Flag_SetBase 0x9E
     bl         Flag_SetPlayerActive
     bl         PlayerAnimation_Unlock
     pop        {r5}

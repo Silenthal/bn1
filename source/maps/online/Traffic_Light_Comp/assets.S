@@ -363,8 +363,7 @@ _nt FUN_0804995e
     tst        r0,r0
     bne        LAB_080499a0
     push       {r5}
-    mov        r0,#0x30
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x30
     pop        {r5}
 LAB_080499a0:
     bl         FUN_08049ab0
@@ -435,12 +434,9 @@ LAB_08049a08:
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x30
-    bl         Flag_ToggleBase
-    mov        r0,#0x0
-    bl         Flag_ToggleIgnore
-    mov        r0,#0x1
-    bl         Flag_ToggleIgnore
+    Flag_ToggleBase 0x30
+    Flag_ToggleIgnore F_IGNORE_WALL_00
+    Flag_ToggleIgnore F_IGNORE_WALL_01
     mov        r0,#0xba
     bl         Sound_PlaySongImmediate
     pop        {r5}
@@ -474,11 +470,9 @@ _ts FUN_08049a5c
     bne        LAB_08049a80
     cmp        r7,#0x5f
     bne        LAB_08049a80
-    mov        r0,#0x30
-    bl         Flag_GetBase
+    Flag_GetBase 0x30
     bne        LAB_08049a80
-    mov        r0,#0xc4
-    bl         Flag_SetBase
+    Flag_SetBase 0xC4
 LAB_08049a80:
     pop        {r5,pc}
 
@@ -496,11 +490,9 @@ _ts FUN_08049a84
     bne        LAB_08049a80
     cmp        r7,#0x5d
     bne        LAB_08049a80
-    mov        r0,#0x30
-    bl         Flag_GetBase
+    Flag_GetBase 0x30
     bne        LAB_08049aa8
-    mov        r0,#0xc5
-    bl         Flag_SetBase
+    Flag_SetBase 0xC5
 LAB_08049aa8:
     pop        {r5,pc}
 
@@ -515,8 +507,7 @@ _ts FUN_08049aac
 
 _ts FUN_08049ab0
     push       {r5,lr}
-    mov        r0,#0x30
-    bl         Flag_GetBase
+    Flag_GetBase 0x30
     bne        LAB_08049ae0
     ldr        r0,PTR_BgTask_80473FC_08049b18
     bl         BgTask_AddNew
@@ -526,10 +517,8 @@ _ts FUN_08049ab0
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8047444_08049b24
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     b          LAB_08049b04
 LAB_08049ae0:
     ldr        r0,PTR_BgTask_80473B4_08049b28
@@ -540,10 +529,8 @@ LAB_08049ae0:
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8047474_08049b34
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
 LAB_08049b04:
     pop        {r5,pc}
 

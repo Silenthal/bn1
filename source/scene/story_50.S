@@ -61,8 +61,7 @@ _ts S_Story_50_1
     bl         PlayerAnimation_SetPosition
     mov        r0,#0x0
     bl         PlayerAnimation_SetState
-    mov        r0,#0x9a
-    bl         Flag_SetBase
+    Flag_SetBase 0x9A
     push       {r5}
     mov        r0,#0x3
     mov        r1,#0x10
@@ -188,8 +187,7 @@ _nt S_Story_50_6
     beq        LAB_0808f5ac
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0x98
-    bl         Flag_SetBase
+    Flag_SetBase 0x98
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808f5ac:

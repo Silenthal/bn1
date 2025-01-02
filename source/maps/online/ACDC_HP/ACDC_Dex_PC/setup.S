@@ -34,8 +34,7 @@ _nt FUN_0804f386
     cmp        r1,r2
     beq        LAB_0804f39e
     push       {r5}
-    mov        r0,#0x10
-    bl         Flag_ClearItem
+    Flag_ClearItem F_ITEM_ACDC_DEX_PC_XPANEL3_B
     pop        {r5}
 LAB_0804f39e:
     push       {r5}
@@ -69,18 +68,15 @@ LAB_0804f3d8:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804f3e4:
-    mov        r0,#0x8
-    bl         Flag_GetBase
+    Flag_GetBase 0x08
     beq        LAB_0804f3fa
-    mov        r0,#0xe
-    bl         Flag_GetBase
+    Flag_GetBase 0x0E
     bne        LAB_0804f404
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_0804f3fa:
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x4
     b          LAB_0804f406
 LAB_0804f404:
@@ -117,8 +113,7 @@ _ts FUN_0804f428
     pop        {r5}
     mov        r0,#0x4
     str        r0,[r5,#0x0]
-    mov        r0,#0xe
-    bl         Flag_SetBase
+    Flag_SetBase 0x0E
     pop        {pc}
 
 

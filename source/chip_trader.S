@@ -82,8 +82,7 @@ _ts ChipTrader_0_Init
     bl         BgUpdate_Init
     bl         InitBgTask
     bl         Text_DisableDialogue
-    mov        r0,#0x6
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
     pop        {r5}
     mov        r0,#0x0
     strh       r0,[r5,#0x6]

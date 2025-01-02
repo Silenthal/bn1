@@ -56,28 +56,23 @@ _ts MapSetup_WWW_Passage_2_F54
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
-    mov        r0,#0xfa
-    bl         Flag_GetBase
+    Flag_GetBase 0xFA
     bne        LAB_0803e460
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     b          LAB_0803e490
 LAB_0803e460:
     push       {r5}
     ldr        r7,PTR_NPCList_803EB00_0803e4fc
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x38
-    bl         Flag_GetBase
+    Flag_GetBase 0x38
     beq        LAB_0803e490
     mov        r6,#0x1b
-    mov        r0,#0x39
-    bl         Flag_GetBase
+    Flag_GetBase 0x39
     beq        LAB_0803e47e
     mov        r6,#0x1c
 LAB_0803e47e:
-    mov        r0,#0x38
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x38
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_0803e500
@@ -120,13 +115,11 @@ _ts EventHandler_WWW_Passage_2_F54_0
     pop        {r5}
 LAB_0803e4ca:
     mov        r6,#0x20
-    mov        r0,#0x39
-    bl         Flag_GetBase
+    Flag_GetBase 0x39
     beq        LAB_0803e4d6
     mov        r6,#0x21
 LAB_0803e4d6:
-    mov        r0,#0x38
-    bl         Flag_GetBase
+    Flag_GetBase 0x38
     beq        LAB_0803e4ea
     add        r1,r6,#0x0
     push       {r5}

@@ -97,8 +97,7 @@ LAB_08085e92:
 
 _ts Scene_ChipTraderMain_2_StartSlideInChip
     push       {lr}
-    mov        r0,#0x6
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     beq        LAB_08085ea8
     mov        r0,#0xa
     neg        r0,r0
@@ -126,8 +125,7 @@ LAB_08085eba:
     mov        r1,#0x0
     bl         Scene_ChipTraderMain_SlideChip
     pop        {r5}
-    mov        r0,#0x6
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     bne        LAB_08085ed2
     mov        r0,#0x10
     strb       r0,[r5,#0x0]

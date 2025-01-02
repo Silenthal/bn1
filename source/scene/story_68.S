@@ -38,8 +38,7 @@ _ts S_Story_68_0
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
     pop        {r5}
-    mov        r0,#0x93
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x93
     push       {r5}
     mov        r0,#0x10
     bl         PetStatusControl_SetState
@@ -173,8 +172,7 @@ _ts S_Story_68_5
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080934ec
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     mov        r0,#0x1e
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -212,8 +210,7 @@ _nt S_Story_68_7
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809353a
-    mov        r0,#0x93
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x93
     push       {r5}
     ldr        r0,PTR_ScenarioData_68_080935f8
     mov        r1,#0x6
@@ -274,8 +271,7 @@ _nt S_Story_68_10
     push       {r5}
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerInactive
-    mov        r0,#0xa1
-    bl         Flag_SetBase
+    Flag_SetBase 0xA1
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

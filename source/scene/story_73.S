@@ -44,8 +44,7 @@ _ts S_Story_73_0
     push       {r5}
     mov        r0,#0x10
     bl         PetStatusControl_SetState
-    mov        r0,#0x93
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x93
     ldr        r7,PTR_NPCList_803E8CC_08095234
     bl         Map_LoadNPCList
     mov        r1,#0x5
@@ -117,8 +116,7 @@ _nt S_Story_73_3
     bl         SceneCamera_Main
     cmp        r0,#0x1
     beq        LAB_0809508e
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     push       {r5}
     ldr        r0,PTR_ScenarioData_73_08095240
     mov        r1,#0x0
@@ -141,8 +139,7 @@ _nt S_Story_73_4
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080950b6
-    mov        r0,#0x93
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x93
     mov        r0,#0xa
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -184,8 +181,7 @@ _nt S_Story_73_6
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08095106
-    mov        r0,#0xf9
-    bl         Flag_SetBase
+    Flag_SetBase 0xF9
     mov        r0,#0x78
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -227,8 +223,7 @@ _nt S_Story_73_8
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08095156
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     mov        r0,#0x1e
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -308,8 +303,7 @@ _nt S_Story_73_12
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0xf8
-    bl         Flag_SetBase
+    Flag_SetBase 0xF8
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

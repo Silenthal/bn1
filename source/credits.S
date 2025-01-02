@@ -60,8 +60,7 @@ _ts Credits_0_Init
     strb       r1,[r5,#0xc]
     mov        r0,#0xaf
     push       {r0,r5}
-    mov        r0,#0xc7
-    bl         Flag_GetLibrary
+    Flag_GetLibrary 0xC7
     pop        {r0,r5}
     beq        LAB_08021514
     mov        r0,#0xb0
@@ -341,8 +340,7 @@ _ts Credits_1_5_SaveGame
     mov        r2,#0x20
     bl         memcpy_16
     pop        {r5}
-    mov        r0,#0x9
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_SAVE_OK
     push       {r5}
     bl         Save_LoadGame
     bl         Save_ChecksumCheck
@@ -352,11 +350,9 @@ _ts Credits_1_5_SaveGame
     bl         Save_CheckBuildId
     pop        {r5}
     bne        LAB_080217fa
-    mov        r0,#0x9
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_SAVE_OK
     push       {r5}
-    mov        r0,#0x5
-    bl         Flag_SetBase
+    Flag_SetBase 0x05
     ldr        r0,PTR_gTempMemory_080218b4
     ldr        r1,PTR_gFolder_080218cc
     mov        r2,#0x3c

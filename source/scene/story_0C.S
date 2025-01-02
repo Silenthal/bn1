@@ -174,8 +174,7 @@ _ts S_Story_0C_5
     push       {r5}
     bl         Text_DisableDialogue
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xc9
-    bl         Flag_SetBase
+    Flag_SetBase 0xC9
     ldr        r0,PTR_EnemySpawn_FireManV1_08084ec4
     bl         Battle_GetRandomEncounter
     mov        r0,#0x1

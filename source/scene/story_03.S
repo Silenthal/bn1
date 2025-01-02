@@ -130,8 +130,7 @@ _ts S_Story_03_4
     beq        LAB_08083468
     push       {r5}
     bl         Flag_SetPlayerActive
-    mov        r0,#0x95
-    bl         Flag_SetBase
+    Flag_SetBase 0x95
     bl         Text_DisableDialogue
     ldr        r0,PTR_EnemySpawn_Tutorial_1_080834a0
     bl         Battle_GetRandomEncounter

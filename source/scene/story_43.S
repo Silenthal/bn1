@@ -239,12 +239,9 @@ _nt S_Story_43_7
     push       {r5}
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,#0xb3
-    bl         Flag_SetBase
-    mov        r0,#0x2f
-    bl         Flag_ClearBase
-    mov        r0,#0x30
-    bl         Flag_ClearBase
+    Flag_SetBase 0xB3
+    Flag_ClearBase 0x2F
+    Flag_ClearBase 0x30
     push       {r5}
     ldr        r0,[r5,#0x10]
     mov        r1,#0x0

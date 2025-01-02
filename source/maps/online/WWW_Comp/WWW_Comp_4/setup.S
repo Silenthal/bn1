@@ -69,20 +69,16 @@ LAB_0804db9c:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804dba8:
-    mov        r0,#0xfc
-    bl         Flag_GetBase
+    Flag_GetBase 0xFC
     bne        LAB_0804dbd8
     push       {r5}
     ldr        r7,PTR_NPCList_804E3A4_0804dc44
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0xb4
-    bl         Flag_ClearBase
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
-    mov        r0,#0xdf
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xB4
+    Flag_ClearBase 0xF9
+    Flag_ClearBase 0xDF
     ldr        r0,PTR_EntityAllocParams_804EA84_0804dc48
     bl         Entity_AllocList
     pop        {r5}
@@ -122,8 +118,7 @@ _ts EventHandler_WWW_Comp_4_F54_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0804dc26
-    mov        r0,#0xfc
-    bl         Flag_GetBase
+    Flag_GetBase 0xFC
     bne        LAB_0804dc26
     push       {r5}
     ldr        r0,PTR_Scene_Story_75_0804dc54

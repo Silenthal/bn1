@@ -172,8 +172,7 @@ _ts S_Story_25_5
     push       {r5}
     bl         Text_DisableDialogue
     bl         Flag_SetPlayerActive
-    mov        r0,#0xa8
-    bl         Flag_SetBase
+    Flag_SetBase 0xA8
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
     ldr        r7,PTR_PTR_DAT_08089148

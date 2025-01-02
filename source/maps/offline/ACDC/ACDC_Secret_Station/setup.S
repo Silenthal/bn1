@@ -55,8 +55,7 @@ _ts MapSetup_ACDC_Secret_Station_F54
     ldr        r0,PTR_BgTask_802F980
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0xa9
-    bl         Flag_GetBase
+    Flag_GetBase 0xA9
     bne        LAB_0802f8f2
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -87,8 +86,7 @@ PTR_EventHandler_ACDC_Secret_Station_F54_0_0802f908:
 
 _ts EventHandler_ACDC_Secret_Station_F54_0
     push       {lr}
-    mov        r0,#0x74
-    bl         Flag_GetBase
+    Flag_GetBase 0x74
     beq        LAB_0802f92a
     ldrb       r0,[r5,#0x6]
     sub        r0,#0x1
@@ -108,14 +106,11 @@ LAB_0802f92a:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802f974
-    mov        r0,#0xaa
-    bl         Flag_GetBase
+    Flag_GetBase 0xAA
     beq        LAB_0802f974
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     bne        LAB_0802f968
-    mov        r0,#0xac
-    bl         Flag_SetBase
+    Flag_SetBase 0xAC
     mov        r0,#0xbf
     bl         Sound_PlaySongImmediate
     push       {r5}

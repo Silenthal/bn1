@@ -13,8 +13,7 @@ _ts MapSetup_Traffic_Light_Comp_5_S3
     push       {r5}
     ldr        r0,PTR_BgTask_80475A4_08048f34
     bl         BgTask_AddNew
-    mov        r0,#0xba
-    bl         Flag_GetBase
+    Flag_GetBase 0xBA
     bne        LAB_08048b82
     ldr        r0,PTR_BgTask_80475F4_08048f38
     bl         BgTask_AddNew
@@ -24,8 +23,7 @@ LAB_08048b82:
     bl         BgTask_AddNew
 LAB_08048b88:
     pop        {r5}
-    mov        r0,#0x2a
-    bl         Flag_GetEvent
+    Flag_GetEvent 0x2A
     bne        LAB_08048b96
     bl         Sound_AreaSongChange
 LAB_08048b96:
@@ -146,8 +144,7 @@ _ts MapSetup_Traffic_Light_Comp_5_F36
     ldr        r7,PTR_NPCList_80492E8_08048f58
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xb8
-    bl         Flag_GetBase
+    Flag_GetBase 0xB8
     bne        LAB_08048cb6
     LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
@@ -165,20 +162,15 @@ LAB_08048caa:
     bl         Scene_Prepare
     pop        {r5}
 LAB_08048cb6:
-    mov        r0,#0xb4
-    bl         Flag_GetBase
+    Flag_GetBase 0xB4
     beq        LAB_08048cf2
-    mov        r0,#0xb9
-    bl         Flag_GetBase
+    Flag_GetBase 0xB9
     bne        LAB_08048cee
-    mov        r0,#0xb7
-    bl         Flag_GetBase
+    Flag_GetBase 0xB7
     bne        LAB_08048cea
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     bne        LAB_08048ce6
-    mov        r0,#0xb5
-    bl         Flag_GetBase
+    Flag_GetBase 0xB5
     bne        LAB_08048ce2
     mov        r0,#0x4
     b          LAB_08048cf4
@@ -235,11 +227,9 @@ _ts EventHandler_Traffic_Light_Comp_5_F36_0
 _ts EventHandler_Traffic_Light_Comp_5_F36_1
     push       {lr}
     bl         FUN_08048ee4
-    mov        r0,#0xc6
-    bl         Flag_GetBase
+    Flag_GetBase 0xC6
     beq        LAB_08048d54
-    mov        r0,#0xb8
-    bl         Flag_SetBase
+    Flag_SetBase 0xB8
     push       {r5}
     ldr        r0,PTR_Scene_ChangeMap_08048f68
     mov        r1,#0x11
@@ -253,16 +243,14 @@ LAB_08048d54:
 _nt EventHandler_Traffic_Light_Comp_5_F36_2
     push       {lr}
     bl         FUN_08048ee4
-    mov        r0,#0xc7
-    bl         Flag_GetBase
+    Flag_GetBase 0xC7
     beq        LAB_08048d86
     push       {r5}
     ldr        r0,PTR_Scene_Dialogue_08048f6c
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
-    mov        r0,#0xb8
-    bl         Flag_SetBase
+    Flag_SetBase 0xB8
     push       {r5}
     ldr        r0,PTR_Scene_ChangeMap_08048f70
     mov        r1,#0x11
@@ -276,11 +264,9 @@ LAB_08048d86:
 _ts EventHandler_Traffic_Light_Comp_5_F36_3
     push       {lr}
     bl         FUN_08048ee4
-    mov        r0,#0xc8
-    bl         Flag_GetBase
+    Flag_GetBase 0xC8
     beq        LAB_08048dac
-    mov        r0,#0xb8
-    bl         Flag_SetBase
+    Flag_SetBase 0xB8
     push       {r5}
     ldr        r0,PTR_Scene_ChangeMap_08048f74
     mov        r1,#0x11
@@ -302,8 +288,7 @@ _nt EventHandler_Traffic_Light_Comp_5_F36_4
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08048dde
-    mov        r0,#0xb8
-    bl         Flag_SetBase
+    Flag_SetBase 0xB8
     push       {r5}
     ldr        r0,PTR_Scene_ChangeMap_08048f78
     mov        r1,#0x11
@@ -317,11 +302,9 @@ LAB_08048dde:
 _ts EventHandler_Traffic_Light_Comp_5_F36_5
     push       {lr}
     bl         FUN_08048ee4
-    mov        r0,#0xad
-    bl         Flag_GetBase
+    Flag_GetBase 0xAD
     beq        LAB_08048e04
-    mov        r0,#0xb8
-    bl         Flag_SetBase
+    Flag_SetBase 0xB8
     push       {r5}
     ldr        r0,PTR_Scene_ChangeMap_08048f7c
     mov        r1,#0x13
@@ -341,8 +324,7 @@ _nt MapSetup_Traffic_Light_Comp_5_F37
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xbb
-    bl         Flag_GetBase
+    Flag_GetBase 0xBB
     beq        LAB_08048e40
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -399,8 +381,7 @@ PTR_EventHandler_Traffic_Light_Comp_5_F37_0_08048e84:
 
 _ts EventHandler_Traffic_Light_Comp_5_F37_0
     push       {lr}
-    mov        r0,#0xbb
-    bl         Flag_GetBase
+    Flag_GetBase 0xBB
     bne        LAB_08048ea6
     push       {r5}
     ldr        r0,PTR_Scene_Story_4A_08048f90
@@ -589,8 +570,7 @@ _ts MapSetup_Traffic_Light_Comp_5_S4
     push       {r5}
     ldr        r0,PTR_BgTask_80475A4_080490b8
     bl         BgTask_AddNew
-    mov        r0,#0xba
-    bl         Flag_GetBase
+    Flag_GetBase 0xBA
     bne        LAB_08048fd6
     ldr        r0,PTR_BgTask_80475F4_080490bc
     bl         BgTask_AddNew

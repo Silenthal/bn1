@@ -74,11 +74,9 @@ PTR_EventHandler_WWW_Passage_3_F54_0_0803e598:
 
 _ts EventHandler_WWW_Passage_3_F54_0
     push       {lr}
-    mov        r0,#0xfc
-    bl         Flag_GetBase
+    Flag_GetBase 0xFC
     beq        LAB_0803e5ba
-    mov        r0,#0x1f
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x1F
     bne        LAB_0803e5ba
     push       {r5}
     ldr        r0,DAT_0803e5c8

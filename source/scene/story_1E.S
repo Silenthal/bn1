@@ -8,8 +8,8 @@ BYTE_ARRAY_08088238:
     .byte 0x12
 
 Flag_Base_ARRAY_0808823a:
-    .byte FLAG_CLEAR_CHAPTER_1
-    .byte FLAG_CLEAR_CHAPTER_1
+    .byte F_CLEAR_CHAPTER_1
+    .byte F_CLEAR_CHAPTER_1
 
     cam_end
 
@@ -61,10 +61,8 @@ _ts S_Story_1E_1
     ldrb       r7,[r7,#0x10]
     cmp        r7,#0x0
     beq        LAB_080882bc
-    mov        r0,#0x92
-    bl         Flag_ClearBase
-    mov        r0,#0x2b
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x92
+    Flag_ClearBase 0x2B
     ldr        r6,PTR_BYTE_ARRAY_0808835c
     ldrb       r0,[r5,#0x4]
     lsl        r0,r0,#0x2
@@ -80,8 +78,7 @@ LAB_080882bc:
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    mov        r0,#0x45
-    bl         Flag_SetBase
+    Flag_SetBase 0x45
     mov        r0,#0x30
     mov        r1,#0x1
     bl         KeyItem_AddAmount

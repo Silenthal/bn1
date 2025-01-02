@@ -63,8 +63,7 @@ _nt S_Story_7E_1
     mov        r0,#0xf
     bl         PlayerAnimation_SetState
     pop        {r5}
-    mov        r0,#0x93
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x93
     push       {r5}
     ldr        r7,PTR_NPCList_803E8D8_080979b8
     bl         Map_LoadNPCList
@@ -115,8 +114,7 @@ LAB_08097818:
 _nt S_Story_7E_3
     mov        r0,#0x5
     bl         FUN_08097950
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     push       {r5}
     ldr        r0,PTR_ScenarioData_7E_080979c0
     mov        r1,#0x0
@@ -216,8 +214,7 @@ _nt S_Story_7E_7
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xeb
-    bl         Flag_SetBase
+    Flag_SetBase 0xEB
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
@@ -243,10 +240,8 @@ _ts S_Story_7E_SkipIfStart
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}
-    mov        r0,#0x96
-    bl         Flag_SetBase
-    mov        r0,#0xf9
-    bl         Flag_SetBase
+    Flag_SetBase 0x96
+    Flag_SetBase 0xF9
     mov        r0,#0x18
     strb       r0,[r5,#0x0]
     pop        {pc}

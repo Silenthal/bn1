@@ -111,8 +111,7 @@ _nt S_RechargeSuccess_4
 
 
 _ts S_RechargeSuccess_5
-    mov        r0,#0xb5
-    bl         Flag_SetBase
+    Flag_SetBase 0xB5
     bl         PlayerAnimation_Unlock
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

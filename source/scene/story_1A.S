@@ -158,8 +158,7 @@ _nt S_Story_1A_5
     push       {r5}
     bl         Text_DisableDialogue
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xc2
-    bl         Flag_SetBase
+    Flag_SetBase 0xC2
     ldr        r0,PTR_EnemySpawn_NumberManV1_080878b0
     bl         Battle_GetRandomEncounter
     mov        r0,#0x0

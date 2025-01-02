@@ -69,11 +69,9 @@ _ts MapSetup_School_Comp_2_F12
     ldr        r7,PTR_NPCList_8041CF8_08040f18
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xd6
-    bl         Flag_GetBase
+    Flag_GetBase 0xD6
     beq        LAB_08040cac
-    mov        r0,#0xd6
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD6
     push       {r5}
     ldr        r0,DAT_08040f1c
     mov        r1,#0x0
@@ -121,11 +119,9 @@ _ts MapSetup_School_Comp_2_F13
     ldr        r7,PTR_NPCList_8041D04_08040f24
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xd6
-    bl         Flag_GetBase
+    Flag_GetBase 0xD6
     beq        LAB_08040d10
-    mov        r0,#0xd6
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD6
     push       {r5}
     ldr        r0,PTR_Scene_MegaManJackIn_08040f28
     mov        r1,#0x0
@@ -133,13 +129,11 @@ _ts MapSetup_School_Comp_2_F13
     pop        {r5}
 LAB_08040d10:
     push       {r5}
-    mov        r0,#0xac
-    bl         Flag_GetBase
+    Flag_GetBase 0xAC
     pop        {r5}
     beq        LAB_08040d28
     push       {r5}
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_01
     pop        {r5}
     b          LAB_08040d32
 LAB_08040d28:
@@ -149,13 +143,11 @@ LAB_08040d28:
     pop        {r5}
 LAB_08040d32:
     push       {r5}
-    mov        r0,#0xa8
-    bl         Flag_GetBase
+    Flag_GetBase 0xA8
     pop        {r5}
     beq        LAB_08040d4a
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     b          LAB_08040d6c
 LAB_08040d4a:
@@ -164,8 +156,7 @@ LAB_08040d4a:
     bl         Effect_WWWGate_Create
     pop        {r5}
     push       {r5}
-    mov        r0,#0xa7
-    bl         Flag_GetBase
+    Flag_GetBase 0xA7
     pop        {r5}
     beq        LAB_08040d72
     push       {r5}
@@ -221,8 +212,7 @@ LAB_08040db8:
 _nt EventHandler_School_Comp_2_F12_1
     push       {lr}
     push       {r5}
-    mov        r0,#0xaa
-    bl         Flag_GetBase
+    Flag_GetBase 0xAA
     pop        {r5}
     bne        LAB_08040dde
     LoadMain world, r0, r7
@@ -245,8 +235,7 @@ LAB_08040de4:
 _nt EventHandler_School_Comp_2_F12_2
     push       {lr}
     push       {r5}
-    mov        r0,#0xaa
-    bl         Flag_GetBase
+    Flag_GetBase 0xAA
     pop        {r5}
     beq        LAB_08040e1a
     push       {r5}
@@ -297,21 +286,17 @@ _nt MapSetup_School_Comp_2_F14
     ldr        r7,PTR_NPCList_8041D04_08040f44
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xd6
-    bl         Flag_GetBase
+    Flag_GetBase 0xD6
     beq        LAB_08040e6e
-    mov        r0,#0xd6
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD6
     push       {r5}
     ldr        r0,PTR_Scene_MegaManJackIn_08040f48
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
 LAB_08040e6e:
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -350,21 +335,17 @@ _ts MapSetup_School_Comp_2_F15
     ldr        r7,PTR_NPCList_8041D04_08040f50
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xd6
-    bl         Flag_GetBase
+    Flag_GetBase 0xD6
     beq        LAB_08040ed4
-    mov        r0,#0xd6
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD6
     push       {r5}
     ldr        r0,PTR_Scene_MegaManJackIn_08040f54
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
 LAB_08040ed4:
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -518,10 +499,8 @@ _ts MapSetup_School_Comp_2_F20
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     push       {r5}
     ldr        r7,PTR_NPCList_8041D74_08041054
     bl         Map_LoadNPCList

@@ -173,8 +173,7 @@ _ts S_Dentown_Center_Chaud_Undernet_6
     bl         Text_DisableDialogue
     pop        {r5}
     push       {r5}
-    mov        r0,#0x97
-    bl         Flag_SetBase
+    Flag_SetBase 0x97
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

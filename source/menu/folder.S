@@ -154,10 +154,8 @@ _ts M_Folder_0_Init
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     push       {r5}
-    mov        r0,#0x6
-    bl         Flag_ClearSystem
-    mov        r0,#0x5
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
+    Flag_ClearSystem F_SYSTEM_INPUT_DELAY_ON
     pop        {r5}
     mov        r0,#0x0
     pop        {pc}
@@ -1635,8 +1633,7 @@ LAB_0801aae2:
     add        r0,r8
     strh       r1,[r5,r0]
     mov        r9,r5
-    mov        r0,#0x5
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_INPUT_DELAY_ON
     mov        r5,r9
     beq        LAB_0801ab0e
     mov        r0,#0x8
@@ -2188,8 +2185,7 @@ _ts Menu_Folder_Sort_HandleInput
     mov        r0,#0x42
     strh       r1,[r5,r0]
     mov        r9,r5
-    mov        r0,#0x5
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_INPUT_DELAY_ON
     mov        r5,r9
     beq        LAB_0801af28
     mov        r0,#0x8

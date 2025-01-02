@@ -101,8 +101,7 @@ _nt S_Story_65_2
     strb       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_08092e00
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     push       {r5}
     ldr        r0,PTR_ScenarioData_65_08092f10
     mov        r1,#0x0
@@ -125,8 +124,7 @@ _ts S_Story_65_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08092e28
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     mov        r0,#0x5a
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -206,8 +204,7 @@ _ts S_Story_65_7
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0x92
-    bl         Flag_SetBase
+    Flag_SetBase 0x92
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

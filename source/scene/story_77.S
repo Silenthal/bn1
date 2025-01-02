@@ -59,8 +59,7 @@ _ts S_Story_77_1
     mov        r0,#0x31
     bl         PlayerAnimation_SetState
     pop        {r5}
-    mov        r0,#0xe3
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xE3
     push       {r5}
     ldr        r7,PTR_NPCList_804E470_08096154
     bl         Map_LoadNPCList
@@ -112,8 +111,7 @@ _ts S_Story_77_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080961d8
-    mov        r0,#0xf9
-    bl         Flag_SetBase
+    Flag_SetBase 0xF9
     mov        r0,#0xde
     bl         Sound_PlaySongImmediate
     mov        r0,#0x3c
@@ -158,8 +156,7 @@ _ts S_Story_77_5
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809623c
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xF9
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
     push       {r5}
@@ -262,8 +259,7 @@ _ts S_Story_77_7
     mov        r1,#0x6
     bl         Text_LoadDialogue
     pop        {r5}
-    mov        r0,#0xe3
-    bl         Flag_SetBase
+    Flag_SetBase 0xE3
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -288,10 +284,8 @@ _ts S_Story_77_8
     mov        r1,#0x9
     bl         Text_LoadDialogue
     pop        {r5}
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
-    mov        r0,#0x93
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xF9
+    Flag_ClearBase 0x93
     push       {r5}
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
@@ -323,8 +317,7 @@ _nt S_Story_77_9
     bne        LAB_0809636a
     mov        r0,#0x75
     bl         Sound_PlaySongImmediate
-    mov        r0,#0xf9
-    bl         Flag_SetBase
+    Flag_SetBase 0xF9
     mov        r0,#0xa
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -402,8 +395,7 @@ _ts S_Story_77_11
     strb       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_0809641e
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xF9
     mov        r0,#0xed
     bl         Sound_PlaySongImmediate
     push       {r5}
@@ -433,8 +425,7 @@ _ts S_Story_77_12
     mov        r1,#0xa
     bl         Text_LoadDialogue
     pop        {r5}
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -490,8 +481,7 @@ _ts S_Story_77_15
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xe4
-    bl         Flag_SetBase
+    Flag_SetBase 0xE4
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]

@@ -10,8 +10,7 @@ _ts MapSetup_School_Storage_S1
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_0802805e
     mov        r0,#0x4
@@ -60,8 +59,7 @@ _ts MapSetup_School_Storage_F15
     ldr        r7,PTR_PTR_DAT_08028128
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     beq        LAB_080280d8
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
@@ -92,8 +90,7 @@ PTR_EventHandler_School_Storage_F15_0_080280f0:
 
 _ts EventHandler_School_Storage_F15_0
     push       {lr}
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     beq        LAB_08028116
     push       {r5}
     mov        r1,#0x0
@@ -132,8 +129,7 @@ _ts MapSetup_School_Storage_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08028152
     push       {r5}
     mov        r0,#0x4
@@ -141,8 +137,7 @@ _ts MapSetup_School_Storage_S2
     pop        {r5}
     b          LAB_0802816a
 LAB_08028152:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08028166
     push       {r5}
     mov        r0,#0x3

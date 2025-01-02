@@ -56,13 +56,10 @@ PTR_E_BarSwitch_1_0_0807ff84:
 
 
 _ts E_BarSwitch_1_0
-    mov        r0,#0xc1
-    bl         Flag_GetBase
+    Flag_GetBase 0xC1
     beq        LAB_0807ffae
-    mov        r0,#0xc1
-    bl         Flag_ClearBase
-    mov        r0,#0xc4
-    bl         Flag_GetBase
+    Flag_ClearBase 0xC1
+    Flag_GetBase 0xC4
     beq        LAB_0807ffa2
     mov        r0,#0x3
     b          LAB_0807ffa4

@@ -9,8 +9,7 @@ _ts MapSetup_Govt_Complex_Hallway_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08033602
     push       {r5}
     mov        r0,#0x4
@@ -18,8 +17,7 @@ _ts MapSetup_Govt_Complex_Hallway_S2
     pop        {r5}
     b          LAB_0803361a
 LAB_08033602:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08033616
     push       {r5}
     mov        r0,#0x3

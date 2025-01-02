@@ -60,11 +60,9 @@ _nt MapSetup_Undernet_3
     bl         Scene_Prepare
     pop        {r5}
 LAB_08052f00:
-    mov        r0,#0x6d
-    bl         Flag_GetBase
+    Flag_GetBase 0x6D
     bne        LAB_08052f0e
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
 LAB_08052f0e:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -95,8 +93,7 @@ _ts EventHandler_Undernet_3_0
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_08052f6a
-    mov        r0,#0x1
-    bl         Flag_GetGate
+    Flag_GetGate F_GATE_01
     beq        LAB_08052f6a
     mov        r0,#0x37
     bl         KeyItem_IsPresent

@@ -136,8 +136,7 @@ _nt S_Story_1F_5
     push       {r5}
     bl         Text_DisableDialogue
     bl         PlayerAnimation_Unlock
-    mov        r0,#0x6f
-    bl         Flag_SetBase
+    Flag_SetBase 0x6F
     ldr        r0,PTR_EnemySpawn_StoneManV1_080884d0
     bl         Battle_GetRandomEncounter
     mov        r0,#0x6

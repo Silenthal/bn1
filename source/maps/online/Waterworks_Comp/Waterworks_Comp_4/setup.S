@@ -13,8 +13,7 @@ _ts MapSetup_Waterworks_Comp_4_S2
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0xcc
-    bl         Flag_GetBase
+    Flag_GetBase 0xCC
     bne        LAB_080462e0
     ldr        r0,PTR_BgTask_8044168_08046430
     bl         BgTask_AddNew
@@ -61,8 +60,7 @@ PTR_EventHandler_Default_0804631c:
 _ts MapSetup_Waterworks_Comp_4_F25
     push       {lr}
     push       {r5}
-    mov        r0,#0xb8
-    bl         Flag_GetBase
+    Flag_GetBase 0xB8
     beq        LAB_08046356
     ldr        r0,PTR_BgTask_8044048_08046440
     bl         BgTask_AddNew
@@ -101,11 +99,9 @@ LAB_0804638e:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804639a:
-    mov        r0,#0xb7
-    bl         Flag_GetBase
+    Flag_GetBase 0xB7
     beq        LAB_080463c2
-    mov        r0,#0xb8
-    bl         Flag_GetBase
+    Flag_GetBase 0xB8
     bne        LAB_080463be
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -156,11 +152,9 @@ _ts EventHandler_Waterworks_Comp_4_F25_0
     pop        {r5}
     cmp        r0,#0x18
     bne        LAB_0804641e
-    mov        r0,#0xb7
-    bl         Flag_GetBase
+    Flag_GetBase 0xB7
     bne        LAB_0804641e
-    mov        r0,#0xb7
-    bl         Flag_SetBase
+    Flag_SetBase 0xB7
     push       {r5}
     ldr        r0,DAT_08046460
     mov        r1,#0x6

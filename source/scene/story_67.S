@@ -42,8 +42,7 @@ _ts S_Story_67_1
     bl         PlayerAnimation_GetState
     cmp        r0,#0x2
     bne        LAB_0809310a
-    mov        r0,#0xbe
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xBE
     push       {r5}
     bl         Effect_BombMan_Create
     pop        {r5}
@@ -94,10 +93,8 @@ _ts S_Story_67_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809315a
-    mov        r0,#0x9d
-    bl         Flag_SetBase
-    mov        r0,#0x8e
-    bl         Flag_SetItem
+    Flag_SetBase 0x9D
+    Flag_SetItem F_ITEM_30E
     mov        r0,#0x85
     bl         Sound_PlaySongImmediate
     mov        r0,#0x32
@@ -145,8 +142,7 @@ _ts S_Story_67_5
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080931b8
-    mov        r0,#0x9c
-    bl         Flag_SetBase
+    Flag_SetBase 0x9C
     push       {r5}
     ldr        r0,PTR_ScenarioData_67_08093360
     mov        r1,#0x4
@@ -169,8 +165,7 @@ _ts S_Story_67_6
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080931e6
-    mov        r0,#0x9c
-    bl         Flag_SetBase
+    Flag_SetBase 0x9C
     mov        r0,#0x43
     bl         PlayerAnimation_SetState
     ldrb       r0,[r5,#0x0]
@@ -187,8 +182,7 @@ LAB_080931f0:
 
 
 _nt S_Story_67_7
-    mov        r0,#0x9c
-    bl         Flag_GetBase
+    Flag_GetBase 0x9C
     beq        LAB_08093236
     LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
@@ -303,8 +297,7 @@ _nt S_Story_67_10
     ldr        r0,PTR_BgTask_80518A8_0809336c
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0x8e
-    bl         Flag_SetItem
+    Flag_SetItem F_ITEM_30E
     push       {r5}
     mov        r0,#0x3
     mov        r1,#0x10
@@ -326,14 +319,10 @@ _nt S_Story_67_11
     push       {r5}
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,#0x9b
-    bl         Flag_SetBase
-    mov        r0,#0x2d
-    bl         Flag_SetEvent
-    mov        r0,#0x63
-    bl         Flag_ClearBase
-    mov        r0,#0x2f
-    bl         Flag_ClearBase
+    Flag_SetBase 0x9B
+    Flag_SetEvent 0x2D
+    Flag_ClearBase 0x63
+    Flag_ClearBase 0x2F
     LoadMain world, r0, r0
     mov        r1,#0x52
     strb       r1,[r0,#0x6]

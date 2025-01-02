@@ -77,20 +77,16 @@ LAB_0804dcec:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804dcf8:
-    mov        r0,#0xe1
-    bl         Flag_GetBase
+    Flag_GetBase 0xE1
     bne        LAB_0804dd28
     push       {r5}
     ldr        r7,PTR_NPCList_804E420_0804ddf8
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0xb4
-    bl         Flag_ClearBase
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
-    mov        r0,#0xdf
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xB4
+    Flag_ClearBase 0xF9
+    Flag_ClearBase 0xDF
     ldr        r0,PTR_EntityAllocParams_804EAF0_0804ddfc
     bl         Entity_AllocList
     pop        {r5}
@@ -99,11 +95,9 @@ LAB_0804dd28:
     push       {r5}
     ldr        r0,PTR_BgTask_804CC98_0804de00
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
-    mov        r0,#0xe4
-    bl         Flag_GetBase
+    Flag_GetBase 0xE4
     bne        LAB_0804dd5a
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -116,8 +110,7 @@ LAB_0804dd28:
     pop        {r5}
     b          LAB_0804dd86
 LAB_0804dd5a:
-    mov        r0,#0xe6
-    bl         Flag_GetBase
+    Flag_GetBase 0xE6
     bne        LAB_0804dd7c
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -164,8 +157,7 @@ _ts EventHandler_WWW_Comp_5_F54_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0804ddca
-    mov        r0,#0xe1
-    bl         Flag_GetBase
+    Flag_GetBase 0xE1
     bne        LAB_0804ddca
     push       {r5}
     ldr        r0,PTR_Scene_Story_76_0804de14

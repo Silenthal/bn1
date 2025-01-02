@@ -60,8 +60,7 @@ LAB_0805353c:
     strb       r0,[r4,#0xd]
     b          LAB_08053578
 LAB_08053550:
-    mov        r0,#0x22
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_UNDERNET_7_SKILL_CHECK_FAIL
     bne        LAB_08053566
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
@@ -90,11 +89,9 @@ LAB_08053578:
     ldr        r7,PTR_NPCList_8054C14_080536a4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x7f
-    bl         Flag_GetBase
+    Flag_GetBase 0x7F
     beq        LAB_080535a0
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     b          LAB_080535aa
 LAB_080535a0:
     push       {r5}
@@ -123,8 +120,7 @@ PTR_EventHandler_Undernet_7_0_080535c0:
 
 _ts EventHandler_Undernet_7_0
     push       {lr}
-    mov        r0,#0x7f
-    bl         Flag_GetBase
+    Flag_GetBase 0x7F
     bne        LAB_0805360a
     LoadMain world, r4, r7
     ldrb       r0,[r4,#0x19]
@@ -141,22 +137,19 @@ LAB_080535de:
     mov        r0,#0x1
     strb       r0,[r5,#0x2]
 LAB_080535ea:
-    mov        r0,#0x22
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_UNDERNET_7_SKILL_CHECK_FAIL
     bne        LAB_0805360a
     ldrb       r0,[r5,#0x2]
     tst        r0,r0
     beq        LAB_0805360a
-    mov        r0,#0x22
-    bl         Flag_SetEvent
+    Flag_SetEvent F_EVENT_UNDERNET_7_SKILL_CHECK_FAIL
     push       {r5}
     ldr        r0,PTR_Scene_SkillGate_080536ac
     mov        r1,#0x2
     bl         Scene_Prepare
     pop        {r5}
 LAB_0805360a:
-    mov        r0,#0x2d
-    bl         Flag_GetEvent
+    Flag_GetEvent 0x2D
     beq        LAB_08053640
     push       {r5}
     LoadMain world, r0, r7
@@ -166,22 +159,18 @@ LAB_0805360a:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08053640
-    mov        r0,#0x5f
-    bl         Flag_GetBase
+    Flag_GetBase 0x5F
     bne        LAB_08053640
-    mov        r0,#0x5f
-    bl         Flag_SetBase
+    Flag_SetBase 0x5F
     push       {r5}
     ldr        r0,PTR_Scene_StartFixedBattle_080536b0
     mov        r1,#0x2a
     bl         Scene_Prepare
     pop        {r5}
 LAB_08053640:
-    mov        r0,#0x7f
-    bl         Flag_GetBase
+    Flag_GetBase 0x7F
     bne        LAB_08053676
-    mov        r0,#0x7e
-    bl         Flag_GetBase
+    Flag_GetBase 0x7E
     beq        LAB_0805365e
     push       {r5}
     ldr        r0,PTR_Scene_UnlockWWWGate_080536b4

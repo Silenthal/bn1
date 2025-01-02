@@ -75,8 +75,7 @@ _ts S_WWW_Base_Exit_2
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08097fca
-    mov        r0,#0x0
-    bl         Flag_GetGate
+    Flag_GetGate F_GATE_00
     bne        LAB_08097fc4
     mov        r0,#0x14
     strb       r0,[r5,#0x0]

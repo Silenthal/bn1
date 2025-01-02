@@ -144,8 +144,7 @@ LAB_0808a5e0:
 
 
 _nt S_Story_2E_5
-    mov        r0,#0xac
-    bl         Flag_GetBase
+    Flag_GetBase 0xAC
     beq        LAB_0808a5fc
     push       {r5}
     ldr        r0,PTR_ScenarioData_2E_0808a780
@@ -169,8 +168,7 @@ _ts S_Story_2E_6
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808a5ae
-    mov        r0,#0xad
-    bl         Flag_SetBase
+    Flag_SetBase 0xAD
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -184,8 +182,7 @@ LAB_0808a62e:
 
 
 _ts S_Story_2E_7
-    mov        r0,#0xae
-    bl         Flag_GetBase
+    Flag_GetBase 0xAE
     beq        LAB_0808a654
     ldrb       r0,[r5,#0x8]
     sub        r0,#0x1
@@ -209,13 +206,11 @@ LAB_0808a65e:
 
 
 _ts S_Story_2E_8
-    mov        r0,#0xf6
-    bl         Flag_GetBase
+    Flag_GetBase 0xF6
     beq        LAB_0808a674
     mov        r0,#0x4
     bl         Sound_ChangeSong
-    mov        r0,#0xf6
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xF6
 LAB_0808a674:
     ldrb       r0,[r5,#0x1]
     tst        r0,r0
@@ -233,11 +228,9 @@ LAB_0808a674:
     pop        {r5}
     b          LAB_0808a6b4
 LAB_0808a694:
-    mov        r0,#0xf9
-    bl         Flag_GetBase
+    Flag_GetBase 0xF9
     beq        LAB_0808a6b4
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xF9
     push       {r5}
     mov        r0,#0xc
     bl         PetStatusControl_SetState
@@ -312,14 +305,12 @@ _nt S_Story_2E_10
     beq        LAB_0808a75c
     push       {r5}
     bl         Text_DisableDialogue
-    mov        r0,#0xab
-    bl         Flag_SetBase
+    Flag_SetBase 0xAB
     pop        {r5}
     mov        r0,#0x4
     bl         Sound_ChangeSong
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xdf
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xDF
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808a75c:
     pop        {pc}

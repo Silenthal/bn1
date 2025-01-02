@@ -10,8 +10,7 @@ _ts MapSetup_School_Staff_Lounge_S1
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_080282fe
     mov        r0,#0x4
@@ -101,8 +100,7 @@ _ts MapSetup_School_Staff_Lounge_F15
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xc7
-    bl         Flag_GetBase
+    Flag_GetBase 0xC7
     beq        LAB_080283cc
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -113,8 +111,7 @@ _ts MapSetup_School_Staff_Lounge_F15
     bl         Scene_Prepare
     pop        {r5}
 LAB_080283cc:
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -135,8 +132,7 @@ PTR_EventHandler_School_Staff_Lounge_F15_0_080283e8:
 
 _ts EventHandler_School_Staff_Lounge_F15_0
     push       {lr}
-    mov        r0,#0xc7
-    bl         Flag_GetBase
+    Flag_GetBase 0xC7
     beq        LAB_08028414
     push       {r5}
     ldr        r0,PTR_Scene_ChangeMap_0802843c
@@ -145,8 +141,7 @@ _ts EventHandler_School_Staff_Lounge_F15_0
     LoadMain world, r0, r0
     mov        r1,#0x20
     strb       r1,[r0,#0x6]
-    mov        r0,#0x1
-    bl         Flag_SetBase
+    Flag_SetBase 0x01
     bl         FUN_080102e8
     pop        {r5}
 LAB_08028414:

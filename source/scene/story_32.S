@@ -88,8 +88,7 @@ _ts S_Story_32_3
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808af6c
-    mov        r0,#0xce
-    bl         Flag_SetBase
+    Flag_SetBase 0xCE
     push       {r5}
     mov        r0,#0x3
     mov        r1,#0x10
@@ -108,8 +107,7 @@ _nt S_Story_32_4
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808af8a
-    mov        r0,#0xcb
-    bl         Flag_SetBase
+    Flag_SetBase 0xCB
     mov        r0,#0x90
     strh       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -174,8 +172,7 @@ LAB_0808afee:
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_0808b02c
-    mov        r0,#0xcc
-    bl         Flag_SetBase
+    Flag_SetBase 0xCC
     push       {r5}
     ldr        r0,PTR_BgTask_8044048_0808b158
     bl         BgTask_AddNew
@@ -308,8 +305,7 @@ _ts S_Story_32_11
     beq        LAB_0808b124
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0xcd
-    bl         Flag_SetBase
+    Flag_SetBase 0xCD
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

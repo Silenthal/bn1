@@ -91,8 +91,7 @@ _ts S_Story_38_1
     mov        r0,#0x2
     strb       r0,[r7,#0x9]
     strb       r0,[r7,#0xb]
-    mov        r0,#0x34
-    bl         Flag_SetEvent
+    Flag_SetEvent 0x34
     push       {r5}
     mov        r0,#0x18
     bl         Entity_FreeAllMultiple
@@ -265,15 +264,13 @@ LAB_0808c950:
 
 
 _nt S_Story_38_7
-    mov        r0,#0xc9
-    bl         Flag_GetBase
+    Flag_GetBase 0xC9
     beq        LAB_0808c96a
     push       {r5}
     mov        r0,#0x4
     bl         Sound_ChangeSong
     pop        {r5}
-    mov        r0,#0xc9
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xC9
 LAB_0808c96a:
     push       {r5}
     mov        r0,#0x80
@@ -309,8 +306,7 @@ _ts S_Story_38_8
     mov        r1,#0x5
     bl         Text_LoadDialogue
     pop        {r5}
-    mov        r0,#0x99
-    bl         Flag_SetBase
+    Flag_SetBase 0x99
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -422,11 +418,9 @@ LAB_0808ca86:
 _ts S_Story_38_13
     push       {r5}
     bl         PlayerAnimation_Unlock
-    mov        r0,#0x98
-    bl         Flag_SetBase
+    Flag_SetBase 0x98
     pop        {r5}
-    mov        r0,#0x34
-    bl         Flag_ClearEvent
+    Flag_ClearEvent 0x34
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1

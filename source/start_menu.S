@@ -14,8 +14,7 @@ _ts InitStartMenu
     mov        r0,#0x80
     bl         StartMenu_SetState
     bl         StartMenu_LoadTileset
-    mov        r0,#0x4
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_START_MENU_OPEN
     mov        r0,#0xbe
     bl         Sound_PlaySongImmediate
     pop        {pc}
@@ -29,8 +28,7 @@ _ts InitStartMenuFromSubMenu
     mov        r0,#0x4
     strb       r0,[r5,#0x0]
     bl         StartMenu_LoadTileset
-    mov        r0,#0x4
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_START_MENU_OPEN
     pop        {pc}
 
 
@@ -42,8 +40,7 @@ _ts InitStartMenuState
     bl         StartMenu_ClearState
     mov        r0,#0x20
     bl         StartMenu_ClearState
-    mov        r0,#0x4
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_START_MENU_OPEN
     pop        {pc}
 
 
@@ -63,8 +60,7 @@ _ts StartMenu_LoadTileset
     bl         Dma_TransferListAdd
     mov        r2,#0x40
     push       {r2}
-    mov        r0,#0x26
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_WWW_COMP_5_SAVE_DISABLED
     pop        {r2}
     beq        LAB_08019214
     mov        r2,#0x0
@@ -145,8 +141,7 @@ LAB_0801929c:
     cmp        r0,#0x7
     beq        LAB_08019290
     push       {r0,r5}
-    mov        r0,#0x26
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_WWW_COMP_5_SAVE_DISABLED
     pop        {r0,r5}
     beq        LAB_080192c6
     cmp        r0,#0x5
@@ -209,8 +204,7 @@ _ts StartMenu_2_Close
     bl         StartMenu_ClearState
     mov        r0,#0x20
     bl         StartMenu_ClearState
-    mov        r0,#0x4
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_START_MENU_OPEN
     ldrb       r0,[r5,#0x5]
     pop        {pc}
 LAB_08019332:

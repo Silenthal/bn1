@@ -61,10 +61,8 @@ _ts MapSetup_School_Class_5A_F00
     bl         BgTask_AddNew
     ldr        r7,PTR_PTR_DAT_080248cc
     bl         Map_LoadNPCList
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -92,8 +90,7 @@ PTR_EventHandler_School_Class_5A_F00_0_080247c0:
 _ts EventHandler_School_Class_5A_F00_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xcf
-    bl         Flag_GetBase
+    Flag_GetBase 0xCF
     pop        {r5}
     bne        LAB_080247fa
     push       {r5}
@@ -143,13 +140,11 @@ _ts MapSetup_School_Class_5A_F02
     add        r1,r5,#0x0
     add        r1,#0x24
     bl         Camera_SetEnabled
-    mov        r0,#0x44
-    bl         Flag_GetBase
+    Flag_GetBase 0x44
     pop        {r5}
     bne        LAB_0802485c
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_0802485c
     push       {r5}
@@ -159,8 +154,7 @@ _ts MapSetup_School_Class_5A_F02
     pop        {r5}
     b          LAB_08024870
 LAB_0802485c:
-    mov        r0,#0x97
-    bl         Flag_GetBase
+    Flag_GetBase 0x97
     bne        LAB_08024870
     push       {r5}
     ldr        r0,PTR_Scene_Story_04_080248ec
@@ -193,12 +187,10 @@ _ts EventHandler_School_Class_5A_F02_0
     LoadMain mapChange, r1, r7
     ldr        r0,PTR_MapEntrance_ARRAY_080248f4
     str        r0,[r1,#0x14]
-    mov        r0,#0x44
-    bl         Flag_GetBase
+    Flag_GetBase 0x44
     bne        LAB_080248b6
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_080248b6
     push       {r5}
@@ -255,8 +247,7 @@ _ts MapSetup_School_Class_5A_S1
     bl         Entity_AllocList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_08024924
     mov        r0,#0x4
@@ -310,22 +301,17 @@ _ts MapSetup_School_Class_5A_F10
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8024A14
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0x92
-    bl         Flag_GetBase
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
+    Flag_GetBase 0x92
     beq        LAB_080249e8
     ldr        r7,PTR_PTR_DAT_08024a18
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x44
-    bl         Flag_GetBase
+    Flag_GetBase 0x44
     bne        LAB_080249d0
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_080249d0
     push       {r5}
@@ -429,12 +415,10 @@ LAB_08024a6e:
     bl         Scene_Prepare
     pop        {r5}
 LAB_08024a80:
-    mov        r0,#0x44
-    bl         Flag_GetBase
+    Flag_GetBase 0x44
     bne        LAB_08024aa0
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_08024aa0
     push       {r5}
@@ -445,8 +429,7 @@ LAB_08024a80:
 LAB_08024aa0:
     bl         EventHandler_School_Class_5A_F10_1_CheckEveryoneTalk
     push       {r5}
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     pop        {r5}
     beq        LAB_08024ad4
     bl         Scene_IsSceneActive
@@ -482,13 +465,10 @@ _nt MapSetup_School_Class_5A_F11
     ldr        r0,PTR_BgTask_8024B34
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
     push       {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_08024b28
     mov        r0,#0x4
@@ -571,8 +551,7 @@ LAB_08024b8e:
     pop        {r5}
 LAB_08024ba0:
     push       {r5}
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     pop        {r5}
     beq        LAB_08024bb8
     LoadMain world, r0, r0
@@ -610,15 +589,12 @@ _ts MapSetup_School_Class_5A_F12
     bl         Sound_ChangeSong
 LAB_08024bec:
     push       {r5}
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_GetBase 0xA6
     pop        {r5}
     bne        LAB_08024c08
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
     pop        {r5}
 LAB_08024c08:
     push       {r5}
@@ -626,13 +602,11 @@ LAB_08024c08:
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8024FD4
     bl         BgTask_AddNew
-    mov        r0,#0xa1
-    bl         Flag_GetBase
+    Flag_GetBase 0xA1
     pop        {r5}
     bne        LAB_08024c2c
     push       {r5}
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     pop        {r5}
     beq        LAB_08024c5a
 LAB_08024c2c:
@@ -641,16 +615,14 @@ LAB_08024c2c:
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0xa4
-    bl         Flag_GetBase
+    Flag_GetBase 0xA4
     pop        {r5}
     beq        LAB_08024c46
     mov        r0,#0xc
     b          LAB_08024c5c
 LAB_08024c46:
     push       {r5}
-    mov        r0,#0xa1
-    bl         Flag_GetBase
+    Flag_GetBase 0xA1
     pop        {r5}
     beq        LAB_08024c56
     mov        r0,#0x8
@@ -719,8 +691,7 @@ _ts EventHandler_School_Class_5A_F12_1
     beq        LAB_08024d06
     bl         dummy_187a0
     bne        LAB_08024d06
-    mov        r0,#0xd8
-    bl         Flag_GetBase
+    Flag_GetBase 0xD8
     bne        LAB_08024ce2
     push       {r5}
     mov        r1,#0x3f
@@ -729,12 +700,9 @@ _ts EventHandler_School_Class_5A_F12_1
     pop        {r5}
     pop        {pc}
 LAB_08024ce2:
-    mov        r0,#0x35
-    bl         Flag_SetBase
-    mov        r0,#0xd6
-    bl         Flag_SetBase
-    mov        r0,#0xcb
-    bl         Flag_SetBase
+    Flag_SetBase 0x35
+    Flag_SetBase 0xD6
+    Flag_SetBase 0xCB
     push       {r5}
     ldr        r0,PTR_Scene_JackIn_08024fec
     mov        r1,#0x1
@@ -769,8 +737,7 @@ _ts EventHandler_School_Class_5A_F12_2
     mov        r1,#0x1
     bl         FUN_08024f0c
     push       {r5}
-    mov        r0,#0xa4
-    bl         Flag_GetBase
+    Flag_GetBase 0xA4
     pop        {r5}
     beq        LAB_08024d5a
     push       {r5}
@@ -830,8 +797,7 @@ LAB_08024d92:
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0xa7
-    bl         Flag_GetBase
+    Flag_GetBase 0xA7
     pop        {r5}
     beq        LAB_08024dcc
     mov        r0,#0x4
@@ -862,8 +828,7 @@ PTR_EventHandler_School_Class_5A_F13_0_08024de8:
 _ts EventHandler_School_Class_5A_F13_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xa7
-    bl         Flag_GetBase
+    Flag_GetBase 0xA7
     pop        {r5}
     beq        LAB_08024e10
     push       {r5}
@@ -908,8 +873,7 @@ LAB_08024e28:
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0xb4
-    bl         Flag_GetBase
+    Flag_GetBase 0xB4
     pop        {r5}
     bne        LAB_08024e60
     mov        r0,#0x0
@@ -940,8 +904,7 @@ PTR_EventHandler_School_Class_5A_F14_0_08024e7c:
 _ts EventHandler_School_Class_5A_F14_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xad
-    bl         Flag_GetBase
+    Flag_GetBase 0xAD
     pop        {r5}
     beq        LAB_08024ea2
     push       {r5}
@@ -1048,13 +1011,10 @@ LAB_08024f38:
     beq        LAB_08024f78
     bl         dummy_187a0
     bne        LAB_08024f78
-    mov        r0,#0x35
-    bl         Flag_GetBase
+    Flag_GetBase 0x35
     bne        LAB_08024f78
-    mov        r0,#0x35
-    bl         Flag_SetBase
-    mov        r0,#0xd6
-    bl         Flag_SetBase
+    Flag_SetBase 0x35
+    Flag_SetBase 0xD6
     pop        {r1}
     push       {r5}
     ldr        r0,PTR_Scene_JackIn_08025034
@@ -1068,35 +1028,25 @@ LAB_08024f78:
 
 _ts EventHandler_School_Class_5A_F10_1_CheckEveryoneTalk
     push       {lr}
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     bne        LAB_08024fcc
-    mov        r0,#0xcc
-    bl         Flag_GetBase
+    Flag_GetBase 0xCC
     beq        LAB_08024fcc
-    mov        r0,#0xcd
-    bl         Flag_GetBase
+    Flag_GetBase 0xCD
     beq        LAB_08024fcc
-    mov        r0,#0xce
-    bl         Flag_GetBase
+    Flag_GetBase 0xCE
     beq        LAB_08024fcc
-    mov        r0,#0xcf
-    bl         Flag_GetBase
+    Flag_GetBase 0xCF
     beq        LAB_08024fcc
-    mov        r0,#0xd0
-    bl         Flag_GetBase
+    Flag_GetBase 0xD0
     beq        LAB_08024fcc
-    mov        r0,#0xd1
-    bl         Flag_GetBase
+    Flag_GetBase 0xD1
     beq        LAB_08024fcc
-    mov        r0,#0xd2
-    bl         Flag_GetBase
+    Flag_GetBase 0xD2
     beq        LAB_08024fcc
-    mov        r0,#0xd3
-    bl         Flag_GetBase
+    Flag_GetBase 0xD3
     beq        LAB_08024fcc
-    mov        r0,#0x95
-    bl         Flag_SetBase
+    Flag_SetBase 0x95
 LAB_08024fcc:
     pop        {pc}
 
@@ -1166,8 +1116,7 @@ _ts MapSetup_School_Class_5A_S2
     ldr        r0,PTR_EntityAllocParams_ARRAY_0802541c
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08025060
     push       {r5}
     mov        r0,#0x4
@@ -1175,8 +1124,7 @@ _ts MapSetup_School_Class_5A_S2
     pop        {r5}
     b          LAB_08025078
 LAB_08025060:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08025074
     push       {r5}
     mov        r0,#0x3
@@ -1229,8 +1177,7 @@ _ts MapSetup_School_Class_5A_F20
     ldr        r7,DAT_0802542c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x90
-    bl         Flag_GetBase
+    Flag_GetBase 0x90
     bne        LAB_08025118
     push       {r5}
     LoadMain world, r7, r7
@@ -1260,12 +1207,10 @@ LAB_08025118:
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x44
-    bl         Flag_GetBase
+    Flag_GetBase 0x44
     bne        LAB_0802514a
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_0802514a
     push       {r5}
@@ -1299,11 +1244,9 @@ PTR_EventHandler_School_Class_5A_F20_0_08025168:
 
 _ts EventHandler_School_Class_5A_F20_0
     push       {lr}
-    mov        r0,#0x44
-    bl         Flag_GetBase
+    Flag_GetBase 0x44
     bne        LAB_0802518a
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     beq        LAB_0802518a
     push       {r5}
     ldr        r0,DAT_08025444
@@ -1428,8 +1371,7 @@ _ts MapSetup_School_Class_5A_F23
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_0802527a
     push       {r5}
@@ -1463,8 +1405,7 @@ PTR_EventHandler_School_Class_5A_F23_0_08025298:
 
 _ts EventHandler_School_Class_5A_F23_0
     push       {lr}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     beq        LAB_080252b4
     push       {r5}
     ldr        r0,DAT_0802547c
@@ -1473,21 +1414,17 @@ _ts EventHandler_School_Class_5A_F23_0
     pop        {r5}
     pop        {pc}
 LAB_080252b4:
-    mov        r0,#0xc8
-    bl         Flag_GetBase
+    Flag_GetBase 0xC8
     beq        LAB_080252cc
     push       {r5}
-    mov        r0,#0xc8
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xC8
     mov        r0,#0x14
     bl         Sound_StopSong
     pop        {r5}
 LAB_080252cc:
-    mov        r0,#0xa7
-    bl         Flag_GetBase
+    Flag_GetBase 0xA7
     beq        LAB_080252ee
-    mov        r0,#0xa8
-    bl         Flag_GetBase
+    Flag_GetBase 0xA8
     bne        LAB_080252ee
     push       {r5}
     mov        r0,#0x14
@@ -1520,8 +1457,7 @@ _ts MapSetup_School_Class_5A_F24
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     pop        {r5}
     beq        LAB_08025336
     push       {r5}
@@ -1555,8 +1491,7 @@ PTR_EventHandler_School_Class_5A_F24_0_08025354:
 
 _ts EventHandler_School_Class_5A_F24_0
     push       {lr}
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     beq        LAB_08025370
     push       {r5}
     ldr        r0,DAT_08025498

@@ -28,8 +28,7 @@ _ts MapSetup_Undernet_4_S0
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8051750_080530f0
     bl         BgTask_AddNew
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     bne        LAB_08053006
     ldr        r0,PTR_BgTask_8051890_080530f4
     bl         BgTask_AddNew
@@ -59,11 +58,9 @@ _nt MapSetup_Undernet_4
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     beq        LAB_08053054
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     bne        LAB_08053060
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -126,8 +123,7 @@ _ts EventHandler_Undernet_4_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_080530c6
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     bne        LAB_080530c6
     push       {r5}
     ldr        r0,PTR_Scene_Story_66_08053118

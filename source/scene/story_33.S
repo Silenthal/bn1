@@ -113,8 +113,7 @@ _nt S_Story_33_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808b27c
-    mov        r0,#0xf7
-    bl         Flag_SetBase
+    Flag_SetBase 0xF7
     bl         S_Story_33_AnimatePlayer
     tst        r0,r0
     bne        LAB_0808b272
@@ -162,8 +161,7 @@ _nt S_Story_33_5
     bne        LAB_0808b2c4
     mov        r0,#0x2
     bl         PlayerAnimation_SetState
-    mov        r0,#0xd2
-    bl         Flag_SetBase
+    Flag_SetBase 0xD2
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -242,8 +240,7 @@ _ts S_Story_33_9
     beq        LAB_0808b370
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0xd3
-    bl         Flag_SetBase
+    Flag_SetBase 0xD3
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

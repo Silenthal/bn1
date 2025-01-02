@@ -241,8 +241,7 @@ _nt S_Story_4F_8
     beq        LAB_0808f3f8
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0x95
-    bl         Flag_SetBase
+    Flag_SetBase 0x95
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808f3f8:

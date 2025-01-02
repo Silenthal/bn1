@@ -84,8 +84,7 @@ _nt S_Story_6A_3
 _ts S_Story_6A_4
     bl         Flag_SetPlayerActive
     push       {r5}
-    mov        r0,#0xa7
-    bl         Flag_SetBase
+    Flag_SetBase 0xA7
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

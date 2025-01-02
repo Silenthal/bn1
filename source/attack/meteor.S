@@ -70,8 +70,7 @@ _ts A_Meteor_1_Main
     cmp        r0,#0x9
     bne        LAB_0807142c
     push       {r5}
-    mov        r0,#0xda
-    bl         Flag_SetBase
+    Flag_SetBase 0xDA
     pop        {r5}
 LAB_0807142c:
     mov        r0,#0x1

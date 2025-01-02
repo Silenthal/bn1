@@ -252,8 +252,7 @@ _nt S_Story_29_8
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080899aa
-    mov        r0,#0xc0
-    bl         Flag_SetBase
+    Flag_SetBase 0xC0
     mov        r0,#0x96
     strh       r0,[r5,#0x8]
     mov        r0,#0x3
@@ -327,8 +326,7 @@ _nt S_Story_29_11
     sub        r0,#0x1
     strb       r0,[r5,#0x8]
     bne        LAB_08089a3c
-    mov        r0,#0xc1
-    bl         Flag_SetBase
+    Flag_SetBase 0xC1
     push       {r5}
     mov        r0,#0x3
     mov        r1,#0x10
@@ -399,8 +397,7 @@ _ts S_Story_29_15
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089ac8
-    mov        r0,#0xc7
-    bl         Flag_SetBase
+    Flag_SetBase 0xC7
     push       {r5}
     bl         PlayerAnimation_Unlock
     pop        {r5}

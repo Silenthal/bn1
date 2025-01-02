@@ -13,8 +13,7 @@ _ts MapSetup_Waterworks_Comp_6_S2
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0xcc
-    bl         Flag_GetBase
+    Flag_GetBase 0xCC
     bne        LAB_0804684e
     ldr        r0,PTR_BgTask_80441F8_08046a40
     bl         BgTask_AddNew
@@ -34,30 +33,25 @@ LAB_08046866:
     ldr        r0,PTR_EntityAllocParams_8047338_08046a58
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xee
-    bl         Flag_GetBase
+    Flag_GetBase 0xEE
     bne        LAB_08046880
     push       {r5}
-    mov        r0,#0xa
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_0A
     pop        {r5}
 LAB_08046880:
-    mov        r0,#0xf4
-    bl         Flag_GetBase
+    Flag_GetBase 0xF4
     bne        LAB_0804689a
     push       {r5}
     ldr        r0,PTR_BgTask_80443A8_08046a5c
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     b          LAB_080468aa
 LAB_0804689a:
     push       {r5}
     ldr        r0,PTR_BgTask_80443C0_08046a60
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
     pop        {r5}
 LAB_080468aa:
     pop        {pc}
@@ -180,8 +174,7 @@ LAB_08046990:
     pop        {r5}
 LAB_0804699c:
     push       {r5}
-    mov        r0,#0xc2
-    bl         Flag_GetBase
+    Flag_GetBase 0xC2
     pop        {r5}
     beq        LAB_080469c4
     push       {r5}
@@ -239,8 +232,7 @@ _ts EventHandler_Waterworks_Comp_6_F27_0
     pop        {r5}
     cmp        r0,#0x18
     bne        LAB_08046a28
-    mov        r0,#0xc2
-    bl         Flag_GetBase
+    Flag_GetBase 0xC2
     bne        LAB_08046a28
     push       {r5}
     ldr        r0,PTR_Scene_Story_31_08046a8c
@@ -345,8 +337,7 @@ _ts MapSetup_Waterworks_Comp_6_S3
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8047338_08046ba8
     bl         Entity_AllocList
-    mov        r0,#0xa
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_0A
     ldr        r0,PTR_BgTask_80443A8_08046bac
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_80443C0_08046bb0

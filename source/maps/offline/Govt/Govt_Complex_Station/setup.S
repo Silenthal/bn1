@@ -9,8 +9,7 @@ _ts MapSetup_Govt_Complex_Station_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0803213e
     push       {r5}
     mov        r0,#0x4
@@ -18,8 +17,7 @@ _ts MapSetup_Govt_Complex_Station_S2
     pop        {r5}
     b          LAB_08032156
 LAB_0803213e:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08032152
     push       {r5}
     mov        r0,#0x3
@@ -109,8 +107,7 @@ _ts EventHandler_Govt_Complex_Station_F22_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08032216
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_08032216
     push       {r5}
     mov        r1,#0x1
@@ -175,8 +172,7 @@ _ts EventHandler_Govt_Complex_Station_F23_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08032296
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_08032296
     push       {r5}
     mov        r1,#0x1
@@ -247,8 +243,7 @@ _ts EventHandler_Govt_Complex_Station_F26_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08032322
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_08032322
     push       {r5}
     mov        r1,#0x1
@@ -413,8 +408,7 @@ _ts EventHandler_Govt_Complex_Station_F30_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0803245e
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_0803245e
     push       {r5}
     mov        r0,#0x3e
@@ -553,8 +547,7 @@ _ts EventHandler_Govt_Complex_Station_F40_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0803256e
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_0803256e
     push       {r5}
     mov        r0,#0x3e
@@ -685,8 +678,7 @@ PTR_EventHandler_Govt_Complex_Station_F50_0_08032644:
 
 _ts EventHandler_Govt_Complex_Station_F50_0
     push       {lr}
-    mov        r0,#0x18
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x18
     bne        LAB_0803265e
     push       {r5}
     ldr        r0,DAT_08032758
@@ -702,8 +694,7 @@ LAB_0803265e:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08032692
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_08032692
     push       {r5}
     mov        r0,#0x3e
@@ -780,8 +771,7 @@ _ts EventHandler_Govt_Complex_Station_F53_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08032726
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_08032726
     push       {r5}
     mov        r0,#0x3e

@@ -295,8 +295,7 @@ _ts S_Story_6B_11
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
     push       {r5}
-    mov        r0,#0xa8
-    bl         Flag_SetBase
+    Flag_SetBase 0xA8
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x54

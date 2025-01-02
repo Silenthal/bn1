@@ -80,19 +80,16 @@ _ts EventHandler_Undernet_8_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0805377c
-    mov        r0,#0x5
-    bl         Flag_GetBase
+    Flag_GetBase 0x05
     beq        LAB_0805377c
     push       {r5}
     bl         Status_GetLevel
     cmp        r0,#0x45
     pop        {r5}
     bls        LAB_0805377c
-    mov        r0,#0x12
-    bl         Flag_GetBase
+    Flag_GetBase 0x12
     bne        LAB_0805377c
-    mov        r0,#0x12
-    bl         Flag_SetBase
+    Flag_SetBase 0x12
     push       {r5}
     ldr        r0,PTR_Scene_StartFixedBattle_080537b0
     mov        r1,#0x2b

@@ -931,8 +931,7 @@ LAB_0804c8ea:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc50
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
     pop        {r5}
 LAB_0804c8fa:
     pop        {pc}
@@ -950,10 +949,8 @@ LAB_0804c90e:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc54
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x2
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_02
     pop        {r5}
 LAB_0804c924:
     pop        {pc}
@@ -973,12 +970,9 @@ LAB_0804c93a:
     push       {r5}
     ldr        r0,PTR_BgTask_8049E48_0804cc58
     bl         BgTask_AddNew
-    mov        r0,#0x3
-    bl         Flag_ClearIgnore
-    mov        r0,#0x4
-    bl         Flag_ClearIgnore
-    mov        r0,#0x5
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_03
+    Flag_ClearIgnore F_IGNORE_WALL_04
+    Flag_ClearIgnore F_IGNORE_WALL_05
     pop        {r5}
 LAB_0804c956:
     pop        {pc}
@@ -996,12 +990,9 @@ LAB_0804c96a:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc5c
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
-    mov        r0,#0x2
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_WALL_02
     pop        {r5}
 LAB_0804c986:
     pop        {pc}
@@ -1019,12 +1010,9 @@ LAB_0804c99a:
     push       {r5}
     ldr        r0,PTR_BgTask_8049E48_0804cc60
     bl         BgTask_AddNew
-    mov        r0,#0x3
-    bl         Flag_ClearIgnore
-    mov        r0,#0x4
-    bl         Flag_ClearIgnore
-    mov        r0,#0x5
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_03
+    Flag_ClearIgnore F_IGNORE_WALL_04
+    Flag_ClearIgnore F_IGNORE_WALL_05
     pop        {r5}
 LAB_0804c9b6:
     pop        {pc}
@@ -1042,12 +1030,9 @@ LAB_0804c9ca:
     push       {r5}
     ldr        r0,PTR_BgTask_8049F08_0804cc64
     bl         BgTask_AddNew
-    mov        r0,#0x6
-    bl         Flag_ClearIgnore
-    mov        r0,#0x7
-    bl         Flag_ClearIgnore
-    mov        r0,#0x8
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_06
+    Flag_ClearIgnore F_IGNORE_WALL_07
+    Flag_ClearIgnore F_IGNORE_WALL_08
     pop        {r5}
 LAB_0804c9e6:
     pop        {pc}
@@ -1062,16 +1047,14 @@ _ts PowerPlant_CheckPaths_Grid_6
     push       {r5}
     ldr        r0,PTR_BgTask_8049FE0_0804cc68
     bl         BgTask_AddNew
-    mov        r0,#0x9
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_09
     pop        {r5}
     b          LAB_0804ca16
 LAB_0804ca06:
     push       {r5}
     ldr        r0,PTR_BgTask_8049FC8_0804cc6c
     bl         BgTask_AddNew
-    mov        r0,#0x9
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_09
     pop        {r5}
 LAB_0804ca16:
     pop        {pc}
@@ -1089,19 +1072,15 @@ _ts PowerPlant_CheckPaths_Grid_7
     bl         PowerPlant_GetBatteryCount
     cmp        r0,#0x3
     bne        LAB_0804ca58
-    mov        r0,#0xd7
-    bl         Flag_SetBase
+    Flag_SetBase 0xD7
     b          LAB_0804ca58
 LAB_0804ca3c:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc70
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
-    mov        r0,#0x2
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_WALL_02
     pop        {r5}
 LAB_0804ca58:
     pop        {pc}
@@ -1118,8 +1097,7 @@ _ts PowerPlant_SetPathPalette_0
     pop        {r0,r1}
     bne        LAB_0804ca78
     push       {r0,r1,r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r0,r1,r5}
     mov        r1,#0x1
 LAB_0804ca78:
@@ -1131,8 +1109,7 @@ LAB_0804ca78:
     pop        {r0,r1}
     bne        LAB_0804ca94
     push       {r0,r1,r5}
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_01
     pop        {r0,r1,r5}
     mov        r1,#0x2
 LAB_0804ca94:
@@ -1144,8 +1121,7 @@ LAB_0804ca94:
     pop        {r0,r1}
     bne        LAB_0804cab0
     push       {r0,r1,r5}
-    mov        r0,#0x2
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_02
     pop        {r0,r1,r5}
     mov        r1,#0x4
 LAB_0804cab0:
@@ -1181,8 +1157,7 @@ _ts PowerPlant_SetPathPalette_1
     pop        {r0,r1}
     bne        LAB_0804cb04
     push       {r0,r1,r5}
-    mov        r0,#0x3
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_03
     pop        {r0,r1,r5}
     mov        r1,#0x1
 LAB_0804cb04:
@@ -1194,8 +1169,7 @@ LAB_0804cb04:
     pop        {r0,r1}
     bne        LAB_0804cb20
     push       {r0,r1,r5}
-    mov        r0,#0x4
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_04
     pop        {r0,r1,r5}
     mov        r1,#0x2
 LAB_0804cb20:
@@ -1207,8 +1181,7 @@ LAB_0804cb20:
     pop        {r0,r1}
     bne        LAB_0804cb3c
     push       {r0,r1,r5}
-    mov        r0,#0x5
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_05
     pop        {r0,r1,r5}
     mov        r1,#0x4
 LAB_0804cb3c:
@@ -1244,8 +1217,7 @@ _ts PowerPlant_SetPathPalette_2
     pop        {r0,r1}
     bne        LAB_0804cb90
     push       {r0,r1,r5}
-    mov        r0,#0x6
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_06
     pop        {r0,r1,r5}
     mov        r1,#0x1
 LAB_0804cb90:
@@ -1257,8 +1229,7 @@ LAB_0804cb90:
     pop        {r0,r1}
     bne        LAB_0804cbac
     push       {r0,r1,r5}
-    mov        r0,#0x7
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_07
     pop        {r0,r1,r5}
     mov        r1,#0x2
 LAB_0804cbac:
@@ -1270,8 +1241,7 @@ LAB_0804cbac:
     pop        {r0,r1}
     bne        LAB_0804cbc8
     push       {r0,r1,r5}
-    mov        r0,#0x8
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_08
     pop        {r0,r1,r5}
     mov        r1,#0x4
 LAB_0804cbc8:

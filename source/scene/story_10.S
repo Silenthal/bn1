@@ -123,8 +123,7 @@ LAB_080862a4:
 _nt S_Story_10_4
     push       {r5}
     bl         PlayerAnimation_Unlock
-    mov        r0,#0x90
-    bl         Flag_SetBase
+    Flag_SetBase 0x90
     pop        {r5}
     LoadMain world, r0, r7
     mov        r1,#0x3

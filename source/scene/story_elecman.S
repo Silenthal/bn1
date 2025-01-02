@@ -34,8 +34,7 @@ _ts S_Story_ElecMan_1
     bl         PlayerAnimation_GetState
     cmp        r0,#0x2
     bne        LAB_08091da8
-    mov        r0,#0xbe
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xBE
     push       {r5}
     mov        r0,#0x3
     bl         Effect_ElecMan_Create
@@ -133,8 +132,7 @@ _ts S_Story_ElecMan_5
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,#0xc2
-    bl         Flag_SetBase
+    Flag_SetBase 0xC2
     LoadMain gameStats, r7, r7
     mov        r0,#0xa
     strb       r0,[r7,#0x5]

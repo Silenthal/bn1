@@ -169,10 +169,8 @@ LAB_08090ef8:
     bl         PlayerAnimation_SetState
     mov        r0,#0xc2
     bl         Sound_PlaySongImmediate
-    mov        r0,#0xc1
-    bl         Flag_SetBase
-    mov        r0,#0xde
-    bl         Flag_SetBase
+    Flag_SetBase 0xC1
+    Flag_SetBase 0xDE
     mov        r0,#0x8
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -281,8 +279,7 @@ _ts S_Story_5D_10
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,#0xc0
-    bl         Flag_SetBase
+    Flag_SetBase 0xC0
     LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]

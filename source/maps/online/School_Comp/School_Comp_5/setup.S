@@ -26,8 +26,7 @@ _ts MapSetup_School_Comp_5_S1
     pop        {r5}
     mov        r0,#0x0
     strb       r0,[r5,#0x1]
-    mov        r0,#0xc2
-    bl         Flag_GetBase
+    Flag_GetBase 0xC2
     beq        LAB_0804188c
     push       {r5}
     bl         Sound_StopAllMusic
@@ -83,11 +82,9 @@ _ts MapSetup_School_Comp_5_F15
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xd6
-    bl         Flag_GetBase
+    Flag_GetBase 0xD6
     beq        LAB_08041912
-    mov        r0,#0xd6
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD6
     push       {r5}
     ldr        r0,DAT_08041a18
     mov        r1,#0x0
@@ -95,8 +92,7 @@ _ts MapSetup_School_Comp_5_F15
     pop        {r5}
 LAB_08041912:
     push       {r5}
-    mov        r0,#0xc2
-    bl         Flag_GetBase
+    Flag_GetBase 0xC2
     pop        {r5}
     beq        LAB_08041930
     push       {r5}
@@ -108,8 +104,7 @@ LAB_08041912:
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_08041930:
-    mov        r0,#0xbb
-    bl         Flag_GetBase
+    Flag_GetBase 0xBB
     bne        LAB_08041942
     push       {r5}
     mov        r1,#0x6
@@ -121,15 +116,13 @@ LAB_08041942:
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     pop        {r5}
     bne        LAB_0804195c
     mov        r0,#0x0
     b          LAB_08041964
 LAB_0804195c:
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     mov        r0,#0x8
 LAB_08041964:
     str        r0,[r5,#0x0]
@@ -157,8 +150,7 @@ PTR_EventHandler_School_Comp_5_F15_0_0804197c:
 _ts EventHandler_School_Comp_5_F15_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xbb
-    bl         Flag_GetBase
+    Flag_GetBase 0xBB
     pop        {r5}
     bne        LAB_080419b2
     LoadMain world, r0, r7
@@ -198,8 +190,7 @@ _ts EventHandler_School_Comp_5_F15_1
 _ts EventHandler_School_Comp_5_F15_2
     push       {lr}
     push       {r5}
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     pop        {r5}
     beq        LAB_080419f6
     push       {r5}
@@ -327,8 +318,7 @@ _ts MapSetup_School_Comp_5_F20
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]

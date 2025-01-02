@@ -57,8 +57,7 @@ _ts S_Get_SchoolID_1
     and        r0,r1
     ldr        r1,[r5,#0x10]
     strb       r0,[r1,#0x14]
-    mov        r0,#0xc6
-    bl         Flag_SetBase
+    Flag_SetBase 0xC6
     push       {r5}
     mov        r0,#0x3
     mov        r1,#0x8
@@ -136,11 +135,9 @@ _ts S_Get_SchoolID_4
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    mov        r0,#0xbf
-    bl         Flag_GetBase
+    Flag_GetBase 0xBF
     beq        LAB_080880d2
-    mov        r0,#0xc6
-    bl         Flag_GetBase
+    Flag_GetBase 0xC6
     beq        LAB_080880d2
     mov        r0,#0x3
     bl         KeyItem_IsPresent

@@ -9,16 +9,14 @@ _ts MapSetup_SciLab_Power_Plant_Hallway_S4
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803c554
     push       {r5}
     ldr        r0,PTR_BgTask_803BA8C_0803c700
     bl         BgTask_AddNew
     pop        {r5}
 LAB_0803c554:
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803c564
     mov        r0,#0x3
     bl         Sound_ChangeSong
@@ -74,8 +72,7 @@ _ts MapSetup_SciLab_Power_Plant_Hallway_F41
     ldr        r7,PTR_NPCList_803D44C_0803c708
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -115,8 +112,7 @@ _ts MapSetup_SciLab_Power_Plant_Hallway_F42
     ldr        r7,PTR_NPCList_803D46C_0803c710
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -331,8 +327,7 @@ _ts MapSetup_SciLab_Power_Plant_Hallway_F50
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

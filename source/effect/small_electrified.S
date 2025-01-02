@@ -56,8 +56,7 @@ PTR_E_SmallElectrified_1_0_08080170:
 
 
 _ts E_SmallElectrified_1_0
-    mov        r0,#0xde
-    bl         Flag_GetBase
+    Flag_GetBase 0xDE
     bne        E_SmallElectrified_2_Free
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}

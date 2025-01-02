@@ -74,11 +74,9 @@ LAB_08080c34:
     ldrb       r0,[r5,#0x4]
     cmp        r0,#0x8
     beq        LAB_08080c5e
-    mov        r0,#0xb4
-    bl         Flag_GetBase
+    Flag_GetBase 0xB4
     beq        LAB_08080c5e
-    mov        r0,#0xb4
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xB4
     mov        r4,#0x4
     bl         E_LockProgram_CreateEffect
 LAB_08080c5e:

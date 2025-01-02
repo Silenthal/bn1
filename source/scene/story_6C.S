@@ -177,8 +177,7 @@ LAB_08093dbe:
 
 
 _ts S_Story_6C_7
-    mov        r0,#0x74
-    bl         Flag_GetBase
+    Flag_GetBase 0x74
     beq        LAB_08093ddc
     ldrb       r0,[r5,#0xa]
     sub        r0,#0x1
@@ -277,10 +276,8 @@ LAB_08093e76:
     push       {r5}
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xa9
-    bl         Flag_SetBase
-    mov        r0,#0x74
-    bl         Flag_SetBase
+    Flag_SetBase 0xA9
+    Flag_SetBase 0x74
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_08093ea6:

@@ -13,8 +13,7 @@ _ts MapSetup_Waterworks_Comp_2_S2
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0xcc
-    bl         Flag_GetBase
+    Flag_GetBase 0xCC
     bne        LAB_08045cf4
     ldr        r0,PTR_BgTask_80440D8_08045e84
     bl         BgTask_AddNew
@@ -28,24 +27,19 @@ LAB_08045d00:
     ldr        r0,PTR_EntityAllocParams_8046FBC_08045e90
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xe5
-    bl         Flag_GetBase
+    Flag_GetBase 0xE5
     beq        LAB_08045d1a
     push       {r5}
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_01
     pop        {r5}
 LAB_08045d1a:
-    mov        r0,#0xe6
-    bl         Flag_GetBase
+    Flag_GetBase 0xE6
     bne        LAB_08045d2c
     push       {r5}
-    mov        r0,#0x2
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_02
     pop        {r5}
 LAB_08045d2c:
-    mov        r0,#0xf0
-    bl         Flag_GetBase
+    Flag_GetBase 0xF0
     bne        LAB_08045d40
     push       {r5}
     ldr        r0,PTR_BgTask_8044348_08045e94
@@ -58,12 +52,10 @@ LAB_08045d40:
     bl         BgTask_AddNew
     pop        {r5}
 LAB_08045d4a:
-    mov        r0,#0xe7
-    bl         Flag_GetBase
+    Flag_GetBase 0xE7
     beq        LAB_08045d5c
     push       {r5}
-    mov        r0,#0x3
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_03
     pop        {r5}
 LAB_08045d5c:
     pop        {pc}
@@ -125,8 +117,7 @@ LAB_08045dd4:
     bl         Scene_Prepare
     pop        {r5}
 LAB_08045de0:
-    mov        r0,#0xb4
-    bl         Flag_GetBase
+    Flag_GetBase 0xB4
     bne        LAB_08045df8
     push       {r5}
     ldr        r7,PTR_NPCList_8046C84_08045ea8
@@ -138,8 +129,7 @@ LAB_08045de0:
 LAB_08045df8:
     mov        r0,#0x4
     str        r0,[r5,#0x0]
-    mov        r0,#0xb1
-    bl         Flag_GetBase
+    Flag_GetBase 0xB1
     bne        LAB_08045e10
     push       {r5}
     ldr        r7,PTR_NPCList_8046CC8_08045eac
@@ -269,12 +259,9 @@ _ts MapSetup_Waterworks_Comp_2_S3
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8046FBC_08045fc8
     bl         Entity_AllocList
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
-    mov        r0,#0x2
-    bl         Flag_SetIgnore
-    mov        r0,#0x3
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_WALL_02
+    Flag_SetIgnore F_IGNORE_WALL_03
     ldr        r0,PTR_BgTask_8044360_08045fcc
     bl         BgTask_AddNew
     pop        {r5}

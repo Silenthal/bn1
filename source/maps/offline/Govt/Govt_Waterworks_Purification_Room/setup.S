@@ -80,8 +80,7 @@ PTR_EventHandler_Govt_Waterworks_Purification_Room_F24_0_08034cf4:
 
 _ts EventHandler_Govt_Waterworks_Purification_Room_F24_0
     push       {lr}
-    mov        r0,#0xd8
-    bl         Flag_GetBase
+    Flag_GetBase 0xD8
     beq        LAB_08034d12
     push       {r5}
     pop        {r5}

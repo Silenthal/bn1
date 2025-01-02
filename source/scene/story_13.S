@@ -127,8 +127,7 @@ _nt S_Story_13_3
     pop        {r5}
     bne        LAB_080867ea
     push       {r5}
-    mov        r0,#0x96
-    bl         Flag_SetBase
+    Flag_SetBase 0x96
     pop        {r5}
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
@@ -171,8 +170,7 @@ LAB_08086820:
     bl         FUN_08086a22
 LAB_0808682c:
     push       {r5}
-    mov        r0,#0x97
-    bl         Flag_GetBase
+    Flag_GetBase 0x97
     pop        {r5}
     beq        LAB_0808684a
     push       {r5}
@@ -189,8 +187,7 @@ LAB_0808684a:
 
 _ts S_Story_13_5
     push       {r5}
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     pop        {r5}
     beq        LAB_0808685e
     ldrb       r0,[r5,#0x0]
@@ -202,8 +199,7 @@ LAB_0808685e:
 
 _ts S_Story_13_6
     push       {r5}
-    mov        r0,#0x99
-    bl         Flag_GetBase
+    Flag_GetBase 0x99
     pop        {r5}
     beq        LAB_08086882
     bl         Sound_StopAllMusic
@@ -380,8 +376,7 @@ _nt S_Story_13_12
     bl         Text_DisableDialogue
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
-    mov        r0,#0x9a
-    bl         Flag_SetBase
+    Flag_SetBase 0x9A
     bl         Flag_SetPlayerActive
     pop        {r5}
     push       {r5}

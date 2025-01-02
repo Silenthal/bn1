@@ -119,8 +119,7 @@ _ts S_Story_49_4
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_0808e6a4
-    mov        r0,#0xb2
-    bl         Flag_SetBase
+    Flag_SetBase 0xB2
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -169,8 +168,7 @@ _ts S_Story_49_6
     strb       r0,[r5,#0x1]
     b          LAB_0808e712
 LAB_0808e6f0:
-    mov        r0,#0xcb
-    bl         Flag_GetBase
+    Flag_GetBase 0xCB
     beq        LAB_0808e712
     push       {r5}
     mov        r0,#0x18
@@ -180,8 +178,7 @@ LAB_0808e6f0:
     strb       r0,[r5,#0x1]
     mov        r0,#0x78
     strb       r0,[r5,#0x8]
-    mov        r0,#0xcb
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xCB
     b          LAB_0808e73a
 LAB_0808e712:
     push       {r5}
@@ -235,8 +232,7 @@ _ts S_Story_49_8
     bl         PlayerAnimation_Unlock
     pop        {r5}
     push       {r5}
-    mov        r0,#0xba
-    bl         Flag_SetBase
+    Flag_SetBase 0xBA
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x37

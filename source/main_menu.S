@@ -59,8 +59,7 @@ _ts MainMenu_0_Init
     strb       r0,[r5,#0x0]
     mov        r0,#T_Theme_Of_Mega_Man_Battle_Network
     bl         Sound_PlaySong
-    mov        r0,#0x9
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_SAVE_OK
     mov        r0,#0x0
     push       { r0, r5 }
     bl         Save_LoadGame
@@ -73,8 +72,7 @@ _ts MainMenu_0_Init
     bne        LAB_080104c8
     mov        r0,#0x1
     push       { r0, r5 }
-    mov        r0,#0x9
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_SAVE_OK
     pop        { r0, r5 }
 LAB_080104c8:
     strb       r0,[r5,#0xb]
@@ -120,8 +118,7 @@ _ts MainMenu_2_Free
     bne        LAB_08010548
     mov        r1,#0x0
     push       {r1}
-    mov        r0,#0x9
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_SAVE_OK
     pop        {r1}
     beq        LAB_0801052c
     mov        r1,#0x1
@@ -133,8 +130,7 @@ LAB_0801052c:
     pop        {r1,r5}
     tst        r1,r1
     beq        LAB_08010550
-    mov        r0,#0x9
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_SAVE_OK
     b          LAB_08010550
 LAB_08010548:
     push       {r5}
@@ -373,8 +369,7 @@ LAB_0801069c:
     mov        r2,#0x0
     mov        r3,#0x0
     bl         Oam_AddObject
-    mov        r0,#0x5
-    bl         Flag_GetBase
+    Flag_GetBase 0x05
     beq        LAB_0801079c
     ldr        r0,ObjXY_Star
     ldr        r1,PTR_tileAttrListStarShine_080107f0
@@ -418,8 +413,7 @@ LAB_08010734:
     mov        r2,#0x0
     mov        r3,#0x0
     bl         Oam_AddObject
-    mov        r0,#0x5
-    bl         Flag_GetBase
+    Flag_GetBase 0x05
     beq        LAB_0801079c
     ldr        r0,ObjXY_Star
     ldr        r1,PTR_tileAttrListStarShine_080107f0

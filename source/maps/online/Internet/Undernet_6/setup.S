@@ -26,8 +26,7 @@ _ts MapSetup_Undernet_6_S0
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8051820_080534ac
     bl         BgTask_AddNew
-    mov        r0,#0x8a
-    bl         Flag_GetBase
+    Flag_GetBase 0x8A
     beq        LAB_080532a2
     ldr        r0,PTR_BgTask_8051738_080534b0
     bl         BgTask_AddNew
@@ -85,11 +84,9 @@ LAB_080532ea:
     ldr        r7,PTR_NPCList_8054AC4_080534b8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x79
-    bl         Flag_GetBase
+    Flag_GetBase 0x79
     beq        LAB_08053312
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_01
     b          LAB_0805331c
 LAB_08053312:
     push       {r5}
@@ -97,11 +94,9 @@ LAB_08053312:
     bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_0805331c:
-    mov        r0,#0x7c
-    bl         Flag_GetBase
+    Flag_GetBase 0x7C
     beq        LAB_0805332c
-    mov        r0,#0x2
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_02
     b          LAB_08053336
 LAB_0805332c:
     push       {r5}
@@ -109,11 +104,9 @@ LAB_0805332c:
     bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_08053336:
-    mov        r0,#0x8a
-    bl         Flag_GetBase
+    Flag_GetBase 0x8A
     beq        LAB_08053346
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     b          LAB_08053350
 LAB_08053346:
     push       {r5}
@@ -144,11 +137,9 @@ PTR_EventHandler_Undernet_6_0_08053368:
 
 _ts EventHandler_Undernet_6_0
     push       {lr}
-    mov        r0,#0x79
-    bl         Flag_GetBase
+    Flag_GetBase 0x79
     beq        LAB_0805337e
-    mov        r0,#0x7c
-    bl         Flag_GetBase
+    Flag_GetBase 0x7C
     bne        LAB_080533ac
 LAB_0805337e:
     LoadMain gameStats, r7, r7
@@ -158,14 +149,12 @@ LAB_0805337e:
     mov        r0,#0x1
     strb       r0,[r5,#0x2]
 LAB_0805338c:
-    mov        r0,#0x21
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_UNDERNET_6_SKILL_CHECK_FAIL
     bne        LAB_080533ac
     ldrb       r0,[r5,#0x2]
     tst        r0,r0
     beq        LAB_080533ac
-    mov        r0,#0x21
-    bl         Flag_SetEvent
+    Flag_SetEvent F_EVENT_UNDERNET_6_SKILL_CHECK_FAIL
     push       {r5}
     ldr        r0,PTR_Scene_SkillGate_080534c0
     mov        r1,#0x0
@@ -182,11 +171,9 @@ LAB_080533ac:
     bl         BgTask_AddNew
     pop        {r5}
 LAB_080533c0:
-    mov        r0,#0x8a
-    bl         Flag_GetBase
+    Flag_GetBase 0x8A
     bne        LAB_080533ea
-    mov        r0,#0x8b
-    bl         Flag_GetBase
+    Flag_GetBase 0x8B
     beq        LAB_080533e2
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
@@ -201,11 +188,9 @@ LAB_080533e2:
     mov        r1,#0x1f
     bl         EventHandler_Undernet_SkillGatePass
 LAB_080533ea:
-    mov        r0,#0x79
-    bl         Flag_GetBase
+    Flag_GetBase 0x79
     bne        LAB_08053420
-    mov        r0,#0x78
-    bl         Flag_GetBase
+    Flag_GetBase 0x78
     beq        LAB_08053408
     push       {r5}
     ldr        r0,PTR_Scene_UnlockWWWGate_080534cc
@@ -226,11 +211,9 @@ LAB_08053418:
     mov        r1,#0xa
     bl         EventHandler_Undernet_SkillGatePass
 LAB_08053420:
-    mov        r0,#0x7c
-    bl         Flag_GetBase
+    Flag_GetBase 0x7C
     bne        LAB_08053456
-    mov        r0,#0x7b
-    bl         Flag_GetBase
+    Flag_GetBase 0x7B
     beq        LAB_0805343e
     push       {r5}
     ldr        r0,PTR_Scene_UnlockWWWGate_080534d0

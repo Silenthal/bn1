@@ -51,10 +51,8 @@ _ts S_Story_7C_1
     mov        r0,#0xd
     bl         PlayerAnimation_SetState
     pop        {r5}
-    mov        r0,#0x96
-    bl         Flag_ClearBase
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x96
+    Flag_ClearBase 0xF9
     push       {r5}
     ldr        r7,PTR_NPCList_803E728_08097528
     bl         Map_LoadNPCList
@@ -173,10 +171,8 @@ _ts S_Story_7C_5
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080973a0
-    mov        r0,#0x96
-    bl         Flag_SetBase
-    mov        r0,#0xf9
-    bl         Flag_SetBase
+    Flag_SetBase 0x96
+    Flag_SetBase 0xF9
     mov        r0,#0xd
     bl         PlayerAnimation_SetState
     mov        r0,#0x3c
@@ -253,8 +249,7 @@ _nt S_Story_7C_8
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xe9
-    bl         Flag_SetBase
+    Flag_SetBase 0xE9
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
@@ -280,10 +275,8 @@ _ts S_Story_7C_SkipIfStart
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}
-    mov        r0,#0x96
-    bl         Flag_SetBase
-    mov        r0,#0xf9
-    bl         Flag_SetBase
+    Flag_SetBase 0x96
+    Flag_SetBase 0xF9
     mov        r0,#0x1c
     strb       r0,[r5,#0x0]
     pop        {pc}

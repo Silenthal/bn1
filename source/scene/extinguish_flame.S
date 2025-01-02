@@ -71,13 +71,11 @@ LAB_080846ba:
 _ts S_ExtinguishFlame_2
     push       {lr}
     push       {r5}
-    mov        r0,#0xdb
-    bl         Flag_GetBase
+    Flag_GetBase 0xDB
     pop        {r5}
     beq        LAB_080846e8
     push       {r5}
-    mov        r0,#0xdb
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xDB
     ldrb       r0,[r5,#0x4]
     sub        r0,#0x20
     push       {r0}

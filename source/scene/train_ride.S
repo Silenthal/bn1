@@ -86,8 +86,7 @@ _ts S_TrainRide_2
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Open_0808b83c
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     bl         Flag_SetPlayerActive
     bl         PlayerAnimation_Lock
     ldrb       r0,[r5,#0x0]
@@ -171,8 +170,7 @@ _ts S_TrainRide_5
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Open_0808b840
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -216,8 +214,7 @@ _nt S_TrainRide_6
     ldrb       r1,[r5,#0x4]
     cmp        r1,#0x6
     beq        LAB_0808b816
-    mov        r0,#0x2a
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2A
 LAB_0808b816:
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808b81a:

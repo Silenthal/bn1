@@ -143,8 +143,7 @@ _nt S_Story_5B_5
     strb       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_08090b0c
-    mov        r0,#0xbe
-    bl         Flag_SetBase
+    Flag_SetBase 0xBE
     push       {r5}
     ldr        r0,PTR_ScenarioData_5B_08090bc0
     mov        r1,#0x0
@@ -207,8 +206,7 @@ LAB_08090b6c:
 _nt S_Story_5B_8
     push       {r5}
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xbd
-    bl         Flag_SetBase
+    Flag_SetBase 0xBD
     ldr        r0,PTR_EnemySpawn_InvElecMan_08090bc4
     bl         Battle_GetRandomEncounter
     mov        r0,#0x4

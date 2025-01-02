@@ -87,8 +87,7 @@ _nt S_Story_60_2
     bl         PlayerAnimation_SetState
     mov        r0,#0xc2
     bl         Sound_PlaySongImmediate
-    mov        r0,#0xc1
-    bl         Flag_SetBase
+    Flag_SetBase 0xC1
     mov        r0,#0x10
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -196,8 +195,7 @@ _nt S_Story_60_7
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,#0xc5
-    bl         Flag_SetBase
+    Flag_SetBase 0xC5
     LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]

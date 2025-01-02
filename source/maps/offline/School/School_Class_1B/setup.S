@@ -10,8 +10,7 @@ _ts MapSetup_School_Class_1B_S1
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_08026aaa
     mov        r0,#0x4
@@ -107,8 +106,7 @@ _ts MapSetup_School_Class_1B_F14
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0xad
-    bl         Flag_GetBase
+    Flag_GetBase 0xAD
     pop        {r5}
     bne        LAB_08026b80
     mov        r0,#0x0
@@ -139,8 +137,7 @@ PTR_EventHandler_School_Class_1B_F14_0_08026b9c:
 _ts EventHandler_School_Class_1B_F14_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xad
-    bl         Flag_GetBase
+    Flag_GetBase 0xAD
     pop        {r5}
     beq        LAB_08026bc2
     push       {r5}
@@ -243,8 +240,7 @@ _ts MapSetup_School_Class_1B_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08026c7e
     push       {r5}
     mov        r0,#0x4
@@ -252,8 +248,7 @@ _ts MapSetup_School_Class_1B_S2
     pop        {r5}
     b          LAB_08026c96
 LAB_08026c7e:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08026c92
     push       {r5}
     mov        r0,#0x3

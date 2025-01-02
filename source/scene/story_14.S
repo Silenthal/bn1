@@ -123,11 +123,9 @@ LAB_08086b48:
 
 
 _nt S_Story_14_3
-    mov        r0,#0x9c
-    bl         Flag_GetBase
+    Flag_GetBase 0x9C
     beq        LAB_08086b6e
-    mov        r0,#0x9f
-    bl         Flag_GetBase
+    Flag_GetBase 0x9F
     bne        LAB_08086b6e
     ldrb       r0,[r5,#0x8]
     tst        r0,r0
@@ -225,8 +223,7 @@ _nt S_Story_14_8
     add        r1,#0x24
     bl         Camera_SetEnabled
     bl         Flag_SetPlayerActive
-    mov        r0,#0x9b
-    bl         Flag_SetBase
+    Flag_SetBase 0x9B
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

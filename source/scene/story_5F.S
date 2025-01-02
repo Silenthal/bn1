@@ -36,8 +36,7 @@ _ts S_Story_5F_1
     bl         PlayerAnimation_GetState
     cmp        r0,#0x2
     bne        LAB_08091334
-    mov        r0,#0xbe
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xBE
     push       {r5}
     ldr        r7,PTR_NPCList_804BA34_08091458
     bl         Map_LoadNPCList
@@ -89,8 +88,7 @@ _nt S_Story_5F_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08091378
-    mov        r0,#0xbe
-    bl         Flag_SetBase
+    Flag_SetBase 0xBE
     mov        r0,#0x7c
     bl         Sound_PlaySongImmediate
     mov        r0,#0x3c
@@ -171,8 +169,7 @@ _ts S_Story_5F_7
     push       {r5}
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,#0xc4
-    bl         Flag_SetBase
+    Flag_SetBase 0xC4
     LoadMain world, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x7]

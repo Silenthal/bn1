@@ -151,8 +151,7 @@ LAB_08000756:
     cmp        r0,#0xff
     beq        LAB_080007a6
     push       { r0 }
-    mov        r0,#0x5
-    bl         Flag_GetBase
+    Flag_GetBase 0x05
     pop        { r0 }
     bne        LAB_080007a0
     LoadMain world, r7, r7
@@ -173,8 +172,7 @@ LAB_08000756:
     cmp        r1,#0x50
     blt        LAB_080007a0
     push       { r0 }
-    mov        r0,#0xa3
-    bl         Flag_GetBase
+    Flag_GetBase 0xA3
     pop        { r0 }
     beq        LAB_080007a0
     mov        r0,#0x3

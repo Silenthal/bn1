@@ -39,8 +39,7 @@ _ts S_Story_6D_0
     mov        r0,#0xff
     strb       r0,[r7,#0x18]
     pop        {r5}
-    mov        r0,#0x2c
-    bl         Flag_ClearEvent
+    Flag_ClearEvent 0x2C
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
@@ -129,8 +128,7 @@ _ts S_Story_6D_4
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08093fdc
-    mov        r0,#0xad
-    bl         Flag_SetBase
+    Flag_SetBase 0xAD
     mov        r0,#0x78
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -150,8 +148,7 @@ _ts S_Story_6D_5
     strb       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_08094010
-    mov        r0,#0xae
-    bl         Flag_SetBase
+    Flag_SetBase 0xAE
     mov        r0,#0x3
     bl         Sound_ChangeSong
     push       {r5}
@@ -214,8 +211,7 @@ _ts S_Story_6D_8
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0xab
-    bl         Flag_SetBase
+    Flag_SetBase 0xAB
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

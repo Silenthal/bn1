@@ -527,8 +527,7 @@ _ts World_HandleMapExit
     bne        LAB_08004598
     bl         dummy_187a0
     bne        LAB_08004598
-    mov        r0,#0x1
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_JACK_IN
     bne        LAB_08004598
     LoadMain mapChange, r0, r7
     ldrb       r1,[r0,#0x10]
@@ -590,8 +589,7 @@ _ts World_HandleRandomEncounter
     bne        LAB_0800460c
     bl         dummy_187a0
     bne        LAB_0800460c
-    mov        r0,#0x2
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_NO_RANDOM_BATTLES
     bne        LAB_0800460c
     LoadMain mapChange, r0, r7
     ldrb       r1,[r0,#0x10]
@@ -1008,8 +1006,7 @@ _ts World_ChangeMap
     str        r0,[r5,#0x34]
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
-    mov        r0,#0x2
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_NO_RANDOM_BATTLES
     LoadMain mapChange, r1, r5
     ldr        r0,[r1,#0x14]
     mov        r2,#0x10
@@ -1229,8 +1226,7 @@ _ts World_CheckStartMenuOpen
     bne        LAB_08004a0c
     bl         dummy_187a0
     bne        LAB_08004a0c
-    mov        r0,#0x7
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_NO_START_MENU
     bne        LAB_08004a0c
     LoadMain mapChange, r0, r7
     ldrb       r1,[r0,#0x10]

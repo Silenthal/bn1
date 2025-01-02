@@ -162,12 +162,9 @@ _nt S_Story_72_5
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08094d0a
-    mov        r0,#0xd2
-    bl         Flag_SetBase
-    mov        r0,#0xc0
-    bl         Flag_ClearBase
-    mov        r0,#0x8
-    bl         Flag_SetIgnore
+    Flag_SetBase 0xD2
+    Flag_ClearBase 0xC0
+    Flag_SetIgnore F_IGNORE_WALL_08
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -287,14 +284,12 @@ _ts S_Story_72_10
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
     bl         Sound_PlaySongImmediate
-    mov        r0,#0xb4
-    bl         Flag_SetBase
+    Flag_SetBase 0xB4
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
     b          LAB_08094e12
 LAB_08094dee:
-    mov        r0,#0xb7
-    bl         Flag_SetBase
+    Flag_SetBase 0xB7
     mov        r0,#0xa9
     bl         Sound_PlaySongImmediate
     mov        r0,#0x31
@@ -447,8 +442,7 @@ _nt S_Story_72_15
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xb6
-    bl         Flag_SetBase
+    Flag_SetBase 0xB6
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_08094f40:

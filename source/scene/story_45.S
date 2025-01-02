@@ -167,8 +167,7 @@ LAB_0808e018:
 _nt S_Story_45_7
     bl         Flag_SetPlayerActive
     push       {r5}
-    mov        r0,#0xb5
-    bl         Flag_SetBase
+    Flag_SetBase 0xB5
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

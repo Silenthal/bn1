@@ -22,8 +22,7 @@ _ts MapSetup_WWW_Comp_1_S5
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8042528_0804d504
     bl         BgTask_AddNew
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     bne        LAB_0804d2e6
     ldr        r0,PTR_EntityAllocParams_804E73C_0804d508
     bl         Entity_AllocList
@@ -86,8 +85,7 @@ LAB_0804d350:
 LAB_0804d35c:
     push       {r5}
     ldr        r7,PTR_NPCList_804DF70_0804d514
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     bne        LAB_0804d36c
     ldr        r7,PTR_NPCList_804DF70_0804d518
     b          LAB_0804d36e
@@ -96,12 +94,10 @@ LAB_0804d36c:
 LAB_0804d36e:
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     bne        LAB_0804d38c
     push       {r5}
-    mov        r0,#0xb4
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xB4
     ldr        r0,PTR_EntityAllocParams_804E710_0804d520
     bl         Entity_AllocList
     pop        {r5}
@@ -140,8 +136,7 @@ _ts EventHandler_WWW_Comp_1_F54_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0804d3dc
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     bne        LAB_0804d3dc
     push       {r5}
     ldr        r0,PTR_Scene_Story_71_0804d528
@@ -150,8 +145,7 @@ _ts EventHandler_WWW_Comp_1_F54_0
     pop        {r5}
     b          LAB_0804d3f0
 LAB_0804d3dc:
-    mov        r0,#0xb1
-    bl         Flag_GetBase
+    Flag_GetBase 0xB1
     bne        LAB_0804d3f0
     push       {r5}
     ldr        r0,PTR_Scene_Story_70_0804d52c
@@ -185,17 +179,14 @@ LAB_0804d406:
 
 _ts FUN_0804d418
     push       {lr}
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     bne        LAB_0804d468
     push       {r5}
-    mov        r0,#0xf7
-    bl         Flag_GetBase
+    Flag_GetBase 0xF7
     pop        {r5}
     beq        LAB_0804d468
     push       {r5}
-    mov        r0,#0xf7
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xF7
     pop        {r5}
     mov        r7,#0x0
 LAB_0804d43a:
@@ -226,8 +217,7 @@ LAB_0804d468:
 
 _ts FUN_0804d46c
     push       {lr}
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     bne        LAB_0804d49a
     mov        r7,#0x0
 LAB_0804d478:
@@ -256,8 +246,7 @@ LAB_0804d49a:
 
 _ts FUN_0804d4a4
     push       {lr}
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     bne        LAB_0804d4e8
     mov        r0,#0x80
     bl         Text_CheckOption

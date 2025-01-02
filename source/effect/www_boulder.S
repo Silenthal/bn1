@@ -49,8 +49,7 @@ _ts E_WWWBoulder_0_Init
 
 _ts E_WWWBoulder_1_Main
     push       {lr}
-    mov        r0,#0xf9
-    bl         Flag_GetBase
+    Flag_GetBase 0xF9
     bne        E_WWWBoulder_2_Free
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}

@@ -45,8 +45,7 @@ _ts E_ElecMan_0_Init
     str        r0,[r5,#0x4c]
     mov        r0,#0x1
     strb       r0,[r5,#0x8]
-    mov        r0,#0xbe
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xBE
     ldrb       r0,[r5,#0x14]
     cmp        r0,#0xc
     bne        LAB_0807fd8c
@@ -55,8 +54,7 @@ _ts E_ElecMan_0_Init
     strb       r0,[r5,#0xa]
     pop        {pc}
 LAB_0807fd8c:
-    mov        r0,#0xc2
-    bl         Flag_GetBase
+    Flag_GetBase 0xC2
     beq        LAB_0807fda2
     mov        r0,#0x18
     strb       r0,[r5,#0x9]
@@ -93,8 +91,7 @@ PTR_E_ElecMan_1_0_0807fdb8:
 
 
 _ts E_ElecMan_1_0
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     beq        LAB_0807fdf0
     mov        r0,#0xd
     strb       r0,[r5,#0x14]
@@ -113,8 +110,7 @@ _nt E_ElecMan_1_1
 
 
 _ts E_ElecMan_1_2
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     beq        LAB_0807fe14
     mov        r0,#0xe
     strb       r0,[r5,#0x14]
@@ -144,8 +140,7 @@ LAB_0807fe34:
 
 
 _nt E_ElecMan_1_4
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     bne        LAB_0807fe52
     mov        r0,#0x10
     strb       r0,[r5,#0x14]
@@ -206,8 +201,7 @@ _ts E_ElecMan_1_6
     mov        r0,#0xa
     strh       r0,[r5,#0x1c]
 LAB_0807feba:
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     beq        LAB_0807fed2
     push       {r5}
     mov        r0,#0x2
@@ -235,8 +229,7 @@ _ts E_ElecMan_1_7
 
 
 _nt E_ElecMan_2_Free
-    mov        r0,#0xbe
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xBE
     bl         Effect_Free
     pop        {pc}
 

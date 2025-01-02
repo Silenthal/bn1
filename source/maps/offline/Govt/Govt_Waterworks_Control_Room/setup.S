@@ -13,8 +13,7 @@ _ts MapSetup_Govt_Waterworks_Control_Room_S2
     ldr        r0,PTR_BgTask_8034668
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08034548
     push       {r5}
     mov        r0,#0x4
@@ -22,8 +21,7 @@ _ts MapSetup_Govt_Waterworks_Control_Room_S2
     pop        {r5}
     b          LAB_08034560
 LAB_08034548:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0803455c
     push       {r5}
     mov        r0,#0x3
@@ -82,10 +80,8 @@ _ts MapSetup_Govt_Waterworks_Control_Room_F24
     ldr        r7,PTR_NPCList_8035A90_08034670
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
+    Flag_SetGate F_GATE_02
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -108,13 +104,10 @@ PTR_EventHandler_Govt_Waterworks_Control_Room_F24_0_080345f4:
 
 _ts EventHandler_Govt_Waterworks_Control_Room_F24_0
     push       {lr}
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     beq        LAB_08034614
-    mov        r0,#0x1
-    bl         Flag_ClearGate
-    mov        r0,#0x2
-    bl         Flag_ClearGate
+    Flag_ClearGate F_GATE_01
+    Flag_ClearGate F_GATE_02
     pop        {pc}
 LAB_08034614:
     bl         Scene_IsSceneActive
@@ -241,11 +234,9 @@ _ts MapSetup_Govt_Waterworks_Control_Room_F30
     ldr        r7,PTR_NPCList_8035A90_0803476c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x39
-    bl         Flag_GetBase
+    Flag_GetBase 0x39
     bne        LAB_08034726
-    mov        r0,#0x38
-    bl         Flag_GetBase
+    Flag_GetBase 0x38
     beq        LAB_08034726
     push       {r5}
     ldr        r0,DAT_08034770
@@ -274,11 +265,9 @@ PTR_EventHandler_Govt_Waterworks_Control_Room_F30_0_0803473c:
 
 _ts EventHandler_Govt_Waterworks_Control_Room_F30_0
     push       {lr}
-    mov        r0,#0x39
-    bl         Flag_GetBase
+    Flag_GetBase 0x39
     bne        LAB_0803475e
-    mov        r0,#0x38
-    bl         Flag_GetBase
+    Flag_GetBase 0x38
     beq        LAB_0803475e
     push       {r5}
     ldr        r0,DAT_08034778
@@ -370,17 +359,14 @@ _ts MapSetup_Govt_Waterworks_Control_Room_F50
     ldr        r7,PTR_NPCList_8035A90_08034910
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x38
-    bl         Flag_GetBase
+    Flag_GetBase 0x38
     beq        LAB_0803482c
     mov        r6,#0xa
-    mov        r0,#0x39
-    bl         Flag_GetBase
+    Flag_GetBase 0x39
     beq        LAB_0803481a
     mov        r6,#0xb
 LAB_0803481a:
-    mov        r0,#0x38
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x38
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_08034914
@@ -411,13 +397,11 @@ PTR_EventHandler_Govt_Waterworks_Control_Room_F50_0_08034844:
 _ts EventHandler_Govt_Waterworks_Control_Room_F50_0
     push       {lr}
     mov        r6,#0xc
-    mov        r0,#0x39
-    bl         Flag_GetBase
+    Flag_GetBase 0x39
     beq        LAB_08034856
     mov        r6,#0xd
 LAB_08034856:
-    mov        r0,#0x38
-    bl         Flag_GetBase
+    Flag_GetBase 0x38
     beq        LAB_0803486a
     add        r1,r6,#0x0
     push       {r5}
@@ -437,8 +421,7 @@ _ts MapSetup_Govt_Waterworks_Control_Room_F54
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xfa
-    bl         Flag_GetBase
+    Flag_GetBase 0xFA
     beq        LAB_08034894
     push       {r5}
     ldr        r7,PTR_NPCList_8035AA4_08034920
@@ -451,17 +434,14 @@ LAB_08034894:
     bl         Map_LoadNPCList
     pop        {r5}
 LAB_0803489e:
-    mov        r0,#0x38
-    bl         Flag_GetBase
+    Flag_GetBase 0x38
     beq        LAB_080348c4
     mov        r6,#0xa
-    mov        r0,#0x39
-    bl         Flag_GetBase
+    Flag_GetBase 0x39
     beq        LAB_080348b2
     mov        r6,#0xb
 LAB_080348b2:
-    mov        r0,#0x38
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x38
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,PTR_Scene_AfterFixedBattle_08034928
@@ -492,13 +472,11 @@ PTR_EventHandler_Govt_Waterworks_Control_Room_F54_0_080348dc:
 _ts EventHandler_Govt_Waterworks_Control_Room_F54_0
     push       {lr}
     mov        r6,#0xc
-    mov        r0,#0x39
-    bl         Flag_GetBase
+    Flag_GetBase 0x39
     beq        LAB_080348ee
     mov        r6,#0xd
 LAB_080348ee:
-    mov        r0,#0x38
-    bl         Flag_GetBase
+    Flag_GetBase 0x38
     beq        LAB_08034902
     add        r1,r6,#0x0
     push       {r5}
@@ -605,17 +583,14 @@ _ts MapSetup_Govt_Waterworks_Control_Room_F40
     ldr        r7,PTR_NPCList_8035A90_08034a30
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x38
-    bl         Flag_GetBase
+    Flag_GetBase 0x38
     beq        LAB_080349e4
     mov        r6,#0xa
-    mov        r0,#0x39
-    bl         Flag_GetBase
+    Flag_GetBase 0x39
     beq        LAB_080349d2
     mov        r6,#0xb
 LAB_080349d2:
-    mov        r0,#0x38
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x38
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_08034a34
@@ -646,13 +621,11 @@ PTR_EventHandler_Govt_Waterworks_Control_Room_F40_0_080349fc:
 _ts EventHandler_Govt_Waterworks_Control_Room_F40_0
     push       {lr}
     mov        r6,#0xc
-    mov        r0,#0x39
-    bl         Flag_GetBase
+    Flag_GetBase 0x39
     beq        LAB_08034a0e
     mov        r6,#0xd
 LAB_08034a0e:
-    mov        r0,#0x38
-    bl         Flag_GetBase
+    Flag_GetBase 0x38
     beq        LAB_08034a22
     add        r1,r6,#0x0
     push       {r5}

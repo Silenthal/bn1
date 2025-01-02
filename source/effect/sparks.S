@@ -77,8 +77,7 @@ LAB_080816d4:
     strb       r0,[r5,#0x1c]
     pop        {pc}
 LAB_080816da:
-    mov        r0,#0xe3
-    bl         Flag_GetBase
+    Flag_GetBase 0xE3
     beq        E_Sparks_2_Free
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}

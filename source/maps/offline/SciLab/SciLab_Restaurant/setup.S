@@ -11,11 +11,9 @@ _ts MapSetup_SciLab_Restaurant_S4
     bx         r0
     push       {r5}
     pop        {r5}
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803c262
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0803c25a
     mov        r0,#0x4
     bl         Sound_ChangeSong
@@ -75,8 +73,7 @@ _ts MapSetup_SciLab_Restaurant_F40
     ldr        r7,PTR_NPCList_803D22C_0803c45c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x9f
-    bl         Flag_GetBase
+    Flag_GetBase 0x9F
     bne        LAB_0803c2e6
     mov        r0,#0x0
     b          LAB_0803c2e8
@@ -104,11 +101,9 @@ PTR_EventHandler_SciLab_Restaurant_F40_0_0803c2fc:
 
 _ts EventHandler_SciLab_Restaurant_F40_0
     push       {lr}
-    mov        r0,#0x9f
-    bl         Flag_GetBase
+    Flag_GetBase 0x9F
     bne        LAB_0803c326
-    mov        r0,#0xa0
-    bl         Flag_GetBase
+    Flag_GetBase 0xA0
     beq        LAB_0803c326
     push       {r5}
     ldr        r0,PTR_Scene_Story_52_0803c464
@@ -123,38 +118,27 @@ LAB_0803c326:
 
 _ts EventHandler_SciLab_Restaurant_F40_1
     push       {lr}
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     bne        LAB_0803c38e
-    mov        r0,#0xa1
-    bl         Flag_GetBase
+    Flag_GetBase 0xA1
     beq        LAB_0803c38e
-    mov        r0,#0xa2
-    bl         Flag_GetBase
+    Flag_GetBase 0xA2
     beq        LAB_0803c38e
-    mov        r0,#0xa3
-    bl         Flag_GetBase
+    Flag_GetBase 0xA3
     beq        LAB_0803c38e
-    mov        r0,#0xa4
-    bl         Flag_GetBase
+    Flag_GetBase 0xA4
     beq        LAB_0803c38e
-    mov        r0,#0xa5
-    bl         Flag_GetBase
+    Flag_GetBase 0xA5
     beq        LAB_0803c38e
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_GetBase 0xA6
     beq        LAB_0803c38e
-    mov        r0,#0xa7
-    bl         Flag_GetBase
+    Flag_GetBase 0xA7
     beq        LAB_0803c38e
-    mov        r0,#0xa8
-    bl         Flag_GetBase
+    Flag_GetBase 0xA8
     beq        LAB_0803c38e
-    mov        r0,#0xa9
-    bl         Flag_GetBase
+    Flag_GetBase 0xA9
     beq        LAB_0803c38e
-    mov        r0,#0xaa
-    bl         Flag_GetBase
+    Flag_GetBase 0xAA
     beq        LAB_0803c38e
     push       {r5}
     ldr        r0,PTR_Scene_Story_53_0803c468
@@ -219,8 +203,7 @@ _ts MapSetup_SciLab_Restaurant_F43
     ldr        r7,PTR_NPCList_803D3C0_0803c478
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -258,11 +241,9 @@ _ts EventHandler_SciLab_Restaurant_F43_0
     bl         Scene_Prepare
     pop        {r5}
 LAB_0803c436:
-    mov        r0,#0xc7
-    bl         Flag_GetBase
+    Flag_GetBase 0xC7
     bne        LAB_0803c452
-    mov        r0,#0xc6
-    bl         Flag_GetBase
+    Flag_GetBase 0xC6
     beq        LAB_0803c452
     push       {r5}
     ldr        r0,PTR_Scene_Story_61_0803c488

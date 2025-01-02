@@ -122,8 +122,7 @@ _nt S_Story_1D_5
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08088210
-    mov        r0,#0x90
-    bl         Flag_SetBase
+    Flag_SetBase 0x90
     push       {r5}
     LoadMain world, r7, r7
     ldr        r5,[r7,#0x28]

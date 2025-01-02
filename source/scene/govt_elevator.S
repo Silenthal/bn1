@@ -60,14 +60,11 @@ _nt S_GovtElevator_2
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08091956
-    mov        r0,#0x31
-    bl         Flag_GetBase
+    Flag_GetBase 0x31
     bne        LAB_08091928
-    mov        r0,#0x32
-    bl         Flag_GetBase
+    Flag_GetBase 0x32
     bne        LAB_0809192e
-    mov        r0,#0x34
-    bl         Flag_GetBase
+    Flag_GetBase 0x34
     bne        LAB_08091934
     mov        r0,#0x2
     strb       r0,[r5,#0x4]
@@ -125,14 +122,10 @@ _nt S_GovtElevator_4
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    mov        r0,#0x31
-    bl         Flag_ClearBase
-    mov        r0,#0x32
-    bl         Flag_ClearBase
-    mov        r0,#0x34
-    bl         Flag_ClearBase
-    mov        r0,#0x33
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x31
+    Flag_ClearBase 0x32
+    Flag_ClearBase 0x34
+    Flag_ClearBase 0x33
     LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]

@@ -1260,10 +1260,8 @@ LAB_0803b70c:
     mov        r0,#0x0
     strb       r0,[r5,#0x6]
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     pop        {r5}
     b          LAB_0803b766
 LAB_0803b736:
@@ -1283,10 +1281,8 @@ LAB_0803b736:
     b          LAB_0803b766
 LAB_0803b756:
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     pop        {r5}
 LAB_0803b766:
     push       {r5}
@@ -1341,10 +1337,8 @@ _ts Traffic_0_CheckTimers
     mov        r0,#0x1
     strb       r0,[r5,#0x6]
     push       {r0}
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     pop        {r0}
     mov        r0,#0x4
     strb       r0,[r5,#0x4]
@@ -1508,10 +1502,8 @@ _ts Traffic_ResetToRedLight
     ldr        r0,[r0,r1]
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     pop        {r5,pc}
 
 PTR_DAT_0803b900:

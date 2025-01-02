@@ -104,10 +104,8 @@ _ts S_Story_08_3
     beq        LAB_08084332
     push       {r5}
     bl         Text_DisableDialogue
-    mov        r0,#0x2
-    bl         Flag_ClearSystem
-    mov        r0,#0x9f
-    bl         Flag_SetBase
+    Flag_ClearSystem F_SYSTEM_NO_RANDOM_BATTLES
+    Flag_SetBase 0x9F
     bl         PlayerAnimation_Unlock
     ldr        r0,PTR_EnemySpawn_08084360
     bl         Battle_GetRandomEncounter

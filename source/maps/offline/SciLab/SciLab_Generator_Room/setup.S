@@ -9,8 +9,7 @@ _ts MapSetup_SciLab_Generator_Room_S4
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     beq        LAB_0803cf36
     push       {r5}
     ldr        r0,PTR_BgTask_803BD78_0803d0f8
@@ -20,8 +19,7 @@ _ts MapSetup_SciLab_Generator_Room_S4
     b          LAB_0803cf54
 LAB_0803cf36:
     push       {r5}
-    mov        r0,#0xc4
-    bl         Flag_GetBase
+    Flag_GetBase 0xC4
     beq        LAB_0803cf4e
     ldr        r0,PTR_BgTask_803BB6C_0803d100
     bl         BgTask_AddNew
@@ -33,8 +31,7 @@ LAB_0803cf4e:
     bl         BgTask_AddNew
 LAB_0803cf54:
     pop        {r5}
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803cf66
     mov        r0,#0x3
     bl         Sound_ChangeSong
@@ -83,14 +80,12 @@ _ts MapSetup_SciLab_Generator_Room_F43
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     beq        LAB_0803d014
     LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
-    mov        r0,#0xb7
-    bl         Flag_GetBase
+    Flag_GetBase 0xB7
     bne        LAB_0803cff2
     push       {r5}
     ldr        r0,PTR_Scene_Story_62_0803d110
@@ -99,8 +94,7 @@ _ts MapSetup_SciLab_Generator_Room_F43
     pop        {r5}
     b          LAB_0803d014
 LAB_0803cff2:
-    mov        r0,#0xb8
-    bl         Flag_GetBase
+    Flag_GetBase 0xB8
     bne        LAB_0803d008
     push       {r5}
     ldr        r0,PTR_Scene_Story_63_0803d114
@@ -115,10 +109,8 @@ LAB_0803d008:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0803d014:
-    mov        r0,#0xc1
-    bl         Flag_ClearBase
-    mov        r0,#0xc4
-    bl         Flag_GetBase
+    Flag_ClearBase 0xC1
+    Flag_GetBase 0xC4
     beq        LAB_0803d032
     push       {r5}
     mov        r0,#0x2
@@ -136,18 +128,15 @@ LAB_0803d032:
     mov        r0,#0x0
     bl         Effect_BarSwitch_Create
     pop        {r5}
-    mov        r0,#0xbf
-    bl         Flag_GetBase
+    Flag_GetBase 0xBF
     beq        LAB_0803d054
     mov        r0,#0x4
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_0803d054:
-    mov        r0,#0xbb
-    bl         Flag_GetBase
+    Flag_GetBase 0xBB
     bne        LAB_0803d06e
-    mov        r0,#0xbb
-    bl         Flag_SetBase
+    Flag_SetBase 0xBB
     push       {r5}
     ldr        r0,DAT_0803d11c
     mov        r1,#0x0
@@ -181,8 +170,7 @@ _ts EventHandler_SciLab_Generator_Room_F43_0
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803d0ae
-    mov        r0,#0xbc
-    bl         Flag_SetBase
+    Flag_SetBase 0xBC
     push       {r5}
     ldr        r0,PTR_Scene_RechargePrompt_0803d124
     mov        r1,#0x4
@@ -198,8 +186,7 @@ _ts EventHandler_SciLab_Generator_Room_F43_1
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803d0d0
-    mov        r0,#0xc0
-    bl         Flag_GetBase
+    Flag_GetBase 0xC0
     bne        LAB_0803d0d0
     push       {r5}
     ldr        r0,PTR_Scene_Story_5D_0803d128
@@ -216,8 +203,7 @@ _nt EventHandler_SciLab_Generator_Room_F43_2
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0803d0f2
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803d0f2
     push       {r5}
     ldr        r0,PTR_Scene_Story_60_0803d12c

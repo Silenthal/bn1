@@ -79,8 +79,7 @@ LAB_0804deb0:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804debc:
-    mov        r0,#0xfe
-    bl         Flag_GetBase
+    Flag_GetBase 0xFE
     beq        LAB_0804dede
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -129,11 +128,9 @@ _ts EventHandler_Rocket_Comp_F54_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0804df34
-    mov        r0,#0xfe
-    bl         Flag_GetBase
+    Flag_GetBase 0xFE
     bne        LAB_0804df34
-    mov        r0,#0xfe
-    bl         Flag_SetBase
+    Flag_SetBase 0xFE
     push       {r5}
     ldr        r0,PTR_Scene_Rocket_Comp_LifeVirus_0804df6c
     mov        r1,#0x0

@@ -81,8 +81,7 @@ _ts R_Mayl_2_Free
 
 _ts R_Mayl_1_0_SetUpMove
     push       {lr}
-    mov        r0,#0xd1
-    bl         Flag_GetBase
+    Flag_GetBase 0xD1
     beq        LAB_0805b0e6
     ldr        r7,PTR_MaylParam_ARRAY_0805b150
     str        r7,[r5,#0x68]

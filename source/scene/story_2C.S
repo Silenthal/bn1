@@ -338,8 +338,7 @@ _nt S_Story_2C_12
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
     pop        {r5}
-    mov        r0,#0xb8
-    bl         Flag_SetBase
+    Flag_SetBase 0xB8
     bl         PlayerAnimation_Unlock
     push       {r5}
     bl         Camera_DisableScreenShake

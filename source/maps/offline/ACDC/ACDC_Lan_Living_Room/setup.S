@@ -6,14 +6,10 @@
 _ts MapSetup_ACDC_Lan_Living_Room_S0
     push       {lr}
     push       {r1,r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
-    mov        r0,#0x48
-    bl         Flag_SetIgnore
-    mov        r0,#0x49
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_09
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Lan_Living_Room_F00_0802bfb4
     ldr        r0,[r0,r1]
@@ -120,8 +116,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F02
     bl         Entity_AllocList
     ldr        r0,PTR_BgTask_802C46C
     bl         BgTask_AddNew
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     pop        {r5}
     bne        LAB_0802c09c
     mov        r0,#0x0
@@ -177,13 +172,11 @@ LAB_0802c0e4:
 _ts EventHandler_ACDC_Lan_Living_Room_F02_1
     push       {lr}
     push       {r5}
-    mov        r0,#0xe1
-    bl         Flag_GetBase
+    Flag_GetBase 0xE1
     pop        {r5}
     beq        LAB_0802c120
     push       {r5}
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     pop        {r5}
     push       {r5}
     LoadMain world, r0, r7
@@ -209,10 +202,8 @@ _ts MapSetup_ACDC_Lan_Living_Room_F03
     push       {r5}
     mov        r0,#0x4
     bl         Sound_ChangeSong
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x48
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_08
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -224,8 +215,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F03
     bl         Entity_AllocList
     ldr        r0,PTR_LAB_0802c488
     bl         Entity_AllocList
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     ldr        r0,PTR_BgTask_802C48C
     bl         BgTask_AddNew
     pop        {r5}
@@ -276,8 +266,7 @@ LAB_0802c1ac:
     b          LAB_0802c1f0
 LAB_0802c1ba:
     push       {r5}
-    mov        r0,#0x9c
-    bl         Flag_GetBase
+    Flag_GetBase 0x9C
     pop        {r5}
     beq        LAB_0802c1f0
     LoadMain input, r0, r0
@@ -313,14 +302,10 @@ _ts MapSetup_ACDC_Lan_Living_Room_F04
     push       {r5}
     mov        r0,#0x4
     bl         Sound_ChangeSong
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
-    mov        r0,#0x48
-    bl         Flag_ClearIgnore
-    mov        r0,#0x49
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_08
+    Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_09
     mov        r0,#0x0
     bl         PetStatusControl_SetState
     bl         PlayerLocation_Create
@@ -334,12 +319,10 @@ _ts MapSetup_ACDC_Lan_Living_Room_F04
     bl         Entity_AllocList
     ldr        r0,PTR_DAT_0802c4a8
     bl         Entity_AllocList
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     ldr        r0,PTR_BgTask_802C4AC
     bl         BgTask_AddNew
-    mov        r0,#0xc4
-    bl         Flag_GetBase
+    Flag_GetBase 0xC4
     pop        {r5}
     beq        LAB_0802c25c
     mov        r0,#0x4
@@ -371,8 +354,7 @@ PTR_EventHandler_ACDC_Lan_Living_Room_F04_0_0802c274:
 _ts EventHandler_ACDC_Lan_Living_Room_F04_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xc4
-    bl         Flag_GetBase
+    Flag_GetBase 0xC4
     pop        {r5}
     bne        LAB_0802c29a
     push       {r5}
@@ -403,8 +385,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F04_1
     b          LAB_0802c2de
 LAB_0802c2c0:
     push       {r0,r5}
-    mov        r0,#0x1
-    bl         Flag_GetItem
+    Flag_GetItem F_ITEM_ACDC_LAN_ROOM_WATERGUN
     pop        {r0,r5}
     beq        LAB_0802c2de
     push       {r5}
@@ -437,14 +418,10 @@ _ts MapSetup_ACDC_Lan_Living_Room_F05
     push       {r5}
     mov        r0,#0x4
     bl         Sound_ChangeSong
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
-    mov        r0,#0x48
-    bl         Flag_ClearIgnore
-    mov        r0,#0x49
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_08
+    Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_09
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -456,8 +433,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F05
     bl         Entity_AllocList
     ldr        r0,PTR_DAT_0802c4c8
     bl         Entity_AllocList
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     ldr        r0,PTR_BgTask_802C4CC
     bl         BgTask_AddNew
     pop        {r5}
@@ -545,8 +521,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F06
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     pop        {r5}
     bne        LAB_0802c400
     push       {r5}
@@ -685,21 +660,16 @@ DAT_0802c4f0:
 _ts MapSetup_ACDC_Lan_Living_Room_S2
     push       {lr}
     push       {r1,r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
-    mov        r0,#0x48
-    bl         Flag_SetIgnore
-    mov        r0,#0x49
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_09
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Lan_Living_Room_F20_0802c6b0
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802c52e
     push       {r5}
     mov        r0,#0x4
@@ -707,8 +677,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_S2
     pop        {r5}
     b          LAB_0802c546
 LAB_0802c52e:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0802c542
     push       {r5}
     mov        r0,#0x3
@@ -805,8 +774,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F23
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x9e
-    bl         Flag_GetBase
+    Flag_GetBase 0x9E
     bne        LAB_0802c60e
     ldr        r7,PTR_PTR_DAT_0802c6c8
     bl         Map_LoadNPCList
@@ -848,8 +816,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F23_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802c666
-    mov        r0,#0x9e
-    bl         Flag_GetBase
+    Flag_GetBase 0x9E
     bne        LAB_0802c666
     push       {r5}
     ldr        r0,PTR_Scene_Story_22_0802c6dc
@@ -935,14 +902,10 @@ PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F24_0_0802c6ec:
 _ts MapSetup_ACDC_Lan_Living_Room_S3
     push       {lr}
     push       {r1,r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
-    mov        r0,#0x48
-    bl         Flag_SetIgnore
-    mov        r0,#0x49
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_09
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Lan_Living_Room_F30_0802c7b8
     ldr        r0,[r0,r1]
@@ -1039,14 +1002,10 @@ PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F30_0_0802c7cc:
 _ts MapSetup_ACDC_Lan_Living_Room_S4
     push       {lr}
     push       {r1,r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
-    mov        r0,#0x48
-    bl         Flag_SetIgnore
-    mov        r0,#0x49
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_09
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Lan_Living_Room_F40_0802c8bc
     ldr        r0,[r0,r1]
@@ -1098,8 +1057,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F40
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     bne        LAB_0802c874
     ldr        r7,PTR_PTR_DAT_0802c8c4
     bl         Map_LoadNPCList
@@ -1129,11 +1087,9 @@ PTR_EventHandler_ACDC_Lan_Living_Room_F40_0_0802c898:
 
 _ts EventHandler_ACDC_Lan_Living_Room_F40_0
     push       {lr}
-    mov        r0,#0x94
-    bl         Flag_GetBase
+    Flag_GetBase 0x94
     beq        LAB_0802c8ba
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     bne        LAB_0802c8ba
     push       {r5}
     ldr        r0,PTR_Scene_Story_4F_0802c8d4
@@ -1161,14 +1117,10 @@ PTR_Scene_Story_4F_0802c8d4:
 _ts MapSetup_ACDC_Lan_Living_Room_S5
     push       {lr}
     push       {r1,r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
-    mov        r0,#0x48
-    bl         Flag_SetIgnore
-    mov        r0,#0x49
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_09
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Lan_Living_Room_F50_0802ca1c
     ldr        r0,[r0,r1]
@@ -1259,16 +1211,14 @@ _ts MapSetup_ACDC_Lan_Living_Room_F53
     ldr        r0,PTR_DAT_0802ca34
     bl         Entity_AllocList
     ldr        r6,PTR_BgTask_802CA38
-    mov        r0,#0xa3
-    bl         Flag_GetBase
+    Flag_GetBase 0xA3
     beq        LAB_0802c9c0
     ldr        r6,PTR_BgTask_802CA3C
 LAB_0802c9c0:
     add        r0,r6,#0x0
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0xa3
-    bl         Flag_GetBase
+    Flag_GetBase 0xA3
     bne        LAB_0802c9e6
     LoadMain world, r0, r0
     mov        r1,#0x0

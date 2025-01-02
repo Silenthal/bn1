@@ -48,8 +48,7 @@ _nt S_Story_64_1
     bne        LAB_080924d2
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
-    mov        r0,#0xe0
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xE0
     push       {r5}
     ldr        r7,PTR_NPCList_803D640_0809271c
     bl         Map_LoadNPCList
@@ -88,8 +87,7 @@ _ts S_Story_64_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08092510
-    mov        r0,#0xe0
-    bl         Flag_SetBase
+    Flag_SetBase 0xE0
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -253,8 +251,7 @@ _ts S_Story_64_10
     ldrb       r0,[r1,#0x5]
     tst        r0,r0
     bne        LAB_08092658
-    mov        r0,#0xd1
-    bl         Flag_SetBase
+    Flag_SetBase 0xD1
     mov        r0,#0x24
     strb       r0,[r5,#0x0]
     mov        r0,#0x0
@@ -265,8 +262,7 @@ _ts S_Story_64_10
 LAB_08092658:
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
-    mov        r0,#0xd1
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD1
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -313,8 +309,7 @@ _nt S_Story_64_11
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080926e6
-    mov        r0,#0xb9
-    bl         Flag_SetBase
+    Flag_SetBase 0xB9
     bl         PlayerAnimation_Unlock
     LoadMain world, r0, r7
     mov        r1,#0x3

@@ -13,8 +13,7 @@ _ts MapSetup_Power_Plant_Comp_3_S4
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0xc3
-    bl         Flag_GetBase
+    Flag_GetBase 0xC3
     bne        LAB_0804ab76
     ldr        r0,PTR_BgTask_8049BA8_0804adf0
     bl         BgTask_AddNew
@@ -39,11 +38,9 @@ LAB_0804ab8e:
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
-    mov        r0,#0xd5
-    bl         Flag_GetBase
+    Flag_GetBase 0xD5
     bne        LAB_0804abaa
-    mov        r0,#0xd5
-    bl         Flag_SetBase
+    Flag_SetBase 0xD5
     bl         PowerPlant_ResetState
 LAB_0804abaa:
     ldr        r0,PTR_EntityAllocParams_804BE34_0804ae14
@@ -110,22 +107,18 @@ _ts MapSetup_Power_Plant_Comp_3_F42
     bl         PETBattery_Init
     bl         PETBattery_ResetStepCounter
     pop        {r5}
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     beq        LAB_0804ac88
     LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
-    mov        r0,#0xb6
-    bl         Flag_ClearBase
-    mov        r0,#0xb9
-    bl         Flag_GetBase
+    Flag_ClearBase 0xB6
+    Flag_GetBase 0xB9
     beq        LAB_0804ac6e
     mov        r1,#0x2
     b          LAB_0804ac7c
 LAB_0804ac6e:
-    mov        r0,#0xb8
-    bl         Flag_GetBase
+    Flag_GetBase 0xB8
     beq        LAB_0804ac7a
     mov        r1,#0x1
     b          LAB_0804ac7c
@@ -186,16 +179,13 @@ _ts EventHandler_Power_Plant_Comp_3_F42_0
     pop        {r5}
     tst        r0,r0
     bne        LAB_0804ad06
-    mov        r0,#0xb6
-    bl         Flag_SetBase
-    mov        r0,#0xb8
-    bl         Flag_GetBase
+    Flag_SetBase 0xB6
+    Flag_GetBase 0xB8
     beq        LAB_0804acee
     mov        r1,#0x2
     b          LAB_0804acfc
 LAB_0804acee:
-    mov        r0,#0xb7
-    bl         Flag_GetBase
+    Flag_GetBase 0xB7
     beq        LAB_0804acfa
     mov        r1,#0x1
     b          LAB_0804acfc
@@ -226,22 +216,18 @@ _ts MapSetup_Power_Plant_Comp_3_F43
     bl         PETBattery_Init
     bl         PETBattery_ResetStepCounter
     pop        {r5}
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     beq        LAB_0804ad6c
     LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
-    mov        r0,#0xb6
-    bl         Flag_ClearBase
-    mov        r0,#0xb9
-    bl         Flag_GetBase
+    Flag_ClearBase 0xB6
+    Flag_GetBase 0xB9
     beq        LAB_0804ad52
     mov        r1,#0x2
     b          LAB_0804ad60
 LAB_0804ad52:
-    mov        r0,#0xb8
-    bl         Flag_GetBase
+    Flag_GetBase 0xB8
     beq        LAB_0804ad5e
     mov        r1,#0x1
     b          LAB_0804ad60
@@ -302,16 +288,13 @@ _ts EventHandler_Power_Plant_Comp_3_F43_0
     pop        {r5}
     tst        r0,r0
     bne        LAB_0804adea
-    mov        r0,#0xb6
-    bl         Flag_SetBase
-    mov        r0,#0xb8
-    bl         Flag_GetBase
+    Flag_SetBase 0xB6
+    Flag_GetBase 0xB8
     beq        LAB_0804add2
     mov        r1,#0x2
     b          LAB_0804ade0
 LAB_0804add2:
-    mov        r0,#0xb7
-    bl         Flag_GetBase
+    Flag_GetBase 0xB7
     beq        LAB_0804adde
     mov        r1,#0x1
     b          LAB_0804ade0
@@ -423,26 +406,16 @@ _ts MapSetup_Power_Plant_Comp_3_S5
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8049FE0_0804aff4
     bl         BgTask_AddNew
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
-    mov        r0,#0x2
-    bl         Flag_SetIgnore
-    mov        r0,#0x3
-    bl         Flag_SetIgnore
-    mov        r0,#0x4
-    bl         Flag_SetIgnore
-    mov        r0,#0x5
-    bl         Flag_SetIgnore
-    mov        r0,#0x6
-    bl         Flag_SetIgnore
-    mov        r0,#0x7
-    bl         Flag_SetIgnore
-    mov        r0,#0x8
-    bl         Flag_SetIgnore
-    mov        r0,#0x9
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_WALL_02
+    Flag_SetIgnore F_IGNORE_WALL_03
+    Flag_SetIgnore F_IGNORE_WALL_04
+    Flag_SetIgnore F_IGNORE_WALL_05
+    Flag_SetIgnore F_IGNORE_WALL_06
+    Flag_SetIgnore F_IGNORE_WALL_07
+    Flag_SetIgnore F_IGNORE_WALL_08
+    Flag_SetIgnore F_IGNORE_WALL_09
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_804C1BC_0804aff8

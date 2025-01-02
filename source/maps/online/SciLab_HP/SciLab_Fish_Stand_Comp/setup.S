@@ -34,8 +34,7 @@ _nt FUN_0805019a
     cmp        r1,r2
     beq        LAB_080501b2
     push       {r5}
-    mov        r0,#0x70
-    bl         Flag_ClearItem
+    Flag_ClearItem F_ITEM_SCILAB_FISH_STAND_COMP_TRISPEAR_J
     pop        {r5}
 LAB_080501b2:
     push       {r5}
@@ -65,18 +64,15 @@ LAB_080501e4:
     bl         Scene_Prepare
     pop        {r5}
 LAB_080501f0:
-    mov        r0,#0x49
-    bl         Flag_GetBase
+    Flag_GetBase 0x49
     beq        LAB_08050206
-    mov        r0,#0x4d
-    bl         Flag_GetBase
+    Flag_GetBase 0x4D
     bne        LAB_08050210
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_08050206:
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x4
     b          LAB_08050212
 LAB_08050210:
@@ -113,8 +109,7 @@ _ts FUN_08050234
     pop        {r5}
     mov        r0,#0x4
     str        r0,[r5,#0x0]
-    mov        r0,#0x4d
-    bl         Flag_SetBase
+    Flag_SetBase 0x4D
     pop        {pc}
 
 

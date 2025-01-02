@@ -89,8 +89,7 @@ _ts MapSetup_ACDC_Mayl_Room_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802da56
     push       {r5}
     mov        r0,#0x4
@@ -98,8 +97,7 @@ _ts MapSetup_ACDC_Mayl_Room_S2
     pop        {r5}
     b          LAB_0802da6e
 LAB_0802da56:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0802da6a
     push       {r5}
     mov        r0,#0x3

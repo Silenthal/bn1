@@ -13,8 +13,7 @@ _ts MapSetup_Waterworks_Comp_5_S2
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0xcc
-    bl         Flag_GetBase
+    Flag_GetBase 0xCC
     bne        LAB_080465a0
     ldr        r0,PTR_BgTask_8044198_080466dc
     bl         BgTask_AddNew
@@ -30,46 +29,36 @@ LAB_080465ac:
     ldr        r0,PTR_EntityAllocParams_80471B8_080466ec
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xec
-    bl         Flag_GetBase
+    Flag_GetBase 0xEC
     bne        LAB_080465e0
     push       {r5}
-    mov        r0,#0x8
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_08
     pop        {r5}
-    mov        r0,#0xf2
-    bl         Flag_GetBase
+    Flag_GetBase 0xF2
     bne        LAB_080465ea
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     b          LAB_080465ea
 LAB_080465e0:
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
 LAB_080465ea:
-    mov        r0,#0xed
-    bl         Flag_GetBase
+    Flag_GetBase 0xED
     bne        LAB_08046610
     push       {r5}
-    mov        r0,#0x9
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_09
     pop        {r5}
-    mov        r0,#0xf3
-    bl         Flag_GetBase
+    Flag_GetBase 0xF3
     bne        LAB_0804661a
     push       {r5}
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_01
     pop        {r5}
     b          LAB_0804661a
 LAB_08046610:
     push       {r5}
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_01
     pop        {r5}
 LAB_0804661a:
     pop        {pc}
@@ -217,10 +206,8 @@ _ts MapSetup_Waterworks_Comp_5_S3
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_80471B8_0804680c
     bl         Entity_AllocList
-    mov        r0,#0x8
-    bl         Flag_SetIgnore
-    mov        r0,#0x9
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_08
+    Flag_SetIgnore F_IGNORE_WALL_09
     pop        {r5}
     pop        {pc}
 

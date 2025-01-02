@@ -50,16 +50,14 @@ _ts GraphicDataSetup_Waterworks_Comp
     lsr        r7,r7,#0x4
     cmp        r7,#0x2
     bne        LAB_08045728
-    mov        r0,#0xf2
-    bl         Flag_GetBase
+    Flag_GetBase 0xF2
     beq        LAB_08045714
     push       {r5}
     ldr        r0,PTR_BgTask_8044880_08045798
     bl         BgTask_AddNew
     pop        {r5}
 LAB_08045714:
-    mov        r0,#0xf3
-    bl         Flag_GetBase
+    Flag_GetBase 0xF3
     beq        LAB_08045738
     push       {r5}
     ldr        r0,PTR_BgTask_80443F0_0804579c

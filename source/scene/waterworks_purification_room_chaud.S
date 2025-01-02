@@ -80,8 +80,7 @@ _ts S_Waterworks_Purification_Room_Chaud_3
     bl         Text_DisableDialogue
     pop        {r5}
     push       {r5}
-    mov        r0,#0xd8
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD8
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

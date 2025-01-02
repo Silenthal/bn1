@@ -99,10 +99,8 @@ _ts S_Story_06_3
     push       {lr}
     push       {r5}
     bl         Text_DisableDialogue
-    mov        r0,#0x0
-    bl         Flag_ClearGate
-    mov        r0,#0x99
-    bl         Flag_SetBase
+    Flag_ClearGate F_GATE_00
+    Flag_SetBase 0x99
     LoadMain world, r7, r7
     mov        r0,#0x3
     strb       r0,[r7,#0x6]

@@ -65,11 +65,9 @@ PTR_E_MegaMan_1_0_0808140c:
 
 
 _ts E_MegaMan_1_0
-    mov        r0,#0x93
-    bl         Flag_GetBase
+    Flag_GetBase 0x93
     beq        LAB_0808143a
-    mov        r0,#0x93
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x93
     mov        r0,#0x2
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x3c
@@ -114,11 +112,9 @@ LAB_0808146a:
     mov        r0,#0x8
     strb       r0,[r5,#0x1c]
 LAB_08081478:
-    mov        r0,#0x93
-    bl         Flag_GetBase
+    Flag_GetBase 0x93
     beq        LAB_08081498
-    mov        r0,#0x93
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x93
     mov        r0,#0x4a
     strb       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
@@ -133,8 +129,7 @@ LAB_08081498:
 
 _nt E_MegaMan_1_3
     mov        r2,#0x4
-    mov        r0,#0x93
-    bl         Flag_GetBase
+    Flag_GetBase 0x93
     beq        LAB_080814b6
     mov        r0,#0x4
     strb       r0,[r5,#0x14]
@@ -155,8 +150,7 @@ LAB_080814c6:
     mov        r0,#0x2
     bl         SpritePtr_SetPaletteIndex
     mov        r2,#0x8
-    mov        r0,#0x93
-    bl         Flag_GetBase
+    Flag_GetBase 0x93
     beq        LAB_080814dc
     mov        r2,#0x10
 LAB_080814dc:
@@ -166,8 +160,7 @@ LAB_080814de:
     mov        r1,#0x80
     and        r0,r1
     beq        LAB_080814ee
-    mov        r0,#0xe3
-    bl         Flag_SetBase
+    Flag_SetBase 0xE3
 LAB_080814ee:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}

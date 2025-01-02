@@ -9,8 +9,7 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_S4
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803cb8a
     mov        r0,#0x3
     bl         Sound_ChangeSong
@@ -18,8 +17,7 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_S4
 LAB_0803cb8a:
     bl         Sound_AreaSongChange
 LAB_0803cb8e:
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803cba2
     push       {r5}
     ldr        r0,PTR_BgTask_803BB04_0803cda8
@@ -75,20 +73,17 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_F42
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xb1
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xB1
     push       {r5}
     ldr        r7,PTR_NPCList_803D564_0803cdb4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     beq        LAB_0803cc6c
     LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
-    mov        r0,#0xb7
-    bl         Flag_GetBase
+    Flag_GetBase 0xB7
     bne        LAB_0803cc4a
     push       {r5}
     ldr        r0,DAT_0803cdb8
@@ -97,8 +92,7 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_F42
     pop        {r5}
     b          LAB_0803cc6c
 LAB_0803cc4a:
-    mov        r0,#0xb8
-    bl         Flag_GetBase
+    Flag_GetBase 0xB8
     bne        LAB_0803cc60
     push       {r5}
     ldr        r0,DAT_0803cdbc
@@ -152,14 +146,12 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_F43
     ldr        r7,PTR_NPCList_803D564_0803cdc8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     beq        LAB_0803ccf2
     LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]
-    mov        r0,#0xb7
-    bl         Flag_GetBase
+    Flag_GetBase 0xB7
     bne        LAB_0803ccd0
     push       {r5}
     ldr        r0,PTR_Scene_Story_56_0803cdcc
@@ -168,8 +160,7 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_F43
     pop        {r5}
     b          LAB_0803ccf2
 LAB_0803ccd0:
-    mov        r0,#0xb8
-    bl         Flag_GetBase
+    Flag_GetBase 0xB8
     bne        LAB_0803cce6
     push       {r5}
     ldr        r0,PTR_Scene_Story_57_0803cdd0
@@ -252,11 +243,9 @@ LAB_0803cd32:
     ldrb       r1,[r0,#0x6]
     cmp        r1,#0x42
     bne        LAB_0803cd94
-    mov        r0,#0x35
-    bl         Flag_GetBase
+    Flag_GetBase 0x35
     bne        LAB_0803cda2
-    mov        r0,#0x35
-    bl         Flag_SetBase
+    Flag_SetBase 0x35
     push       {r5}
     ldr        r0,PTR_Scene_Story_54_0803cde4
     mov        r1,#0x0

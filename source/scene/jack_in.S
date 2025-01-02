@@ -135,8 +135,7 @@ _ts S_JackIn_1_SetJackInText
     cmp        r0,#0x2
     bne        LAB_08083f6e
     push       {r5}
-    mov        r0,#0x4
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_START_MENU_OPEN
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
     ldr        r0,[r5,#0x10]
@@ -230,8 +229,7 @@ _ts S_JackIn_4_JackInAnimation
 LAB_08083ffa:
     push       {r5}
     bl         PlayerAnimation_Unlock
-    mov        r0,#0x4
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_START_MENU_OPEN
     pop        {r5}
     push       {r5}
     ldr        r0,[r5,#0x10]

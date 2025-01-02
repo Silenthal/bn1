@@ -9,11 +9,9 @@ _ts MapSetup_SciLab_Restaurant_Hallway_S4
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803bf70
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0803bf70
     push       {r5}
     ldr        r0,PTR_BgTask_803B9DC_0803c0f4
@@ -24,11 +22,9 @@ LAB_0803bf70:
     ldr        r0,PTR_BgTask_803B9F4_0803c0f8
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803bf92
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0803bf92
     mov        r0,#0x4
     bl         Sound_ChangeSong
@@ -82,8 +78,7 @@ _ts MapSetup_SciLab_Restaurant_Hallway_F40
     ldr        r7,PTR_NPCList_803D1EC_0803c100
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -123,8 +118,7 @@ _ts MapSetup_SciLab_Restaurant_Hallway_F41
     ldr        r7,PTR_NPCList_803D20C_0803c108
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -306,8 +300,7 @@ _ts MapSetup_SciLab_Restaurant_Hallway_F50
     ldr        r7,PTR_NPCList_803D1EC_0803c224
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

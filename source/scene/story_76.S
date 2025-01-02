@@ -180,8 +180,7 @@ _ts S_Story_76_5
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08095cd6
-    mov        r0,#0xe3
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xE3
     mov        r0,#0xf
     strb       r0,[r5,#0x8]
     mov        r0,#0xd
@@ -235,8 +234,7 @@ _nt S_Story_76_7
     mov        r1,#0x1a
     bl         Text_LoadDialogue
     pop        {r5}
-    mov        r0,#0xe3
-    bl         Flag_SetBase
+    Flag_SetBase 0xE3
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
     push       {r5}
@@ -273,8 +271,7 @@ _ts S_Story_76_8
     ldr        r0,PTR_BgTask_804CC98_08096098
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0xe3
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xE3
     push       {r5}
     ldr        r0,PTR_ScenarioData_76_08096094
     mov        r1,#0xb
@@ -428,14 +425,12 @@ _ts S_Story_76_14
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
     bl         Sound_PlaySongImmediate
-    mov        r0,#0xb4
-    bl         Flag_SetBase
+    Flag_SetBase 0xB4
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
     b          LAB_08095ee4
 LAB_08095eb6:
-    mov        r0,#0xe2
-    bl         Flag_SetBase
+    Flag_SetBase 0xE2
     mov        r0,#0xa9
     bl         Sound_PlaySongImmediate
     push       {r5}
@@ -632,10 +627,8 @@ _nt S_Story_76_22
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xe1
-    bl         Flag_SetBase
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
+    Flag_SetBase 0xE1
+    Flag_ClearBase 0xF9
     ldr        r0,PTR_EnemySpawn_MagicManV1_080960a0
     bl         Battle_GetRandomEncounter
     mov        r0,#0x4

@@ -210,8 +210,7 @@ _ts S_Story_69_7
     strb       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_080937cc
-    mov        r0,#0xa4
-    bl         Flag_SetBase
+    Flag_SetBase 0xA4
     push       {r5}
     ldr        r0,PTR_ScenarioData_69_080938c8
     mov        r1,#0x4
@@ -317,8 +316,7 @@ _ts S_Story_69_10
     push       {r5}
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xa3
-    bl         Flag_SetBase
+    Flag_SetBase 0xA3
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_0809389e:

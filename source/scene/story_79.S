@@ -65,10 +65,8 @@ _ts S_Story_79_1
     ldr        r0,PTR_Cam_Set_08096a88
     bl         SceneCamera_Init
     bl         SceneCamera_Main
-    mov        r0,#0x93
-    bl         Flag_ClearBase
-    mov        r0,#0xe3
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x93
+    Flag_ClearBase 0xE3
     push       {r5}
     ldr        r7,PTR_NPCList_804E4A4_08096a8c
     bl         Map_LoadNPCList
@@ -122,8 +120,7 @@ _nt S_Story_79_3
     strb       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_080968de
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     push       {r5}
     mov        r4,#0x1
     bl         Effect_JackIn_Create
@@ -205,8 +202,7 @@ _nt S_Story_79_7
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809696e
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     mov        r0,#0x96
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -321,10 +317,8 @@ _ts S_Story_79_11
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xe6
-    bl         Flag_SetBase
-    mov        r0,#0x26
-    bl         Flag_SetEvent
+    Flag_SetBase 0xE6
+    Flag_SetEvent F_EVENT_WWW_COMP_5_SAVE_DISABLED
     pop        {r5}
     mov        r0,#0xd
     bl         Sound_ChangeSong

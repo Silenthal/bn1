@@ -89,8 +89,7 @@ _ts S_Story_27_3
 
 
 _nt S_Story_27_4
-    mov        r0,#0xbe
-    bl         Flag_SetBase
+    Flag_SetBase 0xBE
     push       {r5}
     bl         Flag_SetPlayerActive
     pop        {r5}

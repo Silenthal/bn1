@@ -58,8 +58,7 @@ LAB_0807f01e:
     bl         Map_HandleCollisionCover
     pop        {r5}
     push       {r0}
-    mov        r0,#0x34
-    bl         Flag_GetEvent
+    Flag_GetEvent 0x34
     pop        {r0}
     beq        LAB_0807f04e
     mov        r0,#0x2

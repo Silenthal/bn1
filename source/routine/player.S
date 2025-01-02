@@ -1989,11 +1989,9 @@ LAB_08057162:
 
 _ts FUN_08057164
     push       {lr}
-    mov        r0,#0x26
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_WWW_COMP_5_SAVE_DISABLED
     bne        LAB_08057176
-    mov        r0,#0x32
-    bl         Flag_GetEvent
+    Flag_GetEvent 0x32
     beq        LAB_08057180
 LAB_08057176:
     mov        r0,#0x5

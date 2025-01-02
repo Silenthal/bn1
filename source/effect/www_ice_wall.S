@@ -58,22 +58,18 @@ _ts E_WWWIceWall_1_Main
     beq        LAB_08080da8
     b          E_WWWIceWall_2_Free
 LAB_08080d78:
-    mov        r0,#0xf9
-    bl         Flag_GetBase
+    Flag_GetBase 0xF9
     beq        LAB_08080d94
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xF9
     ldrb       r0,[r5,#0x14]
     add        r0,#0x1
     strb       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
 LAB_08080d94:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08080da8
-    mov        r0,#0xdf
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xDF
     mov        r4,#0x4
     bl         Effect_WWWIceWall_CreateEffect
 LAB_08080da8:

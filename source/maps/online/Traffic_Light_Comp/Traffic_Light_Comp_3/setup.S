@@ -102,11 +102,9 @@ PTR_EventHandler_Traffic_Light_Comp_3_F34_0_0804867c:
 
 _ts EventHandler_Traffic_Light_Comp_3_F34_0
     push       {lr}
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     beq        LAB_080486a0
-    mov        r0,#0xaa
-    bl         Flag_GetBase
+    Flag_GetBase 0xAA
     bne        LAB_080486a0
     push       {r5}
     ldr        r0,PTR_Scene_Story_40_08048770
@@ -115,8 +113,7 @@ _ts EventHandler_Traffic_Light_Comp_3_F34_0
     pop        {r5}
     pop        {pc}
 LAB_080486a0:
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_080486be
     LoadMain world, r0, r0
     mov        r1,#0x35

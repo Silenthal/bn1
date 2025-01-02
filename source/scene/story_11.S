@@ -79,8 +79,7 @@ _nt S_Story_11_3
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     bl         Flag_SetPlayerActive
-    mov        r0,#0x91
-    bl         Flag_SetBase
+    Flag_SetBase 0x91
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

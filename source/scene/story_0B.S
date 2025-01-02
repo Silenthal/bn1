@@ -89,8 +89,7 @@ LAB_08084c7e:
 _ts S_Story_0B_3
     push       {lr}
     push       {r5}
-    mov        r0,#0xdc
-    bl         Flag_GetBase
+    Flag_GetBase 0xDC
     pop        {r5}
     beq        LAB_08084c9e
     push       {r5}
@@ -133,8 +132,7 @@ _ts S_Story_0B_5
     push       {lr}
     push       {r5}
     bl         Text_DisableDialogue
-    mov        r0,#0xc7
-    bl         Flag_SetBase
+    Flag_SetBase 0xC7
     bl         PlayerAnimation_Unlock
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter

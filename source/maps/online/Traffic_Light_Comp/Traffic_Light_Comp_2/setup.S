@@ -112,11 +112,9 @@ _ts EventHandler_Traffic_Light_Comp_2_F33_0
     bl         Scene_Prepare
     pop        {r5}
 LAB_080483b4:
-    mov        r0,#0xc4
-    bl         Flag_GetBase
+    Flag_GetBase 0xC4
     beq        LAB_080483d2
-    mov        r0,#0xa8
-    bl         Flag_GetBase
+    Flag_GetBase 0xA8
     bne        LAB_080483d2
     push       {r5}
     ldr        r0,PTR_Scene_Story_3D_08048490
@@ -125,8 +123,7 @@ LAB_080483b4:
     pop        {r5}
     pop        {pc}
 LAB_080483d2:
-    mov        r0,#0xa9
-    bl         Flag_GetBase
+    Flag_GetBase 0xA9
     beq        LAB_080483ee
     LoadMain world, r0, r0
     mov        r1,#0x34

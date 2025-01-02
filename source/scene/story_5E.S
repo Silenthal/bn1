@@ -39,8 +39,7 @@ _ts S_Story_5E_1
     bl         PlayerAnimation_GetState
     cmp        r0,#0x2
     bne        LAB_080910e4
-    mov        r0,#0xbe
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xBE
     push       {r5}
     mov        r0,#0x12
     bl         Effect_ElecMan_Create
@@ -93,8 +92,7 @@ _nt S_Story_5E_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08091122
-    mov        r0,#0xbe
-    bl         Flag_SetBase
+    Flag_SetBase 0xBE
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -109,8 +107,7 @@ LAB_0809112c:
 
 
 _nt S_Story_5E_4
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     bne        LAB_08091162
     LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
@@ -145,8 +142,7 @@ _ts S_Story_5E_5
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080911aa
-    mov        r0,#0xbe
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xBE
     push       {r5}
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
@@ -197,8 +193,7 @@ _nt S_Story_5E_7
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080911f2
-    mov        r0,#0xbe
-    bl         Flag_SetBase
+    Flag_SetBase 0xBE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -211,8 +206,7 @@ LAB_080911fc:
 
 
 _nt S_Story_5E_8
-    mov        r0,#0xbe
-    bl         Flag_GetBase
+    Flag_GetBase 0xBE
     bne        LAB_08091222
     push       {r5}
     mov        r0,#0x2
@@ -255,8 +249,7 @@ _ts S_Story_5E_10
     push       {r5}
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xc3
-    bl         Flag_SetBase
+    Flag_SetBase 0xC3
     ldr        r0,PTR_EnemySpawn_ProtoManV1_080912b0
     bl         Battle_GetRandomEncounter
     mov        r0,#0x4

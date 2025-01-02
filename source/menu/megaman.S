@@ -91,10 +91,8 @@ _ts Menu_MegaMan_0_Init
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     push       {r5}
-    mov        r0,#0x6
-    bl         Flag_ClearSystem
-    mov        r0,#0x5
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
+    Flag_ClearSystem F_SYSTEM_INPUT_DELAY_ON
     pop        {r5}
     mov        r0,#0x0
     pop        {pc}
@@ -241,8 +239,7 @@ LAB_0801bb30:
     b          LAB_0801bb48
 LAB_0801bb3e:
     mov        r8,r5
-    mov        r0,#0x6
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_DIALOGUE_COMPLETE
     mov        r5,r8
 LAB_0801bb48:
     mov        r0,#0x8
@@ -254,13 +251,11 @@ LAB_0801bb4c:
 _ts Menu_MegaMan_3_2_Close
     push       {lr}
     mov        r8,r5
-    mov        r0,#0x6
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     mov        r5,r8
     beq        LAB_0801bb7c
     mov        r8,r5
-    mov        r0,#0x6
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
     mov        r5,r8
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
@@ -360,8 +355,7 @@ _ts Menu_MegaMan_4_1_RaiseStat
     b          LAB_0801bc36
 LAB_0801bc2c:
     mov        r8,r5
-    mov        r0,#0x6
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_DIALOGUE_COMPLETE
     mov        r5,r8
 LAB_0801bc36:
     mov        r0,#0x8
@@ -373,13 +367,11 @@ LAB_0801bc3a:
 _ts Menu_MegaMan_4_2_Close
     push       {lr}
     mov        r8,r5
-    mov        r0,#0x6
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     mov        r5,r8
     beq        LAB_0801bc68
     mov        r8,r5
-    mov        r0,#0x6
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
     mov        r5,r8
     mov        r0,#0x4
     strb       r0,[r5,#0x1]

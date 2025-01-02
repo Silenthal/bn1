@@ -48,8 +48,7 @@ _ts S_Story_4C_0
 
 
 _nt S_Story_4C_1
-    mov        r0,#0xb2
-    bl         Flag_SetBase
+    Flag_SetBase 0xB2
     push       {r5}
     bl         PlayerAnimation_GetState
     pop        {r5}
@@ -100,8 +99,7 @@ _nt S_Story_4C_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808ecf6
-    mov        r0,#0xbe
-    bl         Flag_SetBase
+    Flag_SetBase 0xBE
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -143,8 +141,7 @@ _nt S_Story_4C_5
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808ed46
-    mov        r0,#0xbf
-    bl         Flag_SetBase
+    Flag_SetBase 0xBF
     mov        r0,#0x78
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -190,8 +187,7 @@ _nt S_Story_4C_7
     mov        r0,#0x17
     bl         PlayerAnimation_SetState
     pop        {r5}
-    mov        r0,#0xc1
-    bl         Flag_SetBase
+    Flag_SetBase 0xC1
     mov        r0,#0x1e
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -236,8 +232,7 @@ LAB_0808ede2:
 
 
 _ts S_Story_4C_9
-    mov        r0,#0xc1
-    bl         Flag_GetBase
+    Flag_GetBase 0xC1
     beq        LAB_0808edfa
     mov        r0,#0x0
     mov        r1,#0x10
@@ -266,8 +261,7 @@ LAB_0808ee1a:
 _ts S_Story_4C_10
     push       {r5}
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xc0
-    bl         Flag_SetBase
+    Flag_SetBase 0xC0
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

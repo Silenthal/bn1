@@ -231,8 +231,7 @@ _ts S_Story_6F_8
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,#0xb0
-    bl         Flag_SetBase
+    Flag_SetBase 0xB0
     bl         Scene_UnloadAndResetStepCounter
 LAB_080944c6:
     pop        {pc}

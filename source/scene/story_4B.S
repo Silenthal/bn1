@@ -32,8 +32,7 @@ _ts S_Story_4B_0
     push       {r5}
     bl         Sound_StopAllMusic
     pop        {r5}
-    mov        r0,#0x2a
-    bl         Flag_ClearEvent
+    Flag_ClearEvent 0x2A
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
@@ -142,10 +141,8 @@ _ts S_Story_4B_5
     bl         PlayerAnimation_Unlock
     pop        {r5}
     push       {r5}
-    mov        r0,#0xbd
-    bl         Flag_SetBase
-    mov        r0,#0x2e
-    bl         Flag_SetEvent
+    Flag_SetBase 0xBD
+    Flag_SetEvent 0x2E
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

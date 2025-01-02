@@ -61,8 +61,7 @@ _ts NPC_Free
 
 _ts NPC_UpdateAll
     push       { lr }
-    mov        r0,#0x4
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_START_MENU_OPEN
     bne        LAB_08003bbc
     ldr        r5,PTR_gEntityListNpc_08003c7c
 LAB_08003b88:

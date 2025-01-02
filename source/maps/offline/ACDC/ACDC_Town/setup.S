@@ -16,8 +16,7 @@ _ts MapSetup_ACDC_Town_S0
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x46
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_06
     ldr        r0,PTR_BgTask_802AC08
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_802AC0C
@@ -31,8 +30,7 @@ _ts MapSetup_ACDC_Town_S0
     ldr        r0,PTR_DAT_0802ac18
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     bl         Sound_AreaSongChange
     pop        {pc}
 
@@ -72,8 +70,7 @@ PTR_EventHandler_ACDC_Town_F00_0802aa40:
 _ts MapSetup_ACDC_Town_F00
     push       {lr}
     push       {r5}
-    mov        r0,#0x92
-    bl         Flag_GetBase
+    Flag_GetBase 0x92
     pop        {r5}
     bne        LAB_0802aa80
     LoadMain world, r0, r0
@@ -134,18 +131,12 @@ _ts MapSetup_ACDC_Town_F02
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802ac28
     bl         Map_LoadNPCList
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x2
-    bl         Flag_SetGate
-    mov        r0,#0x3
-    bl         Flag_SetGate
-    mov        r0,#0x4
-    bl         Flag_SetGate
-    mov        r0,#0x5
-    bl         Flag_SetGate
-    mov        r0,#0x6
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_02
+    Flag_SetGate F_GATE_03
+    Flag_SetGate F_GATE_04
+    Flag_SetGate F_GATE_05
+    Flag_SetGate F_GATE_06
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -153,8 +144,7 @@ _ts MapSetup_ACDC_Town_F02
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x2
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x02
     pop        {r5}
     bne        LAB_0802ab1e
     push       {r5}
@@ -234,12 +224,9 @@ _ts MapSetup_ACDC_Town_F06
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802ac4c
     bl         Map_LoadNPCList
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x5
-    bl         Flag_SetGate
-    mov        r0,#0x6
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_05
+    Flag_SetGate F_GATE_06
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -334,10 +321,8 @@ _ts MapSetup_ACDC_Town_S1
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x46
-    bl         Flag_SetIgnore
-    mov        r0,#0x48
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_06
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
     ldr        r0,PTR_BgTask_802AD74
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_802AD78
@@ -347,8 +332,7 @@ _ts MapSetup_ACDC_Town_S1
     ldr        r0,PTR_BgTask_802AD80
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0x28
-    bl         Flag_GetEvent
+    Flag_GetEvent 0x28
     bne        LAB_0802ac96
     bl         Sound_AreaSongChange
 LAB_0802ac96:
@@ -369,8 +353,7 @@ PTR_EventHandler_ACDC_Town_F10_0802aca8:
 
 _ts MapSetup_ACDC_Town_F10
     push       {lr}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     push       {r5}
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -378,8 +361,7 @@ _ts MapSetup_ACDC_Town_F10
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x90
-    bl         Flag_GetBase
+    Flag_GetBase 0x90
     beq        LAB_0802acde
     push       {r5}
     ldr        r0,PTR_BgTask_802AD88
@@ -389,8 +371,7 @@ _ts MapSetup_ACDC_Town_F10
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_0802acde:
-    mov        r0,#0xd7
-    bl         Flag_GetBase
+    Flag_GetBase 0xD7
     beq        LAB_0802acf8
     push       {r5}
     ldr        r0,PTR_Scene_Story_10_0802ad8c
@@ -453,8 +434,7 @@ _ts EventHandler_ACDC_Town_F10_0
 
 _nt EventHandler_ACDC_Town_F10_1
     push       {r5}
-    mov        r0,#0xd7
-    bl         Flag_GetBase
+    Flag_GetBase 0xD7
     pop        {r5}
     beq        LAB_0802ad6a
     mov        r0,#0x8
@@ -502,21 +482,17 @@ PTR_PTR_EventHandler_ACDC_Town_F10_0_0802ada4:
 _ts MapSetup_ACDC_Town_S2
     push       {lr}
     push       {r1,r5}
-    mov        r0,#0x46
-    bl         Flag_SetIgnore
-    mov        r0,#0x48
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_06
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_ACDC_Town_F20_0802ae84
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0xd3
-    bl         Flag_GetBase
+    Flag_GetBase 0xD3
     bne        LAB_0802adfe
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802ade8
     ldr        r0,PTR_BgTask_802AEB0
     bl         BgTask_AddNew
@@ -526,8 +502,7 @@ _ts MapSetup_ACDC_Town_S2
     bl         BgTask_AddNew
     b          LAB_0802ae0a
 LAB_0802ade8:
-    mov        r0,#0xa2
-    bl         Flag_GetBase
+    Flag_GetBase 0xA2
     beq        LAB_0802adfe
     ldr        r0,PTR_BgTask_802AEBC
     bl         BgTask_AddNew
@@ -540,8 +515,7 @@ LAB_0802adfe:
     ldr        r0,PTR_BgTask_802AEB4
     bl         BgTask_AddNew
 LAB_0802ae0a:
-    mov        r0,#0xa8
-    bl         Flag_GetBase
+    Flag_GetBase 0xA8
     bne        LAB_0802ae22
     ldr        r0,PTR_BgTask_802AEC4
     bl         BgTask_AddNew
@@ -556,11 +530,9 @@ LAB_0802ae22:
     bl         BgTask_AddNew
     pop        {r5}
 LAB_0802ae30:
-    mov        r0,#0xd3
-    bl         Flag_GetBase
+    Flag_GetBase 0xD3
     bne        LAB_0802ae60
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802ae4c
     push       {r5}
     mov        r0,#0x4
@@ -568,8 +540,7 @@ LAB_0802ae30:
     pop        {r5}
     b          LAB_0802ae64
 LAB_0802ae4c:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0802ae60
     push       {r5}
     mov        r0,#0x3
@@ -579,8 +550,7 @@ LAB_0802ae4c:
 LAB_0802ae60:
     bl         Sound_AreaSongChange
 LAB_0802ae64:
-    mov        r0,#0xdc
-    bl         Flag_GetBase
+    Flag_GetBase 0xDC
     beq        LAB_0802ae78
     push       {r5}
     ldr        r0,PTR_DAT_0802aea8
@@ -666,13 +636,10 @@ _ts MapSetup_ACDC_Town_F20
     bl         Map_LoadNPCList
     ldr        r0,PTR_EntityAllocParams_802af50
     bl         Entity_AllocList
-    mov        r0,#0x46
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_06
     pop        {r5}
-    mov        r0,#0x5
-    bl         Flag_SetGate
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetGate F_GATE_05
+    Flag_SetIgnore F_IGNORE_WALL_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -697,8 +664,7 @@ PTR_EventHandler_ACDC_Town_F20_0_0802af64:
 
 _ts EventHandler_ACDC_Town_F20_0
     push       {lr}
-    mov        r0,#0x97
-    bl         Flag_GetBase
+    Flag_GetBase 0x97
     beq        LAB_0802af7a
     LoadMain world, r0, r0
     mov        r1,#0x21
@@ -721,13 +687,10 @@ _ts MapSetup_ACDC_Town_F21
     bl         Map_LoadNPCList
     ldr        r0,PTR_EntityAllocParams_802b2fc
     bl         Entity_AllocList
-    mov        r0,#0x46
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_06
     pop        {r5}
-    mov        r0,#0x5
-    bl         Flag_SetGate
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetGate F_GATE_05
+    Flag_SetIgnore F_IGNORE_WALL_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -756,11 +719,9 @@ _ts EventHandler_ACDC_Town_F21_0
     bl         Inventory_GetChipCount
     cmp        r0,#0x0
     beq        LAB_0802b000
-    mov        r0,#0xb
-    bl         Flag_GetBase
+    Flag_GetBase 0x0B
     beq        LAB_0802b000
-    mov        r0,#0x5
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x05
     bne        LAB_0802b000
     push       {r5}
     ldr        r0,DAT_0802b304
@@ -788,13 +749,10 @@ _ts MapSetup_ACDC_Town_F22
     bl         Map_LoadNPCList
     ldr        r0,PTR_EntityAllocParams_802b310
     bl         Entity_AllocList
-    mov        r0,#0x46
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_06
     pop        {r5}
-    mov        r0,#0x5
-    bl         Flag_SetGate
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetGate F_GATE_05
+    Flag_SetIgnore F_IGNORE_WALL_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -815,11 +773,9 @@ PTR_EventHandler_ACDC_Town_F22_0_0802b050:
 
 _ts EventHandler_ACDC_Town_F22_0
     push       {lr}
-    mov        r0,#0xe2
-    bl         Flag_GetBase
+    Flag_GetBase 0xE2
     beq        LAB_0802b072
-    mov        r0,#0x7
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x07
     bne        LAB_0802b072
     push       {r5}
     ldr        r0,DAT_0802b318
@@ -839,13 +795,10 @@ _ts MapSetup_ACDC_Town_F23
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x5
-    bl         Flag_SetGate
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetGate F_GATE_05
     push       {r5}
-    mov        r0,#0xa2
-    bl         Flag_GetBase
+    Flag_GetBase 0xA2
     pop        {r5}
     bne        LAB_0802b0ae
     LoadMain world, r0, r0
@@ -904,8 +857,7 @@ _ts MapSetup_ACDC_Town_F24
     ldr        r7,PTR_PTR_DAT_0802b328
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xdc
-    bl         Flag_SetBase
+    Flag_SetBase 0xDC
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -946,8 +898,7 @@ _ts MapSetup_ACDC_Town_F25
     ldr        r7,PTR_PTR_DAT_0802b330
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xdc
-    bl         Flag_SetBase
+    Flag_SetBase 0xDC
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -984,11 +935,9 @@ _ts MapSetup_ACDC_Town_F26
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xdc
-    bl         Flag_SetBase
+    Flag_SetBase 0xDC
     push       {r5}
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     pop        {r5}
     bne        LAB_0802b1b4
     LoadMain world, r0, r0
@@ -1027,8 +976,7 @@ PTR_EventHandler_ACDC_Town_F26_0_0802b1d4:
 
 _ts EventHandler_ACDC_Town_F26_0
     push       {lr}
-    mov        r0,#0x6
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x06
     bne        LAB_0802b1ee
     push       {r5}
     ldr        r0,DAT_0802b344
@@ -1036,21 +984,18 @@ _ts EventHandler_ACDC_Town_F26_0
     bl         Scene_Prepare
     pop        {r5}
 LAB_0802b1ee:
-    mov        r0,#0xb0
-    bl         Flag_GetBase
+    Flag_GetBase 0xB0
     bne        LAB_0802b1fc
     bl         FUN_0802b2b0
     pop        {pc}
 LAB_0802b1fc:
-    mov        r0,#0xb1
-    bl         Flag_GetBase
+    Flag_GetBase 0xB1
     bne        LAB_0802b220
     LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x30
     bne        LAB_0802b2ae
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     push       {r5}
     ldr        r0,PTR_Scene_Story_30_0802b34c
     mov        r1,#0x0
@@ -1071,13 +1016,10 @@ _ts MapSetup_ACDC_Town_F27
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xdc
-    bl         Flag_SetBase
-    mov        r0,#0xb1
-    bl         Flag_GetBase
+    Flag_SetBase 0xDC
+    Flag_GetBase 0xB1
     beq        LAB_0802b26a
-    mov        r0,#0xd3
-    bl         Flag_GetBase
+    Flag_GetBase 0xD3
     beq        LAB_0802b25a
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802b350
@@ -1121,11 +1063,9 @@ PTR_EventHandler_ACDC_Town_F27_0_0802b28c:
 
 _ts EventHandler_ACDC_Town_F27_0
     push       {lr}
-    mov        r0,#0xd3
-    bl         Flag_GetBase
+    Flag_GetBase 0xD3
     beq        LAB_0802b2ae
-    mov        r0,#0xd4
-    bl         Flag_GetBase
+    Flag_GetBase 0xD4
     bne        LAB_0802b2ae
     push       {r5}
     ldr        r0,PTR_Scene_Story_34_0802b360
@@ -1158,16 +1098,12 @@ LAB_0802b2d2:
 
 _ts FUN_0802b2d4
     push       {r1,r5,lr}
-    mov        r0,#0x47
-    bl         Flag_SetIgnore
-    mov        r0,#0xc
-    bl         Flag_GetEvent
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_07
+    Flag_GetEvent F_EVENT_ACDC_TOWN_TRADE_RECOV80_G
     bne        LAB_0802b2f2
-    mov        r0,#0x15
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_ACDC_TOWN_TRADE_RECOV80_G_GATE
     beq        LAB_0802b2f2
-    mov        r0,#0x47
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_07
 LAB_0802b2f2:
     pop        {r1,r5,pc}
 PTR_PTR_EventHandler_ACDC_Town_F20_0_0802b2f4:
@@ -1237,10 +1173,8 @@ _ts MapSetup_ACDC_Town_S3
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x46
-    bl         Flag_SetIgnore
-    mov        r0,#0x48
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_06
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
     ldr        r0,PTR_DAT_0802b4a4
     bl         Entity_AllocList
     ldr        r0,PTR_BgTask_802B4A8
@@ -1285,12 +1219,9 @@ _ts MapSetup_ACDC_Town_F30
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x2
-    bl         Flag_SetGate
-    mov        r0,#0x94
-    bl         Flag_GetBase
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetGate F_GATE_02
+    Flag_GetBase 0x94
     bne        LAB_0802b400
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802b4bc
@@ -1300,8 +1231,7 @@ _ts MapSetup_ACDC_Town_F30
     str        r3,[r5,#0x0]
     pop        {pc}
 LAB_0802b400:
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     beq        LAB_0802b412
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802b4c0
@@ -1330,8 +1260,7 @@ PTR_EventHandler_ACDC_Town_F30_0_0802b42c:
 
 _ts EventHandler_ACDC_Town_F30_0
     push       {lr}
-    mov        r0,#0x13
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x13
     bne        LAB_0802b44c
     push       {r5}
     ldr        r0,DAT_0802b4c8
@@ -1345,8 +1274,7 @@ LAB_0802b44c:
 
 _nt EventHandler_ACDC_Town_F30_1
     push       {lr}
-    mov        r0,#0x13
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x13
     bne        LAB_0802b466
     push       {r5}
     ldr        r0,PTR_Scene_CheckMail_0802b4d0
@@ -1355,8 +1283,7 @@ _nt EventHandler_ACDC_Town_F30_1
     pop        {r5}
     pop        {pc}
 LAB_0802b466:
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     bne        LAB_0802b47a
     push       {r5}
     ldr        r0,PTR_Scene_Story_37_0802b4d4
@@ -1421,8 +1348,7 @@ PTR_Scene_LockedPath_0802b4dc:
 _ts MapSetup_ACDC_Town_S4
     push       {lr}
     push       {r0,r1}
-    mov        r0,#0x93
-    bl         Flag_GetBase
+    Flag_GetBase 0x93
     pop        {r0,r1}
     beq        LAB_0802b4f6
     push       {r0,r1}
@@ -1434,10 +1360,8 @@ LAB_0802b4f6:
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x46
-    bl         Flag_SetIgnore
-    mov        r0,#0x48
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_06
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
     ldr        r0,PTR_DAT_0802b608
     bl         Entity_AllocList
     ldr        r0,PTR_BgTask_802B60C
@@ -1495,14 +1419,12 @@ _ts MapSetup_ACDC_Town_F40
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802b620
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x93
-    bl         Flag_GetBase
+    Flag_GetBase 0x93
     bne        LAB_0802b5cc
     LoadMain world, r7, r7
     mov        r1,#0x8
@@ -1538,8 +1460,7 @@ PTR_EventHandler_ACDC_Town_F40_0_0802b5e4:
 
 _ts EventHandler_ACDC_Town_F40_0
     push       {lr}
-    mov        r0,#0x12
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x12
     bne        LAB_0802b600
     push       {r5}
     ldr        r0,DAT_0802b62c
@@ -1588,10 +1509,8 @@ _ts MapSetup_ACDC_Town_S5
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x46
-    bl         Flag_SetIgnore
-    mov        r0,#0x48
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_06
+    Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
     ldr        r0,PTR_DAT_0802b894
     bl         Entity_AllocList
     ldr        r0,PTR_BgTask_802B898
@@ -1651,8 +1570,7 @@ _ts MapSetup_ACDC_Town_F50
     ldr        r7,PTR_PTR_DAT_0802b8ac
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -1690,19 +1608,15 @@ _ts MapSetup_ACDC_Town_F53
     ldr        r7,PTR_PTR_DAT_0802b8b4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x63
-    bl         Flag_GetBase
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_GetBase 0x63
     beq        LAB_0802b758
     mov        r6,#0x1f
-    mov        r0,#0x64
-    bl         Flag_GetBase
+    Flag_GetBase 0x64
     beq        LAB_0802b744
     mov        r6,#0x20
 LAB_0802b744:
-    mov        r0,#0x63
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x63
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,PTR_Scene_AfterFixedBattle_0802b8b8
@@ -1733,11 +1647,9 @@ PTR_EventHandler_ACDC_Town_F53_0_0802b770:
 
 _ts EventHandler_ACDC_Town_F53_0
     push       {lr}
-    mov        r0,#0xa3
-    bl         Flag_GetBase
+    Flag_GetBase 0xA3
     beq        LAB_0802b792
-    mov        r0,#0x19
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x19
     bne        LAB_0802b792
     push       {r5}
     ldr        r0,DAT_0802b8c0
@@ -1746,13 +1658,11 @@ _ts EventHandler_ACDC_Town_F53_0
     pop        {r5}
 LAB_0802b792:
     mov        r6,#0x25
-    mov        r0,#0x64
-    bl         Flag_GetBase
+    Flag_GetBase 0x64
     beq        LAB_0802b79e
     mov        r6,#0x26
 LAB_0802b79e:
-    mov        r0,#0x63
-    bl         Flag_GetBase
+    Flag_GetBase 0x63
     beq        LAB_0802b7b4
     add        r1,r6,#0x0
     push       {r5}
@@ -1775,13 +1685,10 @@ _ts MapSetup_ACDC_Town_F54
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0xeb
-    bl         Flag_GetBase
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_GetBase 0xEB
     beq        LAB_0802b800
-    mov        r0,#0xec
-    bl         Flag_GetBase
+    Flag_GetBase 0xEC
     bne        LAB_0802b800
     LoadMain world, r7, r7
     mov        r1,#0x8
@@ -1801,17 +1708,14 @@ LAB_0802b800:
     bl         Map_LoadNPCList
     pop        {r5}
 LAB_0802b80a:
-    mov        r0,#0x63
-    bl         Flag_GetBase
+    Flag_GetBase 0x63
     beq        LAB_0802b832
     mov        r6,#0x1f
-    mov        r0,#0x64
-    bl         Flag_GetBase
+    Flag_GetBase 0x64
     beq        LAB_0802b81e
     mov        r6,#0x20
 LAB_0802b81e:
-    mov        r0,#0x63
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x63
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_0802b8d4
@@ -1839,11 +1743,9 @@ PTR_EventHandler_ACDC_Town_F54_0_0802b848:
 
 _ts EventHandler_ACDC_Town_F54_0
     push       {lr}
-    mov        r0,#0xaa
-    bl         Flag_GetBase
+    Flag_GetBase 0xAA
     beq        LAB_0802b86a
-    mov        r0,#0x1b
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x1B
     bne        LAB_0802b86a
     push       {r5}
     ldr        r0,DAT_0802b8dc
@@ -1852,13 +1754,11 @@ _ts EventHandler_ACDC_Town_F54_0
     pop        {r5}
 LAB_0802b86a:
     mov        r6,#0x25
-    mov        r0,#0x64
-    bl         Flag_GetBase
+    Flag_GetBase 0x64
     beq        LAB_0802b876
     mov        r6,#0x26
 LAB_0802b876:
-    mov        r0,#0x63
-    bl         Flag_GetBase
+    Flag_GetBase 0x63
     beq        LAB_0802b88c
     add        r1,r6,#0x0
     push       {r5}

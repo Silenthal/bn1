@@ -243,8 +243,7 @@ _ts S_Waterworks_Comp_TurnHandle_5
     mov        r0,#0x3
     mov        r1,#0x10
     bl         Fade_Request
-    mov        r0,#0xef
-    bl         Flag_SetBase
+    Flag_SetBase 0xEF
     pop        {r5}
     ldr        r0,PTR_PTR_S_Waterworks_Comp_TurnHandle_Flags_1_0808be34
     LoadMain world, r7, r7
@@ -277,8 +276,7 @@ _ts S_Waterworks_Comp_TurnHandle_6
     push       {r5}
     bl         Flag_SetPlayerActive
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xef
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xEF
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808bc90:
@@ -306,8 +304,7 @@ LAB_0808bcae:
 
 _ts S_Waterworks_Comp_TurnHandle_Flags_1
     push       {r5,lr}
-    mov        r0,#0x0
-    bl         Flag_ToggleIgnore
+    Flag_ToggleIgnore F_IGNORE_WALL_00
     pop        {r5,pc}
 
     .align 2, 0
@@ -323,27 +320,22 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_2
     beq        LAB_0808bcd2
     b          LAB_0808bcf6
 LAB_0808bcca:
-    mov        r0,#0x1
-    bl         Flag_ToggleIgnore
+    Flag_ToggleIgnore F_IGNORE_WALL_01
     b          LAB_0808bcfe
 LAB_0808bcd2:
     push       {r5}
-    mov        r0,#0x2
-    bl         Flag_ToggleIgnore
+    Flag_ToggleIgnore F_IGNORE_WALL_02
     pop        {r5}
-    mov        r0,#0xf0
-    bl         Flag_GetBase
+    Flag_GetBase 0xF0
     bne        LAB_0808bcfe
     push       {r5}
-    mov        r0,#0xf0
-    bl         Flag_SetBase
+    Flag_SetBase 0xF0
     ldr        r0,PTR_BgTask_8044360_0808be38
     bl         BgTask_AddNew
     pop        {r5}
     b          LAB_0808bcfe
 LAB_0808bcf6:
-    mov        r0,#0x3
-    bl         Flag_ToggleIgnore
+    Flag_ToggleIgnore F_IGNORE_WALL_03
     b          LAB_0808bcfe
 LAB_0808bcfe:
     pop        {r5,pc}
@@ -360,28 +352,22 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_3
     beq        LAB_0808bd22
     b          LAB_0808bd2a
 LAB_0808bd12:
-    mov        r0,#0x4
-    bl         Flag_ToggleIgnore
+    Flag_ToggleIgnore F_IGNORE_WALL_04
     b          LAB_0808bd54
 LAB_0808bd1a:
-    mov        r0,#0x5
-    bl         Flag_ToggleIgnore
+    Flag_ToggleIgnore F_IGNORE_WALL_05
     b          LAB_0808bd54
 LAB_0808bd22:
-    mov        r0,#0x6
-    bl         Flag_ToggleIgnore
+    Flag_ToggleIgnore F_IGNORE_WALL_06
     b          LAB_0808bd54
 LAB_0808bd2a:
     push       {r5}
-    mov        r0,#0x7
-    bl         Flag_ToggleIgnore
+    Flag_ToggleIgnore F_IGNORE_WALL_07
     pop        {r5}
-    mov        r0,#0xf1
-    bl         Flag_GetBase
+    Flag_GetBase 0xF1
     bne        LAB_0808bd54
     push       {r5}
-    mov        r0,#0xf1
-    bl         Flag_SetBase
+    Flag_SetBase 0xF1
     ldr        r0,PTR_BgTask_8044360_0808be3c
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8044390_0808be40
@@ -402,58 +388,44 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_5
     beq        LAB_0808bda6
     b          LAB_0808bd62
 LAB_0808bd62:
-    mov        r0,#0xed
-    bl         Flag_GetBase
+    Flag_GetBase 0xED
     bne        LAB_0808bd7c
     push       {r5}
-    mov        r0,#0x9
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_SetIgnore F_IGNORE_WALL_09
+    Flag_ClearIgnore F_IGNORE_WALL_01
     pop        {r5}
     b          LAB_0808bda4
 LAB_0808bd7c:
     push       {r5}
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
-    mov        r0,#0x9
-    bl         Flag_ClearIgnore
+    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_WALL_09
     pop        {r5}
-    mov        r0,#0xf3
-    bl         Flag_GetBase
+    Flag_GetBase 0xF3
     bne        LAB_0808bda4
     push       {r5}
-    mov        r0,#0xf3
-    bl         Flag_SetBase
+    Flag_SetBase 0xF3
     ldr        r0,PTR_BgTask_80443F0_0808be44
     bl         BgTask_AddNew
     pop        {r5}
 LAB_0808bda4:
     b          LAB_0808bdea
 LAB_0808bda6:
-    mov        r0,#0xec
-    bl         Flag_GetBase
+    Flag_GetBase 0xEC
     bne        LAB_0808bdc0
     push       {r5}
-    mov        r0,#0x8
-    bl         Flag_SetIgnore
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
+    Flag_SetIgnore F_IGNORE_WALL_08
+    Flag_ClearIgnore F_IGNORE_WALL_00
     pop        {r5}
     b          LAB_0808bde8
 LAB_0808bdc0:
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x8
-    bl         Flag_ClearIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_08
     pop        {r5}
-    mov        r0,#0xf2
-    bl         Flag_GetBase
+    Flag_GetBase 0xF2
     bne        LAB_0808bde8
     push       {r5}
-    mov        r0,#0xf2
-    bl         Flag_SetBase
+    Flag_SetBase 0xF2
     ldr        r0,PTR_BgTask_8044880_0808be48
     bl         BgTask_AddNew
     pop        {r5}
@@ -466,19 +438,14 @@ LAB_0808bdea:
 _ts S_Waterworks_Comp_TurnHandle_Flags_6
     push       {lr}
     push       {r5}
-    mov        r0,#0xa
-    bl         Flag_ToggleIgnore
+    Flag_ToggleIgnore F_IGNORE_WALL_0A
     pop        {r5}
-    mov        r0,#0xf4
-    bl         Flag_GetBase
+    Flag_GetBase 0xF4
     bne        LAB_0808be1e
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0xa
-    bl         Flag_ClearIgnore
-    mov        r0,#0xf4
-    bl         Flag_SetBase
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_0A
+    Flag_SetBase 0xF4
     ldr        r0,PTR_BgTask_80443C0_0808be4c
     bl         BgTask_AddNew
     pop        {r5}

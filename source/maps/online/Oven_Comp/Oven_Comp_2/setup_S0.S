@@ -85,8 +85,7 @@ LAB_08043714:
     cmp        r7,#0x20
     blt        LAB_080436fa
     push       {r5}
-    mov        r0,#0xc9
-    bl         Flag_GetBase
+    Flag_GetBase 0xC9
     pop        {r5}
     beq        LAB_0804373c
     push       {r5}

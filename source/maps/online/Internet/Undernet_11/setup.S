@@ -60,8 +60,7 @@ LAB_08053ba0:
     strb       r0,[r4,#0xd]
     b          LAB_08053bde
 LAB_08053bb4:
-    mov        r0,#0x25
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_UNDERNET_11_SKILL_CHECK_FAIL
     bne        LAB_08053bca
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
@@ -90,11 +89,9 @@ LAB_08053bde:
     ldr        r7,PTR_NPCList_8055080_08053d18
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x88
-    bl         Flag_GetBase
+    Flag_GetBase 0x88
     beq        LAB_08053c06
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     b          LAB_08053c10
 LAB_08053c06:
     push       {r5}
@@ -125,8 +122,7 @@ PTR_EventHandler_Undernet_11_0_08053c28:
 
 _ts EventHandler_Undernet_11_0
     push       {lr}
-    mov        r0,#0x88
-    bl         Flag_GetBase
+    Flag_GetBase 0x88
     bne        LAB_08053c74
     LoadMain world, r4, r7
     ldrb       r0,[r4,#0x19]
@@ -143,25 +139,21 @@ LAB_08053c46:
     mov        r0,#0x1
     strb       r0,[r5,#0x2]
 LAB_08053c54:
-    mov        r0,#0x25
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_UNDERNET_11_SKILL_CHECK_FAIL
     bne        LAB_08053c74
     ldrb       r0,[r5,#0x2]
     tst        r0,r0
     beq        LAB_08053c74
-    mov        r0,#0x25
-    bl         Flag_SetEvent
+    Flag_SetEvent F_EVENT_UNDERNET_11_SKILL_CHECK_FAIL
     push       {r5}
     ldr        r0,PTR_Scene_SkillGate_08053d20
     mov        r1,#0x5
     bl         Scene_Prepare
     pop        {r5}
 LAB_08053c74:
-    mov        r0,#0x88
-    bl         Flag_GetBase
+    Flag_GetBase 0x88
     bne        LAB_08053caa
-    mov        r0,#0x87
-    bl         Flag_GetBase
+    Flag_GetBase 0x87
     beq        LAB_08053c92
     push       {r5}
     ldr        r0,PTR_Scene_UnlockWWWGate_08053d24
@@ -190,19 +182,16 @@ LAB_08053caa:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08053cec
-    mov        r0,#0x5
-    bl         Flag_GetBase
+    Flag_GetBase 0x05
     beq        LAB_08053cec
     push       {r5}
     bl         Library_GetStandardChipCount
     pop        {r5}
     cmp        r1,#0x8c
     blt        LAB_08053cec
-    mov        r0,#0x8f
-    bl         Flag_GetBase
+    Flag_GetBase 0x8F
     bne        LAB_08053cec
-    mov        r0,#0x8f
-    bl         Flag_SetBase
+    Flag_SetBase 0x8F
     push       {r5}
     ldr        r0,PTR_Scene_StartFixedBattle_08053d28
     mov        r1,#0x2d

@@ -45,8 +45,7 @@ LAB_0807f33e:
     pop        {r5}
     bl         SpritePtr_SetPriority
 LAB_0807f34e:
-    mov        r0,#0xb2
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xB2
     ldr        r0,DAT_0807f5e8
     str        r0,[r5,#0x68]
     mov        r0,#0x8
@@ -162,8 +161,7 @@ _nt E_Nonstop_Bus_1_Main
     strb       r0,[r5,#0x8]
     b          LAB_0807f48e
 LAB_0807f424:
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     beq        LAB_0807f47e
     ldrb       r0,[r5,#0x9]
     tst        r0,r0
@@ -217,8 +215,7 @@ LAB_0807f47e:
     add        r0,r0,r1
     str        r0,[r5,#0x2c]
 LAB_0807f48e:
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     beq        LAB_0807f4be
     ldrb       r0,[r5,#0xa]
     add        r0,#0x1
@@ -244,8 +241,7 @@ LAB_0807f4be:
     ldrb       r0,[r5,#0x4]
     cmp        r0,#0x5
     bne        LAB_0807f52e
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     beq        LAB_0807f52e
     ldr        r0,[r5,#0x7c]
     sub        r0,#0x1

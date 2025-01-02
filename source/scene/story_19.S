@@ -215,8 +215,7 @@ _nt S_Story_19_9
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080875a4
-    mov        r0,#0xb7
-    bl         Flag_SetBase
+    Flag_SetBase 0xB7
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
     bl         Scene_UnloadAndResetStepCounter

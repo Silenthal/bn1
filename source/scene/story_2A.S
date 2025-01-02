@@ -71,8 +71,7 @@ _nt S_Story_2A_3
 
 
 _ts S_Story_2A_4
-    mov        r0,#0xb3
-    bl         Flag_SetBase
+    Flag_SetBase 0xB3
     bl         Flag_SetPlayerActive
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

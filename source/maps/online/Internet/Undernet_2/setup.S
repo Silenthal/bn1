@@ -60,14 +60,11 @@ _nt MapSetup_Undernet_2
     bl         Scene_Prepare
     pop        {r5}
 LAB_08052d80:
-    mov        r0,#0x6a
-    bl         Flag_GetBase
+    Flag_GetBase 0x6A
     bne        LAB_08052d8e
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
 LAB_08052d8e:
-    mov        r0,#0x6c
-    bl         Flag_GetBase
+    Flag_GetBase 0x6C
     beq        LAB_08052da2
     push       {r5}
     ldr        r0,PTR_Scene_AfterFixedBattle_08052e6c
@@ -104,8 +101,7 @@ _ts EventHandler_Undernet_2_0
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_08052dfe
-    mov        r0,#0x1
-    bl         Flag_GetGate
+    Flag_GetGate F_GATE_01
     beq        LAB_08052dfe
     mov        r0,#0x36
     bl         KeyItem_IsPresent
@@ -133,13 +129,10 @@ LAB_08052dfe:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_08052e32
-    mov        r0,#0x6c
-    bl         Flag_GetBase
+    Flag_GetBase 0x6C
     bne        LAB_08052e32
-    mov        r0,#0x6c
-    bl         Flag_SetBase
-    mov        r0,#0x5e
-    bl         Flag_SetBase
+    Flag_SetBase 0x6C
+    Flag_SetBase 0x5E
     push       {r5}
     ldr        r0,PTR_Scene_StartFixedBattle_08052e80
     mov        r1,#0x1a

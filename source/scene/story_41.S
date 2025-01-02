@@ -154,8 +154,7 @@ _ts S_Story_41_5
     mov        r0,#0x0
     strb       r0,[r7,#0x9]
     strb       r0,[r7,#0xb]
-    mov        r0,#0xb2
-    bl         Flag_SetBase
+    Flag_SetBase 0xB2
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -235,8 +234,7 @@ _nt S_Story_41_9
     bl         PlayerAnimation_Unlock
     pop        {r5}
     push       {r5}
-    mov        r0,#0xaf
-    bl         Flag_SetBase
+    Flag_SetBase 0xAF
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

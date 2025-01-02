@@ -9,25 +9,21 @@ _ts MapSetup_DenTown_Miyu_Antiques_S3
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     bne        LAB_08038752
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_GetBase 0xA6
     beq        LAB_08038732
     mov        r0,#0x4
     bl         Sound_ChangeSong
     b          LAB_08038756
 LAB_08038732:
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     beq        LAB_08038742
     mov        r0,#0x3
     bl         Sound_ChangeSong
     b          LAB_08038756
 LAB_08038742:
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     beq        LAB_08038752
     mov        r0,#0x4
     bl         Sound_ChangeSong
@@ -83,11 +79,9 @@ _ts MapSetup_DenTown_Miyu_Antiques_F30
     ldr        r7,PTR_NPCList_80395D4_080388ac
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x3b
-    bl         Flag_GetBase
+    Flag_GetBase 0x3B
     bne        LAB_080387e6
-    mov        r0,#0x2d
-    bl         Flag_GetBase
+    Flag_GetBase 0x2D
     beq        LAB_080387e6
     push       {r5}
     ldr        r0,DAT_080388b0
@@ -116,11 +110,9 @@ PTR_EventHandler_DenTown_Miyu_Antiques_F30_0_080387fc:
 
 _ts EventHandler_DenTown_Miyu_Antiques_F30_0
     push       {lr}
-    mov        r0,#0x3b
-    bl         Flag_GetBase
+    Flag_GetBase 0x3B
     bne        LAB_0803881e
-    mov        r0,#0x2d
-    bl         Flag_GetBase
+    Flag_GetBase 0x2D
     beq        LAB_0803881e
     push       {r5}
     ldr        r0,DAT_080388b8
@@ -146,11 +138,9 @@ _nt MapSetup_DenTown_Miyu_Antiques_F34
     ldr        r7,PTR_NPCList_80395D4_080388bc
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x3b
-    bl         Flag_GetBase
+    Flag_GetBase 0x3B
     bne        LAB_08038860
-    mov        r0,#0x2d
-    bl         Flag_GetBase
+    Flag_GetBase 0x2D
     beq        LAB_08038860
     push       {r5}
     ldr        r0,PTR_Scene_AfterFixedBattle_080388c0
@@ -181,11 +171,9 @@ PTR_EventHandler_DenTown_Miyu_Antiques_F34_0_08038878:
 
 _ts EventHandler_DenTown_Miyu_Antiques_F34_0
     push       {lr}
-    mov        r0,#0x3b
-    bl         Flag_GetBase
+    Flag_GetBase 0x3B
     bne        LAB_0803889a
-    mov        r0,#0x2d
-    bl         Flag_GetBase
+    Flag_GetBase 0x2D
     beq        LAB_0803889a
     push       {r5}
     ldr        r0,DAT_080388c8
@@ -285,21 +273,17 @@ _ts MapSetup_DenTown_Miyu_Antiques_F40
     ldr        r7,PTR_NPCList_80395D4_080389d4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x2d
-    bl         Flag_GetBase
+    Flag_GetBase 0x2D
     beq        LAB_0803897e
     mov        r6,#0x6
-    mov        r0,#0x3b
-    bl         Flag_GetBase
+    Flag_GetBase 0x3B
     beq        LAB_0803896c
     mov        r6,#0xc
-    mov        r0,#0x3c
-    bl         Flag_GetBase
+    Flag_GetBase 0x3C
     bne        LAB_0803897e
     b          LAB_08038972
 LAB_0803896c:
-    mov        r0,#0x2d
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2D
 LAB_08038972:
     add        r1,r6,#0x0
     push       {r5}
@@ -329,16 +313,13 @@ PTR_EventHandler_DenTown_Miyu_Antiques_F40_0_08038994:
 _ts EventHandler_DenTown_Miyu_Antiques_F40_0
     push       {lr}
     mov        r6,#0x9
-    mov        r0,#0x3b
-    bl         Flag_GetBase
+    Flag_GetBase 0x3B
     beq        LAB_080389ae
     mov        r6,#0xe
-    mov        r0,#0x3c
-    bl         Flag_GetBase
+    Flag_GetBase 0x3C
     bne        LAB_080389c2
 LAB_080389ae:
-    mov        r0,#0x2d
-    bl         Flag_GetBase
+    Flag_GetBase 0x2D
     beq        LAB_080389c2
     add        r1,r6,#0x0
     push       {r5}
@@ -424,21 +405,17 @@ _ts MapSetup_DenTown_Miyu_Antiques_F50
     ldr        r7,PTR_NPCList_80395D4_08038ae8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x2d
-    bl         Flag_GetBase
+    Flag_GetBase 0x2D
     beq        LAB_08038a92
     mov        r6,#0x6
-    mov        r0,#0x3b
-    bl         Flag_GetBase
+    Flag_GetBase 0x3B
     beq        LAB_08038a80
     mov        r6,#0xc
-    mov        r0,#0x3c
-    bl         Flag_GetBase
+    Flag_GetBase 0x3C
     beq        LAB_08038a80
     mov        r6,#0xd
 LAB_08038a80:
-    mov        r0,#0x2d
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2D
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_08038aec
@@ -467,17 +444,14 @@ PTR_EventHandler_DenTown_Miyu_Antiques_F50_0_08038aa8:
 _ts EventHandler_DenTown_Miyu_Antiques_F50_0
     push       {lr}
     mov        r6,#0x9
-    mov        r0,#0x3b
-    bl         Flag_GetBase
+    Flag_GetBase 0x3B
     beq        LAB_08038ac4
     mov        r6,#0xe
-    mov        r0,#0x3c
-    bl         Flag_GetBase
+    Flag_GetBase 0x3C
     beq        LAB_08038ac4
     mov        r6,#0xf
 LAB_08038ac4:
-    mov        r0,#0x2d
-    bl         Flag_GetBase
+    Flag_GetBase 0x2D
     beq        LAB_08038ad8
     add        r1,r6,#0x0
     push       {r5}

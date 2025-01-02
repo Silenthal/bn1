@@ -92,15 +92,12 @@ _ts S_Story_7A_1
     ldr        r0,PTR_Cam_Set_08096ef8
     bl         SceneCamera_Init
     bl         SceneCamera_Main
-    mov        r0,#0x93
-    bl         Flag_ClearBase
-    mov        r0,#0xe3
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x93
+    Flag_ClearBase 0xE3
     push       {r5}
     ldr        r7,PTR_NPCList_803E8D8_08096efc
     bl         Map_LoadNPCList
-    mov        r0,#0xa2
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xA2
     mov        r1,#0x6
     bl         Effect_LifeVirusSeed_Create
     pop        {r5}
@@ -143,8 +140,7 @@ _nt S_Story_7A_3
     bl         SceneCamera_Main
     cmp        r0,#0x1
     beq        LAB_08096c04
-    mov        r0,#0xa2
-    bl         Flag_SetBase
+    Flag_SetBase 0xA2
     mov        r0,#0xcd
     lsl        r0,r0,#0x1
     strh       r0,[r5,#0x8]
@@ -165,8 +161,7 @@ _ts S_Story_7A_4
     strh       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_08096c2a
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     mov        r0,#0x46
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -260,8 +255,7 @@ LAB_08096cc6:
     mov        r1,#0x1
     bl         Text_LoadDialogue
     pop        {r5}
-    mov        r0,#0x93
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x93
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -419,8 +413,7 @@ _ts S_Story_7A_13
     push       {r5}
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,#0xe7
-    bl         Flag_SetBase
+    Flag_SetBase 0xE7
     push       {r5}
     ldr        r0,[r5,#0x10]
     mov        r1,#0x0

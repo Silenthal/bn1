@@ -133,8 +133,7 @@ _nt S_Story_2B_4
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08089d4a
-    mov        r0,#0xb5
-    bl         Flag_SetBase
+    Flag_SetBase 0xB5
     mov        r0,#0x6
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -251,8 +250,7 @@ _nt S_Story_2B_9
     mov        r0,#0x80
     bl         Text_CheckOption
     bne        LAB_08089e46
-    mov        r0,#0xb6
-    bl         Flag_SetBase
+    Flag_SetBase 0xB6
     mov        r0,#0x7c
     bl         Sound_PlaySongImmediate
     push       {r5}
@@ -294,15 +292,13 @@ LAB_08089e76:
 
 
 _ts S_Story_2B_11
-    mov        r0,#0xf8
-    bl         Flag_GetBase
+    Flag_GetBase 0xF8
     beq        LAB_08089e90
     push       {r5}
     mov        r0,#0xa
     bl         Sound_ChangeSong
     pop        {r5}
-    mov        r0,#0xf8
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xF8
 LAB_08089e90:
     mov        r0,#0x80
     bl         Text_CheckOption
@@ -379,8 +375,7 @@ _nt S_Story_2B_13
     ldr        r7,PTR_NPCList_8046CC8_08089fac
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xb4
-    bl         Flag_SetBase
+    Flag_SetBase 0xB4
     bl         PlayerAnimation_Unlock
     push       {r5}
     mov        r0,#0xa

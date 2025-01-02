@@ -170,8 +170,7 @@ LAB_08082c26:
 _ts S_Story_01_5
     push       {lr}
     push       {r5}
-    mov        r0,#0xd1
-    bl         Flag_SetBase
+    Flag_SetBase 0xD1
     pop        {r5}
     ldr        r7,PTR_PlayerAnimateArgs_8082AF4_08082dd0
     str        r7,[r5,#0x18]
@@ -282,8 +281,7 @@ _ts S_Story_01_9
     beq        LAB_08082d30
     push       {r5}
     bl         PlayerAnimation_Unlock
-    mov        r0,#0x92
-    bl         Flag_SetBase
+    Flag_SetBase 0x92
     bl         Text_DisableDialogue
     pop        {r5}
     LoadMain world, r0, r7

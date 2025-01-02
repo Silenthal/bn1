@@ -57,8 +57,7 @@ _ts MapSetup_WWW_Wily_Lab_F30
     ldr        r7,PTR_NPCList_803E650_0803dde8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x90
-    bl         Flag_GetBase
+    Flag_GetBase 0x90
     bne        LAB_0803dd6c
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -107,8 +106,7 @@ _ts MapSetup_WWW_Wily_Lab_F37
     ldr        r7,PTR_NPCList_803E6F4_0803ddf4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xc2
-    bl         Flag_GetBase
+    Flag_GetBase 0xC2
     bne        LAB_0803ddbc
     push       {r5}
     ldr        r0,PTR_Scene_Story_4D_0803ddf8
@@ -179,8 +177,7 @@ _ts MapSetup_WWW_Wily_Lab_S5
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0xe4
-    bl         Flag_GetBase
+    Flag_GetBase 0xE4
     bne        LAB_0803de24
     ldr        r0,PTR_BgTask_803D7E4_0803e0d4
     bl         BgTask_AddNew
@@ -233,8 +230,7 @@ _ts MapSetup_WWW_Wily_Lab_F50
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x92
-    bl         Flag_GetBase
+    Flag_GetBase 0x92
     bne        LAB_0803deac
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -280,8 +276,7 @@ _ts MapSetup_WWW_Wily_Lab_F53
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xa1
-    bl         Flag_GetBase
+    Flag_GetBase 0xA1
     bne        LAB_0803defc
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -327,17 +322,13 @@ _ts MapSetup_WWW_Wily_Lab_F54
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xe1
-    bl         Flag_GetBase
+    Flag_GetBase 0xE1
     bne        LAB_0803df3e
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
 LAB_0803df3e:
-    mov        r0,#0xe4
-    bl         Flag_GetBase
+    Flag_GetBase 0xE4
     beq        LAB_0803dfcc
-    mov        r0,#0xe5
-    bl         Flag_GetBase
+    Flag_GetBase 0xE5
     bne        LAB_0803df68
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -350,11 +341,9 @@ LAB_0803df3e:
     pop        {r5}
     b          LAB_0803df8e
 LAB_0803df68:
-    mov        r0,#0xe8
-    bl         Flag_GetBase
+    Flag_GetBase 0xE8
     beq        LAB_0803df8e
-    mov        r0,#0xe9
-    bl         Flag_GetBase
+    Flag_GetBase 0xE9
     bne        LAB_0803df8e
     bl         Sound_StopAllMusic
     push       {r5}
@@ -366,23 +355,19 @@ LAB_0803df68:
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_0803df8e:
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     push       {r5}
     ldr        r7,PTR_NPCList_803E734_0803e0f8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x63
-    bl         Flag_GetBase
+    Flag_GetBase 0x63
     beq        LAB_0803dfc6
     mov        r6,#0x1d
-    mov        r0,#0x64
-    bl         Flag_GetBase
+    Flag_GetBase 0x64
     beq        LAB_0803dfb2
     mov        r6,#0x1e
 LAB_0803dfb2:
-    mov        r0,#0x63
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x63
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,PTR_Scene_AfterFixedBattle_0803e0fc
@@ -418,8 +403,7 @@ PTR_EventHandler_WWW_Wily_Lab_F54_0_0803dfe4:
 
 _ts EventHandler_WWW_Wily_Lab_F54_0
     push       {lr}
-    mov        r0,#0xe1
-    bl         Flag_GetBase
+    Flag_GetBase 0xE1
     bne        LAB_0803e00c
     LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]
@@ -431,8 +415,7 @@ _ts EventHandler_WWW_Wily_Lab_F54_0
     bl         Scene_Prepare
     pop        {r5}
 LAB_0803e00c:
-    mov        r0,#0x73
-    bl         Flag_GetBase
+    Flag_GetBase 0x73
     beq        LAB_0803e01a
     mov        r1,#0x1a
     bl         FUN_0803e06a
@@ -458,13 +441,11 @@ _ts EventHandler_WWW_Wily_Lab_F54_1
     pop        {pc}
 LAB_0803e040:
     mov        r6,#0x23
-    mov        r0,#0x64
-    bl         Flag_GetBase
+    Flag_GetBase 0x64
     beq        LAB_0803e04c
     mov        r6,#0x24
 LAB_0803e04c:
-    mov        r0,#0x63
-    bl         Flag_GetBase
+    Flag_GetBase 0x63
     beq        LAB_0803e062
     add        r1,r6,#0x0
     push       {r5}

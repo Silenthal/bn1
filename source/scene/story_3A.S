@@ -265,8 +265,7 @@ _ts S_Story_3A_8
     beq        LAB_0808cf54
     bl         Flag_SetPlayerActive
     push       {r5}
-    mov        r0,#0x9b
-    bl         Flag_SetBase
+    Flag_SetBase 0x9B
     pop        {r5}
     push       {r5}
     mov        r0,#0x3

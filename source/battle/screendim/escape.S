@@ -109,8 +109,7 @@ _nt SD_Escape_1_1_CheckEscapable
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_08098cdc
-    mov        r0,#0x8
-    bl         Flag_GetSystem
+    Flag_GetSystem F_SYSTEM_NO_ESCAPE
     tst        r0,r0
     bne        LAB_08098cd4
     mov        r0,#0x10

@@ -116,8 +116,7 @@ _ts S_Story_3B_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808d084
-    mov        r0,#0xa0
-    bl         Flag_SetBase
+    Flag_SetBase 0xA0
     mov        r0,#0xc8
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -210,8 +209,7 @@ _ts S_Story_3B_7
     bl         PlayerAnimation_Unlock
     pop        {r5}
     push       {r5}
-    mov        r0,#0xa1
-    bl         Flag_SetBase
+    Flag_SetBase 0xA1
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x33

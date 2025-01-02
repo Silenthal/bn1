@@ -60,11 +60,9 @@ PTR_E_Chaud_1_0_0807fa20:
 
 
 _ts E_Chaud_1_0
-    mov        r0,#0xde
-    bl         Flag_GetBase
+    Flag_GetBase 0xDE
     beq        LAB_0807fa4a
-    mov        r0,#0xde
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xDE
     LoadMain world, r7, r7
     ldr        r7,[r7,#0x28]
     ldrb       r0,[r7,#0x10]

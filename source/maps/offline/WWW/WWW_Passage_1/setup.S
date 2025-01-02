@@ -53,8 +53,7 @@ _ts MapSetup_WWW_Passage_1_F54
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
-    mov        r0,#0xb0
-    bl         Flag_GetBase
+    Flag_GetBase 0xB0
     bne        LAB_0803e2f0
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -65,19 +64,16 @@ _ts MapSetup_WWW_Passage_1_F54
     bl         Scene_Prepare
     pop        {r5}
 LAB_0803e2f0:
-    mov        r0,#0xb2
-    bl         Flag_GetBase
+    Flag_GetBase 0xB2
     bne        LAB_0803e30a
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     push       {r5}
     ldr        r7,PTR_NPCList_803EA28_0803e3bc
     bl         Map_LoadNPCList
     pop        {r5}
     b          LAB_0803e328
 LAB_0803e30a:
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     bne        LAB_0803e31e
     push       {r5}
     ldr        r7,PTR_NPCList_803EA38_0803e3c0
@@ -90,17 +86,14 @@ LAB_0803e31e:
     bl         Map_LoadNPCList
     pop        {r5}
 LAB_0803e328:
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0803e34e
     mov        r6,#0x18
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     beq        LAB_0803e33c
     mov        r6,#0x19
 LAB_0803e33c:
-    mov        r0,#0x29
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x29
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_0803e3c8
@@ -141,13 +134,11 @@ _ts EventHandler_WWW_Passage_1_F54_0
     pop        {r5}
 LAB_0803e386:
     mov        r6,#0x1b
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     beq        LAB_0803e392
     mov        r6,#0x1c
 LAB_0803e392:
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0803e3a6
     add        r1,r6,#0x0
 

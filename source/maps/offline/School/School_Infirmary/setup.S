@@ -10,8 +10,7 @@ _ts MapSetup_School_Infirmary_S1
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_080272f6
     mov        r0,#0x4
@@ -99,8 +98,7 @@ _ts MapSetup_School_Infirmary_F14
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0xad
-    bl         Flag_GetBase
+    Flag_GetBase 0xAD
     pop        {r5}
     beq        LAB_080273b6
     mov        r0,#0x4
@@ -129,8 +127,7 @@ PTR_EventHandler_School_Infirmary_F14_0_080273cc:
 _ts EventHandler_School_Infirmary_F14_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xad
-    bl         Flag_GetBase
+    Flag_GetBase 0xAD
     pop        {r5}
     beq        LAB_080273ee
     push       {r5}
@@ -216,8 +213,7 @@ _ts MapSetup_School_Infirmary_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08027482
     push       {r5}
     mov        r0,#0x4
@@ -225,8 +221,7 @@ _ts MapSetup_School_Infirmary_S2
     pop        {r5}
     b          LAB_0802749a
 LAB_08027482:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08027496
     push       {r5}
     mov        r0,#0x3

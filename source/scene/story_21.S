@@ -122,8 +122,7 @@ _nt S_Story_21_4
     pop        {r5}
     bne        LAB_080887ba
     push       {r5}
-    mov        r0,#0x9c
-    bl         Flag_SetBase
+    Flag_SetBase 0x9C
     pop        {r5}
     mov        r0,#0x3c
     strh       r0,[r5,#0x8]
@@ -228,8 +227,7 @@ _nt S_Story_21_8
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808889a
-    mov        r0,#0x9d
-    bl         Flag_SetBase
+    Flag_SetBase 0x9D
     mov        r0,#0x2
     bl         Sound_ChangeSong
     push       {r5}

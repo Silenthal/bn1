@@ -13,25 +13,21 @@ _ts MapSetup_DenTown_Block_1_S3
     ldr        r0,PTR_EntityAllocParams_803A76C_080372bc
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     bne        LAB_08036f70
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_GetBase 0xA6
     beq        LAB_08036f50
     mov        r0,#0x4
     bl         Sound_ChangeSong
     b          LAB_08036f74
 LAB_08036f50:
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     beq        LAB_08036f60
     mov        r0,#0x3
     bl         Sound_ChangeSong
     b          LAB_08036f74
 LAB_08036f60:
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     beq        LAB_08036f70
     mov        r0,#0x4
     bl         Sound_ChangeSong
@@ -90,13 +86,10 @@ _ts MapSetup_DenTown_Block_1_F30
     ldr        r7,PTR_NPCList_803909C_080372c4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     beq        LAB_08037008
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
     mov        r0,#0x4
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -136,17 +129,13 @@ _ts EventHandler_DenTown_Block_1_F30_0
     pop        {r5}
     cmp        r0,#0x18
     bne        LAB_08037092
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     beq        LAB_08037092
-    mov        r0,#0xca
-    bl         Flag_GetBase
+    Flag_GetBase 0xCA
     beq        LAB_08037092
-    mov        r0,#0x97
-    bl         Flag_GetBase
+    Flag_GetBase 0x97
     beq        LAB_08037092
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     bne        LAB_08037092
     push       {r5}
     mov        r0,#0x20
@@ -161,10 +150,8 @@ _ts EventHandler_DenTown_Block_1_F30_0
     LoadMain world, r0, r0
     mov        r1,#0x31
     strb       r1,[r0,#0x6]
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
 LAB_08037092:
     pop        {pc}
 
@@ -176,10 +163,8 @@ _ts EventHandler_DenTown_Block_1_F30_1
 
 _ts MapSetup_DenTown_Block_1_F31
     push       {lr}
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     push       {r5}
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -191,10 +176,8 @@ _ts MapSetup_DenTown_Block_1_F31
     ldr        r7,PTR_NPCList_803909C_080372d0
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -229,8 +212,7 @@ PTR_EventHandler_DenTown_Block_1_F31_0_080370fc:
 
 _ts EventHandler_DenTown_Block_1_F31_0
     push       {lr}
-    mov        r0,#0xc
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x0C
     bne        LAB_0803711c
     push       {r5}
     ldr        r0,DAT_080372dc
@@ -239,14 +221,12 @@ _ts EventHandler_DenTown_Block_1_F31_0
     pop        {r5}
     pop        {pc}
 LAB_0803711c:
-    mov        r0,#0xc
-    bl         Flag_GetEmailUnread
+    Flag_GetEmailUnread 0x0C
     bne        LAB_08037142
     mov        r0,#0x20
     bl         StartMenu_GetState
     bne        LAB_08037142
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     bne        LAB_08037142
     push       {r5}
     ldr        r0,PTR_Scene_Story_39_080372e4
@@ -255,13 +235,10 @@ LAB_0803711c:
     pop        {r5}
     pop        {pc}
 LAB_08037142:
-    mov        r0,#0xa7
-    bl         Flag_GetBase
+    Flag_GetBase 0xA7
     beq        LAB_08037156
-    mov        r0,#0x0
-    bl         Flag_ClearGate
-    mov        r0,#0x1
-    bl         Flag_ClearGate
+    Flag_ClearGate F_GATE_00
+    Flag_ClearGate F_GATE_01
 LAB_08037156:
     push       {r5}
     LoadMain world, r0, r7
@@ -301,8 +278,7 @@ _ts MapSetup_DenTown_Block_1_F32
     ldr        r7,PTR_NPCList_803909C_080372f0
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     beq        LAB_080371ba
     bl         Traffic_Init
     push       {r5}
@@ -350,8 +326,7 @@ PTR_EventHandler_DenTown_Block_1_F32_0_080371f0:
 
 _ts EventHandler_DenTown_Block_1_F32_0
     push       {lr}
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     bne        LAB_08037212
     push       {r5}
     ldr        r0,PTR_Scene_Story_3A_08037300
@@ -413,11 +388,9 @@ LAB_0803723e:
     beq        LAB_080372b6
     bl         dummy_187a0
     bne        LAB_080372b6
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     bne        LAB_080372aa
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     bne        LAB_0803729c
     push       {r5}
     ldr        r0,PTR_Scene_Dialogue_0803730c

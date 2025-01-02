@@ -86,8 +86,7 @@ _ts E_Pipe_3
 _ts FUN_0807f154
     push       {lr}
     push       {r5}
-    mov        r0,#0xe3
-    bl         Flag_GetBase
+    Flag_GetBase 0xE3
     pop        {r5}
     beq        LAB_0807f168
     mov        r0,#0x0

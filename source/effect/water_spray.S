@@ -51,8 +51,7 @@ _ts E_WaterSpray_0_Init
 _ts E_WaterSpray_1_Main
     push       {lr}
     push       {r5}
-    mov        r0,#0xd6
-    bl         Flag_GetBase
+    Flag_GetBase 0xD6
     pop        {r5}
     beq        LAB_0807c2d8
     mov        r0,#0x1
@@ -81,8 +80,7 @@ _ts E_WaterSpray_3_CheckFlag
     and        r0,r1
     beq        LAB_0807c304
     push       {r5}
-    mov        r0,#0xd7
-    bl         Flag_SetBase
+    Flag_SetBase 0xD7
     pop        {r5}
     bl         Effect_Free
     pop        {pc}

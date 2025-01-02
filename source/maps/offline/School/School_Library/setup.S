@@ -10,8 +10,7 @@ _ts MapSetup_School_Library_S1
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_08025b9e
     mov        r0,#0x4
@@ -103,8 +102,7 @@ _ts MapSetup_School_Library_F13
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0xa7
-    bl         Flag_GetBase
+    Flag_GetBase 0xA7
     pop        {r5}
     beq        LAB_08025c66
     mov        r0,#0x4
@@ -133,8 +131,7 @@ PTR_EventHandler_School_Library_F13_0_08025c7c:
 _ts EventHandler_School_Library_F13_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xa7
-    bl         Flag_GetBase
+    Flag_GetBase 0xA7
     pop        {r5}
     beq        LAB_08025ca4
     push       {r5}
@@ -170,8 +167,7 @@ _nt MapSetup_School_Library_F14
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0xb4
-    bl         Flag_GetBase
+    Flag_GetBase 0xB4
     pop        {r5}
     bne        LAB_08025cde
     mov        r0,#0x0
@@ -200,8 +196,7 @@ PTR_EventHandler_School_Library_F14_0_08025cf4:
 _ts EventHandler_School_Library_F14_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xad
-    bl         Flag_GetBase
+    Flag_GetBase 0xAD
     pop        {r5}
     beq        LAB_08025d1a
     push       {r5}
@@ -299,8 +294,7 @@ _ts MapSetup_School_Library_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08025dc2
     push       {r5}
     mov        r0,#0x4
@@ -308,8 +302,7 @@ _ts MapSetup_School_Library_S2
     pop        {r5}
     b          LAB_08025dda
 LAB_08025dc2:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08025dd6
     push       {r5}
     mov        r0,#0x3

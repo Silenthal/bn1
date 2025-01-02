@@ -135,8 +135,7 @@ _nt S_Story_66_5
     push       {r5}
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0x9a
-    bl         Flag_SetBase
+    Flag_SetBase 0x9A
     ldr        r0,PTR_EnemySpawn_BombManV1_08093074
     bl         Battle_GetRandomEncounter
     mov        r0,#0x6

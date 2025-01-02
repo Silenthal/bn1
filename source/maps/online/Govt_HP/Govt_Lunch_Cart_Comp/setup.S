@@ -34,8 +34,7 @@ _nt FUN_0804fa9e
     cmp        r1,r2
     beq        LAB_0804fab6
     push       {r5}
-    mov        r0,#0x34
-    bl         Flag_ClearItem
+    Flag_ClearItem F_ITEM_GOVT_LUNCH_CART_COMP_RECOV120_A
     pop        {r5}
 LAB_0804fab6:
     push       {r5}
@@ -65,18 +64,15 @@ LAB_0804fae8:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804faf4:
-    mov        r0,#0x48
-    bl         Flag_GetBase
+    Flag_GetBase 0x48
     beq        LAB_0804fb0a
-    mov        r0,#0x4c
-    bl         Flag_GetBase
+    Flag_GetBase 0x4C
     bne        LAB_0804fb14
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_0804fb0a:
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x4
     b          LAB_0804fb16
 LAB_0804fb14:
@@ -113,8 +109,7 @@ _ts FUN_0804fb38
     pop        {r5}
     mov        r0,#0x4
     str        r0,[r5,#0x0]
-    mov        r0,#0x4c
-    bl         Flag_SetBase
+    Flag_SetBase 0x4C
     pop        {pc}
 
 

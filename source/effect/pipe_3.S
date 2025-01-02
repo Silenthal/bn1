@@ -73,8 +73,7 @@ _ts FUN_0807f2a8
     push       {lr}
     tst        r0,r0
     beq        LAB_0807f2b6
-    mov        r0,#0xef
-    bl         Flag_GetBase
+    Flag_GetBase 0xEF
     beq        LAB_0807f2e8
 LAB_0807f2b6:
     ldrb       r0,[r5,#0x6]

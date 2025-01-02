@@ -188,8 +188,7 @@ _ts Scene_JackOut_4_Regular
 LAB_080837f4:
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
-    mov        r0,#0x35
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x35
 LAB_080837fe:
     pop        {pc}
 

@@ -88,8 +88,7 @@ LAB_08092b4e:
     bl         Text_LoadAreaDialogue
     pop        {r0,r5}
     push       {r5}
-    mov        r0,#0xdd
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xDD
     pop        {r5}
     mov        r0,#0x14
     strb       r0,[r5,#0x0]
@@ -161,8 +160,7 @@ _ts S_BatterySwitch_3_SwitchSuccess
     b          LAB_08092c28
 LAB_08092bec:
     push       {r5}
-    mov        r0,#0xd3
-    bl         Flag_GetBase
+    Flag_GetBase 0xD3
     pop        {r5}
     beq        LAB_08092c28
     ldrb       r0,[r5,#0x4]
@@ -177,8 +175,7 @@ LAB_08092bec:
     bl         PowerPlant_SwitchOn
     pop        {r0}
     bl         PowerPlant_CheckPaths
-    mov        r0,#0xd3
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD3
     mov        r0,#0x9e
     @@ "A bulb has been turned on! A path is revealed!"
     bl         Text_LoadAreaDialogue
@@ -204,8 +201,7 @@ _ts S_BatterySwitch_4_SwitchFailure
     b          LAB_08092c74
 LAB_08092c40:
     push       {r5}
-    mov        r0,#0xd3
-    bl         Flag_GetBase
+    Flag_GetBase 0xD3
     pop        {r5}
     beq        LAB_08092c74
     ldrb       r0,[r5,#0x4]
@@ -217,8 +213,7 @@ LAB_08092c40:
     bl         PowerPlant_DrainBattery
     pop        {r0}
     bl         PowerPlant_SwitchOn
-    mov        r0,#0xd3
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD3
     mov        r0,#0xa2
     @@ "Huh? Nothing happened! Wrong box, maybe?"
     bl         Text_LoadAreaDialogue

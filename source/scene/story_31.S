@@ -136,8 +136,7 @@ _ts S_Story_31_4
     bl         SceneCamera_Main
     cmp        r0,#0x1
     beq        LAB_0808ad60
-    mov        r0,#0xca
-    bl         Flag_GetBase
+    Flag_GetBase 0xCA
     beq        LAB_0808ad32
     mov        r0,#0x9d
     bl         Sound_PlaySongImmediate
@@ -145,8 +144,7 @@ _ts S_Story_31_4
     bl         Effect_AirBlowing_Create
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
-    mov        r0,#0xca
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xCA
 LAB_0808ad32:
     ldrb       r0,[r5,#0x8]
     tst        r0,r0
@@ -179,8 +177,7 @@ LAB_0808ad6a:
 
 
 _ts S_Story_31_5
-    mov        r0,#0xc8
-    bl         Flag_GetBase
+    Flag_GetBase 0xC8
     beq        LAB_0808ad90
     mov        r0,#0x9d
     bl         Sound_PlaySongImmediate
@@ -188,8 +185,7 @@ _ts S_Story_31_5
     bl         Effect_AirBlowing_Create
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
-    mov        r0,#0xc8
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xC8
     mov        r0,#0x43
     bl         PlayerAnimation_SetState
 LAB_0808ad90:
@@ -275,8 +271,7 @@ _ts S_Story_31_8
     push       {r5}
     bl         Text_DisableDialogue
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xc2
-    bl         Flag_SetBase
+    Flag_SetBase 0xC2
     ldr        r0,PTR_EnemySpawn_IceManV1_0808ae94
     bl         Battle_GetRandomEncounter
     mov        r0,#0x2

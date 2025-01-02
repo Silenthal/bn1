@@ -78,8 +78,7 @@ PTR_E_GeneratorLightning_1_0_08081950:
 
 
 _ts E_GeneratorLightning_1_0
-    mov        r0,#0xde
-    bl         Flag_GetBase
+    Flag_GetBase 0xDE
     bne        E_GeneratorLightning_2_Free
     ldrb       r2,[r5,#0x4]
     tst        r2,r2

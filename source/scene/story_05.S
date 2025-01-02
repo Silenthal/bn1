@@ -76,8 +76,7 @@ _ts S_Story_05_2
     cmp        r0,r1
     beq        LAB_08083926
     push       {r5}
-    mov        r0,#0xd4
-    bl         Flag_SetBase
+    Flag_SetBase 0xD4
     mov        r0,#0x1a
     lsl        r0,r0,#0x10
     mov        r1,#0x1f
@@ -142,10 +141,8 @@ _ts S_Story_05_5
     push       {r5}
     bl         Text_DisableDialogue
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xd4
-    bl         Flag_ClearBase
-    mov        r0,#0x98
-    bl         Flag_SetBase
+    Flag_ClearBase 0xD4
+    Flag_SetBase 0x98
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

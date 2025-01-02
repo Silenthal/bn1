@@ -13,25 +13,21 @@ _ts MapSetup_DenTown_Summer_School_S3
     ldr        r0,PTR_EntityAllocParams_803B508_08038be0
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     bne        LAB_08038b44
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_GetBase 0xA6
     beq        LAB_08038b24
     mov        r0,#0x4
     bl         Sound_ChangeSong
     b          LAB_08038b48
 LAB_08038b24:
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     beq        LAB_08038b34
     mov        r0,#0x3
     bl         Sound_ChangeSong
     b          LAB_08038b48
 LAB_08038b34:
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     beq        LAB_08038b44
     mov        r0,#0x4
     bl         Sound_ChangeSong

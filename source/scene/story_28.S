@@ -249,14 +249,12 @@ _ts S_Story_28_8
     push       {r5}
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    mov        r0,#0xbf
-    bl         Flag_SetBase
+    Flag_SetBase 0xBF
     push       {r5}
     mov        r0,#0x3
     bl         Sound_ChangeSong
     pop        {r5}
-    mov        r0,#0xdf
-    bl         Flag_SetBase
+    Flag_SetBase 0xDF
     bl         Scene_UnloadAndResetStepCounter
 LAB_080896fe:
     pop        {pc}

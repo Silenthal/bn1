@@ -11,11 +11,9 @@ _ts MapSetup_Govt_Yuichiro_PC_S2
     ldr        r0,DAT_0804fa50
     mov        lr,pc
     bx         r0 @ FUN_0804f998
-    mov        r0,#0x1e
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_GOVT_YUICHIRO_PC_VIRUS_MACHINE
     beq        LAB_0804f982
-    mov        r0,#0x1e
-    bl         Flag_ClearEvent
+    Flag_ClearEvent F_EVENT_GOVT_YUICHIRO_PC_VIRUS_MACHINE
     push       {r5}
     ldr        r0,DAT_0804fa54
     mov        r1,#0x0
@@ -50,8 +48,7 @@ _ts FUN_0804f998
     ldr        r0,PTR_EntityAllocParams_804FCF8_0804fa64
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetSystem
+    Flag_SetSystem F_SYSTEM_NO_RANDOM_BATTLES
     LoadMain world, r0, r0
     ldrb       r1,[r0,#0x5]
     ldrb       r2,[r0,#0xd]
@@ -68,18 +65,15 @@ LAB_0804f9d2:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804f9de:
-    mov        r0,#0x4a
-    bl         Flag_GetBase
+    Flag_GetBase 0x4A
     beq        LAB_0804f9f4
-    mov        r0,#0x4e
-    bl         Flag_GetBase
+    Flag_GetBase 0x4E
     bne        LAB_0804f9fe
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_0804f9f4:
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x4
     b          LAB_0804fa00
 LAB_0804f9fe:
@@ -114,8 +108,7 @@ _ts FUN_0804fa20
     pop        {r5}
     mov        r0,#0x4
     str        r0,[r5,#0x0]
-    mov        r0,#0x4e
-    bl         Flag_SetBase
+    Flag_SetBase 0x4E
     pop        {pc}
 
 

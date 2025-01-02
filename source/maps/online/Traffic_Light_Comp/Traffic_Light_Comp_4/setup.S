@@ -102,8 +102,7 @@ PTR_EventHandler_Traffic_Light_Comp_4_F35_0_08048960:
 
 _ts EventHandler_Traffic_Light_Comp_4_F35_0
     push       {lr}
-    mov        r0,#0xac
-    bl         Flag_GetBase
+    Flag_GetBase 0xAC
     beq        LAB_08048984
     LoadMain world, r0, r0
     mov        r1,#0x36

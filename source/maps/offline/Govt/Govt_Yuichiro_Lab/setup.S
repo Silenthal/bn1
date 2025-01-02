@@ -9,8 +9,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_080336f2
     push       {r5}
     mov        r0,#0x4
@@ -18,8 +17,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_S2
     pop        {r5}
     b          LAB_0803370a
 LAB_080336f2:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08033706
     push       {r5}
     mov        r0,#0x3
@@ -75,8 +73,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F22
     ldr        r7,PTR_NPCList_8035844_080339c4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -115,8 +112,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F24
     bl         Camera_SetEnabled
     ldr        r7,PTR_NPCList_8035844_080339cc
     bl         Map_LoadNPCList
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -144,8 +140,7 @@ PTR_EventHandler_Govt_Yuichiro_Lab_F24_0_080337e8:
 
 _ts EventHandler_Govt_Yuichiro_Lab_F24_0
     push       {lr}
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     beq        LAB_0803381e
     push       {r5}
     LoadMain world, r0, r7
@@ -205,11 +200,9 @@ _ts MapSetup_Govt_Yuichiro_Lab_F25
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r4,#0x4
-    mov        r0,#0xbf
-    bl         Flag_GetBase
+    Flag_GetBase 0xBF
     bne        LAB_08033892
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -321,8 +314,7 @@ LAB_08033944:
 LAB_08033956:
     cmp        r0,#0x20
     bne        LAB_0803397e
-    mov        r0,#0xe2
-    bl         Flag_GetBase
+    Flag_GetBase 0xE2
     bne        LAB_08033970
     push       {r5}
     ldr        r0,PTR_Scene_Dialogue_080339f0
@@ -346,8 +338,7 @@ LAB_0803397e:
     pop        {r5}
     cmp        r0,#0x1
     bne        LAB_080339ba
-    mov        r0,#0xe2
-    bl         Flag_GetBase
+    Flag_GetBase 0xE2
     bne        LAB_080339a8
     push       {r5}
     ldr        r0,PTR_Scene_LockedPath_080339f8
@@ -477,8 +468,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F30
     ldr        r7,PTR_NPCList_8035844_08033b7c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -684,8 +674,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F40
     ldr        r7,PTR_NPCList_8035844_08033d2c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -779,8 +768,7 @@ LAB_08033cc0:
 LAB_08033cd2:
     cmp        r0,#0x20
     bne        LAB_08033cfa
-    mov        r0,#0x9c
-    bl         Flag_GetBase
+    Flag_GetBase 0x9C
     beq        LAB_08033cec
     push       {r5}
     ldr        r0,PTR_Scene_GovtElevator_08033d44
@@ -857,8 +845,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_S5
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0x2c
-    bl         Flag_GetEvent
+    Flag_GetEvent 0x2C
     bne        LAB_08033d66
     bl         Sound_AreaSongChange
 LAB_08033d66:
@@ -908,8 +895,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F50
     ldr        r7,PTR_NPCList_8035844_08033fcc
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -949,8 +935,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F52
     ldr        r7,PTR_NPCList_803586C_08033fd4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -990,8 +975,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F53
     ldr        r7,PTR_NPCList_8035878_08033fdc
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -1031,16 +1015,12 @@ _ts MapSetup_Govt_Yuichiro_Lab_F54
     ldr        r7,PTR_NPCList_803586C_08033fe4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_SetGate F_GATE_00
+    Flag_GetBase 0xAB
     bne        LAB_08033ede
-    mov        r0,#0xac
-    bl         Flag_GetBase
+    Flag_GetBase 0xAC
     beq        LAB_08033ede
-    mov        r0,#0x2c
-    bl         Flag_SetEvent
+    Flag_SetEvent 0x2C
     LoadMain world, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x7]

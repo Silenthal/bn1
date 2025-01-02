@@ -59,10 +59,8 @@ _ts MapSetup_WWW_Base_F54
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0xaf
-    bl         Flag_GetBase
+    Flag_SetGate F_GATE_00
+    Flag_GetBase 0xAF
     bne        LAB_0803dad4
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -74,15 +72,12 @@ _ts MapSetup_WWW_Base_F54
     pop        {r5}
     b          LAB_0803db8e
 LAB_0803dad4:
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     bne        LAB_0803dae4
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     b          LAB_0803db8e
 LAB_0803dae4:
-    mov        r0,#0xf8
-    bl         Flag_GetBase
+    Flag_GetBase 0xF8
     bne        LAB_0803db02
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -94,18 +89,14 @@ LAB_0803dae4:
     pop        {r5}
     b          LAB_0803db8e
 LAB_0803db02:
-    mov        r0,#0xfc
-    bl         Flag_GetBase
+    Flag_GetBase 0xFC
     bne        LAB_0803db12
-    mov        r0,#0x4
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_04
     b          LAB_0803db48
 LAB_0803db12:
-    mov        r0,#0xe9
-    bl         Flag_GetBase
+    Flag_GetBase 0xE9
     beq        LAB_0803db3c
-    mov        r0,#0xea
-    bl         Flag_GetBase
+    Flag_GetBase 0xEA
     bne        LAB_0803db3c
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -129,17 +120,14 @@ LAB_0803db48:
     bl         Map_LoadNPCList
     pop        {r5}
 LAB_0803db52:
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0803db7a
     mov        r6,#0x18
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     beq        LAB_0803db66
     mov        r6,#0x19
 LAB_0803db66:
-    mov        r0,#0x29
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x29
     add        r1,r6,#0x0
     push       {r5}
     ldr        r0,DAT_0803dca8
@@ -147,8 +135,7 @@ LAB_0803db66:
     pop        {r5}
     b          LAB_0803db8e
 LAB_0803db7a:
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     beq        LAB_0803db8e
     push       {r5}
     ldr        r0,DAT_0803dcac
@@ -208,13 +195,11 @@ LAB_0803dbda:
     pop        {r5}
 LAB_0803dbea:
     mov        r6,#0x1d
-    mov        r0,#0x36
-    bl         Flag_GetBase
+    Flag_GetBase 0x36
     beq        LAB_0803dbf6
     mov        r6,#0x1e
 LAB_0803dbf6:
-    mov        r0,#0x29
-    bl         Flag_GetBase
+    Flag_GetBase 0x29
     beq        LAB_0803dc0c
     add        r1,r6,#0x0
     push       {r5}
@@ -223,8 +208,7 @@ LAB_0803dbf6:
     pop        {r5}
     b          LAB_0803dc20
 LAB_0803dc0c:
-    mov        r0,#0x2b
-    bl         Flag_GetBase
+    Flag_GetBase 0x2B
     beq        LAB_0803dc20
     push       {r5}
     ldr        r0,DAT_0803dcc8

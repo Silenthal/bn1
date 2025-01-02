@@ -109,8 +109,7 @@ LAB_08085c48:
 
 _ts S_SkillGateFail_3
     push       {lr}
-    mov        r0,#0x20
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_UNDERNET_SKILL_CHECK_RESET
     beq        LAB_08085c62
     push       {r5}
     mov        r0,#0x4
@@ -221,8 +220,7 @@ _ts ResetSkillCheck_Undernet_6
     LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0xd]
-    mov        r0,#0x21
-    bl         Flag_ClearEvent
+    Flag_ClearEvent F_EVENT_UNDERNET_6_SKILL_CHECK_FAIL
     pop        {pc}
 
     .align 2, 0
@@ -240,8 +238,7 @@ _ts ResetSkillCheck_Undernet_7
     ldr        r4,[r7,#0x78]
     mov        r0,#0x0
     strb       r0,[r4,#0xd]
-    mov        r0,#0x22
-    bl         Flag_ClearEvent
+    Flag_ClearEvent F_EVENT_UNDERNET_7_SKILL_CHECK_FAIL
     pop        {pc}
 
     .align 2, 0
@@ -256,8 +253,7 @@ _ts ResetSkillCheck_Undernet_9
     ldr        r4,[r7,#0x78]
     mov        r0,#0x0
     strb       r0,[r4,#0xe]
-    mov        r0,#0x23
-    bl         Flag_ClearEvent
+    Flag_ClearEvent F_EVENT_UNDERNET_9_SKILL_CHECK_FAIL
     pop        {pc}
 
 
@@ -269,8 +265,7 @@ _ts ResetSkillCheck_Undernet_10
     LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0xf]
-    mov        r0,#0x24
-    bl         Flag_ClearEvent
+    Flag_ClearEvent F_EVENT_UNDERNET_10_SKILL_CHECK_FAIL
     pop        {pc}
 
     .align 2, 0
@@ -288,8 +283,7 @@ _ts ResetSkillCheck_Undernet_11
     ldr        r4,[r7,#0x78]
     mov        r0,#0x0
     strb       r0,[r4,#0xd]
-    mov        r0,#0x25
-    bl         Flag_ClearEvent
+    Flag_ClearEvent F_EVENT_UNDERNET_11_SKILL_CHECK_FAIL
     pop        {pc}
 
     .align 2, 0

@@ -9,8 +9,7 @@ _ts MapSetup_ACDC_Station_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802f192
     push       {r5}
     mov        r0,#0x4
@@ -18,8 +17,7 @@ _ts MapSetup_ACDC_Station_S2
     pop        {r5}
     b          LAB_0802f1aa
 LAB_0802f192:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0802f1a6
     push       {r5}
     mov        r0,#0x3
@@ -99,8 +97,7 @@ PTR_EventHandler_ACDC_Station_F20_0_0802f238:
 
 _ts EventHandler_ACDC_Station_F20_0
     push       {lr}
-    mov        r0,#0x97
-    bl         Flag_GetBase
+    Flag_GetBase 0x97
     beq        LAB_0802f24e
     LoadMain world, r0, r0
     mov        r1,#0x21
@@ -200,8 +197,7 @@ _ts EventHandler_ACDC_Station_F22_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802f306
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_0802f306
     push       {r5}
     mov        r1,#0x0
@@ -259,8 +255,7 @@ PTR_EventHandler_ACDC_Station_F24_0_0802f35c:
 
 _ts EventHandler_ACDC_Station_F24_0
     push       {lr}
-    mov        r0,#0x8
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x08
     bne        LAB_0802f378
     push       {r5}
     ldr        r0,DAT_0802f4cc
@@ -277,8 +272,7 @@ LAB_0802f378:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802f3a0
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_0802f3a0
     push       {r5}
     mov        r1,#0x0
@@ -309,8 +303,7 @@ _ts MapSetup_ACDC_Station_F26
     ldr        r7,PTR_PTR_DAT_0802f4e0
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xb0
-    bl         Flag_GetBase
+    Flag_GetBase 0xB0
     beq        LAB_0802f3ee
 LAB_0802f3d6:
     push       {r5}
@@ -324,8 +317,7 @@ LAB_0802f3d6:
     str        r0,[r5,#0x0]
     pop        {pc}
 LAB_0802f3ee:
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802f3d6
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -358,11 +350,9 @@ PTR_EventHandler_ACDC_Station_F26_0_0802f428:
 
 _ts EventHandler_ACDC_Station_F26_0
     push       {lr}
-    mov        r0,#0xb0
-    bl         Flag_GetBase
+    Flag_GetBase 0xB0
     beq        LAB_0802f44c
-    mov        r0,#0x1c
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x1C
     bne        LAB_0802f44c
     push       {r5}
     ldr        r0,DAT_0802f4ec
@@ -379,8 +369,7 @@ LAB_0802f44c:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802f474
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_0802f474
     push       {r5}
     mov        r1,#0x0
@@ -511,11 +500,9 @@ _ts MapSetup_ACDC_Station_F30
     ldr        r0,PTR_BgTask_802F628
     bl         BgTask_AddNew
     pop        {r5}
-    mov        r0,#0x93
-    bl         Flag_GetBase
+    Flag_GetBase 0x93
     beq        LAB_0802f58e
-    mov        r0,#0x94
-    bl         Flag_SetBase
+    Flag_SetBase 0x94
 LAB_0802f58e:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -538,11 +525,9 @@ PTR_EventHandler_ACDC_Station_F30_0_0802f5a8:
 
 _ts EventHandler_ACDC_Station_F30_0
     push       {lr}
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     beq        LAB_0802f5cc
-    mov        r0,#0x14
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x14
     bne        LAB_0802f5cc
     push       {r5}
     ldr        r0,DAT_0802f630
@@ -559,8 +544,7 @@ LAB_0802f5cc:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802f600
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_0802f600
     push       {r5}
     mov        r0,#0x3d
@@ -696,8 +680,7 @@ _ts EventHandler_ACDC_Station_F40_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802f716
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_0802f716
     push       {r5}
     mov        r0,#0x3e
@@ -825,8 +808,7 @@ _ts EventHandler_ACDC_Station_F50_0
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_0802f81e
-    mov        r0,#0x2a
-    bl         Flag_GetBase
+    Flag_GetBase 0x2A
     beq        LAB_0802f81e
     push       {r5}
     mov        r0,#0x3d

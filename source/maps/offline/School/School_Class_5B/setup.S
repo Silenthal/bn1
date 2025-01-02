@@ -10,8 +10,7 @@ _ts MapSetup_School_Class_5B_S1
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_08025592
     mov        r0,#0x4
@@ -67,8 +66,7 @@ _ts MapSetup_School_Class_5B_F13
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0xa7
-    bl         Flag_GetBase
+    Flag_GetBase 0xA7
     pop        {r5}
     bne        LAB_08025620
     mov        r0,#0x0
@@ -99,8 +97,7 @@ PTR_EventHandler_School_Class_5B_F13_0_0802563c:
 _ts EventHandler_School_Class_5B_F13_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xa7
-    bl         Flag_GetBase
+    Flag_GetBase 0xA7
     pop        {r5}
     beq        LAB_08025664
     push       {r5}
@@ -138,8 +135,7 @@ _nt MapSetup_School_Class_5B_F14
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0xb4
-    bl         Flag_GetBase
+    Flag_GetBase 0xB4
     pop        {r5}
     bne        LAB_080256a6
     mov        r0,#0x0
@@ -173,8 +169,7 @@ PTR_EventHandler_School_Class_5B_F14_0_080256c4:
 _ts EventHandler_School_Class_5B_F14_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xad
-    bl         Flag_GetBase
+    Flag_GetBase 0xAD
     pop        {r5}
     beq        LAB_080256ea
     push       {r5}
@@ -281,8 +276,7 @@ _ts MapSetup_School_Class_5B_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_080257ae
     push       {r5}
     mov        r0,#0x4
@@ -290,8 +284,7 @@ _ts MapSetup_School_Class_5B_S2
     pop        {r5}
     b          LAB_080257c6
 LAB_080257ae:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_080257c2
     push       {r5}
     mov        r0,#0x3

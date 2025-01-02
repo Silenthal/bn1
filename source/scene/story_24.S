@@ -111,8 +111,7 @@ _ts S_Story_24_4
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08088e94
-    mov        r0,#0xa4
-    bl         Flag_SetBase
+    Flag_SetBase 0xA4
     mov        r0,#0xa0
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -208,13 +207,11 @@ _nt S_Story_24_8
     beq        LAB_08088f60
     push       {r5}
     bl         Text_DisableDialogue
-    mov        r0,#0xa3
-    bl         Flag_SetBase
+    Flag_SetBase 0xA3
     ldr        r7,PTR_DAT_08088f8c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x2b
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2B
     bl         PlayerAnimation_Unlock
     bl         Scene_UnloadAndResetStepCounter
 LAB_08088f60:

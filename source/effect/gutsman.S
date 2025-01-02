@@ -129,8 +129,7 @@ LAB_08081010:
     pop        {r5}
     mov        r0,#0x95
     bl         Sound_PlaySongImmediate
-    mov        r0,#0xf9
-    bl         Flag_SetBase
+    Flag_SetBase 0xF9
 LAB_08081032:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80

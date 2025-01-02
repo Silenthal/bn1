@@ -83,8 +83,7 @@ LAB_0804d5cc:
     bl         Scene_Prepare
     pop        {r5}
 LAB_0804d5d8:
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     bne        LAB_0804d5ec
     push       {r5}
     ldr        r7,PTR_NPCList_804E20C_0804d974
@@ -102,91 +101,73 @@ LAB_0804d5ec:
     b          LAB_0804d6e0
 LAB_0804d600:
     push       {r5}
-    mov        r0,#0xd4
-    bl         Flag_GetBase
+    Flag_GetBase 0xD4
     beq        LAB_0804d612
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     b          LAB_0804d618
 LAB_0804d612:
     mov        r1,#0xd
     bl         Effect_WWWGate_Create
 LAB_0804d618:
-    mov        r0,#0xd5
-    bl         Flag_GetBase
+    Flag_GetBase 0xD5
     beq        LAB_0804d628
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_01
     b          LAB_0804d62e
 LAB_0804d628:
     mov        r1,#0xe
     bl         Effect_WWWGate_Create
 LAB_0804d62e:
-    mov        r0,#0xd6
-    bl         Flag_GetBase
+    Flag_GetBase 0xD6
     beq        LAB_0804d63e
-    mov        r0,#0x2
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_02
     b          LAB_0804d644
 LAB_0804d63e:
     mov        r1,#0xf
     bl         Effect_WWWGate_Create
 LAB_0804d644:
-    mov        r0,#0xd7
-    bl         Flag_GetBase
+    Flag_GetBase 0xD7
     beq        LAB_0804d654
-    mov        r0,#0x3
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_03
     b          LAB_0804d65a
 LAB_0804d654:
     mov        r1,#0x10
     bl         Effect_WWWGate_Create
 LAB_0804d65a:
-    mov        r0,#0xca
-    bl         Flag_GetBase
+    Flag_GetBase 0xCA
     beq        LAB_0804d66a
-    mov        r0,#0x4
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_04
     b          LAB_0804d670
 LAB_0804d66a:
     mov        r1,#0x11
     bl         Effect_WWWGate_Create
 LAB_0804d670:
-    mov        r0,#0xcc
-    bl         Flag_GetBase
+    Flag_GetBase 0xCC
     beq        LAB_0804d680
-    mov        r0,#0x5
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_05
     b          LAB_0804d686
 LAB_0804d680:
     mov        r1,#0x12
     bl         Effect_WWWGate_Create
 LAB_0804d686:
-    mov        r0,#0xce
-    bl         Flag_GetBase
+    Flag_GetBase 0xCE
     beq        LAB_0804d696
-    mov        r0,#0x6
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_06
     b          LAB_0804d69c
 LAB_0804d696:
     mov        r1,#0x13
     bl         Effect_WWWGate_Create
 LAB_0804d69c:
-    mov        r0,#0xd0
-    bl         Flag_GetBase
+    Flag_GetBase 0xD0
     beq        LAB_0804d6ac
-    mov        r0,#0x7
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_07
     b          LAB_0804d6b2
 LAB_0804d6ac:
     mov        r1,#0x14
     bl         Effect_WWWGate_Create
 LAB_0804d6b2:
-    mov        r0,#0xd2
-    bl         Flag_GetBase
+    Flag_GetBase 0xD2
     beq        LAB_0804d6c2
-    mov        r0,#0x8
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_08
     b          LAB_0804d6ce
 LAB_0804d6c2:
     mov        r1,#0x15
@@ -196,8 +177,7 @@ LAB_0804d6c2:
 LAB_0804d6ce:
     pop        {r5}
     push       {r5}
-    mov        r0,#0xb4
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xB4
     ldr        r0,PTR_EntityAllocParams_804E90C_0804d97c
     bl         Entity_AllocList
     pop        {r5}
@@ -225,34 +205,22 @@ PTR_EventHandler_WWW_Comp_2_F54_0_0804d6f8:
 
 _ts EventHandler_WWW_Comp_2_F54_0
     push       {lr}
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     beq        LAB_0804d708
     b          LAB_0804d960
 LAB_0804d708:
-    mov        r0,#0xc3
-    bl         Flag_ClearBase
-    mov        r0,#0xc5
-    bl         Flag_ClearBase
-    mov        r0,#0xc7
-    bl         Flag_ClearBase
-    mov        r0,#0xc9
-    bl         Flag_ClearBase
-    mov        r0,#0xcb
-    bl         Flag_ClearBase
-    mov        r0,#0xcd
-    bl         Flag_ClearBase
-    mov        r0,#0xcf
-    bl         Flag_ClearBase
-    mov        r0,#0xd1
-    bl         Flag_ClearBase
-    mov        r0,#0xd3
-    bl         Flag_ClearBase
-    mov        r0,#0xd4
-    bl         Flag_GetBase
+    Flag_ClearBase 0xC3
+    Flag_ClearBase 0xC5
+    Flag_ClearBase 0xC7
+    Flag_ClearBase 0xC9
+    Flag_ClearBase 0xCB
+    Flag_ClearBase 0xCD
+    Flag_ClearBase 0xCF
+    Flag_ClearBase 0xD1
+    Flag_ClearBase 0xD3
+    Flag_GetBase 0xD4
     bne        LAB_0804d77a
-    mov        r0,#0xc2
-    bl         Flag_GetBase
+    Flag_GetBase 0xC2
     beq        LAB_0804d75c
     push       {r5}
     ldr        r0,DAT_0804d984
@@ -265,8 +233,7 @@ LAB_0804d75c:
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_0804d77a
-    mov        r0,#0xc3
-    bl         Flag_SetBase
+    Flag_SetBase 0xC3
     push       {r5}
     ldr        r0,DAT_0804d988
     mov        r1,#0xa
@@ -274,11 +241,9 @@ LAB_0804d75c:
     pop        {r5}
     pop        {pc}
 LAB_0804d77a:
-    mov        r0,#0xd5
-    bl         Flag_GetBase
+    Flag_GetBase 0xD5
     bne        LAB_0804d7b6
-    mov        r0,#0xc4
-    bl         Flag_GetBase
+    Flag_GetBase 0xC4
     beq        LAB_0804d798
     push       {r5}
     ldr        r0,DAT_0804d98c
@@ -291,8 +256,7 @@ LAB_0804d798:
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x21
     bne        LAB_0804d7b6
-    mov        r0,#0xc5
-    bl         Flag_SetBase
+    Flag_SetBase 0xC5
     push       {r5}
     ldr        r0,DAT_0804d990
     mov        r1,#0xa
@@ -300,11 +264,9 @@ LAB_0804d798:
     pop        {r5}
     pop        {pc}
 LAB_0804d7b6:
-    mov        r0,#0xd6
-    bl         Flag_GetBase
+    Flag_GetBase 0xD6
     bne        LAB_0804d7f2
-    mov        r0,#0xc6
-    bl         Flag_GetBase
+    Flag_GetBase 0xC6
     beq        LAB_0804d7d4
     push       {r5}
     ldr        r0,DAT_0804d994
@@ -317,8 +279,7 @@ LAB_0804d7d4:
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x22
     bne        LAB_0804d7f2
-    mov        r0,#0xc7
-    bl         Flag_SetBase
+    Flag_SetBase 0xC7
     push       {r5}
     ldr        r0,DAT_0804d998
     mov        r1,#0xa
@@ -326,11 +287,9 @@ LAB_0804d7d4:
     pop        {r5}
     pop        {pc}
 LAB_0804d7f2:
-    mov        r0,#0xd7
-    bl         Flag_GetBase
+    Flag_GetBase 0xD7
     bne        LAB_0804d82e
-    mov        r0,#0xc8
-    bl         Flag_GetBase
+    Flag_GetBase 0xC8
     beq        LAB_0804d810
     push       {r5}
     ldr        r0,DAT_0804d99c
@@ -343,8 +302,7 @@ LAB_0804d810:
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x23
     bne        LAB_0804d82e
-    mov        r0,#0xc9
-    bl         Flag_SetBase
+    Flag_SetBase 0xC9
     push       {r5}
     ldr        r0,DAT_0804d9a0
     mov        r1,#0xa
@@ -352,11 +310,9 @@ LAB_0804d810:
     pop        {r5}
     pop        {pc}
 LAB_0804d82e:
-    mov        r0,#0xd8
-    bl         Flag_GetBase
+    Flag_GetBase 0xD8
     bne        LAB_0804d86a
-    mov        r0,#0xca
-    bl         Flag_GetBase
+    Flag_GetBase 0xCA
     beq        LAB_0804d84c
     push       {r5}
     ldr        r0,DAT_0804d9a4
@@ -369,8 +325,7 @@ LAB_0804d84c:
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x24
     bne        LAB_0804d86a
-    mov        r0,#0xcb
-    bl         Flag_SetBase
+    Flag_SetBase 0xCB
     push       {r5}
     ldr        r0,DAT_0804d9a8
     mov        r1,#0xa
@@ -378,11 +333,9 @@ LAB_0804d84c:
     pop        {r5}
     pop        {pc}
 LAB_0804d86a:
-    mov        r0,#0xd9
-    bl         Flag_GetBase
+    Flag_GetBase 0xD9
     bne        LAB_0804d8a6
-    mov        r0,#0xcc
-    bl         Flag_GetBase
+    Flag_GetBase 0xCC
     beq        LAB_0804d888
     push       {r5}
     ldr        r0,DAT_0804d9ac
@@ -395,8 +348,7 @@ LAB_0804d888:
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x25
     bne        LAB_0804d8a6
-    mov        r0,#0xcd
-    bl         Flag_SetBase
+    Flag_SetBase 0xCD
     push       {r5}
     ldr        r0,DAT_0804d9b0
     mov        r1,#0xa
@@ -404,11 +356,9 @@ LAB_0804d888:
     pop        {r5}
     pop        {pc}
 LAB_0804d8a6:
-    mov        r0,#0xda
-    bl         Flag_GetBase
+    Flag_GetBase 0xDA
     bne        LAB_0804d8e2
-    mov        r0,#0xce
-    bl         Flag_GetBase
+    Flag_GetBase 0xCE
     beq        LAB_0804d8c4
     push       {r5}
     ldr        r0,DAT_0804d9b4
@@ -421,8 +371,7 @@ LAB_0804d8c4:
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x26
     bne        LAB_0804d8e2
-    mov        r0,#0xcf
-    bl         Flag_SetBase
+    Flag_SetBase 0xCF
     push       {r5}
     ldr        r0,DAT_0804d9b8
     mov        r1,#0xa
@@ -430,11 +379,9 @@ LAB_0804d8c4:
     pop        {r5}
     pop        {pc}
 LAB_0804d8e2:
-    mov        r0,#0xdb
-    bl         Flag_GetBase
+    Flag_GetBase 0xDB
     bne        LAB_0804d91e
-    mov        r0,#0xd0
-    bl         Flag_GetBase
+    Flag_GetBase 0xD0
     beq        LAB_0804d900
     push       {r5}
     ldr        r0,DAT_0804d9bc
@@ -447,8 +394,7 @@ LAB_0804d900:
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x27
     bne        LAB_0804d91e
-    mov        r0,#0xd1
-    bl         Flag_SetBase
+    Flag_SetBase 0xD1
     push       {r5}
     ldr        r0,DAT_0804d9c0
     mov        r1,#0xa
@@ -456,11 +402,9 @@ LAB_0804d900:
     pop        {r5}
     pop        {pc}
 LAB_0804d91e:
-    mov        r0,#0xdc
-    bl         Flag_GetBase
+    Flag_GetBase 0xDC
     bne        LAB_0804d960
-    mov        r0,#0xd2
-    bl         Flag_GetBase
+    Flag_GetBase 0xD2
     beq        LAB_0804d93c
     push       {r5}
     ldr        r0,DAT_0804d9c4
@@ -473,10 +417,8 @@ LAB_0804d93c:
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x28
     bne        LAB_0804d960
-    mov        r0,#0xd3
-    bl         Flag_SetBase
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_SetBase 0xD3
+    Flag_GetBase 0xB6
     bne        LAB_0804d960
     push       {r5}
     ldr        r0,PTR_Scene_Story_72_0804d9c8

@@ -65,8 +65,7 @@ _ts S_Story_7B_1
     push       {r5}
     mov        r1,#0x7
     bl         Effect_LifeVirusSeed_Create
-    mov        r0,#0xf9
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xF9
     ldr        r7,PTR_NPCList_803E8E8_08097210
     bl         Map_LoadNPCList
     pop        {r5}
@@ -335,8 +334,7 @@ _ts S_Story_7B_8
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xe8
-    bl         Flag_SetBase
+    Flag_SetBase 0xE8
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]

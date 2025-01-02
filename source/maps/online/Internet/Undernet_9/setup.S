@@ -75,11 +75,9 @@ LAB_08053834:
     ldr        r7,PTR_NPCList_8054E2C_080538f8
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x82
-    bl         Flag_GetBase
+    Flag_GetBase 0x82
     beq        LAB_0805385c
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     b          LAB_08053866
 LAB_0805385c:
     push       {r5}
@@ -119,11 +117,9 @@ LAB_08053892:
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
 LAB_08053896:
-    mov        r0,#0x82
-    bl         Flag_GetBase
+    Flag_GetBase 0x82
     bne        LAB_080538cc
-    mov        r0,#0x81
-    bl         Flag_GetBase
+    Flag_GetBase 0x81
     beq        LAB_080538b4
     push       {r5}
     ldr        r0,PTR_Scene_UnlockWWWGate_08053900

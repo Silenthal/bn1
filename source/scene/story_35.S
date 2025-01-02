@@ -285,8 +285,7 @@ _nt S_Story_35_11
     beq        LAB_0808c3a2
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0x90
-    bl         Flag_SetBase
+    Flag_SetBase 0x90
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

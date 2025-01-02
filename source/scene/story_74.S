@@ -125,8 +125,7 @@ _ts S_Story_74_3
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
     bl         Sound_PlaySongImmediate
-    mov        r0,#0xdf
-    bl         Flag_SetBase
+    Flag_SetBase 0xDF
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
     b          LAB_0809537e
@@ -222,8 +221,7 @@ _ts S_Story_74_6
 LAB_08095414:
     mov        r0,#0x95
     bl         Sound_PlaySongImmediate
-    mov        r0,#0xf9
-    bl         Flag_SetBase
+    Flag_SetBase 0xF9
     b          LAB_08095436
 LAB_08095422:
     push       {r5}
@@ -382,14 +380,12 @@ _ts S_Story_74_12
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
     bl         Sound_PlaySongImmediate
-    mov        r0,#0xb4
-    bl         Flag_SetBase
+    Flag_SetBase 0xB4
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
     b          LAB_08095586
 LAB_08095562:
-    mov        r0,#0xfb
-    bl         Flag_SetBase
+    Flag_SetBase 0xFB
     mov        r0,#0xa9
     bl         Sound_PlaySongImmediate
     mov        r0,#0x31
@@ -538,8 +534,7 @@ _ts S_Story_74_17
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
-    mov        r0,#0xfa
-    bl         Flag_SetBase
+    Flag_SetBase 0xFA
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_080956aa:

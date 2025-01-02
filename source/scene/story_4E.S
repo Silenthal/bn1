@@ -107,8 +107,7 @@ LAB_0808f118:
 
 
 _nt S_Story_4E_4
-    mov        r0,#0xc9
-    bl         Flag_GetBase
+    Flag_GetBase 0xC9
     beq        LAB_0808f136
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
@@ -196,8 +195,7 @@ _nt S_Story_4E_8
     pop        {r5}
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0x93
-    bl         Flag_SetBase
+    Flag_SetBase 0x93
     pop        {r5}
     mov        r0,#0x1
     bl         Sound_ChangeSong

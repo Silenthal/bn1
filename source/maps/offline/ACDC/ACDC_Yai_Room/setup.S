@@ -77,13 +77,11 @@ PTR_EventHandler_ACDC_Yai_Room_F02_0_0802e4a8:
 _ts EventHandler_ACDC_Yai_Room_F02_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xe1
-    bl         Flag_GetBase
+    Flag_GetBase 0xE1
     pop        {r5}
     beq        LAB_0802e4e6
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
     pop        {r5}
     push       {r5}
     LoadMain world, r0, r7
@@ -215,8 +213,7 @@ _ts MapSetup_ACDC_Yai_Room_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_0802e5ca
     push       {r5}
     mov        r0,#0x4
@@ -224,8 +221,7 @@ _ts MapSetup_ACDC_Yai_Room_S2
     pop        {r5}
     b          LAB_0802e5e2
 LAB_0802e5ca:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0802e5de
     push       {r5}
     mov        r0,#0x3
@@ -343,8 +339,7 @@ PTR_EventHandler_ACDC_Yai_Room_F21_0_0802e6b0:
 
 _ts EventHandler_ACDC_Yai_Room_F21_0
     push       {lr}
-    mov        r0,#0x6f
-    bl         Flag_GetBase
+    Flag_GetBase 0x6F
     beq        LAB_0802e6c6
     LoadMain world, r0, r0
     mov        r1,#0x22

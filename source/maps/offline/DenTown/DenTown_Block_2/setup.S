@@ -13,25 +13,21 @@ _ts MapSetup_DenTown_Block_2_S3
     ldr        r0,PTR_EntityAllocParams_803A954_08037828
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     bne        LAB_08037600
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_GetBase 0xA6
     beq        LAB_080375e0
     mov        r0,#0x4
     bl         Sound_ChangeSong
     b          LAB_08037604
 LAB_080375e0:
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     beq        LAB_080375f0
     mov        r0,#0x3
     bl         Sound_ChangeSong
     b          LAB_08037604
 LAB_080375f0:
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     beq        LAB_08037600
     mov        r0,#0x4
     bl         Sound_ChangeSong
@@ -124,10 +120,8 @@ _ts MapSetup_DenTown_Block_2_F34
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -181,8 +175,7 @@ _ts MapSetup_DenTown_Block_2_F35
     ldr        r7,PTR_NPCList_80392E4_08037844
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xaf
-    bl         Flag_GetBase
+    Flag_GetBase 0xAF
     bne        LAB_08037748
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -200,8 +193,7 @@ _ts MapSetup_DenTown_Block_2_F35
     mov        r0,#0x0
     b          LAB_08037766
 LAB_08037748:
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     mov        r0,#0x2
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0xa]

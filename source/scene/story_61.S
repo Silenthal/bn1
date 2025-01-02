@@ -103,8 +103,7 @@ LAB_08091716:
 
 
 _ts S_Story_61_3
-    mov        r0,#0xc8
-    bl         Flag_GetBase
+    Flag_GetBase 0xC8
     beq        LAB_08091734
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
@@ -192,19 +191,15 @@ _ts S_Story_61_7
     bl         PetStatusControl_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0xc7
-    bl         Flag_SetBase
+    Flag_SetBase 0xC7
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x50
     strb       r1,[r0,#0x6]
-    mov        r0,#0x2d
-    bl         Flag_ClearBase
-    mov        r0,#0x2f
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2D
+    Flag_ClearBase 0x2F
     push       {r5}
-    mov        r0,#0x4
-    bl         Flag_SetBase
+    Flag_SetBase 0x04
     bl         FUN_080102e8
     bl         Shop_RestockHigsby2
     mov        r0,#0x3c
@@ -216,8 +211,7 @@ _ts S_Story_61_7
     mov        r0,#0x3e
     mov        r1,#0x1
     bl         KeyItem_SubtractAmount
-    mov        r0,#0x2a
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2A
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

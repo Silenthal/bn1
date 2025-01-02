@@ -9,16 +9,14 @@ _ts MapSetup_SciLab_Power_Plant_S4
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803c844
     push       {r5}
     ldr        r0,PTR_BgTask_803BAD4_0803ca24
     bl         BgTask_AddNew
     pop        {r5}
 LAB_0803c844:
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     bne        LAB_0803c854
     mov        r0,#0x3
     bl         Sound_ChangeSong
@@ -74,10 +72,8 @@ _ts MapSetup_SciLab_Power_Plant_F41
     ldr        r7,PTR_NPCList_803D48C_0803ca2c
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
+    Flag_SetGate F_GATE_02
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -100,16 +96,14 @@ PTR_EventHandler_SciLab_Power_Plant_F41_0_0803c8ec:
 
 _ts EventHandler_SciLab_Power_Plant_F41_0
     push       {lr}
-    mov        r0,#0xaf
-    bl         Flag_GetBase
+    Flag_GetBase 0xAF
     beq        LAB_0803c926
     push       {r5}
     mov        r0,#0x80
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0803c926
-    mov        r0,#0x1
-    bl         Flag_ClearGate
+    Flag_ClearGate F_GATE_01
     push       {r5}
     ldr        r0,PTR_BgTask_803BABC_0803ca34
     bl         BgTask_AddNew
@@ -141,8 +135,7 @@ _ts MapSetup_SciLab_Power_Plant_F42
     ldr        r7,PTR_NPCList_803D4CC_0803ca38
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -369,8 +362,7 @@ LAB_0803cae4:
     bl         Map_LoadNPCList
 LAB_0803caea:
     pop        {r5}
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

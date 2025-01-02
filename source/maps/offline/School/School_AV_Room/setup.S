@@ -10,8 +10,7 @@ _ts MapSetup_School_AV_Room_S1
     mov        lr,pc
     bx         r0
     push       {r5}
-    mov        r0,#0x9a
-    bl         Flag_GetBase
+    Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_08026efe
     mov        r0,#0x4
@@ -103,8 +102,7 @@ _ts MapSetup_School_AV_Room_F14
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0xb4
-    bl         Flag_GetBase
+    Flag_GetBase 0xB4
     pop        {r5}
     bne        LAB_08026fca
     mov        r0,#0x0
@@ -138,8 +136,7 @@ PTR_EventHandler_School_AV_Room_F14_0_08026fe8:
 _ts EventHandler_School_AV_Room_F14_0
     push       {lr}
     push       {r5}
-    mov        r0,#0xad
-    bl         Flag_GetBase
+    Flag_GetBase 0xAD
     pop        {r5}
     beq        LAB_0802700e
     push       {r5}
@@ -173,8 +170,7 @@ _ts MapSetup_School_AV_Room_F15
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     bne        LAB_08027048
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -204,17 +200,14 @@ PTR_EventHandler_School_AV_Room_F15_0_08027064:
 
 _ts EventHandler_School_AV_Room_F15_0
     push       {lr}
-    mov        r0,#0xc5
-    bl         Flag_GetBase
+    Flag_GetBase 0xC5
     beq        LAB_08027086
-    mov        r0,#0xc5
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xC5
     mov        r0,#0x0
     strb       r0,[r5,#0x0]
     pop        {pc}
 LAB_08027086:
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     beq        LAB_0802709e
     push       {r5}
     mov        r1,#0x0
@@ -275,8 +268,7 @@ _ts MapSetup_School_AV_Room_S2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08027106
     push       {r5}
     mov        r0,#0x4
@@ -284,8 +276,7 @@ _ts MapSetup_School_AV_Room_S2
     pop        {r5}
     b          LAB_0802711e
 LAB_08027106:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_0802711a
     push       {r5}
     mov        r0,#0x3
@@ -300,11 +291,9 @@ LAB_0802711e:
     ldrb       r1,[r7,#0xd]
     cmp        r0,r1
     beq        LAB_08027138
-    mov        r0,#0x13
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A_GATE_2
     beq        LAB_08027138
-    mov        r0,#0x14
-    bl         Flag_SetEvent
+    Flag_SetEvent F_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A_GATE_3
 LAB_08027138:
     pop        {pc}
 
@@ -407,11 +396,9 @@ _ts MapSetup_School_AV_Room_S3
     ldrb       r1,[r7,#0xd]
     cmp        r0,r1
     beq        LAB_0802721c
-    mov        r0,#0x13
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A_GATE_2
     beq        LAB_0802721c
-    mov        r0,#0x14
-    bl         Flag_SetEvent
+    Flag_SetEvent F_EVENT_SCHOOL_AV_ROOM_TRADE_BSTRGARD_A_GATE_3
 LAB_0802721c:
     pop        {pc}
 

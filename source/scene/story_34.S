@@ -163,19 +163,15 @@ LAB_0808b542:
 _ts S_Story_34_7
     push       {r5}
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xd4
-    bl         Flag_SetBase
+    Flag_SetBase 0xD4
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x30
     strb       r1,[r0,#0x6]
-    mov        r0,#0x29
-    bl         Flag_ClearBase
-    mov        r0,#0x2c
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x29
+    Flag_ClearBase 0x2C
     push       {r5}
-    mov        r0,#0x2
-    bl         Flag_SetBase
+    Flag_SetBase 0x02
     bl         FUN_080102e8
     bl         Shop_RestockHigsby1
     mov        r0,#0x3c
@@ -187,8 +183,7 @@ _ts S_Story_34_7
     mov        r0,#0x3e
     mov        r1,#0x1
     bl         KeyItem_SubtractAmount
-    mov        r0,#0x2a
-    bl         Flag_ClearBase
+    Flag_ClearBase 0x2A
     pop        {r5}
     push       {r5}
     LoadMain mapChange, r0, r7

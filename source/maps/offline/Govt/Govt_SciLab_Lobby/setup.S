@@ -15,8 +15,7 @@ _ts MapSetup_Govt_SciLab_Lobby_S2
     ldr        r0,PTR_EntityAllocParams_8035C70_080330d8
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xab
-    bl         Flag_GetBase
+    Flag_GetBase 0xAB
     beq        LAB_08032efa
     push       {r5}
     mov        r0,#0x4
@@ -24,8 +23,7 @@ _ts MapSetup_Govt_SciLab_Lobby_S2
     pop        {r5}
     b          LAB_08032f12
 LAB_08032efa:
-    mov        r0,#0xdf
-    bl         Flag_GetBase
+    Flag_GetBase 0xDF
     beq        LAB_08032f0e
     push       {r5}
     mov        r0,#0x3
@@ -87,8 +85,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F22
     ldr        r7,PTR_NPCList_803549C_080330e4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -131,10 +128,8 @@ _ts MapSetup_Govt_SciLab_Lobby_F24
     ldr        r7,PTR_NPCList_803549C_080330f0
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0xe0
-    bl         Flag_SetBase
+    Flag_SetGate F_GATE_01
+    Flag_SetBase 0xE0
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -175,8 +170,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F25
     ldr        r0,PTR_EntityAllocParams_8035C70_080330f8
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     push       {r5}
     ldr        r7,PTR_NPCList_8035594_080330fc
     bl         Map_LoadNPCList
@@ -215,8 +209,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F22_HandleExits
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080330a6
-    mov        r0,#0xe0
-    bl         Flag_GetBase
+    Flag_GetBase 0xE0
     bne        LAB_08033092
     mov        r0,#0x4
     bl         KeyItem_IsPresent
@@ -228,8 +221,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F22_HandleExits
     pop        {r5}
     b          LAB_080330cc
 LAB_08033092:
-    mov        r0,#0xd7
-    bl         Flag_SetBase
+    Flag_SetBase 0xD7
     push       {r5}
     ldr        r0,PTR_Scene_ChangeMap_08033108
     mov        r1,#0xe
@@ -372,8 +364,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F30
     ldr        r7,PTR_NPCList_803549C_08033248
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -536,8 +527,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F40
     ldr        r0,PTR_EntityAllocParams_8035C70_08033424
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     bne        LAB_08033306
     push       {r5}
     ldr        r7,PTR_NPCList_80355BC_08033428
@@ -547,8 +537,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F40
     str        r0,[r5,#0x0]
     b          LAB_0803332c
 LAB_08033306:
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     bne        LAB_0803331e
     push       {r5}
     ldr        r7,PTR_NPCList_803559C_0803342c
@@ -565,8 +554,7 @@ LAB_0803331e:
     mov        r0,#0x4
     str        r0,[r5,#0x0]
 LAB_0803332c:
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     pop        {pc}
 
 
@@ -589,11 +577,9 @@ PTR_EventHandler_Govt_SciLab_Lobby_F40_0_08033348:
 
 _ts EventHandler_Govt_SciLab_Lobby_F40_0
     push       {lr}
-    mov        r0,#0x97
-    bl         Flag_GetBase
+    Flag_GetBase 0x97
     beq        LAB_08033376
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     bne        LAB_08033376
     push       {r5}
     ldr        r0,PTR_Scene_Story_50_08033438
@@ -608,8 +594,7 @@ LAB_08033376:
 
 _ts EventHandler_Govt_SciLab_Lobby_F40_1
     push       {lr}
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     beq        LAB_080333ae
     push       {r5}
     LoadMain world, r0, r7
@@ -619,8 +604,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40_1
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_080333ae
-    mov        r0,#0x9c
-    bl         Flag_GetBase
+    Flag_GetBase 0x9C
     bne        LAB_080333ae
     push       {r5}
     ldr        r0,PTR_Scene_Story_51_0803343c
@@ -647,8 +631,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40_HandleExits
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x20
     bne        LAB_080333ec
-    mov        r0,#0x9c
-    bl         Flag_GetBase
+    Flag_GetBase 0x9C
     beq        LAB_080333de
     push       {r5}
     ldr        r0,PTR_Scene_GovtElevator_08033440
@@ -787,8 +770,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F50
     ldr        r0,PTR_EntityAllocParams_8035C70_080335c4
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -827,8 +809,7 @@ _ts MapSetup_Govt_SciLab_Lobby_F53
     ldr        r0,PTR_EntityAllocParams_8035C70_080335d0
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

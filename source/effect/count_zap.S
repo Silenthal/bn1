@@ -67,8 +67,7 @@ PTR_E_CountZap_1_0_0807fc38:
 
 
 _ts E_CountZap_1_0
-    mov        r0,#0xad
-    bl         Flag_GetBase
+    Flag_GetBase 0xAD
     beq        LAB_0807fc60
     mov        r0,#0xb
     strb       r0,[r5,#0x14]
@@ -98,8 +97,7 @@ LAB_0807fc80:
 
 
 _nt E_CountZap_1_2
-    mov        r0,#0xae
-    bl         Flag_GetBase
+    Flag_GetBase 0xAE
     beq        LAB_0807fca2
     mov        r0,#0xd
     strb       r0,[r5,#0x14]
@@ -115,8 +113,7 @@ LAB_0807fca2:
 
 
 _ts E_CountZap_1_3
-    mov        r0,#0xac
-    bl         Flag_GetBase
+    Flag_GetBase 0xAC
     beq        LAB_0807fce6
     ldrb       r0,[r5,#0xa]
     tst        r0,r0

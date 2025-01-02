@@ -205,15 +205,13 @@ _ts S_Battery_5_UseBattery
     b          LAB_08092a74
 LAB_080928b4:
     push       {r5}
-    mov        r0,#0xd3
-    bl         Flag_GetBase
+    Flag_GetBase 0xD3
     pop        {r5}
     bne        LAB_080928c2
     pop        {pc}
 LAB_080928c2:
     push       {r5}
-    mov        r0,#0xd3
-    bl         Flag_ClearBase
+    Flag_ClearBase 0xD3
     pop        {r5}
     mov        r7,#0x0
     mov        r8,r7
@@ -365,36 +363,31 @@ LAB_08092a06:
 LAB_08092a1c:
     mov        r0,#0x0
     push       {r0,r5}
-    mov        r0,#0xd8
-    bl         Flag_GetBase
+    Flag_GetBase 0xD8
     pop        {r0,r5}
     beq        LAB_08092a2c
     add        r0,#0x1
 LAB_08092a2c:
     push       {r0,r5}
-    mov        r0,#0xd9
-    bl         Flag_GetBase
+    Flag_GetBase 0xD9
     pop        {r0,r5}
     beq        LAB_08092a3a
     add        r0,#0x2
 LAB_08092a3a:
     push       {r0,r5}
-    mov        r0,#0xda
-    bl         Flag_GetBase
+    Flag_GetBase 0xDA
     pop        {r0,r5}
     beq        LAB_08092a48
     add        r0,#0x4
 LAB_08092a48:
     push       {r0,r5}
-    mov        r0,#0xdb
-    bl         Flag_GetBase
+    Flag_GetBase 0xDB
     pop        {r0,r5}
     beq        LAB_08092a56
     add        r0,#0x8
 LAB_08092a56:
     push       {r0,r5}
-    mov        r0,#0xdc
-    bl         Flag_GetBase
+    Flag_GetBase 0xDC
     pop        {r0,r5}
     beq        LAB_08092a64
     add        r0,#0x10

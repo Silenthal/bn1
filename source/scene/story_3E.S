@@ -234,8 +234,7 @@ _nt S_Story_3E_9
     bl         PlayerAnimation_Unlock
     pop        {r5}
     push       {r5}
-    mov        r0,#0xae
-    bl         Flag_SetBase
+    Flag_SetBase 0xAE
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x34

@@ -152,8 +152,7 @@ LAB_0801b4bc:
     strb       r0,[r5,#0xf]
     mov        r0,#0xb0
     push       {r0}
-    mov        r0,#0xc7
-    bl         Flag_GetLibrary
+    Flag_GetLibrary 0xC7
     pop        {r0}
     bne        LAB_0801b538
     sub        r0,#0x1

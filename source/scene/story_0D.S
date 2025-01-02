@@ -92,8 +92,7 @@ _ts S_Story_0D_3
     push       {r5}
     bl         Text_DisableDialogue
     bl         PlayerAnimation_Unlock
-    mov        r0,#0xca
-    bl         Flag_SetBase
+    Flag_SetBase 0xCA
     ldr        r0,PTR_MapEntrance_08084fc0
     mov        r1,#0x0
     bl         World_SetTransitionLocation

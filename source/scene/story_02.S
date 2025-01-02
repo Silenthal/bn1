@@ -291,12 +291,9 @@ _ts S_Story_02_9
     push       {r5}
     bl         Text_DisableDialogue
     bl         PlayerAnimation_Unlock
-    mov        r0,#0x94
-    bl         Flag_SetBase
-    mov        r0,#0x0
-    bl         Flag_ClearGate
-    mov        r0,#0x1
-    bl         Flag_ClearGate
+    Flag_SetBase 0x94
+    Flag_ClearGate F_GATE_00
+    Flag_ClearGate F_GATE_01
     ldr        r0,PTR_MapEntrance_08083318
     mov        r1,#0x0
     bl         World_SetTransitionLocation

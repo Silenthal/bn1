@@ -131,8 +131,7 @@ _ts S_Story_04_5
     push       {lr}
     push       {r5}
     bl         Flag_SetPlayerActive
-    mov        r0,#0x97
-    bl         Flag_SetBase
+    Flag_SetBase 0x97
     mov        r0,#0x1
     LoadMain world, r1, r7
     ldr        r1,[r1,#0x28]

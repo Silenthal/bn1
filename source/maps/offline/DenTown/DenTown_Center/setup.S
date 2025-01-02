@@ -13,25 +13,21 @@ _ts MapSetup_DenTown_Center_S3
     ldr        r0,PTR_EntityAllocParams_8039828_080361c8
     bl         Entity_AllocList
     pop        {r5}
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_GetBase 0xBD
     bne        LAB_0803619c
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_GetBase 0xA6
     beq        LAB_0803617c
     mov        r0,#0x4
     bl         Sound_ChangeSong
     b          LAB_080361a0
 LAB_0803617c:
-    mov        r0,#0x9b
-    bl         Flag_GetBase
+    Flag_GetBase 0x9B
     beq        LAB_0803618c
     mov        r0,#0x3
     bl         Sound_ChangeSong
     b          LAB_080361a0
 LAB_0803618c:
-    mov        r0,#0x98
-    bl         Flag_GetBase
+    Flag_GetBase 0x98
     beq        LAB_0803619c
     mov        r0,#0x4
     bl         Sound_ChangeSong
@@ -126,11 +122,9 @@ PTR_EventHandler_DenTown_Center_F30_0_08036244:
 
 _ts EventHandler_DenTown_Center_F30_0
     push       {lr}
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     beq        LAB_0803626e
-    mov        r0,#0x15
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x15
     bne        LAB_0803626e
     push       {r5}
     ldr        r0,DAT_08036444
@@ -164,10 +158,8 @@ _nt MapSetup_DenTown_Center_F32
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -182,20 +174,13 @@ _nt MapSetup_DenTown_Center_F32
     ldr        r7,PTR_NPCList_8038E34_080362fc
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0x2
-    bl         Flag_SetGate
-    mov        r0,#0x3
-    bl         Flag_SetGate
-    mov        r0,#0x4
-    bl         Flag_SetGate
-    mov        r0,#0x5
-    bl         Flag_SetGate
-    mov        r0,#0x6
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
+    Flag_SetGate F_GATE_02
+    Flag_SetGate F_GATE_03
+    Flag_SetGate F_GATE_04
+    Flag_SetGate F_GATE_05
+    Flag_SetGate F_GATE_06
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -230,8 +215,7 @@ PTR_EventHandler_DenTown_Center_F32_0_08036318:
 
 _ts EventHandler_DenTown_Center_F32_0
     push       {lr}
-    mov        r0,#0x9f
-    bl         Flag_GetBase
+    Flag_GetBase 0x9F
     beq        LAB_0803633c
     push       {r5}
     ldr        r0,PTR_Scene_Story_3B_08036438
@@ -270,10 +254,8 @@ _nt MapSetup_DenTown_Center_F33
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -288,20 +270,13 @@ _nt MapSetup_DenTown_Center_F33
     ldr        r7,PTR_NPCList_8038F40_080363d4
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0x2
-    bl         Flag_SetGate
-    mov        r0,#0x3
-    bl         Flag_SetGate
-    mov        r0,#0x4
-    bl         Flag_SetGate
-    mov        r0,#0x5
-    bl         Flag_SetGate
-    mov        r0,#0xa6
-    bl         Flag_GetBase
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
+    Flag_SetGate F_GATE_02
+    Flag_SetGate F_GATE_03
+    Flag_SetGate F_GATE_04
+    Flag_SetGate F_GATE_05
+    Flag_GetBase 0xA6
     bne        LAB_080363ca
     mov        r0,#0x0
     b          LAB_080363cc
@@ -406,20 +381,13 @@ _ts MapSetup_DenTown_Center_F34
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0x4
-    bl         Flag_SetGate
-    mov        r0,#0x5
-    bl         Flag_SetGate
-    mov        r0,#0x6
-    bl         Flag_SetGate
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
+    Flag_SetGate F_GATE_04
+    Flag_SetGate F_GATE_05
+    Flag_SetGate F_GATE_06
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -434,8 +402,7 @@ _ts MapSetup_DenTown_Center_F34
     ldr        r7,PTR_NPCList_8038F40_080364e0
     bl         Map_LoadNPCList
     pop        {r5}
-    mov        r0,#0xb1
-    bl         Flag_GetBase
+    Flag_GetBase 0xB1
     bne        LAB_080364d6
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -513,20 +480,13 @@ _nt MapSetup_DenTown_Center_F35
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0x2
-    bl         Flag_SetGate
-    mov        r0,#0x3
-    bl         Flag_SetGate
-    mov        r0,#0x6
-    bl         Flag_SetGate
-    mov        r0,#0x0
-    bl         Flag_ClearIgnore
-    mov        r0,#0x1
-    bl         Flag_ClearIgnore
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
+    Flag_SetGate F_GATE_02
+    Flag_SetGate F_GATE_03
+    Flag_SetGate F_GATE_06
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -565,8 +525,7 @@ PTR_EventHandler_DenTown_Center_F35_0_080365b0:
 
 _ts EventHandler_DenTown_Center_F35_0
     push       {lr}
-    mov        r0,#0xd
-    bl         Flag_GetEmailReceived
+    Flag_GetEmailReceived 0x0D
     bne        LAB_080365cc
     push       {r5}
     ldr        r0,DAT_0803698c
@@ -600,32 +559,22 @@ _ts MapSetup_DenTown_Center_F36
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0x2
-    bl         Flag_SetGate
-    mov        r0,#0x3
-    bl         Flag_SetGate
-    mov        r0,#0x4
-    bl         Flag_SetGate
-    mov        r0,#0x5
-    bl         Flag_SetGate
-    mov        r0,#0x6
-    bl         Flag_SetGate
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
+    Flag_SetGate F_GATE_02
+    Flag_SetGate F_GATE_03
+    Flag_SetGate F_GATE_04
+    Flag_SetGate F_GATE_05
+    Flag_SetGate F_GATE_06
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
     mov        r0,#0x2
     strb       r0,[r5,#0xa]
     strb       r0,[r5,#0xb]
-    mov        r0,#0xb3
-    bl         Flag_GetBase
+    Flag_GetBase 0xB3
     bne        LAB_0803665c
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -637,8 +586,7 @@ _ts MapSetup_DenTown_Center_F36
     mov        r0,#0x0
     b          FUN_080366f4
 LAB_0803665c:
-    mov        r0,#0xb5
-    bl         Flag_GetBase
+    Flag_GetBase 0xB5
     bne        LAB_0803667a
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -650,8 +598,7 @@ LAB_0803665c:
     mov        r0,#0x4
     b          FUN_080366f4
 LAB_0803667a:
-    mov        r0,#0xb6
-    bl         Flag_GetBase
+    Flag_GetBase 0xB6
     bne        LAB_08036698
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -663,8 +610,7 @@ LAB_0803667a:
     mov        r0,#0x8
     b          FUN_080366f4
 LAB_08036698:
-    mov        r0,#0xb7
-    bl         Flag_GetBase
+    Flag_GetBase 0xB7
     bne        LAB_080366b6
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -676,8 +622,7 @@ LAB_08036698:
     mov        r0,#0xc
     b          FUN_080366f4
 LAB_080366b6:
-    mov        r0,#0xb9
-    bl         Flag_GetBase
+    Flag_GetBase 0xB9
     bne        LAB_080366d4
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -689,8 +634,7 @@ LAB_080366b6:
     mov        r0,#0x10
     b          FUN_080366f4
 LAB_080366d4:
-    mov        r0,#0xba
-    bl         Flag_GetBase
+    Flag_GetBase 0xBA
     bne        LAB_080366f2
     LoadMain world, r0, r0
     mov        r1,#0x0
@@ -757,8 +701,7 @@ _ts EventHandler_DenTown_Center_F36_1
 
 _ts EventHandler_DenTown_Center_F36_2
     push       {lr}
-    mov        r0,#0xc7
-    bl         Flag_GetBase
+    Flag_GetBase 0xC7
     beq        LAB_0803676a
     push       {r5}
     ldr        r0,PTR_Scene_Story_46_080369b8
@@ -773,8 +716,7 @@ LAB_0803676a:
 
 _ts EventHandler_DenTown_Center_F36_3
     push       {lr}
-    mov        r0,#0xc8
-    bl         Flag_GetBase
+    Flag_GetBase 0xC8
     beq        LAB_08036786
     push       {r5}
     ldr        r0,PTR_Scene_Story_47_080369bc
@@ -825,26 +767,16 @@ _ts MapSetup_DenTown_Center_F37
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x0
-    bl         Flag_SetGate
-    mov        r0,#0x1
-    bl         Flag_SetGate
-    mov        r0,#0x2
-    bl         Flag_SetGate
-    mov        r0,#0x3
-    bl         Flag_SetGate
-    mov        r0,#0x4
-    bl         Flag_SetGate
-    mov        r0,#0x5
-    bl         Flag_SetGate
-    mov        r0,#0x6
-    bl         Flag_SetGate
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
-    mov        r0,#0x1
-    bl         Flag_SetIgnore
-    mov        r0,#0xbd
-    bl         Flag_GetBase
+    Flag_SetGate F_GATE_00
+    Flag_SetGate F_GATE_01
+    Flag_SetGate F_GATE_02
+    Flag_SetGate F_GATE_03
+    Flag_SetGate F_GATE_04
+    Flag_SetGate F_GATE_05
+    Flag_SetGate F_GATE_06
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_GetBase 0xBD
     beq        LAB_0803682a
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_803A1F4_080369c8
@@ -903,8 +835,7 @@ _ts EventHandler_DenTown_Center_F37_0
     strb       r0,[r5,#0x1]
     pop        {pc}
 LAB_08036876:
-    mov        r0,#0xb2
-    bl         Flag_SetBase
+    Flag_SetBase 0xB2
     mov        r0,#0x4
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -1387,11 +1318,9 @@ PTR_EventHandler_DenTown_Center_F50_0_08036be4:
 
 _ts EventHandler_DenTown_Center_F50_0
     push       {lr}
-    mov        r0,#0x97
-    bl         Flag_GetBase
+    Flag_GetBase 0x97
     bne        LAB_08036c06
-    mov        r0,#0x95
-    bl         Flag_GetBase
+    Flag_GetBase 0x95
     beq        LAB_08036c06
     push       {r5}
     ldr        r0,PTR_Scene_Dentown_Center_Chaud_Undernet_08036c80

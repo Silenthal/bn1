@@ -26,8 +26,7 @@ _ts MapSetup_Internet_2_S0
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8051820_080525c8
     bl         BgTask_AddNew
-    mov        r0,#0x17
-    bl         Flag_GetBase
+    Flag_GetBase 0x17
     beq        LAB_080522da
     ldr        r0,PTR_BgTask_8051738_080525cc
     bl         BgTask_AddNew
@@ -55,12 +54,10 @@ _ts MapSetup_Internet_2
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    mov        r0,#0x17
-    bl         Flag_GetBase
+    Flag_GetBase 0x17
     beq        LAB_08052314
     push       {r5}
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     b          LAB_0805231e
 LAB_08052314:
@@ -69,16 +66,14 @@ LAB_08052314:
     bl         Effect_WWWGate_Create
     pop        {r5}
 LAB_0805231e:
-    mov        r0,#0x19
-    bl         Flag_GetBase
+    Flag_GetBase 0x19
     bne        LAB_0805235c
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_8055428_080525d4
     bl         Entity_AllocList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x6f
-    bl         Flag_GetBase
+    Flag_GetBase 0x6F
     pop        {r5}
     beq        LAB_0805235c
     push       {r5}
@@ -111,8 +106,7 @@ LAB_08052370:
     mov        r4,#0x6
     lsl        r4,r4,#0x2
     push       {r3,r4,r6}
-    mov        r0,#0x19
-    bl         Flag_GetBase
+    Flag_GetBase 0x19
     pop        {r3,r4,r6}
     bne        LAB_0805238e
     mov        r0,#0x40
@@ -122,13 +116,11 @@ LAB_08052370:
     add        r4,#0x4
 LAB_0805238e:
     push       {r3,r4,r6}
-    mov        r0,#0x1a
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_ACDC_TOWN_TRADE_10000Z_GATE_1
     pop        {r3,r4,r6}
     beq        LAB_080523b0
     push       {r3,r4,r6}
-    mov        r0,#0x1b
-    bl         Flag_GetEvent
+    Flag_GetEvent F_EVENT_ACDC_TOWN_TRADE_10000Z_GATE_2
     pop        {r3,r4,r6}
     bne        LAB_080523b0
     mov        r0,#0x50
@@ -144,17 +136,13 @@ LAB_080523b0:
     bl         Map_LoadNPCList
     pop        {r5}
 LAB_080523be:
-    mov        r0,#0x50
-    bl         Flag_GetBase
+    Flag_GetBase 0x50
     bne        LAB_080523cc
-    mov        r0,#0x1
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_01
 LAB_080523cc:
-    mov        r0,#0x51
-    bl         Flag_GetBase
+    Flag_GetBase 0x51
     bne        LAB_080523da
-    mov        r0,#0x2
-    bl         Flag_SetGate
+    Flag_SetGate F_GATE_02
 LAB_080523da:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
@@ -232,11 +220,9 @@ PTR_EventHandler_Internet_2_0_08052454:
 
 _ts EventHandler_Internet_2_0
     push       {lr}
-    mov        r0,#0x17
-    bl         Flag_GetBase
+    Flag_GetBase 0x17
     bne        LAB_0805247c
-    mov        r0,#0x18
-    bl         Flag_GetBase
+    Flag_GetBase 0x18
     beq        LAB_0805247c
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
@@ -265,8 +251,7 @@ LAB_08052490:
     pop        {r5}
     cmp        r0,#0x10
     bne        LAB_080524b8
-    mov        r0,#0x6f
-    bl         Flag_GetBase
+    Flag_GetBase 0x6F
     bne        LAB_080524b8
     push       {r5}
     ldr        r0,PTR_Scene_Story_1F_080525f4
@@ -302,8 +287,7 @@ LAB_080524ec:
     mov        r1,#0xc
     b          LAB_08052504
 LAB_080524f0:
-    mov        r0,#0x17
-    bl         Flag_GetBase
+    Flag_GetBase 0x17
     bne        LAB_0805250e
     LoadMain world, r0, r7
     ldrb       r0,[r0,#0xe]

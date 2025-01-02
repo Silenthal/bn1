@@ -43,10 +43,8 @@ LAB_08086fa6:
 
 _ts S_School_Comp_2_GateClear_1
     push       {r5}
-    mov        r0,#0xa9
-    bl         Flag_ClearBase
-    mov        r0,#0x0
-    bl         Flag_SetIgnore
+    Flag_ClearBase 0xA9
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     mov        r0,#0x3c
     str        r0,[r5,#0x10]
@@ -105,8 +103,7 @@ _nt S_School_Comp_2_GateClear_5
     beq        LAB_08087024
     push       {r5}
     bl         Flag_SetPlayerActive
-    mov        r0,#0xa8
-    bl         Flag_SetBase
+    Flag_SetBase 0xA8
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_08087024:

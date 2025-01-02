@@ -103,8 +103,7 @@ LAB_080851a8:
     mov        r0,#0x2
     mov        r1,#0x8
     bl         Fade_Request
-    mov        r0,#0xcd
-    bl         Flag_GetBase
+    Flag_GetBase 0xCD
     pop        {r5}
     bne        LAB_080851ce
     bl         Sound_StopAllMusic
@@ -175,10 +174,8 @@ _ts S_TutorialBattle_3
     beq        LAB_0808528a
     push       {r5}
     bl         Flag_SetPlayerActive
-    mov        r0,#0x7
-    bl         Flag_ClearSystem
-    mov        r0,#0x2
-    bl         Flag_ClearSystem
+    Flag_ClearSystem F_SYSTEM_NO_START_MENU
+    Flag_ClearSystem F_SYSTEM_NO_RANDOM_BATTLES
     bl         Text_DisableDialogue
     ldr        r0,PTR_MapEntrance_080852ac
     mov        r1,#0x0
