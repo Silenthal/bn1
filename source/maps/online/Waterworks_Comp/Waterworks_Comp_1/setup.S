@@ -30,7 +30,7 @@ LAB_080458f4:
     Flag_GetBase 0xE4
     beq        LAB_0804590e
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     pop        {r5}
 LAB_0804590e:
     pop        {pc}
@@ -413,7 +413,7 @@ _ts MapSetup_Waterworks_Comp_1_S3
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8046F90_08045cb8
     bl         Entity_AllocList
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     pop        {r5}
     pop        {pc}
 

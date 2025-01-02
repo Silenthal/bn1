@@ -304,7 +304,7 @@ LAB_0808bcae:
 
 _ts S_Waterworks_Comp_TurnHandle_Flags_1
     push       {r5,lr}
-    Flag_ToggleIgnore F_IGNORE_WALL_00
+    Flag_ToggleIgnore F_IGNORE_DOOR_00
     pop        {r5,pc}
 
     .align 2, 0
@@ -320,11 +320,11 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_2
     beq        LAB_0808bcd2
     b          LAB_0808bcf6
 LAB_0808bcca:
-    Flag_ToggleIgnore F_IGNORE_WALL_01
+    Flag_ToggleIgnore F_IGNORE_DOOR_01
     b          LAB_0808bcfe
 LAB_0808bcd2:
     push       {r5}
-    Flag_ToggleIgnore F_IGNORE_WALL_02
+    Flag_ToggleIgnore F_IGNORE_DOOR_02
     pop        {r5}
     Flag_GetBase 0xF0
     bne        LAB_0808bcfe
@@ -335,7 +335,7 @@ LAB_0808bcd2:
     pop        {r5}
     b          LAB_0808bcfe
 LAB_0808bcf6:
-    Flag_ToggleIgnore F_IGNORE_WALL_03
+    Flag_ToggleIgnore F_IGNORE_DOOR_03
     b          LAB_0808bcfe
 LAB_0808bcfe:
     pop        {r5,pc}
@@ -352,17 +352,17 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_3
     beq        LAB_0808bd22
     b          LAB_0808bd2a
 LAB_0808bd12:
-    Flag_ToggleIgnore F_IGNORE_WALL_04
+    Flag_ToggleIgnore F_IGNORE_DOOR_04
     b          LAB_0808bd54
 LAB_0808bd1a:
-    Flag_ToggleIgnore F_IGNORE_WALL_05
+    Flag_ToggleIgnore F_IGNORE_DOOR_05
     b          LAB_0808bd54
 LAB_0808bd22:
-    Flag_ToggleIgnore F_IGNORE_WALL_06
+    Flag_ToggleIgnore F_IGNORE_DOOR_06
     b          LAB_0808bd54
 LAB_0808bd2a:
     push       {r5}
-    Flag_ToggleIgnore F_IGNORE_WALL_07
+    Flag_ToggleIgnore F_IGNORE_DOOR_07
     pop        {r5}
     Flag_GetBase 0xF1
     bne        LAB_0808bd54
@@ -391,14 +391,14 @@ LAB_0808bd62:
     Flag_GetBase 0xED
     bne        LAB_0808bd7c
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_09
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_09
+    Flag_ClearIgnore F_IGNORE_DOOR_01
     pop        {r5}
     b          LAB_0808bda4
 LAB_0808bd7c:
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_01
-    Flag_ClearIgnore F_IGNORE_WALL_09
+    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_ClearIgnore F_IGNORE_DOOR_09
     pop        {r5}
     Flag_GetBase 0xF3
     bne        LAB_0808bda4
@@ -413,14 +413,14 @@ LAB_0808bda6:
     Flag_GetBase 0xEC
     bne        LAB_0808bdc0
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_08
-    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_08
+    Flag_ClearIgnore F_IGNORE_DOOR_00
     pop        {r5}
     b          LAB_0808bde8
 LAB_0808bdc0:
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_08
+    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_08
     pop        {r5}
     Flag_GetBase 0xF2
     bne        LAB_0808bde8
@@ -438,13 +438,13 @@ LAB_0808bdea:
 _ts S_Waterworks_Comp_TurnHandle_Flags_6
     push       {lr}
     push       {r5}
-    Flag_ToggleIgnore F_IGNORE_WALL_0A
+    Flag_ToggleIgnore F_IGNORE_DOOR_0A
     pop        {r5}
     Flag_GetBase 0xF4
     bne        LAB_0808be1e
     push       {r5}
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_0A
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_0A
     Flag_SetBase 0xF4
     ldr        r0,PTR_BgTask_80443C0_0808be4c
     bl         BgTask_AddNew

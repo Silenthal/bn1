@@ -95,7 +95,7 @@ LAB_0804dd28:
     push       {r5}
     ldr        r0,PTR_BgTask_804CC98_0804de00
     bl         BgTask_AddNew
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     pop        {r5}
     Flag_GetBase 0xE4
     bne        LAB_0804dd5a

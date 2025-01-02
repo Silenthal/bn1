@@ -832,20 +832,20 @@ NPC_8055353:
     .align 2, 0
 
 global_label EntityAllocParams_805536C
-    entity Effect, 0x8, f(284, -378, 0), 0x100000
-    entity Effect, 0x16, f(-468, 22, 0), 0x10000
-    entity Effect, 0x16, f(-374, 310, 0), 0xC010000
-    entity Effect, 0x16, f(-280, -298, 0), 0xD010000
-    entity Effect, 0x16, f(184, 310, 0), 0xE010000
+    entity Effect, EFI_FireColumn, f(284, -378, 0), 0x100000
+    entity Effect, EFI_TeleportPortal, f(-468, 22, 0), 0x10000
+    entity Effect, EFI_TeleportPortal, f(-374, 310, 0), 0xC010000
+    entity Effect, EFI_TeleportPortal, f(-280, -298, 0), 0xD010000
+    entity Effect, EFI_TeleportPortal, f(184, 310, 0), 0xE010000
     .word 0xFF
 
 global_label EntityAllocParams_80553D4
-    entity Effect, 0x16, f(-468, 22, 0), 0x10000
-    entity Effect, 0x16, f(-374, 310, 0), 0xC010000
-    entity Effect, 0x16, f(-280, -298, 0), 0xD010000
-    entity Effect, 0x16, f(184, 310, 0), 0xE010000
+    entity Effect, EFI_TeleportPortal, f(-468, 22, 0), 0x10000
+    entity Effect, EFI_TeleportPortal, f(-374, 310, 0), 0xC010000
+    entity Effect, EFI_TeleportPortal, f(-280, -298, 0), 0xD010000
+    entity Effect, EFI_TeleportPortal, f(184, 310, 0), 0xE010000
     .word 0xFF
 
 global_label EntityAllocParams_8055428
-    entity Effect, 0x15, f(-70, -550, 64), 0x0
+    entity Effect, EFI_Boulders, f(-70, -550, 64), 0x0
     .word 0xFF

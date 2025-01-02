@@ -6,7 +6,7 @@
 _ts MapSetup_DenTown_Block_3_S3
     push       {lr}
     push       {r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_08
+    Flag_SetIgnore F_IGNORE_DOOR_08
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_DenTown_Block_3_F30_08037de4
     ldr        r0,[r0,r1]
@@ -222,8 +222,8 @@ _ts MapSetup_DenTown_Block_3_F36
     mov        r0,#0x0
     b          LAB_08037d0a
 LAB_08037ce6:
-    Flag_SetIgnore F_IGNORE_WALL_01
-    Flag_ClearIgnore F_IGNORE_WALL_08
+    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_ClearIgnore F_IGNORE_DOOR_08
     mov        r0,#0x2
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0xa]
@@ -423,7 +423,7 @@ DAT_08037e38:
 _ts MapSetup_DenTown_Block_3_S4
     push       {lr}
     push       {r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_08
+    Flag_SetIgnore F_IGNORE_DOOR_08
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_DenTown_Block_3_F40_08037f6c
     ldr        r0,[r0,r1]
@@ -591,7 +591,7 @@ PTR_Scene_Dialogue_08037f88:
 _ts MapSetup_DenTown_Block_3_S5
     push       {lr}
     push       {r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_08
+    Flag_SetIgnore F_IGNORE_DOOR_08
     pop        {r1,r5}
     ldr        r0,PTR_PTR_MapSetup_DenTown_Block_3_F50_0803818c
     ldr        r0,[r0,r1]

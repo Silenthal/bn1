@@ -178,38 +178,38 @@ NPC_8043CE0:
     .align 2, 0
 
 global_label EntityAllocParams_8043CF8
-    entity Effect, 0x8, f(122, 136, 0), 0x0
-    entity Effect, 0x8, f(122, 112, 0), 0x1
-    entity Effect, 0x8, f(-342, 116, 0), 0x2
-    entity Effect, 0x8, f(-342, 140, 0), 0x3
+    entity Effect, EFI_FireColumn, f(122, 136, 0), 0x0
+    entity Effect, EFI_FireColumn, f(122, 112, 0), 0x1
+    entity Effect, EFI_FireColumn, f(-342, 116, 0), 0x2
+    entity Effect, EFI_FireColumn, f(-342, 140, 0), 0x3
     .word 0xFF
 
 global_label EntityAllocParams_8043D4C
-    entity Effect, 0x8, f(152, 212, 0), 0x4
-    entity Effect, 0x8, f(168, 188, 0), 0x105
-    entity Effect, 0x8, f(88, 212, 0), 0x6
-    entity Effect, 0x8, f(88, 188, 0), 0x107
-    entity Effect, 0x8, f(-96, 212, 0), 0x8
-    entity Effect, 0x8, f(-96, 188, 0), 0x109
-    entity Effect, 0x8, f(-180, 118, 0), 0xA
-    entity Effect, 0x8, f(-156, 102, 0), 0x10B
-    entity Effect, 0x8, f(196, 52, 0), 0xC
-    entity Effect, 0x8, f(172, 52, 0), 0x10D
-    entity Effect, 0x8, f(88, 92, 0), 0xE
-    entity Effect, 0x8, f(88, 68, 0), 0x10F
-    entity Effect, 0x8, f(12, 12, 0), 0x10
-    entity Effect, 0x8, f(34, -18, 0), 0x111
-    entity Effect, 0x8, f(34, 4, 0), 0x14
-    entity Effect, 0x8, f(12, -10, 0), 0x115
-    entity Attack, 0x15, f(-124, -10, 0), 0x1A
-    entity Attack, 0x15, f(-116, 12, 0), 0x11C
-    entity Attack, 0x15, f(-148, -10, 0), 0x19
-    entity Attack, 0x15, f(-140, 12, 0), 0x11B
-    entity Attack, 0x15, f(-180, -10, 0), 0x1D
-    entity Attack, 0x15, f(-164, 12, 0), 0x11E
-    entity Attack, 0x15, f(-188, 12, 0), 0x1F
-    entity Attack, 0x15, f(34, -92, 0), 0x116
-    entity Attack, 0x15, f(12, -92, 0), 0x17
-    entity Attack, 0x15, f(12, -70, 0), 0x118
+    entity Effect, EFI_FireColumn, f(152, 212, 0), 0x4
+    entity Effect, EFI_FireColumn, f(168, 188, 0), 0x105
+    entity Effect, EFI_FireColumn, f(88, 212, 0), 0x6
+    entity Effect, EFI_FireColumn, f(88, 188, 0), 0x107
+    entity Effect, EFI_FireColumn, f(-96, 212, 0), 0x8
+    entity Effect, EFI_FireColumn, f(-96, 188, 0), 0x109
+    entity Effect, EFI_FireColumn, f(-180, 118, 0), 0xA
+    entity Effect, EFI_FireColumn, f(-156, 102, 0), 0x10B
+    entity Effect, EFI_FireColumn, f(196, 52, 0), 0xC
+    entity Effect, EFI_FireColumn, f(172, 52, 0), 0x10D
+    entity Effect, EFI_FireColumn, f(88, 92, 0), 0xE
+    entity Effect, EFI_FireColumn, f(88, 68, 0), 0x10F
+    entity Effect, EFI_FireColumn, f(12, 12, 0), 0x10
+    entity Effect, EFI_FireColumn, f(34, -18, 0), 0x111
+    entity Effect, EFI_FireColumn, f(34, 4, 0), 0x14
+    entity Effect, EFI_FireColumn, f(12, -10, 0), 0x115
+    entity Attack, ACI_MeteorFire, f(-124, -10, 0), 0x1A
+    entity Attack, ACI_MeteorFire, f(-116, 12, 0), 0x11C
+    entity Attack, ACI_MeteorFire, f(-148, -10, 0), 0x19
+    entity Attack, ACI_MeteorFire, f(-140, 12, 0), 0x11B
+    entity Attack, ACI_MeteorFire, f(-180, -10, 0), 0x1D
+    entity Attack, ACI_MeteorFire, f(-164, 12, 0), 0x11E
+    entity Attack, ACI_MeteorFire, f(-188, 12, 0), 0x1F
+    entity Attack, ACI_MeteorFire, f(34, -92, 0), 0x116
+    entity Attack, ACI_MeteorFire, f(12, -92, 0), 0x17
+    entity Attack, ACI_MeteorFire, f(12, -70, 0), 0x118
     .word 0xFF
 

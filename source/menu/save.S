@@ -315,7 +315,7 @@ _ts Menu_Save_PrintData
     str        r1,[r5,#0x4]
     mov        r1,#0x80
     push       {r1}
-    Flag_GetLibrary 0xC7
+    Flag_GetLibrary CD_Bass
     pop        {r1}
     beq        LAB_0801e78c
     mov        r1,#0x84

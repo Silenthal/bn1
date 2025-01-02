@@ -60,7 +60,7 @@ _ts Credits_0_Init
     strb       r1,[r5,#0xc]
     mov        r0,#0xaf
     push       {r0,r5}
-    Flag_GetLibrary 0xC7
+    Flag_GetLibrary CD_Bass
     pop        {r0,r5}
     beq        LAB_08021514
     mov        r0,#0xb0
@@ -1462,15 +1462,15 @@ L_80225DE:
     .align 2, 0
 
 CSD_Entity_3:
-    entity Effect, 0x1, f(300, -68, 0), 0xD
-    entity Effect, 0x1, f(300, -52, 0), 0xD
-    entity Effect, 0x1, f(300, -4, 0), 0xD
-    entity Effect, 0x1, f(300, 12, 0), 0xD
-    entity Effect, 0x1, f(252, -68, 0), 0xD
-    entity Effect, 0x1, f(252, -52, 0), 0xD
-    entity Effect, 0x1, f(252, -4, 0), 0xD
-    entity Effect, 0x1, f(252, 12, 0), 0xD
-    entity Effect, 0x1, f(306, 70, 0), 0x49
+    entity Effect, EFI_MapObject, f(300, -68, 0), 0xD
+    entity Effect, EFI_MapObject, f(300, -52, 0), 0xD
+    entity Effect, EFI_MapObject, f(300, -4, 0), 0xD
+    entity Effect, EFI_MapObject, f(300, 12, 0), 0xD
+    entity Effect, EFI_MapObject, f(252, -68, 0), 0xD
+    entity Effect, EFI_MapObject, f(252, -52, 0), 0xD
+    entity Effect, EFI_MapObject, f(252, -4, 0), 0xD
+    entity Effect, EFI_MapObject, f(252, 12, 0), 0xD
+    entity Effect, EFI_MapObject, f(306, 70, 0), 0x49
     .word 0xFF
 
 global_label CSD_Task_3_0
@@ -2099,15 +2099,15 @@ NPC_802345C:
     .align 2, 0
 
 CSD_Entity_8:
-    entity Effect, 0x1, f(-26, -24, 0), 0x2D
-    entity Effect, 0x1, f(-26, 232, 0), 0x2E
-    entity Effect, 0x1, f(-202, 26, 0), 0x2F
-    entity Effect, 0x1, f(-16, -32, 0), 0x22
-    entity Effect, 0x1, f(-24, 130, 0), 0xFFFF004A
-    entity Effect, 0x1, f(-20, 122, 8), 0x14B
-    entity Effect, 0x1, f(14, 28, 8), 0x34C
-    entity Effect, 0x1, f(-20, 162, 8), 0x14D
-    entity Effect, 0x1, f(-130, 130, 8), 0x34E
+    entity Effect, EFI_MapObject, f(-26, -24, 0), 0x2D
+    entity Effect, EFI_MapObject, f(-26, 232, 0), 0x2E
+    entity Effect, EFI_MapObject, f(-202, 26, 0), 0x2F
+    entity Effect, EFI_MapObject, f(-16, -32, 0), 0x22
+    entity Effect, EFI_MapObject, f(-24, 130, 0), 0xFFFF004A
+    entity Effect, EFI_MapObject, f(-20, 122, 8), 0x14B
+    entity Effect, EFI_MapObject, f(14, 28, 8), 0x34C
+    entity Effect, EFI_MapObject, f(-20, 162, 8), 0x14D
+    entity Effect, EFI_MapObject, f(-130, 130, 8), 0x34E
     .word 0xFF
 
 CSD_Cam_9:
@@ -2554,7 +2554,7 @@ NPC_8023B44:
     .align 2, 0
 
 CSD_Entity_11:
-    entity Effect, 0x1, f(-94, -26, 0), 0x3D
+    entity Effect, EFI_MapObject, f(-94, -26, 0), 0x3D
     .word 0xFF
 
 global_label CSD_Task_11_5
@@ -2615,10 +2615,10 @@ NPC_8023CA8:
     .align 2, 0
 
 CSD_Entity_12:
-    entity Effect, 0x1, f(100, -104, 32), 0x41
-    entity Effect, 0x1, f(52, -104, 32), 0x42
-    entity Effect, 0x1, f(4, -104, 32), 0x43
-    entity Effect, 0x1, f(-44, -104, 32), 0x44
+    entity Effect, EFI_MapObject, f(100, -104, 32), 0x41
+    entity Effect, EFI_MapObject, f(52, -104, 32), 0x42
+    entity Effect, EFI_MapObject, f(4, -104, 32), 0x43
+    entity Effect, EFI_MapObject, f(-44, -104, 32), 0x44
     .word 0xFF
 
 CSD_Cam_13:

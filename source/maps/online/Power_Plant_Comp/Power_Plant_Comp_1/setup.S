@@ -351,16 +351,16 @@ _ts MapSetup_Power_Plant_Comp_1_S5
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8049FE0_0804a754
     bl         BgTask_AddNew
-    Flag_SetIgnore F_IGNORE_WALL_00
-    Flag_SetIgnore F_IGNORE_WALL_01
-    Flag_SetIgnore F_IGNORE_WALL_02
-    Flag_SetIgnore F_IGNORE_WALL_03
-    Flag_SetIgnore F_IGNORE_WALL_04
-    Flag_SetIgnore F_IGNORE_WALL_05
-    Flag_SetIgnore F_IGNORE_WALL_06
-    Flag_SetIgnore F_IGNORE_WALL_07
-    Flag_SetIgnore F_IGNORE_WALL_08
-    Flag_SetIgnore F_IGNORE_WALL_09
+    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_SetIgnore F_IGNORE_DOOR_02
+    Flag_SetIgnore F_IGNORE_DOOR_03
+    Flag_SetIgnore F_IGNORE_DOOR_04
+    Flag_SetIgnore F_IGNORE_DOOR_05
+    Flag_SetIgnore F_IGNORE_DOOR_06
+    Flag_SetIgnore F_IGNORE_DOOR_07
+    Flag_SetIgnore F_IGNORE_DOOR_08
+    Flag_SetIgnore F_IGNORE_DOOR_09
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_EntityAllocParams_804BBBC_0804a758

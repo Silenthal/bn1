@@ -333,140 +333,140 @@ NPC_804BB2D:
     .align 2, 0
 
 global_label EntityAllocParams_804BB54
-    entity Effect, 0x1, f(12, 124, 0), 0x3D
-    entity Effect, 0x31, f(-40, 104, 0), 0xFF020050
-    entity Attack, 0x40, f(52, 94, 0), 0xFFFFFF50
-    entity Attack, 0x40, f(52, 126, 0), 0xFFFFFF51
-    entity Attack, 0x40, f(52, 158, 0), 0xFFFFFF52
+    entity Effect, EFI_MapObject, f(12, 124, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-40, 104, 0), 0xFF020050
+    entity Attack, ACI_Battery, f(52, 94, 0), 0xFFFFFF50
+    entity Attack, ACI_Battery, f(52, 126, 0), 0xFFFFFF51
+    entity Attack, ACI_Battery, f(52, 158, 0), 0xFFFFFF52
     .word 0xFF
 
 global_label EntityAllocParams_804BBBC
-    entity Effect, 0x1, f(12, 124, 0), 0x3D
-    entity Effect, 0x31, f(-40, 104, 0), 0xFF020050
+    entity Effect, EFI_MapObject, f(12, 124, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-40, 104, 0), 0xFF020050
     .word 0xFF
 
 global_label EntityAllocParams_804BBE8
-    entity Effect, 0x1, f(-214, -4, 0), 0x3D
-    entity Effect, 0x31, f(-272, 40, 0), 0xFF020060
-    entity Effect, 0x31, f(-272, 96, 0), 0xFF000260
-    entity Attack, 0x40, f(-156, -34, 0), 0xFFFFFF60
-    entity Attack, 0x40, f(-156, -2, 0), 0xFFFFFF61
-    entity Attack, 0x40, f(-156, 30, 0), 0xFFFFFF62
-    entity Attack, 0x40, f(-108, -34, 0), 0xFFFFFF63
-    entity Attack, 0x40, f(-108, -2, 0), 0xFFFFFF64
-    entity Attack, 0x40, f(-108, 30, 0), 0xFFFFFF65
-    entity Effect, 0x1, f(44, 316, 0), 0x3D
-    entity Effect, 0x31, f(-16, 350, 0), 0xFF020070
-    entity Effect, 0x31, f(-16, 384, 0), 0xFF010170
-    entity Effect, 0x31, f(58, 384, 0), 0xFF000270
-    entity Attack, 0x40, f(84, 254, 0), 0xFFFFFF70
-    entity Attack, 0x40, f(84, 286, 0), 0xFFFFFF71
-    entity Attack, 0x40, f(84, 318, 0), 0xFFFFFF72
-    entity Attack, 0x40, f(116, 254, 0), 0xFFFFFF73
-    entity Attack, 0x40, f(116, 286, 0), 0xFFFFFF74
-    entity Attack, 0x40, f(116, 318, 0), 0xFFFFFF75
-    entity Attack, 0x40, f(148, 254, 0), 0xFFFFFF76
-    entity Attack, 0x40, f(148, 286, 0), 0xFFFFFF77
-    entity Attack, 0x40, f(148, 318, 0), 0xFFFFFF78
+    entity Effect, EFI_MapObject, f(-214, -4, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-272, 40, 0), 0xFF020060
+    entity Effect, EFI_LightBulb, f(-272, 96, 0), 0xFF000260
+    entity Attack, ACI_Battery, f(-156, -34, 0), 0xFFFFFF60
+    entity Attack, ACI_Battery, f(-156, -2, 0), 0xFFFFFF61
+    entity Attack, ACI_Battery, f(-156, 30, 0), 0xFFFFFF62
+    entity Attack, ACI_Battery, f(-108, -34, 0), 0xFFFFFF63
+    entity Attack, ACI_Battery, f(-108, -2, 0), 0xFFFFFF64
+    entity Attack, ACI_Battery, f(-108, 30, 0), 0xFFFFFF65
+    entity Effect, EFI_MapObject, f(44, 316, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-16, 350, 0), 0xFF020070
+    entity Effect, EFI_LightBulb, f(-16, 384, 0), 0xFF010170
+    entity Effect, EFI_LightBulb, f(58, 384, 0), 0xFF000270
+    entity Attack, ACI_Battery, f(84, 254, 0), 0xFFFFFF70
+    entity Attack, ACI_Battery, f(84, 286, 0), 0xFFFFFF71
+    entity Attack, ACI_Battery, f(84, 318, 0), 0xFFFFFF72
+    entity Attack, ACI_Battery, f(116, 254, 0), 0xFFFFFF73
+    entity Attack, ACI_Battery, f(116, 286, 0), 0xFFFFFF74
+    entity Attack, ACI_Battery, f(116, 318, 0), 0xFFFFFF75
+    entity Attack, ACI_Battery, f(148, 254, 0), 0xFFFFFF76
+    entity Attack, ACI_Battery, f(148, 286, 0), 0xFFFFFF77
+    entity Attack, ACI_Battery, f(148, 318, 0), 0xFFFFFF78
     .word 0xFF
 
 global_label EntityAllocParams_804BDA4
-    entity Effect, 0x1, f(-214, -4, 0), 0x3D
-    entity Effect, 0x31, f(-272, 40, 0), 0xFF020060
-    entity Effect, 0x31, f(-272, 96, 0), 0xFF000260
-    entity Effect, 0x1, f(44, 316, 0), 0x3D
-    entity Effect, 0x31, f(-16, 350, 0), 0xFF020070
-    entity Effect, 0x31, f(-16, 384, 0), 0xFF010170
-    entity Effect, 0x31, f(58, 384, 0), 0xFF000270
+    entity Effect, EFI_MapObject, f(-214, -4, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-272, 40, 0), 0xFF020060
+    entity Effect, EFI_LightBulb, f(-272, 96, 0), 0xFF000260
+    entity Effect, EFI_MapObject, f(44, 316, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-16, 350, 0), 0xFF020070
+    entity Effect, EFI_LightBulb, f(-16, 384, 0), 0xFF010170
+    entity Effect, EFI_LightBulb, f(58, 384, 0), 0xFF000270
     .word 0xFF
 
 global_label EntityAllocParams_804BE34
-    entity Effect, 0x1, f(434, -82, 0), 0x3D
-    entity Effect, 0x31, f(334, -66, 0), 0xFF020080
-    entity Effect, 0x31, f(334, 24, 0), 0xFF000280
-    entity Effect, 0x31, f(338, 98, 0), 0xFF010180
-    entity Attack, 0x40, f(404, -50, 0), 0xFFFFFF80
-    entity Attack, 0x40, f(404, -2, 0), 0xFFFFFF81
-    entity Attack, 0x40, f(404, 46, 0), 0xFFFFFF82
-    entity Attack, 0x40, f(436, -50, 0), 0xFFFFFF83
-    entity Attack, 0x40, f(436, -2, 0), 0xFFFFFF84
-    entity Attack, 0x40, f(436, 46, 0), 0xFFFFFF85
-    entity Attack, 0x40, f(468, -50, 0), 0xFFFFFF86
-    entity Attack, 0x40, f(468, -2, 0), 0xFFFFFF87
-    entity Attack, 0x40, f(468, 46, 0), 0xFFFFFF88
-    entity Effect, 0x1, f(4, 44, 0), 0x3D
-    entity Effect, 0x31, f(170, 166, 0), 0xFF020090
-    entity Effect, 0x31, f(-50, 222, 0), 0xFF010190
-    entity Effect, 0x31, f(14, 256, 0), 0xFF000290
-    entity Attack, 0x40, f(36, 62, 0), 0xFFFFFF90
-    entity Attack, 0x40, f(36, 110, 0), 0xFFFFFF91
-    entity Attack, 0x40, f(36, 158, 0), 0xFFFFFF92
-    entity Attack, 0x40, f(68, 62, 0), 0xFFFFFF93
-    entity Attack, 0x40, f(68, 110, 0), 0xFFFFFF94
-    entity Attack, 0x40, f(68, 158, 0), 0xFFFFFF95
-    entity Attack, 0x40, f(100, 62, 0), 0xFFFFFF96
-    entity Attack, 0x40, f(100, 110, 0), 0xFFFFFF97
-    entity Attack, 0x40, f(100, 158, 0), 0xFFFFFF98
-    entity Effect, 0x1, f(-316, 148, 0), 0x3D
-    entity Effect, 0x31, f(-110, 72, 0), 0xFF0200A0
-    entity Effect, 0x31, f(-368, 120, 0), 0xFF0101A0
-    entity Effect, 0x31, f(-310, 288, 0), 0xFF0002A0
-    entity Attack, 0x40, f(-268, 126, 0), 0xFFFFFFA0
-    entity Attack, 0x40, f(-268, 174, 0), 0xFFFFFFA1
-    entity Attack, 0x40, f(-268, 222, 0), 0xFFFFFFA2
-    entity Attack, 0x40, f(-236, 126, 0), 0xFFFFFFA3
-    entity Attack, 0x40, f(-236, 174, 0), 0xFFFFFFA4
-    entity Attack, 0x40, f(-236, 222, 0), 0xFFFFFFA5
-    entity Attack, 0x40, f(-204, 126, 0), 0xFFFFFFA6
-    entity Attack, 0x40, f(-204, 174, 0), 0xFFFFFFA7
-    entity Attack, 0x40, f(-204, 222, 0), 0xFFFFFFA8
-    entity Attack, 0x40, f(-172, 126, 0), 0xFFFFFFA9
-    entity Attack, 0x40, f(-172, 174, 0), 0xFFFFFFAA
-    entity Attack, 0x40, f(-172, 222, 0), 0xFFFFFFAB
-    entity Effect, 0x1, f(-116, 378, 0), 0x3D
-    entity Effect, 0x31, f(-22, 358, 0), 0xFF0200B0
-    entity Attack, 0x40, f(-76, 382, 0), 0xFFFFFFB0
+    entity Effect, EFI_MapObject, f(434, -82, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(334, -66, 0), 0xFF020080
+    entity Effect, EFI_LightBulb, f(334, 24, 0), 0xFF000280
+    entity Effect, EFI_LightBulb, f(338, 98, 0), 0xFF010180
+    entity Attack, ACI_Battery, f(404, -50, 0), 0xFFFFFF80
+    entity Attack, ACI_Battery, f(404, -2, 0), 0xFFFFFF81
+    entity Attack, ACI_Battery, f(404, 46, 0), 0xFFFFFF82
+    entity Attack, ACI_Battery, f(436, -50, 0), 0xFFFFFF83
+    entity Attack, ACI_Battery, f(436, -2, 0), 0xFFFFFF84
+    entity Attack, ACI_Battery, f(436, 46, 0), 0xFFFFFF85
+    entity Attack, ACI_Battery, f(468, -50, 0), 0xFFFFFF86
+    entity Attack, ACI_Battery, f(468, -2, 0), 0xFFFFFF87
+    entity Attack, ACI_Battery, f(468, 46, 0), 0xFFFFFF88
+    entity Effect, EFI_MapObject, f(4, 44, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(170, 166, 0), 0xFF020090
+    entity Effect, EFI_LightBulb, f(-50, 222, 0), 0xFF010190
+    entity Effect, EFI_LightBulb, f(14, 256, 0), 0xFF000290
+    entity Attack, ACI_Battery, f(36, 62, 0), 0xFFFFFF90
+    entity Attack, ACI_Battery, f(36, 110, 0), 0xFFFFFF91
+    entity Attack, ACI_Battery, f(36, 158, 0), 0xFFFFFF92
+    entity Attack, ACI_Battery, f(68, 62, 0), 0xFFFFFF93
+    entity Attack, ACI_Battery, f(68, 110, 0), 0xFFFFFF94
+    entity Attack, ACI_Battery, f(68, 158, 0), 0xFFFFFF95
+    entity Attack, ACI_Battery, f(100, 62, 0), 0xFFFFFF96
+    entity Attack, ACI_Battery, f(100, 110, 0), 0xFFFFFF97
+    entity Attack, ACI_Battery, f(100, 158, 0), 0xFFFFFF98
+    entity Effect, EFI_MapObject, f(-316, 148, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-110, 72, 0), 0xFF0200A0
+    entity Effect, EFI_LightBulb, f(-368, 120, 0), 0xFF0101A0
+    entity Effect, EFI_LightBulb, f(-310, 288, 0), 0xFF0002A0
+    entity Attack, ACI_Battery, f(-268, 126, 0), 0xFFFFFFA0
+    entity Attack, ACI_Battery, f(-268, 174, 0), 0xFFFFFFA1
+    entity Attack, ACI_Battery, f(-268, 222, 0), 0xFFFFFFA2
+    entity Attack, ACI_Battery, f(-236, 126, 0), 0xFFFFFFA3
+    entity Attack, ACI_Battery, f(-236, 174, 0), 0xFFFFFFA4
+    entity Attack, ACI_Battery, f(-236, 222, 0), 0xFFFFFFA5
+    entity Attack, ACI_Battery, f(-204, 126, 0), 0xFFFFFFA6
+    entity Attack, ACI_Battery, f(-204, 174, 0), 0xFFFFFFA7
+    entity Attack, ACI_Battery, f(-204, 222, 0), 0xFFFFFFA8
+    entity Attack, ACI_Battery, f(-172, 126, 0), 0xFFFFFFA9
+    entity Attack, ACI_Battery, f(-172, 174, 0), 0xFFFFFFAA
+    entity Attack, ACI_Battery, f(-172, 222, 0), 0xFFFFFFAB
+    entity Effect, EFI_MapObject, f(-116, 378, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-22, 358, 0), 0xFF0200B0
+    entity Attack, ACI_Battery, f(-76, 382, 0), 0xFFFFFFB0
     .word 0xFF
 
 global_label EntityAllocParams_804C1BC
-    entity Effect, 0x1, f(434, -82, 0), 0x3D
-    entity Effect, 0x31, f(334, -66, 0), 0xFF020080
-    entity Effect, 0x31, f(334, 24, 0), 0xFF000280
-    entity Effect, 0x31, f(338, 98, 0), 0xFF010180
-    entity Effect, 0x1, f(4, 44, 0), 0x3D
-    entity Effect, 0x31, f(170, 166, 0), 0xFF020090
-    entity Effect, 0x31, f(-50, 222, 0), 0xFF010190
-    entity Effect, 0x31, f(14, 256, 0), 0xFF000290
-    entity Effect, 0x1, f(-316, 148, 0), 0x3D
-    entity Effect, 0x31, f(-110, 72, 0), 0xFF0200A0
-    entity Effect, 0x31, f(-368, 120, 0), 0xFF0101A0
-    entity Effect, 0x31, f(-310, 288, 0), 0xFF0002A0
-    entity Effect, 0x1, f(-116, 378, 0), 0x3D
-    entity Effect, 0x31, f(-22, 358, 0), 0xFF0200B0
+    entity Effect, EFI_MapObject, f(434, -82, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(334, -66, 0), 0xFF020080
+    entity Effect, EFI_LightBulb, f(334, 24, 0), 0xFF000280
+    entity Effect, EFI_LightBulb, f(338, 98, 0), 0xFF010180
+    entity Effect, EFI_MapObject, f(4, 44, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(170, 166, 0), 0xFF020090
+    entity Effect, EFI_LightBulb, f(-50, 222, 0), 0xFF010190
+    entity Effect, EFI_LightBulb, f(14, 256, 0), 0xFF000290
+    entity Effect, EFI_MapObject, f(-316, 148, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-110, 72, 0), 0xFF0200A0
+    entity Effect, EFI_LightBulb, f(-368, 120, 0), 0xFF0101A0
+    entity Effect, EFI_LightBulb, f(-310, 288, 0), 0xFF0002A0
+    entity Effect, EFI_MapObject, f(-116, 378, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-22, 358, 0), 0xFF0200B0
     .word 0xFF
 
 global_label EntityAllocParams_804C2D8
-    entity Effect, 0x1, f(-94, -26, 0), 0x3D
-    entity Effect, 0x31, f(-126, -82, 0), 0xFF0200C0
-    entity Effect, 0x31, f(-62, -82, 0), 0xFF0101C0
-    entity Effect, 0x31, f(-22, -82, 0), 0xFF0002C0
-    entity Attack, 0x40, f(-52, -26, 0), 0xFFFFFFC0
-    entity Attack, 0x40, f(-52, 22, 0), 0xFFFFFFC1
-    entity Attack, 0x40, f(-52, 70, 0), 0xFFFFFFC2
-    entity Attack, 0x40, f(-20, -26, 0), 0xFFFFFFC3
-    entity Attack, 0x40, f(-20, 22, 0), 0xFFFFFFC4
-    entity Attack, 0x40, f(-20, 70, 0), 0xFFFFFFC5
-    entity Attack, 0x40, f(12, -26, 0), 0xFFFFFFC6
-    entity Attack, 0x40, f(12, 22, 0), 0xFFFFFFC7
-    entity Attack, 0x40, f(12, 70, 0), 0xFFFFFFC8
-    entity Attack, 0x40, f(44, -26, 0), 0xFFFFFFC9
-    entity Attack, 0x40, f(44, 22, 0), 0xFFFFFFCA
-    entity Attack, 0x40, f(44, 70, 0), 0xFFFFFFCB
+    entity Effect, EFI_MapObject, f(-94, -26, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-126, -82, 0), 0xFF0200C0
+    entity Effect, EFI_LightBulb, f(-62, -82, 0), 0xFF0101C0
+    entity Effect, EFI_LightBulb, f(-22, -82, 0), 0xFF0002C0
+    entity Attack, ACI_Battery, f(-52, -26, 0), 0xFFFFFFC0
+    entity Attack, ACI_Battery, f(-52, 22, 0), 0xFFFFFFC1
+    entity Attack, ACI_Battery, f(-52, 70, 0), 0xFFFFFFC2
+    entity Attack, ACI_Battery, f(-20, -26, 0), 0xFFFFFFC3
+    entity Attack, ACI_Battery, f(-20, 22, 0), 0xFFFFFFC4
+    entity Attack, ACI_Battery, f(-20, 70, 0), 0xFFFFFFC5
+    entity Attack, ACI_Battery, f(12, -26, 0), 0xFFFFFFC6
+    entity Attack, ACI_Battery, f(12, 22, 0), 0xFFFFFFC7
+    entity Attack, ACI_Battery, f(12, 70, 0), 0xFFFFFFC8
+    entity Attack, ACI_Battery, f(44, -26, 0), 0xFFFFFFC9
+    entity Attack, ACI_Battery, f(44, 22, 0), 0xFFFFFFCA
+    entity Attack, ACI_Battery, f(44, 70, 0), 0xFFFFFFCB
 global_label EntityAllocParams_804C418
-    entity Effect, 0x1, f(-94, -26, 0), 0x3D
-    entity Effect, 0x31, f(-126, -82, 0), 0xFF0200C0
-    entity Effect, 0x31, f(-62, -82, 0), 0xFF0101C0
-    entity Effect, 0x31, f(-22, -82, 0), 0xFF0002C0
+    entity Effect, EFI_MapObject, f(-94, -26, 0), 0x3D
+    entity Effect, EFI_LightBulb, f(-126, -82, 0), 0xFF0200C0
+    entity Effect, EFI_LightBulb, f(-62, -82, 0), 0xFF0101C0
+    entity Effect, EFI_LightBulb, f(-22, -82, 0), 0xFF0002C0
     .word 0xFF
 
 listGridSolution:
@@ -931,7 +931,7 @@ LAB_0804c8ea:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc50
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_DOOR_00
     pop        {r5}
 LAB_0804c8fa:
     pop        {pc}
@@ -949,8 +949,8 @@ LAB_0804c90e:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc54
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_02
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_02
     pop        {r5}
 LAB_0804c924:
     pop        {pc}
@@ -970,9 +970,9 @@ LAB_0804c93a:
     push       {r5}
     ldr        r0,PTR_BgTask_8049E48_0804cc58
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_WALL_03
-    Flag_ClearIgnore F_IGNORE_WALL_04
-    Flag_ClearIgnore F_IGNORE_WALL_05
+    Flag_ClearIgnore F_IGNORE_DOOR_03
+    Flag_ClearIgnore F_IGNORE_DOOR_04
+    Flag_ClearIgnore F_IGNORE_DOOR_05
     pop        {r5}
 LAB_0804c956:
     pop        {pc}
@@ -990,9 +990,9 @@ LAB_0804c96a:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc5c
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
-    Flag_ClearIgnore F_IGNORE_WALL_02
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
+    Flag_ClearIgnore F_IGNORE_DOOR_02
     pop        {r5}
 LAB_0804c986:
     pop        {pc}
@@ -1010,9 +1010,9 @@ LAB_0804c99a:
     push       {r5}
     ldr        r0,PTR_BgTask_8049E48_0804cc60
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_WALL_03
-    Flag_ClearIgnore F_IGNORE_WALL_04
-    Flag_ClearIgnore F_IGNORE_WALL_05
+    Flag_ClearIgnore F_IGNORE_DOOR_03
+    Flag_ClearIgnore F_IGNORE_DOOR_04
+    Flag_ClearIgnore F_IGNORE_DOOR_05
     pop        {r5}
 LAB_0804c9b6:
     pop        {pc}
@@ -1030,9 +1030,9 @@ LAB_0804c9ca:
     push       {r5}
     ldr        r0,PTR_BgTask_8049F08_0804cc64
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_WALL_06
-    Flag_ClearIgnore F_IGNORE_WALL_07
-    Flag_ClearIgnore F_IGNORE_WALL_08
+    Flag_ClearIgnore F_IGNORE_DOOR_06
+    Flag_ClearIgnore F_IGNORE_DOOR_07
+    Flag_ClearIgnore F_IGNORE_DOOR_08
     pop        {r5}
 LAB_0804c9e6:
     pop        {pc}
@@ -1047,14 +1047,14 @@ _ts PowerPlant_CheckPaths_Grid_6
     push       {r5}
     ldr        r0,PTR_BgTask_8049FE0_0804cc68
     bl         BgTask_AddNew
-    Flag_SetIgnore F_IGNORE_WALL_09
+    Flag_SetIgnore F_IGNORE_DOOR_09
     pop        {r5}
     b          LAB_0804ca16
 LAB_0804ca06:
     push       {r5}
     ldr        r0,PTR_BgTask_8049FC8_0804cc6c
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_WALL_09
+    Flag_ClearIgnore F_IGNORE_DOOR_09
     pop        {r5}
 LAB_0804ca16:
     pop        {pc}
@@ -1078,9 +1078,9 @@ LAB_0804ca3c:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc70
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
-    Flag_ClearIgnore F_IGNORE_WALL_02
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
+    Flag_ClearIgnore F_IGNORE_DOOR_02
     pop        {r5}
 LAB_0804ca58:
     pop        {pc}
@@ -1097,7 +1097,7 @@ _ts PowerPlant_SetPathPalette_0
     pop        {r0,r1}
     bne        LAB_0804ca78
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     pop        {r0,r1,r5}
     mov        r1,#0x1
 LAB_0804ca78:
@@ -1109,7 +1109,7 @@ LAB_0804ca78:
     pop        {r0,r1}
     bne        LAB_0804ca94
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_01
     pop        {r0,r1,r5}
     mov        r1,#0x2
 LAB_0804ca94:
@@ -1121,7 +1121,7 @@ LAB_0804ca94:
     pop        {r0,r1}
     bne        LAB_0804cab0
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_02
+    Flag_SetIgnore F_IGNORE_DOOR_02
     pop        {r0,r1,r5}
     mov        r1,#0x4
 LAB_0804cab0:
@@ -1157,7 +1157,7 @@ _ts PowerPlant_SetPathPalette_1
     pop        {r0,r1}
     bne        LAB_0804cb04
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_03
+    Flag_SetIgnore F_IGNORE_DOOR_03
     pop        {r0,r1,r5}
     mov        r1,#0x1
 LAB_0804cb04:
@@ -1169,7 +1169,7 @@ LAB_0804cb04:
     pop        {r0,r1}
     bne        LAB_0804cb20
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_04
+    Flag_SetIgnore F_IGNORE_DOOR_04
     pop        {r0,r1,r5}
     mov        r1,#0x2
 LAB_0804cb20:
@@ -1181,7 +1181,7 @@ LAB_0804cb20:
     pop        {r0,r1}
     bne        LAB_0804cb3c
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_05
+    Flag_SetIgnore F_IGNORE_DOOR_05
     pop        {r0,r1,r5}
     mov        r1,#0x4
 LAB_0804cb3c:
@@ -1217,7 +1217,7 @@ _ts PowerPlant_SetPathPalette_2
     pop        {r0,r1}
     bne        LAB_0804cb90
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_06
+    Flag_SetIgnore F_IGNORE_DOOR_06
     pop        {r0,r1,r5}
     mov        r1,#0x1
 LAB_0804cb90:
@@ -1229,7 +1229,7 @@ LAB_0804cb90:
     pop        {r0,r1}
     bne        LAB_0804cbac
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_07
+    Flag_SetIgnore F_IGNORE_DOOR_07
     pop        {r0,r1,r5}
     mov        r1,#0x2
 LAB_0804cbac:
@@ -1241,7 +1241,7 @@ LAB_0804cbac:
     pop        {r0,r1}
     bne        LAB_0804cbc8
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_WALL_08
+    Flag_SetIgnore F_IGNORE_DOOR_08
     pop        {r0,r1,r5}
     mov        r1,#0x4
 LAB_0804cbc8:

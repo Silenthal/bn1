@@ -393,13 +393,15 @@ LAB_08020406:
     ldrb       r0,[r7,#0x0]
     cmp        r0,#0x0
     beq        LAB_0802044e
-    cmp        r0,#0x54
+    @@ Add Bass/LifeAura to draw list only if in library
+    cmp        r0,#CD_LifeAura
     beq        LAB_0802041c
-    cmp        r0,#0xc7
+    cmp        r0,#CD_Bass
     beq        LAB_0802041c
-    cmp        r0,#0x94
+    @@ Add PharoMan/ShadoMan/MagicMan to draw list only if in library
+    cmp        r0,#CD_PharoMan
     blt        LAB_08020426
-    cmp        r0,#0x9f
+    cmp        r0,#CD_MagicMn3
     bgt        LAB_08020426
 LAB_0802041c:
     push       {r0,r4,r6,r7}
@@ -440,13 +442,15 @@ _ts ChipTrader_BuildFullChipSack
     mov        r0,#0x0
     mov        r4,#0x0
 LAB_0802045a:
-    cmp        r0,#0x54
+    @@ Add Bass/LifeAura to draw list only if in library
+    cmp        r0,#CD_LifeAura
     beq        LAB_0802046a
-    cmp        r0,#0xc7
+    cmp        r0,#CD_Bass
     beq        LAB_0802046a
-    cmp        r0,#0x94
+    @@ Add PharoMan/ShadoMan/MagicMan to draw list only if in library
+    cmp        r0,#CD_PharoMan
     blt        LAB_08020474
-    cmp        r0,#0x9f
+    cmp        r0,#CD_MagicMn3
     bgt        LAB_08020474
 LAB_0802046a:
     push       {r0,r4,r6}

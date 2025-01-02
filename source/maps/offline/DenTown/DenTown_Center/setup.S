@@ -158,8 +158,8 @@ _nt MapSetup_DenTown_Center_F32
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -254,8 +254,8 @@ _nt MapSetup_DenTown_Center_F33
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -386,8 +386,8 @@ _ts MapSetup_DenTown_Center_F34
     Flag_SetGate F_GATE_04
     Flag_SetGate F_GATE_05
     Flag_SetGate F_GATE_06
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -485,8 +485,8 @@ _nt MapSetup_DenTown_Center_F35
     Flag_SetGate F_GATE_02
     Flag_SetGate F_GATE_03
     Flag_SetGate F_GATE_06
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -566,8 +566,8 @@ _ts MapSetup_DenTown_Center_F36
     Flag_SetGate F_GATE_04
     Flag_SetGate F_GATE_05
     Flag_SetGate F_GATE_06
-    Flag_SetIgnore F_IGNORE_WALL_00
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_DOOR_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -774,8 +774,8 @@ _ts MapSetup_DenTown_Center_F37
     Flag_SetGate F_GATE_04
     Flag_SetGate F_GATE_05
     Flag_SetGate F_GATE_06
-    Flag_SetIgnore F_IGNORE_WALL_00
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_DOOR_01
     Flag_GetBase 0xBD
     beq        LAB_0803682a
     push       {r5}

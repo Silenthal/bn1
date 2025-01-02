@@ -103,7 +103,7 @@ LAB_0804d600:
     push       {r5}
     Flag_GetBase 0xD4
     beq        LAB_0804d612
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     b          LAB_0804d618
 LAB_0804d612:
     mov        r1,#0xd
@@ -111,7 +111,7 @@ LAB_0804d612:
 LAB_0804d618:
     Flag_GetBase 0xD5
     beq        LAB_0804d628
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_01
     b          LAB_0804d62e
 LAB_0804d628:
     mov        r1,#0xe
@@ -119,7 +119,7 @@ LAB_0804d628:
 LAB_0804d62e:
     Flag_GetBase 0xD6
     beq        LAB_0804d63e
-    Flag_SetIgnore F_IGNORE_WALL_02
+    Flag_SetIgnore F_IGNORE_DOOR_02
     b          LAB_0804d644
 LAB_0804d63e:
     mov        r1,#0xf
@@ -127,7 +127,7 @@ LAB_0804d63e:
 LAB_0804d644:
     Flag_GetBase 0xD7
     beq        LAB_0804d654
-    Flag_SetIgnore F_IGNORE_WALL_03
+    Flag_SetIgnore F_IGNORE_DOOR_03
     b          LAB_0804d65a
 LAB_0804d654:
     mov        r1,#0x10
@@ -135,7 +135,7 @@ LAB_0804d654:
 LAB_0804d65a:
     Flag_GetBase 0xCA
     beq        LAB_0804d66a
-    Flag_SetIgnore F_IGNORE_WALL_04
+    Flag_SetIgnore F_IGNORE_DOOR_04
     b          LAB_0804d670
 LAB_0804d66a:
     mov        r1,#0x11
@@ -143,7 +143,7 @@ LAB_0804d66a:
 LAB_0804d670:
     Flag_GetBase 0xCC
     beq        LAB_0804d680
-    Flag_SetIgnore F_IGNORE_WALL_05
+    Flag_SetIgnore F_IGNORE_DOOR_05
     b          LAB_0804d686
 LAB_0804d680:
     mov        r1,#0x12
@@ -151,7 +151,7 @@ LAB_0804d680:
 LAB_0804d686:
     Flag_GetBase 0xCE
     beq        LAB_0804d696
-    Flag_SetIgnore F_IGNORE_WALL_06
+    Flag_SetIgnore F_IGNORE_DOOR_06
     b          LAB_0804d69c
 LAB_0804d696:
     mov        r1,#0x13
@@ -159,7 +159,7 @@ LAB_0804d696:
 LAB_0804d69c:
     Flag_GetBase 0xD0
     beq        LAB_0804d6ac
-    Flag_SetIgnore F_IGNORE_WALL_07
+    Flag_SetIgnore F_IGNORE_DOOR_07
     b          LAB_0804d6b2
 LAB_0804d6ac:
     mov        r1,#0x14
@@ -167,7 +167,7 @@ LAB_0804d6ac:
 LAB_0804d6b2:
     Flag_GetBase 0xD2
     beq        LAB_0804d6c2
-    Flag_SetIgnore F_IGNORE_WALL_08
+    Flag_SetIgnore F_IGNORE_DOOR_08
     b          LAB_0804d6ce
 LAB_0804d6c2:
     mov        r1,#0x15

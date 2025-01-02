@@ -130,70 +130,70 @@ NPC_804931C:
 NPC_8049340:
     a_create_bmd 82, 370, 0, FLAG_ITEM_TRAFFIC_LIGHT_COMP_5_RECOV80_G, dialog=0x11
 global_label EntityAllocParams_8049364
-    entity Effect, 0x2D, f(-158, 236, 0), 0xFFFFFF00
-    entity Effect, 0x2D, f(2, 140, 0), 0xFFFFFF01
-    entity Effect, 0x2D, f(68, 60, 64), 0xFFFFFF02
-    entity Effect, 0x2D, f(2, -4, 0), 0xFFFFFF03
-    entity Effect, 0x2D, f(-300, -308, 0), 0xFFFFFF04
+    entity Effect, EFI_TrafficSwitch, f(-158, 236, 0), 0xFFFFFF00
+    entity Effect, EFI_TrafficSwitch, f(2, 140, 0), 0xFFFFFF01
+    entity Effect, EFI_TrafficSwitch, f(68, 60, 64), 0xFFFFFF02
+    entity Effect, EFI_TrafficSwitch, f(2, -4, 0), 0xFFFFFF03
+    entity Effect, EFI_TrafficSwitch, f(-300, -308, 0), 0xFFFFFF04
     .word 0xFF
 
 global_label EntityAllocParams_80493CC
-    entity Effect, 0x2D, f(-38, 164, 0), 0xFFFFFF00
-    entity Effect, 0x2D, f(188, 356, 0), 0xFFFFFF01
-    entity Effect, 0x2D, f(-230, 68, 0), 0xFFFFFF02
-    entity Effect, 0x2D, f(-244, -92, 0), 0xFFFFFF03
-    entity Effect, 0x2D, f(-292, -188, 64), 0xFFFFFF04
-    entity Effect, 0x2D, f(-100, -188, 64), 0xFFFFFF05
-    entity Effect, 0x2D, f(92, -220, 64), 0xFFFFFF06
-    entity Effect, 0x2D, f(220, -252, 64), 0xFFFFFF07
+    entity Effect, EFI_TrafficSwitch, f(-38, 164, 0), 0xFFFFFF00
+    entity Effect, EFI_TrafficSwitch, f(188, 356, 0), 0xFFFFFF01
+    entity Effect, EFI_TrafficSwitch, f(-230, 68, 0), 0xFFFFFF02
+    entity Effect, EFI_TrafficSwitch, f(-244, -92, 0), 0xFFFFFF03
+    entity Effect, EFI_TrafficSwitch, f(-292, -188, 64), 0xFFFFFF04
+    entity Effect, EFI_TrafficSwitch, f(-100, -188, 64), 0xFFFFFF05
+    entity Effect, EFI_TrafficSwitch, f(92, -220, 64), 0xFFFFFF06
+    entity Effect, EFI_TrafficSwitch, f(220, -252, 64), 0xFFFFFF07
     .word 0xFF
 
 global_label EntityAllocParams_8049470
-    entity Effect, 0x2D, f(-60, -116, 0), 0xFFFFFF00
-    entity Effect, 0x2D, f(-124, -116, 0), 0xFFFFFF01
-    entity Effect, 0x2D, f(-28, 284, -64), 0xFFFFFF02
-    entity Effect, 0x2D, f(130, 318, -64), 0xFFFFFF03
-    entity Effect, 0x2D, f(254, 156, -64), 0xFFFFFF04
-    entity Effect, 0x2D, f(228, 94, -64), 0xFFFFFF05
-    entity Effect, 0x2D, f(254, 60, -64), 0xFFFFFF06
-    entity Effect, 0x2D, f(420, -164, 0), 0xFFFFFF07
+    entity Effect, EFI_TrafficSwitch, f(-60, -116, 0), 0xFFFFFF00
+    entity Effect, EFI_TrafficSwitch, f(-124, -116, 0), 0xFFFFFF01
+    entity Effect, EFI_TrafficSwitch, f(-28, 284, -64), 0xFFFFFF02
+    entity Effect, EFI_TrafficSwitch, f(130, 318, -64), 0xFFFFFF03
+    entity Effect, EFI_TrafficSwitch, f(254, 156, -64), 0xFFFFFF04
+    entity Effect, EFI_TrafficSwitch, f(228, 94, -64), 0xFFFFFF05
+    entity Effect, EFI_TrafficSwitch, f(254, 60, -64), 0xFFFFFF06
+    entity Effect, EFI_TrafficSwitch, f(420, -164, 0), 0xFFFFFF07
     .word 0xFF
 
 global_label EntityAllocParams_8049514
-    entity Effect, 0x2D, f(-150, -220, 0), 0xFFFFFF00
-    entity Effect, 0x2D, f(42, -124, 0), 0xFFFFFF01
-    entity Effect, 0x2D, f(300, 4, 64), 0xFFFFFF02
-    entity Effect, 0x2D, f(236, 292, 0), 0xFFFFFF03
-    entity Effect, 0x2D, f(204, 100, 64), 0xFFFFFF04
-    entity Effect, 0x2D, f(-20, 236, 0), 0xFFFFFF05
-    entity Effect, 0x2D, f(-20, 174, 0), 0xFFFFFF06
-    entity Effect, 0x2D, f(-84, 330, 0), 0xFFFFFF07
-    entity Effect, 0x2D, f(-84, 178, 0), 0xFFFFFF08
-    entity Effect, 0x2D, f(-84, 0, 0), 0xFFFFFF09
+    entity Effect, EFI_TrafficSwitch, f(-150, -220, 0), 0xFFFFFF00
+    entity Effect, EFI_TrafficSwitch, f(42, -124, 0), 0xFFFFFF01
+    entity Effect, EFI_TrafficSwitch, f(300, 4, 64), 0xFFFFFF02
+    entity Effect, EFI_TrafficSwitch, f(236, 292, 0), 0xFFFFFF03
+    entity Effect, EFI_TrafficSwitch, f(204, 100, 64), 0xFFFFFF04
+    entity Effect, EFI_TrafficSwitch, f(-20, 236, 0), 0xFFFFFF05
+    entity Effect, EFI_TrafficSwitch, f(-20, 174, 0), 0xFFFFFF06
+    entity Effect, EFI_TrafficSwitch, f(-84, 330, 0), 0xFFFFFF07
+    entity Effect, EFI_TrafficSwitch, f(-84, 178, 0), 0xFFFFFF08
+    entity Effect, EFI_TrafficSwitch, f(-84, 0, 0), 0xFFFFFF09
     .word 0xFF
 
 global_label EntityAllocParams_80495E0
-    entity Effect, 0x2D, f(-222, 188, 0), 0xFFFFFF00
-    entity Effect, 0x2D, f(-282, 188, 0), 0xFFFFFF01
-    entity Effect, 0x2D, f(-316, 26, 0), 0xFFFFFF02
-    entity Effect, 0x2D, f(-250, -6, 0), 0xFFFFFF03
-    entity Effect, 0x2D, f(-222, -162, 0), 0xFFFFFF04
-    entity Effect, 0x2D, f(-12, -144, 0), 0xFFFFFF05
-    entity Effect, 0x2D, f(-206, -306, 0), 0xFFFFFF06
-    entity Effect, 0x2D, f(-90, -386, 0), 0xFFFFFF07
-    entity Effect, 0x2D, f(4, -386, 0), 0xFFFFFF08
-    entity Effect, 0x2D, f(84, -386, 0), 0xFFFFFF09
-    entity Effect, 0x2D, f(148, -386, 0), 0xFFFFFF0A
-    entity Effect, 0x2D, f(320, -68, 0), 0xFFFFFF0B
-    entity Effect, 0x2D, f(386, -104, 0), 0xFFFFFF0C
-    entity Effect, 0x2D, f(386, -30, 0), 0xFFFFFF0D
-    entity Effect, 0x2D, f(424, -68, 0), 0xFFFFFF0E
-    entity Effect, 0x2D, f(386, -292, 0), 0xFFFFFF0F
-    entity Effect, 0x2D, f(356, 124, 0), 0xFFFFFF10
-    entity Effect, 0x2D, f(242, 204, 0), 0xFFFFFF11
-    entity Effect, 0x2D, f(82, 332, 0), 0xFFFFFF12
-    entity Effect, 0x2D, f(258, 444, 0), 0xFFFFFF13
-    entity Effect, 0x2D, f(-60, 444, 0), 0xFFFFFF14
+    entity Effect, EFI_TrafficSwitch, f(-222, 188, 0), 0xFFFFFF00
+    entity Effect, EFI_TrafficSwitch, f(-282, 188, 0), 0xFFFFFF01
+    entity Effect, EFI_TrafficSwitch, f(-316, 26, 0), 0xFFFFFF02
+    entity Effect, EFI_TrafficSwitch, f(-250, -6, 0), 0xFFFFFF03
+    entity Effect, EFI_TrafficSwitch, f(-222, -162, 0), 0xFFFFFF04
+    entity Effect, EFI_TrafficSwitch, f(-12, -144, 0), 0xFFFFFF05
+    entity Effect, EFI_TrafficSwitch, f(-206, -306, 0), 0xFFFFFF06
+    entity Effect, EFI_TrafficSwitch, f(-90, -386, 0), 0xFFFFFF07
+    entity Effect, EFI_TrafficSwitch, f(4, -386, 0), 0xFFFFFF08
+    entity Effect, EFI_TrafficSwitch, f(84, -386, 0), 0xFFFFFF09
+    entity Effect, EFI_TrafficSwitch, f(148, -386, 0), 0xFFFFFF0A
+    entity Effect, EFI_TrafficSwitch, f(320, -68, 0), 0xFFFFFF0B
+    entity Effect, EFI_TrafficSwitch, f(386, -104, 0), 0xFFFFFF0C
+    entity Effect, EFI_TrafficSwitch, f(386, -30, 0), 0xFFFFFF0D
+    entity Effect, EFI_TrafficSwitch, f(424, -68, 0), 0xFFFFFF0E
+    entity Effect, EFI_TrafficSwitch, f(386, -292, 0), 0xFFFFFF0F
+    entity Effect, EFI_TrafficSwitch, f(356, 124, 0), 0xFFFFFF10
+    entity Effect, EFI_TrafficSwitch, f(242, 204, 0), 0xFFFFFF11
+    entity Effect, EFI_TrafficSwitch, f(82, 332, 0), 0xFFFFFF12
+    entity Effect, EFI_TrafficSwitch, f(258, 444, 0), 0xFFFFFF13
+    entity Effect, EFI_TrafficSwitch, f(-60, 444, 0), 0xFFFFFF14
     .word 0xFF
 
 
@@ -435,8 +435,8 @@ LAB_08049a08:
     bx         r0
     push       {r5}
     Flag_ToggleBase 0x30
-    Flag_ToggleIgnore F_IGNORE_WALL_00
-    Flag_ToggleIgnore F_IGNORE_WALL_01
+    Flag_ToggleIgnore F_IGNORE_DOOR_00
+    Flag_ToggleIgnore F_IGNORE_DOOR_01
     mov        r0,#0xba
     bl         Sound_PlaySongImmediate
     pop        {r5}
@@ -517,8 +517,8 @@ _ts FUN_08049ab0
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8047444_08049b24
     bl         BgTask_AddNew
-    Flag_SetIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
     b          LAB_08049b04
 LAB_08049ae0:
     ldr        r0,PTR_BgTask_80473B4_08049b28
@@ -529,8 +529,8 @@ LAB_08049ae0:
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8047474_08049b34
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_DOOR_01
 LAB_08049b04:
     pop        {r5,pc}
 

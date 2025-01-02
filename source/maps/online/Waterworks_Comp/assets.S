@@ -266,67 +266,67 @@ L_8046F86:
     .align 2, 0
 
 global_label EntityAllocParams_8046F90
-    entity Effect, 0x23, f(-314, 36, 64), 0xFF000020
-    entity Effect, 0x24, f(-314, 60, 0), 0x10520
+    entity Effect, EFI_Pipe, f(-314, 36, 64), 0xFF000020
+    entity Effect, EFI_Pipe2, f(-314, 60, 0), 0x10520
     .word 0xFF
 
 global_label EntityAllocParams_8046FBC
-    entity Effect, 0x23, f(-82, 316, 64), 0xFFFF0021
-    entity Effect, 0x24, f(-82, 340, 0), 0xFF010521
-    entity Effect, 0x23, f(-188, 50, 64), 0xFF000122
-    entity Effect, 0x25, f(-212, 50, 0), 0xFF000622
-    entity Effect, 0x25, f(-244, 50, 0), 0xFF000622
-    entity Effect, 0x25, f(-276, 50, 0), 0xFF000622
-    entity Effect, 0x25, f(-308, 50, 0), 0xFF000622
-    entity Effect, 0x25, f(-340, 50, 0), 0xFF000622
-    entity Effect, 0x25, f(-372, 50, 0), 0xFF000622
-    entity Effect, 0x25, f(-404, 50, 0), 0xFF000622
-    entity Effect, 0x24, f(-212, 50, 0), 0xFF000522
-    entity Effect, 0x23, f(132, -270, 64), 0xFF000123
-    entity Effect, 0x25, f(110, -270, 0), 0xFF010623
-    entity Effect, 0x25, f(78, -270, 0), 0xFF010623
-    entity Effect, 0x25, f(46, -270, 0), 0xFF010623
-    entity Effect, 0x24, f(108, -270, 0), 0xFF010523
+    entity Effect, EFI_Pipe, f(-82, 316, 64), 0xFFFF0021
+    entity Effect, EFI_Pipe2, f(-82, 340, 0), 0xFF010521
+    entity Effect, EFI_Pipe, f(-188, 50, 64), 0xFF000122
+    entity Effect, EFI_Pipe3, f(-212, 50, 0), 0xFF000622
+    entity Effect, EFI_Pipe3, f(-244, 50, 0), 0xFF000622
+    entity Effect, EFI_Pipe3, f(-276, 50, 0), 0xFF000622
+    entity Effect, EFI_Pipe3, f(-308, 50, 0), 0xFF000622
+    entity Effect, EFI_Pipe3, f(-340, 50, 0), 0xFF000622
+    entity Effect, EFI_Pipe3, f(-372, 50, 0), 0xFF000622
+    entity Effect, EFI_Pipe3, f(-404, 50, 0), 0xFF000622
+    entity Effect, EFI_Pipe2, f(-212, 50, 0), 0xFF000522
+    entity Effect, EFI_Pipe, f(132, -270, 64), 0xFF000123
+    entity Effect, EFI_Pipe3, f(110, -270, 0), 0xFF010623
+    entity Effect, EFI_Pipe3, f(78, -270, 0), 0xFF010623
+    entity Effect, EFI_Pipe3, f(46, -270, 0), 0xFF010623
+    entity Effect, EFI_Pipe2, f(108, -270, 0), 0xFF010523
     .word 0xFF
 
 global_label EntityAllocParams_8047100
-    entity Effect, 0x23, f(-322, -148, 128), 0xFF000024
-    entity Effect, 0x24, f(-322, -124, 96), 0xFF010324
-    entity Effect, 0x23, f(-174, -94, 96), 0xFF000126
-    entity Effect, 0x24, f(-198, -94, 64), 0xFF010326
-    entity Effect, 0x23, f(178, 100, 96), 0xFF000127
-    entity Effect, 0x25, f(158, 100, 64), 0xFF000627
-    entity Effect, 0x25, f(126, 100, 64), 0xFF000627
-    entity Effect, 0x25, f(94, 100, 64), 0xFF000627
-    entity Effect, 0x24, f(154, 100, 64), 0xFF000327
+    entity Effect, EFI_Pipe, f(-322, -148, 128), 0xFF000024
+    entity Effect, EFI_Pipe2, f(-322, -124, 96), 0xFF010324
+    entity Effect, EFI_Pipe, f(-174, -94, 96), 0xFF000126
+    entity Effect, EFI_Pipe2, f(-198, -94, 64), 0xFF010326
+    entity Effect, EFI_Pipe, f(178, 100, 96), 0xFF000127
+    entity Effect, EFI_Pipe3, f(158, 100, 64), 0xFF000627
+    entity Effect, EFI_Pipe3, f(126, 100, 64), 0xFF000627
+    entity Effect, EFI_Pipe3, f(94, 100, 64), 0xFF000627
+    entity Effect, EFI_Pipe2, f(154, 100, 64), 0xFF000327
     .word 0xFF
 
 global_label EntityAllocParams_80471B8
-    entity Effect, 0x23, f(140, 46, 96), 0xFF000129
-    entity Effect, 0x25, f(114, 44, 64), 0xFF000629
-    entity Effect, 0x25, f(82, 44, 64), 0xFF000629
-    entity Effect, 0x25, f(50, 44, 64), 0xFF000629
-    entity Effect, 0x25, f(18, 44, 64), 0xFF000629
-    entity Effect, 0x25, f(-14, 44, 64), 0xFF000629
-    entity Effect, 0x25, f(-46, 44, 64), 0xFF000629
-    entity Effect, 0x25, f(-78, 44, 64), 0xFF000629
-    entity Effect, 0x25, f(-110, 44, 64), 0xFF000629
-    entity Effect, 0x24, f(116, 46, 64), 0xFF000329
-    entity Effect, 0x23, f(-14, -236, 96), 0xFF000028
-    entity Effect, 0x25, f(-12, -210, 64), 0xFF000828
-    entity Effect, 0x25, f(-12, -178, 64), 0xFF000828
-    entity Effect, 0x25, f(-12, -146, 64), 0xFF000828
-    entity Effect, 0x25, f(-12, -114, 64), 0xFF000828
-    entity Effect, 0x25, f(-12, -82, 64), 0xFF000828
-    entity Effect, 0x25, f(-12, -50, 64), 0xFF000828
-    entity Effect, 0x25, f(-12, -18, 64), 0xFF000828
-    entity Effect, 0x24, f(-14, -212, 64), 0xFF000328
+    entity Effect, EFI_Pipe, f(140, 46, 96), 0xFF000129
+    entity Effect, EFI_Pipe3, f(114, 44, 64), 0xFF000629
+    entity Effect, EFI_Pipe3, f(82, 44, 64), 0xFF000629
+    entity Effect, EFI_Pipe3, f(50, 44, 64), 0xFF000629
+    entity Effect, EFI_Pipe3, f(18, 44, 64), 0xFF000629
+    entity Effect, EFI_Pipe3, f(-14, 44, 64), 0xFF000629
+    entity Effect, EFI_Pipe3, f(-46, 44, 64), 0xFF000629
+    entity Effect, EFI_Pipe3, f(-78, 44, 64), 0xFF000629
+    entity Effect, EFI_Pipe3, f(-110, 44, 64), 0xFF000629
+    entity Effect, EFI_Pipe2, f(116, 46, 64), 0xFF000329
+    entity Effect, EFI_Pipe, f(-14, -236, 96), 0xFF000028
+    entity Effect, EFI_Pipe3, f(-12, -210, 64), 0xFF000828
+    entity Effect, EFI_Pipe3, f(-12, -178, 64), 0xFF000828
+    entity Effect, EFI_Pipe3, f(-12, -146, 64), 0xFF000828
+    entity Effect, EFI_Pipe3, f(-12, -114, 64), 0xFF000828
+    entity Effect, EFI_Pipe3, f(-12, -82, 64), 0xFF000828
+    entity Effect, EFI_Pipe3, f(-12, -50, 64), 0xFF000828
+    entity Effect, EFI_Pipe3, f(-12, -18, 64), 0xFF000828
+    entity Effect, EFI_Pipe2, f(-14, -212, 64), 0xFF000328
     .word 0xFF
 
 global_label EntityAllocParams_8047338
-    entity Effect, 0x23, f(-188, 66, -32), 0xFF00012A
-    entity Effect, 0x25, f(-212, 66, -96), 0xFF00062A
-    entity Effect, 0x25, f(-244, 66, -96), 0xFF00062A
-    entity Effect, 0x25, f(-276, 66, -96), 0xFF00062A
-    entity Effect, 0x24, f(-212, 66, -96), 0xFF00052A
+    entity Effect, EFI_Pipe, f(-188, 66, -32), 0xFF00012A
+    entity Effect, EFI_Pipe3, f(-212, 66, -96), 0xFF00062A
+    entity Effect, EFI_Pipe3, f(-244, 66, -96), 0xFF00062A
+    entity Effect, EFI_Pipe3, f(-276, 66, -96), 0xFF00062A
+    entity Effect, EFI_Pipe2, f(-212, 66, -96), 0xFF00052A
     .word 0xFF

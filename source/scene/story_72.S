@@ -164,7 +164,7 @@ _nt S_Story_72_5
     bne        LAB_08094d0a
     Flag_SetBase 0xD2
     Flag_ClearBase 0xC0
-    Flag_SetIgnore F_IGNORE_WALL_08
+    Flag_SetIgnore F_IGNORE_DOOR_08
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]

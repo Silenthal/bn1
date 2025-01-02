@@ -16,6 +16,6 @@ NPC_8050294:
 NPC_80502B8:
     a_create_gmd -172, -36, 0, FLAG_ITEM_SCILAB_FISH_STAND_COMP_TRISPEAR_J, dialog=0x6
 global_label EntityAllocParams_80502DC
-    entity Effect, 0x16, f(50, -386, 0), 0x2000002
-    entity Effect, 0x16, f(162, 350, 0), 0x49010002
+    entity Effect, EFI_TeleportPortal, f(50, -386, 0), 0x2000002
+    entity Effect, EFI_TeleportPortal, f(162, 350, 0), 0x49010002
     .word 0xFF

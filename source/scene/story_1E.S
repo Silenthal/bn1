@@ -79,10 +79,10 @@ LAB_080882bc:
     bl         Text_LoadDialogue
     pop        {r5}
     Flag_SetBase 0x45
-    mov        r0,#0x30
+    mov        r0,#Item_SlashDex
     mov        r1,#0x1
     bl         KeyItem_AddAmount
-    mov        r0,#0xa3
+    mov        r0,#CD_GutsMan
     mov        r1,#0x6
     mov        r2,#0x1
     bl         Inventory_AddChip

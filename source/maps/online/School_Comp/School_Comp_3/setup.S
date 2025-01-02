@@ -93,7 +93,7 @@ LAB_08041120:
     b          LAB_08041142
 LAB_08041138:
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     pop        {r5}
 LAB_08041142:
     push       {r5}
@@ -123,7 +123,7 @@ LAB_0804115c:
     b          LAB_0804118a
 LAB_08041180:
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_01
     pop        {r5}
 LAB_0804118a:
     push       {r5}
@@ -257,7 +257,7 @@ _ts MapSetup_School_Comp_3_F15
     pop        {r5}
 LAB_08041298:
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_01
     pop        {r5}
     push       {r5}
     Flag_GetBase 0xB2
@@ -275,7 +275,7 @@ LAB_08041298:
     b          LAB_080412d0
 LAB_080412c6:
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     pop        {r5}
 LAB_080412d0:
     mov        r0,#0x0
@@ -477,8 +477,8 @@ _ts MapSetup_School_Comp_3_F20
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_DOOR_01
     push       {r5}
     ldr        r7,PTR_NPCList_8041E38_080414b8
     bl         Map_LoadNPCList

@@ -35,7 +35,7 @@ LAB_080316a2:
     bl         Sound_AreaSongChange
 LAB_080316a6:
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     pop        {r5}
     pop        {pc}
 
@@ -415,7 +415,7 @@ _ts MapSetup_Govt_Complex_Front_S3
     pop        {r5}
     bl         Sound_AreaSongChange
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     pop        {r5}
     pop        {pc}
 

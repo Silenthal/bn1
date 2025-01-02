@@ -459,8 +459,8 @@ NPC_803EB08:
     .align 2, 0
 
 global_label EntityAllocParams_803EB20
-    entity Effect, 0x1, f(100, -104, 32), 0x41
-    entity Effect, 0x1, f(52, -104, 32), 0x42
-    entity Effect, 0x1, f(4, -104, 32), 0x43
-    entity Effect, 0x1, f(-44, -104, 32), 0x44
+    entity Effect, EFI_MapObject, f(100, -104, 32), 0x41
+    entity Effect, EFI_MapObject, f(52, -104, 32), 0x42
+    entity Effect, EFI_MapObject, f(4, -104, 32), 0x43
+    entity Effect, EFI_MapObject, f(-44, -104, 32), 0x44
     .word 0xFF

@@ -540,84 +540,84 @@ NPC_804E6FA:
     .align 2, 0
 
 global_label EntityAllocParams_804E710
-    entity Effect, 0x3C, f(-338, 256, 0), 0x0
-    entity Effect, 0x3C, f(-338, 256, 0), 0x8
+    entity Effect, EFI_LockProgram, f(-338, 256, 0), 0x0
+    entity Effect, EFI_LockProgram, f(-338, 256, 0), 0x8
     .word 0xFF
 
 global_label EntityAllocParams_804E73C
-    entity Attack, 0x15, f(84, -426, 0), 0x100
-    entity Attack, 0x15, f(84, -402, 0), 0x1
-    entity Attack, 0x15, f(60, -402, 0), 0x102
-    entity Attack, 0x15, f(-54, -234, 0), 0x3
-    entity Attack, 0x15, f(-30, -234, 0), 0x104
-    entity Attack, 0x15, f(164, -266, 0), 0x5
-    entity Attack, 0x15, f(220, -202, 0), 0x106
-    entity Attack, 0x15, f(220, -178, 0), 0x7
-    entity Attack, 0x15, f(100, -106, 0), 0x108
-    entity Attack, 0x15, f(100, -82, 0), 0x9
-    entity Attack, 0x15, f(212, 150, 0), 0x10A
-    entity Attack, 0x15, f(212, 174, 0), 0xB
-    entity Attack, 0x15, f(132, 86, 0), 0x10C
-    entity Attack, 0x15, f(108, 86, 0), 0xD
-    entity Attack, 0x15, f(108, 278, 0), 0x10E
-    entity Attack, 0x15, f(132, 278, 0), 0xF
-    entity Attack, 0x15, f(34, 166, 0), 0x110
-    entity Attack, 0x15, f(12, 86, 0), 0x11
-    entity Attack, 0x15, f(12, 110, 0), 0x112
-    entity Attack, 0x15, f(12, 246, 0), 0x13
-    entity Attack, 0x15, f(12, 270, 0), 0x114
-    entity Attack, 0x15, f(-84, 166, 0), 0x15
-    entity Attack, 0x15, f(-84, 190, 0), 0x116
+    entity Attack, ACI_MeteorFire, f(84, -426, 0), 0x100
+    entity Attack, ACI_MeteorFire, f(84, -402, 0), 0x1
+    entity Attack, ACI_MeteorFire, f(60, -402, 0), 0x102
+    entity Attack, ACI_MeteorFire, f(-54, -234, 0), 0x3
+    entity Attack, ACI_MeteorFire, f(-30, -234, 0), 0x104
+    entity Attack, ACI_MeteorFire, f(164, -266, 0), 0x5
+    entity Attack, ACI_MeteorFire, f(220, -202, 0), 0x106
+    entity Attack, ACI_MeteorFire, f(220, -178, 0), 0x7
+    entity Attack, ACI_MeteorFire, f(100, -106, 0), 0x108
+    entity Attack, ACI_MeteorFire, f(100, -82, 0), 0x9
+    entity Attack, ACI_MeteorFire, f(212, 150, 0), 0x10A
+    entity Attack, ACI_MeteorFire, f(212, 174, 0), 0xB
+    entity Attack, ACI_MeteorFire, f(132, 86, 0), 0x10C
+    entity Attack, ACI_MeteorFire, f(108, 86, 0), 0xD
+    entity Attack, ACI_MeteorFire, f(108, 278, 0), 0x10E
+    entity Attack, ACI_MeteorFire, f(132, 278, 0), 0xF
+    entity Attack, ACI_MeteorFire, f(34, 166, 0), 0x110
+    entity Attack, ACI_MeteorFire, f(12, 86, 0), 0x11
+    entity Attack, ACI_MeteorFire, f(12, 110, 0), 0x112
+    entity Attack, ACI_MeteorFire, f(12, 246, 0), 0x13
+    entity Attack, ACI_MeteorFire, f(12, 270, 0), 0x114
+    entity Attack, ACI_MeteorFire, f(-84, 166, 0), 0x15
+    entity Attack, ACI_MeteorFire, f(-84, 190, 0), 0x116
     .word 0xFF
 
 global_label EntityAllocParams_804E90C
-    entity Effect, 0x3C, f(-486, -58, 64), 0x0
-    entity Effect, 0x3C, f(-486, -58, 64), 0x8
+    entity Effect, EFI_LockProgram, f(-486, -58, 64), 0x0
+    entity Effect, EFI_LockProgram, f(-486, -58, 64), 0x8
     .word 0xFF
 
 global_label EntityAllocParams_804E938
-    entity Effect, 0x3C, f(508, -124, 32), 0x0
-    entity Effect, 0x3C, f(508, -124, 32), 0x8
-    entity Effect, 0x3D, f(508, -32, 32), 0x0
+    entity Effect, EFI_LockProgram, f(508, -124, 32), 0x0
+    entity Effect, EFI_LockProgram, f(508, -124, 32), 0x8
+    entity Effect, EFI_WWWIceWall, f(508, -32, 32), 0x0
     .word 0xFF
 
 global_label EntityAllocParams_804E978
-    entity Effect, 0x3C, f(508, -124, 32), 0x0
-    entity Effect, 0x3C, f(508, -124, 32), 0x8
+    entity Effect, EFI_LockProgram, f(508, -124, 32), 0x0
+    entity Effect, EFI_LockProgram, f(508, -124, 32), 0x8
     .word 0xFF
 
 global_label EntityAllocParams_804E9A4
-    entity Effect, 0x2D, f(450, -84, 0), 0xFFFFFF00
-    entity Effect, 0x2D, f(484, 16, 0), 0xFFFFFF01
-    entity Effect, 0x2D, f(452, 236, 0), 0xFFFFFF02
-    entity Effect, 0x2D, f(320, 236, 0), 0xFFFFFF03
-    entity Effect, 0x2D, f(260, 76, 0), 0xFFFFFF04
-    entity Effect, 0x2D, f(34, 140, 0), 0xFFFFFF05
-    entity Effect, 0x2D, f(-28, -84, 0), 0xFFFFFF06
-    entity Effect, 0x2D, f(-188, -54, 0), 0xFFFFFF07
-    entity Effect, 0x2D, f(-160, -84, 0), 0xFFFFFF08
-    entity Effect, 0x2D, f(-252, -212, 0), 0xFFFFFF09
-    entity Effect, 0x2D, f(-410, 142, 0), 0xFFFFFF0A
+    entity Effect, EFI_TrafficSwitch, f(450, -84, 0), 0xFFFFFF00
+    entity Effect, EFI_TrafficSwitch, f(484, 16, 0), 0xFFFFFF01
+    entity Effect, EFI_TrafficSwitch, f(452, 236, 0), 0xFFFFFF02
+    entity Effect, EFI_TrafficSwitch, f(320, 236, 0), 0xFFFFFF03
+    entity Effect, EFI_TrafficSwitch, f(260, 76, 0), 0xFFFFFF04
+    entity Effect, EFI_TrafficSwitch, f(34, 140, 0), 0xFFFFFF05
+    entity Effect, EFI_TrafficSwitch, f(-28, -84, 0), 0xFFFFFF06
+    entity Effect, EFI_TrafficSwitch, f(-188, -54, 0), 0xFFFFFF07
+    entity Effect, EFI_TrafficSwitch, f(-160, -84, 0), 0xFFFFFF08
+    entity Effect, EFI_TrafficSwitch, f(-252, -212, 0), 0xFFFFFF09
+    entity Effect, EFI_TrafficSwitch, f(-410, 142, 0), 0xFFFFFF0A
     .word 0xFF
 
 global_label EntityAllocParams_804EA84
-    entity Effect, 0x3C, f(-512, -66, 0), 0x0
-    entity Effect, 0x3C, f(-512, -66, 0), 0x8
-    entity Effect, 0x3E, f(-508, 20, 8), 0x0
+    entity Effect, EFI_LockProgram, f(-512, -66, 0), 0x0
+    entity Effect, EFI_LockProgram, f(-512, -66, 0), 0x8
+    entity Effect, EFI_WWWBoulder, f(-508, 20, 8), 0x0
     .word 0xFF
 
 global_label EntityAllocParams_804EAC4
-    entity Effect, 0x3C, f(-512, -66, 0), 0x0
-    entity Effect, 0x3C, f(-512, -66, 0), 0x8
+    entity Effect, EFI_LockProgram, f(-512, -66, 0), 0x0
+    entity Effect, EFI_LockProgram, f(-512, -66, 0), 0x8
     .word 0xFF
 
 global_label EntityAllocParams_804EAF0
-    entity Effect, 0x3C, f(558, -230, 0), 0x0
-    entity Effect, 0x3C, f(558, -230, 0), 0x8
+    entity Effect, EFI_LockProgram, f(558, -230, 0), 0x0
+    entity Effect, EFI_LockProgram, f(558, -230, 0), 0x8
     .word 0xFF
 
 global_label EntityAllocParams_804EB1C
-    entity Effect, 0x35, f(450, -4, 0), 0x20
+    entity Effect, EFI_LifeVirusSeed, f(450, -4, 0), 0x20
     .word 0xFF
 
 PTR_0804eb34:
@@ -769,8 +769,8 @@ LAB_0804ec74:
     bx         r0
     push       {r5}
     Flag_ToggleBase 0x30
-    Flag_ToggleIgnore F_IGNORE_WALL_00
-    Flag_ToggleIgnore F_IGNORE_WALL_01
+    Flag_ToggleIgnore F_IGNORE_DOOR_00
+    Flag_ToggleIgnore F_IGNORE_DOOR_01
     mov        r0,#0xba
     bl         Sound_PlaySongImmediate
     pop        {r5}
@@ -812,8 +812,8 @@ _ts FUN_0804ecd0
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8047444_0804ed44
     bl         BgTask_AddNew
-    Flag_SetIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
     b          LAB_0804ed24
 LAB_0804ed00:
     ldr        r0,PTR_BgTask_80473B4_0804ed48
@@ -824,8 +824,8 @@ LAB_0804ed00:
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8047474_0804ed54
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_DOOR_01
 LAB_0804ed24:
     pop        {r5,pc}
 

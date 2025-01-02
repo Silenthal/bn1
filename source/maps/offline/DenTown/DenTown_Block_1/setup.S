@@ -150,8 +150,8 @@ _ts EventHandler_DenTown_Block_1_F30_0
     LoadMain world, r0, r0
     mov        r1,#0x31
     strb       r1,[r0,#0x6]
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
 LAB_08037092:
     pop        {pc}
 
@@ -163,8 +163,8 @@ _ts EventHandler_DenTown_Block_1_F30_1
 
 _ts MapSetup_DenTown_Block_1_F31
     push       {lr}
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
     push       {r5}
     bl         PlayerLocation_Create
     mov        r0,#0x1

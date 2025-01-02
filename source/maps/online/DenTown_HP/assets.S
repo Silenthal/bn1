@@ -17,6 +17,6 @@ NPC_804FFD8:
 NPC_804FFFC:
     a_create_gmd 146, 236, 0, FLAG_ITEM_DENTOWN_ANTIQUE_COMP_BARRIER_S, dialog=0x6
 global_label EntityAllocParams_8050020
-    entity Effect, 0x16, f(-398, -18, 0), 0x603
-    entity Effect, 0x16, f(-14, 110, 0), 0x4B010603
+    entity Effect, EFI_TeleportPortal, f(-398, -18, 0), 0x603
+    entity Effect, EFI_TeleportPortal, f(-14, 110, 0), 0x4B010603
     .word 0xFF

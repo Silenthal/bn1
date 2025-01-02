@@ -223,7 +223,7 @@ LAB_0804083c:
     pop        {r5}
     beq        LAB_08040854
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     pop        {r5}
     b          LAB_08040864
 LAB_08040854:
@@ -327,7 +327,7 @@ LAB_08040908:
     pop        {r5}
     beq        LAB_08040920
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     pop        {r5}
     b          LAB_08040942
 LAB_08040920:
@@ -416,7 +416,7 @@ _nt MapSetup_School_Comp_1_F14
     bl         Scene_Prepare
     pop        {r5}
 LAB_080409c6:
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -466,7 +466,7 @@ _ts MapSetup_School_Comp_1_F15
     bl         Scene_Prepare
     pop        {r5}
 LAB_08040a28:
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -673,7 +673,7 @@ LAB_08040b98:
     bl         Scene_Prepare
     pop        {r5}
 LAB_08040ba4:
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}

@@ -63,12 +63,12 @@ NPC_804FCB0:
 NPC_804FCD4:
     a_create_gmd 200, -250, 0, FLAG_ITEM_GOVT_LUNCH_CART_COMP_RECOV120_A, dialog=0x6
 global_label EntityAllocParams_804FCF8
-    entity Effect, 0x16, f(-198, 6, 0), 0x502
-    entity Effect, 0x16, f(218, 6, 0), 0x4A010502
+    entity Effect, EFI_TeleportPortal, f(-198, 6, 0), 0x502
+    entity Effect, EFI_TeleportPortal, f(218, 6, 0), 0x4A010502
     .word 0xFF
 
 global_label EntityAllocParams_804FD24
-    entity Effect, 0x16, f(-118, -202, 0), 0x1000002
-    entity Effect, 0x16, f(154, -250, 0), 0x48010002
+    entity Effect, EFI_TeleportPortal, f(-118, -202, 0), 0x1000002
+    entity Effect, EFI_TeleportPortal, f(154, -250, 0), 0x48010002
     .word 0xFF
 

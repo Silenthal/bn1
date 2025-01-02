@@ -105,22 +105,22 @@ NPC_804F608:
 NPC_804F62C:
     a_create_gmd 450, 148, 0, FLAG_ITEM_ACDC_DEX_PC_XPANEL3_B, dialog=0x6
 global_label EntityAllocParams_804F650
-    entity Effect, 0x16, f(-78, -2, 0), 0x301
-    entity Effect, 0x16, f(82, -2, 0), 0x10301
+    entity Effect, EFI_TeleportPortal, f(-78, -2, 0), 0x301
+    entity Effect, EFI_TeleportPortal, f(82, -2, 0), 0x10301
     .word 0xFF
 
 global_label EntityAllocParams_804F67C
-    entity Effect, 0x16, f(-54, 294, 0), 0x501
-    entity Effect, 0x16, f(74, 292, 128), 0x6010501
+    entity Effect, EFI_TeleportPortal, f(-54, 294, 0), 0x501
+    entity Effect, EFI_TeleportPortal, f(74, 292, 128), 0x6010501
     .word 0xFF
 
 global_label EntityAllocParams_804F6A8
-    entity Effect, 0x16, f(-238, 238, 0), 0x901
-    entity Effect, 0x16, f(-30, -36, 0), 0x7010901
+    entity Effect, EFI_TeleportPortal, f(-238, 238, 0), 0x901
+    entity Effect, EFI_TeleportPortal, f(-30, -36, 0), 0x7010901
     .word 0xFF
 
 global_label EntityAllocParams_804F6D4
-    entity Effect, 0x16, f(-550, -26, 0), 0x701
-    entity Effect, 0x16, f(474, 100, 0), 0x8010701
+    entity Effect, EFI_TeleportPortal, f(-550, -26, 0), 0x701
+    entity Effect, EFI_TeleportPortal, f(474, 100, 0), 0x8010701
     .word 0xFF
 

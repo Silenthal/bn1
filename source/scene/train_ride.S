@@ -86,7 +86,7 @@ _ts S_TrainRide_2
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Open_0808b83c
     bl         BgTask_AddNew
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     bl         Flag_SetPlayerActive
     bl         PlayerAnimation_Lock
     ldrb       r0,[r5,#0x0]
@@ -170,7 +170,7 @@ _ts S_TrainRide_5
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Open_0808b840
     bl         BgTask_AddNew
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]

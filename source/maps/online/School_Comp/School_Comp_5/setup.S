@@ -122,7 +122,7 @@ LAB_08041942:
     mov        r0,#0x0
     b          LAB_08041964
 LAB_0804195c:
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     mov        r0,#0x8
 LAB_08041964:
     str        r0,[r5,#0x0]
@@ -318,7 +318,7 @@ _ts MapSetup_School_Comp_5_F20
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     LoadMain world, r0, r0
     ldrb       r1,[r0,#0x4]
     ldrb       r2,[r0,#0xc]

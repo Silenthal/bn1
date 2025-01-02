@@ -309,7 +309,7 @@ _ts S_Story_30_11
     mov        r0,#0x6
     mov        r1,#0x1
     bl         KeyItem_AddAmount
-    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_DOOR_00
     bl         PlayerAnimation_Unlock
     push       {r5}
     mov        r0,#0x4

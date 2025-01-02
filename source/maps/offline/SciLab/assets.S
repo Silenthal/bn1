@@ -395,5 +395,5 @@ NPC_803D679:
     a_stop
 
 global_label EntityAllocParams_803D68C
-    entity Effect, 0x1, f(6, -136, 0), 0x3F
+    entity Effect, EFI_MapObject, f(6, -136, 0), 0x3F
     .word 0xFF

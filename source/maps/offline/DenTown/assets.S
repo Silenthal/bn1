@@ -723,469 +723,469 @@ NPC_803967C:
     .align 2, 0
 
 global_label EntityAllocParams_8039694
-    entity Effect, 0x1A, f(16, 90, 0), 0xFFFF0000
-    entity Effect, 0x1A, f(-90, 90, 0), 0xFF000001
-    entity Effect, 0x1A, f(-90, -16, 0), 0xFFFF0002
-    entity Effect, 0x1A, f(16, -16, 0), 0xFFFF0003
-    entity Effect, 0x1B, f(12, 90, 8), 0x0
-    entity Effect, 0x1B, f(-82, 124, 8), 0x200
-    entity Effect, 0x1D, f(52, 90, 8), 0x0
-    entity Effect, 0x1D, f(20, -20, 8), 0x200
-    entity Effect, 0x1B, f(-90, -12, 8), 0x301
-    entity Effect, 0x1B, f(-124, 82, 8), 0x101
-    entity Effect, 0x1D, f(20, 122, 8), 0x101
-    entity Effect, 0x1D, f(-90, 90, 8), 0x301
-    entity Effect, 0x1B, f(-82, -20, 8), 0x202
-    entity Effect, 0x1B, f(12, -54, 8), 0x2
-    entity Effect, 0x1D, f(-90, 90, 8), 0x2
-    entity Effect, 0x1D, f(-122, -20, 8), 0x202
-    entity Effect, 0x1B, f(20, 82, 8), 0x103
-    entity Effect, 0x1B, f(54, -12, 8), 0x303
-    entity Effect, 0x1D, f(20, -20, 8), 0x103
-    entity Effect, 0x1D, f(-90, -52, 8), 0x303
+    entity Effect, EFI_TrafficLight, f(16, 90, 0), 0xFFFF0000
+    entity Effect, EFI_TrafficLight, f(-90, 90, 0), 0xFF000001
+    entity Effect, EFI_TrafficLight, f(-90, -16, 0), 0xFFFF0002
+    entity Effect, EFI_TrafficLight, f(16, -16, 0), 0xFFFF0003
+    entity Effect, EFI_TrafficBarrier, f(12, 90, 8), 0x0
+    entity Effect, EFI_TrafficBarrier, f(-82, 124, 8), 0x200
+    entity Effect, EFI_TrafficBarrier2, f(52, 90, 8), 0x0
+    entity Effect, EFI_TrafficBarrier2, f(20, -20, 8), 0x200
+    entity Effect, EFI_TrafficBarrier, f(-90, -12, 8), 0x301
+    entity Effect, EFI_TrafficBarrier, f(-124, 82, 8), 0x101
+    entity Effect, EFI_TrafficBarrier2, f(20, 122, 8), 0x101
+    entity Effect, EFI_TrafficBarrier2, f(-90, 90, 8), 0x301
+    entity Effect, EFI_TrafficBarrier, f(-82, -20, 8), 0x202
+    entity Effect, EFI_TrafficBarrier, f(12, -54, 8), 0x2
+    entity Effect, EFI_TrafficBarrier2, f(-90, 90, 8), 0x2
+    entity Effect, EFI_TrafficBarrier2, f(-122, -20, 8), 0x202
+    entity Effect, EFI_TrafficBarrier, f(20, 82, 8), 0x103
+    entity Effect, EFI_TrafficBarrier, f(54, -12, 8), 0x303
+    entity Effect, EFI_TrafficBarrier2, f(20, -20, 8), 0x103
+    entity Effect, EFI_TrafficBarrier2, f(-90, -52, 8), 0x303
     .word 0xFF
 
 global_label EntityAllocParams_8039828
-    entity Effect, 0x1, f(14, 192, 0), 0x28
-    entity Effect, 0x1, f(-162, -14, 0), 0x29
-    entity Effect, 0x1, f(-322, -14, 0), 0x2A
-    entity Effect, 0x1, f(14, -54, 0), 0x2B
+    entity Effect, EFI_MapObject, f(14, 192, 0), 0x28
+    entity Effect, EFI_MapObject, f(-162, -14, 0), 0x29
+    entity Effect, EFI_MapObject, f(-322, -14, 0), 0x2A
+    entity Effect, EFI_MapObject, f(14, -54, 0), 0x2B
     .word 0xFF
 
 global_label EntityAllocParams_803987C
-    entity Effect, 0x1E, f(16, 90, 0), 0x0
-    entity Effect, 0x1E, f(-90, 90, 0), 0x10001
-    entity Effect, 0x1E, f(-90, -16, 0), 0x102
-    entity Effect, 0x1E, f(16, -16, 0), 0x103
-    entity Effect, 0x22, f(12, 90, 8), 0x0
-    entity Effect, 0x22, f(-82, 124, 8), 0x2
-    entity Effect, 0x22, f(52, 90, 8), 0x10200
-    entity Effect, 0x22, f(20, -20, 8), 0x10202
-    entity Effect, 0x22, f(-90, -12, 8), 0x103
-    entity Effect, 0x22, f(-124, 82, 8), 0x101
-    entity Effect, 0x22, f(20, 122, 8), 0x10401
-    entity Effect, 0x22, f(-90, 90, 8), 0x10403
-    entity Effect, 0x22, f(-82, -20, 8), 0x2
-    entity Effect, 0x22, f(12, -54, 8), 0x0
-    entity Effect, 0x22, f(-90, 90, 8), 0x10200
-    entity Effect, 0x22, f(-122, -20, 8), 0x10202
-    entity Effect, 0x22, f(20, 82, 8), 0x101
-    entity Effect, 0x22, f(54, -12, 8), 0x103
-    entity Effect, 0x22, f(20, -20, 8), 0x10401
-    entity Effect, 0x22, f(-90, -52, 8), 0x10403
+    entity Effect, EFI_TrafficLight2, f(16, 90, 0), 0x0
+    entity Effect, EFI_TrafficLight2, f(-90, 90, 0), 0x10001
+    entity Effect, EFI_TrafficLight2, f(-90, -16, 0), 0x102
+    entity Effect, EFI_TrafficLight2, f(16, -16, 0), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(12, 90, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(-82, 124, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(52, 90, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(-90, -12, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(-124, 82, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(20, 122, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x10403
+    entity Effect, EFI_TrafficLightToggle, f(-82, -20, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(12, -54, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(-122, -20, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(20, 82, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(54, -12, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(-90, -52, 8), 0x10403
     .word 0xFF
 
 global_label EntityAllocParams_8039A10
-    entity Effect, 0x1E, f(16, 90, 0), 0x0
-    entity Effect, 0x1E, f(-90, 90, 0), 0x10001
-    entity Effect, 0x1E, f(-90, -16, 0), 0x2
-    entity Effect, 0x1E, f(16, -16, 0), 0x103
-    entity Effect, 0x22, f(12, 90, 8), 0x0
-    entity Effect, 0x22, f(-82, 124, 8), 0x2
-    entity Effect, 0x22, f(52, 90, 8), 0x10400
-    entity Effect, 0x22, f(20, -20, 8), 0x10402
-    entity Effect, 0x22, f(-90, -12, 8), 0x3
-    entity Effect, 0x22, f(-124, 82, 8), 0x1
-    entity Effect, 0x22, f(20, 122, 8), 0x10401
-    entity Effect, 0x22, f(-90, 90, 8), 0x10403
-    entity Effect, 0x22, f(-82, -20, 8), 0x102
-    entity Effect, 0x22, f(12, -54, 8), 0x100
-    entity Effect, 0x22, f(-90, 90, 8), 0x10400
-    entity Effect, 0x22, f(-122, -20, 8), 0x10402
-    entity Effect, 0x22, f(20, 82, 8), 0x1
-    entity Effect, 0x22, f(54, -12, 8), 0x3
-    entity Effect, 0x22, f(20, -20, 8), 0x10201
-    entity Effect, 0x22, f(-90, -52, 8), 0x10203
+    entity Effect, EFI_TrafficLight2, f(16, 90, 0), 0x0
+    entity Effect, EFI_TrafficLight2, f(-90, 90, 0), 0x10001
+    entity Effect, EFI_TrafficLight2, f(-90, -16, 0), 0x2
+    entity Effect, EFI_TrafficLight2, f(16, -16, 0), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(12, 90, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(-82, 124, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(52, 90, 8), 0x10400
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x10402
+    entity Effect, EFI_TrafficLightToggle, f(-90, -12, 8), 0x3
+    entity Effect, EFI_TrafficLightToggle, f(-124, 82, 8), 0x1
+    entity Effect, EFI_TrafficLightToggle, f(20, 122, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x10403
+    entity Effect, EFI_TrafficLightToggle, f(-82, -20, 8), 0x102
+    entity Effect, EFI_TrafficLightToggle, f(12, -54, 8), 0x100
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x10400
+    entity Effect, EFI_TrafficLightToggle, f(-122, -20, 8), 0x10402
+    entity Effect, EFI_TrafficLightToggle, f(20, 82, 8), 0x1
+    entity Effect, EFI_TrafficLightToggle, f(54, -12, 8), 0x3
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x10201
+    entity Effect, EFI_TrafficLightToggle, f(-90, -52, 8), 0x10203
     .word 0xFF
 
 global_label EntityAllocParams_8039BA4
-    entity Effect, 0x1E, f(16, 90, 0), 0x0
-    entity Effect, 0x1E, f(-90, 90, 0), 0x10001
-    entity Effect, 0x1E, f(-90, -16, 0), 0x102
-    entity Effect, 0x1E, f(16, -16, 0), 0x2000103
-    entity Effect, 0x22, f(12, 90, 8), 0x0
-    entity Effect, 0x22, f(-82, 124, 8), 0x2
-    entity Effect, 0x22, f(52, 90, 8), 0x2010400
-    entity Effect, 0x22, f(20, -20, 8), 0x10402
-    entity Effect, 0x22, f(-90, -12, 8), 0x103
-    entity Effect, 0x22, f(-124, 82, 8), 0x101
-    entity Effect, 0x22, f(20, 122, 8), 0x10401
-    entity Effect, 0x22, f(-90, 90, 8), 0x10403
-    entity Effect, 0x22, f(-82, -20, 8), 0x2000102
-    entity Effect, 0x22, f(12, -54, 8), 0x2000100
-    entity Effect, 0x22, f(-90, 90, 8), 0x10200
-    entity Effect, 0x22, f(-122, -20, 8), 0x10202
-    entity Effect, 0x22, f(20, 82, 8), 0x1
-    entity Effect, 0x22, f(54, -12, 8), 0x3
-    entity Effect, 0x22, f(20, -20, 8), 0x1010201
-    entity Effect, 0x22, f(-90, -52, 8), 0x1010203
+    entity Effect, EFI_TrafficLight2, f(16, 90, 0), 0x0
+    entity Effect, EFI_TrafficLight2, f(-90, 90, 0), 0x10001
+    entity Effect, EFI_TrafficLight2, f(-90, -16, 0), 0x102
+    entity Effect, EFI_TrafficLight2, f(16, -16, 0), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(12, 90, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(-82, 124, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(52, 90, 8), 0x2010400
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x10402
+    entity Effect, EFI_TrafficLightToggle, f(-90, -12, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(-124, 82, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(20, 122, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x10403
+    entity Effect, EFI_TrafficLightToggle, f(-82, -20, 8), 0x2000102
+    entity Effect, EFI_TrafficLightToggle, f(12, -54, 8), 0x2000100
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(-122, -20, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(20, 82, 8), 0x1
+    entity Effect, EFI_TrafficLightToggle, f(54, -12, 8), 0x3
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x1010201
+    entity Effect, EFI_TrafficLightToggle, f(-90, -52, 8), 0x1010203
     .word 0xFF
 
 global_label EntityAllocParams_8039D38
-    entity Effect, 0x1E, f(16, 90, 0), 0x100
-    entity Effect, 0x1E, f(-90, 90, 0), 0x10001
-    entity Effect, 0x1E, f(-90, -16, 0), 0x2000102
-    entity Effect, 0x1E, f(16, -16, 0), 0x2000103
-    entity Effect, 0x22, f(12, 90, 8), 0x0
-    entity Effect, 0x22, f(-82, 124, 8), 0x2
-    entity Effect, 0x22, f(52, 90, 8), 0x10200
-    entity Effect, 0x22, f(20, -20, 8), 0x10202
-    entity Effect, 0x22, f(-90, -12, 8), 0x2000103
-    entity Effect, 0x22, f(-124, 82, 8), 0x2000101
-    entity Effect, 0x22, f(20, 122, 8), 0x10401
-    entity Effect, 0x22, f(-90, 90, 8), 0x10403
-    entity Effect, 0x22, f(-82, -20, 8), 0x2000102
-    entity Effect, 0x22, f(12, -54, 8), 0x2000100
-    entity Effect, 0x22, f(-90, 90, 8), 0x1010200
-    entity Effect, 0x22, f(-122, -20, 8), 0x1010202
-    entity Effect, 0x22, f(20, 82, 8), 0x101
-    entity Effect, 0x22, f(54, -12, 8), 0x103
-    entity Effect, 0x22, f(20, -20, 8), 0x1010201
-    entity Effect, 0x22, f(-90, -52, 8), 0x1010203
+    entity Effect, EFI_TrafficLight2, f(16, 90, 0), 0x100
+    entity Effect, EFI_TrafficLight2, f(-90, 90, 0), 0x10001
+    entity Effect, EFI_TrafficLight2, f(-90, -16, 0), 0x2000102
+    entity Effect, EFI_TrafficLight2, f(16, -16, 0), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(12, 90, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(-82, 124, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(52, 90, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(-90, -12, 8), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(-124, 82, 8), 0x2000101
+    entity Effect, EFI_TrafficLightToggle, f(20, 122, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x10403
+    entity Effect, EFI_TrafficLightToggle, f(-82, -20, 8), 0x2000102
+    entity Effect, EFI_TrafficLightToggle, f(12, -54, 8), 0x2000100
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x1010200
+    entity Effect, EFI_TrafficLightToggle, f(-122, -20, 8), 0x1010202
+    entity Effect, EFI_TrafficLightToggle, f(20, 82, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(54, -12, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x1010201
+    entity Effect, EFI_TrafficLightToggle, f(-90, -52, 8), 0x1010203
     .word 0xFF
 
 global_label EntityAllocParams_8039ECC
-    entity Effect, 0x1E, f(16, 90, 0), 0x2000100
-    entity Effect, 0x1E, f(-90, 90, 0), 0x10101
-    entity Effect, 0x1E, f(-90, -16, 0), 0x2000102
-    entity Effect, 0x1E, f(16, -16, 0), 0x2000103
-    entity Effect, 0x22, f(12, 90, 8), 0x100
-    entity Effect, 0x22, f(-82, 124, 8), 0x102
-    entity Effect, 0x22, f(52, 90, 8), 0x1010200
-    entity Effect, 0x22, f(20, -20, 8), 0x1010202
-    entity Effect, 0x22, f(-90, -12, 8), 0x2000103
-    entity Effect, 0x22, f(-124, 82, 8), 0x2000101
-    entity Effect, 0x22, f(20, 122, 8), 0x10201
-    entity Effect, 0x22, f(-90, 90, 8), 0x10203
-    entity Effect, 0x22, f(-82, -20, 8), 0x2000102
-    entity Effect, 0x22, f(12, -54, 8), 0x2000100
-    entity Effect, 0x22, f(-90, 90, 8), 0x1010200
-    entity Effect, 0x22, f(-122, -20, 8), 0x1010202
-    entity Effect, 0x22, f(20, 82, 8), 0x2000101
-    entity Effect, 0x22, f(54, -12, 8), 0x2000103
-    entity Effect, 0x22, f(20, -20, 8), 0x1010201
-    entity Effect, 0x22, f(-90, -52, 8), 0x1010203
+    entity Effect, EFI_TrafficLight2, f(16, 90, 0), 0x2000100
+    entity Effect, EFI_TrafficLight2, f(-90, 90, 0), 0x10101
+    entity Effect, EFI_TrafficLight2, f(-90, -16, 0), 0x2000102
+    entity Effect, EFI_TrafficLight2, f(16, -16, 0), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(12, 90, 8), 0x100
+    entity Effect, EFI_TrafficLightToggle, f(-82, 124, 8), 0x102
+    entity Effect, EFI_TrafficLightToggle, f(52, 90, 8), 0x1010200
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x1010202
+    entity Effect, EFI_TrafficLightToggle, f(-90, -12, 8), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(-124, 82, 8), 0x2000101
+    entity Effect, EFI_TrafficLightToggle, f(20, 122, 8), 0x10201
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x10203
+    entity Effect, EFI_TrafficLightToggle, f(-82, -20, 8), 0x2000102
+    entity Effect, EFI_TrafficLightToggle, f(12, -54, 8), 0x2000100
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x1010200
+    entity Effect, EFI_TrafficLightToggle, f(-122, -20, 8), 0x1010202
+    entity Effect, EFI_TrafficLightToggle, f(20, 82, 8), 0x2000101
+    entity Effect, EFI_TrafficLightToggle, f(54, -12, 8), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x1010201
+    entity Effect, EFI_TrafficLightToggle, f(-90, -52, 8), 0x1010203
     .word 0xFF
 
 global_label EntityAllocParams_803A060
-    entity Effect, 0x1E, f(16, 90, 0), 0x2000100
-    entity Effect, 0x1E, f(-90, 90, 0), 0x2010101
-    entity Effect, 0x1E, f(-90, -16, 0), 0x2000102
-    entity Effect, 0x1E, f(16, -16, 0), 0x2000103
-    entity Effect, 0x22, f(12, 90, 8), 0x2000100
-    entity Effect, 0x22, f(-82, 124, 8), 0x2000102
-    entity Effect, 0x22, f(52, 90, 8), 0x1010200
-    entity Effect, 0x22, f(20, -20, 8), 0x1010202
-    entity Effect, 0x22, f(-90, -12, 8), 0x2000103
-    entity Effect, 0x22, f(-124, 82, 8), 0x2000101
-    entity Effect, 0x22, f(20, 122, 8), 0x10201
-    entity Effect, 0x22, f(-90, 90, 8), 0x10203
-    entity Effect, 0x22, f(-82, -20, 8), 0x2000102
-    entity Effect, 0x22, f(12, -54, 8), 0x2000100
-    entity Effect, 0x22, f(-90, 90, 8), 0x1010200
-    entity Effect, 0x22, f(-122, -20, 8), 0x1010202
-    entity Effect, 0x22, f(20, 82, 8), 0x2000101
-    entity Effect, 0x22, f(54, -12, 8), 0x2000103
-    entity Effect, 0x22, f(20, -20, 8), 0x1010201
-    entity Effect, 0x22, f(-90, -52, 8), 0x1010203
+    entity Effect, EFI_TrafficLight2, f(16, 90, 0), 0x2000100
+    entity Effect, EFI_TrafficLight2, f(-90, 90, 0), 0x2010101
+    entity Effect, EFI_TrafficLight2, f(-90, -16, 0), 0x2000102
+    entity Effect, EFI_TrafficLight2, f(16, -16, 0), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(12, 90, 8), 0x2000100
+    entity Effect, EFI_TrafficLightToggle, f(-82, 124, 8), 0x2000102
+    entity Effect, EFI_TrafficLightToggle, f(52, 90, 8), 0x1010200
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x1010202
+    entity Effect, EFI_TrafficLightToggle, f(-90, -12, 8), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(-124, 82, 8), 0x2000101
+    entity Effect, EFI_TrafficLightToggle, f(20, 122, 8), 0x10201
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x10203
+    entity Effect, EFI_TrafficLightToggle, f(-82, -20, 8), 0x2000102
+    entity Effect, EFI_TrafficLightToggle, f(12, -54, 8), 0x2000100
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x1010200
+    entity Effect, EFI_TrafficLightToggle, f(-122, -20, 8), 0x1010202
+    entity Effect, EFI_TrafficLightToggle, f(20, 82, 8), 0x2000101
+    entity Effect, EFI_TrafficLightToggle, f(54, -12, 8), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x1010201
+    entity Effect, EFI_TrafficLightToggle, f(-90, -52, 8), 0x1010203
     .word 0xFF
 
 global_label EntityAllocParams_803A1F4
-    entity Effect, 0x1E, f(16, 90, 0), 0x2000100
-    entity Effect, 0x1E, f(-90, 90, 0), 0x2010101
-    entity Effect, 0x1E, f(-90, -16, 0), 0x2000102
-    entity Effect, 0x1E, f(16, -16, 0), 0x2000103
-    entity Effect, 0x22, f(12, 90, 8), 0x2000100
-    entity Effect, 0x22, f(-82, 124, 8), 0x2000102
-    entity Effect, 0x22, f(52, 90, 8), 0x1010200
-    entity Effect, 0x22, f(20, -20, 8), 0x1010202
-    entity Effect, 0x22, f(-90, -12, 8), 0x2000103
-    entity Effect, 0x22, f(-124, 82, 8), 0x2000101
-    entity Effect, 0x22, f(20, 122, 8), 0x10201
-    entity Effect, 0x22, f(-90, 90, 8), 0x10203
-    entity Effect, 0x22, f(-82, -20, 8), 0x2000102
-    entity Effect, 0x22, f(12, -54, 8), 0x2000100
-    entity Effect, 0x22, f(-90, 90, 8), 0x1010200
-    entity Effect, 0x22, f(-122, -20, 8), 0x1010202
-    entity Effect, 0x22, f(20, 82, 8), 0x2000101
-    entity Effect, 0x22, f(54, -12, 8), 0x2000103
-    entity Effect, 0x22, f(20, -20, 8), 0x1010201
-    entity Effect, 0x22, f(-90, -52, 8), 0x1010203
-    entity Effect, 0x1, f(-68, 7, 8), 0x3E
+    entity Effect, EFI_TrafficLight2, f(16, 90, 0), 0x2000100
+    entity Effect, EFI_TrafficLight2, f(-90, 90, 0), 0x2010101
+    entity Effect, EFI_TrafficLight2, f(-90, -16, 0), 0x2000102
+    entity Effect, EFI_TrafficLight2, f(16, -16, 0), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(12, 90, 8), 0x2000100
+    entity Effect, EFI_TrafficLightToggle, f(-82, 124, 8), 0x2000102
+    entity Effect, EFI_TrafficLightToggle, f(52, 90, 8), 0x1010200
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x1010202
+    entity Effect, EFI_TrafficLightToggle, f(-90, -12, 8), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(-124, 82, 8), 0x2000101
+    entity Effect, EFI_TrafficLightToggle, f(20, 122, 8), 0x10201
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x10203
+    entity Effect, EFI_TrafficLightToggle, f(-82, -20, 8), 0x2000102
+    entity Effect, EFI_TrafficLightToggle, f(12, -54, 8), 0x2000100
+    entity Effect, EFI_TrafficLightToggle, f(-90, 90, 8), 0x1010200
+    entity Effect, EFI_TrafficLightToggle, f(-122, -20, 8), 0x1010202
+    entity Effect, EFI_TrafficLightToggle, f(20, 82, 8), 0x2000101
+    entity Effect, EFI_TrafficLightToggle, f(54, -12, 8), 0x2000103
+    entity Effect, EFI_TrafficLightToggle, f(20, -20, 8), 0x1010201
+    entity Effect, EFI_TrafficLightToggle, f(-90, -52, 8), 0x1010203
+    entity Effect, EFI_MapObject, f(-68, 7, 8), 0x3E
     .word 0xFF
 
 global_label EntityAllocParams_803A39C
     .word 0xFF
 
 global_label EntityAllocParams_803A3A0
-    entity Effect, 0x1E, f(48, 74, 0), 0x0
-    entity Effect, 0x1E, f(-58, 74, 0), 0x1
-    entity Effect, 0x1E, f(-58, -32, 0), 0x10102
-    entity Effect, 0x1E, f(48, -32, 0), 0x103
-    entity Effect, 0x22, f(44, 74, 8), 0x0
-    entity Effect, 0x22, f(-50, 108, 8), 0x2
-    entity Effect, 0x22, f(84, 74, 8), 0x10200
-    entity Effect, 0x22, f(52, -36, 8), 0x10202
-    entity Effect, 0x22, f(-58, -28, 8), 0x103
-    entity Effect, 0x22, f(-92, 66, 8), 0x101
-    entity Effect, 0x22, f(52, 106, 8), 0x10401
-    entity Effect, 0x22, f(-58, 74, 8), 0x10403
-    entity Effect, 0x22, f(-50, -36, 8), 0x2
-    entity Effect, 0x22, f(44, -70, 8), 0x0
-    entity Effect, 0x22, f(-58, 74, 8), 0x10200
-    entity Effect, 0x22, f(-90, -36, 8), 0x10202
-    entity Effect, 0x22, f(52, 66, 8), 0x101
-    entity Effect, 0x22, f(86, -28, 8), 0x103
-    entity Effect, 0x22, f(52, -36, 8), 0x10401
-    entity Effect, 0x22, f(-58, -68, 8), 0x10403
-    entity Effect, 0x1, f(46, 176, 0), 0x34
-    entity Effect, 0x1, f(-242, -30, 0), 0x35
-    entity Effect, 0x1, f(-146, -30, 0), 0x36
-    entity Effect, 0x1, f(-102, -40, 0), 0x23
+    entity Effect, EFI_TrafficLight2, f(48, 74, 0), 0x0
+    entity Effect, EFI_TrafficLight2, f(-58, 74, 0), 0x1
+    entity Effect, EFI_TrafficLight2, f(-58, -32, 0), 0x10102
+    entity Effect, EFI_TrafficLight2, f(48, -32, 0), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(44, 74, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(-50, 108, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(84, 74, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(52, -36, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(-58, -28, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(-92, 66, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(52, 106, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(-58, 74, 8), 0x10403
+    entity Effect, EFI_TrafficLightToggle, f(-50, -36, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(44, -70, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(-58, 74, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(-90, -36, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(52, 66, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(86, -28, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(52, -36, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(-58, -68, 8), 0x10403
+    entity Effect, EFI_MapObject, f(46, 176, 0), 0x34
+    entity Effect, EFI_MapObject, f(-242, -30, 0), 0x35
+    entity Effect, EFI_MapObject, f(-146, -30, 0), 0x36
+    entity Effect, EFI_MapObject, f(-102, -40, 0), 0x23
     .word 0xFF
 
 global_label EntityAllocParams_803A584
-    entity Effect, 0x1E, f(48, 74, 0), 0x0
-    entity Effect, 0x1E, f(-58, 74, 0), 0x1
-    entity Effect, 0x1E, f(-58, -32, 0), 0x10102
-    entity Effect, 0x1E, f(48, -32, 0), 0x103
+    entity Effect, EFI_TrafficLight2, f(48, 74, 0), 0x0
+    entity Effect, EFI_TrafficLight2, f(-58, 74, 0), 0x1
+    entity Effect, EFI_TrafficLight2, f(-58, -32, 0), 0x10102
+    entity Effect, EFI_TrafficLight2, f(48, -32, 0), 0x103
     .word 0xFF
 
 global_label EntityAllocParams_803A5D8
-    entity Effect, 0x1A, f(48, 74, 0), 0xFFFF0000
-    entity Effect, 0x1A, f(-58, 74, 0), 0xFFFF0001
-    entity Effect, 0x1A, f(-58, -32, 0), 0xFF000002
-    entity Effect, 0x1A, f(48, -32, 0), 0xFFFF0003
-    entity Effect, 0x1B, f(44, 74, 8), 0x0
-    entity Effect, 0x1B, f(-50, 108, 8), 0x200
-    entity Effect, 0x1D, f(84, 74, 8), 0x0
-    entity Effect, 0x1D, f(52, -36, 8), 0x200
-    entity Effect, 0x1B, f(-58, -28, 8), 0x301
-    entity Effect, 0x1B, f(-92, 66, 8), 0x101
-    entity Effect, 0x1D, f(52, 106, 8), 0x101
-    entity Effect, 0x1D, f(-58, 74, 8), 0x301
-    entity Effect, 0x1B, f(-50, -36, 8), 0x202
-    entity Effect, 0x1B, f(44, -70, 8), 0x2
-    entity Effect, 0x1D, f(-58, 74, 8), 0x2
-    entity Effect, 0x1D, f(-90, -36, 8), 0x202
-    entity Effect, 0x1B, f(52, 66, 8), 0x103
-    entity Effect, 0x1B, f(86, -28, 8), 0x303
-    entity Effect, 0x1D, f(52, -36, 8), 0x103
-    entity Effect, 0x1D, f(-58, -68, 8), 0x303
+    entity Effect, EFI_TrafficLight, f(48, 74, 0), 0xFFFF0000
+    entity Effect, EFI_TrafficLight, f(-58, 74, 0), 0xFFFF0001
+    entity Effect, EFI_TrafficLight, f(-58, -32, 0), 0xFF000002
+    entity Effect, EFI_TrafficLight, f(48, -32, 0), 0xFFFF0003
+    entity Effect, EFI_TrafficBarrier, f(44, 74, 8), 0x0
+    entity Effect, EFI_TrafficBarrier, f(-50, 108, 8), 0x200
+    entity Effect, EFI_TrafficBarrier2, f(84, 74, 8), 0x0
+    entity Effect, EFI_TrafficBarrier2, f(52, -36, 8), 0x200
+    entity Effect, EFI_TrafficBarrier, f(-58, -28, 8), 0x301
+    entity Effect, EFI_TrafficBarrier, f(-92, 66, 8), 0x101
+    entity Effect, EFI_TrafficBarrier2, f(52, 106, 8), 0x101
+    entity Effect, EFI_TrafficBarrier2, f(-58, 74, 8), 0x301
+    entity Effect, EFI_TrafficBarrier, f(-50, -36, 8), 0x202
+    entity Effect, EFI_TrafficBarrier, f(44, -70, 8), 0x2
+    entity Effect, EFI_TrafficBarrier2, f(-58, 74, 8), 0x2
+    entity Effect, EFI_TrafficBarrier2, f(-90, -36, 8), 0x202
+    entity Effect, EFI_TrafficBarrier, f(52, 66, 8), 0x103
+    entity Effect, EFI_TrafficBarrier, f(86, -28, 8), 0x303
+    entity Effect, EFI_TrafficBarrier2, f(52, -36, 8), 0x103
+    entity Effect, EFI_TrafficBarrier2, f(-58, -68, 8), 0x303
     .word 0xFF
 
 global_label EntityAllocParams_803A76C
-    entity Effect, 0x1, f(46, 176, 0), 0x34
-    entity Effect, 0x1, f(-242, -30, 0), 0x35
-    entity Effect, 0x1, f(-146, -30, 0), 0x36
-    entity Effect, 0x1, f(-102, -40, 0), 0x23
+    entity Effect, EFI_MapObject, f(46, 176, 0), 0x34
+    entity Effect, EFI_MapObject, f(-242, -30, 0), 0x35
+    entity Effect, EFI_MapObject, f(-146, -30, 0), 0x36
+    entity Effect, EFI_MapObject, f(-102, -40, 0), 0x23
     .word 0xFF
 
 global_label EntityAllocParams_803A7C0
-    entity Effect, 0x1A, f(-24, 130, 0), 0xFFFF0000
-    entity Effect, 0x1A, f(-130, 130, 0), 0xFFFF0001
-    entity Effect, 0x1A, f(-130, 24, 0), 0xFFFF0002
-    entity Effect, 0x1A, f(-24, 24, 0), 0xFF000003
-    entity Effect, 0x1B, f(-28, 130, 8), 0x0
-    entity Effect, 0x1B, f(-122, 164, 8), 0x200
-    entity Effect, 0x1D, f(12, 130, 8), 0x0
-    entity Effect, 0x1D, f(-20, 20, 8), 0x200
-    entity Effect, 0x1B, f(-130, 28, 8), 0x301
-    entity Effect, 0x1B, f(-164, 122, 8), 0x101
-    entity Effect, 0x1D, f(-20, 162, 8), 0x101
-    entity Effect, 0x1D, f(-130, 130, 8), 0x301
-    entity Effect, 0x1B, f(-122, 20, 8), 0x202
-    entity Effect, 0x1B, f(-28, -14, 8), 0x2
-    entity Effect, 0x1D, f(-130, 130, 8), 0x2
-    entity Effect, 0x1D, f(-162, 20, 8), 0x202
-    entity Effect, 0x1B, f(-20, 122, 8), 0x103
-    entity Effect, 0x1B, f(14, 28, 8), 0x303
-    entity Effect, 0x1D, f(-20, 20, 8), 0x103
-    entity Effect, 0x1D, f(-130, -12, 8), 0x303
+    entity Effect, EFI_TrafficLight, f(-24, 130, 0), 0xFFFF0000
+    entity Effect, EFI_TrafficLight, f(-130, 130, 0), 0xFFFF0001
+    entity Effect, EFI_TrafficLight, f(-130, 24, 0), 0xFFFF0002
+    entity Effect, EFI_TrafficLight, f(-24, 24, 0), 0xFF000003
+    entity Effect, EFI_TrafficBarrier, f(-28, 130, 8), 0x0
+    entity Effect, EFI_TrafficBarrier, f(-122, 164, 8), 0x200
+    entity Effect, EFI_TrafficBarrier2, f(12, 130, 8), 0x0
+    entity Effect, EFI_TrafficBarrier2, f(-20, 20, 8), 0x200
+    entity Effect, EFI_TrafficBarrier, f(-130, 28, 8), 0x301
+    entity Effect, EFI_TrafficBarrier, f(-164, 122, 8), 0x101
+    entity Effect, EFI_TrafficBarrier2, f(-20, 162, 8), 0x101
+    entity Effect, EFI_TrafficBarrier2, f(-130, 130, 8), 0x301
+    entity Effect, EFI_TrafficBarrier, f(-122, 20, 8), 0x202
+    entity Effect, EFI_TrafficBarrier, f(-28, -14, 8), 0x2
+    entity Effect, EFI_TrafficBarrier2, f(-130, 130, 8), 0x2
+    entity Effect, EFI_TrafficBarrier2, f(-162, 20, 8), 0x202
+    entity Effect, EFI_TrafficBarrier, f(-20, 122, 8), 0x103
+    entity Effect, EFI_TrafficBarrier, f(14, 28, 8), 0x303
+    entity Effect, EFI_TrafficBarrier2, f(-20, 20, 8), 0x103
+    entity Effect, EFI_TrafficBarrier2, f(-130, -12, 8), 0x303
     .word 0xFF
 
 global_label EntityAllocParams_803A954
-    entity Effect, 0x1, f(-26, -24, 0), 0x2D
-    entity Effect, 0x1, f(-26, 232, 0), 0x2E
-    entity Effect, 0x1, f(-202, 26, 0), 0x2F
-    entity Effect, 0x1, f(-16, -32, 0), 0x22
+    entity Effect, EFI_MapObject, f(-26, -24, 0), 0x2D
+    entity Effect, EFI_MapObject, f(-26, 232, 0), 0x2E
+    entity Effect, EFI_MapObject, f(-202, 26, 0), 0x2F
+    entity Effect, EFI_MapObject, f(-16, -32, 0), 0x22
     .word 0xFF
 
 global_label EntityAllocParams_803A9A8
-    entity Effect, 0x1E, f(-24, 130, 0), 0x0
-    entity Effect, 0x1E, f(-130, 130, 0), 0x1
-    entity Effect, 0x1E, f(-130, 24, 0), 0x102
-    entity Effect, 0x1E, f(-24, 24, 0), 0x10103
-    entity Effect, 0x22, f(-28, 130, 8), 0x0
-    entity Effect, 0x22, f(-122, 164, 8), 0x2
-    entity Effect, 0x22, f(12, 130, 8), 0x10200
-    entity Effect, 0x22, f(-20, 20, 8), 0x10202
-    entity Effect, 0x22, f(-130, 28, 8), 0x103
-    entity Effect, 0x22, f(-164, 122, 8), 0x101
-    entity Effect, 0x22, f(-20, 162, 8), 0x10401
-    entity Effect, 0x22, f(-130, 130, 8), 0x10403
-    entity Effect, 0x22, f(-122, 20, 8), 0x2
-    entity Effect, 0x22, f(-28, -14, 8), 0x0
-    entity Effect, 0x22, f(-130, 130, 8), 0x10200
-    entity Effect, 0x22, f(-162, 20, 8), 0x10202
-    entity Effect, 0x22, f(-20, 122, 8), 0x101
-    entity Effect, 0x22, f(14, 28, 8), 0x103
-    entity Effect, 0x22, f(-20, 20, 8), 0x10401
-    entity Effect, 0x22, f(-130, -12, 8), 0x10403
+    entity Effect, EFI_TrafficLight2, f(-24, 130, 0), 0x0
+    entity Effect, EFI_TrafficLight2, f(-130, 130, 0), 0x1
+    entity Effect, EFI_TrafficLight2, f(-130, 24, 0), 0x102
+    entity Effect, EFI_TrafficLight2, f(-24, 24, 0), 0x10103
+    entity Effect, EFI_TrafficLightToggle, f(-28, 130, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(-122, 164, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(12, 130, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(-20, 20, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(-130, 28, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(-164, 122, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(-20, 162, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(-130, 130, 8), 0x10403
+    entity Effect, EFI_TrafficLightToggle, f(-122, 20, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(-28, -14, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(-130, 130, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(-162, 20, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(-20, 122, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(14, 28, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(-20, 20, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(-130, -12, 8), 0x10403
     .word 0xFF
 
 global_label EntityAllocParams_803AB3C
-    entity Effect, 0x1E, f(-24, 130, 0), 0x100
-    entity Effect, 0x1E, f(-130, 130, 0), 0x1
-    entity Effect, 0x1E, f(-130, 24, 0), 0x102
-    entity Effect, 0x1E, f(-24, 24, 0), 0x10103
-    entity Effect, 0x22, f(-28, 130, 8), 0x100
-    entity Effect, 0x22, f(-122, 164, 8), 0x102
-    entity Effect, 0x22, f(12, 130, 8), 0x10200
-    entity Effect, 0x22, f(-20, 20, 8), 0x10202
-    entity Effect, 0x22, f(-130, 28, 8), 0x103
-    entity Effect, 0x22, f(-164, 122, 8), 0x101
-    entity Effect, 0x22, f(-20, 162, 8), 0x10201
-    entity Effect, 0x22, f(-130, 130, 8), 0x10203
-    entity Effect, 0x22, f(-122, 20, 8), 0x2
-    entity Effect, 0x22, f(-28, -14, 8), 0x0
-    entity Effect, 0x22, f(-130, 130, 8), 0x10200
-    entity Effect, 0x22, f(-162, 20, 8), 0x10202
-    entity Effect, 0x22, f(-20, 122, 8), 0x101
-    entity Effect, 0x22, f(14, 28, 8), 0x103
-    entity Effect, 0x22, f(-20, 20, 8), 0x10401
-    entity Effect, 0x22, f(-130, -12, 8), 0x10403
-    entity Effect, 0x1, f(-26, -24, 0), 0x2D
-    entity Effect, 0x1, f(-26, 232, 0), 0x2E
-    entity Effect, 0x1, f(-202, 26, 0), 0x2F
-    entity Effect, 0x1, f(-16, -32, 0), 0x22
+    entity Effect, EFI_TrafficLight2, f(-24, 130, 0), 0x100
+    entity Effect, EFI_TrafficLight2, f(-130, 130, 0), 0x1
+    entity Effect, EFI_TrafficLight2, f(-130, 24, 0), 0x102
+    entity Effect, EFI_TrafficLight2, f(-24, 24, 0), 0x10103
+    entity Effect, EFI_TrafficLightToggle, f(-28, 130, 8), 0x100
+    entity Effect, EFI_TrafficLightToggle, f(-122, 164, 8), 0x102
+    entity Effect, EFI_TrafficLightToggle, f(12, 130, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(-20, 20, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(-130, 28, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(-164, 122, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(-20, 162, 8), 0x10201
+    entity Effect, EFI_TrafficLightToggle, f(-130, 130, 8), 0x10203
+    entity Effect, EFI_TrafficLightToggle, f(-122, 20, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(-28, -14, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(-130, 130, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(-162, 20, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(-20, 122, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(14, 28, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(-20, 20, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(-130, -12, 8), 0x10403
+    entity Effect, EFI_MapObject, f(-26, -24, 0), 0x2D
+    entity Effect, EFI_MapObject, f(-26, 232, 0), 0x2E
+    entity Effect, EFI_MapObject, f(-202, 26, 0), 0x2F
+    entity Effect, EFI_MapObject, f(-16, -32, 0), 0x22
     .word 0xFF
 
 global_label EntityAllocParams_803AD20
-    entity Effect, 0x1A, f(48, 26, 0), 0xFF000000
-    entity Effect, 0x1A, f(-58, 26, 0), 0xFFFF0001
-    entity Effect, 0x1A, f(-58, -80, 0), 0xFFFF0002
-    entity Effect, 0x1A, f(48, -80, 0), 0xFFFF0003
-    entity Effect, 0x1B, f(44, 26, 8), 0x0
-    entity Effect, 0x1B, f(-50, 60, 8), 0x200
-    entity Effect, 0x1D, f(84, 26, 8), 0x0
-    entity Effect, 0x1D, f(52, -84, 8), 0x200
-    entity Effect, 0x1B, f(-58, -76, 8), 0x301
-    entity Effect, 0x1B, f(-92, 18, 8), 0x101
-    entity Effect, 0x1D, f(52, 58, 8), 0x101
-    entity Effect, 0x1D, f(-58, 26, 8), 0x301
-    entity Effect, 0x1B, f(-50, -84, 8), 0x202
-    entity Effect, 0x1B, f(44, -118, 8), 0x2
-    entity Effect, 0x1D, f(-58, 26, 8), 0x2
-    entity Effect, 0x1D, f(-90, -84, 8), 0x202
-    entity Effect, 0x1B, f(52, 18, 8), 0x103
-    entity Effect, 0x1B, f(86, -76, 8), 0x303
-    entity Effect, 0x1D, f(52, -84, 8), 0x103
-    entity Effect, 0x1D, f(-58, -116, 8), 0x303
+    entity Effect, EFI_TrafficLight, f(48, 26, 0), 0xFF000000
+    entity Effect, EFI_TrafficLight, f(-58, 26, 0), 0xFFFF0001
+    entity Effect, EFI_TrafficLight, f(-58, -80, 0), 0xFFFF0002
+    entity Effect, EFI_TrafficLight, f(48, -80, 0), 0xFFFF0003
+    entity Effect, EFI_TrafficBarrier, f(44, 26, 8), 0x0
+    entity Effect, EFI_TrafficBarrier, f(-50, 60, 8), 0x200
+    entity Effect, EFI_TrafficBarrier2, f(84, 26, 8), 0x0
+    entity Effect, EFI_TrafficBarrier2, f(52, -84, 8), 0x200
+    entity Effect, EFI_TrafficBarrier, f(-58, -76, 8), 0x301
+    entity Effect, EFI_TrafficBarrier, f(-92, 18, 8), 0x101
+    entity Effect, EFI_TrafficBarrier2, f(52, 58, 8), 0x101
+    entity Effect, EFI_TrafficBarrier2, f(-58, 26, 8), 0x301
+    entity Effect, EFI_TrafficBarrier, f(-50, -84, 8), 0x202
+    entity Effect, EFI_TrafficBarrier, f(44, -118, 8), 0x2
+    entity Effect, EFI_TrafficBarrier2, f(-58, 26, 8), 0x2
+    entity Effect, EFI_TrafficBarrier2, f(-90, -84, 8), 0x202
+    entity Effect, EFI_TrafficBarrier, f(52, 18, 8), 0x103
+    entity Effect, EFI_TrafficBarrier, f(86, -76, 8), 0x303
+    entity Effect, EFI_TrafficBarrier2, f(52, -84, 8), 0x103
+    entity Effect, EFI_TrafficBarrier2, f(-58, -116, 8), 0x303
     .word 0xFF
 
 global_label EntityAllocParams_803AEB4
-    entity Effect, 0x1, f(46, -118, 0), 0x30
-    entity Effect, 0x1, f(46, 128, 0), 0x31
-    entity Effect, 0x1, f(86, -78, 0), 0x32
-    entity Effect, 0x1, f(-130, -78, 0), 0x33
-    entity Effect, 0x1, f(102, 32, 0), 0x23
+    entity Effect, EFI_MapObject, f(46, -118, 0), 0x30
+    entity Effect, EFI_MapObject, f(46, 128, 0), 0x31
+    entity Effect, EFI_MapObject, f(86, -78, 0), 0x32
+    entity Effect, EFI_MapObject, f(-130, -78, 0), 0x33
+    entity Effect, EFI_MapObject, f(102, 32, 0), 0x23
     .word 0xFF
 
 global_label EntityAllocParams_803AF1C
-    entity Effect, 0x1E, f(48, 26, 0), 0x10000
-    entity Effect, 0x1E, f(-58, 26, 0), 0x101
-    entity Effect, 0x1E, f(-58, -80, 0), 0x102
-    entity Effect, 0x1E, f(48, -80, 0), 0x103
-    entity Effect, 0x22, f(44, 26, 8), 0x100
-    entity Effect, 0x22, f(-50, 60, 8), 0x102
-    entity Effect, 0x22, f(84, 26, 8), 0x10400
-    entity Effect, 0x22, f(52, -84, 8), 0x10402
-    entity Effect, 0x22, f(-58, -76, 8), 0x103
-    entity Effect, 0x22, f(-92, 18, 8), 0x101
-    entity Effect, 0x22, f(52, 58, 8), 0x10201
-    entity Effect, 0x22, f(-58, 26, 8), 0x10203
-    entity Effect, 0x22, f(-50, -84, 8), 0x102
-    entity Effect, 0x22, f(44, -118, 8), 0x100
-    entity Effect, 0x22, f(-58, 26, 8), 0x10200
-    entity Effect, 0x22, f(-90, -84, 8), 0x10202
-    entity Effect, 0x22, f(52, 18, 8), 0x1
-    entity Effect, 0x22, f(86, -76, 8), 0x3
-    entity Effect, 0x22, f(52, -84, 8), 0x10201
-    entity Effect, 0x22, f(-58, -116, 8), 0x10203
-    entity Effect, 0x1, f(46, -118, 0), 0x30
-    entity Effect, 0x1, f(46, 128, 0), 0x31
-    entity Effect, 0x1, f(86, -78, 0), 0x32
-    entity Effect, 0x1, f(-130, -78, 0), 0x33
-    entity Effect, 0x1, f(102, 32, 0), 0x23
+    entity Effect, EFI_TrafficLight2, f(48, 26, 0), 0x10000
+    entity Effect, EFI_TrafficLight2, f(-58, 26, 0), 0x101
+    entity Effect, EFI_TrafficLight2, f(-58, -80, 0), 0x102
+    entity Effect, EFI_TrafficLight2, f(48, -80, 0), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(44, 26, 8), 0x100
+    entity Effect, EFI_TrafficLightToggle, f(-50, 60, 8), 0x102
+    entity Effect, EFI_TrafficLightToggle, f(84, 26, 8), 0x10400
+    entity Effect, EFI_TrafficLightToggle, f(52, -84, 8), 0x10402
+    entity Effect, EFI_TrafficLightToggle, f(-58, -76, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(-92, 18, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(52, 58, 8), 0x10201
+    entity Effect, EFI_TrafficLightToggle, f(-58, 26, 8), 0x10203
+    entity Effect, EFI_TrafficLightToggle, f(-50, -84, 8), 0x102
+    entity Effect, EFI_TrafficLightToggle, f(44, -118, 8), 0x100
+    entity Effect, EFI_TrafficLightToggle, f(-58, 26, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(-90, -84, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(52, 18, 8), 0x1
+    entity Effect, EFI_TrafficLightToggle, f(86, -76, 8), 0x3
+    entity Effect, EFI_TrafficLightToggle, f(52, -84, 8), 0x10201
+    entity Effect, EFI_TrafficLightToggle, f(-58, -116, 8), 0x10203
+    entity Effect, EFI_MapObject, f(46, -118, 0), 0x30
+    entity Effect, EFI_MapObject, f(46, 128, 0), 0x31
+    entity Effect, EFI_MapObject, f(86, -78, 0), 0x32
+    entity Effect, EFI_MapObject, f(-130, -78, 0), 0x33
+    entity Effect, EFI_MapObject, f(102, 32, 0), 0x23
     .word 0xFF
 
 global_label EntityAllocParams_803B114
-    entity Effect, 0x1A, f(152, 2, 0), 0xFFFF0000
-    entity Effect, 0x1A, f(46, 2, 0), 0xFF000001
-    entity Effect, 0x1A, f(46, -104, 0), 0xFFFF0002
-    entity Effect, 0x1A, f(152, -104, 0), 0xFFFF0003
-    entity Effect, 0x1B, f(148, 2, 8), 0x0
-    entity Effect, 0x1B, f(54, 36, 8), 0x200
-    entity Effect, 0x1D, f(188, 2, 8), 0x0
-    entity Effect, 0x1D, f(156, -108, 8), 0x200
-    entity Effect, 0x1B, f(46, -100, 8), 0x301
-    entity Effect, 0x1B, f(12, -6, 8), 0x101
-    entity Effect, 0x1D, f(156, 34, 8), 0x101
-    entity Effect, 0x1D, f(46, 2, 8), 0x301
-    entity Effect, 0x1B, f(54, -108, 8), 0x202
-    entity Effect, 0x1B, f(148, -142, 8), 0x2
-    entity Effect, 0x1D, f(46, 2, 8), 0x2
-    entity Effect, 0x1D, f(14, -108, 8), 0x202
-    entity Effect, 0x1B, f(156, -6, 8), 0x103
-    entity Effect, 0x1B, f(190, -100, 8), 0x303
-    entity Effect, 0x1D, f(156, -108, 8), 0x103
-    entity Effect, 0x1D, f(46, -140, 8), 0x303
+    entity Effect, EFI_TrafficLight, f(152, 2, 0), 0xFFFF0000
+    entity Effect, EFI_TrafficLight, f(46, 2, 0), 0xFF000001
+    entity Effect, EFI_TrafficLight, f(46, -104, 0), 0xFFFF0002
+    entity Effect, EFI_TrafficLight, f(152, -104, 0), 0xFFFF0003
+    entity Effect, EFI_TrafficBarrier, f(148, 2, 8), 0x0
+    entity Effect, EFI_TrafficBarrier, f(54, 36, 8), 0x200
+    entity Effect, EFI_TrafficBarrier2, f(188, 2, 8), 0x0
+    entity Effect, EFI_TrafficBarrier2, f(156, -108, 8), 0x200
+    entity Effect, EFI_TrafficBarrier, f(46, -100, 8), 0x301
+    entity Effect, EFI_TrafficBarrier, f(12, -6, 8), 0x101
+    entity Effect, EFI_TrafficBarrier2, f(156, 34, 8), 0x101
+    entity Effect, EFI_TrafficBarrier2, f(46, 2, 8), 0x301
+    entity Effect, EFI_TrafficBarrier, f(54, -108, 8), 0x202
+    entity Effect, EFI_TrafficBarrier, f(148, -142, 8), 0x2
+    entity Effect, EFI_TrafficBarrier2, f(46, 2, 8), 0x2
+    entity Effect, EFI_TrafficBarrier2, f(14, -108, 8), 0x202
+    entity Effect, EFI_TrafficBarrier, f(156, -6, 8), 0x103
+    entity Effect, EFI_TrafficBarrier, f(190, -100, 8), 0x303
+    entity Effect, EFI_TrafficBarrier2, f(156, -108, 8), 0x103
+    entity Effect, EFI_TrafficBarrier2, f(46, -140, 8), 0x303
     .word 0xFF
 
 global_label EntityAllocParams_803B2A8
-    entity Effect, 0x1, f(150, 88, 0), 0x38
-    entity Effect, 0x1, f(150, 184, 0), 0x39
-    entity Effect, 0x1, f(-42, -102, 0), 0x3A
-    entity Effect, 0x1, f(-138, -102, 0), 0x3B
-    entity Effect, 0x1, f(40, 104, 0), 0x22
+    entity Effect, EFI_MapObject, f(150, 88, 0), 0x38
+    entity Effect, EFI_MapObject, f(150, 184, 0), 0x39
+    entity Effect, EFI_MapObject, f(-42, -102, 0), 0x3A
+    entity Effect, EFI_MapObject, f(-138, -102, 0), 0x3B
+    entity Effect, EFI_MapObject, f(40, 104, 0), 0x22
     .word 0xFF
 
 global_label EntityAllocParams_803B310
-    entity Effect, 0x1E, f(152, 2, 0), 0x1000100
-    entity Effect, 0x1E, f(46, 2, 0), 0x10001
-    entity Effect, 0x1E, f(46, -104, 0), 0x102
-    entity Effect, 0x1E, f(152, -104, 0), 0x103
-    entity Effect, 0x22, f(148, 2, 8), 0x0
-    entity Effect, 0x22, f(54, 36, 8), 0x2
-    entity Effect, 0x22, f(188, 2, 8), 0x10200
-    entity Effect, 0x22, f(156, -108, 8), 0x10202
-    entity Effect, 0x22, f(46, -100, 8), 0x103
-    entity Effect, 0x22, f(12, -6, 8), 0x101
-    entity Effect, 0x22, f(156, 34, 8), 0x10401
-    entity Effect, 0x22, f(46, 2, 8), 0x10403
-    entity Effect, 0x22, f(54, -108, 8), 0x102
-    entity Effect, 0x22, f(148, -142, 8), 0x100
-    entity Effect, 0x22, f(46, 2, 8), 0x10200
-    entity Effect, 0x22, f(14, -108, 8), 0x10202
-    entity Effect, 0x22, f(156, -6, 8), 0x101
-    entity Effect, 0x22, f(190, -100, 8), 0x103
-    entity Effect, 0x22, f(156, -108, 8), 0x10201
-    entity Effect, 0x22, f(46, -140, 8), 0x10203
-    entity Effect, 0x1, f(150, 88, 0), 0x38
-    entity Effect, 0x1, f(150, 184, 0), 0x39
-    entity Effect, 0x1, f(-42, -102, 0), 0x3A
-    entity Effect, 0x1, f(-138, -102, 0), 0x3B
-    entity Effect, 0x1, f(40, 104, 0), 0x22
+    entity Effect, EFI_TrafficLight2, f(152, 2, 0), 0x1000100
+    entity Effect, EFI_TrafficLight2, f(46, 2, 0), 0x10001
+    entity Effect, EFI_TrafficLight2, f(46, -104, 0), 0x102
+    entity Effect, EFI_TrafficLight2, f(152, -104, 0), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(148, 2, 8), 0x0
+    entity Effect, EFI_TrafficLightToggle, f(54, 36, 8), 0x2
+    entity Effect, EFI_TrafficLightToggle, f(188, 2, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(156, -108, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(46, -100, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(12, -6, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(156, 34, 8), 0x10401
+    entity Effect, EFI_TrafficLightToggle, f(46, 2, 8), 0x10403
+    entity Effect, EFI_TrafficLightToggle, f(54, -108, 8), 0x102
+    entity Effect, EFI_TrafficLightToggle, f(148, -142, 8), 0x100
+    entity Effect, EFI_TrafficLightToggle, f(46, 2, 8), 0x10200
+    entity Effect, EFI_TrafficLightToggle, f(14, -108, 8), 0x10202
+    entity Effect, EFI_TrafficLightToggle, f(156, -6, 8), 0x101
+    entity Effect, EFI_TrafficLightToggle, f(190, -100, 8), 0x103
+    entity Effect, EFI_TrafficLightToggle, f(156, -108, 8), 0x10201
+    entity Effect, EFI_TrafficLightToggle, f(46, -140, 8), 0x10203
+    entity Effect, EFI_MapObject, f(150, 88, 0), 0x38
+    entity Effect, EFI_MapObject, f(150, 184, 0), 0x39
+    entity Effect, EFI_MapObject, f(-42, -102, 0), 0x3A
+    entity Effect, EFI_MapObject, f(-138, -102, 0), 0x3B
+    entity Effect, EFI_MapObject, f(40, 104, 0), 0x22
     .word 0xFF
 
 global_label EntityAllocParams_803B508
-    entity Effect, 0x1, f(18, -18, 0), 0x37
-    entity Effect, 0x1, f(18, 30, 0), 0x37
-    entity Effect, 0x1, f(18, 78, 0), 0x37
-    entity Effect, 0x1, f(-30, -18, 0), 0x37
-    entity Effect, 0x1, f(-30, 30, 0), 0x37
-    entity Effect, 0x1, f(-30, 78, 0), 0x37
+    entity Effect, EFI_MapObject, f(18, -18, 0), 0x37
+    entity Effect, EFI_MapObject, f(18, 30, 0), 0x37
+    entity Effect, EFI_MapObject, f(18, 78, 0), 0x37
+    entity Effect, EFI_MapObject, f(-30, -18, 0), 0x37
+    entity Effect, EFI_MapObject, f(-30, 30, 0), 0x37
+    entity Effect, EFI_MapObject, f(-30, 78, 0), 0x37
     .word 0xFF
 
 PTR_EntityAllocParams_8039694_0803b584:
@@ -1260,8 +1260,8 @@ LAB_0803b70c:
     mov        r0,#0x0
     strb       r0,[r5,#0x6]
     push       {r5}
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_DOOR_01
     pop        {r5}
     b          LAB_0803b766
 LAB_0803b736:
@@ -1281,8 +1281,8 @@ LAB_0803b736:
     b          LAB_0803b766
 LAB_0803b756:
     push       {r5}
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
     pop        {r5}
 LAB_0803b766:
     push       {r5}
@@ -1337,8 +1337,8 @@ _ts Traffic_0_CheckTimers
     mov        r0,#0x1
     strb       r0,[r5,#0x6]
     push       {r0}
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_DOOR_01
     pop        {r0}
     mov        r0,#0x4
     strb       r0,[r5,#0x4]
@@ -1502,8 +1502,8 @@ _ts Traffic_ResetToRedLight
     ldr        r0,[r0,r1]
     bl         Entity_AllocList
     pop        {r5}
-    Flag_ClearIgnore F_IGNORE_WALL_00
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_DOOR_01
     pop        {r5,pc}
 
 PTR_DAT_0803b900:

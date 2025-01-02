@@ -30,13 +30,13 @@ LAB_08045d00:
     Flag_GetBase 0xE5
     beq        LAB_08045d1a
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_01
+    Flag_SetIgnore F_IGNORE_DOOR_01
     pop        {r5}
 LAB_08045d1a:
     Flag_GetBase 0xE6
     bne        LAB_08045d2c
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_02
+    Flag_SetIgnore F_IGNORE_DOOR_02
     pop        {r5}
 LAB_08045d2c:
     Flag_GetBase 0xF0
@@ -55,7 +55,7 @@ LAB_08045d4a:
     Flag_GetBase 0xE7
     beq        LAB_08045d5c
     push       {r5}
-    Flag_SetIgnore F_IGNORE_WALL_03
+    Flag_SetIgnore F_IGNORE_DOOR_03
     pop        {r5}
 LAB_08045d5c:
     pop        {pc}
@@ -259,9 +259,9 @@ _ts MapSetup_Waterworks_Comp_2_S3
     bl         BgTask_AddNew
     ldr        r0,PTR_EntityAllocParams_8046FBC_08045fc8
     bl         Entity_AllocList
-    Flag_SetIgnore F_IGNORE_WALL_01
-    Flag_SetIgnore F_IGNORE_WALL_02
-    Flag_SetIgnore F_IGNORE_WALL_03
+    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_SetIgnore F_IGNORE_DOOR_02
+    Flag_SetIgnore F_IGNORE_DOOR_03
     ldr        r0,PTR_BgTask_8044360_08045fcc
     bl         BgTask_AddNew
     pop        {r5}

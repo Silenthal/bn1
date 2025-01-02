@@ -262,63 +262,63 @@ global_label NPCList_8041FB0
 NPC_8041FB8:
     a_create_bmd 18, -54, 0, FLAG_ITEM_SCHOOL_COMP_5_CANNON_C, dialog=0x1F
 global_label EntityAllocParams_8041FDC
-    entity Effect, 0x1, f(-228, 60, 0), 0xD
-    entity Effect, 0x1, f(-228, 100, 0), 0xD
-    entity Effect, 0x1, f(-228, 140, 0), 0xD
-    entity Effect, 0x1, f(-276, 60, 0), 0xD
-    entity Effect, 0x1, f(-276, 100, 0), 0xD
-    entity Effect, 0x1, f(-276, 140, 0), 0xD
-    entity Effect, 0x1, f(-324, 60, 0), 0xD
-    entity Effect, 0x1, f(-324, 100, 0), 0xD
-    entity Effect, 0x1, f(-324, 140, 0), 0xD
-    entity Effect, 0x1, f(74, 60, 0), 0xD
-    entity Effect, 0x1, f(74, 100, 0), 0xD
-    entity Effect, 0x1, f(74, 140, 0), 0xD
-    entity Effect, 0x1, f(26, 60, 0), 0xD
-    entity Effect, 0x1, f(26, 100, 0), 0xD
-    entity Effect, 0x1, f(26, 140, 0), 0xD
-    entity Effect, 0x1, f(-22, 60, 0), 0xD
-    entity Effect, 0x1, f(-22, 100, 0), 0xD
-    entity Effect, 0x1, f(-22, 140, 0), 0xD
+    entity Effect, EFI_MapObject, f(-228, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(-228, 100, 0), 0xD
+    entity Effect, EFI_MapObject, f(-228, 140, 0), 0xD
+    entity Effect, EFI_MapObject, f(-276, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(-276, 100, 0), 0xD
+    entity Effect, EFI_MapObject, f(-276, 140, 0), 0xD
+    entity Effect, EFI_MapObject, f(-324, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(-324, 100, 0), 0xD
+    entity Effect, EFI_MapObject, f(-324, 140, 0), 0xD
+    entity Effect, EFI_MapObject, f(74, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(74, 100, 0), 0xD
+    entity Effect, EFI_MapObject, f(74, 140, 0), 0xD
+    entity Effect, EFI_MapObject, f(26, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(26, 100, 0), 0xD
+    entity Effect, EFI_MapObject, f(26, 140, 0), 0xD
+    entity Effect, EFI_MapObject, f(-22, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(-22, 100, 0), 0xD
+    entity Effect, EFI_MapObject, f(-22, 140, 0), 0xD
     .word 0xFF
 
 global_label EntityAllocParams_8042148
-    entity Effect, 0x1, f(-228, -20, 0), 0xD
-    entity Effect, 0x1, f(-228, 20, 0), 0xD
-    entity Effect, 0x1, f(-228, 60, 0), 0xD
-    entity Effect, 0x1, f(-276, -20, 0), 0xD
-    entity Effect, 0x1, f(-276, 20, 0), 0xD
-    entity Effect, 0x1, f(-276, 60, 0), 0xD
-    entity Effect, 0x1, f(-324, -20, 0), 0xD
-    entity Effect, 0x1, f(-324, 20, 0), 0xD
-    entity Effect, 0x1, f(-324, 60, 0), 0xD
-    entity Effect, 0x1, f(76, -20, 0), 0xD
-    entity Effect, 0x1, f(76, 20, 0), 0xD
-    entity Effect, 0x1, f(76, 60, 0), 0xD
-    entity Effect, 0x1, f(28, -20, 0), 0xD
-    entity Effect, 0x1, f(28, 20, 0), 0xD
-    entity Effect, 0x1, f(28, 60, 0), 0xD
-    entity Effect, 0x1, f(-20, -20, 0), 0xD
-    entity Effect, 0x1, f(-20, 20, 0), 0xD
-    entity Effect, 0x1, f(-20, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(-228, -20, 0), 0xD
+    entity Effect, EFI_MapObject, f(-228, 20, 0), 0xD
+    entity Effect, EFI_MapObject, f(-228, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(-276, -20, 0), 0xD
+    entity Effect, EFI_MapObject, f(-276, 20, 0), 0xD
+    entity Effect, EFI_MapObject, f(-276, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(-324, -20, 0), 0xD
+    entity Effect, EFI_MapObject, f(-324, 20, 0), 0xD
+    entity Effect, EFI_MapObject, f(-324, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(76, -20, 0), 0xD
+    entity Effect, EFI_MapObject, f(76, 20, 0), 0xD
+    entity Effect, EFI_MapObject, f(76, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(28, -20, 0), 0xD
+    entity Effect, EFI_MapObject, f(28, 20, 0), 0xD
+    entity Effect, EFI_MapObject, f(28, 60, 0), 0xD
+    entity Effect, EFI_MapObject, f(-20, -20, 0), 0xD
+    entity Effect, EFI_MapObject, f(-20, 20, 0), 0xD
+    entity Effect, EFI_MapObject, f(-20, 60, 0), 0xD
     .word 0xFF
 
 global_label EntityAllocParams_80422B4
-    entity Effect, 0x1, f(52, -28, 0), 0xD
-    entity Effect, 0x1, f(4, -28, 0), 0xD
-    entity Effect, 0x1, f(-44, -28, 0), 0xD
-    entity Effect, 0x1, f(-44, 12, 0), 0xD
-    entity Effect, 0x1, f(-44, 52, 0), 0xD
+    entity Effect, EFI_MapObject, f(52, -28, 0), 0xD
+    entity Effect, EFI_MapObject, f(4, -28, 0), 0xD
+    entity Effect, EFI_MapObject, f(-44, -28, 0), 0xD
+    entity Effect, EFI_MapObject, f(-44, 12, 0), 0xD
+    entity Effect, EFI_MapObject, f(-44, 52, 0), 0xD
     .word 0xFF
 
 global_label EntityAllocParams_804231C
-    entity Effect, 0x1, f(300, -68, 0), 0xD
-    entity Effect, 0x1, f(300, -52, 0), 0xD
-    entity Effect, 0x1, f(300, -4, 0), 0xD
-    entity Effect, 0x1, f(300, 12, 0), 0xD
-    entity Effect, 0x1, f(252, -68, 0), 0xD
-    entity Effect, 0x1, f(252, -52, 0), 0xD
-    entity Effect, 0x1, f(252, -4, 0), 0xD
-    entity Effect, 0x1, f(252, 12, 0), 0xD
+    entity Effect, EFI_MapObject, f(300, -68, 0), 0xD
+    entity Effect, EFI_MapObject, f(300, -52, 0), 0xD
+    entity Effect, EFI_MapObject, f(300, -4, 0), 0xD
+    entity Effect, EFI_MapObject, f(300, 12, 0), 0xD
+    entity Effect, EFI_MapObject, f(252, -68, 0), 0xD
+    entity Effect, EFI_MapObject, f(252, -52, 0), 0xD
+    entity Effect, EFI_MapObject, f(252, -4, 0), 0xD
+    entity Effect, EFI_MapObject, f(252, 12, 0), 0xD
     .word 0xFF
 

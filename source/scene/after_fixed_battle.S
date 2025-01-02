@@ -9,36 +9,36 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_GUTSMAN_V1, 0
+    .byte F_BATTLE_WIN_GUTSMAN_V1, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_GUTSMAN
+    .byte 0, F_BATTLE_GUTSMAN
 
     @ Dialogue if win/lose
     .byte 0x1F, 0x20
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_GUTSMAN_V1, 0
+    .byte F_BATTLE_WIN_GUTSMAN_V1, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_GUTSMAN
+    .byte 0, F_BATTLE_GUTSMAN
 
     @ Dialogue if win/lose
     .byte 0x5C, 0x5D
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_GUTSMAN_V1, 0
+    .byte F_BATTLE_WIN_GUTSMAN_V1, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_GUTSMAN
+    .byte 0, F_BATTLE_GUTSMAN
 
     @ Dialogue if win/lose
     .byte 0x2, 0x3
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_GUTSMAN_V1, FLAG_BATTLE_GUTSMAN
+    .byte F_BATTLE_WIN_GUTSMAN_V1, F_BATTLE_GUTSMAN
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_GUTSMAN
+    .byte 0, F_BATTLE_GUTSMAN
 
     @ Dialogue if win/lose
     .byte -1, -1
@@ -54,43 +54,43 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_WOODMAN_V1, 0
+    .byte F_BATTLE_WIN_WOODMAN_V1, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_WOODMAN
+    .byte 0, F_BATTLE_WOODMAN
 
     @ Dialogue if win/lose
     .byte 0x4, 0x5
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_SKULLMAN_V1, 0
+    .byte F_BATTLE_WIN_SKULLMAN_V1, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_SKULLMAN
+    .byte 0, F_BATTLE_SKULLMAN
 
     @ Dialogue if win/lose
     .byte 0x55, 0x56
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_SHARKMAN_V1, 0
+    .byte F_BATTLE_WIN_SHARKMAN_V1, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_SHARKMAN
+    .byte 0, F_BATTLE_SHARKMAN
 
     @ Dialogue if win/lose
     .byte 0xE, 0xF
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_NUMBERMAN_V2, 0
+    .byte F_BATTLE_WIN_NUMBERMAN_V2, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_NUMBERMAN
+    .byte 0, F_BATTLE_NUMBERMAN
 
     @ Dialogue if win/lose
     .byte 0xE, 0xF
     @ Set/clear
-    .byte 0, FLAG_BATTLE_NUMBERMAN
+    .byte 0, F_BATTLE_NUMBERMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_NUMBERMAN_V3, 0
+    .byte F_BATTLE_WIN_NUMBERMAN_V3, 0
     @ If lose, set/clear
     .byte 0, 0
 
@@ -99,16 +99,16 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_ICEMAN_V2, 0
+    .byte F_BATTLE_WIN_ICEMAN_V2, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_ICEMAN
+    .byte 0, F_BATTLE_ICEMAN
 
     @ Dialogue if win/lose
     .byte 0x4B, 0x4C
     @ Set/clear
-    .byte 0, FLAG_BATTLE_ICEMAN
+    .byte 0, F_BATTLE_ICEMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_ICEMAN_V3, 0
+    .byte F_BATTLE_WIN_ICEMAN_V3, 0
     @ If lose, set/clear
     .byte 0, 0
 
@@ -117,16 +117,16 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_SKULLMAN_V2, 0
+    .byte F_BATTLE_WIN_SKULLMAN_V2, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_SKULLMAN
+    .byte 0, F_BATTLE_SKULLMAN
 
     @ Dialogue if win/lose
     .byte 0x4, 0x5
     @ Set/clear
-    .byte 0, FLAG_BATTLE_SKULLMAN
+    .byte 0, F_BATTLE_SKULLMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_SKULLMAN_V3, 0
+    .byte F_BATTLE_WIN_SKULLMAN_V3, 0
     @ If lose, set/clear
     .byte 0, 0
 
@@ -135,16 +135,16 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_WOODMAN_V2, 0
+    .byte F_BATTLE_WIN_WOODMAN_V2, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_WOODMAN
+    .byte 0, F_BATTLE_WOODMAN
 
     @ Dialogue if win/lose
     .byte 0xD, 0x11
     @ Set/clear
-    .byte 0, FLAG_BATTLE_WOODMAN
+    .byte 0, F_BATTLE_WOODMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_WOODMAN_V3, 0
+    .byte F_BATTLE_WIN_WOODMAN_V3, 0
     @ If lose, set/clear
     .byte 0, 0
 
@@ -153,43 +153,43 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_SHARKMAN_V2, 0
+    .byte F_BATTLE_WIN_SHARKMAN_V2, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_SHARKMAN
+    .byte 0, F_BATTLE_SHARKMAN
 
     @ Dialogue if win/lose
     .byte 0x55, 0x56
     @ Set/clear
-    .byte FLAG_BATTLE_WIN_SHARKMAN_V3, FLAG_BATTLE_SHARKMAN
+    .byte F_BATTLE_WIN_SHARKMAN_V3, F_BATTLE_SHARKMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_SHARKMAN_V3, 0
+    .byte F_BATTLE_WIN_SHARKMAN_V3, 0
     @ If lose, set/clear
     .byte 0, 0
 
     @ Dialogue if win/lose
     .byte 0xA4, 0xA5
     @ Set/clear
-    .byte 0, FLAG_BATTLE_GUTSMAN
+    .byte 0, F_BATTLE_GUTSMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_GUTSMAN_V2, 0
+    .byte F_BATTLE_WIN_GUTSMAN_V2, 0
     @ If lose, set/clear
     .byte 0, 0
 
     @ Dialogue if win/lose
     .byte 0x56, 0x55
     @ Set/clear
-    .byte 0, FLAG_BATTLE_GUTSMAN
+    .byte 0, F_BATTLE_GUTSMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_GUTSMAN_V2, 0
+    .byte F_BATTLE_WIN_GUTSMAN_V2, 0
     @ If lose, set/clear
     .byte 0, 0
 
     @ Dialogue if win/lose
     .byte -1, -1
     @ Set/clear
-    .byte 0, FLAG_BATTLE_STONEMAN
+    .byte 0, F_BATTLE_STONEMAN
     @ If win, set/clear
-    .byte FLAG_DEFEATED_STONEMAN_V2, 0
+    .byte F_DEFEATED_STONEMAN_V2, 0
     @ If lose, set/clear
     .byte 0, 0
 
@@ -198,18 +198,18 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_GUTSMAN_V1, 0
+    .byte F_BATTLE_WIN_GUTSMAN_V1, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_GUTSMAN
+    .byte 0, F_BATTLE_GUTSMAN
 
     @ Dialogue if win/lose
     .byte 0x27, 0x28
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_PROTOMAN_V2, 0
+    .byte F_BATTLE_WIN_PROTOMAN_V2, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_PROTOMAN
+    .byte 0, F_BATTLE_PROTOMAN
 
     @ Dialogue if win/lose
     .byte -1, -1
@@ -225,25 +225,25 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_NUMBERMAN_V2, 0
+    .byte F_BATTLE_WIN_NUMBERMAN_V2, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_NUMBERMAN
+    .byte 0, F_BATTLE_NUMBERMAN
 
     @ Dialogue if win/lose
     .byte 0x18, 0x19
     @ Set/clear
-    .byte 0, FLAG_BATTLE_NUMBERMAN
+    .byte 0, F_BATTLE_NUMBERMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_NUMBERMAN_V3, 0
+    .byte F_BATTLE_WIN_NUMBERMAN_V3, 0
     @ If lose, set/clear
     .byte 0, 0
 
     @ Dialogue if win/lose
     .byte 0x27, 0x28
     @ Set/clear
-    .byte 0, FLAG_BATTLE_PROTOMAN
+    .byte 0, F_BATTLE_PROTOMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_PROTOMAN_V3, 0
+    .byte F_BATTLE_WIN_PROTOMAN_V3, 0
     @ If lose, set/clear
     .byte 0, 0
 
@@ -252,16 +252,16 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_ICEMAN_V2, 0
+    .byte F_BATTLE_WIN_ICEMAN_V2, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_ICEMAN
+    .byte 0, F_BATTLE_ICEMAN
 
     @ Dialogue if win/lose
     .byte 0xE, 0xF
     @ Set/clear
-    .byte 0, FLAG_BATTLE_ICEMAN
+    .byte 0, F_BATTLE_ICEMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_ICEMAN_V3, 0
+    .byte F_BATTLE_WIN_ICEMAN_V3, 0
     @ If lose, set/clear
     .byte 0, 0
 
@@ -270,16 +270,16 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_PROTOMAN_V2, 0
+    .byte F_BATTLE_WIN_PROTOMAN_V2, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_PROTOMAN
+    .byte 0, F_BATTLE_PROTOMAN
 
     @ Dialogue if win/lose
     .byte 0x19, 0x1A
     @ Set/clear
-    .byte 0, FLAG_BATTLE_PROTOMAN
+    .byte 0, F_BATTLE_PROTOMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_PROTOMAN_V3, 0
+    .byte F_BATTLE_WIN_PROTOMAN_V3, 0
     @ If lose, set/clear
     .byte 0, 0
 
@@ -288,34 +288,34 @@ AfterBattleFlagSettings_ARRAY_08085870:
     @ Set/clear
     .byte 0, 0
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_PROTOMAN_V2, 0
+    .byte F_BATTLE_WIN_PROTOMAN_V2, 0
     @ If lose, set/clear
-    .byte 0, FLAG_BATTLE_PROTOMAN
+    .byte 0, F_BATTLE_PROTOMAN
 
     @ Dialogue if win/lose
     .byte 0xB3, 0xB4
     @ Set/clear
-    .byte 0, FLAG_BATTLE_PROTOMAN
+    .byte 0, F_BATTLE_PROTOMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_PROTOMAN_V3, 0
+    .byte F_BATTLE_WIN_PROTOMAN_V3, 0
     @ If lose, set/clear
     .byte 0, 0
 
     @ Dialogue if win/lose
     .byte 0x22, 0x23
     @ Set/clear
-    .byte 0, FLAG_BATTLE_GUTSMAN
+    .byte 0, F_BATTLE_GUTSMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_GUTSMAN_V2, 0
+    .byte F_BATTLE_WIN_GUTSMAN_V2, 0
     @ If lose, set/clear
     .byte 0, 0
 
     @ Dialogue if win/lose
     .byte 0x3A, 0x3B
     @ Set/clear
-    .byte 0, FLAG_BATTLE_GUTSMAN
+    .byte 0, F_BATTLE_GUTSMAN
     @ If win, set/clear
-    .byte FLAG_BATTLE_WIN_GUTSMAN_V2, 0
+    .byte F_BATTLE_WIN_GUTSMAN_V2, 0
     @ If lose, set/clear
     .byte 0, 0
 

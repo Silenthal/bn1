@@ -1049,21 +1049,21 @@ NPC_8035BE8:
     .align 2, 0
 
 global_label EntityAllocParams_8035C00
-    entity Effect, 0x1, f(460, -120, 0), 0x21
+    entity Effect, EFI_MapObject, f(460, -120, 0), 0x21
     .word 0xFF
 
 global_label EntityAllocParams_8035C18
-    entity Effect, 0x1, f(460, -120, 0), 0x21
-    entity Effect, 0x1, f(398, -136, 0), 0x40
+    entity Effect, EFI_MapObject, f(460, -120, 0), 0x21
+    entity Effect, EFI_MapObject, f(398, -136, 0), 0x40
     .word 0xFF
 
 global_label EntityAllocParams_8035C44
-    entity Effect, 0x1, f(-122, -2, 0), 0x20
-    entity Effect, 0x1, f(-174, -70, 0), 0x20
+    entity Effect, EFI_MapObject, f(-122, -2, 0), 0x20
+    entity Effect, EFI_MapObject, f(-174, -70, 0), 0x20
     .word 0xFF
 
 global_label EntityAllocParams_8035C70
-    entity Effect, 0x1, f(34, 90, 0), 0x20
-    entity Effect, 0x1, f(102, 142, 0), 0x20
+    entity Effect, EFI_MapObject, f(34, 90, 0), 0x20
+    entity Effect, EFI_MapObject, f(102, 142, 0), 0x20
     .word 0xFF
 

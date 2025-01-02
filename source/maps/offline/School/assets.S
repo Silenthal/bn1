@@ -1494,44 +1494,44 @@ NPC_8029B00:
     .align 2, 0
 
 global_label EntityAllocParams_8029B18
-    entity Effect, 0x1, f(18, -18, 0), 0x0
-    entity Effect, 0x1, f(18, 30, 0), 0x0
-    entity Effect, 0x1, f(18, 78, 0), 0x0
-    entity Effect, 0x1, f(-30, -18, 0), 0x0
-    entity Effect, 0x1, f(-30, 30, 0), 0x0
-    entity Effect, 0x1, f(-30, 78, 0), 0x0
-    entity Effect, 0x1, f(-78, -18, 0), 0x0
-    entity Effect, 0x1, f(-78, 30, 0), 0x0
-    entity Effect, 0x1, f(-78, 78, 0), 0x0
+    entity Effect, EFI_MapObject, f(18, -18, 0), 0x0
+    entity Effect, EFI_MapObject, f(18, 30, 0), 0x0
+    entity Effect, EFI_MapObject, f(18, 78, 0), 0x0
+    entity Effect, EFI_MapObject, f(-30, -18, 0), 0x0
+    entity Effect, EFI_MapObject, f(-30, 30, 0), 0x0
+    entity Effect, EFI_MapObject, f(-30, 78, 0), 0x0
+    entity Effect, EFI_MapObject, f(-78, -18, 0), 0x0
+    entity Effect, EFI_MapObject, f(-78, 30, 0), 0x0
+    entity Effect, EFI_MapObject, f(-78, 78, 0), 0x0
     .word 0xFF
 
 global_label EntityAllocParams_8029BD0
-    entity Effect, 0x1, f(-109, 5, 0), 0x10
-    entity Effect, 0x1, f(-113, -15, 0), 0x10
-    entity Effect, 0x1, f(-200, 70, 0), 0x11
+    entity Effect, EFI_MapObject, f(-109, 5, 0), 0x10
+    entity Effect, EFI_MapObject, f(-113, -15, 0), 0x10
+    entity Effect, EFI_MapObject, f(-200, 70, 0), 0x11
     .word 0xFF
 
 global_label EntityAllocParams_8029C10
-    entity Effect, 0x1, f(42, -26, 0), 0x1C
-    entity Effect, 0x1, f(42, 22, 0), 0x1C
-    entity Effect, 0x1, f(42, 70, 0), 0x1C
-    entity Effect, 0x1, f(-6, -26, 0), 0x1C
-    entity Effect, 0x1, f(-6, 22, 0), 0x1C
-    entity Effect, 0x1, f(-6, 70, 0), 0x1C
-    entity Effect, 0x1, f(-54, -26, 0), 0x1C
-    entity Effect, 0x1, f(-54, 22, 0), 0x1C
-    entity Effect, 0x1, f(-54, 70, 0), 0x1C
+    entity Effect, EFI_MapObject, f(42, -26, 0), 0x1C
+    entity Effect, EFI_MapObject, f(42, 22, 0), 0x1C
+    entity Effect, EFI_MapObject, f(42, 70, 0), 0x1C
+    entity Effect, EFI_MapObject, f(-6, -26, 0), 0x1C
+    entity Effect, EFI_MapObject, f(-6, 22, 0), 0x1C
+    entity Effect, EFI_MapObject, f(-6, 70, 0), 0x1C
+    entity Effect, EFI_MapObject, f(-54, -26, 0), 0x1C
+    entity Effect, EFI_MapObject, f(-54, 22, 0), 0x1C
+    entity Effect, EFI_MapObject, f(-54, 70, 0), 0x1C
     .word 0xFF
 
 global_label EntityAllocParams_8029CC8
-    entity Effect, 0x1, f(-32, -32, 0), 0x6
-    entity Effect, 0x1, f(20, 4, 36), 0x7
+    entity Effect, EFI_MapObject, f(-32, -32, 0), 0x6
+    entity Effect, EFI_MapObject, f(20, 4, 36), 0x7
     .word 0xFF
 
 global_label EntityAllocParams_8029CF4
-    entity Effect, 0x1, f(122, -2, 0), 0x1
-    entity Effect, 0x1, f(122, 30, 0), 0x2
-    entity Effect, 0x1, f(24, 52, 0), 0x4
-    entity Effect, 0x1, f(24, 20, 0), 0x4
-    entity Effect, 0x1, f(24, -12, 0), 0x3
+    entity Effect, EFI_MapObject, f(122, -2, 0), 0x1
+    entity Effect, EFI_MapObject, f(122, 30, 0), 0x2
+    entity Effect, EFI_MapObject, f(24, 52, 0), 0x4
+    entity Effect, EFI_MapObject, f(24, 20, 0), 0x4
+    entity Effect, EFI_MapObject, f(24, -12, 0), 0x3
     .word 0xFF

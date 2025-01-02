@@ -30,7 +30,7 @@ _ts MapSetup_ACDC_Town_S0
     ldr        r0,PTR_DAT_0802ac18
     bl         Entity_AllocList
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     bl         Sound_AreaSongChange
     pop        {pc}
 
@@ -353,7 +353,7 @@ PTR_EventHandler_ACDC_Town_F10_0802aca8:
 
 _ts MapSetup_ACDC_Town_F10
     push       {lr}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     push       {r5}
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -639,7 +639,7 @@ _ts MapSetup_ACDC_Town_F20
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_06
     pop        {r5}
     Flag_SetGate F_GATE_05
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -690,7 +690,7 @@ _ts MapSetup_ACDC_Town_F21
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_06
     pop        {r5}
     Flag_SetGate F_GATE_05
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -752,7 +752,7 @@ _ts MapSetup_ACDC_Town_F22
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_06
     pop        {r5}
     Flag_SetGate F_GATE_05
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -795,7 +795,7 @@ _ts MapSetup_ACDC_Town_F23
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     Flag_SetGate F_GATE_05
     push       {r5}
     Flag_GetBase 0xA2
@@ -995,7 +995,7 @@ LAB_0802b1fc:
     ldrb       r0,[r0,#0xe]
     cmp        r0,#0x30
     bne        LAB_0802b2ae
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     push       {r5}
     ldr        r0,PTR_Scene_Story_30_0802b34c
     mov        r1,#0x0
@@ -1219,7 +1219,7 @@ _ts MapSetup_ACDC_Town_F30
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     Flag_SetGate F_GATE_02
     Flag_GetBase 0x94
     bne        LAB_0802b400
@@ -1419,7 +1419,7 @@ _ts MapSetup_ACDC_Town_F40
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802b620
     bl         Map_LoadNPCList
@@ -1570,7 +1570,7 @@ _ts MapSetup_ACDC_Town_F50
     ldr        r7,PTR_PTR_DAT_0802b8ac
     bl         Map_LoadNPCList
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -1608,7 +1608,7 @@ _ts MapSetup_ACDC_Town_F53
     ldr        r7,PTR_PTR_DAT_0802b8b4
     bl         Map_LoadNPCList
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     Flag_GetBase 0x63
     beq        LAB_0802b758
     mov        r6,#0x1f
@@ -1685,7 +1685,7 @@ _ts MapSetup_ACDC_Town_F54
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_DOOR_00
     Flag_GetBase 0xEB
     beq        LAB_0802b800
     Flag_GetBase 0xEC
