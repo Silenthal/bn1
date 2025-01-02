@@ -139,9 +139,9 @@ LAB_08010548:
 LAB_08010550:
     pop        {pc}
 
-   .align 2, 0
+    .align 2, 0
 
-   .word 0x300
+    .word 0x300
 
 
 _ts MainMenu_1_0_Display
@@ -207,7 +207,7 @@ LAB_080105c6:
     bl         MainMenu_PressStartFlash
     pop        {pc}
 
-   .align 2, 0
+    .align 2, 0
 
 INT_080105cc:
     .word 0x12C
@@ -289,7 +289,7 @@ _ts MainMenu_PressStartFlash
 LAB_08010668:
     pop        {r5,pc}
 
-   .align 2, 0
+    .align 2, 0
 
 ObjectXYAttributes_0801066c:
     .word 0x80344062
@@ -601,7 +601,7 @@ _ts MainMenu_DrawCopyrightInfo
     bl         Oam_AddObject
     pop        {r5,pc}
 
-   .align 2, 0
+    .align 2, 0
 
 DAT_0801091c:
     .word 0x8000007E
@@ -669,7 +669,7 @@ _ts MainMenu_LoadTitleScreen
     bl         Dma_TransferListAdd
     pop        {pc}
 
-   .align 2, 0
+    .align 2, 0
 
 ObjectTileAttributes_080109b4:
     .word 0x1047

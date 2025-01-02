@@ -3,7 +3,7 @@
 
     .text
 
-   .include "data/maps/bg_data.inc"
-   .include "data/maps/map_data.inc"
+    .include "data/maps/bg_data.inc"
+    .include "data/maps/map_data.inc"
 
-   .end
+    .end

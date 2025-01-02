@@ -447,7 +447,7 @@ _ts Menu_MegaMan_AddArmorIfPresent
 LAB_0801bce4:
     pop        {pc}
 
-   .align 2, 0
+    .align 2, 0
 
 PTR_tilesetMenuDesign_0801bce8:
     .word tilesetMenuDesign

@@ -1243,7 +1243,7 @@ PTR_DAT_0801f400:
 DAT_0801f404:
     .word 0x11111111
 CpuSetControl_0801f408:
-   .word 0x5000100
+    .word 0x5000100
 
 
 _ts Shop_MoveArrowUp
