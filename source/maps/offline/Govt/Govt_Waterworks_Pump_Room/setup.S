@@ -12,7 +12,7 @@ _ts MapSetup_Govt_Waterworks_Pump_Room_S2
     Flag_GetBase 0xAB
     beq        LAB_08034a5e
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_08034a76
@@ -20,7 +20,7 @@ LAB_08034a5e:
     Flag_GetBase 0xDF
     beq        LAB_08034a72
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_08034a76

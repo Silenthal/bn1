@@ -277,7 +277,7 @@ _ts S_Story_77_8
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809633e
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     push       {r5}
     ldr        r0,PTR_ScenarioData_77_08096550

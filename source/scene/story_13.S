@@ -112,7 +112,7 @@ _nt S_Story_13_2
 _ts S_Story_13_SkipIfStart
     bl         Scene_IsStartPressed
     beq        LAB_080867cc
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     mov        r0,#0x28
     strb       r0,[r5,#0x0]
@@ -263,7 +263,7 @@ LAB_080868d8:
     sub        r0,#0x1
     strb       r0,[r5,#0x14]
     bne        LAB_080868f8
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     push       {r5}
     ldr        r0,PTR_ScenarioData_13_08086a3c

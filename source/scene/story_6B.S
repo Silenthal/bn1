@@ -44,7 +44,7 @@ PTR_S_Story_6B_0_080939c0:
 
 
 _ts S_Story_6B_0
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     push       {r5}
     mov        r0,#0x4

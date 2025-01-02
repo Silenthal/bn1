@@ -194,7 +194,7 @@ _ts S_Story_53_7
     push       {r5}
     mov        r0,#0xc0
     bl         Sound_PlaySongImmediate
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     pop        {r5}
@@ -418,7 +418,7 @@ _nt S_Story_53_15
     bl         World_ChangeMap
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter

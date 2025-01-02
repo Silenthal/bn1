@@ -64,7 +64,7 @@ _nt S_Story_21_1
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
@@ -228,7 +228,7 @@ _nt S_Story_21_8
     cmp        r0,r1
     beq        LAB_0808889a
     Flag_SetBase 0x9D
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
     push       {r5}
     bl         Text_DisableDialogue

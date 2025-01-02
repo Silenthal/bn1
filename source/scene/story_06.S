@@ -105,7 +105,7 @@ _ts S_Story_06_3
     mov        r0,#0x3
     strb       r0,[r7,#0x6]
     bl         PlayerAnimation_Unlock
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter

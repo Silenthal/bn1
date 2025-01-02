@@ -208,7 +208,7 @@ LAB_0808a65e:
 _ts S_Story_2E_8
     Flag_GetBase 0xF6
     beq        LAB_0808a674
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     Flag_ClearBase 0xF6
 LAB_0808a674:
@@ -307,7 +307,7 @@ _nt S_Story_2E_10
     bl         Text_DisableDialogue
     Flag_SetBase 0xAB
     pop        {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     bl         PlayerAnimation_Unlock
     Flag_ClearBase 0xDF

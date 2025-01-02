@@ -163,7 +163,7 @@ _ts Shop_1_0_0_PlayShopMusic
     strb       r0,[r5,#0x2]
     mov        r0,#0x0
     strh       r0,[r5,#0xc]
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
 LAB_0801ea04:
     pop        {pc}

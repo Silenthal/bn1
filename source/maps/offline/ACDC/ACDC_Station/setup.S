@@ -12,7 +12,7 @@ _ts MapSetup_ACDC_Station_S2
     Flag_GetBase 0xAB
     beq        LAB_0802f192
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802f1aa
@@ -20,7 +20,7 @@ LAB_0802f192:
     Flag_GetBase 0xDF
     beq        LAB_0802f1a6
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802f1aa

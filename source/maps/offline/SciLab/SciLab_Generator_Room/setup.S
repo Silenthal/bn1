@@ -33,7 +33,7 @@ LAB_0803cf54:
     pop        {r5}
     Flag_GetBase 0xC5
     bne        LAB_0803cf66
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     b          LAB_0803cf6a
 LAB_0803cf66:

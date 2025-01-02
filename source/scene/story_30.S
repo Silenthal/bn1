@@ -312,7 +312,7 @@ _ts S_Story_30_11
     Flag_ClearIgnore F_IGNORE_DOOR_00
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     LoadMain world, r0, r0

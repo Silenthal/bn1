@@ -149,7 +149,7 @@ _ts S_Story_6D_5
     tst        r0,r0
     bne        LAB_08094010
     Flag_SetBase 0xAE
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     push       {r5}
     ldr        r0,PTR_ScenarioData_6D_080940d8
@@ -242,7 +242,7 @@ _ts S_Story_6D_SkipIfStart
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     mov        r0,#0x1c
     strb       r0,[r5,#0x0]

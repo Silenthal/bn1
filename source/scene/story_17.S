@@ -53,7 +53,7 @@ _ts S_Story_17_1
     mov        r0,#0x1
     strb       r0,[r5,#0x8]
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     push       {r5}

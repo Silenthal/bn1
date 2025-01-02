@@ -744,7 +744,7 @@ LAB_0807d35a:
     ldrb       r0,[r5,#0x4]
     cmp        r0,#0x2
     bne        LAB_0807d3aa
-    mov        r0,#0x15
+    mov        r0,#T_Loser
     bl         Sound_ChangeSong
 LAB_0807d3aa:
     pop        {pc}

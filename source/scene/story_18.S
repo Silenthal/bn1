@@ -253,7 +253,7 @@ _ts S_Story_18_10
     Flag_SetBase 0xB5
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter

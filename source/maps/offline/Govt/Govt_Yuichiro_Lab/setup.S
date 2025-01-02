@@ -12,7 +12,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_S2
     Flag_GetBase 0xAB
     beq        LAB_080336f2
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0803370a
@@ -20,7 +20,7 @@ LAB_080336f2:
     Flag_GetBase 0xDF
     beq        LAB_08033706
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0803370a

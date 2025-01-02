@@ -39,7 +39,7 @@ PTR_S_Story_3A_0_0808cd44:
 
 _ts S_Story_3A_0
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     push       {r5}
@@ -268,7 +268,7 @@ _ts S_Story_3A_8
     Flag_SetBase 0x9B
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter

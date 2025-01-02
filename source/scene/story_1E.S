@@ -133,7 +133,7 @@ LAB_08088328:
     bl         PlayerAnimation_Unlock
     bl         Flag_SetPlayerActive
     pop        {r5}
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

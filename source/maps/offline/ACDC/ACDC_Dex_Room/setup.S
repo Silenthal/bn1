@@ -175,7 +175,7 @@ _ts MapSetup_ACDC_Dex_Room_S2
     Flag_GetBase 0xAB
     beq        LAB_0802de7e
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802de96
@@ -183,7 +183,7 @@ LAB_0802de7e:
     Flag_GetBase 0xDF
     beq        LAB_0802de92
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802de96

@@ -19,7 +19,7 @@ _ts MapSetup_Govt_Complex_Front_S2
     Flag_GetBase 0xAB
     beq        LAB_0803168e
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_080316a6
@@ -27,7 +27,7 @@ LAB_0803168e:
     Flag_GetBase 0xDF
     beq        LAB_080316a2
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_080316a6

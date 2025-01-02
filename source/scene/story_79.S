@@ -320,7 +320,7 @@ _ts S_Story_79_11
     Flag_SetBase 0xE6
     Flag_SetEvent F_EVENT_WWW_COMP_5_SAVE_DISABLED
     pop        {r5}
-    mov        r0,#0xd
+    mov        r0,#T_Void
     bl         Sound_ChangeSong
     bl         Scene_UnloadAndResetStepCounter
 LAB_08096a6a:

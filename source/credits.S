@@ -70,7 +70,7 @@ LAB_08021514:
     bl         Status_GetLevel
     pop        {r5}
     strb       r0,[r5,#0xe]
-    mov        r0,#0x13
+    mov        r0,#T_End_Roll
     bl         Sound_ChangeSong
     mov        r0,#0x3c
     strh       r0,[r5,#0x4]

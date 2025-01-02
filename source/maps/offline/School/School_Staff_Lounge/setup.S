@@ -13,7 +13,7 @@ _ts MapSetup_School_Staff_Lounge_S1
     Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_080282fe
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {pc}
 LAB_080282fe:

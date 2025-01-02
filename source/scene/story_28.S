@@ -251,7 +251,7 @@ _ts S_Story_28_8
     pop        {r5}
     Flag_SetBase 0xBF
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     Flag_SetBase 0xDF

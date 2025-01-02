@@ -38,7 +38,7 @@ PTR_S_Story_2B_0_08089c40:
 
 _ts S_Story_2B_0
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     push       {r5}
@@ -295,7 +295,7 @@ _ts S_Story_2B_11
     Flag_GetBase 0xF8
     beq        LAB_08089e90
     push       {r5}
-    mov        r0,#0xa
+    mov        r0,#T_Cold_and_Silent
     bl         Sound_ChangeSong
     pop        {r5}
     Flag_ClearBase 0xF8
@@ -378,7 +378,7 @@ _nt S_Story_2B_13
     Flag_SetBase 0xB4
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0xa
+    mov        r0,#T_Cold_and_Silent
     bl         Sound_ChangeSong
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter

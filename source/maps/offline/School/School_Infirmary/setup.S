@@ -13,7 +13,7 @@ _ts MapSetup_School_Infirmary_S1
     Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_080272f6
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {pc}
 LAB_080272f6:
@@ -216,7 +216,7 @@ _ts MapSetup_School_Infirmary_S2
     Flag_GetBase 0xAB
     beq        LAB_08027482
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802749a
@@ -224,7 +224,7 @@ LAB_08027482:
     Flag_GetBase 0xDF
     beq        LAB_08027496
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802749a

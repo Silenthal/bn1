@@ -12,7 +12,7 @@ _ts MapSetup_ACDC_School_Gate_S2
     Flag_GetBase 0xAB
     beq        LAB_0802b906
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802b91e
@@ -20,7 +20,7 @@ LAB_0802b906:
     Flag_GetBase 0xDF
     beq        LAB_0802b91a
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802b91e

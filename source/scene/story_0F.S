@@ -154,7 +154,7 @@ _nt S_Story_0F_6
     bl         Entity_FreeAllMultiple
     Flag_SetBase 0xD7
     pop        {r5}
-    mov        r0,#0x1
+    mov        r0,#T_Home_Town
     bl         Sound_ChangeSong
     push       {r5}
     LoadMain mapChange, r0, r7

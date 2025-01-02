@@ -127,7 +127,7 @@ _nt S_Story_1C_3
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    mov        r0,#0x14
+    mov        r0,#T_School
     bl         Sound_ChangeSong
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4

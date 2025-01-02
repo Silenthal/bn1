@@ -52,7 +52,7 @@ PTR_EventHandler_ACDC_Lan_Living_Room_F00_0802bfe8:
 _ts MapSetup_ACDC_Lan_Living_Room_F00
     push       {lr}
     push       {r5}
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -103,7 +103,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F00_0
 _ts MapSetup_ACDC_Lan_Living_Room_F02
     push       {lr}
     push       {r5}
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -200,7 +200,7 @@ LAB_0802c120:
 _ts MapSetup_ACDC_Lan_Living_Room_F03
     push       {lr}
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     Flag_ClearIgnore F_IGNORE_DOOR_00
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_08
@@ -300,7 +300,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F03_1
 _ts MapSetup_ACDC_Lan_Living_Room_F04
     push       {lr}
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     Flag_ClearIgnore F_IGNORE_DOOR_00
     Flag_ClearIgnore F_IGNORE_DOOR_01
@@ -416,7 +416,7 @@ _ts EventHandler_ACDC_Lan_Living_Room_F04_2
 _ts MapSetup_ACDC_Lan_Living_Room_F05
     push       {lr}
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     Flag_ClearIgnore F_IGNORE_DOOR_00
     Flag_ClearIgnore F_IGNORE_DOOR_01
@@ -506,7 +506,7 @@ LAB_0802c3b8:
 _ts MapSetup_ACDC_Lan_Living_Room_F06
     push       {lr}
     push       {r5}
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -672,7 +672,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_S2
     Flag_GetBase 0xAB
     beq        LAB_0802c52e
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802c546
@@ -680,7 +680,7 @@ LAB_0802c52e:
     Flag_GetBase 0xDF
     beq        LAB_0802c542
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802c546

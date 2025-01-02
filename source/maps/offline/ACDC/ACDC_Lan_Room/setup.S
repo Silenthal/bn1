@@ -81,7 +81,7 @@ LAB_0802cade:
     pop        {pc}
 LAB_0802cb06:
     push       {r5}
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
     ldr        r0,PTR_BgTask_802CB30
     bl         BgTask_AddNew
@@ -225,7 +225,7 @@ LAB_0802cc24:
 _ts MapSetup_ACDC_Lan_Room_F02
     push       {lr}
     push       {r5}
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
     ldr        r0,PTR_DAT_0802cf34
     bl         Entity_AllocList
@@ -313,7 +313,7 @@ LAB_0802ccd4:
 _ts MapSetup_ACDC_Lan_Room_F03
     push       {lr}
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     ldr        r0,PTR_DAT_0802cf48
     bl         Entity_AllocList
@@ -363,7 +363,7 @@ LAB_0802cd3a:
 _ts MapSetup_ACDC_Lan_Room_F04
     push       {lr}
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     ldr        r0,PTR_DAT_0802cf54
     bl         Entity_AllocList
@@ -423,7 +423,7 @@ LAB_0802cdaa:
 _ts MapSetup_ACDC_Lan_Room_F05
     push       {lr}
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     ldr        r0,PTR_DAT_0802cf60
     bl         Entity_AllocList
@@ -466,7 +466,7 @@ LAB_0802cdf4:
 _ts MapSetup_ACDC_Lan_Room_F06
     push       {lr}
     push       {r5}
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
     ldr        r0,PTR_DAT_0802cf6c
     bl         Entity_AllocList
@@ -673,7 +673,7 @@ _ts MapSetup_ACDC_Lan_Room_S2
     Flag_GetBase 0xAB
     beq        LAB_0802cfb0
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802cfc8
@@ -681,7 +681,7 @@ LAB_0802cfb0:
     Flag_GetBase 0xDF
     beq        LAB_0802cfc4
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802cfc8

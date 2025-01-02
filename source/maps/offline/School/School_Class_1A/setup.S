@@ -13,7 +13,7 @@ _ts MapSetup_School_Class_1A_S1
     Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_08026676
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {pc}
 LAB_08026676:
@@ -246,7 +246,7 @@ _ts MapSetup_School_Class_1A_S2
     Flag_GetBase 0xAB
     beq        LAB_0802684a
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_08026862
@@ -254,7 +254,7 @@ LAB_0802684a:
     Flag_GetBase 0xDF
     beq        LAB_0802685e
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_08026862

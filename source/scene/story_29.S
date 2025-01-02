@@ -235,7 +235,7 @@ _nt S_Story_29_7
     bl         Text_LoadDialogue
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     ldrb       r0,[r5,#0x0]
@@ -354,7 +354,7 @@ _nt S_Story_29_12
     bl         Text_LoadDialogue
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     ldrb       r0,[r5,#0x0]

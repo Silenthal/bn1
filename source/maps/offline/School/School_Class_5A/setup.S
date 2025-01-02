@@ -250,7 +250,7 @@ _ts MapSetup_School_Class_5A_S1
     Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_08024924
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {pc}
 LAB_08024924:
@@ -471,7 +471,7 @@ _nt MapSetup_School_Class_5A_F11
     Flag_GetBase 0x9A
     pop        {r5}
     beq        LAB_08024b28
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     push       {r5}
     ldr        r7,PTR_PTR_DAT_08024b38
@@ -513,7 +513,7 @@ PTR_PTR_EventHandler_School_Class_5A_F11_0_08024b54:
 
 _ts EventHandler_School_Class_5A_F11_0
     push       {lr}
-    mov        r0,#0x14
+    mov        r0,#T_School
     bl         Sound_ChangeSong
     push       {r5}
     ldr        r0,PTR_Scene_Story_13_08024b70
@@ -585,7 +585,7 @@ _ts MapSetup_School_Class_5A_F12
     ldrb       r0,[r7,#0x18]
     cmp        r0,#0x4
     beq        LAB_08024bec
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
 LAB_08024bec:
     push       {r5}
@@ -778,7 +778,7 @@ _ts MapSetup_School_Class_5A_F13
     ldrb       r0,[r7,#0x18]
     cmp        r0,#0x4
     beq        LAB_08024d92
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
 LAB_08024d92:
     push       {r5}
@@ -854,7 +854,7 @@ _nt MapSetup_School_Class_5A_F14
     ldrb       r0,[r7,#0x18]
     cmp        r0,#0x4
     beq        LAB_08024e28
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
 LAB_08024e28:
     push       {r5}
@@ -929,7 +929,7 @@ _ts MapSetup_School_Class_5A_F15
     ldrb       r0,[r7,#0x18]
     cmp        r0,#0x4
     beq        LAB_08024eba
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
 LAB_08024eba:
     push       {r5}
@@ -1119,7 +1119,7 @@ _ts MapSetup_School_Class_5A_S2
     Flag_GetBase 0xAB
     beq        LAB_08025060
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_08025078
@@ -1127,7 +1127,7 @@ LAB_08025060:
     Flag_GetBase 0xDF
     beq        LAB_08025074
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_08025078

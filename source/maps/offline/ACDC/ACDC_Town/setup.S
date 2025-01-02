@@ -535,7 +535,7 @@ LAB_0802ae30:
     Flag_GetBase 0xAB
     beq        LAB_0802ae4c
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802ae64
@@ -543,7 +543,7 @@ LAB_0802ae4c:
     Flag_GetBase 0xDF
     beq        LAB_0802ae60
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_0802ae64

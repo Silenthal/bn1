@@ -944,12 +944,12 @@ LAB_08005f72:
     strb       r0,[r5,#0x3]
     mov        r0,#0x1
     strb       r0,[r7,#0x10]
-    mov        r0,#0x11
+    mov        r0,#T_Winner
     bl         Sound_ChangeSong
     mov        r0,#0x0
     b          LAB_08005fa4
 LAB_08005f9c:
-    mov        r0,#0x11
+    mov        r0,#T_Winner
     bl         Sound_ChangeSong
 LAB_08005fa2:
     mov        r0,#0x1

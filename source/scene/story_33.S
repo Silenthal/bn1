@@ -38,7 +38,7 @@ PTR_S_Story_33_0_0808b190:
 
 _ts S_Story_33_0
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     push       {r5}

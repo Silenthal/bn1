@@ -94,7 +94,7 @@ _nt S_Story_27_4
     bl         Flag_SetPlayerActive
     pop        {r5}
     push       {r5}
-    mov        r0,#0x2
+    mov        r0,#T_In_The_Room
     bl         Sound_ChangeSong
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter

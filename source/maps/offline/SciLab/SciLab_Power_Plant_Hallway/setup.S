@@ -18,7 +18,7 @@ _ts MapSetup_SciLab_Power_Plant_Hallway_S4
 LAB_0803c554:
     Flag_GetBase 0xC5
     bne        LAB_0803c564
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     b          LAB_0803c568
 LAB_0803c564:

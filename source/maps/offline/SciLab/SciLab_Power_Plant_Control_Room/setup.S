@@ -11,7 +11,7 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_S4
     bx         r0
     Flag_GetBase 0xC5
     bne        LAB_0803cb8a
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     b          LAB_0803cb8e
 LAB_0803cb8a:

@@ -100,7 +100,7 @@ _ts S_Story_7F_3
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08097ac6
-    mov        r0,#0x1
+    mov        r0,#T_Home_Town
     bl         Sound_ChangeSong
     push       {r5}
     ldr        r0,PTR_ScenarioData_7F_08097c38

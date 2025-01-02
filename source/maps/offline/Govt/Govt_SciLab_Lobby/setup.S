@@ -18,7 +18,7 @@ _ts MapSetup_Govt_SciLab_Lobby_S2
     Flag_GetBase 0xAB
     beq        LAB_08032efa
     push       {r5}
-    mov        r0,#0x4
+    mov        r0,#T_Incident_Occurrence
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_08032f12
@@ -26,7 +26,7 @@ LAB_08032efa:
     Flag_GetBase 0xDF
     beq        LAB_08032f0e
     push       {r5}
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {r5}
     b          LAB_08032f12

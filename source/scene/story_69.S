@@ -51,7 +51,7 @@ _ts S_Story_69_0
     ldr        r0,PTR_Cam_Set_080938c4
     bl         SceneCamera_Init
     bl         SceneCamera_Main
-    mov        r0,#0x3
+    mov        r0,#T_Suspicious_Mood
     bl         Sound_ChangeSong
     pop        {pc}
 
