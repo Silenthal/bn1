@@ -118,7 +118,7 @@ _ts S_MeteorAttack_2
     str        r0,[r5,#0x10]
     mov        r0,#0x1
     str        r0,[r5,#0x20]
-    ldr        r0,PTR_eFrameWaitValue_08084638
+    ldr        r0,PTR_gFrameWaitValue_08084638
     mov        r1,#0x4
     strh       r1,[r0,#0x0]
     ldrb       r0,[r5,#0x0]
@@ -176,7 +176,7 @@ _ts S_MeteorAttack_4
     ldr        r0,PTR_MapEntrance_0808463c
     mov        r1,#0x0
     bl         World_SetTransitionLocation
-    ldr        r0,PTR_eFrameWaitValue_08084640
+    ldr        r0,PTR_gFrameWaitValue_08084640
     mov        r1,#0x1
     strh       r1,[r0,#0x0]
     pop        {r5}
@@ -375,14 +375,14 @@ DAT_08084630:
 DAT_08084634:
     .word 0xFFB00000
 
-PTR_eFrameWaitValue_08084638:
-    .word eFrameWaitValue
+PTR_gFrameWaitValue_08084638:
+    .word gFrameWaitValue
 
 PTR_MapEntrance_0808463c:
     .word MapEntrance_080844d8
 
-PTR_eFrameWaitValue_08084640:
-    .word eFrameWaitValue
+PTR_gFrameWaitValue_08084640:
+    .word gFrameWaitValue
 
 PTR_USHORT_ARRAY_ARRAY_08084644:
     .word USHORT_ARRAY_ARRAY_08084544

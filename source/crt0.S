@@ -72,7 +72,7 @@ Init:
     orr        r1,r1,#0x2000
     strh       r1,[r0]
 @ Set up frame wait value of 1 for later
-    ldr        r0,=eFrameWaitValue
+    ldr        r0,=gFrameWaitValue
     mov        r1,#0x1
     strh       r1,[r0]
 @ Enable Hblank IRQ

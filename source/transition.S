@@ -48,7 +48,7 @@ _ts JackIn_Init
     push       {lr}
     mov        r0,#0x1
     strb       r0,[r5,#0x0]
-    ldr        r0,PTR_eFrameWaitValue_08017858
+    ldr        r0,PTR_gFrameWaitValue_08017858
     mov        r1,#0x4
     strh       r1,[r0,#0x0]
     push       {r5}
@@ -90,7 +90,7 @@ _ts JackIn_Finish
     LoadMain manager, r0, r7
     mov        r1,#0x4
     strb       r1,[r0,#0x0]
-    ldr        r0,PTR_eFrameWaitValue_08017860
+    ldr        r0,PTR_gFrameWaitValue_08017860
     mov        r1,#0x1
     strh       r1,[r0,#0x0]
     push       {r5,r7}
@@ -373,12 +373,12 @@ PTR_jumpTableJackIn_08017850:
     .word jumpTableJackIn
 PTR_jumpTableJackOut_08017854:
     .word jumpTableJackOut
-PTR_eFrameWaitValue_08017858:
-    .word eFrameWaitValue
+PTR_gFrameWaitValue_08017858:
+    .word gFrameWaitValue
 PTR_PTR_JackIn_StartAnimation_0801785c:
     .word PTR_JackIn_StartAnimation_0801757c
-PTR_eFrameWaitValue_08017860:
-    .word eFrameWaitValue
+PTR_gFrameWaitValue_08017860:
+    .word gFrameWaitValue
 PTR_PTR_lzTilesetJackInFrame00_08017864:
     .word PTR_lzTilesetJackInFrame00_08017668
 PTR_DispCnt_08017868:

@@ -109,7 +109,7 @@ _fts IRQ_Dummy
     .p2align 2,0
 
 _fts IRQ_VBlank
-    ldr        r0,=eFrameCounter
+    ldr        r0,=gVBlankFrameCounter
     ldr        r1,[r0]
     adds       r1,#0x1
     str        r1,[r0]

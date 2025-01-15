@@ -4308,7 +4308,7 @@ struct Manager {
     byte field1_0x1;
     byte field2_0x2;
     byte field3_0x3;
-    byte m_softResetDelayTimer;
+    byte softResetTimer;
     byte field5_0x5;
     byte field6_0x6;
     byte field7_0x7;

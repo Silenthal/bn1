@@ -3,6 +3,7 @@
     .include "macros.inc"
 
 
+@@ Main game loop
 _ts AgbMain
     bl         Main_Init
     LoadMain manager, r0, r7
@@ -59,14 +60,14 @@ jumpTableMain:
     .word ChipTrader_Main
     .word Credits_Main
 
-@@ Waits for a certain amount of frames.
-@ void Main_WaitFrames(void)
+
+@@ Waits for a specific amount of frames to pass.
 _ts Main_WaitFrames
     push       { lr }
 1:
-    ldr        r0,PTR_gFrameCounter_080004fc
+    ldr        r0,PTR_gFrameCounter
     ldrh       r2,[r0]
-    ldr        r1,PTR_eFrameWaitValue_08000500
+    ldr        r1,PTR_gFrameWaitValue_0
     ldrh       r1,[r1]
     cmp        r2,r1
     blt        1b
@@ -74,8 +75,8 @@ _ts Main_WaitFrames
     strh       r1,[r0]
     pop        { pc }
 
-@@ Reads the input.
-@ void Main_ReadInput(void)
+
+@@ Reads input from the controls.
 _ts Main_ReadInput
     LoadMain input, r0, r7
     ldrb       r7,[r0,#0x13]
@@ -85,7 +86,7 @@ _ts Main_ReadInput
     mov        r7,#0x0
 .resetCounter:
     strb       r7,[r0,#0x13]
-    ldr        r4,PTR_REG_KEYINPUT_08000504
+    ldr        r4,PTR_REG_KEYINPUT
     ldrh       r4,[r4]
     mvn        r4,r4
     ldrh       r5,[r0]
@@ -133,8 +134,8 @@ _ts Main_ReadInput
     strh       r4,[r0,#0x2]
     mov        pc,lr
 
+
 @@ Performs a soft reset check based on some conditions.
-@ void Main_SoftResetCheck(void)
 _ts Main_SoftResetCheck
     push       { lr }
     LoadMain fade, r0, r7
@@ -173,11 +174,11 @@ _ts Main_SoftResetCheck
     .word .+4
     .word 0x200ace0
 
-@@ Initializes the main state used by the game.
-@ void Main_Init(void)
+
+@@ Initializes the main state used by the game, as well as other subsystems.
 _ts Main_Init
     push       { lr }
-    ldr        r0,PTR_MainState_08000468
+    ldr        r0,PTR_MainState
     mov        r10,r0
     LoadMain display, r0, r7
     mov        r1,#0x40
@@ -206,8 +207,8 @@ _ts Main_Init
     bl         Sio_SetReady
     pop        { r0 }
     mov        r10,r0
-    @ Set eFrameWait to 1
-    ldr        r0,PTR_eFrameWaitValue_08000508
+    @ Set gFrameWaitValue to 1
+    ldr        r0,PTR_gFrameWaitValue_1
     mov        r1,#0x1
     strh       r1,[r0,#0x0]
     LoadMain manager, r0, r7
@@ -215,7 +216,7 @@ _ts Main_Init
     bl         memset0_32
     pop        { pc }
 
-PTR_MainState_08000468: .word MainState
+PTR_MainState: .word MainState
 
 MainState:
     .word gManager
@@ -251,9 +252,11 @@ MainState:
     .word gGameStats
     .word gFieldObstacleManager
 
+
+@@ Wait for vblank to finish.
 _ts Main_WaitForVBlank
     push       { lr }
-    ldr        r0,PTR_REG_DISPSTAT_0800050c
+    ldr        r0,PTR_REG_DISPSTAT
     mov        r2,#0x1
 1:
     ldrh       r1,[r0]
@@ -263,11 +266,8 @@ _ts Main_WaitForVBlank
 
     .align 2, 0
 
-PTR_gFrameCounter_080004fc:     .word eFrameCounter
-PTR_eFrameWaitValue_08000500:   .word eFrameWaitValue
-PTR_REG_KEYINPUT_08000504:      .word REG_KEYINPUT
-PTR_eFrameWaitValue_08000508:   .word eFrameWaitValue
-PTR_REG_DISPSTAT_0800050c:      .word REG_DISPSTAT
-
-    .end
-
+PTR_gFrameCounter:      .word gVBlankFrameCounter
+PTR_gFrameWaitValue_0:  .word gFrameWaitValue
+PTR_REG_KEYINPUT:       .word REG_KEYINPUT
+PTR_gFrameWaitValue_1:  .word gFrameWaitValue
+PTR_REG_DISPSTAT:       .word REG_DISPSTAT

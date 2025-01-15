@@ -74,7 +74,7 @@ SECTIONS {
 		gBitsetEffect				= 0x4908;
 		gBattleFolder				= 0x4910;
 		gBattleSpriteArgsArrayCount	= 0x4930;
-		eFrameWaitValue				= 0x4934;
+		gFrameWaitValue				= 0x4934;
 		gMapEventState				= 0x4940;
 		gCamera						= 0x4950;
 		gIsObjectXFlipped			= 0x4994;
@@ -132,7 +132,7 @@ SECTIONS {
 		gBgPaletteF					= 0x6EB0;
 		gFieldObstacleManager		= 0x6ED0;
 		gSpriteAffineDataList		= 0x6F00;
-		eFrameCounter				= 0x7080;
+		gVBlankFrameCounter			= 0x7080;
 		gFuncPtrBgUpdatePostLoop	= 0x7090;
 		gFuncPtrBgUpdateHBlank		= 0x7094;
 		gFuncPtrBgUpdatePreLoop		= 0x7098;
