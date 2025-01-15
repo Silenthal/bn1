@@ -19,7 +19,7 @@ _ts InitPetStatusControl
     mov        r2,#0x20
     bl         Dma_TransferListAdd
     ldr        r0,PTR_palettePETIcon_080174c0
-    ldr        r1,PTR_eObjPaletteD_080174c4
+    ldr        r1,PTR_gObjPaletteD_080174c4
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -275,8 +275,8 @@ PTR_DAT_080174bc:
     .word 0x6017400
 PTR_palettePETIcon_080174c0:
     .word palettePETIcon
-PTR_eObjPaletteD_080174c4:
-    .word eObjPaletteD
+PTR_gObjPaletteD_080174c4:
+    .word gObjPaletteD
 PTR_PTR_PSC_0_DrawEmptyPet_080174c8:
     .word PTR_PSC_0_DrawEmptyPet_080172e0
 PTR_BYTE_ARRAY_080174cc:

@@ -24,6 +24,10 @@
     .word (\wordCount & 0x1FFFFF) | (\isSrcFixed & 1) << 24 | (\is32bit & 1) << 26
     .endm
 
+    .macro bgcnt priority, base, use256, screen, wrap
+    .short (\priority & 3) | (\base & 3) << 2 | (\use256 & 1) << 7 | (\screen & 31) << 8 | (\wrap & 1) << 13
+    .endm
+
     .macro pos_xyz x, y, z
     .word \x
     .word \y

@@ -42,7 +42,7 @@ _ts Menu_Library_0_Init
     ldr        r2,DAT_0801b470
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801b474
-    ldr        r1,PTR_eBgPalette4_0801b478
+    ldr        r1,PTR_gBgPalette4_0801b478
     mov        r2,#0x40
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMenuSideArrow_0801b47c
@@ -58,7 +58,7 @@ _ts Menu_Library_0_Init
     mov        r2,#0xf0
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuSideArrow_0801b494
-    ldr        r1,PTR_eBgPaletteF_0801b498
+    ldr        r1,PTR_gBgPaletteF_0801b498
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        {r5}
@@ -71,8 +71,8 @@ DAT_0801b470:
     .word 0x540
 PTR_paletteMenuDesign_0801b474:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801b478:
-    .word eBgPalette4
+PTR_gBgPalette4_0801b478:
+    .word gBgPalette4
 PTR_tilesetMenuSideArrow_0801b47c:
     .word tilesetMenuSideArrow
 PTR_DAT_0801b480:
@@ -87,8 +87,8 @@ PTR_DAT_0801b490:
     .word 0x6008600
 PTR_paletteMenuSideArrow_0801b494:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801b498:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801b498:
+    .word gBgPaletteF
 LAB_0801b49c:
     mov        r0,#0x0
     ldr        r7,PTR_gLibraryChipIndexList_0801b890
@@ -145,7 +145,7 @@ LAB_0801b4bc:
     mov        r0,#0x3
     mov        r1,#0x10
     bl         Fade_Request
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     pop        {r5}
     mov        r0,#0x1
     strb       r0,[r5,#0xe]
@@ -209,7 +209,7 @@ LAB_0801b58a:
     bl         StartMenu_ClearState
     push       {r5}
     ldr        r0,PTR_paletteKeyboardNumberChars_0801b8a8
-    ldr        r1,PTR_eBgPaletteF_0801b8ac
+    ldr        r1,PTR_gBgPaletteF_0801b8ac
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     mov        r0,#0x3
@@ -611,8 +611,8 @@ PTR_DAT_0801b8a4:
     .word 0x1f40
 PTR_paletteKeyboardNumberChars_0801b8a8:
     .word paletteKeyboardNumberChars
-PTR_eBgPaletteF_0801b8ac:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801b8ac:
+    .word gBgPaletteF
 PTR_TextData_BattleChip_Names_0801b8b0:
     .word TextData_BattleChip_Names
 PTR_DAT_0801b8b4:

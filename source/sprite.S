@@ -213,7 +213,7 @@ _ts Sprite_Init
 
 _ts Sprite_TransferPalettes
     push       { lr }
-    ldr        r0,=eObjPalette0
+    ldr        r0,=gObjPalette0
     ldr        r1,=PAL_OBJ
     mov        r2,#0x78
     bl         Dma_TransferListAdd
@@ -608,7 +608,7 @@ _ts Sprite_LoadPalette
     add        r0,r0,r1
     ldrb       r1,[r5,#0x15]
     lsr        r1,r1,#0x4
-    ldr        r3,PTR_eObjPalette0_08002810
+    ldr        r3,PTR_gObjPalette0_08002810
     lsl        r1,r1,#0x5
     add        r3,r3,r1
     mov        r6,#0x0
@@ -723,7 +723,7 @@ _ts SpriteTilesetDetail_Init
     .align 2, 0
 
 PTR_gSpriteTilesetOffset0_0800280c: .word gSpriteTilesetOffset0
-PTR_eObjPalette0_08002810: .word eObjPalette0
+PTR_gObjPalette0_08002810: .word gObjPalette0
 PTR_gSpritePalettesLoaded_08002814: .word gSpritePalettesLoaded
 PTR_OBJ_VRAM0_08002818: .word OBJ_VRAM0
 PTR_gSpriteTilesetDetailCount_0800281c: .word gSpriteTilesetDetailCount

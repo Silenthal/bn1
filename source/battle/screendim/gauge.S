@@ -93,8 +93,8 @@ PTR_PTR_Color_ARRAY_08099e44:
 PTR_Color_ARRAY_08099e48:
     .word Color_ARRAY_086414d4
 
-PTR_eObjPaletteD_08099e4c:
-    .word eObjPaletteD
+PTR_gObjPaletteD_08099e4c:
+    .word gObjPaletteD
 
 DAT_08099e50:
     .word 0x8

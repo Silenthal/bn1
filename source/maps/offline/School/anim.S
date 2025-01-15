@@ -14,12 +14,12 @@ global_label BgTask_School_TilesetBlackboardTriangle
     task_stop
 
 global_label BgTask_School_PaletteBlackboardOff
-    task_direct slot=1, dst=eBgPaletteB, len=0x8, delay=4
+    task_direct slot=1, dst=gBgPaletteB, len=0x8, delay=4
     task_direct_arg paletteSchoolBlackboardOff
     task_stop
 
 global_label BgTask_School_PaletteBlackboardOn
-    task_direct slot=1, dst=eBgPaletteB, len=0x8, delay=4
+    task_direct slot=1, dst=gBgPaletteB, len=0x8, delay=4
     task_direct_arg paletteSchoolBlackboard00
     task_direct_arg paletteSchoolBlackboard01
     task_direct_arg paletteSchoolBlackboard02
@@ -35,7 +35,7 @@ global_label BgTask_School_PaletteBlackboardOn
     task_repeat
 
 global_label BgTask_School_PaletteBlackboardOn_2
-    task_direct slot=1, dst=eBgPaletteB, len=0x8, delay=10
+    task_direct slot=1, dst=gBgPaletteB, len=0x8, delay=10
     task_direct_arg paletteSchoolBlackboard00
     task_direct_arg paletteSchoolBlackboard01
     task_direct_arg paletteSchoolBlackboard02
@@ -72,7 +72,7 @@ global_label BgTask_School_TilesetBlackboardRooster
     task_repeat
 
 global_label BgTask_80241B8
-    task_direct slot=0, dst=eBgPalette4, len=0x8, delay=6
+    task_direct slot=0, dst=gBgPalette4, len=0x8, delay=6
     task_direct_arg paletteSchoolUnused0
     task_direct_arg paletteSchoolUnused1
     task_direct_arg paletteSchoolUnused2
@@ -84,7 +84,7 @@ global_label BgTask_80241B8
     task_repeat
 
 global_label BgTask_School_PaletteServer
-    task_direct slot=0, dst=eBgPalette4, len=0x8, delay=20
+    task_direct slot=0, dst=gBgPalette4, len=0x8, delay=20
     task_direct_arg paletteSchoolServer0
     task_direct_arg paletteSchoolServer1
     task_direct_arg paletteSchoolServer2
@@ -95,6 +95,6 @@ global_label BgTask_School_PaletteServer
     task_repeat
 
 global_label BgTask_8024250
-    task_direct slot=0, dst=eBgPalette4, len=0x8, delay=20
+    task_direct slot=0, dst=gBgPalette4, len=0x8, delay=20
     task_direct_arg paletteSchoolUnusedOff
     task_stop

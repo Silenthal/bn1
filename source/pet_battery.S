@@ -15,7 +15,7 @@ _ts PETBattery_Init
     ldr        r2,DAT_0801fedc
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteBatteryUI_0801fee0
-    ldr        r1,PTR_eObjPaletteC_0801fee4
+    ldr        r1,PTR_gObjPaletteC_0801fee4
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r0,r5}
@@ -133,7 +133,7 @@ LAB_0801fca0:
 LAB_0801fcb2:
     ldr        r0,PTR_paletteBatteryUI_0801fee0
     add        r0,r0,r2
-    ldr        r1,PTR_eObjPaletteC_0801ff08
+    ldr        r1,PTR_gObjPaletteC_0801ff08
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -143,7 +143,7 @@ LAB_0801fcc2:
     strh       r0,[r5,#0x4]
     push       {r5}
     ldr        r0,PTR_paletteBatteryUI_0801fee0
-    ldr        r1,PTR_eObjPaletteC_0801ff0c
+    ldr        r1,PTR_gObjPaletteC_0801ff0c
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -159,7 +159,7 @@ _ts PETBattery_DrawRechargeState
     mov        r2,#0x20
 LAB_0801fce4:
     ldr        r0,PTR_paletteBatteryUI_0801fee0
-    ldr        r1,PTR_eObjPaletteC_0801ff10
+    ldr        r1,PTR_gObjPaletteC_0801ff10
     add        r0,r0,r2
     mov        r2,#0x20
     bl         memcpy_32
@@ -421,8 +421,8 @@ DAT_0801fedc:
     .word 0x110
 PTR_paletteBatteryUI_0801fee0:
     .word paletteBatteryUI
-PTR_eObjPaletteC_0801fee4:
-    .word eObjPaletteC
+PTR_gObjPaletteC_0801fee4:
+    .word gObjPaletteC
 PTR_gPETBattery_0801fee8:
     .word gPETBattery
 PTR_PTR_PETBattery_0_DischargeMode_0801feec:
@@ -439,12 +439,12 @@ DAT_0801ff00:
     .word 0xE88000
 DAT_0801ff04:
     .word 0xC75C
-PTR_eObjPaletteC_0801ff08:
-    .word eObjPaletteC
-PTR_eObjPaletteC_0801ff0c:
-    .word eObjPaletteC
-PTR_eObjPaletteC_0801ff10:
-    .word eObjPaletteC
+PTR_gObjPaletteC_0801ff08:
+    .word gObjPaletteC
+PTR_gObjPaletteC_0801ff0c:
+    .word gObjPaletteC
+PTR_gObjPaletteC_0801ff10:
+    .word gObjPaletteC
 DAT_0801ff14:
     .word 0xC740
 ObjectXYAttributes_0801ff18:

@@ -676,7 +676,7 @@ _nt BgAnimate_MasaHP
 
 _nt BgAnimate_LifeVirus
     push       {lr}
-    ldr        r0,PTR_PTR_eBgPalette0_08005854
+    ldr        r0,PTR_PTR_gBgPalette0_08005854
     bl         BgTask_AddNew
     ldr        r0,PTR_BgUpdate_NoMove_08005858
     ldr        r1,PTR_BgUpdate_MoveLeftSlow_0800585c
@@ -1133,7 +1133,7 @@ PTR_BgUpdate_MoveRight_0800584c:
     .word BgUpdate_MoveRight
 PTR_IRQ_Dummy_08005850:
     .word IRQ_Dummy_far
-PTR_PTR_eBgPalette0_08005854:
+PTR_PTR_gBgPalette0_08005854:
     .word BgTask_804CD68
 PTR_BgUpdate_NoMove_08005858:
     .word BgUpdate_NoMove

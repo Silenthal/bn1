@@ -44,8 +44,8 @@ _ts Demo_Init
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_08018bc4
     strh       r1,[r0,#DisplaySettings_dispcnt]
-    bl         Video_ClearAllTile0Maps
-    bl         Video_InitPaletteColor0
+    bl         Video_InitClearTile
+    bl         Video_InitClearColor
     mov        r0,#FT_FadeInFromBlack
     mov        r1,#0x10
     bl         Fade_Request
@@ -234,7 +234,7 @@ _ts Video_LoadThankYouMessage
     ldr        r2,INT_08018c00
     bl         Dma_TransferListAdd
     ldr        r0,PTR_palette8ThankYouMessage_08018c04
-    ldr        r1,PTR_eBgPalette0_08018c08
+    ldr        r1,PTR_gBgPalette0_08018c08
     mov        r2,#0x78
     bl         Dma_TransferListAdd
     pop        { r5 }
@@ -331,4 +331,4 @@ PTR_tileset8ThankYouMessage2_08018bf8:  .word tileset8ThankYouMessage2
 PTR_DAT_08018bfc:                       .word 0x6008040
 INT_08018c00:                           .word 0x780
 PTR_palette8ThankYouMessage_08018c04:   .word palette8ThankYouMessage
-PTR_eBgPalette0_08018c08:               .word eBgPalette0
+PTR_gBgPalette0_08018c08:               .word gBgPalette0

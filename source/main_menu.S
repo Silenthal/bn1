@@ -623,7 +623,7 @@ DAT_08010938:
 
 _ts MainMenu_LoadTitleScreen
     push       {lr}
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     ldr        r0,PTR_tilesetBlankTiles_08010a04
     ldr        r1,PTR_DAT_08010a08
     mov        r2,#0x10
@@ -637,7 +637,7 @@ _ts MainMenu_LoadTitleScreen
     ldr        r2,DAT_08010a20
     bl         Dma_TransferListAdd
     ldr        r0,PTR_palette8MainMenu_08010a24
-    ldr        r1,PTR_eBgPalette0_08010a28
+    ldr        r1,PTR_gBgPalette0_08010a28
     mov        r2,#0x78
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMainMenuText_08010a2c
@@ -645,7 +645,7 @@ _ts MainMenu_LoadTitleScreen
     ldr        r2,DAT_08010a34
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMainMenuText_08010a38
-    ldr        r1,PTR_eObjPalette0_08010a3c
+    ldr        r1,PTR_gObjPalette0_08010a3c
     mov        r2,#0xc0
     bl         memcpy_32
     bl         Video_ClearScreen
@@ -729,8 +729,8 @@ DAT_08010a20:
     .word 0xDA0
 PTR_palette8MainMenu_08010a24:
     .word palette8MainMenu
-PTR_eBgPalette0_08010a28:
-    .word eBgPalette0
+PTR_gBgPalette0_08010a28:
+    .word gBgPalette0
 PTR_tilesetMainMenuText_08010a2c:
     .word tilesetMainMenuText
 PTR_DAT_08010a30:
@@ -739,8 +739,8 @@ DAT_08010a34:
     .word 0x760
 PTR_paletteMainMenuText_08010a38:
     .word paletteMainMenuText
-PTR_eObjPalette0_08010a3c:
-    .word eObjPalette0
+PTR_gObjPalette0_08010a3c:
+    .word gObjPalette0
 PTR_layoutMainMenuBG1_08010a40:
     .word layoutMainMenuBG1
 DAT_08010a44:

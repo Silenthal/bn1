@@ -126,13 +126,13 @@ _ts Menu_Network_0_Init
     cmp        r0,r1
     beq        LAB_0801ce82
     push       {r5}
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     ldr        r0,PTR_tilesetMenuDesign_0801d138
     ldr        r1,PTR_DAT_0801d13c
     ldr        r2,DAT_0801d140
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801d144
-    ldr        r1,PTR_eBgPalette4_0801d148
+    ldr        r1,PTR_gBgPalette4_0801d148
     mov        r2,#0x40
     lsl        r2,r2,#0x2
     bl         memcpy_32
@@ -142,7 +142,7 @@ _ts Menu_Network_0_Init
     lsl        r2,r2,#0x2
     bl         memcpy_32
     ldr        r0,PTR_paletteMenuSideArrow_0801d154
-    ldr        r1,PTR_eBgPaletteF_0801d158
+    ldr        r1,PTR_gBgPaletteF_0801d158
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -291,7 +291,7 @@ LAB_0801cee2:
     bl         StartMenu_ClearState
     push       {r5}
     ldr        r0,PTR_paletteKeyboardNumberChars_0801d178
-    ldr        r1,PTR_eBgPaletteF_0801d17c
+    ldr        r1,PTR_gBgPaletteF_0801d17c
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     mov        r0,#0x3
@@ -587,16 +587,16 @@ DAT_0801d140:
     .word 0x540
 PTR_paletteMenuDesign_0801d144:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801d148:
-    .word eBgPalette4
+PTR_gBgPalette4_0801d148:
+    .word gBgPalette4
 PTR_tilesetMenuSideArrow_0801d14c:
     .word tilesetMenuSideArrow
 PTR_DAT_0801d150:
     .word 0x6004020
 PTR_paletteMenuSideArrow_0801d154:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801d158:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801d158:
+    .word gBgPaletteF
 PTR_tilemapMenuNetwork_0801d15c:
     .word tilemapMenuNetwork
 DAT_0801d160:
@@ -613,8 +613,8 @@ PTR_textDict_MenuMessages_0801d174:
     .word textDict_MenuMessages
 PTR_paletteKeyboardNumberChars_0801d178:
     .word paletteKeyboardNumberChars
-PTR_eBgPaletteF_0801d17c:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801d17c:
+    .word gBgPaletteF
 PTR_DAT_0801d180:
     .word 0x2011400
 PTR_DAT_0801d184:
@@ -782,13 +782,13 @@ _ts Menu_Network_7_InitTrade
     pop        {pc}
 LAB_0801d2ca:
     push       {r5}
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     ldr        r0,PTR_tilesetMenuDesign_0801d334
     ldr        r1,PTR_DAT_0801d338
     ldr        r2,DAT_0801d33c
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801d340
-    ldr        r1,PTR_eBgPalette4_0801d344
+    ldr        r1,PTR_gBgPalette4_0801d344
     mov        r2,#0x40
     lsl        r2,r2,#0x2
     bl         memcpy_32
@@ -798,7 +798,7 @@ LAB_0801d2ca:
     lsl        r2,r2,#0x2
     bl         memcpy_32
     ldr        r0,PTR_paletteMenuSideArrow_0801d350
-    ldr        r1,PTR_eBgPaletteF_0801d354
+    ldr        r1,PTR_gBgPaletteF_0801d354
     mov        r2,#0x20
     bl         memcpy_32
     ldr        r0,PTR_tilesetMenuSideArrow_0801d358
@@ -807,7 +807,7 @@ LAB_0801d2ca:
     lsl        r2,r2,#0x2
     bl         memcpy_32
     ldr        r0,PTR_paletteMenuDesign_0801d360
-    ldr        r1,PTR_eObjPalette0_0801d364
+    ldr        r1,PTR_gObjPalette0_0801d364
     mov        r2,#0x20
     bl         memcpy_32
     ldr        r0,PTR_tilesetMenuUpDownArrow_0801d378
@@ -832,24 +832,24 @@ DAT_0801d33c:
     .word 0x540
 PTR_paletteMenuDesign_0801d340:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801d344:
-    .word eBgPalette4
+PTR_gBgPalette4_0801d344:
+    .word gBgPalette4
 PTR_tilesetMenuSideArrow_0801d348:
     .word tilesetMenuSideArrow
 PTR_DAT_0801d34c:
     .word 0x6004020
 PTR_paletteMenuSideArrow_0801d350:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801d354:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801d354:
+    .word gBgPaletteF
 PTR_tilesetMenuSideArrow_0801d358:
     .word tilesetMenuSideArrow
 PTR_DAT_0801d35c:
     .word 0x6010020
 PTR_paletteMenuDesign_0801d360:
     .word paletteMenuDesign
-PTR_eObjPalette0_0801d364:
-    .word eObjPalette0
+PTR_gObjPalette0_0801d364:
+    .word gObjPalette0
 PTR_gFillValue_0801d368:
     .word gFillValue
 PTR_ChipBagSlot_0801d36c:
@@ -986,13 +986,13 @@ _ts Menu_Network_9_LoadOptionMenu
     cmp        r0,r1
     beq        LAB_0801d526
     push       {r5}
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     ldr        r0,PTR_tilesetMenuDesign_0801d52c
     ldr        r1,PTR_DAT_0801d530
     ldr        r2,DAT_0801d534
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801d538
-    ldr        r1,PTR_eBgPalette4_0801d53c
+    ldr        r1,PTR_gBgPalette4_0801d53c
     mov        r2,#0x40
     lsl        r2,r2,#0x2
     bl         memcpy_32
@@ -1002,7 +1002,7 @@ _ts Menu_Network_9_LoadOptionMenu
     lsl        r2,r2,#0x2
     bl         memcpy_32
     ldr        r0,PTR_paletteMenuSideArrow_0801d548
-    ldr        r1,PTR_eBgPaletteF_0801d54c
+    ldr        r1,PTR_gBgPaletteF_0801d54c
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -1064,16 +1064,16 @@ DAT_0801d534:
     .word 0x540
 PTR_paletteMenuDesign_0801d538:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801d53c:
-    .word eBgPalette4
+PTR_gBgPalette4_0801d53c:
+    .word gBgPalette4
 PTR_tilesetMenuSideArrow_0801d540:
     .word tilesetMenuSideArrow
 PTR_DAT_0801d544:
     .word 0x6004020
 PTR_paletteMenuSideArrow_0801d548:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801d54c:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801d54c:
+    .word gBgPaletteF
 PTR_tilemapMenuNetwork_0801d550:
     .word tilemapMenuNetwork
 DAT_0801d554:
@@ -2002,7 +2002,7 @@ LAB_0801dbf4:
     mov        r0,#0x3
     bl         Video_SetBgControl
     ldr        r0,PTR_paletteKeyboardNumberChars_0801ddc0
-    ldr        r1,PTR_eBgPaletteF_0801ddc4
+    ldr        r1,PTR_gBgPaletteF_0801ddc4
     mov        r2,#0x20
     bl         memcpy_32
     bl         BgUpdate_Init
@@ -2212,8 +2212,8 @@ DAT_0801ddbc:
     .word 0x12C
 PTR_paletteKeyboardNumberChars_0801ddc0:
     .word paletteKeyboardNumberChars
-PTR_eBgPaletteF_0801ddc4:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801ddc4:
+    .word gBgPaletteF
 PTR_ChipBagSlot_0801ddc8:
     .word ChipBagSlot_02018fe0
 PTR_PlayerMpState_0801ddcc:
@@ -2232,13 +2232,13 @@ _ts Menu_Network_13_TradePending
     cmp        r0,r1
     beq        LAB_0801de92
     push       {r5}
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     ldr        r0,PTR_tilesetMenuDesign_0801de98
     ldr        r1,PTR_DAT_0801de9c
     ldr        r2,DAT_0801dea0
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801dea4
-    ldr        r1,PTR_eBgPalette4_0801dea8
+    ldr        r1,PTR_gBgPalette4_0801dea8
     mov        r2,#0x38
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMenuSideArrow_0801deac
@@ -2246,7 +2246,7 @@ _ts Menu_Network_13_TradePending
     mov        r2,#0x60
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuSideArrow_0801deb4
-    ldr        r1,PTR_eBgPaletteF_0801deb8
+    ldr        r1,PTR_gBgPaletteF_0801deb8
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     ldr        r7,PTR_PlayerMpState_0801debc
@@ -2319,16 +2319,16 @@ DAT_0801dea0:
     .word 0x540
 PTR_paletteMenuDesign_0801dea4:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801dea8:
-    .word eBgPalette4
+PTR_gBgPalette4_0801dea8:
+    .word gBgPalette4
 PTR_tilesetMenuSideArrow_0801deac:
     .word tilesetMenuSideArrow
 PTR_DAT_0801deb0:
     .word 0x6004020
 PTR_paletteMenuSideArrow_0801deb4:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801deb8:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801deb8:
+    .word gBgPaletteF
 PTR_PlayerMpState_0801debc:
     .word PlayerMpState_020037d0
 PTR_DAT_0801dec0:
@@ -2473,13 +2473,13 @@ _ts Menu_Network_19_LoadOptionMenu
     cmp        r0,r1
     beq        LAB_0801e074
     push       {r5}
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     ldr        r0,PTR_tilesetMenuDesign_0801e374
     ldr        r1,PTR_DAT_0801e378
     ldr        r2,DAT_0801e37c
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801e380
-    ldr        r1,PTR_eBgPalette4_0801e384
+    ldr        r1,PTR_gBgPalette4_0801e384
     mov        r2,#0x40
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMenuSideArrow_0801e388
@@ -2487,7 +2487,7 @@ _ts Menu_Network_19_LoadOptionMenu
     mov        r2,#0x60
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuSideArrow_0801e390
-    ldr        r1,PTR_eBgPaletteF_0801e394
+    ldr        r1,PTR_gBgPaletteF_0801e394
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        {r5}
@@ -2933,16 +2933,16 @@ DAT_0801e37c:
     .word 0x540
 PTR_paletteMenuDesign_0801e380:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801e384:
-    .word eBgPalette4
+PTR_gBgPalette4_0801e384:
+    .word gBgPalette4
 PTR_tilesetMenuSideArrow_0801e388:
     .word tilesetMenuSideArrow
 PTR_DAT_0801e38c:
     .word 0x6004020
 PTR_paletteMenuSideArrow_0801e390:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801e394:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801e394:
+    .word gBgPaletteF
 PTR_tilemapMenuNetwork_0801e398:
     .word tilemapMenuNetwork
 DAT_0801e39c:

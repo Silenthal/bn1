@@ -173,8 +173,8 @@ _nt S_Story_7E_5
     LoadMain display, r0, r7
     ldr        r1,DAT_080979c4
     strh       r1,[r0,#0x0]
-    bl         Video_InitPaletteColor0
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearColor
+    bl         Video_InitClearTile
     bl         Video_ClearScreen
     bl         BgUpdate_Init
     bl         InitBgTask

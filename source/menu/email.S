@@ -38,7 +38,7 @@ _ts Menu_Email_0_Init
     ldr        r2,DAT_0801c568
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801c56c
-    ldr        r1,PTR_eBgPalette4_0801c570
+    ldr        r1,PTR_gBgPalette4_0801c570
     mov        r2,#0x40
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMenuSideArrow_0801c574
@@ -54,7 +54,7 @@ _ts Menu_Email_0_Init
     mov        r2,#0x20
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuSideArrow_0801c58c
-    ldr        r1,PTR_eBgPaletteF_0801c590
+    ldr        r1,PTR_gBgPaletteF_0801c590
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        {r5}
@@ -86,7 +86,7 @@ _ts Menu_Email_0_Init
     mov        r0,#0x3
     mov        r1,#0x10
     bl         Fade_Request
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     ldr        r0,PTR_DAT_0801c5a4
     mov        r1,#0x40
     mov        r2,#0x40
@@ -185,7 +185,7 @@ LAB_0801c2ba:
     bl         StartMenu_ClearState
     push       {r5}
     ldr        r0,PTR_paletteKeyboardNumberChars_0801c5b4
-    ldr        r1,PTR_eBgPaletteF_0801c5b8
+    ldr        r1,PTR_gBgPaletteF_0801c5b8
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     mov        r0,#0x3
@@ -529,8 +529,8 @@ DAT_0801c568:
     .word 0x540
 PTR_paletteMenuDesign_0801c56c:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801c570:
-    .word eBgPalette4
+PTR_gBgPalette4_0801c570:
+    .word gBgPalette4
 PTR_tilesetMenuSideArrow_0801c574:
     .word tilesetMenuSideArrow
 PTR_DAT_0801c578:
@@ -545,8 +545,8 @@ PTR_DAT_0801c588:
     .word 0x60041a0
 PTR_paletteMenuSideArrow_0801c58c:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801c590:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801c590:
+    .word gBgPaletteF
 PTR_tilemapMenuEmail_0801c594:
     .word tilemapMenuEmail
 DAT_0801c598:
@@ -565,8 +565,8 @@ PTR_textDict_MenuMessages_0801c5b0:
     .word textDict_MenuMessages
 PTR_paletteKeyboardNumberChars_0801c5b4:
     .word paletteKeyboardNumberChars
-PTR_eBgPaletteF_0801c5b8:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801c5b8:
+    .word gBgPaletteF
 PTR_textDict_MailBodies_0801c5bc:
     .word textDict_MailBodies
 DAT_0801c5c0:

@@ -1,22 +1,19 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
-
-    .thumb
 
 @@ Initializes the RNG.
-@ void Rng_Init(void)
 _ts Rng_Init
     ldr        r0,rngInitSeed
-    ldr        r7,eRngState_0
+    ldr        r7,gRngState_0
     str        r0,[r7,#0x0]
     mov        pc,lr
 
 @@ Returns a random unsigned int.
-@ uint Rng_RandomUint(void)
+@@ Out:
+@@ r0: num: an integer in the range of 0 to 0xFFFFFFFF.
 _ts Rng_RandomUint
-    ldr        r7,eRngState_1
+    ldr        r7,gRngState_1
     ldr        r0,[r7,#0x0]
     ldr        r1,rngConstant
     lsl        r2,r0,#0x1
@@ -28,9 +25,10 @@ _ts Rng_RandomUint
     mov        pc,lr
 
 @@ Returns a random int.
-@ int Rng_RandomInt(void)
+@@ Out:
+@@ r0: num: an integer in the range of 0 to 0x7FFFFFFF.
 _ts Rng_RandomInt
-    ldr        r7,eRngState_2
+    ldr        r7,gRngState_2
     ldr        r0,[r7,#0x0]
     ldr        r1,rngConstant
     lsl        r2,r0,#0x1
@@ -45,7 +43,7 @@ _ts Rng_RandomInt
     .align 2, 0
 
 rngInitSeed:    .word 0xA338244F
-eRngState_0:    .word eRngState
-eRngState_1:    .word eRngState
+gRngState_0:    .word gRngState
+gRngState_1:    .word gRngState
 rngConstant:    .word 0x873CA9E5
-eRngState_2:    .word eRngState
+gRngState_2:    .word gRngState

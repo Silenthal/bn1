@@ -36,11 +36,11 @@ _ts Menu_Save_0_Init
     ldr        r2,DAT_0801e848
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801e84c
-    ldr        r1,PTR_eBgPalette4_0801e850
+    ldr        r1,PTR_gBgPalette4_0801e850
     mov        r2,#0x40
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuSideArrow_0801e854
-    ldr        r1,PTR_eBgPaletteF_0801e858
+    ldr        r1,PTR_gBgPaletteF_0801e858
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        {r5}
@@ -88,7 +88,7 @@ _ts Menu_Save_0_Init
     mov        r0,#0x3
     mov        r1,#0x10
     bl         Fade_Request
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_textDict_MenuMessages_0801e870
@@ -176,7 +176,7 @@ LAB_0801e64e:
     bl         StartMenu_ClearState
     push       {r5}
     ldr        r0,PTR_paletteKeyboardNumberChars_0801e874
-    ldr        r1,PTR_eBgPaletteF_0801e878
+    ldr        r1,PTR_gBgPaletteF_0801e878
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     mov        r0,#0x3
@@ -425,12 +425,12 @@ DAT_0801e848:
     .word 0x540
 PTR_paletteMenuDesign_0801e84c:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801e850:
-    .word eBgPalette4
+PTR_gBgPalette4_0801e850:
+    .word gBgPalette4
 PTR_paletteMenuSideArrow_0801e854:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801e858:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801e858:
+    .word gBgPaletteF
 PTR_tilemapMenuSave_0801e85c:
     .word tilemapMenuSave
 DAT_0801e860:
@@ -445,8 +445,8 @@ PTR_textDict_MenuMessages_0801e870:
     .word textDict_MenuMessages
 PTR_paletteKeyboardNumberChars_0801e874:
     .word paletteKeyboardNumberChars
-PTR_eBgPaletteF_0801e878:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801e878:
+    .word gBgPaletteF
 PTR_DAT_0801e87c:
     .word 0x2011400
 PTR_DAT_0801e880:

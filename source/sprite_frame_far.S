@@ -130,7 +130,7 @@ _ts SpriteFrame_LoadPalette
     ldr        r4,[r7,#0x0]
     cmp        r4,#0xf
     bge        LAB_03006b20
-    ldr        r5,PTR_eObjPalette0_03006d38
+    ldr        r5,PTR_gObjPalette0_03006d38
     mov        r1,#0x0
 LAB_03006aee:
     cmp        r1,r4
@@ -491,8 +491,8 @@ PTR_Dma_TransferListAdd_03006d30:
 PTR_gSpritePalettesLoaded_03006d34:
     .word gSpritePalettesLoaded
 
-PTR_eObjPalette0_03006d38:
-    .word eObjPalette0
+PTR_gObjPalette0_03006d38:
+    .word gObjPalette0
 
 PTR_gSpriteTilesetDetailCount_03006d3c:
     .word gSpriteTilesetDetailCount

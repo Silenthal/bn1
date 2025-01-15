@@ -22,11 +22,11 @@ _ts BattleUi_Update
     LoadMain battleUi, r5, r7
     push       { r5 }
     ldr        r0,PTR_paletteBattleUi_080155f8
-    ldr        r1,PTR_eBgPaletteA_080155fc
+    ldr        r1,PTR_gBgPaletteA_080155fc
     mov        r2,#0x20
     bl         memcpy_32
     ldr        r0,PTR_paletteBattleUi_080155f8
-    ldr        r1,PTR_eBgPalette9_08015600
+    ldr        r1,PTR_gBgPalette9_08015600
     mov        r2,#0x20
     bl         memcpy_32
     pop        { r5 }
@@ -88,7 +88,7 @@ _ts BattleUi_CheckDrawPlayerHp
 LAB_0801547c:
     push       { r3, r5 }
     ldr        r0,PTR_Color_ARRAY_08015604
-    ldr        r1,PTR_eBgPaletteA_08015608
+    ldr        r1,PTR_gBgPaletteA_08015608
     mov        r2,#0x20
     bl         memcpy_32
     pop        { r3, r5 }
@@ -129,7 +129,7 @@ LAB_080154c6:
     mov        r2,#0xa0
     push       { r1, r2, r5 }
     ldr        r0,PTR_paletteHpChange_0801560c
-    ldr        r1,PTR_eBgPaletteA_08015610
+    ldr        r1,PTR_gBgPaletteA_08015610
     mov        r2,#0x20
     bl         memcpy_32
     pop        { r1, r2, r5 }
@@ -284,18 +284,18 @@ DAT_080155f4:
     .word 0x238
 PTR_paletteBattleUi_080155f8:
     .word paletteBattleUi
-PTR_eBgPaletteA_080155fc:
-    .word eBgPaletteA
-PTR_eBgPalette9_08015600:
-    .word eBgPalette9
+PTR_gBgPaletteA_080155fc:
+    .word gBgPaletteA
+PTR_gBgPalette9_08015600:
+    .word gBgPalette9
 PTR_Color_ARRAY_08015604:
     .word palette_0634674
-PTR_eBgPaletteA_08015608:
-    .word eBgPaletteA
+PTR_gBgPaletteA_08015608:
+    .word gBgPaletteA
 PTR_paletteHpChange_0801560c:
     .word paletteHpChange
-PTR_eBgPaletteA_08015610:
-    .word eBgPaletteA
+PTR_gBgPaletteA_08015610:
+    .word gBgPaletteA
 DAT_08015614:
     .word 0x201
 PTR_TilemapEntry_ARRAY_08015618:

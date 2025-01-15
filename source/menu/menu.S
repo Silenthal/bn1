@@ -187,22 +187,22 @@ LAB_080198f4:
     push       {r5}
     ldr        r0,[r5,#0x8]
     ldr        r0,[r0,#0x18]
-    ldr        r1,PTR_eBgPalette0_08019a10
+    ldr        r1,PTR_gBgPalette0_08019a10
     add        r1,r12
     mov        r2,#0x20
     bl         memcpy_32
     ldr        r0,PTR_paletteFolder1_08019a14
-    ldr        r1,PTR_eBgPalette1_08019a18
+    ldr        r1,PTR_gBgPalette1_08019a18
     add        r1,r12
     mov        r2,#0x20
     bl         memcpy_32
     ldr        r0,PTR_paletteFolder2_08019a1c
-    ldr        r1,PTR_eBgPalette2_08019a20
+    ldr        r1,PTR_gBgPalette2_08019a20
     add        r1,r12
     mov        r2,#0x20
     bl         memcpy_32
     ldr        r0,PTR_paletteCustomScreenBg_1_08019a24
-    ldr        r1,PTR_eBgPalette3_08019a28
+    ldr        r1,PTR_gBgPalette3_08019a28
     add        r1,r12
     mov        r2,#0x20
     bl         memcpy_32
@@ -294,20 +294,20 @@ PTR_TextData_BattleChip_Descriptions_08019a08:
     .word TextData_BattleChip_Descriptions
 DAT_08019a0c:
     .word 0xE00
-PTR_eBgPalette0_08019a10:
-    .word eBgPalette0
+PTR_gBgPalette0_08019a10:
+    .word gBgPalette0
 PTR_paletteFolder1_08019a14:
     .word paletteFolder1
-PTR_eBgPalette1_08019a18:
-    .word eBgPalette1
+PTR_gBgPalette1_08019a18:
+    .word gBgPalette1
 PTR_paletteFolder2_08019a1c:
     .word paletteFolder2
-PTR_eBgPalette2_08019a20:
-    .word eBgPalette2
+PTR_gBgPalette2_08019a20:
+    .word gBgPalette2
 PTR_paletteCustomScreenBg_1_08019a24:
     .word paletteCustomScreenBg_1
-PTR_eBgPalette3_08019a28:
-    .word eBgPalette3
+PTR_gBgPalette3_08019a28:
+    .word gBgPalette3
 PTR_tilemapChipDetailBG_08019a2c:
     .word tilemapChipDetailBG
 PTR_tilemapChipDetailFG_08019a30:

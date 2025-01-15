@@ -41,7 +41,7 @@ LAB_08018e0a:
     mov        r2,#0x80
     bl         Dma_TransferListAdd
     ldr        r0,=palettePasscode
-    ldr        r1,=eObjPaletteC
+    ldr        r1,=gObjPaletteC
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        {r5}

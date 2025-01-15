@@ -34,7 +34,7 @@ _ts Menu_Item_0_Init
     ldr        r2,DAT_0801ca84
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801ca88
-    ldr        r1,PTR_eBgPalette4_0801ca8c
+    ldr        r1,PTR_gBgPalette4_0801ca8c
     mov        r2,#0x40
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMenuSideArrow_0801ca90
@@ -46,7 +46,7 @@ _ts Menu_Item_0_Init
     mov        r2,#0x40
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuSideArrow_0801caa0
-    ldr        r1,PTR_eBgPaletteF_0801caa4
+    ldr        r1,PTR_gBgPaletteF_0801caa4
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        {r5}
@@ -85,7 +85,7 @@ _ts Menu_Item_0_Init
     mov        r0,#0x3
     mov        r1,#0x10
     bl         Fade_Request
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     ldr        r0,PTR_DAT_0801cabc
     mov        r1,#0x40
     mov        r2,#0x60
@@ -172,7 +172,7 @@ LAB_0801c832:
     bl         StartMenu_ClearState
     push       {r5}
     ldr        r0,PTR_paletteKeyboardNumberChars_0801cac4
-    ldr        r1,PTR_eBgPaletteF_0801cac8
+    ldr        r1,PTR_gBgPaletteF_0801cac8
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     mov        r0,#0x3
@@ -474,8 +474,8 @@ DAT_0801ca84:
     .word 0x540
 PTR_paletteMenuDesign_0801ca88:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801ca8c:
-    .word eBgPalette4
+PTR_gBgPalette4_0801ca8c:
+    .word gBgPalette4
 PTR_tilesetMenuSideArrow_0801ca90:
     .word tilesetMenuSideArrow
 PTR_DAT_0801ca94:
@@ -486,8 +486,8 @@ PTR_DAT_0801ca9c:
     .word 0x6004240
 PTR_paletteMenuSideArrow_0801caa0:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801caa4:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801caa4:
+    .word gBgPaletteF
 PTR_tilemapMenuItem_0801caa8:
     .word tilemapMenuItem
 DAT_0801caac:
@@ -504,8 +504,8 @@ PTR_DialogueData_Item_Descriptions_0801cac0:
     .word DialogueData_Item_Descriptions
 PTR_paletteKeyboardNumberChars_0801cac4:
     .word paletteKeyboardNumberChars
-PTR_eBgPaletteF_0801cac8:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801cac8:
+    .word gBgPaletteF
 DAT_0801cacc:
     .word 0x300
 DAT_0801cad0:

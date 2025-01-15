@@ -33,7 +33,7 @@ _ts Credits_0_Init
     push       {lr}
     push       {r5}
     ldr        r0,PTR_paletteCreditsText_08021898
-    ldr        r1,PTR_eBgPaletteF_0802189c
+    ldr        r1,PTR_gBgPaletteF_0802189c
     mov        r2,#0x20
     bl         memcpy_32
     ldr        r0,PTR_tilesetDialogueText_080218a0
@@ -439,8 +439,8 @@ PTR_jumpTableCreditsMain_08021894:
     .word jumpTableCreditsMain
 PTR_paletteCreditsText_08021898:
     .word paletteCreditsText
-PTR_eBgPaletteF_0802189c:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0802189c:
+    .word gBgPaletteF
 PTR_tilesetDialogueText_080218a0:
     .word tilesetDialogueText
 PTR_DAT_080218a4:
@@ -701,7 +701,7 @@ LAB_08021c96:
     ldr        r2,DAT_08021d9c
     bl         Dma_TransferListAdd
     ldr        r0,PTR_palette_PresentedByCapcom_08021da0
-    ldr        r1,PTR_eBgPaletteE_08021da4
+    ldr        r1,PTR_gBgPaletteE_08021da4
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5,r7,pc}
@@ -796,8 +796,8 @@ DAT_08021d9c:
     .word 0x190
 PTR_palette_PresentedByCapcom_08021da0:
     .word palette_PresentedByCapcom
-PTR_eBgPaletteE_08021da4:
-    .word eBgPaletteE
+PTR_gBgPaletteE_08021da4:
+    .word gBgPaletteE
 listCreditsSceneData:
     .word CreditsSceneData_0
     .word CreditsSceneData_1
@@ -1474,7 +1474,7 @@ CSD_Entity_3:
     .word 0xFF
 
 global_label CSD_Task_3_0
-    task_direct slot=0, dst=eBgPaletteC, len=0x8, delay=5
+    task_direct slot=0, dst=gBgPaletteC, len=0x8, delay=5
     task_direct_arg palette_077FBF4_0
     task_direct_arg palette_077FBF4_1
     task_direct_arg palette_077FBF4_2
@@ -1487,7 +1487,7 @@ global_label CSD_Task_3_0
     .align 2, 0
 
 global_label CSD_Task_3_1
-    task_direct slot=4, dst=eBgPaletteC, len=0x8, delay=5
+    task_direct slot=4, dst=gBgPaletteC, len=0x8, delay=5
     task_direct_arg palette_077FBF4_0, 370
 L_8022730:
     task_direct_arg palette_077FCD4_0
@@ -2220,7 +2220,7 @@ CSD_Entity_9:
     .word 0xFF
 
 global_label CSD_Task_9_2
-    task_direct slot=2, dst=eBgPalette0, len=0x18, delay=100
+    task_direct slot=2, dst=gBgPalette0, len=0x18, delay=100
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 4
     task_direct_arg palette_078A834, 120
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 4, 1
@@ -2229,7 +2229,7 @@ global_label CSD_Task_9_2
     .align 2, 0
 
 global_label CSD_Task_9_3
-    task_direct slot=3, dst=eBgPalette4, len=0x10, delay=100
+    task_direct slot=3, dst=gBgPalette4, len=0x10, delay=100
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x84
     task_direct_arg palette_078A894, 120
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x84, 1
@@ -2238,7 +2238,7 @@ global_label CSD_Task_9_3
     .align 2, 0
 
 global_label CSD_Task_9_4
-    task_direct slot=4, dst=eBgPalette7, len=0x8, delay=100
+    task_direct slot=4, dst=gBgPalette7, len=0x8, delay=100
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0xE4
     task_direct_arg palette_078A9B4, 120
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0xE4, 1
@@ -2247,7 +2247,7 @@ global_label CSD_Task_9_4
     .align 2, 0
 
 global_label CSD_Task_9_5
-    task_direct slot=5, dst=eBgPalette3, len=0x8, delay=100
+    task_direct slot=5, dst=gBgPalette3, len=0x8, delay=100
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x64
     task_direct_arg palette_078A934_0, 120
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x64, 1
@@ -2558,7 +2558,7 @@ CSD_Entity_11:
     .word 0xFF
 
 global_label CSD_Task_11_5
-    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=180
+    task_direct slot=5, dst=gBgPaletteA, len=0x8, delay=180
     task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x144
 L_8023BE4:
     task_direct_arg palette_078B7D4, 10

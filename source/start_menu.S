@@ -67,7 +67,7 @@ _ts StartMenu_LoadTileset
 LAB_08019214:
     ldr        r0,PTR_paletteStartMenuNoSave_08019514
     add        r0,r0,r2
-    ldr        r1,PTR_eBgPaletteD_08019518
+    ldr        r1,PTR_gBgPaletteD_08019518
     mov        r2,#0x10
     bl         Dma_TransferListAdd
     pop        {r5,pc}
@@ -491,8 +491,8 @@ PTR_DAT_08019510:
     .word 0x600d600
 PTR_paletteStartMenuNoSave_08019514:
     .word paletteStartMenuNoSave
-PTR_eBgPaletteD_08019518:
-    .word eBgPaletteD
+PTR_gBgPaletteD_08019518:
+    .word gBgPaletteD
 PTR_PTR_StartMenu_0_Open_0801951c:
     .word PTR_StartMenu_0_Open_08019240
 PTR_tilemapStartMenu_08019520:

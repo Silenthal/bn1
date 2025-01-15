@@ -78,7 +78,7 @@ _ts ChipTrader_0_Init
     mov        r0,#0x3
     mov        r1,#0x10
     bl         Fade_Request
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     bl         BgUpdate_Init
     bl         InitBgTask
     bl         Text_DisableDialogue
@@ -179,7 +179,7 @@ LAB_0802023e:
     strh       r1,[r0,#0x0]
     push       {r5}
     ldr        r0,PTR_paletteKeyboardNumberChars_080205e8
-    ldr        r1,PTR_eBgPaletteF_080205ec
+    ldr        r1,PTR_gBgPaletteF_080205ec
     mov        r2,#0x20
     bl         memcpy_32
     mov        r0,#0x3
@@ -592,7 +592,7 @@ _ts ChipTrader_LoadGraphicData
     ldr        r2,DAT_0802061c
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_08020620
-    ldr        r1,PTR_eBgPalette4_08020624
+    ldr        r1,PTR_gBgPalette4_08020624
     mov        r2,#0x40
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMenuSideArrow_08020628
@@ -608,7 +608,7 @@ _ts ChipTrader_LoadGraphicData
     mov        r2,#0xc0
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuSideArrow_08020640
-    ldr        r1,PTR_eBgPaletteF_08020644
+    ldr        r1,PTR_gBgPaletteF_08020644
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMenuSideArrow_08020628
@@ -616,7 +616,7 @@ _ts ChipTrader_LoadGraphicData
     mov        r2,#0x60
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_08020620
-    ldr        r1,PTR_eObjPalette0_0802064c
+    ldr        r1,PTR_gObjPalette0_0802064c
     mov        r2,#0x20
     bl         memcpy_32
     ldr        r0,PTR_gFillValue_08020650
@@ -648,8 +648,8 @@ _ts ChipTrader_LoadGraphicData
     pop        {r5,pc}
 PTR_paletteKeyboardNumberChars_080205e8:
     .word paletteKeyboardNumberChars
-PTR_eBgPaletteF_080205ec:
-    .word eBgPaletteF
+PTR_gBgPaletteF_080205ec:
+    .word gBgPaletteF
 PTR_gChipBag_080205f0:
     .word gChipBag
 PTR_DAT_080205f4:
@@ -676,8 +676,8 @@ DAT_0802061c:
     .word 0x540
 PTR_paletteMenuDesign_08020620:
     .word paletteMenuDesign
-PTR_eBgPalette4_08020624:
-    .word eBgPalette4
+PTR_gBgPalette4_08020624:
+    .word gBgPalette4
 PTR_tilesetMenuSideArrow_08020628:
     .word tilesetMenuSideArrow
 PTR_DAT_0802062c:
@@ -692,12 +692,12 @@ PTR_DAT_0802063c:
     .word 0x6003c00
 PTR_paletteMenuSideArrow_08020640:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_08020644:
-    .word eBgPaletteF
+PTR_gBgPaletteF_08020644:
+    .word gBgPaletteF
 PTR_DAT_08020648:
     .word 0x6010020
-PTR_eObjPalette0_0802064c:
-    .word eObjPalette0
+PTR_gObjPalette0_0802064c:
+    .word gObjPalette0
 PTR_gFillValue_08020650:
     .word gFillValue
 uint32_t_08020654:

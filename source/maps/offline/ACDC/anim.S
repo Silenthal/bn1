@@ -4,12 +4,12 @@
 
 
 global_label BgTask_8029EE4
-    task_direct slot=0, dst=eBgPalette0, len=0x68, delay=4
+    task_direct slot=0, dst=gBgPalette0, len=0x68, delay=4
     task_direct_arg paletteACDC_0771654
     task_stop
 
 global_label BgTask_8029EFC
-    task_direct slot=1, dst=eBgPalette0, len=0x68, delay=4
+    task_direct slot=1, dst=gBgPalette0, len=0x68, delay=4
     task_direct_arg BgData_Palette_ACDC_Town+4
     task_stop
 
@@ -34,7 +34,7 @@ global_label BgTask_8029F5C
     task_stop
 
 global_label BgTask_8029F74
-    task_direct slot=4, dst=eBgPaletteB, len=0x8
+    task_direct slot=4, dst=gBgPaletteB, len=0x8
     task_direct_arg paletteACDC_07717F4
     task_stop
 
@@ -69,7 +69,7 @@ global_label BgTask_802A004
     task_stop
 
 global_label BgTask_802A01C
-    task_direct slot=1, dst=eBgPalette6, len=0x8, delay=4
+    task_direct slot=1, dst=gBgPalette6, len=0x8, delay=4
     task_direct_arg paletteACDC_0772894
     task_stop
 
@@ -158,7 +158,7 @@ global_label BgTask_ACDC_Lan_Room_Tileset_Computer
     task_repeat
 
 global_label BgTask_802A284
-    task_direct slot=0, dst=eBgPalette1, len=0x8, delay=8
+    task_direct slot=0, dst=gBgPalette1, len=0x8, delay=8
     task_direct_arg paletteACDC_0778174
     task_direct_arg BgData_Palette_ACDC_Dex_Room+36
     task_repeat

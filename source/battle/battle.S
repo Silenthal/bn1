@@ -208,7 +208,7 @@ TransferStruct_ARRAY_08005a10:
     .word 0x180
 
     .word paletteCustomScreenBg_1
-    .word eObjPaletteB
+    .word gObjPaletteB
     .word 0x8
 PTR_gSpriteDecompLocation1_08005a28: .word gSpriteDecompLocation1
 

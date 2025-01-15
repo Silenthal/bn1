@@ -4,13 +4,13 @@
 
 
 global_label BgTask_80423F8
-    task_direct slot=0, dst=eBgPalette0, len=0x8, delay=10
+    task_direct slot=0, dst=gBgPalette0, len=0x8, delay=10
     task_direct_arg BgData_Palette_Oven_Comp_1 + 0x4
     task_direct_arg palette_0784034
     task_repeat
 
 global_label BgTask_8042418
-    task_direct slot=1, dst=eBgPalette3, len=0x8, delay=10
+    task_direct slot=1, dst=gBgPalette3, len=0x8, delay=10
     task_direct_arg BgData_Palette_Oven_Comp_1 + 0x64
     task_direct_arg palette_0784054_0
     task_direct_arg palette_0784054_1
@@ -18,7 +18,7 @@ global_label BgTask_8042418
     task_repeat
 
 global_label BgTask_8042448
-    task_direct slot=2, dst=eBgPalette4, len=0x8, delay=10
+    task_direct slot=2, dst=gBgPalette4, len=0x8, delay=10
     task_direct_arg BgData_Palette_Oven_Comp_1 + 0x84
     task_direct_arg palette_07840B4_0
     task_direct_arg palette_07840B4_1
@@ -30,7 +30,7 @@ global_label BgTask_8042448
     task_repeat
 
 global_label BgTask_8042498
-    task_direct slot=3, dst=eBgPalette5, len=0x8, delay=20
+    task_direct slot=3, dst=gBgPalette5, len=0x8, delay=20
     task_direct_arg BgData_Palette_Oven_Comp_1 + 0xA4
     task_direct_arg palette_0784134_0
     task_direct_arg palette_0784134_1
@@ -40,7 +40,7 @@ global_label BgTask_8042498
     task_repeat
 
 global_label BgTask_80424D8
-    task_direct slot=4, dst=eBgPaletteA, len=0x8, delay=10
+    task_direct slot=4, dst=gBgPaletteA, len=0x8, delay=10
     task_direct_arg BgData_Palette_Oven_Comp_1 + 0x144
     task_direct_arg palette_0784194_0
     task_direct_arg palette_0784194_1

@@ -549,7 +549,7 @@ LAB_0807d23a:
     bl         Dma_TransferListAdd
     pop        {r1}
     add        r0,r1,#0x0
-    ldr        r1,PTR_eBgPaletteE_0807d264
+    ldr        r1,PTR_gBgPaletteE_0807d264
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        {r5}
@@ -562,8 +562,8 @@ LAB_0807d23a:
 PTR_DAT_0807d260:
     .word 0x600AF00
 
-PTR_eBgPaletteE_0807d264:
-    .word eBgPaletteE
+PTR_gBgPaletteE_0807d264:
+    .word gBgPaletteE
 
 PTR_tilesetZenny_0807d268:
     .word tilesetZenny
@@ -733,7 +733,7 @@ LAB_0807d35a:
     bl         Dma_TransferListAdd
     pop        {r1}
     add        r0,r1,#0x0
-    ldr        r1,PTR_eBgPaletteE_0807d3b0
+    ldr        r1,PTR_gBgPaletteE_0807d3b0
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        {r5}
@@ -752,8 +752,8 @@ LAB_0807d3aa:
 PTR_DAT_0807d3ac:
     .word 0x600AF00
 
-PTR_eBgPaletteE_0807d3b0:
-    .word eBgPaletteE
+PTR_gBgPaletteE_0807d3b0:
+    .word gBgPaletteE
 
 PTR_iwBufferUITextTile_0807d3b4:
     .word iwBufferUITextTile

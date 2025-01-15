@@ -3,7 +3,7 @@
     .include "macros.inc"
 
 global_label BgTask_803D7AC
-    task_direct slot=1, dst=eBgPalette4, len=0x8, delay=6
+    task_direct slot=1, dst=gBgPalette4, len=0x8, delay=6
     task_direct_arg palette_077D434_0
     task_direct_arg palette_077D434_1
     task_direct_arg palette_077D434_2
@@ -30,7 +30,7 @@ global_label BgTask_803D814
     task_repeat
 
 global_label BgTask_803D844
-    task_direct slot=1, dst=eBgPalette0, len=0x8, delay=6
+    task_direct slot=1, dst=gBgPalette0, len=0x8, delay=6
     task_direct_arg palette_077DF54_0
     task_direct_arg palette_077DF54_1
     task_direct_arg palette_077DF54_2

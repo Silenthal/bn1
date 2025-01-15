@@ -91,11 +91,12 @@ LAB_08000aac:
     add        r1,r2,#0x0
     mov        pc,lr
 
+
 _ts ConvertNumToBCD
-    ldr        r1,DAT_08000b0c
+    ldr        r1,=99999999
     cmp        r0,r1
     bmi        LAB_08000ac6
-    ldr        r0,DAT_08000b10
+    ldr        r0,=0x99999999
     mov        pc,lr
 LAB_08000ac6:
     ldr        r7,PTR_powersOf10_08000b08
@@ -131,9 +132,10 @@ powersOf10:
     .word 10
     .word 1
 
-PTR_powersOf10_08000b08:    .word powersOf10
-DAT_08000b0c:               .word 0x05F5E0FF
-DAT_08000b10:               .word 0x99999999
+PTR_powersOf10_08000b08:
+    .word powersOf10
+
+    .pool
 
 _ts GetWidthOfBcdNumber
     push       { lr }
@@ -285,7 +287,7 @@ _ts IncrementGameTimer
     cmp        r0,r1
     ble        .setTime
     add        r0,r1,#0x0
-    .setTime:
+.setTime:
     str        r0,[r7,#0x18]
     mov        pc,lr
 

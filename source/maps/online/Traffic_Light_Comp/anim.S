@@ -4,37 +4,37 @@
 
 
 global_label BgTask_80473B4
-    task_direct slot=2, dst=eBgPalette0, len=0x18, delay=1
+    task_direct slot=2, dst=gBgPalette0, len=0x18, delay=1
     task_direct_arg palette_078A834
     task_stop
 
 global_label BgTask_80473CC
-    task_direct slot=3, dst=eBgPalette4, len=0x10, delay=1
+    task_direct slot=3, dst=gBgPalette4, len=0x10, delay=1
     task_direct_arg palette_078A894
     task_stop
 
 global_label BgTask_80473E4
-    task_direct slot=4, dst=eBgPalette7, len=0x8, delay=1
+    task_direct slot=4, dst=gBgPalette7, len=0x8, delay=1
     task_direct_arg palette_078A9B4
     task_stop
 
 global_label BgTask_80473FC
-    task_direct slot=2, dst=eBgPalette0, len=0x18, delay=1
+    task_direct slot=2, dst=gBgPalette0, len=0x18, delay=1
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x4
     task_stop
 
 global_label BgTask_8047414
-    task_direct slot=3, dst=eBgPalette4, len=0x10, delay=1
+    task_direct slot=3, dst=gBgPalette4, len=0x10, delay=1
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x84
     task_stop
 
 global_label BgTask_804742C
-    task_direct slot=4, dst=eBgPalette7, len=0x8, delay=1
+    task_direct slot=4, dst=gBgPalette7, len=0x8, delay=1
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0xE4
     task_stop
 
 global_label BgTask_8047444
-    task_direct slot=5, dst=eBgPalette3, len=0x8, delay=8
+    task_direct slot=5, dst=gBgPalette3, len=0x8, delay=8
     task_direct_arg BgData_Palette_Traffic_Light_Comp_1 + 0x64
     task_direct_arg palette_078A8D4_0
     task_direct_arg palette_078A8D4_1
@@ -42,7 +42,7 @@ global_label BgTask_8047444
     task_repeat
 
 global_label BgTask_8047474
-    task_direct slot=5, dst=eBgPalette3, len=0x8, delay=8
+    task_direct slot=5, dst=gBgPalette3, len=0x8, delay=8
     task_direct_arg palette_078A934_0
     task_direct_arg palette_078A934_1
     task_direct_arg palette_078A934_2

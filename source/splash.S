@@ -47,13 +47,13 @@ _ts Splash_0_LoadCapcomLogo
     strh       r1,[r0,#0x16]
     strh       r1,[r0,#0x18]
     strh       r1,[r0,#0x1a]
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     ldr        r0,=tilesetCapcomLogo
     ldr        r1,=0x6000020
     ldr        r2,=0x4D0
     bl         Dma_TransferListAdd
     ldr        r0,=paletteCapcomLogo
-    ldr        r1,=eBgPalette0
+    ldr        r1,=gBgPalette0
     mov        r2,#0x78
     bl         Dma_TransferListAdd
     bl         Video_ClearScreen

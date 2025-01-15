@@ -42,7 +42,7 @@ _ts M_Folder_0_Init
     ldr        r2,DAT_0801a1e0
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801a1e4
-    ldr        r1,PTR_eBgPalette4_0801a1e8
+    ldr        r1,PTR_gBgPalette4_0801a1e8
     mov        r2,#0x40
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMenuSideArrow_0801a1ec
@@ -58,7 +58,7 @@ _ts M_Folder_0_Init
     mov        r2,#0xc0
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuSideArrow_0801a204
-    ldr        r1,PTR_eBgPaletteF_0801a208
+    ldr        r1,PTR_gBgPaletteF_0801a208
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMenuSideArrow_0801a1ec
@@ -66,7 +66,7 @@ _ts M_Folder_0_Init
     mov        r2,#0x60
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801a1e4
-    ldr        r1,PTR_eObjPalette0_0801a210
+    ldr        r1,PTR_gObjPalette0_0801a210
     mov        r2,#0x20
     bl         memcpy_32
     ldr        r0,PTR_gFillValue_0801a214
@@ -131,7 +131,7 @@ _ts M_Folder_0_Init
     mov        r0,#0x3
     mov        r1,#0x10
     bl         Fade_Request
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     pop        {r5}
     mov        r0,#0x0
     strh       r0,[r5,#0x12]
@@ -218,7 +218,7 @@ LAB_0801a05c:
     bl         StartMenu_ClearState
     push       {r5}
     ldr        r0,PTR_paletteKeyboardNumberChars_0801a258
-    ldr        r1,PTR_eBgPaletteF_0801a25c
+    ldr        r1,PTR_gBgPaletteF_0801a25c
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     mov        r0,#0x3
@@ -405,8 +405,8 @@ DAT_0801a1e0:
     .word 0x540
 PTR_paletteMenuDesign_0801a1e4:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801a1e8:
-    .word eBgPalette4
+PTR_gBgPalette4_0801a1e8:
+    .word gBgPalette4
 PTR_tilesetMenuSideArrow_0801a1ec:
     .word tilesetMenuSideArrow
 PTR_DAT_0801a1f0:
@@ -421,12 +421,12 @@ PTR_DAT_0801a200:
     .word 0x6003c00
 PTR_paletteMenuSideArrow_0801a204:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801a208:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801a208:
+    .word gBgPaletteF
 PTR_DAT_0801a20c:
     .word 0x6010020
-PTR_eObjPalette0_0801a210:
-    .word eObjPalette0
+PTR_gObjPalette0_0801a210:
+    .word gObjPalette0
 PTR_gFillValue_0801a214:
     .word gFillValue
 PTR_gChipBag_0801a218:
@@ -463,8 +463,8 @@ DispCnt_0801a254:
     .word 0x1F40
 PTR_paletteKeyboardNumberChars_0801a258:
     .word paletteKeyboardNumberChars
-PTR_eBgPaletteF_0801a25c:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801a25c:
+    .word gBgPaletteF
 PTR_gFolder_0801a260:
     .word gFolder
 PTR_gFolder_0801a264:

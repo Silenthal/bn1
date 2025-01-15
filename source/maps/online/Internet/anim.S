@@ -4,7 +4,7 @@
 
 
 global_label BgTask_80515C8
-    task_direct slot=0, dst=eBgPalette2, len=0x8, delay=8
+    task_direct slot=0, dst=gBgPalette2, len=0x8, delay=8
     task_direct_arg BgData_Palette_Internet_1 + 0x44
     task_direct_arg palette_0796814_0
     task_direct_arg palette_0796814_1
@@ -16,7 +16,7 @@ global_label BgTask_80515C8
     task_repeat
 
 global_label BgTask_8051618
-    task_direct slot=1, dst=eBgPalette8, len=0x8, delay=8
+    task_direct slot=1, dst=gBgPalette8, len=0x8, delay=8
     task_direct_arg BgData_Palette_Internet_1 + 0x104
     task_direct_arg palette_0796A14_0
     task_direct_arg palette_0796A14_1
@@ -28,7 +28,7 @@ global_label BgTask_8051618
     task_repeat
 
 global_label BgTask_8051668
-    task_direct slot=2, dst=eBgPalette9, len=0x8, delay=8
+    task_direct slot=2, dst=gBgPalette9, len=0x8, delay=8
     task_direct_arg BgData_Palette_Internet_1 + 0x124
     task_direct_arg palette_0796AF4_0
     task_direct_arg palette_0796AF4_1
@@ -40,7 +40,7 @@ global_label BgTask_8051668
     task_repeat
 
 global_label BgTask_80516B8
-    task_direct slot=3, dst=eBgPalette3, len=0x8, delay=8
+    task_direct slot=3, dst=gBgPalette3, len=0x8, delay=8
     task_direct_arg BgData_Palette_Internet_1 + 0x64
     task_direct_arg palette_07968F4_0
     task_direct_arg palette_07968F4_1
@@ -50,7 +50,7 @@ global_label BgTask_80516B8
     task_repeat
 
 global_label BgTask_80516F8
-    task_direct slot=4, dst=eBgPalette4, len=0x8, delay=8
+    task_direct slot=4, dst=gBgPalette4, len=0x8, delay=8
     task_direct_arg BgData_Palette_Internet_1 + 0x84
     task_direct_arg palette_0796954_0
     task_direct_arg palette_0796954_1
@@ -60,12 +60,12 @@ global_label BgTask_80516F8
     task_repeat
 
 global_label BgTask_8051738
-    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=1
+    task_direct slot=5, dst=gBgPaletteA, len=0x8, delay=1
     task_direct_arg palette_07969B4_0
     task_stop
 
 global_label BgTask_8051750
-    task_direct slot=6, dst=eBgPaletteB, len=0x8, delay=16
+    task_direct slot=6, dst=gBgPaletteB, len=0x8, delay=16
     task_direct_arg BgData_Palette_Internet_1 + 0x164
     task_direct_arg palette_0796C14_0
     task_direct_arg palette_0796C14_1

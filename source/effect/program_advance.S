@@ -57,7 +57,7 @@ PTR_PTR_Color_ARRAY_0807c364:
 
 PTR_Color_ARRAY_0807c368:
     .word palette_0647A9C
-    .word eBgPaletteC
+    .word gBgPaletteC
     .word 0x18
 
 
@@ -670,7 +670,7 @@ PTR_PTR_paletteCustomScreenBg_1_0807c774:
 
 PTR_paletteCustomScreenBg_1_0807c778:
     .word paletteCustomScreenBg_1
-    .word eBgPaletteC
+    .word gBgPaletteC
     .word 0x8
 
 

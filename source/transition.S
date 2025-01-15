@@ -94,7 +94,7 @@ _ts JackIn_Finish
     mov        r1,#0x1
     strh       r1,[r0,#0x0]
     push       {r5,r7}
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     pop        {r5,r7}
     ldr        r0,[r7,#0x8]
     mov        r1,#0x1
@@ -156,7 +156,7 @@ _ts JackIn_PlayAnimation
     mov        r0,#0x8
     bl         Dma_WaitForEnd
     pop        {r0,r3,r5}
-    ldr        r1,PTR_PTR_eBgPalette0_0801787c
+    ldr        r1,PTR_PTR_gBgPalette0_0801787c
     ldr        r1,[r1,r0]
     push       {r5}
     add        r0,r3,#0x0
@@ -279,9 +279,9 @@ PTR_lzTilesetJackInFrame00_08017668:
 PTR_BG_VRAM_BASE0_080177ac:
     .word BG_VRAM_BASE0
     .word 0x6006000
-PTR_eBgPalette0_080177b4:
-    .word eBgPalette0
-    .word eBgPalette1
+PTR_gBgPalette0_080177b4:
+    .word gBgPalette0
+    .word gBgPalette1
 DispCnt_080177bc:
     .word 0x340
     .word 0x540
@@ -349,7 +349,7 @@ _ts JackOut_Finish
     mov        r1,#0x4
     strb       r1,[r0,#0x0]
     push       {r5,r7}
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     pop        {r5,r7}
     ldr        r0,[r7,#0x8]
     mov        r1,#0x1
@@ -391,7 +391,7 @@ INT_08017874:
     .word 0x12C0
 DAT_08017878:
     .word 0x84000000
-PTR_PTR_eBgPalette0_0801787c:
-    .word PTR_eBgPalette0_080177b4
+PTR_PTR_gBgPalette0_0801787c:
+    .word PTR_gBgPalette0_080177b4
 PTR_DAT_08017880:
     .word 0x1100

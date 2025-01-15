@@ -42,7 +42,7 @@ _ts Menu_MegaMan_0_Init
     ldr        r2,DAT_0801bcf0
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuDesign_0801bcf4
-    ldr        r1,PTR_eBgPalette4_0801bcf8
+    ldr        r1,PTR_gBgPalette4_0801bcf8
     mov        r2,#0x40
     bl         Dma_TransferListAdd
     ldr        r0,PTR_tilesetMenuMegaManSideArrow_0801bcfc
@@ -58,7 +58,7 @@ _ts Menu_MegaMan_0_Init
     mov        r2,#0xb0
     bl         Dma_TransferListAdd
     ldr        r0,PTR_paletteMenuSideArrow_0801bd14
-    ldr        r1,PTR_eBgPaletteF_0801bd18
+    ldr        r1,PTR_gBgPaletteF_0801bd18
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        {r5}
@@ -83,7 +83,7 @@ _ts Menu_MegaMan_0_Init
     mov        r0,#0x3
     mov        r1,#0x10
     bl         Fade_Request
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     pop        {r5}
     bl         Menu_MegaMan_LoadItemData
     mov        r0,#0x0
@@ -142,7 +142,7 @@ LAB_0801ba62:
     bl         StartMenu_ClearState
     push       {r5}
     ldr        r0,PTR_paletteKeyboardNumberChars_0801bd28
-    ldr        r1,PTR_eBgPaletteF_0801bd2c
+    ldr        r1,PTR_gBgPaletteF_0801bd2c
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     mov        r0,#0x3
@@ -457,8 +457,8 @@ DAT_0801bcf0:
     .word 0x540
 PTR_paletteMenuDesign_0801bcf4:
     .word paletteMenuDesign
-PTR_eBgPalette4_0801bcf8:
-    .word eBgPalette4
+PTR_gBgPalette4_0801bcf8:
+    .word gBgPalette4
 PTR_tilesetMenuMegaManSideArrow_0801bcfc:
     .word tilesetMenuMegaManSideArrow
 PTR_DAT_0801bd00:
@@ -473,8 +473,8 @@ PTR_DAT_0801bd10:
     .word 0x6003800
 PTR_paletteMenuSideArrow_0801bd14:
     .word paletteMenuSideArrow
-PTR_eBgPaletteF_0801bd18:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801bd18:
+    .word gBgPaletteF
 PTR_tilemapMenuMegaMan_0801bd1c:
     .word tilemapMenuMegaMan
 DAT_0801bd20:
@@ -483,8 +483,8 @@ PTR_DAT_0801bd24:
     .word 0x1F40
 PTR_paletteKeyboardNumberChars_0801bd28:
     .word paletteKeyboardNumberChars
-PTR_eBgPaletteF_0801bd2c:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801bd2c:
+    .word gBgPaletteF
 PTR_PTR_Menu_MegaMan_3_0_ShowArmorChangeDialog:
     .word PTR_Menu_MegaMan_3_0_ShowArmorChangeDialogue
 PTR_textDict_MenuMessages_0801bd34:

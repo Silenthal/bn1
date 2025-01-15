@@ -74,7 +74,7 @@ _ts BGDM_Load
     ldr        r2,[r0,#0x0]
     lsr        r2,r2,#0x2
     add        r0,#0x4
-    ldr        r1,=eBgPalette0
+    ldr        r1,=gBgPalette0
     mov        r3,#0x3
     ldr        r4,=(DMA_32BIT | DMA_ENABLE)
     push       {r5}

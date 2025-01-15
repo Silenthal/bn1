@@ -119,13 +119,13 @@ _ts BattleMessage_LoadTiles
     bl         Dma_TransferListAdd
     pop        {r2}
     ldr        r0,[r2,#0x8]
-    ldr        r1,PTR_eObjPaletteA_08017994
+    ldr        r1,PTR_gObjPaletteA_08017994
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
     pop        {pc}
-PTR_eObjPaletteA_08017994:
-    .word eObjPaletteA
+PTR_gObjPaletteA_08017994:
+    .word gObjPaletteA
 PTR_TransferDetail_1799C_ARRAY_08017998:
     .word TransferDetail_1799C_ARRAY_0801799c
 TransferDetail_1799C_ARRAY_0801799c:
@@ -426,7 +426,7 @@ _ts BattleMessage_CopyChipText
     strb       r0,[r5,#0x2]
     push       {r5}
     ldr        r0,PTR_paletteUIBoldText_08017dd8
-    ldr        r1,PTR_eObjPaletteA_08017ddc
+    ldr        r1,PTR_gObjPaletteA_08017ddc
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -664,8 +664,8 @@ PTR_tilesetBoldAlphanumeric_08017dd4:
     .word tilesetBoldAlphanumeric
 PTR_paletteUIBoldText_08017dd8:
     .word paletteUIBoldText
-PTR_eObjPaletteA_08017ddc:
-    .word eObjPaletteA
+PTR_gObjPaletteA_08017ddc:
+    .word gObjPaletteA
 PTR_PTR_BM_StaticMessage_0_Init_08017de0:
     .word PTR_BM_StaticMessage_0_Init_08017c58
 PTR_listBCScaleIn_08017de4:
@@ -779,7 +779,7 @@ _ts BattleMessage_LoadDieBomb
     strb       r0,[r5,#0x2]
     push       {r5}
     ldr        r0,PTR_paletteUIBoldText_08017ef0
-    ldr        r1,PTR_eObjPaletteA_08017ef4
+    ldr        r1,PTR_gObjPaletteA_08017ef4
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -793,8 +793,8 @@ PTR_tilesetBoldAlphanumeric_08017eec:
     .word tilesetBoldAlphanumeric
 PTR_paletteUIBoldText_08017ef0:
     .word paletteUIBoldText
-PTR_eObjPaletteA_08017ef4:
-    .word eObjPaletteA
+PTR_gObjPaletteA_08017ef4:
+    .word gObjPaletteA
 
 
 _ts BattleMessage_DieBomb
@@ -967,7 +967,7 @@ _ts BattleMessage_LoadZetaOmegaPA
     strb       r0,[r5,#0x2]
     push       {r5}
     ldr        r0,PTR_paletteUIBoldText_080182f0
-    ldr        r1,PTR_eObjPaletteA_080182f4
+    ldr        r1,PTR_gObjPaletteA_080182f4
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -1118,7 +1118,7 @@ LAB_080180be:
     mov        r7,#0x0
     bl         Text_CopyCharTileUI
     ldr        r0,PTR_paletteUIBoldText_080182f0
-    ldr        r1,PTR_eObjPaletteA_08018310
+    ldr        r1,PTR_gObjPaletteA_08018310
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -1175,7 +1175,7 @@ _ts BattleMessage_LoadBetaSigmaPA
     strb       r0,[r5,#0x2]
     push       {r5}
     ldr        r0,PTR_paletteUIBoldText_080182f0
-    ldr        r1,PTR_eObjPaletteA_0801831c
+    ldr        r1,PTR_gObjPaletteA_0801831c
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -1306,7 +1306,7 @@ LAB_08018236:
     mov        r7,#0x0
     bl         Text_CopyCharTileUI
     ldr        r0,PTR_paletteUIBoldText_080182f0
-    ldr        r1,PTR_eObjPaletteA_08018330
+    ldr        r1,PTR_gObjPaletteA_08018330
     mov        r2,#0x20
     bl         memcpy_32
     pop        {r5}
@@ -1366,8 +1366,8 @@ PTR_tilesetBoldAlphanumeric_080182ec:
     .word tilesetBoldAlphanumeric
 PTR_paletteUIBoldText_080182f0:
     .word paletteUIBoldText
-PTR_eObjPaletteA_080182f4:
-    .word eObjPaletteA
+PTR_gObjPaletteA_080182f4:
+    .word gObjPaletteA
 PTR_PTR_BM_DieBomb_0_080182f8:
     .word PTR_BM_DieBomb_0_0801803c
 PTR_scaleListZOBounceIn_080182fc:
@@ -1380,14 +1380,14 @@ PTR_TextDst_ARRAY_08018308:
     .word TextDst_ARRAY_08017e0c
 PTR_textDict_MenuMessages_0801830c:
     .word textDict_MenuMessages
-PTR_eObjPaletteA_08018310:
-    .word eObjPaletteA
+PTR_gObjPaletteA_08018310:
+    .word gObjPaletteA
 DAT_08018314:
     .word 0x88018
 PTR_TextDst_ARRAY_08018318:
     .word TextDst_ARRAY_08017e0c
-PTR_eObjPaletteA_0801831c:
-    .word eObjPaletteA
+PTR_gObjPaletteA_0801831c:
+    .word gObjPaletteA
 PTR_PTR_BM_DieBomb_0_08018320:
     .word PTR_BM_DieBomb_0_080181b4
 PTR_scaleListBSBounceIn_08018324:
@@ -1396,5 +1396,5 @@ PTR_scaleListBSBounceOut_08018328:
     .word scaleListBSBounceOut
 PTR_TextDst_ARRAY_0801832c:
     .word TextDst_ARRAY_08017e0c
-PTR_eObjPaletteA_08018330:
-    .word eObjPaletteA
+PTR_gObjPaletteA_08018330:
+    .word gObjPaletteA

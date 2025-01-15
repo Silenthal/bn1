@@ -42,7 +42,7 @@ global_label BgTask_80311F0
     task_repeat
 
 global_label BgTask_80312B0
-    task_direct slot=0, dst=eBgPalette9, len=0x8, delay=6
+    task_direct slot=0, dst=gBgPalette9, len=0x8, delay=6
     task_direct_arg paletteGovt_077BB74_0
     task_direct_arg paletteGovt_077BB74_1
     task_direct_arg paletteGovt_077BB74_2
@@ -51,11 +51,11 @@ global_label BgTask_80312B0
     task_repeat
 
 global_label BgTask_80312E8
-    task_direct slot=0, dst=eBgPalette4, len=0x8, delay=1
+    task_direct slot=0, dst=gBgPalette4, len=0x8, delay=1
     task_direct_arg paletteGovt_077BC34
     task_stop
 
 global_label BgTask_8031300
-    task_direct slot=1, dst=eBgPalette7, len=0x8, delay=1
+    task_direct slot=1, dst=gBgPalette7, len=0x8, delay=1
     task_direct_arg paletteGovt_077BC54
     task_stop

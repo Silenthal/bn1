@@ -76,143 +76,143 @@ global_label BgTask_8049D50
     task_stop
 
 global_label BgTask_8049D68
-    task_direct slot=4, dst=eBgPalette9, len=0x8, delay=16
+    task_direct slot=4, dst=gBgPalette9, len=0x8, delay=16
     task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x124
     task_direct_arg palette_078B754
     task_repeat
 
 global_label BgTask_8049D88
-    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=1
+    task_direct slot=5, dst=gBgPaletteA, len=0x8, delay=1
     task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x144
     task_stop
 
 global_label BgTask_8049DA0
-    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=1
+    task_direct slot=5, dst=gBgPaletteA, len=0x8, delay=1
     task_direct_arg palette_078B774
     task_stop
 
 global_label BgTask_8049DB8
-    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=1
+    task_direct slot=5, dst=gBgPaletteA, len=0x8, delay=1
     task_direct_arg palette_078B794
     task_stop
 
 global_label BgTask_8049DD0
-    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=1
+    task_direct slot=5, dst=gBgPaletteA, len=0x8, delay=1
     task_direct_arg palette_078B7B4
     task_stop
 
 global_label BgTask_8049DE8
-    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=1
+    task_direct slot=5, dst=gBgPaletteA, len=0x8, delay=1
     task_direct_arg palette_078B7D4
     task_stop
 
 global_label BgTask_8049E00
-    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=1
+    task_direct slot=5, dst=gBgPaletteA, len=0x8, delay=1
     task_direct_arg palette_078B7F4
     task_stop
 
 global_label BgTask_8049E18
-    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=1
+    task_direct slot=5, dst=gBgPaletteA, len=0x8, delay=1
     task_direct_arg palette_078B814
     task_stop
 
 global_label BgTask_8049E30
-    task_direct slot=5, dst=eBgPaletteA, len=0x8, delay=1
+    task_direct slot=5, dst=gBgPaletteA, len=0x8, delay=1
     task_direct_arg palette_078B834
     task_stop
 
 global_label BgTask_8049E48
-    task_direct slot=6, dst=eBgPaletteB, len=0x8, delay=1
+    task_direct slot=6, dst=gBgPaletteB, len=0x8, delay=1
     task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x164
     task_stop
 
 global_label BgTask_8049E60
-    task_direct slot=6, dst=eBgPaletteB, len=0x8, delay=1
+    task_direct slot=6, dst=gBgPaletteB, len=0x8, delay=1
     task_direct_arg palette_078B774
     task_stop
 
 global_label BgTask_8049E78
-    task_direct slot=6, dst=eBgPaletteB, len=0x8, delay=1
+    task_direct slot=6, dst=gBgPaletteB, len=0x8, delay=1
     task_direct_arg palette_078B794
     task_stop
 
 global_label BgTask_8049E90
-    task_direct slot=6, dst=eBgPaletteB, len=0x8, delay=1
+    task_direct slot=6, dst=gBgPaletteB, len=0x8, delay=1
     task_direct_arg palette_078B7B4
     task_stop
 
 global_label BgTask_8049EA8
-    task_direct slot=6, dst=eBgPaletteB, len=0x8, delay=1
+    task_direct slot=6, dst=gBgPaletteB, len=0x8, delay=1
     task_direct_arg palette_078B7D4
     task_stop
 
 global_label BgTask_8049EC0
-    task_direct slot=6, dst=eBgPaletteB, len=0x8, delay=1
+    task_direct slot=6, dst=gBgPaletteB, len=0x8, delay=1
     task_direct_arg palette_078B7F4
     task_stop
 
 global_label BgTask_8049ED8
-    task_direct slot=6, dst=eBgPaletteB, len=0x8, delay=1
+    task_direct slot=6, dst=gBgPaletteB, len=0x8, delay=1
     task_direct_arg palette_078B814
     task_stop
 
 global_label BgTask_8049EF0
-    task_direct slot=6, dst=eBgPaletteB, len=0x8, delay=1
+    task_direct slot=6, dst=gBgPaletteB, len=0x8, delay=1
     task_direct_arg palette_078B834
     task_stop
 
 global_label BgTask_8049F08
-    task_direct slot=7, dst=eBgPaletteC, len=0x8, delay=1
+    task_direct slot=7, dst=gBgPaletteC, len=0x8, delay=1
     task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x184
     task_stop
 
 global_label BgTask_8049F20
-    task_direct slot=7, dst=eBgPaletteC, len=0x8, delay=1
+    task_direct slot=7, dst=gBgPaletteC, len=0x8, delay=1
     task_direct_arg palette_078B774
     task_stop
 
 global_label BgTask_8049F38
-    task_direct slot=7, dst=eBgPaletteC, len=0x8, delay=1
+    task_direct slot=7, dst=gBgPaletteC, len=0x8, delay=1
     task_direct_arg palette_078B794
     task_stop
 
 global_label BgTask_8049F50
-    task_direct slot=7, dst=eBgPaletteC, len=0x8, delay=1
+    task_direct slot=7, dst=gBgPaletteC, len=0x8, delay=1
     task_direct_arg palette_078B7B4
     task_stop
 
 global_label BgTask_8049F68
-    task_direct slot=7, dst=eBgPaletteC, len=0x8, delay=1
+    task_direct slot=7, dst=gBgPaletteC, len=0x8, delay=1
     task_direct_arg palette_078B7D4
     task_stop
 
 global_label BgTask_8049F80
-    task_direct slot=7, dst=eBgPaletteC, len=0x8, delay=1
+    task_direct slot=7, dst=gBgPaletteC, len=0x8, delay=1
     task_direct_arg palette_078B7F4
     task_stop
 
 global_label BgTask_8049F98
-    task_direct slot=7, dst=eBgPaletteC, len=0x8, delay=1
+    task_direct slot=7, dst=gBgPaletteC, len=0x8, delay=1
     task_direct_arg palette_078B814
     task_stop
 
 global_label BgTask_8049FB0
-    task_direct slot=7, dst=eBgPaletteC, len=0x8, delay=1
+    task_direct slot=7, dst=gBgPaletteC, len=0x8, delay=1
     task_direct_arg palette_078B834
     task_stop
 
 global_label BgTask_8049FC8
-    task_direct slot=8, dst=eBgPalette4, len=0x8, delay=1
+    task_direct slot=8, dst=gBgPalette4, len=0x8, delay=1
     task_direct_arg BgData_Palette_Power_Plant_Comp_1 + 0x84
     task_stop
 
 global_label BgTask_8049FE0
-    task_direct slot=8, dst=eBgPalette4, len=0x8, delay=1
+    task_direct slot=8, dst=gBgPalette4, len=0x8, delay=1
     task_direct_arg palette_078B854
     task_stop
 
 global_label BgTask_8049FF8
-    task_direct slot=9, dst=eBgPalette0, len=0x8, delay=180
+    task_direct slot=9, dst=gBgPalette0, len=0x8, delay=180
     task_direct_arg BgData_Palette_Battle_ElecMan + 0x4
     task_direct_arg palette_0796C74_0, 4
     task_direct_arg palette_0796C74_1, 4

@@ -182,7 +182,7 @@ _ts Main_Init
     LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
-    bl         Video_InitPaletteColor0
+    bl         Video_InitClearColor
     bl         Video_ApplySettings
     bl         Sound_Init
     bl         BgUpdate_Init

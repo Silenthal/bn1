@@ -743,7 +743,7 @@ DmaTransferDetail_ARRAY_08015e98:
     .word 0x138
 
     .word paletteCustomScreenBg_1
-    .word eBgPaletteC
+    .word gBgPaletteC
     .word 8
 
     .word tilesetCustomScreenBg_2
@@ -751,15 +751,15 @@ DmaTransferDetail_ARRAY_08015e98:
     .word 0x288
 
     .word palette_06385D4
-    .word eBgPaletteD
+    .word gBgPaletteD
     .word 0x10
 
     .word Color_ARRAY_086414d4
-    .word eObjPaletteD
+    .word gObjPaletteD
     .word 8
 
     .word palette_0638614
-    .word eObjPaletteC
+    .word gObjPaletteC
     .word 8
 PTR_DmaTransferDetail_ARRAY_08015ee0:
     .word DmaTransferDetail_ARRAY_08015e98
@@ -842,7 +842,7 @@ LAB_08015f5a:
     pop        { r5, r7 }
     push       { r5, r7 }
     ldr        r0,[r7,#0x18]
-    ldr        r1,PTR_eBgPaletteB_08015fcc
+    ldr        r1,PTR_gBgPaletteB_08015fcc
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        { r5, r7 }
@@ -874,8 +874,8 @@ PTR_DAT_08015fc4:
     .word 0x600ad00
 PTR_DAT_08015fc8:
     .word 0x600af00
-PTR_eBgPaletteB_08015fcc:
-    .word eBgPaletteB
+PTR_gBgPaletteB_08015fcc:
+    .word gBgPaletteB
 PTR_TextData_BattleChip_Names_08015fd0:
     .word TextData_BattleChip_Names
 PTR_tilesetDialogueText_08015fd4:
@@ -902,7 +902,7 @@ _ts CustomScreen_LoadAlternateArt
     pop        { r5, r7 }
     push       { r5, r7 }
     ldr        r0,[r7,#0x4]
-    ldr        r1,PTR_eBgPaletteB_08016064
+    ldr        r1,PTR_gBgPaletteB_08016064
     mov        r2,#0x8
     bl         Dma_TransferListAdd
     pop        { r5, r7 }
@@ -934,8 +934,8 @@ _ts CustomScreen_LoadAlternateArt
 
 PTR_DAT_08016060:
     .word 0x600af00
-PTR_eBgPaletteB_08016064:
-    .word eBgPaletteB
+PTR_gBgPaletteB_08016064:
+    .word gBgPaletteB
 PTR_PTR_tileSetNoDataSelected_08016068:
     .word PTR_tileSetNoDataSelected_0801606c
 PTR_tileSetNoDataSelected_0801606c:

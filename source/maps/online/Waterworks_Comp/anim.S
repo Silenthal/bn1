@@ -14,7 +14,7 @@ global_label BgTask_8044048
     task_stop
 
 global_label BgTask_8044060
-    task_direct slot=1, dst=eBgPalette4, len=0x8, delay=1
+    task_direct slot=1, dst=gBgPalette4, len=0x8, delay=1
     task_direct_arg palette_0787174
     task_stop
 
@@ -117,12 +117,12 @@ global_label BgTask_80442E8
     task_repeat
 
 global_label BgTask_8044318
-    task_direct slot=3, dst=eBgPaletteC, len=0x8, delay=1
+    task_direct slot=3, dst=gBgPaletteC, len=0x8, delay=1
     task_direct_arg palette_0787194
     task_stop
 
 global_label BgTask_8044330
-    task_direct slot=3, dst=eBgPalette0, len=0x8, delay=1
+    task_direct slot=3, dst=gBgPalette0, len=0x8, delay=1
     task_direct_arg palette_0787194
     task_stop
 

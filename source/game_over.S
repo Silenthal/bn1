@@ -101,8 +101,8 @@ LAB_0802002a:
 
 _ts GameOver_LoadGraphics
     push       { r5, lr }
-    bl         Video_InitPaletteColor0
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearColor
+    bl         Video_InitClearTile
     ldr        r0,PTR_tileset8GameOverText_08020094
     ldr        r1,PTR_DAT_08020098
     ldr        r2,DAT_0802009c
@@ -112,11 +112,11 @@ _ts GameOver_LoadGraphics
     ldr        r2,DAT_080200a8
     bl         Dma_TransferListAdd
     ldr        r0,PTR_palette8GameOver_080200ac
-    ldr        r1,PTR_eBgPalette0_080200b0
+    ldr        r1,PTR_gBgPalette0_080200b0
     ldr        r2,DAT_080200b4
     bl         memcpy_32
     ldr        r0,PTR_paletteGameOverBG_080200b8
-    ldr        r1,PTR_eBgPaletteC_080200bc
+    ldr        r1,PTR_gBgPaletteC_080200bc
     mov        r2,#0x20
     bl         memcpy_32
     bl         Video_ClearScreen
@@ -156,14 +156,14 @@ DAT_080200a8:
     .word 0x100
 PTR_palette8GameOver_080200ac:
     .word palette8GameOver
-PTR_eBgPalette0_080200b0:
-    .word eBgPalette0
+PTR_gBgPalette0_080200b0:
+    .word gBgPalette0
 DAT_080200b4:
     .word 0x120
 PTR_paletteGameOverBG_080200b8:
     .word paletteGameOverBG
-PTR_eBgPaletteC_080200bc:
-    .word eBgPaletteC
+PTR_gBgPaletteC_080200bc:
+    .word gBgPaletteC
 PTR_layoutGameOverText_080200c0:
     .word layoutGameOverText
 INT_080200c4:

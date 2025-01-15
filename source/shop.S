@@ -28,7 +28,7 @@ _ts Shop_0_Init
     push       {lr}
     push       {r5}
     bl         Video_ClearScreen
-    bl         Video_InitPaletteColor0
+    bl         Video_InitClearColor
     pop        {r5}
     LoadMain world, r7, r7
     ldr        r0,[r7,#0x74]
@@ -52,7 +52,7 @@ _ts Shop_0_Init
     b          LAB_0801e944
 LAB_0801e90a:
     push       {r5}
-    bl         Video_ClearAllTile0Maps
+    bl         Video_InitClearTile
     mov        r0,#0x5
     ldr        r7,PTR_TransferStruct_ARRAY_0801e948
 LAB_0801e914:
@@ -90,11 +90,11 @@ TransferStruct_ARRAY_0801e94c:
     .word 0xB0
     @ 1
     .word paletteMenuShopUi
-    .word eBgPaletteC
+    .word gBgPaletteC
     .word 0x18
     @ 2
     .word paletteMenuShopBg
-    .word eBgPaletteB
+    .word gBgPaletteB
     .word 0x8
     @ 3
     .word tilesetShopNumbers
@@ -102,7 +102,7 @@ TransferStruct_ARRAY_0801e94c:
     .word 0x350
     @ 4
     .word paletteMenuSideArrow
-    .word eBgPaletteF
+    .word gBgPaletteF
     .word 0x8
 
 
@@ -904,8 +904,8 @@ PTR_PTR_paletteKeyboardNumberChars_0801ef64:
     .word PTR_paletteKeyboardNumberChars_0801ef68
 PTR_paletteKeyboardNumberChars_0801ef68:
     .word paletteKeyboardNumberChars
-PTR_eBgPaletteF_0801ef6c:
-    .word eBgPaletteF
+PTR_gBgPaletteF_0801ef6c:
+    .word gBgPaletteF
 DAT_0801ef70:
     .word 0x8
 
