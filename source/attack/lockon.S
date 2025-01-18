@@ -384,7 +384,7 @@ _ts A_LockOn_1_3_3
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0xe0
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r7,[r5,#0x68]
     ldrh       r0,[r7,#0x18]
     strh       r0,[r5,#0x6]
@@ -489,7 +489,7 @@ LAB_0807b12e:
 _ts A_LockOn_2_Free
     push       {lr}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         R_Actor_ClearCurrentAttack
     mov        r7,#0x28
     add        r7,r7,r5
@@ -573,7 +573,7 @@ _ts A_LockOn_CheckDamage
     bne        LAB_0807b1fc
 LAB_0807b1e8:
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -582,7 +582,7 @@ LAB_0807b1e8:
     pop        {pc}
 LAB_0807b1fc:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807b202:
     mov        r0,#0x0
     pop        {pc}

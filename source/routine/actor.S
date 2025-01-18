@@ -36,7 +36,7 @@ _ts R_Actor_1_0_0_ResetAnim
     strb       r0,[r5,#0xa]
     bl         ResetBattleSpawnAnimationState
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805614c:
     pop        {pc}
 
@@ -104,7 +104,7 @@ LAB_080561b0:
     strb       r0,[r5,#0xa]
     bl         ResetBattleSpawnAnimationState
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080561be:
     pop        {pc}
 

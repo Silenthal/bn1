@@ -287,7 +287,7 @@ _ts A_ColumnCurrentH_1_2
     bl         FieldObject_Enable
     bl         FieldObject_UpdateCellPosition
     mov        r0,#0xbc
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xf
     strh       r0,[r5,#0x1e]
     mov        r0,#0xc
@@ -305,7 +305,7 @@ _nt A_ColumnCurrentH_1_3
     strh       r0,[r5,#0x1e]
     bne        LAB_08075596
     mov        r0,#0xbc
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xf
     strh       r0,[r5,#0x1e]
 LAB_08075596:

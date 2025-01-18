@@ -67,7 +67,7 @@ _ts E_WWWBoulder_2_Free
     pop        {r5}
     push       {r5}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r5}
     mov        r3,#0x0
     ldr        r6,PTR_DAT_08080ec0

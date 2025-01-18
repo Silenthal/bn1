@@ -61,7 +61,7 @@ _ts R_Bass_0_Init
     mov        r0,#0x1
     strb       r0,[r5,#0xd]
     mov        r0,#0xce
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r4,#0x0
     bl         Effect_Bass_Create
     str        r7,[r5,#0x5c]
@@ -123,7 +123,7 @@ LAB_0806cd84:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806cd96:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -604,7 +604,7 @@ _nt R_Bass_1_6_2
     mov        r0,#0x22
     strh       r0,[r5,#0x1e]
     mov        r0,#0x8f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806d0e6:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -939,7 +939,7 @@ _nt R_Bass_1_6_5
     mov        r0,#0x1
     strb       r0,[r5,#0xd]
     mov        r0,#0xce
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
     mov        r0,#0x0

@@ -471,7 +471,7 @@ LAB_08096e8e:
 _ts FUN_08096e90
     push       {lr}
     mov        r0,#0x84
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     ldr        r1,[r0,#0x24]

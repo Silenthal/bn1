@@ -48,7 +48,7 @@ _ts A_Steal_0_Init
     tst        r0,r0
     bne        LAB_0807170e
     mov        r0,#0x78
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807170e:
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
@@ -101,7 +101,7 @@ _ts A_Steal_1_0_Drop
     tst        r0,r0
     bne        LAB_0807176c
     mov        r0,#0x79
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807176c:
     bl         A_Steal_CheckEntityHit
     tst        r0,r0

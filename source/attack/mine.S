@@ -245,7 +245,7 @@ LAB_08075920:
     mov        r0,#0x0
     str        r0,[r5,#0x30]
     mov        r0,#0xb1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0807596e
 LAB_0807595e:
     LoadMain screenDim, r7, r7
@@ -326,7 +326,7 @@ LAB_080759ca:
 LAB_080759de:
     pop        {r5}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strh       r0,[r5,#0x8]
     mov        r0,#0x0

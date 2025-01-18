@@ -72,7 +72,7 @@ LAB_08077cae:
     sub        r3,#0x1
     bgt        LAB_08077c86
     mov        r0,#0xd5
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         A_LifeVirusSword_1_Main
     pop        {pc}
 
@@ -134,7 +134,7 @@ _ts A_LifeVirusSword_1_1
     bne        LAB_08077d22
     bl         A_LifeVirusSword_EnableHitbox
     mov        r0,#0xd6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
 LAB_08077d22:

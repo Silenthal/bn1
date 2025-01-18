@@ -256,7 +256,7 @@ _ts A_Seed_1_1
     bl         Field_SubtractHP
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08071f66:
     ldrb       r0,[r5,#0xa]
     ldr        r7,PTR_PTR_A_Seed_1_1_0_08071f90
@@ -523,7 +523,7 @@ _nt A_Seed_1_3_1
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
     mov        r0,#0xab
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08072146:
     pop        {pc}
 

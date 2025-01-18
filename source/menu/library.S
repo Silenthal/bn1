@@ -391,7 +391,7 @@ _ts Menu_Library_HandleInput
     tst        r1,r0
     beq        LAB_0801b71a
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x10
@@ -459,7 +459,7 @@ LAB_0801b772:
     b          LAB_0801b786
 LAB_0801b780:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801b786:
     strb       r2,[r5,#0xc]
     strb       r3,[r5,#0xe]

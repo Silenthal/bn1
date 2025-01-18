@@ -109,7 +109,7 @@ _ts S_Story_1B_3
     strb       r1,[r0,#0x7]
     pop        {r5}
     mov        r0,#T_School
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808799a:
     pop        {pc}

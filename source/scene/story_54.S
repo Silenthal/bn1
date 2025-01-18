@@ -223,7 +223,7 @@ _nt S_Story_54_7
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
     mov        r0,#0xdd
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -366,7 +366,7 @@ LAB_080900b6:
 _ts FUN_080900b8
     push       {lr}
     mov        r0,#0x84
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     ldr        r1,[r0,#0x24]

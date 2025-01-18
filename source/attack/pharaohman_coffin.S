@@ -132,7 +132,7 @@ LAB_0807a486:
     mov        r0,#0x3c
     strh       r0,[r5,#0x1c]
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807a4a6:
     pop        {pc}
 
@@ -211,7 +211,7 @@ _nt A_PharaohManCoffin_Laser_1
     cmp        r0,#0x4b
     bne        LAB_0807a51c
     mov        r0,#0x97
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807a51c:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1

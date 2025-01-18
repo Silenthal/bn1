@@ -144,7 +144,7 @@ _ts S_Story_7E_4
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0xe6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -261,7 +261,7 @@ _ts FUN_08097950
     tst        r0,r0
     bne        LAB_08097974
     mov        r0,#0xd8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1e
     strb       r0,[r5,#0x7]
 LAB_08097974:

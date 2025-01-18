@@ -79,7 +79,7 @@ _ts A_Stone_1_0
     cmp        r1,r0
     bgt        LAB_080739aa
     mov        r0,#0x95
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strh       r0,[r5,#0x8]
     mov        r0,#0x0

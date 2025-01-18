@@ -234,7 +234,7 @@ LAB_0801c328:
     tst        r1,r0
     beq        LAB_0801c34c
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x10
@@ -332,7 +332,7 @@ LAB_0801c3e2:
     b          LAB_0801c3f6
 LAB_0801c3f0:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801c3f6:
     strb       r2,[r5,#0xc]
     strb       r3,[r5,#0xe]

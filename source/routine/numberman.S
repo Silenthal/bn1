@@ -379,7 +379,7 @@ _ts R_NumberMan_1_4_0_StartAnim
     bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x8f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strh       r0,[r5,#0xa]
     pop        {pc}
@@ -742,7 +742,7 @@ LAB_0805d6f4:
 LAB_0805d6fe:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x70]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
@@ -754,7 +754,7 @@ LAB_0805d6fe:
     pop        {pc}
 LAB_0805d71e:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     pop        {pc}
 LAB_0805d728:

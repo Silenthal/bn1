@@ -123,7 +123,7 @@ LAB_080742e0:
     orr        r0,r1
     strb       r0,[r5,#0x0]
     mov        r0,#0x9c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x9]
     mov        r0,#0x0

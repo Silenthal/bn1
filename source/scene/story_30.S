@@ -313,7 +313,7 @@ _ts S_Story_30_11
     bl         PlayerAnimation_Unlock
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x27

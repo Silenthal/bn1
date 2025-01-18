@@ -119,7 +119,7 @@ _ts SD_SkullMan_1_1
     orr        r0,r1
     strb       r0,[r7,#0x0]
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
 LAB_0809a238:
@@ -144,7 +144,7 @@ _ts SD_SkullMan_1_2
     beq        LAB_0809a25a
     bl         ScreenDim_WarpPlayerIn
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     str        r0,[r5,#0x0]
 LAB_0809a25a:

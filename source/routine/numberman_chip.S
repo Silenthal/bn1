@@ -171,7 +171,7 @@ _ts R_NumberManC_1_1_0_Charge
 LAB_0805fcba:
     str        r7,[r5,#0x5c]
     mov        r0,#0x8f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strh       r0,[r5,#0xa]
     pop        {pc}

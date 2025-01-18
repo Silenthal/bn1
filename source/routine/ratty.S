@@ -109,7 +109,7 @@ _nt R_Ratty_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08062496:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -513,7 +513,7 @@ _nt R_Ratty_1_4_1_Ratton
     ldrb       r4,[r5,#0x4]
     bl         Attack_Ratton_Create
     mov        r0,#0xaf
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1e
     strh       r0,[r5,#0x1c]
     mov        r0,#0x8

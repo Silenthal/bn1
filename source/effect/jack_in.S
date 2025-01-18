@@ -31,7 +31,7 @@ _ts E_JackIn_0_Init
     b          LAB_0808155e
 LAB_08081556:
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r1,DAT_0808163c
 LAB_0808155e:
     bl         Sprite_InitSpritePtr
@@ -94,7 +94,7 @@ LAB_080815c2:
     mov        r0,#0x1
     strb       r0,[r5,#0xa]
     mov        r0,#0xdf
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080815dc:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}

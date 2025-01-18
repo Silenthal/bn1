@@ -58,7 +58,7 @@ _ts A_Wave_0_Init
     eor        r0,r1
     bl         SpritePtr_SetFlipType
     mov        r0,#0xb3
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 

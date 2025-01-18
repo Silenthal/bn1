@@ -52,7 +52,7 @@ _ts S_Story_69_0
     bl         SceneCamera_Init
     bl         SceneCamera_Main
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {pc}
 
 

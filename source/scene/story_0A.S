@@ -265,7 +265,7 @@ MapEntrance_08084b84:
 _ts FUN_08084b94
     push       {lr}
     mov        r0,#0x88
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0xb
     mov        r1,#0x5a

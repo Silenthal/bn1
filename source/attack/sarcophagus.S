@@ -187,7 +187,7 @@ LAB_080785de:
     mov        r0,#0x3c
     strh       r0,[r5,#0x1c]
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080785fe:
     pop        {pc}
 
@@ -281,7 +281,7 @@ _ts A_Sarcophagus_CoffinLaser_1
     cmp        r0,#0x4b
     bne        LAB_0807868e
     mov        r0,#0x97
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807868e:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -346,7 +346,7 @@ LAB_080786e0:
     mov        r4,#0x6
     bl         Attack_Ratton_Create
     mov        r0,#0xaf
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080786f6:
     pop        {pc}
 

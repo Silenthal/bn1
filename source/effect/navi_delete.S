@@ -86,7 +86,7 @@ LAB_08081d20:
     mov        r4,#0x0
     bl         Effect_QuickEffect_Create
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r0,r5}
 LAB_08081d4c:
     mov        r1,#0x2
@@ -111,7 +111,7 @@ _nt E_NaviDelete_2_End
     mov        r0,#0x1
     strb       r0,[r5,#0xb]
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         Effect_Free
     pop        {pc}
 

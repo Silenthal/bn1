@@ -40,7 +40,7 @@ PTR_S_Story_3A_0_0808cd44:
 _ts S_Story_3A_0
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     push       {r5}
     bl         Flag_SetPlayerInactive
@@ -269,7 +269,7 @@ _ts S_Story_3A_8
     pop        {r5}
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808cf54:

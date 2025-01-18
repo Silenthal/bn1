@@ -150,7 +150,7 @@ _ts S_Story_5D_5
     strb       r0,[r5,#0xa]
     push       {r5}
     mov        r0,#0x8d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r5}
 LAB_08090eec:
     ldrb       r0,[r5,#0x8]
@@ -168,7 +168,7 @@ LAB_08090ef8:
     mov        r0,#0x29
     bl         PlayerAnimation_SetState
     mov        r0,#0xc2
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     Flag_SetBase 0xC1
     Flag_SetBase 0xDE
     mov        r0,#0x8
@@ -191,7 +191,7 @@ _nt S_Story_5D_6
     tst        r0,r0
     bne        LAB_08090f56
     mov        r0,#0xa6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r0,PTR_BgTask_803BCF0_08091044
     bl         BgTask_AddNew

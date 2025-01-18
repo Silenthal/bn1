@@ -19,7 +19,7 @@ _ts MapSetup_Govt_SciLab_Lobby_S2
     beq        LAB_08032efa
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_08032f12
 LAB_08032efa:
@@ -27,7 +27,7 @@ LAB_08032efa:
     beq        LAB_08032f0e
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_08032f12
 LAB_08032f0e:

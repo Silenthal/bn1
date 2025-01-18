@@ -96,7 +96,7 @@ _ts A_ShurikenC_1_1
     mov        r0,#0x1e
     strh       r0,[r5,#0x1c]
     mov        r0,#0x7b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r7,PTR_listShurikenAttackFlag_0807a6f4
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2

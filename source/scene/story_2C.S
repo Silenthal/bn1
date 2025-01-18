@@ -158,7 +158,7 @@ LAB_0808a0d2:
     mov        r0,#0x37
     bl         PlayerAnimation_SetState
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0808a108
 LAB_0808a0f4:
     LoadMain world, r0, r7
@@ -183,7 +183,7 @@ LAB_0808a112:
     tst        r0,r0
     bne        LAB_0808a12c
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xa
     strb       r0,[r5,#0xa]
 LAB_0808a12c:

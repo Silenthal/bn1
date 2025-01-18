@@ -68,7 +68,7 @@ _nt A_Bunshin_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080793c2:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_A_Bunshin_1_0_08079408

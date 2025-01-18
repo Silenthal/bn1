@@ -217,7 +217,7 @@ _ts MapSetup_ACDC_Yai_Room_S2
     beq        LAB_0802e5ca
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802e5e2
 LAB_0802e5ca:
@@ -225,7 +225,7 @@ LAB_0802e5ca:
     beq        LAB_0802e5de
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802e5e2
 LAB_0802e5de:

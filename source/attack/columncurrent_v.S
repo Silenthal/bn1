@@ -144,7 +144,7 @@ _ts A_ColumnCurrentV_2
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x60]
     bl         FieldObject_Free
     bl         Attack_Free
@@ -176,14 +176,14 @@ LAB_0807573e:
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x3
     bl         Battle_SetBattleFlag
     mov        r0,#0x1
     pop        {pc}
 LAB_08075758:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807575e:
     mov        r0,#0x0
     pop        {pc}

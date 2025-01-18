@@ -469,11 +469,11 @@ _ts R_PlayerB_3_0
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
     mov        r0,#0x73
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 LAB_080566a8:
     mov        r0,#0x71
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x20
     bl         ActorPlayer_CheckStatus
     beq        LAB_080566ca
@@ -908,7 +908,7 @@ LAB_0805699c:
     strb       r0,[r5,#0x0]
     bl         R_Player_ClearAttack
     mov        r0,#0x95
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
@@ -1336,7 +1336,7 @@ LAB_08056cbc:
     bl         Attack_Charging_Create
     str        r7,[r5,#0x78]
     mov        r0,#0xb5
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r1,r7}
 LAB_08056cd4:
     ldrb       r0,[r7,#0xb]
@@ -2406,7 +2406,7 @@ LAB_08057414:
     mov        r0,#0x0
     strb       r0,[r7,#0xd]
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805741e:
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
@@ -2875,7 +2875,7 @@ _ts BC_Buster_1_Attack
     add        r3,r3,r7
     bl         Attack_Buster_Create
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         BC_Buster_GetTargetDist
     ldr        r7,[r5,#0x74]
     ldrb       r1,[r7,#0xa]
@@ -3017,7 +3017,7 @@ _ts BC_Cannon_1_Attack
     ldrh       r6,[r7,#0x18]
     bl         Attack_Buster_Create
     mov        r0,#0x74
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080578a0:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
@@ -3102,7 +3102,7 @@ _ts BC_Sword_0_Init
     strh       r1,[r7,#0x18]
 LAB_0805792e:
     mov        r0,#0x75
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r3,#0x67
     mov        r0,#0x4
     strb       r0,[r5,r3]
@@ -3242,7 +3242,7 @@ _ts BC_Bomb_1_Main
     mov        r0,#0x0
     str        r0,[r5,#0x5c]
     mov        r0,#0x77
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r4,#0x61
     ldrb       r4,[r5,r4]
     cmp        r4,#0x4
@@ -3344,7 +3344,7 @@ _ts BC_Shotgun_0_Init
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x7d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     mov        r3,#0x67
     strb       r0,[r5,r3]
@@ -3440,7 +3440,7 @@ _ts BC_MetGuard_0_Init
     mov        r0,#0x8
     strh       r0,[r5,#0x1e]
     mov        r0,#0x8c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     mov        r3,#0x67
     strb       r0,[r5,r3]
@@ -3733,7 +3733,7 @@ _ts BC_TowerPunch_0_Init
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
     mov        r0,#0x8f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     mov        r3,#0x67
     strb       r0,[r5,r3]
@@ -3744,7 +3744,7 @@ LAB_08057dae:
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
     mov        r0,#0x7f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc
     mov        r3,#0x67
     strb       r0,[r5,r3]
@@ -3768,7 +3768,7 @@ _ts BC_TowerPunch_1_LaunchTowerSE
     tst        r0,r1
     beq        LAB_08057df4
     mov        r0,#0xb4
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     mov        r3,#0x67
     strb       r0,[r5,r3]
@@ -4038,7 +4038,7 @@ LAB_08057fe4:
     sub        r6,#0x1
     bne        LAB_08057f70
     mov        r0,#0x7b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     mov        r3,#0x67
     strb       r0,[r5,r3]
@@ -4433,7 +4433,7 @@ _ts BC_Arrow_1
     ldrh       r6,[r7,#0x18]
     bl         Attack_Arrow_Create
     mov        r0,#0x7d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r3,#0x67
     ldrb       r0,[r5,r3]
     add        r0,#0x4
@@ -4570,7 +4570,7 @@ _ts BC_Hammer_1
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0xcd
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_080583a2
 LAB_08058362:
     push       {r0,r1}
@@ -4598,7 +4598,7 @@ LAB_08058362:
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080583a2:
     mov        r0,#0x8
     mov        r3,#0x67
@@ -4705,7 +4705,7 @@ _ts BC_Dash_1
     tst        r0,r1
     beq        LAB_08058460
     mov        r0,#0x94
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     mov        r3,#0x67
     strb       r0,[r5,r3]
@@ -4896,7 +4896,7 @@ _ts BC_WaveRatton_1_Main
     ldrb       r4,[r5,r3]
     bl         Attack_Ratton_Create
     mov        r0,#0xb0
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_080585e0
 LAB_080585ca:
     bl         Field_GetAttackDirectionOffset_MP
@@ -4970,7 +4970,7 @@ _ts BC_IronShield_0_Init
     mov        r0,#0x8
     strh       r0,[r5,#0x1e]
     mov        r0,#0x8c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     mov        r3,#0x67
     strb       r0,[r5,r3]
@@ -5205,7 +5205,7 @@ _ts BC_BodyBurn_1_Main
     tst        r0,r1
     beq        LAB_0805881a
     mov        r0,#0x80
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r7,PTR_CellPosition_ARRAY_0805881c
     mov        r2,#0x8
 LAB_080587e2:
@@ -5475,7 +5475,7 @@ LAB_080589c6:
     sub        r2,#0x1
     bne        LAB_080589c6
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x2
     mov        r1,#0x3c
     push       {r5}

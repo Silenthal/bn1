@@ -52,7 +52,7 @@ _ts A_BassExplosionBlue_0_Init
     add        r1,r1,r5
     bl         Field_CreateEntity
     mov        r0,#0xe0
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 

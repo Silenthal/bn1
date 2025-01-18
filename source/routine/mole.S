@@ -452,7 +452,7 @@ _ts R_Mole_1_6_0_PopUp
     mov        r0,#0x0
     strb       r0,[r5,#0x5]
     mov        r0,#0x93
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strh       r0,[r5,#0xa]
     pop        {pc}
@@ -602,7 +602,7 @@ LAB_0806f46e:
 LAB_0806f47c:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -613,9 +613,9 @@ LAB_0806f494:
     ldr        r0,[r5,#0x60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xec
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc
     strb       r0,[r5,#0x9]
     mov        r0,#0x0

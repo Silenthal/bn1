@@ -46,7 +46,7 @@ _ts A_LifeVirusMeteorExplosion_0_Init
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     mov        r0,#0x9c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         A_LifeVirusMeteorExplosion_1_Main
     pop        {pc}
 

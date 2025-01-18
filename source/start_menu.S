@@ -16,7 +16,7 @@ _ts InitStartMenu
     bl         StartMenu_LoadTileset
     Flag_SetSystem F_SYSTEM_START_MENU_OPEN
     mov        r0,#0xbe
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
@@ -129,7 +129,7 @@ _ts StartMenu_1_HandleInput
     beq        LAB_0801929c
 LAB_08019290:
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x2
     strb       r0,[r5,#0x5]
     b          LAB_08019300
@@ -151,11 +151,11 @@ LAB_0801929c:
     b          LAB_080192c6
 LAB_080192be:
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0801930a
 LAB_080192c6:
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     strb       r0,[r5,#0x5]
     mov        r0,#0xc
@@ -169,7 +169,7 @@ LAB_080192d6:
     beq        LAB_080192ea
     sub        r2,#0x1
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_080192f8
 LAB_080192ea:
     mov        r1,#0x80
@@ -177,7 +177,7 @@ LAB_080192ea:
     beq        LAB_080192f8
     add        r2,#0x1
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080192f8:
     mov        r1,#0x7
     and        r2,r1
@@ -187,7 +187,7 @@ LAB_08019300:
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
     mov        r0,#0xbe
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801930a:
     mov        r0,#0x0
     pop        {pc}

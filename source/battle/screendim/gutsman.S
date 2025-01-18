@@ -127,7 +127,7 @@ _ts SD_GutsMan_1_1
     orr        r0,r1
     strb       r0,[r7,#0x0]
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
 LAB_08098bae:
@@ -154,7 +154,7 @@ _ts SD_GutsMan_1_2
     beq        LAB_08098bce
     bl         ScreenDim_WarpPlayerIn
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     str        r0,[r5,#0x0]
 LAB_08098bce:

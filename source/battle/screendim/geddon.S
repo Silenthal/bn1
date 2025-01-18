@@ -184,7 +184,7 @@ _ts SD_Geddon_0_0
 LAB_0809960a:
     pop        {r5}
     mov        r0,#0x7b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     add        sp,#0x14
 LAB_08099614:
     mov        r0,#0x1
@@ -253,7 +253,7 @@ _ts SD_Geddon_0_1
 LAB_08099694:
     pop        {r5}
     mov        r0,#0x7b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     add        sp,#0x14
 LAB_0809969e:
     mov        r0,#0x1

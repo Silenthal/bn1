@@ -53,7 +53,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F00
     push       {lr}
     push       {r5}
     mov        r0,#T_In_The_Room
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -104,7 +104,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F02
     push       {lr}
     push       {r5}
     mov        r0,#T_In_The_Room
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -201,7 +201,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F03
     push       {lr}
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     Flag_ClearIgnore F_IGNORE_DOOR_00
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_08
     bl         PlayerLocation_Create
@@ -301,7 +301,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F04
     push       {lr}
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     Flag_ClearIgnore F_IGNORE_DOOR_00
     Flag_ClearIgnore F_IGNORE_DOOR_01
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_08
@@ -417,7 +417,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F05
     push       {lr}
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     Flag_ClearIgnore F_IGNORE_DOOR_00
     Flag_ClearIgnore F_IGNORE_DOOR_01
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_08
@@ -507,7 +507,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F06
     push       {lr}
     push       {r5}
     mov        r0,#T_In_The_Room
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -673,7 +673,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_S2
     beq        LAB_0802c52e
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802c546
 LAB_0802c52e:
@@ -681,7 +681,7 @@ LAB_0802c52e:
     beq        LAB_0802c542
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802c546
 LAB_0802c542:

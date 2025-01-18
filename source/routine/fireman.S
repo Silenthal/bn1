@@ -199,14 +199,14 @@ LAB_08059dba:
 LAB_08059de0:
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_08059e0e
 LAB_08059df0:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x74]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
@@ -543,7 +543,7 @@ _ts R_FireMan_1_3_6_BurnerBomb
     ldrb       r6,[r7,#0x0]
     bl         Attack_BurnerBomb_Create
     mov        r0,#0x81
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
 LAB_0805a076:
@@ -886,7 +886,7 @@ _ts R_FireMan_1_5_4
     bl         Attack_FireArm_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x82
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xf
     strh       r0,[r5,#0x1e]
     mov        r0,#0x14
@@ -901,7 +901,7 @@ _nt R_FireMan_1_5_5
     strh       r0,[r5,#0x1e]
     bne        LAB_0805a302
     mov        r0,#0x82
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xf
     strh       r0,[r5,#0x1e]
 LAB_0805a302:
@@ -919,7 +919,7 @@ LAB_0805a302:
     mov        r0,#0x1
     strb       r0,[r7,#0x6]
     mov        r0,#0x83
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805a322:
     pop        {pc}
 

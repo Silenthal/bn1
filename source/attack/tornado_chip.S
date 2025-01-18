@@ -38,7 +38,7 @@ _ts A_TornadoC_0_Init
     tst        r0,r0
     beq        LAB_080777c6
     mov        r0,#0xc9
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r7,PTR_DAT_080777cc
     ldrb       r0,[r5,#0x4]
     add        r7,r7,r0

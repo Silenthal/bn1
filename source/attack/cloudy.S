@@ -170,7 +170,7 @@ _ts A_Cloudy_1_0_1
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
     mov        r0,#0x9a
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080733f8:
     pop        {pc}
 

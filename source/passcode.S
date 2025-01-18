@@ -203,7 +203,7 @@ LAB_08018f70:
     tst        r1,r0
     beq        LAB_08018f82
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         Passcode_SelectDigit
     b          LAB_08018fac
 LAB_08018f82:
@@ -213,7 +213,7 @@ LAB_08018f82:
     tst        r1,r0
     beq        LAB_08018f9a
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         Passcode_VerifyGuess
     b          LAB_08018fac
 LAB_08018f9a:
@@ -221,7 +221,7 @@ LAB_08018f9a:
     tst        r1,r0
     beq        LAB_08018fac
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         Passcode_HandleCancel
     b          LAB_08018fac
 LAB_08018fac:
@@ -244,7 +244,7 @@ _ts Passcode_ChangeDigitValue
     beq        LAB_08018fe2
     push       {r0}
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r0}
     mov        r7,#0x4
     strb       r7,[r5,r4]
@@ -259,7 +259,7 @@ LAB_08018fe2:
     beq        LAB_08018ffe
     push       {r0}
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r0}
     mov        r7,#0x4
     strb       r7,[r5,r4]

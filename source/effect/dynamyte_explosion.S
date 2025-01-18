@@ -59,7 +59,7 @@ _ts E_DynamyteExplosion_0_Init
     mov        r0,#0x9
     strh       r0,[r5,#0x1c]
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     strb       r0,[r5,#0x1a]
     mov        r0,#0x1

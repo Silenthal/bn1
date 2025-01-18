@@ -209,7 +209,7 @@ _ts S_Story_2E_8
     Flag_GetBase 0xF6
     beq        LAB_0808a674
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     Flag_ClearBase 0xF6
 LAB_0808a674:
     ldrb       r0,[r5,#0x1]
@@ -308,7 +308,7 @@ _nt S_Story_2E_10
     Flag_SetBase 0xAB
     pop        {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     bl         PlayerAnimation_Unlock
     Flag_ClearBase 0xDF
     bl         Scene_UnloadAndResetStepCounter

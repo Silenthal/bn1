@@ -202,7 +202,7 @@ _ts FUN_080976cc
     tst        r0,r0
     bne        LAB_080976ee
     mov        r0,#0xd8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1e
     strb       r0,[r5,#0x7]
 LAB_080976ee:

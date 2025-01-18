@@ -124,7 +124,7 @@ _ts S_Story_74_3
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     Flag_SetBase 0xDF
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
@@ -220,7 +220,7 @@ _ts S_Story_74_6
     b          LAB_08095422
 LAB_08095414:
     mov        r0,#0x95
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     Flag_SetBase 0xF9
     b          LAB_08095436
 LAB_08095422:
@@ -379,7 +379,7 @@ _ts S_Story_74_12
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     Flag_SetBase 0xB4
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
@@ -387,7 +387,7 @@ _ts S_Story_74_12
 LAB_08095562:
     Flag_SetBase 0xFB
     mov        r0,#0xa9
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x31
     bl         PlayerAnimation_SetState
     push       {r5}

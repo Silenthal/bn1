@@ -160,7 +160,7 @@ _ts A_SnakeEgg_1_0
     mov        r0,#0x0
     str        r0,[r5,#0x30]
     mov        r0,#0xaf
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     strh       r0,[r5,#0x1c]
     ldrb       r0,[r5,#0x0]
@@ -510,7 +510,7 @@ LAB_08079a26:
     pop        {pc}
 LAB_08079a34:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08079a3a:
     mov        r0,#0x0
     pop        {pc}

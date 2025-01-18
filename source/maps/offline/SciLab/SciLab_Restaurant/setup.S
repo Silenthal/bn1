@@ -16,11 +16,11 @@ _ts MapSetup_SciLab_Restaurant_S4
     Flag_GetBase 0xAB
     beq        LAB_0803c25a
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     b          LAB_0803c266
 LAB_0803c25a:
     mov        r0,#T_School
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     b          LAB_0803c266
 LAB_0803c262:
     bl         Sound_AreaSongChange

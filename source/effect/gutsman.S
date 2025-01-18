@@ -98,7 +98,7 @@ LAB_08080fca:
     mov        r0,#0x5
     strb       r0,[r5,#0x1c]
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x9]
 LAB_08080ffa:
@@ -128,7 +128,7 @@ LAB_08081010:
     bl         Camera_EnableScreenShake
     pop        {r5}
     mov        r0,#0x95
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     Flag_SetBase 0xF9
 LAB_08081032:
     bl         SpritePtr_GetFrameStatus

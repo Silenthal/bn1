@@ -111,7 +111,7 @@ _ts SD_StoneMan_1_1_Chip
     bl         Routine_StoneMan_Chip_Create
     pop        {r5}
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
 LAB_08099454:
@@ -139,7 +139,7 @@ _ts SD_StoneMan_1_3_WarpIn
     bne        LAB_08099484
     bl         ScreenDim_WarpPlayerIn
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strh       r0,[r5,#0x0]
     mov        r0,#0x0

@@ -684,7 +684,7 @@ _nt R_IceMan_1_5_4_IceCube
     bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x9d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x18]
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
@@ -803,7 +803,7 @@ _ts R_IceMan_1_6_1_FreezeBomb
     ldrb       r6,[r7,#0x1]
     bl         Attack_IceManBeetankBomb_Create
     mov        r0,#0x77
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strh       r0,[r5,#0xa]
 LAB_080611b2:
@@ -980,7 +980,7 @@ _nt R_IceMan_1_7_2_IceCube
     bl         Attack_AnimationOnly_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x9d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x18]
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
@@ -1055,7 +1055,7 @@ _ts R_IceMan_1_7_5_Kick
     mov        r7,#0x1
     bl         Attack_SharpStrike_Create
     mov        r0,#0x99
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x18
     strh       r0,[r5,#0xa]
 LAB_0806138c:
@@ -1191,7 +1191,7 @@ LAB_08061474:
 LAB_0806147e:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x70]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
@@ -1203,7 +1203,7 @@ LAB_0806147e:
     pop        {pc}
 LAB_0806149e:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     pop        {pc}
 LAB_080614a8:

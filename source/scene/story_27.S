@@ -22,7 +22,7 @@ PTR_S_Story_27_0_08089418:
 _ts S_Story_27_0
     push       {r5}
     mov        r0,#0x2
-    bl         Sound_StopSong
+    bl         Sound_StopBGM
     pop        {r5}
     LoadMain world, r7, r7
     mov        r0,#0xff
@@ -95,7 +95,7 @@ _nt S_Story_27_4
     pop        {r5}
     push       {r5}
     mov        r0,#T_In_The_Room
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

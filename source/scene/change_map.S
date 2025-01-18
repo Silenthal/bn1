@@ -224,7 +224,7 @@ LAB_08087f40:
     ldrb       r0,[r7,r1]
     tst        r0,r0
     beq        LAB_08087f66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08087f66:
     push       {r5}
     mov        r0,#0x1f

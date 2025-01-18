@@ -13,7 +13,7 @@ _ts MapSetup_Govt_Complex_Hallway_S2
     beq        LAB_08033602
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0803361a
 LAB_08033602:
@@ -21,7 +21,7 @@ LAB_08033602:
     beq        LAB_08033616
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0803361a
 LAB_08033616:

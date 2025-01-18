@@ -68,7 +68,7 @@ LAB_0807dd26:
     bl         Field_GetAttackDirectionOffset_MP
     str        r0,[r5,#0x44]
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x4]
     tst        r0,r0
     beq        LAB_0807dd90

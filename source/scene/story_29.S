@@ -236,7 +236,7 @@ _nt S_Story_29_7
     pop        {r5}
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
@@ -355,7 +355,7 @@ _nt S_Story_29_12
     pop        {r5}
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
@@ -447,7 +447,7 @@ LAB_08089b0e:
 _ts FUN_08089b10
     push       {lr}
     mov        r0,#0x84
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     ldr        r1,[r0,#0x24]

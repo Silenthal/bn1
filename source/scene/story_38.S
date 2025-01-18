@@ -268,7 +268,7 @@ _nt S_Story_38_7
     beq        LAB_0808c96a
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     Flag_ClearBase 0xC9
 LAB_0808c96a:
@@ -449,7 +449,7 @@ _ts S_Story_38_SkipIfStart
     pop        {r5}
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     mov        r0,#0x30
     strb       r0,[r5,#0x0]

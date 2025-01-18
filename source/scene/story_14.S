@@ -131,7 +131,7 @@ _nt S_Story_14_3
     tst        r0,r0
     bne        LAB_08086b6a
     mov        r0,#0xa8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x6
     strb       r0,[r5,#0x8]
 LAB_08086b6a:

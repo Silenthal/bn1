@@ -94,7 +94,7 @@ _ts EventHandler_ACDC_Secret_Station_F54_0
     tst        r0,r0
     bne        LAB_0802f92a
     mov        r0,#0xd1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x36
     strb       r0,[r5,#0x6]
 LAB_0802f92a:
@@ -112,7 +112,7 @@ LAB_0802f92a:
     bne        LAB_0802f968
     Flag_SetBase 0xAC
     mov        r0,#0xbf
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r0,DAT_0802f98c
     mov        r1,#0x17

@@ -14,7 +14,7 @@ _ts MapSetup_School_Infirmary_S1
     pop        {r5}
     beq        LAB_080272f6
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {pc}
 LAB_080272f6:
     bl         Sound_AreaSongChange
@@ -217,7 +217,7 @@ _ts MapSetup_School_Infirmary_S2
     beq        LAB_08027482
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802749a
 LAB_08027482:
@@ -225,7 +225,7 @@ LAB_08027482:
     beq        LAB_08027496
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802749a
 LAB_08027496:

@@ -92,7 +92,7 @@ LAB_080778fa:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08077916:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_A_BombManBomb_1_0_08077954

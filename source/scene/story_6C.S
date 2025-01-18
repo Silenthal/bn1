@@ -185,7 +185,7 @@ _ts S_Story_6C_7
     tst        r0,r0
     bne        LAB_08093ddc
     mov        r0,#0xd1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x36
     strb       r0,[r5,#0xa]
 LAB_08093ddc:
@@ -217,7 +217,7 @@ _nt S_Story_6C_8
     tst        r0,r0
     bne        LAB_08093e1a
     mov        r0,#0xd1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x36
     strb       r0,[r5,#0xa]
 LAB_08093e1a:
@@ -261,7 +261,7 @@ _nt S_Story_6C_9
     tst        r0,r0
     bne        LAB_08093e76
     mov        r0,#0xd1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x36
     strb       r0,[r5,#0xa]
 LAB_08093e76:

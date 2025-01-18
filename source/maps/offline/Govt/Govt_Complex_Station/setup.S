@@ -13,7 +13,7 @@ _ts MapSetup_Govt_Complex_Station_S2
     beq        LAB_0803213e
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_08032156
 LAB_0803213e:
@@ -21,7 +21,7 @@ LAB_0803213e:
     beq        LAB_08032152
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_08032156
 LAB_08032152:

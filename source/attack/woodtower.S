@@ -82,7 +82,7 @@ LAB_0806f87e:
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x9c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         A_WoodTower_1_Main
     pop        {pc}
 
@@ -178,7 +178,7 @@ LAB_0806f948:
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x9c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806f95c:
     pop        {pc}
 

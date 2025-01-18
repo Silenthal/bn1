@@ -111,7 +111,7 @@ _ts R_Piranha_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805ea40:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -612,7 +612,7 @@ _ts R_Piranha_1_5_1_Arrow
     bl         Attack_Arrow_Create
     str        r0,[r5,#0x5c]
     mov        r0,#0x7d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x5
     strb       r0,[r5,#0x14]
     mov        r0,#0xa

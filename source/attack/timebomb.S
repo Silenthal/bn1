@@ -149,7 +149,7 @@ _ts A_TimeBomb_1_0
     mov        r0,#0x3
     strb       r0,[r5,#0x0]
     mov        r0,#0x8a
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x9]
 LAB_080724e8:
@@ -184,11 +184,11 @@ LAB_08072516:
     bne        LAB_08072520
     mov        r0,#0x8b
 LAB_08072520:
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 LAB_08072526:
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     pop        {pc}
@@ -313,13 +313,13 @@ LAB_08072616:
     str        r0,[r5,#0x8]
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     pop        {pc}
 LAB_0807262e:
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08072638:
     mov        r0,#0x0
     pop        {pc}

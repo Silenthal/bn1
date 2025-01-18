@@ -268,7 +268,7 @@ LAB_0806e52a:
 LAB_0806e556:
     pop        {r5}
     mov        r0,#0x72
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x64
     strh       r0,[r5,#0x1c]
     mov        r0,#0xc

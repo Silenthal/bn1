@@ -90,7 +90,7 @@ _nt S_Story_4E_3
     cmp        r0,r1
     beq        LAB_0808f118
     mov        r0,#T_Home_Town
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     push       {r5}
     ldr        r0,PTR_ScenarioData_4E_0808f204
     mov        r1,#0x1
@@ -198,7 +198,7 @@ _nt S_Story_4E_8
     Flag_SetBase 0x93
     pop        {r5}
     mov        r0,#T_Home_Town
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808f1dc:
     pop        {pc}

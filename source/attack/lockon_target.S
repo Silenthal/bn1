@@ -203,7 +203,7 @@ _ts A_LockonTarget_1_1
     mov        r0,#0x1
     strb       r0,[r5,#0x6]
     mov        r0,#0x98
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
     mov        r0,#0x0
@@ -302,7 +302,7 @@ _ts FUN_0807a28c
     strh       r0,[r5,#0x1e]
     bne        LAB_0807a2ca
     mov        r0,#0xe2
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     ldr        r7,[r5,#0x68]

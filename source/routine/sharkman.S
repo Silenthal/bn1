@@ -895,7 +895,7 @@ _nt R_SharkMan_1_10_1_StartAnim
     mov        r0,#0x3
     strb       r0,[r5,#0x14]
     mov        r0,#0x94
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
 LAB_08065ec8:
@@ -1098,7 +1098,7 @@ LAB_08066034:
     bl         FieldObject_ClearPanelFlag
 LAB_08066048:
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -1107,7 +1107,7 @@ LAB_08066048:
     pop        {pc}
 LAB_0806605c:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     pop        {pc}
 LAB_08066066:

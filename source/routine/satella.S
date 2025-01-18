@@ -329,7 +329,7 @@ _ts R_Satella_1_3_3
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0xe0
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r7,[r5,#0x68]
     ldrh       r0,[r7,#0x18]
     strh       r0,[r5,#0x6]
@@ -517,7 +517,7 @@ _ts R_Satella_CheckDamage
 LAB_0806d836:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -526,7 +526,7 @@ LAB_0806d836:
     pop        {pc}
 LAB_0806d84e:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806d854:
     mov        r0,#0x0
     pop        {pc}

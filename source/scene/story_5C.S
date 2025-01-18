@@ -157,7 +157,7 @@ LAB_08090cf2:
     strb       r0,[r5,#0xa]
     push       {r5}
     mov        r0,#0x8d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r5}
 LAB_08090d00:
     push       {r5}

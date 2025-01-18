@@ -242,7 +242,7 @@ _ts S_Story_00_10
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     mov        r0,#T_In_The_Room
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_08082a74:

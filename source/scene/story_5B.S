@@ -173,7 +173,7 @@ _ts S_Story_5B_6
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -227,7 +227,7 @@ _nt S_Story_5B_SkipIfStart
     bl         Fade_Request
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

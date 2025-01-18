@@ -267,7 +267,7 @@ _nt S_Story_71_7
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x54
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -288,7 +288,7 @@ _ts S_Story_71_8
     tst        r0,r0
     bne        LAB_08094814
     mov        r0,#0xdf
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x2
     mov        r1,#0x20
@@ -535,7 +535,7 @@ _nt S_Story_71_17
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     Flag_SetBase 0xB4
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
@@ -543,7 +543,7 @@ _nt S_Story_71_17
 LAB_080949ec:
     Flag_SetBase 0xB5
     mov        r0,#0xa9
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x31
     bl         PlayerAnimation_SetState
     push       {r5}

@@ -132,7 +132,7 @@ LAB_08065486:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080654a2:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0

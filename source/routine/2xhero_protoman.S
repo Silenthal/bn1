@@ -216,7 +216,7 @@ LAB_0806ea3c:
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
     mov        r0,#0x75
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 

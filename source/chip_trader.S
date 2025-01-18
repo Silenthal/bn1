@@ -1231,7 +1231,7 @@ LAB_08020bb2:
     cmp        r0,#0x8
     beq        LAB_08020c2a
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
     strb       r0,[r5,#0x1]
@@ -1254,7 +1254,7 @@ LAB_08020be4:
     cmp        r0,#0x4
     beq        LAB_08020c2a
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x0]
     strb       r0,[r5,#0x1]
@@ -1366,7 +1366,7 @@ LAB_08020ca4:
     b          LAB_08020cc0
 LAB_08020cba:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08020cc0:
     mov        r0,#0x6
     add        r0,r8
@@ -1432,7 +1432,7 @@ _ts ChipTrader_MoveChip
     add        r2,r3,#0x0
     bl         ChipTrader_MoveFromSackToInsert
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xff
     strb       r0,[r5,#0x5]
     ldrh       r0,[r5,#0xe]
@@ -1451,7 +1451,7 @@ LAB_08020d4c:
     add        r2,r2,r3
     bl         ChipTrader_MoveFromInsertToSack
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xff
     strb       r0,[r5,#0x5]
     pop        {r5,pc}
@@ -1668,7 +1668,7 @@ _ts ChipTrader_StartSort
     ldrb       r1,[r0,#0x2]
     strh       r1,[r5,#0x30]
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x10
     strb       r0,[r5,#0x0]
     push       {r5}
@@ -1689,7 +1689,7 @@ _ts ChipTrader_HandleInputSort
     tst        r1,r0
     beq        LAB_08020f22
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x1]
     strb       r0,[r5,#0x0]
     b          LAB_08020f90
@@ -1749,7 +1749,7 @@ LAB_08020f78:
     b          LAB_08020f8c
 LAB_08020f86:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08020f8c:
     strh       r2,[r5,#0x30]
     strh       r3,[r5,#0x34]
@@ -1782,14 +1782,14 @@ LAB_08020fb6:
     mov        r0,#0xff
     strb       r0,[r5,#0x5]
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
 _ts ChipTrader_StartClose
     push       {r5,lr}
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x14
     strb       r0,[r5,#0x0]
     mov        r0,#0x4

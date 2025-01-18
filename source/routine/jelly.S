@@ -112,7 +112,7 @@ _nt R_Jelly_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08061ffc:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0

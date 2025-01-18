@@ -14,7 +14,7 @@ _ts MapSetup_School_Class_5B_S1
     pop        {r5}
     beq        LAB_08025592
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {pc}
 LAB_08025592:
     bl         Sound_AreaSongChange
@@ -280,7 +280,7 @@ _ts MapSetup_School_Class_5B_S2
     beq        LAB_080257ae
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_080257c6
 LAB_080257ae:
@@ -288,7 +288,7 @@ LAB_080257ae:
     beq        LAB_080257c2
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_080257c6
 LAB_080257c2:

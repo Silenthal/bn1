@@ -107,7 +107,7 @@ _nt S_Rocket_Comp_LifeVirus_3
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -158,7 +158,7 @@ _ts S_Rocket_Comp_LifeVirus_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x10
     strb       r0,[r5,#0x0]
     pop        {pc}

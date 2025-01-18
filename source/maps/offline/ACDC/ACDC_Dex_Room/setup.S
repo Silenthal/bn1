@@ -176,7 +176,7 @@ _ts MapSetup_ACDC_Dex_Room_S2
     beq        LAB_0802de7e
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802de96
 LAB_0802de7e:
@@ -184,7 +184,7 @@ LAB_0802de7e:
     beq        LAB_0802de92
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802de96
 LAB_0802de92:

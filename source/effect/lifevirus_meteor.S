@@ -56,7 +56,7 @@ _ts E_LifeVirusMeteor_0_Init
     str        r0,[r5,#0x44]
     str        r0,[r5,#0x4c]
     mov        r0,#0xe1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         E_LifeVirusMeteor_1_Main
     pop        {pc}
 

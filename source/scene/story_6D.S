@@ -34,7 +34,7 @@ PTR_S_Story_6D_0_08093ee0:
 _ts S_Story_6D_0
     push       {r5}
     mov        r0,#0x3
-    bl         Sound_StopSong
+    bl         Sound_StopBGM
     LoadMain world, r7, r7
     mov        r0,#0xff
     strb       r0,[r7,#0x18]
@@ -150,7 +150,7 @@ _ts S_Story_6D_5
     bne        LAB_08094010
     Flag_SetBase 0xAE
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     push       {r5}
     ldr        r0,PTR_ScenarioData_6D_080940d8
     mov        r1,#0xa
@@ -243,7 +243,7 @@ _ts S_Story_6D_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     mov        r0,#0x1c
     strb       r0,[r5,#0x0]
     pop        {pc}

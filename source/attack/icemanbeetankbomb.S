@@ -79,7 +79,7 @@ _ts A_IceManBeetankBomb_0_Init
     ldrb       r0,[r7,r0]
     tst        r0,r0
     beq        LAB_0806f666
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806f666:
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
@@ -234,7 +234,7 @@ LAB_0806f768:
     ldrb       r0,[r7,r0]
     tst        r0,r0
     beq        LAB_0806f778
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806f778:
     bl         Attack_Free
     pop        {pc}

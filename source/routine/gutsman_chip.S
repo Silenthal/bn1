@@ -183,7 +183,7 @@ _ts R_GutsManC_1_1_1_Attack
     ldrb       r0,[r5,#0x16]
     bl         Field_CrackAllEnemyPanels
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         Field_GetAttackDirectionOffset_MP
     ldrb       r1,[r5,#0x18]
     add        r1,r1,r0

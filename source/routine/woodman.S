@@ -110,7 +110,7 @@ _ts R_WoodMan_1_Main
     mov        r0,#0xc8
     bl         Field_AddHp
     mov        r0,#0x72
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08058cd8:
     ldr        r6,[r5,#0x60]
     ldrh       r0,[r5,#0x18]
@@ -132,7 +132,7 @@ LAB_08058cd8:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08058d0c:
     bl         Routine_CheckPoisonDrain
     ldrh       r0,[r5,#0x20]
@@ -475,7 +475,7 @@ LAB_08058f20:
     bl         Camera_EnableScreenShake
     pop        {r5}
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     strb       r0,[r5,#0x17]
     mov        r0,#0x0
@@ -749,7 +749,7 @@ LAB_0805910e:
     mov        r0,#0x50
     strh       r0,[r5,#0x1c]
     mov        r0,#0x81
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0805912a
 LAB_0805911e:
     mov        r0,#0x0
@@ -912,7 +912,7 @@ _ts R_WoodMan_1_5_2_Jump
     bl         Camera_EnableScreenShake
     pop        {r5}
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x3
     strb       r0,[r5,#0x14]
     ldr        r0,[r5,#0x60]
@@ -1585,7 +1585,7 @@ LAB_080596b6:
     mov        r0,#0x0
     str        r0,[r5,#0x30]
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x2
     mov        r1,#0x1e
     push       {r5}
@@ -1745,7 +1745,7 @@ LAB_080597b6:
     mov        r0,#0x0
     str        r0,[r5,#0x30]
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x2
     mov        r1,#0x1e
     push       {r5}

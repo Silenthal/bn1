@@ -200,7 +200,7 @@ _ts R_FireManC_1_1_2_FireArm
 LAB_0805faea:
     str        r7,[r5,#0x5c]
     mov        r0,#0x82
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xf
     strh       r0,[r5,#0x1e]
     mov        r0,#0xc
@@ -216,7 +216,7 @@ _ts R_FireManC_1_1_3_Wait
     strh       r0,[r5,#0x1e]
     bne        LAB_0805fb10
     mov        r0,#0x82
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xf
     strh       r0,[r5,#0x1e]
 LAB_0805fb10:

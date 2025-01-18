@@ -111,7 +111,7 @@ LAB_08076738:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08076764:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_A_MegalianHead_1_0_0807677c

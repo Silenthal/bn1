@@ -111,7 +111,7 @@ _ts A_StoneManLaser_1_0
     mov        r0,#0x0
     strh       r0,[r5,#0x1c]
     mov        r0,#0x96
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08073b2a:
     ldrh       r0,[r5,#0x1c]
     add        r0,#0x1
@@ -192,7 +192,7 @@ _ts A_StoneManLaser_1_1_2
     cmp        r0,#0x4b
     bne        LAB_08073bb2
     mov        r0,#0x97
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08073bb2:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -251,7 +251,7 @@ _ts A_StoneManLaser_1_2_0
     mov        r0,#0x0
     strh       r0,[r5,#0x1c]
     mov        r0,#0x96
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 

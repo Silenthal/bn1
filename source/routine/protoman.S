@@ -350,7 +350,7 @@ _ts R_ProtoMan_1_5_0
     mov        r4,#0x1
     bl         Attack_MetGuard_Create
     mov        r0,#0x8c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x68]
     mov        r1,#0x4
     lsl        r1,r1,#0x10
@@ -514,7 +514,7 @@ _ts R_ProtoMan_1_6_2_Slash
     mov        r0,#0x3
     strb       r0,[r5,#0x14]
     mov        r0,#0x75
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc
     strh       r0,[r5,#0xa]
 LAB_08064a18:
@@ -670,7 +670,7 @@ _ts R_ProtoMan_1_7_0_Charge
     mov        r0,#0x30
     strh       r0,[r5,#0x1c]
     mov        r0,#0xb5
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strh       r0,[r5,#0xa]
     pop        {pc}
@@ -766,7 +766,7 @@ _ts R_ProtoMan_1_7_3_Slash
     mov        r0,#0x0
     strb       r0,[r5,#0x5]
     mov        r0,#0x75
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x10
     strh       r0,[r5,#0xa]
 LAB_08064bf0:
@@ -1362,7 +1362,7 @@ LAB_08065010:
 LAB_0806501a:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x68]
     bl         FieldObject_SetDeletedFlag
     ldr        r0,[r5,#0x68]
@@ -1375,7 +1375,7 @@ LAB_0806501a:
     pop        {pc}
 LAB_0806503c:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08065042:
     mov        r0,#0x0
     pop        {pc}

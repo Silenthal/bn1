@@ -58,7 +58,7 @@ _nt E_TrafficExplosion_1_Main
     tst        r0,r0
     bne        LAB_0807ee8c
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807ee8c:
     mov        r0,#0x1
     strb       r0,[r5,#0xa]

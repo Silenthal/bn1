@@ -426,7 +426,7 @@ LAB_0801d002:
     tst        r1,r0
     beq        LAB_0801d026
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x10
@@ -468,7 +468,7 @@ LAB_0801d056:
     b          LAB_0801d064
 LAB_0801d05e:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801d064:
     strb       r2,[r5,#0xc]
 LAB_0801d066:
@@ -682,7 +682,7 @@ LAB_0801d1e8:
     b          LAB_0801d208
 LAB_0801d208:
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     pop        {pc}
 LAB_0801d212:
@@ -694,7 +694,7 @@ LAB_0801d212:
 LAB_0801d21e:
     bl         Menu_Network_ClearPackets
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x14
     strb       r0,[r5,#0x1]
     push       {r5}
@@ -747,7 +747,7 @@ LAB_0801d27e:
     mov        r0,#0x1c
     strb       r0,[r5,#0x1]
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0801d2aa
 LAB_0801d296:
     mov        r0,#0x14
@@ -1427,7 +1427,7 @@ LAB_0801d7e0:
     b          LAB_0801d7f8
 LAB_0801d7f2:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801d7f8:
     mov        r0,#0x20
     strh       r2,[r5,r0]
@@ -1461,7 +1461,7 @@ _ts Menu_Network_OpenSort
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x68
     strb       r0,[r5,#0x1]
     push       {r5}
@@ -1561,7 +1561,7 @@ LAB_0801d8e4:
     tst        r1,r0
     beq        LAB_0801d8fc
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x20
     strb       r0,[r5,#0x1]
     b          LAB_0801d96a
@@ -1621,7 +1621,7 @@ LAB_0801d952:
     b          LAB_0801d966
 LAB_0801d960:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801d966:
     strb       r2,[r5,#0x1c]
     strb       r3,[r5,#0x1e]
@@ -1654,7 +1654,7 @@ LAB_0801d98e:
     mov        r0,#0xff
     strb       r0,[r5,#0x14]
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
@@ -1789,7 +1789,7 @@ _ts Menu_Network_ChangeStateShowMessage
     push       {r0,r1}
     bl         Menu_Network_ClearPackets
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r0,r1}
     strb       r0,[r5,#0x1]
     push       {r5}
@@ -1954,7 +1954,7 @@ LAB_0801dba4:
 LAB_0801dbba:
     strb       r0,[r5,#0x1]
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0801dbd6
 LAB_0801dbc4:
     mov        r0,#0x14
@@ -2034,7 +2034,7 @@ LAB_0801dc66:
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801dc70:
     pop        {pc}
 
@@ -2045,7 +2045,7 @@ _ts FUN_0801dc74
     tst        r0,r0
     bne        LAB_0801dc96
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r1,#0x20
     ldrh       r2,[r5,#0x24]
     ldrh       r3,[r5,#0x20]
@@ -2137,13 +2137,13 @@ LAB_0801dd12:
     pop        {pc}
 LAB_0801dd2e:
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xff
     strb       r0,[r5,#0x14]
     pop        {pc}
 LAB_0801dd3a:
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
     pop        {pc}
@@ -2151,7 +2151,7 @@ LAB_0801dd3a:
 
 _nt FUN_0801dd46
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r0,PTR_textDict_MenuMessages_0801ddb8
     mov        r1,#0x5e
@@ -2431,7 +2431,7 @@ LAB_0801df72:
     tst        r1,r0
     beq        LAB_0801dfa6
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r7,PTR_PlayerMpState_0801e370
     mov        r0,#0xff
     strb       r0,[r7,#0x1]
@@ -2883,7 +2883,7 @@ _ts Menu_Network_18_RevealTrade
     and        r0,r1
     bne        LAB_0801e326
     mov        r0,#0xca
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801e326:
     pop        {r0}
     ldr        r1,PTR_DAT_0801e3b8

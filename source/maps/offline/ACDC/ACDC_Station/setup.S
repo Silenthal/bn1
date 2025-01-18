@@ -13,7 +13,7 @@ _ts MapSetup_ACDC_Station_S2
     beq        LAB_0802f192
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802f1aa
 LAB_0802f192:
@@ -21,7 +21,7 @@ LAB_0802f192:
     beq        LAB_0802f1a6
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802f1aa
 LAB_0802f1a6:

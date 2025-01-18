@@ -45,7 +45,7 @@ PTR_S_Story_6B_0_080939c0:
 
 _ts S_Story_6B_0
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x8
@@ -136,7 +136,7 @@ _ts S_Story_6B_3
     pop        {r5}
     bne        LAB_08093aca
     mov        r0,#0xd9
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,PTR_Cam_Set_08093c58
     bl         SceneCamera_Init
     bl         SceneCamera_Main

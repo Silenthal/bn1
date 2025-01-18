@@ -127,7 +127,7 @@ _nt S_Story_68_3
     tst        r0,r0
     bne        LAB_08093498
     mov        r0,#0xdd
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x2
     mov        r1,#0x80

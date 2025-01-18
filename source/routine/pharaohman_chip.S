@@ -61,7 +61,7 @@ _ts R_PharaohManC_0_Init
 LAB_0806d8ca:
     bl         SpritePtr_SetFlipType
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strh       r0,[r5,#0x1e]
     pop        {pc}

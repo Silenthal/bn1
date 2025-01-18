@@ -70,7 +70,7 @@ _nt SD_LifeSaver_1
     ldrb       r4,[r5,#0x5]
     bl         Routine_LifeSaver_Create
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x60
     strh       r0,[r5,#0x8]
     mov        r0,#0x8
@@ -110,7 +110,7 @@ _nt SD_LifeSaver_3
     mov        r2,#0x1
     bl         R_Player_SetInvisible
     mov        r0,#0x91
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         ScreenDim_Free
 LAB_0809b8f0:
     pop        {pc}

@@ -293,7 +293,7 @@ _ts PETBattery_ManualRecharge
     strh       r0,[r5,#0x6]
     push       {r0}
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r0}
     mov        r1,#0x1
     strb       r1,[r5,#0x0]
@@ -304,7 +304,7 @@ _ts PETBattery_ManualRecharge
     strh       r0,[r5,#0x6]
     push       {r0}
     mov        r0,#0xc6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r0}
     LoadMain gameStats, r7, r7
     ldrb       r0,[r7,#0x5]

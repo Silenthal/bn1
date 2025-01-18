@@ -499,7 +499,7 @@ _ts R_Flappy_1_3_3_Quake
     str        r0,[r5,#0x30]
     bhi        LAB_0805e76c
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     str        r0,[r5,#0x30]
     mov        r0,#0x2
@@ -741,7 +741,7 @@ _nt R_Flappy_CheckLive
 LAB_0805e8ca:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x70]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -750,7 +750,7 @@ LAB_0805e8ca:
     pop        {pc}
 LAB_0805e8e2:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805e8e8:
     mov        r0,#0x0
     pop        {pc}

@@ -252,7 +252,7 @@ _ts S_Story_28_8
     Flag_SetBase 0xBF
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     Flag_SetBase 0xDF
     bl         Scene_UnloadAndResetStepCounter

@@ -119,7 +119,7 @@ _ts S_JackIn_0
     push       {r5}
     bl         PlayerAnimation_Lock
     mov        r0,#0xe2
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r5}
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
@@ -247,7 +247,7 @@ LAB_08084018:
 _ts S_JackIn_GlintEffect_Create
     push       {lr}
     mov        r0,#0x84
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     ldr        r1,[r0,#0x24]

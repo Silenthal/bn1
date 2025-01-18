@@ -138,7 +138,7 @@ LAB_08072ab2:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08072ae6:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_A_PuffyBubble_1_0_08072b2c
@@ -198,7 +198,7 @@ _ts A_PuffyBubble_1_0
     mov        r0,#0x4
     strb       r0,[r5,#0xa]
     mov        r0,#0xab
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08072b5a:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
@@ -275,7 +275,7 @@ _ts A_PuffyBubble_1_1_1
     mov        r2,#0x0
     str        r2,[r5,#0x30]
     mov        r0,#0xac
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     bl         Field_GetPanelFlags
@@ -348,7 +348,7 @@ _ts A_PuffyBubble_2_Free
     mov        r0,#0x7
     strh       r0,[r5,#0x1c]
     mov        r0,#0xad
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0xc]
     tst        r0,r0
     beq        LAB_08072c74
@@ -503,7 +503,7 @@ LAB_08072d6e:
     beq        LAB_08072d7e
     mov        r0,#0xa9
 LAB_08072d7e:
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 PTR_CellPosition_ARRAY_08072d84:

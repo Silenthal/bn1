@@ -243,7 +243,7 @@ _ts A_Quake_1_4
     str        r0,[r5,#0x30]
     bhi        LAB_08073256
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     str        r0,[r5,#0x30]
     mov        r0,#0x0

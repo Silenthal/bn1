@@ -213,7 +213,7 @@ LAB_080702ac:
 LAB_080702b2:
     pop        {r0,r1,r5,r6}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080702ba:
     bl         Attack_Free
     pop        {pc}

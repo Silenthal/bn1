@@ -194,7 +194,7 @@ _ts S_Story_09_6
 _ts S_Story_09_Explosion
     push       {lr}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x0
     mov        r1,#0xa

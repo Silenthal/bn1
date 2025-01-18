@@ -209,7 +209,7 @@ _ts A_AmmoniculeBubbleWrap_1_2_0
     mov        r0,#0x1
     strb       r0,[r5,#0xc]
     mov        r0,#0xad
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 

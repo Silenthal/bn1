@@ -122,7 +122,7 @@ _ts SD_Roll_1_1
     orr        r0,r1
     strb       r0,[r7,#0x0]
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
 LAB_0809a374:
@@ -147,7 +147,7 @@ _ts SD_Roll_1_2
     beq        LAB_0809a39a
     bl         ScreenDim_WarpPlayerIn
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xf
     strh       r0,[r5,#0x8]
     mov        r0,#0xc
@@ -209,7 +209,7 @@ _ts SD_Roll_1_4_Recover
     beq        LAB_0809a420
     bl         Field_AddHp
     mov        r0,#0x72
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}

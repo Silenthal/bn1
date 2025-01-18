@@ -134,7 +134,7 @@ LAB_08088328:
     bl         Flag_SetPlayerActive
     pop        {r5}
     mov        r0,#T_In_The_Room
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}
 

@@ -13,7 +13,7 @@ _ts MapSetup_Govt_Waterworks_Office_S2
     beq        LAB_08034026
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0803403e
 LAB_08034026:
@@ -21,7 +21,7 @@ LAB_08034026:
     beq        LAB_0803403a
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0803403e
 LAB_0803403a:

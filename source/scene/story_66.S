@@ -101,7 +101,7 @@ _ts S_Story_66_3
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -159,7 +159,7 @@ _nt S_Story_66_SkipIfStart
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x10
     strb       r0,[r5,#0x0]
     pop        {pc}

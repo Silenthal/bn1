@@ -480,7 +480,7 @@ _ts R_SkullMan_1_5_1_Onibi
     ldrb       r6,[r7,#0x0]
     bl         Attack_MagicFire_Create
     mov        r0,#0xb6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strh       r0,[r5,#0xa]
 LAB_08063028:
@@ -619,7 +619,7 @@ _nt R_SkullMan_1_6_2_BoneCrush
     add        r0,r0,r5
     bl         Attack_BoneCrush_Create
     mov        r0,#0xb7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc
     strh       r0,[r5,#0xa]
 LAB_08063122:
@@ -951,7 +951,7 @@ LAB_08063362:
 LAB_0806336c:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x70]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
@@ -963,7 +963,7 @@ LAB_0806336c:
     pop        {pc}
 LAB_0806338c:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     pop        {pc}
 LAB_08063396:

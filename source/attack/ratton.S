@@ -146,7 +146,7 @@ LAB_08074624:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08074652:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_A_Ratton_1_0_MoveX_08074698
@@ -164,7 +164,7 @@ LAB_08074652:
     add        r0,r7,#0x0
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r1,[r5,#0x28]
     ldr        r2,[r5,#0x2c]
@@ -204,7 +204,7 @@ _ts A_Ratton_1_0_MoveX
     ldr        r0,[r5,#0x60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r1,[r5,#0x28]
     ldr        r2,[r5,#0x2c]
@@ -278,7 +278,7 @@ _ts A_Ratton_1_1_MoveY
     ldr        r0,[r5,#0x60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r1,[r5,#0x28]
     ldr        r2,[r5,#0x2c]

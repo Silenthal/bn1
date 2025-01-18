@@ -251,7 +251,7 @@ _nt R_HeavyStamp_1_1_4
     bl         Camera_EnableScreenShake
     pop        {r5}
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1d
     strb       r0,[r5,#0x14]
     mov        r7,#0x28

@@ -27,7 +27,7 @@ PTR_PTR_A_Skull_0_Init_08074d60:
 _ts A_Skull_0_Init
     push       {lr}
     mov        r0,#0x81
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x3
     orr        r0,r1
@@ -225,7 +225,7 @@ LAB_08074edc:
     mov        r0,#0x2
     strb       r0,[r5,#0x14]
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc
     strb       r0,[r5,#0x9]
     mov        r0,#0x0

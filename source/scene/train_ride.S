@@ -80,7 +80,7 @@ _ts S_TrainRide_2
     bne        LAB_0808b71e
     push       {r5}
     mov        r0,#0xbf
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_BgTask_ACDC_Station_Tileset_Gate_Open_0808b83c

@@ -116,7 +116,7 @@ _ts R_LifeVirus_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080695ee:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_08069630
@@ -280,7 +280,7 @@ _ts R_LifeVirus_1_3_0
     mov        r0,#0x1
     strb       r0,[r5,#0x14]
     mov        r0,#0xd3
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x28
     strh       r0,[r5,#0x1e]
     pop        {pc}
@@ -295,7 +295,7 @@ _ts R_LifeVirus_1_3_1
     mov        r0,#0xa
     strh       r0,[r5,#0x1e]
     mov        r0,#0xd4
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806972c:
     ldrh       r0,[r5,#0x1c]
     add        r0,#0x1
@@ -403,7 +403,7 @@ _ts R_LifeVirus_1_4_2
     cmp        r0,#0x4b
     bne        LAB_080697da
     mov        r0,#0x97
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080697da:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -718,7 +718,7 @@ _ts R_LifeVirus_2_0_1
     pop        {r5}
     mov        r0,#0x0
     mov        r1,#0x1f
-    bl         Song_FadeOut
+    bl         Sound_FadeOut
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
 LAB_080699f0:
@@ -761,7 +761,7 @@ LAB_08069a2a:
 LAB_08069a38:
     pop        {r5}
     mov        r0,#0xe6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_08069a46
 LAB_08069a42:
     bl         R_LifeVirus_ShowSmallExplosions
@@ -968,7 +968,7 @@ LAB_08069b78:
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08069ba4:
     pop        {pc}
 

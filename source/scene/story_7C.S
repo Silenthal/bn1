@@ -125,7 +125,7 @@ _ts S_Story_7C_3
     bne        LAB_08097334
     bl         FUN_080974e8
     mov        r0,#0xed
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xa
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -295,7 +295,7 @@ _ts FUN_08097488
     tst        r0,r0
     bne        LAB_080974aa
     mov        r0,#0xd8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1e
     strb       r0,[r5,#0x7]
 LAB_080974aa:

@@ -166,7 +166,7 @@ LAB_080770be:
     bl         Attack_Remobit_Create
     str        r0,[r5,#0x5c]
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x9]
     mov        r0,#0x0
@@ -221,7 +221,7 @@ LAB_0807713a:
 _ts A_RemobitC_2_Free
     push       {lr}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}

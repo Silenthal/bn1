@@ -576,7 +576,7 @@ _ts R_BigSnake_Fireball
     ldrh       r6,[r5,#0x24]
     bl         Attack_MagicFire_Create
     mov        r0,#0xb6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
@@ -739,7 +739,7 @@ LAB_0806c330:
     mov        r0,#0x0
     bl         Battle_SetBattleFlag
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x68]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -749,7 +749,7 @@ LAB_0806c330:
 LAB_0806c34e:
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806c358:
     mov        r0,#0x0
     pop        {pc}

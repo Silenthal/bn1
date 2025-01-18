@@ -158,7 +158,7 @@ LAB_0807896e:
     tst        r0,r0
     beq        LAB_08078984
     mov        r0,#0xa5
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
     mov        r0,#0x0
@@ -363,7 +363,7 @@ _ts A_PharaohTrap_1_2_2_1_Arrow
     mov        r6,#0x64
     bl         Attack_Arrow_Create
     mov        r0,#0x7d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrh       r0,[r5,#0x1e]
     sub        r0,#0x1
     strh       r0,[r5,#0x1e]
@@ -573,7 +573,7 @@ LAB_08078c44:
     cmp        r4,r1
     blt        LAB_08078c44
     mov        r0,#0xd2
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08078c66:
     add        sp,#0x28
     pop        {pc}

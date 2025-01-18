@@ -95,7 +95,7 @@ _nt R_Remobit_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080670dc:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0806710c

@@ -55,7 +55,7 @@ _ts GameOver_0_Init
     mov        r1,#0x10
     bl         Fade_Request
     mov        r0,#T_Game_Over
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        { r5 }
     mov        r0,#0x4
     strb       r0,[r5,#0x0]

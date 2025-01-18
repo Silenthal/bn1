@@ -126,7 +126,7 @@ _ts E_Traffic_1_Main
     beq        LAB_0807ecb4
     push       {r0}
     mov        r0,#0xb8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r0}
 LAB_0807ecb4:
     sub        r0,#0x1
@@ -136,7 +136,7 @@ LAB_0807ecb4:
     cmp        r1,#0x1
     beq        LAB_0807ecc6
     mov        r0,#0xb9
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807ecc6:
     mov        r0,#0x2
     strb       r0,[r5,#0x8]

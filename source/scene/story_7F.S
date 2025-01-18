@@ -101,7 +101,7 @@ _ts S_Story_7F_3
     cmp        r0,r1
     beq        LAB_08097ac6
     mov        r0,#T_Home_Town
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     push       {r5}
     ldr        r0,PTR_ScenarioData_7F_08097c38
     mov        r1,#0x1
@@ -128,7 +128,7 @@ _ts S_Story_7F_4
     Flag_ClearBase 0xED
     mov        r0,#0x1f
     mov        r1,#0xa
-    bl         Song_FadeOut
+    bl         Sound_FadeOut
 LAB_08097aea:
     push       {r5}
     mov        r0,#0x80
@@ -256,7 +256,7 @@ _ts S_Story_7F_SkipIfStart
 _ts FUN_08097bec
     push       {lr}
     mov        r0,#0x84
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     LoadMain world, r0, r7
     ldr        r0,[r0,#0x28]
     ldr        r1,[r0,#0x24]

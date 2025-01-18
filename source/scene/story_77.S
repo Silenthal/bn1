@@ -113,7 +113,7 @@ _ts S_Story_77_3
     bne        LAB_080961d8
     Flag_SetBase 0xF9
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]
@@ -138,7 +138,7 @@ _nt S_Story_77_4
     bl         Text_LoadDialogue
     pop        {r5}
     mov        r0,#0x8f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -202,10 +202,10 @@ _ts S_Story_77_6
     pop        {r5}
     bne        LAB_080962ac
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x4
-    bl         Sound_StopSong
+    bl         Sound_StopBGM
     pop        {r5}
     LoadMain world, r7, r7
     mov        r0,#0xff
@@ -227,7 +227,7 @@ _ts S_Story_77_6
     bl         Effect_TrafficExplosion_2_Create
     pop        {r5}
     mov        r0,#0xa9
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x47
     bl         PlayerAnimation_SetState
     mov        r0,#0x0
@@ -278,7 +278,7 @@ _ts S_Story_77_8
     pop        {r5}
     bne        LAB_0809633e
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     push       {r5}
     ldr        r0,PTR_ScenarioData_77_08096550
     mov        r1,#0x9
@@ -291,7 +291,7 @@ _ts S_Story_77_8
     bl         Entity_FreeAllMultiple
     pop        {r5}
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r7,PTR_NPCList_804E488_0809655c
     bl         Map_LoadNPCList
@@ -316,7 +316,7 @@ _nt S_Story_77_9
     tst        r0,r0
     bne        LAB_0809636a
     mov        r0,#0x75
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     Flag_SetBase 0xF9
     mov        r0,#0xa
     strb       r0,[r5,#0x8]
@@ -397,7 +397,7 @@ _ts S_Story_77_11
     bne        LAB_0809641e
     Flag_ClearBase 0xF9
     mov        r0,#0xed
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x1
     mov        r1,#0x10

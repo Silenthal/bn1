@@ -86,7 +86,7 @@ _nt S_Story_60_2
     mov        r0,#0x2c
     bl         PlayerAnimation_SetState
     mov        r0,#0xc2
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     Flag_SetBase 0xC1
     mov        r0,#0x10
     strb       r0,[r5,#0x8]
@@ -104,7 +104,7 @@ _nt S_Story_60_3
     tst        r0,r0
     bne        LAB_0809155e
     mov        r0,#0xa7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r0,PTR_BgTask_803BB84_08091640
     bl         BgTask_AddNew

@@ -93,7 +93,7 @@ _ts MapSetup_ACDC_Mayl_Room_S2
     beq        LAB_0802da56
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802da6e
 LAB_0802da56:
@@ -101,7 +101,7 @@ LAB_0802da56:
     beq        LAB_0802da6a
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802da6e
 LAB_0802da6a:

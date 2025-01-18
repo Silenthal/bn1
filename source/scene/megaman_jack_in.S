@@ -46,7 +46,7 @@ _ts S_MegaManJackIn_1
     mov        r0,#0x28
     bl         PlayerAnimation_SetState
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r5}
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4

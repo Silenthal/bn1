@@ -206,7 +206,7 @@ LAB_08076cea:
 _ts A_Candle_2_Free
     push       {lr}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
@@ -282,7 +282,7 @@ LAB_08076d5a:
     bne        LAB_08076da2
 LAB_08076d8e:
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -291,7 +291,7 @@ LAB_08076d8e:
     pop        {pc}
 LAB_08076da2:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08076da8:
     mov        r0,#0x0
     pop        {pc}

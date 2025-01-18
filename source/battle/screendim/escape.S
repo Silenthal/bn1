@@ -92,7 +92,7 @@ _ts SD_Escape_1_0_ShowMessage
     bne        LAB_08098cb8
     bl         ScreenDim_WarpPlayerOut
     mov        r0,#0x7c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     strb       r0,[r5,#0x8]
     mov        r0,#0x4

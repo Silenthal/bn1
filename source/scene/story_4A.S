@@ -259,7 +259,7 @@ _ts S_Story_4A_10
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -314,7 +314,7 @@ _ts S_Story_4A_SkipIfStart
     bl         Fade_Request
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

@@ -69,7 +69,7 @@ _ts E_BombMan_1_0
     tst        r0,r0
     bne        LAB_080806c0
     mov        r0,#0xd8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1e
     strb       r0,[r5,#0x1e]
 LAB_080806c0:

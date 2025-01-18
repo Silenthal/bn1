@@ -97,7 +97,7 @@ LAB_08075ed2:
     cmp        r0,#0xf
     blt        LAB_08075eec
     mov        r0,#0xbc
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     strh       r0,[r5,#0x1c]
 LAB_08075eec:

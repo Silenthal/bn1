@@ -66,7 +66,7 @@ _ts R_BassC_0_Init
 LAB_0806e05c:
     bl         SpritePtr_SetFlipType
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
@@ -203,7 +203,7 @@ _nt R_BassC_1_1_2
     mov        r0,#0x22
     strh       r0,[r5,#0x1e]
     mov        r0,#0x8f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806e146:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1

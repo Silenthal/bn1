@@ -162,7 +162,7 @@ LAB_0807415e:
     bl         Effect_BombExplosion_Create
     pop        {r5}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         A_FloshellMiniBomb_2_Free
     b          LAB_080741a8
 LAB_08074188:

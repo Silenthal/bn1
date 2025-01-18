@@ -94,7 +94,7 @@ _ts A_Shuriken_1_1
     mov        r0,#0x1e
     strh       r0,[r5,#0x1c]
     mov        r0,#0x7b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080792a2:
     pop        {pc}
 

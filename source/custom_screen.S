@@ -129,7 +129,7 @@ _ts CustomScreen_StartSlideOpen
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
     mov        r0,#0xbe
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        { pc }
 
 
@@ -205,7 +205,7 @@ LAB_08015a46:
     add        r2,r2,r0
     strb       r1,[r5,r2]
     mov        r0,#0x6a
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     strb       r0,[r5,#0x1b]
     b          LAB_08015abc
@@ -228,7 +228,7 @@ LAB_08015a84:
     add        r3,r3,r2
     strb       r0,[r5,r3]
     mov        r0,#0x6b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_08015abc
 LAB_08015aae:
     mov        r1,#0x8
@@ -271,7 +271,7 @@ _nt CustomScreen_1_2_Ok
     tst        r0,r1
     beq        LAB_08015b5a
     mov        r0,#0x6d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     LoadMain battle, r6, r6
     ldrb       r3,[r5,#0xb]
     tst        r3,r3
@@ -359,7 +359,7 @@ LAB_08015bb0:
     mov        r0,#0x0
     strh       r0,[r5,#0x2]
     mov        r0,#0x69
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_08015bda
 LAB_08015bc0:
     mov        r1,#0x80
@@ -369,7 +369,7 @@ LAB_08015bc0:
     tst        r0,r0
     bne        LAB_08015bda
     mov        r0,#0x69
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc
     strb       r0,[r5,#0x1]
     mov        r0,#0x0
@@ -420,7 +420,7 @@ _ts CustomScreen_1_3_0_ShowMessage
     tst        r0,r1
     beq        LAB_08015c4e
     mov        r0,#0x69
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
     mov        r0,#0x0
@@ -466,7 +466,7 @@ LAB_08015c78:
     mov        r2,#0xff
     bl         memset
     mov        r0,#0x6a
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,PTR_TextData_BattleMessages_08015d94
     mov        r1,#0x0
     push       { r5 }
@@ -1490,7 +1490,7 @@ _ts CustomScreen_CheckCursorMove
     tst        r0,r1
     beq        .check_key_right
     mov        r0,#SE_Battle_ChipSelectMoveCursor
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r6,#0x1
     tst        r2,r2
     beq        .check_if_valid
@@ -1502,7 +1502,7 @@ _ts CustomScreen_CheckCursorMove
     tst        r0,r1
     beq        .check_key_up
     mov        r0,#SE_Battle_ChipSelectMoveCursor
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     add        r6,#0x1
     cmp        r2,#0x4
     beq        .check_if_valid
@@ -1514,7 +1514,7 @@ _ts CustomScreen_CheckCursorMove
     tst        r0,r1
     beq        .check_key_down
     mov        r0,#SE_Battle_ChipSelectMoveCursor
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     tst        r3,r3
     beq        .check_if_valid
     sub        r3,#0x1
@@ -1524,7 +1524,7 @@ _ts CustomScreen_CheckCursorMove
     tst        r0,r1
     beq        .check_if_valid
     mov        r0,#SE_Battle_ChipSelectMoveCursor
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     cmp        r3,#0x2
     beq        .check_if_valid
     add        r3,#0x1
@@ -1996,7 +1996,7 @@ _ts CustomScreen_ValidateSelection
     bne        .acceptSelection
 .rejectSelection:
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     mov        r1,#0x0
     pop        { pc }
@@ -2245,7 +2245,7 @@ LAB_08016aba:
     strb       r1,[r5,r2]
     push       {r0}
     mov        r0,#0x6a
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     strb       r0,[r5,#0x1b]
     pop        {r0}
@@ -2316,7 +2316,7 @@ _nt CustomScreenT1_Cancel
     add        r3,r3,r2
     strb       r0,[r5,r3]
     mov        r0,#0x6b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          dummy_16b84
 LAB_08016b76:
     mov        r1,#0x8
@@ -2380,7 +2380,7 @@ _nt CustomScreenT1_1_2_0_CheckChips
     tst        r0,r1
     beq        LAB_08016c4e
     mov        r0,#0x6d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r3,[r5,#0xb]
     tst        r3,r3
     bne        LAB_08016bf6
@@ -2458,7 +2458,7 @@ LAB_08016c76:
     beq        LAB_08016c58
     strb       r0,[r5,#0x4]
     mov        r0,#0x69
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_08016caa
 LAB_08016c86:
     mov        r1,#0x10
@@ -2484,7 +2484,7 @@ LAB_08016caa:
     mov        r0,#0x0
     strb       r0,[r5,#0x2]
     mov        r0,#0x69
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_08016cd4
 LAB_08016cba:
     mov        r1,#0x80
@@ -2494,7 +2494,7 @@ LAB_08016cba:
     tst        r0,r0
     bne        LAB_08016cd4
     mov        r0,#0x69
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc
     strb       r0,[r5,#0x1]
     mov        r0,#0x0
@@ -2733,7 +2733,7 @@ LAB_08016e76:
     strb       r1,[r5,r2]
     push       {r0}
     mov        r0,#0x6a
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     strb       r0,[r5,#0x1b]
     pop        {r0}
@@ -2773,7 +2773,7 @@ LAB_08016ed6:
     add        r3,r3,r2
     strb       r0,[r5,r3]
     mov        r0,#0x6b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_08016f16
 LAB_08016f08:
     mov        r1,#0x8
@@ -2834,7 +2834,7 @@ _nt CustomScreenT2_1_2_0_CheckChips
     tst        r0,r1
     beq        LAB_08016fca
     mov        r0,#0x6d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         CustomScreenT2_OkButtonPressCheck
     tst        r0,r0
     bne        LAB_0801704a
@@ -2915,7 +2915,7 @@ LAB_08017006:
     strb       r0,[r5,#0x4]
 LAB_08017020:
     mov        r0,#0x69
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     mov        r0,#0x0
@@ -2929,7 +2929,7 @@ LAB_08017030:
     tst        r0,r0
     bne        LAB_0801704a
     mov        r0,#0x69
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc
     strb       r0,[r5,#0x1]
     mov        r0,#0x0

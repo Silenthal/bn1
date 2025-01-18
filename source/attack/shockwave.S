@@ -75,7 +75,7 @@ LAB_08070858:
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x7a
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r7,[r5,#0x60]
     ldrh       r0,[r7,#0x2]
     strh       r0,[r5,#0x1c]

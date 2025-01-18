@@ -133,7 +133,7 @@ LAB_08075d40:
     mov        r0,#0x0
     str        r0,[r5,#0x30]
     mov        r0,#0xbc
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     bl         Field_GetPanelFlags

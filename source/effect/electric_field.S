@@ -58,7 +58,7 @@ _ts E_ElectricField_1_Main
     mov        r0,#0x1e
     strb       r0,[r5,#0x1c]
     mov        r0,#0x8d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807f66e:
     pop        {pc}
 

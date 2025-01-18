@@ -280,7 +280,7 @@ _ts R_ProtoManC_1_2_1
     mov        r0,#0x3
     strb       r0,[r5,#0x14]
     mov        r0,#0x75
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strh       r0,[r5,#0xa]
 LAB_0806a15c:
@@ -441,7 +441,7 @@ _ts R_ProtoManC_Move_0
 LAB_0806a262:
     pop        {r5}
     mov        r0,#0xa8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0xb]
     pop        {pc}

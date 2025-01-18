@@ -78,7 +78,7 @@ _nt E_Boulders_2_Free
     bne        LAB_0807e298
     push       {r5}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r5}
     mov        r3,#0x0
     ldr        r6,PTR_INT_ARRAY_ARRAY_0807e2a0

@@ -128,7 +128,7 @@ _ts A_BassExplosionYellow_1_1
     ldr        r1,[r5,#0x64]
     bl         Field_SetPanelFlagsOnEntity
     mov        r0,#0xe0
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_08079e38
 LAB_08079dfe:
     ldr        r0,[r5,#0x64]

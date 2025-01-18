@@ -614,7 +614,7 @@ LAB_0807d290:
     cmp        r0,#0x3
     bne        LAB_0807d2c6
     mov        r0,#0xca
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807d2c6:
     add        sp,#0x74
     pop        {pc}
@@ -637,14 +637,14 @@ _ts E_BattleResult_1_1_1_2_RewardText
     beq        LAB_0807d2ec
     bl         E_BattleResult_LoadZennyDetailText
     mov        r0,#0xcb
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0807d2fa
 LAB_0807d2ec:
     ldrb       r0,[r5,#0xe]
     ldrb       r1,[r5,#0xf]
     bl         E_BattleResult_LoadChipDetailText
     mov        r0,#0xcc
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807d2fa:
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
@@ -745,7 +745,7 @@ LAB_0807d35a:
     cmp        r0,#0x2
     bne        LAB_0807d3aa
     mov        r0,#T_Loser
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
 LAB_0807d3aa:
     pop        {pc}
 

@@ -39,7 +39,7 @@ PTR_S_Story_33_0_0808b190:
 _ts S_Story_33_0
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     push       {r5}
     bl         PlayerAnimation_Lock
@@ -86,10 +86,10 @@ _ts S_Story_33_2
     pop        {r5}
     bne        LAB_0808b23a
     mov        r0,#0x7c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x4
-    bl         Sound_StopSong
+    bl         Sound_StopBGM
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_ScenarioData_33_0808b400
@@ -140,7 +140,7 @@ _nt S_Story_33_4
     pop        {r5}
     bne        LAB_0808b29a
     mov        r0,#0x7c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1e
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]

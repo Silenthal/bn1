@@ -20,7 +20,7 @@ _ts InitMenu
 _nt InitMenu_MP
     mov        r0,#0x1
 
-_nt _InitMenu
+_InitMenu:
     push       { lr }
     LoadMain menu, r5, r7
     push       { r0, r5 }

@@ -47,7 +47,7 @@ _ts R_ShadowManC_0_Init
 LAB_0806daf6:
     bl         SpritePtr_SetFlipType
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
@@ -120,7 +120,7 @@ _nt R_ShadowManC_1_0_1
     pop        {r0,r1}
     bl         Attack_Shuriken_Chip_Create
     mov        r0,#0xb7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x3
     strb       r0,[r5,#0x14]
     mov        r0,#0x8

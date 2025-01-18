@@ -74,7 +74,7 @@ _nt SD_GutsShoot_1
     pop        {r0,r4,r6}
     bl         Routine_GutsShoot_MegaMan_Create
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc0
     strh       r0,[r5,#0x8]
     mov        r0,#0x8

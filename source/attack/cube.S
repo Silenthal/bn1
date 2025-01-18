@@ -73,7 +73,7 @@ _ts A_Cube_0_Init
     cmp        r0,#0x5
     bcs        LAB_08073674
     mov        r0,#0x93
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08073674:
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
@@ -223,7 +223,7 @@ _nt A_Cube_2_Free
     ldrb       r4,[r5,#0x4]
     bl         Effect_CubeBreak_Create
     mov        r0,#0x95
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x5]
     tst        r0,r0
     bne        LAB_08073794
@@ -289,7 +289,7 @@ LAB_080737fa:
 LAB_0807380c:
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08073816:
     mov        r0,#0x0
     pop        {pc}

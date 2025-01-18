@@ -321,7 +321,7 @@ _ts S_Story_79_11
     Flag_SetEvent F_EVENT_WWW_COMP_5_SAVE_DISABLED
     pop        {r5}
     mov        r0,#T_Void
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     bl         Scene_UnloadAndResetStepCounter
 LAB_08096a6a:
     pop        {pc}

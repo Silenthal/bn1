@@ -257,7 +257,7 @@ LAB_08074bea:
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         Attack_Free
     pop        {pc}
 
@@ -289,7 +289,7 @@ LAB_08074c34:
     bl         Field_SubtractHP
 LAB_08074c42:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         SpritePtr_SetFlashPalette
     ldrh       r0,[r5,#0x20]
     tst        r0,r0

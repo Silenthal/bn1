@@ -118,7 +118,7 @@ _ts SD_DoubleHero_1_1
     pop        {r0,r1,r2}
     bl         Routine_2xHeroProtoMan_Create
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
 LAB_0809b9d4:

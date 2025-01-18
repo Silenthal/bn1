@@ -114,7 +114,7 @@ LAB_080615f4:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806162c:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -542,7 +542,7 @@ _ts R_ColdBear_1_4_2_IceCube
     add        r7,r7,r5
     bl         Attack_Cube_Create
     mov        r0,#0x99
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08061916:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80

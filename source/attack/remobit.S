@@ -678,7 +678,7 @@ _ts FUN_08076558
     ldrh       r6,[r5,#0x24]
     bl         Effect_RemobitThunder_Create
     mov        r0,#0xbb
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807657c:
     mov        r0,#0x8
     strb       r0,[r5,#0xa]

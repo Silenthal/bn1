@@ -139,7 +139,7 @@ _ts S_Story_31_4
     Flag_GetBase 0xCA
     beq        LAB_0808ad32
     mov        r0,#0x9d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r4,#0x1
     bl         Effect_AirBlowing_Create
     mov        r0,#0x3c
@@ -180,7 +180,7 @@ _ts S_Story_31_5
     Flag_GetBase 0xC8
     beq        LAB_0808ad90
     mov        r0,#0x9d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r4,#0x0
     bl         Effect_AirBlowing_Create
     mov        r0,#0x3c
@@ -232,7 +232,7 @@ _nt S_Story_31_6
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -296,7 +296,7 @@ _ts S_Story_31_SkipIfStart
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1c
     strb       r0,[r5,#0x0]
     pop        {pc}

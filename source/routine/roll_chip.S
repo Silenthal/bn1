@@ -320,7 +320,7 @@ _ts R_RollC_1_2_2
 LAB_08067dd6:
     pop        {r5}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08067dde:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -429,7 +429,7 @@ _ts R_RollC_Move_0
 LAB_08067e92:
     pop        {r5}
     mov        r0,#0xa8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0xb]
     pop        {pc}

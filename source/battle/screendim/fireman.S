@@ -118,7 +118,7 @@ _ts SD_FireMan_1_1_FireArm
     orr        r0,r1
     strb       r0,[r7,#0x0]
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
 LAB_08098946:
@@ -132,7 +132,7 @@ _ts SD_FireMan_1_2_WarpOut
     beq        LAB_0809895e
     bl         ScreenDim_WarpPlayerIn
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     str        r0,[r5,#0x0]
 LAB_0809895e:

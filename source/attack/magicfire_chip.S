@@ -176,7 +176,7 @@ _ts A_MagicFireC_1_1_0
     strb       r0,[r7,#0x0]
 LAB_0807a8c8:
     mov        r0,#0x8f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1e
     strh       r0,[r5,#0x1c]
     mov        r0,#0x4

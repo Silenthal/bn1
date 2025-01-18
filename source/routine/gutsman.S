@@ -530,7 +530,7 @@ LAB_0805c482:
     tst        r0,r1
     beq        LAB_0805c4dc
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x2
     mov        r1,#0x2d
     push       {r5}
@@ -756,7 +756,7 @@ _ts R_GutsMan_1_7_1_Attack
     mov        r7,#0x8
     bl         Attack_SharpStrike_Create
     mov        r0,#0x7f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
 LAB_0805c63a:
@@ -933,7 +933,7 @@ LAB_0805c76c:
 LAB_0805c776:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x70]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
@@ -945,7 +945,7 @@ LAB_0805c776:
     pop        {pc}
 LAB_0805c796:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     pop        {pc}
 LAB_0805c7a0:

@@ -105,7 +105,7 @@ _nt BC_ZetaOmegaPA_1_Free
     bl         BattleMessage_Load
     pop        {r5}
     mov        r0,#0x91
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         R_Player_ResetChipUseState
     mov        r0,#0x2
     bl         R_Player_SetChipActivationDelay

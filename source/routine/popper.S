@@ -549,7 +549,7 @@ _ts R_Popper_CheckDamage
 LAB_08062c92:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x74]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -558,7 +558,7 @@ LAB_08062c92:
     pop        {pc}
 LAB_08062caa:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     pop        {pc}
 LAB_08062cb4:

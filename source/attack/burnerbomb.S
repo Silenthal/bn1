@@ -269,7 +269,7 @@ LAB_08070746:
 _ts A_BurnerBomb_1_4_Explode
     push       {lr}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r3,#0x28
     add        r7,r5,r3
     ldmia      r7!,{r1,r2,r3}
@@ -328,7 +328,7 @@ _nt A_BurnerBomb_CheckDamage
     tst        r1,r1
     bne        LAB_080707da
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x14
@@ -339,7 +339,7 @@ _nt A_BurnerBomb_CheckDamage
     pop        {pc}
 LAB_080707da:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080707e0:
     mov        r0,#0x0
     pop        {pc}

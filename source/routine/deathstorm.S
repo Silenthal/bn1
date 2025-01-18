@@ -175,7 +175,7 @@ LAB_08068bf6:
     strb       r0,[r5,#0x7]
     bne        LAB_08068c08
     mov        r0,#0xc9
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x14
     strb       r0,[r5,#0x7]
 LAB_08068c08:

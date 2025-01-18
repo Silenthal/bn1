@@ -183,7 +183,7 @@ LAB_0806efa4:
     sub        r2,#0x1
     bne        LAB_0806efa4
     mov        r0,#0x94
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strh       r0,[r5,#0xa]
     pop        {pc}

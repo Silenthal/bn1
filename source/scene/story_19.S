@@ -128,7 +128,7 @@ _nt S_Story_19_4
     mov        r0,#0x1e
     strb       r0,[r5,#0x8]
     mov        r0,#0x8d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080874f2:
     LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]

@@ -394,7 +394,7 @@ _ts CheckJackInRejectNoise
     pop        {r0,r1}
     bne        LAB_08018718
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08018718:
     mov        r0,#0x1
     pop        {r5,pc}

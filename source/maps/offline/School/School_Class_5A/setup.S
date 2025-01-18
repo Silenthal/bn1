@@ -251,7 +251,7 @@ _ts MapSetup_School_Class_5A_S1
     pop        {r5}
     beq        LAB_08024924
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {pc}
 LAB_08024924:
     bl         Sound_AreaSongChange
@@ -472,7 +472,7 @@ _nt MapSetup_School_Class_5A_F11
     pop        {r5}
     beq        LAB_08024b28
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     push       {r5}
     ldr        r7,PTR_PTR_DAT_08024b38
     bl         Map_LoadNPCList
@@ -514,7 +514,7 @@ PTR_PTR_EventHandler_School_Class_5A_F11_0_08024b54:
 _ts EventHandler_School_Class_5A_F11_0
     push       {lr}
     mov        r0,#T_School
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     push       {r5}
     ldr        r0,PTR_Scene_Story_13_08024b70
     mov        r1,#0x0
@@ -586,7 +586,7 @@ _ts MapSetup_School_Class_5A_F12
     cmp        r0,#0x4
     beq        LAB_08024bec
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
 LAB_08024bec:
     push       {r5}
     Flag_GetBase 0xA6
@@ -779,7 +779,7 @@ _ts MapSetup_School_Class_5A_F13
     cmp        r0,#0x4
     beq        LAB_08024d92
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
 LAB_08024d92:
     push       {r5}
     ldr        r0,PTR_BgTask_8025000
@@ -855,7 +855,7 @@ _nt MapSetup_School_Class_5A_F14
     cmp        r0,#0x4
     beq        LAB_08024e28
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
 LAB_08024e28:
     push       {r5}
     ldr        r0,PTR_BgTask_8025014
@@ -930,7 +930,7 @@ _ts MapSetup_School_Class_5A_F15
     cmp        r0,#0x4
     beq        LAB_08024eba
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
 LAB_08024eba:
     push       {r5}
     ldr        r0,PTR_BgTask_8025028
@@ -1120,7 +1120,7 @@ _ts MapSetup_School_Class_5A_S2
     beq        LAB_08025060
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_08025078
 LAB_08025060:
@@ -1128,7 +1128,7 @@ LAB_08025060:
     beq        LAB_08025074
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_08025078
 LAB_08025074:
@@ -1419,7 +1419,7 @@ LAB_080252b4:
     push       {r5}
     Flag_ClearBase 0xC8
     mov        r0,#0x14
-    bl         Sound_StopSong
+    bl         Sound_StopBGM
     pop        {r5}
 LAB_080252cc:
     Flag_GetBase 0xA7
@@ -1428,7 +1428,7 @@ LAB_080252cc:
     bne        LAB_080252ee
     push       {r5}
     mov        r0,#0x14
-    bl         Sound_PlaySong
+    bl         Sound_ForcePlayBGM
     ldr        r0,PTR_Scene_Story_25_08025480
     mov        r1,#0x3
     bl         Scene_Prepare

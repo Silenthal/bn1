@@ -65,7 +65,7 @@ _ts A_Meteor_1_Main
     mov        r0,#0xc
     strb       r0,[r5,#0x8]
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x4]
     cmp        r0,#0x9
     bne        LAB_0807142c

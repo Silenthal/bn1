@@ -351,7 +351,7 @@ _ts E_ProgramAdvance_1_3_0
     mov        r0,#0x4
     strb       r0,[r5,#0xa]
     mov        r0,#0xe3
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
@@ -488,7 +488,7 @@ _ts E_ProgramAdvance_1_4_1
     mov        r0,#0x8
     strh       r0,[r5,#0xa]
     mov        r0,#0xdf
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807c64c:
     pop        {pc}
 

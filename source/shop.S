@@ -164,7 +164,7 @@ _ts Shop_1_0_0_PlayShopMusic
     mov        r0,#0x0
     strh       r0,[r5,#0xc]
     mov        r0,#T_In_The_Room
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
 LAB_0801ea04:
     pop        {pc}
 
@@ -406,7 +406,7 @@ _ts Shop_1_3_0_NotEnoughZenny
     strb       r0,[r5,#0x2]
     Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
@@ -452,7 +452,7 @@ _ts Shop_1_4_0_SorrySoldOut
     strb       r0,[r5,#0x2]
     Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
@@ -1254,7 +1254,7 @@ _ts Shop_MoveArrowUp
     sub        r0,#0x1
     strb       r0,[r5,#0x5]
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x6]
     tst        r0,r0
     beq        LAB_0801f42a
@@ -1279,7 +1279,7 @@ _nt Shop_MoveArrowDown
     add        r0,#0x1
     strb       r0,[r5,#0x5]
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x6]
     cmp        r0,#0x3
     beq        LAB_0801f454

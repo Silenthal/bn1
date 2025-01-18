@@ -105,7 +105,7 @@ LAB_080599b6:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080599f8:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_R_Canodumb_1_0_Spawn_08059a40
@@ -363,7 +363,7 @@ _nt R_Canodumb_1_5_2_Attack
     mov        r0,#0xc
     strb       r0,[r5,#0xa]
     mov        r0,#0x74
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_08059bbe
 LAB_08059bb6:
     mov        r0,#0x10

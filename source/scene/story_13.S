@@ -113,7 +113,7 @@ _ts S_Story_13_SkipIfStart
     bl         Scene_IsStartPressed
     beq        LAB_080867cc
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     mov        r0,#0x28
     strb       r0,[r5,#0x0]
 LAB_080867cc:
@@ -160,7 +160,7 @@ LAB_0808680c:
     bne        LAB_08086820
     push       {r1}
     mov        r0,#0x84
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r1}
 LAB_08086820:
     tst        r1,r1
@@ -257,14 +257,14 @@ _ts S_Story_13_8
     add        r0,#0x1
     strb       r0,[r5,#0xa]
     mov        r0,#0xd1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080868d8:
     ldrb       r0,[r5,#0x14]
     sub        r0,#0x1
     strb       r0,[r5,#0x14]
     bne        LAB_080868f8
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     push       {r5}
     ldr        r0,PTR_ScenarioData_13_08086a3c
     mov        r1,#0xb
@@ -292,7 +292,7 @@ _nt S_Story_13_9
     add        r0,#0x1
     strb       r0,[r5,#0xa]
     mov        r0,#0xd1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0808691a:
     push       {r5}
     mov        r0,#0x80
@@ -321,7 +321,7 @@ _nt S_Story_13_10
     add        r0,#0x1
     strb       r0,[r5,#0xa]
     mov        r0,#0xd1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0808694e:
     push       {r5}
     mov        r0,#0x4

@@ -195,7 +195,7 @@ LAB_080173f6:
     sub        r0,#0x1
     bgt        LAB_0801741a
     mov        r0,#0x86
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x2a
     strb       r0,[r5,#0x7]
     b          LAB_0801741c
@@ -261,7 +261,7 @@ _ts PetStatusControl_SetState
     cmp        r0,#0x14
     blt        LAB_080174ae
     mov        r0,#0xaa
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080174ae:
     pop        {pc}
 

@@ -193,9 +193,9 @@ _ts S_Story_53_7
     bl         BgTask_AddNew
     push       {r5}
     mov        r0,#0xc0
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     pop        {r5}
     push       {r5}
@@ -419,7 +419,7 @@ _nt S_Story_53_15
     pop        {r5}
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

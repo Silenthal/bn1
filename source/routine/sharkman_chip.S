@@ -261,7 +261,7 @@ _ts R_SharkManC_1_1_1
     mov        r0,#0x3
     strb       r0,[r5,#0x14]
     mov        r0,#0x94
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strh       r0,[r5,#0xa]
 LAB_0806a4ea:

@@ -153,7 +153,7 @@ LAB_0806e6fe:
     mov        r0,#0x60
     strh       r0,[r5,#0x1c]
     mov        r0,#0xd3
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     strh       r0,[r5,#0x1e]
     mov        r0,#0x4
@@ -173,7 +173,7 @@ _nt R_2xHeroMegaMan_1_1_1
     mov        r0,#0xa
     strh       r0,[r5,#0x1e]
     mov        r0,#0xd4
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806e72c:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -236,7 +236,7 @@ LAB_0806e796:
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 

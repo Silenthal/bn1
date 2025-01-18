@@ -536,7 +536,7 @@ LAB_0802ae30:
     beq        LAB_0802ae4c
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802ae64
 LAB_0802ae4c:
@@ -544,7 +544,7 @@ LAB_0802ae4c:
     beq        LAB_0802ae60
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802ae64
 LAB_0802ae60:

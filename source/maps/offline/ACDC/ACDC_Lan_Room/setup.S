@@ -82,7 +82,7 @@ LAB_0802cade:
 LAB_0802cb06:
     push       {r5}
     mov        r0,#T_In_The_Room
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     ldr        r0,PTR_BgTask_802CB30
     bl         BgTask_AddNew
     ldr        r0,PTR_DAT_0802cb34
@@ -226,7 +226,7 @@ _ts MapSetup_ACDC_Lan_Room_F02
     push       {lr}
     push       {r5}
     mov        r0,#T_In_The_Room
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     ldr        r0,PTR_DAT_0802cf34
     bl         Entity_AllocList
     bl         PlayerLocation_Create
@@ -314,7 +314,7 @@ _ts MapSetup_ACDC_Lan_Room_F03
     push       {lr}
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     ldr        r0,PTR_DAT_0802cf48
     bl         Entity_AllocList
     bl         PlayerLocation_Create
@@ -364,7 +364,7 @@ _ts MapSetup_ACDC_Lan_Room_F04
     push       {lr}
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     ldr        r0,PTR_DAT_0802cf54
     bl         Entity_AllocList
     bl         PlayerLocation_Create
@@ -424,7 +424,7 @@ _ts MapSetup_ACDC_Lan_Room_F05
     push       {lr}
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     ldr        r0,PTR_DAT_0802cf60
     bl         Entity_AllocList
     bl         PlayerLocation_Create
@@ -467,7 +467,7 @@ _ts MapSetup_ACDC_Lan_Room_F06
     push       {lr}
     push       {r5}
     mov        r0,#T_In_The_Room
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     ldr        r0,PTR_DAT_0802cf6c
     bl         Entity_AllocList
     bl         PlayerLocation_Create
@@ -674,7 +674,7 @@ _ts MapSetup_ACDC_Lan_Room_S2
     beq        LAB_0802cfb0
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802cfc8
 LAB_0802cfb0:
@@ -682,7 +682,7 @@ LAB_0802cfb0:
     beq        LAB_0802cfc4
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802cfc8
 LAB_0802cfc4:

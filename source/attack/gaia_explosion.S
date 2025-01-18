@@ -63,7 +63,7 @@ _ts A_GaiaExplosion_0_Init
     add        r1,r1,r5
     bl         Field_CreateEntity
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     str        r0,[r5,#0x8]
     bl         A_GaiaExplosion_1_Main

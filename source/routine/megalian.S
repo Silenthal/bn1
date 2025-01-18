@@ -159,7 +159,7 @@ LAB_08066b3e:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08066b54:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -501,7 +501,7 @@ _ts R_Megalian_1_5_1
     strb       r0,[r7,#0x1b]
 LAB_08066db8:
     mov        r0,#0xbd
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
 LAB_08066dc2:

@@ -310,7 +310,7 @@ LAB_0801bbc8:
     mov        r2,#0x8
     mov        r1,#0x33
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0801bbdc
 LAB_0801bbd4:
     mov        r2,#0x4
@@ -509,7 +509,7 @@ LAB_0801bd4c:
     tst        r1,r0
     beq        LAB_0801bd70
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x10
@@ -559,7 +559,7 @@ LAB_0801bdac:
     b          LAB_0801bdba
 LAB_0801bdb4:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801bdba:
     mov        r0,#0x3
     and        r2,r0

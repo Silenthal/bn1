@@ -752,7 +752,7 @@ _ts R_Poitton_CheckDamage
 LAB_0806b734:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x68]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -761,7 +761,7 @@ LAB_0806b734:
     pop        {pc}
 LAB_0806b74c:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806b752:
     mov        r0,#0x0
     pop        {pc}

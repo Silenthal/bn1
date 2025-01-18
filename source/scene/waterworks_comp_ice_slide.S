@@ -58,7 +58,7 @@ _ts S_Ice_Slide_1
     mov        r0,#0x0
     str        r0,[r5,#0x20]
     mov        r0,#0xe8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
 LAB_0808becc:
@@ -109,7 +109,7 @@ LAB_0808bef4:
     and        r0,r1
     strb       r0,[r7,#0x10]
     mov        r0,#0xe8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0808bf2a:
     push       {r5}
     LoadMain world, r7, r7

@@ -70,7 +70,7 @@ _ts S_MeteorAttack_1
     bl         Camera_EnableScreenShake
     pop        {r5}
     mov        r0,#0x87
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]

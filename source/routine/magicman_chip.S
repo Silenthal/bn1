@@ -63,7 +63,7 @@ _ts R_MagicManC_0_Init
 LAB_0806dcae:
     bl         SpritePtr_SetFlipType
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
@@ -158,7 +158,7 @@ _nt R_MagicManC_1_0_2
     strb       r0,[r7,#0x0]
 LAB_0806dd56:
     mov        r0,#0x8f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1e
     strh       r0,[r5,#0x1c]
     mov        r0,#0xc
@@ -183,7 +183,7 @@ _nt R_MagicManC_1_0_3
     mov        r0,#0x1
     strb       r0,[r5,#0x5]
     mov        r0,#0xb6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     str        r0,[r5,#0x5c]
     mov        r0,#0xa

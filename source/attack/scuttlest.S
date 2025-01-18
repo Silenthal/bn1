@@ -80,7 +80,7 @@ _nt A_Scuttlest_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08077fde:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_A_Scuttlest_1_0_08078024
@@ -419,7 +419,7 @@ _ts A_Scutz_Fire
     mov        r6,#0x50
     bl         Attack_MagicFire_Create
     mov        r0,#0xb6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
     pop        {pc}

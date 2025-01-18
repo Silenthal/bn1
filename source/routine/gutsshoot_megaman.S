@@ -137,7 +137,7 @@ _ts R_GutsShoot_MegaMan_1_1
     strb       r0,[r7,#0x0]
 LAB_08068348:
     mov        r0,#0x94
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
 LAB_08068352:
@@ -202,7 +202,7 @@ LAB_08068394:
 LAB_080683c6:
     pop        {r5}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     pop        {pc}

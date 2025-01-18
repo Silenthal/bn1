@@ -130,7 +130,7 @@ _ts S_Story_32_5
     bne        LAB_0808afa6
 LAB_0808afa0:
     mov        r0,#0xea
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0808afa6:
     pop        {r0}
     sub        r0,#0x1
@@ -166,7 +166,7 @@ _nt S_Story_32_6
     bne        LAB_0808afee
     push       {r0}
     mov        r0,#0xeb
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r0}
 LAB_0808afee:
     sub        r0,#0x1
@@ -232,7 +232,7 @@ _nt S_Story_32_8
     strh       r0,[r5,#0x8]
     bne        LAB_0808b08a
     mov        r0,#0xd1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x36
     strb       r0,[r5,#0x8]
     push       {r5}
@@ -258,7 +258,7 @@ _nt S_Story_32_9
     tst        r0,r0
     bne        LAB_0808b0aa
     mov        r0,#0xd1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x36
     strb       r0,[r5,#0x8]
 LAB_0808b0aa:

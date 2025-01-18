@@ -53,7 +53,7 @@ _ts A_AirBurst_0_Init
     add        r1,r1,r5
     bl         Field_CreateEntity
     mov        r0,#0xe0
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         A_AirBurst_1_Main
     pop        {pc}
 

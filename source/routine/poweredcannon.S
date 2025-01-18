@@ -140,7 +140,7 @@ _ts R_PoweredCannon_1_1
     strh       r0,[r5,#0x1c]
     bne        LAB_0805c044
     mov        r0,#0xe4
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
 LAB_0805c044:
@@ -170,7 +170,7 @@ _nt R_PoweredCannon_1_2
     strb       r0,[r7,#0x0]
 LAB_0805c074:
     mov        r0,#0x74
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc
     strb       r0,[r5,#0x9]
 LAB_0805c07e:

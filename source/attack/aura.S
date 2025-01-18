@@ -74,7 +74,7 @@ _ts A_Aura_0_Init
     ldrb       r0,[r7,#0x2]
     cmp        r0,#0xff
     beq        LAB_08070002
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08070002:
     mov        r0,#0x0
     str        r0,[r5,#0x40]
@@ -108,7 +108,7 @@ _nt A_Aura_2_Free
     ldrb       r0,[r7,#0x3]
     cmp        r0,#0xff
     beq        LAB_08070040
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08070040:
     bl         Attack_Free
     pop        {pc}

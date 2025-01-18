@@ -154,7 +154,7 @@ LAB_0805b55c:
 LAB_0805b594:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -162,7 +162,7 @@ LAB_0805b594:
     pop        {pc}
 LAB_0805b5aa:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805b5b0:
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0805b5d0
     ldrb       r0,[r5,#0x9]

@@ -145,7 +145,7 @@ LAB_0805b988:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805b9d0:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -630,7 +630,7 @@ _ts R_Spooky_1_4_3_0_StartAnimAttack
     mov        r0,#0x1
     strb       r0,[r5,#0x17]
     mov        r0,#0x89
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 

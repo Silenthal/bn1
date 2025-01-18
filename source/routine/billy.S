@@ -116,7 +116,7 @@ _ts R_Billy_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080666e4:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -432,7 +432,7 @@ _ts R_Billy_1_4_0
     mov        r0,#0xa
     strh       r0,[r5,#0x1c]
     mov        r0,#0xbc
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 

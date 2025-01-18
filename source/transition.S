@@ -64,7 +64,7 @@ _ts JackIn_Init
     strh       r1,[r0,#0x18]
     strh       r1,[r0,#0x1a]
     mov        r0,#T_Transmission
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {pc}
 
 

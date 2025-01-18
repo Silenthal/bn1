@@ -187,7 +187,7 @@ LAB_080804a2:
     cmp        r0,#0x8
     bne        LAB_080804ae
     mov        r0,#0xdc
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080804ae:
     mov        r0,#0x1e
     strb       r0,[r5,#0x1c]
@@ -229,7 +229,7 @@ _ts E_LifeVirusSeed_1_2
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0xe5
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x4]
     mov        r1,#0x80
     and        r0,r1
@@ -261,7 +261,7 @@ LAB_08080524:
     cmp        r1,#0x0
     bmi        LAB_08080556
     mov        r0,#0xdc
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08080556:
     mov        r0,#0x1e
     strb       r0,[r5,#0x1c]
@@ -281,7 +281,7 @@ _ts E_LifeVirusSeed_1_3
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0xe5
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x2
     strb       r0,[r5,#0x8]
 LAB_08080580:

@@ -71,7 +71,7 @@ LAB_08021514:
     pop        {r5}
     strb       r0,[r5,#0xe]
     mov        r0,#T_End_Roll
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     mov        r0,#0x3c
     strh       r0,[r5,#0x4]
     mov        r0,#0x4
@@ -195,7 +195,7 @@ _ts Credits_1_1_SceneMain
     push       {r5}
     mov        r0,#0x1f
     mov        r1,#0x10
-    bl         Song_FadeOut
+    bl         Sound_FadeOut
     pop        {r5}
     mov        r1,#0x0
     strh       r1,[r5,#0x6]

@@ -78,7 +78,7 @@ _ts S_Story_3C_3
     Flag_ClearBase 0xA5
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
 LAB_0808d238:
     push       {r5}
@@ -116,7 +116,7 @@ _ts S_Story_3C_5
     pop        {r5}
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}

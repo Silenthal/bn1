@@ -109,7 +109,7 @@ _nt R_Fishy_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805cbc6:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -520,7 +520,7 @@ _ts R_Fishy_1_4_2_0_StartDash
     mov        r0,#0x6
     strb       r0,[r5,#0x14]
     mov        r0,#0x94
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 

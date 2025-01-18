@@ -27,7 +27,7 @@ PTR_PTR_A_Tornado_0_Init_080775cc:
 _ts A_Tornado_0_Init
     push       {lr}
     mov        r0,#0xc9
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     bl         Battle_CellCoordsToSprite

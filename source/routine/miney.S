@@ -114,7 +114,7 @@ LAB_0806513c:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08065170:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_080651b4

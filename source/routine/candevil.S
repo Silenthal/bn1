@@ -178,7 +178,7 @@ LAB_080687f4:
 LAB_0806882c:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x68]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -186,7 +186,7 @@ LAB_0806882c:
     pop        {pc}
 LAB_08068842:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08068848:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_08068868
@@ -480,7 +480,7 @@ _ts R_CanDevil_1_4_0
     ldrh       r6,[r5,#0x24]
     bl         Attack_MagicFire_Create
     mov        r0,#0xb6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
     mov        r0,#0x0

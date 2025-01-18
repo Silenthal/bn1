@@ -171,7 +171,7 @@ LAB_08067362:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08067374:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -560,7 +560,7 @@ _ts R_BombMan_1_3_4_1
     beq        LAB_08067642
     bl         A_BombManBomb_Kick
     mov        r0,#0x8e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08067642:
     mov        r0,#0x8
     strb       r0,[r5,#0xb]

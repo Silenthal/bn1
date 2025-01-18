@@ -91,7 +91,7 @@ LAB_08098dfc:
     mov        r0,#0x3c
     strh       r0,[r5,#0x8]
     mov        r0,#0x79
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     str        r0,[r5,#0x0]
 LAB_08098e0c:

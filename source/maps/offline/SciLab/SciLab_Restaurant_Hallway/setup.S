@@ -27,7 +27,7 @@ LAB_0803bf70:
     Flag_GetBase 0xAB
     beq        LAB_0803bf92
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     b          LAB_0803bf96
 LAB_0803bf92:
     bl         Sound_AreaSongChange

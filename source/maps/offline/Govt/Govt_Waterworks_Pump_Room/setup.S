@@ -13,7 +13,7 @@ _ts MapSetup_Govt_Waterworks_Pump_Room_S2
     beq        LAB_08034a5e
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_08034a76
 LAB_08034a5e:
@@ -21,7 +21,7 @@ LAB_08034a5e:
     beq        LAB_08034a72
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_08034a76
 LAB_08034a72:

@@ -122,7 +122,7 @@ _ts E_RemobitThunder_1_1
     ldrb       r1,[r5,#0x19]
     bl         Field_SetPanelProperty
     mov        r0,#0x7b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0807f958:
     mov        r0,#0x3
     strb       r0,[r5,#0x14]

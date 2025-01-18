@@ -58,7 +58,7 @@ _ts MainMenu_0_Init
     mov        r0,#0x1
     strb       r0,[r5,#0x0]
     mov        r0,#T_Theme_Of_Mega_Man_Battle_Network
-    bl         Sound_PlaySong
+    bl         Sound_ForcePlayBGM
     Flag_ClearSystem F_SYSTEM_SAVE_OK
     mov        r0,#0x0
     push       { r0, r5 }
@@ -182,7 +182,7 @@ _ts MainMenu_1_1_PressStartMenuLoop
     push       {r0,r5}
     mov        r0,#0x1f
     mov        r1,#0x10
-    bl         Song_FadeOut
+    bl         Sound_FadeOut
     pop        {r0,r5}
 LAB_080105a2:
     sub        r0,#0x1
@@ -500,7 +500,7 @@ _ts MainMenu_HandlePressStart
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08010848:
     pop        {pc}
 
@@ -519,7 +519,7 @@ _ts MainMenu_HandleInput
     beq        LAB_080108b4
     bl         Sound_StopAllMusic
     mov        r0,#0x64
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xc
     strb       r0,[r5,#0x1]
     push       {r5}
@@ -533,7 +533,7 @@ LAB_08010882:
     tst        r1,r0
     beq        LAB_08010898
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     mov        r0,#0x8
@@ -552,7 +552,7 @@ LAB_08010898:
     eor        r0,r1
     strb       r0,[r5,#0x8]
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080108b4:
     pop        {pc}
 

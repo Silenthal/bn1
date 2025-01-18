@@ -204,7 +204,7 @@ check_counter_and_sound:
     bl         Text_CheckScriptOption
     bne        check_extended_char
     mov        r0,#SE_Text_Character
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 check_extended_char:
     cmp        r1,#0xe5
     beq        command_E5
@@ -1026,7 +1026,7 @@ LAB_08013d1a:
     cmp        r0,r1
     beq        LAB_08013d34
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08013d34:
     ldrb       r0,[r5,#0x14]
     ldrb       r1,[r5,#0x15]
@@ -1110,7 +1110,7 @@ LAB_08013da4:
     @ play sound and go to the "delay button" code
 LAB_08013da8:
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     @ If delay type is button, or A is pressed while
     @ delay type is counter and delay counter = 0
 LAB_08013dae:
@@ -1176,7 +1176,7 @@ LAB_08013dfe:
     @ and B is pressed
 LAB_08013e12:
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     @ Set b15 = b14 - 1
     @ (Default option is supposed to be set here)
     ldrb       r0,[r5,#0x14]
@@ -1637,7 +1637,7 @@ _ts JT_Command_F7_ItemControl
     @ F7 00 id am - Attempt to give [am] amount of [id] item
     push       { r4, r5 }
     mov        r0,#SE_MysteryDataItemGet
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     bl         KeyItem_AddAmount
@@ -1659,7 +1659,7 @@ _ts JT_Command_F7_ItemControl
     @ F7 02 id am - Attempt to set [am] amount of [id] item
     push       { r4, r5 }
     mov        r0,#0x85
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     bl         KeyItem_SetAmount
@@ -1926,7 +1926,7 @@ _ts JT_Command_F7_ChipControl
 .checkGiveChip:
     push       { r4, r5 }
     mov        r0,#SE_MysteryDataItemGet
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     ldrb       r2,[r4,#0x4]
@@ -1950,7 +1950,7 @@ _ts JT_Command_F7_ChipControl
 LAB_080143a2:
     push       { r4, r5 }
     mov        r0,#0x85
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     ldrb       r2,[r4,#0x4]
@@ -2411,7 +2411,7 @@ _ts JT_Command_FC_00_PlaySoundEffect
     ldrb       r1,[r4,#0x3]
     lsl        r1,r1,#0x8
     orr        r0,r1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     add        r4,#0x4
     mov        r0,#0x1
     pop        { pc }
@@ -2422,7 +2422,7 @@ _ts JT_Command_FC_01_ChangeSong
     ldrb       r1,[r4,#0x3]
     lsl        r1,r1,#0x8
     orr        r0,r1
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     add        r4,#0x4
     mov        r0,#0x1
     pop        { pc }
@@ -2454,7 +2454,7 @@ _ts JT_Command_FC_05_SongFadeOut
     push       { lr }
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
-    bl         Song_FadeOut
+    bl         Sound_FadeOut
     add        r4,#0x4
     mov        r0,#0x1
     pop        { pc }
@@ -2495,7 +2495,7 @@ _ts JT_Command_FD_00_AwardZenny
     push       { lr }
     push       { r4, r5 }
     mov        r0,#0x85
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         Rng_RandomInt
     pop        { r4, r5 }
     ldrb       r1,[r4,#0x2]
@@ -2548,7 +2548,7 @@ _ts JT_Command_FD_04_AwardChip
     push       { lr }
     push       { r4, r5 }
     mov        r0,#0x85
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         Rng_RandomInt
     pop        { r4, r5 }
     ldrb       r1,[r4,#0x2]
@@ -2611,7 +2611,7 @@ LAB_080148c0:
     bl         Fade_Request
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        { r4, r5 }
     mov        r0,#0x1
     strb       r0,[r5,#0x4]
@@ -2673,7 +2673,7 @@ LAB_08014942:
     bl         Fade_Request
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        { r4, r5 }
     mov        r0,#0x1
     strb       r0,[r5,#0x4]
@@ -2771,7 +2771,7 @@ LAB_080149dc:
     bl         Fade_Request
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        { r4, r5 }
     mov        r0,#0x1
     strb       r0,[r5,#0x4]

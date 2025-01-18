@@ -122,7 +122,7 @@ _ts A_ColorManBall_1_0_Drop
     add        r7,r7,r5
     stmia      r7!,{r0,r1,r2}
     mov        r0,#0xac
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x9]
     mov        r0,#0x0
@@ -206,7 +206,7 @@ _nt A_ColorManBall_1_1_1_Move
     add        r7,r7,r5
     stmia      r7!,{r0,r1,r2}
     mov        r0,#0xac
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     strb       r0,[r5,#0xa]
 LAB_08075148:

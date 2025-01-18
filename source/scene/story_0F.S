@@ -85,7 +85,7 @@ _nt S_Story_0F_2
     cmp        r0,r1
     beq        LAB_08086090
     mov        r0,#0xa4
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r0,PTR_ScenarioData_0F_080861a4
     mov        r1,#0x1
@@ -155,7 +155,7 @@ _nt S_Story_0F_6
     Flag_SetBase 0xD7
     pop        {r5}
     mov        r0,#T_Home_Town
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1

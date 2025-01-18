@@ -147,7 +147,7 @@ _ts A_Tower_1_0_Move
     ldrb       r0,[r7,#0x0]
     tst        r0,r0
     beq        LAB_08070e16
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08070e16:
     ldrb       r0,[r5,#0x4]
     lsl        r0,r0,#0x19

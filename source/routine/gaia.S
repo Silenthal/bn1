@@ -480,7 +480,7 @@ LAB_0806ca2c:
     bl         Camera_EnableScreenShake
     pop        {r5}
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x18]
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
@@ -497,7 +497,7 @@ LAB_0806ca66:
     pop        {pc}
 LAB_0806ca68:
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x18]
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
@@ -786,7 +786,7 @@ LAB_0806cc5c:
 LAB_0806cc68:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x68]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -795,7 +795,7 @@ LAB_0806cc68:
     pop        {pc}
 LAB_0806cc80:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806cc86:
     mov        r0,#0x0
     pop        {pc}

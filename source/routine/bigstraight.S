@@ -173,7 +173,7 @@ _ts R_BigStraight_1_1_Attack
     bl         Field_CreateSharpStrikeAttack
 LAB_0806809a:
     mov        r0,#0xbd
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
 LAB_080680a4:

@@ -77,7 +77,7 @@ _nt E_WWWGate_1_Main
 
 _nt E_WWWGate_2_Free
     mov        r0,#0x91
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         Effect_Free
     pop        {pc}
 

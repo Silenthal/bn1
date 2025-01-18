@@ -59,7 +59,7 @@ _ts A_Dynamyte_0_Init
     mov        r0,#0x0
     strb       r0,[r5,#0x1a]
     mov        r0,#0x93
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1c
     mov        r1,#0x64
     add        r1,r1,r5
@@ -227,7 +227,7 @@ CellPosition_ARRAY_08078ef0:
 _ts A_Dynamyte_2_Destroy
     push       {lr}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
@@ -262,7 +262,7 @@ LAB_08078f30:
 _ts A_Dynamyte_3_Explode
     push       {lr}
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         SpritePtr_SetFlashPalette
     ldr        r0,[r5,#0x64]
     bl         FieldObject_Disable
@@ -414,7 +414,7 @@ _ts A_Dynamyte_CheckDamage
     bne        LAB_0807906e
 LAB_0807905a:
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -423,7 +423,7 @@ LAB_0807905a:
     pop        {pc}
 LAB_0807906e:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08079074:
     mov        r0,#0x0
     pop        {pc}

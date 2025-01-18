@@ -105,7 +105,7 @@ _ts R_MagicMan_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806a916:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0806a950
@@ -451,7 +451,7 @@ _ts R_MagicMan_1_4_1
     bl         Effect_MagicMan_Create
     str        r7,[r5,#0x5c]
     mov        r0,#0x8f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
     mov        r0,#0x1e
@@ -475,7 +475,7 @@ _ts R_MagicMan_1_4_2
     mov        r6,#0xa0
     bl         Attack_MagicFire_Create
     mov        r0,#0xb6
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x0
     str        r0,[r5,#0x5c]
     mov        r0,#0xc

@@ -141,7 +141,7 @@ _nt S_GovtElevator_4
     bl         World_ChangeMap
     pop        {r5}
     mov        r0,#0xc1
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     bl         Flag_SetPlayerActive
     pop        {r5}

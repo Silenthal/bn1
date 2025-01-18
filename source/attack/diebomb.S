@@ -77,7 +77,7 @@ _ts A_DieBomb_0_Init
     add        r1,r5,r3
     bl         Field_CreateEntity
     mov        r0,#0x93
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     bl         A_DieBomb_1_Main
@@ -304,13 +304,13 @@ LAB_08072976:
     str        r0,[r5,#0x8]
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     pop        {pc}
 LAB_0807298e:
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08072998:
     mov        r0,#0x0
     pop        {pc}

@@ -14,7 +14,7 @@ _ts MapSetup_School_Staff_Lounge_Hallway_S1
     pop        {r5}
     beq        LAB_08028516
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {pc}
 LAB_08028516:
     bl         Sound_AreaSongChange
@@ -160,7 +160,7 @@ _ts MapSetup_School_Staff_Lounge_Hallway_S2
     beq        LAB_0802864e
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_08028666
 LAB_0802864e:
@@ -168,7 +168,7 @@ LAB_0802864e:
     beq        LAB_08028662
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_08028666
 LAB_08028662:

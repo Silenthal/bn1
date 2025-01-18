@@ -425,7 +425,7 @@ _nt BattleT2_5
 PTR_BattleT2_5_0_080075c0:
     .word BattleT2_5_0
     .word BattleT2_5_1
-    .word dummy_761a
+    .word BattleT2_5_2
     .word BattleT2_5_3
     .word BattleT2_5_4
     .word BattleT2_5_5
@@ -466,7 +466,7 @@ LAB_08007618:
     pop        {pc}
 
 
-_nt dummy_761a
+_nt BattleT2_5_2
     pop        {pc}
 
 

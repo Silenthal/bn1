@@ -107,7 +107,7 @@ _nt S_Story_18_3
     mov        r0,#0x0
     str        r0,[r5,#0x14]
     mov        r0,#0x8e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     LoadMain world, r0, r7
     mov        r0,#0x25
     bl         PlayerAnimation_SetState
@@ -254,7 +254,7 @@ _ts S_Story_18_10
     bl         PlayerAnimation_Unlock
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_080873a8:

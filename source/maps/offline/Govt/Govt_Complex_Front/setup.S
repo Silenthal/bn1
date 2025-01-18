@@ -20,7 +20,7 @@ _ts MapSetup_Govt_Complex_Front_S2
     beq        LAB_0803168e
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_080316a6
 LAB_0803168e:
@@ -28,7 +28,7 @@ LAB_0803168e:
     beq        LAB_080316a2
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_080316a6
 LAB_080316a2:

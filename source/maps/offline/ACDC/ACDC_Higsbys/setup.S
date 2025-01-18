@@ -13,7 +13,7 @@ _ts MapSetup_ACDC_Higsbys_S2
     beq        LAB_0802ea5a
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802ea72
 LAB_0802ea5a:
@@ -21,7 +21,7 @@ LAB_0802ea5a:
     beq        LAB_0802ea6e
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802ea72
 LAB_0802ea6e:

@@ -122,7 +122,7 @@ LAB_0805f4a0:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805f4b2:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -523,7 +523,7 @@ _ts R_StoneMan_1_4_2_StartAttack
     mov        r0,#0x28
     strh       r0,[r5,#0x1c]
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805f764:
     pop        {pc}
 

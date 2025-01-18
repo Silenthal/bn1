@@ -627,7 +627,7 @@ _nt R_ElecMan_1_7_3
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0xbb
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xf
     strh       r0,[r5,#0x1e]
     mov        r0,#0x10
@@ -650,7 +650,7 @@ _nt R_ElecMan_1_7_4
     strh       r0,[r5,#0x1e]
     bne        LAB_08064276
     mov        r0,#0xbc
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xf
     strh       r0,[r5,#0x1e]
 LAB_08064276:
@@ -757,7 +757,7 @@ _nt R_ElecMan_1_8_2_Recover
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0xbb
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrh       r0,[r5,#0x22]
     strh       r0,[r5,#0x20]
     mov        r0,#0xc
@@ -1164,7 +1164,7 @@ LAB_0806461e:
     beq        LAB_0806464a
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x68]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0xd
@@ -1176,7 +1176,7 @@ LAB_0806461e:
     pop        {pc}
 LAB_08064644:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806464a:
     mov        r0,#0x0
     pop        {pc}

@@ -14,7 +14,7 @@ _ts MapSetup_School_Staff_Lounge_S1
     pop        {r5}
     beq        LAB_080282fe
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {pc}
 LAB_080282fe:
     bl         Sound_AreaSongChange

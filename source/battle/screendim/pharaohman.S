@@ -137,7 +137,7 @@ _nt SD_PharaohMan_1_3
     bne        LAB_0809b17a
     bl         ScreenDim_WarpPlayerIn
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strh       r0,[r5,#0x0]
     mov        r0,#0x0

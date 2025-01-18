@@ -76,7 +76,7 @@ _nt SD_Interrupt_1
     bne        LAB_0809a062
     bl         FUN_0809a0a6
     mov        r0,#0xcf
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x5a
     strh       r0,[r5,#0x8]
     mov        r0,#0x8

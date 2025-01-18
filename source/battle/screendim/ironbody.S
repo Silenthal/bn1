@@ -69,7 +69,7 @@ _nt SD_IronBody_1_Apply
     ldrb       r0,[r5,#0x6]
     bl         R_Player_ApplyIronBody
     mov        r0,#0xd0
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x3c
     strh       r0,[r5,#0x8]
     mov        r0,#0x8

@@ -39,7 +39,7 @@ PTR_S_Story_2B_0_08089c40:
 _ts S_Story_2B_0
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     push       {r5}
     bl         PlayerAnimation_Lock
@@ -192,7 +192,7 @@ _nt S_Story_2B_6
     tst        r0,r0
     bne        LAB_08089dcc
     mov        r0,#0x75
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     LoadMain world, r0, r7
     mov        r0,#0x39
     bl         PlayerAnimation_SetState
@@ -252,10 +252,10 @@ _nt S_Story_2B_9
     bne        LAB_08089e46
     Flag_SetBase 0xB6
     mov        r0,#0x7c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x4
-    bl         Sound_StopSong
+    bl         Sound_StopBGM
     pop        {r5}
     mov        r0,#0x28
     strb       r0,[r5,#0x8]
@@ -296,7 +296,7 @@ _ts S_Story_2B_11
     beq        LAB_08089e90
     push       {r5}
     mov        r0,#T_Cold_and_Silent
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     Flag_ClearBase 0xF8
 LAB_08089e90:
@@ -379,7 +379,7 @@ _nt S_Story_2B_13
     bl         PlayerAnimation_Unlock
     push       {r5}
     mov        r0,#T_Cold_and_Silent
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_08089f4e:

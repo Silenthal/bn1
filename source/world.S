@@ -625,7 +625,7 @@ _ts World_HandleRandomEncounter
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0800460c:
     pop        {pc}
 

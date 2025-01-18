@@ -90,7 +90,7 @@ _nt S_Story_5F_3
     bne        LAB_08091378
     Flag_SetBase 0xBE
     mov        r0,#0x7c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x3c
     strb       r0,[r5,#0x8]
     ldrb       r0,[r5,#0x0]

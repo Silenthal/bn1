@@ -177,7 +177,7 @@ LAB_080966cc:
     bl         PlayerAnimation_SetState
     mov        r0,#0x1f
     mov        r1,#0xa
-    bl         Song_FadeOut
+    bl         Sound_FadeOut
     push       {r5}
     ldr        r0,PTR_ScenarioData_78_080967bc
     mov        r1,#0x16

@@ -182,7 +182,7 @@ LAB_080059b4:
     ldrb       r0,[r7,#0xf]
     ldr        r7,PTR_battleSongList_08005a00
     ldrb       r0,[r7,r0]
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     bl         Battle_IncreaseBattleCount
     pop        {pc}
 
@@ -945,12 +945,12 @@ LAB_08005f72:
     mov        r0,#0x1
     strb       r0,[r7,#0x10]
     mov        r0,#T_Winner
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     mov        r0,#0x0
     b          LAB_08005fa4
 LAB_08005f9c:
     mov        r0,#T_Winner
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
 LAB_08005fa2:
     mov        r0,#0x1
 LAB_08005fa4:

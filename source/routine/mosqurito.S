@@ -364,7 +364,7 @@ _ts R_Mosqurito_1_4_0_StartMove
     strh       r1,[r0,#0x2]
     bl         FieldObject_Enable
     mov        r0,#0x94
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strh       r0,[r5,#0xa]
     pop        {pc}
@@ -660,7 +660,7 @@ _nt R_Mosqurito_CheckDamage
 LAB_0806920c:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
@@ -669,7 +669,7 @@ LAB_0806920c:
     pop        {pc}
 LAB_08069224:
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806922a:
     mov        r0,#0x0
     pop        {pc}

@@ -1076,7 +1076,7 @@ _ts Menu_Folder_SelectChip
     tst        r0,r0
     bne        LAB_0801a720
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0xc]
     cmp        r0,#0x20
     bne        LAB_0801a70a
@@ -1148,11 +1148,11 @@ LAB_0801a770:
     strb       r0,[r5,#0x11]
 LAB_0801a774:
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 LAB_0801a77c:
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r0,PTR_textDict_MenuMessages_0801aa74
     mov        r1,#0x3
@@ -1183,13 +1183,13 @@ _ts Menu_Folder_Select_0_FolderToFolder
     strh       r7,[r0,#0x0]
     strh       r6,[r2,#0x0]
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0801a7cc
 LAB_0801a7c0:
     bl         Menu_Folder_HandleSameChipSelect
     cmp        r0,#0xff
     beq        LAB_0801a7cc
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801a7cc:
     mov        r0,#0xff
     strb       r0,[r5,#0x11]
@@ -1246,7 +1246,7 @@ _ts Menu_Folder_Select_2_SackToSack
     str        r7,[r0,#0x1c]
     str        r6,[r2,#0x1c]
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0801a860
 LAB_0801a83c:
     push       {r2}
@@ -1259,11 +1259,11 @@ LAB_0801a83c:
     bl         Menu_Folder_MoveFromSackToFolder
     cmp        r0,#0xff
     beq        LAB_0801a860
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0801a860
 LAB_0801a85a:
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801a860:
     mov        r0,#0xff
     strb       r0,[r5,#0x11]
@@ -1542,13 +1542,13 @@ LAB_0801aa50:
     bl         Menu_Folder_MoveFromSackToFolder
 LAB_0801aa5e:
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xff
     strb       r0,[r5,#0x11]
     pop        {pc}
 LAB_0801aa6a:
     mov        r0,#0x6c
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
     .align 2, 0
@@ -1670,7 +1670,7 @@ LAB_0801ab38:
     mov        r0,#0xc
     strb       r0,[r5,#0x1]
     mov        r0,#0xda
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0801ac1a
 LAB_0801ab50:
     mov        r1,#0x10
@@ -1681,7 +1681,7 @@ LAB_0801ab50:
     mov        r0,#0x10
     strb       r0,[r5,#0x1]
     mov        r0,#0xda
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     b          LAB_0801ac1a
 LAB_0801ab66:
     mov        r6,#0x1a
@@ -1773,7 +1773,7 @@ LAB_0801abf2:
     b          LAB_0801ac0e
 LAB_0801ac08:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801ac0e:
     mov        r0,#0x12
     add        r0,r8
@@ -1818,7 +1818,7 @@ LAB_0801ac4c:
     mov        r0,#0x0
     strb       r0,[r5,#0x11]
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x14
     strb       r0,[r5,#0x1]
     push       {r5}
@@ -2205,7 +2205,7 @@ LAB_0801af34:
     tst        r1,r0
     beq        LAB_0801af4c
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     b          LAB_0801afca
@@ -2271,7 +2271,7 @@ LAB_0801afaa:
     b          LAB_0801afc2
 LAB_0801afbc:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801afc2:
     mov        r0,#0x3c
     strh       r2,[r5,r0]
@@ -2358,7 +2358,7 @@ LAB_0801b054:
     mov        r0,#0xff
     strb       r0,[r5,#0x11]
     mov        r0,#0x67
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 PTR_tilemapSmallList_0801b060:
     .word tilemapSmallList

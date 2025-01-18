@@ -13,7 +13,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_S2
     beq        LAB_080336f2
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0803370a
 LAB_080336f2:
@@ -21,7 +21,7 @@ LAB_080336f2:
     beq        LAB_08033706
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0803370a
 LAB_08033706:

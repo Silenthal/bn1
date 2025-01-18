@@ -201,7 +201,7 @@ _ts A_Howitzer_2_Free
     bic        r2,r3
     bl         Field_SetPanelProperty
     mov        r0,#0x7b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08071d4e:
     push       {r5}
     mov        r7,#0x28

@@ -142,7 +142,7 @@ LAB_0805d870:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805d8a8:
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
@@ -650,7 +650,7 @@ LAB_0805dc20:
     bl         Attack_QuickAttack_Create
     pop        {r5}
     mov        r0,#0x75
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805dc46:
     pop        {pc}
 
@@ -793,7 +793,7 @@ _ts R_Swordy_1_6_2_StartAnim
     mov        r0,#0xc
     strb       r0,[r5,#0xa]
     mov        r0,#0x75
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805dd30:
     pop        {pc}
 
@@ -989,7 +989,7 @@ LAB_0805de54:
     ldrb       r3,[r7,#0x1]
     bl         R_Swordy_CreateWideSwordAttack
     mov        r0,#0x75
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805de78:
     pop        {pc}
 

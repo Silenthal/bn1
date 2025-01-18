@@ -19,7 +19,7 @@ LAB_0803c844:
     Flag_GetBase 0xC5
     bne        LAB_0803c854
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     b          LAB_0803c858
 LAB_0803c854:
     bl         Sound_AreaSongChange

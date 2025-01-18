@@ -100,7 +100,7 @@ _ts S_Story_20_3
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
     Flag_SetBase 0xA0

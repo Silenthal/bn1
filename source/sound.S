@@ -3,18 +3,17 @@
     .include "macros.inc"
 
 
-@@ Initializes audio
-@ void __stdcall Sound_Init(void)
+@@ Initializes audio.
 _ts Sound_Init
     push       { lr }
     bl         m4aSoundInit
-    ldr        r0,initVal
+    ldr        r0,PTR_soundMode
     bl         m4aSoundMode
     @ Set VCOUNT interrupt handler to 0x3006940+1
-    ldr        r0,ptrIntrVec
-    ldr        r1,longcall_4169
+    ldr        r0,PTR_interruptHandler
+    ldr        r1,PTR_handlerVcount
     str        r1,[r0, #8]
-    ldr        r0,regDispStat
+    ldr        r0,PTR_REG_DISPSTAT
     @ Set DISPSTAT to perform VCOUNT interrupt on LYC 80
     ldrh       r1,[r0]
     mov        r2,#0xff
@@ -27,29 +26,39 @@ _ts Sound_Init
     strh       r1,[r0,#0x0]
     pop        { pc }
 
-initVal:        .word 0x93040D
-regDispStat:    .word REG_DISPSTAT
-ptrIntrVec:     .word interruptVector
-longcall_4169:  .word IRQ_VCount_far
+    .align 2, 0
 
+PTR_soundMode:          .word 0x93040D
+PTR_REG_DISPSTAT:       .word REG_DISPSTAT
+PTR_interruptHandler:   .word interruptVector
+PTR_handlerVcount:      .word IRQ_VCount_far
+
+
+@@ Sound function during vcount that handles general audio.
 _ts Sound_Main
     push       { lr }
     bl         m4aSoundMain
     pop        { pc }
 
-@ unknown
+    .align 2, 0
+
     .word 0x2002310
     .word DAT_08000658
 DAT_08000658:
     debug_str 0x1C, 0x12, "%D"
 
 
+@@ Sound function during vsync that transfers audio data.
 _ts Sound_VSync
     push       { lr }
     bl         m4aSoundVSync
     pop        { pc }
 
-_ts Sound_PlaySongImmediate
+
+@@ Play a sound effect immediately.
+@@ In:
+@@ r0: songid - The ID of the sound to play.
+_ts Sound_PlaySE
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
 LAB_0800066a:
     mov        r1,r10
@@ -60,7 +69,11 @@ LAB_0800066a:
 LAB_08000676:
     pop        { r1, r2, r3, r4, r5, r6, r7, pc }
 
-_ts Sound_ChangeSong
+
+@@ Plays background music.
+@@ In:
+@@ r0: songid - The ID of the track to play.
+_ts Sound_PlayBGM
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     LoadMain world, r7, r7
     ldrb       r1,[r7,#0x18]
@@ -69,15 +82,24 @@ _ts Sound_ChangeSong
     strb       r0,[r7,#0x18]
     b          LAB_0800066a
 
-_ts Sound_PlaySong
+
+@@ Plays background music without checking what's playing.
+@@ In:
+@@ r0: songid - The ID of the track to play.
+_ts Sound_ForcePlayBGM
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     LoadMain world, r7, r7
     strb       r0,[r7,#0x18]
     b          LAB_0800066a
 
-_nt Song_FadeOut
+
+@@ Fades out the specified music track.
+@@ In:
+@@ r0: musicPlayerId - The index of the music player to fade.
+@@ r1: speed - The speed at which to fade.
+_nt Sound_FadeOut
     push       { r5, lr }
-    ldr        r7,PTR_musicPlayerList_080006a8
+    ldr        r7,PTR_musicPlayerList
     lsl        r0,r0,#0x2
     ldr        r0,[r7,r0]
     mov        r2,r10
@@ -87,7 +109,11 @@ _nt Song_FadeOut
     mov        r10,r2
     pop        { r5, pc }
 
-PTR_musicPlayerList_080006a8: .word musicPlayerList
+    .align 2, 0
+
+PTR_musicPlayerList:
+    .word musicPlayerList
+
 musicPlayerList:
         .word musicPlayerInfo_00
         .word musicPlayerInfo_01
@@ -122,6 +148,8 @@ musicPlayerList:
         .word musicPlayerInfo_1E
         .word musicPlayerInfo_1F
 
+
+@@ Stops all playing music.
 _ts Sound_StopAllMusic
     push       { lr }
     mov        r1,r10
@@ -134,6 +162,8 @@ _ts Sound_StopAllMusic
     strb       r0,[r7,#0x18]
     pop        { pc }
 
+
+@@ Changes the currently playing BGM based on the current area.
 _ts Sound_AreaSongChange
     push       { lr }
     LoadMain world, r7, r7
@@ -177,10 +207,12 @@ LAB_08000756:
     beq        LAB_080007a0
     mov        r0,#0x3
 LAB_080007a0:
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     b          LAB_080007a6
 LAB_080007a6:
     pop        { pc }
+
+    .align 2, 0
 
 PTR_songTableOffline_080007a8:        .word songTableOffline
 PTR_songTableOnline_080007ac:         .word songTableOnline
@@ -519,7 +551,11 @@ songGroup_Internet:
     .byte T_Boundless_Network
     .byte T_Boundless_Network
 
-_ts Sound_StopSong
+
+@@ Stops the specified song.
+@@ In:
+@@ r0: songid - The ID of the track to stop.
+_ts Sound_StopBGM
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     mov        r1,r10
     push       { r1 }

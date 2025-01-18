@@ -109,7 +109,7 @@ _ts R_Puffy_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805e176:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_R_Puffy_1_0_Spawn_0805e1a8

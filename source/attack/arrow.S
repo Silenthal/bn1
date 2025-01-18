@@ -239,7 +239,7 @@ _ts A_Arrow_1_2_0
     mov        r0,#0x1
     bl         Battle_SetBattleFlag
     mov        r0,#0x98
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 

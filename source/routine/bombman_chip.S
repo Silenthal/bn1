@@ -78,7 +78,7 @@ LAB_0806dea6:
     pop        {r0,r1}
     bl         Attack_BombShoot_Create
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {pc}
 
 
@@ -184,7 +184,7 @@ _ts R_BombManC_1_1_1
     ldr        r7,[r5,#0x5c]
     bl         A_BombShoot_SetTarget
     mov        r0,#0x8e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
 LAB_0806df76:

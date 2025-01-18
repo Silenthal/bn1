@@ -438,7 +438,7 @@ LAB_08049a08:
     Flag_ToggleIgnore F_IGNORE_DOOR_00
     Flag_ToggleIgnore F_IGNORE_DOOR_01
     mov        r0,#0xba
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     pop        {r5}
     bl         FUN_08049ab0
     b          LAB_08049a44

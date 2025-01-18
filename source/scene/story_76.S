@@ -266,7 +266,7 @@ _ts S_Story_76_8
     tst        r0,r0
     bne        LAB_08095d96
     mov        r0,#0x79
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r0,PTR_BgTask_804CC98_08096098
     bl         BgTask_AddNew
@@ -424,7 +424,7 @@ _ts S_Story_76_14
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     Flag_SetBase 0xB4
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
@@ -432,10 +432,10 @@ _ts S_Story_76_14
 LAB_08095eb6:
     Flag_SetBase 0xE2
     mov        r0,#0xa9
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0xd
-    bl         Sound_StopSong
+    bl         Sound_StopBGM
     pop        {r5}
     mov        r0,#0x31
     bl         PlayerAnimation_SetState
@@ -538,7 +538,7 @@ _nt S_Story_76_18
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldr        r7,PTR_NPCList_804E458_0809609c
     bl         Map_LoadNPCList
     pop        {r5}
@@ -592,7 +592,7 @@ _ts S_Story_76_20
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrb       r0,[r5,#0x0]
     add        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -652,7 +652,7 @@ _ts S_Story_76_SkipIfStart
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x54
     strb       r0,[r5,#0x0]
     pop        {pc}

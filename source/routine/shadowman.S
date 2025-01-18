@@ -113,7 +113,7 @@ LAB_0806b834:
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0806b846:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0806b880
@@ -637,7 +637,7 @@ _nt R_ShadowMan_1_5_3
     mov        r0,#0xf
     strh       r0,[r5,#0x1c]
     mov        r0,#0xb7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x18]

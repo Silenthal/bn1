@@ -220,13 +220,13 @@ LAB_08072332:
     str        r0,[r5,#0x8]
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0x70
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     pop        {pc}
 LAB_0807236a:
     bl         SpritePtr_SetFlashPalette
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08072374:
     mov        r0,#0x0
     pop        {pc}

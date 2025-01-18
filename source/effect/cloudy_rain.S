@@ -53,7 +53,7 @@ _nt E_CloudyRain_1_Main
     strh       r0,[r5,#0x1c]
     bne        LAB_0807dee2
     mov        r0,#0x9b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0xf
     strh       r0,[r5,#0x1c]
 LAB_0807dee2:

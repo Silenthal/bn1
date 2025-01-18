@@ -103,7 +103,7 @@ _ts A_SparkStrike_1_0
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
     mov        r0,#0xbb
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x4
     strb       r0,[r5,#0x9]
     mov        r0,#0x0

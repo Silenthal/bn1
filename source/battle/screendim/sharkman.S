@@ -121,7 +121,7 @@ _ts SD_SharkMan_1_1
     strb       r0,[r7,#0x0]
     bl         SD_SharkMan_1_1_CreateFins
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
 LAB_0809ab16:
@@ -149,7 +149,7 @@ _nt SD_SharkMan_1_2
     bne        LAB_0809ab3c
     bl         ScreenDim_WarpPlayerIn
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x8
     str        r0,[r5,#0x0]
 LAB_0809ab3c:

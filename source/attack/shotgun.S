@@ -133,7 +133,7 @@ _ts A_Shotgun_CreateExtraHits
     ldrb       r0,[r7,r0]
     tst        r0,r0
     beq        LAB_08070498
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08070498:
     ldr        r7,PTR_BYTE_ARRAY_080704f0
     ldrb       r4,[r5,#0x4]

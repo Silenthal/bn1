@@ -121,7 +121,7 @@ _ts R_Floshell_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0805fea2:
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0805fee4
@@ -470,7 +470,7 @@ _ts R_Floshell_1_5_1_MiniBomb
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x81
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         R_Floshell_LaunchMiniBomb
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
@@ -538,7 +538,7 @@ _ts R_Floshell_1_6_1_MiniBomb
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x81
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         R_Floshell_LaunchMiniBomb
     mov        r0,#0x8
     strb       r0,[r5,#0xa]
@@ -705,7 +705,7 @@ LAB_0806025e:
 LAB_0806029c:
     pop        {r5}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     strb       r0,[r5,#0xc]
 LAB_080602a8:

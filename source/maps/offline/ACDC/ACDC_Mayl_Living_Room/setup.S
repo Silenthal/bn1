@@ -139,7 +139,7 @@ _ts MapSetup_ACDC_Mayl_Living_Room_S2
     beq        LAB_0802d65e
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802d676
 LAB_0802d65e:
@@ -147,7 +147,7 @@ LAB_0802d65e:
     beq        LAB_0802d672
     push       {r5}
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     b          LAB_0802d676
 LAB_0802d672:

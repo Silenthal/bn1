@@ -124,7 +124,7 @@ _ts R_Mettaur_1_Main
     bl         SpritePtr_SetFlashPalette
     pop        {r2}
     mov        r0,#0x6f
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     beq        LAB_0805a680

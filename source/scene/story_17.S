@@ -54,7 +54,7 @@ _ts S_Story_17_1
     strb       r0,[r5,#0x8]
     push       {r5}
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_ScenarioData_17_0808719c
@@ -87,7 +87,7 @@ _nt S_Story_17_3
     mov        r0,#0x1e
     strb       r0,[r5,#0x8]
     mov        r0,#0x8d
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_080870ea:
     push       {r5}
     mov        r0,#0x80

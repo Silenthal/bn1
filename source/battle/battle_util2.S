@@ -2,26 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
-
-
-_ts Battle_IsActive
-    push       {lr}
-    LoadMain world, r7, r7
-    mov        r0,#0x1
-    ldrb       r1,[r7,#0xf]
-    cmp        r1,#0x8
-    blt        LAB_08007c3c
-    ldrb       r0,[r5,#0x1f]
-LAB_08007c3c:
-    pop        {pc}
-
-
-_nt GetToggledKeys
-    mvn        r2,r1
-    and        r2,r0
-    mov        pc,lr
-
 
 _ts Battle_InitChipDeck
     push       { r5, lr }
@@ -3226,7 +3206,7 @@ _nt BattleSpawnAnimation_0_Init
     mov        r0,#0x4
     strb       r0,[r6,#0x0]
     mov        r0,#0x92
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x1
     pop        {pc}
 

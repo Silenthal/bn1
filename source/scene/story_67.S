@@ -96,7 +96,7 @@ _ts S_Story_67_3
     Flag_SetBase 0x9D
     Flag_SetItem F_ITEM_30E
     mov        r0,#0x85
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x32
     bl         PlayerAnimation_SetState
     mov        r0,#0x3c
@@ -199,7 +199,7 @@ _nt S_Story_67_7
     bl         BgTask_AddNew
     pop        {r5}
     mov        r0,#0xed
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x1
     mov        r1,#0x10

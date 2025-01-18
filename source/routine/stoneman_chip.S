@@ -203,7 +203,7 @@ _ts R_StoneManC_1_1_2_ShakeScreen
     mov        r0,#0xc
     strh       r0,[r5,#0xa]
     mov        r0,#0x7e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08061dd0:
     pop        {pc}
 

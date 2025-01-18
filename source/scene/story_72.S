@@ -115,7 +115,7 @@ _ts S_Story_72_3
     bl         Entity_FreeAllMultiple
     pop        {r5}
     mov        r0,#0xde
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     ldr        r7,PTR_NPCList_804E230_08094f64
     bl         Map_LoadNPCList
@@ -283,7 +283,7 @@ _ts S_Story_72_10
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     Flag_SetBase 0xB4
     mov        r0,#0x36
     bl         PlayerAnimation_SetState
@@ -291,7 +291,7 @@ _ts S_Story_72_10
 LAB_08094dee:
     Flag_SetBase 0xB7
     mov        r0,#0xa9
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x31
     bl         PlayerAnimation_SetState
     push       {r5}

@@ -84,7 +84,7 @@ _ts BattleUi_CheckDrawPlayerHp
     tst        r7,r7
     bne        LAB_0801547c
     mov        r0,#0xd7
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_0801547c:
     push       { r3, r5 }
     ldr        r0,PTR_Color_ARRAY_08015604
@@ -361,7 +361,7 @@ _ts DrawCustomGauge
     tst        r3,r3
     beq        LAB_080156a4
     mov        r0,#0xc8
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r3,#0x0
     strb       r3,[r5,#0x7]
 LAB_080156a4:

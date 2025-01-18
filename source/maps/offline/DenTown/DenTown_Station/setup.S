@@ -18,19 +18,19 @@ _ts MapSetup_DenTown_Station_S3
     Flag_GetBase 0xA6
     beq        LAB_08036cb8
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     b          LAB_08036cdc
 LAB_08036cb8:
     Flag_GetBase 0x9B
     beq        LAB_08036cc8
     mov        r0,#T_Suspicious_Mood
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     b          LAB_08036cdc
 LAB_08036cc8:
     Flag_GetBase 0x98
     beq        LAB_08036cd8
     mov        r0,#T_Incident_Occurrence
-    bl         Sound_ChangeSong
+    bl         Sound_PlayBGM
     b          LAB_08036cdc
 LAB_08036cd8:
     bl         Sound_AreaSongChange

@@ -560,3 +560,20 @@ PTR_gListMPStateAll_08007c24:
     .word gListMPStateAll
 PTR_PlayerMpState_08007c28:
     .word 0x200c1c0
+
+_ts Battle_IsActive
+    push       {lr}
+    LoadMain world, r7, r7
+    mov        r0,#0x1
+    ldrb       r1,[r7,#0xf]
+    cmp        r1,#0x8
+    blt        LAB_08007c3c
+    ldrb       r0,[r5,#0x1f]
+LAB_08007c3c:
+    pop        {pc}
+
+
+_nt GetToggledKeys
+    mvn        r2,r1
+    and        r2,r0
+    mov        pc,lr

@@ -51,7 +51,7 @@ _ts A_Bakufu_0_Init
     add        r1,r1,r5
     bl         Field_CreateEntity
     mov        r0,#0x76
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     bl         A_Bakufu_1_Main
     pop        {pc}
 

@@ -205,7 +205,7 @@ _ts Menu_Item_HandleInput
     tst        r1,r0
     beq        LAB_0801c8a2
     mov        r0,#0x68
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x10
@@ -322,7 +322,7 @@ LAB_0801c952:
     b          LAB_0801c976
 LAB_0801c960:
     mov        r0,#0x66
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     push       {r2,r3,r5}
     ldr        r0,PTR_DialogueData_Item_Descriptions_0801cac0
     add        r2,r2,r3

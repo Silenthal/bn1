@@ -101,7 +101,7 @@ _ts SD_Invisible_1
     ldrb       r0,[r5,#0x6]
     bl         R_Player_SetInvisible
     mov        r0,#0x91
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
     mov        r0,#0x3c
     strh       r0,[r5,#0x8]
     mov        r0,#0x8

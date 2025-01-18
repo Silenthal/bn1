@@ -113,7 +113,7 @@ LAB_08006ae0:
     and        r2,r0
     strb       r2,[r6,#0x0]
     mov        r0,#0x7b
-    bl         Sound_PlaySongImmediate
+    bl         Sound_PlaySE
 LAB_08006b1a:
     str        r1,[r7,#0x4]
     add        r6,#0x1
