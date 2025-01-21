@@ -5,7 +5,7 @@
 
 _ts Routine_Gaia
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1
@@ -782,7 +782,7 @@ LAB_0806cc5c:
     bl         Field_SubtractHP
     tst        r1,r1
     bne        LAB_0806cc80
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0806cc68:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70

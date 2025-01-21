@@ -20,7 +20,7 @@ listSkullManSpec:
 
 _ts Routine_SkullMan
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1
@@ -250,7 +250,7 @@ _nt R_SkullMan_1_3_Flinch
     ldrh       r0,[r0,#0x0]
     lsr        r0,r0,#0x1
     bcs        LAB_08062e8c
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08062e8c:
     ldrb       r0,[r5,#0xa]
     ldr        r7,PTR_PTR_R_SkullMan_1_3_0_Flinch_08062e98
@@ -944,7 +944,7 @@ LAB_0806333c:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
 LAB_08063362:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_0806338c

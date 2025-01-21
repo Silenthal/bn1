@@ -167,7 +167,7 @@ _ts R_Player_1_Main
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     bl         R_Player_SetVisibleEffect
     bl         Battle_GetEntryState
     tst        r0,r0
@@ -731,7 +731,7 @@ _ts R_PlayerB_5_0_Glint
 
 _ts R_PlayerB_5_1_Delete
     push       {lr}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
     strh       r0,[r5,#0x1c]
@@ -804,13 +804,13 @@ LAB_080568dc:
     beq        LAB_08056904
     push       {r5}
     add        r5,r7,#0x0
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r5}
     pop        {pc}
 LAB_08056904:
     push       {r5}
     add        r5,r7,#0x0
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     pop        {r5}
 LAB_0805690e:
     pop        {pc}
@@ -956,7 +956,7 @@ _ts R_PlayerB_7_Drain
     ldrh       r0,[r7,#0x0]
     lsr        r0,r0,#0x2
     bcc        LAB_08056a14
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08056a14:
     ldrb       r0,[r5,#0xa]
     ldr        r7,PTR_PTR_R_PlayerB_7_0_StartWait_08056a28
@@ -1103,7 +1103,7 @@ _ts R_PlayerC_3_EndMove
     ldr        r7,[r5,#0x74]
     mov        r0,#0xa
     strb       r0,[r7,#0xe]
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08056b1e:
     mov        r0,#0xf
     bl         ActorPlayer_SetFlag_1
@@ -1489,7 +1489,7 @@ _ts R_Player_CheckDamage
     strb       r0,[r7,#0x0]
     lsr        r0,r0,#0x2
     bcc        LAB_08056de2
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08056de2:
     mov        r0,#0x0
     ldr        r7,[r5,#0x74]
@@ -1524,7 +1524,7 @@ LAB_08056e0c:
     bl         Field_SubtractHP
     tst        r1,r1
     beq        LAB_08056e4a
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldr        r7,[r5,#0x74]
     ldrb       r0,[r7,#0x3]
     add        r0,#0x1
@@ -1549,7 +1549,7 @@ LAB_08056e4a:
     ldr        r0,[r5,#0x74]
     ldr        r0,[r0,#0x44]
     bl         FieldObject_SetDeletedFlag
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     mov        r0,#0xf
     bl         ActorPlayer_ClearFlag_1
     bl         R_Player_ClearChip
@@ -1714,7 +1714,7 @@ LAB_08056f7c:
 
 _nt FUN_08056f7e
     push       {lr}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     mov        r0,#0x40
     bl         ActorPlayer_CheckStatus
     bne        LAB_08056ffa
@@ -1798,7 +1798,7 @@ _ts FUN_08057000
 
 _ts FUN_0805702c
     push       {lr}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldr        r7,[r5,#0x74]
     mov        r0,#0x4e
     strb       r0,[r7,#0x0]
@@ -5253,7 +5253,7 @@ CellPosition_ARRAY_08058820:
 
 _ts BC_BodyBurn_2_Free
     push       {lr}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldr        r7,[r5,#0x74]
     mov        r0,#0x1
     strb       r0,[r7,#0x0]

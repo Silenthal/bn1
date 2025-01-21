@@ -94,7 +94,7 @@ _ts R_WoodMan_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     bl         Battle_IsInputLocked
     bne        LAB_08058d0c
     ldrb       r0,[r5,#0x17]
@@ -129,7 +129,7 @@ LAB_08058cd8:
     beq        LAB_08058d0c
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

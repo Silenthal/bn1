@@ -15,7 +15,7 @@ EP_60_A_Block_BlockParam_ARRAY_080735bc:
 
 _ts Attack_Cube
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x8]
     ldr        r7,PTR_PTR_A_Cube_0_Init_08073608
     ldr        r7,[r7,r0]
@@ -283,11 +283,11 @@ LAB_080737fa:
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     mov        r0,#0x1
     pop        {pc}
 LAB_0807380c:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_08073816:

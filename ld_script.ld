@@ -142,7 +142,7 @@ SECTIONS {
 		gListSpriteTilesetDetail	= 0x7200;
 		gPetStatusControl			= 0x74C8;
 		gEntityBoundsListCount		= 0x74D0;
-		eDmaParamListSize			= 0x74D4;
+		gDmaParamListSize			= 0x74D4;
 		gDemo						= 0x74D8;
 		gDisplaySettings			= 0x7510;
 		gChipTrader					= 0x7530;
@@ -156,7 +156,7 @@ SECTIONS {
 		gPanelStatuses				= 0x7B60;
 		gScreenDim					= 0x7DE0;
 		gLayoutDialogueText			= 0x7E10;
-		eDmaParamList				= 0x8010;
+		gDmaParamList				= 0x8010;
 		gEntityListAttack			= 0x8410;
 		gCurMapEventData			= 0x9A10;
 		gCurMapCoverData			= 0x9A30;

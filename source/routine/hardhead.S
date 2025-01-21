@@ -18,7 +18,7 @@ _ts Routine_HardHead
     add        r7,r5,r3
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r7,PTR_PTR_R_HardHead_0_Init_0805c7c4
     ldrb       r0,[r5,#0x8]
     ldr        r7,[r7,r0]
@@ -128,7 +128,7 @@ LAB_0805c86a:
     tst        r1,r1
     bne        LAB_0805c8d0
     bl         Field_SubtractHP
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_0805c8ca

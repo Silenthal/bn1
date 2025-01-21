@@ -27,7 +27,7 @@ _ts Routine_NumberMan
     add        r7,r5,r3
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1
@@ -267,7 +267,7 @@ _nt R_NumberMan_1_3_Flinch
     ldrh       r0,[r0,#0x0]
     lsr        r0,r0,#0x1
     bcs        LAB_0805d3cc
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0805d3cc:
     ldr        r7,PTR_PTR_R_NumberMan_1_3_0_0805d3d8
     ldrb       r0,[r5,#0xa]
@@ -735,7 +735,7 @@ LAB_0805d6ce:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
 LAB_0805d6f4:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_0805d71e

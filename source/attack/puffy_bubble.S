@@ -102,7 +102,7 @@ LAB_08072a78:
     ldr        r7,[r5,#0x60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r2,[r5,#0x17]
     tst        r2,r2
     beq        LAB_08072ae6
@@ -135,7 +135,7 @@ LAB_08072ab2:
     beq        LAB_08072ae6
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

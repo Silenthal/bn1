@@ -24,7 +24,7 @@ listDieBombFaceValue:
 
 _ts Attack_DieBomb
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x8]
     ldr        r7,PTR_PTR_A_DieBomb_0_Init_08072778
     ldr        r7,[r7,r0]
@@ -302,13 +302,13 @@ LAB_08072976:
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
     str        r0,[r5,#0x8]
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     mov        r0,#0x70
     bl         Sound_PlaySE
     mov        r0,#0x1
     pop        {pc}
 LAB_0807298e:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_08072998:

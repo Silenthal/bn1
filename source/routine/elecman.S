@@ -12,7 +12,7 @@ listElecManSpec:
 
 _ts Routine_ElecMan
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1
@@ -229,7 +229,7 @@ _nt R_ElecMan_1_3_Flinch
     ldrh       r0,[r0,#0x0]
     lsr        r0,r0,#0x1
     bcs        LAB_08063f90
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08063f90:
     ldrb       r0,[r5,#0xa]
     ldr        r7,PTR_PTR_R_ElecMan_1_3_0_Flinch_08063f9c
@@ -658,7 +658,7 @@ LAB_08064276:
     ldrh       r0,[r7,#0x0]
     lsr        r0,r0,#0x2
     bcc        LAB_08064284
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08064284:
     mov        r0,#0x1
     bl         Battle_SetBattleFlag
@@ -772,7 +772,7 @@ _nt R_ElecMan_1_8_3_Reset
     ldrh       r0,[r7,#0x0]
     lsr        r0,r0,#0x2
     bcc        LAB_08064352
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08064352:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
@@ -1154,7 +1154,7 @@ LAB_080645e8:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
 LAB_08064614:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_08064644

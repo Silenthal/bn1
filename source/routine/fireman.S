@@ -44,7 +44,7 @@ _ts Routine_FireMan
     add        r7,r5,r3
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1
@@ -197,7 +197,7 @@ LAB_08059dba:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
 LAB_08059de0:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     mov        r0,#0x6f
     bl         Sound_PlaySE
     ldrh       r0,[r5,#0x20]
@@ -1063,7 +1063,7 @@ _ts R_FireMan_1_7_Flinch
     ldrh       r0,[r0,#0x0]
     lsr        r0,r0,#0x1
     bcs        LAB_0805a416
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0805a416:
     ldr        r7,PTR_PTR_R_FireMan_1_7_0_Flinch_0805a424
     ldrb       r0,[r5,#0xa]

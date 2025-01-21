@@ -120,7 +120,7 @@ _ts A_Ratton_1_Main
     strh       r0,[r5,#0xa]
     b          LAB_08074694
 LAB_08074612:
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r6,[r5,#0x60]
     ldrh       r0,[r5,#0x18]
     ldr        r1,DAT_080746a4
@@ -143,7 +143,7 @@ LAB_08074624:
     beq        LAB_08074652
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

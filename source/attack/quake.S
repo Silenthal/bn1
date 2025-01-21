@@ -9,7 +9,7 @@ _ts Attack_Quake
     add        r7,r5,r3
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x8]
     ldr        r7,PTR_PTR_A_Quake_0_Init_08073004
     ldr        r7,[r7,r0]

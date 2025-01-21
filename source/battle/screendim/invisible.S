@@ -51,7 +51,7 @@ _ts SD_Invisible_0_Init
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r5,[r7,r0]
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     pop        {r5}
     mov        r0,#0x4
     str        r0,[r5,#0x0]

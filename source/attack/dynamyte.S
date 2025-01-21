@@ -90,7 +90,7 @@ LAB_08078df6:
     ldrb       r0,[r5,#0x19]
     add        r0,#0xf
     bl         Battle_SetBattleFlag
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     bl         Battle_GetEntryState
     cmp        r0,#0x0
     bne        LAB_08078e1e
@@ -263,7 +263,7 @@ _ts A_Dynamyte_3_Explode
     push       {lr}
     mov        r0,#0x76
     bl         Sound_PlaySE
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldr        r0,[r5,#0x64]
     bl         FieldObject_Disable
     ldrh       r0,[r5,#0x1c]
@@ -408,7 +408,7 @@ _ts A_Dynamyte_CheckDamage
     tst        r0,r0
     beq        LAB_08079074
     bl         Field_SubtractHP
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_0807906e

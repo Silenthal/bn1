@@ -87,7 +87,7 @@ LAB_0805f456:
     strb       r1,[r5,#0x1b]
 LAB_0805f45a:
     strb       r0,[r5,#0x0]
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x17]
     tst        r0,r0
     beq        LAB_0805f4b2
@@ -119,7 +119,7 @@ LAB_0805f45a:
 LAB_0805f4a0:
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE
@@ -733,12 +733,12 @@ _ts R_StoneMan_1_6_0_Flinch
 
 _ts R_StoneMan_1_6_1_Wait
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrh       r0,[r5,#0x1c]
     mov        r1,#0x2
     tst        r0,r1
     beq        LAB_0805f8c2
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0805f8c2:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1

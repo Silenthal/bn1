@@ -149,13 +149,13 @@ _ts BgUpdate_MoveLeftSlow
 _ts BgUpdate_NoMove
     mov        pc,lr
 
-        .align 2, 0
+    .align 2, 0
 
 PTR_gFuncPtrBgUpdatePostLoop_08001cbc:  .word gFuncPtrBgUpdatePostLoop
 PTR_interruptVector_hblank_08001cc0:    .word interruptVectorHblank
 PTR_gFuncPtrBgUpdatePostLoop_08001cc4:  .word gFuncPtrBgUpdatePostLoop
-PTR_BgUpdate_NoMove_1_08001cc8:              .word BgUpdate_NoMove
-PTR_IRQ_Dummy_1_08001ccc:              .word IRQ_Dummy_far
+PTR_BgUpdate_NoMove_1_08001cc8:         .word BgUpdate_NoMove
+PTR_IRQ_Dummy_1_08001ccc:               .word IRQ_Dummy_far
 PTR_interruptVector_hblank_08001cd0:    .word interruptVectorHblank
 PTR_gFuncPtrBgUpdatePostLoop_08001cd4:  .word gFuncPtrBgUpdatePostLoop
 PTR_gFuncPtrBgUpdatePostLoop_08001cd8:  .word gFuncPtrBgUpdatePostLoop

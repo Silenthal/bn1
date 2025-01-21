@@ -5,7 +5,7 @@
 
 _ts Routine_BigSnake
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1
@@ -747,7 +747,7 @@ LAB_0806c330:
     mov        r0,#0x1
     pop        {pc}
 LAB_0806c34e:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0806c358:

@@ -1,23 +1,20 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
-
-    .thumb
 
 @@ Sets the settings for a particular DMA channel.
-@@ r0: startAddress: The address to read data from.
-@@ r1: endAddress: The address to write data to.
-@@ r2: wordCount: The amount of 16-bit or 32-bit words to write.
-@@ r3: channel: The channel to write to.
-@@ r4: control: The control settings of the channel.
-@ void SetDmaSettings(void *startAddress,void *endAddress,uint wordCount,int dmaChannel,uint control)
+@@ In:
+@@ r0: startAddress - The address to read data from.
+@@ r1: endAddress - The address to write data to.
+@@ r2: wordCount - The amount of 16-bit or 32-bit words to write.
+@@ r3: channel - The channel to write to.
+@@ r4: control - The control settings of the channel.
 _ts Dma_SetDirect
     lsl        r3,r3,#0x2
-    ldr        r5,localDmaChannelList
+    ldr        r5,PTR_listDmaChannel
     ldr        r5,[r5,r3]
     mov        r3,#0x8
-    ldr        r7,dmaEnableMask
+    ldr        r7,PTR_dmaEnableMask
 1:
     ldr        r6,[r5,r3]
     and        r6,r7
@@ -28,8 +25,9 @@ _ts Dma_SetDirect
     str        r4,[r5,#0x8]
     mov        pc,lr
 
-    .p2align 2,0
-dmaChannelList:
+    .align 2,0
+
+listDmaChannel:
     .word REG_DMA0
     .word REG_DMA1
     .word REG_DMA2
@@ -37,10 +35,10 @@ dmaChannelList:
 
 
 @@ Waits for any active DMA transfers to end.
-@@ r0: flags: The DMA registers to check. Bit 1 set checks DMA1, Bit 2 DMA2, and so on.
-@ void Dma_WaitForEnd(uint flags)
+@@ In:
+@@ r0: flags - The DMA registers to check. Bit 1 set checks DMA1, Bit 2 DMA2, and so on.
 _ts Dma_WaitForEnd
-    ldr        r3,dmaChannelStart
+    ldr        r3,PTR_REG_DMA0
 .checkDma0:
     mov        r1,#0x0
     mov        r4,#0x1
@@ -67,35 +65,35 @@ _ts Dma_WaitForEnd
     ldr        r2,[r3,#0x2c]
     orr        r1,r2
 .checkFlags:
-    ldr        r2,dmaEnableMask
+    ldr        r2,PTR_dmaEnableMask
     and        r1,r2
     bne        .checkDma0
     mov        pc,lr
 
+
 @@ Clears the list of pending DMA transfers.
-@ void Dma_TransferListClear (void)
 _ts Dma_TransferListClear
-    ldr        r0,ptrDmaListSz0
+    ldr        r0,PTR_dmaListSz_0
     mov        r1,#0x0
     str        r1,[r0]
     mov        pc,lr
 
 @@ Adds params for channel 3 DMA transfer to the transfer queue.
-@@ r0: startAddress: The address to read data from.
-@@ r1: endAddress: The address to write data to.
-@@ r2: wordCount: The amount of words being transferred.
-@ void Dma_TransferListAdd (void * start_address, void * end_address, uint32_t word_count)
+@@ In:
+@@ r0: startAddress - The address to read data from.
+@@ r1: endAddress - The address to write data to.
+@@ r2: wordCount - The amount of words being transferred.
 _ts Dma_TransferListAdd
     mov        r3,#0x0
     add        r7,r3,#0x0
-    ldr        r3,ptrDmaListSz1
+    ldr        r3,PTR_dmaListSz_1
     ldr        r4,[r3]
     cmp        r4,#0x40
     bge        1f
     add        r5,r4,#0x0
     add        r4,#0x1
     str        r4,[r3]
-    ldr        r4,ptrDmaList
+    ldr        r4,PTR_gDmaParamList
     mov        r6,#0x10
     mul        r5,r6
     add        r4,r4,r5
@@ -108,20 +106,22 @@ _ts Dma_TransferListAdd
     str        r3,[r4,#0xc]
 1:
     mov        pc,lr
-    .p2align 2,0
+
+    .align 2,0
+
 val4:
     .word pList
 pList:
     .word 0x84000000
     .word 0x85000000
 
+
 @@ Performs all queued DMA channel 3 transfers.
-@ void Dma_TransferListStartAll (void)
 _ts Dma_TransferListStartAll
     push       { lr }
-    ldr        r0,=eDmaParamListSize
+    ldr        r0,=gDmaParamListSize
     ldr        r1,[r0]
-    ldr        r2,=eDmaParamList
+    ldr        r2,=gDmaParamList
 LAB_080009ec:
     cmp        r1,#0x0
     beq        LAB_08000a12
@@ -144,9 +144,9 @@ LAB_08000a12:
     bl         Dma_TransferListClear
     pop        { pc }
 
-localDmaChannelList:    .word dmaChannelList
-dmaEnableMask:          .word DMA_ENABLE
-dmaChannelStart:        .word REG_DMA0
-ptrDmaListSz0:          .word eDmaParamListSize
-ptrDmaListSz1:          .word eDmaParamListSize
-ptrDmaList:             .word eDmaParamList
+PTR_listDmaChannel: .word listDmaChannel
+PTR_dmaEnableMask:  .word DMA_ENABLE
+PTR_REG_DMA0:       .word REG_DMA0
+PTR_dmaListSz_0:    .word gDmaParamListSize
+PTR_dmaListSz_1:    .word gDmaParamListSize
+PTR_gDmaParamList:  .word gDmaParamList

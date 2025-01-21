@@ -237,7 +237,7 @@ LAB_08071f2e:
 
 _ts A_Seed_1_1
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r6,[r5,#0x60]
     ldrh       r0,[r5,#0x18]
     ldr        r1,DAT_08071fac
@@ -254,7 +254,7 @@ _ts A_Seed_1_1
     tst        r0,r0
     beq        LAB_08071f66
     bl         Field_SubtractHP
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_08071f66:

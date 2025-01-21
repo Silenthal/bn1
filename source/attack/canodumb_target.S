@@ -198,7 +198,7 @@ LAB_08071b0e:
 
 _ts A_CanodumbTarget_1_1_2_Flash
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
     strh       r0,[r5,#0x1c]
@@ -222,7 +222,7 @@ LAB_08071b3e:
     mov        r1,#0x2
     tst        r0,r1
     beq        LAB_08071b48
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08071b48:
     pop        {pc}
 

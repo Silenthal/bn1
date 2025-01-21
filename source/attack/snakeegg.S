@@ -113,7 +113,7 @@ DAT_0807974f:
 
 _ts A_SnakeEgg_1_Main
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
@@ -497,7 +497,7 @@ _ts A_SnakeEgg_CheckDamage
     tst        r0,r0
     beq        LAB_08079a3a
     bl         Field_SubtractHP
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_08079a34

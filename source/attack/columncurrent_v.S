@@ -63,7 +63,7 @@ _ts A_ColumnCurrentV_0
 
 _ts A_ColumnCurrentV_1
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     bl         A_ColumnCurrentV_CheckDamage
     tst        r0,r0
     bne        LAB_08075688
@@ -166,7 +166,7 @@ _ts A_ColumnCurrentV_CheckDamage
     tst        r0,r0
     beq        LAB_0807575e
     bl         Field_SubtractHP
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_08075758

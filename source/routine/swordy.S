@@ -121,7 +121,7 @@ _ts R_Swordy_1_Main
     mov        r0,#0x0
     str        r0,[r5,#0x68]
 LAB_0805d870:
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r6,[r5,#0x60]
     ldrh       r0,[r5,#0x18]
     ldr        r1,PanelFlag_0805d914
@@ -139,7 +139,7 @@ LAB_0805d870:
     beq        LAB_0805d8a8
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

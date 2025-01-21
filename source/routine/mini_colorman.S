@@ -112,7 +112,7 @@ PTR_listMiniColorManSpec_08063a8c:
 
 _ts R_MiniColorMan_1_Main
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r0,[r5,#0x68]
     bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
@@ -425,7 +425,7 @@ _nt R_MiniColorMan_1_5_1_Tower
     ldrh       r0,[r7,#0x0]
     lsr        r0,r0,#0x2
     bcc        LAB_08063cc6
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08063cc6:
     mov        r0,#0x5
     bl         Battle_SetBattleFlag

@@ -5,7 +5,7 @@
 
 _ts Routine_Satella
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x8]
     ldr        r7,PTR_PTR_R_Satella_0_Init_0806d4a8
     ldr        r7,[r7,r0]
@@ -510,7 +510,7 @@ _ts R_Satella_CheckDamage
     tst        r0,r0
     beq        LAB_0806d854
     bl         Field_SubtractHP
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_0806d84e

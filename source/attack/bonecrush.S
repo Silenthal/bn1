@@ -116,7 +116,7 @@ PTR_BYTE_ARRAY_ARRAY_08074b00:
 
 _ts A_BoneCrush_1_Main
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
@@ -290,7 +290,7 @@ LAB_08074c34:
 LAB_08074c42:
     mov        r0,#0x6f
     bl         Sound_PlaySE
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_08074c60

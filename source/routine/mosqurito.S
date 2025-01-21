@@ -103,7 +103,7 @@ PTR_MosquritoParam_ARRAY_08068e00:
 
 _ts R_Mosqurito_1_Main
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_DisableIfDeleted
     ldr        r7,[r5,#0x6c]
@@ -653,7 +653,7 @@ _nt R_Mosqurito_CheckDamage
     tst        r0,r0
     beq        LAB_0806922a
     bl         Field_SubtractHP
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_08069224

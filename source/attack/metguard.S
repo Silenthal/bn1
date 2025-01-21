@@ -54,7 +54,7 @@ PTR_SpriteIndex_0806fe8c:
 
 _ts A_MetGuard_1_Main
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x9]
     ldr        r7,PTR_PTR_A_MetGuard_1_0_Wait_0806fea8
     ldr        r7,[r7,r0]
@@ -109,7 +109,7 @@ LAB_0806fee8:
     bcc        LAB_0806fef6
     mov        r0,#0x0
     strb       r0,[r5,#0x5]
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0806fef6:
     pop        {pc}
 

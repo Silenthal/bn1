@@ -82,7 +82,7 @@ _nt R_Ratty_1_Main
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x17]
     tst        r0,r0
     beq        LAB_08062496
@@ -106,7 +106,7 @@ _nt R_Ratty_1_Main
     beq        LAB_08062496
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

@@ -89,7 +89,7 @@ LAB_08074dee:
 
 _ts A_Skull_1_Main
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x4]
     lsr        r0,r0,#0x8
     bcs        LAB_08074e04

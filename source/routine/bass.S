@@ -100,7 +100,7 @@ LAB_0806cd46:
     pop        {r0}
     strb       r0,[r5,#0x0]
 LAB_0806cd5a:
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x17]
     tst        r0,r0
     beq        LAB_0806cd96
@@ -120,7 +120,7 @@ LAB_0806cd5a:
 LAB_0806cd84:
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE
@@ -420,12 +420,12 @@ _ts R_Bass_1_4_0
 
 _ts R_Bass_1_4_1
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrh       r0,[r5,#0x1c]
     mov        r1,#0x2
     tst        r0,r1
     beq        LAB_0806cfb2
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0806cfb2:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1

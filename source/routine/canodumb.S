@@ -81,7 +81,7 @@ _ts R_Canodumb_1_Main
     bl         FieldObject_SetDeletedFlag
     pop        {pc}
 LAB_080599b6:
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     bl         Battle_IsInputLocked
     bne        LAB_080599f8
     bl         Routine_CheckPoisonDrain
@@ -102,7 +102,7 @@ LAB_080599b6:
     beq        LAB_080599f8
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

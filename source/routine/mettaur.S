@@ -97,7 +97,7 @@ _ts R_Mettaur_1_Main
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     bl         Battle_IsInputLocked
     bne        LAB_0805a664
     ldrb       r0,[r5,#0x17]
@@ -121,7 +121,7 @@ _ts R_Mettaur_1_Main
     beq        LAB_0805a664
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

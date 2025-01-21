@@ -90,7 +90,7 @@ _ts R_Piranha_1_Main
     bl         Battle_IsInputLocked
     bne        LAB_0805ea40
     bl         Routine_CheckPoisonDrain
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r6,[r5,#0x60]
     ldrh       r0,[r5,#0x18]
     ldr        r1,PanelFlag_0805eaa4
@@ -108,7 +108,7 @@ _ts R_Piranha_1_Main
     beq        LAB_0805ea40
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

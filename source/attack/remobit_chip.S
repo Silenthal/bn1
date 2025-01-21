@@ -87,7 +87,7 @@ DAT_08077050:
 
 _ts A_RemobitC_1_Main
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         A_RemobitC_CheckDamage
@@ -293,7 +293,7 @@ _ts A_RemobitC_CheckDamage
     tst        r0,r0
     beq        LAB_08077204
     bl         Field_SubtractHP
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_08077204

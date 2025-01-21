@@ -26,7 +26,7 @@ _ts Routine_Beetank
     add        r7,r5,r3
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r7,PTR_PTR_R_Beetank_0_Init_0805b490
     ldrb       r0,[r5,#0x8]
     ldr        r7,[r7,r0]
@@ -147,7 +147,7 @@ LAB_0805b55c:
     tst        r0,r0
     beq        LAB_0805b5b0
     bl         Field_SubtractHP
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_0805b5aa

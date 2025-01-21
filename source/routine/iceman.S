@@ -38,7 +38,7 @@ listIceManActionChoice:
 
 _ts Routine_IceMan
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1
@@ -447,7 +447,7 @@ _ts R_IceMan_1_4_Flinch
     ldrh       r0,[r0,#0x0]
     lsr        r0,r0,#0x1
     bcs        LAB_08060f22
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08060f22:
     ldrb       r0,[r5,#0xa]
     ldr        r7,PTR_PTR_R_IceMan_1_4_0_Flinch_08060f30
@@ -1184,7 +1184,7 @@ LAB_0806144e:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
 LAB_08061474:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_0806149e

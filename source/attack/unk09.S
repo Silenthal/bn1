@@ -44,7 +44,7 @@ _ts A_Unk09_0_Init
 
 _ts A_Unk09_1_Main
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     bl         Battle_GetEntryState
     mov        r1,#0x4
     tst        r0,r1

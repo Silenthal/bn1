@@ -94,7 +94,7 @@ _ts R_Floshell_1_Main
     ldr        r7,[r5,#0x60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x17]
     tst        r0,r0
     beq        LAB_0805fea2
@@ -118,7 +118,7 @@ _ts R_Floshell_1_Main
     beq        LAB_0805fea2
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE
@@ -672,7 +672,7 @@ _ts R_Floshell_CheckDamage
     ldr        r5,[r5,#0x5c]
     tst        r5,r5
     beq        LAB_0806025e
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
 LAB_0806025e:
     pop        {r5}
     ldrb       r0,[r5,#0x1b]
@@ -701,7 +701,7 @@ LAB_0806025e:
     ldr        r5,[r5,#0x5c]
     tst        r5,r5
     beq        LAB_0806029c
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0806029c:
     pop        {r5}
     mov        r0,#0x6f

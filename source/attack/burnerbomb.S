@@ -118,7 +118,7 @@ _ts A_BurnerBomb_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x5]
     lsr        r0,r0,#0x1
     bcc        LAB_08070654
@@ -322,7 +322,7 @@ _nt A_BurnerBomb_CheckDamage
     tst        r0,r0
     beq        LAB_080707e0
     push       {r0}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r0}
     bl         Field_SubtractHP
     tst        r1,r1

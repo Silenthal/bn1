@@ -2,15 +2,13 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
-
 
 @@ Copies a single tilemap entry to the screen buffer.
 @@ In:
-@@ r0: x: The X coordinate of the target screen.
-@@ r1: y: The Y coordinate of the target screen.
-@@ r2: screen: The screen to draw to.
-@@ r3: entry: The tilemap entry.
+@@ r0: x - The X coordinate of the target screen.
+@@ r1: y - The Y coordinate of the target screen.
+@@ r2: screen - The screen to draw to.
+@@ r3: entry - The tilemap entry.
 _ts Screen_CopyTileMapEntry
     LoadMain screens, r4, r4
     lsl        r2,r2,#0xb
@@ -25,11 +23,11 @@ _ts Screen_CopyTileMapEntry
 
 @@ Copies a list of tilemap entries to the screen buffer in a horizontal line.
 @@ In:
-@@ r0: x: The X coordinate of the target screen.
-@@ r1: y: The Y coordinate of the target screen.
-@@ r2: screen: The screen to draw to.
-@@ r3: entryList: The list of tilemap entries.
-@@ r4: entryListSz: The size of the tilemap entry list.
+@@ r0: x - The X coordinate of the target screen.
+@@ r1: y - The Y coordinate of the target screen.
+@@ r2: screen - The screen to draw to.
+@@ r3: entryList - The list of tilemap entries.
+@@ r4: entryListSz - The size of the tilemap entry list.
 _ts Screen_CopyTileMapH
     LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
@@ -51,11 +49,11 @@ LAB_080021d0:
 
 @@ Copies a list of tilemap entries to the screen buffer in a vertical line.
 @@ In:
-@@ r0: x: The X coordinate of the target screen.
-@@ r1: y: The Y coordinate of the target screen.
-@@ r2: screen: The screen to draw to.
-@@ r3: entryList: The list of tilemap entries.
-@@ r4: entryListSz: The size of the tilemap entry list.
+@@ r0: x - The X coordinate of the target screen.
+@@ r1: y - The Y coordinate of the target screen.
+@@ r2: screen - The screen to draw to.
+@@ r3: entryList - The list of tilemap entries.
+@@ r4: entryListSz - The size of the tilemap entry list.
 _ts Screen_CopyTileMapV
     LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
@@ -77,12 +75,12 @@ LAB_080021f0:
 
 @@ Copies a list of tilemap entries to the screen buffer in a rectangle.
 @@ In:
-@@ r0: x: The X coordinate of the target screen.
-@@ r1: y: The Y coordinate of the target screen.
-@@ r2: screen: The screen to draw to.
-@@ r3: entryList: The list of tilemap entries.
-@@ r4: width: The width of the rectangle.
-@@ r5: height: The height of the rectangle.
+@@ r0: x - The X coordinate of the target screen.
+@@ r1: y - The Y coordinate of the target screen.
+@@ r2: screen - The screen to draw to.
+@@ r3: entryList - The list of tilemap entries.
+@@ r4: width - The width of the rectangle.
+@@ r5: height - The height of the rectangle.
 _ts Screen_CopyTileMapRect
     LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
@@ -113,12 +111,12 @@ LAB_08002214:
 @@ Sets all tilemap entries in a rectanglular area in a given screen buffer
 @@ to the given tilemap entry.
 @@ In:
-@@ r0: x: The X coordinate of the target screen.
-@@ r1: y: The Y coordinate of the target screen.
-@@ r2: screen: The screen to draw to.
-@@ r3: width: The width of the rectangle.
-@@ r4: height: The height of the rectangle.
-@@ r5: entry: The tilemap entry.
+@@ r0: x - The X coordinate of the target screen.
+@@ r1: y - The Y coordinate of the target screen.
+@@ r2: screen - The screen to draw to.
+@@ r3: width - The width of the rectangle.
+@@ r4: height - The height of the rectangle.
+@@ r5: entry - The tilemap entry.
 _ts Screen_SetTileMapRect
     LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
@@ -147,11 +145,11 @@ LAB_08002244:
 @@ Copies a list of tilemap entries to the screen buffer in a horizontal line,
 @@ wrapping to the start of the screen line if overflow occurs.
 @@ In:
-@@ r0: x: The X coordinate of the target screen.
-@@ r1: y: The Y coordinate of the target screen.
-@@ r2: screen: The screen to draw to.
-@@ r3: entryList: The list of tilemap entries.
-@@ r4: entryListSz: The size of the tilemap entry list.
+@@ r0: x - The X coordinate of the target screen.
+@@ r1: y - The Y coordinate of the target screen.
+@@ r2: screen - The screen to draw to.
+@@ r3: entryList - The list of tilemap entries.
+@@ r4: entryListSz - The size of the tilemap entry list.
 _ts Screen_CopyTileMapHWrap
     LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
@@ -175,11 +173,11 @@ LAB_08002268:
 @@ Copies a list of tilemap entries to the screen buffer in a vertical line,
 @@ wrapping to the start of the screen line if overflow occurs.
 @@ In:
-@@ r0: x: The X coordinate of the target screen.
-@@ r1: y: The Y coordinate of the target screen.
-@@ r2: screen: The screen to draw to.
-@@ r3: entryList: The list of tilemap entries.
-@@ r4: entryListSz: The size of the tilemap entry list.
+@@ r0: x - The X coordinate of the target screen.
+@@ r1: y - The Y coordinate of the target screen.
+@@ r2: screen - The screen to draw to.
+@@ r3: entryList - The list of tilemap entries.
+@@ r4: entryListSz - The size of the tilemap entry list.
 _ts Screen_CopyTileMapVWrap
     LoadMain screens, r6, r6
     lsl        r2,r2,#0xb
@@ -200,13 +198,14 @@ LAB_0800228c:
     mov        pc,lr
 
 
-@@ Copies a list of tilemap entries to the screen buffer in a horizontal line.
+@@ Copies onscreen tilemap entries from a given tilemap list to the screen
+@@ buffer in a horizontal line.
 @@ In:
-@@ r0: x: The X coordinate of the target screen. Bounded on [0, 31].
-@@ r1: y: The Y coordinate of the target screen.
-@@ r2: screen: The screen to draw to.
-@@ r3: entryList: The list of tilemap entries.
-@@ r4: entryListSz: The size of the tilemap entry list.
+@@ r0: x - The X coordinate of the target screen.
+@@ r1: y - The Y coordinate of the target screen.
+@@ r2: screen - The screen to draw to.
+@@ r3: entryList - The list of tilemap entries.
+@@ r4: entryListSz - The size of the tilemap entry list.
 _ts LC_Screen_SafeCopyTileMapH
     push       { lr }
     ldr        r7,PTR_Screen_SafeCopyTileMapH_1_080022c8
@@ -215,13 +214,14 @@ _ts LC_Screen_SafeCopyTileMapH
     pop        { pc }
 
 
-@@ Copies a list of tilemap entries to the screen buffer in a vertical line.
+@@ Copies onscreen tilemap entries from a given tilemap list to the screen
+@@ buffer in a vertical line.
 @@ In:
-@@ r0: x: The X coordinate of the target screen.
-@@ r1: y: The Y coordinate of the target screen. Bounded on [0, 31].
-@@ r2: screen: The screen to draw to.
-@@ r3: entryList: The list of tilemap entries.
-@@ r4: entryListSz: The size of the tilemap entry list.
+@@ r0: x - The X coordinate of the target screen.
+@@ r1: y - The Y coordinate of the target screen.
+@@ r2: screen - The screen to draw to.
+@@ r3: entryList - The list of tilemap entries.
+@@ r4: entryListSz - The size of the tilemap entry list.
 _ts LC_Screen_SafeCopyTileMapV
     push       { lr }
     ldr        r7,PTR_Screen_SafeCopyTileMapV_1_080022cc
@@ -230,14 +230,15 @@ _ts LC_Screen_SafeCopyTileMapV
     pop        { pc }
 
 
-@@ Copies a list of tilemap entries to the screen buffer in a rectangle.
+@@ Copies onscreen tilemap entries from a given tilemap list to the screen
+@@ buffer in a rectangle.
 @@ In:
-@@ r0: x: The X coordinate of the target screen. Bounded on [0, 31].
-@@ r1: y: The Y coordinate of the target screen. Bounded on [0, 31].
-@@ r2: screen: The screen to draw to.
-@@ r3: entryList: The list of tilemap entries.
-@@ r4: width: The width of the rectangle.
-@@ r5: height: The height of the rectangle.
+@@ r0: x - The X coordinate of the target screen.
+@@ r1: y - The Y coordinate of the target screen.
+@@ r2: screen - The screen to draw to.
+@@ r3: entryList - The list of tilemap entries.
+@@ r4: width - The width of the rectangle.
+@@ r5: height - The height of the rectangle.
 _ts LC_Screen_SafeCopyTileMapRect
     push       { lr }
     ldr        r7,PTR_Screen_SafeCopyTileMapRect_1_080022d0

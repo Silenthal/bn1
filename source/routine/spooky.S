@@ -124,7 +124,7 @@ LAB_0805b988:
     bl         Battle_IsInputLocked
     bne        LAB_0805b9d0
     bl         Routine_CheckPoisonDrain
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r6,[r5,#0x60]
     ldrh       r0,[r5,#0x18]
     ldr        r1,INT_0805ba34
@@ -142,7 +142,7 @@ LAB_0805b988:
     beq        LAB_0805b9d0
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

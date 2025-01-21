@@ -101,7 +101,7 @@ _ts R_LifeVirus_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x17]
     tst        r0,r0
     beq        LAB_080695ee
@@ -113,7 +113,7 @@ _ts R_LifeVirus_1_Main
     beq        LAB_080695ee
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE
@@ -700,7 +700,7 @@ _ts R_LifeVirus_2_0_0
     bl         BattleUi_LoadCustomGaugeTileMap
     bl         BattleUi_ClearActiveChip
     pop        {r5}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     pop        {pc}
 
 

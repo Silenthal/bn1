@@ -67,7 +67,7 @@ _ts A_IronShield_1_Main
     push       {lr}
     ldr        r0,[r5,#0x60]
     bl         FieldObject_DisableIfDeleted
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r7,[r5,#0x60]
     ldrb       r1,[r7,#0x0]
     mov        r2,#0x2
@@ -171,7 +171,7 @@ LAB_08076f18:
     bcc        LAB_08076f26
     mov        r0,#0x0
     strb       r0,[r5,#0x5]
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08076f26:
     pop        {pc}
 

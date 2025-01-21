@@ -150,7 +150,7 @@ PTR_listSharkManSpec_08065988:
 
 _ts R_SharkMan_1_Main
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_DisableIfDeleted
     mov        r0,#0xc
@@ -287,7 +287,7 @@ _nt R_SharkMan_1_3_Flinch
     ldrh       r0,[r0,#0x0]
     lsr        r0,r0,#0x1
     bcs        LAB_08065a98
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08065a98:
     ldrb       r0,[r5,#0xa]
     ldr        r7,PTR_PTR_R_SharkMan_1_3_0_08065aa4
@@ -1083,7 +1083,7 @@ LAB_0806600c:
     bl         Field_SubtractHP
     mov        r0,#0x1
     strb       r0,[r5,#0x6]
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_0806605c

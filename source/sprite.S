@@ -395,7 +395,7 @@ _ts SpritePtr_SetFrameIndex
     mov        pc,lr
 
 
-_ts SpritePtr_SetFlashPalette
+_ts SpritePtr_EnableFlash
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -407,7 +407,7 @@ _ts SpritePtr_SetFlashPalette
     mov        pc,lr
 
 
-_ts SpritePtr_ResetPalette
+_ts SpritePtr_DisableFlash
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4

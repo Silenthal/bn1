@@ -93,7 +93,7 @@ LAB_0806b800:
     pop        {r0}
     strb       r0,[r5,#0x0]
 LAB_0806b814:
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x17]
     tst        r0,r0
     beq        LAB_0806b846
@@ -110,7 +110,7 @@ LAB_0806b814:
 LAB_0806b834:
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE
@@ -772,12 +772,12 @@ _ts R_ShadowMan_1_6_0
 
 _nt R_ShadowMan_1_6_1
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrh       r0,[r5,#0x1c]
     mov        r1,#0x2
     tst        r0,r1
     beq        LAB_0806bcb0
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0806bcb0:
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1

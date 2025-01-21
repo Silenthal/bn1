@@ -86,7 +86,7 @@ _nt R_Cloudy_1_Main
     ldr        r7,[r5,#0x60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x17]
     tst        r0,r0
     beq        LAB_0805efc0
@@ -110,7 +110,7 @@ _nt R_Cloudy_1_Main
     beq        LAB_0805efc0
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

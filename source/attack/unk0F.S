@@ -167,10 +167,10 @@ LAB_08070b56:
     add        r5,r7,#0x0
     and        r0,r1
     bne        LAB_08070b6e
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     b          LAB_08070b72
 LAB_08070b6e:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_08070b72:
     pop        {r5}
 LAB_08070b74:

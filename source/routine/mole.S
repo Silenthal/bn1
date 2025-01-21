@@ -5,7 +5,7 @@
 
 _ts Routine_Mole
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x8]
     ldr        r7,PTR_PTR_R_Mole_0_Init_0806f06c
     ldr        r7,[r7,r0]
@@ -598,7 +598,7 @@ LAB_0806f46e:
     bl         Field_SubtractHP
     tst        r1,r1
     bne        LAB_0806f494
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0806f47c:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70

@@ -69,7 +69,7 @@ _ts A_ColorManBall_0_Init
 
 _nt A_ColorManBall_1_Main
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldr        r0,[r5,#0x60]
     bl         FieldObject_DisableIfDeleted
     bl         A_ColorManBall_CheckDamage
@@ -278,7 +278,7 @@ LAB_080751c0:
     beq        LAB_080751e6
     bl         Field_SubtractHP
 LAB_080751ce:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_080751e6

@@ -139,7 +139,7 @@ _nt A_IceManBeetankBomb_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrh       r0,[r5,#0x1c]
     sub        r0,#0x1
     strh       r0,[r5,#0x1c]

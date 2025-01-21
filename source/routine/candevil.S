@@ -34,7 +34,7 @@ DAT_080686e4:
 
 _ts Routine_CanDevil
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x8]
     ldr        r7,PTR_PTR_R_CanDevil_0_Init_08068710
     ldr        r7,[r7,r0]
@@ -171,7 +171,7 @@ LAB_080687f4:
     tst        r0,r0
     beq        LAB_08068848
     bl         Field_SubtractHP
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_08068842

@@ -91,13 +91,13 @@ LAB_0807cde6:
     bne        LAB_0807cdf8
     push       {r5}
     ldr        r5,[r5,#0x60]
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r5}
     b          LAB_0807ce02
 LAB_0807cdf8:
     push       {r5}
     ldr        r5,[r5,#0x60]
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     pop        {r5}
 LAB_0807ce02:
     pop        {pc}

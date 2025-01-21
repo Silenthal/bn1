@@ -43,7 +43,7 @@ _ts Routine_GutsMan
     add        r7,r5,r3
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1
@@ -390,7 +390,7 @@ _ts R_GutsMan_1_4_Flinch
     ldrh       r0,[r0,#0x0]
     lsr        r0,r0,#0x1
     bcs        LAB_0805c3a2
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0805c3a2:
     ldrb       r0,[r5,#0xa]
     ldr        r7,PTR_PTR_R_GutsMan_1_4_0_StartAnim_0805c3b0
@@ -926,7 +926,7 @@ LAB_0805c746:
     mov        r0,#0x0
     strh       r0,[r5,#0xa]
 LAB_0805c76c:
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     ldrh       r0,[r5,#0x20]
     tst        r0,r0
     bne        LAB_0805c796

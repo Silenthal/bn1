@@ -110,7 +110,7 @@ _ts R_PharaohMan_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x16]
     bl         Battle_GetBattleFlagBuffer
     beq        LAB_0806ae84
@@ -128,7 +128,7 @@ LAB_0806ae84:
     beq        LAB_0806aeae
     bl         Field_SubtractHP
     push       {r2}
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE

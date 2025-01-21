@@ -5,7 +5,7 @@
 
 _ts Routine_Poitton
     push       {lr}
-    bl         SpritePtr_ResetPalette
+    bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1
@@ -748,7 +748,7 @@ _ts R_Poitton_CheckDamage
     bl         Field_SubtractHP
     tst        r1,r1
     bne        LAB_0806b74c
-    bl         SpritePtr_SetFlashPalette
+    bl         SpritePtr_EnableFlash
 LAB_0806b734:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
