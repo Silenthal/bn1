@@ -138,7 +138,7 @@ _nt S_Story_1F_5
     bl         PlayerAnimation_Unlock
     Flag_SetBase 0x6F
     ldr        r0,PTR_EnemySpawn_StoneManV1_080884d0
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x6
     mov        r1,#0x5
     mov        r2,#0x0

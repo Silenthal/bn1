@@ -630,7 +630,7 @@ _nt S_Story_76_22
     Flag_SetBase 0xE1
     Flag_ClearBase 0xF9
     ldr        r0,PTR_EnemySpawn_MagicManV1_080960a0
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x4
     mov        r1,#0x5
     mov        r2,#0x0

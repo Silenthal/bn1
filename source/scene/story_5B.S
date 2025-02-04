@@ -208,7 +208,7 @@ _nt S_Story_5B_8
     bl         PlayerAnimation_Unlock
     Flag_SetBase 0xBD
     ldr        r0,PTR_EnemySpawn_InvElecMan_08090bc4
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x4
     mov        r1,#0x5
     mov        r2,#0x0

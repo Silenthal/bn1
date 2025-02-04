@@ -133,7 +133,7 @@ _ts S_Story_03_4
     Flag_SetBase 0x95
     bl         Text_DisableDialogue
     ldr        r0,PTR_EnemySpawn_Tutorial_1_080834a0
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x0
     mov        r1,#0x1
     ldr        r2,PTR_BattleChip_ARRAY_080834a4

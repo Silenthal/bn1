@@ -137,7 +137,7 @@ _nt S_Rocket_Comp_LifeVirus_4
     bl         Flag_SetPlayerActive
     pop        {r5}
     ldr        r0,PTR_EnemySpawn_LifeVirus_080981e8
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x10
     mov        r1,#0x6
     mov        r2,#0x0

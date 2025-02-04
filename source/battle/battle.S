@@ -41,7 +41,7 @@ LAB_08005890:
     bl         dummy_10280
     bl         Battle_SetFieldTilemap
 LAB_080058aa:
-    bl         BattleSpriteQueue_TransferAll
+    bl         Battle_SpriteQueueTransferAll
     push       { r5 }
     bl         InitializeSpriteTilesetOffset
     bl         Sprite_PaletteInit
@@ -261,7 +261,7 @@ _ts Battle_1_Main
     ldrb       r0,[r5,#0x1f]
     tst        r0,r0
     beq        LAB_08005ab4
-    bl         BattleSpriteQueue_Clear
+    bl         Battle_SpriteQueueInit
     LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     lsl        r0,r0,#0x2
@@ -302,7 +302,7 @@ JT_R5_0C_5AB8:
 
 _ts Battle_2_BattleEnd
     push       {lr}
-    bl         BattleSpriteQueue_Clear
+    bl         Battle_SpriteQueueInit
     ldr        r7,=JT_R5_0C_5B1C
     ldrb       r0,[r5,#0x1]
     ldr        r7,[r7,r0]
@@ -885,7 +885,7 @@ LAB_08005f00:
     mov        r0,#0x1
     strb       r0,[r5,#0xe]
 LAB_08005f26:
-    bl         Battle_IncreaseBattleTime
+    bl         Battle_AdvanceDeleteTimer
     bl         Battle_ProcessMultipleDelete
 LAB_08005f2e:
     ldr        r7,PTR_PTR_BattleR_2_3_0_CheckPauseAndBattleEnd
@@ -999,7 +999,7 @@ LAB_08005ff6:
 
 _nt BattleR_2_3_1_CheckSpritesSpawned
     push       {lr}
-    bl         Battle_AreAllSpritesSpawned
+    bl         Battle_AreAllActorsSpawned
     tst        r0,r0
     beq        LAB_0800600c
     LoadMain world, r7, r7
@@ -2050,7 +2050,7 @@ _nt Battle_IsTimerPaused
     mov        pc,lr
 
 
-_nt Battle_AreAllSpritesSpawned
+_nt Battle_AreAllActorsSpawned
     ldrb       r0,[r5,#0x4]
     ldrb       r1,[r5,#0x5]
     add        r0,r0,r1

@@ -360,7 +360,7 @@ _ts Battle_Init
     mov        r0,#0x0
     ldr        r7,=gIsObjectXFlipped
     strb       r0,[r7,#0x0]
-    bl         BattleSpriteQueue_Clear
+    bl         Battle_SpriteQueueInit
     LoadMain screenDim, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0x7]

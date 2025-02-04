@@ -60,7 +60,7 @@ LAB_08006c42:
 
 _nt BattleR_1_0_1_DrawHP
     push       {lr}
-    bl         Battle_AreAllSpritesSpawned
+    bl         Battle_AreAllActorsSpawned
     tst        r0,r0
     beq        LAB_08006c78
     mov        r0,#0x0

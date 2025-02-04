@@ -138,7 +138,7 @@ _ts S_Story_ElecMan_5
     strb       r0,[r7,#0x5]
     push       {r5}
     ldr        r0,PTR_EnemySpawn_ElecManV1_08091e88
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x4
     mov        r1,#0x5
     mov        r2,#0x0

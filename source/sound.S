@@ -167,11 +167,11 @@ _ts Sound_StopAllMusic
 _ts Sound_AreaSongChange
     push       { lr }
     LoadMain world, r7, r7
-    ldr        r6,PTR_songTableOffline_080007a8
+    ldr        r6,PTR_songTableOffline
     ldrb       r0,[r7,#0x4]
     cmp        r0,#0x80
     bmi        LAB_08000756
-    ldr        r6,PTR_songTableOnline_080007ac
+    ldr        r6,PTR_songTableOnline
     sub        r0,#0x80
 LAB_08000756:
     lsl        r0,r0,#0x2
@@ -192,10 +192,10 @@ LAB_08000756:
     cmp        r1,#0x5
     beq        LAB_080007a0
     ldrh       r1,[r7,#0x4]
-    ldr        r2,DAT_0800093c
+    ldr        r2,=0x209 @@ BUG: should be 0x902 for Waterworks Pump Room
     cmp        r1,r2
     beq        LAB_080007a0
-    ldr        r2,DAT_08000940
+    ldr        r2,=0x20B @@ BUG: should be 0xB02 for Waterworks Purification Room
     cmp        r1,r2
     beq        LAB_080007a0
     ldrb       r1,[r7,#0x6]
@@ -214,8 +214,8 @@ LAB_080007a6:
 
     .align 2, 0
 
-PTR_songTableOffline_080007a8:        .word songTableOffline
-PTR_songTableOnline_080007ac:         .word songTableOnline
+PTR_songTableOffline:   .word songTableOffline
+PTR_songTableOnline:    .word songTableOnline
 
 songTableOffline:
     .word songGroup_School
@@ -564,5 +564,4 @@ _ts Sound_StopBGM
     mov        r10,r1
     pop        { r1, r2, r3, r4, r5, r6, r7, pc }
 
-DAT_0800093c: .word 0x209
-DAT_08000940: .word 0x20B
+    .pool

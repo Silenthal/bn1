@@ -2972,7 +2972,7 @@ LAB_080098ca:
     mov        pc,lr
 
 
-_nt Battle_GetRandomEncounter
+_nt Battle_SetEncounter
     push       {lr}
     LoadMain world, r7, r7
     str        r0,[r7,#0x2c]
@@ -3576,7 +3576,7 @@ LAB_08009d66:
     mov        pc,lr
 
 
-_ts BattleSpriteQueue_Add
+_ts Battle_SpriteQueueAdd
     ldr        r6,PTR_gBattleSpriteArgsArrayCount_08009d88
     ldr        r4,[r6,#0x0]
     ldr        r7,PTR_gBattleSpriteArgsArray_08009d84
@@ -3597,7 +3597,7 @@ PTR_gBattleSpriteArgsArray_08009d84:        .word gBattleSpriteArgsArray
 PTR_gBattleSpriteArgsArrayCount_08009d88:   .word gBattleSpriteArgsArrayCount
 
 
-_nt BattleSpriteQueue_TransferAll
+_nt Battle_SpriteQueueTransferAll
     push       {r5,lr}
     ldr        r6,PTR_gBattleSpriteArgsArrayCount_08009db4
     ldr        r6,[r6,#0x0]
@@ -3624,7 +3624,7 @@ LAB_08009dae:
 PTR_gBattleSpriteArgsArray_08009db0:        .word gBattleSpriteArgsArray
 PTR_gBattleSpriteArgsArrayCount_08009db4:   .word gBattleSpriteArgsArrayCount
 
-_ts BattleSpriteQueue_Clear
+_ts Battle_SpriteQueueInit
     mov        r0,#0x0
     ldr        r7,=gBattleSpriteArgsArrayCount
     str        r0,[r7,#0x0]

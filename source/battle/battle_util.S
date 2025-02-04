@@ -40,7 +40,7 @@ _nt Battle_ClearState_EnemySpawned
     strb       r0,[r7,#0x9]
     mov        pc,lr
 
-_nt Battle_IncreaseBattleTime
+_nt Battle_AdvanceDeleteTimer
     ldrh       r0,[r5,#0x20]
     add        r0,#0x1
     ldr        r1,=36000

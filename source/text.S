@@ -2652,7 +2652,7 @@ LAB_08014924:
     lsl        r1,r1,#0x2
     ldr        r0,PTR_PTR_EnemySpawn_08014970
     ldr        r0,[r0,r1]
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     pop        { r4, r5 }
     ldrb       r0,[r4,#0x2]
     cmp        r0,#0xff
@@ -2759,7 +2759,7 @@ LAB_080149dc:
     ldrb       r0,[r7,#0x0]
     ldrb       r1,[r7,#0x1]
     bl         Battle_GetRandomAreaEnemySpawnList
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     bl         World_GetBackgroundId
     mov        r1,#0x0
     mov        r2,#0x0

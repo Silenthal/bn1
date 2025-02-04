@@ -141,7 +141,7 @@ _ts S_TutorialBattle_2
     add        r7,r7,r1
     push       {r5,r7}
     ldr        r0,[r7,#0x0]
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     pop        {r5,r7}
     push       {r5}
     mov        r0,#0x0

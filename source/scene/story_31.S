@@ -273,7 +273,7 @@ _ts S_Story_31_8
     bl         PlayerAnimation_Unlock
     Flag_SetBase 0xC2
     ldr        r0,PTR_EnemySpawn_IceManV1_0808ae94
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x2
     mov        r1,#0x5
     mov        r2,#0x0

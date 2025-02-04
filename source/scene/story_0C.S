@@ -176,7 +176,7 @@ _ts S_Story_0C_5
     bl         PlayerAnimation_Unlock
     Flag_SetBase 0xC9
     ldr        r0,PTR_EnemySpawn_FireManV1_08084ec4
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x1
     mov        r1,#0x5
     mov        r2,#0x0

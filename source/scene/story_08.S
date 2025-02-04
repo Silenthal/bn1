@@ -108,7 +108,7 @@ _ts S_Story_08_3
     Flag_SetBase 0x9F
     bl         PlayerAnimation_Unlock
     ldr        r0,PTR_EnemySpawn_08084360
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x1
     mov        r1,#0x0
     mov        r2,#0x0

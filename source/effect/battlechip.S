@@ -99,7 +99,7 @@ _nt E_BattleChip_DrawFloatingChipIcon
     add        r0,r2,#0x0
     mov        r2,#0x1
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r5,pc}
 
     .align 2, 0

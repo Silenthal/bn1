@@ -251,7 +251,7 @@ _ts S_Story_5E_10
     bl         PlayerAnimation_Unlock
     Flag_SetBase 0xC3
     ldr        r0,PTR_EnemySpawn_ProtoManV1_080912b0
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x4
     mov        r1,#0x5
     mov        r2,#0x0

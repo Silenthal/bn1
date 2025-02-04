@@ -117,7 +117,7 @@ _ts S_StartFixedBattle_2
     add        r7,r7,r6
     ldr        r0,[r7,#0x0]
     push       {r7}
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     pop        {r7}
     push       {r7}
     ldrb       r0,[r7,#0x8]

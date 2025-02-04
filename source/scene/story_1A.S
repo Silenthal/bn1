@@ -160,7 +160,7 @@ _nt S_Story_1A_5
     bl         PlayerAnimation_Unlock
     Flag_SetBase 0xC2
     ldr        r0,PTR_EnemySpawn_NumberManV1_080878b0
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x0
     mov        r1,#0x5
     mov        r2,#0x0

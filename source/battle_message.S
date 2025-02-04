@@ -344,7 +344,7 @@ LAB_08017b64:
     ldr        r1,DAT_08017da4
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1}
     push       {r1}
     ldr        r0,DAT_08017da8
@@ -352,7 +352,7 @@ LAB_08017b64:
     ldr        r1,DAT_08017dac
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1}
     push       {r1}
     ldr        r0,DAT_08017db0
@@ -360,14 +360,14 @@ LAB_08017b64:
     ldr        r1,DAT_08017db4
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1}
     ldr        r0,DAT_08017db8
     orr        r0,r1
     ldr        r1,DAT_08017dbc
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r5,r7}
     pop        {pc}
 LAB_08017bc6:
@@ -385,7 +385,7 @@ LAB_08017bc6:
     ldr        r1,DAT_08017da4
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1}
     push       {r1}
     ldr        r0,DAT_08017dc4
@@ -393,14 +393,14 @@ LAB_08017bc6:
     ldr        r1,DAT_08017dac
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1}
     ldr        r0,DAT_08017dc8
     orr        r0,r1
     ldr        r1,DAT_08017db4
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r5,r7}
     pop        {pc}
 
@@ -546,7 +546,7 @@ LAB_08017cfc:
     add        r0,r0,r2
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1,r4,r5,r6,r7}
     add        r1,#0x2
     add        r6,#0x1
@@ -613,12 +613,12 @@ LAB_08017d6e:
     ldr        r1,DAT_08017e00
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     ldr        r0,DAT_08017e04
     ldr        r1,DAT_08017e08
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r5}
 LAB_08017d8a:
     mov        r7,#0x1
@@ -904,7 +904,7 @@ LAB_08017f96:
     add        r0,r0,r2
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1,r2,r4,r6}
     add        r1,#0x2
     add        r6,#0x1
@@ -937,7 +937,7 @@ LAB_08017fd6:
     add        r0,r0,r2
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1,r2,r4,r6}
     add        r1,#0x2
     add        r6,#0x1
@@ -1074,7 +1074,7 @@ LAB_080180be:
     add        r0,r0,r2
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1,r2,r4,r6}
     add        r1,#0x2
     add        r6,#0x1
@@ -1144,7 +1144,7 @@ LAB_08018150:
     add        r0,r0,r2
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1,r2,r4,r6}
     add        r1,#0x2
     add        r6,#0x1
@@ -1277,7 +1277,7 @@ LAB_08018236:
     add        r0,r0,r2
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1,r2,r4,r6}
     add        r1,#0x2
     add        r6,#0x1
@@ -1332,7 +1332,7 @@ LAB_080182a8:
     add        r0,r0,r2
     mov        r2,#0x0
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r1,r2,r4,r6}
     add        r1,#0x2
     add        r6,#0x1

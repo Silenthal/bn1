@@ -295,7 +295,7 @@ _nt S_Story_4A_12
     Flag_SetBase 0xBB
     Flag_SetEvent 0x2A
     ldr        r0,PTR_EnemySpawn_ColorManV1_0808ea98
-    bl         Battle_GetRandomEncounter
+    bl         Battle_SetEncounter
     mov        r0,#0x3
     mov        r1,#0x5
     mov        r2,#0x0

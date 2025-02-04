@@ -136,7 +136,7 @@ LAB_0807bb0e:
     add        r1,r3,#0x0
     mov        r2,#0x1
     mov        r3,#0x0
-    bl         BattleSpriteQueue_Add
+    bl         Battle_SpriteQueueAdd
     pop        {r5,pc}
 
 DAT_0807bb30:
