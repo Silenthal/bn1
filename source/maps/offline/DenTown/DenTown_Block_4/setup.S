@@ -193,7 +193,7 @@ _ts MapSetup_DenTown_Block_4_F34
     mov        r0,#0x0
     b          LAB_08038372
 LAB_08038354:
-    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_WALL_00
     mov        r0,#0x2
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0xa]

@@ -120,8 +120,8 @@ _ts MapSetup_DenTown_Block_2_F34
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    Flag_ClearIgnore F_IGNORE_DOOR_00
-    Flag_ClearIgnore F_IGNORE_DOOR_01
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -193,7 +193,7 @@ _ts MapSetup_DenTown_Block_2_F35
     mov        r0,#0x0
     b          LAB_08037766
 LAB_08037748:
-    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_WALL_00
     mov        r0,#0x2
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0xa]

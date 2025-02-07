@@ -84,7 +84,7 @@ LAB_080526dc:
     Flag_GetBase 0x53
     beq        LAB_080526f0
     push       {r5}
-    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     b          LAB_080526fa
 LAB_080526f0:

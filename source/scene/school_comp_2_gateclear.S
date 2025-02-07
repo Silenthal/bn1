@@ -44,7 +44,7 @@ LAB_08086fa6:
 _ts S_School_Comp_2_GateClear_1
     push       {r5}
     Flag_ClearBase 0xA9
-    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     mov        r0,#0x3c
     str        r0,[r5,#0x10]

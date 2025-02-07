@@ -435,8 +435,8 @@ LAB_08049a08:
     bx         r0
     push       {r5}
     Flag_ToggleBase 0x30
-    Flag_ToggleIgnore F_IGNORE_DOOR_00
-    Flag_ToggleIgnore F_IGNORE_DOOR_01
+    Flag_ToggleIgnore F_IGNORE_WALL_00
+    Flag_ToggleIgnore F_IGNORE_WALL_01
     mov        r0,#0xba
     bl         Sound_PlaySE
     pop        {r5}
@@ -517,8 +517,8 @@ _ts FUN_08049ab0
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8047444_08049b24
     bl         BgTask_AddNew
-    Flag_SetIgnore F_IGNORE_DOOR_00
-    Flag_ClearIgnore F_IGNORE_DOOR_01
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     b          LAB_08049b04
 LAB_08049ae0:
     ldr        r0,PTR_BgTask_80473B4_08049b28
@@ -529,8 +529,8 @@ LAB_08049ae0:
     bl         BgTask_AddNew
     ldr        r0,PTR_BgTask_8047474_08049b34
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_DOOR_00
-    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
 LAB_08049b04:
     pop        {r5,pc}
 

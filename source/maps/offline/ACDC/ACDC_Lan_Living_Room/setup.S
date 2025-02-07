@@ -6,8 +6,8 @@
 _ts MapSetup_ACDC_Lan_Living_Room_S0
     push       {lr}
     push       {r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_00
-    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
     Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_09
     pop        {r1,r5}
@@ -202,7 +202,7 @@ _ts MapSetup_ACDC_Lan_Living_Room_F03
     push       {r5}
     mov        r0,#T_Incident_Occurrence
     bl         Sound_PlayBGM
-    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_WALL_00
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_08
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -302,8 +302,8 @@ _ts MapSetup_ACDC_Lan_Living_Room_F04
     push       {r5}
     mov        r0,#T_Incident_Occurrence
     bl         Sound_PlayBGM
-    Flag_ClearIgnore F_IGNORE_DOOR_00
-    Flag_ClearIgnore F_IGNORE_DOOR_01
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_08
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_09
     mov        r0,#0x0
@@ -418,8 +418,8 @@ _ts MapSetup_ACDC_Lan_Living_Room_F05
     push       {r5}
     mov        r0,#T_Incident_Occurrence
     bl         Sound_PlayBGM
-    Flag_ClearIgnore F_IGNORE_DOOR_00
-    Flag_ClearIgnore F_IGNORE_DOOR_01
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_08
     Flag_ClearIgnore F_IGNORE_MAP_DIALOGUE_09
     bl         PlayerLocation_Create
@@ -660,8 +660,8 @@ DAT_0802c4f0:
 _ts MapSetup_ACDC_Lan_Living_Room_S2
     push       {lr}
     push       {r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_00
-    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
     Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_09
     pop        {r1,r5}
@@ -902,8 +902,8 @@ PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F24_0_0802c6ec:
 _ts MapSetup_ACDC_Lan_Living_Room_S3
     push       {lr}
     push       {r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_00
-    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
     Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_09
     pop        {r1,r5}
@@ -1002,8 +1002,8 @@ PTR_PTR_EventHandler_ACDC_Lan_Living_Room_F30_0_0802c7cc:
 _ts MapSetup_ACDC_Lan_Living_Room_S4
     push       {lr}
     push       {r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_00
-    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
     Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_09
     pop        {r1,r5}
@@ -1117,8 +1117,8 @@ PTR_Scene_Story_4F_0802c8d4:
 _ts MapSetup_ACDC_Lan_Living_Room_S5
     push       {lr}
     push       {r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_00
-    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_SetIgnore F_IGNORE_WALL_00
+    Flag_SetIgnore F_IGNORE_WALL_01
     Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_08
     Flag_SetIgnore F_IGNORE_MAP_DIALOGUE_09
     pop        {r1,r5}

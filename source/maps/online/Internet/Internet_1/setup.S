@@ -57,7 +57,7 @@ _ts MapSetup_Internet_1
     Flag_GetBase 0x25
     beq        LAB_08051f68
     push       {r5}
-    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_SetIgnore F_IGNORE_WALL_01
     pop        {r5}
     b          LAB_08051f72
 LAB_08051f68:

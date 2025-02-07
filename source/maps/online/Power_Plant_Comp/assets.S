@@ -931,7 +931,7 @@ LAB_0804c8ea:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc50
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_DOOR_00
+    Flag_ClearIgnore F_IGNORE_WALL_00
     pop        {r5}
 LAB_0804c8fa:
     pop        {pc}
@@ -949,8 +949,8 @@ LAB_0804c90e:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc54
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_DOOR_00
-    Flag_ClearIgnore F_IGNORE_DOOR_02
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_02
     pop        {r5}
 LAB_0804c924:
     pop        {pc}
@@ -970,9 +970,9 @@ LAB_0804c93a:
     push       {r5}
     ldr        r0,PTR_BgTask_8049E48_0804cc58
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_DOOR_03
-    Flag_ClearIgnore F_IGNORE_DOOR_04
-    Flag_ClearIgnore F_IGNORE_DOOR_05
+    Flag_ClearIgnore F_IGNORE_WALL_03
+    Flag_ClearIgnore F_IGNORE_WALL_04
+    Flag_ClearIgnore F_IGNORE_WALL_05
     pop        {r5}
 LAB_0804c956:
     pop        {pc}
@@ -990,9 +990,9 @@ LAB_0804c96a:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc5c
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_DOOR_00
-    Flag_ClearIgnore F_IGNORE_DOOR_01
-    Flag_ClearIgnore F_IGNORE_DOOR_02
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_WALL_02
     pop        {r5}
 LAB_0804c986:
     pop        {pc}
@@ -1010,9 +1010,9 @@ LAB_0804c99a:
     push       {r5}
     ldr        r0,PTR_BgTask_8049E48_0804cc60
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_DOOR_03
-    Flag_ClearIgnore F_IGNORE_DOOR_04
-    Flag_ClearIgnore F_IGNORE_DOOR_05
+    Flag_ClearIgnore F_IGNORE_WALL_03
+    Flag_ClearIgnore F_IGNORE_WALL_04
+    Flag_ClearIgnore F_IGNORE_WALL_05
     pop        {r5}
 LAB_0804c9b6:
     pop        {pc}
@@ -1030,9 +1030,9 @@ LAB_0804c9ca:
     push       {r5}
     ldr        r0,PTR_BgTask_8049F08_0804cc64
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_DOOR_06
-    Flag_ClearIgnore F_IGNORE_DOOR_07
-    Flag_ClearIgnore F_IGNORE_DOOR_08
+    Flag_ClearIgnore F_IGNORE_WALL_06
+    Flag_ClearIgnore F_IGNORE_WALL_07
+    Flag_ClearIgnore F_IGNORE_WALL_08
     pop        {r5}
 LAB_0804c9e6:
     pop        {pc}
@@ -1047,14 +1047,14 @@ _ts PowerPlant_CheckPaths_Grid_6
     push       {r5}
     ldr        r0,PTR_BgTask_8049FE0_0804cc68
     bl         BgTask_AddNew
-    Flag_SetIgnore F_IGNORE_DOOR_09
+    Flag_SetIgnore F_IGNORE_WALL_09
     pop        {r5}
     b          LAB_0804ca16
 LAB_0804ca06:
     push       {r5}
     ldr        r0,PTR_BgTask_8049FC8_0804cc6c
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_DOOR_09
+    Flag_ClearIgnore F_IGNORE_WALL_09
     pop        {r5}
 LAB_0804ca16:
     pop        {pc}
@@ -1078,9 +1078,9 @@ LAB_0804ca3c:
     push       {r5}
     ldr        r0,PTR_BgTask_8049D88_0804cc70
     bl         BgTask_AddNew
-    Flag_ClearIgnore F_IGNORE_DOOR_00
-    Flag_ClearIgnore F_IGNORE_DOOR_01
-    Flag_ClearIgnore F_IGNORE_DOOR_02
+    Flag_ClearIgnore F_IGNORE_WALL_00
+    Flag_ClearIgnore F_IGNORE_WALL_01
+    Flag_ClearIgnore F_IGNORE_WALL_02
     pop        {r5}
 LAB_0804ca58:
     pop        {pc}
@@ -1097,7 +1097,7 @@ _ts PowerPlant_SetPathPalette_0
     pop        {r0,r1}
     bne        LAB_0804ca78
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r0,r1,r5}
     mov        r1,#0x1
 LAB_0804ca78:
@@ -1109,7 +1109,7 @@ LAB_0804ca78:
     pop        {r0,r1}
     bne        LAB_0804ca94
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_01
+    Flag_SetIgnore F_IGNORE_WALL_01
     pop        {r0,r1,r5}
     mov        r1,#0x2
 LAB_0804ca94:
@@ -1121,7 +1121,7 @@ LAB_0804ca94:
     pop        {r0,r1}
     bne        LAB_0804cab0
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_02
+    Flag_SetIgnore F_IGNORE_WALL_02
     pop        {r0,r1,r5}
     mov        r1,#0x4
 LAB_0804cab0:
@@ -1157,7 +1157,7 @@ _ts PowerPlant_SetPathPalette_1
     pop        {r0,r1}
     bne        LAB_0804cb04
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_03
+    Flag_SetIgnore F_IGNORE_WALL_03
     pop        {r0,r1,r5}
     mov        r1,#0x1
 LAB_0804cb04:
@@ -1169,7 +1169,7 @@ LAB_0804cb04:
     pop        {r0,r1}
     bne        LAB_0804cb20
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_04
+    Flag_SetIgnore F_IGNORE_WALL_04
     pop        {r0,r1,r5}
     mov        r1,#0x2
 LAB_0804cb20:
@@ -1181,7 +1181,7 @@ LAB_0804cb20:
     pop        {r0,r1}
     bne        LAB_0804cb3c
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_05
+    Flag_SetIgnore F_IGNORE_WALL_05
     pop        {r0,r1,r5}
     mov        r1,#0x4
 LAB_0804cb3c:
@@ -1217,7 +1217,7 @@ _ts PowerPlant_SetPathPalette_2
     pop        {r0,r1}
     bne        LAB_0804cb90
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_06
+    Flag_SetIgnore F_IGNORE_WALL_06
     pop        {r0,r1,r5}
     mov        r1,#0x1
 LAB_0804cb90:
@@ -1229,7 +1229,7 @@ LAB_0804cb90:
     pop        {r0,r1}
     bne        LAB_0804cbac
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_07
+    Flag_SetIgnore F_IGNORE_WALL_07
     pop        {r0,r1,r5}
     mov        r1,#0x2
 LAB_0804cbac:
@@ -1241,7 +1241,7 @@ LAB_0804cbac:
     pop        {r0,r1}
     bne        LAB_0804cbc8
     push       {r0,r1,r5}
-    Flag_SetIgnore F_IGNORE_DOOR_08
+    Flag_SetIgnore F_IGNORE_WALL_08
     pop        {r0,r1,r5}
     mov        r1,#0x4
 LAB_0804cbc8:

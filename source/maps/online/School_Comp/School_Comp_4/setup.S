@@ -156,7 +156,7 @@ LAB_0804160c:
     Flag_GetBase 0xB8
     beq        LAB_08041620
     push       {r5}
-    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     b          LAB_0804162a
 LAB_08041620:
@@ -384,7 +384,7 @@ _ts MapSetup_School_Comp_4_F20
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    Flag_SetIgnore F_IGNORE_DOOR_00
+    Flag_SetIgnore F_IGNORE_WALL_00
     push       {r5}
     ldr        r7,PTR_NPCList_8041F14_08041834
     bl         Map_LoadNPCList

@@ -74,36 +74,36 @@ flagListGateLockFlag:
     .byte F_GATE_LOCK_UNDERNET_10_PIN
 
 Flag_Ignore_ARRAY_08086dbe:
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_01
-    .byte F_IGNORE_DOOR_01
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_01
-    .byte F_IGNORE_DOOR_01
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_01
-    .byte F_IGNORE_DOOR_02
-    .byte F_IGNORE_DOOR_03
-    .byte F_IGNORE_DOOR_04
-    .byte F_IGNORE_DOOR_05
-    .byte F_IGNORE_DOOR_06
-    .byte F_IGNORE_DOOR_07
-    .byte F_IGNORE_DOOR_08
-    .byte F_IGNORE_DOOR_08
-    .byte F_IGNORE_DOOR_01
-    .byte F_IGNORE_DOOR_02
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_01
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_00
-    .byte F_IGNORE_DOOR_00
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_01
+    .byte F_IGNORE_WALL_01
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_01
+    .byte F_IGNORE_WALL_01
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_01
+    .byte F_IGNORE_WALL_02
+    .byte F_IGNORE_WALL_03
+    .byte F_IGNORE_WALL_04
+    .byte F_IGNORE_WALL_05
+    .byte F_IGNORE_WALL_06
+    .byte F_IGNORE_WALL_07
+    .byte F_IGNORE_WALL_08
+    .byte F_IGNORE_WALL_08
+    .byte F_IGNORE_WALL_01
+    .byte F_IGNORE_WALL_02
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_01
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_00
+    .byte F_IGNORE_WALL_00
 
 BYTE_ARRAY_08086ddc:
     .byte 0x01
