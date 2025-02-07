@@ -343,7 +343,7 @@ _ts Battle_Init
     strb       r0,[r5,#0x9]
     mov        r0,#0x20
     strb       r0,[r5,#0x12]
-    LoadMain playerBattleState, r7, r7
+    LoadMain matchBattleState, r7, r7
     mov        r0,#0x0
     strh       r0,[r7,#0x1e]
     strh       r0,[r7,#0x20]

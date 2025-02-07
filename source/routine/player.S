@@ -55,7 +55,7 @@ LAB_0805634e:
     mov        r1,#0x20
     bl         memset0_32
     mov        r6,r10
-    LoadMain playerBattleState, r7, r7
+    LoadMain matchBattleState, r7, r7
     ldrb       r1,[r5,#0x16]
     tst        r1,r1
     beq        LAB_0805637a
@@ -2181,7 +2181,7 @@ LAB_0805728c:
 
 
 _ts R_Player_ClearOwnedEntity
-    LoadMain playerBattleState, r7, r7
+    LoadMain matchBattleState, r7, r7
     tst        r0,r0
     beq        LAB_0805729e
     add        r7,#0x70
@@ -2275,7 +2275,7 @@ LAB_0805732c:
 
 _nt DisableZetaOmegaTimer
     push       {lr}
-    LoadMain playerBattleState, r7, r7
+    LoadMain matchBattleState, r7, r7
     tst        r0,r0
     beq        LAB_0805733a
     add        r7,#0x70
@@ -2335,7 +2335,7 @@ _nt Routine_ClearBetaSigmaTimer
     push       {r0}
     bl         DisableZetaOmegaTimer
     pop        {r0}
-    LoadMain playerBattleState, r7, r7
+    LoadMain matchBattleState, r7, r7
     mov        r1,#0x70
     mul        r1,r0
     add        r7,r7,r1
@@ -2360,7 +2360,7 @@ LAB_080573b6:
 
 
 _ts R_Player_ClearBusterChip
-    LoadMain playerBattleState, r7, r7
+    LoadMain matchBattleState, r7, r7
     mov        r1,#0x70
     mul        r0,r1
     add        r7,r7,r0

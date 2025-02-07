@@ -61,6 +61,7 @@ SECTIONS {
 		gEntityBoundsList			= 0x3490;
 		gBattle						= 0x3710;
 		gAreaProperties				= 0x37A0;
+		gMpStateSend				= 0x37D0;
 		gTextTileBuffer				= 0x37E0;
 		tempBg1Hofs					= 0x46E0;
 		gSpriteTilesetDetailCount	= 0x4704;
@@ -148,8 +149,8 @@ SECTIONS {
 		gChipTrader					= 0x7530;
 		gPlayerAnimation			= 0x7570;
 		gMainMenu					= 0x7590;
-		gListMPStateAll				= 0x75A0;
-		gPlayerBattleStates			= 0x75F0;
+		gMpStateRecv				= 0x75A0;
+		gMatchBattleState			= 0x75F0;
 		gTextBufferList				= 0x76D0;
 		gBattleSpriteArgsArray		= 0x78D0;
 		gOamFreeObjectCount			= 0x7B50;
@@ -183,10 +184,11 @@ SECTIONS {
 		gSpriteTilesetOffset0		= 0xC120;
 		tempBg1Vofs					= 0xC190;
 		gWindowSettings				= 0xC1B0;
-		gMPState0					= 0xC1D0;
-		gMPState1					= 0xC1E0;
-		gLatestMpInput				= 0xC1F0;
-		gListMpState				= 0xC200;
+		gMpPlayerState				= 0xC1C0;
+		gMpMoveStateBuffer0			= 0xC1D0;
+		gMpMoveStateBuffer1			= 0xC1E0;
+		gMpMoveStateBuffer2			= 0xC1F0;
+		gMpMoveState				= 0xC200;
 		gCurPlayerPos				= 0xC230;
 		gMapSegPos					= 0xC240;
 		gCustomScreen				= 0xC270;

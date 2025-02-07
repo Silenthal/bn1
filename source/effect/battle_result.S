@@ -243,7 +243,7 @@ _ts E_BattleResult_1_0_3_0
     ldrb       r1,[r7,#0x1e]
     cmp        r1,#0x4
     bne        LAB_0807d024
-    bl         GetCompleteMPState
+    bl         BattleMP_GetMatchState
     ldrb       r2,[r1,#0x2]
     cmp        r2,#0x1
     bne        LAB_0807d024
@@ -265,7 +265,7 @@ LAB_0807d024:
 LAB_0807d038:
     ldrb       r0,[r5,#0x1b]
     ldrb       r1,[r5,#0xc]
-    bl         FUN_08007a98
+    bl         BattleMP_SendResult
     pop        {pc}
 
 
@@ -275,7 +275,7 @@ _nt E_BattleResult_1_0_3_1
     ldrb       r0,[r7,#0x1e]
     cmp        r0,#0x4
     bne        LAB_0807d086
-    bl         GetCompleteMPState
+    bl         BattleMP_GetMatchState
     ldrb       r2,[r0,#0x2]
     ldrb       r3,[r1,#0x2]
     cmp        r2,r3
@@ -298,12 +298,12 @@ LAB_0807d074:
     ldrb       r1,[r5,#0xc]
     ldrb       r2,[r5,#0xe]
     ldrb       r3,[r5,#0xf]
-    bl         FUN_08007a98
+    bl         BattleMP_SendResult
     b          LAB_0807d08e
 LAB_0807d086:
     mov        r0,#0x2
     ldrb       r1,[r5,#0xc]
-    bl         FUN_08007a98
+    bl         BattleMP_SendResult
 LAB_0807d08e:
     pop        {pc}
 
@@ -314,7 +314,7 @@ _ts E_BattleResult_1_0_3_2_RewardGiveTakeChip
     ldrb       r0,[r7,#0x1e]
     cmp        r0,#0x4
     bne        LAB_0807d0f6
-    bl         GetCompleteMPState
+    bl         BattleMP_GetMatchState
     ldrb       r2,[r0,#0x2]
     ldrb       r3,[r1,#0x2]
     cmp        r2,r3
@@ -358,7 +358,7 @@ LAB_0807d0f6:
     ldrb       r1,[r5,#0xc]
     ldrb       r2,[r5,#0xe]
     ldrb       r3,[r5,#0xf]
-    bl         FUN_08007a98
+    bl         BattleMP_SendResult
 LAB_0807d102:
     pop        {pc}
 
@@ -843,7 +843,7 @@ _ts E_BattleResult_1_2_2_0
     ldrb       r1,[r7,#0x1e]
     cmp        r1,#0x4
     bne        LAB_0807d460
-    bl         GetCompleteMPState
+    bl         BattleMP_GetMatchState
     ldrb       r2,[r1,#0x2]
     cmp        r2,#0x1
     bne        LAB_0807d460
@@ -864,7 +864,7 @@ LAB_0807d460:
     strb       r0,[r5,#0xb]
 LAB_0807d474:
     ldrb       r0,[r5,#0x1b]
-    bl         FUN_08007a98
+    bl         BattleMP_SendResult
     pop        {pc}
 
 
@@ -874,7 +874,7 @@ _ts E_BattleResult_1_2_2_1
     ldrb       r0,[r7,#0x1e]
     cmp        r0,#0x4
     bne        LAB_0807d4a4
-    bl         GetCompleteMPState
+    bl         BattleMP_GetMatchState
     ldrb       r2,[r0,#0x2]
     ldrb       r3,[r1,#0x2]
     cmp        r2,r3
@@ -884,11 +884,11 @@ _ts E_BattleResult_1_2_2_1
     mov        r0,#0x8
     strb       r0,[r5,#0xb]
     mov        r0,#0x4
-    bl         FUN_08007a98
+    bl         BattleMP_SendResult
     b          LAB_0807d4aa
 LAB_0807d4a4:
     mov        r0,#0x2
-    bl         FUN_08007a98
+    bl         BattleMP_SendResult
 LAB_0807d4aa:
     pop        {pc}
 
@@ -899,7 +899,7 @@ _ts E_BattleResult_1_2_2_2
     ldrb       r0,[r7,#0x1e]
     cmp        r0,#0x4
     bne        LAB_0807d4d2
-    bl         GetCompleteMPState
+    bl         BattleMP_GetMatchState
     ldrb       r2,[r0,#0x2]
     ldrb       r3,[r1,#0x2]
     cmp        r2,r3
@@ -913,7 +913,7 @@ _ts E_BattleResult_1_2_2_2
     b          LAB_0807d4d8
 LAB_0807d4d2:
     mov        r0,#0x4
-    bl         FUN_08007a98
+    bl         BattleMP_SendResult
 LAB_0807d4d8:
     pop        {pc}
 
@@ -1075,7 +1075,7 @@ LAB_0807d5cc:
     @ First, get time and cap it at 9 minutes, 59.99 seconds
     LoadMain battle, r7, r7
     push       { r7 }
-    ldrh       r0,[r7,#Battle_m_possibleBattleTime]
+    ldrh       r0,[r7,#Battle_battleTime]
     bl         FrameTimeToBcdRealTime
     pop        { r7 }
     ldr        r1,maxTime
@@ -1119,9 +1119,9 @@ LAB_0807d60a:
     add        r0,r0,r2
     @ Calculate points for hits taken - start off at +1
     @ and subtract 1 for every hit taken up to 4
-    LoadMain playerBattleState, r7, r7
+    LoadMain matchBattleState, r7, r7
     mov        r2,#0x1
-    ldrb       r1,[r7,#PlayerBattleState_m_hitsTaken]
+    ldrb       r1,[r7,#PlayerBattleState_hitsTaken]
     tst        r1,r1
     beq        LAB_0807d636
     mov        r2,#0x0

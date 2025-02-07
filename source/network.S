@@ -3,7 +3,7 @@
     .include "macros.inc"
 
 
-_ts FUN_0809bc4c
+_ts Sio_Init
     push       {r4,r5,r6,r7,lr}
     mov        r7,r9
     mov        r6,r8
@@ -125,7 +125,7 @@ CpuSetControl_0809bd24:
     .byte 0x6C, 0x00, 0x00, 0x05
 
 
-_ts FUN_0809bd28
+_ts Sio_TransmitData
     push       {r4,r5,r6,r7,lr}
     mov        r7,r8
     push       {r7}
@@ -191,9 +191,9 @@ LAB_0809bd44:
     strb       r0,[r5,#0x0]
 LAB_0809bda2:
     add        r0,r7,#0x0
-    bl         FUN_0809be10
+    bl         Sio_SendData
     mov        r0,r8
-    bl         FUN_0809be60
+    bl         Sio_RecvData
     ldr        r1,PTR_Struct_UnkSio_0809bdec
     mov        r0,#0x1
     strb       r0,[r1,#0x1]
@@ -261,7 +261,7 @@ DAT_0809be0c:
     .word 0xFF7FFFFF
 
 
-_ts FUN_0809be10
+_ts Sio_SendData
     push       {r4,r5,lr}
     mov        r5,#0x0
     ldr        r4,PTR_Struct_UnkSio_0809be58
@@ -308,7 +308,7 @@ CpuSetControl_0809be5c:
     .byte 0x04, 0x00, 0x00, 0x04
 
 
-_ts FUN_0809be60
+_ts Sio_RecvData
     push       {r4,r5,r6,r7,lr}
     mov        r7,r10
     mov        r6,r9

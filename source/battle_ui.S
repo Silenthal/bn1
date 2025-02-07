@@ -525,7 +525,7 @@ _ts CheckDrawActiveChip
     tst        r0,r0
     beq        LAB_080157fc
     bl         BattleUi_InitActiveChipTileMap
-    LoadMain playerBattleState, r6, r7
+    LoadMain matchBattleState, r6, r7
     ldrb       r2,[r6,#0x1]
     add        r2,#0x6a
     ldrb       r0,[r6,r2]

@@ -227,7 +227,7 @@ MainState:
     .word gCamera
     .word gFadeSettings
     .word gBattleUi
-    .word gPlayerBattleStates
+    .word gMatchBattleState
     .word gMapEventState
     .word gScene
     .word gMapChange

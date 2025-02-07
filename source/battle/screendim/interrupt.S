@@ -123,7 +123,7 @@ LAB_0809a0a4:
 
 _nt FUN_0809a0a6
     push       {lr}
-    LoadMain playerBattleState, r0, r0
+    LoadMain matchBattleState, r0, r0
     ldrb       r1,[r5,#0x6]
     tst        r1,r1
     bne        LAB_0809a0b6

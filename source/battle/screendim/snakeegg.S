@@ -122,7 +122,7 @@ LAB_0809aee6:
     mov        r0,#0x0
     lsl        r4,r4,#0x19
     bcs        LAB_0809af0c
-    LoadMain playerBattleState, r0, r0
+    LoadMain matchBattleState, r0, r0
     tst        r7,r7
     beq        LAB_0809af0a
     add        r0,#0x70

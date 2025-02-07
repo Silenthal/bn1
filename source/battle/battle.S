@@ -2,12 +2,6 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .set Struct_C1C0_0200c1c0, 0x200c1c0
-    .set PlayerMpState_ARRAY_020075a0, 0x20075a0
-
-    .text
-
-    .thumb
 
 _ts Battle_Main
     push       { lr }
@@ -24,11 +18,11 @@ _ts Battle_Main
     ldrb       r0,[r5,#0x1c]
     tst        r0,r0
     beq        LAB_0800588c
-    bl         FUN_08007acc
+    bl         BattleMP_SyncInput
     strb       r0,[r5,#0x1f]
     b          LAB_08005890
 LAB_0800588c:
-    bl         FUN_08007828
+    bl         BattleMP_Main
 LAB_08005890:
     ldr        r0,=jumpTableBattleMain
     ldrb       r1,[r5,#0x0]
@@ -97,8 +91,8 @@ _ts Battle_0_0_InitStats
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_08005938
-    bl         FUN_0809bc4c
-    bl         PlayerMPState_Free
+    bl         Sio_Init
+    bl         BattleMP_PlayerStateInit
     mov        r0,#0x3c
     strh       r0,[r5,#0x2e]
     mov        r0,#0x8
@@ -236,7 +230,7 @@ LAB_08005a52:
     sub        r0,#0x1
     strh       r0,[r5,#0x2e]
     bmi        LAB_08005a60
-    bl         FUN_08007994
+    bl         BattleMP_SendStats
     b          LAB_08005a74
 LAB_08005a60:
     mov        r0,#0x3
@@ -296,8 +290,8 @@ JT_R5_0C_5AB8:
 
     .pool
 
-    .word Struct_C1C0_0200c1c0
-    .word PlayerMpState_ARRAY_020075a0
+    .word gMpPlayerState
+    .word gMpStateRecv
 
 
 _ts Battle_2_BattleEnd
@@ -625,7 +619,7 @@ _nt Battle_2_4_0_BattleResult
     ldrb       r0,[r7,#0x10]
     add        r0,#0x1
     bl         Effect_BattleResult_Create
-    bl         PlayerMPState_Free
+    bl         BattleMP_PlayerStateInit
     mov        r0,#0x4
     strh       r0,[r5,#0x2]
     pop        {pc}
@@ -782,7 +776,7 @@ _nt BattleR_2_2_0_DrawBattleElements
     strh       r0,[r5,#0x2e]
     mov        r0,#0x4
     strb       r0,[r5,#0x3]
-    bl         PlayerMPState_Init
+    bl         BattleMP_MoveStateInit
     pop        {pc}
 
 
@@ -844,7 +838,7 @@ LAB_08005ecc:
     bl         Battle_UpdateKeyState
     b          LAB_08005ee0
 LAB_08005edc:
-    bl         Multiplayer_UpdateKeyState
+    bl         BattleMP_UpdateInput
 LAB_08005ee0:
     pop        {pc}
 
@@ -858,7 +852,7 @@ _nt BattleR_2_3_CheckBattleState
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_08005efc
-    bl         Multiplayer_UpdateKeyState
+    bl         BattleMP_UpdateInput
     b          LAB_08005f00
 LAB_08005efc:
     bl         Battle_UpdateKeyState
@@ -962,7 +956,7 @@ LAB_08005fa6:
     bl         Battle_CheckKeyLR
     tst        r0,r0
     beq        LAB_08005fce
-    LoadMain playerBattleState, r7, r7
+    LoadMain matchBattleState, r7, r7
     ldrb       r0,[r7,#0x1]
     strb       r0,[r5,#0x19]
     ldrb       r0,[r5,#0xc]
@@ -1146,10 +1140,10 @@ _nt BattleR_2_1_1
     bne        LAB_0800610e
     mov        r0,#0xc
     strb       r0,[r5,#0x3]
-    bl         FUN_080079c8
+    bl         BattleMP_SendHand
     b          LAB_08006128
 LAB_0800610e:
-    bl         FUN_080079c8
+    bl         BattleMP_SendHand
     ldrh       r0,[r5,#0x2e]
     sub        r0,#0x1
     strh       r0,[r5,#0x2e]
@@ -1180,7 +1174,7 @@ _nt BattleR_2_1_2_ShowMessage
     mov        r0,#0xc
     strb       r0,[r5,#0x3]
 LAB_0800614a:
-    bl         FUN_080079c8
+    bl         BattleMP_SendHand
     pop        {pc}
 
 
@@ -1232,7 +1226,7 @@ _nt BattleR_2_6_1_FreeMP
     sub        r0,#0x1
     strh       r0,[r5,#0x2e]
     bne        LAB_080061a8
-    bl         PlayerMPState_Free
+    bl         BattleMP_PlayerStateInit
     mov        r0,#0x3
     b          LAB_080061aa
 LAB_080061a8:
@@ -1365,7 +1359,7 @@ LAB_08006290:
 
 _nt Battle_CopyBattleHand
     push       {lr}
-    LoadMain playerBattleState, r6, r6
+    LoadMain matchBattleState, r6, r6
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x19]
     strb       r0,[r6,#0x1]
@@ -1379,7 +1373,7 @@ _nt Battle_CopyBattleHand
 
 _nt PlayerBattleState_InitStats
     push       {lr}
-    LoadMain playerBattleState, r7, r7
+    LoadMain matchBattleState, r7, r7
     LoadMain world, r6, r6
     ldrb       r0,[r6,#0x14]
     strb       r0,[r7,#0x9]
@@ -1398,7 +1392,7 @@ _nt PlayerBattleState_InitStats
 
 _nt Battle_UpdateKeyState
     push       {lr}
-    LoadMain playerBattleState, r4, r4
+    LoadMain matchBattleState, r4, r4
     LoadMain input, r6, r6
     bl         Battle_IsInputLocked
     bne        LAB_080062f4
@@ -1430,7 +1424,7 @@ _nt Battle_CheckKeyLR
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_0800632c
-    LoadMain playerBattleState, r7, r7
+    LoadMain matchBattleState, r7, r7
     ldrh       r0,[r7,#0x20]
     add        r7,#0x70
     ldrh       r1,[r7,#0x20]
@@ -1459,7 +1453,7 @@ _nt Battle_CheckStartPressed
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_0800637c
-    ldr        r7,=gListMpState
+    ldr        r7,=gMpMoveState
     mov        r1,#0x8
     ldrb       r2,[r5,#0x14]
     cmp        r2,#0x2

@@ -109,7 +109,7 @@ _nt SD_Anubis_2
     mov        r0,#0x0
     b          LAB_08099a88
 LAB_08099a7a:
-    LoadMain playerBattleState, r0, r0
+    LoadMain matchBattleState, r0, r0
     ldrb       r7,[r5,#0x6]
     tst        r7,r7
     beq        LAB_08099a86

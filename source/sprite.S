@@ -872,7 +872,7 @@ _ts SpriteLz_DecompressEnemyList
     add        r7,r0,#0x0
 LAB_080028f0:
     @ If end of list is reached, return true
-    ldrb       r0,[r7,#EnemySpawn_m_id]
+    ldrb       r0,[r7,#EnemySpawn_id]
     cmp        r0,#ED_Invalid
     beq        LAB_08002966
     push       { r1, r4, r5, r6, r7 }

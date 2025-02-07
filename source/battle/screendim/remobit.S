@@ -100,7 +100,7 @@ _nt SD_Remobit_2
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_08099f8a
-    LoadMain playerBattleState, r0, r0
+    LoadMain matchBattleState, r0, r0
     ldrb       r7,[r5,#0x6]
     tst        r7,r7
     beq        LAB_08099f64

@@ -3,7 +3,6 @@
     .include "macros.inc"
 
     .set ChipBagSlot_02018fe0, 0x2018fe0
-    .set PlayerMpState_020037d0, 0x20037d0
 
 tilemapNetworkListOptions:
     .incbin "images/start_menu/network/list_options.tilemap"
@@ -31,8 +30,8 @@ _ts Menu_5_Network
     mov        r0,r10
     push       {r0,r5}
     ldr        r0,PTR_PlayerMpState_0801cd04
-    ldr        r1,PTR_gListMPStateAll_0801cd08
-    bl         FUN_0809bd28
+    ldr        r1,PTR_gMpStateRecv_0801cd08
+    bl         Sio_TransmitData
     pop        {r1,r5}
     mov        r10,r1
     add        r3,r0,#0x0
@@ -69,7 +68,7 @@ LAB_0801cce6:
     mov        r0,r10
     push       {r0,r5}
     bl         Sio_SetReady
-    bl         FUN_0809bc4c
+    bl         Sio_Init
     pop        {r0,r5}
     mov        r10,r0
     mov        r0,#0x0
@@ -83,9 +82,9 @@ LAB_0801ccfa:
 DAT_0801cd00:
     .word 0x12C
 PTR_PlayerMpState_0801cd04:
-    .word PlayerMpState_020037d0
-PTR_gListMPStateAll_0801cd08:
-    .word gListMPStateAll
+    .word gMpStateSend
+PTR_gMpStateRecv_0801cd08:
+    .word gMpStateRecv
 PTR_PTR_Menu_Network_0_Init_0801cd0c:
     .word PTR_Menu_Network_0_Init_0801cd10
 PTR_Menu_Network_0_Init_0801cd10:
@@ -180,7 +179,7 @@ _ts Menu_Network_0_Init
     bl         Menu_Network_ClearPackets
     mov        r0,r10
     push       {r0}
-    bl         FUN_0809bc4c
+    bl         Sio_Init
     pop        {r0}
     mov        r10,r0
     LoadMain display, r0, r7
@@ -1290,15 +1289,15 @@ _ts Menu_Network_ClearPackets
     mov        r1,#0x10
     mov        r2,#0xff
     bl         memset
-    ldr        r0,PTR_gListMPStateAll_0801d700
+    ldr        r0,PTR_gMpStateRecv_0801d700
     mov        r1,#0x40
     mov        r2,#0xff
     bl         memset
     pop        {r5,pc}
 PTR_PlayerMpState_0801d6fc:
-    .word PlayerMpState_020037d0
-PTR_gListMPStateAll_0801d700:
-    .word gListMPStateAll
+    .word gMpStateSend
+PTR_gMpStateRecv_0801d700:
+    .word gMpStateRecv
 
 
 _ts Menu_Network_HandleInputTrade
@@ -1765,7 +1764,7 @@ PTR_tilemapMenuNetworkTrade_0801da70:
 
 
 _ts Menu_Network_GetOtherMpState
-    ldr        r7,PTR_gListMPStateAll_0801da88
+    ldr        r7,PTR_gMpStateRecv_0801da88
     ldr        r0,PTR_REG_SIOCNT_0801da8c
     ldr        r0,[r0,#0x0]
     ldr        r1,DAT_0801da90
@@ -1776,8 +1775,8 @@ _ts Menu_Network_GetOtherMpState
     add        r7,#0x10
 LAB_0801da86:
     mov        pc,lr
-PTR_gListMPStateAll_0801da88:
-    .word gListMPStateAll
+PTR_gMpStateRecv_0801da88:
+    .word gMpStateRecv
 PTR_REG_SIOCNT_0801da8c:
     .word REG_SIOCNT
 DAT_0801da90:
@@ -1901,7 +1900,7 @@ PTR_tilemapNetworkNoneEntry_0801db50:
 PTR_listDefaultSort_0801db54:
     .word listDefaultSort_far
 PTR_PlayerMpState_0801db58:
-    .word PlayerMpState_020037d0
+    .word gMpStateSend
 
 
 _ts Menu_Network_22_ConfirmOptionBattle
@@ -2217,7 +2216,7 @@ PTR_gBgPaletteF_0801ddc4:
 PTR_ChipBagSlot_0801ddc8:
     .word ChipBagSlot_02018fe0
 PTR_PlayerMpState_0801ddcc:
-    .word PlayerMpState_020037d0
+    .word gMpStateSend
 DAT_0801ddd0:
     .word 0x40000000
 DAT_0801ddd4:
@@ -2330,7 +2329,7 @@ PTR_paletteMenuSideArrow_0801deb4:
 PTR_gBgPaletteF_0801deb8:
     .word gBgPaletteF
 PTR_PlayerMpState_0801debc:
-    .word PlayerMpState_020037d0
+    .word gMpStateSend
 PTR_DAT_0801dec0:
     .word 0x6008200
 PTR_DAT_0801dec4:
@@ -2924,7 +2923,7 @@ LAB_0801e362:
 PTR_textDict_MenuMessages_0801e36c:
     .word textDict_MenuMessages
 PTR_PlayerMpState_0801e370:
-    .word PlayerMpState_020037d0
+    .word gMpStateSend
 PTR_tilesetMenuDesign_0801e374:
     .word tilesetMenuDesign
 PTR_DAT_0801e378:
@@ -2958,7 +2957,7 @@ PTR_textDict_MenuMessages_0801e3ac:
 PTR_tilemapChipDetailBG_0801e3b0:
     .word tilemapChipDetailBG
 PTR_PlayerMpState_0801e3b4:
-    .word PlayerMpState_020037d0
+    .word gMpStateSend
 PTR_DAT_0801e3b8:
     .word 0x2026200
 PTR_DAT_0801e3bc:

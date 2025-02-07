@@ -92,24 +92,24 @@ _ts Text_LoadDialogue
     str        r3,[r5,#0x34]
     str        r4,[r5,#0x38]
     str        r6,[r5,#0x3c]
-    str        r0,[r5,#Text_m_textBlockPointer]
+    str        r0,[r5,#Text_textBlockPointer]
     strb       r1,[r5,#0x1]
     lsl        r1,r1,#0x1
     ldrh       r1,[r0,r1]
     add        r0,r0,r1
-    str        r0,[r5,#Text_m_commandTextPointer]
-    str        r0,[r5,#Text_m_layoutTextPointer]
+    str        r0,[r5,#Text_commandTextPointer]
+    str        r0,[r5,#Text_layoutTextPointer]
     mov        r0,#TRUE
-    strb       r0,[r5,#Text_m_isWriteText]
+    strb       r0,[r5,#Text_isWriteText]
     mov        r0,#0x2
-    strb       r0,[r5,#Text_m_nextDelay]
+    strb       r0,[r5,#Text_nextDelay]
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
     ldr        r0,PTR_gLayoutDialogueText_08013964
-    str        r0,[r5,#Text_m_dialogLayout]
+    str        r0,[r5,#Text_dialogLayout]
     mov        r0,#0x15
     @ 0x15 is just offscreen
-    strb       r0,[r5,#Text_m_layoutLineOffset]
+    strb       r0,[r5,#Text_layoutLineOffset]
     mov        r0,#TF_ClearDialogBox
     bl         Text_EnableOption
     mov        r0,#0x5
@@ -124,7 +124,7 @@ _ts Text_DisableDialogue
     push       { lr }
     LoadMain textHandler, r5, r5
     mov        r0,#FALSE
-    strb       r0,[r5,#Text_m_isWriteText]
+    strb       r0,[r5,#Text_isWriteText]
     mov        r0,#(TF_DisableInput|TF_ClearDialogBox)
     bl         Text_DisableOption
     pop        { pc }
@@ -132,7 +132,7 @@ _ts Text_DisableDialogue
 _ts Text_Main
     push       { lr }
     LoadMain textHandler, r5, r5
-    ldrb       r0,[r5,#Text_m_isWriteText]
+    ldrb       r0,[r5,#Text_isWriteText]
     cmp        r0,#FALSE
     bne        write_text_start
     pop        { pc }
@@ -143,33 +143,33 @@ write_text_start:
     bl         Text_CheckOption
     beq        state_store_input
     mov        r1,#0x0
-    strh       r1,[r5,#Text_m_curKeyState]
-    strh       r1,[r5,#Text_m_toggleKeyState]
-    strh       r1,[r5,#Text_m_heldKeyState]
+    strh       r1,[r5,#Text_curKeyState]
+    strh       r1,[r5,#Text_toggleKeyState]
+    strh       r1,[r5,#Text_heldKeyState]
     b          state_after_input_check
 state_store_input:
     LoadMain input, r0, r7
     ldrh       r1,[r0,#Input_curKeyState]
-    strh       r1,[r5,#Text_m_curKeyState]
+    strh       r1,[r5,#Text_curKeyState]
     ldrh       r1,[r0,#Input_toggleKeyState]
-    strh       r1,[r5,#Text_m_toggleKeyState]
+    strh       r1,[r5,#Text_toggleKeyState]
     ldrh       r1,[r0,#Input_heldKeyState]
-    strh       r1,[r5,#Text_m_heldKeyState]
+    strh       r1,[r5,#Text_heldKeyState]
 state_after_input_check:
-    ldrb       r0,[r5,#Text_m_nextDelay]
-    strb       r0,[r5,#Text_m_scriptParseDelay]
-    ldrb       r0,[r5,#Text_m_dialogSkipDelay]
+    ldrb       r0,[r5,#Text_nextDelay]
+    strb       r0,[r5,#Text_scriptParseDelay]
+    ldrb       r0,[r5,#Text_dialogSkipDelay]
     cmp        r0,#0
     ble        LAB_0801369e
     sub        r0,#0x1
-    strb       r0,[r5,#Text_m_dialogSkipDelay]
+    strb       r0,[r5,#Text_dialogSkipDelay]
     b          LAB_080136ba
 LAB_0801369e:
-    ldrh       r0,[r5,#Text_m_toggleKeyState]
+    ldrh       r0,[r5,#Text_toggleKeyState]
     mov        r1,#(KEY_A|KEY_B)
     tst        r1,r0
     bne        LAB_080136ae
-    ldrh       r0,[r5,#Text_m_curKeyState]
+    ldrh       r0,[r5,#Text_curKeyState]
     mov        r1,#KEY_B
     and        r1,r0
     beq        LAB_080136ba
@@ -178,9 +178,9 @@ LAB_080136ae:
     bl         Text_CheckScriptOption
     bne        LAB_080136ba
     mov        r0,#0x0
-    strb       r0,[r5,#Text_m_scriptParseDelay]
+    strb       r0,[r5,#Text_scriptParseDelay]
 LAB_080136ba:
-    ldr        r4,[r5,#Text_m_commandTextPointer]
+    ldr        r4,[r5,#Text_commandTextPointer]
 LAB_080136bc:
     ldrb       r1,[r4,#0x0]
     cmp        r1,#0xe7
@@ -195,11 +195,11 @@ do_command:
     bx         r1
     b          LAB_08013722
 check_counter_and_sound:
-    ldrb       r2,[r5,#Text_m_commandParseDelay]
+    ldrb       r2,[r5,#Text_commandParseDelay]
     cmp        r2,#0x0
     bgt        decrease_counter1
-    ldrb       r2,[r5,#Text_m_nextDelay]
-    strb       r2,[r5,#Text_m_commandParseDelay]
+    ldrb       r2,[r5,#Text_nextDelay]
+    strb       r2,[r5,#Text_commandParseDelay]
     mov        r0,#TS_Skip_Text_Sound
     bl         Text_CheckScriptOption
     bne        check_extended_char
@@ -231,15 +231,15 @@ command_E6:
     b          LAB_08013722
 decrease_counter1:
     sub        r2,#0x1
-    strb       r2,[r5,#Text_m_commandParseDelay]
+    strb       r2,[r5,#Text_commandParseDelay]
     mov        r0,#0x0
     b          LAB_08013722
 LAB_08013722:
-    str        r4,[r5,#Text_m_commandTextPointer]
-    ldrb       r2,[r5,#Text_m_scriptOptions]
+    str        r4,[r5,#Text_commandTextPointer]
+    ldrb       r2,[r5,#Text_scriptOptions]
     mov        r3,#0x1
     and        r2,r3
-    ldrb       r3,[r5,#Text_m_scriptParseDelay]
+    ldrb       r3,[r5,#Text_scriptParseDelay]
     add        r2,r2,r3
     cmp        r2,#0x0
     beq        LAB_080136bc
@@ -250,18 +250,18 @@ LAB_08013722:
     bl         Text_LoadDialogBoxLayout
     bl         Text_LoadDialoguePromptArrow
     mov        r0,#0x0
-    strb       r0,[r5,#Text_m_textCol]
-    strb       r0,[r5,#Text_m_textRow]
-    strb       r0,[r5,#Text_m_b14]
-    strb       r0,[r5,#Text_m_counter1]
+    strb       r0,[r5,#Text_textCol]
+    strb       r0,[r5,#Text_textRow]
+    strb       r0,[r5,#Text_b14]
+    strb       r0,[r5,#Text_counter1]
     add        r7,r5,#0x0
     add        r7,#0x58
     strh       r0,[r7,#0x2]
     mov        r3,#0x0
-    ldr        r4,[r5,#Text_m_layoutTextPointer]
+    ldr        r4,[r5,#Text_layoutTextPointer]
 layout_eval_command:
     @ Layout text according to the commands used
-    ldr        r1,[r5,#Text_m_commandTextPointer]
+    ldr        r1,[r5,#Text_commandTextPointer]
     cmp        r1,r4
     beq        layout_finish
     ldrb       r1,[r4,#0x0]
@@ -292,9 +292,9 @@ layout_single_char_advance_2:
 layout_after_advance:
     b          layout_eval_command
 layout_finish:
-    ldrb       r0,[r5,#Text_m_layoutLineOffset]
+    ldrb       r0,[r5,#Text_layoutLineOffset]
     lsl        r1,r0,#0x6
-    ldr        r0,[r5,#Text_m_dialogLayout]
+    ldr        r0,[r5,#Text_dialogLayout]
     LoadMain 92, r2, r2
     add        r1,r1,r2
     mov        r2,#0x80
@@ -316,11 +316,11 @@ _ts Text_CopyCharTile
     lsl        r1,r1,#0x6
     add        r0,r0,r1
     ldr        r1,PTR_gTextTileBuffer_08013988
-    ldrb       r2,[r5,#Text_m_textBufferOffset]
+    ldrb       r2,[r5,#Text_textBufferOffset]
     lsl        r2,r2,#0x6
     add        r1,r1,r2
     ldr        r7,PTR_charShade_0801398c
-    ldrb       r2,[r5,#Text_m_charShade]
+    ldrb       r2,[r5,#Text_charShade]
     lsl        r2,r2,#0x2
     ldr        r7,[r7,r2]
     mov        r2,#0x40
@@ -332,9 +332,9 @@ LAB_080137d8:
     add        r1,#0x4
     sub        r2,#0x4
     bne        LAB_080137d8
-    ldrb       r3,[r5,#Text_m_textBufferOffset]
+    ldrb       r3,[r5,#Text_textBufferOffset]
     add        r3,#0x1
-    strb       r3,[r5,#Text_m_textBufferOffset]
+    strb       r3,[r5,#Text_textBufferOffset]
     mov        pc,lr
 
     .align 2, 0
@@ -348,11 +348,11 @@ charShade:
 
 _ts Text_LoadCharTileLayout
     push       { lr }
-    ldrb       r6,[r5,#Text_m_textCol]
+    ldrb       r6,[r5,#Text_textCol]
     add        r0,r6,#0x1
-    strb       r0,[r5,#Text_m_textCol]
+    strb       r0,[r5,#Text_textCol]
     add        r6,#0x8
-    ldrb       r7,[r5,#Text_m_textRow]
+    ldrb       r7,[r5,#Text_textRow]
     lsl        r7,r7,#0x1
     add        r7,#0x1
     lsl        r0,r3,#0x1
@@ -360,7 +360,7 @@ _ts Text_LoadCharTileLayout
     mov        r2,#0xf2
     lsl        r2,r2,#0x8
     orr        r0,r2
-    ldr        r2,[r5,#Text_m_dialogLayout]
+    ldr        r2,[r5,#Text_dialogLayout]
     lsl        r6,r6,#0x1
     lsl        r7,r7,#0x6
     add        r2,r2,r6
@@ -373,7 +373,7 @@ _ts Text_LoadCharTileLayout
 
 _ts Text_SetDialogPortrait
     push       { r5, lr }
-    add        r5,#Text_m_portrait
+    add        r5,#Text_portrait
     push       { r0, r1 }
     lsl        r0,r0,#0x2
     ldr        r1,PTR_tilesetListPortraits_08013990
@@ -405,14 +405,14 @@ _ts Text_CheckPortraitLoad
     mov        r0,#TS_ShowPortrait
     bl         Text_CheckScriptOption
     beq        .return
-    ldrb       r1,[r5,#Text_m_nextAnimationIndex]
-    ldrb       r2,[r5,#Text_m_currAnimationIndex]
-    strb       r1,[r5,#Text_m_currAnimationIndex]
-    ldrb       r0,[r5,#Text_m_layoutLineOffset]
+    ldrb       r1,[r5,#Text_nextAnimationIndex]
+    ldrb       r2,[r5,#Text_currAnimationIndex]
+    strb       r1,[r5,#Text_currAnimationIndex]
+    ldrb       r0,[r5,#Text_layoutLineOffset]
     lsl        r0,r0,#0x3
     push       { r0 }
-    ldrb       r3,[r5,#Text_m_portraitPalIndex]
-    add        r5,#Text_m_portrait
+    ldrb       r3,[r5,#Text_portraitPalIndex]
+    add        r5,#Text_portrait
     strb       r3,[r5,#0x5]
     cmp        r1,r2
     bge        LAB_08013896
@@ -433,7 +433,7 @@ LAB_08013896:
 _ts Text_LoadDialogBoxLayout
     push       { r5, lr }
     ldr        r0,PTR_layoutDialogBox_08013994
-    ldr        r1,[r5,#Text_m_dialogLayout]
+    ldr        r1,[r5,#Text_dialogLayout]
     ldr        r2,DAT_08013998
     bl         memcpy_32
     pop        { r5, pc }
@@ -448,30 +448,30 @@ _ts Text_CheckPasscodeEntryLoad
     push       { r5 }
     bl         Passcode_HandleEntry
     pop        { r5 }
-    strb       r0,[r5,#Text_m_b16]
+    strb       r0,[r5,#Text_b16]
     strb       r1,[r5,#Text_passcodeChoice]
 LAB_080138dc:
     pop        { r5, pc }
 
 _ts Text_EnableScriptOption
     push       { r1 }
-    ldrb       r1,[r5,#Text_m_scriptOptions]
+    ldrb       r1,[r5,#Text_scriptOptions]
     orr        r1,r0
-    strb       r1,[r5,#Text_m_scriptOptions]
+    strb       r1,[r5,#Text_scriptOptions]
     pop        { r1 }
     mov        pc,lr
 
 _ts Text_DisableScriptOption
     push       { r1 }
-    ldrb       r1,[r5,#Text_m_scriptOptions]
+    ldrb       r1,[r5,#Text_scriptOptions]
     bic        r1,r0
-    strb       r1,[r5,#Text_m_scriptOptions]
+    strb       r1,[r5,#Text_scriptOptions]
     pop        { r1 }
     mov        pc,lr
 
 _ts Text_CheckScriptOption
     push       { r1 }
-    ldrb       r1,[r5,#Text_m_scriptOptions]
+    ldrb       r1,[r5,#Text_scriptOptions]
     and        r0,r1
     pop        { r1 }
     mov        pc,lr
@@ -598,21 +598,21 @@ JT_LayoutCommand:
 
 _ts JT_Command_E7_End
     push       { lr }
-    ldrb       r0,[r5,#Text_m_isScriptJump]
+    ldrb       r0,[r5,#Text_isScriptJump]
     tst        r0,r0
     beq        LAB_08013a82
     @ If text is printing from another buffer, set it back to
     @ the previous position and continue
     sub        r0,#0x1
-    strb       r0,[r5,#Text_m_isScriptJump]
+    strb       r0,[r5,#Text_isScriptJump]
     @ r4 = textState->textPointerAfterKeyPrint
-    ldr        r4,[r5,#Text_m_textPointerAfterKeyPrint]
+    ldr        r4,[r5,#Text_textPointerAfterKeyPrint]
     mov        r0,#0x1
     pop        { pc }
 LAB_08013a82:
     mov        r0,#0x1
     bl         Text_EnableScriptOption
-    ldrb       r0,[r5,#Text_m_dialogDelayType]
+    ldrb       r0,[r5,#Text_dialogDelayType]
     cmp        r0,#TSDT_DelayCounter
     beq        LAB_08013aa0
     cmp        r0,#TSDT_WaitForButtonPress
@@ -623,28 +623,28 @@ LAB_08013a82:
     ldrb       r1,[r4,#0x2]
     lsl        r1,r1,#0x8
     orr        r0,r1
-    strh       r0,[r5,#Text_m_dialogDelayCounter]
+    strh       r0,[r5,#Text_dialogDelayCounter]
     mov        r0,#TSDT_DelayCounter
-    strb       r0,[r5,#Text_m_dialogDelayType]
+    strb       r0,[r5,#Text_dialogDelayType]
 LAB_08013aa0:
-    ldrh       r0,[r5,#Text_m_dialogDelayCounter]
+    ldrh       r0,[r5,#Text_dialogDelayCounter]
     cmp        r0,#0x0
     beq        LAB_08013aae
     @ If delay type is counter and counter > 0, decrement
     @ counter and return
     sub        r0,#0x1
-    strh       r0,[r5,#Text_m_dialogDelayCounter]
+    strh       r0,[r5,#Text_dialogDelayCounter]
     mov        r0,#0x0
     pop        { pc }
     @ Set delay type to button prompt, and start sliding
     @ dialog box down
 LAB_08013aae:
     mov        r0,#TSDT_WaitForButtonPress
-    strb       r0,[r5,#Text_m_dialogDelayType]
+    strb       r0,[r5,#Text_dialogDelayType]
 LAB_08013ab2:
-    ldrb       r0,[r5,#Text_m_layoutLineOffset]
+    ldrb       r0,[r5,#Text_layoutLineOffset]
     add        r0,#0x1
-    strb       r0,[r5,#Text_m_layoutLineOffset]
+    strb       r0,[r5,#Text_layoutLineOffset]
     cmp        r0,#0x15
     bge        LAB_08013ac0
     mov        r0,#0x0
@@ -655,17 +655,17 @@ LAB_08013ac0:
     mov        r0,#TF_ClearDialogBox
     bl         Text_DisableOption
     mov        r0,#0x0
-    strb       r0,[r5,#Text_m_isWriteText]
-    strb       r0,[r5,#Text_m_dialogDelayType]
+    strb       r0,[r5,#Text_isWriteText]
+    strb       r0,[r5,#Text_dialogDelayType]
     mov        r0,#0x0
     pop        { pc }
 
 _ts JT_Layout_E7_End
-    ldrb       r0,[r5,#Text_m_counter1]
+    ldrb       r0,[r5,#Text_counter1]
     tst        r0,r0
     beq        LAB_08013ade
     sub        r0,#0x1
-    strb       r0,[r5,#Text_m_counter1]
+    strb       r0,[r5,#Text_counter1]
     ldr        r4,[r5,#0x44]
     mov        pc,lr
 LAB_08013ade:
@@ -679,10 +679,10 @@ _ts JT_Command_E8_NewLine
 
 _ts JT_Layout_E8_NewLine
     mov        r0,#0
-    strb       r0,[r5,#Text_m_textCol]
-    ldrb       r0,[r5,#Text_m_textRow]
+    strb       r0,[r5,#Text_textCol]
+    ldrb       r0,[r5,#Text_textRow]
     add        r0,#1
-    strb       r0,[r5,#Text_m_textRow]
+    strb       r0,[r5,#Text_textRow]
     add        r4,#1
     mov        pc,lr
 
@@ -690,7 +690,7 @@ _ts JT_Command_E9_Wait
     push       { lr }
     mov        r0,#TS_BreakLoop
     bl         Text_EnableScriptOption
-    ldrb       r0,[r5,#Text_m_dialogDelayType]
+    ldrb       r0,[r5,#Text_dialogDelayType]
     cmp        r0,#TSDT_NoDelay
     bne        LAB_08013b18
     @ If delay mode is off, set counter to next two bytes and
@@ -699,29 +699,29 @@ _ts JT_Command_E9_Wait
     ldrb       r1,[r4,#0x2]
     lsl        r1,r1,#0x8
     orr        r0,r1
-    strh       r0,[r5,#Text_m_dialogDelayCounter]
+    strh       r0,[r5,#Text_dialogDelayCounter]
     mov        r0,#TSDT_DelayCounter
-    strb       r0,[r5,#Text_m_dialogDelayType]
+    strb       r0,[r5,#Text_dialogDelayType]
 LAB_08013b18:
-    ldrh       r0,[r5,#Text_m_dialogDelayCounter]
+    ldrh       r0,[r5,#Text_dialogDelayCounter]
     cmp        r0,#0x0
     beq        LAB_08013b26
     @ If counter > 0, decrement counter and return
     sub        r0,#0x1
-    strh       r0,[r5,#Text_m_dialogDelayCounter]
+    strh       r0,[r5,#Text_dialogDelayCounter]
     mov        r0,#0x0
     pop        { pc }
     @ Set up text pointer, set delay type to 0, buffer offsets
     @ to 0, and dialog skip delay to 5
 LAB_08013b26:
     add        r4,#0x3
-    str        r4,[r5,#Text_m_layoutTextPointer]
+    str        r4,[r5,#Text_layoutTextPointer]
     mov        r0,#0x0
-    strb       r0,[r5,#Text_m_dialogDelayType]
-    str        r0,[r5,#Text_m_textBufIndex]
-    strb       r0,[r5,#Text_m_textBufferOffset]
+    strb       r0,[r5,#Text_dialogDelayType]
+    str        r0,[r5,#Text_textBufIndex]
+    strb       r0,[r5,#Text_textBufferOffset]
     mov        r0,#0x5
-    strb       r0,[r5,#Text_m_dialogSkipDelay]
+    strb       r0,[r5,#Text_dialogSkipDelay]
     mov        r0,#0x0
     pop        { pc }
 
@@ -1692,15 +1692,15 @@ _ts JT_Command_F7_ItemControl
     @ First is for all items given, second is for none, third is for some
     cmp        r1,#0xff
     beq        .continueScript
-    ldr        r0,[r5,#Text_m_textBlockPointer]
+    ldr        r0,[r5,#Text_textBlockPointer]
     lsl        r1,r1,#0x1
     ldrh       r1,[r0,r1]
     add        r0,r0,r1
-    str        r0,[r5,#Text_m_commandTextPointer]
-    str        r0,[r5,#Text_m_layoutTextPointer]
+    str        r0,[r5,#Text_commandTextPointer]
+    str        r0,[r5,#Text_layoutTextPointer]
     mov        r1,#0x0
-    str        r1,[r5,#Text_m_textBufIndex]
-    strb       r1,[r5,#Text_m_textBufferOffset]
+    str        r1,[r5,#Text_textBufIndex]
+    strb       r1,[r5,#Text_textBufferOffset]
     add        r4,r0,#0x0
     mov        r0,#0x1
     pop        { pc }
