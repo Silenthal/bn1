@@ -90,7 +90,7 @@ _ts Menu_Email_0_Init
     ldr        r0,PTR_DAT_0801c5a4
     mov        r1,#0x40
     mov        r2,#0x40
-    bl         memset
+    bl         memset_8
     Flag_SetSystem F_SYSTEM_INPUT_DELAY_ON
     pop        {r5}
     mov        r0,#0x0
@@ -516,7 +516,7 @@ _ts ClearEmailIndexes
     ldr        r0,PTR_gEmailIndexes_0801c5e8
     mov        r1,#0x40
     mov        r2,#0x40
-    bl         memset
+    bl         memset_8
     ldr        r0,PTR_gEmailCount_0801c5ec
     mov        r1,#0x0
     str        r1,[r0,#0x0]

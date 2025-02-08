@@ -89,7 +89,7 @@ _ts Menu_Item_0_Init
     ldr        r0,PTR_DAT_0801cabc
     mov        r1,#0x40
     mov        r2,#0x60
-    bl         memset
+    bl         memset_8
     pop        {r5}
     mov        r0,#0x0
     strb       r0,[r5,#0xe]

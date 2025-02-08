@@ -103,7 +103,7 @@ LAB_0805637a:
     add        r0,#0x60
     mov        r1,#0x10
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     ldrb       r0,[r5,#0x16]
     bl         Routine_ClearBetaSigmaTimer
     mov        r0,#0xff
@@ -2355,7 +2355,7 @@ LAB_080573b6:
     add        r0,r0,r7
     mov        r1,#0xa
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     pop        {pc}
 
 

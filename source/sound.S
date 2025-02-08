@@ -57,7 +57,7 @@ _ts Sound_VSync
 
 @@ Play a sound effect immediately.
 @@ In:
-@@ r0: songid - The ID of the sound to play.
+@@ r0: SongId songid - The ID of the sound to play.
 _ts Sound_PlaySE
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
 LAB_0800066a:
@@ -72,7 +72,7 @@ LAB_08000676:
 
 @@ Plays background music.
 @@ In:
-@@ r0: songid - The ID of the track to play.
+@@ r0: SongId songid - The ID of the track to play.
 _ts Sound_PlayBGM
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     LoadMain world, r7, r7
@@ -85,7 +85,7 @@ _ts Sound_PlayBGM
 
 @@ Plays background music without checking what's playing.
 @@ In:
-@@ r0: songid - The ID of the track to play.
+@@ r0: SongId songid - The ID of the track to play.
 _ts Sound_ForcePlayBGM
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     LoadMain world, r7, r7
@@ -95,8 +95,8 @@ _ts Sound_ForcePlayBGM
 
 @@ Fades out the specified music track.
 @@ In:
-@@ r0: musicPlayerId - The index of the music player to fade.
-@@ r1: speed - The speed at which to fade.
+@@ r0: int musicPlayerId - The index of the music player to fade.
+@@ r1: ushort speed - The speed at which to fade.
 _nt Sound_FadeOut
     push       { r5, lr }
     ldr        r7,PTR_musicPlayerList
@@ -554,7 +554,7 @@ songGroup_Internet:
 
 @@ Stops the specified song.
 @@ In:
-@@ r0: songid - The ID of the track to stop.
+@@ r0: SongId songid - The ID of the track to stop.
 _ts Sound_StopBGM
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     mov        r1,r10

@@ -757,7 +757,7 @@ _ts SpriteLz_Init
     add        r0,#SpriteLzDetails_m_spritePtrList
     mov        r1,#(4 * 8)
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     pop        { r5 }
     pop        { r5, pc }
 

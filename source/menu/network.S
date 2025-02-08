@@ -1288,11 +1288,11 @@ _ts Menu_Network_ClearPackets
     ldr        r0,PTR_PlayerMpState_0801d6fc
     mov        r1,#0x10
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     ldr        r0,PTR_gMpStateRecv_0801d700
     mov        r1,#0x40
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     pop        {r5,pc}
 PTR_PlayerMpState_0801d6fc:
     .word gMpStateSend

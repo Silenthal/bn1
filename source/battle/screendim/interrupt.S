@@ -135,13 +135,13 @@ LAB_0809a0b6:
     add        r0,#0x78
     mov        r1,#0x6
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     pop        {r0}
 LAB_0809a0c8:
     add        r0,#0x6a
     mov        r1,#0x6
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     LoadMain battle, r7, r7
     ldrb       r0,[r5,#0x6]
     tst        r0,r0

@@ -321,7 +321,7 @@ _ts Battle_Init
     add        r0,r0,r5
     mov        r1,#0x6
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     LoadMain world, r6, r6
     ldrb       r0,[r6,#0xb]
     strb       r0,[r5,#0xf]

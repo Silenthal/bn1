@@ -61,12 +61,12 @@ _ts CustomScreen_0_Init
     add        r0,r0,r5
     mov        r1,#0x5
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     mov        r0,#0x40
     add        r0,r0,r5
     mov        r1,#0xf
     mov        r2,#0x0
-    bl         memset
+    bl         memset_8
     bl         CustomScreen_1_Main
     mov        r0,#0x1
     pop        { pc }
@@ -283,7 +283,7 @@ _nt CustomScreen_1_2_Ok
     add        r0,#0x78
     mov        r1,#0x6
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     LoadMain battle, r6, r6
     add        r6,#0x78
     mov        r4,#0x6
@@ -464,7 +464,7 @@ LAB_08015c78:
     add        r0,#0x78
     mov        r1,#0x6
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     mov        r0,#0x6a
     bl         Sound_PlaySE
     ldr        r0,PTR_TextData_BattleMessages_08015d94
@@ -710,7 +710,7 @@ _ts CustomScreen_LoadUIUpper
     mov        r1,#0xaa
     lsl        r1,r1,#0x2
     mov        r2,#0x0
-    bl         memset
+    bl         memset_8
     ldr        r7,PTR_gCustomScreen_08015ee4
     mov        r0,#0x0
     str        r0,[r7,#0x0]
@@ -2405,7 +2405,7 @@ LAB_08016c0c:
     add        r0,#0x78
     mov        r1,#0x6
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     LoadMain battle, r6, r6
     ldrb       r3,[r5,#0xb]
     strb       r3,[r6,#0x11]
@@ -2842,7 +2842,7 @@ _nt CustomScreenT2_1_2_0_CheckChips
     add        r0,#0x78
     mov        r1,#0x6
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     LoadMain battle, r6, r6
     ldrb       r3,[r5,#0xb]
     strb       r3,[r6,#0x11]

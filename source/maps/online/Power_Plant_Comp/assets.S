@@ -522,7 +522,7 @@ _ts PowerPlant_Init
     add        r0,#0x4
     mov        r1,#0x8
     mov        r2,#0x0
-    bl         memset
+    bl         memset_8
     pop        {pc}
 
 

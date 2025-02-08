@@ -4,11 +4,11 @@
 
 @@ Sets the settings for a particular DMA channel.
 @@ In:
-@@ r0: startAddress - The address to read data from.
-@@ r1: endAddress - The address to write data to.
-@@ r2: wordCount - The amount of 16-bit or 32-bit words to write.
-@@ r3: channel - The channel to write to.
-@@ r4: control - The control settings of the channel.
+@@ r0: void* startAddress - The address to read data from.
+@@ r1: void* endAddress - The address to write data to.
+@@ r2: int wordCount - The amount of 16-bit or 32-bit words to write.
+@@ r3: int channel - The channel to write to.
+@@ r4: int control - The control settings of the channel.
 _ts Dma_SetDirect
     lsl        r3,r3,#0x2
     ldr        r5,PTR_listDmaChannel
@@ -36,7 +36,7 @@ listDmaChannel:
 
 @@ Waits for any active DMA transfers to end.
 @@ In:
-@@ r0: flags - The DMA registers to check. Bit 1 set checks DMA1, Bit 2 DMA2, and so on.
+@@ r0: WaitDmaFlag flags - The DMA registers to check. Bit 1 set checks DMA1, Bit 2 DMA2, and so on.
 _ts Dma_WaitForEnd
     ldr        r3,PTR_REG_DMA0
 .checkDma0:
@@ -78,11 +78,12 @@ _ts Dma_TransferListClear
     str        r1,[r0]
     mov        pc,lr
 
+
 @@ Adds params for channel 3 DMA transfer to the transfer queue.
 @@ In:
-@@ r0: startAddress - The address to read data from.
-@@ r1: endAddress - The address to write data to.
-@@ r2: wordCount - The amount of words being transferred.
+@@ r0: void* startAddress - The address to read data from.
+@@ r1: void* endAddress - The address to write data to.
+@@ r2: int wordCount - The amount of words being transferred.
 _ts Dma_TransferListAdd
     mov        r3,#0x0
     add        r7,r3,#0x0

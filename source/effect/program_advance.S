@@ -1363,7 +1363,7 @@ _nt FUN_0807cc46
     add        r0,r6,#0x0
     ldrb       r1,[r5,#0x1b]
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     ldrb       r0,[r5,#0xe]
     strb       r0,[r6,#0x0]
     mov        r0,#0x78
@@ -1381,5 +1381,5 @@ _nt FUN_0807cc46
     add        r0,r6,#0x0
     ldrb       r1,[r5,#0x1b]
     mov        r2,#0xff
-    bl         memset
+    bl         memset_8
     pop        {pc}

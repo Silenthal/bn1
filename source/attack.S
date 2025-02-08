@@ -119,7 +119,7 @@ LAB_0800368e:
     add        r0,r0,r5
     mov        r1,#0x7c
     mov        r2,#0x0
-    bl         memset
+    bl         memset_8
     mov        r0,#0x9
     strb       r0,[r5,#0x0]
     pop        { r0, r1, r2, r3, r4 }
