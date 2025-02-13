@@ -465,7 +465,7 @@ _ts R_Beetank_1_4_1
     strh       r0,[r5,#0x1c]
     bne        LAB_0805b7de
     mov        r0,#0x0
-    bl         Battle_GetPlayer
+    bl         Field_GetActorById
     ldrh       r0,[r7,#0x18]
     lsl        r0,r0,#0x10
     ldrb       r4,[r5,#0x4]

@@ -244,7 +244,7 @@ _ts A_PuffyBubble_1_1_0
     ldr        r3,DAT_08072bbc
     str        r3,[r5,#0x4c]
     ldr        r4,DAT_08072bb8
-    bl         Field_CalculateGravityXY
+    bl         Field_CalculateTrajectoryXY
     strh       r0,[r5,#0x1c]
     str        r1,[r5,#0x44]
     str        r2,[r5,#0x48]

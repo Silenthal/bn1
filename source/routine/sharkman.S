@@ -553,7 +553,7 @@ _nt R_SharkMan_1_6_1_AquaTower
     ldrb       r4,[r5,#0x19]
     mov        r1,#0x1
     mov        r2,#0x2
-    bl         Field_GetFirstInRowForward
+    bl         Field_GetColumnInRowLeftToRight
     tst        r0,r0
     beq        LAB_08065c88
     add        r0,#0x1

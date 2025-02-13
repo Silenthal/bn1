@@ -248,7 +248,7 @@ _ts R_LifeSaver_1_1_2
 LAB_0806e52a:
     pop        {r5}
     ldrb       r0,[r5,#0x16]
-    bl         Battle_GetPlayer
+    bl         Field_GetActorById
     push       {r5,r7}
     add        r5,r7,#0x0
     ldrh       r0,[r5,#0x22]

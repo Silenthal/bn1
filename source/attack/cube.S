@@ -261,7 +261,7 @@ LAB_080737bc:
     ldrb       r1,[r5,#0x7]
     lsr        r1,r1,#0x1
     bcs        LAB_080737e8
-    bl         R_Actor_CheckPush
+    bl         Field_CheckPush
     tst        r0,r0
     beq        LAB_080737e8
     str        r0,[r5,#0x44]

@@ -139,8 +139,8 @@ PTR_listCapturedPanelProperties_080717a8:
     .word listCapturedPanelProperties
 
 listCapturedPanelProperties:
-    .byte 0x01
-    .byte 0x03
+    .byte PF_Walkable
+    .byte PF_Walkable | PF_EnemyTerritory
 
     .align 2, 0
 

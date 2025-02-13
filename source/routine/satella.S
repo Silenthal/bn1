@@ -348,7 +348,7 @@ _ts R_Satella_1_3_3
     strb       r0,[r7,#0x5]
     mov        r0,#0x0
     str        r0,[r5,#0x68]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r0,#0x10
     strh       r0,[r5,#0xa]
 LAB_0806d71a:
@@ -483,7 +483,7 @@ _nt R_Satella_2_1_Free
     bne        LAB_0806d7fa
     ldr        r0,[r5,#0x64]
     bl         FieldObject_Free
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
 LAB_0806d7fa:

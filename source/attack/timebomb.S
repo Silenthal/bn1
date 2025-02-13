@@ -290,7 +290,7 @@ _ts A_TimeBomb_CheckDamage
     ldrb       r1,[r5,#0x7]
     tst        r1,r1
     bne        LAB_08072604
-    bl         R_Actor_CheckPush
+    bl         Field_CheckPush
     tst        r0,r0
     beq        LAB_08072604
     str        r0,[r5,#0x44]

@@ -128,7 +128,7 @@ _ts SD_BloodSuck_1_2
     tst        r0,r0
     beq        LAB_0809bc14
     ldrb       r0,[r5,#0x6]
-    bl         Battle_GetPlayer
+    bl         Field_GetActorById
     push       {r5}
     add        r5,r7,#0x0
     mov        r0,#0xc8

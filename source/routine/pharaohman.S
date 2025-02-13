@@ -112,7 +112,7 @@ _ts R_PharaohMan_1_Main
     bl         FieldObject_UpdateField
     bl         SpritePtr_DisableFlash
     ldrb       r0,[r5,#0x16]
-    bl         Battle_GetBattleFlagBuffer
+    bl         Field_CheckInterrupt
     beq        LAB_0806ae84
     mov        r0,#0x0
     strb       r0,[r5,#0x1b]

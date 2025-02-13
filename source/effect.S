@@ -86,7 +86,7 @@ _ts Effect_Alloc
     ldr        r0,PTR_gBitsetEffect_08003acc
     ldr        r2,[r0,#0x0]
     ldr        r1,DAT_08003ad0
-    ldr        r5,PTR_gListEffect_08003ad4
+    ldr        r5,PTR_gEntityListEffect_08003ad4
     ldr        r3,PTR_Struct_20062d0_Sized_08003ad8
 LAB_08003968:
     tst        r2,r1
@@ -135,7 +135,7 @@ _ts Effect_Free
 
 _ts Effect_UpdateAll
     push       { lr }
-    ldr        r5,PTR_gListEffect_08003ae0
+    ldr        r5,PTR_gEntityListEffect_08003ae0
 LAB_080039c0:
     mov        r1,#0x1
     ldrb       r0,[r5,#0x0]
@@ -180,7 +180,7 @@ LAB_080039f6:
     strb       r0,[r6,#0x7]
 LAB_08003a14:
     add        r5,#0xb0
-    ldr        r0,PTR_gListEffect_08003ae8
+    ldr        r0,PTR_gEntityListEffect_08003ae8
     ldr        r1,INT_08003aec
     add        r0,r0,r1
     cmp        r0,r5
@@ -195,7 +195,7 @@ LAB_08003a22:
 _ts Effect_Init
     push       { lr }
     ldr        r0,PTR_gFillValue_08003af0
-    ldr        r1,PTR_gListEffect_08003af4
+    ldr        r1,PTR_gEntityListEffect_08003af4
     ldr        r2,DAT_08003af8
     mov        r3,#0x3
     ldr        r4,DAT_08003afc
@@ -204,7 +204,7 @@ _ts Effect_Init
     bl         Dma_WaitForEnd
     mov        r0,#0x20
     mov        r1,#0x0
-    ldr        r5,PTR_gListEffect_08003b00
+    ldr        r5,PTR_gEntityListEffect_08003b00
 LAB_08003a48:
     mov        r3,#0x83
     strb       r3,[r5,#0x2]
@@ -222,7 +222,7 @@ _ts Effect_LoadAll
     push       { lr }
     mov        r0,#0x20
     mov        r1,#0x0
-    ldr        r5,PTR_gListEffect_08003b08
+    ldr        r5,PTR_gEntityListEffect_08003b08
 LAB_08003a68:
     ldrb       r2,[r5,#0x0]
     mov        r3,#0x2
@@ -263,7 +263,7 @@ LAB_08003aa8:
 
 _ts Effect_UnloadAll
     mov        r0,#0x0
-    ldr        r5,PTR_gListEffect_08003b10
+    ldr        r5,PTR_gEntityListEffect_08003b10
 LAB_08003ab8:
     add        r1,r5,#0x0
     add        r1,#0x80
@@ -279,19 +279,19 @@ LAB_08003ab8:
 
 PTR_gBitsetEffect_08003acc:             .word gBitsetEffect
 DAT_08003ad0:                           .word 0x80000000
-PTR_gListEffect_08003ad4:               .word gListEffect
+PTR_gEntityListEffect_08003ad4:               .word gEntityListEffect
 PTR_Struct_20062d0_Sized_08003ad8:      .word 0x20062d0
 PTR_gBitsetEffect_08003adc:             .word gBitsetEffect
-PTR_gListEffect_08003ae0:               .word gListEffect
+PTR_gEntityListEffect_08003ae0:               .word gEntityListEffect
 PTR_listHandlerEffect_08003ae4:         .word listHandlerEffect
-PTR_gListEffect_08003ae8:               .word gListEffect
+PTR_gEntityListEffect_08003ae8:               .word gEntityListEffect
 INT_08003aec:                           .word 0x1600
 PTR_gFillValue_08003af0:                .word gFillValue
-PTR_gListEffect_08003af4:               .word gListEffect
+PTR_gEntityListEffect_08003af4:               .word gEntityListEffect
 DAT_08003af8:                           .word 0x580
 DAT_08003afc:                           .word 0x85000000
-PTR_gListEffect_08003b00:               .word gListEffect
+PTR_gEntityListEffect_08003b00:               .word gEntityListEffect
 PTR_gBitsetEffect_08003b04:             .word gBitsetEffect
-PTR_gListEffect_08003b08:               .word gListEffect
+PTR_gEntityListEffect_08003b08:               .word gEntityListEffect
 PTR_SpriteFrame_LoadTileset_1_08003b0c: .word SpriteFrame_LoadTileset_far
-PTR_gListEffect_08003b10:               .word gListEffect
+PTR_gEntityListEffect_08003b10:               .word gEntityListEffect

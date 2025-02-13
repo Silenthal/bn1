@@ -127,7 +127,7 @@ _ts R_ColorMan_1_Main
     pop        {pc}
 LAB_080634bc:
     mov        r0,#0x1
-    bl         Battle_GetBattleFlagBuffer
+    bl         Field_CheckInterrupt
     tst        r0,r0
     beq        LAB_080634cc
     mov        r0,#0x0

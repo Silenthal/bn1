@@ -238,7 +238,7 @@ _ts FUN_0805b394
     push       {lr}
     ldrb       r0,[r5,#0x10]
     ldr        r1,[r5,#0x4c]
-    bl         AngleToOffset
+    bl         AngleToVector
     str        r0,[r5,#0x44]
     str        r1,[r5,#0x48]
     ldr        r0,[r5,#0x28]

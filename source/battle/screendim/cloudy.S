@@ -188,11 +188,11 @@ _ts FUN_080997e8
     ldr        r1,[r7,r3]
     ldr        r7,PTR_PanelFlag_ARRAY_08099820
     ldr        r2,[r7,r3]
-    bl         Field_GetFirstColumnFront
+    bl         Field_GetFirstPanelForward
     tst        r0,r0
     bne        LAB_0809980a
     ldrb       r0,[r5,#0x6]
-    bl         Field_GetFirstWalkableColumnFront
+    bl         Field_GetFirstWalkableOpponentColumnFront
     tst        r0,r0
     bne        LAB_0809980a
     mov        r0,#0x6

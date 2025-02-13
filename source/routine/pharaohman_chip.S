@@ -141,7 +141,7 @@ LAB_0806d948:
 _nt R_PharaohManC_1_0_1_MoveBackwards
     push       {lr}
     mov        r0,#0xf
-    bl         Battle_IsOnscreenX
+    bl         Field_IsOnscreenX
     tst        r0,r0
     beq        LAB_0806d960
     ldr        r1,[r5,#0x44]

@@ -1118,7 +1118,7 @@ _ts R_Bass_GetNextMovePanelFront
     mov        r0,#0x0
     mov        r1,#0x1
     mov        r7,sp
-    bl         Field_FindEmptyOpponentWalkableEdgeFront
+    bl         Field_FindWalkablePlayerPanelsRight
     mov        r0,#0xff
     tst        r1,r1
     beq        LAB_0806d448

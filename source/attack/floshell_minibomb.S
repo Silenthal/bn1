@@ -103,7 +103,7 @@ _ts A_FloshellMiniBomb_1_0_0_SetGravity
     add        r1,r3,#0x0
     bl         VectorToAngle
     ldr        r1,DAT_0807413c
-    bl         AngleToOffset
+    bl         AngleToVector
     add        r2,r0,#0x0
     add        r3,r1,#0x0
     pop        {r0,r1,r5}
@@ -116,7 +116,7 @@ _ts A_FloshellMiniBomb_1_0_0_SetGravity
     add        r0,r0,r5
     ldr        r4,DAT_0807413c
     ldr        r6,DAT_08074138
-    bl         Field_CalculateGravityZ
+    bl         Field_CalculateTrajectoryZ
     str        r0,[r5,#0x4c]
     strh       r1,[r5,#0x1c]
     mov        r0,#0x4

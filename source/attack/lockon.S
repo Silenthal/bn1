@@ -403,7 +403,7 @@ _ts A_LockOn_1_3_3
     strb       r0,[r7,#0x5]
     mov        r0,#0x0
     str        r0,[r5,#0x68]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r0,#0x10
     strh       r0,[r5,#0xa]
 LAB_0807b0be:
@@ -490,7 +490,7 @@ _ts A_LockOn_2_Free
     push       {lr}
     mov        r0,#0x76
     bl         Sound_PlaySE
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}

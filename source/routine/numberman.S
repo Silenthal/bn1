@@ -295,7 +295,7 @@ _ts R_NumberMan_1_3_0
     mov        r0,#0xd
     ldr        r1,[r5,#0x70]
     bl         Field_SetPanelFlagsOnEntity
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r0,#0x5
     strb       r0,[r5,#0x14]
     mov        r0,#0xff
@@ -654,7 +654,7 @@ _ts R_NumberMan_2_0_Delete
     bl         Battle_RegisterVirusDelete
     ldr        r0,[r5,#0x70]
     bl         FieldObject_Disable
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r0,#0x5
     strb       r0,[r5,#0x14]
     push       {r5}

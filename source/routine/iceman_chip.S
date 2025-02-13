@@ -226,7 +226,7 @@ _ts R_IceManC_1_1_2_Reset
     bne        LAB_08061bee
     mov        r0,#0x5
     strb       r0,[r5,#0x14]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r0,#0xc
     strh       r0,[r5,#0xa]
 LAB_08061bee:

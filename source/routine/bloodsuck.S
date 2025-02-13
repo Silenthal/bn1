@@ -197,7 +197,7 @@ _ts R_BloodSuck_1_1_2
     beq        LAB_0806efd8
     mov        r0,#0x1
     strb       r0,[r5,#0x14]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r0,#0x50
     strh       r0,[r5,#0x1c]
     mov        r0,#0xc
@@ -245,7 +245,7 @@ _ts R_BloodSuck_1_2_0
 
 _ts R_BloodSuck_2_Free
     push       {lr}
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x3]

@@ -149,7 +149,7 @@ _nt R_Drain_1_2
     bl         FieldObject_UpdateField
     mov        r0,#0x16
     strb       r0,[r5,#0x14]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     ldr        r4,DAT_080693f8
     ldrb       r0,[r5,#0x16]
     bl         Attack_AnimationOnly_Create

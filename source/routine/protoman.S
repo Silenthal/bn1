@@ -430,7 +430,7 @@ _ts R_ProtoMan_1_6_0_ChooseMovePanel
     ldr        r1,DAT_080649d8
     ldr        r2,DAT_080649dc
     push       {r4,r7}
-    bl         Field_GetFirstInRowForward
+    bl         Field_GetColumnInRowLeftToRight
     pop        {r4,r7}
     tst        r0,r0
     beq        LAB_08064982
@@ -442,7 +442,7 @@ LAB_08064982:
     ldr        r2,DAT_080649dc
     add        r3,r7,#0x0
     push       {r7}
-    bl         Field_FindFirstEdgeForward
+    bl         Field_SearchEdgeLeftToRight
     pop        {r7}
     tst        r0,r0
     beq        LAB_080649ca
@@ -1019,7 +1019,7 @@ _ts R_ProtoMan_1_4_0_ChooseFrontMovePanel
     pop        {r7}
     mov        r0,#0x0
     ldrb       r1,[r5,#0x19]
-    bl         Field_FindEmptyOpponentWalkableEdgeFront
+    bl         Field_FindWalkablePlayerPanelsRight
     tst        r1,r1
     beq        LAB_08064dd2
     push       {r7}

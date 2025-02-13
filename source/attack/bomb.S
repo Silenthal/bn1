@@ -58,13 +58,7 @@ _ts A_Bomb_0_Init
 
 
 DAT_08070198:
-    .word 0x2E666
-
-DAT_0807019c:
-    .word 0xFFFFD800
-
-DAT_080701a0:
-    .word 0x20666
+    .word f(2.9, -0.15625, 2.025)
 
 PTR_DAT_080701a4:
     .word DAT_08070198

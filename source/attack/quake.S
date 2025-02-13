@@ -116,7 +116,7 @@ _ts A_Quake_1_0
     strb       r0,[r5,#0x10]
     ldr        r1,DAT_080730fc
     push       {r1}
-    bl         AngleToOffset
+    bl         AngleToVector
     str        r0,[r5,#0x44]
     str        r1,[r5,#0x48]
     pop        {r4}
@@ -126,7 +126,7 @@ _ts A_Quake_1_0
     lsl        r3,r3,#0x10
     str        r3,[r5,#0x30]
     ldr        r6,DAT_08073100
-    bl         Field_CalculateGravityZ
+    bl         Field_CalculateTrajectoryZ
     str        r0,[r5,#0x4c]
     strh       r1,[r5,#0x1c]
     mov        r0,#0x3

@@ -192,7 +192,7 @@ _ts R_HeavyStamp_1_1_2
     beq        LAB_0806eca8
     mov        r0,#0x1c
     strb       r0,[r5,#0x14]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r3,#0x28
     add        r7,r5,r3
     ldmia      r7!,{r1,r2,r3}
@@ -269,7 +269,7 @@ _nt R_HeavyStamp_1_1_4
 LAB_0806ed06:
     pop        {r1,r2,r3,r5}
     push       {r1,r2,r3}
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     pop        {r1,r2,r3}
     ldr        r4,DAT_0806ed2c
     ldrb       r0,[r5,#0x16]
@@ -340,7 +340,7 @@ _ts R_HeavyStamp_1_2_0
     push       {lr}
     mov        r0,#0x1e
     strb       r0,[r5,#0x14]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r3,#0x28
     add        r7,r5,r3
     ldmia      r7!,{r1,r2,r3}
@@ -388,7 +388,7 @@ DAT_0806edc8:
 
 _ts R_HeavyStamp_2_Free
     push       {lr}
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x3]

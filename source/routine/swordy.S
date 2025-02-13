@@ -116,7 +116,7 @@ _ts R_Swordy_1_Main
     bne        LAB_0805d8a8
     bl         Routine_CheckPoisonDrain
     ldrb       r0,[r5,#0x16]
-    bl         Battle_GetBattleFlagBuffer
+    bl         Field_CheckInterrupt
     beq        LAB_0805d870
     mov        r0,#0x0
     str        r0,[r5,#0x68]

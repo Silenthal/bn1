@@ -363,7 +363,7 @@ _ts R_FireMan_1_3_0_FindNextPanel
     LoadMain battle, r6, r6
     ldr        r6,[r6,#0x40]
     ldrb       r1,[r6,#0x19]
-    bl         Field_FindEmptyOpponentWalkableEdgeFront
+    bl         Field_FindWalkablePlayerPanelsRight
     tst        r1,r1
     beq        LAB_08059f60
     add        r0,r7,#0x0
@@ -603,7 +603,7 @@ _ts R_FireMan_1_4_0_FindNextPanel
     LoadMain battle, r6, r6
     ldr        r6,[r6,#0x40]
     ldrb       r1,[r6,#0x19]
-    bl         Field_FindEmptyOpponentWalkablePanelsFront
+    bl         Field_FindWalkablePlayerPanelsLeft
     tst        r1,r1
     beq        LAB_0805a118
     add        r0,r7,#0x0
@@ -776,7 +776,7 @@ _ts R_FireMan_1_5_0
     mov        r7,sp
     mov        r0,#0x0
     mov        r1,#0x0
-    bl         Field_FindEmptyOpponentWalkablePanelsFront
+    bl         Field_FindWalkablePlayerPanelsLeft
     tst        r1,r1
     beq        LAB_0805a252
     add        r0,r7,#0x0

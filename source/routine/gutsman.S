@@ -622,7 +622,7 @@ _ts R_GutsMan_1_6_0_Teleport
     mov        r7,sp
     mov        r0,#0x0
     mov        r1,#0x0
-    bl         Field_FindEmptyOpponentWalkablePanelsFront
+    bl         Field_FindWalkablePlayerPanelsLeft
     tst        r1,r1
     beq        LAB_0805c574
     add        r0,r7,#0x0

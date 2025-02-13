@@ -165,7 +165,7 @@ _ts A_ColorManBall_1_1_0_CalculateArc
     mov        r4,#0x10
     lsl        r4,r4,#0x8
     neg        r4,r4
-    bl         Field_CalculateGravityXY
+    bl         Field_CalculateTrajectoryXY
     strh       r0,[r5,#0x1c]
     str        r1,[r5,#0x44]
     str        r2,[r5,#0x48]

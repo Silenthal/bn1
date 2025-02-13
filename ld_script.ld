@@ -98,7 +98,7 @@ SECTIONS {
 		gSpriteAffineDataFlag		= 0x4BA4;
 		gMapChange					= 0x4BB0;
 		gBattleMessageList			= 0x4BD0;
-		gListEffect					= 0x4CD0;
+		gEntityListEffect			= 0x4CD0;
 		gPETBattery					= 0x62D0;
 		gMenu						= 0x62E0;
 		gOamAttributeCount			= 0x6338;

@@ -4,10 +4,12 @@
 
 
 @@ Converts a vector (dx, dy) to an angle.
-@@ Angles atart at 0 pointing up, and increment clockwise.
+@@ Angles start at 0 pointing up, and increment clockwise.
 @@ In:
-@@ r0: dy: The Y coordinate of the vector.
-@@ r1: dx: The X coordinate of the vector.
+@@ r0: int dy: The Y coordinate of the vector.
+@@ r1: int dx: The X coordinate of the vector.
+@@ Out:
+@@ r0: byte angle: The arctan of dy/dx.
 _ts VectorToAngle
     push       {lr}
     mov        r2,r10
@@ -81,6 +83,12 @@ DAT_08000d18:               .short 0x100
 DAT_08000d1a:               .byte 0x0, 0x40, 0xC0, 0x80
 
 
+@@ Calculates the angle formed by a line between the actor and the player.
+@@ In:
+@@ r0: int angleOffset - Offset to add to the angle after the calculation.
+@@ r5: Actor actor - The actor to check.
+@@ Out:
+@@ r0: int angle - The angle.
 _ts ActorFacingPlayerAngle
     push       {r5,lr}
     push       {r0}
@@ -100,7 +108,14 @@ _ts ActorFacingPlayerAngle
     pop        {r5,pc}
 
 
-_ts AngleToOffset
+@@ Converts an angle to a vector (dx, dy).
+@@ In:
+@@ r0: int angle: The angle to convert.
+@@ r1: int unit: The scale factor to apply to the conversion.
+@@ Out:
+@@ r0: int dx: The X coordinate of the vector.
+@@ r1: int dy: The Y coordinate of the vector.
+_ts AngleToVector
     lsl        r0,r0,#0x1
     ldr        r2,PTR_sinTable_08000d5c
     ldrsh      r3,[r2,r0]
@@ -119,6 +134,9 @@ PTR_sinTable_08000d5c: .word sinTable
 PTR_cosTable_08000d60: .word cosTable
 
 
+@@ Updates an entity's animation frame index.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _nt UpdateSpriteFrameIndex
     push       {lr}
     ldrb       r0,[r5,#0x14]
@@ -133,6 +151,15 @@ LAB_08000d78:
     pop        {pc}
 
 
+@@ Checks if two square bounding boxes intersect.
+@@ In:
+@@ r0: int x1 - The X coordinate of the first bounding box.
+@@ r1: int y1 - The y coordinate of the first bounding box.
+@@ r2: int x2 - The X coordinate of the second bounding box.
+@@ r3: int y2 - The y coordinate of the second bounding box.
+@@ r4: int radius - Half of the side length of a bounding box.
+@@ Out:
+@@ r0: bool isIntersect - True if the two bounding boxes intersect.
 _nt IsCollision_Square
     sub        r0,r0,r2
     add        r0,r0,r4
@@ -150,6 +177,15 @@ LAB_08000d94:
     mov        pc,lr
 
 
+@@ Checks if two circular bounding boxes intersect.
+@@ In:
+@@ r0: int x1 - The X coordinate of the first bounding circle.
+@@ r1: int y1 - The y coordinate of the first bounding circle.
+@@ r2: int x2 - The X coordinate of the second bounding circle.
+@@ r3: int y2 - The y coordinate of the second bounding circle.
+@@ r4: int radius - The radius of the two circles.
+@@ Out:
+@@ r0: bool isIntersect - True if the two circles intersect.
 _nt IsCollision_Circle
     sub        r0,r0,r2
     sub        r1,r1,r3
@@ -169,6 +205,12 @@ LAB_08000db2:
     mov        pc,lr
 
 
+@@ Checks if an actor is colliding with the player.
+@@ In:
+@@ r5: Actor actor - The actor.
+@@ r4: int minDistance - The minimum distance between the player and actor.
+@@ Out:
+@@ r0: bool isIntersect - True if the actor is closer than the minimum distance.
 _nt IsCollision_Player
     push       {lr}
     ldr        r0,[r5,#0x28]
@@ -185,7 +227,18 @@ _nt IsCollision_Player
     pop        {pc}
 
 
-_nt Field_CalculateGravityZ
+@@ Calculates the trajectory of a given object.
+@@ In:
+@@ r0: PositionXYZ pos - The position of the object.
+@@ r1: int dx - The X position of the target.
+@@ r2: int dy - The Y position of the target.
+@@ r3: int dz - The Z position of the target.
+@@ r4: int v - The initial velocity.
+@@ r6: int a - The gravity constant.
+@@ Out:
+@@ r0: int vz - The initial drop speed.
+@@ r1: int time - The ammount of frames to reach the target.
+_nt Field_CalculateTrajectoryZ
     push       {r5,lr}
     tst        r4,r4
     bne        LAB_08000e02
@@ -249,7 +302,18 @@ LAB_08000e30:
     pop        {r5,pc}
 
 
-_nt Field_CalculateGravityXY
+@@ Calculates the trajectory of a given object.
+@@ In:
+@@ r0: PositionXYZ pos - The position of the object.
+@@ r1: int dx - The X position of the target.
+@@ r2: int dy - The Y position of the target.
+@@ r3: int v - The initial velocity.
+@@ r4: int a - The gravity constant.
+@@ Out:
+@@ r0: int time - The ammount of frames to reach the target.
+@@ r1: int vx - The velocity in the X direction.
+@@ r2: int vy - The velocity in the Y direction.
+_nt Field_CalculateTrajectoryXY
     push       {lr}
     ldr        r7,[r0,#0x0]
     sub        r1,r1,r7
@@ -281,6 +345,12 @@ LAB_08000e6a:
     pop        {pc}
 
 
+@@ Checks if an entity's field position is valid.
+@@ In:
+@@ r5: void* entity - The calling entity.
+@@ Out:
+@@ r0: bool isValid - True if the entity's X position is between 1 and 6
+@@ inclusive, and the Y position is between 1 and 3 inclusive.
 _nt Field_IsEntityCellPositionValid
     push       {lr}
     ldrb       r0,[r5,#0x18]
@@ -289,6 +359,13 @@ _nt Field_IsEntityCellPositionValid
     pop        {pc}
 
 
+@@ Checks if a given field position is valid.
+@@ In:
+@@ r0: byte x - The X position.
+@@ r5: byte y - The Y position.
+@@ Out:
+@@ r0: bool isValid - True if the X position is between 1 and 6 inclusive, and
+@@ the Y position is between 1 and 3 inclusive.
 _nt Field_IsCellPositionValid
     sub        r0,#0x1
     cmp        r0,#0x6
@@ -303,6 +380,13 @@ LAB_08000ea8:
     mov        pc,lr
 
 
+@@ Searches for all panels that fill the specified criteria.
+@@ In:
+@@ r0: byte* panelList - A list that holds found panels by index.
+@@ r1: PanelFlag include - Include panels that match this flag.
+@@ r2: PanelFlag exclude - Exclude panels that match this flag.
+@@ Out:
+@@ r1: int found - The amount of panels found.
 _nt Field_Search
     push       {lr}
     add        r7,r0,#0x0
@@ -338,6 +422,14 @@ LAB_08000ed8:
     pop        {pc}
 
 
+@@ Searches for all panels that fill the specified criteria.
+@@ In:
+@@ r0: byte* panelList - A list that holds found panels by index.
+@@ r1: PanelFlag include - Include panels that match this flag.
+@@ r2: PanelFlag exclude - Exclude panels that match this flag.
+@@ r3: int owner - The owner flag. Has no effect.
+@@ Out:
+@@ r1: int found - The amount of panels found.
 _nt Field_SearchWithOwner
     push       {r5,lr}
     LoadMain battle, r4, r4
@@ -392,6 +484,15 @@ listStartX:
     .byte 1, 1
 
 
+@@ Searches for all panels that fill the specified criteria, excluding the
+@@ leftmost column.
+@@ In:
+@@ r0: byte* panelList - A list that holds found panels by index.
+@@ r1: PanelFlag include - Include panels that match this flag.
+@@ r2: PanelFlag exclude - Exclude panels that match this flag.
+@@ r3: int owner - The owner flag. Has no effect.
+@@ Out:
+@@ r1: int found - The amount of panels found.
 _ts Field_SearchExcludeFirstCol
     push       {r5,lr}
     LoadMain battle, r4, r4
@@ -446,7 +547,13 @@ BYTE_ARRAY_ARRAY_08000fa4:
     .byte 2, 1
 
 
-_ts Field_GetFirstWalkableColumnFront
+@@ Finds the first column on the opponent's side of the field that has a
+@@ walkable panel.
+@@ In:
+@@ r0: int owner - The owner flag.
+@@ Out:
+@@ r1: int column - The index of the column found. 
+_ts Field_GetFirstWalkableOpponentColumnFront
     push       {lr}
     lsl        r2,r0,#0x1
     LoadMain battle, r4, r4
@@ -500,7 +607,16 @@ listStartX_1006:
     .byte 1, 6
 
 
-_ts Field_GetFirstColumnFront
+@@ Searches forward from the user's position to find the first panel that fits
+@@ the specified criteria.
+@@ In:
+@@ r0: int owner - The owner flag.
+@@ r1: PanelFlag include - Include panels that match this flag.
+@@ r2: PanelFlag exclude - Exclude panels that match this flag.
+@@ Out:
+@@ r0: int x - The X index of the found panel. Returns 0 if no panel is found.
+@@ r1: int y - The Y index of the found panel.
+_ts Field_GetFirstPanelForward
     push       {r5,lr}
     LoadMain battle, r3, r3
     ldrb       r3,[r3,#0x1a]
@@ -551,6 +667,12 @@ listStartX_105E:
     .byte 1, 6
 
 
+@@ Converts a cell index into coordinates.
+@@ In:
+@@ r0: int cellIndex - The cell index.
+@@ Out:
+@@ r0: int x - The X index.
+@@ r1: int y - The Y index.
 _ts Field_IndexToCellXY
     lsr        r1,r0,#0x3
     mov        r2,#0x7
@@ -558,6 +680,12 @@ _ts Field_IndexToCellXY
     mov        pc,lr
 
 
+@@ Creates a FieldObject with a standard set of panel flags.
+@@ In:
+@@ r0: PanelFlagIndex pfi: Index indicating which set of panel flags to set.
+@@ r1: FieldObject** fieldObjectPtr - Pointer which will hold the created
+@@ FieldObject.
+@@ r5: void* entity - The entity to base the FieldObject on.
 _ts Field_CreateEntity
     push       {lr}
     push       {r0,r1}
@@ -588,6 +716,19 @@ _ts Field_CreateEntity
     pop        {pc}
 
 
+@@ Gets all damage on an entity based on the given panel flag group.
+@@ In:
+@@ r0: PanelFlagIndex pfi: Index indicating the attacker panel flag group.
+@@ r1: FieldObject* obj: The field object to apply damage to.
+@@ r5: void* entity - The calling entity.
+@@ Out:
+@@ r0: PanelFlag attackerPanelFlags - The panel flags of the attacker.
+@@ r1: int attackerIdFlag - The ID flag of the attacker.
+@@ r2: int damageNone - The total untyped damage.
+@@ r3: int damageElec - The total electric damage.
+@@ r4: int damageFire - The total fire damage.
+@@ r6: int damageWatr - The total water damage.
+@@ r7: int damageWood - The total wood damage.
 _ts Field_GetDamageOnEntity
     push       {lr}
     push       {r1}
@@ -609,6 +750,11 @@ _ts Field_GetDamageOnEntity
     pop        {pc}
 
 
+@@ Assigns a set of panel flags to a given field object.
+@@ In:
+@@ r0: PanelFlagIndex pfi: Index indicating the panel flag group.
+@@ r1: FieldObject* obj: The field object to apply the panel flags to.
+@@ r5: void* entity - The calling entity.
 _ts Field_SetPanelFlagsOnEntity
     push       {r5,lr}
     push       {r1}
@@ -618,12 +764,28 @@ _ts Field_SetPanelFlagsOnEntity
     pop        {r5,pc}
 
 
+@@ Creates a simple attack.
+@@ In:
+@@ r0: byte element - The element of the attack.
+@@ r1: int x - The X position to place the attack.
+@@ r2: int y - The Y position to place the attack.
+@@ r3: int z - The Z position to place the attack.
+@@ r4: int family - The family detail for the attack.
+@@ r5: void* entity - The calling entity.
+@@ r6: ushort damage - The damage the attack does.
+@@ r7: short delay - The amount of frames to wait before the attack takes
+@@ effect.
 _nt Field_CreateSharpStrikeAttack
     push       {lr}
     bl         Attack_SharpStrike_Create
     pop        {pc}
 
 
+@@ Returns a set of panels.
+@@ In:
+@@ r0: PanelFlagIndex index - The index number.
+@@ Out:
+@@ r1: PanelFlag flags - The panel flags corresponding to the index number.
 _nt Field_GetPanelFlagGroup
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
@@ -796,8 +958,22 @@ PanelFlag_ARRAY_ARRAY_080010f4:
     .word PF_PlayerOccupied | PF_Teleporting | PF_Solid | PF_Sealed
 
 
+@@ Gets the direction of an attack being used relative to the user.
+@@ In:
+@@ r5: void* entity - The calling entity.
+@@ Out:
+@@ r0: int direction - Returns 1 if attack is moving to the right, and -1 if
+@@ moving to the left.
 _ts Field_GetAttackDirectionOffset_MP
     ldrb       r0,[r5,#0x16]
+
+
+@@ Gets the direction of an attack being used relative to the user.
+@@ In:
+@@ r0: int ownerId - The ID of the calling entity.
+@@ Out:
+@@ r0: int direction - Returns 1 if attack is moving to the right, and -1 if
+@@ moving to the left.
 _nt Field_GetAttackDirectionOffset
     LoadMain battle, r1, r1
     ldrb       r1,[r1,#0x1a]
@@ -808,6 +984,14 @@ _nt Field_GetAttackDirectionOffset
     mov        pc,lr
 
 
+@@ Returns a random position centered on a target.
+@@ In:
+@@ r0: int rangeMask - The range of the returned coordinates.
+@@ r1: int x - The X position in the center of the range.
+@@ r3: int z - The Z position in the center of the range.
+@@ Out:
+@@ r1: int x - The X position plus or minus half the range.
+@@ r3: int z - The Z position plus or minus half the range.
 _nt Field_GetRandomXZPosOnTarget
     push       {lr}
     push       {r0,r1,r2,r3}
@@ -829,7 +1013,16 @@ _nt Field_GetRandomXZPosOnTarget
     pop        {pc}
 
 
-_ts Field_FindEmptyOpponentWalkablePanelsFront
+@@ Searches for the leftmost panel in each row that is in the player's
+@@ territory and isn't in the opponent's row.
+@@ In:
+@@ r0: int depth - The amount of panels to search.
+@@ r1: int excludeY - The row index to exclude when searching.
+@@ r5: void* entity - The calling entity.
+@@ r7: byte* panelList - A list that holds found panels by index.
+@@ Out:
+@@ r1: int found - The amount of panels found.
+_ts Field_FindWalkablePlayerPanelsLeft
     push       {r7,lr}
     add        r3,r1,#0x0
     mov        r1,#0x1
@@ -838,7 +1031,7 @@ _ts Field_FindEmptyOpponentWalkablePanelsFront
 LAB_080012de:
     push       {r1,r3,r4,r6,r7}
     add        r0,r1,#0x0
-    bl         Field_GetFirstWalkableOpponentPanelFront
+    bl         Field_GetFirstWalkablePlayerPanelLeft
     pop        {r1,r3,r4,r6,r7}
     tst        r0,r0
     beq        LAB_08001306
@@ -863,7 +1056,16 @@ LAB_08001306:
     add        r1,r6,#0x0
     pop        {r7,pc}
 
-_ts Field_GetFirstWalkableOpponentPanelFront
+
+@@ Searches within a row for the first panel from the left that is walkable
+@@ and in the player's territory.
+@@ In:
+@@ r0: int searchY - The row index to search.
+@@ r4: int depth - The amount of panels to search.
+@@ Out:
+@@ r0: int x - The X index of either the found panel, the first enemy panel,
+@@ or 0 if no matching panels could be found.
+_ts Field_GetFirstWalkablePlayerPanelLeft
     push       {lr}
     add        r1,r0,#0x0
     mov        r0,#0x0
@@ -890,7 +1092,16 @@ LAB_0800133a:
     pop        {pc}
 
 
-_nt Field_FindEmptyOpponentWalkableEdgeFront
+@@ Searches for the rightmost panel in each row that is in the player's
+@@ territory and isn't in the opponent's row.
+@@ In:
+@@ r0: int depth - The amount of panels to search.
+@@ r1: int excludeY - The row index to exclude when searching.
+@@ r5: void* entity - The calling entity.
+@@ r7: byte* panelList - A list that holds found panels by index.
+@@ Out:
+@@ r1: int found - The amount of panels found.
+_nt Field_FindWalkablePlayerPanelsRight
     push       {r7,lr}
     add        r3,r1,#0x0
     mov        r1,#0x1
@@ -899,7 +1110,7 @@ _nt Field_FindEmptyOpponentWalkableEdgeFront
 LAB_08001348:
     push       {r1,r3,r4,r6,r7}
     add        r0,r1,#0x0
-    bl         Field_GetFirstWalkableOpponentPanelBack
+    bl         Field_GetFirstWalkablePlayerPanelRight
     pop        {r1,r3,r4,r6,r7}
     tst        r0,r0
     beq        LAB_08001370
@@ -925,7 +1136,15 @@ LAB_08001370:
     pop        {r7,pc}
 
 
-_nt Field_GetFirstWalkableOpponentPanelBack
+@@ Searches within a row for the first panel from the right that is walkable
+@@ and in the player's territory.
+@@ In:
+@@ r0: int searchY - The row index to search.
+@@ r4: int depth - The amount of panels to search.
+@@ Out:
+@@ r0: int x - The X index of either the found panel, the first enemy panel,
+@@ or 0 if no matching panels could be found.
+_nt Field_GetFirstWalkablePlayerPanelRight
     push       {lr}
     add        r1,r0,#0x0
     mov        r0,#0x7
@@ -952,7 +1171,15 @@ LAB_080013a4:
     pop        {pc}
 
 
-_ts Field_FindFirstEdgeForward
+@@ Searches for the first panel in each row that matches the given conditions.
+@@ In:
+@@ r0: int ownerId - The owner ID of the caller.
+@@ r1: PanelFlag include - Include panels that match this flag.
+@@ r2: PanelFlag exclude - Exclude panels that match this flag.
+@@ r3: byte* panelList - A list that holds found panels by index.
+@@ Out:
+@@ r0: int found - The amount of panels found.
+_ts Field_SearchEdgeLeftToRight
     push       {lr}
     LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
@@ -964,7 +1191,7 @@ LAB_080013b6:
     LoadMain battle, r6, r6
     ldrb       r6,[r6,#0x1a]
     eor        r0,r6
-    bl         Field_GetFirstInRowForward
+    bl         Field_GetColumnInRowLeftToRight
     add        r6,r0,#0x0
     pop        {r0,r1,r2,r3,r4,r7}
     tst        r6,r6
@@ -984,7 +1211,15 @@ LAB_080013da:
     pop        {pc}
 
 
-_ts Field_GetFirstInRowForward
+@@ Searches row for the first panel that matches the given conditions.
+@@ In:
+@@ r0: int ownerId - The owner ID of the caller.
+@@ r1: PanelFlag include - Include panels that match this flag.
+@@ r2: PanelFlag exclude - Exclude panels that match this flag.
+@@ r4: int searchY - The row index to search in.
+@@ Out:
+@@ r0: int x - The column index of the panel.
+_ts Field_GetColumnInRowLeftToRight
     push       {r5,lr}
     LoadMain battle, r6, r6
     ldrb       r6,[r6,#0x1a]
@@ -1022,7 +1257,17 @@ listSearchDirection:
     .byte 6, -1
     .byte 1,  1
 
-_ts Field_OpponentFindInRowForward
+
+@@ Searches row from right to left for panels that matches the given
+@@ conditions.
+@@ In:
+@@ r0: PanelFlag include - Include panels that match this flag.
+@@ r1: PanelFlag exclude - Exclude panels that match this flag.
+@@ r2: int searchY - The row index to search in.
+@@ r3: byte* panelList - A list that holds found panels by index.
+@@ Out:
+@@ r1: int found - The amount of panels found.
+_ts Field_SearchRowRightToLeft
     push       {lr}
     add        r6,r0,#0x0
     add        r7,r1,#0x0
@@ -1050,6 +1295,12 @@ LAB_0800144c:
     pop        {pc}
 
 
+@@ Finds an empty panel in the opponent's territory.
+@@ In:
+@@ r0: int ownerId - The ID of the caller.
+@@ Out:
+@@ r0: int x - The X index of the found panel.
+@@ r1: int y - The Y index of the found panel.
 _ts Field_FindEmptyEnemyPanelForward
     push       {r5,lr}
     lsl        r3,r0,#0x2
@@ -1058,7 +1309,7 @@ _ts Field_FindEmptyEnemyPanelForward
     ldr        r1,[r7,r3]
     ldr        r7,PTR_PanelFlag_ARRAY_080014f4
     ldr        r2,[r7,r3]
-    bl         Field_GetFirstColumnFront
+    bl         Field_GetFirstPanelForward
     pop        {r5}
     tst        r0,r0
     bne        LAB_0800146e
@@ -1149,6 +1400,13 @@ PanelFlag_ARRAY_08001518:
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Teleporting | PF_Solid
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Teleporting | PF_Solid | PF_EnemyTerritory
 
+
+@@ Cracks a panel, or breaks a panel if the panel is cracked.
+@@ In:
+@@ r0: int x - The column index of the panel.
+@@ r1: int y - The row index of the panel.
+@@ Out:
+@@ r0: bool success - True if the panel was cracked or broken by this function.
 _ts Field_CrackPanel
     push       {lr}
     push       {r0,r1}
@@ -1192,6 +1450,9 @@ PanelFlag_0800156c:
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Teleporting | PF_Solid | PF_Sealed
 
 
+@@ Cracks all panels within the opponent's territory.
+@@ In:
+@@ r0: int ownerId - The ID of the caller.
 _ts Field_CrackAllEnemyPanels
     push       {lr}
     ldr        r7,PTR_listPanelFilter_080015ac
@@ -1229,12 +1490,15 @@ PTR_listPanelFilter_080015ac:
     .word listPanelFilter
 
 listPanelFilter:
-    .byte 0x03
-    .byte 0x01
-    .byte 0x00
-    .byte 0x02
+    @ include
+    .byte PF_Walkable | PF_EnemyTerritory
+    .byte PF_Walkable
+    @ exclude
+    .byte 0
+    .byte PF_EnemyTerritory
 
 
+@@ Cracks all panels.
 _ts Field_CrackAllPanels
     push       {lr}
     mov        r2,#0x1
@@ -1267,11 +1531,17 @@ LAB_080015e2:
     pop        {pc}
 
 
-_nt GetEntityByIndex
-    ldr        r2,PTR_DAT_08001614
+@@ Retrives an entity.
+@@ In:
+@@ r0: int entityTypeIndex - The type of entity to get.
+@@ r1: int entityListIndex - The index of the entity.
+@@ Out:
+@@ r0: void* entity - A pointer to the entity.
+_nt Field_GetEntityFromIndex
+    ldr        r2,listEntitySize
     ldrb       r2,[r2,r0]
     mul        r2,r1
-    ldr        r3,PTR_gEntityListPlayerLocation_08001604
+    ldr        r3,listEntityType
     lsl        r0,r0,#0x2
     ldr        r0,[r3,r0]
     add        r0,r0,r2
@@ -1279,22 +1549,29 @@ _nt GetEntityByIndex
 
     .align 2, 0
 
-    .word PTR_gEntityListPlayerLocation_08001604
-    .word PTR_DAT_08001614
-PTR_gEntityListPlayerLocation_08001604:
+    .word listEntityType
+    .word listEntitySize
+listEntityType:
     .word gEntityListPlayerLocation
     .word gEntityListActor
     .word gEntityListAttack
-    .word gListEffect
-PTR_DAT_08001614:
+    .word gEntityListEffect
+listEntitySize:
     .byte 0xb0
     .byte 0xc0
     .byte 0xb0
     .byte 0xb0
 
-_ts FUN_08001618
+
+@@ Gets an entity's type and index.
+@@ In:
+@@ r0: void* entity - A pointer to the entity.
+@@ Out:
+@@ r0: int entityTypeIndex - The type of entity.
+@@ r1: int entityListIndex - The index of the entity.
+_ts Field_GetIndexFromEntity
     mov        r4,#0xc
-    ldr        r2,PTR_PTR_gEntityListPlayerLocation_0800163c
+    ldr        r2,ptrListEntityType
     ldr        r3,[r2,r4]
 LAB_0800161e:
     cmp        r0,r3
@@ -1305,7 +1582,7 @@ LAB_0800161e:
 LAB_08001628:
     lsr        r4,r4,#0x2
     sub        r0,r0,r3
-    ldr        r2,PTR_PTR_DAT_08001640
+    ldr        r2,ptrListEntitySize
     ldr        r1,[r2,r4]
     bl         SWI_Div
     add        r1,r0,#0x0
@@ -1315,14 +1592,11 @@ LAB_08001628:
 
     .align 2, 0
 
-PTR_PTR_gEntityListPlayerLocation_0800163c: .word PTR_gEntityListPlayerLocation_08001604
-PTR_PTR_DAT_08001640:                       .word PTR_DAT_08001614
-PTR_DAT_08001644:                           .word DAT_08001648
-DAT_08001648:
-    .byte 0
-    .byte 1
-    .byte 2
-    .byte 3
+ptrListEntityType:  .word listEntityType
+ptrListEntitySize:  .word listEntitySize
+PTR_DAT_08001644:   .word listEntityTypeIndex
+listEntityTypeIndex:
+    .byte 0, 1, 2, 3
 
 
 _nt Battle_SetBattleFlag
@@ -1364,6 +1638,12 @@ _nt Battle_GetBattleFlag
     mov        pc,lr
 
 
+@@ Creates a strike effect on a panel based on the panel resident's armor.
+@@ In:
+@@ r0: QuickEffect effectId - The ID of the effect to do.
+@@ r3: int z - The Z position of the effect.
+@@ Out:
+@@ r7: Effect* effect - A pointer to the created effect.
 _nt Field_CreateStrikeEffect
     push       {r5,lr}
     push       {r0}
@@ -1406,9 +1686,12 @@ DAT_080016d0:
     .word 0x40000
 
 
-@@ Creates an effect based on the property of the target.
-@@ if armored, create an effect of the attack bouncing
-@@ off.
+@@ Creates a buster effect on a panel based on the panel resident's armor.
+@@ In:
+@@ r0: QuickEffect effectId - The ID of the effect to do.
+@@ r3: int z - The Z position of the effect.
+@@ Out:
+@@ r7: Effect* effect - A pointer to the created effect.
 _nt Field_CreateBusterEffect
     push       {r5,lr}
     push       {r0}
@@ -1446,7 +1729,15 @@ DAT_08001710:
     .word 0x40000
 
 
-_nt R_Actor_CheckPush
+@@ Checks if an entity is being pushed.
+@@ In:
+@@ r0: PanelFlag attackerFlags - The flags of the attacker.
+@@ r5: void* entity - The entity being pushed.
+@@ Out:
+@@ r0: int x - The column index of the panel being pushed to. Returns 0 if no
+@@ push happens.
+@@ r1: int y - The row index of the panel being pushed to.
+_nt Field_CheckPush
     push       {r2,r7,lr}
     ldr        r7,PTR_INT_08001758
     mov        r1,#0x10
@@ -1493,6 +1784,10 @@ INT_0800175c:
     .word 0
 
 
+@@ Repairs a panel.
+@@ In:
+@@ r0: int x - The column index of the panel being repaired.
+@@ r1: int y - The row index of the panel being repaired.
 _nt Field_RepairPanel
     push       {lr}
     push       {r0,r1}
@@ -1507,7 +1802,10 @@ _nt Field_RepairPanel
     pop        {pc}
 
 
-_nt R_Actor_ClearCurrentAttack
+@@ Frees an entity's associated attack.
+@@ In:
+@@ r0: void* entity - The calling entity.
+_nt Field_AttackFree
     push       {lr}
     ldr        r0,[r5,#0x5c]
     tst        r0,r0
@@ -1522,7 +1820,13 @@ LAB_0800179c:
     pop        {pc}
 
 
-_nt Battle_GetBattleFlagBuffer
+@@ Checks if the Interrupt chip has been used.
+@@ In:
+@@ r0: The owner ID to check.
+@@ Out:
+@@ Z flag: Set if Interrupt has been used on the given owner.
+@@ r0: int flag - The battle flag.
+_nt Field_CheckInterrupt
     add        r0,#0x1c
     mov        r1,#0x1
     lsl        r1,r0
@@ -1532,7 +1836,12 @@ _nt Battle_GetBattleFlagBuffer
     mov        pc,lr
 
 
-_nt Battle_GetPlayer
+@@ Fetches an actor using the owner ID.
+@@ In:
+@@ r0: int ownerId - The ID of the actor to fetch.
+@@ Out:
+@@ r7: Actor* actor - The actor.
+_nt Field_GetActorById
     lsl        r0,r0,#0x2
     add        r0,#0x40
     LoadMain battle, r7, r7
@@ -1540,7 +1849,14 @@ _nt Battle_GetPlayer
     mov        pc,lr
 
 
-_nt Battle_FindFirstEnemyPanel
+@@ Searches forward for the first panel with an opponent.
+@@ In:
+@@ r5: void* entity - The calling entity.
+@@ Out:
+@@ r0: int x - The column index of the opponent panel. Returns 0 if no panel
+@@ was found.
+@@ r1: int y - The row index of the opponent panel.
+_nt Field_GetFirstOpponentPanel
     push       {lr}
     bl         Field_GetAttackDirectionOffset_MP
     add        r2,r0,#0x0
@@ -1580,7 +1896,14 @@ PanelFlag_ARRAY_080017fc:
     .word PF_ActorPlayer
 
 
-_nt Battle_FindOpponentInSameColumn
+@@ Searches for the first panel in an entity's column that has an opponent.
+@@ In:
+@@ r5: void* entity - The calling entity.
+@@ Out:
+@@ r0: int x - The column index of the opponent panel. Returns 0 if no panel
+@@ was found.
+@@ r1: int y - The row index of the opponent panel.
+_nt Field_GetFirstOpponentPanelInSameColumn
     push       {lr}
     bl         Field_GetAttackDirectionOffset_MP
     neg        r2,r0
@@ -1613,7 +1936,13 @@ PTR_PanelFlag_ARRAY_0800183c:
     .word PanelFlag_ARRAY_080017fc
 
 
-_nt Battle_FindOpponentPanelsForward
+@@ Searches forward for panels that have opponents.
+@@ In:
+@@ r0: byte* panelList - A list that holds found panels by index.
+@@ r5: void* entity - The calling entity.
+@@ Out:
+@@ r1: int found - The amount of panels found.
+_nt Field_SearchOpponentPanels
     push       {lr}
     push       {r0}
     bl         Field_GetAttackDirectionOffset_MP
@@ -1660,7 +1989,13 @@ PanelFlag_ARRAY_08001890:
     .word PF_ActorPlayer
 
 
-_nt Battle_IsOnscreenX
+@@ Checks if an entity is visible onscreen.
+@@ In:
+@@ r0: int width - The width of the entity.
+@@ r5: void* entity - The calling entity.
+@@ Out:
+@@ r0: bool isOnscreen - True if the entity is onscreen, false otherwise.
+_nt Field_IsOnscreenX
     mov        r2,#0x2a
     ldrsh      r1,[r5,r2]
     add        r2,r1,r0

@@ -424,7 +424,7 @@ LAB_0807483e:
 
 _nt A_Ratton_GetYDistanceToTarget_
     push       {lr}
-    bl         Battle_FindOpponentInSameColumn
+    bl         Field_GetFirstOpponentPanelInSameColumn
     tst        r0,r0
     beq        LAB_08074854
     ldrb       r2,[r5,#0x19]

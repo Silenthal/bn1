@@ -115,7 +115,7 @@ _ts A_Seed_1_0_0
     add        r1,r3,#0x0
     bl         VectorToAngle
     ldr        r1,DAT_08071e8c
-    bl         AngleToOffset
+    bl         AngleToVector
     add        r2,r0,#0x0
     add        r3,r1,#0x0
     pop        {r0,r1,r5}
@@ -128,7 +128,7 @@ _ts A_Seed_1_0_0
     add        r0,r0,r5
     ldr        r4,DAT_08071e8c
     ldr        r6,DAT_08071e88
-    bl         Field_CalculateGravityZ
+    bl         Field_CalculateTrajectoryZ
     str        r0,[r5,#0x4c]
     strh       r1,[r5,#0x1c]
     mov        r0,#0x4

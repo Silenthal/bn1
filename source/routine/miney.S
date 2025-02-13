@@ -89,7 +89,7 @@ _ts R_Miney_1_Main
     bne        LAB_08065170
     bl         Routine_CheckPoisonDrain
     ldrb       r0,[r5,#0x16]
-    bl         Battle_GetBattleFlagBuffer
+    bl         Field_CheckInterrupt
     beq        LAB_0806513c
     mov        r0,#0x0
     str        r0,[r5,#0xc]

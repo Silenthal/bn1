@@ -20,7 +20,7 @@ global_label listEntityList
     .word gEntityListPlayerLocation
     .word gEntityListActor
     .word gEntityListAttack
-    .word gListEffect
+    .word gEntityListEffect
     .word gEntityListNpc
 
 global_label listFlagSet

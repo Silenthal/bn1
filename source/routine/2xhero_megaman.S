@@ -356,7 +356,7 @@ _nt R_2xHeroMegaMan_Attack
     sub        sp,#0x14
     mov        r0,sp
     push       {r0}
-    bl         Battle_FindOpponentPanelsForward
+    bl         Field_SearchOpponentPanels
     pop        {r7}
     ldr        r4,FamilyDetail_0806e8a0
     ldrh       r6,[r5,#0x24]

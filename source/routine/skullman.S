@@ -362,7 +362,7 @@ _ts R_SkullMan_1_4_0_FindNextMovePanel
     ldr        r0,PanelFlag_08062fb4
     ldr        r1,PanelFlag_08062fb8
     add        r3,r6,#0x0
-    bl         Field_OpponentFindInRowForward
+    bl         Field_SearchRowRightToLeft
     pop        {r6}
     tst        r1,r1
     beq        LAB_08062f64
@@ -532,7 +532,7 @@ _ts R_SkullMan_1_6_0_FindTargetPanels
     ldr        r2,DAT_080630ac
     add        r3,r7,#0x0
     push       {r7}
-    bl         Field_FindFirstEdgeForward
+    bl         Field_SearchEdgeLeftToRight
     pop        {r7}
     cmp        r0,#0x2
     bmi        LAB_0806309e

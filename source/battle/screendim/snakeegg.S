@@ -95,7 +95,7 @@ _ts SD_SnakeEgg_2
     ldrb       r2,[r2,#0x2]
     add        r3,r7,#0x0
     push       {r1,r2,r3,r7}
-    bl         Field_FindFirstEdgeForward
+    bl         Field_SearchEdgeLeftToRight
     pop        {r1,r2,r3,r7}
     tst        r0,r0
     bne        LAB_0809aee6
@@ -106,7 +106,7 @@ _ts SD_SnakeEgg_2
     mvn        r4,r4
     and        r2,r4
     push       {r7}
-    bl         Field_FindFirstEdgeForward
+    bl         Field_SearchEdgeLeftToRight
     pop        {r7}
     tst        r0,r0
     beq        LAB_0809af24

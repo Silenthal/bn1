@@ -61,7 +61,7 @@ _ts A_IceManBeetankBomb_0_Init
     strb       r0,[r5,#0x10]
     ldr        r1,DAT_0806f68c
     push       {r1}
-    bl         AngleToOffset
+    bl         AngleToVector
     str        r0,[r5,#0x44]
     str        r1,[r5,#0x48]
     pop        {r4}
@@ -69,7 +69,7 @@ _ts A_IceManBeetankBomb_0_Init
     pop        {r1,r2}
     mov        r3,#0x0
     ldr        r6,DAT_0806f690
-    bl         Field_CalculateGravityZ
+    bl         Field_CalculateTrajectoryZ
     str        r0,[r5,#0x4c]
     strh       r1,[r5,#0x1c]
     tst        r1,r1

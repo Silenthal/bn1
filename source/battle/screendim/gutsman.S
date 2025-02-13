@@ -115,7 +115,7 @@ _ts SD_GutsMan_1_1
     ldr        r7,[r7,r3]
     ldrb       r4,[r7,#0x19]
     push       {r7}
-    bl         Field_GetFirstInRowForward
+    bl         Field_GetColumnInRowLeftToRight
     pop        {r7}
     add        r1,r0,#0x0
     ldrb       r2,[r7,#0x19]

@@ -505,7 +505,7 @@ _nt R_RollC_FindEnemyPanel
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    bl         Battle_FindFirstEnemyPanel
+    bl         Field_GetFirstOpponentPanel
     tst        r0,r0
     beq        LAB_08067f2c
     ldr        r2,[r5,#0x44]

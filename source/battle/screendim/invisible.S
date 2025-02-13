@@ -157,7 +157,7 @@ LAB_0809922a:
 _ts SD_Invisible_DoEffect
     push       {lr}
     ldrb       r0,[r5,#0x6]
-    bl         Battle_GetPlayer
+    bl         Field_GetActorById
     tst        r7,r7
     beq        LAB_08099254
     LoadMain frameCounter, r6, r6

@@ -74,7 +74,7 @@ _nt SD_Steal_1
     ldr        r1,[r7,r3]
     ldr        r7,PTR_PanelFlag_ARRAY_0809865c
     ldr        r2,[r7,r3]
-    bl         Field_GetFirstColumnFront
+    bl         Field_GetFirstPanelForward
     tst        r0,r0
     beq        LAB_0809864e
     ldrb       r2,[r5,#0x6]

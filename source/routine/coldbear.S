@@ -88,7 +88,7 @@ _ts R_ColdBear_1_Main
     bl         Battle_IsInputLocked
     bne        LAB_0806162c
     ldrb       r0,[r5,#0x16]
-    bl         Battle_GetBattleFlagBuffer
+    bl         Field_CheckInterrupt
     beq        LAB_080615f4
     mov        r0,#0x1
     strb       r0,[r5,#0xc]

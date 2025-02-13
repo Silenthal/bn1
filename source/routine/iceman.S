@@ -486,7 +486,7 @@ _ts R_IceMan_1_4_0_Flinch
     strb       r0,[r5,#0x17]
     mov        r0,#0x32
     strh       r0,[r5,#0x1c]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r0,#0x4
     strh       r0,[r5,#0xa]
     pop        {pc}
@@ -719,7 +719,7 @@ _ts R_IceMan_1_5_5_Wait
     bne        LAB_0806111c
     mov        r0,#0x5
     strb       r0,[r5,#0x14]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r0,#0x18
     strh       r0,[r5,#0xa]
 LAB_0806111c:
@@ -1015,7 +1015,7 @@ _ts R_IceMan_1_7_3_Wait
     bne        LAB_08061344
     mov        r0,#0x5
     strb       r0,[r5,#0x14]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     mov        r0,#0x10
     strh       r0,[r5,#0xa]
 LAB_08061344:
@@ -1251,7 +1251,7 @@ _ts R_IceMan_FindEmptyPanelInRow
     mov        r0,#0x1
     ldr        r1,PanelFlag_08061520
     ldr        r2,PanelFlag_08061524
-    bl         Field_GetFirstInRowForward
+    bl         Field_GetColumnInRowLeftToRight
     tst        r0,r0
     pop        {r1}
     beq        LAB_0806151a

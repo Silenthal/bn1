@@ -84,10 +84,10 @@ LAB_08075ec2:
     ldrb       r0,[r5,#0x4]
     tst        r0,r0
     bne        LAB_08075ece
-    bl         A_ThunderF0
+    bl         A_Thunder_1_0
     b          LAB_08075ed2
 LAB_08075ece:
-    bl         A_ThunderF1
+    bl         A_Thunder_1_1
 LAB_08075ed2:
     ldr        r0,[r5,#0x60]
     bl         FieldObject_UpdateCellPosition
@@ -104,11 +104,11 @@ LAB_08075eec:
     pop        {pc}
     .byte 0x00
     .byte 0x00
-    .word PTR_A_ThunderF0_08075ef4
+    .word PTR_A_Thunder_1_0_08075ef4
 
-PTR_A_ThunderF0_08075ef4:
-    .word A_ThunderF0
-    .word A_ThunderF1
+PTR_A_Thunder_1_0_08075ef4:
+    .word A_Thunder_1_0
+    .word A_Thunder_1_1
 
 PTR_PanelFlag_ARRAY_08075efc:
     .word PanelFlag_ARRAY_08075f00
@@ -118,10 +118,10 @@ PanelFlag_ARRAY_08075f00:
     .word PF_PlayerOccupied | PF_Solid
 
 
-_ts A_ThunderF0
+_ts A_Thunder_1_0
     push       {lr}
     ldrb       r0,[r5,#0xa]
-    ldr        r7,PTR_PTR_A_ThunderF0_0_08075f18
+    ldr        r7,PTR_PTR_A_Thunder_1_0_0_08075f18
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -130,16 +130,16 @@ _ts A_ThunderF0
     .align 2, 0
 
 
-PTR_PTR_A_ThunderF0_0_08075f18:
-    .word PTR_A_ThunderF0_0_08075f1c
+PTR_PTR_A_Thunder_1_0_0_08075f18:
+    .word PTR_A_Thunder_1_0_0_08075f1c
 
-PTR_A_ThunderF0_0_08075f1c:
-    .word A_ThunderF0_0
-    .word A_ThunderF0_1
-    .word A_ThunderF0_2
+PTR_A_Thunder_1_0_0_08075f1c:
+    .word A_Thunder_1_0_0
+    .word A_Thunder_1_0_1
+    .word A_Thunder_1_0_2
 
 
-_ts A_ThunderF0_0
+_ts A_Thunder_1_0_0
     push       {lr}
     bl         Field_GetAttackDirectionOffset_MP
     ldr        r1,[r5,#0x44]
@@ -147,11 +147,11 @@ _ts A_ThunderF0_0
     str        r1,[r5,#0x44]
     mov        r0,#0x4
     strb       r0,[r5,#0xa]
-    bl         A_ThunderF0_1
+    bl         A_Thunder_1_0_1
     pop        {pc}
 
 
-_nt A_ThunderF0_1
+_nt A_Thunder_1_0_1
     push       {lr}
     mov        r0,#0x1
     ldr        r1,[r5,#0x44]
@@ -171,7 +171,7 @@ LAB_08075f4a:
     pop        {pc}
 
 
-_nt A_ThunderF0_2
+_nt A_Thunder_1_0_2
     push       {lr}
     ldr        r0,[r5,#0x28]
     ldr        r1,[r5,#0x44]
@@ -214,10 +214,10 @@ LAB_08075fae:
     pop        {pc}
 
 
-_ts A_ThunderF1
+_ts A_Thunder_1_1
     push       {lr}
     ldrb       r0,[r5,#0xa]
-    ldr        r7,PTR_PTR_A_ThunderF1_0_08075fc0
+    ldr        r7,PTR_PTR_A_Thunder_1_1_0_08075fc0
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -226,16 +226,16 @@ _ts A_ThunderF1
     .align 2, 0
 
 
-PTR_PTR_A_ThunderF1_0_08075fc0:
-    .word PTR_A_ThunderF1_0_08075fc4
+PTR_PTR_A_Thunder_1_1_0_08075fc0:
+    .word PTR_A_Thunder_1_1_0_08075fc4
 
-PTR_A_ThunderF1_0_08075fc4:
-    .word A_ThunderF1_0
-    .word A_ThunderF1_1
-    .word A_ThunderF1_2
+PTR_A_Thunder_1_1_0_08075fc4:
+    .word A_Thunder_1_1_0
+    .word A_Thunder_1_1_1
+    .word A_Thunder_1_1_2
 
 
-_ts A_ThunderF1_0
+_ts A_Thunder_1_1_0
     push       {lr}
     ldrb       r0,[r5,#0xc]
     sub        r0,#0x1
@@ -275,7 +275,7 @@ LAB_0807600e:
     pop        {pc}
 
 
-_ts A_ThunderF1_1
+_ts A_Thunder_1_1_1
     push       {lr}
     ldrb       r0,[r5,#0x6]
     ldrb       r1,[r5,#0x7]
@@ -300,7 +300,7 @@ LAB_0807603c:
     pop        {pc}
 
 
-_nt A_ThunderF1_2
+_nt A_Thunder_1_1_2
     push       {lr}
     ldrb       r0,[r5,#0x6]
     ldrb       r1,[r5,#0x7]

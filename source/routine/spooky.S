@@ -113,7 +113,7 @@ _ts R_Spooky_1_Main
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]
     ldrb       r0,[r5,#0x16]
-    bl         Battle_GetBattleFlagBuffer
+    bl         Field_CheckInterrupt
     beq        LAB_0805b988
     mov        r0,#0x0
     strb       r0,[r5,#0xc]

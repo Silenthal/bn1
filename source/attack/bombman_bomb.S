@@ -217,7 +217,7 @@ _ts A_BombManBomb_1_2_0
     ldr        r3,DAT_08077a18
     str        r3,[r5,#0x4c]
     ldr        r4,DAT_08077a14
-    bl         Field_CalculateGravityXY
+    bl         Field_CalculateTrajectoryXY
     strh       r0,[r5,#0x1c]
     str        r1,[r5,#0x44]
     str        r2,[r5,#0x48]

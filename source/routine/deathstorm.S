@@ -133,7 +133,7 @@ _ts R_DeathStorm_1_1
     beq        LAB_08068bde
     mov        r0,#0x21
     strb       r0,[r5,#0x14]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     ldr        r4,DAT_08068be0
     ldrb       r0,[r5,#0x16]
     bl         Attack_AnimationOnly_Create
@@ -185,7 +185,7 @@ LAB_08068c08:
     bne        LAB_08068c32
     mov        r0,#0x22
     strb       r0,[r5,#0x14]
-    bl         R_Actor_ClearCurrentAttack
+    bl         Field_AttackFree
     ldr        r4,DAT_08068c34
     ldrb       r0,[r5,#0x16]
     bl         Attack_AnimationOnly_Create
@@ -290,7 +290,7 @@ _ts R_DeathStorm_Attack
     sub        sp,#0x14
     mov        r0,sp
     push       {r0}
-    bl         Battle_FindOpponentPanelsForward
+    bl         Field_SearchOpponentPanels
     pop        {r7}
     ldr        r4,FamilyDetail_08068d0c
     ldrh       r6,[r5,#0x24]

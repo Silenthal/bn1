@@ -93,7 +93,7 @@ _nt SD_TimeBomb_2
     beq        LAB_080990c6
     push       {r0,r1}
     ldrb       r0,[r5,#0x6]
-    bl         Battle_GetPlayer
+    bl         Field_GetActorById
     pop        {r0,r1}
     ldr        r3,[r7,#0x74]
     add        r3,#0x50

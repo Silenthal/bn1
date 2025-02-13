@@ -72,12 +72,12 @@ _ts E_MegaManDelete_1_Main
     strb       r0,[r5,#0x0]
     bl         UpdateSpriteFrameIndex
     mov        r0,#0x40
-    bl         Battle_IsOnscreenX
+    bl         Field_IsOnscreenX
     tst        r0,r0
     beq        LAB_0807cd3c
     ldrb       r0,[r5,#0x5]
     ldr        r1,[r5,#0x64]
-    bl         AngleToOffset
+    bl         AngleToVector
     lsl        r0,r0,#0x8
     lsl        r1,r1,#0x8
     ldr        r2,[r5,#0x50]

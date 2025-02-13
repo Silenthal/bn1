@@ -86,7 +86,7 @@ _ts R_BigSnake_1_Main
     ldr        r0,[r5,#0x68]
     bl         FieldObject_DisableIfDeleted
     mov        r0,#0x1
-    bl         Battle_GetBattleFlagBuffer
+    bl         Field_CheckInterrupt
     tst        r0,r0
     beq        LAB_0806beb8
     mov        r0,#0x1
