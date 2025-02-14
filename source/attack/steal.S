@@ -125,7 +125,7 @@ LAB_08071792:
     ldrb       r3,[r5,#0x16]
     ldr        r7,PTR_listCapturedPanelProperties_080717a8
     ldrb       r2,[r7,r3]
-    bl         Field_SetPanelProperty
+    bl         FieldObject_SetFieldPanelFlag
 LAB_080717a0:
     mov        r0,#0x4
     strb       r0,[r5,#0x9]
@@ -177,7 +177,7 @@ _nt A_Steal_CheckEntityHit
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     push       {r0}
     mov        r0,#0x34
     bl         Field_GetPanelFlagGroup

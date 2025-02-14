@@ -1210,7 +1210,7 @@ LAB_08056be2:
     cmp        r3,#0x5
     bhi        LAB_08056bfc
     push       {r0,r1,r2,r4,r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r7,r0,#0x0
     pop        {r0,r1,r2,r4,r6}
     tst        r7,r6
@@ -1507,7 +1507,7 @@ LAB_08056de2:
     beq        LAB_08056e0c
     push       {r0}
     mov        r0,#0xc8
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     pop        {r0}
 LAB_08056e0c:
     ldr        r7,[r5,#0x74]
@@ -1593,7 +1593,7 @@ _ts R_Player_CalculateDamage
     bne        LAB_08056f0e
     bl         R_Player_CheckShield
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageTaken
+    bl         FieldObject_GetDamageToPlayer
     tst        r0,r0
     beq        LAB_08056f0c
     push       {r0}
@@ -1671,7 +1671,7 @@ LAB_08056f36:
 
 _nt FUN_08056f4a
     push       {r2,r3,r4,r6,r7}
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     pop        {r2,r3,r4,r6,r7}
     mov        r2,#0x0
     mov        r3,#0x0
@@ -1818,7 +1818,7 @@ _nt FUN_0805703e
     ldrb       r1,[r5,#0x19]
     add        r0,r0,r2
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     ldr        r7,PTR_DAT_080570ac
@@ -2081,7 +2081,7 @@ _nt R_Player_CanMove
     strb       r1,[r7,#0x5]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldrb       r2,[r5,#0x16]
     lsl        r2,r2,#0x2
     ldr        r1,PTR_listPlayerMoveExclude_0805721c
@@ -3987,7 +3987,7 @@ _ts BC_XPanel_1_Break
 LAB_08057f70:
     add        r1,#0x1
     push       {r0,r1,r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r3,r0,#0x0
     pop        {r0,r1,r6}
     ldr        r4,PanelFlag_08057ff8
@@ -3999,7 +3999,7 @@ LAB_08057f70:
     mov        r3,#0x1
     bic        r2,r3
     push       {r0,r1,r6}
-    bl         Field_SetPanelProperty
+    bl         FieldObject_SetFieldPanelFlag
     pop        {r0,r1,r6}
     push       {r0,r1,r5,r6}
     bl         Battle_CellCoordsToSprite
@@ -4555,7 +4555,7 @@ _ts BC_Hammer_1
     add        r0,r0,r1
     ldrb       r1,[r5,#0x19]
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r3,r0,#0x0
     pop        {r0,r1}
     ldr        r4,DAT_080583ac
@@ -5453,7 +5453,7 @@ _ts BC_Gaia_1
     bl         Attack_SharpStrike_Create
     pop        {r0,r1}
     push       {r0}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0}
     mov        r1,#0x1

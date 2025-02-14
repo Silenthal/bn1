@@ -549,7 +549,7 @@ _ts A_Sarcophagus_IsPanelWalkable
     mov        r2,#0x0
     tst        r3,r3
     bne        LAB_0807884c
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0807884c

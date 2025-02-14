@@ -41,7 +41,7 @@ LAB_0807c08c:
     add        r0,r0,r1
     str        r0,[r7,#0x8]
     add        r0,r7,#0x0
-    bl         ConvertToObjectPosition
+    bl         Entity_BattlePosToScreenPos
     tst        r2,r2
     bne        LAB_0807c0c8
     b          LAB_0807c0f2

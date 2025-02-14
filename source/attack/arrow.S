@@ -118,7 +118,7 @@ LAB_08072e68:
     bne        LAB_08072eaa
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,PanelFlag_08072eb8
     tst        r0,r1
     beq        LAB_08072eb2
@@ -173,7 +173,7 @@ LAB_08072ee0:
     bne        LAB_08072efe
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_PanelFlag_ARRAY_08072f20

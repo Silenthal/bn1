@@ -529,7 +529,7 @@ LAB_0805e724:
     ldrsb      r2,[r7,r3]
     add        r0,r0,r2
     push       {r0,r1,r3}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r7,r0,#0x0
     pop        {r0,r1,r3}
     mov        r2,#0x1
@@ -730,7 +730,7 @@ _nt R_Flappy_CheckLive
     tst        r0,r0
     beq        LAB_0805e8e8
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805e8e8
     bl         Field_SubtractHP

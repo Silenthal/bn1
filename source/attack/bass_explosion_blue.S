@@ -209,15 +209,15 @@ _ts A_BassExplosionBlue_IsColumnOwned
     add        r3,r0,#0x0
     mov        r2,#0x2
     mov        r1,#0x1
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     and        r2,r0
     add        r0,r3,#0x0
     mov        r1,#0x2
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     and        r2,r0
     add        r0,r3,#0x0
     mov        r1,#0x3
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     and        r2,r0
     tst        r2,r2
     bne        LAB_0807a07a

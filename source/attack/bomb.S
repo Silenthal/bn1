@@ -164,7 +164,7 @@ _nt A_Bomb_2_Free
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x1
@@ -186,7 +186,7 @@ LAB_0807026e:
     ldrsb      r4,[r7,r2]
     add        r1,r1,r4
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x1

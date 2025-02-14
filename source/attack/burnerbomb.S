@@ -192,7 +192,7 @@ LAB_080706b6:
     strb       r0,[r5,#0x19]
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_080706e2
@@ -318,7 +318,7 @@ _nt A_BurnerBomb_CheckDamage
     tst        r0,r0
     beq        LAB_080707e0
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080707e0
     push       {r0}

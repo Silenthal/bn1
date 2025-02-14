@@ -156,7 +156,7 @@ _ts R_BigStraight_1_1_Attack
     orr        r2,r3
     strb       r2,[r7,#0x0]
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x18
     lsl        r1,r1,#0x10
     tst        r0,r1

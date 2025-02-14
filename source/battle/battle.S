@@ -142,7 +142,7 @@ LAB_0800597a:
     strh       r1,[r7,#0x0]
     mov        r0,#0x0
     strb       r0,[r5,#0xa]
-    bl         Field_InitializeAreaProperties
+    bl         FieldObject_InitializeAreaProperties
     LoadMain camera, r7, r7
     ldr        r0,INT_08005a08
     str        r0,[r7,#0x30]

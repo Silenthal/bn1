@@ -196,7 +196,7 @@ LAB_080754c0:
     ldrb       r0,[r7,r2]
     add        r2,#0x1
     ldrb       r1,[r7,r2]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,PanelFlag_0807550c
     tst        r0,r1
     pop        {r4,r7}

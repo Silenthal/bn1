@@ -162,7 +162,7 @@ _nt A_TimeBomb_1_1
     bne        LAB_08072526
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08072526
@@ -239,7 +239,7 @@ _nt A_TimeBomb_3_Free
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     push       {r0}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x2
     and        r0,r1
     eor        r0,r1
@@ -300,7 +300,7 @@ _ts A_TimeBomb_CheckDamage
     strh       r0,[r5,#0x1e]
 LAB_08072604:
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08072638
     bl         Field_SubtractHP

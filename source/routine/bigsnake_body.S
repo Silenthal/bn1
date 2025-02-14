@@ -414,7 +414,7 @@ CellPosition_ARRAY_0806c668:
 
 _ts R_BigSnakeBody_IsPanelWalkable
     push       {lr}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_0806c690
     tst        r0,r1
     bne        LAB_0806c688

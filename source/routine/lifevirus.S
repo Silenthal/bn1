@@ -887,7 +887,7 @@ _ts R_LifeVirus_CheckDamage
     strb       r0,[r5,#0xc]
 LAB_08069b0e:
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
     .align 2, 0

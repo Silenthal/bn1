@@ -1220,7 +1220,7 @@ _ts R_ProtoMan_IsPlayerAttackInRange
     mov        r2,#0x3
 LAB_08064f0c:
     push       {r0,r1,r2}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x40
     tst        r0,r1
     pop        {r0,r1,r2}
@@ -1258,7 +1258,7 @@ LAB_08064f46:
     mov        r1,#0x3
 LAB_08064f4e:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x2
@@ -1332,7 +1332,7 @@ LAB_08064fd4:
     tst        r0,r0
     beq        LAB_08065042
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08065042
     mov        r3,#0x64

@@ -118,7 +118,7 @@ _ts R_Beetank_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0805b55c
@@ -143,7 +143,7 @@ LAB_0805b55c:
     tst        r0,r0
     beq        LAB_0805b5b0
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805b5b0
     bl         Field_SubtractHP
@@ -304,7 +304,7 @@ _ts R_Beetank_1_3_0
     add        r1,r1,r2
     mov        r3,#0x62
     strb       r1,[r5,r3]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_0805b724
     tst        r0,r1
     bne        LAB_0805b6b0
@@ -324,7 +324,7 @@ LAB_0805b6b0:
     add        r1,r1,r2
     mov        r3,#0x62
     strb       r1,[r5,r3]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_0805b724
     tst        r0,r1
     bne        LAB_0805b702

@@ -372,7 +372,7 @@ _ts A_Mine_IsActivated
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     mov        r0,#0x1
     mov        r1,#0x1

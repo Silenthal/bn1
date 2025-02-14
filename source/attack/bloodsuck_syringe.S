@@ -84,7 +84,7 @@ _ts A_BloodSuckSyringe_1_0
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_DAT_0807b32c

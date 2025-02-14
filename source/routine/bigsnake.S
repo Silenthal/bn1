@@ -691,7 +691,7 @@ CellPosition_ARRAY_0806c2d0:
 
 _ts R_BigSnake_IsPanelWalkable
     push       {lr}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,PanelFlag_0806c2f8
     tst        r0,r1
     bne        LAB_0806c2f0
@@ -728,7 +728,7 @@ _ts R_BigSnake_CheckDamage
     tst        r0,r0
     beq        LAB_0806c358
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806c358
     bl         Field_SubtractHP

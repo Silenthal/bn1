@@ -144,7 +144,7 @@ _nt A_Wave_CheckNextPanel
     pop        {r0,r1}
     bne        LAB_080744a4
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x1
@@ -189,7 +189,7 @@ _nt A_Wave_IsStopped
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     mov        r3,#0x1
     tst        r0,r1

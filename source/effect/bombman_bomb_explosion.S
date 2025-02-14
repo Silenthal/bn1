@@ -62,7 +62,7 @@ _ts E_BombManBombExplosion_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldrb       r1,[r5,#0xc]
     tst        r1,r1
     beq        LAB_08080242
@@ -168,7 +168,7 @@ _nt FUN_080802d2
     ldrb       r1,[r5,#0x19]
     add        r1,r1,r3
     str        r1,[sp,#0x4]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08080308

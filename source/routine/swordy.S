@@ -134,7 +134,7 @@ LAB_0805d870:
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805d8a8
     bl         Field_SubtractHP
@@ -1131,7 +1131,7 @@ _ts R_Swordy_IsPanelWalkable
     mov        r2,#0x0
     tst        r3,r3
     bne        LAB_0805df74
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x42
     lsl        r1,r1,#0x4
     tst        r0,r1
@@ -1252,7 +1252,7 @@ LAB_0805e01e:
     ldrb       r0,[r5,#0x18]
     sub        r0,r0,r3
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r3}
     mov        r1,#0x10
@@ -1271,7 +1271,7 @@ _ts R_Swordy_IsTargetInColumn
     mov        r1,#0x0
 LAB_0805e044:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x10
@@ -1294,7 +1294,7 @@ _nt R_Swordy_ArePanelsReadyToSteal
     mov        r1,#0x1
 LAB_0805e068:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r2,#0x2
     tst        r0,r2
     pop        {r0,r1}

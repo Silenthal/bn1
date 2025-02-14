@@ -147,7 +147,7 @@ LAB_0807a166:
     mov        r1,#0x3
 LAB_0807a18a:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     lsl        r0,r0,#0x1e
     lsr        r0,r0,#0x1f
     ldrb       r1,[r5,#0x16]
@@ -187,7 +187,7 @@ _ts A_LockonTarget_1_1
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_DAT_0807a214
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
@@ -341,7 +341,7 @@ LAB_0807a2e2:
     sub        r1,#0x1
     beq        LAB_0807a2d0
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     lsl        r0,r0,#0x1e
     lsr        r0,r0,#0x1f
     cmp        r0,r2
@@ -382,7 +382,7 @@ LAB_0807a32c:
     sub        r0,#0x1
     beq        LAB_0807a31a
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     lsl        r0,r0,#0x1e
     lsr        r0,r0,#0x1f
     cmp        r0,r2

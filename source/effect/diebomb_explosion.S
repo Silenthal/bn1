@@ -35,7 +35,7 @@ _ts E_DieBombExplosion_0_Init
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_0807ddd8
     tst        r0,r1
     bne        LAB_0807ddd2
@@ -87,7 +87,7 @@ LAB_0807dd90:
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_PanelFlag_ARRAY_0807dddc
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2

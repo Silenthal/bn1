@@ -422,7 +422,7 @@ _nt R_PharaohMan_CheckDamage
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
 DAT_0806b0b4:
@@ -482,7 +482,7 @@ _ts R_PharaohMan_IsPanelAvailable
     mov        r2,#0x0
     tst        r3,r3
     bne        LAB_0806b126
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x42
     lsl        r1,r1,#0x4
     tst        r0,r1
@@ -515,7 +515,7 @@ _nt R_PharaohMan_Steal
 LAB_0806b148:
     push       {r1}
     mov        r0,#0x4
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x2
     tst        r0,r1
     pop        {r1}

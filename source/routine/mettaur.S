@@ -116,7 +116,7 @@ _ts R_Mettaur_1_Main
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805a664
     bl         Field_SubtractHP
@@ -812,7 +812,7 @@ _nt R_Mettaur_CanMoveToPanel
     push       {lr}
     cmp        r0,#0x2
     bmi        LAB_0805ab0a
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r3,#0x1
     tst        r0,r3
     beq        LAB_0805ab0a

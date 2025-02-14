@@ -105,7 +105,7 @@ _nt R_Cloudy_1_Main
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805efc0
     bl         Field_SubtractHP
@@ -678,7 +678,7 @@ _ts R_Cloudy_GetPlayerX
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]
     push       {r0}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x2
     and        r0,r1
     lsr        r0,r0,#0x1
@@ -708,7 +708,7 @@ _nt R_Cloudy_IsTargetInRow
     ldrb       r1,[r5,#0x19]
 LAB_0805f388:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x40
     tst        r0,r1
     pop        {r0,r1}

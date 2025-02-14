@@ -2,10 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
 
-    .thumb
-
+@@ Initialize the entity bounds list.
 _ts EntityBounds_InitList
     push       { lr }
     ldr        r0,=gEntityBoundsList
@@ -18,6 +16,18 @@ _ts EntityBounds_InitList
 
     .pool
 
+
+@@ Adds a new entry in the entity bounds list.
+@@ In:
+@@ r0: int x - The X position of the entity.
+@@ r1: int y - The Y position of the entity.
+@@ r2: int z - The Z position of the entity.
+@@ r3: int bounds - The bounds of the entity, containing the radius and the
+@@ height.
+@@ r4: int id - The ID of the entity.
+@@ r5: int mask - The mask which determines which IDs can be collided with.
+@@ r6: void* collisionRef - A reference to the number that will contain
+@@ information about collisions.
 _ts EntityBounds_AddToList
     push       { lr }
     mov        r7,#0x80
@@ -56,6 +66,8 @@ LAB_08002b62:
 
     .pool
 
+
+@@ Goes through all entity bounds, processing object collisions.
 _ts EntityBounds_UpdateAll
     push       { lr }
     mov        r0,#0x0
@@ -117,11 +129,10 @@ LAB_08002bdc:
 
 @@ Return whether two targets collide with each other.
 @@ In:
-@@ r0: targetA: The first target.
-@@ r1: targetB: The second target.
-@@
+@@ r0: EntityBounds* targetA: The first target.
+@@ r1: EntityBounds* targetB: The second target.
 @@ Out:
-@@ r0: isCollide: True if the two targets collide.
+@@ r0: bool isCollide: True if the two targets collide.
 _ts EntityBounds_IsCollision
     push       { lr }
     @ First, check that the distance between the two is less than their

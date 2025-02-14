@@ -43,7 +43,7 @@ _ts A_Shockwave_0_Init
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x1
@@ -99,7 +99,7 @@ LAB_08070858:
 LAB_080708ca:
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_PanelFlag_08070910
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
@@ -188,7 +188,7 @@ _ts A_Shockwave_1_0
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r3,#0x1
     tst        r0,r3
     beq        LAB_08070998

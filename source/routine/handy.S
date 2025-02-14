@@ -97,7 +97,7 @@ _nt R_Handy_1_Main
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080606b6
     bl         Field_SubtractHP
@@ -840,7 +840,7 @@ _ts R_Handy_FindBombPlacementPanel
     mov        r0,#0x1
 LAB_08060b80:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x2
@@ -859,7 +859,7 @@ LAB_08060b80:
     pop        {r0,r1}
     push       {r0,r1}
     add        r0,r0,r2
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r3,r0,#0x0
     pop        {r0,r1}
     mov        r2,#0x80
@@ -891,7 +891,7 @@ _ts R_Handy_FindWalkablePanel
     mov        r2,#0x0
     tst        r3,r3
     bne        LAB_08060bf4
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x42
     lsl        r1,r1,#0x4
     tst        r0,r1

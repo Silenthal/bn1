@@ -84,7 +84,7 @@ _nt A_BombManBomb_1
     b          LAB_08077916
 LAB_080778fa:
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08077916
     bl         Field_SubtractHP
@@ -266,7 +266,7 @@ _ts A_BombManBomb_1_2_1
     str        r2,[r5,#0x30]
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08077a5c
@@ -323,7 +323,7 @@ _ts A_BombManBomb_1_2_2
     bne        LAB_08077adc
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08077ace
@@ -352,7 +352,7 @@ _nt A_BombManBomb_1_3
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08077b04

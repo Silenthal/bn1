@@ -119,7 +119,7 @@ _ts R_MiniColorMan_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08063abc
@@ -272,7 +272,7 @@ LAB_08063b9a:
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     push       {r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r6}
     ldr        r1,PanelFlag_08063bec
     tst        r0,r1

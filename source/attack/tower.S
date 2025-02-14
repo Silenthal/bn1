@@ -210,7 +210,7 @@ LAB_08070e62:
     beq        LAB_08070ed8
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x18
     lsl        r1,r1,#0x10
     tst        r0,r1
@@ -233,7 +233,7 @@ LAB_08070e62:
 LAB_08070ec0:
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08070ed8

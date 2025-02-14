@@ -339,7 +339,7 @@ LAB_0807a5da:
     pop        {r0,r1,r2}
     bne        LAB_0807a612
     push       {r0,r1,r2}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_PanelFlag_ARRAY_0807a614
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x3

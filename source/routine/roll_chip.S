@@ -291,7 +291,7 @@ _ts R_RollC_1_2_2
     ldr        r1,[r5,#0x44]
     add        r0,r0,r1
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r1}
     tst        r0,r1
     beq        LAB_08067dde

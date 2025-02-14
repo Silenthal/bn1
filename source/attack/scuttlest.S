@@ -655,7 +655,7 @@ _ts A_Scuttlest_CheckDamage
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
     .align 2, 0
@@ -674,7 +674,7 @@ _ts A_Scuttlest_IsPanelWalkable
     mov        r2,#0x0
     tst        r3,r3
     bne        LAB_0807840e
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0807840e

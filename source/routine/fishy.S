@@ -101,7 +101,7 @@ _nt R_Fishy_1_Main
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805cbc6
     bl         Field_SubtractHP
@@ -566,7 +566,7 @@ LAB_0805ceb8:
     beq        LAB_0805cf06
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0805cf06
@@ -825,7 +825,7 @@ _ts R_Fishy_IsPanelBlockedForMoving
     tst        r0,r0
     pop        {r0,r1}
     bne        LAB_0805d0bc
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0xc2
     lsl        r1,r1,#0x4
     tst        r0,r1
@@ -847,7 +847,7 @@ _ts R_Fishy_IsPanelBlocked
     tst        r0,r0
     pop        {r0,r1}
     bne        LAB_0805d0de
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x82
     lsl        r1,r1,#0x4
     tst        r0,r1

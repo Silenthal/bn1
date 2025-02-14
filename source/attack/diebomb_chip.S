@@ -213,7 +213,7 @@ _nt A_DieBombC_2_Free
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     push       {r0}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x2
     and        r0,r1
     eor        r0,r1

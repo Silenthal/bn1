@@ -97,7 +97,7 @@ LAB_080599b6:
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080599f8
     bl         Field_SubtractHP
@@ -454,7 +454,7 @@ LAB_08059c3e:
 _ts IsPanelWalkable
     push       {lr}
     sub        sp,#0x4
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     str        r0,[sp,#0x0]
     tst        r0,r1

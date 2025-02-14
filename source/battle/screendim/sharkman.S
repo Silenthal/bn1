@@ -200,7 +200,7 @@ LAB_0809ab8a:
     push       {r1,r2,r6,r7}
     add        r0,r1,#0x0
     add        r1,r2,#0x0
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r1,r2,r6,r7}
     mov        r3,#0x1
     tst        r0,r3

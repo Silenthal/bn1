@@ -133,7 +133,7 @@ _ts R_IceMan_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08060cf4
@@ -934,7 +934,7 @@ _ts R_IceMan_1_7_1_TeleportEnd
     ldrb       r0,[r5,#0x18]
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r7,r0,#0x0
     mov        r2,#0x8
     lsl        r2,r2,#0x8
@@ -1173,7 +1173,7 @@ LAB_0806144e:
     tst        r0,r0
     beq        LAB_080614a8
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080614a8
     bl         Field_SubtractHP
@@ -1218,7 +1218,7 @@ _ts R_IceMan_FindEmptyIceCubePanel
     beq        LAB_080614d0
     push       {r0,r1}
     sub        r0,#0x1
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r7,r0,#0x0
     pop        {r0,r1}
     ldr        r2,DAT_080614dc
@@ -1263,7 +1263,7 @@ _ts R_IceMan_FindEmptyPanelInRow
     beq        LAB_0806151a
 LAB_08061502:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r7,r0,#0x0
     pop        {r0,r1}
     ldr        r2,PanelFlag_0806152c

@@ -128,7 +128,7 @@ _ts A_RemobitC_1_0
     strh       r0,[r5,#0x1c]
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_080770be
@@ -289,7 +289,7 @@ _ts A_RemobitC_CheckDamage
     pop        {r1,r7}
     bne        LAB_080771e4
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08077204
     bl         Field_SubtractHP

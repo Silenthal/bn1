@@ -113,7 +113,7 @@ _ts R_Floshell_1_Main
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805fea2
     bl         Field_SubtractHP
@@ -691,7 +691,7 @@ LAB_0806025e:
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080602a8
     ldr        r1,[r5,#0x68]

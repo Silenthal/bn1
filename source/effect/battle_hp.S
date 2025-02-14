@@ -181,7 +181,7 @@ LAB_0807bb58:
     add        r0,r0,r1
     str        r0,[r7,#0x8]
     add        r0,r7,#0x0
-    bl         ConvertToObjectPosition
+    bl         Entity_BattlePosToScreenPos
     @@ Returned:
     @@ r0: object X
     @@ r1: object Y

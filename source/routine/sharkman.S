@@ -395,7 +395,7 @@ LAB_08065b2a:
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     push       {r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r6}
     ldr        r1,DAT_08065b7c
     tst        r0,r1
@@ -906,7 +906,7 @@ _nt R_SharkMan_1_10_2_RushForward
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08065ef6
@@ -1077,7 +1077,7 @@ LAB_0806600c:
     tst        r0,r0
     beq        LAB_08066066
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08066066
     bl         Field_SubtractHP
@@ -1206,7 +1206,7 @@ _ts R_SharkMan_ChooseNextY
     mov        r3,#0x0
 LAB_0806610c:
     push       {r0,r1,r2,r7}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x3
     and        r0,r1
     cmp        r0,r1

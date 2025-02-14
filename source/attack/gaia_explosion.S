@@ -30,7 +30,7 @@ _ts A_GaiaExplosion_0_Init
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08079c5a
@@ -93,7 +93,7 @@ _ts A_GaiaExplosion_1_Main
     add        r0,r0,r1
     ldrb       r1,[r5,#0x19]
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     pop        {r1,r2}

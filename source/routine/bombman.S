@@ -158,7 +158,7 @@ LAB_0806731c:
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08067374
     cmp        r0,#0x64
@@ -1013,7 +1013,7 @@ LAB_08067942:
     mov        r0,#0x1
 LAB_08067944:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x2

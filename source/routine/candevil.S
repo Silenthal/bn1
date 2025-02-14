@@ -142,7 +142,7 @@ LAB_080687ca:
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_080687f4
@@ -167,7 +167,7 @@ LAB_080687f4:
     tst        r0,r0
     beq        LAB_08068848
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08068848
     bl         Field_SubtractHP
@@ -343,7 +343,7 @@ LAB_08068946:
     add        r1,r1,r2
     ldrb       r0,[r5,#0x18]
     push       {r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r1}
     ldr        r2,PanelFlag_08068994
     tst        r0,r2
@@ -414,7 +414,7 @@ LAB_080689d6:
     add        r1,r1,r2
     ldrb       r0,[r5,#0x18]
     push       {r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r1}
     ldr        r2,PanelFlag_08068a18
     tst        r0,r2

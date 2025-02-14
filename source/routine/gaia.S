@@ -455,7 +455,7 @@ _nt R_Gaia_1_4_3
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
     push       {r0}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0}
     mov        r1,#0x1
@@ -693,7 +693,7 @@ _ts R_Gaia_Decide
     ldrb       r0,[r5,#0x18]
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,PanelFlag_0806cc00
     tst        r0,r1
     bne        LAB_0806cbe8
@@ -734,7 +734,7 @@ PanelFlag_0806cc00:
 
 _ts R_Gaia_IsPanelWalkable
     push       {lr}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,PanelFlag_0806cc24
     tst        r0,r1
     bne        LAB_0806cc1c
@@ -771,7 +771,7 @@ _ts R_Gaia_CheckDamage
     tst        r0,r0
     beq        LAB_0806cc86
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806cc86
     ldrb       r1,[r5,#0x7]

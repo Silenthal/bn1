@@ -124,7 +124,7 @@ _nt R_Ammonicule_1_Main
     strb       r0,[r5,#0x1b]
 LAB_08065486:
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080654a2
     bl         Field_SubtractHP
@@ -534,7 +534,7 @@ _ts R_Ammonicule_1_4_1_AquaTower
     ldrb       r0,[r5,#0x18]
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0806577a
@@ -689,7 +689,7 @@ _ts R_Ammonicule_IsPanelWalkable
     mov        r2,#0x0
     tst        r3,r3
     bne        LAB_0806586e
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x42
     lsl        r1,r1,#0x4
     tst        r0,r1

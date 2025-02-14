@@ -115,7 +115,7 @@ _ts R_ColorMan_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_080634bc
@@ -369,7 +369,7 @@ LAB_0806364a:
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     push       {r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r6}
     ldr        r1,DAT_0806369c
     tst        r0,r1
@@ -725,7 +725,7 @@ LAB_080638e2:
     tst        r0,r0
     beq        LAB_08063958
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08063958
     mov        r3,#0x60
@@ -825,7 +825,7 @@ _nt R_ColorMan_CheckFrontColumn
     mov        r1,#0x3
 LAB_080639a8:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x2

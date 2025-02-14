@@ -145,7 +145,7 @@ _ts R_Megalian_1_Main
     strb       r0,[r5,#0xc]
 LAB_08066b2e:
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     ldr        r7,[r5,#0x5c]
     tst        r7,r7
     beq        LAB_08066b3e
@@ -706,7 +706,7 @@ LAB_08066f0e:
     cmp        r0,r2
     bgt        LAB_08066f32
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r6,r0,#0x0
     pop        {r0,r1}
     mov        r7,#0x3
@@ -746,7 +746,7 @@ LAB_08066f5e:
     cmp        r0,#0x6
     bgt        LAB_08066f82
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r6,r0,#0x0
     pop        {r0,r1}
     mov        r7,#0x3

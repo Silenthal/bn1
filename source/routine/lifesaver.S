@@ -252,7 +252,7 @@ LAB_0806e52a:
     push       {r5,r7}
     add        r5,r7,#0x0
     ldrh       r0,[r5,#0x22]
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     pop        {r5,r7}
     add        r7,#0x28
     ldmia      r7!,{r1,r2,r3}

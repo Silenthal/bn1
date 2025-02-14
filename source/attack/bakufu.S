@@ -62,7 +62,7 @@ _ts A_Bakufu_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_PanelFlag_ARRAY_08079170
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2

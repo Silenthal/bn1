@@ -194,7 +194,7 @@ _ts A_NumberBall_CheckDamage
     tst        r0,r1
     bne        LAB_08072332
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08072374
     bl         Field_SubtractHP

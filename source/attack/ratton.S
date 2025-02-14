@@ -103,7 +103,7 @@ _ts A_Ratton_1_Main
     ldr        r7,[r5,#0x60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08074612
@@ -138,7 +138,7 @@ LAB_08074624:
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08074652
     bl         Field_SubtractHP
@@ -339,7 +339,7 @@ _ts A_Ratton_IsCollision
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_080747d8
     ldrb       r2,[r5,#0x16]
     tst        r2,r2

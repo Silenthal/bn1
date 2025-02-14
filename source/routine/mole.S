@@ -590,7 +590,7 @@ _nt R_Mole_CheckDamage
     tst        r0,r0
     beq        LAB_0806f4b2
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806f4b2
 LAB_0806f46e:

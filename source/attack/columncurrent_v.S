@@ -162,7 +162,7 @@ _ts A_ColumnCurrentV_CheckDamage
     tst        r0,r0
     beq        LAB_0807575e
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0807575e
     bl         Field_SubtractHP

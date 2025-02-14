@@ -271,7 +271,7 @@ LAB_08068f12:
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     push       {r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r6}
     ldr        r1,DAT_08068f64
     tst        r0,r1
@@ -503,7 +503,7 @@ _ts R_Mosqurito_1_5_1_Drain
     strh       r0,[r5,#0x1c]
     ldr        r7,[r5,#0x68]
     ldrh       r0,[r7,#0x2]
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     mov        r0,#0x8
     strh       r0,[r5,#0xa]
 LAB_080690ea:
@@ -649,7 +649,7 @@ _nt R_Mosqurito_CheckDamage
     beq        LAB_0806922a
     str        r0,[r5,#0x74]
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806922a
     bl         Field_SubtractHP

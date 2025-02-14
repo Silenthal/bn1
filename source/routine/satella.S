@@ -93,7 +93,7 @@ _nt R_Satella_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0806d568
@@ -506,7 +506,7 @@ _ts R_Satella_CheckDamage
     tst        r0,r0
     beq        LAB_0806d854
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806d854
     bl         Field_SubtractHP

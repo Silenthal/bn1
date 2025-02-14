@@ -153,7 +153,7 @@ _ts A_Seed_1_0_1
     bne        LAB_08071ecc
     ldrb       r0,[r5,#0x6]
     ldrb       r1,[r5,#0x7]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08071eae
@@ -205,7 +205,7 @@ _ts A_Seed_1_0_2
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08071f0a
@@ -250,7 +250,7 @@ _ts A_Seed_1_1
     str        r1,[r7,#0x14]
     pop        {r7}
     mov        r0,#0x4
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08071f66
     bl         Field_SubtractHP
@@ -300,7 +300,7 @@ _ts A_Seed_1_1_0
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08071fc6
@@ -558,7 +558,7 @@ _ts A_Seed_1_3_3
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08072186
@@ -594,7 +594,7 @@ _ts Attack_Seed_Create
 
 _ts A_Seed_GetPanelFlags
     push       {lr}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     pop        {pc}

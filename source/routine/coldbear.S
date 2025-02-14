@@ -106,7 +106,7 @@ LAB_080615f4:
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806162c
     bl         Field_SubtractHP
@@ -700,7 +700,7 @@ _ts R_ColdBear_IsPanelWalkable
     mov        r2,#0x0
     tst        r3,r3
     bne        LAB_08061a38
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08061a38

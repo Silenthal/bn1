@@ -44,7 +44,7 @@ _ts A_StoneManLaser_0_Init
     mov        r3,#0x1
     orr        r2,r3
     pop        {r0,r1}
-    bl         Field_SetPanelProperty
+    bl         FieldObject_SetFieldPanelFlag
     mov        r0,#0x3
     strb       r0,[r5,#0x0]
     mov        r0,#0x4

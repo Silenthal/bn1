@@ -5,6 +5,12 @@
     .thumb
 
 
+@@ Allocates a list of entities.
+@@ In:
+@@ r0: EntityAllocParams* entityParamList - A list of entity allocation
+@@ parameters.
+@@ Out:
+@@ r0: int allocated - The amount of entities allocated.
 _ts Entity_AllocList
     push       {lr}
     add        r7,r0,#0x0
@@ -36,6 +42,9 @@ LAB_080029e6:
     pop        {pc}
 
 
+@@ Frees all entities of the specified type.
+@@ In:
+@@ r0: EntityFuncFlag flag - A flag indicating which entities to free.
 _ts Entity_FreeAllMultiple
     push       {lr}
     ldr        r1,PTR_listEntityFree_08002b00
@@ -85,17 +94,15 @@ LAB_08002a3a:
     pop        {pc}
 
 
-@@ Converts a set of center origin coordinates to top left
-@@ origin coordinates.
+@@ Converts a set of center origin coordinates to top left origin
+@@ coordinates.
 @@ In:
-@@ stack[0]: relative X (-120 to 136)
-@@ stack[1]: relative Y (-80 to 112)
-@@ stack[2]: relative Z
+@@ r0: PositionXYZ* pos - The position to convert.
 @@ Out:
-@@ r0: X: -32 to 271 (160 if offscreen)
-@@ r1: Y: -32 to 223 (80 if offscreen)
-@@ r2: isDraw: True if the given position is on screen
-_ts ConvertToObjectPosition
+@@ r0: int x - The X position.
+@@ r1: int y - The Y position.
+@@ r2: bool isDraw - True if the given position is on screen
+_ts Entity_BattlePosToScreenPos
     push       {lr}
     LoadMain camera, r3, r3
     mov        r2,#0x2
@@ -145,7 +152,15 @@ LAB_08002a90:
     pop        {pc}
 
 
-_ts FUN_08002a98
+@@ Converts a set of overworld coordinates to top left origin
+@@ coordinates.
+@@ In:
+@@ r0: PositionXYZ* pos - The position to convert.
+@@ Out:
+@@ r0: int x - The X position.
+@@ r1: int y - The Y position.
+@@ r2: bool isDraw - True if the given position is on screen
+_ts Entity_OverworldPosToScreenPos
     push       {lr}
     LoadMain camera, r3, r3
     ldr        r1,[r0,#0x0]

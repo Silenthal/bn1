@@ -398,7 +398,7 @@ LAB_08000eb8:
     mov        r0,#0x1
 LAB_08000eba:
     push       {r0,r1,r2,r4,r6,r7}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r3,r0,#0x0
     pop        {r0,r1,r2,r4,r6,r7}
     tst        r3,r6
@@ -449,7 +449,7 @@ LAB_08000f06:
     push       {r0}
 LAB_08000f08:
     push       {r0,r1,r2,r3,r4,r6,r7}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r5,r0,#0x0
     pop        {r0,r1,r2,r3,r4,r6,r7}
     tst        r2,r5
@@ -512,7 +512,7 @@ LAB_08000f66:
     push       {r0}
 LAB_08000f68:
     push       {r0,r1,r2,r3,r4,r6,r7}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r5,r0,#0x0
     pop        {r0,r1,r2,r3,r4,r6,r7}
     tst        r2,r5
@@ -567,7 +567,7 @@ LAB_08000fbc:
     mov        r1,#0x1
 LAB_08000fbe:
     push       {r0,r1,r2,r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r3,r0,#0x0
     pop        {r0,r1,r2,r6}
     mov        r4,#0x1
@@ -632,7 +632,7 @@ LAB_08001020:
     mov        r1,#0x1
 LAB_08001022:
     push       {r0,r1,r2,r4,r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r3,r0,#0x0
     pop        {r0,r1,r2,r4,r6}
     tst        r3,r5
@@ -1075,7 +1075,7 @@ LAB_08001318:
     cmp        r0,#0x7
     beq        LAB_0800133a
     push       {r0,r1,r4,r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1,r4,r6}
     mov        r7,#0x1
@@ -1154,7 +1154,7 @@ LAB_08001382:
     tst        r0,r0
     beq        LAB_080013a4
     push       {r0,r1,r4,r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1,r4,r6}
     mov        r7,#0x1
@@ -1232,7 +1232,7 @@ _ts Field_GetColumnInRowLeftToRight
 LAB_080013f8:
     push       {r0,r1,r2,r3,r4}
     add        r1,r4,#0x0
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r7,r0,#0x0
     pop        {r0,r1,r2,r3,r4}
     tst        r7,r2
@@ -1276,7 +1276,7 @@ _ts Field_SearchRowRightToLeft
     mov        r2,#0x0
 LAB_08001430:
     push       {r0,r1,r2,r6,r7}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r4,r0,#0x0
     pop        {r0,r1,r2,r6,r7}
     tst        r4,r7
@@ -1325,7 +1325,7 @@ LAB_0800146e:
     ldr        r3,[r6,r5]
 LAB_0800147e:
     push       {r0,r1,r2,r3,r4,r7}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r6,r0,#0x0
     pop        {r0,r1,r2,r3,r4,r7}
     tst        r6,r3
@@ -1349,7 +1349,7 @@ LAB_0800149a:
     ldr        r3,[r6,r5]
 LAB_080014ac:
     push       {r0,r1,r2,r3,r4,r7}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r6,r0,#0x0
     pop        {r0,r1,r2,r3,r4,r7}
     tst        r6,r3
@@ -1410,7 +1410,7 @@ PanelFlag_ARRAY_08001518:
 _ts Field_CrackPanel
     push       {lr}
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r7,r0,#0x0
     pop        {r0,r1}
     mov        r2,#0x1
@@ -1424,7 +1424,7 @@ _ts Field_CrackPanel
     pop        {r0,r1}
     mov        r3,#0x4
     orr        r2,r3
-    bl         Field_SetPanelProperty
+    bl         FieldObject_SetFieldPanelFlag
     mov        r0,#0x1
     pop        {pc}
 LAB_0800154c:
@@ -1436,7 +1436,7 @@ LAB_0800154c:
     pop        {r0,r1}
     mov        r3,#0x1
     bic        r2,r3
-    bl         Field_SetPanelProperty
+    bl         FieldObject_SetFieldPanelFlag
 LAB_08001562:
     mov        r0,#0x1
     pop        {pc}
@@ -1466,7 +1466,7 @@ LAB_0800157e:
     push       {r0,r1,r2,r3}
     add        r0,#0x1
     add        r1,#0x1
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r7,r0,#0x0
     pop        {r0,r1,r2,r3}
     tst        r7,r3
@@ -1510,7 +1510,7 @@ LAB_080015be:
     push       {r0,r1,r2,r3}
     add        r0,#0x1
     add        r1,#0x1
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r7,r0,#0x0
     pop        {r0,r1,r2,r3}
     tst        r7,r3
@@ -1650,7 +1650,7 @@ _nt Field_CreateStrikeEffect
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     push       {r3}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r3}
     ldr        r1,DAT_080016d0
     tst        r0,r1
@@ -1698,7 +1698,7 @@ _nt Field_CreateBusterEffect
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     push       {r3}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r3}
     ldr        r1,DAT_08001710
     tst        r0,r1
@@ -1798,7 +1798,7 @@ _nt Field_RepairPanel
     mov        r3,#0x4
     mvn        r3,r3
     and        r2,r3
-    bl         Field_SetPanelProperty
+    bl         FieldObject_SetFieldPanelFlag
     pop        {pc}
 
 
@@ -1875,7 +1875,7 @@ LAB_080017ce:
     beq        LAB_080017f2
 LAB_080017dc:
     push       {r0,r1,r2,r3}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r6,r0,#0x0
     pop        {r0,r1,r2,r3}
     tst        r6,r3
@@ -1920,7 +1920,7 @@ _nt Field_GetFirstOpponentPanelInSameColumn
     beq        LAB_08001836
 LAB_08001824:
     push       {r0,r1,r2,r3}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r6,r0,#0x0
     pop        {r0,r1,r2,r3}
     tst        r6,r3
@@ -1965,7 +1965,7 @@ LAB_0800185c:
     beq        LAB_08001888
 LAB_0800186a:
     push       {r0,r1,r2,r3,r4,r7}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r6,r0,#0x0
     pop        {r0,r1,r2,r3,r4,r7}
     tst        r6,r3

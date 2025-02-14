@@ -188,7 +188,7 @@ _ts A_Howitzer_2_Free
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_08071d6c
     tst        r0,r1
     bne        LAB_08071d4e
@@ -199,7 +199,7 @@ _ts A_Howitzer_2_Free
     pop        {r0,r1}
     mov        r3,#0x1
     bic        r2,r3
-    bl         Field_SetPanelProperty
+    bl         FieldObject_SetFieldPanelFlag
     mov        r0,#0x7b
     bl         Sound_PlaySE
 LAB_08071d4e:

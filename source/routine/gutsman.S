@@ -140,7 +140,7 @@ _ts R_GutsMan_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0805c1e4
@@ -525,7 +525,7 @@ LAB_0805c482:
     ldrb       r0,[r5,#0x18]
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0805c4dc
@@ -690,7 +690,7 @@ _ts R_GutsMan_1_6_2_Decide
     ldrb       r0,[r5,#0x18]
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x10
     tst        r0,r1
     bne        LAB_0805c5d4
@@ -837,7 +837,7 @@ _ts R_GutsMan_DecideAttack
     ldrb       r0,[r5,#0x18]
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,PanelFlag_0805c700
     tst        r0,r1
     bne        LAB_0805c6e8
@@ -915,7 +915,7 @@ LAB_0805c746:
     tst        r0,r0
     beq        LAB_0805c7a0
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805c7a0
     bl         Field_SubtractHP

@@ -859,7 +859,7 @@ _ts R_ShadowMan_CheckDamage
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
     .align 2, 0
@@ -943,7 +943,7 @@ _nt R_ShadowMan_IsPlayerInRow
     ldrb       r1,[r5,#0x19]
 LAB_0806bdcc:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x40
     tst        r0,r1
     pop        {r0,r1}

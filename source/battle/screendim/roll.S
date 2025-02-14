@@ -207,7 +207,7 @@ _ts SD_Roll_1_4_Recover
     ldrh       r1,[r7,#0x20]
     tst        r1,r1
     beq        LAB_0809a420
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     mov        r0,#0x72
     bl         Sound_PlaySE
     mov        r7,#0x28

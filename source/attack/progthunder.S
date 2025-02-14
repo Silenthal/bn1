@@ -136,7 +136,7 @@ LAB_08075d40:
     bl         Sound_PlaySE
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r2,PTR_PanelFlag_ARRAY_08075db0
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2

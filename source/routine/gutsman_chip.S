@@ -171,7 +171,7 @@ _ts R_GutsManC_1_1_1_Attack
     ldrb       r1,[r5,#0x18]
     add        r0,r0,r1
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08060530

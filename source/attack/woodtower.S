@@ -104,7 +104,7 @@ _ts A_WoodTower_1_Main
 LAB_0806f8c6:
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r1,r0,#0x0
     mov        r2,#0x1
     tst        r1,r2
@@ -218,7 +218,7 @@ _nt A_WoodTower_1_1
     bne        LAB_0806f9c0
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r1,r0,#0x0
     ldr        r2,PTR_PanelFlag_ARRAY_0806f9d4
     ldrb       r0,[r5,#0x16]
@@ -344,7 +344,7 @@ _ts A_WoodTower_TestOwnPanelFlag
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_PanelFlag_ARRAY_0806fa7c

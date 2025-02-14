@@ -98,7 +98,7 @@ LAB_08078df6:
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08078e2a
@@ -353,7 +353,7 @@ LAB_08078fd8:
     pop        {r0,r1,r2,r3,r4}
     beq        LAB_08078ff6
     push       {r0,r1,r2,r3}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     tst        r4,r0
     pop        {r0,r1,r2,r3}
     bne        LAB_08078ffa
@@ -404,7 +404,7 @@ _ts A_Dynamyte_CheckDamage
     pop        {r1,r7}
     bne        LAB_0807905a
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08079074
     bl         Field_SubtractHP

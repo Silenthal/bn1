@@ -118,7 +118,7 @@ _ts A_SnakeEgg_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0807977a
@@ -436,7 +436,7 @@ DAT_080799a3:
 
 _ts FUN_080799a4
     push       {lr}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldrb       r2,[r5,#0x16]
     lsl        r2,r2,#0x2
     ldr        r7,PTR_PanelFlag_080799cc
@@ -493,7 +493,7 @@ _ts A_SnakeEgg_CheckDamage
     pop        {r1,r7}
     bne        LAB_08079a26
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08079a3a
     bl         Field_SubtractHP

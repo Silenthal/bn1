@@ -108,7 +108,7 @@ _ts E_RemobitThunder_1_1
     pop        {r5}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_0807f970
     tst        r0,r1
     bne        LAB_0807f958
@@ -120,7 +120,7 @@ _ts E_RemobitThunder_1_1
     and        r2,r1
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_SetPanelProperty
+    bl         FieldObject_SetFieldPanelFlag
     mov        r0,#0x7b
     bl         Sound_PlaySE
 LAB_0807f958:

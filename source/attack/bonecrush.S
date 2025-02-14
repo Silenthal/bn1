@@ -121,7 +121,7 @@ _ts A_BoneCrush_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08074b24
@@ -283,7 +283,7 @@ _ts A_BoneCrush_CheckDamage
     b          LAB_08074c42
 LAB_08074c34:
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08074c60
     bl         Field_SubtractHP
@@ -357,7 +357,7 @@ _nt A_BoneCrush_MoveX
     ldrb       r1,[r5,#0x18]
     add        r0,r0,r1
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x40
     lsl        r1,r1,#0x10
     tst        r0,r1
@@ -393,7 +393,7 @@ _ts A_BoneCrush_MoveY
     ldrb       r1,[r5,#0x19]
     add        r1,r1,r0
     ldrb       r0,[r5,#0x18]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x40
     lsl        r1,r1,#0x10
     tst        r0,r1

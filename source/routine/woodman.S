@@ -102,13 +102,13 @@ _ts R_WoodMan_1_Main
     beq        LAB_08058d0c
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x2
     lsl        r1,r1,#0x10
     tst        r0,r1
     beq        LAB_08058cd8
     mov        r0,#0xc8
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     mov        r0,#0x72
     bl         Sound_PlaySE
 LAB_08058cd8:
@@ -124,7 +124,7 @@ LAB_08058cd8:
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08058d0c
     bl         Field_SubtractHP
@@ -509,7 +509,7 @@ LAB_08058f7a:
     ldrb       r0,[r7,#0x0]
     ldrb       r1,[r7,#0x1]
     push       {r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r6}
     add        r1,r0,#0x0
     mov        r2,#0x1
@@ -961,7 +961,7 @@ LAB_08059296:
     ldrb       r0,[r7,#0x0]
     ldrb       r1,[r7,#0x1]
     push       {r6}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     pop        {r6}
     add        r1,r0,#0x0
     mov        r2,#0x1
@@ -1153,7 +1153,7 @@ LAB_080593da:
     ldrb       r6,[r5,#0x18]
     cmp        r0,r6
     bhi        LAB_080593fe
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x2
     tst        r0,r1
     beq        LAB_080593fe
@@ -1296,7 +1296,7 @@ LAB_080594ba:
     add        r7,r7,r0
     ldrb       r0,[r7,#0x0]
     ldrb       r1,[r7,#0x1]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_080594ea
@@ -1368,7 +1368,7 @@ _ts FUN_08059530_IsTargetablePanelToLeft
     tst        r2,r2
     bne        LAB_0805957e
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x2
@@ -1383,7 +1383,7 @@ LAB_08059550:
     tst        r2,r2
     bne        LAB_0805957e
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x1
@@ -1803,7 +1803,7 @@ _nt R_WoodManC_1_2_4_Attack
 LAB_0805981a:
     ldrh       r0,[r5,#0x1e]
     add        r1,r4,#0x0
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     mov        r1,#0x2
     and        r1,r2

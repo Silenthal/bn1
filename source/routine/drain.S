@@ -169,7 +169,7 @@ LAB_0806938a:
     add        r0,r0,r1
     ldrb       r1,[r5,#0x19]
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_PanelFlag_080693f4
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
@@ -197,7 +197,7 @@ LAB_0806938a:
     lsl        r1,r1,#0x2
     add        r1,#0x40
     ldr        r5,[r7,r1]
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     pop        {r5}
 LAB_080693e4:
     mov        r0,#0x94
@@ -242,7 +242,7 @@ _ts R_Drain_1_3
     add        r0,r0,r1
     ldrb       r1,[r5,#0x19]
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_PanelFlag_08069494
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2
@@ -266,7 +266,7 @@ _ts R_Drain_1_3
     lsl        r1,r1,#0x2
     add        r1,#0x40
     ldr        r5,[r7,r1]
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     pop        {r5}
 LAB_08069470:
     pop        {r2}

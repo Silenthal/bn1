@@ -2,10 +2,10 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
 
-    .thumb
-
+@@ Returns the SIO multiplayer ID.
+@@ Out:
+@@ r0: byte id - The SIO multiplayer ID.
 _ts SIO_GetMultiplayerId
     push       { lr }
     ldr        r0,=REG_SIOCNT

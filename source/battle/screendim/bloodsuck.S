@@ -132,7 +132,7 @@ _ts SD_BloodSuck_1_2
     push       {r5}
     add        r5,r7,#0x0
     mov        r0,#0xc8
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     pop        {r5}
 LAB_0809bc14:
     mov        r0,#0x8

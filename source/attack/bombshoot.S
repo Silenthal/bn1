@@ -178,7 +178,7 @@ _ts A_BombShoot_1_2_1
     str        r2,[r5,#0x30]
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0807ab3e
@@ -231,7 +231,7 @@ _ts A_BombShoot_1_2_2
     str        r0,[r5,#0x8]
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0807abb8

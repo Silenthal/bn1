@@ -248,7 +248,7 @@ LAB_08062a5e:
     cmp        r1,r3
     beq        LAB_08062a5e
     push       {r0,r1,r2,r6,r7}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r3,r0,#0x0
     pop        {r0,r1,r2,r6,r7}
     ldr        r4,PanelFlag_08062ac8
@@ -538,7 +538,7 @@ _ts R_Popper_CheckDamage
     tst        r0,r0
     beq        LAB_08062cb4
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08062cb4
     bl         Field_SubtractHP

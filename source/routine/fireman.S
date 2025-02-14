@@ -138,7 +138,7 @@ _ts R_FireMan_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08059d7a
@@ -186,7 +186,7 @@ LAB_08059dba:
     tst        r0,r0
     beq        LAB_08059e0e
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08059e0e
     bl         Field_SubtractHP

@@ -280,7 +280,7 @@ _ts A_CanodumbTarget_CheckPanelForTarget
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     ldrb       r1,[r5,#0x16]
     lsl        r1,r1,#0x2

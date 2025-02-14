@@ -60,7 +60,7 @@ _nt A_QuickAttack_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_targetPanelFlag_080718cc
     ldrb       r2,[r5,#0x16]
     lsl        r2,r2,#0x2

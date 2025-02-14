@@ -84,7 +84,7 @@ LAB_0807105e:
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x18
     lsl        r1,r1,#0x10
     tst        r0,r1

@@ -130,7 +130,7 @@ LAB_08072ab2:
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08072ae6
     bl         Field_SubtractHP
@@ -278,7 +278,7 @@ _ts A_PuffyBubble_1_1_1
     bl         Sound_PlaySE
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08072c06
@@ -417,7 +417,7 @@ LAB_08072cd6:
     ldrb       r0,[r5,#0x18]
 LAB_08072cd8:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     mov        r3,#0x40
@@ -525,7 +525,7 @@ _nt A_PuffyBubble_CheckPanelForTarget
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x10
     and        r0,r1
     pop        {pc}

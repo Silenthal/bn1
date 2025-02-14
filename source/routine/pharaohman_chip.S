@@ -311,7 +311,7 @@ LAB_0806da6a:
 
 _ts R_PharaohManC_IsCellClear
     push       {lr}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_PanelFlag_ARRAY_ARRAY_0806da90
     ldrb       r2,[r5,#0x16]
     lsl        r2,r2,#0x3

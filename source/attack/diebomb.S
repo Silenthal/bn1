@@ -255,7 +255,7 @@ _nt A_DieBomb_3_Explode
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     push       {r0}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x2
     and        r0,r1
     eor        r0,r1
@@ -291,7 +291,7 @@ _nt A_DieBomb_CheckDamage
     pop        {r1}
     bne        LAB_08072976
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08072998
     bl         Field_SubtractHP

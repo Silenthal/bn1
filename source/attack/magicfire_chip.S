@@ -287,7 +287,7 @@ _nt A_MagicFireC_CheckTargetPanel
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldrb       r1,[r5,#0x16]
     ldr        r7,PTR_PanelFlag_0807a99c
     lsl        r1,r1,#0x2

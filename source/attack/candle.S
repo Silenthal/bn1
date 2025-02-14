@@ -101,7 +101,7 @@ _ts A_Candle_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08076c4a
@@ -145,7 +145,7 @@ _ts A_Candle_1_0_CheckPlacement
     strh       r0,[r5,#0x1c]
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08076c9a
@@ -191,7 +191,7 @@ _nt A_Candle_1_1_AddHP
     mov        r0,#0x1
     push       {r5}
     ldr        r5,[r5,#0x6c]
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     pop        {r5}
     mov        r0,#0x1
     strb       r0,[r5,#0x14]
@@ -272,7 +272,7 @@ LAB_08076d5a:
     pop        {r1,r7}
     bne        LAB_08076d8e
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08076da8
     bl         Field_SubtractHP

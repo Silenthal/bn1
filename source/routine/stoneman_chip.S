@@ -333,7 +333,7 @@ LAB_08061ea2:
     tst        r3,r3
     beq        LAB_08061edc
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldrb       r2,[r5,#0x16]
     ldr        r4,PTR_listStoneManStoneTargetFlag_08061eec
     lsl        r6,r2,#0x2

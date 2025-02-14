@@ -180,7 +180,7 @@ _ts A_Cube_1_1
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0807374c
@@ -272,7 +272,7 @@ LAB_080737bc:
     str        r1,[r5,#0x4c]
 LAB_080737e8:
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08073816
     bl         Field_SubtractHP

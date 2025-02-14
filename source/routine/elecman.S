@@ -612,7 +612,7 @@ _nt R_ElecMan_1_7_3
     mov        r0,#0x5a
     strh       r0,[r5,#0x1c]
     mov        r0,#0x64
-    bl         Field_AddHp
+    bl         FieldObject_AddHp
     bl         Rng_RandomUint
     lsr        r0,r0,#0x1c
     sub        r0,#0x7
@@ -1143,7 +1143,7 @@ LAB_080645e8:
     tst        r0,r0
     beq        LAB_0806464a
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806464a
     bl         Field_SubtractHP

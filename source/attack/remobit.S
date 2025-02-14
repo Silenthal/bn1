@@ -758,7 +758,7 @@ _ts A_Remobit_IsNoEnemyPanelsInColumn
     mov        r2,#0x0
 LAB_080765fc:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldrb       r1,[r5,#0x16]
     tst        r1,r1
     bne        LAB_08076612
@@ -795,7 +795,7 @@ _nt A_Remobit_IsEnemyPanelAvailable
     str        r0,[sp,#0x0]
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0807666c

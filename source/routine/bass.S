@@ -1021,7 +1021,7 @@ _nt R_Bass_CheckDamage
     strb       r0,[r5,#0xd]
 LAB_0806d388:
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
 DAT_0806d390:
@@ -1067,7 +1067,7 @@ _ts R_Bass_IsPlayerInSameRow
     ldrb       r1,[r5,#0x19]
 LAB_0806d3da:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x40
     tst        r0,r1
     pop        {r0,r1}
@@ -1100,7 +1100,7 @@ _ts R_Bass_FindFirstEnemyPanel
 LAB_0806d408:
     push       {r0}
     mov        r1,#0x2
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0}
     mov        r1,#0x2
@@ -1145,7 +1145,7 @@ _ts R_Bass_GetNextMovePanelPlayerRow
     mov        r3,#0x0
 LAB_0806d45e:
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x2
     tst        r0,r1
     pop        {r0,r1}

@@ -113,7 +113,7 @@ _ts R_Fanner_1_Main
     bl         FieldObject_UpdateField
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_080684f4
@@ -138,7 +138,7 @@ LAB_080684f4:
     tst        r0,r0
     beq        LAB_08068548
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08068548
     bl         Field_SubtractHP

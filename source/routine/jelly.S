@@ -104,7 +104,7 @@ _nt R_Jelly_1_Main
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08061ffc
     bl         Field_SubtractHP
@@ -621,7 +621,7 @@ _ts R_Jelly_IsPanelEmpty
     mov        r2,#0x0
     tst        r3,r3
     bne        LAB_08062370
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_08062374
     tst        r0,r1
     bne        LAB_08062370

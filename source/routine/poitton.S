@@ -581,7 +581,7 @@ _ts R_Poitton_Decide
     sub        r0,#0x1
     ldrb       r1,[r5,#0x19]
     push       {r0,r1}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r1}
     ldr        r3,PanelFlag_0806b618
@@ -705,7 +705,7 @@ CellPosition_ARRAY_0806b6d0:
 
 _ts R_Poitton_IsPanelWalkable
     push       {lr}
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     ldr        r1,PanelFlag_0806b6f8
     tst        r0,r1
     bne        LAB_0806b6f0
@@ -742,7 +742,7 @@ _ts R_Poitton_CheckDamage
     tst        r0,r0
     beq        LAB_0806b752
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806b752
     bl         Field_SubtractHP

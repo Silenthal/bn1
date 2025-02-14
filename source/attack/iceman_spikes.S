@@ -92,7 +92,7 @@ _ts A_IceManSpikes_1_0_Move
     str        r1,[r5,#0x2c]
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_080742f8

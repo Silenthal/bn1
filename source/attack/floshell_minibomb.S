@@ -141,7 +141,7 @@ _ts A_FloshellMiniBomb_1_0_1_Explode
     bne        LAB_08074188
     ldrb       r0,[r5,#0x6]
     ldrb       r1,[r5,#0x7]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0807415e
@@ -196,7 +196,7 @@ _ts A_FloshellMiniBomb_1_0_2_Next
     push       {lr}
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_080741c6

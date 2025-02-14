@@ -108,7 +108,7 @@ _ts R_Billy_1_Main
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080666e4
     bl         Field_SubtractHP
@@ -565,7 +565,7 @@ _ts R_Billy_IsPanelWalkable
     mov        r2,#0x0
     tst        r3,r3
     bne        LAB_08066a02
-    bl         Field_GetPanelFlags
+    bl         FieldObject_GetPanelFlags
     mov        r1,#0x42
     lsl        r1,r1,#0x4
     tst        r0,r1

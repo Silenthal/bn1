@@ -587,7 +587,7 @@ _nt R_MagicMan_CalcDamage
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
 DAT_0806ac78:

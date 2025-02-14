@@ -385,7 +385,7 @@ _nt A_Bunshin_CheckDamage
     str        r1,[r7,#0x14]
     pop        {r7}
     ldrb       r0,[r5,#0x1a]
-    bl         Field_CalcDamageDealt
+    bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
 DAT_080795e4:
