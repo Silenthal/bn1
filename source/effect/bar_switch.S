@@ -30,7 +30,7 @@ _ts E_BarSwitch_0_Init
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x2
     bl         SpritePtr_SetPriority
     mov        r0,#0x1

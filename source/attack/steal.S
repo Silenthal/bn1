@@ -30,7 +30,7 @@ _ts A_Steal_0_Init
     mov        r0,#0x1
     mov        r1,#0x7e
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
     mov        r0,#0xff

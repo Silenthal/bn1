@@ -36,7 +36,7 @@ _ts A_Thunder_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r1,#0x3
     strb       r1,[r5,#0x0]
     ldrb       r0,[r5,#0x16]

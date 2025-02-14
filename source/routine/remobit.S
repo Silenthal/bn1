@@ -36,7 +36,7 @@ _ts R_Remobit_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     ldrb       r0,[r5,#0x4]
     lsl        r0,r0,#0x1
     bl         SpritePtr_SetPaletteIndex

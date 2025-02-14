@@ -33,7 +33,7 @@ _ts A_Unk09_0_Init
     bl         SpritePtr_ProcessFrameDelay
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]

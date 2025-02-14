@@ -38,7 +38,7 @@ _ts E_Laser_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#0x5]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x3

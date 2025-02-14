@@ -35,7 +35,7 @@ _ts A_WoodTower_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0xa
     strh       r0,[r5,#0x1c]
     mov        r0,#0x0

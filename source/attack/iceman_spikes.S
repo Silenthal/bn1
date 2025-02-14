@@ -41,7 +41,7 @@ _ts A_IceManSpikes_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     bl         Field_GetAttackDirectionOffset_MP
     str        r0,[r5,#0x44]
     mov        r0,#0x4

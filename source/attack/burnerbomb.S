@@ -39,7 +39,7 @@ _ts A_BurnerBomb_0_Init
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x0
     strb       r0,[r5,#0x5]
     mov        r0,#0x8

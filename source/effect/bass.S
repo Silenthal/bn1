@@ -41,7 +41,7 @@ LAB_08081750:
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#0x4]
     tst        r0,r0
     beq        LAB_0808177a

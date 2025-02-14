@@ -36,12 +36,12 @@ _ts A_SnakeEgg_0_Init
     bcs        LAB_080796ca
     mov        r1,#0xbf
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     b          LAB_080796d4
 LAB_080796ca:
     mov        r1,#0xbe
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
 LAB_080796d4:
     mov        r0,#0x0
     strh       r0,[r5,#0x14]
@@ -172,7 +172,7 @@ _ts A_SnakeEgg_1_0
     mov        r0,#0x1
     mov        r1,#0xbe
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x1
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex

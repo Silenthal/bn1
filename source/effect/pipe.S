@@ -32,7 +32,7 @@ _ts E_Pipe_0_Init
     ldrb       r0,[r5,#0x5]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     add        r0,r5,#0x0
     add        r0,#0x28
     push       {r5}

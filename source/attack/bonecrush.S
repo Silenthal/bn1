@@ -64,7 +64,7 @@ _ts A_BoneCrush_0_Init
     ldr        r7,[r5,#0x60]
     ldrb       r1,[r7,#0x0]
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     ldrb       r0,[r7,#0x1]
     strb       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
@@ -125,10 +125,10 @@ _ts A_BoneCrush_1_Main
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08074b24
-    bl         SpritePtr_Flag_ClearZClip
+    bl         SpritePtr_DisableShadow
     b          LAB_08074b28
 LAB_08074b24:
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
 LAB_08074b28:
     bl         A_BoneCrush_CheckDamage
     tst        r0,r0

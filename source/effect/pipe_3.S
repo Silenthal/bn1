@@ -37,7 +37,7 @@ LAB_0807f25c:
     ldrb       r0,[r5,#0x5]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     add        r0,r5,#0x0
     add        r0,#0x28
     push       {r5}

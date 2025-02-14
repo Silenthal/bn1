@@ -3,6 +3,10 @@
     .include "macros.inc"
 
 
+@@ Adds a sprite to OAM memory.
+@@ In:
+@@ r0: int spriteType - The type of sprite to add.
+@@ r5: Sprite* sprite - The sprite to add.
 _ts Sprite_AddSpriteToOam
     push       { lr }
     ldr        r1,=Oam_AddSprite_far
@@ -11,6 +15,9 @@ _ts Sprite_AddSpriteToOam
     pop        { pc }
 
 
+@@ Sets up animation frame data for an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_InitFrames
     push       { r5, lr }
     ldrb       r7,[r5,#0x2]
@@ -21,7 +28,9 @@ _ts SpritePtr_InitFrames
     pop        { r5, pc }
 
 
-@@ Sets up frame data for a sprite
+@@ Sets up animation frame data for a sprite.
+@@ In:
+@@ r5: Sprite* sprite - The sprite to set up.
 _ts Sprite_InitFrames
     push       { lr }
     @ Set up the pointer to the current animation frame using the frame index
@@ -59,6 +68,9 @@ LAB_0800238a:
     pop        { pc }
 
 
+@@ Animates an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_ProcessFrameDelay
     push       { r5, lr }
     ldrb       r7,[r5,#0x2]
@@ -69,6 +81,9 @@ _ts SpritePtr_ProcessFrameDelay
     pop        { r5, pc }
 
 
+@@ Animates a sprite.
+@@ In:
+@@ r5: Sprite* sprite - The sprite to animate.
 _ts Sprite_ProcessFrameDelay
     push       { lr }
 start:
@@ -156,6 +171,11 @@ start:
     pop        { pc }
 
 
+@@ Initializes an entity's sprite.
+@@ In:
+@@ r0: SpriteFlag spriteFlag - The flags for a sprite.
+@@ r1: SpriteIndex spriteIndex - The sprite to load.
+@@ r5: void* entity - The calling entity.
 _ts Sprite_InitSpritePtr
     push       { r5, lr }
     ldrb       r2,[r5,#0x0]
@@ -190,6 +210,10 @@ LAB_08002452:
     pop        { r5, pc }
 
 
+@@ Initializes a sprite.
+@@ In:
+@@ r0: SpriteArchive_Header* header - The header of the sprite archive.
+@@ r5: Sprite* sprite - The sprite to initialize.
 _ts Sprite_Init
     add        r0,#0x4
     str        r0,[r5,#Sprite_spriteStart]
@@ -211,6 +235,7 @@ _ts Sprite_Init
     mov        pc,lr
 
 
+@@ Transfers palettes to object palette memory.
 _ts Sprite_TransferPalettes
     push       { lr }
     ldr        r0,=gObjPalette0
@@ -224,6 +249,14 @@ _ts Sprite_TransferPalettes
     .pool
 
 
+@@ Sets affine parameters for an entity's sprite.
+@@ In:
+@@ r0: byte angle - The angle to rotate the sprite by.
+@@ r1: int scaleX - The amount to scale the sprite in the horizontal
+@@ direction.
+@@ r2: int scaleY - The amount to scale the sprite in the vertical
+@@ direction.
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_AffineSetParams
     push       {r5,lr}
     push       {r0,r1,r2}
@@ -247,6 +280,9 @@ LAB_080024cc:
     pop        {r5,pc}
 
 
+@@ Sets the drawing mode of an entity's sprite to window.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_ObjModeWindow
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -261,6 +297,9 @@ _ts SpritePtr_ObjModeWindow
     mov        pc,lr
 
 
+@@ Sets the drawing mode of an entity's sprite to normal.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts _SpritePtr_ObjModeNormal
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -273,6 +312,10 @@ _ts _SpritePtr_ObjModeNormal
     mov        pc,lr
 
 
+@@ Sets the drawing mode of an entity's sprite to semi-transparent.
+@@ In:
+@@ r0: byte EVA - The blend factor for the sprite.
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_ObjModeSemiTransparent
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -295,6 +338,9 @@ _ts SpritePtr_ObjModeSemiTransparent
     mov        pc,lr
 
 
+@@ Sets the drawing mode of an entity's sprite to normal.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_ObjModeNormal
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -309,6 +355,10 @@ _ts SpritePtr_ObjModeNormal
     .align 2, 0
 
 
+@@ Calculates the drawing priority of an entity's sprite.
+@@ In:
+@@ r0: PositionXYZ* pos - The position of an entity.
+@@ r5: void* entity - The calling entity.
 _ts LC_SpritePtr_CalculateOcclusion
     push       {lr}
     ldr        r7,PTR_SpritePtr_CalculateOcclusion_1_080026f4
@@ -317,6 +367,11 @@ _ts LC_SpritePtr_CalculateOcclusion
     pop        {pc}
 
 
+@@ Allocates an affine parameter for an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
+@@ Out:
+@@ r0: bool success - True if the parameter was allocated successfully.
 _ts SpritePtr_AffineAlloc
     push       {r5,lr}
     ldrb       r7,[r5,#0x2]
@@ -347,6 +402,9 @@ LAB_08002576:
     pop        {r5,pc}
 
 
+@@ Frees the affine parameter associated with an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_AffineFree
     push       {r5,lr}
     ldrb       r7,[r5,#0x2]
@@ -368,6 +426,10 @@ LAB_0800259e:
     pop        {r5,pc}
 
 
+@@ Sets the palette index for an entity's sprite.
+@@ In:
+@@ r0: int paletteIndex - The palette index.
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_SetPaletteIndex
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -377,6 +439,10 @@ _ts SpritePtr_SetPaletteIndex
     mov        pc,lr
 
 
+@@ Sets the sub frame index for an entity's sprite.
+@@ In:
+@@ r0: int subFrameIndex - The sub frame index.
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_SetSubFrameIndex
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -386,6 +452,10 @@ _ts SpritePtr_SetSubFrameIndex
     mov        pc,lr
 
 
+@@ Sets the frame index for an entity's sprite.
+@@ In:
+@@ r0: int frameIndex - The frame index.
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_SetFrameIndex
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -395,6 +465,10 @@ _ts SpritePtr_SetFrameIndex
     mov        pc,lr
 
 
+
+@@ Sets an entity's sprite to visibly flash.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_EnableFlash
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -407,6 +481,9 @@ _ts SpritePtr_EnableFlash
     mov        pc,lr
 
 
+@@ Sets an entity's sprite to stop flashing.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_DisableFlash
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -419,6 +496,11 @@ _ts SpritePtr_DisableFlash
     mov        pc,lr
 
 
+@@ Gets the current animaiton frame status of an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
+@@ Out:
+@@ r0: FrameFlag flag - The flag of the current frame.
 _ts SpritePtr_GetFrameStatus
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -436,7 +518,13 @@ LAB_08002600:
     mov        pc,lr
 
 
-_ts SpritePtr_CheckIfMultipleParts
+@@ Checks if an entity's sprite is fully onscreen.
+@@ In:
+@@ r5: void* entity - The calling entity.
+@@ Out:
+@@ Z: Set if sprite is onscreen.
+@@ r0: FrameFlag flag - The flag of the current frame.
+_ts SpritePtr_CheckIfOnscreen
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -447,6 +535,10 @@ _ts SpritePtr_CheckIfMultipleParts
     mov        pc,lr
 
 
+@@ Sets the priority for an entity's sprite.
+@@ In:
+@@ r0: int priority - The priority value.
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_SetPriority
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -461,7 +553,10 @@ _ts SpritePtr_SetPriority
     mov        pc,lr
 
 
-_ts SpritePtr_SetZClip
+@@ Enables the shadow of an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
+_ts SpritePtr_EnableShadow
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -475,7 +570,10 @@ _ts SpritePtr_SetZClip
     mov        pc,lr
 
 
-_ts SpritePtr_Flag_ClearZClip
+@@ Disables the shadow of an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
+_ts SpritePtr_DisableShadow
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -487,6 +585,7 @@ _ts SpritePtr_Flag_ClearZClip
     mov        pc,lr
 
 
+@@ Initializes OAM memory and all entities.
 _ts Oam_Init
     push       {lr}
     ldr        r0,PTR_gFillValue_080026f8
@@ -522,7 +621,12 @@ _ts Oam_Init
     pop        {pc}
 
 
-_ts SpriteFrame_GetTilesetSize
+@@ Gets the amount of tiles in a sprite.
+@@ In:
+@@ r5: Sprite sprite - The sprite to check.
+@@ Out:
+@@ r0: int spriteSize - The amount of tiles in the sprite.
+_ts Sprite_GetTileCount
     ldr        r0,[r5,#0x1c]
     ldr        r0,[r0,#0x0]
     ldr        r1,[r5,#0x18]
@@ -532,6 +636,13 @@ _ts SpriteFrame_GetTilesetSize
     mov        pc,lr
 
 
+@@ Gets the screen position of a sprite.
+@@ In:
+@@ r5: Sprite sprite - The sprite to check.
+@@ Out:
+@@ r0: int success - True if the sprite exists.
+@@ r1: int x - The X coordinate of the sprite.
+@@ r2: int y - The Y coordinate of the sprite.
 _ts Sprite_GetScreenPosXY
     ldrb       r0,[r5,#0x0]
     tst        r0,r0
@@ -573,6 +684,7 @@ PTR_PAL_OBJ_08002718: .word 0x50003E0
 DmaCntFlag_0800271c: .word DMA_32BIT | DMA_ENABLE
 
 
+@@ Initializes the sprite tileset memory.
 _ts InitializeSpriteTilesetOffset
     ldr        r0,PTR_gSpriteTilesetOffset0_0800280c
     mov        r1,#0x1
@@ -580,9 +692,17 @@ _ts InitializeSpriteTilesetOffset
     mov        pc,lr
 
 
+@@ Sets the flip type of an entity's sprite to default.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_ResetFlipType
     mov r0, #0x0
 
+
+@@ Sets the flip type of an entity's sprite.
+@@ In:
+@@ r0: FlipType flipType - The type of flip. 
+@@ r5: void* entity - The calling entity.
 _nt SpritePtr_SetFlipType
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -597,6 +717,9 @@ _nt SpritePtr_SetFlipType
     mov        pc,lr
 
 
+@@ Loads a sprite's palette.
+@@ In:
+@@ r5: Sprite sprite - The sprite.
 _ts Sprite_LoadPalette
     ldr        r0,[r5,#0x1c]
     ldr        r0,[r0,#0x4]
@@ -621,6 +744,7 @@ LAB_0800275c:
     mov        pc,lr
 
 
+@@ Resets loaded sprite palettes.
 _ts Sprite_PaletteInit
     ldr        r0,PTR_gSpritePalettesLoaded_08002814
     mov        r1,#0x0
@@ -628,7 +752,10 @@ _ts Sprite_PaletteInit
     mov        pc,lr
 
 
-_ts SpritePtr_NoZClip
+@@ Sets an entity's sprite as having no shadow.
+@@ In:
+@@ r5: void* entity - The calling entity.
+_ts SpritePtr_NoShadow
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -640,6 +767,9 @@ _ts SpritePtr_NoZClip
     mov        pc,lr
 
 
+@@ Sets the object exclusion flags of an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_SetObjectExcludeFlags
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -649,6 +779,9 @@ _ts SpritePtr_SetObjectExcludeFlags
     mov        pc,lr
 
 
+@@ Gets the object exclusion flags of an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
 _ts SpritePtr_GetObjectExcludeFlags
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
@@ -658,7 +791,10 @@ _ts SpritePtr_GetObjectExcludeFlags
     mov        pc,lr
 
 
-_ts SpritePtr_SetObjectExcludeFlag
+@@ Sets a specific object exclusion flag of an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
+_ts SpritePtr_EnableObjectExcludeFlag
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -672,7 +808,10 @@ _ts SpritePtr_SetObjectExcludeFlag
     mov        pc,lr
 
 
-_ts SpritePtr_ClearObjectExcludeFlag
+@@ Clears a specific object exclusion flag of an entity's sprite.
+@@ In:
+@@ r5: void* entity - The calling entity.
+_ts SpritePtr_DisableObjectExcludeFlag
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
@@ -686,6 +825,9 @@ _ts SpritePtr_ClearObjectExcludeFlag
     mov        pc,lr
 
 
+@@ Loads the tileset of a sprite.
+@@ In:
+@@ r5: Sprite sprite - The sprite.
 _ts Sprite_LoadTileset
     push       {r5,lr}
     ldr        r2,[r5,#0x24]
@@ -708,6 +850,7 @@ LAB_080027f0:
     pop        {r5,pc}
 
 
+@@ Initializes the sprite tileset memory tracker.
 _ts SpriteTilesetDetail_Init
     push       {lr}
     ldr        r7,PTR_gSpriteTilesetDetailCount_0800281c
@@ -731,11 +874,10 @@ PTR_gListSpriteTilesetDetail_08002820: .word gListSpriteTilesetDetail
 INT_08002824: .word 0x2C8
 
 
-@@ Initializes SpriteLzDetails
+@@ Initializes the structure that holds information on decompressed sprites.
 @@ In:
 @@ r0: ptrSpriteLzDest: A pointer to the location where decompressed sprites
 @@ will be placed.
-@ void SpriteLz_Init(void *ptrSpriteLzDest)
 _ts SpriteLz_Init
     push       { r5, lr }
     ldr        r5,PTR_gSpriteLzDetails_08002990
@@ -761,10 +903,12 @@ _ts SpriteLz_Init
     pop        { r5 }
     pop        { r5, pc }
 
+
 @@ Decompresses a list of sprites.
 @@ In:
-@@ r0: spriteList: A pointer to the list of sprite indexes.
-@ bool SpriteLz_DecompressSpriteList(short *listSpriteIndices)
+@@ r0: SpriteIndex* spriteList: A pointer to the list of sprite indexes.
+@@ Out:
+@@ r0: bool success - True if the sprite list was loaded.
 _ts SpriteLz_DecompressSpriteList
     push       { lr }
     ldr        r5,PTR_gSpriteLzDetails_08002998
@@ -834,10 +978,12 @@ LAB_080028bc:
     mov        r0,#0x0
     pop        { pc }
 
-@@ Retrieves a sprite.
+
+@@ Retrieves a sprite header.
 @@ In:
-@@ r1: spriteIndex: The index of the sprite to retrieve
-@ SpriteArchive_Header * SpriteLz_GetSprite(short index)
+@@ r1: SpriteIndex spriteIndex: The index of the sprite to retrieve.
+@@ Out:
+@@ r0: SpriteArchive_Header* header - The header of the sprite data.
 _ts SpriteLz_GetSprite
     push       { r5, lr }
     ldr        r5,PTR_gSpriteLzDetails_080029a4
@@ -859,10 +1005,12 @@ LAB_080028d8:
     mov        r0,#0x0
     pop        { r5, pc }
 
+
 @@ Decompresses a list of enemy sprites.
 @@ In:
-@@ r0: enemyPositionList: A pointer to the list of enemy spawns.
-@ bool SpriteLz_DecompressEnemyList(EnemySpawn *enemyPositionList)
+@@ r0: EnemySpawn* enemySpawnList: A pointer to the list of enemy spawns.
+@@ Out:
+@@ r0: bool success - True if the list was loaded successfully.
 _ts SpriteLz_DecompressEnemyList
     push       { r5, lr }
     ldr        r5,PTR_gSpriteLzDetails_080029a8
@@ -955,6 +1103,7 @@ LAB_08002966:
 LAB_0800296a:
     mov        r0,#0x0
     pop        { r5, pc }
+
 
 _ts SpriteLz_PrintDebugInfo
     push       { r5, lr }

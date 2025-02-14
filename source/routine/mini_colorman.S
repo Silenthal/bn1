@@ -60,7 +60,7 @@ _ts R_MiniColorMan_0_Init
     mov        r0,#0x1
     mov        r1,#0xa5
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#0x4]
     lsl        r1,r0,#0x2
     ldr        r7,PTR_listMiniColorManSpec_08063a8c

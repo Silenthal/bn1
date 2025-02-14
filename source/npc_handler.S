@@ -32,7 +32,7 @@ _ts NPC_0_Init
     str        r0,[r5,#0x64]
     str        r0,[r5,#0x68]
     bl         SpritePtr_SetObjectExcludeFlags
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0xff
     strh       r0,[r5,#0x3c]
     strh       r0,[r5,#0x3e]
@@ -94,7 +94,7 @@ LAB_08081e26:
     mov        r0,#0x1
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
 LAB_08081e50:
@@ -880,21 +880,21 @@ _ts NPC_Command_20_EnableCollision
 
 _nt NPC_Command_21_SetNoZClip
     push       {lr}
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     add        r6,#0x1
     pop        {pc}
 
 
 _ts NPC_Command_22_SetZClip
     push       {lr}
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     add        r6,#0x1
     pop        {pc}
 
 
 _nt NPC_Command_23_ClearZClip
     push       {lr}
-    bl         SpritePtr_Flag_ClearZClip
+    bl         SpritePtr_DisableShadow
     add        r6,#0x1
     pop        {pc}
 

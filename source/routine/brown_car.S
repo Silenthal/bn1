@@ -45,7 +45,7 @@ _ts R_BrownCar_0_Init
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r3,#0x28
     add        r7,r5,r3
     ldmia      r7!,{r0,r1,r2}

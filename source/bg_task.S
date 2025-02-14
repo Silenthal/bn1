@@ -2,8 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
 
+@@ Initializes the BG task list.
 _ts InitBgTask
     push       { lr }
     LoadMain bgAnimationTaskList, r0, r0
@@ -15,6 +15,10 @@ _ts InitBgTask
 
     .pool
 
+
+@@ Adds a new task to the task list.
+@@ In:
+@@ r0: BgTask* task - The task to add.
 _ts BgTask_AddNew
     push       { lr }
     LoadMain bgAnimationTaskList, r7, r7
@@ -49,6 +53,8 @@ LAB_08001d46:
 
     .pool
 
+
+@@ Updates all active tasks.
 _ts BgTask_Update
     push       { lr }
     LoadMain bgAnimationTaskList, r7, r7
@@ -115,6 +121,10 @@ INT_ARRAY_08001dc8:
 PTR_INT_ARRAY_08001dd4: .word INT_ARRAY_08001dc8
 PTR_funcListBgDataTransfer_08001dd8: .word funcListBgDataTransfer
 
+
+@@ Transfers data directly via DMA.
+@@ In:
+@@ r7: BgDataArg* arg - The current argument in the current task.
 _ts BgTask_TransferDirect
     push       { lr }
     push       { r4, r7 }
@@ -125,6 +135,10 @@ _ts BgTask_TransferDirect
     pop        { r4, r7 }
     pop        { pc }
 
+
+@@ Transfers tilemap data from the loaded tilemap archive.
+@@ In:
+@@ r7: BgDataArg* arg - The current argument in the current task.
 _ts BgTask_TransferTilemap
     push       { lr }
     LoadMain bgDataManager, r5, r5
@@ -157,6 +171,10 @@ LAB_08001e0a:
     strb       r0,[r7,#0x0]
     pop        { pc }
 
+
+@@ Transfers tileset data from the loaded tileset archive.
+@@ In:
+@@ r7: BgDataArg* arg - The current argument in the current task.
 _ts BgTask_TransferTileset
     push       { r4, r7, lr }
     ldr        r6,[r0,#0x0]
@@ -237,6 +255,11 @@ funcListTileCopy:
     .word CopyTile_VFlip
     .word CopyTile_HVFlip
 
+
+@@ Copies a tile directly.
+@@ In:
+@@ r4: void* src - The source tile data.
+@@ r5: void* dst - The destination address in VRAM.
 _ts CopyTile
     ldr        r0,[r4,#0x0]
     str        r0,[r5,#0x0]
@@ -256,6 +279,11 @@ _ts CopyTile
     str        r0,[r5,#0x1c]
     mov        pc,lr
 
+
+@@ Copies a tile while flipping it horizontally.
+@@ In:
+@@ r4: void* src - The source tile data.
+@@ r5: void* dst - The destination address in VRAM.
 _ts CopyTile_HFlip
     ldr        r2,DAT_080021a8
     mov        r9,r2
@@ -406,6 +434,11 @@ _ts CopyTile_HFlip
     str        r0,[r5,#0x1c]
     mov        pc,lr
 
+
+@@ Copies a tile while flipping it verically.
+@@ In:
+@@ r4: void* src - The source tile data.
+@@ r5: void* dst - The destination address in VRAM.
 _ts CopyTile_VFlip
     ldr        r0,[r4,#0x0]
     str        r0,[r5,#0x1c]
@@ -425,6 +458,11 @@ _ts CopyTile_VFlip
     str        r0,[r5,#0x0]
     mov        pc,lr
 
+
+@@ Copies a tile while flipping it horizontally and vertically.
+@@ In:
+@@ r4: void* src - The source tile data.
+@@ r5: void* dst - The destination address in VRAM.
 _ts CopyTile_HVFlip
     ldr        r2,DAT_080021a8
     mov        r9,r2

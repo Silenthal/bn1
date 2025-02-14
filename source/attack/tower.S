@@ -41,7 +41,7 @@ _ts A_Tower_0_Init
     mov        r0,#0x1
     ldrh       r1,[r7,#0x2]
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
     mov        r0,#0xff

@@ -51,7 +51,7 @@ LAB_0807bc28:
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x2
     strh       r0,[r5,#0x1c]
     ldr        r0,[r5,#0x28]

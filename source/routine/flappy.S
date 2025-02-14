@@ -47,7 +47,7 @@ _ts R_Flappy_0_Init
     mov        r0,#0x1
     mov        r1,#0x21
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     ldrb       r0,[r5,#0x4]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x0

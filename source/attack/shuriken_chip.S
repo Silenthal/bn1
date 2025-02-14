@@ -36,7 +36,7 @@ _ts A_ShurikenC_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x7
     strb       r0,[r5,#0x0]
     mov        r0,#0x4

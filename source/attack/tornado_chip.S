@@ -61,7 +61,7 @@ _ts A_TornadoC_0_Init
     mov        r0,#0x1
     mov        r1,#0xac
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x0
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames

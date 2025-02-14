@@ -33,7 +33,7 @@ _ts R_ElecManC_0_Init
     mov        r0,#0x1
     mov        r1,#0x5a
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x2
     strb       r0,[r5,#0x14]
     strb       r0,[r5,#0x15]

@@ -36,7 +36,7 @@ _ts R_PharaohManC_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     LoadMain battle, r7, r7
     add        r7,#0x40
     ldrb       r0,[r5,#0x16]

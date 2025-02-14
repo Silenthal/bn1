@@ -29,7 +29,7 @@ _ts A_SparkStrike_0_Init
     mov        r0,#0x1
     mov        r1,#0xaa
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x0
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex

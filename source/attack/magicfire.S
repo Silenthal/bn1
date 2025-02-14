@@ -68,7 +68,7 @@ _ts A_MagicFire_0_Init
     ldr        r7,[r5,#0x60]
     ldrb       r1,[r7,#0x0]
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
     strb       r0,[r5,#0x15]

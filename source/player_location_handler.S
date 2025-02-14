@@ -54,7 +54,7 @@ LAB_08055496:
     strb       r0,[r5,#0x14]
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     LoadMain world, r0, r0
     str        r5,[r0,#0x28]
     mov        r0,#0x4

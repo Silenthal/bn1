@@ -36,7 +36,7 @@ _ts A_MegalianHead_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_Flag_ClearZClip
+    bl         SpritePtr_DisableShadow
     ldrb       r0,[r5,#0x4]
     bl         SpritePtr_SetPaletteIndex
     ldrb       r0,[r5,#0x16]
@@ -169,7 +169,7 @@ _ts A_MegalianHead_1_0_0
     bl         FieldObject_Disable
     mov        r0,#0x0
     strb       r0,[r5,#0x17]
-    bl         SpritePtr_Flag_ClearZClip
+    bl         SpritePtr_DisableShadow
     bl         A_MegalianHead_1_0_1
     pop        {pc}
 
@@ -240,7 +240,7 @@ _ts A_MegalianHead_1_1_0
     bl         FieldObject_Enable
     mov        r0,#0x1
     strb       r0,[r5,#0x17]
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     pop        {pc}
 
 DAT_08076844:

@@ -34,7 +34,7 @@ _ts E_QuickEffect_0_Init
     push       {r0,r7}
     mov        r0,#0x1
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#0x5]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x1c

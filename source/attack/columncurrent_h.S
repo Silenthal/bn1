@@ -101,7 +101,7 @@ _ts A_ColumnCurrentH_0
     mov        r0,#0x1
     mov        r1,#0xa9
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x4
     strb       r0,[r5,#0x14]
     strb       r0,[r5,#0x15]

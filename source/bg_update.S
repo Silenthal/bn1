@@ -2,10 +2,11 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
 
-    .thumb
-
+@@ Sets the functions for updating the background.
+@@ r0: void* func - Regular BG update function.
+@@ r1: void* funcVBlank - BG update function that will be called directly after VBlank.
+@@ r2: void* funcHBlank - BG update function that will be called during HBlank.
 _ts BgUpdate_Set
     push       { lr }
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cbc
@@ -16,6 +17,8 @@ _ts BgUpdate_Set
     str        r2,[r0,#0x0]
     pop        { pc }
 
+
+@@ Initializes the BG update functions.
 _ts BgUpdate_Init
     push       { lr }
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cc4
@@ -28,7 +31,9 @@ _ts BgUpdate_Init
     str        r1,[r5,#0x4]
     pop        { pc }
 
-_ts BgUpdate_CallPostLoopFunction
+
+@@ Executes the normal BG scroll function.
+_ts BgUpdate_CallProc
     push       { lr }
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cd4
     ldr        r0,[r5,#0x0]
@@ -36,7 +41,9 @@ _ts BgUpdate_CallPostLoopFunction
     bx         r0
     pop        { pc }
 
-_ts BgUpdate_CallPreLoopFunction
+
+@@ Executes the VBlank BG scroll function.
+_ts BgUpdate_CallVBlankProc
     push       { lr }
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cd8
     ldr        r0,[r5,#0x8]
@@ -91,6 +98,8 @@ LAB_08001c36:
 _ts dummy_1c48
     mov        pc,lr
 
+
+@@ Moves BG1 up and to the left.
 _ts BgUpdate_MoveUpLeft
     ldr        r1,PTR_tempBg1Hofs_08001cf4
     ldr        r2,[r1,#0x0]
@@ -107,6 +116,8 @@ _ts BgUpdate_MoveUpLeft
     strh       r3,[r7,#0x12]
     mov        pc,lr
 
+
+@@ Moves BG1 up.
 _ts BgUpdate_MoveUp
     ldr        r1,PTR_tempBg1Vofs_08001cfc
     ldr        r3,[r1,#0x0]
@@ -117,6 +128,8 @@ _ts BgUpdate_MoveUp
     strh       r3,[r7,#0x12]
     mov        pc,lr
 
+
+@@ Moves BG1 to the left.
 _ts BgUpdate_MoveLeft
     ldr        r1,PTR_tempBg1Hofs_08001d00
     ldr        r2,[r1,#0x0]
@@ -127,6 +140,8 @@ _ts BgUpdate_MoveLeft
     strh       r2,[r7,#0x10]
     mov        pc,lr
 
+
+@@ Moves BG1 to the right.
 _ts BgUpdate_MoveRight
     ldr        r1,PTR_tempBg1Hofs_08001d04
     ldr        r2,[r1,#0x0]
@@ -137,6 +152,8 @@ _ts BgUpdate_MoveRight
     strh       r2,[r7,#0x10]
     mov        pc,lr
 
+
+@@ Moves BG1 to the left slowly.
 _ts BgUpdate_MoveLeftSlow
     ldr        r1,PTR_tempBg1Hofs_08001d08
     ldr        r2,[r1,#0x0]
@@ -146,6 +163,8 @@ _ts BgUpdate_MoveLeftSlow
     strh       r2,[r7,#0x10]
     mov        pc,lr
 
+
+@@ Leaves BG1 as-is.
 _ts BgUpdate_NoMove
     mov        pc,lr
 

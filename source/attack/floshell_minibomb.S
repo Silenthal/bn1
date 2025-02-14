@@ -33,7 +33,7 @@ _ts A_FloshellMiniBomb_0_Init
     mov        r1,#0x75
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x2
     bl         SpritePtr_SetPriority
     mov        r0,#0x4

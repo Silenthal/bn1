@@ -62,7 +62,7 @@ LAB_08070a9c:
     mov        r1,#0xdc
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x2
     bl         SpritePtr_SetPriority
     ldrb       r0,[r5,#0x4]

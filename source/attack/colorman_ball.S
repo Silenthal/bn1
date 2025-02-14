@@ -33,7 +33,7 @@ _ts A_ColorManBall_0_Init
     mov        r0,#0x1
     mov        r1,#0xa4
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x0
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex

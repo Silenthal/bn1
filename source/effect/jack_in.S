@@ -39,7 +39,7 @@ LAB_0808155e:
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     add        r0,r5,#0x0
     add        r0,#0x28
     push       {r5}

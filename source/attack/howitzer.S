@@ -39,7 +39,7 @@ _ts A_Howitzer_0_Init
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x0
     strb       r0,[r5,#0x1a]
     mov        r0,#0x18

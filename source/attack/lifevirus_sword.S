@@ -36,7 +36,7 @@ _ts A_LifeVirusSword_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x2
     bl         SpritePtr_SetPriority
     mov        r0,#0x3

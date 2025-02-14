@@ -36,7 +36,7 @@ _ts A_AmmoniculeBubbleWrap_0
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#0x16]
     mov        r1,#0x1
     eor        r0,r1

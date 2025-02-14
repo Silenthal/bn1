@@ -40,7 +40,7 @@ _ts A_Quake_0_Init
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#0x16]
     bl         SpritePtr_SetFlipType
     bl         Field_GetAttackDirectionOffset_MP
@@ -203,7 +203,7 @@ _ts A_Quake_1_2
     mov        r0,#0x1
     mov        r1,#0x21
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x4
     strh       r0,[r5,#0x14]
     ldrb       r0,[r5,#0x16]

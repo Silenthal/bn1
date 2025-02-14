@@ -35,7 +35,7 @@ _ts A_IronShield_0_Init
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#0x16]
     bl         SpritePtr_SetFlipType
     ldrb       r0,[r5,#0x18]

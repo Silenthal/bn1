@@ -38,7 +38,7 @@ LAB_0807ccb4:
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x0
     str        r0,[r5,#0x64]
     mov        r7,#0x28

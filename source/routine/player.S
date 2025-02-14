@@ -39,7 +39,7 @@ _ts R_Player_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x0
     ldrb       r1,[r5,#0x16]
     tst        r1,r1

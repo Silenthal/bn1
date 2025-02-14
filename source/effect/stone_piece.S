@@ -35,7 +35,7 @@ _ts E_StonePiece_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1

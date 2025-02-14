@@ -65,7 +65,7 @@ LAB_08070858:
     ldr        r7,[r5,#0x60]
     ldrb       r1,[r7,#0x0]
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r7,#0x1]
     strb       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex

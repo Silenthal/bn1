@@ -33,7 +33,7 @@ _ts A_BloodSuckSyringe_0_Init
     mov        r0,#0x1
     mov        r1,#0xb8
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x1
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex

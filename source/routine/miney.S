@@ -36,7 +36,7 @@ _ts R_Miney_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     ldrb       r0,[r5,#0x4]
     strb       r0,[r5,#0xc]
     bl         SpritePtr_SetPaletteIndex

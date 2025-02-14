@@ -32,7 +32,7 @@ _ts A_Unk05_0_Init
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
     str        r0,[r5,#0x1c]
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     bl         Field_GetAttackDirectionOffset_MP
     push       {r0}
     bl         Battle_EntitySpriteCoordsToCell

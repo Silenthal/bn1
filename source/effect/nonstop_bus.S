@@ -30,7 +30,7 @@ _ts E_Nonstop_Bus_0_Init
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r1,[r5,#0x6]
     cmp        r1,#0x5
     bne        LAB_0807f33e

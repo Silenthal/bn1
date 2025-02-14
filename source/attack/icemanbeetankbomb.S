@@ -43,7 +43,7 @@ _ts A_IceManBeetankBomb_0_Init
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     ldrb       r0,[r5,#0x6]
     ldrb       r1,[r5,#0x7]
     bl         Battle_CellCoordsToSprite

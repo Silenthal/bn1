@@ -38,7 +38,7 @@ _ts E_RollHeart_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x4
     lsl        r0,r0,#0x10
     str        r0,[r5,#0x4c]

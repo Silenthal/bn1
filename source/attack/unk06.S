@@ -42,7 +42,7 @@ _ts A_Unk06_0_Init
     strb       r1,[r5,#0x19]
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     pop        {pc}
 
 

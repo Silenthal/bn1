@@ -38,7 +38,7 @@ _ts E_DynamyteRedDot_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     bl         Field_GetAttackDirectionOffset_MP
     ldr        r7,PTR_Position4_ARRAY_080810f4
     ldrb       r1,[r5,#0x4]

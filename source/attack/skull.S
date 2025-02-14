@@ -35,7 +35,7 @@ _ts A_Skull_0_Init
     mov        r0,#0x1
     mov        r1,#0xa2
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x0
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames

@@ -40,7 +40,7 @@ _ts A_ShotgunBurst_0_Init
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     pop        {r7}
     ldrb       r0,[r7,#0x2]
     lsl        r0,r0,#0x1f

@@ -38,7 +38,7 @@ _ts R_Fishy_0_Init
     bl         SpritePtr_InitFrames
     ldrb       r0,[r5,#0x4]
     bl         SpritePtr_SetPaletteIndex
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     mov        r0,#0x1

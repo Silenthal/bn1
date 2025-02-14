@@ -36,7 +36,7 @@ _ts E_PharaohManLaser_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x1
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x7

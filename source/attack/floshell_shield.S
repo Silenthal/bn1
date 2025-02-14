@@ -38,7 +38,7 @@ _ts A_FloshellShield_0_Init
     bl         SpritePtr_InitFrames
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#0x4]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4

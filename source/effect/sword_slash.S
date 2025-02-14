@@ -55,7 +55,7 @@ _ts E_SwordSlash_0_Init
     ldrb       r0,[r7,#0x0]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldr        r7,[r5,#0x60]
     ldrb       r0,[r7,#0x1]
     bl         SpritePtr_SetPaletteIndex

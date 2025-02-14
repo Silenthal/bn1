@@ -33,7 +33,7 @@ _ts A_CanodumbTarget_0_Init
     mov        r1,#0xdc
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x2
     bl         SpritePtr_SetPriority
     mov        r0,#0x4

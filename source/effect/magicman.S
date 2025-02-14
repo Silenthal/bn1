@@ -44,7 +44,7 @@ LAB_08080aa4:
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#0x0]
     mov        r1,#0x2
     orr        r0,r1

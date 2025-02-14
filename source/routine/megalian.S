@@ -36,7 +36,7 @@ _ts R_Megalian_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     bl         FUN_08066fac
     ldrb       r0,[r5,#0x4]
     bl         SpritePtr_SetPaletteIndex

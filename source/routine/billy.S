@@ -36,7 +36,7 @@ _ts R_Billy_0_Init
     strb       r0,[r5,#0x15]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     ldrb       r0,[r5,#0x4]
     add        r0,r0,r0
     bl         SpritePtr_SetPaletteIndex

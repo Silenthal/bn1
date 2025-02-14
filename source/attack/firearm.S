@@ -33,7 +33,7 @@ _ts A_FireArm_0_Init
     mov        r0,#0x1
     mov        r1,#0x77
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x0
     str        r0,[r5,#0x64]
     mov        r0,#0x0

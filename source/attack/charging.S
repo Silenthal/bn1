@@ -44,7 +44,7 @@ _ts A_Charging_0_Init
     str        r0,[r5,#0x2c]
     ldr        r0,[r7,#0x30]
     str        r0,[r5,#0x30]
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     bl         A_Charging_1_Main

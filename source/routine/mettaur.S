@@ -40,7 +40,7 @@ _ts R_Mettaur_0_Init
     mov        r1,#0x1
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     ldrb       r0,[r5,#0x4]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x0

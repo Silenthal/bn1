@@ -34,7 +34,7 @@ _ts A_Dynamyte_0_Init
     mov        r0,#0x1
     mov        r1,#0xc1
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x3
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex

@@ -43,7 +43,7 @@ _ts R_WoodMan_0_Init
     mov        r1,#0x2
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
     strb       r0,[r5,#0x15]
@@ -1480,7 +1480,7 @@ _ts R_WoodManC_0_Init
     mov        r1,#0x2
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
     strb       r0,[r5,#0x15]
@@ -1917,7 +1917,7 @@ DAT_080598cc:
 
 _ts R_WoodManC_1_3_2_Rise
     push       {lr}
-    bl         SpritePtr_CheckIfMultipleParts
+    bl         SpritePtr_CheckIfOnscreen
     tst        r0,r0
     beq        LAB_080598ec
     ldr        r0,[r5,#0x4c]

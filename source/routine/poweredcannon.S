@@ -31,7 +31,7 @@ _ts R_PoweredCannon_0_Init
     mov        r0,#0x1
     mov        r1,#0x0
     bl         Sprite_InitSpritePtr
-    bl         SpritePtr_SetZClip
+    bl         SpritePtr_EnableShadow
     mov        r0,#0x0
     ldrb       r1,[r5,#0x16]
     tst        r1,r1

@@ -81,7 +81,7 @@ LAB_08070002:
     mov        r0,#0x1
     strh       r0,[r5,#0x20]
     bl         A_Aura_MoveToParent
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     pop        {pc}

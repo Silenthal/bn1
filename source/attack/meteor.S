@@ -35,7 +35,7 @@ _ts A_Meteor_0_Init
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     bl         A_Meteor_1_Main
@@ -79,7 +79,7 @@ LAB_0807142c:
     mov        r0,#0x0
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
 LAB_08071442:
     add        r0,r5,#0x0
     add        r0,#0x28
@@ -105,7 +105,7 @@ _ts A_Meteor_3
     ldrb       r0,[r5,#0x5]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
 LAB_0807147e:
     add        r0,r5,#0x0
     add        r0,#0x28

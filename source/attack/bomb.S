@@ -49,7 +49,7 @@ _ts A_Bomb_0_Init
     mov        r7,#0x44
     add        r7,r7,r5
     stmia      r7!,{r1,r2,r3}
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     pop        {pc}

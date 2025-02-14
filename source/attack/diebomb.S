@@ -56,7 +56,7 @@ _ts A_DieBomb_0_Init
     strh       r0,[r5,#0x14]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    bl         SpritePtr_NoZClip
+    bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#0x18]
     ldrb       r1,[r5,#0x19]
     bl         Battle_CellCoordsToSprite

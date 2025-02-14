@@ -12,7 +12,7 @@ _ts AgbMain
 .mainLoop:
     bl         Main_SoftResetCheck
     bl         Main_WaitFrames
-    bl         BgUpdate_CallPreLoopFunction
+    bl         BgUpdate_CallVBlankProc
     bl         Video_ApplySettings
     ldr        r0,=Oam_TransferData_far
     mov        lr,pc
@@ -41,7 +41,7 @@ _ts AgbMain
 1:
     bl         Text_Main
     bl         Menu_LoadChipDetail
-    bl         BgUpdate_CallPostLoopFunction
+    bl         BgUpdate_CallProc
     bl         BgTask_Update
     b          .mainLoop
 
