@@ -784,6 +784,7 @@ _nt Field_CreateSharpStrikeAttack
 @@ Returns a set of panels.
 @@ In:
 @@ r0: PanelFlagIndex index - The index number.
+@@ r5: void* entity - The calling entity.
 @@ Out:
 @@ r1: PanelFlag flags - The panel flags corresponding to the index number.
 _nt Field_GetPanelFlagGroup

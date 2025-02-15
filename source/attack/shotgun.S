@@ -116,33 +116,32 @@ PTR_DAT_0807047c:
     .word DAT_08070480
 
 DAT_08070480:
-    .byte 0x07
-    .byte 0x0C
-    .byte 0x0D
-    .byte 0x07
-    .byte 0x07
+    .byte QE_ShotgunHit
+    .byte QE_BubblerHit
+    .byte QE_HeaterHit
+    .byte QE_ShotgunHit
+    .byte QE_ShotgunHit
 
     .align 2, 0
-
 
 
 _ts A_Shotgun_CreateExtraHits
     push       {lr}
     ldrb       r0,[r5,#0x4]
-    ldr        r7,PTR_SongId_ARRAY_080704f4
+    ldr        r7,ptrListShotgunSoundEffect
     ldrb       r0,[r7,r0]
     tst        r0,r0
     beq        LAB_08070498
     bl         Sound_PlaySE
 LAB_08070498:
-    ldr        r7,PTR_BYTE_ARRAY_080704f0
+    ldr        r7,ptrListExtraPanelCount
     ldrb       r4,[r5,#0x4]
     ldrb       r6,[r7,r4]
     lsl        r4,r4,#0x2
 LAB_080704a0:
     sub        r6,#0x2
     bmi        LAB_080704e8
-    ldr        r7,PTR_PTR_CellPosition_ARRAY_080704ec
+    ldr        r7,ptrListExtraPanels
     ldr        r7,[r7,r4]
     add        r7,r7,r6
     mov        r3,#0x0
@@ -178,37 +177,37 @@ LAB_080704e8:
     .align 2, 0
 
 
-PTR_PTR_CellPosition_ARRAY_080704ec:
-    .word PTR_CellPosition_ARRAY_080704f8
+ptrListExtraPanels:
+    .word listExtraPanels
 
-PTR_BYTE_ARRAY_080704f0:
-    .word BYTE_ARRAY_0807050c
+ptrListExtraPanelCount:
+    .word listExtraPanelCount
 
-PTR_SongId_ARRAY_080704f4:
-    .word SongId_ARRAY_08070511
+ptrListShotgunSoundEffect:
+    .word listShotgunSoundEffect
 
-PTR_CellPosition_ARRAY_080704f8:
-    .word CellPosition_ARRAY_08070516
-    .word CellPosition_ARRAY_08070516
-    .word CellPosition_ARRAY_08070516
-    .word CellPosition_ARRAY_08070516
-    .word CellPosition_ARRAY_08070526
+listExtraPanels:
+    .word listShotgunExtraPanels
+    .word listShotgunExtraPanels
+    .word listShotgunExtraPanels
+    .word listShotgunExtraPanels
+    .word listCrossgunExtraPanels
 
-BYTE_ARRAY_0807050c:
-    .byte 0x10
-    .byte 0x10
-    .byte 0x10
-    .byte 0x02
-    .byte 0x08
+listExtraPanelCount:
+    .byte 8 << 1
+    .byte 8 << 1
+    .byte 8 << 1
+    .byte 1 << 1
+    .byte 4 << 1
 
-SongId_ARRAY_08070511:
-    .byte 0x00
-    .byte 0xAE
-    .byte 0xA9
-    .byte 0x00
-    .byte 0x00
+listShotgunSoundEffect:
+    .byte 0
+    .byte SE_Battle_Bubbler
+    .byte SE_Battle_Heater
+    .byte 0
+    .byte 0
 
-CellPosition_ARRAY_08070516:
+listShotgunExtraPanels:
     cell_pos 1, 0
     cell_pos 0, -1
     cell_pos 0, 1
@@ -218,7 +217,7 @@ CellPosition_ARRAY_08070516:
     cell_pos -1, -1
     cell_pos -1, 1
 
-CellPosition_ARRAY_08070526:
+listCrossgunExtraPanels:
     cell_pos 1, -1
     cell_pos 1, 1
     cell_pos -1, -1

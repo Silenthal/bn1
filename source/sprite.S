@@ -886,17 +886,17 @@ _ts SpriteLz_Init
     mov        r1,#0x38
     bl         memset0_32
     pop        { r0, r5 }
-    str        r0,[r5,#SpriteLzDetails_m_next]
+    str        r0,[r5,#SpriteLzDetails_next]
     push       { r5 }
     add        r0,r5,#0x0
-    add        r0,#SpriteLzDetails_m_indexList
+    add        r0,#SpriteLzDetails_indexList
     mov        r1,#(2 * 8)
     ldr        r2,INT_08002994
     bl         memset_16
     pop        { r5 }
     push       { r5 }
     add        r0,r5,#0x0
-    add        r0,#SpriteLzDetails_m_spritePtrList
+    add        r0,#SpriteLzDetails_spritePtrList
     mov        r1,#(4 * 8)
     mov        r2,#0xff
     bl         memset_8
@@ -912,7 +912,7 @@ _ts SpriteLz_Init
 _ts SpriteLz_DecompressSpriteList
     push       { lr }
     ldr        r5,PTR_gSpriteLzDetails_08002998
-    ldr        r1,[r5,#SpriteLzDetails_m_next]
+    ldr        r1,[r5,#SpriteLzDetails_next]
     mov        r3,#0x0
     ldr        r4,PTR_listSpritePtr_0800299c
     ldr        r6,DAT_080029a0 @ 0x2040000
@@ -940,25 +940,25 @@ LAB_0800286a:
     mov        r12,r0
     @ Check to see that the uncompressed sprite count is under 8. If over,
     @ return false.
-    ldrb       r0,[r5,#SpriteLzDetails_m_spriteCount]
+    ldrb       r0,[r5,#SpriteLzDetails_spriteCount]
     cmp        r0,#0x8
     mov        r0,r12
     bge        LAB_080028bc
     push       { r3, r7 }
-    ldrb       r3,[r5,#SpriteLzDetails_m_spriteCount]
+    ldrb       r3,[r5,#SpriteLzDetails_spriteCount]
     lsl        r7,r3,#0x1
-    add        r7,#SpriteLzDetails_m_indexList
+    add        r7,#SpriteLzDetails_indexList
     @ Store current index into indexlist
     strh       r0,[r5,r7]
     lsl        r7,r3,#0x2
-    add        r7,#SpriteLzDetails_m_spritePtrList
+    add        r7,#SpriteLzDetails_spritePtrList
     add        r1,#0x4
     @ Store next + 4 in the spritePtrList - this is the location of the sprite
     @ header once uncompressed.
     str        r1,[r5,r7]
     sub        r1,#0x4
     add        r3,#0x1
-    strb       r3,[r5,#SpriteLzDetails_m_spriteCount]
+    strb       r3,[r5,#SpriteLzDetails_spriteCount]
     push       { r1, r2, r4, r5, r6 }
     mov        r0,r8
     @ r0 is the pointer to the sprite from listSpritePtr
@@ -967,7 +967,7 @@ LAB_0800286a:
     pop        { r1, r2, r4, r5, r6 }
     add        r1,r1,r2
     @ Store pointer to following block of free space to next
-    str        r1,[r5,#SpriteLzDetails_m_next]
+    str        r1,[r5,#SpriteLzDetails_next]
     pop        { r3, r7 }
     add        r3,#0x2
     b          LAB_0800286a
@@ -990,12 +990,12 @@ _ts SpriteLz_GetSprite
     mov        r2,#0x0
 LAB_080028c6:
     lsl        r1,r2,#0x1
-    add        r1,#SpriteLzDetails_m_indexList
+    add        r1,#SpriteLzDetails_indexList
     ldrh       r1,[r5,r1]
     cmp        r0,r1
     bne        LAB_080028d8
     lsl        r1,r2,#0x2
-    add        r1,#SpriteLzDetails_m_spritePtrList
+    add        r1,#SpriteLzDetails_spritePtrList
     ldr        r0,[r5,r1]
     pop        { r5, pc }
 LAB_080028d8:
@@ -1014,7 +1014,7 @@ LAB_080028d8:
 _ts SpriteLz_DecompressEnemyList
     push       { r5, lr }
     ldr        r5,PTR_gSpriteLzDetails_080029a8
-    ldr        r1,[r5,#SpriteLzDetails_m_next]
+    ldr        r1,[r5,#SpriteLzDetails_next]
     ldr        r4,PTR_listSpritePtr_080029ac
     ldr        r6,DAT_080029a0
     add        r7,r0,#0x0
@@ -1034,7 +1034,7 @@ LAB_080028f0:
 LAB_08002904:
     pop        { r1, r4, r5, r6, r7 }
     add        r3,r5,#0x0
-    add        r3,#SpriteLzDetails_m_indexList
+    add        r3,#SpriteLzDetails_indexList
     mov        r9,r1
     mov        r2,#0x0
 LAB_0800290e:
@@ -1067,32 +1067,32 @@ LAB_0800290e:
     mov        r12,r0
     @ Check to see that the uncompressed sprite count is under 8. If over,
     @ return false.
-    ldrb       r0,[r5,#SpriteLzDetails_m_spriteCount]
+    ldrb       r0,[r5,#SpriteLzDetails_spriteCount]
     cmp        r0,#0x8
     mov        r0,r12
     bge        LAB_0800296a
     push       { r7 }
-    ldrb       r3,[r5,#SpriteLzDetails_m_spriteCount]
+    ldrb       r3,[r5,#SpriteLzDetails_spriteCount]
     lsl        r7,r3,#0x1
-    add        r7,#SpriteLzDetails_m_indexList
+    add        r7,#SpriteLzDetails_indexList
     @ Store curIndex into the index list
     strh       r0,[r5,r7]
     lsl        r7,r3,#0x2
-    add        r7,#SpriteLzDetails_m_spritePtrList
+    add        r7,#SpriteLzDetails_spritePtrList
     add        r1,#0x4
     @ Store next + 4 in the spritePtrList - this is the location of the sprite
     @ header once uncompressed.
     str        r1,[r5,r7]
     sub        r1,#0x4
     add        r3,#0x1
-    strb       r3,[r5,#SpriteLzDetails_m_spriteCount]
+    strb       r3,[r5,#SpriteLzDetails_spriteCount]
     push       { r1, r2, r4, r5, r6 }
     mov        r0,r8
     bl         SWI_LZ77UnCompWram
     pop        { r1, r2, r4, r5, r6 }
     add        r1,r1,r2
     @ Store pointer to following block of free space to next
-    str        r1,[r5,#SpriteLzDetails_m_next]
+    str        r1,[r5,#SpriteLzDetails_next]
     pop        { r7 }
 LAB_08002962:
     add        r7,#0x4
@@ -1108,7 +1108,7 @@ LAB_0800296a:
 _ts SpriteLz_PrintDebugInfo
     push       { r5, lr }
     ldr        r5,PTR_gSpriteLzDetails_080029b0
-    ldr        r1,[r5,#SpriteLzDetails_m_next]
+    ldr        r1,[r5,#SpriteLzDetails_next]
     ldr        r0,PTR_DAT_080029b4
     bl         Debug_Print
     pop        { r5, pc }

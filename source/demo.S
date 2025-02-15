@@ -39,7 +39,7 @@ _ts Demo_Init
     push       { lr }
     push       { r5 }
     bl         Text_DisableDialogue
-    mov        r0,#BGC_Standard
+    mov        r0,#BGC_Initial
     bl         Video_SetBgControl
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_08018bc4
@@ -138,7 +138,7 @@ _ts Demo_ApplyVideoSettings
     cmp        r0,r1
     beq        LAB_08018a92
     push       { r5 }
-    mov        r0,#BGC_Standard
+    mov        r0,#BGC_Initial
     bl         Video_SetBgControl
     pop        { r5 }
     LoadMain display, r0, r7

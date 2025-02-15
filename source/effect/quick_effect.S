@@ -58,154 +58,154 @@ _ts E_QuickEffect_0_Init
     .align 2, 0
 
 SpriteAnimParam_ARRAY_0807b4e4:
-_00: @ 0
+    @ 0x00 (0)
     .short SP_Effect_ShortExplosion
     .short 0
-_01: @ 1
+    @ 0x01 (1)
     .short 0xD3
     .short 0
-_02: @ 2
+    @ 0x02 (2)
     .short SP_Effect_ArmorHit
     .short 0
-_03: @ 3
+    @ 0x03 (3)
     .short SP_Attack_Cannon
     .short 1
-_04: @ 4
+    @ 0x04 (4)
     .short SP_BattleEffect_ShotgunBurst
     .short 0
-_05: @ 5
+    @ 0x05 (5)
     .short SP_BattleEffect_ShotgunBurst
     .short 0
-_06: @ 6
+    @ 0x06 (6)
     .short SP_BattleEffect_ShotgunBurst
     .short 1
-_07: @ 7
+    @ 0x07 (7)
     .short SP_BattleEffect_BusterHit
     .short 0
-_08: @ 8
+    @ 0x08 (8)
     .short SP_BattleEffect_BusterHit
     .short 1
-_09: @ 9
+    @ 0x09 (9)
     .short SP_Effect_TallExplosion
     .short 0
-_0A: @ 10
+    @ 0x0A (10)
     .short 0xDB
     .short 0
-_0B: @ 11
+    @ 0x0B (11)
     .short SP_BattleEffect_MiniBombExplosion
     .short 0
-_0C: @ 12
-    .short 0x78
+    @ 0x0C (12)
+    .short SP_BattleEffect_BubblerHit
     .short 0
-_0D: @ 13
-    .short 0x7F
+    @ 0x0D (13)
+    .short SP_BattleEffect_HeaterHit
     .short 0
-_0E: @ 14
+    @ 0x0E (14)
     .short SP_BattleEffect_Recover
     .short 0
-_0F: @ 15
+    @ 0x0F (15)
     .short SP_Effect_TeleportMove
     .short 0
-_10: @ 16
+    @ 0x10 (16)
     .short SP_Effect_TeleportMove
     .short 1
-_11: @ 17
+    @ 0x11 (17)
     .short SP_Effect_TeleportMove
     .short 2
-_12: @ 18
+    @ 0x12 (18)
     .short SP_Effect_TeleportMove
     .short 3
-_13: @ 19
+    @ 0x13 (19)
     .short SP_Effect_TeleportMove
     .short 4
-_14: @ 20
+    @ 0x14 (20)
     .short SP_Effect_TeleportMove
     .short 5
-_15: @ 21
+    @ 0x15 (21)
     .short 0xE2
     .short 0
-_16: @ 22
+    @ 0x16 (22)
     .short SP_Battle_MegaMan
     .short 3
-_17: @ 23
+    @ 0x17 (23)
     .short SP_Battle_MegaMan
     .short 2
-_18: @ 24
+    @ 0x18 (24)
     .short SP_BattleEffect_PanelBreak
     .short 0
-_19: @ 25
+    @ 0x19 (25)
     .short SP_Effect_SwordStrike
     .short 0
-_1A: @ 26
+    @ 0x1A (26)
     .short SP_Effect_ElecHit
     .short 0
-_1B: @ 27
+    @ 0x1B (27)
     .short SP_Effect_FireHit
     .short 0
-_1C: @ 28
+    @ 0x1C (28)
     .short SP_Effect_AquaHit
     .short 0
-_1D: @ 29
+    @ 0x1D (29)
     .short SP_Effect_WoodHit
     .short 0
-_1E: @ 30
+    @ 0x1E (30)
     .short 0x8C
     .short 9
-_1F: @ 31
+    @ 0x1F (31)
     .short 0x9C
     .short 0
-_20: @ 32
+    @ 0x20 (32)
     .short 0x9C
     .short 1
-_21: @ 33
+    @ 0x21 (33)
     .short 0x84
     .short 5
-_22: @ 34
+    @ 0x22 (34)
     .short 0x84
     .short 6
-_23: @ 35
+    @ 0x23 (35)
     .short 0xAA
     .short 0
-_24: @ 36
+    @ 0x24 (36)
     .short 0x106
     .short 0
-_25: @ 37
+    @ 0x25 (37)
     .short 0x10A
     .short 0
-_26: @ 38
+    @ 0x26 (38)
     .short 0xA8
     .short 0
-_27: @ 39
+    @ 0x27 (39)
     .short SP_BattleObject_BubbleShield
     .short 1
-_28: @ 40
+    @ 0x28 (40)
     .short 0x4B
     .short 5
-_29: @ 41
+    @ 0x29 (41)
     .short 0xC3
     .short 0
-_2A: @ 42
+    @ 0x2A (42)
     .short 0xAC
     .short 0
-_2B: @ 43
+    @ 0x2B (43)
     .short SP_BattleEffect_PanelBreak
     .short 1
-_2C: @ 44
+    @ 0x2C (44)
     .short 0xBC
     .short 0
-_2D: @ 45
+    @ 0x2D (45)
     .short 0x113
     .short 0
-_2E: @ 46
+    @ 0x2E (46)
     .short 0xB7
     .short 0
-_2F: @ 47
+    @ 0x2F (47)
     .short 0xB7
     .short 1
-_30: @ 48
+    @ 0x30 (48)
     .short SP_BattleEffect_SwordSlash
     .short 0
-_31: @ 49
+    @ 0x31 (49)
     .short 0x106
     .short 0
 PTR_SpriteAnimParam_ARRAY_0807b5ac:

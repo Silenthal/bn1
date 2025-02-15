@@ -507,7 +507,8 @@ typedef enum SpriteIndex {
     SP_Overword_JackIn=285,
     SP_Overworld_LifeVirusSeed=288,
     SP_Overworld_WWWPass=291,
-    New_Name=45568
+    New_Name=45568,
+    SP_Invalid=65535
 } SpriteIndex;
 
 typedef enum InvisStatus {
@@ -701,12 +702,12 @@ typedef enum SongId {
     SE_CarSlowDown=166,
     SE_CarSpeedUp=167,
     SE_A8=168,
-    SE_A9=169,
+    SE_Battle_Heater=169,
     SE_AA=170,
     SE_BubbleShield=171,
     SE_AC=172,
     SE_BubblePop=173,
-    SE_Bubbling=174,
+    SE_Battle_Bubbler=174,
     SE_RattonLaunch=175,
     SE_ThrowDownItem=176,
     SE_SmallPip=177,
@@ -1074,10 +1075,7 @@ struct ActorAttributes_ProtoMan {
 struct ActorAttributes_Default {
     union EntityParam obj_5C;
     union EntityParam obj_60;
-    byte b_64;
-    byte b_65;
-    byte b_66;
-    byte b_67;
+    union EntityParam obj_64;
     union EntityParam obj_68;
     union EntityParam obj_6C;
     union EntityParam obj_70;
@@ -2169,8 +2167,8 @@ struct Battle {
     byte multiDeleteCount;
     bool isScreenDimChipActive;
     byte srcBattleHandCount;
-    byte sioOtherMpId;
-    byte sioMultiplayerId;
+    byte sioOwnerId;
+    byte sioClientId;
     byte isMpReady;
     enum SioTransmitStatus flagTransmitStatus;
     enum BattleMpState mpState;
@@ -2480,7 +2478,7 @@ struct BattleChipInventorySlot {
 };
 
 typedef enum BattleFlag {
-    BF_Spooky_Attack=0,
+    BF_0=0,
     BF_ObjectInPlayerField=3,
     BF_05=5,
     BF_Cloudy_1=10,
@@ -2488,6 +2486,8 @@ typedef enum BattleFlag {
     BF_Cloudy_3=12,
     BF_Cloudy_4=13,
     BF_Cloudy_5=14,
+    BF_Interrupt_0=28,
+    BF_Interrupt_1=29,
     BF_Anubis_Player=30,
     BF_Anubis_Enemy=31
 } BattleFlag;
@@ -2628,13 +2628,13 @@ struct BgControl {
 };
 
 typedef enum BgControlType {
-    BGC_Standard=0,
+    BGC_Initial=0,
     BGC_OnlyBg0=1,
     BGC_OnlyBg01=2,
-    BGC_All_4bpp=3,
-    BGC_OnlyBg012=4,
-    BGC_All_8bpp=5,
-    BGC_All_Bg3_8bpp=6
+    BGC_General=3,
+    BGC_JackIn=4,
+    BGC_MainMenu=5,
+    BGC_GameOver=6
 } BgControlType;
 
 typedef struct BgDataArg BgDataArg, *PBgDataArg;
@@ -3257,6 +3257,13 @@ struct DivRes {
     int absmod;
 };
 
+typedef struct DivRes2 DivRes2, *PDivRes2;
+
+struct DivRes2 {
+    int quotient;
+    int mod;
+};
+
 typedef struct DmaChannel DmaChannel, *PDmaChannel;
 
 typedef enum DmaCntFlag {
@@ -3485,7 +3492,7 @@ typedef enum EntityFuncFlag {
     GFF_PlayerLocation=1,
     GFF_Actor=2,
     GFF_Attack=4,
-    GFF_DisplayObject=8,
+    GFF_Effect=8,
     GFF_NPC=16,
     GFF_All=31
 } EntityFuncFlag;
@@ -4016,21 +4023,6 @@ struct GameStats {
     byte buildId[14];
 };
 
-typedef struct GravityXYResult GravityXYResult, *PGravityXYResult;
-
-struct GravityXYResult {
-    int delay;
-    int dx;
-    int dy;
-};
-
-typedef struct GravityZResult GravityZResult, *PGravityZResult;
-
-struct GravityZResult {
-    int dz;
-    int time;
-};
-
 typedef struct header header, *Pheader;
 
 struct header {
@@ -4471,7 +4463,7 @@ struct Menu {
     byte inputDelay;
     byte folderAnimationCounter;
     byte folderCount;
-    byte folderSelectionFlag; /* 0 = none, 1 = deck, 2 = bag */
+    byte folderSelectionFlag;
     ushort pageIndexFolder;
     ushort lastPageIndexFolder;
     ushort pageOffsetFolder;
@@ -5422,7 +5414,10 @@ typedef enum QuickEffect {
     QE_SimpleHit=1,
     QE_ArmorHit=2,
     QE_ShotgunBurst=6,
+    QE_ShotgunHit=7,
     QE_MiniBombExplosion=11,
+    QE_BubblerHit=12,
+    QE_HeaterHit=13,
     QE_Recover=14,
     QE_TeleMove_Big_Start=15,
     QE_TeleMove_Big_End=16,
@@ -5563,7 +5558,7 @@ typedef enum ScriptOption {
 typedef struct SeqNumRecv SeqNumRecv, *PSeqNumRecv;
 
 struct SeqNumRecv {
-    byte cur;
+    byte curr;
     byte last;
 };
 
@@ -5722,11 +5717,11 @@ struct SpriteList {
 typedef struct SpriteLzDetails SpriteLzDetails, *PSpriteLzDetails;
 
 struct SpriteLzDetails {
-    byte m_spriteCount;
+    byte spriteCount;
     byte _pad[3];
-    short m_indexList[8];
-    struct SpriteArchive_Header *m_spritePtrList[8];
-    void *m_next;
+    enum SpriteIndex indexList[8];
+    struct SpriteArchive_Header *spritePtrList[8];
+    void *next;
 };
 
 typedef struct SpriteObjectEntry SpriteObjectEntry, *PSpriteObjectEntry;
@@ -5963,6 +5958,21 @@ struct Traffic {
     undefined field8_0xd;
     undefined field9_0xe;
     undefined field10_0xf;
+};
+
+typedef struct TrajectoryXYResult TrajectoryXYResult, *PTrajectoryXYResult;
+
+struct TrajectoryXYResult {
+    int delay;
+    int dx;
+    int dy;
+};
+
+typedef struct TrajectoryZResult TrajectoryZResult, *PTrajectoryZResult;
+
+struct TrajectoryZResult {
+    int dz;
+    int time;
 };
 
 typedef struct TransferDetail_1799C TransferDetail_1799C, *PTransferDetail_1799C;
