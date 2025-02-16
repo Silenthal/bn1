@@ -5,7 +5,7 @@
 
 _ts Attack_ProgThunder
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_ProgThunder_0_Init_08075c98
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,32 +32,32 @@ _ts A_ProgThunder_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r1,#0x3
-    strb       r1,[r5,#0x0]
-    ldrb       r0,[r5,#0x16]
+    strb       r1,[r5,#Attack_header_entityFlags]
+    ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1
     eor        r0,r1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     bl         A_ProgThunder_1_Main
     pop        {pc}
 
 
 _ts A_ProgThunder_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_ProgThunder_1_0_08075cfc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -80,48 +80,48 @@ _ts A_ProgThunder_1_0
     bl         FieldObject_UpdateField
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     ldr        r7,PTR_PTR_ARRAY_08075da0
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08075d9c
     mov        r0,#0x5
-    strh       r0,[r5,#0x1c]
-    ldrh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterA]
+    ldrh       r0,[r5,#Attack_counterB]
     cmp        r0,#0x9
     blt        LAB_08075d40
     mov        r0,#0x1
-    strh       r0,[r5,#0x1e]
-    ldrb       r1,[r5,#0xc]
+    strh       r0,[r5,#Attack_counterB]
+    ldrb       r1,[r5,#Attack_bc]
     sub        r1,#0x1
-    strb       r1,[r5,#0xc]
+    strb       r1,[r5,#Attack_bc]
     bgt        LAB_08075d40
     bl         A_ProgThunder_2_Free
     b          LAB_08075d9c
 LAB_08075d40:
     add        r1,r0,#0x1
-    strh       r1,[r5,#0x1e]
+    strh       r1,[r5,#Attack_counterB]
     add        r0,r0,r0
     add        r7,r7,r0
     mov        r3,#0x0
     ldrsb      r0,[r7,r3]
-    ldrb       r1,[r5,#0xd]
+    ldrb       r1,[r5,#Attack_bd]
     add        r0,r0,r1
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#Attack_cPos_x]
     mov        r3,#0x1
     ldrsb      r0,[r7,r3]
-    ldrb       r1,[r5,#0xe]
+    ldrb       r1,[r5,#Attack_be]
     add        r0,r0,r1
-    strb       r0,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_y]
     push       {r5}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    ldrb       r2,[r5,#0x16]
-    ldrh       r3,[r5,#0x24]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
+    ldrb       r2,[r5,#Attack_owner]
+    ldrh       r3,[r5,#Attack_damage]
     ldr        r4,PTR_listProgThunderAttackFlag_08075dac
     lsl        r6,r2,#0x2
     ldr        r4,[r4,r6]
@@ -131,14 +131,14 @@ LAB_08075d40:
     pop        {r5}
     bl         R_Actor_UpdateSpritePos
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0xbc
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     ldr        r2,PTR_PanelFlag_ARRAY_08075db0
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x2
     ldr        r1,[r2,r1]
     tst        r0,r1
@@ -196,7 +196,7 @@ CellPosition_ARRAY_08075dd6:
 
 _ts A_ProgThunder_2_Free
     push       {lr}
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     mov        r0,#0x0
     str        r0,[r7,#0x0]
     bl         Attack_Free
@@ -218,7 +218,7 @@ _nt Attack_ProgThunder_Create
     str        r3,[r7,#0x64]
     str        r7,[r3,#0x0]
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
     str        r5,[r7,#0x60]
 LAB_08075e1a:

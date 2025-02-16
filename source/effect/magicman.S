@@ -54,10 +54,7 @@ LAB_08080aa4:
     ldrb       r0,[r5,#0x4]
     tst        r0,r0
     bne        LAB_08080ade
-    mov        r0,#0x32
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x32, 0x60
 LAB_08080ade:
     mov        r0,#0x1
     ldrb       r1,[r5,#0x16]

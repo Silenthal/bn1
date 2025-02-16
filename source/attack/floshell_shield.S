@@ -5,7 +5,7 @@
 
 _ts Attack_FloshellShield
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_FloshellShield_0_Init_08073eac
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,24 +32,24 @@ _ts A_FloshellShield_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_FloshellShield_1_Main
     pop        {pc}
 
 
 _ts A_FloshellShield_1_Main
     push       {lr}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldrb       r0,[r7,#0x0]
     tst        r0,r0
     bne        LAB_08073efe
@@ -70,45 +70,45 @@ PTR_A_FloshellShield_1_0_08073f04:
 
 _ts A_FloshellShield_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     tst        r0,r0
     bne        LAB_08073f30
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    ldr        r7,[r5,#Attack_param_60]
     strb       r0,[r7,#0x14]
 LAB_08073f30:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Attack_hpCurrent]
     tst        r0,r0
     bgt        LAB_08073f40
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_08073f4e
 LAB_08073f40:
-    ldrb       r0,[r5,#0x1b]
+    ldrb       r0,[r5,#Attack_b1b]
     tst        r0,r0
     beq        LAB_08073f4e
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08073f4e:
     pop        {pc}
 
 
 _ts A_FloshellShield_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     tst        r0,r0
     bne        LAB_08073f66
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    ldr        r7,[r5,#Attack_param_60]
     strb       r0,[r7,#0x14]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     b          LAB_08073f7c
 LAB_08073f66:
     bl         SpritePtr_GetFrameStatus
@@ -116,18 +116,18 @@ LAB_08073f66:
     tst        r0,r1
     beq        LAB_08073f7c
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Attack_b1b]
 LAB_08073f7c:
     pop        {pc}
 
 
 _nt A_FloshellShield_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_FloshellShield_1_2_0_08073f8c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -146,11 +146,11 @@ PTR_A_FloshellShield_1_2_0_08073f90:
 _ts A_FloshellShield_1_2_0
     push       {lr}
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    ldr        r7,[r5,#Attack_param_60]
     strb       r0,[r7,#0x14]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 
@@ -161,29 +161,29 @@ _ts A_FloshellShield_1_2_1
     tst        r0,r1
     beq        LAB_08073fc0
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0xb4
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
 LAB_08073fc0:
     pop        {pc}
 
 
 _nt A_FloshellShield_1_2_2
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08073fd2
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08073fd2:
     mov        pc,lr
 
 
 _ts A_FloshellShield_1_3
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_FloshellShield_1_3_0_08073fe4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -204,11 +204,11 @@ PTR_A_FloshellShield_1_3_0_08073fe8:
 _ts A_FloshellShield_1_3_0
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    ldr        r7,[r5,#Attack_param_60]
     strb       r0,[r7,#0x14]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 
@@ -219,11 +219,11 @@ _ts A_FloshellShield_1_3_1
     tst        r0,r1
     beq        LAB_08074018
     mov        r0,#0x28
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#Attack_hpCurrent]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08074018:
     pop        {pc}
 
@@ -236,7 +236,7 @@ _nt A_FloshellShield_2_Free
 
 _nt Attack_FloshellShield_Create
     push       {r5,lr}
-    ldr        r4,[r5,#0x4]
+    ldr        r4,[r5,#Attack_family_family]
     push       {r5}
     mov        r0,#0x29
     bl         Attack_Alloc
@@ -244,9 +244,9 @@ _nt Attack_FloshellShield_Create
     pop        {r5}
     beq        LAB_08074056
     str        r5,[r7,#0x60]
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     strb       r0,[r7,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     strb       r1,[r7,#0x19]
     push       {r7}
     bl         Battle_CellCoordsToSprite
@@ -255,7 +255,7 @@ _nt Attack_FloshellShield_Create
     str        r1,[r7,#0x2c]
     mov        r2,#0x0
     str        r2,[r7,#0x30]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
     mov        r0,#0x0
     strb       r0,[r7,#0x1b]

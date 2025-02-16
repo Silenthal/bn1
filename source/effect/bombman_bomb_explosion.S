@@ -46,10 +46,7 @@ _ts E_BombManBombExplosion_0_Init
     strb       r0,[r5,#0xc]
     mov        r0,#0x2
     strb       r0,[r5,#0x1a]
-    mov        r0,#0x1
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x1, 0x64
     mov        r0,#0x76
     bl         Sound_PlaySE
     bl         E_BombManBombExplosion_1_Main

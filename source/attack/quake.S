@@ -10,7 +10,7 @@ _ts Attack_Quake
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Quake_0_Init_08073004
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,36 +32,36 @@ PTR_A_Quake_0_Init_08073008:
 _ts A_Quake_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x6b
     bl         Sprite_InitSpritePtr
     mov        r0,#0x2
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     bl         SpritePtr_SetFlipType
     bl         Field_GetAttackDirectionOffset_MP
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_diff_x]
     push       {r0}
     bl         Battle_EntitySpriteCoordsToCell
     pop        {r3}
     mov        r2,#0x3
     mul        r2,r3
     add        r0,r0,r2
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_Quake_1_Main
     pop        {pc}
 
 
 _nt A_Quake_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Quake_1_0_0807306c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -87,20 +87,20 @@ _ts A_Quake_1_0
     mov        r1,#0x80
     and        r0,r1
     beq        LAB_080730f8
-    ldr        r0,[r5,#0x44]
+    ldr        r0,[r5,#Attack_diff_x]
     mov        r1,#0x4
     lsl        r1,r1,#0x10
     mul        r1,r0
-    ldr        r0,[r5,#0x28]
+    ldr        r0,[r5,#Attack_pos_curr_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldr        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_x]
+    ldr        r0,[r5,#Attack_pos_curr_z]
     mov        r1,#0x30
     lsl        r1,r1,#0x10
     add        r0,r0,r1
-    str        r0,[r5,#0x30]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    str        r0,[r5,#Attack_pos_curr_z]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
     push       {r0,r1}
     add        r7,r5,#0x0
@@ -113,26 +113,26 @@ _ts A_Quake_1_0
     push       {r5}
     bl         VectorToAngle
     pop        {r5}
-    strb       r0,[r5,#0x10]
+    strb       r0,[r5,#Attack_angleToTarget]
     ldr        r1,DAT_080730fc
     push       {r1}
     bl         AngleToVector
-    str        r0,[r5,#0x44]
-    str        r1,[r5,#0x48]
+    str        r0,[r5,#Attack_diff_x]
+    str        r1,[r5,#Attack_diff_y]
     pop        {r4}
     pop        {r0}
     pop        {r1,r2}
     mov        r3,#0x30
     lsl        r3,r3,#0x10
-    str        r3,[r5,#0x30]
+    str        r3,[r5,#Attack_pos_curr_z]
     ldr        r6,DAT_08073100
     bl         Field_CalculateTrajectoryZ
-    str        r0,[r5,#0x4c]
-    strh       r1,[r5,#0x1c]
+    str        r0,[r5,#Attack_diff_z]
+    strh       r1,[r5,#Attack_counterA]
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_080730f8:
     pop        {pc}
 
@@ -148,16 +148,16 @@ DAT_08073100:
 
 _ts A_Quake_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bls        LAB_0807312e
     mov        r7,#0x44
     add        r7,r5,r7
     ldmia      r7!,{r3,r4,r6}
     ldr        r0,DAT_08073158
     add        r6,r6,r0
-    str        r6,[r5,#0x4c]
+    str        r6,[r5,#Attack_diff_z]
     mov        r7,#0x28
     add        r7,r5,r7
     mov        r9,r7
@@ -172,8 +172,8 @@ LAB_0807312e:
     bl         Field_IsEntityCellPositionValid
     tst        r0,r0
     beq        LAB_08073152
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
     mov        r2,#0x30
     lsl        r2,r2,#0x10
@@ -181,13 +181,13 @@ LAB_0807312e:
     add        r7,r5,r7
     stmia      r7!,{r0,r1,r2}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     pop        {pc}
 LAB_08073152:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 DAT_08073158:
@@ -205,15 +205,15 @@ _ts A_Quake_1_2
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x4
-    strh       r0,[r5,#0x14]
-    ldrb       r0,[r5,#0x16]
+    strh       r0,[r5,#Attack_frameIndexCurr]
+    ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1
     eor        r0,r1
     bl         SpritePtr_SetFlipType
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_0807318c:
     pop        {pc}
 
@@ -225,9 +225,9 @@ _nt A_Quake_1_3
     and        r0,r1
     beq        LAB_080731a2
     ldr        r0,DAT_080731a4
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Attack_diff_z]
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_080731a2:
     pop        {pc}
 
@@ -237,15 +237,15 @@ DAT_080731a4:
 
 _ts A_Quake_1_4
     push       {lr}
-    ldr        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x30]
+    ldr        r0,[r5,#Attack_diff_z]
+    ldr        r1,[r5,#Attack_pos_curr_z]
     add        r0,r0,r1
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     bhi        LAB_08073256
     mov        r0,#0x7e
     bl         Sound_PlaySE
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x0
     mov        r7,#0x28
     add        r7,r5,r7
@@ -257,11 +257,11 @@ _ts A_Quake_1_4
     mov        r6,#0x3
     lsl        r6,r6,#0x10
     orr        r4,r6
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     mov        r7,#0x1
     bl         Attack_SharpStrike_Create
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
@@ -273,19 +273,19 @@ _ts A_Quake_1_4
     pop        {r5}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Field_CrackPanel
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     ldr        r7,PTR_BYTE_ARRAY_08073264
-    ldrb       r3,[r5,#0x4]
+    ldrb       r3,[r5,#Attack_family_family]
     ldrsb      r3,[r7,r3]
 LAB_08073210:
     sub        r3,#0x1
     bmi        LAB_0807324e
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     ldr        r7,PTR_CellPosition_ARRAY_08073258
     ldrsb      r2,[r7,r3]
     add        r1,r1,r2
@@ -306,15 +306,15 @@ LAB_08073210:
     mov        r3,#0x0
     mov        r0,#0x0
     mov        r4,#0x0
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     bl         Effect_BombExplosion_Create
     pop        {r3}
     b          LAB_08073210
 LAB_0807324e:
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_08073256:
     pop        {pc}
 
@@ -341,9 +341,9 @@ BYTE_ARRAY_08073268:
 
 _ts A_Quake_1_5
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bls        A_Quake_2_Free
     mov        r7,#0x28
     add        r7,r7,r5
@@ -353,7 +353,7 @@ _ts A_Quake_1_5
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 
@@ -374,7 +374,7 @@ _ts Attack_Quake_Create
     beq        LAB_080732ae
     strh       r6,[r7,#0x24]
     strb       r0,[r7,#0x1a]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_080732ae:
     pop        {pc}

@@ -5,7 +5,7 @@
 
 _ts Attack_Sword
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Sword_0_Init_0806fa98
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,7 +27,7 @@ PTR_A_Sword_0_Init_0806fa9c:
 _ts A_Sword_0_Init
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x6c
     bl         Sprite_InitSpritePtr
@@ -37,19 +37,19 @@ _ts A_Sword_0_Init
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
     mov        r0,#0x0
-    str        r0,[r5,#0x40]
-    str        r0,[r5,#0x1c]
+    str        r0,[r5,#Attack_i40]
+    str        r0,[r5,#Attack_counterA]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r1,[r5,#0x19]
+    strb       r1,[r5,#Attack_cPos_y]
     push       {r0}
     bl         Field_GetAttackDirectionOffset_MP
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_diff_x]
     add        r1,r0,#0x0
     pop        {r0}
     add        r0,r0,r1
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#Attack_cPos_x]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -63,12 +63,12 @@ _ts A_Sword_1_Main
     and        r0,r1
     bne        LAB_0806fb2e
     bl         SpritePtr_ProcessFrameDelay
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     cmp        r0,#0x1
     bne        LAB_0806fb22
-    ldr        r0,[r5,#0x44]
+    ldr        r0,[r5,#Attack_diff_x]
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
@@ -79,10 +79,10 @@ _ts A_Sword_1_Main
     mov        r4,#0x8
     lsl        r4,r4,#0x10
     add        r3,r3,r4
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Attack_family_family]
     bl         Effect_SwordSlash_Create
 LAB_0806fb22:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     cmp        r0,#0x1
     bne        LAB_0806fb2c
     bl         A_Sword_CreateAttackCells
@@ -90,7 +90,7 @@ LAB_0806fb2c:
     pop        {pc}
 LAB_0806fb2e:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 
@@ -102,9 +102,9 @@ _ts A_Sword_2_Free
 
 _ts A_Sword_CreateAttackCells
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    ldrb       r3,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
+    ldrb       r3,[r5,#Attack_family_family]
     lsl        r3,r3,#0x2
     ldr        r7,PTR_PTR_listSwordRange1x1_0806fb84
     ldr        r7,[r7,r3]
@@ -113,7 +113,7 @@ LAB_0806fb4a:
     ldrsb      r2,[r7,r3]
     cmp        r2,#0x7f
     beq        LAB_0806fb82
-    ldr        r4,[r5,#0x44]
+    ldr        r4,[r5,#Attack_diff_x]
     mul        r2,r4
     push       {r0,r1}
     add        r0,r0,r2
@@ -127,9 +127,9 @@ LAB_0806fb4a:
     add        r1,r0,#0x0
     mov        r3,#0x10
     lsl        r3,r3,#0x10
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     ldr        r4,FamilyDetail_0806fbb0
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     mov        r7,#0x1
     bl         Attack_SharpStrike_Create
     pop        {r7}
@@ -190,7 +190,7 @@ _ts Attack_Sword_Create
     beq        LAB_0806fbe4
     strh       r6,[r7,#0x24]
     strb       r0,[r7,#0x1a]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_0806fbe4:
     pop        {pc}

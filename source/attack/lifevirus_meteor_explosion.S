@@ -5,7 +5,7 @@
 
 _ts Attack_LifeVirusMeteorExplosion
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_LifeVirusMeteorExplosion_0_Init_08077e04
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,19 +32,16 @@ _ts A_LifeVirusMeteorExplosion_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
-    mov        r0,#0x3
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    strb       r0,[r5,#Attack_header_entityFlags]
+    FieldObject_Create 0x3, Attack_param_60
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x9c
     bl         Sound_PlaySE
     bl         A_LifeVirusMeteorExplosion_1_Main
@@ -53,7 +50,7 @@ _ts A_LifeVirusMeteorExplosion_0_Init
 
 _nt A_LifeVirusMeteorExplosion_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_LifeVirusMeteorExplosion_1_0_08077e60
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -72,45 +69,45 @@ PTR_A_LifeVirusMeteorExplosion_1_0_08077e64:
 _ts A_LifeVirusMeteorExplosion_1_0
     push       {lr}
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     pop        {pc}
 
 
 _ts A_LifeVirusMeteorExplosion_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     cmp        r0,#0xc
     bne        LAB_08077e92
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_08077e92:
     pop        {pc}
 
 
 _ts A_LifeVirusMeteorExplosion_1_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     cmp        r0,#0x14
     bne        LAB_08077ea8
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08077ea8:
     pop        {pc}
 
 
 _nt A_LifeVirusMeteorExplosion_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_LifeVirusMeteorExplosion_2_0_08077ebc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -126,14 +123,14 @@ PTR_PTR_A_LifeVirusMeteorExplosion_2_0_08077ebc:
 
 _ts A_LifeVirusMeteorExplosion_2_0
     push       {lr}
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     sub        r0,#0x1
     ble        LAB_08077ed0
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     mov        r6,#0xc8
     bl         Attack_LifeVirusMeteorExplosion_Create
 LAB_08077ed0:
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -148,7 +145,7 @@ _ts Attack_LifeVirusMeteorExplosion_Create
     pop        {r0,r1,r5,r6}
     tst        r7,r7
     beq        LAB_08077f0a
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Attack_owner]
     strb       r3,[r7,#0x16]
     strh       r6,[r7,#0x24]
     strb       r0,[r7,#0x18]

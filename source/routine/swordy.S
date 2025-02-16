@@ -46,10 +46,7 @@ _ts R_Swordy_0_Init
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]
-    mov        r0,#0x9
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x9, 0x60
     ldr        r7,[r5,#0x60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]

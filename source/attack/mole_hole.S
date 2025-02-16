@@ -5,7 +5,7 @@
 
 _ts Attack_MoleHole
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_MoleHole_0_Init_0807b3a4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,42 +26,39 @@ PTR_PTR_A_MoleHole_0_Init_0807b3a4:
 
 _ts A_MoleHole_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x65
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x4
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
-    mov        r0,#0xf
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    strb       r0,[r5,#Attack_element]
+    FieldObject_Create 0xf, 0x60
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_MoleHole_1_Main
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
 
 _ts A_MoleHole_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_MoleHole_1_0_0807b40c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -86,15 +83,15 @@ _ts A_MoleHole_1_0
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0807b436
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     beq        LAB_0807b436
     mov        r0,#0x5
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_0807b436:
     pop        {pc}
 
@@ -106,14 +103,14 @@ _ts A_MoleHole_1_1
     tst        r0,r1
     beq        LAB_0807b448
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_0807b448:
     pop        {pc}
 
 
 _nt A_MoleHole_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -129,7 +126,7 @@ _ts Attack_MoleHole_Create
     beq        LAB_0807b470
     strb       r0,[r7,#0x18]
     strb       r1,[r7,#0x19]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_0807b470:
     pop        {pc}

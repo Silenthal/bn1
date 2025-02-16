@@ -5,7 +5,7 @@
 
 _ts Attack_LifeVirusSword
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_LifeVirusSword_0_Init_08077c40
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,17 +32,17 @@ _ts A_LifeVirusSword_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x2
     bl         SpritePtr_SetPriority
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r3,#0x6
     ldr        r4,PTR_CellPosition_ARRAY_08077cd0
     mov        r7,#0x60
@@ -57,7 +57,7 @@ LAB_08077c86:
     ldrh       r0,[r4,#0x0]
     strh       r0,[r6,#0x2]
     strh       r0,[r6,#0x4]
-    ldrh       r0,[r5,#0x24]
+    ldrh       r0,[r5,#Attack_damage]
     strh       r0,[r6,#0x8]
     mov        r0,#0x0
     strb       r0,[r6,#0x6]
@@ -96,7 +96,7 @@ PanelFlag_08077cd4:
 
 _ts A_LifeVirusSword_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_LifeVirusSword_1_0_08077cf8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -119,38 +119,38 @@ PTR_PTR_A_LifeVirusSword_1_0_08077cf8:
 _ts A_LifeVirusSword_1_0
     push       {lr}
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     pop        {pc}
 
 
 _ts A_LifeVirusSword_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     cmp        r0,#0x2c
     bne        LAB_08077d22
     bl         A_LifeVirusSword_EnableHitbox
     mov        r0,#0xd6
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_08077d22:
     pop        {pc}
 
 
 _ts A_LifeVirusSword_1_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     cmp        r0,#0x2f
     bne        LAB_08077d38
     bl         A_LifeSword_DisableHitbox
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_08077d38:
     pop        {pc}
 
@@ -162,16 +162,16 @@ _nt A_LifeVirusSword_1_3
     tst        r0,r1
     beq        LAB_08077d4e
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08077d4e:
     pop        {pc}
 
 
 _ts A_LifeVirusSword_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_LifeVirusSword_2_0_08077d64
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -215,7 +215,7 @@ _ts Attack_LifeVirusSword_Create
     pop        {r0,r1,r2,r5,r6}
     tst        r7,r7
     beq        LAB_08077dba
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Attack_owner]
     strb       r3,[r7,#0x16]
     strh       r6,[r7,#0x24]
     strb       r0,[r7,#0x18]

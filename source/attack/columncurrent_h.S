@@ -78,7 +78,7 @@ _ts Attack_ColumnCurrentH
     push       {lr}
     mov        r0,#0x0
     bl         Battle_SetBattleFlag
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_ColumnCurrentH_0_080753f4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -97,42 +97,39 @@ PTR_PTR_A_ColumnCurrentH_0_080753f4:
 _ts A_ColumnCurrentH_0
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xa9
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_NoShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x1
-    strb       r0,[r5,#0x1a]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Attack_element]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x4
     ldr        r7,PTR_DAT_0807545c
     add        r7,r7,r0
-    str        r7,[r5,#0x60]
+    str        r7,[r5,#Attack_param_60]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
-    mov        r0,#0x3
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r0,[r5,#0x64]
+    strh       r0,[r5,#Attack_counterA]
+    FieldObject_Create 0x3, Attack_param_64
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_ColumnCurrentH_1
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -145,22 +142,22 @@ PTR_DAT_0807545c:
 
 _ts A_ColumnCurrentH_1
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_DisableIfDeleted
     mov        r0,#0x3
     bl         Battle_GetBattleFlagCurrent
     beq        LAB_08075476
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     b          LAB_08075480
 LAB_08075476:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_ColumnCurrentH_1_0_0807548c
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_08075480:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -177,9 +174,9 @@ PTR_A_ColumnCurrentH_1_0_08075490:
 
 _ts A_ColumnCurrentH_1_0
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     beq        LAB_08075500
     mov        r0,#0x0
     bl         FieldObject_UpdateField
@@ -188,7 +185,7 @@ _ts A_ColumnCurrentH_1_0
     lsl        r0,r0,#0x4
     ldr        r7,PTR_DAT_08075508
     add        r7,r7,r0
-    str        r7,[r5,#0x60]
+    str        r7,[r5,#Attack_param_60]
     mov        r4,#0x2
 LAB_080754c0:
     push       {r4,r7}
@@ -210,22 +207,22 @@ LAB_080754dc:
     ldrb       r1,[r7,r2]
     add        r2,#0x1
     ldrb       r2,[r7,r2]
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     bl         Attack_ColumnCurrentV_Create
     pop        {r4,r7}
     sub        r4,#0x1
     bpl        LAB_080754dc
     mov        r0,#0x6
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_080754fe:
     pop        {pc}
 LAB_08075500:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -240,105 +237,105 @@ PanelFlag_0807550c:
 
 _ts A_ColumnCurrentH_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08075526
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08075526:
     pop        {pc}
 
 
 _ts A_ColumnCurrentH_1_2
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     add        r0,#0x1
     bl         Battle_SetBattleFlag
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08075580
     mov        r0,#0x28
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x0]
+    strh       r0,[r5,#Attack_counterA]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldr        r7,[r5,#0x60]
-    ldrb       r0,[r5,#0x5]
+    strb       r0,[r5,#Attack_header_entityFlags]
+    ldr        r7,[r5,#Attack_param_60]
+    ldrb       r0,[r5,#Attack_family_b1]
     add        r1,r0,r7
     ldrb       r1,[r1,#0xa]
-    strb       r1,[r5,#0x14]
+    strb       r1,[r5,#Attack_frameIndexCurr]
     lsl        r1,r0,#0x1
     add        r7,r7,r1
     ldrb       r0,[r7,#0x6]
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#Attack_cPos_x]
     ldrb       r1,[r7,#0x7]
-    strb       r1,[r5,#0x19]
+    strb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    ldr        r0,[r5,#0x64]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Enable
     bl         FieldObject_UpdateCellPosition
     mov        r0,#0xbc
     bl         Sound_PlaySE
     mov        r0,#0xf
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08075580:
     pop        {pc}
 
 
 _nt A_ColumnCurrentH_1_3
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Attack_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     bne        LAB_08075596
     mov        r0,#0xbc
     bl         Sound_PlaySE
     mov        r0,#0xf
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
 LAB_08075596:
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     add        r0,#0x1
     bl         Battle_SetBattleFlag
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080755c8
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     mov        r1,#0x1
     eor        r0,r1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Attack_family_b1]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x0]
+    strh       r0,[r5,#Attack_counterA]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
-    ldr        r0,[r5,#0x64]
+    strb       r0,[r5,#Attack_header_entityFlags]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_080755c8:
     pop        {pc}
 
 
 _nt A_ColumnCurrentH_2
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -354,7 +351,7 @@ _ts Attack_ColumnCurrentH_Create
     tst        r7,r7
     beq        LAB_080755f0
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_080755f0:
     pop        {pc}

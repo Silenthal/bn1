@@ -5,7 +5,7 @@
 
 _ts Attack_Stone
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Stone_0_Init_08073908
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,15 +32,15 @@ _ts A_Stone_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Attack_diff_z]
     bl         A_Stone_1_Main
     pop        {pc}
     .byte 0x00
@@ -50,7 +50,7 @@ _ts A_Stone_0_Init
 
 _ts A_Stone_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Stone_1_0_0807395c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -69,11 +69,11 @@ PTR_A_Stone_1_0_08073960:
 
 _ts A_Stone_1_0
     push       {lr}
-    ldr        r0,[r5,#0x4c]
+    ldr        r0,[r5,#Attack_diff_z]
     ldr        r1,DAT_080739b0
     add        r0,r0,r1
-    str        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x30]
+    str        r0,[r5,#Attack_diff_z]
+    ldr        r1,[r5,#Attack_pos_curr_z]
     add        r1,r1,r0
     ldr        r0,DAT_080739b4
     cmp        r1,r0
@@ -81,21 +81,21 @@ _ts A_Stone_1_0
     mov        r0,#0x95
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0x4]
+    strh       r0,[r5,#Attack_state_s2]
+    ldrb       r0,[r5,#Attack_family_family]
     tst        r0,r0
     bne        LAB_080739a8
     push       {r1,r5}
     ldr        r7,PTR_PanelFlag_ARRAY_080739b8
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     lsl        r0,r0,#0x2
     ldr        r4,[r7,r0]
     mov        r3,#0x1e
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    ldrb       r2,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
+    ldrb       r2,[r5,#Attack_owner]
     mov        r6,#0x0
     mov        r7,#0x1
     bl         Attack_QuickAttack_Create
@@ -103,7 +103,7 @@ _ts A_Stone_1_0
 LAB_080739a8:
     ldr        r1,DAT_080739b4
 LAB_080739aa:
-    str        r1,[r5,#0x30]
+    str        r1,[r5,#Attack_pos_curr_z]
     pop        {pc}
 
     .align 2, 0
@@ -133,8 +133,8 @@ LAB_080739ca:
     mov        r4,#0x3
     and        r4,r0
     add        r4,#0x1
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
     mov        r3,#0x0
     ldr        r7,[r6,#0x4]
     ldr        r6,[r6,#0x0]
@@ -179,7 +179,7 @@ _ts Attack_Stone_Create
     mov        r2,#0x50
     lsl        r2,r2,#0x10
     str        r2,[r7,#0x30]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
     mov        r1,#0xb
     ldrb       r0,[r7,#0x4]

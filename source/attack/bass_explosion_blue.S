@@ -5,7 +5,7 @@
 
 _ts Attack_BassExplosionBlue
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_BassExplosionBlue_0_Init_08079eec
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,25 +32,22 @@ _ts A_BassExplosionBlue_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x2
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
-    mov        r0,#0x3
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    strb       r0,[r5,#Attack_element]
+    FieldObject_Create 0x3, Attack_param_64
     mov        r0,#0xe0
     bl         Sound_PlaySE
     pop        {pc}
@@ -58,7 +55,7 @@ _ts A_BassExplosionBlue_0_Init
 
 _ts A_BassExplosionBlue_1_Main
     push       {lr}
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     ldrb       r0,[r7,#0x10]
     tst        r0,r0
     beq        LAB_08079f78
@@ -66,30 +63,30 @@ _ts A_BassExplosionBlue_1_Main
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_08079f7c
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     sub        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     beq        LAB_08079f78
     bl         A_BassExplosionBlue_GetNextPanel
-    ldrh       r2,[r5,#0x24]
-    ldrb       r3,[r5,#0xc]
-    ldr        r4,[r5,#0x4]
-    ldrb       r6,[r5,#0xd]
+    ldrh       r2,[r5,#Attack_damage]
+    ldrb       r3,[r5,#Attack_bc]
+    ldr        r4,[r5,#Attack_family_family]
+    ldrb       r6,[r5,#Attack_bd]
     bl         Attack_BassExplosionBlue_Create
     tst        r7,r7
     beq        LAB_08079f78
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Attack_param_68]
     str        r0,[r7,#0x68]
 LAB_08079f78:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_08079f7c:
     pop        {pc}
 
 
 _nt A_BassExplosionBlue_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -97,7 +94,7 @@ _nt A_BassExplosionBlue_2_Free
 
 _ts A_BassExplosionBlue_GetNextPanel
     push       {lr}
-    ldrb       r2,[r5,#0x7]
+    ldrb       r2,[r5,#Attack_family_b3]
     add        r2,r2,r2
     ldr        r7,PTR_CellPosition_0807a008
     add        r7,r7,r2
@@ -105,20 +102,20 @@ _ts A_BassExplosionBlue_GetNextPanel
     ldrsb      r0,[r7,r3]
     mov        r3,#0x1
     ldrsb      r1,[r7,r3]
-    ldrb       r3,[r5,#0x18]
+    ldrb       r3,[r5,#Attack_cPos_x]
     add        r0,r0,r3
-    ldrb       r3,[r5,#0x19]
+    ldrb       r3,[r5,#Attack_cPos_y]
     add        r1,r1,r3
     push       {r0,r1}
     bl         R_BassExplosionBlue_IsOutOfBounds
     tst        r0,r0
     pop        {r0,r1}
     beq        LAB_08079ffe
-    ldrb       r2,[r5,#0x7]
+    ldrb       r2,[r5,#Attack_family_b3]
     mov        r3,#0x1
     eor        r2,r3
-    strb       r2,[r5,#0x7]
-    ldrb       r2,[r5,#0x6]
+    strb       r2,[r5,#Attack_family_b3]
+    ldrb       r2,[r5,#Attack_family_b2]
     add        r2,r2,r2
     ldr        r7,PTR_CellPosition_0807a00c
     add        r7,r7,r2
@@ -126,20 +123,20 @@ _ts A_BassExplosionBlue_GetNextPanel
     ldrsb      r0,[r7,r3]
     mov        r3,#0x1
     ldrsb      r1,[r7,r3]
-    ldrb       r3,[r5,#0x18]
+    ldrb       r3,[r5,#Attack_cPos_x]
     add        r0,r0,r3
-    ldrb       r3,[r5,#0x19]
+    ldrb       r3,[r5,#Attack_cPos_y]
     add        r1,r1,r3
     push       {r0,r1}
     bl         A_BassExplosionBlue_IsColumnOwned
     tst        r0,r0
     pop        {r0,r1}
     beq        LAB_08079ffe
-    ldrb       r2,[r5,#0x6]
+    ldrb       r2,[r5,#Attack_family_b2]
     mov        r3,#0x1
     eor        r2,r3
-    strb       r2,[r5,#0x6]
-    ldrb       r2,[r5,#0x6]
+    strb       r2,[r5,#Attack_family_b2]
+    ldrb       r2,[r5,#Attack_family_b2]
     add        r2,r2,r2
     ldr        r7,PTR_CellPosition_0807a00c
     add        r7,r7,r2
@@ -147,9 +144,9 @@ _ts A_BassExplosionBlue_GetNextPanel
     ldrsb      r0,[r7,r3]
     mov        r3,#0x1
     ldrsb      r1,[r7,r3]
-    ldrb       r3,[r5,#0x18]
+    ldrb       r3,[r5,#Attack_cPos_x]
     add        r0,r0,r3
-    ldrb       r3,[r5,#0x19]
+    ldrb       r3,[r5,#Attack_cPos_y]
     add        r1,r1,r3
 LAB_08079ffe:
     pop        {pc}
@@ -180,7 +177,7 @@ _ts Attack_BassExplosionBlue_Create
     strh       r2,[r7,#0x24]
     strb       r3,[r7,#0xc]
     strb       r6,[r7,#0xd]
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Attack_owner]
     strb       r2,[r7,#0x16]
     strb       r0,[r7,#0x18]
     strb       r1,[r7,#0x19]

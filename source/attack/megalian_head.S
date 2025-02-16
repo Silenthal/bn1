@@ -5,7 +5,7 @@
 
 _ts Attack_MegalianHead
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_MegalianHead_0_Init_08076690
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,28 +32,25 @@ _ts A_MegalianHead_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_DisableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     bl         SpritePtr_SetPaletteIndex
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1
     eor        r0,r1
     bl         SpritePtr_SetFlipType
-    mov        r0,#0x1b
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x1b, 0x60
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    strb       r0,[r5,#0x1b]
+    strh       r0,[r5,#Attack_state_s2]
+    strb       r0,[r5,#Attack_b1b]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Attack_canBeDamaged]
     bl         A_MegalianHead_1_Main
     pop        {pc}
 
@@ -61,66 +58,66 @@ _ts A_MegalianHead_0_Init
 _nt A_MegalianHead_1_Main
     push       {lr}
     mov        r0,#0x0
-    strh       r0,[r5,#0x20]
-    ldr        r7,[r5,#0x64]
+    strh       r0,[r5,#Attack_hpCurrent]
+    ldr        r7,[r5,#Attack_param_64]
     ldr        r0,[r7,#0x5c]
     tst        r0,r0
     bne        LAB_0807670c
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_0807677a
 LAB_0807670c:
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
+    ldr        r7,[r5,#Attack_param_60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     bl         SpritePtr_DisableFlash
-    ldr        r6,[r5,#0x60]
-    ldrb       r0,[r5,#0x17]
+    ldr        r6,[r5,#Attack_param_60]
+    ldrb       r0,[r5,#Attack_canBeDamaged]
     tst        r0,r0
     beq        LAB_08076764
-    ldrh       r0,[r5,#0x18]
+    ldrh       r0,[r5,#Attack_cPos_x]
     ldr        r1,PanelFlag_08076788
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Attack_owner]
     tst        r2,r2
     beq        LAB_08076738
     ldr        r1,PanelFlag_0807678c
 LAB_08076738:
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Attack_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08076764
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#Attack_hpCurrent]
     push       {r2}
     bl         SpritePtr_EnableFlash
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_08076764:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_MegalianHead_1_0_0807677c
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsChecked
 LAB_0807677a:
     pop        {pc}
@@ -141,7 +138,7 @@ PanelFlag_0807678c:
 
 _ts A_MegalianHead_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_MegalianHead_1_0_0_080767a0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -162,13 +159,13 @@ PTR_A_MegalianHead_1_0_0_080767a4:
 _ts A_MegalianHead_1_0_0
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strb       r0,[r5,#Attack_state_s2]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Attack_canBeDamaged]
     bl         SpritePtr_DisableShadow
     bl         A_MegalianHead_1_0_1
     pop        {pc}
@@ -176,31 +173,31 @@ _ts A_MegalianHead_1_0_0
 
 _nt A_MegalianHead_1_0_1
     push       {lr}
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     ldr        r0,[r7,#0x28]
     ldr        r1,[r7,#0x2c]
     ldr        r2,[r7,#0x30]
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    str        r2,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
+    str        r2,[r5,#Attack_pos_curr_z]
     ldrb       r0,[r7,#0x18]
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#Attack_cPos_x]
     ldrb       r0,[r7,#0x19]
-    strb       r0,[r5,#0x19]
-    ldrb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Attack_cPos_y]
+    ldrb       r0,[r5,#Attack_b1b]
     tst        r0,r0
     beq        LAB_080767f0
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_080767f0:
     pop        {pc}
 
 
 _nt A_MegalianHead_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_MegalianHead_1_1_0_08076800
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -218,28 +215,28 @@ PTR_A_MegalianHead_1_1_0_08076804:
 _ts A_MegalianHead_1_1_0
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_DAT_0807685c
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r1,r0,#0x2
     add        r0,r0,r0
     add        r0,r0,r1
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Attack_cPos_x]
     sub        r1,#0x1
     add        r0,r0,r1
     ldrb       r0,[r7,r0]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_DAT_08076858
     ldr        r0,[r7,r0]
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_diff_x]
     neg        r0,r0
-    str        r0,[r5,#0x4c]
-    ldr        r0,[r5,#0x60]
+    str        r0,[r5,#Attack_diff_z]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Enable
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Attack_canBeDamaged]
     bl         SpritePtr_EnableShadow
     pop        {pc}
 
@@ -291,21 +288,21 @@ DAT_08076860:
 
 _ts A_MegalianHead_1_1_1
     push       {lr}
-    ldr        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x44]
+    ldr        r0,[r5,#Attack_pos_curr_x]
+    ldr        r1,[r5,#Attack_diff_x]
     sub        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldr        r0,[r5,#0x4c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    ldr        r0,[r5,#Attack_diff_z]
     ldr        r2,DAT_08076894
     sub        r1,r1,r2
-    str        r1,[r5,#0x44]
+    str        r1,[r5,#Attack_diff_x]
     cmp        r1,r0
     bgt        LAB_0807688c
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    strb       r0,[r5,#0x1b]
+    strh       r0,[r5,#Attack_state_s2]
+    strb       r0,[r5,#Attack_b1b]
 LAB_0807688c:
     bl         R_Actor_UpdateCellPos
     pop        {pc}
@@ -319,12 +316,12 @@ DAT_08076894:
 
 _ts A_MegalianHead_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x0
     bl         Effect_QuickEffect_Create
     pop        {r5}
@@ -341,9 +338,9 @@ _nt Attack_MegalianHead_Create
     pop        {r3,r5,r6}
     tst        r7,r7
     beq        LAB_080768d8
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     strb       r0,[r7,#0x1a]
     strh       r6,[r7,#0x24]
     str        r5,[r7,#0x64]

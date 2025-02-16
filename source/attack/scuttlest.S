@@ -5,7 +5,7 @@
 
 _ts Attack_Scuttlest
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Scuttlest_0_Init_08077f44
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,33 +32,27 @@ _ts A_Scuttlest_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    strb       r0,[r5,#0xc]
-    strb       r0,[r5,#0xd]
-    mov        r0,#0x9
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r0,[r5,#0x60]
+    strb       r0,[r5,#Attack_canBeDamaged]
+    strb       r0,[r5,#Attack_bc]
+    strb       r0,[r5,#Attack_bd]
+    FieldObject_Create 0x9, Attack_param_60
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
-    mov        r0,#0x32
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r0,[r5,#0x64]
+    FieldObject_Create 0x32, Attack_param_64
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x64
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#Attack_hpCurrent]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_Scuttlest_SetElement
     bl         A_Scuttlest_1_Main
     pop        {pc}
@@ -69,7 +63,7 @@ _nt A_Scuttlest_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Attack_canBeDamaged]
     tst        r0,r0
     beq        LAB_08077fde
     bl         A_Scuttlest_CheckDamage
@@ -82,16 +76,16 @@ _nt A_Scuttlest_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_08077fde:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Scuttlest_1_0_08078024
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Attack_canBeDamaged]
     tst        r0,r0
     beq        LAB_08077ffe
     mov        r0,#0x9
@@ -99,21 +93,21 @@ LAB_08077fde:
 LAB_08077ffe:
     mov        r0,#0xf
 LAB_08078000:
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Attack_param_60]
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Attack_hpCurrent]
     tst        r0,r0
     beq        LAB_08078014
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     ldrb       r0,[r7,#0xf]
     tst        r0,r0
     beq        LAB_08078022
 LAB_08078014:
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Attack_state_s2]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_08078022:
     pop        {pc}
@@ -130,27 +124,27 @@ PTR_A_Scuttlest_1_0_08078028:
 
 _ts A_Scuttlest_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     tst        r0,r0
     bne        LAB_08078082
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     mov        r0,#0x10
     add        r7,r7,r0
-    ldrb       r0,[r5,#0xe]
+    ldrb       r0,[r5,#Attack_be]
     ldrb       r0,[r7,r0]
     tst        r0,r0
     beq        LAB_080780a2
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     cmp        r0,#0xff
     bne        LAB_08078074
     bl         A_Scuttlest_ChooseFrontPanel
     cmp        r0,#0xff
     beq        LAB_080780a2
-    ldr        r7,[r5,#0x64]
-    strb       r0,[r5,#0x18]
+    ldr        r7,[r5,#Attack_param_64]
+    strb       r0,[r5,#Attack_cPos_x]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
-    strb       r1,[r5,#0x19]
+    strb       r1,[r5,#Attack_cPos_y]
     strb       r1,[r7,#0x3]
     strb       r1,[r7,#0x5]
     add        r0,r7,#0x0
@@ -158,11 +152,11 @@ _ts A_Scuttlest_1_0
     bl         R_Actor_UpdateSpritePos
 LAB_08078074:
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     b          LAB_080780a2
 LAB_08078082:
     bl         SpritePtr_GetFrameStatus
@@ -170,14 +164,14 @@ LAB_08078082:
     tst        r0,r1
     beq        LAB_080780a2
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x2d
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1e]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Attack_counterB]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Enable
 LAB_080780a2:
     pop        {pc}
@@ -185,7 +179,7 @@ LAB_080780a2:
 
 _ts A_Scuttlest_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_Scuttlest_1_1_0_080780bc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -206,59 +200,59 @@ PTR_PTR_A_Scuttlest_1_1_0_080780bc:
 _ts A_Scuttlest_1_1_0
     push       {lr}
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Attack_canBeDamaged]
     pop        {pc}
 
 
 _ts A_Scuttlest_1_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080780e4
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_08078116
 LAB_080780e4:
-    ldrb       r0,[r5,#0xd]
+    ldrb       r0,[r5,#Attack_bd]
     tst        r0,r0
     bne        LAB_080780f2
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Attack_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     bne        LAB_08078116
 LAB_080780f2:
     bl         Entity_CompareToPlayerRow
     tst        r0,r0
     bne        LAB_08078112
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Attack_param_6C]
     ldrb       r0,[r7,#0xc]
     tst        r0,r0
     bne        LAB_08078112
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     mov        r0,#0x0
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Attack_bd]
 LAB_08078112:
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
 LAB_08078116:
     pop        {pc}
 
 
 _ts A_Scuttlest_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_Scuttlest_1_2_0_08078130
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -282,34 +276,34 @@ _ts A_Scuttlest_1_2_0
     cmp        r0,#0xff
     bne        LAB_0807814c
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     mov        r0,#0x2d
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     b          LAB_08078176
 LAB_0807814c:
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]
     strb       r1,[r7,#0x5]
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    strb       r0,[r5,#Attack_family_b2]
+    strb       r1,[r5,#Attack_family_b3]
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     ldr        r2,DAT_08078178
-    ldrb       r0,[r5,#0x19]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_cPos_y]
+    ldrb       r1,[r5,#Attack_family_b3]
     cmp        r0,r1
     bmi        LAB_0807816c
     neg        r2,r2
 LAB_0807816c:
-    str        r2,[r5,#0x48]
+    str        r2,[r5,#Attack_diff_y]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
 LAB_08078176:
     pop        {pc}
 
@@ -319,11 +313,11 @@ DAT_08078178:
 
 _ts A_Scuttlest_1_2_1
     push       {lr}
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         Battle_CellCoordsToSprite
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x48]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_diff_y]
     tst        r3,r3
     bmi        LAB_08078196
     add        r2,r2,r3
@@ -335,18 +329,18 @@ LAB_08078196:
     cmp        r2,r1
     bgt        LAB_080781b2
 LAB_0807819c:
-    str        r2,[r5,#0x2c]
-    ldr        r0,[r5,#0x64]
+    str        r2,[r5,#Attack_pos_curr_y]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x2d
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     b          LAB_080781b4
 LAB_080781b2:
-    str        r2,[r5,#0x2c]
+    str        r2,[r5,#Attack_pos_curr_y]
 LAB_080781b4:
     bl         R_Actor_UpdateCellPos
     pop        {pc}
@@ -354,7 +348,7 @@ LAB_080781b4:
 
 _nt A_Scuttlest_1_3_Attack
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_Scuttlest_1_3_0_080781d8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -374,9 +368,9 @@ PTR_PTR_A_Scuttlest_1_3_0_080781d8:
 _ts A_Scuttlest_1_3_0
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     pop        {pc}
 
 
@@ -386,7 +380,7 @@ _ts A_Scuttlest_1_3_1
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_08078200
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_A_Scutz_Fire_08078204
     ldr        r7,[r7,r0]
@@ -410,9 +404,9 @@ PTR_A_Scutz_Fire_08078208:
 
 _ts A_Scutz_Fire
     push       {lr}
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Attack_cPos_x]
     sub        r1,#0x1
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#Attack_cPos_y]
     mov        r3,#0x8
     lsl        r3,r3,#0x10
     mov        r4,#0x1
@@ -421,15 +415,15 @@ _ts A_Scutz_Fire
     mov        r0,#0xb6
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 
 _ts A_Scuttle_AquaTower
     push       {lr}
     push       {r5}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     LoadMain battle, r2, r2
     ldr        r2,[r2,#0x40]
     add        r2,#0x2c
@@ -439,16 +433,16 @@ _ts A_Scuttle_AquaTower
     bl         Attack_Tower_Create
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 
 _nt A_Scuttler_Thunder
     push       {lr}
     push       {r5}
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     ldr        r2,DAT_0807827c
     mov        r3,#0x3
     mov        r4,#0x1
@@ -457,7 +451,7 @@ _nt A_Scuttler_Thunder
     bl         Attack_Thunder_Create
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
     .align 2, 0
@@ -470,8 +464,8 @@ DAT_0807827c:
 _ts A_Scuttzer_WoodTower
     push       {lr}
     push       {r5}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     LoadMain battle, r2, r2
     ldr        r2,[r2,#0x40]
     add        r2,#0x2c
@@ -481,52 +475,52 @@ _ts A_Scuttzer_WoodTower
     bl         Attack_Tower_Create
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 
 _nt A_Scuttlest_1_3_2
     push       {lr}
     mov        r0,#0x64
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     pop        {pc}
 
 
 _nt A_Scuttlest_1_3_3
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Attack_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     bne        LAB_080782ca
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    strb       r0,[r5,#0xc]
+    strh       r0,[r5,#Attack_state_s2]
+    strb       r0,[r5,#Attack_bc]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
 LAB_080782ca:
     pop        {pc}
 
 
 _ts A_Scuttlest_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Scuttlest_2_0_08078300
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     ldrb       r0,[r7,#0xf]
     tst        r0,r0
     beq        LAB_080782f0
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Free
     bl         Attack_Free
 LAB_080782f0:
@@ -546,39 +540,39 @@ PTR_PTR_A_Scuttlest_2_0_08078300:
 
 _ts A_Scuttlest_2_0
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    strb       r0,[r5,#0xc]
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Attack_canBeDamaged]
+    strb       r0,[r5,#Attack_bc]
+    strb       r0,[r5,#Attack_bd]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x0
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x4b
     lsl        r0,r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     pop        {pc}
 
 
 _nt A_Scuttlest_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807834c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     bl         A_Scuttlest_2_2
 LAB_0807834c:
     pop        {pc}
@@ -589,29 +583,29 @@ _nt A_Scuttlest_2_2
     bl         A_Scuttlest_ChooseFrontPanel
     cmp        r0,#0xff
     beq        LAB_0807838e
-    ldr        r7,[r5,#0x64]
-    strb       r0,[r5,#0x18]
+    ldr        r7,[r5,#Attack_param_64]
+    strb       r0,[r5,#Attack_cPos_x]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
-    strb       r1,[r5,#0x19]
+    strb       r1,[r5,#Attack_cPos_y]
     strb       r1,[r7,#0x3]
     strb       r1,[r7,#0x5]
     add        r0,r7,#0x0
     bl         FieldObject_Enable
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     add        r0,#0x1
     mov        r1,#0x3
     and        r0,r1
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Attack_family_family]
     bl         A_Scuttlest_SetElement
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     mov        r0,#0x64
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#Attack_hpCurrent]
     bl         R_Actor_UpdateSpritePos
 LAB_0807838e:
     pop        {pc}
@@ -626,7 +620,7 @@ _ts Attack_Scuttlest_Create
     pop        {r0,r1,r5}
     tst        r7,r7
     beq        LAB_080783b8
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Attack_owner]
     strb       r3,[r7,#0x16]
     strb       r0,[r7,#0x18]
     strb       r1,[r7,#0x19]
@@ -643,18 +637,18 @@ LAB_080783b8:
 
 _ts A_Scuttlest_CheckDamage
     push       {lr}
-    ldr        r6,[r5,#0x60]
+    ldr        r6,[r5,#Attack_param_60]
     ldrh       r0,[r6,#0x2]
     ldr        r1,PanelFlag_080783e0
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Attack_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
@@ -701,14 +695,14 @@ _ts A_Scuttlest_GetNextMovePanel
     bl         Entity_CompareToPlayerRow
     tst        r0,r0
     beq        LAB_0807843c
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bmi        LAB_0807842a
     add        r1,#0x1
     b          LAB_0807842c
 LAB_0807842a:
     sub        r1,#0x1
 LAB_0807842c:
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     push       {r0,r1}
     bl         A_Scuttlest_IsPanelWalkable
     tst        r0,r0
@@ -723,13 +717,13 @@ LAB_0807843e:
 
 _ts A_Scuttlest_SetElement
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     bl         SpritePtr_SetPaletteIndex
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     ldr        r7,PTR_ElementID_ARRAY_0807845c
     ldrb       r0,[r7,r0]
-    strb       r0,[r5,#0x1a]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Attack_element]
+    ldr        r7,[r5,#Attack_param_60]
     strb       r0,[r7,#0x6]
     pop        {pc}
 

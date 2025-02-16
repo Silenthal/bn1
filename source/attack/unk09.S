@@ -6,7 +6,7 @@
 _ts Attack_Unk09
     push       {lr}
     ldr        r7,PTR_PTR_A_Unk09_0_Init_0807012c
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r0,[r7,r0]
     mov        lr,pc
     bx         r0
@@ -24,7 +24,7 @@ PTR_A_Unk09_0_Init_08070094:
 _ts A_Unk09_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
@@ -32,14 +32,14 @@ _ts A_Unk09_0_Init
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         SpritePtr_NoShadow
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
     mov        r0,#0xa0
-    strh       r0,[r5,#0x20]
-    strh       r0,[r5,#0x22]
+    strh       r0,[r5,#Attack_hpCurrent]
+    strh       r0,[r5,#Attack_hpMax]
 
 
 _ts A_Unk09_1_Main
@@ -50,7 +50,7 @@ _ts A_Unk09_1_Main
     tst        r0,r1
     beq        LAB_080700e6
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 LAB_080700e6:
     bl         SpritePtr_ProcessFrameDelay
@@ -65,15 +65,15 @@ _ts A_Unk09_2_Free
     and        r6,r4
     sub        r6,#0x4
     lsl        r6,r6,#0x10
-    ldr        r1,[r5,#0x28]
+    ldr        r1,[r5,#Attack_pos_curr_x]
     add        r1,r1,r6
     lsr        r0,r0,#0x3
     and        r0,r4
     sub        r0,#0x4
     lsl        r0,r0,#0x10
-    ldr        r2,[r5,#0x2c]
+    ldr        r2,[r5,#Attack_pos_curr_y]
     add        r2,r2,r6
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x0
     push       {r5}
     bl         Effect_QuickEffect_Create

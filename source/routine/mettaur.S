@@ -68,10 +68,7 @@ _ts R_Mettaur_0_Init
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]
-    mov        r0,#0x9
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x9, 0x64
     ldr        r7,[r5,#0x64]
     mov        r0,#0x20
     strb       r0,[r7,#0x8]

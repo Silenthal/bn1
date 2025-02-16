@@ -62,14 +62,8 @@ _ts R_Gaia_0_Init
     lsl        r0,r0,#0x1
     ldrh       r0,[r7,r0]
     strh       r0,[r5,#0x24]
-    mov        r0,#0x9
-    mov        r1,#0x68
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r1,#0x6c
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x9, 0x68
+    FieldObject_Create 0xf, 0x6c
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_Disable
     ldrb       r1,[r5,#0x18]

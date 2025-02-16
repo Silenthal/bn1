@@ -5,7 +5,7 @@
 
 _ts Attack_SwordySlash
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_SwordySlash_0_Init_080726b8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,35 +32,35 @@ _ts A_SwordySlash_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_SwordySlash_1_Main
     pop        {pc}
 
 
 _ts A_SwordySlash_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_dummy_72720_08072718
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldr        r0,[r7,#0x28]
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Attack_pos_curr_x]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_y]
     ldr        r0,[r7,#0x30]
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     pop        {pc}
 
 PTR_PTR_dummy_72720_08072718:
@@ -88,7 +88,7 @@ _ts Attack_SwordySlash_Create
     pop        {r0}
     tst        r5,r5
     beq        LAB_0807273a
-    str        r0,[r5,#0x60]
+    str        r0,[r5,#Attack_param_60]
 LAB_0807273a:
     add        r0,r5,#0x0
     pop        {r5,pc}

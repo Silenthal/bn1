@@ -6,7 +6,7 @@
 _ts Attack_Meteor
     push       {lr}
     ldr        r0,PTR_PTR_A_Meteor_0_Init_080714c4
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Attack_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -27,7 +27,7 @@ PTR_A_Meteor_0_Init_080713ac:
 _ts A_Meteor_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xe5
     bl         Sprite_InitSpritePtr
@@ -37,7 +37,7 @@ _ts A_Meteor_0_Init
     bl         SpritePtr_ProcessFrameDelay
     bl         SpritePtr_NoShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_Meteor_1_Main
     pop        {pc}
 
@@ -47,9 +47,9 @@ _ts A_Meteor_0_Init
 
 _ts A_Meteor_1_Main
     push       {lr}
-    ldrh       r0,[r5,#0x2a]
+    ldrh       r0,[r5,#0x2A]
     sub        r0,#0x8
-    strh       r0,[r5,#0x2a]
+    strh       r0,[r5,#0x2A]
     ldrh       r0,[r5,#0x32]
     sub        r0,#0x4
     strh       r0,[r5,#0x32]
@@ -63,10 +63,10 @@ _ts A_Meteor_1_Main
     mov        r0,#0x0
     strh       r0,[r5,#0x32]
     mov        r0,#0xc
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x76
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     cmp        r0,#0x9
     bne        LAB_0807142c
     push       {r5}
@@ -98,11 +98,11 @@ _ts A_Meteor_3
     and        r0,r1
     beq        LAB_0807147e
     mov        r0,#0x10
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x1
     mov        r1,#0xe4
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
@@ -124,7 +124,7 @@ _ts A_Meteor_4
     and        r0,r1
     beq        LAB_080714ae
     mov        r0,#0x14
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x1
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames

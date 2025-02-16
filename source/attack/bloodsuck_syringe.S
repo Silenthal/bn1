@@ -5,7 +5,7 @@
 
 _ts Attack_BloodSuckSyringe
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_BloodSuckSyringe_0_Init_0807b254
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,43 +26,43 @@ PTR_PTR_A_BloodSuckSyringe_0_Init_0807b254:
 
 _ts A_BloodSuckSyringe_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xb8
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_NoShadow
     mov        r0,#0x1
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     bl         SpritePtr_SetFlipType
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Attack_element]
     bl         Field_GetAttackDirectionOffset_MP
     mov        r1,#0x4
     lsl        r1,r1,#0x10
     mul        r0,r1
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_BloodSuckSyringe_1_Main
     pop        {pc}
 
 
 _nt A_BloodSuckSyringe_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_BloodSuckSyringe_1_0_0807b2bc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -82,28 +82,28 @@ _ts A_BloodSuckSyringe_1_0
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_DAT_0807b32c
     ldr        r1,[r7,r1]
     tst        r0,r1
     bne        LAB_0807b304
-    ldr        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x44]
+    ldr        r0,[r5,#Attack_pos_curr_x]
+    ldr        r1,[r5,#Attack_diff_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    ldr        r1,[r5,#Attack_pos_curr_y]
     bl         Battle_SpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
     bl         Field_IsEntityCellPositionValid
     tst        r0,r0
     bne        LAB_0807b302
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_0807b302:
     pop        {pc}
 LAB_0807b304:
@@ -111,19 +111,19 @@ LAB_0807b304:
     mov        r0,#0x1
     strb       r0,[r7,#0x2]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
     mov        r0,#0x0
     ldr        r4,FamilyDetail_0807b338
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     mov        r7,#0x1
     bl         Field_CreateSharpStrikeAttack
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 PTR_DAT_0807b32c:
@@ -147,22 +147,22 @@ FamilyDetail_0807b338:
 
 _ts A_BloodSuckSyringe_1_1
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    ldrh       r1,[r5,#0x1c]
+    ldrh       r1,[r5,#Attack_counterA]
     lsr        r1,r1,#0x2
     bcc        LAB_0807b34e
     mov        r1,#0x2
     orr        r0,r1
 LAB_0807b34e:
-    strb       r0,[r5,#0x0]
-    ldrh       r0,[r5,#0x1c]
+    strb       r0,[r5,#Attack_header_entityFlags]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807b35c
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_0807b35c:
     pop        {pc}
 

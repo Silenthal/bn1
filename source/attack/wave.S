@@ -5,7 +5,7 @@
 
 _ts Attack_Wave
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Wave_0_Init_08074380
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,28 +32,25 @@ _ts A_Wave_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     bl         SpritePtr_SetPaletteIndex
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     mov        r0,#0x24
-    strh       r0,[r5,#0x1c]
-    mov        r0,#0x3
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldrb       r0,[r5,#0x16]
+    strh       r0,[r5,#Attack_counterA]
+    FieldObject_Create 0x3, Attack_param_60
+    ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1
     eor        r0,r1
     bl         SpritePtr_SetFlipType
@@ -69,12 +66,12 @@ _nt A_Wave_1_Main
     bl         A_Wave_IsStopped
     tst        r0,r0
     beq        LAB_08074406
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_0807442a
 LAB_08074406:
     bl         SpritePtr_GetFrameStatus
@@ -82,15 +79,15 @@ LAB_08074406:
     tst        r0,r1
     beq        LAB_0807442a
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     bl         A_Wave_CheckNextPanel
     cmp        r0,#0xff
     beq        LAB_0807442a
-    ldrb       r2,[r5,#0x1a]
-    ldrb       r4,[r5,#0x4]
-    ldrh       r6,[r5,#0x24]
+    ldrb       r2,[r5,#Attack_element]
+    ldrb       r4,[r5,#Attack_family_family]
+    ldrh       r6,[r5,#Attack_damage]
     bl         Attack_Wave_Create
 LAB_0807442a:
     pop        {pc}
@@ -98,7 +95,7 @@ LAB_0807442a:
 
 _ts A_Wave_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -117,7 +114,7 @@ _nt Attack_Wave_Create
     strb       r0,[r7,#0x18]
     strb       r1,[r7,#0x19]
     strh       r6,[r7,#0x24]
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Attack_owner]
     strb       r2,[r7,#0x16]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]
@@ -135,9 +132,9 @@ LAB_0807446c:
 _nt A_Wave_CheckNextPanel
     push       {lr}
     bl         Field_GetAttackDirectionOffset_MP
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Attack_cPos_x]
     add        r0,r0,r1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0,r1}
     bl         Battle_IsOutOfBounds
     tst        r0,r0
@@ -150,7 +147,7 @@ _nt A_Wave_CheckNextPanel
     mov        r3,#0x1
     tst        r2,r3
     beq        LAB_080744a4
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Attack_owner]
     lsl        r3,r3,#0x2
     ldr        r7,PTR_listWaveStopPanelFlags_080744a8
     ldr        r3,[r7,r3]
@@ -187,8 +184,8 @@ _ts Attack_Wave_CreateColumn
 
 _nt A_Wave_IsStopped
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     mov        r3,#0x1

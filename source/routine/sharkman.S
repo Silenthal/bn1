@@ -120,10 +120,7 @@ LAB_0806594a:
     mov        r1,#0x6c
     add        r1,r1,r5
     bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r1,#0x70
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0xf, 0x70
     ldr        r0,[r5,#0x70]
     bl         FieldObject_Disable
     LoadMain battle, r7, r7

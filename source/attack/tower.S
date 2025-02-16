@@ -5,7 +5,7 @@
 
 _ts Attack_Tower
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Tower_0_Init_08070d10
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -28,56 +28,53 @@ _ts A_Tower_0_Init
     push       {lr}
     bl         Battle_IsInputLocked
     bne        LAB_08070d92
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     ldr        r7,PTR_EP_64_A_TowerParam_ARRAY_08070d98
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     lsr        r0,r0,#0x17
     add        r7,r7,r0
-    str        r7,[r5,#0x64]
+    str        r7,[r5,#Attack_param_64]
     mov        r0,#0x1
     ldrh       r1,[r7,#0x2]
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_NoShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
-    ldrb       r0,[r5,#0x16]
+    strb       r0,[r5,#Attack_frameIndexLast]
+    ldrb       r0,[r5,#Attack_owner]
     neg        r0,r0
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Attack_family_b1]
     mov        r0,#0x0
-    str        r0,[r5,#0x60]
-    ldrb       r0,[r5,#0x4]
+    str        r0,[r5,#Attack_param_60]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_08070d7c
-    mov        r0,#0x3
-    mov        r1,#0x6c
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r0,[r5,#0x6c]
+    FieldObject_Create 0x3, Attack_param_6C
+    ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_Disable
 LAB_08070d7c:
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_Tower_1_Main
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_08070d90
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_MarkAsChecked
 LAB_08070d90:
     pop        {pc}
@@ -101,29 +98,29 @@ _ts A_Tower_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_08070dd6
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_08070dd6
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_Enable
     bl         A_Tower_CheckTargetDamage
     tst        r0,r0
     bne        LAB_08070de0
 LAB_08070dd6:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Tower_1_0_Move_08070df4
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_08070de0:
     bl         UpdateSpriteFrameIndex
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_08070df0
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_UpdateCellPosition
 LAB_08070df0:
     pop        {pc}
@@ -143,79 +140,79 @@ PTR_A_Tower_1_0_Move_08070df8:
 
 _ts A_Tower_1_0_Move
     push       {lr}
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     ldrb       r0,[r7,#0x0]
     tst        r0,r0
     beq        LAB_08070e16
     bl         Sound_PlaySE
 LAB_08070e16:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_08070e26
     mov        r0,#0x1
-    strb       r0,[r5,#0x5]
-    ldr        r0,[r5,#0x6c]
+    strb       r0,[r5,#Attack_family_b1]
+    ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_Disable
 LAB_08070e26:
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Attack_family_b2]
     tst        r0,r0
     bne        LAB_08070e32
     mov        r0,#0x1
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#Attack_family_b2]
     b          LAB_08070e62
 LAB_08070e32:
     mov        r3,#0x28
     add        r7,r5,r3
     ldmia      r7!,{r1,r2,r3}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     lsr        r0,r0,#0x19
     ldr        r4,PTR_BYTE_ARRAY_08070ee0
     ldr        r4,[r4,r0]
-    ldrh       r6,[r5,#0x24]
-    ldrb       r0,[r5,#0x1a]
+    ldrh       r6,[r5,#Attack_damage]
+    ldrb       r0,[r5,#Attack_element]
     bl         Effect_Tower_Create
     tst        r7,r7
     beq        LAB_08070e5a
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r2,#0x4
     and        r0,r2
     ldrb       r1,[r7,#0x0]
     orr        r1,r0
     strb       r1,[r7,#0x0]
 LAB_08070e5a:
-    ldr        r0,[r5,#0x60]
-    ldrb       r1,[r5,#0x19]
+    ldr        r0,[r5,#Attack_param_60]
+    ldrb       r1,[r5,#Attack_cPos_y]
     add        r1,r1,r0
-    strb       r1,[r5,#0x19]
+    strb       r1,[r5,#Attack_cPos_y]
 LAB_08070e62:
     bl         Tower_CompareY
-    str        r0,[r5,#0x60]
+    str        r0,[r5,#Attack_param_60]
     bl         Field_GetAttackDirectionOffset_MP
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Attack_cPos_x]
     add        r1,r1,r0
-    strb       r1,[r5,#0x18]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    strb       r1,[r5,#Attack_cPos_x]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
-    ldrb       r0,[r5,#0x4]
+    str        r0,[r5,#Attack_pos_curr_z]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcc        LAB_08070ec0
     bl         Field_IsEntityCellPositionValid
     tst        r0,r0
     beq        LAB_08070ed8
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x18
     lsl        r1,r1,#0x10
     tst        r0,r1
     beq        LAB_08070ece
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
@@ -226,26 +223,26 @@ LAB_08070e62:
     mov        r6,#0x1
     lsl        r6,r6,#0x10
     orr        r4,r6
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     mov        r7,#0x1
     bl         Field_CreateSharpStrikeAttack
     b          LAB_08070ece
 LAB_08070ec0:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08070ed8
 LAB_08070ece:
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     pop        {pc}
 LAB_08070ed8:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -270,33 +267,33 @@ _nt A_Tower_1_1_Damage
     tst        r0,r1
     beq        LAB_08070f16
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_08070f0a
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
-    ldr        r0,[r5,#0x6c]
+    strb       r0,[r5,#Attack_family_b1]
+    ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_Enable
 LAB_08070f0a:
     mov        r3,#0x64
     ldr        r7,[r5,r3]
     ldrb       r0,[r7,#0x1]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_08070f16:
     pop        {pc}
 
 
 _ts A_Tower_1_2_Wait
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08070f26
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_08070f26:
     pop        {pc}
 
@@ -304,16 +301,16 @@ LAB_08070f26:
 _ts A_Tower_1_3_PrepareFree
     push       {lr}
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 
 _ts A_Tower_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_08070f3e
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_Free
 LAB_08070f3e:
     bl         Attack_Free
@@ -328,7 +325,7 @@ _ts Tower_CompareY
     beq        LAB_08070f64
     ldr        r1,[r7,#0x0]
     bl         Battle_SpriteCoordsToCell
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#Attack_cPos_y]
     mov        r0,#0x1
     neg        r0,r0
     cmp        r1,r2
@@ -347,11 +344,11 @@ _ts A_Tower_CheckTargetDamage
     bl         Battle_IsInputLocked
     bne        LAB_08070f8c
     mov        r0,#0x2
-    ldr        r1,[r5,#0x6c]
+    ldr        r1,[r5,#Attack_param_6C]
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08070f94
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x19
     mov        r3,#0x10
@@ -359,7 +356,7 @@ _ts A_Tower_CheckTargetDamage
     bl         Field_CreateStrikeEffect
 LAB_08070f8c:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_08070f94:
@@ -378,7 +375,7 @@ _ts Attack_Tower_Create
     beq        LAB_08070fba
     strb       r0,[r7,#0x18]
     strb       r1,[r7,#0x19]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
     strh       r6,[r7,#0x24]
     strb       r3,[r7,#0x1a]

@@ -19,7 +19,7 @@ DAT_080721c2:
 _ts Attack_NumberBall
     push       {lr}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_NumberBall_0_Init_080721dc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -41,51 +41,48 @@ PTR_A_NumberBall_0_Init_080721e0:
 _ts A_NumberBall_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x83
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     bl         Rng_RandomUint
     ldr        r7,PTR_DAT_08072264
-    ldrb       r3,[r5,#0x5]
+    ldrb       r3,[r5,#Attack_family_b1]
     lsl        r3,r3,#0x1
     add        r7,r7,r3
     ldrb       r1,[r7,#0x0]
     ldrb       r2,[r7,#0x1]
     and        r0,r2
     add        r0,r0,r1
-    strh       r0,[r5,#0x22]
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#Attack_hpMax]
+    strh       r0,[r5,#Attack_hpCurrent]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Attack_element]
     ldr        r7,PTR_USHORT_08072260
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x1
     add        r7,r7,r0
-    str        r7,[r5,#0x60]
+    str        r7,[r5,#Attack_param_60]
     ldrh       r0,[r7,#0x0]
-    strh       r0,[r5,#0x1c]
-    mov        r0,#0x1a
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    strh       r0,[r5,#Attack_counterA]
+    FieldObject_Create 0x1a, 0x64
     mov        r0,#0x1
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     strb       r0,[r7,#0x0]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_NumberBall_1_Main
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -101,13 +98,13 @@ _ts A_NumberBall_1_Main
     bl         A_NumberBall_CheckDamage
     tst        r0,r0
     bne        LAB_0807227c
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_NumberBall_1_0_08072288
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_0807227c:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -127,10 +124,10 @@ _ts A_NumberBall_1_0
     tst        r0,r1
     beq        LAB_080722ac
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     bl         A_NumberBall_SetDisplayHP
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_080722ac:
     pop        {pc}
 
@@ -138,13 +135,13 @@ LAB_080722ac:
 _nt A_NumberBall_1_1
     push       {lr}
     bl         A_NumberBall_SetDisplayHP
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080722f6
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldrb       r0,[r7,#0x0]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r3,#0x28
     add        r7,r5,r3
     ldmia      r7!,{r1,r2,r3}
@@ -152,21 +149,21 @@ _nt A_NumberBall_1_1
     push       {r5}
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     sub        r0,#0x1
-    strb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     bl         Field_IsEntityCellPositionValid
     tst        r0,r0
     beq        LAB_080722ec
     pop        {pc}
 LAB_080722ec:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldr        r0,[r5,#0x64]
+    str        r0,[r5,#Attack_state_s0]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
 LAB_080722f6:
     pop        {pc}
@@ -175,9 +172,9 @@ LAB_080722f6:
 _ts A_NumberBall_2_Free
     push       {lr}
     mov        r0,#0x0
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     strb       r0,[r7,#0x0]
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -186,14 +183,14 @@ _ts A_NumberBall_2_Free
 _ts A_NumberBall_CheckDamage
     push       {lr}
     mov        r0,#0xa
-    ldr        r1,[r5,#0x64]
+    ldr        r1,[r5,#Attack_param_64]
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08072374
     mov        r1,#0x10
     tst        r0,r1
     bne        LAB_08072332
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08072374
@@ -201,23 +198,23 @@ _ts A_NumberBall_CheckDamage
     tst        r1,r1
     bne        LAB_0807236a
 LAB_08072332:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
     add        r2,r1,#0x0
     add        r1,r0,#0x0
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r0,#0xf
     bl         Field_GetRandomXZPosOnTarget
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     mov        r4,#0x0
     push       {r5}
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         SpritePtr_EnableFlash
     mov        r0,#0x70
     bl         Sound_PlaySE
@@ -234,7 +231,7 @@ LAB_08072374:
 
 _ts A_NumberBall_SetDisplayHP
     push       {lr}
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Attack_hpCurrent]
     mov        r1,#0xa
     bl         SWI_Div
     ldr        r7,PTR_USHORT_ARRAY_08072398
@@ -277,7 +274,7 @@ _ts Attack_NumberBall_Create
     strb       r2,[r7,#0x19]
     strh       r6,[r7,#0x24]
     str        r0,[r7,#0x68]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_080723ce:
     pop        {pc}

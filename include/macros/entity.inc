@@ -18,3 +18,10 @@
     .word \id
     .word \mask
     .endm
+
+    .macro FieldObject_Create panelFlagIndex, offset
+    mov        r0,#\panelFlagIndex
+    mov        r1,#\offset
+    add        r1,r1,r5
+    bl         Field_CreateEntity
+    .endm

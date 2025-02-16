@@ -5,7 +5,7 @@
 
 _ts Attack_BombShoot
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_BombShoot_0_Init_0807aa08
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,18 +32,18 @@ _ts A_BombShoot_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x7
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_canBeDamaged]
+    strb       r0,[r5,#Attack_bc]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_BombShoot_1_Main
     pop        {pc}
 
@@ -52,7 +52,7 @@ _ts A_BombShoot_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_BombShoot_1_0_0807aa60
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -71,13 +71,13 @@ PTR_A_BombShoot_1_0_0807aa64:
 
 _ts A_BombShoot_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     tst        r0,r0
     bne        LAB_0807aa86
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     b          LAB_0807aa98
 LAB_0807aa86:
     bl         SpritePtr_GetFrameStatus
@@ -85,36 +85,36 @@ LAB_0807aa86:
     tst        r0,r1
     beq        LAB_0807aa98
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_0807aa98:
     pop        {pc}
 
 
 _nt A_BombShoot_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     tst        r0,r0
     bne        LAB_0807aaa8
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     b          LAB_0807aab6
 LAB_0807aaa8:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     tst        r0,r0
     beq        LAB_0807aab6
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_0807aab6:
     pop        {pc}
 
 
 _ts A_BombShoot_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_BombShoot_1_2_0_0807aad4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -135,22 +135,22 @@ PTR_PTR_A_BombShoot_1_2_0_0807aad4:
 
 _ts A_BombShoot_1_2_0
     push       {lr}
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         Battle_CellCoordsToSprite
     add        r2,r1,#0x0
     add        r1,r0,#0x0
     mov        r0,#0x28
     add        r0,r0,r5
     ldr        r3,DAT_0807ab04
-    str        r3,[r5,#0x4c]
+    str        r3,[r5,#Attack_diff_z]
     ldr        r4,DAT_0807ab00
     bl         Field_CalculateTrajectoryXY
-    strh       r0,[r5,#0x1c]
-    str        r1,[r5,#0x44]
-    str        r2,[r5,#0x48]
+    strh       r0,[r5,#Attack_counterA]
+    str        r1,[r5,#Attack_diff_x]
+    str        r2,[r5,#Attack_diff_y]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 DAT_0807ab00:
@@ -163,53 +163,53 @@ DAT_0807ab04:
 
 _ts A_BombShoot_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807ab4c
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r2,#0x0
-    str        r2,[r5,#0x30]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    str        r2,[r5,#Attack_pos_curr_z]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0807ab3e
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     b          LAB_0807ab70
 LAB_0807ab3e:
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x3
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     b          LAB_0807ab70
 LAB_0807ab4c:
-    ldr        r0,[r5,#0x4c]
+    ldr        r0,[r5,#Attack_diff_z]
     ldr        r1,DAT_0807ab74
     add        r0,r0,r1
-    str        r0,[r5,#0x4c]
-    ldr        r0,[r5,#0x44]
-    ldr        r1,[r5,#0x28]
+    str        r0,[r5,#Attack_diff_z]
+    ldr        r0,[r5,#Attack_diff_x]
+    ldr        r1,[r5,#Attack_pos_curr_x]
     add        r1,r1,r0
-    str        r1,[r5,#0x28]
-    ldr        r0,[r5,#0x48]
-    ldr        r1,[r5,#0x2c]
+    str        r1,[r5,#Attack_pos_curr_x]
+    ldr        r0,[r5,#Attack_diff_y]
+    ldr        r1,[r5,#Attack_pos_curr_y]
     add        r1,r1,r0
-    str        r1,[r5,#0x2c]
-    ldr        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x30]
+    str        r1,[r5,#Attack_pos_curr_y]
+    ldr        r0,[r5,#Attack_diff_z]
+    ldr        r1,[r5,#Attack_pos_curr_z]
     add        r1,r1,r0
-    str        r1,[r5,#0x30]
+    str        r1,[r5,#Attack_pos_curr_z]
     bl         R_Actor_UpdateCellPos
 LAB_0807ab70:
     pop        {pc}
@@ -223,19 +223,19 @@ DAT_0807ab74:
 
 _ts A_BombShoot_1_2_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807abbc
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    str        r0,[r5,#Attack_state_s0]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0807abb8
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x1
     mov        r2,#0x2
     and        r2,r0
@@ -246,22 +246,22 @@ _ts A_BombShoot_1_2_2
     lsr        r3,r3,#0x1
     mov        r0,#0x1
     eor        r3,r0
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    ldrh       r2,[r5,#0x24]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
+    ldrh       r2,[r5,#Attack_damage]
     mov        r4,#0x0
     bl         Effect_BombShootExplosion_Create
     b          LAB_0807abbc
 LAB_0807abb8:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_0807abbc:
     pop        {pc}
 
 
 _nt A_BombShoot_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_BombShoot_2_0_0807abd8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -280,16 +280,16 @@ PTR_PTR_A_BombShoot_2_0_0807abd8:
 _ts A_BombShoot_2_0
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x5
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     pop        {pc}
 
 
 _ts A_BombShoot_2_1
     push       {lr}
     mov        r0,#0x0
-    ldr        r6,[r5,#0x68]
+    ldr        r6,[r5,#Attack_param_68]
     str        r0,[r6,#0x0]
     bl         Attack_Free
     pop        {pc}
@@ -298,21 +298,21 @@ _ts A_BombShoot_2_1
 _nt A_BombShoot_2_2
     push       {lr}
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x0
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_0807ac0e
     mov        r0,#0xd
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
 LAB_0807ac0e:
     pop        {r5}
     mov        r0,#0x5
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     pop        {pc}
 
 
@@ -325,7 +325,7 @@ _nt Attack_BombShoot_Create
     pop        {r0,r1,r2,r5,r6}
     tst        r7,r7
     beq        LAB_0807ac62
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Attack_owner]
     strb       r3,[r7,#0x16]
     str        r7,[r2,#0x0]
     str        r2,[r7,#0x68]
@@ -361,6 +361,6 @@ _nt A_BombShoot_SetTarget
     strb       r1,[r7,#0x7]
     mov        r0,#0x1
     strb       r0,[r7,#0xc]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
     mov        pc,lr

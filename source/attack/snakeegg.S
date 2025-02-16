@@ -5,7 +5,7 @@
 
 _ts Attack_SnakeEgg
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_SnakeEgg_0_Init_080796a8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,12 +26,12 @@ PTR_PTR_A_SnakeEgg_0_Init_080796a8:
 
 _ts A_SnakeEgg_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Attack_family_family]
     lsr        r2,r2,#0x8
     bcs        LAB_080796ca
     mov        r1,#0xbf
@@ -44,50 +44,50 @@ LAB_080796ca:
     bl         SpritePtr_EnableShadow
 LAB_080796d4:
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     neg        r0,r0
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x1d
     lsr        r0,r0,#0x1d
     bl         SpritePtr_SetPaletteIndex
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0xa0
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x8
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Attack_diff_z]
     ldr        r7,PTR_DAT_08079744
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Attack_family_family]
     lsl        r1,r1,#0x1d
     lsr        r1,r1,#0x1d
     ldrb       r0,[r7,r1]
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Attack_element]
     mov        r0,#0x10
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Attack_family_b3]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x20]
-    strh       r0,[r5,#0x22]
+    strh       r0,[r5,#Attack_hpCurrent]
+    strh       r0,[r5,#Attack_hpMax]
     ldr        r7,PTR_DAT_08079748
     ldrb       r0,[r7,r1]
     mov        r1,#0x64
     add        r1,r1,r5
     bl         Field_CreateEntity
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_SnakeEgg_1_Main
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -116,28 +116,28 @@ _ts A_SnakeEgg_1_Main
     bl         SpritePtr_DisableFlash
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0807977a
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     b          LAB_0807978c
 LAB_0807977a:
     bl         A_SnakeEgg_CheckDamage
     tst        r0,r0
     bne        LAB_0807978c
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_SnakeEgg_1_0_08079798
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_0807978c:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -152,36 +152,36 @@ PTR_A_SnakeEgg_1_0_0807979c:
 
 _ts A_SnakeEgg_1_0
     push       {lr}
-    ldr        r0,[r5,#0x30]
-    ldr        r1,[r5,#0x4c]
+    ldr        r0,[r5,#Attack_pos_curr_z]
+    ldr        r1,[r5,#Attack_diff_z]
     sub        r0,r0,r1
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     bgt        LAB_08079826
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0xaf
     bl         Sound_PlaySE
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x0]
+    strh       r0,[r5,#Attack_counterA]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x4
     bic        r0,r1
-    strb       r0,[r5,#0x0]
-    ldr        r0,[r5,#0x64]
+    strb       r0,[r5,#Attack_header_entityFlags]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Enable
     mov        r0,#0x1
     mov        r1,#0xbe
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x1
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     neg        r0,r0
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x1d
     lsr        r0,r0,#0x1d
     push       {r0}
@@ -189,7 +189,7 @@ _ts A_SnakeEgg_1_0
     pop        {r0}
     cmp        r0,#0x2
     bne        LAB_0807981e
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     add        r7,r5,#0x0
     add        r7,#0x28
     ldmia      r7!,{r1,r2,r3}
@@ -204,16 +204,16 @@ _ts A_SnakeEgg_1_0
     pop        {r5}
 LAB_0807981e:
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08079826:
     pop        {pc}
 
 
 _ts A_SnakeEgg_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_SnakeEgg_1_1_0_08079838
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -247,15 +247,15 @@ _ts A_SnakeEgg_1_1_0
     mov        r3,#0x61
     strb       r1,[r5,r3]
     ldr        r3,DAT_080798a4
-    ldrb       r2,[r5,#0x18]
+    ldrb       r2,[r5,#Attack_cPos_x]
     sub        r2,r0,r2
     mul        r2,r3
-    str        r2,[r5,#0x44]
+    str        r2,[r5,#Attack_diff_x]
     ldr        r3,DAT_080798a8
-    ldrb       r4,[r5,#0x19]
+    ldrb       r4,[r5,#Attack_cPos_y]
     sub        r4,r1,r4
     mul        r4,r3
-    str        r4,[r5,#0x48]
+    str        r4,[r5,#Attack_diff_y]
     tst        r2,r2
     beq        LAB_0807988e
     neg        r2,r2
@@ -266,14 +266,14 @@ _ts A_SnakeEgg_1_1_0
     bl         SpritePtr_SetFlipType
 LAB_0807988e:
     mov        r0,#0x19
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     bl         A_SnakeEgg_1_1_1
     pop        {pc}
 LAB_0807989c:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -288,44 +288,44 @@ DAT_080798a8:
 
 _ts A_SnakeEgg_1_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080798dc
     mov        r3,#0x60
     ldrb       r0,[r5,r3]
     mov        r3,#0x61
     ldrb       r1,[r5,r3]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    ldrb       r0,[r5,#0x7]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
+    ldrb       r0,[r5,#Attack_family_b3]
     sub        r0,#0x1
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Attack_family_b3]
     beq        LAB_080798f6
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     pop        {pc}
 LAB_080798dc:
-    ldr        r0,[r5,#0x28]
-    ldr        r2,[r5,#0x44]
+    ldr        r0,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_diff_x]
     add        r0,r0,r2
-    str        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x2c]
-    ldr        r2,[r5,#0x48]
+    str        r0,[r5,#Attack_pos_curr_x]
+    ldr        r1,[r5,#Attack_pos_curr_y]
+    ldr        r2,[r5,#Attack_diff_y]
     add        r1,r1,r2
-    str        r1,[r5,#0x2c]
+    str        r1,[r5,#Attack_pos_curr_y]
     bl         Battle_SpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
     pop        {pc}
 LAB_080798f6:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 
@@ -340,23 +340,23 @@ _ts A_SnakeEgg_2_Free
     add        r7,r5,#0x0
     pop        {r5}
     beq        LAB_0807991e
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x4
     and        r0,r1
     ldrb       r1,[r7,#0x0]
     orr        r1,r0
     strb       r1,[r7,#0x0]
 LAB_0807991e:
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_0807992e
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     tst        r7,r7
     beq        LAB_0807992e
     mov        r0,#0x0
     str        r0,[r7,#0x0]
 LAB_0807992e:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -369,8 +369,8 @@ _nt FUN_0807993a
     sub        sp,#0x8
     mov        r7,sp
     ldr        r6,PTR_DAT_08079998
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     mov        r2,#0x0
     mov        r3,#0x6
 LAB_08079950:
@@ -437,7 +437,7 @@ DAT_080799a3:
 _ts FUN_080799a4
     push       {lr}
     bl         FieldObject_GetPanelFlags
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Attack_owner]
     lsl        r2,r2,#0x2
     ldr        r7,PTR_PanelFlag_080799cc
     ldr        r1,[r7,r2]
@@ -471,41 +471,41 @@ PanelFlag_080799d8:
 
 _ts A_SnakeEgg_CheckDamage
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_08079a26
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     ldrb       r1,[r7,#0x0]
     mov        r2,#0x2
     tst        r1,r2
     beq        LAB_08079a3a
     mov        r0,#0xa
-    ldr        r1,[r5,#0x64]
+    ldr        r1,[r5,#Attack_param_64]
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08079a3a
     push       {r1,r7}
     ldr        r7,PTR_PanelFlag_ARRAY_08079a40
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x2
     ldr        r1,[r7,r1]
     tst        r0,r1
     pop        {r1,r7}
     bne        LAB_08079a26
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08079a3a
     bl         Field_SubtractHP
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Attack_hpCurrent]
     tst        r0,r0
     bne        LAB_08079a34
 LAB_08079a26:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_08079a34:

@@ -5,7 +5,7 @@
 
 _ts Attack_Sarcophagus
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Sarcophagus_0_Init_080784b8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,23 +32,20 @@ _ts A_Sarcophagus_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Attack_canBeDamaged]
     ldr        r0,DAT_08078508
-    strh       r0,[r5,#0x24]
-    mov        r0,#0xf
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    strh       r0,[r5,#Attack_damage]
+    FieldObject_Create 0xf, 0x60
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_Sarcophagus_1_Main
     pop        {pc}
 
@@ -64,20 +61,20 @@ _ts A_Sarcophagus_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Sarcophagus_1_0_0807853c
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     mov        r0,#0xf
-    ldrb       r2,[r5,#0x17]
+    ldrb       r2,[r5,#Attack_canBeDamaged]
     tst        r2,r2
     beq        LAB_08078528
     mov        r0,#0x1d
 LAB_08078528:
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Attack_param_60]
     bl         Field_SetPanelFlagsOnEntity
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_UpdateCellPosition
     bl         A_Sarcophagus_CheckLiveParent
     pop        {pc}
@@ -95,38 +92,38 @@ PTR_A_Sarcophagus_1_0_08078540:
 
 _ts A_Sarcophagus_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     tst        r0,r0
     bne        LAB_08078566
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     b          LAB_0807857e
 LAB_08078566:
     bl         A_Sarcophagus_SetNextMovePanel
     bl         R_Actor_UpdateSpritePos
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807857e
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_0807857e:
     pop        {pc}
 
 
 _ts A_Sarcophagus_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_Sarcophagus_1_1_0_08078590
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -154,15 +151,15 @@ _ts A_Sarcophagus_1_1_0
     push       {lr}
     mov        r0,#0xa0
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     bl         Rng_RandomInt
     mov        r1,#0x3
     bl         SWI_Div
-    strb       r1,[r5,#0xc]
+    strb       r1,[r5,#Attack_bc]
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 
@@ -172,7 +169,7 @@ _nt A_Sarcophagus_1_1_1
     cmp        r0,#0x28
     bge        LAB_080785de
     mov        r1,#0x1
-    strb       r1,[r5,#0x17]
+    strb       r1,[r5,#Attack_canBeDamaged]
 LAB_080785de:
     sub        r0,#0x8
     strh       r0,[r5,#0x32]
@@ -183,9 +180,9 @@ LAB_080785de:
     bl         Camera_EnableScreenShake
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x7e
     bl         Sound_PlaySE
 LAB_080785fe:
@@ -194,35 +191,35 @@ LAB_080785fe:
 
 _ts A_Sarcophagus_1_1_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08078616
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
 LAB_08078616:
     pop        {pc}
 
 
 _ts A_Sarcophagus_1_1_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08078626
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
 LAB_08078626:
     pop        {pc}
 
 
 _ts A_Sarcophagus_1_1_4
     push       {lr}
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_A_Sarcophagus_CoffinLaser_08078638
     ldr        r7,[r7,r0]
@@ -241,7 +238,7 @@ PTR_A_Sarcophagus_CoffinLaser_0807863c:
 
 _ts A_Sarcophagus_CoffinLaser
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Attack_state_s3]
     ldr        r7,PTR_PTR_A_Sarcophagus_CoffinLaser_0_08078658
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -261,41 +258,41 @@ PTR_A_Sarcophagus_CoffinLaser_0_0807865c:
 
 _ts A_Sarcophagus_CoffinLaser_0
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     mov        r2,#0xc8
     mov        r4,#0x1
     lsl        r4,r4,#0x8
     add        r4,#0x1
     bl         Effect_Laser_Create
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Attack_state_s3]
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     pop        {pc}
 
 
 _ts A_Sarcophagus_CoffinLaser_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     cmp        r0,#0x4b
     bne        LAB_0807868e
     mov        r0,#0x97
     bl         Sound_PlaySE
 LAB_0807868e:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807869a
     mov        r0,#0x14
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_0807869a:
     pop        {pc}
 
 
 _ts A_Sarcophagus_Ratton
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Attack_state_s3]
     ldr        r7,PTR_PTR_A_Sarcophagus_Ratton_0_080786ac
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -316,33 +313,33 @@ PTR_A_Sarcophagus_Ratton_0_080786b0:
 _ts A_Sarcophagus_Ratton_0
     push       {lr}
     mov        r0,#0x3
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Attack_state_s3]
     pop        {pc}
 
 
 _ts A_Sarcophagus_Ratton_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080786f6
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Attack_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     bge        LAB_080786e0
     mov        r0,#0x14
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_080786f6
 LAB_080786e0:
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x18]
+    strh       r0,[r5,#Attack_counterA]
+    ldrb       r0,[r5,#Attack_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     mov        r4,#0x6
     bl         Attack_Ratton_Create
     mov        r0,#0xaf
@@ -353,7 +350,7 @@ LAB_080786f6:
 
 _ts A_Sarcophagus_PharaohCube
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Attack_state_s3]
     ldr        r7,PTR_PTR_A_Sarcophagus_PharaohCube_0_08078708
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -376,9 +373,9 @@ _ts A_Sarcophagus_PharaohCube_0
     sub        sp,#0x14
     mov        r4,sp
     mov        r0,#0x0
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Attack_cPos_x]
     sub        r1,#0x1
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#Attack_cPos_y]
     mov        r3,#0x64
     mov        r4,#0x2
     lsl        r4,r4,#0x18
@@ -388,9 +385,9 @@ _ts A_Sarcophagus_PharaohCube_0
     mov        r7,#0x0
     bl         Attack_Cube_Create
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Attack_state_s3]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     add        sp,#0x14
     pop        {pc}
     .byte 0x12
@@ -402,12 +399,12 @@ _ts A_Sarcophagus_PharaohCube_0
 
 _ts A_Sarcophagus_PharaohCube_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08078752
     mov        r0,#0x14
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08078752:
     pop        {pc}
 
@@ -415,9 +412,9 @@ LAB_08078752:
 _ts A_Sarcophagus_1_1_5
     push       {lr}
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x18
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 
@@ -428,27 +425,27 @@ _ts A_Sarcophagus_1_1_6
     tst        r0,r1
     beq        LAB_08078778
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Attack_canBeDamaged]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x1c
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
 LAB_08078778:
     pop        {pc}
 
 
 _nt A_Sarcophagus_1_1_7
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08078792
     mov        r2,#0x1
-    strb       r2,[r5,#0x0]
+    strb       r2,[r5,#Attack_header_entityFlags]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_0807879e
 LAB_08078792:
     mov        r2,#0x3
@@ -457,14 +454,14 @@ LAB_08078792:
     beq        LAB_0807879c
     mov        r2,#0x1
 LAB_0807879c:
-    strb       r2,[r5,#0x0]
+    strb       r2,[r5,#Attack_header_entityFlags]
 LAB_0807879e:
     pop        {pc}
 
 
 _ts A_Sarcophagus_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Sarcophagus_2_0_Free_080787b4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -484,13 +481,13 @@ PTR_PTR_A_Sarcophagus_2_0_Free_080787b4:
 _ts A_Sarcophagus_2_0_Free
     push       {lr}
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x0
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -507,7 +504,7 @@ _nt Attack_Sarcophagus_Create
     beq        LAB_08078802
     str        r2,[r7,#0x64]
     str        r7,[r2,#0x0]
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Attack_owner]
     strb       r3,[r7,#0x16]
     strb       r0,[r7,#0x18]
     strb       r1,[r7,#0x19]
@@ -534,8 +531,8 @@ _nt A_Sarcophagus_SetNextMovePanel
     tst        r0,r0
     pop        {r0,r1}
     beq        LAB_08078826
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
 LAB_08078826:
     pop        {pc}
 
@@ -564,11 +561,11 @@ LAB_0807884c:
 
 _ts A_Sarcophagus_CheckLiveParent
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     ldr        r0,[r0,#0x0]
     tst        r0,r0
     bne        LAB_0807885e
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_0807885e:
     pop        {pc}

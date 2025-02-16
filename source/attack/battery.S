@@ -6,7 +6,7 @@
 _ts Attack_Battery
     push       {lr}
     ldr        r0,PTR_PTR_A_Battery_0_Init_08077470
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Attack_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -24,14 +24,14 @@ PTR_A_Battery_0_Init_080773d4:
 _ts A_Battery_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     ldr        r1,DAT_08077474
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
     push       {r0,r5}
     ldr        r7,PTR_DAT_08077478
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     sub        r0,#0x50
     lsr        r0,r0,#0x4
     ldrb       r0,[r7,r0]
@@ -51,7 +51,7 @@ LAB_08077406:
     bl         SpritePtr_SetPriority
     bl         A_Battery_SetVisualLevel
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 DAT_0807742c:
@@ -81,12 +81,12 @@ _ts A_Battery_2_Free
 _ts A_Battery_SetVisualLevel
     push       {lr}
     push       {r0,r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     bl         PowerPlant_GetBatteryInSlot
     pop        {r1,r5}
     bne        LAB_0807745c
     mov        r1,#0x1
-    strb       r1,[r5,#0x0]
+    strb       r1,[r5,#Attack_header_entityFlags]
     pop        {pc}
 LAB_0807745c:
     push       {r5}
@@ -95,7 +95,7 @@ LAB_0807745c:
     pop        {r5}
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     pop        {pc}
 
 PTR_PTR_A_Battery_0_Init_08077470:

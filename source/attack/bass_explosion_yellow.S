@@ -5,7 +5,7 @@
 
 _ts Attack_BassExplosionYellow
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_BassExplosionYellow_0_Init_08079d28
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,25 +32,22 @@ _ts A_BassExplosionYellow_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x1
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    strb       r0,[r5,#0xc]
+    strh       r0,[r5,#Attack_counterA]
+    strb       r0,[r5,#Attack_bc]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
-    mov        r0,#0x3
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r7,[r5,#0x64]
+    strb       r0,[r5,#Attack_element]
+    FieldObject_Create 0x3, Attack_param_64
+    ldr        r7,[r5,#Attack_param_64]
     mov        r0,#0x8
     str        r0,[r7,#0xc]
     bl         A_BassExplosionYellow_1_Main
@@ -61,7 +58,7 @@ _nt A_BassExplosionYellow_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_BassExplosionYellow_1_0_08079d98
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -81,17 +78,17 @@ PTR_A_BassExplosionYellow_1_0_08079d9c:
 
 _ts A_BassExplosionYellow_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     tst        r0,r0
     bne        LAB_08079db4
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
 LAB_08079db4:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     cmp        r0,#0x14
     bge        LAB_08079dce
     mov        r2,#0x8
@@ -100,52 +97,52 @@ LAB_08079db4:
     bne        LAB_08079dc8
     mov        r2,#0x0
 LAB_08079dc8:
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     str        r2,[r7,#0xc]
     b          LAB_08079dd6
 LAB_08079dce:
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08079dd6:
     pop        {pc}
 
 
 _ts A_BassExplosionYellow_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     tst        r0,r0
     bne        LAB_08079dfe
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_bc]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x3
-    ldr        r1,[r5,#0x64]
+    ldr        r1,[r5,#Attack_param_64]
     bl         Field_SetPanelFlagsOnEntity
     mov        r0,#0xe0
     bl         Sound_PlaySE
     b          LAB_08079e38
 LAB_08079dfe:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     tst        r0,r0
     bne        LAB_08079e1e
     bl         R_BassExplosionYellow_IsTargetHit
     tst        r0,r0
     beq        LAB_08079e24
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     b          LAB_08079e24
 LAB_08079e1e:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
 LAB_08079e24:
     bl         SpritePtr_GetFrameStatus
@@ -153,8 +150,8 @@ LAB_08079e24:
     tst        r0,r1
     beq        LAB_08079e38
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldr        r0,[r5,#0x64]
+    str        r0,[r5,#Attack_state_s0]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
 LAB_08079e38:
     pop        {pc}
@@ -162,7 +159,7 @@ LAB_08079e38:
 
 _nt A_BassExplosionYellow_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -178,10 +175,10 @@ _ts A_BassExplosionYellow_GetNextPanel
     ldrsb      r2,[r7,r2]
     mov        r3,#0x1
     ldrsb      r3,[r7,r3]
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     add        r0,r0,r2
     str        r0,[sp,#0x0]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     add        r1,r1,r3
     str        r1,[sp,#0x4]
     bl         Battle_IsOutOfBounds
@@ -231,11 +228,11 @@ LAB_08079eac:
 
 _nt R_BassExplosionYellow_IsTargetHit
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_PanelFlag_ARRAY_08079ecc
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x2
     ldr        r1,[r7,r1]
     tst        r1,r0

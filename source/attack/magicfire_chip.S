@@ -5,7 +5,7 @@
 
 _ts Attack_MagicFire_Chip
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_MagicFireC_0_Init_0807a798
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,24 +32,24 @@ _ts A_MagicFireC_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x0
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x7
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Attack_bc]
+    strb       r0,[r5,#Attack_bd]
     mov        r0,#0x1
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     tst        r1,r1
     beq        LAB_0807a7ea
     mov        r0,#0x0
@@ -63,7 +63,7 @@ _ts A_MagicFireC_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_MagicFireC_1_0_0807a808
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -88,41 +88,41 @@ _ts A_MagicFireC_1_0
     tst        r0,r0
     beq        LAB_0807a834
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_0807a886
 LAB_0807a834:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_0807a886
 LAB_0807a83e:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     tst        r0,r0
     bne        LAB_0807a874
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807a886
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     bl         Field_GetAttackDirectionOffset_MP
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Attack_cPos_x]
     add        r0,r0,r1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0,r1}
     bl         Battle_IsOutOfBounds
     tst        r0,r0
     pop        {r0,r1}
     beq        LAB_0807a86c
     mov        r0,#0x1
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Attack_bd]
     b          LAB_0807a874
 LAB_0807a86c:
-    ldr        r2,[r5,#0x60]
-    ldrb       r4,[r5,#0x4]
+    ldr        r2,[r5,#Attack_param_60]
+    ldrb       r4,[r5,#Attack_family_family]
     bl         Attack_MagicFire_Chip_Create
 LAB_0807a874:
     bl         SpritePtr_GetFrameStatus
@@ -130,16 +130,16 @@ LAB_0807a874:
     tst        r0,r1
     beq        LAB_0807a886
     mov        r0,#0x5
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_0807a886:
     pop        {pc}
 
 
 _ts A_MagicFireC_1_1_LethalHit
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_MagicFireC_1_1_0_0807a898
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -164,12 +164,12 @@ _ts A_MagicFireC_1_1_0
     tst        r0,r1
     beq        LAB_0807a8d6
     mov        r0,#0x5
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_header_entityFlags]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     mov        r4,#0x2
     bl         Effect_MagicMan_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Attack_param_5C]
     tst        r7,r7
     beq        LAB_0807a8c8
     mov        r0,#0x5
@@ -178,28 +178,28 @@ LAB_0807a8c8:
     mov        r0,#0x8f
     bl         Sound_PlaySE
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
 LAB_0807a8d6:
     pop        {pc}
 
 
 _ts A_MagicFireC_1_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807a8f6
     mov        r0,#0x0
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Attack_param_5C]
     mov        r3,#0x7d
     lsl        r3,r3,#0x3
     bl         A_MagicFireC_CreateAttack
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Attack_bd]
 LAB_0807a8f6:
     pop        {pc}
 
@@ -211,23 +211,23 @@ _ts A_MagicFireC_1_2_RegularHit
     tst        r0,r1
     beq        LAB_0807a91c
     mov        r0,#0x5
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldrb       r3,[r5,#0x4]
+    str        r0,[r5,#Attack_state_s0]
+    ldrb       r3,[r5,#Attack_family_family]
     mov        r1,#0x14
     mul        r3,r1
     add        r3,#0x64
     bl         A_MagicFireC_CreateAttack
     mov        r0,#0x1
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Attack_bd]
 LAB_0807a91c:
     pop        {pc}
 
 
 _nt A_MagicFireC_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_MagicFire_2_0_Free_0807a930
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -244,10 +244,10 @@ PTR_PTR_A_MagicFire_2_0_Free_0807a930:
 _ts A_MagicFire_2_0_Free
     push       {lr}
     bl         Attack_Free
-    ldrb       r0,[r5,#0xd]
+    ldrb       r0,[r5,#Attack_bd]
     tst        r0,r0
     beq        LAB_0807a946
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     mov        r0,#0x0
     strb       r0,[r7,#0x5]
 LAB_0807a946:
@@ -264,7 +264,7 @@ _ts Attack_MagicFire_Chip_Create
     tst        r7,r7
     beq        LAB_0807a97a
     str        r2,[r7,#0x60]
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Attack_owner]
     strb       r3,[r7,#0x16]
     strh       r6,[r7,#0x24]
     strb       r0,[r7,#0x18]
@@ -285,10 +285,10 @@ LAB_0807a97a:
 
 _nt A_MagicFireC_CheckTargetPanel
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     ldr        r7,PTR_PanelFlag_0807a99c
     lsl        r1,r1,#0x2
     ldr        r1,[r7,r1]
@@ -331,13 +331,13 @@ LAB_0807a9c6:
 _ts A_MagicFireC_CreateAttack
     push       {lr}
     ldr        r7,PTR_PanelFlag_ARRAY_0807a9e8
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x2
     add        r7,r7,r1
     push       {r5}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    ldrb       r2,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
+    ldrb       r2,[r5,#Attack_owner]
     ldr        r4,[r7,#0x0]
     mov        r6,#0x0
     mov        r7,#0x1

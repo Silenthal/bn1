@@ -5,7 +5,7 @@
 
 _ts Attack_AirBurst
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_AirBurst_0_Init_08079a84
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -31,27 +31,24 @@ _ts A_AirBurst_0_Init
     mov        r1,#0xcb
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x5]
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    ldrb       r0,[r5,#Attack_family_b1]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Attack_family_b2]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    strb       r0,[r5,#0xc]
+    strh       r0,[r5,#Attack_counterA]
+    strb       r0,[r5,#Attack_bc]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
-    mov        r0,#0x3
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    strb       r0,[r5,#Attack_element]
+    FieldObject_Create 0x3, Attack_param_64
     mov        r0,#0xe0
     bl         Sound_PlaySE
     bl         A_AirBurst_1_Main
@@ -62,38 +59,38 @@ _nt A_AirBurst_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_listAirBurstTargetFlags_08079b48
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x2
     ldr        r1,[r7,r1]
     tst        r1,r0
     beq        LAB_08079b0e
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_08079b44
 LAB_08079b0e:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
-    ldrb       r1,[r5,#0xd]
+    strh       r0,[r5,#Attack_counterA]
+    ldrb       r1,[r5,#Attack_bd]
     cmp        r0,r1
     bne        LAB_08079b32
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     sub        r0,#0x1
     bl         A_AirBurst_GetNextMovePanel
     cmp        r0,#0xff
     beq        LAB_08079b32
-    ldrh       r2,[r5,#0x24]
-    ldrb       r3,[r5,#0x16]
-    ldrb       r4,[r5,#0x4]
-    ldrb       r6,[r5,#0xd]
+    ldrh       r2,[r5,#Attack_damage]
+    ldrb       r3,[r5,#Attack_owner]
+    ldrb       r4,[r5,#Attack_family_family]
+    ldrb       r6,[r5,#Attack_bd]
     bl         Attack_AirBurst_Create
 LAB_08079b32:
     bl         SpritePtr_GetFrameStatus
@@ -101,9 +98,9 @@ LAB_08079b32:
     tst        r0,r1
     beq        LAB_08079b44
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08079b44:
     pop        {pc}
 
@@ -120,7 +117,7 @@ listAirBurstTargetFlags:
 
 _ts A_AirBurst_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -136,10 +133,10 @@ _nt A_AirBurst_GetNextMovePanel
     ldrsb      r2,[r7,r2]
     mov        r3,#0x1
     ldrsb      r3,[r7,r3]
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     add        r0,r0,r2
     str        r0,[sp,#0x0]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     add        r1,r1,r3
     str        r1,[sp,#0x4]
     bl         Battle_IsOutOfBounds

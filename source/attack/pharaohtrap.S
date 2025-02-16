@@ -5,7 +5,7 @@
 
 _ts Attack_PharaohTrap
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_PharaohTrap_0_Init_08078874
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,23 +32,20 @@ _ts A_PharaohTrap_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    strh       r0,[r5,#0x24]
-    str        r0,[r5,#0x5c]
-    mov        r0,#0x2b
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    strb       r0,[r5,#Attack_canBeDamaged]
+    strh       r0,[r5,#Attack_damage]
+    str        r0,[r5,#Attack_param_5C]
+    FieldObject_Create 0x2b, 0x60
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0xff
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     bl         A_PharaohTrap_1_Main
     pop        {pc}
 
@@ -57,7 +54,7 @@ _ts A_PharaohTrap_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_PharaohTrap_1_0_Set_080788e0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -77,44 +74,44 @@ PTR_A_PharaohTrap_1_0_Set_080788e4:
 
 _ts A_PharaohTrap_1_0_Set
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     tst        r0,r0
     bne        LAB_0807891e
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x13
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_0807890e
     mov        r0,#0x5
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
 LAB_0807890e:
     pop        {r5}
     mov        r0,#0x7
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     b          LAB_0807892e
 LAB_0807891e:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807892e
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_0807892e:
     pop        {pc}
 
 
 _ts A_PharaohTrap_1_1_Ready
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_PharaohTrap_1_1_0_SetLiveTimer_08078940
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -136,22 +133,22 @@ _ts A_PharaohTrap_1_1_0_SetLiveTimer
     push       {lr}
     mov        r0,#0x96
     lsl        r0,r0,#0x2
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     pop        {pc}
 
 
 _nt A_PharaohTrap_1_1_1_CheckLive
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807896e
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     b          LAB_08078984
 LAB_0807896e:
     bl         A_PharaohTrap_IsSet
@@ -160,16 +157,16 @@ LAB_0807896e:
     mov        r0,#0xa5
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08078984:
     pop        {pc}
 
 
 _nt A_PharaohTrap_1_2_Activate
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_PharaohTrap_1_2_0_Press_08078994
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -188,24 +185,24 @@ PTR_A_PharaohTrap_1_2_0_Press_08078998:
 _ts A_PharaohTrap_1_2_0_Press
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     pop        {pc}
 
 
 _ts A_PharaohTrap_1_2_1_ChooseAction
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080789e6
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     bl         FUN_08078cc8
     tst        r0,r0
     bne        LAB_080789da
@@ -219,14 +216,14 @@ LAB_080789da:
     and        r0,r1
     add        r0,#0x1
 LAB_080789e4:
-    strb       r1,[r5,#0xc]
+    strb       r1,[r5,#Attack_bc]
 LAB_080789e6:
     pop        {pc}
 
 
 _ts A_PharaohTrap_1_2_2_Activate
     push       {lr}
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_A_PharaohTrap_1_2_2_Anubis_080789f8
     ldr        r7,[r7,r0]
@@ -245,7 +242,7 @@ PTR_A_PharaohTrap_1_2_2_Anubis_080789fc:
 
 _ts A_PharaohTrap_1_2_2_Anubis
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Attack_state_s3]
     tst        r0,r0
     bne        LAB_08078a34
     bl         Rng_RandomInt
@@ -257,31 +254,31 @@ _ts A_PharaohTrap_1_2_2_Anubis
     mov        r0,#0x5c
     add        r0,r0,r5
     mov        r6,#0xa
-    ldrb       r7,[r5,#0x16]
+    ldrb       r7,[r5,#Attack_owner]
     mov        r4,#0x0
     bl         Attack_Anubis_Create
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Attack_state_s3]
     b          LAB_08078a3e
 LAB_08078a34:
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Attack_param_5C]
     tst        r0,r0
     bne        LAB_08078a3e
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_08078a3e:
     pop        {pc}
 
 
 _ts A_PharaohTrap_1_2_2_SnakeEgg
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Attack_state_s3]
     tst        r0,r0
     bne        LAB_08078a80
     bl         A_PharaohTrap_SetSnakeEggTarget
     cmp        r0,#0xff
     beq        LAB_08078a80
-    ldrb       r3,[r5,#0xd]
+    ldrb       r3,[r5,#Attack_bd]
     mov        r7,#0xe
     add        r7,r7,r5
 LAB_08078a56:
@@ -293,31 +290,31 @@ LAB_08078a56:
     mov        r0,#0x0
     mov        r4,#0x82
     mov        r6,#0x64
-    ldrb       r7,[r5,#0x16]
+    ldrb       r7,[r5,#Attack_owner]
     bl         Attack_SnakeEgg_Create
     pop        {r3,r7}
     add        r7,#0x1
     sub        r3,#0x1
     bgt        LAB_08078a56
     mov        r0,#0x1
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Attack_state_s3]
     mov        r0,#0xd2
     lsl        r0,r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
 LAB_08078a80:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08078a8c
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_08078a8c:
     pop        {pc}
 
 
 _nt A_PharaohTrap_1_2_2_Arrow
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Attack_state_s3]
     ldr        r7,PTR_PTR_A_PharaohTrap_1_2_2_0_Delay_08078a9c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -335,28 +332,28 @@ PTR_A_PharaohTrap_1_2_2_0_Delay_08078aa0:
 _ts A_PharaohTrap_1_2_2_0_Delay
     push       {lr}
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x6
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Attack_state_s3]
     pop        {pc}
 
 
 _ts A_PharaohTrap_1_2_2_1_Arrow
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08078af4
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bl         Rng_RandomInt
     mov        r1,#0x3
     bl         SWI_Div
     add        r1,#0x1
     mov        r0,#0x6
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Attack_owner]
     mov        r3,#0x8
     lsl        r3,r3,#0x10
     mov        r4,#0x1
@@ -364,19 +361,19 @@ _ts A_PharaohTrap_1_2_2_1_Arrow
     bl         Attack_Arrow_Create
     mov        r0,#0x7d
     bl         Sound_PlaySE
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Attack_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     bne        LAB_08078af4
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_08078af4:
     pop        {pc}
 
 
 _nt A_PharaohTrap_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_PharaohTrap_2_0_Free_08078b08
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -392,21 +389,21 @@ PTR_PTR_A_PharaohTrap_2_0_Free_08078b08:
 
 _ts A_PharaohTrap_2_0_Free
     push       {lr}
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     cmp        r0,#0xff
     bne        LAB_08078b24
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x0
     bl         Effect_QuickEffect_Create
     pop        {r5}
 LAB_08078b24:
     mov        r0,#0x0
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     str        r0,[r7,#0x0]
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -445,15 +442,15 @@ LAB_08078b6c:
 
 _ts A_PharaohTrap_IsSet
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     mov        r0,#0x1
     mov        r1,#0x1
     tst        r2,r1
     beq        LAB_08078b92
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_PanelFlag_ARRAY_08078b94
     ldr        r1,[r7,r1]
@@ -473,8 +470,8 @@ PanelFlag_ARRAY_08078b98:
 
 _ts A_PharaohTrap_CheckValidPosition
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
@@ -485,7 +482,7 @@ _ts A_PharaohTrap_CheckValidPosition
     b          LAB_08078bbc
 LAB_08078bb8:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_08078bbc:
     pop        {pc}
 
@@ -634,7 +631,7 @@ PTR_PanelFlag_ARRAY_ARRAY_08078cc4:
 
 _ts FUN_08078cc8
     push       {lr}
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     mov        r0,#0x68
     add        r7,r7,r0
     mov        r3,#0x0
@@ -660,17 +657,17 @@ LAB_08078cec:
 
 _nt FUN_08078cee
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     ldr        r0,[r0,#0x0]
     tst        r0,r0
     bne        LAB_08078d06
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldr        r0,[r5,#0x5c]
+    str        r0,[r5,#Attack_state_s0]
+    ldr        r0,[r5,#Attack_param_5C]
     tst        r0,r0
     beq        LAB_08078d06
     mov        r0,#0x1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Attack_family_b1]
 LAB_08078d06:
     pop        {pc}
 
@@ -681,7 +678,7 @@ _ts A_PharaohTrap_SetSnakeEggTarget
     mov        r0,sp
     mov        r1,#0x1
     ldr        r2,PanelFlag_08078d44
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Attack_owner]
     bl         Field_SearchWithOwner
     mov        r0,#0xff
     tst        r1,r1
@@ -697,12 +694,12 @@ _ts A_PharaohTrap_SetSnakeEggTarget
     beq        LAB_08078d38
     add        r2,#0x1
     ldrb       r0,[r7,#0x1]
-    strb       r0,[r5,#0xf]
+    strb       r0,[r5,#Attack_bf]
 LAB_08078d38:
     add        r2,#0x1
     ldrb       r0,[r7,#0x0]
-    strb       r0,[r5,#0xe]
-    strb       r2,[r5,#0xd]
+    strb       r0,[r5,#Attack_be]
+    strb       r2,[r5,#Attack_bd]
 LAB_08078d40:
     add        sp,#0x14
     pop        {pc}

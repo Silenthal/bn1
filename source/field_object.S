@@ -28,7 +28,7 @@ PTR_gBitsetFieldObject_08002c7c:
 @@ In:
 @@ r5: void* entity - The calling entity.
 @@ Out:
-@@ r7: FieldObject* fieldObject - The created field object. Returns 0 if no
+@@ r0: FieldObject* fieldObject - The created field object. Returns 0 if no
 @@ object could be created.
 _ts FieldObject_Alloc
     ldr        r7,PTR_gBitsetFieldObject_08002ccc

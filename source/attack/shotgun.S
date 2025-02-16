@@ -5,7 +5,7 @@
 
 _ts Attack_Shotgun
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Shotgun_0_Init_080703b8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,13 +27,10 @@ PTR_A_Shotgun_0_Init_080703bc:
 _ts A_Shotgun_0_Init
     push       {lr}
     bl         Field_GetAttackDirectionOffset_MP
-    str        r0,[r5,#0x44]
-    mov        r0,#0x1
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    str        r0,[r5,#Attack_diff_x]
+    FieldObject_Create 0x1, Attack_param_60
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_Shotgun_1_Main
     pop        {pc}
 
@@ -48,29 +45,29 @@ _ts A_Shotgun_1_Main
     bl         A_Shotgun_CheckTargetDamage
     tst        r0,r0
     bne        LAB_0807040e
-    ldrb       r0,[r5,#0x18]
-    ldr        r1,[r5,#0x44]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldr        r1,[r5,#Attack_diff_x]
     add        r0,r0,r1
-    strb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Field_IsCellPositionValid
     tst        r0,r0
     beq        LAB_08070416
 LAB_0807040e:
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_UpdateCellPosition
     pop        {pc}
 LAB_08070416:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldr        r0,[r5,#0x60]
+    str        r0,[r5,#Attack_state_s0]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     pop        {pc}
 
 
 _nt A_Shotgun_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -79,33 +76,33 @@ _nt A_Shotgun_2_Free
 _ts A_Shotgun_CheckTargetDamage
     push       {lr}
     mov        r0,#0x2
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Attack_param_60]
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08070478
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
     add        r2,r1,#0x0
     add        r1,r0,#0x0
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     ldr        r7,PTR_DAT_0807047c
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Attack_family_family]
     ldrb       r4,[r7,r4]
     push       {r5}
     bl         Effect_QuickEffect_Create
     pop        {r5}
     bl         A_Shotgun_CreateExtraHits
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     cmp        r0,#0x2
     bhi        LAB_08070470
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsSpread
 LAB_08070470:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_08070478:
@@ -127,7 +124,7 @@ DAT_08070480:
 
 _ts A_Shotgun_CreateExtraHits
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     ldr        r7,ptrListShotgunSoundEffect
     ldrb       r0,[r7,r0]
     tst        r0,r0
@@ -135,7 +132,7 @@ _ts A_Shotgun_CreateExtraHits
     bl         Sound_PlaySE
 LAB_08070498:
     ldr        r7,ptrListExtraPanelCount
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Attack_family_family]
     ldrb       r6,[r7,r4]
     lsl        r4,r4,#0x2
 LAB_080704a0:
@@ -148,11 +145,11 @@ LAB_080704a0:
     ldrsb      r0,[r7,r3]
     mov        r3,#0x1
     ldrsb      r1,[r7,r3]
-    ldr        r2,[r5,#0x44]
+    ldr        r2,[r5,#Attack_diff_x]
     mul        r0,r2
-    ldrb       r2,[r5,#0x18]
+    ldrb       r2,[r5,#Attack_cPos_x]
     add        r0,r0,r2
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#Attack_cPos_y]
     add        r1,r1,r2
     push       {r0,r1,r4,r6}
     bl         Field_IsCellPositionValid
@@ -163,11 +160,11 @@ LAB_080704a0:
     bl         Battle_CellCoordsToSprite
     add        r2,r1,#0x0
     add        r1,r0,#0x0
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     bl         Field_GetRandomXZPosOnTarget
-    ldrb       r4,[r5,#0x4]
-    ldrb       r0,[r5,#0x1a]
-    ldrh       r6,[r5,#0x24]
+    ldrb       r4,[r5,#Attack_family_family]
+    ldrb       r0,[r5,#Attack_element]
+    ldrh       r6,[r5,#Attack_damage]
     bl         Attack_ShotgunBurst_Create
     pop        {r4,r6}
     b          LAB_080704a0
@@ -238,7 +235,7 @@ _ts Attack_Shotgun_Create
     strb       r2,[r7,#0x19]
     strb       r0,[r7,#0x1a]
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
     mov        r0,#0x9
     strb       r0,[r7,#0x0]

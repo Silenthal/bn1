@@ -5,7 +5,7 @@
 
 _ts Attack_SparkStrike
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_SparkStrike_0_Init_08075264
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -31,22 +31,22 @@ _ts A_SparkStrike_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_NoShadow
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x14
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x1
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Attack_element]
     mov        r7,#0x1e
-    strh       r7,[r5,#0x1c]
-    ldrb       r0,[r5,#0x4]
+    strh       r7,[r5,#Attack_counterA]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_080752b2
     mov        r7,#0x28
@@ -58,7 +58,7 @@ _ts A_SparkStrike_0_Init
     bl         Attack_SharpStrike_Create
 LAB_080752b2:
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_SparkStrike_1_Main
     pop        {pc}
 
@@ -68,7 +68,7 @@ DAT_080752bc:
 
 _ts A_SparkStrike_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_SparkStrike_1_0_080752d4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -90,49 +90,49 @@ PTR_A_SparkStrike_1_0_080752d8:
 
 _ts A_SparkStrike_1_0
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807530c
     mov        r0,#0x9
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x0]
+    strh       r0,[r5,#Attack_counterA]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexLast]
     mov        r0,#0xbb
     bl         Sound_PlaySE
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_0807530c:
     pop        {pc}
 
 
 _nt A_SparkStrike_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08075356
     mov        r0,#0x1
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,FamilyDetail_08075358
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     mov        r7,#0x1
     push       {r0}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     pop        {r0}
     bcc        LAB_0807534a
     bl         Field_CreateSharpStrikeAttack
     mov        r0,#0x19
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     bl         Field_CreateStrikeEffect
     tst        r7,r7
     beq        LAB_0807534a
@@ -145,9 +145,9 @@ LAB_0807534a:
     bl         Attack_SharpStrike_Create
 LAB_0807534e:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08075356:
     pop        {pc}
 
@@ -162,7 +162,7 @@ _ts A_SparkStrike_1_2
     tst        r0,r1
     beq        LAB_0807536c
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_0807536c:
     pop        {pc}
 
@@ -185,7 +185,7 @@ _nt Attack_SparkStrike_Create
     strb       r1,[r7,#0x18]
     strb       r2,[r7,#0x19]
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_08075392:
     pop        {pc}

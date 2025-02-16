@@ -5,7 +5,7 @@
 
 _ts Attack_AmmoniculeBubbleWrap
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_AmmoniculeBubbleWrap_0_08075a78
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,31 +32,31 @@ _ts A_AmmoniculeBubbleWrap_0
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1
     eor        r0,r1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    strb       r0,[r5,#0xc]
+    strh       r0,[r5,#Attack_state_s2]
+    strb       r0,[r5,#Attack_bc]
     mov        r0,#0x1
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Attack_bd]
     mov        r0,#0x0
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Attack_be]
     bl         A_AmmoniculeBubbleWrap_1
     pop        {pc}
 
 
 _nt A_AmmoniculeBubbleWrap_1
     push       {lr}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldr        r6,[r7,#0x5c]
     tst        r6,r6
     bne        LAB_08075ada
@@ -66,10 +66,10 @@ LAB_08075ada:
     ldr        r0,[r7,#0x28]
     ldr        r1,[r7,#0x2c]
     ldr        r2,[r7,#0x30]
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    str        r2,[r5,#0x30]
-    ldrb       r0,[r5,#0x9]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
+    str        r2,[r5,#Attack_pos_curr_z]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_AmmoniculeBubbleWrap_1_0_08075af4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -91,7 +91,7 @@ PTR_A_AmmoniculeBubbleWrap_1_0_08075af8:
 
 _ts A_AmmoniculeBubbleWrap_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_AmmoniculeBubbleWrap_1_0_0_08075b14
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -112,32 +112,32 @@ PTR_A_AmmoniculeBubbleWrap_1_0_0_08075b18:
 _ts A_AmmoniculeBubbleWrap_1_0_0
     push       {lr}
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     pop        {pc}
 
 
 _ts A_AmmoniculeBubbleWrap_1_0_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08075b54
     mov        r1,#0x3
-    strb       r1,[r5,#0x0]
-    ldrh       r1,[r5,#0x22]
-    strh       r1,[r5,#0x20]
+    strb       r1,[r5,#Attack_header_entityFlags]
+    ldrh       r1,[r5,#Attack_hpMax]
+    strh       r1,[r5,#Attack_hpCurrent]
     mov        r0,#0x0
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Attack_be]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_08075b60
 LAB_08075b54:
     mov        r1,#0x3
@@ -146,14 +146,14 @@ LAB_08075b54:
     beq        LAB_08075b5e
     mov        r1,#0x1
 LAB_08075b5e:
-    strb       r1,[r5,#0x0]
+    strb       r1,[r5,#Attack_header_entityFlags]
 LAB_08075b60:
     pop        {pc}
 
 
 _nt A_AmmoniculeBubbleWrap_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_AmmoniculeBubbleWrap_1_1_0_08075b70
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -170,21 +170,21 @@ PTR_A_AmmoniculeBubbleWrap_1_1_0_08075b74:
 _ts A_AmmoniculeBubbleWrap_1_1_0
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
-    ldrb       r0,[r5,#0xe]
+    strb       r0,[r5,#Attack_bc]
+    ldrb       r0,[r5,#Attack_be]
     tst        r0,r0
     beq        LAB_08075b8c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08075b8c:
     pop        {pc}
 
 
 _nt A_AmmoniculeBubbleWrap_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_AmmoniculeBubbleWrap_1_2_0_08075b9c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -203,11 +203,11 @@ PTR_A_AmmoniculeBubbleWrap_1_2_0_08075ba0:
 _ts A_AmmoniculeBubbleWrap_1_2_0
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     mov        r0,#0xad
     bl         Sound_PlaySE
     pop        {pc}
@@ -220,27 +220,27 @@ _nt A_AmmoniculeBubbleWrap_1_2_1
     tst        r0,r1
     beq        LAB_08075bda
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
 LAB_08075bda:
     pop        {pc}
 
 
 _ts A_AmmoniculeBubbleWrap_1_2_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
-    ldrh       r1,[r5,#0x1e]
+    ldrh       r0,[r5,#Attack_counterA]
+    ldrh       r1,[r5,#Attack_counterB]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     cmp        r0,r1
     blt        LAB_08075bf2
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08075bf2:
     pop        {pc}
 
@@ -263,7 +263,7 @@ _ts Attack_AmmoniculeBubbleWrap_Create
     strh       r0,[r7,#0x20]
     strh       r0,[r7,#0x22]
     strh       r1,[r7,#0x1e]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
     str        r5,[r7,#0x60]
 LAB_08075c1a:

@@ -10,7 +10,7 @@ _ts Attack_Howitzer
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
     ldr        r7,PTR_PTR_A_Howitzer_0_Init_08071be4
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -31,25 +31,22 @@ PTR_PTR_A_Howitzer_0_Init_08071be4:
 _ts A_Howitzer_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x86
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
-    mov        r0,#0x18
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r0,[r5,#0x60]
+    strb       r0,[r5,#Attack_element]
+    FieldObject_Create 0x18, Attack_param_60
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         Battle_CellCoordsToSprite
     push       {r0,r1}
     add        r7,r5,#0x0
@@ -62,38 +59,38 @@ _ts A_Howitzer_0_Init
     push       {r5}
     bl         VectorToAngle
     pop        {r5}
-    strb       r0,[r5,#0x10]
+    strb       r0,[r5,#Attack_angleToTarget]
     ldr        r1,DAT_08071c88
     push       {r1}
     bl         AngleToVector
-    str        r0,[r5,#0x44]
-    str        r1,[r5,#0x48]
+    str        r0,[r5,#Attack_diff_x]
+    str        r1,[r5,#Attack_diff_y]
     pop        {r4}
     pop        {r0}
     pop        {r1,r2}
     mov        r3,#0x0
     ldr        r6,DAT_08071c8c
     bl         Field_CalculateTrajectoryZ
-    str        r0,[r5,#0x4c]
-    strh       r1,[r5,#0x1c]
+    str        r0,[r5,#Attack_diff_z]
+    strh       r1,[r5,#Attack_counterA]
     tst        r1,r1
     beq        LAB_08071c6e
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_Howitzer_1_Main
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 LAB_08071c6e:
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         Battle_CellCoordsToSprite
     mov        r2,#0x0
     add        r7,r5,#0x0
     add        r7,#0x28
     stmia      r7!,{r0,r1,r2}
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_Howitzer_2_Free
     pop        {pc}
 
@@ -109,11 +106,11 @@ _ts A_Howitzer_1_Main
     bl         Battle_IsInputLocked
     beq        LAB_08071c9e
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 LAB_08071c9e:
     ldr        r7,PTR_PTR_A_Howitzer_1_0_08071cb0
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -132,16 +129,16 @@ PTR_A_Howitzer_1_0_08071cb4:
 
 _ts A_Howitzer_1_0
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     beq        LAB_08071ce6
     add        r7,r5,#0x0
     add        r7,#0x44
     ldmia      r7!,{r3,r4,r6}
     ldr        r0,DAT_08071d14
     add        r6,r6,r0
-    str        r6,[r5,#0x4c]
+    str        r6,[r5,#Attack_diff_z]
     add        r7,r5,#0x0
     add        r7,#0x28
     ldmia      r7!,{r0,r1,r2}
@@ -155,11 +152,11 @@ _ts A_Howitzer_1_0
     stmia      r7!,{r0,r1,r2}
     pop        {pc}
 LAB_08071ce6:
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x60]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
+    ldr        r7,[r5,#Attack_param_60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     strb       r0,[r7,#0x4]
@@ -169,11 +166,11 @@ LAB_08071ce6:
     add        r7,r5,#0x0
     add        r7,#0x28
     stmia      r7!,{r0,r1,r2}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Enable
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 DAT_08071d14:
@@ -186,14 +183,14 @@ _ts A_Howitzer_2_Free
     bne        LAB_08071d4e
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_08071d6c
     tst        r0,r1
     bne        LAB_08071d4e
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0,r1}
     bl         Field_GetPanelProperty
     pop        {r0,r1}
@@ -210,7 +207,7 @@ LAB_08071d4e:
     mov        r4,#0x2b
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -232,7 +229,7 @@ _ts Attack_Howitzer_Create
     tst        r7,r7
     beq        LAB_08071d88
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_08071d88:
     pop        {pc}

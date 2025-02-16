@@ -5,7 +5,7 @@
 
 _ts Attack_FloshellMiniBomb
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_FloshellMiniBomb_0_Init_08074070
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -28,7 +28,7 @@ PTR_A_FloshellMiniBomb_0_Init_08074074:
 _ts A_FloshellMiniBomb_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x75
     bl         Sprite_InitSpritePtr
@@ -37,11 +37,11 @@ _ts A_FloshellMiniBomb_0_Init
     mov        r0,#0x2
     bl         SpritePtr_SetPriority
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         A_FloshellMiniBomb_1_Main
     pop        {pc}
 
@@ -50,7 +50,7 @@ _nt A_FloshellMiniBomb_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_FloshellMiniBomb_1_0_080740c4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -69,7 +69,7 @@ PTR_A_FloshellMiniBomb_1_0_080740c8:
 
 _ts A_FloshellMiniBomb_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_FloshellMiniBomb_1_0_0_SetGravity_080740dc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -90,12 +90,12 @@ PTR_A_FloshellMiniBomb_1_0_0_SetGravity_080740e0:
 
 _ts A_FloshellMiniBomb_1_0_0_SetGravity
     push       {lr}
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         Battle_CellCoordsToSprite
     push       {r0,r1,r5}
-    ldr        r2,[r5,#0x28]
-    ldr        r3,[r5,#0x2c]
+    ldr        r2,[r5,#Attack_pos_curr_x]
+    ldr        r3,[r5,#Attack_pos_curr_y]
     sub        r0,r0,r2
     sub        r1,r1,r3
     add        r3,r0,#0x0
@@ -107,8 +107,8 @@ _ts A_FloshellMiniBomb_1_0_0_SetGravity
     add        r2,r0,#0x0
     add        r3,r1,#0x0
     pop        {r0,r1,r5}
-    str        r2,[r5,#0x44]
-    str        r3,[r5,#0x48]
+    str        r2,[r5,#Attack_diff_x]
+    str        r3,[r5,#Attack_diff_y]
     mov        r3,#0x0
     add        r2,r1,#0x0
     add        r1,r0,#0x0
@@ -117,10 +117,10 @@ _ts A_FloshellMiniBomb_1_0_0_SetGravity
     ldr        r4,DAT_0807413c
     ldr        r6,DAT_08074138
     bl         Field_CalculateTrajectoryZ
-    str        r0,[r5,#0x4c]
-    strh       r1,[r5,#0x1c]
+    str        r0,[r5,#Attack_diff_z]
+    strh       r1,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
     .align 2, 0
@@ -135,12 +135,12 @@ DAT_0807413c:
 
 _ts A_FloshellMiniBomb_1_0_1_Explode
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08074188
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
@@ -148,10 +148,10 @@ _ts A_FloshellMiniBomb_1_0_1_Explode
     bl         A_FloshellMiniBomb_2_Free
     b          LAB_080741a8
 LAB_0807415e:
-    ldrb       r0,[r5,#0x6]
-    strb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x7]
-    strb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_family_b2]
+    strb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_family_b3]
+    strb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
     push       {r5}
     add        r2,r1,#0x0
@@ -166,22 +166,22 @@ LAB_0807415e:
     bl         A_FloshellMiniBomb_2_Free
     b          LAB_080741a8
 LAB_08074188:
-    ldr        r0,[r5,#0x4c]
+    ldr        r0,[r5,#Attack_diff_z]
     ldr        r1,DAT_080741ac
     add        r0,r0,r1
-    str        r0,[r5,#0x4c]
-    ldr        r0,[r5,#0x44]
-    ldr        r1,[r5,#0x28]
+    str        r0,[r5,#Attack_diff_z]
+    ldr        r0,[r5,#Attack_diff_x]
+    ldr        r1,[r5,#Attack_pos_curr_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldr        r0,[r5,#0x48]
-    ldr        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    ldr        r0,[r5,#Attack_diff_y]
+    ldr        r1,[r5,#Attack_pos_curr_y]
     add        r0,r0,r1
-    str        r0,[r5,#0x2c]
-    ldr        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_y]
+    ldr        r0,[r5,#Attack_diff_z]
+    ldr        r1,[r5,#Attack_pos_curr_z]
     add        r0,r0,r1
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
 LAB_080741a8:
     pop        {pc}
 
@@ -194,8 +194,8 @@ DAT_080741ac:
 
 _ts A_FloshellMiniBomb_1_0_2_Next
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
@@ -209,9 +209,9 @@ LAB_080741c6:
     bl         A_FloshellMiniBomb_2_Free
     b          LAB_080741de
 LAB_080741d2:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080741de
     bl         A_FloshellMiniBomb_2_Free
 LAB_080741de:
@@ -233,7 +233,7 @@ _ts Attack_FloshellMiniBomb_Create
     pop        {r5}
     tst        r7,r7
     beq        LAB_080741fe
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_080741fe:
     pop        {r5,pc}

@@ -6,7 +6,7 @@
 _ts Attack_Meteor_Fire
     push       {lr}
     ldr        r0,PTR_PTR_A_Meteor_Fire_0_Init_08071584
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Attack_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -24,11 +24,11 @@ _ts A_Meteor_Fire_0_Init
     bl         A_Meteor_Fire_CheckClear
     bne        LAB_0807151e
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xe4
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -40,7 +40,7 @@ _ts A_Meteor_Fire_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
 LAB_0807151e:
     pop        {pc}
 
@@ -55,7 +55,7 @@ _ts A_Meteor_Fire_1_Main
     beq        LAB_08071540
     LoadMain mapEventState, r0, r0
     ldrb       r0,[r0,#0x8]
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Attack_family_family]
     cmp        r0,r1
     bne        LAB_08071540
     mov        r0,#0x1
@@ -85,7 +85,7 @@ _ts A_Meteor_Fire_CheckClear
     mov        r0,#0xdf
 LAB_08071568:
     push       {r5}
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Attack_family_family]
     add        r0,r0,r1
     bl         Flag_GetBase
     pop        {r5}

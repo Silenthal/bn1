@@ -109,10 +109,7 @@ _ts R_FireMan_0_Init
     strb       r1,[r5,#0x19]
     mov        r0,#0x0
     strh       r0,[r5,#0x24]
-    mov        r0,#0x9
-    mov        r1,#0x74
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x9, 0x74
     mov        r0,#0xf
     mov        r3,#0x78
     add        r1,r5,r3

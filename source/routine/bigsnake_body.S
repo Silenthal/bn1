@@ -67,14 +67,8 @@ _ts R_BigSnakeBody_0_Init
     strb       r0,[r5,#0x17]
     mov        r0,#0xc8
     strh       r0,[r5,#0x24]
-    mov        r0,#0x1d
-    mov        r1,#0x68
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    mov        r0,#0x32
-    mov        r1,#0x6c
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x1d, 0x68
+    FieldObject_Create 0x32, 0x6c
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_Disable
     mov        r0,#0x4

@@ -5,7 +5,7 @@
 
 _ts Attack_Ratton
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Ratton_0_Init_08074510
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,52 +32,49 @@ _ts A_Ratton_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Attack_element]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x3
     ldr        r7,PTR_RattonParam_ARRAY_0807459c
     add        r7,r7,r0
     ldrb       r0,[r7,#0x0]
-    strh       r0,[r5,#0x20]
-    strh       r0,[r5,#0x22]
+    strh       r0,[r5,#Attack_hpCurrent]
+    strh       r0,[r5,#Attack_hpMax]
     ldrb       r0,[r7,#0x1]
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Attack_damage]
     bl         Field_GetAttackDirectionOffset_MP
     ldr        r1,[r7,#0x4]
-    str        r1,[r5,#0x48]
+    str        r1,[r5,#Attack_diff_y]
     mul        r1,r0
-    str        r1,[r5,#0x44]
-    ldrb       r2,[r5,#0x18]
+    str        r1,[r5,#Attack_diff_x]
+    ldrb       r2,[r5,#Attack_cPos_x]
     add        r2,r2,r0
-    strb       r2,[r5,#0x6]
-    ldrb       r2,[r5,#0x19]
-    strb       r2,[r5,#0x7]
+    strb       r2,[r5,#Attack_family_b2]
+    ldrb       r2,[r5,#Attack_cPos_y]
+    strb       r2,[r5,#Attack_family_b3]
     ldrb       r0,[r7,#0x2]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
-    mov        r0,#0x1b
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldrb       r0,[r5,#0x16]
+    strh       r0,[r5,#Attack_counterA]
+    FieldObject_Create 0x1b, 0x60
+    ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1
     eor        r0,r1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 PTR_RattonParam_ARRAY_0807459c:
@@ -98,9 +95,9 @@ _ts A_Ratton_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
+    ldr        r7,[r5,#Attack_param_60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     bl         FieldObject_GetPanelFlags
@@ -108,36 +105,36 @@ _ts A_Ratton_1_Main
     tst        r0,r1
     bne        LAB_08074612
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x13
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_08074694
 LAB_08074612:
     bl         SpritePtr_DisableFlash
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Attack_param_60]
+    ldrh       r0,[r5,#Attack_cPos_x]
     ldr        r1,DAT_080746a4
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Attack_owner]
     tst        r2,r2
     beq        LAB_08074624
     ldr        r1,DAT_080746a8
 LAB_08074624:
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Attack_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08074652
@@ -148,17 +145,17 @@ LAB_08074624:
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_08074652:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Ratton_1_0_MoveX_08074698
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsChecked
-    ldr        r7,[r5,#0x60]
-    ldrh       r0,[r5,#0x20]
+    ldr        r7,[r5,#Attack_param_60]
+    ldrh       r0,[r5,#Attack_hpCurrent]
     tst        r0,r0
     bne        LAB_08074694
     add        r0,r7,#0x0
@@ -166,16 +163,16 @@ LAB_08074652:
     mov        r0,#0x76
     bl         Sound_PlaySE
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x0
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08074694:
     pop        {pc}
 
@@ -201,47 +198,47 @@ _ts A_Ratton_1_0_MoveX
     bl         A_Ratton_IsCollision
     tst        r0,r0
     beq        LAB_080746dc
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x76
     bl         Sound_PlaySE
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x0
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_08074736
 LAB_080746dc:
-    ldr        r1,[r5,#0x44]
-    ldr        r0,[r5,#0x28]
+    ldr        r1,[r5,#Attack_diff_x]
+    ldr        r0,[r5,#Attack_pos_curr_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    str        r0,[r5,#Attack_pos_curr_x]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         Battle_CellCoordsToSprite
-    ldr        r2,[r5,#0x44]
+    ldr        r2,[r5,#Attack_diff_x]
     tst        r2,r2
     bmi        LAB_08074700
-    ldr        r2,[r5,#0x28]
+    ldr        r2,[r5,#Attack_pos_curr_x]
     cmp        r2,r0
     blt        LAB_08074736
-    ldrb       r2,[r5,#0x6]
+    ldrb       r2,[r5,#Attack_family_b2]
     add        r2,#0x1
-    strb       r2,[r5,#0x6]
+    strb       r2,[r5,#Attack_family_b2]
     b          LAB_0807470c
 LAB_08074700:
-    ldr        r2,[r5,#0x28]
+    ldr        r2,[r5,#Attack_pos_curr_x]
     cmp        r2,r0
     bgt        LAB_08074736
-    ldrb       r2,[r5,#0x6]
+    ldrb       r2,[r5,#Attack_family_b2]
     sub        r2,#0x1
-    strb       r2,[r5,#0x6]
+    strb       r2,[r5,#Attack_family_b2]
 LAB_0807470c:
     push       {r0,r1}
     bl         A_Ratton_GetYDistanceToTarget
@@ -251,20 +248,20 @@ LAB_0807470c:
     bne        LAB_0807471c
     b          LAB_08074736
 LAB_0807471c:
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    ldr        r0,[r5,#0x48]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
+    ldr        r0,[r5,#Attack_diff_y]
     tst        r2,r2
     bge        LAB_08074728
     neg        r0,r0
 LAB_08074728:
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Attack_diff_y]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
 LAB_08074736:
     bl         R_Actor_UpdateCellPos
     pop        {pc}
@@ -275,27 +272,27 @@ _ts A_Ratton_1_1_MoveY
     bl         A_Ratton_IsCollision
     tst        r0,r0
     beq        LAB_0807476c
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x76
     bl         Sound_PlaySE
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x0
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_08074778
 LAB_0807476c:
-    ldr        r1,[r5,#0x48]
-    ldr        r0,[r5,#0x2c]
+    ldr        r1,[r5,#Attack_diff_y]
+    ldr        r0,[r5,#Attack_pos_curr_y]
     add        r0,r0,r1
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_y]
     bl         R_Actor_UpdateCellPos
 LAB_08074778:
     pop        {pc}
@@ -303,7 +300,7 @@ LAB_08074778:
 
 _nt A_Ratton_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -320,7 +317,7 @@ _ts Attack_Ratton_Create
     beq        LAB_080747b6
     strb       r0,[r7,#0x18]
     strb       r1,[r7,#0x19]
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Attack_owner]
     strb       r2,[r7,#0x16]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]
@@ -337,11 +334,11 @@ LAB_080747b6:
 
 _ts A_Ratton_IsCollision
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_080747d8
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Attack_owner]
     tst        r2,r2
     beq        LAB_080747cc
     ldr        r1,DAT_080747dc
@@ -376,7 +373,7 @@ _ts FUN_080747e8
     cmp        r0,r1
     bgt        LAB_08074806
     mov        r1,#0x1
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_y]
     ldrb       r2,[r7,#0x19]
     cmp        r0,r2
     ble        LAB_08074804
@@ -398,12 +395,12 @@ LAB_08074816:
     ldr        r6,[r7,#0x0]
     tst        r6,r6
     beq        LAB_08074834
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     ldrb       r1,[r6,#0x18]
     cmp        r0,r1
     blt        LAB_08074834
     mov        r1,#0x1
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_y]
     ldrb       r2,[r6,#0x19]
     cmp        r0,r2
     ble        LAB_08074830
@@ -427,7 +424,7 @@ _nt A_Ratton_GetYDistanceToTarget_
     bl         Field_GetFirstOpponentPanelInSameColumn
     tst        r0,r0
     beq        LAB_08074854
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#Attack_cPos_y]
     sub        r1,r1,r2
     mov        r0,#0x1
     b          LAB_08074856

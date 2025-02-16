@@ -6,7 +6,7 @@
 _ts Attack_Steal
     push       {lr}
     ldr        r7,PTR_PTR_A_Steal_0_Init_08071844
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r0,[r7,r0]
     mov        lr,pc
     bx         r0
@@ -23,35 +23,35 @@ PTR_A_Steal_0_Init_080716c4:
 
 _ts A_Steal_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x7e
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_NoShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexLast]
     ldr        r0,DAT_08071718
-    str        r0,[r5,#0x4c]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    str        r0,[r5,#Attack_diff_z]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     ldr        r0,DAT_0807171c
-    str        r0,[r5,#0x30]
-    ldrb       r0,[r5,#0x4]
+    str        r0,[r5,#Attack_pos_curr_z]
+    ldrb       r0,[r5,#Attack_family_family]
     tst        r0,r0
     bne        LAB_0807170e
     mov        r0,#0x78
     bl         Sound_PlaySE
 LAB_0807170e:
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_Steal_1_Main
     pop        {pc}
 
@@ -68,7 +68,7 @@ _ts A_Steal_1_Main
     cmp        r0,#0x0
     bne        LAB_0807173a
     ldr        r7,PTR_PTR_A_Steal_1_0_Drop_08071740
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -76,7 +76,7 @@ _ts A_Steal_1_Main
     pop        {pc}
 LAB_0807173a:
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 PTR_PTR_A_Steal_1_0_Drop_08071740:
@@ -90,14 +90,14 @@ PTR_A_Steal_1_0_Drop_08071744:
 
 _ts A_Steal_1_0_Drop
     push       {lr}
-    ldr        r0,[r5,#0x30]
-    ldr        r1,[r5,#0x4c]
+    ldr        r0,[r5,#Attack_pos_curr_z]
+    ldr        r1,[r5,#Attack_diff_z]
     sub        r0,r0,r1
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     bgt        LAB_080717a4
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
-    ldrb       r0,[r5,#0x4]
+    str        r0,[r5,#Attack_pos_curr_z]
+    ldrb       r0,[r5,#Attack_family_family]
     tst        r0,r0
     bne        LAB_0807176c
     mov        r0,#0x79
@@ -109,10 +109,10 @@ LAB_0807176c:
     mov        r0,#0x1
     bl         Field_GetPanelFlagGroup
     add        r4,r1,#0x0
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    ldrb       r2,[r5,#0x16]
-    ldrh       r3,[r5,#0x24]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
+    ldrb       r2,[r5,#Attack_owner]
+    ldrh       r3,[r5,#Attack_damage]
     mov        r6,#0x0
     mov        r7,#0x1
     push       {r5}
@@ -120,15 +120,15 @@ LAB_0807176c:
     pop        {r5}
     b          LAB_080717a0
 LAB_08071792:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    ldrb       r3,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
+    ldrb       r3,[r5,#Attack_owner]
     ldr        r7,PTR_listCapturedPanelProperties_080717a8
     ldrb       r2,[r7,r3]
     bl         FieldObject_SetFieldPanelFlag
 LAB_080717a0:
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_080717a4:
     pop        {pc}
 
@@ -149,9 +149,9 @@ listCapturedPanelProperties:
 _ts A_Steal_1_1_Splash
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     pop        {pc}
 
 
@@ -162,7 +162,7 @@ _ts A_Steal_1_2_Wait
     and        r0,r1
     beq        LAB_080717cc
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
 LAB_080717cc:
     pop        {pc}
 
@@ -175,8 +175,8 @@ _nt A_Steal_2_Free
 
 _nt A_Steal_CheckEntityHit
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     push       {r0}
     mov        r0,#0x34
@@ -194,10 +194,10 @@ _nt A_Steal_CheckEntityHit
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_0807180e
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
 LAB_0807180e:
     pop        {r5}
     mov        r0,#0x1

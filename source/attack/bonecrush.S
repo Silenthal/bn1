@@ -20,7 +20,7 @@ BYTE_ARRAY_ARRAY_08074a38:
 
 _ts Attack_BoneCrush
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_BoneCrush_0_Init_08074a60
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -45,37 +45,37 @@ _ts A_BoneCrush_0_Init
     tst        r0,r0
     beq        LAB_08074af8
     ldr        r7,PTR_BYTE_ARRAY_ARRAY_08074b00
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x2
     add        r7,r7,r0
-    str        r7,[r5,#0x60]
+    str        r7,[r5,#Attack_param_60]
     bl         Field_IsEntityCellPositionValid
     beq        LAB_08074af8
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    ldrb       r0,[r5,#0x0]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldrb       r1,[r7,#0x0]
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     ldrb       r0,[r7,#0x1]
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     neg        r0,r0
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldrh       r0,[r7,#0x2]
-    ldrb       r1,[r5,#0x5]
+    ldrb       r1,[r5,#Attack_family_b1]
     tst        r1,r1
     beq        LAB_08074ac8
     add        r2,r0,#0x0
@@ -83,24 +83,21 @@ _ts A_BoneCrush_0_Init
     add        r2,#0x14
     add        r0,r0,r2
 LAB_08074ac8:
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Attack_family_b1]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x20]
-    strh       r0,[r5,#0x22]
+    strh       r0,[r5,#Attack_hpCurrent]
+    strh       r0,[r5,#Attack_hpMax]
     bl         Field_GetAttackDirectionOffset_MP
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
-    mov        r0,#0x25
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    strb       r0,[r5,#Attack_element]
+    FieldObject_Create 0x25, Attack_param_64
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_BoneCrush_1_Main
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 LAB_08074af8:
@@ -119,8 +116,8 @@ _ts A_BoneCrush_1_Main
     bl         SpritePtr_DisableFlash
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
@@ -133,13 +130,13 @@ LAB_08074b28:
     bl         A_BoneCrush_CheckDamage
     tst        r0,r0
     bne        LAB_08074b3a
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_BoneCrush_1_0_Wait_08074b48
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_08074b3a:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -157,21 +154,21 @@ PTR_A_BoneCrush_1_0_Wait_08074b4c:
 
 _ts A_BoneCrush_1_0_Wait
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08074b66
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08074b66:
     pop        {pc}
 
 
 _ts A_BoneCrush_1_1_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_BoneCrush_1_1_0_CheckMove_08074b78
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -192,8 +189,8 @@ PTR_A_BoneCrush_1_1_0_CheckMove_08074b7c:
 _ts A_BoneCrush_1_1_0_CheckMove
     push       {lr}
     mov        r0,#0x0
-    str        r0,[r5,#0x44]
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Attack_diff_x]
+    str        r0,[r5,#Attack_diff_y]
     bl         A_BoneCrush_GetNextMove
     cmp        r0,#0xff
     beq        LAB_08074ba2
@@ -205,52 +202,52 @@ LAB_08074b9e:
     bl         A_BoneCrush_MoveY
 LAB_08074ba2:
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 
 _ts A_BoneCrush_1_1_1_Move
     push       {lr}
-    ldr        r0,[r5,#0x28]
-    ldr        r2,[r5,#0x44]
+    ldr        r0,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_diff_x]
     add        r0,r0,r2
-    str        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x2c]
-    ldr        r2,[r5,#0x48]
+    str        r0,[r5,#Attack_pos_curr_x]
+    ldr        r1,[r5,#Attack_pos_curr_y]
+    ldr        r2,[r5,#Attack_diff_y]
     add        r1,r1,r2
-    str        r1,[r5,#0x2c]
+    str        r1,[r5,#Attack_pos_curr_y]
     bl         Battle_SpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldrh       r0,[r5,#0x1c]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08074bdc
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldrh       r0,[r7,#0x2]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08074bdc:
     pop        {pc}
 
 
 _nt A_BoneCrush_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_08074bea
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     str        r0,[r7,#0x0]
 LAB_08074bea:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Free
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
     mov        r3,#0x0
     mov        r4,#0x0
     push       {r5}
@@ -264,11 +261,11 @@ LAB_08074bea:
 
 _ts A_BoneCrush_CheckDamage
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_08074c52
     mov        r0,#0x26
-    ldr        r1,[r5,#0x64]
+    ldr        r1,[r5,#Attack_param_64]
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08074c60
@@ -276,13 +273,13 @@ _ts A_BoneCrush_CheckDamage
     tst        r0,r1
     beq        LAB_08074c34
     mov        r0,#0x0
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#Attack_hpCurrent]
     mov        r0,#0x1
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     bl         Field_CreateBusterEffect
     b          LAB_08074c42
 LAB_08074c34:
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08074c60
@@ -291,14 +288,14 @@ LAB_08074c42:
     mov        r0,#0x6f
     bl         Sound_PlaySE
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Attack_hpCurrent]
     tst        r0,r0
     bne        LAB_08074c60
 LAB_08074c52:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_08074c60:
@@ -311,8 +308,8 @@ _ts A_BoneCrush_GetNextMove
     @@ 0 = Move forward
     @@ 1 = Move up
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r2,[r7,#0x18]
@@ -344,7 +341,7 @@ LAB_08074c96:
 
 _nt A_BoneCrush_MoveX
     push       {lr}
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r2,[r7,#0x18]
@@ -354,9 +351,9 @@ _nt A_BoneCrush_MoveX
     lsl        r0,r0,#0x1
     add        r0,#0x1
     push       {r0}
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Attack_cPos_x]
     add        r0,r0,r1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x40
     lsl        r1,r1,#0x10
@@ -365,7 +362,7 @@ _nt A_BoneCrush_MoveX
     bne        LAB_08074cce
     ldr        r1,DAT_08074cd8
     mul        r0,r1
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_diff_x]
     pop        {pc}
 LAB_08074cce:
     bl         A_BoneCrush_MoveY
@@ -380,7 +377,7 @@ DAT_08074cd8:
 
 _ts A_BoneCrush_MoveY
     push       {lr}
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_y]
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r2,[r7,#0x19]
@@ -390,9 +387,9 @@ _ts A_BoneCrush_MoveY
     lsl        r0,r0,#0x1
     add        r0,#0x1
     push       {r0}
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     add        r1,r1,r0
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x40
     lsl        r1,r1,#0x10
@@ -401,7 +398,7 @@ _ts A_BoneCrush_MoveY
     bne        LAB_08074d10
     ldr        r1,DAT_08074d1c
     mul        r0,r1
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Attack_diff_y]
     pop        {pc}
 LAB_08074d10:
     bl         A_BoneCrush_MoveX
@@ -431,7 +428,7 @@ _ts Attack_BoneCrush_Create
     strb       r1,[r7,#0x18]
     strb       r2,[r7,#0x19]
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_08074d40:
     pop        {pc}

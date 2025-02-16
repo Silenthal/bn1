@@ -5,7 +5,7 @@
 
 _ts Attack_GaiaExplosion
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_GaiaExplosion_0_Init_08079bd8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -28,46 +28,43 @@ _ts A_GaiaExplosion_0_Init
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_08079c5a
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x7
     add        r1,#0xff
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     bl         Field_GetAttackDirectionOffset_MP
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
-    mov        r0,#0x1
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    strb       r0,[r5,#Attack_element]
+    FieldObject_Create 0x1, Attack_param_60
     mov        r0,#0x76
     bl         Sound_PlaySE
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_GaiaExplosion_1_Main
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 LAB_08079c5a:
@@ -79,7 +76,7 @@ _ts A_GaiaExplosion_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_DisableIfDeleted
     bl         A_GaiaExplosion_CheckIfHitSolid
     tst        r0,r0
@@ -88,25 +85,25 @@ _ts A_GaiaExplosion_1_Main
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_08079ca4
-    ldrb       r0,[r5,#0x18]
-    ldr        r1,[r5,#0x44]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldr        r1,[r5,#Attack_diff_x]
     add        r0,r0,r1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0,r1}
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     pop        {r1,r2}
     beq        LAB_08079c9e
-    ldrb       r4,[r5,#0x4]
-    ldrh       r6,[r5,#0x24]
+    ldrb       r4,[r5,#Attack_family_family]
+    ldrh       r6,[r5,#Attack_damage]
     bl         Attack_GaiaExplosion_Create
 LAB_08079c9e:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 LAB_08079ca4:
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_08079caa:
     bl         UpdateSpriteFrameIndex
@@ -116,13 +113,13 @@ LAB_08079caa:
 _ts A_GaiaExplosion_2_Free
     push       {lr}
     bl         UpdateSpriteFrameIndex
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_08079cd0
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
 LAB_08079cd0:
@@ -132,16 +129,16 @@ LAB_08079cd0:
 _nt A_GaiaExplosion_CheckIfHitSolid
     push       {lr}
     mov        r0,#0x2
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Attack_param_60]
     bl         Field_GetDamageOnEntity
     mov        r1,#0x8
     lsl        r1,r1,#0x8
     tst        r0,r1
     beq        LAB_08079cf2
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_08079cf2:
@@ -160,7 +157,7 @@ _nt Attack_GaiaExplosion_Create
     strb       r1,[r7,#0x18]
     strb       r2,[r7,#0x19]
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_08079d10:
     pop        {pc}

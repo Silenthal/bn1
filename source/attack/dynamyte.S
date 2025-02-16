@@ -5,7 +5,7 @@
 
 _ts Attack_Dynamyte
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Dynamyte_0_Init_08078d68
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,51 +27,48 @@ PTR_PTR_A_Dynamyte_0_Init_08078d68:
 
 _ts A_Dynamyte_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xc1
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x3
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     neg        r0,r0
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsr        r0,r0,#0x4
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x1e
-    strh       r0,[r5,#0x20]
-    strh       r0,[r5,#0x22]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    strh       r0,[r5,#Attack_hpCurrent]
+    strh       r0,[r5,#Attack_hpMax]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Attack_element]
     mov        r0,#0x93
     bl         Sound_PlaySE
-    mov        r0,#0x1c
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r0,[r5,#0x64]
+    FieldObject_Create 0x1c, 0x64
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
     ldr        r0,DAT_08078de4
-    str        r0,[r5,#0x60]
+    str        r0,[r5,#Attack_param_60]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_Dynamyte_1_Main
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -84,10 +81,10 @@ _ts A_Dynamyte_1_Main
     bl         Battle_IsInputLocked
     beq        LAB_08078df6
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 LAB_08078df6:
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_y]
     add        r0,#0xf
     bl         Battle_SetBattleFlag
     bl         SpritePtr_DisableFlash
@@ -96,23 +93,23 @@ LAB_08078df6:
     bne        LAB_08078e1e
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08078e2a
 LAB_08078e1e:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     b          LAB_08078e3c
 LAB_08078e2a:
     bl         A_Dynamyte_CheckDamage
     tst        r0,r0
     bne        LAB_08078e3c
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Dynamyte_1_0_08078e44
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -138,38 +135,38 @@ _ts A_Dynamyte_1_0
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_08078e7e
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x4
     bic        r0,r1
-    strb       r0,[r5,#0x0]
-    ldr        r0,[r5,#0x64]
+    strb       r0,[r5,#Attack_header_entityFlags]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Enable
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x1c
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x18
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08078e7e:
     pop        {pc}
 
 
 _ts A_Dynamyte_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Attack_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     bhi        LAB_08078ea8
     mov        r0,#0x18
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Attack_family_family]
     lsl        r4,r4,#0x1c
     lsr        r4,r4,#0x1b
     push       {r1,r2,r3,r4}
@@ -181,15 +178,15 @@ LAB_08078ea8:
     bl         Field_GetAttackDirectionOffset_MP
     add        r2,r0,#0x0
     ldr        r7,PTR_CellPosition_ARRAY_08078eec
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x1b
     ldrsb      r3,[r7,r0]
     mul        r2,r3
     add        r0,#0x1
     ldrsb      r3,[r7,r0]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0,r1,r2,r3}
     bl         A_Dynamyte_IsTargetInRange
     tst        r0,r0
@@ -202,11 +199,11 @@ LAB_08078ea8:
     pop        {pc}
 LAB_08078eda:
     mov        r0,#0x8
-    strh       r0,[r5,#0x1c]
-    ldr        r0,[r5,#0x64]
+    strh       r0,[r5,#Attack_counterA]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0xc
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -237,23 +234,23 @@ _ts A_Dynamyte_2_Destroy
     add        r7,r5,#0x0
     pop        {r5}
     beq        LAB_08078f20
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x4
     and        r0,r1
     ldrb       r1,[r7,#0x0]
     orr        r1,r0
     strb       r1,[r7,#0x0]
 LAB_08078f20:
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_08078f30
     mov        r0,#0x0
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     tst        r7,r7
     beq        LAB_08078f30
     str        r0,[r7,#0x0]
 LAB_08078f30:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -264,39 +261,39 @@ _ts A_Dynamyte_3_Explode
     mov        r0,#0x76
     bl         Sound_PlaySE
     bl         SpritePtr_EnableFlash
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08078fbe
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x4
     and        r0,r1
     ldrb       r1,[r7,#0x0]
     orr        r1,r0
     strb       r1,[r7,#0x0]
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_08078f72
     mov        r0,#0x0
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     tst        r7,r7
     beq        LAB_08078f72
     str        r0,[r7,#0x0]
 LAB_08078f72:
     bl         Field_GetAttackDirectionOffset_MP
     ldr        r7,PTR_DAT_08078fc0
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Attack_family_family]
     lsl        r4,r4,#0x1c
     lsr        r4,r4,#0x1b
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     ldrsb      r2,[r7,r4]
     mul        r2,r0
     add        r3,r4,#0x1
     ldrsb      r3,[r7,r3]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0,r1,r2,r3,r4,r6}
     add        r0,r0,r2
     add        r1,r1,r3
@@ -314,7 +311,7 @@ LAB_08078f72:
     push       {r5}
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Free
     bl         Attack_Free
 LAB_08078fbe:
@@ -340,7 +337,7 @@ DAT_08078fc5:
 _ts A_Dynamyte_IsTargetInRange
     push       {lr}
     ldr        r6,PTR_PanelFlag_ARRAY_08079000
-    ldrb       r4,[r5,#0x16]
+    ldrb       r4,[r5,#Attack_owner]
     lsl        r4,r4,#0x1c
     lsr        r4,r4,#0x1a
     ldr        r4,[r6,r4]
@@ -378,47 +375,47 @@ PanelFlag_ARRAY_08079004:
 
 _ts A_Dynamyte_CheckDamage
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_0807905a
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     ldrb       r1,[r7,#0x0]
     mov        r2,#0x2
     tst        r1,r2
     beq        LAB_08079074
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     sub        r0,#0x1
-    str        r0,[r5,#0x60]
+    str        r0,[r5,#Attack_param_60]
     bls        LAB_0807905a
     mov        r0,#0xa
-    ldr        r1,[r5,#0x64]
+    ldr        r1,[r5,#Attack_param_64]
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08079074
     push       {r1,r7}
     ldr        r7,PTR_PanelFlag_ARRAY_08079078
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x2
     ldr        r1,[r7,r1]
     tst        r0,r1
     pop        {r1,r7}
     bne        LAB_0807905a
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08079074
     bl         Field_SubtractHP
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Attack_hpCurrent]
     tst        r0,r0
     bne        LAB_0807906e
 LAB_0807905a:
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_0807906e:

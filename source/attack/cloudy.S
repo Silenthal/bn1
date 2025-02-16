@@ -5,7 +5,7 @@
 
 _ts Attack_Cloudy
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Cloudy_0_Init_080732c8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,30 +32,27 @@ _ts A_Cloudy_0_Init
     mov        r1,#0x90
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    str        r0,[r5,#0x64]
-    ldrb       r0,[r5,#0x16]
+    str        r0,[r5,#Attack_param_64]
+    ldrb       r0,[r5,#Attack_owner]
     neg        r0,r0
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x3
-    strb       r0,[r5,#0x1a]
-    mov        r0,#0x3
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r0,[r5,#0x60]
+    strb       r0,[r5,#Attack_element]
+    FieldObject_Create 0x3, Attack_param_60
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
     bl         A_Cloudy_1_Main
     pop        {pc}
@@ -63,26 +60,26 @@ _ts A_Cloudy_0_Init
 
 _ts A_Cloudy_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_DisableIfDeleted
     bl         Battle_IsInputLocked
     bne        LAB_08073342
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     tst        r0,r0
     beq        LAB_0807334e
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     beq        LAB_0807334e
 LAB_08073342:
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 LAB_0807334e:
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Attack_param_60]
     ldrb       r0,[r1,#0x0]
     mov        r2,#0x2
     tst        r0,r2
@@ -91,14 +88,14 @@ LAB_0807334e:
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08073378
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x19
     mov        r3,#0x10
     lsl        r3,r3,#0x10
     bl         Field_CreateStrikeEffect
 LAB_08073378:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Cloudy_1_0_08073390
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -107,7 +104,7 @@ LAB_08073378:
     cmp        r0,#0x1
     bne        LAB_0807338e
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_0807338e:
     pop        {pc}
 
@@ -121,7 +118,7 @@ PTR_A_Cloudy_1_0_08073394:
 
 _ts A_Cloudy_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_Cloudy_1_0_0_080733ac
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -147,28 +144,28 @@ _ts A_Cloudy_1_0_0
     mov        r1,#0x4
     lsl        r1,r1,#0x10
     mul        r1,r0
-    str        r1,[r5,#0x44]
+    str        r1,[r5,#Attack_diff_x]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x17
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x0]
+    strh       r0,[r5,#Attack_counterA]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x4
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     pop        {pc}
 
 
 _ts A_Cloudy_1_0_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080733f8
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x9a
     bl         Sound_PlaySE
 LAB_080733f8:
@@ -177,48 +174,48 @@ LAB_080733f8:
 
 _nt A_Cloudy_1_0_2
     push       {lr}
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         Battle_CellCoordsToSprite
     add        r2,r0,#0x0
-    ldr        r1,[r5,#0x44]
-    ldr        r0,[r5,#0x28]
+    ldr        r1,[r5,#Attack_diff_x]
+    ldr        r0,[r5,#Attack_pos_curr_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Attack_pos_curr_x]
     tst        r1,r1
     bmi        LAB_0807341a
     cmp        r0,r2
     blt        LAB_08073434
-    str        r2,[r5,#0x28]
+    str        r2,[r5,#Attack_pos_curr_x]
     b          LAB_08073428
 LAB_0807341a:
     cmp        r0,r2
     bgt        LAB_08073434
-    str        r2,[r5,#0x28]
+    str        r2,[r5,#Attack_pos_curr_x]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
 LAB_08073428:
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
 LAB_08073434:
     pop        {pc}
 
 
 _nt A_Cloudy_1_0_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807344c
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     bl         A_Cloudy_1_1
 LAB_0807344c:
     pop        {pc}
@@ -226,33 +223,33 @@ LAB_0807344c:
 
 _nt A_Cloudy_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_Cloudy_1_1_0_0807348c
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     bl         Battle_EntitySpriteCoordsToCell
-    ldrb       r2,[r5,#0x19]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r0,[r5,#0x60]
+    ldrb       r2,[r5,#Attack_cPos_y]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
+    ldr        r0,[r5,#Attack_param_60]
     push       {r1,r2}
     bl         FieldObject_UpdateCellPosition
     pop        {r1,r2}
     cmp        r1,r2
     beq        LAB_0807347e
-    ldr        r0,[r5,#0x60]
-    ldrh       r1,[r5,#0x18]
+    ldr        r0,[r5,#Attack_param_60]
+    ldrh       r1,[r5,#Attack_cPos_x]
     strh       r1,[r0,#0x2]
     strh       r1,[r0,#0x4]
     bl         FieldObject_Enable
 LAB_0807347e:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_0807348a
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_0807348a:
     pop        {pc}
 
@@ -267,16 +264,16 @@ PTR_A_Cloudy_1_1_0_08073490:
 
 _ts A_Cloudy_1_1_0
     push       {lr}
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x60]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
+    ldr        r7,[r5,#Attack_param_60]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     bl         Rng_RandomUint
     mov        r2,#0x4
     mov        r1,#0x1
@@ -284,31 +281,31 @@ _ts A_Cloudy_1_1_0
     beq        LAB_080734c2
     mov        r2,#0x8
 LAB_080734c2:
-    strb       r2,[r5,#0xa]
+    strb       r2,[r5,#Attack_state_s2]
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0xff
-    strh       r0,[r5,#0x1c]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Attack_counterA]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Enable
     bl         Effect_CloudyRain_Create
-    str        r7,[r5,#0x64]
+    str        r7,[r5,#Attack_param_64]
     pop        {pc}
 
 
 _nt A_Cloudy_1_1_1
     push       {lr}
-    ldr        r0,[r5,#0x2c]
-    ldr        r1,[r5,#0x48]
+    ldr        r0,[r5,#Attack_pos_curr_y]
+    ldr        r1,[r5,#Attack_diff_y]
     sub        r0,r0,r1
     ldr        r1,DAT_080734f4
     cmp        r0,r1
     bgt        LAB_080734ee
     add        r0,r1,#0x0
     mov        r1,#0x8
-    strb       r1,[r5,#0xa]
+    strb       r1,[r5,#Attack_state_s2]
 LAB_080734ee:
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_y]
     pop        {pc}
 
     .align 2, 0
@@ -325,17 +322,17 @@ DAT_080734f4:
 
 _ts A_Cloudy_1_1_2
     push       {lr}
-    ldr        r0,[r5,#0x2c]
-    ldr        r1,[r5,#0x48]
+    ldr        r0,[r5,#Attack_pos_curr_y]
+    ldr        r1,[r5,#Attack_diff_y]
     add        r0,r0,r1
     ldr        r1,DAT_08073514
     cmp        r0,r1
     blt        LAB_08073510
     add        r0,r1,#0x0
     mov        r1,#0x4
-    strb       r1,[r5,#0xa]
+    strb       r1,[r5,#Attack_state_s2]
 LAB_08073510:
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_y]
     pop        {pc}
 
 DAT_08073514:
@@ -349,9 +346,9 @@ DAT_08073514:
 
 _ts A_Cloudy_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     tst        r7,r7
     beq        LAB_08073534
     push       {r5}
@@ -359,13 +356,13 @@ _ts A_Cloudy_2_Free
     bl         Effect_Free
     pop        {r5}
 LAB_08073534:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     tst        r0,r0
     beq        LAB_0807354a
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_0807354a
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     tst        r7,r7
     beq        LAB_0807354a
     mov        r0,#0x0
@@ -434,7 +431,7 @@ DAT_080735ac:
 
 _ts A_Cloudy_SetFlag
     push       {lr}
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Attack_family_b2]
     add        r0,#0x9
     bl         Battle_SetBattleFlag
     pop        {pc}

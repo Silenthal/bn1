@@ -5,7 +5,7 @@
 
 _ts Attack_Mine
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Mine_0_Init_080757ac
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,36 +32,33 @@ _ts A_Mine_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     mov        r1,#0x3
     bl         SWI_Div
     add        r0,r1,#0x0
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Attack_element]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x1
     ldr        r7,PTR_USHORT_ARRAY_08075824
     ldrh       r0,[r7,r0]
-    strh       r0,[r5,#0x24]
-    mov        r0,#0x2b
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r0,[r5,#0x60]
-    ldrb       r0,[r5,#0x16]
+    strh       r0,[r5,#Attack_damage]
+    FieldObject_Create 0x2b, 0x60
+    ldr        r0,[r5,#Attack_param_60]
+    ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1
     eor        r0,r1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 USHORT_ARRAY_08075818:
@@ -80,14 +77,14 @@ _ts A_Mine_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Mine_1_0_0807584c
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r7,[r5,#0x60]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldr        r7,[r5,#Attack_param_60]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]
@@ -107,7 +104,7 @@ PTR_A_Mine_1_0_08075850:
 
 _ts A_Mine_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_Mine_1_0_0_08075868
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -129,33 +126,33 @@ _ts A_Mine_1_0_0
     push       {lr}
     sub        sp,#0x14
     ldr        r7,PTR_PanelFlag_ARRAY_ARRAY_080758c0
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     lsl        r0,r0,#0x3
     add        r7,r7,r0
     mov        r0,sp
     ldr        r1,[r7,#0x0]
     ldr        r2,[r7,#0x4]
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Attack_owner]
     bl         Field_SearchWithOwner
     tst        r1,r1
     beq        LAB_080758ac
-    strb       r1,[r5,#0x1b]
+    strb       r1,[r5,#Attack_b1b]
     mov        r0,sp
     mov        r2,#0x14
     bl         ArrayShuffle
     mov        r0,sp
     mov        r1,#0x64
     add        r1,r1,r5
-    ldrb       r2,[r5,#0x1b]
+    ldrb       r2,[r5,#Attack_b1b]
     bl         memcpy_8
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     b          LAB_080758bc
 LAB_080758ac:
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x3]
@@ -175,7 +172,7 @@ PanelFlag_ARRAY_ARRAY_080758c4:
 
 _ts A_Mine_1_0_1
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Attack_state_s3]
     ldr        r7,DAT_080758e4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -196,54 +193,54 @@ PTR_A_Mine_1_0_1_0_080758e8:
 _ts A_Mine_1_0_1_0
     push       {lr}
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterA]
+    strh       r0,[r5,#Attack_counterB]
     mov        r0,#0x64
     ldrb       r0,[r5,r0]
     bl         Field_IndexToCellXY
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
     bl         R_Actor_UpdateSpritePos
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Attack_state_s3]
     pop        {pc}
 
 
 _nt A_Mine_1_0_1_1
     push       {lr}
     mov        r1,#0x7
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     mov        r2,#0x2
     tst        r0,r2
     beq        LAB_08075920
     mov        r1,#0x5
 LAB_08075920:
-    strb       r1,[r5,#0x0]
+    strb       r1,[r5,#Attack_header_entityFlags]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     cmp        r0,#0x4
     bmi        LAB_0807596e
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    ldrh       r1,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterA]
+    ldrh       r1,[r5,#Attack_counterB]
     add        r1,#0x1
-    strh       r1,[r5,#0x1e]
+    strh       r1,[r5,#Attack_counterB]
     cmp        r1,#0xf
     bge        LAB_0807595e
     add        r0,r1,#0x0
-    ldrb       r1,[r5,#0x1b]
+    ldrb       r1,[r5,#Attack_b1b]
     bl         SWI_Div
     mov        r0,#0x64
     add        r0,r0,r5
     ldrb       r0,[r0,r1]
     bl         Field_IndexToCellXY
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
     bl         R_Actor_UpdateSpritePos
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0xb1
     bl         Sound_PlaySE
     b          LAB_0807596e
@@ -252,16 +249,16 @@ LAB_0807595e:
     mov        r0,#0x1
     strb       r0,[r7,#0x3]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_0807596e:
     pop        {pc}
 
 
 _ts A_Mine_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_Mine_1_1_0_08075980
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -285,12 +282,12 @@ _ts A_Mine_1_1_0
     tst        r0,r0
     beq        LAB_080759a8
     mov        r0,#0x7
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x2
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strb       r0,[r5,#Attack_state_s2]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_080759a8:
     pop        {pc}
@@ -298,51 +295,51 @@ LAB_080759a8:
 
 _nt A_Mine_1_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     cmp        r0,#0x2
     bne        LAB_080759b8
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
 LAB_080759b8:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080759ee
     mov        r4,#0x24
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     beq        LAB_080759ca
     mov        r4,#0x25
 LAB_080759ca:
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_080759de
     mov        r0,#0x5
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
 LAB_080759de:
     pop        {r5}
     mov        r0,#0x76
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_080759ee:
     pop        {pc}
 
 
 _ts A_Mine_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_080759fc
     bl         FieldObstacleManager_Remove
 LAB_080759fc:
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -370,21 +367,21 @@ LAB_08075a2a:
 
 _ts A_Mine_IsActivated
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     mov        r0,#0x1
     mov        r1,#0x1
     tst        r2,r1
     beq        LAB_08075a54
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_PanelFlag_08075a58
     ldr        r1,[r7,r1]
     tst        r2,r1
     bne        LAB_08075a54
-    ldrb       r1,[r5,#0x5]
+    ldrb       r1,[r5,#Attack_family_b1]
     tst        r1,r1
     bne        LAB_08075a54
     mov        r0,#0x0

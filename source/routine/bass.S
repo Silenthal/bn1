@@ -46,14 +46,8 @@ _ts R_Bass_0_Init
     strb       r0,[r5,#0xf]
     mov        r0,#0x5
     strb       r0,[r5,#0x1b]
-    mov        r0,#0x9
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x9, 0x60
+    FieldObject_Create 0xf, 0x64
     ldr        r0,[r5,#0x64]
     bl         FieldObject_Disable
     mov        r0,#0x4

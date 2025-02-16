@@ -5,7 +5,7 @@
 
 _ts Attack_ShotgunBurst
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_ShotgunBurst_0_Init_080712c0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,17 +27,17 @@ PTR_A_ShotgunBurst_0_Init_080712c4:
 _ts A_ShotgunBurst_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     ldr        r7,PTR_SpriteIndex_08071330
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Attack_family_family]
     lsl        r2,r2,#0x2
     add        r7,r7,r2
     ldrh       r1,[r7,#0x0]
     push       {r7}
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
@@ -45,26 +45,23 @@ _ts A_ShotgunBurst_0_Init
     ldrb       r0,[r7,#0x2]
     lsl        r0,r0,#0x1f
     asr        r0,r0,#0x1f
-    ldr        r1,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_z]
     and        r1,r0
-    str        r1,[r5,#0x30]
+    str        r1,[r5,#Attack_pos_curr_z]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Attack_cPos_x]
+    strb       r1,[r5,#Attack_cPos_y]
+    ldrb       r0,[r5,#Attack_family_family]
     cmp        r0,#0x2
     bls        LAB_0807131e
-    mov        r0,#0x1
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x1, Attack_param_60
 LAB_0807131e:
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Attack_state_s0]
+    ldrb       r0,[r5,#Attack_family_family]
     cmp        r0,#0x2
     bls        LAB_0807132e
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsChecked
 LAB_0807132e:
     pop        {pc}
@@ -94,10 +91,10 @@ SpriteIndex_08071334:
 
 _ts A_ShotgunBurst_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     cmp        r0,#0x2
     bls        LAB_08071356
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
 LAB_08071356:
     bl         SpritePtr_GetFrameStatus
@@ -108,16 +105,16 @@ LAB_08071356:
     pop        {pc}
 LAB_08071366:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 
 _ts A_ShotgunBurst_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     cmp        r0,#0x2
     bls        LAB_0807137a
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
 LAB_0807137a:
     bl         Attack_Free
@@ -135,7 +132,7 @@ _ts Attack_ShotgunBurst_Create
     beq        LAB_0807139a
     strb       r0,[r7,#0x1a]
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_0807139a:
     pop        {pc}

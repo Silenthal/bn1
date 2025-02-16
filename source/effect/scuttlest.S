@@ -41,10 +41,7 @@ _ts E_Scuttlest_0_Init
     strb       r0,[r5,#0x0]
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
-    mov        r0,#0xf
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0xf, 0x60
     bl         E_Scuttlest_1_Init
     pop        {pc}
 

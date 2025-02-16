@@ -41,10 +41,7 @@ _ts R_LifeVirus_0_Init
     strb       r0,[r5,#0x8]
     mov        r0,#0x1
     strb       r0,[r5,#0x17]
-    mov        r0,#0x9
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x9, 0x60
     mov        r0,#0x4
     strb       r0,[r5,#0xb]
     bl         Battle_LoadEnemyHp

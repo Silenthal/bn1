@@ -11,7 +11,7 @@ EP_68_A_Candle_Param0_ARRAY_08076b74:
 
 _nt Attack_Candle
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Candle_0_Init_08076b94
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -29,58 +29,55 @@ PTR_PTR_A_Candle_0_Init_08076b94:
 
 _ts A_Candle_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xad
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     lsr        r0,r0,#0x19
     bl         SpritePtr_SetPaletteIndex
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     lsr        r0,r0,#0x18
     ldr        r7,PTR_EP_68_A_Candle_Param0_ARRAY_08076c1c
     add        r7,r7,r0
-    str        r7,[r5,#0x68]
+    str        r7,[r5,#Attack_param_68]
     ldrb       r0,[r7,#0x0]
-    strh       r0,[r5,#0x20]
-    strh       r0,[r5,#0x22]
+    strh       r0,[r5,#Attack_hpCurrent]
+    strh       r0,[r5,#Attack_hpMax]
     mov        r0,#0xa
-    strh       r0,[r5,#0x24]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    strh       r0,[r5,#Attack_damage]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Attack_element]
     mov        r0,#0x4
-    strh       r0,[r5,#0x1c]
-    mov        r0,#0x1c
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Attack_counterA]
+    FieldObject_Create 0x1c, 0x60
+    ldr        r0,[r5,#Attack_param_60]
     mov        r1,#0xa
     strh       r1,[r0,#0x8]
     bl         FieldObject_Disable
     ldr        r0,DAT_08076c20
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         A_Candle_1_Main
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -99,22 +96,22 @@ _ts A_Candle_1_Main
     bl         SpritePtr_DisableFlash
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08076c4a
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     b          LAB_08076c5c
 LAB_08076c4a:
     bl         A_Candle_CheckDamage
     tst        r0,r0
     bne        LAB_08076c5c
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Candle_1_0_CheckPlacement_08076c64
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -136,52 +133,52 @@ PTR_A_Candle_1_0_CheckPlacement_08076c68:
 
 _ts A_Candle_1_0_CheckPlacement
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08076cb0
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     ldrb       r0,[r7,#0x1]
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    strh       r0,[r5,#Attack_counterA]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08076c9a
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 LAB_08076c9a:
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x4
     bic        r0,r1
-    strb       r0,[r5,#0x0]
-    ldr        r0,[r5,#0x60]
+    strb       r0,[r5,#Attack_header_entityFlags]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08076cb0:
     pop        {pc}
 
 
 _nt A_Candle_1_1_AddHP
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08076ce8
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Attack_param_68]
     ldrb       r0,[r7,#0x1]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bl         Battle_GetEntryState
     cmp        r0,#0x0
     bne        LAB_08076cea
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Attack_param_6C]
     ldrh       r0,[r7,#0x20]
     tst        r0,r0
     beq        LAB_08076cea
@@ -190,16 +187,16 @@ _nt A_Candle_1_1_AddHP
     beq        LAB_08076cea
     mov        r0,#0x1
     push       {r5}
-    ldr        r5,[r5,#0x6c]
+    ldr        r5,[r5,#Attack_param_6C]
     bl         FieldObject_AddHp
     pop        {r5}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
 LAB_08076ce8:
     pop        {pc}
 LAB_08076cea:
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     pop        {pc}
 
 
@@ -216,23 +213,23 @@ _ts A_Candle_2_Free
     add        r7,r5,#0x0
     pop        {r5}
     beq        LAB_08076d18
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x4
     and        r0,r1
     ldrb       r1,[r7,#0x0]
     orr        r1,r0
     strb       r1,[r7,#0x0]
 LAB_08076d18:
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_08076d28
     mov        r0,#0x0
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     tst        r7,r7
     beq        LAB_08076d28
     str        r0,[r7,#0x0]
 LAB_08076d28:
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -240,53 +237,53 @@ LAB_08076d28:
 
 _ts A_Candle_CheckDamage
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_08076d8e
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldrb       r1,[r7,#0x0]
     mov        r2,#0x2
     tst        r1,r2
     beq        LAB_08076da8
     bl         Battle_IsInputLocked
     bne        LAB_08076d8e
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_08076d5a
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Attack_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Attack_counterB]
     bls        LAB_08076d8e
 LAB_08076d5a:
     mov        r0,#0xa
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Attack_param_60]
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08076da8
     push       {r1,r7}
     ldr        r7,PTR_PanelFlag_ARRAY_08076dac
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     lsl        r1,r1,#0x2
     ldr        r1,[r7,r1]
     tst        r0,r1
     pop        {r1,r7}
     bne        LAB_08076d8e
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08076da8
     bl         Field_SubtractHP
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Attack_hpCurrent]
     tst        r0,r0
     bne        LAB_08076da2
 LAB_08076d8e:
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_08076da2:

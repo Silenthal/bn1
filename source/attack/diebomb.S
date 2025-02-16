@@ -25,7 +25,7 @@ listDieBombFaceValue:
 _ts Attack_DieBomb
     push       {lr}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_DieBomb_0_Init_08072778
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -48,30 +48,30 @@ PTR_A_DieBomb_0_Init_0807277c:
 _ts A_DieBomb_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x85
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x40
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0xa
-    strh       r0,[r5,#0x22]
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#Attack_hpMax]
+    strh       r0,[r5,#Attack_hpCurrent]
     mov        r0,#0x0
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Attack_damage]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Attack_element]
     mov        r0,#0xf
     mov        r3,#0x60
     add        r1,r5,r3
@@ -79,9 +79,9 @@ _ts A_DieBomb_0_Init
     mov        r0,#0x93
     bl         Sound_PlaySE
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_DieBomb_1_Main
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -91,19 +91,19 @@ _nt A_DieBomb_1_Main
     bl         Battle_IsInputLocked
     beq        LAB_080727f8
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 LAB_080727f8:
     bl         A_DieBomb_CheckDamage
     tst        r0,r0
     bne        LAB_0807280a
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_DieBomb_1_0_08072818
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_0807280a:
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -128,25 +128,25 @@ _ts A_DieBomb_1_0
     tst        r0,r1
     beq        LAB_08072862
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x0
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Attack_diff_z]
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     bl         Rng_RandomUint
     mov        r1,#0xf
     and        r1,r0
     ldr        r7,PTR_listDieBombFaceValue_08072864
     ldrb       r0,[r7,r1]
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Attack_family_b1]
     mov        r1,#0xa
     mul        r1,r0
     add        r1,#0xa
-    strh       r1,[r5,#0x24]
-    ldr        r7,[r5,#0x60]
+    strh       r1,[r5,#Attack_damage]
+    ldr        r7,[r5,#Attack_param_60]
     strh       r1,[r7,#0x8]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_08072862:
     pop        {pc}
 
@@ -156,36 +156,36 @@ PTR_listDieBombFaceValue_08072864:
 
 _ts A_DieBomb_1_1_Bounce
     push       {lr}
-    ldr        r0,[r5,#0x4c]
+    ldr        r0,[r5,#Attack_diff_z]
     ldr        r1,DAT_080728ac
     add        r0,r0,r1
-    str        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x30]
+    str        r0,[r5,#Attack_diff_z]
+    ldr        r1,[r5,#Attack_pos_curr_z]
     add        r1,r1,r0
-    str        r1,[r5,#0x30]
+    str        r1,[r5,#Attack_pos_curr_z]
     bgt        LAB_080728a8
     mov        r1,#0x0
-    str        r1,[r5,#0x30]
+    str        r1,[r5,#Attack_pos_curr_z]
     neg        r0,r0
     asr        r0,r0,#0x1
-    str        r0,[r5,#0x4c]
-    ldrh       r0,[r5,#0x1c]
+    str        r0,[r5,#Attack_diff_z]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bpl        LAB_080728a8
     mov        r0,#0x1
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#Attack_family_b2]
     mov        r0,#0x10
     bl         Field_GetPanelFlagGroup
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     str        r1,[r7,#0xc]
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     add        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x60
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_080728a8:
     pop        {pc}
 
@@ -198,16 +198,16 @@ DAT_080728ac:
 
 _ts A_DieBomb_1_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080728c6
     mov        r0,#0x8
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
 LAB_080728c6:
     pop        {pc}
 
@@ -218,31 +218,31 @@ _ts A_DieBomb_1_3
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_080728e0
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_080728e0
     mov        r0,#0xc
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_080728e0:
     pop        {pc}
 
 
 _nt A_DieBomb_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         Battle_CellCoordsToSprite
     add        r2,r1,#0x0
     add        r1,r0,#0x0
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r0,#0xf
     bl         Field_GetRandomXZPosOnTarget
     mov        r4,#0xb
     push       {r5}
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -252,8 +252,8 @@ _nt A_DieBomb_3_Explode
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0}
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x2
@@ -262,14 +262,14 @@ _nt A_DieBomb_3_Explode
     lsr        r0,r0,#0x1
     pop        {r1}
     mov        r4,#0x1
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     mov        r2,#0x1
 LAB_08072930:
     bl         Effect_DieBombExplosion_Create
     add        r2,#0x1
     cmp        r2,#0x4
     bne        LAB_08072930
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -277,11 +277,11 @@ LAB_08072930:
 
 _nt A_DieBomb_CheckDamage
     push       {lr}
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Attack_family_b2]
     tst        r0,r0
     beq        LAB_08072998
     mov        r0,#0x11
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Attack_param_60]
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08072998
@@ -290,7 +290,7 @@ _nt A_DieBomb_CheckDamage
     tst        r0,r1
     pop        {r1}
     bne        LAB_08072976
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08072998
@@ -298,10 +298,10 @@ _nt A_DieBomb_CheckDamage
     tst        r1,r1
     bne        LAB_0807298e
 LAB_08072976:
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     bl         SpritePtr_EnableFlash
     mov        r0,#0x70
     bl         Sound_PlaySE
@@ -330,7 +330,7 @@ _ts Attack_DieBomb_Create
     beq        LAB_080729ba
     strb       r1,[r7,#0x18]
     strb       r2,[r7,#0x19]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_080729ba:
     pop        {pc}

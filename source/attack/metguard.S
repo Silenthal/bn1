@@ -9,7 +9,7 @@ SpriteIndex_0806fe3c:
 
 _nt Attack_MetGuard
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_MetGuard_0_Init_0806fe4c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -28,21 +28,21 @@ PTR_A_MetGuard_0_Init_0806fe50:
 _ts A_MetGuard_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     ldr        r7,PTR_SpriteIndex_0806fe8c
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Attack_family_family]
     ldrb       r1,[r7,r1]
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     bl         SpritePtr_SetFlipType
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -55,7 +55,7 @@ PTR_SpriteIndex_0806fe8c:
 _ts A_MetGuard_1_Main
     push       {lr}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_MetGuard_1_0_Wait_0806fea8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -82,33 +82,33 @@ _ts A_MetGuard_1_0_Wait
     and        r0,r1
     beq        LAB_0806fed0
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_0806fed0:
     pop        {pc}
 
 
 _nt A_MetGuard_1_1_Guard
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     lsr        r0,r0,#0x2
     bcc        LAB_0806fee8
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     pop        {pc}
 LAB_0806fee8:
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     lsr        r0,r0,#0x1
     bcc        LAB_0806fef6
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Attack_family_b1]
     bl         SpritePtr_EnableFlash
 LAB_0806fef6:
     pop        {pc}
@@ -121,17 +121,17 @@ _ts A_MetGuard_1_2_Wait
     tst        r0,r1
     beq        LAB_0806ff08
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_0806ff08:
     pop        {pc}
 
 
 _nt A_MetGuard_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     lsr        r0,r0,#0x2
     bcs        LAB_0806ff18
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     mov        r0,#0x0
     str        r0,[r7,#0x0]
 LAB_0806ff18:
@@ -150,7 +150,7 @@ _nt Attack_MetGuard_Create
     str        r7,[r0,#0x0]
     str        r0,[r7,#0x64]
     str        r5,[r7,#0x60]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_0806ff38:
     pop        {pc}

@@ -9,7 +9,7 @@ _ts Attack_BurnerBomb
     add        r7,#0x28
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_BurnerBomb_0_Init_08070578
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -31,32 +31,29 @@ PTR_PTR_A_BurnerBomb_0_Init_08070578:
 _ts A_BurnerBomb_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x75
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Attack_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Attack_family_b1]
     mov        r0,#0x8
-    strh       r0,[r5,#0x20]
-    strh       r0,[r5,#0x22]
+    strh       r0,[r5,#Attack_hpCurrent]
+    strh       r0,[r5,#Attack_hpMax]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
-    mov        r0,#0x19
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
-    ldr        r0,[r5,#0x60]
+    strb       r0,[r5,#Attack_element]
+    FieldObject_Create 0x19, Attack_param_60
+    ldr        r0,[r5,#Attack_param_60]
     mov        r1,#0x0
     strh       r1,[r0,#0x8]
     bl         FieldObject_Disable
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         Battle_CellCoordsToSprite
     push       {r0,r1}
     add        r7,r5,#0x0
@@ -69,38 +66,38 @@ _ts A_BurnerBomb_0_Init
     push       {r5}
     bl         VectorToAngle
     pop        {r5}
-    strb       r0,[r5,#0x10]
+    strb       r0,[r5,#Attack_angleToTarget]
     ldr        r1,DAT_0807062c
     push       {r1}
     bl         AngleToVector
-    str        r0,[r5,#0x44]
-    str        r1,[r5,#0x48]
+    str        r0,[r5,#Attack_diff_x]
+    str        r1,[r5,#Attack_diff_y]
     pop        {r4}
     pop        {r0}
     pop        {r1,r2}
     mov        r3,#0x0
     ldr        r6,DAT_08070630
     bl         Field_CalculateTrajectoryZ
-    str        r0,[r5,#0x4c]
-    strh       r1,[r5,#0x1c]
+    str        r0,[r5,#Attack_diff_z]
+    strh       r1,[r5,#Attack_counterA]
     tst        r1,r1
     beq        LAB_08070610
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_BurnerBomb_1_Main
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 LAB_08070610:
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         Battle_CellCoordsToSprite
     mov        r2,#0x0
     add        r7,r5,#0x0
     add        r7,#0x28
     stmia      r7!,{r0,r1,r2}
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_BurnerBomb_2_Free
     pop        {pc}
 
@@ -119,23 +116,23 @@ _ts A_BurnerBomb_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Attack_family_b1]
     lsr        r0,r0,#0x1
     bcc        LAB_08070654
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Enable
     bl         A_BurnerBomb_CheckDamage
     tst        r0,r0
     bne        LAB_0807065e
 LAB_08070654:
     ldr        r7,PTR_PTR_A_BurnerBomb_1_0_Travel_0807066c
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_0807065e:
     bl         UpdateSpriteFrameIndex
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_UpdateCellPosition
     pop        {pc}
 
@@ -156,16 +153,16 @@ PTR_A_BurnerBomb_1_0_Travel_08070670:
 
 _ts A_BurnerBomb_1_0_Travel
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     beq        LAB_080706b6
     add        r7,r5,#0x0
     add        r7,#0x44
     ldmia      r7!,{r3,r4,r6}
     ldr        r0,DAT_080706f8
     add        r6,r6,r0
-    str        r6,[r5,#0x4c]
+    str        r6,[r5,#Attack_diff_z]
     add        r7,r5,#0x0
     add        r7,#0x28
     ldmia      r7!,{r0,r1,r2}
@@ -179,37 +176,37 @@ _ts A_BurnerBomb_1_0_Travel
     bmi        LAB_080706b6
     pop        {pc}
 LAB_080706b6:
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Attack_family_b2]
+    ldrb       r1,[r5,#Attack_family_b3]
     bl         Battle_CellCoordsToSprite
     mov        r2,#0x0
     add        r7,r5,#0x0
     add        r7,#0x28
     stmia      r7!,{r0,r1,r2}
-    ldrb       r0,[r5,#0x6]
-    strb       r0,[r5,#0x18]
-    ldrb       r0,[r5,#0x7]
-    strb       r0,[r5,#0x19]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_family_b2]
+    strb       r0,[r5,#Attack_cPos_x]
+    ldrb       r0,[r5,#Attack_family_b3]
+    strb       r0,[r5,#Attack_cPos_y]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_080706e2
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 LAB_080706e2:
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x42
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Attack_family_b1]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 DAT_080706f8:
@@ -218,50 +215,50 @@ DAT_080706f8:
 
 _ts A_BurnerBomb_1_1_AnimPrimed1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08070716
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x2c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08070716:
     pop        {pc}
 
 
 _ts A_BurnerBumb_1_2_AnimPrimed2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08070732
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0xc
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08070732:
     pop        {pc}
 
 
 _ts A_BurnerBomb_1_3_AnimPrimed3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08070746
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08070746:
     pop        {pc}
 
@@ -274,7 +271,7 @@ _ts A_BurnerBomb_1_4_Explode
     add        r7,r5,r3
     ldmia      r7!,{r1,r2,r3}
     mov        r4,#0x0
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     mov        r0,#0x2
     push       {r1,r2,r3,r5}
     bl         Effect_Tower_Create
@@ -284,7 +281,7 @@ _ts A_BurnerBomb_1_4_Explode
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 
@@ -298,13 +295,13 @@ _ts A_BurnerBomb_1_5_Explode2
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
 
 _ts A_BurnerBomb_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Free
     bl         Attack_Free
     pop        {pc}
@@ -313,11 +310,11 @@ _ts A_BurnerBomb_2_Free
 _nt A_BurnerBomb_CheckDamage
     push       {lr}
     mov        r0,#0xa
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Attack_param_60]
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_080707e0
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Attack_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080707e0
@@ -329,12 +326,12 @@ _nt A_BurnerBomb_CheckDamage
     bne        LAB_080707da
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     mov        r0,#0x1
     pop        {pc}
 LAB_080707da:
@@ -355,7 +352,7 @@ _ts Attack_BurnerBomb_Create
     tst        r7,r7
     beq        LAB_080707fc
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_080707fc:
     pop        {pc}

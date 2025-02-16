@@ -63,10 +63,7 @@ _ts R_Satella_0_Init
     strh       r0,[r5,#0x24]
     mov        r0,#0x0
     strb       r0,[r5,#0x1a]
-    mov        r0,#0x9
-    mov        r1,#0x64
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x9, 0x64
     mov        r0,#0x4
     str        r0,[r5,#0x8]
     mov        r0,#0x4

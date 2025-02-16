@@ -48,10 +48,7 @@ _ts R_Floshell_0_Init
     strb       r0,[r5,#0xc]
     strb       r0,[r5,#0x7]
     bl         SpritePtr_ObjModeSemiTransparent
-    mov        r0,#0x9
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x9, 0x60
     ldr        r0,[r5,#0x60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]

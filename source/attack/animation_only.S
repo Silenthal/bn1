@@ -5,7 +5,7 @@
 
 _ts Attack_AnimationOnly
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_AnimationOnly_0_Init_0806f4c8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,20 +26,20 @@ PTR_A_AnimationOnly_0_Init_0806f4cc:
 
 _ts A_AnimationOnly_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
-    ldrh       r1,[r5,#0x6]
+    ldrh       r1,[r5,#Attack_family_b2]
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x5]
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    ldrb       r0,[r5,#Attack_family_b1]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x1c
     bl         SpritePtr_SetPaletteIndex
@@ -47,7 +47,7 @@ _ts A_AnimationOnly_0_Init
     ldrb       r0,[r5,r3]
     bl         SpritePtr_SetFlipType
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_AnimationOnly_1_Main
     pop        {pc}
 
@@ -58,18 +58,18 @@ _ts A_AnimationOnly_1_Main
     cmp        r0,#0x0
     beq        LAB_0806f528
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 LAB_0806f528:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_AnimationOnly_WaitForFrameEnd_0806f554
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     add        r7,#0x28
     ldmia      r7!,{r0,r1,r2}
-    ldrb       r3,[r5,#0x4]
+    ldrb       r3,[r5,#Attack_family_family]
     lsl        r3,r3,#0x1b
     bcc        LAB_0806f546
     mov        r3,#0x1
@@ -95,18 +95,18 @@ PTR_A_AnimationOnly_WaitForFrameEnd_0806f558:
 
 _ts A_AnimationOnly_WaitForFrameEnd
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x1a
     bcs        LAB_0806f576
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Attack_param_64]
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x2
     and        r0,r1
     mvn        r1,r1
-    ldrb       r2,[r5,#0x0]
+    ldrb       r2,[r5,#Attack_header_entityFlags]
     and        r2,r1
     orr        r0,r2
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
 LAB_0806f576:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
@@ -115,16 +115,16 @@ LAB_0806f576:
     mov        r1,#0x40
     tst        r0,r1
     bne        LAB_0806f59a
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_0806f59a
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
-    ldr        r7,[r5,#0x64]
+    strb       r0,[r5,#Attack_header_entityFlags]
+    ldr        r7,[r5,#Attack_param_64]
     mov        r0,#0x0
     str        r0,[r7,#0x5c]
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Attack_state_s0]
 LAB_0806f59a:
     pop        {pc}
 
@@ -147,7 +147,7 @@ _ts Attack_AnimationOnly_Create
     str        r5,[r7,#0x64]
     mov        r3,#0x60
     strb       r0,[r7,r3]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
 LAB_0806f5c0:
     pop        {pc}

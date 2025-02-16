@@ -5,7 +5,7 @@
 
 _ts Attack_Charging
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Charging_0_Init_08070328
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,10 +26,10 @@ PTR_A_Charging_0_Init_0807032c:
 
 _ts A_Charging_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x72
     bl         Sprite_InitSpritePtr
@@ -37,29 +37,29 @@ _ts A_Charging_0_Init
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldr        r0,[r7,#0x28]
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Attack_pos_curr_x]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_y]
     ldr        r0,[r7,#0x30]
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     bl         SpritePtr_NoShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     bl         A_Charging_1_Main
     pop        {pc}
 
 
 _ts A_Charging_1_Main
     push       {lr}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldr        r0,[r7,#0x28]
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Attack_pos_curr_x]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_y]
     ldr        r0,[r7,#0x30]
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     bl         UpdateSpriteFrameIndex
     pop        {pc}
 

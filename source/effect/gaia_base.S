@@ -53,10 +53,7 @@ _ts E_GaiaBase_0_Init
     str        r0,[r5,#0x30]
     mov        r0,#0x1
     strb       r0,[r5,#0x16]
-    mov        r0,#0xf
-    mov        r1,#0x60
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0xf, 0x60
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     bl         E_GaiaBase_1_Main

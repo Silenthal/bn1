@@ -5,7 +5,7 @@
 
 _ts Attack_Remobit
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Attack_state_s0]
     ldr        r7,PTR_PTR_A_Remobit_0_Init_08076104
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,46 +32,46 @@ _ts A_Remobit_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Attack_frameIndexCurr]
+    strb       r0,[r5,#Attack_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     add        r0,r0,r0
     bl         SpritePtr_SetPaletteIndex
     mov        r1,#0x3
-    strb       r1,[r5,#0x0]
-    ldrb       r0,[r5,#0x16]
+    strb       r1,[r5,#Attack_header_entityFlags]
+    ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1
     eor        r0,r1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    strb       r0,[r5,#0xc]
-    strb       r0,[r5,#0xf]
-    strb       r0,[r5,#0xe]
-    strb       r0,[r5,#0xd]
-    strb       r0,[r5,#0x1b]
+    strh       r0,[r5,#Attack_state_s2]
+    strb       r0,[r5,#Attack_bc]
+    strb       r0,[r5,#Attack_bf]
+    strb       r0,[r5,#Attack_be]
+    strb       r0,[r5,#Attack_bd]
+    strb       r0,[r5,#Attack_b1b]
     bl         A_Remobit_1_Main
     pop        {pc}
 
 
 _nt A_Remobit_1_Main
     push       {lr}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Attack_param_60]
     ldr        r0,[r7,#0x5c]
     tst        r0,r0
     bne        LAB_08076176
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
     b          LAB_08076180
 LAB_08076176:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Attack_state_s1]
     ldr        r7,PTR_PTR_A_Remobit_1_0_08076184
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -93,7 +93,7 @@ PTR_A_Remobit_1_0_08076188:
 
 _ts A_Remobit_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_Remobit_1_0_0_080761a4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -115,24 +115,24 @@ _ts A_Remobit_1_0_0
     push       {lr}
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     ldr        r7,PTR_PTR_CellPosition_ARRAY_080761f4
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     add        r0,r0,r0
     add        r7,r7,r0
     ldrb       r0,[r7,#0x0]
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#Attack_cPos_x]
     ldrb       r0,[r7,#0x1]
-    strb       r0,[r5,#0x19]
+    strb       r0,[r5,#Attack_cPos_y]
     bl         R_Actor_UpdateSpritePos
     mov        r0,#0x28
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 PTR_CellPosition_ARRAY_080761e0:
@@ -160,16 +160,16 @@ _ts A_Remobit_1_0_1
     strh       r0,[r5,#0x32]
     bne        LAB_0807620a
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_0807620a:
     pop        {pc}
 
 
 _ts A_Remobit_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_A_Remobit_1_1_0_0807621c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -190,7 +190,7 @@ PTR_A_Remobit_1_1_0_08076220:
 
 _ts A_Remobit_1_1_0
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_A_Remobit_1_1_0_0_0807623c
     ldr        r7,[r7,r0]
@@ -210,14 +210,14 @@ PTR_A_Remobit_1_1_0_0_08076240:
 _ts A_Remobit_1_1_0_0
     push       {lr}
 LAB_0807624e:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_FUN_080763aa_08076268
     ldr        r7,[r7,r0]
     tst        r7,r7
     bne        LAB_08076260
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     b          LAB_0807624e
 LAB_08076260:
     mov        lr,pc
@@ -247,36 +247,36 @@ PTR_FUN_080763aa_0807626c:
 
 _ts FUN_08076290
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     sub        r1,#0x1
     bl         Battle_CellCoordsToSprite
-    str        r1,[r5,#0x6c]
-    ldr        r0,[r5,#0x70]
+    str        r1,[r5,#Attack_param_6C]
+    ldr        r0,[r5,#Attack_param_70]
     neg        r0,r0
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Attack_diff_y]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_state_s2]
+    ldrb       r0,[r5,#Attack_bc]
     add        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     pop        {pc}
 
 
 _ts FUN_080762b0
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     add        r1,#0x1
     bl         Battle_CellCoordsToSprite
-    str        r1,[r5,#0x6c]
-    ldr        r0,[r5,#0x70]
-    str        r0,[r5,#0x48]
+    str        r1,[r5,#Attack_param_6C]
+    ldr        r0,[r5,#Attack_param_70]
+    str        r0,[r5,#Attack_diff_y]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_state_s2]
+    ldrb       r0,[r5,#Attack_bc]
     add        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     pop        {pc}
 
 
@@ -284,7 +284,7 @@ _nt FUN_080762ce
     push       {lr}
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     tst        r0,r0
     bne        LAB_080762e6
@@ -295,25 +295,25 @@ _nt FUN_080762ce
 _ts FUN_080762e4
     push       {lr}
 LAB_080762e6:
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0,r1}
     bl         A_Remobit_IsNoEnemyPanelsInColumn
     tst        r0,r0
     pop        {r0,r1}
     bne        LAB_08076308
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x6c]
-    ldr        r0,[r5,#0x70]
+    str        r0,[r5,#Attack_param_6C]
+    ldr        r0,[r5,#Attack_param_70]
     neg        r0,r0
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
 LAB_08076308:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     add        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
 
 
 _nt FUN_0807630e
@@ -324,7 +324,7 @@ _ts FUN_08076310
     push       {lr}
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     tst        r0,r0
     bne        LAB_08076328
@@ -335,24 +335,24 @@ _ts FUN_08076310
 _nt FUN_08076326
     push       {lr}
 LAB_08076328:
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     add        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0,r1}
     bl         A_Remobit_IsNoEnemyPanelsInColumn
     tst        r0,r0
     pop        {r0,r1}
     bne        LAB_08076348
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x6c]
-    ldr        r0,[r5,#0x70]
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_param_6C]
+    ldr        r0,[r5,#Attack_param_70]
+    str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
 LAB_08076348:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     add        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
 
 
 _nt dummy_7634e
@@ -361,8 +361,8 @@ _nt dummy_7634e
 
 _ts FUN_08076350
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     sub        r1,#0x1
     push       {r0,r1}
     bl         A_Remobit_IsNoEnemyPanelsInColumn
@@ -370,25 +370,25 @@ _ts FUN_08076350
     pop        {r0,r1}
     bne        LAB_08076376
     bl         Battle_CellCoordsToSprite
-    str        r1,[r5,#0x6c]
-    ldr        r0,[r5,#0x70]
+    str        r1,[r5,#Attack_param_6C]
+    ldr        r0,[r5,#Attack_param_70]
     neg        r0,r0
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Attack_diff_y]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     b          LAB_0807637c
 LAB_08076376:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     add        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
 LAB_0807637c:
     pop        {pc}
 
 
 _nt FUN_0807637e
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     add        r1,#0x1
     push       {r0,r1}
     bl         A_Remobit_IsNoEnemyPanelsInColumn
@@ -396,16 +396,16 @@ _nt FUN_0807637e
     pop        {r0,r1}
     bne        LAB_080763a2
     bl         Battle_CellCoordsToSprite
-    str        r1,[r5,#0x6c]
-    ldr        r0,[r5,#0x70]
-    str        r0,[r5,#0x48]
+    str        r1,[r5,#Attack_param_6C]
+    ldr        r0,[r5,#Attack_param_70]
+    str        r0,[r5,#Attack_diff_y]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     b          LAB_080763a8
 LAB_080763a2:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     add        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
 LAB_080763a8:
     pop        {pc}
 
@@ -414,7 +414,7 @@ _nt FUN_080763aa
     push       {lr}
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     tst        r0,r0
     bne        LAB_080763c2
@@ -425,26 +425,26 @@ _nt FUN_080763aa
 _ts FUN_080763c0
     push       {lr}
 LAB_080763c2:
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0,r1}
     bl         A_Remobit_IsNoEnemyPanelsInColumn
     tst        r0,r0
     pop        {r0,r1}
     bne        LAB_080763e6
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x6c]
-    ldr        r0,[r5,#0x70]
+    str        r0,[r5,#Attack_param_6C]
+    ldr        r0,[r5,#Attack_param_70]
     neg        r0,r0
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     b          dummy_763ec
 LAB_080763e6:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     add        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
 
 
 _ts dummy_763ec
@@ -455,7 +455,7 @@ _nt FUN_080763ee
     push       {lr}
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x1a]
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     tst        r0,r0
     bne        LAB_08076406
@@ -466,25 +466,25 @@ _nt FUN_080763ee
 _ts FUN_08076404
     push       {lr}
 LAB_08076406:
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Attack_cPos_x]
     add        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Attack_cPos_y]
     push       {r0,r1}
     bl         A_Remobit_IsNoEnemyPanelsInColumn
     tst        r0,r0
     pop        {r0,r1}
     bne        LAB_08076428
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x6c]
-    ldr        r0,[r5,#0x70]
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Attack_param_6C]
+    ldr        r0,[r5,#Attack_param_70]
+    str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     b          dummy_7642e
 LAB_08076428:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     add        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
 
 
 _nt dummy_7642e
@@ -495,10 +495,10 @@ _ts A_Remobit_1_1_0_1
     push       {lr}
     sub        sp,#0x4
 LAB_08076434:
-    ldrb       r0,[r5,#0x1b]
+    ldrb       r0,[r5,#Attack_b1b]
     tst        r0,r0
     bne        LAB_08076462
-    ldrb       r0,[r5,#0xd]
+    ldrb       r0,[r5,#Attack_bd]
     tst        r0,r0
     bne        LAB_08076446
     bl         FUN_0807637e
@@ -506,23 +506,23 @@ LAB_08076434:
 LAB_08076446:
     bl         FUN_08076350
 LAB_0807644a:
-    ldrb       r0,[r5,#0xf]
+    ldrb       r0,[r5,#Attack_bf]
     tst        r0,r0
     beq        LAB_08076498
-    ldrb       r0,[r5,#0xd]
+    ldrb       r0,[r5,#Attack_bd]
     mov        r1,#0x1
     eor        r0,r1
-    strb       r0,[r5,#0xd]
-    ldrb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Attack_bd]
+    ldrb       r0,[r5,#Attack_b1b]
     mov        r1,#0x1
     eor        r0,r1
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Attack_b1b]
     b          LAB_08076434
 LAB_08076462:
     mov        r0,#0x0
     str        r0,[sp,#0x0]
 LAB_08076466:
-    ldrb       r0,[r5,#0xe]
+    ldrb       r0,[r5,#Attack_be]
     tst        r0,r0
     bne        LAB_08076472
     bl         FUN_08076310
@@ -530,13 +530,13 @@ LAB_08076466:
 LAB_08076472:
     bl         FUN_080762ce
 LAB_08076476:
-    ldrb       r0,[r5,#0xf]
+    ldrb       r0,[r5,#Attack_bf]
     tst        r0,r0
     beq        LAB_08076490
-    ldrb       r0,[r5,#0xe]
+    ldrb       r0,[r5,#Attack_be]
     mov        r1,#0x1
     eor        r0,r1
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Attack_be]
     ldr        r0,[sp,#0x0]
     tst        r0,r0
     bne        LAB_08076490
@@ -544,10 +544,10 @@ LAB_08076476:
     str        r0,[sp,#0x0]
     b          LAB_08076466
 LAB_08076490:
-    ldrb       r0,[r5,#0x1b]
+    ldrb       r0,[r5,#Attack_b1b]
     mov        r1,#0x1
     eor        r0,r1
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Attack_b1b]
 LAB_08076498:
     add        sp,#0x4
     pop        {pc}
@@ -560,14 +560,14 @@ LAB_08076498:
 _ts A_Remobit_1_1_0_2
     push       {lr}
 LAB_080764ae:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Attack_bc]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_FUN_0807637e_080764c8
     ldr        r7,[r7,r0]
     tst        r7,r7
     bne        LAB_080764c0
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Attack_bc]
     b          LAB_080764ae
 LAB_080764c0:
     mov        lr,pc
@@ -593,20 +593,20 @@ PTR_FUN_0807637e_080764cc:
 
 _ts A_Remobit_1_1_1
     push       {lr}
-    ldr        r1,[r5,#0x28]
-    ldr        r0,[r5,#0x44]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r0,[r5,#Attack_diff_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldr        r2,[r5,#0x6c]
+    str        r0,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_param_6C]
     bl         R_Fishy_IsSpritePosAtCellPos
     tst        r0,r0
     beq        LAB_08076500
-    ldr        r0,[r5,#0x6c]
-    str        r0,[r5,#0x28]
+    ldr        r0,[r5,#Attack_param_6C]
+    str        r0,[r5,#Attack_pos_curr_x]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08076500:
     bl         R_Actor_UpdateCellPos
     pop        {pc}
@@ -614,20 +614,20 @@ LAB_08076500:
 
 _nt A_Remobit_1_1_2
     push       {lr}
-    ldr        r2,[r5,#0x6c]
-    ldr        r1,[r5,#0x2c]
-    ldr        r0,[r5,#0x48]
+    ldr        r2,[r5,#Attack_param_6C]
+    ldr        r1,[r5,#Attack_pos_curr_y]
+    ldr        r0,[r5,#Attack_diff_y]
     add        r0,r0,r1
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Attack_pos_curr_y]
     bl         R_Fishy_IsSpritePosAtCellPos
     tst        r0,r0
     beq        LAB_08076526
-    ldr        r1,[r5,#0x6c]
-    str        r1,[r5,#0x2c]
+    ldr        r1,[r5,#Attack_param_6C]
+    str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08076526:
     bl         R_Actor_UpdateCellPos
     pop        {pc}
@@ -635,7 +635,7 @@ LAB_08076526:
 
 _ts A_Remobit_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Attack_state_s2]
     ldr        r7,PTR_PTR_FUN_0807654c_0807653c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -657,47 +657,47 @@ PTR_FUN_0807654c_08076540:
 _ts FUN_0807654c
     push       {lr}
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     pop        {pc}
 
 
 _ts FUN_08076558
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08076584
     bl         A_Remobit_IsEnemyPanelAvailable
     tst        r0,r0
     beq        LAB_0807657c
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     mov        r4,#0x0
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Attack_damage]
     bl         Effect_RemobitThunder_Create
     mov        r0,#0xbb
     bl         Sound_PlaySE
 LAB_0807657c:
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
 LAB_08076584:
     pop        {pc}
 
 
 _nt FUN_08076586
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Attack_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Attack_counterA]
     bne        LAB_08076598
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Attack_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Attack_state_s2]
 LAB_08076598:
     pop        {pc}
 
@@ -705,9 +705,9 @@ LAB_08076598:
 _nt A_Remobit_2_Free
     push       {lr}
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Attack_pos_curr_x]
+    ldr        r2,[r5,#Attack_pos_curr_y]
+    ldr        r3,[r5,#Attack_pos_curr_z]
     mov        r4,#0x50
     lsl        r4,r4,#0x10
     add        r3,r3,r4
@@ -715,10 +715,10 @@ _nt A_Remobit_2_Free
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_080765bc
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Attack_header_entityFlags]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Attack_header_entityFlags]
 LAB_080765bc:
     pop        {r5}
     bl         Attack_Free
@@ -736,7 +736,7 @@ _ts Attack_Remobit_Create
     beq        LAB_080765e0
     str        r3,[r7,#0x70]
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Attack_owner]
     strb       r0,[r7,#0x16]
     str        r5,[r7,#0x60]
 LAB_080765e0:
@@ -759,7 +759,7 @@ _ts A_Remobit_IsNoEnemyPanelsInColumn
 LAB_080765fc:
     push       {r0,r1}
     bl         FieldObject_GetPanelFlags
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     tst        r1,r1
     bne        LAB_08076612
     mov        r1,#0x2
@@ -783,7 +783,7 @@ LAB_0807661a:
     str        r0,[sp,#0x0]
 LAB_0807662a:
     ldr        r0,[sp,#0x0]
-    strb       r0,[r5,#0xf]
+    strb       r0,[r5,#Attack_bf]
     add        sp,#0x4
     pop        {pc}
 
@@ -793,13 +793,13 @@ _nt A_Remobit_IsEnemyPanelAvailable
     sub        sp,#0x4
     mov        r0,#0x0
     str        r0,[sp,#0x0]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Attack_cPos_x]
+    ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0807666c
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Attack_owner]
     tst        r1,r1
     bne        LAB_0807665c
     mov        r1,#0x2

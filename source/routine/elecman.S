@@ -85,10 +85,7 @@ _ts R_ElecMan_0_Init
     bl         Field_CreateEntity
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_Disable
-    mov        r0,#0x32
-    mov        r1,#0x74
-    add        r1,r1,r5
-    bl         Field_CreateEntity
+    FieldObject_Create 0x32, 0x74
     mov        r0,#0x6
     mov        r1,#0x2
     strb       r0,[r7,#0x4]
