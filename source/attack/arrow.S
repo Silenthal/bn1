@@ -59,7 +59,7 @@ LAB_08072ddc:
     str        r0,[r5,#Attack_diff_x]
     pop        {r0}
     bl         SpritePtr_SetFlipType
-    FieldObject_Create 0x3, Attack_param_60
+    FieldObject_Create PFI_Self_Grounded, Attack_param_60
     mov        r0,#0x4
     strb       r0,[r5,#Attack_state_s1]
 LAB_08072e2c:

@@ -65,7 +65,7 @@ _ts A_LockOn_0_Init
     str        r0,[r5,#Attack_param_68]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x1c, 0x64
+    FieldObject_Create PFI_Self_Extension_Moving, Attack_param_64
     ldr        r0,[r5,#Attack_param_64]
     mov        r1,#0xa
     strh       r1,[r0,#0x8]
@@ -407,7 +407,8 @@ LAB_0807b0be:
     pop        {pc}
 
 DAT_0807b0c0:
-    .word 0x100FF
+    strike_attribute PFI_Self_Default
+
 
 
 _ts A_LockOn_1_3_4
@@ -546,9 +547,7 @@ _ts A_LockOn_CheckDamage
     sub        r0,#0x1
     str        r0,[r5,#Attack_param_70]
     bls        LAB_0807b1e8
-    mov        r0,#0xa
-    ldr        r1,[r5,#Attack_param_64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, Attack_param_64
     tst        r0,r0
     beq        LAB_0807b202
     push       {r1,r7}

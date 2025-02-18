@@ -62,7 +62,7 @@ _ts E_DynamyteExplosion_0_Init
     bl         Sound_PlaySE
     mov        r0,#0x0
     strb       r0,[r5,#0x1a]
-    FieldObject_Create 0x1, 0x60
+    FieldObject_Create PFI_Self_Default, 0x60
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     bl         E_DynamyteExplosion_1_Main
@@ -160,7 +160,7 @@ _ts E_DynamyteExplosion_IsHit
     mov        r2,#0x2
     tst        r0,r2
     beq        LAB_0808137c
-    mov        r0,#0x2
+    mov        r0,#PFI_Target_Solid
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_0808137c

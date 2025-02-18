@@ -51,7 +51,7 @@ _ts A_Thunder_0_Init
     strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x0
     strh       r0,[r5,#Attack_counterB]
-    FieldObject_Create 0x2d, 0x60
+    FieldObject_Create PFI_Self_GroundedNumb, Attack_param_60
     bl         R_Actor_UpdateSpritePos
     bl         A_Thunder_1_Main
     pop        {pc}

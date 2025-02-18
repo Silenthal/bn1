@@ -54,8 +54,8 @@ _ts R_Mole_0_Init
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x1
     strh       r0,[r5,#0x24]
-    FieldObject_Create 0x9, 0x60
-    FieldObject_Create 0xf, 0x64
+    FieldObject_Create PFI_Self_Actor, 0x60
+    FieldObject_Create PFI_Moving, 0x64
     mov        r0,#0x4
     str        r0,[r5,#0x8]
     mov        r0,#0x4
@@ -578,9 +578,7 @@ _nt R_Mole_CheckDamage
     bl         Battle_GetBattleFlag
     tst        r0,r0
     bne        LAB_0806f46e
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x60]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x60
     tst        r0,r0
     beq        LAB_0806f4b2
     ldrb       r0,[r5,#0x1a]

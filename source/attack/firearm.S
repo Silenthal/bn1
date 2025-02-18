@@ -69,7 +69,7 @@ _ts A_FireArm_0_Init
     str        r7,[r5,#Attack_param_60]
     tst        r0,r0
     beq        LAB_0807105e
-    FieldObject_Create 0x3, Attack_param_68
+    FieldObject_Create PFI_Self_Grounded, Attack_param_68
     mov        r0,#0x4
     str        r0,[r5,#Attack_state_s0]
     bl         A_FireArm_1_Main

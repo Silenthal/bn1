@@ -112,7 +112,7 @@ LAB_0806590e:
     ldrb       r1,[r5,#0x4]
     lsr        r1,r1,#0x8
     bcc        LAB_0806594a
-    mov        r0,#0xc
+    mov        r0,#PFI_Self_Actor_Armored
     mov        r3,#0x60
     mov        r1,#0x1
     strb       r1,[r5,r3]
@@ -120,7 +120,7 @@ LAB_0806594a:
     mov        r1,#0x6c
     add        r1,r1,r5
     bl         Field_CreateEntity
-    FieldObject_Create 0xf, 0x70
+    FieldObject_Create PFI_Moving, 0x70
     ldr        r0,[r5,#0x70]
     bl         FieldObject_Disable
     LoadMain battle, r7, r7
@@ -155,7 +155,7 @@ _ts R_SharkMan_1_Main
     ldrb       r1,[r5,r3]
     tst        r1,r1
     bne        LAB_080659a4
-    mov        r0,#0x9
+    mov        r0,#PFI_Self_Actor
 LAB_080659a4:
     ldr        r1,[r5,#0x6c]
     bl         Field_SetPanelFlagsOnEntity
@@ -1068,9 +1068,7 @@ LAB_08065fe4:
     strb       r0,[r5,#0x0]
     b          LAB_08066066
 LAB_0806600c:
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x6c]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x6c
     tst        r0,r0
     beq        LAB_08066066
     ldrb       r0,[r5,#0x1a]

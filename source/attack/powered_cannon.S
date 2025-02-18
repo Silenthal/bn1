@@ -37,7 +37,7 @@ _ts A_PoweredCannon_0_Init
 
 _ts A_PoweredCannon_1
     push       {lr}
-    mov        r0,#0x2
+    mov        r0,#PFI_Target_Solid
     bl         Field_GetPanelFlagGroup
     ldrb       r0,[r5,#Attack_cPos_x]
     ldrb       r2,[r5,#Attack_cPos_y]
@@ -133,7 +133,7 @@ PTR_CellPosition_ARRAY_08071670:
     .word CellPosition_ARRAY_08071678
 
 DAT_08071674:
-    .word 0x10019
+    strike_attribute PFI_Self_Default, effect_target=0, effect_type=QE_SwordStrike
 
 CellPosition_ARRAY_08071678:
     cell_pos -1, -1

@@ -68,7 +68,7 @@ _ts A_Skull_0_Init
     ldrb       r0,[r5,#Attack_family_family]
     lsr        r0,r0,#0x8
     bcs        LAB_08074dda
-    FieldObject_Create 0x1d, 0x60
+    FieldObject_Create PFI_Self_Extension_Armored, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
 LAB_08074dda:
@@ -194,7 +194,7 @@ LAB_08074eba:
     pop        {pc}
 
 DAT_08074ebc:
-    .word 0x270000
+    strike_attribute PFI_Grounded, effect_target=0, effect_type=QE_ShortExplosion
 
 
 _ts A_Skull_1_2

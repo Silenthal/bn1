@@ -63,8 +63,8 @@ _ts R_Spooky_0_Init
     ldr        r7,PTR_listSpookyActorDamage_0805b968
     ldrb       r0,[r7,r0]
     strh       r0,[r5,#0x24]
-    FieldObject_Create 0x9, 0x60
-    FieldObject_Create 0xf, 0x64
+    FieldObject_Create PFI_Self_Actor, 0x60
+    FieldObject_Create PFI_Moving, 0x64
     ldr        r0,[r5,#0x64]
     bl         FieldObject_Disable
     bl         Battle_LoadEnemyHp
@@ -159,7 +159,7 @@ LAB_0805b9d0:
     mov        r0,#0x9
     b          LAB_0805b9f8
 LAB_0805b9f6:
-    mov        r0,#0xf
+    mov        r0,#PFI_Moving
 LAB_0805b9f8:
     ldr        r1,[r5,#0x60]
     bl         Field_SetPanelFlagsOnEntity

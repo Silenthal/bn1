@@ -75,7 +75,7 @@ _ts A_NumberBall_0_Init
     str        r7,[r5,#Attack_param_60]
     ldrh       r0,[r7,#0x0]
     strh       r0,[r5,#Attack_counterA]
-    FieldObject_Create 0x1a, 0x64
+    FieldObject_Create PFI_Self_Extension_Grounded, Attack_param_64
     mov        r0,#0x1
     ldr        r7,[r5,#Attack_param_68]
     strb       r0,[r7,#0x0]
@@ -182,9 +182,7 @@ _ts A_NumberBall_2_Free
 
 _ts A_NumberBall_CheckDamage
     push       {lr}
-    mov        r0,#0xa
-    ldr        r1,[r5,#Attack_param_64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, Attack_param_64
     tst        r0,r0
     beq        LAB_08072374
     mov        r1,#0x10

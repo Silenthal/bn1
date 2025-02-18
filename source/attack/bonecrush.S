@@ -93,7 +93,7 @@ LAB_08074ac8:
     str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x25, Attack_param_64
+    FieldObject_Create PFI_Self_BreakingChaser, Attack_param_64
     mov        r0,#0x4
     str        r0,[r5,#Attack_state_s0]
     bl         A_BoneCrush_1_Main
@@ -264,9 +264,7 @@ _ts A_BoneCrush_CheckDamage
     ldrb       r0,[r5,#Attack_family_b1]
     tst        r0,r0
     bne        LAB_08074c52
-    mov        r0,#0x26
-    ldr        r1,[r5,#Attack_param_64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Extension, Attack_param_64
     tst        r0,r0
     beq        LAB_08074c60
     mov        r1,#0x10

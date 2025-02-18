@@ -54,7 +54,7 @@ LAB_08080aa4:
     ldrb       r0,[r5,#0x4]
     tst        r0,r0
     bne        LAB_08080ade
-    FieldObject_Create 0x32, 0x60
+    FieldObject_Create PFI_Sealed, 0x60
 LAB_08080ade:
     mov        r0,#0x1
     ldrb       r1,[r5,#0x16]

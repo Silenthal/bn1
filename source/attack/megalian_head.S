@@ -43,7 +43,7 @@ _ts A_MegalianHead_0_Init
     mov        r1,#0x1
     eor        r0,r1
     bl         SpritePtr_SetFlipType
-    FieldObject_Create 0x1b, 0x60
+    FieldObject_Create PFI_RattonMegalian, Attack_param_60
     mov        r0,#0x4
     strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x0

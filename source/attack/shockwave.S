@@ -86,7 +86,7 @@ LAB_08070858:
     ldrb       r0,[r5,#Attack_family_family]
     tst        r0,r0
     beq        LAB_080708ca
-    FieldObject_Create 0x3, Attack_param_64
+    FieldObject_Create PFI_Self_Grounded, Attack_param_64
     mov        r0,#0x4
     str        r0,[r5,#Attack_state_s0]
     bl         A_Shockwave_1_Main
@@ -257,7 +257,7 @@ _nt A_Shockwave_CheckTargetDamage
     mov        r2,#0x2
     tst        r0,r2
     beq        LAB_08070a12
-    mov        r0,#0x2
+    mov        r0,#PFI_Target_Solid
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08070a12

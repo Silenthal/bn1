@@ -54,7 +54,7 @@ _ts A_Buster_0_Init
     str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x1, Attack_param_64
+    FieldObject_Create PFI_Self_Default, Attack_param_64
     mov        r0,#0x4
     str        r0,[r5,#Attack_state_s0]
     bl         A_Buster_1_Main
@@ -125,9 +125,7 @@ _nt A_Buster_2_Free
 
 _ts A_Buster_IsContact
     push       {lr}
-    mov        r0,#0x2
-    ldr        r1,[r5,#Attack_param_64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Solid, Attack_param_64
     tst        r0,r0
     beq        LAB_0807128a
     ldr        r7,[r5,#Attack_param_60]

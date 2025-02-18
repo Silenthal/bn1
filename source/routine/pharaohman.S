@@ -62,8 +62,8 @@ _ts R_PharaohMan_0_Init
     ldr        r7,PTR_INT_ARRAY_0806ae58
     ldr        r2,[r7,r2]
     str        r2,[r5,#0x48]
-    FieldObject_Create 0x9, 0x60
-    FieldObject_Create 0xf, 0x64
+    FieldObject_Create PFI_Self_Actor, 0x60
+    FieldObject_Create PFI_Moving, 0x64
     ldr        r0,[r5,#0x64]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -144,7 +144,7 @@ LAB_0806aeae:
     ldrb       r2,[r5,#0x17]
     tst        r2,r2
     bne        LAB_0806aed6
-    mov        r0,#0xf
+    mov        r0,#PFI_Moving
 LAB_0806aed6:
     bl         Field_SetPanelFlagsOnEntity
     ldrh       r0,[r5,#0x20]

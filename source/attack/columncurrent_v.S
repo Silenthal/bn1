@@ -47,7 +47,7 @@ _ts A_ColumnCurrentV_0
     mov        r0,#0x32
     strh       r0,[r5,#Attack_hpCurrent]
     strh       r0,[r5,#Attack_hpMax]
-    FieldObject_Create 0x1c, 0x60
+    FieldObject_Create PFI_Self_Extension_Moving, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -153,9 +153,7 @@ _ts A_ColumnCurrentV_CheckDamage
     mov        r0,#0x3
     bl         Battle_GetBattleFlagCurrent
     bne        LAB_0807573e
-    mov        r0,#0xa
-    ldr        r1,[r5,#Attack_param_60]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, Attack_param_60
     tst        r0,r0
     beq        LAB_0807575e
     ldrb       r0,[r5,#Attack_element]

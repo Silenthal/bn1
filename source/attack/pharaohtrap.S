@@ -41,7 +41,7 @@ _ts A_PharaohTrap_0_Init
     strb       r0,[r5,#Attack_canBeDamaged]
     strh       r0,[r5,#Attack_damage]
     str        r0,[r5,#Attack_param_5C]
-    FieldObject_Create 0x2b, 0x60
+    FieldObject_Create PFI_Trap, Attack_param_60
     mov        r0,#0x4
     strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0xff

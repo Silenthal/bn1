@@ -87,14 +87,8 @@ LAB_0805b4ec:
     strh       r0,[r5,#0x24]
     mov        r0,#0x0
     strb       r0,[r5,#0x1a]
-    mov        r0,#0x9
-    mov        r3,#0x64
-    add        r1,r5,r3
-    bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r3,#0x68
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x64, offset_reg=3
+    FieldObject_Create PFI_Moving, 0x68, offset_reg=3
     ldr        r0,[r5,#0x68]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -137,9 +131,7 @@ LAB_0805b55c:
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0805b594
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x64
     tst        r0,r0
     beq        LAB_0805b5b0
     ldrb       r0,[r5,#0x1a]

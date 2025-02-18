@@ -43,20 +43,11 @@ _ts R_Cloudy_0_Init
     strb       r0,[r5,#0x8]
     mov        r0,#0x1
     strb       r0,[r5,#0x17]
-    FieldObject_Create 0x9, 0x60
+    FieldObject_Create PFI_Self_Actor, 0x60
     ldr        r0,[r5,#0x60]
     mov        r1,#0x1e
     strb       r1,[r0,#0x8]
-    bl         FieldObject_Alloc
-    str        r0,[r5,#0x64]
-    mov        r1,#0x4
-    lsl        r1,r1,#0x8
-    str        r1,[r0,#0xc]
-    mov        r1,#0x0
-    strb       r1,[r0,#0x6]
-    mov        r1,#0x0
-    strh       r1,[r0,#0x8]
-    bl         FieldObject_Disable
+    FieldObject_CreateInitMoving 0x64
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x4
@@ -127,7 +118,7 @@ LAB_0805efc0:
     mov        r0,#0x9
     b          LAB_0805efe2
 LAB_0805efe0:
-    mov        r0,#0xf
+    mov        r0,#PFI_Moving
 LAB_0805efe2:
     ldr        r1,[r5,#0x60]
     bl         Field_SetPanelFlagsOnEntity

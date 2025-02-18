@@ -51,7 +51,7 @@ _ts A_Cloudy_0_Init
     bl         SpritePtr_SetFlipType
     mov        r0,#0x3
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x3, Attack_param_60
+    FieldObject_Create PFI_Self_Grounded, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
     bl         A_Cloudy_1_Main
@@ -84,7 +84,7 @@ LAB_0807334e:
     mov        r2,#0x2
     tst        r0,r2
     beq        LAB_08073378
-    mov        r0,#0x2
+    mov        r0,#PFI_Target_Solid
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08073378

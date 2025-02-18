@@ -284,7 +284,7 @@ _ts R_RollC_1_2_2
     bne        LAB_08067dde
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    mov        r0,#0x2
+    mov        r0,#PFI_Target_Solid
     bl         Field_GetPanelFlagGroup
     push       {r1}
     ldrb       r0,[r5,#0x18]

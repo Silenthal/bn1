@@ -46,7 +46,7 @@ _ts A_Bakufu_0_Init
     strb       r0,[r5,#Attack_bc]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x1, Attack_param_64
+    FieldObject_Create PFI_Self_Default, Attack_param_64
     mov        r0,#0x76
     bl         Sound_PlaySE
     bl         A_Bakufu_1_Main

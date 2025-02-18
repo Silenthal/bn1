@@ -106,14 +106,8 @@ _ts R_GutsMan_0_Init
     strh       r0,[r5,#0x24]
     mov        r0,#0x0
     strb       r0,[r5,#0x1a]
-    mov        r0,#0x9
-    mov        r3,#0x70
-    add        r1,r5,r3
-    bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r3,#0x74
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x70, offset_reg=3
+    FieldObject_Create PFI_Moving, 0x74, offset_reg=3
     ldr        r0,[r5,#0x74]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -418,9 +412,7 @@ _ts R_GutsMan_1_4_0_StartAnim
     push       {lr}
     ldr        r0,[r5,#0x74]
     bl         FieldObject_Disable
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x70
     mov        r0,#0x6
     strb       r0,[r5,#0x14]
     mov        r0,#0xff
@@ -543,11 +535,11 @@ LAB_0805c482:
     lsl        r0,r0,#0x10
     sub        r1,r1,r0
     mov        r0,#0x0
-    mov        r4,#0x19
-    mov        r6,#0x2
+    mov        r4,#QE_SwordStrike @ effect_type
+    mov        r6,#PFI_Target_Solid @ effect_target
     lsl        r6,r6,#0x18
     orr        r4,r6
-    mov        r6,#0x1f
+    mov        r6,#PFI_Self_Block @ attribute
     lsl        r6,r6,#0x10
     orr        r4,r6
     ldr        r7,[r5,#0x78]
@@ -763,7 +755,7 @@ LAB_0805c63a:
     pop        {pc}
 
 DAT_0805c63c:
-    .word 0x2230001
+    strike_attribute PFI_Self_Push, effect_target=PFI_Target_Solid, effect_type=QE_SimpleHit
 
 
 _ts R_GutsMan_1_7_2_Next
@@ -896,9 +888,7 @@ _ts R_GutsMan_CheckDamage
     sub        r0,#0x1
     strh       r0,[r5,r3]
     bne        LAB_0805c738
-    mov        r0,#0x9
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Actor, 0x70
     b          LAB_0805c7a0
 LAB_0805c738:
     lsr        r0,r0,#0x1
@@ -909,9 +899,7 @@ LAB_0805c738:
     strb       r0,[r5,#0x0]
     b          LAB_0805c7a0
 LAB_0805c746:
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x70]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x70
     tst        r0,r0
     beq        LAB_0805c7a0
     ldrb       r0,[r5,#0x1a]
@@ -936,9 +924,7 @@ LAB_0805c776:
     bl         Sound_PlaySE
     ldr        r0,[r5,#0x70]
     bl         FieldObject_SetDeletedFlag
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x70
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

@@ -79,16 +79,10 @@ _ts R_Popper_0_Init
     strh       r0,[r5,#0x24]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
-    mov        r0,#0x9
-    mov        r3,#0x74
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x74, offset_reg=3
     ldr        r0,[r5,#0x74]
     bl         FieldObject_Disable
-    mov        r0,#0xf
-    mov        r3,#0x78
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Moving, 0x78, offset_reg=3
     mov        r0,#0x4
     str        r0,[r5,#0x8]
     mov        r0,#0x4
@@ -533,7 +527,7 @@ _ts R_Popper_CheckDamage
     mov        r2,#0x2
     tst        r0,r2
     beq        LAB_08062cb4
-    mov        r0,#0xa
+    mov        r0,#PFI_Target_Object
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_08062cb4

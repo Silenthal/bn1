@@ -123,7 +123,7 @@ _ts A_ColumnCurrentH_0
     str        r7,[r5,#Attack_param_60]
     mov        r0,#0x1e
     strh       r0,[r5,#Attack_counterA]
-    FieldObject_Create 0x3, Attack_param_64
+    FieldObject_Create PFI_Self_Grounded, Attack_param_64
     ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x4

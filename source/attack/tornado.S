@@ -52,10 +52,7 @@ _ts A_Tornado_0_Init
     strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    mov        r0,#0x3
-    mov        r3,#0x64
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Grounded, Attack_param_64, offset_reg=3
     mov        r0,#0x4
     str        r0,[r5,#Attack_state_s0]
     bl         A_Tornado_1_Main
@@ -135,9 +132,7 @@ _ts A_Tornado_2_Free
 
 _nt A_Tornado_CheckDamage
     push       {lr}
-    mov        r0,#0x2
-    ldr        r1,[r5,#Attack_param_64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Solid, Attack_param_64
     tst        r0,r0
     beq        LAB_080776d8
     ldrb       r0,[r5,#Attack_cPos_x]

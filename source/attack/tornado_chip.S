@@ -139,7 +139,7 @@ LAB_0807782a:
     pop        {pc}
 
 PTR_DAT_0807782c:
-    .word 0x2030019
+    strike_attribute PFI_Self_Grounded, effect_target=PFI_Target_Solid, effect_type=QE_SwordStrike
 
 
 _ts A_TornadoC_2_Free

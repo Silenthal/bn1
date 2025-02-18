@@ -85,11 +85,8 @@ _ts R_CanDevil_0_Init
     lsl        r0,r0,#0x1
     ldrh       r0,[r7,r0]
     strh       r0,[r5,#0x24]
-    FieldObject_Create 0x9, 0x68
-    mov        r0,#0xf
-    mov        r3,#0x6c
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x68
+    FieldObject_Create PFI_Moving, 0x6c, offset_reg=3
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_Disable
     mov        r0,#0x5c
@@ -158,9 +155,7 @@ LAB_080687f4:
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0806882c
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x68]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x68
     tst        r0,r0
     beq        LAB_08068848
     ldrb       r0,[r5,#0x1a]

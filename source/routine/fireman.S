@@ -109,11 +109,8 @@ _ts R_FireMan_0_Init
     strb       r1,[r5,#0x19]
     mov        r0,#0x0
     strh       r0,[r5,#0x24]
-    FieldObject_Create 0x9, 0x74
-    mov        r0,#0xf
-    mov        r3,#0x78
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x74
+    FieldObject_Create PFI_Moving, 0x78, offset_reg=3
     ldr        r0,[r5,#0x78]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -164,9 +161,7 @@ LAB_08059d7a:
     sub        r0,#0x1
     strh       r0,[r5,r3]
     bne        LAB_08059dac
-    mov        r0,#0x9
-    ldr        r1,[r5,#0x74]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Actor, 0x74
     b          LAB_08059e0e
 LAB_08059dac:
     lsr        r0,r0,#0x1
@@ -177,9 +172,7 @@ LAB_08059dac:
     strb       r0,[r5,#0x0]
     b          LAB_08059e0e
 LAB_08059dba:
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x74]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x74
     tst        r0,r0
     beq        LAB_08059e0e
     ldrb       r0,[r5,#0x1a]
@@ -206,9 +199,7 @@ LAB_08059df0:
     bl         Sound_PlaySE
     ldr        r0,[r5,#0x74]
     bl         FieldObject_SetDeletedFlag
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x74]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x74
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     b          LAB_08059e18
@@ -1093,9 +1084,7 @@ _ts R_FireMan_1_7_0_Flinch
     strb       r0,[r7,#0x6]
     ldr        r0,[r5,#0x78]
     bl         FieldObject_Disable
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x74]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x74
 LAB_0805a452:
     mov        r0,#0xb
     strb       r0,[r5,#0x14]

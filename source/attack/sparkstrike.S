@@ -63,7 +63,7 @@ LAB_080752b2:
     pop        {pc}
 
 DAT_080752bc:
-    .word 0x270000
+    strike_attribute PFI_Grounded, effect_target=0, effect_type=QE_ShortExplosion
 
 
 _ts A_SparkStrike_1_Main
@@ -152,7 +152,7 @@ LAB_08075356:
     pop        {pc}
 
 FamilyDetail_08075358:
-    .byte 0x19, 0x00, 0x03, 0x02
+    strike_attribute PFI_Self_Grounded, effect_target=PFI_Target_Solid, effect_type=QE_SwordStrike
 
 
 _ts A_SparkStrike_1_2

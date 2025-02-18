@@ -84,14 +84,8 @@ _ts R_ColorMan_0_Init
     lsl        r1,r1,#0x8
     mul        r0,r1
     str        r0,[r5,#0x48]
-    mov        r0,#0x9
-    mov        r3,#0x6c
-    add        r1,r5,r3
-    bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r3,#0x70
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x6c, offset_reg=3
+    FieldObject_Create PFI_Moving, 0x70, offset_reg=3
     ldr        r0,[r5,#0x70]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -280,9 +274,7 @@ _ts R_ColorMan_1_3_0_Flinch
     bl         R_ColorMan_DestroyOwnedAttacks
     ldr        r0,[r5,#0x70]
     bl         FieldObject_Disable
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x6c]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x6c
     mov        r0,#0x5
     strb       r0,[r5,#0x14]
     mov        r0,#0xff
@@ -706,9 +698,7 @@ _ts R_ColorMan_CheckDamage
     sub        r0,#0x1
     strh       r0,[r5,r3]
     bne        LAB_080638d4
-    mov        r0,#0x9
-    ldr        r1,[r5,#0x6c]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Actor, 0x6c
     b          LAB_08063958
 LAB_080638d4:
     lsr        r0,r0,#0x1
@@ -719,9 +709,7 @@ LAB_080638d4:
     strb       r0,[r5,#0x0]
     b          LAB_08063958
 LAB_080638e2:
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x6c]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x6c
     tst        r0,r0
     beq        LAB_08063958
     ldrb       r0,[r5,#0x1a]
@@ -762,9 +750,7 @@ LAB_0806392e:
     bl         Sound_PlaySE
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_SetDeletedFlag
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x6c]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x6c
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

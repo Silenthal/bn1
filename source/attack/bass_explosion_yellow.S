@@ -46,7 +46,7 @@ _ts A_BassExplosionYellow_0_Init
     strb       r0,[r5,#Attack_bc]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x3, Attack_param_64
+    FieldObject_Create PFI_Self_Grounded, Attack_param_64
     ldr        r7,[r5,#Attack_param_64]
     mov        r0,#0x8
     str        r0,[r7,#0xc]
@@ -121,9 +121,7 @@ _ts A_BassExplosionYellow_1_1
     strb       r0,[r5,#Attack_bc]
     mov        r0,#0x4
     strb       r0,[r5,#Attack_state_s2]
-    mov        r0,#0x3
-    ldr        r1,[r5,#Attack_param_64]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Grounded, Attack_param_64
     mov        r0,#0xe0
     bl         Sound_PlaySE
     b          LAB_08079e38

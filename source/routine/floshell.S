@@ -48,28 +48,28 @@ _ts R_Floshell_0_Init
     strb       r0,[r5,#0xc]
     strb       r0,[r5,#0x7]
     bl         SpritePtr_ObjModeSemiTransparent
-    FieldObject_Create 0x9, 0x60
+    FieldObject_Create PFI_Self_Actor, 0x60
     ldr        r0,[r5,#0x60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]
     bl         FieldObject_Alloc
     str        r0,[r5,#0x64]
     mov        r1,#0x1e
-    strh       r1,[r0,#0x8]
+    strh       r1,[r0,#FieldObject_damage]
     mov        r1,#0x0
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#FieldObject_attackerIdFlags]
     mov        r1,#0x0
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#FieldObject_element]
     mov        r1,#0x82
     lsl        r1,r1,#0x4
-    str        r1,[r0,#0xc]
+    str        r1,[r0,#FieldObject_panelFlags] @ PF_EnemyOccupied | PF_Solid
     ldrb       r1,[r5,#0x18]
     sub        r1,#0x1
-    strb       r1,[r0,#0x2]
-    strb       r1,[r0,#0x4]
+    strb       r1,[r0,#FieldObject_cPosCurr_x]
+    strb       r1,[r0,#FieldObject_cPosLast_x]
     ldrb       r1,[r5,#0x19]
-    strb       r1,[r0,#0x3]
-    strb       r1,[r0,#0x5]
+    strb       r1,[r0,#FieldObject_cPosCurr_y]
+    strb       r1,[r0,#FieldObject_cPosLast_y]
     bl         R_Floshell_SetShieldHealth
     bl         R_FloShell_SetShieldTimer
     mov        r0,#0x4
@@ -135,7 +135,7 @@ LAB_0805fea2:
     mov        r0,#0x9
     b          LAB_0805fec4
 LAB_0805fec2:
-    mov        r0,#0xf
+    mov        r0,#PFI_Moving
 LAB_0805fec4:
     ldr        r1,[r5,#0x60]
     bl         Field_SetPanelFlagsOnEntity

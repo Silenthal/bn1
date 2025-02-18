@@ -44,8 +44,8 @@ _ts R_BombMan_0_Init
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]
-    FieldObject_Create 0x9, 0x60
-    FieldObject_Create 0xf, 0x64
+    FieldObject_Create PFI_Self_Actor, 0x60
+    FieldObject_Create PFI_Moving, 0x64
     ldr        r0,[r5,#0x64]
     bl         FieldObject_Disable
     mov        r0,#0x4

@@ -48,8 +48,8 @@ _ts A_PuffyBubble_0_Init
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#Attack_cPos_x]
     strb       r1,[r5,#Attack_cPos_y]
-    FieldObject_Create 0x19, Attack_param_60
-    FieldObject_Create 0xf, 0x64
+    FieldObject_Create PFI_Self_Extension, Attack_param_60
+    FieldObject_Create PFI_Moving, Attack_param_64
     ldr        r0,[r5,#Attack_param_64]
     mov        r1,#0x40
     lsl        r1,r1,#0x10

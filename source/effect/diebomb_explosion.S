@@ -72,10 +72,7 @@ LAB_0807dd26:
     ldrb       r0,[r5,#0x4]
     tst        r0,r0
     beq        LAB_0807dd90
-    mov        r0,#0x15
-    mov        r3,#0x60
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Explosion, 0x60, offset_reg=3
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     bl         E_DieBombExplosion_1_Main
@@ -136,9 +133,7 @@ _ts E_DieBombExplosion_1_Main
     beq        LAB_0807de0c
     ldr        r0,[r5,#0x60]
     bl         FieldObject_DisableIfDeleted
-    mov        r0,#0x2
-    ldr        r1,[r5,#0x60]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Solid, 0x60
     tst        r0,r0
     beq        LAB_0807de0c
     ldr        r0,[r5,#0x60]

@@ -62,7 +62,7 @@ _ts A_Cube_0_Init
     str        r1,[r5,#Attack_pos_curr_y]
     mov        r0,#0x0
     str        r0,[r5,#Attack_pos_curr_z]
-    FieldObject_Create 0x10, Attack_param_64
+    FieldObject_Create PFI_FieldBlock, Attack_param_64
     ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
     ldrb       r0,[r5,#Attack_family_family]
@@ -247,9 +247,7 @@ _ts A_Cube_CheckDamage
     bcc        LAB_080737bc
     bl         A_Cube_SetSlide
 LAB_080737bc:
-    mov        r0,#0x11
-    ldr        r1,[r5,#Attack_param_64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_BlockDestroyer, Attack_param_64
     tst        r0,r0
     beq        LAB_08073816
     ldr        r1,PanelFlag_0807381c

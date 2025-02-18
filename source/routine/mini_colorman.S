@@ -87,14 +87,8 @@ _ts R_MiniColorMan_0_Init
     mov        r0,#0xc0
     lsl        r0,r0,#0x8
     str        r0,[r5,#0x48]
-    mov        r0,#0x1d
-    mov        r3,#0x68
-    add        r1,r5,r3
-    bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r3,#0x6c
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Extension_Armored, 0x68, offset_reg=3
+    FieldObject_Create PFI_Moving, 0x6c, offset_reg=3
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_Disable
     mov        r0,#0x4

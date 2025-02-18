@@ -57,7 +57,7 @@ _ts R_MagicMan_0_Init
     strb       r0,[r7,#0x0]
     strh       r1,[r7,#0x2]
     strb       r2,[r7,#0x4]
-    FieldObject_Create 0x9, 0x60
+    FieldObject_Create PFI_Self_Actor, 0x60
     mov        r0,#0x4
     strb       r0,[r5,#0xb]
     bl         Battle_LoadEnemyHp
@@ -116,7 +116,7 @@ LAB_0806a916:
     ldrb       r2,[r5,#0x17]
     tst        r2,r2
     bne        LAB_0806a932
-    mov        r0,#0xf
+    mov        r0,#PFI_Moving
 LAB_0806a932:
     bl         Field_SetPanelFlagsOnEntity
     ldrh       r0,[r5,#0x20]

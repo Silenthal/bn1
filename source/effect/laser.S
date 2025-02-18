@@ -72,16 +72,16 @@ LAB_0807e084:
     tst        r6,r6
     beq        LAB_0807e0c4
     push       {r0,r1}
-    strb       r0,[r6,#0x2]
-    strb       r0,[r6,#0x4]
-    strb       r1,[r6,#0x3]
-    strb       r1,[r6,#0x5]
+    strb       r0,[r6,#FieldObject_cPosCurr_x]
+    strb       r0,[r6,#FieldObject_cPosLast_x]
+    strb       r1,[r6,#FieldObject_cPosCurr_y]
+    strb       r1,[r6,#FieldObject_cPosLast_y]
     ldrh       r0,[r5,#0x24]
-    strh       r0,[r6,#0x8]
+    strh       r0,[r6,#FieldObject_damage]
     mov        r0,#0x0
-    strb       r0,[r6,#0x6]
+    strb       r0,[r6,#FieldObject_element]
     ldr        r0,DAT_0807e0cc
-    str        r0,[r6,#0xc]
+    str        r0,[r6,#FieldObject_panelFlags]
     str        r6,[r7,#0x0]
     add        r0,r6,#0x0
     bl         FieldObject_Disable
@@ -97,7 +97,7 @@ LAB_0807e0c4:
 
 
 DAT_0807e0cc:
-    .word 0x4088
+    .word PF_Ground|PF_Enemy|PF_Break
 
 
 _ts E_Laser_1_Main

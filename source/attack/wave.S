@@ -49,7 +49,7 @@ _ts A_Wave_0_Init
     strh       r0,[r5,#Attack_state_s2]
     mov        r0,#0x24
     strh       r0,[r5,#Attack_counterA]
-    FieldObject_Create 0x3, Attack_param_60
+    FieldObject_Create PFI_Self_Grounded, Attack_param_60
     ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1
     eor        r0,r1

@@ -106,7 +106,7 @@ LAB_0807176c:
     bl         A_Steal_CheckEntityHit
     tst        r0,r0
     beq        LAB_08071792
-    mov        r0,#0x1
+    mov        r0,#PFI_Self_Default
     bl         Field_GetPanelFlagGroup
     add        r4,r1,#0x0
     ldrb       r0,[r5,#Attack_cPos_x]
@@ -179,7 +179,7 @@ _nt A_Steal_CheckEntityHit
     ldrb       r1,[r5,#Attack_cPos_y]
     bl         FieldObject_GetPanelFlags
     push       {r0}
-    mov        r0,#0x34
+    mov        r0,#PFI_Target_NoStealing
     bl         Field_GetPanelFlagGroup
     pop        {r0}
     tst        r0,r1

@@ -67,7 +67,7 @@ _ts A_Candle_0_Init
     strb       r0,[r5,#Attack_element]
     mov        r0,#0x4
     strh       r0,[r5,#Attack_counterA]
-    FieldObject_Create 0x1c, 0x60
+    FieldObject_Create PFI_Self_Extension_Moving, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     mov        r1,#0xa
     strh       r1,[r0,#0x8]
@@ -255,9 +255,7 @@ _ts A_Candle_CheckDamage
     strh       r0,[r5,#Attack_counterB]
     bls        LAB_08076d8e
 LAB_08076d5a:
-    mov        r0,#0xa
-    ldr        r1,[r5,#Attack_param_60]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, Attack_param_60
     tst        r0,r0
     beq        LAB_08076da8
     push       {r1,r7}

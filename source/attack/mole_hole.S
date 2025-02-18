@@ -47,7 +47,7 @@ _ts A_MoleHole_0_Init
     str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0xf, 0x60
+    FieldObject_Create PFI_Moving, Attack_param_60
     mov        r0,#0x4
     str        r0,[r5,#Attack_state_s0]
     bl         A_MoleHole_1_Main

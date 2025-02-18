@@ -47,20 +47,11 @@ _ts R_Handy_0_Init
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]
-    FieldObject_Create 0x9, 0x60
+    FieldObject_Create PFI_Self_Actor, 0x60
     ldr        r7,[r5,#0x60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]
-    bl         FieldObject_Alloc
-    str        r0,[r5,#0x64]
-    mov        r1,#0x4
-    lsl        r1,r1,#0x8
-    str        r1,[r0,#0xc]
-    mov        r1,#0x0
-    strb       r1,[r0,#0x6]
-    mov        r1,#0x0
-    strh       r1,[r0,#0x8]
-    bl         FieldObject_Disable
+    FieldObject_CreateInitMoving 0x64
     mov        r0,#0x4
     strb       r0,[r5,#0xb]
     bl         Battle_LoadEnemyHp
@@ -122,7 +113,7 @@ LAB_080606b6:
     mov        r0,#0x9
     b          LAB_080606de
 LAB_080606dc:
-    mov        r0,#0xf
+    mov        r0,#PFI_Moving
 LAB_080606de:
     ldr        r1,[r5,#0x60]
     bl         Field_SetPanelFlagsOnEntity

@@ -50,7 +50,7 @@ _ts A_IronShield_0_Init
     str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x1d, 0x60
+    FieldObject_Create PFI_Self_Extension_Armored, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -70,9 +70,7 @@ _ts A_IronShield_1_Main
     mov        r2,#0x2
     tst        r1,r2
     beq        LAB_08076eac
-    mov        r0,#0xa
-    ldr        r1,[r5,#Attack_param_60]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, Attack_param_60
     ldr        r1,PanelFlag_08076ed8
     tst        r0,r1
     bne        LAB_08076e9a

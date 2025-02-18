@@ -47,7 +47,7 @@ _ts A_BassExplosionBlue_0_Init
     strh       r0,[r5,#Attack_counterA]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x3, Attack_param_64
+    FieldObject_Create PFI_Self_Grounded, Attack_param_64
     mov        r0,#0xe0
     bl         Sound_PlaySE
     pop        {pc}

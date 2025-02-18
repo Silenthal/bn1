@@ -52,7 +52,7 @@ _ts R_Canodumb_0_Init
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]
-    FieldObject_Create 0x9, 0x60
+    FieldObject_Create PFI_Self_Actor, 0x60
     ldr        r7,[r5,#0x60]
     mov        r1,#0x20
     strb       r1,[r7,#0x8]

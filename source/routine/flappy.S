@@ -75,14 +75,8 @@ _ts R_Flappy_0_Init
     str        r7,[r5,#0x78]
     ldrb       r0,[r7,#0x6]
     strh       r0,[r5,#0x24]
-    mov        r0,#0x9
-    mov        r3,#0x70
-    add        r1,r5,r3
-    bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r3,#0x74
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x70, offset_reg=3
+    FieldObject_Create PFI_Moving, 0x74, offset_reg=3
     ldr        r0,[r5,#0x74]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -421,9 +415,7 @@ _ts R_Flappy_1_3_0_Teleport
     push       {r5}
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    mov        r0,#0xf
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Moving, 0x70
     mov        r0,#0x1
     strb       r0,[r5,#0x5]
     LoadMain battle, r7, r7
@@ -507,9 +499,7 @@ _ts R_Flappy_1_3_3_Quake
     push       {r5}
     bl         Camera_EnableScreenShake
     pop        {r5}
-    mov        r0,#0x9
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Actor, 0x70
     mov        r0,#0x0
     strb       r0,[r5,#0x5]
     ldrb       r0,[r5,#0x4]
@@ -725,7 +715,7 @@ _nt R_Flappy_CheckLive
     ldrb       r0,[r5,#0x5]
     tst        r0,r0
     bne        LAB_0805e8e8
-    mov        r0,#0xa
+    mov        r0,#PFI_Target_Object
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_0805e8e8

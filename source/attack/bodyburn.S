@@ -58,7 +58,7 @@ _ts A_BodyBurn_0_Init
     str        r0,[r5,#Attack_pos_curr_z]
     mov        r0,#0x2
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x3, Attack_param_6C
+    FieldObject_Create PFI_Self_Grounded, Attack_param_6C
     ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -174,9 +174,7 @@ _ts A_BodyBurn_CheckDamage
     mov        r1,#0x2
     tst        r0,r1
     beq        LAB_080773a4
-    mov        r0,#0x2
-    ldr        r1,[r5,#Attack_param_6C]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Solid, Attack_param_6C
     tst        r0,r0
     beq        LAB_080773a4
     ldr        r0,[r5,#Attack_param_6C]

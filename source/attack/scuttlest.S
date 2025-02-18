@@ -43,10 +43,10 @@ _ts A_Scuttlest_0_Init
     strb       r0,[r5,#Attack_canBeDamaged]
     strb       r0,[r5,#Attack_bc]
     strb       r0,[r5,#Attack_bd]
-    FieldObject_Create 0x9, Attack_param_60
+    FieldObject_Create PFI_Self_Actor, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
-    FieldObject_Create 0x32, Attack_param_64
+    FieldObject_Create PFI_Sealed, Attack_param_64
     ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x64
@@ -91,7 +91,7 @@ LAB_08077fde:
     mov        r0,#0x9
     b          LAB_08078000
 LAB_08077ffe:
-    mov        r0,#0xf
+    mov        r0,#PFI_Moving
 LAB_08078000:
     ldr        r1,[r5,#Attack_param_60]
     bl         Field_SetPanelFlagsOnEntity

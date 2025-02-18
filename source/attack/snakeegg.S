@@ -66,7 +66,7 @@ LAB_080796d4:
     mov        r0,#0x8
     lsl        r0,r0,#0x10
     str        r0,[r5,#Attack_diff_z]
-    ldr        r7,PTR_DAT_08079744
+    ldr        r7,ptrListAttackElement
     ldrb       r1,[r5,#Attack_family_family]
     lsl        r1,r1,#0x1d
     lsr        r1,r1,#0x1d
@@ -77,7 +77,7 @@ LAB_080796d4:
     mov        r0,#0x1e
     strh       r0,[r5,#Attack_hpCurrent]
     strh       r0,[r5,#Attack_hpMax]
-    ldr        r7,PTR_DAT_08079748
+    ldr        r7,ptrListAttackAttr
     ldrb       r0,[r7,r1]
     mov        r1,#0x64
     add        r1,r1,r5
@@ -91,21 +91,21 @@ LAB_080796d4:
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
-PTR_DAT_08079744:
-    .word DAT_0807974c
+ptrListAttackElement:
+    .word listAttackElement
 
-PTR_DAT_08079748:
-    .word DAT_0807974f
+ptrListAttackAttr:
+    .word listAttackAttr
 
-DAT_0807974c:
-    .byte 0x04
-    .byte 0x01
-    .byte 0x02
+listAttackElement:
+    .byte EL_Wood
+    .byte EL_Elec
+    .byte EL_Fire
 
-DAT_0807974f:
-    .byte 0x19
-    .byte 0x30
-    .byte 0x19
+listAttackAttr:
+    .byte PFI_Self_Extension
+    .byte PFI_Self_Numbing
+    .byte PFI_Self_Extension
 
     .align 2, 0
 
@@ -479,9 +479,7 @@ _ts A_SnakeEgg_CheckDamage
     mov        r2,#0x2
     tst        r1,r2
     beq        LAB_08079a3a
-    mov        r0,#0xa
-    ldr        r1,[r5,#Attack_param_64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, Attack_param_64
     tst        r0,r0
     beq        LAB_08079a3a
     push       {r1,r7}

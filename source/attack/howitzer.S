@@ -42,7 +42,7 @@ _ts A_Howitzer_0_Init
     bl         SpritePtr_NoShadow
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x18, Attack_param_60
+    FieldObject_Create PFI_Self_Breaking, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
     ldrb       r0,[r5,#Attack_family_b2]

@@ -28,7 +28,7 @@ _ts A_Shotgun_0_Init
     push       {lr}
     bl         Field_GetAttackDirectionOffset_MP
     str        r0,[r5,#Attack_diff_x]
-    FieldObject_Create 0x1, Attack_param_60
+    FieldObject_Create PFI_Self_Default, Attack_param_60
     mov        r0,#0x4
     str        r0,[r5,#Attack_state_s0]
     bl         A_Shotgun_1_Main
@@ -75,9 +75,7 @@ _nt A_Shotgun_2_Free
 
 _ts A_Shotgun_CheckTargetDamage
     push       {lr}
-    mov        r0,#0x2
-    ldr        r1,[r5,#Attack_param_60]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Solid, Attack_param_60
     tst        r0,r0
     beq        LAB_08070478
     ldr        r0,[r5,#Attack_param_60]

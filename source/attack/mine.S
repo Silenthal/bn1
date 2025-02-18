@@ -49,7 +49,7 @@ _ts A_Mine_0_Init
     ldr        r7,PTR_USHORT_ARRAY_08075824
     ldrh       r0,[r7,r0]
     strh       r0,[r5,#Attack_damage]
-    FieldObject_Create 0x2b, 0x60
+    FieldObject_Create PFI_Trap, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1

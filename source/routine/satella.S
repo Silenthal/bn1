@@ -63,7 +63,7 @@ _ts R_Satella_0_Init
     strh       r0,[r5,#0x24]
     mov        r0,#0x0
     strb       r0,[r5,#0x1a]
-    FieldObject_Create 0x9, 0x64
+    FieldObject_Create PFI_Self_Actor, 0x64
     mov        r0,#0x4
     str        r0,[r5,#0x8]
     mov        r0,#0x4
@@ -352,7 +352,7 @@ LAB_0806d71a:
     pop        {pc}
 
 DAT_0806d71c:
-    .word 0x100FF
+    strike_attribute PFI_Self_Default
 
 
 _ts R_Satella_1_3_4
@@ -497,9 +497,7 @@ _ts R_Satella_CheckDamage
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0806d836
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x64
     tst        r0,r0
     beq        LAB_0806d854
     ldrb       r0,[r5,#0x1a]

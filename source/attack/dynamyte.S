@@ -60,7 +60,7 @@ _ts A_Dynamyte_0_Init
     strb       r0,[r5,#Attack_element]
     mov        r0,#0x93
     bl         Sound_PlaySE
-    FieldObject_Create 0x1c, 0x64
+    FieldObject_Create PFI_Self_Extension_Moving, Attack_param_64
     ldr        r0,[r5,#Attack_param_64]
     bl         FieldObject_Disable
     ldr        r0,DAT_08078de4
@@ -387,9 +387,7 @@ _ts A_Dynamyte_CheckDamage
     sub        r0,#0x1
     str        r0,[r5,#Attack_param_60]
     bls        LAB_0807905a
-    mov        r0,#0xa
-    ldr        r1,[r5,#Attack_param_64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, Attack_param_64
     tst        r0,r0
     beq        LAB_08079074
     push       {r1,r7}

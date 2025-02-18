@@ -39,7 +39,7 @@ _ts A_LifeVirusMeteorExplosion_0_Init
     bl         SpritePtr_EnableShadow
     mov        r0,#0x3
     strb       r0,[r5,#Attack_header_entityFlags]
-    FieldObject_Create 0x3, Attack_param_60
+    FieldObject_Create PFI_Self_Grounded, Attack_param_60
     mov        r0,#0x4
     strb       r0,[r5,#Attack_state_s0]
     mov        r0,#0x9c

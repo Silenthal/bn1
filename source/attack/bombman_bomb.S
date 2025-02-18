@@ -44,7 +44,7 @@ _ts A_BombManBomb_0
     strb       r0,[r5,#Attack_bc]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0xd, 0x60
+    FieldObject_Create PFI_Self_Object, Attack_param_60
     mov        r0,#0x28
     strh       r0,[r5,#Attack_hpCurrent]
     mov        r0,#0x4
@@ -279,9 +279,7 @@ LAB_08077a5c:
     strb       r0,[r5,#Attack_state_s2]
     mov        r0,#0x3c
     strh       r0,[r5,#Attack_counterA]
-    mov        r0,#0xd
-    ldr        r1,[r5,#Attack_param_60]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, Attack_param_60
     mov        r0,#0x3
     strh       r0,[r5,#Attack_frameIndexCurr]
     mov        r0,#0x1

@@ -39,7 +39,7 @@ _ts A_Shuriken_0_Init
     bl         SpritePtr_EnableShadow
     mov        r0,#0x3
     strb       r0,[r5,#Attack_header_entityFlags]
-    FieldObject_Create 0x3, Attack_param_60
+    FieldObject_Create PFI_Self_Grounded, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
     mov        r0,#0x4

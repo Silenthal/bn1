@@ -53,7 +53,7 @@ _ts A_ColorManBall_0_Init
     strh       r0,[r5,#Attack_hpMax]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x1a, 0x60
+    FieldObject_Create PFI_Self_Extension_Grounded, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -252,9 +252,7 @@ _ts A_ColorManBall_CheckDamage
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_080751b0
-    mov        r0,#0xa
-    ldr        r1,[r5,#Attack_param_60]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, Attack_param_60
     tst        r0,r0
     beq        LAB_080751e6
     mov        r1,#0x10

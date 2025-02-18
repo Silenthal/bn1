@@ -64,7 +64,7 @@ _ts A_Tower_0_Init
     ldrb       r0,[r5,#Attack_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_08070d7c
-    FieldObject_Create 0x3, Attack_param_6C
+    FieldObject_Create PFI_Self_Grounded, Attack_param_6C
     ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_Disable
 LAB_08070d7c:
@@ -343,9 +343,7 @@ _ts A_Tower_CheckTargetDamage
     push       {lr}
     bl         Battle_IsInputLocked
     bne        LAB_08070f8c
-    mov        r0,#0x2
-    ldr        r1,[r5,#Attack_param_6C]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Solid, Attack_param_6C
     tst        r0,r0
     beq        LAB_08070f94
     ldr        r0,[r5,#Attack_param_6C]

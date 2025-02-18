@@ -88,10 +88,7 @@ _ts A_MagicFire_0_Init
     str        r0,[r5,#Attack_diff_x]
     mov        r0,#0x2
     strb       r0,[r5,#Attack_element]
-    mov        r0,#0x3
-    mov        r3,#0x64
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Grounded, Attack_param_64, offset_reg=3
     mov        r0,#0x4
     str        r0,[r5,#Attack_state_s0]
     bl         A_MagicFire_1_Main
@@ -227,9 +224,7 @@ _ts A_MagicFire_3_Free
 
 _nt A_MagicFire_IsHit
     push       {lr}
-    mov        r0,#0x2
-    ldr        r1,[r5,#Attack_param_64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Solid, Attack_param_64
     tst        r0,r0
     beq        LAB_08074a14
     mov        r0,#0x19

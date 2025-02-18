@@ -75,10 +75,7 @@ _ts R_Fanner_0_Init
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x0
     strb       r0,[r5,#0x1a]
-    mov        r0,#0x9
-    mov        r3,#0x64
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x64, offset_reg=3
     mov        r0,#0x4
     str        r0,[r5,#0x8]
     mov        r0,#0x4
@@ -132,9 +129,7 @@ LAB_080684f4:
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0806852c
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x64
     tst        r0,r0
     beq        LAB_08068548
     ldrb       r0,[r5,#0x1a]
@@ -304,7 +299,7 @@ _ts R_Fanner_1_3_0
 
 
 DAT_08068640:
-    .word 0x2700FF
+    strike_attribute PFI_Grounded
 
 
 _ts R_Fanner_1_3_1

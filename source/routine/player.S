@@ -132,11 +132,11 @@ LAB_0805637a:
     push       {r5}
     bl         BattleUi_InitHpDisplay
     pop        {r5}
-    mov        r0,#0x9
+    mov        r0,#PFI_Self_Actor
     ldr        r1,[r5,#0x74]
     add        r1,#0x44
     bl         Field_CreateEntity
-    mov        r0,#0xf
+    mov        r0,#PFI_Moving
     ldr        r1,[r5,#0x74]
     add        r1,#0x48
     bl         Field_CreateEntity
@@ -1572,7 +1572,7 @@ PTR_PTR_FUN_08056f7e_08056e8c:
 
 _ts R_Player_CalculateDamage
     push       {lr}
-    mov        r0,#0xa
+    mov        r0,#PFI_Target_Object
     ldr        r1,[r5,#0x74]
     ldr        r1,[r1,#0x44]
     bl         Field_GetDamageOnEntity
@@ -3843,7 +3843,7 @@ LAB_08057e72:
     pop        {pc}
 
 FamilyDetail_08057e74:
-    .byte 0x01, 0x00, 0x23, 0x02
+    strike_attribute PFI_Self_Push, effect_target=PFI_Target_Solid, effect_type=QE_SimpleHit
 
 
 _ts BC_TowerPunch_4_RecoverTower
@@ -4013,7 +4013,7 @@ LAB_08057f70:
 LAB_08057fac:
     push       {r0,r1,r5,r6}
     push       {r0,r1}
-    mov        r0,#0x1
+    mov        r0,#PFI_Self_Default
     bl         Field_GetPanelFlagGroup
     add        r4,r1,#0x0
     pop        {r0,r1}
@@ -4574,7 +4574,7 @@ _ts BC_Hammer_1
     b          LAB_080583a2
 LAB_08058362:
     push       {r0,r1}
-    mov        r0,#0x18
+    mov        r0,#PFI_Self_Breaking
     bl         Field_GetPanelFlagGroup
     add        r4,r1,#0x0
     pop        {r0,r1}
@@ -4752,7 +4752,7 @@ LAB_080584b2:
     pop        {pc}
 
 DAT_080584b4:
-    .word 0xA0000
+    strike_attribute PFI_Target_Object, effect_target=0, effect_type=QE_ShortExplosion
 
 
 _ts BC_Dash_3
@@ -4805,7 +4805,7 @@ LAB_08058518:
 
 
 FamilyDetail_0805851c:
-    .byte 0x19, 0x00, 0x01, 0x02
+    strike_attribute PFI_Self_Default, effect_target=PFI_Target_Solid, effect_type=QE_SwordStrike
 
 
 _ts BC_Dash_4
@@ -5491,7 +5491,7 @@ LAB_080589ee:
     pop        {pc}
 
 DAT_080589f0:
-    .word 0x330019
+    strike_attribute PFI_Target_BreakingBlock, effect_target=0, effect_type=QE_SwordStrike
 
 
 _ts BC_Gaia_2

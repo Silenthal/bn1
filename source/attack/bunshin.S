@@ -84,7 +84,7 @@ LAB_080793c2:
     ldrb       r2,[r5,#Attack_canBeDamaged]
     tst        r2,r2
     bne        LAB_080793e4
-    mov        r0,#0xf
+    mov        r0,#PFI_Moving
 LAB_080793e4:
     bl         Field_SetPanelFlagsOnEntity
     bl         A_Bunshin_CheckParent
@@ -422,10 +422,10 @@ _nt Attack_Bunshin_Create
     str        r2,[r5,#Attack_pos_curr_z]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    FieldObject_Create 0x9, Attack_param_60
+    FieldObject_Create PFI_Self_Actor, Attack_param_60
     ldr        r0,[r5,#Attack_param_60]
     bl         FieldObject_Disable
-    FieldObject_Create 0xf, 0x64
+    FieldObject_Create PFI_Moving, Attack_param_64
 LAB_0807963a:
     add        r7,r5,#0x0
     pop        {r5,pc}

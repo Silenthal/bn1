@@ -41,7 +41,7 @@ _ts E_Scuttlest_0_Init
     strb       r0,[r5,#0x0]
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
-    FieldObject_Create 0xf, 0x60
+    FieldObject_Create PFI_Moving, 0x60
     bl         E_Scuttlest_1_Init
     pop        {pc}
 

@@ -154,7 +154,7 @@ PTR_listSwordRange1x1_0806fb88:
     .word listSwordRange1x1
 
 FamilyDetail_0806fbb0:
-    .byte 0x19, 0x00, 0x01, 0x02
+    strike_attribute PFI_Self_Default, effect_target=PFI_Target_Solid, effect_type=QE_SwordStrike
 
 listSwordRange1x1:
     cell_pos 0, 0

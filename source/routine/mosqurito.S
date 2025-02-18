@@ -78,8 +78,8 @@ _ts R_Mosqurito_0_Init
     ldr        r0,[r7,#0x4]
     neg        r0,r0
     str        r0,[r5,#0x44]
-    FieldObject_Create 0xe, 0x6c
-    FieldObject_Create 0xf, 0x70
+    FieldObject_Create PFI_Self_Actor_Drain, 0x6c
+    FieldObject_Create PFI_Moving, 0x70
     ldr        r0,[r5,#0x70]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -636,9 +636,7 @@ _nt R_Mosqurito_CheckDamage
     ldrb       r0,[r5,#0x17]
     tst        r0,r0
     bne        LAB_0806922a
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x6c]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x6c
     tst        r0,r0
     beq        LAB_0806922a
     str        r0,[r5,#0x74]

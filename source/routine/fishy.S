@@ -52,14 +52,14 @@ _ts R_Fishy_0_Init
     bl         Battle_EntitySpriteCoordsToCell
     strb       r0,[r5,#0x18]
     strb       r1,[r5,#0x19]
-    FieldObject_Create 0x9, 0x60
+    FieldObject_Create PFI_Self_Actor, 0x60
     ldr        r7,[r5,#0x60]
     ldrb       r0,[r5,#0x4]
     mov        r1,#0x78
     mul        r0,r1
     add        r0,#0x1e
     strh       r0,[r7,#0x8]
-    FieldObject_Create 0xf, 0x64
+    FieldObject_Create PFI_Moving, 0x64
     ldr        r0,[r5,#0x64]
     bl         FieldObject_Disable
     mov        r0,#0x0
@@ -123,7 +123,7 @@ LAB_0805cbc6:
     mov        r0,#0x9
     b          LAB_0805cbee
 LAB_0805cbec:
-    mov        r0,#0xf
+    mov        r0,#PFI_Moving
 LAB_0805cbee:
     ldr        r1,[r5,#0x60]
     bl         Field_SetPanelFlagsOnEntity

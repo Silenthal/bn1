@@ -66,10 +66,10 @@ LAB_08002cae:
     mul        r2,r3
     add        r0,r0,r2
     mov        r6,#0x7
-    strb       r6,[r0,#0x0]
-    str        r1,[r0,#0x10]
-    ldrb       r2,[r5,#0x1]
-    strb       r2,[r0,#0x7]
+    strb       r6,[r0,#FieldObject_flags]
+    str        r1,[r0,#FieldObject_idFlag]
+    ldrb       r2,[r5,#Entity_header_routineType]
+    strb       r2,[r0,#FieldObject_routineType]
 LAB_08002cc6:
     mov        pc,lr
 PTR_FieldObject_ARRAY_08002cc8:
@@ -111,7 +111,7 @@ PTR_gBitsetFieldObject_08002ce8:
 @@ r6: FieldObject* fieldObject - The field object being checked.
 @@ Out:
 @@ r0: PanelFlag attackerPanelFlags - The panel flags of the attacker.
-@@ r1: int attackerIdFlag - The fiedl object ID of the attacker.
+@@ r1: int attackerIdFlag - The field object ID of the attacker.
 @@ r2: int damageNone - The total untyped damage.
 @@ r3: int damageElec - The total electric damage.
 @@ r4: int damageFire - The total fire damage.

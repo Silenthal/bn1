@@ -99,14 +99,8 @@ _ts R_IceMan_0_Init
     strh       r0,[r5,#0x24]
     mov        r0,#0x3
     strb       r0,[r5,#0x1a]
-    mov        r0,#0x9
-    mov        r3,#0x70
-    add        r1,r5,r3
-    bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r3,#0x74
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x70, offset_reg=3
+    FieldObject_Create PFI_Moving, 0x74, offset_reg=3
     ldr        r0,[r5,#0x74]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -475,9 +469,7 @@ _ts R_IceMan_1_4_0_Flinch
     push       {lr}
     ldr        r0,[r5,#0x74]
     bl         FieldObject_Disable
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x70
     mov        r0,#0x8
     strb       r0,[r5,#0x14]
     mov        r0,#0xff
@@ -1065,7 +1057,7 @@ LAB_0806138c:
 
 
 DAT_08061390:
-    .word 0x2240019
+    .byte QE_SwordStrike, 0x00, PFI_Self_Grounded_Push, PFI_Target_Solid
 
 
 _ts R_IceMan_1_7_6_Next
@@ -1154,9 +1146,7 @@ _ts R_IceMan_CheckDamage
     sub        r0,#0x1
     strh       r0,[r5,r3]
     bne        LAB_08061440
-    mov        r0,#0x9
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Actor, 0x70
     b          LAB_080614a8
 LAB_08061440:
     lsr        r0,r0,#0x1
@@ -1167,9 +1157,7 @@ LAB_08061440:
     strb       r0,[r5,#0x0]
     b          LAB_080614a8
 LAB_0806144e:
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x70]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x70
     tst        r0,r0
     beq        LAB_080614a8
     ldrb       r0,[r5,#0x1a]
@@ -1194,9 +1182,7 @@ LAB_0806147e:
     bl         Sound_PlaySE
     ldr        r0,[r5,#0x70]
     bl         FieldObject_SetDeletedFlag
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x70
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

@@ -55,14 +55,14 @@ LAB_08077c86:
     tst        r6,r6
     beq        LAB_08077cae
     ldrh       r0,[r4,#0x0]
-    strh       r0,[r6,#0x2]
-    strh       r0,[r6,#0x4]
+    strh       r0,[r6,#FieldObject_cPosCurr]
+    strh       r0,[r6,#FieldObject_cPosLast]
     ldrh       r0,[r5,#Attack_damage]
-    strh       r0,[r6,#0x8]
+    strh       r0,[r6,#FieldObject_damage]
     mov        r0,#0x0
-    strb       r0,[r6,#0x6]
+    strb       r0,[r6,#FieldObject_element]
     ldr        r0,PanelFlag_08077cd4
-    str        r0,[r6,#0xc]
+    str        r0,[r6,#FieldObject_panelFlags]
     str        r6,[r7,#0x0]
     add        r0,r6,#0x0
     bl         FieldObject_Disable

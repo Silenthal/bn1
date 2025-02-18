@@ -54,7 +54,7 @@ _ts A_ShotgunBurst_0_Init
     ldrb       r0,[r5,#Attack_family_family]
     cmp        r0,#0x2
     bls        LAB_0807131e
-    FieldObject_Create 0x1, Attack_param_60
+    FieldObject_Create PFI_Self_Default, Attack_param_60
 LAB_0807131e:
     mov        r0,#0x4
     strb       r0,[r5,#Attack_state_s0]

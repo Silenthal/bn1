@@ -43,7 +43,7 @@ _ts A_Sarcophagus_0_Init
     strb       r0,[r5,#Attack_canBeDamaged]
     ldr        r0,DAT_08078508
     strh       r0,[r5,#Attack_damage]
-    FieldObject_Create 0xf, 0x60
+    FieldObject_Create PFI_Moving, Attack_param_60
     mov        r0,#0x4
     strb       r0,[r5,#Attack_state_s0]
     bl         A_Sarcophagus_1_Main
@@ -70,7 +70,7 @@ _ts A_Sarcophagus_1_Main
     ldrb       r2,[r5,#Attack_canBeDamaged]
     tst        r2,r2
     beq        LAB_08078528
-    mov        r0,#0x1d
+    mov        r0,#PFI_Self_Extension_Armored
 LAB_08078528:
     ldr        r1,[r5,#Attack_param_60]
     bl         Field_SetPanelFlagsOnEntity

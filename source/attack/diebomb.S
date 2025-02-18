@@ -72,10 +72,7 @@ _ts A_DieBomb_0_Init
     strh       r0,[r5,#Attack_damage]
     mov        r0,#0x0
     strb       r0,[r5,#Attack_element]
-    mov        r0,#0xf
-    mov        r3,#0x60
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Moving, Attack_param_60, offset_reg=3
     mov        r0,#0x93
     bl         Sound_PlaySE
     mov        r0,#0x4
@@ -175,7 +172,7 @@ _ts A_DieBomb_1_1_Bounce
     bpl        LAB_080728a8
     mov        r0,#0x1
     strb       r0,[r5,#Attack_family_b2]
-    mov        r0,#0x10
+    mov        r0,#PFI_FieldBlock
     bl         Field_GetPanelFlagGroup
     ldr        r7,[r5,#Attack_param_60]
     str        r1,[r7,#0xc]
@@ -280,9 +277,7 @@ _nt A_DieBomb_CheckDamage
     ldrb       r0,[r5,#Attack_family_b2]
     tst        r0,r0
     beq        LAB_08072998
-    mov        r0,#0x11
-    ldr        r1,[r5,#Attack_param_60]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_BlockDestroyer, Attack_param_60
     tst        r0,r0
     beq        LAB_08072998
     push       {r1}

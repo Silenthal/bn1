@@ -66,7 +66,7 @@ _ts A_Ratton_0_Init
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x14
     strh       r0,[r5,#Attack_counterA]
-    FieldObject_Create 0x1b, 0x60
+    FieldObject_Create PFI_RattonMegalian, Attack_param_60
     ldrb       r0,[r5,#Attack_owner]
     mov        r1,#0x1
     eor        r0,r1

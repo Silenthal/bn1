@@ -125,7 +125,7 @@ LAB_0807bd90:
     ldrb       r0,[r5,#0x4]
     lsl        r0,r0,#0x19
     bcs        LAB_0807be04
-    FieldObject_Create 0x4, 0x68
+    FieldObject_Create PFI_Self_Tower, 0x68
     mov        r0,#0x4
     strb       r0,[r5,#0x8]
     bl         E_Tower_1_Main
@@ -193,9 +193,7 @@ LAB_0807be60:
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0807be8e
-    mov        r0,#0x2
-    ldr        r1,[r5,#0x68]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Solid, 0x68
     tst        r0,r0
     beq        LAB_0807be8e
 LAB_0807be80:

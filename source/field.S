@@ -696,23 +696,23 @@ _ts Field_CreateEntity
     add        r2,r0,#0x0
     pop        {r0,r1}
     str        r7,[r1,#0x0]
-    str        r2,[r7,#0x10]
+    str        r2,[r7,#FieldObject_idFlag]
     mov        r2,#0x0
-    str        r2,[r7,#0x14]
-    ldrb       r1,[r5,#0x18]
-    ldrb       r2,[r5,#0x19]
-    strb       r1,[r7,#0x2]
-    strb       r1,[r7,#0x4]
-    strb       r2,[r7,#0x3]
-    strb       r2,[r7,#0x5]
-    ldrb       r1,[r5,#0x1a]
-    strb       r1,[r7,#0x6]
+    str        r2,[r7,#FieldObject_attackerIdFlags]
+    ldrb       r1,[r5,#Entity_cPosCurr_x]
+    ldrb       r2,[r5,#Entity_cPosCurr_y]
+    strb       r1,[r7,#FieldObject_cPosCurr_x]
+    strb       r1,[r7,#FieldObject_cPosLast_x]
+    strb       r2,[r7,#FieldObject_cPosCurr_y]
+    strb       r2,[r7,#FieldObject_cPosLast_y]
+    ldrb       r1,[r5,#Entity_element]
+    strb       r1,[r7,#FieldObject_element]
     push       {r7}
     bl         Field_GetPanelFlagGroup
     pop        {r7}
-    str        r1,[r7,#0xc]
-    ldrh       r1,[r5,#0x24]
-    strh       r1,[r7,#0x8]
+    str        r1,[r7,#FieldObject_panelFlags]
+    ldrh       r1,[r5,#Entity_damage]
+    strh       r1,[r7,#FieldObject_damage]
     pop        {pc}
 
 
@@ -801,16 +801,16 @@ PanelFlag_ARRAY_ARRAY_080010f4:
     @ 0 | 0x00
     .word 0x0
     .word 0x0
-    @ 1 | 0x01
+    @ 1 | 0x01 | PFI_Self_Default
     .word PF_Player
     .word PF_Enemy
-    @ 2 | 0x02
+    @ 2 | 0x02 | PFI_Target_Solid
     .word PF_EnemyOccupied | PF_Solid
     .word PF_PlayerOccupied | PF_Solid
-    @ 3 | 0x03
+    @ 3 | 0x03 | PFI_Self_Grounded
     .word PF_Ground | PF_Player
     .word PF_Ground | PF_Enemy
-    @ 4 | 0x04
+    @ 4 | 0x04 | PFI_Self_Tower
     .word PF_Player
     .word PF_Ground | PF_Enemy
     @ 5 | 0x05
@@ -825,31 +825,31 @@ PanelFlag_ARRAY_ARRAY_080010f4:
     @ 8 | 0x08
     .word PF_Ground | 0x100
     .word PF_Ground | 0x100
-    @ 9 | 0x09
+    @ 9 | 0x09 | PFI_Self_Actor
     .word PF_PlayerOccupied | PF_ActorPlayer
     .word PF_EnemyOccupied | PF_ActorEnemy
-    @ 10 | 0x0A
+    @ 10 | 0x0A | PFI_Target_Object
     .word PF_EnemyOccupied | PF_Enemy | PF_Solid | PF_FieldBlock | PF_Apple
     .word PF_PlayerOccupied | PF_Player | PF_Solid | PF_FieldBlock | PF_Apple
     @ 11 | 0x0B
     .word PF_Ground | PF_PlayerOccupied | PF_ActorPlayer
     .word PF_Ground | PF_EnemyOccupied | PF_ActorEnemy
-    @ 12 | 0x0C
+    @ 12 | 0x0C | PFI_Self_Actor_Armored
     .word PF_PlayerOccupied | PF_Armor | PF_ActorPlayer
     .word PF_EnemyOccupied | PF_Armor | PF_ActorEnemy
-    @ 13 | 0x0D
+    @ 13 | 0x0D | PFI_Self_Object
     .word PF_PlayerOccupied
     .word PF_EnemyOccupied
-    @ 14 | 0x0E
+    @ 14 | 0x0E | PFI_Self_Actor_Drain
     .word PF_PlayerOccupied | PF_ActorPlayer | PF_Drain
     .word PF_EnemyOccupied | PF_ActorEnemy | PF_Drain
-    @ 15 | 0x0F
+    @ 15 | 0x0F | PFI_Moving
     .word PF_Teleporting
     .word PF_Teleporting
-    @ 16 | 0x10
+    @ 16 | 0x10 | PFI_FieldBlock
     .word PF_Solid | PF_FieldBlock
     .word PF_Solid | PF_FieldBlock
-    @ 17 | 0x11
+    @ 17 | 0x11 | PFI_BlockDestroyer
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Player | PF_Enemy | PF_Solid | PF_Break | PF_FieldBlock
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Player | PF_Enemy | PF_Solid | PF_Break | PF_FieldBlock
     @ 18 | 0x12
@@ -861,37 +861,37 @@ PanelFlag_ARRAY_ARRAY_080010f4:
     @ 20 | 0x14
     .word PF_Ground | PF_Player | PF_PlayerPush
     .word PF_Ground | PF_Enemy | PF_EnemyPush
-    @ 21 | 0x15
+    @ 21 | 0x15 | PFI_Self_Explosion
     .word PF_Player | PF_DieBombExplosion
     .word PF_Enemy | PF_DieBombExplosion
-    @ 22 | 0x16
+    @ 22 | 0x16 | PFI_Self_Freezing
     .word PF_Player | PF_Freeze
     .word PF_Enemy | PF_Freeze
     @ 23 | 0x17
     .word PF_Ground | PF_Player | PF_Freeze
     .word PF_Ground | PF_Enemy | PF_Freeze
-    @ 24 | 0x18
+    @ 24 | 0x18 | PFI_Self_Breaking
     .word PF_Player | PF_Break
     .word PF_Enemy | PF_Break
-    @ 25 | 0x19
+    @ 25 | 0x19 | PFI_Self_Extension
     .word PF_PlayerOccupied | PF_Player
     .word PF_EnemyOccupied | PF_Enemy
-    @ 26 | 0x1A
+    @ 26 | 0x1A | PFI_Self_Extension_Grounded
     .word PF_Ground | PF_PlayerOccupied | PF_Player
     .word PF_Ground | PF_EnemyOccupied | PF_Enemy
-    @ 27 | 0x1B
+    @ 27 | 0x1B | PFI_RattonMegalian (same as PFI_Self_Extension_Grounded)
     .word PF_PlayerOccupied | PF_Player
     .word PF_Ground | PF_EnemyOccupied | PF_Enemy
-    @ 28 | 0x1C
+    @ 28 | 0x1C | PFI_Self_Extension_Moving
     .word PF_PlayerOccupied | PF_Player | PF_Teleporting
     .word PF_EnemyOccupied | PF_Enemy | PF_Teleporting
-    @ 29 | 0x1D
+    @ 29 | 0x1D | PFI_Self_Extension_Armored
     .word PF_PlayerOccupied | PF_Player | PF_Armor
     .word PF_EnemyOccupied | PF_Enemy | PF_Armor
     @ 30 | 0x1E
     .word PF_Player | PF_FieldBlock
     .word PF_Enemy | PF_FieldBlock
-    @ 31 | 0x1F
+    @ 31 | 0x1F | PFI_Self_Block
     .word PF_Ground | PF_Player | PF_FieldBlock
     .word PF_Ground | PF_Enemy | PF_FieldBlock
     @ 32 | 0x20
@@ -903,19 +903,19 @@ PanelFlag_ARRAY_ARRAY_080010f4:
     @ 34 | 0x22
     .word PF_Ground | PF_PlayerOccupied | PF_FieldBlock
     .word PF_Ground | PF_EnemyOccupied | PF_FieldBlock
-    @ 35 | 0x23
+    @ 35 | 0x23 | PFI_Self_Push
     .word PF_Player | PF_PlayerPush | PF_FieldBlock
     .word PF_Enemy | PF_EnemyPush | PF_FieldBlock
-    @ 36 | 0x24
+    @ 36 | 0x24 | PFI_Self_Grounded_Push
     .word PF_Ground | PF_Player | PF_PlayerPush | PF_FieldBlock
     .word PF_Ground | PF_Enemy | PF_EnemyPush | PF_FieldBlock
-    @ 37 | 0x25
+    @ 37 | 0x25 | PFI_Self_BreakingChaser
     .word PF_PlayerOccupied | PF_Break | PF_Chaser
     .word PF_EnemyOccupied | PF_Break | PF_Chaser
-    @ 38 | 0x26
+    @ 38 | 0x26 | PFI_Target_Extension
     .word PF_EnemyOccupied | PF_Enemy
     .word PF_PlayerOccupied | PF_Player
-    @ 39 | 0x27
+    @ 39 | 0x27 | PFI_Grounded
     .word PF_Ground
     .word PF_Ground
     @ 40 | 0x28
@@ -927,13 +927,13 @@ PanelFlag_ARRAY_ARRAY_080010f4:
     @ 42 | 0x2A
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Solid
     .word PF_PlayerOccupied | PF_EnemyOccupied | PF_Solid
-    @ 43 | 0x2B
+    @ 43 | 0x2B | PFI_Trap
     .word PF_Player | PF_Enemy | PF_Trap
     .word PF_Player | PF_Enemy | PF_Trap
     @ 44 | 0x2C
     .word PF_Player | PF_Numb
     .word PF_Enemy | PF_Numb
-    @ 45 | 0x2D
+    @ 45 | 0x2D | PFI_Self_GroundedNumb
     .word PF_Ground | PF_Player | PF_Numb
     .word PF_Ground | PF_Enemy | PF_Numb
     @ 46 | 0x2E
@@ -942,19 +942,19 @@ PanelFlag_ARRAY_ARRAY_080010f4:
     @ 47 | 0x2F
     .word PF_PlayerOccupied | PF_Numb
     .word PF_EnemyOccupied | PF_Numb
-    @ 48 | 0x30
+    @ 48 | 0x30 | PFI_Self_Numbing
     .word PF_PlayerOccupied | PF_Player | PF_Numb
     .word PF_EnemyOccupied | PF_Enemy | PF_Numb
     @ 49 | 0x31
     .word PF_EnemyOccupied | PF_Enemy | PF_Solid | PF_FieldBlock | PF_Drain
     .word PF_PlayerOccupied | PF_Player | PF_Solid | PF_FieldBlock | PF_Drain
-    @ 50 | 0x32
+    @ 50 | 0x32 | PFI_Sealed
     .word PF_Sealed
     .word PF_Sealed
-    @ 51 | 0x33
+    @ 51 | 0x33 | PFI_Target_BreakingBlock
     .word PF_Enemy | PF_Break | PF_FieldBlock
     .word PF_Player | PF_Break | PF_FieldBlock
-    @ 52 | 0x34
+    @ 52 | 0x34 | PFI_Target_NoStealing
     .word PF_EnemyOccupied | PF_Teleporting | PF_Solid | PF_Sealed
     .word PF_PlayerOccupied | PF_Teleporting | PF_Solid | PF_Sealed
 

@@ -94,14 +94,8 @@ _ts R_NumberMan_0_Init
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x14
     strh       r0,[r5,#0x24]
-    mov        r0,#0x9
-    mov        r3,#0x70
-    add        r1,r5,r3
-    bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r3,#0x74
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x70, offset_reg=3
+    FieldObject_Create PFI_Moving, 0x74, offset_reg=3
     ldr        r0,[r5,#0x74]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -292,9 +286,7 @@ _ts R_NumberMan_1_3_0
     push       {lr}
     ldr        r0,[r5,#0x74]
     bl         FieldObject_Disable
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x70
     bl         Field_AttackFree
     mov        r0,#0x5
     strb       r0,[r5,#0x14]
@@ -705,9 +697,7 @@ _ts R_NumberMan_CheckDamage
     sub        r0,#0x1
     strh       r0,[r5,r3]
     bne        LAB_0805d6c0
-    mov        r0,#0x9
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Actor, 0x70
     b          LAB_0805d728
 LAB_0805d6c0:
     lsr        r0,r0,#0x1
@@ -718,9 +708,7 @@ LAB_0805d6c0:
     strb       r0,[r5,#0x0]
     b          LAB_0805d728
 LAB_0805d6ce:
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x70]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x70
     tst        r0,r0
     beq        LAB_0805d728
     ldrb       r0,[r5,#0x1a]
@@ -745,9 +733,7 @@ LAB_0805d6fe:
     bl         Sound_PlaySE
     ldr        r0,[r5,#0x70]
     bl         FieldObject_SetDeletedFlag
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x70]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x70
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1

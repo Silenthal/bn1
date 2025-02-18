@@ -60,8 +60,8 @@ _ts R_BigSnake_0_Init
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0xc8
     strh       r0,[r5,#0x24]
-    FieldObject_Create 0x9, 0x68
-    FieldObject_Create 0xf, 0x6c
+    FieldObject_Create PFI_Self_Actor, 0x68
+    FieldObject_Create PFI_Moving, 0x6c
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_Disable
     bl         R_BigSnake_CreateBody
@@ -716,9 +716,7 @@ _ts R_BigSnake_CheckDamage
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0806c330
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x68]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x68
     tst        r0,r0
     beq        LAB_0806c358
     ldrb       r0,[r5,#0x1a]

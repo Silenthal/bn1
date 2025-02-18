@@ -48,7 +48,7 @@ _ts A_Unk0F_0_Init
     bl         Attack_Alloc
     str        r5,[r6,#0x68]
     add        r5,r6,#0x0
-    FieldObject_Create 0x1, Attack_param_6C
+    FieldObject_Create PFI_Self_Default, Attack_param_6C
     ldr        r0,[r5,#Attack_param_6C]
     bl         FieldObject_Disable
     b          LAB_08070ac0

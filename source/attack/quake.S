@@ -250,11 +250,11 @@ _ts A_Quake_1_4
     mov        r7,#0x28
     add        r7,r5,r7
     ldmia      r7!,{r1,r2,r3}
-    mov        r4,#0x19
-    mov        r6,#0x2
+    mov        r4,#QE_SwordStrike @ effect_type
+    mov        r6,#PFI_Target_Solid @ effect_target
     lsl        r6,r6,#0x18
     orr        r4,r6
-    mov        r6,#0x3
+    mov        r6,#PFI_Self_Grounded @ attribute
     lsl        r6,r6,#0x10
     orr        r4,r6
     ldrh       r6,[r5,#Attack_damage]

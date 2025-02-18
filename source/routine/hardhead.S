@@ -67,10 +67,7 @@ _ts R_HardHead_0_Init
     strh       r0,[r5,#0x24]
     mov        r0,#0x0
     strb       r0,[r5,#0x1a]
-    mov        r0,#0xc
-    mov        r3,#0x64
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor_Armored, 0x64, offset_reg=3
     mov        r0,#0x1
     strb       r0,[r5,#0x5]
     mov        r0,#0x4
@@ -111,9 +108,7 @@ LAB_0805c86a:
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0805c8b0
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x64]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x64
     tst        r0,r0
     beq        LAB_0805c8d0
     mov        r1,#0x40
@@ -296,9 +291,7 @@ _ts R_HardHead_1_3_1_Open
     strb       r0,[r5,#0x14]
     mov        r0,#0x0
     strb       r0,[r5,#0x5]
-    mov        r0,#0x9
-    ldr        r1,[r5,#0x64]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Actor, 0x64
     mov        r0,#0x8
     strh       r0,[r5,#0xa]
 LAB_0805c9da:
@@ -385,9 +378,7 @@ _ts R_HardHead_1_3_6_Next
     beq        LAB_0805ca78
     mov        r0,#0x1
     strb       r0,[r5,#0x5]
-    mov        r0,#0xc
-    ldr        r1,[r5,#0x64]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Actor_Armored, 0x64
     mov        r0,#0x8
     strb       r0,[r5,#0x9]
     mov        r0,#0x0

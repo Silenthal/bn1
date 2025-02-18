@@ -65,8 +65,8 @@ _ts R_ProtoMan_0_Init
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0xc8
     strh       r0,[r5,#0x24]
-    FieldObject_Create 0x9, 0x68
-    FieldObject_Create 0xf, 0x6c
+    FieldObject_Create PFI_Self_Actor, 0x68
+    FieldObject_Create PFI_Moving, 0x6c
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_Disable
     mov        r0,#0x4
@@ -560,10 +560,7 @@ LAB_08064a6e:
     pop        {pc}
 
 DAT_08064a70:
-    .byte 0x19
-    .byte 0x00
-    .byte 0x03
-    .byte 0x02
+    strike_attribute PFI_Self_Grounded, effect_target=PFI_Target_Solid, effect_type=QE_SwordStrike
 
 
 _ts R_ProtoMan_1_6_4_Wait
@@ -811,7 +808,7 @@ LAB_08064c46:
     pop        {pc}
 
 PTR_DAT_08064c48:
-    .word 0x2030019
+    strike_attribute PFI_Self_Grounded, effect_target=PFI_Target_Solid, effect_type=QE_SwordStrike
 
 
 _ts R_ProtoMan_1_7_5_Wait
@@ -1320,9 +1317,7 @@ LAB_08064fc6:
     strb       r0,[r5,#0x0]
     b          LAB_08065042
 LAB_08064fd4:
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x68]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x68
     tst        r0,r0
     beq        LAB_08065042
     ldrb       r0,[r5,#0x1a]

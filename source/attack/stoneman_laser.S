@@ -52,24 +52,24 @@ _ts A_StoneManLaser_0_Init
     bl         FieldObject_Alloc
     str        r0,[r5,#Attack_param_60]
     mov        r1,#0x1e
-    strh       r1,[r0,#0x8]
+    strh       r1,[r0,#FieldObject_damage]
     mov        r1,#0x0
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#FieldObject_attackerIdFlags]
     mov        r1,#0x0
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#FieldObject_element]
     ldr        r1,DAT_08073ae0
-    str        r1,[r0,#0xc]
+    str        r1,[r0,#FieldObject_panelFlags]
     ldrb       r1,[r5,#Attack_cPos_x]
-    strb       r1,[r0,#0x2]
-    strb       r1,[r0,#0x4]
+    strb       r1,[r0,#FieldObject_cPosCurr_x]
+    strb       r1,[r0,#FieldObject_cPosLast_x]
     ldrb       r1,[r5,#Attack_cPos_y]
-    strb       r1,[r0,#0x3]
-    strb       r1,[r0,#0x5]
+    strb       r1,[r0,#FieldObject_cPosCurr_y]
+    strb       r1,[r0,#FieldObject_cPosLast_y]
     bl         A_StoneManLaser_1_Main
     pop        {pc}
 
 DAT_08073ae0:
-    .word 0x44028
+    .word PF_Ground|PF_EnemyOccupied|PF_Break|PF_Armor
 
 
 _ts A_StoneManLaser_1_Main

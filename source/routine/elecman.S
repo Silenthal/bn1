@@ -75,17 +75,11 @@ _ts R_ElecMan_0_Init
     strh       r0,[r5,#0x24]
     mov        r0,#0x3
     strb       r0,[r5,#0x6]
-    mov        r0,#0x9
-    mov        r3,#0x68
-    add        r1,r5,r3
-    bl         Field_CreateEntity
-    mov        r0,#0xf
-    mov        r3,#0x6c
-    add        r1,r5,r3
-    bl         Field_CreateEntity
+    FieldObject_Create PFI_Self_Actor, 0x68, offset_reg=3
+    FieldObject_Create PFI_Moving, 0x6c, offset_reg=3
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_Disable
-    FieldObject_Create 0x32, 0x74
+    FieldObject_Create PFI_Sealed, 0x74
     mov        r0,#0x6
     mov        r1,#0x2
     strb       r0,[r7,#0x4]
@@ -251,9 +245,7 @@ _ts R_ElecMan_1_3_0_Flinch
     push       {lr}
     ldr        r0,[r5,#0x6c]
     bl         FieldObject_Disable
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x68]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x68
     mov        r0,#0x7
     strb       r0,[r5,#0x14]
     mov        r0,#0xff
@@ -1118,9 +1110,7 @@ _nt R_ElecMan_CheckDamage
     sub        r0,#0x1
     strh       r0,[r5,r3]
     bne        LAB_080645da
-    mov        r0,#0x9
-    ldr        r1,[r5,#0x68]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Actor, 0x68
     b          LAB_0806464a
 LAB_080645da:
     lsr        r0,r0,#0x1
@@ -1134,9 +1124,7 @@ LAB_080645e8:
     ldrb       r0,[r5,#0x5]
     tst        r0,r0
     bne        LAB_0806464a
-    mov        r0,#0xa
-    ldr        r1,[r5,#0x68]
-    bl         Field_GetDamageOnEntity
+    FieldObject_GetDamage PFI_Target_Object, 0x68
     tst        r0,r0
     beq        LAB_0806464a
     ldrb       r0,[r5,#0x1a]
@@ -1164,9 +1152,7 @@ LAB_0806461e:
     bl         Sound_PlaySE
     ldr        r0,[r5,#0x68]
     bl         FieldObject_SetDeletedFlag
-    mov        r0,#0xd
-    ldr        r1,[r5,#0x68]
-    bl         Field_SetPanelFlagsOnEntity
+    FieldObject_SetAttributeGroup PFI_Self_Object, 0x68
     mov        r0,#0x8
     str        r0,[r5,#0x8]
     mov        r0,#0x1
