@@ -33,7 +33,7 @@ MapEntranceOptions_ARRAY_080835d8:
 _ts Scene_JackOut
     push       {lr}
     ldr        r0,PTR_PTR_Scene_JackOut_0_CheckIndex_0808386c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -56,7 +56,7 @@ _ts Scene_JackOut_0_CheckIndex
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     cmp        r0,#0xff
     beq        LAB_08083720
     cmp        r0,#0xfe
@@ -67,13 +67,13 @@ _ts Scene_JackOut_0_CheckIndex
     mul        r2,r0
     ldr        r0,PTR_MapEntranceOptions_ARRAY_08083870
     add        r0,r0,r2
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 LAB_08083720:
     mov        r0,#0x18
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -100,7 +100,7 @@ _ts Scene_JackOut_1
     mov        r0,#0x4
     strb       r0,[r7,#0x10]
     pop        {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x13]
     cmp        r0,#0xff
     beq        LAB_08083770
@@ -110,10 +110,10 @@ _ts Scene_JackOut_1
     bl         Text_LoadDialogue
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08083784
 LAB_08083770:
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x10]
     cmp        r0,#0xff
     beq        LAB_08083780
@@ -122,7 +122,7 @@ LAB_08083770:
     pop        {r5}
 LAB_08083780:
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08083784:
     pop        {pc}
 
@@ -141,7 +141,7 @@ _ts Scene_JackOut_2_FadeOut
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_080837a2:
     pop        {pc}
 
@@ -153,7 +153,7 @@ _ts Scene_JackOut_3_ChangeMap
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080837da
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x11]
     tst        r0,r0
     beq        LAB_080837c2
@@ -165,7 +165,7 @@ LAB_080837c2:
     bl         PlayerAnimation_Unlock
     pop        {r5}
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r1,[r0,#0x12]
     bl         World_SetTransitionLocation
     pop        {r5}
@@ -183,11 +183,11 @@ _ts Scene_JackOut_4_Regular
     cmp        r0,#0x0
     beq        LAB_080837f4
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_080837fe
 LAB_080837f4:
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     Flag_ClearBase 0x35
 LAB_080837fe:
     pop        {pc}
@@ -221,7 +221,7 @@ _ts Scene_JackOut_6_NoJackOut
     ldr        r7,[r7,#0x28]
     mov        r0,#0x4
     strb       r0,[r7,#0x10]
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Scene_dialogueIndex]
     mov        r1,#0xff
     sub        r1,r1,r2
     add        r1,#0x5
@@ -229,7 +229,7 @@ _ts Scene_JackOut_6_NoJackOut
     bl         Text_LoadDialogue
     pop        {r5}
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08083850:
     pop        {pc}
 

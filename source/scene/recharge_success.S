@@ -6,7 +6,7 @@
 _ts Scene_RechargeSuccess
     push       {lr}
     ldr        r0,PTR_PTR_S_RechargeSuccess_0_08091ac4
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -24,9 +24,7 @@ _ts S_RechargeSuccess_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -41,9 +39,7 @@ _ts S_RechargeSuccess_1
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091a2c:
     pop        {pc}
 
@@ -55,7 +51,7 @@ _nt S_RechargeSuccess_2
     cmp        r0,r1
     beq        LAB_08091a54
     push       {r5}
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     lsl        r1,r1,#0x3
     ldr        r7,PTR_PTR_ScenarioData_56_08091ac8
     ldr        r0,[r7,r1]
@@ -63,9 +59,7 @@ _nt S_RechargeSuccess_2
     ldr        r1,[r7,r1]
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091a54:
     pop        {pc}
 
@@ -87,9 +81,7 @@ _ts S_RechargeSuccess_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08091a82
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091a82:
     bl         Scene_IsStartPressed
     beq        LAB_08091a8c
@@ -104,9 +96,7 @@ _nt S_RechargeSuccess_4
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -123,7 +113,7 @@ _ts S_RechargeSuccess_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_RechargeSuccess_0_08091ac4:

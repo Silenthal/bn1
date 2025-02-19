@@ -19,7 +19,7 @@ Flag_Base_ARRAY_0808823a:
 _ts Scene_Story_1E
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_1E_0_08088358
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -36,9 +36,7 @@ _ts S_Story_1E_0
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -64,7 +62,7 @@ _ts S_Story_1E_1
     Flag_ClearBase 0x92
     Flag_ClearBase 0x2B
     ldr        r6,PTR_BYTE_ARRAY_0808835c
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x2
     add        r6,r6,r0
     push       {r5}
@@ -87,9 +85,7 @@ LAB_080882bc:
     mov        r2,#0x1
     bl         Inventory_AddChip
 LAB_080882e0:
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080882e6:
     pop        {pc}
 
@@ -100,9 +96,7 @@ _ts S_Story_1E_2
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080882fa
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080882fa:
     bl         Scene_IsStartPressed
     beq        LAB_08088304
@@ -114,7 +108,7 @@ LAB_08088304:
 _nt S_Story_1E_3
     push       {r5}
     ldr        r6,PTR_BYTE_ARRAY_08088364
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x2
     add        r6,r6,r0
     ldrb       r0,[r6,#0x2]
@@ -147,7 +141,7 @@ _nt S_Story_1E_SkipIfStart
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_1E_0_08088358:

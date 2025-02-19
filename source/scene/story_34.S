@@ -13,7 +13,7 @@ Cam_Set_0808b408:
 _ts Scene_Story_34
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_34_0_0808b5e4
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -37,18 +37,14 @@ _ts S_Story_34_0
     ldr        r7,PTR_NPCList_802FF6C_0808b5e8
     bl         Map_LoadNPCList
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
 _nt S_Story_34_1
     ldr        r0,PTR_Cam_Set_0808b5ec
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -61,9 +57,7 @@ _ts S_Story_34_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808b48e:
     bl         Scene_IsStartPressed
     beq        LAB_0808b498
@@ -83,9 +77,7 @@ _nt S_Story_34_3
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 LAB_0808b4ba:
     bl         Scene_IsStartPressed
@@ -109,9 +101,7 @@ _nt S_Story_34_4
     mov        r1,#0xa
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808b4ec:
     bl         Scene_IsStartPressed
     beq        LAB_0808b4f6
@@ -126,9 +116,7 @@ _ts S_Story_34_5
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808b516
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x10
@@ -153,9 +141,7 @@ _nt S_Story_34_6
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808b542:
     pop        {pc}
 
@@ -217,7 +203,7 @@ _ts S_Story_34_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x18
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_34_0_0808b5e4:

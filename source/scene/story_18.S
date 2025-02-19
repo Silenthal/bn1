@@ -11,7 +11,7 @@
 _ts Scene_Story_18
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_18_0_080873d0
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -32,9 +32,7 @@ PTR_S_Story_18_0_080871b4:
 
 _ts S_Story_18_0
     bl         PlayerAnimation_Lock
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     push       {r5}
     bl         Sound_StopAllMusic
     pop        {r5}
@@ -53,9 +51,7 @@ _ts S_Story_18_1
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08087218:
     pop        {pc}
 
@@ -72,7 +68,7 @@ _nt S_Story_18_2
     pop        {r5}
     push       {r5}
     ldr        r7,PTR_NPCList_8029888_080873d4
-    ldr        r0,[r5,#0x4]
+    ldr        r0,[r5,#Scene_dialogueIndex]
     tst        r0,r0
     beq        LAB_0808723c
     ldr        r7,PTR_NPCList_8029890_080873d8
@@ -84,9 +80,7 @@ LAB_0808723c:
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08087254:
     pop        {pc}
 
@@ -101,7 +95,7 @@ _nt S_Story_18_3
     mov        r1,#0x20
     bl         SWI_Div
     pop        {r1,r5}
-    str        r0,[r5,#0x1c]
+    str        r0,[r5,#0x1C]
     mov        r0,#0x0
     str        r0,[r5,#0x18]
     mov        r0,#0x0
@@ -111,16 +105,14 @@ _nt S_Story_18_3
     LoadMain world, r0, r7
     mov        r0,#0x25
     bl         PlayerAnimation_SetState
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 
 
 _ts S_Story_18_SkipIfStart
     bl         Scene_IsStartPressed
     beq        LAB_08087296
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08087296:
     pop        {pc}
 
@@ -137,9 +129,7 @@ _ts S_Story_18_4
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080872ba:
     b          S_Story_18_SkipIfStart
 
@@ -151,9 +141,7 @@ _ts S_Story_18_5
     mov        r0,#0x80
     bl         Text_CheckOption
     bne        S_Story_18_SkipIfStart
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080872d2:
     pop        {pc}
 
@@ -169,9 +157,7 @@ _ts S_Story_18_6
     mov        r1,#0x1
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -190,9 +176,7 @@ LAB_0808730e:
     mov        r0,#0x80
     bl         Text_CheckOption
     bne        S_Story_18_SkipIfStart
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -204,9 +188,7 @@ _nt S_Story_18_8
     pop        {r5}
     mov        r0,#0x40
     bl         Text_EnableOption
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -237,9 +219,7 @@ _ts S_Story_18_9
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08087382:
     pop        {pc}
 
@@ -272,7 +252,7 @@ _ts FUN_080873ac
     cmp        r0,#0x18
     bge        LAB_080873ca
     ldr        r0,[r5,#0x18]
-    ldr        r1,[r5,#0x1c]
+    ldr        r1,[r5,#0x1C]
     mov        r2,#0x0
     push       {r5}
     bl         PlayerAnimation_Move

@@ -13,7 +13,7 @@ Cam_Set_0808abf4:
 _ts Scene_Story_31
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_31_0_0808ae7c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -34,9 +34,7 @@ _ts S_Story_31_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -55,9 +53,7 @@ _ts S_Story_31_1
     pop        {r5}
     ldr        r0,PTR_Cam_Set_0808ae80
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808ac76:
     pop        {pc}
 
@@ -98,9 +94,7 @@ _ts S_Story_31_2
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808acd4:
     pop        {pc}
 
@@ -120,10 +114,8 @@ _nt S_Story_31_3
     bl         Text_LoadDialogue
     pop        {r5}
     mov        r0,#0x0
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_0808ad00:
     bl         Scene_IsStartPressed
     beq        LAB_0808ad0a
@@ -143,21 +135,21 @@ _ts S_Story_31_4
     mov        r4,#0x1
     bl         Effect_AirBlowing_Create
     mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     Flag_ClearBase 0xCA
 LAB_0808ad32:
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     beq        LAB_0808ad3c
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
 LAB_0808ad3c:
     push       {r5}
     mov        r0,#0x80
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808ad60
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_0808ad60
     push       {r5}
@@ -165,9 +157,7 @@ LAB_0808ad3c:
     mov        r1,#0x5
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808ad60:
     bl         Scene_IsStartPressed
     beq        LAB_0808ad6a
@@ -184,23 +174,23 @@ _ts S_Story_31_5
     mov        r4,#0x0
     bl         Effect_AirBlowing_Create
     mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     Flag_ClearBase 0xC8
     mov        r0,#0x43
     bl         PlayerAnimation_SetState
 LAB_0808ad90:
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     beq        LAB_0808ad9a
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
 LAB_0808ad9a:
     push       {r5}
     mov        r0,#0x80
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808adbe
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_0808adbe
     push       {r5}
@@ -208,9 +198,7 @@ LAB_0808ad9a:
     mov        r1,#0x12
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808adbe:
     bl         Scene_IsStartPressed
     beq        LAB_0808adc8
@@ -233,9 +221,7 @@ _nt S_Story_31_6
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808adf2:
     bl         Scene_IsStartPressed
     beq        LAB_0808adfc
@@ -255,9 +241,7 @@ _nt S_Story_31_7
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808ae1e:
     pop        {pc}
 
@@ -298,7 +282,7 @@ _ts S_Story_31_SkipIfStart
     mov        r0,#0xc7
     bl         Sound_PlaySE
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

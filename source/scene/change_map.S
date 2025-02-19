@@ -68,7 +68,7 @@ MapEntranceOptions_ARRAY_08087c18:
 _ts Scene_ChangeMap
     push       {lr}
     ldr        r0,PTR_PTR_S_ChangeMap_0_08087fa0
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -83,11 +83,11 @@ PTR_S_ChangeMap_0_08087e40:
 
 _ts S_ChangeMap_0
     ldr        r0,PTR_MapEntranceOptions_ARRAY_08087fa4
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     mov        r2,#0x14
     mul        r2,r1
     add        r0,r0,r2
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     push       {r5}
     bl         Flag_SetPlayerInactive
     pop        {r5}
@@ -96,25 +96,21 @@ _ts S_ChangeMap_0
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08087e7a
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08087e7a:
     pop        {pc}
 
 
 _ts S_ChangeMap_1
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x10]
     cmp        r0,#0xff
     beq        LAB_08087e8a
     bl         Text_LoadAreaDialogue
 LAB_08087e8a:
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -124,21 +120,19 @@ _ts S_ChangeMap_2
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08087ea6
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08087ea6:
     pop        {pc}
 
 
 _ts S_ChangeMap_3
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x12]
     cmp        r0,#0x4
     pop        {r5}
     beq        LAB_08087eda
-    ldr        r1,[r5,#0x10]
+    ldr        r1,[r5,#Scene_sceneArg]
     ldrb       r1,[r1,#0x13]
     cmp        r1,#0x2
     beq        LAB_08087ece
@@ -161,9 +155,7 @@ LAB_08087eda:
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -178,7 +170,7 @@ _ts S_ChangeMap_4
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x11]
     tst        r0,r0
     beq        LAB_08087f16
@@ -187,13 +179,13 @@ _ts S_ChangeMap_4
     pop        {r5}
 LAB_08087f16:
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x12]
     cmp        r0,#0x4
     pop        {r5}
     beq        LAB_08087f70
     LoadMain world, r0, r7
-    ldr        r1,[r5,#0x10]
+    ldr        r1,[r5,#Scene_sceneArg]
     ldrb       r1,[r1,#0x13]
     cmp        r1,#0x0
     beq        LAB_08087f40
@@ -211,15 +203,15 @@ LAB_08087f40:
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
-    ldr        r2,[r5,#0x10]
+    ldr        r2,[r5,#Scene_sceneArg]
     strb       r1,[r0,#0x12]
     str        r2,[r0,#0x14]
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x12]
     bl         World_ChangeMap
     pop        {r5}
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     ldr        r7,PTR_SongId_ARRAY_08087fa8
     ldrb       r0,[r7,r1]
     tst        r0,r0

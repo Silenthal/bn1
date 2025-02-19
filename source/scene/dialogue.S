@@ -6,7 +6,7 @@
 _ts Scene_Dialogue
     push       {lr}
     ldr        r0,PTR_PTR_S_Dialogue_0_08084984
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -25,9 +25,7 @@ _ts S_Dialogue_0
     bl         PlayerAnimation_Lock
     bl         Flag_SetPlayerInactive
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -50,12 +48,10 @@ _ts S_Dialogue_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     bl         Text_LoadAreaDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08084962:
     pop        {pc}
 

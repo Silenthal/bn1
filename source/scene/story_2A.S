@@ -6,7 +6,7 @@
 _ts Scene_Story_2A
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_2A_0_08089c20
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -23,9 +23,7 @@ _ts S_Story_2A_0
     push       {r5}
     bl         Flag_SetPlayerInactive
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -35,9 +33,7 @@ _ts S_Story_2A_1
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -47,9 +43,7 @@ _ts S_Story_2A_2
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08089bde
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089bde:
     bl         Scene_IsStartPressed
     beq        LAB_08089be8
@@ -64,9 +58,7 @@ _nt S_Story_2A_3
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -83,7 +75,7 @@ _ts S_Story_2A_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_2A_0_08089c20:

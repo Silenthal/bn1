@@ -10,7 +10,7 @@
 _ts Scene_LockedPath
     push       {lr}
     ldr        r0,PTR_PTR_S_LockedPath_0_08082f38
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -31,9 +31,7 @@ _ts S_LockedPath_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -56,12 +54,10 @@ _ts S_LockedPath_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Scene_areaDialogueIndex]
     bl         Text_LoadAreaDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08082e52:
     pop        {pc}
 
@@ -73,9 +69,7 @@ _ts S_LockedPath_2
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08082e68
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08082e68:
     pop        {pc}
 
@@ -87,10 +81,8 @@ _ts S_LockedPath_3
     push       {lr}
     bl         S_LockedPath_AnimatePlayer
     mov        r0,#0x10
-    strh       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strh       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -100,13 +92,13 @@ _ts S_LockedPath_3
 _ts S_LockedPath_4
     push       {lr}
     bl         S_LockedPath_AnimatePlayer
-    ldrh       r0,[r5,#0x8]
+    ldrh       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     cmp        r0,#0x0
     bgt        LAB_08082ebc
     ldr        r7,PTR_DAT_08082f3c
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     mov        r2,#0x7f
     and        r2,r1
     push       {r5}
@@ -123,9 +115,7 @@ LAB_08082ea8:
     strb       r0,[r7,#0x10]
     bl         PlayerAnimation_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08082ebc:
     pop        {pc}
 
@@ -155,7 +145,7 @@ _ts S_LockedPath_5
 _ts S_LockedPath_AnimatePlayer
     push       {lr}
     ldr        r7,PTR_PlayerAnimateArgs_ARRAY_08082f40
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     mov        r2,#0x7f
     and        r2,r1
     lsl        r2,r2,#0x2

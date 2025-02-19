@@ -6,7 +6,7 @@
 _ts Scene_Story_5E
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_5E_0_080912a0
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -29,9 +29,7 @@ _ts S_Story_5E_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -61,9 +59,7 @@ _ts S_Story_5E_1
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080910e4:
     pop        {pc}
 
@@ -79,9 +75,7 @@ _nt S_Story_5E_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091104:
     pop        {pc}
 
@@ -94,10 +88,8 @@ _nt S_Story_5E_3
     bne        LAB_08091122
     Flag_SetBase 0xBE
     mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_08091122:
     bl         Scene_IsStartPressed
     beq        LAB_0809112c
@@ -120,10 +112,8 @@ _nt S_Story_5E_4
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_08091162
     bl         S_Story_5E_SkipIfStart
@@ -132,9 +122,9 @@ LAB_08091162:
 
 
 _ts S_Story_5E_5
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_080911aa
     LoadMain fade, r0, r0
@@ -152,10 +142,8 @@ _ts S_Story_5E_5
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_080911aa
     bl         S_Story_5E_SkipIfStart
@@ -164,9 +152,9 @@ LAB_080911aa:
 
 
 _ts S_Story_5E_6
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_080911ce
     mov        r0,#0x2e
@@ -176,9 +164,7 @@ _ts S_Story_5E_6
     mov        r1,#0x1
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080911ce:
     bl         Scene_IsStartPressed
     beq        LAB_080911d8
@@ -194,9 +180,7 @@ _nt S_Story_5E_7
     pop        {r5}
     bne        LAB_080911f2
     Flag_SetBase 0xBE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080911f2:
     bl         Scene_IsStartPressed
     beq        LAB_080911fc
@@ -216,9 +200,7 @@ _nt S_Story_5E_8
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091222:
     bl         Scene_IsStartPressed
     beq        LAB_0809122c
@@ -238,9 +220,7 @@ _nt S_Story_5E_9
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0809124e:
     pop        {pc}
 
@@ -275,7 +255,7 @@ _ts S_Story_5E_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x24
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

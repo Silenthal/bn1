@@ -16,7 +16,7 @@ MapEntranceOptions_0808a2f8:
 _ts Scene_Story_2D
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_2D_0_0808a4ac
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -32,19 +32,17 @@ PTR_S_Story_2D_0_0808a318:
 
 _ts S_Story_2D_0
     ldr        r0,PTR_MapEntranceOptions_0808a4b0
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     mov        r2,#0x14
     mul        r2,r1
     add        r0,r0,r2
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     mov        r0,#0x0
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     pop        {pc}
 
 
@@ -73,9 +71,7 @@ _ts S_Story_2D_1
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a392:
     pop        {pc}
 
@@ -91,9 +87,7 @@ _ts S_Story_2D_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808a3bc
     bl         S_Story_2D_SkipIfStart
@@ -112,12 +106,10 @@ _nt S_Story_2D_3
     bl         PlayerAnimation_SetState
     pop        {r5}
     mov        r0,#0x78
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
     mov        r0,#0x1
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
 LAB_0808a3e2:
     bl         Scene_IsStartPressed
     beq        LAB_0808a3ec
@@ -127,9 +119,9 @@ LAB_0808a3ec:
 
 
 _nt S_Story_2D_4
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     cmp        r0,#0x0
     bne        LAB_0808a40a
     push       {r5}
@@ -137,11 +129,9 @@ _nt S_Story_2D_4
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a40a:
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#Scene_state_s1]
     tst        r0,r0
     beq        LAB_0808a426
     mov        r0,#0x10
@@ -173,11 +163,11 @@ _ts S_Story_2D_5
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
-    ldr        r2,[r5,#0x10]
+    ldr        r2,[r5,#Scene_sceneArg]
     strb       r1,[r0,#0x12]
     str        r2,[r0,#0x14]
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x12]
     bl         World_ChangeMap
     pop        {r5}
@@ -191,7 +181,7 @@ _ts S_Story_2D_5
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}
 LAB_0808a47a:
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#Scene_state_s1]
     tst        r0,r0
     beq        LAB_0808a48c
     mov        r0,#0x8
@@ -212,9 +202,9 @@ _nt S_Story_2D_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

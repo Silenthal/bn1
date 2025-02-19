@@ -13,7 +13,7 @@ Cam_Set_08084d08:
 _ts Scene_Story_0C
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_0C_0_08084eb0
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -34,9 +34,7 @@ _ts S_Story_0C_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -61,9 +59,7 @@ _ts S_Story_0C_1
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08084d8c:
     pop        {pc}
 
@@ -99,9 +95,7 @@ _ts S_Story_0C_2
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08084dda:
     pop        {pc}
 
@@ -121,9 +115,7 @@ _ts S_Story_0C_3
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08084e04:
     bl         Scene_IsStartPressed
     beq        LAB_08084e0e
@@ -150,9 +142,7 @@ _ts S_Story_0C_4
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08084e42:
     bl         Scene_IsStartPressed
     beq        LAB_08084e4c
@@ -205,7 +195,7 @@ _ts S_Story_0C_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_0C_0_08084eb0:

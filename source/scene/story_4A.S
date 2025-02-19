@@ -16,7 +16,7 @@ Cam_Move_0808e7fc:
 _ts Scene_Story_4A
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_4A_0_0808ea88
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -41,9 +41,7 @@ _ts S_Story_4A_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -62,9 +60,7 @@ _ts S_Story_4A_1
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808e880:
     pop        {pc}
 
@@ -77,9 +73,7 @@ _nt S_Story_4A_2
     bne        LAB_0808e89a
     ldr        r0,PTR_Cam_Set_0808ea90
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808e89a:
     bl         Scene_IsStartPressed
     beq        LAB_0808e8a4
@@ -97,9 +91,7 @@ _nt S_Story_4A_3
     mov        r1,#0x1
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808e8ca
     bl         S_Story_4A_SkipIfStart
@@ -115,9 +107,7 @@ _ts S_Story_4A_4
     bne        LAB_0808e8e4
     ldr        r0,PTR_Cam_Move_0808ea94
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808e8e4:
     bl         Scene_IsStartPressed
     beq        LAB_0808e8ee
@@ -142,9 +132,7 @@ _ts S_Story_4A_5
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808e926
     bl         S_Story_4A_SkipIfStart
@@ -159,14 +147,12 @@ _ts S_Story_4A_6
     pop        {r5}
     bne        LAB_0808e948
     mov        r0,#0x37
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     push       {r5}
     mov        r0,#0x17
     bl         PlayerAnimation_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808e948:
     bl         Scene_IsStartPressed
     beq        LAB_0808e952
@@ -176,9 +162,9 @@ LAB_0808e952:
 
 
 _ts S_Story_4A_7
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     beq        LAB_0808e96e
     mov        r0,#0x0
@@ -193,9 +179,7 @@ LAB_0808e96e:
     mov        r0,#0x31
     bl         PlayerAnimation_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     push       {r5}
     ldr        r0,PTR_ScenarioData_4A_0808ea8c
     mov        r1,#0x4
@@ -216,9 +200,7 @@ _nt S_Story_4A_8
     pop        {r5}
     bne        LAB_0808e9ae
     Flag_SetBase 0xBC
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808e9ae:
     bl         Scene_IsStartPressed
     beq        LAB_0808e9b8
@@ -235,9 +217,7 @@ _nt S_Story_4A_9
     mov        r1,#0x6
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808e9d4:
     bl         Scene_IsStartPressed
     beq        LAB_0808e9de
@@ -260,9 +240,7 @@ _ts S_Story_4A_10
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808ea08:
     bl         Scene_IsStartPressed
     beq        LAB_0808ea12
@@ -282,9 +260,7 @@ _ts S_Story_4A_11
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808ea34:
     pop        {pc}
 
@@ -319,7 +295,7 @@ _ts S_Story_4A_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x2c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

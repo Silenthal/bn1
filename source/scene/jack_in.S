@@ -93,7 +93,7 @@ MapEntranceOptions_ARRAY_08083ba4:
 _ts Scene_JackIn
     push       {lr}
     ldr        r0,PTR_PTR_S_JackIn_0_08084064
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -111,19 +111,17 @@ PTR_S_JackIn_0_08083efc:
 _ts S_JackIn_0
     push       {lr}
     ldr        r0,PTR_MapEntranceOptions_ARRAY_08084068
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     mov        r2,#0x14
     mul        r2,r1
     add        r0,r0,r2
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     push       {r5}
     bl         PlayerAnimation_Lock
     mov        r0,#0xe2
     bl         Sound_PlaySE
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -138,7 +136,7 @@ _ts S_JackIn_1_SetJackInText
     Flag_SetSystem F_SYSTEM_START_MENU_OPEN
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x10]
     cmp        r0,#0xff
     beq        LAB_08083f5e
@@ -150,9 +148,7 @@ LAB_08083f5e:
     bl         Text_LoadDialogue
 LAB_08083f66:
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08083f6e:
     pop        {pc}
 
@@ -171,9 +167,7 @@ _ts S_JackIn_2_JackInWaitDialogue
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08083f96:
     pop        {pc}
 
@@ -205,9 +199,7 @@ LAB_08083fc2:
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08083fda:
     pop        {pc}
 
@@ -219,7 +211,7 @@ _ts S_JackIn_4_JackInAnimation
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08084018
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x11]
     tst        r0,r0
     beq        LAB_08083ffa
@@ -232,7 +224,7 @@ LAB_08083ffa:
     Flag_ClearSystem F_SYSTEM_START_MENU_OPEN
     pop        {r5}
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     mov        r1,#0x0
     bl         World_SetTransitionLocation
     pop        {r5}

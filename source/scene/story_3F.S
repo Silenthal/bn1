@@ -13,7 +13,7 @@
 _ts Scene_Story_3F
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_3F_0_0808d67c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -33,9 +33,7 @@ _ts S_Story_3F_0
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -50,32 +48,30 @@ _ts S_Story_3F_1
     bl         PetStatusControl_SetState
     pop        {r5}
     mov        r0,#0x78
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     push       {r5}
     ldr        r0,PTR_ScenarioData_3F_0808d680
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     mov        r0,#0x1
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
 LAB_0808d600:
     pop        {pc}
 
 
 _nt S_Story_3F_2
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#Scene_state_s1]
     tst        r0,r0
     beq        LAB_0808d622
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_0808d63e
     mov        r0,#0x0
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     push       {r5}
     mov        r0,#0x4
     bl         PetStatusControl_SetState
@@ -87,9 +83,7 @@ LAB_0808d622:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808d634
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808d634:
     bl         Scene_IsStartPressed
     beq        LAB_0808d63e
@@ -104,9 +98,7 @@ _ts S_Story_3F_3
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -125,7 +117,7 @@ _nt S_Story_3F_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

@@ -25,7 +25,7 @@ MapEntranceOptions_ARRAY_08085b40:
 _ts Scene_SkillGateFail
     push       {lr}
     ldr        r0,PTR_PTR_S_SkillGateFail_0_08085dc4
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -43,17 +43,15 @@ PTR_S_SkillGateFail_0_08085bc8:
 _ts S_SkillGateFail_0
     push       {lr}
     ldr        r0,PTR_MapEntranceOptions_ARRAY_08085dc8
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     mov        r2,#0x14
     mul        r2,r1
     add        r0,r0,r2
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -76,13 +74,11 @@ _ts S_SkillGateFail_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x10]
     bl         Text_LoadAreaDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08085c30:
     pop        {pc}
 
@@ -97,9 +93,7 @@ _ts S_SkillGateFail_2
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08085c48
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08085c48:
     pop        {pc}
 
@@ -117,9 +111,7 @@ _ts S_SkillGateFail_3
     bl         Fade_Request
     pop        {r5}
 LAB_08085c62:
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -136,13 +128,13 @@ _ts S_SkillGateFail_4
     push       {r5}
     bl         PlayerAnimation_Unlock
     pop        {r5}
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_INT_08085dcc
     ldr        r0,[r7,r1]
     bl         Flag_GetEvent
     beq        LAB_08085cba
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_INT_08085dd0
     ldr        r0,[r7,r1]
@@ -154,7 +146,7 @@ _ts S_SkillGateFail_4
     strb       r1,[r0,#0x10]
     mov        r1,#0x1
     strb       r1,[r0,#0x12]
-    ldr        r1,[r5,#0x10]
+    ldr        r1,[r5,#Scene_sceneArg]
     str        r1,[r0,#0x14]
     mov        r0,#0x0
     bl         World_ChangeMap

@@ -6,7 +6,7 @@
 _ts Scene_Yuichiro_PC_Wait
     push       {lr}
     ldr        r0,PTR_PTR_S_Yuichiro_PC_Wait_0_0808b950
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -25,7 +25,7 @@ _ts S_Yuichiro_PC_Wait_0
     bl         Flag_SetPlayerInactive
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 

@@ -6,7 +6,7 @@
 _ts Scene_Dentown_Center_Chaud_Undernet
     push       {lr}
     ldr        r0,PTR_PTR_S_Dentown_Center_Chaud_Undernet_0_08097da4
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -30,9 +30,7 @@ _ts S_Dentown_Center_Chaud_Undernet_0
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -49,7 +47,7 @@ _ts S_Dentown_Center_Chaud_Undernet_1
     bne        LAB_08097ce6
     mov        r0,#0x4
     bl         NPC_FindByIndex
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x2
     eor        r1,r2
@@ -76,9 +74,7 @@ _ts S_Dentown_Center_Chaud_Undernet_1
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097ce6:
     pop        {pc}
 
@@ -94,9 +90,7 @@ _ts S_Dentown_Center_Chaud_Undernet_2
     mov        r1,#0x56
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097d06:
     pop        {pc}
 
@@ -111,7 +105,7 @@ _ts S_Dentown_Center_Chaud_Undernet_3
     mov        r0,#0x8
     bl         Entity_FreeAllMultiple
     pop        {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x2
     orr        r1,r2
@@ -125,18 +119,16 @@ _ts S_Dentown_Center_Chaud_Undernet_3
     bl         Traffic_Init
     pop        {r5}
     mov        r0,#0x78
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_08097d48:
     pop        {pc}
 
 
 _nt S_Dentown_Center_Chaud_Undernet_4
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_08097d66
     push       {r5}
@@ -144,9 +136,7 @@ _nt S_Dentown_Center_Chaud_Undernet_4
     mov        r1,#0x5c
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097d66:
     pop        {pc}
 
@@ -157,9 +147,7 @@ _ts S_Dentown_Center_Chaud_Undernet_5
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08097d7a
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097d7a:
     pop        {pc}
 

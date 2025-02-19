@@ -6,7 +6,7 @@
 _ts Scene_Story_7D
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_7D_0_08097540
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -26,9 +26,7 @@ PTR_S_Story_7D_0_08097544:
 _ts S_Story_7D_0
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -60,11 +58,9 @@ _ts S_Story_7D_1
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x1
-    strb       r0,[r5,#0xa]
-    strb       r0,[r5,#0x7]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_counter]
+    strb       r0,[r5,#Scene_b7]
+    Scene_Next
 LAB_080975b8:
     pop        {pc}
 
@@ -87,9 +83,7 @@ _nt S_Story_7D_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_080975f4
     bl         S_Story_7D_SkipIfStart
@@ -115,9 +109,7 @@ _nt S_Story_7D_3
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097626:
     bl         Scene_IsStartPressed
     beq        LAB_08097630
@@ -144,9 +136,7 @@ _nt S_Story_7D_4
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097664:
     pop        {pc}
 
@@ -185,7 +175,7 @@ _ts S_Story_7D_SkipIfStart
     Flag_SetBase 0x96
     Flag_SetBase 0xF9
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 
@@ -196,19 +186,19 @@ _ts FUN_080976cc
     mov        r1,#0x1
     bl         Camera_EnableScreenShake
     pop        {r5}
-    ldrb       r0,[r5,#0x7]
+    ldrb       r0,[r5,#Scene_b7]
     sub        r0,#0x1
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Scene_b7]
     tst        r0,r0
     bne        LAB_080976ee
     mov        r0,#0xd8
     bl         Sound_PlaySE
     mov        r0,#0x1e
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Scene_b7]
 LAB_080976ee:
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Scene_counter]
     sub        r0,#0x1
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Scene_counter]
     tst        r0,r0
     bne        LAB_0809772a
     bl         Rng_RandomUint
@@ -233,7 +223,7 @@ LAB_080976ee:
     bl         Effect_TrafficExplosion_2_Create
     pop        {r5}
     mov        r1,#0xa
-    strb       r1,[r5,#0xa]
+    strb       r1,[r5,#Scene_counter]
 LAB_0809772a:
     pop        {pc}
 

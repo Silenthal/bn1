@@ -15,7 +15,7 @@ Cam_Set_08084fc4:
 _ts Scene_Story_0E
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_0E_0_080850f4
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -37,9 +37,7 @@ _ts S_Story_0E_0
     pop        {r5}
     ldr        r0,PTR_Cam_Set_080850f8
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -55,9 +53,7 @@ _ts S_Story_0E_1
     mov        r0,#0x1
     bl         PlayerAnimation_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_08085058
     bl         S_Story_0E_SkipIfStart
@@ -83,9 +79,7 @@ _ts S_Story_0E_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08085084:
     bl         Scene_IsStartPressed
     beq        LAB_0808508e
@@ -101,9 +95,7 @@ _ts S_Story_0E_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080850a4
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080850a4:
     bl         Scene_IsStartPressed
     beq        LAB_080850ae
@@ -139,7 +131,7 @@ _ts S_Story_0E_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

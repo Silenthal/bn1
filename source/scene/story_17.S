@@ -17,7 +17,7 @@ MapEntranceOptions_0808703e:
 _ts Scene_Story_17
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_17_0_08087198
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -37,9 +37,7 @@ _ts S_Story_17_0
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -51,7 +49,7 @@ _ts S_Story_17_1
     mov        r0,#0x33
     bl         PlayerAnimation_SetState
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     push       {r5}
     mov        r0,#T_Incident_Occurrence
     bl         Sound_PlayBGM
@@ -61,9 +59,7 @@ _ts S_Story_17_1
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080870c2:
     pop        {pc}
 
@@ -72,20 +68,18 @@ _ts S_Story_17_2
     LoadMain world, r0, r7
     mov        r0,#0x34
     bl         PlayerAnimation_SetState
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
 _nt S_Story_17_3
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_080870ea
     mov        r0,#0x1e
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     mov        r0,#0x8d
     bl         Sound_PlaySE
 LAB_080870ea:
@@ -94,14 +88,12 @@ LAB_080870ea:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080870fc
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080870fc:
     bl         Scene_IsStartPressed
     beq        LAB_08087106
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08087106:
     pop        {pc}
 
@@ -116,9 +108,7 @@ _ts S_Story_17_4
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -133,27 +123,25 @@ _nt S_Story_17_5
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08087146:
     pop        {pc}
 
 
 _ts S_Story_17_6
     ldr        r0,PTR_MapEntranceOptions_080871a0
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     LoadMain world, r0, r7
     mov        r1,#0x3
     strb       r1,[r0,#0x7]
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
-    ldr        r2,[r5,#0x10]
+    ldr        r2,[r5,#Scene_sceneArg]
     strb       r1,[r0,#0x12]
     str        r2,[r0,#0x14]
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x12]
     bl         World_ChangeMap
     pop        {r5}

@@ -20,7 +20,7 @@ Cam_Set_0808cd22:
 _ts Scene_Story_3A
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_3A_0_0808cf70
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -45,11 +45,9 @@ _ts S_Story_3A_0
     push       {r5}
     bl         Flag_SetPlayerInactive
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     mov        r0,#0x0
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     pop        {pc}
 
 
@@ -68,10 +66,8 @@ _nt S_Story_3A_1
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_0808cdb2:
     pop        {pc}
 
@@ -83,10 +79,8 @@ _ts S_Story_3A_2
     cmp        r0,r1
     beq        LAB_0808cdca
     mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_0808cdca:
     bl         Scene_IsStartPressed
     beq        LAB_0808cdd4
@@ -96,18 +90,16 @@ LAB_0808cdd4:
 
 
 _nt S_Story_3A_3
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     bne        LAB_0808cdf2
     ldr        r0,PTR_Cam_Set_0808cf78
     bl         SceneCamera_Init
     bl         SceneCamera_Main
     mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_0808cdf2:
     bl         Scene_IsStartPressed
     beq        LAB_0808cdfc
@@ -117,16 +109,16 @@ LAB_0808cdfc:
 
 
 _nt S_Story_3A_4
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     bne        LAB_0808ce34
     push       {r5}
     mov        r0,#0x8
     bl         Entity_FreeAllMultiple
     pop        {r5}
     mov        r0,#0x1
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     push       {r5}
     LoadMain mapEventState, r5, r0
     bl         Traffic_ResetToRedLight
@@ -136,10 +128,8 @@ _nt S_Story_3A_4
     bl         Entity_AllocList
     pop        {r5}
     mov        r0,#0x78
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_0808ce34:
     bl         Scene_IsStartPressed
     beq        LAB_0808ce3e
@@ -153,18 +143,16 @@ _ts S_Story_3A_5
     LoadMain mapEventState, r5, r0
     bl         Traffic_Main
     pop        {r5}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     bne        LAB_0808ce66
     push       {r5}
     ldr        r0,PTR_ScenarioData_3A_0808cf80
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808ce66:
     bl         Scene_IsStartPressed
     beq        LAB_0808ce70
@@ -188,9 +176,7 @@ _nt S_Story_3A_6
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808ce9c:
     bl         Scene_IsStartPressed
     beq        LAB_0808cea6
@@ -200,11 +186,11 @@ LAB_0808cea6:
 
 
 _ts S_Story_3A_7
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#Scene_state_s1]
     tst        r0,r0
     bne        LAB_0808ced4
     mov        r0,#0x1
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     push       {r5}
     mov        r0,#0x8
     bl         Entity_FreeAllMultiple
@@ -246,9 +232,7 @@ LAB_0808cee0:
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808cf1e:
     pop        {pc}
 
@@ -285,7 +269,7 @@ _nt S_Story_3A_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

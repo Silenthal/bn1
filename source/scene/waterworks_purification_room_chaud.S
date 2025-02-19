@@ -6,7 +6,7 @@
 _ts Scene_Waterworks_Purification_Room_Chaud
     push       {lr}
     ldr        r0,PTR_PTR_S_Waterworks_Purification_Room_Chaud_0_0808b8e8
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -22,12 +22,10 @@ _ts S_Waterworks_Purification_Room_Chaud_0
     push       {r5}
     bl         Flag_SetPlayerInactive
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     mov        r0,#0x1
     bl         NPC_FindByIndex
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x2
     eor        r1,r2
@@ -44,9 +42,7 @@ _ts S_Waterworks_Purification_Room_Chaud_0
 
 
 _ts S_Waterworks_Purification_Room_Chaud_1
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -60,14 +56,12 @@ _ts S_Waterworks_Purification_Room_Chaud_2
     mov        r0,#0x8
     bl         Entity_FreeAllMultiple
     pop        {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r1,[r0,#0x0]
     mov        r2,#0x2
     orr        r1,r2
     strb       r1,[r0,#0x0]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808b8c2:
     pop        {pc}
 

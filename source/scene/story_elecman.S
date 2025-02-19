@@ -6,7 +6,7 @@
 _ts Scene_Story_ElecMan
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_ElecMan_0_08091e7c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -24,9 +24,7 @@ _ts S_Story_ElecMan_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -59,9 +57,7 @@ _ts S_Story_ElecMan_1
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091da8:
     pop        {pc}
 
@@ -77,9 +73,7 @@ _nt S_Story_ElecMan_2
     mov        r1,#0x2
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091dc8:
     pop        {pc}
 
@@ -98,9 +92,7 @@ _nt S_Story_ElecMan_3
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091df2:
     bl         Scene_IsStartPressed
     beq        LAB_08091dfc
@@ -120,9 +112,7 @@ _nt S_Story_ElecMan_4
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091e1e:
     pop        {pc}
 
@@ -162,7 +152,7 @@ _ts S_Story_ElecMan_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

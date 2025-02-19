@@ -14,7 +14,7 @@ Cam_Set_0808ee88:
 _ts Scene_Story_4D
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_4D_0_0808f034
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -36,9 +36,7 @@ _ts S_Story_4D_0
     mov        r0,#0x10
     bl         PetStatusControl_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     ldr        r0,PTR_Cam_Set_0808f038
     bl         SceneCamera_Init
     bl         SceneCamera_Main
@@ -65,9 +63,7 @@ _ts S_Story_4D_1
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808ef0e:
     pop        {pc}
 
@@ -83,9 +79,7 @@ _ts S_Story_4D_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808ef38
     bl         S_Story_4D_SkipIfStart
@@ -104,9 +98,7 @@ _nt S_Story_4D_3
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808ef58:
     bl         Scene_IsStartPressed
     beq        LAB_0808ef62
@@ -126,9 +118,7 @@ _ts S_Story_4D_4
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808ef84:
     pop        {pc}
 
@@ -194,7 +184,7 @@ _ts S_Story_4D_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_4D_0_0808f034:

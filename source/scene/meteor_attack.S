@@ -10,7 +10,7 @@
 _ts Scene_MeteorAttack
     push       {lr}
     ldr        r0,PTR_PTR_S_MeteorAttack_0_0808462c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -30,9 +30,7 @@ _ts S_MeteorAttack_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -56,14 +54,14 @@ _ts S_MeteorAttack_1
     bl         Entity_FreeAllMultiple
     pop        {r5}
     mov        r0,#0x1
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Scene_counter]
     mov        r0,#0x1e
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     mov        r0,#0x0
-    str        r0,[r5,#0x1c]
-    str        r0,[r5,#0x20]
+    str        r0,[r5,#0x1C]
+    str        r0,[r5,#Scene_isAnimating]
     push       {r5}
     mov        r0,#0x0
     mov        r1,#0x1e
@@ -71,22 +69,20 @@ _ts S_MeteorAttack_1
     pop        {r5}
     mov        r0,#0x87
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080843f2:
     pop        {pc}
 
 
 _ts S_MeteorAttack_2
     push       {lr}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     sub        r0,#0x1
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     cmp        r0,#0x0
     bgt        LAB_0808445e
     mov        r0,#0x0
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     bl         S_MeteorAttack_Meteors
     push       {r5}
     Flag_GetBase 0xDA
@@ -115,15 +111,13 @@ _ts S_MeteorAttack_2
     pop        {r5}
     str        r0,[r5,#0x18]
     mov        r0,#0x0
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     mov        r0,#0x1
-    str        r0,[r5,#0x20]
+    str        r0,[r5,#Scene_isAnimating]
     ldr        r0,PTR_gFrameWaitValue_08084638
     mov        r1,#0x4
     strh       r1,[r0,#0x0]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     b          LAB_08084468
 LAB_0808445e:
     bl         Scene_IsStartPressed
@@ -147,9 +141,7 @@ _ts S_MeteorAttack_3
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808448c:
     bl         Scene_IsStartPressed
     beq        LAB_08084496
@@ -193,12 +185,12 @@ MapEntrance_080844d8:
 
 _ts S_MeteorAttack_Meteors
     push       {lr}
-    ldrh       r0,[r5,#0x8]
+    ldrh       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     cmp        r0,#0x0
     bgt        LAB_08084540
-    ldrh       r0,[r5,#0xa]
+    ldrh       r0,[r5,#Scene_counter]
     cmp        r0,#0x10
     bge        LAB_08084540
     add        r4,r0,#0x0
@@ -231,11 +223,11 @@ LAB_0808451c:
     orr        r4,r6
     bl         Attack_Alloc
     pop        {r4,r5}
-    ldrh       r0,[r5,#0xa]
+    ldrh       r0,[r5,#Scene_counter]
     add        r0,#0x1
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Scene_counter]
     mov        r0,#0xf
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
 LAB_08084540:
     pop        {pc}
 
@@ -311,15 +303,15 @@ USHORT_ARRAY_ARRAY_08084544:
 
 _ts S_MeteorAttack_AnimatePlayer
     push       {lr}
-    ldr        r0,[r5,#0x20]
+    ldr        r0,[r5,#Scene_isAnimating]
     tst        r0,r0
     beq        LAB_0808460e
-    ldr        r0,[r5,#0x1c]
+    ldr        r0,[r5,#0x1C]
     cmp        r0,#0x2
     bge        LAB_08084612
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     add        r0,#0x1
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     cmp        r0,#0x20
     bge        LAB_080845ea
     ldr        r0,[r5,#0x14]
@@ -337,9 +329,9 @@ LAB_080845ea:
     mov        r1,#0x80
     and        r0,r1
     beq        LAB_0808460e
-    ldr        r0,[r5,#0x1c]
+    ldr        r0,[r5,#0x1C]
     add        r0,#0x1
-    str        r0,[r5,#0x1c]
+    str        r0,[r5,#0x1C]
     push       {r5}
     mov        r0,#0x2b
     bl         PlayerAnimation_SetState
@@ -363,7 +355,7 @@ _ts S_MeteorAttack_SkipIfStart
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_MeteorAttack_0_0808462c:

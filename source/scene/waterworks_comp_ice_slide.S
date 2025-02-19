@@ -6,7 +6,7 @@
 _ts Scene_Ice_Slide
     push       {lr}
     ldr        r0,PTR_PTR_S_Ice_Slide_0_0808c128
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -29,7 +29,7 @@ _ts S_Ice_Slide_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 
@@ -49,18 +49,18 @@ _ts S_Ice_Slide_1
     bl         DisableElevationCheck
     pop        {r5}
     ldr        r0,PTR_gPlayerAnimation_0808c12c
-    str        r0,[r5,#0x24]
+    str        r0,[r5,#Scene_pAnim]
     mov        r0,#0x80
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     str        r0,[r5,#0x14]
     str        r0,[r5,#0x18]
     mov        r0,#0x0
-    str        r0,[r5,#0x20]
+    str        r0,[r5,#Scene_isAnimating]
     mov        r0,#0xe8
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808becc:
     pop        {pc}
 
@@ -77,24 +77,24 @@ _ts S_Ice_Slide_2
     bl         Map_HandleCollisionElevation
     add        r2,r0,#0x0
     pop        {r5}
-    ldr        r0,[r5,#0x24]
+    ldr        r0,[r5,#Scene_pAnim]
     ldr        r1,[r0,#0x10]
     asr        r1,r1,#0x10
     cmp        r2,r1
     bge        LAB_0808bef4
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_0808bf74
 LAB_0808bef4:
     bl         S_Ice_Slide_HandleCollisionDirection
-    ldr        r0,[r5,#0x24]
+    ldr        r0,[r5,#Scene_pAnim]
     ldr        r1,[r0,#0x8]
-    ldr        r2,[r5,#0x10]
+    ldr        r2,[r5,#Scene_sceneArg]
     ldr        r3,[r0,#0xc]
     ldr        r4,[r5,#0x14]
     ldr        r6,[r0,#0x10]
     ldr        r7,[r5,#0x18]
-    str        r1,[r5,#0x10]
+    str        r1,[r5,#Scene_sceneArg]
     str        r3,[r5,#0x14]
     str        r6,[r5,#0x18]
     cmp        r1,r2
@@ -142,7 +142,7 @@ LAB_0808bf5c:
     bl         PlayerAnimation_SetPosition
     pop        {r5}
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808bf74:
     pop        {pc}
 
@@ -153,7 +153,7 @@ LAB_0808bf74:
 _ts S_Ice_Slide_3
     push       {lr}
     push       {r5}
-    ldr        r0,[r5,#0x24]
+    ldr        r0,[r5,#Scene_pAnim]
     ldrb       r0,[r0,#0x2]
     sub        r0,#0x3b
     bl         PlayerAnimation_SetState
@@ -173,7 +173,7 @@ _ts S_Ice_Slide_4
     bl         S_Ice_Slide_HoldDirectionChange
     beq        LAB_0808bfa8
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808bfa8:
     pop        {pc}
 
@@ -183,11 +183,11 @@ LAB_0808bfa8:
 
 _ts S_Ice_Slide_5
     push       {lr}
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#Scene_state_s1]
     tst        r0,r0
     bne        LAB_0808bfcc
     mov        r0,#0x1
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     push       {r5}
     LoadMain world, r7, r7
     ldr        r0,[r7,#0x28]
@@ -195,33 +195,33 @@ _ts S_Ice_Slide_5
     bl         Map_HandleCollisionElevation
     add        r2,r0,#0x0
     pop        {r5}
-    str        r2,[r5,#0x28]
+    str        r2,[r5,#Scene_i28]
 LAB_0808bfcc:
-    ldr        r2,[r5,#0x28]
-    ldr        r0,[r5,#0x24]
+    ldr        r2,[r5,#Scene_i28]
+    ldr        r0,[r5,#Scene_pAnim]
     ldr        r1,[r0,#0x10]
     asr        r1,r1,#0x10
     cmp        r2,r1
     bge        LAB_0808bfec
-    ldr        r3,[r5,#0x20]
+    ldr        r3,[r5,#Scene_isAnimating]
     add        r3,#0x2
-    str        r3,[r5,#0x20]
+    str        r3,[r5,#Scene_isAnimating]
     sub        r1,r1,r3
     strh       r1,[r0,#0x12]
     cmp        r2,r1
     blt        LAB_0808c03c
     strh       r2,[r0,#0x12]
     mov        r3,#0x0
-    str        r3,[r5,#0x20]
+    str        r3,[r5,#Scene_isAnimating]
 LAB_0808bfec:
     mov        r0,#0x0
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     push       {r5}
     sub        sp,#0x18
     mov        r0,sp
-    ldr        r7,[r5,#0x24]
+    ldr        r7,[r5,#Scene_pAnim]
     ldr        r1,[r7,#0x8]
     str        r1,[sp,#0x0]
     str        r1,[sp,#0xc]
@@ -251,7 +251,7 @@ LAB_0808bfec:
     beq        LAB_0808c03c
 LAB_0808c038:
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808c03c:
     pop        {pc}
 

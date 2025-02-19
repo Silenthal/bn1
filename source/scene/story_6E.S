@@ -23,7 +23,7 @@ Cam_Move_080940fe:
 _ts Scene_Story_6E
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_6E_0_080942d4
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -44,9 +44,7 @@ _ts S_Story_6E_0
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -76,9 +74,7 @@ _ts S_Story_6E_1
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08094192:
     pop        {pc}
 
@@ -92,9 +88,7 @@ _ts S_Story_6E_2
     ldr        r0,PTR_Cam_Set_080942dc
     bl         SceneCamera_Init
     bl         SceneCamera_Main
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_080941ba
     bl         S_Story_6E_SkipIfStart
@@ -109,9 +103,7 @@ _ts S_Story_6E_3
     ldr        r0,PTR_Cam_Move_080942e0
     bl         SceneCamera_Init
     bl         SceneCamera_Main
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080941d4:
     bl         Scene_IsStartPressed
     beq        LAB_080941de
@@ -129,9 +121,7 @@ _ts S_Story_6E_4
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080941fa:
     bl         Scene_IsStartPressed
     beq        LAB_08094204
@@ -151,9 +141,7 @@ _nt S_Story_6E_5
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08094224:
     bl         Scene_IsStartPressed
     beq        LAB_0809422e
@@ -198,9 +186,7 @@ _ts S_Story_6E_6
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0809428e:
     pop        {pc}
 
@@ -233,7 +219,7 @@ _ts S_Story_6E_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x18
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_6E_0_080942d4:

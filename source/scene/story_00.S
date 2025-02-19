@@ -15,7 +15,7 @@ Cam_Set_08082880:
 _ts Scene_Story_00_LanWakesUp
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_00_0_08082aa4
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -51,9 +51,7 @@ _ts S_Story_00_0
     bl         S_Story_00_LoadLanBed
     ldr        r0,PTR_Cam_Set_08082aa8
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08082906:
     pop        {pc}
 
@@ -66,9 +64,7 @@ _ts S_Story_00_1
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08082906
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -81,45 +77,41 @@ _ts S_Story_00_2
     cmp        r0,#0x1
     beq        LAB_08082946
     mov        r0,#0x0
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Scene_dialogueIndex]
     mov        r0,#0x0
-    strh       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strh       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_08082946
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08082946:
     pop        {pc}
 
 
 _ts S_Story_00_3
     push       {lr}
-    ldrh       r0,[r5,#0x8]
+    ldrh       r0,[r5,#Scene_sceneTimer]
     cmp        r0,#0x0
     ble        LAB_08082956
     sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     b          LAB_0808297a
 LAB_08082956:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     add        r1,r0,#0x1
-    strb       r1,[r5,#0x4]
+    strb       r1,[r5,#Scene_dialogueIndex]
     ldr        r1,PTR_BYTE_ARRAY_08082aac
     ldrb       r1,[r1,r0]
     ldr        r0,PTR_ScenarioData_00_08082ab0
     push       {r5}
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808297a
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808297a:
     pop        {pc}
 
@@ -131,14 +123,12 @@ _ts S_Story_00_4
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08082990
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08082990:
     bl         Scene_IsStartPressed
     beq        LAB_0808299a
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808299a:
     pop        {pc}
 
@@ -154,14 +144,12 @@ _ts S_Story_00_5
     Flag_SetBase 0xD9
     pop        {r5}
     mov        r0,#0x60
-    strh       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strh       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_080829c8
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_080829c8:
     pop        {pc}
 
@@ -176,9 +164,7 @@ _ts S_Story_00_8
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -221,9 +207,7 @@ _ts S_Story_00_9
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08082a42:
     pop        {pc}
 
@@ -263,7 +247,7 @@ _ts S_Story_00_LoadLanBed
     bl         Actor_Alloc
     add        r0,r5,#0x0
     pop        {r5}
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     pop        {pc}
 
     .align 2, 0
@@ -273,7 +257,7 @@ _ts S_Story_00_LoadLanBed
 _ts S_Story_00_FreeLanBed
     push       {lr}
     push       {r5}
-    ldr        r5,[r5,#0x10]
+    ldr        r5,[r5,#Scene_sceneArg]
     bl         Actor_Free
     pop        {r5}
     pop        {pc}

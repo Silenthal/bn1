@@ -15,7 +15,7 @@ Cam_Set_0808331c:
 _ts Scene_Story_03_BeginClassTutorial
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_03_0_08083490
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -43,9 +43,7 @@ _ts S_Story_03_0
     pop        {r5}
     ldr        r0,PTR_Cam_Set_08083494
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -60,10 +58,8 @@ _ts S_Story_03_1
     cmp        r0,r1
     beq        LAB_080833b2
     mov        r0,#0x0
-    strb       r0,[r5,#0x4]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_dialogueIndex]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_080833b2
     bl         S_Story_03_SkipIfStart
@@ -73,18 +69,16 @@ LAB_080833b2:
 
 _ts S_Story_03_2
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     add        r1,r0,#0x1
-    strb       r1,[r5,#0x4]
+    strb       r1,[r5,#Scene_dialogueIndex]
     push       {r5}
     ldr        r1,PTR_DAT_08083498
     ldrb       r1,[r1,r0]
     ldr        r0,PTR_ScenarioData_03_0808349c
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_080833da
     bl         S_Story_03_SkipIfStart
@@ -107,9 +101,7 @@ _ts S_Story_03_3
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08083406:
     bl         Scene_IsStartPressed
     beq        LAB_08083410
@@ -175,7 +167,7 @@ _ts S_Story_03_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_03_0_08083490:

@@ -23,7 +23,7 @@ PlayerAnimateArgs_80861C8:
 _ts Scene_Story_10
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_10_0_08086384
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -42,9 +42,7 @@ _ts S_Story_10_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -65,9 +63,7 @@ _ts S_Story_10_1
     pop        {r5}
     ldr        r0,PTR_Cam_Set_08086388
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808624e:
     pop        {pc}
 
@@ -91,21 +87,19 @@ _ts S_Story_10_2
     ldr        r7,PTR_PlayerAnimateArgs_80861C8_08086390
     str        r7,[r5,#0x18]
     mov        r0,#0x0
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     mov        r0,#0xff
     str        r0,[r5,#0x14]
     mov        r0,#0x1
-    str        r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    str        r0,[r5,#0x1C]
+    Scene_Next
 
 
 _ts S_Story_10_SkipIfStart
     bl         Scene_IsStartPressed
     beq        LAB_0808624e
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08086296:
     pop        {pc}
 
@@ -115,7 +109,7 @@ _ts S_Story_10_3
     tst        r0,r0
     bne        LAB_080862a4
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_080862a4:
     b          S_Story_10_SkipIfStart
 
@@ -156,9 +150,7 @@ _ts S_Story_10_5
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -177,25 +169,25 @@ _ts S_Story_10_6
     bl         Text_DisableDialogue
     pop        {r5}
     mov        r0,#0x10
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#Scene_state_s0]
 LAB_0808632a:
     pop        {pc}
 
 
 _ts S_Story_10_AnimatePlayer
     push       {lr}
-    ldr        r0,[r5,#0x1c]
+    ldr        r0,[r5,#0x1C]
     tst        r0,r0
     beq        LAB_08086380
     ldr        r7,[r5,#0x18]
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     cmp        r0,#0x0
     bgt        LAB_0808635c
     ldrb       r0,[r7,#0x4]
     cmp        r0,#0xff
     bne        LAB_08086348
     mov        r1,#0x2
-    str        r1,[r5,#0x1c]
+    str        r1,[r5,#0x1C]
     sub        r7,#0x4
 LAB_08086348:
     add        r7,#0x4
@@ -210,7 +202,7 @@ LAB_0808635a:
     ldrb       r0,[r7,#0x3]
 LAB_0808635c:
     sub        r0,#0x1
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     mov        r3,#0x1
     ldrsb      r0,[r7,r3]
     lsl        r0,r0,#0xc
@@ -221,7 +213,7 @@ LAB_0808635c:
     push       {r5}
     bl         PlayerAnimation_Move
     pop        {r5}
-    ldr        r0,[r5,#0x1c]
+    ldr        r0,[r5,#0x1C]
     cmp        r0,#0x2
     beq        LAB_08086380
     mov        r0,#0x1

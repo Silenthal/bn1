@@ -6,7 +6,7 @@
 _ts Scene_MegaManJackIn
     push       {lr}
     ldr        r0,PTR_PTR_S_MegaManJackIn_0_08084190
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -29,9 +29,7 @@ _ts S_MegaManJackIn_0
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -48,9 +46,7 @@ _ts S_MegaManJackIn_1
     mov        r0,#0xde
     bl         Sound_PlaySE
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080840d4:
     pop        {pc}
 
@@ -68,11 +64,9 @@ _ts S_MegaManJackIn_2
     mov        r1,#0x80
     and        r0,r1
     beq        LAB_080840f8
-    ldrb       r0,[r5,#0x5]
-    strh       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Scene_areaDialogueIndex]
+    strh       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_080840f8:
     pop        {pc}
 
@@ -82,13 +76,13 @@ LAB_080840f8:
 
 _ts S_MegaManJackIn_3
     push       {lr}
-    ldrh       r0,[r5,#0x8]
+    ldrh       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     beq        LAB_08084110
     bl         S_MegaManJackIn_AnimatePlayer
-    ldrh       r0,[r5,#0x8]
+    ldrh       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     b          LAB_0808413e
 LAB_08084110:
     push       {r5}
@@ -97,7 +91,7 @@ LAB_08084110:
     bl         PlayerAnimation_SetState
     Flag_ClearSystem F_SYSTEM_JACK_IN
     pop        {r5}
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     tst        r1,r1
     bne        LAB_08084132
     push       {r5}

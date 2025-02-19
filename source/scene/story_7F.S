@@ -6,7 +6,7 @@
 _ts Scene_Story_7F
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_7F_0_080979d8
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -29,9 +29,7 @@ PTR_S_Story_7F_0_080979dc:
 _ts S_Story_7F_0
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -65,9 +63,7 @@ _ts S_Story_7F_1
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097a6c:
     pop        {pc}
 
@@ -83,9 +79,7 @@ _nt S_Story_7F_2
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097a8c:
     bl         Scene_IsStartPressed
     beq        LAB_08097a96
@@ -107,9 +101,7 @@ _ts S_Story_7F_3
     mov        r1,#0x1
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_08097ac6
     bl         S_Story_7F_SkipIfStart
@@ -139,9 +131,7 @@ LAB_08097aea:
     mov        r0,#0x18
     bl         PlayerAnimation_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 LAB_08097b08:
     bl         Scene_IsStartPressed
@@ -177,9 +167,7 @@ LAB_08097b3c:
     mov        r1,#0x2
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097b54:
     pop        {pc}
 
@@ -195,9 +183,7 @@ _nt S_Story_7F_6
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097b76:
     pop        {pc}
 
@@ -233,7 +219,7 @@ _ts S_Story_7F_8
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08097bc6:
     pop        {pc}
 
@@ -249,7 +235,7 @@ _ts S_Story_7F_SkipIfStart
     Flag_SetBase 0x96
     Flag_SetBase 0xF9
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 

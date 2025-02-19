@@ -16,7 +16,7 @@ MapEntranceOptions_080873ec:
 _ts Scene_Story_19
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_19_0_080875c0
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -38,7 +38,7 @@ _ts S_Story_19_0
     push       {r5}
     bl         Flag_SetPlayerInactive
     pop        {r5}
-    ldr        r0,[r5,#0x4]
+    ldr        r0,[r5,#Scene_dialogueIndex]
     tst        r0,r0
     beq        LAB_08087454
     push       {r5}
@@ -47,19 +47,17 @@ _ts S_Story_19_0
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 LAB_08087454:
     ldr        r0,PTR_MapEntranceOptions_080875c4
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -72,11 +70,11 @@ _ts S_Story_19_1
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
-    ldr        r2,[r5,#0x10]
+    ldr        r2,[r5,#Scene_sceneArg]
     strb       r1,[r0,#0x12]
     str        r2,[r0,#0x14]
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x12]
     bl         World_ChangeMap
     pop        {r5}
@@ -97,9 +95,7 @@ LAB_080874b2:
 
 _ts S_Story_19_2
     bl         PlayerAnimation_Lock
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -111,22 +107,20 @@ _ts S_Story_19_3
     mov        r0,#0x34
     bl         PlayerAnimation_SetState
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_080874dc:
     pop        {pc}
 
 
 _nt S_Story_19_4
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_080874f2
     mov        r0,#0x1e
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     mov        r0,#0x8d
     bl         Sound_PlaySE
 LAB_080874f2:
@@ -138,9 +132,7 @@ LAB_080874f2:
     LoadMain world, r0, r7
     mov        r0,#0x35
     bl         PlayerAnimation_SetState
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808750e:
     pop        {pc}
 
@@ -151,9 +143,7 @@ _ts S_Story_19_5
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -168,9 +158,7 @@ _ts S_Story_19_6
     pop        {r5}
     mov        r0,#0x40
     bl         Text_EnableOption
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08087544:
     bl         Scene_IsStartPressed
     beq        LAB_0808754e
@@ -190,9 +178,7 @@ _ts S_Story_19_7
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08087570:
     pop        {pc}
 
@@ -203,9 +189,7 @@ _nt S_Story_19_8
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -232,7 +216,7 @@ _nt S_Story_19_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

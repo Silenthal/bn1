@@ -19,7 +19,7 @@ Cam_Set_0808fa0e:
 _ts Scene_Story_53
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_53_0_0808fdac
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -55,9 +55,7 @@ _ts S_Story_53_0
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -87,9 +85,7 @@ _ts S_Story_53_1
     pop        {r5}
     ldr        r0,PTR_Cam_Set_0808fdb0
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808fae4
     bl         S_Story_53_SkipIfStart
@@ -106,9 +102,7 @@ _nt S_Story_53_2
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808fb00:
     pop        {pc}
 
@@ -126,9 +120,7 @@ _nt S_Story_53_3
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -138,9 +130,7 @@ _ts S_Story_53_4
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808fb3a
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808fb3a:
     bl         Scene_IsStartPressed
     beq        LAB_0808fb44
@@ -158,9 +148,7 @@ _nt S_Story_53_5
     mov        r1,#0x1
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808fb60:
     bl         Scene_IsStartPressed
     beq        LAB_0808fb6a
@@ -176,9 +164,7 @@ _ts S_Story_53_6
     pop        {r5}
     bne        LAB_0808fb84
     Flag_SetBase 0xAE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808fb84:
     bl         Scene_IsStartPressed
     beq        LAB_0808fb8e
@@ -212,9 +198,7 @@ _ts S_Story_53_7
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808fbdc
     bl         S_Story_53_SkipIfStart
@@ -228,9 +212,7 @@ _nt S_Story_53_8
     mov        r1,#0x2
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -242,10 +224,8 @@ _nt S_Story_53_9
     bne        LAB_0808fc0e
     Flag_SetBase 0xAC
     mov        r0,#0xc8
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_0808fc0e:
     bl         Scene_IsStartPressed
     beq        LAB_0808fc18
@@ -255,9 +235,9 @@ LAB_0808fc18:
 
 
 _nt S_Story_53_10
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_0808fc36
     push       {r5}
@@ -265,9 +245,7 @@ _nt S_Story_53_10
     mov        r1,#0x4
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808fc36:
     bl         Scene_IsStartPressed
     beq        LAB_0808fc40
@@ -285,10 +263,8 @@ _nt S_Story_53_11
     ldr        r0,PTR_Cam_Set_0808fdc0
     bl         SceneCamera_Init
     mov        r0,#0x5a
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_0808fc5e:
     bl         Scene_IsStartPressed
     beq        LAB_0808fc68
@@ -301,9 +277,9 @@ _nt S_Story_53_12
     bl         SceneCamera_Main
     cmp        r0,#0x1
     beq        LAB_0808fcb6
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_0808fcb6
     push       {r5}
@@ -327,9 +303,7 @@ _nt S_Story_53_12
     mov        r1,#0x7
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808fcb6:
     bl         Scene_IsStartPressed
     beq        LAB_0808fcc0
@@ -349,9 +323,7 @@ _nt S_Story_53_13
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808fce0:
     bl         Scene_IsStartPressed
     beq        LAB_0808fcea
@@ -380,9 +352,7 @@ _ts S_Story_53_14
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808fd24:
     pop        {pc}
 
@@ -439,7 +409,7 @@ _ts S_Story_53_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x38
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_53_0_0808fdac:

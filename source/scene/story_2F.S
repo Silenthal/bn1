@@ -13,7 +13,7 @@
 _ts Scene_Story_2F
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_2F_0_0808a91c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -34,9 +34,7 @@ _ts S_Story_2F_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -60,9 +58,7 @@ _ts S_Story_2F_1
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a80c:
     pop        {pc}
 
@@ -78,9 +74,7 @@ _nt S_Story_2F_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808a836
     bl         S_Story_2F_SkipIfStart
@@ -92,14 +86,12 @@ _ts S_Story_2F_3
     Flag_GetBase 0xA5
     beq        LAB_0808a854
     mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     push       {r5}
     mov        r0,#0xc
     bl         PetStatusControl_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a854:
     bl         Scene_IsStartPressed
     beq        LAB_0808a85e
@@ -109,18 +101,16 @@ LAB_0808a85e:
 
 
 _ts S_Story_2F_4
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_0808a87a
     push       {r5}
     mov        r0,#0x4
     bl         PetStatusControl_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a87a:
     bl         Scene_IsStartPressed
     beq        LAB_0808a884
@@ -135,9 +125,7 @@ _nt S_Story_2F_5
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808a8b6
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808a8a2
     bl         S_Story_2F_SkipIfStart
@@ -151,9 +139,7 @@ _ts S_Story_2F_6
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808a8b6
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a8b6:
     bl         Scene_IsStartPressed
     beq        LAB_0808a8c0
@@ -168,9 +154,7 @@ _nt S_Story_2F_7
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -201,7 +185,7 @@ _ts S_Story_2F_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_2F_0_0808a91c:

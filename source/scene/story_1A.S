@@ -13,7 +13,7 @@ Cam_Set_08087704:
 _ts Scene_Story_1A
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_1A_0_0808789c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -31,9 +31,7 @@ _ts S_Story_1A_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -48,9 +46,7 @@ _ts S_Story_1A_1
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08087770:
     pop        {pc}
 
@@ -89,9 +85,7 @@ _nt S_Story_1A_2
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080877ce:
     pop        {pc}
 
@@ -110,9 +104,7 @@ _ts S_Story_1A_3
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080877f6:
     bl         Scene_IsStartPressed
     beq        LAB_08087800
@@ -138,9 +130,7 @@ _nt S_Story_1A_4
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08087832:
     bl         Scene_IsStartPressed
     beq        LAB_08087800
@@ -185,7 +175,7 @@ _nt S_Story_1A_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_1A_0_0808789c:

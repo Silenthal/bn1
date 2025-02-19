@@ -27,7 +27,7 @@ PlayerAnimateArgs_88A9C:
 _ts Scene_Story_23
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_23_0_08088d80
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -59,10 +59,8 @@ _ts S_Story_23_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     mov        r0,#0x0
-    str        r0,[r5,#0x20]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    str        r0,[r5,#Scene_isAnimating]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -88,9 +86,7 @@ _ts S_Story_23_1
     pop        {r5}
     ldr        r0,PTR_Cam_Set_08088d84
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08088b4c:
     pop        {pc}
 
@@ -116,34 +112,30 @@ _ts S_Story_23_2
     bl         Camera_SetEnabled
     pop        {r5}
     mov        r0,#0x0
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Scene_dialogueIndex]
     mov        r0,#0x0
-    strh       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strh       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_08088b86:
     pop        {pc}
 
 
 _ts S_Story_23_3
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     add        r1,r0,#0x1
-    strb       r1,[r5,#0x4]
+    strb       r1,[r5,#Scene_dialogueIndex]
     ldr        r1,PTR_DAT_08088d88
     ldrb       r1,[r1,r0]
     ldr        r0,PTR_ScenarioData_23_08088d8c
     push       {r5}
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_08088bae
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08088bae:
     pop        {pc}
 
@@ -155,14 +147,12 @@ _ts S_Story_23_4
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08088bc4
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08088bc4:
     bl         Scene_IsStartPressed
     beq        LAB_08088bce
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08088bce:
     pop        {pc}
 
@@ -175,20 +165,18 @@ _ts S_Story_23_5
     ldr        r7,PTR_PlayerAnimateArgs_08088d90
     str        r7,[r5,#0x18]
     mov        r0,#0x0
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     mov        r0,#0xff
     str        r0,[r5,#0x14]
     mov        r0,#0x1
-    str        r0,[r5,#0x20]
+    str        r0,[r5,#Scene_isAnimating]
     mov        r0,#0xdc
-    strh       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strh       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_08088c00
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08088c00:
     pop        {pc}
 
@@ -198,7 +186,7 @@ LAB_08088c00:
 
 _ts S_Story_23_6
     push       {lr}
-    ldrh       r0,[r5,#0x8]
+    ldrh       r0,[r5,#Scene_sceneTimer]
     cmp        r0,#0xff
     beq        LAB_08088c28
     cmp        r0,#0x0
@@ -209,19 +197,17 @@ _ts S_Story_23_6
     bl         Text_LoadDialogue
     pop        {r5}
     mov        r0,#0xff
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     b          LAB_08088c28
 LAB_08088c22:
-    ldrh       r0,[r5,#0x8]
+    ldrh       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
 LAB_08088c28:
     bl         S_Story_23_AnimatePlayer
     tst        r0,r0
     bne        LAB_08088c40
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     push       {r5}
     mov        r0,#0x3
     bl         PlayerAnimation_SetState
@@ -230,7 +216,7 @@ LAB_08088c40:
     bl         Scene_IsStartPressed
     beq        LAB_08088c4a
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08088c4a:
     pop        {pc}
 
@@ -251,9 +237,9 @@ _ts S_Story_23_7
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Scene_state_s0]
     add        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 
@@ -261,7 +247,7 @@ _ts S_Story_23_SkipIfStart
     bl         Scene_IsStartPressed
     beq        LAB_08088c00
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 
@@ -277,9 +263,7 @@ _ts S_Story_23_8
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -332,7 +316,7 @@ _ts S_Story_23_MaylLoad
     bl         Actor_Alloc
     add        r0,r5,#0x0
     pop        {r5}
-    str        r0,[r5,#0x1c]
+    str        r0,[r5,#0x1C]
     pop        {pc}
 
     .align 2, 0
@@ -342,7 +326,7 @@ _ts S_Story_23_MaylLoad
 _ts S_Story_23_MaylFree
     push       {lr}
     push       {r5}
-    ldr        r5,[r5,#0x1c]
+    ldr        r5,[r5,#0x1C]
     bl         Actor_Free
     pop        {r5}
     pop        {pc}
@@ -353,11 +337,11 @@ _ts S_Story_23_MaylFree
 
 _ts S_Story_23_AnimatePlayer
     push       {lr}
-    ldr        r0,[r5,#0x20]
+    ldr        r0,[r5,#Scene_isAnimating]
     tst        r0,r0
     beq        LAB_08088d7a
     ldr        r7,[r5,#0x18]
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     cmp        r0,#0x0
     bgt        LAB_08088d5c
     ldrb       r0,[r7,#0x4]
@@ -377,7 +361,7 @@ LAB_08088d5a:
     ldrb       r0,[r7,#0x3]
 LAB_08088d5c:
     sub        r0,#0x1
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     mov        r3,#0x1
     ldrsb      r0,[r7,r3]
     lsl        r0,r0,#0xc

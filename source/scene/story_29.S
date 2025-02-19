@@ -16,7 +16,7 @@ Cam_Set_08089798:
 _ts Scene_Story_29
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_29_0_08089b74
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -46,11 +46,11 @@ PTR_S_Story_29_0_080897b4:
 _ts S_Story_29_0
     push       {lr}
     ldr        r0,PTR_MapEntranceOptions_08089b78
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     mov        r2,#0x14
     mul        r2,r1
     add        r0,r0,r2
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
@@ -59,9 +59,7 @@ _ts S_Story_29_0
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -95,9 +93,7 @@ _nt S_Story_29_1
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089870:
     pop        {pc}
 
@@ -113,9 +109,7 @@ _nt S_Story_29_2
     mov        r0,#0x8
     bl         Text_LoadAreaDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089890:
     pop        {pc}
 
@@ -134,9 +128,7 @@ _nt S_Story_29_3
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080898b8:
     pop        {pc}
 
@@ -168,9 +160,7 @@ LAB_080898e4:
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080898fc:
     pop        {pc}
 
@@ -196,9 +186,7 @@ _nt S_Story_29_5
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089936:
     pop        {pc}
 
@@ -215,9 +203,7 @@ _ts S_Story_29_6
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089958:
     pop        {pc}
 
@@ -238,9 +224,7 @@ _nt S_Story_29_7
     mov        r0,#T_Incident_Occurrence
     bl         Sound_PlayBGM
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089984:
     pop        {pc}
 
@@ -254,12 +238,10 @@ _nt S_Story_29_8
     bne        LAB_080899aa
     Flag_SetBase 0xC0
     mov        r0,#0x96
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     mov        r0,#0x3
     bl         PlayerAnimation_SetState
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080899aa:
     bl         Scene_IsStartPressed
     beq        LAB_080899b4
@@ -270,18 +252,16 @@ LAB_080899b4:
 
 _nt S_Story_29_9
     push       {lr}
-    ldrh       r0,[r5,#0x8]
+    ldrh       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     bne        LAB_080899d2
     push       {r5}
     ldr        r0,PTR_ScenarioData_29_08089b84
     mov        r1,#0x3
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080899d2:
     bl         Scene_IsStartPressed
     beq        LAB_080899dc
@@ -303,10 +283,8 @@ _nt S_Story_29_10
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x3c
-    strh       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strh       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_08089a02:
     bl         Scene_IsStartPressed
     beq        LAB_08089a0c
@@ -322,9 +300,9 @@ _nt S_Story_29_11
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089a3c
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     bne        LAB_08089a3c
     Flag_SetBase 0xC1
     push       {r5}
@@ -332,9 +310,7 @@ _nt S_Story_29_11
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089a3c:
     pop        {pc}
 
@@ -357,9 +333,7 @@ _nt S_Story_29_12
     mov        r0,#T_Suspicious_Mood
     bl         Sound_PlayBGM
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089a6e:
     pop        {pc}
 
@@ -378,9 +352,7 @@ _ts S_Story_29_13
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089a96:
     pop        {pc}
 
@@ -402,7 +374,7 @@ _ts S_Story_29_15
     bl         PlayerAnimation_Unlock
     pop        {r5}
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     mov        r1,#0x0
     bl         World_SetTransitionLocation
     pop        {r5}
@@ -432,14 +404,14 @@ _nt S_Story_29_16
     bl         Entity_FreeAllMultiple
     pop        {r5}
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     push       {r5}
     mov        r0,#0x3
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x30
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08089b0e:
     pop        {pc}
 
@@ -494,7 +466,7 @@ _nt FUN_08089b56
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x40
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 @ TODO manual align used because ".align 2,0" doesn't work

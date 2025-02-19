@@ -6,7 +6,7 @@
 _ts Scene_Rocket_Comp_LifeVirus
     push       {lr}
     ldr        r0,PTR_PTR_S_Rocket_Comp_LifeVirus_0_080981e4
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -33,9 +33,7 @@ _ts S_Rocket_Comp_LifeVirus_0
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -59,10 +57,8 @@ _nt S_Rocket_Comp_LifeVirus_1
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x2d
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_08098118:
     pop        {pc}
 
@@ -74,18 +70,16 @@ _nt S_Rocket_Comp_LifeVirus_2
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809814c
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_08098142
     push       {r5}
     mov        r0,#0x0
     bl         Text_LoadAreaDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08098142:
     bl         Scene_IsStartPressed
     beq        LAB_08098180
@@ -108,9 +102,7 @@ _nt S_Rocket_Comp_LifeVirus_3
     pop        {r5}
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 LAB_08098176:
     bl         Scene_IsStartPressed
@@ -160,7 +152,7 @@ _ts S_Rocket_Comp_LifeVirus_SkipIfStart
     mov        r0,#0xc7
     bl         Sound_PlaySE
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

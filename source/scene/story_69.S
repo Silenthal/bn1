@@ -14,7 +14,7 @@ Cam_Set_08093604:
 _ts Scene_Story_69
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_69_0_080938b8
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -45,9 +45,7 @@ _ts S_Story_69_0
     ldr        r0,PTR_BgTask_ACDC_Lan_Living_Room_TV_Wily_080938c0
     bl         BgTask_AddNew
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     ldr        r0,PTR_Cam_Set_080938c4
     bl         SceneCamera_Init
     bl         SceneCamera_Main
@@ -78,9 +76,7 @@ _ts S_Story_69_1
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080936ba:
     pop        {pc}
 
@@ -96,9 +92,7 @@ _ts S_Story_69_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_080936e4
     bl         S_Story_69_SkipIfStart
@@ -117,9 +111,7 @@ _nt S_Story_69_3
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08093704:
     bl         Scene_IsStartPressed
     beq        LAB_0809370e
@@ -150,9 +142,7 @@ _ts S_Story_69_4
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0809374a:
     pop        {pc}
 
@@ -168,9 +158,7 @@ _ts S_Story_69_5
     mov        r1,#0x1
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0809376a:
     pop        {pc}
 
@@ -182,12 +170,10 @@ _ts S_Story_69_6
     pop        {r5}
     bne        LAB_08093788
     mov        r0,#0x5a
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     mov        r0,#0x15
     bl         PlayerAnimation_SetState
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08093788:
     bl         Scene_IsStartPressed
     beq        LAB_08093792
@@ -205,9 +191,9 @@ _ts S_Story_69_7
     mov        r2,#0x0
     bl         PlayerAnimation_Move
     pop        {r5}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_080937cc
     Flag_SetBase 0xA4
@@ -217,10 +203,8 @@ _ts S_Story_69_7
     bl         Text_LoadDialogue
     pop        {r5}
     mov        r0,#0x14
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_080937cc:
     bl         Scene_IsStartPressed
     beq        LAB_080937d6
@@ -230,11 +214,11 @@ LAB_080937d6:
 
 
 _ts S_Story_69_8
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     beq        LAB_080937f4
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     push       {r5}
     mov        r0,#0x10
     neg        r0,r0
@@ -254,9 +238,7 @@ LAB_080937f4:
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08093812:
     bl         Scene_IsStartPressed
     beq        LAB_0809381c
@@ -300,9 +282,7 @@ _nt S_Story_69_9
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0809387a:
     pop        {pc}
 
@@ -332,7 +312,7 @@ _ts S_Story_69_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x24
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_Story_69_0_080938b8:

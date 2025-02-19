@@ -62,7 +62,7 @@ BYTE_ARRAY_0808babf:
 _ts Scene_Waterworks_Comp_TurnHandle
     push       {lr}
     ldr        r0,PTR_PTR_S_Waterworks_Comp_TurnHandle_0_0808be20
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -87,7 +87,7 @@ _ts S_Waterworks_Comp_TurnHandle_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 
@@ -109,7 +109,7 @@ _ts S_Waterworks_Comp_TurnHandle_1
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808bb3c:
     pop        {pc}
 
@@ -126,7 +126,7 @@ _ts S_Waterworks_Comp_TurnHandle_2
     beq        LAB_0808bb80
     push       {r5}
     ldr        r7,PTR_PlayerAnimateArgsSet_ARRAY_0808be24
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     sub        r0,#0x20
     lsl        r0,r0,#0x4
     add        r7,r7,r0
@@ -142,9 +142,9 @@ _ts S_Waterworks_Comp_TurnHandle_2
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x41
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808bb80:
     pop        {pc}
 
@@ -159,22 +159,22 @@ _ts S_Waterworks_Comp_TurnHandle_3
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808bbd4
-    ldrh       r0,[r5,#0x8]
+    ldrh       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
     cmp        r0,#0x0
     blt        LAB_0808bbb0
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     cmp        r0,#0x0
     bne        LAB_0808bbd4
     push       {r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     sub        r0,#0x20
     add        r0,#0xe4
     bl         Flag_ToggleBase
     pop        {r5}
     b          LAB_0808bbd4
 LAB_0808bbb0:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     sub        r0,#0x20
     push       {r0}
     add        r0,#0xe4
@@ -191,7 +191,7 @@ LAB_0808bbc6:
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808bbd4:
     pop        {pc}
 
@@ -210,7 +210,7 @@ _ts S_Waterworks_Comp_TurnHandle_4
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808bbf2:
     pop        {pc}
 
@@ -224,7 +224,7 @@ _ts S_Waterworks_Comp_TurnHandle_5
     beq        LAB_0808bc52
     push       {r5}
     ldr        r7,PTR_PlayerAnimateArgsSet_ARRAY_0808be30
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     sub        r0,#0x20
     lsl        r0,r0,#0x4
     add        r7,r7,r0
@@ -253,7 +253,7 @@ _ts S_Waterworks_Comp_TurnHandle_5
     mov        lr,pc
     bx         r0
     mov        r0,#0x18
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808bc52:
     pop        {pc}
 
@@ -297,7 +297,7 @@ _ts S_Waterworks_Comp_TurnHandle_7
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808bcae:
     pop        {pc}
 
@@ -313,7 +313,7 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_1
 
 _ts S_Waterworks_Comp_TurnHandle_Flags_2
     push       {r5,lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     cmp        r0,#0x21
     beq        LAB_0808bcca
     cmp        r0,#0x22
@@ -343,7 +343,7 @@ LAB_0808bcfe:
 
 _ts S_Waterworks_Comp_TurnHandle_Flags_3
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     cmp        r0,#0x24
     beq        LAB_0808bd12
     cmp        r0,#0x25
@@ -383,7 +383,7 @@ LAB_0808bd54:
 
 _ts S_Waterworks_Comp_TurnHandle_Flags_5
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     cmp        r0,#0x28
     beq        LAB_0808bda6
     b          LAB_0808bd62

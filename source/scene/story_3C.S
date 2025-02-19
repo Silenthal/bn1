@@ -6,7 +6,7 @@
 _ts Scene_Story_3C
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_3C_0_0808d29c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -27,11 +27,9 @@ _ts S_Story_3C_0
     push       {r5}
     bl         Flag_SetPlayerInactive
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     mov        r0,#0x78
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     push       {r5}
     mov        r0,#0x18
     bl         PetStatusControl_SetState
@@ -40,18 +38,16 @@ _ts S_Story_3C_0
 
 
 _nt S_Story_3C_1
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_0808d200
     push       {r5}
     mov        r0,#0x4
     bl         PetStatusControl_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808d200:
     pop        {pc}
 
@@ -62,9 +58,7 @@ _nt S_Story_3C_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808d21e
     bl         S_Story_3C_SkipIfStart
@@ -86,9 +80,7 @@ LAB_0808d238:
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808d24a
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808d24a:
     bl         Scene_IsStartPressed
     beq        LAB_0808d254
@@ -103,9 +95,7 @@ _nt S_Story_3C_4
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -128,7 +118,7 @@ _nt S_Story_3C_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

@@ -6,7 +6,7 @@
 _ts Scene_Story_78
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_78_0_08096578
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -33,9 +33,7 @@ _ts S_Story_78_0
     pop        {r5}
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -66,9 +64,7 @@ _nt S_Story_78_1
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08096606:
     pop        {pc}
 
@@ -84,9 +80,7 @@ _ts S_Story_78_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_08096630
     bl         S_Story_78_SkipIfStart
@@ -102,10 +96,8 @@ _nt S_Story_78_3
     bne        LAB_08096684
     Flag_SetBase 0x96
     mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_08096658
     bl         S_Story_78_SkipIfStart
@@ -114,9 +106,9 @@ LAB_08096658:
 
 
 _nt S_Story_78_4
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_08096684
     mov        r0,#0x7
@@ -126,13 +118,11 @@ _nt S_Story_78_4
     mov        r1,#0x3
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     mov        r0,#0x0
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     mov        r0,#0x78
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
 LAB_08096684:
     bl         Scene_IsStartPressed
     beq        LAB_0809668e
@@ -142,16 +132,16 @@ LAB_0809668e:
 
 
 _ts S_Story_78_5
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#Scene_state_s1]
     tst        r0,r0
     beq        LAB_080966b0
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_080966cc
     mov        r0,#0x0
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     push       {r5}
     mov        r0,#0x4
     bl         PetStatusControl_SetState
@@ -166,7 +156,7 @@ LAB_080966b0:
     bl         PetStatusControl_SetState
     pop        {r5}
     mov        r0,#0x1
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
 LAB_080966cc:
     push       {r5}
     mov        r0,#0x80
@@ -183,9 +173,7 @@ LAB_080966cc:
     mov        r1,#0x16
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080966f8:
     bl         Scene_IsStartPressed
     beq        LAB_08096702
@@ -205,9 +193,7 @@ _ts S_Story_78_6
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08096722:
     bl         Scene_IsStartPressed
     beq        LAB_0809672c
@@ -227,9 +213,7 @@ _nt S_Story_78_7
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0809674e:
     pop        {pc}
 
@@ -273,7 +257,7 @@ _ts S_Story_78_SkipIfStart
     bl         PetStatusControl_SetState
     pop        {r5}
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

@@ -4598,19 +4598,19 @@ union SceneArg {
 };
 
 struct Scene {
-    struct FunctionState m_state0;
+    struct FunctionState state;
     byte dialogueIndex;
     byte areaDialogueIndex;
-    byte field3_0x6;
-    byte field4_0x7;
-    ushort m_delayCounter;
-    ushort flag1;
+    byte b6;
+    byte b7;
+    ushort sceneTimer;
+    ushort counter;
     void *scenePointer;
     union SceneArg sceneArg;
-    int field9_0x20;
+    int isAnimating;
     struct PlayerAnimation *pAnim;
-    int field11_0x28;
-    int field12_0x2c;
+    int i28;
+    int _pad;
 };
 
 struct Shop {

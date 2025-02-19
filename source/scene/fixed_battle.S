@@ -55,7 +55,7 @@ FixedBattleSettings_ARRAY_080852b0:
 _ts Scene_StartFixedBattle
     push       {lr}
     ldr        r0,PTR_PTR_S_StartFixedBattle_0_08085868
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -73,9 +73,7 @@ _ts S_StartFixedBattle_0
     push       {r5}
     bl         Flag_SetPlayerInactive
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -92,9 +90,7 @@ _ts S_StartFixedBattle_1
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -111,7 +107,7 @@ _ts S_StartFixedBattle_2
     pop        {r5}
     push       {r5}
     ldr        r7,PTR_FixedBattleSettings_ARRAY_0808586c
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     mov        r6,#0x1c
     mul        r6,r0
     add        r7,r7,r6

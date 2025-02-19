@@ -13,7 +13,7 @@ Cam_Set_0808a4bc:
 _ts Scene_Story_2E
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_2E_0_0808a778
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -36,11 +36,9 @@ _ts S_Story_2E_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     mov        r0,#0x0
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     pop        {pc}
 
 
@@ -66,9 +64,7 @@ _ts S_Story_2E_1
     pop        {r5}
     ldr        r0,PTR_Cam_Set_0808a77c
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a55a:
     pop        {pc}
 
@@ -87,9 +83,7 @@ _ts S_Story_2E_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a582:
     bl         Scene_IsStartPressed
     beq        LAB_0808a58c
@@ -109,10 +103,8 @@ _nt S_Story_2E_3
     bl         Map_LoadNPCList
     pop        {r5}
     mov        r0,#0xdc
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_0808a5ae:
     bl         Scene_IsStartPressed
     beq        LAB_0808a5b8
@@ -122,7 +114,7 @@ LAB_0808a5b8:
 
 
 _nt S_Story_2E_4
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     cmp        r0,#0x0
     bne        LAB_0808a5d2
     push       {r5}
@@ -130,12 +122,10 @@ _nt S_Story_2E_4
     mov        r1,#0x2
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a5d2:
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     bl         Scene_IsStartPressed
     beq        LAB_0808a5e0
     bl         S_Story_2E_SkipIfStart
@@ -151,9 +141,7 @@ _nt S_Story_2E_5
     mov        r1,#0x3
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a5fc:
     bl         Scene_IsStartPressed
     beq        LAB_0808a606
@@ -170,10 +158,8 @@ _ts S_Story_2E_6
     bne        LAB_0808a5ae
     Flag_SetBase 0xAD
     mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808a62e
     bl         S_Story_2E_SkipIfStart
@@ -184,9 +170,9 @@ LAB_0808a62e:
 _ts S_Story_2E_7
     Flag_GetBase 0xAE
     beq        LAB_0808a654
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     cmp        r0,#0x0
     bne        LAB_0808a654
     push       {r5}
@@ -194,9 +180,7 @@ _ts S_Story_2E_7
     mov        r1,#0x4
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a654:
     bl         Scene_IsStartPressed
     beq        LAB_0808a65e
@@ -212,16 +196,16 @@ _ts S_Story_2E_8
     bl         Sound_PlayBGM
     Flag_ClearBase 0xF6
 LAB_0808a674:
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#Scene_state_s1]
     tst        r0,r0
     beq        LAB_0808a694
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_0808a6b4
     mov        r0,#0x0
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
     push       {r5}
     mov        r0,#0x4
     bl         PetStatusControl_SetState
@@ -236,9 +220,9 @@ LAB_0808a694:
     bl         PetStatusControl_SetState
     pop        {r5}
     mov        r0,#0x78
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     mov        r0,#0x1
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#Scene_state_s1]
 LAB_0808a6b4:
     push       {r5}
     mov        r0,#0x80
@@ -252,9 +236,7 @@ LAB_0808a6b4:
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a6d8:
     pop        {pc}
 
@@ -290,9 +272,7 @@ _nt S_Story_2E_9
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_0808a72c:
     pop        {pc}
 
@@ -325,7 +305,7 @@ _nt S_Story_2E_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x24
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
     .align 2, 0

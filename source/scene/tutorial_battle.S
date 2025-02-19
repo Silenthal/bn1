@@ -10,7 +10,7 @@ Cam_Set_08085100:
 _ts Scene_TutorialBattle
     push       {lr}
     ldr        r0,PTR_PTR_S_TutorialBattle_0_0808529c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -53,10 +53,10 @@ LAB_08085140:
     bl         Flag_SetBase
     pop        {r1,r5,r7}
     add        r2,r1,#0x1
-    strb       r2,[r5,#0x10]
+    strb       r2,[r5,#Scene_sceneArg]
     b          LAB_08085166
 LAB_08085164:
-    strb       r1,[r5,#0x10]
+    strb       r1,[r5,#Scene_sceneArg]
 LAB_08085166:
     push       {r5}
     ldr        r0,PTR_ScenarioData_03_080852a0
@@ -66,9 +66,7 @@ LAB_08085166:
     ldrb       r1,[r2,r1]
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 DAT_08085180:
@@ -109,14 +107,12 @@ LAB_080851a8:
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     b          LAB_080851d4
 LAB_080851ce:
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Scene_state_s0]
     add        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_080851d4:
     pop        {pc}
 
@@ -136,7 +132,7 @@ _ts S_TutorialBattle_2
     bl         Text_DisableDialogue
     pop        {r5}
     ldr        r7,PTR_TutorialBattleOptions_ARRAY_080852a8
-    ldrb       r1,[r5,#0x10]
+    ldrb       r1,[r5,#Scene_sceneArg]
     lsl        r1,r1,#0x4
     add        r7,r7,r1
     push       {r5,r7}

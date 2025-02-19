@@ -173,7 +173,7 @@ flagListGateClearFlag:
 _ts Scene_UnlockWWWGate
     push       {lr}
     ldr        r0,PTR_PTR_S_UnlockWWWGate_0_08086f4c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -198,10 +198,8 @@ _ts S_UnlockWWWGate_0
     cmp        r0,r1
     beq        LAB_08086e5e
     mov        r0,#0x0
-    strb       r0,[r5,#0x10]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneArg]
+    Scene_Next
 LAB_08086e5e:
     pop        {pc}
 
@@ -209,36 +207,34 @@ LAB_08086e5e:
 _ts S_UnlockWWWGate_1
     push       {r5}
     ldr        r0,PTR_flagListGateLockFlag_08086f50
-    ldr        r1,[r5,#0x4]
+    ldr        r1,[r5,#Scene_dialogueIndex]
     ldrb       r0,[r0,r1]
     bl         Flag_ClearBase
     ldr        r0,PTR_Flag_Ignore_ARRAY_08086f54
-    ldr        r1,[r5,#0x4]
+    ldr        r1,[r5,#Scene_dialogueIndex]
     ldrb       r0,[r0,r1]
     bl         Flag_SetIgnore
     pop        {r5}
     ldr        r0,PTR_BYTE_ARRAY_08086f58
-    ldr        r1,[r5,#0x4]
+    ldr        r1,[r5,#Scene_dialogueIndex]
     ldrb       r0,[r0,r1]
     cmp        r0,#0x0
     bne        LAB_08086e8a
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Scene_state_s0]
     add        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 LAB_08086e8a:
     push       {r5}
     ldr        r0,PTR_PTR_ARRAY_08086f5c
-    ldr        r1,[r5,#0x4]
+    ldr        r1,[r5,#Scene_dialogueIndex]
     mov        r2,#0x4
     mul        r1,r2
     add        r0,r0,r1
     ldr        r0,[r0,r1]
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -248,21 +244,19 @@ _nt S_UnlockWWWGate_2
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08086ec6
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_08086ec6
     mov        r0,#0x1
-    strb       r0,[r5,#0x10]
+    strb       r0,[r5,#Scene_sceneArg]
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08086ec6:
     pop        {pc}
 
 
 _ts S_UnlockWWWGate_3
-    ldrb       r0,[r5,#0x10]
+    ldrb       r0,[r5,#Scene_sceneArg]
     cmp        r0,#0x0
     beq        LAB_08086eda
     push       {r5}
@@ -275,9 +269,7 @@ LAB_08086eda:
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -292,15 +284,13 @@ _ts S_UnlockWWWGate_4
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08086f0c:
     pop        {pc}
 
 
 _nt S_UnlockWWWGate_5
-    ldrb       r0,[r5,#0x10]
+    ldrb       r0,[r5,#Scene_sceneArg]
     cmp        r0,#0x0
     beq        LAB_08086f20
     push       {r5}
@@ -309,9 +299,7 @@ _nt S_UnlockWWWGate_5
     bl         Fade_Request
     pop        {r5}
 LAB_08086f20:
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -324,7 +312,7 @@ _ts S_UnlockWWWGate_6
     push       {r5}
     bl         Flag_SetPlayerActive
     ldr        r0,PTR_flagListGateClearFlag_08086f60
-    ldr        r1,[r5,#0x4]
+    ldr        r1,[r5,#Scene_dialogueIndex]
     ldrb       r0,[r0,r1]
     bl         Flag_SetBase
     pop        {r5}

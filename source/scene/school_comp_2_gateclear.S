@@ -11,7 +11,7 @@
 _ts Scene_School_Comp_2_GateClear
     push       {lr}
     ldr        r0,PTR_PTR_S_School_Comp_2_GateClear_0_08087038
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -34,9 +34,7 @@ _ts S_School_Comp_2_GateClear_0
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08086fa6
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08086fa6:
     pop        {pc}
 
@@ -47,21 +45,17 @@ _ts S_School_Comp_2_GateClear_1
     Flag_SetIgnore F_IGNORE_WALL_00
     pop        {r5}
     mov        r0,#0x3c
-    str        r0,[r5,#0x10]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    str        r0,[r5,#Scene_sceneArg]
+    Scene_Next
     pop        {pc}
 
 
 _ts S_School_Comp_2_GateClear_2
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     sub        r0,#0x1
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     bne        LAB_08086fd2
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08086fd2:
     bl         Scene_IsStartPressed
     beq        LAB_08086fdc
@@ -76,9 +70,7 @@ _nt S_School_Comp_2_GateClear_3
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08086ff0
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08086ff0:
     pop        {pc}
 
@@ -89,9 +81,7 @@ _nt S_School_Comp_2_GateClear_4
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -117,7 +107,7 @@ _nt S_School_Comp_2_GateClear_SkipIfStart
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 PTR_PTR_S_School_Comp_2_GateClear_0_08087038:

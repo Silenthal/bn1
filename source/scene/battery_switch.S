@@ -6,7 +6,7 @@
 _ts Scene_BatterySwitch
     push       {lr}
     ldr        r0,PTR_PTR_S_BatterySwitch_0_08092d04
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -32,7 +32,7 @@ _ts S_BatterySwitch_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 
@@ -51,7 +51,7 @@ _ts S_BatterySwitch_1_Check
     and        r0,r1
     bl         PlayerAnimation_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x18
     add        r0,#0x50
@@ -71,10 +71,10 @@ LAB_08092b2c:
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092bc2
 LAB_08092b4e:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x18
     add        r0,#0x50
@@ -91,11 +91,11 @@ LAB_08092b4e:
     Flag_ClearBase 0xDD
     pop        {r5}
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092bc2
 LAB_08092b7a:
     push       {r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x18
     add        r0,#0x50
@@ -108,11 +108,11 @@ LAB_08092b7a:
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x18
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092bc2
 LAB_08092b9c:
     push       {r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x18
     add        r0,#0x50
@@ -130,7 +130,7 @@ LAB_08092b9c:
 LAB_08092bbe:
     mov        r0,#0x10
 LAB_08092bc0:
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08092bc2:
     pop        {pc}
 
@@ -143,7 +143,7 @@ _ts S_BatterySwitch_2_InsertBatteryEnd
     pop        {r5}
     bne        LAB_08092bd6
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08092bd6:
     pop        {pc}
 
@@ -156,14 +156,14 @@ _ts S_BatterySwitch_3_SwitchSuccess
     pop        {r5}
     bne        LAB_08092bec
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092c28
 LAB_08092bec:
     push       {r5}
     Flag_GetBase 0xD3
     pop        {r5}
     beq        LAB_08092c28
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x18
     add        r0,#0x50
@@ -181,7 +181,7 @@ LAB_08092bec:
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08092c28:
     pop        {pc}
 
@@ -197,14 +197,14 @@ _ts S_BatterySwitch_4_SwitchFailure
     pop        {r5}
     bne        LAB_08092c40
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092c74
 LAB_08092c40:
     push       {r5}
     Flag_GetBase 0xD3
     pop        {r5}
     beq        LAB_08092c74
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x18
     add        r0,#0x50
@@ -219,7 +219,7 @@ LAB_08092c40:
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08092c74:
     pop        {pc}
 
@@ -239,10 +239,10 @@ _ts S_BatterySwitch_5_SwitchOff
     pop        {r5}
     beq        LAB_08092c96
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092cb8
 LAB_08092c96:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x18
     add        r0,#0x50
@@ -255,7 +255,7 @@ LAB_08092c96:
     pop        {r0}
     pop        {r5}
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092cb8
 LAB_08092cb8:
     pop        {pc}
@@ -272,7 +272,7 @@ _ts S_BatterySwitch_6_SwitchDisableEnd
     pop        {r5}
     bne        LAB_08092cce
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08092cce:
     pop        {pc}
 

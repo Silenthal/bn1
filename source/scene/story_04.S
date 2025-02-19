@@ -15,7 +15,7 @@ Cam_Set_080834a8:
 _ts Scene_Story_04
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_04_0_080835c8
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -44,9 +44,7 @@ _ts S_Story_04_0
     pop        {r5}
     ldr        r0,PTR_Cam_Set_080835cc
     bl         SceneCamera_Init
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -61,36 +59,32 @@ _ts S_Story_04_1
     cmp        r0,r1
     beq        LAB_08083542
     mov        r0,#0x0
-    strb       r0,[r5,#0x4]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_dialogueIndex]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_08083542
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08083542:
     pop        {pc}
 
 
 _ts S_Story_04_2
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     add        r1,r0,#0x1
-    strb       r1,[r5,#0x4]
+    strb       r1,[r5,#Scene_dialogueIndex]
     push       {r5}
     ldr        r1,PTR_DAT_080835d0
     ldrb       r1,[r1,r0]
     ldr        r0,PTR_ScenarioData_04_080835d4
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_0808356a
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808356a:
     pop        {pc}
 
@@ -102,14 +96,12 @@ _ts S_Story_04_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08083580
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08083580:
     bl         Scene_IsStartPressed
     beq        LAB_0808358a
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0808358a:
     pop        {pc}
 
@@ -121,9 +113,7 @@ _ts S_Story_04_4
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 

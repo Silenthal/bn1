@@ -328,7 +328,7 @@ AfterBattleFlagSettings_ARRAY_08085870:
 _ts Scene_AfterFixedBattle
     push       {lr}
     ldr        r0,PTR_PTR_S_AfterFixedBattle_0_08085a6c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -354,7 +354,7 @@ _ts S_AfterFixedBattle_0
     LoadMain world, r7, r7
     ldrb       r7,[r7,#0x10]
     ldr        r6,PTR_AfterBattleFlagSettings_ARRAY_08085a70
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x3
     add        r0,r0,r7
     add        r6,r6,r0
@@ -364,9 +364,7 @@ _ts S_AfterFixedBattle_0
     bl         Text_LoadAreaDialogue
 LAB_080859d6:
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080859de:
     pop        {pc}
 
@@ -380,7 +378,7 @@ _ts S_AfterFixedBattle_1
     bne        LAB_08085a68
     push       {r5}
     ldr        r6,PTR_AfterBattleFlagSettings_ARRAY_08085a74
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x3
     add        r6,r6,r0
     ldrb       r0,[r6,#0x2]

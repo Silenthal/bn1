@@ -14,7 +14,7 @@ Cam_Set_080967c4:
 _ts Scene_Story_79
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_79_0_080967dc
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -41,9 +41,7 @@ _ts S_Story_79_0
     bl         Sound_StopAllMusic
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -78,10 +76,8 @@ _ts S_Story_79_1
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x1e
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_08096882:
     pop        {pc}
 
@@ -92,9 +88,9 @@ _ts S_Story_79_2
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080968b8
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_080968ae
     push       {r5}
@@ -102,10 +98,8 @@ _ts S_Story_79_2
     bl         Effect_JackIn_Create
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_080968ae:
     bl         Scene_IsStartPressed
     beq        LAB_080968b8
@@ -115,9 +109,9 @@ LAB_080968b8:
 
 
 _nt S_Story_79_3
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_080968de
     Flag_SetBase 0x93
@@ -126,10 +120,8 @@ _nt S_Story_79_3
     bl         Effect_JackIn_Create
     pop        {r5}
     mov        r0,#0x14
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_080968de:
     bl         Scene_IsStartPressed
     beq        LAB_080968e8
@@ -139,9 +131,9 @@ LAB_080968e8:
 
 
 _nt S_Story_79_4
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_08096906
     push       {r5}
@@ -149,9 +141,7 @@ _nt S_Story_79_4
     mov        r1,#0x80
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08096906:
     bl         Scene_IsStartPressed
     beq        LAB_08096910
@@ -171,9 +161,7 @@ _nt S_Story_79_5
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08096930:
     pop        {pc}
 
@@ -189,9 +177,7 @@ _nt S_Story_79_6
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08096950:
     pop        {pc}
 
@@ -204,10 +190,8 @@ _nt S_Story_79_7
     bne        LAB_0809696e
     Flag_SetBase 0x93
     mov        r0,#0x96
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_0809696e:
     bl         Scene_IsStartPressed
     beq        LAB_08096978
@@ -217,9 +201,9 @@ LAB_08096978:
 
 
 _nt S_Story_79_8
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Scene_sceneTimer]
     tst        r0,r0
     bne        LAB_08096996
     push       {r5}
@@ -227,9 +211,7 @@ _nt S_Story_79_8
     mov        r1,#0x3
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08096996:
     bl         Scene_IsStartPressed
     beq        LAB_080969a0
@@ -249,9 +231,7 @@ _nt S_Story_79_9
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080969c0:
     bl         Scene_IsStartPressed
     beq        LAB_080969ca
@@ -300,9 +280,7 @@ _ts S_Story_79_10
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08096a36:
     pop        {pc}
 
@@ -336,7 +314,7 @@ _ts S_Story_79_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x28
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 DAT_08096a84:

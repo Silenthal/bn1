@@ -6,7 +6,7 @@
 _ts Scene_ChipTraderMain
     push       {lr}
     ldr        r0,PTR_PTR_Scene_ChipTraderMain_0_Start_08085f38
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -28,7 +28,7 @@ _ts Scene_ChipTraderMain_0_Start
     bl         Flag_SetPlayerInactive
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 
@@ -90,7 +90,7 @@ LAB_08085e68:
     strh       r2,[r7,#0x3a]
     strh       r2,[r7,#0x3c]
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08085e92:
     pop        {pc}
 
@@ -101,9 +101,9 @@ _ts Scene_ChipTraderMain_2_StartSlideInChip
     beq        LAB_08085ea8
     mov        r0,#0xa
     neg        r0,r0
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Scene_dialogueIndex]
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08085ea8:
     pop        {pc}
 
@@ -128,7 +128,7 @@ LAB_08085eba:
     Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     bne        LAB_08085ed2
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08085ed2:
     pop        {pc}
 

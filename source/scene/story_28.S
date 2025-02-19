@@ -21,7 +21,7 @@ PlayerAnimateArgs_894F0:
 _ts Scene_Story_28
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_28_0_08089774
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -45,9 +45,7 @@ _ts S_Story_28_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -75,9 +73,7 @@ _ts S_Story_28_1
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089590:
     pop        {pc}
 
@@ -93,9 +89,7 @@ _nt S_Story_28_2
     mov        r1,#0x0
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Scene_IsStartPressed
     beq        LAB_080895ba
     bl         S_Story_28_SkipIfStart
@@ -114,9 +108,7 @@ _ts S_Story_28_3
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     b          LAB_080895e6
 LAB_080895dc:
     bl         Scene_IsStartPressed
@@ -135,19 +127,17 @@ _ts S_Story_28_4
     ldr        r7,PTR_PlayerAnimateArgs_08089780
     str        r7,[r5,#0x18]
     mov        r0,#0x0
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     mov        r0,#0xff
     str        r0,[r5,#0x14]
     mov        r0,#0x1
-    str        r0,[r5,#0x1c]
+    str        r0,[r5,#0x1C]
     push       {r5}
     mov        r0,#0x3
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089616:
     pop        {pc}
 
@@ -163,9 +153,7 @@ _ts S_Story_28_5
     mov        r1,#0x4
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08089638:
     LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
@@ -185,9 +173,7 @@ _ts S_Story_28_6
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808966e
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x10
@@ -233,9 +219,7 @@ _nt S_Story_28_7
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080896ce:
     pop        {pc}
 
@@ -271,24 +255,24 @@ _ts S_Story_28_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 
 _ts S_Story_28_PlayerMove
     push       {lr}
-    ldr        r0,[r5,#0x1c]
+    ldr        r0,[r5,#0x1C]
     tst        r0,r0
     beq        LAB_08089770
     ldr        r7,[r5,#0x18]
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     cmp        r0,#0x0
     bgt        LAB_0808974c
     ldrb       r0,[r7,#0x4]
     cmp        r0,#0xff
     bne        LAB_08089738
     mov        r1,#0x2
-    str        r1,[r5,#0x1c]
+    str        r1,[r5,#0x1C]
     sub        r7,#0x4
 LAB_08089738:
     add        r7,#0x4
@@ -303,7 +287,7 @@ LAB_0808974a:
     ldrb       r0,[r7,#0x3]
 LAB_0808974c:
     sub        r0,#0x1
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     mov        r3,#0x1
     ldrsb      r0,[r7,r3]
     lsl        r0,r0,#0xc
@@ -314,7 +298,7 @@ LAB_0808974c:
     push       {r5}
     bl         PlayerAnimation_Move
     pop        {r5}
-    ldr        r0,[r5,#0x1c]
+    ldr        r0,[r5,#0x1C]
     cmp        r0,#0x2
     beq        LAB_08089770
     mov        r0,#0x1

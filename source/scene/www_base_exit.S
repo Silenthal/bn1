@@ -12,7 +12,7 @@
 _ts Scene_WWW_Base_Exit
     push       {lr}
     ldr        r0,PTR_PTR_S_WWW_Base_Exit_0_0809808c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -33,9 +33,7 @@ _ts S_WWW_Base_Exit_0
     push       {r5}
     bl         PlayerAnimation_Lock
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
     .align 2, 0
@@ -58,12 +56,10 @@ _ts S_WWW_Base_Exit_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Scene_areaDialogueIndex]
     bl         Text_LoadAreaDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097fa6:
     pop        {pc}
 
@@ -78,12 +74,10 @@ _ts S_WWW_Base_Exit_2
     Flag_GetGate F_GATE_00
     bne        LAB_08097fc4
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 LAB_08097fc4:
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08097fca:
     pop        {pc}
 
@@ -97,15 +91,13 @@ _ts S_WWW_Base_Exit_3
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     add        r1,#0x1
     cmp        r0,r1
     beq        LAB_08097ff4
     mov        r0,#0x10
-    strh       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strh       r0,[r5,#Scene_sceneTimer]
+    Scene_Next
 LAB_08097ff4:
     pop        {pc}
 
@@ -116,13 +108,13 @@ LAB_08097ff4:
 _ts S_WWW_Base_Exit_4
     push       {lr}
     bl         S_WWW_Base_Exit_MovePlayer
-    ldrh       r0,[r5,#0x8]
+    ldrh       r0,[r5,#Scene_sceneTimer]
     sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Scene_sceneTimer]
     cmp        r0,#0x0
     bgt        LAB_08098024
     ldr        r7,PTR_DAT_08098090
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     push       {r5}
     ldrb       r0,[r7,r0]
     LoadMain world, r7, r7
@@ -130,9 +122,7 @@ _ts S_WWW_Base_Exit_4
     strb       r0,[r7,#0x10]
     bl         PlayerAnimation_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08098024:
     pop        {pc}
 
@@ -162,7 +152,7 @@ _ts S_WWW_Base_Exit_5
 _ts S_WWW_Base_Exit_MovePlayer
     push       {lr}
     ldr        r7,PTR_PlayerAnimateArgs_ARRAY_08098094
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     lsl        r1,r1,#0x2
     add        r7,r7,r1
     push       {r5,r7}

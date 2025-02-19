@@ -22,7 +22,7 @@ MapEntranceOptions_ARRAY_08091870:
 _ts Scene_GovtElevator
     push       {lr}
     ldr        r0,PTR_PTR_S_GovtElevator_0_080919d0
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -37,20 +37,16 @@ PTR_S_GovtElevator_0_080918cc:
 
 _ts S_GovtElevator_0
     bl         Flag_SetPlayerInactive
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
 _ts S_GovtElevator_1
     push       {r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     bl         Text_LoadAreaDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -67,34 +63,32 @@ _nt S_GovtElevator_2
     Flag_GetBase 0x34
     bne        LAB_08091934
     mov        r0,#0x2
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Scene_dialogueIndex]
     b          LAB_08091938
 LAB_08091928:
     mov        r0,#0x0
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Scene_dialogueIndex]
     b          LAB_08091938
 LAB_0809192e:
     mov        r0,#0x1
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Scene_dialogueIndex]
     b          LAB_08091938
 LAB_08091934:
     mov        r0,#0x3
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Scene_dialogueIndex]
 LAB_08091938:
     ldr        r0,PTR_MapEntranceOptions_ARRAY_080919d4
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Scene_dialogueIndex]
     mov        r2,#0x14
     mul        r2,r1
     add        r0,r0,r2
-    str        r0,[r5,#0x10]
+    str        r0,[r5,#Scene_sceneArg]
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091956:
     pop        {pc}
 
@@ -109,9 +103,7 @@ _ts S_GovtElevator_3
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_08091974:
     pop        {pc}
 
@@ -132,11 +124,11 @@ _nt S_GovtElevator_4
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
-    ldr        r2,[r5,#0x10]
+    ldr        r2,[r5,#Scene_sceneArg]
     strb       r1,[r0,#0x12]
     str        r2,[r0,#0x14]
     push       {r5}
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x12]
     bl         World_ChangeMap
     pop        {r5}

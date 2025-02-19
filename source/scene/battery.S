@@ -6,7 +6,7 @@
 _ts Scene_Battery
     push       {lr}
     ldr        r0,PTR_PTR_S_Battery_0_08092ab4
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     mov        lr,pc
@@ -32,7 +32,7 @@ _ts S_Battery_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 
@@ -51,7 +51,7 @@ _ts S_Battery_1
     and        r0,r1
     bl         PlayerAnimation_SetState
     pop        {r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     push       {r0,r5}
     bl         PowerPlant_GetBatteryInSlot
     pop        {r0,r5}
@@ -92,10 +92,10 @@ _ts S_Battery_1
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092834
 LAB_080927fa:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     push       {r5}
     bl         PowerPlant_TestSwitch
     pop        {r5}
@@ -107,7 +107,7 @@ LAB_08092806:
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092834
 LAB_08092816:
     push       {r5}
@@ -116,7 +116,7 @@ LAB_08092816:
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092834
 LAB_08092826:
     push       {r5}
@@ -125,7 +125,7 @@ LAB_08092826:
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08092834:
     pop        {pc}
 
@@ -141,7 +141,7 @@ _ts S_Battery_2_SwitchActivatedEnd
     pop        {r5}
     bne        LAB_0809284a
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0809284a:
     pop        {pc}
 
@@ -158,21 +158,21 @@ _ts S_Battery_3_GetBattery
     pop        {r5}
     beq        LAB_0809286a
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092888
 LAB_0809286a:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     push       {r5}
     bl         PowerPlant_GetBatteryInSlot
     mov        r1,#0x1
     bl         KeyItem_SetAmount
     pop        {r5}
     push       {r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     bl         PowerPlant_RemoveBattery
     pop        {r5}
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08092888:
     pop        {pc}
 
@@ -188,7 +188,7 @@ _ts S_Battery_4_InsertBatteryPromptEnd
     pop        {r5}
     bne        LAB_0809289e
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_0809289e:
     pop        {pc}
 
@@ -201,7 +201,7 @@ _ts S_Battery_5_UseBattery
     pop        {r5}
     bne        LAB_080928b4
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092a74
 LAB_080928b4:
     push       {r5}
@@ -227,7 +227,7 @@ LAB_080928c2:
     pop        {r5}
     tst        r0,r0
     beq        LAB_0809290e
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     push       {r0,r5}
     bl         PowerPlant_GetBatteryInSlot
     pop        {r0,r5}
@@ -254,7 +254,7 @@ LAB_0809290e:
     pop        {r5}
     tst        r0,r0
     beq        LAB_0809294c
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     push       {r0,r5}
     bl         PowerPlant_GetBatteryInSlot
     pop        {r0,r5}
@@ -281,7 +281,7 @@ LAB_0809294c:
     pop        {r5}
     tst        r0,r0
     beq        LAB_0809298a
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     push       {r0,r5}
     bl         PowerPlant_GetBatteryInSlot
     pop        {r0,r5}
@@ -308,7 +308,7 @@ LAB_0809298a:
     pop        {r5}
     tst        r0,r0
     beq        LAB_080929c8
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     push       {r0,r5}
     bl         PowerPlant_GetBatteryInSlot
     pop        {r0,r5}
@@ -335,7 +335,7 @@ LAB_080929c8:
     pop        {r5}
     tst        r0,r0
     beq        LAB_08092a06
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Scene_dialogueIndex]
     push       {r0,r5}
     bl         PowerPlant_GetBatteryInSlot
     pop        {r0,r5}
@@ -358,7 +358,7 @@ LAB_08092a06:
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092a74
 LAB_08092a1c:
     mov        r0,#0x0
@@ -398,7 +398,7 @@ LAB_08092a64:
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x20
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          LAB_08092a74
 LAB_08092a74:
     pop        {pc}
@@ -410,7 +410,7 @@ LAB_08092a74:
 _ts S_Battery_6_End
     push       {lr}
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
 

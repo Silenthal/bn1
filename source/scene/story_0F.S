@@ -13,7 +13,7 @@ Cam_Set_08085fec:
 _ts Scene_Story_0F
     push       {lr}
     ldr        r0,PTR_PTR_S_Story_0F_0_080861a0
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Scene_state_s0]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -45,9 +45,7 @@ _nt S_Story_0F_0
     ldr        r0,PTR_Cam_Set_080861a8
     bl         SceneCamera_Init
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     bl         Sound_StopAllMusic
     Flag_ClearEvent 0x28
     pop        {pc}
@@ -64,16 +62,14 @@ _ts S_Story_0F_1
     mov        r1,#0x10
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 
 
 _nt S_Story_0F_SkipIfStart
     bl         Scene_IsStartPressed
     beq        LAB_08086090
     mov        r0,#0x1c
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
 LAB_08086090:
     pop        {pc}
 
@@ -92,7 +88,7 @@ _nt S_Story_0F_2
     bl         Text_LoadDialogue
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Scene_state_s0]
     b          S_Story_0F_SkipIfStart
 
 
@@ -102,9 +98,7 @@ _nt S_Story_0F_3
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080860d4
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     push       {r5}
     mov        r0,#0x4
     mov        r1,#0x10
@@ -128,9 +122,7 @@ _nt S_Story_0F_4
     mov        r1,#0x2
     bl         Text_LoadDialogue
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
 LAB_080860fc:
     b          S_Story_0F_SkipIfStart
 
@@ -181,9 +173,7 @@ _ts S_Story_0F_7
     mov        r1,#0x8
     bl         Fade_Request
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
-    add        r0,#0x4
-    strb       r0,[r5,#0x0]
+    Scene_Next
     pop        {pc}
 
 
@@ -201,7 +191,7 @@ _ts S_Story_0F_8
     bl         Text_DisableDialogue
     pop        {r5}
     mov        r0,#0x14
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#Scene_state_s0]
 LAB_0808619e:
     pop        {pc}
 
