@@ -70,9 +70,7 @@ _ts S_Story_6E_1
     bl         SceneCamera_Init
     bl         SceneCamera_Main
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_08094192:
@@ -137,9 +135,7 @@ _nt S_Story_6E_5
     pop        {r5}
     bne        LAB_08094224
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_08094224:
@@ -182,9 +178,7 @@ _ts S_Story_6E_6
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_0809428e:
@@ -212,9 +206,7 @@ LAB_080942ba:
 
 _ts S_Story_6E_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

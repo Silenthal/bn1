@@ -86,9 +86,7 @@ _ts S_Story_6D_2
     tst        r0,r0
     bne        LAB_08093f94
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_08093f94:
@@ -162,9 +160,7 @@ _ts S_Story_6D_6
     pop        {r5}
     bne        LAB_0809403a
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0809403a:
@@ -220,9 +216,7 @@ MapEntrance_0809409c:
 
 _ts S_Story_6D_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

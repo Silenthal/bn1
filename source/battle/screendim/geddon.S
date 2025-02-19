@@ -28,11 +28,7 @@ PTR_SD_Geddon_0_080994cc:
 
 _ts SD_Geddon_0
     push       {lr}
-    mov        r0,#0x6
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeOut_ScreenDim
     mov        r0,#0x1e
     strh       r0,[r5,#0x8]
     ldr        r7,PTR_PTR_SD_Geddon_0_0_0809951c
@@ -114,11 +110,7 @@ _ts SD_Geddon_3
     bx         r7
     tst        r0,r0
     bne        LAB_0809958e
-    mov        r0,#0x5
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeIn_ScreenDim
     mov        r0,#0x10
     str        r0,[r5,#0x0]
 LAB_0809958e:

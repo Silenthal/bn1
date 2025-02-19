@@ -47,9 +47,7 @@ _ts S_Story_18_1
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08087218:
@@ -76,9 +74,7 @@ LAB_0808723c:
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_08087254:
@@ -182,9 +178,7 @@ LAB_0808730e:
 
 _nt S_Story_18_8
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     mov        r0,#0x40
     bl         Text_EnableOption
@@ -215,9 +209,7 @@ _ts S_Story_18_9
     mov        r0,#0x26
     bl         PlayerAnimation_SetState
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_08087382:

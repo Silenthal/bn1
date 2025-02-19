@@ -109,11 +109,7 @@ PTR_E_ProgramAdvance_1_0_0_Darken_0807c3bc:
 
 _ts E_ProgramAdvance_1_0_0_Darken
     push       {lr}
-    mov        r0,#0xc
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    Fade_Request FT_DarkenExceptBG3, 0x4, save_r5=1
     mov        r0,#0x4
     strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x5a
@@ -620,11 +616,7 @@ LAB_0807c70c:
     ldrb       r6,[r5,#Effect_bd]
     cmp        r4,r6
     blt        LAB_0807c70c
-    mov        r0,#0xb
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    Fade_Request FT_FadeInFromBlackExceptBG3, 0x4, save_r5=1
     bl         FUN_0807cc46
     mov        r0,#0x4
     strb       r0,[r5,#Effect_state_s2]

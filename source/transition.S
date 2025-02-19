@@ -114,9 +114,7 @@ _ts JackIn_StartAnimation
     bl         Video_SetBgControl
     pop        {r5}
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_White
     pop        {r5}
     mov        r0,#0x1
     strb       r0,[r5,#0x1]
@@ -185,9 +183,7 @@ LAB_0801763e:
     ldr        r1,[r5,#0x4]
     str        r1,[r0,#0x14]
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0xff
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhite, 0xff
     pop        {r5}
 LAB_08017664:
     pop        {pc}

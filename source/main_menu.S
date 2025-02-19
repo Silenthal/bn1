@@ -51,9 +51,7 @@ _ts MainMenu_0_Init
     strh       r1,[r0,#0x18]
     strh       r1,[r0,#0x1a]
     bl         MainMenu_LoadTitleScreen
-    mov        r0,#FT_FadeOutToBlack
-    mov        r1,#0xff
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToBlack, 0xff
     pop        { r5 }
     mov        r0,#0x1
     strb       r0,[r5,#0x0]
@@ -155,9 +153,7 @@ _ts MainMenu_1_0_Display
     ldr        r1,INT_08010584
     strh       r1,[r0,#0x0]
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
@@ -192,9 +188,7 @@ LAB_080105a8:
     mov        r0,#0xc
     strb       r0,[r5,#0x1]
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     b          LAB_080105c6
 LAB_080105ba:
@@ -523,9 +517,7 @@ _ts MainMenu_HandleInput
     mov        r0,#0xc
     strb       r0,[r5,#0x1]
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     b          LAB_080108b4
 LAB_08010882:

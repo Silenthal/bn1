@@ -75,9 +75,7 @@ _nt S_Story_7F_2
     pop        {r5}
     bne        LAB_08097a8c
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_08097a8c:
@@ -163,9 +161,7 @@ LAB_08097b3c:
     and        r1,r0
     beq        LAB_08097b54
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x2
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhite, 0x2
     pop        {r5}
     Scene_Next
 LAB_08097b54:
@@ -214,9 +210,7 @@ _ts S_Story_7F_8
     bl         Text_DisableDialogue
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     mov        r0,#0x10
     strb       r0,[r5,#Scene_state_s0]
@@ -226,9 +220,7 @@ LAB_08097bc6:
 
 _ts S_Story_7F_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

@@ -137,9 +137,7 @@ _ts S_Waterworks_Comp_TurnHandle_2
     bl         DisableBoundaryCheck
     mov        r0,#0x44
     bl         PlayerAnimation_SetState
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     mov        r0,#0x41
     strh       r0,[r5,#Scene_sceneTimer]
@@ -205,9 +203,7 @@ _ts S_Waterworks_Comp_TurnHandle_4
     bl         Text_CheckOption
     bne        LAB_0808bbf2
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x14
     strb       r0,[r5,#Scene_state_s0]
@@ -240,9 +236,7 @@ _ts S_Waterworks_Comp_TurnHandle_5
     pop        {r0}
     bl         PlayerAnimation_SetState
     bl         EnableBoundaryCheck
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     Flag_SetBase 0xEF
     pop        {r5}
     ldr        r0,PTR_PTR_S_Waterworks_Comp_TurnHandle_Flags_1_0808be34
@@ -292,9 +286,7 @@ _ts S_Waterworks_Comp_TurnHandle_7
     bl         Text_CheckOption
     bne        LAB_0808bcae
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#Scene_state_s0]

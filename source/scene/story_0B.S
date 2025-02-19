@@ -50,9 +50,7 @@ _ts S_Story_0B_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_White
     pop        {r5}
     Scene_Next
 LAB_08084c52:

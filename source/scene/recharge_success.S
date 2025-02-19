@@ -35,9 +35,7 @@ _ts S_RechargeSuccess_1
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_08091a2c:

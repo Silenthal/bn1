@@ -77,9 +77,7 @@ _ts S_Story_68_1
     bl         DisableBoundaryCheck
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     mov        r0,#0x3c
     strb       r0,[r5,#Scene_sceneTimer]
@@ -123,9 +121,7 @@ _nt S_Story_68_3
     mov        r0,#0xdd
     bl         Sound_PlaySE
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x80
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhite, 0x80
     pop        {r5}
     Scene_Next
 LAB_08093498:
@@ -147,9 +143,7 @@ _ts S_Story_68_4
     bl         Entity_FreeAllMultiple
     mov        r1,#0x4
     bl         Effect_LifeVirusSeed_Create
-    mov        r0,#0x1
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_White
     pop        {r5}
     Scene_Next
 LAB_080934ce:
@@ -218,9 +212,7 @@ _nt S_Story_68_8
     pop        {r5}
     bne        LAB_08093564
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08093564:
@@ -273,9 +265,7 @@ MapEntrance_080935c4:
 
 _ts S_Story_68_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

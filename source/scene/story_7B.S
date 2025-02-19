@@ -68,9 +68,7 @@ _ts S_Story_7B_1
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     mov        r0,#0x32
     strb       r0,[r5,#Scene_sceneTimer]
@@ -91,9 +89,7 @@ _nt S_Story_7B_2
     tst        r0,r0
     bne        LAB_08096fea
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x80
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhite, 0x80
     pop        {r5}
     Scene_Next
 LAB_08096fea:
@@ -111,9 +107,7 @@ _nt S_Story_7B_3
     cmp        r0,r1
     beq        LAB_0809701e
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_White
     pop        {r5}
     Scene_Next
     bl         Scene_IsStartPressed
@@ -231,9 +225,7 @@ LAB_080970f6:
     pop        {r5}
     bne        LAB_08097114
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08097114:
@@ -341,9 +333,7 @@ MapEntrance_080971e4:
 
 _ts S_Story_7B_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

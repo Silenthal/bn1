@@ -129,9 +129,7 @@ _nt S_TrainRide_4
     cmp        r0,#0x14
     bne        LAB_0808b776
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     pop        {pc}
 LAB_0808b776:
@@ -211,9 +209,7 @@ LAB_0808b81a:
 
 _ts S_TrainRide_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

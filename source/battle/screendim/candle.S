@@ -27,11 +27,7 @@ PTR_SD_Candle_0_Init_08099cbc:
 
 _ts SD_Candle_0_Init
     push       {lr}
-    mov        r0,#0x6
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeOut_ScreenDim
     mov        r0,#0x1e
     strh       r0,[r5,#0x8]
     ldrb       r1,[r5,#0x5]
@@ -109,11 +105,7 @@ _nt SD_Candle_2
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_08099d84
-    mov        r0,#0x5
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeIn_ScreenDim
     mov        r0,#0xc
     str        r0,[r5,#0x0]
 LAB_08099d84:

@@ -26,9 +26,7 @@ _ts S_Story_50_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -61,9 +59,7 @@ _ts S_Story_50_1
     bl         PlayerAnimation_SetState
     Flag_SetBase 0x9A
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
     mov        r0,#0x0
@@ -157,9 +153,7 @@ _ts S_Story_50_5
     tst        r0,r0
     beq        LAB_0808f586
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
 LAB_0808f586:
     Scene_Next
@@ -184,9 +178,7 @@ LAB_0808f5ac:
 
 _nt S_Story_50_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40

@@ -26,11 +26,7 @@ PTR_PTR_SD_SkullMan_0_0809a178:
 
 _ts SD_SkullMan_0
     push       {lr}
-    mov        r0,#0x6
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeOut_ScreenDim
     mov        r0,#0x1e
     strh       r0,[r5,#0x8]
     ldrb       r1,[r5,#0x5]
@@ -156,11 +152,7 @@ _ts SD_SkullMan_2
     ldrb       r0,[r5,#0x1]
     tst        r0,r0
     bne        LAB_0809a274
-    mov        r0,#0x5
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeIn_ScreenDim
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
 LAB_0809a274:

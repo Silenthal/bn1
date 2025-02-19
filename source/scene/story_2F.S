@@ -54,9 +54,7 @@ _ts S_Story_2F_1
     bl         PlayerAnimation_SetPosition
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808a80c:

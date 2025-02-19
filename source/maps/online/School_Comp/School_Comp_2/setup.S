@@ -239,9 +239,7 @@ _nt EventHandler_School_Comp_2_F12_2
     pop        {r5}
     beq        LAB_08040e1a
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     push       {r5}
     ldr        r0,PTR_Scene_UnlockWWWGate_08040f3c

@@ -27,11 +27,7 @@ PTR_PTR_SD_Escape_0_08098c20:
 
 _ts SD_Escape_0
     push       {lr}
-    mov        r0,#0x6
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeOut_ScreenDim
     mov        r0,#0x1e
     strh       r0,[r5,#0x8]
     ldrb       r1,[r5,#0x5]
@@ -146,11 +142,7 @@ _nt SD_Escape_1_3_WarpIn
 
 _nt SD_Escape_1_4_FadeOut
     push       {lr}
-    mov        r0,#0x8
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    Fade_Request FT_FadeOutToBlackExceptBG0, 0x4, save_r5=1
     mov        r0,#0xc
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -161,11 +153,7 @@ _nt SD_Escape_2_Failure
     ldrb       r0,[r5,#0x1]
     tst        r0,r0
     bne        LAB_08098d26
-    mov        r0,#0x5
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeIn_ScreenDim
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
 LAB_08098d26:

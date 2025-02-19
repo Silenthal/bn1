@@ -858,9 +858,7 @@ LAB_0802d114:
     mov        r0,#0x4
     str        r0,[r5,#0x0]
     push       {r5}
-    mov        r0,#0x8
-    mov        r1,#0x8
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToBlackExceptBG0, 0x8
     pop        {r5}
 LAB_0802d12c:
     pop        {pc}

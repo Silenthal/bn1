@@ -39,9 +39,7 @@ _ts S_Story_14_0
     bne        LAB_08086ab6
     push       {r5}
     bl         Flag_SetPlayerInactive
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08086ab6:
@@ -61,9 +59,7 @@ _ts S_Story_14_1
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     push       {r5}
     LoadMain world, r7, r7
@@ -157,9 +153,7 @@ LAB_08086b94:
 
 _nt S_Story_14_5
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40
@@ -193,9 +187,7 @@ LAB_08086be4:
 
 _nt S_Story_14_7
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}

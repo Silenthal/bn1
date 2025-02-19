@@ -47,9 +47,7 @@ PTR_S_Story_38_0_0808c754:
 _ts S_Story_38_0
     push       {r5}
     bl         PlayerAnimation_Lock
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -97,9 +95,7 @@ _ts S_Story_38_1
     bl         Map_LoadNPCList
     ldr        r0,PTR_EntityAllocParams_803A3A0_0808cafc
     bl         Entity_AllocList
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_0808c81e:
@@ -349,9 +345,7 @@ _ts S_Story_38_11
     pop        {r5}
     bne        LAB_0808ca3e
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_0808ca3e:
@@ -415,9 +409,7 @@ MapEntrance_0808cabc:
 
 _ts S_Story_38_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

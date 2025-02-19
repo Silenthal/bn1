@@ -29,9 +29,7 @@ PTR_S_Story_3F_0_0808d5a4:
 _ts S_Story_3F_0
     bl         Flag_SetPlayerInactive
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
     pop        {pc}

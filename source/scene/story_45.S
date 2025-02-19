@@ -37,9 +37,7 @@ _ts S_Story_45_0
     ldr        r0,PTR_Cam_Set_0808e078
     bl         SceneCamera_Init
     bl         SceneCamera_Main
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -121,9 +119,7 @@ _nt S_Story_45_5
     pop        {r5}
     bne        LAB_0808dfec
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_0808dfec:
@@ -175,9 +171,7 @@ MapEntrance_0808e048:
 
 _ts S_Story_45_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40

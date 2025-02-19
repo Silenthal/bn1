@@ -63,9 +63,7 @@ _nt S_Story_1B_2
     pop        {r5}
     bne        LAB_08087940
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     Scene_Next
 LAB_08087940:
@@ -114,9 +112,7 @@ MapEntrance_0808799c:
 
 _ts S_Story_1B_SkipIfStart
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

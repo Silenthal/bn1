@@ -57,9 +57,7 @@ _ts S_Story_10_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     ldr        r0,PTR_Cam_Set_08086388
     bl         SceneCamera_Init
@@ -146,9 +144,7 @@ MapEntrance_080862dc:
 _ts S_Story_10_5
     bl         S_Story_10_AnimatePlayer
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
     pop        {pc}

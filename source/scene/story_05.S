@@ -52,9 +52,7 @@ _ts S_Story_05_1
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_080838e8:
@@ -81,9 +79,7 @@ _ts S_Story_05_2
     bl         PlayerAnimation_SetPosition
     mov        r0,#0x0
     bl         PlayerAnimation_SetState
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_08083926:

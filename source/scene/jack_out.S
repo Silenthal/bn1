@@ -136,9 +136,7 @@ _ts Scene_JackOut_2_FadeOut
     bl         Text_CheckOption
     bne        LAB_080837a2
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     mov        r0,#0xc
     strb       r0,[r5,#Scene_state_s0]

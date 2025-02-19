@@ -27,11 +27,7 @@ PTR_SD_Barrier_0_Init_08099b1c:
 
 _ts SD_Barrier_0_Init
     push       {lr}
-    mov        r0,#0x6
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeOut_ScreenDim
     mov        r0,#0x1e
     strh       r0,[r5,#0x8]
     ldr        r7,PTR_BYTE_ARRAY_08099b60
@@ -105,11 +101,7 @@ _ts SD_Barrier_2_Brighten
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_08099bc2
-    mov        r0,#0x5
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeIn_ScreenDim
     mov        r0,#0xc
     str        r0,[r5,#0x0]
 LAB_08099bc2:

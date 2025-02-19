@@ -71,9 +71,7 @@ _ts S_Story_79_1
     bl         Effect_MegaMan_Create
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     mov        r0,#0x1e
     strb       r0,[r5,#Scene_sceneTimer]
@@ -137,9 +135,7 @@ _nt S_Story_79_4
     tst        r0,r0
     bne        LAB_08096906
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x80
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhite, 0x80
     pop        {r5}
     Scene_Next
 LAB_08096906:
@@ -157,9 +153,7 @@ _nt S_Story_79_5
     cmp        r0,r1
     beq        LAB_08096930
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_White
     pop        {r5}
     Scene_Next
 LAB_08096930:
@@ -227,9 +221,7 @@ _nt S_Story_79_9
     pop        {r5}
     bne        LAB_080969c0
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_080969c0:
@@ -276,9 +268,7 @@ _ts S_Story_79_10
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_08096a36:
@@ -307,9 +297,7 @@ LAB_08096a6a:
 
 _ts S_Story_79_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

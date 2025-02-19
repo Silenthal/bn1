@@ -42,9 +42,7 @@ _ts S_Story_19_0
     tst        r0,r0
     beq        LAB_08087454
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#Scene_state_s0]
@@ -53,9 +51,7 @@ LAB_08087454:
     ldr        r0,PTR_MapEntranceOptions_080875c4
     str        r0,[r5,#Scene_sceneArg]
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -152,9 +148,7 @@ _ts S_Story_19_6
     bl         Text_CheckOption
     bne        LAB_08087544
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     mov        r0,#0x40
     bl         Text_EnableOption
@@ -185,9 +179,7 @@ LAB_08087570:
 
 _nt S_Story_19_8
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -209,9 +201,7 @@ LAB_080875a4:
 
 _nt S_Story_19_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

@@ -80,9 +80,7 @@ _ts S_Story_01_1
     pop        {r5}
     bl         S_01_LoadMayl
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     ldr        r0,PTR_Cam_Set_08082dc4
     bl         SceneCamera_Init
@@ -221,9 +219,7 @@ _ts S_Story_01_7
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     ldrb       r0,[r5,#Scene_state_s0]
     add        r0,#0x8
@@ -247,9 +243,7 @@ _ts S_Story_01_8
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}

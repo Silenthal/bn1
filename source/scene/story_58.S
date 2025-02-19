@@ -52,9 +52,7 @@ _nt S_Story_58_1
     mov        r0,#0x1
     bl         PlayerAnimation_SetState
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_080907c2:
@@ -139,9 +137,7 @@ _nt S_Story_58_6
     tst        r0,r0
     beq        LAB_08090870
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
 LAB_08090870:
     Scene_Next
@@ -223,9 +219,7 @@ LAB_0809090c:
     Flag_ClearBase 0xD1
     Scene_Next
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     b          LAB_08090936
 LAB_0809092c:
@@ -294,9 +288,7 @@ _ts S_Story_58_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x18
     strb       r0,[r5,#Scene_state_s0]

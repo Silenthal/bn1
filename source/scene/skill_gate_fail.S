@@ -106,9 +106,7 @@ _ts S_SkillGateFail_3
     Flag_GetEvent F_EVENT_UNDERNET_SKILL_CHECK_RESET
     beq        LAB_08085c62
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
 LAB_08085c62:
     Scene_Next

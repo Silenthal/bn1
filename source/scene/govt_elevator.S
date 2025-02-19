@@ -84,9 +84,7 @@ LAB_08091938:
     add        r0,r0,r2
     str        r0,[r5,#Scene_sceneArg]
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08091956:

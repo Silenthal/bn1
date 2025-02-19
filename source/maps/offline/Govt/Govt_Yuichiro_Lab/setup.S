@@ -151,9 +151,7 @@ _ts EventHandler_Govt_Yuichiro_Lab_F24_0
     cmp        r0,#0x10
     bne        LAB_0803381e
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     mov        r0,#0x4
     str        r0,[r5,#0x0]

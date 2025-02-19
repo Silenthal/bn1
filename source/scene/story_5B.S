@@ -25,9 +25,7 @@ PTR_S_Story_5B_0_080909e8:
 
 _ts S_Story_5B_0
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     push       {r5}
     bl         PlayerAnimation_Lock
@@ -62,9 +60,7 @@ _ts S_Story_5B_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_08090a74:
@@ -155,9 +151,7 @@ _ts S_Story_5B_6
     pop        {r5}
     bne        LAB_08090b40
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
@@ -206,9 +200,7 @@ _nt S_Story_5B_8
 
 _nt S_Story_5B_SkipIfStart
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE

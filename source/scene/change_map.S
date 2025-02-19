@@ -139,16 +139,12 @@ _ts S_ChangeMap_3
     cmp        r1,#0x4
     beq        LAB_08087eda
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     b          LAB_08087eda
 LAB_08087ece:
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     pop        {r5}
 LAB_08087eda:
     push       {r5}

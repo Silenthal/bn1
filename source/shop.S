@@ -68,9 +68,7 @@ LAB_0801e914:
     bl         Shop_CreateBg
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     LoadMain display, r7, r7
     mov        r0,#0x0
@@ -755,9 +753,7 @@ PTR_Shop_2_0_0_UpdateFinalInventory_0801ee50:
 _ts Shop_2_0_0_UpdateFinalInventory
     push       {lr}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     bl         Shop_UpdateFinalInventory
     mov        r0,#0x4

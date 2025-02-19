@@ -204,9 +204,7 @@ LAB_0807feba:
     Flag_GetBase 0xBE
     beq        LAB_0807fed2
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0xf0
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhite, 0xf0
     pop        {r5}
     mov        r0,#0x1c
     strb       r0,[r5,#Effect_state_s1]

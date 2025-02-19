@@ -89,9 +89,7 @@ _ts S_Story_12_3
     ldr        r0,PTR_ScenarioData_12_080866b0
     mov        r1,#0x2
     bl         Text_LoadDialogue
-    mov        r0,#0x8
-    mov        r1,#0x4
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToBlackExceptBG0, 0x4
     pop        {r5}
     Scene_Next
 LAB_08086590:
@@ -123,9 +121,7 @@ LAB_080865c2:
 
 _ts S_Story_12_5
     push       {r5}
-    mov        r0,#0x7
-    mov        r1,#0x4
-    bl         Fade_Request
+    Fade_Request FT_FadeInFromBlackExceptBG0, 0x4
     pop        {r5}
     Scene_Next
     b          S_Story_12_SkipIfStart
@@ -154,9 +150,7 @@ _ts S_Story_12_7
     pop        {r5}
     bne        LAB_08086616
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08086616:
@@ -201,9 +195,7 @@ MapEntrance_08086660:
 
 _ts S_Story_12_9
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}

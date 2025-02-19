@@ -26,11 +26,7 @@ PTR_PTR_SD_Roll_0_Init_0809a2a8:
 
 _ts SD_Roll_0_Init
     push       {lr}
-    mov        r0,#0x6
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeOut_ScreenDim
     mov        r0,#0x1e
     strh       r0,[r5,#0x8]
     ldrb       r1,[r5,#0x5]
@@ -260,11 +256,7 @@ _ts SD_Roll_2_Free
     ldrb       r0,[r5,#0x1]
     tst        r0,r0
     bne        LAB_0809a45c
-    mov        r0,#0x5
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeIn_ScreenDim
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
 LAB_0809a45c:

@@ -70,9 +70,7 @@ _ts S_Story_3E_1
     bl         Entity_FreeAllMultiple
     ldr        r0,PTR_EntityAllocParams_803B310_0808d580
     bl         Entity_AllocList
-    mov        r0,#0x1
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_White
     pop        {r5}
     Scene_Next
 LAB_0808d3fe:
@@ -175,9 +173,7 @@ _ts S_Story_3E_7
     pop        {r5}
     bne        LAB_0808d4d6
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_0808d4d6:
@@ -241,9 +237,7 @@ MapEntrance_0808d550:
 
 _ts S_Story_3E_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

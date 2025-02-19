@@ -27,9 +27,7 @@ PTR_S_Get_SchoolID_0_08087fbc:
 
 _ts S_Get_SchoolID_0
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     push       {r5}
     bl         Flag_SetPlayerInactive
@@ -57,9 +55,7 @@ _ts S_Get_SchoolID_1
     strb       r0,[r1,#0x14]
     Flag_SetBase 0xC6
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808802e:
@@ -84,9 +80,7 @@ _nt S_Get_SchoolID_SkipIfStart
     bl         Scene_IsStartPressed
     beq        LAB_0808806e
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40
@@ -151,9 +145,7 @@ _ts S_Get_SchoolID_5
     cmp        r0,r1
     beq        LAB_08088102
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40

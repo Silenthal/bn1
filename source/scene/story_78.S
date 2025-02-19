@@ -60,9 +60,7 @@ _nt S_Story_78_1
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_08096606:
@@ -189,9 +187,7 @@ _ts S_Story_78_6
     pop        {r5}
     bne        LAB_08096722
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08096722:
@@ -246,9 +242,7 @@ MapEntrance_08096784:
 
 _ts S_Story_78_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

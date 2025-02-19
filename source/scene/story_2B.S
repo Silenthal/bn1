@@ -45,9 +45,7 @@ _ts S_Story_2B_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -91,9 +89,7 @@ _ts S_Story_2B_2
     cmp        r0,#0x1
     beq        LAB_08089d02
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_08089d02:
@@ -282,9 +278,7 @@ LAB_08089e90:
     bl         Text_CheckOption
     bne        LAB_08089eaa
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08089eaa:
@@ -328,9 +322,7 @@ _nt S_Story_2B_12
     bl         Entity_FreeAllMultiple
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
 LAB_08089f14:
     pop        {pc}
@@ -366,9 +358,7 @@ _ts S_Story_2B_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     mov        r0,#0x30
     strb       r0,[r5,#Scene_state_s0]

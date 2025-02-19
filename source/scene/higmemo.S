@@ -65,9 +65,7 @@ _ts S_Internet_4_HigMemo_Gate_2
     pop        {r5}
     bne        LAB_08097e46
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7

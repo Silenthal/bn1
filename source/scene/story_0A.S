@@ -54,9 +54,7 @@ _ts S_Story_0A_1
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08084a00:
@@ -91,9 +89,7 @@ _ts S_Story_0A_2
     ldr        r0,PTR_EntityAllocParams_8030F0C_08084bdc
     bl         Entity_AllocList
     bl         FUN_08084b94
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     bl         Text_DisableDialogue
     pop        {r5}
     mov        r0,#0x3c
@@ -196,9 +192,7 @@ _ts S_Story_0A_6
     pop        {r5}
     bne        LAB_08084b28
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     Scene_Next
 LAB_08084b28:
@@ -272,9 +266,7 @@ _ts S_Story_0A_SkipIfStart
     push       {r5}
     mov        r0,#0x40
     bl         Text_EnableOption
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     mov        r0,#0x1c
     strb       r0,[r5,#Scene_state_s0]

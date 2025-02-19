@@ -77,9 +77,7 @@ LAB_08086ff0:
 
 _nt S_School_Comp_2_GateClear_4
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -102,9 +100,7 @@ LAB_08087024:
 
 _nt S_School_Comp_2_GateClear_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0xc
     strb       r0,[r5,#Scene_state_s0]

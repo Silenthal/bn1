@@ -81,9 +81,7 @@ _nt S_Story_11_3
 
 _ts S_Story_11_4
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -109,9 +107,7 @@ LAB_08086480:
 
 _nt S_Story_11_6
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}

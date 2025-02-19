@@ -100,9 +100,7 @@ LAB_08087106:
 
 _ts S_Story_17_4
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40

@@ -59,9 +59,7 @@ _nt S_Story_4C_1
     ldr        r0,PTR_Cam_Set_0808ee7c
     bl         SceneCamera_Init
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808ecae:
@@ -200,9 +198,7 @@ _ts S_Story_4C_8
     b          LAB_0808edd8
 LAB_0808edc6:
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x6
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToBlack, 0x6
     pop        {r5}
     Scene_Next
 LAB_0808edd8:
@@ -266,9 +262,7 @@ MapEntrance_0808ee4c:
 
 _ts S_Story_4C_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

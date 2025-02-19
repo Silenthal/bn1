@@ -52,9 +52,7 @@ _ts S_Story_54_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -83,9 +81,7 @@ _nt S_Story_54_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_0808feac:
@@ -152,9 +148,7 @@ _ts S_Story_54_5
     push       {r5}
     mov        r0,#0x18
     bl         PlayerAnimation_SetState
-    mov        r0,#0x6
-    mov        r1,#0x8
-    bl         Fade_Request
+    Fade_Request FT_DarkenExceptSpritesBG0, 0x8
     pop        {r5}
     Scene_Next
 LAB_0808ff3a:
@@ -187,9 +181,7 @@ LAB_0808ff70:
     and        r1,r0
     beq        LAB_0808ff88
     push       {r5}
-    mov        r0,#0xa
-    mov        r1,#0x10
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhiteExceptBG0, 0x10
     pop        {r5}
     Scene_Next
 LAB_0808ff88:
@@ -242,9 +234,7 @@ _ts S_Story_54_9
     pop        {r5}
     bne        LAB_0808fff8
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_White
     pop        {r5}
     Scene_Next
 LAB_0808fff8:
@@ -276,9 +266,7 @@ _ts S_Story_54_11
     pop        {r5}
     bne        LAB_0809003c
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     pop        {r5}
     Scene_Next
 LAB_0809003c:
@@ -384,9 +372,7 @@ _nt S_Story_54_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     pop        {r5}
     mov        r0,#0x34
     strb       r0,[r5,#Scene_state_s0]

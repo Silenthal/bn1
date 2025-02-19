@@ -192,9 +192,7 @@ _ts Menu_Network_0_Init
     strh       r1,[r0,#0x16]
     strh       r1,[r0,#0x18]
     strh       r1,[r0,#0x1a]
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     mov        r0,#0x0
     strb       r0,[r5,#0xc]
@@ -320,9 +318,7 @@ _ts Menu_Network_3_ConfirmSaveFirst
     cmp        r0,#0x0
     beq        LAB_0801cf4c
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
@@ -427,9 +423,7 @@ LAB_0801d002:
     mov        r0,#0x68
     bl         Sound_PlaySE
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
@@ -739,9 +733,7 @@ LAB_0801d276:
     b          LAB_0801d2aa
 LAB_0801d27e:
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x1c
     strb       r0,[r5,#0x1]
@@ -909,9 +901,7 @@ LAB_0801d380:
     add        r1,r1,r2
     ldr        r2,DAT_0801d42c
     bl         Dma_TransferListAdd
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     bl         Text_DisableDialogue
     pop        {r5}
     mov        r0,#0x0
@@ -1037,9 +1027,7 @@ _ts Menu_Network_9_LoadOptionMenu
     mov        r5,#0x2
     bl         Screen_CopyTileMapRect
     bl         Menu_Network_ClearPackets
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     ldr        r0,PTR_textDict_MenuMessages_0801d564
     ldrb       r1,[r5,#0xc]
     add        r1,#0x67
@@ -1107,9 +1095,7 @@ _ts Menu_Network_11
     Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     beq        LAB_0801d5a4
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
     mov        r0,#0x24
@@ -1941,9 +1927,7 @@ LAB_0801db9c:
     b          LAB_0801dbd6
 LAB_0801dba4:
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     pop        {r5}
     mov        r0,#0x5c
     ldrb       r7,[r5,#0x1]
@@ -2022,9 +2006,7 @@ _ts Menu_Network_TradeClose
     bne        LAB_0801dc66
     bl         Menu_Network_ClearPackets
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x24
     strb       r0,[r5,#0x1]
@@ -2127,9 +2109,7 @@ LAB_0801dd12:
     strb       r1,[r7,#0x1]
     strb       r2,[r7,#0x2]
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x28
     strb       r0,[r5,#0x1]
@@ -2291,9 +2271,7 @@ LAB_0801de6c:
     ldr        r1,PTR_DAT_0801ded8
     mov        r2,#0xb0
     bl         memcpy_32
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     ldr        r0,PTR_textDict_MenuMessages_0801dee0
     mov        r1,#0x6c
     bl         Text_LoadDialogue
@@ -2436,9 +2414,7 @@ LAB_0801df72:
     strb       r0,[r7,#0x1]
     strb       r0,[r7,#0x2]
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x50
     strb       r0,[r5,#0x1]
@@ -2521,9 +2497,7 @@ _ts Menu_Network_19_LoadOptionMenu
     mov        r5,#0x2
     bl         Screen_CopyTileMapRect
     bl         Menu_Network_ClearPackets
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     ldr        r0,PTR_textDict_MenuMessages_0801e3ac
     ldrb       r1,[r5,#0xc]
     add        r1,#0x67
@@ -2558,9 +2532,7 @@ _ts Menu_Network_21
     Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     beq        LAB_0801e0b4
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
     mov        r0,#0x4c
@@ -2692,9 +2664,7 @@ LAB_0801e17e:
     b          LAB_0801e1c6
 LAB_0801e1aa:
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x50
     strb       r0,[r5,#0x1]

@@ -28,11 +28,7 @@ PTR_SD_Anubis_0_Init_080999c4:
 
 _ts SD_Anubis_0_Init
     push       {lr}
-    mov        r0,#0x6
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeOut_ScreenDim
     mov        r0,#0x1e
     strh       r0,[r5,#0x8]
     mov        r1,#0x8e
@@ -145,11 +141,7 @@ _nt SD_Anubis_3_FadeIn
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_08099ac8
-    mov        r0,#0x5
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeIn_ScreenDim
     mov        r0,#0x10
     str        r0,[r5,#0x0]
 LAB_08099ac8:

@@ -31,9 +31,7 @@ _ts S_Story_27_0
     bl         Flag_SetPlayerInactive
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}

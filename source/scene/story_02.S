@@ -62,9 +62,7 @@ LAB_080830dc:
     mov        r0,#0x40
     bl         Text_EnableOption
     bl         PlayerAnimation_Lock
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_080830f8:
@@ -101,9 +99,7 @@ _ts S_Story_02_2
     bl         Entity_FreeAllMultiple
     ldr        r7,PTR_NPCList_8028A44
     bl         Map_LoadNPCList
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     bl         Sound_AreaSongChange
     pop        {r5}
     ldr        r0,PTR_Cam_Set_080832fc
@@ -182,9 +178,7 @@ _ts S_Story_02_6
     bl         Entity_FreeAllMultiple
     ldr        r7,PTR_NPCList_8028A6C
     bl         Map_LoadNPCList
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     mov        r0,#0x3c
     strh       r0,[r5,#Scene_sceneTimer]
@@ -205,9 +199,7 @@ _ts S_Story_02_7
     and        r1,r0
     beq        LAB_08083226
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     ldrb       r0,[r5,#Scene_state_s0]
     add        r0,#0x8
@@ -244,9 +236,7 @@ _ts S_Story_02_8
     push       {r5}
     mov        r0,#0x40
     bl         Text_EnableOption
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -296,9 +286,7 @@ MapEntrance_080832c8:
 _ts S_Story_02_SkipIfStart
     push       {lr}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

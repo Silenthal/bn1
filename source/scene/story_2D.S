@@ -67,9 +67,7 @@ _ts S_Story_2D_1
     ldr        r1,[r1,#0x28]
     add        r1,#0x24
     bl         Camera_SetEnabled
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808a392:
@@ -125,9 +123,7 @@ _nt S_Story_2D_4
     cmp        r0,#0x0
     bne        LAB_0808a40a
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808a40a:
@@ -195,9 +191,7 @@ LAB_0808a48c:
 
 _nt S_Story_2D_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

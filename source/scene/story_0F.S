@@ -58,9 +58,7 @@ _ts S_Story_0F_1
     pop        {r5}
     bne        S_Story_0F_SkipIfStart
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 
@@ -100,9 +98,7 @@ _nt S_Story_0F_3
     bne        LAB_080860d4
     Scene_Next
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
 LAB_080860d4:
     b          S_Story_0F_SkipIfStart
@@ -169,9 +165,7 @@ MapEntrance_08086158:
 
 _ts S_Story_0F_7
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}

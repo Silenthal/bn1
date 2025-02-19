@@ -51,9 +51,7 @@ _ts S_Story_53_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -98,9 +96,7 @@ _nt S_Story_53_2
     cmp        r0,#0x1
     beq        LAB_0808fb00
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_0808fb00:
@@ -319,9 +315,7 @@ _nt S_Story_53_13
     pop        {r5}
     bne        LAB_0808fce0
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_0808fce0:
@@ -400,9 +394,7 @@ MapEntrance_0808fd80:
 
 _ts S_Story_53_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40

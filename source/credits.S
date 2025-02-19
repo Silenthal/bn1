@@ -142,7 +142,7 @@ _ts Credits_1_0_StartScene
     ldrb       r1,[r5,#0x8]
     cmp        r1,#0x0
     bne        LAB_080215c4
-    mov        r0,#0x1
+    mov        r0,#FT_FadeInFromWhite
 LAB_080215c4:
     push       {r5}
     mov        r1,#0x4
@@ -179,9 +179,7 @@ _ts Credits_1_1_SceneMain
     cmp        r0,#0x1
     beq        LAB_08021662
     push       {r5}
-    mov        r0,#0xe
-    mov        r1,#0xff
-    bl         Fade_Request
+    Fade_Request FT_FadeOutAlphaBlendBG0, 0xff
     pop        {r5}
     bl         Credits_GetCreditsSceneData
     ldrb       r0,[r7,#0x3]
@@ -236,9 +234,7 @@ _ts Credits_1_2_ShowCreditsBackdrop
     mov        r0,#0x1
     strb       r0,[r5,#0x2]
     push       {r5}
-    mov        r0,#0xd
-    mov        r1,#0x10
-    bl         Fade_Request
+    Fade_Request FT_FadeInAlphaBlendBG0, 0x10
     pop        {r5}
 LAB_080216c4:
     ldrh       r0,[r5,#0x4]
@@ -246,9 +242,7 @@ LAB_080216c4:
     strh       r0,[r5,#0x4]
     bgt        LAB_080216dc
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     mov        r0,#0xc
     strb       r0,[r5,#0x1]
@@ -402,9 +396,7 @@ _ts Credits_1_6_FinalScreen
     mov        r0,#0x1
     strb       r0,[r5,#0x2]
     push       {r5}
-    mov        r0,#0xd
-    mov        r1,#0x10
-    bl         Fade_Request
+    Fade_Request FT_FadeInAlphaBlendBG0, 0x10
     pop        {r5}
 LAB_08021860:
     ldrh       r0,[r5,#0x4]
@@ -420,9 +412,7 @@ LAB_0802186c:
     tst        r1,r0
     beq        LAB_08021888
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x2
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToBlack, 0x2
     pop        {r5}
     mov        r0,#0xc
     strb       r0,[r5,#0x1]

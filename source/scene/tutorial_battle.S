@@ -98,9 +98,7 @@ LAB_0808519c:
     bne        LAB_080851d4
 LAB_080851a8:
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     Flag_GetBase 0xCD
     pop        {r5}
     bne        LAB_080851ce

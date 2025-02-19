@@ -62,9 +62,7 @@ _nt S_Story_4B_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808eb30:
@@ -97,9 +95,7 @@ _ts S_Story_4B_3
     pop        {r5}
     bne        LAB_0808eb7a
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_0808eb7a:
@@ -154,9 +150,7 @@ MapEntrance_0808ebe0:
 
 _ts S_Story_4B_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

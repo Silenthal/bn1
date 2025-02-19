@@ -26,11 +26,7 @@ PTR_PTR_SD_ElecManEscape_0_08099850:
 
 _ts SD_ElecManEscape_0
     push       {lr}
-    mov        r0,#0x4
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    Fade_Request FT_FadeOutToBlack, 0x4, save_r5=1
     mov        r0,#0x4
     strb       r0,[r5,#0x0]
     pop        {pc}

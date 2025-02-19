@@ -47,9 +47,7 @@ _ts S_Story_6B_0
     mov        r0,#T_Suspicious_Mood
     bl         Sound_PlayBGM
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
     pop        {r5}
@@ -98,9 +96,7 @@ _nt S_Story_6B_1
     bl         SceneCamera_Init
     bl         SceneCamera_Main
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_08093a86:
@@ -240,9 +236,7 @@ _ts S_Story_6B_9
     pop        {r5}
     bne        LAB_08093bb6
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_08093bb6:
@@ -301,9 +295,7 @@ MapEntrance_08093c20:
 
 _ts S_Story_6B_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

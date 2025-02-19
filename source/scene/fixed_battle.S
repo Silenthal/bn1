@@ -83,9 +83,7 @@ _ts S_StartFixedBattle_0
 _ts S_StartFixedBattle_1
     push       {lr}
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7

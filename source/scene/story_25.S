@@ -35,9 +35,7 @@ _ts S_Story_25_0
     bne        LAB_08088fee
     push       {r5}
     bl         Flag_SetPlayerInactive
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08088fee:
@@ -57,9 +55,7 @@ _ts S_Story_25_1
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     ldr        r0,PTR_Cam_Set_08089134
     bl         SceneCamera_Init
@@ -92,9 +88,7 @@ _nt S_Story_25_3
     pop        {r5}
     bne        LAB_08089068
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08089068:
@@ -144,9 +138,7 @@ _ts S_Story_25_4
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_080890e2:
@@ -175,9 +167,7 @@ LAB_08089112:
 
 _ts S_Story_25_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

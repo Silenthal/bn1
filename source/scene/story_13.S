@@ -44,9 +44,7 @@ _ts S_Story_13_0
     bne        LAB_08086752
     push       {r5}
     bl         Flag_SetPlayerInactive
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     mov        r0,#0x0
     str        r0,[r5,#Scene_isAnimating]
@@ -68,9 +66,7 @@ _ts S_Story_13_1
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     ldr        r0,PTR_Cam_Set_08086a38
     bl         SceneCamera_Init
@@ -304,9 +300,7 @@ _nt S_Story_13_10
     bl         Sound_PlaySE
 LAB_0808694e:
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}

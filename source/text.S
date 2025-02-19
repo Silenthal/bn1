@@ -2606,9 +2606,7 @@ LAB_080148c0:
     mov        r4,#0x1
     mov        r6,#0x0
     bl         World_SetBattleParams
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
@@ -2668,9 +2666,7 @@ LAB_08014942:
     ldrb       r6,[r4,#0x7]
     ldrb       r4,[r4,#0x6]
     bl         World_SetBattleParams
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
@@ -2766,9 +2762,7 @@ LAB_080149dc:
     mov        r4,#0x1
     mov        r6,#0x0
     bl         World_SetBattleParams
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE

@@ -42,9 +42,7 @@ _ts S_Story_30_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -92,9 +90,7 @@ _nt S_Story_30_2
     bl         PlayerAnimation_SetPosition
     mov        r0,#0x5
     bl         PlayerAnimation_SetState
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808a9fe:
@@ -164,9 +160,7 @@ _nt S_Story_30_6
     strb       r0,[r5,#Scene_sceneTimer]
     bne        LAB_0808aa94
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808aa94:
@@ -185,9 +179,7 @@ _ts S_Story_30_7
     beq        LAB_0808aac4
     Flag_SetBase 0xB2
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808aac4:
@@ -220,9 +212,7 @@ _ts S_Story_30_9
     pop        {r5}
     bne        LAB_0808ab0e
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808ab0e:
@@ -262,9 +252,7 @@ _nt S_Story_30_10
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808ab72:
@@ -303,9 +291,7 @@ LAB_0808abbe:
 
 _ts S_Story_30_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40

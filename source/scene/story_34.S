@@ -73,9 +73,7 @@ _nt S_Story_34_3
     pop        {r5}
     bne        LAB_0808b4ba
     push       {r5}
-    mov        r0,#0x8
-    mov        r1,#0x10
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToBlackExceptBG0, 0x10
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -118,9 +116,7 @@ _ts S_Story_34_5
     bne        LAB_0808b516
     Scene_Next
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
 LAB_0808b516:
     bl         Scene_IsStartPressed
@@ -194,9 +190,7 @@ MapEntrance_0808b5b8:
 
 _ts S_Story_34_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40

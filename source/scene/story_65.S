@@ -75,9 +75,7 @@ _nt S_Story_65_1
     bl         DisableBoundaryCheck
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     mov        r0,#0x3c
     strb       r0,[r5,#Scene_sceneTimer]
@@ -157,9 +155,7 @@ _ts S_Story_65_5
     pop        {r5}
     bne        LAB_08092e7a
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08092e7a:
@@ -215,9 +211,7 @@ MapEntrance_08092edc:
 
 _ts S_Story_65_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

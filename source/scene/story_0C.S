@@ -55,9 +55,7 @@ _ts S_Story_0C_1
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08084d8c:
@@ -91,9 +89,7 @@ _ts S_Story_0C_2
     bl         Map_LoadNPCList
     ldr        r0,PTR_Cam_Set_08084ebc
     bl         SceneCamera_Init
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_08084dda:
@@ -135,9 +131,7 @@ _ts S_Story_0C_4
     pop        {r5}
     bne        LAB_08084e42
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
@@ -185,9 +179,7 @@ LAB_08084e88:
 _ts S_Story_0C_SkipIfStart
     push       {lr}
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE

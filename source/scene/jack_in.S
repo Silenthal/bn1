@@ -163,9 +163,7 @@ _ts S_JackIn_2_JackInWaitDialogue
     push       {r5}
     mov        r0,#0x18
     bl         PlayerAnimation_SetState
-    mov        r0,#0x6
-    mov        r1,#0x8
-    bl         Fade_Request
+    Fade_Request FT_DarkenExceptSpritesBG0, 0x8
     pop        {r5}
     Scene_Next
 LAB_08083f96:
@@ -195,9 +193,7 @@ LAB_08083fc2:
     and        r1,r0
     beq        LAB_08083fda
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     Scene_Next
 LAB_08083fda:

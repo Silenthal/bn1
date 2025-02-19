@@ -709,9 +709,7 @@ _ts R_LifeVirus_2_0_1
     cmp        r0,#0x78
     ble        LAB_080699f0
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x2
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhite, 0x2
     pop        {r5}
     mov        r0,#0x0
     mov        r1,#0x1f
@@ -773,9 +771,7 @@ _ts R_LifeVirus_2_0_3
     strh       r0,[r5,#Actor_counterA]
     bne        LAB_08069a62
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0x2
-    bl         Fade_Request
+    Fade_Request FT_FadeInFromWhite, 0x2
     pop        {r5}
     mov        r0,#0x10
     strb       r0,[r5,#Actor_state_s2]
@@ -837,9 +833,7 @@ _nt R_LifeVirus_2_1_1
     cmp        r0,#0xf0
     ble        LAB_08069ac6
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x4
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToBlack, 0x4
     pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#Actor_state_s2]

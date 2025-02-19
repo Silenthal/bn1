@@ -137,9 +137,7 @@ _ts S_MeteorAttack_3
     tst        r0,r0
     beq        LAB_0808448c
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     Scene_Next
 LAB_0808448c:
@@ -350,9 +348,7 @@ LAB_08084612:
 _ts S_MeteorAttack_SkipIfStart
     push       {lr}
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     mov        r0,#0x10
     strb       r0,[r5,#Scene_state_s0]

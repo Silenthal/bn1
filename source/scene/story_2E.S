@@ -58,9 +58,7 @@ _ts S_Story_2E_1
     bl         PlayerAnimation_SetPosition
     mov        r0,#0x0
     bl         PlayerAnimation_SetState
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     ldr        r0,PTR_Cam_Set_0808a77c
     bl         SceneCamera_Init
@@ -232,9 +230,7 @@ LAB_0808a6b4:
     mov        r0,#0x0
     bl         NPC_FindByIndex
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808a6d8:
@@ -268,9 +264,7 @@ _nt S_Story_2E_9
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808a72c:
@@ -298,9 +292,7 @@ LAB_0808a75c:
 
 _nt S_Story_2E_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

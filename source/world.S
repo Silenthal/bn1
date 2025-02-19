@@ -208,14 +208,14 @@ _ts World_1_SubAreaChange
     ldr        r1,DispCnt_0800420c
     strh       r1,[r0,#0x0]
     push       {r5}
-    ldrb       r0,[r5,#0x7]
-    ldrb       r1,[r5,#0x13]
+    ldrb       r0,[r5,#World_fadeType]
+    ldrb       r1,[r5,#World_fadeStep]
     bl         Fade_Request
     pop        {r5}
-    mov        r0,#0x3
-    strb       r0,[r5,#0x7]
+    mov        r0,#FT_FadeInFromBlack
+    strb       r0,[r5,#World_fadeType]
     mov        r0,#0x10
-    strb       r0,[r5,#0x13]
+    strb       r0,[r5,#World_fadeStep]
     LoadMain mapChange, r0, r0
     mov        r1,#0x0
     strb       r1,[r0,#0x10]
@@ -402,9 +402,7 @@ _ts World_6_StartMenu
     pop        {pc}
 LAB_080043e0:
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x1c
     strb       r0,[r5,#0x0]
@@ -572,7 +570,7 @@ _ts World_HandleMapExit
     mov        r0,#0x4
     cmp        r1,#0xf
     bne        LAB_0800458e
-    mov        r0,#0x2
+    mov        r0,#FT_FadeOutToWhite
 LAB_0800458e:
     push       {r5}
     mov        r1,#0x10
@@ -619,9 +617,7 @@ _ts World_HandleRandomEncounter
     mov        r6,#0x0
     bl         World_SetBattleParams
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
@@ -1293,9 +1289,7 @@ _ts World_StartShop
     mov        r1,#0x20
     strb       r1,[r5,#0x0]
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     pop        {pc}
 
@@ -1349,9 +1343,7 @@ LAB_08004a8a:
     mov        r1,#0x24
     strb       r1,[r5,#0x0]
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x0
     pop        {pc}

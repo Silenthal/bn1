@@ -74,9 +74,7 @@ _ts S_Story_2C_2
     cmp        r0,#0x1
     beq        LAB_0808a05e
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808a05e:
@@ -184,9 +182,7 @@ _nt S_Story_2C_6
     strb       r0,[r5,#Scene_sceneTimer]
     bne        LAB_0808a148
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808a148:
@@ -214,9 +210,7 @@ _ts S_Story_2C_7
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
     mov        r0,#0x3c
@@ -277,9 +271,7 @@ _nt S_Story_2C_10
     strb       r0,[r5,#Scene_sceneTimer]
     bne        LAB_0808a210
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808a210:
@@ -351,9 +343,7 @@ _ts S_Story_2C_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     mov        r0,#0x2c
     strb       r0,[r5,#Scene_state_s0]

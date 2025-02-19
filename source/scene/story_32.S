@@ -63,9 +63,7 @@ _nt S_Story_32_2
     pop        {r5}
     bne        LAB_0808af3c
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_0808af3c:
@@ -84,9 +82,7 @@ _ts S_Story_32_3
     beq        LAB_0808af6c
     Flag_SetBase 0xCE
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_0808af6c:
@@ -127,9 +123,7 @@ LAB_0808afa6:
     strh       r0,[r5,#Scene_sceneTimer]
     bne        LAB_0808afc6
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     mov        r0,#0x3c
     strb       r0,[r5,#Scene_sceneTimer]
@@ -172,9 +166,7 @@ LAB_0808afee:
     bl         BgTask_AddNew
     pop        {r5}
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_White
     pop        {r5}
     mov        r0,#0x3c
     strb       r0,[r5,#Scene_sceneTimer]
@@ -250,9 +242,7 @@ LAB_0808b0aa:
     pop        {r5}
     bne        LAB_0808b0c8
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_0808b0c8:
@@ -309,9 +299,7 @@ MapEntrance_0808b128:
 
 _ts S_Story_32_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

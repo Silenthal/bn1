@@ -260,9 +260,7 @@ _ts S_UnlockWWWGate_3
     cmp        r0,#0x0
     beq        LAB_08086eda
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
 LAB_08086eda:
     push       {r5}
@@ -294,9 +292,7 @@ _nt S_UnlockWWWGate_5
     cmp        r0,#0x0
     beq        LAB_08086f20
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
 LAB_08086f20:
     Scene_Next

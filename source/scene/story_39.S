@@ -32,9 +32,7 @@ PTR_S_Story_39_0_0808cb2c:
 _ts S_Story_39_0
     push       {r5}
     bl         PlayerAnimation_Lock
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -76,9 +74,7 @@ _ts S_Story_39_1
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     mov        r0,#0x14
     strb       r0,[r5,#Scene_sceneTimer]
@@ -144,9 +140,7 @@ _ts S_Story_39_4
     pop        {r5}
     bne        LAB_0808cc28
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
     bl         Scene_IsStartPressed
@@ -192,9 +186,7 @@ _nt S_Story_39_5
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808ccc4:
@@ -219,9 +211,7 @@ LAB_0808cce8:
 
 _nt S_Story_39_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

@@ -85,9 +85,7 @@ _ts Menu_Save_0_Init
     strh       r1,[r0,#0x18]
     strh       r1,[r0,#0x1a]
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     bl         Video_InitClearTile
     pop        {r5}
     push       {r5}
@@ -118,9 +116,7 @@ _ts Menu_Save_1_CheckDialogResult
     cmp        r0,#0x0
     beq        LAB_0801e600
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#0x1]
@@ -224,9 +220,7 @@ _ts Menu_Save_4_StartClose
     beq        LAB_0801e6dc
     Flag_ClearSystem F_SYSTEM_DIALOGUE_COMPLETE
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#0x1]

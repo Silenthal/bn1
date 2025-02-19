@@ -29,9 +29,7 @@ _ts S_Rocket_Comp_LifeVirus_0
     bl         Flag_SetPlayerInactive
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -52,9 +50,7 @@ _nt S_Rocket_Comp_LifeVirus_1
     cmp        r0,r1
     beq        LAB_08098118
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     mov        r0,#0x2d
     strb       r0,[r5,#Scene_sceneTimer]
@@ -96,9 +92,7 @@ _nt S_Rocket_Comp_LifeVirus_3
     pop        {r5}
     bne        LAB_08098176
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     mov        r0,#0xc7
     bl         Sound_PlaySE
@@ -143,9 +137,7 @@ LAB_080981c2:
 
 _ts S_Rocket_Comp_LifeVirus_SkipIfStart
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

@@ -69,9 +69,7 @@ _ts S_Story_28_1
     bl         SceneCamera_Init
     bl         SceneCamera_Main
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_08089590:
@@ -104,9 +102,7 @@ _ts S_Story_28_3
     pop        {r5}
     bne        LAB_080895dc
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
     b          LAB_080895e6
@@ -133,9 +129,7 @@ _ts S_Story_28_4
     mov        r0,#0x1
     str        r0,[r5,#0x1C]
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_08089616:
@@ -175,9 +169,7 @@ _ts S_Story_28_6
     bne        LAB_0808966e
     Scene_Next
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
 LAB_0808966e:
     bl         Scene_IsStartPressed
@@ -210,9 +202,7 @@ _nt S_Story_28_7
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40
@@ -246,9 +236,7 @@ LAB_080896fe:
 
 _ts S_Story_28_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     push       {r5}
     mov        r0,#0x40

@@ -47,9 +47,7 @@ _ts S_Story_31_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     ldr        r0,PTR_Cam_Set_0808ae80
     bl         SceneCamera_Init
@@ -90,9 +88,7 @@ _ts S_Story_31_2
     ldr        r0,PTR_Cam_Set_0808ae8c
     bl         SceneCamera_Init
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_0808acd4:
@@ -214,9 +210,7 @@ _nt S_Story_31_6
     pop        {r5}
     bne        LAB_0808adf2
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
@@ -272,9 +266,7 @@ LAB_0808ae56:
 
 _ts S_Story_31_SkipIfStart
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

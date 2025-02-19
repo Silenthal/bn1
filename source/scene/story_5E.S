@@ -55,9 +55,7 @@ _ts S_Story_5E_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_080910e4:
@@ -107,9 +105,7 @@ _nt S_Story_5E_4
     cmp        r0,r1
     beq        LAB_08091162
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0xf0
-    bl         Fade_Request
+    Fade_Request FT_FadeInFromWhite, 0xf0
     pop        {r5}
     mov        r0,#0x3c
     strb       r0,[r5,#Scene_sceneTimer]
@@ -193,9 +189,7 @@ _nt S_Story_5E_8
     Flag_GetBase 0xBE
     bne        LAB_08091222
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
@@ -245,9 +239,7 @@ _ts S_Story_5E_10
 
 _ts S_Story_5E_SkipIfStart
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE

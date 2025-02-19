@@ -65,9 +65,7 @@ _ts S_Story_35_1
     bl         PlayerAnimation_SetPosition
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808c1da:
@@ -100,9 +98,7 @@ _nt S_Story_35_3
     pop        {r5}
     bne        LAB_0808c224
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808c224:
@@ -128,9 +124,7 @@ _ts S_Story_35_4
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808c262:
@@ -163,9 +157,7 @@ _nt S_Story_35_6
     pop        {r5}
     bne        LAB_0808c2ac
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808c2ac:
@@ -191,9 +183,7 @@ _ts S_Story_35_7
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808c2ea:
@@ -226,9 +216,7 @@ _nt S_Story_35_9
     pop        {r5}
     bne        LAB_0808c334
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808c334:
@@ -289,9 +277,7 @@ MapEntrance_0808c3a4:
 
 _ts S_Story_35_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

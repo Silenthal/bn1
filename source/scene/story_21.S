@@ -58,9 +58,7 @@ _nt S_Story_21_1
     pop        {r5}
     bne        LAB_08088746
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     mov        r0,#T_In_The_Room
     bl         Sound_PlayBGM
@@ -154,9 +152,7 @@ _nt S_Story_21_6
     pop        {r5}
     bne        LAB_0808880c
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808880c:
@@ -196,9 +192,7 @@ _ts S_Story_21_7
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_08088870:
@@ -225,9 +219,7 @@ LAB_0808889a:
 
 _ts S_Story_21_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

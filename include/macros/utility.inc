@@ -138,3 +138,79 @@
     .byte \y
     .asciz "\str"
     .endm
+
+    .macro Fade_Request fadeType, time, save_r5=0
+    mov        r0,#\fadeType
+    mov        r1,#\time
+.if \save_r5
+    push       {r5}
+.endif
+    bl         Fade_Request
+.if \save_r5
+    pop        {r5}
+.endif
+    .endm
+
+    .macro FadeOut_Black
+    mov        r0,#0x4
+    mov        r1,#0x10
+    bl         Fade_Request
+    .endm
+
+    .macro FadeIn_Black
+    mov        r0,#0x3
+    mov        r1,#0x10
+    bl         Fade_Request
+    .endm
+
+    .macro FadeOutFast_Black
+    mov        r0,#0x4
+    mov        r1,#0x8
+    bl         Fade_Request
+    .endm
+
+    .macro FadeInFast_Black
+    mov        r0,#0x3
+    mov        r1,#0x8
+    bl         Fade_Request
+    .endm
+
+    .macro FadeOut_White
+    mov        r0,#0x2
+    mov        r1,#0x10
+    bl         Fade_Request
+    .endm
+
+    .macro FadeIn_White
+    mov        r0,#0x1
+    mov        r1,#0x10
+    bl         Fade_Request
+    .endm
+
+    .macro FadeOutFast_White
+    mov        r0,#0x2
+    mov        r1,#0x8
+    bl         Fade_Request
+    .endm
+
+    .macro FadeInFast_White
+    mov        r0,#0x1
+    mov        r1,#0x8
+    bl         Fade_Request
+    .endm
+
+    .macro FadeOut_ScreenDim
+    mov        r0,#0x6
+    mov        r1,#0x4
+    push       {r5}
+    bl         Fade_Request
+    pop        {r5}
+    .endm
+
+    .macro FadeIn_ScreenDim
+    mov        r0,#0x5
+    mov        r1,#0x4
+    push       {r5}
+    bl         Fade_Request
+    pop        {r5}
+    .endm

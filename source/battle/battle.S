@@ -164,9 +164,7 @@ LAB_080059b4:
     str        r0,[r6,#0x58]
     bl         FieldObstacleManager_Init
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_White
     pop        {r5}
     mov        r0,#0x4
     strh       r0,[r5,#0x0]
@@ -480,9 +478,7 @@ _nt Battle_2_2_BattleEnd
     tst        r0,r0
     bne        LAB_08005c58
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
@@ -675,9 +671,7 @@ _nt Battle_3_1_FadeOut
     bl         Text_CheckIfDialogActive
     bne        LAB_08005db8
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#0x2]
@@ -1256,11 +1250,7 @@ PTR_BattleR_2_7_0_Darken_080061bc:
 
 _nt BattleR_2_7_0_Darken
     push       {lr}
-    mov        r0,#0xc
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    Fade_Request FT_DarkenExceptBG3, 0x4, save_r5=1
     mov        r0,#0x4
     strb       r0,[r5,#0x3]
     pop        {pc}
@@ -1334,11 +1324,7 @@ _nt BattleR_2_7_3_ShowMessage
     mov        r0,#0xc
     bl         BattleMessage_Disable
     pop        {r5}
-    mov        r0,#0xb
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    Fade_Request FT_FadeInFromBlackExceptBG3, 0x4, save_r5=1
     mov        r0,#0x10
     strb       r0,[r5,#0x3]
 LAB_0800627c:

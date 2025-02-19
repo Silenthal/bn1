@@ -100,9 +100,7 @@ _ts S_Story_7A_1
     bl         Effect_LifeVirusSeed_Create
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_08096bb8:
@@ -338,9 +336,7 @@ _ts S_Story_7A_11
     push       {r5}
     mov        r0,#0x18
     bl         PlayerAnimation_SetState
-    mov        r0,#0x6
-    mov        r1,#0x8
-    bl         Fade_Request
+    Fade_Request FT_DarkenExceptSpritesBG0, 0x8
     pop        {r5}
     Scene_Next
 LAB_08096dbc:
@@ -369,9 +365,7 @@ LAB_08096de6:
     and        r1,r0
     beq        LAB_08096dfe
     push       {r5}
-    mov        r0,#0xa
-    mov        r1,#0x10
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhiteExceptBG0, 0x10
     pop        {r5}
     Scene_Next
 LAB_08096dfe:
@@ -432,9 +426,7 @@ _ts S_Story_7A_14
     mov        r0,#0x1
     strb       r0,[r5,#Scene_sceneTimer]
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     mov        r0,#0x28
     strb       r0,[r5,#Scene_state_s0]
@@ -483,9 +475,7 @@ _ts FUN_08096ec8
 
 _nt S_Story_7A_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

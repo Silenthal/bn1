@@ -75,9 +75,7 @@ _ts ChipTrader_0_Init
     strh       r1,[r0,#0x16]
     strh       r1,[r0,#0x18]
     strh       r1,[r0,#0x1a]
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     bl         Video_InitClearTile
     bl         BgUpdate_Init
     bl         InitBgTask
@@ -300,9 +298,7 @@ LAB_08020342:
     mov        r0,#0xc
     strb       r0,[r5,#0x0]
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
 LAB_08020352:
     bl         ChipTrader_DrawUI
@@ -1792,9 +1788,7 @@ _ts ChipTrader_StartClose
     bl         Sound_PlaySE
     mov        r0,#0x14
     strb       r0,[r5,#0x0]
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5,pc}
 
 

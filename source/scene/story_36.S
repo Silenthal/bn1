@@ -115,9 +115,7 @@ _ts S_Story_36_5
     pop        {r5}
     bne        LAB_0808c4ea
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808c4ea:
@@ -150,9 +148,7 @@ _nt S_Story_36_6
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808c53c:
@@ -189,9 +185,7 @@ LAB_0808c578:
 
 _nt S_Story_36_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

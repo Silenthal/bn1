@@ -61,9 +61,7 @@ _nt S_Story_3A_1
     bl         SceneCamera_Init
     bl         SceneCamera_Main
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_White
     pop        {r5}
     mov        r0,#0x3c
     strb       r0,[r5,#Scene_sceneTimer]
@@ -172,9 +170,7 @@ _nt S_Story_3A_6
     pop        {r5}
     bne        LAB_0808ce9c
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
 LAB_0808ce9c:
@@ -228,9 +224,7 @@ LAB_0808cee0:
     bl         Camera_SetEnabled
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_0808cf1e:
@@ -262,9 +256,7 @@ LAB_0808cf54:
 
 _nt S_Story_3A_SkipIfStart
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

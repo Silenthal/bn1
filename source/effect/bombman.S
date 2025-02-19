@@ -128,9 +128,7 @@ LAB_08080716:
     cmp        r0,#0x2
     bne        LAB_08080746
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x80
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhite, 0x80
     pop        {r5}
     ldrb       r0,[r5,#Effect_state_s1]
     add        r0,#0x4

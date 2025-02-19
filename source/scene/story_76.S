@@ -44,9 +44,7 @@ _ts S_Story_76_0
     bl         Flag_SetPlayerInactive
     bl         PlayerAnimation_Lock
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -76,9 +74,7 @@ _ts S_Story_76_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_08095c12:
@@ -412,9 +408,7 @@ LAB_08095eb6:
     mov        r0,#0x31
     bl         PlayerAnimation_SetState
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x80
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToWhite, 0x80
     pop        {r5}
     Scene_Next
 LAB_08095ee4:
@@ -432,9 +426,7 @@ _ts S_Story_76_15
     cmp        r0,r1
     beq        LAB_08095f12
     push       {r5}
-    mov        r0,#0x1
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_White
     pop        {r5}
     mov        r0,#0x1e
     strh       r0,[r5,#Scene_sceneTimer]
@@ -546,9 +538,7 @@ _ts S_Story_76_20
     pop        {r5}
     bne        LAB_0809600c
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
@@ -600,9 +590,7 @@ _nt S_Story_76_22
 
 _ts S_Story_76_SkipIfStart
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_White
     mov        r0,#0x40
     bl         Text_EnableOption
     pop        {r5}

@@ -25,9 +25,7 @@ _ts S_Story_6A_0
     pop        {r5}
     Scene_Next
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     pop        {pc}
 

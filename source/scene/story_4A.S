@@ -233,9 +233,7 @@ _ts S_Story_4A_10
     pop        {r5}
     bne        LAB_0808ea08
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     pop        {r5}
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
@@ -285,9 +283,7 @@ _nt S_Story_4A_12
 
 _ts S_Story_4A_SkipIfStart
     push       {r5}
-    mov        r0,#0x2
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_White
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE

@@ -46,9 +46,7 @@ _ts Demo_Init
     strh       r1,[r0,#DisplaySettings_dispcnt]
     bl         Video_InitClearTile
     bl         Video_InitClearColor
-    mov        r0,#FT_FadeInFromBlack
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        { r5 }
     mov        r0,#D_State_0_State1
     strb       r0,[r5,#Demo_m_state0]
@@ -121,9 +119,7 @@ _ts Demo_FadeOutScreen
     pop        { r5 }
     bne        LAB_08018a4a
     push       { r5 }
-    mov        r0,#FT_FadeOutToBlack
-    mov        r1,#0xff
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToBlack, 0xff
     pop        { r5 }
     mov        r0,#D_State_1_State2
     strb       r0,[r5,#Demo_m_state1]
@@ -173,9 +169,7 @@ _ts Demo_ShowThankYouMessage
     bl         Layout_LoadThankYouMessageLayout
     pop        { r5 }
     push       { r5 }
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        { r5 }
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_08018bdc
@@ -195,9 +189,7 @@ _ts Demo_WaitForTimer
     cmp        r0,#0x0
     bge        LAB_08018abe
     push       { r5 }
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        { r5 }
     mov        r0,#0x14
     strb       r0,[r5,#0x1]

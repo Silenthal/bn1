@@ -63,9 +63,7 @@ _ts Splash_0_LoadCapcomLogo
     add        r1,r1,r2
     ldr        r2,=0x140
     bl         Dma_TransferListAdd
-    mov        r0,#0x4
-    mov        r1,#0xff
-    bl         Fade_Request
+    Fade_Request FT_FadeOutToBlack, 0xff
     pop        { r5 }
     mov        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -77,9 +75,7 @@ _ts Splash_1_FadeIn
     ldr        r1,=0x1f40
     strh       r1,[r0,#0x0]
     push       { r5 }
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        { r5 }
     mov        r0,#0x78
     strb       r0,[r5,#0x4]
@@ -106,9 +102,7 @@ _ts Splash_2_Wait
     bgt        LAB_08018d80
 LAB_08018d70:
     push       { r5 }
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        { r5 }
     mov        r0,#0xc
     strb       r0,[r5,#0x0]

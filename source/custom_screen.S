@@ -613,9 +613,7 @@ _ts CustomScreen_1_6_1_FadeOut
     pop        { pc }
 LAB_08015db4:
     push       { r5 }
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        { r5 }
     mov        r0,#0x8
     strb       r0,[r5,#0x2]

@@ -50,9 +50,7 @@ _nt S_Story_63_1
     push       {r5}
     ldr        r7,PTR_NPCList_803D640_0809243c
     bl         Map_LoadNPCList
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
     Scene_Next
 LAB_080921f2:
@@ -162,9 +160,7 @@ _nt S_Story_63_7
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     pop        {r5}
 LAB_080922dc:
     Scene_Next
@@ -245,9 +241,7 @@ LAB_08092378:
     Flag_ClearBase 0xD1
     Scene_Next
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     b          LAB_080923a2
 LAB_08092398:
@@ -316,9 +310,7 @@ _ts S_Story_63_SkipIfStart
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x1c
     strb       r0,[r5,#Scene_state_s0]

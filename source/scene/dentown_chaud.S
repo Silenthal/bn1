@@ -26,9 +26,7 @@ _ts S_Dentown_Center_Chaud_Undernet_0
     bl         PlayerAnimation_Lock
     pop        {r5}
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
     pop        {pc}
@@ -70,9 +68,7 @@ _ts S_Dentown_Center_Chaud_Undernet_1
     mov        r0,#0x1
     strb       r0,[r7,#0x10]
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_08097ce6:

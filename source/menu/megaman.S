@@ -80,9 +80,7 @@ _ts Menu_MegaMan_0_Init
     strh       r1,[r0,#0x16]
     strh       r1,[r0,#0x18]
     strh       r1,[r0,#0x1a]
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     bl         Video_InitClearTile
     pop        {r5}
     bl         Menu_MegaMan_LoadItemData
@@ -511,9 +509,7 @@ LAB_0801bd4c:
     mov        r0,#0x68
     bl         Sound_PlaySE
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeOut_Black
     pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#0x1]

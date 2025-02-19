@@ -140,9 +140,7 @@ _nt S_Story_20_6
     pop        {r5}
     bne        LAB_08088608
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
     Scene_Next
 LAB_08088608:
@@ -167,9 +165,7 @@ _nt S_Story_20_7
     bl         Text_DisableDialogue
     pop        {r5}
     push       {r5}
-    mov        r0,#0x3
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeInFast_Black
     pop        {r5}
     Scene_Next
 LAB_0808864c:

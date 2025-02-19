@@ -28,11 +28,7 @@ PTR_SD_SnakeEgg_0_0809ae2c:
 
 _ts SD_SnakeEgg_0
     push       {lr}
-    mov        r0,#0x6
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeOut_ScreenDim
     ldrb       r1,[r5,#0x5]
     lsl        r1,r1,#0x19
     lsr        r1,r1,#0x19
@@ -169,11 +165,7 @@ _ts SD_SnakeEgg_3
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_0809af52
-    mov        r0,#0x5
-    mov        r1,#0x4
-    push       {r5}
-    bl         Fade_Request
-    pop        {r5}
+    FadeIn_ScreenDim
     mov        r0,#0x10
     str        r0,[r5,#0x0]
 LAB_0809af52:

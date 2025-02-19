@@ -51,9 +51,7 @@ _ts GameOver_0_Init
     strh       r1,[r0,#0x14]
     strh       r1,[r0,#0x18]
     strh       r1,[r0,#0x1a]
-    mov        r0,#0x3
-    mov        r1,#0x10
-    bl         Fade_Request
+    FadeIn_Black
     mov        r0,#T_Game_Over
     bl         Sound_PlayBGM
     pop        { r5 }
@@ -71,9 +69,7 @@ _ts GameOver_1_Main
     cmp        r0,#0x0
     bgt        LAB_08020000
     push       { r5 }
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        { r5 }
     mov        r0,#0x8
     strb       r0,[r5,#0x0]

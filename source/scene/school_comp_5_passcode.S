@@ -87,9 +87,7 @@ _nt S_School_Comp_5_Passcode_3
     pop        {r5}
     beq        LAB_0808768a
     push       {r5}
-    mov        r0,#0x4
-    mov        r1,#0x8
-    bl         Fade_Request
+    FadeOutFast_Black
     pop        {r5}
 LAB_0808768a:
     push       {r5}
