@@ -5,7 +5,7 @@
 
 _ts Routine_Fishy
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Fishy_0_Init_0805cae8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,38 +32,38 @@ _ts R_Fishy_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     bl         SpritePtr_EnableShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
-    ldr        r0,[r5,#0x28]
-    str        r0,[r5,#0x50]
-    ldr        r0,[r5,#0x2c]
-    str        r0,[r5,#0x54]
-    ldr        r0,[r5,#0x30]
-    str        r0,[r5,#0x58]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    str        r0,[r5,#Actor_initial_x]
+    ldr        r0,[r5,#Actor_pos_curr_y]
+    str        r0,[r5,#Actor_initial_y]
+    ldr        r0,[r5,#Actor_pos_curr_z]
+    str        r0,[r5,#Actor_initial_z]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     FieldObject_Create PFI_Self_Actor, 0x60
-    ldr        r7,[r5,#0x60]
-    ldrb       r0,[r5,#0x4]
+    ldr        r7,[r5,#Actor_param_60]
+    ldrb       r0,[r5,#Actor_family_family]
     mov        r1,#0x78
     mul        r0,r1
     add        r0,#0x1e
     strh       r0,[r7,#0x8]
     FieldObject_Create PFI_Moving, 0x64
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x0
-    str        r0,[r5,#0x6c]
+    str        r0,[r5,#Actor_param_6C]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     pop        {pc}
@@ -74,27 +74,27 @@ _nt R_Fishy_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldrb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805cbc6
     bl         Battle_IsInputLocked
     bne        LAB_0805cbc6
     bl         Routine_CheckPoisonDrain
     bl         SpritePtr_DisableFlash
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,PanelFlag_0805cc28
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805cbc6
@@ -105,19 +105,19 @@ _nt R_Fishy_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0805cbc6:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_0805cbfa
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Fishy_1_0_Spawn_0805cc24
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805cbec
     mov        r0,#0x9
@@ -125,18 +125,18 @@ LAB_0805cbc6:
 LAB_0805cbec:
     mov        r0,#PFI_Moving
 LAB_0805cbee:
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Actor_param_60]
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805cc0c
 LAB_0805cbfa:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0805cc0c:
     pop        {pc}
@@ -163,7 +163,7 @@ PanelFlag_0805cc28:
 _ts R_Fishy_1_0_Spawn
     push       {lr}
     ldr        r7,PTR_PTR_R_Fishy_1_0_0_0805cc50
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -187,7 +187,7 @@ _ts R_Fishy_1_0_0
     tst        r0,r0
     beq        LAB_0805cc66
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
 LAB_0805cc66:
     pop        {pc}
@@ -199,7 +199,7 @@ _ts R_Fishy_1_0_1
     tst        r0,r0
     bne        LAB_0805cc7a
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
 LAB_0805cc7a:
     pop        {pc}
@@ -212,42 +212,42 @@ _ts R_Fishy_1_0_2
     tst        r0,r1
     bne        LAB_0805cc90
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805cc90:
     pop        {pc}
 
 
 _nt R_Fishy_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0805ccac
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805ccac:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0805ccbe
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805ccbe:
     pop        {pc}
 
 
 _ts R_Fishy_1_2_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Fishy_1_2_0_Wait_0805ccec
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -257,9 +257,9 @@ _ts R_Fishy_1_2_Wait
     tst        r0,r1
     beq        LAB_0805cce0
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
     b          LAB_0805cce0
 LAB_0805cce0:
     pop        {pc}
@@ -278,9 +278,9 @@ PTR_PTR_R_Fishy_1_2_0_Wait_0805ccec:
 _ts R_Fishy_1_2_0_Wait
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         R_Fishy_1_2_1_Next
     pop        {pc}
 
@@ -288,15 +288,15 @@ _ts R_Fishy_1_2_0_Wait
 _ts R_Fishy_1_2_1_Next
     push       {lr}
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_Fishy_1_3_DecideMoveOrAttack
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Fishy_1_3_0_Decide_0805cd20
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -321,83 +321,83 @@ _ts R_Fishy_1_3_0_Decide
     bl         R_Fishy_IsTargetInRow
     tst        r0,r0
     beq        LAB_0805cd50
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
     bl         R_Fishy_SetRestingFieldObject
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0805cd9a
 LAB_0805cd50:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    ldr        r2,[r5,#0x6c]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
+    ldr        r2,[r5,#Actor_param_6C]
     tst        r2,r2
     bne        LAB_0805cd76
     sub        r1,#0x1
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
     bl         R_Fishy_IsPanelBlockedForMoving
     tst        r0,r0
     bne        LAB_0805cd92
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
     bl         R_Fishy_SetRestingFieldObject
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0805cd9a
 LAB_0805cd76:
     add        r1,#0x1
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
     bl         R_Fishy_IsPanelBlockedForMoving
     tst        r0,r0
     bne        LAB_0805cd92
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
     bl         R_Fishy_SetRestingFieldObject
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0805cd9a
 LAB_0805cd92:
-    ldr        r2,[r5,#0x6c]
+    ldr        r2,[r5,#Actor_param_6C]
     mov        r3,#0x1
     eor        r2,r3
-    str        r2,[r5,#0x6c]
+    str        r2,[r5,#Actor_param_6C]
 LAB_0805cd9a:
     pop        {pc}
 
 
 _ts R_Fishy_1_3_1_MoveUp
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_0805cdac
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_0805cdac:
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
     bl         Battle_CellCoordsToSprite
-    ldr        r2,[r5,#0x2c]
+    ldr        r2,[r5,#Actor_pos_curr_y]
     ldr        r3,DAT_0805cdd4
     add        r2,r2,r3
     cmp        r2,r1
     bgt        LAB_0805cdce
     add        r2,r1,#0x0
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     push       {r2}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     pop        {r2}
 LAB_0805cdce:
-    str        r2,[r5,#0x2c]
+    str        r2,[r5,#Actor_pos_curr_y]
     pop        {pc}
 
     .align 2, 0
@@ -409,31 +409,31 @@ DAT_0805cdd4:
 
 _ts R_Fishy_1_3_2_MoveDown
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_0805cde8
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_0805cde8:
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
     bl         Battle_CellCoordsToSprite
-    ldr        r2,[r5,#0x2c]
+    ldr        r2,[r5,#Actor_pos_curr_y]
     ldr        r3,DAT_0805ce10
     add        r2,r2,r3
     cmp        r2,r1
     blt        LAB_0805ce0a
     add        r2,r1,#0x0
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     push       {r2}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     pop        {r2}
 LAB_0805ce0a:
-    str        r2,[r5,#0x2c]
+    str        r2,[r5,#Actor_pos_curr_y]
     pop        {pc}
 
     .align 2, 0
@@ -445,7 +445,7 @@ DAT_0805ce10:
 
 _ts R_Fishy_1_4_Dash
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Fishy_1_4_0_StartAnim_0805ce24
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -468,28 +468,28 @@ PTR_R_Fishy_1_4_0_StartAnim_0805ce28:
 
 _ts R_Fishy_1_4_0_StartAnim
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        pc,lr
 
 
 _nt R_Fishy_1_4_1_Wait
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805ce56
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805ce56:
     mov        pc,lr
 
 
 _ts R_Fishy_1_4_2_Dash
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_R_Fishy_1_4_2_0_StartDash_0805ce68
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -510,9 +510,9 @@ PTR_R_Fishy_1_4_2_0_StartDash_0805ce6c:
 _ts R_Fishy_1_4_2_0_StartDash
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x94
     bl         Sound_PlaySE
     pop        {pc}
@@ -520,19 +520,19 @@ _ts R_Fishy_1_4_2_0_StartDash
 
 _nt R_Fishy_1_4_2_1_Forward
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_listFishyDashSpeed_0805cf14
     ldr        r1,[r7,r0]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     tst        r0,r0
     beq        LAB_0805ce98
     neg        r1,r1
 LAB_0805ce98:
-    ldr        r0,[r5,#0x28]
-    str        r0,[r5,#0x34]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    str        r0,[r5,#Actor_pos_last_x]
     add        r0,r0,r1
-    ldr        r1,[r5,#0x2c]
+    ldr        r1,[r5,#Actor_pos_curr_y]
     push       {r0}
     bl         Battle_SpriteCoordsToCell
     bl         R_Fishy_IsOutOfBounds
@@ -541,25 +541,25 @@ LAB_0805ce98:
     tst        r1,r1
     beq        LAB_0805ceb8
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0805cf12
 LAB_0805ceb8:
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Actor_pos_curr_x]
     bl         R_Actor_UpdateCellPos
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
     add        r2,r0,#0x0
-    ldr        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x34]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    ldr        r1,[r5,#Actor_pos_last_x]
     bl         R_Fishy_IsSpritePosAtCellPos
     tst        r0,r0
     beq        LAB_0805cf12
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     tst        r0,r0
     beq        LAB_0805cf06
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
@@ -567,8 +567,8 @@ LAB_0805ceb8:
     mov        r1,#0x2
     tst        r0,r1
     bne        LAB_0805cf06
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
     add        r2,r1,#0x0
     add        r1,r0,#0x0
@@ -582,7 +582,7 @@ LAB_0805cf06:
     tst        r0,r0
     beq        LAB_0805cf12
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805cf12:
     pop        {pc}
 
@@ -596,7 +596,7 @@ listFishyDashSpeed:
 
 _ts R_Fishy_1_4_3_DropBack
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_R_Fishy_1_4_3_0_StartDrop_0805cf30
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -617,65 +617,65 @@ PTR_R_Fishy_1_4_3_0_StartDrop_0805cf34:
 
 _ts R_Fishy_1_4_3_0_StartDrop
     push       {lr}
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r2,#0xa0
     lsl        r2,r2,#0x10
-    str        r2,[r5,#0x30]
+    str        r2,[r5,#Actor_pos_curr_z]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     bl         R_Actor_UpdateCellPos
     pop        {pc}
 
 
 _nt R_Fishy_1_4_3_1_EndDrop
     push       {lr}
-    ldr        r0,[r5,#0x30]
+    ldr        r0,[r5,#Actor_pos_curr_z]
     lsr        r1,r0,#0x10
     cmp        r1,#0x32
     bpl        LAB_0805cf70
     mov        r1,#0x1
-    strb       r1,[r5,#0x17]
+    strb       r1,[r5,#Actor_canBeDamaged]
 LAB_0805cf70:
     mov        r1,#0x3
     lsl        r1,r1,#0x10
     sub        r0,r0,r1
     bgt        LAB_0805cf88
     mov        r1,#0x1e
-    strh       r1,[r5,#0x1c]
+    strh       r1,[r5,#Actor_counterA]
     mov        r1,#0x8
-    strb       r1,[r5,#0xb]
-    ldr        r0,[r5,#0x64]
+    strb       r1,[r5,#Actor_state_s3]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x0
 LAB_0805cf88:
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     bl         R_Actor_UpdateCellPos
     pop        {pc}
 
 
 _ts R_Fishy_1_4_3_2_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805cfa2
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805cfa2:
     pop        {pc}
 
 
 _ts R_Fishy_1_4_4_TeleportBack
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_R_Fishy_1_4_4_0_StartTeleport_0805cfb4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -697,26 +697,26 @@ PTR_R_Fishy_1_4_4_0_StartTeleport_0805cfb8:
 _ts R_Fishy_1_4_4_0_StartTeleport
     push       {lr}
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x10
     lsl        r4,r4,#0x10
     add        r3,r3,r4
     mov        r4,#0x11
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     mvn        r1,r1
     and        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     pop        {pc}
 
 
@@ -724,15 +724,15 @@ _ts R_Fishy_1_4_4_1_EndTeleport
     push       {lr}
     bl         R_Actor_WaitCounter
     bne        LAB_0805d026
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         R_Actor_UpdateSpritePos
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x10
     lsl        r4,r4,#0x10
     add        r3,r3,r4
@@ -740,9 +740,9 @@ _ts R_Fishy_1_4_4_1_EndTeleport
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x6
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_0805d026:
     pop        {pc}
 
@@ -751,14 +751,14 @@ _ts R_Fishy_1_4_4_2_Next
     push       {lr}
     bl         R_Actor_WaitCounter
     bne        LAB_0805d040
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d040:
     pop        {pc}
 
@@ -766,7 +766,7 @@ LAB_0805d040:
 _nt R_Fishy_2_Free
     push       {lr}
     ldr        r7,PTR_PTR_R_Fishy_2_0_0805d058
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -782,12 +782,12 @@ PTR_PTR_R_Fishy_2_0_0805d058:
 
 _ts R_Fishy_2_0
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
@@ -795,15 +795,15 @@ _ts R_Fishy_2_0
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Fishy_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805d096
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -854,23 +854,23 @@ LAB_0805d0de:
 
 _nt R_Actor_UpdateSpritePos
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     pop        {pc}
 
 
 _nt R_Actor_UpdateCellPos
     push       {lr}
-    ldr        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x2c]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    ldr        r1,[r5,#Actor_pos_curr_y]
     mov        r2,#0x0
-    ldr        r2,[r5,#0x30]
+    ldr        r2,[r5,#Actor_pos_curr_z]
     bl         Battle_SpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     pop        {pc}
 
 
@@ -895,13 +895,13 @@ _ts R_Fishy_IsRowBlocked
     push       {lr}
     mov        r2,#0x0
     sub        r2,#0x1
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     tst        r0,r0
     bne        LAB_0805d132
     mov        r2,#0x1
 LAB_0805d132:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
 LAB_0805d136:
     add        r0,r0,r2
     push       {r0,r1,r2}
@@ -930,13 +930,13 @@ _nt R_Fishy_IsBlockedPanel
     push       {lr}
     mov        r2,#0x0
     sub        r2,#0x1
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     tst        r0,r0
     bne        LAB_0805d16c
     mov        r2,#0x1
 LAB_0805d16c:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     add        r0,r0,r2
     push       {r0,r1,r2}
     bl         R_Fishy_IsOutOfBounds
@@ -993,7 +993,7 @@ LAB_0805d1c2:
 
 _nt R_Fishy_SetRestingFieldObject
     push       {lr}
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]

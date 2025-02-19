@@ -6,7 +6,7 @@
 _ts Effect_SmallElectrified
     push       {lr}
     ldr        r0,PTR_PTR_E_SmallElectrified_0_Init_080801a8
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,7 +22,7 @@ PTR_E_SmallElectrified_0_Init_08080124:
 _ts E_SmallElectrified_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r1,DAT_080801ac
     bl         Sprite_InitSpritePtr
@@ -34,10 +34,10 @@ _ts E_SmallElectrified_0_Init
     mov        r0,#0x2
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s1]
+    strb       r0,[r5,#Effect_state_s2]
     pop        {pc}
     .byte 0x00
     .byte 0xBD
@@ -46,7 +46,7 @@ _ts E_SmallElectrified_0_Init
 _ts E_SmallElectrified_1_Main
     push       {lr}
     ldr        r0,PTR_PTR_E_SmallElectrified_1_0_080801b0
-    ldrb       r1,[r5,#0x9]
+    ldrb       r1,[r5,#Effect_state_s1]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -80,7 +80,7 @@ _ts Effect_SmallElectrified_Create
     mov        r0,#0x33
     bl         Effect_Alloc
     pop        {r0}
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Effect_frameIndexCurr]
     pop        {pc}
 
     .align 2, 0

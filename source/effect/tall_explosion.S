@@ -6,7 +6,7 @@
 _ts Effect_TallExplosion
     push       {lr}
     ldr        r0,PTR_PTR_E_TallExplosion_0_Init_0807c260
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -24,7 +24,7 @@ PTR_E_TallExplosion_0_Init_0807c200:
 _ts E_TallExplosion_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xda
     bl         Sprite_InitSpritePtr
@@ -39,7 +39,7 @@ _ts E_TallExplosion_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -53,7 +53,7 @@ _ts E_TallExplosion_1_Main
     and        r0,r1
     beq        LAB_0807c250
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
 LAB_0807c250:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}

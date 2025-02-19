@@ -5,7 +5,7 @@
 
 _ts R_Actor_1_0_Spawn
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Actor_1_0_0_ResetAnim_0805611c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -25,15 +25,15 @@ PTR_R_Actor_1_0_0_ResetAnim_08056120:
 
 _ts R_Actor_1_0_0_ResetAnim
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     bl         Battle_PriorityQueueIsEntityNext
     tst        r0,r0
     beq        LAB_0805614c
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
     mov        r0,#0x92
     bl         Sound_PlaySE
@@ -47,7 +47,7 @@ _nt R_Actor_1_0_1_StartAnimSpawn
     tst        r0,r0
     bne        LAB_08056160
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
 LAB_08056160:
     pop        {pc}
@@ -59,17 +59,17 @@ _nt R_Actor_1_0_2_WaitForBattleStart
     mov        r1,#0x8
     tst        r0,r1
     bne        LAB_08056176
-    ldrb       r0,[r5,#0xb]
-    strb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s3]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08056176:
     pop        {pc}
 
 
 _ts R_Drone_1_0_Spawn
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Drone_1_0_0_ResetAnim_08056188
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -89,11 +89,11 @@ PTR_R_Drone_1_0_0_ResetAnim_0805618c:
 
 _ts R_Drone_1_0_0_ResetAnim
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldrb       r0,[r5,#Actor_family_family]
     lsr        r0,r0,#0x8
     bcs        LAB_080561b0
     bl         Battle_PriorityQueueIsEntityNext
@@ -101,7 +101,7 @@ _ts R_Drone_1_0_0_ResetAnim
     beq        LAB_080561be
 LAB_080561b0:
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
     mov        r0,#0x92
     bl         Sound_PlaySE
@@ -115,8 +115,8 @@ _ts R_Drone_1_0_1_StartAnim
     tst        r0,r0
     bne        LAB_080561d8
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Actor_state_s2]
+    ldrb       r0,[r5,#Actor_family_family]
     lsr        r0,r0,#0x8
     bcs        LAB_080561da
     bl         Battle_PriorityQueueRemove
@@ -132,7 +132,7 @@ LAB_080561da:
 
 _nt R_BigSnakeBody_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_BigSnakeBody_1_0_0_080561f4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -150,12 +150,12 @@ PTR_R_BigSnakeBody_1_0_0_080561f8:
 
 _ts R_BigSnakeBody_1_0_0
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
     pop        {pc}
 
@@ -170,7 +170,7 @@ _ts R_BigSnakeBody_1_0_1
     sub        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08056230:
     pop        {pc}
 

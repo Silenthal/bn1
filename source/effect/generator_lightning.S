@@ -6,7 +6,7 @@
 _ts Effect_GeneratorLightning
     push       {lr}
     ldr        r0,PTR_PTR_E_GeneratorLightning_0_Init_08081a00
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,13 +22,13 @@ PTR_E_GeneratorLightning_0_Init_080818d8:
 _ts E_GeneratorLightning_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r7,PTR_INT_08081a04
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Effect_family_family]
     ldr        r1,[r7,r2]
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -36,15 +36,15 @@ _ts E_GeneratorLightning_0_Init
     mov        r0,#0x2
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
-    strb       r0,[r5,#0xa]
-    ldrb       r2,[r5,#0x4]
+    strb       r0,[r5,#Effect_state_s1]
+    strb       r0,[r5,#Effect_state_s2]
+    ldrb       r2,[r5,#Effect_family_family]
     tst        r2,r2
     bne        LAB_08081924
     mov        r0,#0x20
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     pop        {pc}
 LAB_08081924:
     push       {r5}
@@ -53,7 +53,7 @@ LAB_08081924:
     mov        r1,#0x1f
     and        r0,r1
     add        r0,#0xb
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     pop        {pc}
 
     .align 2, 0
@@ -68,7 +68,7 @@ INT_08081938:
 _ts E_GeneratorLightning_1_Main
     push       {lr}
     ldr        r0,PTR_PTR_E_GeneratorLightning_1_0_08081a08
-    ldrb       r1,[r5,#0x9]
+    ldrb       r1,[r5,#Effect_state_s1]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -80,16 +80,16 @@ PTR_E_GeneratorLightning_1_0_08081950:
 _ts E_GeneratorLightning_1_0
     Flag_GetBase 0xDE
     bne        E_GeneratorLightning_2_Free
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Effect_family_family]
     tst        r2,r2
     bne        LAB_08081988
-    ldrb       r0,[r5,#0x1c]
+    ldrb       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     tst        r0,r0
     bne        LAB_08081992
     mov        r0,#0x10
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     push       {r5}
     bl         Rng_RandomUint
     mov        r1,#0x1
@@ -101,9 +101,9 @@ _ts E_GeneratorLightning_1_0
     bl         E_GeneratorLightning_CreateMore
     pop        {r5}
 LAB_08081988:
-    ldrb       r0,[r5,#0x1c]
+    ldrb       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     tst        r0,r0
     beq        E_GeneratorLightning_2_Free
 LAB_08081992:
@@ -128,7 +128,7 @@ _nt Effect_GeneratorLightning_Create
     mov        r0,#0x48
     bl         Effect_Alloc
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Effect_frameIndexCurr]
     pop        {pc}
 
 
@@ -143,10 +143,10 @@ _nt E_GeneratorLightning_CreateMore
     mov        r7,#0x1f
     and        r7,r0
     sub        r7,#0xf
-    ldrh       r1,[r5,#0x2a]
+    ldrh       r1,[r5,#0x2A]
     add        r1,r1,r7
     lsl        r1,r1,#0x10
-    ldrh       r2,[r5,#0x2e]
+    ldrh       r2,[r5,#0x2E]
     lsl        r2,r2,#0x10
     mov        r7,#0xf
     lsl        r7,r7,#0x8
@@ -162,7 +162,7 @@ _nt E_GeneratorLightning_CreateMore
     tst        r5,r5
     beq        LAB_080819fc
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Effect_frameIndexCurr]
 LAB_080819fc:
     pop        {r5}
     pop        {pc}

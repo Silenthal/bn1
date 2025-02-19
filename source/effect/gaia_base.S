@@ -5,7 +5,7 @@
 
 _ts Effect_GaiaBase
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_GaiaBase_0_Init_08081830
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,37 +27,37 @@ PTR_E_GaiaBase_0_Init_08081834:
 _ts E_GaiaBase_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x6
     add        r1,#0xff
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_NoShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     bl         SpritePtr_SetPaletteIndex
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Effect_cPos_x]
+    ldrb       r1,[r5,#Effect_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Effect_pos_curr_x]
     mov        r0,#0x1
     lsl        r0,r0,#0x10
     neg        r0,r0
     add        r1,r1,r0
-    str        r1,[r5,#0x2c]
-    str        r0,[r5,#0x30]
+    str        r1,[r5,#Effect_pos_curr_y]
+    str        r0,[r5,#Effect_pos_curr_z]
     mov        r0,#0x1
-    strb       r0,[r5,#0x16]
+    strb       r0,[r5,#Effect_owner]
     FieldObject_Create PFI_Moving, 0x60
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_GaiaBase_1_Main
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -68,7 +68,7 @@ _ts E_GaiaBase_1_Main
 
 _nt E_GaiaBase_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_Free
     bl         Effect_Free
     pop        {pc}

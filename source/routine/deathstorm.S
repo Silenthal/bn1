@@ -5,7 +5,7 @@
 
 _ts Routine_DeathStorm
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_DeathStorm_0_Init_08068ad4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,28 +27,28 @@ PTR_R_DeathStorm_0_Init_08068ad8:
 _ts R_DeathStorm_0_Init
     push       {lr}
     mov        r0,#0x7
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x0
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_owner]
     tst        r1,r1
     beq        LAB_08068b00
     mov        r0,#0x4
 LAB_08068b00:
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         SpritePtr_SetFlipType
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
-    ldrb       r3,[r5,#0x16]
+    strh       r0,[r5,#Actor_counterA]
+    ldrb       r3,[r5,#Actor_owner]
     lsl        r3,r3,#0x2
     add        r3,#0x40
     LoadMain battle, r7, r7
@@ -63,17 +63,17 @@ LAB_08068b00:
     add        r3,r3,r5
     stmia      r3!,{r0,r1,r2}
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     bl         R_DeathStorm_1_Main
     pop        {pc}
 
 
 _ts R_DeathStorm_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_DeathStorm_1_0_08068b60
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -96,16 +96,16 @@ PTR_R_DeathStorm_1_0_08068b64:
 
 _ts R_DeathStorm_1_0
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08068b9c
     mov        r0,#0x1f
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     ldr        r4,DAT_08068ba0
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         Attack_AnimationOnly_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08068b98
     ldrb       r0,[r7,#0x0]
@@ -114,7 +114,7 @@ _ts R_DeathStorm_1_0
     strb       r0,[r7,#0x0]
 LAB_08068b98:
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
 LAB_08068b9c:
     pop        {pc}
 
@@ -132,12 +132,12 @@ _ts R_DeathStorm_1_1
     tst        r0,r1
     beq        LAB_08068bde
     mov        r0,#0x21
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         Field_AttackFree
     ldr        r4,DAT_08068be0
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         Attack_AnimationOnly_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08068bce
     ldrb       r0,[r7,#0x0]
@@ -146,13 +146,13 @@ _ts R_DeathStorm_1_1
     strb       r0,[r7,#0x0]
 LAB_08068bce:
     mov        r0,#0x78
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x2
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x1
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b3]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
 LAB_08068bde:
     pop        {pc}
 
@@ -162,34 +162,34 @@ DAT_08068be0:
 
 _ts R_DeathStorm_1_2
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bne        LAB_08068bf6
     bl         R_DeathStorm_RandomTornadoes
     mov        r0,#0x2
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
 LAB_08068bf6:
-    ldrb       r0,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b3]
     sub        r0,#0x1
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b3]
     bne        LAB_08068c08
     mov        r0,#0xc9
     bl         Sound_PlaySE
     mov        r0,#0x14
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b3]
 LAB_08068c08:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08068c32
     mov        r0,#0x22
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         Field_AttackFree
     ldr        r4,DAT_08068c34
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         Attack_AnimationOnly_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08068c2e
     ldrb       r0,[r7,#0x0]
@@ -198,7 +198,7 @@ LAB_08068c08:
     strb       r0,[r7,#0x0]
 LAB_08068c2e:
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
 LAB_08068c32:
     pop        {pc}
 
@@ -214,14 +214,14 @@ _ts R_DeathStorm_1_3
     beq        LAB_08068c4c
     bl         R_DeathStorm_Attack
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
 LAB_08068c4c:
     pop        {pc}
 
 
 _nt R_DeathStorm_2_Free
     push       {lr}
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Actor_owner]
     lsl        r3,r3,#0x2
     add        r3,#0x40
     LoadMain battle, r7, r7
@@ -237,9 +237,9 @@ _nt R_DeathStorm_2_Free
 _nt R_DeathStorm_RandomTornadoes
     push       {r5,lr}
     bl         Rng_RandomUint
-    ldrb       r2,[r5,#0x18]
+    ldrb       r2,[r5,#Actor_cPos_x]
     add        r3,r2,#0x1
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_owner]
     LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
     eor        r1,r4
@@ -272,10 +272,10 @@ LAB_08068c88:
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_08068cc6
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_08068cc6:
     pop        {r5,pc}
 
@@ -293,7 +293,7 @@ _ts R_DeathStorm_Attack
     bl         Field_SearchOpponentPanels
     pop        {r7}
     ldr        r4,FamilyDetail_08068d0c
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Actor_damage]
 LAB_08068ce4:
     sub        r0,#0x4
     bmi        LAB_08068d06

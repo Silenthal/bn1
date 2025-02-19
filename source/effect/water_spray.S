@@ -6,7 +6,7 @@
 _ts Effect_WaterSpray
     push       {lr}
     ldr        r0,PTR_PTR_E_WaterSpray_0_Init_0807c30c
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -25,7 +25,7 @@ PTR_E_WaterSpray_0_Init_0807c274:
 _ts E_WaterSpray_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xe1
     bl         Sprite_InitSpritePtr
@@ -41,7 +41,7 @@ _ts E_WaterSpray_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -58,7 +58,7 @@ _ts E_WaterSpray_1_Main
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0xc
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
 LAB_0807c2d8:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}

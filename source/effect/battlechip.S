@@ -10,8 +10,8 @@ _ts Effect_BattleChip
     sub        sp,#0xc
     mov        r8,sp
     mov        r0,#0xd
-    strb       r0,[r5,#0x0]
-    ldr        r6,[r5,#0x60]
+    strb       r0,[r5,#Effect_header_entityFlags]
+    ldr        r6,[r5,#Effect_obj_60]
     ldrb       r0,[r6,#0x0]
     tst        r0,r0
     bne        LAB_0807c08c
@@ -73,7 +73,7 @@ LAB_0807c0f2:
 
 _nt E_BattleChip_DrawFloatingChipIcon
     push       {r5,lr}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Effect_obj_60]
     ldrb       r2,[r7,#0x16]
     mov        r1,#0x14
     mul        r2,r1
@@ -117,9 +117,9 @@ _ts Effect_BattleChip_Create
     pop        {r0}
     tst        r5,r5
     beq        LAB_0807c14e
-    str        r0,[r5,#0x60]
+    str        r0,[r5,#Effect_obj_60]
     mov        r0,#0xd
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
 LAB_0807c14e:
     add        r0,r5,#0x0
     pop        {r5,pc}
@@ -191,7 +191,7 @@ PTR_vBattleHandChipIcons_0807c1c8:
 _ts E_BattleChip_GetCurrentChipIndex
     push       {lr}
     mov        r1,#0x70
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Effect_obj_60]
     ldrb       r0,[r7,#0x16]
     mul        r0,r1
     LoadMain matchBattleState, r7, r7

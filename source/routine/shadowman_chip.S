@@ -5,7 +5,7 @@
 
 _ts Routine_ShadowMan_Chip
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_ShadowManC_0_Init_0806dab8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,15 +32,15 @@ _ts R_ShadowManC_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_owner]
     tst        r1,r1
     beq        LAB_0806daf6
     mov        r0,#0x0
@@ -53,7 +53,7 @@ LAB_0806daf6:
 
 _nt R_ShadowManC_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_ShadowMan_1_0_Main_0806db10
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -69,7 +69,7 @@ PTR_R_ShadowMan_1_0_Main_0806db14:
 
 _ts R_ShadowMan_1_0_Main
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ShadowManC_1_0_0_0806db38
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -96,23 +96,23 @@ _ts R_ShadowManC_1_0_0
     tst        r0,r1
     beq        LAB_0806db50
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806db50:
     pop        {pc}
 
 
 _nt R_ShadowManC_1_0_1
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bne        LAB_0806db86
-    ldrb       r0,[r5,#0xd]
-    ldrb       r1,[r5,#0xe]
+    ldrb       r0,[r5,#Actor_bd]
+    ldrb       r1,[r5,#Actor_be]
     push       {r0,r1}
-    ldrb       r6,[r5,#0x4]
+    ldrb       r6,[r5,#Actor_family_family]
     mov        r0,#0x97
     add        r0,r0,r6
     bl         BattleChip_GetChipData
@@ -122,25 +122,25 @@ _nt R_ShadowManC_1_0_1
     mov        r0,#0xb7
     bl         Sound_PlaySE
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806db86:
     pop        {pc}
 
 
 _ts R_ShadowManC_1_0_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806db9a
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806db9a:
     pop        {pc}
 
@@ -152,26 +152,26 @@ _ts R_ShadowManC_1_0_3
     tst        r0,r1
     beq        LAB_0806dbb0
     mov        r0,#0x5
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
 LAB_0806dbb0:
     pop        {pc}
 
 
 _nt R_ShadowManC_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     tst        r0,r0
     bne        LAB_0806dbc2
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806dbc2:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806dbd4
     bl         Actor_Free
     ldr        r7,PTR_gScreenDim_0806dbd8

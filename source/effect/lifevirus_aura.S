@@ -5,7 +5,7 @@
 
 _ts Effect_LiveVirusAura
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_LiveVirusAura_0_Init_080807b4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -28,7 +28,7 @@ PTR_E_LiveVirusAura_0_Init_080807b8:
 _ts E_LiveVirusAura_0_Init
     push       {lr}
     mov        r1,#0xc8
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     beq        LAB_080807d0
     mov        r1,#0x72
@@ -37,22 +37,22 @@ LAB_080807d0:
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_LiveVirusAura_1_Main
     pop        {pc}
 
 
 _nt E_LiveVirusAura_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     bne        LAB_08080808
     bl         E_LifeVirusAura_1_0
@@ -65,7 +65,7 @@ LAB_0808080c:
 
 _nt E_LifeVirusAura_1_0
     push       {lr}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Effect_obj_60]
     ldrb       r0,[r7,#0x0]
     tst        r0,r0
     bne        LAB_0808081e
@@ -78,20 +78,20 @@ LAB_0808081e:
     beq        LAB_08080828
     mov        r1,#0x3
 LAB_08080828:
-    strb       r1,[r5,#0x0]
+    strb       r1,[r5,#Effect_header_entityFlags]
     ldr        r0,[r7,#0x28]
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Effect_pos_curr_x]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Effect_pos_curr_y]
     ldr        r0,[r7,#0x30]
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Effect_pos_curr_z]
 LAB_08080836:
     pop        {pc}
 
 
 _ts E_LiveVirusAura_1_1
     push       {lr}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Effect_obj_60]
     ldrb       r0,[r7,#0x0]
     tst        r0,r0
     bne        LAB_08080848
@@ -105,13 +105,13 @@ LAB_08080848:
 LAB_08080852:
     ldrb       r0,[r7,#0xd]
     add        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     ldr        r0,[r7,#0x28]
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Effect_pos_curr_x]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Effect_pos_curr_y]
     ldr        r0,[r7,#0x30]
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Effect_pos_curr_z]
 LAB_08080864:
     pop        {pc}
 

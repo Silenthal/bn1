@@ -19,7 +19,7 @@ listSlashParam:
 _ts Effect_SwordSlash
     push       {lr}
     ldr        r7,PTR_PTR_E_SwordSlash_0_Init_0807bfb8
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r0,[r7,r0]
     mov        lr,pc
     bx         r0
@@ -36,39 +36,39 @@ PTR_E_SwordSlash_0_Init_0807bf10:
 
 _ts E_SwordSlash_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_listSlashParam_0807bf74
     add        r7,r7,r0
-    str        r7,[r5,#0x60]
+    str        r7,[r5,#Effect_obj_60]
     mov        r0,#0x1
     mov        r3,#0x2
     ldrsh      r1,[r7,r3]
     tst        r1,r1
     bmi        LAB_0807bf5c
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Effect_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Effect_header_entityFlags]
+    ldr        r7,[r5,#Effect_obj_60]
     ldrb       r0,[r7,#0x0]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Effect_obj_60]
     ldrb       r0,[r7,#0x1]
     bl         SpritePtr_SetPaletteIndex
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Effect_owner]
     bl         SpritePtr_SetFlipType
 LAB_0807bf5c:
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Effect_cPos_x]
+    strb       r1,[r5,#Effect_cPos_y]
     mov        r0,#0xe
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_SwordSlash_1_Main
     pop        {pc}
 
@@ -81,21 +81,21 @@ PTR_listSlashParam_0807bf74:
 
 _ts E_SwordSlash_1_Main
     push       {lr}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Effect_obj_60]
     mov        r3,#0x2
     ldrsh      r0,[r7,r3]
     tst        r0,r0
     bmi        LAB_0807bf88
     bl         SpritePtr_ProcessFrameDelay
 LAB_0807bf88:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     beq        LAB_0807bf92
     pop        {pc}
 LAB_0807bf92:
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
 
@@ -113,7 +113,7 @@ _ts Effect_SwordSlash_Create
     add        r7,r5,#0x0
     pop        {r5}
     beq        LAB_0807bfb4
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Effect_owner]
     strb       r0,[r7,#0x16]
 LAB_0807bfb4:
     pop        {pc}

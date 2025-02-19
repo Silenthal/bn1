@@ -19,7 +19,7 @@ _ts Routine_Flappy
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Flappy_0_Init_0805e384
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -40,19 +40,19 @@ PTR_R_Flappy_0_Init_0805e388:
 
 _ts R_Flappy_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x21
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r3,#0x28
@@ -62,29 +62,29 @@ _ts R_Flappy_0_Init
     ldmia      r7!,{r0,r1,r2}
     stmia      r6!,{r0,r1,r2}
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x5
     mov        r3,#0x68
     strb       r0,[r5,r3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     ldr        r7,PTR_FlappyParam_ARRAY_0805e418
-    ldr        r0,[r5,#0x4]
+    ldr        r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x3
     add        r7,r7,r0
-    str        r7,[r5,#0x78]
+    str        r7,[r5,#Actor_param_78]
     ldrb       r0,[r7,#0x6]
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Actor_damage]
     FieldObject_Create PFI_Self_Actor, 0x70, offset_reg=3
     FieldObject_Create PFI_Moving, 0x74, offset_reg=3
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         R_Flappy_1_Main
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -94,18 +94,18 @@ PTR_FlappyParam_ARRAY_0805e418:
 
 _ts R_Flappy_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_DisableIfDeleted
     bl         R_Flappy_CheckLive
     tst        r0,r0
     bne        LAB_0805e436
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0805e444
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_0805e436:
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -125,7 +125,7 @@ PTR_R_Actor_1_0_Spawn_0805e448:
 
 _ts R_Flappy_1_1_Decide
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Flappy_1_1_0_DelayDecide_0805e468
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -146,9 +146,9 @@ PTR_R_Flappy_1_1_0_DelayDecide_0805e46c:
 _ts R_Flappy_1_1_0_DelayDecide
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     ldr        r7,PTR_FlappyParam_ARRAY_0805e49c
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x3
     add        r7,r7,r0
     ldrb       r0,[r7,#0x5]
@@ -157,9 +157,9 @@ _ts R_Flappy_1_1_0_DelayDecide
     bl         R_Flappy_Decide
     pop        {pc}
 LAB_0805e48e:
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
     .byte 0x00
     .byte 0x00
@@ -171,9 +171,9 @@ PTR_FlappyParam_ARRAY_0805e49c:
 
 _ts R_Flappy_1_1_1_DelayDecide
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805e4ae
     bl         R_Flappy_Decide
 LAB_0805e4ae:
@@ -182,7 +182,7 @@ LAB_0805e4ae:
 
 _ts R_Flappy_1_2_Jump
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Flappy_1_2_0_DecideTarget_0805e4c0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -205,7 +205,7 @@ PTR_R_Flappy_1_2_0_DecideTarget_0805e4c4:
 _ts R_Flappy_1_2_0_DecideTarget
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     sub        sp,#0x14
@@ -217,10 +217,10 @@ _ts R_Flappy_1_2_0_DecideTarget
     pop        {r0}
     tst        r1,r1
     bne        LAB_0805e508
-    ldrh       r0,[r5,#0x18]
+    ldrh       r0,[r5,#Actor_cPos_x]
     mov        r3,#0x60
     strh       r0,[r5,r3]
-    ldr        r7,[r5,#0x74]
+    ldr        r7,[r5,#Actor_param_74]
     strh       r0,[r7,#0x4]
     strh       r0,[r7,#0x2]
     add        r0,r7,#0x0
@@ -237,7 +237,7 @@ LAB_0805e508:
     strb       r0,[r5,r3]
     mov        r3,#0x61
     strb       r1,[r5,r3]
-    ldr        r7,[r5,#0x74]
+    ldr        r7,[r5,#Actor_param_74]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     strb       r0,[r7,#0x2]
@@ -247,7 +247,7 @@ LAB_0805e508:
 LAB_0805e530:
     add        sp,#0x14
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 DAT_0805e538:
@@ -257,7 +257,7 @@ DAT_0805e538:
 _ts R_Flappy_1_2_1_CalculateArc
     push       {lr}
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r3,#0x60
     ldrb       r0,[r5,r3]
     mov        r3,#0x61
@@ -268,16 +268,16 @@ _ts R_Flappy_1_2_1_CalculateArc
     mov        r0,#0x28
     add        r0,r0,r5
     ldr        r3,DAT_0805e574
-    str        r3,[r5,#0x4c]
+    str        r3,[r5,#Actor_diff_z]
     ldr        r4,DAT_0805e578
     bl         Field_CalculateTrajectoryXY
-    strh       r0,[r5,#0x1c]
-    str        r1,[r5,#0x44]
-    str        r2,[r5,#0x48]
-    ldr        r0,[r5,#0x70]
+    strh       r0,[r5,#Actor_counterA]
+    str        r1,[r5,#Actor_diff_x]
+    str        r2,[r5,#Actor_diff_y]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Disable
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
     .align 2, 0
@@ -292,29 +292,29 @@ DAT_0805e578:
 
 _ts R_Flappy_1_2_2_Animate
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bhi        LAB_0805e5b4
     mov        r3,#0x60
     ldrb       r0,[r5,r3]
     mov        r3,#0x61
     ldrb       r1,[r5,r3]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
-    ldr        r0,[r5,#0x70]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Enable
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0805e5b4:
     mov        r7,#0x44
@@ -322,7 +322,7 @@ LAB_0805e5b4:
     ldmia      r7!,{r0,r1,r2}
     ldr        r3,DAT_0805e5dc
     add        r2,r2,r3
-    str        r2,[r5,#0x4c]
+    str        r2,[r5,#Actor_diff_z]
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r3,r4,r6}
@@ -332,8 +332,8 @@ LAB_0805e5b4:
     sub        r7,#0xc
     stmia      r7!,{r3,r4,r6}
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     pop        {pc}
 
     .align 2, 0
@@ -350,7 +350,7 @@ _ts R_Flappy_1_2_3_Next
     tst        r0,r1
     beq        LAB_0805e608
     ldr        r7,PTR_FlappyParam_ARRAY_0805e60c
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x3
     add        r7,r7,r0
     ldrb       r0,[r7,#0x5]
@@ -360,9 +360,9 @@ _ts R_Flappy_1_2_3_Next
     pop        {pc}
 LAB_0805e600:
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805e608:
     pop        {pc}
 
@@ -377,7 +377,7 @@ _ts R_Flappy_1_3_Quake
     push       {lr}
     mov        r0,#0x0
     bl         Battle_SetBattleFlag
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Flappy_1_3_0_Teleport_0805e624
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -399,12 +399,12 @@ PTR_R_Flappy_1_3_0_Teleport_0805e628:
 
 _ts R_Flappy_1_3_0_Teleport
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
-    ldrh       r1,[r5,#0x18]
-    ldr        r0,[r5,#0x74]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldrh       r1,[r5,#Actor_cPos_x]
+    ldr        r0,[r5,#Actor_param_74]
     strh       r1,[r0,#0x4]
     strh       r1,[r0,#0x2]
     bl         FieldObject_Enable
@@ -417,45 +417,45 @@ _ts R_Flappy_1_3_0_Teleport
     pop        {r5}
     FieldObject_SetAttributeGroup PFI_Moving, 0x70
     mov        r0,#0x1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]
     lsl        r2,r1,#0x8
     orr        r2,r0
-    strh       r2,[r5,#0x18]
+    strh       r2,[r5,#Actor_cPos_x]
     mov        r3,#0x60
     str        r2,[r5,r3]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r3,#0x30
     lsl        r3,r3,#0x10
-    str        r3,[r5,#0x30]
+    str        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x8
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_Flappy_1_3_1_Transform
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805e6c0
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805e6c0:
     pop        {pc}
 
@@ -466,16 +466,16 @@ _nt R_Flappy_1_3_2_ReadyQuake
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0805e6e2
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805e7c2
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     ldr        r0,DAT_0805e6e4
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805e6e2:
     pop        {pc}
 
@@ -485,15 +485,15 @@ DAT_0805e6e4:
 
 _ts R_Flappy_1_3_3_Quake
     push       {lr}
-    ldr        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x30]
+    ldr        r0,[r5,#Actor_diff_z]
+    ldr        r1,[r5,#Actor_pos_curr_z]
     add        r0,r0,r1
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     bhi        LAB_0805e76c
     mov        r0,#0x7e
     bl         Sound_PlaySE
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x2
     mov        r1,#0x23
     push       {r5}
@@ -501,16 +501,16 @@ _ts R_Flappy_1_3_3_Quake
     pop        {r5}
     FieldObject_SetAttributeGroup PFI_Self_Actor, 0x70
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Actor_family_b1]
+    ldrb       r0,[r5,#Actor_family_family]
     tst        r0,r0
     beq        LAB_0805e764
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     mov        r3,#0x8
 LAB_0805e724:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     ldr        r7,PTR_listFlappyAttackOffsets_0805e770
     sub        r3,#0x1
     ldrsb      r2,[r7,r3]
@@ -532,7 +532,7 @@ LAB_0805e724:
     mov        r3,#0x0
     mov        r0,#0x0
     mov        r4,#0x0
-    ldr        r7,[r5,#0x78]
+    ldr        r7,[r5,#Actor_param_78]
     ldrb       r6,[r7,#0x7]
     bl         Effect_BombExplosion_Create
     pop        {r3}
@@ -541,9 +541,9 @@ LAB_0805e760:
     bne        LAB_0805e724
 LAB_0805e764:
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805e76c:
     pop        {pc}
 
@@ -562,9 +562,9 @@ listFlappyAttackOffsets:
 
 _ts R_Flappy_1_3_4_StartTeleportBack
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805e7c2
     mov        r7,#0x28
     add        r7,r7,r5
@@ -574,25 +574,25 @@ _ts R_Flappy_1_3_4_StartTeleportBack
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldrb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
-    ldr        r0,[r5,#0x70]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Disable
-    ldr        r7,[r5,#0x74]
+    ldr        r7,[r5,#Actor_param_74]
     ldrb       r0,[r7,#0x2]
     ldrb       r1,[r7,#0x3]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x14
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805e7c2:
     pop        {pc}
 
@@ -600,7 +600,7 @@ LAB_0805e7c2:
 _ts R_Flappy_1_3_5_CrackPanel
     push       {lr}
     mov        r0,#0x8
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     mov        r3,#0x60
@@ -609,15 +609,15 @@ _ts R_Flappy_1_3_5_CrackPanel
     ldrb       r1,[r5,r3]
     bl         Field_CrackPanel
     mov        r0,#0x18
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_Flappy_1_3_6_EndTeleportBack
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805e818
     mov        r7,#0x28
     add        r7,r7,r5
@@ -626,25 +626,25 @@ _nt R_Flappy_1_3_6_EndTeleportBack
     push       {r5}
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Enable
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805e818:
     pop        {pc}
 
 
 _nt R_Flappy_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Flappy_2_0_0805e828
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -662,34 +662,34 @@ PTR_R_Flappy_2_0_0805e82c:
 _ts R_Flappy_2_0
     push       {lr}
     bl         Battle_RegisterVirusDelete
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Disable
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_VirusDelete_Create
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _nt R_Flappy_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805e880
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Free
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -701,41 +701,41 @@ _nt R_Flappy_CheckLive
     push       {lr}
     bl         Battle_IsInputLocked
     bne        LAB_0805e8e8
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     ble        LAB_0805e8ca
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0805e8ca
-    ldr        r1,[r5,#0x70]
+    ldr        r1,[r5,#Actor_param_70]
     ldrb       r0,[r1,#0x0]
     mov        r2,#0x2
     tst        r0,r2
     beq        LAB_0805e8e8
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Actor_family_b1]
     tst        r0,r0
     bne        LAB_0805e8e8
     mov        r0,#PFI_Target_Object
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_0805e8e8
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805e8e8
     bl         Field_SubtractHP
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805e8e2
 LAB_0805e8ca:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_0805e8e2:
@@ -758,16 +758,16 @@ _ts R_Flappy_Decide
     bic        r0,r1
     strb       r0,[r5,r3]
     ldr        r7,PTR_FlappyParam_ARRAY_0805e944
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Actor_family_family]
     lsl        r1,r1,#0x3
     add        r7,r7,r1
     ldrb       r0,[r7,r0]
     cmp        r4,r0
     bmi        LAB_0805e91a
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0805e91a:
     mov        r0,#0x5
@@ -778,17 +778,17 @@ LAB_0805e91a:
     tst        r0,r0
     beq        LAB_0805e934
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0805e934:
     mov        r0,#0x0
     bl         Battle_SetBattleFlag
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 PTR_FlappyParam_ARRAY_0805e944:

@@ -6,7 +6,7 @@
 _ts Effect_LightBulb
     push       {lr}
     ldr        r0,PTR_PTR_E_LightBulb_0_Init_0808008c
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -24,7 +24,7 @@ PTR_E_LightBulb_0_Init_0807fff8:
 _ts E_LightBulb_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r1,DAT_08080090
     bl         Sprite_InitSpritePtr
@@ -39,10 +39,10 @@ _ts E_LightBulb_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     bl         E_LightBulb_CheckLitState
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Effect_family_b2]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
 
@@ -67,13 +67,13 @@ _ts E_LightBulb_CheckLitState
     bge        LAB_0808007c
     mov        r1,#0x0
     push       {r1,r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     bl         PowerPlant_TestSwitch
     pop        {r1,r5}
     beq        LAB_0808007e
     push       {r1,r5}
-    ldrb       r0,[r5,#0x4]
-    ldrb       r1,[r5,#0x5]
+    ldrb       r0,[r5,#Effect_family_family]
+    ldrb       r1,[r5,#Effect_family_b1]
     bl         FUN_0804c774
     pop        {r1,r5}
     bne        LAB_0808007e

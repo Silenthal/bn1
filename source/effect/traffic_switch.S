@@ -6,7 +6,7 @@
 _ts Effect_TrafficSwitch
     push       {lr}
     ldr        r0,PTR_PTR_E_TrafficSwitch_0_Init_0807fbc0
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,7 +22,7 @@ PTR_E_TrafficSwitch_0_Init_0807fb50:
 _ts E_TrafficSwitch_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r1,DAT_0807fbc4
     bl         Sprite_InitSpritePtr
@@ -38,7 +38,7 @@ _ts E_TrafficSwitch_0_Init
     bl         SpritePtr_SetPriority
     bl         E_TrafficSwitch_SetPalette
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
     .align 2, 0

@@ -6,7 +6,7 @@
 _ts Effect_TrafficBarrier_2
     push       {lr}
     ldr        r0,PTR_PTR_E_TrafficBarrier_2_0_Init_0807eb08
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,11 +22,11 @@ PTR_E_TrafficBarrier_2_0_Init_0807ea94:
 _ts E_TrafficBarrier_2_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r1,DAT_0807eb0c
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Effect_family_b1]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
@@ -39,7 +39,7 @@ _ts E_TrafficBarrier_2_0_Init
     ldr        r0,DAT_0807eb10
     bl         SpritePtr_SetObjectExcludeFlags
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_TrafficBarrier_2_1_Main
     pop        {pc}
 
@@ -47,20 +47,20 @@ _ts E_TrafficBarrier_2_0_Init
 _ts E_TrafficBarrier_2_1_Main
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     ldr        r7,PTR_DAT_0807eb14
     ldrb       r0,[r7,#0x6]
     tst        r0,r0
     bne        LAB_0807eaf6
     ldrb       r0,[r7,#0x5]
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Effect_family_family]
     mov        r2,#0x1
     and        r1,r2
     cmp        r0,r1
     beq        LAB_0807eafa
 LAB_0807eaf6:
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
 LAB_0807eafa:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}

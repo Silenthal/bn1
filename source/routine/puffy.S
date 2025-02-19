@@ -5,7 +5,7 @@
 
 _ts Routine_Puffy
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Puffy_0_Init_0805e098
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,26 +32,26 @@ _ts R_Puffy_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
-    str        r0,[r5,#0x5c]
+    strh       r0,[r5,#Actor_counterB]
+    str        r0,[r5,#Actor_param_5C]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     FieldObject_Create PFI_Self_Actor, 0x60
-    ldr        r0,[r5,#0x60]
-    ldr        r7,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
+    ldr        r7,[r5,#Actor_param_60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]
     FieldObject_CreateInitMoving 0x64
@@ -65,30 +65,30 @@ _ts R_Puffy_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldr        r7,[r5,#Actor_param_60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805e176
     bl         Battle_IsInputLocked
     bne        LAB_0805e176
     bl         Routine_CheckPoisonDrain
     bl         SpritePtr_DisableFlash
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,DAT_0805e1bc
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805e176
@@ -99,24 +99,24 @@ _ts R_Puffy_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0805e176:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Puffy_1_0_Spawn_0805e1a8
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805e1a4
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0805e1a4:
     pop        {pc}
@@ -139,7 +139,7 @@ DAT_0805e1bc:
 
 _ts R_Puffy_1_0_Spawn
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Puffy_1_0_0_0805e1dc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -164,7 +164,7 @@ _ts R_Puffy_1_0_0
     tst        r0,r0
     beq        LAB_0805e1f2
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
 LAB_0805e1f2:
     pop        {pc}
@@ -176,7 +176,7 @@ _ts R_Puffy_1_0_1
     tst        r0,r0
     bne        LAB_0805e206
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
 LAB_0805e206:
     pop        {pc}
@@ -189,42 +189,42 @@ _ts R_Puffy_1_0_2
     tst        r0,r1
     bne        LAB_0805e21c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805e21c:
     pop        {pc}
 
 
 _nt R_Puffy_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0805e238
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805e238:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0805e24a
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805e24a:
     pop        {pc}
 
 
 _ts R_Puffy_1_2_Idle
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Puffy_1_2_0_Next_0805e274
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -234,9 +234,9 @@ _ts R_Puffy_1_2_Idle
     tst        r0,r1
     beq        LAB_0805e26a
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805e26a:
     pop        {pc}
 
@@ -251,16 +251,16 @@ PTR_PTR_R_Puffy_1_2_0_Next_0805e274:
 _ts R_Puffy_1_2_0_Next
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         R_Puffy_1_2_1_ReadyAttack
     pop        {pc}
 
 
 _ts R_Puffy_1_2_1_ReadyAttack
     push       {lr}
-    ldr        r7,[r5,#0x5c]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_0805e298
     ldrb       r0,[r7,#0x0]
@@ -269,16 +269,16 @@ _ts R_Puffy_1_2_1_ReadyAttack
     b          LAB_0805e2a0
 LAB_0805e298:
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805e2a0:
     pop        {pc}
 
 
 _nt R_Puffy_1_3_Bubbler
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Puffy_1_3_0_StartAnim_0805e2b8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -296,43 +296,43 @@ PTR_PTR_R_Puffy_1_3_0_StartAnim_0805e2b8:
 _ts R_Puffy_1_3_0_StartAnim
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x12
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Puffy_1_3_1_Bubbler
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805e2f6
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r3,#0x5c
     add        r3,r3,r5
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Actor_family_family]
     mov        r6,#0x1e
     bl         Attack_PuffyBubble_Create
     tst        r0,r0
     beq        LAB_0805e2ee
-    ldrb       r1,[r5,#0x1a]
+    ldrb       r1,[r5,#Actor_element]
     strb       r1,[r0,#0x1a]
 LAB_0805e2ee:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805e2f6:
     pop        {pc}
 
 
 _ts R_Puffy_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Puffy_2_0_Delete_0805e310
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -352,12 +352,12 @@ PTR_PTR_R_Puffy_2_0_Delete_0805e310:
 
 _ts R_Puffy_2_0_Delete
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
@@ -365,15 +365,15 @@ _ts R_Puffy_2_0_Delete
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Puffy_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805e34e
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free

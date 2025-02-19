@@ -22,23 +22,23 @@ LAB_080562d4:
 _nt Routine_CheckPoisonDrain
     push       {lr}
     mov        r0,#0x1e
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_owner]
     add        r0,r0,r1
     bl         Battle_GetBattleFlag
     tst        r0,r0
     beq        LAB_080562f4
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     sub        r0,#0x1
     tst        r0,r0
     beq        LAB_080562f8
     asr        r1,r0,#0x1f
     bic        r0,r1
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#Actor_hpCurrent]
 LAB_080562f4:
     mov        r0,#0x0
     pop        {pc}
 LAB_080562f8:
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#Actor_hpCurrent]
     mov        r0,#0x1
     pop        {pc}
 

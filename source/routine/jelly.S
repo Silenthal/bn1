@@ -5,7 +5,7 @@
 
 _ts Routine_Jelly
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Jelly_0_Init_08061f18
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,32 +32,32 @@ _ts R_Jelly_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     FieldObject_Create PFI_Self_Actor, 0x60
-    ldr        r0,[r5,#0x60]
-    ldr        r7,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
+    ldr        r7,[r5,#Actor_param_60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]
     FieldObject_CreateInitMoving 0x64, inherit_element=1
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x1
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Actor_diff_y]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Actor_b1b]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     pop        {pc}
@@ -68,30 +68,30 @@ _nt R_Jelly_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldr        r7,[r5,#Actor_param_60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_08061ffc
     bl         Battle_IsInputLocked
     bne        LAB_08061ffc
     bl         Routine_CheckPoisonDrain
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,PanelFlag_0806205c
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08061ffc
@@ -102,19 +102,19 @@ _nt R_Jelly_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_08061ffc:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_08062030
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_08062044
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_08062022
     mov        r0,#0x9
@@ -122,17 +122,17 @@ LAB_08061ffc:
 LAB_08062022:
     mov        r0,#PFI_Moving
 LAB_08062024:
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Actor_param_60]
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_08062042
 LAB_08062030:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        r0,r7,#0x0
     bl         FieldObject_SetDeletedFlag
 LAB_08062042:
@@ -156,7 +156,7 @@ PanelFlag_0806205c:
 
 _ts R_Jelly_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Jelly_1_0_0_08062088
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -182,7 +182,7 @@ _ts R_Jelly_1_0_0
     tst        r0,r0
     beq        LAB_0806209e
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
 LAB_0806209e:
     pop        {pc}
@@ -194,21 +194,21 @@ _ts R_Jelly_1_0_1
     tst        r0,r0
     bne        LAB_080620b2
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_080620b2:
     pop        {pc}
 
 
 _ts R_Jelly_1_0_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080620c6
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
 LAB_080620c6:
     pop        {pc}
@@ -221,42 +221,42 @@ _ts R_Jelly_1_0_3
     tst        r0,r1
     bne        LAB_080620dc
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080620dc:
     pop        {pc}
 
 
 _nt R_Jelly_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_080620f8
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_080620f8:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0806210a
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806210a:
     pop        {pc}
 
 
 _ts R_Jelly_1_2_Charge
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Jelly_1_2_0_Charge_08062138
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -266,9 +266,9 @@ _ts R_Jelly_1_2_Charge
     tst        r0,r1
     beq        LAB_0806212a
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0806212a:
     pop        {pc}
 
@@ -284,16 +284,16 @@ PTR_PTR_R_Jelly_1_2_0_Charge_08062138:
 _ts R_Jelly_1_2_0_Charge
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0x12]
+    strb       r0,[r5,#Actor_state_s2]
+    ldrb       r0,[r5,#Actor_enemyIndex]
     mov        r1,#0x78
     mul        r0,r1
     add        r0,#0x78
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     bl         Effect_JellyCharging_Create
     bl         R_Jelly_1_2_1_Next
     pop        {pc}
@@ -301,14 +301,14 @@ _ts R_Jelly_1_2_0_Charge
 
 _nt R_Jelly_1_2_1_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08062170
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08062170:
     pop        {pc}
 
@@ -316,18 +316,18 @@ LAB_08062170:
 _nt R_Jelly_1_2_2_Next
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bl         R_Jelly_1_2_1_Next
     pop        {pc}
 
 
 _nt R_Jelly_1_3_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Jelly_1_3_0_CheckMove_0806219c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -348,35 +348,35 @@ _ts R_Jelly_1_3_0_CheckMove
     cmp        r0,#0xff
     bne        LAB_080621b4
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_080621e4
 LAB_080621b4:
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]
     strb       r1,[r7,#0x5]
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
     add        r0,r7,#0x0
     bl         FieldObject_Enable
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Actor_family_family]
     lsl        r2,r2,#0x2
     ldr        r7,PTR_listJellyMoveSpeed_080621e8
     ldr        r2,[r7,r2]
-    ldrb       r0,[r5,#0x19]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_cPos_y]
+    ldrb       r1,[r5,#Actor_family_b3]
     cmp        r0,r1
     bmi        LAB_080621da
     neg        r2,r2
 LAB_080621da:
-    str        r2,[r5,#0x48]
+    str        r2,[r5,#Actor_diff_y]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_080621e4:
     pop        {pc}
 
@@ -394,11 +394,11 @@ listJellyMoveSpeed:
 
 _ts R_Jelly_1_3_1_Move
     push       {lr}
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
     bl         Battle_CellCoordsToSprite
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x48]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_diff_y]
     tst        r3,r3
     bmi        LAB_08062212
     add        r2,r2,r3
@@ -410,40 +410,40 @@ LAB_08062212:
     cmp        r2,r1
     bgt        LAB_08062256
 LAB_08062218:
-    str        r2,[r5,#0x2c]
+    str        r2,[r5,#Actor_pos_curr_y]
     mov        r0,#0x5
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x64]
+    strb       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Actor_family_b1]
     add        r0,#0x1
     cmp        r0,#0x1
     bgt        LAB_08062232
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
 LAB_08062232:
-    ldrb       r0,[r5,#0x1b]
+    ldrb       r0,[r5,#Actor_b1b]
     add        r0,#0x1
-    strb       r0,[r5,#0x1b]
-    ldrb       r1,[r5,#0x4]
+    strb       r0,[r5,#Actor_b1b]
+    ldrb       r1,[r5,#Actor_family_family]
     ldr        r7,PTR_BYTE_ARRAY_08062264
     ldrb       r1,[r7,r1]
     cmp        r0,r1
     bmi        LAB_0806224c
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     b          LAB_08062258
 LAB_0806224c:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     b          LAB_08062258
 LAB_08062256:
-    str        r2,[r5,#0x2c]
+    str        r2,[r5,#Actor_pos_curr_y]
 LAB_08062258:
     bl         R_Actor_UpdateCellPos
     pop        {pc}
@@ -462,7 +462,7 @@ PTR_BYTE_ARRAY_08062264:
 
 _ts R_Jelly_1_4_Wave
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Jelly_1_4_0_StartAnim_08062284
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -484,39 +484,39 @@ PTR_PTR_R_Jelly_1_4_0_StartAnim_08062284:
 _ts R_Jelly_1_4_0_StartAnim
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x2
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Actor_b1b]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Jelly_1_4_1_Wave
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080622ca
     mov        r0,#0xff
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0x18]
+    strb       r0,[r5,#Actor_state_s2]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r2,[r5,#0x1a]
-    ldrb       r4,[r5,#0x4]
+    ldrb       r2,[r5,#Actor_element]
+    ldrb       r4,[r5,#Actor_family_family]
     ldr        r7,PTR_listJellyWaveDamage_080622d4
-    ldrb       r6,[r5,#0x4]
+    ldrb       r6,[r5,#Actor_family_family]
     lsl        r6,r6,#0x1
     ldrh       r6,[r7,r6]
     bl         Attack_Wave_CreateColumn
     mov        r0,#0xb4
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_080622ca:
     pop        {pc}
 
@@ -534,24 +534,24 @@ PTR_listJellyWaveDamage_080622d4:
 
 _ts R_Jelly_1_4_2_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080622f2
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     bl         Effect_JellyCharging_Create
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080622f2:
     pop        {pc}
 
 
 _ts R_Jelly_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Jelly_2_0_Delete_0806230c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -571,12 +571,12 @@ PTR_PTR_R_Jelly_2_0_Delete_0806230c:
 
 _ts R_Jelly_2_0_Delete
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
@@ -584,15 +584,15 @@ _ts R_Jelly_2_0_Delete
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Jelly_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806234a
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -629,14 +629,14 @@ _ts R_Jelly_GetNextMovePanel
     push       {lr}
     mov        r0,#0x0
     sub        r0,#0x1
-    ldr        r1,[r5,#0x48]
+    ldr        r1,[r5,#Actor_diff_y]
     tst        r1,r1
     bmi        LAB_08062386
     mov        r0,#0x1
 LAB_08062386:
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     add        r1,r1,r0
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     push       {r0,r1}
     bl         R_Jelly_IsPanelEmpty
     tst        r0,r0
@@ -644,9 +644,9 @@ LAB_08062386:
     beq        LAB_0806239a
     b          LAB_080623a2
 LAB_0806239a:
-    ldr        r0,[r5,#0x48]
+    ldr        r0,[r5,#Actor_diff_y]
     neg        r0,r0
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Actor_diff_y]
     mov        r0,#0xff
 LAB_080623a2:
     pop        {pc}

@@ -5,7 +5,7 @@
 
 _ts Effect_BombShootExplosion
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_BombShootExplosion_0_Init_08081b28
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,20 +32,20 @@ _ts E_BombShootExplosion_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x7
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    strb       r0,[r5,#0xc]
+    strh       r0,[r5,#Effect_counterA]
+    strb       r0,[r5,#Effect_bc]
     mov        r0,#0x2
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Effect_element]
     mov        r0,#0x76
     bl         Sound_PlaySE
     bl         E_BombShootExplosion_1_Main
@@ -56,22 +56,22 @@ _nt E_BombShootExplosion_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Effect_cPos_x]
+    ldrb       r1,[r5,#Effect_cPos_y]
     bl         FieldObject_GetPanelFlags
-    ldrb       r1,[r5,#0xc]
+    ldrb       r1,[r5,#Effect_bc]
     tst        r1,r1
     beq        LAB_08081b8e
     b          LAB_08081ba2
 LAB_08081b8e:
     ldr        r7,PTR_DAT_08081c04
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Effect_owner]
     lsl        r1,r1,#0x2
     ldr        r1,[r7,r1]
     tst        r1,r0
     beq        LAB_08081ba2
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Effect_bc]
     bl         E_BombShootExplosion_CreateHitEffect
 LAB_08081ba2:
     bl         SpritePtr_GetFrameStatus
@@ -79,17 +79,17 @@ LAB_08081ba2:
     tst        r0,r1
     beq        LAB_08081bb6
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     b          LAB_08081c00
 LAB_08081bb6:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     cmp        r0,#0x8
     bne        LAB_08081c00
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     bne        LAB_08081bea
     mov        r0,#0x0
@@ -100,8 +100,8 @@ LAB_08081bc8:
     pop        {r4}
     cmp        r0,#0xff
     beq        LAB_08081be0
-    ldrh       r2,[r5,#0x24]
-    ldrb       r3,[r5,#0x16]
+    ldrh       r2,[r5,#Effect_damage]
+    ldrb       r3,[r5,#Effect_owner]
     add        r4,#0x1
     bl         Effect_BombShootExplosion_Create
 LAB_08081be0:
@@ -111,14 +111,14 @@ LAB_08081be0:
     blt        LAB_08081bc8
     b          LAB_08081c00
 LAB_08081bea:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     sub        r0,#0x1
     bl         E_BombShootExplosion_GetNextPos
     cmp        r0,#0xff
     beq        LAB_08081c00
-    ldrh       r2,[r5,#0x24]
-    ldrb       r3,[r5,#0x16]
-    ldrb       r4,[r5,#0x4]
+    ldrh       r2,[r5,#Effect_damage]
+    ldrb       r3,[r5,#Effect_owner]
+    ldrb       r4,[r5,#Effect_family_family]
     bl         Effect_BombShootExplosion_Create
 LAB_08081c00:
     pop        {pc}
@@ -158,10 +158,10 @@ _ts E_BombShootExplosion_GetNextPos
     ldrsb      r2,[r7,r2]
     mov        r3,#0x1
     ldrsb      r3,[r7,r3]
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Effect_cPos_x]
     add        r0,r0,r2
     str        r0,[sp,#0x0]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Effect_cPos_y]
     add        r1,r1,r3
     str        r1,[sp,#0x4]
     bl         FieldObject_GetPanelFlags
@@ -171,7 +171,7 @@ _ts E_BombShootExplosion_GetNextPos
     mov        r1,#0x2
     and        r1,r0
     lsr        r1,r1,#0x1
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Effect_owner]
     eor        r0,r1
     beq        LAB_08081c4e
     b          LAB_08081c52
@@ -221,17 +221,17 @@ LAB_08081c90:
 _nt E_BombShootExplosion_CreateHitEffect
     push       {lr}
     ldr        r7,PTR_PanelFlag_ARRAY_08081cb4
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Effect_owner]
     lsl        r1,r1,#0x2
 
 
 _nt FUN_08081c9a
     add        r7,r7,r1
     push       {r5}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    ldrb       r2,[r5,#0x16]
-    ldrh       r3,[r5,#0x24]
+    ldrb       r0,[r5,#Effect_cPos_x]
+    ldrb       r1,[r5,#Effect_cPos_y]
+    ldrb       r2,[r5,#Effect_owner]
+    ldrh       r3,[r5,#Effect_damage]
     ldr        r4,[r7,#0x0]
     mov        r6,#0x2
     mov        r7,#0x1

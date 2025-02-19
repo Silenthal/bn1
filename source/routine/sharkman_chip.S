@@ -5,7 +5,7 @@
 
 _ts Routine_SharkMan_Chip
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_SharkManC_0_Init_0806a334
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,23 +26,23 @@ PTR_R_SharkManC_0_Init_0806a338:
 
 _ts R_SharkManC_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     bl         R_SharkMan_CheckHit
     tst        r0,r0
     bne        LAB_0806a3ba
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_0806a370
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     bl         R_SharkManC_SplashEffect
 LAB_0806a370:
     mov        r0,#0x1
@@ -50,34 +50,34 @@ LAB_0806a370:
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     neg        r0,r0
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x0
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Actor_param_5C]
     bl         Field_GetAttackDirectionOffset_MP
     ldr        r7,PTR_DAT_0806a3c0
-    ldr        r1,[r5,#0x4]
+    ldr        r1,[r5,#Actor_family_family]
     lsl        r1,r1,#0x19
     lsr        r1,r1,#0x19
     ldrb       r1,[r7,r1]
     mul        r0,r1
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Actor_diff_x]
     mov        r0,#0x3
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Actor_element]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     bl         R_SharkManC_1_Main
     pop        {pc}
 LAB_0806a3ba:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     pop        {pc}
 
 PTR_DAT_0806a3c0:
@@ -94,7 +94,7 @@ DAT_0806a3c4:
 
 _ts R_SharkManC_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_SharkManC_1_0_0806a3dc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -116,7 +116,7 @@ PTR_R_SharkManC_1_0_0806a3e0:
 
 _ts R_SharkManC_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_SharkManC_1_0_0_0806a3fc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -143,20 +143,20 @@ _ts R_SharkManC_1_0_0
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0806a42e
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_0806a430
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a42e:
     pop        {pc}
 LAB_0806a430:
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -168,28 +168,28 @@ _nt R_SharkManC_1_0_1
     tst        r0,r0
     beq        LAB_0806a458
     mov        r0,#0x9
-    strb       r0,[r5,#0x14]
-    ldrb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a458:
     pop        {pc}
 
 
 _nt R_SharkManC_1_0_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806a470
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         R_SharkManC_SplashEffect
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a470:
     pop        {pc}
 
@@ -201,12 +201,12 @@ _nt R_SharkManC_1_0_3
     tst        r0,r1
     beq        LAB_0806a48e
     mov        r0,#0x9
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain screenDim, r7, r7
     mov        r0,#0x1
     strb       r0,[r7,#0x2]
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a48e:
     pop        {pc}
 
@@ -218,16 +218,16 @@ _ts R_SharkManC_1_0_4
     tst        r0,r1
     beq        LAB_0806a4a4
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a4a4:
     pop        {pc}
 
 
 _nt R_SharkManC_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_SharkManC_1_1_0_0806a4b4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -246,9 +246,9 @@ PTR_R_SharkManC_1_1_0_0806a4b8:
 _ts R_SharkManC_1_1_0
     push       {lr}
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -259,27 +259,27 @@ _ts R_SharkManC_1_1_1
     tst        r0,r1
     beq        LAB_0806a4ea
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x94
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a4ea:
     pop        {pc}
 
 
 _ts R_SharkManC_1_1_2
     push       {lr}
-    ldr        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x44]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    ldr        r1,[r5,#Actor_diff_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    ldr        r1,[r5,#Actor_pos_curr_y]
     bl         Battle_SpriteCoordsToCell
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_cPos_x]
     cmp        r0,r1
     beq        LAB_0806a508
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#Actor_cPos_x]
     bl         R_SharkMan_CheckHit
 LAB_0806a508:
     pop        {pc}
@@ -293,7 +293,7 @@ LAB_0806a508:
 
 _ts R_SharkManC_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_SharkManC_1_2_0_0806a520
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -314,10 +314,10 @@ PTR_R_SharkManC_1_2_0_0806a524:
 _ts R_SharkManC_1_2_0
     push       {lr}
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         R_SharkManC_SplashEffect
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -327,12 +327,12 @@ _ts R_SharkManC_1_2_1
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0806a554
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
 LAB_0806a554:
     pop        {pc}
 
@@ -351,8 +351,8 @@ _ts R_SharkMan_CheckHit
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
@@ -361,21 +361,21 @@ _ts R_SharkMan_CheckHit
     lsl        r1,r1,#0x8
     tst        r0,r1
     bne        LAB_0806a5b0
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_owner]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_PanelFlag_ARRAY_0806a5c0
     ldr        r1,[r7,r1]
     tst        r0,r1
     beq        LAB_0806a5ac
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
     add        r2,r1,#0x0
     add        r1,r0,#0x0
     mov        r3,#0x0
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     ldr        r4,FamilyDetail_0806a5bc
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Actor_damage]
     mov        r7,#0x1
     bl         Field_CreateSharpStrikeAttack
 LAB_0806a5ac:
@@ -383,9 +383,9 @@ LAB_0806a5ac:
     pop        {pc}
 LAB_0806a5b0:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
     pop        {pc}
 

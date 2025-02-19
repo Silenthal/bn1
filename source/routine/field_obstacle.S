@@ -37,7 +37,7 @@ LAB_08056250:
     mov        r1,#0x0
     strb       r1,[r7,r0]
 LAB_08056274:
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#Actor_family_b2]
     lsl        r1,r0,#0x2
     add        r1,#0x8
     str        r5,[r7,r1]
@@ -61,7 +61,7 @@ LAB_08056292:
 _ts FieldObstacleManager_Remove
     push       {lr}
     LoadMain fieldObstacleManager, r7, r7
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Actor_family_b2]
     ldrb       r1,[r7,r0]
     mov        r2,#0x0
     strb       r2,[r7,r0]

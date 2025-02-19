@@ -44,11 +44,11 @@ _ts Routine_GutsMan
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_GutsMan_0_Init_0805c11c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -69,17 +69,17 @@ PTR_R_GutsMan_0_Init_0805c120:
 
 _ts R_GutsMan_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x22
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r3,#0x28
@@ -89,7 +89,7 @@ _ts R_GutsMan_0_Init
     ldmia      r7!,{r0,r1,r2}
     stmia      r6!,{r0,r1,r2}
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r3,#0x68
     strh       r0,[r5,r3]
     mov        r3,#0x62
@@ -97,25 +97,25 @@ _ts R_GutsMan_0_Init
     strb       r0,[r5,r3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_listGutsManDamage_0805c1b4
     ldr        r7,[r7,r0]
-    str        r7,[r5,#0x78]
+    str        r7,[r5,#Actor_param_78]
     ldrh       r0,[r7,#0x6]
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Actor_damage]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Actor_element]
     FieldObject_Create PFI_Self_Actor, 0x70, offset_reg=3
     FieldObject_Create PFI_Moving, 0x74, offset_reg=3
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         R_GutsMan_1_Main
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -128,33 +128,33 @@ PTR_listGutsManDamage_0805c1b4:
 
 _ts R_GutsMan_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0805c1e4
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldr        r0,[r5,#0x70]
+    str        r0,[r5,#Actor_state_s0]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_SetDeletedFlag
     pop        {pc}
 LAB_0805c1e4:
     bl         R_GutsMan_CheckDamage
     tst        r0,r0
     bne        LAB_0805c1f6
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0805c204
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_0805c1f6:
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -178,33 +178,33 @@ PTR_R_Actor_1_0_Spawn_0805c208:
 
 _ts R_GutsMan_1_1_Ready
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0805c242
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c242:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0805c254
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c254:
     pop        {pc}
 
 
 _nt R_GutsMan_1_2_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_GutsMan_1_2_0_Wait_0805c278
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -214,9 +214,9 @@ _nt R_GutsMan_1_2_Wait
     tst        r0,r1
     beq        LAB_0805c274
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805c274:
     pop        {pc}
 
@@ -234,33 +234,33 @@ PTR_R_GutsMan_1_2_0_Wait_0805c27c:
 _ts R_GutsMan_1_2_0_Wait
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldr        r0,[r5,#0x74]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_GutsMan_1_2_1_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805c2ac
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c2ac:
     pop        {pc}
 
 
 _nt R_GutsMan_1_3_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_GutsMan_1_3_0_StartMove_0805c2bc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -297,7 +297,7 @@ _ts R_GutsMan_1_3_0_StartMove
     strb       r0,[r5,r3]
     mov        r3,#0x61
     strb       r1,[r5,r3]
-    ldr        r7,[r5,#0x74]
+    ldr        r7,[r5,#Actor_param_74]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     strb       r0,[r7,#0x2]
@@ -305,11 +305,11 @@ _ts R_GutsMan_1_3_0_StartMove
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x10
     lsl        r0,r0,#0x10
     add        r3,r3,r0
@@ -317,7 +317,7 @@ _ts R_GutsMan_1_3_0_StartMove
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        sp,#0x14
     pop        {pc}
 LAB_0805c32c:
@@ -342,19 +342,19 @@ _ts R_GutsMan_1_3_1_EndMove
     ldrb       r0,[r5,r3]
     mov        r3,#0x61
     ldrb       r1,[r5,r3]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    ldr        r0,[r5,#0x74]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x10
     lsl        r0,r0,#0x10
     add        r3,r3,r0
@@ -362,7 +362,7 @@ _ts R_GutsMan_1_3_1_EndMove
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c380:
     pop        {pc}
 
@@ -386,7 +386,7 @@ _ts R_GutsMan_1_4_Flinch
     bcs        LAB_0805c3a2
     bl         SpritePtr_EnableFlash
 LAB_0805c3a2:
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_GutsMan_1_4_0_StartAnim_0805c3b0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -410,53 +410,53 @@ PTR_gFrameCounter_0805c3c0:
 
 _ts R_GutsMan_1_4_0_StartAnim
     push       {lr}
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
     FieldObject_SetAttributeGroup PFI_Self_Object, 0x70
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexLast]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x32
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_GutsMan_1_4_1_Recover
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805c400
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c400:
     pop        {pc}
 
 
 _nt R_GutsMan_1_4_2_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805c426
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x5a
     mov        r3,#0x68
     strh       r0,[r5,r3]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
     bl         Battle_PriorityQueueEnqueue
 LAB_0805c426:
@@ -465,7 +465,7 @@ LAB_0805c426:
 
 _ts R_GutsMan_1_5_GutsHammer
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_GutsMan_1_5_0_StartAnim_0805c438
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -488,9 +488,9 @@ PTR_R_GutsMan_1_5_0_StartAnim_0805c43c:
 _ts R_GutsMan_1_5_0_StartAnim
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -500,23 +500,23 @@ _ts R_GutsMan_1_5_1_Attack
     mov        r1,#0x81
     tst        r0,r1
     beq        LAB_0805c4e0
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_0805c482
     bl         Field_GetAttackDirectionOffset_MP
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_cPos_x]
     add        r1,r1,r0
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#Actor_cPos_y]
     mov        r3,#0x0
     mov        r4,#0x2
-    ldr        r7,[r5,#0x78]
+    ldr        r7,[r5,#Actor_param_78]
     ldrh       r6,[r7,#0x0]
     bl         Attack_Shockwave_Create
     b          LAB_0805c4dc
 LAB_0805c482:
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
@@ -542,12 +542,12 @@ LAB_0805c482:
     mov        r6,#PFI_Self_Block @ attribute
     lsl        r6,r6,#0x10
     orr        r4,r6
-    ldr        r7,[r5,#0x78]
+    ldr        r7,[r5,#Actor_param_78]
     ldrh       r6,[r7,#0x2]
     mov        r7,#0x8
     bl         Attack_SharpStrike_Create
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
 LAB_0805c4ce:
     sub        r0,#0x1
     push       {r0,r1}
@@ -557,7 +557,7 @@ LAB_0805c4ce:
     bne        LAB_0805c4ce
 LAB_0805c4dc:
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c4e0:
     pop        {pc}
 
@@ -569,9 +569,9 @@ _nt R_GutsMan_1_5_2_Recover
     tst        r0,r1
     beq        LAB_0805c4f6
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c4f6:
     pop        {pc}
 
@@ -583,16 +583,16 @@ _ts R_GutsMan_1_5_3_Next
     tst        r0,r1
     beq        LAB_0805c50c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c50c:
     pop        {pc}
 
 
 _nt R_GutsMan_1_6_TeleportBeforeAttack
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_GutsMan_1_6_0_Teleport_0805c51c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -628,7 +628,7 @@ _ts R_GutsMan_1_6_0_Teleport
     strb       r0,[r5,r3]
     mov        r3,#0x61
     strb       r1,[r5,r3]
-    ldr        r7,[r5,#0x74]
+    ldr        r7,[r5,#Actor_param_74]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     strb       r0,[r7,#0x2]
@@ -636,14 +636,14 @@ _ts R_GutsMan_1_6_0_Teleport
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        sp,#0x4
     pop        {pc}
 LAB_0805c574:
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        sp,#0x4
     pop        {pc}
 
@@ -658,17 +658,17 @@ _ts R_GutsMan_1_6_1_Land
     ldrb       r0,[r5,r3]
     mov        r3,#0x61
     ldrb       r1,[r5,r3]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    ldr        r0,[r5,#0x74]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c5aa:
     pop        {pc}
 
@@ -679,31 +679,31 @@ _ts R_GutsMan_1_6_2_Decide
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0805c5dc
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x10
     tst        r0,r1
     bne        LAB_0805c5d4
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r1,#0x1
     lsl        r1,r1,#0x8
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0805c5d4:
     mov        r0,#0x1c
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805c5dc:
     pop        {pc}
 
 
 _nt R_GutsMan_1_7_GutsPunch
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_GutsMan_1_7_0_StartAnim_0805c5ec
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -722,9 +722,9 @@ PTR_R_GutsMan_1_7_0_StartAnim_0805c5f0:
 _ts R_GutsMan_1_7_0_StartAnim
     push       {lr}
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -734,8 +734,8 @@ _ts R_GutsMan_1_7_1_Attack
     mov        r1,#0x81
     tst        r0,r1
     beq        LAB_0805c63a
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
     mov        r3,#0x20
     lsl        r3,r3,#0x10
     mov        r0,#0x28
@@ -743,14 +743,14 @@ _ts R_GutsMan_1_7_1_Attack
     sub        r1,r1,r0
     mov        r0,#0x0
     ldr        r4,DAT_0805c63c
-    ldr        r7,[r5,#0x78]
+    ldr        r7,[r5,#Actor_param_78]
     ldrh       r6,[r7,#0x4]
     mov        r7,#0x8
     bl         Attack_SharpStrike_Create
     mov        r0,#0x7f
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805c63a:
     pop        {pc}
 
@@ -765,16 +765,16 @@ _ts R_GutsMan_1_7_2_Next
     tst        r0,r1
     beq        LAB_0805c654
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c654:
     pop        {pc}
 
 
 _nt R_GutsMan_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_GutsMan_2_0_Delete_0805c664
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -792,31 +792,31 @@ PTR_R_GutsMan_2_0_Delete_0805c668:
 _ts R_GutsMan_2_0_Delete
     push       {lr}
     bl         Battle_RegisterVirusDelete
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Disable
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_NaviDelete_Create
     pop        {r5}
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _ts R_GutsMan_2_1_Free
     push       {lr}
     bl         UpdateSpriteFrameIndex
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805c6b6
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Free
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -826,9 +826,9 @@ LAB_0805c6b6:
 
 _ts R_GutsMan_DecideAttack
     push       {lr}
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     ldr        r1,PanelFlag_0805c700
     tst        r0,r1
@@ -857,8 +857,8 @@ LAB_0805c6e8:
     mov        r1,#0x0
 LAB_0805c6f2:
     lsl        r1,r1,#0x8
-    strb       r0,[r5,#0x9]
-    strh       r1,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s1]
+    strh       r1,[r5,#Actor_state_s2]
     pop        {pc}
     .byte 0x00
     .byte 0x00
@@ -872,13 +872,13 @@ _ts R_GutsMan_CheckDamage
     push       {lr}
     bl         Battle_IsInputLocked
     bne        LAB_0805c7a0
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     ble        LAB_0805c776
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0805c776
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     bne        LAB_0805c7a0
     mov        r3,#0x68
@@ -893,16 +893,16 @@ _ts R_GutsMan_CheckDamage
 LAB_0805c738:
     lsr        r0,r0,#0x1
     bcc        LAB_0805c7a0
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     b          LAB_0805c7a0
 LAB_0805c746:
     FieldObject_GetDamage PFI_Target_Object, 0x70
     tst        r0,r0
     beq        LAB_0805c7a0
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805c7a0
@@ -910,23 +910,23 @@ LAB_0805c746:
     cmp        r0,#0x3c
     bcc        LAB_0805c76c
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805c76c:
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805c796
 LAB_0805c776:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_SetDeletedFlag
     FieldObject_SetAttributeGroup PFI_Self_Object, 0x70
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_0805c796:

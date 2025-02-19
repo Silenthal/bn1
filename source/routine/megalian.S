@@ -5,7 +5,7 @@
 
 _ts Routine_Megalian
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Megalian_0_Init_08066a1c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,54 +32,54 @@ _ts R_Megalian_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     bl         FUN_08066fac
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Actor_bd]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
-    strb       r0,[r5,#0xc]
-    strh       r0,[r5,#0x1e]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    strb       r0,[r5,#Actor_bc]
+    strh       r0,[r5,#Actor_counterB]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     FieldObject_Create PFI_Self_Actor, 0x60
-    ldr        r0,[r5,#0x60]
-    ldr        r7,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
+    ldr        r7,[r5,#Actor_param_60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]
     FieldObject_CreateInitMoving 0x64, inherit_element=1
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Actor_family_family]
     ldr        r7,PTR_DAT_08066ad8
-    ldrb       r6,[r5,#0x4]
+    ldrb       r6,[r5,#Actor_family_family]
     ldrb       r6,[r7,r6]
     bl         Attack_MegalianHead_Create
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_08066aba
     bl         A_Megalian_HideHead
 LAB_08066aba:
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x12]
+    strb       r0,[r5,#Actor_state_s0]
+    ldrb       r0,[r5,#Actor_enemyIndex]
     cmp        r0,#0xff
     bne        LAB_08066acc
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_08066acc:
     bl         R_Megalian_1_Main
     pop        {pc}
@@ -101,40 +101,40 @@ _ts R_Megalian_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_08066b54
     bl         Battle_IsInputLocked
     bne        LAB_08066b54
     bl         Routine_CheckPoisonDrain
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,PanelFlag_08066bbc
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Actor_bc]
     tst        r0,r0
     beq        LAB_08066b2e
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     add        r0,#0x1
     bl         R_Actor_IsShieldPopped
     tst        r0,r0
     beq        LAB_08066b2e
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
 LAB_08066b2e:
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
-    ldr        r7,[r5,#0x5c]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08066b3e
     ldrh       r1,[r7,#0x20]
@@ -149,19 +149,19 @@ LAB_08066b3e:
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_08066b54:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_08066b88
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_08066ba0
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_08066b7a
     mov        r0,#0x9
@@ -169,18 +169,18 @@ LAB_08066b54:
 LAB_08066b7a:
     mov        r0,#PFI_Moving
 LAB_08066b7c:
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Actor_param_60]
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_08066b9a
 LAB_08066b88:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_08066b9a:
     bl         R_Megalian_CheckAuraDisplay
@@ -205,40 +205,40 @@ PanelFlag_08066bbc:
 
 _ts R_Megalian_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_08066be2
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08066be2:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08066c02
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x5c]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_08066bfe
     bl         A_Megalian_ShowHead
 LAB_08066bfe:
     mov        r0,#0x6e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_08066c02:
     pop        {pc}
 
 
 _ts R_Megalian_1_2_Decide
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Megalian_1_2_0_08066c2c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -248,9 +248,9 @@ _ts R_Megalian_1_2_Decide
     tst        r0,r1
     beq        LAB_08066c22
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_08066c22:
     pop        {pc}
 
@@ -265,21 +265,21 @@ PTR_PTR_R_Megalian_1_2_0_08066c2c:
 _ts R_Megalian_1_2_0
     push       {lr}
     mov        r2,#0x4
-    strb       r2,[r5,#0xa]
+    strb       r2,[r5,#Actor_state_s2]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Megalian_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08066c80
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     beq        LAB_08066c58
     bl         R_Megalian_GetNextMovePanel
     cmp        r0,#0xff
@@ -290,29 +290,29 @@ LAB_08066c58:
     cmp        r0,#0xff
     bne        LAB_08066c6a
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_08066c80
 LAB_08066c6a:
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     bl         R_Megalian_1_3_Move
     b          LAB_08066c80
 LAB_08066c7c:
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08066c80:
     pop        {pc}
 
 
 _nt R_Megalian_1_3_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Megalian_1_3_0_08066c90
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -330,19 +330,19 @@ PTR_R_Megalian_1_3_0_08066c94:
 
 _ts R_Megalian_1_3_0
     push       {lr}
-    ldrh       r0,[r5,#0x6]
-    ldrh       r1,[r5,#0x18]
+    ldrh       r0,[r5,#Actor_family_b2]
+    ldrh       r1,[r5,#Actor_cPos_x]
     cmp        r0,r1
     bne        LAB_08066cb4
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     b          LAB_08066cfa
 LAB_08066cb4:
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
-    ldr        r7,[r5,#0x64]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
+    ldr        r7,[r5,#Actor_param_64]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]
@@ -350,50 +350,50 @@ LAB_08066cb4:
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0xa
     lsl        r4,r4,#0x10
     add        r3,r3,r4
     mov        r4,#0x13
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     mvn        r1,r1
     and        r0,r1
-    strb       r0,[r5,#0x0]
-    ldr        r0,[r5,#0x5c]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_08066cf2
     bl         A_Megalian_HideHead
 LAB_08066cf2:
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08066cfa:
     pop        {pc}
 
 
 _ts R_Megalian_1_3_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08066d34
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     push       {r5}
     add        r2,r1,#0x0
     add        r1,r0,#0x0
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0xa
     lsl        r4,r4,#0x10
     add        r3,r3,r4
@@ -401,45 +401,45 @@ _ts R_Megalian_1_3_1
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08066d34:
     pop        {pc}
 
 
 _nt R_Megalian_1_3_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08066d74
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldr        r0,[r5,#0x5c]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_08066d52
     bl         A_Megalian_ShowHead
 LAB_08066d52:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
-    ldrh       r0,[r5,#0x1e]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    ldrh       r0,[r5,#Actor_counterB]
     tst        r0,r0
     beq        LAB_08066d6c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_08066d74
 LAB_08066d6c:
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08066d74:
     pop        {pc}
 
@@ -451,7 +451,7 @@ _nt R_Megalian_1_4_None
 
 _nt R_Megalian_1_5_Attack
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Megalian_1_5_0_08066d94
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -470,19 +470,19 @@ PTR_PTR_R_Megalian_1_5_0_08066d94:
 _ts R_Megalian_1_5_0
     push       {lr}
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_Megalian_1_5_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08066dc2
-    ldr        r7,[r5,#0x5c]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08066db8
     mov        r0,#0x1
@@ -491,14 +491,14 @@ LAB_08066db8:
     mov        r0,#0xbd
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08066dc2:
     pop        {pc}
 
 
 _ts R_Megalian_1_5_2
     push       {lr}
-    ldr        r7,[r5,#0x5c]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08066dd2
     ldrb       r0,[r7,#0x1b]
@@ -506,17 +506,17 @@ _ts R_Megalian_1_5_2
     bne        LAB_08066dc2
 LAB_08066dd2:
     mov        r0,#0x2
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_Megalian_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Megalian_2_0_Delete_08066df8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -536,14 +536,14 @@ PTR_PTR_R_Megalian_2_0_Delete_08066df8:
 
 _ts R_Megalian_2_0_Delete
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Actor_param_5C]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
@@ -551,15 +551,15 @@ _ts R_Megalian_2_0_Delete
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Megalian_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08066e3a
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -687,7 +687,7 @@ _ts R_Megalian_GetPanelInPlayerRow
     ldrb       r1,[r7,#0x19]
     mov        r3,#0x0
     mov        r4,sp
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Actor_family_family]
     add        r2,#0x4
     mov        r0,#0x4
 LAB_08066f0e:
@@ -778,7 +778,7 @@ PanelFlag_08066fa8:
 
 _ts FUN_08066fac
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_INT_ARRAY_08066fbc
     ldr        r0,[r7,r0]
@@ -796,16 +796,16 @@ INT_ARRAY_08066fc0:
 
 _ts R_Megalian_CheckAuraDisplay
     push       {lr}
-    ldrb       r0,[r5,#0xd]
+    ldrb       r0,[r5,#Actor_bd]
     tst        r0,r0
     bne        LAB_08066fe4
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Actor_bc]
     tst        r0,r0
     bne        LAB_0806700a
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Actor_bd]
     b          LAB_0806700a
 LAB_08066fe4:
     cmp        r0,#0x1
@@ -815,9 +815,9 @@ LAB_08066fe4:
     tst        r0,r1
     beq        LAB_0806700a
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x2
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Actor_bd]
     b          LAB_0806700a
 LAB_08066ffc:
     bl         SpritePtr_GetFrameStatus
@@ -825,6 +825,6 @@ LAB_08066ffc:
     tst        r0,r1
     beq        LAB_0806700a
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_0806700a:
     pop        {pc}

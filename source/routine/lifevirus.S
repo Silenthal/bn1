@@ -5,7 +5,7 @@
 
 _ts Routine_LifeVirus
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_LifeVirus_0_Init_08069504
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,39 +32,39 @@ _ts R_LifeVirus_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     FieldObject_Create PFI_Self_Actor, 0x60
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
-    strb       r0,[r5,#0xe]
-    strb       r0,[r5,#0xf]
+    strb       r0,[r5,#Actor_bc]
+    strb       r0,[r5,#Actor_be]
+    strb       r0,[r5,#Actor_bf]
     mov        r4,#0x0
     bl         Effect_LifeVirusAura_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Actor_param_5C]
     mov        r0,#0x4
     mov        r1,#0x1
     bl         Effect_Scuttlest_Create
-    str        r7,[r5,#0x68]
+    str        r7,[r5,#Actor_param_68]
     mov        r0,#0x4
     mov        r1,#0x2
     bl         Effect_Scuttlest_Create
-    str        r7,[r5,#0x6c]
+    str        r7,[r5,#Actor_param_6C]
     mov        r0,#0x4
     mov        r1,#0x3
     bl         Effect_Scuttlest_Create
-    str        r7,[r5,#0x70]
+    str        r7,[r5,#Actor_param_70]
     mov        r0,#0x4
     mov        r1,#0x2
     mov        r4,#0x0
@@ -87,9 +87,9 @@ LAB_080695a0:
     str        r1,[r0,#0x6c]
 LAB_080695aa:
     mov        r0,#0x1
-    strb       r0,[r5,#0x10]
+    strb       r0,[r5,#Actor_angleToTarget]
     mov        r0,#0x0
-    strb       r0,[r5,#0x11]
+    strb       r0,[r5,#Actor_b11]
     bl         R_LifeVirus_1_Main
     pop        {pc}
 
@@ -99,7 +99,7 @@ _ts R_LifeVirus_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_080695ee
     bl         Battle_IsInputLocked
@@ -115,34 +115,34 @@ _ts R_LifeVirus_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_080695ee:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_08069630
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_08069620
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     bl         Battle_DecreaseOpponentCount
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x1
-    strb       r0,[r5,#0xf]
+    strb       r0,[r5,#Actor_bf]
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
-    str        r0,[r5,#0x64]
+    strb       r0,[r5,#Actor_bc]
+    str        r0,[r5,#Actor_param_64]
 LAB_08069620:
     bl         R_LifeVirus_GetStage
     cmp        r0,#0x1
     blt        LAB_0806962c
     mov        r0,#0x1
-    strb       r0,[r5,#0x11]
+    strb       r0,[r5,#Actor_b11]
 LAB_0806962c:
     pop        {pc}
 
@@ -164,7 +164,7 @@ PTR_R_Actor_1_0_Spawn_08069634:
 
 _ts R_LifeVirus_1_1_WaitForBattleStart
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_08069666
     LoadMain battle, r7, r7
@@ -172,25 +172,25 @@ _ts R_LifeVirus_1_1_WaitForBattleStart
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08069666:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0806967c
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806967c:
     pop        {pc}
 
 
 _nt R_LifeVirus_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_LifeVirus_1_2_0_080696a8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -200,9 +200,9 @@ _nt R_LifeVirus_1_2
     tst        r0,r1
     beq        LAB_0806969c
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0806969c:
     pop        {pc}
 
@@ -220,34 +220,34 @@ PTR_PTR_R_LifeVirus_1_2_0_080696a8:
 _ts R_LifeVirus_1_2_0
     push       {lr}
     bl         R_LifeVirus_Decide
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_LifeVirus_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080696d4
     mov        r1,#0xc
-    ldrb       r0,[r5,#0xe]
+    ldrb       r0,[r5,#Actor_be]
     tst        r0,r0
     beq        LAB_080696ce
     mov        r1,#0x10
 LAB_080696ce:
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080696d4:
     pop        {pc}
 
 
 _nt R_LifeVirus_1_3
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_LifeVirus_1_3_0_080696ec
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -265,50 +265,50 @@ PTR_PTR_R_LifeVirus_1_3_0_080696ec:
 _ts R_LifeVirus_1_3_0
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     mov        r4,#0x1
     bl         Effect_LifeVirusAura_Create
-    str        r7,[r5,#0x64]
+    str        r7,[r5,#Actor_param_64]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    strb       r0,[r5,#0xd]
+    strh       r0,[r5,#Actor_counterA]
+    strb       r0,[r5,#Actor_bd]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xd3
     bl         Sound_PlaySE
     mov        r0,#0x28
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     pop        {pc}
 
 
 _ts R_LifeVirus_1_3_1
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bne        LAB_0806972c
     mov        r0,#0xa
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0xd4
     bl         Sound_PlaySE
 LAB_0806972c:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r1,#0x69
     lsl        r1,r1,#0x2
     cmp        r0,r1
     blt        LAB_0806974c
     mov        r0,#0x0
-    str        r0,[r5,#0x64]
+    str        r0,[r5,#Actor_param_64]
     mov        r0,#0x1
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Actor_be]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_08069764
 LAB_0806974c:
     cmp        r0,#0xb4
@@ -325,7 +325,7 @@ LAB_08069754:
 LAB_08069760:
     mov        r2,#0x2
 LAB_08069762:
-    strb       r2,[r5,#0xd]
+    strb       r2,[r5,#Actor_bd]
 LAB_08069764:
     pop        {pc}
 
@@ -341,7 +341,7 @@ DAT_08069766:
 
 _ts R_LifeVirus_1_4_Laser
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_LifeVirus_1_4_0_08069794
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -365,51 +365,51 @@ PTR_PTR_R_LifeVirus_1_4_0_08069794:
 _ts R_LifeVirus_1_4_0
     push       {lr}
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     pop        {pc}
 
 
 _ts R_LifeVirus_1_4_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080697ca
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r2,#0xc8
     mov        r4,#0x1
     bl         Effect_Laser_Create
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_080697ca:
     pop        {pc}
 
 
 _ts R_LifeVirus_1_4_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     cmp        r0,#0x4b
     bne        LAB_080697da
     mov        r0,#0x97
     bl         Sound_PlaySE
 LAB_080697da:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080697ea
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_080697ea:
     pop        {pc}
 
@@ -421,34 +421,34 @@ _ts R_LifeVirus_1_4_3
     tst        r0,r1
     beq        LAB_08069804
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_08069804:
     pop        {pc}
 
 
 _nt R_LifeVirus_1_4_4
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806981c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Actor_be]
 LAB_0806981c:
     pop        {pc}
 
 
 _nt R_LifeVirus_1_5_Sword
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_LifeVirus_1_5_0_08069840
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -469,45 +469,45 @@ PTR_PTR_R_LifeVirus_1_5_0_08069840:
 _ts R_LifeVirus_1_5_0
     push       {lr}
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     pop        {pc}
 
 
 _ts R_LifeVirus_1_5_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08069876
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r6,#0xc8
     bl         Attack_LifeVirusSword_Create
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_08069876:
     pop        {pc}
 
 
 _ts R_LifeVirus_1_5_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806988a
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806988a:
     pop        {pc}
 
@@ -519,34 +519,34 @@ _ts R_LifeVirus_1_5_3
     tst        r0,r1
     beq        LAB_080698a4
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_080698a4:
     pop        {pc}
 
 
 _nt R_LifeVirus_1_5_4
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080698bc
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Actor_be]
 LAB_080698bc:
     pop        {pc}
 
 
 _nt R_LifeVirus_1_6_Meteor
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_LifeVirus_1_6_0_080698e0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -567,41 +567,41 @@ PTR_PTR_R_LifeVirus_1_6_0_080698e0:
 _ts R_LifeVirus_1_6_0
     push       {lr}
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     pop        {pc}
 
 
 _ts R_LifeVirus_1_6_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806990e
     bl         Effect_LifeVirusMeteor_Create
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806990e:
     pop        {pc}
 
 
 _ts R_LifeVirus_1_6_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08069922
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08069922:
     pop        {pc}
 
@@ -613,34 +613,34 @@ _ts R_LifeVirus_1_6_3
     tst        r0,r1
     beq        LAB_0806993c
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_0806993c:
     pop        {pc}
 
 
 _nt R_LifeVirus_1_6_4
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08069954
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Actor_be]
 LAB_08069954:
     pop        {pc}
 
 
 _nt R_LifeVirus_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_LifeVirus_2_0_0806996c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -657,7 +657,7 @@ PTR_PTR_R_LifeVirus_2_0_0806996c:
 
 _ts R_LifeVirus_2_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_LifeVirus_2_0_0_08069994
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -681,11 +681,11 @@ PTR_PTR_R_LifeVirus_2_0_0_08069994:
 _ts R_LifeVirus_2_0_0
     push       {lr}
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterA]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strb       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Disable
     LoadMain battle, r7, r7
     mov        r0,#0x1
@@ -703,9 +703,9 @@ _ts R_LifeVirus_2_0_0
 
 _ts R_LifeVirus_2_0_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     cmp        r0,#0x78
     ble        LAB_080699f0
     push       {r5}
@@ -717,7 +717,7 @@ _ts R_LifeVirus_2_0_1
     mov        r1,#0x1f
     bl         Sound_FadeOut
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_080699f0:
     bl         R_LifeVirus_ShowSmallExplosions
     pop        {pc}
@@ -731,27 +731,27 @@ _nt R_LifeVirus_2_0_2
     cmp        r0,r1
     beq        LAB_08069a42
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     push       {r5}
-    ldr        r5,[r5,#0x68]
+    ldr        r5,[r5,#Actor_param_68]
     tst        r5,r5
     beq        LAB_08069a1c
     bl         Effect_Free
 LAB_08069a1c:
     pop        {r5}
     push       {r5}
-    ldr        r5,[r5,#0x68]
+    ldr        r5,[r5,#Actor_param_68]
     tst        r5,r5
     beq        LAB_08069a2a
     bl         Effect_Free
 LAB_08069a2a:
     pop        {r5}
     push       {r5}
-    ldr        r5,[r5,#0x68]
+    ldr        r5,[r5,#Actor_param_68]
     tst        r5,r5
     beq        LAB_08069a38
     bl         Effect_Free
@@ -768,9 +768,9 @@ LAB_08069a46:
 
 _ts R_LifeVirus_2_0_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08069a62
     push       {r5}
     mov        r0,#0x1
@@ -778,7 +778,7 @@ _ts R_LifeVirus_2_0_3
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08069a62:
     pop        {pc}
 
@@ -791,16 +791,16 @@ _ts R_LifeVirus_2_0_4
     cmp        r0,r1
     beq        LAB_08069a7a
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08069a7a:
     pop        {pc}
 
 
 _ts R_LifeVirus_2_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_LifeVirus_2_1_0_08069a98
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -822,18 +822,18 @@ PTR_PTR_R_LifeVirus_2_1_0_08069a98:
 _ts R_LifeVirus_2_1_0
     push       {lr}
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterA]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_LifeVirus_2_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     cmp        r0,#0xf0
     ble        LAB_08069ac6
     push       {r5}
@@ -842,7 +842,7 @@ _nt R_LifeVirus_2_1_1
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08069ac6:
     pop        {pc}
 
@@ -862,18 +862,18 @@ LAB_08069ade:
 
 _ts R_LifeVirus_CheckDamage
     push       {lr}
-    ldr        r6,[r5,#0x60]
+    ldr        r6,[r5,#Actor_param_60]
     ldrh       r0,[r6,#0x2]
     ldr        r1,DAT_08069b18
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Actor_bc]
     tst        r0,r0
     beq        LAB_08069b0e
     mov        r0,#0x0
@@ -881,9 +881,9 @@ _ts R_LifeVirus_CheckDamage
     tst        r0,r0
     beq        LAB_08069b0e
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
 LAB_08069b0e:
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
@@ -899,7 +899,7 @@ _ts R_LifeVirus_Decide
     bl         R_LifeVirus_GetStage
     add        r4,r0,#0x0
     mov        r0,#0xc
-    ldrb       r1,[r5,#0xe]
+    ldrb       r1,[r5,#Actor_be]
     tst        r1,r1
     beq        LAB_08069b64
     bl         Rng_RandomUint
@@ -938,28 +938,28 @@ LAB_08069b64:
 
 _nt R_LifeVirus_ShowSmallExplosions
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     add        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r2,#0x1
     mov        r1,#0x4
     tst        r1,r0
     bne        LAB_08069b78
     mov        r2,#0x3
 LAB_08069b78:
-    strb       r2,[r5,#0x0]
+    strb       r2,[r5,#Actor_header_entityFlags]
     mov        r1,#0x8
     and        r1,r0
     cmp        r1,#0x8
     bne        LAB_08069ba4
     push       {r5}
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x20
     lsl        r0,r0,#0x10
     add        r3,r3,r0
     mov        r0,#0x3f
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
     bl         Field_GetRandomXZPosOnTarget
     mov        r4,#0x0
     bl         Effect_QuickEffect_Create
@@ -973,7 +973,7 @@ LAB_08069ba4:
 _nt R_LifeVirus_GetStage
     push       {lr}
     mov        r0,#0x0
-    ldrh       r1,[r5,#0x20]
+    ldrh       r1,[r5,#Actor_hpCurrent]
     ldr        r2,DAT_08069bc0
     cmp        r1,r2
     bge        LAB_08069bbc

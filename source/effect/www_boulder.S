@@ -6,7 +6,7 @@
 _ts Effect_WWWBoulder
     push       {lr}
     ldr        r0,PTR_PTR_E_WWWBoulder_0_Init_08080f2c
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,16 +22,16 @@ PTR_E_WWWBoulder_0_Init_08080e14:
 _ts E_WWWBoulder_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r7,PTR_USHORT_08080f30
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Effect_family_family]
     ldrh       r1,[r7,r2]
     add        r2,#0x2
     ldrb       r2,[r7,r2]
-    strb       r2,[r5,#0x14]
+    strb       r2,[r5,#Effect_frameIndexCurr]
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -43,7 +43,7 @@ _ts E_WWWBoulder_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
 
@@ -57,9 +57,9 @@ _ts E_WWWBoulder_1_Main
 
 _ts E_WWWBoulder_2_Free
     push       {r5}
-    ldrh       r1,[r5,#0x2a]
+    ldrh       r1,[r5,#0x2A]
     lsl        r1,r1,#0x10
-    ldrh       r2,[r5,#0x2e]
+    ldrh       r2,[r5,#0x2E]
     lsl        r2,r2,#0x10
     ldrh       r3,[r5,#0x32]
     lsl        r3,r3,#0x10
@@ -77,9 +77,9 @@ LAB_08080e92:
     mov        r4,#0x3
     and        r4,r0
     add        r4,#0x1
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Effect_pos_curr_x]
+    ldr        r2,[r5,#Effect_pos_curr_y]
+    ldr        r3,[r5,#Effect_pos_curr_z]
     ldr        r7,[r6,#0x4]
     ldr        r6,[r6,#0x0]
     mov        r0,#0x1
@@ -144,10 +144,10 @@ _ts Effect_WWWBoulder_CreateEffect
     mov        r7,#0x1f
     and        r7,r0
     sub        r7,#0xf
-    ldrh       r1,[r5,#0x2a]
+    ldrh       r1,[r5,#0x2A]
     add        r1,r1,r7
     lsl        r1,r1,#0x10
-    ldrh       r2,[r5,#0x2e]
+    ldrh       r2,[r5,#0x2E]
     lsl        r2,r2,#0x10
     mov        r7,#0x1f
     lsl        r7,r7,#0x8

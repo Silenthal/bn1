@@ -6,7 +6,7 @@
 _ts Effect_FloorBreak
     push       {lr}
     ldr        r0,PTR_PTR_E_FloorBreak_0_Init_0807f704
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,7 +22,7 @@ PTR_E_FloorBreak_0_Init_0807f6a0:
 _ts E_FloorBreak_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xf5
     bl         Sprite_InitSpritePtr
@@ -37,9 +37,9 @@ _ts E_FloorBreak_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x1e
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Effect_family_family]
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -48,13 +48,13 @@ _ts E_FloorBreak_0_Init
 
 _ts E_FloorBreak_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     sub        r0,#0x1
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     bne        LAB_0807f6f4
     mov        r0,#0x2
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
 LAB_0807f6f4:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}

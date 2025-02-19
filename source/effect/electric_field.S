@@ -6,7 +6,7 @@
 _ts Effect_ElectricField
     push       {lr}
     ldr        r0,PTR_PTR_E_ElectricField_0_Init_0807f688
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,12 +22,12 @@ PTR_E_ElectricField_0_Init_0807f608:
 _ts E_ElectricField_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r1,DAT_0807f68c
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x4]
-    strb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_family_family]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -39,9 +39,9 @@ _ts E_ElectricField_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x1e
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
 
@@ -50,13 +50,13 @@ _ts E_ElectricField_1_Main
     push       {r5}
     bl         SpritePtr_ProcessFrameDelay
     pop        {r5}
-    ldrb       r0,[r5,#0x1c]
+    ldrb       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     tst        r0,r0
     bne        LAB_0807f66e
     mov        r0,#0x1e
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     mov        r0,#0x8d
     bl         Sound_PlaySE
 LAB_0807f66e:

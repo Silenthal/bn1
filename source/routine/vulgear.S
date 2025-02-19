@@ -5,7 +5,7 @@
 
 _ts Routine_Vulgear
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Vulgear_0_Init_0805ab44
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,31 +32,31 @@ _ts R_Vulgear_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
-    ldr        r0,[r5,#0x28]
-    str        r0,[r5,#0x50]
-    ldr        r0,[r5,#0x2c]
-    str        r0,[r5,#0x54]
-    ldr        r0,[r5,#0x30]
-    str        r0,[r5,#0x58]
+    strb       r0,[r5,#Actor_state_s0]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    str        r0,[r5,#Actor_initial_x]
+    ldr        r0,[r5,#Actor_pos_curr_y]
+    str        r0,[r5,#Actor_initial_y]
+    ldr        r0,[r5,#Actor_pos_curr_z]
+    str        r0,[r5,#Actor_initial_z]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     FieldObject_Create PFI_Self_Actor, 0x60
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     mov        r1,#0x20
     strb       r1,[r7,#0x8]
     FieldObject_CreateInitMoving 0x64
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     pop        {pc}
@@ -67,24 +67,24 @@ _ts R_Vulgear_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         SpritePtr_DisableFlash
     bl         Battle_IsInputLocked
     bne        LAB_0805ac0e
     bl         Routine_CheckPoisonDrain
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,DAT_0805ac68
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805ac0e
@@ -95,28 +95,28 @@ _ts R_Vulgear_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0805ac0e:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_0805ac30
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Vulgear_1_0_0805ac64
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805ac42
 LAB_0805ac30:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0805ac42:
     pop        {pc}
@@ -141,7 +141,7 @@ DAT_0805ac68:
 _ts R_Vulgear_1_0
     push       {lr}
     ldr        r7,PTR_PTR_R_Vulgear_1_0_0_0805ac88
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -165,7 +165,7 @@ _ts R_Vulgear_1_0_0
     tst        r0,r0
     beq        LAB_0805ac9e
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
 LAB_0805ac9e:
     pop        {pc}
@@ -177,7 +177,7 @@ _ts R_Vulgear_1_0_1
     tst        r0,r0
     bne        LAB_0805acb2
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
 LAB_0805acb2:
     pop        {pc}
@@ -190,42 +190,42 @@ _ts R_Vulgear_1_0_2
     tst        r0,r1
     bne        LAB_0805acc8
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805acc8:
     pop        {pc}
 
 
 _nt R_Vulgear_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0805ace4
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805ace4:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0805acf6
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805acf6:
     pop        {pc}
 
 
 _ts R_Vulgear_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Vulgear_1_2_0_0805ad20
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -235,9 +235,9 @@ _ts R_Vulgear_1_2
     tst        r0,r1
     beq        LAB_0805ad16
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805ad16:
     pop        {pc}
 
@@ -252,26 +252,26 @@ PTR_PTR_R_Vulgear_1_2_0_0805ad20:
 _ts R_Vulgear_1_2_0
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         R_Vulgear_1_2_1
     pop        {pc}
 
 
 _ts R_Vulgear_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     add        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     cmp        r0,#0xf0
     bmi        LAB_0805ad4e
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0805ad4e:
     bl         Entity_CompareToPlayerRow
@@ -280,9 +280,9 @@ LAB_0805ad4e:
     bl         R_Actor_GetNewY
     cmp        r0,#0xff
     beq        LAB_0805ad7a
-    strb       r0,[r5,#0x7]
-    ldr        r7,[r5,#0x64]
-    ldrb       r1,[r5,#0x18]
+    strb       r0,[r5,#Actor_family_b3]
+    ldr        r7,[r5,#Actor_param_64]
+    ldrb       r1,[r5,#Actor_cPos_x]
     strb       r1,[r7,#0x2]
     strb       r1,[r7,#0x4]
     strb       r0,[r7,#0x3]
@@ -290,23 +290,23 @@ LAB_0805ad4e:
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805ad7a:
     pop        {pc}
 
 
 _ts R_Vulgear_1_5
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Vulgear_1_5_0_0805ada0
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     add        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     pop        {pc}
 
 PTR_R_Vulgear_1_5_0_0805ad90:
@@ -321,68 +321,68 @@ PTR_PTR_R_Vulgear_1_5_0_0805ada0:
 
 _ts R_Vulgear_1_5_0
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        pc,lr
 
 
 _nt R_Vulgear_1_5_1
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805adc2
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805adc2:
     mov        pc,lr
 
 
 _ts R_Vulgear_1_5_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805ade8
-    ldrb       r1,[r5,#0x7]
-    strb       r1,[r5,#0x19]
-    ldrb       r0,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_family_b3]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldrb       r0,[r5,#Actor_cPos_x]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x11
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0805ade8:
     pop        {pc}
 
 
 _nt R_Vulgear_1_5_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805ae02
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805ae02:
     pop        {pc}
 
 
 _ts R_Vulgear_1_6
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Vulgear_1_6_0_0805ae40
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -392,9 +392,9 @@ _ts R_Vulgear_1_6
     tst        r0,r1
     beq        LAB_0805ae22
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805ae22:
     pop        {pc}
 
@@ -413,73 +413,73 @@ PTR_PTR_R_Vulgear_1_6_0_0805ae40:
 
 _ts R_Vulgear_1_6_0
     mov        r0,#0x2
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        pc,lr
 
 
 _nt R_Vulgear_1_6_1
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805ae66
     mov        r0,#0x23
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805ae66:
     mov        pc,lr
 
 
 _ts R_Vulgear_1_6_2
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805ae7c
     mov        r0,#0x8
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805ae7c:
     mov        pc,lr
 
 
 _nt R_Vulgear_1_6_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805aeba
     push       {r5}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     LoadMain battle, r2, r2
     ldr        r2,[r2,#0x40]
     add        r2,#0x2c
     ldr        r4,PTR_ElementID_0805aec4
-    ldrb       r3,[r5,#0x4]
+    ldrb       r3,[r5,#Actor_family_family]
     add        r3,r3,r3
     add        r4,r4,r3
     ldrb       r3,[r4,#0x0]
     ldrb       r4,[r4,#0x1]
     ldr        r7,PTR_BYTE_ARRAY_0805aec8
-    ldrb       r6,[r5,#0x4]
+    ldrb       r6,[r5,#Actor_family_family]
     ldrb       r6,[r7,r6]
     bl         Attack_Tower_Create
     pop        {r5}
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x2
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805aeba:
     pop        {pc}
 
@@ -505,53 +505,53 @@ PTR_BYTE_ARRAY_0805aec8:
 
 _ts R_Vulgear_1_6_4
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805aee2
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x32
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x14
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805aee2:
     mov        pc,lr
 
 
 _ts R_Vulgear_1_6_5
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805aefa
     mov        r0,#0x8
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x2
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x18
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805aefa:
     mov        pc,lr
 
 
 _ts R_Vulgear_1_6_6
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805af0e
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805af0e:
     mov        pc,lr
 
 
 _ts R_Vulgear_1_7
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Vulgear_1_7_0_0805af38
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -561,9 +561,9 @@ _ts R_Vulgear_1_7
     tst        r0,r1
     beq        LAB_0805af2e
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805af2e:
     pop        {pc}
 
@@ -577,23 +577,23 @@ PTR_PTR_R_Vulgear_1_7_0_0805af38:
 
 _ts R_Vulgear_1_7_0
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x9
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        pc,lr
 
 
 _nt R_Vulgear_1_7_1
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805af5a
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805af5a:
     mov        pc,lr
 
@@ -601,7 +601,7 @@ LAB_0805af5a:
 _ts R_Vulgear_2_Free
     push       {lr}
     ldr        r7,PTR_PTR_R_Vulgear_2_0_Delete_0805af74
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -620,29 +620,29 @@ PTR_PTR_R_Vulgear_2_0_Delete_0805af74:
 
 _ts R_Vulgear_2_0_Delete
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_VirusDelete_Create
     add        r0,r5,#0x0
     pop        {r5}
-    str        r0,[r5,#0x7c]
+    str        r0,[r5,#Actor_param_7C]
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _nt R_Vulgear_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805afb4
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -655,13 +655,13 @@ _nt R_Actor_GetNewY
     sub        sp,#0x10
     mov        r8,sp
     ldr        r6,PTR_BYTE_ARRAY_0805b020
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_y]
     sub        r0,#0x1
     add        r0,r0,r0
     add        r6,r6,r0
     mov        r2,#0x0
     ldrb       r1,[r6,#0x0]
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     push       {r1,r2,r6}
     bl         IsPanelWalkable
     pop        {r1,r2,r6}
@@ -675,7 +675,7 @@ _nt R_Actor_GetNewY
     add        r2,#0x1
 LAB_0805afe4:
     ldrb       r1,[r6,#0x1]
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     push       {r1,r2}
     bl         IsPanelWalkable
     pop        {r1,r2}

@@ -5,7 +5,7 @@
 
 _ts Effect_JellyCharging
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_JellyCharging_0_Init_0807e51c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,22 +32,22 @@ _ts E_JellyCharging_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_JellyCharging_1_Main
     pop        {pc}
 
 
 _nt E_JellyCharging_1_Main
     push       {lr}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Effect_obj_60]
     ldrb       r0,[r7,#0x0]
     tst        r0,r0
     bne        LAB_0807e56a
@@ -55,11 +55,11 @@ _nt E_JellyCharging_1_Main
     b          LAB_0807e586
 LAB_0807e56a:
     ldr        r0,[r7,#0x28]
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Effect_pos_curr_x]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Effect_pos_curr_y]
     ldr        r0,[r7,#0x30]
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Effect_pos_curr_z]
     ldrb       r0,[r7,#0x5]
     cmp        r0,#0xff
     bne        LAB_0807e582

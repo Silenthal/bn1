@@ -5,7 +5,7 @@
 
 _ts Routine_Handy_Main
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Handy_0_Init_080605e0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,28 +32,28 @@ _ts R_Handy_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     add        r0,r0,r0
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     FieldObject_Create PFI_Self_Actor, 0x60
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]
     FieldObject_CreateInitMoving 0x64
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     pop        {pc}
@@ -64,27 +64,27 @@ _nt R_Handy_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_080606b6
     bl         Battle_IsInputLocked
     bne        LAB_080606b6
     bl         Routine_CheckPoisonDrain
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,PanelFlag_0806071c
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080606b6
@@ -95,19 +95,19 @@ _nt R_Handy_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_080606b6:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_080606ea
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_08060700
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_080606dc
     mov        r0,#0x9
@@ -115,18 +115,18 @@ LAB_080606b6:
 LAB_080606dc:
     mov        r0,#PFI_Moving
 LAB_080606de:
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Actor_param_60]
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_080606fc
 LAB_080606ea:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_080606fc:
     pop        {pc}
@@ -153,7 +153,7 @@ PanelFlag_0806071c:
 
 _ts R_Handy_1_0_Spawn
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Handy_1_0_0_08060748
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -179,7 +179,7 @@ _ts R_Handy_1_0_0
     tst        r0,r0
     beq        LAB_0806075e
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
 LAB_0806075e:
     pop        {pc}
@@ -191,21 +191,21 @@ _ts R_Handy_1_0_1
     tst        r0,r0
     bne        LAB_08060772
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_08060772:
     pop        {pc}
 
 
 _ts R_Handy_1_0_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08060786
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
 LAB_08060786:
     pop        {pc}
@@ -218,42 +218,42 @@ _ts R_Handy_1_0_3
     tst        r0,r1
     bne        LAB_0806079c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806079c:
     pop        {pc}
 
 
 _nt R_Handy_1_1_WaitForBattleStart
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_080607b8
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_080607b8:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080607ca
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080607ca:
     pop        {pc}
 
 
 _ts R_Handy_1_2_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Handy_1_2_0_Wait_080607f4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -263,9 +263,9 @@ _ts R_Handy_1_2_Wait
     tst        r0,r1
     beq        LAB_080607ea
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_080607ea:
     pop        {pc}
 
@@ -280,13 +280,13 @@ PTR_PTR_R_Handy_1_2_0_Wait_080607f4:
 _ts R_Handy_1_2_0_Wait
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_BYTE_ARRAY_08060814
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     ldrb       r0,[r7,r0]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bl         R_Handy_1_2_1_Next
     pop        {pc}
 
@@ -304,21 +304,21 @@ PTR_BYTE_ARRAY_08060814:
 
 _ts R_Handy_1_2_1_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806082a
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806082a:
     pop        {pc}
 
 
 _ts R_Handy_1_3_GoUnder
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Handy_1_3_0_GoUnderground_08060848
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -340,9 +340,9 @@ PTR_PTR_R_Handy_1_3_0_GoUnderground_08060848:
 _ts R_Handy_1_3_0_GoUnderground
     push       {lr}
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -353,17 +353,17 @@ _ts R_Handy_1_3_1_Wait
     tst        r0,r1
     beq        LAB_0806087c
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    ldrb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldrb       r0,[r5,#Actor_family_family]
     ldr        r7,PTR_BYTE_ARRAY_08060884
     ldrb       r0,[r7,r0]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806087c:
     pop        {pc}
 
@@ -381,14 +381,14 @@ PTR_BYTE_ARRAY_08060884:
 
 _ts R_Handy_1_3_2_FindBombPanelPlacement
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080608f8
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     bl         Rng_RandomUint
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
@@ -405,9 +405,9 @@ _ts R_Handy_1_3_2_FindBombPanelPlacement
     cmp        r0,#0xff
     beq        LAB_080608e0
 LAB_080608be:
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x64]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldr        r7,[r5,#Actor_param_64]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]
@@ -416,9 +416,9 @@ LAB_080608be:
     bl         FieldObject_Enable
     bl         R_Actor_UpdateSpritePos
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_080608f8
 LAB_080608e0:
     add        r1,r2,#0x0
@@ -428,11 +428,11 @@ LAB_080608e0:
     b          LAB_080608be
 LAB_080608ec:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
 LAB_080608f8:
     pop        {pc}
 
@@ -455,7 +455,7 @@ PTR_listHandyBombRow_08060904:
 
 _ts R_Handy_1_4_TimeBomb
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Handy_1_4_0_Emerge_0806092c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -478,75 +478,75 @@ PTR_PTR_R_Handy_1_4_0_Emerge_0806092c:
 
 _ts R_Handy_1_4_0_Emerge
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x19
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Handy_1_4_1_Wait
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806095e
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806095e:
     pop        {pc}
 
 
 _ts R_Handy_1_4_2_SpawnTimeBomb
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08060986
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x22
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x12
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08060986:
     pop        {pc}
 
 
 _ts R_Handy_1_4_3_TimeBomb
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080609aa
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_cPos_x]
     sub        r1,#0x1
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#Actor_cPos_y]
     mov        r3,#0x0
     mov        r4,#0x80
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     ldr        r7,PTR_listHandyTimeBombDamage_080609b0
     ldrb       r6,[r7,r0]
     bl         Attack_TimeBomb_Create
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_080609aa:
     pop        {pc}
 
@@ -569,16 +569,16 @@ _ts R_Handy_1_4_4_Next
     tst        r0,r1
     beq        LAB_080609c8
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080609c8:
     pop        {pc}
 
 
 _nt R_Handy_1_5_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Handy_1_5_0_StartAnim_080609e4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -597,25 +597,25 @@ PTR_PTR_R_Handy_1_5_0_StartAnim_080609e4:
 _ts R_Handy_1_5_0_StartAnim
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     pop        {pc}
 
 
 _ts R_Handy_1_5_1_FindWalkablePanel
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08060a82
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bmi        LAB_08060a4a
     bl         Rng_RandomUint
     mov        r1,#0x1
@@ -625,17 +625,17 @@ _ts R_Handy_1_5_1_FindWalkablePanel
     mov        r1,#0x0
     sub        r1,#0x1
 LAB_08060a1e:
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_y]
     add        r1,r1,r0
-    ldrb       r0,[r5,#0x18]
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
     push       {r0,r1}
     bl         R_Handy_FindWalkablePanel
     tst        r0,r0
     pop        {r0,r1}
     beq        LAB_08060a4a
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]
@@ -643,22 +643,22 @@ LAB_08060a1e:
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_08060a82
 LAB_08060a4a:
     mov        r0,#0x1
-    strh       r0,[r5,#0x1e]
-    ldrb       r0,[r5,#0x18]
+    strh       r0,[r5,#Actor_counterB]
+    ldrb       r0,[r5,#Actor_cPos_x]
     add        r0,#0x1
-    ldrb       r1,[r5,#0x19]
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    ldrb       r1,[r5,#Actor_cPos_y]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
     push       {r0,r1}
     bl         R_Handy_FindWalkablePanel
     tst        r0,r0
     pop        {r0,r1}
     beq        LAB_08060a7a
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]
@@ -666,20 +666,20 @@ LAB_08060a4a:
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_08060a82
 LAB_08060a7a:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08060a82:
     pop        {pc}
 
 
 _ts R_Handy_1_5_2_Teleport
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_R_Handy_1_5_2_0_Teleport_08060a94
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -701,9 +701,9 @@ PTR_R_Handy_1_5_2_0_Teleport_08060a98:
 _ts R_Handy_1_5_2_0_Teleport
     push       {lr}
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0xa
     lsl        r4,r4,#0x10
     add        r3,r3,r4
@@ -711,14 +711,14 @@ _ts R_Handy_1_5_2_0_Teleport
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     b          FUN_08060ace
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 
 
 _nt FUN_08060ace
@@ -727,54 +727,54 @@ _nt FUN_08060ace
 
 _ts R_Handy_1_5_2_1_TeleportEnd
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08060b0e
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     push       {r5}
     add        r2,r1,#0x0
     add        r1,r0,#0x0
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0xa
     lsl        r4,r4,#0x10
     add        r3,r3,r4
     mov        r4,#0x14
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_08060b0e:
     pop        {pc}
 
 
 _ts R_Handy_1_5_2_2_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08060b22
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_08060b22:
     pop        {pc}
 
 
 _ts R_Handy_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Handy_2_0_Delete_08060b3c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -794,12 +794,12 @@ PTR_PTR_R_Handy_2_0_Delete_08060b3c:
 
 _ts R_Handy_2_0_Delete
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
@@ -807,15 +807,15 @@ _ts R_Handy_2_0_Delete
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Handy_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08060b7a
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free

@@ -5,7 +5,7 @@
 
 _ts Effect_DieBombExplosion
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_DieBombExplosion_0_Init_0807dcf4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,15 +26,15 @@ PTR_E_DieBombExplosion_0_Init_0807dcf8:
 
 _ts E_DieBombExplosion_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     beq        LAB_0807dd26
     bl         Battle_IsInputLocked
     bne        LAB_0807ddd2
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Effect_cPos_x]
+    ldrb       r1,[r5,#Effect_cPos_y]
     bl         FieldObject_GetPanelFlags
     ldr        r1,DAT_0807ddd8
     tst        r0,r1
@@ -43,10 +43,10 @@ LAB_0807dd26:
     bl         Field_IsEntityCellPositionValid
     tst        r0,r0
     beq        LAB_0807ddd2
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Effect_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xce
     bl         Sprite_InitSpritePtr
@@ -54,44 +54,44 @@ LAB_0807dd26:
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Effect_cPos_x]
+    ldrb       r1,[r5,#Effect_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Effect_pos_curr_x]
+    str        r1,[r5,#Effect_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Effect_pos_curr_z]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Effect_element]
     mov        r0,#0x8
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bl         Field_GetAttackDirectionOffset_MP
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Effect_diff_x]
     mov        r0,#0x76
     bl         Sound_PlaySE
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     beq        LAB_0807dd90
     FieldObject_Create PFI_Self_Explosion, 0x60, offset_reg=3
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_DieBombExplosion_1_Main
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 LAB_0807dd90:
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Effect_cPos_x]
+    ldrb       r1,[r5,#Effect_cPos_y]
     bl         FieldObject_GetPanelFlags
     ldr        r7,PTR_PanelFlag_ARRAY_0807dddc
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Effect_owner]
     lsl        r1,r1,#0x2
     ldr        r1,[r7,r1]
     tst        r0,r1
     beq        LAB_0807ddc8
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Effect_element]
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
@@ -102,12 +102,12 @@ LAB_0807dd90:
     mov        r6,#0x1
     lsl        r6,r6,#0x10
     orr        r4,r6
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Effect_damage]
     mov        r7,#0x1
     bl         Field_CreateSharpStrikeAttack
 LAB_0807ddc8:
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_DieBombExplosion_1_Main
     pop        {pc}
 LAB_0807ddd2:
@@ -128,32 +128,32 @@ PanelFlag_ARRAY_0807dde0:
 _ts E_DieBombExplosion_1_Main
     push       {lr}
     bl         SpritePtr_ProcessFrameDelay
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     beq        LAB_0807de0c
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_DisableIfDeleted
     FieldObject_GetDamage PFI_Target_Solid, 0x60
     tst        r0,r0
     beq        LAB_0807de0c
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0807de0c:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0807de48
-    ldr        r0,[r5,#0x44]
-    ldrb       r1,[r5,#0x18]
+    ldr        r0,[r5,#Effect_diff_x]
+    ldrb       r1,[r5,#Effect_cPos_x]
     add        r1,r1,r0
-    ldrb       r2,[r5,#0x19]
-    ldrb       r0,[r5,#0x16]
-    ldrb       r4,[r5,#0x4]
-    ldrh       r6,[r5,#0x24]
+    ldrb       r2,[r5,#Effect_cPos_y]
+    ldrb       r0,[r5,#Effect_owner]
+    ldrb       r4,[r5,#Effect_family_family]
+    ldrh       r6,[r5,#Effect_damage]
     bl         Effect_DieBombExplosion_Create
     tst        r7,r7
     beq        LAB_0807de38
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Effect_header_entityFlags]
     mov        r1,#0x4
     and        r0,r1
     ldrb       r1,[r7,#0x0]
@@ -161,11 +161,11 @@ LAB_0807de0c:
     strb       r1,[r7,#0x0]
 LAB_0807de38:
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Effect_state_s0]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     beq        LAB_0807de48
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0807de48:
     pop        {pc}
@@ -173,10 +173,10 @@ LAB_0807de48:
 
 _nt E_DieBombExplosion_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     beq        LAB_0807de58
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_Free
 LAB_0807de58:
     bl         Effect_Free

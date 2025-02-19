@@ -6,7 +6,7 @@
 _ts NPC_Main
     push       {lr}
     ldr        r7,PTR_PTR_NPC_0_Init_08081db0
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#NPC_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -26,37 +26,37 @@ PTR_PTR_NPC_0_Init_08081db0:
 
 _ts NPC_0_Init
     push       {lr}
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#NPC_commandListStart]
     bl         NPC_SetCommand
     mov        r0,#0x0
-    str        r0,[r5,#0x64]
-    str        r0,[r5,#0x68]
+    str        r0,[r5,#NPC_currObjExcludeFlags]
+    str        r0,[r5,#NPC_lastObjExcludeFlags]
     bl         SpritePtr_SetObjectExcludeFlags
     bl         SpritePtr_EnableShadow
     mov        r0,#0xff
-    strh       r0,[r5,#0x3c]
-    strh       r0,[r5,#0x3e]
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strh       r0,[r5,#NPC_currSpriteIndex]
+    strh       r0,[r5,#NPC_lastSpriteIndex]
+    strb       r0,[r5,#NPC_currFrameIndex]
+    strb       r0,[r5,#NPC_lastFrameIndex]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#NPC_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0xe]
-    strb       r0,[r5,#0xf]
-    strb       r0,[r5,#0x17]
-    strb       r0,[r5,#0x7]
-    strb       r0,[r5,#0x16]
-    str        r0,[r5,#0x5c]
-    str        r0,[r5,#0x60]
-    str        r0,[r5,#0x54]
-    str        r0,[r5,#0x58]
-    strb       r0,[r5,#0x11]
-    strb       r0,[r5,#0x12]
-    strb       r0,[r5,#0x13]
+    strb       r0,[r5,#NPC_currDirection]
+    strb       r0,[r5,#NPC_lastDirection]
+    strb       r0,[r5,#NPC_isMovingZ]
+    strb       r0,[r5,#NPC_family_b3]
+    strb       r0,[r5,#NPC_paletteIndex]
+    str        r0,[r5,#NPC_commandListStart]
+    str        r0,[r5,#NPC_spritePriority]
+    str        r0,[r5,#NPC_collisionInfo]
+    str        r0,[r5,#NPC_movementFlags]
+    strb       r0,[r5,#NPC_posSub_m_X]
+    strb       r0,[r5,#NPC_posSub_m_Y]
+    strb       r0,[r5,#NPC_posSub_m_Z]
     mov        r0,#0x6
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#NPC_radius]
     mov        r0,#0x20
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#NPC_height]
     bl         NPC_SetIdFlag
     bl         NPC_1_Main
     pop        {pc}
@@ -64,7 +64,7 @@ _ts NPC_0_Init
 
 _ts NPC_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#NPC_commandListStart]
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08081e26
@@ -72,9 +72,9 @@ _ts NPC_1_Main
     tst        r0,r0
     beq        LAB_08081e1a
     mov        r0,#0x1
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#NPC_isTalking]
 LAB_08081e1a:
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#NPC_isTalking]
     tst        r0,r0
     beq        LAB_08081e26
     bl         NPC_Talk_SaveState
@@ -82,12 +82,12 @@ LAB_08081e1a:
 LAB_08081e26:
     bl         NPC_InterpretCommands
     ldr        r7,PTR_PTR_NPC_1_0_WaitMove_08081eb0
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#NPC_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldrh       r0,[r5,#0x3c]
-    ldrh       r1,[r5,#0x3e]
+    ldrh       r0,[r5,#NPC_currSpriteIndex]
+    ldrh       r1,[r5,#NPC_lastSpriteIndex]
     cmp        r0,r1
     beq        LAB_08081e50
     add        r1,r0,#0x0
@@ -96,34 +96,34 @@ LAB_08081e26:
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#NPC_lastFrameIndex]
 LAB_08081e50:
-    ldrb       r0,[r5,#0x14]
-    ldrb       r1,[r5,#0x15]
+    ldrb       r0,[r5,#NPC_currFrameIndex]
+    ldrb       r1,[r5,#NPC_lastFrameIndex]
     cmp        r0,r1
     beq        LAB_08081e60
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
 LAB_08081e60:
     bl         SpritePtr_ProcessFrameDelay
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#NPC_paletteIndex]
     bl         SpritePtr_SetPaletteIndex
-    ldr        r0,[r5,#0x64]
-    ldr        r1,[r5,#0x68]
+    ldr        r0,[r5,#NPC_currObjExcludeFlags]
+    ldr        r1,[r5,#NPC_lastObjExcludeFlags]
     cmp        r0,r1
     beq        LAB_08081e76
     bl         SpritePtr_SetObjectExcludeFlags
 LAB_08081e76:
-    ldrb       r0,[r5,#0xe]
-    strb       r0,[r5,#0xf]
-    ldrb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
-    ldrh       r0,[r5,#0x3c]
-    strh       r0,[r5,#0x3e]
-    ldr        r0,[r5,#0x64]
-    str        r0,[r5,#0x68]
+    ldrb       r0,[r5,#NPC_currDirection]
+    strb       r0,[r5,#NPC_lastDirection]
+    ldrb       r0,[r5,#NPC_currFrameIndex]
+    strb       r0,[r5,#NPC_lastFrameIndex]
+    ldrh       r0,[r5,#NPC_currSpriteIndex]
+    strh       r0,[r5,#NPC_lastSpriteIndex]
+    ldr        r0,[r5,#NPC_currObjExcludeFlags]
+    str        r0,[r5,#NPC_lastObjExcludeFlags]
     bl         NPC_SetCollision
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#NPC_spritePriority]
     tst        r0,r0
     bne        LAB_08081e9c
     add        r0,r5,#0x0
@@ -149,9 +149,9 @@ PTR_PTR_NPC_1_0_WaitMove_08081eb0:
 
 _ts NPC_1_0_WaitMove
     push       {lr}
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#NPC_moveDeltaCount]
     sub        r0,#0x1
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#NPC_moveDeltaCount]
     bne        LAB_08081ec2
     bl         NPC_ContinueScript
 LAB_08081ec2:
@@ -161,7 +161,7 @@ LAB_08081ec2:
 _ts NPC_1_1_Move
     push       {lr}
     ldr        r7,PTR_PTR_NPC_1_1_0_CalcNextMove_08081edc
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#NPC_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -183,65 +183,65 @@ _ts NPC_1_1_0_CalcNextMove
     @@ First, find the next position by adding 8 to X or Y,
     @@ depending on the facing direction
     ldr        r7,PTR_listPosDiffFull_08081fa0
-    ldrb       r0,[r5,#0xe]
+    ldrb       r0,[r5,#NPC_currDirection]
     lsl        r0,r0,#0x2
     add        r7,r7,r0
-    ldr        r0,[r5,#0x24]
+    ldr        r0,[r5,#NPC_curr_x]
     mov        r3,#0x0
     ldrsh      r1,[r7,r3]
     lsl        r1,r1,#0x10
     add        r0,r0,r1
-    str        r0,[r5,#0x6c]
-    ldr        r0,[r5,#0x28]
+    str        r0,[r5,#NPC_next_x]
+    ldr        r0,[r5,#NPC_curr_y]
     mov        r3,#0x2
     ldrsh      r1,[r7,r3]
     lsl        r1,r1,#0x10
     add        r0,r0,r1
-    str        r0,[r5,#0x70]
+    str        r0,[r5,#NPC_next_y]
     @@ Divide 8 units by the position increment count
     @@ to get the movement delta count
     ldr        r0,DAT_08081fa4
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#NPC_family_family]
     push       {r5}
     bl         SWI_Div
     pop        {r5}
     ldr        r1,DAT_08081fb0
     add        r0,r0,r1
     lsr        r0,r0,#0xc
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#NPC_moveDeltaCount]
     @@ Set the position delta to add to the curr pos
     @@ by multiplying the basic unit by the posIncrementCount
     ldr        r7,PTR_listPosDiffSmall_08081f9c
-    ldrb       r0,[r5,#0xe]
+    ldrb       r0,[r5,#NPC_currDirection]
     add        r0,r0,r0
     add        r7,r7,r0
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#NPC_family_family]
     mov        r3,#0x0
     ldrsb      r1,[r7,r3]
     mul        r1,r4
     lsl        r1,r1,#0xc
-    str        r1,[r5,#0x40]
+    str        r1,[r5,#NPC_diff_x]
     mov        r3,#0x1
     ldrsb      r1,[r7,r3]
     mul        r1,r4
     lsl        r1,r1,#0xc
-    str        r1,[r5,#0x44]
+    str        r1,[r5,#NPC_diff_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#NPC_diff_z]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
-    ldr        r1,[r5,#0x40]
-    ldr        r0,[r5,#0x24]
+    strb       r0,[r5,#NPC_state_s2]
+    ldr        r1,[r5,#NPC_diff_x]
+    ldr        r0,[r5,#NPC_curr_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x30]
-    ldr        r1,[r5,#0x44]
-    ldr        r0,[r5,#0x28]
+    str        r0,[r5,#NPC_subNext_x]
+    ldr        r1,[r5,#NPC_diff_y]
+    ldr        r0,[r5,#NPC_curr_y]
     add        r0,r0,r1
-    str        r0,[r5,#0x34]
-    ldr        r1,[r5,#0x48]
-    ldr        r0,[r5,#0x2c]
+    str        r0,[r5,#NPC_subNext_y]
+    ldr        r1,[r5,#NPC_diff_z]
+    ldr        r0,[r5,#NPC_curr_z]
     add        r0,r0,r1
-    str        r0,[r5,#0x38]
+    str        r0,[r5,#NPC_subNext_z]
     bl         NPC_AddMovingHitbox
     pop        {pc}
 
@@ -308,23 +308,23 @@ _ts NPC_1_1_1_PerformMove
     bl         NPC_IsBlockedByPlayer
     tst        r0,r0
     bne        LAB_08082004
-    ldr        r0,[r5,#0x30]
-    str        r0,[r5,#0x24]
-    ldr        r0,[r5,#0x34]
-    str        r0,[r5,#0x28]
-    ldr        r0,[r5,#0x38]
-    str        r0,[r5,#0x2c]
-    ldrh       r0,[r5,#0x20]
+    ldr        r0,[r5,#NPC_subNext_x]
+    str        r0,[r5,#NPC_curr_x]
+    ldr        r0,[r5,#NPC_subNext_y]
+    str        r0,[r5,#NPC_curr_y]
+    ldr        r0,[r5,#NPC_subNext_z]
+    str        r0,[r5,#NPC_curr_z]
+    ldrh       r0,[r5,#NPC_moveDeltaCount]
     sub        r0,#0x1
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#NPC_moveDeltaCount]
     bne        LAB_08081fee
-    ldr        r0,[r5,#0x6c]
-    str        r0,[r5,#0x24]
-    ldr        r0,[r5,#0x70]
-    str        r0,[r5,#0x28]
-    ldrb       r0,[r5,#0x5]
+    ldr        r0,[r5,#NPC_next_x]
+    str        r0,[r5,#NPC_curr_x]
+    ldr        r0,[r5,#NPC_next_y]
+    str        r0,[r5,#NPC_curr_y]
+    ldrb       r0,[r5,#NPC_family_b1]
     sub        r0,#0x1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#NPC_family_b1]
     bne        LAB_08081fe8
     bl         NPC_ContinueScript
     pop        {pc}
@@ -332,14 +332,14 @@ LAB_08081fe8:
     bl         NPC_1_1_0_CalcNextMove
     pop        {pc}
 LAB_08081fee:
-    ldr        r1,[r5,#0x40]
-    ldr        r0,[r5,#0x30]
+    ldr        r1,[r5,#NPC_diff_x]
+    ldr        r0,[r5,#NPC_subNext_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x30]
-    ldr        r1,[r5,#0x44]
-    ldr        r0,[r5,#0x34]
+    str        r0,[r5,#NPC_subNext_x]
+    ldr        r1,[r5,#NPC_diff_y]
+    ldr        r0,[r5,#NPC_subNext_y]
     add        r0,r0,r1
-    str        r0,[r5,#0x34]
+    str        r0,[r5,#NPC_subNext_y]
     bl         NPC_AddMovingHitbox
     pop        {pc}
 LAB_08082004:
@@ -358,7 +358,7 @@ LAB_08082004:
 _ts NPC_1_2_HandleZMovement
     push       {lr}
     ldr        r7,PTR_PTR_NPC_1_2_0_CalcYZ_08082030
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#NPC_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -377,43 +377,43 @@ PTR_PTR_NPC_1_2_0_CalcYZ_08082030:
 
 _ts NPC_1_2_0_CalcYZ
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#NPC_family_family]
     lsl        r0,r0,#0xc
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#NPC_diff_z]
     mov        r3,#0x5
     ldrsb      r0,[r5,r3]
     lsl        r0,r0,#0xc
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#NPC_diff_y]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#NPC_isMovingZ]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#NPC_state_s2]
     pop        {pc}
 
 
 _nt NPC_1_2_1_MoveZ
     push       {lr}
-    ldr        r0,[r5,#0x48]
-    ldr        r1,[r5,#0x44]
+    ldr        r0,[r5,#NPC_diff_z]
+    ldr        r1,[r5,#NPC_diff_y]
     add        r0,r0,r1
-    str        r0,[r5,#0x48]
-    ldr        r1,[r5,#0x2c]
+    str        r0,[r5,#NPC_diff_z]
+    ldr        r1,[r5,#NPC_curr_z]
     add        r0,r0,r1
     cmp        r0,#0x0
     bpl        LAB_0808206a
     mov        r0,#0x0
-    str        r0,[r5,#0x2c]
-    strb       r0,[r5,#0x17]
+    str        r0,[r5,#NPC_curr_z]
+    strb       r0,[r5,#NPC_isMovingZ]
     bl         NPC_ContinueScript
 LAB_0808206a:
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#NPC_curr_z]
     pop        {pc}
 
 
 _nt NPC_2_Talking
     push       {lr}
     ldr        r7,PTR_PTR_NPC_2_0_08082088
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#NPC_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -431,7 +431,7 @@ PTR_PTR_NPC_2_0_08082088:
 _ts NPC_2_0
     push       {lr}
     ldr        r7,PTR_PTR_NPC_2_0_0_080820a4
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#NPC_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -450,7 +450,7 @@ PTR_PTR_NPC_2_0_0_080820a4:
 
 _ts NPC_2_0_0
     push       {lr}
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#NPC_commandListStart]
     mov        r1,#0x2
     tst        r0,r1
     bne        LAB_080820c8
@@ -464,11 +464,11 @@ _ts NPC_2_0_0
     bl         SpritePtr_InitFrames
 LAB_080820c8:
     push       {r5}
-    ldrb       r0,[r5,#0x1c]
+    ldrb       r0,[r5,#NPC_areaDialogueIndex]
     bl         Text_LoadAreaDialogue
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#NPC_state_s2]
     bl         NPC_2_0_1
     pop        {pc}
 
@@ -485,7 +485,7 @@ _ts NPC_2_0_1
     mov        r0,#0x0
     strb       r0,[r7,#0x1a]
     strb       r0,[r6,#0x0]
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#NPC_family_b3]
     bl         NPC_Talk_RestoreState
 LAB_080820fa:
     pop        {pc}
@@ -500,17 +500,17 @@ PTR_gNpcTalkState_08082100:
 _ts NPC_InterpretCommands
     push       {lr}
 LAB_08082106:
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#NPC_scriptStatus]
     tst        r0,r0
     bne        LAB_0808211e
-    ldr        r6,[r5,#0x50]
+    ldr        r6,[r5,#NPC_m_currentCommand]
     ldrb       r0,[r6,#0x0]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_NPC_Command_00_Stop_08082120
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    str        r6,[r5,#0x50]
+    str        r6,[r5,#NPC_m_currentCommand]
     b          LAB_08082106
 LAB_0808211e:
     pop        {pc}
@@ -575,7 +575,7 @@ _ts NPC_Command_02_Jump
 _ts NPC_Command_03_Destroy
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#NPC_header_entityFlags]
     bl         NPC_Free
     bl         NPC_StopScript
     pop        {pc}
@@ -631,28 +631,28 @@ _ts NPC_Command_07_ClearFlag
 
 _ts NPC_Command_08_Init
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#NPC_header_entityFlags]
     add        r6,#0x1
     mov        pc,lr
 
 
 _ts NPC_Command_09_InitNoSprite
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#NPC_header_entityFlags]
     add        r6,#0x1
     mov        pc,lr
 
 
 _ts NPC_Command_0A_SetRadius
     ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#NPC_radius]
     add        r6,#0x2
     mov        pc,lr
 
 
 _ts NPC_Command_0B_SetHeight
     ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#NPC_height]
     add        r6,#0x2
     mov        pc,lr
 
@@ -660,13 +660,13 @@ _ts NPC_Command_0B_SetHeight
 _ts NPC_Command_0C_SetHitboxOffset
     mov        r1,#0x1
     ldrsb      r0,[r6,r1]
-    strb       r0,[r5,#0x11]
+    strb       r0,[r5,#NPC_posSub_m_X]
     mov        r1,#0x2
     ldrsb      r0,[r6,r1]
-    strb       r0,[r5,#0x12]
+    strb       r0,[r5,#NPC_posSub_m_Y]
     mov        r1,#0x3
     ldrsb      r0,[r6,r1]
-    strb       r0,[r5,#0x13]
+    strb       r0,[r5,#NPC_posSub_m_Z]
     add        r6,#0x4
     mov        pc,lr
 
@@ -674,18 +674,18 @@ _ts NPC_Command_0C_SetHitboxOffset
 _nt NPC_Command_0D_EnableDialog
     mov        r0,#0x1
     mvn        r0,r0
-    ldr        r1,[r5,#0x5c]
+    ldr        r1,[r5,#NPC_commandListStart]
     and        r1,r0
-    str        r1,[r5,#0x5c]
+    str        r1,[r5,#NPC_commandListStart]
     add        r6,#0x1
     mov        pc,lr
 
 
 _ts NPC_Command_0E_DisableDialog
     mov        r0,#0x1
-    ldr        r1,[r5,#0x5c]
+    ldr        r1,[r5,#NPC_commandListStart]
     orr        r1,r0
-    str        r1,[r5,#0x5c]
+    str        r1,[r5,#NPC_commandListStart]
     add        r6,#0x1
     mov        pc,lr
 
@@ -693,7 +693,7 @@ _ts NPC_Command_0E_DisableDialog
 _ts NPC_Command_0F_SetPalette
     push       {lr}
     ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0x16]
+    strb       r0,[r5,#NPC_paletteIndex]
     add        r6,#0x2
     pop        {pc}
 
@@ -701,11 +701,11 @@ _ts NPC_Command_0F_SetPalette
 _nt NPC_Command_10_Wait
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#NPC_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#NPC_state_s2]
     ldrb       r0,[r6,#0x1]
-    strh       r0,[r5,#0x20]
+    strh       r0,[r5,#NPC_moveDeltaCount]
     bl         NPC_StopScript
     add        r6,#0x2
     pop        {pc}
@@ -714,13 +714,13 @@ _nt NPC_Command_10_Wait
 _ts NPC_Command_11_Drop
     push       {lr}
     ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#NPC_family_family]
     ldrb       r0,[r6,#0x2]
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#NPC_family_b1]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#NPC_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#NPC_state_s2]
     bl         NPC_StopScript
     add        r6,#0x3
     pop        {pc}
@@ -729,18 +729,18 @@ _ts NPC_Command_11_Drop
 _nt NPC_Command_12_EnableTurn
     mov        r0,#0x2
     mvn        r0,r0
-    ldr        r1,[r5,#0x5c]
+    ldr        r1,[r5,#NPC_commandListStart]
     and        r1,r0
-    str        r1,[r5,#0x5c]
+    str        r1,[r5,#NPC_commandListStart]
     add        r6,#0x1
     mov        pc,lr
 
 
 _ts NPC_Command_13_DisableTurn
     mov        r0,#0x2
-    ldr        r1,[r5,#0x5c]
+    ldr        r1,[r5,#NPC_commandListStart]
     orr        r1,r0
-    str        r1,[r5,#0x5c]
+    str        r1,[r5,#NPC_commandListStart]
     add        r6,#0x1
     mov        pc,lr
 
@@ -750,15 +750,15 @@ _ts NPC_Command_14_SetPosition
     add        r0,r6,#0x1
     bl         NPC_Command_GetShort
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x24]
+    str        r0,[r5,#NPC_curr_x]
     add        r0,r6,#0x3
     bl         NPC_Command_GetShort
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#NPC_curr_y]
     add        r0,r6,#0x5
     bl         NPC_Command_GetShort
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#NPC_curr_z]
     add        r6,#0x7
     pop        {pc}
 
@@ -766,15 +766,15 @@ _ts NPC_Command_14_SetPosition
 _ts NPC_Command_15_Move
     push       {lr}
     ldrb       r2,[r6,#0x1]
-    strb       r2,[r5,#0xe]
+    strb       r2,[r5,#NPC_currDirection]
     ldrb       r2,[r6,#0x2]
-    strb       r2,[r5,#0x4]
+    strb       r2,[r5,#NPC_family_family]
     ldrb       r2,[r6,#0x3]
-    strb       r2,[r5,#0x5]
+    strb       r2,[r5,#NPC_family_b1]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#NPC_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#NPC_state_s2]
     bl         NPC_StopScript
     add        r6,#0x4
     pop        {pc}
@@ -782,42 +782,42 @@ _ts NPC_Command_15_Move
 
 _nt NPC_Command_16_SetSpriteFrame
     ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#NPC_currFrameIndex]
     add        r6,#0x2
     mov        pc,lr
 
 
 _nt NPC_Command_17_SetSprite
     ldrb       r0,[r6,#0x1]
-    strh       r0,[r5,#0x3c]
+    strh       r0,[r5,#NPC_currSpriteIndex]
     add        r6,#0x2
     mov        pc,lr
 
 
 _nt NPC_Command_18_SetAreaDialogue
     ldrb       r0,[r6,#0x1]
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#NPC_areaDialogueIndex]
     add        r6,#0x2
     mov        pc,lr
 
 
 _nt NPC_Command_19_SpriteAutoPriority
     mov        r0,#0x0
-    str        r0,[r5,#0x60]
+    str        r0,[r5,#NPC_spritePriority]
     add        r6,#0x1
     mov        pc,lr
 
 
 _nt NPC_Command_1A_SpriteHighPriority
     mov        r0,#0x1
-    str        r0,[r5,#0x60]
+    str        r0,[r5,#NPC_spritePriority]
     add        r6,#0x1
     mov        pc,lr
 
 
 _nt NPC_Command_1B_SpriteLowPriority
     mov        r0,#0x2
-    str        r0,[r5,#0x60]
+    str        r0,[r5,#NPC_spritePriority]
     add        r6,#0x1
     mov        pc,lr
 
@@ -826,7 +826,7 @@ _nt NPC_Command_1C_SetObjExcludeFlags
     push       {lr}
     add        r0,r6,#0x1
     bl         NPC_Command_GetInt
-    str        r0,[r5,#0x64]
+    str        r0,[r5,#NPC_currObjExcludeFlags]
     add        r6,#0x5
     pop        {pc}
 
@@ -837,9 +837,9 @@ _ts NPC_Command_1D_SetObjExcludeFlag
     mov        r1,#0x80
     lsl        r1,r1,#0x18
     lsr        r1,r0
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#NPC_currObjExcludeFlags]
     orr        r0,r1
-    str        r0,[r5,#0x64]
+    str        r0,[r5,#NPC_currObjExcludeFlags]
     add        r6,#0x2
     pop        {pc}
 
@@ -852,18 +852,18 @@ _ts NPC_Command_1E_ClearObjExcludeFlag
     lsl        r1,r1,#0x18
     lsr        r1,r0
     mvn        r1,r1
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#NPC_currObjExcludeFlags]
     and        r0,r1
-    str        r0,[r5,#0x64]
+    str        r0,[r5,#NPC_currObjExcludeFlags]
     add        r6,#0x2
     pop        {pc}
 
 
 _ts NPC_Command_1F_DisableCollision
     mov        r0,#0x4
-    ldr        r1,[r5,#0x5c]
+    ldr        r1,[r5,#NPC_commandListStart]
     orr        r1,r0
-    str        r1,[r5,#0x5c]
+    str        r1,[r5,#NPC_commandListStart]
     add        r6,#0x1
     mov        pc,lr
 
@@ -871,9 +871,9 @@ _ts NPC_Command_1F_DisableCollision
 _ts NPC_Command_20_EnableCollision
     mov        r0,#0x4
     mvn        r0,r0
-    ldr        r1,[r5,#0x5c]
+    ldr        r1,[r5,#NPC_commandListStart]
     and        r1,r0
-    str        r1,[r5,#0x5c]
+    str        r1,[r5,#NPC_commandListStart]
     add        r6,#0x1
     mov        pc,lr
 
@@ -903,86 +903,86 @@ _ts NPC_Command_24_SetSpriteLong
     push       {lr}
     add        r0,r6,#0x1
     bl         NPC_Command_GetShort
-    strh       r0,[r5,#0x3c]
+    strh       r0,[r5,#NPC_currSpriteIndex]
     add        r6,#0x3
     pop        {pc}
 
 
 _nt NPC_SetCommand
     push       {lr}
-    str        r0,[r5,#0x50]
+    str        r0,[r5,#NPC_m_currentCommand]
     mov        r0,#0x0
-    strb       r0,[r5,#0x19]
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#NPC_scriptStatus]
+    strb       r0,[r5,#NPC_isTalking]
     pop        {pc}
 
 
 _nt NPC_ContinueScript
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x19]
+    strb       r0,[r5,#NPC_scriptStatus]
     pop        {pc}
 
 
 _nt NPC_StopScript
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x19]
+    strb       r0,[r5,#NPC_scriptStatus]
     pop        {pc}
 
 
 _nt NPC_SetCollision
     push       {lr}
     push       {r5}
-    ldr        r4,[r5,#0x4c]
+    ldr        r4,[r5,#NPC_npcIdFlag]
     mvn        r0,r4
     mov        r8,r0
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#NPC_commandListStart]
     mov        r1,#0x4
     tst        r0,r1
     beq        LAB_080823fa
     mov        r4,#0x0
 LAB_080823fa:
-    ldr        r0,[r5,#0x24]
+    ldr        r0,[r5,#NPC_curr_x]
     mov        r6,#0x11
     ldrsb      r6,[r5,r6]
     lsl        r6,r6,#0x10
     add        r0,r0,r6
-    ldr        r1,[r5,#0x28]
+    ldr        r1,[r5,#NPC_curr_y]
     mov        r6,#0x12
     ldrsb      r6,[r5,r6]
     lsl        r6,r6,#0x10
     add        r1,r1,r6
-    ldr        r2,[r5,#0x2c]
+    ldr        r2,[r5,#NPC_curr_z]
     mov        r6,#0x13
     ldrsb      r6,[r5,r6]
     lsl        r6,r6,#0x10
     add        r2,r2,r6
     mov        r6,#0x54
     add        r6,r6,r5
-    ldrh       r3,[r5,#0xc]
+    ldrh       r3,[r5,#NPC_radius]
     mov        r5,r8
     bl         EntityBounds_AddToList
     pop        {r5}
     mov        r0,#0x0
-    str        r0,[r5,#0x54]
+    str        r0,[r5,#NPC_collisionInfo]
     pop        {pc}
 
 
 _ts NPC_AddMovingHitbox
     push       {lr}
     push       {r5}
-    ldr        r0,[r5,#0x30]
+    ldr        r0,[r5,#NPC_subNext_x]
     mov        r6,#0x11
     ldrsb      r6,[r5,r6]
     lsl        r6,r6,#0x10
     add        r0,r0,r6
-    ldr        r1,[r5,#0x34]
+    ldr        r1,[r5,#NPC_subNext_y]
     mov        r6,#0x12
     ldrsb      r6,[r5,r6]
     lsl        r6,r6,#0x10
     add        r1,r1,r6
-    ldr        r2,[r5,#0x38]
+    ldr        r2,[r5,#NPC_subNext_z]
     mov        r6,#0x13
     ldrsb      r6,[r5,r6]
     lsl        r6,r6,#0x10
@@ -991,12 +991,12 @@ _ts NPC_AddMovingHitbox
     add        r6,r6,r5
     ldr        r3,INT_08082468
     mov        r4,#0x0
-    ldr        r5,[r5,#0x4c]
+    ldr        r5,[r5,#NPC_npcIdFlag]
     mvn        r5,r5
     bl         EntityBounds_AddToList
     pop        {r5}
     mov        r0,#0x0
-    str        r0,[r5,#0x58]
+    str        r0,[r5,#NPC_movementFlags]
     pop        {pc}
 
     .align 2, 0
@@ -1008,35 +1008,35 @@ INT_08082468:
 
 _ts NPC_Talk_SaveState
     push       {lr}
-    ldrb       r0,[r5,#0x9]
-    strb       r0,[r5,#0x1d]
-    ldrb       r0,[r5,#0xa]
-    strb       r0,[r5,#0x1e]
-    ldrb       r0,[r5,#0xb]
-    strb       r0,[r5,#0x1f]
+    ldrb       r0,[r5,#NPC_state_s1]
+    strb       r0,[r5,#NPC_savedState1]
+    ldrb       r0,[r5,#NPC_state_s2]
+    strb       r0,[r5,#NPC_savedState2]
+    ldrb       r0,[r5,#NPC_state_s3]
+    strb       r0,[r5,#NPC_savedState3]
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#NPC_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
-    strh       r0,[r5,#0xa]
+    strb       r0,[r5,#NPC_state_s1]
+    strh       r0,[r5,#NPC_state_s2]
     pop        {pc}
 
 
 _nt NPC_Talk_RestoreState
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x1d]
-    strb       r0,[r5,#0x9]
-    ldrb       r0,[r5,#0x1e]
-    strb       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0x1f]
-    strb       r0,[r5,#0xb]
-    ldrb       r0,[r5,#0x14]
+    strb       r0,[r5,#NPC_state_s0]
+    ldrb       r0,[r5,#NPC_savedState1]
+    strb       r0,[r5,#NPC_state_s1]
+    ldrb       r0,[r5,#NPC_savedState2]
+    strb       r0,[r5,#NPC_state_s2]
+    ldrb       r0,[r5,#NPC_savedState3]
+    strb       r0,[r5,#NPC_state_s3]
+    ldrb       r0,[r5,#NPC_currFrameIndex]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#NPC_isTalking]
     pop        {pc}
 
 
@@ -1050,10 +1050,10 @@ _ts NPC_Talk_Main
     b          LAB_080824c0
 LAB_080824ba:
     mov        r0,#0x0
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#NPC_family_b3]
     b          LAB_080824cc
 LAB_080824c0:
-    ldrb       r0,[r5,#0x7]
+    ldrb       r0,[r5,#NPC_family_b3]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_NPC_Talk_0_SetReady_080824dc
     ldr        r7,[r7,r0]
@@ -1080,14 +1080,14 @@ _ts NPC_Talk_0_SetReady
     ldrb       r0,[r7,#0x0]
     tst        r0,r0
     bne        LAB_080824fa
-    ldr        r0,[r5,#0x54]
+    ldr        r0,[r5,#NPC_collisionInfo]
     mov        r1,#0x4
     tst        r0,r1
     beq        LAB_080824fa
     mov        r0,#0x1
     ldr        r1,PTR_gNpcTalkState_08082528
     strb       r0,[r1,#0x0]
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#NPC_family_b3]
 LAB_080824fa:
     mov        r0,#0x0
     pop        {pc}
@@ -1100,7 +1100,7 @@ _nt NPC_Talk_1_CheckPlayerReady
     cmp        r0,#0x2
     bne        LAB_0808250c
     mov        r0,#0x2
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#NPC_family_b3]
 LAB_0808250c:
     mov        r0,#0x0
     pop        {pc}
@@ -1108,7 +1108,7 @@ LAB_0808250c:
 
 _ts NPC_Talk_2_Start
     push       {lr}
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#NPC_isMovingZ]
     tst        r0,r0
     bne        LAB_08082522
     mov        r0,#0x3
@@ -1130,13 +1130,13 @@ PTR_gNpcTalkState_08082528:
 _ts NPC_IsBlockedByPlayer
     push       {lr}
     mov        r0,#0x0
-    ldr        r1,[r5,#0x4c]
+    ldr        r1,[r5,#NPC_npcIdFlag]
     mvn        r1,r1
     lsr        r1,r1,#0x10
     lsl        r1,r1,#0x10
     ldr        r2,DAT_08082548
     orr        r2,r1
-    ldr        r1,[r5,#0x58]
+    ldr        r1,[r5,#NPC_movementFlags]
     tst        r1,r2
     beq        LAB_08082544
     mov        r0,#0x1
@@ -1174,11 +1174,11 @@ _nt NPC_Command_GetInt
 
 _ts NPC_SetIdFlag
     push       {lr}
-    ldrb       r0,[r5,#0x10]
+    ldrb       r0,[r5,#NPC_npcIndex]
     add        r0,#0x10
     mov        r1,#0x1
     lsl        r1,r0
-    str        r1,[r5,#0x4c]
+    str        r1,[r5,#NPC_npcIdFlag]
     pop        {pc}
 
 
@@ -1186,10 +1186,10 @@ _nt NPC_PrintMovement
     push       {lr}
     push       {r5}
     ldr        r0,PTR_DAT_080825f0
-    ldr        r1,[r5,#0x24]
-    ldr        r2,[r5,#0x28]
-    ldr        r3,[r5,#0x30]
-    ldr        r4,[r5,#0x34]
+    ldr        r1,[r5,#NPC_curr_x]
+    ldr        r2,[r5,#NPC_curr_y]
+    ldr        r3,[r5,#NPC_subNext_x]
+    ldr        r4,[r5,#NPC_subNext_y]
     bl         Debug_Print
     pop        {r5}
     pop        {pc}

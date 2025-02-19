@@ -13,11 +13,11 @@ listElecManSpec:
 _ts Routine_ElecMan
     push       {lr}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_ElecMan_0_Init_08063e00
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -38,17 +38,17 @@ PTR_R_ElecMan_0_Init_08063e04:
 
 _ts R_ElecMan_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x5a
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r3,#0x28
@@ -58,7 +58,7 @@ _ts R_ElecMan_0_Init
     ldmia      r7!,{r0,r1,r2}
     stmia      r6!,{r0,r1,r2}
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r3,#0x64
     strh       r0,[r5,r3]
     mov        r3,#0x62
@@ -66,18 +66,18 @@ _ts R_ElecMan_0_Init
     strb       r0,[r5,r3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_listElecManSpec_08063eac
     add        r7,r7,r0
-    str        r7,[r5,#0x70]
+    str        r7,[r5,#Actor_param_70]
     mov        r0,#0x32
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Actor_damage]
     mov        r0,#0x3
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#Actor_family_b2]
     FieldObject_Create PFI_Self_Actor, 0x68, offset_reg=3
     FieldObject_Create PFI_Moving, 0x6c, offset_reg=3
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     FieldObject_Create PFI_Sealed, 0x74
     mov        r0,#0x6
@@ -87,11 +87,11 @@ _ts R_ElecMan_0_Init
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         R_ElecMan_1_Main
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -101,18 +101,18 @@ PTR_listElecManSpec_08063eac:
 
 _ts R_ElecMan_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_DisableIfDeleted
     bl         R_ElecMan_CheckDamage
     tst        r0,r0
     bne        LAB_08063eca
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_08063ed8
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_08063eca:
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -137,33 +137,33 @@ PTR_R_Actor_1_0_Spawn_08063edc:
 
 _ts R_ElecMan_1_1_Reset
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_08063f1a
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08063f1a:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08063f2c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08063f2c:
     pop        {pc}
 
 
 _nt R_ElecMan_1_2_Decide
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ElecMan_1_2_0_08063f50
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -173,9 +173,9 @@ _nt R_ElecMan_1_2_Decide
     tst        r0,r1
     beq        LAB_08063f4c
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_08063f4c:
     pop        {pc}
 
@@ -193,21 +193,21 @@ PTR_R_ElecMan_1_2_0_08063f54:
 _ts R_ElecMan_1_2_0
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldr        r0,[r5,#0x6c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x30
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_ElecMan_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08063f80
     bl         R_ElecMan_1_2_1_ChooseNext
 LAB_08063f80:
@@ -222,7 +222,7 @@ _nt R_ElecMan_1_3_Flinch
     bcs        LAB_08063f90
     bl         SpritePtr_EnableFlash
 LAB_08063f90:
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ElecMan_1_3_0_Flinch_08063f9c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -243,61 +243,61 @@ PTR_gFrameCounter_08063fac:
 
 _ts R_ElecMan_1_3_0_Flinch
     push       {lr}
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     FieldObject_SetAttributeGroup PFI_Self_Object, 0x68
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexLast]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x32
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bl         R_ElecMan_SetColumnFlag
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_ElecMan_1_3_1_Wait
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08063ff0
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08063ff0:
     pop        {pc}
 
 
 _nt R_ElecMan_1_3_2_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806400e
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x5a
     mov        r3,#0x64
     strh       r0,[r5,r3]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806400e:
     pop        {pc}
 
 
 _ts R_ElecMan_1_5_SparkStrike
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ElecMan_1_5_0_RaiseHands_08064020
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -320,14 +320,14 @@ PTR_R_ElecMan_1_5_0_RaiseHands_08064024:
 
 _ts R_ElecMan_1_5_0_RaiseHands
     push       {lr}
-    ldr        r7,[r5,#0x70]
+    ldr        r7,[r5,#Actor_param_70]
     ldrb       r0,[r7,#0x2]
     mov        r3,#0x63
     strb       r0,[r5,r3]
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -338,31 +338,31 @@ _ts R_ElecMan_1_5_1_Electrify
     tst        r0,r1
     beq        LAB_08064064
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064064:
     pop        {pc}
 
 
 _nt R_ElecMan_1_5_2_SparkStrike
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064098
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r1,[r7,#0x18]
     ldrb       r2,[r7,#0x19]
     mov        r4,#0x0
-    ldr        r7,[r5,#0x70]
+    ldr        r7,[r5,#Actor_param_70]
     ldrb       r6,[r7,#0x1]
     bl         Attack_SparkStrike_Create
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r3,#0x63
     ldrb       r0,[r5,r3]
     sub        r0,#0x1
@@ -371,21 +371,21 @@ _nt R_ElecMan_1_5_2_SparkStrike
     pop        {pc}
 LAB_08064094:
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064098:
     pop        {pc}
 
 
 _nt R_ElecMan_1_5_3_Reset
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080640ac
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080640ac:
     pop        {pc}
 
@@ -397,16 +397,16 @@ _nt R_ElecMan_1_5_4_Next
     tst        r0,r1
     beq        LAB_080640c2
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080640c2:
     pop        {pc}
 
 
 _ts R_ElecMan_1_6_ColumnCurrent
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ElecMan_1_6_0_RaiseArms_080640d4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -430,9 +430,9 @@ PTR_R_ElecMan_1_6_0_RaiseArms_080640d8:
 _ts R_ElecMan_1_6_0_RaiseArms
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -443,44 +443,44 @@ _ts R_ElecMan_1_6_1_Electrify
     tst        r0,r1
     beq        LAB_08064110
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064110:
     pop        {pc}
 
 
 _nt R_ElecMan_1_6_2_ColumnCurrent
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064132
     bl         Rng_RandomUint
     lsr        r4,r0,#0x1e
-    ldr        r7,[r5,#0x70]
+    ldr        r7,[r5,#Actor_param_70]
     ldrb       r6,[r7,#0x0]
     bl         Attack_ColumnCurrentH_Create
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064132:
     pop        {pc}
 
 
 _ts R_ElecMan_1_6_3_Reset
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064146
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064146:
     pop        {pc}
 
@@ -492,16 +492,16 @@ _ts R_ElecMan_1_6_4_Next
     tst        r0,r1
     beq        LAB_0806415c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806415c:
     pop        {pc}
 
 
 _nt R_ElecMan_1_7_ColumnCurrentRecover
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ElecMan_1_7_0_0806416c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -531,16 +531,16 @@ _ts R_ElecMan_1_7_0
     strb       r0,[r5,r3]
     mov        r3,#0x61
     strb       r1,[r5,r3]
-    ldrb       r2,[r5,#0x18]
-    ldrb       r3,[r5,#0x19]
+    ldrb       r2,[r5,#Actor_cPos_x]
+    ldrb       r3,[r5,#Actor_cPos_y]
     cmp        r0,r2
     bne        LAB_080641b0
     cmp        r1,r3
     bne        LAB_080641b0
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080641b0:
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Actor_param_6C]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     strb       r0,[r7,#0x2]
@@ -548,18 +548,18 @@ LAB_080641b0:
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_ElecMan_1_7_1
     push       {lr}
     bl         R_ElecMan_Teleport
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_080641d6
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080641d6:
     pop        {pc}
 
@@ -568,7 +568,7 @@ _ts R_ElecMan_1_7_2
     push       {lr}
     mov        r1,#0x6
     mov        r2,#0x1
-    ldr        r7,[r5,#0x70]
+    ldr        r7,[r5,#Actor_param_70]
     ldrb       r6,[r7,#0x0]
     push       {r1,r6}
     bl         Attack_ColumnCurrentV_Create
@@ -576,11 +576,11 @@ _ts R_ElecMan_1_7_2
     mov        r2,#0x3
     bl         Attack_ColumnCurrentV_Create
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xb4
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -592,23 +592,23 @@ _nt R_ElecMan_1_7_3
     bne        LAB_08064254
     mov        r0,#0x1
     bl         Battle_SetBattleFlag
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064252
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x64
     bl         FieldObject_AddHp
     bl         Rng_RandomUint
     lsr        r0,r0,#0x1c
     sub        r0,#0x7
     lsl        r0,r0,#0x10
-    ldr        r1,[r5,#0x28]
+    ldr        r1,[r5,#Actor_pos_curr_x]
     add        r1,r1,r0
-    ldr        r2,[r5,#0x2c]
+    ldr        r2,[r5,#Actor_pos_curr_y]
     mov        r3,#0x14
     lsl        r3,r3,#0x10
     mov        r4,#0x23
@@ -618,30 +618,30 @@ _nt R_ElecMan_1_7_3
     mov        r0,#0xbb
     bl         Sound_PlaySE
     mov        r0,#0xf
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064252:
     pop        {pc}
 LAB_08064254:
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         R_ElecMan_SetColumnFlag
     mov        r0,#0x14
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_ElecMan_1_7_4
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bne        LAB_08064276
     mov        r0,#0xbc
     bl         Sound_PlaySE
     mov        r0,#0xf
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
 LAB_08064276:
     LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
@@ -651,15 +651,15 @@ LAB_08064276:
 LAB_08064284:
     mov        r0,#0x1
     bl         Battle_SetBattleFlag
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806429e
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         R_ElecMan_SetColumnFlag
     mov        r0,#0x14
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806429e:
     pop        {pc}
 
@@ -671,15 +671,15 @@ _ts R_ElecMan_1_7_5
     tst        r0,r1
     beq        LAB_0806429e
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_ElecMan_1_8_Escape
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ElecMan_1_8_0_RaiseArms_080642c4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -700,11 +700,11 @@ PTR_R_ElecMan_1_8_0_RaiseArms_080642c8:
 _ts R_ElecMan_1_8_0_RaiseArms
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -715,30 +715,30 @@ _ts R_ElecMan_1_8_1_Electrify
     tst        r0,r1
     beq        LAB_08064304
     mov        r0,#0x78
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Actor_counterA]
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064304:
     pop        {pc}
 
 
 _nt R_ElecMan_1_8_2_Recover
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064340
     mov        r0,#0x5a
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Actor_counterA]
     bl         Rng_RandomUint
     lsr        r0,r0,#0x1c
     sub        r0,#0x7
     lsl        r0,r0,#0x10
-    ldr        r1,[r5,#0x28]
+    ldr        r1,[r5,#Actor_pos_curr_x]
     add        r1,r1,r0
-    ldr        r2,[r5,#0x2c]
+    ldr        r2,[r5,#Actor_pos_curr_y]
     mov        r3,#0x14
     lsl        r3,r3,#0x10
     mov        r4,#0x23
@@ -747,10 +747,10 @@ _nt R_ElecMan_1_8_2_Recover
     pop        {r5}
     mov        r0,#0xbb
     bl         Sound_PlaySE
-    ldrh       r0,[r5,#0x22]
-    strh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpMax]
+    strh       r0,[r5,#Actor_hpCurrent]
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064340:
     pop        {pc}
 
@@ -763,14 +763,14 @@ _nt R_ElecMan_1_8_3_Reset
     bcc        LAB_08064352
     bl         SpritePtr_EnableFlash
 LAB_08064352:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064340
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -780,16 +780,16 @@ _ts R_ElecMan_1_8_4_NextOrEscape
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_08064384
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Actor_family_b2]
     sub        r0,#0x1
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#Actor_family_b2]
     beq        LAB_08064386
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064384:
     pop        {pc}
 LAB_08064386:
@@ -803,7 +803,7 @@ LAB_08064386:
 
 _ts R_ElecMan_1_4_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ElecMan_1_4_0_ChooseNextPanel_080643a4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -843,7 +843,7 @@ _ts R_ElecMan_1_4_0_ChooseNextPanel
     strb       r0,[r5,r3]
     mov        r3,#0x61
     strb       r1,[r5,r3]
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Actor_param_6C]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     strb       r0,[r7,#0x2]
@@ -851,14 +851,14 @@ _ts R_ElecMan_1_4_0_ChooseNextPanel
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        sp,#0x14
     pop        {pc}
 LAB_080643f8:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        sp,#0x14
     pop        {pc}
 
@@ -872,20 +872,20 @@ DAT_08064408:
 _ts R_ElecMan_1_4_1_Next
     push       {lr}
     bl         R_ElecMan_Teleport
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_08064420
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064420:
     pop        {pc}
 
 
 _nt R_ElecMan_Teleport
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_R_ElecMan_Teleport_0_TeleportStart_08064430
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -904,11 +904,11 @@ PTR_R_ElecMan_Teleport_0_TeleportStart_08064434:
 _ts R_ElecMan_Teleport_0_TeleportStart
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x1e
     lsl        r0,r0,#0x10
     add        r3,r3,r0
@@ -916,7 +916,7 @@ _ts R_ElecMan_Teleport_0_TeleportStart
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     pop        {pc}
 
 
@@ -930,19 +930,19 @@ _nt R_ElecMan_Teleport_1_TeleportEnd
     ldrb       r0,[r5,r3]
     mov        r3,#0x61
     ldrb       r1,[r5,r3]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    ldr        r0,[r5,#0x6c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x1e
     lsl        r0,r0,#0x10
     add        r3,r3,r0
@@ -950,7 +950,7 @@ _nt R_ElecMan_Teleport_1_TeleportEnd
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_080644a6:
     pop        {pc}
 
@@ -962,14 +962,14 @@ _ts R_ElecMan_Teleport_2_Next
     tst        r0,r1
     beq        LAB_080644b8
     mov        r0,#0x0
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_080644b8:
     pop        {pc}
 
 
 _nt R_ElecMan_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_ElecMan_2_0_Delete_080644c8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -988,33 +988,33 @@ _ts R_ElecMan_2_0_Delete
     push       {lr}
     bl         Battle_RegisterVirusDelete
     bl         R_ElecMan_SetColumnFlag
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_Disable
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_NaviDelete_Create
     pop        {r5}
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _ts R_ElecMan_2_1_Free
     push       {lr}
     bl         UpdateSpriteFrameIndex
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064524
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Free
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -1024,18 +1024,18 @@ LAB_08064524:
 
 _nt R_ElecMan_1_2_1_ChooseNext
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     cmp        r0,#0x3
     bne        LAB_08064542
-    ldrh       r0,[r5,#0x20]
-    ldrh       r1,[r5,#0x22]
+    ldrh       r0,[r5,#Actor_hpCurrent]
+    ldrh       r1,[r5,#Actor_hpMax]
     sub        r1,r1,r0
     cmp        r1,#0x32
     bmi        LAB_08064542
     mov        r0,#0x20
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_08064542:
     mov        r3,#0x62
@@ -1044,19 +1044,19 @@ LAB_08064542:
     bmi        LAB_08064556
     strb       r0,[r5,r3]
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_08064556:
     mov        r0,#0x5
     strb       r0,[r5,r3]
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     cmp        r0,#0x3
     beq        LAB_0806459c
-    ldrh       r0,[r5,#0x22]
+    ldrh       r0,[r5,#Actor_hpMax]
     lsr        r0,r0,#0x2
-    ldrh       r1,[r5,#0x20]
+    ldrh       r1,[r5,#Actor_hpCurrent]
     cmp        r1,r0
     bhi        LAB_0806457e
     bl         Rng_RandomUint
@@ -1064,9 +1064,9 @@ LAB_08064556:
     cmp        r0,#0x5
     bmi        LAB_0806457e
     mov        r0,#0x1c
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0806457e:
     mov        r0,#0x0
@@ -1078,15 +1078,15 @@ LAB_0806457e:
     cmp        r0,#0x2
     bmi        LAB_0806459c
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0806459c:
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -1094,13 +1094,13 @@ _nt R_ElecMan_CheckDamage
     push       {lr}
     bl         Battle_IsInputLocked
     bne        LAB_0806464a
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     ble        LAB_0806461e
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0806461e
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     bne        LAB_0806464a
     mov        r3,#0x64
@@ -1115,19 +1115,19 @@ _nt R_ElecMan_CheckDamage
 LAB_080645da:
     lsr        r0,r0,#0x1
     bcc        LAB_0806464a
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     b          LAB_0806464a
 LAB_080645e8:
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Actor_family_b1]
     tst        r0,r0
     bne        LAB_0806464a
     FieldObject_GetDamage PFI_Target_Object, 0x68
     tst        r0,r0
     beq        LAB_0806464a
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806464a
@@ -1135,26 +1135,26 @@ LAB_080645e8:
     cmp        r0,#0x5a
     bcc        LAB_08064614
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064614:
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_08064644
 LAB_0806461e:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     cmp        r0,#0x3
     beq        LAB_0806464a
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_SetDeletedFlag
     FieldObject_SetAttributeGroup PFI_Self_Object, 0x68
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_08064644:

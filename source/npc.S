@@ -31,15 +31,15 @@ LAB_08003b32:
     mov        r2,#0x7e
     bl         memset_8
     mov        r0,#0x9
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#NPC_header_entityFlags]
     pop        { r0, r1, r2, r3, r4 }
-    strb       r0,[r5,#0x1]
-    str        r1,[r5,#0x24]
-    str        r2,[r5,#0x28]
-    str        r3,[r5,#0x2c]
-    str        r4,[r5,#0x4]
+    strb       r0,[r5,#NPC_header_routineType]
+    str        r1,[r5,#NPC_curr_x]
+    str        r2,[r5,#NPC_curr_y]
+    str        r3,[r5,#NPC_curr_z]
+    str        r4,[r5,#NPC_family_family]
     mov        r0,#0x0
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#NPC_state_s0]
     pop        { pc }
 LAB_08003b5a:
     mov        r5,#0x0
@@ -48,14 +48,14 @@ LAB_08003b5a:
 _ts NPC_Free
     push       { lr }
     ldr        r0,DAT_08003c6c
-    ldrb       r1,[r5,#0x3]
+    ldrb       r1,[r5,#NPC_header_listIndex]
     lsr        r0,r1
     ldr        r1,PTR_gBitsetNPC_08003c78
     ldr        r2,[r1,#0x0]
     bic        r2,r0
     str        r2,[r1,#0x0]
     mov        r1,#0x0
-    strb       r1,[r5,#0x0]
+    strb       r1,[r5,#NPC_header_entityFlags]
     bl         SpritePtr_AffineFree
     pop        { pc }
 
@@ -66,7 +66,7 @@ _ts NPC_UpdateAll
     ldr        r5,PTR_gEntityListNpc_08003c7c
 LAB_08003b88:
     mov        r1,#0x1
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#NPC_header_entityFlags]
     tst        r0,r1
     beq        LAB_08003bae
     LoadMain world, r7, r7
@@ -79,7 +79,7 @@ LAB_08003b88:
 LAB_08003ba0:
     str        r5,[r7,#0x70]
     ldr        r0,PTR_PTR_NPC_Handler_1_08003c80
-    ldrb       r1,[r5,#0x1]
+    ldrb       r1,[r5,#NPC_header_routineType]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -113,8 +113,8 @@ _ts NPC_Init
     ldr        r5,PTR_gEntityListNpc_08003c9c
 LAB_08003be4:
     mov        r3,#0x94
-    strb       r3,[r5,#0x2]
-    strb       r1,[r5,#0x3]
+    strb       r3,[r5,#NPC_header_tag]
+    strb       r1,[r5,#NPC_header_listIndex]
     add        r1,#0x1
     add        r5,#0xc0
     cmp        r1,r0
@@ -130,7 +130,7 @@ _ts NPC_LoadAll
     mov        r1,#0x0
     ldr        r5,PTR_gEntityListNpc_08003ca4
 LAB_08003c04:
-    ldrb       r2,[r5,#0x0]
+    ldrb       r2,[r5,#NPC_header_entityFlags]
     mov        r3,#0x2
     tst        r2,r3
     beq        LAB_08003c2a

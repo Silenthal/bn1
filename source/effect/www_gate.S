@@ -8,7 +8,7 @@
 _ts Effect_WWWGate
     push       {lr}
     ldr        r0,PTR_PTR_E_WWWGate_0_Init_0807dccc
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -24,11 +24,11 @@ PTR_E_WWWGate_0_Init_0807dae8:
 _ts E_WWWGate_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xec
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -39,11 +39,11 @@ _ts E_WWWGate_0_Init
     bl         Map_HandleCollisionCover
     pop        {r5}
     bl         SpritePtr_SetPriority
-    ldr        r2,[r5,#0x60]
+    ldr        r2,[r5,#Effect_obj_60]
     add        r1,r2,#0x0
     mov        r0,#0x3f
     and        r2,r0
-    str        r2,[r5,#0x60]
+    str        r2,[r5,#Effect_obj_60]
     mov        r0,#0xc0
     and        r1,r0
     cmp        r1,#0x80
@@ -58,14 +58,14 @@ LAB_0807db42:
     bl         SpritePtr_SetObjectExcludeFlags
 LAB_0807db48:
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
 
 _nt E_WWWGate_1_Main
     push       {lr}
     push       {r5}
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Effect_obj_60]
     ldr        r0,PTR_BYTE_ARRAY_0807dcd8
     ldrb       r0,[r0,r1]
     bl         Flag_GetBase
@@ -102,9 +102,9 @@ _nt Effect_WWWGate_Create
     mov        r0,#0x10
     mov        r4,#0x0
     bl         Effect_Alloc
-    strh       r6,[r5,#0x14]
+    strh       r6,[r5,#Effect_frameIndexCurr]
     pop        {r1}
-    str        r1,[r5,#0x60]
+    str        r1,[r5,#Effect_obj_60]
     pop        {r5}
     mov        r0,#0x3f
     and        r1,r0

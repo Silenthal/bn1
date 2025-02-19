@@ -5,7 +5,7 @@
 
 _ts Routine_ElecMan_Chip
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_ElecManC_0_Init_0806a618
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,43 +26,43 @@ PTR_R_ElecManC_0_Init_0806a61c:
 
 _ts R_ElecManC_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x5a
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     neg        r0,r0
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x0
-    str        r0,[r5,#0x5c]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    str        r0,[r5,#Actor_param_5C]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x1
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Actor_element]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     bl         R_ElecManC_1_Main
     pop        {pc}
 
 
 _ts R_ElecManC_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_ElecManC_1_0_0806a68c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -84,7 +84,7 @@ PTR_R_ElecManC_1_0_0806a690:
 
 _ts R_ElecManC_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ElecManC_1_0_0_0806a6ac
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -109,32 +109,32 @@ _ts R_ElecManC_1_0_0
     tst        r0,r1
     beq        LAB_0806a6d0
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a6d0:
     pop        {pc}
 
 
 _nt R_ElecManC_1_0_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806a6e4
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a6e4:
     pop        {pc}
 
 
 _nt R_ElecManC_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ElecManC_1_1_0_0806a6f4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -155,9 +155,9 @@ PTR_R_ElecManC_1_1_0_0806a6f8:
 _ts R_ElecManC_1_1_0
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -168,12 +168,12 @@ _ts R_ElecManC_1_1_1
     tst        r0,r1
     beq        LAB_0806a734
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bl         R_ElecManC_HitTargets
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a734:
     pop        {pc}
     .byte 0x00
@@ -188,14 +188,14 @@ LAB_0806a734:
 
 _ts R_ElecManC_1_1_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806a74e
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a74e:
     pop        {pc}
 
@@ -207,25 +207,25 @@ _ts R_ElecManC_1_1_3
     tst        r0,r1
     beq        LAB_0806a764
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a764:
     pop        {pc}
 
 
 _nt R_ElecManC_1_1_4
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806a77c
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a77c:
     pop        {pc}
 
@@ -236,23 +236,23 @@ _nt R_ElecManC_1_2
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0806a79a
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
 LAB_0806a79a:
     pop        {pc}
 
 
 _ts R_ElecManC_2_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806a7b2
     LoadMain screenDim, r7, r7
     mov        r0,#0x1
@@ -264,14 +264,14 @@ LAB_0806a7b2:
 
 _ts R_ElecManC_HitTargets
     push       {lr}
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     tst        r0,r0
     bne        LAB_0806a7ec
     LoadMain battle, r7, r7
     add        r7,#0x54
     mov        r2,#0xc
     mov        r4,#0x80
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Actor_damage]
 LAB_0806a7c8:
     ldr        r3,[r7,r2]
     tst        r3,r3
@@ -299,7 +299,7 @@ LAB_0806a7ec:
     ldrb       r1,[r7,#0x18]
     ldrb       r2,[r7,#0x19]
     mov        r4,#0x80
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Actor_damage]
     bl         Attack_SparkStrike_Create
     tst        r7,r7
     beq        LAB_0806a80e

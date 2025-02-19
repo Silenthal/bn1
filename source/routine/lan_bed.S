@@ -6,7 +6,7 @@
 _ts Routine_LanBed
     push       {lr}
     ldr        r0,PTR_PTR_R_LanBed_0_Init_0805b1f4
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Actor_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -24,7 +24,7 @@ PTR_R_LanBed_0_Init_0805b164:
 _ts R_LanBed_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x12
     bl         Sprite_InitSpritePtr
@@ -39,7 +39,7 @@ _ts R_LanBed_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -48,7 +48,7 @@ _ts R_LanBed_0_Init
 
 _ts R_LanBed_1_Main
     ldr        r0,PTR_PTR_R_LanBed_1_0_SetAnimation_0805b1f8
-    ldrb       r1,[r5,#0x9]
+    ldrb       r1,[r5,#Actor_state_s1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -82,7 +82,7 @@ LAB_0805b1d6:
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
 LAB_0805b1ea:
     pop        {pc}
 

@@ -5,7 +5,7 @@
 
 _ts Effect_MagicMan
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_MagicMan_0_Init_08080a84
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -29,7 +29,7 @@ _ts E_MagicMan_0_Init
     push       {lr}
     mov        r1,#0xa6
     mov        r2,#0x1
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     cmp        r0,#0x1
     bne        LAB_08080aa4
     mov        r1,#0xa7
@@ -40,24 +40,24 @@ LAB_08080aa4:
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     pop        {r0}
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Effect_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Effect_state_s0]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     bne        LAB_08080ade
     FieldObject_Create PFI_Sealed, 0x60
 LAB_08080ade:
     mov        r0,#0x1
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Effect_owner]
     tst        r1,r1
     beq        LAB_08080ae8
     mov        r0,#0x0
@@ -69,17 +69,17 @@ LAB_08080ae8:
 
 _nt E_MagicMan_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     bne        LAB_08080b06
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Effect_state_s1]
     ldr        r7,PTR_PTR_E_MagicMan_1_0_08080b14
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     b          LAB_08080b12
 LAB_08080b06:
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Effect_obj_64]
     ldr        r0,[r7,#0x5c]
     tst        r0,r0
     bne        LAB_08080b12
@@ -97,13 +97,13 @@ PTR_E_MagicMan_1_0_08080b18:
 
 _ts E_MagicMan_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     tst        r0,r0
     bne        LAB_08080b32
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     b          LAB_08080b48
 LAB_08080b32:
     bl         SpritePtr_GetFrameStatus
@@ -111,40 +111,40 @@ LAB_08080b32:
     tst        r0,r1
     beq        LAB_08080b48
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Effect_family_b1]
 LAB_08080b48:
     pop        {pc}
 
 
 _nt E_MagicMan_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     tst        r0,r0
     bne        LAB_08080b5c
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     b          LAB_08080b6a
 LAB_08080b5c:
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Effect_family_b1]
     tst        r0,r0
     beq        LAB_08080b6a
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
 LAB_08080b6a:
     pop        {pc}
 
 
 _ts E_MagicMan_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_Free
     bl         Effect_Free
     pop        {pc}
@@ -159,7 +159,7 @@ _nt Effect_MagicMan_Create
     pop        {r0,r1,r5}
     beq        LAB_08080bb0
     str        r5,[r7,#0x64]
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Effect_owner]
     strb       r2,[r7,#0x16]
     strb       r0,[r7,#0x18]
     strb       r1,[r7,#0x19]

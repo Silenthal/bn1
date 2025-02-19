@@ -160,7 +160,7 @@ USHORT_ARRAY_0807e864:
 _ts Effect_Car
     push       {lr}
     ldr        r0,PTR_PTR_E_Car_0_Init_0807ea70
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -180,14 +180,14 @@ PTR_E_Car_0_Init_0807e8b4:
 _ts E_Car_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     LoadMain world, r0, r0
     ldrb       r0,[r0,#0x5]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_0807ea74
     ldr        r7,[r7,r0]
-    ldrb       r0,[r5,#0x4]
-    strb       r0,[r5,#0x7]
+    ldrb       r0,[r5,#Effect_family_family]
+    strb       r0,[r5,#Effect_family_b3]
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
     push       {r5,r7}
@@ -220,37 +220,37 @@ _ts E_Car_0_Init
     pop        {r7}
     mov        r0,#0x4
     ldrsb      r0,[r7,r0]
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0xc
-    str        r0,[r5,#0x60]
+    str        r0,[r5,#Effect_obj_60]
     mov        r0,#0x5
     ldrsb      r0,[r7,r0]
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Effect_family_b1]
     lsl        r0,r0,#0xc
-    str        r0,[r5,#0x64]
+    str        r0,[r5,#Effect_obj_64]
     mov        r0,#0x6
     ldrsb      r0,[r7,r0]
     lsl        r0,r0,#0xc
-    str        r0,[r5,#0x68]
+    str        r0,[r5,#Effect_obj_68]
     mov        r0,#0x7
     ldrsb      r0,[r7,r0]
     lsl        r0,r0,#0xc
-    str        r0,[r5,#0x6c]
+    str        r0,[r5,#Effect_obj_6C]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
 
 _ts E_Car_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x60]
+    ldr        r0,[r5,#Effect_pos_curr_x]
+    ldr        r1,[r5,#Effect_obj_60]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldr        r0,[r5,#0x2c]
-    ldr        r1,[r5,#0x64]
+    str        r0,[r5,#Effect_pos_curr_x]
+    ldr        r0,[r5,#Effect_pos_curr_y]
+    ldr        r1,[r5,#Effect_obj_64]
     add        r0,r0,r1
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Effect_pos_curr_y]
     add        r0,r5,#0x0
     add        r0,#0x28
     push       {r5}
@@ -263,9 +263,9 @@ _ts E_Car_1_Main
     b          LAB_0807e99e
 LAB_0807e97c:
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_DAT_0807ea78
-    ldrb       r0,[r5,#0x7]
+    ldrb       r0,[r5,#Effect_family_b3]
     add        r0,#0x8
     mov        r1,#0x0
     strb       r1,[r7,r0]
@@ -273,13 +273,13 @@ LAB_0807e97c:
 LAB_0807e98c:
     ldr        r7,PTR_DAT_0807ea7c
     ldrb       r0,[r7,#0x5]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r1,[r5,#Effect_family_b3]
     eor        r0,r1
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0807e99e
     mov        r0,#0xc
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
 LAB_0807e99e:
     add        r0,r5,#0x0
     add        r0,#0x28
@@ -302,37 +302,37 @@ _ts E_Car_3
     mov        r2,#0x0
     mvn        r2,r2
     lsl        r2,r2,#0x10
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Effect_obj_60]
     tst        r1,r1
     beq        LAB_0807e9d8
-    ldr        r0,[r5,#0x28]
+    ldr        r0,[r5,#Effect_pos_curr_x]
     add        r0,r0,r1
     and        r0,r2
-    str        r0,[r5,#0x28]
-    ldr        r0,[r5,#0x68]
+    str        r0,[r5,#Effect_pos_curr_x]
+    ldr        r0,[r5,#Effect_obj_68]
     sub        r1,r1,r0
-    str        r1,[r5,#0x60]
+    str        r1,[r5,#Effect_obj_60]
 LAB_0807e9d8:
-    ldr        r1,[r5,#0x64]
+    ldr        r1,[r5,#Effect_obj_64]
     tst        r1,r1
     beq        LAB_0807e9ec
-    ldr        r0,[r5,#0x2c]
+    ldr        r0,[r5,#Effect_pos_curr_y]
     add        r0,r0,r1
     and        r0,r2
-    str        r0,[r5,#0x2c]
-    ldr        r0,[r5,#0x6c]
+    str        r0,[r5,#Effect_pos_curr_y]
+    ldr        r0,[r5,#Effect_obj_6C]
     sub        r1,r1,r0
-    str        r1,[r5,#0x64]
+    str        r1,[r5,#Effect_obj_64]
 LAB_0807e9ec:
     ldr        r7,PTR_DAT_0807ea80
     ldrb       r0,[r7,#0x5]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r1,[r5,#Effect_family_b3]
     eor        r0,r1
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0807e9fe
     mov        r0,#0x10
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
 LAB_0807e9fe:
     add        r0,r5,#0x0
     add        r0,#0x28
@@ -350,37 +350,37 @@ _ts E_Car_4
     mov        r2,#0x4
     ldrsb      r2,[r5,r2]
     lsl        r2,r2,#0xc
-    ldr        r1,[r5,#0x60]
-    ldr        r0,[r5,#0x28]
+    ldr        r1,[r5,#Effect_obj_60]
+    ldr        r0,[r5,#Effect_pos_curr_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Effect_pos_curr_x]
     cmp        r1,r2
     beq        LAB_0807ea34
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Effect_obj_68]
     asr        r0,r0,#0x1
     add        r1,r1,r0
-    str        r1,[r5,#0x60]
+    str        r1,[r5,#Effect_obj_60]
     mov        r7,#0x1
 LAB_0807ea34:
     mov        r2,#0x5
     ldrsb      r2,[r5,r2]
     lsl        r2,r2,#0xc
-    ldr        r1,[r5,#0x64]
-    ldr        r0,[r5,#0x2c]
+    ldr        r1,[r5,#Effect_obj_64]
+    ldr        r0,[r5,#Effect_pos_curr_y]
     add        r0,r0,r1
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Effect_pos_curr_y]
     cmp        r1,r2
     beq        LAB_0807ea50
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Effect_obj_6C]
     asr        r0,r0,#0x1
     add        r1,r1,r0
-    str        r1,[r5,#0x64]
+    str        r1,[r5,#Effect_obj_64]
     mov        r7,#0x1
 LAB_0807ea50:
     tst        r7,r7
     bne        LAB_0807ea58
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
 LAB_0807ea58:
     add        r0,r5,#0x0
     add        r0,#0x28

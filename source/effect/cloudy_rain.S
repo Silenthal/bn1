@@ -5,7 +5,7 @@
 
 _ts Effect_CloudyRain
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_CloudyRain_0_Init_0807de90
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -31,33 +31,33 @@ _ts E_CloudyRain_0_Init
     mov        r1,#0x91
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bl         E_CloudyRain_1_Main
     pop        {pc}
 
 
 _nt E_CloudyRain_1_Main
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807dee2
     mov        r0,#0x9b
     bl         Sound_PlaySE
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
 LAB_0807dee2:
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Effect_obj_60]
     ldrb       r0,[r7,#0x0]
     tst        r0,r0
     bne        LAB_0807def0
@@ -65,16 +65,16 @@ LAB_0807dee2:
     b          LAB_0807df06
 LAB_0807def0:
     ldrh       r0,[r7,#0x18]
-    strh       r0,[r5,#0x18]
+    strh       r0,[r5,#Effect_cPos_x]
     ldr        r0,[r7,#0x28]
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Effect_pos_curr_x]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Effect_pos_curr_y]
     ldr        r0,[r7,#0x30]
     mov        r1,#0x1e
     lsl        r1,r1,#0x10
     sub        r0,r0,r1
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Effect_pos_curr_z]
 LAB_0807df06:
     pop        {pc}
 

@@ -94,7 +94,7 @@ typedef struct MapOffsetStruct MapOffsetStruct, *PMapOffsetStruct;
 
 typedef struct PositionXYZ PositionXYZ, *PPositionXYZ;
 
-typedef union ActorAttribUnion ActorAttribUnion, *PActorAttribUnion;
+typedef union EntityParam EntityParam, *PEntityParam;
 
 typedef struct BattleSpawnAnimation BattleSpawnAnimation, *PBattleSpawnAnimation;
 
@@ -148,42 +148,11 @@ typedef enum FuncState {
     FS_27=108
 } FuncState;
 
-typedef struct ActorAttributes_Default ActorAttributes_Default, *PActorAttributes_Default;
-
-typedef struct ActorAttributes_ElecMan ActorAttributes_ElecMan, *PActorAttributes_ElecMan;
-
-typedef struct ActorAttributes_ProtoMan ActorAttributes_ProtoMan, *PActorAttributes_ProtoMan;
-
-typedef struct ActorAttributes_LifeVirus ActorAttributes_LifeVirus, *PActorAttributes_LifeVirus;
-
-typedef enum SpriteFlag {
-    SF_NoMiniAnimation=1,
-    SF_TilesetLoaded=2,
-    SF_ZClip=4,
-    SF_NoZClip=8,
-    SF_MultipleParts=16,
-    SF_TilesNotInVram=32
-} SpriteFlag;
-
-typedef struct SpriteFrame SpriteFrame, *PSpriteFrame;
-
-typedef struct SpriteSubFrame SpriteSubFrame, *PSpriteSubFrame;
-
-typedef struct SpriteTilesetHeader SpriteTilesetHeader, *PSpriteTilesetHeader;
-
-typedef union EntityParam EntityParam, *PEntityParam;
-
-typedef struct SpecElecMan SpecElecMan, *PSpecElecMan;
-
-typedef struct SpecProtoMan SpecProtoMan, *PSpecProtoMan;
-
 typedef struct FieldObject FieldObject, *PFieldObject;
 
 typedef struct Attack Attack, *PAttack;
 
 typedef struct Effect Effect, *PEffect;
-
-typedef struct Tile Tile, *PTile;
 
 typedef enum PanelFlag {
     PF_Walkable=1,
@@ -264,6 +233,21 @@ typedef struct EP_60_A_Block_BlockParam EP_60_A_Block_BlockParam, *PEP_60_A_Bloc
 typedef struct EP_68_A_Candle_Param0 EP_68_A_Candle_Param0, *PEP_68_A_Candle_Param0;
 
 typedef struct EP_68_R_NumberMan_Param EP_68_R_NumberMan_Param, *PEP_68_R_NumberMan_Param;
+
+typedef enum SpriteFlag {
+    SF_NoMiniAnimation=1,
+    SF_TilesetLoaded=2,
+    SF_ZClip=4,
+    SF_NoZClip=8,
+    SF_MultipleParts=16,
+    SF_TilesNotInVram=32
+} SpriteFlag;
+
+typedef struct SpriteFrame SpriteFrame, *PSpriteFrame;
+
+typedef struct SpriteSubFrame SpriteSubFrame, *PSpriteSubFrame;
+
+typedef struct SpriteTilesetHeader SpriteTilesetHeader, *PSpriteTilesetHeader;
 
 typedef enum FieldObjectFlag {
     F9_None=0,
@@ -800,11 +784,31 @@ typedef enum Struct_Dat7BD24_Flag {
 
 typedef struct MaylParam MaylParam, *PMaylParam;
 
+typedef struct Tile Tile, *PTile;
+
 struct Struct_Dat7BD24 {
     byte frameIndex;
     byte delay;
     enum Struct_Dat7BD24_Flag flag;
     byte b3;
+};
+
+struct CellPosition {
+    byte x;
+    byte y;
+};
+
+struct FieldObject {
+    enum FieldObjectFlag flags;
+    byte id;
+    struct CellPosition cPosCurr;
+    struct CellPosition cPosLast;
+    enum ElementID element;
+    byte routineType; /* Shares routine type with associated entity */
+    short damage;
+    enum PanelFlag panelFlags;
+    int idFlag;
+    int attackerIdFlags;
 };
 
 struct Struct_7BCDC {
@@ -821,11 +825,9 @@ struct EntityParam_Int {
     int val;
 };
 
-struct EP_60_R_FireMan_Param0 {
-    enum FireManMoveState flag;
-    byte nextX;
-    byte nextY;
-    byte b3;
+struct EP_64_E_BattleChipParam {
+    ushort x;
+    ushort y;
 };
 
 struct EP_60_E_BombExplosionParam {
@@ -836,11 +838,6 @@ struct EP_60_E_BombExplosionParam {
 
 struct EP_60_R_Car_Param0 {
     ushort *vals;
-};
-
-struct CellPosition {
-    byte x;
-    byte y;
 };
 
 struct EP_64_R_Player_Param1 {
@@ -861,9 +858,11 @@ struct EP_68_R_NumberMan_Param {
     short s1;
 };
 
-struct EP_64_E_BattleChipParam {
-    ushort x;
-    ushort y;
+struct EP_60_R_FireMan_Param0 {
+    enum FireManMoveState flag;
+    byte nextX;
+    byte nextY;
+    byte b3;
 };
 
 struct EP_Half {
@@ -907,31 +906,6 @@ union EntityParam {
     struct EP_60_A_Block_BlockParam *blockParam;
     struct EP_68_A_Candle_Param0 *candleParam;
     struct EP_68_R_NumberMan_Param ep68_numberMan;
-};
-
-struct ActorAttributes_LifeVirus {
-    struct Effect *aura;
-    union EntityParam obj_60;
-    union EntityParam obj_64;
-    struct Effect *scut1;
-    struct Effect *scut2;
-    struct Effect *scut3;
-    union EntityParam obj_74;
-    union EntityParam obj_78;
-    union EntityParam obj_7C;
-};
-
-struct FieldObject {
-    enum FieldObjectFlag flags;
-    byte id;
-    struct CellPosition cPosCurr;
-    struct CellPosition cPosLast;
-    enum ElementID element;
-    byte routineType; /* Shares routine type with associated entity */
-    short damage;
-    enum PanelFlag panelFlags;
-    int idFlag;
-    int attackerIdFlags;
 };
 
 struct PlayerBattleState {
@@ -997,28 +971,6 @@ struct FamilyDetail {
     byte b3;
 };
 
-struct ActorAttributes_ElecMan {
-    union EntityParam obj_5C;
-    byte nextX;
-    byte nextY;
-    byte moveCounter;
-    byte sparkStrikeCount;
-    union EntityParam obj_64;
-    union EntityParam obj_68;
-    union EntityParam obj_6C;
-    struct SpecElecMan *spec;
-    union EntityParam obj_74;
-    union EntityParam obj_78;
-    union EntityParam obj_7C;
-};
-
-struct SpecElecMan {
-    byte columnCurrentDamage;
-    byte sparkStrikeDamage;
-    byte sparkStrikeCount;
-    byte b3;
-};
-
 struct SpriteFrame {
     int tilesetOffset;
     int palettes;
@@ -1047,48 +999,11 @@ struct MapOffsetStruct {
 };
 
 struct BattleSpawnAnimation {
-    byte m_state0;
+    enum FuncState state;
     byte _pad0;
-    short m_timer0;
-    short s1;
+    short delay;
+    ushort spawnTimer;
     short s2;
-};
-
-struct SpecProtoMan {
-    byte b0;
-    byte b1;
-    short b2;
-};
-
-struct ActorAttributes_ProtoMan {
-    union EntityParam obj_5C;
-    union EntityParam obj_60;
-    struct SpecProtoMan spec;
-    struct FieldObject *obj_68;
-    union EntityParam obj_6C;
-    struct Attack *charge;
-    union EntityParam obj_74;
-    union EntityParam obj_78;
-    union EntityParam obj_7C;
-};
-
-struct ActorAttributes_Default {
-    union EntityParam obj_5C;
-    union EntityParam obj_60;
-    union EntityParam obj_64;
-    union EntityParam obj_68;
-    union EntityParam obj_6C;
-    union EntityParam obj_70;
-    struct Actor *obj_74;
-    union EntityParam obj_78;
-    union EntityParam obj_7C;
-};
-
-union ActorAttribUnion {
-    struct ActorAttributes_Default def;
-    struct ActorAttributes_ElecMan elec;
-    struct ActorAttributes_ProtoMan proto;
-    struct ActorAttributes_LifeVirus life;
 };
 
 struct FunctionState {
@@ -1131,35 +1046,42 @@ struct Actor {
     struct EntityHeader header;
     struct FamilyDetail family;
     struct FunctionState state;
-    byte m_bx0c_familyRelated;
-    byte m_bx0d;
-    byte m_bx0e;
-    bool field6_0xf;
-    byte m_direction;
-    byte m_bx11;
-    byte m_indexNumber;
-    byte m_enemyId;
+    byte bc;
+    byte bd;
+    byte be;
+    byte bf;
+    byte angleToTarget;
+    byte b11;
+    byte enemyIndex;
+    byte enemyId;
     byte frameIndexCurr;
     byte frameIndexLast;
     byte owner;
-    byte isInvulnerable;
+    byte canBeDamaged;
     struct CellPosition cPos;
     enum ElementID element;
-    byte delayCounter1;
-    ushort delayCounter2;
-    short routineCounter;
+    byte b1b;
+    ushort counterA;
+    ushort counterB;
     ushort hpCurrent;
     ushort hpMax;
     ushort damage;
-    ushort field23_0x26;
+    ushort _pad1;
     struct MapOffsetStruct pos;
-    int _pad40;
-    struct PositionXYZ delta;
+    int i40;
+    struct PositionXYZ diff;
     struct PositionXYZ initial;
-    union ActorAttribUnion attrib;
-    struct BattleSpawnAnimation m_appearState;
-    int field30_0x88;
-    int field31_0x8c;
+    union EntityParam param_5C;
+    union EntityParam param_60;
+    union EntityParam param_64;
+    union EntityParam param_68;
+    union EntityParam param_6C;
+    union EntityParam param_70;
+    union EntityParam param_74;
+    union EntityParam param_78;
+    union EntityParam param_7C;
+    struct BattleSpawnAnimation appearState;
+    byte _pad2[8];
     struct Sprite m_sprite;
 };
 
@@ -1246,25 +1168,25 @@ struct Effect {
     struct EntityHeader header;
     struct FamilyDetail family;
     struct FunctionState state;
-    byte option0; /* used as bust rank */
-    byte option1; /* used as time rank */
-    byte option2; /* used as reward chip ID */
-    byte option3; /* used as reward chip code */
-    int field7_0x10;
+    byte bc;
+    byte bd;
+    byte be;
+    byte bf;
+    int _pad1;
     byte frameIndexCurr;
     byte frameIndexLast;
     byte owner;
-    byte bx17;
+    byte _pad2;
     struct CellPosition cPos;
     enum ElementID element;
-    byte bx1b;
-    ushort delayCounter;
-    short field16_0x1e;
-    int field17_0x20;
+    byte b1b;
+    ushort counterA;
+    ushort counterB;
+    int _pad3;
     ushort damage;
-    ushort field19_0x26;
+    ushort _pad4;
     struct MapOffsetStruct pos;
-    int field21_0x40;
+    int _pad5;
     struct PositionXYZ diff;
     struct PositionXYZ initial;
     union EntityParam obj_5C;
@@ -1272,10 +1194,10 @@ struct Effect {
     union EntityParam obj_64;
     union EntityParam obj_68;
     union EntityParam obj_6C;
-    int m_unkX;
-    int m_unkY;
+    int extraX;
+    int extraY;
     struct Actor *parent;
-    int field32_0x7c;
+    int i7c;
     struct Sprite sprite;
 };
 
@@ -1289,6 +1211,91 @@ struct EP_60_A_Block_BlockParam {
 struct SpriteTilesetHeader {
     int m_tilesetSize;
     struct Tile m_tiles;
+};
+
+typedef union ActorAttribUnion ActorAttribUnion, *PActorAttribUnion;
+
+typedef struct ActorAttributes_Default ActorAttributes_Default, *PActorAttributes_Default;
+
+typedef struct ActorAttributes_ElecMan ActorAttributes_ElecMan, *PActorAttributes_ElecMan;
+
+typedef struct ActorAttributes_ProtoMan ActorAttributes_ProtoMan, *PActorAttributes_ProtoMan;
+
+typedef struct ActorAttributes_LifeVirus ActorAttributes_LifeVirus, *PActorAttributes_LifeVirus;
+
+typedef struct SpecElecMan SpecElecMan, *PSpecElecMan;
+
+typedef struct SpecProtoMan SpecProtoMan, *PSpecProtoMan;
+
+struct ActorAttributes_LifeVirus {
+    struct Effect *aura;
+    union EntityParam obj_60;
+    union EntityParam obj_64;
+    struct Effect *scut1;
+    struct Effect *scut2;
+    struct Effect *scut3;
+    union EntityParam obj_74;
+    union EntityParam obj_78;
+    union EntityParam obj_7C;
+};
+
+struct ActorAttributes_ElecMan {
+    union EntityParam obj_5C;
+    byte nextX;
+    byte nextY;
+    byte moveCounter;
+    byte sparkStrikeCount;
+    union EntityParam obj_64;
+    union EntityParam obj_68;
+    union EntityParam obj_6C;
+    struct SpecElecMan *spec;
+    union EntityParam obj_74;
+    union EntityParam obj_78;
+    union EntityParam obj_7C;
+};
+
+struct SpecElecMan {
+    byte columnCurrentDamage;
+    byte sparkStrikeDamage;
+    byte sparkStrikeCount;
+    byte b3;
+};
+
+struct SpecProtoMan {
+    byte b0;
+    byte b1;
+    short b2;
+};
+
+struct ActorAttributes_ProtoMan {
+    union EntityParam obj_5C;
+    union EntityParam obj_60;
+    struct SpecProtoMan spec;
+    struct FieldObject *obj_68;
+    union EntityParam obj_6C;
+    struct Attack *charge;
+    union EntityParam obj_74;
+    union EntityParam obj_78;
+    union EntityParam obj_7C;
+};
+
+struct ActorAttributes_Default {
+    union EntityParam obj_5C;
+    union EntityParam obj_60;
+    union EntityParam obj_64;
+    union EntityParam obj_68;
+    union EntityParam obj_6C;
+    union EntityParam obj_70;
+    struct Actor *obj_74;
+    union EntityParam obj_78;
+    union EntityParam obj_7C;
+};
+
+union ActorAttribUnion {
+    struct ActorAttributes_Default def;
+    struct ActorAttributes_ElecMan elec;
+    struct ActorAttributes_ProtoMan proto;
+    struct ActorAttributes_LifeVirus life;
 };
 
 typedef enum ActorID {
@@ -4385,31 +4392,22 @@ struct PlayerLocation {
     byte lastDirMoveIndex;
     byte owner;
     byte isCheckElevation;
-    int n18;
-    ushort s1c;
-    ushort s1e;
-    int n20;
+    byte _pad1[4];
+    ushort stuckTimer;
+    byte _pad2[6];
     struct MapOffsetStruct pos;
-    int m_isMovementBlocked;
-    int deltaX;
-    int deltaY;
-    int m_i11;
-    int i12;
-    int i13;
-    int i14;
+    int collisionStanding;
+    struct PositionXYZ diff;
+    byte _pad3[12];
     int stepCounter;
-    int collision_n5C;
+    int collisionInteract;
     enum PlayerLocationKeyFlag moveKeyFlags;
-    ushort m_s5;
-    int collisionParamMoving;
-    ushort field30_0x68;
-    byte movingDist_Lo;
-    byte movingDist_Hi;
-    int i19;
-    int i20;
-    int i21;
-    int i22;
-    int i23;
+    ushort u62;
+    int collisionMoving;
+    ushort _pad4;
+    byte subPos_lo;
+    byte subPos_hi;
+    byte _pad5[20];
     struct Sprite m_sprite;
 };
 
@@ -5144,7 +5142,7 @@ struct NPC {
     byte height;
     byte currDirection;
     byte lastDirection;
-    byte m_npcIndex;
+    byte npcIndex;
     struct PositionByteXYZ posSub;
     byte currFrameIndex;
     byte lastFrameIndex;
@@ -5152,19 +5150,18 @@ struct NPC {
     byte isMovingZ;
     byte isTalking;
     byte scriptStatus;
-    undefined1 field15_0x1a;
-    undefined1 field16_0x1b;
-    byte m_bx1b_areaDialogIndex;
-    byte savedState1;
-    byte savedState2;
-    byte savedState3;
+    byte _pad1[2];
+    byte areaDialogueIndex;
+    enum FuncState savedState1;
+    enum FuncState savedState2;
+    enum FuncState savedState3;
     short moveDeltaCount;
-    short field22_0x22;
-    struct PositionXYZ posCurr;
-    struct PositionXYZ posNext;
+    short _pad2;
+    struct PositionXYZ curr;
+    struct PositionXYZ subNext;
     short currSpriteIndex;
     short lastSpriteIndex;
-    struct PositionXYZ m_posDelta;
+    struct PositionXYZ diff;
     int npcIdFlag;
     int m_currentCommand;
     int collisionInfo;
@@ -5173,9 +5170,8 @@ struct NPC {
     int spritePriority;
     int currObjExcludeFlags;
     int lastObjExcludeFlags;
-    int m_nextX;
-    int m_nextY;
-    byte data1[28];
+    struct PositionXYZ next;
+    byte _pad3[24];
     struct Sprite sprite;
 };
 

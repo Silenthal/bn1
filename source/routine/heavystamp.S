@@ -5,7 +5,7 @@
 
 _ts Routine_HeavyStamp
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_HeavyStamp_0_Init_0806eb3c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,22 +26,22 @@ PTR_R_HeavyStamp_0_Init_0806eb40:
 
 _ts R_HeavyStamp_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x0
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_owner]
     tst        r1,r1
     beq        LAB_0806eb6c
     mov        r0,#0x4
 LAB_0806eb6c:
     bl         SpritePtr_SetPaletteIndex
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Actor_owner]
     lsl        r3,r3,#0x2
     add        r3,#0x40
     LoadMain battle, r7, r7
@@ -51,24 +51,24 @@ LAB_0806eb6c:
     bic        r0,r1
     strb       r0,[r7,#0x0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         SpritePtr_SetFlipType
     bl         Field_GetAttackDirectionOffset_MP
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     ldr        r0,DAT_0806ebbc
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     bl         R_HeavyStamp_1_Main
     pop        {pc}
 
@@ -81,7 +81,7 @@ DAT_0806ebbc:
 
 _ts R_HeavyStamp_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_HeavyStamp_1_0_0806ebd4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -103,21 +103,21 @@ PTR_R_HeavyStamp_1_0_0806ebd8:
 
 _ts R_HeavyStamp_1_0
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806ebf6
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806ebf6:
     pop        {pc}
 
 
 _ts R_HeavyStamp_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_HeavyStamp_1_1_0_0806ec08
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -143,9 +143,9 @@ PTR_R_HeavyStamp_1_1_0_0806ec0c:
 _ts R_HeavyStamp_1_1_0
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -157,14 +157,14 @@ _ts R_HeavyStamp_1_1_1
     beq        LAB_0806ec68
     bl         R_HeavyStamp_ChooseTarget
     mov        r0,#0x1b
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r3,#0x28
     add        r7,r5,r3
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_0806ec6c
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         Attack_AnimationOnly_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_0806ec64
     ldrb       r0,[r7,#0x0]
@@ -173,7 +173,7 @@ _ts R_HeavyStamp_1_1_1
     strb       r0,[r7,#0x0]
 LAB_0806ec64:
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806ec68:
     pop        {pc}
 
@@ -191,15 +191,15 @@ _ts R_HeavyStamp_1_1_2
     tst        r0,r1
     beq        LAB_0806eca8
     mov        r0,#0x1c
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         Field_AttackFree
     mov        r3,#0x28
     add        r7,r5,r3
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_0806ecac
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         Attack_AnimationOnly_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_0806eca0
     ldrb       r0,[r7,#0x0]
@@ -208,9 +208,9 @@ _ts R_HeavyStamp_1_1_2
     strb       r0,[r7,#0x0]
 LAB_0806eca0:
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806eca8:
     pop        {pc}
 
@@ -223,28 +223,28 @@ DAT_0806ecac:
 
 _ts R_HeavyStamp_1_1_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806ecc4
     mov        r0,#0x8
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806ecc4:
     pop        {pc}
 
 
 _nt R_HeavyStamp_1_1_4
     push       {lr}
-    ldr        r0,[r5,#0x30]
-    ldr        r1,[r5,#0x4c]
+    ldr        r0,[r5,#Actor_pos_curr_z]
+    ldr        r1,[r5,#Actor_diff_z]
     sub        r0,r0,r1
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     bgt        LAB_0806ed2a
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x2
     mov        r1,#0x2d
     push       {r5}
@@ -253,7 +253,7 @@ _nt R_HeavyStamp_1_1_4
     mov        r0,#0x7e
     bl         Sound_PlaySE
     mov        r0,#0x1d
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r7,#0x28
     add        r7,r7,r5
     ldmia      r7!,{r1,r2,r3}
@@ -262,19 +262,19 @@ _nt R_HeavyStamp_1_1_4
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_0806ed06
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_0806ed06:
     pop        {r1,r2,r3,r5}
     push       {r1,r2,r3}
     bl         Field_AttackFree
     pop        {r1,r2,r3}
     ldr        r4,DAT_0806ed2c
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         Attack_AnimationOnly_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_0806ed26
     ldrb       r0,[r7,#0x0]
@@ -283,7 +283,7 @@ LAB_0806ed06:
     strb       r0,[r7,#0x0]
 LAB_0806ed26:
     mov        r0,#0x14
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806ed2a:
     pop        {pc}
 
@@ -298,30 +298,30 @@ _ts R_HeavyStamp_1_1_5
     tst        r0,r1
     beq        LAB_0806ed44
     mov        r0,#0x50
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x18
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806ed44:
     pop        {pc}
 
 
 _nt R_HeavyStamp_1_1_6
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806ed58
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806ed58:
     pop        {pc}
 
 
 _nt R_HeavyStamp_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_HeavyStamp_1_2_0_0806ed68
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -339,15 +339,15 @@ PTR_R_HeavyStamp_1_2_0_0806ed6c:
 _ts R_HeavyStamp_1_2_0
     push       {lr}
     mov        r0,#0x1e
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         Field_AttackFree
     mov        r3,#0x28
     add        r7,r5,r3
     ldmia      r7!,{r1,r2,r3}
     ldr        r4,DAT_0806eda0
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         Attack_AnimationOnly_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_0806ed9a
     ldrb       r0,[r7,#0x0]
@@ -356,7 +356,7 @@ _ts R_HeavyStamp_1_2_0
     strb       r0,[r7,#0x0]
 LAB_0806ed9a:
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 DAT_0806eda0:
@@ -374,11 +374,11 @@ _ts R_HeavyStamp_1_2_1
     ldmia      r7!,{r1,r2,r3}
     mov        r0,#0x0
     ldr        r4,DAT_0806edc8
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Actor_damage]
     mov        r7,#0x1
     bl         Field_CreateSharpStrikeAttack
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
 LAB_0806edc6:
     pop        {pc}
 
@@ -398,7 +398,7 @@ _ts R_HeavyStamp_2_Free
 
 _ts R_HeavyStamp_ChooseTarget
     push       {lr}
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     tst        r0,r0
     beq        LAB_0806ee0e
     LoadMain battle, r7, r7
@@ -411,7 +411,7 @@ LAB_0806edf2:
     lsr        r0,r0,#0x1e
     add        r0,#0x2
     lsl        r0,r0,#0x10
-    ldrb       r4,[r5,#0x19]
+    ldrb       r4,[r5,#Actor_cPos_y]
     add        r4,#0x1
     cmp        r4,#0x3
     ble        LAB_0806ee08
@@ -443,15 +443,15 @@ LAB_0806ee2a:
 LAB_0806ee32:
     ldrh       r4,[r7,#0x18]
 LAB_0806ee34:
-    strh       r4,[r5,#0x18]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    strh       r4,[r5,#Actor_cPos_x]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x40
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     pop        {pc}
 
 

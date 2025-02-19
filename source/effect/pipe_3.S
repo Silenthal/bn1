@@ -6,7 +6,7 @@
 _ts Effect_Pipe_3
     push       {lr}
     ldr        r0,PTR_PTR_E_Pipe_3_0_Init_0807f2ec
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -34,7 +34,7 @@ LAB_0807f25c:
     mov        r0,#0x1
     ldr        r1,DAT_0807f2f0
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Effect_family_b1]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
@@ -45,7 +45,7 @@ LAB_0807f25c:
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
     .align 2, 0
@@ -76,12 +76,12 @@ _ts FUN_0807f2a8
     Flag_GetBase 0xEF
     beq        LAB_0807f2e8
 LAB_0807f2b6:
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Effect_family_b2]
     tst        r0,r0
     bne        LAB_0807f2d2
     mov        r0,#0x3
     push       {r0,r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     sub        r0,#0x20
     add        r0,#0xe4
     bl         Flag_GetBase
@@ -92,7 +92,7 @@ LAB_0807f2b6:
 LAB_0807f2d2:
     mov        r0,#0x3
     push       {r0,r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     sub        r0,#0x20
     add        r0,#0xe4
     bl         Flag_GetBase
@@ -100,7 +100,7 @@ LAB_0807f2d2:
     beq        LAB_0807f2e6
     mov        r0,#0x1
 LAB_0807f2e6:
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
 LAB_0807f2e8:
     pop        {pc}
 

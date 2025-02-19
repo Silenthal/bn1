@@ -5,7 +5,7 @@
 
 _ts Routine_PharaohMan
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_PharaohMan_0_Init_0806adb8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,42 +32,42 @@ _ts R_PharaohMan_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    strb       r0,[r5,#Actor_b1b]
     mov        r0,#0x0
-    str        r0,[r5,#0x5c]
-    strb       r0,[r5,#0xe]
-    strb       r0,[r5,#0xf]
-    str        r0,[r5,#0x68]
-    str        r0,[r5,#0x6c]
-    str        r0,[r5,#0x70]
+    str        r0,[r5,#Actor_param_5C]
+    strb       r0,[r5,#Actor_be]
+    strb       r0,[r5,#Actor_bf]
+    str        r0,[r5,#Actor_param_68]
+    str        r0,[r5,#Actor_param_6C]
+    str        r0,[r5,#Actor_param_70]
     mov        r0,#0x3c
-    strh       r0,[r5,#0xc]
-    ldrb       r0,[r5,#0x4]
+    strh       r0,[r5,#Actor_bc]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x1
     ldr        r7,PTR_DAT_0806ae68
     ldrh       r0,[r7,r0]
-    str        r0,[r5,#0x78]
-    strh       r0,[r5,#0x1e]
-    ldrb       r2,[r5,#0x4]
+    str        r0,[r5,#Actor_param_78]
+    strh       r0,[r5,#Actor_counterB]
+    ldrb       r2,[r5,#Actor_family_family]
     lsl        r2,r2,#0x2
     ldr        r7,PTR_INT_ARRAY_0806ae58
     ldr        r2,[r7,r2]
-    str        r2,[r5,#0x48]
+    str        r2,[r5,#Actor_diff_y]
     FieldObject_Create PFI_Self_Actor, 0x60
     FieldObject_Create PFI_Moving, 0x64
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x4
@@ -105,13 +105,13 @@ _ts R_PharaohMan_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         Field_CheckInterrupt
     beq        LAB_0806ae84
     mov        r0,#0x0
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Actor_b1b]
 LAB_0806ae84:
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0806aeae
     bl         Battle_IsInputLocked
@@ -127,36 +127,36 @@ LAB_0806ae84:
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0806aeae:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_0806aee0
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0806af00
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
     mov        r0,#0x9
-    ldr        r1,[r5,#0x60]
-    ldrb       r2,[r5,#0x17]
+    ldr        r1,[r5,#Actor_param_60]
+    ldrb       r2,[r5,#Actor_canBeDamaged]
     tst        r2,r2
     bne        LAB_0806aed6
     mov        r0,#PFI_Moving
 LAB_0806aed6:
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0806aef2
 LAB_0806aee0:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0806aef2:
     bl         R_PharaohMan_SetTrap
@@ -178,7 +178,7 @@ PTR_R_Actor_1_0_Spawn_0806af04:
 
 _ts R_PharaohMan_1_1_WaitForBattleStart
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0806af2a
     LoadMain battle, r7, r7
@@ -186,23 +186,23 @@ _ts R_PharaohMan_1_1_WaitForBattleStart
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806af2a:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0806af3c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806af3c:
     pop        {pc}
 
 
 _nt R_PharaohMan_1_2_Decide
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_PharaohMan_1_2_0_0806af68
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -212,9 +212,9 @@ _nt R_PharaohMan_1_2_Decide
     tst        r0,r1
     beq        LAB_0806af5c
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0806af5c:
     pop        {pc}
 
@@ -232,29 +232,29 @@ PTR_PTR_R_PharaohMan_1_2_0_0806af68:
 _ts R_PharaohMan_1_2_0
     push       {lr}
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_PharaohMan_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806af8a
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806af8a:
     pop        {pc}
 
 
 _ts R_PharaohMan_1_3_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_PharaohMan_1_3_0_0806afa8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -278,37 +278,37 @@ _ts R_PharaohMan_1_3_0
     bl         R_PharaohMan_GetNextMovePanel
     cmp        r0,#0xff
     bne        LAB_0806afc6
-    ldr        r0,[r5,#0x48]
+    ldr        r0,[r5,#Actor_diff_y]
     neg        r0,r0
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Actor_diff_y]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0806afde
 LAB_0806afc6:
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]
     strb       r1,[r7,#0x5]
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806afde:
     pop        {pc}
 
 
 _ts R_PharaohMan_1_3_1
     push       {lr}
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
     bl         Battle_CellCoordsToSprite
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x48]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_diff_y]
     tst        r3,r3
     bmi        LAB_0806affa
     add        r2,r2,r3
@@ -320,16 +320,16 @@ LAB_0806affa:
     cmp        r2,r1
     bgt        LAB_0806b012
 LAB_0806b000:
-    str        r2,[r5,#0x2c]
+    str        r2,[r5,#Actor_pos_curr_y]
     mov        r0,#0x5
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x64]
+    strb       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     b          LAB_0806b014
 LAB_0806b012:
-    str        r2,[r5,#0x2c]
+    str        r2,[r5,#Actor_pos_curr_y]
 LAB_0806b014:
     bl         R_Actor_UpdateCellPos
     pop        {pc}
@@ -337,22 +337,22 @@ LAB_0806b014:
 
 _nt R_PharaohMan_1_3_2
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     push       {r2}
     bl         Battle_CellCoordsToSprite
     pop        {r2}
     add        r1,r1,r2
-    str        r1,[r5,#0x2c]
+    str        r1,[r5,#Actor_pos_curr_y]
     bl         R_Actor_UpdateSpritePos
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_PharaohMan_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_PharaohMan_2_0_Delete_0806b04c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -370,12 +370,12 @@ PTR_PTR_R_PharaohMan_2_0_Delete_0806b04c:
 _ts R_PharaohMan_2_0_Delete
     push       {lr}
     mov        r0,#0x0
-    str        r0,[r5,#0x68]
-    str        r0,[r5,#0x6c]
-    str        r0,[r5,#0x70]
-    str        r0,[r5,#0x5c]
-    str        r0,[r5,#0x74]
-    ldr        r0,[r5,#0x60]
+    str        r0,[r5,#Actor_param_68]
+    str        r0,[r5,#Actor_param_6C]
+    str        r0,[r5,#Actor_param_70]
+    str        r0,[r5,#Actor_param_5C]
+    str        r0,[r5,#Actor_param_74]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
     bl         Battle_RegisterVirusDelete
     push       {r5}
@@ -384,17 +384,17 @@ _ts R_PharaohMan_2_0_Delete
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _nt R_PharaohMan_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806b090
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -404,18 +404,18 @@ LAB_0806b090:
 
 _nt R_PharaohMan_CheckDamage
     push       {lr}
-    ldr        r6,[r5,#0x60]
+    ldr        r6,[r5,#Actor_param_60]
     ldrh       r0,[r6,#0x2]
     ldr        r1,DAT_0806b0b4
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
@@ -428,11 +428,11 @@ _ts R_PharaohMan_GetNextMovePanel
     sub        sp,#0x4
     mov        r2,#0x0
     str        r2,[sp,#0x0]
-    ldr        r2,[r5,#0x48]
+    ldr        r2,[r5,#Actor_diff_y]
     tst        r2,r2
     bgt        LAB_0806b0e0
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     sub        r1,#0x1
     push       {r0,r1}
     bl         R_PharaohMan_IsPanelAvailable
@@ -446,8 +446,8 @@ _ts R_PharaohMan_GetNextMovePanel
     .byte 0x00
     .byte 0x92
 LAB_0806b0e0:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     add        r1,#0x1
     push       {r0,r1}
     bl         R_PharaohMan_IsPanelAvailable
@@ -492,19 +492,19 @@ LAB_0806b126:
 
 _nt R_PharaohMan_Steal
     push       {lr}
-    ldrb       r0,[r5,#0x1b]
+    ldrb       r0,[r5,#Actor_b1b]
     tst        r0,r0
     beq        LAB_0806b186
-    ldrb       r0,[r5,#0xe]
+    ldrb       r0,[r5,#Actor_be]
     tst        r0,r0
     bne        LAB_0806b16c
     mov        r0,#0x0
-    ldrh       r1,[r5,#0xc]
+    ldrh       r1,[r5,#Actor_bc]
     sub        r1,#0x1
-    strh       r1,[r5,#0xc]
+    strh       r1,[r5,#Actor_bc]
     bgt        LAB_0806b186
     mov        r0,#0x3c
-    strh       r0,[r5,#0xc]
+    strh       r0,[r5,#Actor_bc]
     mov        r1,#0x1
 LAB_0806b148:
     push       {r1}
@@ -521,23 +521,23 @@ LAB_0806b148:
     b          LAB_0806b168
 LAB_0806b162:
     mov        r0,#0x3c
-    strh       r0,[r5,#0xc]
+    strh       r0,[r5,#Actor_bc]
     mov        r0,#0x1
 LAB_0806b168:
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Actor_be]
     b          LAB_0806b186
 LAB_0806b16c:
-    ldrh       r1,[r5,#0xc]
+    ldrh       r1,[r5,#Actor_bc]
     sub        r1,#0x1
-    strh       r1,[r5,#0xc]
+    strh       r1,[r5,#Actor_bc]
     bgt        LAB_0806b186
     mov        r0,#0x0
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Actor_be]
     mov        r0,#0x3c
-    strh       r0,[r5,#0xc]
+    strh       r0,[r5,#Actor_bc]
     mov        r0,#0x2
     mov        r1,#0x2
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_owner]
     bl         ScreenDim_Alloc
 LAB_0806b186:
     pop        {pc}
@@ -545,21 +545,21 @@ LAB_0806b186:
 
 _ts R_PharaohMan_SetTrap
     push       {lr}
-    ldrb       r0,[r5,#0xf]
+    ldrb       r0,[r5,#Actor_bf]
     tst        r0,r0
     bne        LAB_0806b1c6
-    ldrh       r1,[r5,#0x1e]
+    ldrh       r1,[r5,#Actor_counterB]
     sub        r1,#0x1
-    strh       r1,[r5,#0x1e]
+    strh       r1,[r5,#Actor_counterB]
     bne        LAB_0806b1e6
-    ldr        r0,[r5,#0x78]
-    strh       r0,[r5,#0x1e]
+    ldr        r0,[r5,#Actor_param_78]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x0
-    ldr        r1,[r5,#0x68]
+    ldr        r1,[r5,#Actor_param_68]
     orr        r0,r1
-    ldr        r1,[r5,#0x6c]
+    ldr        r1,[r5,#Actor_param_6C]
     orr        r0,r1
-    ldr        r1,[r5,#0x70]
+    ldr        r1,[r5,#Actor_param_70]
     orr        r0,r1
     tst        r0,r0
     bne        LAB_0806b1e6
@@ -568,21 +568,21 @@ _ts R_PharaohMan_SetTrap
     tst        r1,r1
     beq        LAB_0806b1e6
     mov        r0,#0x1
-    strb       r0,[r5,#0xf]
+    strb       r0,[r5,#Actor_bf]
     mov        r2,#0x74
     add        r2,r2,r5
     bl         Effect_PharaohManCurse_Create
     b          LAB_0806b1e6
 LAB_0806b1c6:
     mov        r0,#0x0
-    ldr        r7,[r5,#0x74]
+    ldr        r7,[r5,#Actor_param_74]
     tst        r7,r7
     bne        LAB_0806b1e8
     mov        r0,#0x0
-    strb       r0,[r5,#0xf]
+    strb       r0,[r5,#Actor_bf]
     mov        r0,#0x27
     mov        r1,#0x0
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_owner]
     bl         ScreenDim_Alloc
     LoadMain screenDim, r7, r7
     str        r5,[r7,#0x14]

@@ -5,7 +5,7 @@
 
 _ts Routine_Remobit
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Remobit_0_Init_08067020
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,24 +32,24 @@ _ts R_Remobit_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x1
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     FieldObject_Create PFI_Self_Actor, 0x60
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     pop        {pc}
@@ -60,30 +60,30 @@ _nt R_Remobit_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldr        r7,[r5,#Actor_param_60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_080670dc
     bl         Battle_IsInputLocked
     bne        LAB_080670dc
     bl         Routine_CheckPoisonDrain
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,PanelFlag_0806711c
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080670dc
@@ -94,24 +94,24 @@ _nt R_Remobit_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_080670dc:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0806710c
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0806710a
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0806710a:
     pop        {pc}
@@ -132,35 +132,35 @@ PanelFlag_0806711c:
 
 _ts R_Remobit_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_08067142
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08067142:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08067158
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x6e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_08067158:
     pop        {pc}
 
 
 _nt R_Remobit_1_2_CreateSprites
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Remobit_1_2_0_08067184
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -170,9 +170,9 @@ _nt R_Remobit_1_2_CreateSprites
     tst        r0,r1
     beq        LAB_08067178
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_08067178:
     pop        {pc}
 
@@ -190,10 +190,10 @@ PTR_PTR_R_Remobit_1_2_0_08067184:
 _ts R_Remobit_1_2_0
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
-    ldrb       r4,[r5,#0x4]
+    strb       r0,[r5,#Actor_state_s2]
+    ldrb       r4,[r5,#Actor_family_family]
     ldr        r3,PTR_INT_ARRAY_080671b4
     lsl        r2,r4,#0x2
     ldr        r3,[r3,r2]
@@ -201,12 +201,12 @@ _ts R_Remobit_1_2_0
     lsl        r0,r4,#0x1
     ldrh       r6,[r6,r0]
     bl         Attack_Remobit_Create
-    str        r0,[r5,#0x5c]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    str        r0,[r5,#Actor_param_5C]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r4,#0x1
     bl         Effect_RemobitThunder_Create
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Actor_param_5C]
     pop        {pc}
 
 PTR_INT_ARRAY_080671b4:
@@ -233,7 +233,7 @@ _nt R_Remobit_1_2_1
 
 _nt R_Remobit_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Remobit_2_0_Delete_080671e8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -250,12 +250,12 @@ PTR_PTR_R_Remobit_2_0_Delete_080671e8:
 
 _ts R_Remobit_2_0_Delete
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Actor_param_5C]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
@@ -263,15 +263,15 @@ _ts R_Remobit_2_0_Delete
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _nt R_Remobit_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08067224
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free

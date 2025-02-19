@@ -5,7 +5,7 @@
 
 _ts Routine_Spooky
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Spooky_0_Init_0805b8bc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,52 +32,52 @@ _ts R_Spooky_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     ldr        r7,PTR_listSpookyRecoverCount_0805b964
     ldrb       r0,[r7,r0]
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Actor_b1b]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
-    ldr        r0,[r5,#0x28]
-    str        r0,[r5,#0x50]
-    ldr        r0,[r5,#0x2c]
-    str        r0,[r5,#0x54]
-    ldr        r0,[r5,#0x30]
-    str        r0,[r5,#0x58]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    str        r0,[r5,#Actor_initial_x]
+    ldr        r0,[r5,#Actor_pos_curr_y]
+    str        r0,[r5,#Actor_initial_y]
+    ldr        r0,[r5,#Actor_pos_curr_z]
+    str        r0,[r5,#Actor_initial_z]
     mov        r0,#0x4b
     lsl        r0,r0,#0x2
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldrb       r0,[r5,#Actor_family_family]
     ldr        r7,PTR_listSpookyActorDamage_0805b968
     ldrb       r0,[r7,r0]
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Actor_damage]
     FieldObject_Create PFI_Self_Actor, 0x60
     FieldObject_Create PFI_Moving, 0x64
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x12]
+    strb       r0,[r5,#Actor_state_s0]
+    ldrb       r0,[r5,#Actor_enemyIndex]
     cmp        r0,#0xff
     bne        LAB_0805b958
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_0805b958:
     bl         R_Spooky_1_Main
     pop        {pc}
@@ -104,33 +104,33 @@ _ts R_Spooky_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldrb       r0,[r5,#0x16]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldrb       r0,[r5,#Actor_owner]
     bl         Field_CheckInterrupt
     beq        LAB_0805b988
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
 LAB_0805b988:
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805b9d0
     bl         Battle_IsInputLocked
     bne        LAB_0805b9d0
     bl         Routine_CheckPoisonDrain
     bl         SpritePtr_DisableFlash
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,INT_0805ba34
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805b9d0
@@ -141,19 +141,19 @@ LAB_0805b988:
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0805b9d0:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_0805ba04
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Spooky_1_0_Spawn_0805ba30
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805b9f6
     mov        r0,#0x9
@@ -161,18 +161,18 @@ LAB_0805b9d0:
 LAB_0805b9f6:
     mov        r0,#PFI_Moving
 LAB_0805b9f8:
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Actor_param_60]
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805ba16
 LAB_0805ba04:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0805ba16:
     pop        {pc}
@@ -197,7 +197,7 @@ INT_0805ba34:
 _ts R_Spooky_1_0_Spawn
     push       {lr}
     ldr        r7,PTR_PTR_R_Spooky_1_0_0_ResetAnimState_0805ba5c
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -221,7 +221,7 @@ _ts R_Spooky_1_0_0_ResetAnimState
     tst        r0,r0
     beq        LAB_0805ba72
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
 LAB_0805ba72:
     pop        {pc}
@@ -233,7 +233,7 @@ _ts R_Spooky_1_0_1_WaitForAnimEnd
     tst        r0,r0
     bne        LAB_0805ba86
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
 LAB_0805ba86:
     pop        {pc}
@@ -246,42 +246,42 @@ _ts R_Spooky_1_0_2_WaitForBattleStart
     tst        r0,r1
     bne        LAB_0805ba9c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805ba9c:
     pop        {pc}
 
 
 _nt R_Spooky_1_1_WaitForBattleStart
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0805bab8
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805bab8:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0805baca
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805baca:
     pop        {pc}
 
 
 _ts R_Spooky_1_2_Decide
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Spooky_1_2_0_ResetAnim_0805bb30
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -291,9 +291,9 @@ _ts R_Spooky_1_2_Decide
     tst        r0,r1
     beq        LAB_0805baec
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
     b          LAB_0805bb26
 LAB_0805baec:
     bl         R_Spooky_CheckAttack
@@ -301,26 +301,26 @@ LAB_0805baec:
     beq        LAB_0805bb16
     mov        r0,#0x0
     bl         Battle_SetBattleFlag
-    ldr        r0,[r5,#0x64]
-    ldrb       r1,[r5,#0x18]
+    ldr        r0,[r5,#Actor_param_64]
+    ldrb       r1,[r5,#Actor_cPos_x]
     strb       r1,[r0,#0x2]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     strb       r1,[r0,#0x3]
     bl         FieldObject_UpdateCellPosition
     bl         FieldObject_Enable
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0805bb26
 LAB_0805bb16:
     bl         R_Spooky_FindTarget
     tst        r0,r0
     beq        LAB_0805bb26
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805bb26:
     pop        {pc}
 
@@ -335,9 +335,9 @@ PTR_PTR_R_Spooky_1_2_0_ResetAnim_0805bb30:
 _ts R_Spooky_1_2_0_ResetAnim
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         R_Spooky_1_2_1_CheckRow
     pop        {pc}
 
@@ -351,16 +351,16 @@ _ts R_Spooky_1_2_1_CheckRow
     cmp        r0,#0xff
     beq        LAB_0805bb5e
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805bb5e:
     pop        {pc}
 
 
 _ts R_Spooky_1_3_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Spooky_1_3_0_Delay_0805bb90
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -370,9 +370,9 @@ _ts R_Spooky_1_3_Move
     tst        r0,r1
     beq        LAB_0805bb7e
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805bb7e:
     pop        {pc}
 
@@ -388,21 +388,21 @@ PTR_PTR_R_Spooky_1_3_0_Delay_0805bb90:
 
 _ts R_Spooky_1_3_0_Delay
     mov        r0,#0x5
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        pc,lr
 
 
 _nt R_Spooky_1_3_1_StartMove
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805bbae
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805bbae:
     mov        pc,lr
 
@@ -413,21 +413,21 @@ _ts R_Spooky_1_3_2_ChooseNewRow
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0805bbdc
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_y]
     bl         R_Actor_GetNewY
     cmp        r0,#0xff
     beq        LAB_0805bbd4
-    strb       r0,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_y]
     add        r1,r0,#0x0
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
 LAB_0805bbd4:
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805bbdc:
     pop        {pc}
 
@@ -439,9 +439,9 @@ _nt R_Spooky_1_3_3_EndMove
     tst        r0,r1
     beq        LAB_0805bbf2
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805bbf2:
     pop        {pc}
 
@@ -450,7 +450,7 @@ _ts R_Spooky_1_4_Attack
     push       {lr}
     mov        r0,#0x0
     bl         Battle_SetBattleFlag
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Spooky_1_4_0_TeleportToPlayer_0805bc30
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -460,9 +460,9 @@ _ts R_Spooky_1_4_Attack
     tst        r0,r1
     beq        LAB_0805bc18
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805bc18:
     pop        {pc}
 
@@ -483,7 +483,7 @@ PTR_PTR_R_Spooky_1_4_0_TeleportToPlayer_0805bc30:
 _ts R_Spooky_1_4_0_TeleportToPlayer
     push       {lr}
     ldr        r7,PTR_PTR_R_Spooky_1_4_0_0_StartAnimVanish_0805bc44
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -504,14 +504,14 @@ PTR_R_Spooky_1_4_0_0_StartAnimVanish_0805bc48:
 
 _ts R_Spooky_1_4_0_0_StartAnimVanish
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
-    ldrb       r0,[r5,#0x18]
-    strb       r0,[r5,#0x7]
-    strb       r0,[r5,#0x6]
-    ldrb       r0,[r5,#0x19]
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_state_s3]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    strb       r0,[r5,#Actor_family_b3]
+    strb       r0,[r5,#Actor_family_b2]
+    ldrb       r0,[r5,#Actor_cPos_y]
+    strb       r0,[r5,#Actor_family_b1]
     mov        pc,lr
 
 
@@ -521,31 +521,31 @@ _ts R_Spooky_1_4_0_1_WaitAnim
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0805bc8c
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0xfd
     and        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0805bc8c:
     pop        {pc}
 
 
 _nt R_Spooky_1_4_0_2_StartAnimReappear
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805bca6
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x6]
+    strh       r0,[r5,#Actor_counterA]
+    ldrb       r0,[r5,#Actor_family_b2]
     sub        r0,#0x1
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#Actor_family_b2]
     cmp        r0,#0x2
     bmi        LAB_0805bcb6
 LAB_0805bca6:
@@ -558,22 +558,22 @@ LAB_0805bca6:
     b          LAB_0805bcd8
 LAB_0805bcb6:
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     b          LAB_0805bcd8
 LAB_0805bcc0:
     add        r0,r1,#0x0
     ldrb       r1,[r7,#0x19]
     bl         R_Spooky_SetPosition
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xb]
-    ldrb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_state_s3]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_0805bcd8:
     pop        {pc}
 
@@ -585,9 +585,9 @@ _nt R_Spooky_1_4_0_3_WaitAnim
     tst        r0,r1
     beq        LAB_0805bcee
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_0805bcee:
     pop        {pc}
 
@@ -595,7 +595,7 @@ LAB_0805bcee:
 _ts R_Spooky_1_4_3_Attack
     push       {lr}
     ldr        r7,PTR_PTR_R_Spooky_1_4_3_0_StartAnimAttack_0805bd00
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -616,13 +616,13 @@ PTR_R_Spooky_1_4_3_0_StartAnimAttack_0805bd04:
 _ts R_Spooky_1_4_3_0_StartAnimAttack
     push       {lr}
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x89
     bl         Sound_PlaySE
     pop        {pc}
@@ -630,16 +630,16 @@ _ts R_Spooky_1_4_3_0_StartAnimAttack
 
 _nt R_Spooky_1_4_3_1_Damage
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805bd54
     push       {r5}
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
-    ldrb       r2,[r5,#0x16]
-    ldrb       r3,[r5,#0x4]
+    ldrb       r1,[r5,#Actor_cPos_y]
+    ldrb       r2,[r5,#Actor_owner]
+    ldrb       r3,[r5,#Actor_family_family]
     ldr        r7,PTR_listSpookyTongueDamage_0805bd5c
     ldrb       r3,[r7,r3]
     mov        r4,#0x80
@@ -648,7 +648,7 @@ _nt R_Spooky_1_4_3_1_Damage
     bl         Attack_QuickAttack_Create
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_0805bd54:
     pop        {pc}
 
@@ -671,9 +671,9 @@ _ts R_Spooky_1_4_3_2_WaitAnim
     tst        r0,r1
     beq        LAB_0805bd74
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_0805bd74:
     pop        {pc}
 
@@ -681,7 +681,7 @@ LAB_0805bd74:
 _nt R_Spooky_1_4_5_TeleportBack
     push       {lr}
     ldr        r7,PTR_PTR_R_Spooky_1_4_5_0_StartAnimTeleport_0805bd84
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -699,11 +699,11 @@ PTR_R_Spooky_1_4_5_0_StartAnimTeleport_0805bd88:
 _ts R_Spooky_1_4_5_0_StartAnimTeleport
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     pop        {pc}
 
 
@@ -713,13 +713,13 @@ _ts R_Spooky_1_4_5_1_SetPosition
     mov        r1,#0x80
     tst        r1,r0
     beq        LAB_0805bdc0
-    ldrb       r0,[r5,#0x7]
-    ldrb       r1,[r5,#0x5]
+    ldrb       r0,[r5,#Actor_family_b3]
+    ldrb       r1,[r5,#Actor_family_b1]
     bl         R_Spooky_SetPosition
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_0805bdc0:
     pop        {pc}
 
@@ -730,15 +730,15 @@ _nt R_Spooky_1_4_5_2_WaitAnim
     mov        r1,#0x80
     tst        r1,r0
     beq        LAB_0805bde2
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x4b
     lsl        r0,r0,#0x2
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
 LAB_0805bde2:
     pop        {pc}
 
@@ -746,7 +746,7 @@ LAB_0805bde2:
 _ts R_Spooky_1_5_Recover
     push       {lr}
     ldr        r7,PTR_PTR_R_Spooky_1_5_0_StartAnim_0805bdf4
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -766,33 +766,33 @@ PTR_R_Spooky_1_5_0_StartAnim_0805bdf8:
 
 _ts R_Spooky_1_5_0_StartAnim
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        pc,lr
 
 
 _nt R_Spooky_1_5_1_Recover
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805be3a
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     ldr        r7,PTR_BYTE_ARRAY_0805be40
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Actor_family_family]
     ldrb       r1,[r7,r1]
     bl         ScreenDim_Recover_Create
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_state_s2]
+    ldrb       r0,[r5,#Actor_bc]
     sub        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0xc]
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Actor_b1b]
 LAB_0805be3a:
     pop        {pc}
 
@@ -811,16 +811,16 @@ PTR_BYTE_ARRAY_0805be40:
 _ts R_Spooky_1_5_2_Next
     push       {lr}
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_Spooky_2_Free
     push       {lr}
     ldr        r7,PTR_PTR_R_Spooky_2_0_StartAnimDelete_0805be68
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -839,29 +839,29 @@ PTR_PTR_R_Spooky_2_0_StartAnimDelete_0805be68:
 
 _ts R_Spooky_2_0_StartAnimDelete
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_VirusDelete_Create
     add        r0,r5,#0x0
     pop        {r5}
-    str        r0,[r5,#0x7c]
+    str        r0,[r5,#Actor_param_7C]
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _nt R_Spooky_2_1_WaitAnim
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805bea8
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -871,32 +871,32 @@ LAB_0805bea8:
 
 _nt R_Spooky_SetPositionFromSprite
     push       {lr}
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     pop        {pc}
 
 
 _nt R_Spooky_SetPosition
     push       {lr}
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     pop        {pc}
 
 
 _nt R_Spooky_CheckAttack
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
     bge        LAB_0805bed4
     mov        r0,#0x0
 LAB_0805bed4:
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     tst        r0,r0
     bgt        LAB_0805bee6
     mov        r0,#0x0
@@ -913,12 +913,12 @@ LAB_0805bee8:
 _nt R_Spooky_FindTarget
     push       {lr}
     mov        r0,#0x0
-    ldrb       r1,[r5,#0xc]
+    ldrb       r1,[r5,#Actor_bc]
     tst        r1,r1
     beq        LAB_0805bf12
     LoadMain battle, r7, r7
     ldrb       r1,[r7,#0xc]
-    ldrb       r2,[r5,#0x1b]
+    ldrb       r2,[r5,#Actor_b1b]
     cmp        r1,r2
     ble        LAB_0805bf12
     push       {r0}
@@ -927,7 +927,7 @@ _nt R_Spooky_FindTarget
     pop        {r0}
     tst        r1,r1
     beq        LAB_0805bf12
-    str        r1,[r5,#0x6c]
+    str        r1,[r5,#Actor_param_6C]
     mov        r0,#0x1
 LAB_0805bf12:
     pop        {pc}

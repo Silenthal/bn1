@@ -5,7 +5,7 @@
 
 _ts Effect_BombManBombExplosion
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_BombManBombExplosion_0_Init_080801cc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,20 +32,20 @@ _ts E_BombManBombExplosion_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    strb       r0,[r5,#0xc]
+    strh       r0,[r5,#Effect_counterA]
+    strb       r0,[r5,#Effect_bc]
     mov        r0,#0x2
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Effect_element]
     FieldObject_Create PFI_Self_Default, 0x64
     mov        r0,#0x76
     bl         Sound_PlaySE
@@ -57,25 +57,25 @@ _ts E_BombManBombExplosion_1_Main
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Effect_cPos_x]
+    ldrb       r1,[r5,#Effect_cPos_y]
     bl         FieldObject_GetPanelFlags
-    ldrb       r1,[r5,#0xc]
+    ldrb       r1,[r5,#Effect_bc]
     tst        r1,r1
     beq        LAB_08080242
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Effect_obj_64]
     bl         FieldObject_Disable
     b          LAB_08080258
 LAB_08080242:
     ldr        r7,PTR_DAT_080802b8
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Effect_owner]
     lsl        r1,r1,#0x2
     ldr        r1,[r7,r1]
     tst        r1,r0
     beq        LAB_08080258
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
-    ldr        r0,[r5,#0x64]
+    strb       r0,[r5,#Effect_bc]
+    ldr        r0,[r5,#Effect_obj_64]
     bl         FieldObject_SetDeletedFlag
 LAB_08080258:
     bl         SpritePtr_GetFrameStatus
@@ -83,17 +83,17 @@ LAB_08080258:
     tst        r0,r1
     beq        LAB_0808026c
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     b          LAB_080802b6
 LAB_0808026c:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     cmp        r0,#0x8
     bne        LAB_080802b6
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     bne        LAB_080802a0
     mov        r0,#0x0
@@ -105,7 +105,7 @@ LAB_0808027e:
     cmp        r0,#0xff
     beq        LAB_08080296
     mov        r2,#0x8c
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Effect_owner]
     add        r4,#0x1
     bl         Effect_BombManBombExplosion_Create
 LAB_08080296:
@@ -115,14 +115,14 @@ LAB_08080296:
     blt        LAB_0808027e
     b          LAB_080802b6
 LAB_080802a0:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     sub        r0,#0x1
     bl         FUN_080802d2
     cmp        r0,#0xff
     beq        LAB_080802b6
     mov        r2,#0x8c
-    ldrb       r3,[r5,#0x16]
-    ldrb       r4,[r5,#0x4]
+    ldrb       r3,[r5,#Effect_owner]
+    ldrb       r4,[r5,#Effect_family_family]
     bl         Effect_BombManBombExplosion_Create
 LAB_080802b6:
     pop        {pc}
@@ -143,7 +143,7 @@ DAT_080802bc:
 
 _ts E_BombManBombExplosion_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Effect_obj_64]
     bl         FieldObject_Free
     bl         Effect_Free
     pop        {pc}
@@ -159,10 +159,10 @@ _nt FUN_080802d2
     ldrsb      r2,[r7,r2]
     mov        r3,#0x1
     ldrsb      r3,[r7,r3]
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Effect_cPos_x]
     add        r0,r0,r2
     str        r0,[sp,#0x0]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Effect_cPos_y]
     add        r1,r1,r3
     str        r1,[sp,#0x4]
     bl         FieldObject_GetPanelFlags
@@ -172,7 +172,7 @@ _nt FUN_080802d2
     mov        r1,#0x2
     and        r1,r0
     lsr        r1,r1,#0x1
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Effect_owner]
     eor        r0,r1
     beq        LAB_08080308
     b          LAB_0808030c

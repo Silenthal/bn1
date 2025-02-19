@@ -5,7 +5,7 @@
 
 _ts Routine_SkullMan_Chip
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_SkullManC_0_Init_08067980
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,43 +26,43 @@ PTR_R_SkullManC_0_Init_08067984:
 
 _ts R_SkullManC_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x46
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     neg        r0,r0
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x0
-    str        r0,[r5,#0x5c]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    str        r0,[r5,#Actor_param_5C]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x3
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Actor_element]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     bl         R_SkullManC_1_Main
     pop        {pc}
 
 
 _ts R_SkullManC_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_SkullManC_1_0_WarpIn_080679f4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -84,7 +84,7 @@ PTR_R_SkullManC_1_0_WarpIn_080679f8:
 
 _ts R_SkullManC_1_0_WarpIn
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_SkullManC_1_0_0_08067a14
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -109,32 +109,32 @@ _ts R_SkullManC_1_0_0
     tst        r0,r1
     beq        LAB_08067a38
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x2d
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08067a38:
     pop        {pc}
 
 
 _nt R_SkullManC_1_0_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08067a4c
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08067a4c:
     pop        {pc}
 
 
 _nt R_SkullManC_1_1_Skull
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_SkullManC_1_1_0_08067a5c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -155,9 +155,9 @@ PTR_R_SkullManC_1_1_0_08067a60:
 _ts R_SkullManC_1_1_0
     push       {lr}
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -168,10 +168,10 @@ _ts R_SkullManC_1_1_1
     tst        r0,r1
     beq        LAB_08067a98
     mov        r0,#0x8
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         R_SkullManC_CreateSkullAndTargetHighestHP
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08067a98:
     pop        {pc}
     .byte 0x00
@@ -181,13 +181,13 @@ LAB_08067a98:
 
 _ts R_SkullManC_1_1_2
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     tst        r0,r0
     bne        LAB_08067ab0
     mov        r0,#0x9
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08067ab0:
     pop        {pc}
 
@@ -199,25 +199,25 @@ _nt R_SkullManC_1_1_3
     tst        r0,r1
     beq        LAB_08067ac6
     mov        r0,#0x64
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08067ac6:
     pop        {pc}
 
 
 _ts R_SkullManC_1_1_4
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08067ade
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08067ade:
     pop        {pc}
 
@@ -228,23 +228,23 @@ _ts R_SkullManC_1_2_WarpOut
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_08067afc
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
 LAB_08067afc:
     pop        {pc}
 
 
 _nt R_SkullManC_2_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08067b14
     LoadMain screenDim, r7, r7
     mov        r0,#0x1
@@ -256,7 +256,7 @@ LAB_08067b14:
 
 _nt R_SkullManC_CreateSkullAndTargetHighestHP
     push       {lr}
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     tst        r0,r0
     beq        LAB_08067b44
     LoadMain battle, r7, r7
@@ -269,7 +269,7 @@ LAB_08067b28:
     lsr        r0,r0,#0x1e
     add        r0,#0x2
     lsl        r0,r0,#0x10
-    ldrb       r4,[r5,#0x19]
+    ldrb       r4,[r5,#Actor_cPos_y]
     add        r4,#0x1
     cmp        r4,#0x3
     ble        LAB_08067b3e
@@ -302,12 +302,12 @@ LAB_08067b68:
     ldrh       r4,[r7,#0x18]
     lsl        r4,r4,#0x10
 LAB_08067b6c:
-    ldrb       r1,[r5,#0x18]
-    ldrb       r2,[r5,#0x19]
-    ldrb       r0,[r5,#0x4]
+    ldrb       r1,[r5,#Actor_cPos_x]
+    ldrb       r2,[r5,#Actor_cPos_y]
+    ldrb       r0,[r5,#Actor_family_family]
     add        r0,#0x80
     orr        r4,r0
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Actor_damage]
     mov        r0,#0x60
     add        r0,r0,r5
     bl         Attack_Skull_Create

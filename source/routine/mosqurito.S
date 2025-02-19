@@ -11,11 +11,11 @@ MosquritoParam_ARRAY_08068d2c:
 
 _ts Routine_Mosqurito
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Mosqurito_0_Init_08068d5c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -36,58 +36,58 @@ PTR_R_Mosqurito_0_Init_08068d60:
 
 _ts R_Mosqurito_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x69
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x1
     bl         SpritePtr_SetPaletteIndex
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r2,#0x0
-    str        r2,[r5,#0x30]
+    str        r2,[r5,#Actor_pos_curr_z]
     mov        r7,#0x50
     add        r7,r7,r5
     stmia      r7!,{r0,r1,r2}
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r3,#0x60
     strb       r0,[r5,r3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x3
     ldr        r7,PTR_MosquritoParam_ARRAY_08068e00
     add        r7,r7,r0
-    str        r7,[r5,#0x68]
+    str        r7,[r5,#Actor_param_68]
     ldrb       r0,[r7,#0x2]
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Actor_damage]
     ldr        r0,[r7,#0x4]
     neg        r0,r0
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Actor_diff_x]
     FieldObject_Create PFI_Self_Actor_Drain, 0x6c
     FieldObject_Create PFI_Moving, 0x70
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         R_Mosqurito_1_Main
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -98,21 +98,21 @@ PTR_MosquritoParam_ARRAY_08068e00:
 _ts R_Mosqurito_1_Main
     push       {lr}
     bl         SpritePtr_DisableFlash
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_DisableIfDeleted
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Actor_param_6C]
     ldr        r0,[r7,#0x10]
     bl         FieldObject_UpdateField
     bl         R_Mosqurito_CheckDamage
     tst        r0,r0
     bne        LAB_08068e2a
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Drone_1_0_Spawn_08068e38
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_08068e2a:
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -134,33 +134,33 @@ PTR_R_Drone_1_0_Spawn_08068e3c:
 
 _ts R_Mosqurito_1_1_WaitForBattleStart
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_08068e6e
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08068e6e:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08068e80
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08068e80:
     pop        {pc}
 
 
 _nt R_Mosqurito_1_2_SetSpeedY
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Mosqurito_1_2_0_Wait_08068ea4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -170,9 +170,9 @@ _nt R_Mosqurito_1_2_SetSpeedY
     tst        r0,r1
     beq        LAB_08068ea0
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_08068ea0:
     pop        {pc}
 
@@ -190,21 +190,21 @@ PTR_R_Mosqurito_1_2_0_Wait_08068ea8:
 _ts R_Mosqurito_1_2_0_Wait
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldr        r0,[r5,#0x70]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Disable
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_Mosqurito_1_2_1_SetSpeedY
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08068ee8
     bl         Rng_RandomUint
     lsr        r0,r0,#0x1f
@@ -212,11 +212,11 @@ _nt R_Mosqurito_1_2_1_SetSpeedY
     sub        r0,#0x1
     ldr        r1,DAT_08068eec
     mul        r0,r1
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Actor_diff_y]
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08068ee8:
     pop        {pc}
 
@@ -229,7 +229,7 @@ DAT_08068eec:
 
 _ts R_Mosqurito_1_3_MoveY
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Mosqurito_1_3_0_CheckY_08068f00
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -249,17 +249,17 @@ PTR_R_Mosqurito_1_3_0_CheckY_08068f04:
 
 _ts R_Mosqurito_1_3_0_CheckY
     push       {lr}
-    ldr        r0,[r5,#0x48]
+    ldr        r0,[r5,#Actor_diff_y]
     mov        r6,#0x2
 LAB_08068f12:
     lsr        r1,r0,#0x1f
     lsl        r1,r1,#0x1
     neg        r1,r1
     add        r1,#0x1
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_y]
     add        r1,r1,r0
-    ldrb       r0,[r5,#0x18]
-    ldr        r7,[r5,#0x70]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldr        r7,[r5,#Actor_param_70]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     strb       r0,[r7,#0x2]
@@ -275,20 +275,20 @@ LAB_08068f12:
     cmp        r0,r1
     beq        LAB_08068f50
 LAB_08068f40:
-    ldr        r0,[r5,#0x48]
+    ldr        r0,[r5,#Actor_diff_y]
     neg        r0,r0
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Actor_diff_y]
     sub        r6,#0x1
     bne        LAB_08068f12
     bl         R_Mosqurito_Decide
     pop        {pc}
 LAB_08068f50:
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
-    ldr        r0,[r5,#0x70]
+    strh       r0,[r5,#Actor_counterA]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 DAT_08068f60:
@@ -300,26 +300,26 @@ DAT_08068f64:
 
 _ts R_Mosqurito_1_3_1_MoveY
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     beq        LAB_08068f86
-    ldr        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x2c]
-    ldr        r2,[r5,#0x48]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    ldr        r1,[r5,#Actor_pos_curr_y]
+    ldr        r2,[r5,#Actor_diff_y]
     add        r1,r1,r2
-    str        r1,[r5,#0x2c]
+    str        r1,[r5,#Actor_pos_curr_y]
     bl         Battle_SpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     pop        {pc}
 LAB_08068f86:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    ldr        r0,[r5,#0x70]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Disable
     bl         R_Mosqurito_Decide
     pop        {pc}
@@ -329,7 +329,7 @@ _nt R_Mosqurito_1_4_ChargeForward
     push       {lr}
     mov        r0,#0x0
     bl         Battle_SetBattleFlag
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Mosqurito_1_4_0_StartMove_08068fb4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -351,22 +351,22 @@ PTR_R_Mosqurito_1_4_0_StartMove_08068fb8:
 _ts R_Mosqurito_1_4_0_StartMove
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldrh       r1,[r5,#0x18]
-    ldr        r0,[r5,#0x70]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldrh       r1,[r5,#Actor_cPos_x]
+    ldr        r0,[r5,#Actor_param_70]
     strh       r1,[r0,#0x4]
     strh       r1,[r0,#0x2]
     bl         FieldObject_Enable
     mov        r0,#0x94
     bl         Sound_PlaySE
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_Mosqurito_1_4_1_ChargeForward
     push       {lr}
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     mov        r1,#0x8
     lsl        r1,r1,#0x10
     tst        r0,r1
@@ -377,14 +377,14 @@ _nt R_Mosqurito_1_4_1_ChargeForward
     bl         Field_IsEntityCellPositionValid
     tst        r0,r0
     beq        LAB_0806902e
-    ldr        r1,[r5,#0x44]
-    ldr        r0,[r5,#0x28]
+    ldr        r1,[r5,#Actor_diff_x]
+    ldr        r0,[r5,#Actor_pos_curr_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    ldr        r1,[r5,#Actor_pos_curr_y]
     bl         Battle_SpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     pop        {pc}
 LAB_08069010:
     mov        r1,#0x4
@@ -394,16 +394,16 @@ LAB_08069010:
     mov        r0,#0x1
     mov        r3,#0x60
     strb       r0,[r5,r3]
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0806902e:
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 PanelFlag_08069034:
@@ -412,15 +412,15 @@ PanelFlag_08069034:
 
 _ts R_Mosqurito_1_4_2_Return
     push       {lr}
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     ldrh       r1,[r0,#0x4]
-    strh       r1,[r5,#0x18]
+    strh       r1,[r5,#Actor_cPos_x]
     bl         FieldObject_Disable
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     push       {r5}
     mov        r7,#0x28
     add        r7,r7,r5
@@ -432,9 +432,9 @@ _ts R_Mosqurito_1_4_2_Return
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -442,7 +442,7 @@ _ts R_Mosqurito_1_5_Drain
     push       {lr}
     mov        r0,#0x0
     bl         Battle_SetBattleFlag
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Mosqurito_1_5_0_StartDrain_08069084
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -466,18 +466,18 @@ _ts R_Mosqurito_1_5_0_StartDrain
     tst        r0,r0
     beq        LAB_080690ba
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_080690ba:
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -492,19 +492,19 @@ _ts R_Mosqurito_1_5_1_Drain
     tst        r0,r0
     beq        LAB_080690ec
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
-    ldr        r7,[r5,#0x68]
+    strh       r0,[r5,#Actor_counterA]
+    ldr        r7,[r5,#Actor_param_68]
     ldrh       r0,[r7,#0x2]
     bl         FieldObject_AddHp
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080690ea:
     pop        {pc}
 LAB_080690ec:
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -514,33 +514,33 @@ _nt R_Mosqurito_1_5_2_Wait
     bl         Routine_IsPlayerDrainActive
     tst        r0,r0
     beq        LAB_08069106
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806910a
 LAB_08069106:
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806910a:
     pop        {pc}
 
 
 _ts R_Mosqurito_1_5_3_Return
     push       {lr}
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     ldrh       r1,[r0,#0x4]
-    strh       r1,[r5,#0x18]
+    strh       r1,[r5,#Actor_cPos_x]
     bl         FieldObject_Disable
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x0
     mov        r3,#0x60
     strb       r0,[r5,r3]
-    ldr        r0,[r5,#0x6c]
-    ldrh       r1,[r5,#0x18]
+    ldr        r0,[r5,#Actor_param_6C]
+    ldrh       r1,[r5,#Actor_cPos_x]
     strh       r1,[r0,#0x2]
     strh       r1,[r0,#0x4]
     bl         FieldObject_Enable
@@ -555,15 +555,15 @@ _ts R_Mosqurito_1_5_3_Return
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_Mosqurito_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Mosqurito_2_0_Delete_08069168
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -582,32 +582,32 @@ PTR_R_Mosqurito_2_0_Delete_0806916c:
 _ts R_Mosqurito_2_0_Delete
     push       {lr}
     bl         Battle_RegisterVirusDelete
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_VirusDelete_Create
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _ts R_Mosqurito_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080691bc
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Free
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Actor_family_family]
     lsr        r1,r1,#0x8
     bcs        LAB_080691b4
 LAB_080691b4:
@@ -620,10 +620,10 @@ LAB_080691bc:
 _nt R_Mosqurito_CheckDamage
     push       {lr}
     mov        r0,#0x0
-    str        r0,[r5,#0x74]
+    str        r0,[r5,#Actor_param_74]
     bl         Battle_IsInputLocked
     bne        LAB_0806922a
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     ble        LAB_0806920c
     bl         Routine_CheckPoisonDrain
@@ -633,30 +633,30 @@ _nt R_Mosqurito_CheckDamage
     ldrb       r0,[r5,r3]
     tst        r0,r0
     bne        LAB_0806922a
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     bne        LAB_0806922a
     FieldObject_GetDamage PFI_Target_Object, 0x6c
     tst        r0,r0
     beq        LAB_0806922a
-    str        r0,[r5,#0x74]
-    ldrb       r0,[r5,#0x1a]
+    str        r0,[r5,#Actor_param_74]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806922a
     bl         Field_SubtractHP
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_08069224
 LAB_0806920c:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_08069224:
@@ -672,7 +672,7 @@ _nt R_Mosqurito_Decide
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x19]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     cmp        r0,r1
     bne        LAB_08069258
     mov        r0,#0x0
@@ -680,17 +680,17 @@ _nt R_Mosqurito_Decide
     tst        r0,r0
     bne        LAB_08069258
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
     bl         Battle_SetBattleFlag
     pop        {pc}
 LAB_08069258:
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
     .align 2, 0

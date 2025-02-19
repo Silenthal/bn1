@@ -6,7 +6,7 @@
 _ts Effect_Sparks
     push       {lr}
     ldr        r0,PTR_PTR_E_Sparks_0_Init_0808170c
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,11 +22,11 @@ PTR_E_Sparks_0_Init_08081660:
 _ts E_Sparks_0_Init
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r1,DAT_08081710
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -38,23 +38,23 @@ _ts E_Sparks_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r1,#0x0
-    str        r1,[r5,#0x44]
-    str        r1,[r5,#0x48]
-    str        r1,[r5,#0x4c]
+    str        r1,[r5,#Effect_diff_x]
+    str        r1,[r5,#Effect_diff_y]
+    str        r1,[r5,#Effect_diff_z]
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s1]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0xe
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     pop        {pc}
 
 
 _ts E_Sparks_1_Main
     push       {lr}
     ldr        r0,PTR_PTR_E_Sparks_1_0_08081714
-    ldrb       r1,[r5,#0x9]
+    ldrb       r1,[r5,#Effect_state_s1]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -64,17 +64,17 @@ PTR_E_Sparks_1_0_080816c0:
 
 
 _ts E_Sparks_1_0
-    ldrb       r0,[r5,#0x1c]
+    ldrb       r0,[r5,#Effect_counterA]
     tst        r0,r0
     bne        LAB_080816d4
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Effect_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     b          LAB_080816da
 LAB_080816d4:
     sub        r0,#0x1
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     pop        {pc}
 LAB_080816da:
     Flag_GetBase 0xE3
@@ -100,7 +100,7 @@ _nt Effect_Sparks_Create
     mov        r0,#0x45
     bl         Effect_Alloc
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Effect_frameIndexCurr]
     pop        {pc}
 
     .align 2, 0

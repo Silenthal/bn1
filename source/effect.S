@@ -105,15 +105,15 @@ LAB_08003976:
     mov        r2,#0x0
     bl         memset_8
     mov        r0,#0x9
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     pop        { r0, r1, r2, r3, r4 }
-    strb       r0,[r5,#0x1]
-    str        r1,[r5,#0x28]
-    str        r2,[r5,#0x2c]
-    str        r3,[r5,#0x30]
-    str        r4,[r5,#0x4]
+    strb       r0,[r5,#Effect_header_routineType]
+    str        r1,[r5,#Effect_pos_curr_x]
+    str        r2,[r5,#Effect_pos_curr_y]
+    str        r3,[r5,#Effect_pos_curr_z]
+    str        r4,[r5,#Effect_family_family]
     mov        r0,#0x0
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Effect_state_s0]
     pop        { pc }
 LAB_0800399c:
     mov        r5,#0x0
@@ -122,14 +122,14 @@ LAB_0800399c:
 _ts Effect_Free
     push       { lr }
     ldr        r0,DAT_08003ad0
-    ldrb       r1,[r5,#0x3]
+    ldrb       r1,[r5,#Effect_header_listIndex]
     lsr        r0,r1
     ldr        r1,PTR_gBitsetEffect_08003adc
     ldr        r2,[r1,#0x0]
     bic        r2,r0
     str        r2,[r1,#0x0]
     mov        r1,#0x0
-    strb       r1,[r5,#0x0]
+    strb       r1,[r5,#Effect_header_entityFlags]
     bl         SpritePtr_AffineFree
     pop        { pc }
 
@@ -138,7 +138,7 @@ _ts Effect_UpdateAll
     ldr        r5,PTR_gEntityListEffect_08003ae0
 LAB_080039c0:
     mov        r1,#0x1
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Effect_header_entityFlags]
     tst        r0,r1
     beq        LAB_080039f6
     LoadMain world, r7, r7
@@ -159,7 +159,7 @@ LAB_080039d8:
 LAB_080039e8:
     str        r5,[r7,#0x70]
     ldr        r0,PTR_listHandlerEffect_08003ae4
-    ldrb       r1,[r5,#0x1]
+    ldrb       r1,[r5,#Effect_header_routineType]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -207,8 +207,8 @@ _ts Effect_Init
     ldr        r5,PTR_gEntityListEffect_08003b00
 LAB_08003a48:
     mov        r3,#0x83
-    strb       r3,[r5,#0x2]
-    strb       r1,[r5,#0x3]
+    strb       r3,[r5,#Effect_header_tag]
+    strb       r1,[r5,#Effect_header_listIndex]
     add        r1,#0x1
     add        r5,#0xb0
     cmp        r1,r0
@@ -224,7 +224,7 @@ _ts Effect_LoadAll
     mov        r1,#0x0
     ldr        r5,PTR_gEntityListEffect_08003b08
 LAB_08003a68:
-    ldrb       r2,[r5,#0x0]
+    ldrb       r2,[r5,#Effect_header_entityFlags]
     mov        r3,#0x2
     tst        r2,r3
     beq        LAB_08003a8e

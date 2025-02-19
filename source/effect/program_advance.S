@@ -5,7 +5,7 @@
 
 _ts Effect_ProgramAdvance
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_ProgramAdvance_0_Init_0807c32c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -40,11 +40,11 @@ LAB_0807c340:
     bl         Dma_TransferListAdd
     pop        {r5}
     mov        r0,#0x4
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     mov        r0,#0xff
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Effect_bc]
     bl         E_ProgramAdvance_1_Main
 LAB_0807c360:
     pop        {pc}
@@ -63,12 +63,12 @@ PTR_Color_ARRAY_0807c368:
 
 _ts E_ProgramAdvance_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Effect_state_s1]
     ldr        r7,PTR_PTR_E_ProgramAdvance_1_0_Darken_0807c388
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Effect_bc]
     cmp        r0,#0xff
     beq        LAB_0807c386
 LAB_0807c386:
@@ -89,7 +89,7 @@ PTR_E_ProgramAdvance_1_0_Darken_0807c38c:
 
 _ts E_ProgramAdvance_1_0_Darken
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     ldr        r7,PTR_PTR_E_ProgramAdvance_1_0_0_Darken_0807c3b8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -115,29 +115,29 @@ _ts E_ProgramAdvance_1_0_0_Darken
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     pop        {pc}
 
 
 _ts E_ProgramAdvance_1_0_1_Wait
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807c3ee
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
 LAB_0807c3ee:
     pop        {pc}
 
 
 _ts E_ProgramAdvance_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     ldr        r7,PTR_PTR_E_ProgramAdvance_1_1_0_ShowMessage_0807c40c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -167,31 +167,31 @@ _ts E_ProgramAdvance_1_1_0_ShowMessage
     bl         BattleMessage_Load
     pop        {r5}
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Effect_bc]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     pop        {pc}
 
 
 _nt E_ProgramAdvance_1_1_1_Wait
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807c444
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
 LAB_0807c444:
     pop        {pc}
 
 
 _nt E_ProgramAdvance_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     ldr        r7,PTR_PTR_E_ProgramAdvance_1_2_0_0807c460
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -218,7 +218,7 @@ _ts E_ProgramAdvance_1_2_0
     add        r7,r7,r5
     ldr        r2,PTR_iwBufferUITextTile_0807c4cc
     ldr        r3,PTR_DAT_0807c4d0
-    ldrb       r4,[r5,#0xd]
+    ldrb       r4,[r5,#Effect_bd]
 LAB_0807c47c:
     push       {r4,r5}
     push       {r2,r3,r7}
@@ -250,9 +250,9 @@ LAB_0807c47c:
     sub        r4,#0x1
     bne        LAB_0807c47c
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     pop        {pc}
 
 PTR_TextData_BattleChip_Names_0807c4c4:
@@ -273,9 +273,9 @@ PTR_tilesetBoldAlphanumeric_0807c4d4:
 
 _ts E_ProgramAdvance_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807c506
     mov        r4,#0x0
 LAB_0807c4e4:
@@ -288,13 +288,13 @@ LAB_0807c4e4:
     bl         FUN_0807cbf0
     pop        {r4}
     add        r4,#0x1
-    ldrb       r6,[r5,#0xd]
+    ldrb       r6,[r5,#Effect_bd]
     cmp        r4,r6
     blt        LAB_0807c4e4
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
 LAB_0807c506:
     pop        {pc}
     .byte 0x90
@@ -306,21 +306,21 @@ LAB_0807c506:
 
 _ts E_ProgramAdvance_1_2_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807c51e
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
 LAB_0807c51e:
     pop        {pc}
 
 
 _ts E_ProgramAdvance_1_3
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     ldr        r7,PTR_PTR_E_ProgramAdvance_1_3_0_0807c53c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -347,9 +347,9 @@ PTR_E_ProgramAdvance_1_3_0_0807c540:
 _ts E_ProgramAdvance_1_3_0
     push       {lr}
     mov        r0,#0x28
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0xe3
     bl         Sound_PlaySE
     pop        {pc}
@@ -357,18 +357,18 @@ _ts E_ProgramAdvance_1_3_0
 
 _nt E_ProgramAdvance_1_3_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807c56e
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     b          LAB_0807c592
 LAB_0807c56e:
-    ldrb       r3,[r5,#0x1b]
-    ldrb       r4,[r5,#0xf]
+    ldrb       r3,[r5,#Effect_b1b]
+    ldrb       r4,[r5,#Effect_bf]
 LAB_0807c572:
-    ldrh       r2,[r5,#0x1c]
+    ldrh       r2,[r5,#Effect_counterA]
     mov        r1,#0x10
     and        r2,r1
     lsr        r2,r2,#0x4
@@ -389,8 +389,8 @@ LAB_0807c592:
 
 _ts E_ProgramAdvance_1_3_2
     push       {lr}
-    ldrb       r3,[r5,#0x1b]
-    ldrb       r4,[r5,#0xf]
+    ldrb       r3,[r5,#Effect_b1b]
+    ldrb       r4,[r5,#Effect_bf]
 LAB_0807c59a:
     push       {r3,r4}
     mov        r0,#0x3
@@ -403,15 +403,15 @@ LAB_0807c59a:
     sub        r3,#0x1
     bgt        LAB_0807c59a
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     pop        {pc}
 
 
 _nt E_ProgramAdvance_1_4
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     ldr        r7,PTR_PTR_E_ProgramAdvance_1_4_0_0807c5d4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -434,7 +434,7 @@ PTR_E_ProgramAdvance_1_4_0_0807c5d8:
 
 _ts E_ProgramAdvance_1_4_0
     push       {lr}
-    ldrb       r0,[r5,#0xf]
+    ldrb       r0,[r5,#Effect_bf]
     mov        r1,#0x28
     lsl        r1,r1,#0x4
     mul        r0,r1
@@ -444,7 +444,7 @@ _ts E_ProgramAdvance_1_4_0
     add        r3,r3,r0
     push       {r5}
     ldr        r0,PTR_TextData_BattleChip_Names_0807c614
-    ldrb       r1,[r5,#0xe]
+    ldrb       r1,[r5,#Effect_be]
     mov        r4,#0xa
     mov        r5,#0x1
     ldr        r6,PTR_tilesetBoldAlphanumeric_0807c620
@@ -452,9 +452,9 @@ _ts E_ProgramAdvance_1_4_0
     bl         Text_CopyCharTileUI
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     pop        {pc}
 
 PTR_TextData_BattleChip_Names_0807c614:
@@ -472,11 +472,11 @@ PTR_tilesetBoldAlphanumeric_0807c620:
 
 _ts E_ProgramAdvance_1_4_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807c64c
-    ldrb       r4,[r5,#0xf]
+    ldrb       r4,[r5,#Effect_bf]
     mov        r0,#0x3
     add        r1,r4,r4
     add        r1,r1,r4
@@ -484,9 +484,9 @@ _ts E_ProgramAdvance_1_4_1
     mov        r2,#0xc
     bl         FUN_0807cbf0
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     mov        r0,#0xdf
     bl         Sound_PlaySE
 LAB_0807c64c:
@@ -495,22 +495,22 @@ LAB_0807c64c:
 
 _nt E_ProgramAdvance_1_4_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807c662
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     b          LAB_0807c67a
 LAB_0807c662:
-    ldrh       r2,[r5,#0x1c]
+    ldrh       r2,[r5,#Effect_counterA]
     mov        r1,#0x8
     and        r2,r1
     lsr        r2,r2,#0x3
     add        r2,#0xd
-    ldrb       r4,[r5,#0xf]
+    ldrb       r4,[r5,#Effect_bf]
     mov        r0,#0x3
     add        r1,r4,r4
     add        r1,r1,r4
@@ -522,7 +522,7 @@ LAB_0807c67a:
 
 _ts E_ProgramAdvance_1_5
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     ldr        r7,PTR_PTR_E_ProgramAdvance_1_5_0_0807c68c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -552,15 +552,15 @@ LAB_0807c69c:
     bl         FUN_0807cc24
     pop        {r4}
     add        r4,#0x1
-    ldrb       r6,[r5,#0xd]
+    ldrb       r6,[r5,#Effect_bd]
     cmp        r4,r6
     blt        LAB_0807c69c
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Effect_bc]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x28
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     push       {r5}
     mov        r0,#0x3
     mov        r1,#0x0
@@ -579,18 +579,18 @@ _nt E_ProgramAdvance_1_5_1
     tst        r0,r0
     bne        LAB_0807c6ec
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
 LAB_0807c6ec:
     pop        {pc}
 
 
 _nt E_ProgramAdvance_1_6
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     ldr        r7,PTR_PTR_E_ProgramAdvance_1_6_0_0807c6fc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -617,7 +617,7 @@ LAB_0807c70c:
     bl         FUN_0807cc24
     pop        {r4}
     add        r4,#0x1
-    ldrb       r6,[r5,#0xd]
+    ldrb       r6,[r5,#Effect_bd]
     cmp        r4,r6
     blt        LAB_0807c70c
     mov        r0,#0xb
@@ -627,22 +627,22 @@ LAB_0807c70c:
     pop        {r5}
     bl         FUN_0807cc46
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x28
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     pop        {pc}
 
 
 _nt E_ProgramAdvance_1_6_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807c750
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
 LAB_0807c750:
     pop        {pc}
 
@@ -699,7 +699,7 @@ _nt Effect_ProgramAdvance_Create
     tst        r5,r5
     beq        LAB_0807c7ae
     mov        r0,#0xd
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
 LAB_0807c7ae:
     pop        {pc}
 
@@ -719,7 +719,7 @@ LAB_0807c7c0:
     add        r0,#0x1
     b          LAB_0807c7c0
 LAB_0807c7ca:
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Effect_bd]
     push       {r7}
     add        r6,r7,#0x0
     mov        r7,#0x60
@@ -764,9 +764,9 @@ LAB_0807c810:
     b          LAB_0807c7ec
 LAB_0807c818:
     mov        r0,#0x1
-    strb       r1,[r5,#0x1b]
-    strb       r2,[r5,#0xf]
-    strb       r3,[r5,#0xe]
+    strb       r1,[r5,#Effect_b1b]
+    strb       r2,[r5,#Effect_bf]
+    strb       r3,[r5,#Effect_be]
     b          LAB_0807c824
 LAB_0807c822:
     mov        r0,#0x0
@@ -1357,14 +1357,14 @@ _nt FUN_0807cc46
     mov        r6,#0x78
     ldrb       r0,[r7,#0x19]
     add        r6,r6,r0
-    ldrb       r0,[r5,#0xf]
+    ldrb       r0,[r5,#Effect_bf]
     add        r6,r6,r0
     add        r6,r6,r7
     add        r0,r6,#0x0
-    ldrb       r1,[r5,#0x1b]
+    ldrb       r1,[r5,#Effect_b1b]
     mov        r2,#0xff
     bl         memset_8
-    ldrb       r0,[r5,#0xe]
+    ldrb       r0,[r5,#Effect_be]
     strb       r0,[r6,#0x0]
     mov        r0,#0x78
     add        r0,r0,r7
@@ -1375,11 +1375,11 @@ _nt FUN_0807cc46
     mov        r6,#0x7e
     ldrb       r0,[r7,#0x19]
     add        r6,r6,r0
-    ldrb       r0,[r5,#0xf]
+    ldrb       r0,[r5,#Effect_bf]
     add        r6,r6,r0
     add        r6,r6,r7
     add        r0,r6,#0x0
-    ldrb       r1,[r5,#0x1b]
+    ldrb       r1,[r5,#Effect_b1b]
     mov        r2,#0xff
     bl         memset_8
     pop        {pc}

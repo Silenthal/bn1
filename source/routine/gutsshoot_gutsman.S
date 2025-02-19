@@ -5,7 +5,7 @@
 
 _ts Routine_GutsShoot_GutsMan
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_GutsShoot_GutsMan_0_Init_0806810c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,23 +27,23 @@ PTR_R_GutsShoot_GutsMan_0_Init_08068110:
 _ts R_GutsShoot_GutsMan_0_Init
     push       {lr}
     mov        r0,#0x7
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x22
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     neg        r0,r0
     add        r0,#0x1
     bl         SpritePtr_SetFlipType
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
-    ldrb       r3,[r5,#0x16]
+    strh       r0,[r5,#Actor_counterA]
+    ldrb       r3,[r5,#Actor_owner]
     lsl        r3,r3,#0x2
     add        r3,#0x40
     LoadMain battle, r7, r7
@@ -68,24 +68,24 @@ _ts R_GutsShoot_GutsMan_0_Init
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_08068188
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x5
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_08068188:
     pop        {r5}
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     bl         R_GutsShoot_GutsMan_1_Main
     pop        {pc}
 
 
 _ts R_GutsShoot_GutsMan_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_GutsShoot_GutsMan_1_0_080681b0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -107,14 +107,14 @@ PTR_R_GutsShoot_GutsMan_1_0_080681b4:
 
 _ts R_GutsShoot_GutsMan_1_0
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080681d2
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
 LAB_080681d2:
     pop        {pc}
     .byte 0x00
@@ -132,39 +132,39 @@ _ts R_GutsShoot_GutsMan_1_1
     tst        r0,r1
     beq        LAB_080681f0
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
 LAB_080681f0:
     pop        {pc}
 
 
 _nt R_GutsShoot_GutsMan_1_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08068222
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x10
     lsl        r0,r0,#0x10
     add        r3,r3,r0
     mov        r4,#0xf
     bl         Effect_QuickEffect_Create
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x5
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     pop        {r5}
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
 LAB_08068222:
     pop        {pc}
 

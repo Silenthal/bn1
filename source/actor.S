@@ -112,15 +112,15 @@ LAB_08003366:
     mov        r2,#0x0
     bl         memset_8
     mov        r0,#0x9
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     pop        { r0, r1, r2, r3, r4 }
-    strb       r0,[r5,#0x1]
-    str        r1,[r5,#0x28]
-    str        r2,[r5,#0x2c]
-    str        r3,[r5,#0x30]
-    str        r4,[r5,#0x4]
+    strb       r0,[r5,#Actor_header_routineType]
+    str        r1,[r5,#Actor_pos_curr_x]
+    str        r2,[r5,#Actor_pos_curr_y]
+    str        r3,[r5,#Actor_pos_curr_z]
+    str        r4,[r5,#Actor_family_family]
     mov        r0,#0x0
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     pop        { pc }
 LAB_0800338c:
     mov        r5,#0x0
@@ -129,14 +129,14 @@ LAB_0800338c:
 _ts Actor_Free
     push       { lr }
     ldr        r0,DAT_080034c0
-    ldrb       r1,[r5,#0x3]
+    ldrb       r1,[r5,#Actor_header_listIndex]
     lsr        r0,r1
     ldr        r1,PTR_gBitsetActor_080034cc
     ldr        r2,[r1,#0x0]
     bic        r2,r0
     str        r2,[r1,#0x0]
     mov        r1,#0x0
-    strb       r1,[r5,#0x0]
+    strb       r1,[r5,#Actor_header_entityFlags]
     bl         SpritePtr_AffineFree
     pop        { pc }
 
@@ -145,7 +145,7 @@ _ts Actor_UpdateAll
     ldr        r5,PTR_gEntityListActor_080034d0
 LAB_080033b0:
     mov        r1,#0x1
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     tst        r0,r1
     beq        LAB_080033e6
     LoadMain world, r7, r7
@@ -166,7 +166,7 @@ LAB_080033c8:
 LAB_080033d8:
     str        r5,[r7,#0x70]
     ldr        r0,PTR_PTR_Routine_Player_1_080034d4
-    ldrb       r1,[r5,#0x1]
+    ldrb       r1,[r5,#Actor_header_routineType]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -214,8 +214,8 @@ _ts Actor_Init
     ldr        r5,PTR_gEntityListActor_080034f0
 LAB_08003438:
     mov        r3,#0x91
-    strb       r3,[r5,#0x2]
-    strb       r1,[r5,#0x3]
+    strb       r3,[r5,#Actor_header_tag]
+    strb       r1,[r5,#Actor_header_listIndex]
     add        r1,#0x1
     add        r5,#0xc0
     cmp        r1,r0
@@ -231,7 +231,7 @@ _ts Actor_LoadAll
     mov        r1,#0x0
     ldr        r5,PTR_gEntityListActor_080034f8
 LAB_08003458:
-    ldrb       r2,[r5,#0x0]
+    ldrb       r2,[r5,#Actor_header_entityFlags]
     mov        r3,#0x2
     tst        r2,r3
     beq        LAB_0800347e

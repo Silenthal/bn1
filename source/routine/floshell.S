@@ -5,7 +5,7 @@
 
 _ts Routine_Floshell
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Floshell_0_Init_0805fda8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,28 +32,28 @@ _ts R_Floshell_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    strb       r0,[r5,#Actor_b1b]
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Actor_bc]
+    strb       r0,[r5,#Actor_family_b3]
     bl         SpritePtr_ObjModeSemiTransparent
     FieldObject_Create PFI_Self_Actor, 0x60
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]
     bl         FieldObject_Alloc
-    str        r0,[r5,#0x64]
+    str        r0,[r5,#Actor_param_64]
     mov        r1,#0x1e
     strh       r1,[r0,#FieldObject_damage]
     mov        r1,#0x0
@@ -63,19 +63,19 @@ _ts R_Floshell_0_Init
     mov        r1,#0x82
     lsl        r1,r1,#0x4
     str        r1,[r0,#FieldObject_panelFlags] @ PF_EnemyOccupied | PF_Solid
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_cPos_x]
     sub        r1,#0x1
     strb       r1,[r0,#FieldObject_cPosCurr_x]
     strb       r1,[r0,#FieldObject_cPosLast_x]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     strb       r1,[r0,#FieldObject_cPosCurr_y]
     strb       r1,[r0,#FieldObject_cPosLast_y]
     bl         R_Floshell_SetShieldHealth
     bl         R_FloShell_SetShieldTimer
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         Attack_FloshellShield_Create
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Actor_param_5C]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     pop        {pc}
@@ -86,30 +86,30 @@ _ts R_Floshell_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldr        r7,[r5,#Actor_param_60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805fea2
     bl         Battle_IsInputLocked
     bne        LAB_0805fea2
     bl         Routine_CheckPoisonDrain
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,PanelFlag_0805ff08
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805fea2
@@ -120,16 +120,16 @@ _ts R_Floshell_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0805fea2:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0805fee4
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805fec2
     mov        r0,#0x9
@@ -137,17 +137,17 @@ LAB_0805fea2:
 LAB_0805fec2:
     mov        r0,#PFI_Moving
 LAB_0805fec4:
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Actor_param_60]
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805fee2
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0805fee2:
     pop        {pc}
@@ -173,10 +173,10 @@ PanelFlag_0805ff08:
 
 _ts R_Floshell_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0805ff38
-    ldr        r7,[r5,#0x5c]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_0805ff2a
     ldrb       r0,[r7,#0x0]
@@ -189,16 +189,16 @@ LAB_0805ff2a:
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805ff38:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0805ff4a
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805ff4a:
     pop        {pc}
 
@@ -206,7 +206,7 @@ LAB_0805ff4a:
 _ts R_Floshell_1_2_Decide
     push       {lr}
     bl         R_Floshell_CheckDamage
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Floshell_1_2_0_Next_0805ff78
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -216,9 +216,9 @@ _ts R_Floshell_1_2_Decide
     tst        r0,r1
     beq        LAB_0805ff6e
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805ff6e:
     pop        {pc}
 
@@ -233,49 +233,49 @@ PTR_PTR_R_Floshell_1_2_0_Next_0805ff78:
 _ts R_Floshell_1_2_0_Next
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x5c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_0805ff8a
     strb       r0,[r7,#0x14]
 LAB_0805ff8a:
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         R_Floshell_1_2_1_Decide
     pop        {pc}
 
 
 _ts R_Floshell_1_2_1_Decide
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r1,#0x80
     lsl        r1,r1,#0x8
     tst        r0,r1
     beq        LAB_0805ffae
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0805ffcc
 LAB_0805ffae:
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     tst        r0,r0
     bgt        LAB_0805ffbe
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0805ffcc
 LAB_0805ffbe:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Actor_bc]
     tst        r0,r0
     beq        LAB_0805ffcc
     mov        r0,#0x1c
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805ffcc:
     pop        {pc}
 
@@ -283,7 +283,7 @@ LAB_0805ffcc:
 _nt R_Floshell_1_3_RaiseShield
     push       {lr}
     bl         R_Floshell_CheckDamage
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Floshell_1_3_0_StartAnim_08060000
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -293,9 +293,9 @@ _nt R_Floshell_1_3_RaiseShield
     tst        r0,r1
     beq        LAB_0805fff0
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805fff0:
     pop        {pc}
 
@@ -314,14 +314,14 @@ PTR_PTR_R_Floshell_1_3_0_StartAnim_08060000:
 _ts R_Floshell_1_3_0_StartAnim
     push       {lr}
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x5c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08060012
     strb       r0,[r7,#0x14]
 LAB_08060012:
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -332,42 +332,42 @@ _ts R_Floshell_1_3_1_RaiseShield
     tst        r0,r1
     beq        LAB_0806003c
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x5c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08060030
     strb       r0,[r7,#0x14]
 LAB_08060030:
     mov        r0,#0x0
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Actor_b1b]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0xb4
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806003c:
     pop        {pc}
 
 
 _nt R_Floshell_1_3_2_Decide
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bgt        LAB_08060052
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_08060062
 LAB_08060052:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08060062
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08060062:
     pop        {pc}
 
@@ -375,7 +375,7 @@ LAB_08060062:
 _ts R_Floshell_1_4_DropShield
     push       {lr}
     bl         R_Floshell_CheckDamage
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Floshell_1_4_0_DropShield_08060080
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -396,14 +396,14 @@ PTR_PTR_R_Floshell_1_4_0_DropShield_08060080:
 _ts R_Floshell_1_4_0_DropShield
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x5c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08060092
     strb       r0,[r7,#0x14]
 LAB_08060092:
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -415,11 +415,11 @@ _ts R_Floshell_1_4_1_SetShieldHealth
     beq        LAB_080600b4
     bl         R_Floshell_SetShieldHealth
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Actor_b1b]
 LAB_080600b4:
     pop        {pc}
 
@@ -427,7 +427,7 @@ LAB_080600b4:
 _nt R_Floshell_1_5_MiniBomb_ShieldDown
     push       {lr}
     bl         R_Floshell_CheckDamage
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Floshell_1_5_0_StartAnim_080600d4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -446,23 +446,23 @@ PTR_PTR_R_Floshell_1_5_0_StartAnim_080600d4:
 _ts R_Floshell_1_5_0_StartAnim
     push       {lr}
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x5c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_080600e6
     strb       r0,[r7,#0x14]
 LAB_080600e6:
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_Floshell_1_5_1_MiniBomb
     push       {lr}
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x20
     bl         Effect_QuickEffect_Create
     pop        {r5}
@@ -470,7 +470,7 @@ _ts R_Floshell_1_5_1_MiniBomb
     bl         Sound_PlaySE
     bl         R_Floshell_LaunchMiniBomb
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -482,9 +482,9 @@ _nt R_Floshell_1_5_2_Next
     beq        LAB_08060126
     bl         R_FloShell_SetShieldTimer
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08060126:
     pop        {pc}
 
@@ -492,7 +492,7 @@ LAB_08060126:
 _ts R_Floshell_1_6_MiniBomb_ShieldUp
     push       {lr}
     bl         R_Floshell_CheckDamage
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Floshell_1_6_0_StartAnim_08060148
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -514,23 +514,23 @@ PTR_PTR_R_Floshell_1_6_0_StartAnim_08060148:
 _ts R_Floshell_1_6_0_StartAnim
     push       {lr}
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x5c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_0806015a
     strb       r0,[r7,#0x14]
 LAB_0806015a:
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_Floshell_1_6_1_MiniBomb
     push       {lr}
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x20
     bl         Effect_QuickEffect_Create
     pop        {r5}
@@ -538,7 +538,7 @@ _ts R_Floshell_1_6_1_MiniBomb
     bl         Sound_PlaySE
     bl         R_Floshell_LaunchMiniBomb
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -550,16 +550,16 @@ _nt R_Floshell_1_6_2_Next
     beq        LAB_080601a6
     bl         R_FloShell_SetShieldTimer
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x5c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_0806019e
     strb       r0,[r7,#0x14]
 LAB_0806019e:
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080601a6:
     pop        {pc}
 
@@ -567,14 +567,14 @@ LAB_080601a6:
 _ts R_Floshell_1_7
     push       {lr}
     bl         R_Floshell_CheckDamage
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Floshell_1_7_0_080601c8
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     pop        {pc}
 
 PTR_R_Floshell_1_7_0_080601c0:
@@ -588,14 +588,14 @@ PTR_PTR_R_Floshell_1_7_0_080601c8:
 _ts R_Floshell_1_7_0
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x5c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_080601da
     strb       r0,[r7,#0x14]
 LAB_080601da:
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -606,18 +606,18 @@ _ts R_Floshell_1_7_1
     tst        r0,r1
     beq        LAB_080601f8
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080601f8:
     pop        {pc}
 
 
 _nt R_Floshell_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Floshell_2_0_Delete_08060210
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -634,12 +634,12 @@ PTR_PTR_R_Floshell_2_0_Delete_08060210:
 
 _ts R_Floshell_2_0_Delete
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
@@ -647,15 +647,15 @@ _ts R_Floshell_2_0_Delete
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Floshell_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806024e
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -666,36 +666,36 @@ LAB_0806024e:
 _ts R_Floshell_CheckDamage
     push       {lr}
     push       {r5}
-    ldr        r5,[r5,#0x5c]
+    ldr        r5,[r5,#Actor_param_5C]
     tst        r5,r5
     beq        LAB_0806025e
     bl         SpritePtr_DisableFlash
 LAB_0806025e:
     pop        {r5}
-    ldrb       r0,[r5,#0x1b]
+    ldrb       r0,[r5,#Actor_b1b]
     tst        r0,r0
     beq        LAB_080602a8
-    ldr        r6,[r5,#0x64]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_64]
+    ldrh       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
     ldr        r1,PanelFlag_080602d0
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_080602a8
-    ldr        r1,[r5,#0x68]
+    ldr        r1,[r5,#Actor_param_68]
     sub        r1,r1,r0
-    str        r1,[r5,#0x68]
+    str        r1,[r5,#Actor_param_68]
     push       {r5}
-    ldr        r5,[r5,#0x5c]
+    ldr        r5,[r5,#Actor_param_5C]
     tst        r5,r5
     beq        LAB_0806029c
     bl         SpritePtr_EnableFlash
@@ -704,19 +704,19 @@ LAB_0806029c:
     mov        r0,#0x6f
     bl         Sound_PlaySE
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
 LAB_080602a8:
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     ldrh       r1,[r0,#0x2]
     strh       r1,[r0,#0x4]
-    ldrh       r1,[r5,#0x18]
+    ldrh       r1,[r5,#Actor_cPos_x]
     sub        r1,#0x1
     strh       r1,[r0,#0x2]
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_MarkAsChecked
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     ldr        r1,PanelFlag_080602cc
-    ldrb       r0,[r5,#0x1b]
+    ldrb       r0,[r5,#Actor_b1b]
     tst        r0,r0
     beq        LAB_080602c6
     mov        r1,#0x20
@@ -774,13 +774,13 @@ _ts R_Floshell_LaunchMiniBomb
     push       {lr}
     sub        sp,#0x14
     mov        r6,sp
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x1e
     lsl        r4,r4,#0x10
     add        r3,r3,r4
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     ldr        r7,PTR_listFloshellExtraBombCount_08060380
     ldrb       r0,[r7,r0]
     tst        r0,r0
@@ -831,11 +831,11 @@ PTR_listFloshellExtraBombCount_08060380:
 
 
 _ts R_FloShell_SetShieldTimer
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     ldr        r7,PTR_USHORT_ARRAY_08060390
     add        r0,r0,r0
     ldrh       r0,[r7,r0]
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        pc,lr
 
 PTR_USHORT_ARRAY_08060390:
@@ -848,11 +848,11 @@ USHORT_ARRAY_08060394:
 
 
 _nt R_Floshell_SetShieldHealth
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     ldr        r7,PTR_listFloshellShieldHealth_080603a8
     add        r0,r0,r0
     ldrh       r0,[r7,r0]
-    str        r0,[r5,#0x68]
+    str        r0,[r5,#Actor_param_68]
     mov        pc,lr
 
     .align 2, 0

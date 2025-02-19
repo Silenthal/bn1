@@ -6,11 +6,11 @@
 _ts Routine_Poitton
     push       {lr}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Poitton_0_Init_0806b208
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -31,20 +31,20 @@ PTR_R_Poitton_0_Init_0806b20c:
 
 _ts R_Poitton_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x67
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r3,#0x28
     add        r7,r5,r3
@@ -53,39 +53,39 @@ _ts R_Poitton_0_Init
     ldmia      r7!,{r0,r1,r2}
     stmia      r6!,{r0,r1,r2}
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0xc8
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Actor_damage]
     FieldObject_Create PFI_Self_Actor, 0x68
     FieldObject_Create PFI_Moving, 0x6c
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         R_Poitton_1_Main
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
 
 _ts R_Poitton_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_DisableIfDeleted
     bl         R_Poitton_CheckDamage
     tst        r0,r0
     bne        LAB_0806b2a6
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0806b2b4
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_0806b2a6:
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -107,33 +107,33 @@ PTR_R_Actor_1_0_Spawn_0806b2b8:
 
 _ts R_Poitton_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0806b2ea
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806b2ea:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0806b2fc
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806b2fc:
     pop        {pc}
 
 
 _nt R_Poitton_1_2_Decide
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Poitton_1_2_0_0806b320
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -143,9 +143,9 @@ _nt R_Poitton_1_2_Decide
     tst        r0,r1
     beq        LAB_0806b31c
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0806b31c:
     pop        {pc}
 
@@ -163,15 +163,15 @@ PTR_R_Poitton_1_2_0_0806b324:
 _ts R_Poitton_1_2_0
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldr        r0,[r5,#0x6c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     ldr        r7,PTR_DAT_0806b348
     ldrb       r0,[r7,r0]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
     .align 2, 0
@@ -191,9 +191,9 @@ DAT_0806b34c:
 
 _ts R_Poitton_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806b35e
     bl         R_Poitton_Decide
 LAB_0806b35e:
@@ -202,7 +202,7 @@ LAB_0806b35e:
 
 _ts R_Poitton_1_3_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Poitton_1_3_0_0806b370
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -233,41 +233,41 @@ _ts R_Poitton_1_3_0
     strb       r0,[r5,r3]
     mov        r3,#0x61
     strb       r1,[r5,r3]
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Actor_param_6C]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0806b3aa:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_Poitton_1_3_1
     push       {lr}
     bl         R_Poitton_Move
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_0806b3ce
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806b3ce:
     pop        {pc}
 
 
 _ts R_Poitton_Move
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_R_Poitton_Move_0_0806b3e0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -289,9 +289,9 @@ PTR_R_Poitton_Move_0_0806b3e4:
 _ts R_Poitton_Move_0
     push       {lr}
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x10
     lsl        r0,r0,#0x10
     add        r3,r3,r0
@@ -299,33 +299,33 @@ _ts R_Poitton_Move_0
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x4
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     pop        {pc}
 
 
 _nt R_Poitton_Move_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806b44e
     mov        r3,#0x60
     ldrb       r0,[r5,r3]
     mov        r3,#0x61
     ldrb       r1,[r5,r3]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x4
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x10
     lsl        r0,r0,#0x10
     add        r3,r3,r0
@@ -333,26 +333,26 @@ _nt R_Poitton_Move_1
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_0806b44e:
     pop        {pc}
 
 
 _ts R_Poitton_Move_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806b45e
     mov        r0,#0x0
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_0806b45e:
     pop        {pc}
 
 
 _ts R_Poitton_1_4_Dynamyte
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Poitton_1_4_0_0806b470
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -375,9 +375,9 @@ PTR_R_Poitton_1_4_0_0806b474:
 _ts R_Poitton_1_4_0
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -388,43 +388,43 @@ _ts R_Poitton_1_4_1
     tst        r0,r1
     beq        LAB_0806b4d4
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bl         Rng_RandomInt
     mov        r1,#0x3
     bl         SWI_DivMod
     add        r4,r0,#0x0
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsr        r0,r0,#0x4
     lsl        r0,r0,#0x4
     orr        r4,r0
     mov        r0,#0x0
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_cPos_x]
     sub        r1,#0x1
-    ldrb       r2,[r5,#0x19]
-    ldrh       r6,[r5,#0x24]
-    ldrb       r7,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_cPos_y]
+    ldrh       r6,[r5,#Actor_damage]
+    ldrb       r7,[r5,#Actor_owner]
     bl         Attack_Dynamyte_Create
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_y]
     add        r0,#0xf
     bl         Battle_SetBattleFlag
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806b4d4:
     pop        {pc}
 
 
 _nt R_Poitton_1_4_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806b4e8
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806b4e8:
     pop        {pc}
 
@@ -436,16 +436,16 @@ _nt R_Poitton_1_4_3
     tst        r0,r1
     beq        LAB_0806b4fe
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806b4fe:
     pop        {pc}
 
 
 _ts R_Poitton_1_5_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Poitton_1_5_0_0806b510
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -467,9 +467,9 @@ _ts R_Poitton_1_5_0
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     add        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     push       {r0,r1}
     bl         R_Poitton_IsPanelWalkable
     tst        r0,r0
@@ -479,41 +479,41 @@ _ts R_Poitton_1_5_0
     strb       r0,[r5,r3]
     mov        r3,#0x61
     strb       r1,[r5,r3]
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Actor_param_6C]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0806b550:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_Poitton_1_5_1
     push       {lr}
     bl         R_Poitton_Move
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_0806b574
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806b574:
     pop        {pc}
 
 
 _nt R_Poitton_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Poitton_2_0_Delete_0806b584
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -531,30 +531,30 @@ PTR_R_Poitton_2_0_Delete_0806b588:
 _ts R_Poitton_2_0_Delete
     push       {lr}
     bl         Battle_RegisterVirusDelete
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_Disable
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_VirusDelete_Create
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _ts R_Poitton_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806b5d2
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Free
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -566,14 +566,14 @@ _ts R_Poitton_Decide
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_y]
     add        r0,#0xf
     bl         Battle_GetBattleFlagCurrent
     tst        r0,r0
     bne        LAB_0806b60e
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     push       {r0,r1}
     bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
@@ -585,15 +585,15 @@ _ts R_Poitton_Decide
     tst        r2,r3
     beq        LAB_0806b60e
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0806b60e:
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 PanelFlag_0806b618:
@@ -604,7 +604,7 @@ _ts R_Poitton_GetNextMovePanel
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_y]
     add        r0,#0xf
     bl         Battle_GetBattleFlagCurrent
     tst        r0,r0
@@ -613,16 +613,16 @@ _ts R_Poitton_GetNextMovePanel
     asr        r0,r0,#0x1f
     lsl        r0,r0,#0x1
     add        r2,r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     add        r1,r1,r2
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     push       {r0,r1,r2}
     bl         R_Poitton_IsPanelWalkable
     tst        r0,r0
     pop        {r0,r1,r2}
     bne        LAB_0806b6be
     neg        r2,r2
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     add        r1,r1,r2
     push       {r0,r1}
     bl         R_Poitton_IsPanelWalkable
@@ -631,9 +631,9 @@ _ts R_Poitton_GetNextMovePanel
     beq        LAB_0806b672
     pop        {pc}
 LAB_0806b660:
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     push       {r0,r1}
     bl         R_Poitton_IsPanelWalkable
     tst        r0,r0
@@ -643,8 +643,8 @@ LAB_0806b672:
     sub        sp,#0x8
     mov        r7,sp
     ldr        r6,PTR_CellPosition_ARRAY_0806b6cc
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r2,#0x0
     mov        r3,#0x6
 LAB_0806b680:
@@ -724,7 +724,7 @@ _ts R_Poitton_CheckDamage
     push       {lr}
     bl         Battle_IsInputLocked
     bne        LAB_0806b752
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     ble        LAB_0806b734
     bl         Routine_CheckPoisonDrain
@@ -733,7 +733,7 @@ _ts R_Poitton_CheckDamage
     FieldObject_GetDamage PFI_Target_Object, 0x68
     tst        r0,r0
     beq        LAB_0806b752
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0806b752
@@ -745,10 +745,10 @@ LAB_0806b734:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_0806b74c:

@@ -6,11 +6,11 @@
 _ts Routine_ProtoMan
     push       {lr}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_ProtoMan_0_Init_08064674
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -31,17 +31,17 @@ PTR_R_ProtoMan_0_Init_08064678:
 
 _ts R_ProtoMan_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x48
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r3,#0x28
@@ -51,9 +51,9 @@ _ts R_ProtoMan_0_Init
     ldmia      r7!,{r0,r1,r2}
     stmia      r6!,{r0,r1,r2}
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    str        r0,[r5,#0x5c]
-    str        r0,[r5,#0x70]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    str        r0,[r5,#Actor_param_5C]
+    str        r0,[r5,#Actor_param_70]
     mov        r3,#0x66
     strh       r0,[r5,r3]
     mov        r3,#0x64
@@ -64,30 +64,30 @@ _ts R_ProtoMan_0_Init
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0xc8
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Actor_damage]
     FieldObject_Create PFI_Self_Actor, 0x68
     FieldObject_Create PFI_Moving, 0x6c
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         R_ProtoMan_1_Main
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
 
 _ts R_ProtoMan_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_DisableIfDeleted
     mov        r3,#0x64
     ldrb       r0,[r5,r3]
     tst        r0,r0
     bne        LAB_0806471e
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     mov        r1,#0x4
     lsl        r1,r1,#0x10
     bl         FieldObject_ClearPanelFlag
@@ -95,13 +95,13 @@ LAB_0806471e:
     bl         R_ProtoMan_CheckDamage
     tst        r0,r0
     bne        LAB_08064730
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0806473c
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_08064730:
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -123,33 +123,33 @@ PTR_R_Actor_1_0_Spawn_08064740:
 
 _ts R_ProtoMan_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0806477e
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806477e:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08064790
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064790:
     pop        {pc}
 
 
 _nt R_ProtoMan_1_2_Decide
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ProtoMan_1_2_0_Wait_080647b4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -159,9 +159,9 @@ _nt R_ProtoMan_1_2_Decide
     tst        r0,r1
     beq        LAB_080647b0
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_080647b0:
     pop        {pc}
 
@@ -179,15 +179,15 @@ PTR_R_ProtoMan_1_2_0_Wait_080647b8:
 _ts R_ProtoMan_1_2_0_Wait
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldr        r0,[r5,#0x6c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     ldr        r7,PTR_DAT_080647dc
     ldrb       r0,[r7,r0]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
     .align 2, 0
@@ -216,14 +216,14 @@ _ts R_ProtoMan_1_2_1_Decide
     mov        r3,#0x64
     strb       r0,[r5,r3]
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_08064804:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064810
     bl         R_ProtoMan_Decide
 LAB_08064810:
@@ -238,7 +238,7 @@ _nt R_ProtoMan_1_3_Flinch
     bcs        LAB_08064822
     bl         SpritePtr_EnableFlash
 LAB_08064822:
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ProtoMan_1_3_0_Flinch_08064830
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -259,64 +259,64 @@ PTR_R_ProtoMan_1_3_0_Flinch_08064834:
 
 _ts R_ProtoMan_1_3_0_Flinch
     push       {lr}
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     mov        r1,#0x10
     lsl        r1,r1,#0x10
     bl         FieldObject_ClearPanelFlag
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexLast]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x32
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bl         R_ProtoMan_DestroyExistingAttacks
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_ProtoMan_1_3_1_Reset
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064882
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064882:
     pop        {pc}
 
 
 _ts R_ProtoMan_1_3_2_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080648a0
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x5a
     mov        r3,#0x66
     strh       r0,[r5,r3]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080648a0:
     pop        {pc}
 
 
 _nt R_ProtoMan_1_5_ProtoShield
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ProtoMan_1_5_0_080648b0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -333,50 +333,50 @@ PTR_R_ProtoMan_1_5_0_080648b4:
 
 _ts R_ProtoMan_1_5_0
     push       {lr}
-    ldr        r7,[r5,#0x5c]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     bne        LAB_080648fc
     add        r0,r5,#0x0
     add        r0,#0x5c
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x1
     bl         Attack_MetGuard_Create
     mov        r0,#0x8c
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     mov        r1,#0x4
     lsl        r1,r1,#0x10
     bl         FieldObject_SetPanelFlag
     mov        r0,#0x0
     mov        r3,#0x66
     strh       r0,[r5,r3]
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     mov        r1,#0x10
     lsl        r1,r1,#0x10
     bl         FieldObject_SetPanelFlag
     mov        r0,#0x3c
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080648fc:
     pop        {pc}
 
 
 _nt R_ProtoMan_1_5_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806491a
-    ldr        r7,[r5,#0x5c]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08064916
     mov        r0,#0x2
     strb       r0,[r7,#0x5]
     mov        r0,#0x0
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Actor_param_5C]
 LAB_08064916:
     bl         R_ProtoMan_Decide
 LAB_0806491a:
@@ -385,15 +385,15 @@ LAB_0806491a:
 
 _ts R_ProtoMan_1_6_FighterSword
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ProtoMan_1_6_0_ChooseMovePanel_08064934
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     bl         Routine_IsPlayerInvulnerable
-    ldrb       r1,[r5,#0x5]
+    ldrb       r1,[r5,#Actor_family_b1]
     orr        r1,r0
-    strb       r1,[r5,#0x5]
+    strb       r1,[r5,#Actor_family_b1]
     pop        {pc}
 
 PTR_PTR_R_ProtoMan_1_6_0_ChooseMovePanel_08064934:
@@ -416,11 +416,11 @@ _ts R_ProtoMan_1_6_0_ChooseMovePanel
     sub        sp,#0x4
     mov        r7,sp
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     LoadMain battle, r6, r6
     ldr        r6,[r6,#0x40]
     ldrb       r4,[r6,#0x19]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     ldr        r1,DAT_080649d8
     ldr        r2,DAT_080649dc
     push       {r4,r7}
@@ -431,7 +431,7 @@ _ts R_ProtoMan_1_6_0_ChooseMovePanel
     add        r1,r4,#0x0
     b          LAB_080649aa
 LAB_08064982:
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     ldr        r1,DAT_080649d8
     ldr        r2,DAT_080649dc
     add        r3,r7,#0x0
@@ -453,7 +453,7 @@ LAB_080649aa:
     strb       r0,[r5,r3]
     mov        r3,#0x61
     strb       r1,[r5,r3]
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Actor_param_6C]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     strb       r0,[r7,#0x2]
@@ -461,14 +461,14 @@ LAB_080649aa:
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        sp,#0x4
     pop        {pc}
 LAB_080649ca:
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        sp,#0x4
     pop        {pc}
 
@@ -485,32 +485,32 @@ DAT_080649dc:
 _ts R_ProtoMan_1_6_1_Move
     push       {lr}
     bl         R_ProtoMan_Move
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_080649fe
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bl         FUN_0806506a
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080649fe:
     pop        {pc}
 
 
 _ts R_ProtoMan_1_6_2_Slash
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064a18
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x75
     bl         Sound_PlaySE
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064a18:
     pop        {pc}
 
@@ -533,9 +533,9 @@ _nt R_ProtoMan_1_6_3_FighterSword
     add        r3,r3,r4
     mov        r4,#0x6
     bl         Effect_SwordSlash_Create
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r2,#0x3
 LAB_08064a48:
     push       {r0,r1,r2}
@@ -555,7 +555,7 @@ LAB_08064a48:
     bne        LAB_08064a48
 LAB_08064a6a:
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064a6e:
     pop        {pc}
 
@@ -570,23 +570,23 @@ _ts R_ProtoMan_1_6_4_Wait
     tst        r0,r1
     beq        LAB_08064a88
     mov        r0,#0x19
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x14
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064a88:
     pop        {pc}
 
 
 _nt R_ProtoMan_1_6_5_Reset
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064a9c
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x18
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064a9c:
     pop        {pc}
 
@@ -600,10 +600,10 @@ _nt R_ProtoMan_1_6_6_RepeatOrNext
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x19]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     cmp        r0,r1
     beq        LAB_08064ace
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Actor_family_b1]
     tst        r0,r0
     bne        LAB_08064ace
     mov        r3,#0x63
@@ -612,28 +612,28 @@ _nt R_ProtoMan_1_6_6_RepeatOrNext
     beq        LAB_08064ace
     strb       r0,[r5,r3]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064acc:
     pop        {pc}
 LAB_08064ace:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_ProtoMan_1_7_WideSword
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ProtoMan_1_7_0_Charge_08064af0
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     bl         Routine_IsPlayerInvulnerable
-    ldrb       r1,[r5,#0x5]
+    ldrb       r1,[r5,#Actor_family_b1]
     orr        r1,r0
-    strb       r1,[r5,#0x5]
+    strb       r1,[r5,#Actor_family_b1]
     pop        {pc}
 
 PTR_PTR_R_ProtoMan_1_7_0_Charge_08064af0:
@@ -657,23 +657,23 @@ _ts R_ProtoMan_1_7_0_Charge
     bl         FUN_0806506a
     mov        r4,#0x0
     bl         Attack_Charging_Create
-    str        r7,[r5,#0x70]
+    str        r7,[r5,#Actor_param_70]
     mov        r0,#0x30
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xb5
     bl         Sound_PlaySE
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_ProtoMan_1_7_1_ChooseMovePanel
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064ba4
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     tst        r0,r0
     beq        LAB_08064b58
     push       {r5}
@@ -681,19 +681,19 @@ _nt R_ProtoMan_1_7_1_ChooseMovePanel
     bl         Attack_Free
     pop        {r5}
     mov        r0,#0x0
-    str        r0,[r5,#0x70]
+    str        r0,[r5,#Actor_param_70]
 LAB_08064b58:
     mov        r0,#0x1
     mov        r3,#0x64
     strb       r0,[r5,r3]
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     mov        r1,#0x4
     lsl        r1,r1,#0x10
     bl         FieldObject_SetPanelFlag
     mov        r0,#0x0
     mov        r3,#0x66
     strh       r0,[r5,r3]
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     mov        r1,#0x10
     lsl        r1,r1,#0x10
     bl         FieldObject_SetPanelFlag
@@ -708,58 +708,58 @@ LAB_08064b58:
     strb       r1,[r5,r3]
     bl         Field_IsCellPositionValid
     beq        LAB_08064bb0
-    ldr        r0,[r5,#0x6c]
-    ldrh       r1,[r5,#0x18]
+    ldr        r0,[r5,#Actor_param_6C]
+    ldrh       r1,[r5,#Actor_cPos_x]
     strh       r1,[r0,#0x4]
     strh       r1,[r0,#0x2]
     bl         FieldObject_Enable
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_08064ba4:
     lsr        r0,r0,#0x4
     mov        r1,#0x2
     sub        r1,r1,r0
-    ldr        r7,[r5,#0x70]
+    ldr        r7,[r5,#Actor_param_70]
     strb       r1,[r7,#0x14]
     pop        {pc}
 LAB_08064bb0:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_ProtoMan_1_7_2_Move
     push       {lr}
     bl         R_ProtoMan_Move
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_08064bd2
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bl         FUN_0806506a
     mov        r0,#0xc
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064bd2:
     pop        {pc}
 
 
 _ts R_ProtoMan_1_7_3_Slash
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064bf0
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     mov        r0,#0x75
     bl         Sound_PlaySE
     mov        r0,#0x10
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064bf0:
     pop        {pc}
 
@@ -782,9 +782,9 @@ _nt R_ProtoMan_1_7_4_WideSword
     add        r3,r3,r4
     mov        r4,#0x1
     bl         Effect_SwordSlash_Create
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     add        r1,#0x1
     mov        r2,#0x3
 LAB_08064c22:
@@ -803,7 +803,7 @@ LAB_08064c22:
     sub        r2,#0x1
     bne        LAB_08064c22
     mov        r0,#0x14
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064c46:
     pop        {pc}
 
@@ -818,23 +818,23 @@ _ts R_ProtoMan_1_7_5_Wait
     tst        r0,r1
     beq        LAB_08064c60
     mov        r0,#0x19
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x18
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064c60:
     pop        {pc}
 
 
 _nt R_ProtoMan_1_7_6_Reset
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064c74
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1c
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064c74:
     pop        {pc}
 
@@ -845,7 +845,7 @@ _nt R_ProtoMan_1_7_7_MoveBack
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_08064cda
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     ldr        r0,[r0,#0x10]
     bl         FieldObject_UpdateField
     sub        sp,#0x14
@@ -858,7 +858,7 @@ _nt R_ProtoMan_1_7_7_MoveBack
     pop        {r0}
     tst        r1,r1
     bne        LAB_08064cac
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Actor_param_6C]
     ldrb       r0,[r7,#0x4]
     ldrb       r1,[r7,#0x5]
     ldrb       r0,[r7,#0x2]
@@ -876,7 +876,7 @@ LAB_08064cbc:
     strb       r0,[r5,r3]
     mov        r3,#0x61
     strb       r1,[r5,r3]
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Actor_param_6C]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     strb       r0,[r7,#0x2]
@@ -884,7 +884,7 @@ LAB_08064cbc:
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x20
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        sp,#0x14
 LAB_08064cda:
     pop        {pc}
@@ -899,28 +899,28 @@ PanelFlag_08064ce0:
 _ts R_ProtoMan_1_7_8_Move
     push       {lr}
     bl         R_ProtoMan_Move
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_08064d02
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldr        r0,[r5,#0x6c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x24
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064d02:
     pop        {pc}
 
 
 _ts R_ProtoMan_1_7_9_RepeatOrNext
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064d26
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Actor_family_b1]
     tst        r0,r0
     bne        LAB_08064d28
     mov        r3,#0x63
@@ -929,22 +929,22 @@ _ts R_ProtoMan_1_7_9_RepeatOrNext
     beq        LAB_08064d28
     strb       r0,[r5,r3]
     mov        r0,#0x1
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064d26:
     pop        {pc}
 LAB_08064d28:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_ProtoMan_1_8_AreaGrab
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ProtoMan_1_8_0_AreaGrab_08064d40
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -963,26 +963,26 @@ _ts R_ProtoMan_1_8_0_AreaGrab
     push       {lr}
     mov        r0,#0x2
     mov        r1,#0x2
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_owner]
     mov        r3,#0x1e
     bl         ScreenDim_Alloc
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_ProtoMan_1_8_1_Wait
     push       {lr}
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_ProtoMan_1_4_MoveToFront
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ProtoMan_1_4_0_ChooseFrontMovePanel_08064d7c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -1009,7 +1009,7 @@ _ts R_ProtoMan_1_4_0_ChooseFrontMovePanel
     bl         FieldObject_UpdateField
     pop        {r7}
     mov        r0,#0x0
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Field_FindWalkablePlayerPanelsRight
     tst        r1,r1
     beq        LAB_08064dd2
@@ -1024,20 +1024,20 @@ _ts R_ProtoMan_1_4_0_ChooseFrontMovePanel
     strb       r0,[r5,r3]
     mov        r3,#0x61
     strb       r1,[r5,r3]
-    ldr        r7,[r5,#0x6c]
+    ldr        r7,[r5,#Actor_param_6C]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        sp,#0x14
     pop        {pc}
 LAB_08064dd2:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     add        sp,#0x14
     pop        {pc}
     .byte 0x00
@@ -1049,23 +1049,23 @@ LAB_08064dd2:
 _ts R_ProtoMan_1_4_1_Move
     push       {lr}
     bl         R_ProtoMan_Move
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     tst        r0,r0
     bne        LAB_08064e06
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     bl         FUN_0806506a
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08064e06:
     pop        {pc}
 
 
 _ts R_ProtoMan_Move
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_R_ProtoMan_Move_0_TeleportStart_08064e18
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -1087,11 +1087,11 @@ PTR_R_ProtoMan_Move_0_TeleportStart_08064e1c:
 _ts R_ProtoMan_Move_0_TeleportStart
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x18
     lsl        r0,r0,#0x10
     add        r3,r3,r0
@@ -1099,7 +1099,7 @@ _ts R_ProtoMan_Move_0_TeleportStart
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     pop        {pc}
 
 
@@ -1113,17 +1113,17 @@ _nt R_ProtoMan_Move_1_TeleportEnd
     ldrb       r0,[r5,r3]
     mov        r3,#0x61
     ldrb       r1,[r5,r3]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r0,#0x18
     lsl        r0,r0,#0x10
     add        r3,r3,r0
@@ -1131,7 +1131,7 @@ _nt R_ProtoMan_Move_1_TeleportEnd
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_08064e88:
     pop        {pc}
 
@@ -1143,14 +1143,14 @@ _nt R_ProtoMan_Move_2_Next
     tst        r0,r1
     beq        LAB_08064e9a
     mov        r0,#0x0
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_08064e9a:
     pop        {pc}
 
 
 _ts R_ProtoMan_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_ProtoMan_2_0_Delete_08064eac
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -1172,31 +1172,31 @@ _ts R_ProtoMan_2_0_Delete
     push       {lr}
     bl         Battle_RegisterVirusDelete
     bl         R_ProtoMan_DestroyExistingAttacks
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_Disable
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_NaviDelete_Create
     pop        {r5}
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _ts R_ProtoMan_2_1_Free
     push       {lr}
     bl         UpdateSpriteFrameIndex
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064f02
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Free
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -1206,8 +1206,8 @@ LAB_08064f02:
 
 _ts R_ProtoMan_IsPlayerAttackInRange
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r2,#0x3
 LAB_08064f0c:
     push       {r0,r1,r2}
@@ -1238,9 +1238,9 @@ _nt R_ProtoMan_Decide
     bmi        LAB_08064f46
     strb       r0,[r5,r3]
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_08064f46:
     mov        r0,#0xa
@@ -1265,21 +1265,21 @@ LAB_08064f4e:
     cmp        r0,#0x5
     bmi        LAB_08064f7c
     mov        r0,#0x1c
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_08064f7c:
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_08064f86:
     mov        r0,#0x20
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -1287,13 +1287,13 @@ _ts R_ProtoMan_CheckDamage
     push       {lr}
     bl         Battle_IsInputLocked
     bne        LAB_08065042
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     ble        LAB_0806501a
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0806501a
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     bne        LAB_08065042
     mov        r3,#0x66
@@ -1303,7 +1303,7 @@ _ts R_ProtoMan_CheckDamage
     sub        r0,#0x1
     strh       r0,[r5,r3]
     bne        LAB_08064fc6
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     mov        r1,#0x10
     lsl        r1,r1,#0x10
     bl         FieldObject_SetPanelFlag
@@ -1311,16 +1311,16 @@ _ts R_ProtoMan_CheckDamage
 LAB_08064fc6:
     lsr        r0,r0,#0x1
     bcc        LAB_08065042
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     b          LAB_08065042
 LAB_08064fd4:
     FieldObject_GetDamage PFI_Target_Object, 0x68
     tst        r0,r0
     beq        LAB_08065042
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08065042
@@ -1340,26 +1340,26 @@ LAB_08065000:
     cmp        r0,#0x3c
     bcc        LAB_08065010
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08065010:
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0806503c
 LAB_0806501a:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_SetDeletedFlag
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     mov        r1,#0x10
     lsl        r1,r1,#0x10
     bl         FieldObject_ClearPanelFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_0806503c:
@@ -1372,7 +1372,7 @@ LAB_08065042:
 
 _nt R_ProtoMan_DestroyExistingAttacks
     push       {lr}
-    ldr        r7,[r5,#0x5c]
+    ldr        r7,[r5,#Actor_param_5C]
     tst        r7,r7
     beq        LAB_08065058
     push       {r5}
@@ -1380,7 +1380,7 @@ _nt R_ProtoMan_DestroyExistingAttacks
     bl         Attack_Free
     pop        {r5}
 LAB_08065058:
-    ldr        r7,[r5,#0x70]
+    ldr        r7,[r5,#Actor_param_70]
     tst        r7,r7
     beq        LAB_08065068
     push       {r5}

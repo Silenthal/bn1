@@ -6,7 +6,7 @@
 _ts Effect_GutsMan
     push       {lr}
     ldr        r0,PTR_PTR_E_GutsMan_0_Init_0808107c
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,11 +22,11 @@ PTR_E_GutsMan_0_Init_08080f44:
 _ts E_GutsMan_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x5d
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -40,21 +40,21 @@ _ts E_GutsMan_0_Init
     ldr        r0,DAT_08081080
     bl         SpritePtr_SetObjectExcludeFlags
     mov        r1,#0x0
-    str        r1,[r5,#0x44]
-    str        r1,[r5,#0x48]
-    str        r1,[r5,#0x4c]
+    str        r1,[r5,#Effect_diff_x]
+    str        r1,[r5,#Effect_diff_y]
+    str        r1,[r5,#Effect_diff_z]
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s1]
+    strb       r0,[r5,#Effect_state_s2]
     pop        {pc}
 
 
 _nt E_GutsMan_1_Main
     push       {lr}
     ldr        r0,PTR_PTR_E_GutsMan_1_0_08081084
-    ldrb       r1,[r5,#0x9]
+    ldrb       r1,[r5,#Effect_state_s1]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -85,22 +85,22 @@ LAB_08080fca:
     stmia      r7!,{r0,r1,r2}
     ldr        r0,DAT_08081000
     add        r6,r6,r0
-    str        r6,[r5,#0x4c]
-    ldr        r0,[r5,#0x30]
+    str        r6,[r5,#Effect_diff_z]
+    ldr        r0,[r5,#Effect_pos_curr_z]
     tst        r0,r0
     bne        LAB_08080ffa
     mov        r0,#0xd
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
     bl         SpritePtr_SetObjectExcludeFlags
     mov        r0,#0x5
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     mov        r0,#0x7e
     bl         Sound_PlaySE
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_08080ffa:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -110,18 +110,18 @@ DAT_08081000:
 
 
 _ts E_GutsMan_1_1
-    ldrb       r0,[r5,#0x1c]
+    ldrb       r0,[r5,#Effect_counterA]
     tst        r0,r0
     beq        LAB_08081010
     sub        r0,#0x1
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     b          LAB_0808104c
 LAB_08081010:
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     tst        r0,r0
     bne        LAB_08081032
     mov        r0,#0x1
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     push       {r5}
     mov        r0,#0x1
     mov        r1,#0x40
@@ -136,11 +136,11 @@ LAB_08081032:
     and        r0,r1
     beq        LAB_0808104c
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_0808104c:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -168,7 +168,7 @@ _nt Effect_GutsMan_Create
     mov        r0,#0x3f
     bl         Effect_Alloc
     mov        r0,#0xc
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Effect_frameIndexCurr]
     pop        {pc}
 
     .align 2, 0

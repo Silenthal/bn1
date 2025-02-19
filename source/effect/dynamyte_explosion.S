@@ -5,7 +5,7 @@
 
 _ts Effect_DynamyteExplosion
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_DynamyteExplosion_0_Init_08081250
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,47 +26,47 @@ PTR_E_DynamyteExplosion_0_Init_08081254:
 
 _ts E_DynamyteExplosion_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Effect_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xd7
     bl         Sprite_InitSpritePtr
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Effect_cPos_x]
+    ldrb       r1,[r5,#Effect_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Effect_pos_curr_x]
+    str        r1,[r5,#Effect_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Effect_pos_curr_z]
     bl         Field_GetAttackDirectionOffset_MP
     ldr        r7,PTR_CellPosition_ARRAY_080812d4
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Effect_family_family]
     lsl        r1,r1,#0x1
     ldrsb      r2,[r7,r1]
     mul        r0,r2
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Effect_diff_x]
     add        r1,#0x1
     ldrsb      r0,[r7,r1]
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Effect_diff_y]
     mov        r0,#0x9
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x76
     bl         Sound_PlaySE
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Effect_element]
     FieldObject_Create PFI_Self_Default, 0x60
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_DynamyteExplosion_1_Main
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -87,10 +87,10 @@ CellPosition_ARRAY_080812d8:
 
 _ts E_DynamyteExplosion_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_DisableIfDeleted
     bl         E_DynamyteExplosion_IsHit
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Effect_state_s1]
     ldr        r7,PTR_PTR_E_DynamyteExplosion_1_0_08081300
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -108,27 +108,27 @@ PTR_E_DynamyteExplosion_1_0_08081304:
 
 _ts E_DynamyteExplosion_1_0
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0808133a
-    ldrb       r0,[r5,#0x18]
-    ldr        r2,[r5,#0x44]
+    ldrb       r0,[r5,#Effect_cPos_x]
+    ldr        r2,[r5,#Effect_diff_x]
     add        r0,r0,r2
-    ldrb       r1,[r5,#0x19]
-    ldr        r2,[r5,#0x48]
+    ldrb       r1,[r5,#Effect_cPos_y]
+    ldr        r2,[r5,#Effect_diff_y]
     add        r1,r1,r2
     push       {r0,r1}
     bl         Field_IsCellPositionValid
     tst        r0,r0
     pop        {r0,r1}
     beq        LAB_08081336
-    ldrb       r4,[r5,#0x4]
-    ldrh       r6,[r5,#0x24]
+    ldrb       r4,[r5,#Effect_family_family]
+    ldrh       r6,[r5,#Effect_damage]
     bl         Effect_DynamyteExplosion_Create
 LAB_08081336:
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_0808133a:
     pop        {pc}
 
@@ -140,14 +140,14 @@ _ts E_DynamyteExplosion_1_1
     tst        r0,r1
     beq        LAB_0808134c
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Effect_state_s0]
 LAB_0808134c:
     pop        {pc}
 
 
 _nt E_DynamyteExplosion_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_Free
     bl         Effect_Free
     pop        {pc}
@@ -155,7 +155,7 @@ _nt E_DynamyteExplosion_2_Free
 
 _ts E_DynamyteExplosion_IsHit
     push       {lr}
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Effect_obj_60]
     ldrb       r0,[r1,#0x0]
     mov        r2,#0x2
     tst        r0,r2
@@ -164,7 +164,7 @@ _ts E_DynamyteExplosion_IsHit
     bl         Field_GetDamageOnEntity
     tst        r0,r0
     beq        LAB_0808137c
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x1
     pop        {pc}
@@ -186,7 +186,7 @@ _ts Effect_DynamyteExplosion_Create
     strb       r0,[r7,#0x18]
     strb       r1,[r7,#0x19]
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Effect_owner]
     strb       r0,[r7,#0x16]
 LAB_0808139e:
     pop        {pc}

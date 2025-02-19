@@ -5,7 +5,7 @@
 
 _ts Routine_MagicMan
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_MagicMan_0_Init_0806a840
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,19 +32,19 @@ _ts R_MagicMan_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x0
-    str        r0,[r5,#0x5c]
-    str        r0,[r5,#0x74]
-    str        r0,[r5,#0x7c]
+    str        r0,[r5,#Actor_param_5C]
+    str        r0,[r5,#Actor_param_74]
+    str        r0,[r5,#Actor_param_7C]
     mov        r0,#0xff
     mov        r1,#0x3c
     mov        r2,#0x0
@@ -59,24 +59,24 @@ _ts R_MagicMan_0_Init
     strb       r2,[r7,#0x4]
     FieldObject_Create PFI_Self_Actor, 0x60
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x4
     mov        r1,#0x1
     mov        r4,#0x0
     bl         Effect_MagicMan_Create
-    str        r7,[r5,#0x64]
+    str        r7,[r5,#Actor_param_64]
     mov        r0,#0x5
     mov        r1,#0x3
     mov        r4,#0x0
     bl         Effect_MagicMan_Create
-    str        r7,[r5,#0x68]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    str        r7,[r5,#Actor_param_68]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r4,#0x0
     bl         Effect_MagicMan_Create
-    str        r7,[r5,#0x6c]
+    str        r7,[r5,#Actor_param_6C]
     bl         R_MagicMan_LoadEnemySprites
     bl         R_MagicMan_1_Main
     pop        {pc}
@@ -88,7 +88,7 @@ _ts R_MagicMan_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0806a916
     bl         Battle_IsInputLocked
@@ -104,30 +104,30 @@ _ts R_MagicMan_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0806a916:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0806a950
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
     mov        r0,#0x9
-    ldr        r1,[r5,#0x60]
-    ldrb       r2,[r5,#0x17]
+    ldr        r1,[r5,#Actor_param_60]
+    ldrb       r2,[r5,#Actor_canBeDamaged]
     tst        r2,r2
     bne        LAB_0806a932
     mov        r0,#PFI_Moving
 LAB_0806a932:
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0806a94e
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0806a94e:
     pop        {pc}
@@ -145,7 +145,7 @@ PTR_R_Actor_1_0_Spawn_0806a954:
 
 _ts R_MagicMan_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0806a97e
     LoadMain battle, r7, r7
@@ -153,16 +153,16 @@ _ts R_MagicMan_1_1_Wait
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806a97e:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0806a990
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806a990:
     pop        {pc}
 
@@ -175,7 +175,7 @@ _nt R_MagicMan_1_2_Decide
     mov        r7,#0x78
     add        r7,r7,r5
     bl         R_MagicMan_EnemyControl
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_MagicMan_1_2_0_0806a9cc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -185,9 +185,9 @@ _nt R_MagicMan_1_2_Decide
     tst        r0,r1
     beq        LAB_0806a9c0
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0806a9c0:
     pop        {pc}
 
@@ -205,17 +205,17 @@ PTR_PTR_R_MagicMan_1_2_0_0806a9cc:
 _ts R_MagicMan_1_2_0
     push       {lr}
     mov        r0,#0x64
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_MagicMan_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806aa02
     mov        r0,#0xc
     mov        r7,#0x70
@@ -229,16 +229,16 @@ _ts R_MagicMan_1_2_1
     bne        LAB_0806a9fc
     mov        r0,#0x10
 LAB_0806a9fc:
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806aa02:
     pop        {pc}
 
 
 _ts R_MagicMan_1_3_VirusSummon
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_MagicMan_1_3_0_0806aa24
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -261,9 +261,9 @@ PTR_PTR_R_MagicMan_1_3_0_0806aa24:
 _ts R_MagicMan_1_3_0
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -274,43 +274,43 @@ _ts R_MagicMan_1_3_1
     tst        r0,r1
     beq        LAB_0806aa5a
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
-    ldr        r7,[r5,#0x6c]
+    strh       r0,[r5,#Actor_counterA]
+    ldr        r7,[r5,#Actor_param_6C]
     tst        r7,r7
     beq        LAB_0806aa56
     mov        r0,#0x1
     strb       r0,[r7,#0x5]
 LAB_0806aa56:
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
 LAB_0806aa5a:
     pop        {pc}
 
 
 _ts R_MagicMan_1_3_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806ab10
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
-    ldr        r7,[r5,#0x6c]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r7,[r5,#Actor_param_6C]
     tst        r7,r7
     beq        LAB_0806aa7c
     mov        r0,#0x1
     strb       r0,[r7,#0x5]
 LAB_0806aa7c:
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r3,#0x70
     ldrb       r0,[r5,r3]
     cmp        r0,#0xff
@@ -318,7 +318,7 @@ LAB_0806aa7c:
     mov        r1,#0x4
     mov        r2,#0x1
     bl         R_MagicMan_SummonEnemy
-    str        r7,[r5,#0x74]
+    str        r7,[r5,#Actor_param_74]
     mov        r0,#0xff
     mov        r1,#0xd2
     lsl        r1,r1,#0x1
@@ -326,7 +326,7 @@ LAB_0806aa7c:
     add        r3,r3,r5
     strb       r0,[r3,#0x0]
     strh       r1,[r3,#0x2]
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     tst        r0,r0
     beq        LAB_0806aaaa
     mov        r0,#0x1
@@ -353,7 +353,7 @@ LAB_0806aac8:
     mov        r1,#0x5
     mov        r2,#0x3
     bl         R_MagicMan_SummonEnemy
-    str        r7,[r5,#0x7c]
+    str        r7,[r5,#Actor_param_7C]
     mov        r0,#0xff
     mov        r1,#0xd2
     lsl        r1,r1,#0x1
@@ -361,7 +361,7 @@ LAB_0806aac8:
     add        r3,r3,r5
     strb       r0,[r3,#0x0]
     strh       r1,[r3,#0x2]
-    ldr        r7,[r5,#0x68]
+    ldr        r7,[r5,#Actor_param_68]
     tst        r7,r7
     beq        LAB_0806aaf2
     mov        r0,#0x1
@@ -391,9 +391,9 @@ _nt R_MagicMan_1_3_3
     tst        r0,r1
     beq        LAB_0806ab26
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806ab26:
     pop        {pc}
 
@@ -406,7 +406,7 @@ _ts R_MagicMan_1_4_MagicFire
     mov        r7,#0x78
     add        r7,r7,r5
     bl         R_MagicMan_EnemyControl
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_MagicMan_1_4_0_0806ab5c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -430,9 +430,9 @@ PTR_PTR_R_MagicMan_1_4_0_0806ab5c:
 _ts R_MagicMan_1_4_0
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -442,30 +442,30 @@ _ts R_MagicMan_1_4_1
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0806ab92
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r4,#0x1
     bl         Effect_MagicMan_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Actor_param_5C]
     mov        r0,#0x8f
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806ab92:
     pop        {pc}
 
 
 _ts R_MagicMan_1_4_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806abc2
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_cPos_x]
     sub        r1,#0x1
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#Actor_cPos_y]
     mov        r3,#0x8
     lsl        r3,r3,#0x10
     mov        r4,#0x0
@@ -474,25 +474,25 @@ _ts R_MagicMan_1_4_2
     mov        r0,#0xb6
     bl         Sound_PlaySE
     mov        r0,#0x0
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Actor_param_5C]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806abc2:
     pop        {pc}
 
 
 _ts R_MagicMan_1_4_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806abd6
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_0806abd6:
     pop        {pc}
 
@@ -504,9 +504,9 @@ _ts R_MagicMan_1_4_4
     tst        r0,r1
     beq        LAB_0806abec
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806abec:
     pop        {pc}
 
@@ -514,7 +514,7 @@ LAB_0806abec:
 _nt R_MagicMan_2_Free
     push       {lr}
     bl         R_MagicMan_UnloadEnemies
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_MagicMan_2_0_0806ac08
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -532,18 +532,18 @@ PTR_PTR_R_MagicMan_2_0_0806ac08:
 _ts R_MagicMan_2_0
     push       {lr}
     mov        r0,#0x0
-    ldr        r7,[r5,#0x74]
+    ldr        r7,[r5,#Actor_param_74]
     tst        r7,r7
     beq        LAB_0806ac18
     strh       r0,[r7,#0x20]
 LAB_0806ac18:
-    ldr        r7,[r5,#0x7c]
+    ldr        r7,[r5,#Actor_param_7C]
     tst        r7,r7
     beq        LAB_0806ac20
     strh       r0,[r7,#0x20]
 LAB_0806ac20:
-    str        r0,[r5,#0x5c]
-    ldr        r0,[r5,#0x60]
+    str        r0,[r5,#Actor_param_5C]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
     bl         Battle_RegisterVirusDelete
     push       {r5}
@@ -552,17 +552,17 @@ LAB_0806ac20:
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _nt R_MagicMan_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806ac54
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -572,18 +572,18 @@ LAB_0806ac54:
 
 _nt R_MagicMan_CalcDamage
     push       {lr}
-    ldr        r6,[r5,#0x60]
+    ldr        r6,[r5,#Actor_param_60]
     ldrh       r0,[r6,#0x2]
     ldr        r1,DAT_0806ac78
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
@@ -611,18 +611,18 @@ _ts R_MagicMan_SummonEnemy
     bl         Actor_Alloc
     pop        {r7}
     ldrh       r0,[r7,#0x0]
-    strh       r0,[r5,#0x20]
-    strh       r0,[r5,#0x22]
+    strh       r0,[r5,#Actor_hpCurrent]
+    strh       r0,[r5,#Actor_hpMax]
     ldr        r0,[sp,#0x0]
-    strb       r0,[r5,#0x13]
+    strb       r0,[r5,#Actor_enemyId]
     ldr        r0,[sp,#0x4]
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#Actor_cPos_x]
     ldr        r1,[sp,#0x8]
-    strb       r1,[r5,#0x19]
+    strb       r1,[r5,#Actor_cPos_y]
     mov        r0,#0x1
-    strb       r0,[r5,#0x16]
+    strb       r0,[r5,#Actor_owner]
     mov        r0,#0xff
-    strb       r0,[r5,#0x12]
+    strb       r0,[r5,#Actor_enemyIndex]
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_BattleHP_Create
@@ -687,7 +687,7 @@ LAB_0806ad18:
     pop        {r7}
     mov        r1,#0xf
     and        r1,r0
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x2
     ldr        r6,PTR_PTR_ARRAY_0806ad40
     ldr        r6,[r6,r0]
@@ -767,22 +767,22 @@ DAT_0806ad70:
 
 _ts R_MagicMan_UnloadEnemies
     push       {lr}
-    ldr        r7,[r5,#0x74]
+    ldr        r7,[r5,#Actor_param_74]
     tst        r7,r7
     beq        LAB_0806ad92
     ldrb       r0,[r7,#0x0]
     tst        r0,r0
     bne        LAB_0806ad92
     mov        r0,#0x0
-    str        r0,[r5,#0x74]
+    str        r0,[r5,#Actor_param_74]
 LAB_0806ad92:
-    ldr        r7,[r5,#0x7c]
+    ldr        r7,[r5,#Actor_param_7C]
     tst        r7,r7
     beq        LAB_0806ada2
     ldrb       r0,[r7,#0x0]
     tst        r0,r0
     bne        LAB_0806ada2
     mov        r0,#0x0
-    str        r0,[r5,#0x7c]
+    str        r0,[r5,#Actor_param_7C]
 LAB_0806ada2:
     pop        {pc}

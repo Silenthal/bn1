@@ -20,7 +20,7 @@ listBombParam:
 _ts Effect_BombExplosion
     push       {lr}
     ldr        r7,PTR_PTR_E_BombExplosion_0_Init_0807bcd8
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r0,[r7,r0]
     mov        lr,pc
     bx         r0
@@ -37,19 +37,19 @@ PTR_E_BombExplosion_0_Init_0807bc10:
 
 _ts E_BombExplosion_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Effect_family_b1]
     sub        r0,#0x1
     bmi        LAB_0807bc28
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Effect_family_b1]
     pop        {pc}
 LAB_0807bc28:
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Effect_header_entityFlags]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_listBombParam_0807bc80
     add        r7,r7,r0
-    str        r7,[r5,#0x60]
+    str        r7,[r5,#Effect_obj_60]
     mov        r0,#0x1
     ldrh       r1,[r7,#0x2]
     push       {r7}
@@ -61,21 +61,21 @@ LAB_0807bc28:
     bl         SpritePtr_ProcessFrameDelay
     bl         SpritePtr_NoShadow
     mov        r0,#0x2
-    strh       r0,[r5,#0x1c]
-    ldr        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x2c]
+    strh       r0,[r5,#Effect_counterA]
+    ldr        r0,[r5,#Effect_pos_curr_x]
+    ldr        r1,[r5,#Effect_pos_curr_y]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Effect_cPos_x]
+    strb       r1,[r5,#Effect_cPos_y]
+    ldr        r7,[r5,#Effect_obj_60]
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x64
     add        r1,r1,r5
     bl         Field_CreateEntity
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_BombExplosion_1_Main
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Effect_obj_64]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -89,25 +89,25 @@ _ts E_BombExplosion_1_Main
     and        r0,r1
     bne        LAB_0807bca2
     bl         SpritePtr_ProcessFrameDelay
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807bca0
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Effect_obj_64]
     bl         FieldObject_Disable
 LAB_0807bca0:
     pop        {pc}
 LAB_0807bca2:
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Effect_state_s0]
     pop        {pc}
 
 
 _ts E_BombExplosion_2_Free
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Effect_obj_64]
     bl         FieldObject_Free
     bl         Effect_Free
     pop        {pc}
@@ -124,7 +124,7 @@ _nt Effect_BombExplosion_Create
     beq        LAB_0807bcd4
     strh       r6,[r7,#0x24]
     strb       r0,[r7,#0x1a]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Effect_owner]
     strb       r0,[r7,#0x16]
 LAB_0807bcd4:
     pop        {pc}

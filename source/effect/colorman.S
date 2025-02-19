@@ -6,7 +6,7 @@
 _ts Effect_ColorMan
     push       {lr}
     ldr        r0,PTR_PTR_E_ColorMan_0_Init_0807f858
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,11 +22,11 @@ PTR_E_ColorMan_0_Init_0807f718:
 _ts E_ColorMan_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x36
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -38,16 +38,16 @@ _ts E_ColorMan_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     pop        {pc}
 
 
 _nt E_ColorMan_1_Main
     push       {lr}
     ldr        r0,PTR_PTR_E_ColorMan_1_0_0807f85c
-    ldrb       r1,[r5,#0x9]
+    ldrb       r1,[r5,#Effect_state_s1]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -70,17 +70,17 @@ _ts E_ColorMan_1_0
     and        r0,r1
     beq        LAB_0807f7aa
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0xa
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r1,#0x0
-    str        r1,[r5,#0x44]
+    str        r1,[r5,#Effect_diff_x]
     ldr        r1,DAT_0807f860
-    str        r1,[r5,#0x48]
+    str        r1,[r5,#Effect_diff_y]
     ldr        r1,DAT_0807f864
-    str        r1,[r5,#0x4c]
+    str        r1,[r5,#Effect_diff_z]
 LAB_0807f7aa:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -92,11 +92,11 @@ _ts E_ColorMan_1_1
     and        r0,r1
     beq        LAB_0807f7ca
     mov        r0,#0xb
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_0807f7ca:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -119,16 +119,16 @@ LAB_0807f7e6:
     stmia      r7!,{r0,r1,r2}
     ldr        r0,DAT_0807f80c
     add        r6,r6,r0
-    str        r6,[r5,#0x4c]
-    ldr        r0,[r5,#0x30]
+    str        r6,[r5,#Effect_diff_z]
+    ldr        r0,[r5,#Effect_pos_curr_z]
     tst        r0,r0
     bne        LAB_0807f806
     mov        r0,#0xc
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_0807f806:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -144,11 +144,11 @@ _ts E_ColorMan_1_3
     beq        LAB_0807f830
     Flag_ClearBase 0xBC
     mov        r0,#0x8
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_0807f830:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -171,7 +171,7 @@ _ts Effect_ColorMan_Create
     mov        r0,#0x29
     bl         Effect_Alloc
     mov        r0,#0x8
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Effect_frameIndexCurr]
     pop        {pc}
 
 PTR_PTR_E_ColorMan_0_Init_0807f858:

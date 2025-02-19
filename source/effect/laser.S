@@ -5,7 +5,7 @@
 
 _ts Effect_Laser
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_Laser_0_Init_0807e024
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -31,34 +31,34 @@ _ts E_Laser_0_Init
     mov        r1,#0x8c
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x2
     add        r0,#0x6
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Effect_family_b1]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x32
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
-    strb       r0,[r5,#0x7]
+    strh       r0,[r5,#Effect_counterB]
+    strb       r0,[r5,#Effect_family_b3]
     mov        r0,#0x64
     add        r0,r0,r5
     mov        r1,#0x14
     bl         memset0_32
     mov        r7,#0x64
     add        r7,r7,r5
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Effect_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Effect_cPos_y]
 LAB_0807e084:
     push       {r0,r1}
     bl         Battle_IsOutOfBounds
@@ -76,7 +76,7 @@ LAB_0807e084:
     strb       r0,[r6,#FieldObject_cPosLast_x]
     strb       r1,[r6,#FieldObject_cPosCurr_y]
     strb       r1,[r6,#FieldObject_cPosLast_y]
-    ldrh       r0,[r5,#0x24]
+    ldrh       r0,[r5,#Effect_damage]
     strh       r0,[r6,#FieldObject_damage]
     mov        r0,#0x0
     strb       r0,[r6,#FieldObject_element]
@@ -102,7 +102,7 @@ DAT_0807e0cc:
 
 _ts E_Laser_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Effect_state_s1]
     ldr        r7,PTR_PTR_E_Laser_1_0_0807e0e0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -122,26 +122,26 @@ PTR_E_Laser_1_0_0807e0e4:
 
 _ts E_Laser_1_0
     push       {lr}
-    ldrb       r0,[r5,#0x7]
+    ldrb       r0,[r5,#Effect_family_b3]
     ldr        r7,PTR_DAT_0807e120
     ldrb       r1,[r7,r0]
-    ldrh       r2,[r5,#0x1e]
+    ldrh       r2,[r5,#Effect_counterB]
     add        r2,#0x1
-    strh       r2,[r5,#0x1e]
+    strh       r2,[r5,#Effect_counterB]
     cmp        r2,r1
     bmi        LAB_0807e106
     add        r1,r0,#0x1
-    strb       r1,[r5,#0x7]
+    strb       r1,[r5,#Effect_family_b3]
     bl         E_Laser_EnableHitbox
 LAB_0807e106:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807e116
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
 LAB_0807e116:
     pop        {pc}
 
@@ -162,15 +162,15 @@ PTR_DAT_0807e120:
 
 _ts E_Laser_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     tst        r0,r0
     bne        LAB_0807e13a
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x2
     add        r0,#0x8
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     b          LAB_0807e148
 LAB_0807e13a:
     bl         SpritePtr_GetFrameStatus

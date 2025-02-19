@@ -5,7 +5,7 @@
 
 _ts Routine_Swordy
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Swordy_0_Init_0805d78c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,47 +32,47 @@ _ts R_Swordy_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     FieldObject_Create PFI_Self_Actor, 0x60
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     mov        r1,#0x1e
     strb       r1,[r7,#0x8]
     FieldObject_CreateInitMoving 0x64
     ldr        r7,PTR_listSwordyStealCountProperties_0805d840
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     add        r0,r0,r0
     add        r7,r7,r0
     ldrb       r1,[r7,#0x0]
-    str        r1,[r5,#0x68]
+    str        r1,[r5,#Actor_param_68]
     ldrb       r1,[r7,#0x1]
-    strb       r1,[r5,#0x1a]
+    strb       r1,[r5,#Actor_element]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x12]
+    strb       r0,[r5,#Actor_state_s0]
+    ldrb       r0,[r5,#Actor_enemyIndex]
     cmp        r0,#0xff
     bne        LAB_0805d834
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
-    ldr        r4,[r5,#0x4]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldr        r4,[r5,#Actor_family_family]
     bl         Attack_SwordySlash_Create
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805d834
     mov        r1,#0x0
@@ -95,33 +95,33 @@ _ts R_Swordy_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldrb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805d8a8
     bl         Battle_IsInputLocked
     bne        LAB_0805d8a8
     bl         Routine_CheckPoisonDrain
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     bl         Field_CheckInterrupt
     beq        LAB_0805d870
     mov        r0,#0x0
-    str        r0,[r5,#0x68]
+    str        r0,[r5,#Actor_param_68]
 LAB_0805d870:
     bl         SpritePtr_DisableFlash
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,PanelFlag_0805d914
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805d8a8
@@ -132,19 +132,19 @@ LAB_0805d870:
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0805d8a8:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_0805d8dc
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Swordy_1_0_Spawn_0805d8f0
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805d8ce
     mov        r0,#0x9
@@ -152,18 +152,18 @@ LAB_0805d8a8:
 LAB_0805d8ce:
     mov        r0,#PFI_Moving
 LAB_0805d8d0:
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Actor_param_60]
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805d8ee
 LAB_0805d8dc:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0805d8ee:
     pop        {pc}
@@ -189,7 +189,7 @@ PanelFlag_0805d914:
 
 _ts R_Swordy_1_0_Spawn
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Swordy_1_0_0_0805d940
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -215,10 +215,10 @@ _ts R_Swordy_1_0_0
     tst        r0,r0
     beq        LAB_0805d966
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
-    ldr        r4,[r5,#0x4]
+    strb       r0,[r5,#Actor_state_s2]
+    ldr        r4,[r5,#Actor_family_family]
     bl         Attack_SwordySlash_Create
-    str        r0,[r5,#0x5c]
+    str        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805d962
     mov        r1,#0x4
@@ -235,22 +235,22 @@ _ts R_Swordy_1_0_1
     tst        r0,r0
     bne        LAB_0805d97a
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0805d97a:
     pop        {pc}
 
 
 _ts R_Swordy_1_0_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805d998
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x5c]
+    strb       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805d994
     mov        r1,#0x0
@@ -268,42 +268,42 @@ _nt R_Swordy_1_0_3
     tst        r0,r1
     bne        LAB_0805d9ae
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d9ae:
     pop        {pc}
 
 
 _ts R_Swordy_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0805d9ca
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805d9ca:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0805d9dc
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d9dc:
     pop        {pc}
 
 
 _nt R_Swordy_1_2_Decide
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Swordy_1_2_0_Next_0805da08
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -313,9 +313,9 @@ _nt R_Swordy_1_2_Decide
     tst        r0,r1
     beq        LAB_0805d9fc
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805d9fc:
     pop        {pc}
 
@@ -333,9 +333,9 @@ PTR_PTR_R_Swordy_1_2_0_Next_0805da08:
 _ts R_Swordy_1_2_0_Next
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         R_Swordy_1_2_1_Decide
     pop        {pc}
 
@@ -345,37 +345,37 @@ _ts R_Swordy_1_2_1_Decide
     bl         R_Swordy_IncreaseRoutineCounter
     bne        LAB_0805dab6
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bl         R_Swordy_ArePanelsReadyToSteal
     beq        LAB_0805da4c
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Actor_family_b1]
     cmp        r0,#0x3
     bmi        LAB_0805da4c
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
-    ldr        r0,[r5,#0x68]
+    strb       r0,[r5,#Actor_family_b1]
+    ldr        r0,[r5,#Actor_param_68]
     tst        r0,r0
     beq        LAB_0805da4c
     sub        r0,#0x1
-    str        r0,[r5,#0x68]
+    str        r0,[r5,#Actor_param_68]
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0805dab6
 LAB_0805da4c:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     tst        r0,r0
     beq        LAB_0805da5e
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
     bl         R_Swordy_IsTargetInColumn
     tst        r0,r0
     bne        LAB_0805da7c
 LAB_0805da5e:
     bl         R_Swordy_GetMoveOffset
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
     tst        r3,r3
     bne        LAB_0805daae
     bl         R_Swordy_IsPanelWalkable
@@ -387,17 +387,17 @@ LAB_0805da5e:
     beq        LAB_0805da94
 LAB_0805da7c:
     mov        r0,#0x14
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Actor_family_family]
     tst        r1,r1
     beq        LAB_0805da86
     mov        r0,#0x1c
 LAB_0805da86:
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0x5]
+    strh       r0,[r5,#Actor_state_s2]
+    ldrb       r0,[r5,#Actor_family_b1]
     add        r0,#0x1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     b          LAB_0805dab6
 LAB_0805da94:
     mov        r0,#0x3
@@ -405,25 +405,25 @@ LAB_0805da94:
     tst        r0,r0
     beq        LAB_0805daae
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0x5]
+    strh       r0,[r5,#Actor_state_s2]
+    ldrb       r0,[r5,#Actor_family_b1]
     add        r0,#0x1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     b          LAB_0805dab6
 LAB_0805daae:
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805dab6:
     pop        {pc}
 
 
 _ts R_Swordy_1_3_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Swordy_1_3_0_StartMove_0805dac8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -444,14 +444,14 @@ PTR_R_Swordy_1_3_0_StartMove_0805dacc:
 
 _ts R_Swordy_1_3_0_StartMove
     push       {lr}
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
     bl         R_Swordy_IsPanelWalkable
     tst        r0,r0
     beq        LAB_0805db28
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
-    ldr        r7,[r5,#0x64]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
+    ldr        r7,[r5,#Actor_param_64]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]
@@ -459,53 +459,53 @@ _ts R_Swordy_1_3_0_StartMove
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0xa
     lsl        r4,r4,#0x10
     add        r3,r3,r4
     mov        r4,#0x13
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     mvn        r1,r1
     and        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     b          LAB_0805db30
 LAB_0805db28:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805db30:
     pop        {pc}
 
 
 _nt R_Swordy_1_3_1_EndMove
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805db6a
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     push       {r5}
     add        r2,r1,#0x0
     add        r1,r0,#0x0
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0xa
     lsl        r4,r4,#0x10
     add        r3,r3,r4
@@ -513,31 +513,31 @@ _nt R_Swordy_1_3_1_EndMove
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805db6a:
     pop        {pc}
 
 
 _ts R_Swordy_1_3_2_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805db90
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldr        r0,[r5,#0x64]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805db90:
     pop        {pc}
 
@@ -546,21 +546,21 @@ _nt R_Swordy_1_4_Steal
     push       {lr}
     mov        r0,#0x2
     mov        r1,#0x2
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_owner]
     mov        r3,#0xa
     bl         ScreenDim_Alloc
     mov        r0,#0xb4
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_Swordy_1_5_Sword
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Swordy_1_5_0_Prepare_0805dbbc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -582,40 +582,40 @@ PTR_R_Swordy_1_5_0_Prepare_0805dbc0:
 
 _ts R_Swordy_1_5_0_Prepare
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        pc,lr
 
 
 _nt R_Swordy_1_5_1_StartAnim
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dc06
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805dbfe
     bl         Attack_SwordySlash_Hide
 LAB_0805dbfe:
     mov        r0,#0x9
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805dc06:
     pop        {pc}
 
 
 _ts R_Swordy_1_5_2_Sword_Start
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dc46
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805dc20
     mov        r1,#0x1
@@ -623,14 +623,14 @@ _ts R_Swordy_1_5_2_Sword_Start
     bl         Attack_SwordySlash_Show
 LAB_0805dc20:
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x5
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     push       {r5}
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
-    ldrb       r2,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_cPos_y]
+    ldrb       r2,[r5,#Actor_owner]
     mov        r3,#0x28
     mov        r4,#0x88
     mov        r6,#0x0
@@ -645,50 +645,50 @@ LAB_0805dc46:
 
 _ts R_Swordy_1_5_3_Sword_End
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dc64
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805dc5c
     mov        r1,#0x5
     strb       r1,[r0,#0x14]
 LAB_0805dc5c:
     mov        r0,#0x4
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805dc64:
     pop        {pc}
 
 
 _nt R_Swordy_1_5_4_EndAnim
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dc82
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805dc7a
     bl         Attack_SwordySlash_Hide
 LAB_0805dc7a:
     mov        r0,#0xc
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x14
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805dc82:
     pop        {pc}
 
 
 _ts R_Swordy_1_5_5_Reset
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dca4
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805dc9c
     mov        r1,#0x0
@@ -696,30 +696,30 @@ _ts R_Swordy_1_5_5_Reset
     bl         Attack_SwordySlash_Show
 LAB_0805dc9c:
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x18
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805dca4:
     pop        {pc}
 
 
 _nt R_Swordy_1_5_6_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dcb8
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805dcb8:
     pop        {pc}
 
 
 _nt R_Swordy_1_6_LongSword
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Swordy_1_6_0_RaiseSword_0805dcc8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -741,45 +741,45 @@ PTR_R_Swordy_1_6_0_RaiseSword_0805dccc:
 
 _ts R_Swordy_1_6_0_RaiseSword
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        pc,lr
 
 
 _nt R_Swordy_1_6_1_Prepare
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dd12
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805dd0a
     bl         Attack_SwordySlash_Hide
 LAB_0805dd0a:
     mov        r0,#0x1a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805dd12:
     pop        {pc}
 
 
 _ts R_Swordy_1_6_2_StartAnim
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dd30
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xb
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x75
     bl         Sound_PlaySE
 LAB_0805dd30:
@@ -788,11 +788,11 @@ LAB_0805dd30:
 
 _nt R_Swordy_1_6_3_LongSword
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dd68
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805dd4a
     mov        r1,#0x3
@@ -800,14 +800,14 @@ _nt R_Swordy_1_6_3_LongSword
     bl         Attack_SwordySlash_Show
 LAB_0805dd4a:
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x18]
+    strh       r0,[r5,#Actor_counterA]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     ldr        r7,PTR_listSwordyLongSwordProperties_0805dd70
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Actor_family_family]
     add        r2,r2,r2
     add        r7,r7,r2
     ldrb       r2,[r7,#0x0]
@@ -827,30 +827,30 @@ PTR_listSwordyLongSwordProperties_0805dd70:
 
 _ts R_Swordy_1_6_4_EndAnim
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dd90
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805dd88
     bl         Attack_SwordySlash_Hide
 LAB_0805dd88:
     mov        r0,#0xc
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x14
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805dd90:
     pop        {pc}
 
 
 _nt R_Swordy_1_6_5_Reset
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805ddb2
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805ddaa
     mov        r1,#0x0
@@ -858,30 +858,30 @@ _nt R_Swordy_1_6_5_Reset
     bl         Attack_SwordySlash_Show
 LAB_0805ddaa:
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x18
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805ddb2:
     pop        {pc}
 
 
 _ts R_Swordy_1_6_6_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805ddc6
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805ddc6:
     pop        {pc}
 
 
 _ts R_Swordy_1_7_WideSword
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Swordy_1_7_0_RaiseSword_0805ddd8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -906,56 +906,56 @@ PTR_R_Swordy_1_7_0_RaiseSword_0805dddc:
 
 _ts R_Swordy_1_7_0_RaiseSword
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        pc,lr
 
 
 _nt R_Swordy_1_7_1_Prepare
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805de22
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805de1a
     bl         Attack_SwordySlash_Hide
 LAB_0805de1a:
     mov        r0,#0x1a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805de22:
     pop        {pc}
 
 
 _ts R_Swordy_1_7_2_StartAnim
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805de3a
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xb
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805de3a:
     pop        {pc}
 
 
 _ts R_Swordy_1_7_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805de78
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805de54
     mov        r1,#0x6
@@ -963,14 +963,14 @@ _ts R_Swordy_1_7_3
     bl         Attack_SwordySlash_Show
 LAB_0805de54:
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x5
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x18]
+    strh       r0,[r5,#Actor_counterA]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     ldr        r7,PTR_listSwordyWideSwordProperties_0805de80
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Actor_family_family]
     add        r2,r2,r2
     add        r7,r7,r2
     ldrb       r2,[r7,#0x0]
@@ -992,30 +992,30 @@ PTR_listSwordyWideSwordProperties_0805de80:
 
 _ts R_Swordy_1_7_4_EndAnim
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dea0
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805de98
     bl         Attack_SwordySlash_Hide
 LAB_0805de98:
     mov        r0,#0xc
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x14
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805dea0:
     pop        {pc}
 
 
 _nt R_Swordy_1_7_5_Reset
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805dec2
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     beq        LAB_0805deba
     mov        r1,#0x0
@@ -1023,30 +1023,30 @@ _nt R_Swordy_1_7_5_Reset
     bl         Attack_SwordySlash_Show
 LAB_0805deba:
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x18
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805dec2:
     pop        {pc}
 
 
 _ts R_Swordy_1_7_6_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805ded6
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805ded6:
     pop        {pc}
 
 
 _ts R_Swordy_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Swordy_2_0_Delete_0805def0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -1066,19 +1066,19 @@ PTR_PTR_R_Swordy_2_0_Delete_0805def0:
 
 _ts R_Swordy_2_0_Delete
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     push       {r5}
-    ldr        r5,[r5,#0x5c]
+    ldr        r5,[r5,#Actor_param_5C]
     tst        r5,r5
     beq        LAB_0805df0e
     bl         Attack_Free
 LAB_0805df0e:
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
@@ -1086,15 +1086,15 @@ LAB_0805df0e:
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _nt R_Swordy_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805df3c
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -1103,9 +1103,9 @@ LAB_0805df3c:
 
 
 _nt R_Swordy_IncreaseRoutineCounter
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     add        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     cmp        r0,#0x28
     mov        pc,lr
 
@@ -1150,10 +1150,10 @@ LAB_0805df8a:
     ldr        r7,PTR_CellPosition_0805df9c
     ldrsb      r2,[r7,r3]
     add        r7,#0x1
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     add        r0,r0,r2
     ldrsb      r2,[r7,r3]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     add        r1,r1,r2
     pop        {pc}
 
@@ -1181,7 +1181,7 @@ LAB_0805dfb2:
     tst        r2,r2
     bne        LAB_0805dfd2
     push       {r0,r1,r3,r5,r6}
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_owner]
     ldr        r3,[r6,#0x0]
     mov        r4,#0x88
     ldr        r6,[r6,#0x4]
@@ -1213,7 +1213,7 @@ LAB_0805dfec:
     tst        r2,r2
     bne        LAB_0805e00c
     push       {r0,r1,r3,r5,r6}
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_owner]
     ldr        r3,[r6,#0x0]
     mov        r4,#0x88
     ldr        r6,[r6,#0x4]
@@ -1237,9 +1237,9 @@ LAB_0805e01e:
     tst        r3,r3
     beq        LAB_0805e03e
     push       {r0,r3}
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,r0,r3
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     pop        {r0,r3}

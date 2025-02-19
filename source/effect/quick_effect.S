@@ -8,7 +8,7 @@
 _ts Effect_QuickEffect
     push       {lr}
     ldr        r0,PTR_PTR_E_QuickEffect_0_Init
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,12 +22,12 @@ PTR_E_QuickEffect_0_Init:
 
 _ts E_QuickEffect_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Effect_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     ldr        r7,PTR_SpriteAnimParam_ARRAY_0807b5ac
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x1a
     lsr        r0,r0,#0x18
     ldrh       r1,[r7,r0]
@@ -35,7 +35,7 @@ _ts E_QuickEffect_0_Init
     mov        r0,#0x1
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Effect_family_b1]
     lsl        r0,r0,#0x1c
     lsr        r0,r0,#0x1c
     bl         SpritePtr_SetPaletteIndex
@@ -45,13 +45,13 @@ _ts E_QuickEffect_0_Init
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsr        r0,r0,#0x7
     bl         SpritePtr_SetFlipType
-    ldrh       r0,[r5,#0x6]
-    strh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_family_b2]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_QuickEffect_1_WaitForEnd
     pop        {pc}
 
@@ -215,14 +215,14 @@ PTR_SpriteAnimParam_ARRAY_0807b5ac:
 _ts E_QuickEffect_1_WaitForEnd
     push       {lr}
     bl         SpritePtr_ProcessFrameDelay
-    ldrh       r0,[r5,#0x6]
+    ldrh       r0,[r5,#Effect_family_b2]
     tst        r0,r0
     beq        LAB_0807b5c2
     sub        r0,#0x1
-    strh       r0,[r5,#0x6]
+    strh       r0,[r5,#Effect_family_b2]
     beq        LAB_0807b5d8
 LAB_0807b5c2:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsr        r0,r0,#0x7
     bcs        LAB_0807b5dc
     bl         SpritePtr_GetFrameStatus
@@ -234,7 +234,7 @@ LAB_0807b5c2:
     bne        LAB_0807b5dc
 LAB_0807b5d8:
     mov        r0,#0x2
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
 LAB_0807b5dc:
     pop        {pc}
 

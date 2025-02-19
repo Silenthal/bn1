@@ -63,7 +63,7 @@ Struct_Dat7BD24_ARRAY_0807bd5c:
 _ts Effect_Tower
     push       {lr}
     ldr        r7,PTR_PTR_E_Tower_0_Init_0807bed0
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r0,[r7,r0]
     mov        lr,pc
     bx         r0
@@ -86,55 +86,55 @@ _ts E_Tower_0_Init
     bl         Effect_Free
     pop        {pc}
 LAB_0807bd90:
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Effect_header_entityFlags]
     mov        r1,#0x3
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Effect_header_entityFlags]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x19
     lsr        r0,r0,#0x17
     ldr        r7,PTR_Struct_7BCDC_ARRAY_0807be10
     add        r7,r7,r0
-    str        r7,[r5,#0x60]
+    str        r7,[r5,#Effect_obj_60]
     mov        r0,#0x1
     ldrh       r1,[r7,#0x2]
     push       {r7}
     bl         Sprite_InitSpritePtr
     pop        {r7}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x19
     lsr        r0,r0,#0x17
     ldr        r7,PTR_PTR_Struct_Dat7BD24_ARRAY_0807be14
     ldr        r7,[r7,r0]
-    str        r7,[r5,#0x64]
-    ldrb       r0,[r5,#0x16]
+    str        r7,[r5,#Effect_obj_64]
+    ldrb       r0,[r5,#Effect_owner]
     neg        r0,r0
     add        r0,#0x1
     push       {r7}
     bl         SpritePtr_SetFlipType
     pop        {r7}
     ldrb       r0,[r7,#0x1]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     ldrb       r0,[r7,#0x0]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Effect_cPos_x]
+    strb       r1,[r5,#Effect_cPos_y]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_0807be04
     FieldObject_Create PFI_Self_Tower, 0x68
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_Tower_1_Main
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Effect_obj_68]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 LAB_0807be04:
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_Tower_1_Main
     pop        {pc}
 
@@ -150,19 +150,19 @@ PTR_PTR_Struct_Dat7BD24_ARRAY_0807be14:
 
 _ts E_Tower_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_0807be26
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Effect_obj_68]
     bl         FieldObject_DisableIfDeleted
 LAB_0807be26:
     bl         Battle_GetEntryState
     cmp        r0,#0x0
     bne        LAB_0807be80
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
     bmi        LAB_0807be3a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807be60
     b          LAB_0807be44
 LAB_0807be3a:
@@ -171,24 +171,24 @@ LAB_0807be3a:
     and        r0,r1
     beq        LAB_0807be60
 LAB_0807be44:
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Effect_obj_64]
     ldrb       r0,[r7,#0x2]
     mov        r1,#0x80
     tst        r0,r1
     bne        LAB_0807be80
     add        r7,#0x4
-    str        r7,[r5,#0x64]
+    str        r7,[r5,#Effect_obj_64]
     ldrb       r0,[r7,#0x1]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     ldrb       r0,[r7,#0x0]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
 LAB_0807be60:
     bl         SpritePtr_ProcessFrameDelay
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_0807be9e
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Effect_obj_64]
     ldrb       r0,[r7,#0x2]
     mov        r1,#0x1
     tst        r0,r1
@@ -198,18 +198,18 @@ LAB_0807be60:
     beq        LAB_0807be8e
 LAB_0807be80:
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldr        r0,[r5,#0x68]
+    str        r0,[r5,#Effect_state_s0]
+    ldr        r0,[r5,#Effect_obj_68]
     bl         FieldObject_SetDeletedFlag
 LAB_0807be8e:
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Effect_obj_64]
     ldrb       r0,[r7,#0x2]
     mov        r1,#0x2
     tst        r0,r1
     beq        LAB_0807be9e
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Effect_obj_68]
     bl         FieldObject_SetDeletedFlag
 LAB_0807be9e:
     pop        {pc}
@@ -217,10 +217,10 @@ LAB_0807be9e:
 
 _ts E_Tower_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r0,r0,#0x19
     bcs        LAB_0807beae
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Effect_obj_68]
     bl         FieldObject_Free
 LAB_0807beae:
     bl         Effect_Free
@@ -237,7 +237,7 @@ _ts Effect_Tower_Create
     beq        LAB_0807becc
     strb       r0,[r7,#0x1a]
     strh       r6,[r7,#0x24]
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Effect_owner]
     strb       r0,[r7,#0x16]
 LAB_0807becc:
     pop        {pc}

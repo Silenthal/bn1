@@ -6,7 +6,7 @@
 _ts Effect_TrafficExplosion
     push       {lr}
     ldr        r0,PTR_PTR_E_TrafficExplosion_0_Init_0807eec4
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,7 +22,7 @@ PTR_E_TrafficExplosion_0_Init_0807ee28:
 _ts E_TrafficExplosion_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xd7
     bl         Sprite_InitSpritePtr
@@ -38,34 +38,34 @@ _ts E_TrafficExplosion_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x2
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
     pop        {pc}
 
 
 _nt E_TrafficExplosion_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     tst        r0,r0
     bne        LAB_0807ee96
-    ldrb       r0,[r5,#0x1c]
+    ldrb       r0,[r5,#Effect_counterA]
     tst        r0,r0
     bne        LAB_0807ee92
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     tst        r0,r0
     bne        LAB_0807ee8c
     mov        r0,#0x76
     bl         Sound_PlaySE
 LAB_0807ee8c:
     mov        r0,#0x1
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     b          LAB_0807ee96
 LAB_0807ee92:
     sub        r0,#0x1
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Effect_counterA]
 LAB_0807ee96:
     bl         SpritePtr_GetFrameStatus
     mov        r1,#0x80

@@ -32,7 +32,7 @@ listMiniColorManSpec:
 
 _ts Routine_MiniColorMan
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_MiniColorMan_0_Init_080639fc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -53,24 +53,24 @@ PTR_R_MiniColorMan_0_Init_08063a00:
 
 _ts R_MiniColorMan_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xa5
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_NoShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r1,r0,#0x2
     ldr        r7,PTR_listMiniColorManSpec_08063a8c
     add        r7,r7,r1
-    str        r7,[r5,#0x64]
+    str        r7,[r5,#Actor_param_64]
     lsl        r0,r0,#0x1f
     lsr        r0,r0,#0x1f
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x0
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Actor_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r3,#0x28
@@ -80,23 +80,23 @@ _ts R_MiniColorMan_0_Init
     ldmia      r7!,{r0,r1,r2}
     stmia      r6!,{r0,r1,r2}
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    strh       r0,[r5,#0x20]
-    strh       r0,[r5,#0x22]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    strh       r0,[r5,#Actor_hpCurrent]
+    strh       r0,[r5,#Actor_hpMax]
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0xc0
     lsl        r0,r0,#0x8
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Actor_diff_y]
     FieldObject_Create PFI_Self_Extension_Armored, 0x68, offset_reg=3
     FieldObject_Create PFI_Moving, 0x6c, offset_reg=3
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         R_MiniColorMan_1_Main
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -107,32 +107,32 @@ PTR_listMiniColorManSpec_08063a8c:
 _ts R_MiniColorMan_1_Main
     push       {lr}
     bl         SpritePtr_DisableFlash
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_08063abc
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldr        r0,[r5,#0x68]
+    str        r0,[r5,#Actor_state_s0]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_SetDeletedFlag
     pop        {pc}
 LAB_08063abc:
     bl         R_MiniColorMan_CheckLive
     tst        r0,r0
     bne        LAB_08063ace
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_08063adc
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_08063ace:
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -154,7 +154,7 @@ PTR_R_Actor_1_0_Spawn_08063ae0:
 
 _ts R_MiniColorMan_1_1_Register
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_08063b12
     bl         Battle_RemoveFromEnemyList
@@ -163,23 +163,23 @@ _ts R_MiniColorMan_1_1_Register
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08063b12:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08063b24
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08063b24:
     pop        {pc}
 
 
 _nt R_MiniColorMan_1_2_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_MiniColorMan_1_2_0_Wait_08063b48
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -189,9 +189,9 @@ _nt R_MiniColorMan_1_2_Wait
     tst        r0,r1
     beq        LAB_08063b44
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_08063b44:
     pop        {pc}
 
@@ -208,32 +208,32 @@ PTR_R_MiniColorMan_1_2_0_Wait_08063b4c:
 
 _ts R_MiniColorMan_1_2_0_Wait
     push       {lr}
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_MiniColorMan_1_2_1_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08063b78
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08063b78:
     pop        {pc}
 
 
 _nt R_MiniColorMan_1_3_Move
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_MiniColorMan_1_3_0_StartMove_08063b88
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -250,17 +250,17 @@ PTR_R_MiniColorMan_1_3_0_StartMove_08063b8c:
 
 _ts R_MiniColorMan_1_3_0_StartMove
     push       {lr}
-    ldr        r0,[r5,#0x48]
+    ldr        r0,[r5,#Actor_diff_y]
     mov        r6,#0x2
 LAB_08063b9a:
     lsr        r1,r0,#0x1f
     lsl        r1,r1,#0x1
     neg        r1,r1
     add        r1,#0x1
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_y]
     add        r1,r1,r0
-    ldrb       r0,[r5,#0x18]
-    ldr        r7,[r5,#0x6c]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldr        r7,[r5,#Actor_param_6C]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x5]
     strb       r0,[r7,#0x2]
@@ -276,20 +276,20 @@ LAB_08063b9a:
     cmp        r0,r1
     beq        LAB_08063bd8
 LAB_08063bc8:
-    ldr        r0,[r5,#0x48]
+    ldr        r0,[r5,#Actor_diff_y]
     neg        r0,r0
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Actor_diff_y]
     sub        r6,#0x1
     bne        LAB_08063b9a
     bl         R_MiniColorMan_Decide
     pop        {pc}
 LAB_08063bd8:
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
-    ldr        r0,[r5,#0x6c]
+    strh       r0,[r5,#Actor_counterA]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 PanelFlag_08063be8:
@@ -301,26 +301,26 @@ PanelFlag_08063bec:
 
 _ts R_MiniColorMan_1_3_1_EndMove
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     beq        LAB_08063c0e
-    ldr        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x2c]
-    ldr        r2,[r5,#0x48]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    ldr        r1,[r5,#Actor_pos_curr_y]
+    ldr        r2,[r5,#Actor_diff_y]
     add        r1,r1,r2
-    str        r1,[r5,#0x2c]
+    str        r1,[r5,#Actor_pos_curr_y]
     bl         Battle_SpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     pop        {pc}
 LAB_08063c0e:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    ldr        r0,[r5,#0x6c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     bl         R_MiniColorMan_Decide
     pop        {pc}
@@ -328,12 +328,12 @@ LAB_08063c0e:
 
 _nt R_MiniColorMan_1_4_PrepareAttack
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     lsl        r0,r0,#0x1f
     lsr        r0,r0,#0x1f
     add        r0,#0x1
     bl         Battle_SetBattleFlag
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_MiniColorMan_1_4_0_08063c40
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -351,10 +351,10 @@ PTR_R_MiniColorMan_1_4_0_08063c44:
 
 _ts R_MiniColorMan_1_4_0
     push       {lr}
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -364,20 +364,20 @@ _nt R_MiniColorMan_1_4_1
     bl         Battle_GetBattleFlagCurrent
     tst        r0,r0
     beq        LAB_08063c74
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     ldrh       r0,[r7,#0x0]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08063c74:
     pop        {pc}
 
 
 _nt R_MiniColorMan_1_4_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08063c84
     bl         R_MiniColorMan_Decide
 LAB_08063c84:
@@ -386,7 +386,7 @@ LAB_08063c84:
 
 _nt R_MiniColorMan_1_5_Tower
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_MiniColorMan_1_5_0_Delay_08063c94
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -407,9 +407,9 @@ _ts R_MiniColorMan_1_5_0_Delay
     mov        r0,#0x5
     bl         Battle_SetBattleFlag
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -423,36 +423,36 @@ _nt R_MiniColorMan_1_5_1_Tower
 LAB_08063cc6:
     mov        r0,#0x5
     bl         Battle_SetBattleFlag
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08063cfc
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     LoadMain battle, r7, r7
     ldr        r2,[r7,#0x40]
     add        r2,#0x2c
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     ldrb       r4,[r7,#0x2]
     mov        r6,#0x64
-    ldrb       r3,[r5,#0x1a]
+    ldrb       r3,[r5,#Actor_element]
     bl         Attack_Tower_Create
     bl         Rng_RandomUint
     lsl        r0,r0,#0x1b
     lsr        r0,r0,#0x1b
     add        r0,#0xb4
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08063cfc:
     pop        {pc}
 
 
 _nt R_MiniColorMan_1_5_2_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08063d0e
     bl         R_MiniColorMan_Decide
     pop        {pc}
@@ -464,7 +464,7 @@ LAB_08063d0e:
 
 _nt R_MiniColorMan_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_MiniColorMan_2_0_Delete_08063d24
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -481,30 +481,30 @@ PTR_R_MiniColorMan_2_0_Delete_08063d28:
 
 _ts R_MiniColorMan_2_0_Delete
     push       {lr}
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_Disable
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Disable
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_NaviDelete_Create
     pop        {r5}
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _nt R_MiniColorMan_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08063d6c
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     bl         FieldObject_Free
     bl         Actor_Free
 LAB_08063d6c:
@@ -517,10 +517,10 @@ _nt R_MiniColorMan_CheckLive
     bl         Battle_GetBattleFlagCurrent
     tst        r0,r0
     beq        LAB_08063d88
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_08063d88:
@@ -535,15 +535,15 @@ _ts R_MiniColorMan_Decide
     tst        r0,r0
     beq        LAB_08063da2
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_08063da2:
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
     ldrb       r0,[r7,#0x19]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     cmp        r0,r1
     bne        LAB_08063dca
     mov        r0,#0x5
@@ -551,15 +551,15 @@ LAB_08063da2:
     tst        r0,r0
     bne        LAB_08063dca
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x5
     bl         Battle_SetBattleFlag
     pop        {pc}
 LAB_08063dca:
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}

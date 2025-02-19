@@ -6,7 +6,7 @@
 _ts PlayerLocation_Handler
     push       {lr}
     ldr        r0,PTR_PTR_PlayerLocation_0_Init_08055470
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#PlayerLocation_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -39,7 +39,7 @@ DAT_08055478:
 _ts PlayerLocation_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#PlayerLocation_header_entityFlags]
     mov        r1,#0x3
     LoadMain world, r7, r7
     ldrb       r0,[r7,#0x4]
@@ -51,51 +51,51 @@ LAB_08055496:
     mov        r0,#0x1
     bl         Sprite_InitSpritePtr
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#PlayerLocation_currDirMoveIndex]
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#PlayerLocation_lastDirMoveIndex]
     bl         SpritePtr_EnableShadow
     LoadMain world, r0, r0
     str        r5,[r0,#0x28]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#PlayerLocation_state_s0]
     mov        r0,#0x5c
     add        r0,r0,r5
     mov        r1,#0x20
     bl         memset0_32
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
-    strb       r0,[r5,#0xc]
-    ldrb       r0,[r5,#0x10]
+    strb       r0,[r5,#PlayerLocation_isCheckElevation]
+    strb       r0,[r5,#PlayerLocation_isCheckBoundary]
+    ldrb       r0,[r5,#PlayerLocation_direction]
     mov        r1,#0x7
-    strb       r0,[r5,#0x10]
+    strb       r0,[r5,#PlayerLocation_direction]
     mov        r0,#0xff
-    strb       r0,[r5,#0x11]
+    strb       r0,[r5,#PlayerLocation_lastDirection]
     mov        r0,#0x0
     mov        r3,#0x60
     strh       r0,[r5,r3]
     mov        r3,#0x62
     strh       r0,[r5,r3]
-    str        r0,[r5,#0x40]
-    str        r0,[r5,#0x44]
-    str        r0,[r5,#0x48]
-    str        r0,[r5,#0x58]
-    strb       r0,[r5,#0xd]
-    strb       r0,[r5,#0xe]
-    strb       r0,[r5,#0xf]
-    ldr        r0,[r5,#0x24]
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    str        r0,[r5,#0x30]
-    str        r1,[r5,#0x34]
-    str        r2,[r5,#0x38]
+    str        r0,[r5,#PlayerLocation_diff_x]
+    str        r0,[r5,#PlayerLocation_diff_y]
+    str        r0,[r5,#PlayerLocation_diff_z]
+    str        r0,[r5,#PlayerLocation_stepCounter]
+    strb       r0,[r5,#PlayerLocation_eventFlagQueue]
+    strb       r0,[r5,#0xE]
+    strb       r0,[r5,#0xF]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_x]
+    ldr        r1,[r5,#PlayerLocation_pos_curr_y]
+    ldr        r2,[r5,#PlayerLocation_pos_curr_z]
+    str        r0,[r5,#PlayerLocation_pos_last_x]
+    str        r1,[r5,#PlayerLocation_pos_last_y]
+    str        r2,[r5,#PlayerLocation_pos_last_z]
     mov        r0,#0x0
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#PlayerLocation_family_b3]
     ldr        r1,PTR_gNpcTalkState_08055508
     strb       r0,[r1,#0x0]
     LoadMain world, r7, r7
     strb       r0,[r7,#0x1a]
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#PlayerLocation_stuckTimer]
     bl         PlayerLocation_1_Main
     pop        {pc}
 
@@ -110,26 +110,26 @@ _ts PlayerLocation_1_Main
     mov        r0,#0x0
     LoadMain world, r7, r7
     strb       r0,[r7,#0x1b]
-    strb       r0,[r5,#0x13]
-    strb       r0,[r5,#0x12]
-    ldrb       r1,[r5,#0xe]
-    strb       r1,[r5,#0xf]
-    ldrb       r1,[r5,#0xd]
-    strb       r1,[r5,#0xe]
-    strb       r0,[r5,#0xd]
-    ldr        r0,[r5,#0x24]
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    str        r0,[r5,#0x30]
-    str        r1,[r5,#0x34]
-    str        r2,[r5,#0x38]
+    strb       r0,[r5,#PlayerLocation_lastMoveType]
+    strb       r0,[r5,#PlayerLocation_moveType]
+    ldrb       r1,[r5,#0xE]
+    strb       r1,[r5,#0xF]
+    ldrb       r1,[r5,#PlayerLocation_eventFlagQueue]
+    strb       r1,[r5,#0xE]
+    strb       r0,[r5,#PlayerLocation_eventFlagQueue]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_x]
+    ldr        r1,[r5,#PlayerLocation_pos_curr_y]
+    ldr        r2,[r5,#PlayerLocation_pos_curr_z]
+    str        r0,[r5,#PlayerLocation_pos_last_x]
+    str        r1,[r5,#PlayerLocation_pos_last_y]
+    str        r2,[r5,#PlayerLocation_pos_last_z]
     ldr        r7,PTR_PTR_PlayerLocation_1_0_Dispatch_080555c8
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#PlayerLocation_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     bl         PlayerLocation_InitHitboxes
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#PlayerLocation_isCheckBoundary]
     tst        r0,r0
     beq        LAB_08055550
     mov        r0,#0x24
@@ -138,7 +138,7 @@ _ts PlayerLocation_1_Main
     bl         Map_HandleCollisionBoundary
     pop        {r5}
 LAB_08055550:
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#PlayerLocation_isCheckElevation]
     tst        r0,r0
     beq        LAB_08055564
     mov        r0,#0x24
@@ -146,7 +146,7 @@ LAB_08055550:
     push       {r5}
     bl         Map_HandleCollisionElevation
     pop        {r5}
-    strh       r0,[r5,#0x2e]
+    strh       r0,[r5,#0x2E]
 LAB_08055564:
     add        r0,r5,#0x0
     add        r0,#0x24
@@ -157,14 +157,14 @@ LAB_08055564:
     bl         PlayerLocation_IsMoving
     tst        r0,r0
     beq        LAB_080555a4
-    ldrb       r1,[r5,#0x13]
+    ldrb       r1,[r5,#PlayerLocation_lastMoveType]
     LoadMain gameStats, r7, r7
     ldr        r0,[r7,#0x24]
     add        r0,r0,r1
     str        r0,[r7,#0x24]
-    ldr        r0,[r5,#0x58]
+    ldr        r0,[r5,#PlayerLocation_stepCounter]
     add        r0,r0,r1
-    str        r0,[r5,#0x58]
+    str        r0,[r5,#PlayerLocation_stepCounter]
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_080555a4
@@ -202,48 +202,48 @@ DAT_080555d0:
 _ts PlayerLocation_1_0_Dispatch
     push       {lr}
     bl         PlayerLocation_UpdateMoveFlags
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#PlayerLocation_state_s2]
     tst        r0,r0
     bne        LAB_080555e8
-    ldrb       r0,[r5,#0x10]
-    strb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#PlayerLocation_direction]
+    strb       r0,[r5,#PlayerLocation_currDirMoveIndex]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
 LAB_080555e8:
     bl         PlayerLocation_IsWalking
     tst        r0,r0
     beq        LAB_080555fa
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     pop        {pc}
 LAB_080555fa:
     bl         PlayerLocation_IsRunning
     tst        r0,r0
     beq        LAB_0805560c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     pop        {pc}
 LAB_0805560c:
     bl         PlayerLocation_IsCommentary
     tst        r0,r0
     beq        LAB_0805561e
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     pop        {pc}
 LAB_0805561e:
     bl         PlayerLocation_CheckEvents
     tst        r0,r0
     beq        LAB_08055630
     mov        r1,#0xc
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#PlayerLocation_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#PlayerLocation_state_s2]
     pop        {pc}
 LAB_08055630:
     bl         PlayerAnimation_SaveAndGetState
@@ -252,18 +252,18 @@ LAB_08055630:
     mov        r0,#0x0
     strb       r0,[r7,#0x1]
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#PlayerLocation_state_s2]
     pop        {pc}
 LAB_08055646:
     bl         PlayerLocation_IsJackIn
     tst        r0,r0
     beq        LAB_08055656
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#PlayerLocation_state_s2]
 LAB_08055656:
     pop        {pc}
 
@@ -271,15 +271,15 @@ LAB_08055656:
 _ts PlayerLocation_1_1_UpdateWalkDelta
     push       {lr}
     bl         PlayerLocation_UpdateMoveFlags
-    ldrb       r0,[r5,#0x10]
-    ldrb       r1,[r5,#0x11]
+    ldrb       r0,[r5,#PlayerLocation_direction]
+    ldrb       r1,[r5,#PlayerLocation_lastDirection]
     cmp        r0,r1
     beq        LAB_0805566a
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
 LAB_0805566a:
     ldr        r7,PTR_PTR_PlayerLocation_1_1_0_UpdateWalkDelta_080556f4
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#PlayerLocation_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -287,9 +287,9 @@ LAB_0805566a:
     tst        r0,r0
     beq        LAB_08055686
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#PlayerLocation_state_s2]
     b          LAB_080556e8
 LAB_08055686:
     bl         PlayerAnimation_SaveAndGetState
@@ -298,49 +298,49 @@ LAB_08055686:
     mov        r0,#0x0
     strb       r0,[r7,#0x1]
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#PlayerLocation_state_s2]
     b          LAB_080556e8
 LAB_0805569c:
     bl         PlayerLocation_IsCommentary
     tst        r0,r0
     beq        LAB_080556ae
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     b          LAB_080556e8
 LAB_080556ae:
     bl         PlayerLocation_CheckEvents
     tst        r0,r0
     beq        LAB_080556c0
     mov        r1,#0xc
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#PlayerLocation_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#PlayerLocation_state_s2]
     b          LAB_080556e8
 LAB_080556c0:
     bl         PlayerLocation_IsRunning
     tst        r0,r0
     beq        LAB_080556d2
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     b          LAB_080556e4
 LAB_080556d2:
     bl         PlayerLocation_IsWalking
     tst        r0,r0
     bne        LAB_080556e4
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     b          LAB_080556e8
 LAB_080556e4:
-    ldrb       r0,[r5,#0x12]
-    strb       r0,[r5,#0x13]
+    ldrb       r0,[r5,#PlayerLocation_moveType]
+    strb       r0,[r5,#PlayerLocation_lastMoveType]
 LAB_080556e8:
     pop        {pc}
 
@@ -356,20 +356,20 @@ PTR_PTR_PlayerLocation_1_1_0_UpdateWalkDelta_080556f4:
 
 _ts PlayerLocation_1_1_0_UpdateWalkDelta
     push       {lr}
-    ldrb       r0,[r5,#0x10]
+    ldrb       r0,[r5,#PlayerLocation_direction]
     ldr        r7,PTR_MovementOffset_ARRAY_080557c0
     lsl        r1,r0,#0x3
     lsl        r0,r0,#0x2
     add        r0,r0,r1
     add        r7,r7,r0
     ldr        r0,[r7,#0x4]
-    str        r0,[r5,#0x40]
+    str        r0,[r5,#PlayerLocation_diff_x]
     ldr        r0,[r7,#0x8]
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#PlayerLocation_diff_y]
     ldrb       r0,[r7,#0x0]
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#PlayerLocation_currDirMoveIndex]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     pop        {pc}
 
 
@@ -390,25 +390,25 @@ _ts PlayerLocation_1_1_1_UpdateWalkPosition
     mov        r2,#0x1
     mov        r3,#0x2
 LAB_0805573a:
-    strb       r3,[r5,#0x12]
-    ldr        r0,[r5,#0x40]
+    strb       r3,[r5,#PlayerLocation_moveType]
+    ldr        r0,[r5,#PlayerLocation_diff_x]
     lsl        r0,r2
-    ldr        r1,[r5,#0x24]
+    ldr        r1,[r5,#PlayerLocation_pos_curr_x]
     add        r1,r1,r0
-    str        r1,[r5,#0x24]
-    ldr        r0,[r5,#0x44]
+    str        r1,[r5,#PlayerLocation_pos_curr_x]
+    ldr        r0,[r5,#PlayerLocation_diff_y]
     lsl        r0,r2
-    ldr        r1,[r5,#0x28]
+    ldr        r1,[r5,#PlayerLocation_pos_curr_y]
     add        r1,r1,r0
-    str        r1,[r5,#0x28]
+    str        r1,[r5,#PlayerLocation_pos_curr_y]
     pop        {pc}
 LAB_08055752:
-    ldr        r0,[r5,#0x30]
-    ldr        r1,[r5,#0x34]
-    ldr        r2,[r5,#0x38]
-    str        r0,[r5,#0x24]
-    str        r1,[r5,#0x28]
-    str        r2,[r5,#0x2c]
+    ldr        r0,[r5,#PlayerLocation_pos_last_x]
+    ldr        r1,[r5,#PlayerLocation_pos_last_y]
+    ldr        r2,[r5,#PlayerLocation_pos_last_z]
+    str        r0,[r5,#PlayerLocation_pos_curr_x]
+    str        r1,[r5,#PlayerLocation_pos_curr_y]
+    str        r2,[r5,#PlayerLocation_pos_curr_z]
     pop        {pc}
 
 MovementOffset_ARRAY_08055760:
@@ -444,15 +444,15 @@ PTR_MovementOffset_ARRAY_080557c0:
 _ts PlayerLocation_1_2_UpdateRunDelta
     push       {lr}
     bl         PlayerLocation_UpdateMoveFlags
-    ldrb       r0,[r5,#0x10]
-    ldrb       r1,[r5,#0x11]
+    ldrb       r0,[r5,#PlayerLocation_direction]
+    ldrb       r1,[r5,#PlayerLocation_lastDirection]
     cmp        r0,r1
     beq        LAB_080557d6
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
 LAB_080557d6:
     ldr        r7,PTR_PTR_PlayerLocation_1_2_0_UpdateRunDelta_08055860
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#PlayerLocation_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -460,9 +460,9 @@ LAB_080557d6:
     tst        r0,r0
     beq        LAB_080557f2
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#PlayerLocation_state_s2]
     b          LAB_08055854
 LAB_080557f2:
     bl         PlayerAnimation_SaveAndGetState
@@ -471,49 +471,49 @@ LAB_080557f2:
     mov        r0,#0x0
     strb       r0,[r7,#0x1]
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#PlayerLocation_state_s2]
     b          LAB_08055854
 LAB_08055808:
     bl         PlayerLocation_IsCommentary
     tst        r0,r0
     beq        LAB_0805581a
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     b          LAB_08055854
 LAB_0805581a:
     bl         PlayerLocation_CheckEvents
     tst        r0,r0
     beq        LAB_0805582c
     mov        r1,#0xc
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#PlayerLocation_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#PlayerLocation_state_s2]
     b          LAB_08055854
 LAB_0805582c:
     bl         PlayerLocation_IsWalking
     tst        r0,r0
     beq        LAB_0805583e
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     b          LAB_08055850
 LAB_0805583e:
     bl         PlayerLocation_IsRunning
     tst        r0,r0
     bne        LAB_08055850
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     b          LAB_08055854
 LAB_08055850:
-    ldrb       r0,[r5,#0x12]
-    strb       r0,[r5,#0x13]
+    ldrb       r0,[r5,#PlayerLocation_moveType]
+    strb       r0,[r5,#PlayerLocation_lastMoveType]
 LAB_08055854:
     pop        {pc}
 
@@ -529,20 +529,20 @@ PTR_PTR_PlayerLocation_1_2_0_UpdateRunDelta_08055860:
 
 _ts PlayerLocation_1_2_0_UpdateRunDelta
     push       {lr}
-    ldrb       r0,[r5,#0x10]
+    ldrb       r0,[r5,#PlayerLocation_direction]
     ldr        r7,PTR_MovementOffset_ARRAY_08055884
     lsl        r1,r0,#0x3
     lsl        r0,r0,#0x2
     add        r0,r0,r1
     add        r7,r7,r0
     ldr        r0,[r7,#0x4]
-    str        r0,[r5,#0x40]
+    str        r0,[r5,#PlayerLocation_diff_x]
     ldr        r0,[r7,#0x8]
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#PlayerLocation_diff_y]
     ldrb       r0,[r7,#0x0]
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#PlayerLocation_currDirMoveIndex]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     pop        {pc}
 
 PTR_MovementOffset_ARRAY_08055884:
@@ -554,24 +554,24 @@ _ts PlayerLocation_1_2_1_UpdateRunPosition
     bl         PlayerLocation_CanMove
     tst        r0,r0
     beq        LAB_080558a8
-    ldr        r0,[r5,#0x40]
-    ldr        r1,[r5,#0x24]
+    ldr        r0,[r5,#PlayerLocation_diff_x]
+    ldr        r1,[r5,#PlayerLocation_pos_curr_x]
     add        r1,r1,r0
-    str        r1,[r5,#0x24]
-    ldr        r0,[r5,#0x44]
-    ldr        r1,[r5,#0x28]
+    str        r1,[r5,#PlayerLocation_pos_curr_x]
+    ldr        r0,[r5,#PlayerLocation_diff_y]
+    ldr        r1,[r5,#PlayerLocation_pos_curr_y]
     add        r1,r1,r0
-    str        r1,[r5,#0x28]
+    str        r1,[r5,#PlayerLocation_pos_curr_y]
     mov        r0,#0x2
-    strb       r0,[r5,#0x12]
+    strb       r0,[r5,#PlayerLocation_moveType]
     pop        {pc}
 LAB_080558a8:
-    ldr        r0,[r5,#0x30]
-    ldr        r1,[r5,#0x34]
-    ldr        r2,[r5,#0x38]
-    str        r0,[r5,#0x24]
-    str        r1,[r5,#0x28]
-    str        r2,[r5,#0x2c]
+    ldr        r0,[r5,#PlayerLocation_pos_last_x]
+    ldr        r1,[r5,#PlayerLocation_pos_last_y]
+    ldr        r2,[r5,#PlayerLocation_pos_last_z]
+    str        r0,[r5,#PlayerLocation_pos_curr_x]
+    str        r1,[r5,#PlayerLocation_pos_curr_y]
+    str        r2,[r5,#PlayerLocation_pos_curr_z]
     pop        {pc}
 
     .align 2, 0
@@ -606,7 +606,7 @@ MovementOffset_ARRAY_080558b8:
 _ts PlayerLocation_1_3_Talking
     push       {lr}
     ldr        r7,PTR_PTR_PlayerLocation_1_3_0_08055948
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#PlayerLocation_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -616,9 +616,9 @@ _ts PlayerLocation_1_3_Talking
     mov        r0,#0x1
     strb       r0,[r7,#0x1]
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#PlayerLocation_state_s2]
 LAB_08055938:
     pop        {pc}
 
@@ -635,10 +635,10 @@ PTR_PTR_PlayerLocation_1_3_0_08055948:
 
 _ts PlayerLocation_1_3_0
     push       {lr}
-    ldrb       r0,[r5,#0x10]
-    strb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#PlayerLocation_direction]
+    strb       r0,[r5,#PlayerLocation_currDirMoveIndex]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     pop        {pc}
 
 
@@ -649,7 +649,7 @@ _ts PlayerLocation_1_3_1_WaitTalkEnd
     cmp        r0,#0x3
     bne        LAB_08055966
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
 LAB_08055966:
     pop        {pc}
 
@@ -664,11 +664,11 @@ _ts PlayerLocation_1_3_2_EndTalking
     tst        r0,r0
     bne        LAB_08055984
     mov        r0,#0x0
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#PlayerLocation_family_b3]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
 LAB_08055984:
     pop        {pc}
 
@@ -676,7 +676,7 @@ LAB_08055984:
 _nt PlayerLocation_1_4_Commentary
     push       {lr}
     ldr        r7,PTR_PTR_PlayerLocation_1_4_0_ShowCommentary_0805599c
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#PlayerLocation_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -693,9 +693,9 @@ PTR_PTR_PlayerLocation_1_4_0_ShowCommentary_0805599c:
 _ts PlayerLocation_1_4_0_ShowCommentary
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#PlayerLocation_currDirMoveIndex]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     push       {r5}
     LoadMain world, r0, r0
     ldrb       r0,[r0,#0x12]
@@ -712,10 +712,10 @@ _nt PlayerLocation_1_4_1_End
     tst        r1,r0
     bne        LAB_080559d4
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#PlayerLocation_state_s2]
+    strb       r0,[r5,#PlayerLocation_state_s3]
     bl         NPC_ResetAllTalkState
 LAB_080559d4:
     pop        {pc}
@@ -735,29 +735,29 @@ _ts PlayerLocation_2_Free
 _ts PlayerLocation_1_5_Animating
     push       {lr}
     ldr        r7,PTR_gPlayerAnimation_08055a74
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#PlayerLocation_state_s2]
     tst        r0,r0
     bne        LAB_080559f8
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
     ldrb       r0,[r7,#0x0]
     add        r0,#0x1
     strb       r0,[r7,#0x0]
 LAB_080559f8:
-    ldr        r0,[r5,#0x24]
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    str        r0,[r5,#0x30]
-    str        r1,[r5,#0x34]
-    str        r2,[r5,#0x38]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_x]
+    ldr        r1,[r5,#PlayerLocation_pos_curr_y]
+    ldr        r2,[r5,#PlayerLocation_pos_curr_z]
+    str        r0,[r5,#PlayerLocation_pos_last_x]
+    str        r1,[r5,#PlayerLocation_pos_last_y]
+    str        r2,[r5,#PlayerLocation_pos_last_z]
     ldrb       r0,[r7,#0x2]
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#PlayerLocation_currDirMoveIndex]
     ldr        r0,[r7,#0x8]
-    str        r0,[r5,#0x24]
+    str        r0,[r5,#PlayerLocation_pos_curr_x]
     ldr        r0,[r7,#0xc]
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#PlayerLocation_pos_curr_y]
     ldr        r0,[r7,#0x10]
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#PlayerLocation_pos_curr_z]
     bl         PlayerAnimation_SaveAndGetState
     tst        r0,r0
     bne        LAB_08055a26
@@ -765,9 +765,9 @@ LAB_080559f8:
     ldrb       r0,[r7,#0x1]
     lsl        r0,r0,#0x2
     ldr        r0,[r6,r0]
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#PlayerLocation_state_s0]
 LAB_08055a26:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#PlayerLocation_isCheckBoundary]
     tst        r0,r0
     beq        LAB_08055a38
     mov        r0,#0x24
@@ -777,13 +777,13 @@ LAB_08055a26:
     pop        {r5}
 LAB_08055a38:
     ldr        r7,PTR_gPlayerAnimation_08055a7c
-    ldr        r0,[r5,#0x24]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_x]
     str        r0,[r7,#0x8]
-    ldr        r0,[r5,#0x28]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_y]
     str        r0,[r7,#0xc]
-    ldr        r0,[r5,#0x2c]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_z]
     str        r0,[r7,#0x10]
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#PlayerLocation_isCheckElevation]
     tst        r0,r0
     beq        LAB_08055a5a
     mov        r0,#0x24
@@ -791,7 +791,7 @@ LAB_08055a38:
     push       {r5}
     bl         Map_HandleCollisionElevation
     pop        {r5}
-    strh       r0,[r5,#0x2e]
+    strh       r0,[r5,#0x2E]
 LAB_08055a5a:
     add        r0,r5,#0x0
     add        r0,#0x24
@@ -817,19 +817,19 @@ PTR_gPlayerAnimation_08055a7c:
 
 _ts PlayerLocation_1_6
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#PlayerLocation_state_s2]
     tst        r0,r0
     bne        LAB_08055a9e
     mov        r0,#0x4
-    strb       r0,[r5,#0x10]
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#PlayerLocation_direction]
+    strb       r0,[r5,#PlayerLocation_currDirMoveIndex]
     push       {r5}
     ldr        r0,PTR_TextData_BattleMessages_08055ab4
     mov        r1,#0x2
     bl         Text_LoadDialogue
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#PlayerLocation_state_s2]
 LAB_08055a9e:
     ldr        r0,PTR_gTextOptionFlags_08055ab8
     ldr        r0,[r0,#0x0]
@@ -837,10 +837,10 @@ LAB_08055a9e:
     tst        r0,r1
     bne        LAB_08055ab2
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#PlayerLocation_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#PlayerLocation_state_s2]
+    strb       r0,[r5,#PlayerLocation_state_s3]
 LAB_08055ab2:
     pop        {pc}
 
@@ -866,8 +866,8 @@ _ts PlayerLocation_UpdateMoveFlags
     mov        r0,#0x0
     tst        r1,r1
     beq        LAB_08055b60
-    ldrb       r0,[r5,#0x10]
-    strb       r0,[r5,#0x11]
+    ldrb       r0,[r5,#PlayerLocation_direction]
+    strb       r0,[r5,#PlayerLocation_lastDirection]
     mov        r0,#0x0
     LoadMain input, r7, r7
     ldrh       r1,[r7,#0x2]
@@ -875,20 +875,20 @@ _ts PlayerLocation_UpdateMoveFlags
     tst        r2,r1
     beq        LAB_08055b2c
     push       {r0,r1,r5,r7}
-    ldrb       r0,[r5,#0x10]
+    ldrb       r0,[r5,#PlayerLocation_direction]
     lsl        r0,r0,#0x2
-    ldr        r7,PTR_listHitboxTalking_08055c50
+    ldr        r7,ptrListHitboxInteract
     ldr        r7,[r7,r0]
     mov        r6,r8
-    ldr        r0,[r5,#0x24]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_x]
     ldr        r1,[r7,#0x0]
     add        r0,r0,r1
     str        r0,[r6,#0x0]
-    ldr        r0,[r5,#0x28]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_y]
     ldr        r1,[r7,#0x4]
     add        r0,r0,r1
     str        r0,[r6,#0x4]
-    ldr        r0,[r5,#0x2c]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_z]
     ldr        r1,[r7,#0x8]
     add        r0,r0,r1
     str        r0,[r6,#0x8]
@@ -896,7 +896,7 @@ _ts PlayerLocation_UpdateMoveFlags
     bl         Map_HandleCollisionEvent
     add        r2,r0,#0x0
     pop        {r0,r1,r5,r7}
-    strb       r2,[r5,#0xd]
+    strb       r2,[r5,#PlayerLocation_eventFlagQueue]
     push       {r7}
     LoadMain world, r7, r7
     mov        r2,#0x1
@@ -937,7 +937,7 @@ LAB_08055b60:
     and        r1,r0
     beq        LAB_08055b6e
     sub        r1,#0x1
-    strb       r1,[r5,#0x10]
+    strb       r1,[r5,#PlayerLocation_direction]
 LAB_08055b6e:
     add        sp,#0xc
     pop        {pc}
@@ -1039,13 +1039,13 @@ _ts PlayerLocation_IsJackIn
 
 _ts PlayerLocation_InitHitboxes
     push       {lr}
-    ldr        r0,PTR_EntityBoundsParams_8055c84
+    ldr        r0,ptrHitboxStanding
     mov        r1,#0x3c
     add        r1,r1,r5
     bl         PlayerLocation_AddHitbox
-    ldrb       r0,[r5,#0x10]
+    ldrb       r0,[r5,#PlayerLocation_direction]
     lsl        r0,r0,#0x2
-    ldr        r7,PTR_PTR_ARRAY_08055c54
+    ldr        r7,ptrListHitboxMoving
     ldr        r0,[r7,r0]
     mov        r1,#0x64
     add        r1,r1,r5
@@ -1057,9 +1057,9 @@ _ts PlayerLocation_InitHitboxes
     mov        r0,#0x40
     bl         StartMenu_GetState
     bne        LAB_08055c3e
-    ldrb       r0,[r5,#0x10]
+    ldrb       r0,[r5,#PlayerLocation_direction]
     lsl        r0,r0,#0x2
-    ldr        r7,PTR_listHitboxTalking_08055c50
+    ldr        r7,ptrListHitboxInteract
     ldr        r0,[r7,r0]
     mov        r1,#0x5c
     add        r1,r1,r5
@@ -1076,11 +1076,11 @@ LAB_08055c3e:
 
     .align 2, 0
 
-PTR_listHitboxTalking_08055c50:
-    .word listHitboxTalking
+ptrListHitboxInteract:
+    .word listHitboxInteract
 
-PTR_PTR_ARRAY_08055c54:
-    .word PTR_ARRAY_08055d80
+ptrListHitboxMoving:
+    .word listHitboxMoving
 
 
 _ts PlayerLocation_AddHitbox
@@ -1089,13 +1089,13 @@ _ts PlayerLocation_AddHitbox
     mov        r2,#0x0
     str        r2,[r1,#0x0]
     push       {r1}
-    ldr        r3,[r5,#0x24]
+    ldr        r3,[r5,#PlayerLocation_pos_curr_x]
     ldr        r0,[r7,#0x0]
     add        r0,r0,r3
-    ldr        r3,[r5,#0x28]
+    ldr        r3,[r5,#PlayerLocation_pos_curr_y]
     ldr        r1,[r7,#0x4]
     add        r1,r1,r3
-    ldr        r3,[r5,#0x2c]
+    ldr        r3,[r5,#PlayerLocation_pos_curr_z]
     ldr        r2,[r7,#0x8]
     add        r2,r2,r3
     ldr        r3,[r7,#0xc]
@@ -1107,13 +1107,13 @@ _ts PlayerLocation_AddHitbox
 
     .align 2, 0
 
-PTR_EntityBoundsParams_8055c84:
-    .word EntityBoundsParams_8055c88
+ptrHitboxStanding:
+    .word hitboxStanding
 
-EntityBoundsParams_8055c88:
+hitboxStanding:
     entity_bounds f(0, 0, 0), 4, 32, 0x1, 0xFFFF0000
 
-listHitboxTalking:
+listHitboxInteract:
     .word EntityBoundsParams_8055cc0
     .word EntityBoundsParams_8055cd8
     .word EntityBoundsParams_8055cf0
@@ -1147,7 +1147,7 @@ EntityBoundsParams_8055d50:
 EntityBoundsParams_8055d68:
     entity_bounds f(0, -8, 0), 8, 32, 0x4, 0xFFFF0000
 
-PTR_ARRAY_08055d80:
+listHitboxMoving:
     .word EntityBoundsParams_8055da0
     .word EntityBoundsParams_8055db8
     .word EntityBoundsParams_8055dd0
@@ -1185,15 +1185,15 @@ EntityBoundsParams_8055e48:
 _ts PlayerLocation_CanMove
     push       {lr}
     mov        r0,#0x0
-    ldrh       r1,[r5,#0x1c]
+    ldrh       r1,[r5,#PlayerLocation_stuckTimer]
     tst        r1,r1
     beq        LAB_08055e72
     sub        r1,#0x1
-    strh       r1,[r5,#0x1c]
+    strh       r1,[r5,#PlayerLocation_stuckTimer]
     mov        r0,#0x1
     b          LAB_08055e7c
 LAB_08055e72:
-    ldr        r1,[r5,#0x64]
+    ldr        r1,[r5,#PlayerLocation_collisionMoving]
     ldr        r2,DAT_08055e80
     tst        r2,r1
     bne        LAB_08055e7c
@@ -1217,12 +1217,12 @@ _ts PlayerLocation_CheckEvents
     b          LAB_08055ea0
 LAB_08055e96:
     mov        r0,#0x0
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#PlayerLocation_family_b3]
     ldr        r1,PTR_gNpcTalkState_08055f0c
     strb       r0,[r1,#0x0]
     b          LAB_08055eac
 LAB_08055ea0:
-    ldrb       r0,[r5,#0x7]
+    ldrb       r0,[r5,#PlayerLocation_family_b3]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_PlayerLocation_Events_0_Update_08055ebc
     ldr        r7,[r7,r0]
@@ -1249,12 +1249,12 @@ _ts PlayerLocation_Events_0_Update
     tst        r0,r0
     beq        LAB_08055ed4
     mov        r0,#0x1
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#PlayerLocation_family_b3]
     mov        r0,#0x2
     strb       r0,[r7,#0x0]
     b          LAB_08055edc
 LAB_08055ed4:
-    ldrb       r0,[r5,#0xf]
+    ldrb       r0,[r5,#0xF]
     LoadMain world, r7, r7
     strb       r0,[r7,#0xe]
 LAB_08055edc:
@@ -1272,7 +1272,7 @@ _ts PlayerLocation_Events_1_WaitTalk
     LoadMain world, r7, r7
     strb       r0,[r7,#0x1a]
     mov        r0,#0x2
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#PlayerLocation_family_b3]
     mov        r0,#0x1
     pop        {pc}
 LAB_08055efa:
@@ -1295,13 +1295,13 @@ PTR_gNpcTalkState_08055f0c:
 _ts PlayerAnimation_SaveAndGetState
     push       {lr}
     ldr        r7,PTR_gPlayerAnimation_08055f28
-    ldr        r0,[r5,#0x24]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_x]
     str        r0,[r7,#0x8]
-    ldr        r0,[r5,#0x28]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_y]
     str        r0,[r7,#0xc]
-    ldr        r0,[r5,#0x2c]
+    ldr        r0,[r5,#PlayerLocation_pos_curr_z]
     str        r0,[r7,#0x10]
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#PlayerLocation_currDirMoveIndex]
     strb       r0,[r7,#0x2]
     ldrb       r0,[r7,#0x0]
     pop        {pc}
@@ -1348,16 +1348,16 @@ PTR_LOOP_08055f84:
 _ts PlayerLocation_IsMoving
     push       {lr}
     mov        r0,#0x1
-    ldr        r1,[r5,#0x24]
-    ldr        r2,[r5,#0x30]
+    ldr        r1,[r5,#PlayerLocation_pos_curr_x]
+    ldr        r2,[r5,#PlayerLocation_pos_last_x]
     cmp        r1,r2
     bne        LAB_08055fa6
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x34]
+    ldr        r1,[r5,#PlayerLocation_pos_curr_y]
+    ldr        r2,[r5,#PlayerLocation_pos_last_y]
     cmp        r1,r2
     bne        LAB_08055fa6
-    ldr        r1,[r5,#0x2c]
-    ldr        r2,[r5,#0x38]
+    ldr        r1,[r5,#PlayerLocation_pos_curr_z]
+    ldr        r2,[r5,#PlayerLocation_pos_last_z]
     cmp        r1,r2
     bne        LAB_08055fa6
     mov        r0,#0x0
@@ -1376,7 +1376,7 @@ _ts FUN_08055fa8
     b          LAB_08055fd2
 LAB_08055fba:
     ldrb       r0,[r5,r3]
-    ldrb       r2,[r5,#0x10]
+    ldrb       r2,[r5,#PlayerLocation_direction]
     ldr        r7,PTR_BYTE_ARRAY_08055fd4
     ldrb       r1,[r7,r2]
     orr        r0,r1
@@ -1384,7 +1384,7 @@ LAB_08055fba:
     cmp        r0,#0xf
     bne        LAB_08055fd2
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#PlayerLocation_stuckTimer]
     mov        r0,#0x0
     strb       r0,[r5,r3]
 LAB_08055fd2:
@@ -1414,7 +1414,7 @@ _ts FUN_08055fe0
     ldr        r2,[r5,r4]
     mov        r4,#0x2c
     ldr        r3,[r5,r4]
-    ldr        r4,[r5,#0x58]
+    ldr        r4,[r5,#PlayerLocation_stepCounter]
     mov        r6,#0x6a
     ldrb       r5,[r5,r6]
     bl         Debug_Print
@@ -1437,13 +1437,13 @@ _ts PlayerLocation_Create
     LoadMain world, r6, r6
     str        r5,[r6,#0x28]
     ldr        r1,[r6,#0x38]
-    str        r1,[r5,#0x24]
+    str        r1,[r5,#PlayerLocation_pos_curr_x]
     ldr        r1,[r6,#0x3c]
-    str        r1,[r5,#0x28]
+    str        r1,[r5,#PlayerLocation_pos_curr_y]
     ldr        r1,[r6,#0x40]
-    str        r1,[r5,#0x2c]
+    str        r1,[r5,#PlayerLocation_pos_curr_z]
     ldr        r1,[r6,#0x44]
-    strb       r1,[r5,#0x10]
+    strb       r1,[r5,#PlayerLocation_direction]
 LAB_08056042:
     pop        {pc}
 

@@ -6,7 +6,7 @@
 _ts Effect_BarSwitch
     push       {lr}
     ldr        r0,PTR_PTR_E_BarSwitch_0_Init_0807ffd8
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,11 +22,11 @@ PTR_E_BarSwitch_0_Init_0807ff38:
 _ts E_BarSwitch_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r1,DAT_0807ffdc
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -34,10 +34,10 @@ _ts E_BarSwitch_0_Init
     mov        r0,#0x2
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s1]
+    strb       r0,[r5,#Effect_state_s2]
     pop        {pc}
     .byte 0x00
     .byte 0xBD
@@ -46,7 +46,7 @@ _ts E_BarSwitch_0_Init
 _ts E_BarSwitch_1_Main
     push       {lr}
     ldr        r0,PTR_PTR_E_BarSwitch_1_0_0807ffe0
-    ldrb       r1,[r5,#0x9]
+    ldrb       r1,[r5,#Effect_state_s1]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -66,7 +66,7 @@ _ts E_BarSwitch_1_0
 LAB_0807ffa2:
     mov        r0,#0x1
 LAB_0807ffa4:
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
 LAB_0807ffae:
@@ -92,7 +92,7 @@ _nt Effect_BarSwitch_Create
     mov        r0,#0x30
     bl         Effect_Alloc
     pop        {r0}
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Effect_frameIndexCurr]
     pop        {pc}
 
 PTR_PTR_E_BarSwitch_0_Init_0807ffd8:

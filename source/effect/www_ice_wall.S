@@ -6,7 +6,7 @@
 _ts Effect_WWWIceWall
     push       {lr}
     ldr        r0,PTR_PTR_E_WWWIceWall_0_Init_08080dfc
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,16 +22,16 @@ PTR_E_WWWIceWall_0_Init_08080d18:
 _ts E_WWWIceWall_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r7,PTR_USHORT_08080e00
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Effect_family_family]
     ldrh       r1,[r7,r2]
     add        r2,#0x2
     ldrb       r2,[r7,r2]
-    strb       r2,[r5,#0x14]
+    strb       r2,[r5,#Effect_frameIndexCurr]
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -43,13 +43,13 @@ _ts E_WWWIceWall_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
 
 _ts E_WWWIceWall_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     cmp        r0,#0x4
     bne        LAB_08080d78
     bl         SpritePtr_GetFrameStatus
@@ -61,9 +61,9 @@ LAB_08080d78:
     Flag_GetBase 0xF9
     beq        LAB_08080d94
     Flag_ClearBase 0xF9
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     add        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
 LAB_08080d94:
@@ -93,10 +93,10 @@ _ts Effect_WWWIceWall_CreateEffect
     mov        r7,#0x1f
     and        r7,r0
     sub        r7,#0xf
-    ldrh       r1,[r5,#0x2a]
+    ldrh       r1,[r5,#0x2A]
     add        r1,r1,r7
     lsl        r1,r1,#0x10
-    ldrh       r2,[r5,#0x2e]
+    ldrh       r2,[r5,#0x2E]
     lsl        r2,r2,#0x10
     mov        r7,#0x1f
     lsl        r7,r7,#0x8

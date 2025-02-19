@@ -5,7 +5,7 @@
 
 _ts Routine_Woodman
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     tst        r0,r0
     bne        LAB_08058bfe
     bl         Routine_WoodMan_Navi
@@ -18,7 +18,7 @@ LAB_08058bfe:
 _ts Routine_WoodMan_Navi
     push       {lr}
     ldr        r7,PTR_PTR_R_WoodMan_0_Init_08058c24
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -45,30 +45,30 @@ _ts R_WoodMan_0_Init
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x1
-    strb       r0,[r5,#0x16]
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_owner]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_family_b1]
+    strb       r0,[r5,#Actor_bc]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
-    ldr        r0,[r5,#0x28]
-    str        r0,[r5,#0x50]
-    ldr        r0,[r5,#0x2c]
-    str        r0,[r5,#0x54]
-    ldr        r0,[r5,#0x30]
-    str        r0,[r5,#0x58]
+    strb       r0,[r5,#Actor_state_s0]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    str        r0,[r5,#Actor_initial_x]
+    ldr        r0,[r5,#Actor_pos_curr_y]
+    str        r0,[r5,#Actor_initial_y]
+    ldr        r0,[r5,#Actor_pos_curr_z]
+    str        r0,[r5,#Actor_initial_z]
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     FieldObject_Create PFI_Self_Actor_Drain, 0x60
-    ldr        r0,[r5,#0x60]
-    ldr        r7,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
+    ldr        r7,[r5,#Actor_param_60]
     mov        r1,#0x20
     strb       r1,[r7,#0x8]
     FieldObject_CreateInitMoving 0x64
@@ -85,11 +85,11 @@ _ts R_WoodMan_1_Main
     bl         SpritePtr_DisableFlash
     bl         Battle_IsInputLocked
     bne        LAB_08058d0c
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_08058d0c
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x2
     lsl        r1,r1,#0x10
@@ -100,18 +100,18 @@ _ts R_WoodMan_1_Main
     mov        r0,#0x72
     bl         Sound_PlaySE
 LAB_08058cd8:
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,PanelFlag_08058d7c
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08058d0c
@@ -123,19 +123,19 @@ LAB_08058cd8:
     bl         Sound_PlaySE
 LAB_08058d0c:
     bl         Routine_CheckPoisonDrain
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_08058d4a
     ldr        r7,PTR_PTR_R_WoodMan_1_0_08058d78
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_08058d3c
     FieldObject_SetAttributeGroup PFI_Self_Actor, 0x60
@@ -143,16 +143,16 @@ LAB_08058d0c:
 LAB_08058d3c:
     FieldObject_SetAttributeGroup PFI_Moving, 0x60
 LAB_08058d44:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_08058d5c
 LAB_08058d4a:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_08058d5c:
     pop        {pc}
@@ -180,7 +180,7 @@ PanelFlag_08058d7c:
 _ts R_WoodMan_1_0
     push       {lr}
     ldr        r7,PTR_PTR_R_WoodMan_1_0_0_08058da4
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -204,7 +204,7 @@ _ts R_WoodMan_1_0_0
     tst        r0,r0
     beq        LAB_08058dba
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
 LAB_08058dba:
     pop        {pc}
@@ -216,7 +216,7 @@ _ts R_WoodMan_1_0_1
     tst        r0,r0
     bne        LAB_08058dce
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
 LAB_08058dce:
     pop        {pc}
@@ -229,9 +229,9 @@ _ts R_WoodMan_1_0_2
     tst        r0,r1
     bne        LAB_08058de4
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08058de4:
     pop        {pc}
 
@@ -239,7 +239,7 @@ LAB_08058de4:
 _nt R_WoodMan_1_1
     push       {lr}
     ldr        r7,PTR_PTR_R_WoodMan_1_1_0_08058e10
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -248,10 +248,10 @@ _nt R_WoodMan_1_1
     tst        r0,r1
     beq        LAB_08058e06
     mov        r1,#0x8
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strb       r1,[r5,#0xa]
-    strb       r1,[r5,#0xb]
+    strb       r1,[r5,#Actor_state_s2]
+    strb       r1,[r5,#Actor_state_s3]
 LAB_08058e06:
     pop        {pc}
 
@@ -266,26 +266,26 @@ PTR_PTR_R_WoodMan_1_1_0_08058e10:
 _ts R_WoodMan_1_1_0
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_WoodMan_1_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     add        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     cmp        r0,#0x3c
     bmi        LAB_08058e62
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
-    ldrb       r0,[r5,#0x5]
+    strh       r0,[r5,#Actor_counterB]
+    ldrb       r0,[r5,#Actor_family_b1]
     cmp        r0,#0x4
     bmi        LAB_08058e54
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     push       {r0,r5}
     bl         Rng_RandomUint
     add        r2,r0,#0x0
@@ -302,11 +302,11 @@ LAB_08058e54:
     ldr        r7,PTR_DAT_08058e64
     ldrb       r1,[r7,r0]
 LAB_08058e58:
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
     add        r0,#0x1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
 LAB_08058e62:
     pop        {pc}
 
@@ -336,7 +336,7 @@ DAT_08058e70:
 _ts R_WoodMan_1_2
     push       {lr}
     ldr        r7,PTR_PTR_R_WoodMan_1_2_0_08058e90
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -356,13 +356,13 @@ PTR_PTR_R_WoodMan_1_2_0_08058e90:
 _ts R_WoodMan_1_2_0
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -373,9 +373,9 @@ _nt R_WoodMan_1_2_1
     tst        r0,r1
     bne        LAB_08058ebe
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08058ebe:
     pop        {pc}
 
@@ -383,7 +383,7 @@ LAB_08058ebe:
 _ts R_WoodMan_1_3
     push       {lr}
     ldr        r7,PTR_PTR_R_WoodMan_1_3_0_08058ee4
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -406,26 +406,26 @@ PTR_PTR_R_WoodMan_1_3_0_08058ee4:
 _ts R_WoodMan_1_3_0
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x10
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_WoodMan_1_3_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08058f0e
     ldr        r0,DAT_08058f10
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
 LAB_08058f0e:
     pop        {pc}
 
@@ -435,24 +435,24 @@ DAT_08058f10:
 
 _ts R_WoodMan_1_3_2
     push       {lr}
-    ldr        r0,[r5,#0x4c]
+    ldr        r0,[r5,#Actor_diff_z]
     tst        r0,r0
     bgt        LAB_08058f20
     mov        r1,#0x7
-    strb       r1,[r5,#0x14]
+    strb       r1,[r5,#Actor_frameIndexCurr]
 LAB_08058f20:
-    ldr        r1,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_z]
     add        r0,r0,r1
     tst        r0,r0
     bpl        LAB_08058f50
     mov        r0,#0x9
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r1,#0x1
-    strh       r1,[r5,#0x1c]
+    strh       r1,[r5,#Actor_counterA]
     mov        r1,#0x3
-    strh       r1,[r5,#0x1e]
+    strh       r1,[r5,#Actor_counterB]
     mov        r1,#0xc
-    strb       r1,[r5,#0xa]
+    strb       r1,[r5,#Actor_state_s2]
     mov        r0,#0x2
     mov        r1,#0x1e
     push       {r5}
@@ -461,14 +461,14 @@ LAB_08058f20:
     mov        r0,#0x7e
     bl         Sound_PlaySE
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x0
 LAB_08058f50:
-    str        r0,[r5,#0x30]
-    ldr        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_pos_curr_z]
+    ldr        r0,[r5,#Actor_diff_z]
     ldr        r1,DAT_08058f5c
     add        r0,r0,r1
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     pop        {pc}
 
 DAT_08058f5c:
@@ -479,12 +479,12 @@ _ts R_WoodMan_1_3_3
     push       {lr}
     sub        sp,#0x14
     mov        r8,sp
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08058ff0
     mov        r0,#0x50
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r3,#0x0
     mov        r4,#0x0
     ldr        r7,PTR_CellPosition_ARRAY_08059008
@@ -502,7 +502,7 @@ LAB_08058f7a:
     mov        r2,#0x2
     and        r2,r1
     lsr        r2,r2,#0x1
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_owner]
     eor        r1,r2
     beq        LAB_08058fa0
     strb       r3,[r6,#0x0]
@@ -540,23 +540,23 @@ LAB_08058fc4:
     pop        {r0}
     sub        r0,#0x1
     bpl        LAB_08058fc4
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bne        LAB_08058ff0
     mov        r0,#0x64
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08058ff0:
     bl         Battle_GetEntryState
     tst        r0,r0
     beq        LAB_08059002
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s2]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_08059002:
     add        sp,#0x14
     pop        {pc}
@@ -603,33 +603,33 @@ BYTE_ARRAY_08059034:
 
 _ts R_WoodMan_1_3_4
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08059054
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strb       r1,[r5,#0xa]
+    strb       r1,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterA]
+    strh       r0,[r5,#Actor_counterB]
 LAB_08059054:
     bl         Battle_GetEntryState
     tst        r0,r0
     beq        LAB_08059066
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s2]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_08059066:
     pop        {pc}
 
 
 _ts R_WoodMan_1_4
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_WoodMan_1_4_0_0805908c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -639,10 +639,10 @@ _ts R_WoodMan_1_4
     tst        r0,r1
     beq        LAB_08059088
     mov        r1,#0x8
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strb       r1,[r5,#0xa]
-    strb       r1,[r5,#0xb]
+    strb       r1,[r5,#Actor_state_s2]
+    strb       r1,[r5,#Actor_state_s3]
 LAB_08059088:
     pop        {pc}
 
@@ -661,8 +661,8 @@ PTR_R_WoodMan_1_4_0_08059090:
 _ts R_WoodMan_1_4_0
     push       {lr}
     mov        r0,#0x0
-    ldrh       r1,[r5,#0x20]
-    ldrh       r2,[r5,#0x22]
+    ldrh       r1,[r5,#Actor_hpCurrent]
+    ldrh       r2,[r5,#Actor_hpMax]
     lsr        r2,r2,#0x1
     cmp        r1,r2
     bgt        LAB_080590b6
@@ -672,19 +672,19 @@ _ts R_WoodMan_1_4_0
     ldr        r7,PTR_DAT_080590d4
     ldrb       r0,[r7,r0]
 LAB_080590b6:
-    ldrb       r1,[r5,#0xc]
+    ldrb       r1,[r5,#Actor_bc]
     add        r1,r1,r0
     cmp        r1,#0x3
     ble        LAB_080590c2
     mov        r0,#0x0
     mov        r1,#0x3
 LAB_080590c2:
-    strb       r1,[r5,#0xc]
+    strb       r1,[r5,#Actor_bc]
     bl         FUN_080593ce
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
     .align 2, 0
@@ -706,61 +706,61 @@ DAT_080590d8:
 
 _ts R_WoodMan_1_4_1
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
-    ldr        r1,[r5,#0x70]
+    ldrh       r0,[r5,#Actor_counterB]
+    ldr        r1,[r5,#Actor_param_70]
     cmp        r0,r1
     bpl        LAB_0805911e
     mov        r1,#0x74
     lsl        r2,r0,#0x2
     add        r1,r1,r2
     ldr        r4,[r5,r1]
-    ldr        r3,[r5,#0x30]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r1,#0x50
     lsl        r1,r1,#0x10
     add        r3,r3,r1
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
     add        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bl         Attack_Seed_Create
     tst        r7,r7
     beq        LAB_0805910e
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     strb       r0,[r7,#0x16]
 LAB_0805910e:
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x50
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x81
     bl         Sound_PlaySE
     b          LAB_0805912a
 LAB_0805911e:
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805912a:
     pop        {pc}
 
 
 _ts R_WoodMan_1_4_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805913a
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805913a:
     pop        {pc}
 
 
 _ts R_WoodMan_1_5
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_WoodMan_1_5_0_PrepareJump_0805914c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -787,26 +787,26 @@ _ts R_WoodMan_1_5_0_PrepareJump
     tst        r0,r0
     beq        LAB_08059188
     mov        r0,#0x0
-    str        r0,[r5,#0x44]
-    str        r0,[r5,#0x48]
+    str        r0,[r5,#Actor_diff_x]
+    str        r0,[r5,#Actor_diff_y]
     mov        r0,#0x3
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     mov        r0,#0x19
-    strh       r0,[r5,#0x1c]
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    str        r0,[r5,#0x70]
-    str        r1,[r5,#0x74]
+    strh       r0,[r5,#Actor_counterA]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
+    str        r0,[r5,#Actor_param_70]
+    str        r1,[r5,#Actor_param_74]
     b          LAB_080591d0
 LAB_08059188:
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
     add        r3,r0,#0x0
     add        r4,r1,#0x0
-    ldr        r0,[r5,#0x70]
-    ldr        r1,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_70]
+    ldr        r1,[r5,#Actor_param_74]
     bl         Battle_CellCoordsToSprite
     push       {r0,r1,r5}
     sub        r3,r0,r3
@@ -819,8 +819,8 @@ LAB_08059188:
     add        r3,r0,#0x0
     add        r4,r1,#0x0
     pop        {r0,r1,r5}
-    str        r3,[r5,#0x44]
-    str        r4,[r5,#0x48]
+    str        r3,[r5,#Actor_diff_x]
+    str        r4,[r5,#Actor_diff_y]
     add        r2,r1,#0x0
     add        r1,r0,#0x0
     mov        r3,#0x0
@@ -829,12 +829,12 @@ LAB_08059188:
     ldr        r4,DAT_080591f0
     ldr        r6,DAT_080591f4
     bl         Field_CalculateTrajectoryZ
-    str        r0,[r5,#0x4c]
-    strh       r1,[r5,#0x1c]
+    str        r0,[r5,#Actor_diff_z]
+    strh       r1,[r5,#Actor_counterA]
 LAB_080591d0:
-    ldr        r6,[r5,#0x64]
-    ldr        r0,[r5,#0x70]
-    ldr        r1,[r5,#0x74]
+    ldr        r6,[r5,#Actor_param_64]
+    ldr        r0,[r5,#Actor_param_70]
+    ldr        r1,[r5,#Actor_param_74]
     strb       r0,[r6,#0x2]
     strb       r0,[r6,#0x4]
     strb       r1,[r6,#0x3]
@@ -842,9 +842,9 @@ LAB_080591d0:
     add        r0,r6,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     pop        {pc}
 
     .align 2, 0
@@ -863,33 +863,33 @@ _ts R_WoodMan_1_5_1_Wait
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_08059212
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Disable
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08059212:
     pop        {pc}
 
 
 _ts R_WoodMan_1_5_2_Jump
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805925e
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x70]
-    strb       r0,[r5,#0x18]
-    ldr        r1,[r5,#0x74]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_70]
+    strb       r0,[r5,#Actor_cPos_x]
+    ldr        r1,[r5,#Actor_param_74]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r2,#0x0
-    str        r2,[r5,#0x30]
+    str        r2,[r5,#Actor_pos_curr_z]
     mov        r0,#0x2
     mov        r1,#0x1e
     push       {r5}
@@ -898,30 +898,30 @@ _ts R_WoodMan_1_5_2_Jump
     mov        r0,#0x7e
     bl         Sound_PlaySE
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
-    ldr        r0,[r5,#0x60]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Enable
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     b          LAB_0805927c
 LAB_0805925e:
-    ldr        r0,[r5,#0x44]
-    ldr        r1,[r5,#0x28]
+    ldr        r0,[r5,#Actor_diff_x]
+    ldr        r1,[r5,#Actor_pos_curr_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldr        r0,[r5,#0x48]
-    ldr        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    ldr        r0,[r5,#Actor_diff_y]
+    ldr        r1,[r5,#Actor_pos_curr_y]
     add        r0,r0,r1
-    str        r0,[r5,#0x2c]
-    ldr        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_y]
+    ldr        r0,[r5,#Actor_diff_z]
+    ldr        r1,[r5,#Actor_pos_curr_z]
     add        r1,r1,r0
-    str        r1,[r5,#0x30]
+    str        r1,[r5,#Actor_pos_curr_z]
     ldr        r1,DAT_08059284
     add        r0,r0,r1
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
 LAB_0805927c:
     bl         R_Actor_UpdateCellPos
     pop        {pc}
@@ -954,7 +954,7 @@ LAB_08059296:
     mov        r2,#0x2
     and        r2,r1
     lsr        r2,r2,#0x1
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_owner]
     eor        r1,r2
     beq        LAB_080592bc
     strb       r3,[r6,#0x0]
@@ -993,9 +993,9 @@ LAB_080592e0:
     sub        r0,#0x1
     bpl        LAB_080592e0
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x50
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     add        sp,#0x14
     pop        {pc}
 
@@ -1038,17 +1038,17 @@ BYTE_ARRAY_08059334:
 
 _ts R_WoodMan_1_5_4_Next
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08059354
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strb       r1,[r5,#0xa]
+    strb       r1,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterA]
+    strh       r0,[r5,#Actor_counterB]
 LAB_08059354:
     pop        {pc}
 
@@ -1056,7 +1056,7 @@ LAB_08059354:
 _nt R_WoodMan_2_Free
     push       {lr}
     ldr        r7,PTR_PTR_R_WoodMan_2_0_Destroy_0805936c
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -1072,26 +1072,26 @@ PTR_PTR_R_WoodMan_2_0_Destroy_0805936c:
 
 _ts R_WoodMan_2_0_Destroy
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
     bl         Battle_RegisterVirusDelete
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_NaviDelete_Create
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _nt R_WoodMan_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080593a4
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -1107,16 +1107,16 @@ _nt Actor_WoodManChip_Create
     pop        {r0,r1,r6}
     tst        r5,r5
     beq        LAB_080593cc
-    strb       r1,[r5,#0x16]
+    strb       r1,[r5,#Actor_owner]
     mov        r1,#0xa9
     add        r0,r0,r1
     bl         BattleChip_GetChipData
     ldrh       r0,[r0,#0xc]
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Actor_damage]
     mov        r0,#0xd
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#Actor_family_family]
 LAB_080593cc:
     pop        {pc}
 
@@ -1134,7 +1134,7 @@ LAB_080593da:
     add        r7,r7,r0
     ldrb       r0,[r7,#0x0]
     ldrb       r1,[r7,#0x1]
-    ldrb       r6,[r5,#0x18]
+    ldrb       r6,[r5,#Actor_cPos_x]
     cmp        r0,r6
     bhi        LAB_080593fe
     bl         FieldObject_GetPanelFlags
@@ -1172,7 +1172,7 @@ LAB_0805942a:
     bmi        LAB_08059430
     mov        r3,#0x3
 LAB_08059430:
-    str        r3,[r5,#0x70]
+    str        r3,[r5,#Actor_param_70]
     ldr        r7,PTR_DAT_08059488
     ldrb       r0,[r4,#0x0]
     add        r0,r0,r0
@@ -1198,9 +1198,9 @@ LAB_08059430:
     lsl        r0,r0,#0x10
     lsl        r3,r3,#0x18
     orr        r3,r0
-    str        r1,[r5,#0x74]
-    str        r2,[r5,#0x78]
-    str        r3,[r5,#0x7c]
+    str        r1,[r5,#Actor_param_74]
+    str        r2,[r5,#Actor_param_78]
+    str        r3,[r5,#Actor_param_7C]
     ldrb       r0,[r4,#0x12]
     tst        r0,r0
     beq        LAB_08059482
@@ -1305,10 +1305,10 @@ LAB_080594ea:
     bmi        LAB_080594ba
     tst        r3,r3
     bne        LAB_08059500
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
-    str        r0,[r5,#0x70]
-    str        r1,[r5,#0x74]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
+    str        r0,[r5,#Actor_param_70]
+    str        r1,[r5,#Actor_param_74]
     mov        r0,#0x1
     b          LAB_08059526
 LAB_08059500:
@@ -1329,8 +1329,8 @@ LAB_08059516:
     add        r6,r7,r0
     ldrb       r0,[r6,#0x0]
     ldrb       r1,[r6,#0x1]
-    str        r0,[r5,#0x70]
-    str        r1,[r5,#0x74]
+    str        r0,[r5,#Actor_param_70]
+    str        r1,[r5,#Actor_param_74]
     mov        r0,#0x0
 LAB_08059526:
     add        sp,#0x14
@@ -1438,7 +1438,7 @@ PTR_DAT_080595d0:
 
 _ts Routine_WoodMan_Chip
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_WoodManC_0_Init_080595f4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -1466,34 +1466,34 @@ _ts R_WoodManC_0_Init
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     mov        r1,#0x1
     eor        r0,r1
     bl         SpritePtr_SetFlipType
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     LoadMain battle, r7, r7
     add        r7,#0x40
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     ldr        r0,DAT_0805965c
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x0
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     bl         R_WoodManC_1_Main
     pop        {pc}
     .byte 0x00
@@ -1513,7 +1513,7 @@ DAT_0805965c:
 
 _ts R_WoodManC_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_WoodManC_1_0_Land_08059680
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -1535,7 +1535,7 @@ PTR_PTR_R_WoodManC_1_0_Land_08059680:
 
 _ts R_WoodManC_1_0_Land
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_WoodManC_1_0_1_Land_0805969c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -1555,19 +1555,19 @@ PTR_PTR_R_WoodManC_1_0_1_Land_0805969c:
 
 _ts R_WoodManC_1_0_1_Land
     push       {lr}
-    ldr        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x30]
+    ldr        r0,[r5,#Actor_diff_z]
+    ldr        r1,[r5,#Actor_pos_curr_z]
     add        r1,r1,r0
     bmi        LAB_080596b6
-    str        r1,[r5,#0x30]
-    ldr        r0,[r5,#0x4c]
+    str        r1,[r5,#Actor_pos_curr_z]
+    ldr        r0,[r5,#Actor_diff_z]
     ldr        r1,DAT_080596dc
     add        r0,r0,r1
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     pop        {pc}
 LAB_080596b6:
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x7e
     bl         Sound_PlaySE
     mov        r0,#0x2
@@ -1576,11 +1576,11 @@ LAB_080596b6:
     bl         Camera_EnableScreenShake
     pop        {r5}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
     .align 2, 0
@@ -1597,23 +1597,23 @@ _ts R_WoodMan_1_0_2_Wait
     tst        r0,r1
     beq        LAB_080596f0
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_080596f0:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08059700
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08059700:
     pop        {pc}
 
 
 _nt R_WoodManC_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_WoodManC_1_1_0_Stand_08059718
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -1631,31 +1631,31 @@ PTR_PTR_R_WoodManC_1_1_0_Stand_08059718:
 _ts R_WoodManC_1_1_0_Stand
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x30
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_WoodManC_1_1_1_Wait
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805973e
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805973e:
     pop        {pc}
 
 
 _ts R_WoodManC_1_2_Attack
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_WoodManC_1_2_0_Rise_08059768
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -1680,9 +1680,9 @@ PTR_PTR_R_WoodManC_1_2_0_Rise_08059768:
 _ts R_WoodManC_1_2_0_Rise
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -1693,11 +1693,11 @@ _ts R_WoodManC_1_2_1_Stand
     tst        r0,r1
     beq        LAB_08059790
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     ldr        r0,DAT_08059794
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_08059790:
     pop        {pc}
 
@@ -1710,24 +1710,24 @@ DAT_08059794:
 
 _ts R_WoodManC_1_2_2_Jump
     push       {lr}
-    ldr        r0,[r5,#0x4c]
+    ldr        r0,[r5,#Actor_diff_z]
     tst        r0,r0
     bpl        LAB_080597a4
     mov        r1,#0x7
-    strb       r1,[r5,#0x14]
+    strb       r1,[r5,#Actor_frameIndexCurr]
 LAB_080597a4:
-    ldr        r1,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_z]
     add        r1,r1,r0
     bmi        LAB_080597b6
-    str        r1,[r5,#0x30]
-    ldr        r0,[r5,#0x4c]
+    str        r1,[r5,#Actor_pos_curr_z]
+    ldr        r0,[r5,#Actor_diff_z]
     ldr        r1,DAT_080597dc
     add        r0,r0,r1
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     pop        {pc}
 LAB_080597b6:
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x7e
     bl         Sound_PlaySE
     mov        r0,#0x2
@@ -1736,11 +1736,11 @@ LAB_080597b6:
     bl         Camera_EnableScreenShake
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x5
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
     .align 2, 0
@@ -1752,54 +1752,54 @@ DAT_080597dc:
 
 _ts R_WoodManC_1_2_3_PepareAttack
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805980c
     mov        r0,#0x9
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     LoadMain battle, r7, r7
     mov        r0,#0x1
     ldrb       r1,[r7,#0x1a]
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_owner]
     eor        r1,r2
-    strb       r1,[r5,#0x1b]
+    strb       r1,[r5,#Actor_b1b]
     tst        r1,r1
     beq        LAB_0805980a
     mov        r0,#0x6
 LAB_0805980a:
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
 LAB_0805980c:
     pop        {pc}
 
 
 _nt R_WoodManC_1_2_4_Attack
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805986e
     mov        r4,#0x1
 LAB_0805981a:
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     add        r1,r4,#0x0
     bl         FieldObject_GetPanelFlags
     add        r2,r0,#0x0
     mov        r1,#0x2
     and        r1,r2
     lsr        r1,r1,#0x1
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_owner]
     eor        r1,r2
     beq        LAB_08059842
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     add        r1,r4,#0x0
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_owner]
     mov        r3,#0x1
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Actor_damage]
     push       {r4}
     bl         Attack_WoodTower_Create
     pop        {r4}
@@ -1808,8 +1808,8 @@ LAB_08059842:
     add        r4,#0x1
     cmp        r4,#0x4
     bne        LAB_0805981a
-    ldrh       r0,[r5,#0x1e]
-    ldrb       r1,[r5,#0x1b]
+    ldrh       r0,[r5,#Actor_counterB]
+    ldrb       r1,[r5,#Actor_b1b]
     tst        r1,r1
     bne        LAB_0805985a
     add        r0,#0x1
@@ -1821,35 +1821,35 @@ LAB_0805985a:
     bgt        LAB_08059868
 LAB_0805985e:
     mov        r0,#0x46
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x14
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     b          LAB_0805986e
 LAB_08059868:
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0805986e:
     pop        {pc}
 
 
 _ts R_WoodManC_1_2_5_Wait
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08059882
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08059882:
     pop        {pc}
 
 
 _ts R_WoodManC_1_3_Rise
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_WoodManC_1_3_0_Crouch_080598a0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -1871,9 +1871,9 @@ PTR_PTR_R_WoodManC_1_3_0_Crouch_080598a0:
 _ts R_WoodManC_1_3_0_Crouch
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -1884,11 +1884,11 @@ _ts R_WoodManC_1_3_1_Jump
     tst        r0,r1
     beq        LAB_080598c8
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     ldr        r0,DAT_080598cc
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_080598c8:
     pop        {pc}
 
@@ -1904,20 +1904,20 @@ _ts R_WoodManC_1_3_2_Rise
     bl         SpritePtr_CheckIfOnscreen
     tst        r0,r0
     beq        LAB_080598ec
-    ldr        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x30]
+    ldr        r0,[r5,#Actor_diff_z]
+    ldr        r1,[r5,#Actor_pos_curr_z]
     add        r1,r1,r0
-    str        r1,[r5,#0x30]
-    ldr        r0,[r5,#0x4c]
+    str        r1,[r5,#Actor_pos_curr_z]
+    ldr        r0,[r5,#Actor_diff_z]
     ldr        r1,DAT_080598f8
     add        r0,r0,r1
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     pop        {pc}
 LAB_080598ec:
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
     .align 2, 0

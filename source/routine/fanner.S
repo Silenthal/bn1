@@ -21,7 +21,7 @@ DAT_08068410:
 _ts Routine_Fanner
     push       {lr}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Fanner_0_Init_08068430
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -42,29 +42,29 @@ PTR_R_Fanner_0_Init_08068434:
 
 _ts R_Fanner_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x5f
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     push       {r0}
     bl         SpritePtr_SetPaletteIndex
     pop        {r0}
     lsl        r0,r0,#0x2
     ldr        r7,PTR_DAT_080684c4
     add        r7,r7,r0
-    str        r7,[r5,#0x60]
+    str        r7,[r5,#Actor_param_60]
     ldrb       r0,[r7,#0x3]
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Actor_damage]
     mov        r3,#0x28
     add        r7,r5,r3
     mov        r3,#0x50
@@ -74,24 +74,24 @@ _ts R_Fanner_0_Init
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x0
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#Actor_element]
     FieldObject_Create PFI_Self_Actor, 0x64, offset_reg=3
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
-    ldrb       r0,[r5,#0x12]
+    strb       r0,[r5,#Actor_state_s3]
+    ldrb       r0,[r5,#Actor_enemyIndex]
     cmp        r0,#0xff
     bne        LAB_080684b6
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_080684b6:
     bl         R_Fanner_1_Main
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
@@ -104,24 +104,24 @@ PTR_DAT_080684c4:
 
 _ts R_Fanner_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_080684f4
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldr        r0,[r5,#0x64]
+    str        r0,[r5,#Actor_state_s0]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_SetDeletedFlag
     b          LAB_08068548
 LAB_080684f4:
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_0806852c
     bl         Battle_IsInputLocked
@@ -132,29 +132,29 @@ LAB_080684f4:
     FieldObject_GetDamage PFI_Target_Object, 0x64
     tst        r0,r0
     beq        LAB_08068548
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_08068548
     bl         Field_SubtractHP
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_08068542
 LAB_0806852c:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_SetDeletedFlag
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     pop        {pc}
 LAB_08068542:
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_08068548:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_08068558
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -174,26 +174,26 @@ PTR_R_Actor_1_0_Spawn_0806855c:
 
 _ts R_Fanner_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_08068586
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08068586:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08068598
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08068598:
     pop        {pc}
 
@@ -201,7 +201,7 @@ LAB_08068598:
 _nt R_Fanner_1_2_Decide
     push       {lr}
     ldr        r7,PTR_PTR_R_Fanner_1_2_0_080685bc
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -210,9 +210,9 @@ _nt R_Fanner_1_2_Decide
     tst        r0,r1
     beq        LAB_080685b8
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_080685b8:
     pop        {pc}
 
@@ -230,35 +230,35 @@ PTR_R_Fanner_1_2_0_080685c0:
 _ts R_Fanner_1_2_0
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         Rng_RandomUint
     lsr        r0,r0,#0x1a
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     ldrh       r1,[r7,#0x0]
     add        r1,r1,r0
-    strh       r1,[r5,#0x1c]
+    strh       r1,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_Fanner_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080685f4
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_080685f4:
     pop        {pc}
 
 
 _nt R_Fanner_1_3_Tornado
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Fanner_1_3_0_08068604
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -277,22 +277,22 @@ PTR_R_Fanner_1_3_0_08068608:
 _ts R_Fanner_1_3_0
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
-    ldrb       r0,[r5,#0x18]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
     add        r2,r1,#0x0
     add        r1,r0,#0x0
     mov        r3,#0x0
     mov        r0,#0x0
     ldr        r4,DAT_08068640
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Actor_damage]
     mov        r7,#0x14
-    strh       r7,[r5,#0x1c]
+    strh       r7,[r5,#Actor_counterA]
     bl         Attack_SharpStrike_Create
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
     .align 2, 0
@@ -304,41 +304,41 @@ DAT_08068640:
 
 _ts R_Fanner_1_3_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806866e
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_cPos_x]
     sub        r1,#0x1
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#Actor_cPos_y]
     mov        r3,#0x0
-    ldr        r7,[r5,#0x60]
-    ldrb       r4,[r5,#0x4]
+    ldr        r7,[r5,#Actor_param_60]
+    ldrb       r4,[r5,#Actor_family_family]
     ldrb       r0,[r7,#0x2]
     lsl        r0,r0,#0x8
     orr        r4,r0
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Actor_damage]
     bl         Attack_Tornado_Create
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806866e:
     pop        {pc}
 
 
 _ts R_Fanner_1_3_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_08068686
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_08068686:
     pop        {pc}
 
@@ -346,7 +346,7 @@ LAB_08068686:
 _ts R_Fanner_2_Free
     push       {lr}
     ldr        r7,PTR_PTR_R_Fanner_2_0_08068698
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -366,28 +366,28 @@ PTR_R_Fanner_2_0_0806869c:
 _ts R_Fanner_2_0
     push       {lr}
     bl         Battle_RegisterVirusDelete
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_VirusDelete_Create
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _ts R_Fanner_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_080686e0
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free

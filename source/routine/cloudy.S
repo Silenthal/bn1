@@ -5,7 +5,7 @@
 
 _ts Routine_Cloudy
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_Cloudy_0_Init_0805eedc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,33 +32,33 @@ _ts R_Cloudy_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     FieldObject_Create PFI_Self_Actor, 0x60
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     mov        r1,#0x1e
     strb       r1,[r0,#0x8]
     FieldObject_CreateInitMoving 0x64
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x12]
+    strb       r0,[r5,#Actor_state_s0]
+    ldrb       r0,[r5,#Actor_enemyIndex]
     cmp        r0,#0xff
     bne        LAB_0805ef5c
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_0805ef5c:
     bl         R_Cloudy_1_Main
     pop        {pc}
@@ -69,30 +69,30 @@ _nt R_Cloudy_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x60]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldr        r7,[r5,#Actor_param_60]
     strb       r0,[r7,#0x2]
     strb       r1,[r7,#0x3]
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805efc0
     bl         Battle_IsInputLocked
     bne        LAB_0805efc0
     bl         Routine_CheckPoisonDrain
-    ldr        r6,[r5,#0x60]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_60]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,PanelFlag_0805f018
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805efc0
@@ -103,16 +103,16 @@ _nt R_Cloudy_1_Main
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0805efc0:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Cloudy_1_0_Spawn_0805f004
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805efe0
     mov        r0,#0x9
@@ -120,17 +120,17 @@ LAB_0805efc0:
 LAB_0805efe0:
     mov        r0,#PFI_Moving
 LAB_0805efe2:
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Actor_param_60]
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805f000
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x60]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0805f000:
     pop        {pc}
@@ -155,7 +155,7 @@ PanelFlag_0805f018:
 
 _ts R_Cloudy_1_0_Spawn
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Cloudy_1_0_0_0805f044
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -181,7 +181,7 @@ _ts R_Cloudy_1_0_0
     tst        r0,r0
     beq        LAB_0805f05a
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
 LAB_0805f05a:
     pop        {pc}
@@ -193,21 +193,21 @@ _ts R_Cloudy_1_0_1
     tst        r0,r0
     bne        LAB_0805f06e
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0805f06e:
     pop        {pc}
 
 
 _ts R_Cloudy_1_0_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805f082
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
 LAB_0805f082:
     pop        {pc}
@@ -220,45 +220,45 @@ _ts R_Cloudy_1_0_3
     tst        r0,r1
     bne        LAB_0805f098
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805f098:
     pop        {pc}
 
 
 _nt R_Cloudy_1_1_Wait
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0805f0b4
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805f0b4:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0805f0c6
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805f0c6:
     pop        {pc}
 
 
 _ts R_Cloudy_1_2_Decide
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     add        r0,#0x1
-    strh       r0,[r5,#0x1e]
-    ldrb       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_counterB]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Cloudy_1_2_0_Next_0805f0f8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -268,9 +268,9 @@ _ts R_Cloudy_1_2_Decide
     tst        r0,r1
     beq        LAB_0805f0ec
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805f0ec:
     pop        {pc}
 
@@ -288,29 +288,29 @@ PTR_PTR_R_Cloudy_1_2_0_Next_0805f0f8:
 _ts R_Cloudy_1_2_0_Next
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         R_Cloudy_1_2_1_Decide
     pop        {pc}
 
 
 _ts R_Cloudy_1_2_1_Decide
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     cmp        r0,#0x3c
     blt        LAB_0805f132
     bl         R_Cloudy_GetPlayerX
     cmp        r0,#0xff
     beq        LAB_0805f146
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
     mov        r0,#0x1
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     bl         R_Cloudy_SetBattleFlag
     b          LAB_0805f146
 LAB_0805f132:
@@ -318,26 +318,26 @@ LAB_0805f132:
     tst        r0,r0
     beq        LAB_0805f146
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Actor_family_b1]
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805f146:
     pop        {pc}
 
 
 _ts R_Cloudy_1_3_Act
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     add        r0,#0x1
-    strh       r0,[r5,#0x1e]
-    ldrb       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_counterB]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_Cloudy_1_3_0_Rise_0805f174
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Actor_family_b1]
     cmp        r0,#0x1
     bne        LAB_0805f164
     bl         R_Cloudy_SetBattleFlag
@@ -358,7 +358,7 @@ PTR_PTR_R_Cloudy_1_3_0_Rise_0805f174:
 
 _ts R_Cloudy_1_3_0_Rise
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_R_Cloudy_1_3_0_0_StartAnim_0805f194
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -380,32 +380,32 @@ PTR_PTR_R_Cloudy_1_3_0_0_StartAnim_0805f194:
 _ts R_Cloudy_1_3_0_0_StartAnim
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0xb
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     pop        {pc}
 
 
 _ts R_Cloudy_1_3_0_1_Rise
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805f1be
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_0805f1be:
-    ldr        r0,[r5,#0x30]
+    ldr        r0,[r5,#Actor_pos_curr_z]
     mov        r1,#0x4
     lsl        r1,r1,#0x10
     add        r0,r0,r1
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     pop        {pc}
 
 
@@ -416,19 +416,19 @@ _nt R_Cloudy_1_3_0_2_Next
     tst        r0,r1
     beq        LAB_0805f1e2
     mov        r1,#0x4
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Actor_family_b1]
     tst        r0,r0
     beq        LAB_0805f1e0
     mov        r1,#0x8
 LAB_0805f1e0:
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805f1e2:
     pop        {pc}
 
 
 _ts R_Cloudy_1_3_1_Fall
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_R_Cloudy_1_3_1_0_StartAnim_0805f20c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -439,7 +439,7 @@ _ts R_Cloudy_1_3_1_Fall
     bmi        LAB_0805f1fa
     mov        r0,#0x0
 LAB_0805f1fa:
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     pop        {pc}
 
     .align 2, 0
@@ -457,26 +457,26 @@ PTR_PTR_R_Cloudy_1_3_1_0_StartAnim_0805f20c:
 _ts R_Cloudy_1_3_1_0_StartAnim
     push       {lr}
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     pop        {pc}
 
 
 _ts R_Cloudy_1_3_1_1_Fall
     push       {lr}
-    ldr        r0,[r5,#0x30]
+    ldr        r0,[r5,#Actor_pos_curr_z]
     mov        r1,#0x8
     lsl        r1,r1,#0xc
     sub        r0,r0,r1
     bgt        LAB_0805f232
     mov        r0,#0x9
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x0
 LAB_0805f232:
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     pop        {pc}
 
 
@@ -487,16 +487,16 @@ _nt R_Cloudy_1_3_1_2_Next
     tst        r0,r1
     beq        LAB_0805f24a
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805f24a:
     pop        {pc}
 
 
 _ts R_Cloudy_1_3_2_Cloud
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_R_Cloudy_1_3_2_0_StartAnim_0805f26c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -519,36 +519,36 @@ PTR_PTR_R_Cloudy_1_3_2_0_StartAnim_0805f26c:
 _ts R_Cloudy_1_3_2_0_StartAnim
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x9
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Cloudy_1_3_2_1_Cloud
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805f2ac
-    ldrb       r0,[r5,#0x16]
-    ldrb       r1,[r5,#0x18]
-    ldrb       r2,[r5,#0x19]
-    ldrb       r3,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_owner]
+    ldrb       r1,[r5,#Actor_cPos_x]
+    ldrb       r2,[r5,#Actor_cPos_y]
+    ldrb       r3,[r5,#Actor_family_family]
     lsl        r3,r3,#0x2
     ldr        r7,PTR_DAT_0805f2b4
     ldr        r3,[r7,r3]
-    ldrh       r4,[r5,#0x6]
+    ldrh       r4,[r5,#Actor_family_b2]
     lsl        r4,r4,#0x10
     ldr        r7,PTR_listCloudyCloudDamage_0805f2c4
-    ldrb       r6,[r5,#0x4]
+    ldrb       r6,[r5,#Actor_family_family]
     ldrb       r6,[r7,r6]
     mov        r7,#0x0
     bl         Attack_Cloudy_Create
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_0805f2ac:
     pop        {pc}
 
@@ -589,9 +589,9 @@ _ts R_Cloudy_1_3_2_2_EndAnim
     tst        r0,r1
     beq        LAB_0805f2dc
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
 LAB_0805f2dc:
     pop        {pc}
 
@@ -603,14 +603,14 @@ _nt R_Cloudy_1_3_2_3_Next
     tst        r0,r1
     beq        LAB_0805f2ee
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805f2ee:
     pop        {pc}
 
 
 _ts R_Cloudy_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Cloudy_2_0_0805f308
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -630,12 +630,12 @@ PTR_PTR_R_Cloudy_2_0_0805f308:
 
 _ts R_Cloudy_2_0
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
@@ -643,15 +643,15 @@ _ts R_Cloudy_2_0
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Cloudy_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805f346
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -682,7 +682,7 @@ _ts R_Cloudy_GetPlayerX
     tst        r0,r0
     bne        LAB_0805f37e
     ldrb       r0,[r7,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     b          LAB_0805f380
 LAB_0805f37e:
     mov        r0,#0xff
@@ -692,8 +692,8 @@ LAB_0805f380:
 
 _nt R_Cloudy_IsTargetInRow
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
 LAB_0805f388:
     push       {r0,r1}
     bl         FieldObject_GetPanelFlags
@@ -713,7 +713,7 @@ LAB_0805f3a0:
 
 _nt R_Cloudy_SetBattleFlag
     push       {lr}
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Actor_family_b2]
     add        r0,#0x9
     bl         Battle_SetBattleFlag
     pop        {pc}

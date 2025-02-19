@@ -6,7 +6,7 @@
 _ts Effect_Boulders
     push       {lr}
     ldr        r0,PTR_PTR_E_Boulders_0_Init_0807e314
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,16 +22,16 @@ PTR_E_Boulders_0_Init_0807e1d4:
 _ts E_Boulders_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r7,PTR_DAT_0807e318
-    ldrb       r2,[r5,#0x4]
+    ldrb       r2,[r5,#Effect_family_family]
     ldrb       r1,[r7,r2]
     add        r2,#0x1
     ldrb       r2,[r7,r2]
-    strb       r2,[r5,#0x14]
+    strb       r2,[r5,#Effect_frameIndexCurr]
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -43,13 +43,13 @@ _ts E_Boulders_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
 
 _ts E_Boulders_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     cmp        r0,#0x2
     bne        LAB_0807e234
     bl         SpritePtr_GetFrameStatus
@@ -71,7 +71,7 @@ LAB_0807e250:
 
 
 _nt E_Boulders_2_Free
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     cmp        r0,#0x2
     beq        LAB_0807e298
     Flag_GetBase 0xA6
@@ -88,9 +88,9 @@ LAB_0807e272:
     mov        r4,#0x3
     and        r4,r0
     add        r4,#0x1
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Effect_pos_curr_x]
+    ldr        r2,[r5,#Effect_pos_curr_y]
+    ldr        r3,[r5,#Effect_pos_curr_z]
     ldr        r7,[r6,#0x4]
     ldr        r6,[r6,#0x0]
     mov        r0,#0x1
@@ -129,7 +129,7 @@ _ts E_Boulders_Generate
     add        r6,r0,#0x0
     mov        r7,#0x7
     mov        r0,#0x15
-    ldrh       r1,[r5,#0x2a]
+    ldrh       r1,[r5,#0x2A]
     add        r4,r6,#0x0
     and        r4,r7
     cmp        r4,#0x4
@@ -142,7 +142,7 @@ LAB_0807e2e6:
     sub        r1,r1,r4
 LAB_0807e2e8:
     lsl        r1,r1,#0x10
-    ldrh       r2,[r5,#0x2e]
+    ldrh       r2,[r5,#0x2E]
     lsl        r2,r2,#0x10
     ldrh       r3,[r5,#0x32]
     lsr        r6,r6,#0x8

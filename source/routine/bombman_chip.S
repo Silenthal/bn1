@@ -5,7 +5,7 @@
 
 _ts Routine_BombMan_Chip
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_BombmanC_0_Init_0806de40
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,45 +32,45 @@ _ts R_BombmanC_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x7
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     LoadMain battle, r7, r7
     add        r7,#0x40
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
     ldrb       r0,[r7,#0x18]
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#Actor_cPos_x]
     ldrb       r1,[r7,#0x19]
-    strb       r1,[r5,#0x19]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x1
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_owner]
     tst        r1,r1
     beq        LAB_0806dea6
     mov        r0,#0x0
 LAB_0806dea6:
     bl         SpritePtr_SetFlipType
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r2,#0x5c
     add        r2,r2,r5
     mov        r4,#0x1
     push       {r0,r1}
-    ldrb       r6,[r5,#0x4]
+    ldrb       r6,[r5,#Actor_family_family]
     mov        r0,#0xbe
     add        r0,r0,r6
     bl         BattleChip_GetChipData
@@ -84,7 +84,7 @@ LAB_0806dea6:
 
 _ts R_BombManC_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_BombManC_1_0_0806dee0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -104,7 +104,7 @@ PTR_R_BombManC_1_0_0806dee4:
 
 _ts R_BombManC_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_BombManC_1_0_0_0806df00
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -123,21 +123,21 @@ PTR_PTR_R_BombManC_1_0_0_0806df00:
 
 _ts R_BombManC_1_0_0
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806df16
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806df16:
     pop        {pc}
 
 
 _ts R_BombManC_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_BombManC_1_1_0_0806df38
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -160,33 +160,33 @@ PTR_PTR_R_BombManC_1_1_0_0806df38:
 _ts R_BombManC_1_1_0
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_BombManC_1_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     cmp        r0,#0xf
     bne        LAB_0806df76
     bl         Field_GetAttackDirectionOffset_MP
     mov        r1,#0x3
     mul        r1,r0
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     add        r0,r0,r1
-    ldrb       r1,[r5,#0x19]
-    ldr        r7,[r5,#0x5c]
+    ldrb       r1,[r5,#Actor_cPos_y]
+    ldr        r7,[r5,#Actor_param_5C]
     bl         A_BombShoot_SetTarget
     mov        r0,#0x8e
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806df76:
     pop        {pc}
 
@@ -198,39 +198,39 @@ _ts R_BombManC_1_1_2
     tst        r0,r1
     beq        LAB_0806df90
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x19
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806df90:
     pop        {pc}
 
 
 _nt R_BombManC_1_1_3
     push       {lr}
-    ldr        r0,[r5,#0x5c]
+    ldr        r0,[r5,#Actor_param_5C]
     tst        r0,r0
     bne        LAB_0806df9e
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
 LAB_0806df9e:
     pop        {pc}
 
 
 _ts R_BombmanC_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     tst        r0,r0
     bne        LAB_0806dfb0
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806dfb0:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806dfc2
     bl         Actor_Free
     ldr        r7,PTR_gScreenDim_0806dfc4

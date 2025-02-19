@@ -5,7 +5,7 @@
 
 _ts Routine_ShadowMan
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_ShadowMan_0_Init_0806b76c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,26 +32,26 @@ _ts R_ShadowMan_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
-    strb       r0,[r5,#0xd]
-    strb       r0,[r5,#0xe]
-    strb       r0,[r5,#0xf]
+    strb       r0,[r5,#Actor_bc]
+    strb       r0,[r5,#Actor_bd]
+    strb       r0,[r5,#Actor_be]
+    strb       r0,[r5,#Actor_bf]
     FieldObject_Create PFI_Self_Actor, 0x60
     FieldObject_Create PFI_Moving, 0x64
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     bl         R_ShadowMan_1_Main
@@ -63,12 +63,12 @@ _nt R_ShadowMan_1_Main
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     mov        r0,#0x0
-    strb       r0,[r5,#0xf]
-    ldr        r0,[r5,#0x60]
+    strb       r0,[r5,#Actor_bf]
+    ldr        r0,[r5,#Actor_param_60]
     mov        r1,#0x1
     lsl        r1,r1,#0x14
     bl         FieldObject_SetPanelFlag
-    ldrb       r1,[r5,#0xe]
+    ldrb       r1,[r5,#Actor_be]
     tst        r1,r1
     beq        LAB_0806b814
     mov        r0,#0x3
@@ -78,20 +78,20 @@ _nt R_ShadowMan_1_Main
     mov        r0,#0x1
 LAB_0806b800:
     sub        r1,#0x1
-    strb       r1,[r5,#0xe]
+    strb       r1,[r5,#Actor_be]
     push       {r0}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     mov        r1,#0x1
     lsl        r1,r1,#0x14
     bl         FieldObject_ClearPanelFlag
     pop        {r0}
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_0806b814:
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0806b846
-    ldrb       r0,[r5,#0xe]
+    ldrb       r0,[r5,#Actor_be]
     tst        r0,r0
     bne        LAB_0806b846
     bl         R_ShadowMan_CheckDamage
@@ -100,7 +100,7 @@ LAB_0806b814:
     cmp        r0,#0x64
     bmi        LAB_0806b834
     mov        r1,#0x1
-    strb       r0,[r5,#0xf]
+    strb       r0,[r5,#Actor_bf]
 LAB_0806b834:
     bl         Field_SubtractHP
     push       {r2}
@@ -109,29 +109,29 @@ LAB_0806b834:
     mov        r0,#0x6f
     bl         Sound_PlaySE
 LAB_0806b846:
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0806b880
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_MarkAsChecked
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_UpdateCellPosition
     mov        r0,#0x9
-    ldr        r1,[r5,#0x60]
-    ldrb       r2,[r5,#0x17]
+    ldr        r1,[r5,#Actor_param_60]
+    ldrb       r2,[r5,#Actor_canBeDamaged]
     tst        r2,r2
     bne        LAB_0806b868
     mov        r0,#PFI_Moving
 LAB_0806b868:
     bl         Field_SetPanelFlagsOnEntity
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0806b87c
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldr        r0,[r5,#0x60]
+    str        r0,[r5,#Actor_state_s0]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_SetDeletedFlag
 LAB_0806b87c:
     pop        {pc}
@@ -154,7 +154,7 @@ PTR_R_Actor_1_0_Spawn_0806b884:
 
 _ts R_ShadowMan_1_1_WaitForBattleStart
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0806b8b6
     LoadMain battle, r7, r7
@@ -162,23 +162,23 @@ _ts R_ShadowMan_1_1_WaitForBattleStart
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806b8b6:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0806b8c8
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806b8c8:
     pop        {pc}
 
 
 _nt R_ShadowMan_1_2_Decide
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ShadowMan_1_2_0_0806b8f8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -189,9 +189,9 @@ _nt R_ShadowMan_1_2_Decide
     tst        r0,r1
     beq        LAB_0806b8ec
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0806b8ec:
     pop        {pc}
 
@@ -209,31 +209,31 @@ PTR_PTR_R_ShadowMan_1_2_0_0806b8f8:
 _ts R_ShadowMan_1_2_0
     push       {lr}
     mov        r0,#0x5
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     pop        {pc}
 
 
 _ts R_ShadowMan_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806b91e
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806b91e:
     pop        {pc}
 
 
 _ts R_ShadowMan_1_3_MoveAndBunshin
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ShadowMan_1_3_0_0806b934
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -260,32 +260,32 @@ _ts R_ShadowMan_1_3_0
     mov        r1,#0xf
     and        r0,r1
     ldr        r7,PTR_BYTE_ARRAY_ARRAY_0806ba0c
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Actor_family_family]
     lsl        r1,r1,#0x4
     add        r7,r7,r1
     ldrb       r0,[r7,r0]
     tst        r0,r0
     beq        LAB_0806b96a
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0806b9d8
 LAB_0806b96a:
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Actor_bc]
     add        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     cmp        r0,#0x9
     blt        LAB_0806b97c
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     mov        r0,#0x1
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Actor_bd]
 LAB_0806b97c:
     bl         R_ShadowMan_GetNextMovePanel
-    strb       r0,[r5,#0x6]
-    strb       r1,[r5,#0x7]
-    ldr        r7,[r5,#0x64]
+    strb       r0,[r5,#Actor_family_b2]
+    strb       r1,[r5,#Actor_family_b3]
+    ldr        r7,[r5,#Actor_param_64]
     strb       r0,[r7,#0x2]
     strb       r0,[r7,#0x4]
     strb       r1,[r7,#0x3]
@@ -293,17 +293,17 @@ LAB_0806b97c:
     add        r0,r7,#0x0
     bl         FieldObject_Enable
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_state_s2]
+    ldrb       r0,[r5,#Actor_bc]
     cmp        r0,#0x3
     beq        LAB_0806b9a8
     cmp        r0,#0x6
     beq        LAB_0806b9a8
     b          LAB_0806b9d8
 LAB_0806b9a8:
-    ldr        r0,[r5,#0x68]
+    ldr        r0,[r5,#Actor_param_68]
     tst        r0,r0
     bne        LAB_0806b9c0
     bl         R_ShadowMan_GetAvailablePanel
@@ -311,10 +311,10 @@ LAB_0806b9a8:
     beq        LAB_0806b9c0
     mov        r2,#0x68
     add        r2,r2,r5
-    ldr        r4,[r5,#0x4]
+    ldr        r4,[r5,#Actor_family_family]
     bl         Attack_Bunshin_Create
 LAB_0806b9c0:
-    ldr        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Actor_param_6C]
     tst        r0,r0
     bne        LAB_0806b9d8
     bl         R_ShadowMan_GetAvailablePanel
@@ -322,7 +322,7 @@ LAB_0806b9c0:
     beq        LAB_0806b9d8
     mov        r2,#0x6c
     add        r2,r2,r5
-    ldr        r4,[r5,#0x4]
+    ldr        r4,[r5,#Actor_family_family]
     bl         Attack_Bunshin_Create
 LAB_0806b9d8:
     pop        {pc}
@@ -390,16 +390,16 @@ _ts R_ShadowMan_1_3_1
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0806ba36
-    ldrb       r0,[r5,#0x6]
-    ldrb       r1,[r5,#0x7]
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
-    ldr        r0,[r5,#0x64]
+    ldrb       r0,[r5,#Actor_family_b2]
+    ldrb       r1,[r5,#Actor_family_b3]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         R_Actor_UpdateSpritePos
 LAB_0806ba36:
     pop        {pc}
@@ -412,37 +412,37 @@ _ts R_ShadowMan_1_3_2
     tst        r0,r1
     beq        LAB_0806ba50
     mov        r0,#0x18
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_0806ba50:
     pop        {pc}
 
 
 _nt R_ShadowMan_1_3_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806ba6c
     mov        r0,#0xc
-    ldrb       r1,[r5,#0xd]
+    ldrb       r1,[r5,#Actor_bd]
     tst        r1,r1
     beq        LAB_0806ba66
     mov        r0,#0x10
 LAB_0806ba66:
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806ba6c:
     pop        {pc}
 
 
 _nt R_ShadowMan_1_4_Bakufu
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ShadowMan_1_4_0_0806ba80
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -463,37 +463,37 @@ PTR_R_ShadowMan_1_4_0_0806ba84:
 _ts R_ShadowMan_1_4_0
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0xd]
+    strb       r0,[r5,#Actor_bd]
     pop        {pc}
 
 
 _ts R_ShadowMan_1_4_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806bad2
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     mov        r2,#0xc8
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Actor_owner]
     mov        r4,#0x3
-    ldrb       r6,[r5,#0x4]
+    ldrb       r6,[r5,#Actor_family_family]
     add        r6,r6,r6
     mov        r7,#0xc
     sub        r6,r7,r6
     bl         Attack_Bakufu_Create
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806bad2:
     pop        {pc}
 
@@ -504,42 +504,42 @@ _ts R_ShadowMan_1_4_2
     tst        r0,r0
     beq        LAB_0806bae8
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     b          LAB_0806bafc
 LAB_0806bae8:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806bafc
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x5
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806bafc:
     pop        {pc}
 
 
 _nt R_ShadowMan_1_4_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806bb10
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806bb10:
     pop        {pc}
 
 
 _nt R_ShadowMan_1_5_Shuriken
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ShadowMan_1_5_0_0806bb20
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -563,19 +563,19 @@ PTR_R_ShadowMan_1_5_0_0806bb24:
 _ts R_ShadowMan_1_5_0
     push       {lr}
     mov        r0,#0x2d
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    str        r0,[r5,#0x68]
-    str        r0,[r5,#0x6c]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    str        r0,[r5,#Actor_param_68]
+    str        r0,[r5,#Actor_param_6C]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x28
     lsl        r4,r4,#0x10
     add        r3,r3,r4
@@ -587,19 +587,19 @@ _ts R_ShadowMan_1_5_0
 
 _nt R_ShadowMan_1_5_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806bb8e
     mov        r0,#0x30
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806bb8e:
     pop        {pc}
 
@@ -611,25 +611,25 @@ _ts R_ShadowMan_1_5_2
     tst        r0,r1
     beq        LAB_0806bbac
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x3
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806bbac:
     pop        {pc}
 
 
 _nt R_ShadowMan_1_5_3
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806bbe2
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0xb7
     bl         Sound_PlaySE
     LoadMain battle, r7, r7
@@ -638,28 +638,28 @@ _nt R_ShadowMan_1_5_3
     ldrb       r1,[r7,#0x19]
     mov        r6,#0xc8
     bl         Attack_Shuriken_Create
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bne        LAB_0806bbe2
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806bbe2:
     pop        {pc}
 
 
 _ts R_ShadowMan_1_5_4
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806bc14
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x28
     lsl        r4,r4,#0x10
     add        r3,r3,r4
@@ -667,29 +667,29 @@ _ts R_ShadowMan_1_5_4
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0xf
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x14
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806bc14:
     pop        {pc}
 
 
 _nt R_ShadowMan_1_5_5
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806bc2c
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x18
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806bc2c:
     pop        {pc}
 
@@ -701,13 +701,13 @@ _nt R_ShadowMan_1_5_6
     tst        r0,r1
     beq        LAB_0806bc4a
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x1c
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x32
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_0806bc4a:
     pop        {pc}
 
@@ -715,21 +715,21 @@ LAB_0806bc4a:
 _ts R_ShadowMan_1_5_7
     push       {lr}
     bl         R_ShadowMan_CheckVulnerable
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806bc62
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806bc62:
     pop        {pc}
 
 
 _ts R_ShadowMan_1_6_Vulnerable
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_ShadowMan_1_6_0_0806bc7c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -750,16 +750,16 @@ PTR_PTR_R_ShadowMan_1_6_0_0806bc7c:
 _ts R_ShadowMan_1_6_0
     push       {lr}
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x32
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    str        r0,[r5,#0x68]
-    str        r0,[r5,#0x6c]
-    ldr        r0,[r5,#0x64]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    str        r0,[r5,#Actor_param_68]
+    str        r0,[r5,#Actor_param_6C]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Disable
     pop        {pc}
 
@@ -767,31 +767,31 @@ _ts R_ShadowMan_1_6_0
 _nt R_ShadowMan_1_6_1
     push       {lr}
     bl         SpritePtr_DisableFlash
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     mov        r1,#0x2
     tst        r0,r1
     beq        LAB_0806bcb0
     bl         SpritePtr_EnableFlash
 LAB_0806bcb0:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806bcc8
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x78
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Actor_be]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
 LAB_0806bcc8:
     pop        {pc}
 
 
 _nt R_ShadowMan_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_ShadowMan_2_0_Delete_0806bce0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -808,7 +808,7 @@ PTR_PTR_R_ShadowMan_2_0_Delete_0806bce0:
 
 _ts R_ShadowMan_2_0_Delete
     push       {lr}
-    ldr        r0,[r5,#0x60]
+    ldr        r0,[r5,#Actor_param_60]
     bl         FieldObject_Free
     bl         Battle_RegisterVirusDelete
     push       {r5}
@@ -817,20 +817,20 @@ _ts R_ShadowMan_2_0_Delete
     add        r0,r5,#0x0
     pop        {r5}
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    str        r0,[r5,#0x68]
-    str        r0,[r5,#0x6c]
+    str        r0,[r5,#Actor_param_68]
+    str        r0,[r5,#Actor_param_6C]
     pop        {pc}
 
 
 _ts R_ShadowMan_2_1_Free
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806bd1e
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -841,18 +841,18 @@ LAB_0806bd1e:
 _ts R_ShadowMan_CheckDamage
     push       {lr}
     bl         Routine_CheckPoisonDrain
-    ldr        r6,[r5,#0x60]
+    ldr        r6,[r5,#Actor_param_60]
     ldrh       r0,[r6,#0x2]
     ldr        r1,PanelFlag_0806bd48
-    ldrb       r2,[r5,#0x1a]
+    ldrb       r2,[r5,#Actor_element]
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Actor_param_60]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     pop        {pc}
 
@@ -869,11 +869,11 @@ _ts R_ShadowMan_GetNextMovePanel
     mov        r0,sp
     mov        r1,#0x3
     ldr        r2,PanelFlag_0806bd88
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Actor_owner]
     bl         Field_SearchWithOwner
     push       {r1}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         R_ShadowMan_CellPosToIndex
     pop        {r1}
     mov        r7,sp
@@ -902,7 +902,7 @@ _ts R_ShadowMan_GetAvailablePanel
     mov        r0,sp
     mov        r1,#0x3
     ldr        r2,PanelFlag_0806bdbc
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Actor_owner]
     bl         Field_SearchWithOwner
     mov        r0,#0xff
     tst        r1,r1
@@ -933,8 +933,8 @@ _ts R_ShadowMan_CellPosToIndex
 
 _nt R_ShadowMan_IsPlayerInRow
     push       {lr}
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
 LAB_0806bdcc:
     push       {r0,r1}
     bl         FieldObject_GetPanelFlags
@@ -953,13 +953,13 @@ LAB_0806bde4:
 
 
 _nt R_ShadowMan_CheckVulnerable
-    ldrb       r0,[r5,#0xf]
+    ldrb       r0,[r5,#Actor_bf]
     tst        r0,r0
     beq        LAB_0806bdf4
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806bdf4:
     mov        pc,lr
 

@@ -5,7 +5,7 @@
 
 _ts Routine_BrownCar
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_BrownCar_0_Init_0805b214
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -26,23 +26,23 @@ PTR_PTR_R_BrownCar_0_Init_0805b214:
 _ts R_BrownCar_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xd
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Actor_family_b2]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PTR_USHORT_0805b270
     ldr        r7,[r7,r0]
-    str        r7,[r5,#0x60]
+    str        r7,[r5,#Actor_param_60]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    strb       r0,[r5,#0x10]
-    strb       r0,[r5,#0x11]
-    str        r0,[r5,#0x4c]
-    strb       r0,[r5,#0x6]
-    str        r0,[r5,#0x64]
-    strh       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    strb       r0,[r5,#Actor_angleToTarget]
+    strb       r0,[r5,#Actor_b11]
+    str        r0,[r5,#Actor_diff_z]
+    strb       r0,[r5,#Actor_family_b2]
+    str        r0,[r5,#Actor_param_64]
+    strh       r0,[r5,#Actor_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
@@ -52,14 +52,14 @@ _ts R_BrownCar_0_Init
     mov        r3,#0x50
     add        r7,r5,r3
     stmia      r7!,{r0,r1,r2}
-    ldrb       r0,[r5,#0x5]
-    strb       r0,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b1]
+    strb       r0,[r5,#Actor_family_b3]
     bl         R_BrownCar_Direction
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     ldr        r0,DAT_0805b278
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Actor_diff_z]
     ldr        r0,DAT_0805b274
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     bl         R_BrownCar_1_Main
     pop        {pc}
 
@@ -79,7 +79,7 @@ _ts R_BrownCar_1_Main
     add        r7,r5,r3
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_BrownCar_1_0_0805b2b8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -116,14 +116,14 @@ _ts R_BrownCar_1_1
     bl         Rng_RandomUint
     mov        r1,#0x3
     and        r0,r1
-    ldrb       r1,[r5,#0x5]
-    ldr        r6,[r5,#0x60]
+    ldrb       r1,[r5,#Actor_family_b1]
+    ldr        r6,[r5,#Actor_param_60]
     lsl        r1,r1,#0x3
     add        r7,r6,r1
     mov        r4,#0x4
     add        r4,r4,r0
     ldrb       r1,[r7,r4]
-    strb       r1,[r5,#0x5]
+    strb       r1,[r5,#Actor_family_b1]
     cmp        r1,#0xff
     bne        LAB_0805b2ee
     mov        r7,#0x50
@@ -132,15 +132,15 @@ _ts R_BrownCar_1_1
     mov        r7,#0x28
     add        r7,r7,r5
     stmia      r7!,{r0,r1,r2}
-    ldrb       r0,[r5,#0x7]
-    strb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Actor_family_b3]
+    strb       r0,[r5,#Actor_family_b1]
 LAB_0805b2ee:
     bl         R_BrownCar_Direction
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     bl         R_BrownCar_1_2_0
     pop        {pc}
 
@@ -151,7 +151,7 @@ LAB_0805b2ee:
 
 _ts R_BrownCar_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_BrownCar_1_2_0_0805b318
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -176,7 +176,7 @@ _ts R_BrownCar_1_2_0
     beq        LAB_0805b32e
     ldr        r1,DAT_0805b390
 LAB_0805b32e:
-    ldr        r0,[r5,#0x4c]
+    ldr        r0,[r5,#Actor_diff_z]
     add        r0,r0,r1
     bmi        LAB_0805b340
     ldr        r1,DAT_0805b388
@@ -189,10 +189,10 @@ LAB_0805b33c:
 LAB_0805b340:
     mov        r0,#0x0
 LAB_0805b342:
-    str        r0,[r5,#0x4c]
-    ldrb       r1,[r5,#0x5]
+    str        r0,[r5,#Actor_diff_z]
+    ldrb       r1,[r5,#Actor_family_b1]
     lsl        r1,r1,#0x3
-    ldr        r6,[r5,#0x60]
+    ldr        r6,[r5,#Actor_param_60]
     add        r7,r6,r1
     ldrh       r2,[r7,#0x0]
     lsl        r2,r2,#0x10
@@ -200,25 +200,25 @@ LAB_0805b342:
     ldrh       r3,[r7,#0x2]
     lsl        r3,r3,#0x10
     asr        r3,r3,#0xc
-    ldr        r4,[r5,#0x4c]
+    ldr        r4,[r5,#Actor_diff_z]
     asr        r4,r4,#0xc
-    ldr        r0,[r5,#0x28]
+    ldr        r0,[r5,#Actor_pos_curr_x]
     asr        r0,r0,#0xc
-    ldr        r1,[r5,#0x2c]
+    ldr        r1,[r5,#Actor_pos_curr_y]
     asr        r1,r1,#0xc
     bl         IsCollision_Circle
     tst        r0,r0
     beq        LAB_0805b382
     ldrh       r0,[r7,#0x0]
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Actor_pos_curr_x]
     ldrh       r0,[r7,#0x2]
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_y]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0805b382:
     bl         FUN_0805b394
@@ -236,29 +236,29 @@ DAT_0805b390:
 
 _ts FUN_0805b394
     push       {lr}
-    ldrb       r0,[r5,#0x10]
-    ldr        r1,[r5,#0x4c]
+    ldrb       r0,[r5,#Actor_angleToTarget]
+    ldr        r1,[r5,#Actor_diff_z]
     bl         AngleToVector
-    str        r0,[r5,#0x44]
-    str        r1,[r5,#0x48]
-    ldr        r0,[r5,#0x28]
-    ldr        r1,[r5,#0x44]
+    str        r0,[r5,#Actor_diff_x]
+    str        r1,[r5,#Actor_diff_y]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    ldr        r1,[r5,#Actor_diff_x]
     add        r0,r0,r1
-    str        r0,[r5,#0x28]
-    ldr        r0,[r5,#0x2c]
-    ldr        r1,[r5,#0x48]
+    str        r0,[r5,#Actor_pos_curr_x]
+    ldr        r0,[r5,#Actor_pos_curr_y]
+    ldr        r1,[r5,#Actor_diff_y]
     add        r0,r0,r1
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_y]
     pop        {pc}
 
 
 _ts FUN_0805b3b4
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0805b3f4
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Actor_family_b2]
     tst        r0,r0
     bne        LAB_0805b3ca
     mov        r4,#0x40
@@ -274,7 +274,7 @@ LAB_0805b3ce:
     pop        {r1}
     tst        r0,r0
     beq        LAB_0805b3f4
-    ldrb       r0,[r5,#0x10]
+    ldrb       r0,[r5,#Actor_angleToTarget]
     push       {r1}
     bl         ActorFacingPlayerAngle
     pop        {r1}
@@ -283,11 +283,11 @@ LAB_0805b3ce:
     cmp        r0,r1
     bhi        LAB_0805b3f4
     mov        r0,#0x1
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#Actor_family_b2]
     pop        {pc}
 LAB_0805b3f4:
     mov        r0,#0x0
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#Actor_family_b2]
     pop        {pc}
 
 
@@ -305,7 +305,7 @@ _nt FUN_0805b3fa
     bl         EntityBounds_AddToList
     pop        {r5}
     mov        r0,#0x0
-    str        r0,[r5,#0x64]
+    str        r0,[r5,#Actor_param_64]
     pop        {pc}
 
     .align 2, 0
@@ -323,8 +323,8 @@ DAT_0805b424:
 
 _ts R_BrownCar_Direction
     push       {lr}
-    ldrb       r1,[r5,#0x5]
-    ldr        r6,[r5,#0x60]
+    ldrb       r1,[r5,#Actor_family_b1]
+    ldr        r6,[r5,#Actor_param_60]
     lsl        r1,r1,#0x3
     add        r7,r6,r1
     mov        r3,#0x2
@@ -333,14 +333,14 @@ _ts R_BrownCar_Direction
     mov        r3,#0x0
     ldrsh      r1,[r7,r3]
     lsl        r1,r1,#0x10
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x28]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_x]
     sub        r0,r0,r2
     sub        r1,r1,r3
     push       {r5}
     bl         VectorToAngle
     pop        {r5}
-    strb       r0,[r5,#0x10]
+    strb       r0,[r5,#Actor_angleToTarget]
     lsr        r0,r0,#0x5
     sub        r0,#0x1
     mov        r1,#0x7

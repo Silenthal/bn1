@@ -28,11 +28,11 @@ _ts Routine_NumberMan
     ldmia      r7!,{r0,r1,r2}
     stmia      r7!,{r0,r1,r2}
     bl         SpritePtr_DisableFlash
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
-    ldrb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_header_entityFlags]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_NumberMan_0_Init_0805d218
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -59,17 +59,17 @@ PTR_R_NumberMan_0_Init_0805d21c:
 
 _ts R_NumberMan_0_Init
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x24
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_EnableShadow
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r3,#0x28
@@ -79,8 +79,8 @@ _ts R_NumberMan_0_Init
     ldmia      r7!,{r0,r1,r2}
     stmia      r6!,{r0,r1,r2}
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
-    str        r0,[r5,#0x5c]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    str        r0,[r5,#Actor_param_5C]
     mov        r3,#0x6a
     strh       r0,[r5,r3]
     mov        r3,#0x68
@@ -93,50 +93,50 @@ _ts R_NumberMan_0_Init
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x14
-    strh       r0,[r5,#0x24]
+    strh       r0,[r5,#Actor_damage]
     FieldObject_Create PFI_Self_Actor, 0x70, offset_reg=3
     FieldObject_Create PFI_Moving, 0x74, offset_reg=3
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
     mov        r0,#0x4
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     bl         R_NumberMan_1_Main
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
 
 _nt R_NumberMan_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_DisableIfDeleted
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         FieldObject_GetPanelFlags
     mov        r1,#0x1
     tst        r0,r1
     bne        LAB_0805d2d6
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
-    ldr        r0,[r5,#0x70]
+    str        r0,[r5,#Actor_state_s0]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_SetDeletedFlag
     pop        {pc}
 LAB_0805d2d6:
     bl         R_NumberMan_CheckDamage
     tst        r0,r0
     bne        LAB_0805d2e8
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_Actor_1_0_Spawn_0805d2f4
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
 LAB_0805d2e8:
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_UpdateCellPosition
     bl         UpdateSpriteFrameIndex
     pop        {pc}
@@ -157,26 +157,26 @@ PTR_R_Actor_1_0_Spawn_0805d2f8:
 
 _ts R_NumberMan_1_1_WaitForBattleStart
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0805d332
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d332:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0805d344
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d344:
     pop        {pc}
 
@@ -184,7 +184,7 @@ LAB_0805d344:
 _nt R_NumberMan_1_2_Wait
     push       {lr}
     ldr        r7,PTR_PTR_R_NumberMan_1_2_0_0805d368
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -193,9 +193,9 @@ _nt R_NumberMan_1_2_Wait
     tst        r0,r1
     beq        LAB_0805d364
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805d364:
     pop        {pc}
 
@@ -214,24 +214,24 @@ PTR_R_NumberMan_1_2_0_0805d36c:
 _ts R_NumberMan_1_2_0
     push       {lr}
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    ldr        r0,[r5,#0x74]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_NumberMan_1_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805d39c
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d39c:
     pop        {pc}
 
@@ -264,7 +264,7 @@ _nt R_NumberMan_1_3_Flinch
     bl         SpritePtr_EnableFlash
 LAB_0805d3cc:
     ldr        r7,PTR_PTR_R_NumberMan_1_3_0_0805d3d8
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -284,54 +284,54 @@ PTR_gFrameCounter_0805d3e8:
 
 _ts R_NumberMan_1_3_0
     push       {lr}
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Disable
     FieldObject_SetAttributeGroup PFI_Self_Object, 0x70
     bl         Field_AttackFree
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexLast]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x32
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_NumberMan_1_3_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805d42c
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d42c:
     pop        {pc}
 
 
 _nt R_NumberMan_1_3_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805d452
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x5a
     mov        r3,#0x68
     strh       r0,[r5,r3]
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
     bl         Battle_PriorityQueueEnqueue
 LAB_0805d452:
@@ -341,7 +341,7 @@ LAB_0805d452:
 _ts R_NumberMan_1_4_ChargeUp
     push       {lr}
     ldr        r7,PTR_PTR_R_NumberMan_1_4_0_StartAnim_0805d464
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -361,7 +361,7 @@ PTR_R_NumberMan_1_4_0_StartAnim_0805d468:
 _ts R_NumberMan_1_4_0_StartAnim
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r3,#0x28
     add        r7,r5,r3
     ldmia      r7!,{r1,r2,r3}
@@ -369,11 +369,11 @@ _ts R_NumberMan_1_4_0_StartAnim
     lsl        r4,r0,#0x10
     mov        r0,#0x0
     bl         Attack_AnimationOnly_Create
-    str        r7,[r5,#0x5c]
+    str        r7,[r5,#Actor_param_5C]
     mov        r0,#0x8f
     bl         Sound_PlaySE
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -391,7 +391,7 @@ LAB_0805d4a4:
 _nt R_NumberMan_1_5_NumberBall
     push       {lr}
     ldr        r7,PTR_PTR_R_NumberMan_1_5_0_NumberBall_0805d4b4
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -421,14 +421,14 @@ _ts R_NumberMan_1_5_0_NumberBall
     mov        r0,#0x2
 LAB_0805d4de:
     push       {r0,r7}
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_cPos_x]
     sub        r1,#0x1
     ldrb       r2,[r7,r0]
     mov        r3,#0x0
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Actor_family_family]
     lsl        r6,r0,#0x8
     orr        r4,r6
-    ldrh       r6,[r5,#0x24]
+    ldrh       r6,[r5,#Actor_damage]
     mov        r3,#0x62
     add        r0,r0,r5
     add        r0,r0,r3
@@ -437,7 +437,7 @@ LAB_0805d4de:
     sub        r0,#0x1
     bpl        LAB_0805d4de
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     add        sp,#0x4
     pop        {pc}
 
@@ -452,9 +452,9 @@ _ts R_NumberMan_1_5_1_Wait
     tst        r0,r1
     beq        LAB_0805d520
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805d520:
     pop        {pc}
 
@@ -470,9 +470,9 @@ _nt R_NumberMan_1_5_2_Next
     orr        r0,r2
     bne        LAB_0805d53c
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d53c:
     pop        {pc}
 
@@ -480,7 +480,7 @@ LAB_0805d53c:
 _nt R_NumberMan_1_6_TimeBomb
     push       {lr}
     ldr        r7,PTR_PTR_R_NumberMan_1_6_0_TimeBomb_0805d54c
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -503,7 +503,7 @@ _ts R_NumberMan_1_6_0_TimeBomb
     add        r2,r1,#0x0
     add        r1,r0,#0x0
     mov        r3,#0x0
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Actor_family_family]
     mov        r6,#0x28
     bl         Attack_TimeBomb_Create
 LAB_0805d572:
@@ -511,7 +511,7 @@ LAB_0805d572:
     mov        r3,#0x6a
     strh       r0,[r5,r3]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
     .byte 0x00
     .byte 0x00
@@ -532,9 +532,9 @@ _ts R_NumberMan_1_6_1_Next
     tst        r0,r1
     beq        LAB_0805d5a0
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d5a0:
     pop        {pc}
 
@@ -542,7 +542,7 @@ LAB_0805d5a0:
 _nt R_NumberMan_1_7_DieBomb
     push       {lr}
     ldr        r7,PTR_PTR_R_NumberMan_1_7_0_DieBomb_0805d5b0
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -564,14 +564,14 @@ _ts R_NumberMan_1_7_0_DieBomb
     beq        LAB_0805d5d2
     add        r2,r1,#0x0
     add        r1,r0,#0x0
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Actor_family_family]
     bl         Attack_DieBomb_Create
 LAB_0805d5d2:
     mov        r0,#0xff
     mov        r3,#0x6a
     strh       r0,[r5,r3]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
     .byte 0x00
     .byte 0x00
@@ -589,9 +589,9 @@ _ts R_NumberMan_1_7_1
     tst        r0,r1
     beq        LAB_0805d600
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d600:
     pop        {pc}
 
@@ -599,7 +599,7 @@ LAB_0805d600:
 _nt R_NumberMan_1_8_None
     push       {lr}
     ldr        r7,PTR_PTR_R_NumberMan_1_8_0_Next_0805d610
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -615,16 +615,16 @@ PTR_R_NumberMan_1_8_0_Next_0805d614:
 _ts R_NumberMan_1_8_0_Next
     push       {lr}
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_NumberMan_2_Free
     push       {lr}
     ldr        r7,PTR_PTR_R_NumberMan_2_0_Delete_0805d634
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -644,32 +644,32 @@ PTR_R_NumberMan_2_0_Delete_0805d638:
 _ts R_NumberMan_2_0_Delete
     push       {lr}
     bl         Battle_RegisterVirusDelete
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Disable
     bl         Field_AttackFree
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_NaviDelete_Create
     pop        {r5}
     mov        r0,#0x5a
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     pop        {pc}
 
 
 _ts R_NumberMan_2_1_Free
     push       {lr}
     bl         UpdateSpriteFrameIndex
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805d68a
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Free
-    ldr        r0,[r5,#0x74]
+    ldr        r0,[r5,#Actor_param_74]
     bl         FieldObject_Free
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -681,13 +681,13 @@ _ts R_NumberMan_CheckDamage
     push       {lr}
     bl         Battle_IsInputLocked
     bne        LAB_0805d728
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     ble        LAB_0805d6fe
     bl         Routine_CheckPoisonDrain
     tst        r0,r0
     bne        LAB_0805d6fe
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     bne        LAB_0805d728
     mov        r3,#0x68
@@ -702,16 +702,16 @@ _ts R_NumberMan_CheckDamage
 LAB_0805d6c0:
     lsr        r0,r0,#0x1
     bcc        LAB_0805d728
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     bic        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     b          LAB_0805d728
 LAB_0805d6ce:
     FieldObject_GetDamage PFI_Target_Object, 0x70
     tst        r0,r0
     beq        LAB_0805d728
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805d728
@@ -719,23 +719,23 @@ LAB_0805d6ce:
     cmp        r0,#0x1e
     bcc        LAB_0805d6f4
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805d6f4:
     bl         SpritePtr_EnableFlash
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805d71e
 LAB_0805d6fe:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x70
     bl         Sound_PlaySE
-    ldr        r0,[r5,#0x70]
+    ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_SetDeletedFlag
     FieldObject_SetAttributeGroup PFI_Self_Object, 0x70
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x1
     pop        {pc}
 LAB_0805d71e:
@@ -751,25 +751,25 @@ LAB_0805d728:
 _ts R_NumberMan_StartAttack
     push       {lr}
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts _R_NumberMan_StartAttack
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _nt R_NumberMan_ChooseAttack
     push       {lr}
-    ldrh       r0,[r5,#0x22]
+    ldrh       r0,[r5,#Actor_hpMax]
     lsr        r0,r0,#0x1
-    ldrh       r1,[r5,#0x20]
+    ldrh       r1,[r5,#Actor_hpCurrent]
     cmp        r0,r1
     bmi        LAB_0805d766
     bl         Rng_RandomUint
@@ -779,15 +779,15 @@ _nt R_NumberMan_ChooseAttack
     ldrb       r0,[r7,r0]
     ldr        r7,PTR_FuncState_ARRAY_0805d774
     ldrb       r0,[r7,r0]
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0805d766:
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 PTR_listNumberManAttackChoice_0805d770:

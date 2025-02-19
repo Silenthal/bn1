@@ -5,7 +5,7 @@
 
 _ts Effect_PharaohManLaser
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_PharaohManLaser_0_Init_08081a24
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,21 +32,21 @@ _ts E_PharaohManLaser_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0xa
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x1
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x7
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x32
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x1
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Effect_owner]
     tst        r1,r1
     beq        LAB_08081a70
     mov        r0,#0x0
@@ -58,7 +58,7 @@ LAB_08081a70:
 
 _nt E_PharaohManLaser_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Effect_state_s1]
     ldr        r7,PTR_PTR_E_PharaohManLaser_1_0_08081a88
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -75,27 +75,27 @@ PTR_E_PharaohManLaser_1_0_08081a8c:
 
 _ts E_PharaohManLaser_1_0
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_08081aa6
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
 LAB_08081aa6:
     pop        {pc}
 
 
 _ts E_PharaohManLaser_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     tst        r0,r0
     bne        LAB_08081aba
     mov        r0,#0xc
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     b          LAB_08081ac8
 LAB_08081aba:
     bl         SpritePtr_GetFrameStatus
@@ -121,7 +121,7 @@ _nt Effect_PharaohManLaser_Create
     add        r6,r5,#0x0
     pop        {r0,r1,r2,r5}
     beq        LAB_08081b0e
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Effect_owner]
     strb       r3,[r6,#0x16]
     strh       r2,[r6,#0x24]
     strb       r0,[r6,#0x18]

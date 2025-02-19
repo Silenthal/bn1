@@ -5,13 +5,13 @@
 
 _ts Effect_BattleResult
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_BattleResult_0_Init_0807ce48
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     LoadMain display, r7, r7
-    ldrh       r0,[r5,#0x2a]
+    ldrh       r0,[r5,#0x2A]
     strh       r0,[r7,#0x18]
     pop        {pc}
 
@@ -45,7 +45,7 @@ LAB_0807ce60:
     pop        {r5}
     push       {r5}
     ldr        r7,PTR_tsListBattleResultUi_0807ceb4
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     lsl        r1,r0,#0x2
     lsl        r0,r0,#0x3
     add        r0,r0,r1
@@ -56,16 +56,16 @@ LAB_0807ce60:
     bl         Dma_TransferListAdd
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0xf0
-    strh       r0,[r5,#0x2a]
+    strh       r0,[r5,#0x2A]
     mov        r0,#0x20
     bl         E_BattleResult_ClearResultUI
     bl         Effect_BattleResult_CalculateRank
-    strb       r0,[r5,#0xc]
-    str        r1,[r5,#0x60]
-    strb       r2,[r5,#0xd]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Effect_bc]
+    str        r1,[r5,#Effect_obj_60]
+    strb       r2,[r5,#Effect_bd]
+    ldrb       r0,[r5,#Effect_family_family]
     cmp        r0,#0x2
     bne        LAB_0807ceae
 LAB_0807ceae:
@@ -90,7 +90,7 @@ tsListBattleResultUi:
 _ts E_BattleResult_1_Main
     push       {lr}
     ldr        r7,PTR_PTR_E_BattleResult_1_0_ShowUI_0807cf04
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Effect_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -111,7 +111,7 @@ PTR_E_BattleResult_1_0_ShowUI_0807cf08:
 _ts E_BattleResult_1_0_ShowUI
     push       {lr}
     push       {r5}
-    ldr        r0,[r5,#0x4]
+    ldr        r0,[r5,#Effect_family_family]
     ldr        r7,PTR_layoutListBattleResultUi_0807cf70
     lsl        r0,r0,#0x2
     ldr        r3,[r7,r0]
@@ -122,18 +122,18 @@ _ts E_BattleResult_1_0_ShowUI
     mov        r5,#0x14
     bl         Screen_CopyTileMapRect
     pop        {r5}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     ldr        r7,PTR_PTR_E_BattleResult_1_0_0_Init_0807cf54
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     cmp        r0,#0x2
     beq        LAB_0807cf48
     bl         E_BattleResult_PrintTime
     bl         E_BattleResult_DrawRank
 LAB_0807cf48:
-    ldrh       r0,[r5,#0x2a]
+    ldrh       r0,[r5,#0x2A]
     lsr        r0,r0,#0x3
     bl         E_BattleResult_ClearResultUI
     pop        {pc}
@@ -154,7 +154,7 @@ PTR_E_BattleResult_1_0_0_Init_0807cf58:
 _ts E_BattleResult_1_0_0_Init
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     pop        {pc}
 
 PTR_layoutListBattleResultUi_0807cf70:
@@ -168,7 +168,7 @@ layoutListBattleResultUi:
 
 _ts E_BattleResult_1_0_1_WaitForSlideIn
     push       {lr}
-    ldrh       r0,[r5,#0x2a]
+    ldrh       r0,[r5,#0x2A]
     sub        r0,#0x8
     bpl        LAB_0807cfa2
     mov        r0,#0x0
@@ -177,15 +177,15 @@ _ts E_BattleResult_1_0_1_WaitForSlideIn
     cmp        r1,#0x8
     bge        LAB_0807cf9a
     mov        r1,#0x8
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Effect_state_s2]
     b          LAB_0807cfa2
 LAB_0807cf9a:
     mov        r1,#0xc
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Effect_state_s2]
     mov        r1,#0x0
-    strb       r1,[r5,#0x1b]
+    strb       r1,[r5,#Effect_b1b]
 LAB_0807cfa2:
-    strh       r0,[r5,#0x2a]
+    strh       r0,[r5,#0x2A]
     pop        {pc}
 
 
@@ -197,9 +197,9 @@ _nt E_BattleResult_1_0_2_WaitButton
     tst        r0,r1
     beq        LAB_0807cfc4
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     mov        r0,#0x0
     bl         E_BattleResult_LoadAnimBattleResultUiPressA
     pop        {pc}
@@ -221,7 +221,7 @@ _nt E_BattleResult_1_0_3_WaitButtonMP
     and        r0,r1
     lsr        r0,r0,#0x3
     bl         E_BattleResult_LoadAnimBattleResultUiPressA
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Effect_state_s3]
     ldr        r7,PTR_PTR_E_BattleResult_1_0_3_0_0807cff4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -248,9 +248,9 @@ _ts E_BattleResult_1_0_3_0
     cmp        r2,#0x1
     bne        LAB_0807d024
     mov        r0,#0x1
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Effect_b1b]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
     b          LAB_0807d038
 LAB_0807d024:
     LoadMain input, r7, r7
@@ -259,12 +259,12 @@ LAB_0807d024:
     tst        r0,r1
     beq        LAB_0807d038
     mov        r0,#0x1
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Effect_b1b]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
 LAB_0807d038:
-    ldrb       r0,[r5,#0x1b]
-    ldrb       r1,[r5,#0xc]
+    ldrb       r0,[r5,#Effect_b1b]
+    ldrb       r1,[r5,#Effect_bc]
     bl         BattleMP_SendResult
     pop        {pc}
 
@@ -287,22 +287,22 @@ _nt E_BattleResult_1_0_3_1
     cmp        r2,#0x0
     beq        LAB_0807d074
     ldrb       r0,[r1,#0x3]
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Effect_bc]
     bl         FUN_0807d97c
-    strb       r0,[r5,#0xe]
-    strb       r1,[r5,#0xf]
+    strb       r0,[r5,#Effect_be]
+    strb       r1,[r5,#Effect_bf]
 LAB_0807d074:
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
     mov        r0,#0x4
-    ldrb       r1,[r5,#0xc]
-    ldrb       r2,[r5,#0xe]
-    ldrb       r3,[r5,#0xf]
+    ldrb       r1,[r5,#Effect_bc]
+    ldrb       r2,[r5,#Effect_be]
+    ldrb       r3,[r5,#Effect_bf]
     bl         BattleMP_SendResult
     b          LAB_0807d08e
 LAB_0807d086:
     mov        r0,#0x2
-    ldrb       r1,[r5,#0xc]
+    ldrb       r1,[r5,#Effect_bc]
     bl         BattleMP_SendResult
 LAB_0807d08e:
     pop        {pc}
@@ -325,16 +325,16 @@ _ts E_BattleResult_1_0_3_2_RewardGiveTakeChip
     ldrb       r2,[r7,#0x10]
     cmp        r2,#0x0
     beq        LAB_0807d0c2
-    ldrb       r0,[r5,#0xe]
-    ldrb       r1,[r5,#0xf]
+    ldrb       r0,[r5,#Effect_be]
+    ldrb       r1,[r5,#Effect_bf]
     mov        r2,#0x1
     bl         Inventory_SubtractChip
     b          LAB_0807d0d0
 LAB_0807d0c2:
     ldrb       r0,[r1,#0x4]
-    strb       r0,[r5,#0xe]
+    strb       r0,[r5,#Effect_be]
     ldrb       r1,[r1,#0x5]
-    strb       r1,[r5,#0xf]
+    strb       r1,[r5,#Effect_bf]
     mov        r2,#0x1
     bl         Inventory_AddChip
 LAB_0807d0d0:
@@ -347,17 +347,17 @@ LAB_0807d0d0:
     bl         Save_SaveGame
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x4
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     mov        r0,#0x0
     bl         E_BattleResult_LoadAnimBattleResultUiPressA
     b          LAB_0807d102
 LAB_0807d0f6:
     mov        r0,#0x4
-    ldrb       r1,[r5,#0xc]
-    ldrb       r2,[r5,#0xe]
-    ldrb       r3,[r5,#0xf]
+    ldrb       r1,[r5,#Effect_bc]
+    ldrb       r2,[r5,#Effect_be]
+    ldrb       r3,[r5,#Effect_bf]
     bl         BattleMP_SendResult
 LAB_0807d102:
     pop        {pc}
@@ -365,7 +365,7 @@ LAB_0807d102:
 
 _ts E_BattleResult_1_1_ShowReward
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     ldr        r7,PTR_PTR_E_BattleResult_1_1_0_ScrambleRewardReveal_0807d114
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -386,7 +386,7 @@ PTR_E_BattleResult_1_1_0_ScrambleRewardReveal_0807d118:
 
 _ts E_BattleResult_1_1_0_ScrambleRewardReveal
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Effect_state_s3]
     ldr        r7,PTR_PTR_E_BattleResult_1_1_0_0_SetupRandomBuffer_0807d134
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -418,9 +418,9 @@ LAB_0807d146:
     mov        r2,#0x38
     bl         ArrayShuffle
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     pop        {pc}
 
     .align 2, 0
@@ -432,15 +432,15 @@ PTR_iwBufferUITextTile_0807d164:
 
 _ts E_BattleResult_1_1_0_1_CopyRandomBufferTiles
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     cmp        r0,#0x38
     bmi        LAB_0807d17e
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     b          LAB_0807d19e
 LAB_0807d17e:
     push       {r0,r5}
@@ -457,7 +457,7 @@ LAB_0807d17e:
     bl         Screen_CopyTileMapH
     pop        {r0,r5}
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
 LAB_0807d19e:
     pop        {pc}
 
@@ -473,7 +473,7 @@ TilemapEntry_0807d1a8:
 
 _nt E_BattleResult_1_1_1_RewardReveal
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Effect_state_s3]
     ldr        r7,PTR_PTR_E_BattleResult_1_1_1_0_SetReward_0807d1b8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -509,14 +509,14 @@ LAB_0807d1ce:
     mov        r3,#0x64
     add        r3,r3,r1
     ldrb       r0,[r7,r3]
-    ldrb       r1,[r5,#0xc]
+    ldrb       r1,[r5,#Effect_bc]
     bl         E_BattleResult_GetEnemyDrop
     tst        r0,r0
     bne        LAB_0807d228
-    strb       r1,[r5,#0xe]
-    strb       r2,[r5,#0xf]
+    strb       r1,[r5,#Effect_be]
+    strb       r2,[r5,#Effect_bf]
     mov        r3,#0x0
-    str        r3,[r5,#0x64]
+    str        r3,[r5,#Effect_obj_64]
     add        r0,r1,#0x0
     add        r1,r2,#0x0
     mov        r2,#0x1
@@ -532,12 +532,12 @@ LAB_0807d1ce:
     pop        {r0,r1}
     b          LAB_0807d23a
 LAB_0807d228:
-    str        r1,[r5,#0x64]
+    str        r1,[r5,#Effect_obj_64]
     add        r0,r1,#0x0
     bl         Inventory_AddZenny
     mov        r3,#0x0
-    strb       r3,[r5,#0xe]
-    strb       r3,[r5,#0xf]
+    strb       r3,[r5,#Effect_be]
+    strb       r3,[r5,#Effect_bf]
     ldr        r0,PTR_tilesetZenny_0807d268
     ldr        r1,PTR_paletteZenny_0807d26c
 LAB_0807d23a:
@@ -554,9 +554,9 @@ LAB_0807d23a:
     bl         Dma_TransferListAdd
     pop        {r5}
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
     pop        {pc}
 
 PTR_DAT_0807d260:
@@ -581,13 +581,13 @@ _ts E_BattleResult_1_1_1_1_RewardReveal
     mov        r6,sp
     add        r0,r6,#0x4
     bl         FUN_0807d738
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     cmp        r0,#0x38
     bmi        LAB_0807d290
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     b          LAB_0807d2c6
 LAB_0807d290:
     push       {r0,r5}
@@ -608,7 +608,7 @@ LAB_0807d290:
     bl         Screen_CopyTileMapH
     pop        {r0,r5}
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r1,#0x3
     and        r0,r1
     cmp        r0,#0x3
@@ -628,11 +628,11 @@ PTR_iwBufferUITextTile_0807d2cc:
 
 _ts E_BattleResult_1_1_1_2_RewardText
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807d302
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Effect_obj_64]
     tst        r0,r0
     beq        LAB_0807d2ec
     bl         E_BattleResult_LoadZennyDetailText
@@ -640,16 +640,16 @@ _ts E_BattleResult_1_1_1_2_RewardText
     bl         Sound_PlaySE
     b          LAB_0807d2fa
 LAB_0807d2ec:
-    ldrb       r0,[r5,#0xe]
-    ldrb       r1,[r5,#0xf]
+    ldrb       r0,[r5,#Effect_be]
+    ldrb       r1,[r5,#Effect_bf]
     bl         E_BattleResult_LoadChipDetailText
     mov        r0,#0xcc
     bl         Sound_PlaySE
 LAB_0807d2fa:
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
 LAB_0807d302:
     pop        {pc}
 
@@ -661,14 +661,14 @@ _ts E_BattleResult_1_1_2_RewardWaitInput
     tst        r0,r1
     beq        LAB_0807d314
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
 LAB_0807d314:
     mov        pc,lr
 
 
 _nt E_BattleResult_1_2_ShowRewardMP
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Effect_state_s2]
     ldr        r7,PTR_PTR_E_BattleResult_1_2_0_0807d324
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -690,7 +690,7 @@ _ts E_BattleResult_1_2_0
 
 _nt E_BattleResult_1_2_1
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Effect_state_s3]
     ldr        r7,PTR_PTR_E_BattleResult_1_2_1_0_0807d344
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -719,8 +719,8 @@ LAB_0807d35a:
     mov        r1,#0x38
     mov        r2,#0x38
     bl         ArrayShuffle
-    ldrb       r0,[r5,#0xe]
-    ldrb       r1,[r5,#0xf]
+    ldrb       r0,[r5,#Effect_be]
+    ldrb       r1,[r5,#Effect_bf]
     bl         BattleChip_GetChipData
     add        r7,r0,#0x0
     ldr        r0,[r7,#0x14]
@@ -738,10 +738,10 @@ LAB_0807d35a:
     bl         Dma_TransferListAdd
     pop        {r5}
     mov        r0,#0x0
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
-    ldrb       r0,[r5,#0x4]
+    strb       r0,[r5,#Effect_state_s3]
+    ldrb       r0,[r5,#Effect_family_family]
     cmp        r0,#0x2
     bne        LAB_0807d3aa
     mov        r0,#T_Loser
@@ -765,13 +765,13 @@ _ts E_BattleResult_1_2_1_1
     mov        r6,sp
     add        r0,r6,#0x4
     bl         FUN_0807d738
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     cmp        r0,#0x38
     bmi        LAB_0807d3d4
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     b          LAB_0807d3fc
 LAB_0807d3d4:
     push       {r0,r5}
@@ -792,7 +792,7 @@ LAB_0807d3d4:
     bl         Screen_CopyTileMapH
     pop        {r0,r5}
     add        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
 LAB_0807d3fc:
     add        sp,#0x74
     pop        {pc}
@@ -803,25 +803,25 @@ PTR_iwBufferUITextTile_0807d400:
 
 _ts E_BattleResult_1_2_1_2
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     bne        LAB_0807d420
-    ldrb       r0,[r5,#0xe]
-    ldrb       r1,[r5,#0xf]
+    ldrb       r0,[r5,#Effect_be]
+    ldrb       r1,[r5,#Effect_bf]
     bl         E_BattleResult_LoadChipDetailText
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0xb]
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Effect_state_s3]
+    strb       r0,[r5,#Effect_b1b]
 LAB_0807d420:
     pop        {pc}
 
 
 _nt E_BattleResult_1_2_2
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Effect_state_s3]
     ldr        r7,PTR_PTR_E_BattleResult_1_2_2_0_0807d430
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -848,9 +848,9 @@ _ts E_BattleResult_1_2_2_0
     cmp        r2,#0x1
     bne        LAB_0807d460
     mov        r0,#0x1
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Effect_b1b]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
     b          LAB_0807d474
 LAB_0807d460:
     LoadMain input, r7, r7
@@ -859,11 +859,11 @@ LAB_0807d460:
     tst        r0,r1
     beq        LAB_0807d474
     mov        r0,#0x1
-    strb       r0,[r5,#0x1b]
+    strb       r0,[r5,#Effect_b1b]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
 LAB_0807d474:
-    ldrb       r0,[r5,#0x1b]
+    ldrb       r0,[r5,#Effect_b1b]
     bl         BattleMP_SendResult
     pop        {pc}
 
@@ -882,7 +882,7 @@ _ts E_BattleResult_1_2_2_1
     cmp        r2,#0x2
     bne        LAB_0807d4a4
     mov        r0,#0x8
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Effect_state_s3]
     mov        r0,#0x4
     bl         BattleMP_SendResult
     b          LAB_0807d4aa
@@ -907,9 +907,9 @@ _ts E_BattleResult_1_2_2_2
     cmp        r2,#0x4
     bne        LAB_0807d4d2
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
     b          LAB_0807d4d8
 LAB_0807d4d2:
     mov        r0,#0x4
@@ -931,8 +931,8 @@ _nt E_BattleResult_PrintTime
     push       {r5,lr}
     sub        sp,#0x4
     mov        r6,sp
-    ldr        r0,[r5,#0x60]
-    ldrb       r3,[r5,#0xd]
+    ldr        r0,[r5,#Effect_obj_60]
+    ldrb       r3,[r5,#Effect_bd]
     mov        r2,#0xc
     tst        r3,r3
     bne        LAB_0807d4fc
@@ -988,7 +988,7 @@ _ts E_BattleResult_DrawRank
     push       {r5,lr}
     sub        sp,#0x4
     mov        r6,sp
-    ldrb       r0,[r5,#0xc]
+    ldrb       r0,[r5,#Effect_bc]
     push       {r6}
     cmp        r0,#0xb
     bmi        LAB_0807d556
@@ -1194,7 +1194,7 @@ _ts Effect_BattleResult_Create
     mov        r0,#0xf
     bl         Effect_Alloc
     mov        r0,#0x9
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     add        r0,r5,#0x0
     pop        {r5,pc}
 

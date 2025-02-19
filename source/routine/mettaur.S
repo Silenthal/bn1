@@ -6,20 +6,20 @@
 _ts Routine_Mettaur
     push       {lr}
     ldr        r7,PTR_PTR_R_Mettaur_0_Init_0805a584
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldrb       r0,[r5,#0x14]
-    ldrb       r1,[r5,#0x15]
+    ldrb       r0,[r5,#Actor_frameIndexCurr]
+    ldrb       r1,[r5,#Actor_frameIndexLast]
     cmp        r0,r1
     beq        LAB_0805a56c
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
 LAB_0805a56c:
     bl         SpritePtr_ProcessFrameDelay
-    ldrb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    ldrb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     pop        {pc}
 
     .align 2, 0
@@ -41,46 +41,46 @@ _ts R_Mettaur_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    str        r0,[r5,#0x40]
+    str        r0,[r5,#Actor_i40]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x1
-    strb       r0,[r5,#0x16]
+    strb       r0,[r5,#Actor_owner]
     mov        r0,#0x0
     mov        r3,#0x60
     strb       r0,[r5,r3]
-    ldr        r0,[r5,#0x28]
-    str        r0,[r5,#0x50]
-    ldr        r0,[r5,#0x2c]
-    str        r0,[r5,#0x54]
-    ldr        r0,[r5,#0x30]
-    str        r0,[r5,#0x58]
+    ldr        r0,[r5,#Actor_pos_curr_x]
+    str        r0,[r5,#Actor_initial_x]
+    ldr        r0,[r5,#Actor_pos_curr_y]
+    str        r0,[r5,#Actor_initial_y]
+    ldr        r0,[r5,#Actor_pos_curr_z]
+    str        r0,[r5,#Actor_initial_z]
     bl         Battle_LoadEnemyHp
     bl         Battle_PriorityQueueEnqueue
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     FieldObject_Create PFI_Self_Actor, 0x64
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     mov        r0,#0x20
     strb       r0,[r7,#0x8]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x12]
+    strb       r0,[r5,#Actor_state_s0]
+    ldrb       r0,[r5,#Actor_enemyIndex]
     cmp        r0,#0xff
     bne        LAB_0805a5fe
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_0805a5fe:
     bl         R_Mettaur_1_Main
     pop        {pc}
@@ -88,31 +88,31 @@ LAB_0805a5fe:
 
 _ts R_Mettaur_1_Main
     push       {lr}
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     ldr        r0,[r7,#0x10]
     bl         FieldObject_UpdateField
     bl         Battle_EntitySpriteCoordsToCell
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         SpritePtr_DisableFlash
     bl         Battle_IsInputLocked
     bne        LAB_0805a664
-    ldrb       r0,[r5,#0x17]
+    ldrb       r0,[r5,#Actor_canBeDamaged]
     tst        r0,r0
     beq        LAB_0805a664
     bl         Routine_CheckPoisonDrain
-    ldr        r6,[r5,#0x64]
-    ldrh       r0,[r5,#0x18]
+    ldr        r6,[r5,#Actor_param_64]
+    ldrh       r0,[r5,#Actor_cPos_x]
     ldr        r1,DAT_0805a6b8
     mov        r2,#0x0
     ldr        r3,[r6,#0x14]
     ldr        r4,[r6,#0x10]
     bl         FieldObject_CalcDamage
     push       {r7}
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     str        r1,[r7,#0x14]
     pop        {r7}
-    ldrb       r0,[r5,#0x1a]
+    ldrb       r0,[r5,#Actor_element]
     bl         FieldObject_GetDamageToEntity
     tst        r0,r0
     beq        LAB_0805a664
@@ -122,29 +122,29 @@ _ts R_Mettaur_1_Main
     pop        {r2}
     mov        r0,#0x6f
     bl         Sound_PlaySE
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     beq        LAB_0805a680
 LAB_0805a664:
     ldr        r7,PTR_PTR_R_Mettaur_1_0_Spawn_0805a6b4
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_UpdateCellPosition
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_MarkAsChecked
-    ldrh       r0,[r5,#0x20]
+    ldrh       r0,[r5,#Actor_hpCurrent]
     tst        r0,r0
     bne        LAB_0805a692
 LAB_0805a680:
     bl         Battle_DecreaseOpponentCount
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldr        r0,[r5,#0x64]
+    strh       r0,[r5,#Actor_state_s2]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_SetDeletedFlag
 LAB_0805a692:
     pop        {pc}
@@ -169,7 +169,7 @@ DAT_0805a6b8:
 _ts R_Mettaur_1_0_Spawn
     push       {lr}
     ldr        r7,PTR_PTR_R_Mettaur_1_0_0_ResetAnimState_0805a6d8
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -193,7 +193,7 @@ _ts R_Mettaur_1_0_0_ResetAnimState
     tst        r0,r0
     beq        LAB_0805a6ee
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         ResetBattleSpawnAnimationState
 LAB_0805a6ee:
     pop        {pc}
@@ -205,7 +205,7 @@ _ts R_Mettaur_1_0_1_WaitForAnimEnd
     tst        r0,r0
     bne        LAB_0805a702
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
 LAB_0805a702:
     pop        {pc}
@@ -219,35 +219,35 @@ _ts R_Mettaur_1_0_2_WaitForBattleStart
     bne        LAB_0805a71c
     bl         Battle_PriorityQueueEnqueue
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805a71c:
     pop        {pc}
 
 
 _nt R_Mettaur_1_1_WaitForBattleStart
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     tst        r0,r0
     bne        LAB_0805a738
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x7]
     add        r0,#0x1
     strb       r0,[r7,#0x7]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805a738:
     bl         Battle_GetEntryState
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0805a74a
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805a74a:
     pop        {pc}
 
@@ -255,7 +255,7 @@ LAB_0805a74a:
 _ts R_Mettaur_1_2_DecideMoveOrAttack
     push       {lr}
     ldr        r7,PTR_PTR_R_Mettaur_1_2_0_SetupDelay_0805a774
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -264,9 +264,9 @@ _ts R_Mettaur_1_2_DecideMoveOrAttack
     tst        r0,r1
     beq        LAB_0805a76a
     mov        r1,#0x4
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#Actor_state_s2]
 LAB_0805a76a:
     pop        {pc}
 
@@ -281,19 +281,19 @@ PTR_PTR_R_Mettaur_1_2_0_SetupDelay_0805a774:
 _ts R_Mettaur_1_2_0_SetupDelay
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     ldr        r2,PTR_BYTE_ARRAY_ARRAY_0805a7a0
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Actor_family_family]
     add        r1,r1,r1
     add        r2,r2,r1
     ldrb       r0,[r2,#0x0]
     ldrb       r1,[r2,#0x1]
-    strh       r0,[r5,#0x1c]
-    strh       r1,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterA]
+    strh       r1,[r5,#Actor_counterB]
     pop        {pc}
 
 BYTE_ARRAY_ARRAY_0805a798:
@@ -319,33 +319,33 @@ _ts R_Mettaur_1_2_1_Decide
     bl         Entity_CompareToPlayerRow
     tst        r0,r0
     bne        LAB_0805a7c8
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bne        LAB_0805a7c8
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0805a7c8:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805a7e8
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
 LAB_0805a7da:
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Actor_family_family]
     tst        r0,r0
     beq        LAB_0805a7e8
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0805a7e8:
     pop        {pc}
 
@@ -353,7 +353,7 @@ LAB_0805a7e8:
 _nt R_Mettaur_1_3_Attack
     push       {lr}
     ldr        r7,PTR_PTR_R_Mettaur_1_3_0_StartAnimPickaxeRaise_0805a810
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -374,59 +374,59 @@ PTR_PTR_R_Mettaur_1_3_0_StartAnimPickaxeRaise_0805a810:
 _ts R_Mettaur_1_3_0_StartAnimPickaxeRaise
     push       {lr}
     mov        r0,#0x7
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
 _ts R_Mettaur_1_3_1_StartAnimPickaxeSwing
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805a83a
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0805a83a:
     pop        {pc}
 
 
 _ts R_Mettaur_1_3_2_CreateShockwave
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805a878
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     ldr        r0,DAT_0805ab1c
     sub        r1,r1,r0
     ldr        r0,DAT_0805ab20
     add        r3,r3,r0
     mov        r4,#0x2
-    ldrb       r4,[r5,#0x4]
+    ldrb       r4,[r5,#Actor_family_family]
     add        r4,#0x1
     bl         Field_GetAttackDirectionOffset_MP
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_cPos_x]
     add        r1,r1,r0
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#Actor_cPos_y]
     mov        r3,#0x0
     ldr        r7,PTR_shockwaveDamage_0805a880
-    ldrb       r6,[r5,#0x4]
+    ldrb       r6,[r5,#Actor_family_family]
     ldrb       r6,[r7,r6]
     bl         Attack_Shockwave_Create
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0805a878:
     pop        {pc}
 
@@ -452,30 +452,30 @@ PTR_shockwaveDamage_0805a880:
 
 _ts R_Mettaur_1_3_3_StartAnimPickaxeReset
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805a8a2
     mov        r0,#0x8
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x14
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805a8a2:
     pop        {pc}
 
 
 _ts R_Mettaur_1_3_4_DropPriority
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805a8e2
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
     bl         Battle_PriorityQueueEnqueue
     pop        {pc}
@@ -486,32 +486,32 @@ _ts R_Mettaur_MoveForward
     bl         R_Mettaur_CanMoveToPanel
     tst        r0,r0
     beq        LAB_0805a8da
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     sub        r0,#0x1
-    strb       r0,[r5,#0x18]
-    ldrb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    ldrb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
 LAB_0805a8da:
     mov        r0,#0x14
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0805a8e2:
     pop        {pc}
 
 
 _ts R_Mettaur_1_3_5_DropPriority
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805a8fe
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     bl         Battle_PriorityQueueRemove
     bl         Battle_PriorityQueueEnqueue
 LAB_0805a8fe:
@@ -521,7 +521,7 @@ LAB_0805a8fe:
 _ts R_Mettaur_1_4_MoveTowardsTarget
     push       {lr}
     ldr        r7,PTR_PTR_R_Mettaur_1_4_0_MoveStart_0805a91c
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -542,21 +542,21 @@ PTR_PTR_R_Mettaur_1_4_0_MoveStart_0805a91c:
 _ts R_Mettaur_1_4_0_MoveStart
     push       {lr}
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x13
     bl         Effect_QuickEffect_Create
     pop        {r5}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     mvn        r1,r1
     and        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
@@ -574,37 +574,37 @@ _nt R_Mettaur_1_4_1_MoveEnd
 LAB_0805a95e:
     sub        r1,#0x1
 LAB_0805a960:
-    ldrb       r0,[r5,#0x19]
+    ldrb       r0,[r5,#Actor_cPos_y]
     add        r1,r1,r0
-    ldrb       r0,[r5,#0x18]
+    ldrb       r0,[r5,#Actor_cPos_x]
     push       {r0,r1}
     bl         R_Mettaur_CanMoveToPanel
     add        r2,r0,#0x0
     pop        {r0,r1}
     tst        r2,r2
     beq        LAB_0805a984
-    strb       r0,[r5,#0x18]
-    strb       r1,[r5,#0x19]
+    strb       r0,[r5,#Actor_cPos_x]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x1
     b          LAB_0805a986
 LAB_0805a984:
     mov        r0,#0x0
 LAB_0805a986:
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Actor_family_b3]
     push       {r5}
-    ldr        r1,[r5,#0x28]
-    ldr        r2,[r5,#0x2c]
-    ldr        r3,[r5,#0x30]
+    ldr        r1,[r5,#Actor_pos_curr_x]
+    ldr        r2,[r5,#Actor_pos_curr_y]
+    ldr        r3,[r5,#Actor_pos_curr_z]
     mov        r4,#0x14
     bl         Effect_QuickEffect_Create
     pop        {r5}
     mov        r0,#0x3
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805a9a0:
     pop        {pc}
 
@@ -613,7 +613,7 @@ _nt R_Mettaur_1_4_2_PrepareNextAction
     push       {lr}
     bl         R_Actor_WaitCounter
     bne        LAB_0805a9c4
-    ldrb       r0,[r5,#0x7]
+    ldrb       r0,[r5,#Actor_family_b3]
     tst        r0,r0
     bne        LAB_0805a9b4
     mov        r0,#0xc
@@ -621,13 +621,13 @@ _nt R_Mettaur_1_4_2_PrepareNextAction
 LAB_0805a9b4:
     mov        r0,#0x8
 LAB_0805a9b6:
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
-    ldrb       r0,[r5,#0x0]
+    strh       r0,[r5,#Actor_state_s2]
+    ldrb       r0,[r5,#Actor_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
 LAB_0805a9c4:
     pop        {pc}
 
@@ -635,7 +635,7 @@ LAB_0805a9c4:
 _nt R_Mettaur_1_6_Guard
     push       {lr}
     ldr        r7,PTR_PTR_R_Mettaur_1_6_0_StartAnimShield_0805aa04
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -643,10 +643,10 @@ _nt R_Mettaur_1_6_Guard
     tst        r0,r0
     beq        LAB_0805a9ee
     mov        r1,#0x8
-    strb       r1,[r5,#0x9]
+    strb       r1,[r5,#Actor_state_s1]
     mov        r1,#0x0
-    strh       r1,[r5,#0xa]
-    ldr        r7,[r5,#0x64]
+    strh       r1,[r5,#Actor_state_s2]
+    ldr        r7,[r5,#Actor_param_64]
     ldr        r0,[r7,#0xc]
     mov        r1,#0x4
     lsl        r1,r1,#0x10
@@ -669,9 +669,9 @@ PTR_PTR_R_Mettaur_1_6_0_StartAnimShield_0805aa04:
 _ts R_Mettaur_1_6_0_StartAnimShield
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -681,35 +681,35 @@ _ts R_Mettaur_1_6_1_SetDelayAnim
     mov        r1,#0x80
     tst        r0,r1
     beq        LAB_0805aa38
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Actor_param_64]
     ldr        r0,[r7,#0xc]
     mov        r1,#0x4
     lsl        r1,r1,#0x10
     orr        r0,r1
     str        r0,[r7,#0xc]
     mov        r0,#0x0
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Actor_canBeDamaged]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x78
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0805aa38:
     pop        {pc}
 
 
 _nt R_Mettaur_1_6_2_WaitAnimAndStartPopup
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805aa5c
     mov        r0,#0x4
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strb       r0,[r5,#0x17]
-    ldr        r7,[r5,#0x64]
+    strb       r0,[r5,#Actor_canBeDamaged]
+    ldr        r7,[r5,#Actor_param_64]
     ldr        r0,[r7,#0xc]
     mov        r1,#0x4
     lsl        r1,r1,#0x10
@@ -726,21 +726,21 @@ _nt R_Mettaur_1_6_3_SetDelayAnimPopup
     tst        r0,r1
     beq        LAB_0805aa72
     mov        r0,#0x3c
-    strb       r0,[r5,#0x1c]
+    strb       r0,[r5,#Actor_counterA]
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805aa72:
     pop        {pc}
 
 
 _ts R_Mettaur_1_6_4_WaitAnimPopup
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805aa82
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0805aa82:
     pop        {pc}
 
@@ -748,7 +748,7 @@ LAB_0805aa82:
 _ts R_Mettaur_2_Free
     push       {lr}
     ldr        r7,PTR_PTR_R_Mettaur_2_0_0805aa9c
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -767,28 +767,28 @@ PTR_PTR_R_Mettaur_2_0_0805aa9c:
 
 _ts R_Mettaur_2_0
     push       {lr}
-    ldr        r0,[r5,#0x64]
+    ldr        r0,[r5,#Actor_param_64]
     bl         FieldObject_Free
     bl         Battle_PriorityQueueRemove
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     bl         Battle_RegisterVirusDelete
     push       {r5}
     add        r0,r5,#0x0
     bl         Effect_VirusDelete_Create
     add        r0,r5,#0x0
     pop        {r5}
-    str        r0,[r5,#0x7c]
+    str        r0,[r5,#Actor_param_7C]
     mov        r0,#0x20
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     pop        {pc}
 
 
 _ts R_Mettaur_2_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0805aada
     bl         Battle_RemoveFromEnemyList
     bl         Actor_Free
@@ -799,7 +799,7 @@ LAB_0805aada:
 _ts Entity_CompareToPlayerRow
     LoadMain battle, r7, r7
     ldr        r7,[r7,#0x40]
-    ldrb       r1,[r5,#0x19]
+    ldrb       r1,[r5,#Actor_cPos_y]
     ldrb       r0,[r7,#0x19]
     sub        r0,r0,r1
     mov        pc,lr
@@ -833,9 +833,9 @@ DAT_0805ab10:
 
 
 _ts R_Actor_WaitCounter
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        pc,lr
 
 DAT_0805ab1c:

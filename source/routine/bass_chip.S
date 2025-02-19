@@ -5,7 +5,7 @@
 
 _ts Routine_Bass_Chip
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Actor_state_s0]
     ldr        r7,PTR_PTR_R_BassC_0_Init_0806dff4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,34 +32,34 @@ _ts R_BassC_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x2
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Actor_frameIndexCurr]
+    strb       r0,[r5,#Actor_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_EnableShadow
     mov        r0,#0x7
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Actor_state_s0]
     mov        r0,#0x0
-    str        r0,[r5,#0x6c]
-    str        r0,[r5,#0x70]
+    str        r0,[r5,#Actor_param_6C]
+    str        r0,[r5,#Actor_param_70]
     LoadMain battle, r7, r7
     add        r7,#0x40
-    ldrb       r0,[r5,#0x16]
+    ldrb       r0,[r5,#Actor_owner]
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
     ldrb       r0,[r7,#0x18]
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#Actor_cPos_x]
     ldrb       r1,[r7,#0x19]
-    strb       r1,[r5,#0x19]
+    strb       r1,[r5,#Actor_cPos_y]
     bl         Battle_CellCoordsToSprite
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
+    str        r0,[r5,#Actor_pos_curr_x]
+    str        r1,[r5,#Actor_pos_curr_y]
     mov        r0,#0x0
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Actor_pos_curr_z]
     mov        r0,#0x1
-    ldrb       r1,[r5,#0x16]
+    ldrb       r1,[r5,#Actor_owner]
     tst        r1,r1
     beq        LAB_0806e05c
     mov        r0,#0x0
@@ -72,7 +72,7 @@ LAB_0806e05c:
 
 _ts R_BassC_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     ldr        r7,PTR_PTR_R_BassC_1_0_0806e078
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -93,7 +93,7 @@ PTR_R_BassC_1_0_0806e07c:
 
 _ts R_BassC_1_0
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_BassC_1_0_0_0806e098
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -118,32 +118,32 @@ _ts R_BassC_1_0_0
     tst        r0,r1
     beq        LAB_0806e0bc
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806e0bc:
     pop        {pc}
 
 
 _nt R_BassC_1_0_1
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806e0d0
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806e0d0:
     pop        {pc}
 
 
 _nt R_BassC_1_1
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_BassC_1_1_0_0806e0e0
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -165,9 +165,9 @@ PTR_R_BassC_1_1_0_0806e0e4:
 _ts R_BassC_1_1_0
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -178,44 +178,44 @@ _ts R_BassC_1_1_1
     tst        r0,r1
     beq        LAB_0806e130
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x0
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Actor_bc]
     mov        r4,#0x1
     bl         Effect_Bass_Create
-    str        r7,[r5,#0x68]
+    str        r7,[r5,#Actor_param_68]
     mov        r0,#0x5
     strb       r0,[r7,#0x0]
     mov        r0,#0x8
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
 LAB_0806e130:
     pop        {pc}
 
 
 _nt R_BassC_1_1_2
     push       {lr}
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     bne        LAB_0806e146
     mov        r0,#0x22
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x8f
     bl         Sound_PlaySE
 LAB_0806e146:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806e15c
     mov        r0,#0x0
-    str        r0,[r5,#0x68]
-    strb       r0,[r5,#0xd]
+    str        r0,[r5,#Actor_param_68]
+    strb       r0,[r5,#Actor_bd]
     mov        r0,#0x5
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0xc
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806e15c:
     pop        {pc}
 
@@ -227,7 +227,7 @@ _nt R_BassC_1_1_3
     tst        r0,r1
     beq        LAB_0806e16e
     mov        r0,#0x10
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
 LAB_0806e16e:
     pop        {pc}
 
@@ -240,7 +240,7 @@ _ts R_BassC_1_1_4
 
 _ts FUN_0806e178
     push       {lr}
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#Actor_state_s3]
     ldr        r7,PTR_PTR_FUN_0806e194_0806e188
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -261,38 +261,38 @@ PTR_FUN_0806e194_0806e18c:
 _ts FUN_0806e194
     push       {lr}
     mov        r0,#0x0
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     mov        r0,#0x8
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x4
-    strb       r0,[r5,#0xb]
+    strb       r0,[r5,#Actor_state_s3]
     mov        r0,#0x6
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     bl         Rng_RandomInt
     mov        r1,#0x3
     and        r0,r1
     lsl        r0,r0,#0x4
     ldr        r7,PTR_BYTE_ARRAY_ARRAY_0806e22c
     add        r7,r7,r0
-    str        r7,[r5,#0x74]
+    str        r7,[r5,#Actor_param_74]
     pop        {pc}
 
 
 _ts FUN_0806e1b8
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806e214
     bl         Field_GetAttackDirectionOffset_MP
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#Actor_cPos_x]
     add        r0,r0,r1
-    ldr        r7,[r5,#0x74]
-    ldrh       r1,[r5,#0x1e]
+    ldr        r7,[r5,#Actor_param_74]
+    ldrh       r1,[r5,#Actor_counterB]
     ldrb       r1,[r7,r1]
     mov        r2,#0x96
     lsl        r2,r2,#0x1
-    ldrb       r3,[r5,#0x16]
+    ldrb       r3,[r5,#Actor_owner]
     LoadMain battle, r4, r4
     ldrb       r4,[r4,#0x1a]
     eor        r4,r3
@@ -308,22 +308,22 @@ _ts FUN_0806e1b8
     strb       r0,[r7,#0x6]
     str        r5,[r7,#0x68]
 LAB_0806e1f6:
-    ldrh       r0,[r5,#0x1e]
+    ldrh       r0,[r5,#Actor_counterB]
     add        r0,#0x1
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#Actor_counterB]
     cmp        r0,#0xf
     bge        LAB_0806e208
     ldr        r7,PTR_BYTE_ARRAY_0806e228
     ldrb       r1,[r7,r0]
-    strh       r1,[r5,#0x1c]
+    strh       r1,[r5,#Actor_counterA]
     b          LAB_0806e214
 LAB_0806e208:
     mov        r0,#0x3c
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     mov        r0,#0x14
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
 LAB_0806e214:
     pop        {pc}
 
@@ -422,21 +422,21 @@ BYTE_ARRAY_ARRAY_0806e230:
 
 _ts R_BassC_1_1_5
     push       {lr}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806e282
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Actor_state_s2]
 LAB_0806e282:
     pop        {pc}
 
 
 _ts R_BassC_1_2
     push       {lr}
-    ldrb       r0,[r5,#0xa]
+    ldrb       r0,[r5,#Actor_state_s2]
     ldr        r7,PTR_PTR_R_BassC_1_2_0_0806e294
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -457,9 +457,9 @@ PTR_R_BassC_1_2_0_0806e298:
 _ts R_BassC_1_2_0
     push       {lr}
     mov        r0,#0x1
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Actor_frameIndexCurr]
     mov        r0,#0x4
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Actor_state_s2]
     pop        {pc}
 
 
@@ -470,9 +470,9 @@ _ts R_BassC_1_2_1
     tst        r0,r1
     beq        LAB_0806e2c4
     mov        r0,#0x5
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Actor_header_entityFlags]
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Actor_state_s0]
     bl         R_BassC_CheckTargetHit
 LAB_0806e2c4:
     pop        {pc}
@@ -480,17 +480,17 @@ LAB_0806e2c4:
 
 _nt R_BassC_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x9]
+    ldrb       r0,[r5,#Actor_state_s1]
     tst        r0,r0
     bne        LAB_0806e2d6
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Actor_state_s1]
     mov        r0,#0x1e
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
 LAB_0806e2d6:
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Actor_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Actor_counterA]
     bne        LAB_0806e2e8
     bl         Actor_Free
     ldr        r7,PTR_gScreenDim_0806e2ec
@@ -555,11 +555,11 @@ LAB_0806e338:
     beq        LAB_0806e356
     push       {r0,r1,r2,r3,r5,r7}
     ldr        r7,PTR_PanelFlag_ARRAY_0806e368
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Actor_owner]
     lsl        r2,r2,#0x2
     add        r7,r7,r2
-    ldrb       r2,[r5,#0x16]
-    ldrh       r3,[r5,#0x24]
+    ldrb       r2,[r5,#Actor_owner]
+    ldrh       r3,[r5,#Actor_damage]
     ldr        r4,[r7,#0x0]
     mov        r6,#0x0
     mov        r7,#0x1

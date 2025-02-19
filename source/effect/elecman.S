@@ -6,7 +6,7 @@
 _ts Effect_ElecMan
     push       {lr}
     ldr        r0,PTR_PTR_E_ElecMan_0_Init_0807ff1c
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,11 +22,11 @@ PTR_E_ElecMan_0_Init_0807fd2c:
 _ts E_ElecMan_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0x57
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -39,42 +39,42 @@ _ts E_ElecMan_0_Init
     bl         SpritePtr_SetPriority
     mov        r0,#0x8
     lsl        r0,r0,#0xc
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#Effect_diff_x]
     mov        r0,#0x0
-    str        r0,[r5,#0x48]
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Effect_diff_y]
+    str        r0,[r5,#Effect_diff_z]
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     Flag_ClearBase 0xBE
-    ldrb       r0,[r5,#0x14]
+    ldrb       r0,[r5,#Effect_frameIndexCurr]
     cmp        r0,#0xc
     bne        LAB_0807fd8c
     mov        r0,#0x0
-    strb       r0,[r5,#0x9]
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s1]
+    strb       r0,[r5,#Effect_state_s2]
     pop        {pc}
 LAB_0807fd8c:
     Flag_GetBase 0xC2
     beq        LAB_0807fda2
     mov        r0,#0x18
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     mov        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     pop        {pc}
 LAB_0807fda2:
     mov        r0,#0x8
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#Effect_state_s2]
     pop        {pc}
 
 
 _ts E_ElecMan_1_Main
     push       {lr}
     ldr        r0,PTR_PTR_E_ElecMan_1_0_0807ff20
-    ldrb       r1,[r5,#0x9]
+    ldrb       r1,[r5,#Effect_state_s1]
     add        r0,r0,r1
     ldr        r0,[r0,#0x0]
     bx         r0
@@ -94,11 +94,11 @@ _ts E_ElecMan_1_0
     Flag_GetBase 0xBE
     beq        LAB_0807fdf0
     mov        r0,#0xd
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_0807fdf0:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -113,11 +113,11 @@ _ts E_ElecMan_1_2
     Flag_GetBase 0xBE
     beq        LAB_0807fe14
     mov        r0,#0xe
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0xc
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_0807fe14:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -129,11 +129,11 @@ _nt E_ElecMan_1_3
     and        r0,r1
     beq        LAB_0807fe34
     mov        r0,#0xf
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x10
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_0807fe34:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -143,11 +143,11 @@ _nt E_ElecMan_1_4
     Flag_GetBase 0xBE
     bne        LAB_0807fe52
     mov        r0,#0x10
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     mov        r0,#0x14
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_0807fe52:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -159,7 +159,7 @@ _ts E_ElecMan_1_5
     and        r0,r1
     beq        LAB_0807fe6e
     mov        r0,#0x11
-    strb       r0,[r5,#0x14]
+    strb       r0,[r5,#Effect_frameIndexCurr]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
 LAB_0807fe6e:
@@ -173,19 +173,19 @@ _ts E_ElecMan_1_6
     mov        r1,#0x1
     bl         Camera_EnableScreenShake
     pop        {r5}
-    ldrh       r0,[r5,#0x1c]
+    ldrh       r0,[r5,#Effect_counterA]
     sub        r0,#0x1
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
     tst        r0,r0
     bne        LAB_0807feba
     bl         Rng_RandomUint
     mov        r7,#0x1f
     and        r7,r0
     sub        r7,#0xf
-    ldrh       r1,[r5,#0x2a]
+    ldrh       r1,[r5,#0x2A]
     add        r1,r1,r7
     lsl        r1,r1,#0x10
-    ldrh       r2,[r5,#0x2e]
+    ldrh       r2,[r5,#0x2E]
     lsl        r2,r2,#0x10
     mov        r7,#0x1f
     lsl        r7,r7,#0x8
@@ -199,7 +199,7 @@ _ts E_ElecMan_1_6
     bl         Effect_TrafficExplosion_1_Create
     pop        {r5}
     mov        r0,#0xa
-    strh       r0,[r5,#0x1c]
+    strh       r0,[r5,#Effect_counterA]
 LAB_0807feba:
     Flag_GetBase 0xBE
     beq        LAB_0807fed2
@@ -209,7 +209,7 @@ LAB_0807feba:
     bl         Fade_Request
     pop        {r5}
     mov        r0,#0x1c
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Effect_state_s1]
 LAB_0807fed2:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
@@ -247,7 +247,7 @@ _nt Effect_ElecMan_Create
     mov        r0,#0x2f
     bl         Effect_Alloc
     pop        {r0}
-    strh       r0,[r5,#0x14]
+    strh       r0,[r5,#Effect_frameIndexCurr]
     pop        {pc}
 
 PTR_PTR_E_ElecMan_0_Init_0807ff1c:

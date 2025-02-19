@@ -5,7 +5,7 @@
 
 _ts Effect_PharaohMan_Curse
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_PharaohMan_Curse_0_Init_080811ac
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,21 +32,21 @@ _ts E_PharaohMan_Curse_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
 
 _nt E_PharaohMan_Curse_1_Main
     push       {lr}
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Effect_obj_64]
     ldr        r7,[r7,#0x0]
     tst        r7,r7
     beq        LAB_080811fa
@@ -56,28 +56,28 @@ _nt E_PharaohMan_Curse_1_Main
     beq        LAB_080811fe
 LAB_080811fa:
     mov        r0,#0x8
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Effect_state_s0]
 LAB_080811fe:
-    ldr        r7,[r5,#0x60]
+    ldr        r7,[r5,#Effect_obj_60]
     ldr        r0,[r7,#0x28]
     mov        r1,#0x4
     lsl        r1,r1,#0x10
     sub        r0,r0,r1
-    str        r0,[r5,#0x28]
+    str        r0,[r5,#Effect_pos_curr_x]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x2c]
+    str        r0,[r5,#Effect_pos_curr_y]
     ldr        r0,[r7,#0x30]
     mov        r1,#0x3c
     lsl        r1,r1,#0x10
     add        r0,r0,r1
-    str        r0,[r5,#0x30]
+    str        r0,[r5,#Effect_pos_curr_z]
     pop        {pc}
 
 
 _nt E_PharaohMan_Curse_2_Free
     push       {lr}
     mov        r0,#0x0
-    ldr        r7,[r5,#0x64]
+    ldr        r7,[r5,#Effect_obj_64]
     str        r0,[r7,#0x0]
     bl         Effect_Free
     pop        {pc}

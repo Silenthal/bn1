@@ -11,12 +11,12 @@ _ts Effect_BattleHP
     and        r1,r0
     cmp        r1,#0x5
     bne        LAB_0807ba7a
-    ldr        r6,[r5,#0x78]
+    ldr        r6,[r5,#Effect_parent]
     ldrb       r0,[r6,#0x0]
     tst        r0,r0
     bne        LAB_0807ba5e
     mov        r0,#0x8
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     b          LAB_0807ba7a
 LAB_0807ba5e:
     mov        r1,#0x2
@@ -25,11 +25,11 @@ LAB_0807ba5e:
     ldrh       r1,[r6,#0x20]
     tst        r1,r1
     beq        LAB_0807ba7a
-    ldrb       r1,[r5,#0xc]
+    ldrb       r1,[r5,#Effect_bc]
     tst        r1,r1
     beq        LAB_0807ba7a
     ldr        r7,PTR_PTR_E_BattleHP_0_Init_0807ba88
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -48,9 +48,9 @@ PTR_PTR_E_BattleHP_0_Init_0807ba88:
 _ts E_BattleHP_0_Init
     push       {lr}
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0xd
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     bl         E_BattleHP_1_Main
     pop        {pc}
 
@@ -58,14 +58,14 @@ _ts E_BattleHP_0_Init
 _ts E_BattleHP_1_Main
     push       {lr}
     bl         E_BattleHP_CalculateFloatingNum
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#Effect_family_b2]
     tst        r0,r0
     beq        LAB_0807baca
-    ldr        r1,[r5,#0x70]
-    ldr        r2,[r5,#0x74]
+    ldr        r1,[r5,#Effect_extraX]
+    ldr        r2,[r5,#Effect_extraY]
     asr        r1,r1,#0x10
     asr        r2,r2,#0x10
-    ldrb       r3,[r5,#0x5]
+    ldrb       r3,[r5,#Effect_family_b1]
     mov        r4,#0x68
     add        r4,r4,r5
 LAB_0807bab6:
@@ -96,13 +96,13 @@ _ts Effect_BattleHP_Create
     pop        {r0}
     tst        r5,r5
     beq        LAB_0807baf2
-    str        r0,[r5,#0x78]
+    str        r0,[r5,#Effect_parent]
     ldrh       r1,[r0,#0x20]
-    str        r1,[r5,#0x60]
+    str        r1,[r5,#Effect_obj_60]
     mov        r0,#0xd
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
+    strb       r0,[r5,#Effect_bc]
 LAB_0807baf2:
     pop        {r5,pc}
 
@@ -147,9 +147,9 @@ _ts E_BattleHP_CalculateFloatingNum
     push       {lr}
     sub        sp,#0xc
     mov        r8,sp
-    ldr        r6,[r5,#0x78]
+    ldr        r6,[r5,#Effect_parent]
     ldrh       r0,[r6,#0x20]
-    ldr        r1,[r5,#0x60]
+    ldr        r1,[r5,#Effect_obj_60]
     cmp        r0,r1
     beq        LAB_0807bb58
     @@ When a floating num is rapidly decreased/increased, it has 4 added/subtracted
@@ -166,7 +166,7 @@ LAB_0807bb50:
     bge        LAB_0807bb58
     add        r1,r0,#0x0
 LAB_0807bb58:
-    str        r1,[r5,#0x60]
+    str        r1,[r5,#Effect_obj_60]
     ldrb       r0,[r6,#0x13]
     bl         Enemy_GetEnemyDetail
     mov        r4,#0x3
@@ -194,26 +194,26 @@ LAB_0807bb58:
     beq        LAB_0807bb8a
     mov        r3,#0x1
 LAB_0807bb8a:
-    strb       r3,[r5,#0x6]
+    strb       r3,[r5,#Effect_family_b2]
     lsl        r0,r0,#0x10
     lsl        r1,r1,#0x10
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    ldr        r0,[r5,#0x60]
+    str        r0,[r5,#Effect_pos_curr_x]
+    str        r1,[r5,#Effect_pos_curr_y]
+    ldr        r0,[r5,#Effect_obj_60]
     bl         ConvertNumToBCD
-    str        r0,[r5,#0x64]
+    str        r0,[r5,#Effect_obj_64]
     bl         GetWidthOfBcdNumber
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#Effect_family_b1]
     lsl        r0,r0,#0x2
     sub        r0,#0x8
     lsl        r0,r0,#0x10
-    ldr        r1,[r5,#0x28]
+    ldr        r1,[r5,#Effect_pos_curr_x]
     add        r1,r1,r0
-    str        r1,[r5,#0x70]
-    ldr        r1,[r5,#0x2c]
-    str        r1,[r5,#0x74]
-    ldrb       r0,[r5,#0x5]
-    ldr        r1,[r5,#0x64]
+    str        r1,[r5,#Effect_extraX]
+    ldr        r1,[r5,#Effect_pos_curr_y]
+    str        r1,[r5,#Effect_extraY]
+    ldrb       r0,[r5,#Effect_family_b1]
+    ldr        r1,[r5,#Effect_obj_64]
     mov        r2,#0x68
     add        r2,r2,r5
 LAB_0807bbba:

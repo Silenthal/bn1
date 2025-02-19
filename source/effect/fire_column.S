@@ -6,7 +6,7 @@
 _ts Effect_FireColumn
     push       {lr}
     ldr        r0,PTR_PTR_E_FireColumn_0_Init_0807c070
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -24,11 +24,11 @@ _ts E_FireColumn_0_Init
     bl         E_FireColumn_CheckFlag
     bne        LAB_0807c016
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     mov        r1,#0xe4
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#Effect_family_b1]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_ProcessFrameDelay
@@ -40,7 +40,7 @@ _ts E_FireColumn_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
 LAB_0807c016:
     pop        {pc}
 
@@ -55,7 +55,7 @@ _ts E_FireColumn_1_Main
     beq        LAB_0807c038
     LoadMain mapEventState, r0, r0
     ldrb       r0,[r0,#0x8]
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Effect_family_family]
     cmp        r0,r1
     bne        LAB_0807c038
     mov        r0,#0x1
@@ -79,7 +79,7 @@ _ts E_FireColumn_CheckFlag
     push       {lr}
     push       {r5}
     mov        r0,#0xa0
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Effect_family_family]
     add        r0,r0,r1
     bl         Flag_GetBase
     pop        {r5}

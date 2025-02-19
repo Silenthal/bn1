@@ -5,7 +5,7 @@
 
 _ts Effect_LifeVirusMeteor
     push       {lr}
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#Effect_state_s0]
     ldr        r7,PTR_PTR_E_LifeVirusMeteor_0_Init_080809cc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -32,29 +32,29 @@ _ts E_LifeVirusMeteor_0_Init
     bl         Sprite_InitSpritePtr
     bl         SpritePtr_InitFrames
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Effect_frameIndexCurr]
+    strb       r0,[r5,#Effect_frameIndexLast]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x4
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     mov        r0,#0x3
     mov        r1,#0x2
     bl         Battle_CellCoordsToSprite
     mov        r3,#0xd0
     lsl        r3,r3,#0x10
     add        r0,r0,r3
-    str        r0,[r5,#0x28]
-    str        r1,[r5,#0x2c]
-    str        r3,[r5,#0x30]
+    str        r0,[r5,#Effect_pos_curr_x]
+    str        r1,[r5,#Effect_pos_curr_y]
+    str        r3,[r5,#Effect_pos_curr_z]
     mov        r0,#0x0
     sub        r0,#0x4
     lsl        r0,r0,#0x10
-    str        r0,[r5,#0x44]
-    str        r0,[r5,#0x4c]
+    str        r0,[r5,#Effect_diff_x]
+    str        r0,[r5,#Effect_diff_z]
     mov        r0,#0xe1
     bl         Sound_PlaySE
     bl         E_LifeVirusMeteor_1_Main
@@ -63,19 +63,19 @@ _ts E_LifeVirusMeteor_0_Init
 
 _nt E_LifeVirusMeteor_1_Main
     push       {lr}
-    ldr        r0,[r5,#0x44]
-    ldr        r1,[r5,#0x28]
+    ldr        r0,[r5,#Effect_diff_x]
+    ldr        r1,[r5,#Effect_pos_curr_x]
     add        r1,r1,r0
-    str        r1,[r5,#0x28]
-    ldr        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x30]
+    str        r1,[r5,#Effect_pos_curr_x]
+    ldr        r0,[r5,#Effect_diff_z]
+    ldr        r1,[r5,#Effect_pos_curr_z]
     add        r1,r1,r0
-    str        r1,[r5,#0x30]
+    str        r1,[r5,#Effect_pos_curr_z]
     bgt        LAB_08080a4a
     mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    strh       r0,[r5,#Effect_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0xa]
+    strh       r0,[r5,#Effect_state_s2]
 LAB_08080a4a:
     pop        {pc}
 
@@ -95,7 +95,7 @@ _ts Effect_LifeVirusMeteor_Create
     add        r7,r5,#0x0
     pop        {r0,r1,r5}
     beq        LAB_08080a6c
-    ldrb       r2,[r5,#0x16]
+    ldrb       r2,[r5,#Effect_owner]
     strb       r2,[r7,#0x16]
 LAB_08080a6c:
     pop        {pc}

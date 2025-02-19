@@ -483,7 +483,7 @@ Struct_7B5F8_ARRAY_0807b5f8:
 _ts Effect_MapObject
     push       {lr}
     ldr        r0,PTR_PTR_E_MapObject_0_Init_0807ba38
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -499,9 +499,9 @@ PTR_E_MapObject_0_Init_0807b9bc:
 _ts E_MapObject_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     ldr        r7,PTR_Struct_7B5F8_ARRAY_0807ba3c
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Effect_family_family]
     mov        r2,#0xc
     mul        r1,r2
     add        r7,r7,r1
@@ -535,7 +535,7 @@ LAB_0807ba08:
     ldr        r0,[r7,#0x8]
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
     .align 2, 0

@@ -6,7 +6,7 @@
 _ts Effect_TrafficLight
     push       {lr}
     ldr        r0,PTR_PTR_E_TrafficLight_0_Init_0807e6e4
-    ldrb       r1,[r5,#0x8]
+    ldrb       r1,[r5,#Effect_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -22,11 +22,11 @@ PTR_E_TrafficLight_0_Init_0807e664:
 _ts E_TrafficLight_0_Init
     push       {lr}
     mov        r0,#0x3
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Effect_header_entityFlags]
     mov        r0,#0x1
     ldr        r1,DAT_0807e6e8
     bl         Sprite_InitSpritePtr
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Effect_family_family]
     bl         SpritePtr_SetFrameIndex
     bl         SpritePtr_InitFrames
     bl         SpritePtr_NoShadow
@@ -37,14 +37,14 @@ _ts E_TrafficLight_0_Init
     pop        {r5}
     bl         SpritePtr_SetPriority
     mov        r0,#0x0
-    ldrb       r1,[r5,#0x6]
+    ldrb       r1,[r5,#Effect_family_b2]
     cmp        r1,#0xff
     bne        LAB_0807e6a6
     ldr        r0,PTR_main_0807e6ec
 LAB_0807e6a6:
     bl         SpritePtr_SetObjectExcludeFlags
     mov        r0,#0x1
-    strb       r0,[r5,#0x8]
+    strb       r0,[r5,#Effect_state_s0]
     bl         E_TrafficLight_1_Main
     pop        {pc}
 
@@ -58,7 +58,7 @@ _ts E_TrafficLight_1_Main
     bne        LAB_0807e6d0
     mov        r0,#0x2
     ldrb       r6,[r7,#0x5]
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Effect_family_family]
     mov        r2,#0x1
     and        r1,r2
     cmp        r6,r1
