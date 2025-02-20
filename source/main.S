@@ -24,9 +24,9 @@ _ts AgbMain
     bl         Video_BlitScreens
     bl         Main_ReadInput
     LoadMain frameCounter, r0, r0
-    ldrh       r1,[r0,#FrameCounter_m_counter]
+    ldrh       r1,[r0,#FrameCounter_counter]
     add        r1,#0x1
-    strh       r1,[r0,#FrameCounter_m_counter]
+    strh       r1,[r0,#FrameCounter_counter]
     bl         IncrementGameTimer
     ldr        r0,=jumpTableMain
     LoadMain manager, r1, r7

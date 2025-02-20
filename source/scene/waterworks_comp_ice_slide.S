@@ -195,9 +195,9 @@ _ts S_Ice_Slide_5
     bl         Map_HandleCollisionElevation
     add        r2,r0,#0x0
     pop        {r5}
-    str        r2,[r5,#Scene_i28]
+    str        r2,[r5,#Scene_slidePos]
 LAB_0808bfcc:
-    ldr        r2,[r5,#Scene_i28]
+    ldr        r2,[r5,#Scene_slidePos]
     ldr        r0,[r5,#Scene_pAnim]
     ldr        r1,[r0,#0x10]
     asr        r1,r1,#0x10

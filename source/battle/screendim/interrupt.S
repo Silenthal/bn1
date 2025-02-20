@@ -70,7 +70,7 @@ _nt SD_Interrupt_1
     sub        r0,#0x1
     strh       r0,[r5,#0x8]
     bne        LAB_0809a062
-    bl         FUN_0809a0a6
+    bl         SD_Interrupt_Activate
     mov        r0,#0xcf
     bl         Sound_PlaySE
     mov        r0,#0x5a
@@ -113,7 +113,7 @@ LAB_0809a0a4:
     pop        {pc}
 
 
-_nt FUN_0809a0a6
+_nt SD_Interrupt_Activate
     push       {lr}
     LoadMain matchBattleState, r0, r0
     ldrb       r1,[r5,#0x6]

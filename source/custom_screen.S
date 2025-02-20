@@ -1535,7 +1535,7 @@ _ts CustomScreen_CheckCursorMove
     cmp        r0,#0xff
     beq        .is_invalid_position
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#Battle_m_customScreenChipCount]
+    ldrb       r0,[r7,#Battle_customScreenChipCount]
     cmp        r1,r0
     bpl        .is_invalid_position
     cmp        r6,#0x1

@@ -1139,7 +1139,7 @@ LAB_0807d636:
     @ Calculate points for steps taken - +1 for less than
     @ 3 steps
     mov        r2,#0x1
-    ldrb       r1,[r7,#PlayerBattleState_m_moveCount]
+    ldrb       r1,[r7,#PlayerBattleState_moveCount]
     cmp        r1,#0x3
     bmi        LAB_0807d642
     mov        r2,#0x0

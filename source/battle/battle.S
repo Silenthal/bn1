@@ -705,12 +705,12 @@ _nt BattleR_2_Main
     pop        {pc}
 PTR_BattleR_2_0_CheckProgramAdvance:
     .word BattleR_2_0_CheckProgramAdvance
-    .word BattleR_2_1_SetupHand
+    .word BattleR_2_1_SendHand
     .word BattleR_2_2_BattleStart
     .word BattleR_2_3_CheckBattleState
     .word BattleR_2_4_CheckUnPause
     .word BattleR_2_5_ScreenDim
-    .word BattleR_2_6_End
+    .word BattleR_2_6_EnterCustomScreen
     .word BattleR_2_7_MaxMode
 
     .pool
@@ -1090,7 +1090,7 @@ LAB_080060b4:
     pop        {pc}
 
 
-_nt BattleR_2_1_SetupHand
+_nt BattleR_2_1_SendHand
     push       {lr}
     ldr        r7,=PTR_BattleR_2_1_0_CopyBattleHand
     ldrb       r0,[r5,#0x3]
@@ -1189,7 +1189,7 @@ LAB_0800616a:
     pop        {pc}
 
 
-_nt BattleR_2_6_End
+_nt BattleR_2_6_EnterCustomScreen
     push       {lr}
     ldr        r7,=PTR_BattleR_2_6_0_Wait_0800617c
     ldrb       r0,[r5,#0x3]
@@ -1199,7 +1199,7 @@ _nt BattleR_2_6_End
     pop        {pc}
 PTR_BattleR_2_6_0_Wait_0800617c:
     .word BattleR_2_6_0_Wait
-    .word BattleR_2_6_1_FreeMP
+    .word BattleR_2_6_1_Next
 
     .pool
 
@@ -1214,7 +1214,7 @@ _nt BattleR_2_6_0_Wait
     pop        {pc}
 
 
-_nt BattleR_2_6_1_FreeMP
+_nt BattleR_2_6_1_Next
     push       {lr}
     ldrh       r0,[r5,#0x2e]
     sub        r0,#0x1

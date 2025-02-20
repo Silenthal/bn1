@@ -22,7 +22,7 @@ _ts Demo_Main
     push       { lr }
     LoadMain demo, r5, r7
     ldr        r0,PTR_JT_R5_DemoState_1897C_08018bc0
-    ldrb       r1,[r5,#Demo_m_state0]
+    ldrb       r1,[r5,#Demo_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -48,24 +48,24 @@ _ts Demo_Init
     bl         Video_InitClearColor
     FadeIn_Black
     pop        { r5 }
-    mov        r0,#D_State_0_State1
-    strb       r0,[r5,#Demo_m_state0]
-    ldrb       r0,[r5,#Demo_m_b6]
+    mov        r0,#0x4
+    strb       r0,[r5,#Demo_state_s0]
+    ldrb       r0,[r5,#Demo_b6]
     cmp        r0,#0x0
     beq        LAB_080189c0
-    mov        r0,#D_State_1_State0
-    strb       r0,[r5,#Demo_m_state1]
+    mov        r0,#0x0
+    strb       r0,[r5,#Demo_state_s1]
     b          LAB_080189c4
 LAB_080189c0:
-    mov        r0,#D_State_1_State1
-    strb       r0,[r5,#Demo_m_state1]
+    mov        r0,#0x4
+    strb       r0,[r5,#Demo_state_s1]
 LAB_080189c4:
     pop        { pc }
 
 _ts Demo_State1
     push       { lr }
     ldr        r0,PTR_JT_R5_DemoState_189D8_08018bc8
-    ldrb       r1,[r5,#Demo_m_state1]
+    ldrb       r1,[r5,#Demo_state_s1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -106,8 +106,8 @@ _ts Demo_SetToBeContinuedMessage
     mov        r1,#0xb
     bl         Text_LoadDialogue
     pop        { r5 }
-    mov        r0,#D_State_1_State1
-    strb       r0,[r5,#Demo_m_state1]
+    mov        r0,#0x4
+    strb       r0,[r5,#Demo_state_s1]
 LAB_08018a2a:
     pop        { pc }
 
@@ -121,8 +121,8 @@ _ts Demo_FadeOutScreen
     push       { r5 }
     Fade_Request FT_FadeOutToBlack, 0xff
     pop        { r5 }
-    mov        r0,#D_State_1_State2
-    strb       r0,[r5,#Demo_m_state1]
+    mov        r0,#0x8
+    strb       r0,[r5,#Demo_state_s1]
 LAB_08018a4a:
     pop        { pc }
 
@@ -157,8 +157,8 @@ _ts Demo_ApplyVideoSettings
     ldr        r2,DAT_08018bd4
     and        r1,r2
     strh       r1,[r0,#DisplaySettings_bg3Vofs]
-    mov        r0,#D_State_1_State3
-    strb       r0,[r5,#Demo_m_state1]
+    mov        r0,#0xc
+    strb       r0,[r5,#Demo_state_s1]
 LAB_08018a92:
     pop        { pc }
 
