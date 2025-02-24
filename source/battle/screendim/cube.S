@@ -11,7 +11,7 @@ listCubeParam:
 _ts ScreenDim_Cube
     push       {lr}
     ldr        r7,PTR_PTR_SD_Cube_0_Init_08098e68
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -33,51 +33,31 @@ PTR_SD_Cube_0_Init_08098e6c:
 _ts SD_Cube_0_Init
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    ldrb       r1,[r5,#0x5]
-    add        r1,#0x5e
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    ldrb       r1,[r5,#ScreenDim_subFamily]
+    add        r1,#CD_IceCube
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
 
 _ts SD_Cube_1_Main
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_08098ee6
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_08098ee6
     ldr        r7,PTR_PTR_SD_Cube_1_0_IceCube_08098ee8
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#ScreenDim_subFamily]
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    mov        r0,#0x3c
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x3c
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08098ee6:
     pop        {pc}
 
@@ -91,13 +71,11 @@ PTR_SD_Cube_1_0_IceCube_08098eec:
 
 _ts SD_Cube_2_FadeIn
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_08098f0e
     FadeIn_ScreenDim
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08098f0e:
     pop        {pc}
 
@@ -124,7 +102,7 @@ _ts SD_Cube_1_1_RockCube
     ldr        r7,PTR_DAT_08098f98
     ldr        r1,[r7,#0x0]
     ldr        r2,[r7,#0x4]
-    ldrb       r3,[r5,#0x6]
+    ldrb       r3,[r5,#ScreenDim_owner]
     push       {r0}
     bl         Field_SearchExcludeFirstCol
     pop        {r0}
@@ -147,7 +125,7 @@ LAB_08098f58:
     add        r2,r1,#0x0
     add        r1,r0,#0x0
     ldr        r7,PTR_listCubeParam_08098f94
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#ScreenDim_subFamily]
     lsl        r0,r0,#0x2
     add        r7,r7,r0
     ldrb       r0,[r7,#0x0]
@@ -188,11 +166,11 @@ DAT_08098fa0:
 _ts SD_Cube_1_0_IceCube
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r7,[r7,r0]
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     push       {r7}
     bl         Field_GetAttackDirectionOffset
     pop        {r7}
@@ -200,7 +178,7 @@ _ts SD_Cube_1_0_IceCube
     add        r1,r1,r0
     ldrb       r2,[r7,#0x19]
     ldr        r7,PTR_listCubeParam_08098fe8
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#ScreenDim_subFamily]
     lsl        r0,r0,#0x2
     add        r7,r7,r0
     ldrb       r0,[r7,#0x0]

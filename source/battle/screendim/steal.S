@@ -6,7 +6,7 @@
 _ts ScreenDim_Steal
     push       {lr}
     ldr        r7,PTR_PTR_SD_Steal_0_0809858c
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -28,43 +28,24 @@ PTR_SD_Steal_0_08098590:
 _ts SD_Steal_0
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    mov        r1,#0x4c
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    mov        r1,#CD_Steal
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
 
 _nt SD_Steal_1
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_08098656
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_08098656
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     lsl        r3,r0,#0x2
     ldr        r7,PTR_PanelFlag_ARRAY_08098658
     ldr        r1,[r7,r3]
@@ -73,7 +54,7 @@ _nt SD_Steal_1
     bl         Field_GetFirstPanelForward
     tst        r0,r0
     beq        LAB_0809864e
-    ldrb       r2,[r5,#0x6]
+    ldrb       r2,[r5,#ScreenDim_owner]
     mov        r6,#0xa
     mov        r1,#0x1
     mov        r4,#0x0
@@ -103,10 +84,9 @@ _nt SD_Steal_1
     orr        r3,r4
     strb       r3,[r7,#0x0]
 LAB_0809864e:
-    mov        r0,#0x3c
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x3c
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08098656:
     pop        {pc}
 
@@ -127,13 +107,11 @@ PanelFlag_ARRAY_08098668:
 
 _ts SD_Steal_2
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809868a
     FadeIn_ScreenDim
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809868a:
     pop        {pc}
 

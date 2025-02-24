@@ -5,7 +5,7 @@
 
 _ts ScreenDim_ElecManEscape
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,PTR_PTR_SD_ElecManEscape_0_08099850
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -28,14 +28,14 @@ _ts SD_ElecManEscape_0
     push       {lr}
     Fade_Request FT_FadeOutToBlack, 0x4, save_r5=1
     mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#ScreenDim_state_s0]
     pop        {pc}
 
 
 _ts SD_ElecManEscape_1
     push       {lr}
     mov        r0,#0x8
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#ScreenDim_state_s0]
     pop        {pc}
 
 
@@ -45,7 +45,7 @@ _ts SD_ElecManEscape_2
     ldrb       r0,[r7,#0x3]
     cmp        r0,#0x1
     beq        LAB_08099886
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     bl         Battle_EndNow
     bl         ScreenDim_Free
 LAB_08099886:

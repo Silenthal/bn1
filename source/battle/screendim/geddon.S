@@ -6,7 +6,7 @@
 _ts ScreenDim_Geddon
     push       {lr}
     ldr        r7,PTR_PTR_SD_Geddon_0_080994c8
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -29,25 +29,16 @@ PTR_SD_Geddon_0_080994cc:
 _ts SD_Geddon_0
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x1e
     ldr        r7,PTR_PTR_SD_Geddon_0_0_0809951c
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#ScreenDim_subFamily]
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
-    str        r7,[r5,#0x14]
-    ldrb       r1,[r5,#0x5]
-    add        r1,#0x4f
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    str        r7,[r5,#ScreenDim_param_14]
+    ldrb       r1,[r5,#ScreenDim_subFamily]
+    add        r1,#CD_Geddon1
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
     .align 2, 0
@@ -63,40 +54,26 @@ PTR_SD_Geddon_0_0_08099520:
 
 _ts SD_Geddon_1
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_08099556
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_08099556
-    mov        r0,#0x30
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x30
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08099556:
     pop        {pc}
 
 
 _ts SD_Geddon_2
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809956a
-    mov        r0,#0x6
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x6
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809956a:
     pop        {pc}
 
@@ -105,14 +82,14 @@ _ts SD_Geddon_3
     push       {lr}
     mov        r0,#0x0
     bl         FieldObject_UpdateField
-    ldr        r7,[r5,#0x14]
+    ldr        r7,[r5,#ScreenDim_param_14]
     mov        lr,pc
     bx         r7
     tst        r0,r0
     bne        LAB_0809958e
     FadeIn_ScreenDim
     mov        r0,#0x10
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809958e:
     pop        {pc}
 
@@ -134,12 +111,9 @@ LAB_080995aa:
 
 _ts SD_Geddon_0_0
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_08099614
-    mov        r0,#0x6
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x6
     sub        sp,#0x14
     mov        r0,sp
     ldr        r1,PanelFlag_08099620
@@ -169,10 +143,10 @@ _ts SD_Geddon_0_0
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_0809960a
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#ScreenDim_state_s0]
 LAB_0809960a:
     pop        {r5}
     mov        r0,#0x7b
@@ -198,12 +172,9 @@ PanelFlag_08099624:
 
 _ts SD_Geddon_0_1
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809969e
-    mov        r0,#0x8
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x8
     sub        sp,#0x14
     mov        r0,sp
     ldr        r1,PanelFlag_080996a8
@@ -238,10 +209,10 @@ _ts SD_Geddon_0_1
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_08099694
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#ScreenDim_state_s0]
 LAB_08099694:
     pop        {r5}
     mov        r0,#0x7b

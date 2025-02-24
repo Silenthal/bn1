@@ -6,7 +6,7 @@
 _ts ScreenDim_Interrupt
     push       {lr}
     ldr        r7,PTR_PTR_SD_Interrupt_0_08099fd4
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -28,68 +28,50 @@ PTR_SD_Interrupt_0_08099fd8:
 _ts SD_Interrupt_0
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    mov        r1,#0x53
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
+    SD_SetTimer 0x1e
+    mov        r1,#CD_Interrupt
+    SD_LoadMessage
     push       {r5}
     bl         BattleUi_ClearActiveChip
     pop        {r5}
     push       {r5}
     LoadMain battle, r7, r7
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r5,[r7,r0]
     bl         SpritePtr_DisableFlash
     pop        {r5}
     mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
     pop        {pc}
 
 
 _nt SD_Interrupt_1
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_0809a062
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_0809a062
     bl         SD_Interrupt_Activate
     mov        r0,#0xcf
     bl         Sound_PlaySE
-    mov        r0,#0x5a
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x5a
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809a062:
     pop        {pc}
 
 
 _ts SD_Interrupt_2
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809a07e
     FadeIn_ScreenDim
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809a07e:
     pop        {pc}
 
@@ -101,7 +83,7 @@ _ts SD_Interrupt_3
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809a0a4
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     neg        r0,r0
     add        r0,#0x1d
     bl         Battle_SetBattleFlag
@@ -116,7 +98,7 @@ LAB_0809a0a4:
 _nt SD_Interrupt_Activate
     push       {lr}
     LoadMain matchBattleState, r0, r0
-    ldrb       r1,[r5,#0x6]
+    ldrb       r1,[r5,#ScreenDim_owner]
     tst        r1,r1
     bne        LAB_0809a0b6
     add        r0,#0x70
@@ -135,7 +117,7 @@ LAB_0809a0c8:
     mov        r2,#0xff
     bl         memset_8
     LoadMain battle, r7, r7
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     tst        r0,r0
     bne        LAB_0809a122
     add        r7,#0x54

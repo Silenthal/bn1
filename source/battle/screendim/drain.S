@@ -6,7 +6,7 @@
 _ts ScreenDim_Drain
     push       {lr}
     ldr        r7,PTR_PTR_SD_Drain_0_Init_0809a6e4
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -28,62 +28,40 @@ PTR_SD_Drain_0_Init_0809a6e8:
 _ts SD_Drain_0_Init
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    ldrb       r1,[r5,#0x5]
-    add        r1,#0x79
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    ldrb       r1,[r5,#ScreenDim_subFamily]
+    add        r1,#CD_Drain1
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
 
 _ts SD_Drain_1_Main
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_0809a760
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_0809a760
-    ldrb       r0,[r5,#0x6]
-    ldrb       r4,[r5,#0x5]
-    ldrh       r6,[r5,#0xc]
+    ldrb       r0,[r5,#ScreenDim_owner]
+    ldrb       r4,[r5,#ScreenDim_subFamily]
+    ldrh       r6,[r5,#ScreenDim_damage]
     bl         Routine_Drain_Create
-    mov        r0,#0x90
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x90
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809a760:
     pop        {pc}
 
 
 _nt SD_Drain_2
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809a77c
     FadeIn_ScreenDim
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809a77c:
     pop        {pc}
 

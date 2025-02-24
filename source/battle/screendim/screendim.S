@@ -35,7 +35,7 @@ _ts ScreenDim_Free
 _nt ScreenDim_UpdateAll
     push       {r5,lr}
     ldr        r5,PTR_gScreenDim_08006a68
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#ScreenDim_family]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_listScreenDimHandler_08006a64
     ldr        r7,[r7,r0]

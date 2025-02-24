@@ -5,7 +5,7 @@
 
 _ts ScreenDim_GutsMan
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,PTR_PTR_SD_GutsMan_0_08098adc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,26 +27,17 @@ PTR_PTR_SD_GutsMan_0_08098adc:
 _ts SD_GutsMan_0
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    ldrb       r1,[r5,#0x5]
-    add        r1,#0xa3
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    ldrb       r1,[r5,#ScreenDim_subFamily]
+    add        r1,#CD_GutsMan
+    SD_LoadMessage
+    SD_ClearChipAndNext_B
     pop        {pc}
 
 
 _ts SD_GutsMan_1
     push       {lr}
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#ScreenDim_state_s1]
     ldr        r7,PTR_PTR_SD_GutsMan_1_0_08098b2c
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -67,40 +58,27 @@ PTR_PTR_SD_GutsMan_1_0_08098b2c:
 
 _ts SD_GutsMan_1_0
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_08098b66
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_08098b66
     bl         ScreenDim_WarpPlayerOut
-    mov        r0,#0x1e
-    strb       r0,[r5,#0x8]
+    SD_SetTimer_B 0x1e
     mov        r0,#0x4
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0x2]
+    strh       r0,[r5,#ScreenDim_state_s2]
 LAB_08098b66:
     pop        {pc}
 
 
 _ts SD_GutsMan_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_08098bae
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     ldr        r7,PTR_DAT_08098bb0
     add        r7,r7,r0
     ldrb       r1,[r7,#0x0]
@@ -115,8 +93,8 @@ _ts SD_GutsMan_1_1
     pop        {r7}
     add        r1,r0,#0x0
     ldrb       r2,[r7,#0x19]
-    ldrb       r0,[r5,#0x6]
-    ldrh       r6,[r5,#0xc]
+    ldrb       r0,[r5,#ScreenDim_owner]
+    ldrh       r6,[r5,#ScreenDim_damage]
     bl         Routine_GutsMan_Chip_Create
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x4
@@ -125,7 +103,7 @@ _ts SD_GutsMan_1_1
     mov        r0,#0xde
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_08098bae:
     pop        {pc}
 
@@ -145,26 +123,26 @@ DAT_08098bb6:
 
 _ts SD_GutsMan_1_2
     push       {lr}
-    ldrb       r0,[r5,#0x3]
+    ldrb       r0,[r5,#ScreenDim_state_s3]
     tst        r0,r0
     beq        LAB_08098bce
     bl         ScreenDim_WarpPlayerIn
     mov        r0,#0x92
     bl         Sound_PlaySE
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08098bce:
     pop        {pc}
 
 
 _ts SD_GutsMan_2
     push       {lr}
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#ScreenDim_state_s1]
     tst        r0,r0
     bne        LAB_08098be8
     FadeIn_ScreenDim
     mov        r0,#0x4
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_08098be8:
     LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]

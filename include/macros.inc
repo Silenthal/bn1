@@ -9,3 +9,4 @@
     .include "macros/entity.inc"
     .include "macros/flag.inc"
     .include "macros/scene.inc"
+    .include "macros/screendim.inc"

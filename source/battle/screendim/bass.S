@@ -5,7 +5,7 @@
 
 _ts ScreenDim_Bass
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,PTR_PTR_SD_Bass_0_Init_0809b5f4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,25 +27,16 @@ PTR_PTR_SD_Bass_0_Init_0809b5f4:
 _ts SD_Bass_0_Init
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    mov        r1,#0xc7
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    mov        r1,#CD_Bass
+    SD_LoadMessage
+    SD_ClearChipAndNext_B
     pop        {pc}
 
 
 _nt SD_Bass_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#ScreenDim_state_s1]
     ldr        r7,PTR_PTR_SD_Bass_1_0_0809b644
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -64,85 +55,69 @@ PTR_PTR_SD_Bass_1_0_0809b644:
 
 _ts SD_Bass_1_0
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_0809b67e
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_0809b67e
     bl         ScreenDim_WarpPlayerOut
-    mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
+    SD_SetTimer_B 0x3c
     mov        r0,#0x4
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0x3]
+    strb       r0,[r5,#ScreenDim_state_s3]
 LAB_0809b67e:
     pop        {pc}
 
 
 _ts SD_Bass_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809b698
-    ldrb       r2,[r5,#0x6]
+    ldrb       r2,[r5,#ScreenDim_owner]
     mov        r3,#0xc8
-    ldrb       r4,[r5,#0x5]
+    ldrb       r4,[r5,#ScreenDim_subFamily]
     bl         Routine_Bass_Chip_Create
     mov        r0,#0x8
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809b698:
     pop        {pc}
 
 
 _nt SD_Bass_1_2
     push       {lr}
-    ldrb       r0,[r5,#0x3]
+    ldrb       r0,[r5,#ScreenDim_state_s3]
     tst        r0,r0
     beq        LAB_0809b6aa
     mov        r0,#0xc
-    strb       r0,[r5,#0x1]
-    mov        r0,#0xa
-    strh       r0,[r5,#0x8]
+    strb       r0,[r5,#ScreenDim_state_s1]
+    SD_SetTimer 0xa
 LAB_0809b6aa:
     pop        {pc}
 
 
 _ts SD_Bass_1_3
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809b6c2
     bl         ScreenDim_WarpPlayerIn
     mov        r0,#0x8
-    strh       r0,[r5,#0x0]
+    strh       r0,[r5,#ScreenDim_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0x2]
+    strh       r0,[r5,#ScreenDim_state_s2]
 LAB_0809b6c2:
     pop        {pc}
 
 
 _ts SD_Bass_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#ScreenDim_state_s1]
     tst        r0,r0
     bne        LAB_0809b6dc
     FadeIn_ScreenDim
     mov        r0,#0x4
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809b6dc:
     LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]

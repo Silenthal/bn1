@@ -6,7 +6,7 @@
 _ts ScreenDim_Barrier
     push       {lr}
     ldr        r7,PTR_PTR_SD_Barrier_0_Init_08099b18
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -28,21 +28,12 @@ PTR_SD_Barrier_0_Init_08099b1c:
 _ts SD_Barrier_0_Init
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x1e
     ldr        r7,PTR_BYTE_ARRAY_08099b60
-    ldrb       r1,[r5,#0x5]
+    ldrb       r1,[r5,#ScreenDim_subFamily]
     ldrb       r1,[r7,r1]
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
     .align 2, 0
@@ -68,42 +59,29 @@ BYTE_ARRAY_08099b64:
 
 _ts SD_Barrier_1_Activate
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_08099ba6
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_08099ba6
-    ldrb       r0,[r5,#0x5]
-    ldrb       r1,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_subFamily]
+    ldrb       r1,[r5,#ScreenDim_owner]
     bl         S_Barrier_Activate
-    mov        r0,#0x3c
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x3c
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08099ba6:
     pop        {pc}
 
 
 _ts SD_Barrier_2_Brighten
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_08099bc2
     FadeIn_ScreenDim
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08099bc2:
     pop        {pc}
 

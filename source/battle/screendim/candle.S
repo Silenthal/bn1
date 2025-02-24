@@ -6,7 +6,7 @@
 _ts ScreenDim_Candle
     push       {lr}
     ldr        r7,PTR_PTR_SD_Candle_0_Init_08099cb8
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -28,58 +28,39 @@ PTR_SD_Candle_0_Init_08099cbc:
 _ts SD_Candle_0_Init
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    ldrb       r1,[r5,#0x5]
-    add        r1,#0x73
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    ldrb       r1,[r5,#ScreenDim_subFamily]
+    add        r1,#CD_Candle1
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
 
 _ts SD_Candle_1
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_08099d68
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_08099d68
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     bl         R_Player_ClearOwnedEntity
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     push       {r0}
     bl         Field_GetAttackDirectionOffset
     add        r2,r0,#0x0
     pop        {r6}
     LoadMain battle, r7, r7
-    ldrb       r4,[r5,#0x5]
+    ldrb       r4,[r5,#ScreenDim_subFamily]
     push       {r5}
     lsl        r0,r6,#0x2
     add        r0,#0x40
     ldr        r5,[r7,r0]
     ldr        r7,[r5,#0x74]
-    ldrb       r1,[r5,#0x18]
+    ldrb       r1,[r5,#ScreenDim_targetX]
     add        r1,r1,r2
-    ldrb       r2,[r5,#0x19]
+    ldrb       r2,[r5,#ScreenDim_targetY]
     add        r0,r7,#0x0
     add        r0,#0x50
     bl         Attack_Candle_Create
@@ -91,23 +72,20 @@ _ts SD_Candle_1
     orr        r0,r1
     strb       r0,[r4,#0x0]
 LAB_08099d60:
-    mov        r0,#0x3c
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x3c
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08099d68:
     pop        {pc}
 
 
 _nt SD_Candle_2
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_08099d84
     FadeIn_ScreenDim
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08099d84:
     pop        {pc}
 

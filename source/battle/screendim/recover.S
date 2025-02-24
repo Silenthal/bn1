@@ -8,7 +8,7 @@
 _ts ScreenDim_Recover
     push       {lr}
     ldr        r7,PTR_PTR_SD_Recover_0_Init
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -28,42 +28,23 @@ PTR_SD_Recover_0_Init:
 _ts SD_Recover_0_Init
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    ldrb       r1,[r5,#0x5]
-    add        r1,#0x43
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    ldrb       r1,[r5,#ScreenDim_subFamily]
+    add        r1,#CD_Recov10
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
 
 _ts SD_Recover_1_Main
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_080983ec
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_080983ec
-    ldr        r7,[r5,#0x14]
+    ldr        r7,[r5,#ScreenDim_param_14]
     add        r7,#0x28
     ldmia      r7!,{r1,r2,r3}
     mov        r4,#0xe
@@ -71,17 +52,17 @@ _ts SD_Recover_1_Main
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_080983c0
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#ScreenDim_state_s0]
 LAB_080983c0:
     pop        {r5}
     ldr        r0,PTR_listRecoverHPAmounSD_080983f0
-    ldrb       r1,[r5,#0x5]
+    ldrb       r1,[r5,#ScreenDim_subFamily]
     lsl        r1,r1,#0x1
     ldrh       r0,[r0,r1]
-    ldr        r7,[r5,#0x14]
+    ldr        r7,[r5,#ScreenDim_param_14]
     ldrh       r1,[r7,#0x20]
     tst        r1,r1
     beq        LAB_080983de
@@ -95,10 +76,9 @@ LAB_080983dc:
 LAB_080983de:
     mov        r0,#0x72
     bl         Sound_PlaySE
-    mov        r0,#0x3c
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x3c
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_080983ec:
     pop        {pc}
 
@@ -111,13 +91,11 @@ listRecoverHPAmounts:
 
 _ts SD_Recover_2_FadeIn
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809841e
     FadeIn_ScreenDim
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809841e:
     pop        {pc}
 

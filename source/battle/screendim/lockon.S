@@ -6,7 +6,7 @@
 _ts ScreenDim_LockOn
     push       {lr}
     ldr        r7,PTR_PTR_SD_LockOn_0_0809b704
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -29,42 +29,23 @@ PTR_SD_LockOn_0_0809b708:
 _ts SD_LockOn_0
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    ldrb       r1,[r5,#0x5]
-    add        r1,#0x3d
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    ldrb       r1,[r5,#ScreenDim_subFamily]
+    add        r1,#CD_Lockon1
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
 
 _ts SD_LockOn_1
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_0809b7a4
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_0809b7a4
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     push       {r0}
     bl         Field_GetAttackDirectionOffset
     add        r2,r0,#0x0
@@ -80,24 +61,21 @@ _ts SD_LockOn_1
     strb       r0,[r5,r3]
     mov        r3,#0x15
     strb       r1,[r5,r3]
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     bl         R_Player_ClearOwnedEntity
-    mov        r0,#0x15
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x15
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809b7a4:
     pop        {pc}
 
 
 _nt SD_LockOn_2
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809b7e2
     LoadMain matchBattleState, r0, r0
-    ldrb       r7,[r5,#0x6]
+    ldrb       r7,[r5,#ScreenDim_owner]
     tst        r7,r7
     beq        LAB_0809b7bc
     add        r0,#0x70
@@ -107,8 +85,8 @@ LAB_0809b7bc:
     ldrb       r1,[r5,r3]
     mov        r3,#0x15
     ldrb       r2,[r5,r3]
-    ldrb       r4,[r5,#0x5]
-    ldrh       r6,[r5,#0xc]
+    ldrb       r4,[r5,#ScreenDim_subFamily]
+    ldrh       r6,[r5,#ScreenDim_damage]
     bl         Attack_LockOn_Create
     tst        r4,r4
     beq        LAB_0809b7da
@@ -117,23 +95,20 @@ LAB_0809b7bc:
     orr        r0,r1
     strb       r0,[r4,#0x0]
 LAB_0809b7da:
-    mov        r0,#0x60
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x60
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809b7e2:
     pop        {pc}
 
 
 _ts SD_LockOn_3
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809b7fe
     FadeIn_ScreenDim
     mov        r0,#0x10
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809b7fe:
     pop        {pc}
 

@@ -6,17 +6,17 @@
 
 _nt ScreenDim_WarpPlayerOut
     push       {r5,lr}
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     bl         ScreenDim_HidePlayer
     LoadMain battle, r7, r7
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r7,[r7,r0]
     add        r7,#0x28
     ldmia      r7!,{r1,r2,r3}
     mov        r4,#0x16
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     tst        r0,r0
     beq        LAB_080982e0
     mov        r6,#0x4
@@ -27,27 +27,27 @@ LAB_080982e0:
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_080982f0
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#ScreenDim_state_s0]
 LAB_080982f0:
     pop        {r5,pc}
 
 
 _nt ScreenDim_WarpPlayerIn
     push       {r5,lr}
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     bl         FUN_08057300
     LoadMain battle, r7, r7
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     lsl        r0,r0,#0x2
     add        r7,r7,r0
     ldr        r7,[r7,#0x40]
     add        r7,#0x28
     ldmia      r7!,{r1,r2,r3}
     mov        r4,#0x17
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     tst        r0,r0
     beq        LAB_0809831a
     mov        r6,#0x4
@@ -58,9 +58,9 @@ LAB_0809831a:
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_0809832a
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#ScreenDim_state_s0]
 LAB_0809832a:
     pop        {r5,pc}

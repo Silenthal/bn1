@@ -6,7 +6,7 @@
 _ts ScreenDim_DeathStorm
     push       {lr}
     ldr        r7,PTR_PTR_SD_DeathStorm_0_Init_0809a620
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -28,61 +28,39 @@ PTR_SD_DeathStorm_0_Init_0809a624:
 _ts SD_DeathStorm_0_Init
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    mov        r1,#0xea
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    mov        r1,#CD_PA_DeathStorm
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
 
 _nt SD_DeathStorm_1
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_0809a69a
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_0809a69a
-    ldrb       r0,[r5,#0x6]
-    ldrb       r4,[r5,#0x5]
-    ldrh       r6,[r5,#0xc]
+    ldrb       r0,[r5,#ScreenDim_owner]
+    ldrb       r4,[r5,#ScreenDim_subFamily]
+    ldrh       r6,[r5,#ScreenDim_damage]
     bl         Routine_DeathStorm_Create
-    mov        r0,#0xc0
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0xc0
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809a69a:
     pop        {pc}
 
 
 _ts SD_DeathStorm_2
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809a6b6
     FadeIn_ScreenDim
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809a6b6:
     pop        {pc}
 

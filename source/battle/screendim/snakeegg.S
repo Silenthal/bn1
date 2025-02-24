@@ -6,7 +6,7 @@
 _ts ScreenDim_SnakeEgg
     push       {lr}
     ldr        r7,PTR_PTR_SD_SnakeEgg_0_0809ae28
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -29,60 +29,41 @@ PTR_SD_SnakeEgg_0_0809ae2c:
 _ts SD_SnakeEgg_0
     push       {lr}
     FadeOut_ScreenDim
-    ldrb       r1,[r5,#0x5]
+    ldrb       r1,[r5,#ScreenDim_subFamily]
     lsl        r1,r1,#0x19
     lsr        r1,r1,#0x19
-    add        r1,#0x31
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    add        r1,#CD_Snakegg1
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
 
 _ts SD_SnakeEgg_1
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_0809aea2
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrb       r0,[r5,#0x5]
+    SD_HideMessage
+    ldrb       r0,[r5,#ScreenDim_subFamily]
     lsl        r0,r0,#0x19
     bcs        LAB_0809ae9a
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     bl         R_Player_ClearOwnedEntity
 LAB_0809ae9a:
-    mov        r0,#0x30
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x30
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809aea2:
     pop        {pc}
 
 
 _ts SD_SnakeEgg_2
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809af2e
     sub        sp,#0x14
     mov        r7,sp
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     neg        r0,r0
     add        r0,#0x1
     ldr        r2,PTR_DAT_0809af30
@@ -95,7 +76,7 @@ _ts SD_SnakeEgg_2
     pop        {r1,r2,r3,r7}
     tst        r0,r0
     bne        LAB_0809aee6
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     neg        r0,r0
     add        r0,#0x1
     mov        r4,#0x30
@@ -113,8 +94,8 @@ LAB_0809aee6:
     bl         Field_IndexToCellXY
     add        r2,r1,#0x0
     add        r1,r0,#0x0
-    ldrb       r4,[r5,#0x5]
-    ldrb       r7,[r5,#0x6]
+    ldrb       r4,[r5,#ScreenDim_subFamily]
+    ldrb       r7,[r5,#ScreenDim_owner]
     mov        r0,#0x0
     lsl        r4,r4,#0x19
     bcs        LAB_0809af0c
@@ -127,8 +108,8 @@ LAB_0809af0a:
 LAB_0809af0c:
     lsr        r4,r4,#0x19
     mov        r3,#0x0
-    ldrh       r6,[r5,#0xc]
-    ldrb       r7,[r5,#0x6]
+    ldrh       r6,[r5,#ScreenDim_damage]
+    ldrb       r7,[r5,#ScreenDim_owner]
     bl         Attack_SnakeEgg_Create
     tst        r4,r4
     beq        LAB_0809af24
@@ -138,10 +119,9 @@ LAB_0809af0c:
     strb       r0,[r4,#0x0]
 LAB_0809af24:
     add        sp,#0x14
-    mov        r0,#0x3c
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x3c
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809af2e:
     pop        {pc}
 
@@ -161,13 +141,11 @@ DAT_0809af37:
 
 _ts SD_SnakeEgg_3
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809af52
     FadeIn_ScreenDim
     mov        r0,#0x10
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809af52:
     pop        {pc}
 

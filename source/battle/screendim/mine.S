@@ -5,7 +5,7 @@
 
 _ts ScreenDim_Mine
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,PTR_PTR_SD_Mine_0_080998a4
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,28 +27,19 @@ PTR_PTR_SD_Mine_0_080998a4:
 _ts SD_Mine_0
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    ldrb       r0,[r5,#0x5]
+    SD_SetTimer 0x1e
+    ldrb       r0,[r5,#ScreenDim_subFamily]
     mov        r1,#0x3
     bl         SWI_Div
-    add        r1,#0x7c
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    add        r1,#CD_Mine1
+    SD_LoadMessage
+    SD_ClearChipAndNext_B
     pop        {pc}
 
 
 _nt SD_Mine_1
     push       {lr}
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#ScreenDim_state_s1]
     ldr        r7,PTR_PTR_SD_Mine_1_0_080998fc
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -67,88 +58,72 @@ PTR_PTR_SD_Mine_1_0_080998fc:
 
 _ts SD_Mine_1_0
     push       {lr}
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#ScreenDim_subFamily]
     mov        r1,#0x3
     bl         SWI_Div
     add        r1,#0x7c
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_0809993c
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_0809993c
-    mov        r0,#0x3c
-    strb       r0,[r5,#0x8]
+    SD_SetTimer_B 0x3c
     mov        r0,#0x4
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
     mov        r0,#0x0
-    strb       r0,[r5,#0x3]
+    strb       r0,[r5,#ScreenDim_state_s3]
 LAB_0809993c:
     pop        {pc}
 
 
 _nt SD_Mine_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_08099958
     push       {r5}
-    ldrb       r3,[r5,#0x6]
-    ldrb       r4,[r5,#0x5]
+    ldrb       r3,[r5,#ScreenDim_owner]
+    ldrb       r4,[r5,#ScreenDim_subFamily]
     bl         Attack_Mine_Create
     pop        {r5}
     mov        r0,#0x8
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_08099958:
     pop        {pc}
 
 
 _nt SD_Mine_1_2
     push       {lr}
-    ldrb       r0,[r5,#0x3]
+    ldrb       r0,[r5,#ScreenDim_state_s3]
     tst        r0,r0
     beq        LAB_0809996a
     mov        r0,#0xc
-    strb       r0,[r5,#0x1]
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
+    strb       r0,[r5,#ScreenDim_state_s1]
+    SD_SetTimer 0x1e
 LAB_0809996a:
     pop        {pc}
 
 
 _ts SD_Mine_1_3
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809997e
     mov        r0,#0x8
-    strh       r0,[r5,#0x0]
+    strh       r0,[r5,#ScreenDim_state_s0]
     mov        r0,#0x0
-    strh       r0,[r5,#0x2]
+    strh       r0,[r5,#ScreenDim_state_s2]
 LAB_0809997e:
     pop        {pc}
 
 
 _ts SD_Mine_2
     push       {lr}
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#ScreenDim_state_s1]
     tst        r0,r0
     bne        LAB_08099998
     FadeIn_ScreenDim
     mov        r0,#0x4
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_08099998:
     LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]

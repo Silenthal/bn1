@@ -6,7 +6,7 @@
 _ts ScreenDim_Gauge
     push       {lr}
     ldr        r7,PTR_PTR_SD_Gauge_0_Init_08099db4
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -28,45 +28,25 @@ PTR_SD_Gauge_0_Init_08099db8:
 _ts SD_Gauge_0_Init
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    ldrb       r1,[r5,#0x5]
-    add        r1,#0x76
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    ldrb       r1,[r5,#ScreenDim_subFamily]
+    add        r1,#CD_SloGauge
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
 
 _ts SD_Gauge_1
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_08099e3e
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_08099e3e
-    mov        r0,#0x46
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x46
     ldr        r7,PTR_listGaugeFactor_08099e40
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#ScreenDim_subFamily]
     ldrb       r0,[r7,r0]
     LoadMain battle, r7, r7
     strb       r0,[r7,#0x12]
@@ -76,7 +56,7 @@ _ts SD_Gauge_1
     bl         Dma_TransferListAdd
     pop        {r5}
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08099e3e:
     pop        {pc}
 
@@ -110,13 +90,11 @@ _ts SD_Gauge_2
     mov        r2,#0x0
     mov        r3,#0x0
     bl         DrawTutorialArrow
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_08099e7e
     FadeIn_ScreenDim
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_08099e7e:
     pop        {pc}
 

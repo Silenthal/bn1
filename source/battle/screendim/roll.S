@@ -5,7 +5,7 @@
 
 _ts ScreenDim_Roll
     push       {lr}
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,PTR_PTR_SD_Roll_0_Init_0809a2a8
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -27,26 +27,17 @@ PTR_PTR_SD_Roll_0_Init_0809a2a8:
 _ts SD_Roll_0_Init
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    ldrb       r1,[r5,#0x5]
-    add        r1,#0xa0
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    ldrb       r1,[r5,#ScreenDim_subFamily]
+    add        r1,#CD_Roll
+    SD_LoadMessage
+    SD_ClearChipAndNext_B
     pop        {pc}
 
 
 _ts SD_Roll_1_Main
     push       {lr}
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#ScreenDim_state_s1]
     ldr        r7,PTR_PTR_SD_Roll_1_0_WarpOut_0809a304
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -70,48 +61,35 @@ PTR_PTR_SD_Roll_1_0_WarpOut_0809a304:
 
 _ts SD_Roll_1_0_WarpOut
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_0809a33e
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_0809a33e
     bl         ScreenDim_WarpPlayerOut
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x1e
     mov        r0,#0x4
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
     mov        r0,#0x0
-    strh       r0,[r5,#0x2]
+    strh       r0,[r5,#ScreenDim_state_s2]
 LAB_0809a33e:
     pop        {pc}
 
 
 _ts SD_Roll_1_1
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809a374
     LoadMain battle, r7, r7
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r7,[r7,r0]
     ldrb       r1,[r7,#0x18]
     ldrb       r2,[r7,#0x19]
-    ldrb       r0,[r5,#0x6]
-    ldrh       r6,[r5,#0xc]
+    ldrb       r0,[r5,#ScreenDim_owner]
+    ldrh       r6,[r5,#ScreenDim_damage]
     bl         Routine_Roll_Chip_Create
     ldrb       r0,[r7,#0x0]
     mov        r1,#0x4
@@ -120,7 +98,7 @@ _ts SD_Roll_1_1
     mov        r0,#0xde
     bl         Sound_PlaySE
     mov        r0,#0x8
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809a374:
     pop        {pc}
     .byte 0x00
@@ -138,28 +116,25 @@ DAT_0809a37c:
 
 _ts SD_Roll_1_2
     push       {lr}
-    ldrb       r0,[r5,#0x3]
+    ldrb       r0,[r5,#ScreenDim_state_s3]
     tst        r0,r0
     beq        LAB_0809a39a
     bl         ScreenDim_WarpPlayerIn
     mov        r0,#0x92
     bl         Sound_PlaySE
-    mov        r0,#0xf
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0xf
     mov        r0,#0xc
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809a39a:
     pop        {pc}
 
 
 _ts SD_Roll_1_3
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809a3d6
     LoadMain battle, r7, r7
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     lsl        r0,r0,#0x2
     add        r0,#0x40
     ldr        r7,[r7,r0]
@@ -177,26 +152,23 @@ _ts SD_Roll_1_3
     orr        r0,r1
     strb       r0,[r7,#0x0]
 LAB_0809a3ce:
-    mov        r0,#0x24
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x24
     mov        r0,#0x10
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809a3d6:
     pop        {pc}
 
 
 _ts SD_Roll_1_4_Recover
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809a42a
     ldr        r7,PTR_BYTE_ARRAY_0809a42c
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#ScreenDim_subFamily]
     ldrb       r0,[r7,r0]
     push       {r5}
     LoadMain battle, r7, r7
-    ldrb       r1,[r5,#0x6]
+    ldrb       r1,[r5,#ScreenDim_owner]
     lsl        r1,r1,#0x2
     add        r1,#0x40
     ldr        r5,[r7,r1]
@@ -214,16 +186,15 @@ _ts SD_Roll_1_4_Recover
     bl         Effect_QuickEffect_Create
     tst        r5,r5
     beq        LAB_0809a420
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#ScreenDim_state_s0]
 LAB_0809a420:
     pop        {r5}
-    mov        r0,#0x3c
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x3c
     mov        r0,#0x14
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809a42a:
     pop        {pc}
 
@@ -241,24 +212,22 @@ BYTE_ARRAY_0809a430:
 
 _ts SD_Roll_1_5_Next
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809a442
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809a442:
     pop        {pc}
 
 
 _ts SD_Roll_2_Free
     push       {lr}
-    ldrb       r0,[r5,#0x1]
+    ldrb       r0,[r5,#ScreenDim_state_s1]
     tst        r0,r0
     bne        LAB_0809a45c
     FadeIn_ScreenDim
     mov        r0,#0x4
-    strb       r0,[r5,#0x1]
+    strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809a45c:
     LoadMain fade, r7, r7
     ldrb       r0,[r7,#0x3]

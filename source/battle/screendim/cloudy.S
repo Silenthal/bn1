@@ -6,7 +6,7 @@
 _ts ScreenDim_Cloudy
     push       {lr}
     ldr        r7,PTR_PTR_SD_Cloudy_0_Init_080996c0
-    ldrb       r0,[r5,#0x0]
+    ldrb       r0,[r5,#ScreenDim_state_s0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
@@ -29,56 +29,34 @@ PTR_SD_Cloudy_0_Init_080996c4:
 _ts SD_Cloudy_0_Init
     push       {lr}
     FadeOut_ScreenDim
-    mov        r0,#0x1e
-    strh       r0,[r5,#0x8]
-    ldrb       r1,[r5,#0x5]
-    add        r1,#0x5b
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Load
-    pop        {r5}
-    push       {r5}
-    bl         BattleUi_ClearActiveChip
-    pop        {r5}
-    mov        r0,#0x4
-    str        r0,[r5,#0x0]
+    SD_SetTimer 0x1e
+    ldrb       r1,[r5,#ScreenDim_subFamily]
+    add        r1,#CD_Cloud
+    SD_LoadMessage
+    SD_ClearChipAndNext_A
     pop        {pc}
 
 
 _ts SD_Cloudy_1_ShowMessage
     push       {lr}
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Main
-    pop        {r5}
+    SD_ShowMessage
     tst        r0,r0
     bne        LAB_0809973c
-    push       {r5}
-    ldrb       r0,[r5,#0x6]
-    add        r0,#0x4
-    bl         BattleMessage_Disable
-    pop        {r5}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_HideMessage
+    SD_DecreaseTimer
     bne        LAB_0809973c
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     bl         R_Player_ClearOwnedEntity
-    mov        r0,#0x15
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x15
     mov        r0,#0x8
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809973c:
     pop        {pc}
 
 
 _nt SD_Cloudy_2_Attack
     push       {lr}
-    ldrh       r0,[r5,#0x8]
-    sub        r0,#0x1
-    strh       r0,[r5,#0x8]
+    SD_DecreaseTimer
     bne        LAB_0809978c
     bl         FUN_080997e8
     mov        r4,#0x1
@@ -87,19 +65,19 @@ _nt SD_Cloudy_2_Attack
     lsl        r1,r1,#0x10
     orr        r4,r1
     LoadMain battle, r7, r7
-    ldrb       r3,[r5,#0x6]
+    ldrb       r3,[r5,#ScreenDim_owner]
     lsl        r3,r3,#0x2
     add        r3,#0x40
     ldr        r7,[r7,r3]
     ldrb       r1,[r7,#0x18]
-    ldrh       r6,[r5,#0xc]
+    ldrh       r6,[r5,#ScreenDim_damage]
     ldr        r0,PTR_DAT_08099790
-    ldrb       r3,[r5,#0x5]
+    ldrb       r3,[r5,#ScreenDim_subFamily]
     lsl        r3,r3,#0x2
     ldr        r3,[r0,r3]
     ldr        r7,[r7,#0x74]
     add        r7,#0x50
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     bl         Attack_Cloudy_Create
     tst        r7,r7
     beq        LAB_08099784
@@ -108,10 +86,9 @@ _nt SD_Cloudy_2_Attack
     orr        r0,r1
     strb       r0,[r7,#0x0]
 LAB_08099784:
-    mov        r0,#0x30
-    strh       r0,[r5,#0x8]
+    SD_SetTimer 0x30
     mov        r0,#0xc
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_0809978c:
     pop        {pc}
 
@@ -140,7 +117,7 @@ DAT_08099794:
 _ts SD_Cloudy_3_FadeIn
     push       {lr}
     LoadMain battle, r6, r6
-    ldrb       r3,[r5,#0x6]
+    ldrb       r3,[r5,#ScreenDim_owner]
     lsl        r3,r3,#0x2
     add        r3,#0x40
     ldr        r6,[r6,r3]
@@ -152,7 +129,7 @@ _ts SD_Cloudy_3_FadeIn
     bne        LAB_080997ca
     FadeIn_ScreenDim
     mov        r0,#0x10
-    str        r0,[r5,#0x0]
+    str        r0,[r5,#ScreenDim_state_s0]
 LAB_080997ca:
     pop        {pc}
 
@@ -174,7 +151,7 @@ LAB_080997e6:
 
 _ts FUN_080997e8
     push       {lr}
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     lsl        r3,r0,#0x2
     ldr        r7,PTR_PanelFlag_ARRAY_0809981c
     ldr        r1,[r7,r3]
@@ -183,7 +160,7 @@ _ts FUN_080997e8
     bl         Field_GetFirstPanelForward
     tst        r0,r0
     bne        LAB_0809980a
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#ScreenDim_owner]
     bl         Field_GetFirstWalkableOpponentColumnFront
     tst        r0,r0
     bne        LAB_0809980a
@@ -191,7 +168,7 @@ _ts FUN_080997e8
 LAB_0809980a:
     add        r1,r0,#0x0
     LoadMain battle, r7, r7
-    ldrb       r2,[r5,#0x6]
+    ldrb       r2,[r5,#ScreenDim_owner]
     lsl        r2,r2,#0x2
     add        r2,#0x40
     ldr        r7,[r7,r2]
