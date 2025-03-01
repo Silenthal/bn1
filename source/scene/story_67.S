@@ -65,7 +65,7 @@ LAB_0809310a:
 
 _ts S_Story_67_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809312a
@@ -169,7 +169,7 @@ _nt S_Story_67_7
     Flag_GetBase 0x9C
     beq        LAB_08093236
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08093236
@@ -201,7 +201,7 @@ _ts S_Story_67_8
     tst        r0,r0
     bne        LAB_08093266
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08093266
@@ -237,7 +237,7 @@ LAB_08093290:
 
 _nt S_Story_67_10
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08093304
@@ -252,7 +252,7 @@ _nt S_Story_67_10
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x0
-    str        r1,[r0,#0x34]
+    str        r1,[r0,#World_npcCommandList]
     push       {r5}
     ldr        r7,PTR_NPCList_80548BC_08093368
     bl         Map_LoadNPCList
@@ -282,7 +282,7 @@ LAB_08093304:
 
 _nt S_Story_67_11
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809333e
@@ -295,7 +295,7 @@ _nt S_Story_67_11
     Flag_ClearBase 0x2F
     LoadMain world, r0, r0
     mov        r1,#0x52
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     bl         Scene_UnloadAndResetStepCounter
 LAB_0809333e:
     pop        {pc}

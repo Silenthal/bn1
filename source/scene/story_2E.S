@@ -72,7 +72,7 @@ _ts S_Story_2E_2
     cmp        r0,#0x1
     beq        LAB_0808a582
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808a58c
@@ -239,7 +239,7 @@ LAB_0808a6d8:
 
 _nt S_Story_2E_9
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808a72c
@@ -259,7 +259,7 @@ _nt S_Story_2E_9
     push       {r5}
     mov        r0,#0x1
     LoadMain world, r1, r1
-    ldr        r1,[r1,#0x28]
+    ldr        r1,[r1,#World_playerLocation]
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
@@ -273,7 +273,7 @@ LAB_0808a72c:
 
 _nt S_Story_2E_10
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808a75c

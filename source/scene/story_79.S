@@ -82,7 +82,7 @@ LAB_08096882:
 
 _ts S_Story_79_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080968b8
@@ -148,7 +148,7 @@ LAB_08096910:
 
 _nt S_Story_79_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08096930
@@ -162,7 +162,7 @@ LAB_08096930:
 
 _nt S_Story_79_6
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08096950
@@ -234,7 +234,7 @@ LAB_080969ca:
 
 _ts S_Story_79_10
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08096a36
@@ -263,7 +263,7 @@ _ts S_Story_79_10
     push       {r5}
     mov        r0,#0x1
     LoadMain world, r1, r1
-    ldr        r1,[r1,#0x28]
+    ldr        r1,[r1,#World_playerLocation]
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
@@ -277,7 +277,7 @@ LAB_08096a36:
 
 _ts S_Story_79_11
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08096a6a

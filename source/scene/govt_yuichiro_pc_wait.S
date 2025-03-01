@@ -38,8 +38,8 @@ _ts S_Yuichiro_PC_Wait_1
     bne        LAB_0808b94e
     LoadMain world, r0, r7
     push       {r5}
-    ldr        r0,[r0,#0x28]
-    ldrb       r0,[r0,#0x14]
+    ldr        r0,[r0,#World_playerLocation]
+    ldrb       r0,[r0,#PlayerLocation_currDirMoveIndex]
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState

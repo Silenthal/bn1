@@ -64,7 +64,7 @@ _ts S_Story_2D_1
     bl         PlayerAnimation_SetState
     mov        r0,#0x1
     LoadMain world, r1, r1
-    ldr        r1,[r1,#0x28]
+    ldr        r1,[r1,#World_playerLocation]
     add        r1,#0x24
     bl         Camera_SetEnabled
     FadeInFast_Black
@@ -76,7 +76,7 @@ LAB_0808a392:
 
 _ts S_Story_2D_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808a3bc
@@ -144,7 +144,7 @@ LAB_0808a426:
 
 _ts S_Story_2D_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808a47a
@@ -155,7 +155,7 @@ _ts S_Story_2D_5
     pop        {r5}
     LoadMain world, r0, r7
     mov        r1,#0x3
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1
     strb       r1,[r0,#0x10]

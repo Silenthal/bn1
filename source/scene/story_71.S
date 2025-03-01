@@ -74,7 +74,7 @@ _ts S_Story_71_1
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080946a8
@@ -118,7 +118,7 @@ PTR_Cam_Set_080946b0:
 
 _ts S_Story_71_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08094708
@@ -286,7 +286,7 @@ LAB_0809481e:
 
 _ts S_Story_71_9
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809485c
@@ -313,7 +313,7 @@ LAB_0809485c:
 
 _nt S_Story_71_10
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809487c
@@ -340,7 +340,7 @@ _nt S_Story_71_11
     push       {r5}
     mov        r0,#0x1
     LoadMain world, r1, r1
-    ldr        r1,[r1,#0x28]
+    ldr        r1,[r1,#World_playerLocation]
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
@@ -489,7 +489,7 @@ _nt S_Story_71_17
     and        r0,r1
     bne        LAB_08094a10
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
@@ -518,7 +518,7 @@ LAB_08094a1a:
 
 _ts S_Story_71_18
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08094a3e
@@ -534,7 +534,7 @@ LAB_08094a3e:
 
 _ts S_Story_71_19
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08094a78
@@ -579,7 +579,7 @@ LAB_08094aa2:
 
 _ts S_Story_71_21
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08094b38
@@ -603,7 +603,7 @@ _ts S_Story_71_21
     push       {r5}
     mov        r0,#0x1
     LoadMain world, r1, r1
-    ldr        r1,[r1,#0x28]
+    ldr        r1,[r1,#World_playerLocation]
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
@@ -613,7 +613,7 @@ _ts S_Story_71_21
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x0
-    str        r1,[r0,#0x34]
+    str        r1,[r0,#World_npcCommandList]
     push       {r5}
     ldr        r7,PTR_NPCList_804DFAC_08094b94
     bl         Map_LoadNPCList
@@ -641,7 +641,7 @@ LAB_08094b38:
 
 _nt S_Story_71_22
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08094b60

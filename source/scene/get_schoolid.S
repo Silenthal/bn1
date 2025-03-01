@@ -38,7 +38,7 @@ _ts S_Get_SchoolID_0
 
 _ts S_Get_SchoolID_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808802e
@@ -46,8 +46,8 @@ _ts S_Get_SchoolID_1
     bl         NPC_FindByIndex
     str        r0,[r5,#Scene_sceneArg]
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
-    ldrb       r0,[r7,#0x10]
+    ldr        r7,[r7,#World_playerLocation]
+    ldrb       r0,[r7,#PlayerLocation_direction]
     add        r0,#0x4
     mov        r1,#0x7
     and        r0,r1
@@ -64,7 +64,7 @@ LAB_0808802e:
 
 _ts S_Get_SchoolID_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808806e
@@ -105,7 +105,7 @@ LAB_08088082:
 
 _ts S_Get_SchoolID_4
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080880d6
@@ -140,7 +140,7 @@ LAB_080880d6:
 
 _ts S_Get_SchoolID_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08088102

@@ -85,7 +85,7 @@ LAB_0809503c:
 
 _nt S_Story_73_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809506c
@@ -257,7 +257,7 @@ LAB_080951b2:
 
 _ts S_Story_73_11
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080951d4
@@ -280,11 +280,11 @@ _nt S_Story_73_12
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#MapChange_type]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#MapChange_destinationIndex]
     ldr        r1,PTR_MapEntrance_08095244
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#MapChange_destinationList]
     mov        r0,#0x0
     bl         World_ChangeMap
     pop        {r5}

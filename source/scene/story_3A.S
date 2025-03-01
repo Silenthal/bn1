@@ -53,7 +53,7 @@ _ts S_Story_3A_0
 
 _nt S_Story_3A_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808cdb2
@@ -72,7 +72,7 @@ LAB_0808cdb2:
 
 _ts S_Story_3A_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808cdca
@@ -207,7 +207,7 @@ LAB_0808ced4:
     pop        {r5}
 LAB_0808cee0:
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808cf1e
@@ -219,7 +219,7 @@ LAB_0808cee0:
     push       {r5}
     mov        r0,#0x1
     LoadMain world, r1, r1
-    ldr        r1,[r1,#0x28]
+    ldr        r1,[r1,#World_playerLocation]
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
@@ -237,7 +237,7 @@ _ts S_Story_3A_8
     bl         Traffic_Main
     pop        {r5}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808cf54

@@ -59,7 +59,7 @@ LAB_080921f2:
 
 _ts S_Story_63_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08092212
@@ -139,7 +139,7 @@ LAB_08092298:
 
 _nt S_Story_63_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080922e2
@@ -170,7 +170,7 @@ LAB_080922e2:
 
 _ts S_Story_63_8
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080922fa
@@ -224,7 +224,7 @@ _ts S_Story_63_10
     tst        r0,r0
     beq        LAB_080923a4
     LoadMain gameStats, r1, r7
-    ldrb       r0,[r1,#0x5]
+    ldrb       r0,[r1,#GameStats_batteryCharge]
     tst        r0,r0
     bne        LAB_08092378
     Flag_SetBase 0xD1
@@ -277,7 +277,7 @@ LAB_080923c2:
 
 _nt S_Story_63_11
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08092406
@@ -285,7 +285,7 @@ _nt S_Story_63_11
     bl         PlayerAnimation_Unlock
     LoadMain world, r0, r7
     mov        r1,#0x3
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1
     strb       r1,[r0,#0x10]

@@ -84,7 +84,7 @@ _ts S_Story_02_1
 _ts S_Story_02_2
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808314e
@@ -165,7 +165,7 @@ LAB_080831b6:
 _ts S_Story_02_6
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808314e
@@ -189,12 +189,12 @@ _ts S_Story_02_6
 _ts S_Story_02_7
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808324a
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08083310
     and        r1,r0
     beq        LAB_08083226
@@ -229,7 +229,7 @@ LAB_0808324a:
 _ts S_Story_02_8
     push       {lr}
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08083310
     and        r1,r0
     beq        LAB_08083274
@@ -258,7 +258,7 @@ LAB_0808328a:
 _ts S_Story_02_9
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080832c4

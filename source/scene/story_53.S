@@ -59,7 +59,7 @@ _ts S_Story_53_0
 
 _ts S_Story_53_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808fae4
@@ -105,7 +105,7 @@ LAB_0808fb00:
 
 _nt S_Story_53_3
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808fb00
@@ -182,8 +182,8 @@ _ts S_Story_53_7
     pop        {r5}
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
-    ldrb       r0,[r7,#0x0]
+    ldr        r7,[r7,#World_playerLocation]
+    ldrb       r0,[r7,#PlayerLocation_header_entityFlags]
     mov        r1,#0x2
     eor        r0,r1
     strb       r0,[r7,#0x0]
@@ -288,8 +288,8 @@ _nt S_Story_53_12
     pop        {r5}
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
-    ldrb       r0,[r7,#0x0]
+    ldr        r7,[r7,#World_playerLocation]
+    ldrb       r0,[r7,#PlayerLocation_header_entityFlags]
     mov        r1,#0x2
     orr        r0,r1
     strb       r0,[r7,#0x0]
@@ -328,7 +328,7 @@ LAB_0808fcea:
 
 _ts S_Story_53_14
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808fd24
@@ -337,7 +337,7 @@ _ts S_Story_53_14
     bl         Entity_FreeAllMultiple
     LoadMain world, r0, r0
     mov        r1,#0x0
-    str        r1,[r0,#0x34]
+    str        r1,[r0,#World_npcCommandList]
     ldr        r7,PTR_NPCList_803D398_0808fdcc
     bl         Map_LoadNPCList
     pop        {r5}
@@ -356,7 +356,7 @@ _nt S_Story_53_15
     bl         PlayerAnimation_Unlock
     LoadMain world, r0, r0
     mov        r1,#0x41
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     push       {r5}
     Flag_SetBase 0xAB
     pop        {r5}
@@ -373,11 +373,11 @@ _nt S_Story_53_15
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#MapChange_type]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#MapChange_destinationIndex]
     ldr        r1,PTR_MapEntrance_0808fdd0
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#MapChange_destinationList]
     mov        r0,#0x0
     bl         World_ChangeMap
     pop        {r5}

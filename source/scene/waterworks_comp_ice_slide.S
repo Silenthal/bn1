@@ -42,8 +42,8 @@ _ts S_Ice_Slide_1
     bne        LAB_0808becc
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
-    ldrb       r0,[r7,#0x10]
+    ldr        r7,[r7,#World_playerLocation]
+    ldrb       r0,[r7,#PlayerLocation_direction]
     add        r0,#0x3b
     bl         PlayerAnimation_SetState
     bl         DisableElevationCheck
@@ -72,7 +72,7 @@ _ts S_Ice_Slide_2
     push       {lr}
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r0,[r7,#0x28]
+    ldr        r0,[r7,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionElevation
     add        r2,r0,#0x0
@@ -102,8 +102,8 @@ LAB_0808bef4:
     cmp        r3,r4
     bne        LAB_0808bf2a
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
-    ldrb       r0,[r7,#0x10]
+    ldr        r7,[r7,#World_playerLocation]
+    ldrb       r0,[r7,#PlayerLocation_direction]
     add        r0,#0x4
     mov        r1,#0x7
     and        r0,r1
@@ -113,14 +113,14 @@ LAB_0808bef4:
 LAB_0808bf2a:
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r0,[r7,#0x28]
+    ldr        r0,[r7,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x10
     beq        LAB_0808bf74
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#World_storyFlag]
     lsr        r7,r7,#0x4
     cmp        r7,#0x2
     bne        LAB_0808bf5c
@@ -134,10 +134,10 @@ LAB_0808bf2a:
     beq        LAB_0808bf74
 LAB_0808bf5c:
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
-    ldr        r0,[r7,#0x24]
-    ldr        r1,[r7,#0x28]
-    ldr        r2,[r7,#0x2c]
+    ldr        r7,[r7,#World_playerLocation]
+    ldr        r0,[r7,#PlayerLocation_pos_curr_x]
+    ldr        r1,[r7,#PlayerLocation_pos_curr_y]
+    ldr        r2,[r7,#PlayerLocation_pos_curr_z]
     push       {r5}
     bl         PlayerAnimation_SetPosition
     pop        {r5}
@@ -190,7 +190,7 @@ _ts S_Ice_Slide_5
     strb       r0,[r5,#Scene_state_s1]
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r0,[r7,#0x28]
+    ldr        r0,[r7,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionElevation
     add        r2,r0,#0x0
@@ -237,7 +237,7 @@ LAB_0808bfec:
     cmp        r0,#0x10
     beq        LAB_0808c03c
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#World_storyFlag]
     lsr        r7,r7,#0x4
     cmp        r7,#0x2
     bne        LAB_0808c038
@@ -262,11 +262,11 @@ LAB_0808c03c:
 _ts S_Ice_Slide_HandleCollisionDirection
     push       {r5,lr}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
-    ldr        r3,[r7,#0x24]
-    ldr        r4,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
+    ldr        r3,[r7,#PlayerLocation_pos_curr_x]
+    ldr        r4,[r7,#PlayerLocation_pos_curr_y]
     push       {r3,r4}
-    ldrb       r0,[r7,#0x10]
+    ldrb       r0,[r7,#PlayerLocation_direction]
     lsl        r0,r0,#0x2
     ldr        r5,PTR_PlayerAnimateArgs_ARRAY_0808c130
     add        r5,r5,r0
@@ -277,24 +277,24 @@ _ts S_Ice_Slide_HandleCollisionDirection
     ldrsb      r1,[r5,r2]
     lsl        r1,r1,#0xc
     add        r3,r3,r0
-    str        r3,[r7,#0x24]
+    str        r3,[r7,#PlayerLocation_pos_curr_x]
     add        r4,r4,r1
-    str        r4,[r7,#0x28]
+    str        r4,[r7,#PlayerLocation_pos_curr_y]
     push       {r3,r4,r7}
-    mov        r0,#0x24
+    mov        r0,#PlayerLocation_pos_curr
     add        r0,r0,r7
     bl         Map_HandleCollisionBoundary
     mov        r8,r0
     pop        {r3,r4,r7}
-    ldr        r0,[r7,#0x24]
-    ldr        r1,[r7,#0x28]
-    ldr        r2,[r7,#0x2c]
+    ldr        r0,[r7,#PlayerLocation_pos_curr_x]
+    ldr        r1,[r7,#PlayerLocation_pos_curr_y]
+    ldr        r2,[r7,#PlayerLocation_pos_curr_z]
     push       {r0,r1,r2,r3,r4,r7}
     bl         PlayerAnimation_SetPosition
     pop        {r0,r1,r2,r3,r4,r7}
     pop        {r3,r4}
-    str        r3,[r7,#0x24]
-    str        r4,[r7,#0x28]
+    str        r3,[r7,#PlayerLocation_pos_curr_x]
+    str        r4,[r7,#PlayerLocation_pos_curr_y]
     mov        r5,r8
     mov        r6,#0x1
     tst        r5,r6
@@ -302,14 +302,14 @@ _ts S_Ice_Slide_HandleCollisionDirection
     mov        r6,#0x2
     tst        r5,r6
     bne        LAB_0808c0b2
-    ldrb       r0,[r7,#0x10]
+    ldrb       r0,[r7,#PlayerLocation_direction]
     b          LAB_0808c0c6
 LAB_0808c09e:
     sub        r1,r1,r4
     cmp        r1,#0x0
     bgt        LAB_0808c0aa
     blt        LAB_0808c0ae
-    ldrb       r0,[r7,#0x10]
+    ldrb       r0,[r7,#PlayerLocation_direction]
     b          LAB_0808c0c6
 LAB_0808c0aa:
     mov        r0,#0x3
@@ -322,7 +322,7 @@ LAB_0808c0b2:
     cmp        r0,#0x0
     bgt        LAB_0808c0be
     blt        LAB_0808c0c2
-    ldrb       r0,[r7,#0x10]
+    ldrb       r0,[r7,#PlayerLocation_direction]
     b          LAB_0808c0c6
 LAB_0808c0be:
     mov        r0,#0x1
@@ -331,7 +331,7 @@ LAB_0808c0c2:
     mov        r0,#0x5
     b          LAB_0808c0c6
 LAB_0808c0c6:
-    strb       r0,[r7,#0x10]
+    strb       r0,[r7,#PlayerLocation_direction]
     lsl        r0,r0,#0x2
     ldr        r7,PTR_PlayerAnimateArgs_ARRAY_0808c134
     add        r7,r7,r0
@@ -356,7 +356,7 @@ PlayerAnimateArgs_ARRAY_0808c0d8:
 _ts S_Ice_Slide_HoldDirectionChange
     push       {lr}
     LoadMain input, r7, r7
-    ldrh       r1,[r7,#0x0]
+    ldrh       r1,[r7,#Input_curKeyState]
     mov        r0,#0xf0
     and        r0,r1
     beq        LAB_0808c116
@@ -364,8 +364,8 @@ _ts S_Ice_Slide_HoldDirectionChange
     ldr        r7,PTR_BYTE_ARRAY_0808c138
     ldrb       r0,[r7,r0]
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
-    strb       r0,[r7,#0x10]
+    ldr        r7,[r7,#World_playerLocation]
+    strb       r0,[r7,#PlayerLocation_direction]
     mov        r0,#0x1
 LAB_0808c116:
     pop        {pc}

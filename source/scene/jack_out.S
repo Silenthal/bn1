@@ -83,7 +83,7 @@ LAB_08083720:
 _ts Scene_JackOut_1
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08083784
@@ -96,9 +96,9 @@ _ts Scene_JackOut_1
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0x4
-    strb       r0,[r7,#0x10]
+    strb       r0,[r7,#PlayerLocation_direction]
     pop        {r5}
     ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x13]
@@ -147,7 +147,7 @@ LAB_080837a2:
 _ts Scene_JackOut_3_ChangeMap
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080837da
@@ -203,7 +203,7 @@ _ts Scene_JackOut_5_Cancel
 _ts Scene_JackOut_6_NoJackOut
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08083850
@@ -216,9 +216,9 @@ _ts Scene_JackOut_6_NoJackOut
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0x4
-    strb       r0,[r7,#0x10]
+    strb       r0,[r7,#PlayerLocation_direction]
     ldrb       r2,[r5,#Scene_dialogueIndex]
     mov        r1,#0xff
     sub        r1,r1,r2

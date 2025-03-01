@@ -58,7 +58,7 @@ _ts S_MegaManJackIn_2
     push       {lr}
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r5,[r0,#0x28]
+    ldr        r5,[r0,#World_playerLocation]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}
     mov        r1,#0x80
@@ -87,7 +87,7 @@ _ts S_MegaManJackIn_3
 LAB_08084110:
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r0,[r0,#0x44]
+    ldr        r0,[r0,#World_savedDirection]
     bl         PlayerAnimation_SetState
     Flag_ClearSystem F_SYSTEM_JACK_IN
     pop        {r5}
@@ -109,7 +109,7 @@ LAB_0808413e:
 _ts S_MegaManJackIn_AnimatePlayer
     push       {lr}
     LoadMain world, r7, r7
-    ldr        r1,[r7,#0x44]
+    ldr        r1,[r7,#World_savedDirection]
     lsl        r1,r1,#0x2
     ldr        r7,PTR_PlayerAnimateArgs_ARRAY_08084194
     add        r7,r7,r1

@@ -55,7 +55,7 @@ LAB_0809435a:
 
 _ts S_Story_6F_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809437a
@@ -89,7 +89,7 @@ LAB_080943a4:
 
 _nt S_Story_6F_4
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080943f6
@@ -123,7 +123,7 @@ LAB_080943f6:
 
 _ts S_Story_6F_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08094416
@@ -154,7 +154,7 @@ LAB_08094434:
 
 _nt S_Story_6F_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080944a2
@@ -185,7 +185,7 @@ _nt S_Story_6F_7
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x0
-    str        r1,[r0,#0x34]
+    str        r1,[r0,#World_npcCommandList]
     push       {r5}
     ldr        r7,PTR_NPCList_803EA28_080944f4
     bl         Map_LoadNPCList
@@ -199,7 +199,7 @@ LAB_080944a2:
 
 _ts S_Story_6F_8
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080944c6

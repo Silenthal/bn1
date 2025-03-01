@@ -76,7 +76,7 @@ LAB_0808af46:
 
 _ts S_Story_32_3
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808af6c
@@ -91,7 +91,7 @@ LAB_0808af6c:
 
 _nt S_Story_32_4
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808af8a
@@ -139,7 +139,7 @@ LAB_0808afd0:
 
 _nt S_Story_32_6
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808b02c
@@ -177,7 +177,7 @@ LAB_0808b02c:
 
 _nt S_Story_32_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808b058
@@ -251,7 +251,7 @@ LAB_0808b0c8:
 
 _nt S_Story_32_10
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808b0ea
@@ -267,7 +267,7 @@ LAB_0808b0ea:
 
 _ts S_Story_32_11
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808b124
@@ -278,11 +278,11 @@ _ts S_Story_32_11
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#MapChange_type]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#MapChange_destinationIndex]
     ldr        r1,PTR_MapEntrance_0808b168
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#MapChange_destinationList]
     mov        r0,#0x0
     bl         World_ChangeMap
     pop        {r5}

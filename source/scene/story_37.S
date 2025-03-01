@@ -38,7 +38,7 @@ _ts S_Story_37_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808c612
@@ -114,7 +114,7 @@ LAB_0808c692:
 
 _ts S_Story_37_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808c6de
@@ -145,7 +145,7 @@ LAB_0808c6de:
 
 _ts S_Story_37_6
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808c6fe

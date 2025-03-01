@@ -53,7 +53,7 @@ _ts S_Story_03_1
     cmp        r0,#0x1
     beq        LAB_080833b2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080833b2
@@ -114,7 +114,7 @@ LAB_08083410:
 _ts S_Story_03_4
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08083468
@@ -136,14 +136,14 @@ _ts S_Story_03_4
     mov        r0,#0xe8
     neg        r0,r0
     lsl        r0,r0,#0x10
-    str        r0,[r7,#0x38]
+    str        r0,[r7,#World_savedPos_x]
     mov        r0,#0x58
     lsl        r0,r0,#0x10
-    str        r0,[r7,#0x3c]
+    str        r0,[r7,#World_savedPos_y]
     mov        r0,#0x0
-    str        r0,[r7,#0x40]
+    str        r0,[r7,#World_savedPos_z]
     mov        r0,#0x4
-    str        r0,[r7,#0x44]
+    str        r0,[r7,#World_savedDirection]
     bl         Scene_UnloadAndResetStepCounter
 LAB_08083468:
     pop        {pc}

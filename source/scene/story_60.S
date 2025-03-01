@@ -35,7 +35,7 @@ _ts S_Story_60_0
 
 _ts S_Story_60_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080914f8
@@ -66,7 +66,7 @@ LAB_080914f8:
 
 _nt S_Story_60_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809152c
@@ -156,7 +156,7 @@ LAB_080915ba:
 
 _ts S_Story_60_6
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080915dc
@@ -178,7 +178,7 @@ _nt S_Story_60_7
     Flag_SetBase 0xC5
     LoadMain world, r0, r7
     mov        r1,#0x3
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1
     strb       r1,[r0,#0x10]

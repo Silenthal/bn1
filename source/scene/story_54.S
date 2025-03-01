@@ -66,7 +66,7 @@ _nt S_Story_54_1
     mov        r0,#0x1
     bl         PlayerAnimation_SetState
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808feac
@@ -91,7 +91,7 @@ LAB_0808feac:
 _nt S_Story_54_2
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808fece
@@ -161,13 +161,13 @@ LAB_0808ff3a:
 _nt S_Story_54_6
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808ff88
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r5,[r0,#0x28]
+    ldr        r5,[r0,#World_playerLocation]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}
     mov        r1,#0x1
@@ -191,7 +191,7 @@ LAB_0808ff88:
 _nt S_Story_54_7
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808ffb6
@@ -244,7 +244,7 @@ LAB_0808fff8:
 _nt S_Story_54_10
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809001a
@@ -280,7 +280,7 @@ LAB_08090046:
 _ts S_Story_54_12
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08090080
@@ -304,7 +304,7 @@ LAB_08090080:
 _nt S_Story_54_13
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080900b6
@@ -332,10 +332,10 @@ _ts FUN_080900b8
     mov        r0,#0x84
     bl         Sound_PlaySE
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
-    ldr        r1,[r0,#0x24]
-    ldr        r2,[r0,#0x28]
-    ldr        r3,[r0,#0x2c]
+    ldr        r0,[r0,#World_playerLocation]
+    ldr        r1,[r0,#PlayerLocation_pos_curr_x]
+    ldr        r2,[r0,#PlayerLocation_pos_curr_y]
+    ldr        r3,[r0,#PlayerLocation_pos_curr_z]
     mov        r4,#0x3
     neg        r4,r4
     lsl        r4,r4,#0x10

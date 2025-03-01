@@ -41,12 +41,12 @@ _ts S_CheckMail_1
     cmp        r0,#0x2
     bne        LAB_08085aec
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     push       {r5}
-    ldrb       r0,[r7,#0x14]
+    ldrb       r0,[r7,#PlayerLocation_currDirMoveIndex]
     mov        r1,#0x7
     and        r0,r1
-    strb       r0,[r7,#0x10]
+    strb       r0,[r7,#PlayerLocation_direction]
     bl         PlayerAnimation_SetState
     pop        {r5}
     mov        r0,#0x1e

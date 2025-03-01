@@ -49,7 +49,7 @@ _nt S_Story_1D_1
 
 _nt S_Story_1D_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08088188
@@ -83,7 +83,7 @@ LAB_080881b2:
 
 _ts S_Story_1D_4
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080881e0
@@ -102,14 +102,14 @@ LAB_080881e0:
 
 _nt S_Story_1D_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08088210
     Flag_SetBase 0x90
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r5,[r7,#0x28]
+    ldr        r5,[r7,#World_playerLocation]
     mov        r0,#0x1
     add        r1,r5,#0x0
     add        r1,#0x24

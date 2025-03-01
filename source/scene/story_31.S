@@ -58,7 +58,7 @@ LAB_0808ac76:
 
 _ts S_Story_31_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808acd4
@@ -80,7 +80,7 @@ _ts S_Story_31_2
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x0
-    str        r1,[r0,#0x34]
+    str        r1,[r0,#World_npcCommandList]
     push       {r5}
     ldr        r7,PTR_NPCList_8046EA4_0808ae88
     bl         Map_LoadNPCList
@@ -98,7 +98,7 @@ LAB_0808acd4:
 _nt S_Story_31_3
     bl         SceneCamera_Main
     LoadMain fade, r2, r2
-    ldrb       r2,[r2,#0x3]
+    ldrb       r2,[r2,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r2,r1
     beq        LAB_0808ad0a
@@ -226,7 +226,7 @@ LAB_0808adfc:
 
 _nt S_Story_31_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808ae1e
@@ -242,7 +242,7 @@ LAB_0808ae1e:
 
 _ts S_Story_31_8
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808ae56

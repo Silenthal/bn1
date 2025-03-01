@@ -60,7 +60,7 @@ LAB_08084c52:
 _ts S_Story_0B_2
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08084c74

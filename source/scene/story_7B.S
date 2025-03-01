@@ -79,7 +79,7 @@ LAB_08096fc0:
 
 _nt S_Story_7B_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08096ff4
@@ -102,7 +102,7 @@ LAB_08096ff4:
 
 _nt S_Story_7B_3
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809701e
@@ -119,7 +119,7 @@ LAB_0809701e:
 
 _ts S_Story_7B_4
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08097048
@@ -291,7 +291,7 @@ LAB_08097154:
     strb       r1,[r5,#Scene_sceneTimer]
 LAB_0809718e:
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080971ae
@@ -313,11 +313,11 @@ _ts S_Story_7B_8
     Flag_SetBase 0xE8
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#MapChange_type]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#MapChange_destinationIndex]
     ldr        r1,PTR_MapEntrance_08097218
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#MapChange_destinationList]
     mov        r0,#0x0
     bl         World_ChangeMap
     pop        {r5}

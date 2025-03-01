@@ -64,7 +64,7 @@ _ts S_Story_29_0
 _nt S_Story_29_1
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089870
@@ -97,7 +97,7 @@ LAB_08089870:
 _nt S_Story_29_2
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089890
@@ -130,13 +130,13 @@ LAB_080898b8:
 _nt S_Story_29_4
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080898fc
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r5,[r0,#0x28]
+    ldr        r5,[r0,#World_playerLocation]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}
     mov        r1,#0x1
@@ -160,7 +160,7 @@ LAB_080898fc:
 _nt S_Story_29_5
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089936
@@ -201,7 +201,7 @@ LAB_08089958:
 _nt S_Story_29_7
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089984
@@ -284,7 +284,7 @@ LAB_08089a0c:
 _nt S_Story_29_11
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089a3c
@@ -304,7 +304,7 @@ LAB_08089a3c:
 _nt S_Story_29_12
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089a6e
@@ -349,7 +349,7 @@ _ts S_Story_29_14
 _ts S_Story_29_15
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089ac8
@@ -370,7 +370,7 @@ LAB_08089ac8:
 _nt S_Story_29_16
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089b0e
@@ -403,10 +403,10 @@ _ts FUN_08089b10
     mov        r0,#0x84
     bl         Sound_PlaySE
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
-    ldr        r1,[r0,#0x24]
-    ldr        r2,[r0,#0x28]
-    ldr        r3,[r0,#0x2c]
+    ldr        r0,[r0,#World_playerLocation]
+    ldr        r1,[r0,#PlayerLocation_pos_curr_x]
+    ldr        r2,[r0,#PlayerLocation_pos_curr_y]
+    ldr        r3,[r0,#PlayerLocation_pos_curr_z]
     mov        r4,#0x3
     neg        r4,r4
     lsl        r4,r4,#0x10

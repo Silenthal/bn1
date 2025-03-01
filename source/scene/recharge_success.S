@@ -44,7 +44,7 @@ LAB_08091a2c:
 
 _nt S_RechargeSuccess_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08091a54

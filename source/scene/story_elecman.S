@@ -62,7 +62,7 @@ LAB_08091da8:
 
 _nt S_Story_ElecMan_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08091dc8
@@ -99,7 +99,7 @@ LAB_08091dfc:
 
 _nt S_Story_ElecMan_4
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08091e1e
@@ -121,7 +121,7 @@ _ts S_Story_ElecMan_5
     Flag_SetBase 0xC2
     LoadMain gameStats, r7, r7
     mov        r0,#0xa
-    strb       r0,[r7,#0x5]
+    strb       r0,[r7,#GameStats_batteryCharge]
     push       {r5}
     ldr        r0,PTR_EnemySpawn_ElecManV1_08091e88
     bl         Battle_SetEncounter

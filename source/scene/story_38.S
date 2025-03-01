@@ -55,7 +55,7 @@ _ts S_Story_38_0
 
 _ts S_Story_38_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808c81e
@@ -82,11 +82,11 @@ _ts S_Story_38_1
     bl         SceneCamera_Main
     LoadMain mapEventState, r7, r7
     mov        r0,#0x0
-    strb       r0,[r7,#0x8]
-    strb       r0,[r7,#0xa]
+    strb       r0,[r7,#MapEventState_b8]
+    strb       r0,[r7,#MapEventState_ba]
     mov        r0,#0x2
-    strb       r0,[r7,#0x9]
-    strb       r0,[r7,#0xb]
+    strb       r0,[r7,#MapEventState_b9]
+    strb       r0,[r7,#MapEventState_bb]
     Flag_SetEvent 0x34
     push       {r5}
     mov        r0,#0x18
@@ -104,7 +104,7 @@ LAB_0808c81e:
 
 _ts S_Story_38_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808c83e
@@ -163,11 +163,11 @@ _ts S_Story_38_4
     bl         SceneCamera_Main
     LoadMain mapEventState, r7, r7
     mov        r0,#0x0
-    strb       r0,[r7,#0x8]
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#MapEventState_b8]
+    strb       r0,[r7,#MapEventState_b9]
     mov        r0,#0x2
-    strb       r0,[r7,#0xa]
-    strb       r0,[r7,#0xb]
+    strb       r0,[r7,#MapEventState_ba]
+    strb       r0,[r7,#MapEventState_bb]
     mov        r0,#0x3c
     strh       r0,[r5,#Scene_sceneTimer]
     Scene_Next
@@ -178,22 +178,22 @@ LAB_0808c8bc:
     and        r0,r2
     beq        LAB_0808c8e8
     LoadMain mapEventState, r7, r7
-    ldrb       r0,[r7,#0x8]
+    ldrb       r0,[r7,#MapEventState_b8]
     add        r0,#0x2
     and        r0,r1
-    strb       r0,[r7,#0x8]
-    ldrb       r0,[r7,#0x9]
+    strb       r0,[r7,#MapEventState_b8]
+    ldrb       r0,[r7,#MapEventState_b9]
     add        r0,#0x2
     and        r0,r1
-    strb       r0,[r7,#0x9]
-    ldrb       r0,[r7,#0xa]
+    strb       r0,[r7,#MapEventState_b9]
+    ldrb       r0,[r7,#MapEventState_ba]
     add        r0,#0x2
     and        r0,r1
-    strb       r0,[r7,#0xa]
-    ldrb       r0,[r7,#0xb]
+    strb       r0,[r7,#MapEventState_ba]
+    ldrb       r0,[r7,#MapEventState_bb]
     add        r0,#0x2
     and        r0,r1
-    strb       r0,[r7,#0xb]
+    strb       r0,[r7,#MapEventState_bb]
 LAB_0808c8e8:
     bl         Scene_IsStartPressed
     beq        LAB_0808c8f2
@@ -358,7 +358,7 @@ LAB_0808ca48:
 
 _nt S_Story_38_12
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808ca86
@@ -374,7 +374,7 @@ _nt S_Story_38_12
     push       {r5}
     mov        r0,#0x1
     LoadMain world, r1, r1
-    ldr        r1,[r1,#0x28]
+    ldr        r1,[r1,#World_playerLocation]
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
@@ -392,11 +392,11 @@ _ts S_Story_38_13
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#MapChange_type]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#MapChange_destinationIndex]
     ldr        r1,PTR_MapEntrance_0808cb10
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#MapChange_destinationList]
     mov        r0,#0x0
     bl         World_ChangeMap
     pop        {r5}

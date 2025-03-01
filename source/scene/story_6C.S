@@ -58,7 +58,7 @@ LAB_08093ce4:
 
 _nt S_Story_6C_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08093d04
@@ -102,8 +102,8 @@ _nt S_Story_6C_4
     bl         PlayerAnimation_Move
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
-    add        r0,#0x24
+    ldr        r0,[r0,#World_playerLocation]
+    add        r0,#PlayerLocation_pos_curr
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x10
@@ -202,7 +202,7 @@ _nt S_Story_6C_8
     strb       r0,[r5,#Scene_counter]
 LAB_08093e1a:
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08093e60
@@ -243,7 +243,7 @@ _nt S_Story_6C_9
 LAB_08093e76:
     LoadMain mapEventState, r7, r7
     ldrb       r0,[r5,#Scene_counter]
-    strb       r0,[r7,#0x6]
+    strb       r0,[r7,#MapEventState_counterSecretStation]
     LoadMain fade, r0, r0
     ldrb       r0,[r0,#0x3]
     mov        r1,#0x1

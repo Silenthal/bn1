@@ -44,7 +44,7 @@ LAB_08085140:
     cmp        r2,#0x3
     blt        LAB_08085134
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x10]
+    ldrb       r7,[r7,#World_lastBattleResult]
     tst        r7,r7
     bne        LAB_08085164
     push       {r1,r5,r7}
@@ -121,7 +121,7 @@ LAB_080851d4:
 _ts S_TutorialBattle_2
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808521c
@@ -162,7 +162,7 @@ TutorialBattleOptions_ARRAY_08085220:
 _ts S_TutorialBattle_3
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808528a
@@ -177,7 +177,7 @@ _ts S_TutorialBattle_3
     pop        {r5}
     LoadMain world, r7, r7
     mov        r0,#0x2
-    strb       r0,[r7,#0x6]
+    strb       r0,[r7,#World_storyFlag]
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808528a:
     pop        {pc}

@@ -59,16 +59,16 @@ LAB_08087454:
 
 _ts S_Story_19_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080874b2
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#MapChange_type]
     ldr        r2,[r5,#Scene_sceneArg]
-    strb       r1,[r0,#0x12]
-    str        r2,[r0,#0x14]
+    strb       r1,[r0,#MapChange_destinationIndex]
+    str        r2,[r0,#MapChange_destinationList]
     push       {r5}
     ldr        r0,[r5,#Scene_sceneArg]
     ldrb       r0,[r0,#0x12]
@@ -121,7 +121,7 @@ _nt S_Story_19_4
     bl         Sound_PlaySE
 LAB_080874f2:
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808750e
@@ -163,7 +163,7 @@ LAB_0808754e:
 
 _ts S_Story_19_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08087570
@@ -187,7 +187,7 @@ _nt S_Story_19_8
 
 _nt S_Story_19_9
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080875a4

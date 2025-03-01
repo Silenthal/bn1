@@ -93,9 +93,9 @@ _ts S_MeteorAttack_2
     bl         PlayerAnimation_SetState
     pop        {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     push       {r0,r5}
-    ldr        r0,[r0,#0x24]
+    ldr        r0,[r0,#PlayerLocation_pos_curr_x]
     ldr        r1,DAT_08084630
     sub        r0,r1,r0
     mov        r1,#0x20
@@ -153,7 +153,7 @@ _ts S_MeteorAttack_4
     bl         S_MeteorAttack_Meteors
     bl         S_MeteorAttack_AnimatePlayer
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080844d4
@@ -195,11 +195,11 @@ _ts S_MeteorAttack_Meteors
     cmp        r0,#0x9
     bne        LAB_08084510
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
-    ldrh       r1,[r0,#0x26]
+    ldr        r0,[r0,#World_playerLocation]
+    ldrh       r1,[r0,#(PlayerLocation_pos_curr_x + 2)]
     add        r1,#0x10
-    ldrh       r2,[r0,#0x2a]
-    ldrh       r3,[r0,#0x2e]
+    ldrh       r2,[r0,#(PlayerLocation_pos_curr_y + 2)]
+    ldrh       r3,[r0,#(PlayerLocation_pos_curr_z + 2)]
     b          LAB_0808451c
 LAB_08084510:
     ldr        r1,PTR_USHORT_ARRAY_ARRAY_08084644
@@ -321,7 +321,7 @@ _ts S_MeteorAttack_AnimatePlayer
 LAB_080845ea:
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r5,[r0,#0x28]
+    ldr        r5,[r0,#World_playerLocation]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}
     mov        r1,#0x80

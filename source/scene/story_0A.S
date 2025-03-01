@@ -49,8 +49,8 @@ _ts S_Story_0A_1
     bne        LAB_08084a00
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r0,[r0,#0x28]
-    ldrb       r0,[r0,#0x14]
+    ldr        r0,[r0,#World_playerLocation]
+    ldrb       r0,[r0,#PlayerLocation_currDirMoveIndex]
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
@@ -67,7 +67,7 @@ LAB_08084a00:
 _ts S_Story_0A_2
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08084a5a
@@ -151,7 +151,7 @@ _ts S_Story_0A_5
     push       {lr}
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r5,[r0,#0x28]
+    ldr        r5,[r0,#World_playerLocation]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}
     mov        r1,#0x80
@@ -206,7 +206,7 @@ LAB_08084b32:
 _ts S_Story_0A_7
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08084b80
@@ -217,7 +217,7 @@ _ts S_Story_0A_7
     Flag_SetBase 0xC8
     LoadMain world, r0, r7
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1
     strb       r1,[r0,#0x10]

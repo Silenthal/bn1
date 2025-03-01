@@ -45,7 +45,7 @@ _ts S_ExtinguishFlame_1
     LoadMain mapEventState, r0, r0
     ldrb       r1,[r5,#Scene_dialogueIndex]
     sub        r1,#0x20
-    strb       r1,[r0,#0x8]
+    strb       r1,[r0,#MapEventState_b8]
     LoadMain world, r0, r7
     push       {r5}
     ldr        r0,[r0,#0x28]
@@ -92,7 +92,7 @@ LAB_080846e8:
     pop        {r5}
     LoadMain mapEventState, r1, r0
     mov        r0,#0xff
-    strb       r0,[r1,#0x8]
+    strb       r0,[r1,#MapEventState_b8]
     bl         Scene_MarkForUnloading
 LAB_08084708:
     pop        {pc}

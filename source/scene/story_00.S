@@ -60,7 +60,7 @@ _ts S_Story_00_1
     push       {lr}
     bl         SceneCamera_Main
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08082906
@@ -176,7 +176,7 @@ _ts S_Story_00_9
     bl         Text_EnableOption
     pop        {r5}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08082a42
@@ -190,13 +190,13 @@ _ts S_Story_00_9
     bl         Entity_AllocList
     LoadMain world, r6, r6
     ldr        r1,DAT_08082ab8
-    str        r1,[r6,#0x38]
+    str        r1,[r6,#World_savedPos_x]
     ldr        r1,DAT_08082abc
-    str        r1,[r6,#0x3c]
+    str        r1,[r6,#World_savedPos_y]
     mov        r1,#0x0
-    str        r1,[r6,#0x40]
+    str        r1,[r6,#World_savedPos_z]
     mov        r1,#0x4
-    str        r1,[r6,#0x44]
+    str        r1,[r6,#World_savedDirection]
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -211,7 +211,7 @@ LAB_08082a42:
 _ts S_Story_00_10
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08082a74

@@ -42,8 +42,8 @@ _ts S_Internet_4_HigMemo_Gate_1
     bne        LAB_08097e1a
     LoadMain world, r0, r7
     push       {r5}
-    ldr        r0,[r0,#0x28]
-    ldrb       r0,[r0,#0x14]
+    ldr        r0,[r0,#World_playerLocation]
+    ldrb       r0,[r0,#PlayerLocation_currDirMoveIndex]
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
@@ -78,7 +78,7 @@ LAB_08097e46:
 _ts S_Internet_4_HigMemo_Gate_3
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08097e88
@@ -97,7 +97,7 @@ _ts S_Internet_4_HigMemo_Gate_3
     bl         World_SetBattleParams
     LoadMain world, r0, r0
     mov        r1,#0x51
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     bl         Scene_UnloadAndResetStepCounter
 LAB_08097e88:
     pop        {pc}

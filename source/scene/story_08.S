@@ -45,8 +45,8 @@ _ts S_Story_08_1
     bne        LAB_080842b8
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r0,[r0,#0x28]
-    ldrb       r0,[r0,#0x14]
+    ldr        r0,[r0,#World_playerLocation]
+    ldrb       r0,[r0,#PlayerLocation_currDirMoveIndex]
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
@@ -90,7 +90,7 @@ LAB_080842f0:
 _ts S_Story_08_3
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08084332

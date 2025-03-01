@@ -67,8 +67,8 @@ _ts S_SkillGateFail_1
     bne        LAB_08085c30
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r0,[r0,#0x28]
-    ldrb       r0,[r0,#0x14]
+    ldr        r0,[r0,#World_playerLocation]
+    ldrb       r0,[r0,#PlayerLocation_currDirMoveIndex]
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
@@ -119,7 +119,7 @@ LAB_08085c62:
 _ts S_SkillGateFail_4
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08085cbe
@@ -141,11 +141,11 @@ _ts S_SkillGateFail_4
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#MapChange_type]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#MapChange_destinationIndex]
     ldr        r1,[r5,#Scene_sceneArg]
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#MapChange_destinationList]
     mov        r0,#0x0
     bl         World_ChangeMap
     pop        {r5}
@@ -206,7 +206,7 @@ _ts ResetSkillCheck_Undernet_6
     push       {lr}
     LoadMain mapEventState, r7, r7
     mov        r0,#0x0
-    strb       r0,[r7,#0x2]
+    strb       r0,[r7,#MapEventState_state_s2]
     LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0xd]
@@ -221,7 +221,7 @@ _ts ResetSkillCheck_Undernet_7
     push       {lr}
     LoadMain mapEventState, r4, r7
     mov        r0,#0x0
-    strb       r0,[r4,#0x2]
+    strb       r0,[r4,#MapEventState_state_s2]
     ldr        r4,[r7,#0x8]
     mov        r0,#0x4
     strb       r0,[r4,#0x19]
@@ -239,7 +239,7 @@ _ts ResetSkillCheck_Undernet_9
     push       {lr}
     LoadMain mapEventState, r4, r7
     mov        r0,#0x0
-    strb       r0,[r4,#0x2]
+    strb       r0,[r4,#MapEventState_state_s2]
     ldr        r4,[r7,#0x78]
     mov        r0,#0x0
     strb       r0,[r4,#0xe]
@@ -251,7 +251,7 @@ _ts ResetSkillCheck_Undernet_10
     push       {lr}
     LoadMain mapEventState, r7, r7
     mov        r0,#0x0
-    strb       r0,[r7,#0x2]
+    strb       r0,[r7,#MapEventState_state_s2]
     LoadMain gameStats, r7, r7
     mov        r0,#0x0
     strb       r0,[r7,#0xf]
@@ -266,7 +266,7 @@ _ts ResetSkillCheck_Undernet_11
     push       {lr}
     LoadMain mapEventState, r4, r7
     mov        r0,#0x0
-    strb       r0,[r4,#0x2]
+    strb       r0,[r4,#MapEventState_state_s2]
     ldr        r4,[r7,#0x8]
     mov        r0,#0x5
     strb       r0,[r4,#0x19]

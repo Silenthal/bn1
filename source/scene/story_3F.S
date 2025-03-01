@@ -37,7 +37,7 @@ _ts S_Story_3F_0
 
 _ts S_Story_3F_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808d600

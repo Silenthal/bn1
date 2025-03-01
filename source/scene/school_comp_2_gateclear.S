@@ -30,7 +30,7 @@ _ts S_School_Comp_2_GateClear_0
     bl         Flag_SetPlayerInactive
     pop        {r5}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08086fa6
@@ -66,7 +66,7 @@ LAB_08086fdc:
 
 _nt S_School_Comp_2_GateClear_3
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08086ff0
@@ -85,7 +85,7 @@ _nt S_School_Comp_2_GateClear_4
 
 _nt S_School_Comp_2_GateClear_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08087024

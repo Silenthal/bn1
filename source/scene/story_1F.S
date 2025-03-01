@@ -51,7 +51,7 @@ LAB_080883d4:
 
 _nt S_Story_1F_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080883fa
@@ -68,7 +68,7 @@ LAB_080883fa:
 _ts S_Story_1F_3
     bl         SceneCamera_Main
     LoadMain fade, r2, r2
-    ldrb       r2,[r2,#0x3]
+    ldrb       r2,[r2,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r2,r1
     beq        LAB_0808842c
@@ -113,7 +113,7 @@ LAB_0808845e:
 
 _nt S_Story_1F_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080884a0

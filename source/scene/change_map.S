@@ -92,7 +92,7 @@ _ts S_ChangeMap_0
     bl         Flag_SetPlayerInactive
     pop        {r5}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08087e7a
@@ -157,7 +157,7 @@ LAB_08087eda:
 
 _ts S_ChangeMap_4
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08087f7c
@@ -188,13 +188,13 @@ LAB_08087f16:
     cmp        r1,#0x1
     bne        LAB_08087f38
     mov        r1,#0x3
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     b          LAB_08087f40
 LAB_08087f38:
     cmp        r1,#0x4
     beq        LAB_08087f40
     mov        r1,#0x1
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
 LAB_08087f40:
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1

@@ -52,7 +52,7 @@ _ts S_Story_74_1
     mov        r0,#0x7
     bl         PlayerAnimation_SetState
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809530a
@@ -80,7 +80,7 @@ LAB_0809530a:
 
 _ts S_Story_74_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08095336
@@ -110,7 +110,7 @@ _ts S_Story_74_3
     and        r0,r1
     bne        LAB_0809537e
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
@@ -223,7 +223,7 @@ LAB_08095440:
 
 _nt S_Story_74_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08095488
@@ -343,7 +343,7 @@ _ts S_Story_74_12
     and        r0,r1
     bne        LAB_08095586
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
@@ -372,7 +372,7 @@ LAB_08095590:
 
 _nt S_Story_74_13
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080955b4
@@ -388,7 +388,7 @@ LAB_080955b4:
 
 _nt S_Story_74_14
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080955ee
@@ -433,7 +433,7 @@ LAB_08095618:
 
 _nt S_Story_74_16
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08095682
@@ -461,7 +461,7 @@ _nt S_Story_74_16
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x0
-    str        r1,[r0,#0x34]
+    str        r1,[r0,#World_npcCommandList]
     push       {r5}
     ldr        r7,PTR_NPCList_804E308_080956dc
     bl         Map_LoadNPCList
@@ -476,7 +476,7 @@ LAB_08095682:
 
 _ts S_Story_74_17
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080956aa

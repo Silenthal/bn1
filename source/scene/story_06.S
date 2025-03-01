@@ -46,8 +46,8 @@ _ts S_Story_06_1
     bne        LAB_08083a18
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r0,[r0,#0x28]
-    ldrb       r0,[r0,#0x14]
+    ldr        r0,[r0,#World_playerLocation]
+    ldrb       r0,[r0,#PlayerLocation_currDirMoveIndex]
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
@@ -97,7 +97,7 @@ _ts S_Story_06_3
     Flag_SetBase 0x99
     LoadMain world, r7, r7
     mov        r0,#0x3
-    strb       r0,[r7,#0x6]
+    strb       r0,[r7,#World_storyFlag]
     bl         PlayerAnimation_Unlock
     mov        r0,#T_Incident_Occurrence
     bl         Sound_PlayBGM

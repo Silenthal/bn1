@@ -95,7 +95,7 @@ _ts S_StartFixedBattle_1
 _ts S_StartFixedBattle_2
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08085866
@@ -124,13 +124,13 @@ _ts S_StartFixedBattle_2
     pop        {r7}
     LoadMain world, r6, r6
     ldr        r0,[r7,#0xc]
-    str        r0,[r6,#0x38]
+    str        r0,[r6,#World_savedPos_x]
     ldr        r0,[r7,#0x10]
-    str        r0,[r6,#0x3c]
+    str        r0,[r6,#World_savedPos_y]
     ldr        r0,[r7,#0x14]
-    str        r0,[r6,#0x40]
+    str        r0,[r6,#World_savedPos_z]
     ldrb       r0,[r7,#0xb]
-    str        r0,[r6,#0x44]
+    str        r0,[r6,#World_savedDirection]
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
 LAB_08085866:

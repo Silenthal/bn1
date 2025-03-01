@@ -112,7 +112,7 @@ _ts S_Story_17_4
 
 _nt S_Story_17_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08087146
@@ -131,7 +131,7 @@ _ts S_Story_17_6
     str        r0,[r5,#Scene_sceneArg]
     LoadMain world, r0, r7
     mov        r1,#0x3
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1
     strb       r1,[r0,#0x10]
@@ -145,7 +145,7 @@ _ts S_Story_17_6
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x15
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     push       {r5}
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple

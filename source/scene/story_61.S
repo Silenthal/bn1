@@ -35,7 +35,7 @@ _ts S_Story_61_0
 
 _ts S_Story_61_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080916f6
@@ -46,7 +46,7 @@ _ts S_Story_61_1
     bne        LAB_080916f6
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0x7
     strb       r0,[r7,#0x10]
     pop        {r5}
@@ -78,7 +78,7 @@ LAB_080916f6:
 
 _ts S_Story_61_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08091716
@@ -150,7 +150,7 @@ LAB_08091790:
 
 _nt S_Story_61_6
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080917b2
@@ -175,7 +175,7 @@ _ts S_Story_61_7
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x50
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     Flag_ClearBase 0x2D
     Flag_ClearBase 0x2F
     push       {r5}
@@ -196,11 +196,11 @@ _ts S_Story_61_7
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#World_lastBattleResult]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#World_commentaryTextIndex]
     ldr        r1,PTR_MapEntrance_08091868
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#World_statAttack]
     mov        r0,#0x0
     bl         World_ChangeMap
     pop        {r5}

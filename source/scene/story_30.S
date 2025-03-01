@@ -56,8 +56,8 @@ _ts S_Story_30_1
     bne        LAB_0808a9cc
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
-    ldrb       r0,[r7,#0x10]
+    ldr        r7,[r7,#World_playerLocation]
+    ldrb       r0,[r7,#PlayerLocation_direction]
     mov        r2,#0x7
     and        r0,r2
     mov        r2,#0x0
@@ -65,7 +65,7 @@ _ts S_Story_30_1
     bl         PlayerAnimation_SetState
     pop        {r5}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808a9cc
@@ -99,7 +99,7 @@ LAB_0808a9fe:
 
 _ts S_Story_30_3
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808aa28
@@ -173,7 +173,7 @@ LAB_0808aa9e:
 
 _ts S_Story_30_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808aac4
@@ -188,7 +188,7 @@ LAB_0808aac4:
 
 _nt S_Story_30_8
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808aaee
@@ -225,7 +225,7 @@ LAB_0808ab18:
 
 _nt S_Story_30_10
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808ab72
@@ -247,7 +247,7 @@ _nt S_Story_30_10
     push       {r5}
     mov        r0,#0x1
     LoadMain world, r1, r1
-    ldr        r1,[r1,#0x28]
+    ldr        r1,[r1,#World_playerLocation]
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
@@ -261,7 +261,7 @@ LAB_0808ab72:
 
 _ts S_Story_30_11
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808abbe
@@ -283,7 +283,7 @@ _ts S_Story_30_11
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x27
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808abbe:
     pop        {pc}

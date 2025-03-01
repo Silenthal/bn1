@@ -50,7 +50,7 @@ LAB_08087626:
     bl         Flag_SetPlayerInactive
     pop        {r5}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808764a
@@ -100,7 +100,7 @@ LAB_0808768a:
 
 _ts S_School_Comp_5_Passcode_4
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080876f8
@@ -117,7 +117,7 @@ _ts S_School_Comp_5_Passcode_4
     beq        LAB_080876ec
     LoadMain world, r0, r7
     mov        r1,#0x3
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     ldr        r0,[r7,#0x2c]
     mov        r1,#0x1
     strb       r1,[r0,#0x10]

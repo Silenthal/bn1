@@ -64,7 +64,7 @@ LAB_080910e4:
 
 _nt S_Story_5E_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08091104
@@ -100,7 +100,7 @@ _nt S_Story_5E_4
     Flag_GetBase 0xBE
     bne        LAB_08091162
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08091162
@@ -124,7 +124,7 @@ _ts S_Story_5E_5
     tst        r0,r0
     bne        LAB_080911aa
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080911aa
@@ -205,7 +205,7 @@ LAB_0809122c:
 
 _nt S_Story_5E_9
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809124e

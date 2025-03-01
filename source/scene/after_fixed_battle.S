@@ -346,13 +346,13 @@ _ts S_AfterFixedBattle_0
     bl         Flag_SetPlayerInactive
     pop        {r5}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080859de
     push       {r5}
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x10]
+    ldrb       r7,[r7,#World_lastBattleResult]
     ldr        r6,PTR_AfterBattleFlagSettings_ARRAY_08085a70
     ldrb       r0,[r5,#Scene_dialogueIndex]
     lsl        r0,r0,#0x3
@@ -396,7 +396,7 @@ LAB_08085a06:
     pop        {r6}
 LAB_08085a14:
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x10]
+    ldrb       r7,[r7,#World_lastBattleResult]
     tst        r7,r7
     bne        LAB_08085a3c
     ldrb       r0,[r6,#0x4]

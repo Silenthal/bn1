@@ -77,7 +77,7 @@ LAB_0808f0e8:
 
 _nt S_Story_4E_3
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808f118
@@ -167,7 +167,7 @@ _nt S_Story_4E_7
 
 _nt S_Story_4E_8
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808f1dc

@@ -167,7 +167,7 @@ _ts S_Story_09_6
     mov        r0,#0x0
     bl         PetStatusControl_SetState
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0x4
     strb       r0,[r7,#0x10]
     bl         PlayerAnimation_SetState

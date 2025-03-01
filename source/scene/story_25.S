@@ -44,7 +44,7 @@ LAB_08088fee:
 
 _ts S_Story_25_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089024
@@ -67,7 +67,7 @@ LAB_08089024:
 _nt S_Story_25_2
     bl         SceneCamera_Main
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089048
@@ -101,7 +101,7 @@ LAB_08089072:
 
 _ts S_Story_25_4
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080890e2
@@ -112,13 +112,13 @@ _ts S_Story_25_4
     pop        {r5}
     LoadMain world, r6, r6
     ldr        r1,DAT_0808913c
-    str        r1,[r6,#0x38]
+    str        r1,[r6,#World_savedPos_x]
     ldr        r1,DAT_08089140
-    str        r1,[r6,#0x3c]
+    str        r1,[r6,#World_savedPos_y]
     mov        r1,#0x0
-    str        r1,[r6,#0x40]
+    str        r1,[r6,#World_savedPos_z]
     mov        r1,#0x4
-    str        r1,[r6,#0x44]
+    str        r1,[r6,#World_savedDirection]
     push       {r5}
     bl         PlayerLocation_Create
     mov        r0,#0x1
@@ -147,7 +147,7 @@ LAB_080890e2:
 
 _ts S_Story_25_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08089112

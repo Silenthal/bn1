@@ -73,7 +73,7 @@ LAB_0808e64c:
 
 _nt S_Story_49_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808e664
@@ -92,11 +92,11 @@ _nt S_Story_49_3
     bne        LAB_0808e68a
     LoadMain mapEventState, r7, r7
     mov        r0,#0x0
-    strb       r0,[r7,#0x8]
-    strb       r0,[r7,#0xa]
+    strb       r0,[r7,#MapEventState_b8]
+    strb       r0,[r7,#MapEventState_ba]
     mov        r0,#0x2
-    strb       r0,[r7,#0x9]
-    strb       r0,[r7,#0xb]
+    strb       r0,[r7,#MapEventState_b9]
+    strb       r0,[r7,#MapEventState_bb]
     mov        r0,#0x3c
     strb       r0,[r5,#Scene_sceneTimer]
     Scene_Next
@@ -186,7 +186,7 @@ LAB_0808e73a:
 
 _ts S_Story_49_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808e76e
@@ -198,7 +198,7 @@ _ts S_Story_49_7
     push       {r5}
     mov        r0,#0x1
     LoadMain world, r1, r1
-    ldr        r1,[r1,#0x28]
+    ldr        r1,[r1,#World_playerLocation]
     add        r1,#0x24
     bl         Camera_SetEnabled
     pop        {r5}
@@ -216,15 +216,15 @@ _ts S_Story_49_8
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x37
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#World_lastBattleResult]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#World_commentaryTextIndex]
     ldr        r1,PTR_MapEntrance_0808e7e4
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#World_statAttack]
     mov        r0,#0x0
     bl         World_ChangeMap
     pop        {r5}

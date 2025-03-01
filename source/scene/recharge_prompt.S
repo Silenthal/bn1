@@ -49,7 +49,7 @@ _ts S_RechargePrompt_0
     cmp        r1,#0x3
     bge        LAB_08091bb8
     LoadMain world, r7, r7
-    ldr        r0,[r7,#0x58]
+    ldr        r0,[r7,#World_lastMapPosOffline_fullArea]
     lsr        r0,r0,#0x8
     cmp        r0,#0x5
     bne        LAB_08091bb8
@@ -94,8 +94,8 @@ _ts S_RechargePrompt_1
 LAB_08091bfa:
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
-    ldrb       r0,[r7,#0x10]
+    ldr        r7,[r7,#World_playerLocation]
+    ldrb       r0,[r7,#PlayerLocation_direction]
     mov        r2,#0x7
     and        r0,r2
     mov        r2,#0x0
@@ -104,7 +104,7 @@ LAB_08091bfa:
     pop        {r5}
 LAB_08091c12:
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08091c30
@@ -118,7 +118,7 @@ LAB_08091c30:
 
 _nt S_RechargePrompt_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08091c64
@@ -182,7 +182,7 @@ _nt S_RechargePrompt_4
 
 _ts S_RechargePrompt_5
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08091d10
@@ -196,7 +196,7 @@ _ts S_RechargePrompt_5
     bge        LAB_08091ce0
     LoadMain gameStats, r1, r7
     mov        r0,#0x0
-    strb       r0,[r1,#0x5]
+    strb       r0,[r1,#GameStats_batteryCharge]
 LAB_08091ce0:
     LoadMain mapChange, r0, r7
     mov        r1,#0x1

@@ -41,8 +41,8 @@ _ts Scene_ChipTraderMain_1_StartDialogue
     bne        LAB_08085e92
     LoadMain world, r0, r7
     push       {r5}
-    ldr        r0,[r0,#0x28]
-    ldrb       r0,[r0,#0x14]
+    ldr        r0,[r0,#World_playerLocation]
+    ldrb       r0,[r0,#PlayerLocation_currDirMoveIndex]
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
@@ -64,7 +64,7 @@ _ts Scene_ChipTraderMain_1_StartDialogue
 LAB_08085e54:
     LoadMain textHandler, r6, r6
     ldrh       r2,[r7,#0x3a]
-    str        r2,[r6,#0x30]
+    str        r2,[r6,#Text_itemIdList]
     ldrh       r2,[r7,#0x3c]
     str        r2,[r6,#0x34]
     mov        r1,#0x3

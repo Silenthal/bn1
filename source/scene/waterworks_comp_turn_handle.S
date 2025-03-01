@@ -100,8 +100,8 @@ _ts S_Waterworks_Comp_TurnHandle_1
     bne        LAB_0808bb3c
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r0,[r0,#0x28]
-    ldrb       r0,[r0,#0x14]
+    ldr        r0,[r0,#World_playerLocation]
+    ldrb       r0,[r0,#PlayerLocation_currDirMoveIndex]
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
@@ -120,7 +120,7 @@ LAB_0808bb3c:
 _ts S_Waterworks_Comp_TurnHandle_2
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808bb80
@@ -153,7 +153,7 @@ LAB_0808bb80:
 _ts S_Waterworks_Comp_TurnHandle_3
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808bbd4
@@ -214,7 +214,7 @@ LAB_0808bbf2:
 _ts S_Waterworks_Comp_TurnHandle_5
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808bc52
@@ -229,7 +229,7 @@ _ts S_Waterworks_Comp_TurnHandle_5
     ldr        r2,[r7,#0x8]
     ldr        r3,[r7,#0xc]
     LoadMain world, r6, r6
-    ldr        r6,[r6,#0x28]
+    ldr        r6,[r6,#World_playerLocation]
     strb       r3,[r6,#0x10]
     push       {r3}
     bl         PlayerAnimation_SetPosition
@@ -263,7 +263,7 @@ PTR_S_Waterworks_Comp_TurnHandle_Flags_1_0808bc54:
 _ts S_Waterworks_Comp_TurnHandle_6
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808bc90

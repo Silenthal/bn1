@@ -78,7 +78,7 @@ PTR_NPCList_804E470_08096154:
 
 _ts S_Story_77_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08096186
@@ -155,9 +155,9 @@ _ts S_Story_77_5
     mov        r0,#0x32
     strb       r0,[r5,#Scene_sceneTimer]
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     push       {r0,r5}
-    ldr        r0,[r0,#0x24]
+    ldr        r0,[r0,#PlayerLocation_pos_curr_x]
     ldr        r1,DAT_08096554
     sub        r0,r1,r0
     mov        r1,#0x10
@@ -195,7 +195,7 @@ _ts S_Story_77_6
     pop        {r5}
     LoadMain world, r7, r7
     mov        r0,#0xff
-    strb       r0,[r7,#0x18]
+    strb       r0,[r7,#World_currentSongId]
     push       {r5}
     ldr        r0,PTR_ScenarioData_77_08096550
     mov        r1,#0xc
@@ -360,7 +360,7 @@ LAB_080963de:
 
 _ts S_Story_77_11
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809641e
@@ -385,7 +385,7 @@ LAB_0809641e:
 
 _ts S_Story_77_12
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     bne        LAB_08096452
@@ -424,7 +424,7 @@ LAB_0809647c:
 
 _nt S_Story_77_14
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809649e
@@ -446,11 +446,11 @@ _ts S_Story_77_15
     Flag_SetBase 0xE4
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#MapChange_type]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#MapChange_destinationIndex]
     ldr        r1,PTR_MapEntrance_08096568
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#MapChange_destinationList]
     mov        r0,#0x0
     bl         World_ChangeMap
     pop        {r5}
@@ -497,7 +497,7 @@ _ts FUN_080964fc
 LAB_08096522:
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r5,[r0,#0x28]
+    ldr        r5,[r0,#World_playerLocation]
     bl         SpritePtr_GetFrameStatus
     pop        {r5}
     mov        r1,#0x80

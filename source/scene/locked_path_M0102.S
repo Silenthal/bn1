@@ -47,15 +47,15 @@ _ts S_LockedPath_M0102_1
     bne        LAB_08083afa
     push       {r5}
     LoadMain world, r0, r0
-    ldr        r0,[r0,#0x28]
-    ldrb       r0,[r0,#0x14]
+    ldr        r0,[r0,#World_playerLocation]
+    ldrb       r0,[r0,#PlayerLocation_currDirMoveIndex]
     mov        r1,#0x7
     and        r0,r1
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0x6]
+    ldrb       r0,[r0,#World_storyFlag]
     ldr        r1,PTR_DAT_08083ba0
     ldrb       r0,[r1,r0]
     bl         Text_LoadAreaDialogue
@@ -99,8 +99,8 @@ _ts S_LockedPath_M0102_3
     bl         S_LockedPath_M0102_AnimatePlayer
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
-    add        r0,#0x24
+    ldr        r0,[r0,#World_playerLocation]
+    add        r0,#PlayerLocation_pos_curr
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x1

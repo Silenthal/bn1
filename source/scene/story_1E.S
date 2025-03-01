@@ -45,7 +45,7 @@ _ts S_Story_1E_1
     cmp        r0,#0x2
     bne        LAB_080882e6
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080882e6
@@ -56,7 +56,7 @@ _ts S_Story_1E_1
     bl         Inventory_SubtractChip
     pop        {r5}
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x10]
+    ldrb       r7,[r7,#World_lastBattleResult]
     cmp        r7,#0x0
     beq        LAB_080882bc
     Flag_ClearBase 0x92

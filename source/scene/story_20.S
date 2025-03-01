@@ -90,7 +90,7 @@ _ts S_Story_20_3
     and        r0,r1
     bne        LAB_080885bc
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0xff
     strb       r0,[r7,#0x15]
     mov        r0,#0x6e
@@ -149,7 +149,7 @@ LAB_08088608:
 
 _nt S_Story_20_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808864c
@@ -174,7 +174,7 @@ LAB_0808864c:
 
 _nt S_Story_20_8
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08088678
@@ -185,7 +185,7 @@ _nt S_Story_20_8
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x22
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     bl         Scene_UnloadAndResetStepCounter
 LAB_08088678:
     pop        {pc}

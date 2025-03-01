@@ -36,7 +36,7 @@ _ts S_Story_5B_0
 
 _ts S_Story_5B_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08090a74
@@ -69,7 +69,7 @@ LAB_08090a74:
 
 _nt S_Story_5B_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08090a88
@@ -167,7 +167,7 @@ LAB_08090b4a:
 
 _ts S_Story_5B_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08090b6c

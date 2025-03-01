@@ -34,7 +34,7 @@ _ts S_Dentown_Center_Chaud_Undernet_0
 
 _ts S_Dentown_Center_Chaud_Undernet_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08097ce6
@@ -64,9 +64,9 @@ _ts S_Dentown_Center_Chaud_Undernet_1
     mov        r0,#0x1
     bl         PlayerAnimation_SetState
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0x1
-    strb       r0,[r7,#0x10]
+    strb       r0,[r7,#PlayerLocation_direction]
     push       {r5}
     FadeInFast_Black
     pop        {r5}
@@ -77,7 +77,7 @@ LAB_08097ce6:
 
 _ts S_Dentown_Center_Chaud_Undernet_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08097d06

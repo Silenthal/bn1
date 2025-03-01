@@ -49,7 +49,7 @@ LAB_0808c446:
 
 _ts S_Story_36_2
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808c470
@@ -128,7 +128,7 @@ LAB_0808c4f4:
 
 _nt S_Story_36_6
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808c53c
@@ -157,7 +157,7 @@ LAB_0808c53c:
 
 _nt S_Story_36_7
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0808c578
@@ -168,16 +168,16 @@ _nt S_Story_36_7
     LoadMain world, r0, r0
     mov        r1,#0x7
     lsl        r1,r1,#0x10
-    str        r1,[r0,#0x48]
+    str        r1,[r0,#World_lastMapPosOffline_pos_x]
     mov        r1,#0x2c
     lsl        r1,r1,#0x10
-    str        r1,[r0,#0x4c]
+    str        r1,[r0,#World_lastMapPosOffline_pos_y]
     mov        r1,#0x0
-    str        r1,[r0,#0x50]
+    str        r1,[r0,#World_lastMapPosOffline_pos_z]
     mov        r1,#0x4
-    str        r1,[r0,#0x54]
+    str        r1,[r0,#World_lastMapPosOffline_direction]
     ldr        r1,DAT_0808c5a4
-    str        r1,[r0,#0x58]
+    str        r1,[r0,#World_lastMapPosOffline_fullArea]
     bl         Scene_UnloadAndResetStepCounter
 LAB_0808c578:
     pop        {pc}
