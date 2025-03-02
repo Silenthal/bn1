@@ -8,14 +8,14 @@
     .thumb
 
 _ts InitKeyItem
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gKeyItemInventory_08018c80
     mov        r1,#0x60
     bl         memset0_32
     mov        r0,#Item_Armor
     mov        r1,#0x1
     bl         KeyItem_AddAmount
-    pop        { pc }
+    pop        {pc}
 
 _ts KeyItem_AddAmount
     ldr        r2,PTR_gKeyItemInventory_08018c84

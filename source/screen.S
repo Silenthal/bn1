@@ -207,11 +207,11 @@ LAB_0800228c:
 @@ r3: entryList - The list of tilemap entries.
 @@ r4: entryListSz - The size of the tilemap entry list.
 _ts LC_Screen_SafeCopyTileMapH
-    push       { lr }
+    push       {lr}
     ldr        r7,PTR_Screen_SafeCopyTileMapH_1_080022c8
     mov        lr,pc
     bx         r7
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Copies onscreen tilemap entries from a given tilemap list to the screen
@@ -223,11 +223,11 @@ _ts LC_Screen_SafeCopyTileMapH
 @@ r3: entryList - The list of tilemap entries.
 @@ r4: entryListSz - The size of the tilemap entry list.
 _ts LC_Screen_SafeCopyTileMapV
-    push       { lr }
+    push       {lr}
     ldr        r7,PTR_Screen_SafeCopyTileMapV_1_080022cc
     mov        lr,pc
     bx         r7
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Copies onscreen tilemap entries from a given tilemap list to the screen
@@ -240,11 +240,11 @@ _ts LC_Screen_SafeCopyTileMapV
 @@ r4: width - The width of the rectangle.
 @@ r5: height - The height of the rectangle.
 _ts LC_Screen_SafeCopyTileMapRect
-    push       { lr }
+    push       {lr}
     ldr        r7,PTR_Screen_SafeCopyTileMapRect_1_080022d0
     mov        lr,pc
     bx         r7
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 

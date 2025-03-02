@@ -52,7 +52,7 @@ _ts SWI_Sqrt
     bx         lr
 
 _ts memcpy_8_sram_copy
-    push       { r4, lr }
+    push       {r4,lr}
     add        r4,r0,#0x0
     sub        r3,r2,#0x1
     cmp        r2,#0x0
@@ -68,12 +68,12 @@ _ts memcpy_8_sram_copy
     cmp        r3,r2
     bne        1b
 2:
-    pop        { r4 }
-    pop        { r0 }
+    pop        {r4}
+    pop        {r0}
     bx         r0
 
 _ts MemCpy_8_Sram
-    push       { r4, r5, r6, lr }
+    push       {r4,r5,r6,lr}
     sub        sp,#0x80
     add        r4,r0,#0x0
     add        r5,r1,#0x0
@@ -123,12 +123,12 @@ LAB_0809dfd4:
     add        r2,r6,#0x0
     bl         Call_R3_9e108
     add        sp,#0x80
-    pop        { r4, r5, r6 }
-    pop        { r0 }
+    pop        {r4,r5,r6}
+    pop        {r0}
     bx         r0
 
 _ts MemCpySram
-    push       { r4, r5, lr }
+    push       {r4,r5,lr}
     add        r5,r0,#0x0
     add        r4,r1,#0x0
     add        r3,r2,#0x0
@@ -154,8 +154,8 @@ LAB_0809e012:
     cmp        r3,r1
     bne        LAB_0809e012
 LAB_0809e020:
-    pop        { r4, r5 }
-    pop        { r0 }
+    pop        {r4,r5}
+    pop        {r0}
     bx         r0
 
     .align 2, 0
@@ -167,7 +167,7 @@ USHORT_0809e02c:
     .word     0x0000FFFC
 
 _ts memcmp_8
-    push       { r4, r5, lr }
+    push       {r4,r5,lr}
     add        r5,r0,#0x0
     add        r3,r1,#0x0
     sub        r4,r2,#0x1
@@ -191,12 +191,12 @@ LAB_0809e050:
 LAB_0809e056:
     mov        r0,#0x0
 LAB_0809e058:
-    pop        { r4, r5 }
-    pop        { r1 }
+    pop        {r4,r5}
+    pop        {r1}
     bx         r1
 
 _ts MemCmp_8_Sram
-    push       { r4, r5, r6, lr }
+    push       {r4,r5,r6,lr}
     sub        sp,#0xc0
     add        r4,r0,#0x0
     add        r5,r1,#0x0
@@ -247,12 +247,12 @@ LAB_0809e0a8:
     add        r2,r6,#0x0
     bl         Call_R3_9e108
     add        sp,#0xc0
-    pop        { r4, r5, r6 }
-    pop        { r1 }
+    pop        {r4,r5,r6}
+    pop        {r1}
     bx         r1
 
 FUN_0809e0c4:
-    push       { r4, r5, r6, r7, lr }
+    push       {r4,r5,r6,r7,lr}
     add        r6,r0,#0x0
     add        r5,r1,#0x0
     add        r4,r2,#0x0
@@ -278,8 +278,8 @@ LAB_0809e0d6:
     bne        LAB_0809e0d0
 LAB_0809e0f4:
     add        r0,r3,#0x0
-    pop        { r4, r5, r6, r7 }
-    pop        { r1 }
+    pop        {r4,r5,r6,r7}
+    pop        {r1}
     bx         r1
 
 _ts Call_R0_9e0fc
@@ -323,7 +323,7 @@ _ts Call_R3_9e108
 _ts div
     cmp        r1,#0x0
     beq        LAB_0809e1c0
-    push       { r4 }
+    push       {r4}
     add        r4,r0,#0x0
     eor        r4,r1
     mov        r12,r4
@@ -399,13 +399,13 @@ LAB_0809e1b2:
     bpl        LAB_0809e1bc
     neg        r0,r0
 LAB_0809e1bc:
-    pop        { r4 }
+    pop        {r4}
     mov        pc,lr
 LAB_0809e1c0:
-    push       { lr }
+    push       {lr}
     bl         dummy_9e1cc
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts dummy_9e1cc
     mov        pc,lr

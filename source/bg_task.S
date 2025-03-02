@@ -5,11 +5,11 @@
 
 @@ Initializes the BG task list.
 _ts InitBgTask
-    push       { lr }
+    push       {lr}
     LoadMain bgAnimationTaskList, r0, r0
     ldr        r1,=0x180
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -20,7 +20,7 @@ _ts InitBgTask
 @@ In:
 @@ r0: BgTask* task - The task to add.
 _ts BgTask_AddNew
-    push       { lr }
+    push       {lr}
     LoadMain bgAnimationTaskList, r7, r7
     ldrb       r1,[r0,#0x9]
     mov        r2,#0x18
@@ -49,14 +49,14 @@ LAB_08001d46:
     ldr        r6,[r6,r1]
     mov        lr,pc
     bx         r6
-    pop        { pc }
+    pop        {pc}
 
     .pool
 
 
 @@ Updates all active tasks.
 _ts BgTask_Update
-    push       { lr }
+    push       {lr}
     LoadMain bgAnimationTaskList, r7, r7
     mov        r4,#0x0
 LAB_08001d68:
@@ -106,7 +106,7 @@ LAB_08001db4:
     mov        r1,#0x0
     strb       r1,[r7,#0x0]
 LAB_08001db8:
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -126,21 +126,21 @@ PTR_funcListBgDataTransfer_08001dd8: .word funcListBgDataTransfer
 @@ In:
 @@ r7: BgDataArg* arg - The current argument in the current task.
 _ts BgTask_TransferDirect
-    push       { lr }
-    push       { r4, r7 }
+    push       {lr}
+    push       {r4,r7}
     ldr        r0,[r0,#0x0]
     ldr        r1,[r7,#0xc]
     ldr        r2,[r7,#0x10]
     bl         Dma_TransferListAdd
-    pop        { r4, r7 }
-    pop        { pc }
+    pop        {r4,r7}
+    pop        {pc}
 
 
 @@ Transfers tilemap data from the loaded tilemap archive.
 @@ In:
 @@ r7: BgDataArg* arg - The current argument in the current task.
 _ts BgTask_TransferTilemap
-    push       { lr }
+    push       {lr}
     LoadMain bgDataManager, r5, r5
     ldr        r5,[r5,#BackgroundDataManager_tilemapArchive]
     ldrb       r2,[r7,#0x17]
@@ -163,20 +163,20 @@ LAB_08001e0a:
     sub        r2,#0x1
     bgt        LAB_08001e0a
     mov        r7,r8
-    push       { r4, r7 }
+    push       {r4,r7}
     LoadMain bgDataManager, r5, r7
     bl         BGDM_LoadTilemap_StaticBG1
-    pop        { r4, r7 }
+    pop        {r4,r7}
     mov        r0,#0x0
     strb       r0,[r7,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Transfers tileset data from the loaded tileset archive.
 @@ In:
 @@ r7: BgDataArg* arg - The current argument in the current task.
 _ts BgTask_TransferTileset
-    push       { r4, r7, lr }
+    push       {r4,r7,lr}
     ldr        r6,[r0,#0x0]
     ldr        r5,PTR_PTR_gBgTileDataBuffer0_08001e84
     ldrb       r4,[r7,#0x17]
@@ -184,13 +184,13 @@ _ts BgTask_TransferTileset
     ldr        r5,[r5,r4]
     ldr        r4,[r7,#0xc]
     mov        r1,#0x0
-    push       { r0 }
+    push       {r0}
 LAB_08001e42:
     ldrh       r2,[r6,r1]
     lsl        r3,r2,#0x16
     lsr        r3,r3,#0x16
     lsl        r3,r3,#0x5
-    push       { r4, r6 }
+    push       {r4,r6}
     add        r4,r4,r3
     ldr        r0,PTR_funcListTileCopy_08001e80
     lsr        r2,r2,#0xa
@@ -198,14 +198,14 @@ LAB_08001e42:
     ldr        r0,[r0,r2]
     mov        lr,pc
     bx         r0
-    pop        { r4, r6 }
+    pop        {r4,r6}
     add        r5,#0x20
     add        r1,#0x2
     ldrb       r2,[r7,#0x16]
     lsl        r2,r2,#0x1
     cmp        r1,r2
     blt        LAB_08001e42
-    pop        { r0 }
+    pop        {r0}
     ldr        r0,PTR_PTR_gBgTileDataBuffer0_08001e84
     ldrb       r1,[r7,#0x17]
     lsl        r1,r1,#0x2
@@ -215,7 +215,7 @@ LAB_08001e42:
     lsl        r2,r2,#0x5
     lsr        r2,r2,#0x2
     bl         Dma_TransferListAdd
-    pop        { r4, r7, pc }
+    pop        {r4,r7,pc}
 
 PTR_funcListTileCopy_08001e80: .word funcListTileCopy
 PTR_PTR_gBgTileDataBuffer0_08001e84: .word bgTileBufferList

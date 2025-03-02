@@ -7,7 +7,7 @@
     .thumb
 
 _ts CustomScreen_Main
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gCustomScreen_08015928
     mov        r0,#0x0
     mov        r1,#0x0
@@ -27,7 +27,7 @@ LAB_08015902:
     bx         r7
     ldrb       r1,[r5,#0x1]
     lsr        r1,r1,#0x2
-    pop        { pc }
+    pop        {pc}
     .align 2, 0
 
 JT_R5_CustomScreen_15918:
@@ -40,7 +40,7 @@ PTR_gCustomScreen_08015928:
     .word gCustomScreen
 
 _ts CustomScreen_0_Init
-    push       { lr }
+    push       {lr}
     bl         R_Player_ResetBusterAndShields
     mov        r0,#0x4
     strb       r0,[r5,#0x0]
@@ -69,18 +69,18 @@ _ts CustomScreen_0_Init
     bl         memset_8
     bl         CustomScreen_1_Main
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 
 _ts CustomScreen_1_Main
-    push       { lr }
+    push       {lr}
     ldr        r7,=JT_R5_CustomScreen_15980
     ldrb       r0,[r5,#0x1]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 
 JT_R5_CustomScreen_15980:
@@ -98,7 +98,7 @@ JT_R5_CustomScreen_15980:
 
 
 _ts CustomScreen_1_0_Open
-    push       { lr }
+    push       {lr}
     ldr        r7,=JT_R5_BCS_159CC
     ldrb       r0,[r5,#0x2]
     ldr        r7,[r7,r0]
@@ -110,7 +110,7 @@ _ts CustomScreen_1_0_Open
     bl         CustomScreen_LoadUILower
     bl         CustomScreen_LoadSelectedChips
     bl         CustomScreen_UpdateChipSelectPosition
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -122,7 +122,7 @@ JT_R5_BCS_159CC:
 
 
 _ts CustomScreen_StartSlideOpen
-    push       { lr }
+    push       {lr}
     mov        r0,#0x0
     strh       r0,[r5,#0x24]
     strh       r0,[r5,#0x20]
@@ -130,11 +130,11 @@ _ts CustomScreen_StartSlideOpen
     strb       r0,[r5,#0x2]
     mov        r0,#0xbe
     bl         Sound_PlaySE
-    pop        { pc }
+    pop        {pc}
 
 
 _ts CustomScreen_SlideOpen
-    push       { lr }
+    push       {lr}
     LoadMain camera, r7, r7
     ldr        r0,[r7,#Camera_posMapNext_y]
     ldr        r1,=0x10000
@@ -160,18 +160,18 @@ LAB_08015a1a:
     mov        r1,#0x0
     strh       r1,[r5,#0x2]
 LAB_08015a20:
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
 
 
 _ts CustomScreen_1_1_ChipSelect
-    push       { lr }
+    push       {lr}
     bl         CustomScreen_CheckRToggle
     tst        r0,r0
     beq        LAB_08015a34
-    pop        { pc }
+    pop        {pc}
 LAB_08015a34:
     bl         CustomScreen_CheckCursorMove
     tst        r0,r0
@@ -248,7 +248,7 @@ LAB_08015abc:
     bl         CustomScreen_LoadSelectedChips
     bl         CustomScreen_AnimateLogo
     bl         CustomScreen_UpdateChipSelectPosition
-    pop        { pc }
+    pop        {pc}
 
 _nt CustomScreen_GetSelectedChipOffset
     ldrb       r0,[r5,#0x4]
@@ -265,7 +265,7 @@ _nt CustomScreen_GetChipSelectIndex
     mov        pc,lr
 
 _nt CustomScreen_1_2_Ok
-    push       { lr }
+    push       {lr}
     ldrh       r0,[r5,#0x38]
     mov        r1,#0x1
     tst        r0,r1
@@ -308,7 +308,7 @@ LAB_08015b4c:
     strh       r0,[r5,#0x2]
     mov        r0,#0x0
     strb       r0,[r5,#0xf]
-    pop        { pc }
+    pop        {pc}
 LAB_08015b5a:
     ldrh       r0,[r5,#0x3a]
     mov        r1,#0x22
@@ -318,7 +318,7 @@ LAB_08015b5a:
 LAB_08015b64:
     sub        r0,#0x1
     bmi        LAB_08015bda
-    push       { r0 }
+    push       {r0}
     ldrb       r1,[r5,#0x5]
     bl         CustomScreen_GetChipSelectIndex
     LoadMain battle, r7, r7
@@ -331,7 +331,7 @@ LAB_08015b7e:
     bl         CustomScreen_GetChipDetailFromDeck
 LAB_08015b82:
     cmp        r0,#0xff
-    pop        { r0 }
+    pop        {r0}
     beq        LAB_08015b64
     strb       r0,[r5,#0x4]
     b          LAB_08015bb0
@@ -345,12 +345,12 @@ LAB_08015b96:
     add        r0,#0x1
     cmp        r0,#0x5
     beq        LAB_08015bda
-    push       { r0 }
+    push       {r0}
     ldrb       r1,[r5,#0x5]
     bl         CustomScreen_GetChipSelectIndex
     bl         CustomScreen_GetChipDetailFromDeck
     cmp        r0,#0xff
-    pop        { r0 }
+    pop        {r0}
     beq        LAB_08015b96
     strb       r0,[r5,#0x4]
 LAB_08015bb0:
@@ -387,10 +387,10 @@ LAB_08015be4:
     bl         CustomScreen_LoadUILower
     bl         CustomScreen_LoadSelectedChips
     bl         CustomScreen_UpdateChipSelectPosition
-    pop        { pc }
+    pop        {pc}
 
 _nt CustomScreen_1_3_Add
-    push       { lr }
+    push       {lr}
     ldr        r7,PTR_PTR_CustomScreen_1_3_0_ShowMessage_08015c24
     ldrb       r0,[r5,#0x2]
     ldr        r7,[r7,r0]
@@ -402,7 +402,7 @@ _nt CustomScreen_1_3_Add
     bl         CustomScreen_LoadUILower
     bl         CustomScreen_LoadSelectedChips
     bl         CustomScreen_UpdateChipSelectPosition
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -414,7 +414,7 @@ PTR_CustomScreen_1_3_0_ShowMessage_08015c28:
     .word CustomScreen_1_3_2_NoMoreData
 
 _ts CustomScreen_1_3_0_ShowMessage
-    push       { lr }
+    push       {lr}
     ldrh       r0,[r5,#0x38]
     mov        r1,#0x40
     tst        r0,r1
@@ -442,9 +442,9 @@ LAB_08015c66:
     strb       r0,[r5,#0x2]
     ldr        r0,PTR_TextData_BattleMessages_08015d94
     mov        r1,#0x1
-    push       { r5 }
+    push       {r5}
     bl         Text_LoadDialogue
-    pop        { r5 }
+    pop        {r5}
     b          LAB_08015cb2
 LAB_08015c78:
     mov        r0,#0x0
@@ -469,17 +469,17 @@ LAB_08015c78:
     bl         Sound_PlaySE
     ldr        r0,PTR_TextData_BattleMessages_08015d94
     mov        r1,#0x0
-    push       { r5 }
+    push       {r5}
     bl         Text_LoadDialogue
-    pop        { r5 }
+    pop        {r5}
 LAB_08015cb2:
     bl         CustomScreen_DrawCursorAddButton
-    pop        { pc }
+    pop        {pc}
 
     .word TextData_BattleMessages
 
 _ts CustomScreen_1_3_1_Success
-    push       { lr }
+    push       {lr}
     bl         Text_CheckIfDialogActive
     bne        LAB_08015cd0
     mov        r0,#0x10
@@ -489,26 +489,26 @@ _ts CustomScreen_1_3_1_Success
     mov        r0,#0x1
     strb       r0,[r5,#0xf]
 LAB_08015cd0:
-    pop        { pc }
+    pop        {pc}
 
 _nt CustomScreen_1_3_2_NoMoreData
-    push       { lr }
+    push       {lr}
     bl         Text_CheckIfDialogActive
     bne        LAB_08015cde
     mov        r0,#0x0
     strh       r0,[r5,#0x2]
 LAB_08015cde:
-    pop        { pc }
+    pop        {pc}
 
 _ts CustomScreen_1_4_Close
-    push       { lr }
+    push       {lr}
     ldr        r7,PTR_PTR_CustomScreen_1_4_0_CloseStart_1_08015cfc
     ldrb       r0,[r5,#0x2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
     bl         CustomScreen_UpdateChipSelectPosition
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -519,15 +519,15 @@ PTR_PTR_CustomScreen_1_4_0_CloseStart_1_08015cfc:
     .word PTR_CustomScreen_1_4_0_CloseStart_1_08015cf4
 
 _ts CustomScreen_1_4_0_CloseStart
-    push       { lr }
+    push       {lr}
     mov        r0,#0x0
     strh       r0,[r5,#0x20]
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
-    pop        { pc }
+    pop        {pc}
 
 _ts CustomScreen_1_4_1_SlideClosed
-    push       { lr }
+    push       {lr}
     LoadMain camera, r7, r7
     ldr        r0,[r7,#Camera_posMapNext_y]
     ldr        r1,DAT_08015d30
@@ -544,16 +544,16 @@ _ts CustomScreen_1_4_1_SlideClosed
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
 LAB_08015d2e:
-    pop        { pc }
+    pop        {pc}
 DAT_08015d30:
     .word 0x10000
 
 _ts CustomScreen_1_5_ShowDescription
-    push       { lr }
+    push       {lr}
     bl         CustomScreen_CheckHideDescriptionKeyPress
     tst        r0,r0
     beq        LAB_08015d40
-    pop        { pc }
+    pop        {pc}
 LAB_08015d40:
     bl         CustomScreen_GetChipFromPosition
     bl         CustomScreen_GetChipDetailFromFolder
@@ -562,16 +562,16 @@ LAB_08015d40:
     bl         CustomScreen_GetChipDetailFromFolder
     bl         CustomScreen_LoadChipDescription
     bl         CustomScreen_UpdateChipSelectPosition
-    pop        { pc }
+    pop        {pc}
 
 _nt CustomScreen_1_6_NoMoreData
-    push       { lr }
+    push       {lr}
     ldr        r7,=PTR_CustomScreen_1_6_0_ShowMessage
     ldrb       r0,[r5,#0x2]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -584,20 +584,20 @@ PTR_CustomScreen_1_6_0_ShowMessage:
     .pool
 
 _ts CustomScreen_1_6_0_ShowMessage
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_TextData_BattleMessages_08015d94
     mov        r1,#0x1
-    push       { r5 }
+    push       {r5}
     bl         Text_LoadDialogue
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0xc
     strb       r0,[r5,#0x2]
-    pop        { pc }
+    pop        {pc}
 PTR_TextData_BattleMessages_08015d94:
     .word TextData_BattleMessages
 
 _ts CustomScreen_1_6_1_FadeOut
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gTextOptionFlags_08015dc8
     ldr        r0,[r0,#0x0]
     mov        r1,#0x80
@@ -610,15 +610,15 @@ _ts CustomScreen_1_6_1_FadeOut
     strb       r0,[r5,#0x1]
     mov        r0,#0x0
     strh       r0,[r5,#0x2]
-    pop        { pc }
+    pop        {pc}
 LAB_08015db4:
-    push       { r5 }
+    push       {r5}
     FadeOut_Black
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#0x2]
 LAB_08015dc4:
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -626,13 +626,13 @@ PTR_gTextOptionFlags_08015dc8:
     .word gTextOptionFlags
 
 _ts CustomScreen_1_6_2_ExitBattle
-    push       { lr }
+    push       {lr}
     LoadMain fade, r7, r7
     ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08015e10
-    push       { r5 }
+    push       {r5}
     mov        r0,#0xf
     bl         Entity_FreeAllMultiple
     LoadMain world, r0, r7
@@ -656,12 +656,12 @@ LAB_08015df2:
     strh       r1,[r0,#0x0]
     mov        r0,#0x3
     bl         Video_SetBgControl
-    pop        { r5 }
+    pop        {r5}
 LAB_08015e10:
-    pop        { pc }
+    pop        {pc}
 
 _nt CustomScreen_1_6_3_Return
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gTextOptionFlags_08015e28
     ldr        r0,[r0,#0x0]
     mov        r1,#0x80
@@ -672,12 +672,12 @@ _nt CustomScreen_1_6_3_Return
     mov        r0,#0x0
     strh       r0,[r5,#0x2]
 LAB_08015e26:
-    pop        { pc }
+    pop        {pc}
 PTR_gTextOptionFlags_08015e28:
     .word gTextOptionFlags
 
 _ts CustomScreen_2_TakeOrAddChips
-    push       { lr }
+    push       {lr}
     LoadMain battle, r7, r7
     ldrb       r0,[r5,#0xf]
     tst        r0,r0
@@ -700,10 +700,10 @@ LAB_08015e52:
     strb       r0,[r7,#Battle_customScreenChipCount]
 LAB_08015e54:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts CustomScreen_LoadUIUpper
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gCustomScreen_08015ee4
     mov        r1,#0xaa
     lsl        r1,r1,#0x2
@@ -715,12 +715,12 @@ _ts CustomScreen_LoadUIUpper
     mov        r0,#0x6
     ldr        r7,PTR_DmaTransferDetail_ARRAY_08015ee0
 LAB_08015e70:
-    push       { r0, r7 }
+    push       {r0,r7}
     ldr        r0,[r7,#0x0]
     ldr        r1,[r7,#0x4]
     ldr        r2,[r7,#0x8]
     bl         Dma_TransferListAdd
-    pop        { r0, r7 }
+    pop        {r0,r7}
     add        r7,#0xc
     sub        r0,#0x1
     bne        LAB_08015e70
@@ -731,7 +731,7 @@ LAB_08015e70:
     mov        r2,#0x96
     lsl        r2,r2,#0x2
     bl         memcpy_32
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -767,7 +767,7 @@ PTR_tilemapCustomScreenUi_08015ee8:
     .word tilemapCustomScreenBg_1
 
 _ts CustomScreen_CopyTilemap
-    push       { r5, lr }
+    push       {r5,lr}
     mov        r7,#0x50
     add        r7,r7,r5
     mov        r6,#0xf
@@ -793,14 +793,14 @@ LAB_08015f04:
     add        r1,#0x1
     cmp        r1,r4
     bne        LAB_08015f02
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 _nt CustomScreen_LoadChipDetail
-    push       { lr }
+    push       {lr}
     sub        sp,#0x70
     mov        r6,sp
-    push       { r0, r6 }
-    push       { r5 }
+    push       {r0,r6}
+    push       {r5}
     add        r1,r0,#0x0
     ldr        r0,PTR_TextData_BattleChip_Names_08015fd0
     ldr        r2,PTR_DAT_08015fc0
@@ -810,53 +810,53 @@ _nt CustomScreen_LoadChipDetail
     ldr        r6,PTR_tilesetDialogueText_08015fd4
     mov        r7,#0x0
     bl         Text_CopyCharTileUI
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x1
     mov        r1,#0x1
     ldr        r2,PTR_tilemapCustomScreenChipName_08015fd8
     mov        r3,#0x8
     mov        r4,#0x2
     bl         CustomScreen_CopyTilemap
-    pop        { r0, r6 }
+    pop        {r0,r6}
     cmp        r0,#0xff
     bne        LAB_08015f5a
     add        r0,r6,#0x0
     bl         CustomScreen_LoadBlankChipTilemap
     b          LAB_08015fae
 LAB_08015f5a:
-    push       { r6 }
-    push       { r0 }
+    push       {r6}
+    push       {r0}
     add        r0,r6,#0x0
     bl         CustomScreen_LoadChipTilemap
-    pop        { r0 }
+    pop        {r0}
     bl         BattleChip_GetChipData
     add        r7,r0,#0x0
-    push       { r5, r7 }
+    push       {r5,r7}
     ldr        r0,[r7,#0x14]
     ldr        r1,PTR_DAT_08015fc8
     mov        r2,#0x7
     lsl        r2,r2,#0x6
     bl         Dma_TransferListAdd
-    pop        { r5, r7 }
-    push       { r5, r7 }
+    pop        {r5,r7}
+    push       {r5,r7}
     ldr        r0,[r7,#0x18]
     ldr        r1,PTR_gBgPaletteB_08015fcc
     mov        r2,#0x8
     bl         Dma_TransferListAdd
-    pop        { r5, r7 }
-    push       { r7 }
+    pop        {r5,r7}
+    push       {r7}
     ldrb       r0,[r7,#0x5]
     bl         CustomScreen_DrawChipElement
-    pop        { r7 }
-    push       { r7 }
+    pop        {r7}
+    push       {r7}
     ldrh       r0,[r7,#0xc]
     bl         CustomScreen_LoadDamageTilemap
-    pop        { r7 }
+    pop        {r7}
     bl         CustomScreen_GetChipFromPosition
     bl         CustomScreen_GetChipDetailFromFolder
     add        r0,r1,#0x0
     bl         CustomScreen_DrawChipCode
-    pop        { r6 }
+    pop        {r6}
 LAB_08015fae:
     mov        r0,#0x1
     mov        r1,#0x3
@@ -865,7 +865,7 @@ LAB_08015fae:
     mov        r4,#0x7
     bl         CustomScreen_CopyTilemap
     add        sp,#0x70
-    pop        { pc }
+    pop        {pc}
 PTR_DAT_08015fc0:
     .word 0x3003220
 PTR_DAT_08015fc4:
@@ -884,27 +884,27 @@ tilemapCustomScreenChipName:
     .incbin "images/custom_screen/chip_name.tilemap"
 
 _ts CustomScreen_LoadAlternateArt
-    push       { lr }
+    push       {lr}
     sub        sp,#0x70
     mov        r6,sp
     ldr        r7,PTR_PTR_tileSetNoDataSelected_08016068
     lsl        r0,r0,#0x3
     add        r7,r7,r0
-    push       { r6 }
-    push       { r5, r7 }
+    push       {r6}
+    push       {r5,r7}
     ldr        r0,[r7,#0x0]
     ldr        r1,PTR_DAT_08016060
     mov        r2,#0x7
     lsl        r2,r2,#0x6
     bl         Dma_TransferListAdd
-    pop        { r5, r7 }
-    push       { r5, r7 }
+    pop        {r5,r7}
+    push       {r5,r7}
     ldr        r0,[r7,#0x4]
     ldr        r1,PTR_gBgPaletteB_08016064
     mov        r2,#0x8
     bl         Dma_TransferListAdd
-    pop        { r5, r7 }
-    pop        { r6 }
+    pop        {r5,r7}
+    pop        {r6}
     add        r0,r6,#0x0
     bl         CustomScreen_LoadChipTilemap
     mov        r0,#0x1
@@ -926,7 +926,7 @@ _ts CustomScreen_LoadAlternateArt
     mov        r4,#0x2
     bl         CustomScreen_CopyTilemap
     add        sp,#0x70
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -953,18 +953,18 @@ tilemapChipSelectChipAttributes:
     .incbin "images/custom_screen/chip_attributes.tilemap"
 
 _ts CustomScreen_LoadChipDescription
-    push       { lr }
+    push       {lr}
     add        r1,r0,#0x0
     ldr        r0,PTR_TextData_BattleChip_Descriptions_08016104
     ldr        r2,PTR_iwBufferUITextTile_08016108
     ldr        r3,PTR_DAT_0801610c
     mov        r4,#0xa
-    push       { r5 }
+    push       {r5}
     mov        r5,#0x3
     ldr        r6,PTR_tilesetDialogueText_08016110
     mov        r7,#0x0
     bl         Text_CopyCharTileUI
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x1
     mov        r1,#0xd
     ldr        r2,PTR_tilemapChipSelectDescription_08016114
@@ -977,7 +977,7 @@ _ts CustomScreen_LoadChipDescription
     mov        r3,#0x3
     mov        r4,#0x5
     bl         CustomScreen_CopyTilemap
-    pop        { pc }
+    pop        {pc}
 PTR_TextData_BattleChip_Descriptions_08016104:
     .word TextData_BattleChip_Descriptions
 PTR_iwBufferUITextTile_08016108:
@@ -999,14 +999,14 @@ tilemapChipSelectDescriptionPadding:
     .incbin "images/custom_screen/chip_description_padding.tilemap"
 
 _ts CustomScreen_LoadUILower
-    push       { lr }
+    push       {lr}
     bl         CustomScreen_LoadIcons
-    push       { r5 }
+    push       {r5}
     ldr        r0,PTR_iwBufferUITextTile_08016378
     ldr        r1,PTR_DAT_08016204
     ldr        r2,DAT_08016200
     bl         Dma_TransferListAdd
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0xb
     mov        r1,#0xe
     ldr        r2,PTR_tilemapChipSelectOk_0801620c
@@ -1024,7 +1024,7 @@ LAB_080161f0:
     mov        r3,#0x3
     mov        r4,#0x2
     bl         CustomScreen_CopyTilemap
-    pop        { pc }
+    pop        {pc}
     .align 2, 0
 
 DAT_08016200:
@@ -1048,7 +1048,7 @@ tilemapChipSelectAddDisabled:
     .incbin "images/custom_screen/add_button_disabled.tilemap"
     tilemap_entry 0x330, 0, 0xC
 _nt CustomScreen_LoadChipSelectIconTilemap
-    push       { lr }
+    push       {lr}
     sub        sp,#0x8
     mov        r6,sp
     add        r3,#0xc
@@ -1066,20 +1066,20 @@ _nt CustomScreen_LoadChipSelectIconTilemap
     mov        r4,#0x2
     bl         CustomScreen_CopyTilemap
     add        sp,#0x8
-    pop        { pc }
+    pop        {pc}
 
 _nt CustomScreen_LoadSelectedChipFrameTilemap
-    push       { lr }
+    push       {lr}
     sub        sp,#0x10
     mov        r6,sp
-    push       { r0, r1, r2, r3 }
+    push       {r0,r1,r2,r3}
     ldr        r0,PTR_tilemapChipSlotEmpty_080162b4
     lsl        r1,r3,#0x4
     add        r0,r0,r1
     add        r1,r6,#0x0
     mov        r2,#0x10
     bl         memcpy_32
-    pop        { r0, r1, r2, r3 }
+    pop        {r0,r1,r2,r3}
     add        r3,#0xc
     lsl        r3,r3,#0xc
     add        r2,r2,r3
@@ -1095,7 +1095,7 @@ _nt CustomScreen_LoadSelectedChipFrameTilemap
     mov        r4,#0x2
     bl         CustomScreen_CopyTilemap
     add        sp,#0x10
-    pop        { pc }
+    pop        {pc}
 PTR_tilemapChipSlotEmpty_080162b4:
     .word tilemapChipSlotEmpty
 tilemapChipSlotEmpty:
@@ -1104,18 +1104,18 @@ tilemapChipSlotSelected:
     .incbin "images/custom_screen/chip_slot_selected.tilemap"
 
 _ts CustomScreen_LoadIcons
-    push       { r5, lr }
+    push       {r5,lr}
     LoadMain battle, r7, r7
     ldrb       r7,[r7,#Battle_customScreenChipCount]
     mov        r4,#0x0
 LAB_080162e2:
     mov        r3,#0x0
 LAB_080162e4:
-    push       { r3, r4 }
+    push       {r3,r4}
     mov        r1,#0x5
     mul        r1,r4
     add        r1,r1,r3
-    push       { r1, r3, r4 }
+    push       {r1,r3,r4}
     sub        r7,#0x1
     ldrh       r0,[r5,#0x3e]
     mov        r2,#0x1
@@ -1141,18 +1141,18 @@ LAB_0801630e:
     b          LAB_08016328
 LAB_08016318:
     mov        r6,#0x1
-    push       { r1, r7 }
+    push       {r1,r7}
     bl         CustomScreen_GetChipDetailFromFolder
     bl         BattleChip_GetChipData
     ldr        r0,[r0,#0x10]
-    pop        { r1, r7 }
+    pop        {r1,r7}
 LAB_08016328:
     ldr        r2,PTR_iwBufferUITextTile_08016378
     lsl        r1,r1,#0x7
     add        r1,r1,r2
     ldr        r2,UINT_08016374
     bl         SWI_CpuSet
-    pop        { r1, r3, r4 }
+    pop        {r1,r3,r4}
     tst        r6,r6
     beq        LAB_08016348
     mov        r6,#0x1
@@ -1171,17 +1171,17 @@ LAB_08016348:
     add        r1,r4,r4
     add        r1,#0xd
     add        r3,r6,#0x0
-    push       { r7 }
+    push       {r7}
     bl         CustomScreen_LoadChipSelectIconTilemap
-    pop        { r7 }
-    pop        { r3, r4 }
+    pop        {r7}
+    pop        {r3,r4}
     add        r3,#0x1
     cmp        r3,#0x5
     bmi        LAB_080162e4
     add        r4,#0x1
     cmp        r4,#0x3
     bmi        LAB_080162e2
-    pop        { r5, pc }
+    pop        {r5,pc}
 DAT_08016370:
     .word 0x3B0
 UINT_08016374:
@@ -1196,14 +1196,14 @@ PTR_gBattleFolder_08016384:
     .word gBattleFolder
 
 _ts CustomScreen_LoadSelectedChips
-    push       { r5, lr }
+    push       {r5,lr}
     mov        r3,#0x0
 LAB_0801638c:
-    push       { r3 }
+    push       {r3}
     mov        r2,#0x6
     add        r2,r2,r3
     ldrb       r0,[r5,r2]
-    push       { r3 }
+    push       {r3}
     cmp        r0,#0xff
     bne        LAB_080163a0
     ldr        r0,PTR_tileNullChipIconLight_080163f8
@@ -1213,18 +1213,18 @@ LAB_080163a0:
     mov        r6,#0x1
     ldr        r2,PTR_gBattleFolder_08016404
     ldrb       r0,[r2,r0]
-    push       { r3 }
+    push       {r3}
     bl         CustomScreen_GetChipDetailFromFolder
     bl         BattleChip_GetChipData
     ldr        r0,[r0,#0x10]
-    pop        { r3 }
+    pop        {r3}
 LAB_080163b4:
     ldr        r1,PTR_iwTilesetSelectedChips_080163f4
     lsl        r3,r3,#0x7
     add        r1,r1,r3
     ldr        r2,CpuSetControl_080163f0
     bl         SWI_CpuSet
-    pop        { r3 }
+    pop        {r3}
     ldr        r2,DAT_080163ec
     lsl        r1,r3,#0x2
     add        r2,r2,r1
@@ -1233,17 +1233,17 @@ LAB_080163b4:
     add        r1,#0x3
     add        r3,r6,#0x0
     bl         CustomScreen_LoadSelectedChipFrameTilemap
-    pop        { r3 }
+    pop        {r3}
     add        r3,#0x1
     cmp        r3,#0x5
     bmi        LAB_0801638c
-    push       { r5 }
+    push       {r5}
     ldr        r0,PTR_iwTilesetSelectedChips_080163f4
     ldr        r1,PTR_vtTilesetSelectedChips_08016400
     ldr        r2,DAT_080163fc
     bl         Dma_TransferListAdd
-    pop        { r5 }
-    pop        { r5, pc }
+    pop        {r5}
+    pop        {r5,pc}
 DAT_080163ec:                           .word 0x00000354
 CpuSetControl_080163f0:                 .word 0x4000020
 PTR_iwTilesetSelectedChips_080163f4:    .word iwTilesetSelectedChips
@@ -1253,7 +1253,7 @@ PTR_vtTilesetSelectedChips_08016400:    .word vtTilesetSelectedChips
 PTR_gBattleFolder_08016404:             .word gBattleFolder
 
 _ts CustomScreen_UpdateChipSelectPosition
-    push       { r5, lr }
+    push       {r5,lr}
     LoadMain display, r7, r7
     mov        r1,#0x24
     ldrsh      r0,[r5,r1]
@@ -1270,14 +1270,14 @@ LAB_08016420:
     sub        r1,#0x1
     bne        LAB_08016420
     bl         CustomScreen_LoadChipLayout
-    pop        { r5, pc }
+    pop        {r5,pc}
     .align 2, 0
 
 unknown_16430:
     .word 0x7FFFF
 
 _ts CustomScreen_LoadChipLayout
-    push       { lr }
+    push       {lr}
     sub        sp,#0x28
     mov        r4,sp
     mov        r7,#0x50
@@ -1288,7 +1288,7 @@ LAB_08016440:
     tst        r0,r1
     beq        LAB_0801645c
     mov        r3,#0x0
-    push       { r7 }
+    push       {r7}
 LAB_0801644a:
     add        r6,r3,r3
     ldrh       r1,[r7,#0x0]
@@ -1297,7 +1297,7 @@ LAB_0801644a:
     add        r3,#0x1
     cmp        r3,#0x14
     bne        LAB_0801644a
-    pop        { r7 }
+    pop        {r7}
     b          LAB_0801646a
 LAB_0801645c:
     mov        r3,#0x0
@@ -1309,7 +1309,7 @@ LAB_08016460:
     cmp        r3,#0x14
     bne        LAB_08016460
 LAB_0801646a:
-    push       { r0, r2, r4, r7 }
+    push       {r0,r2,r4,r7}
     add        r0,r2,#0x0
     add        r0,#0x11
     mov        r1,#0x0
@@ -1317,17 +1317,17 @@ LAB_0801646a:
     add        r3,r4,#0x0
     mov        r4,#0x14
     bl         Screen_CopyTileMapV
-    pop        { r0, r2, r4, r7 }
+    pop        {r0,r2,r4,r7}
     lsr        r0,r0,#0x1
     add        r7,#0x2
     add        r2,#0x1
     cmp        r2,#0xf
     bne        LAB_08016440
     add        sp,#0x28
-    pop        { pc }
+    pop        {pc}
 
 _ts CustomScreen_LoadChipSelectCursor
-    push       { r5, lr }
+    push       {r5,lr}
     ldrb       r0,[r5,#0x4]
     lsl        r0,r0,#0x4
     add        r0,#0x10
@@ -1349,26 +1349,26 @@ _ts CustomScreen_LoadChipSelectCursor
     mov        r3,#0x0
     bl         CustomScreen_DrawCursor
 LAB_080164bc:
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 _nt CustomScreen_DrawCursorOkButton
-    push       { r5, lr }
+    push       {r5,lr}
     mov        r0,#0x58
     mov        r1,#0x72
     mov        r3,#0x1
     bl         CustomScreen_DrawCursor
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 _ts CustomScreen_DrawCursorAddButton
-    push       { r5, lr }
+    push       {r5,lr}
     mov        r0,#0x58
     mov        r1,#0x8a
     mov        r3,#0x2
     bl         CustomScreen_DrawCursor
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 _nt CustomScreen_DrawCursor
-    push       { r5, lr }
+    push       {r5,lr}
     cmp        r3,#0x3
     beq        LAB_080164e6
     ldrb       r4,[r5,#0x1a]
@@ -1398,8 +1398,8 @@ LAB_0801650a:
     ldrb       r2,[r5,#0x10]
     mov        r4,#0x0
 LAB_0801650e:
-    push       { r0, r1, r2, r4, r7 }
-    push       { r2 }
+    push       {r0,r1,r2,r4,r7}
+    push       {r2}
     mov        r3,#0x0
     ldrsb      r2,[r7,r3]
     add        r0,r0,r2
@@ -1416,19 +1416,19 @@ LAB_0801650e:
     mov        r2,#0xff
     and        r1,r2
     orr        r0,r1
-    pop        { r2 }
+    pop        {r2}
     ldr        r1,ObjectTileAttributes_0801654c
     add        r1,r1,r2
     mov        r2,#0x0
     mov        r3,#0x0
     bl         Oam_AddObject
-    pop        { r0, r1, r2, r4, r7 }
+    pop        {r0,r1,r2,r4,r7}
     add        r7,#0x4
     add        r4,#0x1
     cmp        r4,#0x4
     bne        LAB_0801650e
 LAB_0801654a:
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 ObjectTileAttributes_0801654c:
     obj_attr_2 0x3A8, 0, 0xD
@@ -1479,7 +1479,7 @@ CursorAttributes_080165a4:
 @ Out:
 @ r0: 1 if cursor is moved to a non-chip position (like OK)
 _ts CustomScreen_CheckCursorMove
-    push       { lr }
+    push       {lr}
     mov        r6,#0x0
     ldrb       r2,[r5,#CustomScreen_m_chipX]
     ldrb       r3,[r5,#CustomScreen_m_chipY]
@@ -1544,17 +1544,17 @@ _ts CustomScreen_CheckCursorMove
     strb       r3,[r5,#0x5]
 .valid_move:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 .is_invalid_position:
     tst        r6,r6
     beq        .valid_move
 .cursor_moved_to_non_chip:
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
     .pool
 
 _ts CustomScreen_GetChipDetailFromFolder
-    push       { lr }
+    push       {lr}
     cmp        r0,#0xff
     beq        LAB_08016668
     LoadMain world, r7, r7
@@ -1564,18 +1564,18 @@ _ts CustomScreen_GetChipDetailFromFolder
     ldrb       r0,[r7,#0x0]
     ldrb       r1,[r7,#0x1]
 LAB_08016668:
-    pop        { pc }
+    pop        {pc}
 
 _nt CustomScreen_GetChipDetailFromDeck
-    push       { lr }
+    push       {lr}
     ldr        r1,=gBattleFolder
     ldrb       r0,[r1,r0]
     bl         CustomScreen_GetChipDetailFromFolder
-    pop        { pc }
+    pop        {pc}
     .pool
 
 _ts CustomScreen_GetChipFromPosition
-    push       { lr }
+    push       {lr}
     ldr        r7,=gBattleFolder
     ldrb       r0,[r5,#0x4]
     ldrb       r1,[r5,#0x5]
@@ -1583,11 +1583,11 @@ _ts CustomScreen_GetChipFromPosition
     mul        r1,r2
     add        r0,r0,r1
     ldrb       r0,[r7,r0]
-    pop        { pc }
+    pop        {pc}
     .pool
 
 _ts CustomScreen_CheckRToggle
-    push       { lr }
+    push       {lr}
     mov        r0,#0x0
     ldrh       r2,[r5,#0x38]
     mov        r1,#0x1
@@ -1600,10 +1600,10 @@ _ts CustomScreen_CheckRToggle
     strb       r1,[r5,#0x1]
     mov        r0,#0x1
 LAB_080166ac:
-    pop        { pc }
+    pop        {pc}
 
 _nt CustomScreen_CheckHideDescriptionKeyPress
-    push       { lr }
+    push       {lr}
     mov        r0,#0x0
     ldrh       r2,[r5,#0x38]
     ldr        r1,=0x1F3
@@ -1613,11 +1613,11 @@ _nt CustomScreen_CheckHideDescriptionKeyPress
     strb       r1,[r5,#0x1]
     mov        r0,#0x1
 LAB_080166c0:
-    pop        { pc }
+    pop        {pc}
     .pool
 
 _ts CustomScreen_LoadDamageTilemap
-    push       { lr }
+    push       {lr}
     sub        sp,#0x10
     tst        r0,r0
     beq        LAB_080166dc
@@ -1640,17 +1640,17 @@ LAB_080166dc:
     bl         CustomScreen_CopyTilemap
 LAB_080166f4:
     add        sp,#0x10
-    pop        { pc }
+    pop        {pc}
 TilemapEntry_080166f8:
     tilemap_entry 0x314, 0, 0xC
     tilemap_entry 0x314, 0, 0xC
 
 _ts CustomScreen_LoadNumberDamageTilemap
-    push       { lr }
+    push       {lr}
     sub        sp,#0x10
     mov        r8,sp
-    push       { r1, r2, r3 }
-    push       { r3 }
+    push       {r1,r2,r3}
+    push       {r3}
     mov        r1,#0x8
     mov        r2,r8
     ldr        r3,TilemapEntry_08016760
@@ -1659,19 +1659,19 @@ LAB_0801670c:
     add        r2,#0x2
     sub        r1,#0x1
     bne        LAB_0801670c
-    push       { r5 }
+    push       {r5}
     bl         ConvertNumToBCD
-    pop        { r5 }
-    pop        { r3 }
+    pop        {r5}
+    pop        {r3}
     mov        r6,r8
     sub        r2,r3,#0x1
     add        r2,r2,r2
     add        r6,r6,r2
     add        r4,r3,r3
-    push       { r0 }
+    push       {r0}
     bl         GetWidthOfBcdNumber
     add        r3,r0,#0x0
-    pop        { r0 }
+    pop        {r0}
     ldr        r7,tilemapDamageNumberStart
 LAB_08016734:
     mov        r1,#0xf
@@ -1685,14 +1685,14 @@ LAB_08016734:
     sub        r6,#0x2
     sub        r3,#0x1
     bne        LAB_08016734
-    pop        { r1, r2, r3 }
+    pop        {r1,r2,r3}
     add        r0,r1,#0x0
     add        r1,r2,#0x0
     mov        r2,r8
     mov        r4,#0x2
     bl         CustomScreen_CopyTilemap
     add        sp,#0x10
-    pop        { pc }
+    pop        {pc}
 
 tilemapDamageNumberStart:
     tilemap_entry 0x300, 0, 0xC
@@ -1703,22 +1703,22 @@ TilemapEntry_08016760:
     tilemap_entry 0x314, 0, 0xC
 
 _ts CustomScreen_DrawChipElement
-    push       { lr }
-    push       { r5 }
+    push       {lr}
+    push       {r5}
     lsl        r0,r0,#0x7
     ldr        r1,PTR_tilesetBattleChipElements_08016790
     add        r0,r0,r1
     ldr        r1,PTR_DAT_0801678c
     mov        r2,#0x20
     bl         Dma_TransferListAdd
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x3
     mov        r1,#0xa
     ldr        r2,PTR_TilemapEntry_08016788
     mov        r3,#0x2
     mov        r4,#0x2
     bl         CustomScreen_CopyTilemap
-    pop        { pc }
+    pop        {pc}
 PTR_TilemapEntry_08016788: .word TilemapEntry_08016794
 PTR_DAT_0801678c: .word 0x600aa00
 PTR_tilesetBattleChipElements_08016790: .word tilesetBattleChipElements
@@ -1729,22 +1729,22 @@ TilemapEntry_08016794:
     tilemap_entry 0x353, 0, 0xC
 
 _ts CustomScreen_DrawChipCode
-    push       { r5, lr }
-    push       { r5 }
+    push       {r5,lr}
+    push       {r5}
     lsl        r0,r0,#0x6
     ldr        r1,PTR_tilesetBattleChipCodes_080167c0
     add        r0,r0,r1
     ldr        r1,PTR_DAT_080167c4
     mov        r2,#0x10
     bl         Dma_TransferListAdd
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x1
     mov        r1,#0xa
     ldr        r2,PTR_TilemapEntry_ARRAY_080167c8
     mov        r3,#0x1
     mov        r4,#0x2
     bl         CustomScreen_CopyTilemap
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 PTR_tilesetBattleChipCodes_080167c0:
     .word tilesetBattleChipCodes
@@ -1758,8 +1758,8 @@ TilemapEntry_ARRAY_080167cc:
 
 
 dummy_167d0:
-    push       { r5, lr }
-    pop        { r5, pc }
+    push       {r5,lr}
+    pop        {r5,pc}
 
 
 FUN_080167d4:
@@ -1777,7 +1777,7 @@ LAB_080167e8:
     ldrb       r0,[r1,r0]
     cmp        r0,#0x2
     beq        LAB_0801682e
-    push       { r0, r5 }
+    push       {r0,r5}
     ldr        r0,DAT_08016834
     mov        r1,#0x20
     mov        r2,#0x56
@@ -1794,7 +1794,7 @@ LAB_080167e8:
     mov        r5,#0x1
     mov        r6,#0x0
     bl         Battle_AddObject
-    pop        { r0, r5 }
+    pop        {r0,r5}
     cmp        r0,#0x1
     bne        LAB_0801682e
     ldr        r0,DAT_08016838
@@ -1806,7 +1806,7 @@ LAB_080167e8:
     mov        r6,#0x0
     bl         Battle_AddObject
 LAB_0801682e:
-    pop        { r5, pc }
+    pop        {r5,pc}
 DAT_08016830: .word 0x3B4
 DAT_08016834: .word 0x3B8
 DAT_08016838: .word 0x3BA
@@ -1818,7 +1818,7 @@ BYTE_ARRAY_08016844:
 
 
 _nt CustomScreen_LoadChipTilemap
-    push       { lr }
+    push       {lr}
     ldr        r1,TilemapEntry_0801685c
     mov        r2,#0x38
 LAB_08016850:
@@ -1827,12 +1827,12 @@ LAB_08016850:
     add        r0,#0x2
     sub        r2,#0x1
     bne        LAB_08016850
-    pop        { pc }
+    pop        {pc}
 TilemapEntry_0801685c:
     tilemap_entry 0x378, 0, 0xB
 
 _ts CustomScreen_LoadBlankChipTilemap
-    push       { lr }
+    push       {lr}
     ldr        r1,tilemapBlank
     mov        r2,#0x38
 LAB_08016866:
@@ -1840,7 +1840,7 @@ LAB_08016866:
     add        r0,#0x2
     sub        r2,#0x1
     bne        LAB_08016866
-    pop        { pc }
+    pop        {pc}
 tilemapBlank:
     tilemap_entry 0x315, 0x0, 0xC
 
@@ -1850,7 +1850,7 @@ tilemapBlank:
 @@ r0: deckPtr: The pointer to the group to optimize.
 @@ r1: deckSz: The size of the group.
 _ts CustomScreen_NormalizeChipGroup
-    push       { r5, r6, lr }
+    push       {r5,r6,lr}
     add        r5,r0,r1
     add        r6,r0,#0x0
     add        r7,r0,#0x0
@@ -1872,11 +1872,11 @@ LAB_0801688e:
     add        r7,#0x1
     b          LAB_0801688e
 LAB_08016898:
-    pop        { r5, r6, pc }
+    pop        {r5,r6,pc}
 
 @@ Removes the selected battle chips from the active battle deck.
 _nt CustomScreen_TakeSelectedChipsFromDeck
-    push       { lr }
+    push       {lr}
     mov        r6,#0x40
     add        r6,r6,r5
     ldr        r7,PTR_gBattleFolder_080168c0
@@ -1895,14 +1895,14 @@ LAB_080168ae:
     @
     mov        r1,#30
     bl         CustomScreen_NormalizeChipGroup
-    pop        { pc }
+    pop        {pc}
     .align 2,0
 PTR_gBattleFolder_080168c0: .word gBattleFolder
 
 @@ Check if a given battle chip is allowed to be selected
 @ r0 - The ID of the chip.
 _ts CustomScreen_ValidateSelection
-    push       { lr }
+    push       {lr}
     mov        r6,#0x3
     @ First, check if there are any chips selected at all
     @ If none, then chip can be selected, with "all flags"
@@ -1928,7 +1928,7 @@ _ts CustomScreen_ValidateSelection
     @ At this point, there are between 1 and 4 chips selected,
     @ inclusive.
     @ r1 - selected chip count
-    push       { r0 }
+    push       {r0}
     mov        r2,#CustomScreen_m_selectedChipIndices
     add        r2,r2,r1
     sub        r2,#0x1
@@ -1940,7 +1940,7 @@ _ts CustomScreen_ValidateSelection
     add        r3,r1,#0x0
     @ r2 - last chip ID
     @ r3 - last chip code
-    pop        { r0 }
+    pop        {r0}
     bl         CustomScreen_GetChipDetailFromDeck
     @ r0 - curr chip ID
     @ r1 - curr chip code
@@ -1997,13 +1997,13 @@ _ts CustomScreen_ValidateSelection
     bl         Sound_PlaySE
     mov        r0,#0x0
     mov        r1,#0x0
-    pop        { pc }
+    pop        {pc}
     @ Return true, along with the
     @ appropriate relation flags
 .acceptSelection:
     add        r1,r6,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 
 _nt CustomScreen_EnableInput
@@ -2027,13 +2027,13 @@ _nt CustomScreen_DisableInput
 
 
 _ts CustomScreen_AnimateLogo
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r5,#0x1b]
     tst        r0,r0
     bne        LAB_0801694e
     mov        r0,#0x0
     strb       r0,[r5,#0x1c]
-    pop        { pc }
+    pop        {pc}
 LAB_0801694e:
     ldrb       r0,[r5,#0x1c]
     add        r0,#0x1
@@ -2054,7 +2054,7 @@ LAB_0801695c:
     mov        r3,#0x2
     mov        r4,#0x3
     bl         CustomScreen_CopyTilemap
-    pop        { pc }
+    pop        {pc}
 
 framesLogoAnimation:
     .byte 0, 1, 2, 3
@@ -2104,7 +2104,7 @@ PTR_framesLogoAnimation_080169cc: .word framesLogoAnimation
 @ Out:
 @ r0: The amount of chips remaining in the deck. Can be between 0 and 30.
 _ts CustomScreen_GetDeckSize
-    push       { r1, r7, lr }
+    push       {r1,r7,lr}
     mov        r0,#0x0
     ldr        r7,=gBattleFolder
 LAB_080169d6:
@@ -2115,7 +2115,7 @@ LAB_080169d6:
     cmp        r0,#0x1e
     blt        LAB_080169d6
 LAB_080169e2:
-    pop        { r1, r7, pc }
+    pop        {r1,r7,pc}
 
     .pool
 

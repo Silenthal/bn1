@@ -4,7 +4,7 @@
 
 
 _ts Battle_InitChipDeck
-    push       { r5, lr }
+    push       {r5,lr}
     mov        r0,#0x0
     ldr        r7,=gBattleFolder
 LAB_08007c4a:
@@ -21,12 +21,12 @@ LAB_08007c4a:
     mov        r2,#0x3c
     bl         ArrayShuffle
 LAB_08007c66:
-    pop        { r5, pc }
+    pop        {r5,pc}
 
     .pool
 
 _ts Inventory_InitDefaultChipFolder
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_folderSrcInitialFolder_08007c9c
     ldr        r1,PTR_gFolder_08007ca0
     mov        r2,#0x3c
@@ -37,17 +37,17 @@ _ts Inventory_InitDefaultChipFolder
     mov        r4,#0x0
     ldr        r6,PTR_folderSrcInitialFolder_08007c9c
 LAB_08007c84:
-    push       { r4, r6 }
+    push       {r4,r6}
     ldrb       r0,[r6,#0x0]
     ldrb       r1,[r6,#0x1]
     mov        r2,#0x1
     bl         Inventory_AddChip
-    pop        { r4, r6 }
+    pop        {r4,r6}
     add        r6,#0x2
     add        r4,#0x1
     cmp        r4,#0x1e
     bmi        LAB_08007c84
-    pop        { pc }
+    pop        {pc}
 
 PTR_folderSrcInitialFolder_08007c9c:    .word folderSrcInitialFolder
 PTR_gFolder_08007ca0:                   .word gFolder
@@ -3294,13 +3294,13 @@ _nt Battle_RegisterVirusDelete
 
 
 _nt Inventory_AddChip
-    push       { lr }
-    push       { r0, r1, r2 }
+    push       {lr}
+    push       {r0,r1,r2}
     bl         Flag_SetLibrary
-    pop        { r0, r1, r2 }
-    push       { r2 }
+    pop        {r0,r1,r2}
+    push       {r2}
     bl         Inventory_GetChipCountLocation
-    pop        { r2 }
+    pop        {r2}
     mov        r3,#0x1
     ldrb       r1,[r0,#0x0]
     cmp        r1,#0x63
@@ -3313,29 +3313,29 @@ _nt Inventory_AddChip
     mov        r3,#0x2
 LAB_08009bc8:
     strb       r1,[r0,#0x0]
-    push       { r3 }
+    push       {r3}
     bl         Inventory_SetChecksum
-    pop        { r3 }
+    pop        {r3}
     add        r0,r3,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _nt Inventory_SetChip
-    push       { lr }
-    push       { r2 }
+    push       {lr}
+    push       {r2}
     bl         Inventory_GetChipCountLocation
-    pop        { r2 }
+    pop        {r2}
     str        r2,[r0,#0x0]
     tst        r2,r2
     bne        LAB_08009bea
     bl         Inventory_SetChecksum
 LAB_08009bea:
-    pop        { pc }
+    pop        {pc}
 
 _ts Inventory_SubtractChip
-    push       { lr }
-    push       { r2 }
+    push       {lr}
+    push       {r2}
     bl         Inventory_GetChipCountLocation
-    pop        { r2 }
+    pop        {r2}
     mov        r3,#0x1
     ldrb       r1,[r0,#0x0]
     tst        r1,r1
@@ -3349,12 +3349,12 @@ LAB_08009c08:
     strb       r1,[r0,#0x0]
     tst        r1,r1
     bne        LAB_08009c16
-    push       { r3 }
+    push       {r3}
     bl         Inventory_ClearChecksum
-    pop        { r3 }
+    pop        {r3}
 LAB_08009c16:
     add        r0,r3,#0x0
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Gets the location of the amount of the battle chip specified, from the battle chip inventory.
@@ -3365,11 +3365,11 @@ LAB_08009c16:
 @@ Out:
 @@ r0: chipCountLoc - The memory location containing the amount of the chip specified.
 _nt Inventory_GetChipCountLocation
-    push       { lr }
+    push       {lr}
     add        r2,r0,#0x0
-    push       { r1, r2 }
+    push       {r1,r2}
     bl         BattleChip_GetChipData
-    pop        { r1, r2 }
+    pop        {r1,r2}
     add        r0,#0x0
     mov        r3,#0x0
 1: @ Code checking loop
@@ -3385,7 +3385,7 @@ _nt Inventory_GetChipCountLocation
     lsl        r2,r2,#0x4
     add        r7,r7,r2
     add        r0,r7,r3
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -3399,11 +3399,11 @@ _nt Inventory_GetChipCountLocation
 @@ Out:
 @@ r0: chipCountLoc - The memory location containing the checksum for the specified chip.
 _ts Inventory_GetChipCountChecksum
-    push       { lr }
+    push       {lr}
     add        r2,r0,#0x0
-    push       { r1, r2 }
+    push       {r1,r2}
     bl         BattleChip_GetChipData
-    pop        { r1, r2 }
+    pop        {r1,r2}
     add        r0,#0x0
     mov        r3,#0x0
 1:
@@ -3421,19 +3421,19 @@ _ts Inventory_GetChipCountChecksum
     lsl        r3,r3,#0x1
     add        r3,#0x6
     add        r0,r7,r3
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
 
 _ts Inventory_GetChipCount
-    push       { lr }
+    push       {lr}
     bl         Inventory_GetChipCountLocation
     ldrb       r0,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 _nt Inventory_AddZenny
-    push       { lr }
+    push       {lr}
     LoadMain world, r7, r7
     ldr        r1,[r7,#World_zenny]
     add        r0,r0,r1
@@ -3443,20 +3443,20 @@ _nt Inventory_AddZenny
     add        r0,r1,#0x0
 LAB_08009c94:
     str        r0,[r7,#World_zenny]
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
 
 _ts Inventory_SubtractZenny
-    push       { lr }
+    push       {lr}
     LoadMain world, r7, r7
     ldr        r1,[r7,#World_zenny]
     sub        r1,r1,r0
     bpl        LAB_08009c94
     mov        r1,#0x0
     str        r1,[r7,#World_zenny]
-    pop        { pc }
+    pop        {pc}
 
 
 _nt Battle_IsOutOfBounds

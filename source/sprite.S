@@ -8,31 +8,31 @@
 @@ r0: int spriteType - The type of sprite to add.
 @@ r5: Sprite* sprite - The sprite to add.
 _ts Sprite_AddSpriteToOam
-    push       { lr }
+    push       {lr}
     ldr        r1,=Oam_AddSprite_far
     mov        lr,pc
     bx         r1
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Sets up animation frame data for an entity's sprite.
 @@ In:
 @@ r5: void* entity - The calling entity.
 _ts SpritePtr_InitFrames
-    push       { r5, lr }
+    push       {r5,lr}
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
     add        r5,r5,r7
     bl         Sprite_InitFrames
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 
 @@ Sets up animation frame data for a sprite.
 @@ In:
 @@ r5: Sprite* sprite - The sprite to set up.
 _ts Sprite_InitFrames
-    push       { lr }
+    push       {lr}
     @ Set up the pointer to the current animation frame using the frame index
     ldrb       r0,[r5,#Sprite_indexFrame]
     lsl        r0,r0,#0x2
@@ -65,27 +65,27 @@ _ts Sprite_InitFrames
     ldrb       r2,[r3,#SpriteFrame_flags]
     strb       r2,[r5,#Sprite_frameFlags]
 LAB_0800238a:
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Animates an entity's sprite.
 @@ In:
 @@ r5: void* entity - The calling entity.
 _ts SpritePtr_ProcessFrameDelay
-    push       { r5, lr }
+    push       {r5,lr}
     ldrb       r7,[r5,#0x2]
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
     add        r5,r5,r7
     bl         Sprite_ProcessFrameDelay
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 
 @@ Animates a sprite.
 @@ In:
 @@ r5: Sprite* sprite - The sprite to animate.
 _ts Sprite_ProcessFrameDelay
-    push       { lr }
+    push       {lr}
 start:
     ldrb       r0,[r5,#Sprite_frameDelay]
     sub        r0,#0x1
@@ -168,7 +168,7 @@ start:
     ldrb       r4,[r2,#SpriteObjectEntry_flag2]
     lsr        r4,r4,#0x4
     strb       r4,[r5,#Sprite_palIndexSubFrame]
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Initializes an entity's sprite.
@@ -177,7 +177,7 @@ start:
 @@ r1: SpriteIndex spriteIndex - The sprite to load.
 @@ r5: void* entity - The calling entity.
 _ts Sprite_InitSpritePtr
-    push       { r5, lr }
+    push       {r5,lr}
     ldrb       r2,[r5,#0x0]
     mov        r3,#0x8
     bic        r2,r3
@@ -186,10 +186,10 @@ _ts Sprite_InitSpritePtr
     lsr        r7,r7,#0x4
     lsl        r7,r7,#0x4
     add        r5,r5,r7
-    push       { r0, r1 }
+    push       {r0,r1}
     add        r0,r1,#0x0
     bl         SpriteLz_GetSprite
-    pop        { r1, r2 }
+    pop        {r1,r2}
     tst        r0,r0
     beq        LAB_08002442
     b          LAB_08002452
@@ -203,11 +203,11 @@ LAB_08002442:
     lsl        r2,r2,#0x2
     ldr        r0,[r4,r2]
 LAB_08002452:
-    push       { r1 }
+    push       {r1}
     bl         Sprite_Init
-    pop        { r1 }
+    pop        {r1}
     strb       r1,[r5,#0x4]
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 
 @@ Initializes a sprite.
@@ -237,12 +237,12 @@ _ts Sprite_Init
 
 @@ Transfers palettes to object palette memory.
 _ts Sprite_TransferPalettes
-    push       { lr }
+    push       {lr}
     ldr        r0,=gObjPalette0
     ldr        r1,=PAL_OBJ
     mov        r2,#0x78
     bl         Dma_TransferListAdd
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -879,29 +879,29 @@ INT_08002824: .word 0x2C8
 @@ r0: ptrSpriteLzDest: A pointer to the location where decompressed sprites
 @@ will be placed.
 _ts SpriteLz_Init
-    push       { r5, lr }
+    push       {r5,lr}
     ldr        r5,PTR_gSpriteLzDetails_08002990
-    push       { r0, r5 }
+    push       {r0,r5}
     add        r0,r5,#0x0
     mov        r1,#0x38
     bl         memset0_32
-    pop        { r0, r5 }
+    pop        {r0,r5}
     str        r0,[r5,#SpriteLzDetails_next]
-    push       { r5 }
+    push       {r5}
     add        r0,r5,#0x0
     add        r0,#SpriteLzDetails_indexList
     mov        r1,#(2 * 8)
     ldr        r2,INT_08002994
     bl         memset_16
-    pop        { r5 }
-    push       { r5 }
+    pop        {r5}
+    push       {r5}
     add        r0,r5,#0x0
     add        r0,#SpriteLzDetails_spritePtrList
     mov        r1,#(4 * 8)
     mov        r2,#0xff
     bl         memset_8
-    pop        { r5 }
-    pop        { r5, pc }
+    pop        {r5}
+    pop        {r5,pc}
 
 
 @@ Decompresses a list of sprites.
@@ -910,7 +910,7 @@ _ts SpriteLz_Init
 @@ Out:
 @@ r0: bool success - True if the sprite list was loaded.
 _ts SpriteLz_DecompressSpriteList
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gSpriteLzDetails_08002998
     ldr        r1,[r5,#SpriteLzDetails_next]
     mov        r3,#0x0
@@ -944,7 +944,7 @@ LAB_0800286a:
     cmp        r0,#0x8
     mov        r0,r12
     bge        LAB_080028bc
-    push       { r3, r7 }
+    push       {r3,r7}
     ldrb       r3,[r5,#SpriteLzDetails_spriteCount]
     lsl        r7,r3,#0x1
     add        r7,#SpriteLzDetails_indexList
@@ -959,24 +959,24 @@ LAB_0800286a:
     sub        r1,#0x4
     add        r3,#0x1
     strb       r3,[r5,#SpriteLzDetails_spriteCount]
-    push       { r1, r2, r4, r5, r6 }
+    push       {r1,r2,r4,r5,r6}
     mov        r0,r8
     @ r0 is the pointer to the sprite from listSpritePtr
     @ r1 is the dest pointed to by nextPtr
     bl         SWI_LZ77UnCompWram
-    pop        { r1, r2, r4, r5, r6 }
+    pop        {r1,r2,r4,r5,r6}
     add        r1,r1,r2
     @ Store pointer to following block of free space to next
     str        r1,[r5,#SpriteLzDetails_next]
-    pop        { r3, r7 }
+    pop        {r3,r7}
     add        r3,#0x2
     b          LAB_0800286a
 LAB_080028b8:
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_080028bc:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Retrieves a sprite header.
@@ -985,7 +985,7 @@ LAB_080028bc:
 @@ Out:
 @@ r0: SpriteArchive_Header* header - The header of the sprite data.
 _ts SpriteLz_GetSprite
-    push       { r5, lr }
+    push       {r5,lr}
     ldr        r5,PTR_gSpriteLzDetails_080029a4
     mov        r2,#0x0
 LAB_080028c6:
@@ -997,13 +997,13 @@ LAB_080028c6:
     lsl        r1,r2,#0x2
     add        r1,#SpriteLzDetails_spritePtrList
     ldr        r0,[r5,r1]
-    pop        { r5, pc }
+    pop        {r5,pc}
 LAB_080028d8:
     add        r2,#0x1
     cmp        r2,#0x8
     blt        LAB_080028c6
     mov        r0,#0x0
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 
 @@ Decompresses a list of enemy sprites.
@@ -1012,7 +1012,7 @@ LAB_080028d8:
 @@ Out:
 @@ r0: bool success - True if the list was loaded successfully.
 _ts SpriteLz_DecompressEnemyList
-    push       { r5, lr }
+    push       {r5,lr}
     ldr        r5,PTR_gSpriteLzDetails_080029a8
     ldr        r1,[r5,#SpriteLzDetails_next]
     ldr        r4,PTR_listSpritePtr_080029ac
@@ -1023,7 +1023,7 @@ LAB_080028f0:
     ldrb       r0,[r7,#EnemySpawn_id]
     cmp        r0,#ED_Invalid
     beq        LAB_08002966
-    push       { r1, r4, r5, r6, r7 }
+    push       {r1,r4,r5,r6,r7}
     bl         Enemy_GetEnemyDetail
     @ Get sprite index of enemy, and compare it to 0xFF. If so, set index
     @ value to 0x7FFF
@@ -1032,7 +1032,7 @@ LAB_080028f0:
     bne        LAB_08002904
     ldr        r0,INT_08002994
 LAB_08002904:
-    pop        { r1, r4, r5, r6, r7 }
+    pop        {r1,r4,r5,r6,r7}
     add        r3,r5,#0x0
     add        r3,#SpriteLzDetails_indexList
     mov        r9,r1
@@ -1071,7 +1071,7 @@ LAB_0800290e:
     cmp        r0,#0x8
     mov        r0,r12
     bge        LAB_0800296a
-    push       { r7 }
+    push       {r7}
     ldrb       r3,[r5,#SpriteLzDetails_spriteCount]
     lsl        r7,r3,#0x1
     add        r7,#SpriteLzDetails_indexList
@@ -1086,32 +1086,32 @@ LAB_0800290e:
     sub        r1,#0x4
     add        r3,#0x1
     strb       r3,[r5,#SpriteLzDetails_spriteCount]
-    push       { r1, r2, r4, r5, r6 }
+    push       {r1,r2,r4,r5,r6}
     mov        r0,r8
     bl         SWI_LZ77UnCompWram
-    pop        { r1, r2, r4, r5, r6 }
+    pop        {r1,r2,r4,r5,r6}
     add        r1,r1,r2
     @ Store pointer to following block of free space to next
     str        r1,[r5,#SpriteLzDetails_next]
-    pop        { r7 }
+    pop        {r7}
 LAB_08002962:
     add        r7,#0x4
     b          LAB_080028f0
 LAB_08002966:
     mov        r0,#0x1
-    pop        { r5, pc }
+    pop        {r5,pc}
 LAB_0800296a:
     mov        r0,#0x0
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 
 _ts SpriteLz_PrintDebugInfo
-    push       { r5, lr }
+    push       {r5,lr}
     ldr        r5,PTR_gSpriteLzDetails_080029b0
     ldr        r1,[r5,#SpriteLzDetails_next]
     ldr        r0,PTR_DAT_080029b4
     bl         Debug_Print
-    pop        { r5, pc }
+    pop        {r5,pc}
     .align 2, 0
 
 DAT_08002980:

@@ -119,7 +119,7 @@ pList:
 
 @@ Performs all queued DMA channel 3 transfers.
 _ts Dma_TransferListStartAll
-    push       { lr }
+    push       {lr}
     ldr        r0,=gDmaParamListSize
     ldr        r1,[r0]
     ldr        r2,=gDmaParamList
@@ -143,7 +143,7 @@ LAB_080009ec:
     b          LAB_080009ec
 LAB_08000a12:
     bl         Dma_TransferListClear
-    pop        { pc }
+    pop        {pc}
 
 PTR_listDmaChannel: .word listDmaChannel
 PTR_dmaEnableMask:  .word DMA_ENABLE

@@ -13,39 +13,39 @@
 @@ Event: can be used to indicate small events, like trade aknowledgements.
 
 _ts Flag_InitAll
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_DAT_080103f8
     mov        r1,#0x8c
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
 
 
 _ts FUN_080102e8
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_DAT_080102f4
     ldr        r1,DAT_080102f8
     bl         memset0_16
-    pop        { pc }
+    pop        {pc}
 PTR_DAT_080102f4:   .word 0x2000012
 DAT_080102f8:       .word 0xE
 
 
 _ts Flag_InitGate
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_DAT_08010308
     ldr        r1,DAT_0801030c
     bl         memset0_16
-    pop        { pc }
+    pop        {pc}
 PTR_DAT_08010308:       .word 0x2000082
 DAT_0801030c:           .word 2
 
 
 _ts Flag_InitIgnore
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_DAT_0801031c
     ldr        r1,DAT_08010320
     bl         memset0_16
-    pop        { pc }
+    pop        {pc}
 PTR_DAT_0801031c:   .word 0x2000070
 DAT_08010320:       .word 0x10
 
@@ -180,20 +180,20 @@ global_label Flag_ToggleBase
     mov        pc,lr
 
 global_label Flag_SetEmail
-    push       { lr }
-    push       { r0 }
+    push       {lr}
+    push       {r0}
     bl         Flag_SetEmailUnread
-    pop        { r0 }
-    push       { r0 }
+    pop        {r0}
+    push       {r0}
     bl         Flag_SetEmailReceived
-    pop        { r0 }
+    pop        {r0}
     ldr        r7,PTR_gEmailIndexes_0801040c
     ldr        r6,PTR_gEmailCount_08010410
     ldr        r1,[r6,#0x0]
     strb       r0,[r7,r1]
     add        r1,#0x1
     str        r1,[r6,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 PTR_DAT_080103f8:           .word gFlagBase
 PTR_DAT_080103fc:           .word gFlagBase

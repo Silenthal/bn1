@@ -214,7 +214,7 @@ PTR_powersOf10_08000b08:
 @@ 0x100 -> 3
 @@ 0x4092 -> 4
 _ts GetWidthOfBcdNumber
-    push       { lr }
+    push       {lr}
     mov        r1,#0x1
     tst        r0,r0
     beq        LAB_08000b28
@@ -227,7 +227,7 @@ LAB_08000b1e:
     b          LAB_08000b1e
 LAB_08000b28:
     add        r0,r1,#0x0
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Shuffles a given array by randomly exchanging elements.
@@ -236,31 +236,31 @@ LAB_08000b28:
 @@ r1: arraySz - The length of the array.
 @@ r2: shuffleCount - The amount of times to shuffle the array.
 _ts ArrayShuffle
-    push       { r5, lr }
+    push       {r5,lr}
 .loop:
-    push       { r0, r2 }
-    push       { r1 }
+    push       {r0,r2}
+    push       {r1}
     bl         Rng_RandomInt
-    pop        { r1 }
-    push       { r1 }
+    pop        {r1}
+    push       {r1}
     bl         SWI_Div
     add        r3,r1,#0x0
-    pop        { r1 }
-    push       { r1, r3 }
+    pop        {r1}
+    push       {r1,r3}
     bl         Rng_RandomInt
-    pop        { r1 }
-    push       { r1 }
+    pop        {r1}
+    push       {r1}
     bl         SWI_Div
     add        r4,r1,#0x0
-    pop        { r1, r3 }
-    pop        { r0, r2 }
+    pop        {r1,r3}
+    pop        {r0,r2}
     ldrb       r5,[r0,r3]
     ldrb       r6,[r0,r4]
     strb       r6,[r0,r3]
     strb       r5,[r0,r4]
     sub        r2,#0x1
     bne        .loop
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 
 @@ Picks a random element from a given array.
@@ -270,14 +270,14 @@ _ts ArrayShuffle
 @@ Out:
 @@ r0: byte val - A randomly chosen value from the array.
 _ts GetRandomElementOfArray
-    push       { lr }
+    push       {lr}
     add        r7,r0,#0x0
-    push       { r1, r7 }
+    push       {r1,r7}
     bl         Rng_RandomInt
-    pop        { r1, r7 }
+    pop        {r1,r7}
     bl         SWI_Div
     ldrb       r0,[r7,r1]
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Sorts a given array in descending order.
@@ -285,7 +285,7 @@ _ts GetRandomElementOfArray
 @@ r0: [in, out] byte* array - The array to sort.
 @@ r1: arraySz - The length of the array.
 _ts ArraySort
-    push       { lr }
+    push       {lr}
     cmp        r1,#0x2
     bmi        LAB_08000b9c
     mov        r3,#0x1
@@ -307,7 +307,7 @@ LAB_08000b8e:
     cmp        r3,r1
     bmi        LAB_08000b80
 LAB_08000b9c:
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Converts an input value which represents 1/60ths of a second to the same
@@ -318,13 +318,13 @@ LAB_08000b9c:
 @@ r0: int realTime - The frame time in hh:MM:ss.ff representing hours, 
 @@ minutes, seconds, and frames (1/60 of a second).
 _nt FrameTimeToBcdRealTime
-    push       { lr }
+    push       {lr}
     @ return early if a time greater than 100 hours is passed
     ldr        r1,=(100 * 60 * 60 * 60)
     cmp        r0,r1
     bmi        1f
     ldr        r0,=0x99595999
-    pop        { pc }
+    pop        {pc}
 1:
     ldr        r7,ptrTimeConsts
     mov        r2,#0x0
@@ -345,7 +345,7 @@ _nt FrameTimeToBcdRealTime
     sub        r3,#0x1
     bne        2b
     lsl        r2,r2,#0x8
-    push       { r2 }
+    push       {r2}
     @ Next, converting remaining frame time (60ths of a second) to real time
     @ (100ths of a second) by doing (f * 0x1AAAA) >> 16 and then converting
     @ the result into BCD
@@ -353,9 +353,9 @@ _nt FrameTimeToBcdRealTime
     mul        r0,r1
     lsr        r0,r0,#0x10
     bl         ConvertNumToBCD
-    pop        { r2 }
+    pop        {r2}
     orr        r0,r2
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -425,7 +425,7 @@ LAB_08000c40:
 @@ r3: int seconds - the seconds portion of the time.
 @@ r4: int frames - the frames portion of the time.
 _ts FrameTimeToRealTime_Reg
-    push       { lr }
+    push       {lr}
     sub        sp,#0x8
     @ hours
     ldr        r1,=(60 * 60 * 60)
@@ -445,7 +445,7 @@ _ts FrameTimeToRealTime_Reg
     ldr        r1,[sp,#0x0]
     ldr        r2,[sp,#0x4]
     add        sp,#0x8
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -453,12 +453,12 @@ _ts FrameTimeToRealTime_Reg
 
 @@ Sets the default sort type for folders and sacks.
 _ts SetSortDefault
-    push       { lr }
+    push       {lr}
     LoadMain gameStats, r7, r7
     mov        r0,#0x4
     strb       r0,[r7,#GameStats_sortDirectionFolder]
     strb       r0,[r7,#GameStats_sortDirectionSack]
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 

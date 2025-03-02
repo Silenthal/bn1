@@ -4,22 +4,22 @@
 
 
 _ts InitSplash
-    push       { lr }
+    push       {lr}
     LoadMain mainMenu, r0, r7
     mov        r1,#0x10
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
     .align 2, 0
 
 _ts Splash_Main
-    push       { lr }
+    push       {lr}
     LoadMain mainMenu, r5, r7
     ldr        r0,=jumpTableSplashMain
     ldrb       r1,[r5,#MainMenu_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -31,8 +31,8 @@ jumpTableSplashMain:
     .word Splash_4_End
 
 _ts Splash_0_LoadCapcomLogo
-    push       { lr }
-    push       { r5 }
+    push       {lr}
+    push       {r5}
     mov        r0,#0x3
     bl         Video_SetBgControl
     LoadMain display, r0, r7
@@ -64,27 +64,27 @@ _ts Splash_0_LoadCapcomLogo
     ldr        r2,=0x140
     bl         Dma_TransferListAdd
     Fade_Request FT_FadeOutToBlack, 0xff
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x4
     strb       r0,[r5,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 _ts Splash_1_FadeIn
-    push       { lr }
+    push       {lr}
     LoadMain display, r0, r7
     ldr        r1,=0x1f40
     strh       r1,[r0,#DisplaySettings_dispcnt]
-    push       { r5 }
+    push       {r5}
     FadeIn_Black
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x78
     strb       r0,[r5,#0x4]
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 _ts Splash_2_Wait
-    push       { lr }
+    push       {lr}
     LoadMain fade, r0, r7
     ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
@@ -101,16 +101,16 @@ _ts Splash_2_Wait
     cmp        r0,#0x0
     bgt        LAB_08018d80
 LAB_08018d70:
-    push       { r5 }
+    push       {r5}
     FadeOut_Black
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0xc
     strb       r0,[r5,#0x0]
 LAB_08018d80:
-    pop        { pc }
+    pop        {pc}
 
 _ts Splash_3_FadeOut
-    push       { lr }
+    push       {lr}
     LoadMain fade, r0, r7
     ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
@@ -119,21 +119,21 @@ _ts Splash_3_FadeOut
     mov        r0,#0x10
     strb       r0,[r5,#0x0]
 LAB_08018d96:
-    pop        { pc }
+    pop        {pc}
 
 _ts Splash_4_End
-    push       { lr }
-    push       { r5 }
+    push       {lr}
+    push       {r5}
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
-    pop        { r5 }
+    pop        {r5}
     LoadMain manager, r0, r7
     mov        r1,#0x0
     strb       r1,[r0,#Manager_gameState]
-    push       { r5 }
+    push       {r5}
     bl         InitMainMenu
-    pop        { r5 }
+    pop        {r5}
     LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#Manager_gameState]
-    pop        { pc }
+    pop        {pc}

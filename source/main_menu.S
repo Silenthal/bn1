@@ -5,14 +5,14 @@
     .text
 
 _ts InitMainMenu
-    push       { lr }
+    push       {lr}
     LoadMain mainMenu, r0, r7
     mov        r1,#0x10
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
 
 _ts MainMenu_Main
-    push       { lr }
+    push       {lr}
     LoadMain mainMenu, r5, r7
     ldr        r0,=jumpTableMainMenu
     ldrb       r1,[r5,#MainMenu_state_s0]
@@ -20,7 +20,7 @@ _ts MainMenu_Main
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .pool
 
@@ -34,8 +34,8 @@ jumpTableMainMenu:
     .align 2,0
 
 _ts MainMenu_0_Init
-    push       { lr }
-    push       { r5 }
+    push       {lr}
+    push       {r5}
     mov        r0,#0x5
     bl         Video_SetBgControl
     LoadMain display, r0, r7
@@ -52,33 +52,33 @@ _ts MainMenu_0_Init
     strh       r1,[r0,#DisplaySettings_bg3Vofs]
     bl         MainMenu_LoadTitleScreen
     Fade_Request FT_FadeOutToBlack, 0xff
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x1
     strb       r0,[r5,#0x0]
     mov        r0,#T_Theme_Of_Mega_Man_Battle_Network
     bl         Sound_ForcePlayBGM
     Flag_ClearSystem F_SYSTEM_SAVE_OK
     mov        r0,#0x0
-    push       { r0, r5 }
+    push       {r0,r5}
     bl         Save_LoadGame
     bl         Save_ChecksumCheck
-    pop        { r0, r5 }
+    pop        {r0,r5}
     bne        LAB_080104c8
-    push       { r0, r5 }
+    push       {r0,r5}
     bl         Save_CheckBuildId
-    pop        { r0, r5 }
+    pop        {r0,r5}
     bne        LAB_080104c8
     mov        r0,#0x1
-    push       { r0, r5 }
+    push       {r0,r5}
     Flag_SetSystem F_SYSTEM_SAVE_OK
-    pop        { r0, r5 }
+    pop        {r0,r5}
 LAB_080104c8:
     strb       r0,[r5,#0xb]
     strb       r0,[r5,#0x8]
     mov        r0,#0x0
     strb       r0,[r5,#0x6]
     strb       r0,[r5,#0x7]
-    pop        { pc }
+    pop        {pc}
 
 
 _ts MainMenu_1_Main

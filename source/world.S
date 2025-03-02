@@ -133,7 +133,7 @@ DAT_0800412c:
 
 
 _ts World_Main
-    push       { lr }
+    push       {lr}
     ldr        r0,=jumpTableWorldMain
     LoadMain world, r5, r7
     ldrb       r1,[r5,#World_state_s0]
@@ -141,7 +141,7 @@ _ts World_Main
     mov        lr,pc
     bx         r0
     bl         Rng_RandomUint
-    pop        { pc }
+    pop        {pc}
 
     .pool
 

@@ -82,7 +82,7 @@ listHandlerEffect:
     .word Effect_NaviDelete
 
 _ts Effect_Alloc
-    push       { r0, r1, r2, r3, r4, lr }
+    push       {r0,r1,r2,r3,r4,lr}
     ldr        r0,PTR_gBitsetEffect_08003acc
     ldr        r2,[r0,#0x0]
     ldr        r1,DAT_08003ad0
@@ -106,7 +106,7 @@ LAB_08003976:
     bl         memset_8
     mov        r0,#0x9
     strb       r0,[r5,#Effect_header_entityFlags]
-    pop        { r0, r1, r2, r3, r4 }
+    pop        {r0,r1,r2,r3,r4}
     strb       r0,[r5,#Effect_header_routineType]
     str        r1,[r5,#Effect_pos_curr_x]
     str        r2,[r5,#Effect_pos_curr_y]
@@ -114,13 +114,13 @@ LAB_08003976:
     str        r4,[r5,#Effect_family_family]
     mov        r0,#0x0
     str        r0,[r5,#Effect_state_s0]
-    pop        { pc }
+    pop        {pc}
 LAB_0800399c:
     mov        r5,#0x0
-    pop        { r0, r1, r2, r3, r4, pc }
+    pop        {r0,r1,r2,r3,r4,pc}
 
 _ts Effect_Free
-    push       { lr }
+    push       {lr}
     ldr        r0,DAT_08003ad0
     ldrb       r1,[r5,#Effect_header_listIndex]
     lsr        r0,r1
@@ -131,10 +131,10 @@ _ts Effect_Free
     mov        r1,#0x0
     strb       r1,[r5,#Effect_header_entityFlags]
     bl         SpritePtr_AffineFree
-    pop        { pc }
+    pop        {pc}
 
 _ts Effect_UpdateAll
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gEntityListEffect_08003ae0
 LAB_080039c0:
     mov        r1,#0x1
@@ -190,10 +190,10 @@ LAB_08003a22:
     LoadMain world, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#World_updatingEntity]
-    pop        { pc }
+    pop        {pc}
 
 _ts Effect_Init
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gFillValue_08003af0
     ldr        r1,PTR_gEntityListEffect_08003af4
     ldr        r2,DAT_08003af8
@@ -216,10 +216,10 @@ LAB_08003a48:
     ldr        r0,PTR_gBitsetEffect_08003b04
     mov        r1,#0x0
     str        r1,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 _ts Effect_LoadAll
-    push       { lr }
+    push       {lr}
     mov        r0,#0x20
     mov        r1,#0x0
     ldr        r5,PTR_gEntityListEffect_08003b08
@@ -228,7 +228,7 @@ LAB_08003a68:
     mov        r3,#0x2
     tst        r2,r3
     beq        LAB_08003a8e
-    push       { r0, r1, r5 }
+    push       {r0,r1,r5}
     add        r0,r5,#0x0
     add        r0,#0x28
     bl         LC_SpritePtr_CalculateOcclusion
@@ -239,7 +239,7 @@ LAB_08003a68:
     mov        r0,#0x2
     add        r5,#0x80
     bl         Sprite_AddSpriteToOam
-    pop        { r0, r1, r5 }
+    pop        {r0,r1,r5}
     b          LAB_08003aa8
 LAB_08003a8e:
     add        r4,r5,#0x0
@@ -249,17 +249,17 @@ LAB_08003a8e:
     mov        r3,#0x1
     tst        r2,r3
     beq        LAB_08003aa8
-    push       { r0, r1, r5 }
+    push       {r0,r1,r5}
     add        r0,r5,#0x0
     add        r0,#0x28
     bl         LC_SpritePtr_CalculateOcclusion
-    pop        { r0, r1, r5 }
+    pop        {r0,r1,r5}
 LAB_08003aa8:
     add        r1,#0x1
     add        r5,#0xb0
     cmp        r1,r0
     blt        LAB_08003a68
-    pop        { pc }
+    pop        {pc}
 
 _ts Effect_UnloadAll
     mov        r0,#0x0

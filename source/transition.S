@@ -7,16 +7,16 @@
     .thumb
 
 _ts InitTransition
-    push       { lr }
+    push       {lr}
     LoadMain transition, r5, r7
     ldrb       r1,[r5,#Transition_destinationType]
     mov        r0,#0x0
     str        r0,[r5,#Transition_state]
     strb       r1,[r5,#Transition_destinationType]
-    pop        { pc }
+    pop        {pc}
 
 _ts Transition_Main
-    push       { lr }
+    push       {lr}
     LoadMain transition, r5, r7
     ldr        r2,[r7,#0x8]
     ldrb       r0,[r2,#0x4]
@@ -32,7 +32,7 @@ LAB_08017518:
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
 jumpTableJackIn:
     .word JackIn_Init

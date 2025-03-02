@@ -89,7 +89,7 @@ listHandlerActor:
     .word Routine_Mole
 
 _ts Actor_Alloc
-    push       { r0, r1, r2, r3, r4, lr }
+    push       {r0,r1,r2,r3,r4,lr}
     ldr        r0,PTR_gBitsetActor_080034bc
     ldr        r2,[r0,#0x0]
     ldr        r1,DAT_080034c0
@@ -113,7 +113,7 @@ LAB_08003366:
     bl         memset_8
     mov        r0,#0x9
     strb       r0,[r5,#Actor_header_entityFlags]
-    pop        { r0, r1, r2, r3, r4 }
+    pop        {r0,r1,r2,r3,r4}
     strb       r0,[r5,#Actor_header_routineType]
     str        r1,[r5,#Actor_pos_curr_x]
     str        r2,[r5,#Actor_pos_curr_y]
@@ -121,13 +121,13 @@ LAB_08003366:
     str        r4,[r5,#Actor_family_family]
     mov        r0,#0x0
     str        r0,[r5,#Actor_state_s0]
-    pop        { pc }
+    pop        {pc}
 LAB_0800338c:
     mov        r5,#0x0
-    pop        { r0, r1, r2, r3, r4, pc }
+    pop        {r0,r1,r2,r3,r4,pc}
 
 _ts Actor_Free
-    push       { lr }
+    push       {lr}
     ldr        r0,DAT_080034c0
     ldrb       r1,[r5,#Actor_header_listIndex]
     lsr        r0,r1
@@ -138,10 +138,10 @@ _ts Actor_Free
     mov        r1,#0x0
     strb       r1,[r5,#Actor_header_entityFlags]
     bl         SpritePtr_AffineFree
-    pop        { pc }
+    pop        {pc}
 
 _ts Actor_UpdateAll
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gEntityListActor_080034d0
 LAB_080033b0:
     mov        r1,#0x1
@@ -197,10 +197,10 @@ LAB_08003412:
     LoadMain world, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#World_updatingEntity]
-    pop        { pc }
+    pop        {pc}
 
 _ts Actor_Init
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gFillValue_080034e0
     ldr        r1,PTR_gEntityListActor_080034e4
     ldr        r2,DAT_080034e8
@@ -223,10 +223,10 @@ LAB_08003438:
     ldr        r0,PTR_gBitsetActor_080034f4
     mov        r1,#0x0
     str        r1,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 _ts Actor_LoadAll
-    push       { lr }
+    push       {lr}
     mov        r0,#0x8
     mov        r1,#0x0
     ldr        r5,PTR_gEntityListActor_080034f8
@@ -235,7 +235,7 @@ LAB_08003458:
     mov        r3,#0x2
     tst        r2,r3
     beq        LAB_0800347e
-    push       { r0, r1, r5 }
+    push       {r0,r1,r5}
     add        r0,r5,#0x0
     add        r0,#0x28
     bl         LC_SpritePtr_CalculateOcclusion
@@ -246,7 +246,7 @@ LAB_08003458:
     mov        r0,#0x2
     add        r5,#0x90
     bl         Sprite_AddSpriteToOam
-    pop        { r0, r1, r5 }
+    pop        {r0,r1,r5}
     b          LAB_08003498
 LAB_0800347e:
     add        r4,r5,#0x0
@@ -256,17 +256,17 @@ LAB_0800347e:
     mov        r3,#0x1
     tst        r2,r3
     beq        LAB_08003498
-    push       { r0, r1, r5 }
+    push       {r0,r1,r5}
     add        r0,r5,#0x0
     add        r0,#0x28
     bl         LC_SpritePtr_CalculateOcclusion
-    pop        { r0, r1, r5 }
+    pop        {r0,r1,r5}
 LAB_08003498:
     add        r1,#0x1
     add        r5,#0xc0
     cmp        r1,r0
     blt        LAB_08003458
-    pop        { pc }
+    pop        {pc}
 
 _ts Actor_UnloadAll
     mov        r0,#0x0

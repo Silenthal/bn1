@@ -63,7 +63,7 @@ jumpTableMain:
 
 @@ Waits for a specific amount of frames to pass.
 _ts Main_WaitFrames
-    push       { lr }
+    push       {lr}
 1:
     ldr        r0,PTR_gFrameCounter
     ldrh       r2,[r0]
@@ -73,7 +73,7 @@ _ts Main_WaitFrames
     blt        1b
     mov        r1,#0x0
     strh       r1,[r0]
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Reads input from the controls.
@@ -137,7 +137,7 @@ _ts Main_ReadInput
 
 @@ Performs a soft reset check based on some conditions.
 _ts Main_SoftResetCheck
-    push       { lr }
+    push       {lr}
     LoadMain fade, r0, r7
     ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
@@ -161,15 +161,15 @@ _ts Main_SoftResetCheck
     tst        r2,r2
     beq        .storeCounter
     @ Soft reset check (A + B + Start + Select)
-    push       { r1 }
+    push       {r1}
     bl         InitializeInterruptVectors
     bl         Main_Init
-    pop        { r1 }
+    pop        {r1}
     mov        r4,#0xa
 .storeCounter:
     strb       r4,[r1,#0x0]
 .end:
-    pop        { pc }
+    pop        {pc}
 
     .word .+4
     .word 0x200ace0
@@ -177,7 +177,7 @@ _ts Main_SoftResetCheck
 
 @@ Initializes the main state used by the game, as well as other subsystems.
 _ts Main_Init
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_MainState
     mov        r10,r0
     LoadMain display, r0, r7
@@ -203,9 +203,9 @@ _ts Main_Init
     bl         Video_InitBlendSettings
     bl         InitFadeSettings
     mov        r0,r10
-    push       { r0 }
+    push       {r0}
     bl         Sio_SetReady
-    pop        { r0 }
+    pop        {r0}
     mov        r10,r0
     @ Set gFrameWaitValue to 1
     ldr        r0,PTR_gFrameWaitValue_1
@@ -214,7 +214,7 @@ _ts Main_Init
     LoadMain manager, r0, r7
     mov        r1,#0x8
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
 
 PTR_MainState: .word MainState
 
@@ -255,14 +255,14 @@ MainState:
 
 @@ Wait for vblank to finish.
 _ts Main_WaitForVBlank
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_REG_DISPSTAT
     mov        r2,#0x1
 1:
     ldrh       r1,[r0]
     tst        r1,r2
     beq        1b
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 

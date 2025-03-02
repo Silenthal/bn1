@@ -6,7 +6,7 @@
     .thumb
 
 Monitor_Main:
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_DAT_080005d0
 LAB_08000514:
     ldr        r1,PTR_DAT_080005d4
@@ -33,10 +33,10 @@ LAB_08000532:
     ldr        r1,PTR_DAT_080005dc
     cmp        r0,r1
     bne        LAB_08000514
-    pop        { pc }
+    pop        {pc}
 
 ChangeTask:
-    push       { lr }
+    push       {lr}
     ldr        r1,PTR_DAT_080005e0
     str        r0,[r1,#0x0]
     ldr        r1,PTR_DAT_080005e4
@@ -46,10 +46,10 @@ ChangeTask:
     strb       r1,[r0,#0x0]
     ldr        r2,[r0,#0x8]
     mov        sp,r2
-    pop        { pc }
+    pop        {pc}
 
 Monitor_Exec:
-    push       { lr }
+    push       {lr}
     ldr        r2,PTR_DAT_080005e8
     lsl        r0,r0,#0x4
     add        r0,r2,r0
@@ -59,10 +59,10 @@ Monitor_Exec:
     sub        r2,#0x4
     str        r1,[r2,#0x0]
     str        r2,[r0,#0x8]
-    pop        { pc }
+    pop        {pc}
 
 Monitor_TaskSleep:
-    push       { lr }
+    push       {lr}
     ldr        r1,PTR_DAT_080005ec
     ldr        r1,[r1,#0x0]
     mov        r2,#0x8
@@ -75,7 +75,7 @@ Monitor_TaskSleep:
     ldr        r0,PTR_DAT_080005f4
     ldr        r0,[r0,#0x0]
     mov        sp,r0
-    pop        { pc }
+    pop        {pc}
 
 Monitor_TaskStop:
     ldr        r0,PTR_DAT_080005f8
@@ -85,7 +85,7 @@ Monitor_TaskStop:
     ldr        r0,PTR_DAT_080005fc
     ldr        r0,[r0,#0x0]
     mov        sp,r0
-    pop        { pc }
+    pop        {pc}
 
 Monitor_TaskNext:
     ldr        r3,PTR_DAT_08000600
@@ -99,10 +99,10 @@ Monitor_TaskNext:
     ldr        r0,PTR_DAT_08000604
     ldr        r0,[r0,#0x0]
     mov        sp,r0
-    pop        { pc }
+    pop        {pc}
 
 Monitor_Init:
-    push       { lr }
+    push       {lr}
     ldr        r4,PTR_DAT_08000608
     mov        r0,#0x4
     ldr        r1,PTR_DAT_0800060c
@@ -116,7 +116,7 @@ LAB_080005ba:
     add        r4,#0x10
     sub        r0,#0x1
     bne        LAB_080005ba
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 

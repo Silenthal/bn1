@@ -8,19 +8,19 @@
 @@ r1: void* funcVBlank - BG update function that will be called directly after VBlank.
 @@ r2: void* funcHBlank - BG update function that will be called during HBlank.
 _ts BgUpdate_Set
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cbc
     str        r0,[r5,#0x0]
     str        r1,[r5,#0x8]
     str        r2,[r5,#0x4]
     ldr        r0,PTR_interruptVector_hblank_08001cc0
     str        r2,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Initializes the BG update functions.
 _ts BgUpdate_Init
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cc4
     ldr        r0,PTR_BgUpdate_NoMove_1_08001cc8
     str        r0,[r5,#0x0]
@@ -29,46 +29,46 @@ _ts BgUpdate_Init
     ldr        r0,PTR_interruptVector_hblank_08001cd0
     str        r1,[r0,#0x0]
     str        r1,[r5,#0x4]
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Executes the normal BG scroll function.
 _ts BgUpdate_CallProc
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cd4
     ldr        r0,[r5,#0x0]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Executes the VBlank BG scroll function.
 _ts BgUpdate_CallVBlankProc
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gFuncPtrBgUpdatePostLoop_08001cd8
     ldr        r0,[r5,#0x8]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
 _ts FUN_08001bf4
-    push       { lr }
+    push       {lr}
     mov        r1,#0x0
 LAB_08001bf8:
-    push       { r1 }
+    push       {r1}
     bl         Rng_RandomUint
     mov        r2,#0x7
     and        r0,r2
     add        r2,r0,#0x1
-    pop        { r1 }
+    pop        {r1}
     ldr        r0,PTR_tempBg1Hofs_08001cdc
     strb       r2,[r0,r1]
-    push       { r1 }
+    push       {r1}
     bl         Rng_RandomUint
     mov        r2,#0x3
     and        r0,r2
     add        r2,r0,#0x1
-    pop        { r1 }
+    pop        {r1}
     ldr        r0,PTR_tempBg1Vofs_08001ce0
     strb       r2,[r0,r1]
     add        r1,#0x1
@@ -79,7 +79,7 @@ LAB_08001bf8:
     mov        r2,#0x0
     strh       r2,[r0,#0x0]
     strh       r2,[r1,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 _ts FUN_08001c30
     mov        r0,#0x0

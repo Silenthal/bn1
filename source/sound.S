@@ -5,7 +5,7 @@
 
 @@ Initializes audio.
 _ts Sound_Init
-    push       { lr }
+    push       {lr}
     bl         m4aSoundInit
     ldr        r0,PTR_soundMode
     bl         m4aSoundMode
@@ -24,7 +24,7 @@ _ts Sound_Init
     lsl        r2,r2,#0x8
     orr        r1,r2
     strh       r1,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -36,9 +36,9 @@ PTR_handlerVcount:      .word IRQ_VCount_far
 
 @@ Sound function during vcount that handles general audio.
 _ts Sound_Main
-    push       { lr }
+    push       {lr}
     bl         m4aSoundMain
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -50,31 +50,31 @@ DAT_08000658:
 
 @@ Sound function during vsync that transfers audio data.
 _ts Sound_VSync
-    push       { lr }
+    push       {lr}
     bl         m4aSoundVSync
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Play a sound effect immediately.
 @@ In:
 @@ r0: SongId songid - The ID of the sound to play.
 _ts Sound_PlaySE
-    push       { r1, r2, r3, r4, r5, r6, r7, lr }
+    push       {r1,r2,r3,r4,r5,r6,r7,lr}
 LAB_0800066a:
     mov        r1,r10
-    push       { r1 }
+    push       {r1}
     bl         m4aSongNumStart
-    pop        { r1 }
+    pop        {r1}
     mov        r10,r1
 LAB_08000676:
-    pop        { r1, r2, r3, r4, r5, r6, r7, pc }
+    pop        {r1,r2,r3,r4,r5,r6,r7,pc}
 
 
 @@ Plays background music.
 @@ In:
 @@ r0: SongId songid - The ID of the track to play.
 _ts Sound_PlayBGM
-    push       { r1, r2, r3, r4, r5, r6, r7, lr }
+    push       {r1,r2,r3,r4,r5,r6,r7,lr}
     LoadMain world, r7, r7
     ldrb       r1,[r7,#World_currentSongId]
     cmp        r0,r1
@@ -87,7 +87,7 @@ _ts Sound_PlayBGM
 @@ In:
 @@ r0: SongId songid - The ID of the track to play.
 _ts Sound_ForcePlayBGM
-    push       { r1, r2, r3, r4, r5, r6, r7, lr }
+    push       {r1,r2,r3,r4,r5,r6,r7,lr}
     LoadMain world, r7, r7
     strb       r0,[r7,#World_currentSongId]
     b          LAB_0800066a
@@ -98,16 +98,16 @@ _ts Sound_ForcePlayBGM
 @@ r0: int musicPlayerId - The index of the music player to fade.
 @@ r1: ushort speed - The speed at which to fade.
 _nt Sound_FadeOut
-    push       { r5, lr }
+    push       {r5,lr}
     ldr        r7,PTR_musicPlayerList
     lsl        r0,r0,#0x2
     ldr        r0,[r7,r0]
     mov        r2,r10
-    push       { r2 }
+    push       {r2}
     bl         MPlayFadeOut
-    pop        { r2 }
+    pop        {r2}
     mov        r10,r2
-    pop        { r5, pc }
+    pop        {r5,pc}
 
     .align 2, 0
 
@@ -151,21 +151,21 @@ musicPlayerList:
 
 @@ Stops all playing music.
 _ts Sound_StopAllMusic
-    push       { lr }
+    push       {lr}
     mov        r1,r10
-    push       { r1 }
+    push       {r1}
     bl         m4aMPlayAllStop
-    pop        { r1 }
+    pop        {r1}
     mov        r10,r1
     LoadMain world, r7, r7
     mov        r0,#0xff
     strb       r0,[r7,#World_currentSongId]
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Changes the currently playing BGM based on the current area.
 _ts Sound_AreaSongChange
-    push       { lr }
+    push       {lr}
     LoadMain world, r7, r7
     ldr        r6,PTR_songTableOffline
     ldrb       r0,[r7,#World_currentArea]
@@ -180,9 +180,9 @@ LAB_08000756:
     ldrb       r0,[r6,r0]
     cmp        r0,#0xff
     beq        LAB_080007a6
-    push       { r0 }
+    push       {r0}
     Flag_GetBase 0x05
-    pop        { r0 }
+    pop        {r0}
     bne        LAB_080007a0
     LoadMain world, r7, r7
     ldrb       r1,[r7,#World_currentArea]
@@ -201,16 +201,16 @@ LAB_08000756:
     ldrb       r1,[r7,#World_storyFlag]
     cmp        r1,#0x50
     blt        LAB_080007a0
-    push       { r0 }
+    push       {r0}
     Flag_GetBase 0xA3
-    pop        { r0 }
+    pop        {r0}
     beq        LAB_080007a0
     mov        r0,#0x3
 LAB_080007a0:
     bl         Sound_PlayBGM
     b          LAB_080007a6
 LAB_080007a6:
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -556,12 +556,12 @@ songGroup_Internet:
 @@ In:
 @@ r0: SongId songid - The ID of the track to stop.
 _ts Sound_StopBGM
-    push       { r1, r2, r3, r4, r5, r6, r7, lr }
+    push       {r1,r2,r3,r4,r5,r6,r7,lr}
     mov        r1,r10
-    push       { r1 }
+    push       {r1}
     bl         m4aSongNumStop
-    pop        { r1 }
+    pop        {r1}
     mov        r10,r1
-    pop        { r1, r2, r3, r4, r5, r6, r7, pc }
+    pop        {r1,r2,r3,r4,r5,r6,r7,pc}
 
     .pool

@@ -5,17 +5,17 @@
     .text
 
 _ts Text_Init
-    push       { lr }
+    push       {lr}
     LoadMain textHandler, r0, r0
     mov        r1,#0x8c
     bl         memset0_32
     mov        r0,#(TF_ClearDialogBox|TF_DisableInput)
     bl         Text_DisableOption
-    pop        { pc }
+    pop        {pc}
 
 _ts Text_LoadAreaDialogue
-    push       { lr }
-    push       { r0 }
+    push       {lr}
+    push       {r0}
     LoadMain world, r5, r7
     ldrb       r0,[r5,#World_currentArea]
     ldrb       r1,[r5,#0x5]
@@ -39,15 +39,15 @@ LAB_08013596:
     lsl        r1,r1,#0x2
     add        r3,r3,r1
     ldr        r0,[r3,#0x0]
-    pop        { r1 }
+    pop        {r1}
     bl         Text_LoadDialogue
-    pop        { pc }
+    pop        {pc}
 
 _ts Text_LoadCommentaryDialogue
-    push       { lr }
+    push       {lr}
     cmp        r0,#0xff
     beq        LAB_080135e4
-    push       { r0 }
+    push       {r0}
     LoadMain world, r5, r7
     ldrb       r0,[r5,#World_currentArea]
     ldrb       r1,[r5,#0x5]
@@ -71,23 +71,23 @@ LAB_080135d2:
     lsl        r1,r1,#0x2
     add        r3,r3,r1
     ldr        r0,[r3,#0x0]
-    pop        { r1 }
+    pop        {r1}
     bl         Text_LoadDialogue
 LAB_080135e4:
-    pop        { pc }
+    pop        {pc}
 
 _ts Text_LoadDialogue
-    push       { lr }
+    push       {lr}
     LoadMain textHandler, r5, r5
     ldr        r2,[r5,#Text_itemIdList]
     ldr        r3,[r5,#0x34]
     ldr        r4,[r5,#0x38]
     ldr        r6,[r5,#0x3c]
-    push       { r0, r1, r2, r3, r4, r5, r6 }
+    push       {r0,r1,r2,r3,r4,r5,r6}
     LoadMain textHandler, r0, r0
     mov        r1,#0x8c
     bl         memset0_32
-    pop        { r0, r1, r2, r3, r4, r5, r6 }
+    pop        {r0,r1,r2,r3,r4,r5,r6}
     str        r2,[r5,#Text_itemIdList]
     str        r3,[r5,#0x34]
     str        r4,[r5,#0x38]
@@ -118,24 +118,24 @@ _ts Text_LoadDialogue
     ldr        r1,PTR_DAT_0801396c
     mov        r2,#0x48
     bl         Dma_TransferListAdd
-    pop        { pc }
+    pop        {pc}
 
 _ts Text_DisableDialogue
-    push       { lr }
+    push       {lr}
     LoadMain textHandler, r5, r5
     mov        r0,#FALSE
     strb       r0,[r5,#Text_isWriteText]
     mov        r0,#(TF_DisableInput|TF_ClearDialogBox)
     bl         Text_DisableOption
-    pop        { pc }
+    pop        {pc}
 
 _ts Text_Main
-    push       { lr }
+    push       {lr}
     LoadMain textHandler, r5, r5
     ldrb       r0,[r5,#Text_isWriteText]
     cmp        r0,#FALSE
     bne        write_text_start
-    pop        { pc }
+    pop        {pc}
 write_text_start:
     mov        r0,#TF_Flag_20
     bl         Text_DisableOption
@@ -298,18 +298,18 @@ layout_finish:
     LoadMain 92, r2, r2
     add        r1,r1,r2
     mov        r2,#0x80
-    push       { r5 }
+    push       {r5}
     bl         Dma_TransferListAdd
-    pop        { r5 }
+    pop        {r5}
     ldr        r0,PTR_gTextTileBuffer_08013978
     ldr        r1,dstvTextTileStart
     ldr        r2,DAT_08013980
-    push       { r5 }
+    push       {r5}
     bl         Dma_TransferListAdd
-    pop        { r5 }
+    pop        {r5}
     bl         Text_CheckPortraitLoad
     bl         Text_CheckPasscodeEntryLoad
-    pop        { pc }
+    pop        {pc}
 
 _ts Text_CopyCharTile
     ldr        r0,PTR_tilesetDialogueText_08013984
@@ -347,7 +347,7 @@ charShade:
     .word 0xCCCCCCCC
 
 _ts Text_LoadCharTileLayout
-    push       { lr }
+    push       {lr}
     ldrb       r6,[r5,#Text_textCol]
     add        r0,r6,#0x1
     strb       r0,[r5,#Text_textCol]
@@ -369,17 +369,17 @@ _ts Text_LoadCharTileLayout
     add        r0,#0x1
     add        r2,#0x40
     strh       r0,[r2,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 _ts Text_SetDialogPortrait
-    push       { r5, lr }
+    push       {r5,lr}
     add        r5,#Text_portrait
-    push       { r0, r1 }
+    push       {r0,r1}
     lsl        r0,r0,#0x2
     ldr        r1,PTR_tilesetListPortraits_08013990
     ldr        r0,[r1,r0]
     bl         Sprite_Init
-    pop        { r0, r1 }
+    pop        {r0,r1}
     strb       r1,[r5,#Sprite_srcPalIndex]
     mov        r1,#0x0
     strb       r1,[r5,#Sprite_indexSubFrame]
@@ -398,10 +398,10 @@ _ts Text_SetDialogPortrait
     bl         Sprite_LoadPalette
     mov        r1,#0x22
     strh       r1,[r5,#Sprite_screenX]
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 _ts Text_CheckPortraitLoad
-    push       { r5, lr }
+    push       {r5,lr}
     mov        r0,#TS_ShowPortrait
     bl         Text_CheckScriptOption
     beq        .return
@@ -410,7 +410,7 @@ _ts Text_CheckPortraitLoad
     strb       r1,[r5,#Text_currAnimationIndex]
     ldrb       r0,[r5,#Text_layoutLineOffset]
     lsl        r0,r0,#0x3
-    push       { r0 }
+    push       {r0}
     ldrb       r3,[r5,#Text_portraitPalIndex]
     add        r5,#Text_portrait
     strb       r3,[r5,#0x5]
@@ -420,7 +420,7 @@ _ts Text_CheckPortraitLoad
     bl         Sprite_InitFrames
 LAB_08013896:
     bl         Sprite_ProcessFrameDelay
-    pop        { r0 }
+    pop        {r0}
     add        r0,#0x20
     strb       r0,[r5,#Sprite_portraitScreenY]
     bl         Sprite_LoadPalette
@@ -428,96 +428,96 @@ LAB_08013896:
     mov        r0,#0x0
     bl         Sprite_AddSpriteToOam
 .return:
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 _ts Text_LoadDialogBoxLayout
-    push       { r5, lr }
+    push       {r5,lr}
     ldr        r0,PTR_layoutDialogBox_08013994
     ldr        r1,[r5,#Text_dialogLayout]
     ldr        r2,DAT_08013998
     bl         memcpy_32
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 _ts Text_CheckPasscodeEntryLoad
-    push       { r5, lr }
+    push       {r5,lr}
     mov        r0,#TS_PasscodeEntry
     bl         Text_CheckScriptOption
     beq        LAB_080138dc
     mov        r0,#TS_40
     bl         Text_CheckScriptOption
-    push       { r5 }
+    push       {r5}
     bl         Passcode_HandleEntry
-    pop        { r5 }
+    pop        {r5}
     strb       r0,[r5,#Text_b16]
     strb       r1,[r5,#Text_passcodeChoice]
 LAB_080138dc:
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 _ts Text_EnableScriptOption
-    push       { r1 }
+    push       {r1}
     ldrb       r1,[r5,#Text_scriptOptions]
     orr        r1,r0
     strb       r1,[r5,#Text_scriptOptions]
-    pop        { r1 }
+    pop        {r1}
     mov        pc,lr
 
 _ts Text_DisableScriptOption
-    push       { r1 }
+    push       {r1}
     ldrb       r1,[r5,#Text_scriptOptions]
     bic        r1,r0
     strb       r1,[r5,#Text_scriptOptions]
-    pop        { r1 }
+    pop        {r1}
     mov        pc,lr
 
 _ts Text_CheckScriptOption
-    push       { r1 }
+    push       {r1}
     ldrb       r1,[r5,#Text_scriptOptions]
     and        r0,r1
-    pop        { r1 }
+    pop        {r1}
     mov        pc,lr
 
 _ts Text_EnableOption
-    push       { r1, r2 }
+    push       {r1,r2}
     ldr        r1,PTR_gTextOptionFlags_0801399c
     ldr        r2,[r1,#0x0]
     orr        r2,r0
     str        r2,[r1,#0x0]
-    pop        { r1, r2 }
+    pop        {r1,r2}
     mov        pc,lr
 
 _ts Text_DisableOption
-    push       { r1, r2 }
+    push       {r1,r2}
     ldr        r1,PTR_gTextOptionFlags_080139a0
     ldr        r2,[r1,#0x0]
     bic        r2,r0
     str        r2,[r1,#0x0]
-    pop        { r1, r2 }
+    pop        {r1,r2}
     mov        pc,lr
 
 _ts Text_CheckOption
-    push       { r1 }
+    push       {r1}
     ldr        r1,PTR_gTextOptionFlags_080139a4
     ldr        r1,[r1,#0x0]
     and        r0,r1
-    pop        { r1 }
+    pop        {r1}
     mov        pc,lr
 
 _ts TextOption_GetDefaultOption
-    push       { r1 }
+    push       {r1}
     ldr        r1,PTR_gTextOptionFlags_080139a8
     ldr        r1,[r1,#0x0]
     mov        r0,#0xf
     and        r0,r1
-    pop        { r1 }
+    pop        {r1}
     mov        pc,lr
 
 _ts Text_CopyCharTileUI
-    push       { lr }
-    push       { r0 }
+    push       {lr}
+    push       {r0}
     ldr        r0,PTR_Screen_WriteUIText_1_080139ac
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
 PTR_DialogueData_Offline:                   .word DialogueData_Offline
 PTR_PTR_08013950:                           .word DialogueData_Online
@@ -597,7 +597,7 @@ JT_LayoutCommand:
     .word JT_Layout_FE_Save
 
 _ts JT_Command_E7_End
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r5,#Text_isScriptJump]
     tst        r0,r0
     beq        LAB_08013a82
@@ -608,7 +608,7 @@ _ts JT_Command_E7_End
     @ r4 = textState->textPointerAfterKeyPrint
     ldr        r4,[r5,#Text_textPointerAfterKeyPrint]
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_08013a82:
     mov        r0,#0x1
     bl         Text_EnableScriptOption
@@ -635,7 +635,7 @@ LAB_08013aa0:
     sub        r0,#0x1
     strh       r0,[r5,#Text_dialogDelayCounter]
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
     @ Set delay type to button prompt, and start sliding
     @ dialog box down
 LAB_08013aae:
@@ -648,7 +648,7 @@ LAB_08013ab2:
     cmp        r0,#0x15
     bge        LAB_08013ac0
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
     @ Once dialog box is hidden, disable text mode and
     @ set delay to 0
 LAB_08013ac0:
@@ -658,7 +658,7 @@ LAB_08013ac0:
     strb       r0,[r5,#Text_isWriteText]
     strb       r0,[r5,#Text_dialogDelayType]
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_E7_End
     ldrb       r0,[r5,#Text_counter1]
@@ -687,7 +687,7 @@ _ts JT_Layout_E8_NewLine
     mov        pc,lr
 
 _ts JT_Command_E9_Wait
-    push       { lr }
+    push       {lr}
     mov        r0,#TS_BreakLoop
     bl         Text_EnableScriptOption
     ldrb       r0,[r5,#Text_dialogDelayType]
@@ -710,7 +710,7 @@ LAB_08013b18:
     sub        r0,#0x1
     strh       r0,[r5,#Text_dialogDelayCounter]
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
     @ Set up text pointer, set delay type to 0, buffer offsets
     @ to 0, and dialog skip delay to 5
 LAB_08013b26:
@@ -723,14 +723,14 @@ LAB_08013b26:
     mov        r0,#0x5
     strb       r0,[r5,#Text_dialogSkipDelay]
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_E7_Wait
     add        r4,#0x3
     mov        pc,lr
 
 _ts JT_Command_EA_TextDelay
-    push       { lr }
+    push       {lr}
     ldrb       r1,[r4,#0x1]
     cmp        r1,#0xff
     beq        LAB_08013b8c
@@ -763,7 +763,7 @@ LAB_08013b6e:
     sub        r0,#0x1
     strh       r0,[r5,#0xc]
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
     @ Clear the break loop flag, clear the flag1, advance to next
 LAB_08013b7c:
     mov        r0,#0x1
@@ -772,20 +772,20 @@ LAB_08013b7c:
     strb       r0,[r5,#0x4]
     add        r4,#0x4
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
     @ EA FF = Set break flag and loop forever
 LAB_08013b8c:
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_E7_TextDelay
     add        r4,#0x4
     mov        pc,lr
 
 _ts JT_Command_EB_WaitForButtonPress
-    push       { lr }
+    push       {lr}
     mov        r0,#0x11
     bl         Text_EnableScriptOption
     ldrb       r0,[r5,#0x4]
@@ -839,17 +839,17 @@ LAB_08013be8:
     strh       r0,[r5,#0xc]
     add        r4,#0x1
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_08013bfa:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_EB_WaitForButtonPress
     add        r4,#0x1
     mov        pc,lr
 
 _ts JT_Command_EC_ParseDelay
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x1]
     cmp        r0,#0x0
     beq        LAB_08013c12
@@ -864,21 +864,21 @@ LAB_08013c12:
     strb       r0,[r5,#0x9]
     mov        r0,#0x1
     add        r4,#0x3
-    pop        { pc }
+    pop        {pc}
     @ EC 01 = Make script skippable
 LAB_08013c20:
     mov        r0,#0x4
     bl         Text_DisableScriptOption
     mov        r0,#0x1
     add        r4,#0x2
-    pop        { pc }
+    pop        {pc}
     @ EC xx = Make script unskippable with A/B
 LAB_08013c2c:
     mov        r0,#0x4
     bl         Text_EnableScriptOption
     mov        r0,#0x1
     add        r4,#0x2
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_EC_ParseDelay
     ldr        r0,=DAT_08013c48
@@ -893,7 +893,7 @@ DAT_08013c48:
     .byte 3, 2, 2, 0
 
 _ts JT_Command_ED_PortraitControl
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x1]
     cmp        r0,#0x1
     beq        LAB_08013c72
@@ -926,7 +926,7 @@ LAB_08013c7c:
     add        r4,#0x3
 LAB_08013c82:
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_ED_PortraitControl
     ldr        r0,=DAT_08013c98
@@ -977,7 +977,7 @@ LAB_08013cca:
     mov        pc,lr
 
 _ts JT_Command_F0_CreateDialogueOption
-    push       { lr }
+    push       {lr}
     mov        r0,#0xff
     strb       r0,[r5,#0x15]
     mov        r0,#0x8
@@ -986,10 +986,10 @@ _ts JT_Command_F0_CreateDialogueOption
     strh       r0,[r5,#0xc]
     add        r4,#0x3
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_F0_CreateDialogueOption
-    push       { r3, lr }
+    push       {r3,lr}
     ldrb       r0,[r5,#0x14]
     ldrb       r1,[r5,#0x15]
     cmp        r0,r1
@@ -1032,15 +1032,15 @@ LAB_08013d34:
     ldrb       r1,[r5,#0x15]
     cmp        r0,r1
     blt        LAB_08013d44
-    push       { r3, r4 }
+    push       {r3,r4}
     bl         Text_LoadOptionSelectArrow
-    pop        { r3, r4 }
+    pop        {r3,r4}
 LAB_08013d44:
     ldrb       r0,[r5,#0x14]
     add        r0,#0x1
     strb       r0,[r5,#0x14]
     add        r4,#0x3
-    pop        { r3, pc }
+    pop        {r3,pc}
 
     .align 2, 0
     .pool
@@ -1051,7 +1051,7 @@ KeyInput_ARRAY_08013d54:
     .short 0x10 @ KeyInput  KEY_RIGHT
 
 _ts JT_Command_F1_HandleDialogueOptionSelect
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     ldrh       r0,[r5,#0xc]
@@ -1105,7 +1105,7 @@ LAB_08013d8e:
     @ (or B is disabled)
 LAB_08013da4:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
     @ If A is pressed while delay counter is active,
     @ play sound and go to the "delay button" code
 LAB_08013da8:
@@ -1171,7 +1171,7 @@ LAB_08013dfe:
     mov        r0,#0x20
     bl         Text_EnableOption
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
     @ If delay type is counter, delay counter = 0,
     @ and B is pressed
 LAB_08013e12:
@@ -1190,7 +1190,7 @@ LAB_08013e12:
     mov        r0,#0x8
     bl         Text_DisableScriptOption
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_08013e30:
     b          LAB_08013dae
 
@@ -1200,7 +1200,7 @@ _ts JT_Layout_F1_HandleDialogueOptionSelect
     mov        pc,lr
 
 _ts JT_Command_F2_DialogueControl
-    push       { lr }
+    push       {lr}
     ldrb       r1,[r4,#0x1]
     cmp        r1,#0x0
     beq        LAB_08013e50
@@ -1243,19 +1243,19 @@ LAB_08013e7c:
 LAB_08013e80:
     strb       r0,[r5,#0x10]
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_08013e86:
     strb       r0,[r5,#0x10]
     add        r4,#0x2
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_F2_DialogueControl
     add        r4,#0x2
     mov        pc,lr
 
 _ts JT_Command_F3_FlagControl
-    push       { lr }
+    push       {lr}
     ldr        r1,=funcListFlagControl
     ldrb       r0,[r4,#0x1]
     ldr        r1,[r1,r0]
@@ -1263,13 +1263,13 @@ _ts JT_Command_F3_FlagControl
     ldrb       r2,[r4,#0x3]
     lsl        r2,r2,#0x8
     orr        r0,r2
-    push       { r4, r5 }
+    push       {r4,r5}
     mov        lr,pc
     bx         r1
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r4,#0x4
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -1283,13 +1283,13 @@ _ts JT_Layout_F3_FlagControl
     mov        pc,lr
 
 _ts JT_Command_F4_JumpConditional
-    push       { lr }
+    push       {lr}
     ldr        r0,=funcListJumpConditional
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -1303,15 +1303,15 @@ funcListJumpConditional:
     .word JT_Command_F4_18_JumpIfLibrary
 
 _ts JT_Command_F4_00_JumpIfFlag
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
     lsl        r2,r2,#0x8
     orr        r0,r2
     mov        r1,#0x0
-    push       { r1, r4, r5 }
+    push       {r1,r4,r5}
     bl         Flag_GetBase
-    pop        { r0, r4, r5 }
+    pop        {r0,r4,r5}
     bne        LAB_08013f10
     mov        r0,#0x1
 LAB_08013f10:
@@ -1328,14 +1328,14 @@ LAB_08013f10:
     str        r0,[r5,#0x28]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_08013f2c:
     add        r4,#0x6
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_F4_04_JumpIfStoryRange
-    push       { lr }
+    push       {lr}
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
     LoadMain world, r7, r7
@@ -1359,18 +1359,18 @@ LAB_08013f4c:
     str        r0,[r5,#0x28]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_08013f66:
     add        r4,#0x6
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_F4_08_JumpIfShopStock
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x2]
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         Shop_GetUniqueStockCount
-    pop        { r4, r5 }
+    pop        {r4,r5}
     mov        r1,#0x4
     tst        r0,r0
     beq        LAB_08013f80
@@ -1388,14 +1388,14 @@ LAB_08013f80:
     str        r0,[r5,#0x28]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_08013f9a:
     add        r4,#0x5
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_F4_0C_JumpIfChip
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x2]
     ldrb       r6,[r4,#0x3]
     mov        r3,#0x0
@@ -1427,11 +1427,11 @@ LAB_08013fc2:
     str        r0,[r5,#0x28]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_08013fdc:
     add        r4,#0x6
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -1440,13 +1440,13 @@ PTR_gFolder_08013fe4:
     .word       gFolder
 
 _ts JT_Command_F4_10_JumpIfLevel
-    push       { lr }
+    push       {lr}
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
-    push       { r1, r2, r4, r5 }
+    push       {r1,r2,r4,r5}
     bl         Status_GetLevel
     add        r7,r0,#0x0
-    pop        { r1, r2, r4, r5 }
+    pop        {r1,r2,r4,r5}
     mov        r0,#0x5
     cmp        r7,r1
     blt        LAB_08014004
@@ -1466,14 +1466,14 @@ LAB_08014004:
     str        r0,[r5,#0x28]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_0801401e:
     add        r4,#0x6
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_F4_14_JumpIfBustRank
-    push       { lr }
+    push       {lr}
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
     LoadMain world, r7, r7
@@ -1497,20 +1497,20 @@ LAB_0801403c:
     str        r0,[r5,#0x28]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_08014056:
     add        r4,#0x6
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_F4_18_JumpIfLibrary
-    push       { lr }
+    push       {lr}
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
-    push       { r1, r2, r4, r5 }
+    push       {r1,r2,r4,r5}
     bl         Library_GetStandardChipCount
     add        r7,r1,#0x0
-    pop        { r1, r2, r4, r5 }
+    pop        {r1,r2,r4,r5}
     mov        r0,#0x5
     cmp        r7,r1
     blt        LAB_08014078
@@ -1530,11 +1530,11 @@ LAB_08014078:
     str        r0,[r5,#0x28]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_08014092:
     add        r4,#0x6
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_F4_JumpConditional
     ldr        r0,=INT_ARRAY_080140a8
@@ -1549,7 +1549,7 @@ INT_ARRAY_080140a8:
     .word 6, 6, 5, 6, 6, 6, 6
 
 _ts JT_Command_F5_InputControl
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x1]
     tst        r0,r0
     beq        LAB_080140d4
@@ -1564,14 +1564,14 @@ LAB_080140d4:
 LAB_080140da:
     add        r4,#0x2
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_F5_InputControl
     add        r4,#0x2
     mov        pc,lr
 
 _ts JT_Command_F6_JumpTextBlock
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x1]
     tst        r0,r0
     bne        LAB_0801410c
@@ -1594,9 +1594,9 @@ LAB_080140f0:
     add        r4,r0,#0x0
     b          LAB_08014124
 LAB_0801410c:
-    push       { r0, r4, r5 }
+    push       {r0,r4,r5}
     bl         Rng_RandomInt
-    pop        { r1, r4, r5 }
+    pop        {r1,r4,r5}
     add        r2,r1,#0x0
     and        r1,r0
     add        r4,#0x2
@@ -1608,7 +1608,7 @@ LAB_08014122:
     add        r4,#0x3
 LAB_08014124:
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_F6_JumpTextBlock
     ldrb       r0,[r4,#0x1]
@@ -1618,7 +1618,7 @@ _ts JT_Layout_F6_JumpTextBlock
 
 @ Handle general item commands
 _ts JT_Command_F7_ItemControl
-    push       { lr }
+    push       {lr}
     @ If following byte is >= 0x10, go to chip control instead
     ldrb       r0,[r4,#0x1]
     mov        r1,#0x10
@@ -1635,44 +1635,44 @@ _ts JT_Command_F7_ItemControl
     b          .checkItemPresent
 .checkGiveItem:
     @ F7 00 id am - Attempt to give [am] amount of [id] item
-    push       { r4, r5 }
+    push       {r4,r5}
     mov        r0,#SE_MysteryDataItemGet
     bl         Sound_PlaySE
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     bl         KeyItem_AddAmount
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r0,#0x4
     ldrb       r1,[r4,r0]
     b          .jumpToNextScript
 .checkTakeItem:
     @ F7 01 id am - Attempt to take [am] amount of [id] item
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     bl         KeyItem_SubtractAmount
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r0,#0x4
     ldrb       r1,[r4,r0]
     b          .jumpToNextScript
 .checkSetItem:
     @ F7 02 id am - Attempt to set [am] amount of [id] item
-    push       { r4, r5 }
+    push       {r4,r5}
     mov        r0,#0x85
     bl         Sound_PlaySE
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     bl         KeyItem_SetAmount
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r4,#0x4
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 .checkItemPresent:
     @ F7 xx id am - - Attempt to check for [am] amount of [id] item
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r0,[r4,#0x2]
     bl         KeyItem_IsPresent
-    pop        { r4, r5 }
+    pop        {r4,r5}
     ldrb       r1,[r4,#0x3]
     @ item present in exact amount = 0
     mov        r2,#0x0
@@ -1703,14 +1703,14 @@ _ts JT_Command_F7_ItemControl
     strb       r1,[r5,#Text_textBufferOffset]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 .continueScript:
     add        r4,#0x7
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_F7_ItemControl
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x1]
     mov        r1,#0x10
     tst        r0,r1
@@ -1721,7 +1721,7 @@ _ts JT_Layout_F7_ItemControl
     ldr        r1,=DAT_080141ec
     ldrb       r0,[r1,r0]
     add        r4,r4,r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -1729,13 +1729,13 @@ DAT_080141ec:
     .byte 7, 7, 4, 7, 7, 0
 
 _ts JT_Command_F8_PasscodeControl
-    push       { lr }
+    push       {lr}
     ldr        r0,=funcListPasscodeControl
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -1747,7 +1747,7 @@ funcListPasscodeControl:
     .word       JT_Command_F8_10_PasscodeShift
 
 _ts JT_Command_F8_00_PasscodeInit
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     ldrb       r0,[r5,#0x4]
@@ -1758,13 +1758,13 @@ _ts JT_Command_F8_00_PasscodeInit
     bne        LAB_0801423e
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         Passcode_Init
-    pop        { r4, r5 }
+    pop        {r4,r5}
 LAB_0801423e:
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         Passcode_InitPickResult
-    pop        { r4, r5 }
+    pop        {r4,r5}
     mov        r0,#0x60
     bl         Text_EnableScriptOption
     mov        r0,#0x5
@@ -1772,7 +1772,7 @@ LAB_0801423e:
     mov        r0,#0x1
     strb       r0,[r5,#0x4]
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_08014258:
     ldrh       r0,[r5,#0xc]
     sub        r0,#0x1
@@ -1780,7 +1780,7 @@ LAB_08014258:
     cmp        r0,#0x0
     ble        LAB_08014266
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_08014266:
     mov        r0,#0x41
     bl         Text_DisableScriptOption
@@ -1789,10 +1789,10 @@ LAB_08014266:
     strb       r0,[r5,#0x4]
     add        r4,#0x4
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_F8_04_PasscodePick
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     ldrb       r1,[r5,#0x16]
@@ -1815,17 +1815,17 @@ _ts JT_Command_F8_04_PasscodePick
     strb       r1,[r5,#0x2]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_080142ac:
     add        r4,#0x2
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_080142b2:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_F8_08_PasscodeCheck
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     ldrb       r1,[r5,#0x17]
@@ -1844,23 +1844,23 @@ _ts JT_Command_F8_08_PasscodeCheck
     strb       r1,[r5,#0x2]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_080142e2:
     add        r4,#0x9
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts FUN_080142e8
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_F8_10_PasscodeShift
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         Passcode_ShiftDigit
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r1,r0,#0x0
     cmp        r1,#0xff
     beq        LAB_08014322
@@ -1879,23 +1879,23 @@ _ts JT_Command_F8_10_PasscodeShift
     strb       r1,[r5,#0x2]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_08014322:
     add        r4,#0x6
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts FUN_08014328
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_F8_0C_PasscodeHide
-    push       { lr }
+    push       {lr}
     mov        r0,#0x20
     bl         Text_DisableScriptOption
     add        r4,#0x2
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_F8_PasscodeControl
     ldr        r0,=INT_ARRAY_0801434c
@@ -1924,48 +1924,48 @@ _ts JT_Command_F7_ChipControl
     @ F7 10 id cd ct al nn sm
     @ Try and give ct chips id cc
 .checkGiveChip:
-    push       { r4, r5 }
+    push       {r4,r5}
     mov        r0,#SE_MysteryDataItemGet
     bl         Sound_PlaySE
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     ldrb       r2,[r4,#0x4]
     bl         Inventory_AddChip
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r0,#0x5
     ldrb       r1,[r4,r0]
     b          LAB_0801440e
     @ F7 11 id cc ct
 .checkTakeChip:
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     ldrb       r2,[r4,#0x4]
     bl         Inventory_SubtractChip
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r0,#0x5
     ldrb       r1,[r4,r0]
     b          LAB_0801440e
     @ F7 12
 LAB_080143a2:
-    push       { r4, r5 }
+    push       {r4,r5}
     mov        r0,#0x85
     bl         Sound_PlaySE
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     ldrb       r2,[r4,#0x4]
     bl         Inventory_SetChip
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r4,#0x5
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
     @ F7 14
 LAB_080143bc:
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     bl         Inventory_GetChipCount
-    pop        { r4, r5 }
+    pop        {r4,r5}
     ldrb       r1,[r4,#0x4]
     mov        r2,#0x0
     cmp        r0,r1
@@ -1980,17 +1980,17 @@ LAB_080143d8:
     b          LAB_0801440e
     @ F7 1X
 LAB_080143de:
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     bl         Inventory_GetChipCount
-    pop        { r4, r5 }
-    push       { r0, r4, r5 }
+    pop        {r4,r5}
+    push       {r0,r4,r5}
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     bl         Folder_GetChipCount
     add        r1,r0,#0x0
-    pop        { r0, r4, r5 }
+    pop        {r0,r4,r5}
     sub        r0,r0,r1
     ldrb       r1,[r4,#0x4]
     mov        r2,#0x0
@@ -2017,11 +2017,11 @@ LAB_0801440e:
     strb       r1,[r5,#0x2]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_0801442a:
     add        r4,#0x8
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_F7_1X_ChipControl
     sub        r0,#0x10
@@ -2030,7 +2030,7 @@ _ts JT_Layout_F7_1X_ChipControl
     ldr        r1,=DAT_08014444
     ldrb       r0,[r1,r0]
     add        r4,r4,r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -2050,13 +2050,13 @@ _ts JT_Layout_F9_TextPalette
     mov        pc,lr
 
 _ts JT_Command_FA_PlayerAnimControl
-    push       { lr }
+    push       {lr}
     ldr        r0,=funcListPlayerAnimControl
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -2068,36 +2068,36 @@ funcListPlayerAnimControl:
     .word      JT_Command_FA_10_RestorePlayerAnim
 
 _ts JT_Command_FA_00_PlayerAnimLock
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     ldrb       r0,[r5,#0x4]
     tst        r0,r0
     bne        LAB_080144a0
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         PlayerAnimation_Lock
-    pop        { r4, r5 }
+    pop        {r4,r5}
     mov        r0,#0x1
     strb       r0,[r5,#0x4]
     b          LAB_080144b6
 LAB_080144a0:
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         PlayerAnimation_GetState
-    pop        { r4, r5 }
+    pop        {r4,r5}
     cmp        r0,#0x2
     bne        LAB_080144b6
     mov        r0,#0x0
     strb       r0,[r5,#0x4]
     add        r4,#0x2
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_080144b6:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 
 _ts JT_Command_FA_04_PlayerAnimSet
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     LoadMain world, r7, r7
@@ -2106,51 +2106,51 @@ _ts JT_Command_FA_04_PlayerAnimSet
     add        r1,#0x54
     ldrb       r2,[r7,#0x14]
     strb       r2,[r1,#0x0]
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r0,[r4,#0x2]
     cmp        r0,#0x7
     bgt        LAB_080144dc
     strb       r0,[r7,#0x10]
 LAB_080144dc:
     bl         PlayerAnimation_SetState
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r4,#0x3
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FA_08_PlayerAnimUnlock
-    push       { lr }
-    push       { r4, r5 }
+    push       {lr}
+    push       {r4,r5}
     bl         PlayerAnimation_Unlock
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r4,#0x2
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FA_0C_WaitForPlayerAnim
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
-    push       { r4, r5 }
+    push       {r4,r5}
     LoadMain world, r0, r0
     ldr        r5,[r0,#World_playerLocation]
     bl         SpritePtr_GetFrameStatus
-    pop        { r4, r5 }
+    pop        {r4,r5}
     mov        r1,#0x80
     and        r1,r0
     bne        LAB_08014518
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_08014518:
     add        r4,#0x2
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FA_10_RestorePlayerAnim
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
-    push       { r4, r5 }
+    push       {r4,r5}
     add        r1,r5,#0x0
     add        r1,#0x54
     ldrb       r0,[r1,#0x0]
@@ -2161,10 +2161,10 @@ _ts JT_Command_FA_10_RestorePlayerAnim
     strb       r0,[r7,#0x10]
 LAB_0801453c:
     bl         PlayerAnimation_SetState
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r4,#0x2
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_FA_PlayerAnimControl
     ldr        r0,=INT_ARRAY_08014558
@@ -2179,13 +2179,13 @@ INT_ARRAY_08014558:
     .word 2, 3, 2, 2, 2
 
 _ts JT_Command_FB_PrintControl
-    push       { lr }
+    push       {lr}
     ldr        r0,=funcListPrintControl
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -2196,7 +2196,7 @@ funcListPrintControl:
     .word      JT_Command_FB_0C_PrintZennyBuffer
 
 _ts JT_Command_FB_00_PrintItemName
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r5,#0x5]
     add        r0,#0x1
     strb       r0,[r5,#0x5]
@@ -2218,18 +2218,18 @@ LAB_080145ac:
     lsl        r1,r1,#0x1
     ldrh       r1,[r0,r1]
     add        r0,r0,r1
-    push       { r4, r5 }
+    push       {r4,r5}
     add        r7,r5,#0x0
     add        r7,#0x58
     ldrh       r2,[r7,#0x0]
     lsl        r2,r2,#0x6
     ldr        r1,PTR_gTextBufferList_080146d8
     add        r1,r1,r2
-    push       { r1 }
+    push       {r1}
     mov        r2,#0x40
     bl         memcpy_8
-    pop        { r0 }
-    pop        { r4, r5 }
+    pop        {r0}
+    pop        {r4,r5}
     add        r7,r5,#0x0
     add        r7,#0x58
     ldrh       r1,[r7,#0x0]
@@ -2240,7 +2240,7 @@ LAB_080145ac:
     str        r4,[r5,#0x40]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
     .align  2, 0
     .pool
@@ -2250,14 +2250,14 @@ PTR_DialogueData_Item_Names_080145f0:
     .word TextData_BattleChip_Codes
 
 _ts JT_Command_FB_04_PrintItemAmount
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r5,#0x5]
     add        r0,#0x1
     strb       r0,[r5,#0x5]
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r0,[r4,#0x3]
     bl         KeyItem_IsPresent
-    pop        { r4, r5 }
+    pop        {r4,r5}
     ldrb       r1,[r4,#0x2]
     add        r2,r5,#0x0
     add        r2,#0x48
@@ -2269,18 +2269,18 @@ _ts JT_Command_FB_04_PrintItemAmount
     str        r4,[r5,#0x40]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FB_08_PrintChipAmount
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r5,#0x5]
     add        r0,#0x1
     strb       r0,[r5,#0x5]
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r0,[r4,#0x3]
     ldrb       r1,[r4,#0x4]
     bl         Inventory_GetChipCount
-    pop        { r4, r5 }
+    pop        {r4,r5}
     ldrb       r1,[r4,#0x2]
     add        r2,r5,#0x0
     add        r2,#0x48
@@ -2292,10 +2292,10 @@ _ts JT_Command_FB_08_PrintChipAmount
     str        r4,[r5,#0x40]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FB_0C_PrintZennyBuffer
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r5,#0x5]
     add        r0,#0x1
     strb       r0,[r5,#0x5]
@@ -2322,16 +2322,16 @@ LAB_08014676:
     str        r4,[r5,#0x40]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_FB_PrintControl
-    push       { lr }
+    push       {lr}
     ldr        r0,=funcListLayoutPrintControl
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -2342,7 +2342,7 @@ funcListLayoutPrintControl:
     .word       JT_Layout_FB_XX_PrintMisc
 
 _ts JT_Layout_FB_00_PrintItemName
-    push       { r3, lr }
+    push       {r3,lr}
     ldrb       r0,[r5,#0x6]
     add        r0,#0x1
     strb       r0,[r5,#0x6]
@@ -2358,7 +2358,7 @@ _ts JT_Layout_FB_00_PrintItemName
     add        r4,#0x4
     str        r4,[r5,#0x44]
     add        r4,r0,#0x0
-    pop        { r3, pc }
+    pop        {r3,pc}
 
     .align 2, 0
 
@@ -2387,13 +2387,13 @@ DAT_080146fc:
     .byte 0xFF, 4, 5, 4
 
 _ts JT_Command_FC_SongControl
-    push       { lr }
+    push       {lr}
     ldr        r0,=funcListSongControl
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -2406,7 +2406,7 @@ funcListSongControl:
     .word       JT_Command_FC_05_SongFadeOut
 
 _ts JT_Command_FC_00_PlaySoundEffect
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     lsl        r1,r1,#0x8
@@ -2414,10 +2414,10 @@ _ts JT_Command_FC_00_PlaySoundEffect
     bl         Sound_PlaySE
     add        r4,#0x4
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FC_01_ChangeSong
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     lsl        r1,r1,#0x8
@@ -2425,39 +2425,39 @@ _ts JT_Command_FC_01_ChangeSong
     bl         Sound_PlayBGM
     add        r4,#0x4
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FC_02_DialogSoundOn
-    push       { lr }
+    push       {lr}
     mov        r0,#0x80
     bl         Text_DisableScriptOption
     add        r4,#0x2
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FC_03_DialogSoundOff
-    push       { lr }
+    push       {lr}
     mov        r0,#0x80
     bl         Text_EnableScriptOption
     add        r4,#0x2
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FC_04_StopMusic
-    push       { lr }
+    push       {lr}
     bl         Sound_StopAllMusic
     add        r4,#0x2
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FC_05_SongFadeOut
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     bl         Sound_FadeOut
     add        r4,#0x4
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_FC_SongControl
     ldr        r0,=INT_ARRAY_080147a0
@@ -2472,13 +2472,13 @@ INT_ARRAY_080147a0:
     .word 4, 4, 2, 2, 2, 4
 
 _ts JT_Command_FD_MiscControl
-    push       { lr }
+    push       {lr}
     ldr        r0,=funcListMiscControl
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -2492,12 +2492,12 @@ funcListMiscControl:
     .word       JT_Command_FD_18_StartVirusMachineBattle
 
 _ts JT_Command_FD_00_AwardZenny
-    push       { lr }
-    push       { r4, r5 }
+    push       {lr}
+    push       {r4,r5}
     mov        r0,#0x85
     bl         Sound_PlaySE
     bl         Rng_RandomInt
-    pop        { r4, r5 }
+    pop        {r4,r5}
     ldrb       r1,[r4,#0x2]
     and        r1,r0
     lsl        r1,r1,#0x2
@@ -2515,10 +2515,10 @@ _ts JT_Command_FD_00_AwardZenny
     orr        r2,r1
     add        r0,r2,#0x0
     str        r0,[r5,#0x30]
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         Inventory_AddZenny
     mov        r0,#0x0
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r0,#0x3
     ldrb       r1,[r4,r0]
     cmp        r1,#0xff
@@ -2534,7 +2534,7 @@ _ts JT_Command_FD_00_AwardZenny
     strb       r1,[r5,#0x2]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_08014844:
     ldrb       r0,[r4,#0x2]
     add        r0,#0x1
@@ -2542,21 +2542,21 @@ LAB_08014844:
     add        r4,r4,r0
     add        r4,#0x6
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FD_04_AwardChip
-    push       { lr }
-    push       { r4, r5 }
+    push       {lr}
+    push       {r4,r5}
     mov        r0,#0x85
     bl         Sound_PlaySE
     bl         Rng_RandomInt
-    pop        { r4, r5 }
+    pop        {r4,r5}
     ldrb       r1,[r4,#0x2]
     and        r1,r0
     lsl        r1,r1,#0x1
     add        r0,r1,r4
     add        r0,#0x6
-    push       { r4, r5 }
+    push       {r4,r5}
     mov        r2,#0x1
     str        r2,[r5,#0x38]
     ldrb       r1,[r0,#0x1]
@@ -2564,7 +2564,7 @@ _ts JT_Command_FD_04_AwardChip
     ldrb       r0,[r0,#0x0]
     str        r0,[r5,#0x30]
     bl         Inventory_AddChip
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r0,#0x3
     ldrb       r1,[r4,r0]
     cmp        r1,#0xff
@@ -2580,7 +2580,7 @@ _ts JT_Command_FD_04_AwardChip
     strb       r1,[r5,#0x2]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_080148a2:
     ldrb       r0,[r4,#0x2]
     add        r0,#0x1
@@ -2588,10 +2588,10 @@ LAB_080148a2:
     add        r4,r4,r0
     add        r4,#0x6
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FD_08_StartBattle
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     ldrb       r0,[r5,#0x4]
@@ -2599,7 +2599,7 @@ _ts JT_Command_FD_08_StartBattle
     beq        LAB_080148c0
     b          LAB_080148ea
 LAB_080148c0:
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         World_GetBackgroundId
     mov        r1,#0x0
     mov        r2,#0x0
@@ -2610,15 +2610,15 @@ LAB_080148c0:
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    pop        { r4, r5 }
+    pop        {r4,r5}
     mov        r0,#0x1
     strb       r0,[r5,#0x4]
 LAB_080148ea:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FD_0C_StartShop
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     ldrb       r0,[r5,#0x4]
@@ -2626,18 +2626,18 @@ _ts JT_Command_FD_0C_StartShop
     beq        LAB_08014900
     b          LAB_0801490e
 LAB_08014900:
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r0,[r4,#0x2]
     bl         World_StartShop
-    pop        { r4, r5 }
+    pop        {r4,r5}
     mov        r0,#0x1
     strb       r0,[r5,#0x4]
 LAB_0801490e:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FD_10_StartMiniBoss
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     ldrb       r0,[r5,#0x4]
@@ -2645,21 +2645,21 @@ _ts JT_Command_FD_10_StartMiniBoss
     beq        LAB_08014924
     b          LAB_0801496a
 LAB_08014924:
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r1,[r4,#0x8]
     lsl        r1,r1,#0x2
     ldr        r0,PTR_PTR_EnemySpawn_08014970
     ldr        r0,[r0,r1]
     bl         Battle_SetEncounter
-    pop        { r4, r5 }
+    pop        {r4,r5}
     ldrb       r0,[r4,#0x2]
     cmp        r0,#0xff
     bne        LAB_08014942
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         World_GetBackgroundId
-    pop        { r4, r5 }
+    pop        {r4,r5}
 LAB_08014942:
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r1,[r4,#0x3]
     ldrb       r2,[r4,#0x4]
     ldrb       r3,[r4,#0x5]
@@ -2670,12 +2670,12 @@ LAB_08014942:
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    pop        { r4, r5 }
+    pop        {r4,r5}
     mov        r0,#0x1
     strb       r0,[r5,#0x4]
 LAB_0801496a:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -2684,7 +2684,7 @@ PTR_PTR_EnemySpawn_08014970:
     .word       PTR_EnemySpawn_08014cf8
 
 _ts JT_Command_FD_14_StartChipTrader
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r5,#0x4]
     cmp        r0,#0x0
     beq        LAB_08014984
@@ -2692,10 +2692,10 @@ _ts JT_Command_FD_14_StartChipTrader
     bl         Text_EnableScriptOption
     b          LAB_080149c8
 LAB_08014984:
-    push       { r4, r5 }
+    push       {r4,r5}
     ldrb       r0,[r4,#0x2]
     bl         World_StartChipTrader
-    pop        { r4, r5 }
+    pop        {r4,r5}
     bne        LAB_0801499c
     mov        r0,#0x1
     strb       r0,[r5,#0x4]
@@ -2717,7 +2717,7 @@ LAB_0801499c:
     strb       r1,[r5,#0x2]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_080149ba:
     ldrb       r0,[r4,#0x2]
     add        r0,#0x1
@@ -2725,13 +2725,13 @@ LAB_080149ba:
     add        r4,r4,r0
     add        r4,#0x6
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_080149c8:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Command_FD_18_StartVirusMachineBattle
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     ldrb       r0,[r5,#0x4]
@@ -2739,7 +2739,7 @@ _ts JT_Command_FD_18_StartVirusMachineBattle
     beq        LAB_080149dc
     b          LAB_08014a30
 LAB_080149dc:
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         Rng_RandomInt
     mov        r1,#0xff
     and        r0,r1
@@ -2766,12 +2766,12 @@ LAB_080149dc:
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    pop        { r4, r5 }
+    pop        {r4,r5}
     mov        r0,#0x1
     strb       r0,[r5,#0x4]
 LAB_08014a30:
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -2817,13 +2817,13 @@ AreaIdPack_ARRAY_08014a44:
     .byte Area_WWW_Comp, 5
 
 _ts JT_Layout_FD_MiscControl
-    push       { lr }
+    push       {lr}
     ldr        r0,=funcListLayoutMiscControl
     ldrb       r1,[r4,#0x1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
     .pool
@@ -2873,7 +2873,7 @@ _ts JT_Layout_FD_18_StartVirusMachineBattle
     mov        pc,lr
 
 _ts JT_Command_FE_Save
-    push       { lr }
+    push       {lr}
     LoadMain world, r6, r7
     ldr        r7,[r6,#World_playerLocation]
     ldr        r0,[r7,#0x24]
@@ -2884,9 +2884,9 @@ _ts JT_Command_FE_Save
     str        r0,[r6,#World_savedPos_z]
     ldrb       r0,[r7,#0x10]
     str        r0,[r6,#World_savedDirection]
-    push       { r4, r5 }
+    push       {r4,r5}
     bl         Save_SaveGame
-    pop        { r4, r5 }
+    pop        {r4,r5}
     add        r0,#0x1
     ldrb       r1,[r4,r0]
     cmp        r1,#0xff
@@ -2902,26 +2902,26 @@ _ts JT_Command_FE_Save
     strb       r1,[r5,#0x2]
     add        r4,r0,#0x0
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 LAB_08014b18:
     add        r4,#0x3
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 _ts JT_Layout_FE_Save
     add        r4,#0x3
     mov        pc,lr
 
 _ts Text_LoadOptionSelectArrow
-    push       { lr }
+    push       {lr}
     ldrb       r0,[r5,#0x1e]
     ldr        r1,PTR_PTR_tilesetArrowVert0_08014cd
-    push       { r5 }
+    push       {r5}
     ldr        r0,[r1,r0]
     ldr        r1,PTR_DAT_08014ce0
     mov        r2,#0x20
     bl         Dma_TransferListAdd
-    pop        { r5 }
+    pop        {r5}
     ldrb       r0,[r5,#0xe]
     add        r0,#0x8
     lsl        r0,r0,#0x1
@@ -2949,7 +2949,7 @@ _ts Text_LoadOptionSelectArrow
     mov        r0,#0x0
 LAB_08014b6a:
     strb       r0,[r5,#0x1e]
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -2982,19 +2982,19 @@ LayoutEntry_08014bc0:
     .byte 0xC4, 0xF2
 
 _ts Text_LoadDialoguePromptArrow
-    push       { lr }
+    push       {lr}
     mov        r0,#0x10
     bl         Text_CheckScriptOption
     cmp        r0,#0x0
     beq        LAB_08014c02
     ldrb       r0,[r5,#0x1f]
     ldr        r1,PTR_tileArrowAnimArray_08014ce8
-    push       { r5 }
+    push       {r5}
     ldr        r0,[r1,r0]
     ldr        r1,PTR_DAT_08014cec
     mov        r2,#0x20
     bl         Dma_TransferListAdd
-    pop        { r5 }
+    pop        {r5}
     ldr        r0,PTR_LayoutEntry_ARRAY_08014cf
     ldr        r3,[r0,#0x0]
     ldr        r1,[r5,#0x2c]
@@ -3011,7 +3011,7 @@ _ts Text_LoadDialoguePromptArrow
 LAB_08014c00:
     strb       r0,[r5,#0x1f]
 LAB_08014c02:
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -3044,12 +3044,12 @@ LayoutEntry_ARRAY_08014c54:
     .byte 0xC8, 0xF2
 
 _ts Text_WriteNumberToBcdBuffer
-    push       { r4, r5, lr }
-    push       { r1, r2 }
+    push       {r4,r5,lr}
+    push       {r1,r2}
     bl         ConvertNumToBCD
     mov        r8,r0
     bl         GetWidthOfBcdNumber
-    pop        { r1, r2 }
+    pop        {r1,r2}
     mov        r6,#0x40
     tst        r1,r6
     bne        LAB_08014c76
@@ -3118,7 +3118,7 @@ LAB_08014cce:
     strb       r7,[r2,#0x1]
     mov        r7,#0x0
     strb       r7,[r2,#0x2]
-    pop        { r4, r5, pc }
+    pop        {r4,r5,pc}
 
     .align 2, 0
 

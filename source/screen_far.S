@@ -80,7 +80,7 @@ _fts Screen_SafeCopyTileMapRect
     add        r4,r4,r0
     add        r5,r5,r1
 LAB_030069d4:
-    push       { r0 }
+    push       {r0}
 LAB_030069d6:
     mov        r2,#0x1f
     mvn        r2,r2
@@ -98,7 +98,7 @@ LAB_030069ec:
     add        r0,#0x1
     cmp        r0,r4
     blt        LAB_030069d6
-    pop        { r0 }
+    pop        {r0}
     add        r1,#0x1
     cmp        r1,r5
     blt        LAB_030069d4

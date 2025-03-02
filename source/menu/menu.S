@@ -21,13 +21,13 @@ _nt InitMenu_MP
     mov        r0,#0x1
 
 _InitMenu:
-    push       { lr }
+    push       {lr}
     LoadMain menu, r5, r7
-    push       { r0, r5 }
+    push       {r0,r5}
     add        r0,r5,#0x0
     mov        r1,#0x54
     bl         memset0_32
-    pop        { r0, r5 }
+    pop        {r0,r5}
     strb       r0,[r5,#Menu_state_s3]
     LoadMain startMenuState, r7, r7
     ldrb       r0,[r7,#0x6]
@@ -38,21 +38,21 @@ _InitMenu:
     LoadMain world, r7, r7
     ldrh       r0,[r7,#0x4]
     strh       r0,[r7,#0xc]
-    push       { r5 }
+    push       {r5}
     bl         BgUpdate_Init
     bl         InitBgTask
-    pop        { r5 }
-    pop        { pc }
+    pop        {r5}
+    pop        {pc}
 
 _ts Menu_Main
-    push       { lr }
+    push       {lr}
     LoadMain menu, r5, r7
     ldr        r0,PTR_JT_R5_74_19820_0801981c
     ldrb       r1,[r5,#Menu_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 

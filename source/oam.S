@@ -5,7 +5,7 @@
     .text
 
 _ts Oam_InitTransferData
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_srcSpriteContainerList_08010bd0
     ldr        r1,PTR_iwSpriteContainerList_08010bd4
     mov        r2,#0x20
@@ -28,7 +28,7 @@ LAB_08010a70:
     ldr        r0,PTR_gOamAttributeCount_08010be4
     mov        r1,#0x0
     str        r1,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 srcSpriteContainerList:
     .word iwSpriteList0, 0x34
@@ -139,8 +139,8 @@ _ts Oam_AffineTransformFree
 @@ screen perspective, the same operation is an inverse rotate, then an
 @@ inverse scale.
 _ts Oam_AffineTransformSetParams
-    push       { lr }
-    push       { r0, r1, r2 }
+    push       {lr}
+    push       {r0,r1,r2}
     ldr        r0,PTR_gSpriteAffineDataList_08010c00
     add        r6,r0,#0x0
     mov        r1,#0xc
@@ -153,10 +153,10 @@ _ts Oam_AffineTransformSetParams
     mov        r5,#0x0
     mov        r2,#0x0
     strb       r2,[r6,#0x8]
-    pop        { r2 }
+    pop        {r2}
     strb       r2,[r0,#0x8]
     lsl        r2,r2,#0x1
-    pop        { r3 }
+    pop        {r3}
     add        r7,r3,#0x0
     bl         Inverse
     strb       r3,[r0,#0x9]
@@ -179,7 +179,7 @@ _ts Oam_AffineTransformSetParams
     mul        r4,r3
     lsr        r4,r4,#0x4
     strh       r4,[r0,#0x2]
-    pop        { r3 }
+    pop        {r3}
     add        r7,r3,#0x0
     bl         Inverse
     strb       r3,[r0,#0xa]
@@ -204,11 +204,11 @@ _ts Oam_AffineTransformSetParams
     mul        r4,r3
     lsr        r4,r4,#0x4
     strh       r4,[r0,#0x4]
-    pop        { pc }
+    pop        {pc}
 
 @ For a fractional number from 0 to 1 (0x100), returns 1/num.
 _ts Inverse
-    push       { r1, r2 }
+    push       {r1,r2}
     ldr        r1,DAT_08010c14
     mov        r2,#0x0
     cmp        r3,#0x0
@@ -221,19 +221,19 @@ LAB_08010baa:
     b          LAB_08010baa
 LAB_08010bb4:
     add        r3,r2,#0x0
-    pop        { r1, r2 }
+    pop        {r1,r2}
     mov        pc,lr
 
 
 _ts Oam_InitAffineData
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gSpriteAffineDataFlag_08010c18
     mov        r1,#0x0
     str        r1,[r0,#0x0]
     ldr        r0,PTR_gSpriteAffineDataList_08010c1c
     ldr        r1,INT_08010c20
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 

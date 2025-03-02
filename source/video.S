@@ -5,7 +5,7 @@
 
 @@ Initializes all screens, and loads text and palettes for debug printing.
 _ts Video_Init
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gFillValue_0
     ldr        r1,PTR_BG_VRAM_SCREEN0
     ldr        r2,PTR_screenTotalSize
@@ -36,12 +36,12 @@ _ts Video_Init
     LoadMain display, r0, r7
     mov        r1,#0x40
     strh       r1,[r0,#DisplaySettings_dispcnt]
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Flushes screen buffer contents to the screen.
 _ts Video_BlitScreens
-    push       { lr }
+    push       {lr}
     LoadMain screens, r0, r0
     ldr        r1,PTR_BG_VRAM_SCREEN0
     ldr        r2,PTR_screenTotalSize
@@ -63,14 +63,14 @@ _ts Video_BlitScreens
     ldr        r0,PTR_gFillValue_2
     mov        r1,#0x0
     str        r1,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Sets the BG control for all backgrounds.
 @@ In:
 @@ r0: index - Index to indicate which group of controls to set.
 _ts Video_SetBgControl
-    push       { lr }
+    push       {lr}
     ldr        r1,PTR_listBgControl
     lsl        r0,r0,#0x3
     add        r1,r1,r0
@@ -82,7 +82,7 @@ _ts Video_SetBgControl
     add        r2,#0x4
     ldr        r0,[r1,#0x0]
     str        r0,[r2,#0x0]
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -126,7 +126,7 @@ listBgControl:
 
 @@ Apply all background and window settings.
 _ts Video_ApplySettings
-    push       { lr }
+    push       {lr}
     LoadMain display, r5, r7
     ldr        r1,PTR_REG_DISPCNT
     ldrh       r2,[r5,#DisplaySettings_dispcnt]
@@ -176,7 +176,7 @@ _ts Video_ApplySettings
     ldr        r1,PTR_REG_BLDY
     ldrh       r2,[r5,#0x4]
     strh       r2,[r1,#0x0]
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -187,7 +187,7 @@ listBlendTargetHandler:
     .word handlerBrightnessDecrease
 
 _ts handlerNone
-    push       { lr }
+    push       {lr}
     @ EVB = 1 - EVA
     ldrb       r1,[r5,#0x2]
     sub        r1,#0x10
@@ -202,10 +202,10 @@ _ts handlerNone
     @ EVY = 0
     mov        r1,#0x0
     strb       r1,[r5,#0x4]
-    pop        { pc }
+    pop        {pc}
 
 _ts handlerAlphaBlend
-    push       { lr }
+    push       {lr}
     @ EVB = special val
     ldrh       r1,[r5,#0x6]
     lsr        r1,r1,#0x4
@@ -220,10 +220,10 @@ _ts handlerAlphaBlend
     @ Set 1 for all 2nd targets except BG0
     mov        r1,#0x3e
     strb       r1,[r5,#0x1]
-    pop        { pc }
+    pop        {pc}
 
 _ts handlerBrightnessIncrease
-    push       { lr }
+    push       {lr}
     @ EVA = 0
     mov        r1,#0x0
     strb       r1,[r5,#0x2]
@@ -237,10 +237,10 @@ _ts handlerBrightnessIncrease
     ldrh       r1,[r5,#0x6]
     lsr        r1,r1,#0x4
     strb       r1,[r5,#0x4]
-    pop        { pc }
+    pop        {pc}
 
 _ts handlerBrightnessDecrease
-    push       { lr }
+    push       {lr}
     @ EVA = 0
     mov        r1,#0x0
     strb       r1,[r5,#0x2]
@@ -254,12 +254,12 @@ _ts handlerBrightnessDecrease
     ldrh       r1,[r5,#0x6]
     lsr        r1,r1,#0x4
     strb       r1,[r5,#0x4]
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Initializes the first tile on all backgrounds to the clear color. 
 _ts Video_InitClearTile
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_BG_VRAM_BASE0
     mov        r1,#0x40
     bl         memset0_32
@@ -272,43 +272,43 @@ _ts Video_InitClearTile
     ldr        r0,PTR_BG_VRAM_BASE3
     mov        r1,#0x20
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Initializes the palette color that is used for clearing the screen.
 _ts Video_InitClearColor
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gBgPalette0_0
     mov        r1,#0x2
     bl         memset0_16
     ldr        r0,PTR_PAL_BG
     mov        r1,#0x2
     bl         memset0_16
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Initializes the blend settings.
 _ts Video_InitBlendSettings
-    push       { lr }
+    push       {lr}
     LoadMain blend, r0, r7
     mov        r1,#0x8
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Transfers all background palettes to VRAM.
 _ts Video_QueueBgPalTransfer
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gBgPalette0_1
     ldr        r1,PTR_PAL_BG
     mov        r2,#0x80
     bl         Dma_TransferListAdd
-    pop        { pc }
+    pop        {pc}
 
 
 @@ Clears the screen buffer.
 _ts Video_ClearScreen
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gFillValue_3
     LoadMain screens, r1, r1
     ldr        r2,PTR_screenTotalSize
@@ -317,7 +317,7 @@ _ts Video_ClearScreen
     bl         Dma_SetDirect
     mov        r0,#0x8
     bl         Dma_WaitForEnd
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 

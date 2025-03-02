@@ -16,7 +16,7 @@ srcInterruptHandlerStart:
     mov        r1,r2, lsl #0x10
     mov        r1,r1, lsr #0x10
     mrs        r0,spsr
-    stmdb      sp!,{ r0, r1, r3, lr }
+    stmdb      sp!,{r0,r1,r3,lr}
     @ Only check for interrupts that have been enabled
     and        r1,r2,r2, lsr #0x10
     mov        r2,#0x0
@@ -85,12 +85,12 @@ handleInterrupt:
     ldr        r1,=interruptVector
     add        r1,r1,r2
     ldr        r0,[r1]
-    stmdb      sp!,{ lr }
+    stmdb      sp!,{lr}
     adr        lr,afterBranch
     bx         r0
     @ ...
 afterBranch:
-    ldmia      sp!,{ lr }
+    ldmia      sp!,{lr}
     @ Change CPU mode to IRQ and disable IRQ interrupts
     mrs        r3,cpsr
     bic        r3,r3,#0xdf
@@ -113,19 +113,19 @@ _fts IRQ_VBlank
     ldr        r1,[r0]
     adds       r1,#0x1
     str        r1,[r0]
-    push       { lr }
+    push       {lr}
     ldr        r0,=Sound_VSync
     mov        lr,pc
     bx         r0
-    pop        { r0 }
+    pop        {r0}
     bx         r0
 
 _fts IRQ_VCount
-    push       { lr }
+    push       {lr}
     ldr        r0,ptrSoundMain
     mov        lr,pc
     bx         r0
-    pop        { r0 }
+    pop        {r0}
     bx         r0
 ptrSoundMain:    .word Sound_Main
     .word 0x2006334

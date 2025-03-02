@@ -98,7 +98,7 @@ listHandlerAttack:
     .word Attack_MoleHole
 
 _ts Attack_Alloc
-    push       { r0, r1, r2, r3, r4, lr }
+    push       {r0,r1,r2,r3,r4,lr}
     ldr        r0,PTR_gBitsetAttack_080037e4
     ldr        r2,[r0,#0x0]
     ldr        r1,DAT_080037e8
@@ -122,7 +122,7 @@ LAB_0800368e:
     bl         memset_8
     mov        r0,#0x9
     strb       r0,[r5,#Attack_header_entityFlags]
-    pop        { r0, r1, r2, r3, r4 }
+    pop        {r0,r1,r2,r3,r4}
     strb       r0,[r5,#Attack_header_routineType]
     str        r1,[r5,#Attack_pos_curr_x]
     str        r2,[r5,#Attack_pos_curr_y]
@@ -130,13 +130,13 @@ LAB_0800368e:
     str        r4,[r5,#Attack_family_family]
     mov        r0,#0x0
     str        r0,[r5,#Attack_state_s0]
-    pop        { pc }
+    pop        {pc}
 LAB_080036b4:
     mov        r5,#0x0
-    pop        { r0, r1, r2, r3, r4, pc }
+    pop        {r0,r1,r2,r3,r4,pc}
 
 _ts Attack_Free
-    push       { lr }
+    push       {lr}
     ldr        r0,DAT_080037e8
     ldrb       r1,[r5,#Attack_header_listIndex]
     lsr        r0,r1
@@ -147,10 +147,10 @@ _ts Attack_Free
     mov        r1,#0x0
     strb       r1,[r5,#Attack_header_entityFlags]
     bl         SpritePtr_AffineFree
-    pop        { pc }
+    pop        {pc}
 
 _ts Attack_UpdateAll
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gEntityListAttack_080037f8
 LAB_080036d8:
     mov        r1,#0x1
@@ -206,10 +206,10 @@ LAB_0800373a:
     LoadMain world, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#World_updatingEntity]
-    pop        { pc }
+    pop        {pc}
 
 _ts Attack_Init
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gFillValue_08003808
     ldr        r1,PTR_gEntityListAttack_0800380c
     ldr        r2,DAT_08003810
@@ -232,10 +232,10 @@ LAB_08003760:
     ldr        r0,PTR_gBitsetAttack_0800381c
     mov        r1,#0x0
     str        r1,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 _ts Attack_LoadAll
-    push       { lr }
+    push       {lr}
     mov        r0,#0x20
     mov        r1,#0x0
     ldr        r5,PTR_gEntityListAttack_08003820
@@ -244,7 +244,7 @@ LAB_08003780:
     mov        r3,#0x2
     tst        r2,r3
     beq        LAB_080037a6
-    push       { r0, r1, r5 }
+    push       {r0,r1,r5}
     add        r0,r5,#0x0
     add        r0,#0x28
     bl         LC_SpritePtr_CalculateOcclusion
@@ -255,7 +255,7 @@ LAB_08003780:
     mov        r0,#0x2
     add        r5,#0x80
     bl         Sprite_AddSpriteToOam
-    pop        { r0, r1, r5 }
+    pop        {r0,r1,r5}
     b          LAB_080037c0
 LAB_080037a6:
     add        r4,r5,#0x0
@@ -265,17 +265,17 @@ LAB_080037a6:
     mov        r3,#0x1
     tst        r2,r3
     beq        LAB_080037c0
-    push       { r0, r1, r5 }
+    push       {r0,r1,r5}
     add        r0,r5,#0x0
     add        r0,#0x28
     bl         LC_SpritePtr_CalculateOcclusion
-    pop        { r0, r1, r5 }
+    pop        {r0,r1,r5}
 LAB_080037c0:
     add        r1,#0x1
     add        r5,#0xb0
     cmp        r1,r0
     blt        LAB_08003780
-    pop        { pc }
+    pop        {pc}
 
 _ts Attack_UnloadAll
     mov        r0,#0x20

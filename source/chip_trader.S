@@ -4,33 +4,33 @@
 
 
 _ts InitChipTraderFromScript
-    push       { lr }
-    push       { r0 }
+    push       {lr}
+    push       {r0}
     bl         InitChipTrader
-    pop        { r0 }
+    pop        {r0}
     ldr        r5,PTR_gChipTrader_08020108
     strh       r0,[r5,#0x4]
     LoadMain world, r7, r7
     ldrh       r0,[r7,#World_currentArea]
     strh       r0,[r7,#World_lastArea]
-    pop        { pc }
+    pop        {pc}
 
 _ts InitChipTrader
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gChipTrader_08020108
     mov        r1,#0x40
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
 
 _ts ChipTrader_Main
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gChipTrader_08020108
     ldr        r0,PTR_JT_R5_2007530_20110_0802010c
     ldrb       r1,[r5,#0x0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
 PTR_gChipTrader_08020108:
     .word gChipTrader

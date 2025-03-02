@@ -7,10 +7,10 @@
 @@ Out:
 @@ r0: byte id - The SIO multiplayer ID.
 _ts SIO_GetMultiplayerId
-    push       { lr }
+    push       {lr}
     ldr        r0,=REG_SIOCNT
     ldr        r0,[r0,#0x0]
     mov        r1,#0x30
     and        r0,r1
     lsr        r0,r0,#0x4
-    pop        { pc }
+    pop        {pc}

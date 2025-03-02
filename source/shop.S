@@ -7,14 +7,14 @@
     .thumb
 
 _ts Shop_Main
-    push       { lr }
+    push       {lr}
     ldr        r5,=gShop
     ldr        r7,=jumpTableShopMain
     ldrb       r0,[r5,#0x0]
     ldr        r7,[r7,r0]
     mov        lr,pc
     bx         r7
-    pop        { pc }
+    pop        {pc}
 
     .pool
 

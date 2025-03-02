@@ -7,7 +7,7 @@
     .thumb
 
 _ts Save_SaveGame
-    push       { lr }
+    push       {lr}
     bl         Save_CopyBuildId
     bl         Save_CalculateChecksum
     ldr        r0,PTR_DAT_0801fb24
@@ -18,23 +18,23 @@ _ts Save_SaveGame
     ldr        r1,PTR_SRAM_0801fb28
     ldr        r2,saveLen
     bl         MemCmp_8_Sram
-    push       { r0 }
+    push       {r0}
     Flag_SetSystem F_SYSTEM_SAVE_OK
-    pop        { r0 }
+    pop        {r0}
     tst        r0,r0
     beq        LAB_0801fb10
     Flag_ClearSystem F_SYSTEM_SAVE_OK
     mov        r0,#0x1
 LAB_0801fb10:
-    pop        { pc }
+    pop        {pc}
 
 _ts Save_LoadGame
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_SRAM_0801fb28
     ldr        r1,PTR_DAT_0801fb24
     ldr        r2,saveLen
     bl         MemCpy_8_Sram
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -62,16 +62,16 @@ LAB_0801fb3e:
     mov        pc,lr
 
 _ts Save_CopyBuildId
-    push       { lr }
+    push       {lr}
     ldr        r0,ptrRomBuildId
     LoadMain gameStats, r1, r1
     add        r1,#0x2c
     mov        r2,#0x14
     bl         memcpy_8
-    pop        { pc }
+    pop        {pc}
 
 _ts Save_ChecksumCheck
-    push       { lr }
+    push       {lr}
     LoadMain gameStats, r7, r7
     ldr        r6,[r7,#GameStats_checksum]
     mov        r0,#0x0
@@ -88,10 +88,10 @@ LAB_0801fb72:
     cmp        r0,r6
     bne        LAB_0801fb84
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_0801fb84:
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 flagStart:
     .word EWRAM_START
@@ -99,7 +99,7 @@ INT_0801fb8c:
     .word 0x2307
 
 _ts Save_CheckBuildId
-    push       { lr }
+    push       {lr}
     ldr        r0,ptrRomBuildId
     LoadMain gameStats, r1, r1
     add        r1,#0x2c
@@ -112,10 +112,10 @@ LAB_0801fb9c:
     sub        r2,#0x1
     bge        LAB_0801fb9c
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_0801fbac:
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 ptrRomBuildId:
     .word romBuildId

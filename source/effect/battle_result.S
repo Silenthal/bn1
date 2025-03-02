@@ -1053,7 +1053,7 @@ PTR_BYTE_ARRAY_0807d5ac:
 @@ r1: The busting time, as a BCD number
 @@ r2: The score given to the busting time
 _ts Effect_BattleResult_CalculateRank
-    push       { lr }
+    push       {lr}
     sub        sp,#0xc
     @ Figure out which scoring to use based on the type of battle
     @ Virus busting uses different thresholds than boss busting
@@ -1074,10 +1074,10 @@ LAB_0807d5cc:
     @ Figure out the score for battle time
     @ First, get time and cap it at 9 minutes, 59.99 seconds
     LoadMain battle, r7, r7
-    push       { r7 }
+    push       {r7}
     ldrh       r0,[r7,#Battle_battleTime]
     bl         FrameTimeToBcdRealTime
-    pop        { r7 }
+    pop        {r7}
     ldr        r1,maxTime
     cmp        r0,r1
     bmi        LAB_0807d5e4
@@ -1159,7 +1159,7 @@ LAB_0807d650:
     ldr        r1,[sp,#0x0]
     ldr        r2,[sp,#0x4]
     add        sp,#0xc
-    pop        { pc }
+    pop        {pc}
 
 scoreVirusBustingTime:
     .byte 7,  6,  5,  4
@@ -1429,23 +1429,23 @@ LAB_0807d7f2:
 @@ r2: The chip code
 @ E_BattleResult_GetEnemyDrop(byte enemyId, byte bustingLevel)
 _nt E_BattleResult_GetEnemyDrop
-    push       { lr }
-    push       { r1 }
+    push       {lr}
+    push       {r1}
     bl         Enemy_GetEnemyDetail
     @ r0 = enemy detail ptr
-    pop        { r1 }
+    pop        {r1}
     .byte 0x0E, 0x4F @ ldr        r7,PTR_arrayBustingLevelToRollChance_0807d854
     lsl        r1,r1,#0x4
     add        r7,r7,r1
     @ r7 = roll chance array for given busting level
-    push       { r0 }
-    push       { r7 }
+    push       {r0}
+    push       {r7}
     bl         Rng_RandomUint
     @ r0 = randnum
     mov        r1,#0xf
     and        r1,r0
     @ r1 = random number from 0 to 15
-    pop        { r7 }
+    pop        {r7}
     ldrb       r1,[r7,r1]
     @ r1 = random index picked from roll chance array
     lsl        r1,r1,#0x2
@@ -1455,7 +1455,7 @@ _nt E_BattleResult_GetEnemyDrop
     @ r2 = 0 or 2
     add        r1,r1,r2
     add        r1,#0xc
-    pop        { r0 }
+    pop        {r0}
     @ Enemy drop table is 5 groups of 2 rewards each
     @ Index selects the group, and the reward is
     @ picked at random from the group
@@ -1478,7 +1478,7 @@ LAB_0807d84c:
     lsr        r1,r1,#0x11
     mov        r0,#0x1
 LAB_0807d852:
-    pop        { pc }
+    pop        {pc}
 PTR_arrayBustingLevelToRollChance_0807d854:
     .word arrayBustingLevelToRollChance
 

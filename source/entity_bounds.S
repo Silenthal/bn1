@@ -5,14 +5,14 @@
 
 @@ Initialize the entity bounds list.
 _ts EntityBounds_InitList
-    push       { lr }
+    push       {lr}
     ldr        r0,=gEntityBoundsList
     mov        r1,#0x14
     bl         memset0_32
     ldr        r0,=gEntityBoundsListCount
     mov        r1,#0x0
     str        r1,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
     .pool
 
@@ -29,7 +29,7 @@ _ts EntityBounds_InitList
 @@ r6: void* collisionRef - A reference to the number that will contain
 @@ information about collisions.
 _ts EntityBounds_AddToList
-    push       { lr }
+    push       {lr}
     mov        r7,#0x80
     lsl        r7,r7,#0x8
     add        r0,r0,r7
@@ -47,7 +47,7 @@ _ts EntityBounds_AddToList
     cmp        r0,#0x20
     mov        r8,r8
     bmi        LAB_08002b62
-    pop        { pc }
+    pop        {pc}
 LAB_08002b62:
     mov        r7,#0x14
     mul        r7,r0
@@ -62,14 +62,14 @@ LAB_08002b62:
     ldr        r0,[r7,#0x0]
     add        r0,#0x1
     str        r0,[r7,#0x0]
-    pop        { pc }
+    pop        {pc}
 
     .pool
 
 
 @@ Goes through all entity bounds, processing object collisions.
 _ts EntityBounds_UpdateAll
-    push       { lr }
+    push       {lr}
     mov        r0,#0x0
 LAB_08002b8c:
     ldr        r2,=gEntityBoundsListCount
@@ -80,12 +80,12 @@ LAB_08002b8c:
     mov        r0,#0x0
     ldr        r1,=gEntityBoundsListCount
     str        r0,[r1,#0x0]
-    pop        { pc }
+    pop        {pc}
 LAB_08002b9e:
     add        r1,r0,#0x1
-    push       { r0 }
+    push       {r0}
 LAB_08002ba2:
-    push       { r0, r1 }
+    push       {r0,r1}
     ldr        r5,=gEntityBoundsList
     mov        r6,#0x14
     mul        r0,r6
@@ -94,9 +94,9 @@ LAB_08002ba2:
     add        r4,r5,r1
     add        r0,r3,#0x0
     add        r1,r4,#0x0
-    push       { r3, r4 }
+    push       {r3,r4}
     bl         EntityBounds_IsCollision
-    pop        { r3, r4 }
+    pop        {r3,r4}
     tst        r0,r0
     beq        LAB_08002bdc
     ldr        r0,[r3,#0xc]
@@ -114,13 +114,13 @@ LAB_08002ba2:
     orr        r0,r1
     str        r0,[r7,#0x0]
 LAB_08002bdc:
-    pop        { r0, r1 }
+    pop        {r0,r1}
     add        r1,#0x1
     ldr        r2,=gEntityBoundsListCount
     ldr        r2,[r2,#0x0]
     cmp        r1,r2
     bmi        LAB_08002ba2
-    pop        { r0 }
+    pop        {r0}
     add        r0,#0x1
     b          LAB_08002b8c
 
@@ -134,7 +134,7 @@ LAB_08002bdc:
 @@ Out:
 @@ r0: bool isCollide: True if the two targets collide.
 _ts EntityBounds_IsCollision
-    push       { lr }
+    push       {lr}
     @ First, check that the distance between the two is less than their
     @ combined radiuses.
     mov        r6,#0x0
@@ -158,7 +158,7 @@ _ts EntityBounds_IsCollision
     cmp        r2,r3
     bmi        LAB_08002c26
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_08002c26:
     @ Then, compare their height and elevation, and return true if they
     @ intersect.
@@ -172,14 +172,14 @@ LAB_08002c26:
     cmp        r2,r3
     ble        LAB_08002c48
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_08002c3c:
     ldrb       r4,[r0,#0x7]
     add        r2,r2,r4
     cmp        r3,r2
     ble        LAB_08002c48
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_08002c48:
     mov        r0,#0x1
-    pop        { pc }
+    pop        {pc}

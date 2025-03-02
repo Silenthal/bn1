@@ -5,18 +5,18 @@
     .text
 
 _ts InitGameOver
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gGameOverState_08020084
-    push       { r0, r5 }
+    push       {r0,r5}
     add        r0,r5,#0x0
     mov        r1,#0x8
     bl         memset0_32
-    pop        { r0, r5 }
+    pop        {r0,r5}
     strb       r0,[r5,#0x6]
-    pop        { pc }
+    pop        {pc}
 
 _ts GameOver_Main
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gGameOverState_08020088
     ldr        r0,PTR_jumpTableGameOver_0802008c
     ldrb       r1,[r5,#0x0]
@@ -28,15 +28,15 @@ _ts GameOver_Main
     sub        r0,#0x1
     strh       r0,[r7,#DisplaySettings_bg1Hofs]
     strh       r0,[r7,#DisplaySettings_bg1Vofs]
-    pop        { pc }
+    pop        {pc}
 jumpTableGameOver:
     .word GameOver_0_Init
     .word GameOver_1_Main
     .word GameOver_2_Free
 
 _ts GameOver_0_Init
-    push       { lr }
-    push       { r5 }
+    push       {lr}
+    push       {r5}
     bl         Text_DisableDialogue
     mov        r0,#0x6
     bl         Video_SetBgControl
@@ -54,38 +54,38 @@ _ts GameOver_0_Init
     FadeIn_Black
     mov        r0,#T_Game_Over
     bl         Sound_PlayBGM
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x4
     strb       r0,[r5,#0x0]
     mov        r0,#0xb4
     strh       r0,[r5,#0x4]
-    pop        { pc }
+    pop        {pc}
 
 _ts GameOver_1_Main
-    push       { lr }
+    push       {lr}
     ldrh       r0,[r5,#0x4]
     sub        r0,#0x1
     strh       r0,[r5,#0x4]
     cmp        r0,#0x0
     bgt        LAB_08020000
-    push       { r5 }
+    push       {r5}
     FadeOutFast_Black
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
 LAB_08020000:
-    pop        { pc }
+    pop        {pc}
 
 _ts GameOver_2_Free
-    push       { lr }
+    push       {lr}
     LoadMain fade, r0, r7
     ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0802002a
-    push       { r5 }
+    push       {r5}
     bl         Main_Init
-    pop        { r5 }
+    pop        {r5}
     LoadMain manager, r0, r7
     mov        r1,#0x0
     strb       r1,[r0,#Manager_gameState]
@@ -93,10 +93,10 @@ _ts GameOver_2_Free
     mov        r1,#0x40
     strh       r1,[r0,#Manager_gameState]
 LAB_0802002a:
-    pop        { pc }
+    pop        {pc}
 
 _ts GameOver_LoadGraphics
-    push       { r5, lr }
+    push       {r5,lr}
     bl         Video_InitClearColor
     bl         Video_InitClearTile
     ldr        r0,PTR_tileset8GameOverText_08020094
@@ -128,7 +128,7 @@ _ts GameOver_LoadGraphics
     add        r1,r1,r2
     ldr        r2,DAT_080200d0
     bl         Dma_TransferListAdd
-    pop        { r5, pc }
+    pop        {r5,pc}
 
 PTR_gGameOverState_08020084:
     .word gGameOverState

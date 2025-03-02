@@ -7,26 +7,26 @@
     .thumb
 
 _ts InitDemo
-    push       { lr }
+    push       {lr}
     LoadMain demo, r5, r7
-    push       { r0, r5 }
+    push       {r0,r5}
     add        r0,r5,#0x0
     mov        r1,#0x8
     bl         memset0_32
-    pop        { r0, r5 }
+    pop        {r0,r5}
     strb       r0,[r5,#Demo_b6]
-    pop        { pc }
+    pop        {pc}
     .align 2, 0
 
 _ts Demo_Main
-    push       { lr }
+    push       {lr}
     LoadMain demo, r5, r7
     ldr        r0,PTR_JT_R5_DemoState_1897C_08018bc0
     ldrb       r1,[r5,#Demo_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -36,8 +36,8 @@ JT_R5_DemoState_1897C:
     .word Demo_Finish
 
 _ts Demo_Init
-    push       { lr }
-    push       { r5 }
+    push       {lr}
+    push       {r5}
     bl         Text_DisableDialogue
     mov        r0,#BGC_Initial
     bl         Video_SetBgControl
@@ -47,7 +47,7 @@ _ts Demo_Init
     bl         Video_InitClearTile
     bl         Video_InitClearColor
     FadeIn_Black
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x4
     strb       r0,[r5,#Demo_state_s0]
     ldrb       r0,[r5,#Demo_b6]
@@ -60,16 +60,16 @@ LAB_080189c0:
     mov        r0,#0x4
     strb       r0,[r5,#Demo_state_s1]
 LAB_080189c4:
-    pop        { pc }
+    pop        {pc}
 
 _ts Demo_State1
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_JT_R5_DemoState_189D8_08018bc8
     ldrb       r1,[r5,#Demo_state_s1]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -82,61 +82,61 @@ JT_R5_DemoState_189D8:
     .word Demo_CleanUp
 
 _ts Demo_Finish
-    push       { lr }
-    push       { r5 }
+    push       {lr}
+    push       {r5}
     bl         Main_Init
-    pop        { r5 }
+    pop        {r5}
     LoadMain manager, r0, r7
     mov        r1,#MS_Splash
     strb       r1,[r0,#Manager_gameState]
     LoadMain display, r0, r7
     mov        r1,#DISPCNT_OMAP1D
     strh       r1,[r0,#DisplaySettings_dispcnt]
-    pop        { pc }
+    pop        {pc}
 
 _ts Demo_SetToBeContinuedMessage
-    push       { lr }
+    push       {lr}
     LoadMain fade, r0, r0
     ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08018a2a
-    push       { r5 }
+    push       {r5}
     ldr        r0,PTR_ScenarioData_0E_08018bcc
     mov        r1,#0xb
     bl         Text_LoadDialogue
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x4
     strb       r0,[r5,#Demo_state_s1]
 LAB_08018a2a:
-    pop        { pc }
+    pop        {pc}
 
 _ts Demo_FadeOutScreen
-    push       { lr }
-    push       { r5 }
+    push       {lr}
+    push       {r5}
     mov        r0,#0x80
     bl         Text_CheckOption
-    pop        { r5 }
+    pop        {r5}
     bne        LAB_08018a4a
-    push       { r5 }
+    push       {r5}
     Fade_Request FT_FadeOutToBlack, 0xff
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x8
     strb       r0,[r5,#Demo_state_s1]
 LAB_08018a4a:
-    pop        { pc }
+    pop        {pc}
 
 _ts Demo_ApplyVideoSettings
-    push       { lr }
+    push       {lr}
     LoadMain fade, r0, r0
     ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08018a92
-    push       { r5 }
+    push       {r5}
     mov        r0,#BGC_Initial
     bl         Video_SetBgControl
-    pop        { r5 }
+    pop        {r5}
     LoadMain display, r0, r7
     mov        r1,#DISPCNT_OMAP1D
     strh       r1,[r0,#DisplaySettings_dispcnt]
@@ -160,17 +160,17 @@ _ts Demo_ApplyVideoSettings
     mov        r0,#0xc
     strb       r0,[r5,#Demo_state_s1]
 LAB_08018a92:
-    pop        { pc }
+    pop        {pc}
 
 _ts Demo_ShowThankYouMessage
-    push       { lr }
-    push       { r5 }
+    push       {lr}
+    push       {r5}
     bl         Video_LoadThankYouMessage
     bl         Layout_LoadThankYouMessageLayout
-    pop        { r5 }
-    push       { r5 }
+    pop        {r5}
+    push       {r5}
     FadeInFast_Black
-    pop        { r5 }
+    pop        {r5}
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_08018bdc
     strh       r1,[r0,#DisplaySettings_dispcnt]
@@ -179,24 +179,24 @@ _ts Demo_ShowThankYouMessage
     mov        r0,#0x10
     strb       r0,[r5,#0x1]
 LAB_08018abe:
-    pop        { pc }
+    pop        {pc}
 
 _ts Demo_WaitForTimer
-    push       { lr }
+    push       {lr}
     ldrh       r0,[r5,#0x4]
     sub        r0,#0x1
     strh       r0,[r5,#0x4]
     cmp        r0,#0x0
     bge        LAB_08018abe
-    push       { r5 }
+    push       {r5}
     FadeOutFast_Black
-    pop        { r5 }
+    pop        {r5}
     mov        r0,#0x14
     strb       r0,[r5,#0x1]
-    pop        { pc }
+    pop        {pc}
 
 _ts Demo_CleanUp
-    push       { lr }
+    push       {lr}
     LoadMain fade, r0, r0
     ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
@@ -208,11 +208,11 @@ _ts Demo_CleanUp
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
 LAB_08018af8:
-    pop        { pc }
+    pop        {pc}
 
 _ts Video_LoadThankYouMessage
-    push       { lr }
-    push       { r5 }
+    push       {lr}
+    push       {r5}
     ldr        r0,PTR_tileset8ThankYouMessage0_08018be4
     ldr        r1,PTR_DAT_08018be8
     ldr        r2,INT_08018bec
@@ -229,11 +229,11 @@ _ts Video_LoadThankYouMessage
     ldr        r1,PTR_gBgPalette0_08018c08
     mov        r2,#0x78
     bl         Dma_TransferListAdd
-    pop        { r5 }
-    pop        { pc }
+    pop        {r5}
+    pop        {pc}
 
 _ts Layout_LoadThankYouMessageLayout
-    push       { lr }
+    push       {lr}
     mov        r0,#0x0
     mov        r1,#0x0
     mov        r2,#0x1
@@ -260,9 +260,9 @@ _ts Layout_LoadThankYouMessageLayout
     mov        r2,#0x1
     mov        r3,#0x1
 LAB_08018b66:
-    push       { r0, r1, r2, r3 }
+    push       {r0,r1,r2,r3}
     bl         Screen_CopyTileMapEntry
-    pop        { r0, r1, r2, r3 }
+    pop        {r0,r1,r2,r3}
     add        r3,#0x1
     add        r0,#0x1
     cmp        r0,#0x1e
@@ -276,9 +276,9 @@ LAB_08018b66:
     mov        r2,#0x2
     mov        r3,#0x1
 LAB_08018b86:
-    push       { r0, r1, r2, r3 }
+    push       {r0,r1,r2,r3}
     bl         Screen_CopyTileMapEntry
-    pop        { r0, r1, r2, r3 }
+    pop        {r0,r1,r2,r3}
     add        r3,#0x1
     add        r0,#0x1
     cmp        r0,#0x1e
@@ -292,9 +292,9 @@ LAB_08018b86:
     mov        r2,#0x3
     mov        r3,#0x1
 LAB_08018ba6:
-    push       { r0, r1, r2, r3 }
+    push       {r0,r1,r2,r3}
     bl         Screen_CopyTileMapEntry
-    pop        { r0, r1, r2, r3 }
+    pop        {r0,r1,r2,r3}
     add        r3,#0x1
     add        r0,#0x1
     cmp        r0,#0x1e
@@ -303,7 +303,7 @@ LAB_08018ba6:
     mov        r0,#0x0
     cmp        r1,#0x4
     bne        LAB_08018ba6
-    pop        { pc }
+    pop        {pc}
 
 PTR_JT_R5_DemoState_1897C_08018bc0:     .word JT_R5_DemoState_1897C
 PTR_DAT_08018bc4:                       .word 0x1140

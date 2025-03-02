@@ -4,7 +4,7 @@
 
 
 _ts Battle_Main
-    push       { lr }
+    push       {lr}
     LoadMain battle, r5, r5
     mov        r0,#0x1
     strb       r0,[r5,#Battle_isBattleActive]
@@ -36,14 +36,14 @@ LAB_08005890:
     bl         Battle_SetFieldTilemap
 LAB_080058aa:
     bl         Battle_SpriteQueueTransferAll
-    push       { r5 }
+    push       {r5}
     bl         InitializeSpriteTilesetOffset
     bl         Sprite_PaletteInit
     bl         PlayerLocation_LoadAll
     bl         Actor_LoadAll
     bl         Attack_LoadAll
     bl         Effect_LoadAll
-    pop        { r5 }
+    pop        {r5}
     ldrb       r0,[r5,#Battle_isBattleActive]
     tst        r0,r0
     beq        LAB_080058e0
@@ -56,7 +56,7 @@ LAB_080058aa:
     str        r0,[r5,#Battle_battleFlag_buffer]
 LAB_080058e0:
     bl         Battle_AdvanceTimer
-    pop        { pc }
+    pop        {pc}
     .align 2, 0
 
 jumpTableBattleMain:

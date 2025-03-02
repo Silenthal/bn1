@@ -9,13 +9,13 @@
 _ts Fade_Request
     mov        r2,#0x1
     neg        r2,r2
-    push       { lr }
+    push       {lr}
     LoadMain fade, r5, r5
     tst        r0,r0
     beq        LAB_08004b34
-    push       { r0, r1, r2 }
+    push       {r0,r1,r2}
     bl         Fade_Init
-    pop        { r0, r1, r2 }
+    pop        {r0,r1,r2}
     strb       r0,[r5,#FadeSettings_fadeType]
     strb       r1,[r5,#FadeSettings_fadeStep]
     mov        r0,#TRUE
@@ -32,10 +32,10 @@ _ts Fade_Request
     LoadMain blend, r0, r0
     strh       r2,[r0,#BlendSettings_blendControl]
 LAB_08004b34:
-    pop        { pc }
+    pop        {pc}
 
 _ts Fade_Apply
-    push       { lr }
+    push       {lr}
     LoadMain fade, r5, r5
     ldrb       r0,[r5,#FadeSettings_isApplyFadeFunc]
     mov        r1,#TRUE
@@ -50,7 +50,7 @@ _ts Fade_Apply
     mov        lr,pc
     bx         r0
 LAB_08004b56:
-    pop        { pc }
+    pop        {pc}
 
 fadeFuncList:
     .word 0
@@ -75,7 +75,7 @@ fadeFuncArgList:
     .byte 0xF7, 0x41, 0x41
 
 _ts Fade_FadeIn
-    push       { lr }
+    push       {lr}
     LoadMain blend, r0, r0
     strb       r1,[r0,#BlendSettings_bldCnt_Target1]
     ldrh       r1,[r0,#BlendSettings_blendControl]
@@ -91,17 +91,17 @@ LAB_08004bbc:
     cmp        r2,r1
     bge        LAB_08004bc6
     strh       r1,[r0,#BlendSettings_blendControl]
-    pop        { pc }
+    pop        {pc}
 LAB_08004bc6:
     strh       r2,[r0,#BlendSettings_blendControl]
     bl         Fade_Init
-    pop        { pc }
+    pop        {pc}
 
 LAB_08004bce:
     pop {pc}
 
 _ts Fade_FadeOut
-    push       { lr }
+    push       {lr}
     LoadMain blend, r0, r0
     strb       r1,[r0,#BlendSettings_bldCnt_Target1]
     ldrh       r1,[r0,#BlendSettings_blendControl]
@@ -111,15 +111,15 @@ _ts Fade_FadeOut
     cmp        r1,r2
     bge        LAB_08004be8
     strh       r1,[r0,#BlendSettings_blendControl]
-    pop        { pc }
+    pop        {pc}
 LAB_08004be8:
     strh       r2,[r0,#BlendSettings_blendControl]
     mov        r0,#FALSE
     strb       r0,[r5,#FadeSettings_isFadeActive]
-    pop        { pc }
+    pop        {pc}
 
 _ts Fade_FadeOutSlight
-    push       { lr }
+    push       {lr}
     LoadMain blend, r0, r0
     strb       r1,[r0,#BlendSettings_bldCnt_Target1]
     ldrh       r1,[r0,#BlendSettings_blendControl]
@@ -129,24 +129,24 @@ _ts Fade_FadeOutSlight
     cmp        r1,r2
     bge        LAB_08004c08
     strh       r1,[r0,#BlendSettings_blendControl]
-    pop        { pc }
+    pop        {pc}
 LAB_08004c08:
     strh       r2,[r0,#BlendSettings_blendControl]
     mov        r0,#FALSE
     strb       r0,[r5,#FadeSettings_isFadeActive]
-    pop        { pc }
+    pop        {pc}
 
 _ts Fade_Init
-    push       { lr }
+    push       {lr}
     LoadMain fade, r0, r0
     mov        r1,#0x8
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
 
 _ts InitFadeSettings
-    push       { lr }
+    push       {lr}
     bl         Fade_Init
-    pop        { pc }
+    pop        {pc}
 
     .pool
 

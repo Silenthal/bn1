@@ -6,7 +6,7 @@
 PTR_PlayerLocation_Handler_1_08003084: .word PlayerLocation_Handler
 
 _ts PlayerLocation_Alloc
-    push       { r0, r1, r2, r3, r4, lr }
+    push       {r0,r1,r2,r3,r4,lr}
     ldr        r0,PTR_gBitsetPlayerLocation_080031c0
     ldr        r2,[r0,#0x0]
     ldr        r1,DAT_080031c4
@@ -25,7 +25,7 @@ LAB_080030a2:
     str        r2,[r0,#0x0]
     mov        r0,#0x9
     strb       r0,[r5,#PlayerLocation_header_entityFlags]
-    pop        { r0, r1, r2, r3, r4 }
+    pop        {r0,r1,r2,r3,r4}
     strb       r0,[r5,#PlayerLocation_header_routineType]
     str        r1,[r5,#PlayerLocation_pos_curr_x]
     str        r2,[r5,#PlayerLocation_pos_curr_y]
@@ -33,13 +33,13 @@ LAB_080030a2:
     str        r4,[r5,#PlayerLocation_family_family]
     mov        r0,#0x0
     str        r0,[r5,#PlayerLocation_state_s0]
-    pop        { pc }
+    pop        {pc}
 LAB_080030bc:
     mov        r5,#0x0
-    pop        { r0, r1, r2, r3, r4, pc }
+    pop        {r0,r1,r2,r3,r4,pc}
 
 _ts PlayerLocation_Free
-    push       { lr }
+    push       {lr}
     ldr        r0,DAT_080031c4
     ldrb       r1,[r5,#PlayerLocation_header_listIndex]
     lsr        r0,r1
@@ -50,10 +50,10 @@ _ts PlayerLocation_Free
     mov        r1,#0x0
     strb       r1,[r5,#PlayerLocation_header_entityFlags]
     bl         SpritePtr_AffineFree
-    pop        { pc }
+    pop        {pc}
 
 _ts PlayerLocation_UpdateAll
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gEntityListPlayerLocation_080031d4
 LAB_080030e0:
     mov        r1,#0x1
@@ -87,10 +87,10 @@ LAB_08003114:
     LoadMain world, r7, r7
     mov        r0,#0x0
     str        r0,[r7,#World_updatingEntity]
-    pop        { pc }
+    pop        {pc}
 
 _ts PlayerLocation_Init
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gFillValue_080031e0
     ldr        r1,PTR_gEntityListPlayerLocation_080031e4
     mov        r2,#0x2c
@@ -113,10 +113,10 @@ LAB_0800313c:
     ldr        r0,PTR_gBitsetPlayerLocation_080031f0
     mov        r1,#0x0
     str        r1,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 _ts PlayerLocation_LoadAll
-    push       { lr }
+    push       {lr}
     mov        r0,#0x1
     mov        r1,#0x0
     ldr        r5,PTR_gEntityListPlayerLocation_080031f4
@@ -125,7 +125,7 @@ LAB_0800315c:
     mov        r3,#0x2
     tst        r2,r3
     beq        LAB_08003182
-    push       { r0, r1, r5 }
+    push       {r0,r1,r5}
     add        r0,r5,#0x0
     add        r0,#0x24
     bl         LC_SpritePtr_CalculateOcclusion
@@ -136,7 +136,7 @@ LAB_0800315c:
     mov        r0,#0x2
     add        r5,#0x80
     bl         Sprite_AddSpriteToOam
-    pop        { r0, r1, r5 }
+    pop        {r0,r1,r5}
     b          LAB_0800319c
 LAB_08003182:
     add        r4,r5,#0x0
@@ -146,17 +146,17 @@ LAB_08003182:
     mov        r3,#0x1
     tst        r2,r3
     beq        LAB_0800319c
-    push       { r0, r1, r5 }
+    push       {r0,r1,r5}
     add        r0,r5,#0x0
     add        r0,#0x24
     bl         LC_SpritePtr_CalculateOcclusion
-    pop        { r0, r1, r5 }
+    pop        {r0,r1,r5}
 LAB_0800319c:
     add        r1,#0x1
     add        r5,#0xb0
     cmp        r1,r0
     blt        LAB_0800315c
-    pop        { pc }
+    pop        {pc}
 
 _ts PlayerLocation_UnloadAll
     mov        r0,#0x0

@@ -7,21 +7,21 @@
     .thumb
 
 _ts InitCredits
-    push       { lr }
+    push       {lr}
     ldr        r0,PTR_gCredits_0802188c
     mov        r1,#0x10
     bl         memset0_32
-    pop        { pc }
+    pop        {pc}
 
 _ts Credits_Main
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gCredits_08021890
     ldr        r0,PTR_jumpTableCreditsMain_08021894
     ldrb       r1,[r5,#0x0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
-    pop        { pc }
+    pop        {pc}
 
 jumpTableCreditsMain:
     .word Credits_0_Init

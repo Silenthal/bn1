@@ -9,7 +9,7 @@
 @ r0: spriteListIndex - The index in which to insert the sprite
 @ r5: sprite - The sprite to add
 _fts Oam_AddSprite
-    push       { lr }
+    push       {lr}
     strb       r0,[r5,#Sprite_indexOamList]
     ldrb       r0,[r5,#Sprite_spriteFlags]
     mov        r1,#SF_TilesNotInVram
@@ -19,7 +19,7 @@ _fts Oam_AddSprite
     tst        r0,r1
     bne        .spriteTilesetLoaded
 .returnIfNoTiles:
-    pop        { pc }
+    pop        {pc}
 .spriteTilesetLoaded:
     ldr        r1,[r5,#Sprite_curSubFrame]
     ldrb       r2,[r1,#SpriteSubFrame_objectListIndex]
@@ -34,7 +34,7 @@ _fts Oam_AddSprite
     add        r2,r2,r1
     @ r2 = object entry of the active sub frame of the current sprite frame
     ldr        r3,[r5,#Sprite_objectDrawBitset]
-    push       { r3 }
+    push       {r3}
     ldr        r4,[r5,#Sprite_objectExcludeFlags]
     mvn        r4,r4
     and        r3,r4
@@ -146,9 +146,9 @@ LAB_03006e1a:
     mov        r7,#0x0
     b          .handleObject
 .exit:
-    pop        { r0 }
+    pop        {r0}
     str        r0,[r5,#Sprite_objectDrawBitset]
-    pop        { pc }
+    pop        {pc}
 
 @@ Alters a sprites's top-left XY coordinates according to its object
 @@ attributes
@@ -238,7 +238,7 @@ LAB_03006e5c:
     lsr        r1,r1,#0x1c
     ldrsb      r1,[r0,r1]
     add        r3,r3,r1
-    push       { r3 }
+    push       {r3}
     ldrb       r1,[r6,#0x8]
     add        r1,#0x40
     mov        r3,#0xff
@@ -291,8 +291,8 @@ LAB_03006e5c:
     lsr        r1,r1,#0x1c
     ldrsb      r1,[r0,r1]
     add        r3,r3,r1
-    push       { r3 }
-    pop        { r0, r1 }
+    push       {r3}
+    pop        {r0,r1}
     mov        r6,r8
     mov        r7,r9
     mov        pc,lr
@@ -376,7 +376,7 @@ PTR_objHeight_03006ff0:                 .word objHeight_far
 far_thumb_func_start Oam_TransferData
 @@ Transfers object data to OAM memory.
 Oam_TransferData:
-    push       { lr }
+    push       {lr}
     ldr        r0,=OAM_BEGIN
     ldr        r2,=iwSpriteContainerList + 4 * 8
     ldr        r3,=OAM_END
@@ -478,7 +478,7 @@ Oam_TransferData:
     ldr        r0,=gOamAttributeCount
     mov        r1,#0x0
     str        r1,[r0,#0x0]
-    pop        { pc }
+    pop        {pc}
 
 far_global_label SpriteList_ARRAY_03007090
     .word iwSpriteList0, 0x34

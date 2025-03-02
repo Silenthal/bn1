@@ -137,45 +137,45 @@ PTR_GraphicDataSetup_Battle_0801151c:
 
 
 _ts Map_LoadNPCList
-    push       { lr }
+    push       {lr}
     LoadMain world, r6, r6
     ldr        r1,[r6,#World_npcCommandList]
     cmp        r7,r1
     beq        LAB_0801154e
     str        r7,[r6,#World_npcCommandList]
-    push       { r7 }
+    push       {r7}
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
-    pop        { r7 }
+    pop        {r7}
     mov        r1,#0x0
 LAB_0801153a:
     ldr        r0,[r7,#0x0]
     cmp        r0,#0xff
     beq        LAB_0801154e
-    push       { r0, r1, r7 }
+    push       {r0,r1,r7}
     bl         Map_CreateNPC
-    pop        { r0, r1, r7 }
+    pop        {r0,r1,r7}
     add        r1,#0x1
     add        r7,#0x4
     b          LAB_0801153a
 LAB_0801154e:
-    pop        { pc }
+    pop        {pc}
 
 _ts Map_CreateNPC
-    push       { lr }
-    push       { r0, r1 }
+    push       {lr}
+    push       {r0,r1}
     mov        r0,#0x0
     bl         NPC_Alloc
-    pop        { r0, r1 }
+    pop        {r0,r1}
     tst        r5,r5
     beq        LAB_08011564
     strb       r1,[r5,#0x10]
     str        r0,[r5,#0x5c]
 LAB_08011564:
-    pop        { pc }
+    pop        {pc}
 
 _ts Map_LoadBackgroundData
-    push       { lr }
+    push       {lr}
     cmp        r0,#0xf0
     bge        .greaterThanEqualToF0
     cmp        r0,#0x80
@@ -196,11 +196,11 @@ _ts Map_LoadBackgroundData
     lsl        r1,r1,#0x2
     add        r3,r3,r1
     ldr        r0,[r3,#0x0]
-    push       { r0 }
+    push       {r0}
     add        r0,#0x10
     ldr        r1,PTR_gDecompDest_080118c8
     bl         SWI_LZ77UnCompWram
-    pop        { r6 }
+    pop        {r6}
     ldr        r7,PTR_gDecompDest_080118c8
     ldr        r0,[r6,#0x0]
     add        r0,r0,r7
@@ -214,7 +214,7 @@ _ts Map_LoadBackgroundData
     ldr        r0,[r6,#0xc]
     add        r0,r0,r7
     bl         Map_InitEvent
-    pop        { pc }
+    pop        {pc}
 
 _ts Map_InitBoundary
     ldr        r5,PTR_gCurMapBoundaryData_080118cc
@@ -230,7 +230,7 @@ _ts Map_InitBoundary
     mov        pc,lr
 
 _ts GetWallSegmentByIndex
-    push       { lr }
+    push       {lr}
     ldrh       r2,[r5,#0x4]
     cmp        r2,#0x0
     beq        LAB_0801161c
@@ -271,13 +271,13 @@ LAB_08011608:
 LAB_08011616:
     add        r6,#0x4
     add        r2,r6,#0x0
-    pop        { pc }
+    pop        {pc}
 LAB_0801161c:
     mov        r2,#0x0
-    pop        { pc }
+    pop        {pc}
 
 _ts Map_HandleCollisionBoundary
-    push       { lr }
+    push       {lr}
     ldr        r5,PTR_gCurMapBoundaryData_080118d0
     ldr        r2,PTR_gCurPlayerPos_080118d4
     str        r0,[r2,#0x0]
@@ -331,12 +331,12 @@ LAB_0801165e:
     mov        r4,#0x80
     tst        r6,r4
     beq        LAB_08011698
-    push       { r0, r1, r2, r5, r7 }
+    push       {r0,r1,r2,r5,r7}
     mov        r4,#0x7f
     and        r6,r4
     add        r0,r6,#0x0
     bl         Flag_GetIgnore
-    pop        { r0, r1, r2, r5, r7 }
+    pop        {r0,r1,r2,r5,r7}
     bne        LAB_080116b4
 LAB_08011698:
     ldrb       r6,[r7,#0x3]
@@ -358,7 +358,7 @@ LAB_080116b4:
     b          LAB_0801165e
 LAB_080116b8:
     mov        r0,r12
-    pop        { pc }
+    pop        {pc}
 LAB_080116bc:
     ldr        r0,PTR_gCurPlayerPos_080118dc
     ldr        r0,[r0,#0x0]
@@ -369,7 +369,7 @@ LAB_080116bc:
     ldr        r6,[r0,#0x14]
     str        r6,[r0,#0x8]
     mov        r0,#0x0
-    pop        { pc }
+    pop        {pc}
 
     .align 2, 0
 
@@ -401,8 +401,8 @@ handlerCollisionShapeBoundary:
 
 @@ Add bound
 _ts BuildMapSegmentHistory
-    push       { lr }
-    push       { r0, r5 }
+    push       {lr}
+    push       {r0,r5}
     mov        r2,#0xe
     ldrsh      r4,[r0,r2]
     mov        r2,#0x12
@@ -528,18 +528,18 @@ LAB_08011844:
     bl         AddToMapSegmentHistory
     b          LAB_08011844
 LAB_08011852:
-    pop        { r0, r5 }
+    pop        {r0,r5}
     mov        r2,#0x2
     ldrsh      r4,[r0,r2]
     mov        r2,#0x6
     ldrsh      r7,[r0,r2]
     bl         AddToMapSegmentHistory
-    pop        { pc }
+    pop        {pc}
 
 
 _ts AddToMapSegmentHistory
-    push       { r0, r5, lr }
-    push       { r4, r7 }
+    push       {r0,r5,lr}
+    push       {r4,r7}
     asr        r4,r4,#0x3
     asr        r7,r7,#0x3
     ldr        r5,PTR_gCurMapBoundaryData_080118e0
@@ -569,7 +569,7 @@ _ts AddToMapSegmentHistory
     add        r4,#0x18
     add        r5,r5,r4
     strh       r7,[r5,#0x0]
-    pop        { r4, r7 }
+    pop        {r4,r7}
     mov        r0,#0x7
     mov        r8,r4
     bic        r4,r0
@@ -578,10 +578,10 @@ _ts AddToMapSegmentHistory
     bic        r4,r0
     str        r4,[r5,#0x8]
     mov        r4,r8
-    pop        { r0, r5, pc }
+    pop        {r0,r5,pc}
 LAB_080118b6:
-    pop        { r4, r7 }
-    pop        { r0, r5, pc }
+    pop        {r4,r7}
+    pop        {r0,r5,pc}
 
     .align 2, 0
 

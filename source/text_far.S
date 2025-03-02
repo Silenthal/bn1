@@ -26,8 +26,8 @@ far_global_label PTR_ARRAY_030070d8
 @@ r7: byte charShade
 
 _fts Screen_WriteUIText
-    pop        { r0 }
-    push       { lr }
+    pop        {r0}
+    push       {lr}
     mov        r8,r7
     LoadMain textUI, r7, r7
     @ Store text width, total text length, and char shade
@@ -40,7 +40,7 @@ _fts Screen_WriteUIText
     mov        r4,#0x0
     mov        r5,#0x0
     mov        r9,r5
-    push       { r2, r3 }
+    push       {r2,r3}
     @ Load text pointer to r0
     lsl        r1,r1,#0x1
     ldrh       r1,[r0,r1]
@@ -103,14 +103,14 @@ _fts Screen_WriteUIText
     @ r0 = text tile buffer that was written to
     @ r1 = actual address in vram
     @ r2 = word count ((end - start)/ 4)
-    pop        { r0, r1 }
+    pop        {r0,r1}
     sub        r2,r2,r0
     lsr        r2,r2,#0x2
     ldr        r3,PTR_Dma_TransferListAdd_1_030072a0
     mov        lr,pc
     bx         r3
     mov        r0,r9
-    pop        { pc }
+    pop        {pc}
 
 @@ Copies the tile data for a character of UI text
 @@ to the buffer.
@@ -127,7 +127,7 @@ _fts Screen_WriteUIText
 @@ r4: r4 + 1
 @@ r5: r5 + 1
 _fts Screen_CopyUITextTile
-    push       { r0, r6, lr }
+    push       {r0,r6,lr}
     @ set r6 to point to 2-tile char specified by r1
     lsl        r7,r1,#0x6
     add        r6,r6,r7
@@ -150,7 +150,7 @@ _fts Screen_CopyUITextTile
     add        r2,#0x40
     add        r4,#0x1
     add        r5,#0x1
-    pop        { r0, r6, pc }
+    pop        {r0,r6,pc}
 
     .align 2, 0
 
@@ -175,7 +175,7 @@ far_global_label charShade
 @@ r4: r4 + 1
 @@ r5: r5 + 1
 _fts Screen_PadUITextToEnd
-    push       { lr }
+    push       {lr}
     @ Fetch total text length into r1
     LoadMain textUI, r1, r1
     ldrb       r1,[r1,#TextUI_totalTextLength]
@@ -191,7 +191,7 @@ _fts Screen_PadUITextToEnd
 2:
     @ Mark r3 as 0 to indicate the end of the text print
     mov        r3,#0x0
-    pop        { pc }
+    pop        {pc}
 
 @@ Pads a block of UI text till a line break.
 @@
@@ -206,7 +206,7 @@ _fts Screen_PadUITextToEnd
 @@ r4: r4 + 1
 @@ r5: r5 + 1
 _fts Screen_PadUITextToLineEnd
-    push       { lr }
+    push       {lr}
     @ Fetch text width into r1
     LoadMain textUI, r1, r1
     ldrb       r1,[r1,#TextUI_textWidth]
@@ -223,7 +223,7 @@ _fts Screen_PadUITextToLineEnd
     @ Reset line counter and move text pointer to next position
     mov        r4,#0x0
     add        r0,#0x1
-    pop        { pc }
+    pop        {pc}
 
 @@ Prints a stored number with a given minimum width.
 @@
@@ -240,8 +240,8 @@ _fts Screen_PadUITextToLineEnd
 @@ - If <  0x80, pad right with space if (width - numberWidth)        < 0x40, otherwise 0
 @@ - If >= 0x80, pad left  with space if (width - 0x80 - numberWidth) < 0x40, otherwise 0
 _fts Screen_PrintFixedWidthNumber
-    push       { r3, lr }
-    push       { r0, r2, r4, r5, r6 }
+    push       {r3,lr}
+    push       {r0,r2,r4,r5,r6}
     ldrb       r1,[r0,#0x1]
     lsl        r1,r1,#0x2
     add        r1,#0x4
@@ -257,7 +257,7 @@ _fts Screen_PrintFixedWidthNumber
     add        r7,r0,#0x0
     sub        r0,#0x1
     lsl        r1,r0,#0x2
-    pop        { r0, r2, r4, r5, r6 }
+    pop        {r0,r2,r4,r5,r6}
     ldrb       r3,[r0,#0x2]
     cmp        r3,#0x80
     bge        LAB_0300724e
@@ -268,24 +268,24 @@ _fts Screen_PrintFixedWidthNumber
     sub        r3,#0x40
     mov        r7,#0x1
 LAB_0300721c:
-    push       { r0 }
-    push       { r7 }
+    push       {r0}
+    push       {r7}
     mov        r0,#0xf
 LAB_03007222:
     mov        r7,r8
     lsr        r7,r1
     and        r7,r0
-    push       { r1 }
+    push       {r1}
     mov        r1,#0x1
     add        r1,r1,r7
     bl         Screen_CopyUITextTile
-    pop        { r1 }
+    pop        {r1}
     mov        r7,r9
     add        r7,#0x1
     mov        r9,r7
     sub        r1,#0x4
     bge        LAB_03007222
-    pop        { r0 }
+    pop        {r0}
 LAB_03007240:
     cmp        r3,#0x0
     ble        LAB_03007294
@@ -296,7 +296,7 @@ LAB_03007240:
 LAB_0300724e:
     sub        r3,#0x80
     sub        r3,r3,r7
-    push       { r0, r1 }
+    push       {r0,r1}
     mov        r0,#0x0
     cmp        r3,#0x40
     blt        LAB_0300725e
@@ -313,27 +313,27 @@ LAB_0300725e:
     mov        r9,r7
     b          LAB_0300725e
 LAB_03007272:
-    pop        { r0, r1 }
-    push       { r0 }
+    pop        {r0,r1}
+    push       {r0}
     mov        r0,#0xf
 LAB_03007278:
     mov        r7,r8
     lsr        r7,r1
     and        r7,r0
-    push       { r1 }
+    push       {r1}
     mov        r1,#0x1
     add        r1,r1,r7
     bl         Screen_CopyUITextTile
-    pop        { r1 }
+    pop        {r1}
     mov        r7,r9
     add        r7,#0x1
     mov        r9,r7
     sub        r1,#0x4
     bge        LAB_03007278
 LAB_03007294:
-    pop        { r0 }
+    pop        {r0}
     add        r0,#0x3
-    pop        { r3, pc }
+    pop        {r3,pc}
 
     .align 2, 0
 
