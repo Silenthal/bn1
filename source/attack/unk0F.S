@@ -197,7 +197,7 @@ _ts A_Unk0F_1_2
     mov        r0,#0x4
     strb       r0,[r5,#Attack_state_s2]
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r1,[r7,#0x18]
     strb       r1,[r5,#Attack_cPos_x]
     ldrb       r2,[r7,#0x19]
@@ -340,7 +340,7 @@ _ts FUN_08070c88
     tst        r0,r0
     bne        LAB_08070cc0
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]
     bl         Battle_CellCoordsToSprite

@@ -11,26 +11,26 @@ _nt Passcode_Init
     mov        r1,#0x1c
     bl         memset0_32
     pop        {r0,r1,r5}
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#PasscodeEntry_isRandom]
     tst        r0,r0
     bne        LAB_08018e06
     b          LAB_08018e0a
 LAB_08018e06:
     bl         Passcode_GetRandomValue
 LAB_08018e0a:
-    strb       r1,[r5,#0x10]
+    strb       r1,[r5,#PasscodeEntry_solutionValue]
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#PasscodeEntry_guessValue]
     mov        r0,#0x80
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#PasscodeEntry_b6]
     add        r0,r1,#0x0
     mov        r1,#0x14
     bl         Passcode_SetDigits
-    ldrb       r0,[r5,#0x5]
+    ldrb       r0,[r5,#PasscodeEntry_guessValue]
     mov        r1,#0x8
     bl         Passcode_SetDigits
-    ldrh       r0,[r5,#0x8]
-    strh       r0,[r5,#0xa]
+    ldrh       r0,[r5,#PasscodeEntry_guess]
+    strh       r0,[r5,#PasscodeEntry_display]
     push       {r5}
     ldr        r0,=tilesetPasscodeBox
     ldr        r1,=0x6016600
@@ -51,9 +51,9 @@ LAB_08018e0a:
 _nt Passcode_HandleEntry
     push       {lr}
     LoadMain passcodeEntry, r5, r7
-    ldrb       r1,[r5,#0x7]
-    strb       r1,[r5,#0x17]
-    strb       r0,[r5,#0x16]
+    ldrb       r1,[r5,#PasscodeEntry_selectedDigit]
+    strb       r1,[r5,#PasscodeEntry_currSelectedDigit]
+    strb       r0,[r5,#PasscodeEntry_isInputDisabled]
     tst        r0,r0
     bne        LAB_08018e60
     bl         Passcode_CheckKeyInput
@@ -62,8 +62,8 @@ LAB_08018e60:
     mov        r1,#0x5
     bl         Passcode_SetValueFromDigits
     bl         Passcode_DrawGuess
-    ldrb       r0,[r5,#0x11]
-    ldrb       r1,[r5,#0x12]
+    ldrb       r0,[r5,#PasscodeEntry_passcodeResult]
+    ldrb       r1,[r5,#PasscodeEntry_guessCheckResult]
     pop        {pc}
 
 
@@ -192,7 +192,7 @@ LAB_08018f58:
 _ts Passcode_CheckKeyInput
     push       {lr}
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x4]
+    ldrh       r0,[r7,#Input_heldKeyState]
     mov        r1,#0xc0
     tst        r1,r0
     beq        LAB_08018f70
@@ -208,7 +208,7 @@ LAB_08018f70:
     b          LAB_08018fac
 LAB_08018f82:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x1
     tst        r1,r0
     beq        LAB_08018f9a
@@ -384,7 +384,7 @@ _ts Passcode_SetValueFromDigits
 _nt Passcode_GetRandomValue
     push       {r5,lr}
     LoadMain frameCounter, r0, r7
-    ldrh       r0,[r0,#0x0]
+    ldrh       r0,[r0,#FrameCounter_counter]
     ldr        r1,=0xFFF
     and        r0,r1
     mov        r1,#0x64
@@ -399,18 +399,18 @@ LAB_080190c8:
 _ts Passcode_InitPickResult
     LoadMain passcodeEntry, r5, r7
     mov        r1,#0x0
-    strb       r1,[r5,#0x11]
+    strb       r1,[r5,#PasscodeEntry_passcodeResult]
     mov        r1,#0x0
-    strb       r1,[r5,#0x12]
+    strb       r1,[r5,#PasscodeEntry_guessCheckResult]
     mov        pc,lr
 
 
 _ts Passcode_ShiftDigit
     push       {lr}
     LoadMain passcodeEntry, r5, r7
-    ldrb       r2,[r5,#0x18]
+    ldrb       r2,[r5,#PasscodeEntry_guessCount]
     add        r2,#0x1
-    strb       r2,[r5,#0x18]
+    strb       r2,[r5,#PasscodeEntry_guessCount]
     cmp        r2,#0x6
     blt        LAB_0801912a
     push       {r5}
@@ -437,7 +437,7 @@ LAB_08019110:
     add        r3,#0x1
 LAB_08019118:
     mov        r1,#0x0
-    strb       r1,[r5,#0x18]
+    strb       r1,[r5,#PasscodeEntry_guessCount]
     push       {r3}
     mov        r0,#0x14
     mov        r1,#0x10

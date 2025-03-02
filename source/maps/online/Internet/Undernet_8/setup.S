@@ -74,7 +74,7 @@ _ts EventHandler_Undernet_8_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

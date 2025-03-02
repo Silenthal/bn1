@@ -17,7 +17,7 @@ _ts ScreenDim_Alloc
     strb       r0,[r7,#0x7]
     LoadMain battle, r7, r7
     mov        r0,#0x1
-    strb       r0,[r7,#0x18]
+    strb       r0,[r7,#Battle_isScreenDimChipActive]
     mov        pc,lr
 
     .align 2, 0
@@ -28,7 +28,7 @@ _ts ScreenDim_Alloc
 _ts ScreenDim_Free
     LoadMain battle, r7, r7
     mov        r0,#0x0
-    strb       r0,[r7,#0x18]
+    strb       r0,[r7,#Battle_isScreenDimChipActive]
     mov        pc,lr
 
 

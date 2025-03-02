@@ -50,8 +50,8 @@ _nt MapSetup_Undernet_3
     bl         Map_LoadNPCList
     pop        {r5}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08052f00
     push       {r5}
@@ -87,7 +87,7 @@ _ts EventHandler_Undernet_3_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

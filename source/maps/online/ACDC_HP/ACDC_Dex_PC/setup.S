@@ -29,8 +29,8 @@ _ts EventHandler_ACDC_Dex_PC_S0
 _nt FUN_0804f386
     push       {lr}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804f39e
     push       {r5}
@@ -57,8 +57,8 @@ LAB_0804f39e:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804f3d8
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804f3e4
 LAB_0804f3d8:

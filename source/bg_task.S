@@ -60,7 +60,7 @@ _ts BgTask_Update
     LoadMain bgAnimationTaskList, r7, r7
     mov        r4,#0x0
 LAB_08001d68:
-    ldrb       r1,[r7,#0x0]
+    ldrb       r1,[r7,#BgAnimationTask_enabled]
     tst        r1,r1
     bne        LAB_08001d78
 LAB_08001d6e:
@@ -142,7 +142,7 @@ _ts BgTask_TransferDirect
 _ts BgTask_TransferTilemap
     push       { lr }
     LoadMain bgDataManager, r5, r5
-    ldr        r5,[r5,#0xc]
+    ldr        r5,[r5,#BackgroundDataManager_tilemapArchive]
     ldrb       r2,[r7,#0x17]
     lsl        r2,r2,#0x2
     add        r2,#0x4

@@ -455,7 +455,7 @@ _ts NPC_2_0_0
     tst        r0,r1
     bne        LAB_080820c8
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     ldrb       r0,[r7,#0x10]
     add        r0,#0x4
     mov        r1,#0x7
@@ -483,7 +483,7 @@ _ts NPC_2_0_1
     LoadMain world, r7, r7
     ldr        r6,PTR_gNpcTalkState_08082100
     mov        r0,#0x0
-    strb       r0,[r7,#0x1a]
+    strb       r0,[r7,#World_isTalkingToNPC]
     strb       r0,[r6,#0x0]
     strb       r0,[r5,#NPC_family_b3]
     bl         NPC_Talk_RestoreState

@@ -70,14 +70,14 @@ LAB_08003b88:
     tst        r0,r1
     beq        LAB_08003bae
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x9]
+    ldrb       r1,[r7,#World_IsBattleTimePaused]
     tst        r1,r1
     beq        LAB_08003ba0
     mov        r1,#0x4
     tst        r0,r1
     beq        LAB_08003bae
 LAB_08003ba0:
-    str        r5,[r7,#0x70]
+    str        r5,[r7,#World_updatingEntity]
     ldr        r0,PTR_PTR_NPC_Handler_1_08003c80
     ldrb       r1,[r5,#NPC_header_routineType]
     lsl        r1,r1,#0x2
@@ -95,7 +95,7 @@ LAB_08003bae:
 LAB_08003bbc:
     LoadMain world, r7, r7
     mov        r0,#0x0
-    str        r0,[r7,#0x70]
+    str        r0,[r7,#World_updatingEntity]
     pop        { pc }
 
 _ts NPC_Init

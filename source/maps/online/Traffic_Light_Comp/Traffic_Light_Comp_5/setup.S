@@ -78,8 +78,8 @@ _ts MapSetup_Traffic_Light_Comp_5_F35
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08048c1a
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08048c26
 LAB_08048c1a:
@@ -116,7 +116,7 @@ _ts EventHandler_Traffic_Light_Comp_5_F35_0
     pop        {r5}
     bne        LAB_08048c6e
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08048f54
     and        r1,r0
     beq        LAB_08048c6e
@@ -124,7 +124,7 @@ _ts EventHandler_Traffic_Light_Comp_5_F35_0
     bne        LAB_08048c6e
     LoadMain world, r0, r0
     mov        r1,#0x36
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#Input_lastKeyState]
     mov        r0,#0x9
     bl         CheckForJackOut
 LAB_08048c6e:
@@ -151,8 +151,8 @@ _ts MapSetup_Traffic_Light_Comp_5_F36
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08048caa
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08048cb6
 LAB_08048caa:
@@ -282,7 +282,7 @@ _nt EventHandler_Traffic_Light_Comp_5_F36_4
     bl         FUN_08048ee4
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -328,7 +328,7 @@ _nt MapSetup_Traffic_Light_Comp_5_F37
     beq        LAB_08048e40
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_4B_08048f80
     mov        r1,#0x0
@@ -348,8 +348,8 @@ LAB_08048e40:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08048e62
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08048e6e
 LAB_08048e62:
@@ -411,7 +411,7 @@ _ts FUN_08048eac
     pop        {r5}
     bne        LAB_08048ee2
     LoadMain input, r2, r2
-    ldrh       r2,[r2,#0x2]
+    ldrh       r2,[r2,#Input_toggleKeyState]
     ldr        r1,DAT_08048f54
     and        r1,r2
     beq        LAB_08048ee2
@@ -429,7 +429,7 @@ LAB_08048ee2:
 _ts FUN_08048ee4
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08048efc
     push       {r5}
@@ -631,8 +631,8 @@ _ts MapSetup_Traffic_Light_Comp_5_F40
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08049062
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804906e
 LAB_08049062:
@@ -664,7 +664,7 @@ PTR_EventHandler_Traffic_Light_Comp_5_F40_0_08049084:
 _ts EventHandler_Traffic_Light_Comp_5_F40_0
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     beq        LAB_080490a0
     cmp        r0,#0x21

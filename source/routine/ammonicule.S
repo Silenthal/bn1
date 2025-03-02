@@ -333,7 +333,7 @@ LAB_0806560a:
     strh       r0,[r5,#Actor_counterA]
     bne        LAB_08065654
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r5,#Actor_cPos_x]
     ldrb       r1,[r7,#0x19]
     ldrb       r2,[r5,#Actor_cPos_y]

@@ -286,7 +286,7 @@ _ts EventHandler_Default
 _ts CheckForJackOut
     push       {r5,lr}
     LoadMain input, r2, r7
-    ldrh       r2,[r2,#0x2]
+    ldrh       r2,[r2,#Input_toggleKeyState]
     ldr        r3,DAT_080187dc
     tst        r3,r2
     beq        LAB_08018668
@@ -321,7 +321,7 @@ LAB_08018668:
 _ts CheckForJackIn
     push       {r5,lr}
     LoadMain input, r2, r7
-    ldrh       r2,[r2,#0x2]
+    ldrh       r2,[r2,#Input_toggleKeyState]
     ldr        r3,DAT_080187dc
     tst        r3,r2
     beq        LAB_080186c4
@@ -343,7 +343,7 @@ _ts CheckForJackIn
     bne        LAB_080186c4
     push       {r0,r1,r5}
     LoadMain world, r7, r7
-    ldr        r0,[r7,#0x28]
+    ldr        r0,[r7,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     add        r7,r0,#0x0
@@ -364,11 +364,11 @@ LAB_080186c4:
 _ts CheckJackInRejectNoise
     push       {r5,lr}
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x4]
+    ldrb       r7,[r7,#World_currentArea]
     cmp        r7,#0x80
     bge        LAB_08018718
     LoadMain input, r2, r7
-    ldrh       r2,[r2,#0x2]
+    ldrh       r2,[r2,#Input_toggleKeyState]
     ldr        r3,DAT_080187dc
     tst        r3,r2
     beq        LAB_08018718
@@ -403,7 +403,7 @@ LAB_08018718:
 _ts GetCollisionEventAttribute
     push       {r5,lr}
     LoadMain world, r0, r0
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     tst        r0,r0
@@ -413,7 +413,7 @@ _ts GetCollisionEventAttribute
 _ts MapDialogue_Main
     push       {r5,lr}
     LoadMain fade, r6, r7
-    ldrb       r6,[r6,#0x3]
+    ldrb       r6,[r6,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r6,r1
     beq        LAB_0801879a
@@ -425,7 +425,7 @@ _ts MapDialogue_Main
     bl         Scene_IsSceneActive
     bne        LAB_0801879a
     LoadMain world, r7, r7
-    ldrb       r2,[r7,#0xe]
+    ldrb       r2,[r7,#World_curEventFlag]
     tst        r2,r2
     beq        LAB_0801879a
     sub        r2,#0xf0
@@ -437,7 +437,7 @@ _ts MapDialogue_Main
     bl         Flag_GetIgnore
     bne        LAB_0801879a
     LoadMain world, r7, r7
-    ldrb       r6,[r7,#0x4]
+    ldrb       r6,[r7,#World_currentArea]
     ldrb       r7,[r7,#0x5]
     cmp        r6,#0x80
     bge        LAB_0801877e
@@ -466,8 +466,8 @@ LAB_0801879a:
 _ts dummy_187a0
     push       {r0,r1,r2,lr}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x1a]
-    ldrb       r2,[r0,#0x1b]
+    ldrb       r1,[r0,#World_isTalkingToNPC]
+    ldrb       r2,[r0,#World_pressedA]
     add        r1,r1,r2
     ldr        r0,PTR_BYTE_080187c0
     ldrb       r2,[r0,#0x0]

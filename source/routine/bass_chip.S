@@ -294,7 +294,7 @@ _ts FUN_0806e1b8
     lsl        r2,r2,#0x1
     ldrb       r3,[r5,#Actor_owner]
     LoadMain battle, r4, r4
-    ldrb       r4,[r4,#0x1a]
+    ldrb       r4,[r4,#Battle_sioOwnerId]
     eor        r4,r3
     mov        r6,#0x4
     sub        r4,r6,r4

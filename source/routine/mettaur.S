@@ -798,7 +798,7 @@ LAB_0805aada:
 
 _ts Entity_CompareToPlayerRow
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r1,[r5,#Actor_cPos_y]
     ldrb       r0,[r7,#0x19]
     sub        r0,r0,r1

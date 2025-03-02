@@ -61,7 +61,7 @@ _ts E_LifeVirusSeed_0_Init
     tst        r0,r0
     bne        LAB_080803ce
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#World_storyFlag]
     cmp        r1,#0x53
     beq        LAB_080803e4
 LAB_080803ce:

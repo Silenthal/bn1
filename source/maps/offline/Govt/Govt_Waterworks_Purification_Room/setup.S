@@ -248,7 +248,7 @@ _ts MapSetup_Govt_Waterworks_Purification_Room_F50
     add        r1,#0x24
     bl         Camera_SetEnabled
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#World_storyFlag]
     cmp        r7,#0x53
     blt        LAB_08034e54
     ldr        r7,PTR_NPCList_8035BD8_08034e84

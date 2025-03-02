@@ -73,8 +73,8 @@ _ts MapSetup_Oven_Comp_1_F03
     bl         Camera_SetEnabled
     pop        {r5}
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     bne        LAB_08043310
     ldrb       r1,[r0,#0x5]
@@ -266,8 +266,8 @@ LAB_0804343a:
     b          LAB_080434a0
 LAB_0804347e:
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     bne        LAB_08043494
     ldrb       r1,[r0,#0x5]
@@ -373,8 +373,8 @@ LAB_08043524:
     bl         Camera_SetEnabled
     pop        {r5}
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     bne        LAB_08043564
     ldrb       r1,[r0,#0x5]
@@ -422,7 +422,7 @@ LAB_08043596:
 _ts EventHandler_Oven_Comp_1_F03_HandleIceBlock
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0xe]
+    ldrb       r1,[r0,#World_curEventFlag]
     cmp        r1,#0x20
     blt        LAB_080435b6
     cmp        r1,#0x3f
@@ -443,7 +443,7 @@ LAB_080435b6:
 _ts EventHandler_Oven_Comp_1_F05_HandleIceBlock
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0xe]
+    ldrb       r1,[r0,#World_curEventFlag]
     cmp        r1,#0x20
     blt        LAB_080435ea
     cmp        r1,#0x3f

@@ -116,7 +116,7 @@ _ts SD_Invisible_3_Free
     push       {lr}
     bl         SD_Invisible_DoEffect
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809922a
@@ -135,7 +135,7 @@ _ts SD_Invisible_DoEffect
     tst        r7,r7
     beq        LAB_08099254
     LoadMain frameCounter, r6, r6
-    ldrh       r0,[r6,#0x0]
+    ldrh       r0,[r6,#FrameCounter_counter]
     lsr        r0,r0,#0x1
     bcs        LAB_0809924c
     ldrb       r0,[r7,#0x0]

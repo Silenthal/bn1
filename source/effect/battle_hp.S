@@ -6,7 +6,7 @@
 _ts Effect_BattleHP
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0x9]
+    ldrb       r1,[r7,#Battle_battleState]
     mov        r0,#0x5
     and        r1,r0
     cmp        r1,#0x5

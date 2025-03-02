@@ -22,19 +22,19 @@ PTR_E_TrafficLightToggle_0_Init_0807efe4:
 _ts E_TrafficLightToggle_0_Init
     push       {lr}
     LoadMain mapEventState, r7, r7
-    ldrb       r0,[r7,#0x8]
+    ldrb       r0,[r7,#MapEventState_b8]
     ldrb       r1,[r5,#Effect_family_b1]
     cmp        r1,#0x0
     beq        LAB_0807f010
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#MapEventState_b9]
     ldrb       r1,[r5,#Effect_family_b1]
     cmp        r1,#0x1
     beq        LAB_0807f010
-    ldrb       r0,[r7,#0xa]
+    ldrb       r0,[r7,#MapEventState_ba]
     ldrb       r1,[r5,#Effect_family_b1]
     cmp        r1,#0x2
     beq        LAB_0807f010
-    ldrb       r0,[r7,#0xb]
+    ldrb       r0,[r7,#MapEventState_bb]
 LAB_0807f010:
     tst        r0,r0
     bne        LAB_0807f01a
@@ -85,19 +85,19 @@ _ts E_TrafficLightToggle_1_Main
     b          LAB_0807f09e
 LAB_0807f072:
     LoadMain mapEventState, r7, r7
-    ldrb       r0,[r7,#0x8]
+    ldrb       r0,[r7,#MapEventState_b8]
     ldrb       r1,[r5,#Effect_family_b1]
     cmp        r1,#0x0
     beq        LAB_0807f090
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#MapEventState_b9]
     ldrb       r1,[r5,#Effect_family_b1]
     cmp        r1,#0x1
     beq        LAB_0807f090
-    ldrb       r0,[r7,#0xa]
+    ldrb       r0,[r7,#MapEventState_ba]
     ldrb       r1,[r5,#Effect_family_b1]
     cmp        r1,#0x2
     beq        LAB_0807f090
-    ldrb       r0,[r7,#0xb]
+    ldrb       r0,[r7,#MapEventState_bb]
 LAB_0807f090:
     tst        r0,r0
     bne        LAB_0807f09e

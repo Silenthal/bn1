@@ -95,7 +95,7 @@ _ts EventHandler_School_Class_5A_F00_0
     bne        LAB_080247fa
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -122,7 +122,7 @@ LAB_080247fa:
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x1
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     pop        {pc}
 
 
@@ -186,7 +186,7 @@ _ts EventHandler_School_Class_5A_F02_0
     push       {lr}
     LoadMain mapChange, r1, r7
     ldr        r0,PTR_MapEntrance_ARRAY_080248f4
-    str        r0,[r1,#0x14]
+    str        r0,[r1,#MapChange_destinationList]
     Flag_GetBase 0x44
     bne        LAB_080248b6
     push       {r5}
@@ -335,13 +335,13 @@ LAB_080249e8:
     mov        r0,#0x42
     mov        r1,#0x10
     lsl        r0,r1
-    str        r0,[r7,#0x38]
+    str        r0,[r7,#World_savedPos_x]
     mov        r0,#0xa
     mov        r1,#0x10
     lsl        r0,r1
-    str        r0,[r7,#0x3c]
+    str        r0,[r7,#World_savedPos_y]
     mov        r0,#0x0
-    str        r0,[r7,#0x40]
+    str        r0,[r7,#World_savedPos_z]
     ldr        r7,PTR_PTR_DAT_08024a1c
     bl         Map_LoadNPCList
     pop        {r5}
@@ -397,7 +397,7 @@ _ts EventHandler_School_Class_5A_F10_1
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -443,7 +443,7 @@ LAB_08024aa0:
     bl         Sound_StopAllMusic
     LoadMain world, r0, r0
     mov        r1,#0x11
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     mov        r0,#0x0
     strb       r0,[r5,#0x0]
 LAB_08024ad4:
@@ -532,7 +532,7 @@ _ts EventHandler_School_Class_5A_F11_1
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -556,7 +556,7 @@ LAB_08024ba0:
     beq        LAB_08024bb8
     LoadMain world, r0, r0
     mov        r1,#0x12
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     mov        r0,#0x0
     strb       r0,[r5,#0x0]
 LAB_08024bb8:
@@ -582,7 +582,7 @@ _ts MapSetup_School_Class_5A_F12
     bl         Camera_SetEnabled
     pop        {r5}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x18]
+    ldrb       r0,[r7,#World_currentSongId]
     cmp        r0,#0x4
     beq        LAB_08024bec
     mov        r0,#T_Incident_Occurrence
@@ -673,7 +673,7 @@ _ts EventHandler_School_Class_5A_F12_1
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -685,7 +685,7 @@ _ts EventHandler_School_Class_5A_F12_1
     pop        {r5}
     bne        LAB_08024d06
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08024fe4
     and        r1,r0
     beq        LAB_08024d06
@@ -714,7 +714,7 @@ LAB_08024ce2:
 LAB_08024d06:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -747,14 +747,14 @@ _ts EventHandler_School_Class_5A_F12_2
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x13
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     mov        r0,#0x0
     strb       r0,[r5,#0x0]
     pop        {pc}
 LAB_08024d5a:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -775,7 +775,7 @@ LAB_08024d7e:
 _ts MapSetup_School_Class_5A_F13
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x18]
+    ldrb       r0,[r7,#World_currentSongId]
     cmp        r0,#0x4
     beq        LAB_08024d92
     mov        r0,#T_Incident_Occurrence
@@ -851,7 +851,7 @@ _nt EventHandler_School_Class_5A_F13_1
 _nt MapSetup_School_Class_5A_F14
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x18]
+    ldrb       r0,[r7,#World_currentSongId]
     cmp        r0,#0x4
     beq        LAB_08024e28
     mov        r0,#T_Incident_Occurrence
@@ -926,7 +926,7 @@ _ts EventHandler_School_Class_5A_F14_1
 _ts MapSetup_School_Class_5A_F15
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x18]
+    ldrb       r0,[r7,#World_currentSongId]
     cmp        r0,#0x4
     beq        LAB_08024eba
     mov        r0,#T_Incident_Occurrence
@@ -988,7 +988,7 @@ _ts FUN_08024f0c
 LAB_08024f1c:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -1005,7 +1005,7 @@ LAB_08024f38:
     pop        {r5}
     bne        LAB_08024f78
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08024fe4
     and        r1,r0
     beq        LAB_08024f78
@@ -1182,11 +1182,11 @@ _ts MapSetup_School_Class_5A_F20
     push       {r5}
     LoadMain world, r7, r7
     ldr        r0,DAT_08025430
-    str        r0,[r7,#0x38]
+    str        r0,[r7,#World_savedPos_x]
     ldr        r0,DAT_08025434
-    str        r0,[r7,#0x3c]
+    str        r0,[r7,#World_savedPos_y]
     mov        r0,#0x0
-    str        r0,[r7,#0x40]
+    str        r0,[r7,#World_savedPos_z]
     bl         PlayerLocation_Create
     mov        r0,#0x1
     add        r1,r5,#0x0
@@ -1557,7 +1557,7 @@ _ts CheckJackIn_2
 LAB_080253cc:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -1574,7 +1574,7 @@ LAB_080253e8:
     pop        {r5}
     bne        LAB_08025414
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_080254a8
     and        r1,r0
     beq        LAB_08025414

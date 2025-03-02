@@ -129,7 +129,7 @@ _ts MapSetup_ACDC_School_Gate_F23
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     bl         PlayerLocation_Create
     pop        {r5}
@@ -179,7 +179,7 @@ _ts EventHandler_ACDC_School_Gate_F23_1
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -250,7 +250,7 @@ _ts MapSetup_ACDC_School_Gate_F25
     bne        LAB_0802bb0a
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     bl         PlayerLocation_Create
     pop        {r5}
@@ -682,7 +682,7 @@ _ts MapSetup_ACDC_School_Gate_F53
     bne        LAB_0802be8c
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     bl         Sound_StopAllMusic
     push       {r5}
     ldr        r0,DAT_0802bf6c
@@ -728,7 +728,7 @@ _ts EventHandler_ACDC_School_Gate_F53_0
     Flag_GetBase 0xA5
     beq        LAB_0802bef4
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0xf1
     bne        LAB_0802bef4
     Flag_GetBase 0xA8

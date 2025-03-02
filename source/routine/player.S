@@ -269,9 +269,9 @@ PTR_PTR_R_PlayerB_0_0_RegisterSpawn_0805652c:
 _ts R_PlayerB_0_0_RegisterSpawn
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x6]
+    ldrb       r0,[r7,#Battle_initialActorsSpawned]
     add        r0,#0x1
-    strb       r0,[r7,#0x6]
+    strb       r0,[r7,#Battle_initialActorsSpawned]
     mov        r0,#0x4
     strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
@@ -953,7 +953,7 @@ _ts dummy_569fc
 _ts R_PlayerB_7_Drain
     push       {lr}
     LoadMain frameCounter, r7, r7
-    ldrh       r0,[r7,#0x0]
+    ldrh       r0,[r7,#FrameCounter_counter]
     lsr        r0,r0,#0x2
     bcc        LAB_08056a14
     bl         SpritePtr_EnableFlash
@@ -2296,7 +2296,7 @@ LAB_0805734e:
 _ts Routine_IsPlayerFrozen
     push       {r5,lr}
     LoadMain battle, r7, r7
-    ldr        r5,[r7,#0x40]
+    ldr        r5,[r7,#Battle_actorListPlayer]
     mov        r0,#0x20
     bl         ActorPlayer_CheckStatus
     beq        LAB_08057364
@@ -2309,7 +2309,7 @@ LAB_08057364:
 
 _ts Routine_IsPlayerInvulnerable
     LoadMain battle, r0, r0
-    ldr        r0,[r0,#0x40]
+    ldr        r0,[r0,#Battle_actorListPlayer]
     ldrb       r0,[r0,#0x17]
     mov        pc,lr
 
@@ -2393,7 +2393,7 @@ LAB_080573fa:
     tst        r1,r1
     bne        LAB_0805740a
     LoadMain frameCounter, r7, r7
-    ldrh       r0,[r7,#0x0]
+    ldrh       r0,[r7,#FrameCounter_counter]
     lsr        r0,r0,#0x1
     bcs        LAB_0805741e
 LAB_0805740a:
@@ -2431,10 +2431,10 @@ _ts S_Barrier_Activate
     pop        {r4,r5}
     tst        r7,r7
     beq        LAB_0805746a
-    ldrb       r0,[r7,#0x0]
+    ldrb       r0,[r7,#Battle_state_s0]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r7,#0x0]
+    strb       r0,[r7,#Battle_state_s0]
     ldr        r6,[r5,#Actor_param_74]
     str        r7,[r6,#0x40]
     ldr        r7,PTR_listRespawnFamily_0805746c
@@ -2632,7 +2632,7 @@ _nt R_Player_ResetBusterAndShields
     bl         R_Player_ClearBusterChip
     LoadMain battle, r7, r7
     push       {r7}
-    ldr        r5,[r7,#0x40]
+    ldr        r5,[r7,#Battle_actorListPlayer]
     tst        r5,r5
     beq        LAB_080575b6
     ldr        r7,[r5,#Actor_param_74]
@@ -2659,7 +2659,7 @@ LAB_080575b6:
 LAB_080575d0:
     mov        r0,#0x0
     LoadMain battle, r7, r7
-    ldr        r6,[r7,#0x40]
+    ldr        r6,[r7,#Battle_actorListPlayer]
     tst        r6,r6
     beq        LAB_080575e8
     ldr        r6,[r6,#0x74]
@@ -3261,7 +3261,7 @@ _ts BC_Bomb_1_Main
     ldmia      r7!,{r1,r2,r3}
     ldrb       r6,[r5,#Actor_owner]
     LoadMain battle, r7, r7
-    ldrb       r7,[r7,#0x1a]
+    ldrb       r7,[r7,#Battle_sioOwnerId]
     eor        r6,r7
     lsl        r6,r6,#0x2
     ldr        r7,PTR_INT_ARRAY_08057a84
@@ -5213,7 +5213,7 @@ LAB_080587e2:
     ldrsb      r3,[r7,r2]
     ldrb       r0,[r5,#Actor_owner]
     LoadMain battle, r4, r4
-    ldrb       r4,[r4,#0x1a]
+    ldrb       r4,[r4,#Battle_sioOwnerId]
     eor        r0,r4
     beq        LAB_080587f4
     neg        r3,r3

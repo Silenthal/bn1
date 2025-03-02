@@ -24,9 +24,9 @@ _ts InitStartMenuFromSubMenu
     push       {lr}
     LoadMain startMenuState, r5, r7
     mov        r0,#0x0
-    strb       r0,[r5,#0x5]
+    strb       r0,[r5,#StartMenu_openState]
     mov        r0,#0x4
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#StartMenu_state_s0]
     bl         StartMenu_LoadTileset
     Flag_SetSystem F_SYSTEM_START_MENU_OPEN
     pop        {pc}
@@ -77,7 +77,7 @@ _ts StartMenu_Main
     push       {lr}
     LoadMain startMenuState, r5, r7
     ldr        r0,PTR_PTR_StartMenu_0_Open_0801951c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#StartMenu_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -123,7 +123,7 @@ _ts StartMenu_1_HandleInput
     cmp        r0,r1
     beq        LAB_0801930a
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0xa
     tst        r1,r0
     beq        LAB_0801929c
@@ -163,7 +163,7 @@ LAB_080192c6:
     b          LAB_0801930a
 LAB_080192d6:
     ldrb       r2,[r5,#0x6]
-    ldrh       r0,[r7,#0x4]
+    ldrh       r0,[r7,#Input_heldKeyState]
     mov        r1,#0x40
     tst        r1,r0
     beq        LAB_080192ea
@@ -370,7 +370,7 @@ _ts StartMenu_LoadZennyTilemap
     mov        r2,#0x18
     bl         memcpy_32
     LoadMain world, r7, r7
-    ldr        r0,[r7,#0x74]
+    ldr        r0,[r7,#World_zenny]
     bl         ConvertNumToBCD
     mov        r8,r0
     bl         GetWidthOfBcdNumber

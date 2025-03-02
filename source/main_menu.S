@@ -15,7 +15,7 @@ _ts MainMenu_Main
     push       { lr }
     LoadMain mainMenu, r5, r7
     ldr        r0,=jumpTableMainMenu
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#MainMenu_state_s0]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -40,16 +40,16 @@ _ts MainMenu_0_Init
     bl         Video_SetBgControl
     LoadMain display, r0, r7
     mov        r1,#0x40
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0
-    strh       r1,[r0,#0xc]
-    strh       r1,[r0,#0xe]
-    strh       r1,[r0,#0x10]
-    strh       r1,[r0,#0x12]
-    strh       r1,[r0,#0x14]
-    strh       r1,[r0,#0x16]
-    strh       r1,[r0,#0x18]
-    strh       r1,[r0,#0x1a]
+    strh       r1,[r0,#DisplaySettings_bg0Hofs]
+    strh       r1,[r0,#DisplaySettings_bg0Vofs]
+    strh       r1,[r0,#DisplaySettings_bg1Hofs]
+    strh       r1,[r0,#DisplaySettings_bg1Vofs]
+    strh       r1,[r0,#DisplaySettings_bg2Hofs]
+    strh       r1,[r0,#DisplaySettings_bg2Vofs]
+    strh       r1,[r0,#DisplaySettings_bg3Hofs]
+    strh       r1,[r0,#DisplaySettings_bg3Vofs]
     bl         MainMenu_LoadTitleScreen
     Fade_Request FT_FadeOutToBlack, 0xff
     pop        { r5 }
@@ -90,9 +90,9 @@ _ts MainMenu_1_Main
     bx         r0
     bl         MainMenu_DrawCopyrightInfo
     LoadMain display, r7, r7
-    ldrh       r0,[r7,#0x14]
+    ldrh       r0,[r7,#DisplaySettings_bg2Hofs]
     sub        r0,#0x2
-    strh       r0,[r7,#0x14]
+    strh       r0,[r7,#DisplaySettings_bg2Hofs]
     pop        {pc}
 PTR_PTR_ARRAY_080104f0:
     .word PTR_ARRAY_080104f4
@@ -107,10 +107,10 @@ _ts MainMenu_2_Free
     push       {lr}
     LoadMain manager, r0, r7
     mov        r1,#0x4
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     LoadMain display, r0, r7
     mov        r1,#0x40
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#Manager_gameState]
     ldrb       r0,[r5,#0x8]
     tst        r0,r0
     bne        LAB_08010548
@@ -151,7 +151,7 @@ _ts MainMenu_1_0_Display
     strh       r0,[r5,#0x4]
     LoadMain display, r0, r7
     ldr        r1,INT_08010584
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     push       {r5}
     FadeIn_Black
     pop        {r5}
@@ -224,7 +224,7 @@ _ts MainMenu_1_3_End
     bl         MainMenu_DisplayMenuOptions
 LAB_080105ec:
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08010618
@@ -239,7 +239,7 @@ LAB_080105ec:
 LAB_08010608:
     LoadMain manager, r0, r7
     mov        r1,#0x14
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     push       {r5}
     bl         InitMainMenu
     pop        {r5}
@@ -250,7 +250,7 @@ LAB_08010618:
 _ts MainMenu_PressStartFlash
     push       {r5,lr}
     LoadMain frameCounter, r0, r0
-    ldrh       r0,[r0,#0x0]
+    ldrh       r0,[r0,#FrameCounter_counter]
     mov        r1,#0x1f
     and        r0,r1
     cmp        r0,#0x18
@@ -300,25 +300,25 @@ ObjectXYAttributes_0801067c:
 _ts MainMenu_DisplayMenuOptions
     push       {r5,lr}
     LoadMain mainMenu, r5, r7
-    ldrb       r0,[r5,#0x6]
+    ldrb       r0,[r5,#MainMenu_arrowAnimationTimer]
     add        r0,#0x1
     cmp        r0,#0x12
     blt        LAB_08010690
     mov        r0,#0x0
 LAB_08010690:
-    strb       r0,[r5,#0x6]
-    ldrb       r0,[r5,#0x7]
+    strb       r0,[r5,#MainMenu_arrowAnimationTimer]
+    ldrb       r0,[r5,#MainMenu_starAnimationTimer]
     add        r0,#0x1
     cmp        r0,#0x3c
     blt        LAB_0801069c
     mov        r0,#0x0
 LAB_0801069c:
-    strb       r0,[r5,#0x7]
-    ldrb       r0,[r5,#0x6]
+    strb       r0,[r5,#MainMenu_starAnimationTimer]
+    ldrb       r0,[r5,#MainMenu_arrowAnimationTimer]
     lsl        r0,r0,#0x1
     ldr        r1,PTR_tileAttrListArrow_080107a4
     ldrh       r1,[r1,r0]
-    ldrb       r2,[r5,#0x8]
+    ldrb       r2,[r5,#MainMenu_selectedOption]
     lsl        r2,r2,#0x2
     ldr        r0,PTR_ObjectXYAttributes_080107a0
     ldr        r0,[r0,r2]
@@ -326,7 +326,7 @@ LAB_0801069c:
     mov        r3,#0x0
     bl         Oam_AddObject
     LoadMain mainMenu, r5, r7
-    ldrb       r0,[r5,#0x8]
+    ldrb       r0,[r5,#MainMenu_selectedOption]
     tst        r0,r0
     bne        LAB_08010734
     ldr        r0,ObjXY_New
@@ -345,7 +345,7 @@ LAB_0801069c:
     mov        r3,#0x0
     bl         Oam_AddObject
     LoadMain mainMenu, r5, r7
-    ldrb       r0,[r5,#0xb]
+    ldrb       r0,[r5,#MainMenu_isSavePresent]
     tst        r0,r0
     beq        LAB_0801079c
     ldr        r0,ObjXY_Cont
@@ -487,7 +487,7 @@ tileAttrListStarShine:
 _ts MainMenu_HandlePressStart
     push       {lr}
     LoadMain input, r0, r7
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     mov        r1,#0x8
     tst        r1,r0
     beq        LAB_08010848
@@ -502,7 +502,7 @@ LAB_08010848:
 _ts MainMenu_HandleInput
     push       {lr}
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x9
     tst        r1,r0
     beq        LAB_08010882
@@ -532,7 +532,7 @@ LAB_08010882:
     strb       r0,[r5,#0xa]
     b          LAB_080108b4
 LAB_08010898:
-    ldrh       r0,[r7,#0x4]
+    ldrh       r0,[r7,#Input_heldKeyState]
     mov        r1,#0xc0
     tst        r1,r0
     beq        LAB_080108b4

@@ -683,7 +683,7 @@ _ts R_Megalian_GetPanelInPlayerRow
     mov        r0,#0xff
     str        r0,[sp,#0x24]
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r1,[r7,#0x19]
     mov        r3,#0x0
     mov        r4,sp
@@ -725,7 +725,7 @@ LAB_08066f32:
     b          LAB_08066fa2
 LAB_08066f50:
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r1,[r7,#0x19]
     mov        r3,#0x0
     mov        r4,sp

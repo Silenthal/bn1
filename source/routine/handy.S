@@ -391,7 +391,7 @@ _ts R_Handy_1_3_2_FindBombPanelPlacement
     strb       r0,[r5,#Actor_header_entityFlags]
     bl         Rng_RandomUint
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r2,[r7,#0x19]
     ldr        r7,PTR_listHandyBombRow_08060904
     add        r3,r2,r2

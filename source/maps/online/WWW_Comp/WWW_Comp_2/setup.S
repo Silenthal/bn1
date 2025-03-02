@@ -72,8 +72,8 @@ _ts MapSetup_WWW_Comp_2_F54
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804d5cc
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804d5d8
 LAB_0804d5cc:
@@ -230,7 +230,7 @@ LAB_0804d708:
     pop        {pc}
 LAB_0804d75c:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0804d77a
     Flag_SetBase 0xC3
@@ -253,7 +253,7 @@ LAB_0804d77a:
     pop        {pc}
 LAB_0804d798:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x21
     bne        LAB_0804d7b6
     Flag_SetBase 0xC5
@@ -276,7 +276,7 @@ LAB_0804d7b6:
     pop        {pc}
 LAB_0804d7d4:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x22
     bne        LAB_0804d7f2
     Flag_SetBase 0xC7
@@ -299,7 +299,7 @@ LAB_0804d7f2:
     pop        {pc}
 LAB_0804d810:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x23
     bne        LAB_0804d82e
     Flag_SetBase 0xC9
@@ -322,7 +322,7 @@ LAB_0804d82e:
     pop        {pc}
 LAB_0804d84c:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x24
     bne        LAB_0804d86a
     Flag_SetBase 0xCB
@@ -345,7 +345,7 @@ LAB_0804d86a:
     pop        {pc}
 LAB_0804d888:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x25
     bne        LAB_0804d8a6
     Flag_SetBase 0xCD
@@ -368,7 +368,7 @@ LAB_0804d8a6:
     pop        {pc}
 LAB_0804d8c4:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x26
     bne        LAB_0804d8e2
     Flag_SetBase 0xCF
@@ -391,7 +391,7 @@ LAB_0804d8e2:
     pop        {pc}
 LAB_0804d900:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x27
     bne        LAB_0804d91e
     Flag_SetBase 0xD1
@@ -414,7 +414,7 @@ LAB_0804d91e:
     pop        {pc}
 LAB_0804d93c:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x28
     bne        LAB_0804d960
     Flag_SetBase 0xD3

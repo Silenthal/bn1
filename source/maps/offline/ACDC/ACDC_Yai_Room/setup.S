@@ -85,7 +85,7 @@ _ts EventHandler_ACDC_Yai_Room_F02_0
     pop        {r5}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -156,14 +156,14 @@ _ts FUN_0802e538
     bne        LAB_0802e578
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x40
     bne        LAB_0802e578
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0802e5a4
     mvn        r0,r0
     and        r1,r0
@@ -343,7 +343,7 @@ _ts EventHandler_ACDC_Yai_Room_F21_0
     beq        LAB_0802e6c6
     LoadMain world, r0, r0
     mov        r1,#0x22
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
 LAB_0802e6c6:
     pop        {pc}
 

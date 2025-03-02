@@ -401,7 +401,7 @@ LAB_08073570:
     pop        {r4}
     str        r1,[r4,#0x2c]
     LoadMain battle, r6, r6
-    ldrb       r2,[r6,#0x1a]
+    ldrb       r2,[r6,#Battle_sioOwnerId]
     ldrb       r3,[r4,#0x16]
     eor        r2,r3
     ldr        r6,PTR_DAT_080735a8

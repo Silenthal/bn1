@@ -61,14 +61,14 @@ LAB_080030e0:
     tst        r0,r1
     beq        LAB_08003106
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x9]
+    ldrb       r1,[r7,#World_IsBattleTimePaused]
     tst        r1,r1
     beq        LAB_080030f8
     mov        r1,#0x4
     tst        r0,r1
     beq        LAB_08003106
 LAB_080030f8:
-    str        r5,[r7,#0x70]
+    str        r5,[r7,#World_updatingEntity]
     ldr        r0,PTR_PTR_PlayerLocation_Handler_1_080031d8
     ldrb       r1,[r5,#PlayerLocation_header_routineType]
     lsl        r1,r1,#0x2
@@ -86,7 +86,7 @@ LAB_08003106:
 LAB_08003114:
     LoadMain world, r7, r7
     mov        r0,#0x0
-    str        r0,[r7,#0x70]
+    str        r0,[r7,#World_updatingEntity]
     pop        { pc }
 
 _ts PlayerLocation_Init

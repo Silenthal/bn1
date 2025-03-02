@@ -419,7 +419,7 @@ _ts R_Flappy_1_3_0_Teleport
     mov        r0,#0x1
     strb       r0,[r5,#Actor_family_b1]
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]
     lsl        r2,r1,#0x8

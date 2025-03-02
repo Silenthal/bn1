@@ -107,7 +107,7 @@ _ts Entity_BattlePosToScreenPos
     LoadMain camera, r3, r3
     mov        r2,#0x2
     ldrsh      r1,[r0,r2]
-    ldr        r4,[r3,#0x38]
+    ldr        r4,[r3,#Camera_posMap_x]
     asr        r4,r4,#0x10
     sub        r1,r1,r4
     ldr        r6,PTR_gIsObjectXFlipped_08002b14
@@ -119,13 +119,13 @@ LAB_08002a56:
     add        r1,#120
     mov        r2,#0x6
     ldrsh      r6,[r0,r2]
-    ldr        r4,[r3,#0x3c]
+    ldr        r4,[r3,#Camera_posMap_y]
     asr        r4,r4,#0x10
     sub        r6,r6,r4
     add        r6,#80
     mov        r2,#0xa
     ldrsh      r4,[r0,r2]
-    ldr        r2,[r3,#0x40]
+    ldr        r2,[r3,#Camera_posMap_z]
     asr        r2,r2,#0x10
     sub        r4,r4,r2
     sub        r6,r6,r4
@@ -165,12 +165,12 @@ _ts Entity_OverworldPosToScreenPos
     LoadMain camera, r3, r3
     ldr        r1,[r0,#0x0]
     asr        r1,r1,#0xf
-    ldr        r4,[r3,#0x38]
+    ldr        r4,[r3,#Camera_posMap_x]
     asr        r4,r4,#0xf
     sub        r1,r1,r4
     ldr        r6,[r0,#0x4]
     asr        r6,r6,#0xf
-    ldr        r4,[r3,#0x3c]
+    ldr        r4,[r3,#Camera_posMap_y]
     asr        r4,r4,#0xf
     sub        r6,r6,r4
     add        r7,r6,#0x0
@@ -185,7 +185,7 @@ _ts Entity_OverworldPosToScreenPos
     ldr        r4,[r0,#0x8]
     asr        r4,r4,#0x10
     sub        r6,r6,r4
-    ldr        r2,[r3,#0x40]
+    ldr        r2,[r3,#Camera_posMap_z]
     asr        r2,r2,#0x10
     add        r6,r6,r2
     add        r6,#0x52

@@ -145,7 +145,7 @@ _ts SD_GutsMan_2
     strb       r0,[r5,#ScreenDim_state_s1]
 LAB_08098be8:
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     cmp        r0,#0x1
     beq        LAB_08098bfe
     push       {r5}

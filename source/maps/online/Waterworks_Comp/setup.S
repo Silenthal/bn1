@@ -46,7 +46,7 @@ _ts GraphicDataSetup_Waterworks_Comp
     cmp        r0,#0x4
     bne        LAB_08045738
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#World_storyFlag]
     lsr        r7,r7,#0x4
     cmp        r7,#0x2
     bne        LAB_08045728

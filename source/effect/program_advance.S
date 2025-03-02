@@ -643,7 +643,7 @@ _nt E_ProgramAdvance_2_Free
     push       {lr}
     LoadMain battle, r7, r7
     mov        r0,#0x1
-    strh       r0,[r7,#0x2e]
+    strh       r0,[r7,#Battle_generalCounter]
     push       {r5}
     ldr        r7,PTR_PTR_paletteCustomScreenBg_1_0807c774
     ldr        r0,[r7,#0x0]
@@ -700,7 +700,7 @@ _ts FUN_0807c7b0
     push       {lr}
     sub        sp,#0x4
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x19]
+    ldrb       r0,[r7,#Battle_srcBattleHandCount]
     add        r0,#0x78
     add        r7,r7,r0
     mov        r0,#0x0
@@ -1347,7 +1347,7 @@ _nt FUN_0807cc46
     push       {lr}
     LoadMain battle, r7, r7
     mov        r6,#0x78
-    ldrb       r0,[r7,#0x19]
+    ldrb       r0,[r7,#Battle_srcBattleHandCount]
     add        r6,r6,r0
     ldrb       r0,[r5,#Effect_bf]
     add        r6,r6,r0
@@ -1365,7 +1365,7 @@ _nt FUN_0807cc46
     bl         CustomScreen_NormalizeChipGroup
     pop        {r7}
     mov        r6,#0x7e
-    ldrb       r0,[r7,#0x19]
+    ldrb       r0,[r7,#Battle_srcBattleHandCount]
     add        r6,r6,r0
     ldrb       r0,[r5,#Effect_bf]
     add        r6,r6,r0

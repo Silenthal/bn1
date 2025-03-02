@@ -375,7 +375,7 @@ ptrTimeConsts:  .word timeConsts
 @@ Increments the game timer, capping it at 99 hours and 59 minutes.
 _ts IncrementGameTimer
     LoadMain gameStats, r7, r7
-    ldr        r0,[r7,#0x18]
+    ldr        r0,[r7,#GameStats_gameTimer]
     add        r0,#0x1
     @ 99 hours and 50 minutes = 5999 minutes
     @ Multiply by 60 to get seconds, then by 60 again to get frames
@@ -384,7 +384,7 @@ _ts IncrementGameTimer
     ble        .setTime
     add        r0,r1,#0x0
 .setTime:
-    str        r0,[r7,#0x18]
+    str        r0,[r7,#GameStats_gameTimer]
     mov        pc,lr
 
     .align 2, 0
@@ -395,20 +395,20 @@ _ts IncrementGameTimer
 _ts IncrementMPCounters
     LoadMain gameStats, r7, r7
     ldr        r2,=999
-    ldrh       r1,[r7,#0x16]
+    ldrh       r1,[r7,#GameStats_multiBattleWins]
     add        r1,r1,r0
     cmp        r1,r2
     ble        LAB_08000c34
     add        r1,r2,#0x0
 LAB_08000c34:
-    strh       r1,[r7,#0x16]
-    ldrh       r1,[r7,#0x14]
+    strh       r1,[r7,#GameStats_multiBattleWins]
+    ldrh       r1,[r7,#GameStats_multiBattleTotal]
     add        r1,#0x1
     cmp        r1,r2
     ble        LAB_08000c40
     add        r1,r2,#0x0
 LAB_08000c40:
-    strh       r1,[r7,#0x14]
+    strh       r1,[r7,#GameStats_multiBattleTotal]
     mov        pc,lr
 
     .align 2, 0
@@ -456,8 +456,8 @@ _ts SetSortDefault
     push       { lr }
     LoadMain gameStats, r7, r7
     mov        r0,#0x4
-    strb       r0,[r7,#0x1]
-    strb       r0,[r7,#0x3]
+    strb       r0,[r7,#GameStats_sortDirectionFolder]
+    strb       r0,[r7,#GameStats_sortDirectionSack]
     pop        { pc }
 
     .align 2, 0

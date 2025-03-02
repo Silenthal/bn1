@@ -431,7 +431,7 @@ _nt A_Seed_1_2
     ldrb       r0,[r5,#Attack_cPos_x]
     ldrb       r1,[r5,#Attack_cPos_y]
     LoadMain battle, r2, r2
-    ldr        r2,[r2,#0x40]
+    ldr        r2,[r2,#Battle_actorListPlayer]
     add        r2,#0x2c
     mov        r4,#0x3
     mov        r3,#0x4

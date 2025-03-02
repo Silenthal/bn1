@@ -1132,7 +1132,7 @@ _ts R_Bass_GetNextMovePanelPlayerRow
     push       {lr}
     sub        sp,#0x10
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r1,[r7,#0x19]
     mov        r7,sp
     mov        r0,#0x1

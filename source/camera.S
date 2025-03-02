@@ -7,35 +7,35 @@ _ts Camera_Init
     push       {r3,r4}
     push       {r0,r1,r2}
     LoadMain camera, r5, r5
-    ldrb       r0,[r5,#0x3]
-    ldr        r1,[r5,#0x10]
+    ldrb       r0,[r5,#Camera_isActive]
+    ldr        r1,[r5,#Camera_playerRealPos]
     push       {r0,r1,r5}
     LoadMain camera, r0, r0
     mov        r1,#0x44
     bl         memset0_32
     pop        {r0,r1,r5}
-    strb       r0,[r5,#0x3]
-    str        r1,[r5,#0x10]
+    strb       r0,[r5,#Camera_isActive]
+    str        r1,[r5,#Camera_playerRealPos]
     LoadMain bgDataManager, r0, r0
     ldrb       r3,[r0,#0x0]
     sub        r3,#0x1e
     lsl        r3,r3,#0x12
-    str        r3,[r5,#0x18]
+    str        r3,[r5,#Camera_xUpperBound]
     neg        r3,r3
-    str        r3,[r5,#0x14]
+    str        r3,[r5,#Camera_xLowerBound]
     ldrb       r3,[r0,#0x1]
     sub        r3,#0x14
     lsl        r3,r3,#0x12
-    str        r3,[r5,#0x1c]
+    str        r3,[r5,#Camera_yUpperBound]
     neg        r3,r3
-    str        r3,[r5,#0x20]
+    str        r3,[r5,#Camera_yLowerBound]
     pop        {r1,r2,r3}
-    str        r1,[r5,#0x2c]
-    str        r2,[r5,#0x30]
-    str        r3,[r5,#0x34]
+    str        r1,[r5,#Camera_posMapNext_x]
+    str        r2,[r5,#Camera_posMapNext_y]
+    str        r3,[r5,#Camera_posMapNext_z]
     mov        r1,#0x0
-    strh       r1,[r5,#0x4]
-    strh       r1,[r5,#0x6]
+    strh       r1,[r5,#Camera_cameraX]
+    strh       r1,[r5,#Camera_cameraY]
     pop        {r3,r4}
     cmp        r3,#0xf0
     bge        LAB_08010c80
@@ -49,7 +49,7 @@ LAB_08010c7c:
 LAB_08010c80:
     mov        r0,#0x2
 LAB_08010c82:
-    strb       r0,[r5,#0x2]
+    strb       r0,[r5,#Camera_bgMovementControl]
     bl         Camera_CheckScreenShake
     bl         Camera_UpdatePosition
     bl         Camera_UpdateDisplay
@@ -61,18 +61,18 @@ _ts Camera_UpdatePos
     push       {lr}
     LoadMain camera, r5, r5
     ldr        r0,PTR_PTR_dummy_10d6c
-    ldrb       r1,[r5,#0x3]
+    ldrb       r1,[r5,#Camera_isActive]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
     bl         Camera_CheckScreenShake
     bl         Camera_UpdatePosition
-    ldrh       r1,[r5,#0x4]
-    ldrh       r2,[r5,#0x8]
+    ldrh       r1,[r5,#Camera_cameraX]
+    ldrh       r2,[r5,#Camera_lastCameraX]
     sub        r1,r1,r2
-    ldrh       r4,[r5,#0x6]
-    ldrh       r2,[r5,#0xa]
+    ldrh       r4,[r5,#Camera_cameraY]
+    ldrh       r2,[r5,#Camera_lastCameraY]
     sub        r4,r4,r2
     LoadMain display, r0, r0
     ldrh       r6,[r0,#0x14]
@@ -81,7 +81,7 @@ _ts Camera_UpdatePos
     ldrh       r7,[r0,#0x16]
     add        r7,r7,r4
     strh       r7,[r0,#0x16]
-    ldrb       r2,[r5,#0x2]
+    ldrb       r2,[r5,#Camera_bgMovementControl]
     cmp        r2,#0x1
     beq        LAB_08010ce2
     cmp        r2,#0x2
@@ -193,15 +193,15 @@ _ts Camera_UpdateMapPosFromPlayerLoc
 _ts Camera_SetEnabled
     push       {lr}
     LoadMain camera, r5, r5
-    strb       r0,[r5,#0x3]
-    str        r1,[r5,#0x10]
+    strb       r0,[r5,#Camera_isActive]
+    str        r1,[r5,#Camera_playerRealPos]
     pop        {pc}
 
 
 _ts Camera_CheckScreenShake
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r7,[r7,#0x18]
+    ldrb       r7,[r7,#Battle_isScreenDimChipActive]
     tst        r7,r7
     bne        LAB_08010da8
     push       {r5}
@@ -266,16 +266,16 @@ listShakeStrength:
 
 _ts Camera_EnableScreenShake
     LoadMain camera, r5, r5
-    strh       r0,[r5,#0xe]
-    strh       r1,[r5,#0xc]
+    strh       r0,[r5,#Camera_shakeStrength]
+    strh       r1,[r5,#Camera_shakeCounter]
     mov        pc,lr
 
 
 _ts Camera_DisableScreenShake
     LoadMain camera, r5, r5
     mov        r0,#0x0
-    strh       r0,[r5,#0xe]
-    strh       r0,[r5,#0xc]
+    strh       r0,[r5,#Camera_shakeStrength]
+    strh       r0,[r5,#Camera_shakeCounter]
     mov        pc,lr
 
 
@@ -312,8 +312,8 @@ _ts Camera_UpdateOverworldPos
 @@ If in battle, update only BG2.
 _ts Camera_UpdateDisplay
     LoadMain camera, r5, r7
-    ldrh       r1,[r5,#0x4]
-    ldrh       r2,[r5,#0x6]
+    ldrh       r1,[r5,#Camera_cameraX]
+    ldrh       r2,[r5,#Camera_cameraY]
     ldr        r3,[r7,#0x10]
     mov        r4,#0xff
     and        r1,r4
@@ -324,7 +324,7 @@ _ts Camera_UpdateDisplay
     strh       r2,[r3,#0x12]
     strh       r2,[r3,#0x16]
     strh       r2,[r3,#0x1a]
-    ldrb       r0,[r5,#0x2]
+    ldrb       r0,[r5,#Camera_bgMovementControl]
     cmp        r0,#0x1
     beq        LAB_08010e90
     cmp        r0,#0x2

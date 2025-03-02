@@ -312,7 +312,7 @@ PanelFlag_0807a9a0:
 _ts A_MagicFireC_IsRareEvent
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0xf]
+    ldrb       r1,[r7,#World_battleType]
     cmp        r1,#0x0
     bne        LAB_0807a9c4
     bl         Rng_RandomUint

@@ -111,7 +111,7 @@ _ts MapSetup_Power_Plant_Comp_3_F42
     beq        LAB_0804ac88
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     Flag_ClearBase 0xB6
     Flag_GetBase 0xB9
     beq        LAB_0804ac6e
@@ -136,8 +136,8 @@ LAB_0804ac88:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804ac9c
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804aca8
 LAB_0804ac9c:
@@ -220,7 +220,7 @@ _ts MapSetup_Power_Plant_Comp_3_F43
     beq        LAB_0804ad6c
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     Flag_ClearBase 0xB6
     Flag_GetBase 0xB9
     beq        LAB_0804ad52
@@ -245,8 +245,8 @@ LAB_0804ad6c:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804ad80
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804ad8c
 LAB_0804ad80:
@@ -488,8 +488,8 @@ _ts MapSetup_Power_Plant_Comp_3_F50
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804af9e
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804afaa
 LAB_0804af9e:

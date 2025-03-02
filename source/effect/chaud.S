@@ -64,7 +64,7 @@ _ts E_Chaud_1_0
     beq        LAB_0807fa4a
     Flag_ClearBase 0xDE
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     ldrb       r0,[r7,#0x10]
     add        r0,#0x4
     mov        r1,#0x7

@@ -82,7 +82,7 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_F42
     beq        LAB_0803cc6c
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     Flag_GetBase 0xB7
     bne        LAB_0803cc4a
     push       {r5}
@@ -150,7 +150,7 @@ _ts MapSetup_SciLab_Power_Plant_Control_Room_F43
     beq        LAB_0803ccf2
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     Flag_GetBase 0xB7
     bne        LAB_0803ccd0
     push       {r5}
@@ -205,7 +205,7 @@ _ts FUN_0803cd10
     tst        r0,r0
     bne        LAB_0803cda2
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0803cd32
     push       {r5}
@@ -217,7 +217,7 @@ _ts FUN_0803cd10
 LAB_0803cd32:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -229,18 +229,18 @@ LAB_0803cd32:
     pop        {r5}
     bne        LAB_0803cda2
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0803cde0
     and        r1,r0
     beq        LAB_0803cda2
     bl         dummy_187a0
     bne        LAB_0803cda2
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#Input_lastKeyState]
     cmp        r1,#0x43
     beq        LAB_0803cda2
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#Input_lastKeyState]
     cmp        r1,#0x42
     bne        LAB_0803cd94
     Flag_GetBase 0x35
@@ -404,7 +404,7 @@ _ts FUN_0803ce90
     tst        r0,r0
     bne        LAB_0803cef2
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0803ceb2
     push       {r5}
@@ -416,7 +416,7 @@ _ts FUN_0803ce90
 LAB_0803ceb2:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -428,7 +428,7 @@ LAB_0803ceb2:
     pop        {r5}
     bne        LAB_0803cef2
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0803cf0c
     and        r1,r0
     beq        LAB_0803cef2

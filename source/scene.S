@@ -48,14 +48,14 @@ LAB_0801883a:
 
 _ts Scene_IsSceneActive
     LoadMain scene, r0, r0
-    ldr        r0,[r0,#0xc]
+    ldr        r0,[r0,#Scene_scenePointer]
     tst        r0,r0
     mov        pc,lr
 
 
 _ts Scene_IsStartPressed
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x0]
+    ldrh       r0,[r0,#Input_curKeyState]
     mov        r1,#0x8
     and        r0,r1
     mov        pc,lr

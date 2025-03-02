@@ -391,7 +391,7 @@ LAB_08062b76:
     ldrb       r0,[r5,#Actor_cPos_x]
     ldrb       r1,[r5,#Actor_cPos_y]
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     mov        r2,#0x2c
     add        r2,r2,r7
     mov        r3,#0x4

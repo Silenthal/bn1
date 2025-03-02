@@ -70,7 +70,7 @@ _ts R_LanBed_1_0_SetAnimation
     bl         SpritePtr_ProcessFrameDelay
     mov        r0,#0xd9
     LoadMain world, r1, r1
-    ldrb       r1,[r1,#0x6]
+    ldrb       r1,[r1,#World_storyFlag]
     mov        r2,#0x20
     and        r1,r2
     beq        LAB_0805b1d6

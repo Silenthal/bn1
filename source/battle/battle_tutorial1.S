@@ -766,7 +766,7 @@ _nt BattleT1_DecreaseGeneralCounter
 
 _nt BattleT1_CheckButtonAToggled
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x1
     tst        r0,r1
     mov        pc,lr

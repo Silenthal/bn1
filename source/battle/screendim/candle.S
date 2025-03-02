@@ -93,7 +93,7 @@ LAB_08099d84:
 _nt SD_Candle_3
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08099da0

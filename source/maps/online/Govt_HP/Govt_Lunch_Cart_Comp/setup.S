@@ -29,8 +29,8 @@ _ts EventHandler_Govt_Lunch_Cart_Comp_S2
 _nt FUN_0804fa9e
     push       {lr}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804fab6
     push       {r5}
@@ -53,8 +53,8 @@ LAB_0804fab6:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804fae8
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804faf4
 LAB_0804fae8:

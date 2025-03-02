@@ -777,7 +777,7 @@ _ts R_IceMan_1_6_1_FreezeBomb
     tst        r0,r1
     beq        LAB_080611b2
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x18]
     lsl        r0,r0,#0x10
     ldrb       r1,[r7,#0x19]
@@ -855,7 +855,7 @@ PTR_R_IceMan_1_7_0_TeleportStart_080611f0:
 _ts R_IceMan_1_7_0_TeleportStart
     push       {lr}
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x19]
     bl         R_IceMan_FindEmptyPanelInRow
     tst        r0,r0

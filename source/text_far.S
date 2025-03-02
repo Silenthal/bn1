@@ -31,11 +31,11 @@ _fts Screen_WriteUIText
     mov        r8,r7
     LoadMain textUI, r7, r7
     @ Store text width, total text length, and char shade
-    strb       r4,[r7,#0x0]
+    strb       r4,[r7,#TextUI_textWidth]
     mul        r4,r5
-    strb       r4,[r7,#0x1]
+    strb       r4,[r7,#TextUI_totalTextLength]
     mov        r4,r8
-    strb       r4,[r7,#0x2]
+    strb       r4,[r7,#TextUI_charShade]
     @Set the r4 and r5 counters to 0
     mov        r4,#0x0
     mov        r5,#0x0
@@ -134,7 +134,7 @@ _fts Screen_CopyUITextTile
     @set r0 to point to char shade specified by unk68->m_charShade
     ldr        r7,PTR_charShade_030072a4
     LoadMain textUI, r1, r1
-    ldrb       r1,[r1,#0x2]
+    ldrb       r1,[r1,#TextUI_charShade]
     ldr        r0,[r7,r1]
     mov        r1,#0x0
 1:
@@ -178,7 +178,7 @@ _fts Screen_PadUITextToEnd
     push       { lr }
     @ Fetch total text length into r1
     LoadMain textUI, r1, r1
-    ldrb       r1,[r1,#0x1]
+    ldrb       r1,[r1,#TextUI_totalTextLength]
     mov        r8,r1
 1:
     @ Copy char 0 (blank) to buffer till end of
@@ -209,7 +209,7 @@ _fts Screen_PadUITextToLineEnd
     push       { lr }
     @ Fetch text width into r1
     LoadMain textUI, r1, r1
-    ldrb       r1,[r1,#0x0]
+    ldrb       r1,[r1,#TextUI_textWidth]
     mov        r8,r1
 1:
     @ Copy char 0 (blank) to buffer till end of

@@ -45,8 +45,8 @@ _nt MapSetup_Undernet_11
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08053ba0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08053bb4
 LAB_08053ba0:
@@ -74,7 +74,7 @@ LAB_08053bca:
     b          LAB_08053bde
 LAB_08053bd0:
     LoadMain gameStats, r7, r7
-    ldrb       r0,[r7,#0xd]
+    ldrb       r0,[r7,#GameStats_hasUsedEscape]
     tst        r0,r0
     beq        LAB_08053bde
     mov        r0,#0x1
@@ -125,7 +125,7 @@ _ts EventHandler_Undernet_11_0
     Flag_GetBase 0x88
     bne        LAB_08053c74
     LoadMain world, r4, r7
-    ldrb       r0,[r4,#0x19]
+    ldrb       r0,[r4,#World_bustingRank]
     cmp        r0,#0x5
     bge        LAB_08053c46
     mov        r0,#0x1

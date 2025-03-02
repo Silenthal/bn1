@@ -43,7 +43,7 @@ PTR_BattleR_1_0_0_SpawnPlayer:
 _nt BattleR_1_0_0_SpawnPlayer
     push       {lr}
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08006c42

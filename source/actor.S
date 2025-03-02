@@ -149,7 +149,7 @@ LAB_080033b0:
     tst        r0,r1
     beq        LAB_080033e6
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x9]
+    ldrb       r1,[r7,#World_IsBattleTimePaused]
     tst        r1,r1
     beq        LAB_080033c8
     mov        r1,#0x4
@@ -157,14 +157,14 @@ LAB_080033b0:
     beq        LAB_080033e6
 LAB_080033c8:
     LoadMain screenDim, r7, r7
-    ldrb       r1,[r7,#0x7]
+    ldrb       r1,[r7,#World_fadeType]
     tst        r1,r1
     beq        LAB_080033d8
     mov        r1,#0x4
     tst        r0,r1
     beq        LAB_080033e6
 LAB_080033d8:
-    str        r5,[r7,#0x70]
+    str        r5,[r7,#World_updatingEntity]
     ldr        r0,PTR_PTR_Routine_Player_1_080034d4
     ldrb       r1,[r5,#Actor_header_routineType]
     lsl        r1,r1,#0x2
@@ -173,7 +173,7 @@ LAB_080033d8:
     bx         r0
 LAB_080033e6:
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0x18]
+    ldrb       r1,[r7,#World_currentSongId]
     tst        r1,r1
     bne        LAB_08003404
     LoadMain screenDim, r6, r6
@@ -196,7 +196,7 @@ LAB_08003404:
 LAB_08003412:
     LoadMain world, r7, r7
     mov        r0,#0x0
-    str        r0,[r7,#0x70]
+    str        r0,[r7,#World_updatingEntity]
     pop        { pc }
 
 _ts Actor_Init

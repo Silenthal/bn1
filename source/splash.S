@@ -15,7 +15,7 @@ _ts Splash_Main
     push       { lr }
     LoadMain mainMenu, r5, r7
     ldr        r0,=jumpTableSplashMain
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#MainMenu_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -37,16 +37,16 @@ _ts Splash_0_LoadCapcomLogo
     bl         Video_SetBgControl
     LoadMain display, r0, r7
     mov        r1,#0x40
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0
-    strh       r1,[r0,#0xc]
-    strh       r1,[r0,#0xe]
-    strh       r1,[r0,#0x10]
-    strh       r1,[r0,#0x12]
-    strh       r1,[r0,#0x14]
-    strh       r1,[r0,#0x16]
-    strh       r1,[r0,#0x18]
-    strh       r1,[r0,#0x1a]
+    strh       r1,[r0,#DisplaySettings_bg0Hofs]
+    strh       r1,[r0,#DisplaySettings_bg0Vofs]
+    strh       r1,[r0,#DisplaySettings_bg1Hofs]
+    strh       r1,[r0,#DisplaySettings_bg1Vofs]
+    strh       r1,[r0,#DisplaySettings_bg2Hofs]
+    strh       r1,[r0,#DisplaySettings_bg2Vofs]
+    strh       r1,[r0,#DisplaySettings_bg3Hofs]
+    strh       r1,[r0,#DisplaySettings_bg3Vofs]
     bl         Video_InitClearTile
     ldr        r0,=tilesetCapcomLogo
     ldr        r1,=0x6000020
@@ -73,7 +73,7 @@ _ts Splash_1_FadeIn
     push       { lr }
     LoadMain display, r0, r7
     ldr        r1,=0x1f40
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     push       { r5 }
     FadeIn_Black
     pop        { r5 }
@@ -86,12 +86,12 @@ _ts Splash_1_FadeIn
 _ts Splash_2_Wait
     push       { lr }
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08018d80
     LoadMain input, r0, r7
-    ldrh       r0,[r0,#0x0]
+    ldrh       r0,[r0,#Input_curKeyState]
     ldr        r1,=0x3FF
     and        r1,r0
     bne        LAB_08018d70
@@ -112,7 +112,7 @@ LAB_08018d80:
 _ts Splash_3_FadeOut
     push       { lr }
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08018d96
@@ -129,11 +129,11 @@ _ts Splash_4_End
     pop        { r5 }
     LoadMain manager, r0, r7
     mov        r1,#0x0
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     push       { r5 }
     bl         InitMainMenu
     pop        { r5 }
     LoadMain display, r0, r7
     mov        r1,#0x40
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#Manager_gameState]
     pop        { pc }

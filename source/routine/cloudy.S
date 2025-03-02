@@ -662,7 +662,7 @@ LAB_0805f346:
 _ts R_Cloudy_GetPlayerX
     push       {lr}
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]
     push       {r0}

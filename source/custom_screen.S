@@ -15,8 +15,8 @@ _ts CustomScreen_Main
     tst        r2,r2
     beq        LAB_08015902
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
-    ldrh       r1,[r7,#0x4]
+    ldrh       r0,[r7,#Input_toggleKeyState]
+    ldrh       r1,[r7,#Input_heldKeyState]
 LAB_08015902:
     strh       r0,[r5,#0x38]
     strh       r1,[r5,#0x3a]
@@ -136,10 +136,10 @@ _ts CustomScreen_StartSlideOpen
 _ts CustomScreen_SlideOpen
     push       { lr }
     LoadMain camera, r7, r7
-    ldr        r0,[r7,#0x30]
+    ldr        r0,[r7,#Camera_posMapNext_y]
     ldr        r1,=0x10000
     sub        r0,r0,r1
-    str        r0,[r7,#0x30]
+    str        r0,[r7,#Camera_posMapNext_y]
     ldrh       r0,[r5,#0x24]
     sub        r0,#0x8
     strh       r0,[r5,#0x24]
@@ -276,9 +276,9 @@ _nt CustomScreen_1_2_Ok
     ldrb       r3,[r5,#0xb]
     tst        r3,r3
     beq        LAB_08015b4c
-    strb       r3,[r6,#0x11]
+    strb       r3,[r6,#Battle_customScreenSelectedChipCount]
     mov        r0,#0x0
-    strb       r0,[r6,#0x19]
+    strb       r0,[r6,#Battle_srcBattleHandCount]
     LoadMain battle, r0, r0
     add        r0,#0x78
     mov        r1,#0x6
@@ -322,7 +322,7 @@ LAB_08015b64:
     ldrb       r1,[r5,#0x5]
     bl         CustomScreen_GetChipSelectIndex
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0x10]
+    ldrb       r1,[r7,#Battle_customScreenChipCount]
     cmp        r0,r1
     bmi        LAB_08015b7e
     mov        r0,#0xff
@@ -432,7 +432,7 @@ LAB_08015c4e:
     beq        LAB_08015cb2
     LoadMain battle, r7, r7
     bl         CustomScreen_GetDeckSize
-    ldrb       r1,[r7,#0x10]
+    ldrb       r1,[r7,#Battle_customScreenChipCount]
     cmp        r1,#0xf
     bge        LAB_08015c66
     cmp        r1,r0
@@ -448,7 +448,7 @@ LAB_08015c66:
     b          LAB_08015cb2
 LAB_08015c78:
     mov        r0,#0x0
-    strb       r0,[r7,#0x19]
+    strb       r0,[r7,#Battle_srcBattleHandCount]
     mov        r1,#0x1f
     lsl        r1,r0
     strh       r1,[r5,#0x3c]
@@ -529,10 +529,10 @@ _ts CustomScreen_1_4_0_CloseStart
 _ts CustomScreen_1_4_1_SlideClosed
     push       { lr }
     LoadMain camera, r7, r7
-    ldr        r0,[r7,#0x30]
+    ldr        r0,[r7,#Camera_posMapNext_y]
     ldr        r1,DAT_08015d30
     add        r0,r0,r1
-    str        r0,[r7,#0x30]
+    str        r0,[r7,#Camera_posMapNext_y]
     ldrh       r0,[r5,#0x24]
     add        r0,#0x8
     strh       r0,[r5,#0x24]
@@ -628,7 +628,7 @@ PTR_gTextOptionFlags_08015dc8:
 _ts CustomScreen_1_6_2_ExitBattle
     push       { lr }
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08015e10
@@ -648,7 +648,7 @@ LAB_08015df2:
     strb       r1,[r0,#0xc]
     ldrb       r1,[r0,#0x5]
     strb       r1,[r0,#0xd]
-    ldr        r0,[r7,#0x0]
+    ldr        r0,[r7,#FadeSettings_isApplyFadeFunc]
     mov        r1,#0x4
     strb       r1,[r0,#0x0]
     ldr        r0,[r7,#0x10]
@@ -686,18 +686,18 @@ _ts CustomScreen_2_TakeOrAddChips
     tst        r1,r1
     beq        LAB_08015e42
     mov        r1,#0x5
-    strb       r1,[r7,#0x10]
+    strb       r1,[r7,#Battle_customScreenChipCount]
 LAB_08015e42:
     bl         CustomScreen_TakeSelectedChipsFromDeck
     b          LAB_08015e54
 LAB_08015e48:
-    ldrb       r0,[r7,#0x10]
+    ldrb       r0,[r7,#Battle_customScreenChipCount]
     add        r0,#0x5
     cmp        r0,#0x10
     bmi        LAB_08015e52
     mov        r0,#0xf
 LAB_08015e52:
-    strb       r0,[r7,#0x10]
+    strb       r0,[r7,#Battle_customScreenChipCount]
 LAB_08015e54:
     mov        r0,#0x0
     pop        { pc }
@@ -1106,7 +1106,7 @@ tilemapChipSlotSelected:
 _ts CustomScreen_LoadIcons
     push       { r5, lr }
     LoadMain battle, r7, r7
-    ldrb       r7,[r7,#0x10]
+    ldrb       r7,[r7,#Battle_customScreenChipCount]
     mov        r4,#0x0
 LAB_080162e2:
     mov        r3,#0x0
@@ -1257,7 +1257,7 @@ _ts CustomScreen_UpdateChipSelectPosition
     LoadMain display, r7, r7
     mov        r1,#0x24
     ldrsh      r0,[r5,r1]
-    strh       r0,[r7,#0x18]
+    strh       r0,[r7,#DisplaySettings_bg3Hofs]
     neg        r1,r0
     lsr        r1,r1,#0x3
     add        r1,#0x1
@@ -1558,7 +1558,7 @@ _ts CustomScreen_GetChipDetailFromFolder
     cmp        r0,#0xff
     beq        LAB_08016668
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x30]
+    ldr        r7,[r7,#World_chipFolder]
     lsl        r0,r0,#0x1
     add        r7,r7,r0
     ldrb       r0,[r7,#0x0]
@@ -2129,8 +2129,8 @@ _nt CustomScreenT1_Main
     tst        r2,r2
     beq        LAB_080169fe
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
-    ldrh       r1,[r7,#0x4]
+    ldrh       r0,[r7,#Input_toggleKeyState]
+    ldrh       r1,[r7,#Input_heldKeyState]
 LAB_080169fe:
     strh       r0,[r5,#0x38]
     strh       r1,[r5,#0x3a]
@@ -2406,7 +2406,7 @@ LAB_08016c0c:
     bl         memset_8
     LoadMain battle, r6, r6
     ldrb       r3,[r5,#0xb]
-    strb       r3,[r6,#0x11]
+    strb       r3,[r6,#Battle_customScreenSelectedChipCount]
     tst        r3,r3
     beq        LAB_08016c3e
     add        r6,#0x78
@@ -2443,7 +2443,7 @@ LAB_08016c58:
     ldrb       r1,[r5,#0x5]
     bl         CustomScreen_GetChipSelectIndex
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0x10]
+    ldrb       r1,[r7,#Battle_customScreenChipCount]
     cmp        r0,r1
     bmi        LAB_08016c72
     mov        r0,#0xff
@@ -2609,8 +2609,8 @@ _nt CustomScreenT2_Main
     tst        r2,r2
     beq        LAB_08016da2
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
-    ldrh       r1,[r7,#0x4]
+    ldrh       r0,[r7,#Input_toggleKeyState]
+    ldrh       r1,[r7,#Input_heldKeyState]
 LAB_08016da2:
     strh       r0,[r5,#0x38]
     strh       r1,[r5,#0x3a]
@@ -2843,7 +2843,7 @@ _nt CustomScreenT2_1_2_0_CheckChips
     bl         memset_8
     LoadMain battle, r6, r6
     ldrb       r3,[r5,#0xb]
-    strb       r3,[r6,#0x11]
+    strb       r3,[r6,#Battle_customScreenSelectedChipCount]
     tst        r3,r3
     beq        LAB_08016fba
     add        r6,#0x78
@@ -2880,7 +2880,7 @@ LAB_08016fd4:
     ldrb       r1,[r5,#0x5]
     bl         CustomScreen_GetChipSelectIndex
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0x10]
+    ldrb       r1,[r7,#Battle_customScreenChipCount]
     cmp        r0,r1
     bmi        LAB_08016fee
     mov        r0,#0xff

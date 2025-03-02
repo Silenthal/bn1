@@ -318,7 +318,7 @@ _ts R_CanDevil_1_3_0
     strh       r0,[r5,#Actor_counterA]
     mov        r2,#0x1
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x19]
     ldrb       r1,[r5,#Actor_cPos_y]
     mov        r3,#0x61

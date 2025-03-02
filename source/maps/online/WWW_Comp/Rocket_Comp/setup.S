@@ -68,8 +68,8 @@ _ts MapSetup_Rocket_Comp_F54
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804deb0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804debc
 LAB_0804deb0:
@@ -83,7 +83,7 @@ LAB_0804debc:
     beq        LAB_0804dede
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     bl         Sound_StopAllMusic
     push       {r5}
     ldr        r0,DAT_0804df60
@@ -122,7 +122,7 @@ _ts EventHandler_Rocket_Comp_F54_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

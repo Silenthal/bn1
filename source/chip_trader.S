@@ -11,8 +11,8 @@ _ts InitChipTraderFromScript
     ldr        r5,PTR_gChipTrader_08020108
     strh       r0,[r5,#0x4]
     LoadMain world, r7, r7
-    ldrh       r0,[r7,#0x4]
-    strh       r0,[r7,#0xc]
+    ldrh       r0,[r7,#World_currentArea]
+    strh       r0,[r7,#World_lastArea]
     pop        { pc }
 
 _ts InitChipTrader
@@ -67,14 +67,14 @@ _ts ChipTrader_0_Init
     bl         Dma_TransferListAdd
     LoadMain display, r0, r7
     ldr        r1,INT_080201b4
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0
-    strh       r1,[r0,#0x10]
-    strh       r1,[r0,#0x12]
-    strh       r1,[r0,#0x14]
-    strh       r1,[r0,#0x16]
-    strh       r1,[r0,#0x18]
-    strh       r1,[r0,#0x1a]
+    strh       r1,[r0,#DisplaySettings_bg1Hofs]
+    strh       r1,[r0,#DisplaySettings_bg1Vofs]
+    strh       r1,[r0,#DisplaySettings_bg2Hofs]
+    strh       r1,[r0,#DisplaySettings_bg2Vofs]
+    strh       r1,[r0,#DisplaySettings_bg3Hofs]
+    strh       r1,[r0,#DisplaySettings_bg3Vofs]
     FadeIn_Black
     bl         Video_InitClearTile
     bl         BgUpdate_Init
@@ -122,7 +122,7 @@ _ts ChipTrader_1_Main
     pop        {r5}
     bne        LAB_080201e6
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080201e6
@@ -141,7 +141,7 @@ _ts ChipTrader_4_Sort
     pop        {r5}
     bne        LAB_0802020e
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0802020e
@@ -156,7 +156,7 @@ _ts ChipTrader_3_CloseAndPullChip
     push       {lr}
     bl         ChipTrader_DrawUI
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08020286
@@ -276,7 +276,7 @@ _ts ChipTrader_6_ConfirmTrade
     pop        {r5}
     bne        LAB_08020352
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08020352
@@ -838,7 +838,7 @@ LAB_080208d2:
     cmp        r0,#0x7
     ble        LAB_0802091a
     LoadMain frameCounter, r7, r7
-    ldrh       r7,[r7,#0x0]
+    ldrh       r7,[r7,#FrameCounter_counter]
     mov        r1,#0x10
     and        r1,r7
     ldrh       r0,[r5,#0x14]
@@ -935,7 +935,7 @@ LAB_08020996:
     cmp        r0,#0x7
     ble        LAB_080209de
     LoadMain frameCounter, r7, r7
-    ldrh       r7,[r7,#0x0]
+    ldrh       r7,[r7,#FrameCounter_counter]
     mov        r1,#0x10
     and        r1,r7
     ldrh       r0,[r5,#0xa]
@@ -1204,7 +1204,7 @@ LAB_08020b7a:
     add        r0,r8
     strh       r1,[r5,r0]
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x2
     tst        r1,r0
     beq        LAB_08020ba6
@@ -1661,7 +1661,7 @@ LAB_08020edc:
 _ts ChipTrader_StartSort
     push       {lr}
     LoadMain gameStats, r0, r0
-    ldrb       r1,[r0,#0x2]
+    ldrb       r1,[r0,#GameStats_sortOrderSack]
     strh       r1,[r5,#0x30]
     mov        r0,#0x67
     bl         Sound_PlaySE
@@ -1680,7 +1680,7 @@ _ts ChipTrader_HandleInputSort
     ldrh       r1,[r5,#0x34]
     strh       r1,[r5,#0x36]
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0xa
     tst        r1,r0
     beq        LAB_08020f22
@@ -1698,8 +1698,8 @@ LAB_08020f22:
 LAB_08020f2e:
     ldrh       r2,[r5,#0x30]
     ldrh       r3,[r5,#0x34]
-    ldrh       r0,[r7,#0x4]
-    ldrh       r4,[r7,#0x0]
+    ldrh       r0,[r7,#Input_heldKeyState]
+    ldrh       r4,[r7,#Input_curKeyState]
     mov        r4,#0x1
     mov        r1,#0x40
     tst        r1,r0
@@ -1757,20 +1757,20 @@ _ts ChipTrader_ApplySort
     push       {lr}
     ldrh       r0,[r5,#0x30]
     LoadMain gameStats, r1, r1
-    ldrb       r2,[r1,#0x2]
+    ldrb       r2,[r1,#GameStats_sortOrderSack]
     cmp        r0,r2
     beq        LAB_08020fac
-    strb       r0,[r1,#0x2]
+    strb       r0,[r1,#GameStats_sortOrderSack]
     ldr        r2,PTR_listDefaultSort_08021064
     ldrb       r0,[r2,r0]
-    strb       r0,[r1,#0x3]
+    strb       r0,[r1,#GameStats_sortDirectionSack]
     b          LAB_08020fb6
 LAB_08020fac:
-    strb       r0,[r1,#0x2]
-    ldrb       r0,[r1,#0x3]
+    strb       r0,[r1,#GameStats_sortOrderSack]
+    ldrb       r0,[r1,#GameStats_sortDirectionSack]
     mov        r2,#0x4
     eor        r0,r2
-    strb       r0,[r1,#0x3]
+    strb       r0,[r1,#GameStats_sortDirectionSack]
 LAB_08020fb6:
     bl         Menu_Folder_SortSack
     strh       r0,[r5,#0x18]

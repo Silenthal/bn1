@@ -35,7 +35,7 @@ _ts Video_Init
     bl         Video_SetBgControl
     LoadMain display, r0, r7
     mov        r1,#0x40
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     pop        { pc }
 
 
@@ -129,25 +129,25 @@ _ts Video_ApplySettings
     push       { lr }
     LoadMain display, r5, r7
     ldr        r1,PTR_REG_DISPCNT
-    ldrh       r2,[r5,#0x0]
+    ldrh       r2,[r5,#DisplaySettings_dispcnt]
     strh       r2,[r1,#0x0]
     ldr        r1,PTR_REG_BG0CNT
-    ldr        r2,[r5,#0x4]
+    ldr        r2,[r5,#DisplaySettings_bg0Cnt]
     str        r2,[r1,#0x0]
     ldr        r1,PTR_REG_BG2CNT
-    ldr        r2,[r5,#0x8]
+    ldr        r2,[r5,#DisplaySettings_bg2Cnt]
     str        r2,[r1,#0x0]
     ldr        r1,PTR_REG_BG0HOFS
-    ldr        r2,[r5,#0xc]
+    ldr        r2,[r5,#DisplaySettings_bg0Hofs]
     str        r2,[r1,#0x0]
     ldr        r1,PTR_REG_BG1HOFS
-    ldr        r2,[r5,#0x10]
+    ldr        r2,[r5,#DisplaySettings_bg1Hofs]
     str        r2,[r1,#0x0]
     ldr        r1,PTR_REG_BG2HOFS
-    ldr        r2,[r5,#0x14]
+    ldr        r2,[r5,#DisplaySettings_bg2Hofs]
     str        r2,[r1,#0x0]
     ldr        r1,PTR_REG_BG3HOFS
-    ldr        r2,[r5,#0x18]
+    ldr        r2,[r5,#DisplaySettings_bg3Hofs]
     str        r2,[r1,#0x0]
     ldr        r5,[r7,#0x38]
     ldr        r1,PTR_REG_WIN0H

@@ -14,7 +14,7 @@ _ts PlayerLocation_Handler
     push       {r5}
     ldr        r0,PTR_DAT_08055474
     LoadMain gameStats, r7, r7
-    ldr        r1,[r7,#0x24]
+    ldr        r1,[r7,#GameStats_currStepCounter]
     bl         Debug_Print
     pop        {r5}
     pop        {pc}
@@ -42,7 +42,7 @@ _ts PlayerLocation_0_Init
     strb       r0,[r5,#PlayerLocation_header_entityFlags]
     mov        r1,#0x3
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x4]
+    ldrb       r0,[r7,#World_currentArea]
     mov        r2,#0x80
     cmp        r0,r2
     bmi        LAB_08055496
@@ -94,7 +94,7 @@ LAB_08055496:
     ldr        r1,PTR_gNpcTalkState_08055508
     strb       r0,[r1,#0x0]
     LoadMain world, r7, r7
-    strb       r0,[r7,#0x1a]
+    strb       r0,[r7,#World_isTalkingToNPC]
     strh       r0,[r5,#PlayerLocation_stuckTimer]
     bl         PlayerLocation_1_Main
     pop        {pc}
@@ -109,7 +109,7 @@ _ts PlayerLocation_1_Main
     push       {lr}
     mov        r0,#0x0
     LoadMain world, r7, r7
-    strb       r0,[r7,#0x1b]
+    strb       r0,[r7,#World_pressedA]
     strb       r0,[r5,#PlayerLocation_lastMoveType]
     strb       r0,[r5,#PlayerLocation_moveType]
     ldrb       r1,[r5,#0xE]
@@ -159,23 +159,23 @@ LAB_08055564:
     beq        LAB_080555a4
     ldrb       r1,[r5,#PlayerLocation_lastMoveType]
     LoadMain gameStats, r7, r7
-    ldr        r0,[r7,#0x24]
+    ldr        r0,[r7,#GameStats_currStepCounter]
     add        r0,r0,r1
-    str        r0,[r7,#0x24]
+    str        r0,[r7,#GameStats_currStepCounter]
     ldr        r0,[r5,#PlayerLocation_stepCounter]
     add        r0,r0,r1
     str        r0,[r5,#PlayerLocation_stepCounter]
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_080555a4
-    ldrh       r0,[r7,#0x10]
+    ldrh       r0,[r7,#GameStats_totalStepCounter]
     add        r0,r0,r1
     ldr        r2,DAT_080555d0
     cmp        r0,r2
     blt        LAB_080555a2
     add        r0,r2,#0x0
 LAB_080555a2:
-    strh       r0,[r7,#0x10]
+    strh       r0,[r7,#GameStats_totalStepCounter]
 LAB_080555a4:
     bl         FUN_08055fa8
     pop        {pc}
@@ -660,7 +660,7 @@ PTR_gNpcTalkState_08055968:
 _ts PlayerLocation_1_3_2_EndTalking
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x1a]
+    ldrb       r0,[r7,#World_isTalkingToNPC]
     tst        r0,r0
     bne        LAB_08055984
     mov        r0,#0x0
@@ -698,7 +698,7 @@ _ts PlayerLocation_1_4_0_ShowCommentary
     strb       r0,[r5,#PlayerLocation_state_s2]
     push       {r5}
     LoadMain world, r0, r0
-    ldrb       r0,[r0,#0x12]
+    ldrb       r0,[r0,#World_commentaryTextIndex]
     bl         Text_LoadCommentaryDialogue
     pop        {r5}
     pop        {pc}
@@ -857,7 +857,7 @@ _ts PlayerLocation_UpdateMoveFlags
     mov        r8,sp
     mov        r0,#0x0
     LoadMain fade, r7, r7
-    ldrb       r1,[r7,#0x3]
+    ldrb       r1,[r7,#FadeSettings_isFadeActive]
     mov        r2,#0x1
     cmp        r1,r2
     beq        LAB_08055b60
@@ -870,7 +870,7 @@ _ts PlayerLocation_UpdateMoveFlags
     strb       r0,[r5,#PlayerLocation_lastDirection]
     mov        r0,#0x0
     LoadMain input, r7, r7
-    ldrh       r1,[r7,#0x2]
+    ldrh       r1,[r7,#FadeSettings_fadeStep]
     mov        r2,#0x1
     tst        r2,r1
     beq        LAB_08055b2c
@@ -900,7 +900,7 @@ _ts PlayerLocation_UpdateMoveFlags
     push       {r7}
     LoadMain world, r7, r7
     mov        r2,#0x1
-    strb       r2,[r7,#0x1b]
+    strb       r2,[r7,#World_pressedA]
     pop        {r7}
 LAB_08055b2c:
     ldr        r2,DAT_08055b84
@@ -913,7 +913,7 @@ LAB_08055b2c:
     ldr        r2,DAT_08055b88
     orr        r0,r2
 LAB_08055b40:
-    ldrh       r1,[r7,#0x0]
+    ldrh       r1,[r7,#World_state_s0]
     mov        r2,#0xf0
     and        r2,r1
     beq        LAB_08055b60
@@ -998,15 +998,15 @@ _ts PlayerLocation_IsCommentary
     and        r0,r1
     beq        LAB_08055bec
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x1a]
-    ldrb       r1,[r7,#0x1b]
+    ldrb       r0,[r7,#World_isTalkingToNPC]
+    ldrb       r1,[r7,#World_pressedA]
     add        r0,r0,r1
     bne        LAB_08055bec
     mov        r0,#0x40
     bl         StartMenu_GetState
     bne        LAB_08055bec
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#World_state_s3]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08055bec
@@ -1051,7 +1051,7 @@ _ts PlayerLocation_InitHitboxes
     add        r1,r1,r5
     bl         PlayerLocation_AddHitbox
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x1b]
+    ldrb       r0,[r7,#World_pressedA]
     tst        r0,r0
     beq        LAB_08055c3e
     mov        r0,#0x40
@@ -1256,7 +1256,7 @@ _ts PlayerLocation_Events_0_Update
 LAB_08055ed4:
     ldrb       r0,[r5,#0xF]
     LoadMain world, r7, r7
-    strb       r0,[r7,#0xe]
+    strb       r0,[r7,#World_curEventFlag]
 LAB_08055edc:
     mov        r0,#0x0
     pop        {pc}
@@ -1270,7 +1270,7 @@ _ts PlayerLocation_Events_1_WaitTalk
     bne        LAB_08055efa
     mov        r0,#0x1
     LoadMain world, r7, r7
-    strb       r0,[r7,#0x1a]
+    strb       r0,[r7,#World_isTalkingToNPC]
     mov        r0,#0x2
     strb       r0,[r5,#PlayerLocation_family_b3]
     mov        r0,#0x1
@@ -1284,7 +1284,7 @@ _nt PlayerLocation_Events_2_Talking
     push       {lr}
     mov        r0,#0x1
     LoadMain world, r7, r7
-    strb       r0,[r7,#0x1a]
+    strb       r0,[r7,#World_isTalkingToNPC]
     mov        r0,#0x1
     pop        {pc}
 
@@ -1435,14 +1435,14 @@ _ts PlayerLocation_Create
     tst        r5,r5
     beq        LAB_08056042
     LoadMain world, r6, r6
-    str        r5,[r6,#0x28]
-    ldr        r1,[r6,#0x38]
+    str        r5,[r6,#World_playerLocation]
+    ldr        r1,[r6,#World_savedPos_x]
     str        r1,[r5,#PlayerLocation_pos_curr_x]
-    ldr        r1,[r6,#0x3c]
+    ldr        r1,[r6,#World_savedPos_y]
     str        r1,[r5,#PlayerLocation_pos_curr_y]
-    ldr        r1,[r6,#0x40]
+    ldr        r1,[r6,#World_savedPos_z]
     str        r1,[r5,#PlayerLocation_pos_curr_z]
-    ldr        r1,[r6,#0x44]
+    ldr        r1,[r6,#World_savedDirection]
     strb       r1,[r5,#PlayerLocation_direction]
 LAB_08056042:
     pop        {pc}
@@ -1543,7 +1543,7 @@ PTR_gPlayerAnimation_080560bc:
 _ts EnableElevationCheck
     push       {lr}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0x1
     strb       r0,[r7,#0x17]
     pop        {pc}
@@ -1552,7 +1552,7 @@ _ts EnableElevationCheck
 _nt DisableElevationCheck
     push       {lr}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0x0
     strb       r0,[r7,#0x17]
     pop        {pc}
@@ -1561,7 +1561,7 @@ _nt DisableElevationCheck
 _ts EnableBoundaryCheck
     push       {lr}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0x1
     strb       r0,[r7,#0xc]
     pop        {pc}
@@ -1570,7 +1570,7 @@ _ts EnableBoundaryCheck
 _nt DisableBoundaryCheck
     push       {lr}
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r0,#0x0
     strb       r0,[r7,#0xc]
     pop        {pc}
@@ -1580,7 +1580,7 @@ _ts PlayerLocation_IsCommentaryState
     push       {r1,r7,lr}
     mov        r0,#0x0
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     ldrb       r1,[r7,#0x9]
     cmp        r1,#0x10
     bne        LAB_0805610a

@@ -127,7 +127,7 @@ _ts SD_PharaohMan_2_Free
     strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809b194:
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     cmp        r0,#0x1
     beq        LAB_0809b1aa
     push       {r5}

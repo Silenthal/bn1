@@ -83,8 +83,8 @@ _ts MapSetup_Waterworks_Comp_1_F25
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804598e
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804599a
 LAB_0804598e:
@@ -180,8 +180,8 @@ LAB_08045a3a:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08045a4e
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08045a5a
 LAB_08045a4e:
@@ -233,14 +233,14 @@ _ts FUN_08045a8c
     bne        LAB_08045adc
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x10
     beq        LAB_08045ace
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#World_storyFlag]
     lsr        r7,r7,#0x4
     cmp        r7,#0x2
     bne        LAB_08045adc
@@ -273,7 +273,7 @@ _ts FUN_08045ae0
     bl         Text_CheckOption
     bne        LAB_08045b36
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0xe]
+    ldrb       r1,[r7,#World_curEventFlag]
     cmp        r1,#0x20
     blt        LAB_08045b36
     cmp        r1,#0x2a
@@ -285,7 +285,7 @@ _ts FUN_08045ae0
     ldrb       r0,[r7,#0x5]
     cmp        r0,#0x1
     bne        LAB_08045b26
-    ldrb       r0,[r7,#0xe]
+    ldrb       r0,[r7,#World_curEventFlag]
     cmp        r0,#0x21
     bne        LAB_08045b26
     push       {r5}
@@ -298,7 +298,7 @@ _ts FUN_08045ae0
 LAB_08045b26:
     push       {r5}
     ldr        r0,PTR_Scene_Waterworks_Comp_TurnHandle_08045bb8
-    ldrb       r1,[r7,#0xe]
+    ldrb       r1,[r7,#World_curEventFlag]
     bl         Scene_Prepare
     pop        {r5}
     mov        r0,#0x0
@@ -318,7 +318,7 @@ _ts FUN_08045b3c
     bl         Text_CheckOption
     bne        LAB_08045b6a
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0xe]
+    ldrb       r1,[r7,#World_curEventFlag]
     cmp        r1,#0x20
     blt        LAB_08045b6a
     cmp        r1,#0x2a
@@ -465,8 +465,8 @@ _ts MapSetup_Waterworks_Comp_1_F30
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08045c6e
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08045c7a
 LAB_08045c6e:

@@ -12,7 +12,7 @@ _ts Effect_BattleResult
     bx         r7
     LoadMain display, r7, r7
     ldrh       r0,[r5,#0x2A]
-    strh       r0,[r7,#0x18]
+    strh       r0,[r7,#DisplaySettings_bg3Hofs]
     pop        {pc}
 
     .align 2, 0
@@ -173,7 +173,7 @@ _ts E_BattleResult_1_0_1_WaitForSlideIn
     bpl        LAB_0807cfa2
     mov        r0,#0x0
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0xf]
+    ldrb       r1,[r7,#World_battleType]
     cmp        r1,#0x8
     bge        LAB_0807cf9a
     mov        r1,#0x8
@@ -192,7 +192,7 @@ LAB_0807cfa2:
 _nt E_BattleResult_1_0_2_WaitButton
     push       {lr}
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0807cfc4
@@ -205,7 +205,7 @@ _nt E_BattleResult_1_0_2_WaitButton
     pop        {pc}
 LAB_0807cfc4:
     LoadMain frameCounter, r7, r7
-    ldrh       r0,[r7,#0x0]
+    ldrh       r0,[r7,#Input_curKeyState]
     mov        r1,#0x8
     and        r0,r1
     lsr        r0,r0,#0x3
@@ -216,7 +216,7 @@ LAB_0807cfc4:
 _nt E_BattleResult_1_0_3_WaitButtonMP
     push       {lr}
     LoadMain frameCounter, r7, r7
-    ldrh       r0,[r7,#0x0]
+    ldrh       r0,[r7,#FrameCounter_counter]
     mov        r1,#0x8
     and        r0,r1
     lsr        r0,r0,#0x3
@@ -240,7 +240,7 @@ PTR_E_BattleResult_1_0_3_0_0807cff8:
 _ts E_BattleResult_1_0_3_0
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0x1e]
+    ldrb       r1,[r7,#Battle_mpState]
     cmp        r1,#0x4
     bne        LAB_0807d024
     bl         BattleMP_GetMatchState
@@ -254,7 +254,7 @@ _ts E_BattleResult_1_0_3_0
     b          LAB_0807d038
 LAB_0807d024:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Battle_state_s2]
     mov        r1,#0x1
     tst        r0,r1
     beq        LAB_0807d038
@@ -272,7 +272,7 @@ LAB_0807d038:
 _nt E_BattleResult_1_0_3_1
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1e]
+    ldrb       r0,[r7,#Battle_mpState]
     cmp        r0,#0x4
     bne        LAB_0807d086
     bl         BattleMP_GetMatchState
@@ -283,7 +283,7 @@ _nt E_BattleResult_1_0_3_1
     cmp        r2,#0x2
     bne        LAB_0807d086
     LoadMain world, r7, r7
-    ldrb       r2,[r7,#0x10]
+    ldrb       r2,[r7,#Battle_customScreenChipCount]
     cmp        r2,#0x0
     beq        LAB_0807d074
     ldrb       r0,[r1,#0x3]
@@ -311,7 +311,7 @@ LAB_0807d08e:
 _ts E_BattleResult_1_0_3_2_RewardGiveTakeChip
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1e]
+    ldrb       r0,[r7,#Battle_mpState]
     cmp        r0,#0x4
     bne        LAB_0807d0f6
     bl         BattleMP_GetMatchState
@@ -322,7 +322,7 @@ _ts E_BattleResult_1_0_3_2_RewardGiveTakeChip
     cmp        r2,#0x4
     bne        LAB_0807d0f6
     LoadMain world, r7, r7
-    ldrb       r2,[r7,#0x10]
+    ldrb       r2,[r7,#Battle_customScreenChipCount]
     cmp        r2,#0x0
     beq        LAB_0807d0c2
     ldrb       r0,[r5,#Effect_be]
@@ -339,7 +339,7 @@ LAB_0807d0c2:
     bl         Inventory_AddChip
 LAB_0807d0d0:
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x10]
+    ldrb       r0,[r7,#Battle_customScreenChipCount]
     mov        r1,#0x1
     eor        r0,r1
     bl         IncrementMPCounters
@@ -504,7 +504,7 @@ LAB_0807d1ce:
     bl         ArrayShuffle
     bl         Rng_RandomInt
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0xb]
+    ldrb       r1,[r7,#Battle_maxEnemyCount]
     bl         SWI_Div
     mov        r3,#0x64
     add        r3,r3,r1
@@ -656,7 +656,7 @@ LAB_0807d302:
 
 _ts E_BattleResult_1_1_2_RewardWaitInput
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x9
     tst        r0,r1
     beq        LAB_0807d314
@@ -840,7 +840,7 @@ PTR_E_BattleResult_1_2_2_0_0807d434:
 _ts E_BattleResult_1_2_2_0
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0x1e]
+    ldrb       r1,[r7,#Battle_mpState]
     cmp        r1,#0x4
     bne        LAB_0807d460
     bl         BattleMP_GetMatchState
@@ -854,7 +854,7 @@ _ts E_BattleResult_1_2_2_0
     b          LAB_0807d474
 LAB_0807d460:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Battle_state_s2]
     mov        r1,#0x9
     tst        r0,r1
     beq        LAB_0807d474
@@ -871,7 +871,7 @@ LAB_0807d474:
 _ts E_BattleResult_1_2_2_1
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1e]
+    ldrb       r0,[r7,#Battle_mpState]
     cmp        r0,#0x4
     bne        LAB_0807d4a4
     bl         BattleMP_GetMatchState
@@ -896,7 +896,7 @@ LAB_0807d4aa:
 _ts E_BattleResult_1_2_2_2
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1e]
+    ldrb       r0,[r7,#Battle_mpState]
     cmp        r0,#0x4
     bne        LAB_0807d4d2
     bl         BattleMP_GetMatchState
@@ -922,7 +922,7 @@ _nt E_BattleResult_2_Free
     push       {lr}
     mov        r0,#0x1
     LoadMain battle, r7, r7
-    strb       r0,[r7,#0x3]
+    strb       r0,[r7,#Battle_state_s3]
     bl         Effect_Free
     pop        {pc}
 
@@ -1336,7 +1336,7 @@ _ts E_BattleResult_LoadZennyDetailText
     sub        sp,#0x70
     mov        r6,sp
     LoadMain textUI, r7, r7
-    str        r0,[r7,#0x4]
+    str        r0,[r7,#TextUI_numberBuffer]
     push       {r6}
     ldr        r0,PTR_TextData_BattleMessages_0807d7a4
     mov        r1,#0x5

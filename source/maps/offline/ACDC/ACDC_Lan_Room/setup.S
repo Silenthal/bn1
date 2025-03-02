@@ -63,7 +63,7 @@ _ts MapSetup_ACDC_Lan_Room_F00
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0xff
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#World_commentaryTextIndex]
 LAB_0802cade:
     push       {r5}
     Flag_GetBase 0x90
@@ -149,14 +149,14 @@ _ts EventHandler_ACDC_Lan_Room_F00_1
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#World_commentaryTextIndex]
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
     b          LAB_0802cbc4
 LAB_0802cba4:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -195,14 +195,14 @@ _ts EventHandler_ACDC_Lan_Room_F00_3
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x40
     bne        LAB_0802cc24
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0802cf2c
     and        r1,r0
     beq        LAB_0802cc24
@@ -279,7 +279,7 @@ _ts EventHandler_ACDC_Lan_Room_F02_0
     beq        LAB_0802ccca
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -509,7 +509,7 @@ _ts EventHandler_ACDC_Lan_Room_F06_0
     bl         Scene_Prepare
     LoadMain world, r0, r0
     mov        r1,#0x10
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     Flag_SetEvent 0x28
     bl         FUN_080102e8
     pop        {r5}
@@ -520,7 +520,7 @@ LAB_0802ce6e:
     bl         FUN_0802ce90
     beq        LAB_0802ce8a
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0xe]
+    ldrb       r1,[r0,#World_curEventFlag]
     cmp        r1,#0xf3
     bne        LAB_0802ce8a
     push       {r5}
@@ -540,7 +540,7 @@ _ts EventHandler_ACDC_Lan_Room_F06_1
 _ts FUN_0802ce90
     push       {lr}
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0802cf2c
     mvn        r0,r0
     and        r1,r0
@@ -573,7 +573,7 @@ LAB_0802ced0:
 _ts FUN_0802ced4
     push       {lr}
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0802cf2c
     mvn        r0,r0
     and        r1,r0
@@ -801,7 +801,7 @@ _ts EventHandler_ACDC_Lan_Room_F21_0
     beq        LAB_0802d0ae
     LoadMain world, r0, r0
     mov        r1,#0x22
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
 LAB_0802d0ae:
     pop        {pc}
 
@@ -844,7 +844,7 @@ _ts EventHandler_ACDC_Lan_Room_F22_0
     Flag_GetEmailUnread 0x07
     bne        LAB_0802d114
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0xe]
+    ldrb       r1,[r0,#World_curEventFlag]
     cmp        r1,#0xf3
     bne        LAB_0802d114
     push       {r5}
@@ -867,21 +867,21 @@ LAB_0802d12c:
 _nt EventHandler_ACDC_Lan_Room_F22_1
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0802d15c
     LoadMain world, r0, r0
     mov        r1,#0x23
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#World_lastBattleResult]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#World_commentaryTextIndex]
     ldr        r1,PTR_MapEntrance_0802d210
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#World_statAttack]
     bl         World_ChangeMap
     pop        {r5}
 LAB_0802d15c:
@@ -905,9 +905,9 @@ _ts MapSetup_ACDC_Lan_Room_F23
     bne        LAB_0802d198
     LoadMain world, r7, r7
     mov        r1,#0x8
-    strb       r1,[r7,#0x7]
+    strb       r1,[r7,#World_fadeType]
     mov        r1,#0xff
-    strb       r1,[r7,#0x13]
+    strb       r1,[r7,#World_fadeStep]
     b          LAB_0802d1b0
 LAB_0802d198:
     push       {r5}
@@ -1198,7 +1198,7 @@ _ts EventHandler_ACDC_Lan_Room_F52_0
     beq        LAB_0802d3c6
     LoadMain world, r0, r0
     mov        r1,#0x53
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     push       {r5}
     ldr        r0,DAT_0802d464
     mov        r1,#0x16
@@ -1208,7 +1208,7 @@ LAB_0802d3c6:
     Flag_GetBase 0x9E
     beq        LAB_0802d3e4
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0xe]
+    ldrb       r1,[r0,#World_curEventFlag]
     cmp        r1,#0xf3
     bne        LAB_0802d3e4
     push       {r5}

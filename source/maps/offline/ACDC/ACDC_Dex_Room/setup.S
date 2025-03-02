@@ -119,14 +119,14 @@ _ts FUN_0802ddf4
     bne        LAB_0802de34
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x40
     bne        LAB_0802de34
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0802de58
     mvn        r0,r0
     and        r1,r0
@@ -367,7 +367,7 @@ LAB_0802e00a:
     beq        LAB_0802e01a
     LoadMain world, r0, r0
     mov        r1,#0x22
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
 LAB_0802e01a:
     pop        {pc}
 

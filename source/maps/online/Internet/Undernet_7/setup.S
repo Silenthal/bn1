@@ -45,8 +45,8 @@ _nt MapSetup_Undernet_7
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0805353c
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08053550
 LAB_0805353c:
@@ -123,7 +123,7 @@ _ts EventHandler_Undernet_7_0
     Flag_GetBase 0x7F
     bne        LAB_0805360a
     LoadMain world, r4, r7
-    ldrb       r0,[r4,#0x19]
+    ldrb       r0,[r4,#World_bustingRank]
     cmp        r0,#0x4
     bge        LAB_080535de
     mov        r0,#0x1
@@ -153,7 +153,7 @@ LAB_0805360a:
     beq        LAB_08053640
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

@@ -24,7 +24,7 @@ _ts InitPetStatusControl
     bl         memcpy_32
     pop        {r5}
     mov        r0,#0x4
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#PetStatusControl_state]
     bl         PETBattery_Disable
     pop        {pc}
 
@@ -32,7 +32,7 @@ _ts InitPetStatusControl
 _ts PetStatusControl_Main
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0x4]
+    ldrb       r1,[r0,#World_currentArea]
     cmp        r1,#0x80
     bge        LAB_080172d8
     ldr        r5,[r7,#0x60]
@@ -257,7 +257,7 @@ petAlertAnimationFrames:
 _ts PetStatusControl_SetState
     push       {lr}
     LoadMain petStatusControl, r5, r7
-    strb       r0,[r5,#0x4]
+    strb       r0,[r5,#PetStatusControl_state]
     cmp        r0,#0x14
     blt        LAB_080174ae
     mov        r0,#0xaa

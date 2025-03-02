@@ -349,7 +349,7 @@ _ts R_FireMan_1_3_0_FindNextPanel
     mov        r7,sp
     mov        r0,#0x0
     LoadMain battle, r6, r6
-    ldr        r6,[r6,#0x40]
+    ldr        r6,[r6,#Battle_actorListPlayer]
     ldrb       r1,[r6,#0x19]
     bl         Field_FindWalkablePlayerPanelsRight
     tst        r1,r1
@@ -589,7 +589,7 @@ _ts R_FireMan_1_4_0_FindNextPanel
     mov        r7,sp
     mov        r0,#0x1
     LoadMain battle, r6, r6
-    ldr        r6,[r6,#0x40]
+    ldr        r6,[r6,#Battle_actorListPlayer]
     ldrb       r1,[r6,#0x19]
     bl         Field_FindWalkablePlayerPanelsLeft
     tst        r1,r1
@@ -695,7 +695,7 @@ _ts R_FireMan_1_4_4_FlameTower
     ldrb       r0,[r5,#Actor_cPos_x]
     ldrb       r1,[r5,#Actor_cPos_y]
     LoadMain battle, r7, r7
-    ldr        r2,[r7,#0x40]
+    ldr        r2,[r7,#Battle_actorListPlayer]
     add        r2,#0x2c
     mov        r4,#0x1
     ldr        r7,[r5,#Actor_param_7C]

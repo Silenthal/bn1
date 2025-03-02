@@ -96,8 +96,8 @@ LAB_0805235c:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08052370
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_080523be
 LAB_08052370:
@@ -245,7 +245,7 @@ LAB_0805247c:
 LAB_08052490:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -261,7 +261,7 @@ LAB_08052490:
 LAB_080524b8:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -290,7 +290,7 @@ LAB_080524f0:
     Flag_GetBase 0x17
     bne        LAB_0805250e
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x21
     bne        LAB_0805250e
     mov        r1,#0x17

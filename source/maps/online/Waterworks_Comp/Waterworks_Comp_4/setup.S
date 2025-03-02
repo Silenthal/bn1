@@ -88,8 +88,8 @@ LAB_0804635c:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804638e
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804639a
 LAB_0804638e:
@@ -105,7 +105,7 @@ LAB_0804639a:
     bne        LAB_080463be
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_2C_08046458
     mov        r1,#0x0
@@ -146,7 +146,7 @@ _ts EventHandler_Waterworks_Comp_4_F25_0
     beq        LAB_0804641e
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -287,8 +287,8 @@ _ts MapSetup_Waterworks_Comp_4_F30
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08046516
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08046522
 LAB_08046516:

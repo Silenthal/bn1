@@ -82,7 +82,7 @@ _ts SD_ShadowMan_1_1
     mov        r0,#0x14
     add        r0,r0,r5
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0xf]
+    ldrb       r1,[r7,#World_battleType]
     cmp        r1,#0x8
     bge        LAB_0809b276
     bl         SD_ShadowMan_FindTargets
@@ -152,7 +152,7 @@ _nt SD_ShadowMan_2_Free
     strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809b2f2:
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     cmp        r0,#0x1
     beq        LAB_0809b308
     push       {r5}

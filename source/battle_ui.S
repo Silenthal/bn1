@@ -38,30 +38,30 @@ _ts BattleUi_Update
 _ts BattleUi_SetState
     push       { r1, r2, lr }
     LoadMain battleUi, r2, r2
-    ldrb       r1,[r2,#0x4]
+    ldrb       r1,[r2,#BattleUI_uiFlag]
     orr        r1,r0
-    strb       r1,[r2,#0x4]
+    strb       r1,[r2,#BattleUI_uiFlag]
     pop        { r1, r2, pc }
 
 _ts BattleUi_ClearState
     push       { r1, r2, lr }
     LoadMain battleUi, r2, r2
-    ldrb       r1,[r2,#0x4]
+    ldrb       r1,[r2,#BattleUI_uiFlag]
     bic        r1,r0
-    strb       r1,[r2,#0x4]
+    strb       r1,[r2,#BattleUI_uiFlag]
     pop        { r1, r2, pc }
 
 _ts BattleUi_CheckState
     push       { r1, r2, lr }
     LoadMain battleUi, r2, r2
-    ldrb       r1,[r2,#0x4]
+    ldrb       r1,[r2,#BattleUI_uiFlag]
     and        r0,r1
     pop        { r1, r2, pc }
 
 _ts BattleUi_CheckDrawPlayerHp
     push       { lr }
     LoadMain battle, r3, r3
-    ldr        r3,[r3,#0x40]
+    ldr        r3,[r3,#Battle_actorListPlayer]
     ldrh       r0,[r3,#0x20]
     ldrh       r1,[r3,#0x22]
     lsr        r1,r1,#0x2
@@ -80,7 +80,7 @@ _ts BattleUi_CheckDrawPlayerHp
     pop        { r3 }
     beq        LAB_0801547c
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x9]
+    ldrb       r7,[r7,#World_IsBattleTimePaused]
     tst        r7,r7
     bne        LAB_0801547c
     mov        r0,#0xd7
@@ -213,8 +213,8 @@ _ts BattleUi_InitHpDisplay
     LoadMain battle, r3, r3
     ldr        r3,[r3,#0x40]
     ldrh       r1,[r3,#0x20]
-    strh       r1,[r5,#0x8]
-    strh       r1,[r5,#0xa]
+    strh       r1,[r5,#BattleUI_hpDisplay]
+    strh       r1,[r5,#BattleUI_hpActual]
     pop        { pc }
 
 _ts BattleUi_ClearHpDisplay
@@ -320,7 +320,7 @@ _ts BattleUi_DrawFullCustomGauge
     mov        r0,#0x40
     bl         BattleUi_SetState
     mov        r0,#0x0
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#BattleUI_isCustomGaugeRising]
     bl         dummy_15678
     bl         BattleUi_LoadCustomMapTileMap
     pop        { pc }
@@ -526,7 +526,7 @@ _ts CheckDrawActiveChip
     beq        LAB_080157fc
     bl         BattleUi_InitActiveChipTileMap
     LoadMain matchBattleState, r6, r7
-    ldrb       r2,[r6,#0x1]
+    ldrb       r2,[r6,#MatchBattleState_p1_chipsUsedCount]
     add        r2,#0x6a
     ldrb       r0,[r6,r2]
     cmp        r0,#0xff

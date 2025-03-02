@@ -272,7 +272,7 @@ _ts FUN_03007900
     bl         FUN_0300796c
     bl         FUN_03007994
     LoadMain battle, r2, r2
-    ldrb       r2,[r2,#0x16]
+    ldrb       r2,[r2,#Battle_multiDeleteTempCounter]
     tst        r2,r2
     beq        LAB_03007928
     mov        r2,#0x80
@@ -560,7 +560,7 @@ DAT_03007af0:
 _ts FUN_03007af4
     push       {r5,lr}
     LoadMain gameStats, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#GameStats_u6]
     mov        r6,#0x1e
     mul        r7,r6
     mov        r12,r7

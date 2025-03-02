@@ -686,8 +686,8 @@ _nt FUN_0804ebca
     bl         Entity_AllocList
     pop        {r5}
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x4]
-    ldrb       r2,[r7,#0xc]
+    ldrb       r1,[r7,#World_currentArea]
+    ldrb       r2,[r7,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804ec0c
     ldr        r7,[r7,#0x78]
@@ -725,7 +725,7 @@ _ts FUN_0804ec28
     push       {lr}
     push       {r5}
     LoadMain world, r7, r7
-    ldr        r0,[r7,#0x28]
+    ldr        r0,[r7,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -739,8 +739,8 @@ _ts FUN_0804ec28
     ldrb       r1,[r7,#0x5]
     lsl        r1,r1,#0x2
     LoadMain gameStats, r7, r7
-    ldrb       r6,[r7,#0x4]
-    strb       r0,[r7,#0x4]
+    ldrb       r6,[r7,#World_currentArea]
+    strb       r0,[r7,#World_currentArea]
     mov        r8,r0
     ldr        r7,PTR_PTR_0804ed30
     ldr        r7,[r7,r1]
@@ -779,7 +779,7 @@ LAB_0804ec74:
 LAB_0804eca8:
     LoadMain gameStats, r7, r7
     mov        r0,#0x0
-    strb       r0,[r7,#0x4]
+    strb       r0,[r7,#World_currentArea]
 LAB_0804ecb0:
     pop        {pc}
 

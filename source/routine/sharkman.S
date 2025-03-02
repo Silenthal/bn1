@@ -124,10 +124,10 @@ LAB_0806594a:
     ldr        r0,[r5,#Actor_param_70]
     bl         FieldObject_Disable
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#Battle_battleState]
     mov        r1,#0x4
     bic        r0,r1
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#Battle_battleState]
     mov        r0,#0x4
     str        r0,[r5,#Actor_state_s0]
     mov        r0,#0x4
@@ -529,10 +529,10 @@ _ts R_SharkMan_1_6_0_Emerge
     mov        r0,#0x35
     strh       r0,[r5,#Actor_counterA]
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#Battle_battleState]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#Battle_battleState]
     mov        r0,#0x4
     strh       r0,[r5,#Actor_state_s2]
     pop        {pc}
@@ -556,7 +556,7 @@ _nt R_SharkMan_1_6_1_AquaTower
     add        r0,#0x1
     ldrb       r1,[r5,#Actor_cPos_y]
     LoadMain battle, r2, r2
-    ldr        r2,[r2,#0x40]
+    ldr        r2,[r2,#Battle_actorListPlayer]
     add        r2,#0x2c
     mov        r3,#0x3
     mov        r4,#0x2
@@ -620,10 +620,10 @@ _ts R_SharkMan_1_6_4_SetState
     bic        r0,r1
     strb       r0,[r5,#Actor_header_entityFlags]
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#Battle_battleState]
     mov        r1,#0x4
     bic        r0,r1
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#Battle_battleState]
     mov        r0,#0x14
     strh       r0,[r5,#Actor_state_s2]
 LAB_08065cf8:
@@ -1135,7 +1135,7 @@ LAB_08066086:
     pop        {pc}
 LAB_08066096:
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x19]
     ldrb       r1,[r5,#Actor_cPos_y]
     cmp        r0,r1

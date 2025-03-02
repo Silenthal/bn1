@@ -19,11 +19,11 @@ _ts Effect_BattleChip
     b          LAB_0807c0f2
 LAB_0807c08c:
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#Battle_battleState]
     mov        r1,#0x2
     tst        r0,r1
     beq        LAB_0807c0f2
-    ldrb       r0,[r7,#0x18]
+    ldrb       r0,[r7,#Battle_isScreenDimChipActive]
     tst        r0,r0
     bne        LAB_0807c0f2
     ldrb       r0,[r6,#0x13]
@@ -34,12 +34,12 @@ LAB_0807c08c:
     lsl        r1,r1,#0x10
     mov        r7,r8
     ldr        r0,[r6,#0x28]
-    str        r0,[r7,#0x0]
+    str        r0,[r7,#Battle_state_s0]
     ldr        r0,[r6,#0x2c]
-    str        r0,[r7,#0x4]
+    str        r0,[r7,#Battle_initialActorCount]
     ldr        r0,[r6,#0x30]
     add        r0,r0,r1
-    str        r0,[r7,#0x8]
+    str        r0,[r7,#Battle_battleEntryState]
     add        r0,r7,#0x0
     bl         Entity_BattlePosToScreenPos
     tst        r2,r2
@@ -128,7 +128,7 @@ LAB_0807c14e:
 _nt Effect_BattleChip_DrawHand
     push       {r5,lr}
     LoadMain battle, r7, r7
-    ldr        r0,[r7,#0x40]
+    ldr        r0,[r7,#Battle_actorListPlayer]
     bl         Effect_BattleChip_Create
     pop        {r5,pc}
 

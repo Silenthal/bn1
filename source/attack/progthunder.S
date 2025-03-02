@@ -79,7 +79,7 @@ _ts A_ProgThunder_1_0
     mov        r0,#0x0
     bl         FieldObject_UpdateField
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1a]
+    ldrb       r0,[r7,#Battle_sioOwnerId]
     ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     ldr        r7,PTR_PTR_ARRAY_08075da0

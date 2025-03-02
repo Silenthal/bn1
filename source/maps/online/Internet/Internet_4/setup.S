@@ -59,8 +59,8 @@ _ts MapSetup_Internet_4
     bl         Map_LoadNPCList
     pop        {r5}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08052986
     push       {r5}
@@ -82,7 +82,7 @@ LAB_080529a2:
     Flag_ClearEvent 0x2F
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_ChangeMap_08052b04
     mov        r1,#0x1a
@@ -146,7 +146,7 @@ LAB_08052a12:
     pop        {pc}
 LAB_08052a34:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08052a4a
     push       {r5}
@@ -157,7 +157,7 @@ LAB_08052a34:
 LAB_08052a4a:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -169,7 +169,7 @@ LAB_08052a4a:
     bl         KeyItem_IsPresent
     bne        LAB_08052a82
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     ldr        r0,[r7,#0x10]
     add        r0,#0x4
     mov        r2,#0x7

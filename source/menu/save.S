@@ -76,14 +76,14 @@ _ts Menu_Save_0_Init
     strb       r1,[r5,#0xc]
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801e86c
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0
-    strh       r1,[r0,#0x10]
-    strh       r1,[r0,#0x12]
-    strh       r1,[r0,#0x14]
-    strh       r1,[r0,#0x16]
-    strh       r1,[r0,#0x18]
-    strh       r1,[r0,#0x1a]
+    strh       r1,[r0,#DisplaySettings_bg1Hofs]
+    strh       r1,[r0,#DisplaySettings_bg1Vofs]
+    strh       r1,[r0,#DisplaySettings_bg2Hofs]
+    strh       r1,[r0,#DisplaySettings_bg2Vofs]
+    strh       r1,[r0,#DisplaySettings_bg3Hofs]
+    strh       r1,[r0,#DisplaySettings_bg3Vofs]
     push       {r5}
     FadeIn_Black
     bl         Video_InitClearTile
@@ -146,7 +146,7 @@ _ts Menu_Save_2_Close
     push       {lr}
     bl         Menu_Save_PrintUi
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801e680
@@ -267,7 +267,7 @@ _ts Menu_Save_PrintData
     push       {r5}
     LoadMain gameStats, r6, r7
     ldr        r5,[r7,#0x68]
-    ldr        r0,[r6,#0x18]
+    ldr        r0,[r6,#GameStats_gameTimer]
     push       {r5}
     bl         FrameTimeToBcdRealTime
     pop        {r5}
@@ -306,7 +306,7 @@ _ts Menu_Save_PrintData
     ldrb       r1,[r5,#0xc]
     push       {r5}
     LoadMain textUI, r5, r7
-    str        r1,[r5,#0x4]
+    str        r1,[r5,#TextUI_numberBuffer]
     mov        r1,#0x80
     push       {r1}
     Flag_GetLibrary CD_Bass
@@ -326,7 +326,7 @@ LAB_0801e78c:
     ldr        r1,[r5,#0x10]
     push       {r5}
     LoadMain textUI, r5, r7
-    str        r1,[r5,#0x4]
+    str        r1,[r5,#TextUI_numberBuffer]
     ldr        r0,PTR_textDict_MenuMessages_0801e870
     mov        r1,#0x81
     ldr        r2,PTR_DAT_0801e898
@@ -340,7 +340,7 @@ LAB_0801e78c:
     push       {r5}
     LoadMain world, r6, r7
     ldr        r5,[r7,#0x68]
-    ldr        r0,[r6,#0x74]
+    ldr        r0,[r6,#World_zenny]
     str        r0,[r5,#0x4]
     ldr        r0,PTR_textDict_MenuMessages_0801e870
     mov        r1,#0x82

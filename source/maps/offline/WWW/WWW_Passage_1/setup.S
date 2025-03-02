@@ -57,7 +57,7 @@ _ts MapSetup_WWW_Passage_1_F54
     bne        LAB_0803e2f0
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_6F_0803e3b8
     mov        r1,#0x0
@@ -121,7 +121,7 @@ _ts EventHandler_WWW_Passage_1_F54_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

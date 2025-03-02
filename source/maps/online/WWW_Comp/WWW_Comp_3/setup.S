@@ -60,8 +60,8 @@ _ts MapSetup_WWW_Comp_3_F54
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804da50
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804da5c
 LAB_0804da50:
@@ -117,7 +117,7 @@ _ts EventHandler_WWW_Comp_3_F54_0
 LAB_0804dab8:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

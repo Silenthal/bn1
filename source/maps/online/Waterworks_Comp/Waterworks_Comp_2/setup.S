@@ -106,8 +106,8 @@ _ts MapSetup_Waterworks_Comp_2_F25
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08045dd4
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08045de0
 LAB_08045dd4:
@@ -171,7 +171,7 @@ _ts EventHandler_Waterworks_Comp_2_F25_0
     beq        LAB_08045e6e
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -313,8 +313,8 @@ _ts MapSetup_Waterworks_Comp_2_F30
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08045f74
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08045f80
 LAB_08045f74:

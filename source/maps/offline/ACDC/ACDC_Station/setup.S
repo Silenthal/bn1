@@ -101,7 +101,7 @@ _ts EventHandler_ACDC_Station_F20_0
     beq        LAB_0802f24e
     LoadMain world, r0, r0
     mov        r1,#0x21
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
 LAB_0802f24e:
     pop        {pc}
 
@@ -191,7 +191,7 @@ _ts EventHandler_ACDC_Station_F22_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -206,7 +206,7 @@ _ts EventHandler_ACDC_Station_F22_0
     pop        {r5}
 LAB_0802f306:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0xf2
     bne        LAB_0802f31c
     push       {r5}
@@ -266,7 +266,7 @@ _ts EventHandler_ACDC_Station_F24_0
 LAB_0802f378:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -281,7 +281,7 @@ LAB_0802f378:
     pop        {r5}
 LAB_0802f3a0:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0xf2
     bne        LAB_0802f3b6
     push       {r5}
@@ -321,7 +321,7 @@ LAB_0802f3ee:
     beq        LAB_0802f3d6
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     bl         PlayerLocation_Create
     pop        {r5}
@@ -363,7 +363,7 @@ _ts EventHandler_ACDC_Station_F26_0
 LAB_0802f44c:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -378,7 +378,7 @@ LAB_0802f44c:
     pop        {r5}
 LAB_0802f474:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0xf2
     bne        LAB_0802f48a
     push       {r5}
@@ -538,7 +538,7 @@ _ts EventHandler_ACDC_Station_F30_0
 LAB_0802f5cc:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -565,7 +565,7 @@ LAB_0802f600:
 _nt FUN_0802f602
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0xf2
     bne        LAB_0802f61a
     push       {r5}
@@ -674,7 +674,7 @@ _ts EventHandler_ACDC_Station_F40_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -696,7 +696,7 @@ LAB_0802f70e:
     pop        {r5}
 LAB_0802f716:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0xf2
     bne        LAB_0802f72c
     push       {r5}
@@ -802,7 +802,7 @@ _ts EventHandler_ACDC_Station_F50_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -824,7 +824,7 @@ LAB_0802f816:
     pop        {r5}
 LAB_0802f81e:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0xf2
     bne        LAB_0802f834
     push       {r5}

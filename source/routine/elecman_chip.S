@@ -293,7 +293,7 @@ LAB_0806a7e6:
     pop        {pc}
 LAB_0806a7ec:
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     tst        r7,r7
     beq        LAB_0806a80e
     ldrb       r1,[r7,#0x18]

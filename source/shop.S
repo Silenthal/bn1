@@ -31,7 +31,7 @@ _ts Shop_0_Init
     bl         Video_InitClearColor
     pop        {r5}
     LoadMain world, r7, r7
-    ldr        r0,[r7,#0x74]
+    ldr        r0,[r7,#World_zenny]
     str        r0,[r5,#0x10]
     mov        r0,#0x0
     strb       r0,[r5,#0x6]
@@ -72,8 +72,8 @@ LAB_0801e914:
     pop        {r5}
     LoadMain display, r7, r7
     mov        r0,#0x0
-    strh       r0,[r7,#0x1a]
-    strh       r0,[r7,#0x18]
+    strh       r0,[r7,#DisplaySettings_bg3Vofs]
+    strh       r0,[r7,#DisplaySettings_bg3Hofs]
 LAB_0801e944:
     pop        {pc}
 
@@ -153,7 +153,7 @@ PTR_Shop_1_0_0_PlayShopMusic_0801e9dc:
 _ts Shop_1_0_0_PlayShopMusic
     push       {lr}
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801ea04
@@ -262,7 +262,7 @@ _ts Shop_1_1_1_HandleInput
     Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     beq        LAB_0801eb2c
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x2
     tst        r0,r1
     beq        LAB_0801ead0
@@ -310,7 +310,7 @@ LAB_0801eb04:
     strh       r0,[r5,#0x2]
     b          LAB_0801eb2c
 LAB_0801eb16:
-    ldrh       r0,[r7,#0x4]
+    ldrh       r0,[r7,#Input_heldKeyState]
     mov        r1,#0x40
     tst        r0,r1
     beq        LAB_0801eb22
@@ -413,7 +413,7 @@ _nt Shop_1_3_1
     Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     beq        LAB_0801ebf4
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x3
     tst        r0,r1
     beq        LAB_0801ebf4
@@ -459,7 +459,7 @@ _nt Shop_1_4_1
     Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     beq        LAB_0801ec50
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x3
     tst        r0,r1
     beq        LAB_0801ec50
@@ -508,7 +508,7 @@ LAB_0801ec9a:
     ldrb       r1,[r7,#0x1]
     ldrb       r2,[r7,#0x2]
     LoadMain textHandler, r6, r6
-    str        r1,[r6,#0x30]
+    str        r1,[r6,#Text_itemIdList]
     str        r2,[r6,#0x34]
     push       {r7}
     bl         Shop_SetClerkDialogue
@@ -555,7 +555,7 @@ LAB_0801ecfc:
     ldrb       r1,[r7,#0x1]
     ldrb       r2,[r7,#0x2]
     LoadMain textHandler, r6, r6
-    str        r1,[r6,#0x30]
+    str        r1,[r6,#Text_itemIdList]
     str        r2,[r6,#0x34]
     push       {r7}
     bl         Shop_SetClerkDialogue
@@ -571,7 +571,7 @@ _ts Shop_1_5_3_ReturnToItemList
     Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     beq        LAB_0801ed3a
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0xf3
     tst        r0,r1
     beq        LAB_0801ed3a
@@ -702,7 +702,7 @@ _ts Shop_1_8_1_PrepareClose
     Flag_GetSystem F_SYSTEM_DIALOGUE_COMPLETE
     beq        LAB_0801ee1e
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x3
     tst        r0,r1
     beq        LAB_0801ee1e
@@ -764,7 +764,7 @@ _ts Shop_2_0_0_UpdateFinalInventory
 _ts Shop_2_0_1_Next
     push       {lr}
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801ee86
@@ -827,7 +827,7 @@ LAB_0801eed6:
 _ts Shop_1_7_1_ShowChipDetail
     push       {lr}
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     ldr        r1,DAT_0801ef14
     tst        r0,r1
     beq        LAB_0801eef2
@@ -845,7 +845,7 @@ LAB_0801eef2:
 _ts Shop_1_7_2_ShowNothing
     push       {lr}
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     ldr        r1,DAT_0801ef14
     tst        r0,r1
     beq        LAB_0801ef12
@@ -863,22 +863,22 @@ _ts Shop_2_1_Free
     push       {lr}
     LoadMain world, r0, r0
     mov        r1,#0x0
-    ldrb       r2,[r0,#0x4]
-    ldrb       r3,[r0,#0xc]
+    ldrb       r2,[r0,#World_currentArea]
+    ldrb       r3,[r0,#World_lastArea]
     cmp        r2,r3
     bne        LAB_0801ef2a
     mov        r1,#0x4
 LAB_0801ef2a:
-    strb       r1,[r0,#0x0]
-    ldrb       r1,[r0,#0x4]
-    strb       r1,[r0,#0xc]
+    strb       r1,[r0,#World_state_s0]
+    ldrb       r1,[r0,#World_currentArea]
+    strb       r1,[r0,#World_lastArea]
     ldrb       r1,[r0,#0x5]
     strb       r1,[r0,#0xd]
     ldr        r1,[r5,#0x10]
-    str        r1,[r0,#0x74]
+    str        r1,[r0,#World_zenny]
     LoadMain manager, r0, r7
     mov        r1,#0x4
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#World_state_s0]
     ldr        r0,[r7,#0x10]
     mov        r1,#0x40
     strh       r1,[r0,#0x0]
@@ -909,9 +909,9 @@ DAT_0801ef70:
 _ts Shop_Init
     push       {lr}
     LoadMain shop, r7, r7
-    strb       r0,[r7,#0xa]
+    strb       r0,[r7,#Shop_shopClerkType]
     mov        r0,#0x0
-    str        r0,[r7,#0x0]
+    str        r0,[r7,#Shop_state_s0]
     pop        {pc}
 
 
@@ -1155,7 +1155,7 @@ LAB_0801f14a:
     pop        {r0,r2,r6,r7}
     LoadMain textUI, r4, r4
     ldr        r1,[r7,#0x4]
-    str        r1,[r4,#0x4]
+    str        r1,[r4,#TextUI_numberBuffer]
     mov        r1,#0x2
     lsl        r1,r1,#0x8
     add        r6,r6,r1
@@ -1842,12 +1842,12 @@ LAB_0801fa0c:
 _nt Shop_ScrollBackground
     push       {lr}
     LoadMain display, r7, r7
-    ldrh       r0,[r7,#0x10]
+    ldrh       r0,[r7,#DisplaySettings_bg1Hofs]
     add        r0,#0x1
-    strh       r0,[r7,#0x10]
-    ldrh       r0,[r7,#0x12]
+    strh       r0,[r7,#DisplaySettings_bg1Hofs]
+    ldrh       r0,[r7,#DisplaySettings_bg1Vofs]
     add        r0,#0x1
-    strh       r0,[r7,#0x12]
+    strh       r0,[r7,#DisplaySettings_bg1Vofs]
     pop        {pc}
 
 

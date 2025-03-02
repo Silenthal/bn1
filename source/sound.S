@@ -76,10 +76,10 @@ LAB_08000676:
 _ts Sound_PlayBGM
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x18]
+    ldrb       r1,[r7,#World_currentSongId]
     cmp        r0,r1
     beq        LAB_08000676
-    strb       r0,[r7,#0x18]
+    strb       r0,[r7,#World_currentSongId]
     b          LAB_0800066a
 
 
@@ -89,7 +89,7 @@ _ts Sound_PlayBGM
 _ts Sound_ForcePlayBGM
     push       { r1, r2, r3, r4, r5, r6, r7, lr }
     LoadMain world, r7, r7
-    strb       r0,[r7,#0x18]
+    strb       r0,[r7,#World_currentSongId]
     b          LAB_0800066a
 
 
@@ -159,7 +159,7 @@ _ts Sound_StopAllMusic
     mov        r10,r1
     LoadMain world, r7, r7
     mov        r0,#0xff
-    strb       r0,[r7,#0x18]
+    strb       r0,[r7,#World_currentSongId]
     pop        { pc }
 
 
@@ -168,7 +168,7 @@ _ts Sound_AreaSongChange
     push       { lr }
     LoadMain world, r7, r7
     ldr        r6,PTR_songTableOffline
-    ldrb       r0,[r7,#0x4]
+    ldrb       r0,[r7,#World_currentArea]
     cmp        r0,#0x80
     bmi        LAB_08000756
     ldr        r6,PTR_songTableOnline
@@ -185,20 +185,20 @@ LAB_08000756:
     pop        { r0 }
     bne        LAB_080007a0
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x4]
+    ldrb       r1,[r7,#World_currentArea]
     cmp        r1,#0x80
     bpl        LAB_080007a0
-    ldrb       r1,[r7,#0x4]
+    ldrb       r1,[r7,#World_currentArea]
     cmp        r1,#0x5
     beq        LAB_080007a0
-    ldrh       r1,[r7,#0x4]
+    ldrh       r1,[r7,#World_currentArea]
     ldr        r2,=0x209 @@ BUG: should be 0x902 for Waterworks Pump Room
     cmp        r1,r2
     beq        LAB_080007a0
     ldr        r2,=0x20B @@ BUG: should be 0xB02 for Waterworks Purification Room
     cmp        r1,r2
     beq        LAB_080007a0
-    ldrb       r1,[r7,#0x6]
+    ldrb       r1,[r7,#World_storyFlag]
     cmp        r1,#0x50
     blt        LAB_080007a0
     push       { r0 }

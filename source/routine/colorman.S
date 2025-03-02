@@ -468,7 +468,7 @@ _nt R_ColorMan_1_5_1_Ball
     mov        r0,#0x3
     strb       r0,[r5,#Actor_frameIndexCurr]
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r1,[r7,#0x18]
     ldrb       r2,[r7,#0x19]
     mov        r4,#0x0

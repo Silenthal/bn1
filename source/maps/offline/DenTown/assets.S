@@ -1239,8 +1239,8 @@ _ts Traffic_Init
     push       {r5,lr}
     ldr        r5,PTR_DAT_0803b900
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     bne        LAB_0803b70c
     ldrb       r1,[r0,#0x5]

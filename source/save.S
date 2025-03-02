@@ -48,7 +48,7 @@ saveLen:
 _ts Save_CalculateChecksum
     LoadMain gameStats, r7, r7
     mov        r0,#0x0
-    str        r0,[r7,#0x20]
+    str        r0,[r7,#GameStats_checksum]
     mov        r0,#0x0
     ldr        r1,flagStart
     ldr        r2,INT_0801fb8c
@@ -58,7 +58,7 @@ LAB_0801fb3e:
     sub        r2,#0x1
     bge        LAB_0801fb3e
     add        r0,#0x16
-    str        r0,[r7,#0x20]
+    str        r0,[r7,#GameStats_checksum]
     mov        pc,lr
 
 _ts Save_CopyBuildId
@@ -73,9 +73,9 @@ _ts Save_CopyBuildId
 _ts Save_ChecksumCheck
     push       { lr }
     LoadMain gameStats, r7, r7
-    ldr        r6,[r7,#0x20]
+    ldr        r6,[r7,#GameStats_checksum]
     mov        r0,#0x0
-    str        r0,[r7,#0x20]
+    str        r0,[r7,#GameStats_checksum]
     mov        r0,#0x0
     ldr        r1,flagStart
     ldr        r2,INT_0801fb8c

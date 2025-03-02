@@ -560,7 +560,7 @@ _nt FUN_0805b856
     push       {lr}
     ldrb       r0,[r5,#Actor_cPos_x]
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r1,[r7,#0x18]
     cmp        r1,r0
     bpl        LAB_0805b890

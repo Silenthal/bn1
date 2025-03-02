@@ -431,7 +431,7 @@ LAB_0807a382:
     pop        {pc}
 LAB_0807a38a:
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     str        r7,[r5,#Attack_param_70]
     pop        {pc}
 

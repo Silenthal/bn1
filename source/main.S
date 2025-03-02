@@ -79,18 +79,18 @@ _ts Main_WaitFrames
 @@ Reads input from the controls.
 _ts Main_ReadInput
     LoadMain input, r0, r7
-    ldrb       r7,[r0,#0x13]
+    ldrb       r7,[r0,#Input_frameCounter]
     add        r7,#0x1
     cmp        r7,#0x3
     ble        .resetCounter
     mov        r7,#0x0
 .resetCounter:
-    strb       r7,[r0,#0x13]
+    strb       r7,[r0,#Input_frameCounter]
     ldr        r4,PTR_REG_KEYINPUT
     ldrh       r4,[r4]
     mvn        r4,r4
     ldrh       r5,[r0]
-    strh       r5,[r0,#0x6]
+    strh       r5,[r0,#Input_lastKeyState]
     strh       r4,[r0]
     add        r6,r4,#0x0
     and        r6,r5
@@ -119,7 +119,7 @@ _ts Main_ReadInput
     strb       r2,[r0,r1]
     b          .loopEnd
 .checkCounter:
-    ldrb       r7,[r0,#0x13]
+    ldrb       r7,[r0,#Input_frameCounter]
     cmp        r7,#0x0
     beq        .loopEnd
     b          .clearHeldKey
@@ -128,10 +128,10 @@ _ts Main_ReadInput
     add        r1,#0x1
     cmp        r1,#0x12
     blt        .loopStart
-    strh       r6,[r0,#0x4]
+    strh       r6,[r0,#Input_heldKeyState]
     mvn        r5,r5
     and        r4,r5
-    strh       r4,[r0,#0x2]
+    strh       r4,[r0,#Input_toggleKeyState]
     mov        pc,lr
 
 
@@ -139,13 +139,13 @@ _ts Main_ReadInput
 _ts Main_SoftResetCheck
     push       { lr }
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        .end
     LoadMain input, r0, r7
-    ldrh       r2,[r0,#0x2]
-    ldrh       r0,[r0,#0x0]
+    ldrh       r2,[r0,#Input_toggleKeyState]
+    ldrh       r0,[r0,#Input_curKeyState]
     ldr        r1,[r7,#0x0]
     add        r1,#0x4
     ldrb       r4,[r1,#0x0]
@@ -182,7 +182,7 @@ _ts Main_Init
     mov        r10,r0
     LoadMain display, r0, r7
     mov        r1,#0x40
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     bl         Video_InitClearColor
     bl         Video_ApplySettings
     bl         Sound_Init

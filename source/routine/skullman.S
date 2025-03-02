@@ -344,7 +344,7 @@ _ts R_SkullMan_1_4_0_FindNextMovePanel
     sub        sp,#0x14
     mov        r6,sp
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x19]
     ldrb       r1,[r5,#Actor_cPos_y]
     cmp        r0,r1
@@ -672,7 +672,7 @@ _ts R_SkullMan_1_7_1_Skull
     ldrb       r2,[r5,#Actor_cPos_y]
     ldrb       r4,[r5,#Actor_family_family]
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrh       r0,[r7,#0x18]
     lsl        r0,r0,#0x10
     orr        r4,r0

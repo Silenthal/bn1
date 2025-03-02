@@ -319,7 +319,7 @@ _nt R_HardHead_1_3_3_Fire
     tst        r0,r1
     beq        LAB_0805ca2c
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x18]
     lsl        r0,r0,#0x10
     ldrb       r4,[r7,#0x19]

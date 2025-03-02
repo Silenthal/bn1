@@ -8,28 +8,28 @@ _ts InitWorld_LoadGame
     push       {lr}
     LoadMain world, r5, r7
     mov        r0,#0x0
-    ldrb       r2,[r5,#0x4]
-    ldrb       r3,[r5,#0xc]
+    ldrb       r2,[r5,#World_currentArea]
+    ldrb       r3,[r5,#World_lastArea]
     cmp        r2,r3
     bne        LAB_08004032
     mov        r0,#0x4
 LAB_08004032:
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#World_state_s0]
     mov        r0,#0x3
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#World_fadeType]
     mov        r0,#0x10
-    strb       r0,[r5,#0x13]
+    strb       r0,[r5,#World_fadeStep]
     mov        r0,#0x0
-    strb       r0,[r5,#0xe]
-    strb       r0,[r5,#0x12]
-    str        r0,[r5,#0x2c]
-    strb       r0,[r5,#0x9]
-    strb       r0,[r5,#0xa]
+    strb       r0,[r5,#World_curEventFlag]
+    strb       r0,[r5,#World_commentaryTextIndex]
+    str        r0,[r5,#World_enemyList]
+    strb       r0,[r5,#World_IsBattleTimePaused]
+    strb       r0,[r5,#World_ba]
     mov        r0,#0xff
-    strb       r0,[r5,#0x18]
+    strb       r0,[r5,#World_currentSongId]
     mov        r0,#0x0
-    strb       r0,[r5,#0x1b]
-    strb       r0,[r5,#0x1a]
+    strb       r0,[r5,#World_pressedA]
+    strb       r0,[r5,#World_isTalkingToNPC]
     ldr        r1,PTR_BYTE_08004084
     strb       r0,[r1,#0x0]
     ldr        r1,PTR_gPlayerAnimation_08004080
@@ -61,12 +61,12 @@ _ts InitWorld_NewGame
     push       {lr}
     LoadMain world, r5, r7
     mov        r0,#0x0
-    str        r0,[r5,#0x24]
-    str        r0,[r5,#0x34]
+    str        r0,[r5,#World_mapChangeCount]
+    str        r0,[r5,#World_npcCommandList]
     ldr        r0,DAT_08004118
-    strh       r0,[r5,#0xc]
+    strh       r0,[r5,#World_lastArea]
     mov        r0,#0x0
-    str        r0,[r5,#0x74]
+    str        r0,[r5,#World_zenny]
     ldr        r1,[r7,#0x78]
     mov        r0,#0x0
     str        r0,[r1,#0x18]
@@ -86,13 +86,13 @@ _ts InitWorld_NewGame
     mov        r0,#0xa
     strb       r0,[r1,#0x5]
     ldr        r0,DAT_0800412c
-    strh       r0,[r5,#0x1c]
-    strh       r0,[r5,#0x1e]
+    strh       r0,[r5,#World_hpCurrent]
+    strh       r0,[r5,#World_hpMax]
     mov        r0,#0x0
-    strb       r0,[r5,#0x14]
-    strb       r0,[r5,#0x15]
-    strb       r0,[r5,#0x16]
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#World_statAttack]
+    strb       r0,[r5,#World_statSpeed]
+    strb       r0,[r5,#World_statCharge]
+    strb       r0,[r5,#World_armor]
     push       {r5}
     bl         Flag_InitAll
     bl         InitKeyItem
@@ -104,16 +104,16 @@ _ts InitWorld_NewGame
     bl         PowerPlant_Init
     pop        {r5}
     ldr        r0,DAT_08004114
-    strh       r0,[r5,#0x4]
+    strh       r0,[r5,#World_currentArea]
     mov        r0,#0x0
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#World_storyFlag]
     ldr        r6,PTR_DAT_0800411c
     ldr        r0,[r6,#0x0]
-    str        r0,[r5,#0x38]
+    str        r0,[r5,#World_savedPos_x]
     ldr        r0,[r6,#0x4]
-    str        r0,[r5,#0x3c]
+    str        r0,[r5,#World_savedPos_y]
     ldr        r0,[r6,#0x8]
-    str        r0,[r5,#0x40]
+    str        r0,[r5,#World_savedPos_z]
     bl         DisableScreenDim
     pop        {pc}
 DAT_08004114:
@@ -136,7 +136,7 @@ _ts World_Main
     push       { lr }
     ldr        r0,=jumpTableWorldMain
     LoadMain world, r5, r7
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#World_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -161,7 +161,7 @@ jumpTableWorldMain:
 _ts World_0_AreaChange
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08004192
@@ -178,7 +178,7 @@ LAB_08004192:
 _ts World_1_SubAreaChange
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0800420a
@@ -206,7 +206,7 @@ _ts World_1_SubAreaChange
     pop        {r5}
     LoadMain display, r0, r7
     ldr        r1,DispCnt_0800420c
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     push       {r5}
     ldrb       r0,[r5,#World_fadeType]
     ldrb       r1,[r5,#World_fadeStep]
@@ -218,7 +218,7 @@ _ts World_1_SubAreaChange
     strb       r0,[r5,#World_fadeStep]
     LoadMain mapChange, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#MapChange_type]
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
 LAB_0800420a:
@@ -275,7 +275,7 @@ _ts World_3_Battle
     bl         Effect_LoadAll
     pop        {r5}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080042e6
@@ -288,7 +288,7 @@ _ts World_3_Battle
     pop        {r5}
     LoadMain manager, r0, r7
     mov        r1,#0x8
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     push       {r5}
     mov        r0,#0x3
     bl         Video_SetBgControl
@@ -297,7 +297,7 @@ _ts World_3_Battle
     pop        {r5}
     LoadMain display, r0, r7
     ldr        r1,DAT_080042e8
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#Manager_gameState]
 LAB_080042e6:
     pop        {pc}
 DAT_080042e8:
@@ -317,7 +317,7 @@ _ts World_4_MapChange
     bl         Effect_LoadAll
     pop        {r5}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0800433e
@@ -325,7 +325,7 @@ _ts World_4_MapChange
     bl         Text_DisableDialogue
     mov        r0,#0x0
     LoadMain mapChange, r6, r7
-    ldrb       r6,[r6,#0x12]
+    ldrb       r6,[r6,#MapChange_destinationIndex]
     cmp        r6,#0xf
     bne        LAB_08004338
     ldr        r6,[r7,#0x8]
@@ -352,7 +352,7 @@ _ts World_5_Transition
     bl         Effect_LoadAll
     pop        {r5}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080043a0
@@ -364,14 +364,14 @@ _ts World_5_Transition
     pop        {r5}
     LoadMain manager, r0, r7
     mov        r1,#0xc
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     push       {r5}
     bl         BgUpdate_Init
     bl         InitBgTask
     pop        {r5}
     LoadMain display, r0, r7
     ldr        r1,DAT_080043a4
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#Manager_gameState]
 LAB_080043a0:
     pop        {pc}
     .align 2, 0
@@ -427,7 +427,7 @@ _ts World_7_SubMenu
     bl         StartMenu_Main
     pop        {r5}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08004462
@@ -439,7 +439,7 @@ _ts World_7_SubMenu
     bl         InitMenu
     LoadMain manager, r0, r7
     mov        r1,#0x18
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     mov        r0,#0x3
     bl         Video_SetBgControl
     bl         BgUpdate_Init
@@ -447,7 +447,7 @@ _ts World_7_SubMenu
     pop        {r5}
     LoadMain display, r0, r7
     ldr        r1,SHORT_08004464
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#Manager_gameState]
 LAB_08004462:
     pop        {pc}
 SHORT_08004464:
@@ -467,7 +467,7 @@ _nt World_8_Shop
     bl         Effect_LoadAll
     pop        {r5}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_080044ba
@@ -481,7 +481,7 @@ _nt World_8_Shop
     pop        {r5}
     LoadMain manager, r0, r7
     mov        r1,#0x1c
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
 LAB_080044ba:
     pop        {pc}
 
@@ -499,7 +499,7 @@ _ts World_9_ChipTrader
     bl         Effect_LoadAll
     pop        {r5}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08004510
@@ -513,7 +513,7 @@ _ts World_9_ChipTrader
     pop        {r5}
     LoadMain manager, r0, r7
     mov        r1,#0x24
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
 LAB_08004510:
     pop        {pc}
 
@@ -528,7 +528,7 @@ _ts World_HandleMapExit
     Flag_GetSystem F_SYSTEM_JACK_IN
     bne        LAB_08004598
     LoadMain mapChange, r0, r7
-    ldrb       r1,[r0,#0x10]
+    ldrb       r1,[r0,#MapChange_type]
     cmp        r1,#0x0
     bne        LAB_08004598
     mov        r0,#0x40
@@ -590,7 +590,7 @@ _ts World_HandleRandomEncounter
     Flag_GetSystem F_SYSTEM_NO_RANDOM_BATTLES
     bne        LAB_0800460c
     LoadMain mapChange, r0, r7
-    ldrb       r1,[r0,#0x10]
+    ldrb       r1,[r0,#MapChange_type]
     cmp        r1,#0x0
     bne        LAB_0800460c
     mov        r0,#0x40
@@ -629,17 +629,17 @@ LAB_0800460c:
 _ts World_SetBattleParams
     push       {lr}
     LoadMain world, r5, r7
-    strb       r0,[r5,#0xb]
-    strb       r1,[r5,#0xf]
+    strb       r0,[r5,#World_battleBackgroundId]
+    strb       r1,[r5,#World_battleType]
     tst        r2,r2
     bne        LAB_08004622
     ldr        r2,PTR_gFolder_08004670
     mov        r3,#0x1
 LAB_08004622:
-    str        r2,[r5,#0x30]
-    strb       r3,[r5,#0x11]
+    str        r2,[r5,#World_chipFolder]
+    strb       r3,[r5,#World_isShuffleFolder]
     mov        r0,#0xc
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#World_state_s0]
     push       {r7}
     mov        r0,#0x8
     tst        r6,r6
@@ -653,21 +653,21 @@ LAB_0800463c:
     mov        r0,#0x1
     tst        r4,r0
     beq        LAB_08004656
-    ldr        r7,[r5,#0x28]
+    ldr        r7,[r5,#World_playerLocation]
     ldr        r0,[r7,#0x24]
-    str        r0,[r5,#0x38]
+    str        r0,[r5,#World_savedPos_x]
     ldr        r0,[r7,#0x28]
-    str        r0,[r5,#0x3c]
+    str        r0,[r5,#World_savedPos_y]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x40]
+    str        r0,[r5,#World_savedPos_z]
     ldrb       r0,[r7,#0x10]
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#World_savedDirection]
 LAB_08004656:
     mov        r0,#0x80
     tst        r4,r0
     beq        LAB_0800466a
     mov        r0,#0x0
-    str        r0,[r5,#0x34]
+    str        r0,[r5,#World_npcCommandList]
     mov        r0,#0x1f
     push       {r5}
     bl         Entity_FreeAllMultiple
@@ -684,7 +684,7 @@ PTR_gFolder_08004670:
 
 _ts World_GetBackgroundId
     LoadMain world, r5, r7
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#World_currentArea]
     cmp        r0,#0x80
     bmi        LAB_08004680
     sub        r0,#0x80
@@ -995,11 +995,11 @@ _ts World_ChangeMap
     push       {lr}
     push       {r0}
     LoadMain world, r5, r5
-    ldr        r0,[r5,#0x24]
+    ldr        r0,[r5,#World_mapChangeCount]
     add        r0,#0x1
-    str        r0,[r5,#0x24]
+    str        r0,[r5,#World_mapChangeCount]
     mov        r0,#0x0
-    str        r0,[r5,#0x34]
+    str        r0,[r5,#World_npcCommandList]
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
     Flag_ClearSystem F_SYSTEM_NO_RANDOM_BATTLES
@@ -1022,8 +1022,8 @@ LAB_080047da:
     LoadMain display, r0, r5
     ldr        r1,DAT_08004afc
     strh       r1,[r0,#0x0]
-    ldr        r7,[r5,#0x2c]
-    ldr        r5,[r5,#0x8]
+    ldr        r7,[r5,#World_enemyList]
+    ldr        r5,[r5,#World__pad1]
     ldrb       r1,[r7,#0x0]
     ldrb       r2,[r5,#0x4]
     mov        r3,#0x80
@@ -1163,8 +1163,8 @@ LAB_08004870:
 LAB_08004910:
     LoadMain gameStats, r7, r7
     mov        r0,#0x0
-    str        r0,[r7,#0x24]
-    str        r0,[r7,#0x28]
+    str        r0,[r7,#GameStats_currStepCounter]
+    str        r0,[r7,#GameStats_lastStepCounter]
     pop        {pc}
 PTR_MapEntrance_0800491c:
     .word MapEntrance_08004920
@@ -1179,7 +1179,7 @@ _ts World_SetTransitionLocation
     str        r0,[r2,#0x4]
     strb       r1,[r2,#0x3]
     mov        r0,#0x14
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#World_state_s0]
     pop        {pc}
 
 
@@ -1225,7 +1225,7 @@ _ts World_CheckStartMenuOpen
     Flag_GetSystem F_SYSTEM_NO_START_MENU
     bne        LAB_08004a0c
     LoadMain mapChange, r0, r7
-    ldrb       r1,[r0,#0x10]
+    ldrb       r1,[r0,#MapChange_type]
     cmp        r1,#0x0
     bne        LAB_08004a0c
     mov        r0,#0x80
@@ -1245,7 +1245,7 @@ _ts World_CheckStartMenuOpen
     bl         Text_CheckOption
     bne        LAB_08004a0c
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     mov        r1,#0x8
     tst        r1,r0
     beq        LAB_08004a0c
@@ -1277,17 +1277,17 @@ _ts World_StartShop
     push       {lr}
     bl         Shop_Init
     LoadMain world, r5, r7
-    ldr        r7,[r5,#0x28]
+    ldr        r7,[r5,#World_playerLocation]
     ldr        r0,[r7,#0x24]
-    str        r0,[r5,#0x38]
+    str        r0,[r5,#World_savedPos_x]
     ldr        r0,[r7,#0x28]
-    str        r0,[r5,#0x3c]
+    str        r0,[r5,#World_savedPos_y]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x40]
+    str        r0,[r5,#World_savedPos_z]
     ldrb       r0,[r7,#0x10]
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#World_savedDirection]
     mov        r1,#0x20
-    strb       r1,[r5,#0x0]
+    strb       r1,[r5,#World_state_s0]
     push       {r5}
     FadeOut_Black
     pop        {r5}
@@ -1301,12 +1301,12 @@ _ts World_StartGameOver
     bl         InitGameOver
     LoadMain manager, r0, r7
     mov        r1,#0x20
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     bl         BgUpdate_Init
     bl         InitBgTask
     LoadMain display, r0, r7
     ldr        r1,DAT_08004afc
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#Manager_gameState]
     mov        r1,#0x0
     strh       r1,[r0,#0x10]
     strh       r1,[r0,#0x12]
@@ -1331,17 +1331,17 @@ _ts World_StartChipTrader
 LAB_08004a8a:
     bl         InitChipTraderFromScript
     LoadMain world, r5, r7
-    ldr        r7,[r5,#0x28]
+    ldr        r7,[r5,#World_playerLocation]
     ldr        r0,[r7,#0x24]
-    str        r0,[r5,#0x38]
+    str        r0,[r5,#World_savedPos_x]
     ldr        r0,[r7,#0x28]
-    str        r0,[r5,#0x3c]
+    str        r0,[r5,#World_savedPos_y]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r5,#0x40]
+    str        r0,[r5,#World_savedPos_z]
     ldrb       r0,[r7,#0x10]
-    str        r0,[r5,#0x44]
+    str        r0,[r5,#World_savedDirection]
     mov        r1,#0x24
-    strb       r1,[r5,#0x0]
+    strb       r1,[r5,#World_state_s0]
     push       {r5}
     FadeOut_Black
     pop        {r5}
@@ -1354,7 +1354,7 @@ _ts World_StartCredits
     LoadMain world, r5, r7
     push       {r5}
     mov        r0,#0x0
-    str        r0,[r5,#0x34]
+    str        r0,[r5,#World_npcCommandList]
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
     bl         InitCredits

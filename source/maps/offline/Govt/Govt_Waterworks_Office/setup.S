@@ -136,14 +136,14 @@ _ts EventHandler_Govt_Waterworks_Office_F25_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x2
     bne        LAB_0803414c
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#World_storyFlag]
     cmp        r1,#0x27
     bne        LAB_0803413a
     Flag_SetBase 0xD9
@@ -173,7 +173,7 @@ _nt FUN_08034152
     pop        {pc}
 LAB_0803415e:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08034176
     push       {r5}
@@ -185,7 +185,7 @@ LAB_0803415e:
 LAB_08034176:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -202,7 +202,7 @@ LAB_08034176:
     pop        {pc}
 LAB_0803419e:
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#World_storyFlag]
     cmp        r1,#0x24
     beq        LAB_08034254
     push       {r5}
@@ -211,7 +211,7 @@ LAB_0803419e:
     pop        {r5}
     bne        LAB_08034254
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#World_state_s2]
     ldr        r1,DAT_08034278
     and        r1,r0
     beq        LAB_08034254
@@ -219,7 +219,7 @@ LAB_0803419e:
     bne        LAB_08034254
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -387,7 +387,7 @@ _ts FUN_08034328
     pop        {pc}
 LAB_08034334:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0803434c
     push       {r5}
@@ -399,7 +399,7 @@ LAB_08034334:
 LAB_0803434c:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -421,7 +421,7 @@ LAB_08034374:
     pop        {r5}
     bne        LAB_080343b2
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_080343cc
     and        r1,r0
     beq        LAB_080343b2
@@ -554,7 +554,7 @@ _ts FUN_08034474
     pop        {pc}
 LAB_08034480:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08034498
     push       {r5}
@@ -566,7 +566,7 @@ LAB_08034480:
 LAB_08034498:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -588,7 +588,7 @@ LAB_080344c0:
     pop        {r5}
     bne        LAB_080344fe
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08034518
     and        r1,r0
     beq        LAB_080344fe

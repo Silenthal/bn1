@@ -52,8 +52,8 @@ _ts MapSetup_Undernet_6
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_080532ca
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_080532d8
 LAB_080532ca:
@@ -143,7 +143,7 @@ _ts EventHandler_Undernet_6_0
     bne        LAB_080533ac
 LAB_0805337e:
     LoadMain gameStats, r7, r7
-    ldrb       r0,[r7,#0xd]
+    ldrb       r0,[r7,#GameStats_hasUsedEscape]
     tst        r0,r0
     beq        LAB_0805338c
     mov        r0,#0x1
@@ -242,7 +242,7 @@ LAB_08053456:
 _nt EventHandler_Undernet_SkillGatePass
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r2,[r7,#0xe]
+    ldrb       r2,[r7,#World_curEventFlag]
     cmp        r2,r0
     bne        LAB_08053474
     push       {r5}
@@ -256,7 +256,7 @@ LAB_08053474:
 _nt EventHandler_Undernet_SkillGateFail
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r2,[r7,#0xe]
+    ldrb       r2,[r7,#World_curEventFlag]
     cmp        r2,r0
     bne        LAB_0805348c
     push       {r5}

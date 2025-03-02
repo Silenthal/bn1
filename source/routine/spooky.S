@@ -550,7 +550,7 @@ _nt R_Spooky_1_4_0_2_StartAnimReappear
     bmi        LAB_0805bcb6
 LAB_0805bca6:
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r1,[r7,#0x18]
     add        r1,#0x1
     cmp        r1,r0
@@ -791,7 +791,7 @@ _nt R_Spooky_1_5_1_Recover
     sub        r0,#0x1
     strb       r0,[r5,#Actor_bc]
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0xc]
+    ldrb       r0,[r7,#Battle_customScreenOpenCount]
     strb       r0,[r5,#Actor_b1b]
 LAB_0805be3a:
     pop        {pc}
@@ -917,7 +917,7 @@ _nt R_Spooky_FindTarget
     tst        r1,r1
     beq        LAB_0805bf12
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0xc]
+    ldrb       r1,[r7,#Battle_customScreenOpenCount]
     ldrb       r2,[r5,#Actor_b1b]
     cmp        r1,r2
     ble        LAB_0805bf12

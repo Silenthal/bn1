@@ -13,7 +13,7 @@ LAB_08007c4a:
     cmp        r0,#0x1e
     bne        LAB_08007c4a
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x11]
+    ldrb       r1,[r7,#World_isShuffleFolder]
     tst        r1,r1
     beq        LAB_08007c66
     ldr        r0,=gBattleFolder
@@ -2806,7 +2806,7 @@ dataChipDetailList:
 
 _ts Battle_GetEntryState
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x8]
+    ldrb       r0,[r7,#Battle_battleEntryState]
     mov        pc,lr
 
 
@@ -2975,7 +2975,7 @@ LAB_080098ca:
 _nt Battle_SetEncounter
     push       {lr}
     LoadMain world, r7, r7
-    str        r0,[r7,#0x2c]
+    str        r0,[r7,#World_enemyList]
     pop        {pc}
 
 
@@ -2984,7 +2984,7 @@ _nt Battle_IsRandomEncounter
     mov        r0,#0x0
     LoadMain world, r7, r7
     LoadMain gameStats, r6, r6
-    ldrb       r3,[r7,#0x4]
+    ldrb       r3,[r7,#World_currentArea]
     cmp        r3,#0x80
     bmi        LAB_0800992a
     @ Only continue if the area is one that has random encounters
@@ -3228,9 +3228,9 @@ _nt BattleSpawnAnimation_1_Main
     ldrb       r0,[r5,#0x16]
     tst        r0,r0
     bne        LAB_08009b44
-    ldrb       r0,[r7,#0x6]
+    ldrb       r0,[r7,#Battle_initialActorsSpawned]
     add        r0,#0x1
-    strb       r0,[r7,#0x6]
+    strb       r0,[r7,#Battle_initialActorsSpawned]
     b          LAB_08009b4a
 LAB_08009b44:
     ldrb       r0,[r7,#0x7]
@@ -3285,11 +3285,11 @@ LAB_08009b8e:
 _nt Battle_RegisterVirusDelete
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x16]
+    ldrb       r0,[r7,#Battle_multiDeleteTempCounter]
     add        r0,#0x1
-    strb       r0,[r7,#0x16]
+    strb       r0,[r7,#Battle_multiDeleteTempCounter]
     mov        r0,#0xa
-    strb       r0,[r7,#0x15]
+    strb       r0,[r7,#Battle_multiDeleteBufferTimer]
     pop        {pc}
 
 
@@ -3435,14 +3435,14 @@ _ts Inventory_GetChipCount
 _nt Inventory_AddZenny
     push       { lr }
     LoadMain world, r7, r7
-    ldr        r1,[r7,#0x74]
+    ldr        r1,[r7,#World_zenny]
     add        r0,r0,r1
     ldr        r1,=999999
     cmp        r0,r1
     ble        LAB_08009c94
     add        r0,r1,#0x0
 LAB_08009c94:
-    str        r0,[r7,#0x74]
+    str        r0,[r7,#World_zenny]
     pop        { pc }
 
     .align 2, 0
@@ -3451,11 +3451,11 @@ LAB_08009c94:
 _ts Inventory_SubtractZenny
     push       { lr }
     LoadMain world, r7, r7
-    ldr        r1,[r7,#0x74]
+    ldr        r1,[r7,#World_zenny]
     sub        r1,r1,r0
     bpl        LAB_08009c94
     mov        r1,#0x0
-    str        r1,[r7,#0x74]
+    str        r1,[r7,#World_zenny]
     pop        { pc }
 
 
@@ -3481,27 +3481,27 @@ _nt Battle_DecreaseOpponentCount
     ldrb       r0,[r5,#0x16]
     tst        r0,r0
     bne        LAB_08009ce0
-    ldrh       r0,[r7,#0x22]
+    ldrh       r0,[r7,#Battle_curPlayerCount]
     sub        r0,#0x1
-    strh       r0,[r7,#0x22]
+    strh       r0,[r7,#Battle_curPlayerCount]
     bne        LAB_08009cec
     mov        r1,#0x1
-    strb       r1,[r7,#0x13]
+    strb       r1,[r7,#Battle_isInputLocked]
     b          LAB_08009cec
 LAB_08009ce0:
-    ldrh       r0,[r7,#0x24]
+    ldrh       r0,[r7,#Battle_curEnemyCount]
     sub        r0,#0x1
-    strh       r0,[r7,#0x24]
+    strh       r0,[r7,#Battle_curEnemyCount]
     bne        LAB_08009cec
     mov        r1,#0x1
-    strb       r1,[r7,#0x13]
+    strb       r1,[r7,#Battle_isInputLocked]
 LAB_08009cec:
     mov        pc,lr
 
 
 _nt Battle_IsInputLocked
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x13]
+    ldrb       r0,[r7,#Battle_isInputLocked]
     tst        r0,r0
     mov        pc,lr
 
@@ -3509,18 +3509,18 @@ _nt Battle_IsInputLocked
 _nt Battle_AdvanceTimer
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     bge        LAB_08009d16
     LoadMain gameStats, r7, r7
-    ldr        r0,[r7,#0x1c]
+    ldr        r0,[r7,#World_hpCurrent]
     add        r0,#0x1
     ldr        r1,DAT_08009d18
     cmp        r0,r1
     ble        LAB_08009d14
     add        r0,r1,#0x0
 LAB_08009d14:
-    str        r0,[r7,#0x1c]
+    str        r0,[r7,#World_hpCurrent]
 LAB_08009d16:
     pop        {pc}
 
@@ -3531,25 +3531,25 @@ DAT_08009d18: .word 60 * 359999
 
 _nt Battle_IncreaseBattleCount
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     bge        LAB_08009d44
     LoadMain gameStats, r7, r7
-    ldrh       r0,[r7,#0x12]
+    ldrh       r0,[r7,#World_commentaryTextIndex]
     add        r0,#0x1
     ldr        r1,DAT_08009d48
     cmp        r0,r1
     ble        LAB_08009d36
     add        r0,r1,#0x0
 LAB_08009d36:
-    strh       r0,[r7,#0x12]
-    ldrb       r0,[r7,#0xf]
+    strh       r0,[r7,#World_commentaryTextIndex]
+    ldrb       r0,[r7,#World_battleType]
     add        r0,#0x1
     cmp        r0,#0xff
     ble        LAB_08009d42
     mov        r0,#0xff
 LAB_08009d42:
-    strb       r0,[r7,#0xf]
+    strb       r0,[r7,#World_battleType]
 LAB_08009d44:
     mov        pc,lr
 
@@ -3561,17 +3561,17 @@ DAT_08009d48: .word 0xFFFF
 
 _ts Battle_IncrementRewardChipCounter
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     bge        LAB_08009d66
     LoadMain gameStats, r7, r7
-    ldrb       r0,[r7,#0xe]
+    ldrb       r0,[r7,#World_curEventFlag]
     add        r0,#0x1
     cmp        r0,#0xff
     ble        LAB_08009d64
     mov        r0,#0xff
 LAB_08009d64:
-    strb       r0,[r7,#0xe]
+    strb       r0,[r7,#World_curEventFlag]
 LAB_08009d66:
     mov        pc,lr
 

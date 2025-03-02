@@ -74,7 +74,7 @@ LAB_0809a5f0:
 _nt SD_GutsShoot_3
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0809a60c

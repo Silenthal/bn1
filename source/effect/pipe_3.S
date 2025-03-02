@@ -22,7 +22,7 @@ PTR_E_Pipe_3_0_Init_0807f23c:
 _ts E_Pipe_3_0_Init
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#World_storyFlag]
     lsr        r7,r7,#0x4
     cmp        r7,#0x2
     beq        LAB_0807f25c

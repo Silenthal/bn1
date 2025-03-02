@@ -80,7 +80,7 @@ _ts SD_ColorMan_1_1
     bne        LAB_0809a8a0
     ldrb       r0,[r5,#ScreenDim_owner]
     LoadMain battle, r1, r1
-    ldrb       r1,[r1,#0x1a]
+    ldrb       r1,[r1,#Battle_sioOwnerId]
     eor        r1,r0
     ldr        r7,PTR_DAT_0809a8a8
     ldrb       r1,[r7,r1]
@@ -160,7 +160,7 @@ _nt SD_ColorMan_2_Free
     strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809a8e2:
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     cmp        r0,#0x1
     beq        LAB_0809a8f8
     push       {r5}

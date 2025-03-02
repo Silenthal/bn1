@@ -154,7 +154,7 @@ _ts EventHandler_School_Comp_5_F15_0
     pop        {r5}
     bne        LAB_080419b2
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_080419c2
     push       {r5}
@@ -320,8 +320,8 @@ _ts MapSetup_School_Comp_5_F20
     pop        {r5}
     Flag_SetIgnore F_IGNORE_WALL_00
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     bne        LAB_08041ae6
     cmp        r1,#0x80

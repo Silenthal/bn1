@@ -233,7 +233,7 @@ LAB_08064810:
 _nt R_ProtoMan_1_3_Flinch
     push       {lr}
     LoadMain frameCounter, r7, r7
-    ldrh       r0,[r7,#0x0]
+    ldrh       r0,[r7,#FrameCounter_counter]
     lsr        r0,r0,#0x1
     bcs        LAB_08064822
     bl         SpritePtr_EnableFlash
@@ -418,7 +418,7 @@ _ts R_ProtoMan_1_6_0_ChooseMovePanel
     mov        r0,#0x0
     strb       r0,[r5,#Actor_family_b1]
     LoadMain battle, r6, r6
-    ldr        r6,[r6,#0x40]
+    ldr        r6,[r6,#Battle_actorListPlayer]
     ldrb       r4,[r6,#0x19]
     ldrb       r0,[r5,#Actor_owner]
     ldr        r1,DAT_080649d8
@@ -598,7 +598,7 @@ _nt R_ProtoMan_1_6_6_RepeatOrNext
     tst        r0,r1
     beq        LAB_08064acc
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x19]
     ldrb       r1,[r5,#Actor_cPos_y]
     cmp        r0,r1
@@ -698,7 +698,7 @@ LAB_08064b58:
     lsl        r1,r1,#0x10
     bl         FieldObject_SetPanelFlag
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x18]
     add        r0,#0x1
     ldrb       r1,[r7,#0x19]

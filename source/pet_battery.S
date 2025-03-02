@@ -58,7 +58,7 @@ _ts PETBattery_1_RechargeMode
 _ts PETBattery_DrawGauge
     push       {lr}
     LoadMain gameStats, r6, r6
-    ldrb       r6,[r6,#0x5]
+    ldrb       r6,[r6,#GameStats_batteryCharge]
     mov        r0,#0x0
     mov        r7,#0x0
 LAB_0801fc30:
@@ -97,8 +97,8 @@ LAB_0801fc3c:
 _ts PETBattery_FlashIfMoving
     push       {lr}
     LoadMain gameStats, r0, r7
-    ldrh       r1,[r0,#0x10]
-    ldrb       r0,[r0,#0x5]
+    ldrh       r1,[r0,#GameStats_totalStepCounter]
+    ldrb       r0,[r0,#GameStats_batteryCharge]
     ldr        r6,[r7,#0x8]
     ldr        r6,[r6,#0x28]
     ldr        r2,[r6,#0x24]
@@ -273,7 +273,7 @@ listRechargeTarget:
 _ts PETBattery_ManualRecharge
     push       {lr}
     LoadMain gameStats, r7, r7
-    ldrb       r0,[r7,#0x5]
+    ldrb       r0,[r7,#GameStats_batteryCharge]
     cmp        r0,#0xa
     bge        LAB_0801fe32
     ldrb       r0,[r5,#0x1]
@@ -284,7 +284,7 @@ _ts PETBattery_ManualRecharge
     ble        LAB_0801fe2e
     strh       r0,[r5,#0x4]
     LoadMain input, r7, r7
-    ldrh       r7,[r7,#0x2]
+    ldrh       r7,[r7,#GameStats_sortOrderSack]
     mov        r2,#0x2
     and        r2,r7
     beq        LAB_0801fe2a
@@ -307,13 +307,13 @@ _ts PETBattery_ManualRecharge
     bl         Sound_PlaySE
     pop        {r0}
     LoadMain gameStats, r7, r7
-    ldrb       r0,[r7,#0x5]
+    ldrb       r0,[r7,#GameStats_batteryCharge]
     add        r0,#0x1
-    strb       r0,[r7,#0x5]
+    strb       r0,[r7,#GameStats_batteryCharge]
     cmp        r0,#0xa
     blt        LAB_0801fe2a
     mov        r0,#0xa
-    strb       r0,[r7,#0x5]
+    strb       r0,[r7,#GameStats_batteryCharge]
     b          LAB_0801fe32
 LAB_0801fe2a:
     mov        r0,#0x0
@@ -329,17 +329,17 @@ LAB_0801fe32:
 _ts PETBattery_IsBatteryActive
     push       {lr}
     LoadMain gameStats, r7, r7
-    ldrb       r0,[r7,#0x5]
-    ldrh       r1,[r7,#0x10]
+    ldrb       r0,[r7,#GameStats_batteryCharge]
+    ldrh       r1,[r7,#GameStats_totalStepCounter]
     cmp        r0,#0x0
     beq        LAB_0801fe58
     ldr        r2,INT_0801ff50
     cmp        r1,r2
     blt        LAB_0801fe54
     sub        r0,#0x1
-    strb       r0,[r7,#0x5]
+    strb       r0,[r7,#GameStats_batteryCharge]
     mov        r1,#0x0
-    strh       r1,[r7,#0x10]
+    strh       r1,[r7,#GameStats_totalStepCounter]
 LAB_0801fe54:
     mov        r0,#0x1
     pop        {pc}
@@ -353,8 +353,8 @@ LAB_0801fe58:
 
 _ts PETBattery_ResetStepCounter
     LoadMain world, r6, r7
-    ldrb       r0,[r6,#0x4]
-    ldrb       r1,[r6,#0xc]
+    ldrb       r0,[r6,#World_currentArea]
+    ldrb       r1,[r6,#World_lastArea]
     cmp        r0,r1
     beq        LAB_0801fe76
     mov        r0,#0x0
@@ -367,7 +367,7 @@ LAB_0801fe76:
 _ts PETBattery_RestoreBattery
     LoadMain gameStats, r7, r7
     mov        r0,#0xa
-    strb       r0,[r7,#0x5]
+    strb       r0,[r7,#GameStats_batteryCharge]
     mov        pc,lr
 
 
@@ -375,7 +375,7 @@ _ts PETBattery_DrawUi
     push       {lr}
     ldr        r5,PTR_gPETBattery_0801ff58
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x0]
+    ldrb       r7,[r7,#World_state_s0]
     cmp        r7,#0x18
     beq        LAB_0801feb8
     cmp        r7,#0x1c

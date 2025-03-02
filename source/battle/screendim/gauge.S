@@ -49,7 +49,7 @@ _ts SD_Gauge_1
     ldrb       r0,[r5,#ScreenDim_subFamily]
     ldrb       r0,[r7,r0]
     LoadMain battle, r7, r7
-    strb       r0,[r7,#0x12]
+    strb       r0,[r7,#Battle_customGaugeSpeed]
     ldr        r7,PTR_PTR_Color_ARRAY_08099e44
     ldmia      r7!,{r0,r1,r2}
     push       {r5}
@@ -102,7 +102,7 @@ LAB_08099e7e:
 _ts SD_Gauge_3
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08099e9a

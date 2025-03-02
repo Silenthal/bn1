@@ -110,7 +110,7 @@ _ts EventHandler_SciLab_Power_Plant_F41_0
     pop        {r5}
     LoadMain world, r0, r0
     mov        r1,#0x42
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     mov        r0,#0x0
     strb       r0,[r5,#0x0]
 LAB_0803c926:
@@ -206,7 +206,7 @@ _ts FUN_0803c9ac
     bne        LAB_0803ca1c
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -222,7 +222,7 @@ LAB_0803c9d8:
     cmp        r0,#0x2
     bne        LAB_0803c9fa
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#World_storyFlag]
     cmp        r1,#0x41
     bne        LAB_0803c9fa
     bl         dummy_187a0
@@ -237,7 +237,7 @@ LAB_0803c9fa:
     cmp        r0,#0x3
     bne        LAB_0803ca1c
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#World_storyFlag]
     cmp        r1,#0x42
     bhi        LAB_0803ca1c
     bl         dummy_187a0
@@ -351,7 +351,7 @@ _ts MapSetup_SciLab_Power_Plant_F50
     add        r1,#0x24
     bl         Camera_SetEnabled
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#World_storyFlag]
     cmp        r7,#0x53
     blt        LAB_0803cae4
     ldr        r7,PTR_NPCList_803D500_0803cb58
@@ -394,7 +394,7 @@ _ts FUN_0803cb10
     bne        LAB_0803cb4c
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

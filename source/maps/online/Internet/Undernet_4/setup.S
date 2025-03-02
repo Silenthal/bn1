@@ -64,7 +64,7 @@ _nt MapSetup_Undernet_4
     bne        LAB_08053060
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_67_08053100
     mov        r1,#0x0
@@ -84,8 +84,8 @@ LAB_08053060:
     pop        {r5}
 LAB_0805306a:
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08053082
     push       {r5}
@@ -117,7 +117,7 @@ _ts EventHandler_Undernet_4_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

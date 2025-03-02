@@ -75,14 +75,14 @@ _ts Menu_Email_0_Init
     bl         Screen_CopyTileMapRect
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801c5a0
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0
-    strh       r1,[r0,#0x10]
-    strh       r1,[r0,#0x12]
-    strh       r1,[r0,#0x14]
-    strh       r1,[r0,#0x16]
-    strh       r1,[r0,#0x18]
-    strh       r1,[r0,#0x1a]
+    strh       r1,[r0,#DisplaySettings_bg1Hofs]
+    strh       r1,[r0,#DisplaySettings_bg1Vofs]
+    strh       r1,[r0,#DisplaySettings_bg2Hofs]
+    strh       r1,[r0,#DisplaySettings_bg2Vofs]
+    strh       r1,[r0,#DisplaySettings_bg3Hofs]
+    strh       r1,[r0,#DisplaySettings_bg3Vofs]
     FadeIn_Black
     bl         Video_InitClearTile
     ldr        r0,PTR_DAT_0801c5a4
@@ -142,7 +142,7 @@ LAB_0801c264:
 _ts Menu_Email_1_Main
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801c28a
@@ -157,7 +157,7 @@ _ts Menu_Email_2_Free
     push       {lr}
     bl         Menu_Email_PrintUi
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801c2ec
@@ -227,7 +227,7 @@ LAB_0801c31c:
     b          LAB_0801c3fa
 LAB_0801c328:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x2
     tst        r1,r0
     beq        LAB_0801c34c
@@ -264,8 +264,8 @@ LAB_0801c34c:
 LAB_0801c37c:
     ldrb       r2,[r5,#0xc]
     ldrb       r3,[r5,#0xe]
-    ldrh       r0,[r7,#0x4]
-    ldrh       r4,[r7,#0x0]
+    ldrh       r0,[r7,#Input_heldKeyState]
+    ldrh       r4,[r7,#Input_curKeyState]
     ldr        r1,DAT_0801c5c0
     tst        r4,r1
     beq        LAB_0801c390
@@ -415,7 +415,7 @@ LAB_0801c454:
     cmp        r0,#0x4
     ble        LAB_0801c4de
     LoadMain frameCounter, r7, r7
-    ldrh       r7,[r7,#0x0]
+    ldrh       r7,[r7,#FrameCounter_counter]
     mov        r1,#0x10
     and        r1,r7
     mov        r5,r8
@@ -455,7 +455,7 @@ LAB_0801c4de:
 _ts Menu_Email_PrintNewTag
     push       {r5,lr}
     LoadMain frameCounter, r7, r7
-    ldrh       r7,[r7,#0x0]
+    ldrh       r7,[r7,#FrameCounter_counter]
     mov        r1,#0x20
     and        r7,r1
     lsr        r7,r7,#0x2

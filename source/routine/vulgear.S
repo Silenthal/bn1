@@ -461,7 +461,7 @@ _nt R_Vulgear_1_6_3
     ldrb       r0,[r5,#Actor_cPos_x]
     ldrb       r1,[r5,#Actor_cPos_y]
     LoadMain battle, r2, r2
-    ldr        r2,[r2,#0x40]
+    ldr        r2,[r2,#Battle_actorListPlayer]
     add        r2,#0x2c
     ldr        r4,PTR_ElementID_0805aec4
     ldrb       r3,[r5,#Actor_family_family]

@@ -64,7 +64,7 @@ _ts MapSetup_WWW_Base_F54
     bne        LAB_0803dad4
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_6E_0803dc94
     mov        r1,#0x0
@@ -81,7 +81,7 @@ LAB_0803dae4:
     bne        LAB_0803db02
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,DAT_0803dc98
     mov        r1,#0x18
@@ -100,7 +100,7 @@ LAB_0803db12:
     bne        LAB_0803db3c
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     bl         Sound_StopAllMusic
     push       {r5}
     ldr        r0,PTR_Scene_Story_7D_0803dc9c
@@ -166,7 +166,7 @@ _ts EventHandler_WWW_Base_F54_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -234,7 +234,7 @@ _nt FUN_0803dc2e
 LAB_0803dc3e:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -249,7 +249,7 @@ LAB_0803dc56:
     pop        {r5}
     bne        LAB_0803dc82
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0803dccc
     and        r1,r0
     beq        LAB_0803dc82

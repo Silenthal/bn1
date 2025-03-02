@@ -279,7 +279,7 @@ LAB_080408a6:
 _ts EventHandler_School_Comp_1_F12_1
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_080408c8
     push       {r5}
@@ -375,7 +375,7 @@ PTR_EventHandler_School_Comp_1_F13_0_08040964:
 _ts EventHandler_School_Comp_1_F13_0
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08040988
     push       {r5}
@@ -503,7 +503,7 @@ _ts EventHandler_School_Comp_HandleJackOut
     pop        {r5}
     bne        LAB_08040a84
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08040ae4
     and        r1,r0
     beq        LAB_08040a84
@@ -660,8 +660,8 @@ _ts MapSetup_School_Comp_1_F20
     bl         Camera_SetEnabled
     pop        {r5}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     bne        LAB_08040b98
     cmp        r1,#0x80

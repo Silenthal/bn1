@@ -62,7 +62,7 @@ _ts E_LightBulb_2_Free
 _ts E_LightBulb_CheckLitState
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#World_storyFlag]
     cmp        r7,#0x50
     bge        LAB_0808007c
     mov        r1,#0x0

@@ -111,8 +111,8 @@ _ts MapSetup_Waterworks_Comp_5_F25
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804669a
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_080466a6
 LAB_0804669a:
@@ -259,8 +259,8 @@ _ts MapSetup_Waterworks_Comp_5_F30
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_080467be
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_080467ca
 LAB_080467be:

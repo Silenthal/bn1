@@ -17,7 +17,7 @@ listAuraSpec:
 _ts Attack_Aura
     push       {lr}
     LoadMain battle, r7, r6
-    ldrb       r0,[r7,#0x18]
+    ldrb       r0,[r7,#Battle_isScreenDimChipActive]
     tst        r0,r0
     bne        LAB_0806ff98
     ldr        r7,[r6,#0x8]

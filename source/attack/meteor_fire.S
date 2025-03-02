@@ -54,7 +54,7 @@ _ts A_Meteor_Fire_1_Main
     tst        r0,r0
     beq        LAB_08071540
     LoadMain mapEventState, r0, r0
-    ldrb       r0,[r0,#0x8]
+    ldrb       r0,[r0,#MapEventState_b8]
     ldrb       r1,[r5,#Attack_family_family]
     cmp        r0,r1
     bne        LAB_08071540
@@ -79,7 +79,7 @@ _ts A_Meteor_Fire_CheckClear
     push       {lr}
     mov        r0,#0xa0
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x4]
+    ldrb       r7,[r7,#World_currentArea]
     cmp        r7,#0x81
     beq        LAB_08071568
     mov        r0,#0xdf

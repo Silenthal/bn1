@@ -104,7 +104,7 @@ _ts MapSetup_School_Staff_Lounge_F15
     beq        LAB_080283cc
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_1C_08028434
     mov        r1,#0x0
@@ -140,7 +140,7 @@ _ts EventHandler_School_Staff_Lounge_F15_0
     bl         Scene_Prepare
     LoadMain world, r0, r0
     mov        r1,#0x20
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     Flag_SetBase 0x01
     bl         FUN_080102e8
     pop        {r5}

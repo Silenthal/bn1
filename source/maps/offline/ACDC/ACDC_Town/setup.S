@@ -75,7 +75,7 @@ _ts MapSetup_ACDC_Town_F00
     bne        LAB_0802aa80
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     bl         PlayerLocation_Create
     pop        {r5}
@@ -174,7 +174,7 @@ PTR_EventHandler_ACDC_Town_F02_0_0802ab34:
 _ts EventHandler_ACDC_Town_F02_0
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0xe]
+    ldrb       r1,[r0,#World_curEventFlag]
     cmp        r1,#0x20
     bne        LAB_0802ab52
     push       {r5}
@@ -204,7 +204,7 @@ LAB_0802ab64:
 LAB_0802ab76:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -257,7 +257,7 @@ _ts EventHandler_ACDC_Town_F06_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -384,15 +384,15 @@ LAB_0802acde:
 LAB_0802acf8:
     LoadMain world, r7, r7
     mov        r1,#0x8
-    strb       r1,[r7,#0x7]
+    strb       r1,[r7,#World_fadeType]
     mov        r1,#0xff
-    strb       r1,[r7,#0x13]
+    strb       r1,[r7,#World_fadeStep]
     ldr        r0,DAT_0802ad90
-    str        r0,[r7,#0x38]
+    str        r0,[r7,#World_savedPos_x]
     ldr        r0,DAT_0802ad94
-    str        r0,[r7,#0x3c]
+    str        r0,[r7,#World_savedPos_y]
     mov        r0,#0x0
-    str        r0,[r7,#0x40]
+    str        r0,[r7,#World_savedPos_z]
     push       {r5}
     ldr        r7,PTR_PTR_DAT_0802ad98
     bl         Map_LoadNPCList
@@ -668,7 +668,7 @@ _ts EventHandler_ACDC_Town_F20_0
     beq        LAB_0802af7a
     LoadMain world, r0, r0
     mov        r1,#0x21
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
 LAB_0802af7a:
     pop        {pc}
 
@@ -803,7 +803,7 @@ _ts MapSetup_ACDC_Town_F23
     bne        LAB_0802b0ae
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
@@ -942,7 +942,7 @@ _ts MapSetup_ACDC_Town_F26
     bne        LAB_0802b1b4
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_2D_0802b338
     mov        r1,#0x0
@@ -992,7 +992,7 @@ LAB_0802b1fc:
     Flag_GetBase 0xB1
     bne        LAB_0802b220
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x30
     bne        LAB_0802b2ae
     Flag_SetIgnore F_IGNORE_WALL_00
@@ -1084,7 +1084,7 @@ _ts FUN_0802b2b0
     pop        {pc}
 LAB_0802b2bc:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x30
     bne        LAB_0802b2d2
     push       {r5}
@@ -1298,7 +1298,7 @@ _ts EventHandler_ACDC_Town_F30_HandleExits
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -1428,9 +1428,9 @@ _ts MapSetup_ACDC_Town_F40
     bne        LAB_0802b5cc
     LoadMain world, r7, r7
     mov        r1,#0x8
-    strb       r1,[r7,#0x7]
+    strb       r1,[r7,#World_fadeType]
     mov        r1,#0xff
-    strb       r1,[r7,#0x13]
+    strb       r1,[r7,#World_fadeStep]
     push       {r5}
     ldr        r0,PTR_Scene_Story_4E_0802b624
     mov        r1,#0x0
@@ -1692,9 +1692,9 @@ _ts MapSetup_ACDC_Town_F54
     bne        LAB_0802b800
     LoadMain world, r7, r7
     mov        r1,#0x8
-    strb       r1,[r7,#0x7]
+    strb       r1,[r7,#World_fadeType]
     mov        r1,#0xff
-    strb       r1,[r7,#0x13]
+    strb       r1,[r7,#World_fadeStep]
     bl         Sound_StopAllMusic
     push       {r5}
     ldr        r0,PTR_Scene_Story_7F_0802b8cc

@@ -72,14 +72,14 @@ _ts Menu_MegaMan_0_Init
     bl         Dma_TransferListAdd
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801bd24
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0
-    strh       r1,[r0,#0x10]
-    strh       r1,[r0,#0x12]
-    strh       r1,[r0,#0x14]
-    strh       r1,[r0,#0x16]
-    strh       r1,[r0,#0x18]
-    strh       r1,[r0,#0x1a]
+    strh       r1,[r0,#DisplaySettings_bg1Hofs]
+    strh       r1,[r0,#DisplaySettings_bg1Vofs]
+    strh       r1,[r0,#DisplaySettings_bg2Hofs]
+    strh       r1,[r0,#DisplaySettings_bg2Vofs]
+    strh       r1,[r0,#DisplaySettings_bg3Hofs]
+    strh       r1,[r0,#DisplaySettings_bg3Vofs]
     FadeIn_Black
     bl         Video_InitClearTile
     pop        {r5}
@@ -99,7 +99,7 @@ _ts Menu_MegaMan_0_Init
 _ts Menu_MegaMan_1_Main
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801ba32
@@ -114,7 +114,7 @@ _ts Menu_MegaMan_2_Close
     push       {lr}
     bl         Menu_MegaMan_PrintUI
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801ba94
@@ -221,10 +221,10 @@ _ts Menu_MegaMan_3_1_ChangeArmor
     add        r0,r0,r5
     ldrb       r1,[r0,#0x17]
     LoadMain textHandler, r7, r7
-    str        r1,[r7,#0x30]
+    str        r1,[r7,#Text_itemIdList]
     sub        r1,#0x42
     LoadMain world, r7, r7
-    strb       r1,[r7,#0x17]
+    strb       r1,[r7,#Text_passcodeChoice]
     tst        r1,r1
     beq        LAB_0801bb30
     mov        r1,#0x1
@@ -433,7 +433,7 @@ _ts Menu_MegaMan_AddArmorIfPresent
     beq        LAB_0801bce4
     mov        r5,r9
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x17]
+    ldrb       r1,[r7,#World_armor]
     add        r1,#0x42
     cmp        r0,r1
     beq        LAB_0801bce4
@@ -502,7 +502,7 @@ _ts Menu_MegaMan_HandleInput
     strb       r0,[r5,#0x13]
 LAB_0801bd4c:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x2
     tst        r1,r0
     beq        LAB_0801bd70
@@ -537,7 +537,7 @@ LAB_0801bd84:
     b          LAB_0801bdc0
 LAB_0801bd96:
     ldrb       r2,[r5,#0xc]
-    ldrh       r0,[r7,#0x4]
+    ldrh       r0,[r7,#Input_heldKeyState]
     mov        r1,#0x40
     tst        r1,r0
     beq        LAB_0801bda4
@@ -567,7 +567,7 @@ LAB_0801bdc0:
 _ts Menu_MegaMan_PrintHP
     push       {lr}
     LoadMain world, r7, r7
-    ldrh       r0,[r7,#0x1c]
+    ldrh       r0,[r7,#World_hpCurrent]
     mov        r1,#0x4
     bl         Menu_PrintToBuffer
     push       {r5}
@@ -645,7 +645,7 @@ LAB_0801be58:
 _ts Menu_MegaMan_PrintStatLines
     push       {r5,lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x14]
+    ldrb       r0,[r7,#World_statAttack]
     ldr        r3,PTR_tilemapMegaManStats_0801bfb4
     mov        r1,#0x14
     mul        r0,r1
@@ -657,7 +657,7 @@ _ts Menu_MegaMan_PrintStatLines
     mov        r5,#0x2
     bl         Screen_CopyTileMapRect
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x15]
+    ldrb       r0,[r7,#World_statSpeed]
     ldr        r3,PTR_tilemapMegaManStats_0801bfb8
     mov        r1,#0x14
     mul        r0,r1
@@ -669,7 +669,7 @@ _ts Menu_MegaMan_PrintStatLines
     mov        r5,#0x2
     bl         Screen_CopyTileMapRect
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x16]
+    ldrb       r0,[r7,#World_statCharge]
     ldr        r3,PTR_tilemapMegaManStats_0801bfbc
     mov        r1,#0x14
     mul        r0,r1
@@ -744,7 +744,7 @@ _ts Menu_MegaMan_PrintLevel
 _ts Menu_MegaMan_PrintArmor
     push       {r5,lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x17]
+    ldrb       r0,[r7,#World_armor]
     ldr        r3,PTR_PTR_tilemapArmor_0801bfc4
     lsl        r0,r0,#0x2
     ldr        r3,[r3,r0]
@@ -772,9 +772,9 @@ _ts Status_GetLevel
     bl         KeyItem_IsPresent
     add        r0,#0x1
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x14]
-    ldrb       r2,[r7,#0x15]
-    ldrb       r3,[r7,#0x16]
+    ldrb       r1,[r7,#World_statAttack]
+    ldrb       r2,[r7,#World_statSpeed]
+    ldrb       r3,[r7,#World_statCharge]
     add        r1,r1,r2
     add        r1,r1,r3
     mov        r2,#0x3

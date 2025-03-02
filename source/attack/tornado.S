@@ -161,7 +161,7 @@ LAB_080776d8:
 _ts A_Tornado_CreateTargetingTornado
     push       {lr}
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r3,[r7,#0x18]
     ldrb       r1,[r5,#Attack_cPos_x]
     mov        r0,#0x1

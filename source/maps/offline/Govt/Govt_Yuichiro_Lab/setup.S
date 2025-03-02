@@ -144,7 +144,7 @@ _ts EventHandler_Govt_Yuichiro_Lab_F24_0
     beq        LAB_0803381e
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -162,21 +162,21 @@ LAB_0803381e:
 _ts EventHandler_Govt_Yuichiro_Lab_F24_1
     push       {lr}
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08033850
     LoadMain world, r0, r0
     mov        r1,#0x25
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     push       {r5}
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#World_lastBattleResult]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#World_commentaryTextIndex]
     ldr        r1,PTR_MapEntrance_080339d4
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#World_statAttack]
     mov        r0,#0x0
     bl         World_ChangeMap
     pop        {r5}
@@ -204,7 +204,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F25
     bne        LAB_08033892
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     mov        r4,#0x0
 LAB_08033892:
     str        r4,[r5,#0x0]
@@ -260,7 +260,7 @@ LAB_080338dc:
     pop        {r5}
     bne        LAB_0803391a
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_080339e0
     and        r1,r0
     beq        LAB_0803391a
@@ -289,9 +289,9 @@ _ts FUN_0803391c
     tst        r0,r0
     bne        LAB_080339ba
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x22
     bne        LAB_08033944
     push       {r5}
@@ -330,7 +330,7 @@ LAB_08033970:
 LAB_0803397e:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -508,7 +508,7 @@ LAB_08033ac0:
     pop        {r5}
     bne        LAB_08033afe
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08033b84
     and        r1,r0
     beq        LAB_08033afe
@@ -537,9 +537,9 @@ _ts FUN_08033b00
     tst        r0,r0
     bne        LAB_08033b72
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x22
     bne        LAB_08033b28
     push       {r5}
@@ -569,7 +569,7 @@ LAB_08033b3a:
 LAB_08033b4c:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -714,7 +714,7 @@ LAB_08033c58:
     pop        {r5}
     bne        LAB_08033c96
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08033d34
     and        r1,r0
     beq        LAB_08033c96
@@ -743,9 +743,9 @@ _ts EventHandler_Govt_Yuichiro_Lab_F40_HandleExits
     tst        r0,r0
     bne        LAB_08033d20
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x22
     bne        LAB_08033cc0
     push       {r5}
@@ -784,7 +784,7 @@ LAB_08033cec:
 LAB_08033cfa:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -1021,7 +1021,7 @@ _ts MapSetup_Govt_Yuichiro_Lab_F54
     Flag_SetEvent 0x2C
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_6D_08033fe8
     mov        r1,#0x17
@@ -1067,7 +1067,7 @@ LAB_08033f10:
     pop        {r5}
     bne        LAB_08033f4e
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08033ff0
     and        r1,r0
     beq        LAB_08033f4e
@@ -1096,9 +1096,9 @@ _ts EventHandler_Govt_Yuichiro_Lab_F50_HandleExits
     tst        r0,r0
     bne        LAB_08033fc2
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x22
     bne        LAB_08033f78
     push       {r5}
@@ -1128,7 +1128,7 @@ LAB_08033f8a:
 LAB_08033f9c:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

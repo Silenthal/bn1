@@ -49,8 +49,8 @@ LAB_0805088e:
 LAB_08050894:
     pop        {r5}
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_080508ae
     push       {r5}

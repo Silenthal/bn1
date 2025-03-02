@@ -261,7 +261,7 @@ _ts A_SnakeEgg_1_1_0
     neg        r2,r2
     lsr        r0,r2,#0x1f
     LoadMain battle, r1, r1
-    ldrb       r1,[r1,#0x1a]
+    ldrb       r1,[r1,#Battle_sioOwnerId]
     eor        r0,r1
     bl         SpritePtr_SetFlipType
 LAB_0807988e:

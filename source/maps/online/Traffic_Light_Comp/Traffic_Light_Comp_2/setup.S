@@ -70,8 +70,8 @@ _ts MapSetup_Traffic_Light_Comp_2_F33
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08048376
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08048382
 LAB_08048376:
@@ -103,7 +103,7 @@ PTR_EventHandler_Traffic_Light_Comp_2_F33_0_08048398:
 _ts EventHandler_Traffic_Light_Comp_2_F33_0
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_080483b4
     push       {r5}
@@ -127,7 +127,7 @@ LAB_080483d2:
     beq        LAB_080483ee
     LoadMain world, r0, r0
     mov        r1,#0x34
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     push       {r5}
     ldr        r0,DAT_08048494
     mov        r1,#0x12
@@ -157,8 +157,8 @@ _nt MapSetup_Traffic_Light_Comp_2_F34
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08048428
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08048434
 LAB_08048428:
@@ -192,7 +192,7 @@ PTR_EventHandler_Traffic_Light_Comp_2_F34_0_0804844c:
 _ts EventHandler_Traffic_Light_Comp_2_F34_0
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08048468
     push       {r5}
@@ -315,8 +315,8 @@ _ts MapSetup_Traffic_Light_Comp_2_F40
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804854e
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804855a
 LAB_0804854e:
@@ -348,7 +348,7 @@ PTR_EventHandler_Traffic_Light_Comp_2_F40_0_08048570:
 _ts EventHandler_Traffic_Light_Comp_2_F40_0
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0804858c
     push       {r5}

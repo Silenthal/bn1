@@ -70,8 +70,8 @@ _ts MapSetup_Traffic_Light_Comp_3_F34
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804865a
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08048666
 LAB_0804865a:
@@ -117,7 +117,7 @@ LAB_080486a0:
     beq        LAB_080486be
     LoadMain world, r0, r0
     mov        r1,#0x35
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     push       {r5}
     ldr        r0,DAT_08048774
     mov        r1,#0x12
@@ -126,7 +126,7 @@ LAB_080486a0:
     pop        {pc}
 LAB_080486be:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_080486d4
     push       {r5}
@@ -158,8 +158,8 @@ _ts MapSetup_Traffic_Light_Comp_3_F35
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804870e
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804871a
 LAB_0804870e:
@@ -191,7 +191,7 @@ PTR_EventHandler_Traffic_Light_Comp_3_F35_0_08048730:
 _ts EventHandler_Traffic_Light_Comp_3_F35_0
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0804874c
     push       {r5}
@@ -314,8 +314,8 @@ _ts MapSetup_Traffic_Light_Comp_3_F40
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08048832
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804883e
 LAB_08048832:
@@ -347,7 +347,7 @@ PTR_EventHandler_Traffic_Light_Comp_3_F40_0_08048854:
 _ts EventHandler_Traffic_Light_Comp_3_F40_0
     push       {lr}
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08048870
     push       {r5}

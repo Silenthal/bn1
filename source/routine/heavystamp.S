@@ -402,7 +402,7 @@ _ts R_HeavyStamp_ChooseTarget
     tst        r0,r0
     beq        LAB_0806ee0e
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     tst        r7,r7
     bne        LAB_0806ee32
 LAB_0806edf2:

@@ -40,7 +40,7 @@ _nt FUN_0804f032
     bl         Entity_AllocList
     pop        {r5}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#World_storyFlag]
     cmp        r1,#0x30
     bne        LAB_0804f070
     Flag_GetBase 0x91
@@ -61,8 +61,8 @@ LAB_0804f070:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804f08e
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804f09a
 LAB_0804f08e:
@@ -94,7 +94,7 @@ PTR_FUN_0804f0b4_0804f0b0:
 _ts FUN_0804f0b4
     push       {lr}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#World_storyFlag]
     cmp        r1,#0x30
     bne        LAB_0804f0d6
     Flag_GetEmailReceived 0x09

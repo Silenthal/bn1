@@ -61,7 +61,7 @@ _ts MapSetup_WWW_Wily_Lab_F30
     bne        LAB_0803dd6c
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_35_0803ddec
     mov        r1,#0x0
@@ -98,7 +98,7 @@ _ts MapSetup_WWW_Wily_Lab_F37
     push       {lr}
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     bl         PlayerLocation_Create
     pop        {r5}
@@ -234,7 +234,7 @@ _ts MapSetup_WWW_Wily_Lab_F50
     bne        LAB_0803deac
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_65_0803e0e0
     mov        r1,#0x0
@@ -280,7 +280,7 @@ _ts MapSetup_WWW_Wily_Lab_F53
     bne        LAB_0803defc
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_68_0803e0e8
     mov        r1,#0x0
@@ -332,7 +332,7 @@ LAB_0803df3e:
     bne        LAB_0803df68
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     bl         Sound_StopAllMusic
     push       {r5}
     ldr        r0,PTR_Scene_Story_78_0803e0f0
@@ -406,7 +406,7 @@ _ts EventHandler_WWW_Wily_Lab_F54_0
     Flag_GetBase 0xE1
     bne        LAB_0803e00c
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x2
     bne        LAB_0803e00c
     push       {r5}
@@ -427,7 +427,7 @@ _ts EventHandler_WWW_Wily_Lab_F54_1
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -470,13 +470,13 @@ _nt FUN_0803e06a
 LAB_0803e07a:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     mov        r1,#0xc
     strh       r1,[r0,#0x2e]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r1,#0x0
     strh       r1,[r7,#0x2e]
     pop        {r5}
@@ -491,7 +491,7 @@ LAB_0803e0a0:
     pop        {r5}
     bne        LAB_0803e0cc
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0803e114
     and        r1,r0
     beq        LAB_0803e0cc

@@ -42,7 +42,7 @@ _ts Credits_0_Init
     bl         memcpy_32
     pop        {r5}
     LoadMain gameStats, r7, r7
-    ldr        r0,[r7,#0x18]
+    ldr        r0,[r7,#GameStats_gameTimer]
     ldr        r1,framesPerHour
     push       {r5}
     bl         SWI_Div
@@ -111,10 +111,10 @@ _ts Credits_2_Free
     pop        {r5}
     LoadMain manager, r0, r7
     mov        r1,#0x14
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     LoadMain display, r0, r7
     mov        r1,#0x40
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#Manager_gameState]
     pop        {pc}
 
 
@@ -137,7 +137,7 @@ _ts Credits_1_0_StartScene
     pop        {r5}
     LoadMain display, r0, r7
     ldr        r1,INT_080215d4
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r0,#0x3
     ldrb       r1,[r5,#0x8]
     cmp        r1,#0x0
@@ -272,7 +272,7 @@ _ts Credits_1_3_FadeOut
     pop        {r5}
     bl         Credits_PrintBackdrop
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0802175e
@@ -407,7 +407,7 @@ LAB_08021860:
     bgt        LAB_08021888
 LAB_0802186c:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     ldr        r1,DAT_080218d8
     tst        r1,r0
     beq        LAB_08021888
@@ -500,9 +500,9 @@ LAB_08021b3c:
     bl         Map_LoadBackgroundData
     pop        {r5,r7}
     LoadMain camera, r6, r6
-    ldr        r0,[r6,#0x2c]
-    ldr        r1,[r6,#0x30]
-    ldr        r2,[r6,#0x34]
+    ldr        r0,[r6,#Camera_posMapNext_x]
+    ldr        r1,[r6,#Camera_posMapNext_y]
+    ldr        r2,[r6,#Camera_posMapNext_z]
     ldrb       r3,[r7,#0x0]
     ldrb       r4,[r7,#0x1]
     push       {r5,r7}
@@ -543,7 +543,7 @@ _ts Credits_ResetEntityData
     push       {r5,lr}
     LoadMain world, r7, r7
     mov        r0,#0x0
-    str        r0,[r7,#0x34]
+    str        r0,[r7,#World_npcCommandList]
     mov        r0,#0x1f
     bl         Entity_FreeAllMultiple
     mov        r0,#0x3
@@ -614,7 +614,7 @@ LAB_08021c34:
     push       {r1,r6}
     LoadMain textUI, r7, r7
     mov        r0,#0x0
-    str        r0,[r7,#0x4]
+    str        r0,[r7,#TextUI_numberBuffer]
     str        r0,[r7,#0x8]
     str        r0,[r7,#0xc]
     str        r0,[r7,#0x10]
@@ -666,7 +666,7 @@ LAB_08021c94:
     ldrb       r0,[r5,#0xe]
 LAB_08021c96:
     LoadMain textUI, r7, r7
-    str        r0,[r7,#0x4]
+    str        r0,[r7,#TextUI_numberBuffer]
     str        r1,[r7,#0x8]
     ldr        r0,PTR_textDict_Credits_08021d80
     mov        r1,#0x8c

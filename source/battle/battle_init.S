@@ -113,7 +113,7 @@ listBattlePanelTiles:
 _ts Battle_InitPlayer
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     bge        LAB_0800506e
     mov        r0,#0x2
@@ -177,10 +177,10 @@ LAB_080050c8:
     bl         Attack_Cube_MP_Create
     tst        r7,r7
     beq        LAB_080050de
-    ldrb       r0,[r7,#0x0]
+    ldrb       r0,[r7,#World_state_s0]
     mov        r1,#0x4
     orr        r0,r1
-    strb       r0,[r7,#0x0]
+    strb       r0,[r7,#World_state_s0]
 LAB_080050de:
     pop        {r6}
     add        r6,#0x4
@@ -324,25 +324,25 @@ _ts Battle_Init
     bl         memset_8
     LoadMain world, r6, r6
     ldrb       r0,[r6,#0xb]
-    strb       r0,[r5,#0xf]
+    strb       r0,[r5,#Battle_backgroundId]
     mov        r0,#0x1
-    strb       r0,[r5,#0xc]
-    strb       r0,[r5,#0x17]
+    strb       r0,[r5,#Battle_customScreenOpenCount]
+    strb       r0,[r5,#Battle_multiDeleteCount]
     mov        r0,#0x5
-    strb       r0,[r5,#0x10]
+    strb       r0,[r5,#Battle_customScreenChipCount]
     mov        r0,#0x0
     sub        r0,#0x1
-    str        r0,[r5,#0x64]
+    str        r0,[r5,#Battle_enemyIdList]
     bl         Sio_SetReady
     LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     mov        r1,#0xc
     bl         SWI_Div
-    strb       r1,[r5,#0xd]
+    strb       r1,[r5,#Battle_randomCellSeed]
     mov        r0,#0x4
-    strb       r0,[r5,#0x9]
+    strb       r0,[r5,#Battle_battleState]
     mov        r0,#0x20
-    strb       r0,[r5,#0x12]
+    strb       r0,[r5,#Battle_customGaugeSpeed]
     LoadMain matchBattleState, r7, r7
     mov        r0,#0x0
     strh       r0,[r7,#0x1e]
@@ -435,7 +435,7 @@ LAB_08005302:
     add        r6,#0x4
     b          LAB_08005298
 LAB_08005306:
-    strb       r3,[r7,#0xb]
+    strb       r3,[r7,#Battle_maxEnemyCount]
     pop        {pc}
 
 
@@ -443,7 +443,7 @@ _nt Battle_SetupBackground
     push       {lr}
     ldr        r7,PTR_PTR_BgAnimate_NumberMan_08005364
     LoadMain world, r6, r6
-    ldrb       r0,[r6,#0xb]
+    ldrb       r0,[r6,#World_battleBackgroundId]
     lsl        r0,r0,#0x2
     ldr        r7,[r7,r0]
     mov        lr,pc
@@ -504,7 +504,7 @@ _nt BgAnimate_FireMan
 _nt BgAnimate_IceMan
     push       {lr}
     LoadMain world, r6, r7
-    ldrb       r7,[r6,#0x6]
+    ldrb       r7,[r6,#World_storyFlag]
     cmp        r7,#0x30
     bge        LAB_080053a2
 LAB_0800539a:
@@ -512,7 +512,7 @@ LAB_0800539a:
     bl         BgTask_AddNew
     b          LAB_080053b4
 LAB_080053a2:
-    ldrb       r7,[r6,#0x4]
+    ldrb       r7,[r6,#World_currentArea]
     cmp        r7,#0x85
     beq        LAB_0800539a
     ldr        r0,PTR_BgTask_8005784
@@ -708,7 +708,7 @@ _nt Battle_AddPlayerEntity
     ldrb       r2,[r5,#0x16]
     tst        r2,r2
     beq        LAB_08005500
-    str        r5,[r7,#0x54]
+    str        r5,[r7,#Battle_actorListEnemy]
     mov        r0,#0x44
 LAB_08005500:
     str        r5,[r7,r0]
@@ -719,12 +719,12 @@ LAB_08005502:
 _ts Battle_InitEnemyList
     push       { lr }
     LoadMain world, r6, r6
-    ldr        r0,[r6,#0x2c]
+    ldr        r0,[r6,#World_enemyList]
     mov        r1,#0x0
-    str        r1,[r6,#0x2c]
+    str        r1,[r6,#World_enemyList]
     tst        r0,r0
     bne        LAB_0800551c
-    ldrb       r0,[r6,#0x4]
+    ldrb       r0,[r6,#World_currentArea]
     ldrb       r1,[r6,#0x5]
     bl         Battle_GetRandomAreaEnemySpawnList
 LAB_0800551c:
@@ -772,13 +772,13 @@ LAB_08005562:
     tst        r1,r1
     beq        LAB_0800557e
     LoadMain world, r6, r6
-    ldrb       r1,[r6,#0xf]
+    ldrb       r1,[r6,#World_battleType]
     mov        r2,#0x8
     cmp        r1,r2
     bge        LAB_0800557e
     LoadMain world, r6, r6
     mov        r1,#0x5
-    strb       r1,[r6,#0xf]
+    strb       r1,[r6,#World_battleType]
 LAB_0800557e:
     pop        { pc }
 
@@ -1018,7 +1018,7 @@ _ts DisableScreenDim
     push       {lr}
     mov        r0,#0x0
     LoadMain battle, r6, r6
-    strb       r0,[r6,#0x18]
+    strb       r0,[r6,#Battle_isScreenDimChipActive]
     LoadMain screenDim, r7, r7
     strb       r0,[r7,#0x7]
     pop        {pc}

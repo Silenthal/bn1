@@ -142,7 +142,7 @@ LAB_080039c0:
     tst        r0,r1
     beq        LAB_080039f6
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x9]
+    ldrb       r1,[r7,#World_IsBattleTimePaused]
     tst        r1,r1
     beq        LAB_080039d8
     mov        r1,#0x4
@@ -150,14 +150,14 @@ LAB_080039c0:
     beq        LAB_080039f6
 LAB_080039d8:
     LoadMain screenDim, r7, r7
-    ldrb       r1,[r7,#0x7]
+    ldrb       r1,[r7,#World_fadeType]
     tst        r1,r1
     beq        LAB_080039e8
     mov        r1,#0x4
     tst        r0,r1
     beq        LAB_080039f6
 LAB_080039e8:
-    str        r5,[r7,#0x70]
+    str        r5,[r7,#World_updatingEntity]
     ldr        r0,PTR_listHandlerEffect_08003ae4
     ldrb       r1,[r5,#Effect_header_routineType]
     lsl        r1,r1,#0x2
@@ -166,7 +166,7 @@ LAB_080039e8:
     bx         r0
 LAB_080039f6:
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0x18]
+    ldrb       r1,[r7,#World_currentSongId]
     tst        r1,r1
     bne        LAB_08003a14
     LoadMain screenDim, r6, r6
@@ -189,7 +189,7 @@ LAB_08003a14:
 LAB_08003a22:
     LoadMain world, r7, r7
     mov        r0,#0x0
-    str        r0,[r7,#0x70]
+    str        r0,[r7,#World_updatingEntity]
     pop        { pc }
 
 _ts Effect_Init

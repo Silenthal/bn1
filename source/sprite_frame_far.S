@@ -223,7 +223,7 @@ _fts SpritePtr_CalculateOcclusion
     lsl        r7,r7,#0x4
     add        r5,r5,r7
     LoadMain manager, r2, r2
-    ldrb       r2,[r2,#0x0]
+    ldrb       r2,[r2,#Manager_gameState]
     cmp        r2,#0x8
     beq        LAB_03006b82
     bl         SpritePtr_CalculatePositionNormal
@@ -361,11 +361,11 @@ LAB_03006c4a:
 LAB_03006c4e:
     LoadMain camera, r3, r3
     ldr        r1,[r0,#0x0]
-    ldr        r4,[r3,#0x38]
+    ldr        r4,[r3,#Camera_posMap_x]
     sub        r1,r1,r4
     mov        r8,r1
     ldr        r6,[r0,#0x4]
-    ldr        r4,[r3,#0x3c]
+    ldr        r4,[r3,#Camera_posMap_y]
     sub        r6,r6,r4
     add        r1,r1,r6
     asr        r1,r1,#0x10
@@ -375,7 +375,7 @@ LAB_03006c4e:
     sub        r6,r6,r2
     asr        r6,r6,#0x1
     add        r7,r6,#0x0
-    ldr        r2,[r3,#0x40]
+    ldr        r2,[r3,#Camera_posMap_z]
     mov        r4,#0x80
     lsl        r4,r4,#0x10
     add        r2,r2,r4
@@ -384,14 +384,14 @@ LAB_03006c4e:
     strh       r4,[r5,#0xa]
     ldr        r4,[r0,#0x8]
     sub        r6,r6,r4
-    ldr        r2,[r3,#0x40]
+    ldr        r2,[r3,#Camera_posMap_z]
     add        r6,r6,r2
     asr        r6,r6,#0x10
     add        r6,#0x52
     strb       r6,[r5,#0xe]
     mov        r4,r9
     sub        r7,r7,r4
-    ldr        r2,[r3,#0x40]
+    ldr        r2,[r3,#Camera_posMap_z]
     add        r7,r7,r2
     asr        r7,r7,#0x10
     add        r7,#0x52
@@ -404,7 +404,7 @@ _ts SpritePtr_CalculatePositionBattle
     LoadMain camera, r3, r3
     mov        r2,#0x2
     ldrsh      r1,[r0,r2]
-    ldr        r4,[r3,#0x38]
+    ldr        r4,[r3,#Camera_posMap_x]
     asr        r4,r4,#0x10
     sub        r1,r1,r4
     tst        r6,r6
@@ -416,7 +416,7 @@ LAB_03006cb4:
     strh       r1,[r5,#0xc]
     mov        r2,#0x6
     ldrsh      r6,[r0,r2]
-    ldr        r4,[r3,#0x3c]
+    ldr        r4,[r3,#Camera_posMap_y]
     asr        r4,r4,#0x10
     sub        r6,r6,r4
     add        r6,#0x50
@@ -424,7 +424,7 @@ LAB_03006cb4:
     strh       r7,[r5,#0xa]
     mov        r2,#0xa
     ldrsh      r4,[r0,r2]
-    ldr        r2,[r3,#0x40]
+    ldr        r2,[r3,#Camera_posMap_z]
     asr        r2,r2,#0x10
     sub        r4,r4,r2
     sub        r6,r6,r4
@@ -441,7 +441,7 @@ LAB_03006ce2:
 
 _ts SpriteFrame_CheckTilesetLimit
     LoadMain manager, r3, r3
-    ldrb       r3,[r3,#0x0]
+    ldrb       r3,[r3,#Manager_gameState]
     cmp        r3,#0x8
     beq        LAB_03006d06
     ldrh       r3,[r0,#0x0]

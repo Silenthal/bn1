@@ -106,8 +106,8 @@ LAB_0804373c:
     bl         Entity_AllocList
     pop        {r5}
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     bne        LAB_08043762
     ldrb       r1,[r0,#0x5]
@@ -193,8 +193,8 @@ LAB_080437d6:
     cmp        r7,#0x20
     blt        LAB_080437d6
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     bne        LAB_080437fe
     ldrb       r1,[r0,#0x5]

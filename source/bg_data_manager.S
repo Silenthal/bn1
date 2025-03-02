@@ -19,31 +19,31 @@ _ts BGDM_Init
     bge        .initOnlineMap
     ldr        r3,ptrBgDataOffline
     ldr        r4,ptrTmCopy3x
-    str        r4,[r5,#0x18]
+    str        r4,[r5,#BackgroundDataManager_funcSingleCopy]
     ldr        r4,ptrLoad123
-    str        r4,[r5,#0x1c]
+    str        r4,[r5,#BackgroundDataManager_funcFullCopy]
     ldr        r4,ptrLoadXY123
-    str        r4,[r5,#0x20]
+    str        r4,[r5,#BackgroundDataManager_funcSpecificCopy]
     b          .rest
 .initOnlineMap:
     ldr        r3,ptrBgDataOnline
     sub        r0,#0x80
     ldr        r4,ptrTmCopy2x
-    str        r4,[r5,#0x18]
+    str        r4,[r5,#BackgroundDataManager_funcSingleCopy]
     ldr        r4,ptrLoad23_1
-    str        r4,[r5,#0x1c]
+    str        r4,[r5,#BackgroundDataManager_funcFullCopy]
     ldr        r4,ptrLoadXY23
-    str        r4,[r5,#0x20]
+    str        r4,[r5,#BackgroundDataManager_funcSpecificCopy]
     b          .rest
 .initBattleMap:
     ldr        r3,ptrBgDataBattle
     sub        r0,#0xf0
     ldr        r4,ptrTmCopy1x
-    str        r4,[r5,#0x18]
+    str        r4,[r5,#BackgroundDataManager_funcSingleCopy]
     ldr        r4,ptrLoad23_2
-    str        r4,[r5,#0x1c]
+    str        r4,[r5,#BackgroundDataManager_funcFullCopy]
     ldr        r4,ptrLoadXY23_2
-    str        r4,[r5,#0x20]
+    str        r4,[r5,#BackgroundDataManager_funcSpecificCopy]
 .rest:
     lsl        r0,r0,#0x2
     add        r3,r3,r0
@@ -51,18 +51,18 @@ _ts BGDM_Init
     mov        r2,#0xc
     mul        r1,r2
     add        r3,r3,r1
-    str        r3,[r5,#0x8]
+    str        r3,[r5,#BackgroundDataManager_archivePack]
     ldr        r0,[r3,#0x8]
     ldr        r1,=gTempMemory
     ldrb       r2,[r0,#0x0]
-    strb       r2,[r5,#0x0]
+    strb       r2,[r5,#BackgroundDataManager_mapGridSizeX]
     ldrb       r2,[r0,#0x1]
-    strb       r2,[r5,#0x1]
+    strb       r2,[r5,#BackgroundDataManager_mapGridSizeY]
     ldr        r2,[r3,#0x4]
-    str        r2,[r5,#0x10]
+    str        r2,[r5,#BackgroundDataManager_paletteArchive]
     ldr        r2,[r3,#0x0]
-    str        r2,[r5,#0x14]
-    str        r1,[r5,#0xc]
+    str        r2,[r5,#BackgroundDataManager_tilesetArchive]
+    str        r1,[r5,#BackgroundDataManager_tilemapArchive]
     pop        {pc}
 
 
@@ -70,7 +70,7 @@ _ts BGDM_Init
 _ts BGDM_Load
     push       {lr}
     LoadMain bgDataManager, r5, r7
-    ldr        r0,[r5,#0x10]
+    ldr        r0,[r5,#BackgroundDataManager_paletteArchive]
     ldr        r2,[r0,#0x0]
     lsr        r2,r2,#0x2
     add        r0,#0x4
@@ -83,7 +83,7 @@ _ts BGDM_Load
     bl         Dma_WaitForEnd
     pop        {r5}
     mov        r0,#0x0
-    ldr        r7,[r5,#0x14]
+    ldr        r7,[r5,#BackgroundDataManager_tilesetArchive]
     add        r6,r7,#0x0
 .loopVramCopy:
     push       {r0,r6}
@@ -110,7 +110,7 @@ _ts BGDM_Load
     add        r0,#0x1
     cmp        r0,#0x3
     blt        .loopVramCopy
-    ldr        r3,[r5,#0x8]
+    ldr        r3,[r5,#BackgroundDataManager_archivePack]
     ldr        r0,[r3,#0x8]
     ldr        r1,=gTempMemory
     mov        r2,#0x10
@@ -122,7 +122,7 @@ _ts BGDM_Load
     push       {r5,r7}
     bl         SWI_LZ77UnCompWram
     pop        {r5,r7}
-    ldr        r0,[r5,#0x1c]
+    ldr        r0,[r5,#BackgroundDataManager_funcFullCopy]
     mov        lr,pc
     bx         r0
     pop        {pc}

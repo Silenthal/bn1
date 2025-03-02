@@ -100,7 +100,7 @@ _ts MapSetup_Power_Plant_Comp_1_F42
     beq        LAB_0804a3ec
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     Flag_ClearBase 0xB6
     Flag_GetBase 0xB9
     beq        LAB_0804a3d2
@@ -125,8 +125,8 @@ LAB_0804a3ec:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804a400
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804a40c
 LAB_0804a400:
@@ -200,7 +200,7 @@ LAB_0804a47e:
 _ts FUN_0804a480
     push       {r5,lr}
     LoadMain fade, r6, r7
-    ldrb       r6,[r6,#0x3]
+    ldrb       r6,[r6,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r6,r1
     beq        LAB_0804a4fc
@@ -211,7 +211,7 @@ _ts FUN_0804a480
     bl         Text_CheckOption
     bne        LAB_0804a4fc
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0xe]
+    ldrb       r1,[r7,#World_curEventFlag]
     cmp        r1,#0x20
     blt        LAB_0804a4ca
     cmp        r1,#0x28
@@ -433,8 +433,8 @@ _ts MapSetup_Power_Plant_Comp_1_F50
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804a6ae
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804a6ba
 LAB_0804a6ae:
@@ -475,7 +475,7 @@ _ts EventHandler_Power_Plant_Comp_1_F50_0
 _ts FUN_0804a6e0
     push       {r5,lr}
     LoadMain fade, r6, r7
-    ldrb       r6,[r6,#0x3]
+    ldrb       r6,[r6,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r6,r1
     beq        LAB_0804a72c
@@ -486,7 +486,7 @@ _ts FUN_0804a6e0
     bl         Text_CheckOption
     bne        LAB_0804a72c
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0xe]
+    ldrb       r1,[r7,#World_curEventFlag]
     cmp        r1,#0x20
     blt        LAB_0804a718
     cmp        r1,#0x28

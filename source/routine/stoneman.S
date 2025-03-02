@@ -809,7 +809,7 @@ _nt R_StoneMan_GetRandomCellInPlayerRow
     sub        sp,#0x14
     mov        r4,sp
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x18]
     mov        r3,#0x0
 LAB_0805f942:

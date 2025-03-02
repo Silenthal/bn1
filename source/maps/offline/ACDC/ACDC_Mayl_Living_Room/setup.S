@@ -88,14 +88,14 @@ _ts FUN_0802d5e0
     bne        LAB_0802d620
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
     cmp        r0,#0x40
     bne        LAB_0802d620
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0802d638
     mvn        r0,r0
     and        r1,r0
@@ -257,7 +257,7 @@ _ts EventHandler_ACDC_Mayl_Living_Room_F21_0
     beq        LAB_0802d74a
     LoadMain world, r0, r0
     mov        r1,#0x22
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
 LAB_0802d74a:
     pop        {pc}
 
@@ -312,7 +312,7 @@ _ts EventHandler_Offline_HandleJackIn
 LAB_0802d79c:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -327,7 +327,7 @@ LAB_0802d7b4:
     pop        {r5}
     bne        LAB_0802d7e0
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0802d868
     and        r1,r0
     beq        LAB_0802d7e0
@@ -355,7 +355,7 @@ _ts FUN_0802d7e4
 LAB_0802d7f4:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -374,7 +374,7 @@ LAB_0802d814:
     pop        {r5}
     bne        LAB_0802d840
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0802d868
     and        r1,r0
     beq        LAB_0802d840

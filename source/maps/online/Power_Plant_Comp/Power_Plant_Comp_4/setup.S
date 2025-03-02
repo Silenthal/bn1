@@ -107,7 +107,7 @@ _ts MapSetup_Power_Plant_Comp_4_F42
     beq        LAB_0804b148
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     Flag_ClearBase 0xB6
     Flag_GetBase 0xB9
     beq        LAB_0804b12e
@@ -132,8 +132,8 @@ LAB_0804b148:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804b15c
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804b168
 LAB_0804b15c:
@@ -171,7 +171,7 @@ _ts EventHandler_Power_Plant_Comp_4_F42_0
     Flag_SetBase 0xBA
     LoadMain world, r0, r0
     mov        r1,#0x43
-    strb       r1,[r0,#0x6]
+    strb       r1,[r0,#World_storyFlag]
     push       {r5}
     ldr        r0,PTR_Scene_RechargePrompt_0804b3c8
     mov        r1,#0x3
@@ -227,7 +227,7 @@ _nt MapSetup_Power_Plant_Comp_4_F43
     bne        LAB_0804b22e
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_5C_0804b3d4
     mov        r1,#0x0
@@ -239,7 +239,7 @@ LAB_0804b22e:
     bne        LAB_0804b24c
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_ElecMan_0804b3d8
     mov        r1,#0x0
@@ -251,7 +251,7 @@ LAB_0804b24c:
     bne        LAB_0804b26a
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_5E_0804b3dc
     mov        r1,#0x0
@@ -263,7 +263,7 @@ LAB_0804b26a:
     bne        LAB_0804b288
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_5F_0804b3e0
     mov        r1,#0x0
@@ -276,12 +276,12 @@ LAB_0804b288:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804b29c
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804b2b0
 LAB_0804b29c:
-    ldrb       r2,[r0,#0xc]
+    ldrb       r2,[r0,#World_lastArea]
     mov        r1,#0x80
     and        r2,r1
     beq        LAB_0804b2b0
@@ -300,7 +300,7 @@ LAB_0804b2b0:
     beq        LAB_0804b2f8
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     Flag_ClearBase 0xB6
     Flag_GetBase 0xB9
     beq        LAB_0804b2e0
@@ -346,7 +346,7 @@ _ts EventHandler_Power_Plant_Comp_4_F43_0
     bne        LAB_0804b340
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -588,8 +588,8 @@ _ts MapSetup_Power_Plant_Comp_4_F50
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804b54e
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804b55a
 LAB_0804b54e:

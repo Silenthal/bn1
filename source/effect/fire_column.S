@@ -54,7 +54,7 @@ _ts E_FireColumn_1_Main
     tst        r0,r0
     beq        LAB_0807c038
     LoadMain mapEventState, r0, r0
-    ldrb       r0,[r0,#0x8]
+    ldrb       r0,[r0,#MapEventState_b8]
     ldrb       r1,[r5,#Effect_family_family]
     cmp        r0,r1
     bne        LAB_0807c038

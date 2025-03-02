@@ -108,17 +108,17 @@ _ts BattleMP_1_UpdateStats
     push       {lr}
     LoadMain matchBattleState, r4, r4
     ldrb       r0,[r6,#0x2]
-    strb       r0,[r4,#0x9]
+    strb       r0,[r4,#MatchBattleState_p1_statAttack]
     ldrb       r0,[r6,#0x3]
-    strb       r0,[r4,#0xa]
+    strb       r0,[r4,#MatchBattleState_p1_statSpeed]
     ldrb       r0,[r6,#0x4]
-    strb       r0,[r4,#0xb]
+    strb       r0,[r4,#MatchBattleState_p1_statCharge]
     ldrb       r0,[r6,#0xb]
-    strb       r0,[r4,#0xf]
+    strb       r0,[r4,#MatchBattleState_p1_armor]
     ldrh       r0,[r6,#0x6]
-    strh       r0,[r4,#0x26]
+    strh       r0,[r4,#MatchBattleState_p1_hpCurrent]
     ldrh       r0,[r6,#0x8]
-    strh       r0,[r4,#0x28]
+    strh       r0,[r4,#MatchBattleState_p1_hpMax]
     add        r4,#0x70
     ldrb       r0,[r7,#0x2]
     strb       r0,[r4,#0x9]
@@ -151,7 +151,7 @@ _ts BattleMP_2_UpdateHand
     push       {lr}
     LoadMain matchBattleState, r4, r4
     ldrb       r0,[r6,#0x2]
-    strb       r0,[r4,#0x1]
+    strb       r0,[r4,#MatchBattleState_p1_chipsUsedCount]
     add        r0,r6,#0x3
     mov        r1,#0x6a
     add        r1,r1,r4
@@ -205,17 +205,17 @@ _ts BattleMP_SendStats
     strb       r0,[r7,#0x0]
     mov        r0,#0xfd
     strb       r0,[r7,#0x1]
-    ldrb       r0,[r6,#0x14]
+    ldrb       r0,[r6,#World_statAttack]
     strb       r0,[r7,#0x2]
-    ldrb       r0,[r6,#0x15]
+    ldrb       r0,[r6,#World_statSpeed]
     strb       r0,[r7,#0x3]
-    ldrb       r0,[r6,#0x16]
+    ldrb       r0,[r6,#World_statCharge]
     strb       r0,[r7,#0x4]
-    ldrh       r0,[r6,#0x1e]
+    ldrh       r0,[r6,#World_hpMax]
     strh       r0,[r7,#0x6]
-    ldrh       r0,[r6,#0x1e]
+    ldrh       r0,[r6,#World_hpMax]
     strh       r0,[r7,#0x8]
-    ldrb       r0,[r6,#0x17]
+    ldrb       r0,[r6,#World_armor]
     strb       r0,[r7,#0xb]
     ldrb       r0,[r5,#0xd]
     strb       r0,[r7,#0xa]
@@ -235,7 +235,7 @@ _ts BattleMP_SendHand
     strb       r0,[r7,#0x0]
     mov        r0,#0xfd
     strb       r0,[r7,#0x1]
-    ldrb       r0,[r6,#0x19]
+    ldrb       r0,[r6,#Battle_srcBattleHandCount]
     strb       r0,[r7,#0x2]
     mov        r0,#0x78
     add        r0,r0,r6
@@ -247,7 +247,7 @@ _ts BattleMP_SendHand
     ldrb       r1,[r4,#0xf]
     tst        r1,r1
     bne        LAB_080079fa
-    ldrb       r1,[r6,#0x11]
+    ldrb       r1,[r6,#Battle_customScreenSelectedChipCount]
     tst        r1,r1
     bne        LAB_080079fa
     mov        r0,#0x0
@@ -432,13 +432,13 @@ _ts BattleMP_SyncInput
     bl         memcpy_32
     LoadMain input, r6, r6
     ldr        r7,PTR_gMpMoveStateBuffer2_08007b90
-    ldrh       r0,[r6,#0x0]
+    ldrh       r0,[r6,#Input_curKeyState]
     strh       r0,[r7,#0x2]
-    ldrh       r0,[r6,#0x2]
+    ldrh       r0,[r6,#Input_toggleKeyState]
     strh       r0,[r7,#0x4]
-    ldrh       r0,[r6,#0x4]
+    ldrh       r0,[r6,#Input_heldKeyState]
     strh       r0,[r7,#0x6]
-    ldrh       r0,[r6,#0x6]
+    ldrh       r0,[r6,#Input_lastKeyState]
     strh       r0,[r7,#0x8]
     ldr        r0,[r7,#0xc]
     add        r0,#0x1
@@ -565,7 +565,7 @@ _ts Battle_IsActive
     push       {lr}
     LoadMain world, r7, r7
     mov        r0,#0x1
-    ldrb       r1,[r7,#0xf]
+    ldrb       r1,[r7,#World_battleType]
     cmp        r1,#0x8
     blt        LAB_08007c3c
     ldrb       r0,[r5,#0x1f]

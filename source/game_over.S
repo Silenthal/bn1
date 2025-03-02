@@ -24,10 +24,10 @@ _ts GameOver_Main
     mov        lr,pc
     bx         r0
     LoadMain display, r7, r7
-    ldrh       r0,[r7,#0x10]
+    ldrh       r0,[r7,#DisplaySettings_bg1Hofs]
     sub        r0,#0x1
-    strh       r0,[r7,#0x10]
-    strh       r0,[r7,#0x12]
+    strh       r0,[r7,#DisplaySettings_bg1Hofs]
+    strh       r0,[r7,#DisplaySettings_bg1Vofs]
     pop        { pc }
 jumpTableGameOver:
     .word GameOver_0_Init
@@ -43,14 +43,14 @@ _ts GameOver_0_Init
     bl         GameOver_LoadGraphics
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_08020090
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0
-    strh       r1,[r0,#0x10]
-    strh       r1,[r0,#0x12]
-    strh       r1,[r0,#0x16]
-    strh       r1,[r0,#0x14]
-    strh       r1,[r0,#0x18]
-    strh       r1,[r0,#0x1a]
+    strh       r1,[r0,#DisplaySettings_bg1Hofs]
+    strh       r1,[r0,#DisplaySettings_bg1Vofs]
+    strh       r1,[r0,#DisplaySettings_bg2Vofs]
+    strh       r1,[r0,#DisplaySettings_bg2Hofs]
+    strh       r1,[r0,#DisplaySettings_bg3Hofs]
+    strh       r1,[r0,#DisplaySettings_bg3Vofs]
     FadeIn_Black
     mov        r0,#T_Game_Over
     bl         Sound_PlayBGM
@@ -79,7 +79,7 @@ LAB_08020000:
 _ts GameOver_2_Free
     push       { lr }
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0802002a
@@ -88,10 +88,10 @@ _ts GameOver_2_Free
     pop        { r5 }
     LoadMain manager, r0, r7
     mov        r1,#0x0
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     LoadMain display, r0, r7
     mov        r1,#0x40
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#Manager_gameState]
 LAB_0802002a:
     pop        { pc }
 

@@ -29,8 +29,8 @@ _ts EventHandler_SciLab_Fish_Stand_Comp_S0
 _nt FUN_0805019a
     push       {lr}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_080501b2
     push       {r5}
@@ -53,8 +53,8 @@ LAB_080501b2:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_080501e4
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_080501f0
 LAB_080501e4:

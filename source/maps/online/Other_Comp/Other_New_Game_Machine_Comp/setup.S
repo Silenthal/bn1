@@ -40,8 +40,8 @@ _ts FUN_0805069c
     bl         Map_LoadNPCList
     pop        {r5}
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_080506ce
     push       {r5}

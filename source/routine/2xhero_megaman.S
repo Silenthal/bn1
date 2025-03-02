@@ -310,7 +310,7 @@ _ts R_2xHeroMegaMan_CreateHitEffects
     add        r3,r2,#0x1
     ldrb       r1,[r5,#Actor_owner]
     LoadMain battle, r4, r4
-    ldrb       r4,[r4,#0x1a]
+    ldrb       r4,[r4,#Battle_sioOwnerId]
     eor        r1,r4
     tst        r1,r1
     beq        LAB_0806e822

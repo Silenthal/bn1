@@ -52,8 +52,8 @@ _ts MapSetup_Undernet_10
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_08053976
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08053984
 LAB_08053976:
@@ -128,7 +128,7 @@ _ts EventHandler_Undernet_10_0
     Flag_GetBase 0x85
     bne        LAB_08053a38
     LoadMain gameStats, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#GameStats_totalBattles8]
     cmp        r0,#0x7
     blt        LAB_08053a18
     mov        r0,#0x1

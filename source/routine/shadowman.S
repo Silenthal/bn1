@@ -633,7 +633,7 @@ _nt R_ShadowMan_1_5_3
     mov        r0,#0xb7
     bl         Sound_PlaySE
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x18]
     ldrb       r1,[r7,#0x19]
     mov        r6,#0xc8

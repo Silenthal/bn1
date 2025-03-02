@@ -95,7 +95,7 @@ _ts ActorFacingPlayerAngle
     ldr        r0,[r5,#0x2c]
     ldr        r1,[r5,#0x28]
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     ldr        r2,[r7,#0x28]
     ldr        r3,[r7,#0x24]
     sub        r0,r2,r0
@@ -218,7 +218,7 @@ _nt IsCollision_Player
     ldr        r1,[r5,#0x2c]
     asr        r1,r1,#0xc
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     ldr        r2,[r7,#0x24]
     asr        r2,r2,#0xc
     ldr        r3,[r7,#0x28]
@@ -433,7 +433,7 @@ LAB_08000ed8:
 _nt Field_SearchWithOwner
     push       {r5,lr}
     LoadMain battle, r4, r4
-    ldrb       r4,[r4,#0x1a]
+    ldrb       r4,[r4,#Battle_sioOwnerId]
     eor        r3,r4
     add        r7,r0,#0x0
     ldr        r6,PTR_listStartX_08000f40
@@ -496,7 +496,7 @@ listStartX:
 _ts Field_SearchExcludeFirstCol
     push       {r5,lr}
     LoadMain battle, r4, r4
-    ldrb       r4,[r4,#0x1a]
+    ldrb       r4,[r4,#Battle_sioOwnerId]
     eor        r3,r4
     add        r7,r0,#0x0
     ldr        r6,PTR_BYTE_ARRAY_ARRAY_08000fa0
@@ -557,7 +557,7 @@ _ts Field_GetFirstWalkableOpponentColumnFront
     push       {lr}
     lsl        r2,r0,#0x1
     LoadMain battle, r4, r4
-    ldrb       r4,[r4,#0x1a]
+    ldrb       r4,[r4,#Battle_sioOwnerId]
     eor        r0,r4
     ldr        r7,PTR_listOffsetX_1004_08000ff8
     ldrsb      r6,[r7,r0]
@@ -619,7 +619,7 @@ listStartX_1006:
 _ts Field_GetFirstPanelForward
     push       {r5,lr}
     LoadMain battle, r3, r3
-    ldrb       r3,[r3,#0x1a]
+    ldrb       r3,[r3,#Battle_sioOwnerId]
     eor        r0,r3
     ldr        r7,PTR_listOffsetX_105C_08001054
     ldrsb      r6,[r7,r0]
@@ -977,7 +977,7 @@ _ts Field_GetAttackDirectionOffset_MP
 @@ moving to the left.
 _nt Field_GetAttackDirectionOffset
     LoadMain battle, r1, r1
-    ldrb       r1,[r1,#0x1a]
+    ldrb       r1,[r1,#Battle_sioOwnerId]
     eor        r0,r1
     lsl        r0,r0,#0x1
     sub        r0,#0x1
@@ -1183,14 +1183,14 @@ LAB_080013a4:
 _ts Field_SearchEdgeLeftToRight
     push       {lr}
     LoadMain battle, r4, r4
-    ldrb       r4,[r4,#0x1a]
+    ldrb       r4,[r4,#Battle_sioOwnerId]
     eor        r0,r4
     mov        r4,#0x1
     mov        r7,#0x0
 LAB_080013b6:
     push       {r0,r1,r2,r3,r4,r7}
     LoadMain battle, r6, r6
-    ldrb       r6,[r6,#0x1a]
+    ldrb       r6,[r6,#Battle_sioOwnerId]
     eor        r0,r6
     bl         Field_GetColumnInRowLeftToRight
     add        r6,r0,#0x0
@@ -1223,7 +1223,7 @@ LAB_080013da:
 _ts Field_GetColumnInRowLeftToRight
     push       {r5,lr}
     LoadMain battle, r6, r6
-    ldrb       r6,[r6,#0x1a]
+    ldrb       r6,[r6,#Battle_sioOwnerId]
     eor        r0,r6
     lsl        r5,r0,#0x1
     ldr        r7,PTR_listSearchDirection_0800141c
@@ -1604,9 +1604,9 @@ _nt Battle_SetBattleFlag
     mov        r1,#0x1
     lsl        r1,r0
     LoadMain battle, r7, r7
-    ldr        r0,[r7,#0x68]
+    ldr        r0,[r7,#Battle_battleFlag_buffer]
     orr        r0,r1
-    str        r0,[r7,#0x68]
+    str        r0,[r7,#Battle_battleFlag_buffer]
     mov        pc,lr
 
 
@@ -1614,8 +1614,8 @@ _nt Battle_GetBattleFlagCurrent
     mov        r1,#0x1
     lsl        r1,r0
     LoadMain battle, r7, r7
-    ldr        r0,[r7,#0x68]
-    ldr        r2,[r7,#0x6c]
+    ldr        r0,[r7,#Battle_battleFlag_buffer]
+    ldr        r2,[r7,#Battle_battleFlag]
     orr        r0,r2
     and        r0,r1
     mov        pc,lr
@@ -1623,8 +1623,8 @@ _nt Battle_GetBattleFlagCurrent
 
 _nt Battle_GetBattleFlagMulti
     LoadMain battle, r7, r7
-    ldr        r1,[r7,#0x68]
-    ldr        r2,[r7,#0x6c]
+    ldr        r1,[r7,#Battle_battleFlag_buffer]
+    ldr        r2,[r7,#Battle_battleFlag]
     orr        r1,r2
     and        r0,r1
     mov        pc,lr
@@ -1634,7 +1634,7 @@ _nt Battle_GetBattleFlag
     mov        r1,#0x1
     lsl        r1,r0
     LoadMain battle, r7, r7
-    ldr        r0,[r7,#0x6c]
+    ldr        r0,[r7,#Battle_battleFlag]
     and        r0,r1
     mov        pc,lr
 
@@ -1755,7 +1755,7 @@ LAB_08001722:
 LAB_0800172c:
     ldr        r1,[r7,#0x0]
     LoadMain battle, r2, r2
-    ldrb       r2,[r2,#0x1a]
+    ldrb       r2,[r2,#Battle_sioOwnerId]
     tst        r2,r2
     beq        LAB_0800173a
     neg        r1,r1
@@ -1832,7 +1832,7 @@ _nt Field_CheckInterrupt
     mov        r1,#0x1
     lsl        r1,r0
     LoadMain battle, r7, r7
-    ldr        r0,[r7,#0x68]
+    ldr        r0,[r7,#Battle_battleFlag_buffer]
     tst        r0,r1
     mov        pc,lr
 

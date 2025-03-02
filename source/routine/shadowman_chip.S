@@ -202,7 +202,7 @@ _ts Routine_ShadowMan_Chip_Create
     mov        r0,#0xf
     strb       r0,[r7,#0x0]
     LoadMain battle, r4, r4
-    ldrb       r0,[r4,#0x1a]
+    ldrb       r0,[r4,#Battle_sioOwnerId]
     ldrb       r1,[r7,#0x16]
     eor        r0,r1
     mov        r1,#0x6

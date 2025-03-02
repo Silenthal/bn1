@@ -7,25 +7,25 @@ _ts Battle_Main
     push       { lr }
     LoadMain battle, r5, r5
     mov        r0,#0x1
-    strb       r0,[r5,#0x1f]
+    strb       r0,[r5,#Battle_isBattleActive]
     LoadMain world, r7, r7
     ldrb       r0,[r7,#0xf]
     cmp        r0,#0x8
     blt        LAB_08005890
-    ldrb       r0,[r5,#0x1d]
+    ldrb       r0,[r5,#Battle_flagTransmitStatus]
     cmp        r0,#0xff
     beq        LAB_08005890
-    ldrb       r0,[r5,#0x1c]
+    ldrb       r0,[r5,#Battle_isMpReady]
     tst        r0,r0
     beq        LAB_0800588c
     bl         BattleMP_SyncInput
-    strb       r0,[r5,#0x1f]
+    strb       r0,[r5,#Battle_isBattleActive]
     b          LAB_08005890
 LAB_0800588c:
     bl         BattleMP_Main
 LAB_08005890:
     ldr        r0,=jumpTableBattleMain
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Battle_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -44,16 +44,16 @@ LAB_080058aa:
     bl         Attack_LoadAll
     bl         Effect_LoadAll
     pop        { r5 }
-    ldrb       r0,[r5,#0x1f]
+    ldrb       r0,[r5,#Battle_isBattleActive]
     tst        r0,r0
     beq        LAB_080058e0
     bl         Battle_IsTimerPaused
     tst        r0,r0
     bne        LAB_080058e0
-    ldr        r0,[r5,#0x68]
-    str        r0,[r5,#0x6c]
+    ldr        r0,[r5,#Battle_battleFlag_buffer]
+    str        r0,[r5,#Battle_battleFlag]
     mov        r0,#0x0
-    str        r0,[r5,#0x68]
+    str        r0,[r5,#Battle_battleFlag_buffer]
 LAB_080058e0:
     bl         Battle_AdvanceTimer
     pop        { pc }
@@ -88,7 +88,7 @@ PTR_Battle_0_0_InitStats:
 _ts Battle_0_0_InitStats
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     blt        LAB_08005938
     bl         Sio_Init
@@ -101,8 +101,8 @@ LAB_08005938:
     bl         PlayerBattleState_InitStats
     LoadMain gameStats, r7, r7
     mov        r0,#0x0
-    str        r0,[r7,#0x24]
-    str        r0,[r7,#0x28]
+    str        r0,[r7,#World_mapChangeCount]
+    str        r0,[r7,#World_playerLocation]
     mov        r0,#0x4
 LAB_08005948:
     strb       r0,[r5,#0x1]
@@ -114,7 +114,7 @@ _ts Battle_0_1_InitField
     bl         Battle_InitEnemyList
     bl         Battle_InitBackground
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     bge        LAB_08005970
     ldr        r0,PTR_gSpriteDecompLocation1_08005a28
@@ -139,7 +139,7 @@ LAB_0800597a:
     pop        {r5}
     LoadMain display, r7, r7
     ldr        r1,INT_08005a04
-    strh       r1,[r7,#0x0]
+    strh       r1,[r7,#DisplaySettings_dispcnt]
     mov        r0,#0x0
     strb       r0,[r5,#0xa]
     bl         FieldObject_InitializeAreaProperties
@@ -160,7 +160,7 @@ LAB_080059b4:
     strb       r0,[r5,#0x8]
     LoadMain world, r7, r7
     mov        r0,#0x0
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#World_IsBattleTimePaused]
     str        r0,[r6,#0x58]
     bl         FieldObstacleManager_Init
     push       {r5}
@@ -171,7 +171,7 @@ LAB_080059b4:
     mov        r0,#0x0
     strh       r0,[r5,#0x2]
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     ldr        r7,PTR_battleSongList_08005a00
     ldrb       r0,[r7,r0]
     bl         Sound_PlayBGM
@@ -233,7 +233,7 @@ LAB_08005a52:
 LAB_08005a60:
     mov        r0,#0x3
     LoadMain world, r7, r7
-    strb       r0,[r7,#0x10]
+    strb       r0,[r7,#World_lastBattleResult]
     mov        r0,#0x8
     strb       r0,[r5,#0x0]
     mov        r0,#0x8
@@ -255,7 +255,7 @@ _ts Battle_1_Main
     beq        LAB_08005ab4
     bl         Battle_SpriteQueueInit
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     lsl        r0,r0,#0x2
     ldr        r7,=JT_R5_0C_5AB8
     ldr        r7,[r7,r0]
@@ -375,10 +375,10 @@ _ts Battle_2_0_2_CalculateRank
     bne        LAB_08005bbc
     bl         Effect_BattleResult_CalculateRank
     LoadMain world, r7, r7
-    strb       r0,[r7,#0x19]
+    strb       r0,[r7,#World_bustingRank]
     mov        r0,#0x0
-    strb       r0,[r7,#0x10]
-    ldrb       r1,[r7,#0xf]
+    strb       r0,[r7,#World_lastBattleResult]
+    ldrb       r1,[r7,#World_battleType]
     cmp        r1,#0x0
     beq        LAB_08005ba8
     cmp        r1,#0x5
@@ -454,10 +454,10 @@ _nt Battle_2_1_2_End
     bne        LAB_08005c30
     LoadMain world, r7, r7
     mov        r0,#0x0
-    strb       r0,[r7,#0x19]
+    strb       r0,[r7,#World_bustingRank]
     mov        r0,#0x1
-    strb       r0,[r7,#0x10]
-    ldrb       r1,[r7,#0xf]
+    strb       r0,[r7,#World_lastBattleResult]
+    ldrb       r1,[r7,#World_battleType]
     cmp        r1,#0x8
     bne        LAB_08005c28
     mov        r0,#0x10
@@ -489,7 +489,7 @@ _nt Battle_2_2_BattleEnd
     pop        {pc}
 LAB_08005c58:
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08005cde
@@ -612,7 +612,7 @@ PTR_Battle_2_4_0_BattleResult:
 _nt Battle_2_4_0_BattleResult
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x10]
+    ldrb       r0,[r7,#World_lastBattleResult]
     add        r0,#0x1
     bl         Effect_BattleResult_Create
     bl         BattleMP_PlayerStateInit
@@ -658,7 +658,7 @@ _nt Battle_3_0_ShowMessage
     pop        {r5}
     mov        r0,#0x3
     LoadMain world, r7, r7
-    strb       r0,[r7,#0x10]
+    strb       r0,[r7,#World_lastBattleResult]
     mov        r0,#0x4
     strb       r0,[r5,#0x2]
     pop        {pc}
@@ -682,7 +682,7 @@ LAB_08005db8:
 _nt Battle_3_2_End
     push       {lr}
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08005dd4
@@ -826,7 +826,7 @@ _nt BattleR_2_2_3_StartBattle
     strb       r0,[r5,#0xe]
 LAB_08005ecc:
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     bge        LAB_08005edc
     bl         Battle_UpdateKeyState
@@ -843,7 +843,7 @@ _nt BattleR_2_3_CheckBattleState
     tst        r0,r0
     beq        LAB_08005f38
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     blt        LAB_08005efc
     bl         BattleMP_UpdateInput
@@ -852,7 +852,7 @@ LAB_08005efc:
     bl         Battle_UpdateKeyState
 LAB_08005f00:
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#World_IsBattleTimePaused]
     tst        r0,r0
     bne        LAB_08005f2e
     @ If time is not paused, increment gauge by speed value
@@ -903,13 +903,13 @@ _nt BattleR_2_3_0_CheckPauseAndBattleEnd
     mov        r0,#0x1
     strb       r0,[r5,#0x8]
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     blt        LAB_08005f6e
     mov        r0,#0x4
     strb       r0,[r5,#0x3]
     mov        r0,#0x2
-    strb       r0,[r7,#0x10]
+    strb       r0,[r7,#World_lastBattleResult]
     mov        r0,#0x0
     b          LAB_08005f70
 LAB_08005f6e:
@@ -923,7 +923,7 @@ LAB_08005f72:
     mov        r0,#0x1
     strb       r0,[r5,#0x8]
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x6
     beq        LAB_08005fa2
     cmp        r0,#0x8
@@ -931,7 +931,7 @@ LAB_08005f72:
     mov        r0,#0x4
     strb       r0,[r5,#0x3]
     mov        r0,#0x1
-    strb       r0,[r7,#0x10]
+    strb       r0,[r7,#World_lastBattleResult]
     mov        r0,#T_Winner
     bl         Sound_PlayBGM
     mov        r0,#0x0
@@ -951,7 +951,7 @@ LAB_08005fa6:
     tst        r0,r0
     beq        LAB_08005fce
     LoadMain matchBattleState, r7, r7
-    ldrb       r0,[r7,#0x1]
+    ldrb       r0,[r7,#World_state_s1]
     strb       r0,[r5,#0x19]
     ldrb       r0,[r5,#0xc]
     add        r0,#0x1
@@ -991,7 +991,7 @@ _nt BattleR_2_3_1_CheckSpritesSpawned
     tst        r0,r0
     beq        LAB_0800600c
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x10]
+    ldrb       r0,[r7,#World_lastBattleResult]
     b          LAB_0800600e
 LAB_0800600c:
     mov        r0,#0x0
@@ -1005,7 +1005,7 @@ _nt BattleR_2_4_CheckUnPause
     tst        r0,r0
     beq        LAB_08006052
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     blt        LAB_08006026
     b          LAB_08006026
@@ -1111,7 +1111,7 @@ PTR_BattleR_2_1_0_CopyBattleHand:
 _nt BattleR_2_1_0_CopyBattleHand
     push       {lr}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     bge        LAB_080060f2
     bl         Battle_CopyBattleHand
@@ -1177,7 +1177,7 @@ _nt BattleR_2_1_3_CopyChipHandIcons
     bl         Effect_BattleChip_LoadHandIcons
     mov        r0,#0x8
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0xf]
+    ldrb       r1,[r7,#World_battleType]
     cmp        r1,#0x8
     blt        LAB_0800616a
     ldrb       r1,[r5,#0xc]
@@ -1258,7 +1258,7 @@ _nt BattleR_2_7_0_Darken
 _nt BattleR_2_7_1_ApplyEffect
     push       {lr}
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08006236
@@ -1334,7 +1334,7 @@ LAB_0800627c:
 _nt BattleR_2_7_4_End
     push       {lr}
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08006290
@@ -1348,7 +1348,7 @@ _nt Battle_CopyBattleHand
     LoadMain matchBattleState, r6, r6
     LoadMain battle, r7, r7
     ldrb       r0,[r7,#0x19]
-    strb       r0,[r6,#0x1]
+    strb       r0,[r6,#MatchBattleState_p1_chipsUsedCount]
     mov        r0,#0x78
     add        r0,r0,r7
     mov        r1,#0x6a
@@ -1362,17 +1362,17 @@ _nt PlayerBattleState_InitStats
     LoadMain matchBattleState, r7, r7
     LoadMain world, r6, r6
     ldrb       r0,[r6,#0x14]
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#MatchBattleState_p1_statAttack]
     ldrb       r0,[r6,#0x15]
-    strb       r0,[r7,#0xa]
+    strb       r0,[r7,#MatchBattleState_p1_statSpeed]
     ldrb       r0,[r6,#0x16]
-    strb       r0,[r7,#0xb]
+    strb       r0,[r7,#MatchBattleState_p1_statCharge]
     ldrh       r0,[r6,#0x1c]
-    strh       r0,[r7,#0x26]
+    strh       r0,[r7,#MatchBattleState_p1_hpCurrent]
     ldrh       r0,[r6,#0x1e]
-    strh       r0,[r7,#0x28]
+    strh       r0,[r7,#MatchBattleState_p1_hpMax]
     ldrb       r0,[r6,#0x17]
-    strb       r0,[r7,#0xf]
+    strb       r0,[r7,#MatchBattleState_p1_armor]
     pop        {pc}
 
 
@@ -1383,18 +1383,18 @@ _nt Battle_UpdateKeyState
     bl         Battle_IsInputLocked
     bne        LAB_080062f4
     ldrh       r0,[r6,#0x0]
-    ldrh       r1,[r4,#0x1e]
+    ldrh       r1,[r4,#MatchBattleState_p1_curKeyState]
     bl         GetToggledKeys
-    strh       r0,[r4,#0x1e]
-    strh       r1,[r4,#0x24]
-    strh       r2,[r4,#0x20]
+    strh       r0,[r4,#MatchBattleState_p1_curKeyState]
+    strh       r1,[r4,#MatchBattleState_p1_lastKeyState]
+    strh       r2,[r4,#MatchBattleState_p1_toggleKeyState]
     b          LAB_080062fe
 LAB_080062f4:
     mov        r0,#0x0
-    strh       r0,[r4,#0x1e]
-    strh       r0,[r4,#0x20]
-    strh       r0,[r4,#0x22]
-    strh       r0,[r4,#0x24]
+    strh       r0,[r4,#MatchBattleState_p1_curKeyState]
+    strh       r0,[r4,#MatchBattleState_p1_toggleKeyState]
+    strh       r0,[r4,#MatchBattleState_p1_s22]
+    strh       r0,[r4,#MatchBattleState_p1_lastKeyState]
 LAB_080062fe:
     pop        {pc}
 
@@ -1407,11 +1407,11 @@ _nt Battle_CheckKeyLR
     pop        {r0}
     bne        LAB_08006338
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     blt        LAB_0800632c
     LoadMain matchBattleState, r7, r7
-    ldrh       r0,[r7,#0x20]
+    ldrh       r0,[r7,#World__pad2]
     add        r7,#0x70
     ldrh       r1,[r7,#0x20]
     orr        r0,r1
@@ -1421,7 +1421,7 @@ _nt Battle_CheckKeyLR
     b          LAB_08006338
 LAB_0800632c:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x3
     lsl        r1,r1,#0x8
     and        r0,r1
@@ -1436,7 +1436,7 @@ _nt Battle_CheckStartPressed
     pop        {r0}
     bne        LAB_08006386
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     blt        LAB_0800637c
     ldr        r7,=gMpMoveState
@@ -1464,7 +1464,7 @@ LAB_0800636e:
     b          LAB_08006386
 LAB_0800637c:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x8
     and        r0,r1
 LAB_08006386:
@@ -1477,7 +1477,7 @@ _nt Battle_SetPostBattleHP
     push       {lr}
     LoadMain world, r6, r6
     LoadMain gameStats, r7, r7
-    ldrh       r4,[r6,#0x1e]
+    ldrh       r4,[r6,#World_hpMax]
     ldrb       r0,[r7,#0x5]
     mul        r0,r4
     mov        r1,#0xa
@@ -1489,7 +1489,7 @@ _nt Battle_SetPostBattleHP
     ble        LAB_080063ae
     add        r1,r4,#0x0
 LAB_080063ae:
-    strh       r1,[r6,#0x1c]
+    strh       r1,[r6,#World_hpCurrent]
     pop        {pc}
 
 
@@ -1497,7 +1497,7 @@ _nt Battle_IsBattleActive
     push       {lr}
     mov        r0,#0x1
     LoadMain manager, r7, r7
-    ldrb       r1,[r7,#0x0]
+    ldrb       r1,[r7,#Manager_gameState]
     cmp        r1,#0x8
     bne        LAB_080063dc
     LoadMain world, r7, r7
@@ -1671,7 +1671,7 @@ _nt GetPanelTilemap
     tst        r3,r3
     beq        LAB_080065d6
     LoadMain frameCounter, r3, r3
-    ldrh       r3,[r3,#0x0]
+    ldrh       r3,[r3,#FrameCounter_counter]
     mov        r4,#0x2
     tst        r3,r4
     bne        LAB_080065d2
@@ -2013,20 +2013,20 @@ listTilemapPanelGeneric:
 _nt Battle_PauseTimer
     LoadMain world, r7, r7
     mov        r0,#0x1
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#World_IsBattleTimePaused]
     mov        pc,lr
 
 
 _nt Battle_UnpauseTimer
     LoadMain world, r7, r7
     mov        r0,#0x0
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#World_IsBattleTimePaused]
     mov        pc,lr
 
 
 _nt Battle_IsTimerPaused
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#World_IsBattleTimePaused]
     mov        pc,lr
 
 

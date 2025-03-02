@@ -17,7 +17,7 @@ _ts Text_LoadAreaDialogue
     push       { lr }
     push       { r0 }
     LoadMain world, r5, r7
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#World_currentArea]
     ldrb       r1,[r5,#0x5]
     cmp        r0,#0xf0
     bge        LAB_08013592
@@ -49,7 +49,7 @@ _ts Text_LoadCommentaryDialogue
     beq        LAB_080135e4
     push       { r0 }
     LoadMain world, r5, r7
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#World_currentArea]
     ldrb       r1,[r5,#0x5]
     cmp        r0,#0xf0
     bge        LAB_080135ce
@@ -79,7 +79,7 @@ LAB_080135e4:
 _ts Text_LoadDialogue
     push       { lr }
     LoadMain textHandler, r5, r5
-    ldr        r2,[r5,#0x30]
+    ldr        r2,[r5,#Text_itemIdList]
     ldr        r3,[r5,#0x34]
     ldr        r4,[r5,#0x38]
     ldr        r6,[r5,#0x3c]
@@ -88,12 +88,12 @@ _ts Text_LoadDialogue
     mov        r1,#0x8c
     bl         memset0_32
     pop        { r0, r1, r2, r3, r4, r5, r6 }
-    str        r2,[r5,#0x30]
+    str        r2,[r5,#Text_itemIdList]
     str        r3,[r5,#0x34]
     str        r4,[r5,#0x38]
     str        r6,[r5,#0x3c]
     str        r0,[r5,#Text_textBlockPointer]
-    strb       r1,[r5,#0x1]
+    strb       r1,[r5,#Text_textBlockIndex]
     lsl        r1,r1,#0x1
     ldrh       r1,[r0,r1]
     add        r0,r0,r1
@@ -104,7 +104,7 @@ _ts Text_LoadDialogue
     mov        r0,#0x2
     strb       r0,[r5,#Text_nextDelay]
     mov        r0,#0xff
-    strb       r0,[r5,#0x15]
+    strb       r0,[r5,#Text_b15_optionFlag]
     ldr        r0,PTR_gLayoutDialogueText_08013964
     str        r0,[r5,#Text_dialogLayout]
     mov        r0,#0x15
@@ -113,7 +113,7 @@ _ts Text_LoadDialogue
     mov        r0,#TF_ClearDialogBox
     bl         Text_EnableOption
     mov        r0,#0x5
-    strb       r0,[r5,#0x12]
+    strb       r0,[r5,#Text_dialogSkipDelay]
     ldr        r0,PTR_tilesetDialogueWindowBorder_08013968
     ldr        r1,PTR_DAT_0801396c
     mov        r2,#0x48
@@ -1339,7 +1339,7 @@ _ts JT_Command_F4_04_JumpIfStoryRange
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#World_storyFlag]
     mov        r0,#0x5
     cmp        r7,r1
     blt        LAB_08013f4c
@@ -1477,7 +1477,7 @@ _ts JT_Command_F4_14_JumpIfBustRank
     ldrb       r1,[r4,#0x2]
     ldrb       r2,[r4,#0x3]
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x19]
+    ldrb       r7,[r7,#World_bustingRank]
     mov        r0,#0x5
     cmp        r7,r1
     blt        LAB_0801403c
@@ -2101,7 +2101,7 @@ _ts JT_Command_FA_04_PlayerAnimSet
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     add        r1,r5,#0x0
     add        r1,#0x54
     ldrb       r2,[r7,#0x14]
@@ -2133,7 +2133,7 @@ _ts JT_Command_FA_0C_WaitForPlayerAnim
     bl         Text_EnableScriptOption
     push       { r4, r5 }
     LoadMain world, r0, r0
-    ldr        r5,[r0,#0x28]
+    ldr        r5,[r0,#World_playerLocation]
     bl         SpritePtr_GetFrameStatus
     pop        { r4, r5 }
     mov        r1,#0x80
@@ -2157,7 +2157,7 @@ _ts JT_Command_FA_10_RestorePlayerAnim
     cmp        r0,#0x7
     bgt        LAB_0801453c
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     strb       r0,[r7,#0x10]
 LAB_0801453c:
     bl         PlayerAnimation_SetState
@@ -2309,7 +2309,7 @@ _ts JT_Command_FB_0C_PrintZennyBuffer
     b          LAB_08014676
 LAB_08014670:
     LoadMain world, r7, r7
-    ldr        r0,[r7,#0x74]
+    ldr        r0,[r7,#World_zenny]
 LAB_08014676:
     ldrb       r1,[r4,#0x2]
     add        r2,r5,#0x0
@@ -2744,7 +2744,7 @@ LAB_080149dc:
     mov        r1,#0xff
     and        r0,r1
     LoadMain world, r1, r1
-    ldrb       r1,[r1,#0x6]
+    ldrb       r1,[r1,#World_storyFlag]
     lsr        r1,r1,#0x4
     ldr        r7,PTR_BYTE_ARRAY_08014a34
     ldrb       r1,[r7,r1]
@@ -2875,15 +2875,15 @@ _ts JT_Layout_FD_18_StartVirusMachineBattle
 _ts JT_Command_FE_Save
     push       { lr }
     LoadMain world, r6, r7
-    ldr        r7,[r6,#0x28]
+    ldr        r7,[r6,#World_playerLocation]
     ldr        r0,[r7,#0x24]
-    str        r0,[r6,#0x38]
+    str        r0,[r6,#World_savedPos_x]
     ldr        r0,[r7,#0x28]
-    str        r0,[r6,#0x3c]
+    str        r0,[r6,#World_savedPos_y]
     ldr        r0,[r7,#0x2c]
-    str        r0,[r6,#0x40]
+    str        r0,[r6,#World_savedPos_z]
     ldrb       r0,[r7,#0x10]
-    str        r0,[r6,#0x44]
+    str        r0,[r6,#World_savedDirection]
     push       { r4, r5 }
     bl         Save_SaveGame
     pop        { r4, r5 }

@@ -28,11 +28,11 @@ _InitMenu:
     mov        r1,#0x54
     bl         memset0_32
     pop        { r0, r5 }
-    strb       r0,[r5,#0x3]
+    strb       r0,[r5,#Menu_state_s3]
     LoadMain startMenuState, r7, r7
     ldrb       r0,[r7,#0x6]
     lsl        r0,r0,#0x2
-    strb       r0,[r5,#0x0]
+    strb       r0,[r5,#Menu_state_s0]
     mov        r0,#0x40
     bl         StartMenu_SetState
     LoadMain world, r7, r7
@@ -48,7 +48,7 @@ _ts Menu_Main
     push       { lr }
     LoadMain menu, r5, r7
     ldr        r0,PTR_JT_R5_74_19820_0801981c
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Menu_state_s0]
     ldr        r0,[r0,r1]
     mov        lr,pc
     bx         r0
@@ -79,8 +79,8 @@ _nt Menu_LoadChipDataCustom
     push       {r5,lr}
     push       {r4}
     LoadMain menu, r5, r7
-    strb       r0,[r5,#0x4]
-    strb       r1,[r5,#0x5]
+    strb       r0,[r5,#Menu_chipid]
+    strb       r1,[r5,#Menu_chipCode]
     push       {r3,r5}
     ldr        r0,PTR_tilesetChipFrame_080199d0
     mov        r1,r12
@@ -88,7 +88,7 @@ _nt Menu_LoadChipDataCustom
     bl         memcpy_32
     pop        {r3,r5}
     push       {r3,r5}
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Menu_chipid]
     ldr        r0,PTR_TextData_BattleChip_Names_080199d4
     ldr        r2,DAT_080199d8
     add        r2,r2,r3
@@ -101,10 +101,10 @@ _nt Menu_LoadChipDataCustom
     bl         Text_CopyCharTileUI
     pop        {r3,r5}
     push       {r3,r5}
-    ldrb       r0,[r5,#0x4]
+    ldrb       r0,[r5,#Menu_chipid]
     bl         BattleChip_GetChipData
     pop        {r3,r5}
-    str        r0,[r5,#0x8]
+    str        r0,[r5,#Menu_chipData]
     push       {r3,r5}
     ldr        r0,[r0,#0x14]
     ldr        r1,DAT_080199e0
@@ -113,7 +113,7 @@ _nt Menu_LoadChipDataCustom
     bl         Dma_TransferListAdd
     pop        {r3,r5}
     push       {r3,r5}
-    ldrb       r1,[r5,#0x5]
+    ldrb       r1,[r5,#Menu_chipCode]
     cmp        r1,#0xff
     beq        LAB_080198b0
     ldr        r0,PTR_tilesetBattleChipCodes_080199e8
@@ -137,7 +137,7 @@ LAB_080198bc:
     mov        r2,#0x40
     bl         memcpy_32
     pop        {r3,r5}
-    ldr        r0,[r5,#0x8]
+    ldr        r0,[r5,#Menu_chipData]
     ldrb       r1,[r0,#0x5]
     lsl        r1,r1,#0x7
     ldr        r0,PTR_tilesetBattleChipElements_080199f8
@@ -149,7 +149,7 @@ LAB_080198bc:
     bl         memcpy_32
     pop        {r3,r5}
     mov        r1,#0x17
-    ldr        r0,[r5,#0x8]
+    ldr        r0,[r5,#Menu_chipData]
     ldrh       r0,[r0,#0xc]
     tst        r0,r0
     beq        LAB_080198f4
@@ -170,7 +170,7 @@ LAB_080198f4:
     bl         Text_CopyCharTileUI
     pop        {r3,r5}
     push       {r3,r5}
-    ldrb       r1,[r5,#0x4]
+    ldrb       r1,[r5,#Menu_chipid]
     ldr        r0,PTR_TextData_BattleChip_Descriptions_08019a08
     ldr        r2,DAT_08019a0c
     add        r2,r2,r3
@@ -185,7 +185,7 @@ LAB_080198f4:
     pop        {r0}
     mov        r12,r0
     push       {r5}
-    ldr        r0,[r5,#0x8]
+    ldr        r0,[r5,#Menu_chipData]
     ldr        r0,[r0,#0x18]
     ldr        r1,PTR_gBgPalette0_08019a10
     add        r1,r12
@@ -208,20 +208,20 @@ LAB_080198f4:
     bl         memcpy_32
     pop        {r5}
     mov        r0,#0x0
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Menu_isShowChipDetail]
     pop        {r5,pc}
 
 
 _ts Menu_LoadChipDetail
     push       {r5,lr}
     LoadMain menu, r5, r7
-    ldrb       r0,[r5,#0x7]
+    ldrb       r0,[r5,#Menu_isShowChipDetail]
     tst        r0,r0
     beq        LAB_080199b6
     mov        r0,#0x0
-    strb       r0,[r5,#0x7]
-    ldr        r0,[r5,#0x4c]
-    ldr        r1,[r5,#0x50]
+    strb       r0,[r5,#Menu_isShowChipDetail]
+    ldr        r0,[r5,#Menu_chipDetailX]
+    ldr        r1,[r5,#Menu_chipDetailY]
     mov        r8,r0
     mov        r9,r1
     mov        r2,#0x0
@@ -253,10 +253,10 @@ LAB_080199b6:
 _ts Menu_ShowChipDetail
     push       {r5,lr}
     LoadMain menu, r5, r7
-    str        r0,[r5,#0x4c]
-    str        r1,[r5,#0x50]
+    str        r0,[r5,#Menu_chipDetailX]
+    str        r1,[r5,#Menu_chipDetailY]
     mov        r0,#0x1
-    strb       r0,[r5,#0x7]
+    strb       r0,[r5,#Menu_isShowChipDetail]
     pop        {r5,pc}
 PTR_DAT_080199c8:
     .word 0x600a000

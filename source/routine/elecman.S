@@ -354,7 +354,7 @@ _nt R_ElecMan_1_5_2_SparkStrike
     strh       r0,[r5,#Actor_counterA]
     bne        LAB_08064098
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r1,[r7,#0x18]
     ldrb       r2,[r7,#0x19]
     mov        r4,#0x0
@@ -644,7 +644,7 @@ _nt R_ElecMan_1_7_4
     strh       r0,[r5,#Actor_counterB]
 LAB_08064276:
     LoadMain frameCounter, r7, r7
-    ldrh       r0,[r7,#0x0]
+    ldrh       r0,[r7,#FrameCounter_counter]
     lsr        r0,r0,#0x2
     bcc        LAB_08064284
     bl         SpritePtr_EnableFlash
@@ -758,7 +758,7 @@ LAB_08064340:
 _nt R_ElecMan_1_8_3_Reset
     push       {lr}
     LoadMain frameCounter, r7, r7
-    ldrh       r0,[r7,#0x0]
+    ldrh       r0,[r7,#FrameCounter_counter]
     lsr        r0,r0,#0x2
     bcc        LAB_08064352
     bl         SpritePtr_EnableFlash

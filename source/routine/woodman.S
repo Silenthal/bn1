@@ -1764,7 +1764,7 @@ _ts R_WoodManC_1_2_3_PepareAttack
     strh       r0,[r5,#Actor_counterA]
     LoadMain battle, r7, r7
     mov        r0,#0x1
-    ldrb       r1,[r7,#0x1a]
+    ldrb       r1,[r7,#Battle_sioOwnerId]
     ldrb       r2,[r5,#Actor_owner]
     eor        r1,r2
     strb       r1,[r5,#Actor_b1b]

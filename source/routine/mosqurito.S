@@ -670,7 +670,7 @@ LAB_0806922a:
 _nt R_Mosqurito_Decide
     push       {lr}
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x19]
     ldrb       r1,[r5,#Actor_cPos_y]
     cmp        r0,r1

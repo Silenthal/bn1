@@ -158,7 +158,7 @@ LAB_080036d8:
     tst        r0,r1
     beq        LAB_0800370e
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x9]
+    ldrb       r1,[r7,#World_IsBattleTimePaused]
     tst        r1,r1
     beq        LAB_080036f0
     mov        r1,#0x4
@@ -166,14 +166,14 @@ LAB_080036d8:
     beq        LAB_0800370e
 LAB_080036f0:
     LoadMain screenDim, r7, r7
-    ldrb       r1,[r7,#0x7]
+    ldrb       r1,[r7,#World_fadeType]
     tst        r1,r1
     beq        LAB_08003700
     mov        r1,#0x4
     tst        r0,r1
     beq        LAB_0800370e
 LAB_08003700:
-    str        r5,[r7,#0x70]
+    str        r5,[r7,#World_updatingEntity]
     ldr        r0,PTR_listHandlerAttack_080037fc
     ldrb       r1,[r5,#Attack_header_routineType]
     lsl        r1,r1,#0x2
@@ -182,7 +182,7 @@ LAB_08003700:
     bx         r0
 LAB_0800370e:
     LoadMain battle, r7, r7
-    ldrb       r1,[r7,#0x18]
+    ldrb       r1,[r7,#World_currentSongId]
     tst        r1,r1
     bne        LAB_0800372c
     LoadMain screenDim, r6, r6
@@ -205,7 +205,7 @@ LAB_0800372c:
 LAB_0800373a:
     LoadMain world, r7, r7
     mov        r0,#0x0
-    str        r0,[r7,#0x70]
+    str        r0,[r7,#World_updatingEntity]
     pop        { pc }
 
 _ts Attack_Init

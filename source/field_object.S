@@ -544,11 +544,11 @@ LAB_08002f6c:
 _ts FieldObject_InitializeAreaProperties
     ldr        r6,PTR_areaPropertiesLeftPlayer_08002fec
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0xf]
+    ldrb       r0,[r7,#World_battleType]
     cmp        r0,#0x8
     blt        LAB_08002f88
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1b]
+    ldrb       r0,[r7,#World_pressedA]
     tst        r0,r0
     beq        LAB_08002f88
     ldr        r6,PTR_areaPropertiesRightPlayer_08002ff0

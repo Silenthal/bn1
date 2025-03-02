@@ -59,7 +59,7 @@ _ts MapSetup_ACDC_Secret_Station_F54
     bne        LAB_0802f8f2
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_6C_0802f984
     mov        r1,#0x0
@@ -100,7 +100,7 @@ _ts EventHandler_ACDC_Secret_Station_F54_0
 LAB_0802f92a:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

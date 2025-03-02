@@ -36,11 +36,11 @@ _ts E_TrafficLight_2_0_Init
     b          LAB_0807eb60
 LAB_0807eb52:
     LoadMain mapEventState, r7, r7
-    ldrb       r0,[r7,#0x8]
+    ldrb       r0,[r7,#MapEventState_b8]
     ldrb       r1,[r5,#Effect_family_b1]
     tst        r1,r1
     beq        LAB_0807eb60
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#MapEventState_b9]
 LAB_0807eb60:
     bl         SpritePtr_SetPaletteIndex
     ldrb       r0,[r5,#Effect_family_family]
@@ -80,11 +80,11 @@ _ts E_TrafficLight_2_1_Main
     b          LAB_0807ebb8
 LAB_0807ebaa:
     LoadMain mapEventState, r7, r7
-    ldrb       r0,[r7,#0x8]
+    ldrb       r0,[r7,#MapEventState_b8]
     ldrb       r1,[r5,#Effect_family_b1]
     tst        r1,r1
     beq        LAB_0807ebb8
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#MapEventState_b9]
 LAB_0807ebb8:
     bl         SpritePtr_SetPaletteIndex
     bl         SpritePtr_ProcessFrameDelay

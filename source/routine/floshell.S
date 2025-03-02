@@ -810,7 +810,7 @@ LAB_08060346:
 LAB_08060364:
     push       {r1,r2,r3}
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrh       r4,[r7,#0x18]
     lsl        r4,r4,#0x10
     bl         Attack_FloshellMiniBomb_Create

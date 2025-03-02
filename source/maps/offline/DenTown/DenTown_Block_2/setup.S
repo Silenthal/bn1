@@ -179,7 +179,7 @@ _ts MapSetup_DenTown_Block_2_F35
     bne        LAB_08037748
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     mov        r0,#0x0
     strb       r0,[r5,#0x8]
     strb       r0,[r5,#0x9]
@@ -252,7 +252,7 @@ _ts FUN_0803779c
     pop        {pc}
 LAB_080377a8:
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0xe]
+    ldrb       r1,[r0,#World_curEventFlag]
     cmp        r1,#0x20
     bne        LAB_080377be
     push       {r5}
@@ -263,13 +263,13 @@ LAB_080377a8:
 LAB_080377be:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     mov        r1,#0x8
     strh       r1,[r0,#0x2e]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r1,#0x0
     strh       r1,[r7,#0x2e]
     pop        {r5}
@@ -281,14 +281,14 @@ LAB_080377be:
     pop        {r5}
     bne        LAB_08037822
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_0803785c
     and        r1,r0
     beq        LAB_08037822
     bl         dummy_187a0
     bne        LAB_08037822
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#Input_lastKeyState]
     cmp        r1,#0x30
     bne        LAB_08037816
     push       {r5}
@@ -451,7 +451,7 @@ _ts FUN_08037918
     pop        {pc}
 LAB_08037924:
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0xe]
+    ldrb       r1,[r0,#World_curEventFlag]
     cmp        r1,#0x20
     bne        LAB_0803793a
     push       {r5}
@@ -462,13 +462,13 @@ LAB_08037924:
 LAB_0803793a:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     mov        r1,#0x8
     strh       r1,[r0,#0x2e]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r1,#0x0
     strh       r1,[r7,#0x2e]
     pop        {r5}
@@ -480,7 +480,7 @@ LAB_0803793a:
     pop        {r5}
     bne        LAB_08037986
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_080379a0
     and        r1,r0
     beq        LAB_08037986
@@ -577,7 +577,7 @@ _ts MapSetup_DenTown_Block_2_F50
     bl         Camera_SetEnabled
     pop        {r5}
     LoadMain world, r7, r7
-    ldrb       r0,[r7,#0x6]
+    ldrb       r0,[r7,#World_storyFlag]
     cmp        r0,#0x53
     bge        LAB_08037a46
     push       {r5}
@@ -625,7 +625,7 @@ _ts FUN_08037a70
     pop        {pc}
 LAB_08037a7c:
     LoadMain world, r0, r7
-    ldrb       r1,[r0,#0xe]
+    ldrb       r1,[r0,#World_curEventFlag]
     cmp        r1,#0x20
     bne        LAB_08037a92
     push       {r5}
@@ -636,13 +636,13 @@ LAB_08037a7c:
 LAB_08037a92:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     mov        r1,#0x8
     strh       r1,[r0,#0x2e]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     mov        r1,#0x0
     strh       r1,[r7,#0x2e]
     pop        {r5}
@@ -654,7 +654,7 @@ LAB_08037a92:
     pop        {r5}
     bne        LAB_08037ade
     LoadMain input, r0, r0
-    ldrh       r0,[r0,#0x2]
+    ldrh       r0,[r0,#Input_toggleKeyState]
     ldr        r1,DAT_08037afc
     and        r1,r0
     beq        LAB_08037ade

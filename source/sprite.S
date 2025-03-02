@@ -328,13 +328,13 @@ _ts SpritePtr_ObjModeSemiTransparent
     orr        r1,r2
     strb       r1,[r7,#0x11]
     LoadMain blend, r7, r7
-    ldrb       r1,[r7,#0x0]
+    ldrb       r1,[r7,#BlendSettings_bldCnt_Target1]
     mov        r2,#0xc0
     bic        r1,r2
     mov        r2,#0x0
     orr        r1,r2
-    strb       r1,[r7,#0x0]
-    strb       r0,[r7,#0x2]
+    strb       r1,[r7,#BlendSettings_bldCnt_Target1]
+    strb       r0,[r7,#BlendSettings_bldAlpha_EVA]
     mov        pc,lr
 
 

@@ -741,7 +741,7 @@ _ts BattleMessage_LoadDieBomb
     push       {lr}
     LoadMain textUI, r7, r7
     ldrb       r0,[r5,#0x2]
-    str        r0,[r7,#0x4]
+    str        r0,[r7,#TextUI_numberBuffer]
     ldrb       r1,[r5,#0x3]
     str        r1,[r7,#0x8]
     mul        r0,r1
@@ -1089,7 +1089,7 @@ LAB_080180be:
     mov        r2,#0xf
     lsr        r1,r0,#0xc
     and        r1,r2
-    str        r1,[r7,#0x4]
+    str        r1,[r7,#TextUI_numberBuffer]
     lsr        r1,r0,#0x8
     and        r1,r2
     str        r1,[r7,#0x8]
@@ -1286,7 +1286,7 @@ LAB_08018236:
     pop        {r5}
     LoadMain textUI, r7, r7
     ldrh       r0,[r5,#0xc]
-    str        r0,[r7,#0x4]
+    str        r0,[r7,#TextUI_numberBuffer]
     ldrb       r1,[r5,#0x5]
     lsl        r1,r1,#0x3
     ldr        r7,PTR_TextDst_ARRAY_0801832c

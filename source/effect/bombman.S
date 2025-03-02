@@ -140,7 +140,7 @@ LAB_08080746:
 
 _ts E_BombMan_1_1
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     bne        E_BombMan_2_Free

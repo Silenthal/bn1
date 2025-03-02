@@ -134,14 +134,14 @@ LAB_0801b4bc:
     bl         Screen_CopyTileMapRect
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801b8a4
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0
-    strh       r1,[r0,#0x10]
-    strh       r1,[r0,#0x12]
-    strh       r1,[r0,#0x14]
-    strh       r1,[r0,#0x16]
-    strh       r1,[r0,#0x18]
-    strh       r1,[r0,#0x1a]
+    strh       r1,[r0,#DisplaySettings_bg1Hofs]
+    strh       r1,[r0,#DisplaySettings_bg1Vofs]
+    strh       r1,[r0,#DisplaySettings_bg2Hofs]
+    strh       r1,[r0,#DisplaySettings_bg2Vofs]
+    strh       r1,[r0,#DisplaySettings_bg3Hofs]
+    strh       r1,[r0,#DisplaySettings_bg3Vofs]
     FadeIn_Black
     bl         Video_InitClearTile
     pop        {r5}
@@ -166,7 +166,7 @@ LAB_0801b538:
 _ts Menu_Library_1_Main
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801b55a
@@ -181,7 +181,7 @@ _ts Menu_Library_2_Close
     push       {lr}
     bl         Menu_Library_PrintUI
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801b5b8
@@ -248,7 +248,7 @@ LAB_0801b5ce:
     blt        LAB_0801b5ce
     pop        {r0}
     LoadMain textUI, r7, r7
-    str        r0,[r7,#0x4]
+    str        r0,[r7,#TextUI_numberBuffer]
     ldr        r0,PTR_textDict_MenuMessages_0801b8c0
     mov        r1,#0x0
     ldr        r2,PTR_DAT_0801b8c4
@@ -264,9 +264,9 @@ LAB_0801b600:
     bl         Text_CopyCharTileUI
     pop        {r0,r2,r3,r6}
     LoadMain textUI, r7, r7
-    ldr        r4,[r7,#0x4]
+    ldr        r4,[r7,#TextUI_numberBuffer]
     add        r4,#0x1
-    str        r4,[r7,#0x4]
+    str        r4,[r7,#TextUI_numberBuffer]
     mov        r4,#0x10
     lsl        r4,r4,#0x4
     add        r2,r2,r4
@@ -384,7 +384,7 @@ _ts Menu_Library_HandleInput
     ldrb       r0,[r5,#0xe]
     strb       r0,[r5,#0xf]
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x2
     tst        r1,r0
     beq        LAB_0801b71a
@@ -399,8 +399,8 @@ _ts Menu_Library_HandleInput
 LAB_0801b71a:
     ldrb       r2,[r5,#0xc]
     ldrb       r3,[r5,#0xe]
-    ldrh       r0,[r7,#0x4]
-    ldrh       r4,[r7,#0x0]
+    ldrh       r0,[r7,#Input_heldKeyState]
+    ldrh       r4,[r7,#Input_curKeyState]
     ldr        r1,DAT_0801b8d8
     tst        r4,r1
     beq        LAB_0801b72e
@@ -509,7 +509,7 @@ LAB_0801b7b0:
     mov        r5,#0x0
     bl         Screen_SetTileMapRect
     LoadMain frameCounter, r7, r7
-    ldrh       r7,[r7,#0x0]
+    ldrh       r7,[r7,#FrameCounter_counter]
     mov        r1,#0x10
     and        r1,r7
     mov        r5,r12

@@ -101,7 +101,7 @@ _ts EventHandler_Govt_Complex_Station_F22_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -116,7 +116,7 @@ _ts EventHandler_Govt_Complex_Station_F22_0
     pop        {r5}
 LAB_08032216:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0803222c
     push       {r5}
@@ -166,7 +166,7 @@ _ts EventHandler_Govt_Complex_Station_F23_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -181,7 +181,7 @@ _ts EventHandler_Govt_Complex_Station_F23_0
     pop        {r5}
 LAB_08032296:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_080322ac
     push       {r5}
@@ -237,7 +237,7 @@ _ts EventHandler_Govt_Complex_Station_F26_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -252,7 +252,7 @@ _ts EventHandler_Govt_Complex_Station_F26_0
     pop        {r5}
 LAB_08032322:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08032338
     push       {r5}
@@ -402,7 +402,7 @@ _ts EventHandler_Govt_Complex_Station_F30_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -424,7 +424,7 @@ LAB_08032456:
     pop        {r5}
 LAB_0803245e:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08032474
     push       {r5}
@@ -541,7 +541,7 @@ _ts EventHandler_Govt_Complex_Station_F40_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -563,7 +563,7 @@ LAB_08032566:
     pop        {r5}
 LAB_0803256e:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08032584
     push       {r5}
@@ -688,7 +688,7 @@ _ts EventHandler_Govt_Complex_Station_F50_0
 LAB_0803265e:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -711,7 +711,7 @@ LAB_0803268c:
     pop        {r5}
 LAB_08032692:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_080326a8
     push       {r5}
@@ -765,7 +765,7 @@ _ts EventHandler_Govt_Complex_Station_F53_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -787,7 +787,7 @@ LAB_0803271e:
     pop        {r5}
 LAB_08032726:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0803273c
     push       {r5}

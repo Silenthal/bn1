@@ -9,10 +9,10 @@
 _ts InitTransition
     push       { lr }
     LoadMain transition, r5, r7
-    ldrb       r1,[r5,#0x3]
+    ldrb       r1,[r5,#Transition_destinationType]
     mov        r0,#0x0
-    str        r0,[r5,#0x0]
-    strb       r1,[r5,#0x3]
+    str        r0,[r5,#Transition_state]
+    strb       r1,[r5,#Transition_destinationType]
     pop        { pc }
 
 _ts Transition_Main
@@ -27,7 +27,7 @@ _ts Transition_Main
 LAB_08017516:
     ldr        r0,PTR_jumpTableJackOut_08017854
 LAB_08017518:
-    ldrb       r1,[r5,#0x0]
+    ldrb       r1,[r5,#Transition_state]
     lsl        r1,r1,#0x2
     ldr        r0,[r0,r1]
     mov        lr,pc
@@ -89,7 +89,7 @@ _ts JackIn_Finish
     push       {lr}
     LoadMain manager, r0, r7
     mov        r1,#0x4
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     ldr        r0,PTR_gFrameWaitValue_08017860
     mov        r1,#0x1
     strh       r1,[r0,#0x0]
@@ -137,7 +137,7 @@ _ts JackIn_PlayAnimation
     ldr        r4,PTR_DispCnt_08017868
     ldrh       r1,[r4,r0]
     LoadMain display, r4, r7
-    strh       r1,[r4,#0x0]
+    strh       r1,[r4,#DisplaySettings_dispcnt]
     ldr        r1,PTR_PTR_BG_VRAM_BASE0_0801786c
     ldr        r1,[r1,r0]
     push       {r0,r1,r3,r5}
@@ -177,11 +177,11 @@ LAB_0801763e:
     strb       r0,[r5,#0x0]
     LoadMain mapChange, r0, r7
     mov        r1,#0x1
-    strb       r1,[r0,#0x10]
+    strb       r1,[r0,#MapChange_type]
     mov        r1,#0x1
-    strb       r1,[r0,#0x12]
+    strb       r1,[r0,#MapChange_destinationIndex]
     ldr        r1,[r5,#0x4]
-    str        r1,[r0,#0x14]
+    str        r1,[r0,#MapChange_destinationList]
     push       {r5}
     Fade_Request FT_FadeOutToWhite, 0xff
     pop        {r5}
@@ -343,7 +343,7 @@ _ts JackOut_Finish
     push       {lr}
     LoadMain manager, r0, r7
     mov        r1,#0x4
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     push       {r5,r7}
     bl         Video_InitClearTile
     pop        {r5,r7}

@@ -102,7 +102,7 @@ LAB_08098e32:
 _ts SD_Repair_3_Free
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08098e4e

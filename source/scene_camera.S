@@ -48,9 +48,9 @@ _ts SceneCamera_0_SetPosition
     ldrh       r4,[r1,#0x6]
     lsl        r4,r4,#0x10
     LoadMain camera, r6, r6
-    str        r2,[r6,#0x2c]
-    str        r3,[r6,#0x30]
-    str        r4,[r6,#0x34]
+    str        r2,[r6,#Camera_posMapNext_x]
+    str        r3,[r6,#Camera_posMapNext_y]
+    str        r4,[r6,#Camera_posMapNext_z]
     mov        r0,#0x1
     add        r1,#0x8
     mov        pc,lr
@@ -69,21 +69,21 @@ LAB_080188c2:
     mov        r3,#0x2
     ldrsh      r2,[r1,r3]
     lsl        r2,r2,#0x8
-    ldr        r3,[r6,#0x2c]
+    ldr        r3,[r6,#Camera_posMapNext_x]
     add        r2,r2,r3
-    str        r2,[r6,#0x2c]
+    str        r2,[r6,#Camera_posMapNext_x]
     mov        r3,#0x4
     ldrsh      r2,[r1,r3]
     lsl        r2,r2,#0x8
-    ldr        r3,[r6,#0x30]
+    ldr        r3,[r6,#Camera_posMapNext_y]
     add        r2,r2,r3
-    str        r2,[r6,#0x30]
+    str        r2,[r6,#Camera_posMapNext_y]
     mov        r3,#0x6
     ldrsh      r2,[r1,r3]
     lsl        r2,r2,#0x8
-    ldr        r3,[r6,#0x34]
+    ldr        r3,[r6,#Camera_posMapNext_z]
     add        r2,r2,r3
-    str        r2,[r6,#0x34]
+    str        r2,[r6,#Camera_posMapNext_z]
     ldrh       r2,[r5,#0x4]
     sub        r2,#0x1
     strh       r2,[r5,#0x4]

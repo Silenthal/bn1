@@ -368,7 +368,7 @@ _ts FUN_080747e8
     push       {lr}
     mov        r2,#0x0
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r1,[r7,#0x18]
     cmp        r0,r1
     bgt        LAB_08074806

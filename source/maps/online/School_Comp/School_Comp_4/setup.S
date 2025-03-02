@@ -109,7 +109,7 @@ _ts EventHandler_School_Comp_4_F14_0
     push       {lr}
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -205,7 +205,7 @@ LAB_0804166e:
     pop        {r5}
     bne        LAB_08041690
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08041694
     push       {r5}
@@ -236,7 +236,7 @@ _nt EventHandler_School_Comp_4_F15_1
     pop        {pc}
 LAB_080416b6:
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08041694
     push       {r5}
@@ -390,8 +390,8 @@ _ts MapSetup_School_Comp_4_F20
     bl         Map_LoadNPCList
     pop        {r5}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     bne        LAB_080417e8
     cmp        r1,#0x80

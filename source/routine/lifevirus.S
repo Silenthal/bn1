@@ -689,9 +689,9 @@ _ts R_LifeVirus_2_0_0
     bl         FieldObject_Disable
     LoadMain battle, r7, r7
     mov        r0,#0x1
-    strb       r0,[r7,#0x8]
+    strb       r0,[r7,#Battle_battleEntryState]
     mov        r0,#0x0
-    strb       r0,[r7,#0x12]
+    strb       r0,[r7,#Battle_customGaugeSpeed]
     push       {r5}
     bl         BattleUi_ClearHpDisplay
     bl         BattleUi_LoadCustomGaugeTileMap
@@ -724,7 +724,7 @@ LAB_080699f0:
 _nt R_LifeVirus_2_0_2
     push       {lr}
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08069a42
@@ -782,7 +782,7 @@ LAB_08069a62:
 _ts R_LifeVirus_2_0_4
     push       {lr}
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08069a7a
@@ -844,7 +844,7 @@ LAB_08069ac6:
 _ts R_LifeVirus_2_1_2
     push       {lr}
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08069ade
@@ -915,7 +915,7 @@ LAB_08069b4a:
     cmp        r4,#0x2
     blt        LAB_08069b5e
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x18]
     cmp        r0,#0x2
     blt        LAB_08069b62

@@ -40,8 +40,8 @@ _ts FUN_08043890
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_080438c2
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_080438ce
 LAB_080438c2:

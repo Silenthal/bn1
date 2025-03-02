@@ -172,7 +172,7 @@ _ts SD_Roll_1_4_Recover
     lsl        r1,r1,#0x2
     add        r1,#0x40
     ldr        r5,[r7,r1]
-    ldrh       r1,[r7,#0x20]
+    ldrh       r1,[r7,#Battle_battleTime]
     tst        r1,r1
     beq        LAB_0809a420
     bl         FieldObject_AddHp
@@ -230,7 +230,7 @@ _ts SD_Roll_2_Free
     strb       r0,[r5,#ScreenDim_state_s1]
 LAB_0809a45c:
     LoadMain fade, r7, r7
-    ldrb       r0,[r7,#0x3]
+    ldrb       r0,[r7,#FadeSettings_isFadeActive]
     cmp        r0,#0x1
     beq        LAB_0809a472
     push       {r5}

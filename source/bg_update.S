@@ -112,8 +112,8 @@ _ts BgUpdate_MoveUpLeft
     str        r3,[r1,#0x0]
     lsr        r3,r3,#0x4
     LoadMain display, r7, r7
-    strh       r2,[r7,#0x10]
-    strh       r3,[r7,#0x12]
+    strh       r2,[r7,#DisplaySettings_bg1Hofs]
+    strh       r3,[r7,#DisplaySettings_bg1Vofs]
     mov        pc,lr
 
 
@@ -125,7 +125,7 @@ _ts BgUpdate_MoveUp
     str        r3,[r1,#0x0]
     lsr        r3,r3,#0x4
     LoadMain display, r7, r7
-    strh       r3,[r7,#0x12]
+    strh       r3,[r7,#DisplaySettings_bg1Vofs]
     mov        pc,lr
 
 
@@ -137,7 +137,7 @@ _ts BgUpdate_MoveLeft
     str        r2,[r1,#0x0]
     lsr        r2,r2,#0x4
     LoadMain display, r7, r7
-    strh       r2,[r7,#0x10]
+    strh       r2,[r7,#DisplaySettings_bg1Hofs]
     mov        pc,lr
 
 
@@ -149,7 +149,7 @@ _ts BgUpdate_MoveRight
     str        r2,[r1,#0x0]
     lsr        r2,r2,#0x4
     LoadMain display, r7, r7
-    strh       r2,[r7,#0x10]
+    strh       r2,[r7,#DisplaySettings_bg1Hofs]
     mov        pc,lr
 
 
@@ -160,7 +160,7 @@ _ts BgUpdate_MoveLeftSlow
     sub        r2,#0x2
     str        r2,[r1,#0x0]
     LoadMain display, r7, r7
-    strh       r2,[r7,#0x10]
+    strh       r2,[r7,#DisplaySettings_bg1Hofs]
     mov        pc,lr
 
 

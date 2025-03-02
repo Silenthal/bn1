@@ -67,8 +67,8 @@ LAB_08051f68:
     pop        {r5}
 LAB_08051f72:
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_08051f8c
     push       {r5}
@@ -102,7 +102,7 @@ LAB_08051f98:
     add        r4,#0x4
 LAB_08051fba:
     LoadMain world, r7, r7
-    ldrb       r7,[r7,#0x6]
+    ldrb       r7,[r7,#World_storyFlag]
     cmp        r7,#0x20
     blt        LAB_08051fcc
     ldr        r0,[r3,#0x30]
@@ -215,7 +215,7 @@ LAB_0805207e:
     pop        {pc}
 LAB_080520a0:
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x6]
+    ldrb       r1,[r7,#World_storyFlag]
     mov        r2,#0xf0
     and        r1,r2
     tst        r1,r1
@@ -263,7 +263,7 @@ LAB_080520fa:
     bl         KeyItem_IsPresent
     bne        LAB_08052132
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     ldr        r0,[r7,#0x10]
     add        r0,#0x4
     mov        r2,#0x7
@@ -283,7 +283,7 @@ LAB_08052136:
     bl         KeyItem_IsPresent
     bne        LAB_0805215e
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     ldr        r0,[r7,#0x10]
     add        r0,#0x4
     mov        r2,#0x7
@@ -303,7 +303,7 @@ LAB_08052162:
     bl         KeyItem_IsPresent
     bne        LAB_0805218a
     LoadMain world, r7, r7
-    ldr        r7,[r7,#0x28]
+    ldr        r7,[r7,#World_playerLocation]
     ldr        r0,[r7,#0x10]
     add        r0,#0x4
     mov        r2,#0x7

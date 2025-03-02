@@ -7,37 +7,37 @@
 
 _ts Battle_SetState_InBattle
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#Battle_battleState]
     mov        r1,#0x2
     orr        r0,r1
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#Battle_battleState]
     mov        pc,lr
 
 
 _nt Battle_ClearState_InBattle
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#Battle_battleState]
     mov        r1,#0x2
     mvn        r1,r1
     and        r0,r1
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#Battle_battleState]
     mov        pc,lr
 
 
 _nt Battle_SetState_EnemySpawned
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#Battle_battleState]
     mov        r1,#0x1
     orr        r0,r1
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#Battle_battleState]
     mov        pc,lr
 
 _nt Battle_ClearState_EnemySpawned
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x9]
+    ldrb       r0,[r7,#Battle_battleState]
     mov        r1,#0x1
     bic        r0,r1
-    strb       r0,[r7,#0x9]
+    strb       r0,[r7,#Battle_battleState]
     mov        pc,lr
 
 _nt Battle_AdvanceDeleteTimer
@@ -194,7 +194,7 @@ _ts Battle_EndNow
     bne        LAB_08006bce
     LoadMain gameStats, r7, r7
     mov        r0,#0x1
-    strb       r0,[r7,#0xd]
+    strb       r0,[r7,#GameStats_hasUsedEscape]
 LAB_08006bce:
     LoadMain world, r6, r7
     mov        r0,#0x2

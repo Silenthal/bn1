@@ -206,7 +206,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F22_HandleExits
     tst        r0,r0
     bne        LAB_080330cc
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_080330a6
     Flag_GetBase 0xE0
@@ -231,7 +231,7 @@ LAB_08033092:
 LAB_080330a6:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -396,7 +396,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F30_HandleExits
     tst        r0,r0
     bne        LAB_08033232
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0803320c
     mov        r0,#0x4
@@ -418,7 +418,7 @@ LAB_080331fe:
 LAB_0803320c:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -598,7 +598,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40_1
     beq        LAB_080333ae
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -628,7 +628,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F40_HandleExits
     tst        r0,r0
     bne        LAB_08033412
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_080333ec
     Flag_GetBase 0x9C
@@ -649,7 +649,7 @@ LAB_080333de:
 LAB_080333ec:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -841,7 +841,7 @@ _ts EventHandler_Govt_SciLab_Lobby_F50_HandleExits
     tst        r0,r0
     bne        LAB_080335ae
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_08033588
     mov        r0,#0x4
@@ -863,7 +863,7 @@ LAB_0803357a:
 LAB_08033588:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

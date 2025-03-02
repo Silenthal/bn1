@@ -416,7 +416,7 @@ _ts R_MiniColorMan_1_5_0_Delay
 _nt R_MiniColorMan_1_5_1_Tower
     push       {lr}
     LoadMain frameCounter, r7, r7
-    ldrh       r0,[r7,#0x0]
+    ldrh       r0,[r7,#FrameCounter_counter]
     lsr        r0,r0,#0x2
     bcc        LAB_08063cc6
     bl         SpritePtr_EnableFlash
@@ -541,7 +541,7 @@ _ts R_MiniColorMan_Decide
     pop        {pc}
 LAB_08063da2:
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r0,[r7,#0x19]
     ldrb       r1,[r5,#Actor_cPos_y]
     cmp        r0,r1

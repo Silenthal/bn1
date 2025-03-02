@@ -139,10 +139,10 @@ PTR_GraphicDataSetup_Battle_0801151c:
 _ts Map_LoadNPCList
     push       { lr }
     LoadMain world, r6, r6
-    ldr        r1,[r6,#0x34]
+    ldr        r1,[r6,#World_npcCommandList]
     cmp        r7,r1
     beq        LAB_0801154e
-    str        r7,[r6,#0x34]
+    str        r7,[r6,#World_npcCommandList]
     push       { r7 }
     mov        r0,#0x10
     bl         Entity_FreeAllMultiple
@@ -223,9 +223,9 @@ _ts Map_InitBoundary
     add        r0,#0x4
     str        r0,[r5,#0x0]
     LoadMain bgDataManager, r1, r1
-    ldrb       r0,[r1,#0x0]
+    ldrb       r0,[r1,#BackgroundDataManager_mapGridSizeX]
     strb       r0,[r5,#0x8]
-    ldrb       r0,[r1,#0x1]
+    ldrb       r0,[r1,#BackgroundDataManager_mapGridSizeY]
     strb       r0,[r5,#0x9]
     mov        pc,lr
 
@@ -1654,9 +1654,9 @@ _ts Map_InitElevation
     add        r0,#0x4
     str        r0,[r5,#0x0]
     LoadMain bgDataManager, r1, r1
-    ldrb       r0,[r1,#0x0]
+    ldrb       r0,[r1,#BackgroundDataManager_mapGridSizeX]
     strb       r0,[r5,#0x6]
-    ldrb       r0,[r1,#0x1]
+    ldrb       r0,[r1,#BackgroundDataManager_mapGridSizeY]
     strb       r0,[r5,#0x7]
     mov        pc,lr
 
@@ -1940,9 +1940,9 @@ _ts Map_InitCover
     add        r0,#0x4
     str        r0,[r5,#0x0]
     LoadMain bgDataManager, r1, r1
-    ldrb       r0,[r1,#0x0]
+    ldrb       r0,[r1,#BackgroundDataManager_mapGridSizeX]
     strb       r0,[r5,#0x6]
-    ldrb       r0,[r1,#0x1]
+    ldrb       r0,[r1,#BackgroundDataManager_mapGridSizeY]
     strb       r0,[r5,#0x7]
     mov        pc,lr
 
@@ -2153,9 +2153,9 @@ _ts Map_InitEvent
     add        r0,#0x4
     str        r0,[r5,#0x0]
     LoadMain bgDataManager, r1, r1
-    ldrb       r0,[r1,#0x0]
+    ldrb       r0,[r1,#BackgroundDataManager_mapGridSizeX]
     strb       r0,[r5,#0x6]
-    ldrb       r0,[r1,#0x1]
+    ldrb       r0,[r1,#BackgroundDataManager_mapGridSizeY]
     strb       r0,[r5,#0x7]
     mov        pc,lr
 

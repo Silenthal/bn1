@@ -151,11 +151,11 @@ _ts EventHandler_SciLab_Restaurant_Hallway_S4_HandleExits
     tst        r0,r0
     bne        LAB_0803c0ec
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0803c0aa
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#World_storyFlag]
     cmp        r1,#0x41
     bne        LAB_0803c09c
     push       {r5}
@@ -175,7 +175,7 @@ LAB_0803c0aa:
     cmp        r0,#0xf1
     bne        LAB_0803c0c6
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#World_storyFlag]
     cmp        r1,#0x41
     bne        LAB_0803c0c6
     push       {r5}
@@ -187,7 +187,7 @@ LAB_0803c0aa:
 LAB_0803c0c6:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}
@@ -333,7 +333,7 @@ _ts EventHandler_SciLab_Restaurant_Hallway_S5_HandleExits
     tst        r0,r0
     bne        LAB_0803c214
     LoadMain world, r0, r7
-    ldrb       r0,[r0,#0xe]
+    ldrb       r0,[r0,#World_curEventFlag]
     cmp        r0,#0x20
     bne        LAB_0803c1ee
     push       {r5}
@@ -345,7 +345,7 @@ _ts EventHandler_SciLab_Restaurant_Hallway_S5_HandleExits
 LAB_0803c1ee:
     push       {r5}
     LoadMain world, r0, r7
-    ldr        r0,[r0,#0x28]
+    ldr        r0,[r0,#World_playerLocation]
     add        r0,#0x24
     bl         Map_HandleCollisionEvent
     pop        {r5}

@@ -29,8 +29,8 @@ _ts EventHandler_ACDC_Mayl_PC_S0
 _nt FUN_0804f12e
     push       {lr}
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804f146
     push       {r5}
@@ -53,8 +53,8 @@ LAB_0804f146:
     ldrb       r2,[r0,#0xd]
     cmp        r1,r2
     bne        LAB_0804f176
-    ldrb       r1,[r0,#0x4]
-    ldrb       r2,[r0,#0xc]
+    ldrb       r1,[r0,#World_currentArea]
+    ldrb       r2,[r0,#World_lastArea]
     cmp        r1,r2
     beq        LAB_0804f182
 LAB_0804f176:
@@ -65,7 +65,7 @@ LAB_0804f176:
     pop        {r5}
 LAB_0804f182:
     LoadMain world, r0, r0
-    ldrb       r1,[r0,#0x6]
+    ldrb       r1,[r0,#World_storyFlag]
     cmp        r1,#0x30
     bne        LAB_0804f1a0
     Flag_GetBase 0x95

@@ -14,7 +14,7 @@ _ts InitDemo
     mov        r1,#0x8
     bl         memset0_32
     pop        { r0, r5 }
-    strb       r0,[r5,#0x6]
+    strb       r0,[r5,#Demo_b6]
     pop        { pc }
     .align 2, 0
 
@@ -173,7 +173,7 @@ _ts Demo_ShowThankYouMessage
     pop        { r5 }
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_08018bdc
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     ldr        r0,DAT_08018be0
     strh       r0,[r5,#0x4]
     mov        r0,#0x10
@@ -198,7 +198,7 @@ _ts Demo_WaitForTimer
 _ts Demo_CleanUp
     push       { lr }
     LoadMain fade, r0, r0
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_08018af8

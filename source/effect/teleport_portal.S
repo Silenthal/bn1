@@ -33,7 +33,7 @@ _ts E_TeleportPortal_0_Init
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x0
     LoadMain world, r7, r7
-    ldr        r2,[r7,#0x58]
+    ldr        r2,[r7,#World_lastMapPosOffline_fullArea]
     ldr        r3,DAT_0807e408
     and        r2,r3
     ldrh       r1,[r5,#Effect_family_family]

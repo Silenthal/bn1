@@ -63,7 +63,7 @@ _ts MapSetup_WWW_Rocket_Hangar_F54
     bne        LAB_0803e1be
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_73_0803e24c
     mov        r1,#0x0
@@ -75,7 +75,7 @@ LAB_0803e1be:
     bne        LAB_0803e1dc
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     push       {r5}
     ldr        r0,PTR_Scene_Story_7A_0803e250
     mov        r1,#0x0
@@ -87,7 +87,7 @@ LAB_0803e1dc:
     bne        LAB_0803e1fe
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     bl         Sound_StopAllMusic
     push       {r5}
     ldr        r0,PTR_Scene_Story_7B_0803e254
@@ -100,7 +100,7 @@ LAB_0803e1fe:
     bne        LAB_0803e21e
     LoadMain world, r0, r0
     mov        r1,#0x0
-    strb       r1,[r0,#0x7]
+    strb       r1,[r0,#World_fadeType]
     bl         Sound_StopAllMusic
     push       {r5}
     ldr        r0,PTR_Scene_Story_7E_0803e258

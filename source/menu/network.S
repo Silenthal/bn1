@@ -120,7 +120,7 @@ PTR_Menu_Network_0_Init_0801cd10:
 _ts Menu_Network_0_Init
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801ce82
@@ -184,14 +184,14 @@ _ts Menu_Network_0_Init
     mov        r10,r0
     LoadMain display, r0, r7
     ldr        r1,PTR_DAT_0801d170
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
     mov        r1,#0x0
-    strh       r1,[r0,#0x10]
-    strh       r1,[r0,#0x12]
-    strh       r1,[r0,#0x14]
-    strh       r1,[r0,#0x16]
-    strh       r1,[r0,#0x18]
-    strh       r1,[r0,#0x1a]
+    strh       r1,[r0,#DisplaySettings_bg1Hofs]
+    strh       r1,[r0,#DisplaySettings_bg1Vofs]
+    strh       r1,[r0,#DisplaySettings_bg2Hofs]
+    strh       r1,[r0,#DisplaySettings_bg2Vofs]
+    strh       r1,[r0,#DisplaySettings_bg3Hofs]
+    strh       r1,[r0,#DisplaySettings_bg3Vofs]
     FadeIn_Black
     pop        {r5}
     mov        r0,#0x0
@@ -220,7 +220,7 @@ LAB_0801ce68:
     push       {r5}
     ldr        r0,PTR_textDict_MenuMessages_0801d174
     LoadMain world, r7, r7
-    ldrb       r1,[r7,#0x10]
+    ldrb       r1,[r7,#World_lastBattleResult]
     ldr        r7,PTR_listNetworkBattleResultMessage_0801ce98
     ldrb       r1,[r7,r1]
     ldr        r0,PTR_textDict_MenuMessages_0801d174
@@ -247,7 +247,7 @@ listNetworkBattleResultMessage:
 _ts Menu_Network_1_Main
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801ceb2
@@ -262,7 +262,7 @@ _ts Menu_Network_2_Close
     push       {lr}
     bl         Menu_Network_DrawUi
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801cf20
@@ -402,7 +402,7 @@ _ts Menu_Network_DrawUi
 _ts Menu_Network_HandleInput
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801d07c
@@ -416,7 +416,7 @@ _ts Menu_Network_HandleInput
     b          LAB_0801d07c
 LAB_0801d002:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x2
     tst        r1,r0
     beq        LAB_0801d026
@@ -436,7 +436,7 @@ LAB_0801d026:
     b          LAB_0801d066
 LAB_0801d032:
     ldrb       r2,[r5,#0xc]
-    ldrh       r0,[r7,#0x4]
+    ldrh       r0,[r7,#Input_heldKeyState]
     mov        r1,#0x40
     tst        r1,r0
     beq        LAB_0801d046
@@ -507,7 +507,7 @@ LAB_0801d08c:
     bl         GetBattleChipTotalCount
     str        r0,[r5,#0x18]
     LoadMain textUI, r7, r7
-    str        r0,[r7,#0x4]
+    str        r0,[r7,#TextUI_numberBuffer]
     ldr        r0,PTR_textDict_MenuMessages_0801d174
     mov        r1,#0x60
     ldr        r2,PTR_DAT_0801d18c
@@ -765,7 +765,7 @@ PTR_textDict_MenuMessages_0801d2b4:
 _ts Menu_Network_7_InitTrade
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     bne        LAB_0801d2ca
@@ -970,7 +970,7 @@ _ts Menu_Network_9_LoadOptionMenu
     push       {lr}
     bl         Menu_Network_PrintUiTrade
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801d526
@@ -1079,7 +1079,7 @@ _ts Menu_Network_10_OpenTradePending
     push       {lr}
     bl         Menu_Network_PrintUiTrade
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801d57e
@@ -1289,7 +1289,7 @@ PTR_gMpStateRecv_0801d700:
 _ts Menu_Network_HandleInputTrade
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801d800
@@ -1317,7 +1317,7 @@ LAB_0801d734:
     b          LAB_0801d800
 LAB_0801d740:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0x2
     tst        r1,r0
     beq        LAB_0801d752
@@ -1344,8 +1344,8 @@ LAB_0801d772:
     ldrh       r2,[r5,r2]
     mov        r3,#0x24
     ldrh       r3,[r5,r3]
-    ldrh       r0,[r7,#0x4]
-    ldrh       r4,[r7,#0x0]
+    ldrh       r0,[r7,#Input_heldKeyState]
+    ldrh       r4,[r7,#Input_curKeyState]
     ldr        r1,DAT_0801db44
     tst        r4,r1
     beq        LAB_0801d78a
@@ -1441,7 +1441,7 @@ LAB_0801d81c:
 _ts Menu_Network_OpenSort
     push       {lr}
     LoadMain gameStats, r0, r0
-    ldrb       r1,[r0,#0x2]
+    ldrb       r1,[r0,#GameStats_sortOrderSack]
     strb       r1,[r5,#0x1c]
     mov        r0,#0x0
     strb       r0,[r5,#0x14]
@@ -1541,7 +1541,7 @@ LAB_0801d8d8:
     b          LAB_0801d96a
 LAB_0801d8e4:
     LoadMain input, r7, r7
-    ldrh       r0,[r7,#0x2]
+    ldrh       r0,[r7,#Input_toggleKeyState]
     mov        r1,#0xa
     tst        r1,r0
     beq        LAB_0801d8fc
@@ -1559,8 +1559,8 @@ LAB_0801d8fc:
 LAB_0801d908:
     ldrb       r2,[r5,#0x1c]
     ldrb       r3,[r5,#0x1e]
-    ldrh       r0,[r7,#0x4]
-    ldrh       r4,[r7,#0x0]
+    ldrh       r0,[r7,#Input_heldKeyState]
+    ldrh       r4,[r7,#Input_curKeyState]
     mov        r4,#0x1
     mov        r1,#0x40
     tst        r1,r0
@@ -1618,20 +1618,20 @@ _ts Menu_Network_UpdateSort
     push       {lr}
     ldrb       r0,[r5,#0x1c]
     LoadMain gameStats, r1, r1
-    ldrb       r2,[r1,#0x2]
+    ldrb       r2,[r1,#GameStats_sortOrderSack]
     cmp        r0,r2
     beq        LAB_0801d984
-    strb       r0,[r1,#0x2]
+    strb       r0,[r1,#GameStats_sortOrderSack]
     ldr        r2,PTR_listDefaultSort_0801db54
     ldrb       r0,[r2,r0]
-    strb       r0,[r1,#0x3]
+    strb       r0,[r1,#GameStats_sortDirectionSack]
     b          LAB_0801d98e
 LAB_0801d984:
-    strb       r0,[r1,#0x2]
-    ldrb       r0,[r1,#0x3]
+    strb       r0,[r1,#GameStats_sortOrderSack]
+    ldrb       r0,[r1,#GameStats_sortDirectionSack]
     mov        r2,#0x4
     eor        r0,r2
-    strb       r0,[r1,#0x3]
+    strb       r0,[r1,#GameStats_sortDirectionSack]
 LAB_0801d98e:
     bl         Menu_Folder_SortSack
     add        r0,#0x1
@@ -1691,7 +1691,7 @@ LAB_0801d9fe:
     cmp        r0,#0x7
     ble        LAB_0801da4c
     LoadMain frameCounter, r7, r7
-    ldrh       r7,[r7,#0x0]
+    ldrh       r7,[r7,#FrameCounter_counter]
     mov        r1,#0x10
     and        r1,r7
     mov        r0,#0x24
@@ -1956,7 +1956,7 @@ LAB_0801dbd6:
 _ts Menu_Network_23_StartBattle
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801dc42
@@ -1980,7 +1980,7 @@ LAB_0801dbf4:
     pop        {r5}
     LoadMain manager, r0, r7
     mov        r1,#0x8
-    strb       r1,[r0,#0x0]
+    strb       r1,[r0,#Manager_gameState]
     push       {r5}
     mov        r0,#0x3
     bl         Video_SetBgControl
@@ -1993,7 +1993,7 @@ LAB_0801dbf4:
     pop        {r5}
     LoadMain display, r0, r7
     mov        r1,#0x40
-    strh       r1,[r0,#0x0]
+    strh       r1,[r0,#DisplaySettings_dispcnt]
 LAB_0801dc42:
     mov        r0,#0x0
     pop        {pc}
@@ -2149,7 +2149,7 @@ _ts FUN_0801dd64
     tst        r0,r0
     beq        LAB_0801ddb6
     LoadMain frameCounter, r7, r7
-    ldrh       r7,[r7,#0x0]
+    ldrh       r7,[r7,#FrameCounter_counter]
     mov        r1,#0x2
     and        r1,r7
     cmp        r1,#0x0
@@ -2206,7 +2206,7 @@ DAT_0801ddd4:
 _ts Menu_Network_13_TradePending
     push       {lr}
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801de92
@@ -2398,7 +2398,7 @@ LAB_0801df3e:
     b          LAB_0801dfa6
 LAB_0801df72:
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801dfa6
@@ -2443,7 +2443,7 @@ _ts Menu_Network_19_LoadOptionMenu
     push       {lr}
     bl         Menu_Network_PrintChipsTrading
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801e074
@@ -2516,7 +2516,7 @@ _ts Menu_Network_20_LoadTradeMenu
     push       {lr}
     bl         Menu_Network_PrintChipsTrading
     LoadMain fade, r0, r7
-    ldrb       r0,[r0,#0x3]
+    ldrb       r0,[r0,#FadeSettings_isFadeActive]
     mov        r1,#0x1
     cmp        r0,r1
     beq        LAB_0801e08e

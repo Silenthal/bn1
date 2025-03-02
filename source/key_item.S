@@ -48,8 +48,8 @@ KeyItem_HpMemoryRecalculate:
     mov        r4,#0x64
     @ HPMemory * 20 + 100 = Current HP
     add        r2,r2,r4
-    strh       r2,[r3,#0x1e]
-    strh       r2,[r3,#0x1c]
+    strh       r2,[r3,#World_hpMax]
+    strh       r2,[r3,#World_hpCurrent]
     mov        pc,lr
 
 _ts KeyItem_SetAmount

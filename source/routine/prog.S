@@ -320,7 +320,7 @@ LAB_080663d2:
     b          LAB_080663ae
 LAB_080663e6:
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r2,[r7,#0x18]
     sub        r0,#0x1
     cmp        r0,r2

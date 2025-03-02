@@ -114,7 +114,7 @@ PTR_A_Remobit_1_0_0_080761a8:
 _ts A_Remobit_1_0_0
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1a]
+    ldrb       r0,[r7,#Battle_sioOwnerId]
     ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     ldr        r7,PTR_PTR_CellPosition_ARRAY_080761f4
@@ -283,7 +283,7 @@ _ts FUN_080762b0
 _nt FUN_080762ce
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1a]
+    ldrb       r0,[r7,#Battle_sioOwnerId]
     ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     tst        r0,r0
@@ -323,7 +323,7 @@ _nt FUN_0807630e
 _ts FUN_08076310
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1a]
+    ldrb       r0,[r7,#Battle_sioOwnerId]
     ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     tst        r0,r0
@@ -413,7 +413,7 @@ LAB_080763a8:
 _nt FUN_080763aa
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1a]
+    ldrb       r0,[r7,#Battle_sioOwnerId]
     ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     tst        r0,r0
@@ -454,7 +454,7 @@ _ts dummy_763ec
 _nt FUN_080763ee
     push       {lr}
     LoadMain battle, r7, r7
-    ldrb       r0,[r7,#0x1a]
+    ldrb       r0,[r7,#Battle_sioOwnerId]
     ldrb       r1,[r5,#Attack_owner]
     eor        r0,r1
     tst        r0,r0

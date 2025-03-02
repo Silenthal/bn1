@@ -292,7 +292,7 @@ LAB_080751e6:
 _nt A_ColorManBall_GetNextPos
     push       {lr}
     LoadMain battle, r7, r7
-    ldr        r7,[r7,#0x40]
+    ldr        r7,[r7,#Battle_actorListPlayer]
     ldrb       r2,[r7,#0x18]
     ldrb       r3,[r7,#0x19]
     ldrb       r0,[r5,#Attack_cPos_x]
