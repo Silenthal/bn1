@@ -93,7 +93,7 @@ _nt S_Story_1F_4
     cmp        r0,#0x1
     beq        LAB_0808845e
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808845e
@@ -141,7 +141,7 @@ _nt S_Story_1F_SkipIfStart
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x14

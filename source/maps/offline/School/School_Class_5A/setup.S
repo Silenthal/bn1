@@ -680,7 +680,7 @@ _ts EventHandler_School_Class_5A_F12_1
     cmp        r0,#0x40
     bne        LAB_08024d06
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08024d06
@@ -1000,7 +1000,7 @@ LAB_08024f1c:
     pop        {pc}
 LAB_08024f38:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08024f78
@@ -1569,7 +1569,7 @@ LAB_080253cc:
     pop        {pc}
 LAB_080253e8:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08025414

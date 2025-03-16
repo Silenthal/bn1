@@ -70,7 +70,7 @@ LAB_08097a6c:
 
 _nt S_Story_7F_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08097a8c
@@ -121,7 +121,7 @@ _ts S_Story_7F_4
     bl         Sound_FadeOut
 LAB_08097aea:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08097b08
@@ -175,7 +175,7 @@ _nt S_Story_7F_6
     cmp        r0,r1
     beq        LAB_08097b76
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -205,7 +205,7 @@ _ts S_Story_7F_8
     cmp        r0,r1
     beq        LAB_08097bc6
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -221,7 +221,7 @@ LAB_08097bc6:
 _ts S_Story_7F_SkipIfStart
     push       {r5}
     FadeOutFast_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     Flag_SetBase 0x96

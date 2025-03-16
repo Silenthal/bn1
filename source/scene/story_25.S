@@ -29,7 +29,7 @@ PTR_S_Story_25_0_08088fb4:
 
 _ts S_Story_25_0
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08088fee
@@ -83,7 +83,7 @@ LAB_08089048:
 
 _nt S_Story_25_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08089068
@@ -106,7 +106,7 @@ _ts S_Story_25_4
     cmp        r0,r1
     beq        LAB_080890e2
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -168,7 +168,7 @@ LAB_08089112:
 _ts S_Story_25_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x10

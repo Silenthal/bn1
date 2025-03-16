@@ -239,7 +239,7 @@ _ts EventHandler_ACDC_Higsbys_CheckChipTrader
     cmp        r6,r1
     beq        LAB_0802ec80
     push       {r0}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r0}
     bne        LAB_0802ec80

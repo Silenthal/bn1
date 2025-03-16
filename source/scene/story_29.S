@@ -113,7 +113,7 @@ LAB_08089890:
 _nt S_Story_29_3
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080898b8
@@ -186,7 +186,7 @@ LAB_08089936:
 _ts S_Story_29_6
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08089958
@@ -222,7 +222,7 @@ LAB_08089984:
 _nt S_Story_29_8
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080899aa
@@ -263,7 +263,7 @@ LAB_080899dc:
 _nt S_Story_29_10
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08089a02
@@ -327,7 +327,7 @@ LAB_08089a6e:
 _ts S_Story_29_13
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08089a96
@@ -375,7 +375,7 @@ _nt S_Story_29_16
     cmp        r0,r1
     beq        LAB_08089b0e
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -439,7 +439,7 @@ _ts FUN_08089b48
 
 _nt FUN_08089b56
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}

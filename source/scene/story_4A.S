@@ -67,7 +67,7 @@ LAB_0808e880:
 
 _nt S_Story_4A_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808e89a
@@ -101,7 +101,7 @@ LAB_0808e8ca:
 
 _ts S_Story_4A_4
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808e8e4
@@ -142,7 +142,7 @@ LAB_0808e926:
 
 _ts S_Story_4A_6
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808e948
@@ -195,7 +195,7 @@ LAB_0808e994:
 
 _nt S_Story_4A_8
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808e9ae
@@ -228,7 +228,7 @@ LAB_0808e9de:
 
 _ts S_Story_4A_10
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808ea08
@@ -254,7 +254,7 @@ _ts S_Story_4A_11
     cmp        r0,r1
     beq        LAB_0808ea34
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -287,7 +287,7 @@ _ts S_Story_4A_SkipIfStart
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x2c

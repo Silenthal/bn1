@@ -86,13 +86,13 @@ _ts S_TutorialBattle_1
     bl         Scene_IsStartPressed
     beq        LAB_0808519c
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     b          LAB_080851a8
 LAB_0808519c:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080851d4

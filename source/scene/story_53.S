@@ -122,7 +122,7 @@ _nt S_Story_53_3
 
 _ts S_Story_53_4
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808fb3a
@@ -155,7 +155,7 @@ LAB_0808fb6a:
 
 _ts S_Story_53_6
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808fb84
@@ -214,7 +214,7 @@ _nt S_Story_53_8
 
 _nt S_Story_53_9
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808fc0e
@@ -252,7 +252,7 @@ LAB_0808fc40:
 
 _nt S_Story_53_11
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808fc5e
@@ -310,7 +310,7 @@ LAB_0808fcc0:
 
 _nt S_Story_53_13
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808fce0
@@ -342,7 +342,7 @@ _ts S_Story_53_14
     bl         Map_LoadNPCList
     pop        {r5}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -397,7 +397,7 @@ _ts S_Story_53_SkipIfStart
     FadeOut_Black
     pop        {r5}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x38

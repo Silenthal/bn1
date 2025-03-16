@@ -83,7 +83,7 @@ _nt S_Get_SchoolID_SkipIfStart
     FadeOutFast_Black
     pop        {r5}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x14
@@ -94,7 +94,7 @@ LAB_0808806e:
 
 _ts S_Get_SchoolID_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08088082
@@ -117,7 +117,7 @@ _ts S_Get_SchoolID_4
     bl         Flag_SetPlayerActive
     pop        {r5}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}

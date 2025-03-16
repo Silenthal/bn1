@@ -118,7 +118,7 @@ LAB_0808aa28:
 
 _nt S_Story_30_4
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808aa6e
@@ -207,7 +207,7 @@ LAB_0808aaee:
 
 _ts S_Story_30_9
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808ab0e
@@ -240,7 +240,7 @@ _nt S_Story_30_10
     mov        r0,#0x1
     bl         PlayerAnimation_SetState
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -294,7 +294,7 @@ _ts S_Story_30_SkipIfStart
     FadeOutFast_Black
     pop        {r5}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x28

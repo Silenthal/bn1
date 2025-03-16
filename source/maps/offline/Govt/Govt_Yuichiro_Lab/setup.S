@@ -255,7 +255,7 @@ _ts FUN_080338d0
     pop        {pc}
 LAB_080338dc:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0803391a
@@ -503,7 +503,7 @@ _ts FUN_08033ab4
     pop        {pc}
 LAB_08033ac0:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08033afe
@@ -709,7 +709,7 @@ _ts EventHandler_Govt_Yuichiro_Lab_F40_HandleJackIn
     pop        {pc}
 LAB_08033c58:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08033c96
@@ -1062,7 +1062,7 @@ _ts FUN_08033f04
     pop        {pc}
 LAB_08033f10:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08033f4e

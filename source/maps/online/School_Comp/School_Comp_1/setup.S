@@ -498,7 +498,7 @@ _ts EventHandler_School_Comp_HandleJackOut
     tst        r0,r0
     bne        LAB_08040a84
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08040a84

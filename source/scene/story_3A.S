@@ -165,7 +165,7 @@ _nt S_Story_3A_6
     bl         Traffic_Main
     pop        {r5}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808ce9c
@@ -212,7 +212,7 @@ LAB_0808cee0:
     cmp        r0,r1
     beq        LAB_0808cf1e
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -257,7 +257,7 @@ LAB_0808cf54:
 _nt S_Story_3A_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x1c

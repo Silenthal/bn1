@@ -131,7 +131,7 @@ LAB_08091764:
 
 _nt S_Story_61_5
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08091786
@@ -155,7 +155,7 @@ _nt S_Story_61_6
     cmp        r0,r1
     beq        LAB_080917b2
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -216,7 +216,7 @@ _ts S_Story_61_SkipIfStart
     FadeOut_Black
     pop        {r5}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x18

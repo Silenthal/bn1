@@ -1012,7 +1012,7 @@ _ts PlayerLocation_IsCommentary
     beq        LAB_08055bec
     bl         Scene_IsSceneActive
     bne        LAB_08055bec
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_08055bec
     ldr        r0,PTR_gNpcTalkState_08055bf0

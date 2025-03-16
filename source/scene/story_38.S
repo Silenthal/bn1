@@ -124,7 +124,7 @@ LAB_0808c848:
 
 _nt S_Story_38_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808c874
@@ -153,7 +153,7 @@ _ts S_Story_38_4
     strh       r0,[r5,#Scene_sceneTimer]
     push       {r0}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     pop        {r0}
@@ -255,7 +255,7 @@ _nt S_Story_38_7
     Flag_ClearBase 0xC9
 LAB_0808c96a:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808c990
@@ -298,7 +298,7 @@ LAB_0808c9c6:
 
 _ts S_Story_38_9
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808c9ee
@@ -340,7 +340,7 @@ LAB_0808ca1e:
 
 _ts S_Story_38_11
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808ca3e
@@ -363,7 +363,7 @@ _nt S_Story_38_12
     cmp        r0,r1
     beq        LAB_0808ca86
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -410,7 +410,7 @@ MapEntrance_0808cabc:
 _ts S_Story_38_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}

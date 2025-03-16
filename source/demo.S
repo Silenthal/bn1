@@ -114,7 +114,7 @@ LAB_08018a2a:
 _ts Demo_FadeOutScreen
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08018a4a

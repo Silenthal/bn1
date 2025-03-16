@@ -79,7 +79,7 @@ LAB_08086562:
 
 _ts S_Story_12_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08086590
@@ -101,7 +101,7 @@ _nt S_Story_12_4
     tst        r0,r0
     bne        LAB_080865c2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080865c2
@@ -145,7 +145,7 @@ LAB_080865f6:
 
 _ts S_Story_12_7
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08086616
@@ -164,7 +164,7 @@ _ts S_Story_12_8
     cmp        r0,r1
     beq        LAB_0808665c
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     mov        r0,#0x10
@@ -203,7 +203,7 @@ _ts S_Story_12_9
 
 _ts S_Story_12_10
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     LoadMain fade, r0, r0

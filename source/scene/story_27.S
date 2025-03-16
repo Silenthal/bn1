@@ -55,7 +55,7 @@ LAB_08089478:
 
 _nt S_Story_27_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808948c
@@ -70,7 +70,7 @@ LAB_08089496:
 
 _ts S_Story_27_3
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -93,7 +93,7 @@ _nt S_Story_27_4
 
 _ts S_Story_27_SkipIfStart
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0xc

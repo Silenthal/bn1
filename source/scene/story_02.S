@@ -53,13 +53,13 @@ _ts S_Story_02_0
     bl         Scene_IsStartPressed
     bne        LAB_080830dc
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080830f8
 LAB_080830dc:
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     bl         PlayerAnimation_Lock
     FadeOut_Black
@@ -147,7 +147,7 @@ LAB_08083196:
 _ts S_Story_02_5
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080831ac
@@ -234,7 +234,7 @@ _ts S_Story_02_8
     and        r1,r0
     beq        LAB_08083274
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     FadeOut_White
     pop        {r5}
@@ -242,7 +242,7 @@ _ts S_Story_02_8
     pop        {pc}
 LAB_08083274:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808328a
@@ -287,7 +287,7 @@ _ts S_Story_02_SkipIfStart
     push       {lr}
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x18

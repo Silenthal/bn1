@@ -80,7 +80,7 @@ LAB_08092fc2:
 
 _ts S_Story_66_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08092fec
@@ -106,7 +106,7 @@ _ts S_Story_66_4
     cmp        r0,r1
     beq        LAB_08093018
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -136,7 +136,7 @@ _nt S_Story_66_5
 _nt S_Story_66_SkipIfStart
     push       {r5}
     FadeOutFast_White
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     bl         Sound_StopAllMusic

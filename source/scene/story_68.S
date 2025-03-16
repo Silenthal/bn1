@@ -109,7 +109,7 @@ LAB_08093468:
 
 _nt S_Story_68_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08093498
@@ -186,7 +186,7 @@ LAB_08093514:
 
 _nt S_Story_68_7
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809353a
@@ -207,7 +207,7 @@ LAB_08093544:
 
 _nt S_Story_68_8
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08093564
@@ -230,7 +230,7 @@ _ts S_Story_68_9
     cmp        r0,r1
     beq        LAB_08093590
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -266,7 +266,7 @@ MapEntrance_080935c4:
 _ts S_Story_68_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x24

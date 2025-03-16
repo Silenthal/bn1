@@ -276,7 +276,7 @@ LAB_0802c1ba:
     beq        LAB_0802c1f0
     bl         dummy_187a0
     bne        LAB_0802c1f0
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0802c1f0
     push       {r5}
@@ -489,7 +489,7 @@ LAB_0802c392:
     beq        LAB_0802c3b8
     bl         dummy_187a0
     bne        LAB_0802c3b8
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0802c3b8
     push       {r5}
@@ -573,7 +573,7 @@ LAB_0802c43c:
     beq        LAB_0802c462
     bl         dummy_187a0
     bne        LAB_0802c462
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0802c462
     push       {r5}

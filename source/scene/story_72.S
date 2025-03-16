@@ -96,7 +96,7 @@ LAB_08094c7a:
 
 _ts S_Story_72_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08094cac
@@ -144,7 +144,7 @@ LAB_08094ce0:
 
 _nt S_Story_72_5
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08094d0a
@@ -186,7 +186,7 @@ LAB_08094d42:
 
 _ts S_Story_72_7
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08094d60
@@ -327,7 +327,7 @@ LAB_08094e7a:
 
 _ts S_Story_72_13
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08094e9a
@@ -350,7 +350,7 @@ _nt S_Story_72_14
     cmp        r0,r1
     beq        LAB_08094f18
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -410,7 +410,7 @@ LAB_08094f40:
 _nt S_Story_72_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x38

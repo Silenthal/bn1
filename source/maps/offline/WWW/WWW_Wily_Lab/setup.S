@@ -486,7 +486,7 @@ LAB_0803e07a:
     pop        {pc}
 LAB_0803e0a0:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0803e0cc

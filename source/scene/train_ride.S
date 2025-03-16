@@ -70,7 +70,7 @@ LAB_0808b6d6:
 
 _ts S_TrainRide_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808b71e
@@ -151,7 +151,7 @@ _ts S_TrainRide_5
     cmp        r0,r1
     beq        LAB_0808b7b8
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}
@@ -171,7 +171,7 @@ _nt S_TrainRide_6
     cmp        r0,r1
     beq        LAB_0808b81a
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -210,7 +210,7 @@ LAB_0808b81a:
 _ts S_TrainRide_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x14

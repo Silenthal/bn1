@@ -310,7 +310,7 @@ LAB_0801cf20:
 _ts Menu_Network_3_ConfirmSaveFirst
     push       {lr}
     push       {r5}
-    mov        r0,#0x20
+    mov        r0,#TF_PickActive
     bl         Text_CheckOption
     pop        {r5}
     beq        LAB_0801cf6a
@@ -1108,7 +1108,7 @@ LAB_0801d5a4:
 
 _ts Menu_Network_12_TradeDialogue
     push       {lr}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0801d5ba
     mov        r0,#0x20
@@ -2651,7 +2651,7 @@ LAB_0801e17e:
     bne        LAB_0801e14e
     cmp        r1,r3
     bne        LAB_0801e14e
-    mov        r0,#0x20
+    mov        r0,#TF_PickActive
     bl         Text_CheckOption
     beq        LAB_0801e1c6
     bl         TextOption_GetDefaultOption

@@ -87,7 +87,7 @@ LAB_0809814c:
 _nt S_Rocket_Comp_LifeVirus_3
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08098176
@@ -114,7 +114,7 @@ _nt S_Rocket_Comp_LifeVirus_4
     cmp        r0,r1
     beq        LAB_080981c2
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -138,7 +138,7 @@ LAB_080981c2:
 _ts S_Rocket_Comp_LifeVirus_SkipIfStart
     push       {r5}
     FadeOut_White
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0xc7

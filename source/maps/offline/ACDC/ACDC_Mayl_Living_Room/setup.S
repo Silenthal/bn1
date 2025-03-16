@@ -83,7 +83,7 @@ LAB_0802d5dc:
 
 _ts FUN_0802d5e0
     push       {lr}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0802d620
     push       {r5}
@@ -322,7 +322,7 @@ LAB_0802d79c:
     pop        {pc}
 LAB_0802d7b4:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0802d7e0
@@ -369,7 +369,7 @@ LAB_0802d7f4:
     pop        {pc}
 LAB_0802d814:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0802d840

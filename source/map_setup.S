@@ -298,7 +298,7 @@ _ts CheckForJackOut
     bl         dummy_187a0
     bne        LAB_08018668
     push       {r0}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r0}
     bne        LAB_08018668
@@ -333,7 +333,7 @@ _ts CheckForJackIn
     bl         dummy_187a0
     bne        LAB_080186c4
     push       {r0,r1}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r0,r1}
     bne        LAB_080186c4
@@ -380,7 +380,7 @@ _ts CheckJackInRejectNoise
     bl         dummy_187a0
     bne        LAB_08018718
     push       {r0,r1}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r0,r1}
     bne        LAB_08018718
@@ -419,7 +419,7 @@ _ts MapDialogue_Main
     beq        LAB_0801879a
     bl         dummy_187a0
     bne        LAB_0801879a
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0801879a
     bl         Scene_IsSceneActive

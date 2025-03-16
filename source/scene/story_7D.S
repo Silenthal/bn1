@@ -98,7 +98,7 @@ _nt S_Story_7D_3
     mov        r2,#0x0
     bl         PlayerAnimation_Move
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08097626
@@ -128,7 +128,7 @@ _nt S_Story_7D_4
     cmp        r0,r1
     beq        LAB_08097664
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -163,7 +163,7 @@ MapEntrance_08097698:
 _ts S_Story_7D_SkipIfStart
     push       {r5}
     FadeOutFast_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     Flag_SetBase 0x96

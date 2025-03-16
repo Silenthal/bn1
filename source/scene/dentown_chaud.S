@@ -93,7 +93,7 @@ LAB_08097d06:
 
 _ts S_Dentown_Center_Chaud_Undernet_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08097d48
@@ -139,7 +139,7 @@ LAB_08097d66:
 
 _ts S_Dentown_Center_Chaud_Undernet_5
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08097d7a
@@ -152,7 +152,7 @@ _ts S_Dentown_Center_Chaud_Undernet_6
     bl         EnableBoundaryCheck
     bl         PlayerAnimation_Unlock
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}

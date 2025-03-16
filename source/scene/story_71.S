@@ -159,7 +159,7 @@ PTR_ScenarioData_71_0809470c:
 
 _ts S_Story_71_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809472c
@@ -234,7 +234,7 @@ LAB_080947a8:
 
 _nt S_Story_71_7
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080947e0
@@ -329,7 +329,7 @@ LAB_0809487c:
 
 _nt S_Story_71_11
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080948ac
@@ -561,7 +561,7 @@ LAB_08094a78:
 
 _nt S_Story_71_20
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08094a98
@@ -584,7 +584,7 @@ _ts S_Story_71_21
     cmp        r0,r1
     beq        LAB_08094b38
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -659,7 +659,7 @@ LAB_08094b60:
 _nt S_Story_71_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x54

@@ -75,7 +75,7 @@ PTR_ScenarioData_56_08091a58:
 
 _ts S_RechargeSuccess_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08091a82
@@ -90,7 +90,7 @@ LAB_08091a8c:
 
 _nt S_RechargeSuccess_4
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -107,7 +107,7 @@ _ts S_RechargeSuccess_5
 
 _ts S_RechargeSuccess_SkipIfStart
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x10

@@ -1,6 +1,6 @@
-    .set TF_Flag_20, 0x20
+    .set TF_PickActive, 0x20
     .set TF_DisableInput, 0x40
-    .set TF_ClearDialogBox, 0x80
+    .set TF_DialogueActive, 0x80
 
     .set TS_BreakLoop, 0x1
     .set TS_ShowPortrait, 0x2

@@ -70,7 +70,7 @@ _ts S_School_Comp_5_Passcode_1
 
 _nt S_School_Comp_5_Passcode_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08087670
@@ -91,7 +91,7 @@ _nt S_School_Comp_5_Passcode_3
     pop        {r5}
 LAB_0808768a:
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     Scene_Next
@@ -105,7 +105,7 @@ _ts S_School_Comp_5_Passcode_4
     cmp        r0,r1
     beq        LAB_080876f8
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}

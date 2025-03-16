@@ -224,7 +224,7 @@ LAB_0803cd32:
     cmp        r0,#0x40
     bne        LAB_0803cda2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0803cda2
@@ -423,7 +423,7 @@ LAB_0803ceb2:
     cmp        r0,#0x40
     bne        LAB_0803cef2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0803cef2

@@ -116,7 +116,7 @@ LAB_08087e8a:
 
 _ts S_ChangeMap_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08087ea6
@@ -148,7 +148,7 @@ LAB_08087ece:
     pop        {r5}
 LAB_08087eda:
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     Scene_Next
@@ -162,7 +162,7 @@ _ts S_ChangeMap_4
     cmp        r0,r1
     beq        LAB_08087f7c
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}

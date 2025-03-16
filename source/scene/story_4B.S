@@ -90,7 +90,7 @@ LAB_0808eb5a:
 
 _ts S_Story_4B_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808eb7a
@@ -113,7 +113,7 @@ _nt S_Story_4B_4
     cmp        r0,r1
     beq        LAB_0808eba6
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -151,7 +151,7 @@ MapEntrance_0808ebe0:
 _ts S_Story_4B_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x10

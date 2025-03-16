@@ -79,7 +79,7 @@ _ts S_Story_19_1
     bl         Entity_FreeAllMultiple
     pop        {r5}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -144,13 +144,13 @@ _ts S_Story_19_5
 
 
 _ts S_Story_19_6
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_08087544
     push       {r5}
     FadeOutFast_Black
     pop        {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     Scene_Next
 LAB_08087544:
@@ -168,7 +168,7 @@ _ts S_Story_19_7
     cmp        r0,r1
     beq        LAB_08087570
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -202,7 +202,7 @@ LAB_080875a4:
 _nt S_Story_19_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x1c

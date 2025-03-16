@@ -74,7 +74,7 @@ LAB_08091f2c:
 
 _nt S_Story_62_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08091f4a
@@ -123,7 +123,7 @@ LAB_08091f94:
 
 _nt S_Story_62_6
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08091fa8
@@ -145,7 +145,7 @@ _ts S_Story_62_7
     mov        r0,#0x4
     bl         PlayerAnimation_SetState
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -214,7 +214,7 @@ LAB_0809205c:
 
 _nt S_Story_62_10
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080920b6
@@ -310,7 +310,7 @@ MapEntrance_08092128:
 
 _ts S_Story_62_SkipIfStart
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}

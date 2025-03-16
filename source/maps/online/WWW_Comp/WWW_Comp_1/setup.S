@@ -248,7 +248,7 @@ _ts FUN_0804d4a4
     push       {lr}
     Flag_GetBase 0xB2
     bne        LAB_0804d4e8
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0804d4e8
     bl         Scene_IsSceneActive

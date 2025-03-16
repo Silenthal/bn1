@@ -141,7 +141,7 @@ LAB_08088bae:
 _ts S_Story_23_4
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08088bc4
@@ -222,12 +222,12 @@ LAB_08088c4a:
 _ts S_Story_23_7
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08088bc4
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}
@@ -251,7 +251,7 @@ _ts S_Story_23_8
     push       {lr}
     bl         S_Story_23_AnimatePlayer
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}

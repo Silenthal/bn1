@@ -68,7 +68,7 @@ LAB_08083a18:
 _ts S_Story_06_2
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08083a30
@@ -79,7 +79,7 @@ LAB_08083a30:
     mov        r0,#0xc
     strb       r0,[r5,#Scene_state_s0]
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
 LAB_08083a44:

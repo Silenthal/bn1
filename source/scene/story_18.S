@@ -134,7 +134,7 @@ _ts S_Story_18_5
     bl         FUN_080873ac
     cmp        r0,#0x0
     bne        LAB_080872d2
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        S_Story_18_SkipIfStart
     Scene_Next
@@ -169,7 +169,7 @@ _nt S_Story_18_7
     mov        r0,#0x1
     bl         PlayerAnimation_SetState
 LAB_0808730e:
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        S_Story_18_SkipIfStart
     Scene_Next
@@ -180,7 +180,7 @@ _nt S_Story_18_8
     push       {r5}
     FadeOutFast_Black
     pop        {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     Scene_Next
     pop        {pc}
@@ -193,7 +193,7 @@ _ts S_Story_18_9
     cmp        r0,r1
     beq        LAB_08087382
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}

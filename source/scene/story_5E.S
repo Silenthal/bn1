@@ -80,7 +80,7 @@ LAB_08091104:
 
 _nt S_Story_5E_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08091122
@@ -171,7 +171,7 @@ LAB_080911d8:
 
 _nt S_Story_5E_7
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080911f2
@@ -210,7 +210,7 @@ _nt S_Story_5E_9
     cmp        r0,r1
     beq        LAB_0809124e
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -243,7 +243,7 @@ _ts S_Story_5E_SkipIfStart
     bl         Sound_StopAllMusic
     mov        r0,#0xc7
     bl         Sound_PlaySE
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x24

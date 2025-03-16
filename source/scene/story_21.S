@@ -53,7 +53,7 @@ _ts S_Story_21_0
 
 _nt S_Story_21_1
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08088746
@@ -107,7 +107,7 @@ LAB_08088798:
 
 _nt S_Story_21_4
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080887ba
@@ -147,7 +147,7 @@ LAB_080887ec:
 
 _nt S_Story_21_6
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808880c
@@ -171,7 +171,7 @@ _ts S_Story_21_7
     beq        LAB_08088870
     bl         S_Story_21_FreeLanBed
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     ldr        r0,PTR_EntityAllocParams_8030F60_080888e8
@@ -220,7 +220,7 @@ LAB_0808889a:
 _ts S_Story_21_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x1c

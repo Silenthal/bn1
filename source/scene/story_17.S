@@ -84,7 +84,7 @@ _nt S_Story_17_3
     bl         Sound_PlaySE
 LAB_080870ea:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080870fc
@@ -103,7 +103,7 @@ _ts S_Story_17_4
     FadeOutFast_Black
     pop        {r5}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     Scene_Next
@@ -117,7 +117,7 @@ _nt S_Story_17_5
     cmp        r0,r1
     beq        LAB_08087146
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}

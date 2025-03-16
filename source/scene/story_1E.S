@@ -92,7 +92,7 @@ LAB_080882e6:
 
 _ts S_Story_1E_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080882fa
@@ -135,7 +135,7 @@ LAB_08088328:
 
 _nt S_Story_1E_SkipIfStart
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x7

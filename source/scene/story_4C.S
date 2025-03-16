@@ -87,7 +87,7 @@ LAB_0808ecd8:
 
 _nt S_Story_4C_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808ecf6
@@ -125,7 +125,7 @@ LAB_0808ed28:
 
 _nt S_Story_4C_5
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808ed46
@@ -163,7 +163,7 @@ LAB_0808ed78:
 
 _nt S_Story_4C_7
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808eda0
@@ -225,7 +225,7 @@ LAB_0808edfa:
     cmp        r0,r1
     beq        LAB_0808ee1a
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -263,7 +263,7 @@ MapEntrance_0808ee4c:
 _ts S_Story_4C_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x24

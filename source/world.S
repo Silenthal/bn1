@@ -541,7 +541,7 @@ _ts World_HandleMapExit
     beq        LAB_08004598
     bl         Scene_IsSceneActive
     bne        LAB_08004598
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_08004598
     push       {r5,r7}
@@ -603,7 +603,7 @@ _ts World_HandleRandomEncounter
     beq        LAB_0800460c
     bl         Scene_IsSceneActive
     bne        LAB_0800460c
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0800460c
     bl         Battle_IsRandomEncounter
@@ -1241,7 +1241,7 @@ _ts World_CheckStartMenuOpen
     beq        LAB_08004a0c
     bl         Scene_IsSceneActive
     bne        LAB_08004a0c
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_08004a0c
     LoadMain input, r0, r0

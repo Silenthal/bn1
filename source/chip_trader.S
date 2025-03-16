@@ -117,7 +117,7 @@ PTR_BuildChipSack_080201c4:
 _ts ChipTrader_1_Main
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080201e6
@@ -136,7 +136,7 @@ LAB_080201e6:
 _ts ChipTrader_4_Sort
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0802020e
@@ -271,7 +271,7 @@ LAB_080202f4:
 _ts ChipTrader_6_ConfirmTrade
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08020352

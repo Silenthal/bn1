@@ -119,7 +119,7 @@ LAB_0808297a:
 _ts S_Story_00_4
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08082990
@@ -136,7 +136,7 @@ LAB_0808299a:
 _ts S_Story_00_5
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080829c8
@@ -172,7 +172,7 @@ _ts S_Story_00_8
 _ts S_Story_00_9
     push       {lr}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     LoadMain fade, r0, r0
@@ -218,7 +218,7 @@ _ts S_Story_00_10
     push       {r5}
     bl         Flag_SetPlayerActive
     Flag_SetBase 0x90
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     mov        r0,#T_In_The_Room

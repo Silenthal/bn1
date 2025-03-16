@@ -92,7 +92,7 @@ LAB_0808356a:
 _ts S_Story_04_3
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08083580
@@ -109,7 +109,7 @@ LAB_0808358a:
 _ts S_Story_04_4
     push       {lr}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}

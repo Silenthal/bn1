@@ -53,7 +53,7 @@ LAB_0808640a:
 
 _ts S_Story_11_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808641e
@@ -69,7 +69,7 @@ LAB_08086428:
 
 _nt S_Story_11_3
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     bl         Flag_SetPlayerActive
@@ -89,7 +89,7 @@ _ts S_Story_11_4
 
 _ts S_Story_11_5
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     LoadMain fade, r0, r0

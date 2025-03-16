@@ -211,7 +211,7 @@ LAB_0801baee:
 
 _ts Menu_MegaMan_3_1_ChangeArmor
     push       {r5,lr}
-    mov        r0,#0x20
+    mov        r0,#TF_PickActive
     bl         Text_CheckOption
     beq        LAB_0801bb4c
     bl         TextOption_GetDefaultOption
@@ -325,7 +325,7 @@ LAB_0801bbdc:
 
 _ts Menu_MegaMan_4_1_RaiseStat
     push       {r5,lr}
-    mov        r0,#0x20
+    mov        r0,#TF_PickActive
     bl         Text_CheckOption
     beq        LAB_0801bc3a
     bl         TextOption_GetDefaultOption

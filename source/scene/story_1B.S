@@ -58,7 +58,7 @@ LAB_08087920:
 
 _nt S_Story_1B_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08087940
@@ -113,7 +113,7 @@ MapEntrance_0808799c:
 _ts S_Story_1B_SkipIfStart
     push       {r5}
     FadeOut_White
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0xc

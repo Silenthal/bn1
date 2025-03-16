@@ -58,7 +58,7 @@ LAB_08084f26:
 _ts S_Story_0D_2
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08084f48
@@ -107,7 +107,7 @@ _ts S_Story_0D_SkipIfStart
     push       {lr}
     push       {r5}
     FadeOut_White
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0xc

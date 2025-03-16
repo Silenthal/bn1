@@ -103,7 +103,7 @@ LAB_08084ca8:
 _ts S_Story_0B_4
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08084cc0
@@ -133,7 +133,7 @@ _ts S_Story_0B_5
 _ts S_Story_0B_SkipIfStart
     push       {lr}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     mov        r0,#0x1
     bl         PlayerAnimation_SetState

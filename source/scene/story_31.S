@@ -141,7 +141,7 @@ LAB_0808ad32:
     strb       r0,[r5,#Scene_sceneTimer]
 LAB_0808ad3c:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808ad60
@@ -182,7 +182,7 @@ LAB_0808ad90:
     strb       r0,[r5,#Scene_sceneTimer]
 LAB_0808ad9a:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808adbe
@@ -205,7 +205,7 @@ LAB_0808adc8:
 
 _nt S_Story_31_6
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808adf2
@@ -231,7 +231,7 @@ _nt S_Story_31_7
     cmp        r0,r1
     beq        LAB_0808ae1e
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -267,7 +267,7 @@ LAB_0808ae56:
 _ts S_Story_31_SkipIfStart
     push       {r5}
     FadeOut_White
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     bl         Sound_StopAllMusic

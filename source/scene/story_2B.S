@@ -117,7 +117,7 @@ LAB_08089d2c:
 
 _nt S_Story_2B_4
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08089d4a
@@ -225,7 +225,7 @@ LAB_08089e1c:
 
 
 _nt S_Story_2B_9
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_08089e46
     Flag_SetBase 0xB6
@@ -274,7 +274,7 @@ _ts S_Story_2B_11
     pop        {r5}
     Flag_ClearBase 0xF8
 LAB_08089e90:
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_08089eaa
     push       {r5}
@@ -296,7 +296,7 @@ _nt S_Story_2B_12
     cmp        r0,r1
     beq        LAB_08089f14
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -354,7 +354,7 @@ LAB_08089f4e:
 
 _ts S_Story_2B_SkipIfStart
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     push       {r5}

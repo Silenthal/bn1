@@ -99,7 +99,7 @@ LAB_08096186:
 
 _ts S_Story_77_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080961d8
@@ -140,7 +140,7 @@ LAB_080961e2:
 
 _ts S_Story_77_5
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809623c
@@ -183,7 +183,7 @@ LAB_08096246:
 
 _ts S_Story_77_6
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080962ac
@@ -234,7 +234,7 @@ _ts S_Story_77_7
     tst        r0,r0
     beq        LAB_080962e4
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080962e4
@@ -255,7 +255,7 @@ LAB_080962ee:
 
 _ts S_Story_77_8
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809633e
@@ -311,7 +311,7 @@ LAB_08096374:
 
 _nt S_Story_77_10
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809639a
@@ -406,7 +406,7 @@ LAB_08096452:
 
 _ts S_Story_77_13
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08096472
@@ -429,7 +429,7 @@ _nt S_Story_77_14
     cmp        r0,r1
     beq        LAB_0809649e
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -467,7 +467,7 @@ MapEntrance_080964d4:
 _ts S_Story_77_SkipIfStart
     push       {r5}
     Fade_Request FT_FadeOutToBlack, 0x2
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x38

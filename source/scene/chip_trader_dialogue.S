@@ -63,7 +63,7 @@ LAB_08085fc2:
 _ts S_ChipTraderDialogue_2
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08085fe2

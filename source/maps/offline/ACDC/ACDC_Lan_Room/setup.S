@@ -176,7 +176,7 @@ LAB_0802cbc4:
 _ts EventHandler_ACDC_Lan_Room_F00_2
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0802cbe6
@@ -208,7 +208,7 @@ _ts EventHandler_ACDC_Lan_Room_F00_3
     beq        LAB_0802cc24
     bl         dummy_187a0
     bne        LAB_0802cc24
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0802cc24
     push       {r5}
@@ -547,7 +547,7 @@ _ts FUN_0802ce90
     bne        LAB_0802ced0
     bl         dummy_187a0
     bne        LAB_0802ced0
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0802ced0
     push       {r5}
@@ -580,7 +580,7 @@ _ts FUN_0802ced4
     bne        LAB_0802cf14
     bl         dummy_187a0
     bne        LAB_0802cf14
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0802cf14
     push       {r5,r7}

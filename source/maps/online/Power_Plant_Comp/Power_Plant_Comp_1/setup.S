@@ -207,7 +207,7 @@ _ts FUN_0804a480
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0804a4fc
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0804a4fc
     LoadMain world, r7, r7
@@ -482,7 +482,7 @@ _ts FUN_0804a6e0
     bl         Scene_IsSceneActive
     tst        r0,r0
     bne        LAB_0804a72c
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0804a72c
     LoadMain world, r7, r7

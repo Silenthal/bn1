@@ -199,7 +199,7 @@ LAB_0808bbd4:
 
 _ts S_Waterworks_Comp_TurnHandle_4
     push       {lr}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0808bbf2
     push       {r5}
@@ -282,7 +282,7 @@ LAB_0808bc90:
 
 _ts S_Waterworks_Comp_TurnHandle_7
     push       {lr}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0808bcae
     push       {r5}

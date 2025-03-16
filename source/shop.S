@@ -923,7 +923,7 @@ _nt Shop_SetClerkDialogue
     lsl        r2,r2,#0x2
     ldr        r0,[r0,r2]
     bl         Text_LoadDialogue
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     pop        {r5,pc}
 

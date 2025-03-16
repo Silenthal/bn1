@@ -104,7 +104,7 @@ LAB_08095c42:
 
 _ts S_Story_76_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08095ca2
@@ -162,7 +162,7 @@ PTR_ScenarioData_76_08095cb0:
 
 _ts S_Story_76_5
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08095cd6
@@ -236,7 +236,7 @@ LAB_08095d56:
 
 _ts S_Story_76_8
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08095d96
@@ -268,7 +268,7 @@ LAB_08095da0:
 
 _nt S_Story_76_9
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08095dbe
@@ -464,7 +464,7 @@ LAB_08095f4c:
 
 _nt S_Story_76_17
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08095f72
@@ -486,7 +486,7 @@ LAB_08095f7c:
 
 _nt S_Story_76_18
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08095fb0
@@ -533,7 +533,7 @@ LAB_08095fe2:
 
 _ts S_Story_76_20
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0809600c
@@ -559,7 +559,7 @@ _ts S_Story_76_21
     cmp        r0,r1
     beq        LAB_08096038
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -591,7 +591,7 @@ _nt S_Story_76_22
 _ts S_Story_76_SkipIfStart
     push       {r5}
     FadeOut_White
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     bl         Sound_StopAllMusic

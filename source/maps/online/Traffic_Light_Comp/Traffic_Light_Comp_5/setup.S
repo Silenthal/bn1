@@ -111,7 +111,7 @@ PTR_EventHandler_Traffic_Light_Comp_5_F35_0_08048c3c:
 _ts EventHandler_Traffic_Light_Comp_5_F35_0
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08048c6e
@@ -406,7 +406,7 @@ _ts FUN_08048eac
     pop        {r0}
     bne        LAB_08048ee2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08048ee2

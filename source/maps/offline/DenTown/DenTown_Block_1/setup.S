@@ -377,7 +377,7 @@ LAB_0803723e:
     cmp        r0,#0x40
     bne        LAB_080372b6
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080372b6
@@ -604,7 +604,7 @@ LAB_080373ea:
     cmp        r0,#0x40
     bne        LAB_08037436
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08037436
@@ -778,7 +778,7 @@ LAB_08037542:
     cmp        r0,#0x40
     bne        LAB_0803758e
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0803758e

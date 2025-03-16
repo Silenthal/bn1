@@ -99,7 +99,7 @@ _ts S_Story_09_3
     pop        {r5}
 LAB_080847da:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080847fa
@@ -147,7 +147,7 @@ LAB_08084836:
 _ts S_Story_09_5
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808484c

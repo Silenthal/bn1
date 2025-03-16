@@ -48,7 +48,7 @@ _ts S_Waterworks_Purification_Room_Chaud_1
 
 _ts S_Waterworks_Purification_Room_Chaud_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808b8c2
@@ -69,7 +69,7 @@ LAB_0808b8c2:
 _ts S_Waterworks_Purification_Room_Chaud_3
     bl         Flag_SetPlayerActive
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}

@@ -132,7 +132,7 @@ LAB_08083784:
 
 _ts Scene_JackOut_2_FadeOut
     push       {lr}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_080837a2
     push       {r5}
@@ -174,7 +174,7 @@ LAB_080837da:
 
 _ts Scene_JackOut_4_Regular
     push       {lr}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_080837fe
     bl         TextOption_GetDefaultOption
@@ -237,7 +237,7 @@ LAB_08083850:
 
 _ts Scene_JackOut_7_End
     push       {lr}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0808386a
     push       {r5}

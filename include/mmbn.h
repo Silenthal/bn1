@@ -5841,11 +5841,11 @@ struct TextDst {
 };
 
 typedef enum TextOption {
-    TF_AllOptions=15,
+    TF_PickOptionMask=15,
     TF_Unused=16,
-    TF_Flag_20=32,
+    TF_PickActive=32,
     TF_DisableInput=64,
-    TF_ClearDialogBox=128
+    TF_DialogueActive=128
 } TextOption;
 
 typedef struct Tile8 Tile8, *PTile8;

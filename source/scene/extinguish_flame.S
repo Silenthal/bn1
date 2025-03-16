@@ -83,7 +83,7 @@ _ts S_ExtinguishFlame_2
     pop        {r5}
 LAB_080846e8:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08084708

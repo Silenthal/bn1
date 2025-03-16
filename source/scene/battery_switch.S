@@ -138,7 +138,7 @@ LAB_08092bc2:
 _ts S_BatterySwitch_2_InsertBatteryEnd
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08092bd6
@@ -151,7 +151,7 @@ LAB_08092bd6:
 _ts S_BatterySwitch_3_SwitchSuccess
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08092bec
@@ -192,7 +192,7 @@ LAB_08092c28:
 _ts S_BatterySwitch_4_SwitchFailure
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08092c40
@@ -230,7 +230,7 @@ LAB_08092c74:
 _ts S_BatterySwitch_5_SwitchOff
     push       {lr}
     push       {r5}
-    mov        r0,#0x20
+    mov        r0,#TF_PickActive
     bl         Text_CheckOption
     pop        {r5}
     beq        LAB_08092cb8
@@ -267,7 +267,7 @@ LAB_08092cb8:
 _ts S_BatterySwitch_6_SwitchDisableEnd
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08092cce
@@ -290,7 +290,7 @@ _ts S_BatterySwitch_7_End
 _ts S_BatterySwitch_8_End
     push       {lr}
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08092d02

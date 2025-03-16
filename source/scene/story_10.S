@@ -153,7 +153,7 @@ _ts S_Story_10_5
 _ts S_Story_10_6
     bl         S_Story_10_AnimatePlayer
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     LoadMain fade, r0, r0

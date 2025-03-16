@@ -746,7 +746,7 @@ LAB_08031c46:
     pop        {pc}
 LAB_08031c5e:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08031c90
@@ -1220,7 +1220,7 @@ LAB_0803206c:
     pop        {pc}
 LAB_08032084:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080320b6

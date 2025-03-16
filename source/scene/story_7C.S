@@ -111,7 +111,7 @@ LAB_0809730e:
 _ts S_Story_7C_3
     bl         FUN_08097488
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08097334
@@ -155,7 +155,7 @@ _ts S_Story_7C_5
     bl         FUN_08097488
     bl         FUN_080974e8
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_080973a0
@@ -215,7 +215,7 @@ _nt S_Story_7C_7
     cmp        r0,r1
     beq        LAB_08097420
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -250,7 +250,7 @@ MapEntrance_08097454:
 _ts S_Story_7C_SkipIfStart
     push       {r5}
     FadeOutFast_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     Flag_SetBase 0x96

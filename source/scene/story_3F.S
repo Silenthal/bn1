@@ -77,7 +77,7 @@ _nt S_Story_3F_2
     b          LAB_0808d63e
 LAB_0808d622:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808d634
@@ -92,7 +92,7 @@ LAB_0808d63e:
 
 _ts S_Story_3F_3
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -111,7 +111,7 @@ _nt S_Story_3F_4
 
 _nt S_Story_3F_SkipIfStart
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0xc

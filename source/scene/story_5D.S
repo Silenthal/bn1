@@ -83,7 +83,7 @@ LAB_08090e74:
 
 _nt S_Story_5D_3
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08090e96
@@ -147,7 +147,7 @@ LAB_08090eec:
     b          LAB_08090f26
 LAB_08090ef8:
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08090f26
@@ -239,7 +239,7 @@ _nt S_Story_5D_9
     cmp        r0,r1
     beq        LAB_08090fda
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -280,7 +280,7 @@ MapEntrance_08091014:
 _ts S_Story_5D_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x24

@@ -9,7 +9,7 @@ _ts Text_Init
     LoadMain textHandler, r0, r0
     mov        r1,#0x8c
     bl         memset0_32
-    mov        r0,#(TF_ClearDialogBox|TF_DisableInput)
+    mov        r0,#(TF_DialogueActive|TF_DisableInput)
     bl         Text_DisableOption
     pop        {pc}
 
@@ -110,7 +110,7 @@ _ts Text_LoadDialogue
     mov        r0,#0x15
     @ 0x15 is just offscreen
     strb       r0,[r5,#Text_layoutLineOffset]
-    mov        r0,#TF_ClearDialogBox
+    mov        r0,#TF_DialogueActive
     bl         Text_EnableOption
     mov        r0,#0x5
     strb       r0,[r5,#Text_dialogSkipDelay]
@@ -125,7 +125,7 @@ _ts Text_DisableDialogue
     LoadMain textHandler, r5, r5
     mov        r0,#FALSE
     strb       r0,[r5,#Text_isWriteText]
-    mov        r0,#(TF_DisableInput|TF_ClearDialogBox)
+    mov        r0,#(TF_DisableInput|TF_DialogueActive)
     bl         Text_DisableOption
     pop        {pc}
 
@@ -137,7 +137,7 @@ _ts Text_Main
     bne        write_text_start
     pop        {pc}
 write_text_start:
-    mov        r0,#TF_Flag_20
+    mov        r0,#TF_PickActive
     bl         Text_DisableOption
     mov        r0,#TF_DisableInput
     bl         Text_CheckOption
@@ -652,7 +652,7 @@ LAB_08013ab2:
     @ Once dialog box is hidden, disable text mode and
     @ set delay to 0
 LAB_08013ac0:
-    mov        r0,#TF_ClearDialogBox
+    mov        r0,#TF_DialogueActive
     bl         Text_DisableOption
     mov        r0,#0x0
     strb       r0,[r5,#Text_isWriteText]
@@ -1117,7 +1117,7 @@ LAB_08013dae:
     mov        r0,#0x8
     bl         Text_DisableScriptOption
     @ Clear all options
-    mov        r0,#0xf
+    mov        r0,#TF_PickOptionMask
     bl         Text_DisableOption
     @ Set defined options in b15
     ldrb       r0,[r5,#0x15]
@@ -1161,14 +1161,14 @@ LAB_08013dee:
     str        r0,[r5,#0x20]
     str        r0,[r5,#0x28]
     add        r4,r0,#0x0
-    @ Turn off delay, set flag 20, and return
+    @ Turn off delay, enable pick option, and return
 LAB_08013dfe:
     mov        r0,#0x0
     strb       r0,[r5,#0x4]
     strh       r0,[r5,#0xc]
     mov        r0,#0x5
     strb       r0,[r5,#0x12]
-    mov        r0,#0x20
+    mov        r0,#TF_PickActive
     bl         Text_EnableOption
     mov        r0,#0x0
     pop        {pc}

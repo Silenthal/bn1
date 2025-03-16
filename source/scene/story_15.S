@@ -53,7 +53,7 @@ _ts S_Story_15_1
 
 _ts S_Story_15_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08086ca6
@@ -72,7 +72,7 @@ _nt S_Story_15_3
     FadeOutFast_Black
     pop        {r5}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     Scene_Next
@@ -86,7 +86,7 @@ _ts S_Story_15_4
     cmp        r0,r1
     beq        LAB_08086cf0
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}

@@ -114,7 +114,7 @@ LAB_0802ddf0:
 
 _ts FUN_0802ddf4
     push       {lr}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     bne        LAB_0802de34
     push       {r5}

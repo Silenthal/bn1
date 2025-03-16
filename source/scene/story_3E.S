@@ -117,7 +117,7 @@ _nt S_Story_3E_4
     sub        r0,#0x1
     strh       r0,[r5,#Scene_sceneTimer]
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808d462
@@ -168,7 +168,7 @@ LAB_0808d4b6:
 
 _ts S_Story_3E_7
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808d4d6
@@ -191,7 +191,7 @@ _nt S_Story_3E_8
     cmp        r0,r1
     beq        LAB_0808d514
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -238,7 +238,7 @@ MapEntrance_0808d550:
 _ts S_Story_3E_SkipIfStart
     push       {r5}
     FadeOut_Black
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x20

@@ -65,7 +65,7 @@ LAB_08088554:
 
 _nt S_Story_20_2
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_0808856c
@@ -135,7 +135,7 @@ _nt S_Story_20_5
 
 _nt S_Story_20_6
     push       {r5}
-    mov        r0,#0x80
+    mov        r0,#TF_DialogueActive
     bl         Text_CheckOption
     pop        {r5}
     bne        LAB_08088608
@@ -160,7 +160,7 @@ _nt S_Story_20_7
     bl         PlayerAnimation_SetState
     pop        {r5}
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_DisableOption
     bl         Text_DisableDialogue
     pop        {r5}
@@ -193,7 +193,7 @@ LAB_08088678:
 
 _nt S_Story_20_SkipIfStart
     push       {r5}
-    mov        r0,#0x40
+    mov        r0,#TF_DisableInput
     bl         Text_EnableOption
     pop        {r5}
     mov        r0,#0x1c

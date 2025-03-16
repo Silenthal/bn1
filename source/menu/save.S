@@ -108,7 +108,7 @@ _ts Menu_Save_0_Init
 _ts Menu_Save_1_CheckDialogResult
     push       {lr}
     push       {r5}
-    mov        r0,#0x20
+    mov        r0,#TF_PickActive
     bl         Text_CheckOption
     pop        {r5}
     beq        LAB_0801e61e
