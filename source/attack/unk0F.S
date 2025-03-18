@@ -387,3 +387,5 @@ _ts Attack_Unk0F_Create
     strb       r0,[r5,#Attack_header_entityFlags]
 LAB_08070cf0:
     pop        {pc}
+
+    .align 2, 0

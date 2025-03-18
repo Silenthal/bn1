@@ -412,7 +412,7 @@ def chip_id(bt: int) -> str:
 
 
 def chip_code(id: int) -> str:
-    return "ABCDEFGHIJKLMNOPQRSTUVWXYZ*"[id] if id < 27 and id >= 0 else "None"
+    return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[id] if id < 26 and id >= 0 else "None"
 
 
 def element(id: int) -> str:
