@@ -2,7 +2,7 @@ section_count(0x10)
 
 # 0x00 @ 0x732CD8
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<We did it!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x732CF6
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<The bus stopped!>\p")
 cls(5)
 jump(0x02)
@@ -27,7 +27,7 @@ section_end()
 
 # 0x03 @ 0x732D35
 section_start(0x03)
-dialog_up(24)
+dialog_up("MsMadd")
 text("<I'm sooo sorry,>\p")
 cls()
 text("<But it seems you're\na lit>ー{d}<tle> {d}<late!>\p")
@@ -37,7 +37,7 @@ section_end()
 
 # 0x04 @ 0x732D96
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<What do you mean?>\p")
 cls(5)
 jump(0x05)
@@ -45,7 +45,7 @@ section_end()
 
 # 0x05 @ 0x732DBB
 section_start(0x05)
-dialog_up(24)
+dialog_up("MsMadd")
 text("<The gas program\nvirus has been\nactivated!>\p")
 cls()
 text("<You may have stopped\nthe bus,but now it's\ngoing to blow! Hee!>\p")
@@ -57,7 +57,7 @@ section_end()
 
 # 0x06 @ 0x732E84
 section_start(0x06)
-dialog_up(0)
+dialog_up("Lan")
 text("<Maaaaaaayyll!!>\p")
 cls(5)
 jump(0x07)
@@ -74,7 +74,7 @@ section_end()
 
 # 0x08 @ 0x732EBA
 section_start(0x08)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Uh>...{d}<It didn't\nexplode?>\p")
 cls(5)
 jump(0x09)
@@ -82,7 +82,7 @@ section_end()
 
 # 0x09 @ 0x732EF1
 section_start(0x09)
-dialog_up(24)
+dialog_up("MsMadd")
 text("<Huh?>{d}\n<ColorMan! What's\ngoing on?>\p")
 cls(5)
 jump(0x0A)
@@ -90,7 +90,7 @@ section_end()
 
 # 0x0A @ 0x732F2F
 section_start(0x0A)
-dialog_up(45)
+dialog_up("ColorMan")
 text("<I'm sorry,Ms.Madd!>{d}\n<There was this cute\nlittle Navi there...>\p")
 cls()
 text("<But don't worry,I'll\ndelete her right\naway!>{d}...{d}<See?>\p")
@@ -100,7 +100,7 @@ section_end()
 
 # 0x0B @ 0x732FDA
 section_start(0x0B)
-dialog_up(40)
+dialog_up("Roll")
 text("<Heeelp!>\p")
 cls(5)
 jump(0x0C)
@@ -108,7 +108,7 @@ section_end()
 
 # 0x0C @ 0x732FF5
 section_start(0x0C)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roll? Is that you?>\p")
 cls(5)
 jump(0x0D)
@@ -116,7 +116,7 @@ section_end()
 
 # 0x0D @ 0x73301C
 section_start(0x0D)
-dialog_up(0)
+dialog_up("Lan")
 text("<Mayl! Mayl!?>{d}\n<Are you okay?>\p")
 cls(5)
 jump(0x0E)
@@ -124,7 +124,7 @@ section_end()
 
 # 0x0E @ 0x733055
 section_start(0x0E)
-dialog_up(8)
+dialog_up("Mayl")
 text("<I'm fine for now!>\p")
 cls()
 text("<But...Roll's in\ntrouble!>{d} <Quick!\nJack in MegaMan!>\p")
@@ -134,7 +134,7 @@ section_end()
 
 # 0x0F @ 0x7330C2
 section_start(0x0F)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hold on!\nI'm coming!>\p")
 end()
 section_end()

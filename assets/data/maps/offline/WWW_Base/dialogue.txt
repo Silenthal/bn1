@@ -2,7 +2,7 @@ section_count(0xE1)
 
 # 0x00 @ 0x70EB26
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Want to head back\nto ACDC Town?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -30,16 +30,15 @@ section_end()
 section_start(0x03)
 input_off()
 set_delay(1)
-dialog_up(0)
-text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>")
-breaks(30)
+dialog_up("Lan")
+text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>{fd 30}")
 input_on()
 end()
 section_end()
 
 # 0x04 @ 0x70EC1F
 section_start(0x04)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Wipe out the WWW,\nhuh?>\p")
 cls(5)
 jump(0x14)
@@ -54,7 +53,7 @@ section_end()
 
 # 0x06 @ 0x70EC8B
 section_start(0x06)
-dialog_up(2)
+dialog_up("Dex")
 text("<Good luck,Lan!\nWe're all counting\non you!>\p")
 cls(5)
 jump(0x1E)
@@ -69,14 +68,14 @@ section_end()
 
 # 0x10 @ 0x70ED1A
 section_start(0x10)
-dialog_up(2)
+dialog_up("Dex")
 text("<Good luck!>\p")
 end()
 section_end()
 
 # 0x14 @ 0x70ED3B
 section_start(0x14)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,do you want\nto challenge Higs?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -87,7 +86,7 @@ section_end()
 # 0x15 @ 0x70ED86
 section_start(0x15)
 if_flag(0x29, 0x17, 0xFF)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Collecting rare\nchips ain't easy,\nhuh!>\p")
 set_flag(0x29)
 dialog_down()
@@ -96,28 +95,28 @@ section_end()
 
 # 0x16 @ 0x70EDCB
 section_start(0x16)
-dialog_up(6)
+dialog_up("Higsby")
 text("<That's right,huh!\nYou gotta hurry on,\nhuh!>\p")
 end()
 section_end()
 
 # 0x17 @ 0x70EE0A
 section_start(0x17)
-dialog_up(6)
+dialog_up("Higsby")
 text("<I'm practicing,huh!\nYou gotta gimme\nsome time,huh!>\p")
 end()
 section_end()
 
 # 0x18 @ 0x70EE51
 section_start(0x18)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Defeat is a result\nof lack of skill,not\nlack of chips,huh!>\p")
 end()
 section_end()
 
 # 0x19 @ 0x70EE9E
 section_start(0x19)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Are you using the\nright chips,huh?>\p")
 cls()
 text("<Think you should\nrecheck that,huh?>\p")
@@ -126,7 +125,7 @@ section_end()
 
 # 0x1E @ 0x70EF06
 section_start(0x1E)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,do you want to\nchallenge Dex?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -136,7 +135,7 @@ section_end()
 
 # 0x1F @ 0x70EF50
 section_start(0x1F)
-dialog_up(2)
+dialog_up("Dex")
 text("<That's the spirit!\nDon't be a crybaby\nif ya lose,hear?>\p")
 cls(5)
 jump(0x24)
@@ -144,28 +143,28 @@ section_end()
 
 # 0x20 @ 0x70EF9E
 section_start(0x20)
-dialog_up(2)
+dialog_up("Dex")
 text("<I'll take you on\nanytime you're\nready!>\p")
 end()
 section_end()
 
 # 0x21 @ 0x70EFD7
 section_start(0x21)
-dialog_up(2)
+dialog_up("Dex")
 text("<Uh,ya better wait\ntill I can upgrade\nGutsMan!>{d}< OK?>\p")
 end()
 section_end()
 
 # 0x22 @ 0x70F023
 section_start(0x22)
-dialog_up(2)
+dialog_up("Dex")
 text("<Hmph! Enjoy it while\nyou can! You goin'\ndown next time,Lan!>\p")
 end()
 section_end()
 
 # 0x23 @ 0x70F073
 section_start(0x23)
-dialog_up(2)
+dialog_up("Dex")
 text("<Hey!?\nAre you OK??>\p")
 end()
 section_end()

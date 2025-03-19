@@ -44,7 +44,7 @@ section_end()
 
 # 0x14 @ 0x7284D8
 section_start(0x14)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<You won't be able\nto just stroll by\nthis area!>\p")
 cls()
 text("<Avoiding viruses\nis the secret...>\p")
@@ -53,7 +53,7 @@ section_end()
 
 # 0x15 @ 0x728544
 section_start(0x15)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<You don't want to\nuse this area as a\nhunting ground...>\p")
 end()
 section_end()

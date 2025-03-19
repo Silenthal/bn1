@@ -2,7 +2,7 @@ section_count(0x3)
 
 # 0x00 @ 0x72C8BA
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<The net looks so\ndifferent! The WWW\nmust have done this!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72C907
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<We'll have to fix\nthe net later>...{d}\n<MegaMan!>\p")
 cls()
 text("<First,let's find the\nprogram locking the\ndoors!>\p")
@@ -20,7 +20,7 @@ section_end()
 
 # 0x02 @ 0x72C98C
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roger!>\p")
 end(5)
 section_end()

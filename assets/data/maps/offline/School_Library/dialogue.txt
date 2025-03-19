@@ -3,7 +3,7 @@ section_count(0xEC)
 # 0x00 @ 0x6E7460
 section_start(0x00)
 if_flag(0xA4, 0x10, 0xFF)
-dialog_up(17)
+dialog_up("YoungWoman")
 text("<Good morning!\nThis is the library>\p")
 cls()
 text("<It's good to read,\nbut shouldn't you\nbe in class?>\p")
@@ -86,7 +86,7 @@ section_end()
 
 # 0x10 @ 0x6E770A
 section_start(0x10)
-dialog_up(17)
+dialog_up("YoungWoman")
 text("<No blackboard here,\nbut the speech\nprogram is on>\p")
 cls()
 text("<the PC.>\p")
@@ -95,7 +95,7 @@ section_end()
 
 # 0x11 @ 0x6E775B
 section_start(0x11)
-dialog_up(10)
+dialog_up("Girl")
 text("<It's a good time to\ntake one's mind off\nof things by>\p")
 cls()
 text("<reading a good book.>\p")
@@ -104,14 +104,14 @@ section_end()
 
 # 0x19 @ 0x6E77CC
 section_start(0x19)
-dialog_up(17)
+dialog_up("YoungWoman")
 text("<Please be quiet in\nthe library. And\ndon't run!>\p")
 end(5)
 section_end()
 
 # 0x1A @ 0x6E780D
 section_start(0x1A)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<I just read that the\n{key PET} was invented by\nDr.Hikari.>\p")
 cls(5)
 text("<Is that your dad?\nHe's a scientist?>\n")
@@ -128,28 +128,28 @@ section_end()
 
 # 0x1B @ 0x6E7907
 section_start(0x1B)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Huh? But this book\nsays that he was 45!\nYour dad's that old?>\p")
 end(5)
 section_end()
 
 # 0x1C @ 0x6E7957
 section_start(0x1C)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<That's strange... He\nlooks a lot like you.\nEr,like your dad.>\p")
 end(5)
 section_end()
 
 # 0x1D @ 0x6E79AA
 section_start(0x1D)
-dialog_up(10)
+dialog_up("Girl")
 text("<There's nothing as\nmoving as a good\nstory.>\p")
 end(5)
 section_end()
 
 # 0x23 @ 0x6E79F0
 section_start(0x23)
-dialog_up(17)
+dialog_up("YoungWoman")
 text("<Good morning!\nShouldn't you be\nin class?>\p")
 end()
 section_end()

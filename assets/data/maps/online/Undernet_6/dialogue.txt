@@ -3,7 +3,7 @@ section_count(0x42)
 # 0x00 @ 0x726BF0
 section_start(0x00)
 if_shop(0x05, 0xFF, 0x01)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<Pssst...Hey,kid...\nWanna see my stash?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -14,7 +14,7 @@ section_end()
 
 # 0x01 @ 0x726C5D
 section_start(0x01)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<I'm out of stuff!\nSo scram!!>\p")
 end()
 section_end()
@@ -89,7 +89,7 @@ section_end()
 
 # 0x14 @ 0x726F07
 section_start(0x14)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<Being able to move\non to areas from\nhere depends on>\p")
 cls()
 text("<how well you fight!>\p")
@@ -100,7 +100,7 @@ section_end()
 
 # 0x15 @ 0x726FA3
 section_start(0x15)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<You can't count on\nsaving your data to\nget you through.>\p")
 end()
 section_end()

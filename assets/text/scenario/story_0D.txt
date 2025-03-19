@@ -2,7 +2,7 @@ section_count(0x6)
 
 # 0x00 @ 0x72AF54
 section_start(0x00)
-dialog_up(13)
+dialog_up("MrMatch")
 text("!! {d}<How can a kid\nand his puny Navi\ndelete FireMan!?>\p")
 cls()
 text("{...}<Hmph!\nAt least I finished\nmy mission...>\p")
@@ -12,7 +12,7 @@ section_end()
 
 # 0x01 @ 0x72AFE7
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<What do you mean?>\p")
 cls(5)
 jump(0x02)
@@ -20,7 +20,7 @@ section_end()
 
 # 0x02 @ 0x72B00C
 section_start(0x02)
-dialog_up(13)
+dialog_up("MrMatch")
 text("<Hah! This is just\nthe first step in\nthe WWW's plan!>\p")
 cls(5)
 jump(0x03)
@@ -28,7 +28,7 @@ section_end()
 
 # 0x03 @ 0x72B055
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<What!?>\p")
 cls(5)
 jump(0x04)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x72B070
 section_start(0x04)
-dialog_up(13)
+dialog_up("MrMatch")
 text("<Hah! That's right!\nI found the program\nwe need for our plan>\p")
 cls()
 text("<inside the oven in \nyour house!>\p")
@@ -52,7 +52,7 @@ section_end()
 
 # 0x05 @ 0x72B18E
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<Wait! >{d}<Program? War?\nWhat's he talking\nabout?>\p")
 cls()
 text("{...}\p")

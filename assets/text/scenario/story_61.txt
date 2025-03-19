@@ -2,7 +2,7 @@ section_count(0x8)
 
 # 0x00 @ 0x736AB4
 section_start(0x00)
-dialog_up(32)
+dialog_up("MomWithMakeup")
 text("<Lan! Where were you?\nI...>{d}<I was so\nworried!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x736AFF
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Sorry,Mom!\nBut we're fine,see?>\p")
 cls(5)
 jump(0x02)
@@ -22,7 +22,7 @@ hidepic()
 dialog_up()
 text("{set_flag 0xC8}*beebeebeep*\p")
 cls()
-pic(34)
+pic("MegaMan")
 text("<Lan! You've got\nmail! It's from\nDad!>\p")
 cls(5)
 jump(0x03)
@@ -30,7 +30,7 @@ section_end()
 
 # 0x03 @ 0x736B89
 section_start(0x03)
-dialog_up(28, 1)
+dialog_up("Dad", 1)
 text("That was a long\npower out! Is\neverybody OK?\p")
 cls(5)
 jump(0x04)
@@ -38,7 +38,7 @@ section_end()
 
 # 0x04 @ 0x736BC5
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<That's my dad,as\nclueless as ever...>\p")
 cls()
 text("<\"Dear Dad,don't\nworry,MegaMan is\nlooking after me!\">\p")
@@ -48,7 +48,7 @@ section_end()
 
 # 0x05 @ 0x736C42
 section_start(0x05)
-dialog_up(32)
+dialog_up("MomWithMakeup")
 text("<Oh well...I guess\nthe party's over.\nShall we go home?>\p")
 cls()
 text("<Lan? Do you want to\nstop for something\nto eat on the way?>\p")
@@ -58,7 +58,7 @@ section_end()
 
 # 0x06 @ 0x736CD3
 section_start(0x06)
-dialog_up(0)
+dialog_up("Lan")
 text("<Yeah,now that you\nmention it,I haven't\neaten since lunch!>\p")
 cls()
 text("<I'm starving!!>\p")
@@ -68,7 +68,7 @@ section_end()
 
 # 0x07 @ 0x736D3C
 section_start(0x07)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<I guess you need to\nrecharge,too!>\p")
 cls()
 hidepic()

@@ -64,7 +64,7 @@ section_end()
 
 # 0x08 @ 0x714FFE
 section_start(0x08)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Looks like it's\nbroken...>\p")
 cls(5)
 jump(0x09)
@@ -72,7 +72,7 @@ section_end()
 
 # 0x09 @ 0x71502E
 section_start(0x09)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's worry about\nthis one later!>\p")
 end()
 section_end()
@@ -87,7 +87,7 @@ section_end()
 
 # 0x0B @ 0x715083
 section_start(0x0B)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! I'll bet we can\nuse the handle we\ngot from Froid!>\p")
 cls()
 jump(0x0C)
@@ -95,7 +95,7 @@ section_end()
 
 # 0x0C @ 0x7150CF
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hey,yeah!>\p")
 cls(5)
 jump(0x0D)
@@ -122,7 +122,7 @@ section_end()
 
 # 0x0F @ 0x71514D
 section_start(0x0F)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<I don't think we\nneed to do that now,\nLan...>\p")
 end()
 section_end()

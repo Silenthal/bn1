@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x6DD1A4
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<So what does the\ninside of a toy\nfeel like?>\p")
 cls()
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x6DD1E3
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Not great,I can\ntell you...>\p")
 end(5)
 section_end()

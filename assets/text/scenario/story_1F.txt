@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x72DA98
 section_start(0x00)
-dialog_up(43)
+dialog_up("StoneMan")
 text("<Gok..Gokgok.>\n(Out of my way...)\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72DAD2
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<What do you think\nyou're doing?>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72DB06
 section_start(0x02)
-dialog_up(43)
+dialog_up("StoneMan")
 text("<Gokgok!> (Blocking\nthe Metroline\nsecurity program!)\p")
 cls()
 text("<Gok..\n>(So the Metroline\n won't open!)>\p")
@@ -28,7 +28,7 @@ section_end()
 
 # 0x03 @ 0x72DB84
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Why would you want\nto do a thing like\nthat?>\p")
 cls(5)
 jump(0x04)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x72DBC3
 section_start(0x04)
-dialog_up(43)
+dialog_up("StoneMan")
 text("<Gokgok Gokgok!>\n(To control the \n net!)\p")
 cls(5)
 jump(0x05)
@@ -44,7 +44,7 @@ section_end()
 
 # 0x05 @ 0x72DC00
 section_start(0x05)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Not another WWW\ncroney! Get those\nrocks outta there!>\p")
 cls(5)
 jump(0x06)
@@ -52,7 +52,7 @@ section_end()
 
 # 0x06 @ 0x72DC49
 section_start(0x06)
-dialog_up(43)
+dialog_up("StoneMan")
 text("<Gok! >(StoneMan must\ndelete all programs\nthat interfere...)\p")
 cls(5)
 jump(0x07)
@@ -60,7 +60,7 @@ section_end()
 
 # 0x07 @ 0x72DC9C
 section_start(0x07)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<You're the one who's\ngoing to be deleted!\nLan!!>\p")
 cls(5)
 jump(0x08)
@@ -68,7 +68,7 @@ section_end()
 
 # 0x08 @ 0x72DCE3
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's go,MegaMan!\nBattle routine,set!!>\p")
 cls(5)
 jump(0x09)
@@ -76,7 +76,7 @@ section_end()
 
 # 0x09 @ 0x72DD22
 section_start(0x09)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Execute!!>\p")
 end(5)
 section_end()

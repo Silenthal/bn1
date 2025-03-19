@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x73870C
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Huh?\nDid you just hear\nMayl's voice?>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x738746
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Huh? I think you're\nhearing things...>\p")
 cls()
 text("<Hey,we found it!>\p")
@@ -20,7 +20,7 @@ section_end()
 
 # 0x02 @ 0x73879D
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<This sure does look\nlike the WWW's...>\p")
 cls(5)
 jump(0x03)
@@ -28,7 +28,7 @@ section_end()
 
 # 0x03 @ 0x7387D9
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<Secret Metroline!\nWe can get to the\nlab from here!>\p")
 cls(5)
 jump(0x04)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x738820
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Yeah,but our pass\nis out of date,\nLan...>\p")
 cls(5)
 jump(0x05)
@@ -44,14 +44,14 @@ section_end()
 
 # 0x05 @ 0x738860
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's give it a\ntry,anyway!>\p")
 end()
 section_end()
 
 # 0x06 @ 0x73888E
 section_start(0x06)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Nope,no good...\nMaybe we should ask\nyour dad?>\p")
 cls(5)
 jump(0x07)
@@ -68,7 +68,7 @@ section_end()
 
 # 0x08 @ 0x738923
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<Uhーoh!>\p")
 cls(5)
 jump(0x09)
@@ -76,7 +76,7 @@ section_end()
 
 # 0x09 @ 0x73893D
 section_start(0x09)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Let's get out of\nhere,quick!>\p")
 end()
 section_end()

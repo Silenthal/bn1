@@ -2,7 +2,7 @@ section_count(0x3)
 
 # 0x00 @ 0x72A59E
 section_start(0x00)
-dialog_up(12)
+dialog_up("Mom")
 text("<Eeek!!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72A5B9
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<That's your mom!>{d}\n<What could be wrong?>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72A5FC
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's go!>\p")
 end(5)
 section_end()

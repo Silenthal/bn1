@@ -2,7 +2,7 @@ section_count(0x1)
 
 # 0x00 @ 0x732C96
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! Now!>")
 cls(40)
 end()

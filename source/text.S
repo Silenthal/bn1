@@ -740,14 +740,14 @@ _ts JT_Command_EA_TextDelay
     tst        r1,r1
     beq        LAB_08013b54
     b          LAB_08013b7c
-    @ if dialog delay is active or EA 00 is the command
+    @ If dialog delay is active or EA 00 is the command
 LAB_08013b54:
     mov        r0,#0x1
     bl         Text_EnableScriptOption
     ldrb       r0,[r5,#0x4]
     cmp        r0,#0x0
     bne        LAB_08013b6e
-    @ if delay is inactive, store next short as delay counter and a
+    @ If delay is inactive, store next short as delay counter
     ldrb       r0,[r4,#0x2]
     ldrb       r1,[r4,#0x3]
     lsl        r1,r1,#0x8
@@ -764,7 +764,8 @@ LAB_08013b6e:
     strh       r0,[r5,#0xc]
     mov        r0,#0x0
     pop        {pc}
-    @ Clear the break loop flag, clear the flag1, advance to next
+    @ If no delay and command is EA 01, clear the break loop flag, turn off
+    @ command delay, advance to next command
 LAB_08013b7c:
     mov        r0,#0x1
     bl         Text_DisableScriptOption
@@ -773,7 +774,7 @@ LAB_08013b7c:
     add        r4,#0x4
     mov        r0,#0x1
     pop        {pc}
-    @ EA FF = Set break flag and loop forever
+    @ EA FF = Set break loop flag and loop forever
 LAB_08013b8c:
     mov        r0,#0x1
     bl         Text_EnableScriptOption

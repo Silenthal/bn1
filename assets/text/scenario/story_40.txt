@@ -2,7 +2,7 @@ section_count(0x3)
 
 # 0x00 @ 0x73292E
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! The bus\nis here again!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x732962
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roger! The signal\nshould change soon!\nWe'll make it!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x7329AD
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<I hope so!>\p")
 end()
 section_end()

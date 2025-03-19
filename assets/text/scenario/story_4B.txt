@@ -2,7 +2,7 @@ section_count(0x5)
 
 # 0x00 @ 0x733376
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Are you okay?>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x733397
 section_start(0x01)
-dialog_up(40)
+dialog_up("Roll")
 text("<Uh..oww>...{d}<I think so>.{d}\n<Thanks,Mega!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x7333E4
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Sure you don't have\nany errors?>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x733418
 section_start(0x03)
-dialog_up(40)
+dialog_up("Roll")
 text("<Yep,I'm fine,really!\nBut what about Mayl?\nYou better jack out!>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x73346F
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Right!>\p")
 end()
 section_end()

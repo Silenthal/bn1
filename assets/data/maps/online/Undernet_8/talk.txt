@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x6E32CE
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<This is pretty deep\nin the net...>\p")
 cls(1)
 text("<I doubt that this\narea has anything to\ndo with the WWW...>\p")

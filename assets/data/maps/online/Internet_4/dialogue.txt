@@ -3,7 +3,7 @@ section_count(0x46)
 # 0x00 @ 0x724960
 section_start(0x00)
 if_shop(0x03, 0xFF, 0x01)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<I'm a net merchant!\nWanna' see my wares?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -14,7 +14,7 @@ section_end()
 
 # 0x01 @ 0x7249D0
 section_start(0x01)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<I'm a net merchant!\n...but I'm currently\nout of stock.>\p")
 end()
 section_end()
@@ -68,7 +68,7 @@ section_end()
 
 # 0x0E @ 0x724BEA
 section_start(0x0E)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! I'll bet\nthat's the access\nto the Undernet!>\p")
 cls(5)
 jump(0x0F)
@@ -76,7 +76,7 @@ section_end()
 
 # 0x0F @ 0x724C35
 section_start(0x0F)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<I think so to!\nI'll try using\nHigsby's memo!>\p")
 cls(5)
 jump(0x10)
@@ -103,7 +103,7 @@ section_end()
 
 # 0x12 @ 0x724CE6
 section_start(0x12)
-dialog_up(0)
+dialog_up("Lan")
 text("<All riiight!>\p")
 cls(5)
 jump(0x13)
@@ -111,7 +111,7 @@ section_end()
 
 # 0x13 @ 0x724D06
 section_start(0x13)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Yeah!>{d}....<Huh?>\p")
 cls(5)
 jump(0x14)
@@ -119,7 +119,7 @@ section_end()
 
 # 0x14 @ 0x724D34
 section_start(0x14)
-dialog_up(0)
+dialog_up("Lan")
 text("<What's wrong?>\p")
 cls(5)
 jump(0x15)
@@ -127,7 +127,7 @@ section_end()
 
 # 0x15 @ 0x724D56
 section_start(0x15)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! It's a virus!\nAnd a big one at\nthat!>\p")
 cls(5)
 jump(0x16)
@@ -135,7 +135,7 @@ section_end()
 
 # 0x16 @ 0x724D96
 section_start(0x16)
-dialog_up(0)
+dialog_up("Lan")
 text("<Oh,man...This could\nbe bad...>\p")
 cls()
 text("<Well,only one thing\nto do now...\nBattle routine,set!!>\p")
@@ -145,7 +145,7 @@ section_end()
 
 # 0x17 @ 0x724E11
 section_start(0x17)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Execute!!>\p")
 end()
 section_end()

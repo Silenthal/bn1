@@ -2,7 +2,7 @@ section_count(0x7)
 
 # 0x00 @ 0x71EB16
 section_start(0x00)
-dialog_up(50)
+dialog_up("GutsMan")
 text("<Nothin' beats\nbein' GUTS!>\p")
 end()
 section_end()

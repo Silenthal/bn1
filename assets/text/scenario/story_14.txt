@@ -2,7 +2,7 @@ section_count(0xF)
 
 # 0x00 @ 0x72C526
 section_start(0x00)
-dialog_up(2)
+dialog_up("Dex")
 text("<Check it out!\nMe and GutsMan are\nthe bomb!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72C565
 section_start(0x01)
-dialog_up(1)
+dialog_up("Yai")
 text("<Dex,I don't think\nyou'll be able to do\nit alone...>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72C5B0
 section_start(0x02)
-dialog_up(2)
+dialog_up("Dex")
 text("<Let's go,GutsMan!>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x72C5D7
 section_start(0x03)
-dialog_up(1)
+dialog_up("Yai")
 text("<Maybe you should\nlet Lan...>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x72C608
 section_start(0x04)
-dialog_up(2)
+dialog_up("Dex")
 text("<Quiet! I'm trying\nto concentrate!>\p")
 cls(5)
 jump(0x05)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x72C63F
 section_start(0x05)
-dialog_up(2)
+dialog_up("Dex")
 text("<Jack in!\nGutsMan.EXE,Goooo!>\p")
 cls()
 text("{set_flag 0x9C}...{d}\n<Here those viruses\ncome! Hyaa! Hyaa!>\p")
@@ -64,7 +64,7 @@ section_end()
 
 # 0x07 @ 0x72C725
 section_start(0x07)
-dialog_up(2)
+dialog_up("Dex")
 text("{..}.\p")
 cls(5)
 jump(0x08)
@@ -72,7 +72,7 @@ section_end()
 
 # 0x08 @ 0x72C742
 section_start(0x08)
-dialog_up(1)
+dialog_up("Yai")
 text("<They got him...>\p")
 cls(5)
 jump(0x09)
@@ -80,7 +80,7 @@ section_end()
 
 # 0x09 @ 0x72C767
 section_start(0x09)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Dex,do you have\na backup?>\p")
 cls(5)
 jump(0x0A)
@@ -88,7 +88,7 @@ section_end()
 
 # 0x0A @ 0x72C795
 section_start(0x0A)
-dialog_up(2)
+dialog_up("Dex")
 text("...{d}<Yeah>...\p")
 cls(5)
 jump(0x0B)
@@ -96,7 +96,7 @@ section_end()
 
 # 0x0B @ 0x72C7BC
 section_start(0x0B)
-dialog_up(1)
+dialog_up("Yai")
 text("<That's a relief.>{d}\n<Okay,Lan! You're up!\nShow us your stuff!>\p")
 cls(5)
 jump(0x0C)
@@ -104,7 +104,7 @@ section_end()
 
 # 0x0C @ 0x72C817
 section_start(0x0C)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Lan!! Please!>\p")
 cls(5)
 jump(0x0D)
@@ -112,7 +112,7 @@ section_end()
 
 # 0x0D @ 0x72C83A
 section_start(0x0D)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Let's do it,Lan!>\p")
 cls(5)
 jump(0x0E)
@@ -120,7 +120,7 @@ section_end()
 
 # 0x0E @ 0x72C860
 section_start(0x0E)
-dialog_up(0)
+dialog_up("Lan")
 text("...<Okay,fine,fine>...{d}\n<MegaMan!\nLet's go for it!>\p")
 end(5)
 section_end()

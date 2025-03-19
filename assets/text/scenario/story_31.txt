@@ -2,7 +2,7 @@ section_count(0x16)
 
 # 0x00 @ 0x7302A4
 section_start(0x00)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<You're late!\nIt's all over...>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x7302DA
 section_start(0x01)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Hey!\nI told you not to\ninterfere!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x730310
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<What!?>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x73032B
 section_start(0x03)
-dialog_up(44)
+dialog_up("IceMan")
 text("<Grr...>\p")
 cls(5)
 set_flag(0xC3)
@@ -35,14 +35,14 @@ section_end()
 
 # 0x04 @ 0x73034B
 section_start(0x04)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Hraa!>\p")
 end()
 section_end()
 
 # 0x05 @ 0x730361
 section_start(0x05)
-dialog_up(23)
+dialog_up("DrFroid")
 text("<I have to protect\nmy son...>\p")
 cls(5)
 jump(0x06)
@@ -50,7 +50,7 @@ section_end()
 
 # 0x06 @ 0x730392
 section_start(0x06)
-dialog_up(44)
+dialog_up("IceMan")
 text("<That's right!\nIceMan still has\nwork to do!>\p")
 cls(5)
 jump(0x07)
@@ -58,7 +58,7 @@ section_end()
 
 # 0x07 @ 0x7303D2
 section_start(0x07)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Oh yeah? Well how\nabout a taste of\nthi...>\p")
 cls(5)
 jump(0x08)
@@ -66,7 +66,7 @@ section_end()
 
 # 0x08 @ 0x730412
 section_start(0x08)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Wait! These two\naren't the real\nenemy!>\p")
 cls(5)
 jump(0x09)
@@ -74,7 +74,7 @@ section_end()
 
 # 0x09 @ 0x73044E
 section_start(0x09)
-dialog_up(7)
+dialog_up("Chaud")
 text("<How can you say\nthat...>\p")
 cls()
 text("<After so many people\nhave suffered \nbecause of them!>\p")
@@ -84,7 +84,7 @@ section_end()
 
 # 0x0A @ 0x7304B8
 section_start(0x0A)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("? {d}<Load Chaud,you\nhave mail from HQ.>\p")
 cls(5)
 jump(0x0B)
@@ -92,7 +92,7 @@ section_end()
 
 # 0x0B @ 0x7304F5
 section_start(0x0B)
-dialog_up(7)
+dialog_up("Chaud")
 text("! {d}<ProtoMan!\nIt looks like we've\nbeen had!>\p")
 cls()
 text("<They're a decoy!\nThere's a WWW Aーrank\noperator somewhere!>\p")
@@ -104,7 +104,7 @@ section_end()
 
 # 0x0C @ 0x7305AD
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<Aquaprogram?>{d}\n<Isn't that one of\nthe superprograms?>\p")
 cls(5)
 jump(0x0D)
@@ -112,7 +112,7 @@ section_end()
 
 # 0x0D @ 0x7305FC
 section_start(0x0D)
-dialog_up(7)
+dialog_up("Chaud")
 text("<The WWW Navi must be\nhere somewhere...\nLet's find them!>\p")
 cls()
 jump(0x0E)
@@ -120,7 +120,7 @@ section_end()
 
 # 0x0E @ 0x73064B
 section_start(0x0E)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<As you say,Load\nChaud!>\p")
 cls(5)
 set_flag(0xC6)
@@ -130,7 +130,7 @@ section_end()
 
 # 0x0F @ 0x73067E
 section_start(0x0F)
-dialog_up(44)
+dialog_up("IceMan")
 text("<WーWait!!!>\p")
 cls(5)
 jump(0x10)
@@ -138,7 +138,7 @@ section_end()
 
 # 0x10 @ 0x73069D
 section_start(0x10)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Now that he's gone,\nwill you please\nlisten to me?>\p")
 cls(5)
 jump(0x11)
@@ -146,7 +146,7 @@ section_end()
 
 # 0x11 @ 0x7306E4
 section_start(0x11)
-dialog_up(44)
+dialog_up("IceMan")
 text("<Silence!>")
 set_flag(0xC4)
 page()
@@ -155,7 +155,7 @@ section_end()
 
 # 0x12 @ 0x730701
 section_start(0x12)
-dialog_up(23)
+dialog_up("DrFroid")
 text("<Yeah! If we break\nthe WWW's orders,\nmy son...>\p")
 cls(5)
 jump(0x13)
@@ -163,7 +163,7 @@ section_end()
 
 # 0x13 @ 0x730747
 section_start(0x13)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan!?>\p")
 cls(5)
 jump(0x14)
@@ -171,7 +171,7 @@ section_end()
 
 # 0x14 @ 0x730761
 section_start(0x14)
-dialog_up(0)
+dialog_up("Lan")
 text("<He's not listening!>{d}\n<We have no choice>...{d}\n<Battle routine,set!!>\p")
 cls(5)
 jump(0x15)
@@ -179,7 +179,7 @@ section_end()
 
 # 0x15 @ 0x7307C9
 section_start(0x15)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Execute!!>\p")
 end()
 section_end()

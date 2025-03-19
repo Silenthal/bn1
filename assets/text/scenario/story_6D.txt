@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x7389A6
 section_start(0x01)
-dialog_up(28)
+dialog_up("Dad")
 text("<Dr.Hikari speaking>.{d}\n<Oh,hello honey! Yes,\nLan was just here.>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x738A02
 section_start(0x02)
-dialog_up(12)
+dialog_up("Mom")
 text("<I'm worried>...{d}\n<I think those two\nare in trouble...>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x738A56
 section_start(0x03)
-dialog_up(28)
+dialog_up("Dad")
 text("<Don't worry,I'll\nlook out for them.>\p")
 cls()
 text("<I'll never let what\nhappened last time\nhappen again...>\p")
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x738AD2
 section_start(0x04)
-dialog_up(12)
+dialog_up("Mom")
 text("<Honey>...{d}\n<I'm sorry to have\ncalled you at work.>\p")
 cls(5)
 jump(0x05)
@@ -44,7 +44,7 @@ section_end()
 
 # 0x05 @ 0x738B20
 section_start(0x05)
-dialog_up(28)
+dialog_up("Dad")
 text("<No,I'm sorry for\nnot being at home\nmore...>\p")
 cls(5)
 jump(0x06)
@@ -52,7 +52,7 @@ section_end()
 
 # 0x06 @ 0x738B62
 section_start(0x06)
-dialog_up(12)
+dialog_up("Mom")
 text("<Hmm>...{d}\n<That is true.>\p")
 cls()
 text("...{d}<But,it's OK!\nI'll be fine by\nmyself here!>\p")
@@ -62,7 +62,7 @@ section_end()
 
 # 0x07 @ 0x738BD5
 section_start(0x07)
-dialog_up(28)
+dialog_up("Dad")
 text("<Good>...{d}<I'm glad\nto hear that.>\p")
 cls(5)
 jump(0x08)
@@ -70,7 +70,7 @@ section_end()
 
 # 0x08 @ 0x738C12
 section_start(0x08)
-dialog_up(12)
+dialog_up("Mom")
 text("<Bye!>\p")
 cls(5)
 jump(0x09)
@@ -86,7 +86,7 @@ section_end()
 
 # 0x0A @ 0x738C4B
 section_start(0x0A)
-dialog_up(27)
+dialog_up("Scientist")
 text("<Dr.Hikari! I've got\ninfo on the virus in\nthe WWW rocket!>\p")
 cls(5)
 jump(0x0B)
@@ -94,7 +94,7 @@ section_end()
 
 # 0x0B @ 0x738C9A
 section_start(0x0B)
-dialog_up(28)
+dialog_up("Dad")
 text("{...}<It's the\nLifeVirus>...{d}\n<I see...>\p")
 cls()
 text("<Lan>...{d}<and Hub don't\nhave a chance...>\p")
@@ -106,7 +106,7 @@ section_end()
 
 # 0x0C @ 0x738D5F
 section_start(0x0C)
-dialog_up(27)
+dialog_up("Scientist")
 text("<Yessir!>\p")
 end()
 section_end()

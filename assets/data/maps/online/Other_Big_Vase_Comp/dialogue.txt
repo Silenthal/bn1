@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x721BEC
 section_start(0x00)
-dialog_up(36)
+dialog_up("MrProg")
 text("<I'll bet you didn't\nthink you could jack\ninto this thing!>\p")
 cls()
 text("<This vase is\nactually an air\ncleaner!>\p")
@@ -15,7 +15,7 @@ section_end()
 
 # 0x01 @ 0x721CE8
 section_start(0x01)
-dialog_up(36)
+dialog_up("MrProg")
 text("<Ooops! The humidity\nis rising! Gotta\nclear some moisture.>\p")
 end(5)
 section_end()

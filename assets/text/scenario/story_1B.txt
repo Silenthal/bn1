@@ -2,7 +2,7 @@ section_count(0xB)
 
 # 0x00 @ 0x72CFB2
 section_start(0x00)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Ugahーahーah...>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72CFD5
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<See! You've been\nwrong all along!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72D00C
 section_start(0x02)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Gwagoogoo...>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x72D02E
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's see you and\nyour rare chips,\nnow!>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x72D06B
 section_start(0x04)
-dialog_up(6)
+dialog_up("Higsby")
 text("*sniff* *sniff*\p")
 cls(5)
 jump(0x05)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x72D08D
 section_start(0x05)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,I think he gets\nit now...>\p")
 cls(5)
 jump(0x06)
@@ -50,7 +50,7 @@ section_end()
 
 # 0x06 @ 0x72D0C1
 section_start(0x06)
-dialog_up(0)
+dialog_up("Lan")
 text("<I'm right,aren't I?>\p")
 cls(5)
 jump(0x07)
@@ -58,7 +58,7 @@ section_end()
 
 # 0x07 @ 0x72D0EB
 section_start(0x07)
-dialog_up(6)
+dialog_up("Higsby")
 text("...<It's true!>{d}\n<Lan is right!>\p")
 cls()
 text("<I should collect\nchips by busting\nviruses...>*snort*\p")
@@ -70,7 +70,7 @@ section_end()
 
 # 0x08 @ 0x72D1A5
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<Sure! Why not?\nBut...>\p")
 cls()
 text("<You do have to pay\nfor your crimes...>\p")
@@ -82,7 +82,7 @@ section_end()
 
 # 0x09 @ 0x72D24E
 section_start(0x09)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! Restart the\nserver and put the\nnet back to normal!>\p")
 cls(5)
 jump(0x0A)
@@ -90,7 +90,7 @@ section_end()
 
 # 0x0A @ 0x72D29A
 section_start(0x0A)
-dialog_up(0)
+dialog_up("Lan")
 text("<OK!>\p")
 end(5)
 section_end()

@@ -2,14 +2,14 @@ section_count(0xE5)
 
 # 0x00 @ 0x70CDEA
 section_start(0x00)
-dialog_up(25)
+dialog_up("MiddleAgedMan")
 text("<Be careful!\nIt's dark!>\p")
 end()
 section_end()
 
 # 0x05 @ 0x70CE1B
 section_start(0x05)
-dialog_up(25)
+dialog_up("MiddleAgedMan")
 text("<Getting>...{d}\n<dizzy>...{d}\n*groan*\p")
 end()
 section_end()
@@ -73,7 +73,7 @@ section_end()
 # 0xDF @ 0x70D157
 section_start(0xDF)
 if_story_in(FLAG_STORY_COUNT_ZAP, FLAG_STORY_BATTERIES_DONE, 0xDE)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! You gotta\npress that button!>\p")
 end()
 section_end()

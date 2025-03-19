@@ -2,7 +2,7 @@ section_count(0x2)
 
 # 0x00 @ 0x735C50
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<The generator...>{d}\n<is working!?>{d}< Then\nwhy's the power out?>\p")
 cls()
 text("<MegaMan! Check out\nthe power generator\narea again!>\p")
@@ -12,7 +12,7 @@ section_end()
 
 # 0x01 @ 0x735CED
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roger!!>\p")
 end()
 section_end()

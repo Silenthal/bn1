@@ -2,7 +2,7 @@ section_count(0x52)
 
 # 0x14 @ 0x72901C
 section_start(0x14)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<So you've made it\nthis far...>\p")
 cls()
 text("<It's a shame you're\nwasted on the\noutside world...>\p")
@@ -11,7 +11,7 @@ section_end()
 
 # 0x15 @ 0x72908C
 section_start(0x15)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<A final trial awaits\nthe true hero!>\p")
 cls()
 text("<If that's you,then\nyou'll soon find out\nwhat that is...>\p")

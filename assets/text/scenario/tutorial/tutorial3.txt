@@ -2,7 +2,7 @@ section_count(0x1A)
 
 # 0x00 @ 0x73E674
 section_start(0x00)
-dialog_up(3)
+dialog_up("MsMari")
 text("<For our final lesson\nwe'll talk about\nchip adding.>\p")
 cls(1)
 jump(0x01)
@@ -25,7 +25,7 @@ section_end()
 
 # 0x03 @ 0x73E78F
 section_start(0x03)
-dialog_up(3)
+dialog_up("MsMari")
 text("<If you select this\nbutton without\nchoosing any chips,>\p")
 cls(1)
 text("<you will have to\nfight for one turn\nwithout chips,but>\p")

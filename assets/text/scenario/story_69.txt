@@ -2,14 +2,14 @@ section_count(0x5)
 
 # 0x00 @ 0x7381C2
 section_start(0x00)
-dialog_up(12)
+dialog_up("Mom")
 text("<Lan!> {d}<Look on TV!\n>{d}<It's awful!>\p")
 end()
 section_end()
 
 # 0x01 @ 0x738202
 section_start(0x01)
-dialog_up(5)
+dialog_up("LordWily")
 text("<I am pleased to\nannounce that the\nWWW master plan...>\p")
 cls()
 text("<Is entering the\nfinal phase!>\p")
@@ -25,7 +25,7 @@ section_end()
 
 # 0x02 @ 0x738337
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan!\nWe've got to get to\nthe WWW labs!>\p")
 cls(5)
 jump(0x03)
@@ -33,14 +33,14 @@ section_end()
 
 # 0x03 @ 0x738373
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<Right on! Let's go!>\p")
 end()
 section_end()
 
 # 0x04 @ 0x738399
 section_start(0x04)
-dialog_up(12)
+dialog_up("Mom")
 text("<Lan!?\nWhere are you going\nat a time like this?>\p")
 end()
 section_end()

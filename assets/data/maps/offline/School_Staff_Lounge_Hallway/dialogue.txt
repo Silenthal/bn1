@@ -9,7 +9,7 @@ section_end()
 
 # 0x01 @ 0x6ED1B7
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! Leave it to\nme! Is there any\nplace to jack in?>\p")
 end(5)
 section_end()
@@ -31,12 +31,12 @@ text("A time recorder.\nYou need an\nID card\p")
 cls()
 text("Lan used the\nID card! It\nworked!!\p")
 cls()
-pic(0)
+pic("Lan")
 text("<MegaMan! The server\nis just beyond the\nlock!>\p")
 cls()
 text("<But be careful!>\p")
 cls()
-pic(34)
+pic("MegaMan")
 text("<OK!!>\p")
 dialog_down()
 set_flag(FLAG_GATE_LOCK_WWW_COMP_2_9)
@@ -45,28 +45,28 @@ section_end()
 
 # 0x0A @ 0x6ED306
 section_start(0x0A)
-dialog_up(3)
+dialog_up("MsMari")
 text("<You did pretty good\ntoday!>{d}\n<Keep it up!>\p")
 end(5)
 section_end()
 
 # 0x0E @ 0x6ED34C
 section_start(0x0E)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<You shouldn't go\ninto the office\nunless you need to!>\p")
 end(5)
 section_end()
 
 # 0x14 @ 0x6ED39C
 section_start(0x14)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<You shouldn't go\ninto the office\nunless you need to!>\p")
 end()
 section_end()
 
 # 0x16 @ 0x6ED3E4
 section_start(0x16)
-dialog_up(19)
+dialog_up("SternMan")
 text("<What are you doing\nhere!? Get to class!>\p")
 cls()
 text("<Ooops... Getting mad\nmakes me thirsty!>\p")
@@ -75,14 +75,14 @@ section_end()
 
 # 0x1E @ 0x6ED45E
 section_start(0x1E)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<You shouldn't go\ninto the office\nunless you need to!>\p")
 end()
 section_end()
 
 # 0xDC @ 0x6ED61E
 section_start(0xDC)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<It's a time\nrecorder. We don't\nneed to use that.>\p")
 end(5)
 section_end()

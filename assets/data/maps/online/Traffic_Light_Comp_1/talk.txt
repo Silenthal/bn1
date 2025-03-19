@@ -12,21 +12,21 @@ section_end()
 # 0x82 @ 0x6D29BA
 section_start(0x82)
 if_flag(0xA7, 0x87, 0xFF)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan!\nChange the signal\nto red!>\p")
 end()
 section_end()
 
 # 0x87 @ 0x6D29FC
 section_start(0x87)
-dialog_up(0)
+dialog_up("Lan")
 text("<This signal seems\nto be fixed...>\p")
 end()
 section_end()
 
 # 0xA5 @ 0x6D2A69
 section_start(0xA5)
-dialog_up(0)
+dialog_up("Lan")
 text("<Looks like not\nmuch is going on\nhere,huh?>\p")
 end()
 section_end()

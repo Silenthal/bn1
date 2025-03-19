@@ -2,7 +2,7 @@ section_count(0x3)
 
 # 0x00 @ 0x7369F6
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<Right on!\nThat should fix the\npower out!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x736A33
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,back to the\nrestaurant! Your mom\nis worried sick!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x736A7E
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<You're right...>\p")
 end()
 section_end()

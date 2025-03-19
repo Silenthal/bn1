@@ -2,7 +2,7 @@ section_count(0x5)
 
 # 0x00 @ 0x72F756
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<I think that was the\nvirus causing the\nwaterworks bug...>\p")
 cls()
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72F7A4
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Pretty easy,huh?\nI'll send you a\nfireshot!>\p")
 cls()
 text("<Melt the ice on\nthe pump water\nsupply program.>\p")
@@ -20,14 +20,14 @@ section_end()
 
 # 0x02 @ 0x72F81C
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roger!>\p")
 end()
 section_end()
 
 # 0x03 @ 0x72F833
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Okay,I'm done here!>\p")
 cls()
 jump(0x04)
@@ -35,7 +35,7 @@ section_end()
 
 # 0x04 @ 0x72F85C
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<OK! Come back to\ntown and we'll see\nhow the water is.>\p")
 end()
 section_end()

@@ -2,7 +2,7 @@ section_count(0x5)
 
 # 0x00 @ 0x72F12A
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Funny...it's frozen\nhere and there...>\p")
 cls()
 text("<And there's no \nNavis or programs\nanywhere...>\p")
@@ -12,7 +12,7 @@ section_end()
 
 # 0x01 @ 0x72F1A2
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<That guy said he'd\nbe here debugging,\nbut...>\p")
 cls()
 jump(0x02)
@@ -20,7 +20,7 @@ section_end()
 
 # 0x02 @ 0x72F1E6
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<I smell a rat...>\p")
 cls()
 jump(0x03)
@@ -28,7 +28,7 @@ section_end()
 
 # 0x03 @ 0x72F20C
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's go see what's\nwrong with the water\nsupply program!>\p")
 cls()
 jump(0x04)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x72F25A
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roger!>\p")
 end()
 section_end()

@@ -2,7 +2,7 @@ section_count(0x3)
 
 # 0x00 @ 0x731EC6
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<Did it!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x731EE1
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! Let's tell\neveryone we fixed\nthe lights quick!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x731F2A
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<OK!>\p")
 end()
 section_end()

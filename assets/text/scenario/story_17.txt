@@ -2,7 +2,7 @@ section_count(0x7)
 
 # 0x00 @ 0x72CA3E
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Aaaah!!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72CA5A
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Whoaaaaa!!\nLーLan.>{d}...\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72CA8B
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<What's wrong!?>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x72CAAF
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<SーSorry,>{d}\n<I'm stuck in a trap!\nIー>{d}<I can't move...>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x72CB08
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<Where are you?>\p")
 cls(5)
 jump(0x05)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x72CB2A
 section_start(0x05)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Near the AV room>...{d}\n<Sorry>...\p")
 cls(5)
 jump(0x06)
@@ -50,7 +50,7 @@ section_end()
 
 # 0x06 @ 0x72CB67
 section_start(0x06)
-dialog_up(0)
+dialog_up("Lan")
 text("<Don't worry!\nI'll check it out!!>\p")
 end(5)
 section_end()

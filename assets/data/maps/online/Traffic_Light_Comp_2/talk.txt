@@ -12,21 +12,21 @@ section_end()
 # 0x8C @ 0x6D2D26
 section_start(0x8C)
 if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_2_1, 0x91, 0xFF)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan!\nChange the signal\nto red!>\p")
 end()
 section_end()
 
 # 0x91 @ 0x6D2D68
 section_start(0x91)
-dialog_up(0)
+dialog_up("Lan")
 text("<This signal seems\nto be fixed...>\p")
 end()
 section_end()
 
 # 0xA5 @ 0x6D2DC1
 section_start(0xA5)
-dialog_up(0)
+dialog_up("Lan")
 text("<Looks like not\nmuch is going on\nhere,huh?>\p")
 end()
 section_end()

@@ -2,7 +2,7 @@ section_count(0x1A)
 
 # 0x00 @ 0x70FD80
 section_start(0x00)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Let's go,huh!>\p")
 cls(5)
 jump(0x14)
@@ -10,14 +10,14 @@ section_end()
 
 # 0x01 @ 0x70FDA3
 section_start(0x01)
-dialog_up(14)
+dialog_up("OldMan")
 text("<Nah,I'm used to\nthis! Don't worry\nabout me!>\p")
 end()
 section_end()
 
 # 0x02 @ 0x70FDE3
 section_start(0x02)
-dialog_up(3, 2)
+dialog_up("MsMari", 2)
 text("<Keep it up!>\p")
 cls()
 text("<Don't let the WWW\nget the best of\nyou!!>\p")
@@ -36,7 +36,7 @@ section_end()
 
 # 0x06 @ 0x70FE8D
 section_start(0x06)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan!\nI'll disable the\nlock!>\p")
 end()
 section_end()
@@ -45,9 +45,8 @@ section_end()
 section_start(0x07)
 input_off()
 set_delay(1)
-dialog_up(0)
-text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>")
-breaks(30)
+dialog_up("Lan")
+text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>{fd 30}")
 input_on()
 end()
 section_end()
@@ -55,7 +54,7 @@ section_end()
 # 0x08 @ 0x70FF02
 section_start(0x08)
 if_have_chip("Roll3 R", 0x0B)
-dialog_up(1)
+dialog_up("Yai")
 text("<Mayl told me to\ngive this to\nyou...>\p")
 cls(5)
 jump(0x09)
@@ -75,21 +74,21 @@ section_end()
 
 # 0x0A @ 0x70FF85
 section_start(0x0A)
-dialog_up(1)
+dialog_up("Yai")
 text("<Don't lose it,\nnow!>\p")
 end()
 section_end()
 
 # 0x0B @ 0x70FFAB
 section_start(0x0B)
-dialog_up(1)
+dialog_up("Yai")
 text("<Don't forget that\nwe're helping,too!>\p")
 end()
 section_end()
 
 # 0x14 @ 0x70FFF3
 section_start(0x14)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,do you want\nto challenge Higs?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -100,7 +99,7 @@ section_end()
 # 0x15 @ 0x71003E
 section_start(0x15)
 if_flag(0x29, 0x17, 0xFF)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Collecting rare\nchips ain't easy,\nhuh!>\p")
 set_flag(0x29)
 dialog_down()
@@ -109,28 +108,28 @@ section_end()
 
 # 0x16 @ 0x710083
 section_start(0x16)
-dialog_up(6)
+dialog_up("Higsby")
 text("<That's right,huh!\nYou gotta hurry on,\nhuh!>\p")
 end()
 section_end()
 
 # 0x17 @ 0x7100C2
 section_start(0x17)
-dialog_up(6)
+dialog_up("Higsby")
 text("<I'm practicing,huh!\nYou gotta gimme\nsome time,huh!>\p")
 end()
 section_end()
 
 # 0x18 @ 0x710109
 section_start(0x18)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Defeat is a result\nof lack of skill,not\nlack of chips,huh!>\p")
 end()
 section_end()
 
 # 0x19 @ 0x710156
 section_start(0x19)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Are you using the\nright chips,huh?>\p")
 cls()
 text("<Think you should\nrecheck that,huh?>\p")

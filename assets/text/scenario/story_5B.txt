@@ -2,7 +2,7 @@ section_count(0x3)
 
 # 0x00 @ 0x735D0E
 section_start(0x00)
-dialog_up(47)
+dialog_up("ElecMan")
 text("<Who R U?\nA NetBattler?>\p")
 cls()
 text("<Hrm...You did good\ncoming this far,but\nyou're too late...>\p")
@@ -14,7 +14,7 @@ section_end()
 
 # 0x01 @ 0x735DBF
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Electricity program?>\p")
 cls(5)
 jump(0x02)
@@ -22,7 +22,7 @@ section_end()
 
 # 0x02 @ 0x735DE7
 section_start(0x02)
-dialog_up(47)
+dialog_up("ElecMan")
 text("? {d}<You're not a\nNetBattler come to\nprotect it?>\p")
 cls()
 text("<...No matter,>{d}\n<All who stand in my\nway get.>{d}.{d}.\p")

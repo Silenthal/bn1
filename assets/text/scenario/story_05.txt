@@ -2,7 +2,7 @@ section_count(0x5)
 
 # 0x00 @ 0x72A35A
 section_start(0x00)
-dialog_up(12)
+dialog_up("Mom")
 text("<Lan,>{d}<welcome home!>\p")
 cls()
 text("<A man from NetSafety\nis checking our home\ncontrol panel.>\p")
@@ -14,7 +14,7 @@ section_end()
 
 # 0x01 @ 0x72A407
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<That's the accident\nMayl was talking\nabout this morning.>\p")
 cls(5)
 jump(0x02)
@@ -22,7 +22,7 @@ section_end()
 
 # 0x02 @ 0x72A454
 section_start(0x02)
-dialog_up(13)
+dialog_up("MrMatch")
 text("<Hello.>\p")
 cls()
 text("<We think a virus\nmight be responsible\nfor the accidents...>\p")
@@ -34,7 +34,7 @@ section_end()
 
 # 0x03 @ 0x72A4F8
 section_start(0x03)
-dialog_up(12)
+dialog_up("Mom")
 text("<I'm glad it didn't\nhappen to us!>\p")
 cls()
 text("<Lan,>{d}<go to your\nroom so you won't\nget in the way.>\p")
@@ -44,7 +44,7 @@ section_end()
 
 # 0x04 @ 0x72A571
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Let's get on\nthe net!>\p")
 end(5)
 section_end()

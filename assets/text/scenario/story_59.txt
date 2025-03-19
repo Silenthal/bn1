@@ -2,7 +2,7 @@ section_count(0x2)
 
 # 0x00 @ 0x735BC0
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! The door to the\npower room should be\nopen now!>\p")
 cls()
 text("<Quick! Go get that\ngenerator running!>\p")
@@ -12,7 +12,7 @@ section_end()
 
 # 0x01 @ 0x735C37
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<OK!>\p")
 end()
 section_end()

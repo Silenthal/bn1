@@ -12,21 +12,21 @@ section_end()
 
 # 0x05 @ 0x6D0AE6
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<Reset the door's\nlock program!>\p")
 end()
 section_end()
 
 # 0x0A @ 0x6D0B1E
 section_start(0x0A)
-dialog_up(0)
+dialog_up("Lan")
 text("<Do you know where\nthe teacher's lounge\nserver is?>\p")
 end()
 section_end()
 
 # 0x0F @ 0x6D0B69
 section_start(0x0F)
-dialog_up(0)
+dialog_up("Lan")
 text("<Looks like not\nmuch is going on\nhere,huh?>\p")
 end()
 section_end()

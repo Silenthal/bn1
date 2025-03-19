@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x720B60
 section_start(0x00)
-dialog_up(36)
+dialog_up("MrProg")
 text("<I'm the control\nprogram for this\ngame machine.>\p")
 cls()
 text("<Games keep getting\nbetter and better...\nSure keeps me busy!>\p")
@@ -11,7 +11,7 @@ section_end()
 
 # 0x01 @ 0x720BE7
 section_start(0x01)
-dialog_up(36)
+dialog_up("MrProg")
 text("<When playing games,\nbe sure to turn on\nthe lights,and>\p")
 cls()
 text("<don't sit too close\nto the TV!>\p")

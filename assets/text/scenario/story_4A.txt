@@ -2,14 +2,14 @@ section_count(0x9)
 
 # 0x00 @ 0x7330FE
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roll! Where are you?>{d}\n<Aaa!!>\p")
 end()
 section_end()
 
 # 0x01 @ 0x733134
 section_start(0x01)
-dialog_up(45)
+dialog_up("ColorMan")
 text("<Now,now,I'll delete\nyou soon enough...>\p")
 cls()
 text("<Heheh!>{d}\n<But first I'll watch\nyou squirm a little!>\p")
@@ -19,21 +19,21 @@ section_end()
 
 # 0x02 @ 0x7331B6
 section_start(0x02)
-dialog_up(40)
+dialog_up("Roll")
 text("<Help! Heeeeelp!>\p")
 end()
 section_end()
 
 # 0x03 @ 0x7331D7
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Hey you! Get away\nfrom Roll!>\p")
 end()
 section_end()
 
 # 0x04 @ 0x733205
 section_start(0x04)
-dialog_up(40)
+dialog_up("Roll")
 text("<MegaMan! Delete this\nguy,quick!> {d}<Or else\nthe bus will...>\p")
 cls(5)
 jump(0x05)
@@ -41,7 +41,7 @@ section_end()
 
 # 0x05 @ 0x73325D
 section_start(0x05)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Gotcha!>{d}\p")
 cls()
 text("<So you're ColorMan,\nhuh? Let Roll go!\nI'm the one>\p")
@@ -52,7 +52,7 @@ section_end()
 
 # 0x06 @ 0x7332C9
 section_start(0x06)
-dialog_up(45)
+dialog_up("ColorMan")
 text("<Sure thing,I'll just\ndelete you first,and\ndelete her later!>\p")
 cls(5)
 jump(0x07)
@@ -60,7 +60,7 @@ section_end()
 
 # 0x07 @ 0x73331B
 section_start(0x07)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's go!\nBattle routine,set!!>\p")
 cls(5)
 jump(0x08)
@@ -68,7 +68,7 @@ section_end()
 
 # 0x08 @ 0x733351
 section_start(0x08)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Execute!!>\p")
 end()
 section_end()

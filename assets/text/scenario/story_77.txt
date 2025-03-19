@@ -2,7 +2,7 @@ section_count(0xD)
 
 # 0x00 @ 0x73A0E6
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<We did it!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x73A104
 section_start(0x01)
-dialog_up(29)
+dialog_up("Yahoot")
 text("<Errgh...>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x73A122
 section_start(0x02)
-dialog_up(5)
+dialog_up("LordWily")
 text("<Yahoot! Not you,too!>\p")
 cls()
 text("<Here!{song 0x04} Use this\nbit data from\nthe LifeVirus!>\p")
@@ -28,28 +28,28 @@ section_end()
 
 # 0x03 @ 0x73A185
 section_start(0x03)
-dialog_up(29)
+dialog_up("Yahoot")
 text("<Phew>...{d}\p")
 end()
 section_end()
 
 # 0x04 @ 0x73A1A3
 section_start(0x04)
-dialog_up(51)
+dialog_up("MagicMan")
 text("<Life>...{d}<Magic!>")
 end(10)
 section_end()
 
 # 0x05 @ 0x73A1CB
 section_start(0x05)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Huh?>")
 end(10)
 section_end()
 
 # 0x06 @ 0x73A1DF
 section_start(0x06)
-dialog_up(51)
+dialog_up("MagicMan")
 text("<Yahoot! I did it!\nYou can say goodbye\nto MegaMan.EXE!>\p")
 cls(5)
 jump(0x07)
@@ -57,7 +57,7 @@ section_end()
 
 # 0x07 @ 0x73A22B
 section_start(0x07)
-dialog_up(0)
+dialog_up("Lan")
 text("<No...>\p")
 cls(5)
 jump(0x08)
@@ -65,21 +65,21 @@ section_end()
 
 # 0x08 @ 0x73A246
 section_start(0x08)
-dialog_up(29)
+dialog_up("Yahoot")
 text("<MーMagicMan!\nLook out!>\p")
 end()
 section_end()
 
 # 0x09 @ 0x73A26D
 section_start(0x09)
-dialog_up(51)
+dialog_up("MagicMan")
 text("<! LifeMaa....Ak!!>\p")
 end()
 section_end()
 
 # 0x0A @ 0x73A295
 section_start(0x0A)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Grr>...{d}<Too late?>\p")
 cls(5)
 jump(0x0B)
@@ -87,14 +87,14 @@ section_end()
 
 # 0x0B @ 0x73A2C3
 section_start(0x0B)
-dialog_up(40)
+dialog_up("Roll")
 text("<Mega!!>\p")
 end()
 section_end()
 
 # 0x0C @ 0x73A2DB
 section_start(0x0C)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Unh!>\p")
 end()
 section_end()

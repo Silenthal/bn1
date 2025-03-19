@@ -25,7 +25,7 @@ section_end()
 
 # 0x02 @ 0x715CF2
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! You don't\nneed to press the\nswitch now!>\p")
 end()
 section_end()

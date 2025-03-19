@@ -28,7 +28,7 @@ section_end()
 
 # 0x03 @ 0x72D329
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<Mayl!\nHow's it look?>\p")
 cls(5)
 jump(0x04)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x72D353
 section_start(0x04)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Lan!\nThe announcement\nprogram stopped!>\p")
 cls(5)
 jump(0x05)
@@ -44,7 +44,7 @@ section_end()
 
 # 0x05 @ 0x72D38E
 section_start(0x05)
-dialog_up(1)
+dialog_up("Yai")
 text("<You did it!>\p")
 cls(5)
 jump(0x06)
@@ -52,7 +52,7 @@ section_end()
 
 # 0x06 @ 0x72D3AD
 section_start(0x06)
-dialog_up(2)
+dialog_up("Dex")
 text("<Hey,not bad,Lan!>\p")
 cls(5)
 jump(0x07)
@@ -60,7 +60,7 @@ section_end()
 
 # 0x07 @ 0x72D3D3
 section_start(0x07)
-dialog_up(1)
+dialog_up("Yai")
 text("<\"Not bad?\"\nYou mean \"Great!\">\p")
 cls(5)
 jump(0x08)
@@ -68,7 +68,7 @@ section_end()
 
 # 0x08 @ 0x72D408
 section_start(0x08)
-dialog_up(2)
+dialog_up("Dex")
 text("<Yeah,well...>\p")
 cls(5)
 jump(0x09)
@@ -76,7 +76,7 @@ section_end()
 
 # 0x09 @ 0x72D42B
 section_start(0x09)
-dialog_up(0)
+dialog_up("Lan")
 text("<You ain't seen\nnothing yet!>{d}\n<MegaMan?>\p")
 cls(5)
 jump(0x0A)
@@ -84,7 +84,7 @@ section_end()
 
 # 0x0A @ 0x72D46D
 section_start(0x0A)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<What?>\p")
 cls(5)
 jump(0x0B)
@@ -92,7 +92,7 @@ section_end()
 
 # 0x0B @ 0x72D486
 section_start(0x0B)
-dialog_up(0)
+dialog_up("Lan")
 text("<Good job!>\p")
 cls(5)
 jump(0x0C)
@@ -100,7 +100,7 @@ section_end()
 
 # 0x0C @ 0x72D4A3
 section_start(0x0C)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Don't relax just yet\nLan! You got English\nclass coming up...>\p")
 cls(5)
 jump(0x0D)
@@ -108,7 +108,7 @@ section_end()
 
 # 0x0D @ 0x72D4F7
 section_start(0x0D)
-dialog_up(0)
+dialog_up("Lan")
 text("<Awh,man>...{d}\n<I fixed the server\ntoo soon>...\p")
 end(5)
 section_end()

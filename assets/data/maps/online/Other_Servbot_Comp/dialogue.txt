@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x7209E4
 section_start(0x00)
-dialog_up(36)
+dialog_up("MrProg")
 text("<I'm the voice\ncontrol program\nfor this toy!>\p")
 cls()
 text("<\"Please play with\nme!\"...Things like\nthat...>\p")
@@ -11,7 +11,7 @@ section_end()
 
 # 0x01 @ 0x720A5E
 section_start(0x01)
-dialog_up(36)
+dialog_up("MrProg")
 text("<I wish that I could\ntalk sometimes,\ntoo...>\p")
 cls()
 text("<\"Put me down,NOW!\",\nthings like that...>\p")

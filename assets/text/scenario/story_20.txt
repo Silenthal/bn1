@@ -2,7 +2,7 @@ section_count(0x5)
 
 # 0x00 @ 0x72DD4A
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! We did it!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72DD6E
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Right on! Let's\nget the security\nprogram running!>\p")
 cls(5)
 jump(0x02)
@@ -18,14 +18,14 @@ section_end()
 
 # 0x02 @ 0x72DDB5
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Leave it to me!>\p")
 end()
 section_end()
 
 # 0x03 @ 0x72DDD5
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<This should let the\nMetroline open\nsafely!>\p")
 cls()
 text("<Let's hurry up and\nget that PowerUp\nprogram!>\p")
@@ -35,7 +35,7 @@ section_end()
 
 # 0x04 @ 0x72DE49
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<OK!>\p")
 end(5)
 section_end()

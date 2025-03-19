@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x721AA8
 section_start(0x00)
-dialog_up(36)
+dialog_up("MrProg")
 text("<This {key PET} is made\nfrom recycled\nplastics!>\p")
 cls()
 text("<At last,a {key PET} which\nis safe for the\nenvironment!>\p")
@@ -11,7 +11,7 @@ section_end()
 
 # 0x01 @ 0x721B1D
 section_start(0x01)
-dialog_up(36)
+dialog_up("MrProg")
 text("<We must be careful\nto recycle\neverything we can!>\p")
 end(5)
 section_end()

@@ -9,7 +9,7 @@ section_end()
 
 # 0x01 @ 0x73C320
 section_start(0x01)
-dialog_up(28)
+dialog_up("Dad")
 text("<Good job,Lan...\nAnd,Hub>...{d}<I mean\nMegaMan!>\p")
 cls(5)
 jump(0x02)
@@ -17,7 +17,7 @@ section_end()
 
 # 0x02 @ 0x73C36D
 section_start(0x02)
-dialog_up(12)
+dialog_up("Mom")
 text("<Oh,I'm so glad the\ntwo of you are OK!>\p")
 cls(5)
 jump(0x03)
@@ -25,7 +25,7 @@ section_end()
 
 # 0x03 @ 0x73C3A8
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<Sorry,Mom.>\p")
 cls(5)
 jump(0x04)
@@ -33,7 +33,7 @@ section_end()
 
 # 0x04 @ 0x73C3C7
 section_start(0x04)
-dialog_up(12)
+dialog_up("Mom")
 text("<Well,I never thought\nraising two boys was\ngoing to be easy!>\p")
 cls()
 set_flag(0xA4)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x73C41B
 section_start(0x05)
-dialog_up(12)
+dialog_up("Mom")
 text("<Isn't that right,\nHoney?>\p")
 cls(5)
 set_flag(0xAE)
@@ -51,7 +51,7 @@ section_end()
 
 # 0x06 @ 0x73C44D
 section_start(0x06)
-dialog_up(28)
+dialog_up("Dad")
 text("<Heh>...{d}<They\ncouldn't have done\nit without you.>\p")
 cls()
 text("<Thanks.>\p")
@@ -61,7 +61,7 @@ section_end()
 
 # 0x07 @ 0x73C4AA
 section_start(0x07)
-dialog_up(12)
+dialog_up("Mom")
 text("<They couldn't have\ndone it without us,\nyou mean.>\p")
 cls(5)
 jump(0x08)
@@ -69,7 +69,7 @@ section_end()
 
 # 0x08 @ 0x73C4F0
 section_start(0x08)
-dialog_up(28)
+dialog_up("Dad")
 text("<Honey>{..}.\p")
 cls(5)
 jump(0x09)
@@ -77,7 +77,7 @@ section_end()
 
 # 0x09 @ 0x73C516
 section_start(0x09)
-dialog_up(12)
+dialog_up("Mom")
 text("<Honey>{..}.\p")
 cls(5)
 jump(0x0A)
@@ -85,7 +85,7 @@ section_end()
 
 # 0x0A @ 0x73C53C
 section_start(0x0A)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Hehーheh,your mom and\ndad sure get along\nwell,Lan.>\p")
 cls(5)
 jump(0x0B)
@@ -93,7 +93,7 @@ section_end()
 
 # 0x0B @ 0x73C583
 section_start(0x0B)
-dialog_up(0)
+dialog_up("Lan")
 text("<I know. It's really\nembarrassing.>\p")
 cls(5)
 jump(0x0C)
@@ -101,7 +101,7 @@ section_end()
 
 # 0x0C @ 0x73C5BA
 section_start(0x0C)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Maybe we could learn\nfrom them...>\p")
 cls(5)
 jump(0x0D)
@@ -109,7 +109,7 @@ section_end()
 
 # 0x0D @ 0x73C5F1
 section_start(0x0D)
-dialog_up(0)
+dialog_up("Lan")
 text("<Huh?>{d} <What are\nyou talking about?\nWe're just friends!>\p")
 cls(5)
 jump(0x0E)
@@ -117,7 +117,7 @@ section_end()
 
 # 0x0E @ 0x73C644
 section_start(0x0E)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,Lan,Lan...>\p")
 cls(5)
 jump(0x0F)
@@ -125,7 +125,7 @@ section_end()
 
 # 0x0F @ 0x73C66A
 section_start(0x0F)
-dialog_up(40)
+dialog_up("Roll")
 text("<He really is dense,\nisn't he?>\p")
 cls(5)
 jump(0x10)
@@ -133,7 +133,7 @@ section_end()
 
 # 0x10 @ 0x73C69D
 section_start(0x10)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<That's right,Roll!>\p")
 cls(5)
 jump(0x11)
@@ -141,7 +141,7 @@ section_end()
 
 # 0x11 @ 0x73C6C5
 section_start(0x11)
-dialog_up(40)
+dialog_up("Roll")
 text("<You said it,Mega!>\p")
 cls(5)
 jump(0x12)
@@ -149,7 +149,7 @@ section_end()
 
 # 0x12 @ 0x73C6EB
 section_start(0x12)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Look>...{d}<Even\nRoll and MegaMan\nare in the mood!>\p")
 cls(5)
 set_flag(0xF9)
@@ -160,7 +160,7 @@ section_end()
 
 # 0x13 @ 0x73C743
 section_start(0x13)
-dialog_up(8)
+dialog_up("Mayl")
 text("<I've had it with you\nLan! After I was so\nnice...>\p")
 cls()
 text("<I shouldn't have\nrescued you after\nall!>\p")
@@ -170,7 +170,7 @@ section_end()
 
 # 0x14 @ 0x73C7BC
 section_start(0x14)
-dialog_up(0)
+dialog_up("Lan")
 text("??? {d}<I don't get\nit! What am I doing\nwrong??>\p")
 cls(5)
 jump(0x15)
@@ -178,7 +178,7 @@ section_end()
 
 # 0x15 @ 0x73C805
 section_start(0x15)
-dialog_up(2)
+dialog_up("Dex")
 text("*whistle*\n<Yowsas!>\p")
 cls(5)
 pc_anim(1)
@@ -187,7 +187,7 @@ section_end()
 
 # 0x16 @ 0x73C82F
 section_start(0x16)
-dialog_up(1)
+dialog_up("Yai")
 text("<Woo! Woo!\nMayl and Lan,up\nin a tree...>\p")
 cls(5)
 pc_anim(5)
@@ -196,7 +196,7 @@ section_end()
 
 # 0x17 @ 0x73C871
 section_start(0x17)
-dialog_up(0)
+dialog_up("Lan")
 text("<Mayl and>...{d}\n<Huh? Mayl,are you...\nDo you...?>\p")
 cls(5)
 jump(0x18)
@@ -204,7 +204,7 @@ section_end()
 
 # 0x18 @ 0x73C8C3
 section_start(0x18)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Isn't it obvious!?\nReally!>\p")
 cls(5)
 jump(0x19)
@@ -212,7 +212,7 @@ section_end()
 
 # 0x19 @ 0x73C8F4
 section_start(0x19)
-dialog_up(0)
+dialog_up("Lan")
 text("<YーYeah,but I...>\p")
 cls(5)
 jump(0x1A)
@@ -220,7 +220,7 @@ section_end()
 
 # 0x1A @ 0x73C91A
 section_start(0x1A)
-dialog_up(1)
+dialog_up("Yai")
 text("<Don't deny it,Lan...>\p")
 cls(5)
 jump(0x1B)
@@ -228,7 +228,7 @@ section_end()
 
 # 0x1B @ 0x73C946
 section_start(0x1B)
-dialog_up(0)
+dialog_up("Lan")
 text("<Grrr!> {d}<That's it!\nThis conversation is\nover!>\p")
 cls()
 pc_anim(1)
@@ -239,7 +239,7 @@ section_end()
 
 # 0x1C @ 0x73C9C2
 section_start(0x1C)
-dialog_up(2)
+dialog_up("Dex")
 text("<Dex always pays\nhis debts! Don't\nmention it...>\p")
 cls(5)
 jump(0x1D)
@@ -247,7 +247,7 @@ section_end()
 
 # 0x1D @ 0x73CA08
 section_start(0x1D)
-dialog_up(0)
+dialog_up("Lan")
 text("<Thanks,Dex,you're\na true friend.>\p")
 cls(5)
 jump(0x1E)
@@ -255,7 +255,7 @@ section_end()
 
 # 0x1E @ 0x73CA3F
 section_start(0x1E)
-dialog_up(1)
+dialog_up("Yai")
 text("<That's right...you\nneed a little more\npractice,though,Dex.>\p")
 cls(5)
 set_flag(0x93)
@@ -264,7 +264,7 @@ section_end()
 
 # 0x1F @ 0x73CA97
 section_start(0x1F)
-dialog_up(2)
+dialog_up("Dex")
 text("<What was that?\nMe? Practice?\nWhy,you...>\p")
 cls(5)
 jump(0x20)
@@ -272,7 +272,7 @@ section_end()
 
 # 0x20 @ 0x73CAD8
 section_start(0x20)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Well now>...{d}\n<Aren't we all the\nhappy bunch now?>\p")
 cls(5)
 pc_anim(3)
@@ -281,7 +281,7 @@ section_end()
 
 # 0x21 @ 0x73CB29
 section_start(0x21)
-dialog_up(0)
+dialog_up("Lan")
 text("<Chaud>...{d}<Thanks,\nyou really helped\nout,too.>\p")
 cls(5)
 jump(0x22)
@@ -289,7 +289,7 @@ section_end()
 
 # 0x22 @ 0x73CB74
 section_start(0x22)
-dialog_up(7)
+dialog_up("Chaud")
 text("<No need to thank me>.{d}\n<In fact,you made me\nlook pretty bad...>\p")
 cls()
 text("<Because you did\nall the work!>\p")
@@ -299,7 +299,7 @@ section_end()
 
 # 0x23 @ 0x73CBF5
 section_start(0x23)
-dialog_up(0)
+dialog_up("Lan")
 text("<Heh...grumpy as\never,I see...>\p")
 cls()
 text("<But,I couldn't have\nstopped the WWW if\nyou hadn't helped>.{d}\p")
@@ -311,7 +311,7 @@ section_end()
 
 # 0x24 @ 0x73CC88
 section_start(0x24)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Yeah,well...\nThanks accepted,\nthis time.>\p")
 cls()
 text("<But next time\nsomething happens,\nyou leave the>\p")
@@ -323,7 +323,7 @@ section_end()
 
 # 0x25 @ 0x73CD28
 section_start(0x25)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hey,we'll be right\nby your side!\nRight,MegaMan?>\p")
 cls()
 text("<Ah,sorry>...{d}\n<I mean,if you still\nwant,to,um...Hub?>\p")
@@ -333,7 +333,7 @@ section_end()
 
 # 0x26 @ 0x73CDBB
 section_start(0x26)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<MegaMan's the name,\nand I'm with you\nall the way!>\p")
 cls()
 text("<As a team,Lan,we're\nunstoppable!>\p")
@@ -343,7 +343,7 @@ section_end()
 
 # 0x27 @ 0x73CE2F
 section_start(0x27)
-dialog_up(0)
+dialog_up("Lan")
 text("<Yeah>...{d}<Right!>\p")
 cls(5)
 jump(0x28)
@@ -351,7 +351,7 @@ section_end()
 
 # 0x28 @ 0x73CE5B
 section_start(0x28)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Oh,wait!>{d}< Just one\nthing>{..}.\n<From now on...>\p")
 cls()
 text("<You're getting up by\nyourself in the\nmorning! Got it?>\p")
@@ -361,7 +361,7 @@ section_end()
 
 # 0x29 @ 0x73CEF3
 section_start(0x29)
-dialog_up(0)
+dialog_up("Lan")
 text("<What,really...?\nAwww....>\p")
 cls(5)
 jump(0x2A)
@@ -390,7 +390,7 @@ section_end()
 
 # 0x2C @ 0x73CF7E
 section_start(0x2C)
-dialog_up(12)
+dialog_up("Mom")
 text("<What?>{d}\n<There can't be a\ncrook here now...>\p")
 cls()
 text("<The alarm system\nmust be buggy again!\nDarn old thing...>\p")
@@ -409,7 +409,7 @@ section_end()
 
 # 0x2E @ 0x73D021
 section_start(0x2E)
-dialog_up(34)
+dialog_up("MegaMan")
 text("{set_flag 0xED}<Lan! We've got a\njob to do!>\p")
 cls(5)
 jump(0x2F)
@@ -417,13 +417,12 @@ section_end()
 
 # 0x2F @ 0x73D056
 section_start(0x2F)
-dialog_up(0)
+dialog_up("Lan")
 text("<Right on!\nLet's go!>\p")
 cls()
 input_off()
 set_delay(1)
-text("<Jack in!!>{d}\n<MegaMan.EXE,{d 10}\ntransmit!>")
-breaks(30)
+text("<Jack in!!>{d}\n<MegaMan.EXE,{d 10}\ntransmit!>{fd 30}")
 input_on()
 end()
 section_end()

@@ -2,7 +2,7 @@ section_count(0x11)
 
 # 0x00 @ 0x730ADA
 section_start(0x00)
-dialog_up(45)
+dialog_up("ColorMan")
 text("<Good job finding me!\nYou're better than\nthe rest...>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x730B25
 section_start(0x01)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Put down that Aqua\nprogram>...{d}<or else!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x730B69
 section_start(0x02)
-dialog_up(45)
+dialog_up("ColorMan")
 text("<Now,now,we\ndon't have time to\nplay with you now.>\p")
 cls()
 text("<But you will face\nme,ColorMan,soon\nenough!>\p")
@@ -28,7 +28,7 @@ section_end()
 
 # 0x03 @ 0x730BE5
 section_start(0x03)
-dialog_up(24)
+dialog_up("MsMadd")
 text("<Let's go!>\p")
 cls(5)
 jump(0x04)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x730C03
 section_start(0x04)
-dialog_up(45)
+dialog_up("ColorMan")
 text("<OK,Madd!> {d}<Later!>\p")
 dialog_down()
 set_flag(0xCF)
@@ -45,14 +45,14 @@ section_end()
 
 # 0x05 @ 0x730C33
 section_start(0x05)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("・・・\p")
 end()
 section_end()
 
 # 0x06 @ 0x730C45
 section_start(0x06)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<It's that Navi\nfrom before!>\p")
 cls(5)
 jump(0x07)
@@ -60,7 +60,7 @@ section_end()
 
 # 0x07 @ 0x730C75
 section_start(0x07)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Hmph! You nosy\nscoundrels again...!>\p")
 cls(5)
 jump(0x08)
@@ -68,7 +68,7 @@ section_end()
 
 # 0x08 @ 0x730CB0
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<Chaud!>\p")
 cls(5)
 jump(0x09)
@@ -76,7 +76,7 @@ section_end()
 
 # 0x09 @ 0x730CCA
 section_start(0x09)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Who are you,and how\ndo you know my name?>\p")
 cls(5)
 jump(0x0A)
@@ -84,7 +84,7 @@ section_end()
 
 # 0x0A @ 0x730D07
 section_start(0x0A)
-dialog_up(0)
+dialog_up("Lan")
 text("<That can wait!>{d}\n<Why were they after\nthe Aquaprogram?>\p")
 cls(5)
 jump(0x0B)
@@ -92,7 +92,7 @@ section_end()
 
 # 0x0B @ 0x730D57
 section_start(0x0B)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Find out for\nyourself! ProtoMan,\nwe're outta here!>\p")
 cls(5)
 jump(0x0C)
@@ -100,7 +100,7 @@ section_end()
 
 # 0x0C @ 0x730DA0
 section_start(0x0C)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Sir!>\p")
 dialog_down()
 set_flag(0xD0)
@@ -109,7 +109,7 @@ section_end()
 
 # 0x0D @ 0x730DBB
 section_start(0x0D)
-dialog_up(23)
+dialog_up("DrFroid")
 text("<...We used that\nprogram to make good\ntasting water.>\p")
 cls()
 text("<But somehow I don't\nthink that's why\nthe WWW wants it...>\p")
@@ -119,7 +119,7 @@ section_end()
 
 # 0x0E @ 0x730E4A
 section_start(0x0E)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan?>\p")
 cls(5)
 jump(0x0F)
@@ -127,7 +127,7 @@ section_end()
 
 # 0x0F @ 0x730E62
 section_start(0x0F)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hmm>...{d}<I don't\nget it! Pull out,\nlet's go see Froid!>\p")
 cls(5)
 jump(0x10)
@@ -135,7 +135,7 @@ section_end()
 
 # 0x10 @ 0x730EB8
 section_start(0x10)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roger!>\p")
 end()
 section_end()

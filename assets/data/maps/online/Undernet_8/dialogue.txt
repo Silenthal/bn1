@@ -3,7 +3,7 @@ section_count(0x42)
 # 0x00 @ 0x7279C8
 section_start(0x00)
 if_shop(0x06, 0xFF, 0x01)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<Pssst...Hey,kid...\nWanna see my stash?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -14,7 +14,7 @@ section_end()
 
 # 0x01 @ 0x727A35
 section_start(0x01)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<I'm out of stuff!\nSo scram!!>\p")
 end()
 section_end()
@@ -26,7 +26,7 @@ section_end()
 
 # 0x14 @ 0x727A8C
 section_start(0x14)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<You can't go on\nfrom here.>\p")
 cls()
 text("<Play around as\nmuch as you like,\nthough.>\p")

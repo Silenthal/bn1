@@ -13,7 +13,7 @@ section_end()
 
 # 0x01 @ 0x70F486
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Hey,Lan! Check out\nall these\nfootprints!>\p")
 cls(5)
 jump(0x02)
@@ -21,7 +21,7 @@ section_end()
 
 # 0x02 @ 0x70F4C4
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hey,yeah!>\p")
 cls(5)
 jump(0x03)
@@ -29,7 +29,7 @@ section_end()
 
 # 0x03 @ 0x70F4E2
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Let's check around\nhere again...>\p")
 end()
 section_end()
@@ -47,7 +47,7 @@ section_end()
 
 # 0x05 @ 0x70F55C
 section_start(0x05)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan!\nIt's a secret door!>\p")
 cls(5)
 jump(0x06)
@@ -55,7 +55,7 @@ section_end()
 
 # 0x06 @ 0x70F58A
 section_start(0x06)
-dialog_up(0)
+dialog_up("Lan")
 text("<Cool! We can jack\nin here!>\p")
 end()
 section_end()
@@ -75,16 +75,15 @@ section_end()
 section_start(0x08)
 input_off()
 set_delay(1)
-dialog_up(0)
-text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>")
-breaks(30)
+dialog_up("Lan")
+text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>{fd 30}")
 input_on()
 end()
 section_end()
 
 # 0x09 @ 0x70F67C
 section_start(0x09)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Good luck,Lan!\nI know you can\ndo it!>\p")
 cls()
 text("<You can do anything\nyou set your mind\nto!>\p")
@@ -93,7 +92,7 @@ section_end()
 
 # 0x0A @ 0x70F6E5
 section_start(0x0A)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Hmph,you again>...{d}\n<Why are you always\nin my way!?>\p")
 cls(5)
 jump(0x14)
@@ -101,14 +100,14 @@ section_end()
 
 # 0x0B @ 0x70F736
 section_start(0x0B)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! Through the\nsecret door!\nQuick!>\p")
 end()
 section_end()
 
 # 0x14 @ 0x70F77D
 section_start(0x14)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,do you want to\nchallenge Chaud?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -118,7 +117,7 @@ section_end()
 
 # 0x15 @ 0x70F7C9
 section_start(0x15)
-dialog_up(7)
+dialog_up("Chaud")
 text("<So you want to see\nhow the pros do it,\nhuh? PROTOMAN!!>\p")
 cls(5)
 jump(0x16)
@@ -126,7 +125,7 @@ section_end()
 
 # 0x16 @ 0x70F816
 section_start(0x16)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<You called?>\p")
 cls(5)
 jump(0x1B)
@@ -134,21 +133,21 @@ section_end()
 
 # 0x17 @ 0x70F835
 section_start(0x17)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Smart call on\nyour part...>\p")
 end()
 section_end()
 
 # 0x18 @ 0x70F862
 section_start(0x18)
-dialog_up(7)
+dialog_up("Chaud")
 text("<I don't see any\nreason to battle\nwith a kid like you.>\p")
 end()
 section_end()
 
 # 0x19 @ 0x70F8A9
 section_start(0x19)
-dialog_up(7)
+dialog_up("Chaud")
 text("<A Navi using genetic\nalgorithms based on\nthat of its owner...>\p")
 cls()
 text("<Hmmmm...>\p")
@@ -157,7 +156,7 @@ section_end()
 
 # 0x1A @ 0x70F90C
 section_start(0x1A)
-dialog_up(7)
+dialog_up("Chaud")
 text("<See? I should be\nthe one to go>...{d}?\p")
 end()
 section_end()

@@ -2,49 +2,49 @@ section_count(0xEB)
 
 # 0x0A @ 0x6F174E
 section_start(0x0A)
-dialog_up(19)
+dialog_up("SternMan")
 text("<Don't dawdle!\nGet straight home!>\p")
 end(5)
 section_end()
 
 # 0x0B @ 0x6F1781
 section_start(0x0B)
-dialog_up(10)
+dialog_up("Girl")
 text("<I'm on feed duty.>\p")
 end(5)
 section_end()
 
 # 0x14 @ 0x6F17B4
 section_start(0x14)
-dialog_up(11)
+dialog_up("BlueShirtBoy")
 text("<Aaack! I'm late\nagain!!>\p")
 end()
 section_end()
 
 # 0x15 @ 0x6F17DF
 section_start(0x15)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Late again?\nWhat a surprise...>\p")
 end()
 section_end()
 
 # 0x1A @ 0x6F1819
 section_start(0x1A)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<These animals will\ndie if they don't\nget some water!>\p")
 end()
 section_end()
 
 # 0x1B @ 0x6F185F
 section_start(0x1B)
-dialog_up(18)
+dialog_up("PigtailsGirl")
 text("<I wonder if the\nplants will all\ndie...>\p")
 end()
 section_end()
 
 # 0x1E @ 0x6F189C
 section_start(0x1E)
-dialog_up(16)
+dialog_up("Man")
 text("<Wa...water!!>\p")
 end()
 section_end()
@@ -54,7 +54,7 @@ section_start(0x23)
 if_story(FLAG_STORY_DELETE_COLORMAN, 0x2E)
 if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x32)
 if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x37)
-dialog_up(11)
+dialog_up("BlueShirtBoy")
 text("<Even when school is\nout,we still have to\nfeed the animals!>\p")
 end()
 section_end()
@@ -63,14 +63,14 @@ section_end()
 section_start(0x24)
 if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x33)
 if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x38)
-dialog_up(19)
+dialog_up("SternMan")
 text("<School's out.\nShouldn't be many\npeople here...>\p")
 end()
 section_end()
 
 # 0x2E @ 0x6F1985
 section_start(0x2E)
-dialog_up(11)
+dialog_up("BlueShirtBoy")
 text("<These rabbits are so\nplump thanks to me!>\p")
 cls()
 text("<I've been giving\nthem leftovers from\nlunch!>\p")
@@ -81,14 +81,14 @@ section_end()
 
 # 0x32 @ 0x6F1A1A
 section_start(0x32)
-dialog_up(11)
+dialog_up("BlueShirtBoy")
 text("<The animals are\nacting strange,like\nthey're scared!>\p")
 end()
 section_end()
 
 # 0x33 @ 0x6F1A60
 section_start(0x33)
-dialog_up(19)
+dialog_up("SternMan")
 text("<Huh?\nSchool's out,son.>\p")
 cls()
 text("<I think that Ms.\nMari is the only\nteacher left here.>\p")
@@ -97,14 +97,14 @@ section_end()
 
 # 0x37 @ 0x6F1ACE
 section_start(0x37)
-dialog_up(11)
+dialog_up("BlueShirtBoy")
 text("<No way!\nI'm staying here\nwith them!>\p")
 end()
 section_end()
 
 # 0x38 @ 0x6F1B04
 section_start(0x38)
-dialog_up(19)
+dialog_up("SternMan")
 text("<I could close up the\nschool if Ms.Mari\nwould just leave...>\p")
 end()
 section_end()

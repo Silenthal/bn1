@@ -2,7 +2,7 @@ section_count(0xE)
 
 # 0x00 @ 0x7334A4
 section_start(0x00)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Laaan!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x7334BE
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Geez,\nall the trouble I\ngo through...>\p")
 cls(5)
 jump(0x02)
@@ -18,14 +18,14 @@ section_end()
 
 # 0x02 @ 0x7334FA
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Now Lan,be nice!>\p")
 end()
 section_end()
 
 # 0x03 @ 0x73351C
 section_start(0x03)
-dialog_up(8)
+dialog_up("Mayl")
 text("<No,Lan's right.>{d}\n<Thank you,Lan>{d}{..}.\p")
 cls(5)
 jump(0x04)
@@ -33,7 +33,7 @@ section_end()
 
 # 0x04 @ 0x73356A
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hーhey!>{d} <What's the\nbig idea coming up\nclose like that!>\p")
 cls(5)
 jump(0x05)
@@ -41,7 +41,7 @@ section_end()
 
 # 0x05 @ 0x7335BD
 section_start(0x05)
-dialog_up(40)
+dialog_up("Roll")
 text("*giggle*\p")
 cls(5)
 jump(0x06)
@@ -49,7 +49,7 @@ section_end()
 
 # 0x06 @ 0x7335D6
 section_start(0x06)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Oh Laaan...You're\nblushing!>\p")
 cls(5)
 jump(0x07)
@@ -57,7 +57,7 @@ section_end()
 
 # 0x07 @ 0x733609
 section_start(0x07)
-dialog_up(0)
+dialog_up("Lan")
 text("<SーShut up!>{d}\n<I am not!>\p")
 cls(5)
 jump(0x08)
@@ -65,7 +65,7 @@ section_end()
 
 # 0x08 @ 0x73363A
 section_start(0x08)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Hee hee!>\p")
 cls()
 text("<Well now,let's go\nget Yai's present!>{d}\n<C'mon Lan! Let's go!>\p")
@@ -75,7 +75,7 @@ section_end()
 
 # 0x09 @ 0x7336A7
 section_start(0x09)
-dialog_up(0)
+dialog_up("Lan")
 text("<Now you're all happy\nand everything!\nWhat's going on!?>\p")
 cls(5)
 jump(0x0A)
@@ -83,14 +83,14 @@ section_end()
 
 # 0x0A @ 0x7336F5
 section_start(0x0A)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Well>...{d}<It's a\nsecret!>\p")
 end()
 section_end()
 
 # 0x0B @ 0x733727
 section_start(0x0B)
-dialog_up(40)
+dialog_up("Roll")
 text("<He sure is dense...>\p")
 cls(5)
 jump(0x0C)
@@ -98,7 +98,7 @@ section_end()
 
 # 0x0C @ 0x733750
 section_start(0x0C)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<You sure are dense...>\p")
 cls(5)
 jump(0x0D)
@@ -106,7 +106,7 @@ section_end()
 
 # 0x0D @ 0x73377B
 section_start(0x0D)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hey! Wait up!>\p")
 end()
 section_end()

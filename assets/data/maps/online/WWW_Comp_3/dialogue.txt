@@ -2,7 +2,7 @@ section_count(0x1E)
 
 # 0x14 @ 0x71EA08
 section_start(0x14)
-dialog_up(44)
+dialog_up("IceMan")
 text("<Good luck!>\p")
 end()
 section_end()

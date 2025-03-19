@@ -18,7 +18,7 @@ section_end()
 
 # 0x0C @ 0x725F5C
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! Try the\nmemo we got from\nthe old man!>\p")
 cls(5)
 jump(0x0D)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x0D @ 0x725F9F
 section_start(0x0D)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<OK!!>\p")
 cls(5)
 jump(0x0E)
@@ -47,7 +47,7 @@ section_end()
 
 # 0x0F @ 0x726000
 section_start(0x0F)
-dialog_up(0)
+dialog_up("Lan")
 text("<All right!>\p")
 end()
 section_end()

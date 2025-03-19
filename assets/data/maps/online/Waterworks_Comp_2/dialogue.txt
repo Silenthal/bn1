@@ -51,7 +51,7 @@ section_end()
 
 # 0x08 @ 0x714ADE
 section_start(0x08)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Looks like it's\nbroken...>\p")
 cls(5)
 jump(0x09)
@@ -59,7 +59,7 @@ section_end()
 
 # 0x09 @ 0x714B0E
 section_start(0x09)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's worry about\nthis one later!>\p")
 end()
 section_end()
@@ -74,7 +74,7 @@ section_end()
 
 # 0x0B @ 0x714B63
 section_start(0x0B)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! I'll bet we can\nuse the handle we\ngot from Froid!>\p")
 cls()
 jump(0x0C)
@@ -82,7 +82,7 @@ section_end()
 
 # 0x0C @ 0x714BAF
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hey,yeah!>\p")
 cls(5)
 jump(0x0D)
@@ -109,14 +109,14 @@ section_end()
 
 # 0x0F @ 0x714C2D
 section_start(0x0F)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<I don't think we\nneed to do that now,\nLan...>\p")
 end()
 section_end()
 
 # 0x14 @ 0x714C76
 section_start(0x14)
-dialog_up(45)
+dialog_up("ColorMan")
 text("<I'm just a friendly\nneighborhood Navi!>\p")
 cls()
 text("<It's a dead end\nfrom here!\nSorry!>\p")
@@ -127,7 +127,7 @@ section_end()
 section_start(0x15)
 if_story(FLAG_STORY_TRUNK_FIND, 0x19)
 if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_FINAL, 0x1A)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<If you run water\nover ice,it will\nmelt!>\p")
 cls()
 text("<You can walk over\nthe melted ice,but\nnot over water.>\p")
@@ -140,14 +140,14 @@ section_end()
 
 # 0x19 @ 0x714DB8
 section_start(0x19)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<Ah,you've melted\nthe ice,I see!>\p")
 end()
 section_end()
 
 # 0x1A @ 0x714DEB
 section_start(0x1A)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<Sorry for the\nproblems we've been\nhaving!>\p")
 end()
 section_end()

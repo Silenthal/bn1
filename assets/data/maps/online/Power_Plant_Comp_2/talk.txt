@@ -11,14 +11,14 @@ section_end()
 
 # 0xB4 @ 0x6D3E68
 section_start(0xB4)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! Hurry to\nthe power plant,\nor...>\p")
 end()
 section_end()
 
 # 0xBE @ 0x6D3EB7
 section_start(0xBE)
-dialog_up(0)
+dialog_up("Lan")
 text("<Looks like not\nmuch is going on\nhere,huh?>\p")
 end()
 section_end()

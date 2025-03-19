@@ -2,7 +2,7 @@ section_count(0xB)
 
 # 0x00 @ 0x7384EA
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("...{d}!\n<There's a door in\nthe statue base!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x73852E
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<I think I can\nhear something.>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x73855F
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<That sound...\nIt's getting closer!>\p")
 cls(5)
 jump(0x03)
@@ -35,7 +35,7 @@ section_end()
 
 # 0x04 @ 0x7385B6
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! It's the\nMetroline!>\p")
 cls(5)
 jump(0x05)
@@ -43,21 +43,21 @@ section_end()
 
 # 0x05 @ 0x7385E4
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's open the\ndoor!>\p")
 end()
 section_end()
 
 # 0x06 @ 0x73860A
 section_start(0x06)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Lan? I wonder what\nhe's doing>{...}?\p")
 end()
 section_end()
 
 # 0x07 @ 0x73864D
 section_start(0x07)
-dialog_up(0)
+dialog_up("Lan")
 text("<A staircase!>\p")
 cls(5)
 jump(0x08)
@@ -65,7 +65,7 @@ section_end()
 
 # 0x08 @ 0x73866D
 section_start(0x08)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Let's go inside!>\p")
 cls(5)
 jump(0x09)
@@ -73,14 +73,14 @@ section_end()
 
 # 0x09 @ 0x738692
 section_start(0x09)
-dialog_up(0)
+dialog_up("Lan")
 text("<OK!>\p")
 end()
 section_end()
 
 # 0x0A @ 0x7386A6
 section_start(0x0A)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Hey,Lan! Wait up!>{d}\n{...}<He's gone...>\p")
 end()
 section_end()

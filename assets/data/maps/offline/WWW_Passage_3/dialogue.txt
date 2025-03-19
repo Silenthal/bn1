@@ -12,7 +12,7 @@ section_end()
 # 0x01 @ 0x710962
 section_start(0x01)
 mail(31)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan!\nYou've got mail!>\p")
 end()
 section_end()

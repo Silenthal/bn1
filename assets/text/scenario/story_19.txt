@@ -2,7 +2,7 @@ section_count(0x2)
 
 # 0x00 @ 0x72CC10
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! Thanks!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72CC31
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Told ya I'd\nget you out!>\p")
 end(5)
 section_end()

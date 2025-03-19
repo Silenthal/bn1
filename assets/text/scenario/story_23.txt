@@ -2,7 +2,7 @@ section_count(0x7)
 
 # 0x00 @ 0x72E252
 section_start(0x00)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Hey! You're late!>\p")
 cls()
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72E279
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Sorrysorry!>\p")
 end()
 section_end()
@@ -18,39 +18,35 @@ section_end()
 # 0x02 @ 0x72E295
 section_start(0x02)
 input_off()
-dialog_up(8)
-text("<Lan>...{d}<Did you\nhave water this\nmorning at home?>")
-breaks(70)
+dialog_up("Mayl")
+text("<Lan>...{d}<Did you\nhave water this\nmorning at home?>{fd 70}")
 jump(0x03)
 section_end()
 
 # 0x03 @ 0x72E2E4
 section_start(0x03)
-dialog_up(0)
-text("<What,you too?>")
-breaks(70)
+dialog_up("Lan")
+text("<What,you too?>{fd 70}")
 jump(0x04)
 section_end()
 
 # 0x04 @ 0x72E306
 section_start(0x04)
-dialog_up(8)
-text("<Yeah! I couldn't\neven wash my face\nthis morning...yuck>")
-breaks(70)
+dialog_up("Mayl")
+text("<Yeah! I couldn't\neven wash my face\nthis morning...yuck>{fd 70}")
 jump(0x05)
 section_end()
 
 # 0x05 @ 0x72E354
 section_start(0x05)
-dialog_up(0)
-text("<You can wash it when\nwe get to school!>")
-breaks(70)
+dialog_up("Lan")
+text("<You can wash it when\nwe get to school!>{fd 70}")
 jump(0x06)
 section_end()
 
 # 0x06 @ 0x72E38E
 section_start(0x06)
-dialog_up(8)
+dialog_up("Mayl")
 text("<I hope so...>")
 input_on()
 end(70)

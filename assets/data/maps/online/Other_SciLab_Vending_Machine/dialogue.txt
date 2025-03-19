@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x7218EC
 section_start(0x00)
-dialog_up(36)
+dialog_up("MrProg")
 text("<I'm a bit overworked\nlately...>\p")
 cls()
 text("<I'm making stupid\nmistakes,like giving\nout the wrong drink!>\p")
@@ -13,7 +13,7 @@ section_end()
 
 # 0x01 @ 0x721988
 section_start(0x01)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<Dem new fuzzy logic\nprograms...Always\ncomplaining...!>\p")
 cls()
 text("<Why,in MY day...\n(etc.,etc.)!\n...and we loved it!>\p")

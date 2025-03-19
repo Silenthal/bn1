@@ -13,7 +13,7 @@ section_end()
 
 # 0x01 @ 0x7A84C0
 section_start(0x01)
-pic(28, 1)
+pic("Dad", 1)
 dialog_show()
 text("Sorry I couldn't get\noff work Sunday.\nI'll be home soon.\p")
 cls()
@@ -28,7 +28,7 @@ section_end()
 
 # 0x02 @ 0x7A8570
 section_start(0x02)
-pic(28, 1)
+pic("Dad", 1)
 dialog_show()
 text("Lan,this is Dad.\nI've made a PowerUp\nprogram for MegaMan!\p")
 cls()
@@ -59,7 +59,7 @@ section_end()
 
 # 0x04 @ 0x7A8743
 section_start(0x04)
-pic(1, 1)
+pic("Yai", 1)
 dialog_show()
 text("Lan,R U late again?\p")
 cls()
@@ -71,7 +71,7 @@ section_end()
 
 # 0x05 @ 0x7A87AA
 section_start(0x05)
-pic(2, 1)
+pic("Dex", 1)
 dialog_show()
 text("My GutsMan is ready\nto take you on,if\nyou're not CHICKEN!\p")
 cls(5)
@@ -92,7 +92,7 @@ section_end()
 
 # 0x07 @ 0x7A886B
 section_start(0x07)
-pic(28, 1)
+pic("Dad", 1)
 dialog_show()
 text("{set_flag 0xFA}Sorry I was busy\nwhen you came to\nvisit.\p")
 cls()
@@ -115,7 +115,7 @@ section_end()
 
 # 0x08 @ 0x7A89D5
 section_start(0x08)
-pic(1, 1)
+pic("Yai", 1)
 dialog_show()
 text("It turns out that\nmissing kid from B\nClass was kidnapped!\p")
 cls()
@@ -134,7 +134,7 @@ section_end()
 
 # 0x09 @ 0x7A8ADA
 section_start(0x09)
-pic(8, 1)
+pic("Mayl", 1)
 dialog_show()
 text("Hey,Yai's birthday\nis coming up!\p")
 cls()
@@ -161,7 +161,7 @@ section_end()
 
 # 0x0B @ 0x7A8BC5
 section_start(0x0B)
-pic(8, 1)
+pic("Mayl", 1)
 dialog_show()
 text("I'm free now,\nso I'll take the bus\nto Dentown Block1.\p")
 cls()
@@ -183,7 +183,7 @@ section_end()
 
 # 0x0C @ 0x7A8D19
 section_start(0x0C)
-pic(24, 1)
+pic("MsMadd", 1)
 dialog_show()
 text("It seems the Dentown\nautodrive system has\nmalfunctioned...\p")
 cls()
@@ -201,7 +201,7 @@ section_end()
 
 # 0x0D @ 0x7A8E66
 section_start(0x0D)
-pic(8, 1)
+pic("Mayl", 1)
 dialog_show()
 text("I heard the bus is\ngoing to blow up!\nFor real!?\p")
 cls()
@@ -214,7 +214,7 @@ section_end()
 # 0x0E @ 0x7A8ECE
 section_start(0x0E)
 set_flag(0x71)
-pic(28, 1)
+pic("Dad", 1)
 dialog_show()
 text("Dear Lan,\p")
 cls()
@@ -232,7 +232,7 @@ section_end()
 
 # 0x0F @ 0x7A8FD3
 section_start(0x0F)
-pic(8, 1)
+pic("Mayl", 1)
 dialog_show()
 text("Lan,you don't know\nthe netaddress for\nmy home,right?\p")
 cls()
@@ -248,7 +248,7 @@ section_end()
 # 0x10 @ 0x7A906B
 section_start(0x10)
 set_flag(0x98)
-pic(6, 2)
+pic("Higsby", 2)
 dialog_show()
 text("Lan,the WWW server\nis hidden deep down\ninside the Undernet!\p")
 cls()
@@ -267,7 +267,7 @@ section_end()
 # 0x11 @ 0x7A91B7
 section_start(0x11)
 set_flag(0x72)
-pic(28, 1)
+pic("Dad", 1)
 dialog_show()
 text("I've found the site\nof the WWW lab deep\nin the mountains!\p")
 cls()
@@ -283,7 +283,7 @@ section_end()
 
 # 0x12 @ 0x7A92C3
 section_start(0x12)
-pic(23, 1)
+pic("DrFroid", 1)
 dialog_show()
 text("I've got something\nfor you. Drop by the\nWaterworks anytime!\p")
 cls(5)
@@ -293,7 +293,7 @@ section_end()
 
 # 0x13 @ 0x7A9314
 section_start(0x13)
-pic(23, 1)
+pic("DrFroid", 1)
 dialog_show()
 text("Thanks for the help,\nI thought this\nmight aid you;\p")
 cls()
@@ -328,7 +328,7 @@ section_end()
 
 # 0x15 @ 0x7A9564
 section_start(0x15)
-pic(7, 1)
+pic("Chaud", 1)
 dialog_show()
 text("This is Chaud. The\nWaterworks incident\nused a NetNavi with\p")
 cls()
@@ -446,7 +446,7 @@ section_end()
 
 # 0x1C @ 0x7A9D22
 section_start(0x1C)
-pic(1, 1)
+pic("Yai", 1)
 dialog_show()
 text("So? Are you looking\nfor the kid who was\nkidnapped?\p")
 cls()
@@ -460,7 +460,7 @@ section_end()
 
 # 0x1D @ 0x7A9DE3
 section_start(0x1D)
-pic(28, 1)
+pic("Dad", 1)
 dialog_show()
 text("Lan,how have you\nbeen? I'll be seeing\nyou today!\p")
 cls()
@@ -480,7 +480,7 @@ section_end()
 
 # 0x1E @ 0x7A9F41
 section_start(0x1E)
-pic(28, 1)
+pic("Dad", 1)
 dialog_show()
 text("That was a pretty\nlong power out. Is\neverything OK?\p")
 cls(5)
@@ -519,7 +519,7 @@ section_end()
 
 # 0x20 @ 0x7AA241
 section_start(0x20)
-pic(3, 1)
+pic("MsMari", 1)
 dialog_show()
 text("I forgot to mention\nsomething in class\ntoday;\p")
 cls()
@@ -786,7 +786,7 @@ section_end()
 # 0x40 @ 0x7AA4C9
 section_start(0x40)
 set_delay(0)
-pic(34)
+pic("MegaMan")
 dialog_show()
 clear_flag(FLAG_SYSTEM_INPUT_DELAY_ON)
 text("<Read which mail?>")
@@ -801,7 +801,7 @@ section_end()
 
 # 0x46 @ 0x7AA502
 section_start(0x46)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Respond\nto this mail?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -810,7 +810,7 @@ section_end()
 
 # 0x47 @ 0x7AA53C
 section_start(0x47)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Shouldn't you\nrespond? I bet\nMayl's waiting...>\p")
 cls(5)
 jump(0x40)
@@ -818,7 +818,7 @@ section_end()
 
 # 0x48 @ 0x7AA583
 section_start(0x48)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<What will you\ntell her?>\p")
 cls(5)
 jump(0x49)
@@ -834,7 +834,7 @@ section_end()
 
 # 0x4A @ 0x7AA5E6
 section_start(0x4A)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<What?\nAfter she invited\nyou and all...>\p")
 cls()
 text("<...so,what's\nyour response?>\p")
@@ -844,7 +844,7 @@ section_end()
 
 # 0x4B @ 0x7AA64C
 section_start(0x4B)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Rightーon!\nGo ahead and\nwrite your mail.>\p")
 cls(5)
 jump(0x4C)
@@ -866,7 +866,7 @@ section_end()
 
 # 0x4D @ 0x7AA6C8
 section_start(0x4D)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<I'll go give\nthis to Roll.>\p")
 cls(5)
 jump(0x40)

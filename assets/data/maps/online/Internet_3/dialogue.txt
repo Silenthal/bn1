@@ -3,7 +3,7 @@ section_count(0x42)
 # 0x00 @ 0x7240C4
 section_start(0x00)
 if_shop(0x02, 0xFF, 0x01)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<I'm a net merchant!\nWanna' see my wares?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -14,7 +14,7 @@ section_end()
 
 # 0x01 @ 0x724134
 section_start(0x01)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<I'm a net merchant!\n...but I'm currently\nout of stock.>\p")
 end()
 section_end()

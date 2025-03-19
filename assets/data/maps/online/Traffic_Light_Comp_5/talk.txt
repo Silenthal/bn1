@@ -11,14 +11,14 @@ section_end()
 
 # 0x9B @ 0x6D374C
 section_start(0x9B)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! Change all\nthe signals to red!>\p")
 end()
 section_end()
 
 # 0xA5 @ 0x6D3797
 section_start(0xA5)
-dialog_up(0)
+dialog_up("Lan")
 text("<Looks like not\nmuch is going on\nhere,huh?>\p")
 end()
 section_end()

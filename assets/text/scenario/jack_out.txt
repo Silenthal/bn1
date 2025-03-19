@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x73E9B4
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan,you want\nto jack out?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -19,14 +19,14 @@ section_end()
 
 # 0x05 @ 0x73EA19
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<Now that we got the\nIceblock,let's go a\nlitte farther!>\p")
 end(5)
 section_end()
 
 # 0x06 @ 0x73EA62
 section_start(0x06)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan...PET's battery\nis running low. You\ncan only jack out>\p")
 cls()
 text("<one more time,so\nbeat the WWW virus\nfirst!>\p")
@@ -35,7 +35,7 @@ section_end()
 
 # 0x07 @ 0x73EAE4
 section_start(0x07)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<This is no time to\njack out! The\nrocket's launching!>\p")
 end()
 section_end()

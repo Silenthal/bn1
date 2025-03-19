@@ -2,7 +2,7 @@ section_count(0xC)
 
 # 0x00 @ 0x72CC74
 section_start(0x00)
-dialog_up(38)
+dialog_up("NumberMan")
 text("<I didn't think you'd\nmake it this far!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72CCB0
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<We've got to stop\nthe announcement\nprogram,quick!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72CCF7
 section_start(0x02)
-dialog_up(38)
+dialog_up("NumberMan")
 text("?{d}< But being a WWW\nslave is fun! Isn't\nit,Mr.Higsby?>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x72CD47
 section_start(0x03)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Yes! With my new WWW\nsalary I can buy\nlots of rare chips!>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x72CD95
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<I knew it! And you\ncall yourself a\nteacher!>\p")
 cls(5)
 jump(0x05)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x72CDD5
 section_start(0x05)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Heh>...{d}\n<I did feel a little\nbad at first,huh.>\p")
 cls(5)
 jump(0x06)
@@ -50,7 +50,7 @@ section_end()
 
 # 0x06 @ 0x72CE21
 section_start(0x06)
-dialog_up(38)
+dialog_up("NumberMan")
 text("<Mr.Higsby!>\p")
 cls(5)
 jump(0x07)
@@ -58,7 +58,7 @@ section_end()
 
 # 0x07 @ 0x72CE40
 section_start(0x07)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Yes! But then I knew\nI'd do anything for\nrare chips,huh!>\p")
 cls(5)
 jump(0x08)
@@ -66,7 +66,7 @@ section_end()
 
 # 0x08 @ 0x72CE8F
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<Who needs rare chips\nbought with the\nWWW's dirty money!>\p")
 cls(5)
 jump(0x09)
@@ -74,7 +74,7 @@ section_end()
 
 # 0x09 @ 0x72CEDB
 section_start(0x09)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Huh!>...{d}<Silence!>{d}\n<Now,you face me and\nNumberMan!>\p")
 cls(5)
 jump(0x0A)
@@ -82,7 +82,7 @@ section_end()
 
 # 0x0A @ 0x72CF33
 section_start(0x0A)
-dialog_up(0)
+dialog_up("Lan")
 text("<No problem!\nLet's go,MegaMan!\nBattle routine,set!!>\p")
 cls(5)
 jump(0x0B)
@@ -90,7 +90,7 @@ section_end()
 
 # 0x0B @ 0x72CF7F
 section_start(0x0B)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Execute!!>\p")
 end(5)
 section_end()

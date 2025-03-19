@@ -2,7 +2,7 @@ section_count(0x1)
 
 # 0x00 @ 0x70E922
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<Huh?>\p")
 cls()
 text("<The lights are on\nin this room...>\p")

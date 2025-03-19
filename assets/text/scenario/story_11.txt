@@ -2,7 +2,7 @@ section_count(0x7)
 
 # 0x00 @ 0x72B846
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Looks like everyone\nis already in the\nclassroom...>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72B88E
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan,any new\nmail?>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72B8B8
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! Didn't you hear\nwhat I just said?>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x72B8F4
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<You better get to\nclass,quick!>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x72B927
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Geez!\nYou have 2 new\nmessages.>\p")
 cls()
 text("<The first is NetNews\n\"Student net crime\n on the rise!\">\p")
@@ -48,7 +48,7 @@ section_end()
 
 # 0x05 @ 0x72BA0B
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<That Yai>...< Grr>...\n...{d}<Well,no point\nhurrying,I guess!>\p")
 cls(5)
 jump(0x06)
@@ -56,7 +56,7 @@ section_end()
 
 # 0x06 @ 0x72BA6B
 section_start(0x06)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Why do I even\nbother...>\p")
 end(5)
 section_end()

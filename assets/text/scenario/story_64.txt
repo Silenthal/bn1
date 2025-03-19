@@ -2,21 +2,21 @@ section_count(0x8)
 
 # 0x00 @ 0x737540
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<LーLan...\nThe PET battery...>\p")
 end()
 section_end()
 
 # 0x01 @ 0x737571
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan!\nI have to recharge\nquick!>\p")
 end()
 section_end()
 
 # 0x02 @ 0x7375A5
 section_start(0x02)
-dialog_up(27)
+dialog_up("Scientist")
 text("<Hooey! Looks like\nyour battery's out\nagain!>\p")
 cls()
 text("<Thought you might be\nneeding a recharge\nsoon...heh heh...>\p")
@@ -33,7 +33,7 @@ section_end()
 
 # 0x03 @ 0x7376E0
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! MegaMan!!>\p")
 cls(5)
 jump(0x04)
@@ -41,14 +41,14 @@ section_end()
 
 # 0x04 @ 0x737708
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan...\nI...I'm OK...>{d}\n<Let's hurry...>\p")
 end()
 section_end()
 
 # 0x05 @ 0x737751
 section_start(0x05)
-dialog_up(27)
+dialog_up("Scientist")
 text("<What are you doing!?\nRecharge now or your\nNavi's a goner!>\p")
 cls(5)
 jump(0x06)
@@ -56,7 +56,7 @@ section_end()
 
 # 0x06 @ 0x7377A1
 section_start(0x06)
-dialog_up(27)
+dialog_up("Scientist")
 text("<Ready?\nAnd...Go!!>\p")
 end()
 section_end()
@@ -64,7 +64,7 @@ section_end()
 # 0x07 @ 0x7377C8
 section_start(0x07)
 if_flag(0xD1, 0x05, 0xFF)
-dialog_up(27)
+dialog_up("Scientist")
 text("<You're going to have\nto hit that button\nquicker this time!>\p")
 cls()
 text("<Ready?\nAnd...Go!!>\p")

@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x730040
 section_start(0x01)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Owwww...\nOh! You're that\nLan fellow!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x73007D
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<You Froid?\nAre you okay?>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x7300AA
 section_start(0x03)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Thanks...We gotta\nstop my dad from\nhelping the WWW!>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x7300F4
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<We were right!>\p")
 cls(5)
 jump(0x05)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x730116
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<Got it! Leave it\nto me!>\p")
 cls(5)
 jump(0x06)
@@ -50,7 +50,7 @@ section_end()
 
 # 0x06 @ 0x730142
 section_start(0x06)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<This is a program my\ndad uses at work. It\nmight help...>\p")
 cls(5)
 jump(0x07)
@@ -71,7 +71,7 @@ section_end()
 
 # 0x08 @ 0x7301C6
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<Thanks!>\p")
 cls(5)
 jump(0x09)
@@ -79,7 +79,7 @@ section_end()
 
 # 0x09 @ 0x7301E1
 section_start(0x09)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Tell my dad I'm\nfine,okay?>\p")
 cls(5)
 jump(0x0A)
@@ -100,7 +100,7 @@ section_end()
 
 # 0x0B @ 0x73023C
 section_start(0x0B)
-dialog_up(0)
+dialog_up("Lan")
 text("<Roger!>\p")
 cls(5)
 jump(0x0C)
@@ -108,7 +108,7 @@ section_end()
 
 # 0x0C @ 0x730256
 section_start(0x0C)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,let's go!>\p")
 end()
 section_end()

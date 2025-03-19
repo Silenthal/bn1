@@ -2,7 +2,7 @@ section_count(0x9)
 
 # 0x00 @ 0x738E4E
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<Aak!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x738E66
 section_start(0x01)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Whooo!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x738E80
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<It's Ms.Yuri!\nAnd the old man!>\p")
 cls()
 text("<Lan!>\p")
@@ -28,14 +28,14 @@ section_end()
 
 # 0x03 @ 0x738EC2
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<I see them!>\p")
 end()
 section_end()
 
 # 0x04 @ 0x738EDE
 section_start(0x04)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Thankyouthankyou\nthankyou!>\p")
 cls(5)
 jump(0x05)
@@ -43,7 +43,7 @@ section_end()
 
 # 0x05 @ 0x738F0C
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<All you did was\nhelp me and now...>\p")
 cls(5)
 jump(0x06)
@@ -51,7 +51,7 @@ section_end()
 
 # 0x06 @ 0x738F44
 section_start(0x06)
-dialog_up(14)
+dialog_up("OldMan")
 text("<Heheh...not to worry\nat all! I'm used to\nhard times.>\p")
 cls(5)
 jump(0x07)
@@ -59,7 +59,7 @@ section_end()
 
 # 0x07 @ 0x738F91
 section_start(0x07)
-dialog_up(3, 2)
+dialog_up("MsMari", 2)
 text("<Lan! You have to\nget up there,quick!>\p")
 cls(5)
 jump(0x08)
@@ -67,7 +67,7 @@ section_end()
 
 # 0x08 @ 0x738FCB
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<Roger! On my way!>\p")
 end()
 section_end()

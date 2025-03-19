@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72D568
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Phew...>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72D585
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Rough day today,huh?>{d}\n<Ah!!>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x72D5BD
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<What?>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x72D5D6
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Today,wasn't>{d}{..}.\p")
 cls(5)
 jump(0x05)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x72D609
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<Ah!\nThe Metroline's\nopening today!>\p")
 cls(5)
 jump(0x06)
@@ -50,7 +50,7 @@ section_end()
 
 # 0x06 @ 0x72D641
 section_start(0x06)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Hey,let's surprise\nyour dad down at the\nSciLab!>\p")
 cls()
 text("<And we can pick up\nthat PowerUp program\nfor me!>\p")
@@ -60,7 +60,7 @@ section_end()
 
 # 0x07 @ 0x72D6BE
 section_start(0x07)
-dialog_up(0)
+dialog_up("Lan")
 text("<Good idea!>\p")
 end(5)
 section_end()

@@ -3,7 +3,7 @@ section_count(0x2D)
 # 0x00 @ 0x71DBD6
 section_start(0x00)
 if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_2, 0x01, 0xFF)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<I am a WWW Navi>...{d}\n<However,I can no\nlonger help them.>\p")
 cls()
 text("<Please,take this.\nIt should help you.>\p")
@@ -14,7 +14,7 @@ section_end()
 
 # 0x01 @ 0x71DC66
 section_start(0x01)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<I guess that I'm\na traitor,now...>\p")
 end(5)
 section_end()
@@ -101,7 +101,7 @@ section_end()
 
 # 0x1E @ 0x71DEA0
 section_start(0x1E)
-dialog_up(39)
+dialog_up("Glide")
 text("<Be careful!>\p")
 end()
 section_end()

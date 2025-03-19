@@ -2,7 +2,7 @@ section_count(0x1A)
 
 # 0x00 @ 0x721120
 section_start(0x00)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<Uwaahh! Don't scare\nme like that! I\nthought you were>\p")
 cls()
 text("<a WWW virus!>\p")
@@ -15,7 +15,7 @@ section_end()
 
 # 0x01 @ 0x7211D8
 section_start(0x01)
-dialog_up(36)
+dialog_up("MrProg")
 text("<We seem to be\nmalfunctioning.\nWe're under repair.>\p")
 end(5)
 section_end()
@@ -37,7 +37,7 @@ section_end()
 
 # 0x14 @ 0x7212AF
 section_start(0x14)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<What are you\ndoing there!?>\p")
 cls(5)
 jump(0x15)
@@ -45,7 +45,7 @@ section_end()
 
 # 0x15 @ 0x7212DE
 section_start(0x15)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<Now that you've\nseen me here,I\nmust delete you!>\p")
 cls(5)
 set_flag(FLAG_EVENT_GOVT_WATERWORKS_LOBBY_TRADE_REPAIR_G_GATE_2)

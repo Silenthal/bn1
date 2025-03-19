@@ -2,7 +2,7 @@ section_count(0x1)
 
 # 0x00 @ 0x73C23A
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 set_delay(1)
 text("<Hurry! The place\nis gonna blow!>")
 end(20)

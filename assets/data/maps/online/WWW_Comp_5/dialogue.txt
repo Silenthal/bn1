@@ -2,14 +2,14 @@ section_count(0x7)
 
 # 0x00 @ 0x71EC2E
 section_start(0x00)
-dialog_up(40)
+dialog_up("Roll")
 text("<MegaMan>{...}!\n<I'm so glad to\nsee you!>\p")
 end()
 section_end()
 
 # 0x01 @ 0x71EC77
 section_start(0x01)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Hmph>...{d}\n<No need for thanks.>\p")
 cls()
 text("<I'm just keeping\nyou around for\nentertainment value.>\p")
@@ -19,7 +19,7 @@ section_end()
 # 0x02 @ 0x71ECEC
 section_start(0x02)
 if_flag(FLAG_EVENT_WWW_COMP_5_SAVE_DISABLED, 0x03, 0xFF)
-dialog_up(36)
+dialog_up("MrProg")
 text("<Be careful...>\p")
 cls()
 text("<When you fight the\ntop WWW Navi,your\nNavi's save feature>\p")
@@ -32,7 +32,7 @@ section_end()
 
 # 0x03 @ 0x71EDC0
 section_start(0x03)
-dialog_up(36)
+dialog_up("MrProg")
 text("<Yeah,I thought that\nyour save feature\nwould be destroyed..>\p")
 end()
 section_end()

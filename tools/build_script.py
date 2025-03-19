@@ -789,6 +789,62 @@ chip_id_map = {
 }
 
 
+portrait_id_map = {
+    "Lan": 0x00,
+    "Yai": 0x01,
+    "Dex": 0x02,
+    "MsMari": 0x03,
+    "Masa": 0x04,
+    "LordWily": 0x05,
+    "Higsby": 0x06,
+    "Chaud": 0x07,
+    "Mayl": 0x08,
+    "OrangeShirtBoy": 0x09,
+    "Girl": 0x0A,
+    "BlueShirtBoy": 0x0B,
+    "Mom": 0x0C,
+    "MrMatch": 0x0D,
+    "OldMan": 0x0E,
+    "Woman": 0x0F,
+    "Man": 0x10,
+    "YoungWoman": 0x11,
+    "PigtailsGirl": 0x12,
+    "SternMan": 0x13,
+    "OldWoman": 0x14,
+    "MetrolineMan": 0x15,
+    "Sal": 0x16,
+    "DrFroid": 0x17,
+    "MsMadd": 0x18,
+    "MiddleAgedMan": 0x19,
+    "MiddleAgedWoman": 0x1A,
+    "Scientist": 0x1B,
+    "Dad": 0x1C,
+    "Yahoot": 0x1D,
+    "CountZap": 0x1E,
+    "Miyu": 0x1F,
+    "MomWithMakeup": 0x20,
+    "Maid": 0x21,
+    "MegaMan": 0x22,
+    "WoodMan": 0x23,
+    "MrProg": 0x24,
+    "FireMan": 0x25,
+    "NumberMan": 0x26,
+    "Glide": 0x27,
+    "Roll": 0x28,
+    "NormalNaviYellow": 0x29,
+    "NormalNaviPink": 0x2A,
+    "StoneMan": 0x2B,
+    "IceMan": 0x2C,
+    "ColorMan": 0x2D,
+    "ProtoMan": 0x2E,
+    "ElecMan": 0x2F,
+    "BombMan": 0x30,
+    "EvilNavi": 0x31,
+    "GutsMan": 0x32,
+    "MagicMan": 0x33,
+    "CorruptMrProg": 0x34
+}
+
 def bytes_chip(chip: str):
     global curScript
     chips = chip.split()
@@ -840,8 +896,23 @@ def bytes_flag(flagId: Union[str, int]):
                 exit(f"Unrecognized flag {flagId}")
             return [globals()[flagId]]
     else:
-        exit(f"Unrecognized item name {flagId}")
+        exit(f"Unrecognized flag {flagId}")
 
+
+def bytes_portrait(portrait: Union[str,int]):
+    global curScript
+    if isinstance(portrait, int):
+        return [portrait]
+    elif isinstance(portrait, str):
+        try:
+            num = auto_int(portrait)
+            return [num]
+        except ValueError:
+            if portrait not in portrait_id_map:
+                exit(f"Unrecognized portrait {portrait}")
+            return [portrait_id_map[portrait]]
+    else:
+        exit(f"Unrecognized portrait {portrait}")
 
 # endregion
 
@@ -1465,7 +1536,7 @@ def delay_control(com: int):
     curScript.emitByte(com)
 
 
-def breaks(amt: int):
+def force_delay(amt: int = 30):
     delay_control(0)
     curScript.emitShort(amt)
 
@@ -1511,10 +1582,11 @@ def picture_control(com: int):
     curScript.emitByte(com)
 
 
-def pic(picture: int = 0, palette: int = 0):
+def pic(picture: Union[str,int] = 0, palette: int = 0):
     global curScript
     picture_control(0)
-    curScript.emitByte(picture)
+    conv = bytes_portrait(picture)
+    curScript.emitByte(conv[0])
     curScript.emitByte(palette)
 
 
@@ -1578,8 +1650,8 @@ def dialog_control(com: int):
     curScript.emitByte(com)
 
 
-def dialog_up(picture: int = -1, palette: int = 0):
-    if picture > -1:
+def dialog_up(picture: Union[str,int] = -1, palette: int = 0):
+    if picture != -1:
         pic(picture, palette)
     dialog_control(0)
 
@@ -2234,6 +2306,12 @@ def parse_command(reader: Reader):
                 delay(arg)
             else:
                 delay()
+        elif coms[0] == "force_delay" or coms[0] == "fd":
+            if len(coms) > 1:
+                arg = auto_int(coms[1])
+                force_delay(arg)
+            else:
+                force_delay()
         elif coms[0] == "key":
             if len(coms) > 1:
                 key_item(coms[1])

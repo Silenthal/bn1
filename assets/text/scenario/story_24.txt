@@ -2,7 +2,7 @@ section_count(0x5)
 
 # 0x00 @ 0x72E3BA
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hey,the pond!>{d}\n<What if there's no\nwater at school?>\p")
 cls()
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72E40A
 section_start(0x01)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Oh no! I hope not!>\p")
 cls()
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72E431
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<Well,maybe it's just\nthis neighborhood or\nsomething...>\p")
 cls()
 jump(0x03)
@@ -26,14 +26,14 @@ section_end()
 
 # 0x03 @ 0x72E47F
 section_start(0x03)
-dialog_up(8)
+dialog_up("Mayl")
 text("<I'm worried...\nI'm going to go\ncheck!>\p")
 end()
 section_end()
 
 # 0x04 @ 0x72E4BA
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<So thirsty...>\p")
 end()
 section_end()

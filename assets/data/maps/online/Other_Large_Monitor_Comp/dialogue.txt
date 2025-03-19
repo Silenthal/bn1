@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x721500
 section_start(0x00)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<I am a test Navi.\nWe develop new PETs\nhere!>\p")
 cls()
 text("<I heard that a new\nkind of Navi was\ndeveloped here...>\p")
@@ -15,7 +15,7 @@ section_end()
 
 # 0x01 @ 0x7215FE
 section_start(0x01)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<Dr.Hikari has given\nus emotions>\p")
 cls()
 text("<We now laugh,and get\nmad,and worry like\nhumans do.>\p")

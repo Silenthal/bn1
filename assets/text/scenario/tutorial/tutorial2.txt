@@ -2,7 +2,7 @@ section_count(0x32)
 
 # 0x00 @ 0x73DC7C
 section_start(0x00)
-dialog_up(3)
+dialog_up("MsMari")
 text("<OK,now I'll tell you\nabout support chips.>\p")
 cls(1)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x73DCBB
 section_start(0x01)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Not all chips are\nweapons.>\p")
 cls(1)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x73DCE9
 section_start(0x02)
-dialog_up(3)
+dialog_up("MsMari")
 text("<For example,a Steal\nchip will increase\nthe area that your>\p")
 cls(1)
 text("<Navi is able to\nmove around in...>\p")
@@ -27,14 +27,14 @@ section_end()
 
 # 0x03 @ 0x73DD5F
 section_start(0x03)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Another good\nquestion! Look here,\nplease.>\p")
 end(1)
 section_end()
 
 # 0x04 @ 0x73DD9B
 section_start(0x04)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Do you see the\nletter? That's this\nchip's code.>\p")
 cls(1)
 text("<You can choose a\ndifferent type of\nchip if it has>\p")
@@ -49,7 +49,7 @@ section_end()
 
 # 0x05 @ 0x73DE94
 section_start(0x05)
-dialog_up(3)
+dialog_up("MsMari")
 text("<You can choose two\nchips at the same\ntime,now.>\p")
 cls(1)
 text("<They are shown here,\nin the order that\nyou chose them.>\p")
@@ -60,7 +60,7 @@ section_end()
 
 # 0x06 @ 0x73DF43
 section_start(0x06)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Since you need to\nget close for a\nsword,>\p")
 cls(1)
 text("<this would be a wise\nstrategy.>\p")
@@ -69,35 +69,35 @@ section_end()
 
 # 0x07 @ 0x73DFA3
 section_start(0x07)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Ms.Mari! I thought\nthat we can only\nchoose chip copies!>\p")
 end(1)
 section_end()
 
 # 0x0A @ 0x73DFF1
 section_start(0x0A)
-dialog_up(3)
+dialog_up("MsMari")
 text("<OK,let's try that.\nChoose Steal and\nWideSword in order.>\p")
 end(1)
 section_end()
 
 # 0x0B @ 0x73E03C
 section_start(0x0B)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Choose Steal first.\nCancel with the\nB Button.>\p")
 end(1)
 section_end()
 
 # 0x0C @ 0x73E07B
 section_start(0x0C)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Choose Steal first.\nCancel with the\nB Button.>\p")
 end(1)
 section_end()
 
 # 0x0D @ 0x73E0BA
 section_start(0x0D)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Choose Steal first.\nCancel with\nthe B Button>\p")
 cls(1)
 text("<if you have chosen\nanother chip.>\p")
@@ -106,28 +106,28 @@ section_end()
 
 # 0x0E @ 0x73E120
 section_start(0x0E)
-dialog_up(3)
+dialog_up("MsMari")
 text("<You don't need to\nuse that feature\njust yet...>\p")
 end(1)
 section_end()
 
 # 0x0F @ 0x73E162
 section_start(0x0F)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Ooops! Wrong order!\nCancel both with the\nB Button!>\p")
 end(1)
 section_end()
 
 # 0x14 @ 0x73E1AF
 section_start(0x14)
-dialog_up(3)
+dialog_up("MsMari")
 text("<OK! Next,choose the\nWideSword.>\p")
 end(1)
 section_end()
 
 # 0x15 @ 0x73E1E0
 section_start(0x15)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Huh? That's not the\nWideSword!>\p")
 cls(1)
 text("<That chip has a\ndifferent code,so\nyou can't use it.>\p")
@@ -136,7 +136,7 @@ section_end()
 
 # 0x16 @ 0x73E24F
 section_start(0x16)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Don't cancel.>\p")
 cls(1)
 text("<Do like I said and\nchoose the WideSword.>\p")
@@ -145,28 +145,28 @@ section_end()
 
 # 0x17 @ 0x73E29F
 section_start(0x17)
-dialog_up(3)
+dialog_up("MsMari")
 text("<This time,let's send\nthe WideSword data,\ntoo.>\p")
 end(1)
 section_end()
 
 # 0x18 @ 0x73E2E0
 section_start(0x18)
-dialog_up(3)
+dialog_up("MsMari")
 text("<You don't need to\nuse that feature\njust yet...>\p")
 end(1)
 section_end()
 
 # 0x1E @ 0x73E32C
 section_start(0x1E)
-dialog_up(3)
+dialog_up("MsMari")
 text("<OK,let's send this\ndata to the Navi!\nChoose \"OK\".>\p")
 end(1)
 section_end()
 
 # 0x1F @ 0x73E373
 section_start(0x1F)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Don't worry,with\nthis combination\nwe're sure to win.>\p")
 cls(1)
 text("<Don't cancel now!>\p")
@@ -175,7 +175,7 @@ section_end()
 
 # 0x20 @ 0x73E3D6
 section_start(0x20)
-dialog_up(3)
+dialog_up("MsMari")
 text("<We've sent the data\nto the Navi!>\p")
 cls(1)
 text("<Time to try out\nour strategy!>\p")
@@ -184,7 +184,7 @@ section_end()
 
 # 0x28 @ 0x73E43C
 section_start(0x28)
-dialog_up(3)
+dialog_up("MsMari")
 text("<OK,let's review that\nstrategy.>\p")
 cls(1)
 text("<First,you'll use the\nA Button to use\nSteal.>\p")
@@ -197,7 +197,7 @@ section_end()
 
 # 0x29 @ 0x73E509
 section_start(0x29)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Move into the area\nthat you took,and\nuse the sword!>\p")
 cls(1)
 text("<This is a powerful\nstrategy!>\p")
@@ -210,7 +210,7 @@ section_end()
 
 # 0x2D @ 0x73E5D5
 section_start(0x2D)
-dialog_up(3)
+dialog_up("MsMari")
 text("<OK,let's send some\ndata to the Navi\nagain.>\p")
 cls(1)
 text("<Try it yourself this\ntime!>\p")

@@ -183,7 +183,7 @@ section_end()
 
 # 0x1A @ 0x71331F
 section_start(0x1A)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<{se 0xE7}Way to go!!>\p")
 dialog_down()
 set_flag(FLAG_GATE_LOCK_WWW_COMP_2_4)
@@ -192,7 +192,7 @@ section_end()
 
 # 0x1B @ 0x713346
 section_start(0x1B)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,it looks like\nthis lock is linked\nwith something else!>\p")
 cls()
 text("<You'll need to go\nfind an ID card for\nverification.>\p")

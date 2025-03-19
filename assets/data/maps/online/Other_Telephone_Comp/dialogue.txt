@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x720D2C
 section_start(0x00)
-dialog_up(36)
+dialog_up("MrProg")
 text("<Young people sure do\nspend a lot of time\non the phone...>\p")
 cls()
 text("<I guess there are\nsome things that you\ncan't say in person.>\p")
@@ -11,7 +11,7 @@ section_end()
 
 # 0x01 @ 0x720DBC
 section_start(0x01)
-dialog_up(36)
+dialog_up("MrProg")
 text("<Yai tends to be a\nbit tough,but she's\nreally quite gentle.>\p")
 cls()
 text("<I know...\nI hear all of her\nphone calls!>\p")

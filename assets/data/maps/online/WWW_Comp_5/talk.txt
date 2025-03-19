@@ -17,7 +17,7 @@ section_end()
 # 0xE3 @ 0x6D5B43
 section_start(0xE3)
 if_flag(0xE1, 0xE4, 0xFF)
-dialog_up(0)
+dialog_up("Lan")
 text("<The program that's\nlocking the door\nshould be near!>\p")
 cls(1)
 text("<Find it and\ndelete it!>\p")
@@ -26,7 +26,7 @@ section_end()
 
 # 0xE4 @ 0x6D5BAD
 section_start(0xE4)
-dialog_up(0)
+dialog_up("Lan")
 text("<We don't need to\ndo anything here\nanymore.>\p")
 end()
 section_end()

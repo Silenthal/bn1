@@ -2,7 +2,7 @@ section_count(0xEB)
 
 # 0x00 @ 0x6E88BE
 section_start(0x00)
-dialog_up(16)
+dialog_up("Man")
 text("<Oh,the children are\nscared,poor things.>\p")
 cls()
 text("<Someone must do\nsomething,but I \ncan't leave them!>\p")
@@ -11,21 +11,21 @@ section_end()
 
 # 0x01 @ 0x6E8935
 section_start(0x01)
-dialog_up(11)
+dialog_up("BlueShirtBoy")
 text("<I'm scared!>\p")
 end(5)
 section_end()
 
 # 0x02 @ 0x6E8952
 section_start(0x02)
-dialog_up(18)
+dialog_up("PigtailsGirl")
 text("<I hate this noise!>\p")
 end(5)
 section_end()
 
 # 0x03 @ 0x6E8975
 section_start(0x03)
-dialog_up(11)
+dialog_up("BlueShirtBoy")
 text("<I'll have bad\ndreams,I'm sure!>\p")
 end(5)
 section_end()
@@ -34,23 +34,22 @@ section_end()
 section_start(0x04)
 input_off()
 set_delay(1)
-dialog_up(0)
-text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>")
-breaks(30)
+dialog_up("Lan")
+text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>{fd 30}")
 input_on()
 end()
 section_end()
 
 # 0x05 @ 0x6E89EE
 section_start(0x05)
-dialog_up(18)
+dialog_up("PigtailsGirl")
 text("*bawls*\p")
 end()
 section_end()
 
 # 0x06 @ 0x6E8A03
 section_start(0x06)
-dialog_up(11)
+dialog_up("BlueShirtBoy")
 text("*cries*\p")
 end()
 section_end()

@@ -38,7 +38,7 @@ section_end()
 
 # 0x08 @ 0x715304
 section_start(0x08)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Looks like it's\nbroken...>\p")
 cls(5)
 jump(0x09)
@@ -46,7 +46,7 @@ section_end()
 
 # 0x09 @ 0x715334
 section_start(0x09)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's worry about\nthis one later!>\p")
 end()
 section_end()
@@ -61,7 +61,7 @@ section_end()
 
 # 0x0B @ 0x715389
 section_start(0x0B)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! I'll bet we can\nuse the handle we\ngot from Froid!>\p")
 cls()
 jump(0x0C)
@@ -69,7 +69,7 @@ section_end()
 
 # 0x0C @ 0x7153D5
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hey,yeah!>\p")
 cls(5)
 jump(0x0D)
@@ -96,14 +96,14 @@ section_end()
 
 # 0x0F @ 0x715453
 section_start(0x0F)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<I don't think we\nneed to do that now,\nLan...>\p")
 end()
 section_end()
 
 # 0x14 @ 0x71549C
 section_start(0x14)
-dialog_up(36)
+dialog_up("MrProg")
 text("<Fall through a hole\nto find a path.>\p")
 cls()
 text("<Melt the ice to\ncreate another.>\p")
@@ -118,7 +118,7 @@ section_end()
 
 # 0x15 @ 0x715585
 section_start(0x15)
-dialog_up(36)
+dialog_up("MrProg")
 text("<You can fall through\nthere to get to the\npath below.>\p")
 cls()
 text("<You're almost there!\nGood luck!>\p")

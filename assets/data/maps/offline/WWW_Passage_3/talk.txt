@@ -15,7 +15,7 @@ section_end()
 
 # 0xE3 @ 0x6D0A48
 section_start(0xE3)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! Let's get to\nthe room where the\nrocket is!>\p")
 end()
 section_end()

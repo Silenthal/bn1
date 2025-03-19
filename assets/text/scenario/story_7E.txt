@@ -2,7 +2,7 @@ section_count(0x1)
 
 # 0x00 @ 0x73C272
 section_start(0x00)
-dialog_up(5)
+dialog_up("LordWily")
 text("<WWW>{...}\n<Forever!!!>\p")
 end()
 section_end()

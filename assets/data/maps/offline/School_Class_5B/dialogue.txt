@@ -2,7 +2,7 @@ section_count(0xEB)
 
 # 0x00 @ 0x6E6B0A
 section_start(0x00)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<What's up,Lan?>\p")
 cls()
 text("<That announcment\nplaying in your\nclass,too?>\p")
@@ -11,21 +11,21 @@ section_end()
 
 # 0x01 @ 0x6E6B60
 section_start(0x01)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<I tried to jack in\nto delete the virus,\nbut it got me!>\p")
 end(5)
 section_end()
 
 # 0x02 @ 0x6E6BA8
 section_start(0x02)
-dialog_up(10)
+dialog_up("Girl")
 text("<That announcement\nstarts to make sense\nafter a while...>\p")
 end(5)
 section_end()
 
 # 0x03 @ 0x6E6BF2
 section_start(0x03)
-dialog_up(10)
+dialog_up("Girl")
 text("<I must say,there\nare many unique\nkids in your class!>\p")
 end(5)
 section_end()
@@ -34,9 +34,8 @@ section_end()
 section_start(0x04)
 input_off()
 set_delay(1)
-dialog_up(0)
-text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>")
-breaks(30)
+dialog_up("Lan")
+text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>{fd 30}")
 input_on()
 end()
 section_end()
@@ -44,14 +43,14 @@ section_end()
 # 0x0A @ 0x6E6C89
 section_start(0x0A)
 if_story(FLAG_STORY_SCHOOL_CANCEL, 0x0F)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Everyone's left!>\p")
 end(5)
 section_end()
 
 # 0x0F @ 0x6E6CB9
 section_start(0x0F)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Hey,Lan!>{d}\p")
 cls()
 text("<Everyone left! They\nwent home so they\nwon't get thirsty!>\p")
@@ -60,21 +59,21 @@ section_end()
 
 # 0x10 @ 0x6E6D1A
 section_start(0x10)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Where did he go?\nHe won't answer his\n{key PET} or mail!>\p")
 end(5)
 section_end()
 
 # 0x11 @ 0x6E6D5F
 section_start(0x11)
-dialog_up(10)
+dialog_up("Girl")
 text("<Don't talk to me!>{d}\n<It makes me thirsty!>\p")
 end(5)
 section_end()
 
 # 0x12 @ 0x6E6DA0
 section_start(0x12)
-dialog_up(10)
+dialog_up("Girl")
 text("<The lost boy's dad\nis busy at work!>\p")
 cls()
 text("<He can't even take\noff a day like this!>\p")

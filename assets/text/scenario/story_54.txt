@@ -2,7 +2,7 @@ section_count(0xF)
 
 # 0x00 @ 0x734C72
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan!\nIt looks like we can\njack in here!!>\p")
 cls(5)
 jump(0x01)
@@ -10,11 +10,10 @@ section_end()
 
 # 0x01 @ 0x734CB0
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 input_off()
 set_delay(1)
-text("<OK! Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>")
-breaks(30)
+text("<OK! Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>{fd 30}")
 input_on()
 set_delay(2)
 page()
@@ -24,7 +23,7 @@ section_end()
 
 # 0x02 @ 0x734D03
 section_start(0x02)
-dialog_up(27)
+dialog_up("Scientist")
 text("<{set_flag 0xB1}Waaaait!!>\p")
 cls()
 text("<You wanna delete\nyour Navi!? Jacking\nin now is suicide!>\p")
@@ -46,7 +45,7 @@ section_end()
 
 # 0x03 @ 0x734EFC
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<You serious!?>\p")
 cls()
 text("{...}<What should\nI do!?>\p")
@@ -56,7 +55,7 @@ section_end()
 
 # 0x04 @ 0x734F4C
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,let's go!!>\p")
 cls(5)
 jump(0x05)
@@ -64,7 +63,7 @@ section_end()
 
 # 0x05 @ 0x734F71
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<What are you saying,\nMegaMan!?>{d}< YーYou\nmight get deleted!>\p")
 cls(5)
 jump(0x06)
@@ -72,7 +71,7 @@ section_end()
 
 # 0x06 @ 0x734FC7
 section_start(0x06)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<All we have to do\nis defeat the WWW\nNavi and jack out!>\p")
 cls(5)
 jump(0x07)
@@ -80,7 +79,7 @@ section_end()
 
 # 0x07 @ 0x735011
 section_start(0x07)
-dialog_up(0)
+dialog_up("Lan")
 text("{...}<No!\nIt's too dangerous!>\p")
 cls(5)
 jump(0x08)
@@ -88,7 +87,7 @@ section_end()
 
 # 0x08 @ 0x735050
 section_start(0x08)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! If we don't go\nnow,there's a chance\nthat your mom...>\p")
 cls()
 text("<...and all the other\npeople stuck in here\nwill die!>\p")
@@ -100,13 +99,12 @@ section_end()
 
 # 0x09 @ 0x735135
 section_start(0x09)
-dialog_up(0)
+dialog_up("Lan")
 text("{...}<Yeah,\nI won't let them\ndelete you!>{d}\p")
 cls()
 input_off()
 set_delay(1)
-text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>")
-breaks(30)
+text("<Jack in!!{d 10}\nMegaMan.EXE,{d 10}\ntransmit!>{fd 30}")
 input_on()
 set_delay(2)
 page()
@@ -115,14 +113,14 @@ section_end()
 
 # 0x0A @ 0x7351C3
 section_start(0x0A)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Whoa!!>\p")
 end()
 section_end()
 
 # 0x0B @ 0x7351DB
 section_start(0x0B)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan!?>\p")
 cls(5)
 jump(0x0C)
@@ -130,7 +128,7 @@ section_end()
 
 # 0x0C @ 0x7351F9
 section_start(0x0C)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<They've got some\nheavy protection\non this thing!>\p")
 cls(5)
 jump(0x0D)
@@ -138,7 +136,7 @@ section_end()
 
 # 0x0D @ 0x73523E
 section_start(0x0D)
-dialog_up(0)
+dialog_up("Lan")
 text("<Can you get through?>\p")
 cls(5)
 jump(0x0E)
@@ -146,7 +144,7 @@ section_end()
 
 # 0x0E @ 0x735266
 section_start(0x0E)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<No problem,just give\nme a second!>{d}\n<There!>{d}< Got it!>\p")
 end()
 section_end()

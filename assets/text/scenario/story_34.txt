@@ -2,7 +2,7 @@ section_count(0xB)
 
 # 0x00 @ 0x730EE6
 section_start(0x00)
-dialog_up(23)
+dialog_up("DrFroid")
 text("<Really,\nI don't know how\nto thank you...>\p")
 cls()
 text("<I'll do my best to\nkeep the water clean\nfrom now on!>\p")
@@ -12,7 +12,7 @@ section_end()
 
 # 0x01 @ 0x730F64
 section_start(0x01)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Dad! I..I..>*sniff*\p")
 cls(5)
 jump(0x02)
@@ -20,7 +20,7 @@ section_end()
 
 # 0x02 @ 0x730F90
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("・・・\p")
 cls(5)
 jump(0x03)
@@ -28,7 +28,7 @@ section_end()
 
 # 0x03 @ 0x730FA5
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Ahh...family!>\p")
 cls(5)
 jump(0x04)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x730FC9
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<Yeah,you're right...>\p")
 cls(5)
 jump(0x05)
@@ -44,7 +44,7 @@ section_end()
 
 # 0x05 @ 0x730FF5
 section_start(0x05)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Huh? I was expecting\nthe usual sarcasm...\nYou homesick,Lan?>\p")
 cls(5)
 jump(0x06)
@@ -52,7 +52,7 @@ section_end()
 
 # 0x06 @ 0x731049
 section_start(0x06)
-dialog_up(0)
+dialog_up("Lan")
 text("<Me? Never!>\p")
 cls(5)
 jump(0x07)
@@ -60,7 +60,7 @@ section_end()
 
 # 0x07 @ 0x731068
 section_start(0x07)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Okay>...{d}\n<Time is tight now,\nLan!>\p")
 cls()
 text("<This WWW plot is\ngetting deeper and\ndarker!>\p")
@@ -70,7 +70,7 @@ section_end()
 
 # 0x08 @ 0x7310DB
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<Yeah,and we have to\nshow that Chaud what\nwe can do!>\p")
 cls(5)
 jump(0x09)
@@ -78,7 +78,7 @@ section_end()
 
 # 0x09 @ 0x731123
 section_start(0x09)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<That's the spirit!>\p")
 end()
 section_end()

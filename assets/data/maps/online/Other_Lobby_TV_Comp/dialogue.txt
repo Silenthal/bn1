@@ -2,14 +2,14 @@ section_count(0xA)
 
 # 0x00 @ 0x72134C
 section_start(0x00)
-dialog_up(36)
+dialog_up("MrProg")
 text("<Today,I'm handling\nthe channel\nswitching features!>\p")
 end(5)
 section_end()
 
 # 0x01 @ 0x721391
 section_start(0x01)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<Have you ever\nnoticed that \nsometimes you press>\p")
 cls()
 text("<the channel change\nbutton,and nothing\nhappens?>\p")

@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x73262F
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Mayl!?>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x73264A
 section_start(0x02)
-dialog_up(24)
+dialog_up("MsMadd")
 text("<Sorry,charley!>\p")
 cls()
 text("<So,you miss your\ngirlfriend yet?>\p")
@@ -28,7 +28,7 @@ section_end()
 
 # 0x03 @ 0x732697
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<So you were behind\nit all along!>\p")
 cls(5)
 jump(0x04)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x7326CB
 section_start(0x04)
-dialog_up(24)
+dialog_up("MsMadd")
 text("<Heheh!>{d}\n<You better listen\nup,kiddo!>\p")
 cls()
 text("<I forgot to mention\nthe virus I put in\nthe bus gas program!>\p")
@@ -46,7 +46,7 @@ section_end()
 
 # 0x05 @ 0x73274F
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("!?\p")
 cls(5)
 jump(0x06)
@@ -54,7 +54,7 @@ section_end()
 
 # 0x06 @ 0x732762
 section_start(0x06)
-dialog_up(24)
+dialog_up("MsMadd")
 text("<It makes the gas go\nbackwards & then...\nIt's BOOM time!>\p")
 cls(5)
 jump(0x07)
@@ -62,7 +62,7 @@ section_end()
 
 # 0x07 @ 0x7327B2
 section_start(0x07)
-dialog_up(0)
+dialog_up("Lan")
 text("<What!?>\p")
 cls(5)
 jump(0x08)
@@ -70,7 +70,7 @@ section_end()
 
 # 0x08 @ 0x7327CD
 section_start(0x08)
-dialog_up(24)
+dialog_up("MsMadd")
 text("<I should think the\nvirus will activate\nany time now...>\p")
 cls()
 text("<You better stop that\nbus quick,huh?\nGood luck! Hehheh!>\p")
@@ -89,7 +89,7 @@ section_end()
 
 # 0x0A @ 0x732875
 section_start(0x0A)
-dialog_up(0)
+dialog_up("Lan")
 text("<Grrr...That gal\nreally ticks me off!>\p")
 cls(5)
 jump(0x0B)
@@ -97,7 +97,7 @@ section_end()
 
 # 0x0B @ 0x7328B0
 section_start(0x0B)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,quick! We have\nto catch that bus!>\p")
 cls(5)
 jump(0x0C)
@@ -105,7 +105,7 @@ section_end()
 
 # 0x0C @ 0x7328EB
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<Let's get farther\nahead of it this\ntime!>\p")
 end()
 section_end()

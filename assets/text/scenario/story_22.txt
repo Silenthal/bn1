@@ -2,7 +2,7 @@ section_count(0x8)
 
 # 0x00 @ 0x72E060
 section_start(0x00)
-dialog_up(12)
+dialog_up("Mom")
 text("<Oh>...<Lan>{d}...<Morning!>\p")
 cls()
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72E099
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Morning,Mom!\nWhat's wrong?\nNot feeling well?>\p")
 cls()
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72E0DD
 section_start(0x02)
-dialog_up(12)
+dialog_up("Mom")
 text("<No,it's just>...{d}\n<The water's off,so \nno breakfast>...\p")
 cls()
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x72E135
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<What?\nBut I'm hungry!\nAnd thirsty!>\p")
 cls()
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x72E16E
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Well,there's not\nmuch your mom can\ndo with no water...>\p")
 cls()
 jump(0x05)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x72E1BC
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<Yeah,but...>\p")
 cls()
 jump(0x06)
@@ -50,7 +50,7 @@ section_end()
 
 # 0x06 @ 0x72E1DE
 section_start(0x06)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Hey,you better get\ngoing or you'll be\nlate!>\p")
 cls()
 jump(0x07)
@@ -58,7 +58,7 @@ section_end()
 
 # 0x07 @ 0x72E21F
 section_start(0x07)
-dialog_up(0)
+dialog_up("Lan")
 text("<All right already!!>\p")
 end()
 section_end()

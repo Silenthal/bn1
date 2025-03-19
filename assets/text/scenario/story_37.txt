@@ -2,7 +2,7 @@ section_count(0x7)
 
 # 0x00 @ 0x7319D2
 section_start(0x00)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Sorry!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x7319EC
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<You're late!>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x731A0D
 section_start(0x02)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Sorry,sorry!\nDon't look so mad!>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x731A43
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hmph,you mean like\nyou are every time\nI'm late?>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x731A88
 section_start(0x04)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Bygones!>\p")
 cls()
 text("<Oh Lan,I have to\nbring something to\nmy grandma's...>\p")
@@ -46,7 +46,7 @@ section_end()
 
 # 0x05 @ 0x731B14
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<What?\nWhy did I have to\nwait for you,then?>\p")
 cls(5)
 jump(0x06)
@@ -54,7 +54,7 @@ section_end()
 
 # 0x06 @ 0x731B54
 section_start(0x06)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Sorry! I'll make\nit up to you!>\p")
 cls()
 text("<Later!>\p")

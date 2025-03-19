@@ -2,7 +2,7 @@ section_count(0x7)
 
 # 0x00 @ 0x733E6E
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hey,Mom!\nDad's invited us\nto a party!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x733EAA
 section_start(0x01)
-dialog_up(12)
+dialog_up("Mom")
 text("<How wonderful!>\p")
 cls()
 text("<How sweet of him to\nthink of his family\nat such a busy time!>\p")
@@ -22,7 +22,7 @@ section_end()
 
 # 0x02 @ 0x733F53
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<At 7,in front of the\nTV in the 1st floor\nlobby of the SciLab.>\p")
 cls(5)
 jump(0x03)
@@ -30,7 +30,7 @@ section_end()
 
 # 0x03 @ 0x733FA5
 section_start(0x03)
-dialog_up(12)
+dialog_up("Mom")
 text("<OK!> ...{d}<But wait!>{d}\n<It's almost 7 now!\nWe have to hurry!>\p")
 set_flag(0x96)
 end()
@@ -38,7 +38,7 @@ section_end()
 
 # 0x04 @ 0x734006
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<Mom!!>{d}< Since you\nalways take so long,\nI'll go ahead,OK?>\p")
 cls()
 text("<...Man,if I had to\nwait for her,I'd\nnever get to eat...>\p")
@@ -48,7 +48,7 @@ section_end()
 
 # 0x05 @ 0x7340A5
 section_start(0x05)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<C'mon Lan>...{d}<I know\nyou just can't wait\nto see your dad...>\p")
 cls(5)
 jump(0x06)
@@ -56,7 +56,7 @@ section_end()
 
 # 0x06 @ 0x734101
 section_start(0x06)
-dialog_up(0)
+dialog_up("Lan")
 text("<HーHey,stop saying\nthat!>{d}\n<Geez...>\p")
 end()
 section_end()

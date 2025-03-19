@@ -3,7 +3,7 @@ section_count(0x42)
 # 0x00 @ 0x725274
 section_start(0x00)
 if_shop(0x04, 0xFF, 0x01)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<Pssst...Hey,kid...\nWanna see my stash?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -14,7 +14,7 @@ section_end()
 
 # 0x01 @ 0x7252E1
 section_start(0x01)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<I'm out of stuff!\nSo scram!!>\p")
 end()
 section_end()
@@ -42,7 +42,7 @@ section_end()
 
 # 0x0C @ 0x725380
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! Try using\nthat memo we got\nat the SciLab!>\p")
 cls(5)
 jump(0x0D)
@@ -50,7 +50,7 @@ section_end()
 
 # 0x0D @ 0x7253C7
 section_start(0x0D)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<OK!!>\p")
 cls(5)
 jump(0x0E)
@@ -71,14 +71,14 @@ section_end()
 
 # 0x0F @ 0x725428
 section_start(0x0F)
-dialog_up(0)
+dialog_up("Lan")
 text("<Way to go!>\p")
 end()
 section_end()
 
 # 0x10 @ 0x725443
 section_start(0x10)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<Who are you!?\nYou don't belong\nhere!>\p")
 cls()
 text("<Better get out\nunless you wanna be\ndeleted!>\p")
@@ -87,7 +87,7 @@ section_end()
 
 # 0x11 @ 0x7254AF
 section_start(0x11)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<Those WWW jerks\nwent and encoded\nthis area!>\p")
 cls()
 text("<Only highーranking\nWWW dudes can get\nin! Sheesh...>\p")
@@ -98,7 +98,7 @@ section_end()
 
 # 0x12 @ 0x725550
 section_start(0x12)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<Those WWW jerks have\nset it up so that\nif you go>\p")
 cls()
 text("<through there,you\ncan't get back!\nSheesh!>\p")
@@ -107,7 +107,7 @@ section_end()
 
 # 0x13 @ 0x7255C5
 section_start(0x13)
-dialog_up(34)
+dialog_up("MegaMan")
 mail(16)
 text("<Lan! I made it into\nthe Undernet!>\p")
 cls()

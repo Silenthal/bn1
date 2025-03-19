@@ -2,7 +2,7 @@ section_count(0xC)
 
 # 0x00 @ 0x736520
 section_start(0x00)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<How can this be!?\nA civilian Navi beat\na NetBattler? Never!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x736572
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Don't get it?>{d}\n<'Cause you're an\nofficial Navi,you>\p")
 cls()
 text("<can carry your own\nbattle chipsーーso you\ncan fight alone!>\p")
@@ -20,7 +20,7 @@ section_end()
 
 # 0x02 @ 0x736603
 section_start(0x02)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<That's right...\nAnd I've fought\nalone every time!>\p")
 cls()
 text("<And I've never lost!\nNot once!>\p")
@@ -30,7 +30,7 @@ section_end()
 
 # 0x03 @ 0x736676
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<...'Cause I'm a\ncivilian Navi,I\ncan't fight alone.>\p")
 cls()
 text("<That's why I've got\nLan backing me up!>\p")
@@ -46,7 +46,7 @@ section_end()
 
 # 0x04 @ 0x73679C
 section_start(0x04)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Friends?>\p")
 cls(5)
 jump(0x05)
@@ -54,7 +54,7 @@ section_end()
 
 # 0x05 @ 0x7367B8
 section_start(0x05)
-dialog_up(7)
+dialog_up("Chaud")
 text("<ProtoMan!\nDon't listen to\ntheir nonsense!>\p")
 cls(5)
 text("<Jack out,now!>\p")
@@ -64,7 +64,7 @@ section_end()
 
 # 0x06 @ 0x73680E
 section_start(0x06)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Wait,please,\nLord Chaud!!>\p")
 cls()
 text("<You're MegaMan...>{d}\n<right? Just tell me\none thing...>\p")
@@ -76,7 +76,7 @@ section_end()
 
 # 0x07 @ 0x7368CF
 section_start(0x07)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Why...>{d}\n<He's my best friend!>\p")
 cls(5)
 jump(0x08)
@@ -84,7 +84,7 @@ section_end()
 
 # 0x08 @ 0x73690A
 section_start(0x08)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Friend...huh...>{d}\n<I never thought\nof that...>\p")
 cls(5)
 jump(0x09)
@@ -92,14 +92,14 @@ section_end()
 
 # 0x09 @ 0x736958
 section_start(0x09)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Let's go,ProtoMan!\nJack out!!>\p")
 end()
 section_end()
 
 # 0x0A @ 0x73698A
 section_start(0x0A)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,we have to jack\nout too and get that\npower plant going!>\p")
 cls(5)
 jump(0x0B)
@@ -107,7 +107,7 @@ section_end()
 
 # 0x0B @ 0x7369DA
 section_start(0x0B)
-dialog_up(0)
+dialog_up("Lan")
 text("<OK!!>\p")
 end()
 section_end()

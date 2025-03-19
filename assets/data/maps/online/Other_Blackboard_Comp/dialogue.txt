@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x721DC8
 section_start(0x00)
-dialog_up(36)
+dialog_up("MrProg")
 text("<Until recently,we\nwere viruses working\nfor the WWW!>\p")
 cls()
 text("<We've reformed,\nthough,and now we\nwork as teachers!>\p")
@@ -13,7 +13,7 @@ section_end()
 
 # 0x01 @ 0x721E80
 section_start(0x01)
-dialog_up(36)
+dialog_up("MrProg")
 text("<We're working extra\nhard to make up for\nour crimes!>\p")
 end(5)
 section_end()

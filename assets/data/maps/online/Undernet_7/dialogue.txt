@@ -43,7 +43,7 @@ section_end()
 
 # 0x14 @ 0x7275ED
 section_start(0x14)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<You can't get by\nthis area just by\ndeleting viruses...>\p")
 cls()
 text("<You gotta do it\nwith style!>\p")
@@ -52,7 +52,7 @@ section_end()
 
 # 0x15 @ 0x72765B
 section_start(0x15)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<Cowards will never\nmake it through\nhere!>\p")
 end()
 section_end()

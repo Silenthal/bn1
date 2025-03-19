@@ -2,7 +2,7 @@ section_count(0x7)
 
 # 0x00 @ 0x736176
 section_start(0x00)
-dialog_up(47)
+dialog_up("ElecMan")
 text("<This...>{d}\n<This can't be\nhappening!>\p")
 cls()
 text("<But I've already\nsent the program\nto Count Zap!>\p")
@@ -13,15 +13,15 @@ section_end()
 
 # 0x01 @ 0x736236
 section_start(0x01)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Darn...\nToo late...>\p")
 cls()
 text("<It took to long to\nbreak the jack in\nprotection...>\p")
 cls()
-pic(34)
+pic("MegaMan")
 text("<ProtoMan!?>\p")
 cls()
-pic(46)
+pic("ProtoMan")
 text("<Humph...\nNot a shred of data\nleft,either...>\p")
 cls()
 text("<I was just about to\nget the WWW server\nlocation...>\p")
@@ -37,7 +37,7 @@ section_end()
 
 # 0x02 @ 0x7363D2
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<Fake data?\nThen this was all...>\p")
 cls(5)
 jump(0x03)
@@ -45,7 +45,7 @@ section_end()
 
 # 0x03 @ 0x736408
 section_start(0x03)
-dialog_up(7)
+dialog_up("Chaud")
 text("<ProtoMan,delete that\nNavi.They've caused\nus enough trouble.>\p")
 cls(5)
 jump(0x04)
@@ -53,7 +53,7 @@ section_end()
 
 # 0x04 @ 0x73645A
 section_start(0x04)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<As you wish,\nLord Chaud.>\p")
 cls(5)
 jump(0x05)
@@ -61,7 +61,7 @@ section_end()
 
 # 0x05 @ 0x736487
 section_start(0x05)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<This isn't the time!\nWe have to get the\npower back up!>\p")
 cls(5)
 jump(0x06)
@@ -69,7 +69,7 @@ section_end()
 
 # 0x06 @ 0x7364D3
 section_start(0x06)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Silence!{d 10} Prepare\nfor deletion!>\p")
 end()
 section_end()

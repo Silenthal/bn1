@@ -2,7 +2,7 @@ section_count(0x2)
 
 # 0x00 @ 0x738FF4
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! There's got\nto be a program\nlocking this door!>\p")
 cls()
 text("<Find it and delete\nit!>\p")
@@ -12,7 +12,7 @@ section_end()
 
 # 0x01 @ 0x739060
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roger!>\p")
 end()
 section_end()

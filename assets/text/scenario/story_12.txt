@@ -2,7 +2,7 @@ section_count(0xC)
 
 # 0x00 @ 0x72BAB0
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Looks like everyone\nis still in\nhomeroom...>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72BAF1
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<(Sneak time!)>\p")
 end(5)
 section_end()
@@ -24,7 +24,7 @@ section_end()
 
 # 0x03 @ 0x72BB36
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<(Yeah! I did it!)>\p")
 cls(5)
 jump(0x04)
@@ -32,7 +32,7 @@ section_end()
 
 # 0x04 @ 0x72BB5E
 section_start(0x04)
-dialog_up(3)
+dialog_up("MsMari")
 text("<...So class,this\nis Mr.Higsby.>\p")
 cls()
 text("<He'll be helping me\nteach class for the\nnext two weeks.>\p")
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x72BBD6
 section_start(0x05)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Hello,I'm Mr.Higsby.\nI collect battle\nchips,it's my hobby!>\p")
 cls()
 text("<I'm looking forward\nto trading with all\nof you!>\p")
@@ -56,7 +56,7 @@ section_end()
 
 # 0x06 @ 0x72BCC5
 section_start(0x06)
-dialog_up(1)
+dialog_up("Yai")
 text("<...The new teacher's\nkinda...scary.>\p")
 cls(5)
 jump(0x07)
@@ -64,7 +64,7 @@ section_end()
 
 # 0x07 @ 0x72BD03
 section_start(0x07)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Not really scary...\njust sorta wierd.>\p")
 cls(5)
 jump(0x08)
@@ -72,7 +72,7 @@ section_end()
 
 # 0x08 @ 0x72BD3F
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<I didn't think\nteachers had\nhobbies,too...>\p")
 cls(5)
 jump(0x09)
@@ -80,7 +80,7 @@ section_end()
 
 # 0x09 @ 0x72BD81
 section_start(0x09)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Well,they do say\neveryone's gotta\nhave a hobby!>\p")
 cls(5)
 hidepic()
@@ -97,7 +97,7 @@ section_end()
 
 # 0x0B @ 0x72BDE9
 section_start(0x0B)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Everyone,let's give\nMr.Higsby a warm\nwelcome,okay?>\p")
 cls()
 text("<Well now,\nthat's all for\nhomeroom today.>\p")

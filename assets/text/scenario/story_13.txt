@@ -2,7 +2,7 @@ section_count(0x16)
 
 # 0x00 @ 0x72BE90
 section_start(0x00)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Weeeeel now,I'd like\nto begin the first\nclass,huh.>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72BED9
 section_start(0x01)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Mr.Higsby,where's\nMs.Mari?>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72BF0B
 section_start(0x02)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Ms.Mari? She was\nsick and went to the\nnurse's office,huh.>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x72BF5C
 section_start(0x03)
-dialog_up(2)
+dialog_up("Dex")
 text("<Wha..!?>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x72BF7A
 section_start(0x04)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Quiet,everyone!>{d}\n...<first class will\nbe study hall,huh.>\p")
 cls(5)
 jump(0x05)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x72BFD2
 section_start(0x05)
-dialog_up(2)
+dialog_up("Dex")
 text("<All right!>\p")
 cls(5)
 jump(0x06)
@@ -50,7 +50,7 @@ section_end()
 
 # 0x06 @ 0x72BFF0
 section_start(0x06)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Don't rejoice\njust yet,huh!>\p")
 cls()
 text("<I want you all to do\nmath drills. I'll be\nchecking them later!>\p")
@@ -60,7 +60,7 @@ section_end()
 
 # 0x07 @ 0x72C06A
 section_start(0x07)
-dialog_up(2)
+dialog_up("Dex")
 text("<Shucks...>\p")
 cls(5)
 jump(0x08)
@@ -68,14 +68,14 @@ section_end()
 
 # 0x08 @ 0x72C089
 section_start(0x08)
-dialog_up(6)
+dialog_up("Higsby")
 text("<Now,jack in to the\nblackboard!>{d}\n<Huh!>\p")
 end(10)
 section_end()
 
 # 0x09 @ 0x72C0C7
 section_start(0x09)
-dialog_up(6)
+dialog_up("Higsby")
 text("<All right everyone>...{d}\n<Good luck!>\p")
 set_flag(0x98)
 end()
@@ -83,14 +83,14 @@ section_end()
 
 # 0x0A @ 0x72C107
 section_start(0x0A)
-dialog_up(0)
+dialog_up("Lan")
 text("<Man,math is hard,\nespecially in the\nmorni...huh?>\p")
 end(10)
 section_end()
 
 # 0x0B @ 0x72C14D
 section_start(0x0B)
-dialog_up(1)
+dialog_up("Yai")
 text("<Eeek!! What's\nthat!?>\p")
 cls(5)
 jump(0x0C)
@@ -98,7 +98,7 @@ section_end()
 
 # 0x0C @ 0x72C179
 section_start(0x0C)
-dialog_up(5, 1)
+dialog_up("LordWily", 1)
 text("<We will now announce\n>{..}.\p")
 cls()
 text("<The real goal of our\nplan>...{d}\n<to control the net!>\p")
@@ -108,7 +108,7 @@ section_end()
 
 # 0x0D @ 0x72C1F3
 section_start(0x0D)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan! This is a WWW\nreーeducation\nprogram!>\p")
 cls(5)
 jump(0x0E)
@@ -116,7 +116,7 @@ section_end()
 
 # 0x0E @ 0x72C230
 section_start(0x0E)
-dialog_up(5, 1)
+dialog_up("LordWily", 1)
 text("<The WWW's true plan\nis to start a war...\nthe EndGame!>\p")
 cls()
 text("<We will take control\nof the military net\nand all other nets! >\p")
@@ -128,7 +128,7 @@ section_end()
 
 # 0x0F @ 0x72C315
 section_start(0x0F)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Noooo!>\p")
 cls(5)
 jump(0x10)
@@ -136,7 +136,7 @@ section_end()
 
 # 0x10 @ 0x72C32F
 section_start(0x10)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Why? Why would\nthey do that?>\p")
 cls(5)
 jump(0x11)
@@ -144,7 +144,7 @@ section_end()
 
 # 0x11 @ 0x72C360
 section_start(0x11)
-dialog_up(5, 1)
+dialog_up("LordWily", 1)
 text("<To reach our goals,\nThe WWW is hiring\nnew staff members!>\p")
 cls()
 text("<We will begin a new\ninstruction program,\nstarting today!>\p")
@@ -156,7 +156,7 @@ section_end()
 
 # 0x12 @ 0x72C42C
 section_start(0x12)
-dialog_up(2)
+dialog_up("Dex")
 text("<What!?\nNo way man,not me!>\p")
 cls(5)
 jump(0x13)
@@ -164,7 +164,7 @@ section_end()
 
 # 0x13 @ 0x72C45C
 section_start(0x13)
-dialog_up(10)
+dialog_up("Girl")
 text("<Oh no,I can't\nturn my terminal\noff!>\p")
 cls(5)
 jump(0x14)
@@ -172,7 +172,7 @@ section_end()
 
 # 0x14 @ 0x72C495
 section_start(0x14)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<Heeeey!\nThe door's locked!>\p")
 cls(5)
 jump(0x15)
@@ -180,7 +180,7 @@ section_end()
 
 # 0x15 @ 0x72C4C5
 section_start(0x15)
-dialog_up(2)
+dialog_up("Dex")
 text("<Everyone,be calm!\nMe and GutsMan will\nstop them!>\p")
 end(5)
 section_end()

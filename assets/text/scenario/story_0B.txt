@@ -2,7 +2,7 @@ section_count(0x6)
 
 # 0x00 @ 0x72AAF8
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan!>{d}< Answer me!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x72AB28
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Uh,>{d}<uhhh>{d}{...}<{set_flag 0xDC}Lan?>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x72AB6E
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<You okay?>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x72AB8B
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Yeah! I'm all right!\nThanks! >{d}<Lan!>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x72ABCC
 section_start(0x04)
-dialog_up(0)
+dialog_up("Lan")
 text("<I got a lot on my\nhands here! Hurry\nup,MegaMan!>\p")
 cls(5)
 jump(0x05)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x72AC11
 section_start(0x05)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roger!>\p")
 end(5)
 section_end()

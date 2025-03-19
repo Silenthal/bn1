@@ -2,7 +2,7 @@ section_count(0xE)
 
 # 0x00 @ 0x729BB0
 section_start(0x00)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Let's begin class,\nshall we?>\p")
 cls()
 text("<First period is...\n\"Virus Busting\">{d}\n<Who's read NetNews?>\p")
@@ -12,7 +12,7 @@ section_end()
 
 # 0x01 @ 0x729C2F
 section_start(0x01)
-dialog_up(9)
+dialog_up("OrangeShirtBoy")
 text("<I did! It said\nWWW net crime is\non the rise!>\p")
 cls(5)
 jump(0x02)
@@ -20,7 +20,7 @@ section_end()
 
 # 0x02 @ 0x729C70
 section_start(0x02)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Very good! And extra\nmarks for checking\nyour NetNews.>\p")
 cls(5)
 jump(0x03)
@@ -28,7 +28,7 @@ section_end()
 
 # 0x03 @ 0x729CBA
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Course,>{d}<you should\nknow too,Lan>...\p")
 cls(5)
 jump(0x04)
@@ -36,7 +36,7 @@ section_end()
 
 # 0x04 @ 0x729CFB
 section_start(0x04)
-dialog_up(3)
+dialog_up("MsMari")
 text("<It's important that\nwe all know how to\nfight viruses!>\p")
 cls(5)
 jump(0x05)
@@ -44,7 +44,7 @@ section_end()
 
 # 0x05 @ 0x729D45
 section_start(0x05)
-dialog_up(2)
+dialog_up("Dex")
 text("<Hah! I'd like to see\na WWW virus take on\nme and GutsMan!>\p")
 cls(5)
 jump(0x06)
@@ -52,7 +52,7 @@ section_end()
 
 # 0x06 @ 0x729D93
 section_start(0x06)
-dialog_up(1)
+dialog_up("Yai")
 text("<Hrmph,>{d}\n<Dex and his silly\nlittle \"GutsMan\"...>\p")
 cls(5)
 jump(0x07)
@@ -60,7 +60,7 @@ section_end()
 
 # 0x07 @ 0x729DE0
 section_start(0x07)
-dialog_up(2)
+dialog_up("Dex")
 text("<Whad'you say!?>\p")
 cls(5)
 jump(0x08)
@@ -68,7 +68,7 @@ section_end()
 
 # 0x08 @ 0x729E04
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<Relax! Why would\nthe WWW bother with\nyou anyway,Dex?>\p")
 cls(5)
 jump(0x09)
@@ -76,7 +76,7 @@ section_end()
 
 # 0x09 @ 0x729E4E
 section_start(0x09)
-dialog_up(2)
+dialog_up("Dex")
 text("<Why,you!> {d}<Lan!>\p")
 cls(5)
 jump(0x0A)
@@ -84,7 +84,7 @@ section_end()
 
 # 0x0A @ 0x729E79
 section_start(0x0A)
-dialog_up(3)
+dialog_up("MsMari")
 text("<Quiet in the class!>\p")
 cls()
 text("<Today we'll be using\nthe common virus\ncalled a \"Mettool\".>\p")
@@ -96,7 +96,7 @@ section_end()
 
 # 0x0B @ 0x729F23
 section_start(0x0B)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,she said to\njack in! Press the\nR Button!>\p")
 cls(5)
 jump(0x0C)
@@ -104,14 +104,14 @@ section_end()
 
 # 0x0C @ 0x729F65
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<Yeah,yeah...>\p")
 end(5)
 section_end()
 
 # 0x0D @ 0x729F85
 section_start(0x0D)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,\njack in with the\nR Button!>\p")
 end(5)
 section_end()

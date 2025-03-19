@@ -2,7 +2,7 @@ section_count(0x3)
 
 # 0x00 @ 0x72A706
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Uhーoh!\nYou were right,Lan,\nit's a virus!>\p")
 cls()
 text("<The data signature's\nthe WWW's for sure!>{d}\n<And it's tough!>\p")
@@ -12,7 +12,7 @@ section_end()
 
 # 0x01 @ 0x72A793
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<It's just like\nMayl was saying...>\p")
 cls()
 text("<Let's go,MegaMan!\nBattle routine,set!!>\p")
@@ -22,7 +22,7 @@ section_end()
 
 # 0x02 @ 0x72A7FF
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Execute!!>\p")
 end(5)
 section_end()

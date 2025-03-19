@@ -2,7 +2,7 @@ section_count(0x1B)
 
 # 0x00 @ 0x73A326
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("・{d}・{d}・\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x73A343
 section_start(0x01)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Lan...>\p")
 cls(5)
 jump(0x02)
@@ -18,14 +18,14 @@ section_end()
 
 # 0x02 @ 0x73A35F
 section_start(0x02)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Lan>...{d}\n<Your father gave me\nthis>...{d}<here.>\p")
 end()
 section_end()
 
 # 0x03 @ 0x73A3AD
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hub.bat\n...\nWhat's this?>\p")
 cls(5)
 jump(0x04)
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x73A413
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hello?>\p")
 cls(5)
 jump(0x06)
@@ -50,7 +50,7 @@ section_end()
 
 # 0x06 @ 0x73A42D
 section_start(0x06)
-dialog_up(28)
+dialog_up("Dad")
 text("<Lan?>\p")
 cls(5)
 jump(0x07)
@@ -58,7 +58,7 @@ section_end()
 
 # 0x07 @ 0x73A445
 section_start(0x07)
-dialog_up(0)
+dialog_up("Lan")
 text("<Dad! MegaMan's...>\p")
 cls(5)
 jump(0x08)
@@ -66,7 +66,7 @@ section_end()
 
 # 0x08 @ 0x73A46E
 section_start(0x08)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Dr.Hikari,I'm sorry,\nI was too late...>\p")
 cls(5)
 jump(0x09)
@@ -74,7 +74,7 @@ section_end()
 
 # 0x09 @ 0x73A4AE
 section_start(0x09)
-dialog_up(28)
+dialog_up("Dad")
 text("<Lan,listen to me!>{d}\n<You can still save\nMegaMan!>\p")
 cls(5)
 jump(0x0A)
@@ -82,7 +82,7 @@ section_end()
 
 # 0x0A @ 0x73A4F9
 section_start(0x0A)
-dialog_up(0)
+dialog_up("Lan")
 text("<But!> {d}<He's not\nresponding...>\p")
 cls(5)
 jump(0x0B)
@@ -90,7 +90,7 @@ section_end()
 
 # 0x0B @ 0x73A534
 section_start(0x0B)
-dialog_up(28)
+dialog_up("Dad")
 text("<Apply the Hub.bat\nto MegaMan,there may\nstill be time...>\p")
 cls()
 text("<But before you use\nHub.bat,I have to\ntell you something.>\p")
@@ -102,7 +102,7 @@ section_end()
 
 # 0x0C @ 0x73A60A
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<...I don't really\nunderstand what\nyou mean...>\p")
 cls()
 text("<But I'll do anything\nif it might save\nMegaMan!>\p")
@@ -112,7 +112,7 @@ section_end()
 
 # 0x0D @ 0x73A689
 section_start(0x0D)
-dialog_up(28)
+dialog_up("Dad")
 text("<Then,listen...>\p")
 cls()
 text("<{song 0x09}About 10 years ago,\nI was working on a\nnew kind of Navi.>\p")
@@ -194,7 +194,7 @@ section_end()
 
 # 0x0E @ 0x73AEB7
 section_start(0x0E)
-dialog_up(0)
+dialog_up("Lan")
 text("{...}<You mean\nMegaMan will be born\nagain...as my twin?>\p")
 cls(5)
 jump(0x0F)
@@ -202,7 +202,7 @@ section_end()
 
 # 0x0F @ 0x73AF11
 section_start(0x0F)
-dialog_up(28)
+dialog_up("Dad")
 text("<Correct.>\p")
 cls(5)
 jump(0x10)
@@ -210,7 +210,7 @@ section_end()
 
 # 0x10 @ 0x73AF2D
 section_start(0x10)
-dialog_up(0)
+dialog_up("Lan")
 text("<I was always sending\nMegaMan into such\ndangerous places...>\p")
 cls()
 text("<Did MegaMan>...{d}\n<I mean Hub,know the\ntruth?>\p")
@@ -220,7 +220,7 @@ section_end()
 
 # 0x11 @ 0x73AFBB
 section_start(0x11)
-dialog_up(28)
+dialog_up("Dad")
 text("<I asked Hub to keep\nit a secret.>\p")
 cls()
 text("<If you knew the\ntruth,you'd be too\nscared to use him.>\p")
@@ -234,7 +234,7 @@ section_end()
 
 # 0x12 @ 0x73B0B1
 section_start(0x12)
-dialog_up(0)
+dialog_up("Lan")
 text("<But,Hub>...{d}\n<I'll lose\nMegaMan...>\p")
 cls(5)
 jump(0x13)
@@ -242,7 +242,7 @@ section_end()
 
 # 0x13 @ 0x73B0F3
 section_start(0x13)
-dialog_up(28)
+dialog_up("Dad")
 text("<Remember,if your DNA\nis 100% the same,\nyou will be affected>\p")
 cls()
 text("<by whatever affects\nyour Navi.>\p")
@@ -258,7 +258,7 @@ section_end()
 
 # 0x14 @ 0x73B20E
 section_start(0x14)
-dialog_up(0)
+dialog_up("Lan")
 text("{..}.\p")
 cls()
 text("<OK!\nI'll use Hub.bat!>\p")
@@ -268,7 +268,7 @@ section_end()
 
 # 0x15 @ 0x73B24C
 section_start(0x15)
-dialog_up(28)
+dialog_up("Dad")
 text("<Lan>...{d}\n<You're doing the\nright thing!>{d}\p")
 end()
 section_end()
@@ -283,7 +283,7 @@ section_end()
 
 # 0x17 @ 0x73B2C9
 section_start(0x17)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hub! Come fight\nby my side!>\p")
 cls(5)
 jump(0x18)
@@ -299,7 +299,7 @@ section_end()
 
 # 0x19 @ 0x73B312
 section_start(0x19)
-dialog_up(0)
+dialog_up("Lan")
 text("<No reply>...{d}!\p")
 cls(5)
 jump(0x1A)
@@ -307,7 +307,7 @@ section_end()
 
 # 0x1A @ 0x73B339
 section_start(0x1A)
-dialog_up(46)
+dialog_up("ProtoMan")
 text("<Hmm?>\p")
 end()
 section_end()

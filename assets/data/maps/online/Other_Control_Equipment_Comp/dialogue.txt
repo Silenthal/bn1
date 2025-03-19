@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x721738
 section_start(0x00)
-dialog_up(36)
+dialog_up("MrProg")
 text("<Our job is to\ncontrol the\npurified water.>\p")
 cls()
 text("<Water is the source\nof life! Please\ndon't waste it!>\p")
@@ -11,7 +11,7 @@ section_end()
 
 # 0x01 @ 0x7217B0
 section_start(0x01)
-dialog_up(36)
+dialog_up("MrProg")
 text("<We work hard so\nthat you can\ndrink clean water!>\p")
 end(5)
 section_end()

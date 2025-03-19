@@ -2,7 +2,7 @@ section_count(0x1)
 
 # 0x00 @ 0x732C72
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<Just one more!>\p")
 end()
 section_end()

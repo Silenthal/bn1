@@ -17,7 +17,7 @@ section_end()
 
 # 0x02 @ 0x72B67B
 section_start(0x02)
-dialog_up(6, 1)
+dialog_up("Higsby", 1)
 text("...ACDC elementary,\nDenCity...{d}This is\nthe place!\p")
 cls()
 text("{...}*grin*\p")

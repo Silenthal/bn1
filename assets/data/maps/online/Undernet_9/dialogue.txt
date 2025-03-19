@@ -22,7 +22,7 @@ section_end()
 
 # 0x14 @ 0x727F10
 section_start(0x14)
-dialog_up(49)
+dialog_up("EvilNavi")
 text("<Here,the results\nare more important\nthan the battle!>\p")
 cls()
 text("<Gotta get as many\nas you can...>\p")

@@ -16,7 +16,7 @@ section_end()
 
 # 0xE3 @ 0x6D5F9F
 section_start(0xE3)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! We've got\nto do what we can to\nhelp everyone!>\p")
 end()
 section_end()

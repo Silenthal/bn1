@@ -2,7 +2,7 @@ section_count(0x5)
 
 # 0x00 @ 0x737846
 section_start(0x00)
-dialog_up(5)
+dialog_up("LordWily")
 text("<Hoo,{d 10}hoo,{d 10}hoo,{d 10}\n{clear_flag 0x93}Waaah hah hah hah!>\p")
 cls()
 text("<Wonderfulーーー\nSimply wonderful!!>\p")
@@ -15,7 +15,7 @@ section_end()
 
 # 0x01 @ 0x737925
 section_start(0x01)
-dialog_up(5)
+dialog_up("LordWily")
 text("<By combining these 4\nprograms,{clear_flag 0x93}I can make\nYOUーKNOWーWHAT!!!!>\p")
 cls(5)
 set_flag(0x93)
@@ -24,7 +24,7 @@ section_end()
 
 # 0x02 @ 0x73797F
 section_start(0x02)
-dialog_up(5)
+dialog_up("LordWily")
 text("<Ahh,hah hah...\n>*phew*\p")
 cls()
 text("<And once I've made\nthat...>{d}I< can delete\nthe world!>\p")
@@ -35,7 +35,7 @@ section_end()
 
 # 0x03 @ 0x7379F7
 section_start(0x03)
-dialog_up(5)
+dialog_up("LordWily")
 text("<No more annoying\npeople with their\nannoying machines!>\p")
 cls(5)
 jump(0x04)
@@ -43,7 +43,7 @@ section_end()
 
 # 0x04 @ 0x737A40
 section_start(0x04)
-dialog_up(5)
+dialog_up("LordWily")
 text("<And I will get my\nrevenge against...>{d}\n<Hikari!!!>\p")
 end()
 section_end()

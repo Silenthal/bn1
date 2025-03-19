@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x6DD338
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<So you can jack in\nto these later\nmodels>...\p")
 end(5)
 section_end()

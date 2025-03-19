@@ -2,7 +2,7 @@ section_count(0x9)
 
 # 0x00 @ 0x737F3A
 section_start(0x00)
-dialog_up(29)
+dialog_up("Yahoot")
 text("<Our address...\nIt looks like the\nSciLab has got it.>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x737F84
 section_start(0x01)
-dialog_up(5)
+dialog_up("LordWily")
 text("...\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x737F99
 section_start(0x02)
-dialog_up(29)
+dialog_up("Yahoot")
 text("<Our secret lab will\nbe discovered in\nno time!>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x737FDA
 section_start(0x03)
-dialog_up(5)
+dialog_up("LordWily")
 text("<...no matter!>{d}\n<Hee,{d 10}hee,{d 10}hee{d 10}...>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x738026
 section_start(0x04)
-dialog_up(29)
+dialog_up("Yahoot")
 text("?\p")
 set_flag(0xA2)
 end()
@@ -42,7 +42,7 @@ section_end()
 
 # 0x05 @ 0x738038
 section_start(0x05)
-dialog_up(5)
+dialog_up("LordWily")
 text("<Because...>{d}\n<I've already made\nthe LifeVirus!!>\p")
 cls()
 text("<Now we can delete,\nDELETE,>{d}\n<DELEEEEEEEEEETE!!!!>\p")
@@ -51,7 +51,7 @@ section_end()
 
 # 0x06 @ 0x7380C6
 section_start(0x06)
-dialog_up(29)
+dialog_up("Yahoot")
 text("<You mean...the\nEndGame is about\nto begin?>\p")
 cls(5)
 jump(0x07)
@@ -59,7 +59,7 @@ section_end()
 
 # 0x07 @ 0x738106
 section_start(0x07)
-dialog_up(5)
+dialog_up("LordWily")
 text("<Hah hah!>{d}< Of course!>{d}\n<The final battle\nat last!>\p")
 cls()
 text("<Yahoot!>{d}\n<Come with me!>\p")
@@ -69,7 +69,7 @@ section_end()
 
 # 0x08 @ 0x738180
 section_start(0x08)
-dialog_up(29)
+dialog_up("Yahoot")
 text("<As you command,\nso shall it be done!>\p")
 end()
 section_end()

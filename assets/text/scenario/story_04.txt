@@ -6,13 +6,13 @@ dialog_up()
 text("ーAfter Classー\p")
 cls(5)
 dialog_down()
-breaks(5)
+force_delay(5)
 jump(0x01)
 section_end()
 
 # 0x01 @ 0x72A2D2
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Phew...>\p")
 cls(5)
 jump(0x02)
@@ -20,7 +20,7 @@ section_end()
 
 # 0x02 @ 0x72A2EF
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Wow,today just\nflew by,huh?>{d}\n<Let's go home!>\p")
 cls(5)
 jump(0x03)
@@ -28,7 +28,7 @@ section_end()
 
 # 0x03 @ 0x72A339
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<OK!>\p")
 end(5)
 section_end()

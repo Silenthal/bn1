@@ -2,7 +2,7 @@ section_count(0x15)
 
 # 0x00 @ 0x72F93E
 section_start(0x00)
-dialog_up(0)
+dialog_up("Lan")
 text("<Well,there's water,\nbut...>\p")
 cls()
 jump(0x01)
@@ -10,28 +10,28 @@ section_end()
 
 # 0x01 @ 0x72F971
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<It looks really\nnasty...>\p")
 end()
 section_end()
 
 # 0x02 @ 0x72F99C
 section_start(0x02)
-dialog_up(16)
+dialog_up("Man")
 text("<Waterrr>{d}\n<Need water...>")
 end(30)
 section_end()
 
 # 0x03 @ 0x72F9CB
 section_start(0x03)
-dialog_up(16)
+dialog_up("Man")
 text("<Water!!\nMust drink!>\p")
 end()
 section_end()
 
 # 0x04 @ 0x72F9F1
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Huh?>\p")
 cls()
 jump(0x05)
@@ -39,7 +39,7 @@ section_end()
 
 # 0x05 @ 0x72FA09
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<That water's bad!>\p")
 cls()
 jump(0x06)
@@ -47,7 +47,7 @@ section_end()
 
 # 0x06 @ 0x72FA2F
 section_start(0x06)
-dialog_up(16)
+dialog_up("Man")
 text_se_off()
 text("<{se 0xA1}gulp>...{d}{se 0xA1}<gulp>...{d}\n<Uck!>")
 text_se_on()
@@ -60,7 +60,7 @@ section_end()
 # 0x07 @ 0x72FA7C
 section_start(0x07)
 set_flag(0xF6)
-dialog_up(0)
+dialog_up("Lan")
 text("<Are you okay?>\p")
 cls()
 jump(0x08)
@@ -68,7 +68,7 @@ section_end()
 
 # 0x08 @ 0x72FAA1
 section_start(0x08)
-dialog_up(16)
+dialog_up("Man")
 text("{..}.\p")
 cls()
 jump(0x09)
@@ -76,7 +76,7 @@ section_end()
 
 # 0x09 @ 0x72FABE
 section_start(0x09)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan!!>\p")
 cls()
 jump(0x0A)
@@ -93,7 +93,7 @@ section_end()
 
 # 0x0B @ 0x72FAF1
 section_start(0x0B)
-dialog_up(7)
+dialog_up("Chaud")
 text("<You've done it now!>\p")
 cls()
 jump(0x0C)
@@ -101,7 +101,7 @@ section_end()
 
 # 0x0C @ 0x72FB19
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<Chaud!>\p")
 cls()
 jump(0x0D)
@@ -109,7 +109,7 @@ section_end()
 
 # 0x0D @ 0x72FB33
 section_start(0x0D)
-dialog_up(7)
+dialog_up("Chaud")
 text("<People are drinking\nthe polluted water\neverywhere>...{d}\p")
 cls()
 text("<The real problem was\nin the water\nfiltering program!>\p")
@@ -121,7 +121,7 @@ section_end()
 
 # 0x0E @ 0x72FBDE
 section_start(0x0E)
-dialog_up(0)
+dialog_up("Lan")
 text("<Uhh...>\p")
 cls()
 jump(0x0F)
@@ -129,7 +129,7 @@ section_end()
 
 # 0x0F @ 0x72FBFA
 section_start(0x0F)
-dialog_up(7)
+dialog_up("Chaud")
 text("<Just stay out of\nmy way,okay?>\p")
 cls()
 jump(0x10)
@@ -146,7 +146,7 @@ section_end()
 
 # 0x11 @ 0x72FC4C
 section_start(0x11)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,I'm sorry.\nI made a mistake.>\p")
 cls()
 jump(0x12)
@@ -154,7 +154,7 @@ section_end()
 
 # 0x12 @ 0x72FC83
 section_start(0x12)
-dialog_up(0)
+dialog_up("Lan")
 text("<It's not your fault,\nMegaMan. Let's go\nback!>\p")
 cls()
 jump(0x13)
@@ -162,7 +162,7 @@ section_end()
 
 # 0x13 @ 0x72FCC7
 section_start(0x13)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<What?>\p")
 cls()
 jump(0x14)
@@ -170,7 +170,7 @@ section_end()
 
 # 0x14 @ 0x72FCE0
 section_start(0x14)
-dialog_up(0)
+dialog_up("Lan")
 text("<We can't give up\nnow! Let's fix this\nproblem for good!>\p")
 end()
 section_end()

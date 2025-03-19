@@ -14,14 +14,14 @@ section_end()
 
 # 0x01 @ 0x7AA767
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,you don't\nhave 3 chips in\nyour pack.>\p")
 end(5)
 section_end()
 
 # 0x02 @ 0x7AA7A2
 section_start(0x02)
-breaks(30)
+force_delay(30)
 dialog_up()
 text("Trade these 3 chips?\n")
 text("{c 0 0 1 1}Yes ")
@@ -59,7 +59,7 @@ section_end()
 # 0x04 @ 0x7AA87E
 section_start(0x04)
 cls()
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Sorry,Lan. You don't\nhave 3 chips left.\nTry later!>\p")
 end(5)
 section_end()
@@ -83,14 +83,14 @@ section_end()
 
 # 0x07 @ 0x7AA916
 section_start(0x07)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,you don't\nhave 10 chips in\nyour pack.>\p")
 end(5)
 section_end()
 
 # 0x08 @ 0x7AA952
 section_start(0x08)
-breaks(30)
+force_delay(30)
 dialog_up()
 text("Trade these\n10 chips?\n")
 text("{c 0 0 1 1}Yes ")
@@ -128,7 +128,7 @@ section_end()
 # 0x0A @ 0x7AAA2F
 section_start(0x0A)
 cls()
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Sorry,Lan. You don't\nhave 10 chips left.\nTry later!>\p")
 end(5)
 section_end()

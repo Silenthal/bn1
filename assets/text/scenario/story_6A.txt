@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x738401
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<? What was that\nnoise?>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x73842C
 section_start(0x02)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<It came from below\nus! I wonder...>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x738465
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<The mystery\nMetroline!?>\p")
 cls(5)
 jump(0x04)
@@ -34,7 +34,7 @@ section_end()
 
 # 0x04 @ 0x738491
 section_start(0x04)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Maybe there's an\nentrance around\nhere somewhere!>\p")
 end()
 section_end()

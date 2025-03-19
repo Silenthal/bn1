@@ -25,7 +25,7 @@ section_end()
 
 # 0x02 @ 0x716304
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! You don't\nneed to press the\nswitch now!>\p")
 end()
 section_end()
@@ -56,7 +56,7 @@ section_end()
 
 # 0x05 @ 0x7163FD
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! You don't\nneed to press the\nswitch now!>\p")
 end()
 section_end()
@@ -88,7 +88,7 @@ section_end()
 
 # 0x08 @ 0x7164FC
 section_start(0x08)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! You don't\nneed to press the\nswitch now!>\p")
 end()
 section_end()
@@ -121,14 +121,14 @@ section_end()
 
 # 0x0B @ 0x716601
 section_start(0x0B)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! You don't\nneed to press the\nswitch now!>\p")
 end()
 section_end()
 
 # 0x0C @ 0x716644
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan,wasn't there\nanother switch\nbefore that?>\p")
 cls()
 text("<We need to do them\nin order!>\p")
@@ -137,7 +137,7 @@ section_end()
 
 # 0x0D @ 0x7166AC
 section_start(0x0D)
-dialog_up(0)
+dialog_up("Lan")
 text("<The bus is coming!\nWe don't have time\nto jack out!>\p")
 end()
 section_end()

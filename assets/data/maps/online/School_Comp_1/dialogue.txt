@@ -15,7 +15,7 @@ section_end()
 
 # 0x01 @ 0x710C67
 section_start(0x01)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<We have to enter a\npasscode,huh...?>\p")
 cls()
 text("<Lan! How many chairs\nare in the classroom\nfor 5A?>\p")
@@ -26,7 +26,7 @@ section_end()
 
 # 0x02 @ 0x710CDF
 section_start(0x02)
-dialog_up(0)
+dialog_up("Lan")
 text("<Hang on!\nI'll go check!>\p")
 cls(5)
 dialog_down()
@@ -35,7 +35,7 @@ section_end()
 
 # 0x03 @ 0x710D0E
 section_start(0x03)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<When you find out,\nhit the L Button!>\p")
 cls()
 text("<Then I'll input the\npasscode!>\p")
@@ -45,7 +45,7 @@ section_end()
 # 0x05 @ 0x710D6D
 section_start(0x05)
 if_flag(0xA4, 0x0F, 0xFF)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<Going down from\nhere you'll see the\ndoor lock.>\p")
 cls()
 text("<Normally you can\nget there easily,>\p")
@@ -57,7 +57,7 @@ section_end()
 # 0x06 @ 0x710E19
 section_start(0x06)
 if_flag(0xA4, 0x10, 0xFF)
-dialog_up(39)
+dialog_up("Glide")
 text("<Thank you for your\nhelp the other day.>\p")
 cls()
 text("<Someone had hacked\ninto the server in\nthe teacher's>\p")
@@ -69,7 +69,7 @@ section_end()
 # 0x07 @ 0x710ED5
 section_start(0x07)
 if_flag(0xA4, 0x11, 0xFF)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<Do you want to go\nto the lock?>\p")
 cls()
 text("{c 0 0 1 1}Yes ")
@@ -87,7 +87,7 @@ section_end()
 
 # 0x09 @ 0x710F5E
 section_start(0x09)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<The virus that\nstarted the reー\neducation program>\p")
 cls()
 text("<wiped out most of\nthe programs around\nhere...>\p")
@@ -109,21 +109,21 @@ section_end()
 
 # 0x0F @ 0x71104C
 section_start(0x0F)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<You deactivated the\nlock program?\nGreat!>\p")
 end(5)
 section_end()
 
 # 0x10 @ 0x711086
 section_start(0x10)
-dialog_up(39)
+dialog_up("Glide")
 text("<Good luck making\nit to the teacher's\nlounge server!>\p")
 end(5)
 section_end()
 
 # 0x11 @ 0x7110CB
 section_start(0x11)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<Do you want to go\nto the lock?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -140,7 +140,7 @@ section_end()
 
 # 0x13 @ 0x71114D
 section_start(0x13)
-dialog_up(41)
+dialog_up("NormalNaviYellow")
 text("<The virus that\nstarted the reー\neducation program>\p")
 cls()
 text("<wiped out most of\nthe programs around\nhere...>\p")

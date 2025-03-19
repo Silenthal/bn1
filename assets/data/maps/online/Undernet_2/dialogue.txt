@@ -18,7 +18,7 @@ section_end()
 
 # 0x0C @ 0x725AE8
 section_start(0x0C)
-dialog_up(0)
+dialog_up("Lan")
 text("<MegaMan! Try using\nthe memo we got\nfrom Ms.Yuri!>\p")
 cls(5)
 jump(0x0D)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x0D @ 0x725B2E
 section_start(0x0D)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Roger!!>\p")
 cls(5)
 jump(0x0E)
@@ -47,7 +47,7 @@ section_end()
 
 # 0x0F @ 0x725B92
 section_start(0x0F)
-dialog_up(0)
+dialog_up("Lan")
 text("<Way to go!!>\p")
 end()
 section_end()

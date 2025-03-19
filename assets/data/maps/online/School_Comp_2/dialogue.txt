@@ -38,7 +38,7 @@ text("Door will not open\nwithout proper\nauthorization\p")
 cls()
 text("Passcode hint;\nnone\p")
 cls()
-pic(34)
+pic("MegaMan")
 text("<What? No hint>...?{d}\n<Well,let's just try\nanything!>\p")
 cls()
 hidepic()
@@ -219,7 +219,7 @@ section_end()
 
 # 0x1F @ 0x711937
 section_start(0x1F)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<{se 0xE7}Way to go!!>\p")
 dialog_down()
 if_flag(0xB3, 0xFF, 0x20)
@@ -257,7 +257,7 @@ section_end()
 
 # 0x24 @ 0x711A0E
 section_start(0x24)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan!!>\p")
 cls(5)
 dialog_down()
@@ -266,7 +266,7 @@ section_end()
 
 # 0x25 @ 0x711A2A
 section_start(0x25)
-dialog_up(0)
+dialog_up("Lan")
 text("<So I need to find\nout how many volumes\nof History of the>\p")
 cls()
 text("<World there are,\nright?\nOK! Be right back!>\p")
@@ -277,14 +277,14 @@ section_end()
 
 # 0x26 @ 0x711AAD
 section_start(0x26)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Call me with the\nL Button when you\nfind out!>\p")
 end(5)
 section_end()
 
 # 0x28 @ 0x711AEC
 section_start(0x28)
-dialog_up(36)
+dialog_up("MrProg")
 text("<I control the{d 10}\nlibrary book {d 10}loan\ndata{d 10}...>\p")
 cls()
 text("<But,{d 10}I have {d 10}been\nbadly damaged {d 10}by the\nWWW{d 10}...>\p")

@@ -2,7 +2,7 @@ section_count(0xA)
 
 # 0x00 @ 0x732254
 section_start(0x00)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan!? Phone for\nyou!>\p")
 cls(5)
 jump(0x01)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x73227E
 section_start(0x01)
-dialog_up(0)
+dialog_up("Lan")
 text("<Who is it!?\nHello?>\p")
 cls(5)
 jump(0x02)
@@ -18,7 +18,7 @@ section_end()
 
 # 0x02 @ 0x7322A6
 section_start(0x02)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Lan! It's me!>\p")
 cls(5)
 jump(0x03)
@@ -26,7 +26,7 @@ section_end()
 
 # 0x03 @ 0x7322C9
 section_start(0x03)
-dialog_up(0)
+dialog_up("Lan")
 text("<Oh,it's you Mayl>...{d}\n<Oh no!!!>\p")
 cls(5)
 set_flag(0xA5)
@@ -35,7 +35,7 @@ section_end()
 
 # 0x04 @ 0x73230C
 section_start(0x04)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Help!>{d} <I'm stuck\nin a runaway bus!>\p")
 cls()
 text("<All the lights are\ngreen and we keep\nspeeding up!>\p")
@@ -45,7 +45,7 @@ section_end()
 
 # 0x05 @ 0x732385
 section_start(0x05)
-dialog_up(0)
+dialog_up("Lan")
 text("<Mayl! Calm down!\nWhere are you?>\p")
 cls(5)
 jump(0x06)
@@ -53,7 +53,7 @@ section_end()
 
 # 0x06 @ 0x7323BA
 section_start(0x06)
-dialog_up(8)
+dialog_up("Mayl")
 text("<Huh,um,hold on>...{d}\p")
 cls()
 text("<! We just passed\nDentown Block3\nheading for Block4!>\p")
@@ -63,7 +63,7 @@ section_end()
 
 # 0x07 @ 0x732424
 section_start(0x07)
-dialog_up(0)
+dialog_up("Lan")
 text("<Gotcha!\nI'll be there ASAP!\nDon't panic!>\p")
 cls(5)
 jump(0x08)
@@ -71,7 +71,7 @@ section_end()
 
 # 0x08 @ 0x732464
 section_start(0x08)
-dialog_up(34)
+dialog_up("MegaMan")
 text("<Lan,we've got to\nturn the lights red\nto stop that bus!>\p")
 cls(5)
 jump(0x09)
@@ -79,7 +79,7 @@ section_end()
 
 # 0x09 @ 0x7324B0
 section_start(0x09)
-dialog_up(0)
+dialog_up("Lan")
 text("<I know! I know!>\p")
 end()
 section_end()
