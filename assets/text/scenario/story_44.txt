@@ -2,16 +2,15 @@ section_count(0x2)
 
 # 0x00 @ 0x732B7C
 section_start(0x00)
-pic(0)
-dialog_up()
-text("{a 2}MegaMan!\nTurn all the traffic\nlights to red!{a 1}\p{w 5}")
+dialog_up(0)
+text("<MegaMan!\nTurn all the traffic\nlights to red!>\p")
+cls(5)
 jump(0x01)
 section_end()
 
 # 0x01 @ 0x732BBD
 section_start(0x01)
-pic(34)
-dialog_up()
-text("{a 2}Gotcha!\nWe'll stop the bus\nat the intersection!{a 1}\p")
-end(0)
+dialog_up(34)
+text("<Gotcha!\nWe'll stop the bus\nat the intersection!>\p")
+end()
 section_end()

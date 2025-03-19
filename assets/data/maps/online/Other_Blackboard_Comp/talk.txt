@@ -10,8 +10,7 @@ section_end()
 
 # 0x01 @ 0x6DD738
 section_start(0x01)
-pic(0)
-dialog_up()
-text("{a 2}Why is this black\nboard so different\nfrom my school's?{a 1}\p")
+dialog_up(0)
+text("<Why is this black\nboard so different\nfrom my school's?>\p")
 end(5)
 section_end()

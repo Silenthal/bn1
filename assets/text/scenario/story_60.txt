@@ -2,24 +2,23 @@ section_count(0x3)
 
 # 0x00 @ 0x7369F6
 section_start(0x00)
-pic(0)
-dialog_up()
-text("{a 2}Right on!\nThat should fix the\npower out!{a 1}\p{w 5}")
+dialog_up(0)
+text("<Right on!\nThat should fix the\npower out!>\p")
+cls(5)
 jump(0x01)
 section_end()
 
 # 0x01 @ 0x736A33
 section_start(0x01)
-pic(34)
-dialog_up()
-text("{a 2}Lan,back to the\nrestaurant! Your mom\nis worried sick!{a 1}\p{w 5}")
+dialog_up(34)
+text("<Lan,back to the\nrestaurant! Your mom\nis worried sick!>\p")
+cls(5)
 jump(0x02)
 section_end()
 
 # 0x02 @ 0x736A7E
 section_start(0x02)
-pic(0)
-dialog_up()
-text("{a 2}You're right...{a 1}\p")
-end(0)
+dialog_up(0)
+text("<You're right...>\p")
+end()
 section_end()

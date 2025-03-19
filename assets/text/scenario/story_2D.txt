@@ -2,16 +2,15 @@ section_count(0x2)
 
 # 0x00 @ 0x72F8A8
 section_start(0x00)
-pic(34)
-dialog_up()
-text("{a 2}Lan! We have to\ngo check the water!{a 1}\p{w 0}")
+dialog_up(34)
+text("<Lan! We have to\ngo check the water!>\p")
+cls()
 jump(0x01)
 section_end()
 
 # 0x01 @ 0x72F8E0
 section_start(0x01)
-pic(0)
-dialog_up()
-text("{a 2}Let's check out\nthe school pond!{a 1}\p")
-end(0)
+dialog_up(0)
+text("<Let's check out\nthe school pond!>\p")
+end()
 section_end()

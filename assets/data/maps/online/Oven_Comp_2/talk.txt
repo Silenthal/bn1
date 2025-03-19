@@ -11,17 +11,16 @@ section_end()
 
 # 0x01 @ 0x6D10EC
 section_start(0x01)
-pic(0)
-dialog_up()
-text("{a 2}Ouch!!\nOuch!! Ouch!!{a 1}\p{w 0}")
-text("{a 2}MegaMan!? Hurry!!{a 1}\p")
+dialog_up(0)
+text("<Ouch!!\nOuch!! Ouch!!>\p")
+cls()
+text("<MegaMan!? Hurry!!>\p")
 end(5)
 section_end()
 
 # 0x05 @ 0x6D1139
 section_start(0x05)
-pic(0)
-dialog_up()
-text("{a 2}Looks like not\nmuch is going on\nhere,huh?{a 1}\p")
+dialog_up(0)
+text("<Looks like not\nmuch is going on\nhere,huh?>\p")
 end(5)
 section_end()

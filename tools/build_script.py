@@ -816,11 +816,31 @@ def bytes_key(itemid: Union[str, int]):
     if isinstance(itemid, int):
         return [itemid]
     elif isinstance(itemid, str):
-        if itemid not in key_item_map:
-            exit(f"Unrecognized item name {itemid}")
-        return [key_item_map[itemid]]
+        try:
+            num = auto_int(itemid)
+            return [num]
+        except ValueError:
+            if itemid not in key_item_map:
+                exit(f"Unrecognized item name {itemid}")
+            return [key_item_map[itemid]]
     else:
         exit(f"Unrecognized item name {itemid}")
+
+
+def bytes_flag(flagId: Union[str, int]):
+    global curScript
+    if isinstance(flagId, int):
+        return [flagId]
+    elif isinstance(flagId, str):
+        try:
+            num = auto_int(flagId)
+            return [num]
+        except ValueError:
+            if flagId not in globals().keys:
+                exit(f"Unrecognized flag {flagId}")
+            return [globals()[flagId]]
+    else:
+        exit(f"Unrecognized item name {flagId}")
 
 
 # endregion
@@ -1433,7 +1453,7 @@ def newline():
     curScript.emitByte(0xE8)
 
 
-def wait(amt: int = 0):
+def cls(amt: int = 0):
     global curScript
     curScript.emitByte(0xE9)
     curScript.emitShort(amt)
@@ -1558,7 +1578,9 @@ def dialog_control(com: int):
     curScript.emitByte(com)
 
 
-def dialog_up():
+def dialog_up(picture: int = -1, palette: int = 0):
+    if picture > -1:
+        pic(picture, palette)
     dialog_control(0)
 
 
@@ -1740,19 +1762,13 @@ def sub_item(
 
 def set_item(
     itemid: Union[str, int],
-    amt: int,
-    ifall: int = 0xFF,
-    ifnone: int = 0xFF,
-    ifsome: int = 0xFF,
+    amt: int
 ):
     global curScript
     inv_control(2)
     bitem = bytes_key(itemid)
     curScript.emitByte(bitem[0])
     curScript.emitByte(amt)
-    curScript.emitByte(ifall)
-    curScript.emitByte(ifnone)
-    curScript.emitByte(ifsome)
 
 
 def check_item(
@@ -1773,7 +1789,7 @@ def check_item(
 
 
 def if_have_item(itemid: Union[str, int], jump: int):
-    check_item(itemid, 1, jump, jump)
+    check_item(itemid, 1, eq=jump, gt=jump)
 
 
 def if_no_item(itemid: Union[str, int], jump: int):
@@ -1823,7 +1839,7 @@ def set_chip(
 
 
 def check_chip(
-    chip: str, amt: int, ifeq: int = 0xFF, ifgt: int = 0xFF, iflt: int = 0xFF
+    chip: str, amt: int, eq: int = 0xFF, gt: int = 0xFF, lt: int = 0xFF
 ):
     global curScript
     inv_control(0x14)
@@ -1831,13 +1847,13 @@ def check_chip(
     curScript.emitByte(bchip[0])
     curScript.emitByte(bchip[1])
     curScript.emitByte(amt)
-    curScript.emitByte(ifeq)
-    curScript.emitByte(ifgt)
-    curScript.emitByte(iflt)
+    curScript.emitByte(eq)
+    curScript.emitByte(gt)
+    curScript.emitByte(lt)
 
 
 def if_have_chip(chip: str, jump: int):
-    check_chip(chip, 1, jump, jump, 0xFF)
+    check_chip(chip, 1, eq=jump, gt=jump)
 
 
 def check_chip_pack(
@@ -1937,8 +1953,10 @@ def pc_anim_start(anim: int):
     pc_anim(anim)
 
 
-def pc_anim_end():
+def pc_anim_end(restore=False):
     pc_wait()
+    if restore:
+        pc_control(4)
     pc_unlock()
 
 
@@ -1951,6 +1969,7 @@ def pc_wait():
 
 
 def pc_restore():
+    pc_wait()
     pc_control(4)
 
 
@@ -2044,17 +2063,7 @@ def chip_amt(
     curScript.emitByte(bchip[1])
 
 
-def zenny_amt(minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False):
-    global curScript
-    item_control(3)
-    flag_7 = (1 if isPadLeft else 0) << 7
-    flag_6 = (1 if isPadZero else 0) << 6
-    flag_other = minlen & 0xF
-    curScript.emitByte(flag_7 | flag_6 | flag_other)
-    curScript.emitByte(0)
-
-
-def buffer(
+def zenny_amt(
     buffer: int, minlen: int = 0, isPadZero: bool = False, isPadLeft: bool = False
 ):
     global curScript
@@ -2242,8 +2251,17 @@ def parse_command(reader: Reader):
             text(" ")
             chip_code_buf(2)
         elif coms[0] == "key_item_buf":
-            arg = auto_int(coms[1])
-            key_item_buf(arg)
+            if len(coms) > 1:
+                arg = auto_int(coms[1])
+                key_item_buf(arg)
+            else:
+                key_item_buf(1)
+        elif coms[0] == "zenny_buf":
+            if len(coms) > 1:
+                arg = auto_int(coms[1])
+                zenny_amt(arg)
+            else:
+                zenny_amt(1)
         elif coms[0] == "anim" or coms[0] == "a":
             if len(coms) > 1:
                 arg = auto_int(coms[1])
@@ -2274,14 +2292,24 @@ def parse_command(reader: Reader):
             item = coms[1]
             args = [auto_int(i) for i in coms[2:]]
             sub_item(item, *args)
-        elif coms[0] == "wait" or coms[0] == "w":
+        elif coms[0] == "set_flag":
+            if len(coms) == 1:
+                exit("Arguments required for set_flag")
+            args = bytes_flag(coms[1])
+            set_flag(args[0])
+        elif coms[0] == "clear_flag":
+            if len(coms) == 1:
+                exit("Arguments required for clear_flag")
+            args = bytes_flag(coms[1])
+            clear_flag(args[0])
+        elif coms[0] == "cls" or coms[0] == "w":
             if len(coms) > 1:
                 arg = auto_int(coms[1])
-                wait(arg)
+                cls(arg)
             else:
-                wait()
+                cls()
         elif coms[0] == "buf":
-            buffer(1)
+            zenny_amt(1)
         elif coms[0] == "end":
             if len(coms) > 1:
                 arg = auto_int(coms[1])
@@ -2301,7 +2329,10 @@ def parse_command(reader: Reader):
                 curScript.emitByte(charmap_E5["."])
                 delay()
         elif coms[0] == "item_amt":
-            item_amt(coms[1])
+            if len(coms) > 1:
+                item_amt(coms[1])
+            else:
+                exit("(item_amt) Key item name required")
         elif coms[0] == "p":
             pad()
         elif coms[0] == "c":
@@ -2346,6 +2377,11 @@ def parse_command(reader: Reader):
                 exit("Argument required for se")
             arg = auto_int(coms[1])
             se(arg)
+        elif coms[0] == "song":
+            if len(coms) == 1:
+                exit("Argument required for song")
+            arg = auto_int(coms[1])
+            song(arg)
         else:
             exit(f"Unrecognized command {coms[0]}")
 
@@ -2359,6 +2395,10 @@ def text_base(useBold: bool, *txtList):
                 char = reader.read()
                 if char == "{":
                     parse_command(reader)
+                elif char == "<":
+                    anim(2)
+                elif char == ">":
+                    anim(1)
                 elif char == "\\":
                     char += reader.read()
                     if char == "\\p":

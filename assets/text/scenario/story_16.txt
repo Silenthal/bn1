@@ -2,16 +2,15 @@ section_count(0x2)
 
 # 0x00 @ 0x72C9A8
 section_start(0x00)
-pic(34)
-dialog_up()
-text("{a 2}Right on! We did it!{a 1}{d}\n{a 2}Lan,the doors should\nopen now!{a 1}\p{w 5}")
+dialog_up(34)
+text("<Right on! We did it!>{d}\n<Lan,the doors should\nopen now!>\p")
+cls(5)
 jump(0x01)
 section_end()
 
 # 0x01 @ 0x72C9FA
 section_start(0x01)
-pic(0)
-dialog_up()
-text("{a 2}Thanks!\nI'll get everyone\noutside!{a 1}\p")
+dialog_up(0)
+text("<Thanks!\nI'll get everyone\noutside!>\p")
 end(5)
 section_end()

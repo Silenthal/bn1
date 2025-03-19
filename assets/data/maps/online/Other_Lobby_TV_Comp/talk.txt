@@ -10,8 +10,7 @@ section_end()
 
 # 0x01 @ 0x6DD4B8
 section_start(0x01)
-pic(0)
-dialog_up()
-text("{a 2}A TV you can jack in\nto! Cool!{a 1}\p")
+dialog_up(0)
+text("<A TV you can jack in\nto! Cool!>\p")
 end(5)
 section_end()

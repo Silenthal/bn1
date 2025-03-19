@@ -2,25 +2,25 @@ section_count(0xA)
 
 # 0x00 @ 0x721AA8
 section_start(0x00)
-pic(36)
-dialog_up()
-text("{a 2}This {key PET} is made\nfrom recycled\nplastics!{a 1}\p{w 0}")
-text("{a 2}At last,a {key PET} which\nis safe for the\nenvironment!{a 1}\p")
+dialog_up(36)
+text("<This {key PET} is made\nfrom recycled\nplastics!>\p")
+cls()
+text("<At last,a {key PET} which\nis safe for the\nenvironment!>\p")
 end(5)
 section_end()
 
 # 0x01 @ 0x721B1D
 section_start(0x01)
-pic(36)
-dialog_up()
-text("{a 2}We must be careful\nto recycle\neverything we can!{a 1}\p")
+dialog_up(36)
+text("<We must be careful\nto recycle\neverything we can!>\p")
 end(5)
 section_end()
 
 # 0x02 @ 0x721B5E
 section_start(0x02)
 dialog_up()
-text("MegaMan accessed the\nmystery data...\p{w 0}")
+text("MegaMan accessed the\nmystery data...\p")
+cls()
 set_flag(FLAG_ITEM_OTHER_RECYCLED_PET_COMP_HPMEMORY)
 pc_anim_start(50)
 text("{add_item 'HPmemory'}MegaMan got a\nPowerUp;\"{key HPmemory}\"!")

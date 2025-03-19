@@ -10,8 +10,7 @@ section_end()
 
 # 0x01 @ 0x6DD604
 section_start(0x01)
-pic(0)
-dialog_up()
-text("{a 2}Another jackーinnable\nvending machine...{a 1}\p")
+dialog_up(0)
+text("<Another jackーinnable\nvending machine...>\p")
 end(5)
 section_end()

@@ -5,7 +5,7 @@ section_start(0x00)
 if_story(FLAG_STORY_FINAL, 0xE1)
 dialog_up()
 text("Test message\p")
-end(0)
+end()
 section_end()
 
 # 0xE1 @ 0x6D0A3E
@@ -15,8 +15,7 @@ section_end()
 
 # 0xE3 @ 0x6D0A48
 section_start(0xE3)
-pic(34)
-dialog_up()
-text("{a 2}Lan! Let's get to\nthe room where the\nrocket is!{a 1}\p")
-end(0)
+dialog_up(34)
+text("<Lan! Let's get to\nthe room where the\nrocket is!>\p")
+end()
 section_end()

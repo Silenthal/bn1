@@ -2,24 +2,23 @@ section_count(0x3)
 
 # 0x00 @ 0x73292E
 section_start(0x00)
-pic(0)
-dialog_up()
-text("{a 2}MegaMan! The bus\nis here again!{a 1}\p{w 5}")
+dialog_up(0)
+text("<MegaMan! The bus\nis here again!>\p")
+cls(5)
 jump(0x01)
 section_end()
 
 # 0x01 @ 0x732962
 section_start(0x01)
-pic(34)
-dialog_up()
-text("{a 2}Roger! The signal\nshould change soon!\nWe'll make it!{a 1}\p{w 5}")
+dialog_up(34)
+text("<Roger! The signal\nshould change soon!\nWe'll make it!>\p")
+cls(5)
 jump(0x02)
 section_end()
 
 # 0x02 @ 0x7329AD
 section_start(0x02)
-pic(0)
-dialog_up()
-text("{a 2}I hope so!{a 1}\p")
-end(0)
+dialog_up(0)
+text("<I hope so!>\p")
+end()
 section_end()

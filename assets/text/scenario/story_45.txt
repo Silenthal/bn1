@@ -2,16 +2,15 @@ section_count(0x2)
 
 # 0x00 @ 0x732C04
 section_start(0x00)
-pic(0)
-dialog_up()
-text("{a 2}OK! Let's get\nthe next one!{a 1}\p{w 5}")
+dialog_up(0)
+text("<OK! Let's get\nthe next one!>\p")
+cls(5)
 jump(0x01)
 section_end()
 
 # 0x01 @ 0x732C35
 section_start(0x01)
-pic(34)
-dialog_up()
-text("{a 2}Roger!{a 1}\p")
-end(0)
+dialog_up(34)
+text("<Roger!>\p")
+end()
 section_end()

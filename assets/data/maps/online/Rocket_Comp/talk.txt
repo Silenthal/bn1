@@ -5,7 +5,7 @@ section_start(0x00)
 if_story(FLAG_STORY_FINAL, 0xE1)
 dialog_up()
 text("Test message\p")
-end(0)
+end()
 section_end()
 
 # 0xE1 @ 0x6D5F92
@@ -16,8 +16,7 @@ section_end()
 
 # 0xE3 @ 0x6D5F9F
 section_start(0xE3)
-pic(0)
-dialog_up()
-text("{a 2}MegaMan! We've got\nto do what we can to\nhelp everyone!{a 1}\p")
-end(0)
+dialog_up(0)
+text("<MegaMan! We've got\nto do what we can to\nhelp everyone!>\p")
+end()
 section_end()

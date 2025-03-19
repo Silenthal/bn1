@@ -10,8 +10,7 @@ section_end()
 
 # 0x01 @ 0x6DD134
 section_start(0x01)
-pic(0)
-dialog_up()
-text("{a 2}I haven't jacked in\nto this thing in a\nlong time!{a 1}\p")
+dialog_up(0)
+text("<I haven't jacked in\nto this thing in a\nlong time!>\p")
 end(5)
 section_end()

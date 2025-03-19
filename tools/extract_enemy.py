@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import BinaryIO
 
 import common
-from common import auto_int, get_byte, get_short
+from common import auto_int, get_byte, get_int, get_short
 
 
 def bytelist(inFile: BinaryIO, count: int) -> str:
@@ -62,12 +62,16 @@ def main():
         with open(outPath, mode="w", encoding="utf-8") as outFile:
             inFile.seek(args.enemy_offset)
             for i in range(args.count):
-                outFile.write(f"    _{i}: @ {common.enemy_id(i)}\n")
-                outFile.write(f"        hp {get_short(inFile)}\n")
-                outFile.write(f"        {element(inFile)}\n")
-                outFile.write(f"        {bytelist(inFile, 9)}\n")
+                outFile.write(f"    @ {i} | {common.enemy_id(i)}\n")
+                outFile.write(f"    hp {get_short(inFile)}\n")
+                outFile.write(f"    {element(inFile)}\n")
+                outFile.write(f"    hp_pos {get_byte(inFile)}\n")
+                outFile.write(f"    routine 0x{get_byte(inFile):X}\n")
+                outFile.write(f"    lzSprite 0x{get_byte(inFile):X}\n")
+                outFile.write(f"    .short 0x{get_short(inFile):X}\n")
+                outFile.write(f"    .word 0x{get_int(inFile):X}\n")
                 for _ in range(10):
-                    outFile.write(f"        {reward(get_short(inFile))}\n")
+                    outFile.write(f"    {reward(get_short(inFile))}\n")
 
 
 if __name__ == "__main__":

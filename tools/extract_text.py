@@ -556,6 +556,11 @@ def key_item(bt):
         0x0B: "BatteryC",
         0x0C: "BatteryD",
         0x0D: "BatteryE",
+        0x50: "BattA_Ct",
+        0x51: "BattB_Ct",
+        0x52: "BattC_Ct",
+        0x53: "BattD_Ct",
+        0x54: "BattE_Ct",
         0x0E: "Charger",
         0x0F: "WWW_Pass",
         0x11: "Dentures",
@@ -813,7 +818,7 @@ def chip_id(bt):
 
 
 def chip_code(bt):
-    return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[bt] if bt < 26 else f"0x{bt:02X}"
+    return "ABCDEFGHIJKLMNOPQRSTUVWXYZ*"[bt] if bt < 26 else f"0x{bt:02X}"
 
 
 def get_item(infile):
@@ -849,9 +854,9 @@ def Com_E8(infile):
 def Com_E9(infile):
     delay = get_short(infile)
     if delay == 0:
-        textBuf = "wait()"
+        textBuf = "cls()"
     else:
-        textBuf = f"wait({delay})"
+        textBuf = f"cls({delay})"
     return False, textBuf
 
 
@@ -1074,7 +1079,7 @@ def Com_F7(infile):
         elif command == 0x01:
             textBuf = f"sub_item({arg_list(infile, 5, proc_item)})"
         elif command == 0x02:
-            textBuf = f"set_item({arg_list(infile, 5, proc_item)})"
+            textBuf = f"set_item({arg_list(infile, 2, proc_item)})"
         else:
             textBuf = f"check_item({arg_list(infile, 5, proc_item)})"
     else:
@@ -1083,7 +1088,7 @@ def Com_F7(infile):
         elif command == 0x11:
             textBuf = f"sub_chip({arg_list(infile, 5, proc_chip)})"
         elif command == 0x12:
-            textBuf = f"set_chip({arg_list(infile, 5, proc_chip)})"
+            textBuf = f"set_chip({arg_list(infile, 2, proc_chip)})"
         elif command == 0x14:
             textBuf = f"check_chip({arg_list(infile, 5, proc_chip)})"
         else:
@@ -1171,10 +1176,7 @@ def Com_FB(infile):
         isPadZero = (flags & 0x40) != 0
         isPadLeft = (flags & 0x80) != 0
         buf = get_byte(infile)
-        if buf == 0:
-            textBuf = f"zenny_amt({minlen}, {isPadZero}, {isPadLeft})"
-        else:
-            textBuf = f"buffer({buf}, {minlen}, {isPadZero}, {isPadLeft})"
+        textBuf = f"zenny_amt({buf}, {minlen}, {isPadZero}, {isPadLeft})"
     else:
         textBuf = f"FB_{command}()"
     return False, textBuf
@@ -1307,6 +1309,9 @@ def interpret(infile):
         c2 = get_byte(infile)
         textBuf = charmap[c2 + 0x1E5]
         isText = True
+    elif c == 0xEB:
+        textBuf = "\p"
+        isText = True
     elif c < 0xFF:
         isDone, textBuf = funcList[c - 0xE7](infile)
         isText = c in [0xE8]
@@ -1335,7 +1340,7 @@ def interpretUi(infile):
         textBuf = "end()"
         isDone = True
     elif c == 0xE8:
-        textBuf = "\\n"
+        textBuf = "\\\n"
         isText = True
     elif c == 0xE9:
         bcdIndex = get_byte(infile)
@@ -1365,59 +1370,74 @@ def runner(patterns, input):
 
 def processDelay(input: str):
     patterns = [
-        [r'^delay\((.*)\)\ntext\("""', r'text("""{delay \1}'],
-        [r'^text\("""(.*)"""\)\ndelay\((.*)\)', r'text("""\1{delay \2}""")'],
-        [r"\{delay \}", r"{delay}"],
+        [r'^delay\((.*)\)\ntext\("', r'text("{d \1}'],
+        [r'^text\("(.*)"\)\ndelay\((.*)\)', r'text("\1{d \2}")'],
+        [r"\{d \}", r"{d}"],
+    ]
+    return runner(patterns, input)
+
+
+def processWait(input: str):
+    patterns = [
+        [r'^text\("(.*)"\)\nwait\((.*)\)', r'text("\1{w \2}")'],
+        [r'^wait\((.*)\)\ntext\("', r'text("{w \1}'],
+        [r"\{w \}", r"{w}"],
     ]
     return runner(patterns, input)
 
 
 def processKey(input: str):
     patterns = [
-        [r'^text\("""(.*)"""\)\nkey_item\("(.*)"\)', r'text("""\1{key \2}""")'],
-        [r'^key_item\("(.*)"\)\ntext\("""', r'text("""{key \1}'],
+        [r'^text\("(.*)"\)\nkey_item\("(.*)"\)', r'text("\1{key \2}")'],
+        [r'^text\("(.*)"\)\nkey_item_buf\((.*)\)', r'text("\1{key_item_buf \2}")'],
+        [r'^text\("(.*)"\)\nchip_id_buf\((.*)\)', r'text("\1{chip_id_buf \2}")'],
+        [r'^text\("(.*)"\)\nchip_code_buf\((.*)\)', r'text("\1{chip_code_buf \2}")'],
+        [r'^key_item\("(.*)"\)\ntext\("', r'text("{key \1}'],
+        [r'^key_item_buf\((.*)\)\ntext\("', r'text("{key_item_buf \1}'],
+        [r'^chip_id_buf\((.*)\)\ntext\("', r'text("{chip_id_buf \1}'],
+        [r'^chip_code_buf\((.*)\)\ntext\("', r'text("{chip_code_buf \1}'],
     ]
     return runner(patterns, input)
 
 
 def processText(input: str):
     patterns = [
-        [r'^text\("""(.*)"""\)\ntext\("""(.*)"""\)', r'text("""\1\2""")'],
+        [r'^text\("(.*)"\)\ntext\("(.*)"\)', r'text("\1\2")'],
     ]
     return runner(patterns, input)
 
 
 def processAnim(input: str):
     patterns = [
-        [r'^anim\((.*)\)\ntext\("""', r'text("""{anim \1}'],
-        [r'^text\("""(.*)"""\)\nanim\((.*)\)', r'text("""\1{anim \2}""")'],
-        [r"\{anim \}", r"{anim}"],
+        [r'^anim\((.*)\)\ntext\("', r'text("{a \1}'],
+        [r'^text\("(.*)"\)\nanim\((.*)\)', r'text("\1{a \2}")'],
+        [r"\{a \}", r"{a}"],
     ]
     return runner(patterns, input)
 
 
 def processAnim2(input: str):
-    patterns = [[r'^text\("""\{anim 2\}(.*)\{anim 1\}"""\)', r'text_talking("""\1""")']]
+    patterns = [[r'^text\("\{anim 2\}(.*)\{anim 1\}"\)', r'text_talking("\1")']]
     return runner(patterns, input)
 
 
 def processParaTalk(input: str):
     patterns = [
         [
-            r'^text_talking\("""(.*)"""\)\npage\(\)\nwait\((.*)\)',
-            r'para_talk("""\1""", \2)',
+            r'^text_talking\("(.*)"\)\npage\(\)\nwait\((.*)\)',
+            r'para_talk("\1", \2)',
         ],
-        [r'^para_talk\("""(.*)""", \)', r'para_talk("""\1""", 0)'],
-        [r'^para_talk\("""(.*)""", 5\)', r'para_talk("""\1""")'],
+        [r'^para_talk\("(.*)", \)', r'para_talk("\1", 0)'],
+        [r'^para_talk\("(.*)", 5\)', r'para_talk("\1")'],
     ]
     return runner(patterns, input)
 
 
 def processGenWait(input: str):
     patterns = [
-        [r'^text\("""(.*)"""\)\npage\(\)\nwait\((.*)\)', r'para_general("""\1""", \2)'],
-        [r'^para_general\("""(.*)""", \)', r'para_general("""\1""", 0)'],
-        [r'^para_general\("""(.*)""", 5\)', r'para_general("""\1""")'],
+        [r'^text\("(.*)"\)\npage\(\)\nwait\((.*)\)', r'para_general("\1", \2)'],
+        [r'^para_general\("(.*)", \)', r'para_general("\1", 0)'],
+        [r'^para_general\("(.*)", 5\)', r'para_general("\1")'],
     ]
     return runner(patterns, input)
 
@@ -1425,11 +1445,11 @@ def processGenWait(input: str):
 def processGenEnd(input: str):
     patterns = [
         [
-            r'^text\("""(.*)"""\)\npage\(\)\nend\((.*)\)',
-            r'para_general_end("""\1""", \2)',
+            r'^text\("(.*)"\)\npage\(\)\nend\((.*)\)',
+            r'para_general_end("\1", \2)',
         ],
-        [r'^para_general_end\("""(.*)""", \)', r'para_general_end("""\1""", 0)'],
-        [r'^para_general_end\("""(.*)""", 5\)', r'para_general_end("""\1""")'],
+        [r'^para_general_end\("(.*)", \)', r'para_general_end("\1", 0)'],
+        [r'^para_general_end\("(.*)", 5\)', r'para_general_end("\1")'],
     ]
     return runner(patterns, input)
 
@@ -1437,23 +1457,31 @@ def processGenEnd(input: str):
 def processEnd(input: str):
     patterns = [
         [
-            r'^text_talking\("""(.*)"""\)\npage\(\)\nend\((.*)\)',
-            r'para_talk_end("""\1""", \2)',
+            r'^text_talking\("(.*)"\)\npage\(\)\nend\((.*)\)',
+            r'para_talk_end("\1", \2)',
         ],
-        [r'^para_talk_end\("""(.*)""", \)', r'para_talk_end("""\1""", 0)'],
-        [r'^para_talk_end\("""(.*)""", 5\)', r'para_talk_end("""\1""")'],
+        [r'^para_talk_end\("(.*)", \)', r'para_talk_end("\1", 0)'],
+        [r'^para_talk_end\("(.*)", 5\)', r'para_talk_end("\1")'],
     ]
     return runner(patterns, input)
 
+
+def processEllipses(input: str):
+    patterns = [
+        [r'^text\("(.*).{d}.{d}.{d}', r'text("\1{...}']
+    ]
+    return runner(patterns, input)
 
 def process(input: str):
     funcListTextTemplating = [processText, processDelay, processKey, processAnim]
     funcListFunctionReplacing = [
         processAnim2,
-        processParaTalk,
+        processWait,
+        # processParaTalk,
         processEnd,
         processGenWait,
         processGenEnd,
+        processEllipses
     ]
     temp = input
     while True:
@@ -1474,7 +1502,7 @@ def process(input: str):
                 temp = tempRes
         if not changed:
             break
-    temp = re.sub(r"\\n", r"\n", temp, 0, re.MULTILINE)
+    # temp = re.sub(r"\\n", r"\n", temp, 0, re.MULTILINE)
     return temp
 
 
@@ -1498,7 +1526,7 @@ def engine1(infile, blockOffset, isUi):
             def emptyBuf():
                 nonlocal scriptBuf, textBuf
                 if len(textBuf) > 0:
-                    scriptBuf += f'text("""{textBuf}""")\n'
+                    scriptBuf += f'text("{textBuf}")\n'
                     textBuf = ""
 
             while True:
