@@ -48,9 +48,7 @@ section_end()
 # 0x05 @ 0x72E933
 section_start(0x05)
 dialog_up("Chaud")
-text("<? What's a kid like\nyou doing here?\nYou're in the way!>")
-set_flag(0xBB)
-page()
+text("<? What's a kid like\nyou doing here?\nYou're in the way!>{set_flag 0xBB}\p")
 end()
 section_end()
 

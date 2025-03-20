@@ -113,9 +113,7 @@ section_end()
 # 0x0E @ 0x6F233B
 section_start(0x0E)
 dialog_up("MegaMan")
-text("<Leave it to me!>")
-set_flag(0x9C)
-page()
+text("<Leave it to me!>{set_flag 0x9C}\p")
 end(5)
 section_end()
 

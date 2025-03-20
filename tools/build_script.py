@@ -3,7 +3,7 @@ import argparse
 import io
 import shlex
 from pathlib import Path
-from typing import List, Union
+from typing import List
 import re
 
 from common import auto_int, is_int
@@ -1690,18 +1690,18 @@ def dialog_hide():
     dialog_control(3)
 
 
-def flag_control(com: int, flag: int):
+def flag_control(com: int, flag: str | int):
     global curScript
     curScript.emitByte(0xF3)
     curScript.emitByte(com << 2)
-    curScript.emitShort(flag)
+    curScript.emitShort(varToInt(flag, globals()))
 
 
-def set_flag(flag: int):
+def set_flag(flag: str | int):
     flag_control(0, flag)
 
 
-def clear_flag(flag: int):
+def clear_flag(flag: str | int):
     flag_control(1, flag)
 
 
@@ -1715,10 +1715,10 @@ def cond_control(com: int):
     curScript.emitByte(com << 2)
 
 
-def if_flag(flag: int, eq: int = 0xFF, neq: int = 0xFF):
+def if_flag(flag: str | int, eq: int = 0xFF, neq: int = 0xFF):
     global curScript
     cond_control(0)
-    curScript.emitShort(flag)
+    curScript.emitShort(varToInt(flag, globals()))
     curScript.emitByte(eq)
     curScript.emitByte(neq)
 
@@ -2042,9 +2042,11 @@ def pc_anim_start(anim: int):
     pc_anim(anim)
 
 
-def pc_anim_end(restore=False):
+def pc_anim_end(anim: int=-1, restore=False):
     pc_wait()
-    if restore:
+    if anim > -1:
+        pc_anim(anim)
+    elif restore:
         pc_control(4)
     pc_unlock()
 
@@ -2390,13 +2392,11 @@ def parse_command(reader: Reader):
         elif coms[0] == "set_flag":
             if len(coms) == 1:
                 exit("Arguments required for set_flag")
-            args = bytes_flag(coms[1])
-            set_flag(args[0])
+            set_flag(coms[1])
         elif coms[0] == "clear_flag":
             if len(coms) == 1:
                 exit("Arguments required for clear_flag")
-            args = bytes_flag(coms[1])
-            clear_flag(args[0])
+            clear_flag(coms[1])
         elif coms[0] == "cls" or coms[0] == "w":
             if len(coms) > 1:
                 arg = auto_int(coms[1])

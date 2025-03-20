@@ -147,9 +147,7 @@ section_end()
 # 0x11 @ 0x7306E4
 section_start(0x11)
 dialog_up("IceMan")
-text("<Silence!>")
-set_flag(0xC4)
-page()
+text("<Silence!>{set_flag 0xC4}\p")
 end()
 section_end()
 
