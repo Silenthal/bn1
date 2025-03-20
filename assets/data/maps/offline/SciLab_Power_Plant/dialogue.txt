@@ -40,7 +40,7 @@ section_end()
 
 # 0x0A @ 0x70D5F9
 section_start(0x0A)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x0F)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x0F)
 dialog_up("MiddleAgedMan")
 text("<The power plant is\nnow back to normal.>\p")
 cls()
@@ -52,7 +52,7 @@ section_end()
 
 # 0x0B @ 0x70D6A7
 section_start(0x0B)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x10)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x10)
 dialog_up("Scientist")
 text("<Pretty scary when a\nwhole building goes\nhaywire!>\p")
 end()
@@ -310,7 +310,7 @@ section_end()
 
 # 0xDD @ 0x70E132
 section_start(0xDD)
-if_story_in(FLAG_STORY_DELETE_PROTOMAN, 0x5F, 0xDF)
+if_story_in("FLAG_STORY_DELETE_PROTOMAN", 0x5F, 0xDF)
 dialog_up()
 text("Securely locked\p")
 cls()

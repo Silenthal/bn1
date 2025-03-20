@@ -116,7 +116,7 @@ LAB_0804115c:
     bl         Effect_WWWGate_Create
     pop        {r5}
     push       {r5}
-    ldr        r0,DAT_08041380
+    ldr        r0,PTR_Scene_UnlockWWWGate_08041380
     mov        r1,#0x2
     bl         Scene_Prepare
     pop        {r5}
@@ -379,7 +379,7 @@ PTR_NPCList_8041DC8_08041378:
 DAT_0804137c:
     .word Scene_MegaManJackIn
 
-DAT_08041380:
+PTR_Scene_UnlockWWWGate_08041380:
     .word Scene_UnlockWWWGate
 
 PTR_PTR_EventHandler_School_Comp_3_F14_0_08041384:

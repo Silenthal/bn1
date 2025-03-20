@@ -865,7 +865,7 @@ def Com_EA(infile):
     isDone = False
     if command == 0:
         delay = get_short(infile)
-        textBuf = f"breaks({delay})"
+        textBuf = f"force_delay({delay})"
     elif command == 1:
         delay = get_short(infile)
         if delay == 30:

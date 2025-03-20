@@ -159,7 +159,7 @@ section_end()
 
 # 0xE0 @ 0x6EA3BC
 section_start(0xE0)
-if_story(FLAG_STORY_MEGAMAN_CAPTURE, 0x0F)
+if_story("FLAG_STORY_MEGAMAN_CAPTURE", 0x0F)
 jump(0xDD)
 section_end()
 
@@ -179,7 +179,7 @@ section_end()
 
 # 0xE2 @ 0x6EA42E
 section_start(0xE2)
-if_story_in(FLAG_STORY_FIREMAN_BED, 0x1F, 0xFF, 0xE3)
+if_story_in("FLAG_STORY_FIREMAN_BED", 0x1F, 0xFF, 0xE3)
 if_flag(0x95, 0xFF, 0xE4)
 dialog_up()
 text("A WWW reーeducation\nprogram is playing!\nPretty scary stuff!\p")

@@ -2,7 +2,7 @@ section_count(0xE6)
 
 # 0x00 @ 0x6D595C
 section_start(0x00)
-if_story(FLAG_STORY_FINAL, 0xE1)
+if_story("FLAG_STORY_FINAL", 0xE1)
 dialog_up()
 text("Test message\p")
 end()

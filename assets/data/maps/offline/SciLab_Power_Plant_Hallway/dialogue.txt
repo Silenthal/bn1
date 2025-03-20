@@ -16,7 +16,7 @@ section_end()
 
 # 0x06 @ 0x70CE5A
 section_start(0x06)
-if_story_in(FLAG_STORY_COUNT_ZAP, FLAG_STORY_BATTERIES_DONE, 0xE0)
+if_story_in("FLAG_STORY_COUNT_ZAP", "FLAG_STORY_BATTERIES_DONE", 0xE0)
 dialog_up()
 text("An elevator switch.\p")
 cls()
@@ -72,7 +72,7 @@ section_end()
 
 # 0xDF @ 0x70D157
 section_start(0xDF)
-if_story_in(FLAG_STORY_COUNT_ZAP, FLAG_STORY_BATTERIES_DONE, 0xDE)
+if_story_in("FLAG_STORY_COUNT_ZAP", "FLAG_STORY_BATTERIES_DONE", 0xDE)
 dialog_up("MegaMan")
 text("<Lan! You gotta\npress that button!>\p")
 end()
@@ -87,7 +87,7 @@ section_end()
 
 # 0xE1 @ 0x70D1AA
 section_start(0xE1)
-if_story_in(FLAG_STORY_COUNT_ZAP, FLAG_STORY_BATTERIES_DONE, 0xE0)
+if_story_in("FLAG_STORY_COUNT_ZAP", "FLAG_STORY_BATTERIES_DONE", 0xE0)
 dialog_up()
 text("An elevator switch\p")
 cls()

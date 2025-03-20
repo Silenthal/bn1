@@ -315,7 +315,7 @@ section_end()
 
 # 0x26 @ 0x6EE665
 section_start(0x26)
-if_story(FLAG_STORY_DELETE_STONEMAN, 0x3C)
+if_story("FLAG_STORY_DELETE_STONEMAN", 0x3C)
 dialog_up("Man")
 text("<I'm going to ride\nthe Metroline\nlater today.>\p")
 cls(5)
@@ -401,7 +401,7 @@ section_end()
 
 # 0x33 @ 0x6EEB50
 section_start(0x33)
-if_story(FLAG_STORY_DELETE_STONEMAN, 0x3D)
+if_story("FLAG_STORY_DELETE_STONEMAN", 0x3D)
 dialog_up("SternMan")
 text("<The Metroline runs\nby the main street,\nbut it's shut down.>\p")
 end()
@@ -484,8 +484,8 @@ section_end()
 
 # 0x49 @ 0x6EEDFD
 section_start(0x49)
-if_story(FLAG_STORY_POLAR_BEAR, 0x52)
-if_story(FLAG_STORY_TRUNK_FIND, 0x52)
+if_story("FLAG_STORY_POLAR_BEAR", 0x52)
+if_story("FLAG_STORY_TRUNK_FIND", 0x52)
 dialog_up("Woman")
 text("<I took the Metroline\nto buy some water.>\p")
 cls()
@@ -555,7 +555,7 @@ section_end()
 
 # 0x64 @ 0x6EF0B4
 section_start(0x64)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x78)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x78)
 if_flag(0x95, 0x6E, 0xFF)
 if_flag(0x93, 0x65, 0xFF)
 dialog_up("OrangeShirtBoy")
@@ -589,7 +589,7 @@ section_end()
 
 # 0x68 @ 0x6EF1C3
 section_start(0x68)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x79)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x79)
 dialog_up("OldMan")
 text("<I see an aura of\ntrouble about you!>\p")
 cls()
@@ -599,7 +599,7 @@ section_end()
 
 # 0x69 @ 0x6EF22C
 section_start(0x69)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x7A)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x7A)
 dialog_up("Man")
 text("<Too cool!\nI got a rare chip!>\p")
 end()
@@ -607,7 +607,7 @@ section_end()
 
 # 0x6A @ 0x6EF260
 section_start(0x6A)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x7B)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x7B)
 dialog_up("PigtailsGirl")
 text("<If,if the WWW starts\na war,will we all\ndie???>\p")
 cls()
@@ -627,7 +627,7 @@ section_end()
 
 # 0x6C @ 0x6EF360
 section_start(0x6C)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x7C)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x7C)
 dialog_up("OldWoman")
 text("<Virus busting is\nwhat keeps me\nyoung!>\p")
 end()
@@ -635,7 +635,7 @@ section_end()
 
 # 0x6D @ 0x6EF39C
 section_start(0x6D)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x7D)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x7D)
 dialog_up("Woman")
 text("<I heard that Mayl's\nparents go overseas\na lot for work.>\p")
 cls()
@@ -718,7 +718,7 @@ section_end()
 
 # 0x82 @ 0x6EF6E7
 section_start(0x82)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xA5)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0xA5)
 dialog_up("OrangeShirtBoy")
 text("<Lan,have you ever\nbeen to the SciLab?>\p")
 cls()
@@ -728,8 +728,8 @@ section_end()
 
 # 0x83 @ 0x6EF769
 section_start(0x83)
-if_story_in(FLAG_STORY_DELETE_DOOR_VIRUS, FLAG_STORY_DELETE_BOMBMAN, 0x91)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xA6)
+if_story_in("FLAG_STORY_DELETE_DOOR_VIRUS", "FLAG_STORY_DELETE_BOMBMAN", 0x91)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0xA6)
 if_flag(0x90, 0x84, 0xFF)
 dialog_up("OldMan")
 text("<Oh,you again?>\p")
@@ -758,7 +758,7 @@ section_end()
 
 # 0x86 @ 0x6EF866
 section_start(0x86)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xA7)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0xA7)
 dialog_up("Man")
 text("<NetBattling is now\nmore than just a\nhobby!>\p")
 cls()
@@ -768,7 +768,7 @@ section_end()
 
 # 0x87 @ 0x6EF8DD
 section_start(0x87)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xA8)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0xA8)
 dialog_up("PigtailsGirl")
 text("<My momma told me\nthat the war is\nabout to start!>\p")
 cls()
@@ -778,7 +778,7 @@ section_end()
 
 # 0x89 @ 0x6EF963
 section_start(0x89)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xA9)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0xA9)
 dialog_up("OldWoman")
 text("<I heard that the WWW\nhas all of the\nstrongest programs.>\p")
 cls()
@@ -788,7 +788,7 @@ section_end()
 
 # 0x8A @ 0x6EF9D6
 section_start(0x8A)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0xAA)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0xAA)
 dialog_up("Woman")
 text("<That girl Yai sure\nknows a lot about\n{key PET}s>\p")
 cls()

@@ -125,8 +125,8 @@ section_end()
 
 # 0x15 @ 0x714CDA
 section_start(0x15)
-if_story(FLAG_STORY_TRUNK_FIND, 0x19)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_FINAL, 0x1A)
+if_story("FLAG_STORY_TRUNK_FIND", 0x19)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_FINAL", 0x1A)
 dialog_up("NormalNaviYellow")
 text("<If you run water\nover ice,it will\nmelt!>\p")
 cls()

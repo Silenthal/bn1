@@ -2,8 +2,8 @@ section_count(0xEB)
 
 # 0x00 @ 0x7044EA
 section_start(0x00)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x47)
-if_story_in(FLAG_STORY_EXPOSE_WWW, FLAG_STORY_LIGHT_5_FIX, 0x1E)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x47)
+if_story_in("FLAG_STORY_EXPOSE_WWW", "FLAG_STORY_LIGHT_5_FIX", 0x1E)
 dialog_up("OrangeShirtBoy")
 text("<This is Central\nDenCity,the\nmiddle of town.>\p")
 cls()
@@ -15,7 +15,7 @@ section_end()
 
 # 0x01 @ 0x7045AE
 section_start(0x01)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x48)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x48)
 dialog_up("OldMan")
 text("<I'm on my way to\nthe antique shop on\nBlock2.>\p")
 cls()
@@ -25,7 +25,7 @@ section_end()
 
 # 0x02 @ 0x704627
 section_start(0x02)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x49)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x49)
 dialog_up("SternMan")
 text("<This is the business\ncenter of DenCity!>\p")
 end()
@@ -33,7 +33,7 @@ section_end()
 
 # 0x03 @ 0x704665
 section_start(0x03)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x4A)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x4A)
 dialog_up("YoungWoman")
 text("<This is the most\npopular part of town\nfor young people.>\p")
 end()
@@ -56,10 +56,10 @@ section_end()
 
 # 0x0A @ 0x704725
 section_start(0x0A)
-if_story(FLAG_STORY_EXPOSE_WWW, 0x1F)
-if_story(FLAG_STORY_LIGHT_2_FIX, 0x29)
-if_story(FLAG_STORY_LIGHT_3_FIX, 0x33)
-if_story_in(FLAG_STORY_LIGHT_4_FIX, FLAG_STORY_LIGHT_5_FIX, 0x3C)
+if_story("FLAG_STORY_EXPOSE_WWW", 0x1F)
+if_story("FLAG_STORY_LIGHT_2_FIX", 0x29)
+if_story("FLAG_STORY_LIGHT_3_FIX", 0x33)
+if_story_in("FLAG_STORY_LIGHT_4_FIX", "FLAG_STORY_LIGHT_5_FIX", 0x3C)
 dialog_up("MegaMan")
 text("<Lan! We've gotta\nstop everyone from\nbuying that program!>\p")
 end()
@@ -89,7 +89,7 @@ section_end()
 
 # 0x0E @ 0x70484D
 section_start(0x0E)
-if_story_in(FLAG_STORY_EXPOSE_WWW, FLAG_STORY_LIGHT_5_FIX, 0x1E)
+if_story_in("FLAG_STORY_EXPOSE_WWW", "FLAG_STORY_LIGHT_5_FIX", 0x1E)
 dialog_up("OrangeShirtBoy")
 text("<There was an\naccident here just\nnow!>\p")
 end()
@@ -300,7 +300,7 @@ section_end()
 
 # 0x51 @ 0x704FAD
 section_start(0x51)
-if_story_in(FLAG_STORY_DELETE_DOOR_VIRUS, FLAG_STORY_DELETE_BOMBMAN, 0x69)
+if_story_in("FLAG_STORY_DELETE_DOOR_VIRUS", "FLAG_STORY_DELETE_BOMBMAN", 0x69)
 dialog_up("OldMan")
 text("<I'm not afraid of\nthe EndGame,but will\nmy antiques be safe?>\p")
 cls()
@@ -319,7 +319,7 @@ section_end()
 
 # 0x53 @ 0x7050BE
 section_start(0x53)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x6E)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x6E)
 if_flag(0x95, 0x55, 0xFF)
 if_flag(0x94, 0x54, 0xFF)
 dialog_up("YoungWoman")
@@ -512,7 +512,7 @@ section_end()
 
 # 0xE0 @ 0x70592C
 section_start(0xE0)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x5F, 0xE1)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x5F, 0xE1)
 if_flag(0x98, 0xE1, 0xFF)
 dialog_up()
 text("You can jack in to\nthis signal\p")

@@ -227,7 +227,7 @@ _ts EventHandler_Internet_2_0
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     push       {r5}
-    ldr        r0,DAT_080525ec
+    ldr        r0,PTR_Scene_UnlockWWWGate_080525ec
     mov        r1,#0x8
     bl         Scene_Prepare
     pop        {r5}
@@ -428,7 +428,7 @@ PTR_PTR_080525e4:
 PTR_PTR_EventHandler_Internet_2_0_080525e8:
     .word PTR_EventHandler_Internet_2_0_08052454
 
-DAT_080525ec:
+PTR_Scene_UnlockWWWGate_080525ec:
     .word Scene_UnlockWWWGate
 
 PTR_BgTask_8051738_080525f0:

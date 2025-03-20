@@ -2,7 +2,7 @@ section_count(0xEB)
 
 # 0x00 @ 0x707A2E
 section_start(0x00)
-if_story_in(FLAG_STORY_LIGHT_3_FIX, FLAG_STORY_LIGHT_4_FIX, 0x0C)
+if_story_in("FLAG_STORY_LIGHT_3_FIX", "FLAG_STORY_LIGHT_4_FIX", 0x0C)
 dialog_up("Man")
 text("<This is Block3 of\nDentown.>\p")
 cls()
@@ -21,7 +21,7 @@ section_end()
 
 # 0x02 @ 0x707B19
 section_start(0x02)
-if_story_in(FLAG_STORY_LIGHT_3_FIX, FLAG_STORY_LIGHT_4_FIX, 0x0D)
+if_story_in("FLAG_STORY_LIGHT_3_FIX", "FLAG_STORY_LIGHT_4_FIX", 0x0D)
 dialog_up("BlueShirtBoy")
 text("<Man,there's a lot\nof cars downtown...>\p")
 end()
@@ -91,7 +91,7 @@ section_end()
 
 # 0x1A @ 0x707D4A
 section_start(0x1A)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x32)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x32)
 dialog_up("Woman")
 text("<Ever since that\naccident,it takes>\p")
 cls()
@@ -280,7 +280,7 @@ section_end()
 
 # 0xDD @ 0x708620
 section_start(0xDD)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x5F, 0xE0)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x5F, 0xE0)
 if_flag(0x98, 0xE0, 0xFF)
 dialog_up()
 text("This signal has a\njack in port\p")

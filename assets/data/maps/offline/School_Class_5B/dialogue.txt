@@ -42,7 +42,7 @@ section_end()
 
 # 0x0A @ 0x6E6C89
 section_start(0x0A)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x0F)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x0F)
 dialog_up("OrangeShirtBoy")
 text("<Everyone's left!>\p")
 end(5)
@@ -164,8 +164,8 @@ section_end()
 
 # 0xE6 @ 0x6E7205
 section_start(0xE6)
-if_story_in(FLAG_STORY_DELETE_NUMBERMAN, 0x5F, 0xDC)
-if_story_in(FLAG_STORY_FIREMAN_BED, 0x1F, 0xFF, 0xDC)
+if_story_in("FLAG_STORY_DELETE_NUMBERMAN", 0x5F, 0xDC)
+if_story_in("FLAG_STORY_FIREMAN_BED", 0x1F, 0xFF, 0xDC)
 if_flag(0x95, 0xFF, 0xDC)
 dialog_up()
 text("A WWW reーeducation\nprogram is playing!\nPretty scary stuff!\p")

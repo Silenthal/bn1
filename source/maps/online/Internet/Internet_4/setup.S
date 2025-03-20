@@ -139,7 +139,7 @@ LAB_08052a12:
     mov        r0,#0x4
     strb       r0,[r5,#0x1]
     push       {r5}
-    ldr        r0,DAT_08052b10
+    ldr        r0,PTR_Scene_UnlockWWWGate_08052b10
     mov        r1,#0xa
     bl         Scene_Prepare
     pop        {r5}
@@ -263,7 +263,7 @@ PTR_PTR_EventHandler_Internet_4_0_08052b08:
 PTR_BgTask_8051738_08052b0c:
     .word BgTask_8051738
 
-DAT_08052b10:
+PTR_Scene_UnlockWWWGate_08052b10:
     .word Scene_UnlockWWWGate
 
 DAT_08052b14:

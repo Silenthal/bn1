@@ -50,7 +50,7 @@ section_end()
 
 # 0x0E @ 0x7235C4
 section_start(0x0E)
-if_story_in(FLAG_STORY_DELETE_STONEMAN, FLAG_STORY_FINAL, 0x0F)
+if_story_in("FLAG_STORY_DELETE_STONEMAN", "FLAG_STORY_FINAL", 0x0F)
 dialog_up("NormalNaviYellow")
 text("<If you keep winding\nup from here,you'll\nsee the Metroline\p")
 cls()

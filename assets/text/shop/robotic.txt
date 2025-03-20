@@ -21,8 +21,7 @@ section_end()
 
 # 0x02 @ 0x7ACCB1
 section_start(0x02)
-pic("NormalNaviYellow")
-dialog_show()
+dialog_show("NormalNaviYellow")
 text("<Bzzt! Not enough\nzenny...>")
 set_flag(FLAG_SYSTEM_DIALOGUE_COMPLETE)
 stop()
@@ -30,8 +29,7 @@ section_end()
 
 # 0x03 @ 0x7ACCE2
 section_start(0x03)
-pic("NormalNaviYellow")
-dialog_show()
+dialog_show("NormalNaviYellow")
 text("<Apologies...\nThat is sold out...>")
 set_flag(FLAG_SYSTEM_DIALOGUE_COMPLETE)
 stop()
@@ -39,8 +37,7 @@ section_end()
 
 # 0x04 @ 0x7ACD1C
 section_start(0x04)
-pic("NormalNaviYellow")
-dialog_show()
+dialog_show("NormalNaviYellow")
 text("<Leave shop?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -51,8 +48,7 @@ section_end()
 
 # 0x05 @ 0x7ACD54
 section_start(0x05)
-pic("NormalNaviYellow")
-dialog_show()
+dialog_show("NormalNaviYellow")
 text("<Thank you! And use\nthe menu to equip\nPowerUPs and armor!>{fd 30}")
 set_flag(FLAG_SYSTEM_DIALOGUE_COMPLETE)
 stop()
@@ -66,8 +62,7 @@ section_end()
 
 # 0x07 @ 0x7ACDAF
 section_start(0x07)
-pic("NormalNaviYellow")
-dialog_show()
+dialog_show("NormalNaviYellow")
 text("<What will U buy?\n")
 set_delay(0)
 text("(R Btn;description)\n(B Btn;leave shop)>")
@@ -86,8 +81,7 @@ section_end()
 
 # 0x09 @ 0x7ACE29
 section_start(0x09)
-pic("NormalNaviYellow")
-dialog_show()
+dialog_show("NormalNaviYellow")
 text("<Bzzt! Purchase\n{key_item_buf}?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -98,8 +92,7 @@ section_end()
 
 # 0x0A @ 0x7ACE6B
 section_start(0x0A)
-pic("NormalNaviYellow")
-dialog_show()
+dialog_show("NormalNaviYellow")
 text("<Bzzt! Purchase\n{chip_buf}?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")

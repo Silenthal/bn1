@@ -165,7 +165,7 @@ _ts EventHandler_School_Comp_5_F15_0
     pop        {pc}
 LAB_080419b2:
     push       {r5}
-    ldr        r0,DAT_08041a2c
+    ldr        r0,PTR_Scene_UnlockWWWGate_08041a2c
     mov        r1,#0x5
     bl         Scene_Prepare
     pop        {r5}
@@ -244,7 +244,7 @@ PTR_PTR_EventHandler_School_Comp_5_F15_0_08041a24:
 PTR_Scene_School_Comp_5_Passcode_08041a28:
     .word Scene_School_Comp_5_Passcode
 
-DAT_08041a2c:
+PTR_Scene_UnlockWWWGate_08041a2c:
     .word Scene_UnlockWWWGate
 
 PTR_Scene_UnlockWWWGate_08041a30:

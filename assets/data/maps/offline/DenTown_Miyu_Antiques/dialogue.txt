@@ -64,9 +64,9 @@ section_end()
 
 # 0x0A @ 0x709311
 section_start(0x0A)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x23)
-if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x1E)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x1A)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x23)
+if_story_in("FLAG_STORY_DELETE_PROTOMAN", "FLAG_STORY_DELETE_BOMBMAN", 0x1E)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x1A)
 if_flag(0x97, 0x0F, 0xFF)
 set_flag(0x97)
 dialog_up("Miyu")
@@ -120,7 +120,7 @@ section_end()
 
 # 0x0F @ 0x7095A6
 section_start(0x0F)
-if_story(FLAG_STORY_LIGHT_2_FIX, 0x14)
+if_story("FLAG_STORY_LIGHT_2_FIX", 0x14)
 dialog_up("Miyu")
 text("<I'm sorry,I'm not\nopen for business\nyet.>\p")
 cls(5)

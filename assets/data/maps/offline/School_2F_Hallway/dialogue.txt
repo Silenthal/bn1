@@ -68,7 +68,7 @@ section_end()
 
 # 0x14 @ 0x6E811E
 section_start(0x14)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x28)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x28)
 dialog_up("OrangeShirtBoy")
 text("<All bow before the\nWWW! Follow or be\ndeleted!>\p")
 cls(5)
@@ -78,7 +78,7 @@ section_end()
 
 # 0x15 @ 0x6E819C
 section_start(0x15)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x29)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x29)
 dialog_up("Girl")
 text("<I want to go shop in\nDentown. I wonder if\nI can go by Metro?>\p")
 cls()
@@ -93,7 +93,7 @@ section_end()
 
 # 0x19 @ 0x6E8202
 section_start(0x19)
-if_story(FLAG_STORY_DELETE_STONEMAN, 0x16)
+if_story("FLAG_STORY_DELETE_STONEMAN", 0x16)
 dialog_up("Girl")
 text("<What? A landslide\non the tracks?>\p")
 cls(5)

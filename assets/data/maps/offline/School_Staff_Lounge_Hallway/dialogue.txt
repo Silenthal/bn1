@@ -16,7 +16,7 @@ section_end()
 
 # 0x02 @ 0x6ED1FD
 section_start(0x02)
-if_story_in(FLAG_STORY_FIREMAN_BED, 0x1F, 0xFF, 0xDC)
+if_story_in("FLAG_STORY_FIREMAN_BED", 0x1F, 0xFF, 0xDC)
 check_item("SchoolID", 1, eq=0x03)
 dialog_up()
 text("A time recorder\nYou need an\nID card\p")

@@ -2,8 +2,8 @@ section_count(0xEB)
 
 # 0x00 @ 0x6F46B2
 section_start(0x00)
-if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x41)
-if_story(FLAG_STORY_BOMBMAN_BED, 0x46)
+if_story_in("FLAG_STORY_DELETE_PROTOMAN", "FLAG_STORY_DELETE_BOMBMAN", 0x41)
+if_story("FLAG_STORY_BOMBMAN_BED", 0x46)
 if_flag(0xB, 0x04, 0xFF)
 dialog_up("Dex")
 text("<So,you wanna try me,\nhuh?>\n")
@@ -24,7 +24,7 @@ section_end()
 
 # 0x02 @ 0x6F4741
 section_start(0x02)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x3A)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x3A)
 dialog_up("Dex")
 text("<Grr...you just got\nlucky! Today doesn't\ncount,okay?>\p")
 end()
@@ -32,7 +32,7 @@ section_end()
 
 # 0x03 @ 0x6F4791
 section_start(0x03)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x3B)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x3B)
 dialog_up("Dex")
 text("<Heh... Whimp!>\p")
 end()
@@ -72,7 +72,7 @@ section_end()
 
 # 0x0F @ 0x6F48AD
 section_start(0x0F)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x32)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x32)
 if_flag(0xB, 0x13, 0xFF)
 dialog_up("Dex")
 text("<Heh! You wanna'\nNetBattle?>\n")
@@ -187,8 +187,8 @@ section_end()
 
 # 0x23 @ 0x6F4D33
 section_start(0x23)
-if_story(FLAG_STORY_POLAR_BEAR, 0x28)
-if_story(FLAG_STORY_TRUNK_FIND, 0x28)
+if_story("FLAG_STORY_POLAR_BEAR", 0x28)
+if_story("FLAG_STORY_TRUNK_FIND", 0x28)
 dialog_up("Dex")
 text("<Wa...water!!>\p")
 cls(5)

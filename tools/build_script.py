@@ -8,7 +8,6 @@ import re
 
 from common import auto_int, is_int
 
-
 class Section:
     def __init__(self):
         self.buffer: io.BytesIO = io.BytesIO()
@@ -842,8 +841,9 @@ portrait_id_map = {
     "EvilNavi": 0x31,
     "GutsMan": 0x32,
     "MagicMan": 0x33,
-    "CorruptMrProg": 0x34
+    "CorruptMrProg": 0x34,
 }
+
 
 def bytes_chip(chip: str):
     global curScript
@@ -867,7 +867,7 @@ def bytes_chip_code(chipcode: str):
     return [charmap_basic[chipcode.upper()] - charmap_basic["A"]]
 
 
-def bytes_key(itemid: Union[str, int]):
+def bytes_key(itemid: str | int):
     global curScript
     if isinstance(itemid, int):
         return [itemid]
@@ -883,7 +883,7 @@ def bytes_key(itemid: Union[str, int]):
         exit(f"Unrecognized item name {itemid}")
 
 
-def bytes_flag(flagId: Union[str, int]):
+def bytes_flag(flagId: str | int):
     global curScript
     if isinstance(flagId, int):
         return [flagId]
@@ -899,7 +899,7 @@ def bytes_flag(flagId: Union[str, int]):
         exit(f"Unrecognized flag {flagId}")
 
 
-def bytes_portrait(portrait: Union[str,int]):
+def bytes_portrait(portrait: str | int):
     global curScript
     if isinstance(portrait, int):
         return [portrait]
@@ -913,6 +913,22 @@ def bytes_portrait(portrait: Union[str,int]):
             return [portrait_id_map[portrait]]
     else:
         exit(f"Unrecognized portrait {portrait}")
+
+
+def varToInt(val: str | int, valDict: dict[str, int]) -> int:
+    if isinstance(val, int):
+        return val
+    elif isinstance(val, str):
+        try:
+            num = auto_int(val)
+            return num
+        except ValueError:
+            if val not in valDict:
+                exit(f"Unrecognized var {val}")
+            return valDict[val]
+    else:
+        exit(f"Unrecognized var {val}")
+
 
 # endregion
 
@@ -1020,44 +1036,47 @@ FLAG_POWER_PLANT_BATTERY_E          = 0xDC
 # endregion
 
 # region Story specific
-FLAG_STORY_NEW_GAME = 0
-FLAG_STORY_TUTORIAL_START = 1
-FLAG_STORY_TUTORIAL_END = 2
-FLAG_STORY_OVEN_FIRE = 3
-FLAG_STORY_OVEN_EXPLODE = 4
-FLAG_STORY_WATER_GUN = 5
-FLAG_STORY_DELETE_FIREMAN = 6
-FLAG_STORY_FIREMAN_BED = 16
-FLAG_STORY_CLASS_TALK = 17
-FLAG_STORY_DEX_TALK = 18
-FLAG_STORY_DOOR_1_UNLOCK = 19
-FLAG_STORY_DOOR_3_UNLOCK = 20
-FLAG_STORY_MEGAMAN_CAPTURE = 21
-FLAG_STORY_DELETE_NUMBERMAN = 32
-FLAG_STORY_CONDUCTOR_TALK = 33
-FLAG_STORY_DELETE_STONEMAN = 34
-FLAG_STORY_DAD_POWERUP = 35
-FLAG_STORY_SCHOOL_CANCEL = 36
-FLAG_STORY_SCILAB_NIGHT = 37
-FLAG_STORY_POLAR_BEAR = 38
-FLAG_STORY_TRUNK_FIND = 39
-FLAG_STORY_DELETE_ICEMAN = 48
-FLAG_STORY_TRAFFIC_LIGHTS = 49
-FLAG_STORY_LIGHT_1_FIX = 50
-FLAG_STORY_EXPOSE_WWW = 51
-FLAG_STORY_LIGHT_2_FIX = 52
-FLAG_STORY_LIGHT_3_FIX = 53
-FLAG_STORY_LIGHT_4_FIX = 54
-FLAG_STORY_LIGHT_5_FIX = 55
-FLAG_STORY_DELETE_COLORMAN = 64
-FLAG_STORY_COUNT_ZAP = 65
-FLAG_STORY_CONTROL_ROOM = 66
-FLAG_STORY_BATTERIES_DONE = 67
-FLAG_STORY_DELETE_PROTOMAN = 80
-FLAG_STORY_DELETE_DOOR_VIRUS = 81
-FLAG_STORY_DELETE_BOMBMAN = 82
-FLAG_STORY_BOMBMAN_BED = 83
-FLAG_STORY_FINAL = 84
+
+story_flag_dict = {
+    "FLAG_STORY_NEW_GAME": 0x0,
+    "FLAG_STORY_TUTORIAL_START": 0x1,
+    "FLAG_STORY_TUTORIAL_END": 0x2,
+    "FLAG_STORY_OVEN_FIRE": 0x3,
+    "FLAG_STORY_OVEN_EXPLODE": 0x4,
+    "FLAG_STORY_WATER_GUN": 0x5,
+    "FLAG_STORY_DELETE_FIREMAN": 0x6,
+    "FLAG_STORY_FIREMAN_BED": 0x10,
+    "FLAG_STORY_CLASS_TALK": 0x11,
+    "FLAG_STORY_DEX_TALK": 0x12,
+    "FLAG_STORY_DOOR_1_UNLOCK": 0x13,
+    "FLAG_STORY_DOOR_3_UNLOCK": 0x14,
+    "FLAG_STORY_MEGAMAN_CAPTURE": 0x15,
+    "FLAG_STORY_DELETE_NUMBERMAN": 0x20,
+    "FLAG_STORY_CONDUCTOR_TALK": 0x21,
+    "FLAG_STORY_DELETE_STONEMAN": 0x22,
+    "FLAG_STORY_DAD_POWERUP": 0x23,
+    "FLAG_STORY_SCHOOL_CANCEL": 0x24,
+    "FLAG_STORY_SCILAB_NIGHT": 0x25,
+    "FLAG_STORY_POLAR_BEAR": 0x26,
+    "FLAG_STORY_TRUNK_FIND": 0x27,
+    "FLAG_STORY_DELETE_ICEMAN": 0x30,
+    "FLAG_STORY_TRAFFIC_LIGHTS": 0x31,
+    "FLAG_STORY_LIGHT_1_FIX": 0x32,
+    "FLAG_STORY_EXPOSE_WWW": 0x33,
+    "FLAG_STORY_LIGHT_2_FIX": 0x34,
+    "FLAG_STORY_LIGHT_3_FIX": 0x35,
+    "FLAG_STORY_LIGHT_4_FIX": 0x36,
+    "FLAG_STORY_LIGHT_5_FIX": 0x37,
+    "FLAG_STORY_DELETE_COLORMAN": 0x40,
+    "FLAG_STORY_COUNT_ZAP": 0x41,
+    "FLAG_STORY_CONTROL_ROOM": 0x42,
+    "FLAG_STORY_BATTERIES_DONE": 0x43,
+    "FLAG_STORY_DELETE_PROTOMAN": 0x50,
+    "FLAG_STORY_DELETE_DOOR_VIRUS": 0x51,
+    "FLAG_STORY_DELETE_BOMBMAN": 0x52,
+    "FLAG_STORY_BOMBMAN_BED": 0x53,
+    "FLAG_STORY_FINAL": 0x54,
+}
 
 # endregion
 
@@ -1357,7 +1376,7 @@ FLAG_ITEM_OTHER_SCILAB_VENDING_MACHINE_5000Z = 0x35D
 FLAG_ITEM_OTHER_RECYCLED_PET_COMP_HPMEMORY = 0x35E
 FLAG_ITEM_OTHER_BIG_VASE_COMP_QUAKE3_C = 0x35F
 FLAG_ITEM_OTHER_BLACKBOARD_COMP_POWERUP = 0x360
-# endregion 
+# endregion
 
 # region Ignore flags
 FLAG_IGNORE_WALL_00 = 0x380
@@ -1487,6 +1506,7 @@ FLAG_EVENT_GOVT_WATERWORKS_LOBBY_ELEVATOR   = 0x447
 
 # endregion
 
+
 # region Script control
 def section_count(count: int) -> None:
     global curScript
@@ -1582,7 +1602,7 @@ def picture_control(com: int):
     curScript.emitByte(com)
 
 
-def pic(picture: Union[str,int] = 0, palette: int = 0):
+def pic(picture: str | int = 0, palette: int = 0):
     global curScript
     picture_control(0)
     conv = bytes_portrait(picture)
@@ -1650,7 +1670,7 @@ def dialog_control(com: int):
     curScript.emitByte(com)
 
 
-def dialog_up(picture: Union[str,int] = -1, palette: int = 0):
+def dialog_up(picture: str | int = -1, palette: int = 0):
     if picture != -1:
         pic(picture, palette)
     dialog_control(0)
@@ -1660,7 +1680,9 @@ def dialog_down():
     dialog_control(1)
 
 
-def dialog_show():
+def dialog_show(picture: str | int = -1, palette: int = 0):
+    if picture != -1:
+        pic(picture, palette)
     dialog_control(2)
 
 
@@ -1701,15 +1723,15 @@ def if_flag(flag: int, eq: int = 0xFF, neq: int = 0xFF):
     curScript.emitByte(neq)
 
 
-def if_story(flag: int, inrange: int = 0xFF, outrange: int = 0xFF):
+def if_story(flag: str | int, inrange: int = 0xFF, outrange: int = 0xFF):
     if_story_in(flag, flag, inrange, outrange)
 
 
-def if_story_in(lower: int, upper: int, inrange: int = 0xFF, outrange: int = 0xFF):
+def if_story_in(lower: str | int, upper: str | int, inrange: int = 0xFF, outrange: int = 0xFF):
     global curScript
     cond_control(1)
-    curScript.emitByte(lower)
-    curScript.emitByte(upper)
+    curScript.emitByte(varToInt(lower, story_flag_dict))
+    curScript.emitByte(varToInt(upper, story_flag_dict))
     curScript.emitByte(inrange)
     curScript.emitByte(outrange)
 
@@ -1799,7 +1821,7 @@ def inv_control(com: int):
 
 
 def add_item(
-    itemid: Union[str, int],
+    itemid: str | int,
     amt: int = 1,
     ifall: int = 0xFF,
     ifnone: int = 0xFF,
@@ -1816,7 +1838,7 @@ def add_item(
 
 
 def sub_item(
-    itemid: Union[str, int],
+    itemid: str | int,
     amt: int = 1,
     ifall: int = 0xFF,
     ifnone: int = 0xFF,
@@ -1832,10 +1854,7 @@ def sub_item(
     curScript.emitByte(ifsome)
 
 
-def set_item(
-    itemid: Union[str, int],
-    amt: int
-):
+def set_item(itemid: str | int, amt: int):
     global curScript
     inv_control(2)
     bitem = bytes_key(itemid)
@@ -1844,7 +1863,7 @@ def set_item(
 
 
 def check_item(
-    itemid: Union[str, int],
+    itemid: str | int,
     amt: int = 1,
     eq: int = 0xFF,
     gt: int = 0xFF,
@@ -1860,11 +1879,11 @@ def check_item(
     curScript.emitByte(lt)
 
 
-def if_have_item(itemid: Union[str, int], jump: int):
+def if_have_item(itemid: str | int, jump: int):
     check_item(itemid, 1, eq=jump, gt=jump)
 
 
-def if_no_item(itemid: Union[str, int], jump: int):
+def if_no_item(itemid: str | int, jump: int):
     check_item(itemid, 1, lt=jump)
 
 
@@ -1910,9 +1929,7 @@ def set_chip(
     curScript.emitByte(ifsome)
 
 
-def check_chip(
-    chip: str, amt: int, eq: int = 0xFF, gt: int = 0xFF, lt: int = 0xFF
-):
+def check_chip(chip: str, amt: int, eq: int = 0xFF, gt: int = 0xFF, lt: int = 0xFF):
     global curScript
     inv_control(0x14)
     bchip = bytes_chip(chip)
@@ -2075,7 +2092,7 @@ def chip_code_buf(index: int):
     curScript.emitByte(pack + 2)
 
 
-def key_item(itemid: Union[str, int]):
+def key_item(itemid: str | int):
     global curScript
     item_control(0)
     bkey = bytes_key(itemid)
@@ -2106,7 +2123,7 @@ def chip(chipId: str, chipCode: str):
 
 
 def item_amt(
-    itemid: Union[str, int],
+    itemid: str | int,
     minlen: int = 0,
     isPadZero: bool = False,
     isPadLeft: bool = False,

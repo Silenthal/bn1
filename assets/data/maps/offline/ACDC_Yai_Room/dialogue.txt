@@ -46,7 +46,7 @@ section_end()
 
 # 0x0A @ 0x6F59EC
 section_start(0x0A)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x2A)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x2A)
 dialog_up("Yai")
 text("<I need to get back\nto studying...>\p")
 cls()
@@ -56,8 +56,8 @@ section_end()
 
 # 0x14 @ 0x6F5A62
 section_start(0x14)
-if_story(FLAG_STORY_POLAR_BEAR, 0x19)
-if_story(FLAG_STORY_TRUNK_FIND, 0x1E)
+if_story("FLAG_STORY_POLAR_BEAR", 0x19)
+if_story("FLAG_STORY_TRUNK_FIND", 0x1E)
 dialog_up("Yai")
 text("<Did you find the\nboy from B Class?\nDon't give up!>\p")
 end()
@@ -101,8 +101,8 @@ section_end()
 
 # 0x23 @ 0x6F5C22
 section_start(0x23)
-if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x32)
-if_story(FLAG_STORY_BOMBMAN_BED, 0x3C)
+if_story_in("FLAG_STORY_DELETE_PROTOMAN", "FLAG_STORY_DELETE_BOMBMAN", 0x32)
+if_story("FLAG_STORY_BOMBMAN_BED", 0x3C)
 dialog_up("Yai")
 text("<I'm collecting\nantiques! They're\njust so fashionable.>\p")
 cls()

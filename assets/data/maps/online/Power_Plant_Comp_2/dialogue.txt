@@ -202,8 +202,7 @@ section_end()
 
 # 0xA2 @ 0x718FC1
 section_start(0xA2)
-pic("MegaMan")
-dialog_show()
+dialog_show("MegaMan")
 text("<Huh? Nothing\nhappened!\nWrong box,maybe?>\p")
 end(5)
 section_end()
@@ -301,8 +300,7 @@ section_end()
 
 # 0xC8 @ 0x719291
 section_start(0xC8)
-pic("MegaMan")
-dialog_show()
+dialog_show("MegaMan")
 text("<This battery is\nout!>\p")
 cls()
 text("<Let's go get it\nrecharged!>\p")

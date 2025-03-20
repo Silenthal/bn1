@@ -2,7 +2,7 @@ section_count(0xEB)
 
 # 0x00 @ 0x700BFA
 section_start(0x00)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x19)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_LIGHT_5_FIX", 0x19)
 dialog_up("MiddleAgedMan")
 text("<Sure are a lot\nof kids here\ntoday...>\p")
 end(5)
@@ -10,7 +10,7 @@ section_end()
 
 # 0x01 @ 0x700C37
 section_start(0x01)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x1A)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_LIGHT_5_FIX", 0x1A)
 dialog_up("MiddleAgedWoman")
 text("<This area is for\nconstruction matters.>\p")
 cls()
@@ -27,7 +27,7 @@ section_end()
 
 # 0x03 @ 0x700CDF
 section_start(0x03)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x1B)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_LIGHT_5_FIX", 0x1B)
 dialog_up("Scientist")
 text("<This water cooler is\nalso broken. There\nis no water inside.>\p")
 end(5)
@@ -77,8 +77,8 @@ section_end()
 
 # 0x0A @ 0x700E51
 section_start(0x0A)
-if_story(FLAG_STORY_POLAR_BEAR, 0x14)
-if_story(FLAG_STORY_TRUNK_FIND, 0x15)
+if_story("FLAG_STORY_POLAR_BEAR", 0x14)
+if_story("FLAG_STORY_TRUNK_FIND", 0x15)
 if_flag(0xB3, 0x0E, 0xFF)
 dialog_up("Lan")
 text("<Hmmm...It's locked.>\p")
@@ -189,7 +189,7 @@ section_end()
 
 # 0x23 @ 0x701213
 section_start(0x23)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x28)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x28)
 dialog_up("MiddleAgedMan")
 text("<The SciLab\nis the other way!\nAre you lost?>\p")
 end()
@@ -197,7 +197,7 @@ section_end()
 
 # 0x24 @ 0x701255
 section_start(0x24)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x29)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x29)
 dialog_up("MiddleAgedWoman")
 text("<This is the section\nwhere we plan sewage\nrelated>\p")
 cls()
@@ -300,7 +300,7 @@ section_end()
 
 # 0xDC @ 0x7017CD
 section_start(0xDC)
-if_story_in(FLAG_STORY_SCHOOL_CANCEL, FLAG_STORY_TRUNK_FIND, 0xE0)
+if_story_in("FLAG_STORY_SCHOOL_CANCEL", "FLAG_STORY_TRUNK_FIND", 0xE0)
 dialog_up()
 text("Every vending\nmachine seems to\nhave different sodas\p")
 end(5)
@@ -315,7 +315,7 @@ section_end()
 
 # 0xDE @ 0x701834
 section_start(0xDE)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0xDF)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0xDF)
 dialog_up()
 text("A water cooler.\nIt has a jack in\nport\p")
 end(5)

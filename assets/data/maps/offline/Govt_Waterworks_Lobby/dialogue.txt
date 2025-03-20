@@ -2,8 +2,8 @@ section_count(0xEB)
 
 # 0x00 @ 0x6FB9B6
 section_start(0x00)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x2D)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, FLAG_STORY_BATTERIES_DONE, 0x3F)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_LIGHT_5_FIX", 0x2D)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", "FLAG_STORY_BATTERIES_DONE", 0x3F)
 dialog_up("Scientist")
 text("<There are 5 kinds\nof chip;Fire,Water,\nElectric,Wood,and>\p")
 cls()
@@ -26,7 +26,7 @@ section_end()
 
 # 0x02 @ 0x6FBB03
 section_start(0x02)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x2F)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_LIGHT_5_FIX", 0x2F)
 dialog_up("MiddleAgedMan")
 text("<This is the\nWaterworks\ninformation desk.>\p")
 cls()
@@ -36,7 +36,7 @@ section_end()
 
 # 0x03 @ 0x6FBB83
 section_start(0x03)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x30)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_LIGHT_5_FIX", 0x30)
 dialog_up("MiddleAgedWoman")
 text("<Welcome to the\nWaterworks!\nWater is our life!>\p")
 end()
@@ -44,8 +44,8 @@ section_end()
 
 # 0x04 @ 0x6FBBC8
 section_start(0x04)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x31)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, FLAG_STORY_BATTERIES_DONE, 0x40)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_LIGHT_5_FIX", 0x31)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", "FLAG_STORY_BATTERIES_DONE", 0x40)
 dialog_up("OldMan")
 text("<Why do government\noffices always keep\nyou waiting so long?>\p")
 cls()
@@ -65,7 +65,7 @@ section_end()
 
 # 0x05 @ 0x6FBD94
 section_start(0x05)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x32)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_LIGHT_5_FIX", 0x32)
 dialog_up("MiddleAgedWoman")
 text("<Please pay your\nwater bill here.>\p")
 end()
@@ -73,7 +73,7 @@ section_end()
 
 # 0x06 @ 0x6FBDCB
 section_start(0x06)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_LIGHT_5_FIX, 0x33)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_LIGHT_5_FIX", 0x33)
 dialog_up("MiddleAgedMan")
 text("<This is the sewer\nconstruction\ninformation desk.>\p")
 end()
@@ -95,9 +95,9 @@ section_end()
 
 # 0x0F @ 0x6FBE9F
 section_start(0x0F)
-if_story(FLAG_STORY_SCILAB_NIGHT, 0x23)
-if_story(FLAG_STORY_POLAR_BEAR, 0x23)
-if_story(FLAG_STORY_TRUNK_FIND, 0x23)
+if_story("FLAG_STORY_SCILAB_NIGHT", 0x23)
+if_story("FLAG_STORY_POLAR_BEAR", 0x23)
+if_story("FLAG_STORY_TRUNK_FIND", 0x23)
 dialog_up("MiddleAgedMan")
 text("<We're looking into\nthe water shortage\nproblem.>\p")
 cls()
@@ -227,7 +227,7 @@ section_end()
 
 # 0x2D @ 0x6FC2EE
 section_start(0x2D)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x3F)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x3F)
 dialog_up("Scientist")
 text("<Is this the SciLab?>\n")
 text("{c 0 0 1 1}Yes ")
@@ -248,7 +248,7 @@ section_end()
 
 # 0x2F @ 0x6FC3CB
 section_start(0x2F)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x02)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x02)
 dialog_up("MiddleAgedMan")
 text("<This is the\nWaterworks\ninformation desk.>\p")
 cls()
@@ -258,7 +258,7 @@ section_end()
 
 # 0x30 @ 0x6FC431
 section_start(0x30)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x03)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x03)
 dialog_up("MiddleAgedWoman")
 text("<Welcome to the\nWaterworks!\nWater is our life!>\p")
 end()
@@ -266,7 +266,7 @@ section_end()
 
 # 0x31 @ 0x6FC476
 section_start(0x31)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x40)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x40)
 dialog_up("OldMan")
 text("<Even with the crisis\nover,they still keep\nus waiting!>\p")
 end()
@@ -274,7 +274,7 @@ section_end()
 
 # 0x32 @ 0x6FC4C3
 section_start(0x32)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x05)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x05)
 dialog_up("MiddleAgedWoman")
 text("<Please pay your\nwater bill here.>\p")
 end()
@@ -282,7 +282,7 @@ section_end()
 
 # 0x33 @ 0x6FC4FA
 section_start(0x33)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x06)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x06)
 dialog_up("MiddleAgedMan")
 text("<This is the sewer\nconstruction\ninformation desk.>\p")
 end()
@@ -308,7 +308,7 @@ section_end()
 
 # 0x46 @ 0x6FC67D
 section_start(0x46)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x55)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x55)
 dialog_up("Scientist")
 text("<Our customers are\nbecoming more and\nmore worried...>\p")
 cls()
@@ -318,7 +318,7 @@ section_end()
 
 # 0x47 @ 0x6FC6FF
 section_start(0x47)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x56)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x56)
 dialog_up("MiddleAgedMan")
 text("<This is the\nWaterworks\ninformation desk.>\p")
 cls()
@@ -328,7 +328,7 @@ section_end()
 
 # 0x48 @ 0x6FC765
 section_start(0x48)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x57)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x57)
 dialog_up("MiddleAgedWoman")
 text("<Welcome to the\nWaterworks!\nWater is our life!>\p")
 end()
@@ -336,8 +336,8 @@ section_end()
 
 # 0x49 @ 0x6FC7AA
 section_start(0x49)
-if_story_in(FLAG_STORY_DELETE_DOOR_VIRUS, FLAG_STORY_DELETE_BOMBMAN, 0x50)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x58)
+if_story_in("FLAG_STORY_DELETE_DOOR_VIRUS", "FLAG_STORY_DELETE_BOMBMAN", 0x50)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x58)
 dialog_up("OldMan")
 text("<Even with the crisis\nover,they still make\nus wait!!>\p")
 end()
@@ -345,7 +345,7 @@ section_end()
 
 # 0x4A @ 0x6FC7FC
 section_start(0x4A)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x59)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x59)
 dialog_up("MiddleAgedWoman")
 text("<Please pay your\nwater bill here.>\p")
 end()
@@ -353,7 +353,7 @@ section_end()
 
 # 0x4B @ 0x6FC833
 section_start(0x4B)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x5A)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x5A)
 dialog_up("MiddleAgedMan")
 text("<This is the sewer\nconstruction\ninformation desk.>\p")
 end()
@@ -556,7 +556,7 @@ section_end()
 
 # 0xDC @ 0x6FD24D
 section_start(0xDC)
-if_story_in(FLAG_STORY_SCHOOL_CANCEL, FLAG_STORY_TRUNK_FIND, 0xE4)
+if_story_in("FLAG_STORY_SCHOOL_CANCEL", "FLAG_STORY_TRUNK_FIND", 0xE4)
 dialog_up()
 text("There is a wide\nvariety of drinks\ninside\p")
 end(5)

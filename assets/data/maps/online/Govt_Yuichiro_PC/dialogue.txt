@@ -58,7 +58,7 @@ section_end()
 
 # 0x0A @ 0x71FDDE
 section_start(0x0A)
-if_story_in(FLAG_STORY_DAD_POWERUP, 0x57, 0x28)
+if_story_in("FLAG_STORY_DAD_POWERUP", 0x57, 0x28)
 if_flag(0xE2, 0x12, 0xFF)
 dialog_up("MrProg")
 text("<I am just a\ncaretaker program,\nnot your dad's Navi.>\p")

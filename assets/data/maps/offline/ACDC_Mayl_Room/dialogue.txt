@@ -2,7 +2,7 @@ section_count(0xEB)
 
 # 0x0A @ 0x6F3FAE
 section_start(0x0A)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x1B)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x1B)
 if_flag(0x98, 0x0B, 0xFF)
 set_flag(0x98)
 dialog_up("Mayl")
@@ -39,8 +39,8 @@ section_end()
 
 # 0x23 @ 0x6F416B
 section_start(0x23)
-if_story(FLAG_STORY_DELETE_COLORMAN, 0x1B)
-if_story(FLAG_STORY_BOMBMAN_BED, 0x28)
+if_story("FLAG_STORY_DELETE_COLORMAN", 0x1B)
+if_story("FLAG_STORY_BOMBMAN_BED", 0x28)
 dialog_up("Mayl")
 text("<I know that I'm\nnot helping you\ndirectly,>\p")
 cls()

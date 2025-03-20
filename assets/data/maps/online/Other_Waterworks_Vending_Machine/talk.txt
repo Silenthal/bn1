@@ -2,7 +2,7 @@ section_count(0xF)
 
 # 0x00 @ 0x6DD39A
 section_start(0x00)
-if_story_in(FLAG_STORY_NEW_GAME, 0x5F, 0x02)
+if_story_in("FLAG_STORY_NEW_GAME", 0x5F, 0x02)
 dialog_up()
 text("Test message\p")
 end(5)

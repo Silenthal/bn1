@@ -16,7 +16,7 @@ section_end()
 
 # 0x02 @ 0x708975
 section_start(0x02)
-if_story_in(FLAG_STORY_EXPOSE_WWW, FLAG_STORY_LIGHT_2_FIX, 0x0B)
+if_story_in("FLAG_STORY_EXPOSE_WWW", "FLAG_STORY_LIGHT_2_FIX", 0x0B)
 dialog_up("SternMan")
 text("<Looks like the WWW\nis getting close to\ndominating the net!>\p")
 cls()
@@ -68,7 +68,7 @@ section_end()
 
 # 0x15 @ 0x708B9B
 section_start(0x15)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x19)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x19)
 dialog_up("OrangeShirtBoy")
 text("<Our summer school\nteacher is normally\nreally cheerful.>\p")
 cls()
@@ -110,7 +110,7 @@ section_end()
 
 # 0xDE @ 0x708ECD
 section_start(0xDE)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x5F, 0xDF)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x5F, 0xDF)
 if_flag(0x98, 0xDF, 0xFF)
 dialog_up()
 text("This signal has a\njack in port\p")

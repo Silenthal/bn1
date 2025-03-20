@@ -12,7 +12,7 @@ section_end()
 
 # 0x01 @ 0x6E74D5
 section_start(0x01)
-if_story(FLAG_STORY_DOOR_1_UNLOCK, 0x0F)
+if_story("FLAG_STORY_DOOR_1_UNLOCK", 0x0F)
 dialog_up()
 text("Encyclopedias are\nlined up on this\nshelf\p")
 end(5)

@@ -19,7 +19,7 @@ section_end()
 
 # 0x0F @ 0x6F3A95
 section_start(0x0F)
-if_story_in(FLAG_STORY_POLAR_BEAR, FLAG_STORY_TRUNK_FIND, 0x14)
+if_story_in("FLAG_STORY_POLAR_BEAR", "FLAG_STORY_TRUNK_FIND", 0x14)
 dialog_up("Mayl")
 text("<Looks like there's\nstill no water...>\p")
 end()

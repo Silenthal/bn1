@@ -80,9 +80,9 @@ section_end()
 
 # 0x0F @ 0x705D12
 section_start(0x0F)
-if_story_in(FLAG_STORY_BOMBMAN_BED, FLAG_STORY_FINAL, 0x23)
-if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_DELETE_BOMBMAN, 0x1E)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x1A)
+if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x23)
+if_story_in("FLAG_STORY_DELETE_PROTOMAN", "FLAG_STORY_DELETE_BOMBMAN", 0x1E)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x1A)
 dialog_up("MetrolineMan")
 text("<This is Dentown\nstation.>\p")
 end()
@@ -90,8 +90,8 @@ section_end()
 
 # 0x10 @ 0x705D4D
 section_start(0x10)
-if_story_in(FLAG_STORY_DELETE_PROTOMAN, FLAG_STORY_BOMBMAN_BED, 0x20)
-if_story_in(FLAG_STORY_DELETE_COLORMAN, 0x47, 0x1B)
+if_story_in("FLAG_STORY_DELETE_PROTOMAN", "FLAG_STORY_BOMBMAN_BED", 0x20)
+if_story_in("FLAG_STORY_DELETE_COLORMAN", 0x47, 0x1B)
 dialog_up("Girl")
 text("<I'm going shopping\nnow! I've been\nwaiting for so long!>\p")
 end()

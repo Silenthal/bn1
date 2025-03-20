@@ -340,7 +340,7 @@ LAB_08040920:
     pop        {r5}
     beq        LAB_08040948
     push       {r5}
-    ldr        r0,DAT_08040ac0
+    ldr        r0,PTR_Scene_UnlockWWWGate_08040ac0
     mov        r1,#0x0
     bl         Scene_Prepare
     pop        {r5}
@@ -561,7 +561,7 @@ PTR_NPCList_8041C34_08040ab8:
 DAT_08040abc:
     .word Scene_MegaManJackIn
 
-DAT_08040ac0:
+PTR_Scene_UnlockWWWGate_08040ac0:
     .word Scene_UnlockWWWGate
 
 PTR_PTR_EventHandler_School_Comp_1_F13_0_08040ac4:

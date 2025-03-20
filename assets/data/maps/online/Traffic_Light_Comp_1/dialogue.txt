@@ -2,7 +2,7 @@ section_count(0x10)
 
 # 0x00 @ 0x7158A4
 section_start(0x00)
-if_story(FLAG_STORY_LIGHT_1_FIX, 0x0A)
+if_story("FLAG_STORY_LIGHT_1_FIX", 0x0A)
 dialog_up("MrProg")
 text("<The WWW has bugged\nup our programs!>\p")
 cls()
@@ -36,7 +36,7 @@ section_end()
 
 # 0x03 @ 0x715A3D
 section_start(0x03)
-if_story_in(FLAG_STORY_LIGHT_1_FIX, 0x57, 0x05)
+if_story_in("FLAG_STORY_LIGHT_1_FIX", 0x57, 0x05)
 if_flag(0x30, 0x04, 0xFF)
 if_flag(FLAG_GATE_LOCK_SCHOOL_COMP_3_1, 0x05, 0xFF)
 dialog_up()

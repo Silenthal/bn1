@@ -223,7 +223,7 @@ LAB_0804d708:
     Flag_GetBase 0xC2
     beq        LAB_0804d75c
     push       {r5}
-    ldr        r0,DAT_0804d984
+    ldr        r0,PTR_Scene_UnlockWWWGate_0804d984
     mov        r1,#0xc
     bl         Scene_Prepare
     pop        {r5}
@@ -235,7 +235,7 @@ LAB_0804d75c:
     bne        LAB_0804d77a
     Flag_SetBase 0xC3
     push       {r5}
-    ldr        r0,DAT_0804d988
+    ldr        r0,PTR_Scene_Dialogue_0804d988
     mov        r1,#0xa
     bl         Scene_Prepare
     pop        {r5}
@@ -246,7 +246,7 @@ LAB_0804d77a:
     Flag_GetBase 0xC4
     beq        LAB_0804d798
     push       {r5}
-    ldr        r0,DAT_0804d98c
+    ldr        r0,PTR_Scene_UnlockWWWGate_0804d98c
     mov        r1,#0xd
     bl         Scene_Prepare
     pop        {r5}
@@ -258,7 +258,7 @@ LAB_0804d798:
     bne        LAB_0804d7b6
     Flag_SetBase 0xC5
     push       {r5}
-    ldr        r0,DAT_0804d990
+    ldr        r0,PTR_Scene_Dialogue_0804d990
     mov        r1,#0xa
     bl         Scene_Prepare
     pop        {r5}
@@ -269,7 +269,7 @@ LAB_0804d7b6:
     Flag_GetBase 0xC6
     beq        LAB_0804d7d4
     push       {r5}
-    ldr        r0,DAT_0804d994
+    ldr        r0,PTR_Scene_UnlockWWWGate_0804d994
     mov        r1,#0xe
     bl         Scene_Prepare
     pop        {r5}
@@ -281,7 +281,7 @@ LAB_0804d7d4:
     bne        LAB_0804d7f2
     Flag_SetBase 0xC7
     push       {r5}
-    ldr        r0,DAT_0804d998
+    ldr        r0,PTR_Scene_Dialogue_0804d998
     mov        r1,#0xa
     bl         Scene_Prepare
     pop        {r5}
@@ -292,7 +292,7 @@ LAB_0804d7f2:
     Flag_GetBase 0xC8
     beq        LAB_0804d810
     push       {r5}
-    ldr        r0,DAT_0804d99c
+    ldr        r0,PTR_Scene_UnlockWWWGate_0804d99c
     mov        r1,#0xf
     bl         Scene_Prepare
     pop        {r5}
@@ -304,7 +304,7 @@ LAB_0804d810:
     bne        LAB_0804d82e
     Flag_SetBase 0xC9
     push       {r5}
-    ldr        r0,DAT_0804d9a0
+    ldr        r0,PTR_Scene_Dialogue_0804d9a0
     mov        r1,#0xa
     bl         Scene_Prepare
     pop        {r5}
@@ -315,7 +315,7 @@ LAB_0804d82e:
     Flag_GetBase 0xCA
     beq        LAB_0804d84c
     push       {r5}
-    ldr        r0,DAT_0804d9a4
+    ldr        r0,PTR_Scene_UnlockWWWGate_0804d9a4
     mov        r1,#0x10
     bl         Scene_Prepare
     pop        {r5}
@@ -327,7 +327,7 @@ LAB_0804d84c:
     bne        LAB_0804d86a
     Flag_SetBase 0xCB
     push       {r5}
-    ldr        r0,DAT_0804d9a8
+    ldr        r0,PTR_Scene_Dialogue_0804d9a8
     mov        r1,#0xa
     bl         Scene_Prepare
     pop        {r5}
@@ -338,7 +338,7 @@ LAB_0804d86a:
     Flag_GetBase 0xCC
     beq        LAB_0804d888
     push       {r5}
-    ldr        r0,DAT_0804d9ac
+    ldr        r0,PTR_Scene_UnlockWWWGate_0804d9ac
     mov        r1,#0x11
     bl         Scene_Prepare
     pop        {r5}
@@ -350,7 +350,7 @@ LAB_0804d888:
     bne        LAB_0804d8a6
     Flag_SetBase 0xCD
     push       {r5}
-    ldr        r0,DAT_0804d9b0
+    ldr        r0,PTR_Scene_Dialogue_0804d9b0
     mov        r1,#0xa
     bl         Scene_Prepare
     pop        {r5}
@@ -361,7 +361,7 @@ LAB_0804d8a6:
     Flag_GetBase 0xCE
     beq        LAB_0804d8c4
     push       {r5}
-    ldr        r0,DAT_0804d9b4
+    ldr        r0,PTR_Scene_UnlockWWWGate_0804d9b4
     mov        r1,#0x12
     bl         Scene_Prepare
     pop        {r5}
@@ -373,7 +373,7 @@ LAB_0804d8c4:
     bne        LAB_0804d8e2
     Flag_SetBase 0xCF
     push       {r5}
-    ldr        r0,DAT_0804d9b8
+    ldr        r0,PTR_Scene_Dialogue_0804d9b8
     mov        r1,#0xa
     bl         Scene_Prepare
     pop        {r5}
@@ -384,7 +384,7 @@ LAB_0804d8e2:
     Flag_GetBase 0xD0
     beq        LAB_0804d900
     push       {r5}
-    ldr        r0,DAT_0804d9bc
+    ldr        r0,PTR_Scene_UnlockWWWGate_0804d9bc
     mov        r1,#0x13
     bl         Scene_Prepare
     pop        {r5}
@@ -396,7 +396,7 @@ LAB_0804d900:
     bne        LAB_0804d91e
     Flag_SetBase 0xD1
     push       {r5}
-    ldr        r0,DAT_0804d9c0
+    ldr        r0,PTR_Scene_Dialogue_0804d9c0
     mov        r1,#0xa
     bl         Scene_Prepare
     pop        {r5}
@@ -407,7 +407,7 @@ LAB_0804d91e:
     Flag_GetBase 0xD2
     beq        LAB_0804d93c
     push       {r5}
-    ldr        r0,DAT_0804d9c4
+    ldr        r0,PTR_Scene_UnlockWWWGate_0804d9c4
     mov        r1,#0x14
     bl         Scene_Prepare
     pop        {r5}
@@ -451,55 +451,55 @@ PTR_EntityAllocParams_804E90C_0804d97c:
 PTR_PTR_EventHandler_WWW_Comp_2_F54_0_0804d980:
     .word PTR_EventHandler_WWW_Comp_2_F54_0_0804d6f8
 
-DAT_0804d984:
+PTR_Scene_UnlockWWWGate_0804d984:
     .word Scene_UnlockWWWGate
 
-DAT_0804d988:
+PTR_Scene_Dialogue_0804d988:
     .word Scene_Dialogue
 
-DAT_0804d98c:
+PTR_Scene_UnlockWWWGate_0804d98c:
     .word Scene_UnlockWWWGate
 
-DAT_0804d990:
+PTR_Scene_Dialogue_0804d990:
     .word Scene_Dialogue
 
-DAT_0804d994:
+PTR_Scene_UnlockWWWGate_0804d994:
     .word Scene_UnlockWWWGate
 
-DAT_0804d998:
+PTR_Scene_Dialogue_0804d998:
     .word Scene_Dialogue
 
-DAT_0804d99c:
+PTR_Scene_UnlockWWWGate_0804d99c:
     .word Scene_UnlockWWWGate
 
-DAT_0804d9a0:
+PTR_Scene_Dialogue_0804d9a0:
     .word Scene_Dialogue
 
-DAT_0804d9a4:
+PTR_Scene_UnlockWWWGate_0804d9a4:
     .word Scene_UnlockWWWGate
 
-DAT_0804d9a8:
+PTR_Scene_Dialogue_0804d9a8:
     .word Scene_Dialogue
 
-DAT_0804d9ac:
+PTR_Scene_UnlockWWWGate_0804d9ac:
     .word Scene_UnlockWWWGate
 
-DAT_0804d9b0:
+PTR_Scene_Dialogue_0804d9b0:
     .word Scene_Dialogue
 
-DAT_0804d9b4:
+PTR_Scene_UnlockWWWGate_0804d9b4:
     .word Scene_UnlockWWWGate
 
-DAT_0804d9b8:
+PTR_Scene_Dialogue_0804d9b8:
     .word Scene_Dialogue
 
-DAT_0804d9bc:
+PTR_Scene_UnlockWWWGate_0804d9bc:
     .word Scene_UnlockWWWGate
 
-DAT_0804d9c0:
+PTR_Scene_Dialogue_0804d9c0:
     .word Scene_Dialogue
 
-DAT_0804d9c4:
+PTR_Scene_UnlockWWWGate_0804d9c4:
     .word Scene_UnlockWWWGate
 
 PTR_Scene_Story_72_0804d9c8:

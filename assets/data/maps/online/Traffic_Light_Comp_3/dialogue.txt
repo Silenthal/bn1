@@ -2,7 +2,7 @@ section_count(0x8)
 
 # 0x00 @ 0x715E20
 section_start(0x00)
-if_story_in(FLAG_STORY_LIGHT_3_FIX, 0x57, 0x02)
+if_story_in("FLAG_STORY_LIGHT_3_FIX", 0x57, 0x02)
 if_flag(0x30, 0x01, 0xFF)
 if_flag(FLAG_GATE_CLEAR_SCHOOL_COMP_3_1, 0x02, 0xFF)
 dialog_up()

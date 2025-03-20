@@ -152,7 +152,7 @@ section_end()
 
 # 0x0F @ 0x6A061B
 section_start(0x0F)
-if_story_in(FLAG_STORY_DELETE_PROTOMAN, 0x5F, 0xFF, 0x46)
+if_story_in("FLAG_STORY_DELETE_PROTOMAN", 0x5F, 0xFF, 0x46)
 if_flag(0xAA, 0xFF, 0x46)
 text_se_off()
 input_off()

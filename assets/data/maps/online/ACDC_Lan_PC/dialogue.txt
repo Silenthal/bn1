@@ -11,7 +11,7 @@ section_end()
 
 # 0x01 @ 0x71F022
 section_start(0x01)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, FLAG_STORY_FINAL, 0x02)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", "FLAG_STORY_FINAL", 0x02)
 dialog_up("MrProg")
 text("<This is the inside\nof your computer.>\p")
 cls()

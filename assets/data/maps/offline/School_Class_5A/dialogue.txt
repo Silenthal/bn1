@@ -261,8 +261,8 @@ section_end()
 
 # 0x19 @ 0x6E448C
 section_start(0x19)
-if_story_in(FLAG_STORY_FIREMAN_BED, 0x17, 0x2B)
-if_story_in(FLAG_STORY_DELETE_NUMBERMAN, FLAG_STORY_TRUNK_FIND, 0x5B)
+if_story_in("FLAG_STORY_FIREMAN_BED", 0x17, 0x2B)
+if_story_in("FLAG_STORY_DELETE_NUMBERMAN", "FLAG_STORY_TRUNK_FIND", 0x5B)
 set_flag(0x2B)
 set_flag(0xCE)
 dialog_down()
@@ -752,7 +752,7 @@ section_end()
 
 # 0x64 @ 0x6E5849
 section_start(0x64)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x73)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x73)
 dialog_up("Dex")
 text("<I'm thirsty...>\p")
 cls(5)
@@ -761,7 +761,7 @@ section_end()
 
 # 0x65 @ 0x6E5874
 section_start(0x65)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x74)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x74)
 dialog_up("Mayl")
 text("<We can't use the\nbathrooms! Are they\nbroken,or worse...?>\p")
 end()
@@ -769,7 +769,7 @@ section_end()
 
 # 0x66 @ 0x6E58C9
 section_start(0x66)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x75)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x75)
 dialog_up("Yai")
 text("<Don't tell anyone I\ntold you,but...>\p")
 cls()
@@ -805,7 +805,7 @@ section_end()
 
 # 0x69 @ 0x6E59C6
 section_start(0x69)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x76)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x76)
 dialog_up("OrangeShirtBoy")
 text("<Mornin'>...{d}\n<I need breakfast...\nWhat? You too,Lan?>\p")
 end()
@@ -813,7 +813,7 @@ section_end()
 
 # 0x6A @ 0x6E5A1F
 section_start(0x6A)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x77)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x77)
 dialog_up("OrangeShirtBoy")
 text("<They say the chip\nshop's gonna open\ntoday!>\p")
 cls()
@@ -825,7 +825,7 @@ section_end()
 
 # 0x6B @ 0x6E5AC5
 section_start(0x6B)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x7B)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x7B)
 dialog_up("OrangeShirtBoy")
 text("<Hungry>...{d}<Must\nconserve>...{d}\n<energy...>\p")
 end()
@@ -833,7 +833,7 @@ section_end()
 
 # 0x6C @ 0x6E5B17
 section_start(0x6C)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x78)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x78)
 dialog_up("Girl")
 text("<I wonder why people\nalways have to fight\nand have wars...>\p")
 end()
@@ -841,7 +841,7 @@ section_end()
 
 # 0x6D @ 0x6E5B69
 section_start(0x6D)
-if_story(FLAG_STORY_SCHOOL_CANCEL, 0x79)
+if_story("FLAG_STORY_SCHOOL_CANCEL", 0x79)
 dialog_up("Girl")
 text("<It's tough without\nwater>...{d}<But,I'm\ntough! I'll make it!>\p")
 end()
@@ -944,7 +944,7 @@ section_end()
 
 # 0xA2 @ 0x6E603A
 section_start(0xA2)
-if_story_in(FLAG_STORY_FIREMAN_BED, 0x17, 0xA7)
+if_story_in("FLAG_STORY_FIREMAN_BED", 0x17, 0xA7)
 dialog_up("Dex")
 text("<Peh! Figures you\nand MegaMan don't\ngot the guts!>\p")
 dialog_down()
@@ -953,7 +953,7 @@ section_end()
 
 # 0xA3 @ 0x6E6085
 section_start(0xA3)
-if_story_in(FLAG_STORY_FIREMAN_BED, 0x17, 0xA8)
+if_story_in("FLAG_STORY_FIREMAN_BED", 0x17, 0xA8)
 dialog_up("Dex")
 text("<Uh,ya better wait\ntill I can upgrade\nGutsMan!> {d}<OK?>\p")
 dialog_down()
@@ -962,7 +962,7 @@ section_end()
 
 # 0xA4 @ 0x6E60D9
 section_start(0xA4)
-if_story_in(FLAG_STORY_DAD_POWERUP, 0x57, 0xA6)
+if_story_in("FLAG_STORY_DAD_POWERUP", 0x57, 0xA6)
 dialog_up("Dex")
 text("<Grr...you just got\nlucky! Today doesn't\ncount,okay?>\p")
 end()
@@ -1142,8 +1142,8 @@ section_end()
 
 # 0xE9 @ 0x6E680F
 section_start(0xE9)
-if_story_in(FLAG_STORY_DELETE_NUMBERMAN, 0x5F, 0xEB)
-if_story_in(FLAG_STORY_FIREMAN_BED, 0x1F, 0xFF, 0xDC)
+if_story_in("FLAG_STORY_DELETE_NUMBERMAN", 0x5F, 0xEB)
+if_story_in("FLAG_STORY_FIREMAN_BED", 0x1F, 0xFF, 0xDC)
 if_flag(0x9B, 0xEA, 0xFF)
 if_flag(0x95, 0xFF, 0xDC)
 dialog_up()

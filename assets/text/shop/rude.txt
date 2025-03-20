@@ -21,8 +21,7 @@ section_end()
 
 # 0x02 @ 0x7ACF46
 section_start(0x02)
-pic("EvilNavi")
-dialog_show()
+dialog_show("EvilNavi")
 text("<Eehh! What's this?\nYou ain't got enough\nzenny!>")
 set_flag(FLAG_SYSTEM_DIALOGUE_COMPLETE)
 stop()
@@ -30,8 +29,7 @@ section_end()
 
 # 0x03 @ 0x7ACF8D
 section_start(0x03)
-pic("EvilNavi")
-dialog_show()
+dialog_show("EvilNavi")
 text("<Figures you'd ask\nfer the one that's\nSOLD OUT!>")
 set_flag(FLAG_SYSTEM_DIALOGUE_COMPLETE)
 stop()
@@ -39,8 +37,7 @@ section_end()
 
 # 0x04 @ 0x7ACFD2
 section_start(0x04)
-pic("EvilNavi")
-dialog_show()
+dialog_show("EvilNavi")
 text("<Hunh?\nLeavin' the shop?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -51,8 +48,7 @@ section_end()
 
 # 0x05 @ 0x7AD018
 section_start(0x05)
-pic("EvilNavi")
-dialog_show()
+dialog_show("EvilNavi")
 text("<See ya.>{fd 30}")
 set_flag(FLAG_SYSTEM_DIALOGUE_COMPLETE)
 stop()
@@ -66,8 +62,7 @@ section_end()
 
 # 0x07 @ 0x7AD041
 section_start(0x07)
-pic("EvilNavi")
-dialog_show()
+dialog_show("EvilNavi")
 text("<Whaddya want?\n")
 set_delay(0)
 text("(R Btn;description)\n(B Btn;leave shop)>")
@@ -86,8 +81,7 @@ section_end()
 
 # 0x09 @ 0x7AD0B8
 section_start(0x09)
-pic("EvilNavi")
-dialog_show()
+dialog_show("EvilNavi")
 text("<Sure you want\n{key_item_buf}?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -98,8 +92,7 @@ section_end()
 
 # 0x0A @ 0x7AD0F8
 section_start(0x0A)
-pic("EvilNavi")
-dialog_show()
+dialog_show("EvilNavi")
 text("<Sure you want\n{chip_buf}?\n>")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")

@@ -2,8 +2,8 @@ section_count(0x7E)
 
 # 0x00 @ 0x6D2530
 section_start(0x00)
-if_story(FLAG_STORY_TRUNK_FIND, 0x78)
-if_story_in(FLAG_STORY_DELETE_ICEMAN, 0x57, 0x7D)
+if_story("FLAG_STORY_TRUNK_FIND", 0x78)
+if_story_in("FLAG_STORY_DELETE_ICEMAN", 0x57, 0x7D)
 dialog_up()
 text("Test message\p")
 end()

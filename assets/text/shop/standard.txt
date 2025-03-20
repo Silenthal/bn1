@@ -21,8 +21,7 @@ section_end()
 
 # 0x02 @ 0x7ACA47
 section_start(0x02)
-pic("Higsby")
-dialog_show()
+dialog_show("Higsby")
 text("<Not enough zenny...>")
 set_flag(FLAG_SYSTEM_DIALOGUE_COMPLETE)
 stop()
@@ -30,8 +29,7 @@ section_end()
 
 # 0x03 @ 0x7ACA71
 section_start(0x03)
-pic("Higsby")
-dialog_show()
+dialog_show("Higsby")
 text("<Sorry...\nWe're all sold out\nof that...>")
 set_flag(FLAG_SYSTEM_DIALOGUE_COMPLETE)
 stop()
@@ -39,8 +37,7 @@ section_end()
 
 # 0x04 @ 0x7ACAB2
 section_start(0x04)
-pic("Higsby")
-dialog_show()
+dialog_show("Higsby")
 text("<Cancel buying chip?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -51,8 +48,7 @@ section_end()
 
 # 0x05 @ 0x7ACAF2
 section_start(0x05)
-pic("Higsby")
-dialog_show()
+dialog_show("Higsby")
 text("<Come again soon\nm'kay?>{fd 30}")
 set_flag(FLAG_SYSTEM_DIALOGUE_COMPLETE)
 stop()
@@ -66,8 +62,7 @@ section_end()
 
 # 0x07 @ 0x7ACB2B
 section_start(0x07)
-pic("Higsby")
-dialog_show()
+dialog_show("Higsby")
 text("<What will you buy?\n")
 set_delay(0)
 text("(R Btn;description)\n(B Btn;leave shop)>")
@@ -86,8 +81,7 @@ section_end()
 
 # 0x09 @ 0x7ACBA7
 section_start(0x09)
-pic("Higsby")
-dialog_show()
+dialog_show("Higsby")
 text("<Buy {key_item_buf}?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
@@ -98,8 +92,7 @@ section_end()
 
 # 0x0A @ 0x7ACBDD
 section_start(0x0A)
-pic("Higsby")
-dialog_show()
+dialog_show("Higsby")
 text("<Buy {chip_buf}?>\n")
 text("{c 0 0 1 1}Yes ")
 text("{c 1 1 0 0}No")
