@@ -410,16 +410,19 @@ def unpack_all(inPath):
 
 def main():
     parser = argparse.ArgumentParser(description="Extracts maps.")
+    parser.add_argument(
+        "-o", "--offset", type=auto_int, help="The offset to the map."
+    )
     parser.add_argument("path", type=str, help="The path to the binary.")
-    parser.add_argument("offset", type=auto_int, help="The offset to the map.")
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
         exit(f"Couldn't find file {args.path}")
     with open(inPath, "rb") as inFile:
-        unpack_all(inFile)
-    # with open(inPath, 'rb') as inFile:
-    #     unpackMap(inFile, args.offset, Path.cwd() / f"map_{args.offset:X}")
+        if args.offset:
+            unpackMap(inFile, args.offset, Path.cwd() / f"map_{args.offset:X}")
+        else:
+            unpack_all(inFile)
 
 
 if __name__ == "__main__":
