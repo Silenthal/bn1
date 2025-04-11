@@ -5,6 +5,17 @@
 
 PTR_PlayerLocation_Handler_1_08003084: .word PlayerLocation_Handler
 
+
+@@ Allocates a new PlayerLocation object.
+@@ In:
+@@ r0: int routineType: The type of routine to perform. Not used.
+@@ r1: int x - The current X position.
+@@ r2: int y - The current Y position.
+@@ r3: int z - The current Z position.
+@@ r4: int family - The family detail. Not used.
+@@ Out:
+@@ r5: PlayerLocation* ploc - The created PlayerLocation object, or null if
+@@ allocation failed.
 _ts PlayerLocation_Alloc
     push       {r0,r1,r2,r3,r4,lr}
     ldr        r0,PTR_gBitsetPlayerLocation_080031c0
@@ -38,6 +49,10 @@ LAB_080030bc:
     mov        r5,#0x0
     pop        {r0,r1,r2,r3,r4,pc}
 
+
+@@ Frees an allocated PlayerLocation object.
+@@ In:
+@@ r5: PlayerLocation* ploc - The PlayerLocation object to free.
 _ts PlayerLocation_Free
     push       {lr}
     ldr        r0,DAT_080031c4
@@ -52,6 +67,8 @@ _ts PlayerLocation_Free
     bl         SpritePtr_AffineFree
     pop        {pc}
 
+
+@@ Updates all active PlayerLocation objects.
 _ts PlayerLocation_UpdateAll
     push       {lr}
     ldr        r5,PTR_gEntityListPlayerLocation_080031d4
@@ -89,6 +106,8 @@ LAB_08003114:
     str        r0,[r7,#World_updatingEntity]
     pop        {pc}
 
+
+@@ Initializes the PlayerLocation object list.
 _ts PlayerLocation_Init
     push       {lr}
     ldr        r0,PTR_gFillValue_080031e0
@@ -115,6 +134,9 @@ LAB_0800313c:
     str        r1,[r0,#0x0]
     pop        {pc}
 
+
+@@ Calculates occlusion and visibility for sprites attached to PlayerLocation
+@@ objects.
 _ts PlayerLocation_LoadAll
     push       {lr}
     mov        r0,#0x1
@@ -158,6 +180,9 @@ LAB_0800319c:
     blt        LAB_0800315c
     pop        {pc}
 
+
+@@ Clears tileset headers from all sprites associated with PlayerLocation
+@@ objects.
 _ts PlayerLocation_UnloadAll
     mov        r0,#0x0
     ldr        r5,PTR_gEntityListPlayerLocation_080031fc

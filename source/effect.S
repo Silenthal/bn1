@@ -81,6 +81,16 @@ listHandlerEffect:
     .word Effect_BombShootExplosion
     .word Effect_NaviDelete
 
+
+@@ Allocates a new Effect object.
+@@ In:
+@@ r0: int effectType: The type of effect to perform.
+@@ r1: int x - The current X position.
+@@ r2: int y - The current Y position.
+@@ r3: int z - The current Z position.
+@@ r4: int family - The family detail.
+@@ Out:
+@@ r5: Effect* ef - The created Effect object, or null if allocation failed.
 _ts Effect_Alloc
     push       {r0,r1,r2,r3,r4,lr}
     ldr        r0,PTR_gBitsetEffect_08003acc
@@ -119,6 +129,10 @@ LAB_0800399c:
     mov        r5,#0x0
     pop        {r0,r1,r2,r3,r4,pc}
 
+
+@@ Frees an allocated Effect object.
+@@ In:
+@@ r5: Effect* ef - The Effect object to free.
 _ts Effect_Free
     push       {lr}
     ldr        r0,DAT_08003ad0
@@ -133,6 +147,8 @@ _ts Effect_Free
     bl         SpritePtr_AffineFree
     pop        {pc}
 
+
+@@ Updates all active Effect objects.
 _ts Effect_UpdateAll
     push       {lr}
     ldr        r5,PTR_gEntityListEffect_08003ae0
@@ -192,6 +208,8 @@ LAB_08003a22:
     str        r0,[r7,#World_updatingEntity]
     pop        {pc}
 
+
+@@ Initializes the Effect object list.
 _ts Effect_Init
     push       {lr}
     ldr        r0,PTR_gFillValue_08003af0
@@ -218,6 +236,8 @@ LAB_08003a48:
     str        r1,[r0,#0x0]
     pop        {pc}
 
+
+@@ Calculates occlusion and visibility for sprites attached to Effect objects.
 _ts Effect_LoadAll
     push       {lr}
     mov        r0,#0x20
@@ -261,6 +281,8 @@ LAB_08003aa8:
     blt        LAB_08003a68
     pop        {pc}
 
+
+@@ Clears tileset headers from all sprites associated with Effect objects.
 _ts Effect_UnloadAll
     mov        r0,#0x0
     ldr        r5,PTR_gEntityListEffect_08003b10
@@ -279,19 +301,19 @@ LAB_08003ab8:
 
 PTR_gBitsetEffect_08003acc:             .word gBitsetEffect
 DAT_08003ad0:                           .word 0x80000000
-PTR_gEntityListEffect_08003ad4:               .word gEntityListEffect
+PTR_gEntityListEffect_08003ad4:         .word gEntityListEffect
 PTR_Struct_20062d0_Sized_08003ad8:      .word 0x20062d0
 PTR_gBitsetEffect_08003adc:             .word gBitsetEffect
-PTR_gEntityListEffect_08003ae0:               .word gEntityListEffect
+PTR_gEntityListEffect_08003ae0:         .word gEntityListEffect
 PTR_listHandlerEffect_08003ae4:         .word listHandlerEffect
-PTR_gEntityListEffect_08003ae8:               .word gEntityListEffect
+PTR_gEntityListEffect_08003ae8:         .word gEntityListEffect
 INT_08003aec:                           .word 0x1600
 PTR_gFillValue_08003af0:                .word gFillValue
-PTR_gEntityListEffect_08003af4:               .word gEntityListEffect
+PTR_gEntityListEffect_08003af4:         .word gEntityListEffect
 DAT_08003af8:                           .word 0x580
 DAT_08003afc:                           .word 0x85000000
-PTR_gEntityListEffect_08003b00:               .word gEntityListEffect
+PTR_gEntityListEffect_08003b00:         .word gEntityListEffect
 PTR_gBitsetEffect_08003b04:             .word gBitsetEffect
-PTR_gEntityListEffect_08003b08:               .word gEntityListEffect
+PTR_gEntityListEffect_08003b08:         .word gEntityListEffect
 PTR_SpriteFrame_LoadTileset_1_08003b0c: .word SpriteFrame_LoadTileset_far
-PTR_gEntityListEffect_08003b10:               .word gEntityListEffect
+PTR_gEntityListEffect_08003b10:         .word gEntityListEffect

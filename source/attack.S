@@ -97,6 +97,16 @@ listHandlerAttack:
     .word Attack_BloodSuckSyringe
     .word Attack_MoleHole
 
+
+@@ Allocates a new Attack object.
+@@ In:
+@@ r0: int attackType: The type of attack to perform.
+@@ r1: int x - The current X position.
+@@ r2: int y - The current Y position.
+@@ r3: int z - The current Z position.
+@@ r4: int family - The family detail.
+@@ Out:
+@@ r5: Attack* atk - The created Attack object, or null if allocation failed.
 _ts Attack_Alloc
     push       {r0,r1,r2,r3,r4,lr}
     ldr        r0,PTR_gBitsetAttack_080037e4
@@ -135,6 +145,10 @@ LAB_080036b4:
     mov        r5,#0x0
     pop        {r0,r1,r2,r3,r4,pc}
 
+
+@@ Frees an allocated Attack object.
+@@ In:
+@@ r5: Attack* atk - The Attack object to free.
 _ts Attack_Free
     push       {lr}
     ldr        r0,DAT_080037e8
@@ -149,6 +163,8 @@ _ts Attack_Free
     bl         SpritePtr_AffineFree
     pop        {pc}
 
+
+@@ Updates all active Attack objects.
 _ts Attack_UpdateAll
     push       {lr}
     ldr        r5,PTR_gEntityListAttack_080037f8
@@ -208,6 +224,8 @@ LAB_0800373a:
     str        r0,[r7,#World_updatingEntity]
     pop        {pc}
 
+
+@@ Initializes the Attack object list.
 _ts Attack_Init
     push       {lr}
     ldr        r0,PTR_gFillValue_08003808
@@ -234,6 +252,8 @@ LAB_08003760:
     str        r1,[r0,#0x0]
     pop        {pc}
 
+
+@@ Calculates occlusion and visibility for sprites attached to Attack objects.
 _ts Attack_LoadAll
     push       {lr}
     mov        r0,#0x20
@@ -277,6 +297,8 @@ LAB_080037c0:
     blt        LAB_08003780
     pop        {pc}
 
+
+@@ Clears tileset headers from all sprites associated with Attack objects.
 _ts Attack_UnloadAll
     mov        r0,#0x20
     ldr        r5,PTR_gEntityListAttack_08003828

@@ -6,6 +6,16 @@
 listHandlerNpc:
     .word NPC_Main
 
+
+@@ Allocates a new NPC object.
+@@ In:
+@@ r0: int npcType: The type of NPC routine to perform. Not used.
+@@ r1: int x - The current X position.
+@@ r2: int y - The current Y position.
+@@ r3: int z - The current Z position.
+@@ r4: int family - The family detail. Not used.
+@@ Out:
+@@ r5: NPC* npc - The created NPC object, or null if allocation failed.
 _ts NPC_Alloc
     push       {r0,r1,r2,r3,r4,lr}
     ldr        r0,PTR_gBitsetNPC_08003c68
@@ -45,6 +55,10 @@ LAB_08003b5a:
     mov        r5,#0x0
     pop        {r0,r1,r2,r3,r4,pc}
 
+
+@@ Frees an allocated NPC object.
+@@ In:
+@@ r5: NPC* npc - The NPC object to free.
 _ts NPC_Free
     push       {lr}
     ldr        r0,DAT_08003c6c
@@ -59,6 +73,8 @@ _ts NPC_Free
     bl         SpritePtr_AffineFree
     pop        {pc}
 
+
+@@ Updates all active NPC objects.
 _ts NPC_UpdateAll
     push       {lr}
     Flag_GetSystem F_SYSTEM_START_MENU_OPEN
@@ -98,6 +114,8 @@ LAB_08003bbc:
     str        r0,[r7,#World_updatingEntity]
     pop        {pc}
 
+
+@@ Initializes the NPC object list.
 _ts NPC_Init
     push       {lr}
     ldr        r0,PTR_gFillValue_08003c8c
@@ -124,6 +142,8 @@ LAB_08003be4:
     str        r1,[r0,#0x0]
     pop        {pc}
 
+
+@@ Calculates occlusion and visibility for sprites attached to NPC objects.
 _ts NPC_LoadAll
     push       {lr}
     mov        r0,#0x10
@@ -167,6 +187,8 @@ LAB_08003c44:
     blt        LAB_08003c04
     pop        {pc}
 
+
+@@ Clears tileset headers from all sprites associated with NPC objects.
 _ts NPC_UnloadAll
     mov        r0,#0x0
     ldr        r5,PTR_gEntityListNpc_08003cac

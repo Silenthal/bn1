@@ -2,8 +2,8 @@
     .include "constants.inc"
     .include "macros.inc"
 
-    .text
 
+@@ Initializes the parts of World state for a loaded game.
 _ts InitWorld_LoadGame
     push       {lr}
     LoadMain world, r5, r7
@@ -57,6 +57,7 @@ PTR_gIsObjectXFlipped_08004088:
     .word gIsObjectXFlipped
 
 
+@@ Initializes the World state.
 _ts InitWorld_NewGame
     push       {lr}
     LoadMain world, r5, r7
@@ -123,15 +124,12 @@ DAT_08004118:
 PTR_DAT_0800411c:
     .word DAT_08004120
 DAT_08004120:
-    .word 0x80000
-DAT_08004124:
-    .word 0xFFFC0000
-DAT_08004128:
-    .word 0
+    .word f(8, -4, 0)
 DAT_0800412c:
     .word 0x64
 
 
+@@ Main World procedure.
 _ts World_Main
     push       {lr}
     ldr        r0,=jumpTableWorldMain
@@ -518,6 +516,7 @@ LAB_08004510:
     pop        {pc}
 
 
+@@ Handle events where the player crosses into a map exit.
 _ts World_HandleMapExit
     push       {lr}
     ldrb       r0,[r5,#0x0]
@@ -580,6 +579,7 @@ LAB_08004598:
     pop        {pc}
 
 
+@@ Handles events where the player will enter a random encounter.
 _ts World_HandleRandomEncounter
     push       {lr}
     ldrb       r0,[r5,#0x0]
@@ -626,6 +626,16 @@ LAB_0800460c:
     pop        {pc}
 
 
+@@ Sets the parameters of the next battle.
+@@ In:
+@@ r0: BackgroundId backgroundId - The background to use.
+@@ r1: BattleType battleType - The type of battle to create. 
+@@ r2: BattleChip* chipFolder - The chip folder to use. Set to 0 to use the
+@@ player's folder and enable shuffling.
+@@ r3: bool isShuffled - True if the chip folder is to be shuffled before 
+@@ battle.
+@@ r4: byte overworldFlags - Flags for handling overworld effects. Setting 0x1
+@@ saves the player's position, and 0x80 frees all entities.
 _ts World_SetBattleParams
     push       {lr}
     LoadMain world, r5, r7
@@ -682,6 +692,9 @@ PTR_gFolder_08004670:
     .word gFolder
 
 
+@@ Gets the battle background ID based on the current area and subarea.
+@@ Out:
+@@ r0: BackgroundId id - The ID of the background to load.
 _ts World_GetBackgroundId
     LoadMain world, r5, r7
     ldrb       r0,[r5,#World_currentArea]
@@ -991,6 +1004,12 @@ PTR_BackgroundId_ARRAY_ARRAY_080047a0:
     .word BackgroundId_ARRAY_ARRAY_0800468c
 
 
+@@ Changes the current map.
+@@ In:
+@@ r0: int changeType - Determines the player's position after a map change.
+@@ - 0 uses the destination's position and area.
+@@ - 1 uses the last offline position and area.
+@@ - 2 uses the last online position and area.
 _ts World_ChangeMap
     push       {lr}
     push       {r0}
@@ -1172,6 +1191,10 @@ MapEntrance_08004920:
     MapEntrance Map_School_Class_5A, 0, 0, 0, 0
 
 
+@@ Sets the location for the next map transfer.
+@@ In:
+@@ r0: MapEntrance loc - The map location to transfer to.
+@@ r1: int changeType - The type of position change to do.
 _ts World_SetTransitionLocation
     push       {lr}
     LoadMain world, r5, r7
@@ -1183,6 +1206,7 @@ _ts World_SetTransitionLocation
     pop        {pc}
 
 
+@@ Starts the demo end screen.
 _ts World_StartDemo
     push       {lr}
     LoadMain world, r5, r7
@@ -1212,6 +1236,8 @@ _ts World_StartDemo
     strh       r1,[r0,#0x1a]
     pop        {pc}
 
+
+@@ Checks whether the start menu can be opened.
 _ts World_CheckStartMenuOpen
     push       {lr}
     mov        r0,#0x20
@@ -1273,6 +1299,9 @@ LAB_08004a0c:
     pop        {pc}
 
 
+@@ Starts the shop menu.
+@@ In:
+@@ 0: byte shopId - The shop ID to open.
 _ts World_StartShop
     push       {lr}
     bl         Shop_Init
@@ -1294,6 +1323,7 @@ _ts World_StartShop
     pop        {pc}
 
 
+@@ Starts the game over screen.
 _ts World_StartGameOver
     push       {lr}
     mov        r0,#0x1f
@@ -1317,6 +1347,9 @@ _ts World_StartGameOver
     pop        {pc}
 
 
+@@ Starts the chip trader menu.
+@@ In:
+@@ r0: int chipCount - The amount of chips the chip trader uses.
 _ts World_StartChipTrader
     push       {lr}
     push       {r0}
@@ -1349,6 +1382,7 @@ LAB_08004a8a:
     pop        {pc}
 
 
+@@ Starts the credits sequence.
 _ts World_StartCredits
     push       {lr}
     LoadMain world, r5, r7

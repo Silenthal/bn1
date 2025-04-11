@@ -88,6 +88,16 @@ listHandlerActor:
     .word Routine_BloodSuck
     .word Routine_Mole
 
+
+@@ Allocates a new Actor object.
+@@ In:
+@@ r0: int routineType: The type of routine to perform.
+@@ r1: int x - The current X position.
+@@ r2: int y - The current Y position.
+@@ r3: int z - The current Z position.
+@@ r4: int family - The family detail.
+@@ Out:
+@@ r5: Actor* actor - The created Actor object, or null if allocation failed.
 _ts Actor_Alloc
     push       {r0,r1,r2,r3,r4,lr}
     ldr        r0,PTR_gBitsetActor_080034bc
@@ -126,6 +136,10 @@ LAB_0800338c:
     mov        r5,#0x0
     pop        {r0,r1,r2,r3,r4,pc}
 
+
+@@ Frees an allocated Actor object.
+@@ In:
+@@ r5: Actor* actor - The Actor object to free.
 _ts Actor_Free
     push       {lr}
     ldr        r0,DAT_080034c0
@@ -140,6 +154,8 @@ _ts Actor_Free
     bl         SpritePtr_AffineFree
     pop        {pc}
 
+
+@@ Updates all active Actor objects.
 _ts Actor_UpdateAll
     push       {lr}
     ldr        r5,PTR_gEntityListActor_080034d0
@@ -199,6 +215,8 @@ LAB_08003412:
     str        r0,[r7,#World_updatingEntity]
     pop        {pc}
 
+
+@@ Initializes the Actor object list.
 _ts Actor_Init
     push       {lr}
     ldr        r0,PTR_gFillValue_080034e0
@@ -225,6 +243,8 @@ LAB_08003438:
     str        r1,[r0,#0x0]
     pop        {pc}
 
+
+@@ Calculates occlusion and visibility for sprites attached to Actor objects.
 _ts Actor_LoadAll
     push       {lr}
     mov        r0,#0x8
@@ -268,6 +288,8 @@ LAB_08003498:
     blt        LAB_08003458
     pop        {pc}
 
+
+@@ Clears tileset headers from all sprites associated with Actor objects.
 _ts Actor_UnloadAll
     mov        r0,#0x0
     ldr        r5,PTR_gEntityListActor_08003500
