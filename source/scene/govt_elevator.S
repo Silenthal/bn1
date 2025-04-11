@@ -9,14 +9,10 @@
 
 
 MapEntranceOptions_ARRAY_08091870:
-    MapEntrance Map_Govt_SciLab_Lobby, d_se, f(-204, -174, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Govt_Yuichiro_Lab, d_se, f(-124, -190, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_SciLab_Power_Plant_Hallway, d_se, f(-282, -122, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_SciLab_Restaurant_Hallway, d_se, f(-274, -126, 0)
-    .byte -1, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_Govt_SciLab_Lobby, d_se, f(-204, -174, 0), fadeType=0
+    MapEntranceOpt Map_Govt_Yuichiro_Lab, d_se, f(-124, -190, 0), fadeType=0
+    MapEntranceOpt Map_SciLab_Power_Plant_Hallway, d_se, f(-282, -122, 0), fadeType=0
+    MapEntranceOpt Map_SciLab_Restaurant_Hallway, d_se, f(-274, -126, 0), fadeType=0
 
 
 _ts Scene_GovtElevator

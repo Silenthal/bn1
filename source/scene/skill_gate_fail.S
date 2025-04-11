@@ -8,18 +8,12 @@
 
 
 MapEntranceOptions_ARRAY_08085b40:
-    MapEntrance Map_Undernet_6, d_ne, f(-554, 140, 64)
-    .byte 0xB, 0x0, 0x0, 0x0
-    MapEntrance Map_Undernet_6, d_ne, f(-554, 140, 64)
-    .byte 0xD, 0x0, 0x0, 0x0
-    MapEntrance Map_Undernet_7, d_ne, f(-498, -124, 0)
-    .byte 0xB, 0x0, 0x0, 0x0
-    MapEntrance Map_Undernet_9, d_ne, f(-364, -224, 0)
-    .byte 0xB, 0x0, 0x0, 0x0
-    MapEntrance Map_Undernet_10, d_ne, f(-386, -204, 0)
-    .byte 0xB, 0x0, 0x0, 0x0
-    MapEntrance Map_Undernet_11, d_ne, f(-450, -220, 64)
-    .byte 0xB, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_Undernet_6, d_ne, f(-554, 140, 64), dialog=0xB, fadeType=0
+    MapEntranceOpt Map_Undernet_6, d_ne, f(-554, 140, 64), dialog=0xD, fadeType=0
+    MapEntranceOpt Map_Undernet_7, d_ne, f(-498, -124, 0), dialog=0xB, fadeType=0
+    MapEntranceOpt Map_Undernet_9, d_ne, f(-364, -224, 0), dialog=0xB, fadeType=0
+    MapEntranceOpt Map_Undernet_10, d_ne, f(-386, -204, 0), dialog=0xB, fadeType=0
+    MapEntranceOpt Map_Undernet_11, d_ne, f(-450, -220, 64), dialog=0xB, fadeType=0
 
 
 _ts Scene_SkillGateFail

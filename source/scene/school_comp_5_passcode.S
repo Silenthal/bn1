@@ -9,12 +9,10 @@
 
 
 MapEntranceOptions_080875d0:
-    MapEntrance Map_School_Class_5A, d_s, f(47, 18, 0)
-    .byte 0x5, 0x0, 0x1, 0x0
+    MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0x5, changeType=1, fadeType=0
 
 MapEntranceOptions_080875e4:
-    MapEntrance Map_School_Class_5A, d_s, f(47, 18, 0)
-    .byte 0x5, 0x0, 0x4, 0x0
+    MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0x5, changeType=4, fadeType=0
 
 
 _ts Scene_School_Comp_5_Passcode

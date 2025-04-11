@@ -4,30 +4,18 @@
 
 
 MapEntranceOptions_ARRAY_080835d8:
-    MapEntrance Map_ACDC_Lan_Living_Room, d_s, f(-90, -26, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_School_Class_5A, d_s, f(-77, -28, 0)
-    .byte -1, 0x0, 0x1, 0x0
-    MapEntrance Map_ACDC_Lan_Room, d_s, f(-10, 52, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_ACDC_Mayl_Living_Room, d_s, f(-98, 62, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_ACDC_Yai_Room, d_s, f(14, -26, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_ACDC_Dex_Room, d_s, f(-72, 38, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Govt_Waterworks_Office, d_s, f(38, 92, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Govt_Yuichiro_Lab, d_s, f(-40, 270, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_DenTown_Block_1, d_se, f(-68, -48, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_DenTown_Block_1, d_se, f(-68, -48, 0)
-    .byte -1, 0x0, 0x1, 0x0
-    MapEntrance Map_SciLab_Power_Plant_Control_Room, d_s, f(20, 6, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_School_Class_5A, d_s, f(0, 0, 0)
-    .byte -1, 0x0, 0x1, 0x0
+    MapEntranceOpt Map_ACDC_Lan_Living_Room, d_s, f(-90, -26, 0), fadeType=0
+    MapEntranceOpt Map_School_Class_5A, d_s, f(-77, -28, 0), changeType=1, fadeType=0
+    MapEntranceOpt Map_ACDC_Lan_Room, d_s, f(-10, 52, 0), fadeType=0
+    MapEntranceOpt Map_ACDC_Mayl_Living_Room, d_s, f(-98, 62, 0), fadeType=0
+    MapEntranceOpt Map_ACDC_Yai_Room, d_s, f(14, -26, 0), fadeType=0
+    MapEntranceOpt Map_ACDC_Dex_Room, d_s, f(-72, 38, 0), fadeType=0
+    MapEntranceOpt Map_Govt_Waterworks_Office, d_s, f(38, 92, 0), fadeType=0
+    MapEntranceOpt Map_Govt_Yuichiro_Lab, d_s, f(-40, 270, 0), fadeType=0
+    MapEntranceOpt Map_DenTown_Block_1, d_se, f(-68, -48, 0), fadeType=0
+    MapEntranceOpt Map_DenTown_Block_1, d_se, f(-68, -48, 0), changeType=1, fadeType=0
+    MapEntranceOpt Map_SciLab_Power_Plant_Control_Room, d_s, f(20, 6, 0), fadeType=0
+    MapEntranceOpt Map_School_Class_5A, d_s, f(0, 0, 0), changeType=1, fadeType=0
 
 
 _ts Scene_JackOut

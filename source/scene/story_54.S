@@ -4,8 +4,7 @@
 
 
 MapEntranceOptions_0808fdd4:
-    MapEntrance Map_Power_Plant_Comp_1, d_sw, f(440, 116, 32)
-    .byte 0x8, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_Power_Plant_Comp_1, d_sw, f(440, 116, 32), dialog=0x8, fadeType=0
     cam_set 20, 116, 0
     cam_end
 

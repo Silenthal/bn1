@@ -48,6 +48,21 @@
     .word \z
     .endm
 
+    @@ fade type - 2 for white fade out, not 4 for black fade out
+    @@ 1 for fade in black, not 4 for fade in white
+    .macro MapEntranceOpt mapId, dir, x, y, z, dialog=-1, flag=0, changeType=0, fadeType=-1
+    .short \mapId
+    .byte 0
+    .byte \dir
+    .word \x
+    .word \y
+    .word \z
+    .byte \dialog
+    .byte \flag
+    .byte \changeType
+    .byte \fadeType
+    .endm
+
     .macro shop_item_key item, stock, price
     .byte 1
     .short Item_\item

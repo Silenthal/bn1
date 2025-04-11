@@ -7,8 +7,7 @@
 
 
 MapEntranceOptions_0808703e:
-    MapEntrance Map_School_Class_5A, d_s, f(47, 18, 0)
-    .byte 0x0, 0x0, 0x1, 0x0
+    MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0x0, changeType=1, fadeType=0
 
     .align 2, 0
 

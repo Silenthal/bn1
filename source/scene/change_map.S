@@ -9,60 +9,33 @@
 
 
 MapEntranceOptions_ARRAY_08087c18:
-    MapEntrance Map_School_Class_5A, d_s, f(47, 18, 0)
-    .byte 0x0, 0xC9, 0x1, 0x1
-    MapEntrance Map_School_Comp_1, d_nw, f(-348, 288, 0)
-    .byte -1, 0x0, 0x0, 0x1
-    MapEntrance Map_School_Class_5A, d_s, f(47, 18, 0)
-    .byte 0x23, 0xD4, 0x1, 0x1
-    MapEntrance Map_School_Comp_2, d_s, f(47, 18, 0)
-    .byte -1, 0xB3, 0x2, 0x1
-    MapEntrance Map_School_Class_5A, d_s, f(47, 18, 0)
-    .byte 0xA, 0x0, 0x4, 0x1
-    MapEntrance Map_School_Class_5A, d_s, f(47, 18, 0)
-    .byte 0x5, 0x0, 0x4, 0x1
-    MapEntrance Map_School_Class_5A, d_s, f(47, 18, 0)
-    .byte 0x0, 0xD5, 0x1, 0x1
-    MapEntrance Map_School_Comp_3, d_s, f(47, 18, 0)
-    .byte -1, 0xB4, 0x2, 0x1
-    MapEntrance Map_School_Class_5A, d_s, f(47, 18, 0)
-    .byte 0x5, 0x0, 0x4, 0x1
-    MapEntrance Map_School_Class_5A, d_s, f(47, 18, 0)
-    .byte 0x5, 0x0, 0x1, 0x1
-    MapEntrance Map_School_Comp_1, d_s, f(47, 18, 0)
-    .byte -1, 0xCA, 0x2, 0x1
-    MapEntrance Map_ACDC_Town, d_s, f(0, 0, 0)
-    .byte -1, 0x0, 0x0, 0x1
-    MapEntrance Map_School_Class_5A, d_s, f(10, -34, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Govt_Waterworks_Office, d_sw, f(104, 182, 0)
-    .byte 0x1A, 0x0, 0x0, 0x1
-    MapEntrance Map_Govt_Yuichiro_Lab, d_se, f(-124, -190, 0)
-    .byte 0x5, 0x0, 0x0, 0x1
-    MapEntrance Map_Govt_SciLab_Lobby, d_se, f(-204, -174, 0)
-    .byte 0x13, 0x0, 0x0, 0x1
-    MapEntrance Map_Govt_Waterworks_Lobby, d_sw, f(144, 240, 0)
-    .byte 0x4, 0x0, 0x0, 0x1
-    MapEntrance Map_DenTown_Center, d_n, f(-114, 194, 0)
-    .byte -1, 0x0, 0x0, 0x1
-    MapEntrance Map_DenTown_Center, d_n, f(-114, 194, 0)
-    .byte -1, 0x0, 0x1, 0x2
-    MapEntrance Map_DenTown_Center, d_n, f(-114, 194, 0)
-    .byte -1, 0x0, 0x0, 0x2
-    MapEntrance Map_SciLab_Power_Plant_Hallway, d_se, f(128, -100, 0)
-    .byte 0xE3, 0x0, 0x0, 0x0
-    MapEntrance Map_SciLab_Power_Plant_Control_Room, d_ne, f(24, 4, 0)
-    .byte 0x3D, 0x0, 0x0, 0x0
-    MapEntrance Map_WWW_Wily_Lab, d_nw, f(68, -30, 0)
-    .byte -1, 0x0, 0x0, 0x1
-    MapEntrance Map_Govt_Yuichiro_Lab, d_nw, f(100, 206, 0)
-    .byte -1, 0x0, 0x0, 0x1
-    MapEntrance Map_WWW_Rocket_Hanger, d_nw, f(100, 206, 0)
-    .byte -1, 0x0, 0x0, 0x4
-    MapEntrance Map_WWW_Rocket_Hanger, d_ne, f(-64, 90, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Undernet_1, d_ne, f(-416, -108, 0)
-    .byte -1, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0x0, flag=0xC9, changeType=1, fadeType=1
+    MapEntranceOpt Map_School_Comp_1, d_nw, f(-348, 288, 0), fadeType=1
+    MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0x23, flag=0xD4, changeType=1, fadeType=1
+    MapEntranceOpt Map_School_Comp_2, d_s, f(47, 18, 0), flag=0xB3, changeType=2, fadeType=1
+    MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0xA, changeType=4, fadeType=1
+    MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0x5, changeType=4, fadeType=1
+    MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0x0, flag=0xD5, changeType=1, fadeType=1
+    MapEntranceOpt Map_School_Comp_3, d_s, f(47, 18, 0), flag=0xB4, changeType=2, fadeType=1
+    MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0x5, changeType=4, fadeType=1
+    MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0x5, changeType=1, fadeType=1
+    MapEntranceOpt Map_School_Comp_1, d_s, f(47, 18, 0), flag=0xCA, changeType=2, fadeType=1
+    MapEntranceOpt Map_ACDC_Town, d_s, f(0, 0, 0), fadeType=1
+    MapEntranceOpt Map_School_Class_5A, d_s, f(10, -34, 0), fadeType=0
+    MapEntranceOpt Map_Govt_Waterworks_Office, d_sw, f(104, 182, 0), dialog=0x1A, fadeType=1
+    MapEntranceOpt Map_Govt_Yuichiro_Lab, d_se, f(-124, -190, 0), dialog=0x5, fadeType=1
+    MapEntranceOpt Map_Govt_SciLab_Lobby, d_se, f(-204, -174, 0), dialog=0x13, fadeType=1
+    MapEntranceOpt Map_Govt_Waterworks_Lobby, d_sw, f(144, 240, 0), dialog=0x4, fadeType=1
+    MapEntranceOpt Map_DenTown_Center, d_n, f(-114, 194, 0), fadeType=1
+    MapEntranceOpt Map_DenTown_Center, d_n, f(-114, 194, 0), changeType=1, fadeType=2
+    MapEntranceOpt Map_DenTown_Center, d_n, f(-114, 194, 0), fadeType=2
+    MapEntranceOpt Map_SciLab_Power_Plant_Hallway, d_se, f(128, -100, 0), dialog=0xE3, fadeType=0
+    MapEntranceOpt Map_SciLab_Power_Plant_Control_Room, d_ne, f(24, 4, 0), dialog=0x3D, fadeType=0
+    MapEntranceOpt Map_WWW_Wily_Lab, d_nw, f(68, -30, 0), fadeType=1
+    MapEntranceOpt Map_Govt_Yuichiro_Lab, d_nw, f(100, 206, 0), fadeType=1
+    MapEntranceOpt Map_WWW_Rocket_Hanger, d_nw, f(100, 206, 0), fadeType=4
+    MapEntranceOpt Map_WWW_Rocket_Hanger, d_ne, f(-64, 90, 0), fadeType=0
+    MapEntranceOpt Map_Undernet_1, d_ne, f(-416, -108, 0), fadeType=0
 
 
 _ts Scene_ChangeMap

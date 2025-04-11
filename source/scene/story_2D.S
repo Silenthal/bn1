@@ -9,8 +9,7 @@
     cam_end
 
 MapEntranceOptions_0808a2f8:
-    MapEntrance Map_ACDC_School_Gate, d_n, f(-108, 46, 0)
-    .byte -1, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_ACDC_School_Gate, d_n, f(-108, 46, 0), fadeType=0
 
 
 _ts Scene_Story_2D

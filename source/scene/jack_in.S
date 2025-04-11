@@ -4,90 +4,48 @@
 
 
 MapEntranceOptions_ARRAY_08083ba4:
-    MapEntrance Map_Oven_Comp_1, d_sw, f(372, 116, 0)
-    .byte 0x11, 0x9A, 0x0, 0x0
-    MapEntrance Map_School_Comp_1, d_s, f(-138, 100, 0)
-    .byte 0x43, 0x0, 0x0, 0x0
-    MapEntrance Map_School_Comp_1, d_s, f(168, 100, 0)
-    .byte 0x4, 0x0, 0x0, 0x0
-    MapEntrance Map_School_Comp_3, d_s, f(-138, 20, 0)
-    .byte 0x4, 0x0, 0x0, 0x0
-    MapEntrance Map_School_Comp_3, d_s, f(168, 20, 0)
-    .byte 0xC, 0x0, 0x0, 0x0
-    MapEntrance Map_School_Comp_4, d_s, f(148, 10, 0)
-    .byte 0x11, 0x0, 0x0, 0x0
-    MapEntrance Map_ACDC_Lan_PC, d_ne, f(-78, -2, 0)
-    .byte 0x9, 0x0, 0x0, 0x0
-    MapEntrance Map_ACDC_Mayl_PC, d_nw, f(-54, 294, 0)
-    .byte 0x1, 0x0, 0x0, 0x0
-    MapEntrance Map_ACDC_Yai_PC, d_ne, f(-238, 238, 0)
-    .byte 0x2, 0x0, 0x0, 0x0
-    MapEntrance Map_ACDC_Dex_PC, d_ne, f(-550, -26, 0)
-    .byte 0x6, 0x0, 0x0, 0x0
-    MapEntrance Map_Oven_Comp_1, d_sw, f(372, 116, 0)
-    .byte 0x11, 0x0, 0x0, 0x0
-    MapEntrance Map_Waterworks_Comp_1, d_nw, f(36, 476, 0)
-    .byte 0x8, 0x0, 0x0, 0x0
-    MapEntrance Map_Govt_Yuichiro_PC, d_ne, f(-198, 6, 0)
-    .byte 0x5, 0x0, 0x0, 0x0
-    MapEntrance Map_Govt_Lunch_Cart_Comp, d_ne, f(-118, -202, 0)
-    .byte 0x14, 0x0, 0x0, 0x0
-    MapEntrance Map_Traffic_Light_Comp_1, d_ne, f(-334, 142, 0)
-    .byte 0xD, 0x0, 0x0, 0x0
-    MapEntrance Map_Traffic_Light_Comp_2, d_sw, f(106, 6, 0)
-    .byte 0xA, 0x0, 0x0, 0x0
-    MapEntrance Map_Traffic_Light_Comp_3, d_sw, f(130, -338, -64)
-    .byte 0xA, 0x0, 0x0, 0x0
-    MapEntrance Map_Traffic_Light_Comp_4, d_ne, f(-422, -90, 0)
-    .byte 0xA, 0x0, 0x0, 0x0
-    MapEntrance Map_Traffic_Light_Comp_5, d_nw, f(110, 100, 0)
-    .byte 0x41, 0x0, 0x0, 0x0
-    MapEntrance Map_SciLab_Fish_Stand_Comp, d_se, f(50, -386, 0)
-    .byte 0x14, 0x0, 0x0, 0x0
-    MapEntrance Map_Power_Plant_Comp_1, d_sw, f(446, 122, 32)
-    .byte 0x11, 0x0, 0x0, 0x0
-    MapEntrance Map_Govt_Yuichiro_PC, d_ne, f(-198, 6, 0)
-    .byte 0xC, 0x0, 0x0, 0x0
-    MapEntrance Map_WWW_Comp_1, d_nw, f(-380, 20, 0)
-    .byte 0x7, 0x0, 0x0, 0x0
-    MapEntrance Map_WWW_Comp_2, d_sw, f(442, 102, 64)
-    .byte 0x3, 0x0, 0x0, 0x0
-    MapEntrance Map_WWW_Comp_3, d_se, f(-326, -298, -32)
-    .byte 0x1, 0x0, 0x0, 0x0
-    MapEntrance Map_WWW_Comp_4, d_se, f(418, -256, -32)
-    .byte 0x3, 0x0, 0x0, 0x0
-    MapEntrance Map_WWW_Comp_5, d_nw, f(-438, 242, 64)
-    .byte 0x8, 0x0, 0x0, 0x0
-    MapEntrance Map_DenTown_Antique_Comp, d_ne, f(-398, -18, 0)
-    .byte 0x10, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Doghouse_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Servbot_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_New_Game_Machine_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Telephone_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Car_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Waterworks_Vending_Machine, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Lobby_TV_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Large_Monitor_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Control_Equipment_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_SciLab_Vending_Machine, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Recycled_PET_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Big_Vase_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Other_Blackboard_Comp, d_ne, f(-150, -10, 0)
-    .byte -1, 0x0, 0x0, 0x0
-    MapEntrance Map_Traffic_Light_Comp_5, d_sw, f(-14, 126, 0)
-    .byte 0x41, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_Oven_Comp_1, d_sw, f(372, 116, 0), dialog=0x11, flag=0x9A, fadeType=0
+    MapEntranceOpt Map_School_Comp_1, d_s, f(-138, 100, 0), dialog=0x43, fadeType=0
+    MapEntranceOpt Map_School_Comp_1, d_s, f(168, 100, 0), dialog=0x4, fadeType=0
+    MapEntranceOpt Map_School_Comp_3, d_s, f(-138, 20, 0), dialog=0x4, fadeType=0
+    MapEntranceOpt Map_School_Comp_3, d_s, f(168, 20, 0), dialog=0xC, fadeType=0
+    MapEntranceOpt Map_School_Comp_4, d_s, f(148, 10, 0), dialog=0x11, fadeType=0
+    MapEntranceOpt Map_ACDC_Lan_PC, d_ne, f(-78, -2, 0), dialog=0x9, fadeType=0
+    MapEntranceOpt Map_ACDC_Mayl_PC, d_nw, f(-54, 294, 0), dialog=0x1, fadeType=0
+    MapEntranceOpt Map_ACDC_Yai_PC, d_ne, f(-238, 238, 0), dialog=0x2, fadeType=0
+    MapEntranceOpt Map_ACDC_Dex_PC, d_ne, f(-550, -26, 0), dialog=0x6, fadeType=0
+    MapEntranceOpt Map_Oven_Comp_1, d_sw, f(372, 116, 0), dialog=0x11, fadeType=0
+    MapEntranceOpt Map_Waterworks_Comp_1, d_nw, f(36, 476, 0), dialog=0x8, fadeType=0
+    MapEntranceOpt Map_Govt_Yuichiro_PC, d_ne, f(-198, 6, 0), dialog=0x5, fadeType=0
+    MapEntranceOpt Map_Govt_Lunch_Cart_Comp, d_ne, f(-118, -202, 0), dialog=0x14, fadeType=0
+    MapEntranceOpt Map_Traffic_Light_Comp_1, d_ne, f(-334, 142, 0), dialog=0xD, fadeType=0
+    MapEntranceOpt Map_Traffic_Light_Comp_2, d_sw, f(106, 6, 0), dialog=0xA, fadeType=0
+    MapEntranceOpt Map_Traffic_Light_Comp_3, d_sw, f(130, -338, -64), dialog=0xA, fadeType=0
+    MapEntranceOpt Map_Traffic_Light_Comp_4, d_ne, f(-422, -90, 0), dialog=0xA, fadeType=0
+    MapEntranceOpt Map_Traffic_Light_Comp_5, d_nw, f(110, 100, 0), dialog=0x41, fadeType=0
+    MapEntranceOpt Map_SciLab_Fish_Stand_Comp, d_se, f(50, -386, 0), dialog=0x14, fadeType=0
+    MapEntranceOpt Map_Power_Plant_Comp_1, d_sw, f(446, 122, 32), dialog=0x11, fadeType=0
+    MapEntranceOpt Map_Govt_Yuichiro_PC, d_ne, f(-198, 6, 0), dialog=0xC, fadeType=0
+    MapEntranceOpt Map_WWW_Comp_1, d_nw, f(-380, 20, 0), dialog=0x7, fadeType=0
+    MapEntranceOpt Map_WWW_Comp_2, d_sw, f(442, 102, 64), dialog=0x3, fadeType=0
+    MapEntranceOpt Map_WWW_Comp_3, d_se, f(-326, -298, -32), dialog=0x1, fadeType=0
+    MapEntranceOpt Map_WWW_Comp_4, d_se, f(418, -256, -32), dialog=0x3, fadeType=0
+    MapEntranceOpt Map_WWW_Comp_5, d_nw, f(-438, 242, 64), dialog=0x8, fadeType=0
+    MapEntranceOpt Map_DenTown_Antique_Comp, d_ne, f(-398, -18, 0), dialog=0x10, fadeType=0
+    MapEntranceOpt Map_Other_Doghouse_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_Servbot_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_New_Game_Machine_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_Telephone_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_Car_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_Waterworks_Vending_Machine, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_Lobby_TV_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_Large_Monitor_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_Control_Equipment_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_SciLab_Vending_Machine, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_Recycled_PET_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_Big_Vase_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Other_Blackboard_Comp, d_ne, f(-150, -10, 0), fadeType=0
+    MapEntranceOpt Map_Traffic_Light_Comp_5, d_sw, f(-14, 126, 0), dialog=0x41, fadeType=0
 
 
 _ts Scene_JackIn

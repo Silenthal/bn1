@@ -9,22 +9,14 @@
 
 
 MapEntranceOptions_ARRAY_08091ad0:
-    MapEntrance Map_SciLab_Power_Plant_Control_Room, d_ne, f(24, 4, 0)
-    .byte 0x0, 0x0, 0x0, 0x0
-    MapEntrance Map_SciLab_Power_Plant_Control_Room, d_ne, f(24, 4, 0)
-    .byte 0x0, 0x0, 0x0, 0x0
-    MapEntrance Map_SciLab_Power_Plant_Control_Room, d_ne, f(24, 4, 0)
-    .byte 0x0, 0x0, 0x0, 0x0
-    MapEntrance Map_SciLab_Power_Plant_Control_Room, d_ne, f(24, 4, 0)
-    .byte 0x0, 0x0, 0x0, 0x0
-    MapEntrance Map_Power_Plant_Comp_4, d_nw, f(-84, -60, 0)
-    .byte 0x0, 0x0, 0x0, 0x0
-    MapEntrance Map_SciLab_Generator_Room, d_s, f(8, -130, 0)
-    .byte 0x0, 0x0, 0x0, 0x0
-    MapEntrance Map_SciLab_Generator_Room, d_s, f(8, -130, 0)
-    .byte 0x0, 0x0, 0x0, 0x0
-    MapEntrance Map_SciLab_Generator_Room, d_s, f(8, -130, 0)
-    .byte 0x0, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_SciLab_Power_Plant_Control_Room, d_ne, f(24, 4, 0), dialog=0x0, fadeType=0
+    MapEntranceOpt Map_SciLab_Power_Plant_Control_Room, d_ne, f(24, 4, 0), dialog=0x0, fadeType=0
+    MapEntranceOpt Map_SciLab_Power_Plant_Control_Room, d_ne, f(24, 4, 0), dialog=0x0, fadeType=0
+    MapEntranceOpt Map_SciLab_Power_Plant_Control_Room, d_ne, f(24, 4, 0), dialog=0x0, fadeType=0
+    MapEntranceOpt Map_Power_Plant_Comp_4, d_nw, f(-84, -60, 0), dialog=0x0, fadeType=0
+    MapEntranceOpt Map_SciLab_Generator_Room, d_s, f(8, -130, 0), dialog=0x0, fadeType=0
+    MapEntranceOpt Map_SciLab_Generator_Room, d_s, f(8, -130, 0), dialog=0x0, fadeType=0
+    MapEntranceOpt Map_SciLab_Generator_Room, d_s, f(8, -130, 0), dialog=0x0, fadeType=0
 
 
 _ts Scene_RechargePrompt

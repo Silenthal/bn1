@@ -9,8 +9,7 @@
 
 
 MapEntranceOptions_080873ec:
-    MapEntrance Map_School_Comp_1, d_s, f(47, 18, 0)
-    .byte 0x0, 0x0, 0x2, 0x0
+    MapEntranceOpt Map_School_Comp_1, d_s, f(47, 18, 0), dialog=0x0, changeType=2, fadeType=0
 
 
 _ts Scene_Story_19

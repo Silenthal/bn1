@@ -4,8 +4,7 @@
 
 
 MapEntranceOptions_08089784:
-    MapEntrance Map_Waterworks_Comp_1, d_nw, f(36, 476, 0)
-    .byte 0x8, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_Waterworks_Comp_1, d_nw, f(36, 476, 0), dialog=0x8, fadeType=0
 
 Cam_Set_08089798:
     cam_set 20, 116, 0

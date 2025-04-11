@@ -4,8 +4,7 @@
 
 
 MapEntranceOptions_0808db64:
-    MapEntrance Map_Traffic_Light_Comp_5, d_sw, f(-10, 122, 0)
-    .byte 0x8, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_Traffic_Light_Comp_5, d_sw, f(-10, 122, 0), dialog=0x8, fadeType=0
     cam_set 30, -10, 0
     cam_end
 

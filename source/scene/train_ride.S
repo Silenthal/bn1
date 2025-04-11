@@ -9,20 +9,13 @@
 
 
 listTrainDestination:
-    MapEntrance Map_Govt_Complex_Station, d_sw, f(-18, 8, 0)
-    .byte 0x15, 0x0, 0x0, 0x0
-    MapEntrance Map_ACDC_Station, d_sw, f(-18, 8, 0)
-    .byte 0x9, 0x0, 0x0, 0x0
-    MapEntrance Map_DenTown_Station, d_sw, f(-18, 8, 0)
-    .byte 0x18, 0x0, 0x0, 0x0
-    MapEntrance Map_DenTown_Station, d_sw, f(-18, 8, 0)
-    .byte 0xC, 0x0, 0x0, 0x0
-    MapEntrance Map_ACDC_Station, d_sw, f(-18, 8, 0)
-    .byte 0x5, 0x0, 0x0, 0x0
-    MapEntrance Map_Govt_Complex_Station, d_sw, f(-18, 8, 0)
-    .byte 0x6, 0x0, 0x0, 0x0
-    MapEntrance Map_WWW_Base, d_sw, f(-190, -50, -64)
-    .byte -1, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_Govt_Complex_Station, d_sw, f(-18, 8, 0), dialog=0x15, fadeType=0
+    MapEntranceOpt Map_ACDC_Station, d_sw, f(-18, 8, 0), dialog=0x9, fadeType=0
+    MapEntranceOpt Map_DenTown_Station, d_sw, f(-18, 8, 0), dialog=0x18, fadeType=0
+    MapEntranceOpt Map_DenTown_Station, d_sw, f(-18, 8, 0), dialog=0xC, fadeType=0
+    MapEntranceOpt Map_ACDC_Station, d_sw, f(-18, 8, 0), dialog=0x5, fadeType=0
+    MapEntranceOpt Map_Govt_Complex_Station, d_sw, f(-18, 8, 0), dialog=0x6, fadeType=0
+    MapEntranceOpt Map_WWW_Base, d_sw, f(-190, -50, -64), fadeType=0
 
 
 _ts Scene_TrainRide

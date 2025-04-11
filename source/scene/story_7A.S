@@ -4,8 +4,7 @@
 
 
 MapEntranceOptions_08096aa0:
-    MapEntrance Map_Rocket_Comp, d_ne, f(-510, 0, 0)
-    .byte 0x8, 0x0, 0x0, 0x0
+    MapEntranceOpt Map_Rocket_Comp, d_ne, f(-510, 0, 0), dialog=0x8, fadeType=0
 
 Cam_Set_08096ab4:
     cam_set -232, 164, 0
