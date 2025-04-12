@@ -12,8 +12,8 @@ __pycache__/
 *.lz
 *.scb
 *.scbin
-*.palettez
-*.tilesetz
-*.tilemapz
+*.clb
+*.pib
+*.srb
 *.talk
 *.dialogue

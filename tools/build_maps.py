@@ -37,11 +37,11 @@ def process(dirBase: Path):
     if "scb" in config:
         process_pack(dirBase, ".scb", packScb)
     if "tileset" in config:
-        process_pack(dirBase, ".tilesetz", packTileset)
+        process_pack(dirBase, ".pib", packTileset)
     if "tilemap" in config:
-        process_pack(dirBase, ".tilemapz", packTilemap)
+        process_pack(dirBase, ".srb", packTilemap)
     if "palette" in config:
-        process_pack(dirBase, ".palettez", packPalette)
+        process_pack(dirBase, ".clb", packPalette)
     if "talk" in config:
         process_pack(dirBase, ".talk", packTalk)
     if "dialogue" in config:

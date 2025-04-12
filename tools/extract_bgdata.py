@@ -291,17 +291,17 @@ def unpack_all(inFile):
                     palHeader = unpackPaletteArchive(inFile, palette, outFolder)
                     mapStore.add(palette)
                     paletteStore[palette] = palHeader
-                    sortList.append([palette, outFolder.with_suffix(".palettez")])
+                    sortList.append([palette, outFolder.with_suffix(".clb")])
                 else:
                     palHeader = paletteStore[palette]
                 if tileset not in mapStore:
                     unpackTilesetArchive(inFile, tileset, palHeader, outFolder)
                     mapStore.add(tileset)
-                    sortList.append([tileset, outFolder.with_suffix(".tilesetz")])
+                    sortList.append([tileset, outFolder.with_suffix(".pib")])
                 if tilemap not in mapStore:
                     unpackTilemapArchive(inFile, tilemap, outFolder)
                     mapStore.add(tilemap)
-                    sortList.append([tilemap, outFolder.with_suffix(".tilemapz")])
+                    sortList.append([tilemap, outFolder.with_suffix(".srb")])
     sortList.sort(key=lambda x: x[0])
     with open("sortlist.txt", "w") as outSort:
         for off, name in sortList:

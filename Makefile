@@ -78,7 +78,7 @@ depend: $(DFILES) $(BUILD)/offsets.h
 clean:
 	@echo cleaning up build files and assets ...
 	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.script' -o -iname '*.sprite.lz' -o -iname '*.4bpp.lz' -o -iname '*.scb' -o -iname '*.scbin' \) -exec rm {} +
-	@find . \( -iname '*.palettez' -o -iname '*.tilesetz' -o -iname '*.tilemapz' -o -iname '*.talk' -o -iname '*.dialogue' \) -exec rm {} +
+	@find . \( -iname '*.clb' -o -iname '*.pib' -o -iname '*.srb' -o -iname '*.talk' -o -iname '*.dialogue' \) -exec rm {} +
 	@$(RM) -r $(BUILD)/*
 
 tidy:

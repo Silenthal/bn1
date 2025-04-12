@@ -157,7 +157,7 @@ def packTilemap(outPath: Path):
     outputBuffer = io.BytesIO()
     header.write(outputBuffer)
     outputBuffer.write(bytes(comp))
-    with open(outPath.with_suffix(".tilemapz"), "wb") as outTM:
+    with open(outPath.with_suffix(".srb"), "wb") as outTM:
         outTM.write(outputBuffer.getbuffer())
 
 
@@ -210,7 +210,7 @@ def packTileset(outPath: Path):
         header.vramOff += rawSize
     compBuffer.seek(0)
     outBuffer.write(compBuffer.getbuffer())
-    with open(outPath.with_suffix(".tilesetz"), "wb") as outTS:
+    with open(outPath.with_suffix(".pib"), "wb") as outTS:
         outTS.write(outBuffer.getbuffer())
 
 
@@ -231,7 +231,7 @@ def packPalette(outPath: Path):
     outputBuffer = io.BytesIO()
     write_int(outputBuffer, len(pal) * 2)
     outputBuffer.write(bytes(bin))
-    with open(outPath.with_suffix(".palettez"), "wb") as outTM:
+    with open(outPath.with_suffix(".clb"), "wb") as outTM:
         outTM.write(outputBuffer.getbuffer())
 
 
@@ -272,11 +272,11 @@ def main():
     base = outPath.with_suffix("")
     if outEx == ".scb":
         packScb(base)
-    elif outEx == ".tilemapz":
+    elif outEx == ".srb":
         packTilemap(base)
-    elif outEx == ".palettez":
+    elif outEx == ".clb":
         packPalette(base)
-    elif outEx == ".tilesetz":
+    elif outEx == ".pib":
         packTileset(base)
 
 
