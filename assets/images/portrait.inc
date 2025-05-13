@@ -1,104 +1,104 @@
-global_label sprite_061FF88
-    .incbin "images/portraits/61FF88.sprite"
-global_label sprite_0620648
-    .incbin "images/portraits/620648.sprite"
-global_label sprite_0620D60
-    .incbin "images/portraits/620D60.sprite"
-global_label sprite_0621694
-    .incbin "images/portraits/621694.sprite"
-global_label sprite_0621D60
-    .incbin "images/portraits/621D60.sprite"
-global_label sprite_06223AC
-    .incbin "images/portraits/6223AC.sprite"
-global_label sprite_0622A04
-    .incbin "images/portraits/622A04.sprite"
-global_label sprite_0623030
-    .incbin "images/portraits/623030.sprite"
-global_label sprite_0623610
-    .incbin "images/portraits/623610.sprite"
-global_label sprite_0623CF0
-    .incbin "images/portraits/623CF0.sprite"
-global_label sprite_062433C
-    .incbin "images/portraits/62433C.sprite"
-global_label sprite_06248FC
-    .incbin "images/portraits/6248FC.sprite"
-global_label sprite_0624EBC
-    .incbin "images/portraits/624EBC.sprite"
-global_label sprite_06254BC
-    .incbin "images/portraits/6254BC.sprite"
-global_label sprite_0625C1C
-    .incbin "images/portraits/625C1C.sprite"
-global_label sprite_06262A4
-    .incbin "images/portraits/6262A4.sprite"
-global_label sprite_06268F0
-    .incbin "images/portraits/6268F0.sprite"
-global_label sprite_0626EF0
-    .incbin "images/portraits/626EF0.sprite"
-global_label sprite_06274B0
-    .incbin "images/portraits/6274B0.sprite"
-global_label sprite_0627A70
-    .incbin "images/portraits/627A70.sprite"
-global_label sprite_0628130
-    .incbin "images/portraits/628130.sprite"
-global_label sprite_062881C
-    .incbin "images/portraits/62881C.sprite"
-global_label sprite_0628D48
-    .incbin "images/portraits/628D48.sprite"
-global_label sprite_0629308
-    .incbin "images/portraits/629308.sprite"
-global_label sprite_06299E8
-    .incbin "images/portraits/6299E8.sprite"
-global_label sprite_062A048
-    .incbin "images/portraits/62A048.sprite"
-global_label sprite_062A640
-    .incbin "images/portraits/62A640.sprite"
-global_label sprite_062AC40
-    .incbin "images/portraits/62AC40.sprite"
-global_label sprite_062B1AC
-    .incbin "images/portraits/62B1AC.sprite"
-global_label sprite_062B7CC
-    .incbin "images/portraits/62B7CC.sprite"
-global_label sprite_062BD38
-    .incbin "images/portraits/62BD38.sprite"
-global_label sprite_062C4B8
-    .incbin "images/portraits/62C4B8.sprite"
-global_label sprite_062CAB8
-    .incbin "images/portraits/62CAB8.sprite"
-global_label sprite_062D0B8
-    .incbin "images/portraits/62D0B8.sprite"
-global_label sprite_062D678
-    .incbin "images/portraits/62D678.sprite"
-global_label sprite_062DD38
-    .incbin "images/portraits/62DD38.sprite"
-global_label sprite_062E478
-    .incbin "images/portraits/62E478.sprite"
-global_label sprite_062EA78
-    .incbin "images/portraits/62EA78.sprite"
-global_label sprite_062F294
-    .incbin "images/portraits/62F294.sprite"
-global_label sprite_062FAA8
-    .incbin "images/portraits/62FAA8.sprite"
-global_label sprite_06300A8
-    .incbin "images/portraits/6300A8.sprite"
-global_label sprite_0630768
-    .incbin "images/portraits/630768.sprite"
-global_label sprite_0630C6C
-    .incbin "images/portraits/630C6C.sprite"
-global_label sprite_06313A4
-    .incbin "images/portraits/6313A4.sprite"
-global_label sprite_06319C4
-    .incbin "images/portraits/6319C4.sprite"
-global_label sprite_0631EF0
-    .incbin "images/portraits/631EF0.sprite"
-global_label sprite_063241C
-    .incbin "images/portraits/63241C.sprite"
-global_label sprite_0632A1C
-    .incbin "images/portraits/632A1C.sprite"
-global_label sprite_0632F88
-    .incbin "images/portraits/632F88.sprite"
-global_label sprite_063346C
-    .incbin "images/portraits/63346C.sprite"
-global_label sprite_0633ACC
-    .incbin "images/portraits/633ACC.sprite"
-global_label sprite_0633FB0
-    .incbin "images/portraits/633FB0.sprite"
+global_label sprite_portrait_lan
+    .incbin "images/portraits/lan_p.sprite"
+global_label sprite_portrait_yai
+    .incbin "images/portraits/yai_p.sprite"
+global_label sprite_portrait_dex
+    .incbin "images/portraits/dex_p.sprite"
+global_label sprite_portrait_ms_mari
+    .incbin "images/portraits/ms_mari_p.sprite"
+global_label sprite_portrait_masa
+    .incbin "images/portraits/masa_p.sprite"
+global_label sprite_portrait_lord_wily
+    .incbin "images/portraits/lord_wily_p.sprite"
+global_label sprite_portrait_higsby
+    .incbin "images/portraits/higsby_p.sprite"
+global_label sprite_portrait_chaud
+    .incbin "images/portraits/chaud_p.sprite"
+global_label sprite_portrait_mayl
+    .incbin "images/portraits/mayl_p.sprite"
+global_label sprite_portrait_orange_shirt_boy
+    .incbin "images/portraits/orange_shirt_boy_p.sprite"
+global_label sprite_portrait_girl
+    .incbin "images/portraits/girl_p.sprite"
+global_label sprite_portrait_blue_shirt_boy
+    .incbin "images/portraits/blue_shirt_boy_p.sprite"
+global_label sprite_portrait_mom
+    .incbin "images/portraits/mom_p.sprite"
+global_label sprite_portrait_mr_match
+    .incbin "images/portraits/mr_match_p.sprite"
+global_label sprite_portrait_old_man
+    .incbin "images/portraits/old_man_p.sprite"
+global_label sprite_portrait_woman
+    .incbin "images/portraits/woman_p.sprite"
+global_label sprite_portrait_man
+    .incbin "images/portraits/man_p.sprite"
+global_label sprite_portrait_young_woman
+    .incbin "images/portraits/young_woman_p.sprite"
+global_label sprite_portrait_pigtails_girl
+    .incbin "images/portraits/pigtails_girl_p.sprite"
+global_label sprite_portrait_stern_man
+    .incbin "images/portraits/stern_man_p.sprite"
+global_label sprite_portrait_old_woman
+    .incbin "images/portraits/old_woman_p.sprite"
+global_label sprite_portrait_metroline_man
+    .incbin "images/portraits/metroline_man_p.sprite"
+global_label sprite_portrait_sal
+    .incbin "images/portraits/sal_p.sprite"
+global_label sprite_portrait_dr_froid
+    .incbin "images/portraits/dr_froid_p.sprite"
+global_label sprite_portrait_ms_madd
+    .incbin "images/portraits/ms_madd_p.sprite"
+global_label sprite_portrait_middle_aged_man
+    .incbin "images/portraits/middle_aged_man_p.sprite"
+global_label sprite_portrait_middle_aged_woman
+    .incbin "images/portraits/middle_aged_woman_p.sprite"
+global_label sprite_portrait_scientist
+    .incbin "images/portraits/scientist_p.sprite"
+global_label sprite_portrait_dad
+    .incbin "images/portraits/dad_p.sprite"
+global_label sprite_portrait_yahoot
+    .incbin "images/portraits/yahoot_p.sprite"
+global_label sprite_portrait_count_zap
+    .incbin "images/portraits/count_zap_p.sprite"
+global_label sprite_portrait_miyu
+    .incbin "images/portraits/miyu_p.sprite"
+global_label sprite_portrait_mom_with_makeup
+    .incbin "images/portraits/mom_with_makeup_p.sprite"
+global_label sprite_portrait_maid
+    .incbin "images/portraits/maid_p.sprite"
+global_label sprite_portrait_megaman
+    .incbin "images/portraits/megaman_p.sprite"
+global_label sprite_portrait_woodman
+    .incbin "images/portraits/woodman_p.sprite"
+global_label sprite_portrait_mr_prog
+    .incbin "images/portraits/mr_prog_p.sprite"
+global_label sprite_portrait_fireman
+    .incbin "images/portraits/fireman_p.sprite"
+global_label sprite_portrait_numberman
+    .incbin "images/portraits/numberman_p.sprite"
+global_label sprite_portrait_glide
+    .incbin "images/portraits/glide_p.sprite"
+global_label sprite_portrait_roll
+    .incbin "images/portraits/roll_p.sprite"
+global_label sprite_portrait_normal_navi
+    .incbin "images/portraits/normal_navi_p.sprite"
+global_label sprite_portrait_stoneman
+    .incbin "images/portraits/stoneman_p.sprite"
+global_label sprite_portrait_iceman
+    .incbin "images/portraits/iceman_p.sprite"
+global_label sprite_portrait_colorman
+    .incbin "images/portraits/colorman_p.sprite"
+global_label sprite_portrait_protoman
+    .incbin "images/portraits/protoman_p.sprite"
+global_label sprite_portrait_elecman
+    .incbin "images/portraits/elecman_p.sprite"
+global_label sprite_portrait_bombman
+    .incbin "images/portraits/bombman_p.sprite"
+global_label sprite_portrait_evilnavi
+    .incbin "images/portraits/evilnavi_p.sprite"
+global_label sprite_portrait_gutsman
+    .incbin "images/portraits/gutsman_p.sprite"
+global_label sprite_portrait_magicman
+    .incbin "images/portraits/magicman_p.sprite"
+global_label sprite_portrait_corrupt_mr_prog
+    .incbin "images/portraits/corrupt_mr_prog_p.sprite"
