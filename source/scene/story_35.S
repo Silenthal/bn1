@@ -7,9 +7,6 @@ Cam_Set_0808c13c:
     cam_set 80, -40, 0
     cam_end
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_35
     push       {lr}

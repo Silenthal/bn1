@@ -217,9 +217,6 @@ CellPosition_ARRAY_08078ef0:
     cell_pos 1, -1
     cell_pos 0, -1
 
-    .align 2, 0
-
-
 
 _ts A_Dynamyte_2_Destroy
     push       {lr}
@@ -329,9 +326,6 @@ DAT_08078fc5:
     .byte -1
     .byte 0x00
     .byte -1
-
-    .align 2, 0
-
 
 
 _ts A_Dynamyte_IsTargetInRange

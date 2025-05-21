@@ -8,9 +8,6 @@ listHardHeadAttackDelay:
     .byte 0xB4
     .byte 0x5A
 
-    .align 2, 0
-
-
 
 _ts Routine_HardHead
     push       {lr}

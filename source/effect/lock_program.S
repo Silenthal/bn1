@@ -90,9 +90,6 @@ DAT_08080c64:
     .byte 0xFD
     .byte 0xE2
 
-    .align 2, 0
-
-
 
 _ts E_LockProgram_2_Free
     ldrb       r0,[r5,#Effect_family_family]

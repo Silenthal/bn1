@@ -95,13 +95,9 @@ EventHandler_Waterworks_Comp_S3:
 _ts FlagSetup_Waterworks_Comp_S0
     mov        pc,lr
 
-    .align 2, 0
-
 
 _ts dummy_458bc
     mov        pc,lr
-
-    .align 2, 0
 
 
 _ts dummy_458c0

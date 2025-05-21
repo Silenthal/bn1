@@ -108,9 +108,6 @@ DAT_0809933c:
     .byte 0x03
     .byte 0x02
 
-    .align 2, 0
-
-
 
 _ts SD_IceMan_1_2
     push       {lr}

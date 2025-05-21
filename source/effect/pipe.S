@@ -60,9 +60,6 @@ LAB_0807f128:
     strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts E_Pipe_1_Main
     push       {lr}

@@ -77,9 +77,6 @@ DAT_08085180:
     .byte 0x1E
     .byte 0x19
 
-    .align 2, 0
-
-
 
 _ts S_TutorialBattle_1
     push       {lr}
@@ -113,9 +110,6 @@ LAB_080851ce:
     strb       r0,[r5,#Scene_state_s0]
 LAB_080851d4:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_TutorialBattle_2

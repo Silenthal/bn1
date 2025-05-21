@@ -49,9 +49,6 @@ PTR_S_Story_01_0_08082b2c:
 DAT_08082b54:
     .byte 0x00
 
-    .align 2, 0
-
-
 
 _ts S_Story_01_0
     push       {lr}
@@ -62,9 +59,6 @@ _ts S_Story_01_0
     str        r0,[r5,#Scene_isAnimating]
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_01_1
@@ -87,9 +81,6 @@ _ts S_Story_01_1
     Scene_Next
 LAB_08082ba4:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_01_2
@@ -181,9 +172,6 @@ _ts S_Story_01_5
 LAB_08082c60:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_01_6
     push       {lr}
@@ -202,9 +190,6 @@ LAB_08082c7e:
     strb       r0,[r5,#Scene_state_s0]
 LAB_08082c88:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_01_7
@@ -301,9 +286,6 @@ _ts S_01_LoadMayl
     str        r0,[r5,#0x1C]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_01_FreeMayl
     push       {lr}
@@ -312,9 +294,6 @@ _ts S_01_FreeMayl
     bl         Actor_Free
     pop        {r5}
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_01_AnimatePlayer

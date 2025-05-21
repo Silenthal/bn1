@@ -64,9 +64,6 @@ LAB_0807eb8c:
     strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts E_TrafficLight_2_1_Main
     push       {lr}
@@ -89,9 +86,6 @@ LAB_0807ebb8:
     bl         SpritePtr_SetPaletteIndex
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts E_TrafficLight_2_2_Free

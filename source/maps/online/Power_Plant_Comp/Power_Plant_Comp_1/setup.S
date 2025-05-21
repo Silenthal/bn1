@@ -469,8 +469,6 @@ _ts EventHandler_Power_Plant_Comp_1_F50_0
     bl         CheckForJackOut
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts FUN_0804a6e0
     push       {r5,lr}

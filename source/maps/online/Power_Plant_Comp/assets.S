@@ -772,8 +772,6 @@ _ts PowerPlant_RemoveBattery
     strb       r1,[r7,r2]
     mov        pc,lr
 
-    .align 2, 0
-
 
 _ts PowerPlant_GetBatteryInSlot
     sub        r0,#0x50
@@ -788,8 +786,6 @@ _ts PowerPlant_GetBatteryInSlot
     tst        r0,r0
     mov        pc,lr
 
-    .align 2, 0
-
 
 _ts PowerPlant_SwitchOn
     sub        r0,#0x50
@@ -802,8 +798,6 @@ _ts PowerPlant_SwitchOn
     str        r0,[r7,#0xc]
     mov        pc,lr
 
-    .align 2, 0
-
 
 _ts PowerPlant_SwitchOff
     sub        r0,#0x50
@@ -815,8 +809,6 @@ _ts PowerPlant_SwitchOff
     bic        r0,r1
     str        r0,[r7,#0xc]
     mov        pc,lr
-
-    .align 2, 0
 
 
 _ts PowerPlant_TestSwitch
@@ -893,8 +885,6 @@ LAB_0804c89e:
     mov        r0,#0x0
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts PowerPlant_CheckPaths
     push       {lr}
@@ -954,8 +944,6 @@ LAB_0804c90e:
     pop        {r5}
 LAB_0804c924:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts PowerPlant_CheckPaths_Grid_2
@@ -1084,8 +1072,6 @@ LAB_0804ca3c:
     pop        {r5}
 LAB_0804ca58:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts PowerPlant_SetPathPalette_0
@@ -1290,8 +1276,6 @@ LAB_0804cc1c:
     bl         PowerPlant_RandomizeSolution
     mov        r0,#0x1
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts FUN_0804cc2c

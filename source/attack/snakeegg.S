@@ -107,9 +107,6 @@ listAttackAttr:
     .byte PFI_Self_Numbing
     .byte PFI_Self_Extension
 
-    .align 2, 0
-
-
 
 _ts A_SnakeEgg_1_Main
     push       {lr}

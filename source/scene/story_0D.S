@@ -4,8 +4,6 @@
 
     cam_end
 
-    .align 2, 0
-
 
 _ts Scene_Story_0D
     push       {lr}
@@ -31,9 +29,6 @@ _ts S_Story_0D_0
     pop        {r5}
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_0D_1

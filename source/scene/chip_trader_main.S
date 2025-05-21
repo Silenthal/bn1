@@ -107,9 +107,6 @@ _ts Scene_ChipTraderMain_2_StartSlideInChip
 LAB_08085ea8:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts Scene_ChipTraderMain_3_FinishSlideInChip
     push       {lr}

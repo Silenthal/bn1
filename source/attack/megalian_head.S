@@ -282,9 +282,6 @@ DAT_08076860:
     .byte 0x00
     .byte 0x0A
 
-    .align 2, 0
-
-
 
 _ts A_MegalianHead_1_1_1
     push       {lr}

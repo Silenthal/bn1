@@ -107,9 +107,6 @@ DAT_0809a240:
     .byte 0x03
     .byte 0x02
 
-    .align 2, 0
-
-
 
 _ts SD_SkullMan_1_2
     push       {lr}

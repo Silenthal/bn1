@@ -296,9 +296,6 @@ LAB_0807c506:
     .byte 0x90
     .byte 0xC3
 
-    .align 2, 0
-
-
 
 _ts E_ProgramAdvance_1_2_2
     push       {lr}
@@ -1183,9 +1180,6 @@ listProgramAdvance5Chip:
     .byte 0x18, 0x10
     .byte 0xE5, 0x00
     .byte -1
-
-    .align 2, 0
-
 
 
 _ts FUN_0807cb58

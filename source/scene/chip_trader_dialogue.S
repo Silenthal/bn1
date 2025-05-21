@@ -28,9 +28,6 @@ _ts S_ChipTraderDialogue_0
     Scene_Next
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_ChipTraderDialogue_1
     push       {lr}

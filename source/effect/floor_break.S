@@ -42,9 +42,6 @@ _ts E_FloorBreak_0_Init
     strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts E_FloorBreak_1_Main
     push       {lr}
@@ -58,9 +55,6 @@ _ts E_FloorBreak_1_Main
 LAB_0807f6f4:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts E_FloorBreak_2_Free

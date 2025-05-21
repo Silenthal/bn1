@@ -16,9 +16,6 @@ Cam_Move_080939a6:
     cam_move 256, -256, 0, 210
     cam_end
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_6B
     push       {lr}

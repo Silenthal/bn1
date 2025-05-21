@@ -48,9 +48,6 @@ LAB_0807f25c:
     strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts E_Pipe_3_1_Main
     push       {lr}
@@ -58,9 +55,6 @@ _ts E_Pipe_3_1_Main
     bl         FUN_0807f2a8
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts E_Pipe_3_2_Free

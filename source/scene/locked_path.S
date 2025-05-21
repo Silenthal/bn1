@@ -4,8 +4,6 @@
 
     cam_end
 
-    .align 2, 0
-
 
 _ts Scene_LockedPath
     push       {lr}
@@ -33,9 +31,6 @@ _ts S_LockedPath_0
     pop        {r5}
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_LockedPath_1
@@ -73,9 +68,6 @@ _ts S_LockedPath_2
 LAB_08082e68:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_LockedPath_3
     push       {lr}
@@ -84,9 +76,6 @@ _ts S_LockedPath_3
     strh       r0,[r5,#Scene_sceneTimer]
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_LockedPath_4

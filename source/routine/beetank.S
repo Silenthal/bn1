@@ -378,9 +378,6 @@ DAT_0805b72c:
     .byte 0x01
     .byte -1
 
-    .align 2, 0
-
-
 
 _ts R_Beetank_1_3_1
     push       {lr}
@@ -488,9 +485,6 @@ DAT_0805b7e4:
     .byte 0x0F
     .byte 0x50
     .byte 0x8C
-
-    .align 2, 0
-
 
 
 _ts R_Beetank_1_4_2

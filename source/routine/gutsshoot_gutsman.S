@@ -121,9 +121,6 @@ LAB_080681d2:
     .byte 0x00
     .byte 0x95
 
-    .align 2, 0
-
-
 
 _ts R_GutsShoot_GutsMan_1_1
     push       {lr}

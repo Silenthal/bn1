@@ -117,9 +117,6 @@ DAT_08098bb4:
 DAT_08098bb6:
     .byte 0x02
 
-    .align 2, 0
-
-
 
 _ts SD_GutsMan_1_2
     push       {lr}

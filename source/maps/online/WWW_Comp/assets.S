@@ -703,8 +703,6 @@ LAB_0804ec0c:
     bl         FUN_0804ecd0
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts FUN_0804ec14
     push       {lr}
@@ -796,8 +794,6 @@ PTR_0804ecb4:
 
 _ts FUN_0804eccc
     mov        pc,lr
-
-    .align 2, 0
 
 
 _ts FUN_0804ecd0

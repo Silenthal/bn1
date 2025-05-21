@@ -6,8 +6,6 @@
 _ts FlagSetup_ACDC_S0
     mov        pc,lr
 
-    .align 2, 0
-
 
 _ts MapSetup_ACDC_Town_S0
     push       {lr}
@@ -236,8 +234,6 @@ _ts MapSetup_ACDC_Town_F06
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_ACDC_Town_F06
@@ -732,8 +728,6 @@ _ts EventHandler_ACDC_Town_F21_0
 LAB_0802b000:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts MapSetup_ACDC_Town_F22
     push       {lr}
@@ -1003,8 +997,6 @@ LAB_0802b1fc:
     pop        {r5}
 LAB_0802b220:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts MapSetup_ACDC_Town_F27
@@ -1672,8 +1664,6 @@ LAB_0802b79e:
     pop        {pc}
 LAB_0802b7b4:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts MapSetup_ACDC_Town_F54

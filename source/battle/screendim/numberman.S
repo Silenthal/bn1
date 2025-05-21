@@ -108,9 +108,6 @@ DAT_08098a74:
     .byte 0x14
     .byte 0x1E
 
-    .align 2, 0
-
-
 
 _ts SD_NumberMan_1_2
     push       {lr}

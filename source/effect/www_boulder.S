@@ -129,9 +129,6 @@ DAT_08080ecc:
     .byte 0x80
     .byte 0x01
 
-    .align 2, 0
-
-
 
 _ts Effect_WWWBoulder_CreateEffect
     push       {lr}

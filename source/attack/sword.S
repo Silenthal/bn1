@@ -52,9 +52,6 @@ _ts A_Sword_0_Init
     str        r0,[r5,#Attack_state_s0]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts A_Sword_1_Main
     push       {lr}
@@ -176,8 +173,6 @@ listSwordRange3x1:
     cell_pos 1, 0
     cell_pos 2, 0
     .byte 0x7F
-
-    .align 2, 0
 
 
 _ts Attack_Sword_Create

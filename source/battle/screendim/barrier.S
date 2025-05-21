@@ -53,9 +53,6 @@ BYTE_ARRAY_08099b64:
     .byte 0x57
     .byte 0x92
 
-    .align 2, 0
-
-
 
 _ts SD_Barrier_1_Activate
     push       {lr}

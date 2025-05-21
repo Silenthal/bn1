@@ -50,9 +50,6 @@ _ts S_MegaManJackIn_1
 LAB_080840d4:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_MegaManJackIn_2
     push       {lr}
@@ -69,9 +66,6 @@ _ts S_MegaManJackIn_2
     Scene_Next
 LAB_080840f8:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_MegaManJackIn_3

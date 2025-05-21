@@ -4,8 +4,6 @@
 
     cam_end
 
-    .align 2, 0
-
 
 _ts Scene_Story_05
     push       {lr}
@@ -34,9 +32,6 @@ _ts S_Story_05_0
     Scene_Next
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_05_1
     push       {lr}
@@ -57,9 +52,6 @@ _ts S_Story_05_1
     Scene_Next
 LAB_080838e8:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_05_2
@@ -101,9 +93,6 @@ _ts S_Story_05_3
     Scene_Next
 LAB_08083948:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_05_4

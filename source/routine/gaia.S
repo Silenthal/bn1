@@ -203,9 +203,6 @@ DAT_0806c86c:
     .byte 0x5A
     .byte 0x3C
 
-    .align 2, 0
-
-
 
 _ts R_Gaia_1_2_1
     push       {lr}

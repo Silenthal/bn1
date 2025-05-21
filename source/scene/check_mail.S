@@ -29,9 +29,6 @@ _ts S_CheckMail_0
     Scene_Next
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_CheckMail_1
     push       {lr}
@@ -61,9 +58,6 @@ _ts S_CheckMail_1
 LAB_08085aec:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_CheckMail_2
     push       {lr}
@@ -79,9 +73,6 @@ _ts S_CheckMail_2
     Scene_Next
 LAB_08085b0c:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_CheckMail_3

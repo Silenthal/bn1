@@ -363,9 +363,6 @@ LAB_0806a1e2:
     .byte 0x00
     .byte 0x01
 
-    .align 2, 0
-
-
 
 _ts R_ProtoManC_1_2_4
     push       {lr}

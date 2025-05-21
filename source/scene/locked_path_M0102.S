@@ -4,8 +4,6 @@
 
     cam_end
 
-    .align 2, 0
-
 
 _ts Scene_LockedPath_M0102
     push       {lr}
@@ -33,9 +31,6 @@ _ts S_LockedPath_M0102_0
     pop        {r5}
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_LockedPath_M0102_1
@@ -75,9 +70,6 @@ DAT_08083afc:
     .byte -1
     .byte -1
 
-    .align 2, 0
-
-
 
 _ts S_LockedPath_M0102_2
     push       {lr}
@@ -89,9 +81,6 @@ _ts S_LockedPath_M0102_2
     Scene_Next
 LAB_08083b1c:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_LockedPath_M0102_3
@@ -111,9 +100,6 @@ _ts S_LockedPath_M0102_3
 LAB_08083b44:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_LockedPath_M0102_4
     push       {lr}
@@ -130,9 +116,6 @@ _ts S_LockedPath_M0102_4
     Scene_Next
 LAB_08083b68:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_LockedPath_M0102_5

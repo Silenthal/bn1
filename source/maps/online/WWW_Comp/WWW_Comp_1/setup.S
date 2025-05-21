@@ -212,8 +212,6 @@ LAB_0804d43a:
 LAB_0804d468:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts FUN_0804d46c
     push       {lr}

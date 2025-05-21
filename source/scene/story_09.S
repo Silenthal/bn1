@@ -32,9 +32,6 @@ _ts S_Story_09_0
     Scene_Next
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_09_1
     push       {lr}
@@ -116,9 +113,6 @@ LAB_080847fa:
     bl         S_Story_09_SkipIfStart
 LAB_08084804:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_09_4

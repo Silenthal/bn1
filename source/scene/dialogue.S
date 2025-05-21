@@ -28,9 +28,6 @@ _ts S_Dialogue_0
     Scene_Next
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Dialogue_1
     push       {lr}

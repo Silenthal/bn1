@@ -68,9 +68,6 @@ Struct_1A40_ARRAY_08071a40:
     .byte 0x64, 0x08
     .byte 0x28, 0x04
 
-    .align 2, 0
-
-
 
 _ts A_CanodumbTarget_1_Main
     push       {lr}

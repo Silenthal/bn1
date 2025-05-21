@@ -55,8 +55,6 @@ _ts MapSetup_ACDC_Mayl_Living_Room_F06
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_ACDC_Mayl_Living_Room_F06
     push       {lr}
@@ -77,8 +75,6 @@ _ts EventHandler_ACDC_Mayl_Living_Room_F06_0
     beq        LAB_0802d5dc
 LAB_0802d5dc:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts FUN_0802d5e0

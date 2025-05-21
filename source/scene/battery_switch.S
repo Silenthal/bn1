@@ -185,9 +185,6 @@ LAB_08092bec:
 LAB_08092c28:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_BatterySwitch_4_SwitchFailure
     push       {lr}
@@ -223,9 +220,6 @@ LAB_08092c40:
 LAB_08092c74:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_BatterySwitch_5_SwitchOff
     push       {lr}
@@ -259,9 +253,6 @@ LAB_08092c96:
     b          LAB_08092cb8
 LAB_08092cb8:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_BatterySwitch_6_SwitchDisableEnd

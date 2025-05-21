@@ -60,9 +60,6 @@ _ts S_Story_0E_1
 LAB_08085058:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_0E_2
     push       {lr}
@@ -119,9 +116,6 @@ _ts S_Story_0E_4
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_0E_SkipIfStart

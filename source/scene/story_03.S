@@ -32,9 +32,6 @@ PTR_S_Story_03_0_08083358:
 DAT_0808336c:
     .byte 0x00
 
-    .align 2, 0
-
-
 
 _ts S_Story_03_0
     push       {lr}
@@ -107,9 +104,6 @@ LAB_08083406:
 LAB_08083410:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_03_4
     push       {lr}
@@ -147,9 +141,6 @@ _ts S_Story_03_4
     bl         Scene_UnloadAndResetStepCounter
 LAB_08083468:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_03_SkipIfStart

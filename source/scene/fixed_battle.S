@@ -76,9 +76,6 @@ _ts S_StartFixedBattle_0
     Scene_Next
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_StartFixedBattle_1
     push       {lr}

@@ -23,9 +23,6 @@ Cam_Set_08096ae0:
     cam_set -70, 90, 0
     cam_end
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_7A
     push       {lr}
@@ -458,9 +455,6 @@ _ts FUN_08096e90
     pop        {r5}
     str        r0,[r5,#0x14]
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts FUN_08096ec8

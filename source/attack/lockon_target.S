@@ -229,9 +229,6 @@ DAT_0807a218:
     .byte 0x00
     .byte 0x08
 
-    .align 2, 0
-
-
 
 _ts A_LockonTarget_1_2
     push       {lr}
@@ -290,9 +287,6 @@ LAB_0807a27e:
 LAB_0807a284:
     bl         UpdateSpriteFrameIndex
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts FUN_0807a28c

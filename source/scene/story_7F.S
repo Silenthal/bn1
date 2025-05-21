@@ -257,9 +257,6 @@ _ts FUN_08097bec
     str        r0,[r5,#0x14]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts FUN_08097c24
     push       {lr}

@@ -53,9 +53,6 @@ DAT_08078508:
     .byte 0x0F
     .byte 0x27
 
-    .align 2, 0
-
-
 
 _ts A_Sarcophagus_1_Main
     push       {lr}
@@ -392,9 +389,6 @@ _ts A_Sarcophagus_PharaohCube_0
     pop        {pc}
     .byte 0x12
     .byte 0x08
-
-    .align 2, 0
-
 
 
 _ts A_Sarcophagus_PharaohCube_1

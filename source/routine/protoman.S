@@ -201,9 +201,6 @@ DAT_080647e0:
     .byte 0x32
     .byte 0x28
 
-    .align 2, 0
-
-
 
 _ts R_ProtoMan_1_2_1_Decide
     push       {lr}

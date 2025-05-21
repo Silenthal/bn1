@@ -321,9 +321,6 @@ AfterBattleFlagSettings_ARRAY_08085870:
 
     .byte 0x08
 
-    .align 2, 0
-
-
 
 _ts Scene_AfterFixedBattle
     push       {lr}

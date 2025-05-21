@@ -64,9 +64,6 @@ _ts S_Ice_Slide_1
 LAB_0808becc:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Ice_Slide_2
     push       {lr}
@@ -146,9 +143,6 @@ LAB_0808bf5c:
 LAB_0808bf74:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Ice_Slide_3
     push       {lr}
@@ -164,9 +158,6 @@ _ts S_Ice_Slide_3
     bl         Scene_MarkForUnloading
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Ice_Slide_4
     push       {lr}
@@ -176,9 +167,6 @@ _ts S_Ice_Slide_4
     strb       r0,[r5,#Scene_state_s0]
 LAB_0808bfa8:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Ice_Slide_5
@@ -254,9 +242,6 @@ LAB_0808c038:
     strb       r0,[r5,#Scene_state_s0]
 LAB_0808c03c:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Ice_Slide_HandleCollisionDirection

@@ -5,9 +5,6 @@
 
     cam_end
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_22
     push       {lr}

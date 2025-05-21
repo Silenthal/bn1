@@ -170,8 +170,6 @@ LAB_0802cba4:
 LAB_0802cbc4:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_ACDC_Lan_Room_F00_2
     push       {lr}
@@ -219,8 +217,6 @@ _ts EventHandler_ACDC_Lan_Room_F00_3
 LAB_0802cc24:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts MapSetup_ACDC_Lan_Room_F02
     push       {lr}
@@ -255,8 +251,6 @@ LAB_0802cc6e:
     mov        r0,#0x4
     str        r0,[r5,#0x0]
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_ACDC_Lan_Room_F02
@@ -306,8 +300,6 @@ _ts EventHandler_ACDC_Lan_Room_F02_1
     beq        LAB_0802ccd4
 LAB_0802ccd4:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts MapSetup_ACDC_Lan_Room_F03
@@ -460,8 +452,6 @@ _ts EventHandler_ACDC_Lan_Room_F05_0
 LAB_0802cdf4:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts MapSetup_ACDC_Lan_Room_F06
     push       {lr}
@@ -566,8 +556,6 @@ _ts FUN_0802ce90
     mov        r0,#0x0
 LAB_0802ced0:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts FUN_0802ced4

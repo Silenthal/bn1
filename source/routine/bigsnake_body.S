@@ -171,9 +171,6 @@ _ts R_BigSnakeBody_1_2_0
     bl         R_BigSnakeBody_1_2_1
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts R_BigSnakeBody_1_2_1
     push       {lr}

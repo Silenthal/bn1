@@ -6,9 +6,6 @@
     cam_set 52, -66, 0
     cam_end
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_3F
     push       {lr}

@@ -369,8 +369,6 @@ LAB_080499a0:
     bl         FUN_08049ab0
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts FUN_080499a8
     push       {lr}
@@ -476,8 +474,6 @@ _ts FUN_08049a5c
 LAB_08049a80:
     pop        {r5,pc}
 
-    .align 2, 0
-
 
 _ts FUN_08049a84
     push       {r5,lr}
@@ -496,13 +492,9 @@ _ts FUN_08049a84
 LAB_08049aa8:
     pop        {r5,pc}
 
-    .align 2, 0
-
 
 _ts FUN_08049aac
     mov        pc,lr
-
-    .align 2, 0
 
 
 _ts FUN_08049ab0

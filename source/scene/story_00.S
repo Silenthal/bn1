@@ -39,9 +39,6 @@ BYTE_ARRAY_080828e8:
     .byte 0x00
     .byte 0x07
 
-    .align 2, 0
-
-
 
 _ts S_Story_00_0
     push       {lr}
@@ -66,9 +63,6 @@ _ts S_Story_00_1
     beq        LAB_08082906
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_00_2
@@ -153,9 +147,6 @@ _ts S_Story_00_5
 LAB_080829c8:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_00_8
     push       {lr}
@@ -164,9 +155,6 @@ _ts S_Story_00_8
     pop        {r5}
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_00_9
@@ -228,9 +216,6 @@ _ts S_Story_00_10
 LAB_08082a74:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_00_LoadLanBed
     push       {lr}
@@ -245,9 +230,6 @@ _ts S_Story_00_LoadLanBed
     pop        {r5}
     str        r0,[r5,#Scene_sceneArg]
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_00_FreeLanBed

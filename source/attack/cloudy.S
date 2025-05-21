@@ -316,9 +316,6 @@ DAT_080734f4:
     .byte 0xCC
     .byte 0x4C
 
-    .align 2, 0
-
-
 
 _ts A_Cloudy_1_1_2
     push       {lr}
@@ -339,9 +336,6 @@ DAT_08073514:
     .word 0x240000
     .byte 0xCC
     .byte 0x4C
-
-    .align 2, 0
-
 
 
 _ts A_Cloudy_2_Free
@@ -424,9 +418,6 @@ PTR_DAT_080735a8:
 DAT_080735ac:
     .byte 0x1C
     .byte 0xE4
-
-    .align 2, 0
-
 
 
 _ts A_Cloudy_SetFlag

@@ -165,8 +165,6 @@ LAB_080437b0:
 LAB_080437b8:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_Oven_Comp_2_F05_1
     push       {lr}

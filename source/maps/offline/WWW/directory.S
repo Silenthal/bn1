@@ -179,8 +179,6 @@ MapDialogue_WWW_Passage_3:
 _ts FlagSetup_WWW_S3
     mov        pc,lr
 
-    .align 2, 0
-
 
 _ts FlagSetup_WWW_S5
     mov        pc,lr

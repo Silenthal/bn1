@@ -241,9 +241,6 @@ PTR_FUN_080763aa_0807626c:
     .word FUN_08076290
     .byte 0x00
 
-    .align 2, 0
-
-
 
 _ts FUN_08076290
     push       {lr}
@@ -586,9 +583,6 @@ PTR_FUN_0807637e_080764cc:
     .word FUN_08076350
     .word FUN_080763aa
     .byte 0x00
-
-    .align 2, 0
-
 
 
 _ts A_Remobit_1_1_1

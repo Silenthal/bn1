@@ -741,8 +741,6 @@ _ts EventHandler_ACDC_School_Gate_F53_0
 LAB_0802bef4:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts MapSetup_ACDC_School_Gate_F54
     push       {lr}

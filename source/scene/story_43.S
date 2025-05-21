@@ -8,9 +8,6 @@ MapEntranceOptions_0808db64:
     cam_set 30, -10, 0
     cam_end
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_43
     push       {lr}
@@ -289,9 +286,6 @@ _ts FUN_0808ddb8
     pop        {r5}
     str        r0,[r5,#0x14]
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts FUN_0808ddf0

@@ -55,9 +55,6 @@ BYTE_ARRAY_0808babf:
     .byte 0x06
     .byte 0x06
 
-    .align 2, 0
-
-
 
 _ts Scene_Waterworks_Comp_TurnHandle
     push       {lr}
@@ -113,9 +110,6 @@ _ts S_Waterworks_Comp_TurnHandle_1
 LAB_0808bb3c:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Waterworks_Comp_TurnHandle_2
     push       {lr}
@@ -145,9 +139,6 @@ _ts S_Waterworks_Comp_TurnHandle_2
     strb       r0,[r5,#Scene_state_s0]
 LAB_0808bb80:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Waterworks_Comp_TurnHandle_3
@@ -192,9 +183,6 @@ LAB_0808bbc6:
     strb       r0,[r5,#Scene_state_s0]
 LAB_0808bbd4:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Waterworks_Comp_TurnHandle_4
@@ -276,9 +264,6 @@ _ts S_Waterworks_Comp_TurnHandle_6
 LAB_0808bc90:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Waterworks_Comp_TurnHandle_7
     push       {lr}
@@ -298,9 +283,6 @@ _ts S_Waterworks_Comp_TurnHandle_Flags_1
     push       {r5,lr}
     Flag_ToggleIgnore F_IGNORE_WALL_00
     pop        {r5,pc}
-
-    .align 2, 0
-
 
 
 _ts S_Waterworks_Comp_TurnHandle_Flags_2
@@ -368,9 +350,6 @@ LAB_0808bd2a:
     b          LAB_0808bd54
 LAB_0808bd54:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Waterworks_Comp_TurnHandle_Flags_5

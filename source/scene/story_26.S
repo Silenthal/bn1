@@ -7,9 +7,6 @@ Cam_Set_0808914c:
     cam_set 150, 90, 0
     cam_end
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_26
     push       {lr}
@@ -289,9 +286,6 @@ _nt S_Story_26_SkipIfStart
     mov        r0,#0x28
     strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_26_LanMove

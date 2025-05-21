@@ -335,9 +335,6 @@ BYTE_ARRAY_08073268:
     .byte 0x04
     .byte 0x08
 
-    .align 2, 0
-
-
 
 _ts A_Quake_1_5
     push       {lr}

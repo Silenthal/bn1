@@ -17,9 +17,6 @@ FuncState_ARRAY_0805d1e4:
     .byte FS_6
     .byte FS_7
 
-    .align 2, 0
-
-
 
 _ts Routine_NumberMan
     push       {lr}
@@ -516,9 +513,6 @@ LAB_0805d572:
     .byte 0x00
     .byte 0x00
     .byte 0x02
-
-    .align 2, 0
-
 
 
 _ts R_NumberMan_1_6_1_Next

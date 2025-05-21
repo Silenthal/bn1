@@ -166,8 +166,6 @@ LAB_08024870:
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_School_Class_5A_F02
     push       {lr}

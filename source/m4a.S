@@ -431,9 +431,6 @@ DAT_0809c334:
 lt_PCM_DMA_BUF_SIZE:
     .byte 0x30, 0x06
 
-    .align 2, 0
-
-
 
 _ts SoundMainBTM
     mov        r12,r4
@@ -447,9 +444,6 @@ _ts SoundMainBTM
     stmia      r0!,{r1,r2,r3,r4}
     mov        r4,r12
     bx         lr
-
-    .align 2, 0
-
 
 
 _ts RealClearChain
@@ -502,9 +496,6 @@ ply_fine_done:
     pop        {r0}
     bx         r0
 
-    .align 2, 0
-
-
 
 _ts MPlayJumpTableCopy
     mov        r12,lr
@@ -518,9 +509,6 @@ MPlayJumpTableCopy_Loop:
     sub        r1,#0x1
     bgt        MPlayJumpTableCopy_Loop
     bx         r12
-
-    .align 2, 0
-
 
 
 _ts ldrb_r3_r2
@@ -557,9 +545,6 @@ _nt FUN_0809c3da
     str        r3,[r1,#0x40]
     ldrb       r3,[r2,#0x0]
     b          chk_adr_r2
-
-    .align 2, 0
-
 
 
 _ts ply_goto
@@ -598,9 +583,6 @@ _ts ply_patt
     b          ply_goto
 ply_patt_done:
     b          ply_fine
-
-    .align 2, 0
-
 
 
 _ts ply_pend
@@ -643,18 +625,12 @@ ply_rept_2:
     pop        {r0}
     bx         r0
 
-    .align 2, 0
-
-
 
 _ts ply_prio
     mov        r12,lr
     bl         ld_r3_tp_adr_i
     strb       r3,[r1,#0x1d]
     bx         r12
-
-    .align 2, 0
-
 
 
 _ts ply_tempo
@@ -679,9 +655,6 @@ _ts ply_keysh
     strb       r3,[r1,#0x0]
     bx         r12
 
-    .align 2, 0
-
-
 
 _ts ply_voice
     mov        r12,lr
@@ -705,9 +678,6 @@ _ts ply_voice
     str        r3,[r1,#0x2c]
     bx         r12
 
-    .align 2, 0
-
-
 
 _ts ply_vol
     mov        r12,lr
@@ -718,9 +688,6 @@ _ts ply_vol
     orr        r3,r2
     strb       r3,[r1,#0x0]
     bx         r12
-
-    .align 2, 0
-
 
 
 _ts ply_pan
@@ -757,18 +724,12 @@ _ts ply_bendr
     strb       r3,[r1,#0x0]
     bx         r12
 
-    .align 2, 0
-
-
 
 _ts ply_lfodl
     mov        r12,lr
     bl         ld_r3_tp_adr_i
     strb       r3,[r1,#0x1b]
     bx         r12
-
-    .align 2, 0
-
 
 
 _ts ply_modt
@@ -1589,9 +1550,6 @@ LAB_0809caae:
     strb       r3,[r1,#0x0]
     bx         lr
 
-    .align 2, 0
-
-
 
 _ts ld_r3_tp_adr_i_unchecked
     ldr        r2,[r1,#0x40]
@@ -1599,9 +1557,6 @@ _ts ld_r3_tp_adr_i_unchecked
     str        r3,[r1,#0x40]
     ldrb       r3,[r2,#0x0]
     bx         lr
-
-    .align 2, 0
-
 
 
 _ts ply_lfos
@@ -1614,9 +1569,6 @@ _ts ply_lfos
 LAB_0809cad4:
     bx         r12
 
-    .align 2, 0
-
-
 
 _ts ply_mod
     mov        r12,lr
@@ -1627,9 +1579,6 @@ _ts ply_mod
     bl         clear_modM
 LAB_0809cae8:
     bx         r12
-
-    .align 2, 0
-
 
 
 _ts MidiKeyToFreq
@@ -1688,9 +1637,6 @@ PTR_gFreqTable_0809cb4c:
 
 _ts dummy_9CB50
     bx         lr
-
-    .align 2, 0
-
 
 
 _ts MPlayContinue
@@ -3978,9 +3924,6 @@ LAB_0809da4e:
     pop        {r0}
     bx         r0
 
-    .align 2, 0
-
-
 
 _ts m4aMPlayTempoControl
     push       {r4,lr}
@@ -4213,9 +4156,6 @@ LAB_0809dbe2:
     orr        r0,r2
     strb       r0,[r1,#0x0]
     bx         lr
-
-    .align 2, 0
-
 
 
 _ts m4aMPlayModDepthSet
@@ -4631,9 +4571,6 @@ _ts ply_xtype
     str        r0,[r1,#0x40]
     bx         lr
 
-    .align 2, 0
-
-
 
 _ts ply_xatta
     ldr        r0,[r1,#0x40]
@@ -4645,9 +4582,6 @@ _ts ply_xatta
     add        r0,#0x1
     str        r0,[r1,#0x40]
     bx         lr
-
-    .align 2, 0
-
 
 
 _ts ply_xdeca
@@ -4661,9 +4595,6 @@ _ts ply_xdeca
     str        r0,[r1,#0x40]
     bx         lr
 
-    .align 2, 0
-
-
 
 _ts ply_xsust
     ldr        r0,[r1,#0x40]
@@ -4676,9 +4607,6 @@ _ts ply_xsust
     str        r0,[r1,#0x40]
     bx         lr
 
-    .align 2, 0
-
-
 
 _ts ply_xrele
     ldr        r0,[r1,#0x40]
@@ -4690,9 +4618,6 @@ _ts ply_xrele
     add        r0,#0x1
     str        r0,[r1,#0x40]
     bx         lr
-
-    .align 2, 0
-
 
 
 _ts ply_xiecv
@@ -4724,9 +4649,6 @@ _ts ply_xleng
     str        r0,[r1,#0x40]
     bx         lr
 
-    .align 2, 0
-
-
 
 _ts ply_xswee
     ldr        r0,[r1,#0x40]
@@ -4738,9 +4660,6 @@ _ts ply_xswee
     add        r0,#0x1
     str        r0,[r1,#0x40]
     bx         lr
-
-    .align 2, 0
-
 
 
 _ts dummy_9DF4C

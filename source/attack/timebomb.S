@@ -15,9 +15,6 @@ BYTE_ARRAY_ARRAY_080723d0:
     .byte -1
     .byte -1
 
-    .align 2, 0
-
-
 
 _ts Attack_TimeBomb
     push       {lr}

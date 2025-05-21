@@ -29,9 +29,6 @@ _ts S_Internet_4_HigMemo_Gate_0
     Scene_Next
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Internet_4_HigMemo_Gate_1
     push       {lr}

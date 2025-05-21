@@ -182,9 +182,6 @@ LAB_0806a734:
     .byte 0x04
     .byte 0x89
 
-    .align 2, 0
-
-
 
 _ts R_ElecManC_1_1_2
     push       {lr}

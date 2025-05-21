@@ -156,8 +156,6 @@ _ts EventHandler_Oven_Comp_1_F03_0
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_Oven_Comp_1_F03_1
     push       {lr}
@@ -183,8 +181,6 @@ LAB_080433d0:
     bne        LAB_080433d8
 LAB_080433d8:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_Oven_Comp_1_F03_2
@@ -287,8 +283,6 @@ LAB_080434a0:
     mov        r0,#0xff
     str        r0,[r5,#0x8]
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_Oven_Comp_1_F05
@@ -393,8 +387,6 @@ LAB_08043570:
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_Oven_Comp_1_F06
     push       {lr}
@@ -436,8 +428,6 @@ _ts EventHandler_Oven_Comp_1_F03_HandleIceBlock
 LAB_080435b6:
     mov        r0,#0x1
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_Oven_Comp_1_F05_HandleIceBlock

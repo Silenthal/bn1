@@ -4,8 +4,6 @@
 
     cam_end
 
-    .align 2, 0
-
 
 _ts Scene_LockedPath_School_Class_5A
     push       {lr}
@@ -33,9 +31,6 @@ _ts S_LockedPath_School_Class_5A_0
     pop        {r5}
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_LockedPath_School_Class_5A_1
@@ -73,9 +68,6 @@ _ts S_LockedPath_School_Class_5A_2
 LAB_08082fcc:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_LockedPath_School_Class_5A_3
     push       {lr}
@@ -96,9 +88,6 @@ _ts S_LockedPath_School_Class_5A_3
 LAB_08082ff8:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_LockedPath_School_Class_5A_4
     push       {lr}
@@ -115,9 +104,6 @@ _ts S_LockedPath_School_Class_5A_4
     Scene_Next
 LAB_0808301c:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_LockedPath_School_Class_5A_5

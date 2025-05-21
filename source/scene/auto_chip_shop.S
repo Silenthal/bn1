@@ -28,9 +28,6 @@ _ts S_AutoChipShop_0
     Scene_Next
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_AutoChipShop_1
     push       {lr}

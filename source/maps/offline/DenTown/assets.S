@@ -1300,8 +1300,6 @@ LAB_0803b766:
     strb       r0,[r5,#0xb]
     pop        {r5,pc}
 
-    .align 2, 0
-
 
 _ts Traffic_Main
     push       {r5,lr}
@@ -1355,8 +1353,6 @@ LAB_0803b7e0:
     bl         Traffic_SetCarTimer
 LAB_0803b7f0:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts Traffic_1_WaitForCars
@@ -1443,8 +1439,6 @@ LAB_0803b85c:
     pop        {r5}
 LAB_0803b88c:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts Traffic_SetCarTimer

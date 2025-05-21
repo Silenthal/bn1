@@ -8,8 +8,6 @@ DAT_0807773c:
     .byte 0x0C
     .byte 0x08
 
-    .align 2, 0
-
 
 _ts Attack_Tornado_Chip
     push       {lr}

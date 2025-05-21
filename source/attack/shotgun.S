@@ -117,8 +117,6 @@ DAT_08070480:
     .byte QE_ShotgunHit
     .byte QE_ShotgunHit
 
-    .align 2, 0
-
 
 _ts A_Shotgun_CreateExtraHits
     push       {lr}

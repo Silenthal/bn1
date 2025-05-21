@@ -112,9 +112,6 @@ USHORT_ARRAY_0807ec94:
     .short 0x0
     .short 0x104
 
-    .align 2, 0
-
-
 
 _ts E_Traffic_1_Main
     push       {lr}

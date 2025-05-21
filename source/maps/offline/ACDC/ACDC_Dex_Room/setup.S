@@ -77,8 +77,6 @@ LAB_0802ddb0:
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_ACDC_Dex_Room_F06
     push       {lr}
@@ -108,8 +106,6 @@ _ts EventHandler_ACDC_Dex_Room_F06_0
     pop        {r5}
 LAB_0802ddf0:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts FUN_0802ddf4

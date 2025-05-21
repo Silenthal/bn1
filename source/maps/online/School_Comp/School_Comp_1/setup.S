@@ -239,8 +239,6 @@ LAB_08040864:
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_School_Comp_1_F12
     push       {lr}
@@ -297,8 +295,6 @@ _nt EventHandler_School_Comp_1_F12_2
     push       {lr}
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts MapSetup_School_Comp_1_F13
     push       {lr}
@@ -352,8 +348,6 @@ LAB_08040948:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_School_Comp_1_F13

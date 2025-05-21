@@ -220,9 +220,6 @@ DAT_0805fd00:
     .byte 0x00
     .byte 0x02
 
-    .align 2, 0
-
-
 
 _ts R_NumberManC_1_1_2_Wait
     push       {lr}

@@ -88,9 +88,6 @@ DAT_0806a3c4:
     .byte 0x07
     .byte 0x09
 
-    .align 2, 0
-
-
 
 _ts R_SharkManC_1_Main
     push       {lr}

@@ -58,8 +58,6 @@ _ts MapSetup_ACDC_Yai_Room_F02
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_ACDC_Yai_Room_F02
     push       {lr}
@@ -103,8 +101,6 @@ LAB_0802e4e6:
 LAB_0802e4ec:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts MapSetup_ACDC_Yai_Room_F06
     push       {lr}
@@ -122,8 +118,6 @@ _ts MapSetup_ACDC_Yai_Room_F06
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_ACDC_Yai_Room_F06
@@ -145,8 +139,6 @@ _ts EventHandler_ACDC_Yai_Room_F06_0
     beq        LAB_0802e534
 LAB_0802e534:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts FUN_0802e538

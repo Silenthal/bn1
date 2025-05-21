@@ -85,9 +85,6 @@ SpriteIndex_08071334:
     .short SP_BattleEffect_BusterHit
     .byte 0x01
 
-    .align 2, 0
-
-
 
 _ts A_ShotgunBurst_1_Main
     push       {lr}

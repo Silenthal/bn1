@@ -31,9 +31,6 @@ _ts A_PoweredCannon_0_Init
     bl         A_PoweredCannon_1
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts A_PoweredCannon_1
     push       {lr}

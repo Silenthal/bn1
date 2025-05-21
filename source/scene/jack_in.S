@@ -186,9 +186,6 @@ LAB_08083ffa:
 LAB_08084018:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_JackIn_GlintEffect_Create
     push       {lr}
@@ -215,9 +212,6 @@ _ts S_JackIn_GlintEffect_Create
     pop        {r5}
     str        r0,[r5,#0x14]
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_JackIn_GlintEffect_Free

@@ -177,8 +177,6 @@ _ts MapSetup_School_Class_1A_F15
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_School_Class_1A_F15
     push       {lr}

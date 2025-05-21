@@ -304,9 +304,6 @@ listExplosionSound:
     .byte 0x76
     .byte 0x76
 
-    .align 2, 0
-
-
 
 _ts Attack_IceManBeetankBomb_Create
     push       {lr}

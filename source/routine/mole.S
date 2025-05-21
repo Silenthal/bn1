@@ -184,9 +184,6 @@ listIdleAnimDelay:
     .byte 0x50
     .byte 0xAA
 
-    .align 2, 0
-
-
 
 _ts R_Mole_1_2_1_WaitAnim
     push       {lr}

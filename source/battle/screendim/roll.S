@@ -110,9 +110,6 @@ DAT_0809a37c:
     .byte 0x03
     .byte 0x02
 
-    .align 2, 0
-
-
 
 _ts SD_Roll_1_2
     push       {lr}
@@ -205,9 +202,6 @@ BYTE_ARRAY_0809a430:
     .byte 0x1E
     .byte 0x32
     .byte 0x50
-
-    .align 2, 0
-
 
 
 _ts SD_Roll_1_5_Next

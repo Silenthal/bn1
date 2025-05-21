@@ -64,9 +64,6 @@ LAB_08083720:
     strb       r0,[r5,#Scene_state_s0]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts Scene_JackOut_1
     push       {lr}
@@ -113,9 +110,6 @@ LAB_08083780:
     strb       r0,[r5,#Scene_state_s0]
 LAB_08083784:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts Scene_JackOut_2_FadeOut
@@ -218,9 +212,6 @@ _ts Scene_JackOut_6_NoJackOut
     strb       r0,[r5,#Scene_state_s0]
 LAB_08083850:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts Scene_JackOut_7_End

@@ -142,9 +142,6 @@ listCapturedPanelProperties:
     .byte PF_Walkable
     .byte PF_Walkable | PF_EnemyTerritory
 
-    .align 2, 0
-
-
 
 _ts A_Steal_1_1_Splash
     push       {lr}

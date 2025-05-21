@@ -19,9 +19,6 @@ Cam_Set_080879e2:
     .byte 0x04
     .byte -1
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_1C
     push       {lr}

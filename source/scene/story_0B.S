@@ -4,8 +4,6 @@
 
     cam_end
 
-    .align 2, 0
-
 
 _ts Scene_Story_0B
     push       {lr}
@@ -33,9 +31,6 @@ _ts S_Story_0B_0
     pop        {r5}
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_0B_1
@@ -96,9 +91,6 @@ LAB_08084c9e:
 LAB_08084ca8:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_0B_4
     push       {lr}
@@ -125,9 +117,6 @@ _ts S_Story_0B_5
     pop        {r5}
     bl         Scene_UnloadAndResetStepCounter
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_0B_SkipIfStart

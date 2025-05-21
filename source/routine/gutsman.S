@@ -33,9 +33,6 @@ DAT_0805c0f0:
     .byte 0x00
     .byte 0x00
 
-    .align 2, 0
-
-
 
 _ts Routine_GutsMan
     push       {lr}

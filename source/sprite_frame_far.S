@@ -169,9 +169,6 @@ LAB_03006b22:
     pop        {r5}
     mov        pc,lr
 
-    .align 2, 0
-
-
 
 _ts SpriteFrame_GetTilesetOffset
     ldr        r1,PTR_gSpriteTilesetDetailCount_03006d3c
@@ -322,9 +319,6 @@ LAB_03006c28:
     strb       r3,[r5,#0x4]
     str        r7,[r5,#0x28]
     pop        {r5,pc}
-
-    .align 2, 0
-
 
 
 _ts SpritePtr_CalculatePositionNormal

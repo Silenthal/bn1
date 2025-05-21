@@ -70,9 +70,6 @@ DAT_08075399:
     .byte 0x04
     .byte 0x00
 
-    .align 2, 0
-
-
 
 _ts Attack_ColumnCurrentH
     push       {lr}

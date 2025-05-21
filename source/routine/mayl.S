@@ -142,9 +142,6 @@ LAB_0805b124:
 LAB_0805b140:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts dummy_5b144
     push       {lr}

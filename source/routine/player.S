@@ -151,9 +151,6 @@ LAB_0805637a:
     bl         FieldObject_MarkAsChecked
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts R_Player_1_Main
     push       {lr}
@@ -946,9 +943,6 @@ _ts dummy_569fc
     pop        {pc}
     .byte 0xF3
 
-    .align 2, 0
-
-
 
 _ts R_PlayerB_7_Drain
     push       {lr}
@@ -1036,9 +1030,6 @@ _ts R_PlayerC_1_StartMove
     mov        r3,#0x64
     strh       r0,[r5,r3]
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts R_PlayerC_2_ChangePos
@@ -1910,9 +1901,6 @@ ElementID_ARRAY_080570dc:
     element Water
     element Wood
 
-    .align 2, 0
-
-
 
 _ts R_Player_CheckBubbleShieldRespawn
     push       {lr}
@@ -2001,9 +1989,6 @@ LAB_08057176:
     strb       r0,[r7,#0xb]
 LAB_08057180:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts ActorPlayer_SetStatus
@@ -2476,9 +2461,6 @@ listShieldId:
     .byte ST_FireAura
     .byte ST_WoodAura
     .byte ST_LeafShield
-
-    .align 2, 0
-
 
 
 _ts R_Player_SetInvisible
@@ -4454,9 +4436,6 @@ listArrowDelay:
     .byte 0x14
     .byte 0x0E
     .byte 0x08
-
-    .align 2, 0
-
 
 
 _ts BC_Arrow_4

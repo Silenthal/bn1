@@ -5,8 +5,6 @@
 
     cam_end
 
-    .align 2, 0
-
 
 _ts Scene_Story_18
     push       {lr}
@@ -231,9 +229,6 @@ _ts S_Story_18_10
     bl         Scene_UnloadAndResetStepCounter
 LAB_080873a8:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts FUN_080873ac

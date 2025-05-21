@@ -16,7 +16,7 @@ _ts InitDemo
     pop        {r0,r5}
     strb       r0,[r5,#Demo_b6]
     pop        {pc}
-    .align 2, 0
+
 
 _ts Demo_Main
     push       {lr}

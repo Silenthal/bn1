@@ -33,9 +33,6 @@ PTR_S_Story_04_0_080834e4:
 DAT_080834fc:
     .byte 0x00
 
-    .align 2, 0
-
-
 
 _ts S_Story_04_0
     push       {lr}

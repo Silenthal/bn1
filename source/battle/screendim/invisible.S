@@ -61,9 +61,6 @@ DAT_08099184:
     .byte 0x89
     .byte 0x8A
 
-    .align 2, 0
-
-
 
 _ts SD_Invisible_1
     push       {lr}

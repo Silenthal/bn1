@@ -9,9 +9,6 @@
 MapEntranceOptions_0808703e:
     MapEntranceOpt Map_School_Class_5A, d_s, f(47, 18, 0), dialog=0x0, changeType=1, fadeType=0
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_17
     push       {lr}

@@ -185,9 +185,6 @@ DAT_08069e9c:
     .byte 0x00
     .byte 0x01
 
-    .align 2, 0
-
-
 
 _ts R_MiniColorManC_1_1_1
     push       {lr}

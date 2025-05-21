@@ -9,7 +9,7 @@ _ts InitSplash
     mov        r1,#0x10
     bl         memset0_32
     pop        {pc}
-    .align 2, 0
+
 
 _ts Splash_Main
     push       {lr}

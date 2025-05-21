@@ -65,8 +65,6 @@ _ts MapSetup_School_Library_F10
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_School_Library_F10
     push       {lr}

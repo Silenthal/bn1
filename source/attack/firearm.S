@@ -126,9 +126,6 @@ DAT_080710ac:
     .byte 0x00
     .byte -1
 
-    .align 2, 0
-
-
 
 _ts A_FireArm_1_Main
     push       {lr}

@@ -129,9 +129,6 @@ LAB_08092826:
 LAB_08092834:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Battery_2_SwitchActivatedEnd
     push       {lr}
@@ -175,9 +172,6 @@ LAB_0809286a:
     strb       r0,[r5,#Scene_state_s0]
 LAB_08092888:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Battery_4_InsertBatteryPromptEnd
@@ -402,9 +396,6 @@ LAB_08092a64:
     b          LAB_08092a74
 LAB_08092a74:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Battery_6_End

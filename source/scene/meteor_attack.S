@@ -4,8 +4,6 @@
 
     cam_end
 
-    .align 2, 0
-
 
 _ts Scene_MeteorAttack
     push       {lr}
@@ -32,9 +30,6 @@ _ts S_MeteorAttack_0
     pop        {r5}
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_MeteorAttack_1
@@ -125,9 +120,6 @@ LAB_0808445e:
     bl         S_MeteorAttack_SkipIfStart
 LAB_08084468:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_MeteorAttack_3
@@ -340,9 +332,6 @@ LAB_0808460e:
 LAB_08084612:
     mov        r0,#0x1
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_MeteorAttack_SkipIfStart

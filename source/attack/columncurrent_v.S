@@ -200,9 +200,6 @@ DAT_08075774:
     .byte 0x06
     .byte 0x04
 
-    .align 2, 0
-
-
 
 _ts Attack_ColumnCurrentV_Create
     push       {lr}

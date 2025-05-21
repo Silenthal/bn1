@@ -262,8 +262,6 @@ LAB_08045ace:
 LAB_08045adc:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts FUN_08045ae0
     push       {lr}
@@ -306,8 +304,6 @@ LAB_08045b26:
 LAB_08045b36:
     mov        r0,#0x1
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts FUN_08045b3c

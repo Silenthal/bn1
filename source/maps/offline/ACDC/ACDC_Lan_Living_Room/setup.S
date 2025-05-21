@@ -127,8 +127,6 @@ LAB_0802c09e:
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_ACDC_Lan_Living_Room_F02
     push       {lr}
@@ -166,8 +164,6 @@ LAB_0802c0d4:
 LAB_0802c0e4:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_ACDC_Lan_Living_Room_F02_1
     push       {lr}
@@ -193,8 +189,6 @@ _ts EventHandler_ACDC_Lan_Living_Room_F02_1
     pop        {r5}
 LAB_0802c120:
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts MapSetup_ACDC_Lan_Living_Room_F03
@@ -222,8 +216,6 @@ _ts MapSetup_ACDC_Lan_Living_Room_F03
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_ACDC_Lan_Living_Room_F03
@@ -289,8 +281,6 @@ LAB_0802c1ba:
 LAB_0802c1f0:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_ACDC_Lan_Living_Room_F03_1
     push       {lr}
@@ -332,8 +322,6 @@ LAB_0802c25c:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_ACDC_Lan_Living_Room_F04
@@ -441,8 +429,6 @@ _ts MapSetup_ACDC_Lan_Living_Room_F05
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_ACDC_Lan_Living_Room_F05
     push       {lr}
@@ -500,8 +486,6 @@ LAB_0802c392:
 LAB_0802c3b8:
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts MapSetup_ACDC_Lan_Living_Room_F06
     push       {lr}
@@ -533,8 +517,6 @@ LAB_0802c400:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_ACDC_Lan_Living_Room_F06

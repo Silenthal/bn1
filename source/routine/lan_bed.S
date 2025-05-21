@@ -42,9 +42,6 @@ _ts R_LanBed_0_Init
     strb       r0,[r5,#Actor_state_s0]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts R_LanBed_1_Main
     ldr        r0,PTR_PTR_R_LanBed_1_0_SetAnimation_0805b1f8

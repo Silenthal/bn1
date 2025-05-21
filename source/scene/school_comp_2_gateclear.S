@@ -5,8 +5,6 @@
 
     cam_end
 
-    .align 2, 0
-
 
 _ts Scene_School_Comp_2_GateClear
     push       {lr}

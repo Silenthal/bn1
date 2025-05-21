@@ -37,9 +37,6 @@ _ts S_Story_0C_0
     Scene_Next
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_0C_1
     push       {lr}
@@ -60,9 +57,6 @@ _ts S_Story_0C_1
     Scene_Next
 LAB_08084d8c:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_0C_2
@@ -144,9 +138,6 @@ LAB_08084e42:
 LAB_08084e4c:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_0C_5
     push       {lr}
@@ -171,9 +162,6 @@ _ts S_Story_0C_5
     bl         Scene_UnloadAndResetStepCounter
 LAB_08084e88:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_0C_SkipIfStart

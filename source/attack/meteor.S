@@ -41,9 +41,6 @@ _ts A_Meteor_0_Init
     bl         A_Meteor_1_Main
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts A_Meteor_1_Main
     push       {lr}

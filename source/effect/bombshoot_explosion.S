@@ -138,9 +138,6 @@ DAT_08081c08:
     .byte 0x00
     .byte 0x08
 
-    .align 2, 0
-
-
 
 _ts E_BombShootExplosion_2_Free
     push       {lr}

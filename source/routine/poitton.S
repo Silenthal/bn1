@@ -185,9 +185,6 @@ DAT_0806b34c:
     .byte 0x46
     .byte 0x2D
 
-    .align 2, 0
-
-
 
 _ts R_Poitton_1_2_1
     push       {lr}

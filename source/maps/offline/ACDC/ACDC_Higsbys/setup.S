@@ -86,8 +86,6 @@ LAB_0802eb04:
     str        r0,[r5,#0x0]
     pop        {pc}
 
-    .align 2, 0
-
 
 _ts EventHandler_ACDC_Higsbys_F24
     push       {lr}
@@ -170,8 +168,6 @@ LAB_0802ebc0:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_ACDC_Higsbys_F26
@@ -762,8 +758,6 @@ LAB_0802f0d6:
     mov        r0,#0x0
     str        r0,[r5,#0x0]
     pop        {pc}
-
-    .align 2, 0
 
 
 _ts EventHandler_ACDC_Higsbys_F53

@@ -69,9 +69,6 @@ LAB_0807e6d0:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts E_TrafficLight_2_Free
     push       {lr}

@@ -81,9 +81,6 @@ _ts A_Unk09_2_Free
     bl         Attack_Free
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts Attack_Unk09_Create
     push       {lr}

@@ -48,9 +48,6 @@ _ts S_SkillGateFail_0
     Scene_Next
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_SkillGateFail_1
     push       {lr}
@@ -76,9 +73,6 @@ _ts S_SkillGateFail_1
 LAB_08085c30:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_SkillGateFail_2
     push       {lr}
@@ -91,9 +85,6 @@ _ts S_SkillGateFail_2
 LAB_08085c48:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_SkillGateFail_3
     push       {lr}
@@ -105,9 +96,6 @@ _ts S_SkillGateFail_3
 LAB_08085c62:
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_SkillGateFail_4
@@ -207,9 +195,6 @@ _ts ResetSkillCheck_Undernet_6
     Flag_ClearEvent F_EVENT_UNDERNET_6_SKILL_CHECK_FAIL
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts ResetSkillCheck_Undernet_7
     push       {lr}
@@ -224,9 +209,6 @@ _ts ResetSkillCheck_Undernet_7
     strb       r0,[r4,#0xd]
     Flag_ClearEvent F_EVENT_UNDERNET_7_SKILL_CHECK_FAIL
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts ResetSkillCheck_Undernet_9
@@ -251,9 +233,6 @@ _ts ResetSkillCheck_Undernet_10
     strb       r0,[r7,#0xf]
     Flag_ClearEvent F_EVENT_UNDERNET_10_SKILL_CHECK_FAIL
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts ResetSkillCheck_Undernet_11

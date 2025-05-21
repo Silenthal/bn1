@@ -7,9 +7,6 @@ Cam_Set_08086a54:
     cam_wait 60
     cam_end
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_14
     push       {lr}

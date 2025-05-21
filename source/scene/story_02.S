@@ -15,9 +15,6 @@ Cam_Set_08083080:
     cam_set 32, 0, 0
     cam_end
 
-    .align 2, 0
-
-
 
 _ts Scene_Story_02_DexChallengePreTutorial
     push       {lr}
@@ -44,9 +41,6 @@ PTR_S_Story_02_0_0808309c:
 DAT_080830c4:
     .byte 0x00
 
-    .align 2, 0
-
-
 
 _ts S_Story_02_0
     push       {lr}
@@ -68,17 +62,11 @@ LAB_080830dc:
 LAB_080830f8:
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts S_Story_02_1
     push       {lr}
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_Story_02_2

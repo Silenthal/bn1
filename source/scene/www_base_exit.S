@@ -5,9 +5,6 @@
 
     cam_end
 
-    .align 2, 0
-
-
 
 _ts Scene_WWW_Base_Exit
     push       {lr}
@@ -35,9 +32,6 @@ _ts S_WWW_Base_Exit_0
     pop        {r5}
     Scene_Next
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_WWW_Base_Exit_1
@@ -100,9 +94,6 @@ _ts S_WWW_Base_Exit_3
     Scene_Next
 LAB_08097ff4:
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts S_WWW_Base_Exit_4

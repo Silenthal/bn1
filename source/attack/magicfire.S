@@ -12,9 +12,6 @@ DAT_08074858:
     .byte 0x01
     .byte 0x0F
 
-    .align 2, 0
-
-
 
 _ts Attack_MagicFire
     push       {lr}

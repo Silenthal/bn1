@@ -42,9 +42,6 @@ _ts E_TallExplosion_0_Init
     strb       r0,[r5,#Effect_state_s0]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts E_TallExplosion_1_Main
     push       {lr}
@@ -57,9 +54,6 @@ _ts E_TallExplosion_1_Main
 LAB_0807c250:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts E_TallExplosion_2_Free

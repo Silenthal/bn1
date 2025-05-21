@@ -13,8 +13,6 @@ Flag_Base_ARRAY_0808823a:
 
     cam_end
 
-    .align 2, 0
-
 
 _ts Scene_Story_1E
     push       {lr}

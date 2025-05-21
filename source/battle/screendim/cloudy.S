@@ -110,9 +110,6 @@ DAT_08099794:
     .byte 0x33
     .byte 0xB3
 
-    .align 2, 0
-
-
 
 _ts SD_Cloudy_3_FadeIn
     push       {lr}

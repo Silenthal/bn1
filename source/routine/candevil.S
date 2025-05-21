@@ -28,9 +28,6 @@ DAT_080686e4:
     .byte 0x80
     .byte 0x01
 
-    .align 2, 0
-
-
 
 _ts Routine_CanDevil
     push       {lr}

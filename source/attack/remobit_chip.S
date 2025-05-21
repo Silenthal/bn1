@@ -189,9 +189,6 @@ DAT_08077110:
     .byte 0x33
     .byte 0xB3
 
-    .align 2, 0
-
-
 
 _ts A_RemobitC_1_1
     push       {lr}

@@ -75,9 +75,6 @@ LAB_0806fd44:
     strb       r0,[r5,#Attack_state_s0]
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts A_Unk05_2_Free
     push       {lr}

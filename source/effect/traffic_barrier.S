@@ -41,9 +41,6 @@ _ts E_TrafficBarrier_0_Init
     bl         E_TrafficBarrier_1_Main
     pop        {pc}
 
-    .align 2, 0
-
-
 
 _ts E_TrafficBarrier_1_Main
     push       {lr}
@@ -61,9 +58,6 @@ _ts E_TrafficBarrier_1_Main
 LAB_0807e760:
     bl         SpritePtr_ProcessFrameDelay
     pop        {pc}
-
-    .align 2, 0
-
 
 
 _ts E_TrafficBarrier_2_Free

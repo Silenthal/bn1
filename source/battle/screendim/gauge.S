@@ -79,9 +79,6 @@ listGaugeFactor:
     .byte 0x10
     .byte 0x40
 
-    .align 2, 0
-
-
 
 _ts SD_Gauge_2
     push       {lr}
