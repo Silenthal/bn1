@@ -895,7 +895,7 @@ LAB_0809c62e:
     tst        r0,r3
     beq        LAB_0809c6ac
     add        r0,r5,#0x0
-    bl         InitializeMusicPlayerTrack
+    bl         Clear64byte
     mov        r0,#0x80
     strb       r0,[r5,#0x0]
     mov        r0,#0x2
@@ -2037,7 +2037,7 @@ LAB_0809cdc4:
     cmp        r0,#0x0
     beq        LAB_0809cdf2
     add        r0,r4,#0x0
-    bl         InitializeMusicPlayerTrack
+    bl         Clear64byte
     strb       r7,[r4,#0x0]
     mov        r0,#0x2
     strb       r0,[r4,#0xf]
@@ -2262,7 +2262,7 @@ PTR_gMPlayJumpTable_0809cf40:
     .word 0x3005B48
 
 
-_ts InitializeMusicPlayerTrack
+_ts Clear64byte
     push       {lr}
     ldr        r1,PTR_gMPlayJumpTable_0809cf54
     ldr        r1,[r1,#0x0]
@@ -2730,7 +2730,7 @@ LAB_0809d244:
     add        r0,r1,#0x1
     str        r0,[r5,#0x0]
     add        r0,r7,#0x0
-    bl         InitializeMusicPlayerTrack
+    bl         Clear64byte
     str        r6,[r7,#0x2c]
     strb       r4,[r7,#0x8]
     mov        r0,#0x80
