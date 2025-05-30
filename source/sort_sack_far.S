@@ -95,7 +95,7 @@ LAB_0300732e:
 LAB_03007348:
     add        r0,r5,#0x0
     mov        r1,#0x3
-    ldr        r5,PTR_div_03007408
+    ldr        r5,PTR___divsi3_03007408
     mov        lr,pc
     bx         r5
     add        r5,r0,#0x0
@@ -188,7 +188,7 @@ LAB_030073d6:
 LAB_030073f0:
     add        r0,r5,#0x0
     mov        r1,#0x3
-    ldr        r5,PTR_div_0300740c
+    ldr        r5,PTR___divsi3_0300740c
     mov        lr,pc
     bx         r5
     add        r5,r0,#0x0
@@ -199,8 +199,8 @@ LAB_030073f0:
     mov        r10,r0
     mov        pc,r7
 
-PTR_div_03007408:
-    .word div
+PTR___divsi3_03007408:
+    .word __divsi3
 
-PTR_div_0300740c:
-    .word div
+PTR___divsi3_0300740c:
+    .word __divsi3

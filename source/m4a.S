@@ -1767,7 +1767,7 @@ PTR_gMPlayMemAccArea_0809cc18:
 _ts m4aSoundMain
     push       {lr}
     ldr        r0,PTR_SoundMainRAM_0809cc28
-    bl         Call_R0_9e0fc
+    bl         _call_via_r0
     pop        {r0}
     bx         r0
 
@@ -2251,7 +2251,7 @@ _ts ClearSoundChannelTracks
     push       {lr}
     ldr        r1,PTR_gMPlayJumpTable_0809cf40
     ldr        r1,[r1,#0x0]
-    bl         Call_R1_9E100
+    bl         _call_via_r1
     pop        {r0}
     bx         r0
 
@@ -2266,7 +2266,7 @@ _ts Clear64byte
     push       {lr}
     ldr        r1,PTR_gMPlayJumpTable_0809cf54
     ldr        r1,[r1,#0x0]
-    bl         Call_R1_9E100
+    bl         _call_via_r1
     pop        {r0}
     bx         r0
 
@@ -2410,19 +2410,19 @@ _ts SampleFreqSet
     mov        r0,#0xc6
     lsl        r0,r0,#0x3
     add        r1,r5,#0x0
-    bl         div
+    bl         __divsi3
     strb       r0,[r4,#0xb]
     ldr        r0,INT_0809d0a0
     mul        r0,r5
     ldr        r1,INT_0809d0a4
     add        r0,r0,r1
     ldr        r1,INT_0809d0a8
-    bl         div
+    bl         __divsi3
     add        r1,r0,#0x0
     str        r1,[r4,#0x14]
     mov        r0,#0x80
     lsl        r0,r0,#0x11
-    bl         div
+    bl         __divsi3
     add        r0,#0x1
     asr        r0,r0,#0x1
     str        r0,[r4,#0x18]
@@ -2431,7 +2431,7 @@ _ts SampleFreqSet
     ldr        r4,PTR_REG_TM0CNT_L_0809d0b0
     ldr        r0,INT_0809d0b4
     add        r1,r5,#0x0
-    bl         div
+    bl         __divsi3
     neg        r0,r0
     strh       r0,[r4,#0x0]
     bl         m4aSoundVSyncOn
@@ -2601,7 +2601,7 @@ LAB_0809d182:
     lsl        r0,r5,#0x18
     lsr        r0,r0,#0x18
     ldr        r1,[r6,#0x2c]
-    bl         Call_R1_9E100
+    bl         _call_via_r1
     strb       r7,[r4,#0x0]
     add        r5,#0x1
     add        r4,#0x40
@@ -4461,7 +4461,7 @@ LAB_0809de0c:
     ldr        r2,[r0,#0x0]
     add        r0,r4,#0x0
     add        r1,r6,#0x0
-    bl         Call_R2_9e103
+    bl         _call_via_r2
     b          LAB_0809de26
 
     .align 2, 0
@@ -4489,7 +4489,7 @@ _ts ply_xcmd
     lsl        r3,r3,#0x2
     add        r3,r3,r2
     ldr        r2,[r3,#0x0]
-    bl         Call_R2_9e103
+    bl         _call_via_r2
     pop        {r0}
     bx         r0
 
@@ -4504,7 +4504,7 @@ _ts ply_xxx
     push       {lr}
     ldr        r2,PTR_gMPlayJumpTable_0809de5c
     ldr        r2,[r2,#0x0]
-    bl         Call_R2_9e103
+    bl         _call_via_r2
     pop        {r0}
     bx         r0
 

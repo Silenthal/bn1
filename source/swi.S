@@ -121,7 +121,7 @@ LAB_0809dfd4:
     add        r0,r4,#0x0
     add        r1,r5,#0x0
     add        r2,r6,#0x0
-    bl         Call_R3_9e108
+    bl         _call_via_r3
     add        sp,#0x80
     pop        {r4,r5,r6}
     pop        {r0}
@@ -245,7 +245,7 @@ LAB_0809e0a8:
     add        r0,r4,#0x0
     add        r1,r5,#0x0
     add        r2,r6,#0x0
-    bl         Call_R3_9e108
+    bl         _call_via_r3
     add        sp,#0xc0
     pop        {r4,r5,r6}
     pop        {r1}
@@ -282,19 +282,19 @@ LAB_0809e0f4:
     pop        {r1}
     bx         r1
 
-_ts Call_R0_9e0fc
+_ts _call_via_r0
     bx         r0
     nop
 
-_ts Call_R1_9E100
+_ts _call_via_r1
     bx         r1
     nop
 
-_ts Call_R2_9e103
+_ts _call_via_r2
     bx         r2
     nop
 
-_ts Call_R3_9e108
+_ts _call_via_r3
     bx         r3
     nop
     bx         r4
@@ -320,7 +320,7 @@ _ts Call_R3_9e108
     bx         lr
     nop
 
-_ts div
+_ts __divsi3
     cmp        r1,#0x0
     beq        LAB_0809e1c0
     push       {r4}
