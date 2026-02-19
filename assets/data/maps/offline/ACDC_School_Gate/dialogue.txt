@@ -3,49 +3,49 @@ section_count(0xEB)
 # 0x0A @ 0x6F174E
 section_start(0x0A)
 dialog_up("SternMan")
-text("<Don't dawdle!\nGet straight home!>\p")
+text("<Don't dawdle!\nGet straight home!>\\p")
 end(5)
 section_end()
 
 # 0x0B @ 0x6F1781
 section_start(0x0B)
 dialog_up("Girl")
-text("<I'm on feed duty.>\p")
+text("<I'm on feed duty.>\\p")
 end(5)
 section_end()
 
 # 0x14 @ 0x6F17B4
 section_start(0x14)
 dialog_up("BlueShirtBoy")
-text("<Aaack! I'm late\nagain!!>\p")
+text("<Aaack! I'm late\nagain!!>\\p")
 end()
 section_end()
 
 # 0x15 @ 0x6F17DF
 section_start(0x15)
 dialog_up("MegaMan")
-text("<Late again?\nWhat a surprise...>\p")
+text("<Late again?\nWhat a surprise...>\\p")
 end()
 section_end()
 
 # 0x1A @ 0x6F1819
 section_start(0x1A)
 dialog_up("OrangeShirtBoy")
-text("<These animals will\ndie if they don't\nget some water!>\p")
+text("<These animals will\ndie if they don't\nget some water!>\\p")
 end()
 section_end()
 
 # 0x1B @ 0x6F185F
 section_start(0x1B)
 dialog_up("PigtailsGirl")
-text("<I wonder if the\nplants will all\ndie...>\p")
+text("<I wonder if the\nplants will all\ndie...>\\p")
 end()
 section_end()
 
 # 0x1E @ 0x6F189C
 section_start(0x1E)
 dialog_up("Man")
-text("<Wa...water!!>\p")
+text("<Wa...water!!>\\p")
 end()
 section_end()
 
@@ -55,7 +55,7 @@ if_story("FLAG_STORY_DELETE_COLORMAN", 0x2E)
 if_story_in("FLAG_STORY_DELETE_PROTOMAN", "FLAG_STORY_DELETE_BOMBMAN", 0x32)
 if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x37)
 dialog_up("BlueShirtBoy")
-text("<Even when school is\nout,we still have to\nfeed the animals!>\p")
+text("<Even when school is\nout,we still have to\nfeed the animals!>\\p")
 end()
 section_end()
 
@@ -64,72 +64,72 @@ section_start(0x24)
 if_story_in("FLAG_STORY_DELETE_PROTOMAN", "FLAG_STORY_DELETE_BOMBMAN", 0x33)
 if_story_in("FLAG_STORY_BOMBMAN_BED", "FLAG_STORY_FINAL", 0x38)
 dialog_up("SternMan")
-text("<School's out.\nShouldn't be many\npeople here...>\p")
+text("<School's out.\nShouldn't be many\npeople here...>\\p")
 end()
 section_end()
 
 # 0x2E @ 0x6F1985
 section_start(0x2E)
 dialog_up("BlueShirtBoy")
-text("<These rabbits are so\nplump thanks to me!>\p")
+text("<These rabbits are so\nplump thanks to me!>\\p")
 cls()
-text("<I've been giving\nthem leftovers from\nlunch!>\p")
+text("<I've been giving\nthem leftovers from\nlunch!>\\p")
 cls()
-text("<Don't tell anyone,\nOK?>\p")
+text("<Don't tell anyone,\nOK?>\\p")
 end()
 section_end()
 
 # 0x32 @ 0x6F1A1A
 section_start(0x32)
 dialog_up("BlueShirtBoy")
-text("<The animals are\nacting strange,like\nthey're scared!>\p")
+text("<The animals are\nacting strange,like\nthey're scared!>\\p")
 end()
 section_end()
 
 # 0x33 @ 0x6F1A60
 section_start(0x33)
 dialog_up("SternMan")
-text("<Huh?\nSchool's out,son.>\p")
+text("<Huh?\nSchool's out,son.>\\p")
 cls()
-text("<I think that Ms.\nMari is the only\nteacher left here.>\p")
+text("<I think that Ms.\nMari is the only\nteacher left here.>\\p")
 end()
 section_end()
 
 # 0x37 @ 0x6F1ACE
 section_start(0x37)
 dialog_up("BlueShirtBoy")
-text("<No way!\nI'm staying here\nwith them!>\p")
+text("<No way!\nI'm staying here\nwith them!>\\p")
 end()
 section_end()
 
 # 0x38 @ 0x6F1B04
 section_start(0x38)
 dialog_up("SternMan")
-text("<I could close up the\nschool if Ms.Mari\nwould just leave...>\p")
+text("<I could close up the\nschool if Ms.Mari\nwould just leave...>\\p")
 end()
 section_end()
 
 # 0xDC @ 0x6F1C98
 section_start(0xDC)
 dialog_up()
-text("A teacher's car.\nThe most popular\ntype around\p")
+text("A teacher's car.\nThe most popular\ntype around\\p")
 cls()
-text("There seems to be\na jack in port for\nmaintenance here\p")
+text("There seems to be\na jack in port for\nmaintenance here\\p")
 end(5)
 section_end()
 
 # 0xDD @ 0x6F1D08
 section_start(0xDD)
 dialog_up()
-text("A bronze statue of\nthe principal\p")
+text("A bronze statue of\nthe principal\\p")
 cls()
-text("It was a gift from a\nmysterious group at\nthe school opening\p")
+text("It was a gift from a\nmysterious group at\nthe school opening\\p")
 end(5)
 section_end()
 
 # 0xDE @ 0x6F1D6F
 section_start(0xDE)
 dialog_up()
-text("A huge rabbit.\nWhat could cause it\nto grow so big?\p")
+text("A huge rabbit.\nWhat could cause it\nto grow so big?\\p")
 end(5)
 section_end()

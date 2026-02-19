@@ -13,29 +13,29 @@ section_end()
 # 0x01 @ 0x73E9FA
 section_start(0x01)
 cls(5)
-text("<OK! Roger!>\p")
+text("<OK! Roger!>\\p")
 end(5)
 section_end()
 
 # 0x05 @ 0x73EA19
 section_start(0x05)
 dialog_up("Lan")
-text("<Now that we got the\nIceblock,let's go a\nlitte farther!>\p")
+text("<Now that we got the\nIceblock,let's go a\nlitte farther!>\\p")
 end(5)
 section_end()
 
 # 0x06 @ 0x73EA62
 section_start(0x06)
 dialog_up("MegaMan")
-text("<Lan...PET's battery\nis running low. You\ncan only jack out>\p")
+text("<Lan...PET's battery\nis running low. You\ncan only jack out>\\p")
 cls()
-text("<one more time,so\nbeat the WWW virus\nfirst!>\p")
+text("<one more time,so\nbeat the WWW virus\nfirst!>\\p")
 end(5)
 section_end()
 
 # 0x07 @ 0x73EAE4
 section_start(0x07)
 dialog_up("MegaMan")
-text("<This is no time to\njack out! The\nrocket's launching!>\p")
+text("<This is no time to\njack out! The\nrocket's launching!>\\p")
 end()
 section_end()

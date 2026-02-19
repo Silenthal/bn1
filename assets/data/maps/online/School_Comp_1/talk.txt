@@ -6,27 +6,27 @@ if_story("FLAG_STORY_DEX_TALK", 0x05)
 if_story_in("FLAG_STORY_DOOR_1_UNLOCK", "FLAG_STORY_MEGAMAN_CAPTURE", 0x0A)
 if_story_in("FLAG_STORY_DELETE_NUMBERMAN", 0x57, 0x0F)
 dialog_up()
-text("Test message\p")
+text("Test message\\p")
 end(5)
 section_end()
 
 # 0x05 @ 0x6D0AE6
 section_start(0x05)
 dialog_up("Lan")
-text("<Reset the door's\nlock program!>\p")
+text("<Reset the door's\nlock program!>\\p")
 end()
 section_end()
 
 # 0x0A @ 0x6D0B1E
 section_start(0x0A)
 dialog_up("Lan")
-text("<Do you know where\nthe teacher's lounge\nserver is?>\p")
+text("<Do you know where\nthe teacher's lounge\nserver is?>\\p")
 end()
 section_end()
 
 # 0x0F @ 0x6D0B69
 section_start(0x0F)
 dialog_up("Lan")
-text("<Looks like not\nmuch is going on\nhere,huh?>\p")
+text("<Looks like not\nmuch is going on\nhere,huh?>\\p")
 end()
 section_end()

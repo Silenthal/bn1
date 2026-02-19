@@ -3,7 +3,7 @@ section_count(0x23)
 # 0x00 @ 0x729FFE
 section_start(0x00)
 dialog_up("MsMari")
-text("<It looks like\neveryone's Navi is\nonline!>\p")
+text("<It looks like\neveryone's Navi is\nonline!>\\p")
 cls(5)
 jump(0x01)
 section_end()
@@ -11,54 +11,54 @@ section_end()
 # 0x01 @ 0x72A03B
 section_start(0x01)
 dialog_up("NormalNaviPink", 1)
-text("<Okay,{d 10}I'm releasing{d 10}\nthe \"Mettool\" {d 10}data\nnow. Everyone{d 10} ready?>\p")
+text("<Okay,{d 10}I'm releasing{d 10}\nthe \"Mettool\" {d 10}data\nnow. Everyone{d 10} ready?>\\p")
 end(5)
 section_end()
 
 # 0x05 @ 0x72A0A1
 section_start(0x05)
 dialog_up("MsMari")
-text("<You lost?\nThat won't do...>\p")
+text("<You lost?\nThat won't do...>\\p")
 cls()
-text("<Let's do it again,\nfrom the beginning.>\p")
+text("<Let's do it again,\nfrom the beginning.>\\p")
 end(5)
 section_end()
 
 # 0x0A @ 0x72A109
 section_start(0x0A)
 dialog_up("MsMari")
-text("<Good job!!\nLet's go on to the\nnext lesson!>\p")
+text("<Good job!!\nLet's go on to the\nnext lesson!>\\p")
 end(5)
 section_end()
 
 # 0x0F @ 0x72A14F
 section_start(0x0F)
 dialog_up("MsMari")
-text("<You lost?\nThat won't do...>\p")
+text("<You lost?\nThat won't do...>\\p")
 cls()
-text("<Let's do it again,\nfrom the beginning.>\p")
+text("<Let's do it again,\nfrom the beginning.>\\p")
 end(5)
 section_end()
 
 # 0x14 @ 0x72A1B7
 section_start(0x14)
 dialog_up("MsMari")
-text("<Good job!!\nLet's go on to the\nnext lesson!>\p")
+text("<Good job!!\nLet's go on to the\nnext lesson!>\\p")
 end(5)
 section_end()
 
 # 0x19 @ 0x72A1FD
 section_start(0x19)
 dialog_up("MsMari")
-text("<You lost?\nThat won't do...>\p")
+text("<You lost?\nThat won't do...>\\p")
 cls()
-text("<Let's do it again,\nfrom the beginning.>\p")
+text("<Let's do it again,\nfrom the beginning.>\\p")
 end(5)
 section_end()
 
 # 0x1E @ 0x72A265
 section_start(0x1E)
 dialog_up("MsMari")
-text("<Good job!!!\nThat's all for\ntoday's class!>\p")
+text("<Good job!!!\nThat's all for\ntoday's class!>\\p")
 end(5)
 section_end()

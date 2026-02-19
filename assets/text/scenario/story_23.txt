@@ -3,7 +3,7 @@ section_count(0x7)
 # 0x00 @ 0x72E252
 section_start(0x00)
 dialog_up("Mayl")
-text("<Hey! You're late!>\p")
+text("<Hey! You're late!>\\p")
 cls()
 jump(0x01)
 section_end()
@@ -11,7 +11,7 @@ section_end()
 # 0x01 @ 0x72E279
 section_start(0x01)
 dialog_up("Lan")
-text("<Sorrysorry!>\p")
+text("<Sorrysorry!>\\p")
 end()
 section_end()
 

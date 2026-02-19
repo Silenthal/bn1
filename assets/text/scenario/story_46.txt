@@ -3,6 +3,6 @@ section_count(0x1)
 # 0x00 @ 0x732C4E
 section_start(0x00)
 dialog_up("Lan")
-text("<Two more to go!>\p")
+text("<Two more to go!>\\p")
 end()
 section_end()

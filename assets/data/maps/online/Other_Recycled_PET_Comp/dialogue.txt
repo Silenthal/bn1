@@ -3,23 +3,23 @@ section_count(0xA)
 # 0x00 @ 0x721AA8
 section_start(0x00)
 dialog_up("MrProg")
-text("<This {key PET} is made\nfrom recycled\nplastics!>\p")
+text("<This {key PET} is made\nfrom recycled\nplastics!>\\p")
 cls()
-text("<At last,a {key PET} which\nis safe for the\nenvironment!>\p")
+text("<At last,a {key PET} which\nis safe for the\nenvironment!>\\p")
 end(5)
 section_end()
 
 # 0x01 @ 0x721B1D
 section_start(0x01)
 dialog_up("MrProg")
-text("<We must be careful\nto recycle\neverything we can!>\p")
+text("<We must be careful\nto recycle\neverything we can!>\\p")
 end(5)
 section_end()
 
 # 0x02 @ 0x721B5E
 section_start(0x02)
 dialog_up()
-text("MegaMan accessed the\nmystery data...\p")
+text("MegaMan accessed the\nmystery data...\\p")
 cls()
 set_flag(FLAG_ITEM_OTHER_RECYCLED_PET_COMP_HPMEMORY)
 pc_anim_start(50)

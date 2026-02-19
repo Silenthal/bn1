@@ -3,7 +3,7 @@ section_count(0xEB)
 # 0x00 @ 0x6F39EE
 section_start(0x00)
 dialog_up("Mayl")
-text("<Lan? What's up?\nDon't go peeking\nin my room,now!>\p")
+text("<Lan? What's up?\nDon't go peeking\nin my room,now!>\\p")
 end(5)
 section_end()
 
@@ -21,50 +21,50 @@ section_end()
 section_start(0x0F)
 if_story_in("FLAG_STORY_POLAR_BEAR", "FLAG_STORY_TRUNK_FIND", 0x14)
 dialog_up("Mayl")
-text("<Looks like there's\nstill no water...>\p")
+text("<Looks like there's\nstill no water...>\\p")
 end()
 section_end()
 
 # 0x14 @ 0x6F3ADB
 section_start(0x14)
 dialog_up("Mayl")
-text("<Looks like this\nwater isn't\ndrinkable...>\p")
+text("<Looks like this\nwater isn't\ndrinkable...>\\p")
 end()
 section_end()
 
 # 0xDC @ 0x6F3CA5
 section_start(0xDC)
 dialog_up()
-text("Greenery really\nhelps me to relax\p")
+text("Greenery really\nhelps me to relax\\p")
 end(5)
 section_end()
 
 # 0xDD @ 0x6F3CCE
 section_start(0xDD)
 dialog_up()
-text("That sofa looks\nmighty comfortable\p")
+text("That sofa looks\nmighty comfortable\\p")
 end(5)
 section_end()
 
 # 0xDE @ 0x6F3CF8
 section_start(0xDE)
 dialog_up()
-text("Mayl's piano.\nLooks like you\ncan jack in here\p")
+text("Mayl's piano.\nLooks like you\ncan jack in here\\p")
 end(5)
 section_end()
 
 # 0xDF @ 0x6F3D2F
 section_start(0xDF)
 dialog_up()
-text("It would be rude\nto open someone\nelse's refrigerator\p")
+text("It would be rude\nto open someone\nelse's refrigerator\\p")
 end(5)
 section_end()
 
 # 0xE0 @ 0x6F3D6C
 section_start(0xE0)
 dialog_up()
-text("This type of\ncontrol panel\p")
+text("This type of\ncontrol panel\\p")
 cls()
-text("doesn't have a\njack in port\p")
+text("doesn't have a\njack in port\\p")
 end(5)
 section_end()

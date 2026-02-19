@@ -3,7 +3,7 @@ section_count(0x1)
 # 0x00 @ 0x71519A
 section_start(0x00)
 dialog_up()
-text("MegaMan accessed the\nmystery data...\p")
+text("MegaMan accessed the\nmystery data...\\p")
 cls()
 set_flag(FLAG_ITEM_SCHOOL_WATERWORKS_COMP_4_MCANNON_L)
 pc_anim_start(50)

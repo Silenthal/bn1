@@ -3,30 +3,30 @@ section_count(0xEB)
 # 0x00 @ 0x6E88BE
 section_start(0x00)
 dialog_up("Man")
-text("<Oh,the children are\nscared,poor things.>\p")
+text("<Oh,the children are\nscared,poor things.>\\p")
 cls()
-text("<Someone must do\nsomething,but I \ncan't leave them!>\p")
+text("<Someone must do\nsomething,but I \ncan't leave them!>\\p")
 end(5)
 section_end()
 
 # 0x01 @ 0x6E8935
 section_start(0x01)
 dialog_up("BlueShirtBoy")
-text("<I'm scared!>\p")
+text("<I'm scared!>\\p")
 end(5)
 section_end()
 
 # 0x02 @ 0x6E8952
 section_start(0x02)
 dialog_up("PigtailsGirl")
-text("<I hate this noise!>\p")
+text("<I hate this noise!>\\p")
 end(5)
 section_end()
 
 # 0x03 @ 0x6E8975
 section_start(0x03)
 dialog_up("BlueShirtBoy")
-text("<I'll have bad\ndreams,I'm sure!>\p")
+text("<I'll have bad\ndreams,I'm sure!>\\p")
 end(5)
 section_end()
 
@@ -43,79 +43,79 @@ section_end()
 # 0x05 @ 0x6E89EE
 section_start(0x05)
 dialog_up("PigtailsGirl")
-text("*bawls*\p")
+text("*bawls*\\p")
 end()
 section_end()
 
 # 0x06 @ 0x6E8A03
 section_start(0x06)
 dialog_up("BlueShirtBoy")
-text("*cries*\p")
+text("*cries*\\p")
 end()
 section_end()
 
 # 0xDC @ 0x6E8BC2
 section_start(0xDC)
 dialog_up()
-text("It's always nice to\nbe greeted warmly!\p")
+text("It's always nice to\nbe greeted warmly!\\p")
 end(5)
 section_end()
 
 # 0xDD @ 0x6E8BF2
 section_start(0xDD)
 dialog_up()
-text("A very old\nblackboard\p")
+text("A very old\nblackboard\\p")
 cls()
-text("It's old,but you\ncan still jack in\nto it\p")
+text("It's old,but you\ncan still jack in\nto it\\p")
 end(5)
 section_end()
 
 # 0xDE @ 0x6E8C3D
 section_start(0xDE)
 dialog_up()
-text("A statue created\nby the first\nprincipal,they say\p")
+text("A statue created\nby the first\nprincipal,they say\\p")
 end(5)
 section_end()
 
 # 0xDF @ 0x6E8C76
 section_start(0xDF)
 dialog_up()
-text("A class schedule.\n1st graders only\nhave 4 classes a day\p")
+text("A class schedule.\n1st graders only\nhave 4 classes a day\\p")
 end(5)
 section_end()
 
 # 0xE0 @ 0x6E8CB6
 section_start(0xE0)
 dialog_up()
-text("Some kind of larvae\nare crawling inside\p")
+text("Some kind of larvae\nare crawling inside\\p")
 end(5)
 section_end()
 
 # 0xE1 @ 0x6E8CE5
 section_start(0xE1)
 dialog_up()
-text("Two of the guppies\nare floating bellyー\nup\p")
+text("Two of the guppies\nare floating bellyー\nup\\p")
 end(5)
 section_end()
 
 # 0xE2 @ 0x6E8D16
 section_start(0xE2)
 dialog_up()
-text("A diary of guppy\nraising\p")
+text("A diary of guppy\nraising\\p")
 end(5)
 section_end()
 
 # 0xE3 @ 0x6E8D36
 section_start(0xE3)
 dialog_up()
-text("A 1st grader's desk.\nWow,these are\nsmall!\p")
+text("A 1st grader's desk.\nWow,these are\nsmall!\\p")
 end(5)
 section_end()
 
 # 0xE4 @ 0x6E8D6B
 section_start(0xE4)
 dialog_up()
-text("The teacher's desk\p")
+text("The teacher's desk\\p")
 end(5)
 section_end()
 
@@ -125,8 +125,8 @@ if_story_in("FLAG_STORY_DELETE_NUMBERMAN", 0x5F, 0xDD)
 if_story_in("FLAG_STORY_FIREMAN_BED", 0x1F, 0xFF, 0xDD)
 if_flag(0x95, 0xFF, 0xDD)
 dialog_up()
-text("A WWW reーeducation\nprogram is playing!\nPretty scary stuff!\p")
+text("A WWW reーeducation\nprogram is playing!\nPretty scary stuff!\\p")
 cls()
-text("Looks like you can\njack in here!\p")
+text("Looks like you can\njack in here!\\p")
 end(5)
 section_end()

@@ -3,14 +3,14 @@ section_count(0x8)
 # 0x00 @ 0x641FDC
 section_start(0x00)
 dialog_up("Lan")
-text("<MegaMan! I'm sending\nmore chip data!\nGive me one turn!>\p")
+text("<MegaMan! I'm sending\nmore chip data!\nGive me one turn!>\\p")
 end(5)
 section_end()
 
 # 0x01 @ 0x642026
 section_start(0x01)
 dialog_up("Lan")
-text("<I can't send\nany more data...>\p")
+text("<I can't send\nany more data...>\\p")
 end(5)
 section_end()
 
@@ -44,7 +44,7 @@ section_end()
 # 0x06 @ 0x64207C
 section_start(0x06)
 dialog_up("MegaMan")
-text("<Transmission error!\nCancelling battle...>\p")
+text("<Transmission error!\nCancelling battle...>\\p")
 end(5)
 section_end()
 

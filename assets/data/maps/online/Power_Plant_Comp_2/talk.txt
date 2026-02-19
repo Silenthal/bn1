@@ -5,20 +5,20 @@ section_start(0x00)
 if_story_in("FLAG_STORY_CONTROL_ROOM", "FLAG_STORY_BATTERIES_DONE", 0xB4)
 if_story_in("FLAG_STORY_DELETE_PROTOMAN", "FLAG_STORY_FINAL", 0xBE)
 dialog_up()
-text("Test message\p")
+text("Test message\\p")
 end()
 section_end()
 
 # 0xB4 @ 0x6D3E68
 section_start(0xB4)
 dialog_up("Lan")
-text("<MegaMan! Hurry to\nthe power plant,\nor...>\p")
+text("<MegaMan! Hurry to\nthe power plant,\nor...>\\p")
 end()
 section_end()
 
 # 0xBE @ 0x6D3EB7
 section_start(0xBE)
 dialog_up("Lan")
-text("<Looks like not\nmuch is going on\nhere,huh?>\p")
+text("<Looks like not\nmuch is going on\nhere,huh?>\\p")
 end()
 section_end()
