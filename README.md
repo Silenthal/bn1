@@ -10,7 +10,7 @@ It uses the following ROM as a base:
 
 ### Manual
 
-Python 3, devkitPro, and make are required. For the Python tools, the pip packages `pypng` and `pycparser` are required and can be installed with `python3 -m pip install -r requirements.txt`.
+Python 3 with the `venv` module, devkitPro, and make are required.
 
 To build, run `build.py`. The output GBA file will be put in the `build` directory.
 

@@ -2,8 +2,9 @@
 #define MMBN_H
 
 typedef unsigned char   undefined;
-
+#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 202311L
 typedef unsigned char    bool;
+#endif
 typedef unsigned char    byte;
 typedef unsigned int    dword;
 typedef long long    longlong;

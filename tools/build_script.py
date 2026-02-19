@@ -892,7 +892,7 @@ def bytes_flag(flagId: str | int):
             num = auto_int(flagId)
             return [num]
         except ValueError:
-            if flagId not in globals().keys:
+            if flagId not in globals().keys():
                 exit(f"Unrecognized flag {flagId}")
             return [globals()[flagId]]
     else:

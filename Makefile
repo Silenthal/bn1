@@ -9,6 +9,7 @@ SHA512SUM			:= sha512sum
 
 TARGET				:= mmbn
 BASE				:= base
+PYTHON_VENV			:= .venv
 
 TITLE				:= MEGAMAN_BN
 CODE				:= AREE
@@ -35,11 +36,12 @@ LDFLAGS				:= -nostdlib -T $(MAIN_LD_SCRIPT) -Wl,-Map=$(BUILD)/$(TARGET).map
 VPATH				:= $(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) $(ASSETS) $(SOUND) $(BUILD)
 
 # Programs
-GEN_PAD			:= python3 $(CURDIR)/$(TOOLS)/generate_padding.py
-GEN_OFFSETS		:= python3 $(CURDIR)/$(TOOLS)/generate_offsets.py
-PROGRESS		:= python3 $(CURDIR)/$(TOOLS)/progress.py
-PARSE_FIXED		:= python3 $(CURDIR)/$(TOOLS)/parse_fixed.py
-QUICK_COMP		:= python3 $(CURDIR)/$(TOOLS)/quick_comp.py
+PYTHON			?= python3
+GEN_PAD			:= $(PYTHON) $(CURDIR)/$(TOOLS)/generate_padding.py
+GEN_OFFSETS		:= $(PYTHON) $(CURDIR)/$(TOOLS)/generate_offsets.py
+PROGRESS		:= $(PYTHON) $(CURDIR)/$(TOOLS)/progress.py
+PARSE_FIXED		:= $(PYTHON) $(CURDIR)/$(TOOLS)/parse_fixed.py
+QUICK_COMP		:= $(PYTHON) $(CURDIR)/$(TOOLS)/quick_comp.py
 
 MMBN_H			:= $(CURDIR)/include/mmbn.h
 OUTPUT			:= $(CURDIR)/$(BUILD)/$(TARGET)
@@ -73,13 +75,14 @@ check: $(BUILD)
 	@$(PROGRESS) -mp $(DEPSDIR)/$(TARGET).map
 
 depend: $(DFILES) $(BUILD)/offsets.h
-	@[ -d $(BUILD) ] || mkdir -p $(BUILD)
+	@[ -d $(BUILD) ] || mkdir -p $(BUILD) PYTHON=$(PYTHON)
 
 clean:
 	@echo cleaning up build files and assets ...
 	@find . \( -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.script' -o -iname '*.sprite.lz' -o -iname '*.4bpp.lz' -o -iname '*.scb' -o -iname '*.scbin' \) -exec rm {} +
 	@find . \( -iname '*.clb' -o -iname '*.pib' -o -iname '*.srb' -o -iname '*.talk' -o -iname '*.dialogue' \) -exec rm {} +
 	@$(RM) -r $(BUILD)/*
+	@$(RM) -r $(PYTHON_VENV)/*
 
 tidy:
 	@echo cleaning up non-asset build files ...

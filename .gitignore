@@ -2,6 +2,7 @@ build/
 base/
 gensrc/
 __pycache__/
+.venv/
 .vscode/
 *.gba
 *.elf
