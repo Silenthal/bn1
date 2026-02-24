@@ -87,7 +87,7 @@ _nt S_Story_18_3
     ldr        r1,DAT_080873dc
     sub        r0,r1,r0
     mov        r1,#0x20
-    bl         SWI_Div
+    bl         Div
     pop        {r1,r5}
     str        r0,[r5,#0x1C]
     mov        r0,#0x0

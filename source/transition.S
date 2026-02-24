@@ -143,7 +143,7 @@ _ts JackIn_PlayAnimation
     push       {r0,r1,r3,r5}
     add        r0,r2,#0x0
     ldr        r1,PTR_gTempMemory_08017870
-    bl         SWI_LZ77UnCompWram
+    bl         LZ77UnCompWram
     pop        {r0,r1,r3,r5}
     push       {r0,r3,r5}
     ldr        r0,PTR_gTempMemory_08017870

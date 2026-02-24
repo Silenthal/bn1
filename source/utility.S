@@ -243,14 +243,14 @@ _ts ArrayShuffle
     bl         Rng_RandomInt
     pop        {r1}
     push       {r1}
-    bl         SWI_Div
+    bl         Div
     add        r3,r1,#0x0
     pop        {r1}
     push       {r1,r3}
     bl         Rng_RandomInt
     pop        {r1}
     push       {r1}
-    bl         SWI_Div
+    bl         Div
     add        r4,r1,#0x0
     pop        {r1,r3}
     pop        {r0,r2}
@@ -275,7 +275,7 @@ _ts GetRandomElementOfArray
     push       {r1,r7}
     bl         Rng_RandomInt
     pop        {r1,r7}
-    bl         SWI_Div
+    bl         Div
     ldrb       r0,[r7,r1]
     pop        {pc}
 
@@ -429,17 +429,17 @@ _ts FrameTimeToRealTime_Reg
     sub        sp,#0x8
     @ hours
     ldr        r1,=(60 * 60 * 60)
-    bl         SWI_Div
+    bl         Div
     str        r0,[sp,#0x0]
     add        r0,r1,#0x0
     @ minutes
     ldr        r1,=(60 * 60)
-    bl         SWI_Div
+    bl         Div
     str        r0,[sp,#0x4]
     add        r0,r1,#0x0
     @ seconds
     ldr        r1,=60
-    bl         SWI_Div
+    bl         Div
     add        r3,r0,#0x0
     add        r4,r1,#0x0
     ldr        r1,[sp,#0x0]

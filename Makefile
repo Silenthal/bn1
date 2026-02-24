@@ -22,7 +22,7 @@ SOURCES				:= $(sort $(dir $(wildcard $(SOURCE)/ $(SOURCE)/*/ $(SOURCE)/*/*/ $(S
 TOOLS				:= tools
 ASSETS				:= $(CURDIR)/assets
 SOUND				:= $(CURDIR)/sound
-INCLUDES			:= include assets build sound
+INCLUDES			:= include assets build sound libagbsyscall
 BASEDIR				:= base
 BASE_DEFINE			:= BASE
 GEN_LD_SCRIPT		:= include.ld
@@ -61,11 +61,11 @@ S_DEPEND		:= $(patsubst $(SOURCE)/%.S,$(BUILD)/%.S.d,$(SFILES))
 DFILES			:= $(C_DEPEND) $(S_DEPEND)
 INCLUDE			:= $(foreach dir,$(INCLUDES),-iquote $(CURDIR)/$(dir))
 ASINCLUDE		:= -I $(CURDIR)/$(BASEDIR) $(foreach dir,$(INCLUDES),-I $(CURDIR)/$(dir))
-LDINCLUDE		:= -L $(CURDIR) $(foreach dir,$(INCLUDES),-L $(CURDIR)/$(dir))
+LDINCLUDE		:= -L $(CURDIR) $(foreach dir,$(INCLUDES),-L $(CURDIR)/$(dir)) -lagbsyscall
 
 LD				:= $(CC)
 
-.PHONY: $(BUILD) pre tidy offsets depend clean check no-check
+.PHONY: $(BUILD) pre tidy offsets depend clean check no-check libagbsyscall
 
 no-check: $(BUILD)
 
@@ -83,12 +83,16 @@ clean:
 	@find . \( -iname '*.clb' -o -iname '*.pib' -o -iname '*.srb' -o -iname '*.talk' -o -iname '*.dialogue' \) -exec rm {} +
 	@$(RM) -r $(BUILD)/*
 	@$(RM) -r $(PYTHON_VENV)/*
+	@$(MAKE) clean -C libagbsyscall
 
 tidy:
 	@echo cleaning up non-asset build files ...
 	@$(RM) -r $(BUILD)/*
 
 offsets: $(BUILD)/offsets.h
+
+libagbsyscall:
+	@$(MAKE) -C libagbsyscall
 
 $(BUILD)/offsets.h: $(BUILD)/offsets.c
 	@$(CC) $(INCLUDE) $(CFLAGS) -S -o /dev/stdout $< | \
@@ -110,10 +114,10 @@ $(OUTPUT).elf: $(OFILES)
 	@echo built ... $(notdir $@)
 	@gbafix -p -t"$(TITLE)" -c$(CODE) -m$(MAKER) -r$(VERSION) $@
 
-%.elf:
+%.elf: libagbsyscall
 	@echo Linking cartridge
 	@cp -f $(MAIN_LD_SCRIPT) $(BUILD)/.
-	@$(LD) $(LDINCLUDE) $(LDFLAGS) $(OFILES) -o $@
+	$(LD) $(LDFLAGS) $(OFILES) $(LDINCLUDE) -o $@
 
 -include $(BUILD)/*.d
 

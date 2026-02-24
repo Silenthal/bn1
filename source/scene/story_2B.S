@@ -142,7 +142,7 @@ _nt S_Story_2B_5
     ldr        r1,INT_08089fa4
     sub        r0,r1,r0
     mov        r1,#0x20
-    bl         SWI_Div
+    bl         Div
     pop        {r2,r5}
     mov        r0,#0x0
     str        r0,[r5,#0x18]
@@ -151,7 +151,7 @@ _nt S_Story_2B_5
     ldr        r1,DAT_08089fa8
     sub        r0,r1,r0
     mov        r1,#0x4
-    bl         SWI_Div
+    bl         Div
     pop        {r5}
     str        r0,[r5,#0x1C]
     mov        r0,#0x0

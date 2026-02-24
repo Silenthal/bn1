@@ -659,7 +659,7 @@ _ts R_Megalian_GetNextMovePanel
     push       {r1}
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     mov        r0,sp
     ldrb       r0,[r0,r1]
     bl         Field_IndexToCellXY
@@ -717,7 +717,7 @@ LAB_08066f32:
     bl         Rng_RandomInt
     pop        {r3}
     add        r1,r3,#0x0
-    bl         SWI_Div
+    bl         Div
     add        r2,r1,#0x0
     pop        {r1}
     mov        r4,sp
@@ -757,7 +757,7 @@ LAB_08066f82:
     bl         Rng_RandomInt
     pop        {r3}
     add        r1,r3,#0x0
-    bl         SWI_Div
+    bl         Div
     add        r2,r1,#0x0
     pop        {r1}
     mov        r4,sp

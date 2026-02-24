@@ -1420,7 +1420,7 @@ LAB_080595b4:
     push       {r1}
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     pop        {r0,r2}
     ldrb       r3,[r0,r2]
     strb       r3,[r0,r1]

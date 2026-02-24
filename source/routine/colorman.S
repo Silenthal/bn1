@@ -589,7 +589,7 @@ _ts R_ColorMan_1_7_0_StartMove
 LAB_080637f4:
     str        r2,[r5,#Actor_diff_y]
     add        r1,r2,#0x0
-    bl         SWI_Div
+    bl         Div
     tst        r1,r1
     beq        LAB_08063802
     add        r0,#0x1

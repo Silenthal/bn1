@@ -203,7 +203,7 @@ _ts NPC_1_1_0_CalcNextMove
     ldr        r0,DAT_08081fa4
     ldrb       r1,[r5,#NPC_family_family]
     push       {r5}
-    bl         SWI_Div
+    bl         Div
     pop        {r5}
     ldr        r1,DAT_08081fb0
     add        r0,r0,r1

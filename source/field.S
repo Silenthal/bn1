@@ -251,8 +251,8 @@ LAB_08000dda:
     pop        {r5,pc}
 LAB_08000de6:
     lsr        r1,r6,#0x8
-    bl         SWI_Div
-    bl         SWI_Sqrt
+    bl         Div
+    bl         Sqrt
     mov        r2,#0x0
     mov        r1,#0xff
     tst        r0,r1
@@ -275,11 +275,11 @@ LAB_08000e02:
     add        r5,r2,#0x0
     mul        r2,r5
     add        r0,r1,r2
-    bl         SWI_Sqrt
+    bl         Sqrt
     lsl        r0,r0,#0x8
     push       {r4}
     add        r1,r4,#0x0
-    bl         SWI_Div
+    bl         Div
     pop        {r4}
     lsr        r4,r4,#0x1
     cmp        r1,r4
@@ -293,7 +293,7 @@ LAB_08000e30:
     ldr        r0,[r0,#0x0]
     sub        r0,r3,r0
     push       {r1}
-    bl         SWI_Div
+    bl         Div
     pop        {r1}
     neg        r2,r6
     mul        r2,r1
@@ -322,7 +322,7 @@ _nt Field_CalculateTrajectoryXY
     push       {r1,r2}
     lsl        r0,r3,#0x1
     neg        r1,r4
-    bl         SWI_Div
+    bl         Div
     lsr        r3,r3,#0x1
     cmp        r1,r3
     bmi        LAB_08000e6a
@@ -332,14 +332,14 @@ LAB_08000e6a:
     push       {r0,r1}
     add        r1,r0,#0x0
     add        r0,r2,#0x0
-    bl         SWI_Div
+    bl         Div
     add        r2,r0,#0x0
     pop        {r0,r1}
     push       {r0,r2}
     add        r2,r1,#0x0
     add        r1,r0,#0x0
     add        r0,r2,#0x0
-    bl         SWI_Div
+    bl         Div
     add        r1,r0,#0x0
     pop        {r0,r2}
     pop        {pc}
@@ -1375,7 +1375,7 @@ LAB_080014d6:
     bl         Rng_RandomInt
     pop        {r2,r7}
     add        r1,r2,#0x0
-    bl         SWI_DivMod
+    bl         Mod
     ldrb       r0,[r7,r0]
     bl         Field_IndexToCellXY
     add        sp,#0x4
@@ -1585,7 +1585,7 @@ LAB_08001628:
     sub        r0,r0,r3
     ldr        r2,ptrListEntitySize
     ldr        r1,[r2,r4]
-    bl         SWI_Div
+    bl         Div
     add        r1,r0,#0x0
     ldr        r2,PTR_DAT_08001644
     ldrb       r0,[r2,r4]

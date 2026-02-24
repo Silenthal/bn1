@@ -45,13 +45,13 @@ _ts Credits_0_Init
     ldr        r0,[r7,#GameStats_gameTimer]
     ldr        r1,framesPerHour
     push       {r5}
-    bl         SWI_Div
+    bl         Div
     pop        {r5}
     strb       r0,[r5,#0x9]
     add        r0,r1,#0x0
     ldr        r1,INT_080218ac
     push       {r5}
-    bl         SWI_Div
+    bl         Div
     pop        {r5}
     strb       r0,[r5,#0xa]
     push       {r5}

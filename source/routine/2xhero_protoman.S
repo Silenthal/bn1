@@ -305,14 +305,14 @@ LAB_0806eac6:
     bls        LAB_0806eb08
     push       {r0,r3}
     lsr        r0,r0,#0x10
-    bl         SWI_DivMod
+    bl         Mod
     add        r7,r0,#0x0
     pop        {r0,r3}
     add        r7,r7,r3
     lsl        r0,r0,#0x10
     lsr        r0,r0,#0x10
     mov        r1,#0x3
-    bl         SWI_DivMod
+    bl         Mod
     add        r1,r0,#0x1
     add        r0,r7,#0x0
     bl         Battle_CellCoordsToSprite

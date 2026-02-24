@@ -377,7 +377,7 @@ LAB_0806c638:
     bl         Rng_RandomInt
     pop        {r2,r7}
     add        r1,r2,#0x0
-    bl         SWI_DivMod
+    bl         Mod
     lsl        r2,r0,#0x1
     ldrb       r0,[r7,r2]
     add        r2,#0x1

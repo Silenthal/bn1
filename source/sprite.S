@@ -963,7 +963,7 @@ LAB_0800286a:
     mov        r0,r8
     @ r0 is the pointer to the sprite from listSpritePtr
     @ r1 is the dest pointed to by nextPtr
-    bl         SWI_LZ77UnCompWram
+    bl         LZ77UnCompWram
     pop        {r1,r2,r4,r5,r6}
     add        r1,r1,r2
     @ Store pointer to following block of free space to next
@@ -1088,7 +1088,7 @@ LAB_0800290e:
     strb       r3,[r5,#SpriteLzDetails_spriteCount]
     push       {r1,r2,r4,r5,r6}
     mov        r0,r8
-    bl         SWI_LZ77UnCompWram
+    bl         LZ77UnCompWram
     pop        {r1,r2,r4,r5,r6}
     add        r1,r1,r2
     @ Store pointer to following block of free space to next

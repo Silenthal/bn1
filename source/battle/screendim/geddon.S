@@ -127,7 +127,7 @@ _ts SD_Geddon_0_0
     push       {r1}
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     pop        {r0}
     ldrb       r0,[r0,r1]
     bl         Field_IndexToCellXY
@@ -188,7 +188,7 @@ _ts SD_Geddon_0_1
     push       {r1}
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     pop        {r0}
     ldrb       r0,[r0,r1]
     bl         Field_IndexToCellXY

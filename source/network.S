@@ -37,7 +37,7 @@ _ts Sio_Init
     ldr        r2,CpuSetControl_0809bd24
     mov        r0,sp
     add        r1,r4,#0x0
-    bl         SWI_CpuSet
+    bl         CpuSet
     mov        r0,#0xff
     strb       r0,[r4,#0xa]
     mov        r0,#0x1
@@ -278,7 +278,7 @@ _ts Sio_SendData
     ldr        r1,[r4,#0x28]
     add        r1,#0x4
     ldr        r2,CpuSetControl_0809be5c
-    bl         SWI_CpuSet
+    bl         CpuSet
     mov        r2,#0x0
     ldr        r1,[r4,#0x28]
 LAB_0809be38:
@@ -398,7 +398,7 @@ LAB_0809bed8:
     lsl        r1,r5,#0x4
     add        r1,r10
     ldr        r2,CpuSetControl_0809bf84
-    bl         SWI_CpuSet
+    bl         CpuSet
     add        r0,r7,#0x0
     lsl        r0,r5
     ldrb       r1,[r6,#0x3]

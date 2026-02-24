@@ -1481,7 +1481,7 @@ _nt Battle_SetPostBattleHP
     ldrb       r0,[r7,#0x5]
     mul        r0,r4
     mov        r1,#0xa
-    bl         SWI_Div
+    bl         Div
     ldr        r7,[r5,#0x40]
     ldrh       r1,[r7,#0x20]
     add        r1,r1,r0

@@ -39,7 +39,7 @@ _ts A_Mine_0_Init
     bl         SpritePtr_NoShadow
     ldrb       r0,[r5,#Attack_family_family]
     mov        r1,#0x3
-    bl         SWI_Div
+    bl         Div
     add        r0,r1,#0x0
     bl         SpritePtr_SetPaletteIndex
     mov        r0,#0x0
@@ -231,7 +231,7 @@ LAB_08075920:
     bge        LAB_0807595e
     add        r0,r1,#0x0
     ldrb       r1,[r5,#Attack_b1b]
-    bl         SWI_Div
+    bl         Div
     mov        r0,#0x64
     add        r0,r0,r5
     ldrb       r0,[r0,r1]

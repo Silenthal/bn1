@@ -199,7 +199,7 @@ _ts Map_LoadBackgroundData
     push       {r0}
     add        r0,#0x10
     ldr        r1,PTR_gDecompDest_080118c8
-    bl         SWI_LZ77UnCompWram
+    bl         LZ77UnCompWram
     pop        {r6}
     ldr        r7,PTR_gDecompDest_080118c8
     ldr        r0,[r6,#0x0]

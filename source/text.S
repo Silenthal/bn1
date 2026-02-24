@@ -2749,7 +2749,7 @@ LAB_080149dc:
     lsr        r1,r1,#0x4
     ldr        r7,PTR_BYTE_ARRAY_08014a34
     ldrb       r1,[r7,r1]
-    bl         SWI_Div
+    bl         Div
     ldr        r7,PTR_AreaIdPack_ARRAY_08014a40
     lsl        r1,r1,#0x1
     add        r7,r7,r1

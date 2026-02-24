@@ -1151,7 +1151,7 @@ LAB_08016328:
     lsl        r1,r1,#0x7
     add        r1,r1,r2
     ldr        r2,UINT_08016374
-    bl         SWI_CpuSet
+    bl         CpuSet
     pop        {r1,r3,r4}
     tst        r6,r6
     beq        LAB_08016348
@@ -1223,7 +1223,7 @@ LAB_080163b4:
     lsl        r3,r3,#0x7
     add        r1,r1,r3
     ldr        r2,CpuSetControl_080163f0
-    bl         SWI_CpuSet
+    bl         CpuSet
     pop        {r3}
     ldr        r2,DAT_080163ec
     lsl        r1,r3,#0x2
@@ -1767,7 +1767,7 @@ FUN_080167d4:
     add        r0,#0x1
     strb       r0,[r5,#0x12]
     mov        r1,#0xe
-    bl         SWI_Div
+    bl         Div
     cmp        r0,#0x6
     bmi        LAB_080167e8
     mov        r0,#0x0

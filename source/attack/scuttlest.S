@@ -767,7 +767,7 @@ LAB_0807847e:
     bl         Rng_RandomInt
     pop        {r3}
     add        r1,r3,#0x0
-    bl         SWI_Div
+    bl         Div
     mov        r4,sp
     ldrb       r1,[r4,r1]
     mov        r0,#0x4

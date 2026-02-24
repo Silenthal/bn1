@@ -572,7 +572,7 @@ _ts R_Bass_1_6_1
     beq        LAB_0806d0d0
     bl         Rng_RandomInt
     mov        r1,#0x3
-    bl         SWI_Div
+    bl         Div
     strb       r1,[r5,#Actor_bc]
     mov        r0,#0x1e
     mul        r0,r1
@@ -687,7 +687,7 @@ _ts R_Bass_ExplosionGreen_1
     bne        LAB_0806d1b0
     bl         Rng_RandomInt
     mov        r1,#0x3
-    bl         SWI_Div
+    bl         Div
     add        r1,#0x1
     mov        r0,#0x5
     mov        r2,#0x96
@@ -1041,7 +1041,7 @@ _ts R_Bass_GetNextMovePanel
     push       {r1}
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     mov        r7,sp
     ldrb       r0,[r7,r1]
     bl         Field_IndexToCellXY
@@ -1119,7 +1119,7 @@ _ts R_Bass_GetNextMovePanelFront
     push       {r1}
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     mov        r7,sp
     ldrb       r0,[r7,r1]
     bl         Field_IndexToCellXY
@@ -1158,7 +1158,7 @@ LAB_0806d470:
     push       {r1,r7}
     bl         Rng_RandomInt
     pop        {r1,r7}
-    bl         SWI_Div
+    bl         Div
     ldrb       r0,[r7,r1]
     pop        {r1}
     add        sp,#0x10

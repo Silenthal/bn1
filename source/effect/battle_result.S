@@ -505,7 +505,7 @@ LAB_0807d1ce:
     bl         Rng_RandomInt
     LoadMain battle, r7, r7
     ldrb       r1,[r7,#Battle_maxEnemyCount]
-    bl         SWI_Div
+    bl         Div
     mov        r3,#0x64
     add        r3,r3,r1
     ldrb       r0,[r7,r3]
@@ -1598,7 +1598,7 @@ LAB_0807d9c8:
     add        r6,r1,#0x0
     bl         Rng_RandomInt
     add        r1,r0,#0x0
-    bl         SWI_Div
+    bl         Div
     add        r0,r6,#0x0
     bl         FUN_0807d9e4
     add        sp,#0x8
@@ -1655,7 +1655,7 @@ LAB_0807da2a:
     push       {r1}
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     pop        {r2,r7}
     mov        r4,sp
     ldrb       r0,[r4,r1]

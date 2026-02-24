@@ -91,7 +91,7 @@ _ts BGDM_Load
     add        r0,r0,r6
     ldr        r1,=gTempMemory
     push       {r5,r7}
-    bl         SWI_LZ77UnCompWram
+    bl         LZ77UnCompWram
     pop        {r5,r7}
     push       {r5,r7}
     ldr        r0,=gTempMemory
@@ -120,7 +120,7 @@ _ts BGDM_Load
     add        r0,#0x10
     add        r1,#0x10
     push       {r5,r7}
-    bl         SWI_LZ77UnCompWram
+    bl         LZ77UnCompWram
     pop        {r5,r7}
     ldr        r0,[r5,#BackgroundDataManager_funcFullCopy]
     mov        lr,pc

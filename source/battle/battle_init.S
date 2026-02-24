@@ -337,7 +337,7 @@ _ts Battle_Init
     LoadMain frameCounter, r7, r7
     ldrh       r0,[r7,#0x0]
     mov        r1,#0xc
-    bl         SWI_Div
+    bl         Div
     strb       r1,[r5,#Battle_randomCellSeed]
     mov        r0,#0x4
     strb       r0,[r5,#Battle_battleState]

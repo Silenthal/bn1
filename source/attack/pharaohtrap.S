@@ -208,7 +208,7 @@ _ts A_PharaohTrap_1_2_1_ChooseAction
     bne        LAB_080789da
     bl         Rng_RandomInt
     mov        r1,#0x3
-    bl         SWI_Div
+    bl         Div
     b          LAB_080789e4
 LAB_080789da:
     bl         Rng_RandomInt
@@ -247,7 +247,7 @@ _ts A_PharaohTrap_1_2_2_Anubis
     bne        LAB_08078a34
     bl         Rng_RandomInt
     mov        r1,#0x3
-    bl         SWI_Div
+    bl         Div
     add        r1,#0x1
     add        r2,r1,#0x0
     mov        r1,#0x5
@@ -350,7 +350,7 @@ _ts A_PharaohTrap_1_2_2_1_Arrow
     strh       r0,[r5,#Attack_counterA]
     bl         Rng_RandomInt
     mov        r1,#0x3
-    bl         SWI_Div
+    bl         Div
     add        r1,#0x1
     mov        r0,#0x6
     ldrb       r2,[r5,#Attack_owner]

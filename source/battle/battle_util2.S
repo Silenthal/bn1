@@ -2824,13 +2824,13 @@ _ts Battle_SpriteCoordsToCell
     asr        r0,r0,#0x10
     add        r0,#0xa0
     mov        r1,#0x28
-    bl         SWI_Div
+    bl         Div
     push       {r0}
     mov        r0,r8
     asr        r0,r0,#0x10
     add        r0,#0x30
     mov        r1,#0x18
-    bl         SWI_Div
+    bl         Div
     add        r1,r0,#0x0
     pop        {r0}
     pop        {r5,pc}

@@ -30,7 +30,7 @@ _ts SD_Mine_0
     SD_SetTimer 0x1e
     ldrb       r0,[r5,#ScreenDim_subFamily]
     mov        r1,#0x3
-    bl         SWI_Div
+    bl         Div
     add        r1,#CD_Mine1
     SD_LoadMessage
     SD_ClearChipAndNext_B
@@ -60,7 +60,7 @@ _ts SD_Mine_1_0
     push       {lr}
     ldrb       r0,[r5,#ScreenDim_subFamily]
     mov        r1,#0x3
-    bl         SWI_Div
+    bl         Div
     add        r1,#0x7c
     SD_ShowMessage
     tst        r0,r0

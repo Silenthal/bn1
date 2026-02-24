@@ -164,7 +164,7 @@ LAB_0807c194:
     ldr        r0,[r0,#0x10]
     add        r1,r6,#0x0
     ldr        r2,CpuSetControl_0807c1c4
-    bl         SWI_CpuSet
+    bl         CpuSet
 LAB_0807c1a8:
     add        r6,#0x80
     add        r4,#0x1

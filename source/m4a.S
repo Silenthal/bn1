@@ -1693,7 +1693,7 @@ _ts m4aSoundInit
     and        r0,r1
     ldr        r1,PTR_SoundMainRAM_0809cbfc
     ldr        r2,cpuSetControl
-    bl         SWI_CpuSet
+    bl         CpuSet
     ldr        r0,PTR_gSoundInfo_0809cc04
     bl         SoundInit
     ldr        r0,PTR_gCgbChans_0809cc08
@@ -2142,7 +2142,7 @@ _ts MPlayExtender
     ldr        r2,INT_0809cf28
     mov        r0,sp
     add        r1,r6,#0x0
-    bl         SWI_CpuSet
+    bl         CpuSet
     mov        r0,#0x1
     strb       r0,[r6,#0x1]
     mov        r0,#0x11
@@ -2326,7 +2326,7 @@ _ts SoundInit
     ldr        r2,DWORD_0809d004
     mov        r0,sp
     add        r1,r4,#0x0
-    bl         SWI_CpuSet
+    bl         CpuSet
     mov        r0,#0x8
     strb       r0,[r4,#0x6]
     mov        r0,#0xf
@@ -2647,7 +2647,7 @@ _ts m4aSoundVSyncOff
     add        r1,r2,r0
     ldr        r2,UINT_0809d1f0
     mov        r0,sp
-    bl         SWI_CpuSet
+    bl         CpuSet
 LAB_0809d1dc:
     add        sp,#0x4
     pop        {r0}

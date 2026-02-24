@@ -151,7 +151,7 @@ _ts A_Sarcophagus_1_1_0
     str        r0,[r5,#Attack_pos_curr_z]
     bl         Rng_RandomInt
     mov        r1,#0x3
-    bl         SWI_Div
+    bl         Div
     strb       r1,[r5,#Attack_bc]
     mov        r0,#0x3
     strb       r0,[r5,#Attack_header_entityFlags]
@@ -517,7 +517,7 @@ _nt A_Sarcophagus_SetNextMovePanel
     push       {lr}
     bl         Rng_RandomInt
     mov        r1,#0x3
-    bl         SWI_Div
+    bl         Div
     add        r1,#0x1
     mov        r0,#0x4
     push       {r0,r1}

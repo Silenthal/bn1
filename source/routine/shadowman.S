@@ -882,7 +882,7 @@ _ts R_ShadowMan_GetNextMovePanel
     push       {r1}
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     mov        r7,sp
     ldrb       r0,[r7,r1]
     bl         Field_IndexToCellXY
@@ -910,7 +910,7 @@ _ts R_ShadowMan_GetAvailablePanel
     push       {r1}
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     mov        r7,sp
     ldrb       r0,[r7,r1]
     bl         Field_IndexToCellXY

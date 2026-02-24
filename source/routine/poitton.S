@@ -390,7 +390,7 @@ _ts R_Poitton_1_4_1
     strh       r0,[r5,#Actor_counterA]
     bl         Rng_RandomInt
     mov        r1,#0x3
-    bl         SWI_DivMod
+    bl         Mod
     add        r4,r0,#0x0
     ldrb       r0,[r5,#Actor_family_family]
     lsr        r0,r0,#0x4
@@ -668,7 +668,7 @@ LAB_0806b69e:
     bl         Rng_RandomInt
     pop        {r2,r7}
     add        r1,r2,#0x0
-    bl         SWI_DivMod
+    bl         Mod
     lsl        r2,r0,#0x1
     ldrb       r0,[r7,r2]
     add        r2,#0x1

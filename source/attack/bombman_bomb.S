@@ -517,7 +517,7 @@ LAB_08077c10:
     push       {r1}
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     mov        r7,sp
     ldrb       r0,[r7,r1]
     bl         Field_IndexToCellXY

@@ -94,7 +94,7 @@ _ts S_MeteorAttack_2
     ldr        r1,DAT_08084630
     sub        r0,r1,r0
     mov        r1,#0x20
-    bl         SWI_Div
+    bl         Div
     pop        {r1,r5}
     str        r0,[r5,#0x14]
     push       {r5}
@@ -102,7 +102,7 @@ _ts S_MeteorAttack_2
     ldr        r1,DAT_08084634
     sub        r0,r1,r0
     mov        r1,#0x20
-    bl         SWI_Div
+    bl         Div
     pop        {r5}
     str        r0,[r5,#0x18]
     mov        r0,#0x0

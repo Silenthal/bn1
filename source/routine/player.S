@@ -2838,7 +2838,7 @@ _ts BC_Buster_1_Attack
     add        r7,r7,r1
     ldrh       r6,[r7,#0x0]
     ldrh       r1,[r7,#0x2]
-    bl         SWI_DivMod
+    bl         Mod
     add        r6,r6,r0
     ldr        r7,[r5,#Actor_param_74]
     ldrh       r0,[r7,#0x12]

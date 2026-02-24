@@ -231,7 +231,7 @@ _ts A_NumberBall_SetDisplayHP
     push       {lr}
     ldrh       r0,[r5,#Attack_hpCurrent]
     mov        r1,#0xa
-    bl         SWI_Div
+    bl         Div
     ldr        r7,PTR_USHORT_ARRAY_08072398
     lsl        r1,r1,#0x1
     ldrh       r1,[r7,r1]

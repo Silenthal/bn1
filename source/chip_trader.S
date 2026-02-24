@@ -370,7 +370,7 @@ LAB_080203dc:
     bl         Rng_RandomInt
     bl         Rng_RandomInt
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     lsl        r1,r1,#0x1
     ldr        r6,PTR_gChipBag_080205f0
     add        r1,r1,r6
@@ -561,7 +561,7 @@ LAB_08020524:
     mov        r1,#0xff
     and        r0,r1
     pop        {r1}
-    bl         SWI_Div
+    bl         Div
     pop        {r7}
     mov        r0,#0x0
     mov        r4,#0x0

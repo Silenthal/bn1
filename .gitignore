@@ -4,6 +4,9 @@ gensrc/
 __pycache__/
 .venv/
 .vscode/
+*.exe
+*.o
+*.a
 *.gba
 *.elf
 *.4bpp

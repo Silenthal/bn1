@@ -1228,7 +1228,7 @@ _ts Shop_PrintBlankEntry
     add        r1,r1,r2
     mov        r0,sp
     ldr        r2,CpuSetControl_0801f408
-    bl         SWI_CpuSet
+    bl         CpuSet
     add        sp,#0x4
     pop        {pc}
 
