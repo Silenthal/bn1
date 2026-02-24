@@ -13,11 +13,11 @@ _ts Save_SaveGame
     ldr        r0,PTR_DAT_0801fb24
     ldr        r1,PTR_SRAM_0801fb28
     ldr        r2,saveLen
-    bl         MemCpySram
+    bl         WriteSram
     ldr        r0,PTR_DAT_0801fb24
     ldr        r1,PTR_SRAM_0801fb28
     ldr        r2,saveLen
-    bl         MemCmp_8_Sram
+    bl         VerifySram
     push       {r0}
     Flag_SetSystem F_SYSTEM_SAVE_OK
     pop        {r0}
@@ -33,7 +33,7 @@ _ts Save_LoadGame
     ldr        r0,PTR_SRAM_0801fb28
     ldr        r1,PTR_DAT_0801fb24
     ldr        r2,saveLen
-    bl         MemCpy_8_Sram
+    bl         ReadSram
     pop        {pc}
 
     .align 2, 0

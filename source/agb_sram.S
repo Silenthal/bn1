@@ -5,7 +5,7 @@
 
     .thumb
 
-_ts memcpy_8_sram_copy
+_ts ReadSram_Core
     push       {r4,lr}
     add        r4,r0,#0x0
     sub        r3,r2,#0x1
@@ -26,7 +26,7 @@ _ts memcpy_8_sram_copy
     pop        {r0}
     bx         r0
 
-_ts MemCpy_8_Sram
+_ts ReadSram
     push       {r4,r5,r6,lr}
     sub        sp,#0x80
     add        r4,r0,#0x0
@@ -39,12 +39,12 @@ _ts MemCpy_8_Sram
     mov        r1,#0x3
     orr        r0,r1
     strh       r0,[r2,#0x0]
-    ldr        r3,PTR_memcpy_8_sram_copy_1_0809dfc0
+    ldr        r3,PTR_ReadSram_Core_1_0809dfc0
     mov        r0,#0x1
     eor        r3,r0
     mov        r2,sp
-    ldr        r0,PTR_MemCpy_8_Sram_1_0809dfc4
-    ldr        r1,PTR_memcpy_8_sram_copy_1_0809dfc0
+    ldr        r0,PTR_ReadSram_1_0809dfc4
+    ldr        r1,PTR_ReadSram_Core_1_0809dfc0
     sub        r0,r0,r1
     lsl        r0,r0,#0xf
     b LAB_0809dfd4
@@ -55,10 +55,10 @@ PTR_REG_WAITCNT_0809dfb8:
     .word REG_WAITCNT
 DAT_0809dfbc:
     .word 0x0000FFFC
-PTR_memcpy_8_sram_copy_1_0809dfc0:
-    .word memcpy_8_sram_copy
-PTR_MemCpy_8_Sram_1_0809dfc4:
-    .word MemCpy_8_Sram
+PTR_ReadSram_Core_1_0809dfc0:
+    .word ReadSram_Core
+PTR_ReadSram_1_0809dfc4:
+    .word ReadSram
 LAB_0809dfc8:
     ldrh       r0,[r3,#0x0]
     strh       r0,[r2,#0x0]
@@ -81,7 +81,7 @@ LAB_0809dfd4:
     pop        {r0}
     bx         r0
 
-_ts MemCpySram
+_ts WriteSram
     push       {r4,r5,lr}
     add        r5,r0,#0x0
     add        r4,r1,#0x0
@@ -120,7 +120,7 @@ PTR_REG_WAITCNT_0809e028:
 USHORT_0809e02c:
     .word     0x0000FFFC
 
-_ts memcmp_8
+_ts VerifySram_Core
     push       {r4,r5,lr}
     add        r5,r0,#0x0
     add        r3,r1,#0x0
@@ -149,7 +149,7 @@ LAB_0809e058:
     pop        {r1}
     bx         r1
 
-_ts MemCmp_8_Sram
+_ts VerifySram
     push       {r4,r5,r6,lr}
     sub        sp,#0xc0
     add        r4,r0,#0x0
@@ -162,12 +162,12 @@ _ts MemCmp_8_Sram
     mov        r1,#0x3
     orr        r0,r1
     strh       r0,[r2,#0x0]
-    ldr        r3,PTR_memcmp_8_1_0809e094
+    ldr        r3,PTR_VerifySram_Core_1_0809e094
     mov        r0,#0x1
     eor        r3,r0
     mov        r2,sp
-    ldr        r0,PTR_MemCmp_8_Sram_1_0809e098
-    ldr        r1,PTR_memcmp_8_1_0809e094
+    ldr        r0,PTR_VerifySram_1_0809e098
+    ldr        r1,PTR_VerifySram_Core_1_0809e094
     sub        r0,r0,r1
     lsl        r0,r0,#0xf
     b          LAB_0809e0a8
@@ -179,10 +179,10 @@ PTR_REG_WAITCNT_0809e08c:
     .word REG_WAITCNT
 DAT_0809e090:
     .word 0x0000FFFC
-PTR_memcmp_8_1_0809e094:
-    .word memcmp_8
-PTR_MemCmp_8_Sram_1_0809e098:
-    .word MemCmp_8_Sram
+PTR_VerifySram_Core_1_0809e094:
+    .word VerifySram_Core
+PTR_VerifySram_1_0809e098:
+    .word VerifySram
 LAB_0809e09c:
     ldrh       r0,[r3,#0x0]
     strh       r0,[r2,#0x0]
@@ -205,7 +205,7 @@ LAB_0809e0a8:
     pop        {r1}
     bx         r1
 
-FUN_0809e0c4:
+WriteSramEx:
     push       {r4,r5,r6,r7,lr}
     add        r6,r0,#0x0
     add        r5,r1,#0x0
@@ -222,11 +222,11 @@ LAB_0809e0d6:
     add        r0,r6,#0x0
     add        r1,r5,#0x0
     add        r2,r4,#0x0
-    bl         MemCpySram
+    bl         WriteSram
     add        r0,r6,#0x0
     add        r1,r5,#0x0
     add        r2,r4,#0x0
-    bl         MemCmp_8_Sram
+    bl         VerifySram
     add        r3,r0,#0x0
     cmp        r3,#0x0
     bne        LAB_0809e0d0
@@ -236,132 +236,4 @@ LAB_0809e0f4:
     pop        {r1}
     bx         r1
 
-_ts _call_via_r0
-    bx         r0
-    nop
-
-_ts _call_via_r1
-    bx         r1
-    nop
-
-_ts _call_via_r2
-    bx         r2
-    nop
-
-_ts _call_via_r3
-    bx         r3
-    nop
-    bx         r4
-    nop
-    bx         r5
-    nop
-    bx         r6
-    nop
-    bx         r7
-    nop
-    bx         r8
-    nop
-    bx         r9
-    nop
-    bx         r10
-    nop
-    bx         r11
-    nop
-    bx         r12
-    nop
-    bx         sp
-    nop
-    bx         lr
-    nop
-
-_ts __divsi3
-    cmp        r1,#0x0
-    beq        LAB_0809e1c0
-    push       {r4}
-    add        r4,r0,#0x0
-    eor        r4,r1
-    mov        r12,r4
-    mov        r3,#0x1
-    mov        r2,#0x0
-    cmp        r1,#0x0
-    bpl        LAB_0809e14e
-    neg        r1,r1
-LAB_0809e14e:
-    cmp        r0,#0x0
-    bpl        LAB_0809e154
-    neg        r0,r0
-LAB_0809e154:
-    cmp        r0,r1
-    bcc        LAB_0809e1b2
-    mov        r4,#0x1
-    lsl        r4,r4,#0x1c
-LAB_0809e15c:
-    cmp        r1,r4
-    bcs        LAB_0809e16a
-    cmp        r1,r0
-    bcs        LAB_0809e16a
-    lsl        r1,r1,#0x4
-    lsl        r3,r3,#0x4
-    b          LAB_0809e15c
-LAB_0809e16a:
-    lsl        r4,r4,#0x3
-LAB_0809e16c:
-    cmp        r1,r4
-    bcs        LAB_0809e17a
-    cmp        r1,r0
-    bcs        LAB_0809e17a
-    lsl        r1,r1,#0x1
-    lsl        r3,r3,#0x1
-    b          LAB_0809e16c
-LAB_0809e17a:
-    cmp        r0,r1
-    bcc        LAB_0809e182
-    sub        r0,r0,r1
-    orr        r2,r3
-LAB_0809e182:
-    lsr        r4,r1,#0x1
-    cmp        r0,r4
-    bcc        LAB_0809e18e
-    sub        r0,r0,r4
-    lsr        r4,r3,#0x1
-    orr        r2,r4
-LAB_0809e18e:
-    lsr        r4,r1,#0x2
-    cmp        r0,r4
-    bcc        LAB_0809e19a
-    sub        r0,r0,r4
-    lsr        r4,r3,#0x2
-    orr        r2,r4
-LAB_0809e19a:
-    lsr        r4,r1,#0x3
-    cmp        r0,r4
-    bcc        LAB_0809e1a6
-    sub        r0,r0,r4
-    lsr        r4,r3,#0x3
-    orr        r2,r4
-LAB_0809e1a6:
-    cmp        r0,#0x0
-    beq        LAB_0809e1b2
-    lsr        r3,r3,#0x4
-    beq        LAB_0809e1b2
-    lsr        r1,r1,#0x4
-    b          LAB_0809e17a
-LAB_0809e1b2:
-    add        r0,r2,#0x0
-    mov        r4,r12
-    cmp        r4,#0x0
-    bpl        LAB_0809e1bc
-    neg        r0,r0
-LAB_0809e1bc:
-    pop        {r4}
-    mov        pc,lr
-LAB_0809e1c0:
-    push       {lr}
-    bl         dummy_9e1cc
-    mov        r0,#0x0
-    pop        {pc}
-
-_ts dummy_9e1cc
-    mov        pc,lr
-
-    .align 2,0
+    .end
