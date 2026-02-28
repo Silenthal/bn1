@@ -117,7 +117,7 @@ $(OUTPUT).elf: $(OFILES)
 %.elf: libagbsyscall
 	@echo Linking cartridge
 	@cp -f $(MAIN_LD_SCRIPT) $(BUILD)/.
-	$(LD) $(LDFLAGS) $(OFILES) $(LDINCLUDE) -o $@
+	@$(LD) $(LDFLAGS) $(OFILES) $(LDINCLUDE) -o $@
 
 -include $(BUILD)/*.d
 

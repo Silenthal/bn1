@@ -1,6 +1,26 @@
 #ifndef MMBN_H
 #define MMBN_H
 
+#include <stdint.h>
+
+typedef uint8_t   u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+typedef uint64_t u64;
+typedef int8_t    s8;
+typedef int16_t  s16;
+typedef int32_t  s32;
+typedef int64_t  s64;
+
+typedef volatile u8   vu8;
+typedef volatile u16 vu16;
+typedef volatile u32 vu32;
+typedef volatile u64 vu64;
+typedef volatile s8   vs8;
+typedef volatile s16 vs16;
+typedef volatile s32 vs32;
+typedef volatile s64 vs64;
+
 typedef unsigned char   undefined;
 #if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 202311L
 typedef unsigned char    bool;
@@ -21,14 +41,6 @@ typedef unsigned long long    undefined5;
 typedef unsigned long long    undefined8;
 typedef unsigned short    ushort;
 typedef unsigned short    word;
-
-typedef short s16;
-
-typedef ushort u16;
-
-typedef ushort uint16_t;
-
-typedef uint uint32_t;
 
 typedef struct _dma_channel _dma_channel, *P_dma_channel;
 

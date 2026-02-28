@@ -1028,7 +1028,7 @@ SECTIONS {
 		*libgcc.a:_divsi3.o(.text)
 		build/m4a_data.o(.text)
 		build/sound_data.o(.text)
-		build/sram_ptr.o(.text)
+		build/agb_sram_ptr.o(.text)
 	} > rom
 
 	intr __ram_code_address : {
