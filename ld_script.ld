@@ -2,6 +2,9 @@ OUTPUT_FORMAT("elf32-littlearm", "elf32-bigarm", "elf32-littlearm")
 OUTPUT_ARCH(arm)
 ENTRY(Start)
 
+gNumMusicPlayers = 32;
+gMaxLines = 0;
+
 MEMORY {
 	bios	: ORIGIN = 0x00000000, LENGTH = 16K
 	ewram	: ORIGIN = 0x02000000, LENGTH = 256K
@@ -231,6 +234,8 @@ SECTIONS {
 		gSpriteDecompLocation1		= 0x16000;
 		gChipBag					= 0x19000;
 		gDstCompressedSpriteData	= 0x3C000;
+		. = 0x2748;
+		build/m4a_data.o(.bss)
 	} > ewram
 
 	. = __iwram_start;
@@ -1026,6 +1031,7 @@ SECTIONS {
 		build/agb_sram.o(.text)
 		*libgcc.a:_call_via_rX.o(.text)
 		*libgcc.a:_divsi3.o(.text)
+		build/m4a_tables.o(.rodata)
 		build/m4a_data.o(.text)
 		build/sound_data.o(.text)
 		build/agb_sram_ptr.o(.text)

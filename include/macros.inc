@@ -3,7 +3,7 @@
     .include "macros/label.inc"
     .include "macros/utility.inc"
     .include "macros/iwram_code.inc"
-    .include "macros/music.inc"
+    .include "macros/m4a.inc"
     .include "macros/npc_ai.inc"
     .include "macros/task.inc"
     .include "macros/entity.inc"
