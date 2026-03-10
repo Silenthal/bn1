@@ -248,10 +248,9 @@ SECTIONS {
 		iwBufferUITextTile		= 0x25E0;
 		iwTilesetSelectedChips	= 0x2FA0;
 		gBattleHandChipIcons	= 0x30E0;
-		gSoundInfo				= 0x4B10;
-		gMPlayJumpTable			= 0x5AC0;
-		gCgbChans				= 0x5B50;
-		SoundMainRAM			= 0x5C50;
+		. = 0x4B10;
+		build/m4a.o(.bss)
+		SoundMain_Buffer		= 0x5C50;
 		interruptHandlerStart	= 0x6800;
 		interruptHandlerEnd		= 0x7640;
 		iwMonitorStackTop		= 0x7D80;
@@ -1022,6 +1021,7 @@ SECTIONS {
 		build/battle/screendim/heavystamp.o(.text)
 		build/battle/screendim/bloodsuck.o(.text)
 		build/network.o(.text)
+		build/m4a_1.o(.text)
 		build/m4a.o(.text)
         *libagbsyscall.a:CpuSet.o(.text)
         *libagbsyscall.a:Div.o(.text)

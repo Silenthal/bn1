@@ -239,14 +239,12 @@ typedef struct SongHeader {
     u8 *part[1];
 } SongHeader;
 
-typedef enum MptFlag {
-    MPT_FLAG_VOLSET=1,
-    MPT_FLAG_VOLCHG=3,
-    MPT_FLAG_PITSET=4,
-    MPT_FLAG_PITCHG=12,
-    MPT_FLAG_START=64,
-    MPT_FLAG_EXIST=128
-} MptFlag;
+#define MPT_FLG_VOLSET 0x01
+#define MPT_FLG_VOLCHG 0x03
+#define MPT_FLG_PITSET 0x04
+#define MPT_FLG_PITCHG 0x0C
+#define MPT_FLG_START  0x40
+#define MPT_FLG_EXIST  0x80
 
 typedef struct MusicPlayerTrack {
     u8 flags; // MptFlag
@@ -295,6 +293,13 @@ typedef enum MusicPlayerStatus {
     MUSICPLAYER_STATUS_PAUSE=2147483648
 } MusicPlayerStatus;
 
+#define MAX_MUSICPLAYER_TRACKS 16
+
+#define TEMPORARY_FADE  0x0001
+#define FADE_IN         0x0002
+#define FADE_VOL_MAX    64
+#define FADE_VOL_SHIFT  2
+
 typedef struct MusicPlayerInfo {
     SongHeader *songHeader;
     u32 status; // MusicPlayerStatus
@@ -335,11 +340,9 @@ typedef struct Song {
 extern const MusicPlayer gMPlayTable[];
 extern const Song gSongTable[];
 
-
-
 extern u8 gMPlayMemAccArea[];
 
-extern char SoundMainRAM[];
+extern void SoundMain_Buffer(void);
 
 extern MPlayFunc gMPlayJumpTable[];
 
@@ -362,6 +365,42 @@ extern char gMaxLines[];
 #define NUM_MUSIC_PLAYERS ((u16)gNumMusicPlayers)
 #define MAX_LINES ((u32)gMaxLines)
 
+u32 umul3232H32(u32 multiplier, u32 multiplicand);
+void SoundMain(void);
+void SoundMainBTM(void);
+void TrackStop(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *track);
+void MPlayMain(struct MusicPlayerInfo *);
+void RealClearChain(void *x);
+
+void MPlayContinue(struct MusicPlayerInfo *mplayInfo);
+void MPlayStart(struct MusicPlayerInfo *mplayInfo, struct SongHeader *songHeader);
+void m4aMPlayStop(struct MusicPlayerInfo *mplayInfo);
+void FadeOutBody(struct MusicPlayerInfo *mplayInfo);
+void TrkVolPitSet(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *track);
+void MPlayFadeOut(struct MusicPlayerInfo *mplayInfo, u16 speed);
+void ClearChain(void *x);
+void Clear64byte(void *addr);
+void SoundInit(struct SoundInfo *soundInfo);
+void MPlayExtender(struct CgbChannel *cgbChans);
+void m4aSoundMode(u32 mode);
+void MPlayOpen(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *tracks, u8 trackCount);
+void CgbSound(void);
+void CgbOscOff(u8);
+void CgbModVol(struct CgbChannel *chan);
+u32 MidiKeyToCgbFreq(u8, u8, u8);
+void DummyFunc(void);
+void MPlayJumpTableCopy(MPlayFunc *mplayJumpTable);
+void SampleFreqSet(u32 freq);
+void m4aSoundVSyncOn(void);
+void m4aSoundVSyncOff(void);
+
+void m4aMPlayTempoControl(struct MusicPlayerInfo *mplayInfo, u16 tempo);
+void m4aMPlayVolumeControl(struct MusicPlayerInfo *mplayInfo, u16 trackBits, u16 volume);
+void m4aMPlayPitchControl(struct MusicPlayerInfo *mplayInfo, u16 trackBits, s16 pitch);
+void m4aMPlayPanpotControl(struct MusicPlayerInfo *mplayInfo, u16 trackBits, s8 pan);
+void ClearModM(struct MusicPlayerTrack *track);
+void m4aMPlayModDepthSet(struct MusicPlayerInfo *mplayInfo, u16 trackBits, u8 modDepth);
+void m4aMPlayLFOSpeedSet(struct MusicPlayerInfo *mplayInfo, u16 trackBits, u8 lfoSpeed);
 
 // sound command handler functions
 void ply_fine(MusicPlayerInfo *, MusicPlayerTrack *);

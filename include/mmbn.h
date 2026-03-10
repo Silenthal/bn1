@@ -2,24 +2,8 @@
 #define MMBN_H
 
 #include <stdint.h>
+#include "gba/types.h"
 
-typedef uint8_t   u8;
-typedef uint16_t u16;
-typedef uint32_t u32;
-typedef uint64_t u64;
-typedef int8_t    s8;
-typedef int16_t  s16;
-typedef int32_t  s32;
-typedef int64_t  s64;
-
-typedef volatile u8   vu8;
-typedef volatile u16 vu16;
-typedef volatile u32 vu32;
-typedef volatile u64 vu64;
-typedef volatile s8   vs8;
-typedef volatile s16 vs16;
-typedef volatile s32 vs32;
-typedef volatile s64 vs64;
 
 typedef unsigned char   undefined;
 #if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 202311L
@@ -3089,24 +3073,10 @@ struct DivRes2 {
 
 typedef struct DmaChannel DmaChannel, *PDmaChannel;
 
-typedef enum DmaCntFlag {
-    DMA_DEST_DEC=2097152,
-    DMA_DEST_FIXED=4194304,
-    DMA_SRC_DEC=8388608,
-    DMA_SRC_FIXED=16777216,
-    DMA_REPEAT=33554432,
-    DMA_32BIT=67108864,
-    DMA_DREQ_ON=134217728,
-    DMA_START_VBLANK=268435456,
-    DMA_START_HBLANK=536870912,
-    DMA_INTR_ENABLE=1073741824,
-    DMA_ENABLE=2147483648
-} DmaCntFlag;
-
 struct DmaChannel {
     void *srcAddress;
     void *dstAddress;
-    enum DmaCntFlag control;
+    u32 control;
 };
 
 typedef struct DmaChannelList DmaChannelList, *PDmaChannelList;
@@ -3132,7 +3102,7 @@ struct DmaTransferParams {
     void *startAddress;
     void *endAddress;
     uint wordCount;
-    enum DmaCntFlag control;
+    u32 control;
 };
 
 typedef union DO_DVP DO_DVP, *PDO_DVP;
