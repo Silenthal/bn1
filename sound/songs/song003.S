@@ -979,7 +979,7 @@ LABEL_080A502F:
 
     .align 2, 0
 
-global_label SongHeader_080A50BC
+global_label mus_suspicious_mood
     .byte 5
     .byte 0
     .byte 0

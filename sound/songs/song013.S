@@ -1580,7 +1580,7 @@ LABEL_080ABBC8:
 
     .align 2, 0
 
-global_label SongHeader_080ABC5C
+global_label mus_void
     .byte 5
     .byte 0
     .byte 0

@@ -10,7 +10,7 @@ Track_080B7224:
 
     .align 2, 0
 
-global_label SongHeader_080B7234
+global_label se_battle_hitconfirm
     .byte 1
     .byte 0
     .byte 128

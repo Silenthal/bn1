@@ -109,7 +109,7 @@
     .set SE_Battle_ChipSelectNotAllowed,        0x6c
     .set SE_Battle_ChipSelectOK,                0x6d
     .set SE_Battle_BusterShoot,                 0x6e
-    .set SE_Battle_BusterHitConfirm,            0x6f
+    .set SE_Battle_HitConfirm,                  0x6f
     .set SE_SmallExplosion,                     0x70
     .set SE_Battle_DamageTaken,                 0x71
     .set SE_72,                                 0x72

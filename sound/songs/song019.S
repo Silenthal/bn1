@@ -2637,7 +2637,7 @@ LABEL_080B0183:
 
     .align 2, 0
 
-global_label SongHeader_080B0210
+global_label mus_end_roll
     .byte 6
     .byte 0
     .byte 0

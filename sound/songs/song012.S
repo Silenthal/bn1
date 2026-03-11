@@ -2588,7 +2588,7 @@ LABEL_080AB05D:
 
     .align 2, 0
 
-global_label SongHeader_080AB1B4
+global_label mus_electrical_crisis
     .byte 5
     .byte 0
     .byte 0

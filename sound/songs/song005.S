@@ -13,7 +13,7 @@ Track_080A55AC:
 
     .align 2, 0
 
-global_label SongHeader_080A55C0
+global_label mus_transmission
     .byte 1
     .byte 0
     .byte 0

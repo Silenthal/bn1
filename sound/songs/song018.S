@@ -323,7 +323,7 @@ Track_080AF15B:
 
     .align 2, 0
 
-global_label SongHeader_080AF1C4
+global_label mus_game_over
     .byte 5
     .byte 0
     .byte 0

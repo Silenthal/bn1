@@ -821,7 +821,7 @@ LABEL_080B0F94:
 
     .align 2, 0
 
-global_label SongHeader_080B0FFC
+global_label mus_loser
     .byte 5
     .byte 0
     .byte 0

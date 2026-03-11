@@ -2005,7 +2005,7 @@ LABEL_080AC92A:
 
     .align 2, 0
 
-global_label SongHeader_080AC974
+global_label mus_operation
     .byte 5
     .byte 0
     .byte 0

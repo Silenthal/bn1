@@ -702,7 +702,7 @@ LABEL_080AEF28:
 
     .align 2, 0
 
-global_label SongHeader_080AEFE0
+global_label mus_winner
     .byte 5
     .byte 0
     .byte 0

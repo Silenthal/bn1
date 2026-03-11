@@ -1288,7 +1288,7 @@ LABEL_080B0A7C:
 
     .align 2, 0
 
-global_label SongHeader_080B0AB4
+global_label mus_school
     .byte 5
     .byte 0
     .byte 0

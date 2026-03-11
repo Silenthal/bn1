@@ -16,7 +16,7 @@ LABEL_080BAC4A:
 
     .align 2, 0
 
-global_label SongHeader_080BAC54
+global_label se_misc_driving
     .byte 1
     .byte 0
     .byte 0

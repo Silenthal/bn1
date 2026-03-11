@@ -1,7 +1,7 @@
-    .macro song label:req, music_player:req, unknown:req
+    .macro song label:req, music_player:req
     .4byte \label
     .2byte \music_player
-    .2byte \unknown
+    .2byte \music_player
     .endm
 
     .macro music_player info_struct:req, track_struct:req, num_tracks:req, unknown:req

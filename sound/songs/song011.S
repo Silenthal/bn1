@@ -1717,7 +1717,7 @@ LABEL_080AA0F7:
 
     .align 2, 0
 
-global_label SongHeader_080AA128
+global_label mus_red_or_blue
     .byte 5
     .byte 0
     .byte 0

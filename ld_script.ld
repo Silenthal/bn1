@@ -56,6 +56,8 @@ SECTIONS {
 		gPrintBufferStart			= 0x2318;
 		gPrintBufferEnd				= 0x2716;
 		gPrintBufferCur				= 0x2718;
+		. = 0x2748;
+		build/m4a_data.o(.bss)
 		gMonitorCurrentTask			= 0x3420;
 		gMonitorTaskList			= 0x3430;
 		gMonitorLastStackPtr		= 0x3470;
@@ -196,46 +198,13 @@ SECTIONS {
 		gMapSegPos					= 0xC240;
 		gCustomScreen				= 0xC270;
 		gNpcTalkState				= 0xC51A;
-		musicPlayerInfo_13			= 0xC520;
-		musicPlayerInfo_17			= 0xC560;
-		musicPlayerInfo_0D			= 0xC5A0;
-		musicPlayerInfo_05			= 0xC5E0;
-		musicPlayerInfo_1E			= 0xC620;
-		musicPlayerInfo_10			= 0xC660;
-		musicPlayerInfo_09			= 0xC6A0;
-		musicPlayerInfo_06			= 0xC6E0;
-		musicPlayerInfo_00			= 0xC720;
-		musicPlayerInfo_1A			= 0xC760;
-		musicPlayerInfo_14			= 0xC7A0;
-		musicPlayerInfo_18			= 0xC7E0;
-		musicPlayerInfo_15			= 0xC820;
-		musicPlayerInfo_12			= 0xC860;
-		musicPlayerInfo_0E			= 0xC8A0;
-		musicPlayerInfo_1C			= 0xC8E0;
-		musicPlayerInfo_1F			= 0xC920;
-		musicPlayerInfo_07			= 0xC960;
-		musicPlayerInfo_01			= 0xC9A0;
-		musicPlayerInfo_02			= 0xC9E0;
-		musicPlayerInfo_0A			= 0xCA20;
-		musicPlayerInfo_19			= 0xCA60;
-		musicPlayerInfo_1D			= 0xCAA0;
-		musicPlayerInfo_16			= 0xCAE0;
-		musicPlayerInfo_0F			= 0xCB20;
-		musicPlayerInfo_0C			= 0xCB60;
-		musicPlayerInfo_11			= 0xCBA0;
-		musicPlayerInfo_04			= 0xCBE0;
-		gMPlayMemAccArea			= 0xCC20;
-		musicPlayerInfo_1B			= 0xCC30;
-		musicPlayerInfo_08			= 0xCC70;
-		musicPlayerInfo_03			= 0xCCB0;
-		musicPlayerInfo_0B			= 0xCCF0;
+		. = 0xC520;
+		build/music_defs.o(.bss)
 		gTempMemory					= 0x11000;
 		gLibraryChipIndexList		= 0x15000;
 		gSpriteDecompLocation1		= 0x16000;
 		gChipBag					= 0x19000;
 		gDstCompressedSpriteData	= 0x3C000;
-		. = 0x2748;
-		build/m4a_data.o(.bss)
 	} > ewram
 
 	. = __iwram_start;

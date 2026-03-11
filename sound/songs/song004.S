@@ -707,7 +707,7 @@ LABEL_080A5524:
 
     .align 2, 0
 
-global_label SongHeader_080A5590
+global_label mus_incident
     .byte 5
     .byte 0
     .byte 0

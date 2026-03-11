@@ -2370,7 +2370,7 @@ LABEL_080A740D:
 
     .align 2, 0
 
-global_label SongHeader_080A74B8
+global_label mus_internet
     .byte 5
     .byte 0
     .byte 0

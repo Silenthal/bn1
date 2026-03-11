@@ -1325,7 +1325,7 @@ LABEL_080A9590:
 
     .align 2, 0
 
-global_label SongHeader_080A9680
+global_label mus_cold_and_silent
     .byte 6
     .byte 0
     .byte 0

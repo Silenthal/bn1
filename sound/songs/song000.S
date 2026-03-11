@@ -1633,7 +1633,7 @@ LABEL_080A390C:
 
     .align 2, 0
 
-global_label SongHeader_080A3940
+global_label mus_title
     .byte 6
     .byte 0
     .byte 0

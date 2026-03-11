@@ -2455,7 +2455,7 @@ LABEL_080A6390:
 
     .align 2, 0
 
-global_label SongHeader_080A651C
+global_label mus_fire_field
     .byte 5
     .byte 0
     .byte 0

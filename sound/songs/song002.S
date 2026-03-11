@@ -565,7 +565,7 @@ LABEL_080A4A8C:
 
     .align 2, 0
 
-global_label SongHeader_080A4AB4
+global_label mus_in_the_room
     .byte 5
     .byte 0
     .byte 0

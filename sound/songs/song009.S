@@ -2270,7 +2270,7 @@ LABEL_080A8C0E:
 
     .align 2, 0
 
-global_label SongHeader_080A8DFC
+global_label mus_hour_of_fate
     .byte 5
     .byte 0
     .byte 0

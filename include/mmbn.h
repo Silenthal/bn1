@@ -625,7 +625,7 @@ typedef enum SongId {
     SE_Battle_ChipSelectNotAllowed=108,
     SE_Battle_ChipSelectOK=109,
     SE_Battle_BusterShoot=110,
-    SE_Battle_BusterHitConfirm=111,
+    SE_Battle_HitConfirm=111,
     SE_SmallExplosion=112,
     SE_Battle_DamageTaken=113,
     SE_Recover=114,

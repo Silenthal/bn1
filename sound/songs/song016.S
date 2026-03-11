@@ -2898,7 +2898,7 @@ LABEL_080AE8E4:
 
     .align 2, 0
 
-global_label SongHeader_080AEB1C
+global_label mus_vs_life_virus
     .byte 5
     .byte 0
     .byte 0

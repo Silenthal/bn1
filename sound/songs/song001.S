@@ -1994,7 +1994,7 @@ LABEL_080A464A:
 
     .align 2, 0
 
-global_label SongHeader_080A4710
+global_label mus_home_town
     .byte 5
     .byte 0
     .byte 0

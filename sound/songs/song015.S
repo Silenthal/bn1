@@ -2375,7 +2375,7 @@ LABEL_080AD782:
 
     .align 2, 0
 
-global_label SongHeader_080AD870
+global_label mus_net_battle
     .byte 5
     .byte 0
     .byte 0

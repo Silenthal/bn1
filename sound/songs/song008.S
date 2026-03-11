@@ -1632,7 +1632,7 @@ LABEL_080A7ED4:
 
     .align 2, 0
 
-global_label SongHeader_080A7F3C
+global_label mus_boundless_network
     .byte 5
     .byte 0
     .byte 0
