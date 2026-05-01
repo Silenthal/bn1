@@ -1,18 +1,20 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-from common import make_out_path
-from typing import List
+from common import make_out_path, exit_error
 
 
-def compress(src: List[int], srcSize: int):
+def compress(src: bytearray, srcSize: int) -> list[int]:
+    if srcSize == 0:
+        return [0x10, 0x00, 0x00, 0x00]
+    
     buffLen = 0x1000
     minDistance = 2
     worstCaseDestSize = 4 + srcSize + (srcSize + 7) // 8
 
-    worstCaseDestSize = (worstCaseDestSize + 3) & ~3
+    worstCaseDestSize = (worstCaseDestSize + 3) >> 2 << 2
 
-    dest = [0 for _ in range(worstCaseDestSize)]
+    dest = [0]  * worstCaseDestSize
 
     dest[0] = 0x10
     dest[1] = srcSize & 0xFF
@@ -31,7 +33,7 @@ def compress(src: List[int], srcSize: int):
             bestBlockSize = 0
             blockDistance = minDistance
 
-            while blockDistance <= srcPos and blockDistance <= buffLen:
+            while blockDistance <= min(srcPos, buffLen):
                 blockStart = srcPos - blockDistance
                 blockSize = 0
 
@@ -79,13 +81,21 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.input)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.input}")
+        exit_error(f"Error: Couldn't find file {args.input}")
     outPath = make_out_path(inPath, Path(args.output))
     with open(inPath, mode="rb") as inFile:
-        src = [byte for byte in bytearray(inFile.read())]
-    result = compress(src, len(src))
-    with open(outPath, mode="wb+") as outFile:
-        outFile.write(bytes(result))
+        src = bytearray(inFile.read())
+    srcLen = len(src)
+    if srcLen == 0:
+        print(f"Warning: source file '{inPath}' is empty")
+    elif srcLen >= 2 ** 24:
+        exit_error(f"Error: source file '{inPath}' is too large")
+    result = compress(src, srcLen)
+    try:
+        with open(outPath, mode="wb") as outFile:
+            outFile.write(bytes(result))
+    except PermissionError:
+        exit_error(f"Error: Unable to write output file '{outPath}' due to a permission error")
 
 
 if __name__ == "__main__":

@@ -1,11 +1,12 @@
 import struct
 import os
+import sys
 from pathlib import Path
 from math import log10
 from typing import BinaryIO
 
 
-def is_int(x: str) -> int:
+def is_int(x: str) -> bool:
     try:
         int(x, 0)
         return True
@@ -59,6 +60,11 @@ def write_byte(outFile: BinaryIO, val: int) -> None:
 
 def make_out_path(inPath: Path, outName: Path) -> Path:
     return Path(os.path.join(os.path.dirname(inPath), os.path.basename(outName)))
+
+
+def exit_error(message:str = ""):
+    print(message, file=sys.stderr)
+    sys.exit(1)
 
 
 def enemy_id(bt):
