@@ -32,7 +32,7 @@ class PaletteHeader:
 
     def read(self, inFile: BinaryIO):
         self.byteCount = get_int(inFile)
-        self.palette.load(inFile, self.byteCount >> 1)
+        self.palette = GbaPal.create_from_file(inFile, self.byteCount >> 1)
 
 
 class TilemapHeader:

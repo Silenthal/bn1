@@ -1,32 +1,34 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-from typing import BinaryIO, List
+from typing import BinaryIO
 
-from common import auto_int, get_short, len_int
+from common import auto_int, get_short, len_int, exit_error
 
 
 class GbaPal:
-    def __init__(self, isHigh: bool = False, palette: List[List[int]] = []):
+    def __init__(self, isHigh: bool = False, palette: list[list[int]] = []):
         self.hasHighBits: bool = isHigh
-        self.palette: List[List[int]] = palette
+        self.palette: list[list[int]] = palette
 
-    def load(self, inFile: BinaryIO, count: int):
-        self.palette = []
-        self.hasHighBits = False
+    @classmethod
+    def create_from_file(cls, inFile: BinaryIO, count: int):
+        palette = []
+        hasHighBits = False
         for _ in range(count):
             col = get_short(inFile)
             colR = ((col >> 0) & 0x1F) * 8
             colG = ((col >> 5) & 0x1F) * 8
             colB = ((col >> 10) & 0x1F) * 8
             colX = (col >> 15) & 1
-            self.hasHighBits |= colX != 0
-            self.palette.append([colR, colG, colB, colX])
+            hasHighBits |= colX != 0
+            palette.append([colR, colG, colB, colX])
+        return cls(hasHighBits, palette)
 
-    def get_ext(self):
+    def get_ext(self) -> str:
         return ".txt" if self.hasHighBits else ".pal"
 
-    def as_text(self):
+    def as_text(self) -> str:
         count = len(self.palette)
         ret = ""
         if self.hasHighBits:
@@ -78,27 +80,38 @@ def main():
     parser.add_argument("path", type=str, help="The path to the game.")
     parser.add_argument("offset", type=auto_int, help="The offset into the game.")
     args = parser.parse_args()
+    if args.count <= 0:
+        exit_error("Error: palette color count should be greater than 0.")
+    if args.repeat <= 0:
+        exit_error("Error: palette count should be greater than 0.")
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
+    fileSize = inPath.stat().st_size
+    if args.offset >= fileSize:
+        exit_error(f"The given offset {args.offset} is greater than the file size {fileSize}")
+    palByteCount =  args.repeat * args.count * 2
+    if args.offset + palByteCount > fileSize:
+        exit_error(f"Unable to extract {palByteCount} byte(s) of palette data at offset {args.offset} - file not large enough.")
     outBaseName = Path(args.output if args.output else f"palette_{args.offset:07X}")
-    palList: List[GbaPal] = []
+    palList: list[GbaPal] = []
     with open(inPath, mode="rb") as inFile:
         inFile.seek(args.offset)
         for _ in range(args.repeat):
             palList.append(get_pal(inFile, args.count))
-    if args.repeat == 1:
-        outPath = f"{outBaseName}{palList[0].get_ext()}"
-        with open(outPath, mode="w", encoding="utf-8") as outFile:
-            outFile.write(palList[0].as_text())
-    else:
-        padLen = len_int(len(palList))
-        for i in range(args.repeat):
-            suffix = f"{{0:0{padLen}}}".format(i)
-            outPath = f"{outBaseName}/{suffix}{palList[i].get_ext()}"
-            Path(outBaseName).mkdir(parents=True, exist_ok=True)
+    if len(palList) > 0:
+        if args.repeat == 1:
+            outPath = f"{outBaseName}{palList[0].get_ext()}"
             with open(outPath, mode="w", encoding="utf-8") as outFile:
-                outFile.write(palList[i].as_text())
+                outFile.write(palList[0].as_text())
+        else:
+            Path(outBaseName).mkdir(parents=True, exist_ok=True)
+            padLen = len_int(len(palList))
+            for i in range(args.repeat):
+                suffix = f"{i:0{padLen}}"
+                outPath = f"{outBaseName}/{suffix}{palList[i].get_ext()}"
+                with open(outPath, mode="w", encoding="utf-8") as outFile:
+                    outFile.write(palList[i].as_text())
 
 
 if __name__ == "__main__":
