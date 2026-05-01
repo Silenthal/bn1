@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 from typing import List, Optional, Tuple
-from common import auto_int, write_byte, write_int, write_short
+from common import auto_int, write_byte, write_int, write_short, exit_error
 from lz import compress
 import json
 from make_tiles import (
@@ -112,7 +112,7 @@ def packScb(outPath: Path):
         sizeList.append(writeMapData(outputBuffer, path))
     sz = outputBuffer.tell()
     outputBuffer.seek(0)
-    comp = compress(list(outputBuffer.read()), sz)
+    comp = compress(bytearray(outputBuffer.read()), sz)
     outputBuffer.seek(0)
     off0 = 0
     off1 = sizeList[0]
@@ -131,11 +131,11 @@ def packTilemap(outPath: Path):
     if "tilemap" not in config:
         return
     if "width" not in config:
-        exit("Map layout doesn't have a width")
+        exit_error("Map layout doesn't have a width")
     if "height" not in config:
-        exit("Map layout doesn't have a height")
+        exit_error("Map layout doesn't have a height")
     if (not isinstance(config["tilemap"], list)) or len(config["tilemap"]) != 3:
-        exit("Tilemap property in map must be a list with 3 entries.")
+        exit_error("Tilemap property in map must be a list with 3 entries.")
     mapX = int(config["width"])
     mapY = int(config["height"])
     tmBuffer = io.BytesIO()
@@ -145,15 +145,15 @@ def packTilemap(outPath: Path):
     for ts in config["tilemap"]:
         tilemap: Path = outPath / ts["file"]
         if not tilemap.exists():
-            exit(f"Couldn't find tilemap file {tilemap}")
+            exit_error(f"Couldn't find tilemap file {tilemap}")
         if tilemap.stat().st_size != targetTilemapSizeBytes:
-            exit(
+            exit_error(
                 f"Filesize of tilemap {tilemap} doesn't match map target size {targetTilemapSizeBytes}"
             )
         with open(tilemap, "rb") as inTM:
             tmBuffer.write(inTM.read())
     tmBuffer.seek(0)
-    comp = compress(list(tmBuffer.read()), targetTilemapSizeBytes * 3)
+    comp = compress(bytearray(tmBuffer.read()), targetTilemapSizeBytes * 3)
     outputBuffer = io.BytesIO()
     header.write(outputBuffer)
     outputBuffer.write(bytes(comp))
@@ -166,7 +166,7 @@ def packTileset(outPath: Path):
     if "tileset" not in config:
         return
     if (not isinstance(config["tileset"], list)) or len(config["tileset"]) != 3:
-        exit("Tileset property in map must be a list with 3 entries.")
+        exit_error("Tileset property in map must be a list with 3 entries.")
     compBuffer = io.BytesIO()
     outBuffer = io.BytesIO()
     header = TilesetHeader()
@@ -175,7 +175,7 @@ def packTileset(outPath: Path):
     for ts in config["tileset"]:
         inPath = outPath / ts["file"]
         if not inPath.exists():
-            exit(f"Could not find file {inPath}")
+            exit_error(f"Could not find file {inPath}")
         mw = int(ts["metaWidth"] if "metaWidth" in ts else "1")
         mh = int(ts["metaHeight"] if "metaHeight" in ts else "1")
         n = int(ts["tileCount"] if "tileCount" in ts else "0")
@@ -196,7 +196,7 @@ def packTileset(outPath: Path):
         for tile in outTileList:
             flatTileBuffer.write(bytearray(tile))
         flatTileBuffer.seek(0)
-        flatTiles = list(flatTileBuffer.read())
+        flatTiles = bytearray(flatTileBuffer.read())
         rawSize = len(flatTiles)
         header.wordCount = rawSize // 4
         comp = compress(flatTiles, rawSize)
@@ -220,7 +220,7 @@ def packPalette(outPath: Path):
         return
     file: Path = outPath / config["palette"]
     if not file.exists():
-        exit("Couldn't find palette file")
+        exit_error("Couldn't find palette file")
     pal: List[Tuple[int, int, int, int]] = []
     bin: List[int] = []
     if file.suffix == ".pal":
@@ -241,7 +241,7 @@ def packText(outPath: Path, property: str):
         return
     file: Path = outPath / config[property]
     if not file.exists():
-        exit(f"Couldn't find {property} file")
+        exit_error(f"Couldn't find {property} file")
     print(f"Out: {outPath.with_suffix('.' + property)}")
     subprocess.run(
         [

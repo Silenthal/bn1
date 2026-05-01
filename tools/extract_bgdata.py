@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-from common import auto_int
+from common import auto_int, exit_error
 from common_archive import PaletteHeader, TilemapHeader, TilesetHeader
 from map_common import getMapConfig, writeMapConfig
 from unlz import extract
@@ -315,7 +315,7 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     with open(inPath, "rb") as inFile:
         unpack_all(inFile)
     # with open(inPath, 'rb') as inFile:

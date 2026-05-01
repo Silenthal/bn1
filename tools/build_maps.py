@@ -13,6 +13,7 @@ from make_map import (
     packTileset,
 )
 from multiprocessing import Pool
+from common import exit_error
 
 
 def process_pack(dirBase: Path, extension: str, function: Callable[[Path], None]):
@@ -54,7 +55,7 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     dirList: List[Path] = [s.parent for s in inPath.glob("**/map.json")]
     with Pool(16) as pool:
         pool.map(process, dirList)

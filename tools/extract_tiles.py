@@ -7,7 +7,7 @@ import os
 from math import ceil, log10
 from pathlib import Path
 import sys
-from common import auto_int, get_short
+from common import auto_int, get_short, exit_error
 from extract_pal import GbaPal
 
 
@@ -63,7 +63,7 @@ class TileReader:
 
     def setBitDepth(self, bitDepth: int):
         if bitDepth not in [4, 8]:
-            exit("Unable to parse bit depths that aren't 4 or 8")
+            exit_error("Unable to parse bit depths that aren't 4 or 8")
         self.bitDepth = bitDepth
 
     def setReadTiles(self, tileCount: int):
@@ -105,7 +105,7 @@ class TileReader:
         bpr = self.getBytesPerRow()
         byteList = file.read(bpr)
         if len(byteList) < bpr:
-            exit("Unable to read data")
+            exit_error("Unable to read data")
         mask = (1 << bitDepth) - 1
         if bitDepth == 8:
             tileRow = list(byteList)
@@ -151,7 +151,7 @@ class TileReader:
         # 2 (4) -> i * 64 (256 / 4)
         # 4 (16) -> i * 8 (256 / 16)
         # 8 (256) -> i * 1 (256 / 256)
-        pal = [
+        pal: list[Tuple[int, int, int, Literal[0, 255]]] = [
             (i * scale, i * scale, i * scale, 0 if i == 0 else 255)
             for i in range(colorCount)
         ]
@@ -243,29 +243,20 @@ class TileReader:
                 for i in range(ppt[0]):
                     outData[outOffsetY][outOffsetX + i] = line[i]
             except IndexError:
-                print("Error when writing pixel data: out of range")
-                print(
-                    f"X offset calculation: "
-                    f"({indexMetaTileX} * {pixelsPerMetaX}) + "
-                    f"({indexTileX} * {ppt[0]}) + "
-                    f"{indexPixelX}"
-                )
-                print(f"X = {outOffsetY}")
-                print(
-                    f"Y offset calculation: "
-                    f"({indexMetaTileY} * {pixelsPerMetaY}) + "
-                    f"({indexTileY} * {ppt[1]}) + "
-                    f"{indexPixelY}"
-                )
-                print(f"Y = {outOffsetY}")
-                print(f"Binary offset: {offset}")
-                print(f"Pixel index: {totalPixels}")
-                print(f"Tile index: {totalTiles}")
-                print(f"Metatile index: {totalMetaTiles}")
-                print(f"Pixel position: {indexPixelX}, {indexPixelY}")
-                print(f"Tileile position: {indexTileX}, {indexTileY}")
-                print(f"Metatile position: {indexMetaTileX}, {indexMetaTileY}")
-                exit()
+                err_msg = f"""Error when writing pixel data: out of range
+X offset calculation: ({indexMetaTileX} * {pixelsPerMetaX}) +  ({indexTileX} * {ppt[0]}) + {indexPixelX}
+X = {outOffsetY}
+Y offset calculation: ({indexMetaTileY} * {pixelsPerMetaY}) + ({indexTileY} * {ppt[1]}) + {indexPixelY}
+Y = {outOffsetY}
+Binary offset: {offset}
+Pixel index: {totalPixels}
+Tile index: {totalTiles}
+Metatile index: {totalMetaTiles}
+Pixel position: {indexPixelX}, {indexPixelY}
+Tileile position: {indexTileX}, {indexTileY}
+Metatile position: {indexMetaTileX}, {indexMetaTileY}
+"""
+                exit_error(err_msg)
             offset += ppt[0]
         return outData
 
@@ -390,11 +381,11 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     fileOffset = args.offset
     fileSize = inPath.stat().st_size
     if fileOffset >= fileSize:
-        exit(f"File offset {fileOffset} is greater than the size of the file {inPath}")
+        exit_error(f"File offset {fileOffset} is greater than the size of the file {inPath}")
     outPath = Path(args.output if args.output else f"tileset_{fileOffset:07X}").with_suffix(".png")
     tileReader = TileReader()
     tileReader.setBitDepth(args.depth)

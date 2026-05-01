@@ -2,6 +2,7 @@
 import argparse
 import re
 from pathlib import Path
+from common import exit_error
 
 
 def main():
@@ -10,7 +11,7 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.map_path if args.map_path else "../build/mmbn.map")
     if not inPath.exists():
-        exit(f"Couldn't find map file {args.path}")
+        exit_error(f"Couldn't find map file {args.path}")
 
     default_count = 0
     with open(inPath, "r") as inMap:

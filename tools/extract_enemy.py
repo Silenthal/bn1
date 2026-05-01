@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import BinaryIO
 
 import common
-from common import auto_int, get_byte, get_int, get_short
+from common import auto_int, get_byte, get_int, get_short, exit_error
 
 
 def bytelist(inFile: BinaryIO, count: int) -> str:
@@ -56,7 +56,7 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     outPath = "enemy_data.txt" if args.output == "" else args.output
     with open(inPath, mode="rb") as inFile:
         with open(outPath, mode="w", encoding="utf-8") as outFile:

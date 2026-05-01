@@ -3,7 +3,7 @@ import argparse
 import io
 from pathlib import Path
 from typing import BinaryIO, Tuple
-from common import auto_int, get_byte, get_int, get_short, get_sshort
+from common import auto_int, get_byte, get_int, get_short, get_sshort, exit_error
 
 
 def a_end(inFile):
@@ -317,11 +317,11 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     fileOffset = args.offset
     fileSize = inPath.stat().st_size
     if fileOffset >= fileSize:
-        exit(f"File offset {fileOffset} is greater than the size of the file {inPath}")
+        exit_error(f"File offset {fileOffset} is greater than the size of the file {inPath}")
     outPath = Path(args.output if args.output else f"{fileOffset:07X}").with_suffix(".txt")
     with open(inPath, mode="rb") as inFile:
         inFile.seek(fileOffset)

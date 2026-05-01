@@ -5,7 +5,7 @@ from io import BufferedReader, BytesIO
 import io
 import os
 from pathlib import Path
-from common import auto_int, get_short, get_int, write_int
+from common import auto_int, get_short, get_int, write_int, exit_error
 from map_common import getMapConfig, writeMapConfig
 from unlz import extract
 import json
@@ -135,7 +135,7 @@ def readMapData(
             if val1 == 0xFFFFFFFF and val2 == 0xFFFF:
                 altSeg = True
             else:
-                exit("Unknown map format.")
+                exit_error("Unknown map format.")
         if altSeg:
             mapData.addMapType(2)
         outBuffer.seek(segStart)
@@ -417,7 +417,7 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     with open(inPath, "rb") as inFile:
         if args.offset:
             unpackMap(inFile, args.offset, Path.cwd() / f"map_{args.offset:X}")

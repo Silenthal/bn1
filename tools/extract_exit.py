@@ -2,7 +2,7 @@
 import argparse
 from pathlib import Path
 from typing import BinaryIO, List
-from common import auto_int, direction, get_byte, get_int, get_short, map_id
+from common import auto_int, direction, get_byte, get_int, get_short, map_id, exit_error
 
 
 def fix(num: int):
@@ -62,11 +62,11 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     fileOffset = args.offset
     fileSize = inPath.stat().st_size
     if fileOffset >= fileSize:
-        exit(f"File offset {fileOffset} is greater than the size of the file {inPath}")
+        exit_error(f"File offset {fileOffset} is greater than the size of the file {inPath}")
     label = args.label if args.label else f"MapExitList_{fileOffset:08X}"
     outPath = Path(args.output if args.output else f"{fileOffset:08x}.txt")
     with open(inPath, mode="rb") as inFile:

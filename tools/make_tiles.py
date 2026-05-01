@@ -6,7 +6,7 @@ import png
 import json
 from pathlib import Path
 
-from common import auto_int
+from common import auto_int, exit_error
 
 
 class PngData:
@@ -28,12 +28,12 @@ def parse_png(pngPath: Path) -> PngData:
     pngImg = png.Reader(filename=pngPath)
     (width, height, rows, info) = pngImg.read_flat()
     if width == 0 or height == 0:
-        exit(f"Image {pngPath} has a width or height of 0 and cannot be read.")
+        exit_error(f"Image {pngPath} has a width or height of 0 and cannot be read.")
     if width % 8 != 0 or height % 8 != 0:
-        exit(f"Image {pngPath} dimensions are not multiples of 8")
+        exit_error(f"Image {pngPath} dimensions are not multiples of 8")
     bitDepth = info["bitdepth"]
     if bitDepth not in [4, 8]:
-        exit("Image bit depth must be 4 or 8.")
+        exit_error("Image bit depth must be 4 or 8.")
     return PngData(width, height, rows, info)
 
 
@@ -126,7 +126,7 @@ def make_meta_tile_list(
 def PngToGbaPal(inPath: Path, outPath: Path) -> None:
     pngData = parse_png(inPath)
     if pngData.isGreyscale:
-        exit(f"Image {inPath} is greyscale, and doesn't have a palette.")
+        exit_error(f"Image {inPath} is greyscale, and doesn't have a palette.")
     else:
         palbin = make_palette_bin(pngData.info["palette"], pngData.bitDepth)
         if outPath.exists():
@@ -208,7 +208,7 @@ def main():
         "metaHeight": args.meta_tile_height,
     }
     if not inPath.exists():
-        exit(f"Could not find file {inPath}")
+        exit_error(f"Could not find file {inPath}")
     if inConfigPath.exists():
         with open(inConfigPath, "r") as inJson:
             inConfig = json.load(inJson)
@@ -224,19 +224,19 @@ def main():
         elif outEx == ".8bpp" or outEx == ".4bpp":
             return PngToBpp(inPath, outPath, inConfig)
         else:
-            exit(f"Unsupported conversion from {inEx} to {outEx}")
+            exit_error(f"Unsupported conversion from {inEx} to {outEx}")
     elif inEx == ".pal":
         if outEx == ".gbapal":
             return JascPalToGbaPal(inPath, outPath)
         else:
-            exit(f"Unsupported conversion from {inEx} to {outEx}")
+            exit_error(f"Unsupported conversion from {inEx} to {outEx}")
     elif inEx == ".txt":
         if outEx == ".gbapal":
             return RgbxPalToGbaPal(inPath, outPath)
         else:
-            exit(f"Unsupported conversion from {inEx} to {outEx}")
+            exit_error(f"Unsupported conversion from {inEx} to {outEx}")
     else:
-        exit(f"Unsupported conversion from {inEx} to {outEx}")
+        exit_error(f"Unsupported conversion from {inEx} to {outEx}")
 
 
 if __name__ == "__main__":

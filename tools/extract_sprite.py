@@ -2,7 +2,7 @@
 import argparse
 from pathlib import Path
 from typing import List
-from common import auto_int, get_int
+from common import auto_int, get_int, exit_error
 from unlz import extract
 
 
@@ -50,7 +50,7 @@ def main():
 
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     pointerList: List[spritePtr] = []
     with open(inPath, mode="rb") as inFile:
         # Each pointer is 4 bytes

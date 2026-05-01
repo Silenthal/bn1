@@ -4,6 +4,7 @@ from pathlib import Path
 import subprocess
 from typing import Callable, List
 from multiprocessing import Pool
+from common import exit_error
 import re
 
 import sys
@@ -100,7 +101,7 @@ def searchAssets(assetPath: Path, incLink: Path) -> list[str]:
             if inMatch:
                 link = inMatch.group(1)
                 retList.append(link)
-                retList.extend(searchAssets(assetPath, link))
+                retList.extend(searchAssets(assetPath, Path(link)))
     return retList
 
 
@@ -146,10 +147,10 @@ def main():
     inPath = Path(args.source_path)
     buildFolder = Path(args.build_path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     assetPath = Path(args.asset_path)
     if not assetPath.exists():
-        exit(f"Couldn't find path {assetPath}")
+        exit_error(f"Couldn't find path {assetPath}")
     processList: List[Path] = []
     depList: List[DependFileParams] = []
     for build_s in inPath.glob("**/*.c"):

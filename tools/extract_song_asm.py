@@ -3,7 +3,7 @@ import argparse
 from pathlib import Path
 from typing import BinaryIO, List
 
-from common import get_byte, get_int
+from common import get_byte, get_int, exit_error
 
 
 class SongHeader:
@@ -414,7 +414,7 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.inPath)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.inPath}")
+        exit_error(f"Couldn't find file {args.inPath}")
 
     song_count = 238
     main_song_list_offset = 0xA111C

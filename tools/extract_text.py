@@ -3,7 +3,7 @@ import argparse
 import re
 from pathlib import Path
 
-from common import auto_int, get_byte, get_int, get_short
+from common import auto_int, get_byte, get_int, get_short, exit_error
 
 
 def get_text_offset_list(infile, blockOffset):
@@ -1560,7 +1560,7 @@ def main():
     blockOffset = args.blockOffset
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     outPath = f"{blockOffset:07X}.txt"
     of = ""
     with open(inPath, mode="rb") as infile:

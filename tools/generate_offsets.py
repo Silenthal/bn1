@@ -3,6 +3,7 @@ import argparse
 from pathlib import Path
 from pycparser import parse_file
 from pycparser.ast_transforms import c_ast
+from common import exit_error
 
 
 def processStruct(
@@ -50,7 +51,7 @@ def main():
     outFile: Path = Path(args.output)
     headFile: Path = Path(args.header)
     if not Path.exists(headFile):
-        exit(f"File {headFile} not found")
+        exit_error(f"File {headFile} not found")
     ast = parse_file(headFile, True)
     declareList: list[str] = []
     structDict: dict[str, dict[str, str]] = {}

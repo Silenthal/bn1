@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import List
 import re
 
-from common import auto_int, is_int
+from common import auto_int, is_int, exit_error
 
 class Section:
     def __init__(self):
@@ -849,21 +849,21 @@ def bytes_chip(chip: str):
     global curScript
     chips = chip.split()
     if len(chips) != 2 or chips[0] not in chip_id_map or not chips[1].isalpha():
-        exit(f'Unrecognized chip "{chip}"')
+        exit_error(f'Unrecognized chip "{chip}"')
     return [chip_id_map[chips[0]], charmap_basic[chips[1].upper()] - charmap_basic["A"]]
 
 
 def bytes_chip_id(chipid: str):
     global curScript
     if chipid not in chip_id_map:
-        exit(f'Unrecognized chip ID "{chipid}"')
+        exit_error(f'Unrecognized chip ID "{chipid}"')
     return [chip_id_map[chipid]]
 
 
 def bytes_chip_code(chipcode: str):
     global curScript
     if not chipcode.isalpha():
-        exit(f'Unrecognized chip code "{chipcode}"')
+        exit_error(f'Unrecognized chip code "{chipcode}"')
     return [charmap_basic[chipcode.upper()] - charmap_basic["A"]]
 
 
@@ -877,10 +877,10 @@ def bytes_key(itemid: str | int):
             return [num]
         except ValueError:
             if itemid not in key_item_map:
-                exit(f"Unrecognized item name {itemid}")
+                exit_error(f"Unrecognized item name {itemid}")
             return [key_item_map[itemid]]
     else:
-        exit(f"Unrecognized item name {itemid}")
+        exit_error(f"Unrecognized item name {itemid}")
 
 
 def bytes_flag(flagId: str | int):
@@ -893,10 +893,10 @@ def bytes_flag(flagId: str | int):
             return [num]
         except ValueError:
             if flagId not in globals().keys():
-                exit(f"Unrecognized flag {flagId}")
+                exit_error(f"Unrecognized flag {flagId}")
             return [globals()[flagId]]
     else:
-        exit(f"Unrecognized flag {flagId}")
+        exit_error(f"Unrecognized flag {flagId}")
 
 
 def bytes_portrait(portrait: str | int):
@@ -909,10 +909,10 @@ def bytes_portrait(portrait: str | int):
             return [num]
         except ValueError:
             if portrait not in portrait_id_map:
-                exit(f"Unrecognized portrait {portrait}")
+                exit_error(f"Unrecognized portrait {portrait}")
             return [portrait_id_map[portrait]]
     else:
-        exit(f"Unrecognized portrait {portrait}")
+        exit_error(f"Unrecognized portrait {portrait}")
 
 
 def varToInt(val: str | int, valDict: dict[str, int]) -> int:
@@ -924,10 +924,10 @@ def varToInt(val: str | int, valDict: dict[str, int]) -> int:
             return num
         except ValueError:
             if val not in valDict:
-                exit(f"Unrecognized var {val}")
+                exit_error(f"Unrecognized var {val}")
             return valDict[val]
     else:
-        exit(f"Unrecognized var {val}")
+        exit_error(f"Unrecognized var {val}")
 
 
 # endregion
@@ -2291,7 +2291,7 @@ def parse_command(reader: Reader):
     while not reader.isEmpty() and reader.peek() != "}":
         com += reader.read()
     if reader.isEmpty():
-        exit("Incomplete command")
+        exit_error("Incomplete command")
     reader.read()
     singleMatch = re.match(r"^([0123])$", com)
     padMatch = re.match(r"^([0123]):(([ 0])?(<|>)?)?(\d+)$", com)
@@ -2307,7 +2307,7 @@ def parse_command(reader: Reader):
         direction = padMatch.group(4)
         count = int(padMatch.group(5))
         if count >= 0x40:
-            exit("Pad amount needs to be less than 0x40")
+            exit_error("Pad amount needs to be less than 0x40")
         if direction == ">":
             count += 0x80
         if padChar == "0":
@@ -2335,14 +2335,14 @@ def parse_command(reader: Reader):
             if len(coms) > 1:
                 key_item(coms[1])
             else:
-                exit("Key item name required")
+                exit_error("Key item name required")
         elif coms[0] == "chip":
             if len(coms) == 2:
                 chip_id(coms[1])
             elif len(coms) > 2:
                 chip(coms[1], coms[2])
             else:
-                exit("Chip ID or chip id with code required")
+                exit_error("Chip ID or chip id with code required")
         elif coms[0] == "chip_buf":
             chip_id_buf(1)
             text(" ")
@@ -2364,38 +2364,38 @@ def parse_command(reader: Reader):
                 arg = auto_int(coms[1])
                 anim(arg)
             else:
-                exit("Animation index required")
+                exit_error("Animation index required")
         elif coms[0] == "add_chip":
             if len(coms) == 1:
-                exit("Arguments required for add_chip")
+                exit_error("Arguments required for add_chip")
             item = coms[1]
             args = [auto_int(i) for i in coms[2:]]
             add_chip(item, *args)
         elif coms[0] == "sub_chip":
             if len(coms) == 1:
-                exit("Arguments required for sub_chip")
+                exit_error("Arguments required for sub_chip")
             item = coms[1]
             args = [auto_int(i) for i in coms[2:]]
             sub_chip(item, *args)
         elif coms[0] == "add_item":
             if len(coms) == 1:
-                exit("Arguments required for add_item")
+                exit_error("Arguments required for add_item")
             item = coms[1]
             args = [auto_int(i) for i in coms[2:]]
             add_item(item, *args)
         elif coms[0] == "sub_item":
             if len(coms) == 1:
-                exit("Arguments required for sub_item")
+                exit_error("Arguments required for sub_item")
             item = coms[1]
             args = [auto_int(i) for i in coms[2:]]
             sub_item(item, *args)
         elif coms[0] == "set_flag":
             if len(coms) == 1:
-                exit("Arguments required for set_flag")
+                exit_error("Arguments required for set_flag")
             set_flag(coms[1])
         elif coms[0] == "clear_flag":
             if len(coms) == 1:
-                exit("Arguments required for clear_flag")
+                exit_error("Arguments required for clear_flag")
             clear_flag(coms[1])
         elif coms[0] == "cls" or coms[0] == "w":
             if len(coms) > 1:
@@ -2427,7 +2427,7 @@ def parse_command(reader: Reader):
             if len(coms) > 1:
                 item_amt(coms[1])
             else:
-                exit("(item_amt) Key item name required")
+                exit_error("(item_amt) Key item name required")
         elif coms[0] == "p":
             pad()
         elif coms[0] == "c":
@@ -2436,24 +2436,24 @@ def parse_command(reader: Reader):
             pad()
         elif len(coms[0]) == 6 and coms[0][1:4] == "pad":
             if len(coms) != 2:
-                exit("Argument required for pad")
+                exit_error("Argument required for pad")
             if not is_int(str(coms[1])):
-                exit("Number argument required for pad")
+                exit_error("Number argument required for pad")
             dr = coms[0][0]
             pd = coms[0][4]
             bf = coms[0][5]
             sz = auto_int(coms[1])
             if dr != "l" and dr != "r":
-                exit("Unrecognized direction for pad")
+                exit_error("Unrecognized direction for pad")
             if pd != "s" and pd != "z":
-                exit("Unrecognized padding char for pad")
+                exit_error("Unrecognized padding char for pad")
             if not is_int(str(bf)):
-                exit("Buffer for pad function must be a number")
+                exit_error("Buffer for pad function must be a number")
             bf = int(bf)
             if bf < 0 or bf > 3:
-                exit("Buffer for pad function required to be from 0 to 3")
+                exit_error("Buffer for pad function required to be from 0 to 3")
             if sz > 0x40:
-                exit("Pad amount needs to be less than 0x40")
+                exit_error("Pad amount needs to be less than 0x40")
             if dr == "l":
                 sz += 0x80
             if pd == "z":
@@ -2466,19 +2466,19 @@ def parse_command(reader: Reader):
                 arg = auto_int(coms[1])
                 col(arg)
             else:
-                exit("Argument required for col")
+                exit_error("Argument required for col")
         elif coms[0] == "se":
             if len(coms) == 1:
-                exit("Argument required for se")
+                exit_error("Argument required for se")
             arg = auto_int(coms[1])
             se(arg)
         elif coms[0] == "song":
             if len(coms) == 1:
-                exit("Argument required for song")
+                exit_error("Argument required for song")
             arg = auto_int(coms[1])
             song(arg)
         else:
-            exit(f"Unrecognized command {coms[0]}")
+            exit_error(f"Unrecognized command {coms[0]}")
 
 
 def text_base(useBold: bool, *txtList):
@@ -2499,7 +2499,7 @@ def text_base(useBold: bool, *txtList):
                     if char == "\\p":
                         page()
                     else:
-                        exit(f"Unrecognized command {char}")
+                        exit_error(f"Unrecognized command {char}")
                 else:
                     if useBold and char in charmap_bold:
                         curScript.emitByte(charmap_bold[char])
@@ -2534,7 +2534,7 @@ def main():
     inPath = Path(args.input)
     outPath = Path(args.output)
     if not inPath.exists():
-        exit(f"Couldn't find file {inPath}")
+        exit_error(f"Couldn't find file {inPath}")
     with open(inPath, mode="r") as inFile:
         exec(inFile.read())
     curScript.writeToFile(outPath)

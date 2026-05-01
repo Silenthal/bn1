@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-import os
 
-from common import auto_int
+from common import auto_int, exit_error
 
 
 def main():
@@ -21,9 +20,9 @@ def main():
     base = Path(args.base_file_path)
     newg = Path(args.build_file_path)
     if not newg.exists():
-        raise SystemExit(f"Couldn't find build file {newg}")
+        exit_error(f"Couldn't find build file {newg}")
     if not base.exists():
-        raise SystemExit(f"Couldn't find base file {base}")
+        exit_error(f"Couldn't find base file {base}")
     data_a: bytes = bytes()
     data_b: bytes = bytes()
     if base.exists() and newg.exists():

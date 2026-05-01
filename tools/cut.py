@@ -2,7 +2,7 @@
 import argparse
 from pathlib import Path
 
-from common import auto_int
+from common import auto_int, exit_error
 
 def main():
     parser = argparse.ArgumentParser(description="Extract binary data.")
@@ -26,12 +26,12 @@ def main():
 
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     fs = inPath.stat().st_size
     if args.offset > fs:
-        exit(f"Offset 0x{args.offset:X} is greater than file size {fs}")
+        exit_error(f"Offset 0x{args.offset:X} is greater than file size {fs}")
     if args.offset + args.size > fs:
-        exit(f"Size 0x{args.size:X} with offset 0x{args.offset:X} is greater than file size {fs}")
+        exit_error(f"Size 0x{args.size:X} with offset 0x{args.offset:X} is greater than file size {fs}")
 
     repeat: int = int(args.repeat)
     repLen = len(str(repeat - 1))

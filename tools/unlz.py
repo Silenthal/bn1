@@ -4,7 +4,7 @@ import io
 import os
 from pathlib import Path
 
-from common import auto_int, get_byte, get_int
+from common import auto_int, get_byte, get_int, exit_error
 
 
 def get_24(inFile):
@@ -81,16 +81,13 @@ def main():
     args = parser.parse_args()
     inPath = Path(args.path)
     if not inPath.exists():
-        exit(f"Couldn't find file {args.path}")
+        exit_error(f"Couldn't find file {args.path}")
     with open(inPath, mode="rb") as inFile:
         inFile.seek(args.offset)
         magic = get_byte(inFile)
         inFile.seek(-1, os.SEEK_CUR)
         if magic != 0x10:
-            print(
-                "Data at offset does not start with the magic value for a compressed archive (0x10)"
-            )
-            exit(1)
+            exit_error("Data at offset does not start with the magic value for a compressed archive (0x10)")
         if args.size > 0:
             print(f"Compressed size: {get_compressed_size(inFile)}")
         else:

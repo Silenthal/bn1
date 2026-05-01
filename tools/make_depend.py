@@ -2,6 +2,7 @@
 import argparse
 import os
 from pathlib import Path
+from common import exit_error
 
 
 def get_obj_name(inPath):
@@ -34,7 +35,7 @@ def main():
     objName = get_obj_name(outDir)
     depName = outDir
     if not inPath.exists():
-        exit(f"Could not find file {inPath}")
+        exit_error(f"Could not find file {inPath}")
     files = set()
     with open(inPath, "r") as inFile:
         for line in inFile:
