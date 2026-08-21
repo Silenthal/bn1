@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import json
-from typing import List, Literal, Tuple, BinaryIO
+from typing import Literal, BinaryIO
 import png
 import argparse
 import os
@@ -26,7 +26,7 @@ class TileReader:
         self.bitDepth = 4
         self.pixelsPerTileRow = 8
         self.tileRowCount = 8
-        self.palette: list[Tuple[int, int, int, Literal[0, 255]]] = []
+        self.palette: list[tuple[int, int, int, Literal[0, 255]]] = []
         self.setDefaultPalette()
 
     def getOutputInfo(self) -> str:
@@ -99,8 +99,8 @@ class TileReader:
     def getBytesPerRow(self) -> int:
         return self.bitDepth
 
-    def readTileRow(self, file: BinaryIO) -> List[int]:
-        tileRow: List[int] = []
+    def readTileRow(self, file: BinaryIO) -> list[int]:
+        tileRow: list[int] = []
         bitDepth = self.getBitDepth()
         bpr = self.getBytesPerRow()
         byteList = file.read(bpr)
@@ -119,22 +119,22 @@ class TileReader:
     def getBitDepth(self) -> int:
         return self.bitDepth
 
-    def getPalette(self) -> List[Tuple[int, int, int, Literal[0, 255]]]:
+    def getPalette(self) -> list[tuple[int, int, int, Literal[0, 255]]]:
         return self.palette
 
-    def getPixelsPerTile(self) -> Tuple[int, int]:
+    def getPixelsPerTile(self) -> tuple[int, int]:
         return self.pixelsPerTileRow, self.tileRowCount
 
-    def getTilesPerMeta(self) -> Tuple[int, int]:
+    def getTilesPerMeta(self) -> tuple[int, int]:
         return self.metaTileWidth, self.metaTileHeight
 
-    def getMetaPerOutput(self) -> Tuple[int, int]:
+    def getMetaPerOutput(self) -> tuple[int, int]:
         metaPerOutput = self.getMetaTileCount()
         metaPerOutputX = min(self.metaWidth, metaPerOutput)
         metaPerOutputY = ceil(metaPerOutput / metaPerOutputX)
         return metaPerOutputX, metaPerOutputY
 
-    def getPixelsPerOutput(self) -> Tuple[int, int]:
+    def getPixelsPerOutput(self) -> tuple[int, int]:
         ppt = self.getPixelsPerTile()
         tpm = self.getTilesPerMeta()
         mpo = self.getMetaPerOutput()
@@ -151,7 +151,7 @@ class TileReader:
         # 2 (4) -> i * 64 (256 / 4)
         # 4 (16) -> i * 8 (256 / 16)
         # 8 (256) -> i * 1 (256 / 256)
-        pal: list[Tuple[int, int, int, Literal[0, 255]]] = [
+        pal: list[tuple[int, int, int, Literal[0, 255]]] = [
             (i * scale, i * scale, i * scale, 0 if i == 0 else 255)
             for i in range(colorCount)
         ]
@@ -172,7 +172,7 @@ class TileReader:
         colCount = 1 << bd
         if paletteSize > 0:
             colCount = paletteSize
-        pal: list[Tuple[int, int, int, Literal[0, 255]]] = []
+        pal: list[tuple[int, int, int, Literal[0, 255]]] = []
         inFile.seek(paletteOffset)
         for _ in range(colCount):
             col = get_short(inFile)
@@ -185,7 +185,7 @@ class TileReader:
             pal = pal[:cap]
         self.palette = pal
 
-    def readImageData(self, inFile: BinaryIO) -> List[List[int]]:
+    def readImageData(self, inFile: BinaryIO) -> list[list[int]]:
         ppt = self.getPixelsPerTile()
         tpm = self.getTilesPerMeta()
         mpo = self.getMetaPerOutput()

@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-from typing import List
 from common import auto_int, get_int, exit_error
 from unlz import extract
 
@@ -51,7 +50,7 @@ def main():
     inPath = Path(args.path)
     if not inPath.exists():
         exit_error(f"Couldn't find file {args.path}")
-    pointerList: List[spritePtr] = []
+    pointerList: list[spritePtr] = []
     with open(inPath, mode="rb") as inFile:
         # Each pointer is 4 bytes
         inFile.seek(offset)
@@ -76,7 +75,7 @@ def main():
                 ptr.buffer = extract(inFile).getbuffer()
             else:
                 ptr.buffer = inFile.read(ptr.length)
-    incList: List[str] = []
+    incList: list[str] = []
     for ptr in pointerList:
         fileName = f"{ptr.offset:06X}.sprite"
         includeName = fileName
