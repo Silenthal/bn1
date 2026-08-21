@@ -1,56 +1,71 @@
 #!/usr/bin/python3
 import argparse
-from pathlib import Path
-import subprocess
-import sys
 import multiprocessing
 import os
+import subprocess
+import sys
+from pathlib import Path
+
+from tools.common import exit_error
 
 
-def create_venv() -> str:
-    venv_dir = os.path.join(os.getcwd(), ".venv")
-    python_prog = os.path.join(venv_dir, "bin", "python")
-    if sys.platform == "win32":
-        python_prog = os.path.join(venv_dir, "Scripts", "python.exe")
-    if not os.path.exists(python_prog):
+def run(args: list[str], cwd: str | None = None):
+    try:
+        subprocess.run(args, cwd=cwd, stdout=sys.stdout, stderr=sys.stderr, check=True)
+    except subprocess.CalledProcessError as e:
+        exit_error(f"Error from called script: {e}")
+
+
+def create_venv() -> Path:
+    cur_script_dir = Path(__file__).parent.resolve()
+    venv_dir = cur_script_dir / ".venv"
+    if os.name == "nt":
+        python_path: Path = venv_dir / "Scripts" / "python.exe"
+    else:
+        python_path: Path = venv_dir / "bin" / "python"
+    if not python_path.exists():
         print("Creating venv")
-        subprocess.run([sys.executable, "-m", "venv", venv_dir], stdout=sys.stdout, stderr=sys.stderr, check=True)
-        if not os.path.exists(python_prog):
-            raise FileNotFoundError(f"Venv creation unsuccessful at: {python_prog}")
-        print(f"Created venv, using python path {python_prog}")
-        subprocess.run([python_prog, "-m", "pip", "install", "-r", "requirements.txt", "-q"], stdout=sys.stdout, stderr=sys.stderr, check=True)
-    return python_prog
+        run([sys.executable, "-m", "venv", str(venv_dir)])
+        if not python_path.exists():
+            raise FileNotFoundError(f"Venv creation unsuccessful at: {python_path}")
+        print(f"Created venv, using python path {python_path}")
+        req_path: Path = cur_script_dir / "requirements.txt"
+        if req_path.exists():
+            run([str(python_path), "-m", "pip", "install", "--upgrade", "pip", "-q"])
+            run([str(python_path), "-m", "pip", "install", "-r", str(req_path), "-q"])
+    return python_path
 
 
 def task_clean():
-    subprocess.run(["make", "clean"], stdout=sys.stdout, stderr=sys.stderr, check=True)
+    run(["make", "clean"])
 
 
 def task_tidy():
-    subprocess.run(["make", "tidy"], stdout=sys.stdout, stderr=sys.stderr, check=True)
+    run(["make", "tidy"])
 
 
-def task_prep(python_path: str):
-    make_arg = f"PYTHON={python_path}"
+def task_prep(python_path: Path):
+    path: str = str(python_path)
+    make_arg: str = f"PYTHON={path}"
     Path("build").mkdir(exist_ok=True)
-    subprocess.run([python_path, "./build_assets.py","../source/", "../build/", "../assets/"], cwd="./tools/", stdout=sys.stdout, stderr=sys.stderr, check=True)
-    subprocess.run([python_path, "./generate_offsets.py", "-o", "../build/offsets.c", "../include/mmbn.h"], cwd="./tools/", stdout=sys.stdout, stderr=sys.stderr, check=True)
-    subprocess.run([python_path, "./build_maps.py", "../assets/data/maps/"], cwd="./tools/", stdout=sys.stdout, stderr=sys.stderr, check=True)
-    subprocess.run(["make", "offsets", make_arg], stdout=sys.stdout, stderr=sys.stderr, check=True)
+    run([path, "./build_assets.py","../source/", "../build/", "../assets/"], cwd="./tools/")
+    run([path, "./generate_offsets.py", "-o", "../build/offsets.c", "../include/mmbn.h"], cwd="./tools/")
+    run([path, "./build_maps.py", "../assets/data/maps/"], cwd="./tools/")
+    run(["make", "offsets", make_arg])
 
 
-def task_all(python_path: str):
+def task_all(python_path: Path):
     task_prep(python_path)
     make_arg = f"PYTHON={python_path}"
     procCount = multiprocessing.cpu_count()
-    subprocess.run(["make", f"-j{procCount}", make_arg], stdout=sys.stdout, stderr=sys.stderr, check=True)
+    run(["make", f"-j{procCount}", make_arg])
 
 
-def task_check(python_path: str):
+def task_check(python_path: Path):
     task_prep(python_path)
     make_arg = f"PYTHON={python_path}"
     procCount = multiprocessing.cpu_count()
-    subprocess.run(["make", "check", f"-j{procCount}", make_arg], stdout=sys.stdout, stderr=sys.stderr, check=True)
+    run(["make", "check", f"-j{procCount}", make_arg])
 
 
 def main():
