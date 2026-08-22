@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 import argparse
-from pathlib import Path
-import subprocess
-from typing import Callable, List
-from multiprocessing import Pool
-from common import exit_error
 import re
-
+import subprocess
 import sys
+from collections.abc import Callable
+from multiprocessing import Pool
+from pathlib import Path
+
+from common import exit_error
 
 
 class DependFileParams:
@@ -18,8 +18,8 @@ class DependFileParams:
         dFile: Path,
         oFile: Path,
         sFile: Path,
-        files: List[Path],
-        assets: List[Path],
+        files: list[Path],
+        assets: list[Path],
     ) -> None:
         self.writeFile: Path = writeFile
         self.sourceFile: Path = readFile
@@ -116,8 +116,8 @@ def createDepParams(
     )
     build_o = build_d.with_suffix(".o")
     sFile = Path("$(SOURCE)").joinpath(*build_s.parts[source_index:])
-    fileList: List[Path] = []
-    assetList: List[Path] = []
+    fileList: list[Path] = []
+    assetList: list[Path] = []
     with open(build_s, "r") as inFile:
         for line in inFile:
             inMatch = re.match(r"^\s*\.incbin \"(.*)\".*$", line)
@@ -151,8 +151,8 @@ def main():
     assetPath = Path(args.asset_path)
     if not assetPath.exists():
         exit_error(f"Couldn't find path {assetPath}")
-    processList: List[Path] = []
-    depList: List[DependFileParams] = []
+    processList: list[Path] = []
+    depList: list[DependFileParams] = []
     for build_s in inPath.glob("**/*.c"):
         param = createDepParams(inPath, build_s, buildFolder, assetPath, ".c.d")
         depList.append(param)

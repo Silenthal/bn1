@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 import argparse
 import io
+import re
 import shlex
 from pathlib import Path
-from typing import List
-import re
 
-from common import auto_int, is_int, exit_error
+from common import auto_int, exit_error, is_int
+
 
 class Section:
     def __init__(self):
@@ -40,7 +40,7 @@ class Section:
 class Script:
     def __init__(self):
         self.current_section = 0
-        self.sections: List[Section] = []
+        self.sections: list[Section] = []
 
     def setScriptCount(self, size: int):
         if size > 0 and size > len(self.sections):
@@ -1652,7 +1652,7 @@ def option(up: int, down: int, left: int, right: int):
     curScript.emitByte(high)
 
 
-def pick(optionList: List[int], default, isDisableB=False, isClearAfterPick=True):
+def pick(optionList: list[int], default, isDisableB=False, isClearAfterPick=True):
     global curScript
     curScript.emitByte(0xF1)
     curScript.emitByte(len(optionList) + 3)
@@ -1807,7 +1807,7 @@ def jump(index: int):
     curScript.emitByte(index)
 
 
-def jumprandom(indexList: List[int]):
+def jumprandom(indexList: list[int]):
     global curScript
     jump_control(len(indexList) - 1)
     for bt in indexList:
@@ -2210,7 +2210,7 @@ def misc_control(com: int):
 
 
 def award_zenny(
-    amtList: List[int], nextjump: int = 0xFF, unused1: int = 0xFF, unused2: int = 0xFF
+    amtList: list[int], nextjump: int = 0xFF, unused1: int = 0xFF, unused2: int = 0xFF
 ):
     global curScript
     misc_control(0)
@@ -2223,7 +2223,7 @@ def award_zenny(
 
 
 def award_chip(
-    chipList: List[str], ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF
+    chipList: list[str], ifall: int = 0xFF, ifnone: int = 0xFF, ifsome: int = 0xFF
 ):
     global curScript
     misc_control(1)

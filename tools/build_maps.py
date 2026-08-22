@@ -1,19 +1,20 @@
 #!/usr/bin/python3
 import argparse
 import os
+from collections.abc import Callable
+from multiprocessing import Pool
 from pathlib import Path
-from typing import Callable, List
-from map_common import getMapConfig
+
+from common import exit_error
 from make_map import (
     packDialogue,
-    packScb,
     packPalette,
+    packScb,
     packTalk,
     packTilemap,
     packTileset,
 )
-from multiprocessing import Pool
-from common import exit_error
+from map_common import getMapConfig
 
 
 def process_pack(dirBase: Path, extension: str, function: Callable[[Path], None]):
@@ -56,7 +57,7 @@ def main():
     inPath = Path(args.path)
     if not inPath.exists():
         exit_error(f"Couldn't find file {args.path}")
-    dirList: List[Path] = [s.parent for s in inPath.glob("**/map.json")]
+    dirList: list[Path] = [s.parent for s in inPath.glob("**/map.json")]
     with Pool(16) as pool:
         pool.map(process, dirList)
     print("Done.")

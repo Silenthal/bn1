@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
+from typing import Any, BinaryIO
+
 from common import auto_int, exit_error
 from common_archive import PaletteHeader, TilemapHeader, TilesetHeader
+from extract_tiles import TileReader
 from map_common import getMapConfig, writeMapConfig
 from unlz import extract
-from typing import Any, List, BinaryIO
-from extract_tiles import TileReader
 
 
 def unpackTilesetArchive(
@@ -92,7 +93,7 @@ def unpackTilemapArchive(inFile: BinaryIO, offset: int, dirName: Path):
 def unpack_all(inFile):
     mapStore = set()
     paletteStore: dict[int, PaletteHeader] = dict()
-    mapDict: dict[str, dict[str, dict[str, List[int]]]] = {
+    mapDict: dict[str, dict[str, dict[str, list[int]]]] = {
         "offline": {
             "School": {
                 "map_56A038": [0x3B0298, 0x3B3230, 0x3B33D4],

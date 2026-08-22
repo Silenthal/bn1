@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-from enum import Enum
-from typing import List
 import sys
+from enum import Enum
 
 
 class TokenType(Enum):
@@ -25,7 +24,7 @@ class Token:
 
 
 class TokenStream:
-    def __init__(self, tokenList: List[Token]) -> None:
+    def __init__(self, tokenList: list[Token]) -> None:
         self.list = tokenList
         self.index = 0
         self.len = len(tokenList)
@@ -84,7 +83,7 @@ def expect(tokenList: TokenStream, type: TokenType) -> Token:
 
 def tokenize(string: str) -> TokenStream:
     temp = ""
-    fStack: List[Token] = []
+    fStack: list[Token] = []
     op = ["+", "-", "*", "/", "(", ")", ","]
     for ch in string:
         if ch.isspace():
@@ -116,7 +115,7 @@ def tokenize(string: str) -> TokenStream:
     return TokenStream(fStack)
 
 
-def parseArgs(tokenList: TokenStream) -> List[Node]:
+def parseArgs(tokenList: TokenStream) -> list[Node]:
     retList = []
     first = parseExpr(tokenList)
     retList.append(first)

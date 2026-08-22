@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import BinaryIO
 
 import common
-from common import auto_int, get_byte, get_int, get_short, exit_error
+from common import auto_int, exit_error, get_byte, get_int, get_short
 
 
 def bytelist(inFile: BinaryIO, count: int) -> str:

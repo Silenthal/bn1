@@ -2,8 +2,9 @@
 import argparse
 import io
 from pathlib import Path
-from typing import BinaryIO, Tuple
-from common import auto_int, get_byte, get_int, get_short, get_sshort, exit_error
+from typing import BinaryIO
+
+from common import auto_int, exit_error, get_byte, get_int, get_short, get_sshort
 
 
 def a_end(inFile):
@@ -177,7 +178,7 @@ def a_set_sprite_ex(inFile):
     return False, f"a_set_sprite_ex 0x{get_short(inFile):X}"
 
 
-def interpret(inFile) -> Tuple[bool, str, int]:
+def interpret(inFile) -> tuple[bool, str, int]:
     funcList = {
         0x00: a_end,
         # 0x01
@@ -230,7 +231,7 @@ def interpret(inFile) -> Tuple[bool, str, int]:
     return isDone, textBuf, label
 
 
-def try_extract_off_list(inFile: BinaryIO) -> Tuple[bool, str]:
+def try_extract_off_list(inFile: BinaryIO) -> tuple[bool, str]:
     offsetList = []
     start: int = inFile.tell()
     good = True

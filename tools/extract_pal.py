@@ -3,7 +3,7 @@ import argparse
 from pathlib import Path
 from typing import BinaryIO
 
-from common import auto_int, get_short, len_int, exit_error
+from common import auto_int, exit_error, get_short, len_int
 
 
 class GbaPal:

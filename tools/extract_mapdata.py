@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 import argparse
+import io
+import json
+import os
 from enum import Enum
 from io import BufferedReader, BytesIO
-import io
-import os
 from pathlib import Path
-from common import auto_int, get_short, get_int, write_int, exit_error
+
+from common import auto_int, exit_error, get_int, get_short, write_int
 from map_common import getMapConfig, writeMapConfig
 from unlz import extract
-import json
-from typing import List, Tuple
 
 
 class MapType(Enum):
@@ -92,10 +92,10 @@ class MapData:
         pass
 
     def addSegmentSection(self):
-        self.segments: List[WallSegment] = []
+        self.segments: list[WallSegment] = []
 
     def addParameterSection(self):
-        self.parameters: List[WallParameter] = []
+        self.parameters: list[WallParameter] = []
 
     def addMapType(self, mapType: int = 1):
         self.mapType: int = mapType
@@ -116,7 +116,7 @@ class MapData:
 
 def readMapData(
     mapType: MapType, isOnline: bool, outBuffer: BytesIO, offset: int, assumedSize: int
-) -> Tuple[int, MapData]:
+) -> tuple[int, MapData]:
     outBuffer.seek(offset)
     start = outBuffer.tell()
     segCount = get_int(outBuffer)
@@ -211,7 +211,7 @@ def unpackMap(
     sizeEvent, eventData = readMapData(
         MapType.EVENT, isOnline, outBuffer, offsetEvent, offsetEnd - offsetEvent
     )
-    files: List[Tuple[int, Path, MapData]] = [
+    files: list[tuple[int, Path, MapData]] = [
         (sizeBoundary, outBound, boundaryData),
         (sizeElevation, outElevation, elevationData),
         (sizeCover, outCover, coverData),
@@ -244,7 +244,7 @@ def ordered(obj):
         return obj
 
 def unpack_all(inPath):
-    mapDict: dict[str, dict[str, List[Tuple[str, int]]]] = {
+    mapDict: dict[str, dict[str, list[tuple[str, int]]]] = {
         "offline": {
             "School": [
                 ("School_Class_5A", 0x56A038),

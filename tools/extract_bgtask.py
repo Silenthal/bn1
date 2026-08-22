@@ -4,12 +4,7 @@ import io
 from pathlib import Path
 from typing import BinaryIO
 
-from common import (
-    auto_int,
-    get_byte,
-    get_int,
-    exit_error
-)
+from common import auto_int, exit_error, get_byte, get_int
 
 
 def fix(num: int):

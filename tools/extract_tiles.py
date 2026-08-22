@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-import json
-from typing import Literal, BinaryIO
-import png
 import argparse
+import json
 import os
+import sys
 from math import ceil, log10
 from pathlib import Path
-import sys
-from common import auto_int, get_short, exit_error
+from typing import BinaryIO, Literal
+
+import png
+from common import auto_int, exit_error, get_short
 from extract_pal import GbaPal
 
 

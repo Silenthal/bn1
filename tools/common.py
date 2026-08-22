@@ -1,8 +1,8 @@
-import struct
 import os
+import struct
 import sys
-from pathlib import Path
 from math import log10
+from pathlib import Path
 from typing import BinaryIO
 
 

@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-from typing import BinaryIO, List
+from typing import BinaryIO
 
-from common import get_byte, get_int, exit_error
+from common import exit_error, get_byte, get_int
 
 
 class SongHeader:
@@ -16,7 +16,7 @@ class SongHeader:
         self.reverb: int = rv & 0x7F
         self.reverb_set: bool = (rv & 0x80) != 0
         self.tone_data_off: int = get_offset_from_pointer(inGBA)
-        self.track_ptr: List[int] = []
+        self.track_ptr: list[int] = []
         for _ in range(self.track_count):
             self.track_ptr.append(get_offset_from_pointer(inGBA))
 
@@ -44,7 +44,7 @@ file_header = """#include "offsets.h"
 
 
 def to_n(n: int) -> str:
-    list_n: List[str] = [
+    list_n: list[str] = [
         "N01",
         "N02",
         "N03",
@@ -101,7 +101,7 @@ def to_n(n: int) -> str:
 
 
 def to_note(note: int) -> str:
-    list_note: List[str] = [
+    list_note: list[str] = [
         "CnM2",
         "CsM2",
         "DnM2",
@@ -242,7 +242,7 @@ def to_vel(vel: int) -> str:
 
 
 def to_wait(wait: int) -> str:
-    list_wait: List[str] = [
+    list_wait: list[str] = [
         "W00",
         "W01",
         "W02",
@@ -452,7 +452,7 @@ def main():
                                 f"Track_{offset_to_pointer(head.track_ptr[track_idx]):08X}:\n"
                             )
                             cur_off = cur_offset_to_pointer(inFile)
-                            preproc_list: List[ParseResult] = []
+                            preproc_list: list[ParseResult] = []
                             labels_set = set()
                             if track_idx >= len(head.track_ptr) - 1:
                                 while True:

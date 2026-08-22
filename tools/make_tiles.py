@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 import argparse
-import os
-from typing import List, Tuple
-import png
 import json
+import os
 from pathlib import Path
 
+import png
 from common import auto_int, exit_error
 
 
@@ -37,8 +36,8 @@ def parse_png(pngPath: Path) -> PngData:
     return PngData(width, height, rows, info)
 
 
-def parse_pal(palPath: Path) -> List[Tuple[int, int, int, int]]:
-    palList: List[Tuple[int, int, int, int]] = []
+def parse_pal(palPath: Path) -> list[tuple[int, int, int, int]]:
+    palList: list[tuple[int, int, int, int]] = []
     with open(palPath, "r") as pal:
         magic1 = pal.readline().strip()
         magic2 = pal.readline().strip()
@@ -53,7 +52,7 @@ def parse_pal(palPath: Path) -> List[Tuple[int, int, int, int]]:
     return palList
 
 
-def parse_rgbx(palPath: Path) -> List[Tuple[int, int, int, int]]:
+def parse_rgbx(palPath: Path) -> list[tuple[int, int, int, int]]:
     palList = []
     with open(palPath, "r") as pal:
         magic1 = pal.readline().strip().split()
@@ -69,8 +68,8 @@ def parse_rgbx(palPath: Path) -> List[Tuple[int, int, int, int]]:
     return palList
 
 
-def make_palette_bin(pal, depth: int = 4) -> List[int]:
-    palbin: List[int] = []
+def make_palette_bin(pal, depth: int = 4) -> list[int]:
+    palbin: list[int] = []
     for i in range(len(pal)):
         r, g, b, x = pal[i]
         cr = (r >> 3) & 0x1F
@@ -83,14 +82,14 @@ def make_palette_bin(pal, depth: int = 4) -> List[int]:
     return palbin
 
 
-def make_tile_list(rows, bitdepth: int, width: int, height: int) -> List[List[int]]:
+def make_tile_list(rows, bitdepth: int, width: int, height: int) -> list[list[int]]:
     tileCountX = width >> 3
     tileCountY = height >> 3
-    tileList: List[List[int]] = []
+    tileList: list[list[int]] = []
     for tj in range(tileCountY):
         for ti in range(tileCountX):
             offset = (tj * 8 * tileCountX + ti) * 8
-            tile: List[int] = []
+            tile: list[int] = []
             for tileRowIndex in range(8):
                 rowOffset = offset + (tileRowIndex * width)
                 for t in range(bitdepth):
@@ -106,13 +105,13 @@ def make_tile_list(rows, bitdepth: int, width: int, height: int) -> List[List[in
 
 
 def make_meta_tile_list(
-    tileList: List[List[int]],
+    tileList: list[list[int]],
     metaWidth: int,
     metaHeight: int,
     tileCountX: int,
     tileCountY: int,
-) -> List[List[int]]:
-    reorderedTileList: List[List[int]] = []
+) -> list[list[int]]:
+    reorderedTileList: list[list[int]] = []
     for mj in range(tileCountY // metaHeight):
         for mi in range(tileCountX // metaWidth):
             tileOffBase = (mj * metaHeight * tileCountX) + (mi * metaWidth)

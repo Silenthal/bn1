@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-from typing import BinaryIO, List
-from common import auto_int, direction, get_byte, get_int, get_short, map_id, exit_error
+from typing import BinaryIO
+
+from common import auto_int, direction, exit_error, get_byte, get_int, get_short, map_id
 
 
 def fix(num: int):
@@ -12,7 +13,7 @@ def fix(num: int):
     return flt
 
 
-def get_offset_list(inFile: BinaryIO) -> List[int]:
+def get_offset_list(inFile: BinaryIO) -> list[int]:
     offsetList = []
     while True:
         if inFile.tell() in offsetList:

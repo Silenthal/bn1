@@ -1,11 +1,11 @@
-from typing import BinaryIO, Optional
+from typing import BinaryIO
 
 from common import get_byte, get_int, get_short, write_byte, write_int, write_short
 from extract_pal import GbaPal
 
 
 class TilesetHeader:
-    def __init__(self, inFile: Optional[BinaryIO] = None) -> None:
+    def __init__(self, inFile: BinaryIO | None = None) -> None:
         self.wordCount = 0
         self.lzOffset = 0
         self.vramOff = 0
@@ -24,7 +24,7 @@ class TilesetHeader:
 
 
 class PaletteHeader:
-    def __init__(self, inFile: Optional[BinaryIO] = None) -> None:
+    def __init__(self, inFile: BinaryIO | None = None) -> None:
         self.byteCount = 0
         self.palette: GbaPal = GbaPal()
         if inFile:
@@ -36,7 +36,7 @@ class PaletteHeader:
 
 
 class TilemapHeader:
-    def __init__(self, inFile: Optional[BinaryIO] = None) -> None:
+    def __init__(self, inFile: BinaryIO | None = None) -> None:
         self.mapSizeX = 0
         self.mapSizeY = 0
         self.offset1 = 0

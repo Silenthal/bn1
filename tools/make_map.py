@@ -1,26 +1,26 @@
 #!/usr/bin/python3
 import argparse
 import io
-from pathlib import Path
+import json
 import subprocess
 import sys
-from typing import List, Optional, Tuple
-from common import auto_int, write_byte, write_int, write_short, exit_error
+from pathlib import Path
+
+from common import auto_int, exit_error, write_byte, write_int, write_short
+from common_archive import TilemapHeader, TilesetHeader
 from lz import compress
-import json
 from make_tiles import (
     make_meta_tile_list,
+    make_palette_bin,
     make_tile_list,
+    parse_pal,
     parse_png,
     parse_rgbx,
-    parse_pal,
-    make_palette_bin,
 )
-from common_archive import TilemapHeader, TilesetHeader
 from map_common import getMapConfig
 
 
-def writeMapData(outputBuffer: io.BytesIO, mapFile: Optional[Path]):
+def writeMapData(outputBuffer: io.BytesIO, mapFile: Path | None):
     start = outputBuffer.tell()
     if mapFile and mapFile.exists():
         with open(mapFile, "r") as inFile:
@@ -103,10 +103,10 @@ def packScb(outPath: Path):
     config = getMapConfig(outPath)
     if "scb" not in config:
         return
-    sizeList: List[int] = []
+    sizeList: list[int] = []
     outputBuffer = io.BytesIO()
     for key in ["boundary", "elevation", "cover", "event"]:
-        path: Optional[Path] = None
+        path: Path | None = None
         if key in config["scb"]:
             path = Path(outPath / config["scb"][key])
         sizeList.append(writeMapData(outputBuffer, path))
@@ -221,8 +221,8 @@ def packPalette(outPath: Path):
     file: Path = outPath / config["palette"]
     if not file.exists():
         exit_error("Couldn't find palette file")
-    pal: List[Tuple[int, int, int, int]] = []
-    bin: List[int] = []
+    pal: list[tuple[int, int, int, int]] = []
+    bin: list[int] = []
     if file.suffix == ".pal":
         pal = parse_pal(file)
     else:
