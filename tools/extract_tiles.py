@@ -93,8 +93,7 @@ class TileReader:
                 self.metaTileWidth * self.metaTileHeight
             )
             metaCount = byteCount // bytesPerTile
-        if metaCount < 1:
-            metaCount = 1
+        metaCount = max(metaCount, 1)
         return metaCount
 
     def getBytesPerRow(self) -> int:

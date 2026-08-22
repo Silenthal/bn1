@@ -135,9 +135,9 @@ def PngToGbaPal(inPath: Path, outPath: Path) -> None:
 
 
 def PngToBpp(inPath: Path, outPath: Path, inConfig) -> None:
-    mw = int(inConfig["metaWidth"] if "metaWidth" in inConfig else "1")
-    mh = int(inConfig["metaHeight"] if "metaHeight" in inConfig else "1")
-    n = int(inConfig["tileCount"] if "tileCount" in inConfig else "0")
+    mw = int(inConfig.get("metaWidth", "1"))
+    mh = int(inConfig.get("metaHeight", "1"))
+    n = int(inConfig.get("tileCount", "0"))
     pngData = parse_png(inPath)
     tileList = make_tile_list(
         pngData.rows, pngData.bitDepth, pngData.width, pngData.height
@@ -150,8 +150,7 @@ def PngToBpp(inPath: Path, outPath: Path, inConfig) -> None:
     if tilecap > 0 and tilecap < tileCount:
         outTileList = outTileList[0:tilecap]
     with open(outPath, "wb") as oFile:
-        for tile in outTileList:
-            oFile.write(bytearray(tile))
+        oFile.writelines(bytearray(tile) for tile in outTileList)
 
 
 def JascPalToGbaPal(inPath: Path, outPath: Path) -> None:

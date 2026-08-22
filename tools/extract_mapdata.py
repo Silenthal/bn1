@@ -394,13 +394,13 @@ def unpack_all(inPath):
         },
     }
     sortList = []
-    for loc in mapDict.keys():
-        locationDir = Path.cwd() / ".." / "assets" / "data" / "maps" / loc
-        for area in mapDict[loc].keys():
+    for group, areaDict in mapDict.items():
+        locationDir = Path.cwd() / ".." / "assets" / "data" / "maps" / group
+        for area in areaDict:
             outFolder = locationDir
-            for name, offset in mapDict[loc][area]:
+            for name, offset in areaDict[area]:
                 dirBase = outFolder / name
-                unpackMap(inPath, offset, dirBase, loc == "online")
+                unpackMap(inPath, offset, dirBase, group == "online")
                 sortList.append([offset, dirBase.with_suffix(".scb")])
     sortList.sort(key=lambda x: x[0])
     with open("sortlist_scb.txt", "w") as outSort:

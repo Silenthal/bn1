@@ -4,7 +4,7 @@ import io
 import os
 from pathlib import Path
 
-from common import auto_int, get_byte, get_int, exit_error
+from common import auto_int, exit_error, get_byte, get_int
 
 
 def get_24(inFile):

@@ -3,7 +3,7 @@ import argparse
 import re
 from pathlib import Path
 
-from common import auto_int, get_byte, get_int, get_short, exit_error
+from common import auto_int, exit_error, get_byte, get_int, get_short
 
 
 def get_text_offset_list(infile, blockOffset):
@@ -814,7 +814,7 @@ def chip_id(bt):
         0xF5: "AquaArmr",
         0xF6: "WoodArmr",
     }
-    return idSet[bt] if bt in idSet else f"0x{bt:02X}"
+    return idSet.get(bt, f"0x{bt:02X}")
 
 
 def chip_code(bt):
@@ -1310,7 +1310,7 @@ def interpret(infile):
         textBuf = charmap[c2 + 0x1E5]
         isText = True
     elif c == 0xEB:
-        textBuf = "\p"
+        textBuf = "\\p"
         isText = True
     elif c < 0xFF:
         isDone, textBuf = funcList[c - 0xE7](infile)

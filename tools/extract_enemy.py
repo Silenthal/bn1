@@ -58,20 +58,18 @@ def main():
     if not inPath.exists():
         exit_error(f"Couldn't find file {args.path}")
     outPath = "enemy_data.txt" if args.output == "" else args.output
-    with open(inPath, mode="rb") as inFile:
-        with open(outPath, mode="w", encoding="utf-8") as outFile:
-            inFile.seek(args.enemy_offset)
-            for i in range(args.count):
-                outFile.write(f"    @ {i} | {common.enemy_id(i)}\n")
-                outFile.write(f"    hp {get_short(inFile)}\n")
-                outFile.write(f"    {element(inFile)}\n")
-                outFile.write(f"    hp_pos {get_byte(inFile)}\n")
-                outFile.write(f"    routine 0x{get_byte(inFile):X}\n")
-                outFile.write(f"    lzSprite 0x{get_byte(inFile):X}\n")
-                outFile.write(f"    .short 0x{get_short(inFile):X}\n")
-                outFile.write(f"    .word 0x{get_int(inFile):X}\n")
-                for _ in range(10):
-                    outFile.write(f"    {reward(get_short(inFile))}\n")
+    with open(inPath, mode="rb") as inFile, open(outPath, mode="w", encoding="utf-8") as outFile:
+        inFile.seek(args.enemy_offset)
+        for i in range(args.count):
+            outFile.write(f"    @ {i} | {common.enemy_id(i)}\n")
+            outFile.write(f"    hp {get_short(inFile)}\n")
+            outFile.write(f"    {element(inFile)}\n")
+            outFile.write(f"    hp_pos {get_byte(inFile)}\n")
+            outFile.write(f"    routine 0x{get_byte(inFile):X}\n")
+            outFile.write(f"    lzSprite 0x{get_byte(inFile):X}\n")
+            outFile.write(f"    .short 0x{get_short(inFile):X}\n")
+            outFile.write(f"    .word 0x{get_int(inFile):X}\n")
+            outFile.writelines(f"    {reward(get_short(inFile))}\n" for _ in range(10))
 
 
 if __name__ == "__main__":

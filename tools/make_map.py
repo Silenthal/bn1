@@ -69,22 +69,21 @@ def writeMapData(outputBuffer: io.BytesIO, mapFile: Path | None):
                     attr = 0
                     if "id" in mp["parameters"][j]:
                         attr = int(mp["parameters"][j]["id"])
-                    if "canDisable" in mp["parameters"][j]:
-                        if bool(mp["parameters"][j]["canDisable"]):
-                            attr |= 0x80
+                    if "canDisable" in mp["parameters"][j] and bool(mp["parameters"][j]["canDisable"]):
+                        attr |= 0x80
                     if "ignore" in mp["parameters"][j]:
                         attr = 0
                     elif "isShade" in mp["parameters"][j]:
                         attr = 0x3C
                     else:
-                        for key in attrOff.keys():
+                        for key, attrVal in attrOff.items():
                             if key in mp["parameters"][j]:
                                 attrRaw = mp["parameters"][j][key]
                                 if isinstance(attrRaw, str):
                                     attr = int(attrRaw, 0)
                                 else:
                                     attr = int(attrRaw)
-                                attr += attrOff[key]
+                                attr += attrVal
                     write_byte(outputBuffer, z)
                     write_byte(outputBuffer, attr)
                     write_byte(outputBuffer, height)
@@ -176,9 +175,9 @@ def packTileset(outPath: Path):
         inPath = outPath / ts["file"]
         if not inPath.exists():
             exit_error(f"Could not find file {inPath}")
-        mw = int(ts["metaWidth"] if "metaWidth" in ts else "1")
-        mh = int(ts["metaHeight"] if "metaHeight" in ts else "1")
-        n = int(ts["tileCount"] if "tileCount" in ts else "0")
+        mw = int(ts.get("metaWidth", "1"))
+        mh = int(ts.get("metaHeight", "1"))
+        n = int(ts.get("tileCount", "0"))
         if "offset" in ts:
             header.vramOff = int(ts["offset"])
         pngData = parse_png(inPath)
@@ -252,6 +251,7 @@ def packText(outPath: Path, property: str):
         ],
         stdout=sys.stdout,
         stderr=sys.stderr,
+        check=True
     )
 
 

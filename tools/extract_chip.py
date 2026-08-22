@@ -99,25 +99,24 @@ def main():
     if not inPath.exists():
         exit_error(f"Couldn't find file {args.path}")
     outPath = "chip_data.txt" if args.output == "" else args.output
-    with open(inPath, mode="rb") as inFile:
-        with open(outPath, mode="w", encoding="utf-8") as outFile:
-            inFile.seek(args.chip_offset)
-            for i in range(args.count):
-                outFile.write(f"    @ {i}: {common.chip_id(i)}\n")
-                outFile.write(f"        {codes(inFile)}\n")
-                outFile.write(f"        {element(inFile)}\n")
-                outFile.write(f"        {family(inFile)}\n")
-                outFile.write(f"        {rarity(inFile)}\n")
-                outFile.write(f"        {library(inFile)}\n")
-                outFile.write(f"        {abc(inFile)}\n")
-                outFile.write(f"        damage {get_short(inFile)}\n")
-                outFile.write(f"        {bytelist(inFile, 2)}\n")
-                _ = get_int(inFile)
-                outFile.write(f"        chip_icon {i}\n")
-                chip_off = get_int(inFile) - 0x8000000
-                chip_index = (chip_off - args.chip_art_offset) // (8 * 7 * 32)
-                _ = get_int(inFile)
-                outFile.write(f"        chip_art {chip_index}\n")
+    with open(inPath, mode="rb") as inFile, open(outPath, mode="w", encoding="utf-8") as outFile:
+        inFile.seek(args.chip_offset)
+        for i in range(args.count):
+            outFile.write(f"    @ {i}: {common.chip_id(i)}\n")
+            outFile.write(f"        {codes(inFile)}\n")
+            outFile.write(f"        {element(inFile)}\n")
+            outFile.write(f"        {family(inFile)}\n")
+            outFile.write(f"        {rarity(inFile)}\n")
+            outFile.write(f"        {library(inFile)}\n")
+            outFile.write(f"        {abc(inFile)}\n")
+            outFile.write(f"        damage {get_short(inFile)}\n")
+            outFile.write(f"        {bytelist(inFile, 2)}\n")
+            _ = get_int(inFile)
+            outFile.write(f"        chip_icon {i}\n")
+            chip_off = get_int(inFile) - 0x8000000
+            chip_index = (chip_off - args.chip_art_offset) // (8 * 7 * 32)
+            _ = get_int(inFile)
+            outFile.write(f"        chip_art {chip_index}\n")
 
 
 if __name__ == "__main__":

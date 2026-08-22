@@ -85,14 +85,14 @@ def unpackTilemapArchive(inFile: BinaryIO, offset: int, dirName: Path):
     config = getMapConfig(dirName)
     config["tilemap"] = [{"file": "BG1.bin"}, {"file": "BG2.bin"}, {"file": "BG3.bin"}]
     sortedConfig = {"width": header.mapSizeX, "height": header.mapSizeY}
-    for key in config.keys():
+    for key in config:
         sortedConfig[key] = config[key]
     writeMapConfig(dirName, sortedConfig)
 
 
 def unpack_all(inFile):
     mapStore = set()
-    paletteStore: dict[int, PaletteHeader] = dict()
+    paletteStore: dict[int, PaletteHeader] = {}
     mapDict: dict[str, dict[str, dict[str, list[int]]]] = {
         "offline": {
             "School": {
@@ -276,18 +276,18 @@ def unpack_all(inFile):
         },
     }
     sortList = []
-    for loc in mapDict.keys():
-        locationDir = Path.cwd() / loc
-        for area in mapDict[loc].keys():
+    for group, areaDict in mapDict.items():
+        locationDir = Path.cwd() / group
+        for area in areaDict:
             if area == "battle":
                 outArea = locationDir
             else:
                 outArea = locationDir / area
-            for subArea in mapDict[loc][area].keys():
+            for subArea in areaDict[area]:
                 outFolder = outArea / subArea
-                tileset = mapDict[loc][area][subArea][0]
-                palette = mapDict[loc][area][subArea][1]
-                tilemap = mapDict[loc][area][subArea][2]
+                tileset = areaDict[area][subArea][0]
+                palette = areaDict[area][subArea][1]
+                tilemap = areaDict[area][subArea][2]
                 if palette not in paletteStore:
                     palHeader = unpackPaletteArchive(inFile, palette, outFolder)
                     mapStore.add(palette)
@@ -305,8 +305,7 @@ def unpack_all(inFile):
                     sortList.append([tilemap, outFolder.with_suffix(".srb")])
     sortList.sort(key=lambda x: x[0])
     with open("sortlist.txt", "w") as outSort:
-        for off, name in sortList:
-            outSort.write(f'    .incbin "{name}" ; 0x{off:X}\n')
+        outSort.writelines(f'    .incbin "{name}" ; 0x{off:X}\n' for off, name in sortList)
 
 
 def main():

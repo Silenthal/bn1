@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-from common import make_out_path, exit_error
+
+from common import exit_error, make_out_path
 
 
 def compress(src: bytearray, srcSize: int) -> list[int]:

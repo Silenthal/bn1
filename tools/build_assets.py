@@ -165,10 +165,7 @@ def main():
     with Pool(16) as pool:
         pool.map(process, processList)
     for param in depList:
-
-        def process_dep():
-            param.write()
-
+        process_dep = lambda p=param: p.write()
         processIfNew(param.sourceFile, param.writeFile, process_dep)
 
 

@@ -414,7 +414,7 @@ def chip_id(bt: int) -> str:
         0xC6: "ElecMan3",
         0xC7: "Bass",
     }
-    return chipIdDict[bt] if bt in chipIdDict else f"0x{bt:02X}"
+    return chipIdDict.get(bt, f"0x{bt:02X}")
 
 
 def chip_code(id: int) -> str:
@@ -475,7 +475,7 @@ def key_item(bt: int) -> str:
         0x45: "AquaArmr",
         0x46: "WoodArmr",
     }
-    return key_item_map[bt] if bt in key_item_map else f"0x{bt:02X}"
+    return key_item_map.get(bt, f"0x{bt:02X}")
 
 
 def map_id(bt: int):
@@ -601,7 +601,7 @@ def map_id(bt: int):
         0x0F90: "Map_Undernet_12",
         0xFFFF: "Map_None",
     }
-    return map_dict[bt] if bt in map_dict else f"0x{bt:04X}"
+    return map_dict.get(bt, f"0x{bt:04X}")
 
 
 def direction(bt: int):

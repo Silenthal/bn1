@@ -23,9 +23,7 @@ class SongHeader:
     def valid(self) -> bool:
         if self.track_count == 0:
             return False
-        if self.track_count < 1 or self.track_count > 16:
-            return False
-        return True
+        return not (self.track_count < 1 or self.track_count > 16)
 
 
 class ParseResult:
@@ -499,10 +497,7 @@ def main():
                         outSong.write(
                             f"    .word 0x{offset_to_pointer(head.tone_data_off):X}\n"
                         )
-                        for ptr in head.track_ptr:
-                            outSong.write(
-                                f"    .word Track_{offset_to_pointer(ptr):08X}\n"
-                            )
+                        outSong.writelines(f"    .word Track_{offset_to_pointer(ptr):08X}\n" for ptr in head.track_ptr)
                         outSong.write("\n    .end\n")
     # with open("offset_temp.txt", "w") as outOffsetFile:
     #     for off in sorted(offsets_file_dict.keys()):

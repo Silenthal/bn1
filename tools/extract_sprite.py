@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
-from common import auto_int, get_int, exit_error
+
+from common import auto_int, exit_error, get_int
 from unlz import extract
 
 

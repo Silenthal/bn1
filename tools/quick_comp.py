@@ -26,10 +26,9 @@ def main():
     data_a: bytes = bytes()
     data_b: bytes = bytes()
     if base.exists() and newg.exists():
-        with open(base, "rb") as inOrig:
-            with open(newg, "rb") as inNewG:
-                data_a = inOrig.read()
-                data_b = inNewG.read()
+        with open(base, "rb") as inOrig, open(newg, "rb") as inNewG:
+            data_a = inOrig.read()
+            data_b = inNewG.read()
     counter = int(args.count)
     for f in range(len(data_a)):
         if counter <= 0:

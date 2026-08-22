@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 import argparse
 from pathlib import Path
+
+from common import exit_error
 from pycparser import parse_file
 from pycparser.ast_transforms import c_ast
-from common import exit_error
 
 
 def processStruct(
@@ -71,7 +72,7 @@ def main():
             enumNode: c_ast.Enum = node.type.type
             for member in enumNode.values:
                 enumList.append((member.name, member.value.value))
-    for name in structDict.keys():
+    for name in structDict:
         processStruct("", "", name, structDict, declareList)
     for k, v in enumList:
         declareList.append(f'    DECLARE("{k}", {v});')

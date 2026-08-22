@@ -49,8 +49,7 @@ class Script:
 
     def selectSection(self, sectionIndex: int) -> None:
         self.current_section = sectionIndex
-        if self.current_section < 0:
-            self.current_section = 0
+        self.current_section = max(self.current_section, 0)
         while len(self.sections) < self.current_section + 1:
             self.sections.append(Section())
 
@@ -103,10 +102,8 @@ class Reader:
 
     def seek(self, count: int) -> None:
         self.pos += count
-        if self.pos < 0:
-            self.pos = 0
-        if self.pos > len(self.buffer):
-            self.pos = len(self.buffer)
+        self.pos = max(self.pos, 0)
+        self.pos = min(self.pos, len(self.buffer))
 
     def peek(self) -> str:
         if self.isEmpty():

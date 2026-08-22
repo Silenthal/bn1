@@ -4,6 +4,7 @@ from pathlib import Path
 
 from common import auto_int, exit_error
 
+
 def main():
     parser = argparse.ArgumentParser(description="Extract binary data.")
     parser.add_argument(
