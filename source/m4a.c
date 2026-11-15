@@ -9,6 +9,14 @@ SoundInfo gSoundInfo = {0};
 MPlayFunc gMPlayJumpTable[36] = {0};
 CgbChannel gCgbChans[4] = {0};
 
+/*
+ * the ROM's sound driver code comes from source/m4a_rom.S (generated from the
+ * base ROM by tools/gen_rom_asm.py). The ROM was built from an older SDK revision of this
+ * file with agbcc, so this C (pret's newer revision) cannot reproduce it with any compiler.
+ * It is kept as reference; build with -DM4A_C=1 to use it instead (non-matching).
+ */
+#if M4A_C
+
 u32 MidiKeyToFreq(struct WaveData *wav, u8 key, u8 fineAdjust)
 {
     u32 val1;
@@ -1554,3 +1562,5 @@ void ply_xswee(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *track
 void DummyFunc(void)
 {
 }
+
+#endif // M4A_C

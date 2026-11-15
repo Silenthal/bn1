@@ -40,7 +40,7 @@ void *const gMPlayJumpTableTemplate[] =
     SoundMainBTM,
 };
 
-const u8 gScaleTable[] =
+const u8 gScaleTable[] __attribute__((aligned(1)))  /* packed like the ROM (GCC would align to 4) */ =
 {
     0xE0, 0xE1, 0xE2, 0xE3, 0xE4, 0xE5, 0xE6, 0xE7, 0xE8, 0xE9, 0xEA, 0xEB,
     0xD0, 0xD1, 0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0xD7, 0xD8, 0xD9, 0xDA, 0xDB,
@@ -75,7 +75,7 @@ const u32 gFreqTable[] =
     4053909305u,
 };
 
-const u8 gClockTable[] =
+const u8 gClockTable[] __attribute__((aligned(1)))  /* packed like the ROM (GCC would align to 4) */ =
 {
     0x00,
     0x01,
@@ -128,7 +128,7 @@ const u8 gClockTable[] =
     0x60,
 };
 
-const u16 gPcmSamplesPerVBlankTable[] =
+const u16 gPcmSamplesPerVBlankTable[] __attribute__((aligned(2)))  /* packed like the ROM (GCC would align to 4) */ =
 {
     96,
     132,
@@ -144,7 +144,7 @@ const u16 gPcmSamplesPerVBlankTable[] =
     704,
 };
 
-const u8 gCgbScaleTable[] =
+const u8 gCgbScaleTable[] __attribute__((aligned(1)))  /* packed like the ROM (GCC would align to 4) */ =
 {
     0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B,
     0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B,
@@ -160,7 +160,7 @@ const u8 gCgbScaleTable[] =
 };
 
 
-const s16 gCgbFreqTable[] =
+const s16 gCgbFreqTable[] __attribute__((aligned(2)))  /* packed like the ROM (GCC would align to 4) */ =
 {
     -2004,
     -1891,
@@ -176,7 +176,7 @@ const s16 gCgbFreqTable[] =
     -1062,
 };
 
-const u8 gNoiseTable[] =
+const u8 gNoiseTable[] __attribute__((aligned(1)))  /* packed like the ROM (GCC would align to 4) */ =
 {
     0xD7, 0xD6, 0xD5, 0xD4,
     0xC7, 0xC6, 0xC5, 0xC4,
@@ -195,7 +195,7 @@ const u8 gNoiseTable[] =
     0x03, 0x02, 0x01, 0x00,
 };
 
-const u8 gCgb3Vol[] =
+const u8 gCgb3Vol[] __attribute__((aligned(1)))  /* packed like the ROM (GCC would align to 4) */ =
 {
     0x00, 0x00,
     0x60, 0x60, 0x60, 0x60,

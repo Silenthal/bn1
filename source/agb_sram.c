@@ -1,5 +1,12 @@
 #include "agb_sram.h"
 
+/*
+ * the ROM's SRAM routines come from source/sdk_rom.S (generated from the base ROM
+ * by tools/gen_rom_asm.py): they were built with agbcc from an older SDK revision, so this C
+ * cannot reproduce them with any compiler. Kept as reference; build with -DSDK_C=1 to use it.
+ */
+#if SDK_C
+
 static void ReadSram_Core(const u8 *src, u8 *dest, u32 size)
 {
     while (--size != -1)
@@ -76,3 +83,5 @@ u32 WriteSramEx(const u8 *src, u8 *dest, u32 size)
     }
     return errorAddr;
 }
+
+#endif // SDK_C

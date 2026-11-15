@@ -71,7 +71,7 @@ no-check: $(BUILD)
 
 check: $(BUILD)
 	@$(SHA512SUM) $(BASEDIR)/$(BASE).gba | sed -e 's/$(BASEDIR)\/$(BASE)/$(BUILD)\/$(TARGET)/' >| $(BUILD)/$(TARGET).checksum
-	@$(SHA512SUM) -c $(BUILD)/$(TARGET).checksum || $(QUICK_COMP) $(BASEDIR)/$(BASE).gba $(OUTPUT).gba
+	@$(SHA512SUM) -c $(BUILD)/$(TARGET).checksum || ($(QUICK_COMP) $(BASEDIR)/$(BASE).gba $(OUTPUT).gba; false)
 	@$(PROGRESS) -mp $(DEPSDIR)/$(TARGET).map
 
 depend: $(DFILES) $(BUILD)/offsets.h

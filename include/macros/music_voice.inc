@@ -102,15 +102,16 @@
     .byte (\release & 0x7)
     .endm
 
-    .macro voice_noise base_midi_key:req, pan:req, period:req, attack:req, decay:req, sustain:req, release:req
-    _voice_noise 4, \base_midi_key, \pan, \period, \attack, \decay, \sustain, \release
+    @ unused: byte 3 of the entry, ignored by the driver; a few BN1 voices store 0xC0 there
+    .macro voice_noise base_midi_key:req, pan:req, period:req, attack:req, decay:req, sustain:req, release:req, unused=0
+    _voice_noise 4, \base_midi_key, \pan, \period, \attack, \decay, \sustain, \release, \unused
     .endm
 
-    .macro voice_noise_alt base_midi_key:req, pan:req, period:req, attack:req, decay:req, sustain:req, release:req
-    _voice_noise 12, \base_midi_key, \pan, \period, \attack, \decay, \sustain, \release
+    .macro voice_noise_alt base_midi_key:req, pan:req, period:req, attack:req, decay:req, sustain:req, release:req, unused=0
+    _voice_noise 12, \base_midi_key, \pan, \period, \attack, \decay, \sustain, \release, \unused
     .endm
 
-    .macro _voice_noise type:req, base_midi_key:req, pan:req, period:req, attack:req, decay:req, sustain:req, release:req
+    .macro _voice_noise type:req, base_midi_key:req, pan:req, period:req, attack:req, decay:req, sustain:req, release:req, unused=0
     .byte \type
     .byte \base_midi_key
     .if \pan != 0
@@ -118,7 +119,7 @@
     .else
     .byte 0
     .endif
-    .byte 0
+    .byte \unused
     .byte (\period & 0x1)
     .byte 0, 0, 0
     .byte (\attack  & 0x7)
