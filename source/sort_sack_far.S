@@ -200,7 +200,7 @@ LAB_030073f0:
     mov        pc,r7
 
 PTR___divsi3_03007408:
-    .word __divsi3
+    .word rom_divsi3  @ the ROM's old Thumb __divsi3 (source/sdk_rom.S)
 
 PTR___divsi3_0300740c:
-    .word __divsi3
+    .word rom_divsi3  @ the ROM's old Thumb __divsi3 (source/sdk_rom.S)

@@ -1580,3 +1580,6 @@ _ts ply_mod
 LAB_0809cae8:
     bx         r12
 
+    @ explicit zero padding (the base ROM has 00 00 here; the linker would fill
+    @ the gap before the next 4-aligned section with a Thumb nop instead)
+    .align 2, 0
