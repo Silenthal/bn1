@@ -64,12 +64,12 @@
     .macro _voice_square_2 type:req, base_midi_key:req, pan:req, duty_cycle:req, attack:req, decay:req, sustain:req, release:req
     .byte \type
     .byte \base_midi_key
+    .byte 0
     .if \pan != 0
     .byte (0x80 | \pan)
     .else
     .byte 0
     .endif
-    .byte 0
     .byte (\duty_cycle & 0x3)
     .byte 0, 0, 0
     .byte (\attack  & 0x7)
@@ -89,12 +89,12 @@
     .macro _voice_programmable_wave type:req, base_midi_key:req, pan:req, wave_samples_pointer:req, attack:req, decay:req, sustain:req, release:req
     .byte \type
     .byte \base_midi_key
+    .byte 0
     .if \pan != 0
     .byte (0x80 | \pan)
     .else
     .byte 0
     .endif
-    .byte 0
     .4byte \wave_samples_pointer
     .byte (\attack  & 0x7)
     .byte (\decay   & 0x7)
@@ -113,12 +113,12 @@
     .macro _voice_noise type:req, base_midi_key:req, pan:req, period:req, attack:req, decay:req, sustain:req, release:req
     .byte \type
     .byte \base_midi_key
+    .byte 0
     .if \pan != 0
     .byte (0x80 | \pan)
     .else
     .byte 0
     .endif
-    .byte 0
     .byte (\period & 0x1)
     .byte 0, 0, 0
     .byte (\attack  & 0x7)

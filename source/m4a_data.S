@@ -733,20 +733,20 @@ global_label ToneData_0809ec18
     voice_directsound_no_resample Cn3, 192, WaveData_A19D8, 255, 0, 255, 0
 
 global_label ToneData_0809ec24
-    voice_noise Fs2, 0, 0, 0, 2, 11, 1
+    voice_noise Fs2, 0xC0, 0, 0, 2, 11, 1
     voice_directsound_no_resample Cn3, 192, WaveData_D2450, 255, 0, 255, 0
     voice_directsound Bn2, 192, WaveData_D2450, 255, 0, 255, 0
     voice_directsound_no_resample Cn3, 192, WaveData_A22A4, 255, 0, 255, 0
-    voice_noise En3, 0, 0, 0, 7, 1, 0
+    voice_noise En3, 0xC0, 0, 0, 7, 1, 0
     voice_directsound_no_resample Cn3, 192, WaveData_D1A00, 255, 0, 255, 0
-    voice_noise Bn4, 0, 0, 0, 0, 11, 0
+    voice_noise Bn4, 0xC0, 0, 0, 0, 11, 0
     voice_directsound Fs2, 148, WaveData_D81C4, 255, 0, 255, 0
     voice_directsound Cn3, 192, WaveData_D81C4, 255, 0, 255, 0
     voice_directsound Fs3, 236, WaveData_D81C4, 255, 0, 255, 0
-    voice_noise Bn4, 0, 0, 0, 2, 8, 3
-    voice_noise Gn4, 0, 0, 5, 5, 5, 3
+    voice_noise Bn4, 0xC0, 0, 0, 2, 8, 3
+    voice_noise Gn4, 0xC0, 0, 5, 5, 5, 3
     voice_directsound Fs3, 192, WaveData_D725C, 255, 0, 255, 0
-    voice_noise Bn3, 0, 0, 0, 7, 0, 1
+    voice_noise Bn3, 0xC0, 0, 0, 7, 0, 1
     voice_directsound En3, 192, WaveData_A22A4, 255, 0, 255, 0
     voice_directsound_no_resample Cn3, 192, WaveData_B9358, 255, 0, 255, 0
     voice_directsound_no_resample Cn3, 148, WaveData_B9358, 255, 0, 255, 0
@@ -779,14 +779,14 @@ global_label ToneData_0809edb0
     voice_directsound As2, 192, WaveData_B6B44, 255, 0, 255, 0
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 15, 0
     voice_directsound_no_resample Cn3, 192, WaveData_D1A00, 255, 0, 255, 0
-    voice_noise Bn4, 0, 0, 0, 0, 11, 0
+    voice_noise Bn4, 0xC0, 0, 0, 0, 11, 0
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 15, 0
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 15, 0
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 15, 0
-    voice_noise Bn4, 0, 0, 0, 2, 8, 3
-    voice_noise Gn4, 0, 0, 5, 5, 5, 0
+    voice_noise Bn4, 0xC0, 0, 0, 2, 8, 3
+    voice_noise Gn4, 0xC0, 0, 5, 5, 5, 0
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 15, 0
-    voice_noise Bn3, 0, 0, 0, 7, 0, 1
+    voice_noise Bn3, 0xC0, 0, 0, 7, 0, 1
     voice_directsound En3, 192, WaveData_A22A4, 255, 0, 255, 0
     voice_directsound Fn3, 152, WaveData_B5E3C, 255, 0, 255, 0
     voice_directsound Gn3, 152, WaveData_B5E3C, 255, 0, 255, 0
@@ -1805,15 +1805,15 @@ global_label ToneData_080a0e74
 
     .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-    voice_square_1 CsM2, 129, 1, 1, 1, 1, 1, 1
-    voice_square_1 CsM2, 129, 1, 1, 1, 1, 1, 1
+    .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
+    .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
 
 global_label ToneData_080a0eb0
-    voice_square_1 CsM2, 129, 1, 1, 1, 1, 1, 1
-    voice_square_1 CsM2, 129, 1, 1, 1, 1, 1, 1
-    .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-    .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
+    .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
+    .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+    .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+    .byte 0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
     .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
     .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
     .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
