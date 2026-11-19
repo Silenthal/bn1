@@ -78,18 +78,18 @@ SoundMain_4:
 SoundMain_5:
     str        r5,[sp,#0x8]
     ldr        r6,lt_PCM_DMA_BUF_SIZE
-SoundMainRAM:
+SoundMain_Buffer:
     ldrb       r3,[r0,#0x5]
     cmp        r3,#0x0
-    beq        SoundMainRAM_NoReverb
-    adr        r1,SoundMainRAM_Reverb
+    beq        SoundMain_Buffer_NoReverb
+    adr        r1,SoundMain_Buffer_Reverb
     bx         r1
 
     .align 2, 0
 
     .arm
 
-SoundMainRAM_Reverb:
+SoundMain_Buffer_Reverb:
     cmp        r4,#0x2
     addeq      r7,r0,#0x350
     addne      r7,r5,r8
@@ -114,22 +114,22 @@ LAB_0809c040:
     bx         r0
 
 .thumb
-SoundMainRAM_NoReverb:
+SoundMain_Buffer_NoReverb:
     mov        r0,#0x0
     mov        r1,r8
     add        r6,r6,r5
     lsr        r1,r1,#0x3
-    bcc        SoundMainRAM_NoReverb_Ok
+    bcc        SoundMain_Buffer_NoReverb_Ok
     stmia      r5!,{r0}
     stmia      r6!,{r0}
-SoundMainRAM_NoReverb_Ok:
+SoundMain_Buffer_NoReverb_Ok:
     lsr        r1,r1,#0x1
-    bcc        SoundMainRAM_NoReverb_Loop
+    bcc        SoundMain_Buffer_NoReverb_Loop
     stmia      r5!,{r0}
     stmia      r6!,{r0}
     stmia      r5!,{r0}
     stmia      r6!,{r0}
-SoundMainRAM_NoReverb_Loop:
+SoundMain_Buffer_NoReverb_Loop:
     stmia      r5!,{r0}
     stmia      r6!,{r0}
     stmia      r5!,{r0}
@@ -139,7 +139,7 @@ SoundMainRAM_NoReverb_Loop:
     stmia      r5!,{r0}
     stmia      r6!,{r0}
     sub        r1,#0x1
-    bgt        SoundMainRAM_NoReverb_Loop
+    bgt        SoundMain_Buffer_NoReverb_Loop
 
 
 _nt FUN_0809c0b2
@@ -150,7 +150,7 @@ _nt FUN_0809c0b2
     mov        r12,r0
     ldrb       r0,[r4,#0x6]
     add        r4,#0x50
-SoundMainRAM_ChanLoop:
+SoundMain_Buffer_ChanLoop:
     str        r0,[sp,#0x4]
     ldr        r3,[r4,#0x24]
     ldr        r0,[sp,#0x14]
@@ -405,7 +405,7 @@ LAB_0809c310:
     sub        r0,#0x1
     ble        LAB_0809c31a
     add        r4,#0x40
-    b          SoundMainRAM_ChanLoop
+    b          SoundMain_Buffer_ChanLoop
 LAB_0809c31a:
     ldr        r0,[sp,#0x18]
     ldr        r3,soundMagic
@@ -1580,3 +1580,4 @@ _ts ply_mod
 LAB_0809cae8:
     bx         r12
 
+    .align 2, 0

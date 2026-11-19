@@ -5,7 +5,9 @@
 
     .asciz "SRAM_V112"
 
-    .global ReadSram_Core
-    .global ReadSram
-    .global VerifySram_Core
-    .global VerifySram
+.align 2, 0
+
+    .word ReadSram_Core
+    .word ReadSram
+    .word VerifySram_Core
+    .word VerifySram
