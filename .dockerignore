@@ -3,6 +3,7 @@
 **/.dockerignore
 **/.git
 **/.gitignore
+**/.venv
 **/.vscode
 **/assets
 **/base

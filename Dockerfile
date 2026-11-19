@@ -9,6 +9,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # the application crashes without emitting any logs due to buffering.
 ENV PYTHONUNBUFFERED=1
 
+ENV PIP_CACHE_DIR=/tmp/.cache/pip
+
 RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends g++ python3-pip python3-venv
 
 # Create a non-privileged user that the app will run under.
@@ -33,4 +35,4 @@ USER appuser
 FROM base AS build
 
 # Copy the source code into the container.
-COPY . .
+COPY --chown=appuser:appuser . .
