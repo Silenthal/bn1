@@ -1,14 +1,14 @@
-    .macro voice_directsound base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_directsound base_midi_key:req, pan:req, sample_data_pointer:req, attack=255, decay=0, sustain=255, release=0
     .byte 0
     _voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
     .endm
 
-    .macro voice_directsound_no_resample base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_directsound_no_resample base_midi_key:req, pan:req, sample_data_pointer:req, attack=255, decay=0, sustain=255, release=0
     .byte 8
     _voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
     .endm
 
-    .macro voice_directsound_alt base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_directsound_alt base_midi_key:req, pan:req, sample_data_pointer:req, attack=255, decay=0, sustain=255, release=0
     .byte 16
     _voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
     .endm
@@ -28,11 +28,11 @@
     .byte \release
     .endm
 
-    .macro voice_square_1 base_midi_key:req, pan:req, sweep:req, duty_cycle:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_square_1 base_midi_key:req, pan:req, sweep:req, duty_cycle:req, attack=0, decay=0, sustain=15, release=0
     _voice_square_1 1, \base_midi_key, \pan, \sweep, \duty_cycle, \attack, \decay, \sustain, \release
     .endm
 
-    .macro voice_square_1_alt base_midi_key:req, pan:req, sweep:req, duty_cycle:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_square_1_alt base_midi_key:req, pan:req, sweep:req, duty_cycle:req, attack=0, decay=0, sustain=15, release=0
     _voice_square_1 9, \base_midi_key, \pan, \sweep, \duty_cycle, \attack, \decay, \sustain, \release
     .endm
 
@@ -53,11 +53,11 @@
     .byte (\release & 0x7)
     .endm
 
-    .macro voice_square_2 base_midi_key:req, pan:req, duty_cycle:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_square_2 base_midi_key:req, pan:req, duty_cycle:req, attack=0, decay=0, sustain=15, release=0
     _voice_square_2 2, \base_midi_key, \pan, \duty_cycle, \attack, \decay, \sustain, \release
     .endm
 
-    .macro voice_square_2_alt base_midi_key:req, pan:req, duty_cycle:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_square_2_alt base_midi_key:req, pan:req, duty_cycle:req, attack=0, decay=0, sustain=15, release=0
     _voice_square_2 10, \base_midi_key, \pan, \duty_cycle, \attack, \decay, \sustain, \release
     .endm
 
@@ -78,11 +78,11 @@
     .byte (\release & 0x7)
     .endm
 
-    .macro voice_programmable_wave base_midi_key:req, pan:req, wave_samples_pointer:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_programmable_wave base_midi_key:req, pan:req, wave_samples_pointer:req, attack=0, decay=0, sustain=15, release=0
     _voice_programmable_wave 3, \base_midi_key, \pan, \wave_samples_pointer, \attack, \decay, \sustain, \release
     .endm
 
-    .macro voice_programmable_wave_alt base_midi_key:req, pan:req, wave_samples_pointer:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_programmable_wave_alt base_midi_key:req, pan:req, wave_samples_pointer:req, attack=0, decay=0, sustain=15, release=0
     _voice_programmable_wave 11, \base_midi_key, \pan, \wave_samples_pointer, \attack, \decay, \sustain, \release
     .endm
 
@@ -102,11 +102,11 @@
     .byte (\release & 0x7)
     .endm
 
-    .macro voice_noise base_midi_key:req, pan:req, period:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_noise base_midi_key:req, pan:req, period:req, attack=0, decay=0, sustain=15, release=0
     _voice_noise 4, \base_midi_key, \pan, \period, \attack, \decay, \sustain, \release
     .endm
 
-    .macro voice_noise_alt base_midi_key:req, pan:req, period:req, attack:req, decay:req, sustain:req, release:req
+    .macro voice_noise_alt base_midi_key:req, pan:req, period:req, attack=0, decay=0, sustain=15, release=0
     _voice_noise 12, \base_midi_key, \pan, \period, \attack, \decay, \sustain, \release
     .endm
 
