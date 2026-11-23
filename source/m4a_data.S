@@ -4,482 +4,244 @@
     .include "macros/music_voice.inc"
 
 
-    .byte 0x0A, 0x00
-    .byte 0x78, 0x00
-    .byte 0x0B, 0x00
-    .byte 0x78, 0x00
-    .byte 0x0C, 0x00
-    .byte 0x78, 0x00
-    .byte 0x0D, 0x00
-    .byte 0x78, 0x00
-    .byte 0x0E, 0x00
-    .byte 0x78, 0x00
-    .byte 0x0F, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x10, 0x00
-    .byte 0x78, 0x00
-    .byte 0x11, 0x00
-    .byte 0x78, 0x00
-    .byte 0x12, 0x00
-    .byte 0x78, 0x00
-    .byte 0x13, 0x00
-    .byte 0x78, 0x00
-    .byte 0x14, 0x00
-    .byte 0x78, 0x00
-    .byte 0x15, 0x00
-    .byte 0x78, 0x00
-    .byte 0x16, 0x00
-    .byte 0x78, 0x00
-    .byte 0x17, 0x00
-    .byte 0x78, 0x00
-    .byte 0x18, 0x00
-    .byte 0x78, 0x00
-    .byte 0x19, 0x00
-    .byte 0x78, 0x00
-    .byte 0x1A, 0x00
-    .byte 0x78, 0x00
-    .byte 0x1B, 0x00
-    .byte 0x78, 0x00
-    .byte 0x1C, 0x00
-    .byte 0x78, 0x00
-    .byte 0x1D, 0x00
-    .byte 0x78, 0x00
-    .byte 0x1E, 0x00
-    .byte 0x78, 0x00
-    .byte 0x1F, 0x00
-    .byte 0x78, 0x00
-    .byte 0x20, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x00, 0x00
-    .byte 0x64, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x65, 0x00
-    .byte 0x40, 0x00
-    .byte 0x66, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x67, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x68, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x69, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x6A, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x6B, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x6C, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x6D, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x6E, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x6F, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x70, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x71, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x72, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x73, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x74, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x75, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x76, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x77, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x78, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x79, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x7A, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x7B, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x7C, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x7D, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x7E, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x80, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x81, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x82, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x83, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x84, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x85, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x86, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x87, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x88, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x89, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x8A, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x8B, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x8C, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x8D, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x8E, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x8F, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x90, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x91, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x92, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x93, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x94, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x95, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x96, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x97, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x98, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x99, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x9A, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x9B, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x9C, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x9D, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x9E, 0x00
-    .byte 0x7F, 0x00
-    .byte 0x9F, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xA0, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xA1, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xA2, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xA3, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xA4, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xA5, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xA6, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xA7, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xA8, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xA9, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xAA, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xAB, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xAC, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xAD, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xAE, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xAF, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xB0, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xB1, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xB2, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xB3, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xB4, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xB5, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xB6, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xB7, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xB8, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xB9, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xBA, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xBB, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xBC, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xBD, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xBE, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xBF, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xC0, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xC1, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xC2, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xC3, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xC4, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xC5, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xC6, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xC7, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xC8, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xC9, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xCA, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xCB, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xCC, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xCD, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xCE, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xCF, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xD0, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xD1, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xD2, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xD3, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xD4, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xD5, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xD6, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xD7, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xD8, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xD9, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xDA, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xDB, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xDC, 0x00
-    .byte 0x64, 0x00
-    .byte 0xDD, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xDE, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xDF, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xE0, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xE1, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xE2, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xE3, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xE4, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xE5, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xE6, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xE7, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xE8, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xE9, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xEA, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xEB, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xEC, 0x00
-    .byte 0x7F, 0x00
-    .byte 0xED, 0x00
-    .byte 0x7F, 0x00
+    .short 0x0A, 0x78
+    .short 0x0B, 0x78 
+    .short 0x0C, 0x78 
+    .short 0x0D, 0x78 
+    .short 0x0E, 0x78 
+    .short 0x0F, 0x7F 
+    .short 0x10, 0x78 
+    .short 0x11, 0x78 
+    .short 0x12, 0x78 
+    .short 0x13, 0x78 
+    .short 0x14, 0x78 
+    .short 0x15, 0x78 
+    .short 0x16, 0x78 
+    .short 0x17, 0x78 
+    .short 0x18, 0x78 
+    .short 0x19, 0x78 
+    .short 0x1A, 0x78 
+    .short 0x1B, 0x78 
+    .short 0x1C, 0x78 
+    .short 0x1D, 0x78 
+    .short 0x1E, 0x78 
+    .short 0x1F, 0x78 
+    .short 0x20, 0x7F
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x00, 0x00
+    .short 0x64, 0x7F
+    .short 0x65, 0x40
+    .short 0x66, 0x7F
+    .short 0x67, 0x7F
+    .short 0x68, 0x7F
+    .short 0x69, 0x7F
+    .short 0x6A, 0x7F
+    .short 0x6B, 0x7F
+    .short 0x6C, 0x7F
+    .short 0x6D, 0x7F
+    .short 0x6E, 0x7F
+    .short 0x6F, 0x7F
+    .short 0x70, 0x7F
+    .short 0x71, 0x7F
+    .short 0x72, 0x7F
+    .short 0x73, 0x7F
+    .short 0x74, 0x7F
+    .short 0x75, 0x7F
+    .short 0x76, 0x7F
+    .short 0x77, 0x7F
+    .short 0x78, 0x7F
+    .short 0x79, 0x7F
+    .short 0x7A, 0x7F
+    .short 0x7B, 0x7F
+    .short 0x7C, 0x7F
+    .short 0x7D, 0x7F
+    .short 0x7E, 0x7F
+    .short 0x7F, 0x7F
+    .short 0x80, 0x7F
+    .short 0x81, 0x7F
+    .short 0x82, 0x7F
+    .short 0x83, 0x7F
+    .short 0x84, 0x7F
+    .short 0x85, 0x7F
+    .short 0x86, 0x7F
+    .short 0x87, 0x7F
+    .short 0x88, 0x7F
+    .short 0x89, 0x7F
+    .short 0x8A, 0x7F
+    .short 0x8B, 0x7F
+    .short 0x8C, 0x7F
+    .short 0x8D, 0x7F
+    .short 0x8E, 0x7F
+    .short 0x8F, 0x7F
+    .short 0x90, 0x7F
+    .short 0x91, 0x7F
+    .short 0x92, 0x7F
+    .short 0x93, 0x7F
+    .short 0x94, 0x7F
+    .short 0x95, 0x7F
+    .short 0x96, 0x7F
+    .short 0x97, 0x7F
+    .short 0x98, 0x7F
+    .short 0x99, 0x7F
+    .short 0x9A, 0x7F
+    .short 0x9B, 0x7F
+    .short 0x9C, 0x7F
+    .short 0x9D, 0x7F
+    .short 0x9E, 0x7F
+    .short 0x9F, 0x7F
+    .short 0xA0, 0x7F
+    .short 0xA1, 0x7F
+    .short 0xA2, 0x7F
+    .short 0xA3, 0x7F
+    .short 0xA4, 0x7F
+    .short 0xA5, 0x7F
+    .short 0xA6, 0x7F
+    .short 0xA7, 0x7F
+    .short 0xA8, 0x7F
+    .short 0xA9, 0x7F
+    .short 0xAA, 0x7F
+    .short 0xAB, 0x7F
+    .short 0xAC, 0x7F
+    .short 0xAD, 0x7F
+    .short 0xAE, 0x7F
+    .short 0xAF, 0x7F
+    .short 0xB0, 0x7F
+    .short 0xB1, 0x7F
+    .short 0xB2, 0x7F
+    .short 0xB3, 0x7F
+    .short 0xB4, 0x7F
+    .short 0xB5, 0x7F
+    .short 0xB6, 0x7F
+    .short 0xB7, 0x7F
+    .short 0xB8, 0x7F
+    .short 0xB9, 0x7F
+    .short 0xBA, 0x7F
+    .short 0xBB, 0x7F
+    .short 0xBC, 0x7F
+    .short 0xBD, 0x7F
+    .short 0xBE, 0x7F
+    .short 0xBF, 0x7F
+    .short 0xC0, 0x7F
+    .short 0xC1, 0x7F
+    .short 0xC2, 0x7F
+    .short 0xC3, 0x7F
+    .short 0xC4, 0x7F
+    .short 0xC5, 0x7F
+    .short 0xC6, 0x7F
+    .short 0xC7, 0x7F
+    .short 0xC8, 0x7F
+    .short 0xC9, 0x7F
+    .short 0xCA, 0x7F
+    .short 0xCB, 0x7F
+    .short 0xCC, 0x7F
+    .short 0xCD, 0x7F
+    .short 0xCE, 0x7F
+    .short 0xCF, 0x7F
+    .short 0xD0, 0x7F
+    .short 0xD1, 0x7F
+    .short 0xD2, 0x7F
+    .short 0xD3, 0x7F
+    .short 0xD4, 0x7F
+    .short 0xD5, 0x7F
+    .short 0xD6, 0x7F
+    .short 0xD7, 0x7F
+    .short 0xD8, 0x7F
+    .short 0xD9, 0x7F
+    .short 0xDA, 0x7F
+    .short 0xDB, 0x7F
+    .short 0xDC, 0x64
+    .short 0xDD, 0x7F
+    .short 0xDE, 0x7F
+    .short 0xDF, 0x7F
+    .short 0xE0, 0x7F
+    .short 0xE1, 0x7F
+    .short 0xE2, 0x7F
+    .short 0xE3, 0x7F
+    .short 0xE4, 0x7F
+    .short 0xE5, 0x7F
+    .short 0xE6, 0x7F
+    .short 0xE7, 0x7F
+    .short 0xE8, 0x7F
+    .short 0xE9, 0x7F
+    .short 0xEA, 0x7F
+    .short 0xEB, 0x7F
+    .short 0xEC, 0x7F
+    .short 0xED, 0x7F 
 
 instrumentList:
     .word ToneData_0809ec18
@@ -777,15 +539,15 @@ global_label ToneData_0809edb0
     voice_directsound Cn3, 192, WaveData_B6674
     voice_directsound Cn3, 192, WaveData_B6B44
     voice_directsound As2, 192, WaveData_B6B44
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_directsound_no_resample Cn3, 192, WaveData_D1A00
     voice_noise Bn4, 0xC0, 0, 0, 0, 11, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_noise Bn4, 0xC0, 0, 0, 2, 8, 3
     voice_noise Gn4, 0xC0, 0, 5, 5, 5, 0
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_noise Bn3, 0xC0, 0, 0, 7, 0, 1
     voice_directsound En3, 192, WaveData_A22A4
     voice_directsound Fn3, 152, WaveData_B5E3C
@@ -819,56 +581,56 @@ global_label ToneData_0809ef48
 
 global_label ToneData_0809ef60
     voice_keysplit_alt voicegroup_809ea74
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_C6D6C
     voice_directsound Cn3, 0, WaveData_D4268
     voice_directsound Cn3, 0, WaveData_BDFDC, 9, 0, 255, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_D2CB4
     voice_directsound Cn3, 0, WaveData_C6768
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_directsound Cn3, 0, WaveData_C4E7C
 
 global_label ToneData_0809f0d4
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 3, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_keysplit_alt ToneData_0809ec24
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
     voice_directsound Cn3, 0, WaveData_D4268
@@ -876,59 +638,59 @@ global_label ToneData_0809f0d4
 global_label ToneData_0809f1d0
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_keysplit_alt voicegroup_809eaec
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
 
 global_label ToneData_0809f2c0
     voice_keysplit_alt voicegroup_809ea74
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_37_5, 0, 0, 12, 1
     voice_directsound Cn3, 0, WaveData_D4268, 8, 0, 255, 0
 
 global_label ToneData_0809f380
     voice_keysplit_alt voicegroup_809ea74
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
     voice_directsound Cn3, 0, WaveData_BDFDC
 
@@ -937,437 +699,437 @@ global_label ToneData_0809f44c
 
 global_label ToneData_0809f458
     voice_keysplit_alt voicegroup_809ea74
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_square_1 Cn3, 0, 0, 2, 0, 1, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 1, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_C6D6C
     voice_directsound Cn3, 0, WaveData_D4268
 
 global_label ToneData_0809f560
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_BDFDC
     voice_keysplit ToneData_0809eec4, ToneData_080a0e5c
 
 global_label ToneData_0809f668
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 14, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 1, 0, 11, 0
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 14, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_B9B8C, 17, 0, 255, 153
     voice_keysplit_alt voicegroup_809ec0c
 
 global_label ToneData_0809f788
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 3, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
     voice_keysplit ToneData_0809ef48, ToneData_080a0e5c
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_keysplit_alt voicegroup_809eaec
 
 global_label ToneData_0809f86c
     voice_keysplit_alt voicegroup_809ea74
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_C6D6C
     voice_directsound Cn3, 0, WaveData_D4268
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_B13C4
     voice_directsound Cn3, 0, WaveData_B2B44
 
 global_label ToneData_0809f9f8
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 1, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_C6768
 
 global_label ToneData_0809fb54
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_C6D6C
     voice_directsound Cn3, 0, WaveData_D4268
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_D2CB4
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_C4E7C
 
 global_label ToneData_0809fcc8
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_C6D6C, 255, 0, 216, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_keysplit_alt voicegroup_809eb88
 
 global_label ToneData_0809fde8
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 1, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_D4268
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_D2CB4
 
 global_label ToneData_0809ff38
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_37_5, 0, 0, 12, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_D4268
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_D2CB4
 
 global_label ToneData_080a0088
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 0, 0, 0, 11, 1
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_D5040, 9, 149, 255, 0
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_directsound Cn3, 0, WaveData_BD238
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_keysplit ToneData_0809eedc, ToneData_080a0eb0
+    voice_default
+    voice_default
+    voice_keysplit ToneData_0809eedc, keysplit_a0eb0
 
 global_label ToneData_080a01cc
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_D4268
 
 global_label ToneData_080a02d4
     voice_keysplit_alt voicegroup_809ea74
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_37_5, 0, 0, 12, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_C6D6C
     voice_directsound Cn3, 0, WaveData_D4268
 
 global_label ToneData_080a03dc
     voice_keysplit_alt voicegroup_809ea74
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 3, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_D4268
     voice_directsound Cn3, 0, WaveData_BDFDC
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_D2CB4
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_directsound Cn3, 0, WaveData_C7AB0
 
 global_label ToneData_080a0544
     voice_keysplit_alt voicegroup_809ea74
     voice_square_1 Cn3, 0, 0, 3, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 3, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_50, 0, 0, 12, 0
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
     voice_directsound Cn3, 0, WaveData_BDFDC
 
 global_label ToneData_080a0640
     voice_keysplit_alt voicegroup_809ea74
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
     voice_square_1 Cn3, 0, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
     voice_square_2 Cn3, 0, 2, 0, 0, 11, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_programmable_wave Cn3, 0, wav_square_37_5, 0, 0, 12, 1
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
-    voice_square_1 Cn3, 0, 0, 2
+    voice_default
+    voice_default
+    voice_default
+    voice_default
+    voice_default
     voice_directsound Cn3, 0, WaveData_C6D6C
     voice_directsound Cn3, 0, WaveData_D4268
 
@@ -1808,7 +1570,7 @@ global_label ToneData_080a0e74
     .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
     .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
 
-global_label ToneData_080a0eb0
+global_label keysplit_a0eb0
     .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
     .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
     .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -1819,70 +1581,17 @@ global_label ToneData_080a0eb0
     .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
     .byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
 
-    .byte 0x00
-    .byte 0x11
-    .byte 0x23
-    .byte 0x56
-    .byte 0x89
-    .byte 0xAC
-    .byte 0xDE
-    .byte 0xEF
-    .byte -1
-    .byte 0xEE
-    .byte 0xDC
-    .byte 0xA9
-    .byte 0x86
-    .byte 0x53
-    .byte 0x21
-    .byte 0x10
-    .byte 0x01
-    .byte 0x23
-    .byte 0x45
-    .byte 0x67
-    .byte 0x89
-    .byte 0xAB
-    .byte 0xCD
-    .byte 0xEF
-    .byte 0xFE
-    .byte 0xDC
-    .byte 0xBA
-    .byte 0x98
-    .byte 0x76
-    .byte 0x54
-    .byte 0x32
-    .byte 0x10
-    .byte -1
-    .byte 0xEE
-    .byte 0xDD
-    .byte 0xCC
-    .byte 0xBB
-    .byte 0xAA
-    .byte 0x99
-    .byte 0x88
-    .byte 0x77
-    .byte 0x66
-    .byte 0x55
-    .byte 0x44
-    .byte 0x33
-    .byte 0x22
-    .byte 0x11
-    .byte 0x00
-    .byte 0xFE
-    .byte 0xDC
-    .byte 0xBA
-    .byte 0x99
-    .byte 0x88
-    .byte 0x88
-    .byte 0x88
-    .byte 0x88
-    .byte 0x77
-    .byte 0x77
-    .byte 0x77
-    .byte 0x77
-    .byte 0x66
-    .byte 0x54
-    .byte 0x32
-    .byte 0x10
+wav_sine:
+    .incbin "sound/programmable_wave_samples/sine.pcm"
+
+wav_triangle:
+    .incbin "sound/programmable_wave_samples/triangle.pcm"
+
+wav_saw:
+    .incbin "sound/programmable_wave_samples/saw.pcm"
+
+wav_half_saw:
+    .incbin "sound/programmable_wave_samples/half_saw.pcm"
 
 wav_square_12_5:
     .incbin "sound/programmable_wave_samples/square_0.pcm"

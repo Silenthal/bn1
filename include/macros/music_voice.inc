@@ -28,6 +28,10 @@
     .byte \release
     .endm
 
+    .macro voice_default
+    voice_square_1 Cn3, 0, 0, 2
+    .endm
+
     .macro voice_square_1 base_midi_key:req, pan:req, sweep:req, duty_cycle:req, attack=0, decay=0, sustain=15, release=0
     _voice_square_1 1, \base_midi_key, \pan, \sweep, \duty_cycle, \attack, \decay, \sustain, \release
     .endm
